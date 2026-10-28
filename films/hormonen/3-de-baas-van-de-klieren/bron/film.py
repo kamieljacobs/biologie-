@@ -8,7 +8,7 @@ film = {
  "lead": "Onder je hersenen hangt de hypofyse, zo groot als een erwt. De hypothalamus stuurt haar aan, en zij stuurt met eigen hormonen andere klieren aan. De schildklier maakt thyroxine, met vier jodiumatomen per molecuul. TSH van de hypofyse zet de schildklier aan, thyroxine remt de hypofyse: negatieve terugkoppeling. Zonder jodium valt die rem weg en groeit de schildklier uit tot een struma.",
  "endHaak": "wie stuurt wie, en wie remt wie",
  "minis": {"Hoofdstuk 1": "Wie stuurt je hormoonklieren aan?", "Hoofdstuk 2": "Hoe blijft de thyroxine op peil, en wat gaat er mis zonder jodium?", "Hoofdstuk 3": "Hoe laat groeihormoon je groeien?", "Recap": "Waarom zit er jodium in zout?"},
- "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.1 · 28 oktober 2026 (prompt v13).",
  "questions": {
   "q02": {"q": "Op bijna elk pak zout staat: met jodium. Met de smaak heeft dat niets te maken. Waarom zit er jodium in zout?", "correct": 1, "explain": "Onthoud je keuze. Het antwoord zie je in hoofdstuk 2 en aan het eind."},
   "q11": {"q": "Iemand krijgt te weinig jodium binnen. Zijn schildklier maakt te weinig thyroxine. Wat gebeurt er met de afgifte van TSH door de hypofyse?", "correct": 1, "explain": "Thyroxine remt de hypofyse. Is er weinig thyroxine, dan wordt de hypofyse nauwelijks geremd en geeft ze steeds meer TSH af."},

@@ -8,25 +8,25 @@ function regel(ctx, s, x, y, a = 1, col = C.text, px = 34, align = 'left', w = 6
 function fade(q, w1, n1, w2, n2) { return q.on(w1, n1) * (1 - q.on(w2, n2)); }
 const SCHILD = '#C98A5C';
 
-// ---------- hoofd in profiel met hypothalamus en hypofyse ----------
-function hoofdProfiel(ctx, x, y, s = 1, o = {}) { const { a = 1, hyp = 0, hth = 0, steel = 1 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
-  ctx.beginPath(); ctx.moveTo(-40, 260); ctx.bezierCurveTo(-60, 160, -180, 120, -200, 0); ctx.bezierCurveTo(-220, -170, -80, -250, 40, -240); ctx.bezierCurveTo(170, -230, 230, -130, 220, -30); ctx.lineTo(250, 20); ctx.lineTo(220, 50); ctx.bezierCurveTo(230, 90, 220, 110, 200, 120); ctx.bezierCurveTo(210, 160, 180, 190, 140, 190); ctx.lineTo(120, 260); ctx.closePath(); shape(ctx, rgba(C.mens, 0.18), rgba(C.mens, 0.8), 2);
-  ctx.beginPath(); ctx.ellipse(20, -80, 170, 120, -0.08, 0, 6.283); shape(ctx, rgba(C.paars, 0.16), rgba(C.paars, 0.6), 2); text(ctx, 'hersenen', -60, -110, fTekst(30, 600), rgba(C.paars, 0.9), 'center');
-  ctx.save(); ctx.globalAlpha *= 0.4 + 0.6 * hth; ctx.beginPath(); ctx.ellipse(60, 10, 34, 20, 0, 0, 6.283); shape(ctx, rgba(HK.klier, 0.6), HK.klierR, 2); ctx.restore();
-  if (steel > 0.01) { ctx.strokeStyle = HK.klierR; ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(60, 30); ctx.lineTo(66, 58); ctx.stroke(); }
-  ctx.save(); ctx.globalAlpha *= 0.4 + 0.6 * hyp; ctx.beginPath(); ctx.arc(68, 70, 16, 0, 6.283); shape(ctx, rgba(HK.klier, 0.85), HK.klierR, 2); ctx.restore();
-  ctx.restore(); }
+// ---------- hoofd in doorsnede met hypothalamus en hypofyse (prompt v13) ----------
+// Het oude grijze profielhoofd met een paarse ovaal als 'hersenen' is vervangen door de hoofddoorsnede uit de beeldbank
+// (lib_bio hoofdHersenen: grote en kleine hersenen, hersenstam, hypothalamus, hypofyse aan het steeltje in het Turkse zadel).
+// Zelfde aanroep; de oorsprong van hoofdHersenen (= hypothalamus) ligt op de plek waar het oude hoofd de hypothalamus had.
+function hoofdProfiel(ctx, x, y, s = 1, o = {}) { const { a = 1, hyp = 0, hth = 0, t = 0 } = o; if (a <= 0.01) return hoofdHersenen(ctx, x + 60 * s, y + 10 * s, 0.85 * s, { a: 0 });
+  ctx.save(); ctx.globalAlpha *= a; const R = hoofdHersenen(ctx, x + 60 * s, y + 10 * s, 0.85 * s, { hth, hyp, t }); ctx.restore(); return R; }
 function erwt(ctx, x, y, r, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, r, '#7FC48F', '#5A9A6A', 2); circ(ctx, x - r * 0.3, y - r * 0.3, r * 0.25, rgba('#FFFFFF', 0.4)); ctx.restore(); }
 // ---------- schildklier (vlinder) in de hals ----------
 function schildklier(ctx, x, y, s = 1, a = 1, groot = 0, glow = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const k = s * (1 + groot * 0.9);
   if (glow > 0.01) { const g = ctx.createRadialGradient(x, y, 0, x, y, 160 * k); g.addColorStop(0, rgba(HK.klier, 0.4 * glow)); g.addColorStop(1, rgba(HK.klier, 0)); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, 160 * k, 0, 6.283); ctx.fill(); }
-  for (const d of [-1, 1]) { ctx.beginPath(); ctx.ellipse(x + d * 52 * k, y, 46 * k, 76 * k, d * 0.25, 0, 6.283); shape(ctx, rgba(SCHILD, 0.6), lighten(SCHILD, 0.3), 2.5); }
-  ctx.fillStyle = rgba(SCHILD, 0.7); roundRect(ctx, x - 26 * k, y + 8 * k, 52 * k, 24 * k, 10); ctx.fill(); ctx.restore(); }
-function halsKaart(ctx, x, y, s = 1, o = {}) { const { a = 1, groot = 0, glow = 0 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
-  ctx.beginPath(); ctx.arc(x, y - 330 * s, 150 * s, 0, 6.283); shape(ctx, rgba(C.mens, 0.18), rgba(C.mens, 0.8), 2);
-  ctx.beginPath(); ctx.moveTo(x - 80 * s, y - 200 * s); ctx.lineTo(x - 90 * s, y + 40 * s); ctx.quadraticCurveTo(x - 260 * s, y + 60 * s, x - 330 * s, y + 160 * s); ctx.lineTo(x + 330 * s, y + 160 * s); ctx.quadraticCurveTo(x + 260 * s, y + 60 * s, x + 90 * s, y + 40 * s); ctx.lineTo(x + 80 * s, y - 200 * s); ctx.closePath(); shape(ctx, rgba(C.mens, 0.18), rgba(C.mens, 0.8), 2);
-  ctx.strokeStyle = rgba(C.mens, 0.7); ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x - 20 * s, y - 110 * s); ctx.quadraticCurveTo(x, y - 90 * s, x + 20 * s, y - 110 * s); ctx.stroke(); metaText(ctx, 'ADAMSAPPEL', x + 110 * s, y - 100 * s, C.grain, 'left', 20);
-  schildklier(ctx, x, y - 40 * s, 0.75 * s, 1, groot, glow); ctx.restore(); }
+  for (const d of [-1, 1]) { ctx.beginPath(); ctx.ellipse(x + d * 52 * k, y, 46 * k, 76 * k, d * 0.25, 0, 6.283); shape(ctx, rgba('#B4553A', 0.9), '#7A3424', 2.5); } /* donkerder, zodat hij op de huid opvalt */
+  ctx.fillStyle = rgba('#B4553A', 0.95); roundRect(ctx, x - 26 * k, y + 8 * k, 52 * k, 24 * k, 10); ctx.fill(); ctx.restore(); }
+// hals in vooraanzicht: het realistische lichaam uit lib_anatomie (borstbeeld, hoofdhoogte HH = 330 s) i.p.v. het grijze dummyhoofd;
+// de schildklier ligt onder het strottenhoofd, op de plek waar ook het oude beeld hem had (y − 40 s). Geeft {x, y, k} van de schildklier terug.
+function halsKaart(ctx, x, y, s = 1, o = {}) { const { a = 1, groot = 0, glow = 0 } = o; const HH = 330 * s, ty = y - 40 * s; const uit = { x, y: ty, k: 0.42 * s * (1 + groot * 0.9) }; if (a <= 0.01) return uit;
+  const oud = BODY; BODY = { cx: x, yb: ty - 1.22 * HH + 7.3 * HH, h: 7.3 * HH }; ctx.save(); ctx.globalAlpha *= a; anFigure(1);
+  ctx.save(); ctx.globalAlpha *= 0.6; anLine([[-0.07, 1.04], [0, 1.09], [0.07, 1.04]], ANA.huidS, 0.025 * HH); ctx.restore(); // strottenhoofd (adamsappel)
+  const ad = AP(0.09, 1.06); metaText(ctx, 'ADAMSAPPEL', ad[0] + 0.25 * HH, ad[1] + 6, C.grain, 'left', 20);
+  schildklier(ctx, x, ty, 0.42 * s, 1, groot, glow); ctx.restore(); BODY = oud; return uit; }
 // thyroxine: twee ringen met vier jodiumatomen
 function thyroxineMol(ctx, x, y, s = 1, a = 1, jodium = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
   for (const dx of [-70, 70]) { ctx.beginPath(); for (let i = 0; i < 6; i++) { const an = i * Math.PI / 3; i ? ctx.lineTo(x + dx * s + Math.cos(an) * 46 * s, y + Math.sin(an) * 46 * s) : ctx.moveTo(x + dx * s + Math.cos(an) * 46 * s, y + Math.sin(an) * 46 * s); } ctx.closePath(); shape(ctx, rgba(HK.hormoon, 0.18), HK.hormoon, 3); }
@@ -47,7 +47,7 @@ function zoutpak(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); c
 function brood(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.moveTo(x - 160 * s, y + 60 * s); ctx.lineTo(x - 160 * s, y - 20 * s); ctx.bezierCurveTo(x - 160 * s, y - 90 * s, x + 160 * s, y - 90 * s, x + 160 * s, y - 20 * s); ctx.lineTo(x + 160 * s, y + 60 * s); ctx.closePath(); shape(ctx, '#C9A35C', '#9C7A3C', 3); for (let i = 0; i < 4; i++) { ctx.strokeStyle = '#9C7A3C'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x - 100 * s + i * 66 * s, y - 50 * s); ctx.lineTo(x - 80 * s + i * 66 * s, y - 10 * s); ctx.stroke(); } ctx.restore(); }
 
 const SCENES = {
-  title(ctx, t) { hoofdProfiel(ctx, 1450, 520, 1.1, { hyp: 0.8 + 0.2 * Math.sin(t * 2), hth: 0.7 }); },
+  title(ctx, t) { hoofdProfiel(ctx, 1520, 560, 0.95, { hyp: 0.8 + 0.2 * Math.sin(t * 2), hth: 0.7 }); },
 
   s01(ctx, t, q) { bg(ctx, 'macro'); ctx.fillStyle = '#4A3A2E'; ctx.fillRect(0, 640, W, H - 640); ctx.fillStyle = '#6B5338'; ctx.fillRect(0, 640, W, 20);
     zoutpak(ctx, 700, 470, 1.3, q.on('zout', 1)); brood(ctx, 1250, 560, 1.2, q.on('bakkers', 1));
@@ -56,13 +56,13 @@ const SCENES = {
   },
 
   s04(ctx, t, q) { bg(ctx, 'schema');
-    const hy = q.on('hypofyse', 1), ht = q.on('hypothalamus', 1); hoofdProfiel(ctx, 720, 520, 1.5, { hyp: hy, hth: q.on('hypothalamus', 1) });
-    label(ctx, 'hypofyse', 'aan een steeltje', 720 + 68 * 1.5, 520 + 70 * 1.5, 1200, 760, hy, HK.klierR); label(ctx, 'hypothalamus', 'deel van de hersenen', 720 + 60 * 1.5, 520 + 10 * 1.5, 1200, 330, q.on('hypothalamus', 1), HK.klierR);
+    const hy = q.on('hypofyse', 1), ht = q.on('hypothalamus', 1); const HP = hoofdProfiel(ctx, 720, 520, 1.5, { hyp: hy, hth: q.on('hypothalamus', 1), t });
+    naamBij(ctx, 'hypothalamus', 'deel van de hersenen', 1150, HP.hth[1] - 30, q.on('hypothalamus', 1), 'left', HK.klierR); naamBij(ctx, 'hypofyse', 'aan een steeltje', 1150, HP.hyp[1] + 40, hy, 'left', HK.klierR);
     erwt(ctx, 1560, 760, 20, q.on('erwt', 1)); regel(ctx, '≈ zo groot als een erwt', 1600, 770, q.on('erwt', 1), C.text2, 30, 'left');
     const z = q.on('zenuwen', 1); for (let i = 0; i < 3; i++) { ctx.save(); ctx.globalAlpha *= z; ctx.strokeStyle = HK.zenuw; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(720 - 150 + i * 70, 520 - 220); ctx.quadraticCurveTo(720, 520 - 80, 720 + 85, 520 + 12); ctx.stroke(); ctx.restore(); }
-    tag(ctx, 'meet ook de temperatuur van het bloed', 1360, 440, C.text2, q.on('temperatuur', 1) * (1 - q.on('hormonen', 1)));
+    tag(ctx, 'meet ook de temperatuur van het bloed', 1400, 880, C.text2, q.on('temperatuur', 1) * (1 - q.on('hormonen', 1)));
     const ho = q.on('hormonen', 1); for (let i = 0; i < 5; i++) { const u = (t * 0.6 + i / 5) % 1; hormoonVorm(ctx, 720 + 90 + u * 14, 520 + 30 + u * 80, 12, 'tropine', ho); } tag(ctx, 'hormonen', 1000, 700, C.goud, ho * (1 - q.on('andere', 1)));
-    tag(ctx, 'hypofyse stuurt andere klieren aan', 1360, 560, C.goud, q.on('andere', 1));
+    tag(ctx, 'hypofyse stuurt andere klieren aan', 1400, 880, C.goud, q.on('andere', 1));
   },
   s05(ctx, t, q) { bg(ctx, 'schema');
     const hx = 960, hy = 200; roundRect(ctx, hx - 160, hy - 60, 320, 120, 20); shape(ctx, rgba(HK.klier, 0.25), HK.klierR, 2.5); kop(ctx, 'hypofyse', hx, hy + 14, 1, C.text, 44);
@@ -77,7 +77,7 @@ const SCENES = {
     const hx = 960, hy = 200; roundRect(ctx, hx - 160, hy - 60, 320, 120, 20); shape(ctx, rgba(HK.klier, 0.25), HK.klierR, 2.5); kop(ctx, 'hypofyse', hx, hy + 14, 1, C.text, 44);
     const g = q.on('Groeihormoon', 1), ad = q.on('ADH', 1);
     if (g > 0.01) { ctx.save(); ctx.globalAlpha *= g; arrow(ctx, hx - 100, hy + 60, 520, 520, HK.hormoon, 1, 4); tag(ctx, 'groeihormoon', 600, 420, C.goud); bot(ctx, 400, 650, 260, 0.9, 1, 1); text(ctx, 'botten en spieren', 400, 860, fTekst(32, 600), C.text, 'center'); ctx.restore(); }
-    if (ad > 0.01) { ctx.save(); ctx.globalAlpha *= ad; arrow(ctx, hx + 100, hy + 60, 1400, 520, HK.hormoon, 1, 4); tag(ctx, 'ADH', 1300, 420, C.goud); nierVorm(ctx, 1500, 660, 1.6, 1, 1); text(ctx, 'nieren', 1500, 860, fTekst(32, 600), C.text, 'center'); ctx.restore(); }
+    if (ad > 0.01) { ctx.save(); ctx.globalAlpha *= ad; arrow(ctx, hx + 100, hy + 60, 1400, 520, HK.hormoon, 1, 4); tag(ctx, 'ADH', 1300, 420, C.goud); nierBijnier(ctx, 1500, 640, 0.95, { t }); text(ctx, 'nieren', 1500, 860, fTekst(32, 600), C.text, 'center'); ctx.restore(); }
     tag(ctx, 'werken op weefsels zelf', 960, 640, C.text2, q.on('weefsels', 1) * (1 - q.on('ADH', 1) * 0.0));
     tag(ctx, 'ADH: gemaakt in de hypothalamus', 1360, 120, C.text2, q.on('gemaakt', 1)); tag(ctx, 'laatste film', 1500, 940 - 40 - 40, C.text2, 0);
   },
@@ -90,8 +90,8 @@ const SCENES = {
   },
 
   s08(ctx, t, q) { bg(ctx, 'schema');
-    const tm = q.on('thyroxine', 1); halsKaart(ctx, 520, 620, 1.0, { glow: q.on('vlinder', 1) });
-    naamBij(ctx, 'schildklier', 'vorm van een vlinder', 640, 585, q.on('schildklier', 1), 'left', lighten(SCHILD, 0.3));
+    const tm = q.on('thyroxine', 1); const SK = halsKaart(ctx, 520, 620, 1.0, { glow: q.on('vlinder', 1) });
+    naamBij(ctx, 'schildklier', 'vorm van een vlinder', SK.x + 110 * SK.k + 40, SK.y + 10, q.on('schildklier', 1), 'left', lighten(SCHILD, 0.3));
     thyroxineMol(ctx, 1500, 280, 1.0, tm, ramp(t, q.at('jodiumatomen'), 2)); tag(ctx, 'thyroxine · 4 jodiumatomen', 1500, 470, C.goud, q.on('jodiumatomen', 1));
     const vb = q.on('verbranding', 1); if (vb > 0.01) { for (let i = 0; i < 3; i++) doelcel(ctx, 1080 + i * 220, 680, 80, { a: vb, n: 3, kind: 'thyroxine', noRec: true, glow: q.on('stofwisseling', 1), seed: i + 3, t }); }
     hartMeter(ctx, 1460, 770, lerp(66, 80, q.on('sneller', 1)), t, q.on('hart', 1) * (1 - q.on('kinderen', 1)), 400);
@@ -126,9 +126,9 @@ const SCENES = {
   },
   s15(ctx, t, q) { bg(ctx, 'schema');
     const tr = q.on('traag', 1), sn = q.on('omgekeerde', 1);
-    if (tr > 0.01) { ctx.save(); ctx.globalAlpha *= tr; person(ctx, 480, 820, 520, 1, { shirt: '#5B6FA8', armR: { a1: 0.15 }, armL: { a1: 0.15 } }); text(ctx, 'te traag', 480, 220, fTitel(48), C.teal, 'center'); regel(ctx, 'moe · koud · aankomen', 480, 280, q.on('moe', 1), C.text, 32, 'center'); ctx.restore();
+    if (tr > 0.01) { ctx.save(); ctx.globalAlpha *= tr; persoon(ctx, 'erik', 480, 820, 520, { uit: 'moe', t }); /* figurant uit het castboek ('anoniem iemand uit een onderzoek'), geen naam */ text(ctx, 'te traag', 480, 220, fTitel(48), C.teal, 'center'); regel(ctx, 'moe · koud · aankomen', 480, 280, q.on('moe', 1), C.text, 32, 'center'); ctx.restore();
       const tb = q.on('tablet', 1); if (tb > 0.01) { ctx.save(); ctx.globalAlpha *= tb; circ(ctx, 740, 560, 30, '#F2F2EE', '#C9C2B4', 2); ctx.strokeStyle = '#C9C2B4'; ctx.beginPath(); ctx.moveTo(712, 560); ctx.lineTo(768, 560); ctx.stroke(); regel(ctx, 'tablet thyroxine', 790, 570, 1, C.goud, 30, 'left'); regel(ctx, 'TSH weer normaal', 790, 620, q.on('normaal', 1), C.text2, 28, 'left'); ctx.restore(); } }
-    if (sn > 0.01) { ctx.save(); ctx.globalAlpha *= sn; person(ctx, 1440, 820, 520, 1, { shirt: '#B36A5E', armR: { a1: 0.6 + 0.2 * Math.sin(t * 8) }, armL: { a1: 0.6 - 0.2 * Math.sin(t * 8) } }); text(ctx, 'te snel', 1440, 220, fTitel(48), C.koraal, 'center'); regel(ctx, 'onrustig · warm · snelle hartslag · afvallen', 1440, 280, q.on('onrustig', 1), C.text, 32, 'center'); ctx.restore(); }
+    if (sn > 0.01) { ctx.save(); ctx.globalAlpha *= sn; persoon(ctx, 'passant', 1440, 820, 520, { pose: 'handenHeup', t }); /* naamloze figurant uit het castboek */ text(ctx, 'te snel', 1440, 220, fTitel(48), C.koraal, 'center'); regel(ctx, 'onrustig · warm · snelle hartslag · afvallen', 1440, 280, q.on('onrustig', 1), C.text, 32, 'center'); ctx.restore(); }
   },
   s16(ctx, t, q) { bg(ctx, 'schema');
     const gr = q.on('Graves', 1);
@@ -137,7 +137,7 @@ const SCENES = {
     tag(ctx, 'TRH', 470, 300, C.goud, q.on('TRH', 1)); arrow(ctx, 470, 215, 470, 340, HK.hormoon, q.on('TRH', 1), 4); tag(ctx, 'TSH', 470, 540, C.goud, q.on('TSH', 1)); arrow(ctx, 470, 455, 470, 580, HK.hormoon, q.on('schildklier', 1), 4);
     const rm = q.on('zowel', 1); if (rm > 0.01) { ctx.save(); ctx.globalAlpha *= rm; ctx.setLineDash([10, 10]); ctx.strokeStyle = HK.rem; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(690, 640); ctx.quadraticCurveTo(860, 520, 690, 400); ctx.moveTo(690, 640); ctx.quadraticCurveTo(960, 400, 690, 160); ctx.stroke(); ctx.setLineDash([]); text(ctx, '− thyroxine remt', 880, 460, fTekst(32, 700), HK.rem, 'left'); ctx.restore(); }
     if (gr > 0.01) { ctx.save(); ctx.globalAlpha *= gr; roundRect(ctx, 1120, 180, 640, 560, 24); shape(ctx, rgba(C.bgMicro, 0.9), C.line, 1.5); metaText(ctx, 'SCHILDKLIERCEL', 1440, 230, C.grain, 'center', 22);
-      ctx.fillStyle = rgba(HK.cel, 0.25); ctx.fillRect(1160, 460, 560, 30); for (let i = 0; i < 4; i++) { receptor(ctx, 1220 + i * 140, 460, -Math.PI / 2, 'tropine', 0, 1, 1.3); antistof(ctx, 1220 + i * 140, 400 - 60 * (1 - ramp(t, q.at('zetten'), 1.5)), 1.3, q.on('antistoffen', 1)); }
+      ctx.save(); roundRect(ctx, 1120, 180, 640, 560, 24); ctx.clip(); const gR = 1500, gY = px => 470 + gR - Math.sqrt(gR * gR - (px - 1440) * (px - 1440)); celTextuur(ctx, (px, py) => py > gY(px) + 25, 60, 9, [1120, 470, 640, 270]); membraanBoog(ctx, 1440, 470 + gR, gR, -Math.PI / 2 - 0.25, -Math.PI / 2 + 0.25, { t, s: 0.9 }); ctx.restore(); /* gebogen membraan (prompt v13 C9) */ for (let i = 0; i < 4; i++) { receptor(ctx, 1220 + i * 140, gY(1220 + i * 140) - 12, -Math.PI / 2, 'tropine', 0, 1, 1.3); antistof(ctx, 1220 + i * 140, 400 - 60 * (1 - ramp(t, q.at('zetten'), 1.5)), 1.3, q.on('antistoffen', 1)); }
       text(ctx, 'antistoffen op de TSH-receptor', 1440, 640, fTekst(30, 600), C.text, 'center'); ctx.restore(); }
     vraagteken(ctx, 1440, 860 - 10, q.on('Wat', 1), 100);
   },

@@ -5,8 +5,9 @@
 | Bestand | films/hormonen/3-de-baas-van-de-klieren.html (audio in films/hormonen/3-de-baas-van-de-klieren/audio/) |
 | Reeks / nummer | Hormonen, film 3 van 5 (seriebrief in de Claude-doc *Seriebriefs uitlegfilms biologie*) |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blok gelabeld: s16–s18 met vraag q17 (TRH, terugkoppeling op twee niveaus, ziekte van Graves). Havo/Vwo-schakelaar, standaard Vwo |
-| Versie / datum | 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus; wacht op review door Kamiel) |
-| Prompt | onbekend · gemaakt 14 okt |
+| Versie / datum | **1.1 · 28 oktober 2026** — opwaardering naar prompt v13 (B14, zonder keuring): alleen beeld, stem en script ongewijzigd; oude versie in `bron/oud/3-de-baas-van-de-klieren-v1.0.html`. 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus; wacht op review door Kamiel) |
+| Prompt | v13 |
+| Voldoet aan | prompt v13 (28 okt 2026, zonder keuring). Bewust niet: geen nieuwe opnames; het bot met groeischijven (s06, s19, s20), de lever als ovaal (s19) en de antistoffen als Y-lijntjes (s16) blijven de eigen tekeningen van de reeks (geen passend object in de beeldbank; voorgesteld voor de bibliotheek); geen nieuwe caststijl met contourlijnen |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow daxBASBxKqL575X9NCK6; nodes in `stem/takes.json`). s14, s18 en s19 zijn na de eindreview opnieuw ingesproken |
 | Duur | spraak 7:50 (vwo) / 6:50 (havo). Speeltijd met kaarten en vragen: vwo ≈ 9½ min, havo ≈ 8 min |
 | Beeldstijl | Part C: Macro (keukenplank, cold open), Schema (navy: hoofd in profiel, organogram, hals met schildklier, regelkring, balken, grafiek). Seriekleuren in `lib_hormonen.js` (`HK`); schildklier in eigen kleur `SCHILD` (#C98A5C, in `scenes.js`). Nieuwe hormoonvormen: TSH en andere sturende hormonen = capsule (`tropine`), groeihormoon = vijfhoek (`groei`), thyroxine = ster |
@@ -110,3 +111,16 @@ Kamiel koos in de uitspraaktest (18–19 okt, 4 rondes) hoe de risicowoorden moe
 | Segment | TTS-node | Generatie | Credits | Duur |
 |---|---|---|---|---|
 | s16 | AfewTdzTU2okXeR6bR0G | Z5JYWbM9zpxEqbyJqeGw | 528 | 39.17 s |
+
+
+## Wijzigingen 1.1 (28 okt 2026): opwaardering naar prompt v13 (zonder keuring)
+
+Alleen beeld; stem, script, vragen, tijden en speler ongewijzigd. Site-HTML bijgewerkt door alleen de drie scriptblokken (lib, seriebibliotheken + `lib_cast.js`, `lib_anatomie.js`, `lib_bio.js`, scènes) te vervangen; `bouw/build.py` plakt die bibliotheken nu ook. Contactvel van de gewijzigde scènes bekeken; alle beelden in vwo en havo doorgelopen zonder JS-fouten; vragen afgespeeld met `?vragen=uit`.
+
+- Alle micro-scènes: geen korrel meer over het hele beeld (`bg`); rustige stipjes alleen binnen een cel.
+- Titel, s04, s19: grijs profielhoofd met paarse ovaal 'hersenen' → hoofd in doorsnede uit de beeldbank (`hoofdHersenen`: grote en kleine hersenen, hersenstam, hypothalamus, hypofyse aan het steeltje); namen hypothalamus en hypofyse rechts naast het hoofd in plaats van eroverheen; titelbeeld kleiner zodat het niet over de titel valt; de tags in s04 onderaan.
+- s08, s13: grijs dummyhoofd met hals → het realistische lichaam uit `lib_anatomie.js` (borstbeeld) met de schildklier op zijn echte plek onder het strottenhoofd, op realistische maat, donkerder zodat hij op de huid opvalt.
+- s06: eenvoudige niervorm → nier uit de beeldbank (`nierBijnier`).
+- s15: twee zelfgetekende figuren (te traag / te snel) → figuranten uit het castboek: Erik (moe) en de naamloze voorbijganger (handen op de heupen); geen namen in beeld of stem.
+- s16 (vwo): schildkliercel met recht membraan → gebogen fosfolipidendubbellaag (`membraanBoog`) met rustige textuur binnen; TSH-receptoren staan op het gebogen membraan.
+- Bronnenlogboek `bron/bronnen.md` (eerste ronde). Lijsten voor Kamiel: `bron/opwaardering-v13.md`.
