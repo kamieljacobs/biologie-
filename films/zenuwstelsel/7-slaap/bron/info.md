@@ -61,6 +61,7 @@ Werkmap opzetten: kopieer `bron/` naar `hw/zs7` (scenes.js uit `src/`, `words/` 
 - Puberklok en sociale jetlag alleen kort; die horen in de geplande Nieuwsgierig?-film 'Slaap en je biologische klok'.
 
 ## Wijzigingen
+- 29 okt 2026 — nacontrole 29 okt: s11 de melatonine komt nu zichtbaar uit de pijnappelklier (pulserende gloed om de klier, moleculen ontstaan daar en zakken achter de hersenstam naar beneden), niet meer vanaf hypothalamus/hypofyse; molecuul kleiner getekend (schaal 0,75). Alleen `s11` in `src/scenes.js`, ingebouwd met `bouw/inbouw.py`.
 - 1.0 (16 okt 2026): eerste versie. Script na een kritische eigen review (zie `reviews/review_v1.md`); beeld-QA via contactsheets (zie `checkpoint.html`).
 - 1.0.1 (16 okt 2026): EEG → E-E-G (feedback Kamiel); s04 en s05 opnieuw ingesproken (Roos, eleven_v4, 1 take), woordtijden opnieuw uitgelijnd.
 - 1.0.2 (16 okt 2026): film 4 heet voortaan 'Knoeien met de synaps'; verwijzing in s09 (tekst, stem-invoer, beeldlabel en docentdeel) aangepast, s09 opnieuw ingesproken (Roos, eleven_v4, 1 take), woordtijden opnieuw uitgelijnd.

@@ -235,7 +235,9 @@ const SCENES = {
     hoofdZij(ctx, X, Y, S, { scn: 1, zenuw: 0.6, oog: 1, t, pijnappel: q.on('pijnappelklier', 1) });
     const [px, py] = HZ(X, Y, S, ...HZP.pijnappel); naamBij(ctx, 'pijnappelklier', null, px - 30, py - 50, q.on('pijnappelklier', 1), 'center', MELA);
     const [kx, ky] = HZ(X, Y, S, ...HZP.scn); naamBij(ctx, 'klok', null, kx + 40, ky - 20, 1, 'left', KLOK);
-    const mel = q.on('melatonine', 1); if (mel > 0.01) for (let k = 0; k < 12; k++) { const u = ((t * 0.12 + hash(k * 3)) % 1); const mx = px + u * 260 + Math.sin(k + t) * 20, my = py + 40 + u * (220 + k * 8); melatonine(ctx, mx, my, 0.9, mel * Math.sin(u * Math.PI) * (1 - 0.4 * q.on('scherm', 1)), k); }
+    const mel = q.on('melatonine', 1); if (mel > 0.01) { // nacontrole 29 okt 2026: melatonine komt zichtbaar uit de pijnappelklier (gloed + wolkje) en zakt achter de hersenstam naar het bloed; klein molecuul (s 0,75)
+      const gl = mel * (0.55 + 0.3 * Math.sin(t * 3)); ctx.save(); ctx.globalAlpha *= gl; const rg = ctx.createRadialGradient(px, py, 4, px, py, 46); rg.addColorStop(0, rgba(MELA, 0.85)); rg.addColorStop(1, rgba(MELA, 0)); ctx.fillStyle = rg; ctx.beginPath(); ctx.arc(px, py, 46, 0, 6.283); ctx.fill(); ctx.restore();
+      for (let k = 0; k < 12; k++) { const u = ((t * 0.12 + hash(k * 3)) % 1); const sp = (hash(k * 7) - 0.5); const mx = px + sp * 50 * Math.min(1, u * 5) - u * 20 + Math.sin(k + t) * 10 * u, my = py + 8 + u * (250 + k * 6); melatonine(ctx, mx, my, 0.75, mel * Math.min(1, u / 0.05) * Math.pow(1 - u, 0.5) * (1 - 0.4 * q.on('scherm', 1)), k); } }
     // dagcurve melatonine
     const gx = 1080, gy = 260, gw = 720, gh = 300, ga = q.on('vertelt', 1); if (ga > 0.01) { ctx.save(); ctx.globalAlpha *= ga; regel(ctx, 'melatonine in je bloed', gx, gy - 30, 1, MELA, 28, 'left', 700);
       ctx.fillStyle = rgba('#5A6A9A', 0.25); ctx.fillRect(gx + gw * (10 / 24), gy, gw * (8 / 24), gh); assen(ctx, gx, gy, gw, gh, '', '');

@@ -55,7 +55,7 @@ Ernst: **hoog** = fout of lelijk zichtbaar voor leerlingen, **laag** = detail. T
 
 ## Zenuwstelsel 7 · Slaap
 
-1. s11 ± 225–240 s: de melatonine (keten van zeshoekjes) stroomt vanaf de hypofyse/hypothalamus de hals in, niet vanuit de pijnappelklier, terwijl de stem zegt 'laat de klok de pijnappelklier het hormoon melatonine afgeven'. Inhoudelijk misleidend; graag nakijken. Melatonine als keten oogt bovendien als een eiwit, terwijl het een klein molecuul is. **hoog**
+1. s11 ± 225–240 s: de melatonine (keten van zeshoekjes) stroomt vanaf de hypofyse/hypothalamus de hals in, niet vanuit de pijnappelklier, terwijl de stem zegt 'laat de klok de pijnappelklier het hormoon melatonine afgeven'. Inhoudelijk misleidend; graag nakijken. Melatonine als keten oogt bovendien als een eiwit, terwijl het een klein molecuul is. **hoog** — hersteld
 2. s15 ± 343–364 s, paneel 'opruimen': de muis ('vooral bij muizen onderzocht') staat op dezelfde schaal tussen de hersencellen. Dat is verwarrend. **laag**
 3. s07, s10, s11, s14: namen als 'hersenstam / REMT DE MOTORISCHE NEURONEN', 'oogzenuwen kruisen', 'pijnappelklier' (paars op roze) en 'hippocampus' staan op de hoofddoorsnede, met weinig contrast. **laag**
 4. s13 (vwo): de kern is nog fel paars en 'klokeiwitten' is erg vaag. **laag**
