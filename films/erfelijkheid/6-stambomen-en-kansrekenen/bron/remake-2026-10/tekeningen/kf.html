@@ -1,0 +1,104 @@
+<!doctype html><html lang="nl"><head><meta charset="utf-8"><title>Stambomen keyframes</title>
+<link rel="stylesheet" href="fonts.css">
+<style>body{margin:0;background:#000}canvas{display:block}</style></head><body>
+<canvas id="c" width="1920" height="1080"></canvas>
+<script src="lib.js"></script><script>if(typeof circ==="undefined") window.circ=function(ctx,x,y,r,fill,stroke,lw=1.5){ ctx.beginPath(); ctx.arc(x,y,Math.max(0.1,r),0,6.2832); if(fill){ ctx.fillStyle=fill; ctx.fill(); } if(stroke){ ctx.strokeStyle=stroke; ctx.lineWidth=lw; ctx.stroke(); } };</script>
+<script src="lib_cast.js"></script><script src="nieuw_erf6.js"></script>
+<script>
+const ctx = document.getElementById('c').getContext('2d');
+function kast(ctx, s) { ctx.save(); ctx.font = fTekst(44, 700); const w = Math.min(1700, ctx.measureText(s).width + 64); roundRect(ctx, W / 2 - w / 2, 930, w, 92, 12); shape(ctx, rgba('#0D1420', 0.9), null); text(ctx, s, W / 2, 990, fTekst(44, 700), C.text, 'center'); ctx.restore(); }
+function twijfelTag(ctx, s) { ctx.save(); ctx.font = fMeta(24); const w = ctx.measureText(s.toUpperCase()).width + 90; roundRect(ctx, W - w - 30, 24, w, 48, 8); shape(ctx, rgba(C.koraal, 0.18), C.koraal, 1.5); metaText(ctx, s, W - 50, 57, C.koraal, 'right', 24); ctx.restore(); }
+function chMeta(ctx, s) { metaText(ctx, s, 70, 851, C.text2, 'left', 28); }
+function termK(ctx, term, uitleg, x, y, w) { roundRect(ctx, x, y, w, 112, 14); shape(ctx, rgba(C.bgSchema, 0.96), C.goud, 2); text(ctx, term, x + 28, y + 56, fTekst(44, 700), C.goud, 'left'); text(ctx, uitleg, x + 28, y + 96, fTekst(30, 500), C.text, 'left'); }
+function annot(ctx, x1, x2, y, msg, kl) { haak(ctx, x1, x2, y, msg, kl, 1); }
+const S = {};
+
+// ---------- T1 · opening in de spreekkamer: de vrouw (castpersonage Sanne, niet bij naam) bij de klinisch geneticus (Dr. Kim)
+S.t1 = () => { bg(ctx, 'schema'); wandbord(ctx, 1180, 110, 640, 420);
+  ctx.save(); ctx.translate(1180 - 230, 110 - 60); ctx.scale(0.62, 0.62); stamboom(ctx, SB_CF, { y0: 300, dy: 250, r: 44, romeins: null, hl: { zij: 1 }, toon: { v1: 1, m1: 1, b1: 1, b2: 1, zij: 1, par: 0, kind: 0 } }); ctx.restore();
+  metaText(ctx, 'stamboom van haar familie', 1500, 570, C.grain, 'center', 26);
+  spreekkamerE6(ctx, { x0: 330, x1: 1130, top: 640, map: 1 });
+  persoon(ctx, 'sanne', 560, 800, 430, { t: 1, pose: 'zit', stoel: true, tafel: 640, uit: 'neutraal', kijk: 1, outfit: 'gewoon' });
+  persoon(ctx, 'kim', 1020, 800, 430, { t: 1, zij: true, kijk: -1, pose: 'zit', stoel: true, tafel: 640, outfit: 'gewoon', uit: 'praat' });
+  spreekkamerE6(ctx, { x0: 330, x1: 1130, top: 640, map: 0 });
+  metaText(ctx, 'spreekkamer · klinische genetica', 70, 851, C.text2, 'left', 28);
+  kast(ctx, 'Haar broer heeft taaislijmziekte. Haar ouders hebben het niet, zij zelf ook niet.');
+  twijfelTag(ctx, 'twijfel T1 · opening en cast'); };
+
+// ---------- K1 · de taal van een stamboom (s03): één gezin, alles op vaste hoogtes
+S.k1 = () => { bg(ctx, 'schema'); stapKop(ctx, 'de taal van een stamboom');
+  const P = { personen: [ { id: 'v', sekse: 'm', ziek: false, gen: 1, x: 700 }, { id: 'm', sekse: 'v', ziek: false, gen: 1, x: 1000 },
+    { id: 'k1', sekse: 'v', ziek: false, gen: 2, x: 560, ouders: ['v', 'm'] }, { id: 'k2', sekse: 'm', ziek: true, gen: 2, x: 850, ouders: ['v', 'm'] }, { id: 'k3', sekse: 'v', ziek: false, gen: 2, x: 1140, ouders: ['v', 'm'] } ] };
+  const R = stamboom(ctx, P, { y0: 330, dy: 300, r: 44, romeins: 380 });
+  naamBij(ctx, 'man', null, 700, 255, 1, 'center'); naamBij(ctx, 'vrouw', null, 1000, 255, 1, 'center'); naamBij(ctx, 'een paar', null, 850, 312, 1, 'center', C.grain);
+  naamBij(ctx, 'heeft de eigenschap', null, 850, 720, 1, 'center', C.goud);
+  metaText(ctx, 'oudste', 560, 720, C.text2, 'center', 26); metaText(ctx, 'jongste', 1140, 720, C.text2, 'center', 26);
+  naamBij(ctx, 'kinderen', 'aan één lijn', 1240, 488, 1, 'left');
+  naamBij(ctx, 'generaties', 'romeinse cijfers', 330, 520, 1, 'center');
+  kast(ctx, 'Daaronder hangen hun kinderen aan één lijn, van oud naar jong.'); };
+
+// ---------- T2 · de stamboom van de vrouw (s04) en de partner (s19): partner getest in plaats van 'vader van de partner ziek'
+S.t2 = () => { bg(ctx, 'schema'); stapKop(ctx, 'de stamboom van haar familie');
+  stamboom(ctx, SB_CF, { y0: 300, dy: 250, r: 42, romeins: 400, hl: { zij: 1 } });
+  naamBij(ctx, 'haar ouders', null, 880, 230, 1, 'center');
+  naamBij(ctx, 'haar broer', 'taaislijmziekte', 880, 640, 1, 'center'); naamBij(ctx, 'zij', null, 1140, 640, 1, 'center', C.goud);
+  naamBij(ctx, 'haar partner', 'getest: drager', 1400, 640, 1, 'center'); naamBij(ctx, 'hun kind?', null, 1270, 875, 1, 'center');
+  twijfelTag(ctx, 'twijfel T2 · partner getest'); kast(ctx, 'Alleen haar broer is ingekleurd. Onderaan: het kind dat ze willen.'); };
+
+// ---------- T3 · dominant patroon (s08): Huntington, de tak waar het allel verdwijnt (Kamiels vraag bij 1:17)
+S.t3 = () => { bg(ctx, 'schema'); stapKop(ctx, 'dominant patroon', 'ziekte van Huntington');
+  const geno = { o: 'Aa', om: 'aa', d: 'Aa', dp: 'aa', z2: 'aa', z: 'aa', zp: 'aa', dk1: 'Aa', dk2: 'aa', zk1: 'aa', zk2: 'aa' };
+  const kl = { z: C.goud, zk1: C.goud, zk2: C.goud };
+  stamboom(ctx, SB_HD, { y0: 300, dy: 230, r: 40, romeins: 140, geno, genoKl: kl, hl: { z: 1 }, dim: { d: 0.35, dp: 0.35, dk1: 0.35, dk2: 0.35, z2: 0.35 } });
+  naamBij(ctx, 'kreeg toevallig a', null, 1116, 545, 1, 'right', C.goud);
+  annot(ctx, 1140, 1480, 845, 'geen A meer: komt niet terug', C.groen);
+  metaText(ctx, 'A = allel voor de ziekte', 1840, 130, C.grain, 'right', 24);
+  twijfelTag(ctx, 'twijfel T3 · voorbeeld dominant'); kast(ctx, 'In die tak van de familie is het allel weg. Bij de kleinkinderen komt het niet terug.'); };
+
+// ---------- T4 · stap 2 (s10): X-recessief criterium + 'niet te bepalen' in de familie van de vrouw
+S.t4 = () => { bg(ctx, 'schema'); stapKop(ctx, 'stap 2 · autosoom of X-chromosoom?');
+  miniStamboom(ctx, 300, 330, 0.9, [true, false], { sekse: 'v', ziek: true }, { geno: { v: 'XᵃY', m: 'XᴬXᵃ', k: 'XᵃXᵃ' } });
+  naamBij(ctx, 'X-recessief', 'zieke dochter → zieke vader', 560, 420, 1, 'left');
+  miniStamboom(ctx, 300, 650, 0.9, [false, false], { sekse: 'v', ziek: true }, { hl: { v: 1 } });
+  naamBij(ctx, 'zieke dochter, gezonde vader', 'dus autosomaal', 560, 740, 1, 'left', C.groen);
+  ctx.save(); ctx.strokeStyle = rgba(C.line, 0.5); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(1000, 230); ctx.lineTo(1000, 860); ctx.stroke(); ctx.restore();
+  ctx.save(); ctx.translate(820, 120); ctx.scale(0.62, 0.62); stamboom(ctx, SB_CF, { y0: 300, dy: 250, r: 44, romeins: null, hl: { b2: 1 }, toon: { v1: 1, m1: 1, b1: 1, b2: 1, zij: 1, par: 0, kind: 0 } }); ctx.restore();
+  naamBij(ctx, 'hier is alleen een zoon ziek', 'uit de stamboom niet te bepalen', 1460, 610, 1, 'center');
+  naamBij(ctx, 'bekend: het gen ligt op chromosoom 7', 'een autosoom', 1460, 760, 1, 'center', C.goud);
+  twijfelTag(ctx, 'twijfel T4 · niet te bepalen'); kast(ctx, 'Van taaislijmziekte is bekend: het gen ligt op chromosoom zeven, een autosoom.'); };
+
+// ---------- T5 · stap 3 genotypen (s11) — notatie A_, drager als woord, geen half ingekleurd symbool
+S.t5 = () => { bg(ctx, 'schema'); stapKop(ctx, 'stap 3 · vul de genotypen in');
+  stamboom(ctx, SB_CF, { y0: 300, dy: 250, r: 42, romeins: 400, geno: { v1: 'Aa', m1: 'Aa', b2: 'aa', b1: 'A_', zij: 'A_', par: '?' }, genoKl: { v1: C.goud, m1: C.goud, b2: C.goud }, hl: { b2: 1 } });
+  termK(ctx, 'drager', 'Aa: gezond, draagt a bij zich', 1420, 690, 470); termK(ctx, 'A_', 'AA óf Aa: minstens één A', 1420, 812, 470);
+  naamBij(ctx, 'werk terug', 'van aa naar de ouders', 1180, 250, 1, 'left', C.goud);
+  twijfelTag(ctx, 'twijfel T5 · notatie en tekening'); kast(ctx, 'Een kind met aa kreeg van elke ouder een a. Die ouders zijn dus allebei Aa.'); };
+
+// ---------- K2 · simulatie 300 kinderen van twee dragers (s13), na wegstrepen en sorteren
+S.k2 = () => { bg(ctx, 'schema'); stapKop(ctx, '300 kinderen van twee dragers', 'Aa × Aa · echte trekkingen');
+  const K = simRaster(ctx, 260, 330, { fase: 1, weg: 1, sorteer: 1 }); const n = K.n, gz = n.AA + n.Aa;
+  text(ctx, 'AA · ' + n.AA, 260, 300, fTekst(40, 700), C.text, 'left'); text(ctx, 'Aa · ' + n.Aa, 680, 300, fTekst(40, 700), C.goud, 'left');
+  simLegenda(ctx, 1400, 360, 1); metaText(ctx, 'aa: ' + n.aa + ' · weggehaald', 1400, 580, C.text2, 'left', 26);
+  roundRect(ctx, 1380, 640, 420, 150, 14); shape(ctx, rgba(C.bgSchema, 0.96), C.goud, 2); text(ctx, n.Aa + ' van ' + gz + ' ≈ ⅔', 1590, 715, fTitel(54), C.goud, 'center'); metaText(ctx, 'gezonde kinderen die drager zijn', 1590, 765, C.grain, 'center', 22);
+  kast(ctx, 'Van de kinderen die overblijven, is ongeveer twee derde drager.'); };
+
+// ---------- K3 · twee rekenregels (s15–s16)
+S.k3 = () => { bg(ctx, 'schema'); stapKop(ctx, 'twee rekenregels');
+  text(ctx, 'productregel', 260, 280, fTekst(48, 700), C.text, 'left'); oppModel(ctx, 300, 410, 380, {}); text(ctx, '¼ × ¼ = 1/16', 490, 860, fTitel(54), C.goud, 'center');
+  metaText(ctx, 'en · en → vermenigvuldigen', 260, 325, C.grain, 'left', 24);
+  text(ctx, 'somregel', 1000, 280, fTekst(48, 700), C.text, 'left'); metaText(ctx, 'óf · óf → optellen', 1000, 325, C.grain, 'left', 24);
+  kansBalk(ctx, 1000, 420, 760, { hl: 1 }); annot(ctx, 1003, 1567, 670, 'gezond: ¼ + ½ = ¾', C.groen);
+  kast(ctx, 'Een kwart plus een half is drie kwart.'); };
+
+// ---------- K4 · kansboom (s21)
+S.k4 = () => { bg(ctx, 'schema'); stapKop(ctx, 'de kans voor hun kind');
+  kansBoom(ctx, 230, 470, { st: 3, som: 1 });
+  kast(ctx, 'Twee derde keer een half keer een half is een zesde.'); };
+
+// ---------- K5 · vraagkaart q07 (dominant slaat geen generatie over)
+S.k5 = () => { vraagKaartKF(ctx, 'Deze man heeft de ziekte van Huntington niet, maar zijn vader wel. Kan zijn kind de ziekte krijgen?',
+  ['Ja: een dominante ziekte kan een generatie overslaan', 'Nee: hij heeft geen A om door te geven', 'Alleen als zijn kind een zoon is'], { fr: 0.55 }); };
+
+function go() { const id = location.hash.slice(1) || 't1'; ctx.clearRect(0, 0, W, H); (S[id] || S.t1)(); window.KLAAR = true; }
+document.fonts.ready.then(go);
+</script></body></html>

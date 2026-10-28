@@ -1,0 +1,131 @@
+<!doctype html><html lang="nl"><head><meta charset="utf-8"><title>Erfelijkheid 2 keyframes</title>
+<style>
+@font-face{font-family:"Fraunces";font-weight:700;src:url(fonts/001.woff2) format("woff2")}
+@font-face{font-family:"Source Sans 3";font-weight:400;src:url(fonts/002.woff2) format("woff2")}
+@font-face{font-family:"Source Sans 3";font-weight:600;src:url(fonts/003.woff2) format("woff2")}
+@font-face{font-family:"Source Sans 3";font-weight:700;src:url(fonts/004.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-weight:500;src:url(fonts/005.woff2) format("woff2")}
+body{margin:0;background:#000}canvas{display:block}</style></head><body>
+<canvas id="c" width="1920" height="1080"></canvas>
+<script src="lib.js"></script><script src="kop.js"></script><script src="lib_voeding.js"></script><script src="lib_cast.js"></script><script src="lib_bio.js"></script><script src="lib_micro_evo.js"></script><script src="lib_dieren.js"></script>
+<script>if(typeof circ==="undefined") window.circ=function(ctx,x,y,r,fill,stroke,lw=1.5){ ctx.beginPath(); ctx.arc(x,y,Math.max(0.1,r),0,6.2832); if(fill){ ctx.fillStyle=fill; ctx.fill(); } if(stroke){ ctx.strokeStyle=stroke; ctx.lineWidth=lw; ctx.stroke(); } };</script>
+<script src="teken_chr1.js"></script><script src="nieuw_erf2.js"></script>
+<script>
+const ctx = document.getElementById('c').getContext('2d');
+function kast(ctx, s) { ctx.save(); ctx.font = fTekst(44, 700); const w = Math.min(1700, ctx.measureText(s).width + 64); roundRect(ctx, W / 2 - w / 2, 930, w, 92, 12); shape(ctx, rgba('#0D1420', 0.9), null); text(ctx, s, W / 2, 990, fTekst(44, 700), C.text, 'center'); ctx.restore(); }
+function twijfelTag(ctx, s) { ctx.save(); ctx.font = fMeta(24); const w = ctx.measureText(s.toUpperCase()).width + 90; roundRect(ctx, W - w - 30, 24, w, 48, 8); shape(ctx, rgba(C.koraal, 0.18), C.koraal, 1.5); metaText(ctx, s, W - 50, 57, C.koraal, 'right', 24); ctx.restore(); }
+function meta(ctx, s, x = 70, al = 'left') { metaText(ctx, s, x, 851, C.text2, al, 28); }
+// Macro (nacht): tuin met lage muur — vlak, drie lagen
+function tuin(ctx) { ctx.fillStyle = C.bgMacroSky; ctx.fillRect(0, 0, W, H); ctx.fillStyle = '#26385A'; ctx.fillRect(0, 520, W, 120);
+  ctx.fillStyle = '#4B5878'; ctx.beginPath(); ctx.moveTo(0, 560); ctx.lineTo(260, 430); ctx.lineTo(520, 560); ctx.lineTo(820, 470); ctx.lineTo(1100, 560); ctx.fill();
+  ctx.fillStyle = '#5A5A62'; ctx.fillRect(0, 590, W, 70); ctx.fillStyle = '#6A6A72'; for (let i = 0; i < 24; i++) ctx.fillRect(i * 82 + (i % 2) * 20, 596, 74, 26); // muur van het kloostertuintje
+  ctx.fillStyle = C.bgMacroHill; ctx.fillRect(0, 660, W, 190); ctx.fillStyle = C.bgMacroFront; ctx.fillRect(0, 846, W, H - 846);
+  ctx.fillStyle = '#4A3A2C'; ctx.fillRect(0, 838, W, 14); }
+function tag2(ctx, s, x, y, col = C.text) { text(ctx, s, x, y, fTekst(40, 700), col, 'center'); }
+function genChip(ctx, g, x, y, a = 1, px = 40) { allelChip(ctx, g, x, y, a, { px }); }
+function kaartje(ctx, x, y, w, h, kop, body, a = 1, acc = C.goud) { card(ctx, x, y, w, h, kop, body, a, acc); }
+
+const S = {};
+// ---------- T1 · Opening: gezin De Wit (uit Chromosomen 2.1) met de kansvraag
+S.t1 = () => { kamer(ctx); gezin(ctx, 0.3, { hl: { dennis: 1, marieke: 1, levi: 0.6 } });
+  allelChip(ctx, 'Aa', gx('dennis'), kopY('dennis') - 60, 1, { acc: 1 }); allelChip(ctx, 'Aa', gx('marieke'), kopY('marieke') - 60, 1, { acc: 1 }); allelChip(ctx, 'aa', gx('levi'), kopY('levi') - 60, 1, { px: 40 });
+  card(ctx, 1450, 300, 430, 250, 'Puzzel', 'Twee ouders met Aa. Hoe groot is de kans op een kind met aa?', 1);
+  kast(ctx, 'Maar hoe groot is de kans daarop?'); twijfelTag(ctx, 'twijfel · opening gezin de wit'); };
+
+// ---------- T2 · Zelfbestuiving: erwtenplant in de tuin, zoomcirkel naar een opengesneden vlinderbloem
+S.t2 = () => { tuin(ctx); const P = erwtenplant(ctx, 420, 846, 560, { kleur: 'paars', bloemen: 3, peulen: 2, seed: 3, t: 0.4 });
+  const b = P.bloemen[1] || P.bloemen[0]; const sx = b.kiel[0], sy = b.kiel[1];
+  zoomCircle(ctx, 1290, 420, 340, sx, sy, 'erwtenbloem, opengesneden · vergroot', 1, () => { bg(ctx, 'schema');
+    const r = erwtBloem(ctx, 1060, 540, 24, { kleur: 'paars', open: 1, stuif: 1 });
+    naamBij(ctx, 'kiel', 'opengesneden', 1330, 690, 1, 'center'); naamBij(ctx, 'meeldraden', 'met stuifmeel', r.meeldraad[0] - 90, r.meeldraad[1] - 110, 1, 'center'); naamBij(ctx, 'stamper', null, r.stempel[0] - 230, r.stempel[1] + 165, 1, 'center'); naamBij(ctx, 'vlag', null, 1040, 160, 1, 'center'); });
+  naamBij(ctx, 'erwtenplant', 'klimt met ranken', 420, 230, 1, 'center');
+  ctx.save(); ctx.fillStyle = C.text; ctx.fillRect(1000, 830, 24 * 5, 5); metaText(ctx, '5 millimeter (in de cirkel)', 1000 + 24 * 5 + 16, 841, C.text2, 'left', 26); ctx.restore();
+  kast(ctx, 'Het stuifmeel komt zo op de eigen stamper, nog voordat de bloem opengaat.'); twijfelTag(ctx, 'twijfel · nieuwe tekening erwt'); };
+
+// ---------- T3 · Handkruising: Mendel haalt de meeldraden weg en brengt wit stuifmeel op de paarse stamper
+S.t3 = () => { tuin(ctx); erwtenplant(ctx, 300, 846, 470, { kleur: 'paars', bloemen: 2, peulen: 1, seed: 5 }); erwtenplant(ctx, 820, 846, 470, { kleur: 'wit', bloemen: 2, peulen: 1, seed: 8 });
+  persoon(ctx, 'mendel', 560, 846, 560, { pose: 'vasthouden', uit: 'neutraal', kijk: 1, hold: (c, x, y) => { c.save(); c.strokeStyle = '#B8C0D0'; c.lineWidth = 4; c.beginPath(); c.moveTo(x, y); c.lineTo(x + 70, y - 40); c.moveTo(x + 4, y + 6); c.lineTo(x + 72, y - 34); c.stroke(); c.restore(); } });
+  zoomCircle(ctx, 1450, 400, 320, 330, 470, 'jonge paarse bloem, kiel open · vergroot', 1, () => { bg(ctx, 'schema');
+    const r = erwtBloem(ctx, 1300, 500, 14, { kleur: 'paars', open: 1, zonder: 1, stuif: 0.8, knop: 0.6 });
+    // pincet met een meeldraad van de witte bloem
+    const [px, py] = r.stempel; ctx.save(); ctx.strokeStyle = '#B8C0D0'; ctx.lineWidth = 6; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(px + 30, py - 20); ctx.lineTo(px + 250, py - 190); ctx.moveTo(px + 40, py - 8); ctx.lineTo(px + 258, py - 178); ctx.stroke();
+    ctx.fillStyle = ERW.helm; ctx.beginPath(); ctx.ellipse(px + 18, py - 10, 14, 8, -0.7, 0, 6.283); ctx.fill(); ctx.restore();
+    naamBij(ctx, 'zonder meeldraden', null, 1420, 600, 1, 'center'); naamBij(ctx, 'stuifmeel', 'van een witte bloem', 1560, 300, 1, 'center'); });
+  naamBij(ctx, 'Gregor Mendel', 'BRNO · 1856–1863', 560, 210, 1, 'center');
+  kast(ctx, 'Daarna bracht hij stuifmeel van een witte bloem op de stamper.'); twijfelTag(ctx, 'twijfel · mendel en handkruising'); };
+
+// ---------- K1 · Generatieladder P → F1 → F2 (de kern van Kamiels opmerking): F1 × F1 via zelfbestuiving
+S.k1 = () => { bg(ctx, 'schema'); const L = generatieLadder(ctx, 110, 150, { p: 1, f1: 1, f2: 1, hl: 'F2' });
+  // P
+  plantje(ctx, 560, L.rij(0) + 80, 200, 'paars'); plantje(ctx, 900, L.rij(0) + 80, 200, 'wit');
+  text(ctx, '×', 730, L.rij(0) + 10, fTekst(64, 700), C.text, 'center'); genChip(ctx, 'AA', 450, L.rij(0) - 50, 1, 34); genChip(ctx, 'aa', 1010, L.rij(0) - 50, 1, 34);
+  pijl(ctx, 730, L.rij(0) + 100, 730, L.rij(1) - 110, C.line, 1, 3, 14);
+  // F1
+  [560, 730, 900].forEach((x, i) => plantje(ctx, x, L.rij(1) + 80, 200, 'paars')); genChip(ctx, 'Aa', 1010, L.rij(1) - 50, 1, 34);
+  zelfLus(ctx, 1110, L.rij(1) - 20, 46, 1, 'zelfbestuiving');
+  pijl(ctx, 730, L.rij(1) + 100, 730, L.rij(2) - 110, C.line, 1, 3, 14);
+  // F2 nog onbekend
+  [480, 620, 840, 980].forEach((x, i) => { ctx.save(); ctx.globalAlpha = 0.3; plantje(ctx, x, L.rij(2) + 80, 200, 'wit'); ctx.restore(); });
+  vraagteken(ctx, 730, L.rij(2) + 30, 1, 120);
+  card(ctx, 1400, 560, 440, 230, 'Generaties', 'P = ouders · F1 = hun kinderen · F2 = kinderen van de F1', 1);
+  kast(ctx, 'Dus: P zijn de ouders, F1 hun kinderen, en F2 de kinderen van de F1.'); };
+
+// ---------- T4 · Bij dieren: twee F1-muizen met elkaar, broer met zus
+S.t4 = () => { bg(ctx, 'schema'); const L = generatieLadder(ctx, 110, 150, { p: 1, f1: 1, f2: 1, hl: 'F1' });
+  labmuis(ctx, 560, L.rij(0) + 50, 13, { vacht: 'zwart', kijk: 1 }); labmuis(ctx, 920, L.rij(0) + 50, 13, { vacht: 'wit', kijk: -1 }); text(ctx, '×', 740, L.rij(0) + 10, fTekst(64, 700), C.text, 'center');
+  pijl(ctx, 740, L.rij(0) + 90, 740, L.rij(1) - 110, C.line, 1, 3, 14);
+  labmuis(ctx, 560, L.rij(1) + 50, 13, { vacht: 'zwart', kijk: 1 }); labmuis(ctx, 920, L.rij(1) + 50, 13, { vacht: 'zwart', kijk: -1 }); text(ctx, '×', 740, L.rij(1) + 10, fTekst(64, 700), C.goud, 'center');
+  metaText(ctx, 'broer', 560, L.rij(1) + 100, C.text2, 'center', 26); metaText(ctx, 'zus', 920, L.rij(1) + 100, C.text2, 'center', 26); genChip(ctx, 'Aa', 560, L.rij(1) - 90, 1, 30); genChip(ctx, 'Aa', 920, L.rij(1) - 90, 1, 30);
+  pijl(ctx, 740, L.rij(1) + 120, 740, L.rij(2) - 110, C.line, 1, 3, 14); vraagteken(ctx, 740, L.rij(2) + 30, 1, 120);
+  card(ctx, 1260, 330, 560, 300, 'Inteelt', 'Een fokker vermijdt broer × zus. In een proef weet je zo zeker: beide ouders zijn Aa.', 1, C.koraal);
+  kast(ctx, 'Dan kruis je twee F1-muizen met elkaar, broer met zus.'); twijfelTag(ctx, 'twijfel · muizen en inteelt'); };
+
+// ---------- K2 · F2: wit komt terug (929 stippen)
+S.k2 = () => { bg(ctx, 'schema'); f2Veld(ctx, 120, 160, 1020, 620, 1);
+  card(ctx, 1260, 200, 560, 240, 'Mendel telde', '705 paars · 224 wit', 1); text(ctx, '705 : 224 ≈ 3 : 1', 1540, 560, fTekst(60, 700), C.text, 'center');
+  card(ctx, 1260, 640, 560, 170, 'Verborgen', 'Het allel a zat in de F1, naast een A.', 1, C.groen);
+  meta(ctx, 'f2 · 929 planten · elke stip = één plant');
+  kast(ctx, 'Mendel telde zevenhonderdvijf paarse en tweehonderdvierentwintig witte planten.'); };
+
+// ---------- K3 · Gameten: in een Aa-plant gaan de chromosomen van het paar uit elkaar
+S.k3 = () => { bg(ctx, 'schema'); meioseAa(ctx, 300, 470, 0, { R: 150 }); naamBij(ctx, 'cel van een F1-plant', null, 300, 700, 1, 'center');
+  pijl(ctx, 500, 470, 620, 470, C.line, 1, 3, 14); metaText(ctx, 'meiose', 560, 440, C.text2, 'center', 26);
+  meioseAa(ctx, 900, 470, 1, { R: 170 }); text(ctx, 'A · kans ½', 636, 800, fTekst(40, 700), C.text, 'center'); text(ctx, 'a · kans ½', 1164, 800, fTekst(40, 700), C.text, 'center');
+  card(ctx, 1400, 300, 440, 300, 'Gameet', 'geslachtscel met één chromosoom van elk paar, dus van elk gen één allel', 1);
+  meta(ctx, 'schema · vereenvoudigd (alleen chromosoompaar met het gen)');
+  kast(ctx, 'De helft van de gameten krijgt A, de andere helft a.'); };
+
+// ---------- K4 · Kruisingsschema met fenotypen
+S.k4 = () => { bg(ctx, 'schema'); kruisSchema(ctx, 420, 300, 230, { n: 4, feno: 1, hl: 3 });
+  card(ctx, 1260, 260, 560, 200, 'Genotypen', '1 AA : 2 Aa : 1 aa', 1); card(ctx, 1260, 520, 560, 200, 'Fenotypen', '3 paars : 1 wit', 1, C.groen);
+  kast(ctx, 'De fenotypen verhouden zich als drie staat tot één.'); };
+
+// ---------- K5 · Kansen, geen aantallen (simulatie 400 bevruchtingen)
+S.k5 = () => { bg(ctx, 'schema'); kruisSchema(ctx, 200, 330, 150, { n: 4, feno: 0 });
+  const base = 760, x1 = 900, x2 = 1180, pa = 302, wi = 98; // vaste startwaarde, na 400
+  for (let i = 0; i < pa; i++) { const cx = x1 + (i % 12) * 16, cy = base - Math.floor(i / 12) * 16; ctx.beginPath(); ctx.arc(cx, cy, 6.5, 0, 6.283); ctx.fillStyle = ERW.paars.vlag; ctx.fill(); }
+  for (let i = 0; i < wi; i++) { const cx = x2 + (i % 12) * 16, cy = base - Math.floor(i / 12) * 16; ctx.beginPath(); ctx.arc(cx, cy, 6.5, 0, 6.283); ctx.fillStyle = ERW.wit.vlag; ctx.fill(); }
+  text(ctx, 'paars 302', x1 + 90, 820, fTekst(36, 700), C.text, 'center'); text(ctx, 'wit 98', x2 + 90, 820, fTekst(36, 700), C.text, 'center');
+  card(ctx, 1460, 220, 400, 200, 'Na 4', '2 paars · 2 wit', 1, C.koraal); card(ctx, 1460, 470, 400, 200, 'Na 400', '302 : 98 ≈ 3 : 1', 1, C.groen);
+  meta(ctx, 'simulatie · 400 toevallige bevruchtingen');
+  kast(ctx, 'Het schema geeft dus kansen, geen aantallen.'); };
+
+// ---------- K6 · Terugkruising: AA of Aa?
+S.k6 = () => { bg(ctx, 'schema');
+  const paneel = (x, kop, g, kinderen) => { roundRect(ctx, x, 170, 780, 600, 18); shape(ctx, rgba(C.fill, 0.6), C.line, 1.5); text(ctx, kop, x + 390, 240, fTekst(40, 700), C.text, 'center');
+    genChip(ctx, g, x + 230, 320, 1, 38); text(ctx, '×', x + 390, 335, fTekst(56, 700), C.text, 'center'); genChip(ctx, 'aa', x + 550, 320, 1, 38);
+    kinderen.forEach((k, i) => plantje(ctx, x + 120 + i * 180, 730, 260, k)); };
+  paneel(120, 'als de plant AA is', 'AA', ['paars', 'paars', 'paars', 'paars']); paneel(1020, 'als de plant Aa is', 'Aa', ['paars', 'wit', 'paars', 'wit']);
+  text(ctx, 'alles paars', 510, 820, fTekst(36, 700), C.text2, 'center'); text(ctx, '1 paars : 1 wit', 1410, 820, fTekst(36, 700), C.groen, 'center');
+  kast(ctx, 'Zie je ook maar één witte nakomeling, dan weet je het zeker.'); };
+
+// ---------- T5 · Terug naar het gezin: drie kinderen, geen 1 : 2 : 1
+S.t5 = () => { kamer(ctx); gezin(ctx, 0.3, { hl: { sara: 1, levi: 1, jens: 1 } });
+  allelChip(ctx, 'Aa', gx('dennis'), kopY('dennis') - 60, 1); allelChip(ctx, 'Aa', gx('marieke'), kopY('marieke') - 60, 1);
+  allelChip(ctx, 'AA', gx('sara'), kopY('sara') - 60, 1, { px: 40 }); allelChip(ctx, 'aa', gx('levi'), kopY('levi') - 60, 1, { px: 40 }); allelChip(ctx, 'Aa', gx('jens'), kopY('jens') - 60, 1, { px: 40 });
+  card(ctx, 1450, 300, 430, 290, 'Per kind', 'kans op aa: ¼, bij elk kind opnieuw. Drie kinderen zeggen weinig over de verhouding.', 1);
+  kast(ctx, 'Bij zo weinig kinderen wijkt het vaak af.'); twijfelTag(ctx, 'twijfel · recap gezin de wit'); };
+
+const id = location.hash.slice(1) || 'k1';
+document.fonts.ready.then(() => { try { (S[id] || S.k1)(); } catch (e) { console.error(e.stack); } window.KLAAR = true; });
+</script></body></html>
