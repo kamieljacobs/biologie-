@@ -64,3 +64,9 @@ Algemene feedback van Kamiel die voor (bijna) elke film geldt. Lees dit vóór h
 ## Onderbouw (kerndoelen)
 - In onderbouwfilms nergens havo, vwo of vmbo noemen, niet in beeld, niet in de stem en niet in het docentdeel: in de onderbouw is dat niet belangrijk (Kamiel, 16 okt 2026).
 - De niveauknop heet **Basis** / **Uitdaging**; het extra blok heet 'uitdaging' (in beeld, hoofdstukmenu, begrippen, transcript, checkvragen). Een gesproken aankondiging als "Voor havo en vwo gaan we nog een stap verder." niet meer opnemen; in bestaande films knipt de speler hem weg.
+
+- **Minder paars, meer contrast** (Kamiel 28 okt 2026, algemene feedback, geldt voor alle films en de beeldbank): de beeldbank en de films zijn langzaam steeds paarser geworden, terwijl het contrast tussen rood, groen en blauw beter werkt. Schuif de stijl **geleidelijk** terug, geen grote omslag in één keer:
+  - paars alleen waar het een betekenis heeft (kern, DNA/RNA, erfelijkheid, hormonen, de vwo-balk), niet als algemene vul-, schaduw- of achtergrondtint;
+  - bij nieuwe en herziene objecten voorrang aan duidelijk verschillende tinten uit het palet (rood/koraal, groen, blauw/teal, oker), zodat naast elkaar liggende onderdelen goed van elkaar te onderscheiden zijn;
+  - bestaande objecten en films gaan mee bij hun volgende herziening, niet allemaal tegelijk.
+
