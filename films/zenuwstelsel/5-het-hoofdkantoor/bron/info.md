@@ -5,8 +5,9 @@
 | Bestand | films/zenuwstelsel/5-het-hoofdkantoor.html |
 | Reeks / nummer | Zenuwstelsel, film 5 (pagina: “wat je hersenen doen als je een nummer hoort · 5 vwo · film 5 van de reeks Zenuwstelsel”; `plan.series`: “Het zenuwstelsel · film 5 van 7”) |
 | Doelgroep / niveau | 5 vwo, één niveau (geen havo/vwo-schakelaar) |
-| Versie / datum | 1.1 · 5 oktober 2026 (credits op de pagina) |
-| Prompt | onbekend · gemaakt 5 okt |
+| Versie / datum | **1.2 · 28 oktober 2026** — opwaardering naar prompt v13 (B14, zonder keuring, alleen beeld; stem, script, vragen en timings gelijk); 1.1 · 5 oktober 2026 |
+| Prompt | v13 |
+| Voldoet aan | prompt v13 (28 okt 2026, zonder keuring). Bewust niet: eigen lichte reeksontwerp van vóór Part C (lichte achtergrond, Inter, eigen kleuren per functie) blijft, want de hele reeks omzetten is een nieuwe stijl (vraag in `opwaardering-v13.md`); de eigen hersentekening (zijaanzicht met kwabben, doorsnede) blijft, omdat de beeldbank geen zijaanzicht met kwabben heeft en alle overlays (gebieden, banen) erop hangen; de homunculus blijft een schematisch mannetje (klassiek schema, geen persoon met een rol); de temperatuur-aanvulling in a5 staat nog op de wachtlijst (geen opnames); oude versie in `bron/oud/5-het-hoofdkantoor-v1.1.html` |
 | Stem / model | Roos (ElevenLabs, eleven_multilingual_v2) |
 | Duur | 5:21 gesproken (som van 13 mp3’s, 321,4 s); speler-totaal incl. titel-, hoofdstuk- en eindkaarten en 5 aftellingen van 8 s: 6:31 |
 | Beeldstijl | Eigen reeksontwerp van vóór de Part C-stijlkaart: vlakke ‘wereld’ (zaterdagochtend, keuken, radio, meisje, inzet arm met kippenvel, lens op het hoofd) en lichte schema-scènes met een ‘plattegrond’: zijaanzicht van de linkerhersenhelft waarop per hoofdstuk een afdeling oplicht, diepe structuren gestippeld; Inter-systeemfont |
@@ -183,6 +184,13 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`; z
   - *normwaarde, huidvaten, rillen* — laag risico, als geschreven.
 
 ## Wijzigingen
+- **1.2 · 28 okt 2026** — opwaardering prompt v13 (B14, zonder keuring; Regeling-batch). Geen nieuwe opname. Details en open vragen: `opwaardering-v13.md`; vakinhoud: `bronnen.md`.
+  - *s00 (cold open):* poppetje (rond hoofd met smiley, blokvormig lijf) vervangen door castpersonage Noor ('jij', zomeroutfit zodat het kippenvel op de blote arm klopt; geen naam in beeld of stem). Mond: `blij`, bij 'refrein' wisselend `praat` open/dicht; de rechtervoet (alleen de schoen) is een los beeld dat bij 'tikt' op de hiel kantelt (`#w-foot2`, draaipunt `NOOR_HIEL`). lib_cast.js afgeschermd in de film (`window.CASTSVG`).
+  - *s00:* realistische maten (aanrecht 87 cm = 210 px): Noor 1,60 m (was ± 2,3 m naast het aanrecht), radio ± 50 cm breed (was ± 1,25 m); de noten starten bij de kleinere radio. Huid in de kippenvel-inzet = huid van Noor.
+  - *s00 (lens 'Wie regelt dat?'):* de lens met de hersenen lag óp het hoofd, over het gezicht (BEELDAFSPRAKEN: niet in het hoofd over het gezicht heen). Nu een zoomcirkel náást het hoofd (links, boven het raam) met een ring om het hoofd en twee lijnen ernaartoe (`lensLijnen`).
+  - *Speler (ondertitels):* bij Vragen uit flitste na de sprong nog even ‘Het goede antwoord is …’; `renderCaption` laat die frase en ‘Wat denk je?’ nu weg bij Vragen uit.
+  - *Credits:* versie 1.2.
+  - *Let op:* regelnummers in ‘Techniek’ gelden voor 1.1; vóór `window.FILM_AUDIO` staan nu twee extra scripts (±850 regels). Zoek op functienaam.
 - 15 okt 2026 — Speler: de knop Vragen aan/uit (onthouden in `bk-vragen`, ook `?vragen=uit`) werkt nu altijd, ook na spoelen, in pauze en als je hem halverwege omzet. Bij Vragen uit vallen weg: de vraag zelf, de gesproken vraagzin(nen) ervoor (zinnen op '?', 'Wat denk je?', 'Denk even na.', 'Eerst een voorspelling.') en een los antwoord direct erna ('Antwoord B.', 'Ja.', 'Nee.', 'Precies.'); gewone uitlegzinnen blijven staan. De tijdbalk, tijd en hoofdstuktijden tonen de ingekorte duur. Code: `bkBouw()` maakt `BK.k` (stukken die de speler overslaat); regelnummers in de spelercode zijn daardoor een paar regels verschoven. Hoofdstukkaart 2,2 s in plaats van 3,0 s (duur van de `card`-stukken in `SEGS`).
 
 ## Wijziging 16 okt 2026: begrippen als kaartjesraster
