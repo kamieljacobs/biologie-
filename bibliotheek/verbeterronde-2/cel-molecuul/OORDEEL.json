@@ -1,0 +1,41 @@
+[
+ {
+  "obj": "zetmeelspiraal",
+  "scores": {
+   "X": {
+    "klopt": 5,
+    "herkenbaar": 5,
+    "stijl": 5,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 23
+   },
+   "Y": {
+    "klopt": 2,
+    "herkenbaar": 2,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 14
+   },
+   "Z": {
+    "klopt": 5,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "X",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "kleine versie rechtsonder wordt een kluwentje; voor/achter daar nauwelijks te zien",
+   "Y": "geen schroef maar een zigzag/golf van zeshoeken: voor- en achterkant niet te lezen, precies wat het recept uitsluit",
+   "Z": "doorschijnend lint om de keten maakt het voller en drukker; het lint voegt niets toe wat het recept vraagt"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ }
+]

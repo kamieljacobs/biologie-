@@ -1,0 +1,41 @@
+[
+ {
+  "obj": "bladDoorsnede",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 3,
+    "stijl": 2,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 15
+   },
+   "Y": {
+    "klopt": 5,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 22
+   },
+   "Z": {
+    "klopt": 3,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 16
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "3D-blok met bovenvlak en onderkant vol huidmondjes is druk; gasmoleculen zweven los zonder pijlen, CO2/O2-richting niet te lezen",
+   "Y": "opperhuidcellen vrij donker grijs; 'doorzichtig' komt minder over",
+   "Z": "palissadeweefsel als egaal vlak, nerf als abstracte gekleurde schijf, en de loep met het huidmondje maakt het beeld omslachtig"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ }
+]

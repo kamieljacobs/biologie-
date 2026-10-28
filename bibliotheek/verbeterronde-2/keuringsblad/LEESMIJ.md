@@ -1,0 +1,1 @@
+Keuringsblad ronde 2: artifact 'Beeldbank: ronde 2' https://claude.ai/artifact/JBRvj66DTrtGoHwFqv5imr, db-collecties keuze (doc-id <groep>__<obj>, keuze oud|A|B|R1|geen|gelijk, opmerking), eiwit (doc-id obj, oordeel goed|terug|anders), vragen. Afbeeldingen = stills uit de objectmappen.

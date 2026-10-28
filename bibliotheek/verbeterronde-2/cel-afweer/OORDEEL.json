@@ -1,0 +1,32 @@
+[
+ {
+  "obj": "antistofY",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 5,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   }
+  },
+  "winnaar": "Y",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "kralen overlappen rommelig bij het scharnier; kralenketen maakt de Y drukker dan nodig",
+   "Y": "bindplaats is alleen een schuin afgeknipte armtop, zonder pasvorm; zonder antigeen zie je niet dat daar iets past"
+  },
+  "overnemen": "het kommetje/de pasvorm in de top van elke arm uit X (V-deel van zware + lichte keten samen als één holte), zodat de twee bindplaatsen ook zonder antigeen zichtbaar zijn",
+  "combineren": true,
+  "fout": ""
+ }
+]
