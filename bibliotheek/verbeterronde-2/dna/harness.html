@@ -1,0 +1,19 @@
+<!doctype html><html><head><meta charset="utf-8"><style>body{margin:0;background:#1A2740}canvas{width:1280px;height:720px;display:block}</style></head><body>
+<canvas id="c" width="1920" height="1080"></canvas>
+<script src="/films/voeding/1-wat-zit-er-in-je-eten/bron/src/lib.js"></script>
+<script src="/films/voeding/1-wat-zit-er-in-je-eten/bron/src/lib_voeding.js"></script>
+<script src="/personages/lib_cast.js"></script>
+<script src="/films/evolutie/8-stambomen-lezen/bron/src/lib_micro_evo.js"></script>
+<script src="/bibliotheek/lib_bio.js"></script>
+<script>
+if(typeof circ==='undefined') window.circ=function(ctx,x,y,r,fill,stroke,lw=1.5){ ctx.beginPath(); ctx.arc(x,y,Math.max(0.1,r),0,6.2832); if(fill){ ctx.fillStyle=fill; ctx.fill(); } if(stroke){ ctx.strokeStyle=stroke; ctx.lineWidth=lw; ctx.stroke(); } };
+// ?obj=<map>&v=oud|A|B[&pal=huidig|A|B][&mee=<map>,<map>]  (pal standaard = v; 'mee' = andere objecten in dezelfde versie, bv. de basen)
+const Q=new URLSearchParams(location.search), OBJ=Q.get('obj'), VER=Q.get('v'), PAL=Q.get('pal')||(VER==='oud'?'huidig':VER), MEE=(Q.get('mee')||'').split(',').filter(Boolean);
+const D='/bibliotheek/verbeterronde-2/dna/';
+function laad(src){ return new Promise((r,j)=>{ const e=document.createElement('script'); e.src=src+'?'+Date.now(); e.onload=r; e.onerror=()=>j(src); document.head.appendChild(e); }); }
+window.vak=(ctx,x,y,w,h)=>{ ctx.fillStyle=C.bgMicro; roundRect(ctx,x,y,w,h,18); ctx.fill(); };
+(async()=>{ try{ if(PAL!=='huidig') await laad(D+'kleuren/palet'+PAL+'.js');
+  if(VER!=='oud'){ for(const m of MEE) await laad(D+m+'/'+VER+'.js'); if(OBJ!=='kleuren') await laad(D+OBJ+'/'+VER+'.js'); }
+  await laad(D+OBJ+'/scene.js');
+  const ctx=document.getElementById('c').getContext('2d'); ctx.fillStyle=C.bgSchema; ctx.fillRect(0,0,1920,1080); scene(ctx); window.KLAAR=1; }catch(e){ window.FOUT=String(e); throw e; } })();
+</script></body></html>
