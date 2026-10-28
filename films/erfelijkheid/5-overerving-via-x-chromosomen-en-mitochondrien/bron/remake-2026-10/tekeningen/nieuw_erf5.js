@@ -27,15 +27,15 @@ function genoTekst(ctx, g, x, y, px = 48, o = {}) {
     if (sup) { ctx.font = fS; ctx.fillText(sup, cx + 2, y - px * 0.42); cx += wS(sup) + 2; } });
   ctx.restore(); return tot;
 }
-const G = s => s.split(' ').map(t => { const m = t.match(/^([XY])(?:\^([Aa]))?(?::([mvn]))?$/); return [m[1], m[2] || '', m[3] || 'n']; });
+const G = s => s.split(' ').map(t => { const m = t.match(/^([XY])(?::([mvn]))?(?:\^([Aa]))?$/); return [m[1], m[3] || '', m[2] || 'n']; }); // 'X:m^A' = X van moeder met allel A
 
 // -------------------------------------------------------------------------------------
 // GESLACHTSCHROMOSOOM ALS STAAFJE met het allel als band (X lang, Y kort, zelfde lengteverhouding als het karyogram
 // van Chromosomen 2.1: kLen(23) en kLen(24)). Eén chromatide, want in gameten en schema's is het niet gekopieerd.
 // -------------------------------------------------------------------------------------
 function geslStaaf(ctx, soort, x, y, s, kl, allel = '', a = 1) { if (a <= 0.01) return; const L = (soort === 'Y' ? kLen(24) : kLen(23)) * s;
-  chromatide1(ctx, x, y + L / 2, L, 0, kl, a, 11 * s);
-  if (allel && soort === 'X') { ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 9 * s, y - L * 0.08 - 6 * s, 18 * s, 12 * s, 3 * s); shape(ctx, allel === 'a' ? XK.ziek : C.goud, null); ctx.restore(); } }
+  chromatide1(ctx, x, y, L, 0, kl, a, 22 * s);
+  if (allel && soort === 'X') { ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 13 * s, y - L * 0.08 - 6 * s, 26 * s, 12 * s, 3 * s); shape(ctx, allel === 'a' ? XK.ziek : C.goud, null); ctx.restore(); } }
 
 // -------------------------------------------------------------------------------------
 // AARDBEI (nieuw, eenvoudig). Recept: kegelvormige schijnvrucht ± 3 cm, breedste deel bij het kelkje, nootjes
@@ -112,8 +112,8 @@ function kegelKrommen(ctx, x, y, w, h, o = {}) { const { a = 1, schuif = 0, as =
   // spectrumbalk onder de as (gedempt): de enige plek waar 'echte' lichtkleuren staan
   const sp = [[380, '#5A3E8C'], [450, '#3E5FB0'], [490, '#3E8FA8'], [530, '#4FA060'], [575, '#C8B840'], [610, '#D08A3A'], [700, '#B83A34']];
   for (let l = l0; l < l1; l += 2) { let i = 0; while (i < sp.length - 2 && sp[i + 1][0] < l) i++; const u = clamp((l - sp[i][0]) / (sp[i + 1][0] - sp[i][0]), 0, 1); ctx.fillStyle = _mixHex(sp[i][1], sp[i + 1][1], u); ctx.fillRect(px(l), y + 6, w / (l1 - l0) * 2 + 0.5, 14); }
-  if (as) { for (let l = 400; l <= 700; l += 100) metaText(ctx, String(l), px(l), y + 58, C.text2, 'center', 28); metaText(ctx, 'golflengte licht · nanometer', x + w / 2, y + 100, C.text2, 'center', 28); metaText(ctx, 'gevoeligheid', x - 20, y - h - 20, C.text2, 'left', 28); }
-  const kromme = (pk, kl, lw = 5, dash = null) => { ctx.strokeStyle = kl; ctx.lineWidth = lw; if (dash) ctx.setLineDash(dash); ctx.beginPath(); for (let l = l0; l <= l1; l += 3) { const z = Math.log(l / pk) / 0.075; const v = Math.exp(-z * z / 2); l === l0 ? ctx.moveTo(px(l), y - v * h) : ctx.lineTo(px(l), y - v * h); } ctx.stroke(); ctx.setLineDash([]); };
+  if (as) { for (let l = 400; l <= 700; l += 100) metaText(ctx, String(l), px(l), y + 58, C.text2, 'center', 28); metaText(ctx, 'golflengte licht · nanometer', x + w / 2, y + 100, C.text2, 'center', 28); metaText(ctx, 'gevoeligheid', x, y - h - 60, C.text2, 'left', 28); }
+  const kromme = (pk, kl, lw = 5, dash = null) => { const bw = pk < 470 ? 0.06 : 0.075; ctx.strokeStyle = kl; ctx.lineWidth = lw; if (dash) ctx.setLineDash(dash); ctx.beginPath(); for (let l = l0; l <= l1; l += 3) { const z = Math.log(l / pk) / bw; const v = Math.exp(-z * z / 2); l === l0 ? ctx.moveTo(px(l), y - v * h) : ctx.lineTo(px(l), y - v * h); } ctx.stroke(); ctx.setLineDash([]); };
   kromme(420, XK.S); kromme(530, XK.M); if (schuif > 0.01) { ctx.save(); ctx.globalAlpha *= 0.4; kromme(560, XK.L, 3, [10, 10]); ctx.restore(); }
   kromme(lerp(560, 545, schuif), XK.L);
   ctx.restore(); return { px }; }

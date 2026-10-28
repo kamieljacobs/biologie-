@@ -1,0 +1,145 @@
+<!doctype html><html lang="nl"><head><meta charset="utf-8"><title>Erfelijkheid 4 keyframes</title>
+<link rel="stylesheet" href="eng/fonts.css">
+<style>body{margin:0;background:#000}canvas{display:block}</style></head><body>
+<canvas id="c" width="1920" height="1080"></canvas>
+<script src="eng/lib.js"></script><script src="eng/lib_cast_actueel.js"></script><script src="eng/lib_bio_actueel.js"></script>
+<script>if(typeof circ==="undefined") window.circ=function(ctx,x,y,r,fill,stroke,lw=1.5){ ctx.beginPath(); ctx.arc(x,y,Math.max(0.1,r),0,6.2832); if(fill){ ctx.fillStyle=fill; ctx.fill(); } if(stroke){ ctx.strokeStyle=stroke; ctx.lineWidth=lw; ctx.stroke(); } };</script>
+<script src="nieuw_erf4.js"></script>
+<script>
+const ctx = document.getElementById('c').getContext('2d');
+const DECOR = new Image(); DECOR.src = 'moestuin.webp';
+function schemaBg() { bg(ctx, 'schema'); }
+function microBg() { ctx.fillStyle = C.bgMicro; ctx.fillRect(0, 0, W, H); }
+function kast(s) { ctx.save(); ctx.font = fTekst(44, 700); const lines = []; let line = ''; for (const w of s.split(' ')) { const t = line ? line + ' ' + w : w; if (ctx.measureText(t).width > 1560 && line) { lines.push(line); line = w; } else line = t; } lines.push(line);
+  const w = Math.min(1640, Math.max(...lines.map(l => ctx.measureText(l).width)) + 64), h = 40 + lines.length * 54; roundRect(ctx, W / 2 - w / 2, 1040 - h, w, h, 12); shape(ctx, rgba('#0D1420', 0.9), null);
+  lines.forEach((l, i) => text(ctx, l, W / 2, 1040 - h + 66 + i * 54, fTekst(44, 700), C.text, 'center')); ctx.restore(); }
+function vwoBalk() { ctx.fillStyle = C.paars; ctx.fillRect(0, 0, 6, H); metaText(ctx, 'vwo', 40, 60, C.paars, 'left', 28); }
+function twijfelTag(s) { ctx.save(); ctx.font = fMeta(24); ctx.letterSpacing = '3px'; const w = ctx.measureText(s.toUpperCase()).width + 50; ctx.letterSpacing = '0px'; roundRect(ctx, W - w - 30, 24, w, 48, 8); shape(ctx, rgba(C.koraal, 0.18), C.koraal, 1.5); metaText(ctx, s, W - 50, 57, C.koraal, 'right', 24); ctx.restore(); }
+function meta(s, x = 70, y = 851, al = 'left') { metaText(ctx, s, x, y, C.text2, al, 28); }
+function titelLinks(s) { text(ctx, s, 70, 120, fTekst(48, 700), C.text, 'left'); }
+function pijl(x1, y1, x2, y2, col = C.line, lw = 2.5) { ctx.save(); ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+  const an = Math.atan2(y2 - y1, x2 - x1); ctx.beginPath(); ctx.moveTo(x2, y2); ctx.lineTo(x2 - 16 * Math.cos(an - 0.45), y2 - 16 * Math.sin(an - 0.45)); ctx.moveTo(x2, y2); ctx.lineTo(x2 - 16 * Math.cos(an + 0.45), y2 - 16 * Math.sin(an + 0.45)); ctx.stroke(); ctx.restore(); }
+// erwt-fenotype als klein zaadje in een vakje
+const ERWT = { GR: { kleur: 'geel', vorm: 'rond' }, Gr: { kleur: 'geel', vorm: 'gerimpeld' }, gR: { kleur: 'groen', vorm: 'rond' }, gr: { kleur: 'groen', vorm: 'gerimpeld' } };
+function fenoErwt(gt) { const G = gt.includes('G') ? 'G' : 'g', R = gt.includes('R') ? 'R' : 'r'; return ERWT[G + R]; }
+const VLIEG = (gt) => ({ lijf: /G/.test(gt) ? 'grijs' : 'zwart', vleugel: /V/.test(gt) ? 'normaal' : 'stomp' });
+
+const S = {};
+// ---------- testvel nieuwe tekeningen
+S.testvel = () => { schemaBg(); titelLinks('Testvel nieuwe tekeningen · erfelijkheid 4');
+  [['geel', 'rond'], ['geel', 'gerimpeld'], ['groen', 'rond'], ['groen', 'gerimpeld']].forEach(([k, v], i) => { erwt(ctx, 160 + i * 150, 260, 50, { kleur: k, vorm: v, seed: i + 2 }); metaText(ctx, k + ' ' + v, 160 + i * 150, 345, C.text2, 'center', 18); });
+  peul(ctx, 900, 260, 380, { open: 1, erwten: [ERWT.GR, ERWT.gR, ERWT.GR, ERWT.Gr, ERWT.GR, ERWT.GR, ERWT.gr] });
+  erwtenplant(ctx, 1400, 520, 420, {});
+  [['grijs', 'normaal', 'v'], ['grijs', 'stomp', 'v'], ['zwart', 'normaal', 'm'], ['zwart', 'stomp', 'm']].forEach(([l, v, s], i) => { fruitvlieg(ctx, 200 + i * 300, 700, 230, { lijf: l, vleugel: v, sekse: s }); metaText(ctx, `${l} · ${v} · ${s === 'v' ? 'vrouwtje' : 'mannetje'}`, 200 + i * 300, 880, C.text2, 'center', 18); });
+  paarGenen(ctx, 1450, 760, 220, [[0.3, 'G'], [0.62, 'V']], [[0.3, 'g'], [0.62, 'v']]);
+  staafGenen(ctx, 1700, 760, 220, E4.p1, [[0.3, 'G'], [0.62, 'v']], { kant: 1, segs: [[0, 0.46, E4.p1], [0.46, 1, E4.p2]] });
+};
+
+// ---------- T2 · opening: Opa Henk in de moestuin met open peulen (Macro + decor) → zoomcirkel
+S.t2 = () => { bg(ctx, 'schema'); ctx.save(); ctx.globalAlpha = 0.6; ctx.drawImage(DECOR, 0, 0, W, H); ctx.restore();
+  erwtenplant(ctx, 250, 880, 470, { seed: 2 }); erwtenplant(ctx, 420, 880, 430, { seed: 5, peulen: 2 });
+  let hand = [0, 0]; persoon(ctx, 'henk', 700, 900, 560, { uit: 'blij', pose: 'vasthouden', kijk: 1, hold: (c, hx, hy) => { hand = [hx, hy]; peul(c, hx + 50, hy - 10, 150, { open: 1, rot: -0.15, erwten: [ERWT.GR, ERWT.Gr, ERWT.GR, ERWT.gR, ERWT.GR] }); } });
+  zoomCircle(ctx, 1380, 400, 300, hand[0] + 50, hand[1] - 10, 'erwten uit een paar peulen', 1, () => { bg(ctx, 'schema');
+    const lijst = ['GR', 'GR', 'Gr', 'GR', 'gR', 'GR', 'gr', 'GR', 'gR', 'Gr', 'GR', 'gR']; lijst.forEach((g, i) => { const c = i % 4, r = Math.floor(i / 4); erwt(ctx, 1200 + c * 120 + (r % 2) * 30, 290 + r * 115, 42, Object.assign({ seed: i + 1, hl: (g === 'Gr' || g === 'gR') ? 1 : 0 }, ERWT[g])); }); });
+  naamBij(ctx, 'nieuwe combinaties', 'geel-gerimpeld · groen-rond', 1000, 150, 1, 'right', C.goud);
+  kast('Maar ook gele, gerimpelde en groene, ronde. Die combinaties hadden de grootouders niet.'); twijfelTag('twijfel T2 · opening');
+};
+
+// ---------- K1 · meiose I: twee liggingen naast elkaar → vier soorten gameten
+function metaCel(cx, cy, swap, gl) { ctx.beginPath(); ctx.ellipse(cx, cy, 300, 230, 0, 0, 6.283); shape(ctx, rgba('#2A3A58', 0.55), C.line, 1.5);
+  ctx.save(); ctx.setLineDash([10, 10]); ctx.strokeStyle = rgba(C.line, 0.5); ctx.beginPath(); ctx.moveTo(cx, cy - 210); ctx.lineTo(cx, cy + 210); ctx.stroke(); ctx.restore();
+  // paar 1 (kleur) boven, paar 2 (vorm) onder; links/rechts = naar welke pool
+  const P = [[cy - 85, 'G', 'g', 150], [cy + 95, 'R', 'r', 105]];
+  P.forEach(([y, A, a], k) => { const sw = k === 1 && swap; const L = sw ? [E4.p2, a] : [E4.p1, A], R = sw ? [E4.p1, A] : [E4.p2, a]; const len = k ? 110 : 150;
+    cdChromosoom(ctx, cx - 48, y, len, { w: 16, kl: L[0], xv: 0.12 }); cdChromosoom(ctx, cx + 48, y, len, { w: 16, kl: R[0], xv: 0.12 });
+    text(ctx, L[1], cx - 120, y + 14, fTekst(40, 700), C.text, 'center'); text(ctx, R[1], cx + 120, y + 14, fTekst(40, 700), C.text, 'center'); });
+  pijl(cx - 180, cy, cx - 260, cy, C.line); pijl(cx + 180, cy, cx + 260, cy, C.line);
+  gameetChip(ctx, gl[0], cx - 330, cy + 300, { px: 40 }); gameetChip(ctx, gl[1], cx + 330, cy + 300, { px: 40 });
+  pijl(cx - 250, cy + 120, cx - 320, cy + 250); pijl(cx + 250, cy + 120, cx + 320, cy + 250); }
+S.k1 = () => { schemaBg(); titelLinks('Meiose I: hoe elk paar ligt, is toeval');
+  metaCel(520, 430, false, ['GR', 'gr']); metaCel(1400, 430, true, ['Gr', 'gR']);
+  metaText(ctx, 'ligging 1 · kans een half', 520, 185, C.grain, 'center', 28); metaText(ctx, 'ligging 2 · kans een half', 1400, 185, C.grain, 'center', 28);
+  naamBij(ctx, 'paar met het kleurgen', null, 960, 355, 1, 'center'); naamBij(ctx, 'paar met het vormgen', null, 960, 535, 1, 'center');
+  meta('meiose I · chromosomen met twee chromatiden · vereenvoudigd'); kast('Ligt het andersom, dan grote G met kleine r, of kleine g met grote R.'); };
+
+// ---------- K2 · het 4 × 4-schema (vwo)
+S.k2 = () => { schemaBg(); vwoBalk(); const G = ['GR', 'Gr', 'gR', 'gr'], c = 150, x0 = 330, y0 = 110;
+  kruisSchema(ctx, x0, y0, 4, 4, c, { kopH: 120, zijW: 150, kop: (i, x, y) => gameetChip(ctx, G[i], x, y, { px: 34 }), zij: (j, x, y) => gameetChip(ctx, G[j], x, y, { px: 34 }),
+    cel: (i, j, x, y) => { const gt = G[j] + G[i]; const f = fenoErwt(gt); erwt(ctx, x, y - 14, 30, Object.assign({ seed: i * 4 + j }, f)); const gg = (G[j][0] < 'a' || G[i][0] < 'a' ? '' : '') ; const pr = (a, b) => (a <= b ? a + b : b + a); text(ctx, pr(G[j][0], G[i][0]) + pr(G[j][1], G[i][1]), x, y + 50, fTekst(26, 600), C.text2, 'center'); } });
+  metaText(ctx, 'stuifmeel', x0 + 150 + 300, 92, C.text2, 'center', 26); metaText(ctx, 'eicellen', 250, y0 + 120 + 300, C.text2, 'center', 26);
+  const X = 1340; [['GR', 9, 'geel, rond'], ['Gr', 3, 'geel, gerimpeld'], ['gR', 3, 'groen, rond'], ['gr', 1, 'groen, gerimpeld']].forEach(([g, n, s], i) => { erwt(ctx, X, 260 + i * 120, 36, Object.assign({ seed: i + 7 }, ERWT[g])); text(ctx, String(n), X + 80, 276 + i * 120, fTitel(64), C.text, 'center'); text(ctx, s, X + 140, 272 + i * 120, fTekst(36, 600), C.text, 'left'); });
+  text(ctx, '9 : 3 : 3 : 1', X + 170, 790, fTitel(64), C.goud, 'center');
+  meta('dihybride kruising · elk vakje dezelfde kans'); kast('Negen geel en rond. Drie geel en gerimpeld. Drie groen en rond. Eén groen en gerimpeld.'); };
+
+// ---------- K6 · welke allelen samen liggen, lees je af aan de ouders (basis)
+function vliegKolom(x, P1, P2, F1, kop) { metaText(ctx, kop, x, 130, C.grain, 'center', 26);
+  fruitvlieg(ctx, x - 150, 250, 140, VLIEG(P1[0] + P1[1])); fruitvlieg(ctx, x + 150, 250, 140, VLIEG(P2[0] + P2[1])); text(ctx, '×', x, 262, fTekst(48, 700), C.text2, 'center');
+  paarGenen(ctx, x - 150, 470, 170, [[0.3, P1[0]], [0.66, P1[1]]], [[0.3, P1[0]], [0.66, P1[1]]], { k1: E4.p1, k2: E4.p1, gap: 40, px: 34 });
+  paarGenen(ctx, x + 150, 470, 170, [[0.3, P2[0]], [0.66, P2[1]]], [[0.3, P2[0]], [0.66, P2[1]]], { k1: E4.p2, k2: E4.p2, gap: 40, px: 34 });
+  text(ctx, 'P', x - 300, 262, fTekst(40, 700), C.text2, 'center'); pijl(x, 590, x, 640);
+  paarGenen(ctx, x, 750, 170, [[0.3, F1[0]], [0.66, F1[1]]], [[0.3, F1[2]], [0.66, F1[3]]], { gap: 46, px: 38 }); text(ctx, 'F1', x - 300, 760, fTekst(40, 700), C.text2, 'center'); }
+S.k6 = () => { schemaBg(); vliegKolom(500, 'GV', 'gv', 'GVgv', 'ouders: grijs-normaal × zwart-stomp'); vliegKolom(1420, 'Gv', 'gV', 'GvgV', 'ouders: grijs-stomp × zwart-normaal');
+  naamBij(ctx, 'grijs naast normaal', null, 500 + 110, 880, 1, 'left', C.goud); naamBij(ctx, 'grijs naast stomp', null, 1420 + 110, 880, 1, 'left', C.goud);
+  kast('Hetzelfde genotype, een andere verdeling over de chromosomen.'); };
+
+// ---------- K3 · terugkruising: onafhankelijk (4 rijen) naast gekoppeld (2 rijen) (vwo)
+S.k3 = () => { schemaBg(); vwoBalk(); const c = 140;
+  metaText(ctx, 'genen op twee chromosoomparen', 470, 110, C.text2, 'center', 26); metaText(ctx, 'gekoppelde genen · model zonder crossing-over', 1400, 110, C.text2, 'center', 26);
+  const A = ['GV', 'Gv', 'gV', 'gv']; kruisSchema(ctx, 300, 130, 1, 4, c, { kopH: 110, zijW: 150, kop: (i, x, y) => gameetChip(ctx, 'gv', x, y, { px: 32 }), zij: (j, x, y) => gameetChip(ctx, A[j], x, y, { px: 32 }),
+    cel: (i, j, x, y) => fruitvlieg(ctx, x, y + 6, 100, VLIEG(A[j])) });
+  text(ctx, '1 : 1 : 1 : 1', 690, 520, fTitel(56), C.text, 'left');
+  const B = ['GV', 'gv']; kruisSchema(ctx, 1230, 130, 1, 4, c, { kopH: 110, zijW: 150, kop: (i, x, y) => gameetChip(ctx, 'gv', x, y, { px: 32 }),
+    zij: (j, x, y) => { const g = j === 0 ? 'GV' : j === 3 ? 'gv' : null; if (g) gameetChip(ctx, g, x, y, { px: 32 }); else gameetChip(ctx, j === 1 ? 'Gv' : 'gV', x, y, { px: 32, a: 0.25 }); },
+    cel: (i, j, x, y) => { if (j === 0 || j === 3) fruitvlieg(ctx, x, y + 6, 100, VLIEG(j === 0 ? 'GV' : 'gv')); else text(ctx, '—', x, y + 14, fTekst(40, 600), rgba(C.text2, 0.6), 'center'); },
+    rand: (i, j) => (j === 1 || j === 2) ? rgba(C.line, 0.25) : null });
+  text(ctx, '1 : 1', 1620, 520, fTitel(56), C.goud, 'left');
+  meta('terugkruising met een zwart vliegje met stompe vleugels'); kast('Twee soorten nakomelingen in plaats van vier: zo herken je gekoppelde genen.'); };
+
+// ---------- K4 · F2 van gekoppelde genen: 2 × 2 vakjes, 3 : 1 (vwo)
+S.k4 = () => { schemaBg(); vwoBalk(); const G = ['GV', 'gv'], c = 220, x0 = 420, y0 = 170;
+  kruisSchema(ctx, x0, y0, 2, 2, c, { kopH: 140, zijW: 170, kop: (i, x, y) => { staafGenen(ctx, x - 40, y, 110, i ? E4.p2 : E4.p1, [[0.3, G[i][0]], [0.66, G[i][1]]], { kant: 1, px: 30, w: 20 }); },
+    zij: (j, x, y) => staafGenen(ctx, x - 20, y, 110, j ? E4.p2 : E4.p1, [[0.3, G[j][0]], [0.66, G[j][1]]], { kant: 1, px: 30, w: 20 }),
+    cel: (i, j, x, y) => fruitvlieg(ctx, x, y + 8, 140, VLIEG(G[i] + G[j])) });
+  text(ctx, 'GV/gv × GV/gv', x0 + 170 + c, y0 - 30, fTekst(36, 600), C.text2, 'center');
+  text(ctx, '3 : 1', 1340, 420, fTitel(80), C.goud, 'left'); text(ctx, 'in plaats van 9 : 3 : 3 : 1', 1340, 490, fTekst(36, 600), C.text2, 'left');
+  card(ctx, 1300, 580, 520, 170, 'Productregel per gen?', 'Werkt niet: de genen zijn niet onafhankelijk.', 1, C.koraal);
+  meta('model · zonder crossing-over'); kast('Het schema heeft vier vakjes, geen zestien.'); };
+
+// ---------- K5 · crossing-over tussen niet-zusterchromatiden → twee oude, twee nieuwe chromatiden (vwo, Micro)
+S.k5 = () => { microBg(); vwoBalk(); const y = 420, len = 300, cx = 660, w = 22, u = 0.5; // breukplek tussen de genen
+  // links: paar tegen elkaar met chiasma
+  const L1 = [[0, 1, E4.p1]], L2 = [[0, u, E4.p1], [u, 1, E4.p2]], R1 = [[0, u, E4.p2], [u, 1, E4.p1]], R2 = [[0, 1, E4.p2]];
+  cdChromosoom(ctx, cx - 62, y, len, { w, cen: 0.38, segsL: L1, segsR: L2 }); cdChromosoom(ctx, cx + 62, y, len, { w, cen: 0.38, segsL: R1, segsR: R2 });
+  const y0 = y - len * 0.38; const loc = [[0.24, 'G', 'g'], [0.78, 'V', 'v']];
+  loc.forEach(([uu, A, a]) => { const by = y0 + uu * len; [cx - 62 - 12, cx - 62 + 12, cx + 62 - 12, cx + 62 + 12].forEach(xx => { roundRect(ctx, xx - w / 2 - 2, by - 6, w + 4, 12, 3); shape(ctx, E4.band, _e4d(E4.band, 0.5), 1.5); }); });
+  text(ctx, 'G', cx - 140, y0 + 0.24 * len + 14, fTekst(40, 700), C.text, 'center'); text(ctx, 'V', cx - 140, y0 + 0.78 * len + 14, fTekst(40, 700), C.text, 'center');
+  text(ctx, 'g', cx + 140, y0 + 0.24 * len + 14, fTekst(40, 700), C.text, 'center'); text(ctx, 'v', cx + 140, y0 + 0.78 * len + 14, fTekst(40, 700), C.text, 'center');
+  ctx.save(); ctx.strokeStyle = C.goud; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.ellipse(cx, y0 + u * len, 44, 26, 0, 0, 6.283); ctx.stroke(); ctx.restore();
+  naamBij(ctx, 'crossing-over', 'tussen de twee genen', cx - 200, y0 + u * len + 4, 1, 'right', C.goud);
+  metaText(ctx, 'meiose I · homologe chromosomen tegen elkaar', cx, 130, C.grain, 'center', 26);
+  // rechts: vier chromatiden → vier gameten
+  pijl(900, y, 970, y); const gx = [1090, 1290, 1490, 1690], st = [['G', 'V', L1, 'oud'], ['G', 'v', L2, 'nieuw'], ['g', 'V', R1, 'nieuw'], ['g', 'v', R2, 'oud']];
+  st.forEach(([A, B, segs, s], i) => { gameetCel(ctx, gx[i], y, 92, (c, x, yy) => staafGenen(c, x - 16, yy, 130, E4.p1, [[0.18, A], [0.78, B]], { segs, kant: 1, px: 32, w: 20 }), { hl: s === 'nieuw' ? 1 : 0 });
+    naamBij(ctx, s, null, gx[i], y + 150, 1, 'center', s === 'nieuw' ? C.goud : C.text2); });
+  haak(ctx, gx[1] - 80, gx[2] + 80, y + 180, 'recombinanten', C.goud);
+  meta('vergroot · niet op schaal'); kast('Uit zo\'n cel komen vier gameten: twee met de oude combinatie, twee met een nieuwe.'); };
+
+// ---------- T4 · echte terugkruising: veel oud, weinig recombinant (zonder getallen) + schema met smallere rijen (vwo)
+S.t4 = () => { schemaBg(); vwoBalk(); const F = [['GV', 0.415], ['gv', 0.41], ['Gv', 0.09], ['gV', 0.085]]; // verhouding als bij Morgan (965 : 944 : 206 : 185 → 42 : 41 : 9 : 8 %), geen getallen in beeld
+  const bx = 140, by = 680, bw = 200, hmax = 380;
+  F.forEach(([g, p], i) => { const x = bx + i * 250, h = hmax * p / 0.415; roundRect(ctx, x, by - h, bw, h, 10); shape(ctx, i < 2 ? rgba(C.line, 0.55) : rgba(C.goud, 0.75), i < 2 ? C.line : C.goud, 1.5);
+    fruitvlieg(ctx, x + bw / 2, by - h - 85, 125, VLIEG(g)); metaText(ctx, i < 2 ? 'veel' : 'weinig', x + bw / 2, by + 40, i < 2 ? C.text2 : C.goud, 'center', 28); });
+  haak(ctx, bx + 2 * 250, bx + 3 * 250 + bw, by + 62, 'recombinanten', C.goud);
+  // schema: gameten van het vrouwtje met rijhoogte naar kans
+  const x0 = 1260, y0 = 200; text(ctx, 'gameten van het vrouwtje GV/gv', x0 + 230, y0 - 40, fTekst(32, 600), C.text2, 'center');
+  let yy = y0; F.forEach(([g, p]) => { const h = Math.max(64, 560 * p); roundRect(ctx, x0, yy, 460, h - 8, 8); shape(ctx, rgba(C.fill, 0.9), g === 'Gv' || g === 'gV' ? C.goud : C.line, 1.5);
+    gameetChip(ctx, g, x0 + 60, yy + (h - 8) / 2, { px: 26 }); text(ctx, p > 0.2 ? 'grote kans' : 'kleine kans', x0 + 130, yy + (h - 8) / 2 + 12, fTekst(30, 600), p > 0.2 ? C.text : C.goud, 'left'); yy += h; });
+   kast('De meeste jongen zijn grijs met normale vleugels, of zwart met stompe. Maar een paar zijn grijs met stompe, of zwart met normale.'); twijfelTag('twijfel T4 · hoe ver crossing-over gaat'); };
+
+// ---------- T3 · fruitvlieg (nieuwe tekening) in Macro-licht: vier fenotypen, vrouwtje en mannetje
+S.t3 = () => { schemaBg(); titelLinks('Het fruitvliegje · lijfkleur en vleugels');
+  [['GV', 'grijs · normale vleugels'], ['Gv', 'grijs · stompe vleugels'], ['gV', 'zwart · normale vleugels'], ['gv', 'zwart · stompe vleugels']].forEach(([g, s], i) => { const x = 280 + i * 450; fruitvlieg(ctx, x, 470, 300, Object.assign({ sekse: i < 2 ? 'v' : 'm' }, VLIEG(g))); naamBij(ctx, s, i < 2 ? 'vrouwtje' : 'mannetje', x, 720, 1, 'center'); });
+  ctx.fillStyle = C.text; ctx.fillRect(70, 840, 120, 5); meta('1 millimeter · vergroot', 210, 851); twijfelTag('twijfel T3 · nieuwe tekening'); };
+
+window.addEventListener('load', () => { const id = location.hash.slice(1) || 'testvel'; document.fonts.ready.then(() => { const go = () => { S[id](); window.KLAAR = true; }; if (DECOR.complete) go(); else DECOR.onload = go; }); });
+</script></body></html>
