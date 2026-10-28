@@ -28,3 +28,11 @@ Beweringen, nieuwe status:
 
 ## Ronde 2 (C)
 B in _grKluwen-lint: helften achter het DNA, armen ervoor (klem na herkenning); verder uiteenwijken zodat AATT/TTAA zichtbaar zijn. Onderbouwing: RCSB 1ERI (homodimeer), Lodish fig. 6-11, MIT, Carr. Niets toegevoegd dat niet in de genoemde bronnen staat; wat ≈ is, staat hierboven als ≈.
+
+## Inbouw (28 okt 2026, keuze B)
+Zelf geopend (WebFetch):
+- Wikipedia, EcoRI — https://en.wikipedia.org/wiki/EcoRI : G↓AATTC, 5′-overhang AATT; elke subeenheid heeft een lus/arm die om het DNA slaat.
+- Wikipedia, Restriction site — https://en.wikipedia.org/wiki/Restriction_site : knip tussen G en A op beide strengen.
+- iGEM TU Darmstadt 2012, EcoRI — https://2012.igem.org/Team:TU_Darmstadt/Materials/EcoRI : bovenstreng tussen G en eerste A, 5′-overhang AATT.
+- Kim e.a. 1986, Science (abstract via Scilit) — https://www.scilit.net/publications/2e8fe69a4b9d78fe0c183d702f4387c7 : elke subeenheid heeft een 'arm' die om het DNA slaat.
+Herstel: (1) knipplek stond één base te vroeg (C|GAATTC, overhang GAAT) → G↓AATTC (3 bronnen); (2) klem: armen vóór het DNA langs na herkenning (2 bronnen).

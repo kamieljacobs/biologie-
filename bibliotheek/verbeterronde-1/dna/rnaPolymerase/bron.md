@@ -10,3 +10,7 @@
 
 ## Ronde 2
 - Hybride: kort DNA-RNA-hybride in de bel (barnes); getekend als 8 RNA-puzzelbasen tegenover de matrijs met goud gestippelde paren.
+
+## Inbouw (28 okt 2026)
+- Proteopedia 1H38 (T7 RNAP elongatiecomplex) — https://proteopedia.org/w/1h38: '8-base-pair RNA-DNA hybrid'.
+- Martin lab UMass 'T7 RNA polymerase – elongation' — https://martinlab.chem.umass.edu/elongation: 'an 8 base RNA-DNA hybrid'.

@@ -11,3 +11,7 @@
 
 ## Ronde 2
 - Keten verlaat de grote subeenheid via een tunnel van ± 10 nm × 1,5 nm (alb) en vouwt daarbuiten (cotranslationeel vouwen: model, getekend met het lintmodel).
+
+## Inbouw (28 okt 2026)
+- MPI-NAT persbericht 'Co-translational protein folding on the ribosome monitored in real time' — https://www.mpinat.mpg.de/617754/pr_1531: vouwen 'starts as soon as the protein emerges from the peptide exit tunnel'.
+- Cassaignau e.a. 2016 — https://pmc.ncbi.nlm.nih.gov/articles/PMC5405865: 'folding processes can begin in a co-translational manner'.

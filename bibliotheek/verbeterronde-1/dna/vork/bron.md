@@ -8,3 +8,7 @@
 
 ## Ronde 2
 - Enzymen uit helicasering-primase-ligase C en polymerase C (zelfde bronnen).
+
+## Inbouw (28 okt 2026)
+- Meagher, Epling & Enemark 2019, Nat Commun — https://pmc.ncbi.nlm.nih.gov/articles/PMC6629641: 'the ring encircles the translocating strand while excluding its complementary strand'; zes eiwitten in een ring.
+- DnaB helicase (Wikipedia-kopie) — https://cavac.at/cavacopedia/DnaB%20helicase: hexameer-ring; 'the lagging strand of DNA binds in the central channel'.

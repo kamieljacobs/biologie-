@@ -11,3 +11,7 @@
 
 ## Ronde 2
 - Lussen en stammen: alb (klaverblad als schema, L-vorm). Zijgroep van het aminozuur: algemene bouw van een aminozuur (model).
+
+## Inbouw (28 okt 2026)
+- BS1005 '8.4.1 Primary structure of tRNAs' — https://bookdown.org/jcog196013/BS1005/trna-structure.html: acceptorstam 7 bp + CCA, D-stam 3–4 bp, T-stam 5 bp, anticodonstam 5 bp met lus van 7.
+- Wikipedia 'Transfer RNA' (IPFS-kopie) — https://ipfs.ssi.eecc.de/ipns/en.wikipedia-on-ipfs.org/wiki/Transfer_RNA: acceptor 7–9 bp, D 4–6 bp, T 4–5 bp, anticodon 5 bp; lengtes variëren.
