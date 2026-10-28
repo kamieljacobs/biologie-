@@ -5,10 +5,11 @@
 | Bestand | films/hormonen/4-stress.html (audio in films/hormonen/4-stress/audio/) |
 | Reeks / nummer | Hormonen, film 4 van 5 (seriebrief in de Claude-doc *Seriebriefs uitlegfilms biologie*) |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blok gelabeld: s14–s16 met vraag q15 (CRH en HPA-as, receptor op het membraan tegenover in de cel, prednison en afbouwen). Havo/Vwo-schakelaar, standaard Vwo |
-| Versie / datum | 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus; wacht op review door Kamiel) |
-| Prompt | onbekend · gemaakt 14 okt |
-| Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow oh3JHEiaYnWofBSvXTy5; nodes in `stem/takes.json`). s12 en s16 zijn na de eindreview opnieuw ingesproken |
-| Duur | spraak 6:53 (vwo) / 5:23 (havo). Speeltijd met kaarten en vragen: vwo ≈ 9 min, havo ≈ 7 min |
+| Versie / datum | **1.1 · 28 oktober 2026** — opwaardering naar prompt v13 (B14, zonder keuring; zie Wijzigingen); 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus). Oude versie: `bron/oud/4-stress-v1.0.html` |
+| Prompt | v13 |
+| Voldoet aan | prompt v13 (28 okt 2026, zonder keuring; takes behouden, alleen ‘Voor vwo …’ uit s14 geknipt). Bewust niet: seriekleuren (zenuw paars, cortisol teal) niet omgezet naar Part C (zenuwsignalen teal) omdat dat de hele reeks raakt: vraag aan Kamiel; s14-cellen (adrenaline/cortisol) blijven schematische ovalen met één membraanlijn (vergelijking, geen celbouw); lichtgloed van de bureaulamp in de cold open blijft (sfeer, geen betekenis); geen nieuwe caststijl met contourlijnen (nog niet goedgekeurd); geen nieuw herkenbaar moment toegevoegd (Noor in de cold open en recap draagt het concept al) |
+| Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow oh3JHEiaYnWofBSvXTy5; nodes in `stem/takes.json`). s12 en s16 zijn na de eindreview opnieuw ingesproken; s14 sinds 1.1 geknipt (zonder ‘Voor vwo …’, oude take in `bron/oud/audio/s14.mp3`) |
+| Duur | spraak 6:50 (vwo, sinds 1.1) / 5:23 (havo); met ‘Vragen uit’ vwo 6:51, havo 5:28 inclusief kaarten (gemeten 28 okt 2026). Speeltijd met kaarten en vragen: vwo ≈ 9 min, havo ≈ 7 min |
 | Beeldstijl | Part C: Macro (klaslokaal en slaapkamer, cold open), Schema (navy: bijnier, lichaamskaart, keten, regelkring, grafieken), Micro (afweercellen). Seriekleuren in `lib_hormonen.js` (`HK`); in deze film: adrenaline goud (druppel), cortisol teal (ring), merg `#B0703F`, schors oker |
 | Audio-opslag | 14 losse mp3's in audio/ (s01 … s19), loudnorm −15 LUFS, piek −1,5 dBTP, mono 44,1 kHz 96 kb/s; niet in de HTML ingebed |
 | Lettertypen | Fraunces 700, Source Sans 3 400/600/700, IBM Plex Mono 500 — ingebed als base64 |
@@ -26,8 +27,10 @@
 | `uitspraak.md` | Risicowoorden met stem-invoer; wachtlijst voor Kamiel |
 | `stem/woordtijden/sNN.json` | Woordtijden per take (Scribe, op de ondertitelwoorden) |
 | `stem/takes.json`, `stem/gen.json` | ElevenLabs-flow en node per take; generatie-id en duur |
-| `src/` | `scenes.js` (deze film), `lib.js`, `lib_voeding.js`, `lib_hormonen.js` (seriebibliotheek), `player.js`, `page.html`, `fonts.css` |
-| `bouw/` | `make_segments.py`, `align.py`, `build_data.py`, `build.py`, `stills.py`, `fake_words.py`, `uitspraak_subs.json` |
+| `src/` | `scenes.js` (deze film), `lib.js`, `lib_voeding.js`, `lib_hormonen.js` (seriebibliotheek), `player.js` (sinds 1.1 gelijk aan de speler in de site-HTML), `page.html`, `fonts.css`; sinds 1.1 ook `lib_cast.js` en `lib_anatomie.js` (personages/), `lib_bio.js` (volledige beeldbank, kopie 28 okt 2026) en `lib_bio_deel.js` (uittreksel dat in de film staat: nierBijnier, leverVoor, spierBundel, witteBloedcellen, hoofdHersenen met hun hulpfuncties) |
+| `bronnen.md`, `opwaardering-v13.md` | Bronnenlogboek (1.1) en de lijsten voor Kamiel na de opwaardering (herinspreken, vragen, wat veranderde) |
+| `oud/` | Versie 1.0: `4-stress-v1.0.html`, `src/` (scenes, lib, lib_hormonen, player), `audio/s14.mp3` en `s14-woordtijden.json` |
+| `bouw/` | `make_segments.py`, `align.py`, `build_data.py`, `build.py` (sinds 1.1 met castboek, anatomie en beeldbank-uittreksel), `stills.py`, `fake_words.py`, `uitspraak_subs.json`; sinds 1.1 `bio_deel.py` (maakt `lib_bio_deel.js`) en `splice.py` (zet libs en scènes in de bestaande site-HTML zonder FILMDATA, speler en nabewerkingen te raken: de snelste weg voor een beeldwijziging) |
 | `reviews/` | Expert (endocrinoloog), didactiek + taal, curriculum (met checkvragen), eindreview (fresh eyes, na de bouw) |
 
 **Werkmap opzetten:** maak `f4/` met `script_v2.md`, `film.py`, `scenes.js` (uit `src/`), `words/` (= `stem/woordtijden/`) en `film/4-stress/audio/` (= `../audio/`); zet `src/*.js` (behalve scenes.js), `src/page.html`, `src/fonts.css` en `bouw/*` samen in `engine/`. Dan: `python3 engine/make_segments.py f4 script_v2.md && (cd f4 && python3 film.py) && python3 engine/build_data.py f4 && python3 engine/build.py f4` → `f4/film/4-stress.html`.
@@ -111,3 +114,17 @@ Kamiel koos in de uitspraaktest (18–19 okt, 4 rondes) hoe de risicowoorden moe
 | Segment | TTS-node | Generatie | Credits | Duur |
 |---|---|---|---|---|
 | s14 | S7bdq1MlRNdE0NmbNQ5a | j5enrHaw3JDPBivR99A1 | 808 | 57.97 s |
+
+
+## Wijzigingen
+
+- **1.1 · 28 okt 2026** — opwaardering prompt v2–v5 → v13 (B14, zonder keuring). Stem, script, vragen en timings gelijk, behalve de knip in s14. Ingebouwd met `bouw/splice.py`; daarna spelerfix, antwoordtekst, kortantwoord, antwoordletter (alle `--check` in orde), flipkaarten, licentie_noot, teller. Elke vraag met `?vragen=uit` afgespeeld (vwo en havo).
+  - *s14 (vwo):* ‘Voor vwo gaan we hier nog een stap verder.’ uit de take geknipt (0–3,06 s weg, 80 ms stilte + 20 ms fade-in; woordtijden −2,98 s, dur 57,97 → 54,99 s; audio `?v=3`). Ook uit `script_v2.md`, `script.md` en `segments.json` (display).
+  - *s01 (cold open):* zelfgetekende leerling (`personReal`) vervangen door castpersonage Noor (‘jij’, ROLLEN.md), zittend aan de schoolbank, handen op het blad, ‘denkt’ en ’s avonds ‘moe’; in bed: Noor zit rechtop in bed (zijaanzicht, moe) in plaats van een zelfgetekend hoofdje; kussen rechtop tegen het hoofdeinde.
+  - *s19 (recap):* hetzelfde bed met Noor (verkleind).
+  - *s04:* nier met bijnier uit de beeldbank (`nierBijnier`: schors, piramides, bekken, vaten, urineleider; bijnier als kapje) in plaats van een eigen niervorm met los kapje; namen ‘bijnier’ en ‘nier’ ernaast in plaats van erover.
+  - *s04 en titel:* doorsnede bijnier zonder gloed (Part C); het actieve deel licht op met een vollere vulling en een gouden focusrand.
+  - *s06:* grijs lichaamssilhouet (`klierKaart`) vervangen door het realistische lichaam uit `lib_anatomie.js` (organen, nieren en bijnieren op hun echte plek, kloppend hart); hypothalamus in een zoomcirkel náást het hoofd (`hoofdHersenen` uit de beeldbank, niet over het gezicht); zenuwbaan hypothalamus → ruggenmerg → bijniermerg (+ tak naar het hart); bijniermerg met gouden ring en naam; adrenaline stroomt door een bloedlus vanaf de bijnier. Doelwitcellen reageren met een gouden rand in plaats van gloed.
+  - *s11:* spier als skeletspiervezels met dwarsstreping (`spierBundel`) en lever in vooraanzicht met galblaas (`leverVoor`) uit de beeldbank, in plaats van een rechthoek met strepen en een ovaal.
+  - *s12:* afweercellen uit de beeldbank (`witteBloedcellen`: neutrofielen met gelobde kern, B-cellen, een macrofaag) in plaats van vlekjes met drie paarse stipjes; geremd = gedimd en trager.
+  - *Alle Micro-scènes:* geen korrel meer buiten cellen (`bg('micro')`).

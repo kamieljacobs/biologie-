@@ -68,7 +68,7 @@ Ook hier is er een regelkring. Cortisol remt de hypothalamus en de hypofyse. Er 
 Het eindproduct remt zijn eigen aanmaak. Net als bij thyroxine: negatieve terugkoppeling. Zo zakt de cortisol weer als de stress voorbij is.
 Nog één ding over cortisol. Ook zonder stress gaat het op en neer. Het is het hoogst rond het wakker worden, en het laagst rond middernacht. Dat ritme wordt geregeld door je biologische klok.
 
-[VWO-START] Voor vwo gaan we hier nog een stap verder. De hypothalamus zet de hypofyse aan met een eigen hormoon: CRH.
+[VWO-START] De hypothalamus zet de hypofyse aan met een eigen hormoon: CRH.
 Hypothalamus, hypofyse en bijnierschors vormen samen een as. In het Engels heet die de HPA-as. Cortisol remt zowel de afgifte van CRH als van ACTH.
 Adrenaline komt de cel niet in. Het bindt aan een receptor op het membraan, en de cel reageert meteen.
 Cortisol is een steroïdhormoon. Het gaat wel door het membraan, bindt aan een receptor in de cel, en zet genen aan of uit. Dan moet de cel eerst nieuwe eiwitten maken. Daarom werkt cortisol trager, maar ook langer.

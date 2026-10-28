@@ -41,7 +41,7 @@ function grain(ctx){
 function bg(ctx, look){
   ctx.fillStyle = look==='micro'?C.bgMicro: look==='macro'?C.bgMacroSky : C.bgSchema;
   ctx.fillRect(0,0,W,H);
-  if(look==='micro') grain(ctx);
+  // geen korrel buiten cellen (BEELDAFSPRAKEN 15 okt 2026; opwaardering v13, 28 okt 2026)
 }
 
 // ===== shape primitives =====

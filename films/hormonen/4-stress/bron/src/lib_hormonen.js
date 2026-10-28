@@ -90,7 +90,8 @@ function receptor(ctx, x, y, ang, kind = 'adrenaline', bound = 0, a = 1, s = 1, 
 function doelcel(ctx, x, y, r, o = {}) {
   const { a = 1, n = 6, kind = 'adrenaline', bound = 0, glow = 0, noRec = false, kern = true, t = 0, seed = 1, fill = HK.cel, rot = -Math.PI / 2 } = o; if (a <= 0.01) return;
   ctx.save(); ctx.globalAlpha *= a;
-  if (glow > 0.01) { const g = ctx.createRadialGradient(x, y, r * 0.6, x, y, r * 1.5); g.addColorStop(0, rgba(HK.hormoon, 0.28 * glow)); g.addColorStop(1, rgba(HK.hormoon, 0)); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r * 1.5, 0, 6.283); ctx.fill(); }
+  // reactie = gouden focusrand in plaats van gloed (Part C: geen glow; opwaardering v13)
+  if (glow > 0.01) { ctx.save(); ctx.globalAlpha *= glow; blob(ctx, x, y, r + 7, r * 0.92 + 7, 0.035, seed, t); ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.stroke(); ctx.restore(); }
   blob(ctx, x, y, r, r * 0.92, 0.035, seed, t); shape(ctx, rgba(fill, 0.16 + 0.1 * glow), rgba(fill, 0.9), 2.5);
   blob(ctx, x, y, r - 8, r * 0.92 - 8, 0.035, seed, t); ctx.strokeStyle = rgba(fill, 0.45); ctx.lineWidth = 1.2; ctx.stroke();
   if (kern) { ctx.beginPath(); ctx.arc(x + r * 0.12, y + r * 0.08, r * 0.3, 0, 6.283); shape(ctx, rgba(C.kern, 0.55), C.kernR, 1.5); }
