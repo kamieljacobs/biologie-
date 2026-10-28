@@ -4,7 +4,7 @@
  "hoofdstukNaam": "Regeling",
  "title": "Slaap",
  "sub": "Wat je hersenen 's nachts doen, en waarom je moe wordt",
- "puzzle": "Bilal en Sam halen een nacht door. Om vier uur zijn ze kapot, om acht uur voelen ze zich weer wakkerder, terwijl ze nog langer wakker zijn. Hoe kan dat?",
+ "puzzle": "Twee vrienden halen een nacht door. Om vier uur zijn ze kapot, om acht uur voelen ze zich weer wakkerder, terwijl ze nog langer wakker zijn. Hoe kan dat?",
  "meta": "zenuwstelsel · slaap",
  "version": "1.0 · oktober 2026",
  "titleLook": "schema",
@@ -15,12 +15,12 @@
   "Hoofdstuk 1": "Wat doen je hersenen als je slaapt?",
   "Hoofdstuk 2": "Wat bepaalt wanneer je moe wordt?",
   "Hoofdstuk 3": "Waarom moet je eigenlijk slapen?",
-  "Recap": "Waarom voelden Bilal en Sam zich om acht uur wakkerder?"
+  "Recap": "Waarom voelden de twee vrienden zich om acht uur wakkerder?"
  },
  "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
  "questions": {
   "q02": {
-   "q": "Om vier uur 's nachts zijn Bilal en Sam kapot, om acht uur voelen ze zich wakkerder, terwijl ze nog langer wakker zijn. Hoe kan dat?",
+   "q": "Om vier uur 's nachts zijn twee vrienden kapot, om acht uur voelen ze zich wakkerder, terwijl ze nog langer wakker zijn. Hoe kan dat?",
    "correct": 2,
    "explain": "Onthoud je keuze. Het antwoord zie je in hoofdstuk 2."
   },

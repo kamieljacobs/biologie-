@@ -10,7 +10,7 @@ if fonts:
 rep = {'/*TITLE*/': html.escape(film['title'] + ' · ' + film['sub']), '/*SERIESLINE*/': film['seriesline'], '/*H1*/': film['title'], '/*LEAD*/': film['lead'],
        '/*SECTIONS*/': film['sections'], '/*FOOTER*/': film['footer'], '/*GLOSSARY*/': json.dumps(film['glossary'], ensure_ascii=False),
        '/*FILMDATA*/': json.dumps(json.load(open(os.path.join(fdir, 'filmdata.json'))), ensure_ascii=False),
-       '/*LIB*/': open(os.path.join(E, 'lib.js'), encoding='utf-8').read(), '/*LIBSERIES*/': open(os.path.join(E, 'lib_voeding.js'), encoding='utf-8').read() + '\n' + open(os.path.join(E, 'lib_hormonen.js'), encoding='utf-8').read() + '\n' + open(os.path.join(E, 'lib_cast.js'), encoding='utf-8').read(),
+       '/*LIB*/': open(os.path.join(E, 'lib.js'), encoding='utf-8').read(), '/*LIBSERIES*/': open(os.path.join(E, 'lib_voeding.js'), encoding='utf-8').read() + '\n' + open(os.path.join(E, 'lib_hormonen.js'), encoding='utf-8').read() + '\n' + open(os.path.join(E, 'lib_cast.js'), encoding='utf-8').read() + '\n' + open(os.path.join(E, 'lib_bio_uittreksel.js'), encoding='utf-8').read() + '\n' + open(os.path.join(E, 'lib_dieren_uittreksel.js'), encoding='utf-8').read(),
        '/*SCENES*/': open(os.path.join(fdir, 'scenes.js'), encoding='utf-8').read(), '/*PLAYER*/': open(os.path.join(E, 'player.js'), encoding='utf-8').read()}
 for k, v in rep.items(): page = page.replace(k, v)
 hf = film['hoofdstuk']; hn = film['hoofdstukNaam']
