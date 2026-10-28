@@ -48,7 +48,7 @@ Ernst: **hoog** = fout of lelijk zichtbaar voor leerlingen, **laag** = detail. T
 
 ## Zenuwstelsel 6 · Leren en onthouden
 
-1. s70 ± 411 s: de cirkel met het hersennetwerk staat óp het hoofd en gezicht van de fietser. **hoog**
+1. s70 ± 411 s: de cirkel met het hersennetwerk staat óp het hoofd en gezicht van de fietser. **hoog** — hersteld
 2. s00 en s70 (niet gewijzigd): de fietsers zijn zelfgetekende figuren, geen castpersonages. Dat botst met de beeldafspraak. **laag** (buiten deze ronde)
 3. a1 ± 66 s: het label 'calcium' ligt over de calciumstippen. **laag**
 4. Herder (s22) en etensbak op goede maat ✓. Eindkaart 'Volgende film: Slaap' ✓. Vragen uit ✓.

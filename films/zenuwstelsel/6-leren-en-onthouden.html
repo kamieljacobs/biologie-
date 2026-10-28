@@ -142,7 +142,7 @@ h2.gl-kop{font:700 30px/1.5 "Fraunces Begrippen","Fraunces","Playfair Display",G
       <!-- ================= WORLD: fietspad, open raam ================= -->
       <svg id="world" class="layer" viewBox="0 0 1920 1080" width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <clipPath id="wlens"><circle id="wlens-c" cx="790" cy="420" r="0"/></clipPath>
+          <clipPath id="wlens"><circle id="wlens-c" cx="340" cy="340" r="0"/></clipPath>
           <symbol id="note" viewBox="-20 -50 40 60"><ellipse cx="-6" cy="0" rx="11" ry="8" transform="rotate(-20 -6 0)" fill="currentColor"/><path d="M4,-2 L4,-44 Q14,-40 18,-30" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></symbol>
         </defs>
         <rect x="0" y="0" width="1920" height="1080" fill="#CFE8F7"/>
@@ -188,10 +188,12 @@ h2.gl-kop{font:700 30px/1.5 "Fraunces Begrippen","Fraunces","Playfair Display",G
         </g>
         <rect id="w-dim" width="1920" height="1080" fill="#0B1020" opacity="0"/>
         <g id="w-lensg" clip-path="url(#wlens)" opacity="0">
-          <rect x="400" y="0" width="800" height="900" fill="#EEF1F7"/>
-          <g id="w-lnet"></g>
+          <rect x="0" y="0" width="1920" height="1080" fill="#EEF1F7"/>
+          <g transform="translate(-450 -80)"><g id="w-lnet"></g></g>
         </g>
-        <circle id="w-lensring" cx="790" cy="420" r="0" fill="none" stroke="#0F1A33" stroke-width="10"/>
+        <circle id="w-lensring" cx="340" cy="340" r="0" fill="none" stroke="#0F1A33" stroke-width="10"/>
+        <!-- zoomcirkel naast het hoofd (nacontrole 29 okt 2026) -->
+        <g id="w-lenslijn" opacity="0" stroke="#0F1A33" stroke-width="4" fill="none"><circle id="w-lenshoofd" cx="790" cy="420" r="62"/><line id="w-ll1" x1="0" y1="0" x2="0" y2="0"/><line id="w-ll2" x1="0" y1="0" x2="0" y2="0"/></g>
       </svg>
       <!-- ================= MICRO ================= -->
       <svg id="micro" class="layer" viewBox="0 0 1920 1080" width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
@@ -960,7 +962,13 @@ function spin(B,ang){ [B.w1,B.w2].forEach(w=>attr(w.sp,'transform',`rotate(${(an
 const Wd={ dim:$('#w-dim'), lensg:$('#w-lensg'), lensc:$('#wlens-c'), ring:$('#w-lensring'), notes:$$('#w-notes use'), pane:$('#w-pane'), talk:$('#w-talk'), know:$('#w-know'), kid:$('#w-kid'), teen:$('#w-teen'), friend:$('#w-friend'), parent:$('#w-parent') };
 function scroll(off){ attr($('#w-dash'),'transform',`translate(${(-(off%120)).toFixed(1)} 0)`); attr($('#w-trees'),'transform',`translate(${(-(off*0.5%480)).toFixed(1)} 0)`); }
 function ride(t,speed){ scroll(t*speed); const a=t*speed/70; pedal(BIKES.teen,a*0.45); spin(BIKES.teen,a); pedal(BIKES.friend,a*0.45+1); spin(BIKES.friend,a); }
-function lensNet(t,t0,on){ if(!on){ op(Wd.lensg,0); attr(Wd.lensc,'r',0); attr(Wd.ring,'r',0); return; } const r=kf(t,[[t0,0],[t0+0.8,230]],true); attr(Wd.lensc,'r',r); attr(Wd.ring,'r',r); op(Wd.lensg,1);
+function lensLijnen(r){ const L=document.getElementById('w-lenslijn'); if(!L) return; L.style.opacity=(r>20?1:0);
+  const cx=340, cy=340, H=document.getElementById('w-lenshoofd'), hx=+H.getAttribute('cx'), hy=+H.getAttribute('cy'), hr=+H.getAttribute('r');
+  const d=Math.hypot(hx-cx,hy-cy), ux=(hx-cx)/d, uy=(hy-cy)/d, nx=-uy, ny=ux, k=0.55, c=Math.sqrt(1-k*k);
+  [[1,'w-ll1'],[-1,'w-ll2']].forEach(([s,id])=>{ const l=document.getElementById(id);
+    l.setAttribute('x1',(cx+r*(ux*c+s*nx*k)).toFixed(1)); l.setAttribute('y1',(cy+r*(uy*c+s*ny*k)).toFixed(1));
+    l.setAttribute('x2',(hx+hr*(-ux*c+s*nx*k)).toFixed(1)); l.setAttribute('y2',(hy+hr*(-uy*c+s*ny*k)).toFixed(1)); }); }
+function lensNet(t,t0,on){ if(!on){ op(Wd.lensg,0); attr(Wd.lensc,'r',0); attr(Wd.ring,'r',0); lensLijnen(0); return; } const r=kf(t,[[t0,0],[t0+0.8,220]],true); attr(Wd.lensc,'r',r); attr(Wd.ring,'r',r); op(Wd.lensg,1); lensLijnen(r);
   LNC.forEach((c,i)=>attr(c,'fill',Math.sin(t*3+i*1.7)>0.55?'#FFB400':'#fff')); }
 function worldReset(){ op(Wd.dim,0); lensNet(0,0,false); Wd.notes.forEach(n=>{ vis(n,false); n.removeAttribute('transform'); n.style.opacity=''; }); op(Wd.talk,0); op(Wd.know,0); attr(Wd.pane,'width',160); op($('#w-mullion'),1);
   op(Wd.kid,0); op(Wd.parent,0); op(Wd.teen,1); op(Wd.friend,1); ride(3,220); }

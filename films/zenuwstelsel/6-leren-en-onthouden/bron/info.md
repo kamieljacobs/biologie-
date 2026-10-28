@@ -170,6 +170,7 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`; z
 - Verbeterd 12-10-2026: credits linken naar `../../index.html#regeling`; eindkaart zegt "Volgende film: Slaap en stress (volgt)". De slotzin in de audio noemt film 7 nog wel.
 
 ## Wijzigingen
+- 29 okt 2026 — nacontrole 29 okt: de lens met het hersennetwerk (`lensNet`, s70 en ook s00 'hoofd') ligt niet meer op hoofd en gezicht van de fietser: zoomcirkel náást het hoofd (midden 340, 340; r 220; `#w-lnet` verschoven), met een ring om het hoofd en twee lijnen ernaartoe (`#w-lenslijn`, `lensLijnen()`, zoals film 5).
 - **1.1 · 28 okt 2026** — opwaardering prompt v13 (B14, zonder keuring; Regeling-batch). Details en open vragen: `opwaardering-v13.md`; vakinhoud: `bronnen.md`.
   - *s22 (Pavlov):* de getekende cartoonhond vervangen door de goedgekeurde herder uit de dierenbibliotheek (`bibliotheek/dieren/lib_dieren.js`, `hond(ctx,'herder',…,{houding:'zitten',kijk:1})`, Kamiel 23 okt 2026), vooraf getekend op 6 px/cm en als `<image>` in `#pv-dog` gezet op 3 px/cm (grondpunt x 525, vloer y 790), zodat de speekseldruppels (vaste plek 612–626, 625) bij de bek vallen. Etensbak op ware grootte (±30 cm, was ±67 cm).
   - *a1–a5 bij Vragen uit:* na de geknipte antwoordzin was het beeld eerst ±3 s leeg (de scènes faden pas in na de antwoord-overlay, `tReveal = 'antwoord' + 3,2 s`). Nu `tReveal = 'antwoord' − 0,4 s` als de vragen uit staan, zodat het beeld er staat als de vertelling verdergaat; met vragen aan ongewijzigd.
