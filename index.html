@@ -661,6 +661,7 @@ const HOOFDSTUKKEN = {
    {
     "href": "films/erfelijkheid/1-chromosomen.html",
     "datum": "2026-10-25",
+    "uitleg": "tools/docent/erfelijkheid-1/index.html#2",
     "titel": "Chromosomen",
     "vraag": "Geen van de ouders of grootouders heeft albinisme. Hoe kan hun kind het dan hebben?",
     "tekst": "Van huid naar DNA: chromosomen, genen en allelen, met albinisme als voorbeeld",
@@ -670,6 +671,7 @@ const HOOFDSTUKKEN = {
    {
     "href": "films/erfelijkheid/2-monohybride-kruisingen.html",
     "datum": "2026-10-11",
+    "uitleg": "tools/docent/erfelijkheid-2/index.html#2",
     "titel": "Monohybride kruisingen",
     "vraag": "Hoe weet je welke allelen een plant heeft, zonder DNA-test?",
     "tekst": "Eén eigenschap, twee allelen, het kruisingsschema",
@@ -679,6 +681,7 @@ const HOOFDSTUKKEN = {
    {
     "href": "films/erfelijkheid/3-voorbij-dominant-en-recessief.html",
     "datum": "2026-10-11",
+    "uitleg": "tools/docent/erfelijkheid-2/index.html#9",
     "titel": "Voorbij dominant en recessief",
     "vraag": "Mengen allelen zich, zoals verf?",
     "tekst": "Intermediair, codominantie en meerdere allelen (bloedgroepen)",
@@ -688,6 +691,7 @@ const HOOFDSTUKKEN = {
    {
     "href": "films/erfelijkheid/4-dihybride-kruising-en-gekoppelde-overerving.html",
     "datum": "2026-10-11",
+    "uitleg": "tools/docent/erfelijkheid-3/index.html#2",
     "titel": "Dihybride kruising en gekoppelde overerving",
     "vraag": "Twee planten met gele, ronde erwten krijgen gele, gerimpelde nakomelingen. Waar komt die nieuwe combinatie vandaan?",
     "tekst": "Twee eigenschappen tegelijk, en genen die op één chromosoom liggen",
@@ -697,6 +701,7 @@ const HOOFDSTUKKEN = {
    {
     "href": "films/erfelijkheid/5-overerving-via-x-chromosomen-en-mitochondrien.html",
     "datum": "2026-10-11",
+    "uitleg": "tools/docent/erfelijkheid-2/index.html#16",
     "titel": "Overerving via X-chromosomen en mitochondriën",
     "vraag": "Acht procent van de mannen is kleurenblind, van de vrouwen maar een half procent. Waarom?",
     "tekst": "Waarom sommige eigenschappen vaker bij jongens voorkomen",
@@ -706,11 +711,38 @@ const HOOFDSTUKKEN = {
    {
     "href": "films/erfelijkheid/6-stambomen-en-kansrekenen.html",
     "datum": "2026-10-11",
+    "uitleg": "tools/docent/erfelijkheid-3/index.html#11",
     "titel": "Stambomen en kansrekenen",
     "vraag": "Je broer heeft taaislijmziekte, jij en je ouders niet. Hoe groot is de kans dat jij drager bent?",
     "tekst": "Van stamboom naar genotype, en de kans op een nakomeling met een eigenschap",
     "duur": 4,
     "bij": "Film 6 · § 3.5"
+   }
+  ],
+  "lessen": [
+   {
+    "href": "tools/docent/erfelijkheid-1/index.html",
+    "nr": 1,
+    "titel": "Eén van je vader, één van je moeder",
+    "tekst": "Gezin De Wit en Levi met albinisme als opening, inzoomen tot de kern, van kluwen naar chromosoom, het karyogram en homologe paren, haploïd en diploïd, X en Y, gen, locus en allel, tyrosinase en melanine, genotype en fenotype, dominant en recessief, genotype en milieu (vwo: het Himalayakonijn) en terug naar de familie",
+    "films": ["films/erfelijkheid/1-chromosomen.html"],
+    "niveau": "havo + vwo"
+   },
+   {
+    "href": "tools/docent/erfelijkheid-2/index.html",
+    "nr": 2,
+    "titel": "Kruisen en tellen",
+    "tekst": "Mendels erwten (705 : 224), gameten uit de meiose, het kruisingsschema, kansen en geen aantallen, het stappenplan, de terugkruising, intermediair (leeuwenbek), bloedgroepen (multipele allelen, codominant), de letale factor, polygene overerving, jongen of meisje, kleurenblind via het X-chromosoom (vwo: X-dominant) en mitochondriaal DNA",
+    "films": ["films/erfelijkheid/2-monohybride-kruisingen.html", "films/erfelijkheid/3-voorbij-dominant-en-recessief.html", "films/erfelijkheid/5-overerving-via-x-chromosomen-en-mitochondrien.html"],
+    "niveau": "havo + vwo"
+   },
+   {
+    "href": "tools/docent/erfelijkheid-3/index.html",
+    "nr": 3,
+    "titel": "Twee genen en een stamboom",
+    "tekst": "Nieuwe combinaties bij erwten, twee genen op twee chromosoomparen, toeval in de meiose, 9 : 3 : 3 : 1 en de productregel, gekoppelde genen en crossing-over bij de fruitvlieg (vwo: recombinatiepercentage en genkaart), de stamboom van gezin De Wit in drie stappen, is Sara drager (⅔), product- en somregel en de kans voor Sara's kind",
+    "films": ["films/erfelijkheid/4-dihybride-kruising-en-gekoppelde-overerving.html", "films/erfelijkheid/6-stambomen-en-kansrekenen.html"],
+    "niveau": "havo + vwo"
    }
   ],
   "tools": [
@@ -3477,7 +3509,7 @@ function examKolommen(h,id){
 
 /* medaillons voor tools en lessen (Kamiel 22 okt 2026: oude lijntekeningen vervangen), img/kunst/tools/<id>.webp; niet in de lijst = lijntekening uit TOOLPLAAT */
 const TICOON={'Kruisingslab':'kruisingslab','Kruisingtrainer':'kruisingslab','Bloedgroepenlab':'bloedgroepenlab','Aardappellab':'aardappellab','Schaallab':'schaallab','De bouw van DNA':'dna-bouw','DNA-profielen vergelijken':'dna-profielen','Waarom U in RNA':'waarom-u-in-rna','De Eiwitfabriek':'eiwitfabriek','Regelkring':'regelkring','Celbouwer':'celbouwer','Virtuele microscoop':'virtuele-microscoop','Microscoop: echte preparaten':'microscoop-echt','Onderzoekskeuring':'onderzoekskeuring','Resistentielab':'resistentielab','Muizensimulatie':'muizensimulatie','Examen havo 2026-I doorklikken':'../iconen/examens'};
-const LICOON={'tools/dna-bouw/index.html':'tools/dna-bouw','tools/docent/dna-2/index.html':'films/3-van-dna-naar-eiwit','tools/docent/dna-3/index.html':'films/5-mutaties','tools/docent/voortplanting-1/index.html':'tools/les-voortplanting-1','tools/docent/voortplanting-2/index.html':'films/1-precies-op-tijd','tools/docent/voortplanting-3/index.html':'tools/les-voortplanting-3'};
+const LICOON={'tools/dna-bouw/index.html':'tools/dna-bouw','tools/docent/dna-2/index.html':'films/3-van-dna-naar-eiwit','tools/docent/dna-3/index.html':'films/5-mutaties','tools/docent/voortplanting-1/index.html':'tools/les-voortplanting-1','tools/docent/voortplanting-2/index.html':'films/1-precies-op-tijd','tools/docent/voortplanting-3/index.html':'tools/les-voortplanting-3','tools/docent/erfelijkheid-1/index.html':'films/1-chromosomen','tools/docent/erfelijkheid-2/index.html':'films/2-monohybride-kruisingen','tools/docent/erfelijkheid-3/index.html':'films/6-stambomen-en-kansrekenen'};
 const tmed=pad=>`<img class="tmed" src="img/kunst/${pad}.webp?v=1" alt="" width="150" height="150" loading="lazy" decoding="async">`;
 function toolRij(t){
   const fig=toolFig(t.naam), nr=TOOLPLAAT.findIndex(([re])=>re.test(t.naam))+1, tm=TICOON[t.naam];

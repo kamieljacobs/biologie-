@@ -1,0 +1,1250 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../../../js/teller.js" data-root="../../../"></script>
+<link rel="icon" href="../../../img/icoon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../../img/icoon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../../../img/icoon/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Les 3 · Twee genen en een stamboom · Erfelijkheid · Biologie bij Kamiel</title>
+<meta name="description" content="Uitleg in stappen voor de docent bij Erfelijkheid les 3: dihybride kruising (9 : 3 : 3 : 1), gekoppelde genen en crossing-over, stambomen lezen en kansen berekenen met het gezin De Wit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../../huisstijl.css">
+<script src="../../huisstijl.js"></script>
+<style>
+/* Uitleg in stappen · Erfelijkheid · les 3 · versie 1.0 · 28 oktober 2026
+   Docententool: per scherm korte animaties die de docent stap voor stap afspeelt (klik, → of de presenter).
+   Tekenruimte 1920x1080 op canvas; kleuren volgen licht/donker van de site. Inhoud en volgorde: zie SCHERMEN in het script. */
+.tool-kop{padding-bottom:10px}
+.tool-kop p a{color:var(--goud-text)}
+.bediening{display:flex;flex-wrap:wrap;gap:10px 12px;align-items:center;margin:4px 0 14px}
+.bediening .niv-label{font:600 12px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-right:6px}
+.bediening .sp{flex:1}
+.knop.stil[aria-pressed="true"]{background:var(--goud-soft);box-shadow:inset 0 0 0 1px var(--goud)}
+#speler{display:flex;flex-direction:column;gap:10px}
+.breed{width:min(100%, calc((100vh - 220px) * 16 / 9));min-width:min(100%,320px);margin-inline:auto}
+#stage{position:relative;aspect-ratio:16/9;background:var(--surface);border:1px solid var(--line2);border-radius:var(--radius);overflow:hidden;cursor:pointer}
+#stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.cap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;align-items:center;background:var(--surface);border:1px solid var(--line2);border-radius:12px;padding:12px 16px;min-height:66px}
+.cap .txt{font-size:21px;line-height:1.4;min-width:0}
+.cap .txt b{color:var(--goud-text)}
+.cap .vwo-tag{display:inline-block;font:600 11px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--paars);border:1px solid var(--paars);border-radius:999px;padding:4px 8px;margin-right:8px;vertical-align:3px}
+.cap .notitie{grid-column:1/-1;font-size:15px;color:var(--text2);border-top:1px dashed var(--line2);padding-top:6px}
+.cap .notitie:empty{display:none}
+.cap .notitie::before{content:"Docent · ";font:600 11px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3)}
+.dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;max-width:180px}
+.dots i{width:10px;height:10px;border-radius:50%;background:var(--line2);display:block}
+.dots i.done{background:var(--text3)}
+.dots i.cur{background:var(--goud)}
+.dots i.vwo{box-shadow:0 0 0 2px var(--paars)}
+.knoppen{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.knoppen .teller{font:600 13px/1 var(--meta);letter-spacing:.06em;color:var(--text2);margin-left:auto}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.chip{background:none;color:var(--text2);border:1px solid var(--line2);border-radius:999px;padding:4px 12px;font-size:14px;min-height:34px}
+.chip:hover{color:var(--text)}
+.chip.cur{background:var(--goud);color:var(--goud-ink);border-color:var(--goud)}
+.chip .n{font:600 12px var(--meta);margin-right:5px}
+.chip.deel{border:0;padding-left:0;font:600 12px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3);cursor:default}
+.hint{color:var(--text3);font-size:14px;margin-top:2px}
+kbd{font:600 12px var(--meta);border:1px solid var(--line2);border-radius:4px;padding:0 5px}
+.draai{display:none}
+@media (max-width:640px){
+  .draai{display:block;margin:0 0 10px;color:var(--text2)}
+  .cap .txt{font-size:17px}
+  .cap{grid-template-columns:1fr}
+  .dots{justify-content:flex-start;max-width:none}
+  .hint{display:none}
+}
+body.presenteer{overflow:hidden}
+body.presenteer .wrap{max-width:none;padding:10px 16px}
+body.presenteer .sitenav,body.presenteer .tool-kop,body.presenteer .bediening,body.presenteer .chips,body.presenteer .hint,body.presenteer .cap .notitie,body.presenteer details.docent,body.presenteer .tool-voet,body.presenteer .draai,body.presenteer footer{display:none!important}
+body.presenteer .cap .txt{font-size:24px}
+#stopPres{display:none}
+body.presenteer #stopPres{display:inline-flex}
+details.briefing{margin-top:18px}
+details.briefing>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;min-height:44px}
+details.briefing>summary::-webkit-details-marker{display:none}
+details.briefing>summary h2{font-size:24px}
+details.briefing>summary::after{content:"+";margin-left:auto;font:600 22px/1 var(--meta);color:var(--goud-text)}
+details.briefing[open]>summary::after{content:"–"}
+.briefing .intro{color:var(--text2);max-width:72ch}
+.briefing details.onderwerp{border-top:1px solid var(--line2);padding:4px 0}
+.briefing details.onderwerp>summary{cursor:pointer;font-weight:700;padding:10px 0;font-size:18px}
+.briefing details.onderwerp>div{max-width:76ch;padding-bottom:10px}
+.briefing details.onderwerp p{margin:8px 0;line-height:1.55}
+.briefing details.onderwerp ul,.briefing details.onderwerp ol{margin:6px 0 8px;padding-left:22px;line-height:1.5}
+.briefing details.onderwerp p:last-child{font-size:14px;color:var(--text2)}
+.briefing details.onderwerp a{color:var(--goud-text)}
+.briefing details.onderwerp em{color:var(--text2)}
+body.presenteer details.briefing{display:none!important}
+details.docent{margin-top:28px}
+details.docent>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;min-height:44px}
+details.docent>summary::-webkit-details-marker{display:none}
+details.docent>summary h2{font-size:24px}
+details.docent>summary::after{content:"+";margin-left:auto;font:600 22px/1 var(--meta);color:var(--goud-text)}
+details.docent[open]>summary::after{content:"–"}
+.docent .kolommen{display:grid;gap:8px 28px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:860px){.docent .kolommen{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.docent h3{margin:16px 0 6px}
+.docent p,.docent li{color:var(--text2)}
+.docent ul,.docent ol{margin:4px 0;padding-left:20px}
+.docent li{margin:3px 0}
+.docent li b{color:var(--text)}
+.tool-voet{margin:28px 0 40px;color:var(--text3);font-size:14px}
+/* Groot scherm (Kamiel 26 okt 2026): het beeld vult het scherm; één regel tekst eronder (T = tekst uit, dan alleen beeld);
+   knoppen zweven onderaan en verschijnen alleen als je de muis beweegt. Werkt ook zonder echte volledig-scherm-API (iPad). */
+body.presenteer{--capH:72px}
+body.presenteer.zondertekst{--capH:0px}
+body.presenteer .wrap{max-width:none;padding:0}
+body.presenteer #speler{position:fixed;inset:0;z-index:50;background:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0}
+body.presenteer .breed{width:min(100vw, calc((100vh - var(--capH)) * 16 / 9))}
+body.presenteer #stage{border:0;border-radius:0}
+body.presenteer .cap{border:0;border-radius:0;background:transparent;min-height:0;height:var(--capH);padding:6px 18px;overflow:hidden}
+body.presenteer .cap .txt{font-size:clamp(18px, 2.4vh, 28px)}
+body.presenteer.zondertekst .cap{display:none}
+body.presenteer .knoppen{position:fixed;right:14px;top:14px;max-width:calc(100vw - 28px);width:auto;z-index:60;background:var(--surface);border:1px solid var(--line2);border-radius:999px;padding:6px 10px;box-shadow:0 6px 24px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s}
+body.presenteer.muis .knoppen{opacity:1;pointer-events:auto}
+body.presenteer.muisweg,body.presenteer.muisweg #stage{cursor:none}
+body.presenteer .knoppen .teller{margin-left:6px}
+#tekstBtn{display:none}
+body.presenteer #tekstBtn{display:inline-flex}
+body.presenteer .bkfb-zweef,body.presenteer .bkfb-kop{display:none!important}
+.grootknop{position:absolute;top:10px;right:10px;z-index:2;display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 12px;border-radius:999px;border:1px solid var(--line2);background:var(--surface);color:var(--text2);font:600 13px/1 var(--meta);letter-spacing:.04em;opacity:.55;cursor:pointer;transition:opacity .15s}
+.grootknop:hover,.grootknop:focus-visible{opacity:1;color:var(--text);border-color:var(--goud)}
+.grootknop svg{width:16px;height:16px}
+body.presenteer .grootknop{display:none}
+</style>
+<body>
+<div class="wrap">
+<nav class="sitenav" aria-label="Site">
+  <a class="merk" href="../../../index.html#home">Biologie bij Kamiel</a>
+  <a class="terug" href="../../../index.html#lessen-erfelijkheid">← Alle lessen</a>
+  <a class="terug" href="../../../index.html#erfelijkheid">Erfelijkheid</a>
+  <span class="rechts"><button type="button" class="icoon" data-thema-knop></button></span>
+</nav>
+
+<header class="tool-kop">
+  <div class="mono">Les 3 · Erfelijkheid · voor de docent</div>
+  <h1>Twee genen en een stamboom</h1>
+  <p>Derde les erfelijkheid: twee genen tegelijk (Mendels gele en groene, ronde en gerimpelde erwten, 9 : 3 : 3 : 1 en de productregel), gekoppelde genen en crossing-over bij de fruitvlieg (vwo ook het recombinatiepercentage en de genkaart), en daarna stambomen lezen in vier stappen met het gezin De Wit uit les 1: is Sara drager? Hoort bij de films <a href="../../../films/erfelijkheid/4-dihybride-kruising-en-gekoppelde-overerving.html">Dihybride kruising en gekoppelde overerving</a> en <a href="../../../films/erfelijkheid/6-stambomen-en-kansrekenen.html">Stambomen en kansrekenen</a>.</p>
+</header>
+
+<p class="draai">Deze tool is gemaakt voor het digibord of de beamer. Op een telefoon: draai je scherm een kwartslag.</p>
+
+<div class="bediening">
+  <span><span class="niv-label" id="nivLabel">Niveau</span><span class="seg" role="group" aria-labelledby="nivLabel"><button type="button" id="lvHavo" aria-pressed="false">havo</button><button type="button" id="lvVwo" aria-pressed="true">vwo</button></span></span>
+  <span class="sp"></span>
+  <button type="button" class="knop stil klein" id="lblBtn" aria-pressed="false" title="Namen van de onderdelen verbergen of tonen (L)">Namen verbergen</button>
+  <button type="button" class="knop klein" id="presBtn" title="Groot scherm: het beeld vult het hele scherm (F)">Groot scherm</button>
+</div>
+
+<section id="speler" aria-label="Uitleg in stappen">
+  <div id="stage" class="breed" role="img" aria-label="Animatie bij de huidige stap"><canvas id="cv"></canvas><button type="button" class="grootknop" id="grootBtn" title="Groot scherm (F)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4"/></svg>Groot scherm</button></div>
+  <div class="cap breed" aria-live="polite"><div class="txt" id="capTxt"></div><div class="dots" id="dots"></div><div class="notitie" id="capNot"></div></div>
+  <div class="knoppen breed">
+    <button type="button" class="knop stil klein" id="terug" title="Vorige stap (←)">← Terug</button>
+    <button type="button" class="knop klein" id="verder" title="Volgende stap (→, spatie of klik op het beeld)">Verder →</button>
+    <button type="button" class="knop stil klein" id="opnieuw" title="Speel deze stap opnieuw af (R)">↻ Opnieuw</button>
+    <button type="button" class="knop stil klein" id="tekstBtn" title="Tekst onder het beeld aan of uit (T)">Tekst uit</button>
+    <button type="button" class="knop stil klein" id="stopPres" title="Terug naar het gewone scherm (Esc)">Klein scherm</button>
+    <span class="teller" id="teller"></span>
+  </div>
+  <div class="chips breed" id="chips"></div>
+  <p class="hint breed"><kbd>→</kbd> of <kbd>spatie</kbd> verder · <kbd>←</kbd> terug · <kbd>↑</kbd><kbd>↓</kbd> vorig/volgend scherm · <kbd>R</kbd> stap opnieuw · <kbd>L</kbd> namen · <kbd>F</kbd> groot scherm (daarin <kbd>T</kbd> tekst uit, <kbd>Esc</kbd> terug). Een presenter (pagina omhoog/omlaag) werkt ook.</p>
+</section>
+
+
+<details class="docent">
+  <summary><h2>Voor de docent</h2></summary>
+  <div class="kolommen">
+    <div>
+      <h3>Zo gebruik je de tool</h3>
+      <ul>
+        <li><b>Stap voor stap.</b> Elke klik speelt één korte animatie af en blijft daarna staan, zodat je erbij kunt vertellen. Terug (←) toont de vorige stap meteen af; <kbd>R</kbd> speelt een stap opnieuw.</li>
+        <li><b>Weinig tekst.</b> Onder het beeld staat één korte zin; de grijze regel 'Docent' is alleen voor jou en verdwijnt in de presentatiemodus. Vragen uit de films staan in die regel; stel ze zelf als het in het gesprek past.</li>
+        <li><b>Havo of vwo</b> bovenaan, of in de link <code>?niveau=havo</code>. Vwo-stappen zijn paars omrand in de stippenrij; in havo worden ze overgeslagen. De schermen Recombinatiepercentage en Genkaart (9 en 10) zijn helemaal vwo en verdwijnen in havo uit de rij knoppen.</li>
+        <li><b>Namen verbergen</b> (<kbd>L</kbd>): laat leerlingen zelf de onderdelen en personen noemen (kleurgen, vormgen, de namen in de stamboom van De Wit …).</li>
+        <li><b>Direct naar een scherm</b> met de knoppen onder het beeld, of met <code>#15</code> achter de link (scherm 15, Is Sara drager?).</li>
+      </ul>
+      <h3>Lesopbouw (± 50 minuten)</h3>
+      <p>Twee films in één les: het stamboomdeel is het zwaartepunt. Op havo kan het dihybride deel korter (zie de briefing: in de havo-examens 2018–2026 komt dihybride niet als term voor).</p>
+      <ol>
+        <li><b>Opening</b> (3 min, scherm 1–2): twee eigenschappen tegelijk, nieuwe combinaties bij de nakomelingen.</li>
+        <li><b>Twee genen</b> (12 min, scherm 3–6): twee chromosoomparen, toeval in de meiose en onafhankelijke overerving, het schema met 16 vakjes en 9 : 3 : 3 : 1 (Mendel 315 : 101 : 108 : 32), rekenen met de productregel en de terugkruising 1 : 1 : 1 : 1. Havo: scherm 5 en 6 kunnen in 5 minuten.</li>
+        <li><b>Gekoppeld</b> (8 min, scherm 7–10): genen op één chromosoom bij de fruitvlieg, crossing-over en recombinanten (vwo: recombinatiepercentage 17 % en de genkaart met maximaal 50 %).</li>
+        <li><b>Stambomen</b> (14 min, scherm 11–14): de taal van een stamboom met het gezin De Wit, stap 1 dominant of recessief (Huntington), stap 2 autosomaal of X, stap 3 genotypen invullen.</li>
+        <li><b>Kansen</b> (10 min, scherm 15–17): is Sara drager (⅔, niet ½), product- en somregel, toeval heeft geen geheugen, Sara krijgt later een kind (⅙) en de dragerschapstest.</li>
+        <li><b>Samenvatting en vooruitblik</b> (3 min, scherm 18–19): het stappenplan voor een stamboom; volgende keer herhalen en de toets, met de <a href="../../kruisingtrainer.html">Kruisingtrainer</a> om te oefenen.</li>
+        <li><b>Huiswerk</b>: de films <a href="../../../films/erfelijkheid/4-dihybride-kruising-en-gekoppelde-overerving.html">Dihybride kruising en gekoppelde overerving</a> en <a href="../../../films/erfelijkheid/6-stambomen-en-kansrekenen.html">Stambomen en kansrekenen</a>, met de opdrachten bij 'Zelf aan de slag' onder de films (bij Stambomen ook de stamboomopdrachten). Oefenen met kruisingen (ook dihybride en gekoppeld): de <a href="../../kruisingtrainer.html">Kruisingtrainer</a>. Vwo: § 5.5 (ethiek) zelf lezen.</li>
+      </ol>
+    </div>
+    <div>
+      <h3>Achtergrond en vereenvoudigingen</h3>
+      <ul>
+        <li><b>Kleuren</b> zoals in les 1 en film 1: chromosoom van de vader teal, van de moeder oker, genband goud, aandoening koraal. De letterkleur in een gameet laat zien van welke ouder het allel komt.</li>
+        <li><b>Meiose</b>: in scherm 4 per ligging één gameet per kant getekend; na meiose II zijn het er vier (twee van elk). De gameten van 'honderden cellen' zijn een vaste, verzonnen telling rond 100 per soort.</li>
+        <li><b>Zestien vakjes</b>: de nakomelingen op scherm 2 zijn 48 erwten in de verwachte verhouding (27 : 9 : 9 : 3), niet Mendels echte telling; die staat op scherm 5.</li>
+        <li><b>Crossing-over</b>: één crossing-over tussen twee niet-zusterchromatiden, getekend als rechte staafjes; chiasma alleen in de docentregel. De aantallen in de terugkruising (830 oud, 170 recombinant) komen uit film 4.</li>
+        <li><b>Genkaart</b>: 1 % recombinatie = 1 eenheid (centimorgan). Dat C aan de kant van B ligt, is een keuze: met alleen A–B en A–C kan C ook aan de andere kant van A liggen.</li>
+        <li><b>Gezin De Wit</b>: zelfde gezin als in les 1. Dennis en Marieke zijn Aa (albinisme, OCA1), Levi aa. In de familie (LEVENSLOOP) is Sara AA en Jens Aa, maar dat zie je niet aan de stamboom: in de les zijn ze A_. Verraad niet wie van de twee drager is.</li>
+        <li><b>Film 6</b> doet hetzelfde met Sanne (broer met taaislijmziekte) en Tom; de getallen (⅔, ⅙, ¼ of 0) zijn gelijk. Sanne is in de cast een ander personage, daarom staat hier De Wit.</li>
+        <li><b>Partner van Sara</b>: anoniem, alleen als stamboomsymbool (half ingekleurd = drager). Het voorbeeld is bedacht; in de stamboom is Sara 13.</li>
+      </ul>
+      <h3>Bronnen</h3>
+      <ul>
+        <li>Films 4 en 6 van de erfelijkheidsreeks met hun bronmappen; Biologie voor jou havo 4 § 3.5–3.6 en Nectar vwo H5 § 5.4. Personages uit <code>personages/LEVENSLOOP.md</code> (gezin De Wit). Havo-examenvoorkomen uit de Examenatlas (<code>examenatlas/havo.json</code>). Verdieping met bronnen in de briefing hieronder.</li>
+      </ul>
+    </div>
+  </div>
+</details>
+<details class="briefing" id="briefing">
+  <summary><h2>Briefing voor de docent</h2></summary>
+  <div class="intro"><p>Verdieping op docentniveau bij les 3, per onderwerp: hoe het werkt, getallen, misvattingen en wat je zegt als een leerling doorvraagt. Punten die niet met een bron zijn gecontroleerd, staan er cursief bij.</p></div>
+  <details class="onderwerp"><summary>Havo: hoe vaak komt dit op het examen?</summary><div><p>Gezocht in de Examenatlas (<code>examenatlas/havo.json</code>: 16 havo-examens 2018-I t/m 2026-II, 723 vragen met onderwerp, uitleg en begrippen).</p>
+<ul>
+<li><strong>'dihybride'</strong> komt nergens voor: niet in de vragen, niet in de onderwerpen en niet in de begrippenlijst. Ook '9 : 3 : 3 : 1', 'recombinatiepercentage' en 'genkaart' komen niet voor.</li>
+<li><strong>Gekoppelde genen</strong> komen precies één keer voor: <strong>2019-I vraag 12</strong> (opgave 'Nierdonor bij leven', 2 punten). HLA-genen liggen dicht bij elkaar en erven als één set over. De kans dat een twee-eiige tweelingbroer dezelfde sets heeft als zijn zus is ½ × ½ = ¼. In de atlas is dit het enige examen bij het onderwerp 'koppeling &amp; crossing-over' ('komt op havo weinig voor').</li>
+<li><strong>Crossing-over</strong> staat alleen in de uitleg bij meiose en recombinatie, als bron van variatie. Een aparte vraag erover vond ik niet.</li>
+</ul>
+<p>Gevolg: op havo kun je het dihybride deel (scherm 5–6) kort houden. Houd wel de kern: genen op verschillende chromosomen worden los verdeeld, genen op één chromosoom gaan als set mee. De productregel komt ook terug bij stambomen.</p>
+<p><em>Niet met een bron gecontroleerd: de atlas is gemaakt uit de examens met een script en koppelt onderwerpen via tekst. Een vraag die een dihybride kruising gebruikt zonder het woord (bijvoorbeeld twee eigenschappen in één opgave) kan gemist zijn. Steekproef bij een examen dat je toch al bespreekt.</em></p></div></details>
+  <details class="onderwerp"><summary>Onafhankelijke verdeling en Mendels getallen</summary><div><p>Mendel kruiste erwten die in twee eigenschappen verschilden: zaadvorm (rond/gerimpeld) en zaadkleur (geel/groen). Hij liet de F1 met zichzelf bestuiven en kreeg 556 zaden in de F2:</p>
+<p>| fenotype | aantal |
+|---|---|
+| rond en geel | 315 |
+| gerimpeld en geel | 101 |
+| rond en groen | 108 |
+| gerimpeld en groen | 32 |</p>
+<p>Verwacht bij 9 : 3 : 3 : 1 is dat ± 313 : 104 : 104 : 35. Mendel concludeerde dat elk paar eigenschappen in de hybride onafhankelijk is van de andere verschillen. Dat is de <strong>tweede wet</strong> (onafhankelijke splitsing).</p>
+<p>Het mechanisme ligt in de meiose. In metafase I ligt elk paar homologe chromosomen los van de andere paren in het midden. Welke kant het chromosoom van de vader opgaat, is voor elk paar toeval. Daarom valt 9 : 3 : 3 : 1 uiteen in twee keer 3 : 1 (¾ × ¾ = 9/16, enzovoort).</p>
+<p>Of 315 : 101 : 108 : 32 'dicht genoeg' bij 9 : 3 : 3 : 1 ligt, toets je met een <strong>chi-kwadraattoets</strong>. Dat is geen examenstof.</p>
+<p><strong>Misvatting:</strong> "9 : 3 : 3 : 1 is een verhouding van genotypen." Het is een verhouding van fenotypen. Er zijn negen verschillende genotypen (1 : 2 : 1 per gen, gecombineerd).</p>
+<p><strong>Als een leerling vraagt</strong> "geldt dit voor alle genen?": nee, alleen voor genen op verschillende chromosomen, of voor genen die heel ver uit elkaar op hetzelfde chromosoom liggen (zie hieronder).</p>
+<p><em>Niet met een bron gecontroleerd: dat de genen voor zaadkleur en zaadvorm bij de erwt op verschillende chromosomen liggen (geen bron geopend).</em></p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://www.agron.iastate.edu/madan/files/2023/10/Mendels-Seminal-Paper-in-Plant-Hybridization.pdf">Mendel 1866, Engelse vertaling (Iowa State University)</a> · <a target="_blank" rel="noopener" href="https://openstax.org/books/biology-2e/pages/12-3-laws-of-inheritance">OpenStax Biology 2e, 12.3 Laws of Inheritance</a> · <a target="_blank" rel="noopener" href="https://passel2.unl.edu/view/lesson/c36f9d4eff39/8">University of Nebraska PASSEL: Mendel's dihybrid cross</a></p></div></details>
+  <details class="onderwerp"><summary>Gekoppelde genen en crossing-over</summary><div><p>Genen die dicht bij elkaar op hetzelfde chromosoom liggen, worden meestal als paar doorgegeven: ze zijn <strong>gekoppeld</strong>. Bij crossing-over in profase I wisselen homologe chromosomen een stuk uit. Daardoor komen allelen van de vader en de moeder op hetzelfde chromosoom terecht: <strong>recombinatie</strong>. Hoe groter de afstand tussen twee genen, hoe groter de kans dat er ten minste één crossing-over tussen valt.</p>
+<p>Welke allelen samen op een chromosoom liggen, lees je af aan de ouders. Grijs-normaal (BBVV) × zwart-stompjes (bbvv) geeft een F1 met BV op het ene chromosoom en bv op het andere. Vwo-notatie: BV/bv tegenover Bv/bV.</p>
+<p><strong>Waarom maximaal 50 %?</strong> Twee genen die ver uit elkaar liggen hebben bijna altijd een of meer crossing-overs tussen zich. Een even aantal herstelt de oude combinatie, een oneven aantal geeft een recombinant. Gemiddeld is de helft recombinant, net als bij genen op verschillende chromosomen.</p>
+<p><strong>Misvatting:</strong> "Gekoppeld betekent dat de genen altijd samen overerven." Koppeling is niet absoluut; crossing-over haalt ze soms uit elkaar.</p>
+<p><strong>Als een leerling vraagt</strong> "kun je crossing-over zien?": in de meiose kun je onder de microscoop de kruisplekken zien. Die heten chiasmata (zie de cursieve regel).</p>
+<p><em>Niet met een bron gecontroleerd: dat Morgan koppeling ontdekte bij Drosophila met deze kenmerken (lijfkleur en vleugelvorm), en de naam chiasma voor de zichtbare kruisplek.</em></p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://openstax.org/books/biology-2e/pages/12-3-laws-of-inheritance">OpenStax Biology 2e, 12.3 Laws of Inheritance</a> · <a target="_blank" rel="noopener" href="https://bio.libretexts.org/Bookshelves/Genetics/Online_Open_Genetics_(Nickle_and_Barrette-Ng)/07%3A_Linkage_and_Mapping/7.S%3A_Linkage_and_Mapping_(Summary)">Nickle &amp; Barrette-Ng, Online Open Genetics 7: Linkage and Mapping (LibreTexts)</a></p></div></details>
+  <details class="onderwerp"><summary>Recombinatiepercentage en genkaarten (vwo)</summary><div><p><strong>Recombinatiepercentage</strong> = aantal recombinante nakomelingen / totaal × 100 %. Je meet het het makkelijkst met een terugkruising met een dubbel recessieve ouder (bbvv): die geeft alleen bv, dus elk fenotype verraadt de gameet van de andere ouder. In de film: 170 van de 1000 = 17 %.</p>
+<p><strong>Sturtevant (1913)</strong>, student van Morgan, gebruikte zulke percentages als maat voor afstand en zette zes X-gebonden factoren van Drosophila op een lijn. Zijn redenering: liggen de genen op een lijn, dan is de afstand A–C gelijk aan A–B plus B–C. Zo bepaalde hij de volgorde. Hij merkte al op dat dubbele crossing-overs de afstanden minder nauwkeurig maken.</p>
+<p>De eenheid heet <strong>centimorgan</strong> (cM), naar Thomas Hunt Morgan: 1 cM ≈ 1 % recombinatie. Bij de mens komt 1 cM gemiddeld overeen met ± 1 miljoen basenparen.</p>
+<p>Dubbele crossing-overs zie je niet: ze herstellen de oude combinatie. Daardoor geven recombinatiepercentages bij grote afstanden een te kleine afstand. Lange kaarten bouw je daarom op uit korte stukken. Een chromosoom kan veel langer zijn dan 50 cM, al meet je tussen twee genen nooit meer dan 50 %.</p>
+<p><strong>Als een leerling vraagt</strong> "ligt C links of rechts van A?": met alleen A–B 10 % en A–C 30 % weet je dat niet. Meet B–C: 20 % betekent dat C aan de kant van B ligt, 40 % dat C aan de andere kant ligt.</p>
+<p><em>Niet met een bron gecontroleerd: dat 1 cM precies is gedefinieerd als 1 % recombinatie (genome.gov noemt cM 'een maat voor de frequentie van recombinatie' en geeft geen percentage).</em></p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://embryo.asu.edu/pages/linear-arrangement-six-sex-linked-factors-drosophila-shown-their-mode-association-1913-alfred">Embryo Project Encyclopedia (Arizona State University): Sturtevant 1913</a> · <a target="_blank" rel="noopener" href="https://genome.gov/genetics-glossary/centimorgan">NHGRI Genetics Glossary: Centimorgan</a> · <a target="_blank" rel="noopener" href="https://bio.libretexts.org/Bookshelves/Genetics/Online_Open_Genetics_(Nickle_and_Barrette-Ng)/07%3A_Linkage_and_Mapping/7.S%3A_Linkage_and_Mapping_(Summary)">Nickle &amp; Barrette-Ng, Online Open Genetics 7 (LibreTexts)</a></p></div></details>
+  <details class="onderwerp"><summary>Stambomen lezen: de vier patronen</summary><div><ul>
+<li><strong>Autosomaal recessief (AR):</strong> aangedane kinderen van gezonde ouders (beide drager). Het patroon 'slaat generaties over'. Mannen en vrouwen worden even vaak aangedaan.</li>
+<li><strong>Autosomaal dominant (AD):</strong> wie de eigenschap heeft, heeft meestal een aangedane ouder. Het patroon slaat geen generatie over. Twee aangedane ouders kunnen een gezond kind krijgen (beide Aa).</li>
+<li><strong>X-recessief (XR):</strong> vooral mannen aangedaan. Een aangedane dochter heeft altijd een aangedane vader, die haar zijn enige X geeft. Een vader geeft een X-gebonden eigenschap nooit aan zijn zoon.</li>
+<li><strong>X-dominant (XD):</strong> een aangedane vader geeft de eigenschap aan al zijn dochters en aan geen van zijn zonen.</li>
+</ul>
+<p><strong>Valkuilen:</strong></p>
+<ul>
+<li><strong>Kleine gezinnen.</strong> Bij drie kinderen past een stamboom vaak bij meer erfgangen. Bij De Wit is alleen een zoon aangedaan: dat past bij AR en bij XR. Dat albinisme (OCA1) autosomaal is, weet je uit onderzoek naar het gen TYR, niet uit deze stamboom.</li>
+<li><strong>Nieuwe mutaties.</strong> Een dominante aandoening kan ontstaan bij iemand zonder familiegeschiedenis.</li>
+<li><strong>Onvolledige penetrantie.</strong> Soms heeft iemand het allel wel en de aandoening niet. Dan lijkt een dominante eigenschap een generatie over te slaan.</li>
+</ul>
+<p><strong>Als een leerling vraagt</strong> "waarom is het bij Huntington altijd dominant?": één afwijkend allel is genoeg om ziek te worden. Daarom heeft (bijna) elke patiënt een ouder met de ziekte.</p>
+<p><em>Niet met een bron gecontroleerd: Huntington als autosomaal dominant met 50 % kans per kind, en wat onvolledige penetrantie precies inhoudt (geen bron geopend; MedlinePlus noemt de term alleen).</em></p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://medlineplus.gov/genetics/understanding/inheritance/inheritancepatterns">MedlinePlus Genetics: What are the different ways a genetic condition can be inherited?</a> · <a target="_blank" rel="noopener" href="https://bio.libretexts.org/Bookshelves/Genetics/Classical_Genetics_(Khan_Academy)/04%3A_Pedigrees/4.03%3A_Pedigrees_review">Classical Genetics (Khan Academy, LibreTexts): Pedigrees review</a> · <a target="_blank" rel="noopener" href="https://medlineplus.gov/genetics/condition/oculocutaneous-albinism">MedlinePlus Genetics: Oculocutaneous albinism</a></p></div></details>
+  <details class="onderwerp"><summary>Albinisme in De Wit en taaislijmziekte in de film</summary><div><p><strong>Albinisme (OCA)</strong> is autosomaal recessief. Type 1 komt door varianten in het gen <strong>TYR</strong> (tyrosinase, nodig voor melanine), type 2 door varianten in <strong>OCA2</strong>. Bij OCA1 zie je wit haar, een heel lichte huid en lichte irissen; zo is Levi getekend. Frequentie: ± 1 op 12.000 à 15.000 in Europese populaties, ± 1 op 4.000 à 7.000 in Afrikaanse populaties.</p>
+<p><strong>Taaislijmziekte (CF)</strong>, uit film 6, is ook autosomaal recessief. Het gen <strong>CFTR</strong> codeert voor een kanaal voor chloride-ionen. Werkt dat kanaal niet goed, dan wordt het slijm dik en taai.</p>
+<ul>
+<li>In Nederland is <strong>± 1 op 30</strong> mensen drager, ongeveer een half miljoen mensen.</li>
+<li>De kans dat twee partners allebei drager zijn is dan ± 1/30 × 1/30 = <strong>1 op 900</strong>.</li>
+<li>Bij twee dragers is de kans per zwangerschap ¼ op een kind met CF, ½ op een drager en ¼ op een kind zonder CF-mutatie. Die kans is bij elke zwangerschap hetzelfde.</li>
+</ul>
+<p><strong>Als een leerling vraagt</strong> "waarom zijn er zoveel dragers als de ziekte zo zeldzaam is?": een drager merkt er niets van, dus het allel wordt niet weggeselecteerd. Je ziet de ziekte alleen als twee dragers samen een kind krijgen, en dan in een kwart van de gevallen.</p>
+<p><em>Niet met een bron gecontroleerd: het aantal mensen met CF in Nederland.</em></p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://medlineplus.gov/genetics/condition/oculocutaneous-albinism">MedlinePlus Genetics: Oculocutaneous albinism</a> · <a target="_blank" rel="noopener" href="https://webarchive.library.unt.edu/eot2008/20090511224230/http://ghr.nlm.nih.gov/condition=cysticfibrosis/show/print">Genetics Home Reference (NLM, archief): Cystic fibrosis</a> · <a target="_blank" rel="noopener" href="https://ncfs.nl/over-taaislijmziekte/cf-de-basis/erfelijkheid">NCFS: Erfelijkheid van taaislijmziekte</a> · <a target="_blank" rel="noopener" href="https://richtlijnendatabase.nl/richtlijn/preconceptie_dragerschapsonderzoek_pdo_voor_hoogrisicogroepen/algemene_inleiding_pdo.html">VKGN-richtlijn Preconceptie dragerschapsonderzoek (Richtlijnendatabase)</a></p></div></details>
+  <details class="onderwerp"><summary>De ⅔-redenering: waarom niet ½?</summary><div><p>Twee dragers (Aa × Aa) krijgen gemiddeld ¼ AA, ½ Aa en ¼ aa. Over een kind dat nog geboren moet worden zeg je: kans ½ op drager. Maar van Sara weet je al iets: ze is gezond. Dan valt aa af en reken je alleen binnen AA en Aa. Van die drie gelijke 'vakjes' zijn er twee Aa, dus de kans is <strong>⅔</strong>. Dit is een <strong>voorwaardelijke kans</strong>: de kans op drager, gegeven dat ze gezond is.</p>
+<p>Patiëntenvoorlichting en lesmateriaal over CF noemen dezelfde ⅔ voor een gezonde broer of zus van een kind met CF.</p>
+<p><strong>Misvatting:</strong> "Aa is de helft van het schema, dus ½." Die ½ geldt voor alle kinderen samen, inclusief de zieke. Sara hoort niet bij de zieke kinderen.</p>
+<p><strong>Als een leerling vraagt</strong> "maar Sara is in het echt AA, dus is de kans dan niet 0?": voor de verteller, die alles weet, wel. Voor Sara zelf en haar arts, die alleen de stamboom kennen, is het ⅔ tot ze een dragerschapstest doet. Kans gaat over wat je weet.</p>
+<p><em>Niet met een bron gecontroleerd: de term 'voorwaardelijke kans' in deze context (de geopende bronnen geven alleen het getal ⅔ met de redenering).</em></p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://mymds.bham.ac.uk/genetics/pdffiles/Y5geneticsGroupACase02.pdf">University of Birmingham, Medical genetics case (CF): risico van een gezond kind</a> · <a target="_blank" rel="noopener" href="https://www.cysticfibrosis.org.uk/sites/default/files/2021-01/Factsheet%20Genetic%20Cascade%20Screening%202016.pdf">Cystic Fibrosis Trust: Genetic cascade screening factsheet</a> · <a target="_blank" rel="noopener" href="https://openstax.org/books/biology-2e/pages/12-3-laws-of-inheritance">OpenStax Biology 2e, 12.3 (somregel ¼ + ½)</a></p></div></details>
+  <details class="onderwerp"><summary>Product- en somregel, en toeval heeft geen geheugen</summary><div><ul>
+<li><strong>Productregel:</strong> moeten twee onafhankelijke gebeurtenissen allebei plaatsvinden, dan vermenigvuldig je de kansen. Voorbeelden: geel én rond = ¾ × ¾ = 9/16; twee kinderen achter elkaar aa = ¼ × ¼ = 1/16; Sara drager én geeft a én partner geeft a = ⅔ × ½ × ½ = ⅙.</li>
+<li><strong>Somregel:</strong> sluiten twee uitkomsten elkaar uit, dan tel je ze op. Gezond = AA óf Aa = ¼ + ½ = ¾.</li>
+</ul>
+<p><strong>Toeval heeft geen geheugen.</strong> Bij twee dragers is de kans op een kind met CF bij elke zwangerschap opnieuw ¼, ook na een ziek kind.</p>
+<p><strong>Veelgemaakte fout bij ⅙:</strong> ½ × ½ = ¼ geven en vergeten dat Sara eerst drager moet zijn (⅔). Of andersom ⅔ × ¼ goed hebben en het niet kunnen uitleggen: het is hetzelfde (⅔ × ½ × ½ = ⅔ × ¼).</p>
+<p><strong>Als een leerling vraagt</strong> "ze hebben al één ziek kind, dus de volgende drie zijn gezond?": nee. ¼ betekent dat het bij veel gezinnen samen gemiddeld een kwart is. In één gezin kan het vaker of nooit gebeuren.</p>
+<p><em>Niet met een bron gecontroleerd: niets; de rekenvoorbeelden ⅔ × ½ × ½ en ¼ × ¼ zijn eigen berekeningen met de regels uit OpenStax.</em></p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://openstax.org/books/biology-2e/pages/12-3-laws-of-inheritance">OpenStax Biology 2e, 12.3 Laws of Inheritance</a> · <a target="_blank" rel="noopener" href="https://ncfs.nl/over-taaislijmziekte/cf-de-basis/erfelijkheid">NCFS: Erfelijkheid van taaislijmziekte</a></p></div></details>
+  <details class="onderwerp"><summary>Erfelijkheidsadvies en dragerschapstest in Nederland</summary><div><p><strong>Dragerschapsonderzoek vóór de zwangerschap</strong> (preconceptie dragerschapsonderzoek, PDO) combineert een DNA-test met counseling. Het laat paren met een kinderwens weten of ze samen een verhoogde kans hebben op een kind met een ernstige recessieve aandoening.</p>
+<ul>
+<li><strong>Wie maakt het:</strong> de richtlijn is van de Vereniging Klinische Genetica Nederland (VKGN), gepubliceerd in 2020.</li>
+<li><strong>Wie biedt het aan:</strong> de afdelingen Klinische Genetica van de umc's. Counseling door een klinisch geneticus of genetisch consulent.</li>
+<li><strong>Voor wie (richtlijn):</strong> paren uit hoogrisicogroepen, door afkomst, regio of omdat de partners familie van elkaar zijn.</li>
+<li><strong>Familie met de aandoening</strong> valt buiten deze richtlijn; die mensen worden via de gewone verwijzing naar Klinische Genetica gestuurd. NCFS: heb je een naast familielid met CF, vraag de huisarts om een verwijzing; een specialist beslist of een DNA-test zinvol is.</li>
+<li><strong>Kosten:</strong> test en counseling zitten in het basispakket (eigen risico kan gelden).</li>
+</ul>
+<p>Voor Sara betekent dit: met een broer met albinisme kan ze via de huisarts naar Klinische Genetica. Na de test is haar kans op een kind met albinisme (met een partner die drager is) ¼ of 0, in plaats van ⅙.</p>
+<p><strong>Als een leerling vraagt</strong> "kun je zo'n test ook online kopen?": ja, er zijn commerciële tests in het buitenland. Die vallen buiten de richtlijn en zonder counseling is de uitslag lastig te duiden.</p>
+<p><em>Niet met een bron gecontroleerd: of dragerschapsonderzoek voor albinisme (OCA1) standaard wordt aangeboden en vergoed zoals bij CF; erfelijkheid.nl en RIVM konden niet worden geopend.</em></p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://richtlijnendatabase.nl/richtlijn/preconceptie_dragerschapsonderzoek_pdo_voor_hoogrisicogroepen/startpagina_-_pdo.html">VKGN-richtlijn PDO: startpagina (Richtlijnendatabase)</a> · <a target="_blank" rel="noopener" href="https://richtlijnendatabase.nl/richtlijn/preconceptie_dragerschapsonderzoek_pdo_voor_hoogrisicogroepen/algemene_inleiding_pdo.html">VKGN-richtlijn PDO: algemene inleiding</a> · <a target="_blank" rel="noopener" href="https://ncfs.nl/over-taaislijmziekte/cf-de-basis/erfelijkheid">NCFS: Erfelijkheid van taaislijmziekte</a></p></div></details>
+</details>
+
+<footer class="tool-voet">Biologie bij Kamiel · Uitleg in stappen · Erfelijkheid les 3 · versie 1.0 · 28 oktober 2026<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../../../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></footer>
+</div>
+
+<script src="../../../personages/lib_cast.js"></script>
+<script>
+'use strict';
+/* =====================================================================================
+   Basis: tekenruimte, kleuren (licht/donker), hulpfuncties
+   ===================================================================================== */
+const W = 1920, H = 1080;
+let C = {};
+function zetPalet() {
+  const licht = document.documentElement.getAttribute('data-theme') === 'light';
+  C = licht ? {
+    bg: '#FFFFFF', fill: '#E9EDF3', text: '#121C2E', text2: '#4E5A6C', line: '#6B7687', meta: '#8A650C',
+    goud: '#C9961F', koraal: '#C0583A', groen: '#2F8A47', teal: '#25729C', paars: '#6550AD', oker: '#A8822E',
+    mens: '#6B7687', holte: '#6A4A52', bloed: '#B5574A', grond: '#C9B896', water: '#25729C', licht: true
+  } : {
+    bg: '#1A2740', fill: '#2A3A58', text: '#F2F2EE', text2: '#9AA3B2', line: '#8FA0B5', meta: '#C9B896',
+    goud: '#E0B64A', koraal: '#E07A5F', groen: '#7FC48F', teal: '#5BA4C9', paars: '#8C7BBF', oker: '#C9A35C',
+    mens: '#9AA3B2', holte: '#1A1420', bloed: '#B5574A', grond: '#6B5A40', water: '#5BA4C9', licht: false
+  };
+  if (window.BB) BB.thema(C.licht);
+}
+zetPalet();
+
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const lerp = (a, b, u) => a + (b - a) * clamp(u, 0, 1);
+const ease = (u) => { u = clamp(u, 0, 1); return u * u * (3 - 2 * u); };
+function hash(n) { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); }
+function rgbVan(c) { // '#rrggbb' of 'rgb(r,g,b)' -> [r,g,b]
+  if (c[0] === '#') { const n = parseInt(c.slice(1), 16); return [n >> 16, (n >> 8) & 255, n & 255]; }
+  const m = c.match(/[\d.]+/g); return m ? m.slice(0, 3).map(Number) : [128, 128, 128];
+}
+function rgba(c, a) { if (typeof c === 'number') { return `rgba(${arguments[0]},${arguments[1]},${arguments[2]},${arguments[3]})`; } const [r, g, b] = rgbVan(c); return `rgba(${r},${g},${b},${a})`; }
+function mix(c1, c2, k) { const a = rgbVan(c1), b = rgbVan(c2); const m = a.map((v, i) => Math.round(v * (1 - k) + b[i] * k)); return '#' + m.map(v => v.toString(16).padStart(2, '0')).join(''); }
+const lighten = (c, k) => mix(c, '#FFFFFF', k);
+function shape(ctx, fill, stroke, lw = 1.5) { if (fill) { ctx.fillStyle = fill; ctx.fill(); } if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw; ctx.stroke(); } }
+function roundRect(ctx, x, y, w, h, r) { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
+function circ(ctx, x, y, r, fill, stroke, lw = 1.5) { ctx.beginPath(); ctx.arc(x, y, Math.max(0.1, r), 0, 6.283); if (fill) { ctx.fillStyle = fill; ctx.fill(); } if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw; ctx.stroke(); } }
+const F = { titel: '"Fraunces",Georgia,serif', tekst: '"Source Sans 3",system-ui,sans-serif', meta: '"IBM Plex Mono",ui-monospace,monospace' };
+const fTitel = (px) => `700 ${px}px ${F.titel}`, fTekst = (px, w = 400) => `${w} ${px}px ${F.tekst}`, fMeta = (px) => `500 ${px}px ${F.meta}`;
+function text(ctx, s, x, y, font, color, align = 'left', base = 'alphabetic') { ctx.font = font; ctx.fillStyle = color; ctx.textAlign = align; ctx.textBaseline = base; ctx.fillText(s, x, y); }
+function metaText(ctx, s, x, y, color = C.meta, align = 'left', px = 24, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fMeta(px); ctx.fillStyle = color; ctx.textAlign = align; ctx.textBaseline = 'alphabetic'; try { ctx.letterSpacing = '3px'; } catch (e) {} ctx.fillText(s.toUpperCase(), x, y); ctx.restore(); }
+// gewone tekst op het beeld, met rand in de achtergrondkleur voor leesbaarheid
+function regel(ctx, s, x, y, a = 1, col = C.text, px = 34, align = 'left', w = 600) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fTekst(px, w); ctx.textAlign = align; ctx.textBaseline = 'alphabetic'; ctx.lineJoin = 'round'; ctx.strokeStyle = rgba(C.bg, 0.85); ctx.lineWidth = 7; ctx.strokeText(s, x, y); ctx.fillStyle = col; ctx.fillText(s, x, y); ctx.restore(); }
+// naam van een onderdeel, direct bij het onderdeel (geen wijslijn); verborgen met 'Namen verbergen'
+let toonNamen = true;
+function naam(ctx, s, x, y, a = 1, align = 'left', col = C.text, px = 34) { if (!toonNamen) return; regel(ctx, s, x, y, a, col, px, align, 600); }
+function pijl(ctx, x1, y1, x2, y2, col, lw = 4, a = 1, kop = 16) {
+  if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = lw; ctx.lineCap = 'round';
+  const an = Math.atan2(y2 - y1, x2 - x1); ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2 - Math.cos(an) * kop * 0.6, y2 - Math.sin(an) * kop * 0.6); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(x2, y2); ctx.lineTo(x2 - Math.cos(an - 0.45) * kop, y2 - Math.sin(an - 0.45) * kop); ctx.lineTo(x2 - Math.cos(an + 0.45) * kop, y2 - Math.sin(an + 0.45) * kop); ctx.closePath(); ctx.fill(); ctx.restore();
+}
+function paneel(ctx, x, y, w, h, a = 1, col = null) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, w, h, 18); shape(ctx, rgba(C.fill, C.licht ? 0.55 : 0.45), col || rgba(C.line, 0.45), 2); ctx.restore(); }
+// paden
+function gladPad(pts, step = 7) {
+  if (pts.length < 3) { const out = []; const [a, b] = pts; const L = Math.hypot(b[0] - a[0], b[1] - a[1]); const n = Math.max(2, Math.ceil(L / step)); for (let i = 0; i <= n; i++) out.push([lerp(a[0], b[0], i / n), lerp(a[1], b[1], i / n)]); return out; }
+  const P = [pts[0], ...pts, pts[pts.length - 1]], out = [];
+  for (let i = 1; i < P.length - 2; i++) { const [p0, p1, p2, p3] = [P[i - 1], P[i], P[i + 1], P[i + 2]]; const L = Math.hypot(p2[0] - p1[0], p2[1] - p1[1]); const n = Math.max(2, Math.ceil(L / step));
+    for (let k = 0; k < n; k++) { const u = k / n, u2 = u * u, u3 = u2 * u; out.push([0, 1].map(d => 0.5 * (2 * p1[d] + (-p0[d] + p2[d]) * u + (2 * p0[d] - 5 * p1[d] + 4 * p2[d] - p3[d]) * u2 + (-p0[d] + 3 * p1[d] - 3 * p2[d] + p3[d]) * u3))); } }
+  out.push(pts[pts.length - 1]); return out;
+}
+const _glad = new Map();
+function gladC(pts) { const k = JSON.stringify(pts); let v = _glad.get(k); if (!v) { v = gladPad(pts); _glad.set(k, v); } return v; }
+function padLengte(pts) { const L = [0]; for (let i = 1; i < pts.length; i++) L.push(L[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1])); return L; }
+function padPunt(pts, d) { const L = padLengte(pts); d = clamp(d, 0, L[L.length - 1]); let i = 1; while (i < pts.length - 1 && L[i] < d) i++; const u = (d - L[i - 1]) / ((L[i] - L[i - 1]) || 1); return [lerp(pts[i - 1][0], pts[i][0], u), lerp(pts[i - 1][1], pts[i][1], u), Math.atan2(pts[i][1] - pts[i - 1][1], pts[i][0] - pts[i - 1][0])]; }
+function lijnPad(ctx, pts, col, lw, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); gladC(pts).forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke(); ctx.restore(); }
+// tekent fn in een aparte laag en zet die met doorzichtigheid a op het beeld (geen doorschijnende overlap binnen één figuur)
+let _laagCv = null;
+function laag(ctx, a, fn) {
+  if (a <= 0.01) return; if (a >= 0.995) { fn(ctx); return; }
+  const c = ctx.canvas; if (!_laagCv) _laagCv = document.createElement('canvas'); const L = _laagCv; if (L.width !== c.width || L.height !== c.height) { L.width = c.width; L.height = c.height; }
+  const l = L.getContext('2d'); l.setTransform(1, 0, 0, 1, 0, 0); l.clearRect(0, 0, L.width, L.height); l.setTransform(ctx.getTransform()); fn(l);
+  ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha *= a; ctx.drawImage(L, 0, 0); ctx.restore();
+}
+function pers(ctx, id, x, y, h, o = {}) { const a = o.a == null ? 1 : o.a; laag(ctx, a, (l) => persoon(l, id, x, y, h, Object.assign({}, o, { a: 1 }))); }
+function gloed(ctx, x, y, r, col, k) { if (k <= 0.01) return; const g = ctx.createRadialGradient(x, y, 0, x, y, r); g.addColorStop(0, rgba(col, 0.45 * k)); g.addColorStop(1, rgba(col, 0)); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.fill(); }
+
+/* =====================================================================================
+   Erfelijkheid · gedeelde bouwstenen voor de lessen 1–3 (28 okt 2026)
+   Kleuren zoals in film 1 (Chromosomen): chromosoom van de vader teal, van de moeder oker, genband goud,
+   paars = neutraal (nog niet toegewezen) chromosoom. Alles is 1920×1080; a = doorzichtigheid 0..1.
+   ===================================================================================== */
+const CH = { get vader() { return C.teal; }, get moeder() { return C.oker; }, get neutraal() { return C.paars; } };
+const dk = (h, k = 0.35) => mix(h, '#000000', k);
+function kruis(ctx, x, y, r, a = 1, col = C.koraal) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = Math.max(4, r * 0.45); ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x - r, y - r); ctx.lineTo(x + r, y + r); ctx.moveTo(x + r, y - r); ctx.lineTo(x - r, y + r); ctx.stroke(); ctx.restore(); }
+function vink(ctx, x, y, r, a = 1, col = C.groen) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = Math.max(4, r * 0.45); ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); ctx.moveTo(x - r, y); ctx.lineTo(x - r * 0.3, y + r * 0.7); ctx.lineTo(x + r, y - r * 0.7); ctx.stroke(); ctx.restore(); }
+function zoomRand(ctx, x, y, r, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, r, null, rgba(C.line, 0.8), 4); ctx.restore(); }
+// zoomcirkel met inhoud; van = [x,y] waar de stippellijnen vandaan komen
+function zoom(ctx, zx, zy, zr, a, van, fn) { if (a <= 0.01) return; if (van) { ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = rgba(C.line, 0.7); ctx.lineWidth = 3; ctx.setLineDash([8, 10]); const an = Math.atan2(zy - van[1], zx - van[0]); ctx.beginPath(); ctx.moveTo(van[0], van[1]); ctx.lineTo(zx + Math.cos(an + 1.9) * zr, zy + Math.sin(an + 1.9) * zr); ctx.moveTo(van[0], van[1]); ctx.lineTo(zx + Math.cos(an - 1.9) * zr, zy + Math.sin(an - 1.9) * zr); ctx.stroke(); ctx.restore(); }
+  ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.arc(zx, zy, zr, 0, 6.283); ctx.clip(); ctx.fillStyle = C.bg; ctx.fill(); fn(); ctx.restore(); zoomRand(ctx, zx, zy, zr, a); }
+// aanwijslijn + naam (de knop Namen verbergen geldt ook hier)
+function wijs(ctx, s, x1, y1, x2, y2, a = 1, col = C.text, px = 30, align = 'center') { if (!toonNamen || a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = rgba(C.line, 0.8); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); circ(ctx, x2, y2, 4, C.line); ctx.restore(); naam(ctx, s, x1, y1 + (y1 < y2 ? -10 : 34), a, align, col, px); }
+// brede kernbalk onderaan (één kernzin of conclusie)
+function balk(ctx, s, x, y, w, a = 1, col = C.goud, px = 40) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - w / 2, y - 52, w, 104, 20); shape(ctx, rgba(col, 0.12), col, 3); ctx.restore(); regel(ctx, s, x, y + 14, a, C.text, px, 'center', 700); }
+// zachte, ronde celvorm: geen rechte randen
+function blob(ctx, x, y, rx, ry, seed = 1, wob = 0.06) { ctx.beginPath(); for (let i = 0; i <= 64; i++) { const an = i / 64 * 6.283, w = 1 + wob * Math.sin(an * 3 + seed) + wob * 0.6 * Math.sin(an * 5 + seed * 2.1); const px = x + Math.cos(an) * rx * w, py = y + Math.sin(an) * ry * w; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.closePath(); }
+// cel met kern; o.kl = membraankleur, o.kr = kernstraal, o.kdx/kdy = plek van de kern, o.geenKern
+function cel(ctx, x, y, rx, ry, a = 1, o = {}) { if (a <= 0.01) return; const kl = o.kl || C.teal; ctx.save(); ctx.globalAlpha *= a; blob(ctx, x, y, rx, ry, o.seed || 1, o.wob == null ? 0.05 : o.wob); shape(ctx, rgba(kl, C.licht ? 0.08 : 0.12), kl, o.lw || 4);
+  if (!o.geenKern) { const kx = x + (o.kdx || 0), ky = y + (o.kdy || 0), kr = o.kr || Math.min(rx, ry) * 0.34; circ(ctx, kx, ky, kr, rgba(C.paars, C.licht ? 0.14 : 0.24), C.paars, 2.5); }
+  ctx.restore(); }
+
+/* ---------- chromosomen ----------
+   chromosoom(ctx, x, y, len, o): (x, y) = centromeer. o.dubbel 0 = één chromatide (één DNA-molecuul, na de meiose of vóór het kopiëren),
+   1 = twee zusterchromatiden (X-vorm, vlak voor een deling); tussenwaarden = het kopiëren zelf.
+   o.kl kleur, o.rot draaiing (rad), o.w dikte (standaard len·0,16), o.cen plek van het centromeer (0 = boven, 1 = onder; 0,38),
+   o.banden = [{p (0..1 van boven), kl, letter, px}] genbanden; de letter staat rechts van het chromosoom (o.letterLinks = links),
+   o.uiteen 0..1 = de zusterchromatiden schuiven uit elkaar (anafase meiose II). Geeft de y van elke band terug. */
+function chromosoom(ctx, x, y, len, o = {}) {
+  const a = o.a == null ? 1 : o.a; if (a <= 0.01) return []; const kl = o.kl || CH.neutraal, dkl = dk(kl), w = o.w || len * 0.16, cen = o.cen == null ? 0.38 : o.cen;
+  const e = ease(clamp(o.dubbel == null ? 1 : o.dubbel, 0, 1)), ui = clamp(o.uiteen || 0, 0, 1), coils = o.coils || Math.max(3, Math.round(len / 40));
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(o.rot || 0); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  const armen = e < 0.02 ? [0] : [-1, 1], bandY = [];
+  armen.forEach(k => { const off = k * (w * 0.55 * e + ui * w * 1.4), end = k * w * 0.45 * e * (1 - ui);
+    ctx.beginPath(); ctx.moveTo(off + end, -len * cen); ctx.quadraticCurveTo(off, -len * cen * 0.4, off * (0.75 + 0.25 * ui), 0); ctx.quadraticCurveTo(off, len * (1 - cen) * 0.4, off + end, len * (1 - cen));
+    ctx.strokeStyle = dkl; ctx.lineWidth = w + 3; ctx.stroke(); ctx.strokeStyle = kl; ctx.lineWidth = w; ctx.stroke();
+    ctx.strokeStyle = rgba('#FFFFFF', C.licht ? 0.28 : 0.16); ctx.lineWidth = Math.max(1, w * 0.09);
+    for (let q = 0; q < coils * 2; q++) { const u = (q + 0.5) / (coils * 2), yy = -len * cen + u * len, b = Math.abs(yy) / len, cx = off * (0.75 + 0.25 * Math.min(1, b * 3)) + k * e * b * w * 0.45 * (1 - ui);
+      ctx.beginPath(); ctx.ellipse(cx, yy, w * 0.4, w * 0.12, 0.25, Math.PI * 0.1, Math.PI * 0.9); ctx.stroke(); }
+    (o.banden || []).forEach(B => { const by = -len * cen + B.p * len, b = Math.abs(by) / len, bx = off * (0.75 + 0.25 * Math.min(1, b * 3)) + k * e * b * w * 0.45 * (1 - ui);
+      roundRect(ctx, bx - w / 2 - 2, by - w * 0.26, w + 4, w * 0.52, 4); shape(ctx, B.kl || C.goud, dk(B.kl || C.goud, 0.5), 2.5); }); });
+  if (e > 0.3 && ui < 0.3) circ(ctx, 0, 0, w * 0.42 * clamp((e - 0.3) / 0.4, 0, 1) * (1 - ui / 0.3), dkl);
+  ctx.restore();
+  // letters (niet mee gedraaid, zodat ze leesbaar blijven)
+  (o.banden || []).forEach(B => { const by = -len * cen + B.p * len, r = o.rot || 0; const px = x - Math.sin(r) * by, py = y + Math.cos(r) * by; bandY.push([px, py]);
+    if (B.letter && (o.letterA == null || o.letterA > 0.01)) { const zij = o.letterLinks ? -1 : 1, fx = px + zij * (w * (0.9 + e * 0.6 + ui * 1.4) + 26), fpx = B.px || Math.max(30, Math.min(56, len * 0.2));
+      regel(ctx, B.letter, fx, py + fpx * 0.36, a * (o.letterA == null ? 1 : o.letterA), B.letterKl || C.text, fpx, 'center', 700); } });
+  return bandY;
+}
+// homoloog paar: links van de vader (teal), rechts van de moeder (oker). o.allelen = ['A','a'] → banden op o.p (0,66);
+// o.dubbel, o.dx (halve afstand), o.label (onder het paar, meta), o.kleur = false → allebei neutraal paars
+function paar(ctx, x, y, len, o = {}) { const a = o.a == null ? 1 : o.a; if (a <= 0.01) return; const dx = o.dx || len * 0.32, al = o.allelen || [], p = o.p == null ? 0.66 : o.p;
+  [0, 1].forEach(i => { const kl = o.kleur === false ? CH.neutraal : (i ? CH.moeder : CH.vader); const banden = al[i] ? [{ p, letter: al[i], letterKl: o.letterKl ? o.letterKl(al[i]) : C.text }] : (o.band ? [{ p }] : []);
+    chromosoom(ctx, x + (i ? dx : -dx), y, len, { kl, dubbel: o.dubbel == null ? 1 : o.dubbel, a, banden, letterLinks: i === 0, w: o.w, cen: o.cen, letterA: o.letterA }); });
+  if (o.label) metaText(ctx, o.label, x, y + len * (1 - (o.cen == null ? 0.38 : o.cen)) + 48, C.text2, 'center', 22, a); }
+
+/* ---------- allelen, gameten, genotypen ---------- */
+// allelChip: genotype in een kaartje, bv. 'Aa'; o.px letterhoogte, o.kl randkleur, o.acc = index van de letter met gouden ring
+function allelChip(ctx, s, x, y, a = 1, o = {}) { if (a <= 0.01) return; const px = o.px || 46, chars = [...s], w = Math.max(px * 1.9, chars.length * px * 0.82 + px * 0.6), h = px * 1.4; ctx.save(); ctx.globalAlpha *= a;
+  roundRect(ctx, x - w / 2, y - h / 2, w, h, 12); shape(ctx, o.vul || rgba(C.fill, C.licht ? 0.9 : 0.8), o.kl || rgba(C.line, 0.8), o.kl ? 3 : 1.5);
+  ctx.restore(); regel(ctx, s, x, y + px * 0.35, a, o.tkl || C.text, px, 'center', 700);
+  if (o.acc != null && o.acc >= 0) { ctx.save(); ctx.globalAlpha *= a; ctx.font = fTekst(px, 700); const tw = ctx.measureText(s).width; let off = x - tw / 2; for (let i = 0; i < o.acc; i++) off += ctx.measureText(chars[i]).width; const cw = ctx.measureText(chars[o.acc]).width; ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(off + cw / 2, y + 2, px * 0.48, 0, 6.283); ctx.stroke(); ctx.restore(); } }
+// genotype van twee gameten: 'A' + 'a' → 'Aa'; 'GR' + 'gr' → 'GgRr' (per gen hoofdletter eerst). Voor Xᴺ, Iᴬ enz.: geef de cel zelf op in kruisSchema.
+function genotypeVan(g1, g2) { const a = [...g1], b = [...g2]; return a.map((c, i) => { const d = b[i] || ''; return (c === c.toUpperCase() || d !== d.toUpperCase()) ? c + d : d + c; }).join(''); }
+// gameet: o.soort 'ei' (groter, oker rand), 'zaad' (kleiner, met staart) of 'cel' (neutraal rondje); inhoud = tekst in de kern
+function gameet(ctx, x, y, r, inhoud, o = {}) { const a = o.a == null ? 1 : o.a; if (a <= 0.01) return; const soort = o.soort || 'cel', kl = o.kl || (soort === 'ei' ? C.koraal : soort === 'zaad' ? C.teal : C.text2); ctx.save(); ctx.globalAlpha *= a;
+  if (soort === 'zaad') { ctx.strokeStyle = kl; ctx.lineWidth = Math.max(2, r * 0.1); ctx.lineCap = 'round'; ctx.beginPath(); for (let i = 0; i <= 24; i++) { const u = i / 24, px = x + r * 0.95 + u * r * 2.2, py = y + Math.sin(u * 8 - (o.t || 0) * 6) * r * 0.16 * u; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke();
+    ctx.beginPath(); ctx.ellipse(x, y, r, r * 0.78, 0, 0, 6.283); shape(ctx, rgba(kl, C.licht ? 0.12 : 0.18), kl, 3); }
+  else { if (soort === 'ei') circ(ctx, x, y, r * 1.14, rgba(C.oker, 0.1), rgba(C.oker, 0.55), 2); circ(ctx, x, y, r, rgba(kl, C.licht ? 0.1 : 0.16), kl, 3); }
+  ctx.restore(); if (inhoud) regel(ctx, inhoud, x, y + (o.px || r * 0.62) * 0.36, a, o.tkl || C.text, o.px || r * 0.62, 'center', 700); }
+
+/* ---------- kruisingsschema ----------
+   kruisSchema(ctx, x, y, o): (x, y) = linkerbovenhoek van het rooster (zonder kopjes).
+   o.links = gameten links (één ouder), o.boven = gameten boven (andere ouder), o.vak = grootte van een vakje (130),
+   o.prog = 0..1 hoeveel vakjes al gevuld zijn (leesvolgorde), o.cel(i, j, g) → {t, vul, kl, rand} voor vakje rij i, kolom j (g = automatisch genotype),
+   o.kopLinks / o.kopBoven = kopje bij de gameten (bv. 'zaadcellen'), o.klLinks / o.klBoven = kleur van de gameten, o.a, o.px = letterhoogte.
+   Geeft {x0, y0, vak, midden(i,j)} terug. */
+function kruisSchema(ctx, x, y, o = {}) { const a = o.a == null ? 1 : o.a, L = o.links || [], B = o.boven || [], v = o.vak || 130, n = L.length * B.length, px = o.px || Math.round(v * 0.32);
+  const kL = o.klLinks || CH.vader, kB = o.klBoven || CH.moeder, mid = (i, j) => [x + j * v + v / 2, y + i * v + v / 2];
+  if (a <= 0.01) return { x0: x, y0: y, vak: v, midden: mid };
+  B.forEach((g, j) => { const ga = a * (o.gametA ? o.gametA('b', j) : 1); gameet(ctx, x + j * v + v / 2, y - v * 0.5, v * 0.3, g, { soort: o.soortBoven || 'cel', kl: kB, a: ga, px: px * 0.85 }); });
+  L.forEach((g, i) => { const ga = a * (o.gametA ? o.gametA('l', i) : 1); gameet(ctx, x - v * 0.5, y + i * v + v / 2, v * 0.3, g, { soort: o.soortLinks || 'cel', kl: kL, a: ga, px: px * 0.85 }); });
+  if (o.kopBoven) metaText(ctx, o.kopBoven, x + B.length * v / 2, y - v * 1.02, kB, 'center', 22, a);
+  if (o.kopLinks) { ctx.save(); ctx.translate(x - v * 1.02, y + L.length * v / 2); ctx.rotate(-Math.PI / 2); metaText(ctx, o.kopLinks, 0, 0, kL, 'center', 22, a); ctx.restore(); }
+  ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, B.length * v, L.length * v, 10); shape(ctx, rgba(C.fill, C.licht ? 0.35 : 0.3), rgba(C.line, 0.7), 2);
+  ctx.strokeStyle = rgba(C.line, 0.55); ctx.lineWidth = 2; for (let j = 1; j < B.length; j++) { ctx.beginPath(); ctx.moveTo(x + j * v, y); ctx.lineTo(x + j * v, y + L.length * v); ctx.stroke(); } for (let i = 1; i < L.length; i++) { ctx.beginPath(); ctx.moveTo(x, y + i * v); ctx.lineTo(x + B.length * v, y + i * v); ctx.stroke(); } ctx.restore();
+  const prog = o.prog == null ? 1 : o.prog;
+  for (let i = 0; i < L.length; i++) for (let j = 0; j < B.length; j++) { const k = i * B.length + j, e = clamp(prog * n - k, 0, 1); if (e <= 0.01) continue; const g = genotypeVan(String(L[i]), String(B[j])), c = o.cel ? (o.cel(i, j, g) || {}) : {}; const [cx, cy] = mid(i, j);
+    if (c.vul) { ctx.save(); ctx.globalAlpha *= a * e; roundRect(ctx, x + j * v + 5, y + i * v + 5, v - 10, v - 10, 8); shape(ctx, c.vul, c.rand || null, 3); ctx.restore(); }
+    if (c.teken) c.teken(ctx, cx, cy, a * e); else regel(ctx, c.t == null ? g : c.t, cx, cy + (c.px || px) * 0.35, a * e, c.kl || C.text, c.px || px, 'center', 700); }
+  return { x0: x, y0: y, vak: v, midden: mid }; }
+// verhoudingsbalk: delen = [{n, kl, label}], label onder elk deel; o.tekst = '3 : 1' erboven
+function verhouding(ctx, x, y, w, h, delen, a = 1, o = {}) { if (a <= 0.01) return; const tot = delen.reduce((s, d) => s + d.n, 0); let xx = x; ctx.save(); ctx.globalAlpha *= a;
+  delen.forEach((d, i) => { const dw = w * d.n / tot; roundRect(ctx, xx + 2, y, dw - 4, h, 10); shape(ctx, rgba(d.kl, 0.55), d.kl, 2.5); xx += dw; }); ctx.restore(); xx = x;
+  delen.forEach(d => { const dw = w * d.n / tot; if (d.label) regel(ctx, d.label, xx + dw / 2, y + h + 40, a, C.text2, o.px || 28, 'center', 600); if (d.in) regel(ctx, d.in, xx + dw / 2, y + h / 2 + 13, a, C.text, 36, 'center', 700); xx += dw; });
+  if (o.tekst) regel(ctx, o.tekst, x + w / 2, y - 22, a, o.kl || C.goud, o.tpx || 44, 'center', 700); }
+
+/* ---------- planten, dieren ---------- */
+// erwtenplant: stengel met blaadjes, ranken en een paar vlinderbloemen; kl = bloemkleur (paars of wit); o.h hoogte; o.peul = toon peulen
+const BLOEM = { get paars() { return C.licht ? '#8E5BB8' : '#B58BD9'; }, get wit() { return C.licht ? '#F4F2EC' : '#F2F2EE'; }, get rood() { return C.licht ? '#C9374A' : '#E0566A'; }, get roze() { return C.licht ? '#E89AB0' : '#F0A8C0'; } };
+function vlinderbloem(ctx, x, y, r, kl, rot = 0) { ctx.save(); ctx.translate(x, y); ctx.rotate(rot); ctx.beginPath(); ctx.ellipse(0, -r * 0.35, r * 0.85, r * 0.7, 0, 0, 6.283); shape(ctx, kl, dk(kl, 0.25), 2); ctx.beginPath(); ctx.ellipse(-r * 0.32, r * 0.25, r * 0.42, r * 0.36, -0.4, 0, 6.283); shape(ctx, mix(kl, '#000000', 0.08), dk(kl, 0.25), 2); ctx.beginPath(); ctx.ellipse(r * 0.32, r * 0.25, r * 0.42, r * 0.36, 0.4, 0, 6.283); shape(ctx, mix(kl, '#000000', 0.08), dk(kl, 0.25), 2); ctx.restore(); }
+function erwtPlant(ctx, x, y, h, kl, o = {}) { const a = o.a == null ? 1 : o.a; if (a <= 0.01) return; const T = o.t || 0, st = C.licht ? '#3F7D4A' : '#6FAE7A', bl = C.licht ? '#5C9A5E' : '#7FC48F'; ctx.save(); ctx.globalAlpha *= a; ctx.lineCap = 'round';
+  // pot
+  ctx.beginPath(); ctx.moveTo(x - h * 0.16, y - h * 0.14); ctx.lineTo(x + h * 0.16, y - h * 0.14); ctx.lineTo(x + h * 0.12, y); ctx.lineTo(x - h * 0.12, y); ctx.closePath(); shape(ctx, C.licht ? '#B8865B' : '#8A6446', dk(C.licht ? '#B8865B' : '#8A6446', 0.3), 2);
+  const sway = Math.sin(T * 1.2 + x * 0.01) * h * 0.012; const pts = [[x, y - h * 0.14], [x - h * 0.03 + sway, y - h * 0.45], [x + h * 0.02 + sway * 1.5, y - h * 0.75], [x + sway * 2, y - h * 0.97]];
+  lijnPad(ctx, pts, st, Math.max(3, h * 0.02));
+  [[0.3, -1], [0.45, 1], [0.6, -1], [0.75, 1]].forEach(([u, s]) => { const [bx, by] = padPunt(gladC(pts), padLengte(gladC(pts)).slice(-1)[0] * u); ctx.beginPath(); ctx.ellipse(bx + s * h * 0.07, by, h * 0.07, h * 0.035, s * 0.4, 0, 6.283); shape(ctx, bl, dk(bl, 0.3), 1.5);
+    ctx.strokeStyle = st; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(bx - s * h * 0.01, by - h * 0.02); ctx.bezierCurveTo(bx - s * h * 0.08, by - h * 0.08, bx - s * h * 0.12, by - h * 0.02, bx - s * h * 0.09, by - h * 0.06); ctx.stroke(); });
+  if (o.peul) { [[0.52, 1], [0.68, -1]].forEach(([u, s]) => { const [bx, by] = padPunt(gladC(pts), padLengte(gladC(pts)).slice(-1)[0] * u); ctx.save(); ctx.translate(bx + s * h * 0.06, by + h * 0.04); ctx.rotate(s * 0.9); ctx.beginPath(); ctx.ellipse(0, 0, h * 0.08, h * 0.022, 0, 0, 6.283); shape(ctx, bl, dk(bl, 0.35), 2); ctx.restore(); }); }
+  const top = pts[3]; [[0, 0, 0], [-h * 0.07, h * 0.08, -0.5], [h * 0.07, h * 0.12, 0.5]].forEach(([dx, dy, r]) => vlinderbloem(ctx, top[0] + dx, top[1] + dy, h * 0.055, kl, r));
+  ctx.restore(); }
+// erwt: o.geel (anders groen), o.rimpel (gerimpeld, anders rond)
+function erwt(ctx, x, y, r, o = {}) { const a = o.a == null ? 1 : o.a; if (a <= 0.01) return; const kl = o.geel === false ? (C.licht ? '#6FA84A' : '#8CC66A') : (C.licht ? '#E3B92E' : '#F0CB4A'); ctx.save(); ctx.globalAlpha *= a;
+  if (o.rimpel) { ctx.beginPath(); for (let i = 0; i <= 40; i++) { const an = i / 40 * 6.283, rr = r * (0.86 + 0.08 * Math.sin(an * 7 + 1) + 0.04 * Math.sin(an * 13)); const px = x + Math.cos(an) * rr, py = y + Math.sin(an) * rr * 0.92; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.closePath(); shape(ctx, kl, dk(kl, 0.35), 2);
+    ctx.strokeStyle = rgba(dk(kl, 0.4), 0.7); ctx.lineWidth = Math.max(1.2, r * 0.07); [[-0.4, -0.2, 0.5], [0.1, 0.3, 0.45], [0.3, -0.35, 0.35]].forEach(([dx, dy, l]) => { ctx.beginPath(); ctx.moveTo(x + dx * r, y + dy * r); ctx.quadraticCurveTo(x + (dx + l * 0.5) * r, y + (dy + 0.15) * r, x + (dx + l) * r, y + dy * r); ctx.stroke(); }); }
+  else { circ(ctx, x, y, r, kl, dk(kl, 0.35), 2); circ(ctx, x - r * 0.3, y - r * 0.32, r * 0.25, rgba('#FFFFFF', 0.35)); }
+  ctx.restore(); }
+// leeuwenbek: bloemtros op een steel; kl = bloemkleur
+function leeuwenbek(ctx, x, y, h, kl, o = {}) { const a = o.a == null ? 1 : o.a; if (a <= 0.01) return; const st = C.licht ? '#3F7D4A' : '#6FAE7A'; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = st; ctx.lineWidth = Math.max(3, h * 0.02); ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x, y - h * 0.95); ctx.stroke();
+  [[0.3, -1], [0.42, 1], [0.22, 1]].forEach(([u, s]) => { ctx.beginPath(); ctx.ellipse(x + s * h * 0.06, y - h * u, h * 0.07, h * 0.022, s * -0.5, 0, 6.283); shape(ctx, C.licht ? '#5C9A5E' : '#7FC48F', null); });
+  for (let i = 0; i < 6; i++) { const u = 0.55 + i * 0.075, s = i % 2 ? 1 : -1, bx = x + s * h * 0.045, by = y - h * u, r = h * (0.07 - i * 0.006); ctx.beginPath(); ctx.ellipse(bx, by, r, r * 0.8, 0, 0, 6.283); shape(ctx, kl, dk(kl, 0.3), 2); ctx.beginPath(); ctx.ellipse(bx + s * r * 0.6, by + r * 0.35, r * 0.5, r * 0.35, 0, 0, 6.283); shape(ctx, mix(kl, '#FFFFFF', 0.25), dk(kl, 0.3), 1.5); }
+  ctx.restore(); }
+// muis van opzij; kl = vachtkleur, kijk 1 = naar rechts
+function muis(ctx, x, y, s, kl, o = {}) { const a = o.a == null ? 1 : o.a; if (a <= 0.01) return; const kijk = o.kijk || 1; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(kijk * s, s);
+  ctx.strokeStyle = dk(kl, 0.3); ctx.lineWidth = 3; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(-58, 10); ctx.bezierCurveTo(-100, 20, -110, -20, -140, -5); ctx.stroke();
+  ctx.beginPath(); ctx.ellipse(-5, 0, 62, 36, 0, 0, 6.283); shape(ctx, kl, dk(kl, 0.3), 2.5); ctx.beginPath(); ctx.ellipse(52, -8, 32, 24, 0.2, 0, 6.283); shape(ctx, kl, dk(kl, 0.3), 2.5);
+  ctx.beginPath(); ctx.moveTo(72, -18); ctx.lineTo(92, -2); ctx.lineTo(70, 6); ctx.closePath(); shape(ctx, kl, dk(kl, 0.3), 2); circ(ctx, 92, -2, 4, C.licht ? '#C97A7A' : '#E0A0A0');
+  circ(ctx, 42, -36, 16, mix(kl, '#E8B0B0', 0.4), dk(kl, 0.3), 2); circ(ctx, 66, -14, 4.5, '#121A26'); [[-30, 34], [25, 34]].forEach(([fx, fy]) => { ctx.beginPath(); ctx.ellipse(fx, fy, 12, 5, 0, 0, 6.283); shape(ctx, mix(kl, '#E8B0B0', 0.5), null); }); ctx.restore(); }
+// fruitvlieg van boven: o.zwart = zwart lijf (anders grijs/bruin), o.stomp = vleugelstompjes (anders normale vleugels)
+function vlieg(ctx, x, y, s, o = {}) { const a = o.a == null ? 1 : o.a; if (a <= 0.01) return; const lijf = o.zwart ? (C.licht ? '#2A2A30' : '#1C1C22') : (C.licht ? '#A88A5C' : '#B8996A'); ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); ctx.rotate(o.rot || 0);
+  ctx.strokeStyle = rgba(C.text2, 0.8); ctx.lineWidth = 2; [-1, 1].forEach(k => [[-10, -30], [0, -34], [10, -28]].forEach(([dy, l]) => { ctx.beginPath(); ctx.moveTo(k * 8, dy); ctx.lineTo(k * l * 0.9, dy + 14); ctx.stroke(); }));
+  const vl = rgba(C.licht ? '#9FC3D8' : '#CFE6F5', 0.45), vr = rgba(C.line, 0.8);
+  [-1, 1].forEach(k => { ctx.save(); ctx.rotate(k * 0.35); ctx.beginPath(); if (o.stomp) ctx.ellipse(k * 16, 6, 9, 16, k * 0.4, 0, 6.283); else ctx.ellipse(k * 22, 30, 15, 46, k * 0.25, 0, 6.283); shape(ctx, vl, vr, 1.5); ctx.restore(); });
+  ctx.beginPath(); ctx.ellipse(0, 26, 13, 28, 0, 0, 6.283); shape(ctx, lijf, dk(lijf, 0.3), 2); for (let k = 0; k < 4; k++) { ctx.strokeStyle = rgba(dk(lijf, 0.5), 0.8); ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(-12, 18 + k * 9); ctx.lineTo(12, 18 + k * 9); ctx.stroke(); }
+  ctx.beginPath(); ctx.ellipse(0, -4, 12, 14, 0, 0, 6.283); shape(ctx, lijf, dk(lijf, 0.3), 2); circ(ctx, 0, -26, 10, lijf, dk(lijf, 0.3), 2); [-1, 1].forEach(k => circ(ctx, k * 9, -28, 6.5, C.licht ? '#B5302A' : '#D9443A')); ctx.restore(); }
+// rode bloedcel met antigenen: o.A, o.B (true/false). A = goud vertakt suikerketentje, B = teal
+function rodeBloedcel(ctx, x, y, r, o = {}) { const a = o.a == null ? 1 : o.a; if (a <= 0.01) return; const rb = C.licht ? '#D9675A' : '#E07A5F'; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.ellipse(x, y, r, r, 0, 0, 6.283); shape(ctx, rgba(rb, 0.85), dk(rb, 0.3), 3); ctx.beginPath(); ctx.ellipse(x, y, r * 0.5, r * 0.5, 0, 0, 6.283); shape(ctx, rgba(dk(rb, 0.25), 0.35), null);
+  const soorten = [o.A ? 'A' : null, o.B ? 'B' : null].filter(Boolean), n = soorten.length ? 10 : 0;
+  for (let i = 0; i < n; i++) { const an = i / n * 6.283 + 0.2, s = soorten[i % soorten.length], kl = s === 'A' ? C.goud : C.teal, bx = x + Math.cos(an) * r, by = y + Math.sin(an) * r, ex = x + Math.cos(an) * r * 1.22, ey = y + Math.sin(an) * r * 1.22;
+    ctx.strokeStyle = kl; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(bx, by); ctx.lineTo(ex, ey); ctx.stroke(); if (s === 'A') { ctx.beginPath(); ctx.moveTo(ex, ey); ctx.lineTo(ex + Math.cos(an - 0.6) * r * 0.12, ey + Math.sin(an - 0.6) * r * 0.12); ctx.moveTo(ex, ey); ctx.lineTo(ex + Math.cos(an + 0.6) * r * 0.12, ey + Math.sin(an + 0.6) * r * 0.12); ctx.stroke(); circ(ctx, ex, ey, r * 0.045, kl); }
+    else { roundRect(ctx, ex - r * 0.05, ey - r * 0.05, r * 0.1, r * 0.1, 2); shape(ctx, kl, null); circ(ctx, ex + Math.cos(an) * r * 0.1, ey + Math.sin(an) * r * 0.1, r * 0.04, kl); } }
+  ctx.restore(); }
+
+/* ---------- stambomen ----------
+   stamPersoon(ctx, x, y, r, o): o.m = man (vierkant) anders vrouw (rondje), o.ziek = ingekleurd, o.drager = half ingekleurd (alleen als je het al weet),
+   o.label = tekst bij het symbool (genotype of naam), o.labelZij = 'onder' | 'boven' | 'links' | 'rechts', o.nr = kleine code linksboven (II-3), o.hl = gouden ring (nadruk), o.kl = kleur van de eigenschap */
+function stamPersoon(ctx, x, y, r, o = {}) { const a = o.a == null ? 1 : o.a; if (a <= 0.01) return; const kl = o.kl || C.koraal; ctx.save(); ctx.globalAlpha *= a;
+  const pad = () => { ctx.beginPath(); if (o.m) { roundRect(ctx, x - r, y - r, 2 * r, 2 * r, r * 0.12); } else ctx.arc(x, y, r, 0, 6.283); };
+  pad(); shape(ctx, o.ziek ? kl : (C.licht ? '#FFFFFF' : C.bg), C.text, 3);
+  if (o.drager && !o.ziek) { ctx.save(); pad(); ctx.clip(); ctx.fillStyle = rgba(kl, 0.55); ctx.fillRect(x, y - r, r, 2 * r); ctx.restore(); pad(); shape(ctx, null, C.text, 3); }
+  if (o.hl) { ctx.strokeStyle = C.goud; ctx.lineWidth = 4; ctx.beginPath(); if (o.m) roundRect(ctx, x - r - 9, y - r - 9, 2 * r + 18, 2 * r + 18, r * 0.2); else ctx.arc(x, y, r + 9, 0, 6.283); ctx.globalAlpha *= o.hl; ctx.stroke(); }
+  ctx.restore(); if (o.vraag) regel(ctx, '?', x, y + r * 0.42, a, C.goud, r * 1.2, 'center', 700);
+  if (o.label) { const lp = o.labelPx || 30, z = o.labelZij || 'onder', lx = z === 'links' ? x - r - 14 : z === 'rechts' ? x + r + 14 : x, ly = z === 'onder' ? y + r + lp + 8 : z === 'boven' ? y - r - 14 : y + lp * 0.36;
+    regel(ctx, o.label, lx, ly, a * (o.labelA == null ? 1 : o.labelA), o.labelKl || C.text, lp, z === 'links' ? 'right' : z === 'rechts' ? 'left' : 'center', 700); }
+  if (o.nr) regel(ctx, o.nr, x - r - 6, y - r - 6, a, C.text2, 20, 'right', 500); }
+// partnerlijn tussen twee personen (x1, x2 = middelpunten), r = straal van het symbool
+function stamPaar(ctx, x1, x2, y, r, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.text; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x1 + r, y); ctx.lineTo(x2 - r, y); ctx.stroke(); ctx.restore(); }
+// lijnen van een paar (midden xm, hoogte y) naar kinderen op hoogte yk (xs = middelpunten), r = straal
+function stamKinderen(ctx, xm, y, xs, yk, r, a = 1) { if (a <= 0.01 || !xs.length) return; const ym = (y + yk - r) / 2; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.text; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(xm, y); ctx.lineTo(xm, ym); ctx.moveTo(Math.min(xm, ...xs), ym); ctx.lineTo(Math.max(xm, ...xs), ym); xs.forEach(x => { ctx.moveTo(x, ym); ctx.lineTo(x, yk - r); }); ctx.stroke(); ctx.restore(); }
+
+/* ---------- tellen en kansen ---------- */
+// vaste pseudo-toevalsreeks (zelfde beeld bij elke keer afspelen)
+function toeval(seed) { let s = seed >>> 0 || 1; return () => { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; }; }
+// stippenveld: n stippen in een raster binnen (x, y, w, h); kl(i) = kleur van stip i; zicht = aantal stippen dat al te zien is
+function stippen(ctx, x, y, w, h, n, kl, a = 1, o = {}) { if (a <= 0.01) return; const r = o.r || Math.max(3, Math.sqrt(w * h / n) * 0.36), kol = Math.max(1, Math.round(Math.sqrt(n * w / h))), rijen = Math.ceil(n / kol), dx = w / kol, dy = h / rijen, zicht = o.zicht == null ? n : o.zicht;
+  ctx.save(); ctx.globalAlpha *= a; for (let i = 0; i < Math.min(n, zicht); i++) { const c = i % kol, rr = Math.floor(i / kol); circ(ctx, x + c * dx + dx / 2, y + rr * dy + dy / 2, r, kl(i)); } ctx.restore(); }
+// staafdiagram: w = [hoogtes 0..1], o.kl, o.labels (onder de staven), o.as (naam onder de as)
+function histogram(ctx, x, y, w, h, waarden, a = 1, o = {}) { if (a <= 0.01) return; const n = waarden.length, bw = w / n; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = rgba(C.line, 0.8); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + w, y); ctx.stroke();
+  waarden.forEach((v, i) => { const bh = h * v * (o.groei == null ? 1 : o.groei); roundRect(ctx, x + i * bw + bw * 0.1, y - bh, bw * 0.8, Math.max(0.1, bh), Math.min(8, bw * 0.2)); shape(ctx, rgba(o.kl || C.teal, 0.55), o.kl || C.teal, 2); }); ctx.restore();
+  (o.labels || []).forEach((l, i) => regel(ctx, l, x + i * bw + bw / 2, y + 36, a, C.text2, o.px || 24, 'center', 500)); if (o.as) metaText(ctx, o.as, x + w / 2, y + 80, C.text2, 'center', 20, a); }
+// kansbalk: f = deel 0..1 gevuld met kl, tekst ernaast
+function kansBalk(ctx, x, y, w, h, f, kl, a = 1, tekst = '') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, w, h, h / 2); shape(ctx, rgba(C.fill, 0.6), rgba(C.line, 0.6), 2); if (f > 0.005) { roundRect(ctx, x, y, Math.max(h, w * f), h, h / 2); shape(ctx, rgba(kl, 0.75), kl, 2); } ctx.restore(); if (tekst) regel(ctx, tekst, x + w + 24, y + h / 2 + 12, a, C.text, 34, 'left', 700); }
+// breuk als tekst met streep: teller boven, noemer onder
+function breuk(ctx, t, n, x, y, px = 54, a = 1, kl = C.text) { if (a <= 0.01) return; ctx.save(); ctx.font = fTekst(px, 700); const w = Math.max(ctx.measureText(String(t)).width, ctx.measureText(String(n)).width) + 12; ctx.restore(); regel(ctx, String(t), x, y - px * 0.18, a, kl, px, 'center', 700); ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = kl; ctx.lineWidth = Math.max(3, px * 0.07); ctx.beginPath(); ctx.moveTo(x - w / 2, y); ctx.lineTo(x + w / 2, y); ctx.stroke(); ctx.restore(); regel(ctx, String(n), x, y + px * 0.92, a, kl, px, 'center', 700); }
+
+/* ---------- kaarten ---------- */
+function termKaart(ctx, term, uitleg, x, y, a = 1, kl = C.goud, w = 0) { if (a <= 0.01) return; ctx.save(); ctx.font = fTekst(42, 700); const w1 = ctx.measureText(term).width; ctx.font = fTekst(30, 500); const w2 = uitleg ? ctx.measureText(uitleg).width : 0; ctx.restore();
+  const bw = w || Math.max(w1, w2) + 64, bh = uitleg ? 124 : 84; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - bw / 2, y, bw, bh, 14); shape(ctx, rgba(C.bg, 0.94), kl, 2.5); ctx.restore();
+  regel(ctx, term, x, y + 54, a, kl, 42, 'center', 700); if (uitleg) regel(ctx, uitleg, x, y + 100, a, C.text, 30, 'center', 500); }
+function misvatting(ctx, fout, goed, x, y, w, a = 1, g = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - w / 2, y, w, 150, 14); shape(ctx, rgba(C.bg, 0.95), rgba(C.line, 0.7), 2); ctx.restore();
+  kruis(ctx, x - w / 2 + 50, y + 46, 15, a, C.koraal); regel(ctx, fout, x - w / 2 + 90, y + 58, a, C.text2, 34, 'left', 600);
+  ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = rgba(C.koraal, 0.8); ctx.lineWidth = 3; ctx.font = fTekst(34, 600); const fw = ctx.measureText(fout).width; ctx.beginPath(); ctx.moveTo(x - w / 2 + 88, y + 46); ctx.lineTo(x - w / 2 + 92 + fw, y + 46); ctx.stroke(); ctx.restore();
+  if (g > 0.01) { vink(ctx, x - w / 2 + 50, y + 108, 15, a * g, C.groen); regel(ctx, goed, x - w / 2 + 90, y + 120, a * g, C.text, 34, 'left', 600); } }
+
+/* ---------- vooruitblik (laatste scherm van elke les) ---------- */
+function vooruitblik(ctx, S, kop, tegels) {
+  const T = S.T, n = tegels.length, w = 380, gap = 40, x0 = 960 - (n * w + (n - 1) * gap) / 2;
+  metaText(ctx, 'volgende keer', 960, 250, C.meta, 'center', 24, S.on(0, 0.6));
+  text(ctx, kop, 960, 340, fTitel(76), C.goud, 'center');
+  tegels.forEach(([titel, sub, f], i) => { const a = S.on(0, 0.6, 0.4 + i * 0.25); if (a <= 0.01) return; const x = x0 + i * (w + gap) + w / 2, y = 640;
+    ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - w / 2, y - 210, w, 420, 24); shape(ctx, rgba(C.fill, C.licht ? 0.5 : 0.4), rgba(C.line, 0.4), 2); ctx.restore();
+    f(ctx, x, y - 60, a, T); regel(ctx, titel, x, y + 110, a, C.text, 34, 'center', 700); if (sub) regel(ctx, sub, x, y + 156, a, C.text2, 26, 'center', 400); });
+}
+
+/* =====================================================================================
+   SCHERMEN — per scherm: titel (knop), kop (boven het beeld), deel, stappen (t = tekst onder het beeld,
+   th = havotekst, n = notitie voor de docent, vwo = alleen in vwo) en teken(ctx, S).
+   In teken: S.on(k, duur, vertraging) = voortgang 0..1 van stap k (1 als die stap al geweest is, 0 als hij nog moet komen),
+   S.T = tijd sinds het begin van het scherm (s), S.vwo = niveau.
+   ===================================================================================== */
+const SCHERMEN = [];
+/* =====================================================================================
+   Erfelijkheid · les 3 · Twee genen en een stamboom (28 okt 2026)
+   Eigen hulpen met prefix L3_. Kleuren: vader teal, moeder oker, gen goud, aandoening koraal.
+   ===================================================================================== */
+const L3_bult = (u) => Math.sin(Math.PI * clamp(u, 0, 1));
+// fenotypen van erwten: [geel, rond]; tint per fenotype (vast in de hele les)
+const L3_FEN = [[true, true], [true, false], [false, true], [false, false]];
+const L3_FNAAM = ['geel, rond', 'geel, gerimpeld', 'groen, rond', 'groen, gerimpeld'];
+const L3_FKL = () => [C.goud, C.oker, C.groen, C.paars];
+const L3_fenVan = (g) => (g.includes('G') ? 0 : 2) + (g.includes('R') ? 0 : 1);
+// nakomelingen van GgRr × GgRr (48 erwten, 27 : 9 : 9 : 3, vaste volgorde)
+const L3_KROST = (() => { const a = []; [27, 9, 9, 3].forEach((n, k) => { for (let i = 0; i < n; i++) a.push(k); }); const r = toeval(7); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; })();
+
+// gameet met gekleurde letters (teal = van de vader, oker = van de moeder)
+function L3_gameet(ctx, x, y, r, letters, kls, a = 1, o = {}) { if (a <= 0.01) return; gameet(ctx, x, y, r, '', { soort: 'cel', kl: o.kl || C.text2, a });
+  const px = o.px || r * 0.62; ctx.save(); ctx.font = fTekst(px, 700); const ws = letters.map(l => ctx.measureText(l).width), tot = ws.reduce((s, w) => s + w, 0) + (letters.length - 1) * 4; ctx.restore();
+  let xx = x - tot / 2; letters.forEach((l, i) => { regel(ctx, l, xx + ws[i] / 2, y + px * 0.36, a, kls[i] || C.text, px, 'center', 700); xx += ws[i] + 4; }); }
+const L3_kl = (l) => (l === l.toUpperCase() ? CH.vader : CH.moeder);
+
+// één chromatide als staafje met twee kleuren (boven/onder de breuk) en genbanden met letter erop
+function L3_chromatide(ctx, x, y0, len, w, klBoven, klOnder, breuk, banden, a = 1, dxOnder = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.lineCap = 'round';
+  const yb = y0 + len * breuk, xb = x + dxOnder * 0.5;
+  const seg = (kl, ya, yz, xa, xz) => { ctx.strokeStyle = dk(kl); ctx.lineWidth = w + 3; ctx.beginPath(); ctx.moveTo(xa, ya); ctx.lineTo(xz, yz); ctx.stroke(); ctx.strokeStyle = kl; ctx.lineWidth = w; ctx.beginPath(); ctx.moveTo(xa, ya); ctx.lineTo(xz, yz); ctx.stroke(); };
+  seg(klOnder, yb, y0 + len, xb, x + dxOnder); seg(klBoven, y0, yb, x, xb);
+  (banden || []).forEach(B => { const by = y0 + len * B.p, bx = B.p < breuk ? x + (xb - x) * (B.p / breuk) : xb + (x + dxOnder - xb) * ((B.p - breuk) / (1 - breuk));
+    roundRect(ctx, bx - w / 2 - 3, by - w * 0.42, w + 6, w * 0.84, 5); shape(ctx, C.goud, dk(C.goud, 0.5), 2.5);
+    ctx.font = fTekst(B.px || Math.max(22, w * 0.72), 700); ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = '#121C2E'; ctx.fillText(B.letter, bx, by + 1); });
+  ctx.restore(); }
+
+/* ---------- stamboom van het gezin De Wit ----------
+   cx = midden, top = hoogte van generatie I, s = schaal. o.aI/aII/aIII = zichtbaarheid per generatie, o.ziek = Levi ingekleurd (0..1),
+   o.namen (0..1), o.geno = {id: 'Aa'}, o.genoA = {id: a}, o.hl = {id: a}, o.romeins (0..1), o.vanafII = generatie I weglaten. Geeft posities terug. */
+const L3_WIT = { opawit: [-400, 0, 1, 'opa Frank'], omawit: [-240, 0, 0, 'oma Lucia'], opabos: [240, 0, 1, 'opa Wim'], omabos: [400, 0, 0, 'oma Anja'],
+  dennis: [-160, 1, 1, 'Dennis'], marieke: [160, 1, 0, 'Marieke'], sara: [-150, 2, 0, 'Sara'], levi: [0, 2, 1, 'Levi'], jens: [150, 2, 1, 'Jens'] };
+function L3_witBoom(ctx, cx, top, s, o = {}) {
+  const dy = 220 * s, r = 38 * s, P = {}, gen = [o.vanafII ? 0 : (o.aI == null ? 1 : o.aI), o.aII == null ? 1 : o.aII, o.aIII == null ? 1 : o.aIII];
+  const y0 = o.vanafII ? top - dy : top;
+  Object.entries(L3_WIT).forEach(([id, [dx, g]]) => { P[id] = [cx + dx * s, y0 + g * dy]; });
+  const lp = Math.max(30, 30 * s);
+  // lijnen
+  if (!o.vanafII) { stamPaar(ctx, P.opawit[0], P.omawit[0], P.opawit[1], r, gen[0]); stamPaar(ctx, P.opabos[0], P.omabos[0], P.opabos[1], r, gen[0]);
+    stamKinderen(ctx, (P.opawit[0] + P.omawit[0]) / 2, P.opawit[1], [P.dennis[0]], P.dennis[1], r, gen[0] * gen[1]);
+    stamKinderen(ctx, (P.opabos[0] + P.omabos[0]) / 2, P.opabos[1], [P.marieke[0]], P.marieke[1], r, gen[0] * gen[1]); }
+  stamPaar(ctx, P.dennis[0], P.marieke[0], P.dennis[1], r, gen[1]);
+  stamKinderen(ctx, cx, P.dennis[1], [P.sara[0], P.levi[0], P.jens[0]], P.sara[1], r, gen[1] * gen[2]);
+  Object.entries(L3_WIT).forEach(([id, [dx, g, m, nm]]) => { const a = gen[g] * (o.dim && o.dim[id] != null ? o.dim[id] : 1); if (a <= 0.01) return; const [x, y] = P[id];
+    const zij = g === 1 ? (id === 'dennis' ? 'links' : 'rechts') : g === 0 ? 'boven' : 'onder', nmA = o.namen == null ? 1 : o.namen;
+    stamPersoon(ctx, x, y, r, { m: !!m, a, hl: o.hl && o.hl[id] ? o.hl[id] : 0 });
+    if (id === 'levi' && o.ziek) stamPersoon(ctx, x, y, r, { m: true, ziek: true, a: a * o.ziek });
+    if (o.vraag && o.vraag[id]) regel(ctx, '?', x, y + r * 0.42, a * o.vraag[id], C.goud, r * 1.2, 'center', 700);
+    if (nmA > 0.01 && !(g === 0 && o.geenNamenI)) naam(ctx, nm, zij === 'links' ? x - r - 14 : zij === 'rechts' ? x + r + 14 : x, zij === 'onder' ? y + r + lp + 6 : zij === 'boven' ? y - r - 14 : y + lp * 0.36, a * nmA, zij === 'links' ? 'right' : zij === 'rechts' ? 'left' : 'center', C.text, lp);
+    if (o.geno && o.geno[id]) { const ga = a * (o.genoA && o.genoA[id] != null ? o.genoA[id] : 1); const gs = o.geno[id];
+      allelChip(ctx, gs, g === 0 ? x : x + r + 34 * Math.max(0.8, s), g === 0 ? y + r + 36 : y - r - 6, ga, { px: Math.max(30, 30 * s), kl: gs === 'aa' ? C.koraal : gs === 'Aa' ? C.goud : null }); } });
+  if (o.romeins) ['I', 'II', 'III'].forEach((rn, g) => { if (o.vanafII && g === 0) return; regel(ctx, rn, cx - 560 * s, y0 + g * dy + 13, o.romeins * gen[g], C.text2, 38, 'center', 700); });
+  return { P, r };
+}
+// ruit = kind waarvan je het geslacht nog niet weet
+function L3_ruit(ctx, x, y, r, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.moveTo(x, y - r * 1.2); ctx.lineTo(x + r * 1.2, y); ctx.lineTo(x, y + r * 1.2); ctx.lineTo(x - r * 1.2, y); ctx.closePath(); shape(ctx, C.licht ? '#FFFFFF' : C.bg, C.text, 3); ctx.restore(); regel(ctx, '?', x, y + r * 0.42, a, C.goud, r * 1.2, 'center', 700); }
+// meiose-I-cel met twee paren in het midden; omgekeerd = vormpaar andersom
+function L3_meioseCel(ctx, x, y, a, omgekeerd, T) { if (a <= 0.01) return;
+  cel(ctx, x, y, 370, 290, a, { geenKern: true, kl: C.text2, seed: omgekeerd ? 3 : 1 });
+  ctx.save(); ctx.globalAlpha *= a * 0.6; ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.setLineDash([8, 10]); ctx.beginPath(); ctx.moveTo(x, y - 260); ctx.lineTo(x, y + 260); ctx.stroke(); ctx.restore();
+  const w = Math.sin(T * 1.3) * 1.5, dx = 74;
+  chromosoom(ctx, x - dx, y - 110 + w, 200, { kl: CH.vader, dubbel: 1, a, banden: [{ p: 0.7, letter: 'G', px: 42 }], letterLinks: true });
+  chromosoom(ctx, x + dx, y - 110 + w, 200, { kl: CH.moeder, dubbel: 1, a, banden: [{ p: 0.7, letter: 'g', px: 42 }] });
+  const [kL, lL, kR, lR] = omgekeerd ? [CH.moeder, 'r', CH.vader, 'R'] : [CH.vader, 'R', CH.moeder, 'r'];
+  chromosoom(ctx, x - dx, y + 140 - w, 160, { kl: kL, dubbel: 1, a, banden: [{ p: 0.68, letter: lL, px: 42 }], letterLinks: true });
+  chromosoom(ctx, x + dx, y + 140 - w, 160, { kl: kR, dubbel: 1, a, banden: [{ p: 0.68, letter: lR, px: 42 }] });
+}
+
+/* ---------- iconen voor 'volgende keer' ---------- */
+function L3_icoonSchema(ctx, x, y, a) { ctx.save(); ctx.globalAlpha *= a; const v = 34, x0 = x - 2 * v, y0 = y - 2 * v; for (let i = 0; i < 4; i++) for (let j = 0; j < 4; j++) { roundRect(ctx, x0 + j * v + 2, y0 + i * v + 2, v - 4, v - 4, 5); const f = L3_fenVan(genotypeVan(['GR', 'Gr', 'gR', 'gr'][i], ['GR', 'Gr', 'gR', 'gr'][j])); shape(ctx, rgba(L3_FKL()[f], 0.45), L3_FKL()[f], 1.5); } ctx.restore(); }
+function L3_icoonOefen(ctx, x, y, a) { ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 58, y - 70, 116, 140, 10); shape(ctx, rgba(C.text, 0.06), C.text2, 3); ctx.restore();
+  stamPersoon(ctx, x - 22, y - 30, 16, { m: true, a }); stamPersoon(ctx, x + 22, y - 30, 16, { a }); stamPaar(ctx, x - 22, x + 22, y - 30, 16, a); stamKinderen(ctx, x, y - 30, [x - 26, x + 26], y + 30, 16, a);
+  stamPersoon(ctx, x - 26, y + 30, 16, { m: true, ziek: true, a }); stamPersoon(ctx, x + 26, y + 30, 16, { a, vraag: true }); }
+function L3_icoonToets(ctx, x, y, a) { ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 55, y - 70, 110, 140, 10); shape(ctx, rgba(C.text, 0.08), C.text2, 3); for (let k = 0; k < 4; k++) { ctx.strokeStyle = C.text2; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x - 20, y - 40 + k * 30); ctx.lineTo(x + 38, y - 40 + k * 30); ctx.stroke(); ctx.strokeStyle = C.groen; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(x - 42, y - 42 + k * 30); ctx.lineTo(x - 36, y - 35 + k * 30); ctx.lineTo(x - 26, y - 50 + k * 30); ctx.stroke(); } ctx.restore(); }
+function L3_icoonEvolutie(ctx, x, y, a, T) { ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.text2; ctx.lineWidth = 4; ctx.lineCap = 'round';
+  const tak = (x1, y1, x2, y2) => { ctx.beginPath(); ctx.moveTo(x1, y1); ctx.quadraticCurveTo(x1, (y1 + y2) / 2, x2, y2); ctx.stroke(); };
+  tak(x, y + 70, x, y + 20); tak(x, y + 20, x - 50, y - 20); tak(x, y + 20, x + 45, y - 10); tak(x - 50, y - 20, x - 75, y - 60); tak(x - 50, y - 20, x - 25, y - 65); tak(x + 45, y - 10, x + 70, y - 55); ctx.restore();
+  [[-75, -60, C.goud], [-25, -65, C.teal], [70, -55, C.koraal]].forEach(([dx, dy, kl], i) => circ(ctx, x + dx, y + dy + Math.sin(T * 1.4 + i) * 2, 12, rgba(kl, a * 0.8), null)); }
+
+/* =====================================================================================
+   0 · Start
+   ===================================================================================== */
+SCHERMEN.push({ titel: 'Start', deel: 'Opening', geenKop: true,
+  stappen: [{ t: '<b>Erfelijkheid</b> · les 3: twee genen tegelijk, gekoppelde genen en stambomen lezen', n: 'Kies eerst havo of vwo. Groot scherm (F) vult het hele scherm; T zet de tekst eronder uit. Vorige les: monohybride kruisingen, intermediair en multipele allelen, X-chromosomale overerving. In les 1 zagen de leerlingen het gezin De Wit al (Levi heeft albinisme): vandaag lezen we hun stamboom.' }],
+  teken(ctx, S) {
+    metaText(ctx, 'Erfelijkheid · les 3', 140, 330, C.meta, 'left', 30);
+    text(ctx, 'Twee genen', 140, 470, fTitel(112), C.text); text(ctx, 'en een stamboom', 140, 600, fTitel(112), C.goud);
+    regel(ctx, 'dihybride kruising · gekoppelde genen · stambomen en kansen', 144, 690, 1, C.text2, 32, 'left', 400);
+    const t = S.T % 9, uit = 1 - ease((t - 7.6) / 0.9), r = 54;
+    const ap = ease((t - 0.2) / 0.7) * uit, ak = (k) => ease((t - 1.5 - k * 0.45) / 0.6) * uit, z = ease((t - 3.4) / 0.8) * uit;
+    stamPaar(ctx, 1340, 1660, 360, r, ap); stamPersoon(ctx, 1340, 360, r, { m: true, a: ap }); stamPersoon(ctx, 1660, 360, r, { a: ap });
+    stamKinderen(ctx, 1500, 360, [1320, 1500, 1680], 600, r, ak(0));
+    [[1320, 0], [1500, 1], [1680, 0]].forEach(([x, m], k) => { stamPersoon(ctx, x, 600, r, { m: !!m, a: ak(k) }); if (k === 1) stamPersoon(ctx, x, 600, r, { m: true, ziek: true, a: ak(k) * z }); });
+    L3_FEN.forEach(([g, rd], k) => erwt(ctx, 1290 + k * 140, 830 + Math.sin(S.T * 1.5 + k * 1.3) * 5, 42, { geel: g, rimpel: !rd }));
+  } });
+
+/* =====================================================================================
+   1 · Nieuwe combinaties
+   ===================================================================================== */
+SCHERMEN.push({ titel: 'Nieuwe combinaties', kop: 'Twee eigenschappen tegelijk', deel: 'Twee genen',
+  stappen: [
+    { t: 'Mendel keek naar twee eigenschappen van de erwt tegelijk: de <b>kleur</b> (geel of groen) en de <b>vorm</b> (rond of gerimpeld).', n: 'Haak uit film 4 (Dihybride kruising en gekoppelde overerving). Het gaat om het zaad (de erwt), niet om de peul.' },
+    { t: 'De planten van de <b>F1</b> hebben allemaal gele, ronde erwten: <b>geel</b> en <b>rond</b> zijn dominant.', n: 'De F1 kwam uit raszuivere ouders: geel-rond × groen-gerimpeld. Laat leerlingen zelf het genotype van die ouders en van de F1 noemen (GGRR × ggrr → GgRr); dat volgt op het volgende scherm.' },
+    { t: 'Hij liet de F1 met zichzelf bestuiven. Tussen de nakomelingen zitten vier soorten erwten.', n: 'Zelfbestuiving van de F1 = GgRr × GgRr. Hier 48 erwten in de verhouding van de verwachting; Mendel telde er 556 (scherm 5).' },
+    { t: 'Twee daarvan had geen van de ouders: <b>geel en gerimpeld</b>, en <b>groen en rond</b>. Nieuwe combinaties.', n: 'Startvraag voor de les (film 4): hoe kan dat? Kom erop terug bij scherm 4 (toeval in de meiose).' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 0.9), s1 = S.on(1, 1.0), s2 = S.on(2, 2.2), s3 = S.on(3, 0.8);
+    paneel(ctx, 90, 180, 820, 320, s0);
+    metaText(ctx, 'kleur', 300, 236, C.meta, 'center', 24, s0); metaText(ctx, 'vorm', 700, 236, C.meta, 'center', 24, s0);
+    erwt(ctx, 220, 340, 52, { geel: true, a: s0 }); erwt(ctx, 380, 340, 52, { geel: false, a: s0 });
+    erwt(ctx, 620, 340, 52, { geel: true, a: s0 }); erwt(ctx, 780, 340, 52, { geel: true, rimpel: true, a: s0 });
+    naam(ctx, 'geel', 220, 448, s0, 'center', C.text, 32); naam(ctx, 'groen', 380, 448, s0, 'center', C.text, 32);
+    naam(ctx, 'rond', 620, 448, s0, 'center', C.text, 32); naam(ctx, 'gerimpeld', 780, 448, s0, 'center', C.text, 32);
+    if (s1 > 0.01) { metaText(ctx, 'F1', 500, 560, C.meta, 'center', 24, s1);
+      regel(ctx, 'geel en rond: dominant', 500, 610, s1 * S.on(1, 0.6, 0.6), C.goud, 34, 'center', 700);
+      erwtPlant(ctx, 270, 1000, 360, BLOEM.wit, { a: s1, t: T, peul: true }); erwtPlant(ctx, 730, 1000, 360, BLOEM.wit, { a: s1 * S.on(1, 0.6, 0.3), t: T + 1, peul: true });
+      for (let k = 0; k < 4; k++) erwt(ctx, 470 + (k % 2) * 62, 730 + Math.floor(k / 2) * 64, 27, { geel: true, a: s1 * S.on(1, 0.5, 0.4 + k * 0.1) }); }
+    if (s2 > 0.01) { pijl(ctx, 920, 760, 1000, 690, C.text2, 5, s2);
+      paneel(ctx, 1010, 180, 830, 720, s2); metaText(ctx, 'nakomelingen', 1425, 236, C.meta, 'center', 24, s2);
+      L3_KROST.forEach((f, i) => { const c = i % 8, rr = Math.floor(i / 8), e = clamp(s2 * 48 * 1.15 - i, 0, 1); if (e <= 0.01) return; const x = 1080 + c * 98, y = 310 + rr * 104;
+        const [g, rd] = L3_FEN[f]; erwt(ctx, x, y, 36, { geel: g, rimpel: !rd, a: e });
+        if (s3 > 0.01 && (f === 1 || f === 2)) { ctx.save(); ctx.globalAlpha *= s3; circ(ctx, x, y, 46, null, C.goud, 4); ctx.restore(); } }); }
+    naam(ctx, 'nieuwe combinaties', 1425, 960, s3, 'center', C.goud, 38);
+  } });
+
+/* =====================================================================================
+   2 · Twee genen, twee paren
+   ===================================================================================== */
+SCHERMEN.push({ titel: 'Twee paren', kop: 'Twee genen, twee chromosoomparen', deel: 'Twee genen',
+  stappen: [
+    { t: 'Geel = <b>G</b>, groen = <b>g</b>, rond = <b>R</b>, gerimpeld = <b>r</b>. De F1-planten zijn <b>GgRr</b>.', n: 'Hoofdletter = dominant allel. Vraag eventueel: welke gameten maakte de raszuivere geel-ronde ouder (GR) en de groen-gerimpelde (gr)?' },
+    { t: 'Het gen voor <b>kleur</b> ligt op een chromosoompaar: één chromosoom van de vader, één van de moeder.', n: 'Kleuren als in les 1: teal = van de vader, oker = van de moeder. Hier vóór het kopiëren getekend (één chromatide).' },
+    { t: 'Het gen voor <b>vorm</b> ligt op een <b>ander</b> chromosoompaar. We volgen dus twee paren tegelijk.', n: 'Bij de erwt liggen de genen voor zaadkleur en zaadvorm op verschillende chromosomen. Lagen ze dicht bij elkaar op hetzelfde chromosoom, dan had hij geen 9 : 3 : 3 : 1 gevonden (scherm 7).' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 0.8), s1 = S.on(1, 1.0), s2 = S.on(2, 1.0);
+    erwt(ctx, 770, 240, 48, { geel: true, a: s0 }); allelChip(ctx, 'GgRr', 1010, 240, s0, { px: 60, kl: C.goud });
+    const ak = Math.max(s1, s2); ctx.save(); ctx.globalAlpha *= ak; ctx.beginPath(); ctx.ellipse(960, 650, 700, 330, 0, 0, 6.283); shape(ctx, rgba(C.paars, C.licht ? 0.06 : 0.1), rgba(C.paars, 0.8), 3); ctx.restore();
+    naam(ctx, 'kern', 1590, 390, ak * 0.9, 'left', C.paars, 32);
+    const w = Math.sin(T * 1.2) * 2;
+    paar(ctx, 680, 600 + w, 400, { dubbel: 0, allelen: ['G', 'g'], a: s1, dx: 92, p: 0.62 });
+    naam(ctx, 'kleurgen', 680, 920, s1, 'center', C.text, 36);
+    paar(ctx, 1240, 630 - w, 320, { dubbel: 0, allelen: ['R', 'r'], a: s2, dx: 92, p: 0.65 });
+    naam(ctx, 'vormgen', 1240, 920, s2, 'center', C.text, 36);
+    regel(ctx, 'ander paar', 1240, 450, s2 * S.on(2, 0.6, 0.5), C.goud, 36, 'center', 700);
+  } });
+
+/* =====================================================================================
+   3 · Toeval in de meiose
+   ===================================================================================== */
+SCHERMEN.push({ titel: 'Toeval in de meiose', kop: 'Toeval in de meiose', deel: 'Twee genen',
+  stappen: [
+    { t: 'Bij de meiose gaan de chromosoomparen in het <b>midden</b> van de cel liggen. Hoe elk paar ligt, is toeval.', n: 'Metafase I: de homologe chromosomen liggen als paar aan weerszijden van het midden; elk chromosoom bestaat dan uit twee chromatiden (X-vorm).' },
+    { t: 'Ligt het zo, dan ontstaan gameten met <b>GR</b> en met <b>gr</b>.', n: 'Voor het gemak per kant één gameet getekend; na meiose II zijn het er vier (twee GR, twee gr).' },
+    { t: 'Ligt het vormpaar <b>andersom</b>, dan ontstaan gameten met <b>Gr</b> en met <b>gR</b>.', n: 'De letterkleur laat zien van welke ouder het allel komt: in Gr en gR zitten allelen van vader én moeder door elkaar.' },
+    { t: 'Beide liggingen zijn <b>even waarschijnlijk</b>: elk de helft van de keren.' },
+    { t: 'Bij honderden cellen: <b>vier soorten gameten</b>, elk ongeveer een kwart.', n: 'Hier 400 gameten, elk bolletje = 4 gameten. Kleine afwijkingen van 100 per soort zijn toeval.' },
+    { t: 'Dat heet <b>onafhankelijke overerving</b>: de allelen voor kleur en vorm worden los van elkaar verdeeld.', n: 'Mendels tweede wet (onafhankelijke splitsing). Geldt alleen voor genen op verschillende chromosomen, of heel ver uit elkaar op hetzelfde chromosoom (vwo: scherm 10).' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 1.0), s1 = S.on(1, 1.0), s2 = S.on(2, 1.0), s3 = S.on(3, 0.7), s4 = S.on(4, 2.4), s5 = S.on(5, 0.8);
+    const dim = 1 - S.on(4, 0.5), CY = 500;
+    laag(ctx, dim, (c) => {
+      metaText(c, 'ligging 1', 500, 196, C.meta, 'center', 24, s0); L3_meioseCel(c, 500, CY, s0, false, T);
+      [[340, ['G', 'R']], [660, ['g', 'r']]].forEach(([x, l], k) => { const e = S.on(1, 0.7, k * 0.25); pijl(c, 500 + (k ? 80 : -80), 800, x, 818, C.text2, 4, s1 * e); L3_gameet(c, x, 880, 64, l, l.map(L3_kl), s1 * e, { px: 46 }); });
+      metaText(c, 'ligging 2', 1420, 196, C.meta, 'center', 24, s2); L3_meioseCel(c, 1420, CY, s2, true, T);
+      [[1260, ['G', 'r']], [1580, ['g', 'R']]].forEach(([x, l], k) => { const e = S.on(2, 0.7, 0.4 + k * 0.25); pijl(c, 1420 + (k ? 80 : -80), 800, x, 818, C.text2, 4, s2 * e); L3_gameet(c, x, 880, 64, l, l.map(L3_kl), s2 * e, { px: 46 }); });
+      regel(c, 'kans ½', 500, 990, s3, C.goud, 44, 'center', 700); regel(c, 'kans ½', 1420, 990, s3, C.goud, 44, 'center', 700);
+    });
+    if (s4 > 0.01) { metaText(ctx, '400 gameten uit honderden cellen', 960, 210, C.meta, 'center', 24, s4);
+      const tellers = [98, 104, 101, 97], soorten = [['G', 'R'], ['G', 'r'], ['g', 'R'], ['g', 'r']];
+      soorten.forEach((l, k) => { const x = 380 + k * 390, n = Math.round(tellers[k] / 4), zicht = Math.floor(n * clamp(s4 * 1.2 - k * 0.05, 0, 1));
+        for (let i = 0; i < zicht; i++) { const c = i % 5, rr = Math.floor(i / 5); circ(ctx, x - 72 + c * 36, 660 - rr * 36, 14, rgba(C.paars, 0.75), C.paars, 1.5); }
+        L3_gameet(ctx, x, 770, 62, l, l.map(L3_kl), s4, { px: 44 });
+        regel(ctx, '± ¼', x, 440, s4 * S.on(4, 0.5, 1.8), C.goud, 46, 'center', 700); }); }
+    termKaart(ctx, 'onafhankelijke overerving', 'kleur en vorm worden los van elkaar verdeeld', 960, 866, s5);
+  } });
+
+/* =====================================================================================
+   4 · Zestien vakjes
+   ===================================================================================== */
+SCHERMEN.push({ titel: 'Zestien vakjes', kop: 'Negen, drie, drie, één', deel: 'Twee genen',
+  stappen: [
+    { t: 'Beide F1-ouders (GgRr) maken vier soorten gameten: <b>GR</b>, <b>Gr</b>, <b>gR</b> en <b>gr</b>.', n: 'Vraag uit film 4: Hoeveel vakjes krijgt het kruisingsschema als beide ouders vier soorten gameten maken? (4 × 4 = 16)' },
+    { t: 'Vier keer vier: <b>zestien vakjes</b>. Elk vakje is even waarschijnlijk.', n: 'Werkwijze bij het invullen: per gen eerst de hoofdletter, dus GgRr en niet gGrR. Laat een paar vakjes hardop invullen.' },
+    { t: 'Tel de fenotypen: <b>9</b> geel-rond, <b>3</b> geel-gerimpeld, <b>3</b> groen-rond, <b>1</b> groen-gerimpeld.', n: 'Tip voor leerlingen: elk vakje met minstens één G is geel, elk vakje met minstens één R is rond.' },
+    { t: 'De verhouding is <b>9 : 3 : 3 : 1</b>.', n: 'Let op: dat is een verhouding tussen fenotypen. Genotypen zijn er negen verschillende (1 : 2 : 1 × 1 : 2 : 1).' },
+    { t: 'Mendel telde <b>315 : 101 : 108 : 32</b> erwten. Heel dicht bij 9 : 3 : 3 : 1.', n: 'Samen 556 erwten; verwacht bij 9 : 3 : 3 : 1 is ± 313 : 104 : 104 : 35. Of zo\'n afwijking nog toeval is, toets je met een chi-kwadraattoets (geen examenstof; staat in de briefing).' }
+  ],
+  teken(ctx, S) {
+    const s0 = S.on(0, 1.0), s1 = S.on(1, 2.6), s2 = S.on(2, 1.0), s3 = S.on(3, 0.9), s4 = S.on(4, 0.9), KL = L3_FKL();
+    const G = ['GR', 'Gr', 'gR', 'gr'];
+    kruisSchema(ctx, 330, 330, { links: G, boven: G, vak: 158, prog: s1, a: s0, kopBoven: 'gameten', kopLinks: 'gameten', px: 40,
+      cel: (i, j, g) => { const f = L3_fenVan(g), [ge, rd] = L3_FEN[f]; return { vul: s2 > 0.01 ? rgba(KL[f], 0.22 * s2) : null,
+        teken: (c, cx, cy, a) => { erwt(c, cx, cy - 20, 32, { geel: ge, rimpel: !rd, a }); regel(c, g, cx, cy + 54, a, C.text2, 30, 'center', 600); } }; } });
+    metaText(ctx, 'in het schema', 1560, 300, C.meta, 'center', 22, s2); metaText(ctx, 'Mendel', 1770, 300, C.meta, 'center', 22, s4);
+    [9, 3, 3, 1].forEach((n, f) => { const y = 380 + f * 112, a = s2 * S.on(2, 0.5, f * 0.2), [ge, rd] = L3_FEN[f];
+      erwt(ctx, 1060, y, 34, { geel: ge, rimpel: !rd, a }); naam(ctx, L3_FNAAM[f], 1112, y + 12, a, 'left', C.text, 34);
+      regel(ctx, String(n), 1560, y + 22, a, KL[f], 60, 'center', 700);
+      regel(ctx, String([315, 101, 108, 32][f]), 1770, y + 18, s4 * S.on(4, 0.5, f * 0.15), C.text, 50, 'center', 700); });
+    verhouding(ctx, 1040, 820, 800, 74, [9, 3, 3, 1].map((n, f) => ({ n, kl: KL[f], in: String(n) })), s3);
+    regel(ctx, '9 : 3 : 3 : 1', 1440, 975, s3, C.goud, 54, 'center', 700);
+  } });
+
+/* =====================================================================================
+   5 · Rekenen zonder schema
+   ===================================================================================== */
+SCHERMEN.push({ titel: 'Rekenen zonder schema', kop: 'Rekenen zonder schema', deel: 'Twee genen',
+  stappen: [
+    { t: 'Kijk per gen apart. Gg × Gg: de kans op <b>geel</b> is <b>¾</b>.', n: 'Herhaling van les 1: Gg × Gg geeft 3 : 1.' },
+    { t: 'Rr × Rr: de kans op <b>rond</b> is ook <b>¾</b>.' },
+    { t: 'De genen zijn onafhankelijk, dus <b>vermenigvuldig</b>: ¾ × ¾ = <b>9/16</b> geel en rond.', n: 'Productregel (scherm 16 komt erop terug). Het vierkant is het oppervlaktemodel: kolommen = kleur, rijen = vorm.' },
+    { t: 'Groen en gerimpeld: ¼ × ¼ = <b>1/16</b>.', n: 'Laat zelf geel-gerimpeld uitrekenen: ¾ × ¼ = 3/16.' },
+    { t: '<b>Terugkruising</b> met een groene, gerimpelde plant (ggrr): de vier gameten van GgRr zie je direct terug, <b>1 : 1 : 1 : 1</b>.', n: 'ggrr maakt alleen gameten gr, dus elk fenotype van een nakomeling verraadt welke gameet de GgRr-ouder gaf. Zo toon je ook aan dat een geel-ronde plant GgRr is.' }
+  ],
+  teken(ctx, S) {
+    const s0 = S.on(0, 0.8), s1 = S.on(1, 0.8), s2 = S.on(2, 1.0), s3 = S.on(3, 0.9), s4 = S.on(4, 1.4), KL = L3_FKL();
+    const y1 = 330, y2 = 590, X = [180, 320, 450, 590, 730, 860, 1010], R = 44, B = 66;
+    const rij = (y, a, b, e1, n1, t1, e2, n2, t2) => { erwt(ctx, X[0], y, R, Object.assign({ a }, e1)); naam(ctx, n1, X[0], y + 88, a, 'center', C.text, 32); breuk(ctx, t1[0], t1[1], X[1], y, B, a);
+      regel(ctx, '×', X[2], y + 22, b, C.text2, 60, 'center', 700); erwt(ctx, X[3], y, R, Object.assign({ a: b }, e2)); naam(ctx, n2, X[3], y + 88, b, 'center', C.text, 32); breuk(ctx, t2[0], t2[1], X[4], y, B, b); };
+    rij(y1, s0, s1, { geel: true }, 'geel', [3, 4], { geel: false }, 'rond', [3, 4]);
+    regel(ctx, '=', X[5], y1 + 22, s2, C.text2, 60, 'center', 700); erwt(ctx, 960, y1, R, { geel: true, a: s2 }); breuk(ctx, 9, 16, 1100, y1, B, s2, C.goud);
+    rij(y2, s3, s3, { geel: false }, 'groen', [1, 4], { geel: false, rimpel: true }, 'gerimpeld', [1, 4]);
+    regel(ctx, '=', X[5], y2 + 22, s3, C.text2, 60, 'center', 700); erwt(ctx, 960, y2, R, { geel: false, rimpel: true, a: s3 }); breuk(ctx, 1, 16, 1100, y2, B, s3, C.paars);
+    const ax = 1360, ay = 240, v = 116, aA = Math.max(s0, s1);
+    if (aA > 0.01) { ctx.save(); ctx.globalAlpha *= aA; for (let i = 0; i < 4; i++) for (let j = 0; j < 4; j++) { const geel = j < 3, rond = i < 3; let vul = rgba(C.fill, 0.5);
+        if (geel) vul = rgba(C.goud, 0.1 + 0.18 * s0 * (1 - s2)); if (rond && s1 > 0.01) vul = geel ? rgba(C.goud, 0.28 + 0.1 * s1) : rgba(C.groen, 0.1 + 0.2 * s1 * (1 - s2));
+        if (s2 > 0.01 && geel && rond) vul = rgba(KL[0], 0.3 + 0.4 * s2); if (s3 > 0.01 && !geel && !rond) vul = rgba(KL[3], 0.25 + 0.4 * s3); roundRect(ctx, ax + j * v + 4, ay + i * v + 4, v - 8, v - 8, 10); shape(ctx, vul, rgba(C.line, 0.6), 2); } ctx.restore(); }
+    naam(ctx, 'geel ¾', ax + 1.5 * v, ay - 18, s0, 'center', C.text, 30); naam(ctx, 'groen', ax + 3.5 * v, ay - 18, s0, 'center', C.text, 30);
+    naam(ctx, 'rond ¾', ax - 16, ay + 1.5 * v + 10, s1, 'right', C.text, 30); naam(ctx, 'gerimpeld', ax - 16, ay + 3.5 * v + 10, s1, 'right', C.text, 30);
+    if (s4 > 0.01) { const y = 890; allelChip(ctx, 'GgRr', 220, y, s4, { px: 42 }); regel(ctx, '×', 345, y + 16, s4, C.text2, 50, 'center', 700); allelChip(ctx, 'ggrr', 470, y, s4, { px: 42 });
+      metaText(ctx, 'terugkruising', 345, y - 70, C.meta, 'center', 22, s4); pijl(ctx, 590, y, 690, y, C.text2, 5, s4);
+      ['GgRr', 'Ggrr', 'ggRr', 'ggrr'].forEach((g, k) => { const e = s4 * S.on(4, 0.5, 0.3 + k * 0.2), [ge, rd] = L3_FEN[k], x = 800 + k * 190; erwt(ctx, x, y - 20, 38, { geel: ge, rimpel: !rd, a: e }); regel(ctx, g, x, y + 58, e, C.text2, 30, 'center', 600); });
+      regel(ctx, '1 : 1 : 1 : 1', 1620, y + 18, s4 * S.on(4, 0.5, 1.1), C.goud, 54, 'center', 700); }
+  } });
+
+/* =====================================================================================
+   6 · Gekoppelde genen
+   ===================================================================================== */
+SCHERMEN.push({ titel: 'Gekoppelde genen', kop: 'Twee genen op één chromosoom', deel: 'Gekoppeld',
+  stappen: [
+    { t: 'Bij de fruitvlieg: <b>B</b> = grijs lijf, <b>b</b> = zwart; <b>V</b> = normale vleugels, <b>v</b> = vleugelstompjes. Raszuiver grijs-normaal × zwart-stompjes.', n: 'Vraag uit film 4: Wat als twee genen op hetzelfde chromosoom liggen? Hoeveel soorten gameten verwacht je dan? (twee, zolang er niets wordt uitgewisseld)' },
+    { t: 'Beide genen liggen op <b>hetzelfde chromosoom</b>. De ene ouder geeft <b>B</b> en <b>V</b> samen, de andere <b>b</b> en <b>v</b>.', n: 'Raszuiver = homozygoot: BBVV heeft op beide chromosomen B naast V; bbvv b naast v.' },
+    { t: 'De F1 is BbVv. Welke allelen samen liggen, lees je af aan de <b>ouders</b>: BV op het ene, bv op het andere chromosoom.', n: 'Waren de ouders grijs-stompjes × zwart-normaal geweest, dan was het precies andersom: B naast v, b naast V. Hetzelfde genotype, een andere verdeling over de chromosomen (vwo-notatie BV/bv tegenover Bv/bV).' },
+    { t: 'De twee genen gaan <b>samen mee</b>: zonder uitwisseling ontstaan maar twee soorten gameten.', n: 'Vergelijk met scherm 4: daar lagen de genen op verschillende paren en ontstonden vier soorten.' },
+    { t: 'Zulke genen heten <b>gekoppeld</b>.', n: 'Examenvoorbeeld havo 2019-I vraag 12: HLA-genen liggen dicht bij elkaar en erven als één set; de kans dat een broer dezelfde sets heeft als zijn zus = ½ × ½ = ¼ (per ouder één van twee sets).' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 0.9), s1 = S.on(1, 1.0), s2 = S.on(2, 1.4), s3 = S.on(3, 1.2), s4 = S.on(4, 0.8);
+    regel(ctx, 'B grijs  ·  b zwart', 1480, 230, s0, C.text2, 32, 'left', 600); regel(ctx, 'V normaal  ·  v stompjes', 1480, 280, s0, C.text2, 32, 'left', 600);
+    vlieg(ctx, 240, 300, 2.0, { a: s0, rot: Math.sin(T * 0.9) * 0.03 }); naam(ctx, 'grijs, normaal', 240, 500, s0, 'center', C.text, 32);
+    regel(ctx, '×', 740, 330, s0, C.text2, 60, 'center', 700);
+    vlieg(ctx, 1000, 300, 2.0, { a: s0, zwart: true, stomp: true, rot: Math.sin(T * 0.9 + 1) * 0.03 }); naam(ctx, 'zwart, stompjes', 1000, 500, s0, 'center', C.text, 32);
+    const bnd = (u, l1, l2) => [{ p: 0.26, letter: l1, px: 44 }, { p: 0.74, letter: l2, px: 44 }];
+    chromosoom(ctx, 470, 320, 260, { kl: CH.vader, dubbel: 0, a: s1, w: 40, banden: bnd(0, 'B', 'V') });
+    chromosoom(ctx, 1230, 320, 260, { kl: CH.moeder, dubbel: 0, a: s1, w: 40, banden: bnd(0, 'b', 'v') });
+    if (s2 > 0.01) { pijl(ctx, 490, 520, 640, 600, C.text2, 4, s2); pijl(ctx, 1210, 520, 820, 600, C.text2, 4, s2);
+      const a2 = s2 * S.on(2, 0.6, 0.4); vlieg(ctx, 380, 760, 2.0, { a: a2, rot: Math.sin(T * 0.9 + 2) * 0.03 }); naam(ctx, 'F1', 380, 960, a2, 'center', C.text, 34);
+      chromosoom(ctx, 660, 740, 260, { kl: CH.vader, dubbel: 0, a: s2, w: 40, banden: bnd(0, 'B', 'V'), letterLinks: true });
+      chromosoom(ctx, 790, 740, 260, { kl: CH.moeder, dubbel: 0, a: s2, w: 40, banden: bnd(0, 'b', 'v') });
+      allelChip(ctx, 'BbVv', 725, 980, s2 * S.on(2, 0.6, 0.8), { px: 36 }); }
+    if (s3 > 0.01) { pijl(ctx, 900, 740, 1010, 740, C.text2, 4, s3);
+      L3_gameet(ctx, 1110, 740, 74, ['B', 'V'], [CH.vader, CH.vader], s3 * S.on(3, 0.6, 0.2), { px: 48 }); L3_gameet(ctx, 1310, 740, 74, ['b', 'v'], [CH.moeder, CH.moeder], s3 * S.on(3, 0.6, 0.4), { px: 48 });
+      const g = s3 * S.on(3, 0.6, 0.8) * 0.6; L3_gameet(ctx, 1540, 690, 50, ['B', 'v'], [C.text2, C.text2], g, { px: 34 }); L3_gameet(ctx, 1700, 690, 50, ['b', 'V'], [C.text2, C.text2], g, { px: 34 });
+      kruis(ctx, 1540, 690, 30, g * 1.6, C.koraal); kruis(ctx, 1700, 690, 30, g * 1.6, C.koraal);
+      regel(ctx, 'maar twee soorten', 1210, 630, s3 * S.on(3, 0.6, 0.6), C.goud, 36, 'center', 700); }
+    termKaart(ctx, 'gekoppelde genen', 'liggen op hetzelfde chromosoom en gaan samen mee', 1380, 860, s4);
+  } });
+
+/* =====================================================================================
+   7 · Crossing-over
+   ===================================================================================== */
+SCHERMEN.push({ titel: 'Crossing-over', kop: 'Crossing-over', deel: 'Gekoppeld',
+  stappen: [
+    { t: 'In de meiose liggen de <b>homologe chromosomen</b> dicht tegen elkaar, elk met twee chromatiden.', n: 'Profase I. Teal = het chromosoom met BV (van de grijs-normale ouder), oker = bv.' },
+    { t: 'Soms breken twee chromatiden op <b>dezelfde plek</b> en wisselen ze een stuk uit: <b>crossing-over</b>.', n: 'Vwo: de plek waar de chromatiden elkaar kruisen heet een chiasma (meervoud chiasmata). Het gebeurt tussen een chromatide van de vader en een van de moeder, niet tussen zusterchromatiden.' },
+    { t: 'Na de meiose: twee gameten met de <b>oude</b> combinatie en twee met een <b>nieuwe</b>: Bv en bV.', n: 'Valt de crossing-over niet tussen de twee genen, dan merk je er niets van: dan blijven BV en bv bij elkaar.' },
+    { t: 'Daaruit groeien vliegen die geen van de ouders was: grijs met stompjes en zwart met normale vleugels. Die heten <b>recombinanten</b>.', n: 'Havo: begripsmatig is genoeg (gekoppeld, crossing-over, nieuwe combinaties). Vwo rekent er op het volgende scherm mee.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 1.0), s1 = S.on(1, 2.6), s2 = S.on(2, 1.4), s3 = S.on(3, 1.0);
+    const cx = 960, y0 = 180, len = 400, w = 44, br = 0.5, kV = CH.vader, kM = CH.moeder;
+    const nader = L3_bult(s1) * 34, ruil = clamp((s1 - 0.42) / 0.16, 0, 1), sep = 40 * (1 - s0);
+    const xs = [cx - 140 - sep, cx - 56 - sep + nader * 0.2, cx + 56 + sep - nader * 0.2, cx + 140 + sep];
+    const dxo = [0, nader * 1.1, -nader * 1.1, 0];
+    const kb = [kV, kV, kM, kM], ko = [kV, ruil > 0.5 ? kM : kV, ruil > 0.5 ? kV : kM, kM];
+    const lb = ['B', 'B', 'b', 'b'], lo = ['V', ruil > 0.5 ? 'v' : 'V', ruil > 0.5 ? 'V' : 'v', 'v'];
+    for (let k = 0; k < 4; k++) L3_chromatide(ctx, xs[k], y0, len, w, kb[k], ko[k], br, [{ p: 0.22, letter: lb[k], px: 32 }, { p: 0.78, letter: lo[k], px: 32 }], s0 * (1 - 0.65 * s2), dxo[k]);
+    if (s0 > 0.01) { [[0, 1], [2, 3]].forEach(([i, j]) => circ(ctx, (xs[i] + xs[j]) / 2, y0 + len * 0.38, 12, rgba(dk(kb[i]), s0 * (1 - 0.65 * s2)), null)); }
+    if (s1 > 0.3 && s1 < 0.85) gloed(ctx, cx, y0 + len * br, 90, C.koraal, L3_bult((s1 - 0.3) / 0.55));
+    naam(ctx, 'chromosoom van de ene ouder', xs[0] - 50, y0 + 110, s0 * (1 - s2), 'right', CH.vader, 32);
+    naam(ctx, 'van de andere ouder', xs[3] + 50, y0 + 110, s0 * (1 - s2), 'left', CH.moeder, 32);
+    naam(ctx, 'breuk en ruil', cx + 210, y0 + len * br + 12, s1 * (1 - s2), 'left', C.koraal, 34);
+    const gx = [330, 750, 1170, 1590], rec = [false, true, true, false];
+    gx.forEach((x, k) => { const e = s2 * S.on(2, 0.6, 0.2 + k * 0.15); if (e <= 0.01) return; pijl(ctx, xs[k], y0 + len + 24, x, 618, C.text2, 4, e);
+      gameet(ctx, x, 720, 90, '', { soort: 'cel', kl: rec[k] ? C.goud : C.text2, a: e }); if (rec[k]) { ctx.save(); ctx.globalAlpha *= e; circ(ctx, x, 720, 102, null, C.goud, 3); ctx.restore(); }
+      L3_chromatide(ctx, x, 645, 150, 34, kb[k], ko[k], br, [{ p: 0.22, letter: lb[k], px: 30 }, { p: 0.78, letter: lo[k], px: 30 }], e);
+      regel(ctx, rec[k] ? 'nieuw' : 'oud', x, 858, e, rec[k] ? C.goud : C.text2, 34, 'center', 700); });
+    vlieg(ctx, 560, 950, 1.0, { a: s3, stomp: true }); naam(ctx, 'grijs, stompjes', 620, 962, s3, 'left', C.text, 32);
+    vlieg(ctx, 1010, 950, 1.0, { a: s3 * S.on(3, 0.6, 0.3), zwart: true }); naam(ctx, 'zwart, normaal', 1070, 962, s3 * S.on(3, 0.6, 0.3), 'left', C.text, 32);
+    regel(ctx, 'recombinanten', 1600, 962, s3 * S.on(3, 0.6, 0.6), C.goud, 38, 'center', 700);
+  } });
+
+/* =====================================================================================
+   8 · Recombinatiepercentage (vwo)
+   ===================================================================================== */
+const L3_RECOMB = (() => { const a = []; [[0, 415], [1, 415], [2, 85], [3, 85]].forEach(([k, n]) => { for (let i = 0; i < n; i++) a.push(k); }); const r = toeval(11); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; })();
+SCHERMEN.push({ titel: 'Recombinatiepercentage', kop: 'Hoe vaak gebeurt het?', deel: 'Gekoppeld',
+  stappen: [
+    { vwo: true, t: 'Terugkruising <b>BbVv × bbvv</b>: 1000 nakomelingen. De meeste hebben de oude combinatie, een deel is <b>recombinant</b>.', n: 'bbvv geeft alleen bv, dus het fenotype van elke nakomeling verraadt de gameet van de BbVv-ouder (zoals de terugkruising op scherm 6).' },
+    { vwo: true, t: '170 van de 1000 zijn recombinant: het <b>recombinatiepercentage</b> is 17 %.', n: 'Recombinatiepercentage = aantal recombinanten / totaal × 100 %. Getallen uit film 4.' },
+    { vwo: true, t: 'Hoe <b>verder</b> twee genen uit elkaar liggen, hoe groter de kans dat er een crossing-over tussen valt.', n: 'De koraalrode streepjes zijn plekken waar een crossing-over viel. Tussen genen die dicht bij elkaar liggen valt er zelden een.' }
+  ],
+  teken(ctx, S) {
+    const s0 = S.on(0, 2.2), s1 = S.on(1, 1.0), s2 = S.on(2, 1.2);
+    const KLR = [rgba(C.line, 0.7), rgba(C.line, 0.7), C.goud, C.goud];
+    stippen(ctx, 100, 190, 940, 620, 1000, (i) => KLR[L3_RECOMB[i]], 1, { zicht: Math.floor(1000 * s0) });
+    metaText(ctx, '1000 nakomelingen', 570, 850, C.meta, 'center', 22, s0);
+    vlieg(ctx, 1140, 290, 0.9, { a: s0 }); vlieg(ctx, 1250, 290, 0.9, { a: s0, zwart: true, stomp: true }); circ(ctx, 1340, 286, 12, KLR[0]);
+    regel(ctx, 'oud: 830', 1370, 300, s0, C.text, 40, 'left', 700);
+    const a1 = s0 * S.on(0, 0.6, 1); vlieg(ctx, 1140, 450, 0.9, { a: a1, stomp: true }); vlieg(ctx, 1250, 450, 0.9, { a: a1, zwart: true }); circ(ctx, 1340, 446, 12, rgba(C.goud, a1));
+    regel(ctx, 'recombinant: 170', 1370, 460, a1, C.goud, 40, 'left', 700);
+    regel(ctx, '170 / 1000 = 17 %', 1120, 610, s1, C.goud, 54, 'left', 700);
+    kansBalk(ctx, 100, 905, 760, 50, 0.17 * s1, C.goud, s1, '17 %');
+    if (s2 > 0.01) { const chr = (y, p1, p2, l1, l2, seed) => { ctx.save(); ctx.globalAlpha *= s2; roundRect(ctx, 1180, y - 20, 660, 40, 20); shape(ctx, rgba(C.paars, 0.5), C.paars, 2.5); ctx.restore();
+        const r = toeval(seed); for (let k = 0; k < 9; k++) { const u = 0.04 + 0.92 * r(), x = 1180 + 660 * u, tussen = u > p1 && u < p2; ctx.save(); ctx.globalAlpha *= s2 * S.on(2, 0.4, 0.4 + k * 0.08) * (tussen ? 1 : 0.35); ctx.strokeStyle = C.koraal; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x, y - 32); ctx.lineTo(x, y + 32); ctx.stroke(); ctx.restore(); }
+        [[p1, l1], [p2, l2]].forEach(([p, l]) => { const x = 1180 + 660 * p; ctx.save(); ctx.globalAlpha *= s2; roundRect(ctx, x - 13, y - 24, 26, 48, 5); shape(ctx, C.goud, dk(C.goud, 0.5), 2); ctx.restore(); regel(ctx, l, x, y - 38, s2, C.text, 32, 'center', 700); }); };
+      chr(770, 0.45, 0.55, 'A', 'B', 3); chr(930, 0.1, 0.9, 'A', 'C', 3);
+      naam(ctx, 'dichtbij', 1160, 782, s2, 'right', C.text2, 30); naam(ctx, 'ver uit elkaar', 1160, 942, s2, 'right', C.text2, 30); }
+  } });
+
+/* =====================================================================================
+   9 · Genkaart (vwo)
+   ===================================================================================== */
+SCHERMEN.push({ titel: 'Genkaart', kop: 'Een genkaart tekenen', deel: 'Gekoppeld',
+  stappen: [
+    { vwo: true, t: 'Gen A en gen B geven <b>10 %</b> recombinanten, gen A en gen C <b>30 %</b>.', n: 'Vraag uit film 4: Welk gen ligt het dichtst bij gen A? (B: minder recombinatie = dichter bij elkaar)' },
+    { vwo: true, t: 'Zet de genen op een lijn: 1 % recombinatie = 1 eenheid afstand. B ligt dichter bij A dan C.', n: 'De eenheid heet centimorgan (cM), naar Thomas Hunt Morgan. Of C links of rechts van A ligt, weet je pas met B–C: 20 % (C aan de kant van B) of 40 % (de andere kant).' },
+    { vwo: true, t: 'Het maximum is <b>50 %</b>: dan gedragen de genen zich alsof ze onafhankelijk zijn.', n: 'Liggen genen ver uit elkaar, dan valt er bijna altijd minstens één crossing-over tussen; een even aantal heft elkaar op. Gemiddeld is dan de helft recombinant: 1 : 1 : 1 : 1, net als bij genen op verschillende chromosomen. Grote afstanden bouw je daarom op uit kleine stukjes.' }
+  ],
+  teken(ctx, S) {
+    const s0 = S.on(0, 0.9), s1 = S.on(1, 1.6), s2 = S.on(2, 1.0);
+    allelChip(ctx, 'A – B   10 %', 620, 280, s0, { px: 52 }); allelChip(ctx, 'A – C   30 %', 1300, 280, s0 * S.on(0, 0.6, 0.3), { px: 52 });
+    const x0 = 360, e = 28, y = 560;
+    if (s1 + s2 > 0.01) { const a = Math.max(s1, s2); ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, 260, y - 28, 1580, 56, 28); shape(ctx, rgba(C.paars, 0.45), C.paars, 3); ctx.restore();
+      for (let p = 0; p <= 50; p += 10) { const x = x0 + p * e; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = rgba(C.line, 0.8); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, y + 38); ctx.lineTo(x, y + 56); ctx.stroke(); ctx.restore(); regel(ctx, String(p), x, y + 94, a, C.text2, 30, 'center', 500); }
+      const gen = (p, l, ga) => { const x = x0 + p * e; ctx.save(); ctx.globalAlpha *= ga; roundRect(ctx, x - 16, y - 32, 32, 64, 6); shape(ctx, C.goud, dk(C.goud, 0.5), 2.5); ctx.restore(); regel(ctx, l, x, y - 52, ga, C.text, 48, 'center', 700); };
+      gen(0, 'A', a); gen(10 * S.on(1, 0.8, 0.2), 'B', a * S.on(1, 0.4, 0.2)); gen(30 * S.on(1, 0.8, 0.8), 'C', a * S.on(1, 0.4, 0.8));
+      const boog = (p, yy, t, ga) => { if (ga <= 0.01) return; ctx.save(); ctx.globalAlpha *= ga; ctx.strokeStyle = C.goud; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(x0, yy - 16); ctx.lineTo(x0, yy); ctx.lineTo(x0 + p * e, yy); ctx.lineTo(x0 + p * e, yy - 16); ctx.stroke(); ctx.restore(); regel(ctx, t, x0 + p * e / 2, yy + 42, ga, C.goud, 36, 'center', 700); };
+      boog(10, 720, '10', s1 * S.on(1, 0.5, 1.0)); boog(30, 810, '30', s1 * S.on(1, 0.5, 1.3)); }
+    if (s2 > 0.01) { const x = x0 + 50 * e; ctx.save(); ctx.globalAlpha *= s2; ctx.strokeStyle = C.koraal; ctx.lineWidth = 4; ctx.setLineDash([10, 10]); ctx.beginPath(); ctx.moveTo(x, 440); ctx.lineTo(x, 690); ctx.stroke(); ctx.restore();
+      regel(ctx, 'max 50 %', x, 420, s2, C.koraal, 38, 'center', 700);
+      balk(ctx, 'maximaal 50 %: dan lijkt het onafhankelijk', 1180, 930, 1160, s2 * S.on(2, 0.6, 0.4), C.koraal, 40); }
+  } });
+
+/* =====================================================================================
+   10 · De taal van een stamboom
+   ===================================================================================== */
+SCHERMEN.push({ titel: 'De taal van een stamboom', kop: 'De taal van een stamboom', deel: 'Stambomen',
+  stappen: [
+    { t: 'Een <b>vierkant</b> is een man, een <b>rondje</b> een vrouw. <b>Ingekleurd</b>: die persoon heeft de eigenschap.', n: 'Film 6 (Stambomen en kansrekenen) gebruikt Sanne, met een broer met taaislijmziekte. Hier het gezin De Wit uit les 1: Levi heeft albinisme. Zelfde redenering, zelfde getallen.' },
+    { t: 'Generatie <b>I</b>: de grootouders. Een lijn tussen twee symbolen is een paar.', n: 'Generaties nummer je met Romeinse cijfers, personen in een generatie met gewone cijfers van links naar rechts (II-1, II-2).' },
+    { t: 'Generatie <b>II</b>: Dennis en Marieke, elk onder zijn of haar eigen ouders.' },
+    { t: 'Generatie <b>III</b>: de kinderen hangen onder het paar, van oud naar jong. Alleen <b>Levi</b> is ingekleurd: hij heeft albinisme.', n: 'Sara (13), Levi (10), Jens (7). Albinisme (OCA1): geen pigment in huid, haar en ogen.' },
+    { t: 'Dit is het gezin De Wit, dat de leerlingen in les 1 al zagen.', n: 'Wat de leerlingen niet weten: wie van Sara en Jens drager is. Dat is precies de vraag van scherm 15.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 1.2), s1 = S.on(1, 0.9), s2 = S.on(2, 0.9), s3 = S.on(3, 1.2), s4 = S.on(4, 1.0);
+    L3_witBoom(ctx, 760, 300, 1.15, { aI: s1, aII: s2, aIII: s3, ziek: S.on(3, 0.6, 0.7), romeins: 1 });
+    const aj = s3 * S.on(3, 0.6, 0.5); if (aj > 0.01) { pijl(ctx, 600, 975, 920, 975, C.text2, 3, aj, 14); naam(ctx, 'oud', 580, 986, aj, 'right', C.text2, 30); naam(ctx, 'jong', 940, 986, aj, 'left', C.text2, 30); }
+    const ly = 1000; stamPersoon(ctx, 1290, ly - 12, 26, { m: true, a: s0 }); naam(ctx, 'man', 1330, ly, s0, 'left', C.text, 30);
+    const a1 = s0 * S.on(0, 0.5, 0.3), a2 = s0 * S.on(0, 0.5, 0.6); stamPersoon(ctx, 1470, ly - 12, 26, { a: a1 }); naam(ctx, 'vrouw', 1510, ly, a1, 'left', C.text, 30);
+    stamPersoon(ctx, 1660, ly - 12, 26, { m: true, ziek: true, a: a2 }); naam(ctx, 'eigenschap', 1700, ly, a2, 'left', C.text, 30);
+    if (s4 > 0.01) { const y = 800; [['dennis', 1330, 340], ['marieke', 1460, 320], ['sara', 1580, 290], ['levi', 1690, 260], ['jens', 1790, 225]].forEach(([id, x, h], k) => pers(ctx, id, x, y, h, { t: T, uit: 'blij', a: s4 * S.on(4, 0.5, k * 0.12) }));
+      metaText(ctx, 'gezin De Wit', 1560, 860, C.meta, 'center', 24, s4); }
+  } });
+
+/* =====================================================================================
+   11 · Stap 1: dominant of recessief?
+   ===================================================================================== */
+SCHERMEN.push({ titel: 'Dominant of recessief?', kop: 'Stap 1: dominant of recessief?', deel: 'Stambomen',
+  stappen: [
+    { t: 'Zoek twee ouders <b>zonder</b> de eigenschap met een kind dat hem <b>wél</b> heeft: Dennis, Marieke en Levi.', n: 'Leerlingen wijzen zelf de drie personen aan voor je de ringen laat zien (Namen verbergen: L).' },
+    { t: 'Dan droegen die ouders het allel verborgen bij zich. De eigenschap is <b>recessief</b>.', n: 'Andersom geldt het niet: twee gezonde ouders met alleen gezonde kinderen bewijzen niets.' },
+    { t: 'Twee ouders <b>mét</b> de eigenschap en een kind <b>zonder</b>: dan is hij <b>dominant</b>.', n: 'Beide ouders zijn dan Aa; het gezonde kind is aa.' },
+    { t: 'Bij een dominante aandoening, zoals de <b>ziekte van Huntington</b>, heeft iedereen met de aandoening een ouder met de aandoening: hij slaat geen generatie over.', n: 'Uitzonderingen (nieuwe mutatie, onvolledige penetrantie) staan in de briefing; op havo/vwo-niveau niet nodig.' }
+  ],
+  teken(ctx, S) {
+    const s0 = S.on(0, 1.0), s1 = S.on(1, 0.8), s2 = S.on(2, 1.0), s3 = S.on(3, 1.4);
+    L3_witBoom(ctx, 560, 290, 1.0, { ziek: 1, hl: { dennis: s0, marieke: s0, levi: s0 } });
+    regel(ctx, 'recessief', 560, 905, s1, C.goud, 60, 'center', 700);
+    regel(ctx, 'gezond × gezond → kind met de eigenschap', 560, 962, s1, C.text2, 32, 'center', 500);
+    if (s2 > 0.01) { const a = s2, r = 42; stamPaar(ctx, 1160, 1420, 250, r, a); stamPersoon(ctx, 1160, 250, r, { m: true, ziek: true, a }); stamPersoon(ctx, 1420, 250, r, { ziek: true, a });
+      stamKinderen(ctx, 1290, 250, [1180, 1400], 410, r, a); stamPersoon(ctx, 1180, 410, r, { m: true, ziek: true, a }); stamPersoon(ctx, 1400, 410, r, { a, hl: S.on(2, 0.5, 0.5) });
+      regel(ctx, 'dominant', 1680, 350, a * S.on(2, 0.5, 0.7), C.goud, 54, 'center', 700); }
+    if (s3 > 0.01) { const a = s3, r = 38, ag = (k) => a * S.on(3, 0.5, k * 0.35); metaText(ctx, 'ziekte van Huntington', 1290, 545, C.meta, 'center', 24, a);
+      stamPaar(ctx, 1210, 1390, 620, r, ag(0)); stamPersoon(ctx, 1210, 620, r, { m: true, ziek: true, a: ag(0) }); stamPersoon(ctx, 1390, 620, r, { a: ag(0) });
+      stamKinderen(ctx, 1300, 620, [1300, 1480], 770, r, ag(1)); stamPersoon(ctx, 1300, 770, r, { ziek: true, a: ag(1) }); stamPersoon(ctx, 1480, 770, r, { m: true, a: ag(1) });
+      stamPaar(ctx, 1120, 1300, 770, r, ag(1)); stamPersoon(ctx, 1120, 770, r, { m: true, a: ag(1) });
+      stamKinderen(ctx, 1210, 770, [1120, 1300], 920, r, ag(2)); stamPersoon(ctx, 1120, 920, r, { m: true, ziek: true, a: ag(2) }); stamPersoon(ctx, 1300, 920, r, { a: ag(2) });
+      ['I', 'II', 'III'].forEach((rn, k) => regel(ctx, rn, 1040, [633, 783, 933][k], ag(k), C.text2, 34, 'center', 700));
+      regel(ctx, 'slaat geen', 1700, 750, ag(2), C.goud, 40, 'center', 700); regel(ctx, 'generatie over', 1700, 800, ag(2), C.goud, 40, 'center', 700); }
+  } });
+
+/* =====================================================================================
+   12 · Stap 2: autosomaal of X?
+   ===================================================================================== */
+SCHERMEN.push({ titel: 'Autosomaal of X?', kop: 'Stap 2: autosomaal of via het X-chromosoom?', deel: 'Stambomen',
+  stappen: [
+    { t: 'Bij een <b>X-recessieve</b> eigenschap heeft een aangedane dochter altijd een aangedane vader.', n: 'Herhaling van les 2 (X-chromosomale overerving): een vrouw heeft twee X-chromosomen, een man één.' },
+    { t: 'Hij geeft haar immers zijn <b>enige X</b>.', n: 'Zonen krijgen van de vader de Y, dus een vader geeft een X-gebonden eigenschap nooit aan zijn zoon.' },
+    { t: 'Zie je een aangedane dochter met een <b>gezonde vader</b>, dan is het <b>autosomaal</b>.', n: 'Een gezonde vader is XᴬY en kan geen Xᵃ geven.' },
+    { t: 'Bij De Wit is alleen een <b>zoon</b> aangedaan: dat past bij beide. Uit onderzoek weet je dat albinisme <b>autosomaal</b> is.', n: 'Stap 2 lukt dus niet altijd met de stamboom alleen. Levi heeft OCA1: een fout in het gen TYR op een autosoom. In een toetsvraag staat het er dan bij, of je moet beide mogelijkheden noemen.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 1.0), s1 = S.on(1, 1.4), s2 = S.on(2, 1.0), s3 = S.on(3, 1.0), r = 44;
+    const dim = 1 - 0.55 * s3;
+    laag(ctx, dim, (c) => {
+      metaText(c, 'X-recessief', 520, 196, C.meta, 'center', 24, s0);
+      stamPaar(c, 400, 640, 300, r, s0); stamPersoon(c, 400, 300, r, { m: true, ziek: true, a: s0, label: 'XᵃY', labelZij: 'boven', labelPx: 34 }); stamPersoon(c, 640, 300, r, { a: s0, label: 'XᴬXᵃ', labelZij: 'boven', labelPx: 34 });
+      stamKinderen(c, 520, 300, [520], 480, r, s0); stamPersoon(c, 520, 480, r, { ziek: true, a: s0, label: 'XᵃXᵃ', labelZij: 'rechts', labelPx: 34 });
+      if (s1 > 0.01) { const u = ease(s1); ctx.save(); c.save(); c.globalAlpha *= s1; c.strokeStyle = C.goud; c.lineWidth = 4; c.setLineDash([8, 8]); c.beginPath(); c.moveTo(380, 346); c.quadraticCurveTo(320, 440, 474, 486); c.stroke(); c.restore(); ctx.restore();
+        allelChip(c, 'Xᵃ', lerp(340, 310, u), lerp(370, 430, u), s1, { px: 34, kl: C.goud }); naam(c, 'zijn enige X', 270, 500, s1 * S.on(1, 0.5, 0.8), 'right', C.goud, 32); }
+      metaText(c, 'aangedane dochter, gezonde vader', 1400, 196, C.meta, 'center', 24, s2);
+      stamPaar(c, 1280, 1520, 300, r, s2); stamPersoon(c, 1280, 300, r, { m: true, a: s2, hl: S.on(2, 0.5, 0.4) }); stamPersoon(c, 1520, 300, r, { a: s2 });
+      stamKinderen(c, 1400, 300, [1400], 480, r, s2); stamPersoon(c, 1400, 480, r, { ziek: true, a: s2 });
+      regel(c, 'autosomaal', 1400, 600, s2 * S.on(2, 0.5, 0.7), C.goud, 52, 'center', 700);
+    });
+    if (s3 > 0.01) { paneel(ctx, 110, 640, 1700, 360, s3);
+      L3_witBoom(ctx, 470, 720, 0.85, { vanafII: true, aII: s3, aIII: s3, ziek: 1, namen: 1 });
+      regel(ctx, 'alleen een zoon aangedaan:', 980, 790, s3, C.text, 38, 'left', 600); regel(ctx, 'past bij allebei', 980, 840, s3, C.text, 38, 'left', 600);
+      regel(ctx, 'albinisme (OCA1): autosomaal', 980, 930, s3 * S.on(3, 0.5, 0.5), C.goud, 42, 'left', 700); }
+  } });
+
+/* =====================================================================================
+   13 · Stap 3: genotypen invullen
+   ===================================================================================== */
+SCHERMEN.push({ titel: 'Genotypen invullen', kop: 'Stap 3: genotypen invullen', deel: 'Stambomen',
+  stappen: [
+    { t: 'Begin bij wie de eigenschap heeft. Albinisme is recessief, dus Levi is <b>aa</b>.', n: 'A = allel voor pigment (werkend enzym), a = albinisme.' },
+    { t: 'Werk terug: Levi kreeg van <b>beide</b> ouders een a. Dennis en Marieke zijn gezond, dus <b>Aa</b>.', n: 'Ouders van een aa-kind zijn altijd minstens drager. Gezond + drager = Aa.' },
+    { t: 'Van Sara en Jens weet je alleen dat ze gezond zijn: minstens één A. Noteer <b>A_</b>.', n: 'In de familie liggen hun genotypen vast (Sara AA, Jens Aa, LEVENSLOOP), maar dat kun je uit de stamboom niet afleiden. Dat is de vraag van scherm 15.' },
+    { t: 'Ook de grootouders zijn <b>A_</b>.', n: 'Wel weet je: Dennis kreeg zijn a van opa Frank of oma Lucia, Marieke van opa Wim of oma Anja. Per kant is dus minstens één grootouder drager; wie, zie je niet.' }
+  ],
+  teken(ctx, S) {
+    const s0 = S.on(0, 0.8), s1 = S.on(1, 1.2), s2 = S.on(2, 0.8), s3 = S.on(3, 0.8);
+    const geno = { levi: 'aa', dennis: 'Aa', marieke: 'Aa', sara: 'A_', jens: 'A_', opawit: 'A_', omawit: 'A_', opabos: 'A_', omabos: 'A_' };
+    const genoA = { levi: s0, dennis: S.on(1, 0.6, 0.6), marieke: S.on(1, 0.6, 0.6), sara: s2, jens: s2, opawit: s3, omawit: s3, opabos: s3, omabos: s3 };
+    const { P, r } = L3_witBoom(ctx, 790, 280, 1.15, { ziek: 1, romeins: 1, geno, genoA, hl: { levi: s0 * (1 - s1) } });
+    if (s1 > 0.01) { const e = s1 * (1 - 0.6 * s2); [P.dennis, P.marieke].forEach(([x, y], k) => { const u = S.on(1, 0.7, k * 0.15); pijl(ctx, P.levi[0] + (k ? 30 : -30), P.levi[1] - r - 6, lerp(P.levi[0], x + (k ? -34 : 34), u), lerp(P.levi[1] - r, y + r + 8, u), C.koraal, 5, e); });
+      const my = (P.levi[1] + P.dennis[1]) / 2 + 10; regel(ctx, 'a', (P.levi[0] + P.dennis[0]) / 2 - 22, my, s1 * (1 - s2), C.koraal, 38, 'center', 700); regel(ctx, 'a', (P.levi[0] + P.marieke[0]) / 2 + 22, my, s1 * (1 - s2), C.koraal, 38, 'center', 700); }
+    termKaart(ctx, 'A_', 'AA óf Aa', 1640, 480, s2, C.goud, 300);
+  } });
+
+/* =====================================================================================
+   14 · Is Sara drager?
+   ===================================================================================== */
+const L3_KIND300 = (() => { const a = []; [[0, 75], [1, 150], [2, 75]].forEach(([k, n]) => { for (let i = 0; i < n; i++) a.push(k); }); const r = toeval(23); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; })();
+SCHERMEN.push({ titel: 'Is Sara drager?', kop: 'Is Sara drager?', deel: 'Kansen',
+  stappen: [
+    { t: 'Dennis en Marieke zijn allebei <b>Aa</b>. We simuleren <b>300 kinderen</b>: een kwart AA, de helft Aa, een kwart aa.', n: 'Vraag uit film 6: Sannes ouders zijn allebei Aa en Sanne is gezond. Hoe groot is de kans dat zij drager is? (⅔) Hier dezelfde vraag voor Sara.' },
+    { t: 'Maar we weten iets over Sara: ze is <b>gezond</b>. De kinderen met aa vallen weg.', n: 'Dat is voorwaardelijke kans: je rekent alleen binnen de groep die past bij wat je al weet.' },
+    { t: 'Van de 225 die overblijven zijn er 150 drager: <b>twee derde</b>.', n: 'Of met het schema: van de vier vakjes valt aa weg; van de drie die overblijven zijn er twee Aa.' },
+    { t: 'De kans is dus ⅔, <b>niet ½</b>.', n: 'Misvatting: "Aa is de helft, dus ½." Die ½ geldt vóór je weet dat Sara gezond is. (In de familie is Sara AA; dat weet je pas met een dragerschapstest, scherm 17.)' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 2.0), s1 = S.on(1, 1.4), s2 = S.on(2, 1.0), s3 = S.on(3, 1.0), KLG = [C.groen, C.goud, C.koraal];
+    pers(ctx, 'sara', 210, 880, 520, { t: T, uit: 'neutraal' }); naam(ctx, 'Sara', 210, 950, 1, 'center', C.text, 36);
+    allelChip(ctx, 'Aa × Aa', 860, 210, s0, { px: 40 });
+    if (s0 > 0.01) { const x0 = 440, y0 = 260, w = 860, h = 560, kol = 23, dx = w / kol, dy = h / 14, zicht = Math.floor(300 * s0);
+      for (let i = 0; i < zicht; i++) { const g = L3_KIND300[i], c = i % kol, rr = Math.floor(i / kol); let x = x0 + c * dx + dx / 2, y = y0 + rr * dy + dy / 2, a = 1;
+        if (g === 2 && s1 > 0.01) { const u = clamp(s1 * 1.6 - hash(i) * 0.6, 0, 1); y += 300 * u * u; a = 1 - u; }
+        if (a > 0.01) { ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, 14, KLG[g]); if (s2 > 0.01 && g === 1) circ(ctx, x, y, 17.5, null, rgba(C.text, 0.5 * s2), 2); ctx.restore(); } } }
+    [['AA', '¼', 75], ['Aa', '½', 150], ['aa', '¼', 75]].forEach(([g, f, n], k) => { const y = 320 + k * 110, a = s0 * S.on(0, 0.5, 0.8 + k * 0.2) * (k === 2 ? 1 - 0.7 * s1 : 1); circ(ctx, 1390, y - 14, 18, rgba(KLG[k], a)); regel(ctx, g, 1430, y, a, C.text, 42, 'left', 700); regel(ctx, f, 1570, y, a, C.text2, 46, 'left', 700); regel(ctx, String(n), 1670, y, a, C.text2, 36, 'left', 500); });
+    if (s1 > 0.01) { ctx.save(); ctx.globalAlpha *= s1; ctx.strokeStyle = C.koraal; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(1365, 526); ctx.lineTo(1750, 526); ctx.stroke(); ctx.restore(); naam(ctx, 'Sara is gezond', 1560, 600, s1, 'center', C.koraal, 34); }
+    regel(ctx, '150 van 225', 1560, 690, s2, C.text, 40, 'center', 700);
+    kansBalk(ctx, 440, 890, 600, 52, (2 / 3) * s2, C.goud, s2, '⅔ drager');
+    misvatting(ctx, 'de kans is ½', 'de kans is ⅔', 1580, 780, 480, s3, S.on(3, 0.5, 0.5));
+  } });
+
+/* =====================================================================================
+   15 · Twee rekenregels
+   ===================================================================================== */
+SCHERMEN.push({ titel: 'Twee rekenregels', kop: 'Twee rekenregels', deel: 'Kansen',
+  stappen: [
+    { t: '<b>Productregel</b>: moeten twee onafhankelijke dingen allebei gebeuren, vermenigvuldig. Twee kinderen met aa: ¼ × ¼ = <b>1/16</b>.', n: 'Het vierkant: kolommen = eerste kind, rijen = tweede kind. Alleen het hoekvakje is "allebei aa". Zelfde rekenregel als ¾ × ¾ op scherm 6.' },
+    { t: '<b>Somregel</b>: sluiten twee mogelijkheden elkaar uit, tel op. Gezond = AA óf Aa: ¼ + ½ = <b>¾</b>.', n: 'Een kind kan niet tegelijk AA en Aa zijn: elkaar uitsluitend. Vraag terug: wat is de kans op een ziek kind? (1 − ¾ = ¼)' },
+    { t: 'Elk kind is een nieuwe trekking. Na een kind met aa is de kans voor het volgende kind <b>weer ¼</b>.', n: 'Misvatting: "Ze hebben al een ziek kind, dus de volgende drie zijn gezond." Toeval heeft geen geheugen. De Wit: Levi kwam als tweede, na Sara.' }
+  ],
+  teken(ctx, S) {
+    const s0 = S.on(0, 1.2), s1 = S.on(1, 1.2), s2 = S.on(2, 1.2);
+    paneel(ctx, 90, 180, 850, 620, s0); metaText(ctx, 'productregel', 515, 232, C.meta, 'center', 24, s0);
+    const ax = 300, ay = 310, v = 106;
+    if (s0 > 0.01) { ctx.save(); ctx.globalAlpha *= s0; for (let i = 0; i < 4; i++) for (let j = 0; j < 4; j++) { let vul = rgba(C.fill, 0.5); if (j === 0 || i === 0) vul = rgba(C.koraal, 0.16); if (i === 0 && j === 0) vul = rgba(C.koraal, 0.25 + 0.55 * S.on(0, 0.6, 0.6));
+        roundRect(ctx, ax + j * v + 4, ay + i * v + 4, v - 8, v - 8, 10); shape(ctx, vul, rgba(C.line, 0.6), 2); } ctx.restore(); }
+    naam(ctx, '1e kind aa', ax + v / 2, ay - 18, s0, 'center', C.koraal, 30); naam(ctx, '2e', ax - 16, ay + v / 2 + 10, s0, 'right', C.koraal, 30);
+    regel(ctx, '¼ × ¼ =', 830, 500, s0 * S.on(0, 0.5, 0.6), C.text, 48, 'center', 700); breuk(ctx, 1, 16, 830, 600, 60, s0 * S.on(0, 0.5, 0.9), C.koraal);
+    paneel(ctx, 980, 180, 850, 620, s1); metaText(ctx, 'somregel', 1405, 232, C.meta, 'center', 24, s1);
+    verhouding(ctx, 1040, 320, 730, 90, [{ n: 1, kl: C.groen, in: 'AA', label: '¼' }, { n: 2, kl: C.goud, in: 'Aa', label: '½' }, { n: 1, kl: C.koraal, in: 'aa', label: '¼' }], s1, { px: 34 });
+    if (s1 > 0.01) { const a = s1 * S.on(1, 0.5, 0.5), x1 = 1044, x2 = 1040 + 730 * 0.75 - 4; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.groen; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(x1, 490); ctx.lineTo(x1, 512); ctx.lineTo(x2, 512); ctx.lineTo(x2, 490); ctx.stroke(); ctx.restore();
+      naam(ctx, 'gezond', (x1 + x2) / 2, 570, a, 'center', C.groen, 34); regel(ctx, '¼ + ½ = ¾', (x1 + x2) / 2, 690, a, C.text, 56, 'center', 700); }
+    if (s2 > 0.01) { [[1, 1], [0, 0], [1, 0], [0, 0]].forEach(([m, z], k) => { const x = 210 + k * 200, e = s2 * S.on(2, 0.4, k * 0.25); stamPersoon(ctx, x, 890, 40, { m: !!m, ziek: !!z, a: e }); regel(ctx, 'kans ¼', x, 980, e, C.text2, 30, 'center', 600); if (k) pijl(ctx, x - 150, 890, x - 50, 890, C.text2, 3, e, 12); });
+      balk(ctx, 'toeval heeft geen geheugen', 1400, 910, 760, s2 * S.on(2, 0.5, 1.0), C.goud, 42); }
+  } });
+
+/* =====================================================================================
+   16 · Sara krijgt later een kind
+   ===================================================================================== */
+SCHERMEN.push({ titel: 'Sara krijgt een kind', kop: 'Sara krijgt later een kind', deel: 'Kansen',
+  stappen: [
+    { t: 'Stel: Sara krijgt later een kind met een partner die <b>drager</b> is (Aa). We rekenen de kans op een kind met albinisme uit.', n: 'Vraag uit film 6: Sanne krijgt later een kind met Tom, Tom is drager. Hoe groot is de kans dat hun kind taaislijmziekte heeft? (⅙; zelfde getallen)' },
+    { t: 'Daarvoor moet Sara eerst <b>drager</b> zijn: kans ⅔. Is ze dat niet, dan wordt het kind niet ziek.', n: 'Die ⅔ komt van scherm 15.' },
+    { t: 'Dan moet Sara een <b>a</b> doorgeven: kans ½.' },
+    { t: 'En de partner ook een <b>a</b>: kans ½. Alles moet gebeuren, dus vermenigvuldig: ⅔ × ½ × ½ = <b>⅙</b>.', n: 'Productregel. Veelgemaakte fout: ½ × ½ = ¼ vergeten te vermenigvuldigen met de kans dat Sara drager is.' },
+    { t: 'Met een <b>dragerschapstest</b> weet Sara het zeker. Dan wordt de kans <b>¼</b> of <b>0</b>.', n: 'Zo werkt een erfelijkheidsadviseur. In Nederland vraag je zo\'n test via de huisarts aan bij een afdeling klinische genetica; bij albinisme of taaislijmziekte in de familie wordt hij vergoed (briefing). In het echt is Sara AA (LEVENSLOOP), dus de kans is 0; dat weet zij pas na de test.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 1.0), s1 = S.on(1, 1.0), s2 = S.on(2, 0.8), s3 = S.on(3, 1.2), s4 = S.on(4, 1.2), r = 48;
+    const dim = 1 - 0.5 * s4;
+    laag(ctx, dim, (c) => {
+      pers(c, 'sara', 175, 660, 440, { t: T, uit: 'neutraal', a: s0 });
+      stamPaar(c, 380, 630, 360, r, s0); stamPersoon(c, 380, 360, r, { a: s0, label: 'Sara', labelZij: 'onder', labelPx: 32 }); allelChip(c, 'A_', 380, 360 - r - 40, s0, { px: 32 });
+      stamPersoon(c, 630, 360, r, { m: true, drager: true, a: s0, label: 'partner', labelZij: 'onder', labelPx: 32 }); allelChip(c, 'Aa', 630, 360 - r - 40, s0, { px: 32, kl: C.goud });
+      stamKinderen(c, 505, 360, [505], 590, r, s0); L3_ruit(c, 505, 590, 42, s0);
+      if (s1 > 0.01) { circ(c, 800, 440, 11, rgba(C.text2, s1)); pijl(c, 812, 430, 1000, 320, C.text2, 4, s1, 16); pijl(c, 812, 450, 1000, 570, C.text2, 4, s1, 16);
+        regel(c, 'drager ⅔', 1090, 334, s1, C.goud, 40, 'center', 700); regel(c, 'geen drager ⅓', 1120, 584, s1, C.text2, 36, 'center', 600);
+        regel(c, '→ kind niet ziek', 1270, 584, s1 * S.on(1, 0.5, 0.5), C.text2, 32, 'left', 500); }
+      if (s2 > 0.01) { pijl(c, 1180, 322, 1250, 322, C.text2, 4, s2, 16); regel(c, 'geeft a ½', 1350, 334, s2, C.text, 38, 'center', 700); }
+      if (s3 > 0.01) { pijl(c, 1450, 322, 1510, 322, C.text2, 4, s3, 16); regel(c, 'partner a ½', 1640, 334, s3, C.text, 38, 'center', 700);
+        regel(c, '⅔ × ½ × ½ =', 1330, 470, s3 * S.on(3, 0.5, 0.6), C.text, 52, 'center', 700); breuk(c, 1, 6, 1620, 456, 62, s3 * S.on(3, 0.5, 0.9), C.koraal); }
+    });
+    if (s4 > 0.01) { metaText(ctx, 'dragerschapstest', 960, 690, C.meta, 'center', 24, s4);
+      [['wel drager (Aa)', '¼', 560], ['geen drager (AA)', '0', 1360]].forEach(([t, k, x], i) => { const a = s4 * S.on(4, 0.5, 0.3 + i * 0.3); paneel(ctx, x - 340, 720, 680, 270, a);
+        regel(ctx, t, x, 790, a, C.text, 38, 'center', 700); regel(ctx, 'kans op een kind met albinisme', x, 840, a, C.text2, 30, 'center', 500); regel(ctx, k, x, 950, a, i ? C.groen : C.koraal, 80, 'center', 700); }); }
+  } });
+
+/* =====================================================================================
+   17 · Samenvatting
+   ===================================================================================== */
+SCHERMEN.push({ titel: 'Samenvatting', kop: 'Een stamboom in vier stappen', deel: 'Afsluiting',
+  stappen: [
+    { t: '<b>Stap 1</b>: dominant of recessief? Gezonde ouders met een kind met de eigenschap: recessief.', n: 'Terug naar De Wit (scherm 11).' },
+    { t: '<b>Stap 2</b>: autosomaal of via het X-chromosoom? Aangedane dochter met een gezonde vader: autosomaal.' },
+    { t: '<b>Stap 3</b>: genotypen invullen, van aangedaan (aa) terug naar gezond (Aa of A_).' },
+    { t: '<b>Stap 4</b>: de kans. Vermenigvuldig wat allemaal moet gebeuren, tel op wat elkaar uitsluit, haal weg wat je al weet.', n: 'De drie regels: productregel (⅔ × ½ × ½), somregel (¼ + ½), voorwaardelijke kans (aa valt weg → ⅔).' },
+    { t: '<b>Twee genen</b>: los van elkaar 9 : 3 : 3 : 1; gekoppeld vooral de oude combinaties, crossing-over maakt recombinanten.', n: 'Vwo: het recombinatiepercentage zegt iets over de afstand (genkaart, max 50 %).' }
+  ],
+  teken(ctx, S) {
+    const s = [0, 1, 2, 3, 4].map(k => S.on(k, 0.8));
+    paneel(ctx, 90, 180, 1060, 820, s[0]); metaText(ctx, 'stamboom', 620, 232, C.meta, 'center', 24, s[0]);
+    [['dominant of recessief?', 'gezond × gezond → kind met eigenschap: recessief'], ['autosomaal of X?', 'aangedane dochter, gezonde vader: autosomaal'], ['genotypen invullen', 'van aangedaan (aa) terug naar gezond (Aa, A_)'], ['de kans', '× wat allemaal moet · + wat elkaar uitsluit · weg wat je weet']].forEach(([kop, sub], k) => {
+      const a = s[k], y = 320 + k * 180; if (a <= 0.01) return; circ(ctx, 180, y, 40, rgba(C.goud, a * 0.25), rgba(C.goud, a), 3); regel(ctx, String(k + 1), 180, y + 15, a, C.goud, 44, 'center', 700);
+      regel(ctx, kop, 250, y - 4, a, C.text, 42, 'left', 700); regel(ctx, sub, 250, y + 46, a, C.text2, 30, 'left', 500); });
+    const a = s[4]; paneel(ctx, 1190, 180, 640, 820, a); metaText(ctx, 'twee genen', 1510, 232, C.meta, 'center', 24, a);
+    if (a > 0.01) { L3_FEN.forEach(([g, rd], k) => erwt(ctx, 1330 + k * 120, 320, 36, { geel: g, rimpel: !rd, a }));
+      regel(ctx, 'los: 9 : 3 : 3 : 1', 1510, 430, a, C.goud, 46, 'center', 700); regel(ctx, 'terugkruising: 1 : 1 : 1 : 1', 1510, 490, a, C.text2, 32, 'center', 600);
+      vlieg(ctx, 1400, 610, 1.1, { a }); vlieg(ctx, 1620, 610, 1.1, { a, zwart: true, stomp: true });
+      regel(ctx, 'gekoppeld: oude combinaties', 1510, 760, a, C.text, 36, 'center', 700); regel(ctx, 'crossing-over → recombinanten', 1510, 820, a, C.text2, 32, 'center', 600);
+      if (S.vwo) regel(ctx, 'recombinatie % ~ afstand', 1510, 900, a, C.paars, 32, 'center', 600); if (S.vwo) regel(ctx, '(max 50 %)', 1510, 945, a, C.paars, 30, 'center', 600); }
+  } });
+
+/* =====================================================================================
+   18 · Volgende keer
+   ===================================================================================== */
+SCHERMEN.push({ titel: 'Volgende keer', deel: 'Vooruitblik', geenKop: true,
+  stappen: [{ t: 'Dit was de laatste erfelijkheidsles. Volgende keer: alles <b>herhalen</b> en <b>oefenen</b> voor de toets.', n: 'Havo: daarna de toets van H3 (Biologie voor jou). Vwo: de toets van H5 (Nectar); § 5.5 (ethiek) doen de leerlingen zelf. Oefenen: de Kruisingtrainer (tools/kruisingtrainer.html, snel oefenen en opgaven met context) en de opdrachten onder de films. Daarna Evolutie: waar komen al die allelen vandaan? Huiswerk staat bij de lesopbouw.' }],
+  teken(ctx, S) { vooruitblik(ctx, S, 'Herhalen en de toets', [['Herhalen', 'les 1–3 in één schema', L3_icoonSchema], ['Oefenen', 'Kruisingtrainer + opdrachten', L3_icoonOefen], ['De toets', 'havo H3 · vwo H5', L3_icoonToets], ['Daarna: Evolutie', 'waar komen al die allelen vandaan?', L3_icoonEvolutie]]); } });
+
+/* =====================================================================================
+   Speler
+   ===================================================================================== */
+const cv = document.getElementById('cv'), ctx = cv.getContext('2d');
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let vwo = true, scr = 0, p = 0, tStap = performance.now(), tScherm = performance.now();
+const startTijden = {};
+try { const q = new URLSearchParams(location.search).get('niveau'); const sv = localStorage.getItem('niveau'); vwo = q === 'havo' ? false : q === 'vwo' ? true : sv !== 'havo'; } catch (e) {}
+const zichtbaar = (i) => SCHERMEN[i].stappen.map((s, k) => k).filter(k => vwo || !SCHERMEN[i].stappen[k].vwo);
+
+function maat() { const r = cv.getBoundingClientRect(); const d = Math.min(2, window.devicePixelRatio || 1); const w = Math.max(320, Math.round(r.width * d)), h = Math.round(w * 9 / 16); if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; } }
+function frame(now) {
+  maat(); const sc = SCHERMEN[scr], vis = zichtbaar(scr), b = vis[Math.min(p, vis.length - 1)];
+  const tb = reduce ? 99 : (now - tStap) / 1000, T = (now - tScherm) / 1000;
+  const S = { b, T, vwo,
+    on(k, d = 0.9, del = 0) { if (b == null) return 0; const st = sc.stappen[k]; if (!st || (st.vwo && !vwo)) return 0; if (b > k) return 1; if (b < k) return 0; return ease((tb - del) / d); },
+    start(k) { return (startTijden[scr + ':' + k] || now) / 1000 - tScherm / 1000; } };
+  ctx.setTransform(cv.width / W, 0, 0, cv.height / H, 0, 0); ctx.clearRect(0, 0, W, H); ctx.fillStyle = C.bg; ctx.fillRect(0, 0, W, H);
+  if (!sc.geenKop) { text(ctx, sc.titel === 'Start' ? '' : kopVan(sc), 80, 100, fTitel(54), C.text); metaText(ctx, sc.deel, 82, 140, C.meta, 'left', 20); }
+  try { sc.teken(ctx, S); } catch (e) { console.error(e); }
+  requestAnimationFrame(frame);
+}
+function kopVan(sc) { return sc.kop || sc.titel; }
+
+const capTxt = document.getElementById('capTxt'), capNot = document.getElementById('capNot'), dots = document.getElementById('dots'), teller = document.getElementById('teller'), chips = document.getElementById('chips');
+function tekstKaart() {
+  const vis = zichtbaar(scr), k = vis[p], st = SCHERMEN[scr].stappen[k];
+  capTxt.innerHTML = (st.vwo ? '<span class="vwo-tag">vwo</span>' : '') + ((!vwo && st.th) ? st.th : st.t);
+  capNot.textContent = st.n || '';
+  dots.innerHTML = vis.map((kk, i) => `<i class="${i < p ? 'done' : i === p ? 'cur' : ''}${SCHERMEN[scr].stappen[kk].vwo ? ' vwo' : ''}"></i>`).join('');
+  teller.textContent = `scherm ${scr + 1}/${SCHERMEN.length} · stap ${p + 1}/${vis.length}`;
+  chips.querySelectorAll('.chip[data-i]').forEach(c => c.classList.toggle('cur', +c.dataset.i === scr));
+  document.getElementById('terug').disabled = volgendVol(scr - 1, -1) < 0 && p === 0;
+  document.getElementById('verder').disabled = volgendVol(scr + 1, 1) < 0 && p === vis.length - 1;
+  chips.querySelectorAll('.chip[data-i]').forEach(c => { c.hidden = leeg(+c.dataset.i); });
+  try { history.replaceState(null, '', '#' + (scr + 1)); } catch (e) {}
+}
+function markeer() { startTijden[scr + ':' + zichtbaar(scr)[p]] = performance.now(); }
+// een scherm met alleen vwo-stappen telt in havo niet mee (wordt overgeslagen)
+const leeg = (i) => zichtbaar(i).length === 0;
+function volgendVol(i, d) { while (i >= 0 && i < SCHERMEN.length && leeg(i)) i += d; return (i >= 0 && i < SCHERMEN.length) ? i : -1; }
+function verder() { const vis = zichtbaar(scr); if (p < vis.length - 1) { p++; tStap = performance.now(); } else { const v = volgendVol(scr + 1, 1); if (v < 0) return; scr = v; p = 0; tStap = tScherm = performance.now(); } markeer(); tekstKaart(); }
+function terug() { if (p > 0) p--; else { const v = volgendVol(scr - 1, -1); if (v < 0) return; scr = v; p = zichtbaar(scr).length - 1; tScherm = performance.now() - 20000; } tStap = performance.now() - 20000; markeer(); tekstKaart(); }
+function naarScherm(i) { i = clamp(i, 0, SCHERMEN.length - 1); const d = i < scr ? -1 : 1; let v = volgendVol(i, d); if (v < 0) v = volgendVol(i, -d); if (v < 0) return; scr = v; p = 0; tStap = tScherm = performance.now(); markeer(); tekstKaart(); }
+function opnieuw() { tStap = performance.now(); markeer(); }
+
+// chips per scherm, gegroepeerd per deel
+(function () { let deel = ''; chips.innerHTML = SCHERMEN.map((s, i) => { let h = ''; if (s.deel !== deel) { deel = s.deel; h += `<span class="chip deel">${deel}</span>`; } return h + `<button type="button" class="chip" data-i="${i}"><span class="n">${i + 1}</span>${s.titel}</button>`; }).join('');
+  chips.addEventListener('click', e => { const c = e.target.closest('.chip[data-i]'); if (c) naarScherm(+c.dataset.i); }); })();
+
+function zetNiveau(v) { vwo = v; document.getElementById('lvVwo').setAttribute('aria-pressed', v); document.getElementById('lvHavo').setAttribute('aria-pressed', !v); try { localStorage.setItem('niveau', v ? 'vwo' : 'havo'); } catch (e) {} if (leeg(scr)) { let w = volgendVol(scr, 1); if (w < 0) w = volgendVol(scr, -1); scr = w; p = 0; } p = Math.min(p, zichtbaar(scr).length - 1); tekstKaart(); }
+document.getElementById('lvVwo').onclick = () => zetNiveau(true);
+document.getElementById('lvHavo').onclick = () => zetNiveau(false);
+const lblBtn = document.getElementById('lblBtn');
+function wisselNamen() { toonNamen = !toonNamen; lblBtn.setAttribute('aria-pressed', !toonNamen); lblBtn.textContent = toonNamen ? 'Namen verbergen' : 'Namen tonen'; }
+lblBtn.onclick = wisselNamen;
+function presenteer(aan) {
+  document.body.classList.toggle('presenteer', aan); document.body.classList.toggle('muis', false);
+  const el = document.documentElement, aanVS = el.requestFullscreen || el.webkitRequestFullscreen, uitVS = document.exitFullscreen || document.webkitExitFullscreen, vs = document.fullscreenElement || document.webkitFullscreenElement;
+  try { if (aan && !vs && aanVS) { const r = aanVS.call(el); if (r && r.catch) r.catch(() => {}); } if (!aan && vs && uitVS) { const r = uitVS.call(document); if (r && r.catch) r.catch(() => {}); } } catch (e) {}
+}
+// groot scherm: knoppen tonen bij muisbeweging, na 2,5 s stil weer verbergen (ook de muiswijzer)
+let _muisTimer = 0;
+document.addEventListener('mousemove', () => { if (!document.body.classList.contains('presenteer')) return; document.body.classList.add('muis'); document.body.classList.remove('muisweg'); clearTimeout(_muisTimer); _muisTimer = setTimeout(() => { if (!document.querySelector('.knoppen:hover')) { document.body.classList.remove('muis'); document.body.classList.add('muisweg'); } }, 2500); });
+function wisselTekst() { const z = document.body.classList.toggle('zondertekst'); const b = document.getElementById('tekstBtn'); if (b) b.textContent = z ? 'Tekst aan' : 'Tekst uit'; try { localStorage.setItem('les-zondertekst', z ? '1' : '0'); } catch (e) {} }
+try { if (localStorage.getItem('les-zondertekst') === '1') { document.body.classList.add('zondertekst'); } } catch (e) {}
+document.addEventListener('webkitfullscreenchange', () => { if (!document.webkitFullscreenElement) document.body.classList.remove('presenteer'); });
+document.getElementById('presBtn').onclick = () => presenteer(true);
+document.getElementById('grootBtn').addEventListener('click', e => { e.stopPropagation(); presenteer(true); });
+document.getElementById('tekstBtn').onclick = wisselTekst;
+document.getElementById('tekstBtn').textContent = document.body.classList.contains('zondertekst') ? 'Tekst aan' : 'Tekst uit';
+document.getElementById('stopPres').onclick = () => presenteer(false);
+document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement) document.body.classList.remove('presenteer'); });
+document.getElementById('verder').onclick = verder;
+document.getElementById('terug').onclick = terug;
+document.getElementById('opnieuw').onclick = opnieuw;
+document.getElementById('stage').addEventListener('click', verder);
+document.addEventListener('keydown', e => {
+  if (e.target.closest('input,textarea,select')) return; if (e.altKey || e.ctrlKey || e.metaKey) return;
+  const k = e.key;
+  if (k === 'ArrowRight' || k === ' ' || k === 'PageDown' || k === 'Enter') { if (k === 'Enter' && e.target.closest('button')) return; e.preventDefault(); verder(); }
+  else if (k === 'ArrowLeft' || k === 'PageUp' || k === 'Backspace') { e.preventDefault(); terug(); }
+  else if (k === 'ArrowDown') { e.preventDefault(); naarScherm(scr + 1); }
+  else if (k === 'ArrowUp') { e.preventDefault(); naarScherm(scr - 1); }
+  else if (k === 'Home') naarScherm(0);
+  else if (k === 'r' || k === 'R') opnieuw();
+  else if (k === 'l' || k === 'L') wisselNamen();
+  else if ((k === 't' || k === 'T') && document.body.classList.contains('presenteer')) wisselTekst();
+  else if (k === 'f' || k === 'F') presenteer(!document.body.classList.contains('presenteer'));
+  else if (k === 'Escape') presenteer(false);
+});
+document.addEventListener('themawissel', zetPalet);
+
+(function () { const m = (location.hash.match(/^#(\d+)/) || [])[1]; if (m) { scr = clamp(+m - 1, 0, SCHERMEN.length - 1); } })();
+zetNiveau(vwo); markeer(); tekstKaart();
+(document.fonts ? document.fonts.ready : Promise.resolve()).then(() => requestAnimationFrame(frame));
+// testhaak (alleen voor controle-screenshots): window.__les.naar(scherm, stap) toont die stap meteen in eindstand
+window.__les = { n: () => SCHERMEN.length, stappen: (i) => zichtbaar(i).length, naar(i, k) { scr = clamp(i, 0, SCHERMEN.length - 1); p = clamp(k, 0, zichtbaar(scr).length - 1); tStap = tScherm = performance.now() - 30000; markeer(); tekstKaart(); }, niveau(v) { zetNiveau(v); }, namen(v) { if (toonNamen !== v) wisselNamen(); } };
+
+</script>
+</body>
+</html>
