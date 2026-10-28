@@ -1025,7 +1025,7 @@
    "En waarom is het niermerg zo zout? Het nierbuisje maakt een lange lus door het merg: de lis van Henle. Het opstijgende deel pompt zouten naar buiten, maar laat geen water door. Zo krijgt het merg een hoge osmotische waarde.",
    "Woestijndieren, zoals de kangoeroerat, hebben een extra lange lis van Henle. Wat betekent dat voor hun urine? Wat denk je?"
   ],
-  "display": "Voor vwo gaan we hier nog een stap verder. Hoe maakt ADH de wand doorlaatbaar? ADH bindt aan een receptor op de cellen van de verzamelbuis. In die cellen liggen blaasjes met waterkanaaltjes: aquaporinen. ADH zorgt dat die blaasjes versmelten met het membraan aan de kant van de buis. Zo kan het water de cel in, en aan de andere kant weer uit. En waarom is het niermerg zo zout? Het nierbuisje maakt een lange lus door het merg: de lis van Henle. Het opstijgende deel pompt zouten naar buiten, maar laat geen water door. Zo krijgt het merg een hoge osmotische waarde. Woestijndieren, zoals de kangoeroerat, hebben een extra lange lis van Henle. Wat betekent dat voor hun urine? Wat denk je?",
+  "display": "Hoe maakt ADH de wand doorlaatbaar? ADH bindt aan een receptor op de cellen van de verzamelbuis. In die cellen liggen blaasjes met waterkanaaltjes: aquaporinen. ADH zorgt dat die blaasjes versmelten met het membraan aan de kant van de buis. Zo kan het water de cel in, en aan de andere kant weer uit. En waarom is het niermerg zo zout? Het nierbuisje maakt een lange lus door het merg: de lis van Henle. Het opstijgende deel pompt zouten naar buiten, maar laat geen water door. Zo krijgt het merg een hoge osmotische waarde. Woestijndieren, zoals de kangoeroerat, hebben een extra lange lis van Henle. Wat betekent dat voor hun urine? Wat denk je?",
   "voice": "Voor vwo gaan we hier nog een stap verder. Hoe maakt ADH de wand doorlaatbaar? ADH bindt aan een receptor op de cellen van de verzamelbuis. In die cellen liggen blaasjes met waterkanaaltjes: aquaporinen. ADH zorgt dat die blaasjes versmelten met het membraan aan de kant van de buis. Zo kan het water de cel in, en aan de andere kant weer uit. En waarom is het niermerg zo zout? Het nierbuisje maakt een lange lus door het merg: de lis van Henle. Het opstijgende deel pompt zouten naar buiten, maar laat geen water door. Zo krijgt het merg een hoge osmotische waarde. Woestijndieren, zoals de kangoeroerat, hebben een extra lange lis van Henle. Wat betekent dat voor hun urine? Wat denk je?",
   "vmap": [
    0,
@@ -1151,7 +1151,8 @@
    120,
    121,
    122
-  ]
+  ],
+  "geknipt": "1.1: 'Voor vwo gaan we hier nog een stap verder.' uit display en take geknipt; voice = de oorspronkelijke stem-invoer van de take"
  },
  {
   "id": "q16",

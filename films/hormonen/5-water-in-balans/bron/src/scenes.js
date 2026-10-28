@@ -1,5 +1,19 @@
 // Hormonen 5 · Water in balans — scènes per alinea.
-const PERSON_LOOK = { skin: SKINS[0], hair: '#6B4A2E', shirt: '#B36A5E', hairStyle: 'short' };
+const PERSON_LOOK = { skin: SKINS[0], hair: '#6B4A2E', shirt: '#B36A5E', hairStyle: 'short' }; // oud (personReal), niet meer gebruikt sinds 1.1
+// 1.1 (opwaardering prompt v13, 28 okt 2026): 'jij' is castpersonage Noor (personages/ROLLEN.md), nooit bij naam genoemd.
+function dot(ctx, x, y, r, fill, stroke, lw = 1.2) { ctx.beginPath(); ctx.arc(x, y, r, 0, 6.2832); if (fill) { ctx.fillStyle = fill; ctx.fill(); } if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw; ctx.stroke(); } }
+// beker als los inzetje (Schema-paneel), zodat hij niet als voorwerp op ware grootte naast de persoon staat (realistische maten, BEELDAFSPRAKEN 22 okt 2026)
+function bekerPaneel(ctx, x, y, w, h, level, conc, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - w / 2 - 50, y - h - 70, w + 100, h + 130, 20); shape(ctx, rgba(C.bgSchema, 0.92), C.line, 1.5); beker(ctx, x, y, w, h, level, conc, 1, 'URINE'); ctx.restore(); }
+// klein eiwit als kralenketen in een kluwen (BEELDAFSPRAKEN: eiwitten zijn geen bolletjes)
+function eiwitKlein(ctx, x, y, r, a = 1, t = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const n = 14, pts = [];
+  for (let i = 0; i < n; i++) { const u = i / n * 6.283 * 1.5 + t * 0.2; const rr = r * (0.45 + 0.4 * Math.sin(u * 1.7 + 0.6)); pts.push([x + Math.cos(u) * rr, y + Math.sin(u * 1.13) * rr]); }
+  ctx.strokeStyle = '#8FA0B5'; ctx.lineWidth = Math.max(1, r * 0.08); ctx.beginPath(); pts.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke();
+  pts.forEach(p => circ(ctx, p[0], p[1], r * 0.16, '#AFC0D0', '#D5DEE8', 1)); ctx.restore(); }
+// 1.1: nier in doorsnede uit de beeldbank (nierBijnier: schors, piramides = merg, bekken met kelkjes, nierslagader, nierader, urineleider; bijnier als kapje)
+// nefronen als gouden stipjes in de schors (o.nef)
+function nierBank(ctx, x, y, s, o = {}) { const { a = 1, nef = 0, urine = 0, t = 0 } = o; const A = nierBijnier(ctx, x, y, s, { a, urine, t });
+  if (nef > 0.01 && a > 0.01) { ctx.save(); ctx.globalAlpha *= a * nef; for (let i = 0; i < 46; i++) { const an = 1.0 + hash(i) * 4.3, rr = 0.86 + 0.08 * hash(i * 3); dot(ctx, x + (5 + Math.cos(an) * 64 * rr) * s, y + Math.sin(an) * 104 * rr * s, 3.2, C.goud); } ctx.restore(); }
+  return A; }
 
 function tag(ctx, s, x, y, col, a = 1, align = 'center') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fTekst(36, 600); const w = ctx.measureText(s).width + 44; const x0 = align === 'center' ? x - w / 2 : align === 'right' ? x - w : x; roundRect(ctx, x0, y - 40, w, 56, 28); shape(ctx, rgba(col, 0.16), col, 1.5); text(ctx, s, x0 + w / 2, y, fTekst(36, 600), C.text, 'center'); ctx.restore(); }
 function vraagteken(ctx, x, y, a = 1, px = 120) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; text(ctx, '?', x, y, fTitel(px), C.goud, 'center'); ctx.restore(); }
@@ -59,40 +73,48 @@ function verzamelbuisClose(ctx, x, adh, t, a = 1, zout = 1) { if (a <= 0.01) ret
 function adhSchuif(ctx, x, y, v, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; metaText(ctx, 'ADH', x, y - 30, ADHC, 'center', 26); roundRect(ctx, x - 12, y, 24, 360, 12); shape(ctx, rgba(C.fill, 0.8), C.line, 2); const py = y + 360 - 360 * v; ctx.fillStyle = rgba(ADHC, 0.4); ctx.fillRect(x - 10, py, 20, y + 360 - py); circ(ctx, x, py, 22, ADHC, '#F0CC7A', 2); text(ctx, 'veel', x + 40, y + 20, fTekst(26), C.text2, 'left'); text(ctx, 'weinig', x + 40, y + 360, fTekst(26), C.text2, 'left'); ctx.restore(); }
 function glasDrank(ctx, x, y, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.moveTo(x - 60, y - 200); ctx.lineTo(x - 44, y); ctx.lineTo(x + 44, y); ctx.lineTo(x + 60, y - 200); ctx.closePath(); shape(ctx, rgba('#C9D2DE', 0.1), '#C9D2DE', 3); ctx.fillStyle = rgba('#D9A94A', 0.5); ctx.beginPath(); ctx.moveTo(x - 54, y - 140); ctx.lineTo(x - 44, y - 4); ctx.lineTo(x + 44, y - 4); ctx.lineTo(x + 54, y - 140); ctx.closePath(); ctx.fill(); text(ctx, 'alcohol', x, y + 44, fTekst(30, 700), C.text2, 'center'); ctx.restore(); }
 
+// lichaam van s04 (lib_anatomie: BODY = {cx, yb, h}; AP(x, y) in hoofdhoogtes, x > 0 = rechts in beeld = links in het lichaam)
+const S4_BODY = { cx: 600, yb: 880, h: 740 }; var BODY = S4_BODY;
+
+// cel van de verzamelbuis (s15): kubisch, afgeronde vorm met licht gebogen zijden (superellips), midden (960, 480)
+function celVB(ctx, inset = 0) { const a = 500 - inset, b = 285 - inset; ctx.beginPath(); for (let i = 0; i <= 96; i++) { const u = i / 96 * 6.283, c = Math.cos(u), sn = Math.sin(u); const x = 960 + a * Math.sign(c) * Math.pow(Math.abs(c), 0.5), y = 480 + b * Math.sign(sn) * Math.pow(Math.abs(sn), 0.5); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); } ctx.closePath(); }
+const VB_RAND = y => 960 - 500 * Math.pow(Math.max(0, 1 - Math.pow(Math.abs(y - 480) / 285, 4)), 0.25); // x van het membraan aan de buiskant op hoogte y
+
 const SCENES = {
-  title(ctx, t) { nierDoorsnede(ctx, 1460, 520, 1.15, { nef: 0.6 }); },
+  title(ctx, t) { nierBank(ctx, 1450, 540, 1.9, { nef: 0.6, t }); },
 
   s01(ctx, t, q) { const b = q.on('andere', 1);
     ctx.save(); ctx.globalAlpha *= 1 - b; ctx.fillStyle = '#7FB3D9'; ctx.fillRect(0, 0, W, 600); ctx.fillStyle = '#5E9E4E'; ctx.fillRect(0, 600, W, H - 600); zon(ctx, 1600, 180, 80, 1, t);
-      person(ctx, 640, 900, 560, 1, { shirt: '#B36A5E', armR: { a1: 0.6 }, armL: { a1: 0.4 } }); for (let i = 0; i < 4; i++) druppel(ctx, 600 + i * 30, 430 + ((t * 60 + i * 40) % 120), 8, '#9FC3E0', 0.8);
-      { const ga = q.on('gesport', 1); if (ga > 0.01) { ctx.save(); ctx.globalAlpha *= ga; roundRect(ctx, 560, 80, 800, 60, 30); ctx.fillStyle = rgba('#1A2740', 0.85); ctx.fill(); text(ctx, 'warm · twee uur sporten · weinig gedronken', 960, 120, fTekst(36, 600), C.text, 'center'); ctx.restore(); } } beker(ctx, 1200, 820, 140, 220, 0.25, 1, q.on('donkergeel', 1) || q.on('plast', 1)); ctx.restore();
+      { const r = persoon(ctx, 'noor', 640, 900, 560, { outfit: 'sport', uit: 'moe', pose: 'handenHeup', t }); for (let i = 0; i < 3; i++) druppel(ctx, r.hoofd.x - 40 + i * 40, r.hoofd.y - 10 + ((t * 40 + i * 30) % 80), 6, '#9FC3E0', 0.8 * (1 - ((t * 40 + i * 30) % 80) / 80)); }
+      { const ga = q.on('gesport', 1); if (ga > 0.01) { ctx.save(); ctx.globalAlpha *= ga; roundRect(ctx, 560, 80, 800, 60, 30); ctx.fillStyle = rgba('#1A2740', 0.85); ctx.fill(); text(ctx, 'warm · twee uur sporten · weinig gedronken', 960, 120, fTekst(36, 600), C.text, 'center'); ctx.restore(); } } bekerPaneel(ctx, 1200, 800, 140, 220, 0.25, 1, q.on('donkergeel', 1) || q.on('plast', 1)); ctx.restore();
     if (b > 0.01) { ctx.save(); ctx.globalAlpha *= b; ctx.fillStyle = '#2E4060'; ctx.fillRect(0, 0, W, 640); ctx.fillStyle = '#3A3530'; ctx.fillRect(0, 640, W, H - 640); roundRect(ctx, 1380, 120, 380, 300, 8); shape(ctx, '#3E5C80', '#8FA0B5', 6);
-      person(ctx, 640, 900, 560, 1, { shirt: '#5A7FA0' }); fles(ctx, 900, 720, 1.1, 1, 1 - ramp(t, q.at('drinkt'), 3) * 0.9);
-      beker(ctx, 1200, 820, 140, 220, 0.85, 0.05, q.on('veel', 1)); tag(ctx, 'rustig binnen · een fles water', 960, 120, C.text, 1); ctx.restore(); }
+      { const r = persoon(ctx, 'noor', 640, 900, 560, { pose: 'zit', stoel: '#5A6A84', uit: 'blij', t }); fles(ctx, r.handR.x + 6, r.handR.y + 8, 0.36, 1, 1 - ramp(t, q.at('drinkt'), 3) * 0.9); } // fles van ± 30 cm, op schoot
+      bekerPaneel(ctx, 1200, 800, 140, 220, 0.85, 0.05, q.on('veel', 1)); tag(ctx, 'rustig binnen · een fles water', 960, 120, C.text, 1); ctx.restore(); }
     vraagteken(ctx, 1560, 640, q.on('Hoe', 1), 140);
   },
 
   s04(ctx, t, q) { bg(ctx, 'schema');
     const cut = q.on('Snijd', 1);
-    const bodyA = 1 - Math.max(cut, q.on('nierslagader', 1)); if (bodyA > 0.01) { ctx.save(); ctx.globalAlpha *= bodyA; lichaam(ctx, 600, 560, 0.95, 1, { darm: 0, hoofd: true });
-      nierVorm(ctx, 600 - 90, 560, 1.0, -1, 1); nierVorm(ctx, 600 + 90, 560, 1.0, 1, 1);
-      const ul = q.on('nieren', 1); ctx.strokeStyle = URINE_D; ctx.lineWidth = 6; ctx.globalAlpha *= 1; ctx.save(); ctx.globalAlpha *= ul; for (const d of [-1, 1]) { ctx.beginPath(); ctx.moveTo(600 + d * 70, 590); ctx.quadraticCurveTo(600 + d * 60, 720, 600 + d * 20, 790); ctx.stroke(); } ctx.beginPath(); ctx.ellipse(600, 810, 50, 34, 0, 0, 6.283); shape(ctx, rgba(URINE_L, 0.5), URINE_D, 2); ctx.restore();
-      { const lv = q.on('lever', 1) * (1 - q.on('nierslagader', 1)); if (lv > 0.01) { ctx.save(); ctx.globalAlpha *= lv; ctx.beginPath(); ctx.ellipse(560, 470, 110, 55, -0.2, 0, 6.283); shape(ctx, rgba('#9C5A50', 0.5), '#C98A7E', 2.5); ctx.restore(); } }
-      label(ctx, 'nieren', 'achter in je buik', 690, 560, 1000, 420, q.on('nieren', 1), '#C98A7E'); ctx.restore(); }
-    const tk = [['afvalstoffen eruit, zoals ureum', 'afvalstoffen'], ['water en zout regelen', 'regelen']]; tk.forEach(([s, w], i) => tag(ctx, s, 1420, 250 + i * 90, C.goud, q.on(w, 1) * (1 - cut)));
+    // 1.1: realistisch lichaam uit personages/lib_anatomie.js (nieren, urineleiders en blaas op hun echte plek; lever rechts in het lichaam = links in beeld) i.p.v. het grijze silhouet
+    const bodyA = 1 - Math.max(cut, q.on('nierslagader', 1)); if (bodyA > 0.01) { ctx.save(); ctx.globalAlpha *= bodyA; BODY = S4_BODY; const ul = q.on('nieren', 1);
+      bodyOrgans({ sil: 1, uitsch: 0.55 + 0.45 * ul, t, urine: ul });
+      { const lv = q.on('lever', 1) * (1 - q.on('nierslagader', 1)); liver(lv, 0); naamBij(ctx, 'lever', '', AP(-0.75, 2.35)[0], AP(0, 2.35)[1], lv, 'right', '#C98A7E'); }
+      const nk = AP(0.37, 2.84); naamBij(ctx, 'nieren', 'achter in je buik', nk[0] + 40, nk[1] + 8, ul, 'left', '#C98A7E'); ctx.restore(); }
+    const tk = [['afvalstoffen eruit, zoals ureum', 'afvalstoffen'], ['water en zout regelen', 'regelen']]; tk.forEach(([s, w], i) => tag(ctx, s, 1420, 250 + i * 90, C.goud, q.on(w, 1) * (1 - Math.max(cut, q.on('nierslagader', 1)))));
     tag(ctx, 'ureum: uit de lever (afbraak aminozuren)', 1420, 160, UREUM, q.on('lever', 1) * (1 - q.on('nierslagader', 1)));
-    nierDoorsnede(ctx, 1150, 470, 1.25, { a: Math.max(cut, q.on('nierslagader', 1) * (1 - cut)), schors: cut ? q.on('nierschors', 1) * 0.8 + 0.2 : 0.4, merg: q.on('niermerg', 1), bekken: q.on('nierbekken', 1), leider: q.on('urineleider', 1), slag: q.on('nierslagader', 1), ader: q.on('nierader', 1), nef: q.on('nefronen', 1) });
-    label(ctx, 'nierslagader', '', 1150 - 360, 470 - 50, 600, 300, q.on('nierslagader', 1), SLAG); label(ctx, 'nierader', 'minste ureum', 1150 - 360, 470 + 50, 600, 680, q.on('nierader', 1), ADER);
-    label(ctx, 'nierschors', '', 1150 + 300, 470 - 160, 1650, 220, q.on('nierschors', 1) * cut, '#C98A7E'); naamBij(ctx, 'niermerg', '', 1150 + 345, 470 + 52, q.on('niermerg', 1) * cut, 'left', '#A85E54'); label(ctx, 'nierbekken', 'een holte', 1150 - 10, 470 + 60, 1650, 620, q.on('nierbekken', 1) * cut, URINE_D);
-    label(ctx, 'urineleider', 'naar de blaas', 1150 - 150, 470 + 330, 700, 820, q.on('urineleider', 1) * cut, URINE_D);
-    tag(ctx, '≈ 1 miljoen nefronen per nier', 1500, 840, C.goud, q.on('nefronen', 1));
+    // 1.1: nier uit de beeldbank (nierBijnier); de namen staan direct naast het deel
+    const nA = Math.max(cut, q.on('nierslagader', 1) * (1 - cut)); const NK = nierBank(ctx, 1150, 470, 2.1, { a: nA, nef: q.on('nefronen', 1), urine: q.on('urineleider', 1) * cut, t });
+    naamBij(ctx, 'nierslagader', '', NK.slagader[0] + 110, NK.slagader[1] - 18, q.on('nierslagader', 1) * nA, 'left', '#E07A6E'); naamBij(ctx, 'nierader', 'minste ureum', NK.ader[0] + 110, NK.ader[1] + 30, q.on('nierader', 1) * nA, 'left', '#8FA6D8');
+    naamBij(ctx, 'nierschors', '', 1000, NK.schors[1] - 10, q.on('nierschors', 1) * cut, 'right', '#E6B4A2'); naamBij(ctx, 'niermerg', 'piramides', 1000, NK.merg[1] + 10, q.on('niermerg', 1) * cut, 'right', '#C98A7E');
+    naamBij(ctx, 'nierbekken', 'een holte', NK.bekken[0] + 120, NK.bekken[1] + 120, q.on('nierbekken', 1) * cut, 'left', URINE_D); naamBij(ctx, 'urineleider', 'naar de blaas', NK.urineleider[0] + 26, NK.urineleider[1] + 90, q.on('urineleider', 1) * cut, 'left', URINE_D);
+    tag(ctx, '≈ 1 miljoen nefronen per nier', 1560, 180, C.goud, q.on('nefronen', 1));
   },
   s05(ctx, t, q) { bg(ctx, 'schema');
     nefronSchema(ctx, { glom: q.on('kluwen', 1), kapsel: q.on('kommetje', 1), buis: q.on('perst', 1), verz: 0, vaatjes: q.on('vaatje', 1), t });
     naamBij(ctx, 'glomerulus', 'kluwen haarvaten', NF.gx, NF.gy + 135, q.on('kluwen', 1), 'center', SLAG); naamBij(ctx, 'kapsel van Bowman', '', NF.gx + 125, NF.gy + 75, q.on('kommetje', 1), 'left', '#C9D2DE');
     tag(ctx, 'hoge bloeddruk', NF.gx + 150, 120, SLAG, q.on('hoog', 1) * (1 - q.on('nuttige', 1)));
     const pers = q.on('perst', 1); filtraat(ctx, t, pers, 0); legenda(ctx, 1650, 560, pers);
-    const bl = q.on('Bloedcellen', 1); if (bl > 0.01) { for (let i = 0; i < 5; i++) { const an = t * 0.8 + i * 1.25; circ(ctx, NF.gx + Math.cos(an) * 34, NF.gy + Math.sin(an) * 34, 13, rgba(SLAG, bl), '#D88A7E', 2); } ctx.save(); ctx.globalAlpha *= bl; circ(ctx, NF.gx, NF.gy, 20, rgba('#8C7AB8', 0.6), '#B8A8E0', 2); ctx.restore(); tag(ctx, 'bloedcellen en grote eiwitten blijven in het bloed', 900, 820, C.text2, bl * (1 - q.on('filtratie', 1))); }
+    const bl = q.on('Bloedcellen', 1); if (bl > 0.01) { for (let i = 0; i < 5; i++) { const an = t * 0.8 + i * 1.25; rodeBloedcel(ctx, NF.gx + Math.cos(an) * 34, NF.gy + Math.sin(an) * 34, 13, an, (i % 2) * 0.7, bl); } eiwitKlein(ctx, NF.gx, NF.gy, 22, bl, t); tag(ctx, 'bloedcellen en grote eiwitten blijven in het bloed', 900, 820, C.text2, bl * (1 - q.on('filtratie', 1))); }
     tag(ctx, 'filtratie → voorurine', 900, 250, C.goud, q.on('filtratie', 1)); tag(ctx, 'niet alleen afval: bijna alles eruit', 900, 820, C.koraal, q.on('afval', 1));
   },
   s06(ctx, t, q) { bg(ctx, 'schema');
@@ -148,10 +170,15 @@ const SCENES = {
   s15(ctx, t, q) { bg(ctx, 'micro');
     const lis = q.on('zout', 1);
     if (lis < 0.99) { ctx.save(); ctx.globalAlpha *= 1 - lis;
-      roundRect(ctx, 460, 200, 1000, 560, 60); shape(ctx, rgba(HK.cel, 0.12), HK.cel, 3); metaText(ctx, 'CEL VAN DE VERZAMELBUIS', 960, 180, C.grain, 'center', 22);
+      // 1.1: kubische cel uit de wand van de verzamelbuis: afgeronde vorm met gebogen randen, dubbele membraanlijn en een kern (geen lege doos)
+      celVB(ctx, 0); shape(ctx, rgba(HK.cel, 0.12), HK.cel, 3); celVB(ctx, 10); ctx.strokeStyle = rgba(HK.cel, 0.45); ctx.lineWidth = 1.2; ctx.stroke();
+      ctx.beginPath(); ctx.ellipse(1150, 560, 120, 95, 0.1, 0, 6.283); shape(ctx, rgba(C.kern, 0.5), C.kernR, 1.5); metaText(ctx, 'KERN', 1150, 690, C.grain, 'center', 20); metaText(ctx, 'CEL VAN DE VERZAMELBUIS', 960, 180, C.grain, 'center', 22);
       text(ctx, 'buis (urine)', 360, 490, fTekst(30, 600), C.text2, 'center'); text(ctx, 'bloed', 1580, 490, fTekst(30, 600), C.text2, 'center');
       receptor(ctx, 1460, 480, 0, 'adh', ramp(t, q.at('bindt'), 1), q.on('receptor', 1), 1.5); hormoonVorm(ctx, 1560 - 40 * ramp(t, q.at('bindt'), 1), 480, 16, 'adh', q.on('bindt', 1));
-      const f = ramp(t, q.at('versmelten'), 3); for (let i = 0; i < 4; i++) { const by = 300 + i * 120, bx = lerp(900, 480, f); circ(ctx, bx, by, 34, rgba('#F2F2EE', 0.12), '#C9D2DE', 2); for (let k = 0; k < 2; k++) { roundRect(ctx, bx - 14 + k * 16, by - 10, 10, 20, 3); ctx.fillStyle = WATER; ctx.fill(); } }
+      // 1.1: blaasjes schuiven naar het membraan aan de buiskant en versmelten ermee (worden plat, deel van het membraan); de aquaporinen zitten daarna ín het membraan
+      const f = ramp(t, q.at('versmelten'), 3); for (let i = 0; i < 4; i++) { const by = 300 + i * 120, ex = VB_RAND(by), mv = clamp(f * 1.4, 0, 1), fu = clamp(f * 1.4 - 0.4, 0, 1); const bx = lerp(900, ex + 34, mv);
+        if (fu < 0.99) { ctx.save(); ctx.globalAlpha *= 1 - fu; ctx.save(); ctx.translate(bx - 30 * fu, by); ctx.scale(1 - 0.75 * fu, 1); circ(ctx, 0, 0, 34, rgba('#F2F2EE', 0.12), '#C9D2DE', 2); ctx.restore(); ctx.restore(); }
+        for (let k = 0; k < 2; k++) { const kx = lerp(bx - 14 + k * 16, ex - 5, fu), ky = lerp(by - 10, by - 22 + k * 24, fu); roundRect(ctx, kx, ky, 10, 20, 3); ctx.fillStyle = WATER; ctx.fill(); } }
       tag(ctx, 'aquaporinen: waterkanaaltjes', 960, 860, WATER, q.on('aquaporinen', 1));
       for (let i = 0; i < 6; i++) { const u = (t * 0.3 + i / 6) % 1; circ(ctx, lerp(380, 1560, u), 300 + (i % 4) * 120, 7, rgba(WATER, q.on('cel', 3) || 0)); }
       ctx.restore(); }

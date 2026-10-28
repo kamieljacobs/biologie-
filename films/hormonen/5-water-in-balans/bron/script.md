@@ -60,9 +60,9 @@ Na het drinken van alcohol plassen mensen vaak veel. Hoe komt dat? Wat denk je?
 
 Antwoord a. Alcohol remt de afgifte van ADH. De verzamelbuis haalt dan minder water terug, en er gaat meer water naar de blaas. Zo kan het lichaam meer vocht verliezen dan er binnenkomt. Het bloed raakt geconcentreerd. De hypothalamus meet dat wel, maar de ADH blijft geremd. De terugkoppeling werkt dan niet goed. Daarom droogt alcohol uit.
 
-**s15** · vwo · 46.0 s · `audio/s15.mp3`
+**s15** · vwo · 43.0 s · `audio/s15.mp3` (sinds 1.1 zonder de openingszin ‘Voor vwo gaan we hier nog een stap verder.’: uit de take geknipt, 28 okt 2026)
 
-Voor vwo gaan we hier nog een stap verder. Hoe maakt ADH de wand doorlaatbaar? ADH bindt aan een receptor op de cellen van de verzamelbuis. In die cellen liggen blaasjes met waterkanaaltjes: aquaporinen. ADH zorgt dat die blaasjes versmelten met het membraan aan de kant van de buis. Zo kan het water de cel in, en aan de andere kant weer uit. En waarom is het niermerg zo zout? Het nierbuisje maakt een lange lus door het merg: de lis van Henle. Het opstijgende deel pompt zouten naar buiten, maar laat geen water door. Zo krijgt het merg een hoge osmotische waarde. Woestijndieren, zoals de kangoeroerat, hebben een extra lange lis van Henle. Wat betekent dat voor hun urine? Wat denk je?
+Hoe maakt ADH de wand doorlaatbaar? ADH bindt aan een receptor op de cellen van de verzamelbuis. In die cellen liggen blaasjes met waterkanaaltjes: aquaporinen. ADH zorgt dat die blaasjes versmelten met het membraan aan de kant van de buis. Zo kan het water de cel in, en aan de andere kant weer uit. En waarom is het niermerg zo zout? Het nierbuisje maakt een lange lus door het merg: de lis van Henle. Het opstijgende deel pompt zouten naar buiten, maar laat geen water door. Zo krijgt het merg een hoge osmotische waarde. Woestijndieren, zoals de kangoeroerat, hebben een extra lange lis van Henle. Wat betekent dat voor hun urine? Wat denk je?
 
 **q16** (vraag, vwo): die is extra geconcentreerd, want het merg is zouter en trekt meer water terug · die is extra verdund, want een lange lis pompt meer water de buis in · die is hetzelfde, want alleen ADH bepaalt hoeveel water teruggaat
 

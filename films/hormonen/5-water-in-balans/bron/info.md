@@ -5,10 +5,11 @@
 | Bestand | films/hormonen/5-water-in-balans.html (audio in films/hormonen/5-water-in-balans/audio/) |
 | Reeks / nummer | Hormonen, film 5 van 5 (seriebrief in de Claude-doc *Seriebriefs uitlegfilms biologie*). Vervangt de geplande Gaswisseling 3 (nieren) |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blok gelabeld: s15–s17 met vraag q16 (aquaporinen, lis van Henle, kangoeroerat, aldosteron). Havo/Vwo-schakelaar, standaard Vwo |
-| Versie / datum | 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus; wacht op review door Kamiel) |
-| Prompt | onbekend · gemaakt 14 okt |
-| Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow NcitC07HDtwYSQHTnaDB; nodes in `stem/takes.json`) |
-| Duur | spraak 7:22 (vwo) / 6:02 (havo). Speeltijd met kaarten en vragen: vwo ≈ 9½ min, havo ≈ 8 min |
+| Versie / datum | **1.1 · 28 oktober 2026** — opwaardering naar prompt v13 (B14, zonder keuring; zie Wijzigingen); 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus). Oude versie: `bron/oud/5-water-in-balans-v1.0.html` |
+| Prompt | v13 |
+| Voldoet aan | prompt v13 (28 okt 2026, zonder keuring; takes behouden, alleen ‘Voor vwo …’ uit s15 geknipt). Bewust niet: uitgerold nefron, verzamelbuis en lis van Henle blijven Schema-buizen (C4 staat een schematische buis toe; geen nieuwe tekenstijl zonder akkoord); cold-open-decors (sportveld, kamer) en de lijntekeningen van fles en beker blijven; seriekleuren (zenuw paars, water/glucose teal) niet gewijzigd: vraag aan Kamiel; geen nieuwe caststijl met contourlijnen (nog niet goedgekeurd) |
+| Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow NcitC07HDtwYSQHTnaDB; nodes in `stem/takes.json`); s15 sinds 1.1 geknipt (zonder ‘Voor vwo …’, oude take in `bron/oud/audio/s15.mp3`) |
+| Duur | spraak 7:19 (vwo, sinds 1.1) / 6:02 (havo); met ‘Vragen uit’ vwo 7:20, havo 6:08 inclusief kaarten (gemeten 28 okt 2026). Speeltijd met kaarten en vragen: vwo ≈ 9½ min, havo ≈ 8 min |
 | Beeldstijl | Part C: Macro (sportveld en kamer, cold open), Schema (navy: lichaam, nierdoorsnede, uitgerold nefron, verzamelbuis, regelkring, grafiek), Micro (cel van de verzamelbuis, lis van Henle). Kleuren in `scenes.js`: water teal, urine licht `#F2EBB0` tot donker `#D4A017`, ureum `#C9A35C`, nierslagader `#B5574A`, nierader `#6F7FB0`; ADH goud (driehoek, `HK`) |
 | Audio-opslag | 13 losse mp3's in audio/ (s01 … s18), loudnorm −15 LUFS, piek −1,5 dBTP, mono 44,1 kHz 96 kb/s; niet in de HTML ingebed |
 | Lettertypen | Fraunces 700, Source Sans 3 400/600/700, IBM Plex Mono 500 — ingebed als base64 |
@@ -26,8 +27,10 @@
 | `uitspraak.md` | Risicowoorden met stem-invoer; wachtlijst voor Kamiel |
 | `stem/woordtijden/sNN.json` | Woordtijden per take (Scribe, op de ondertitelwoorden) |
 | `stem/takes.json`, `stem/gen.json` | ElevenLabs-flow en node per take; generatie-id en duur |
-| `src/` | `scenes.js` (deze film), `lib.js`, `lib_voeding.js`, `lib_hormonen.js` (seriebibliotheek), `player.js`, `page.html`, `fonts.css` |
-| `bouw/` | `make_segments.py`, `align.py`, `build_data.py`, `build.py`, `stills.py`, `fake_words.py`, `uitspraak_subs.json` |
+| `src/` | `scenes.js` (deze film), `lib.js`, `lib_voeding.js`, `lib_hormonen.js` (seriebibliotheek), `player.js` (sinds 1.1 gelijk aan de speler in de site-HTML), `page.html`, `fonts.css`; sinds 1.1 ook `lib_cast.js` en `lib_anatomie.js` (personages/), `lib_bio.js` (volledige beeldbank, kopie 28 okt 2026) en `lib_bio_deel.js` (uittreksel dat in de film staat: nierBijnier, rodeBloedcel met hun hulpfuncties) |
+| `bronnen.md`, `opwaardering-v13.md` | Bronnenlogboek (1.1) en de lijsten voor Kamiel na de opwaardering (herinspreken, vragen, wat veranderde) |
+| `oud/` | Versie 1.0: `5-water-in-balans-v1.0.html`, `src/` (scenes, lib, lib_hormonen, player), `audio/s15.mp3` en `s15-woordtijden.json` |
+| `bouw/` | `make_segments.py`, `align.py`, `build_data.py`, `build.py` (sinds 1.1 met castboek, anatomie en beeldbank-uittreksel), `stills.py`, `fake_words.py`, `uitspraak_subs.json`; sinds 1.1 `bio_deel.py` (maakt `lib_bio_deel.js`: `python3 bouw/bio_deel.py src/lib_bio.js src/lib_bio_deel.js src/lib.js src/lib_voeding.js src/lib_hormonen.js src/scenes.js src/lib_cast.js src/lib_anatomie.js -- nierBijnier rodeBloedcel`) en `splice.py` (zet libs en scènes in de bestaande site-HTML zonder FILMDATA, speler en nabewerkingen te raken) |
 | `reviews/` | Expert (nefroloog), didactiek + taal, curriculum (met checkvragen), eindreview (fresh eyes, na de bouw) |
 
 **Werkmap opzetten:** maak `f5/` met `script_v2.md`, `film.py`, `scenes.js` (uit `src/`), `words/` (= `stem/woordtijden/`) en `film/5-water-in-balans/audio/` (= `../audio/`); zet `src/*.js` (behalve scenes.js), `src/page.html`, `src/fonts.css` en `bouw/*` samen in `engine/`. Dan: `python3 engine/make_segments.py f5 script_v2.md && (cd f5 && python3 film.py) && python3 engine/build_data.py f5 && python3 engine/build.py f5` → `f5/film/5-water-in-balans.html`.
@@ -113,3 +116,15 @@ Kamiel koos in de uitspraaktest (18–19 okt, 4 rondes) hoe de risicowoorden moe
 | Segment | TTS-node | Generatie | Credits | Duur |
 |---|---|---|---|---|
 | s06 | 6RXPH8FfUxgruwCzwVRV | RkJea2ziM3fV96fO0J4P | 542 | 36.61 s |
+
+
+## Wijzigingen
+
+- **1.1 · 28 okt 2026** — opwaardering prompt v2–v5 → v13 (B14, zonder keuring). Stem, script, vragen en timings gelijk, behalve de knip in s15. Ingebouwd met `bouw/splice.py`; daarna spelerfix, antwoordtekst, kortantwoord, antwoordletter (alle `--check` in orde), flipkaarten, licentie_noot, teller. Elke vraag met `?vragen=uit` afgespeeld (vwo en havo).
+  - *s15 (vwo):* ‘Voor vwo gaan we hier nog een stap verder.’ uit de take geknipt (0–3,02 s weg, 80 ms stilte + 20 ms fade-in; woordtijden −2,94 s, dur 45,97 → 43,03 s; audio `?v=3`). Ook uit `script_v2.md`, `script.md` en `segments.json` (display).
+  - *s01 (cold open):* zelfgetekende jongen (`personReal`) vervangen door castpersonage Noor (‘jij’): na het sporten in sportkleding, handen in de zij, moe, met zweetdruppels; binnen zittend op een stoel met een fles water van realistische grootte op schoot (de fles was even groot als een kind). De urinebeker staat nu in een los Schema-paneel, zodat hij niet als voorwerp op ware grootte naast haar staat.
+  - *s04:* grijs lichaamssilhouet met smiley (`lichaam`) vervangen door het realistische lichaam uit `lib_anatomie.js` (nieren, urineleiders en blaas op hun echte plek, urine stroomt; lever op de echte plek met naam); nierdoorsnede uit de beeldbank (`nierBijnier`: schors, piramides, bekken met kelkjes, slagader, ader, urineleider, bijnier) met de namen direct ernaast; nefronen als gouden stipjes in de schors; de takentags verdwijnen als de nier verschijnt (overlapten).
+  - *titel:* dezelfde nier uit de beeldbank.
+  - *s05:* bloedcellen in de glomerulus als ingedeukte schijfjes (`rodeBloedcel`), het grote eiwit als kralenketen in een kluwen in plaats van een paars bolletje.
+  - *s15 (vwo):* cel van de verzamelbuis was een lege doos; nu een kubische cel met licht gebogen zijden, dubbele membraanlijn en een kern; de blaasjes met aquaporinen schuiven naar het membraan aan de buiskant en versmelten ermee (worden plat; de aquaporinen zitten daarna ín het membraan) in plaats van half buiten de cel te eindigen.
+  - *Alle Micro-scènes:* geen korrel meer buiten cellen (`bg('micro')`); doelwitcellen zonder gloed (gedeelde `lib_hormonen.js`).
