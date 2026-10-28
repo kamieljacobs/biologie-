@@ -5,8 +5,9 @@
 | Bestand | films/zenuwstelsel/1-een-seconde.html |
 | Reeks / nummer | Zenuwstelsel, film 1 (pagina: “het zenuwstelsel in vogelvlucht · 5 vwo · film 1 van de reeks Zenuwstelsel”; `plan.series`: ontbreekt) |
 | Doelgroep / niveau | 5 vwo, één niveau (geen havo/vwo-schakelaar); hoofdstuk 6 “Weten” als verdieping gemarkeerd (`verdieping: true`, label op hoofdstukkaart en in hoofdstuklijst) |
-| Versie / datum | 1.1 · 4 oktober 2026 (credits op de pagina) |
-| Prompt | onbekend · gemaakt 4 okt |
+| Versie / datum | **1.2 · 28 oktober 2026** — opwaardering naar prompt v13 (B14, zonder keuring): fietser en kind zijn castpersonages; 1.1 · 4 oktober 2026 (credits op de pagina) |
+| Prompt | v13 |
+| Voldoet aan | prompt v13 (28 okt 2026, zonder keuring; takes, script, vragen, timings en speler behouden; geen namen van castpersonages in stem of beeld). Bewust niet: (1) de film blijft in het eigen lichte reeksontwerp van vóór Part C (lichte schema-scènes #EEF1F7, warme wereld met verlopen in lucht en zon, Inter); omzetten naar de donkere Part C-look is een nieuwe stijl voor de hele film → vraag aan Kamiel; (2) de vlakke schema-iconen (blauwe vlek als hersenen, hartje, longen als ovalen, cirkel als oog) zijn niet vervangen door beeldbankobjecten: die zijn voor donker navy ontworpen en vragen de lib.js-motor (hoort bij dezelfde vraag); (3) de lens met de gegenereerde lichaamsillustratie (PNG, ontblote man) blijft, ook al is de fietser nu Daan; (4) de nieuwe caststijl met contourlijnen nog niet (castvel niet gekeurd); (5) geen nieuwe opnames: 'Voorspel.' in q1–q6 en de reactietijd van 0,2 s blijven (zie `opwaardering-v13.md`) |
 | Stem / model | Roos (ElevenLabs, eleven_multilingual_v2) |
 | Duur | 5:54 gesproken (som van 18 mp3’s, 354,8 s); speler-totaal incl. titel-, hoofdstuk- en eindkaarten en 6 aftellingen van 8 s: 7:14 |
 | Beeldstijl | Eigen reeksontwerp van vóór de Part C-stijlkaart: warme vlakke ‘wereld’ (lucht-gradiënt, huizen, fietser, bal, kind), een lens met gegenereerde doorkijk-anatomie (PNG) met zenuwbanen als vectorlaag, en lichte schema-scènes (#EEF1F7) voor de micro-uitleg; Inter-lettertype (systeemfont, niet ingebed) |
@@ -195,6 +196,11 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`; z
   - *gladde spieren, buigspier, strekspier, hartspier, remmend* — gewone Nederlandse woorden, laag risico; als geschreven.
 
 ## Wijzigingen
+- 28 okt 2026 — Opwaardering prompt v13 (versie 1.2), oude versie in `bron/oud/1-een-seconde-v1.1.html`:
+  - Wereld (s00, s11–a5 achter de lens, s61, s70): de zelfgetekende fietser zonder gezicht is nu castpersonage **Daan** (zijaanzicht, zittend op het zadel, handen aan het stuur; `#w-cast-fiets`), het kind op de stoep is **Teun** (`kind`, zijaanzicht; `#w-cast-kind`). Geen namen in beeld of stem. Code: `bron/src/cast_svg.js` (hulpjes voor lib_cast.js, `castBeeld`, `fietser`, `kindBeeld`) en een kopie van `personages/lib_cast.js` (28 okt 2026), beide als `<script id="lib-cast">` / `<script id="cast-svg">` vóór `window.FILM_AUDIO`; aanroepen in `render()` (standaardstand), in `sceneWorld` s00 (het kind loopt de straat op, loopfase volgt de verplaatsing) en in `sceneLens` a4 (de hand schiet van het stuur, `fietser(CASTI.fiets, fl)`; vroeger draaide `#w-arm` om een verkeerd punt en bewoog de hand niet zichtbaar).
+  - Lens: het losse ringetje (`#lens-ring2`) is verborgen zolang de lens dicht is (stond als klein rondje in beeld vóór het openen in a4).
+  - Docentdeel, tabel 'De getallen': Wikipedia-links vervangen door de bronnen uit `bron/bronnen.md`, nuance bij de reactietijd; credits: versie 1.2.
+  - Nieuw: `bron/bronnen.md` (bronnenlogboek) en `bron/opwaardering-v13.md` (lijsten voor Kamiel).
 - 15 okt 2026 — Speler: de knop Vragen aan/uit (onthouden in `bk-vragen`, ook `?vragen=uit`) werkt nu altijd, ook na spoelen, in pauze en als je hem halverwege omzet. Bij Vragen uit vallen weg: de vraag zelf, de gesproken vraagzin(nen) ervoor (zinnen op '?', 'Wat denk je?', 'Denk even na.', 'Eerst een voorspelling.') en een los antwoord direct erna ('Antwoord B.', 'Ja.', 'Nee.', 'Precies.'); gewone uitlegzinnen blijven staan. De tijdbalk, tijd en hoofdstuktijden tonen de ingekorte duur. Code: `bkBouw()` maakt `BK.k` (stukken die de speler overslaat); regelnummers in de spelercode zijn daardoor een paar regels verschoven. Hoofdstukkaart 2,2 s in plaats van 3,0 s (duur van de `card`-stukken in `SEGS`).
 
 ## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
