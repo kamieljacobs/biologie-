@@ -1,4 +1,6 @@
-// Zenuwstelsel · Zintuigen — scènes per alinea.
+// Zenuwstelsel · Zintuigen — scènes per alinea (v1.0, 14 okt 2026; v1.1 opgewaardeerd naar prompt v13, 28 okt 2026: castpersonages, geen korrel en gloed, rodopsine als kralenketen; zie bron/info.md).
+// Achtergrond Micro zonder korrel buiten cellen (Part C2, beeldafspraak 15 okt 2026).
+function bgM(ctx) { ctx.fillStyle = C.bgMicro; ctx.fillRect(0, 0, W, H); }
 const PERSON_LOOK = { skin: SKINS[2], hair: '#2E211A', shirt: '#C9483E', hairStyle: 'long', trousers: '#2A3242' };
 
 function tag(ctx, s, x, y, col, a = 1, align = 'center') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fTekst(34, 600); const w = ctx.measureText(s).width + 44; const x0 = align === 'center' ? x - w / 2 : align === 'right' ? x - w : x; roundRect(ctx, x0, y - 40, w, 56, 28); shape(ctx, rgba(col, 0.16), col, 1.5); text(ctx, s, x0 + w / 2, y, fTekst(34, 600), C.text, 'center'); ctx.restore(); }
@@ -50,7 +52,7 @@ function stralenHorn(ctx, x0, xH, xL, xR, y, hs, col, a = 1, u = 1) { if (a <= 0
   for (const h of hs) { ctx.beginPath(); ctx.moveTo(x0, y + h); ctx.lineTo(xH, y + h); ctx.lineTo(xL, y + h * 0.7); ctx.lineTo(xR, y); ctx.stroke(); } ctx.restore(); }
 function stralenBril(ctx, x0, xB, xL, xF, xR, y, hs, k, col, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = 2.5;
   for (const h of hs) { const hL = h * (1 + k), yR = y + hL * (1 - (xR - xL) / (xF - xL)); ctx.beginPath(); ctx.moveTo(x0, y + h); ctx.lineTo(xB, y + h); ctx.lineTo(xL, y + hL); ctx.lineTo(xR, yR); ctx.stroke(); } ctx.restore(); }
-function vlekje(ctx, x, y, r, col, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const g = ctx.createRadialGradient(x, y, 0, x, y, r); g.addColorStop(0, rgba(col, 0.9)); g.addColorStop(1, rgba(col, 0)); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.fill(); ctx.restore(); }
+function vlekje(ctx, x, y, r, col, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, r * 0.8, rgba(col, 0.3)); circ(ctx, x, y, r * 0.42, rgba(col, 0.9)); ctx.restore(); } // lichtvlek zonder gloed (Part C)
 function brilglas(ctx, x, y, h, hol, col = '#BFE0F0', a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); const k = hol ? -1 : 1, b = 22;
   ctx.moveTo(x - 10, y - h); ctx.lineTo(x + 10, y - h); ctx.quadraticCurveTo(x + 10 + k * b, y, x + 10, y + h); ctx.lineTo(x - 10, y + h); ctx.quadraticCurveTo(x - 10 - k * b, y, x - 10, y - h); ctx.closePath(); shape(ctx, rgba(col, 0.35), '#E8F4FA', 2); ctx.restore(); }
 
@@ -94,17 +96,18 @@ function haarcel(ctx, x, y, s = 1, buig = 0, a = 1, kapot = 0, col = SLAK) { if 
   ctx.strokeStyle = C.text; ctx.lineWidth = 3 * s; ctx.lineCap = 'round'; for (let k = 0; k < 5; k++) { const bx = x - 16 * s + k * 8 * s, hgt = (30 + k * 8) * s; const dr = kapot > 0.5 ? 0.9 + 0.3 * k : buig; ctx.beginPath(); ctx.moveTo(bx, y - 60 * s); ctx.quadraticCurveTo(bx + dr * hgt * 0.3, y - 60 * s - hgt * 0.6, bx + dr * hgt * 0.8, y - 60 * s - hgt * Math.cos(clamp(dr, -1.2, 1.2) * 0.6)); ctx.stroke(); } ctx.restore(); }
 
 // ---------- buiten in het donker ----------
-function fietspad(ctx, t, o = {}) { const { veld = 0, zie = 1, kleur = 1, noorX = 900, zwart = 0, noor = 1 } = o;
+function fietspad(ctx, t, o = {}) { const { veld = 0, zie = 1, kleur = 1, noorX = 900, zwart = 0, noor = 1 } = o; // o.loopt: Noor loopt (castboek-zijaanzicht)
   ctx.fillStyle = '#0A101C'; ctx.fillRect(0, 0, W, H); ctx.fillStyle = '#121A26'; ctx.fillRect(0, 640, W, H - 640);
   for (let i = 0; i < 40; i++) circ(ctx, hash(i) * W, hash(i + 50) * 360, 1.5, rgba('#F2F2EE', 0.5 * zie));
   // sportveld links met lichtmasten
   if (veld > 0.01) { ctx.save(); ctx.globalAlpha *= veld; ctx.beginPath(); ctx.moveTo(0, 650); ctx.lineTo(560, 650); ctx.lineTo(700, 900); ctx.lineTo(0, 900); ctx.closePath(); ctx.fillStyle = '#2F7A3A'; ctx.fill(); ctx.strokeStyle = rgba('#F2F2EE', 0.7); ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(280, 650); ctx.lineTo(330, 900); ctx.stroke();
-    for (const mx of [120, 470]) { ctx.fillStyle = '#5A6070'; ctx.fillRect(mx - 5, 260, 10, 390); roundRect(ctx, mx - 45, 230, 90, 40, 8); shape(ctx, '#F2F2EE', null); const g = ctx.createRadialGradient(mx, 260, 10, mx, 520, 420); g.addColorStop(0, rgba('#FFF4D0', 0.5)); g.addColorStop(1, rgba('#FFF4D0', 0)); ctx.fillStyle = g; ctx.beginPath(); ctx.moveTo(mx - 40, 270); ctx.lineTo(mx + 260, 900); ctx.lineTo(mx - 300, 900); ctx.closePath(); ctx.fill(); } ctx.restore(); }
+    for (const mx of [120, 470]) { ctx.fillStyle = '#5A6070'; ctx.fillRect(mx - 5, 260, 10, 390); roundRect(ctx, mx - 45, 230, 90, 40, 8); shape(ctx, '#F2F2EE', null); ctx.fillStyle = rgba('#FFF4D0', 0.14); ctx.beginPath(); ctx.moveTo(mx - 40, 270); ctx.lineTo(mx + 260, 900); ctx.lineTo(mx - 300, 900); ctx.closePath(); ctx.fill(); } ctx.restore(); }
   // pad
   ctx.beginPath(); ctx.moveTo(700, 900); ctx.lineTo(1900, 900); ctx.lineTo(1900, 700); ctx.lineTo(1300, 660); ctx.closePath(); ctx.fillStyle = mixHex('#2A2E36', '#3E4048', kleur * 0.3); ctx.fill();
   // bomen (in het donker: grijs)
   for (let i = 0; i < 6; i++) { const bx = 900 + i * 180, by = 640 - 10 * (i % 2); const kr = mixHex('#3A4048', '#2F5A3A', kleur); ctx.fillStyle = mixHex('#2A2C30', '#5A4030', kleur); ctx.fillRect(bx - 10, by - 120, 20, 130); ctx.beginPath(); ctx.ellipse(bx, by - 190, 80, 110, 0, 0, 6.283); ctx.fillStyle = kr; ctx.fill(); }
-  if (noor > 0.01) person(ctx, noorX, 860, 420, noor, { shirt: mixHex('#3A3A3E', '#C9483E', kleur) });
+  if (noor > 0.01) { const G = CAST.noor.garderobe; G._nacht = Object.assign({}, G.winter, { topKleur: mixHex('#3A3A3E', '#C9483E', kleur), topAccent: mixHex('#2E2E32', '#A83A32', kleur), sjaal: mixHex('#4A4A4E', '#E0A43A', kleur), broek: mixHex('#26282E', '#33415C', kleur) });
+    persoon(ctx, 'noor', noorX, 860, 420, Object.assign({ a: noor, outfit: '_nacht', uit: 'neutraal', t }, o.loopt ? { zij: true, kijk: 1, gang: 'loop' } : {})); }
   // waarneming: zwart over alles
   const ov = clamp(zwart + (1 - zie) * 0.92, 0, 0.96); if (ov > 0.01) { ctx.fillStyle = rgba('#000000', ov); ctx.fillRect(0, 0, W, CAPTION_Y); }
 }
@@ -123,16 +126,19 @@ function adaptGraf(ctx, x, y, w, h, u, a = 1, o = {}) { if (a <= 0.01) return; c
 
 function keten(ctx, x, y, items, al) { items.forEach(([s, col], i) => { const xx = x + i * 330; tag(ctx, s, xx, y, col, al[i]); if (i < items.length - 1) arrow(ctx, xx + 120, y - 12, xx + 205, y - 12, C.line, al[i + 1], 3); }); }
 
-function hoofd(ctx, x, y, rot = 0) { ctx.save(); ctx.translate(x, y); ctx.rotate(rot); const sk = SKINS[2];
-  ctx.fillStyle = sk; ctx.fillRect(-40, 90, 80, 110); circ(ctx, 0, 0, 130, sk, lighten(sk, 0.15), 2); ctx.beginPath(); ctx.moveTo(120, -10); ctx.lineTo(160, 30); ctx.lineTo(118, 45); ctx.closePath(); ctx.fillStyle = sk; ctx.fill();
-  ctx.beginPath(); ctx.arc(0, 0, 134, Math.PI * 0.95, Math.PI * 2.05); ctx.lineTo(60, -60); ctx.quadraticCurveTo(-60, -40, -110, 60); ctx.closePath(); ctx.fillStyle = '#2E211A'; ctx.fill();
-  circ(ctx, 75, -10, 9, '#1A2740'); ctx.beginPath(); ctx.ellipse(-15, 15, 22, 34, 0, 0, 6.283); shape(ctx, mixHex(sk, '#000000', 0.12), null); circ(ctx, -15, 15, 9, rgba(C.goud, 0.9)); ctx.restore(); }
+// hoofd van opzij = castpersonage (Noor, zijaanzicht) als borstbeeld; draait om de nek; gouden stip = binnenoor met het evenwichtsorgaan.
+// Was een zelfgetekend hoofd zonder gezicht (v1.0). x, y = midden van het hoofd, zoals voorheen.
+function hoofd(ctx, x, y, rot = 0) { const h = 1360, hh = h * (CAST.noor.lengte || 1) / 6.1, vy = y + h * (CAST.noor.lengte || 1) - hh * 0.62, ny = y + hh * 0.78;
+  ctx.save(); ctx.beginPath(); ctx.rect(x - 420, 0, 840, CAPTION_Y - 6); ctx.clip(); ctx.translate(x, ny); ctx.rotate(rot); ctx.translate(-x, -ny);
+  const A = persoon(ctx, 'noor', x, vy, h, { zij: true, kijk: 1, uit: 'neutraal' }); const r = A.hoofd ? A.hoofd.r : 120, hx = A.hoofd ? A.hoofd.x : x, hy = A.hoofd ? A.hoofd.y : y;
+  circ(ctx, hx - r * 0.12, hy + r * 0.12, r * 0.09, rgba(C.goud, 0.95)); ctx.restore(); }
 const SCENES = {
   title(ctx, t) { bg(ctx, 'schema'); oog(ctx, 1380, 520, 190, { pupil: 0.5 + 0.2 * Math.sin(t) }); ctx.save(); ctx.translate(1520, 760); ctx.scale(0.35, 0.35); ctx.restore(); },
 
   s01(ctx, t, q) { const loop = q.on('fietspad', 1);
     const zie = q.on('tijdje', 1) * 0.9;
-    fietspad(ctx, t, { veld: loop > 0.5 ? 0.45 : 1, zie: loop > 0.5 ? zie : 1, kleur: loop > 0.5 ? 0 : 1, noorX: lerp(420, 1250, ramp(t, q.at('fietspad', 1), 5)), zwart: loop > 0.5 ? 0 : 0 });
+    const t0 = q.at('fietspad', 1), vL = gangSnelheid('noor', 420, 'loop'), nx = 420 + vL * Math.max(0, t - t0), loopt = t > t0 && nx < 1250;
+    fietspad(ctx, t, { veld: loop > 0.5 ? 0.45 : 1, zie: loop > 0.5 ? zie : 1, kleur: loop > 0.5 ? 0 : 1, noorX: Math.min(nx, 1250), zwart: 0, loopt });
     regel(ctx, 'fel verlicht kunstgrasveld', 300, 180, q.on('kunstgrasveld', 1) * (1 - loop), C.text, 30, 'center', 700);
     tag(ctx, 'eerst: bijna niets', 960, 160, C.text2, q.on('Eerst', 1) * (1 - q.on('tijdje', 1)));
     tag(ctx, 'na een tijdje: bomen en pad, maar alles grijs', 960, 160, C.text2, q.on('tijdje', 1) * (1 - q.on('Waarom', 1)));
@@ -204,10 +210,11 @@ const SCENES = {
       ctx.save(); ctx.setLineDash([6, 8]); ctx.strokeStyle = rgba(LICHT, 0.5 * (1 - bl)); ctx.lineWidth = 2; for (const h of [-30, 30]) { ctx.beginPath(); ctx.moveTo(E.xr, 470 + h * (1 - (E.xr - E.lx) / (xF - E.lx))); ctx.lineTo(xF, 470); ctx.stroke(); } ctx.restore();
       regel(ctx, 'brandpunt achter het netvlies', xF + 10, 590, 1 - bl, LICHT, 26, 'center', 700);
       brilglas(ctx, 450, 470, 140, false, '#BFE0F0', bl); regel(ctx, 'bolle lens', 450, 680, bl, C.teal, 28, 'center', 700); ctx.restore(); }
-    if (ou > 0.01) { ctx.save(); ctx.globalAlpha *= ou; const E = oog(ctx, 1150, 470, 260, { bol: 0.2, pupil: 0.5 }); person(ctx, 380, 820, 420, 1, { skin: SKINS[0], hair: '#9AA3B2', shirt: '#5A7FA0', hairStyle: 'short' });
-      tag(ctx, 'vanaf ± 40 jaar: lens stugger, minder bol', 1150, 150, C.text2, q.on('stugger', 1)); ctx.globalAlpha *= q.on('leesbril', 1); ctx.save(); ctx.strokeStyle = C.text; ctx.lineWidth = 4; for (const s of [-1, 1]) { ctx.beginPath(); ctx.arc(380 + s * 20, 432, 14, 0, 6.283); ctx.stroke(); } ctx.restore(); tag(ctx, 'oudziend: leesbril (bolle lens)', 1150, 840, C.goud, 1); ctx.restore(); } },
+    if (ou > 0.01) { ctx.save(); ctx.globalAlpha *= ou; const E = oog(ctx, 1150, 470, 260, { bol: 0.2, pupil: 0.5 }); const lb = q.on('leesbril', 1); const G = CAST.linda.garderobe; G._bril = Object.assign({}, G.gewoon, { accessoire: ['oorbel', 'bril'] });
+      persoon(ctx, 'linda', 380, 820, 420, { uit: 'denkt', a: 1 - lb }); persoon(ctx, 'linda', 380, 820, 420, { uit: 'neutraal', outfit: '_bril', a: lb });
+      tag(ctx, 'vanaf ± 40 jaar: lens stugger, minder bol', 1150, 150, C.text2, q.on('stugger', 1)); ctx.globalAlpha *= lb; tag(ctx, 'oudziend: leesbril (bolle lens)', 1150, 840, C.goud, 1); ctx.restore(); } },
 
-  s11(ctx, t, q) { bg(ctx, 'micro');
+  s11(ctx, t, q) { bgM(ctx);
     const E = oog(ctx, 400, 470, 210, { bol: 0.4, pupil: 0.5, gv: q.on('gele', 1), bv: q.on('blinde', 1) });
     naamBij(ctx, 'gele vlek', 'veel kegeltjes', E.gv[0] + 20, E.gv[1] - 95, q.on('gele', 1), 'left', '#F0D040'); naamBij(ctx, 'blinde vlek', 'geen receptoren', E.bv[0] - 80, E.bv[1] + 190, q.on('blinde', 1), 'center', C.koraal);
     const X0 = 900, Y0 = 760; ctx.fillStyle = rgba(NETV, 0.12); ctx.fillRect(X0 - 40, Y0 + 40, 1000, 30);
@@ -217,7 +224,7 @@ const SCENES = {
     tag(ctx, 'staafjes: veel gevoeliger, geen kleur', 1360, 180, STAAF, st * (1 - q.on('honderdtwintig', 1))); tag(ctx, 'vooral aan de rand van het netvlies', 1360, 260, STAAF, q.on('rand', 1) * (1 - q.on('honderdtwintig', 1)));
     tag(ctx, '± 120 miljoen staafjes · 6 miljoen kegeltjes', 1360, 220, C.goud, q.on('honderdtwintig', 1)); metaText(ctx, 'schematisch · niet op schaal', W - 40, 880, C.text2, 'right', 24); },
 
-  s12(ctx, t, q) { bg(ctx, 'micro');
+  s12(ctx, t, q) { bgM(ctx);
     tag(ctx, 'antwoord b', 960, 140, C.goud, q.on('Antwoord', 1));
     const pu = q.on('pupil', 1) * (1 - q.on('meeste', 1)); if (pu > 0.01) { ctx.save(); ctx.globalAlpha *= pu; circ(ctx, 500, 480, 130, IRIS); circ(ctx, 500, 480, lerp(30, 75, ramp(t, q.at('groter', 1), 1.5)), '#05080C'); tag(ctx, 'pupil groter: binnen seconden', 500, 720, C.text2, 1); tag(ctx, 'helpt maar een beetje (± 16× meer licht)', 1300, 480, C.text2, q.on('beetje', 1)); ctx.restore(); }
     const p2 = q.on('meeste', 1); if (p2 > 0.01) { ctx.save(); ctx.globalAlpha *= p2;
@@ -229,10 +236,10 @@ const SCENES = {
       tag(ctx, 'adaptatie', 1320, 860, C.goud, q.on('adaptatie', 1) * (1 - q.on('Andersom', 1))); tag(ctx, 'donker → licht: binnen een minuut', 1320, 860, C.teal, q.on('Andersom', 1)); ctx.restore(); }
   },
 
-  s13(ctx, t, q) { bg(ctx, 'micro'); const p2 = q.on('Veel', 1);
+  s13(ctx, t, q) { bgM(ctx); const p2 = q.on('Veel', 1);
     if (p2 < 0.99) { ctx.save(); ctx.globalAlpha *= 1 - p2; const li = q.on('Valt', 1), ue = q.on('elkaar', 1);
       regel(ctx, 'rodopsine', 460, 200, q.on('rodopsine', 1), '#C98AC0', 34, 'center', 700);
-      ctx.save(); ctx.globalAlpha *= q.on('rodopsine', 1); blob(ctx, 460, 400, 200, 120, 0.06, 3, t); shape(ctx, rgba('#8C7BBF', 0.3), '#8C7BBF', 2);
+      ctx.save(); ctx.globalAlpha *= q.on('rodopsine', 1); _kkKluwen(ctx, 460, 400, (qx, qy) => (qx / 190) ** 2 + (qy / 112) ** 2 < 1, { bbox: [-190, -112, 190, 112], sc: 1, r: 7, col: '#B88AB8', seed: 11, key: 'rodopsine' });
       const rx0 = 360 + 220 * ue, ry0 = 400 - 60 * ue; ctx.strokeStyle = '#E0A0D0'; ctx.lineWidth = 9; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath();
       const pts = [[0, 0], [30, -16], [60, 0], [90, -16], [110, 10 - 36 * li], [130, 40 - 66 * li], [150, 30 - 46 * li]]; pts.forEach(([px, py], i) => i ? ctx.lineTo(rx0 + px, ry0 + py) : ctx.moveTo(rx0 + px, ry0 + py)); ctx.stroke(); ctx.restore();
       regel(ctx, 'eiwit', 300, 540, q.on('rodopsine', 1), C.text2, 24, 'center', 700);
@@ -272,7 +279,7 @@ const SCENES = {
     if (mu > 0.01) { ctx.save(); ctx.globalAlpha *= mu; for (const sx of [560, 1360]) { roundRect(ctx, sx - 110, 300, 220, 360, 20); shape(ctx, '#1A1E26', C.text2, 3); circ(ctx, sx, 410, 60 + 6 * Math.sin(t * 12), '#2A3242', C.text2, 2); circ(ctx, sx, 570, 70 + 6 * Math.sin(t * 12 + 1), '#2A3242', C.text2, 2); }
       ctx.strokeStyle = C.goud; ctx.lineWidth = 4; ctx.beginPath(); for (let i = 0; i <= 120; i++) { const px = 760 + i * 3.3, py = 470 + 30 * Math.sin(i * 0.9 + t * 20); i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.globalAlpha *= q.on('piep', 1); ctx.stroke(); ctx.restore(); vraagteken(ctx, 960, 760, q.on('Wat', 1), 120); } },
 
-  s17(ctx, t, q) { bg(ctx, 'micro'); const p2 = q.on('drie', 1);
+  s17(ctx, t, q) { bgM(ctx); const p2 = q.on('drie', 1);
     if (p2 < 0.99) { ctx.save(); ctx.globalAlpha *= 1 - p2; const ov = q.on('overbelast', 1), he = q.on('herstellen', 1), dd = q.on('dood', 1);
       tag(ctx, 'antwoord b', 960, 140, C.goud, q.on('Antwoord', 1));
       for (let k = 0; k < 7; k++) { const dead = k === 3 ? dd : 0; const moe = ov * (1 - he); haarcel(ctx, 420 + k * 180, 600, 1.4, moe ? 0.95 * moe : 0.25 * Math.sin(t * 3 + k), 1, dead); if (k === 3) kruis(ctx, 420 + k * 180, 400, 26, dd); }
@@ -292,8 +299,8 @@ const SCENES = {
       const fl = q.on('stroomt', 1) * (dr * (1 - st) * Math.sin(t * 2) + st * (1 - q.on('duizelig', 1) * 0.3) * 0.8); for (let k = 0; k < 6; k++) { const an = 3.5 + ((k / 6 + t * fl * 0.3) % 1) * 2.4; if (i === 0) circ(ctx, cx + r * Math.cos(an), cy + r * Math.sin(an), 5, rgba('#F2F2EE', 0.6 * Math.abs(fl))); } ctx.restore(); });
     regel(ctx, 'drie kanalen vol vloeistof, elk in een andere richting', 1300, 820, q.on('vloeistof', 1), C.text2, 26, 'center', 700);
     zoomCircle(ctx, 1700, 280, 130, 1200, 330, 'haarcellen', q.on('buigen', 1), () => { haarcel(ctx, 1700, 330, 1, dr * (1 - st) * Math.sin(t * 2) + st * 0.8, 1, 0, C.teal); });
-    tag(ctx, 'stop je: vloeistof stroomt nog even door', 560, 760, C.goud, st * (1 - q.on('duizelig', 1))); tag(ctx, 'hersenen: "ik draai nog" → duizelig', 560, 840, C.koraal, q.on('duizelig', 1));
-    if (q.on('duizelig', 1) > 0.01) { ctx.save(); ctx.globalAlpha *= q.on('duizelig', 1); ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.beginPath(); for (let i = 0; i < 60; i++) { const an = i * 0.35 + t * 3, r = i * 1.6; i ? ctx.lineTo(560 + r * Math.cos(an), 280 + r * 0.4 * Math.sin(an)) : ctx.moveTo(560, 280); } ctx.stroke(); ctx.restore(); }
+    tag(ctx, 'stop je: vloeistof stroomt nog even door', 560, 262, C.goud, st * (1 - q.on('duizelig', 1))); tag(ctx, 'hersenen: "ik draai nog" → duizelig', 560, 262, C.koraal, q.on('duizelig', 1));
+    if (q.on('duizelig', 1) > 0.01) { ctx.save(); ctx.globalAlpha *= q.on('duizelig', 1); ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.beginPath(); for (let i = 0; i < 60; i++) { const an = i * 0.35 + t * 3, r = i * 1.6; i ? ctx.lineTo(560 + r * Math.cos(an), 335 + r * 0.4 * Math.sin(an)) : ctx.moveTo(560, 335); } ctx.stroke(); ctx.restore(); }
     ctx.restore();
     if (bl > 0.01) { ctx.save(); ctx.globalAlpha *= bl; const tilt = q.on('staat', 1) * 0.35 * Math.sin(t * 1.2);
       hoofd(ctx, 560, 480, tilt);

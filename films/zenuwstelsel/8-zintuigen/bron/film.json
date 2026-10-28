@@ -4,7 +4,7 @@
  "hoofdstukNaam": "Regeling",
  "title": "Zintuigen",
  "sub": "Hoe je oog en je oor prikkels opvangen",
- "puzzle": "Noor loopt van een fel verlicht sportveld een donker fietspad op. Eerst ziet ze bijna niets, daarna weer wel, maar alles is grijs. Hoe komt dat?",
+ "puzzle": "Een sporter loopt van een fel verlicht sportveld een donker fietspad op. Eerst ziet ze bijna niets, daarna weer wel, maar alles is grijs. Hoe komt dat?",
  "meta": "zenuwstelsel · zintuigen",
  "version": "1.0 · oktober 2026",
  "titleLook": "schema",
@@ -15,12 +15,12 @@
   "Hoofdstuk 1": "Hoe maakt je oog een scherp beeld?",
   "Hoofdstuk 2": "Waarom zie je in het donker geen kleur?",
   "Hoofdstuk 3": "Hoe hoor je, en hoe houd je je evenwicht?",
-  "Recap": "Waarom zag Noor eerst niets, en daarna alles grijs?"
+  "Recap": "Waarom zag de sporter eerst niets, en daarna alles grijs?"
  },
  "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
  "questions": {
   "q02": {
-   "q": "Noor ziet op het donkere fietspad eerst bijna niets, en na een tijdje alles in grijs. Hoe komt dat?",
+   "q": "Op het donkere fietspad zie je eerst bijna niets, en na een tijdje alles in grijs. Hoe komt dat?",
    "correct": 1,
    "explain": "Onthoud je keuze. Het antwoord zie je in hoofdstuk 2."
   },

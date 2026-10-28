@@ -5,8 +5,9 @@
 | Bestand | films/zenuwstelsel/8-zintuigen.html (audio in films/zenuwstelsel/8-zintuigen/audio/) |
 | Reeks / nummer | Zenuwstelsel, losse film 8 (aanvulling Regeling: zintuigen ontbrak, 14 okt 2026); bouwt voort op film 1 "Eén seconde" (receptor, prikkel, impuls). Film 7 "Slaap en stress" staat nog open |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blokken gelabeld: s13 (rodopsine, staafje wordt negatiever, convergentie) en s19 (basilair membraan, toonhoogte). Havo/Vwo-schakelaar, standaard Vwo |
-| Versie / datum | 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus; wacht op review door Kamiel) |
-| Prompt | onbekend · gemaakt 14 okt |
+| Versie / datum | **1.1 · 28 oktober 2026** — opwaardering naar prompt v13 (B14, zonder keuring): alleen beeld en schermtekst, stem en timing ongewijzigd (oude versie in `bron/oud/8-zintuigen-v1.0.html`); 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus) |
+| Prompt | v13 |
+| Voldoet aan | prompt v13 (28 okt 2026, zonder keuring). Bewust niet: de naam Noor staat nog in de stem (s01, s12, s20), want herinspreken wacht op Kamiels akkoord (lijst in `bron/opwaardering-v13.md`); oog, oor en evenwichtsorgaan blijven eigen tekeningen (de bibliotheek heeft geen zintuigdoorsneden; nieuwe tekeningen alleen na keuring); geen nieuwe caststijl met contourlijnen (nog niet goedgekeurd) |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow jwxXn0Jgpax90BkTRIQ3 "Zenuwstelsel · Zintuigen"; nodes in `stem/takes.json`) |
 | Duur | spraak 8:08 (vwo) / 6:55 (havo). Speeltijd met kaarten en vragen: vwo ≈ 10 min, havo ≈ 9 min |
 | Beeldstijl | Part C: Macro (avond, fel verlicht kunstgrasveld, donker fietspad met bomen, Noor in een rode jas die grijs wordt), Schema (doorsnede van het oog met hoornvlies, iris, lens, straalvormig lichaam, lensbandjes, netvlies, gele en blinde vlek, oogzenuw; lichtstralen; vooraanzicht iris en pupil; bijziend/verziend met brillenglazen; doorsnede van het oor met zones, gehoorbeentjes, buis van Eustachius, slakkenhuis, kanalen; evenwichtsorgaan met hoofd in profiel; slakkenhuis uitgerold), Micro (staafjes en kegeltjes, adaptatiegrafiek, rodopsine, convergentie, haarcellen, dB-tabel). Kleuren in `scenes.js`: `LICHT`, `NETV`, `IRIS`, `LENS`, `STRAAL`, `ZENUW`, kegeltjes `KEG` (rood, groen, blauw), `STAAF`, `SLAK`, `KANAAL`, `BOT` |
@@ -59,23 +60,22 @@ Checkvragen (statisch in de pagina): 1 Een leesbril op je vijftigste (nabijheids
 
 Begrippen: zintuig, adequate prikkel, hoornvlies, iris en pupil, pupilreflex, lens/straalvormig lichaam/lensbandjes, accommodatie, bijziend/verziend/oudziend, netvlies/gele vlek/blinde vlek, staafjes en kegeltjes, adaptatie, middenoor en gehoorbeentjes, buis van Eustachius, slakkenhuis en haarcellen, evenwichtsorgaan; vwo: rodopsine en receptorpotentiaal, convergentie, basilair membraan.
 
-## Waar wat in de HTML zit (regelnummers in `8-zintuigen.html`)
+## Waar wat in de HTML zit (regelnummers in `8-zintuigen.html`, versie 1.1)
 
 | Regel | Inhoud |
 |---|---|
-| 7–65 | Fonts (base64) en CSS |
-| 69 | Sitebalk `<nav class="sitenav">` met "← Terug naar Regeling" |
-| 76–99 | Speler: canvas, ondertitelband, knoppen, Havo/Vwo- en Leerling/Klas-schakelaar |
-| 100–163 | Checkvragen (100–126), Voor de docent (127–163) |
-| 164 | `window.FILMDATA` — segmenten, woordtijden, vragen, titelkaart (uit `build_data.py`) |
-| 165–386 | `lib.js`: Part C-tokens, `label`, `zoomCircle`, `human` |
-| 387–957 | `lib_voeding.js` (gebruikt: `lichaam`, `glycogen`, `hexagon`, `proteinChain`, `coilPath`, `arrow`, `klok`, `padPunt`, `gladC`) |
-| 958–1208 | `lib_hormonen.js`: seriebibliotheek (`person`, `HK`, `hormoonVorm`, `receptor`, `doelcel`, `hartMeter`, `klierKaart`, `bloedLus`, `grafiek`, `bakKraan`, `kringSchema`, `eilandje`, `cel`, `glycogeenKeten`, `telefoon`, …) |
-| 1209–1337 | `scenes.js`: hulpstukken van deze film |
-| 1338–1534 | `SCENES`: title 1339 · s01 1341 · s04 1350 · s05 1366 · s07 1375 · s08 1388 · s10 1403 · s11 1418 · s12 1428 · s13 1440 · s14 1461 · s15 1474 · s17 1483 · s18 1494 · s19 1513 · s20 1524 |
-| 1535–1702 | `GLOSSARY` en `player.js` (havo slaat vwo-segmenten over) |
+| 74 | Sitebalk `<nav class="sitenav">` met "← Terug naar Regeling" |
+| 105 | Checkvragen en Voor de docent |
+| 169 | `window.FILMDATA` — segmenten, woordtijden, vragen, titelkaart |
+| 170 e.v. | `lib.js`, `lib_voeding.js`, `lib_hormonen.js` (zoals 1.0) |
+| 1223 | blok `/*BIBLIOTHEEK-UITTREKSEL*/`: actuele `personages/lib_cast.js` (castboek, zijaanzicht en lopen) en het lib_bio-uittreksel `_kkKluwen` (kralenketen) |
+| 2081 | `scenes.js`: `bgM()` (Micro zonder korrel), `oog()` 2097, `oor()` 2142, `fietspad()` 2177 (Noor als castpersonage, lopend in zijaanzicht), `hoofd()` 2209 (borstbeeld van Noor van opzij) |
+| 2213 | `SCENES` (title, s01 … s20) |
+| 2413 e.v. | speler |
 
 ## Hoe je de film aanpast
+
+- **Sinds 1.1, alleen beeld (snelste weg, zonder opnieuw te bouwen):** `src/scenes.js` aanpassen en vanuit `bron/`: `python3 bouw/inbouw.py ../../8-zintuigen.html src/scenes.js "// Zenuwstelsel · Zintuigen — scènes" src/lib_cast.js src/lib_bio_uittreksel.js`. Speler, audio, woordtijden en naverwerking blijven staan. Ander bibliotheekobject nodig: `node bouw/uittreksel.js` (zie `7-slaap/bron/info.md`).
 
 - **Tekst van een alinea:** wijzig `script_v2.md`, draai `make_segments.py` (met `uitspraak_film.json` in de werkmap), neem alleen die take opnieuw op (stem-invoer staat in `segments.json` → `voice`), haal woordtijden op met Scribe en `align.py`, zet de mp3 genormaliseerd in `audio/` en bouw opnieuw.
 - **Een antwoordoptie of vraagtekst:** opties in `script_v2.md` bij `[VRAAG]`, vraagtekst en uitleg in `film.py`; geen nieuwe opname nodig (behalve als het juiste antwoord verschuift: dat noemt de audio).
@@ -98,3 +98,15 @@ Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `la
 ## Wijziging 20 okt 2026
 
 Uitspraak na de uitspraaktest van 18 okt: stem-invoer rodopsinuh → rodopsine (s13, vwo), Eu-staagie-jus → Eustachius (s15), baazie-lèr → basilair (s19, vwo); regels uit `bouw/uitspraak_film.json` gehaald. Deze drie alinea's opnieuw ingesproken (Roos, eleven_v4, 1 take per alinea, flow jwxXn0Jgpax90BkTRIQ3; nodes in `stem/takes.json`; 1.497 credits TTS + Scribe voor de woordtijden). Alleen de mp3's in `audio/` en de woordtijden in `window.FILMDATA` zijn vervangen; beeld en speler ongewijzigd. Duur vrijwel gelijk (spraak 8:08 → 8:07).
+
+## Wijzigingen 1.1 (28 okt 2026, opwaardering naar prompt v13, zonder keuring)
+
+Stem, script, vragen, timing en speler ongewijzigd. Per scène:
+- title, q02, Recap: de naam Noor uit de schermtekst (puzzelvraag 'Een sporter loopt …', vraagkaart q02 'Op het donkere fietspad zie je …', hoofdstukvraag Recap 'de sporter').
+- s01, s20: de sporter is Noor uit het castboek (was het oude poppetje `person()` uit lib_hormonen); in s01 loopt ze in zijaanzicht met de gangsnelheid van het castboek (de voet glijdt niet), haar rode jas (garderobe `winter` met rood) wordt in het donker grijs; lichtmasten zonder verloop.
+- s04, s07, s08, s10: lichtvlek op het netvlies zonder gloed (vlak, Part C).
+- s10: de oudziende persoon is Linda (44, castboek) en krijgt de leesbril van het castboek (`bril`); was het oude poppetje uit lib_hormonen met losse getekende brillenglazen.
+- s11, s12, s13, s17: Micro-achtergrond zonder korrel (geen korrel buiten cellen).
+- s13 (vwo): rodopsine als gevouwen kralenketen (`_kkKluwen`), roze ('gezichtspurper') in plaats van een paarse vlek.
+- s18: het hoofd is Noor van opzij (borstbeeld, draait en kantelt om de nek; gouden stip = binnenoor); was een zelfgetekend hoofd zonder gezicht. De tags 'stop je …' en 'duizelig' staan nu boven het hoofd.
+
