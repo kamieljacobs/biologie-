@@ -50,6 +50,8 @@
 .gam{min-width:64px;min-height:44px;border:1px solid var(--line2);border-radius:10px;background:var(--bg);font-size:17px;padding:4px 12px}
 .gam[aria-pressed="true"]{border-color:var(--goud);background:var(--goud-soft)}
 .knoppen{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+kbd{font:600 11px/1 var(--meta);padding:3px 6px;border-radius:5px;border:1px solid currentColor;opacity:.6;margin-left:2px}
+@media (hover:none){kbd{display:none}}
 .uitwerking{margin-top:14px;border-top:1px dashed var(--line2);padding-top:14px}
 .uitwerking h4{font:600 12px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin:14px 0 8px}
 .uitwerking p{margin:6px 0}
@@ -109,6 +111,7 @@ details.notatie ul{margin:8px 0;padding-left:20px;color:var(--text2)}
       <li><b>Verhouding:</b> vul bij elk fenotype een getal in, bijvoorbeeld 3 en 1. Komt een fenotype niet voor, vul dan 0 in. Aantallen als 75 en 25 rekent de trainer ook goed.</li>
       <li><b>Kans:</b> als percentage (25%), breuk (1/4) of kommagetal (0,25). Afronden op één decimaal mag.</li>
       <li><b>Gameten:</b> klik alle gameten aan die de ouder kan maken, en alleen die.</li>
+      <li><b>Sneltoetsen:</b> <kbd>Enter</kbd> controleren (na een goed antwoord: nieuwe kruising), <kbd>U</kbd> uitwerking, <kbd>N</kbd> nieuwe kruising of volgende opgave.</li>
       <li><b>Notatie:</b> X<sup>A</sup> is een X-chromosoom met allel A. <span class="gt">AB/ab</span> betekent: A en B liggen samen op één chromosoom, a en b op het andere (gekoppeld).</li>
     </ul>
   </details>
@@ -129,7 +132,7 @@ details.notatie ul{margin:8px 0;padding-left:20px;color:var(--text2)}
     </section>
   </main>
 
-  <footer class="tool-voet">Biologie bij Kamiel · Kruisingtrainer · versie 1.0 · oktober 2026 · past bij de films over erfelijkheid. Bij gekoppelde genen gaan we uit van geen crossing-over. Je voortgang blijft alleen in deze browser.<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></footer>
+  <footer class="tool-voet">Biologie bij Kamiel · Kruisingtrainer · versie 1.1 · oktober 2026 · past bij de films over erfelijkheid. Bij gekoppelde genen gaan we uit van geen crossing-over. Je voortgang blijft alleen in deze browser.<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></footer>
 </div>
 
 <script>
@@ -577,10 +580,10 @@ function tekenSnel(){
     <ul class="regels">${k.regels.map(r=>`<li>${r}</li>`).join('')}</ul>
     <p class="vraag">${vraag}</p>
     <div class="antw" id="antw">${inv.html}</div>
-    <div class="knoppen"><button class="knop" type="button" id="controleer">Controleer</button><button class="knop stil" type="button" id="uitwerk">Toon uitwerking</button><button class="knop stil" type="button" id="volgende">Nieuwe kruising →</button></div>
+    <div class="knoppen"><button class="knop" type="button" id="controleer">Controleer <kbd>Enter</kbd></button><button class="knop stil" type="button" id="uitwerk">Toon uitwerking <kbd>U</kbd></button><button class="knop stil" type="button" id="volgende">Nieuwe kruising <kbd>N</kbd></button></div>
     <div id="fb"></div><div id="uw"></div>`;
   const el=$('#antw');if(inv.init)inv.init(el);
-  el.querySelectorAll('input').forEach(i=>i.addEventListener('keydown',e=>{if(e.key==='Enter')controleerSnel()}));
+  el.querySelectorAll('input').forEach(i=>i.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();e.stopPropagation();if(HUIDIG.goedGezien){nieuweSnel();const j=document.querySelector('#antw input');if(j)j.focus()}else controleerSnel()}}));
   $('#controleer').onclick=controleerSnel;$('#uitwerk').onclick=()=>uitwerkingSnel(false);$('#volgende').onclick=nieuweSnel;
 }
 function controleerSnel(){
@@ -588,7 +591,7 @@ function controleerSnel(){
   if(r===null){$('#fb').innerHTML='<div class="feedback tip"><b>Nog niet compleet</b>Vul alle vakjes in (of maak een keuze) en controleer opnieuw.</div>';return}
   HUIDIG.pogingen++;
   if(!HUIDIG.geteld){HUIDIG.geteld=true;OPSLAG.snel.totaal++;if(r)OPSLAG.snel.goed++;bewaar();toonScore()}
-  if(r){$('#fb').innerHTML=`<div class="feedback ok"><b>Goed!</b>${HUIDIG.antw}</div>`;uitwerkingSnel(true)}
+  if(r){HUIDIG.goedGezien=true;$('#fb').innerHTML=`<div class="feedback ok"><b>Goed!</b>${HUIDIG.antw}<br><span style="font-size:14px;opacity:.75">Druk op Enter of N voor een nieuwe kruising.</span></div>`;uitwerkingSnel(true)}
   else $('#fb').innerHTML=`<div class="feedback no"><b>Nog niet goed</b>Probeer het nog eens, of bekijk de uitwerking.</div>`;
 }
 function uitwerkingSnel(naGoed){
@@ -899,13 +902,13 @@ function openOpgave(id){
     else if(d.soort==='verhouding'){const res=KRUIS.kruis(m,d.kruis[0],d.kruis[1]);d._v=KRUIS.verdeling(m,res,d.metGesl,d.binnen);inv=invoerVerhouding(d._v.map(x=>x.label))}
     d._inv=inv;
     return `<div class="deel" data-i="${i}"><div class="nr">Vraag ${i+1}</div><p class="vraag">${d.v}</p><div class="antw">${inv.html}</div>
-      <div class="knoppen"><button class="knop klein" type="button" data-act="check">Controleer</button><button class="knop stil klein" type="button" data-act="uitw">Toon uitwerking</button></div><div class="fb"></div><div class="uw"></div></div>`;
+      <div class="knoppen"><button class="knop klein" type="button" data-act="check">Controleer <kbd>Enter</kbd></button><button class="knop stil klein" type="button" data-act="uitw">Toon uitwerking <kbd>U</kbd></button></div><div class="fb"></div><div class="uw"></div></div>`;
   }).join('');
   const idx=OPGAVEN.indexOf(o);
   box.innerHTML=`<div class="knoppen" style="margin-top:0"><button class="knop stil klein" type="button" id="terugLijst">← Alle opgaven</button></div>
     <div class="typelabel" style="margin-top:14px">${o.tags.map(t=>TAGS[t]).join(' · ')} · <span style="letter-spacing:2px">${'★'.repeat(o.niveau)}</span>${o.vwo?' <span class="vwo-label">vwo</span>':''}</div>
     <h2 style="font-size:28px;margin:6px 0 4px">${o.titel}</h2><div class="intro">${o.intro}</div>${delen}
-    <div class="knoppen" style="margin-top:24px"><button class="knop stil" type="button" id="terugLijst2">← Alle opgaven</button>${idx<OPGAVEN.length-1?'<button class="knop" type="button" id="volgendeOpg">Volgende opgave →</button>':''}</div>`;
+    <div class="knoppen" style="margin-top:24px"><button class="knop stil" type="button" id="terugLijst2">← Alle opgaven</button>${idx<OPGAVEN.length-1?'<button class="knop" type="button" id="volgendeOpg">Volgende opgave <kbd>N</kbd></button>':''}</div>`;
   box.querySelectorAll('.deel').forEach(el=>{
     const d=o.delen[+el.dataset.i];if(d._inv.init)d._inv.init(el.querySelector('.antw'));
     el.querySelector('[data-act="check"]').onclick=()=>checkDeel(o,m,d,el);
@@ -963,6 +966,27 @@ function uitwDeel(o,m,d,el,naGoed){
 document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('[data-tab]').forEach(x=>x.setAttribute('aria-selected',x===b));
   $('#snel').hidden=b.dataset.tab!=='snel';$('#context').hidden=b.dataset.tab!=='context';
+});
+/* Sneltoetsen: Enter = controleren (na een goed antwoord: nieuwe kruising), U = uitwerking, N = nieuwe kruising / volgende opgave */
+let ACTIEFDEEL=null;
+document.addEventListener('focusin',e=>{const d=e.target.closest&&e.target.closest('.deel');if(d)ACTIEFDEEL=d});
+document.addEventListener('click',e=>{const d=e.target.closest&&e.target.closest('.deel');if(d)ACTIEFDEEL=d});
+document.addEventListener('keydown',e=>{
+  if(e.ctrlKey||e.metaKey||e.altKey)return;
+  const k=e.key.toLowerCase(),tag=(e.target.tagName||'');
+  if(k==='enter'&&(tag==='BUTTON'||tag==='A'||tag==='SUMMARY'||tag==='SELECT'))return;
+  if(!$('#snel').hidden&&HUIDIG){
+    if(k==='enter'){if(tag==='INPUT')return;e.preventDefault();HUIDIG.goedGezien?nieuweSnel():controleerSnel()}
+    else if(k==='u'){e.preventDefault();uitwerkingSnel(false)}
+    else if(k==='n'){e.preventDefault();nieuweSnel();const i=document.querySelector('#antw input');if(i)i.focus()}
+    return;
+  }
+  if(!$('#context').hidden&&!$('#contextopgave').hidden){
+    const deel=ACTIEFDEEL&&document.body.contains(ACTIEFDEEL)?ACTIEFDEEL:document.querySelector('#contextopgave .deel');
+    if(k==='enter'&&tag!=='INPUT'&&deel){e.preventDefault();deel.querySelector('[data-act="check"]').click()}
+    else if(k==='u'&&deel){e.preventDefault();deel.querySelector('[data-act="uitw"]').click()}
+    else if(k==='n'){const b=$('#volgendeOpg');if(b){e.preventDefault();b.click()}}
+  }
 });
 tekenChips();nieuweSnel();tekenContextLijst();toonScore();
 </script>
