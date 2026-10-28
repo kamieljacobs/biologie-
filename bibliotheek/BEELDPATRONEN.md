@@ -1,6 +1,6 @@
 # Beeldpatronen (gegenereerd door scripts/beeldpatronen.py; niet met de hand bewerken)
 
-118 keuzes in het logboek. Patroon = ≥ 3 vergelijkingen in ≥ 2 groepen en winkans ≥ 65 % (doen) of ≤ 35 % (vermijden).
+131 keuzes in het logboek. Patroon = ≥ 3 vergelijkingen in ≥ 2 groepen en winkans ≥ 65 % (doen) of ≤ 35 % (vermijden).
 
 ## Kamiel
 
@@ -10,32 +10,32 @@
 | beweging: geen | 11% | 9 | 4 | **vermijden** |
 | referentie: geen | 13% | 23 | 6 | **vermijden** |
 | vulling: vlak | 17% | 6 | 2 | **vermijden** |
-| kleur: gedempt | 20% | 20 | 7 | **vermijden** |
-| detail: weinig | 21% | 29 | 7 | **vermijden** |
+| kleur: gedempt | 19% | 21 | 8 | **vermijden** |
+| kleur: verzadigd | 20% | 15 | 6 | **vermijden** |
 | opbouw: in-een-keer | 21% | 24 | 7 | **vermijden** |
-| kleur: verzadigd | 21% | 14 | 6 | **vermijden** |
-| detail: midden | 22% | 64 | 10 | **vermijden** |
+| detail: midden | 22% | 65 | 10 | **vermijden** |
+| detail: weinig | 23% | 30 | 8 | **vermijden** |
 | textuur: geen | 24% | 38 | 10 | **vermijden** |
 | vorm: schematisch | 24% | 46 | 9 | **vermijden** |
 | beweging: standen | 24% | 25 | 7 | **vermijden** |
-| context: los | 26% | 19 | 7 | **vermijden** |
 | diepte: schaduw | 29% | 21 | 7 | **vermijden** |
 | diepte: plat | 29% | 51 | 10 | **vermijden** |
-| context: in-omgeving | 32% | 25 | 7 | **vermijden** |
-| contour: dun | 32% | 28 | 7 | **vermijden** |
+| context: in-omgeving | 30% | 27 | 7 | **vermijden** |
+| context: los | 30% | 20 | 7 | **vermijden** |
+| contour: dun | 31% | 29 | 8 | **vermijden** |
 | contour: dik | 33% | 6 | 4 | **vermijden** |
-| contour: geen | 33% | 18 | 6 | **vermijden** |
 | referentie: elevenlabs | 33% | 9 | 3 | **vermijden** |
 | vulling: verloop | 67% | 3 | 2 | **doen** |
+| contour: geen | 35% | 20 | 7 | **vermijden** |
 | vorm: semi | 37% | 73 | 9 | – |
 | beweging: idle | 40% | 5 | 4 | – |
 | diepte: doorsnede-3d | 40% | 30 | 8 | – |
 | referentie: bron | 42% | 43 | 7 | – |
 | textuur: rustig | 42% | 52 | 10 | – |
-| kleur: accent | 44% | 32 | 7 | – |
+| kleur: accent | 45% | 33 | 7 | – |
 | opbouw: in-stappen | 45% | 22 | 7 | – |
 | beweging: proces | 46% | 35 | 7 | – |
-| detail: veel | 52% | 58 | 10 | – |
+| detail: veel | 51% | 59 | 10 | – |
 | context: met-schaal | 50% | 10 | 3 | – |
 | vorm: realistisch | 50% | 12 | 3 | – |
 
@@ -46,32 +46,32 @@
 | beweging: geen | 0% | 9 | 4 | **vermijden** |
 | beweging: idle | 0% | 6 | 5 | **vermijden** |
 | referentie: geen | 0% | 25 | 6 | **vermijden** |
-| textuur: druk | 8% | 12 | 6 | **vermijden** |
+| textuur: druk | 8% | 13 | 6 | **vermijden** |
 | contour: dik | 14% | 7 | 4 | **vermijden** |
 | opbouw: in-een-keer | 17% | 24 | 7 | **vermijden** |
 | vorm: schematisch | 17% | 48 | 9 | **vermijden** |
 | vulling: vlak | 17% | 6 | 2 | **vermijden** |
-| detail: weinig | 19% | 31 | 9 | **vermijden** |
+| kleur: verzadigd | 20% | 15 | 6 | **vermijden** |
 | referentie: elevenlabs | 20% | 15 | 4 | **vermijden** |
-| kleur: verzadigd | 21% | 14 | 6 | **vermijden** |
-| kleur: gedempt | 22% | 23 | 8 | **vermijden** |
-| context: los | 24% | 21 | 9 | **vermijden** |
+| kleur: gedempt | 21% | 24 | 9 | **vermijden** |
+| detail: weinig | 24% | 33 | 9 | **vermijden** |
 | diepte: plat | 25% | 53 | 10 | **vermijden** |
-| detail: midden | 27% | 67 | 10 | **vermijden** |
-| textuur: geen | 28% | 39 | 10 | **vermijden** |
+| detail: midden | 26% | 69 | 10 | **vermijden** |
+| context: los | 27% | 22 | 9 | **vermijden** |
 | beweging: standen | 29% | 28 | 8 | **vermijden** |
-| contour: geen | 33% | 21 | 7 | **vermijden** |
+| textuur: geen | 30% | 40 | 10 | **vermijden** |
 | vulling: verloop | 67% | 3 | 2 | **doen** |
+| contour: geen | 35% | 23 | 8 | **vermijden** |
+| contour: dun | 35% | 34 | 9 | – |
+| context: in-omgeving | 36% | 33 | 9 | – |
 | context: met-schaal | 36% | 11 | 3 | – |
-| contour: dun | 36% | 33 | 8 | – |
 | diepte: doorsnede-3d | 37% | 30 | 8 | – |
-| context: in-omgeving | 39% | 31 | 9 | – |
-| textuur: rustig | 40% | 55 | 10 | – |
+| textuur: rustig | 39% | 56 | 10 | – |
 | vorm: semi | 41% | 78 | 9 | – |
-| kleur: accent | 42% | 36 | 8 | – |
+| kleur: accent | 43% | 37 | 8 | – |
 | diepte: schaduw | 44% | 25 | 7 | – |
+| detail: veel | 47% | 60 | 10 | – |
 | referentie: bron | 52% | 48 | 8 | – |
-| detail: veel | 48% | 58 | 10 | – |
 | beweging: proces | 51% | 37 | 7 | – |
 | opbouw: in-stappen | 50% | 22 | 7 | – |
 | vorm: realistisch | 50% | 14 | 3 | – |
@@ -127,7 +127,7 @@
 - zetmeelspiraal (cel-molecuul): beoordelaar A, Kamiel oud — Huidige versie blijft (Kamiel: oud). Extra stand amylopectine volgt in ronde 3.
 - antistofY (cel-afweer): beoordelaar A, Kamiel gelijk — Huidige versie blijft (Kamiel: gelijk).
 
-Overeenstemming: 53 van 101 (52%).
+Overeenstemming: 54 van 102 (53%).
 
 ## Vondsten in Kamiels keuzes
 
@@ -218,3 +218,4 @@ Overeenstemming: 53 van 101 (52%).
 - embryoecht (A): hart in echte hartbult; navelstreng met doorsnede los van spits staartje
 - schimmelGist (R1): hyfen in broodkruim plus één grote gistcel met losse knopstadia
 - zetmeelspiraal (oud): zeshoeken op een golf; achterkant donkerder, leest als zigzag
+- methylgroep (W): vier grote baseparen in palet B, CH3 als kogelmodel op elke C; promotor niet gemarkeerd

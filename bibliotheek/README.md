@@ -197,3 +197,25 @@ Kamiel koos op het keuringsblad van ronde 2 (`verbeterronde-2/keuringsblad/`); b
 | `lacOperon` | genregulatie | variant B | nieuw; helix door de klem, repressor op de operator | lib_bio.js |
 | `zetmeelSpiraal`, `antistofY` | cel-molecuul, cel-afweer | huidige versie | ongewijzigd | lib_bio.js |
 | `helicaseRing`, `primase`, `ligase`, `enzymKluwen`, `membraanBoog`, `membraanReceptor` (+ `_mrIntern`), `nucleosoomDraad`, `nucleosoomAcetyl`, `crisprCas9`, `plasmideKnipPlak`, `restrictieEnzym`, `rnaInterferentie`, `uvSchade`, `primerStuk` | eiwitten | kralenketen | eiwitten als gevouwen kralenketen in dezelfde omtrek; aanroepen ongewijzigd (vork() volgt via helicaseRing/primase/ligase) | lib_bio.js |
+
+## Verbeterronde 3: ingebouwd op 28 okt 2026 (gekozen door Kamiel)
+
+Kamiels besluiten in `verbeterronde-3/uitslag/BESLUITEN.md`; varianten en stills per object in `verbeterronde-3/<groep>/<obj>/` (overzicht `verbeterronde-3/OVERZICHT.md`). Objecten die na zijn keuze nog zijn aangepast: `verbeterronde-3/uitslag/VERANDERD.json` (met voor/na). Eén regel per object in `logboek/keuzes.jsonl` (ronde `beeldbank-3`). Oude versies (stand vlak vóór deze ronde): `oud/2026-10-28b/` (lib_bio.js, dieren/lib_micro_evo.js, testvel.html, README.md). Testvel: knop 'Verbeterronde 3' (`testvel.html#vr3-1`, alle objecten uit deze ronde).
+
+- **Niet ingebouwd**: `polymeraseAchter`/`-Voor` (Kamiel zag geen duidelijke winnaar; hij beslist nog). `primerStuk` tekent zijn eigen polymerase nog steeds zelf.
+- **Navelstreng: kleur volgt zuurstof** (Kamiel): de twee navelstrengslagaders blauw (zuurstofarm, kind → placenta), de ader rood (zuurstofrijk, placenta → kind). Geldt in `embryoEcht`, in `placentaDoorsnede` (met `kleurO2: false` nu ook; standaard blijft blauwpaars `PLAC.arm` voor zuurstofarm foetaal bloed) en in de nieuwe `bioNavelstreng(c, ax, ay, bx, by, t, a, w)` (zelfde aanroep als `castNavelstreng` uit de films, die de slagaders rood tekent); `vrouwOrganenVoor` gebruikt nu `bioNavelstreng`.
+- **RNA**: ruggengraat teal (`D2.rna`), basen palet B (`RNA_BASE`), ook in kleine objecten via `_rnaTikjes(ctx, pts, lw, {stap, lang, seed})`.
+- **Vork**: geen puzzelvorm meer, elke base één staafje van dx/2 breed; `d2Base` kreeg `o.staafLetter` (alleen de vork gebruikt het).
+- Eigen kopieën buiten de bibliotheek (niet bijgewerkt): de films (elk een kopie in `bron/src/`), `tools/docent/dna-3/beeldbank.js`, `films/evolutie/8-stambomen-lezen/bron/src/lib_micro_evo.js`.
+
+| Functie | Groep | Gekozen | Wat er veranderde | Bestand |
+|---|---|---|---|---|
+| `methylgroep` (+ `_mgCH3`, `_mgDuo`, `MG2`) | genregulatie | ronde-2-winnaar (W) + aangepast | nieuw in de bibliotheek; basen palet B, CH3 groen (was koraal), transcriptiefactor grijs | lib_bio.js |
+| `rnaPolymerase`, `kopStand`, `kernEnvelopPorie`, `tHelperCel`, `hivVirus` | eiwitten | kralenketen | eiwitten als kralenketen (DEF.js); aanroepen en ankers gelijk; RNA in tHelperCel/hivVirus teal | lib_bio.js |
+| `zetmeelSpiraal` (+ `_zetmeelVertakt`) | cel-molecuul | DEF | optie `vertakt` (amylopectine, α-1,6 om de 26), `takN`; zonder optie de oude amylose | lib_bio.js |
+| `bladDoorsnede` (+ `_bladH2O`) | organen-plant | DEF | optie `water` (waterdamp naar buiten), anker `water` | lib_bio.js |
+| `embryoEcht` | voortplanting | DEF + aangepast | bronnen nagelopen, somieten niet in de nek; navelstreng: slagaders blauw, ader rood | lib_bio.js |
+| `placentaDoorsnede`, `bioNavelstreng` (nieuw), `vrouwOrganenVoor` | voortplanting | aanpassing | navelstreng volgt zuurstof, ook bij `kleurO2: false` | lib_bio.js |
+| `vorkTeken`, `d2Base` | dna | aanpassing | gelijke staafjes met spleet, letters in het staafje | lib_bio.js |
+| `lipideNanodeeltje` (`_LN.rna`, `_lnMRNA`) | cel-afweer | aanpassing | mRNA teal met basen in palet B (was lila) | lib_bio.js |
+| `nucleoide` | dieren | aanpassing | standaard grijs (palet B), was paars | dieren/lib_micro_evo.js |

@@ -33,8 +33,8 @@ function _mvPad(ctx, P, closed = true) { ctx.beginPath(); bioPad(ctx, P, closed)
 // Bekende fouten: losse krul zonder einde (het is een ring); DNA in een kern met membraan.
 // (cx, cy) = midden; rx, ry = halve maten; o.T = puntafbeelding (bv. voor een gebogen bacterie).
 // =====================================================================================
-function nucleoide(ctx, cx, cy, rx, ry, o = {}) {
-  const { w = 3, lussen = 13, seed = 1, a = 1, kleur = C.kernR, donker = C.kern, rot = 0, T = null, helix = 'auto', fase = 0 } = o; if (a <= 0.01) return;
+function nucleoide(ctx, cx, cy, rx, ry, o = {}) { // palet B (verbeterronde 3, 28 okt 2026): standaard grijs zoals dnaDraad in lib_bio.js, was paars (C.kernR/C.kern)
+  const { w = 3, lussen = 13, seed = 1, a = 1, kleur = DNA_BASE.rugR, donker = DNA_BASE.rug, rot = 0, T = null, helix = 'auto', fase = 0 } = o; if (a <= 0.01) return;
   const P = [], rc = 0.2, n = lussen, cs = Math.cos(rot), sn = Math.sin(rot);
   const kaart = (u, v) => { const px = u * rx, py = v * ry; const q = [cx + px * cs - py * sn, cy + px * sn + py * cs]; return T ? T(q[0], q[1]) : q; };
   for (let k = 0; k < n; k++) {
@@ -57,7 +57,7 @@ function nucleoide(ctx, cx, cy, rx, ry, o = {}) {
 // BACTERIE (E. coli). Recept: staafje 2–4 µm lang, 0,7–1 µm breed (BioNumbers 104113: K-12 2,6–4,0 × 0,68–1,04 µm),
 // getekend als 1 : 0,28; ronde polen, soms licht gebogen. Gramnegatief: buitenmembraan + dunne celwand (peptidoglycaan)
 // als één lichte band, periplasma als smalle donkere spleet, celmembraan als tweede lichte lijn → dubbele rand.
-// Binnen: nucleoïde (paarse kluwen, zonder membraan), ribosomen als dichte kleine stippen (±20 nm, tienduizenden),
+// Binnen: nucleoïde (grijze kluwen in palet B, zonder membraan), ribosomen als dichte kleine stippen (±20 nm, tienduizenden),
 // een paar polysomen (kralensnoertjes). Buiten: 4–6 flagellen, 5–10 µm lang (2–4× de cel), helix met spoed ±2,3 µm
 // (BioNumbers 100095), bij zwemmen gebundeld achter de cel; honderden fimbriae, kort en fijn, loodrecht op de wand.
 // Kleur van de cel = allel (teal gevoelig, oker resistent). Gedood: 40%, wand open, inhoud lekt.
