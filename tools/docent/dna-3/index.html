@@ -774,10 +774,17 @@ SCHERMEN.push({ titel: 'Schade en herstel', kop: 'UV-schade en herstel', deel: '
     if (r.dimeer) wijs(ctx, 'twee T\'s vast', r.dimeer[0] + 300 * sc, r.dimeer[1] - 170 * sc, r.dimeer[0], r.dimeer[1] - 8, s0 * (1 - s1), C.koraal, 30);
     if (r.enzym) wijs(ctx, 'herstelenzym', r.enzym[0] + 340 * sc, r.enzym[1] - 40 * sc, r.enzym[0] + 60 * sc, r.enzym[1] + 20 * sc, s1 * (1 - s2), C.text, 30);
     // stap 3: mutatie na kopiëren
-    if (s3 > 0.01) { const sq = 'GCAGCTTACGAGC', fout = 'GCAGCTAACGAGC'; const x0 = 960 - 6 * 72;
-      regel(ctx, 'goed gekopieerd', x0 - 60, 790, s3, C.text2, 28, 'right', 600); tegelRij(ctx, x0, 780, sq, { rna: false, dx: 72, w: 62, h: 66, px: 36, a: s3 });
-      regel(ctx, 'met een fout', x0 - 60, 900, s3, C.text2, 28, 'right', 600); tegelRij(ctx, x0, 890, fout, { rna: false, dx: 72, w: 62, h: 66, px: 36, a: s3 * S.on(3, 0.6, 0.4), mark: (i) => i === 6 ? C.koraal : null });
-      naam(ctx, 'mutatie', x0 + 6 * 72, 970, s3 * S.on(3, 0.6, 0.8), 'center', C.koraal, 30); }
+    if (s3 > 0.01) { const sq = 'GCAGCTTACGAGC', fout = 'GCAGCTAACGAGC', dx = 50, w = 44, h = 50;
+      // twee dubbele strengen naast elkaar: elk paar klopt (A–T, C–G); het veranderde basenpaar is gemarkeerd
+      const blok = (x0, top, kop, a, mutA) => { regel(ctx, kop, x0 + 6 * dx, 735, a, mutA ? C.koraal : C.text2, 30, 'center', 700);
+        const mk = (i) => mutA > 0.01 && i === 6 ? C.koraal : null;
+        tegelRij(ctx, x0, 800, top, { rna: false, dx, w, h, px: 28, a, mark: mk });
+        tegelRij(ctx, x0, 856, top.split('').map(b => COMP[b]).join(''), { rna: false, dx, w, h, px: 28, a, mark: mk });
+        ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = rgba(C.line, 0.5); ctx.lineWidth = 2; for (let k = 0; k < top.length; k++) { ctx.beginPath(); ctx.moveTo(x0 + k * dx, 826); ctx.lineTo(x0 + k * dx, 830); ctx.stroke(); } ctx.restore(); };
+      const a2 = s3 * S.on(3, 0.6, 0.5);
+      blok(150, sq, 'goed gekopieerd', s3, 0); blok(1170, fout, 'met een mutatie', a2, a2);
+      pijl(ctx, 830, 828, 1110, 828, C.text2, 5, a2);
+      naam(ctx, 'T–A wordt A–T', 1170 + 6 * dx, 935, a2 * S.on(3, 0.6, 0.8), 'center', C.koraal, 30); }
   } });
 
 // ---------- 3 · één base anders ----------
