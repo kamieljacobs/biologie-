@@ -1168,6 +1168,7 @@ const HOOFDSTUKKEN = {
    {
     "href": "films/dna/5-mutaties.html",
     "datum": "2026-10-27",
+    "uitleg": "tools/docent/dna-3/index.html#3",
     "titel": "Mutaties",
     "vraag": "Hoe kan zonlicht je DNA veranderen, en waarom erven je kinderen dat niet?",
     "tekst": "Van zonnebrand tot huidkanker: schade en herstel, wat één andere base met een eiwit doet, erfelijk of niet, en wanneer een tumor kanker is",
@@ -1177,6 +1178,7 @@ const HOOFDSTUKKEN = {
    {
     "href": "films/dna/6-genen-aan-en-uit.html",
     "datum": "2026-10-27",
+    "uitleg": "tools/docent/dna-3/index.html#8",
     "titel": "Genen aan en uit",
     "vraag": "Hetzelfde DNA, en toch een huidcel, een levercel en twee verschillende tweelingzussen?",
     "tekst": "Genexpressie, transcriptiefactoren en het lac-operon, stamcellen en de slotjes op je DNA (epigenetica)",
@@ -1186,6 +1188,7 @@ const HOOFDSTUKKEN = {
    {
     "href": "films/dna/7-dna-lezen.html",
     "datum": "2026-10-13",
+    "uitleg": "tools/docent/dna-3/index.html#12",
     "titel": "DNA lezen",
     "vraag": "Hoe lees je DNA uit een paar druppels bloed, en hoe vind je een dader die nergens geregistreerd staat?",
     "tekst": "PCR, gelelektroforese en het DNA-profiel, sequencen en de NIPT, zoeken via verre familie, en DNA veranderen: genetische modificatie met cDNA (vwo: CRISPR-Cas9 en gentherapie)",
@@ -1195,6 +1198,7 @@ const HOOFDSTUKKEN = {
    {
     "href": "films/dna/8-wat-heb-jij-aan-dna.html",
     "datum": "2026-10-13",
+    "uitleg": "tools/docent/dna-3/index.html#16",
     "titel": "Wat heb jij aan DNA?",
     "vraag": "Een doosje van internet, de hielprik, een variant in de familie, een test vóór je medicijn: wil je het weten?",
     "tekst": "Slotaflevering zonder vwo-blokken: vier keuzes rond je eigen DNA en steeds dezelfde balans tussen feiten en wat jij belangrijk vindt",
@@ -1204,6 +1208,7 @@ const HOOFDSTUKKEN = {
    {
     "href": "films/dna-technieken/1-op-maat-gekopieerd/index.html",
     "datum": "2026-10-12",
+    "uitleg": "tools/docent/dna-3/index.html#12",
     "titel": "Op maat gekopieerd · PCR",
     "vraag": "Hoe maak je van een spoortje DNA genoeg om te onderzoeken?",
     "tekst": "Hoe je een stukje DNA miljarden keren kopieert: primers, temperatuurcycli en polymerase",
@@ -1213,6 +1218,7 @@ const HOOFDSTUKKEN = {
    {
     "href": "films/dna-technieken/2-op-lengte-gesorteerd/index.html",
     "datum": "2026-10-12",
+    "uitleg": "tools/docent/dna-3/index.html#13",
     "titel": "Op lengte gesorteerd · gelelektroforese",
     "vraag": "Hoe lees je een DNA-profiel, en kun je het vertrouwen?",
     "tekst": "Hoe een gel DNA-stukjes op lengte sorteert en hoe je een DNA-profiel afleest",
@@ -1257,6 +1263,14 @@ const HOOFDSTUKKEN = {
     "titel": "Van gen tot eiwit",
     "tekst": "De prik als opening, DNA kopiëren (vwo: Okazaki-fragmenten, Meselson en Stahl), transcriptie, het mRNA naar buiten, translatie, tRNA als werktuig, de codontabel lezen, terugredeneren en van keten naar eiwit",
     "films": ["films/dna/2-dna-kopieren.html", "films/dna/3-van-dna-naar-eiwit.html", "films/dna/4-de-genetische-code-lezen.html"],
+    "niveau": "havo + vwo"
+   },
+   {
+    "href": "tools/docent/dna-3/index.html",
+    "nr": 3,
+    "titel": "Veranderen, regelen, lezen",
+    "tekst": "Noor op het strand als opening, UV-schade en herstel, drie soorten puntmutaties en wat het eiwit merkt, erfelijk of niet, van mutatie tot kanker, zelfde DNA in andere cellen, transcriptiefactoren, het lac-operon, slotjes op het DNA, PCR, de gel, sequencen en de NIPT, knippen en plakken (vwo: CRISPR-Cas9) en wat je aan DNA hebt",
+    "films": ["films/dna/5-mutaties.html", "films/dna/6-genen-aan-en-uit.html", "films/dna/7-dna-lezen.html", "films/dna/8-wat-heb-jij-aan-dna.html", "films/dna-technieken/1-op-maat-gekopieerd/index.html", "films/dna-technieken/2-op-lengte-gesorteerd/index.html"],
     "niveau": "havo + vwo"
    }
   ],
@@ -3475,7 +3489,7 @@ function examKolommen(h,id){
 
 /* medaillons voor tools en lessen (Kamiel 22 okt 2026: oude lijntekeningen vervangen), img/kunst/tools/<id>.webp; niet in de lijst = lijntekening uit TOOLPLAAT */
 const TICOON={'Kruisingslab':'kruisingslab','Kruisingtrainer':'kruisingslab','Bloedgroepenlab':'bloedgroepenlab','Aardappellab':'aardappellab','Schaallab':'schaallab','De bouw van DNA':'dna-bouw','DNA-profielen vergelijken':'dna-profielen','Waarom U in RNA':'waarom-u-in-rna','De Eiwitfabriek':'eiwitfabriek','Regelkring':'regelkring','Celbouwer':'celbouwer','Virtuele microscoop':'virtuele-microscoop','Microscoop: echte preparaten':'microscoop-echt','Onderzoekskeuring':'onderzoekskeuring','Resistentielab':'resistentielab','Muizensimulatie':'muizensimulatie','Examen havo 2026-I doorklikken':'../iconen/examens'};
-const LICOON={'tools/dna-bouw/index.html':'tools/dna-bouw','tools/docent/dna-2/index.html':'films/3-van-dna-naar-eiwit','tools/docent/voortplanting-1/index.html':'tools/les-voortplanting-1','tools/docent/voortplanting-2/index.html':'films/1-precies-op-tijd','tools/docent/voortplanting-3/index.html':'tools/les-voortplanting-3'};
+const LICOON={'tools/dna-bouw/index.html':'tools/dna-bouw','tools/docent/dna-2/index.html':'films/3-van-dna-naar-eiwit','tools/docent/dna-3/index.html':'films/5-mutaties','tools/docent/voortplanting-1/index.html':'tools/les-voortplanting-1','tools/docent/voortplanting-2/index.html':'films/1-precies-op-tijd','tools/docent/voortplanting-3/index.html':'tools/les-voortplanting-3'};
 const tmed=pad=>`<img class="tmed" src="img/kunst/${pad}.webp?v=1" alt="" width="150" height="150" loading="lazy" decoding="async">`;
 function toolRij(t){
   const fig=toolFig(t.naam), nr=TOOLPLAAT.findIndex(([re])=>re.test(t.naam))+1, tm=TICOON[t.naam];
