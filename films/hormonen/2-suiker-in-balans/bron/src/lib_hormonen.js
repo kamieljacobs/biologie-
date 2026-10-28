@@ -91,6 +91,7 @@ function doelcel(ctx, x, y, r, o = {}) {
   if (glow > 0.01) { const g = ctx.createRadialGradient(x, y, r * 0.6, x, y, r * 1.5); g.addColorStop(0, rgba(HK.hormoon, 0.28 * glow)); g.addColorStop(1, rgba(HK.hormoon, 0)); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r * 1.5, 0, 6.283); ctx.fill(); }
   blob(ctx, x, y, r, r * 0.92, 0.035, seed, t); shape(ctx, rgba(fill, 0.16 + 0.1 * glow), rgba(fill, 0.9), 2.5);
   blob(ctx, x, y, r - 8, r * 0.92 - 8, 0.035, seed, t); ctx.strokeStyle = rgba(fill, 0.45); ctx.lineWidth = 1.2; ctx.stroke();
+  celTextuur(ctx, (px, py) => Math.hypot(px - x, (py - y) / 0.92) < r - 14, 40, seed * 3 + 1, [x - r, y - r, 2 * r, 2 * r]);
   if (kern) { ctx.beginPath(); ctx.arc(x + r * 0.12, y + r * 0.08, r * 0.3, 0, 6.283); shape(ctx, rgba(C.kern, 0.55), C.kernR, 1.5); }
   if (!noRec) for (let i = 0; i < n; i++) { const an = rot + (i - (n - 1) / 2) * (Math.PI * 1.25 / Math.max(1, n - 1)); const bi = clamp(bound * n - i, 0, 1);
     receptor(ctx, x + Math.cos(an) * r * 0.97, y + Math.sin(an) * r * 0.97 * 0.92, an, kind, bi, 1, r / 170); }
@@ -234,7 +235,8 @@ function eilandje(ctx, x, y, r, o = {}) { const { a = 1, beta = 0, alfa = 0, t =
   ctx.restore(); }
 // cel met glycogeen (lever of spier); fill 0..1
 function cel(ctx, x, y, w, h, o = {}) { const { a = 1, naam = '', glyco = 0, col = HK.cel, t = 0, seed = 2 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
-  roundRect(ctx, x - w / 2, y - h / 2, w, h, 30); shape(ctx, rgba(col, 0.14), rgba(col, 0.9), 2.5); circ(ctx, x + w * 0.25, y - h * 0.15, Math.min(w, h) * 0.13, rgba(C.kern, 0.5), C.kernR, 1.5);
+  // cel als zachte, ronde vorm (prompt v13 C9: nooit een doos), met rustige textuur binnen
+  blob(ctx, x, y, w / 2, h / 2, 0.04, seed, t); shape(ctx, rgba(col, 0.14), rgba(col, 0.9), 2.5); celTextuur(ctx, (px, py) => ((px - x) / (w / 2 - 12)) ** 2 + ((py - y) / (h / 2 - 12)) ** 2 < 1, 40, seed * 5 + 2, [x - w / 2, y - h / 2, w, h]); circ(ctx, x + w * 0.22, y - h * 0.12, Math.min(w, h) * 0.13, rgba(C.kern, 0.5), C.kernR, 1.5);
   if (glyco > 0.01) glycogeenKeten(ctx, x - w * 0.15, y + h * 0.08, 0.55 + 0.6 * glyco, Math.min(1, glyco * 2), glyco);
   if (naam) text(ctx, naam, x, y + h / 2 + 46, fTekst(34, 700), C.text, 'center'); ctx.restore(); }
 
@@ -246,3 +248,8 @@ function glycogeenKeten(ctx, x, y, s = 1, a = 1, n = 1) { if (a <= 0.01) return;
   ctx.strokeStyle = rgba(HK.glucose, 0.6); ctx.lineWidth = 2; ctx.beginPath(); pts.slice(0, 7).forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke();
   for (let i = 0; i < m; i++) hexagon(ctx, pts[i][0], pts[i][1], r, rgba(HK.glucose, 0.55), HK.glucose, 1.3, 0);
   ctx.restore(); }
+
+// ---------- prompt v13 (28 okt 2026) ----------
+function dot(ctx, x, y, r, fill, stroke, lw = 1.2) { ctx.beginPath(); ctx.arc(x, y, r, 0, 6.2832); if (fill) { ctx.fillStyle = fill; ctx.fill(); } if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw; ctx.stroke(); } } // nodig voor lib_anatomie
+// rustige textuur in het cytoplasma (alleen binnen een cel; prompt v13 C2): weinig, kleine beige stipjes
+function celTextuur(ctx, inside, n = 60, seed = 1, box = [0, 0, 1920, 1080]) { ctx.save(); for (let i = 0; i < n; i++) { const px = box[0] + hash(i * 13 + seed) * box[2], py = box[1] + hash(i * 29 + seed * 7) * box[3]; if (!inside(px, py)) continue; ctx.fillStyle = rgba('#C9B896', 0.1 + 0.05 * hash(i * 3 + seed)); ctx.beginPath(); ctx.arc(px, py, 1.6 + 1.4 * hash(i * 5 + seed), 0, 6.283); ctx.fill(); } ctx.restore(); }

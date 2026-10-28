@@ -21,21 +21,25 @@ function glucoseKring(ctx, o = {}) { const { a = 1, nA = [1, 1, 1, 1], arr = [1,
     { t: hormoon === 'glucagon' ? 'glucagon' : hormoon === 'beide' ? 'insuline · glucagon' : 'insuline', s: 'in het bloed', col: HK.hormoon, a: nA[2], rol: 'SIGNAAL' },
     { t: 'lever · spieren · vet', s: 'doelorganen', col: C.koraal, a: nA[3], rol: 'EFFECTOR' }];
   return kringSchema(ctx, cx, cy, { a, nodes, arr, minus, pulse, broken, thin, rx, ry: 290, bw: 430, bh: 120 }); }
-function hersenIcoon(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.ellipse(x, y, 110 * s, 80 * s, 0, 0, 6.283); shape(ctx, rgba(C.paars, 0.2), rgba(C.paars, 0.8), 2); ctx.strokeStyle = rgba(C.paars, 0.6); ctx.lineWidth = 2; for (let i = 0; i < 4; i++) { ctx.beginPath(); ctx.arc(x - 60 * s + i * 40 * s, y - 10 * s, 26 * s, 0.3, 2.6); ctx.stroke(); } ctx.beginPath(); ctx.moveTo(x, y - 78 * s); ctx.lineTo(x, y + 78 * s); ctx.stroke(); ctx.restore(); }
+// hersenen = hoofd in doorsnede uit de beeldbank (lib_bio hoofdHersenen) i.p.v. een paarse ovaal met boogjes (prompt v13 C7)
+function hersenIcoon(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; hoofdHersenen(ctx, x + 10 * s, y + 40 * s, 0.3 * s, {}); ctx.restore(); }
 function klontje(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.fillStyle = '#F2F2EE'; ctx.beginPath(); ctx.moveTo(x - 50 * s, y - 20 * s); ctx.lineTo(x + 10 * s, y - 50 * s); ctx.lineTo(x + 60 * s, y - 20 * s); ctx.lineTo(x + 60 * s, y + 40 * s); ctx.lineTo(x, y + 70 * s); ctx.lineTo(x - 50 * s, y + 40 * s); ctx.closePath(); ctx.fill(); ctx.strokeStyle = '#C9C2B4'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x - 50 * s, y - 20 * s); ctx.lineTo(x, y + 10 * s); ctx.lineTo(x + 60 * s, y - 20 * s); ctx.moveTo(x, y + 10 * s); ctx.lineTo(x, y + 70 * s); ctx.stroke(); ctx.restore(); }
 function dextro(ctx, x, y, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 34, y - 34, 68, 68, 10); shape(ctx, '#F2F2EE', '#C9C2B4', 2); ctx.restore(); }
 function boterham(ctx, x, y, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 80, y - 60, 160, 120, 30); shape(ctx, '#C9A35C', '#9C7A3C', 3); roundRect(ctx, x - 64, y - 44, 128, 88, 20); ctx.fillStyle = '#E8D9A8'; ctx.fill(); ctx.fillStyle = '#E8C04A'; ctx.fillRect(x - 60, y - 30, 120, 40); ctx.restore(); }
 function spiercel(ctx, x, y, w, h, o = {}) { const { a = 1, glut = 0, inbraak = 0, t = 0, n = 6, zwak = 0, recA = 1, bound = 0 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
   // membraan bovenaan de cel als band, binnenkant eronder
-  const my = y - h / 2; ctx.fillStyle = rgba(C.koraal, 0.08); ctx.fillRect(x - w / 2, my, w, h); ctx.fillStyle = rgba(HK.cel, 0.2); ctx.fillRect(x - w / 2, my - 18, w, 36);
-  for (let px = x - w / 2; px < x + w / 2; px += 18) { circ(ctx, px, my - 12, 5, rgba(HK.cel, 0.85)); circ(ctx, px, my + 12, 5, rgba(HK.cel, 0.85)); }
-  metaText(ctx, 'BLOED', x - w / 2 + 10, my - 50, C.grain, 'left', 22); metaText(ctx, 'SPIERCEL', x - w / 2 + 10, my + 70, C.grain, 'left', 22);
-  receptor(ctx, x - w / 2 + 140, my - 16, -Math.PI / 2, 'insuline', bound, recA, 1.5);
+  // gebogen celmembraan (prompt v13 C9) uit de beeldbank; de spiercel ligt onder het membraan, met rustige textuur binnen
+  const my = y - h / 2, MR = 2600, mY = px => my + MR - Math.sqrt(MR * MR - (px - x) * (px - x)), an = Math.asin(1010 / MR);
+  ctx.save(); ctx.beginPath(); ctx.moveTo(x - 1010, mY(x - 1010)); for (let px = x - 1010; px <= x + 1010; px += 20) ctx.lineTo(px, mY(px)); ctx.lineTo(x + 1010, 1100); ctx.lineTo(x - 1010, 1100); ctx.closePath(); ctx.fillStyle = rgba(C.koraal, 0.06); ctx.fill(); ctx.restore();
+  celTextuur(ctx, (px, py) => py > mY(px) + 30, 120, 7);
+  membraanBoog(ctx, x, my + MR, MR, -Math.PI / 2 - an, -Math.PI / 2 + an, { t, s: 1.1 });
+  metaText(ctx, 'BLOED', x - w / 2 + 10, my - 110, C.grain, 'left', 22); metaText(ctx, 'SPIERCEL', x - w / 2 + 10, mY(x - w / 2 + 10) + 90, C.grain, 'left', 22);
+  receptor(ctx, x - w / 2 + 140, mY(x - w / 2 + 140) - 16, -Math.PI / 2, 'insuline', bound, recA, 1.5);
   // GLUT4: in blaasjes (binnen) of in het membraan
-  for (let i = 0; i < n; i++) { const tx = x - w / 2 + 330 + i * ((w - 400) / Math.max(1, n - 1)); const u = clamp(glut * n - i * (1 - zwak) * 0.9, 0, 1) * (i < n * (1 - zwak) ? 1 : 0.15); const vy = lerp(my + 150 + hash(i) * 60, my, ease(u));
+  for (let i = 0; i < n; i++) { const tx = x - w / 2 + 330 + i * ((w - 400) / Math.max(1, n - 1)); const u = clamp(glut * n - i * (1 - zwak) * 0.9, 0, 1) * (i < n * (1 - zwak) ? 1 : 0.15); const vy = lerp(mY(tx) + 150 + hash(i) * 60, mY(tx), ease(u));
     if (u < 0.98) { circ(ctx, tx, vy, 26, rgba(C.ves, 0.25), C.vesR, 1.5); }
     ctx.fillStyle = C.teal; roundRect(ctx, tx - 9, vy - 20, 18, 40, 6); ctx.fill();
-    if (u > 0.95 && inbraak > 0.01) for (let k = 0; k < 3; k++) { const ph = (t * 0.6 + k / 3 + i * 0.13) % 1; glucoseDeeltje(ctx, tx, lerp(my - 90, my + 120, ph), 10, inbraak * (ph < 0.9 ? 1 : (1 - ph) * 10)); } }
+    if (u > 0.95 && inbraak > 0.01) for (let k = 0; k < 3; k++) { const ph = (t * 0.6 + k / 3 + i * 0.13) % 1; glucoseDeeltje(ctx, tx, lerp(mY(tx) - 90, mY(tx) + 120, ph), 10, inbraak * (ph < 0.9 ? 1 : (1 - ph) * 10)); } }
   ctx.restore(); }
 
 const SCENES = {
@@ -44,7 +48,7 @@ const SCENES = {
   // ---------- Cold open ----------
   s01(ctx, t, q) { klasAchtergrond(ctx);
     const pS = person(ctx, 760, 900, 560, 1, Object.assign({ armR: { a1: 0.5, a2: 1.2 }, armL: { a1: 0.5, a2: 1.2 } }, SANNE));
-    person(ctx, 1180, 900, 580, 1, Object.assign({ armR: { a1: 0.5, a2: 1.2 }, armL: { a1: 0.5, a2: 1.2 } }, JIJ));
+    persoon(ctx, 'noor', 1180, 840, 580, { pose: 'zit', tafel: 650, t }); // jij = Noor (castboek, ROLLEN.md); geen naam in beeld of stem
     schoolbank(ctx, 970, 640, 900);
     const se = q.on('sensortje', 1); sensor(ctx, 760 - 78, 900 - 560 + 560 / 6.6 * 1.9, 16, se); if (se > 0.01) { ctx.save(); ctx.globalAlpha *= se * (1 - q.on('jou', 1)); ctx.strokeStyle = C.goud; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(760 - 78, 900 - 560 + 560 / 6.6 * 1.9, 34, 0, 6.283); ctx.stroke(); ctx.restore(); }
     const tl = q.on('telefoon', 1) * (1 - q.on('jou', 1)); telefoon(ctx, 280, 300, 280, 520, { a: tl, val: 5.6 + 0.4 * Math.sin(t * 0.5), curve: u => 5.5 + 1.8 * Math.exp(-Math.pow((u - 0.35) / 0.12, 2)) + 0.4 * Math.sin(u * 9), t });
@@ -144,7 +148,7 @@ const SCENES = {
     const rk = q.on('regelkring', 1); glucoseKring(ctx, { a: rk * (1 - q.on('Boven', 1)), broken: { 1: q.on('pijl', 1) }, nA: [1, 1, 0.35, 1] });
     const bo = q.on('Boven', 1); if (bo > 0.01) { grafiek(ctx, 260, 170, 900, 500, { a: bo, xmax: 4, ymax: 20, f: h => 6 + 10 * (1 - Math.exp(-h)), u: ramp(t, q.at('Boven'), 4), xticks: [0, 1, 2, 3, 4], yticks: [0, 5, 10, 15, 20], xlab: 'uren na het eten (zonder behandeling)', ylab: 'glucose (mmol/L)', col: HK.glucose });
       ctx.save(); ctx.globalAlpha *= bo; ctx.setLineDash([8, 8]); ctx.strokeStyle = C.koraal; ctx.lineWidth = 2; const yy = 170 + 500 * (1 - 10 / 20); ctx.beginPath(); ctx.moveTo(260, yy); ctx.lineTo(1160, yy); ctx.stroke(); ctx.setLineDash([]); metaText(ctx, 'NIERDREMPEL ≈ 10', 1160, yy - 12, C.koraal, 'right', 22); ctx.restore();
-      nierVorm(ctx, 1480, 380, 1.6, 1, q.on('urine', 1)); for (let i = 0; i < 4; i++) { const u = (t * 0.5 + i / 4) % 1; glucoseDeeltje(ctx, 1480, lerp(470, 720, u), 11, q.on('urine', 1)); druppel2(ctx, 1520, lerp(470, 720, (u + 0.5) % 1), 9, q.on('water', 1)); }
+      const NB = nierBijnier(ctx, 1440, 400, 1.0, { a: q.on('urine', 1), urine: q.on('urine', 1), t }); const ul = NB.urineleider; for (let i = 0; i < 4; i++) { const u = (t * 0.5 + i / 4) % 1; glucoseDeeltje(ctx, ul[0] + 30, lerp(ul[1] + 40, 740, u), 11, q.on('urine', 1)); druppel2(ctx, ul[0] + 70, lerp(ul[1] + 40, 740, (u + 0.5) % 1), 9, q.on('water', 1)); }
       tag(ctx, 'dorst · vaak plassen', 1500, 820, C.teal, q.on('dorst', 1)); }
   },
   s17(ctx, t, q) { klasAchtergrond(ctx);
@@ -172,7 +176,7 @@ const SCENES = {
     tag(ctx, 'insulineresistentie', 1500, 260, C.koraal, q.on('insulineresistentie', 1));
     tag(ctx, 'erfelijkheid · overgewicht · weinig bewegen', 1440, 360, C.text2, q.on('Erfelijkheid', 1));
     tag(ctx, 'bètacellen raken uitgeput', 1500, 460, C.text2, q.on('uitgeput', 1));
-    const bw = q.on('Bewegen', 1); if (bw > 0.01) { ctx.save(); ctx.globalAlpha *= bw; person(ctx, 1500, 860, 300, 1, Object.assign({ armR: { a1: 1.2 + 0.4 * Math.sin(t * 6), a2: 0.4 }, armL: { a1: 1.2 - 0.4 * Math.sin(t * 6), a2: 0.4 } }, JIJ)); regel(ctx, 'bewegen helpt', 1680, 760, 1, C.groen, 34, 'left'); ctx.restore(); }
+    const bw = q.on('Bewegen', 2); /* 2e keer = 'Bewegen helpt' (de 1e is 'weinig bewegen') */ if (bw > 0.01) { ctx.save(); ctx.globalAlpha *= bw; const tr = Math.max(0, t - q.at('Bewegen', 2)), gg = gangSnelheid('noor', 280, 'ren') * 7.2 < 640 ? 'ren' : 'loop', x0r = Math.max(1150, 1840 - gangSnelheid('noor', 280, gg) * 7.2); persoon(ctx, 'noor', x0r, 880, 280, { zij: true, kijk: 1, gang: gg, t: tr, vooruit: true, outfit: 'sport' }); regel(ctx, 'bewegen helpt', 1500, 560, 1, C.groen, 34, 'center'); ctx.restore(); }
   },
   s23(ctx, t, q) { bg(ctx, 'micro');
     const zw = q.on('zwakker', 1), sp = q.on('Werkende', 1);

@@ -5,8 +5,9 @@
 | Bestand | films/hormonen/2-suiker-in-balans.html (audio in films/hormonen/2-suiker-in-balans/audio/) |
 | Reeks / nummer | Hormonen, film 2 van 5 (seriebrief in de Claude-doc *Seriebriefs uitlegfilms biologie*) |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blokken gelabeld: s15 (GLUT4, signaaltransductie, exocytose, gefaciliteerde diffusie) en s23 (insulineresistentie op celniveau, spierwerk). Havo/Vwo-schakelaar, standaard Vwo |
-| Versie / datum | 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus; wacht op review door Kamiel) |
-| Prompt | onbekend · gemaakt 14 okt |
+| Versie / datum | **1.1 · 28 oktober 2026** — opwaardering naar prompt v13 (B14, zonder keuring): alleen beeld, stem en script ongewijzigd; oude versie in `bron/oud/2-suiker-in-balans-v1.0.html`. 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus) |
+| Prompt | v13 |
+| Voldoet aan | prompt v13 (28 okt 2026, zonder keuring). Bewust niet: Sanne (s01, s17, s24) blijft de eigen getekende figuur, want de stem noemt haar bij naam en wie in het castboek diabetes type 1 krijgt is een nieuwe keuze (vraag aan Kamiel); de afweercellen in s16 blijven witte bolletjes (geen passende T-cel in de beeldbank); geen nieuwe opnames; geen nieuwe caststijl met contourlijnen |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow CgRoGtnJYhFRTTdQRHak; nodes en sessies in `stem/takes.json`) |
 | Duur | spraak 8:55 (vwo) / 7:31 (havo). Speeltijd met kaarten en vier vragen: vwo ≈ 11 min, havo ≈ 9½ min |
 | Beeldstijl | Part C: Macro (klaslokaal met Sanne en "jij"), Schema (regelkring, grafieken, bak met kraan, kaarten), Micro (eilandje van Langerhans, spiercel met GLUT4). Seriekleuren `HK`: hormonen goud (insuline afgerond vierkant, glucagon ruit, adrenaline druppel), glucose en glycogeen teal, bètacellen licht oker, alfacellen groen, bloed rood |
@@ -78,3 +79,18 @@ Checkvragen: 1 Regelkring aanvullen · 2 Glucosetolerantietest (tabel P, Q, R) �
 ## Wijziging 25 okt 2026
 
 - In de recap (s24) de zin 'In de Regelkring-tool op de site kun je de kring zelf verstoren, en kijken hoe hij zich herstelt.' uit de audio geknipt (fragment eindigt na 'gym.') en het label 'Regelkring-tool op de site' weggehaald. Reden: prompt v10 aanvulling, geen verwijzingen naar tools in de film, vooral niet uitgesproken (Kamiel 25 okt 2026). De bron (scenes, filmdata, script.md) is op dezelfde manier aangepast.
+
+
+## Wijzigingen 1.1 (28 okt 2026): opwaardering naar prompt v13 (zonder keuring)
+
+Alleen beeld; stem, script, vragen, tijden en speler ongewijzigd. Site-HTML bijgewerkt door alleen de drie scriptblokken (lib, seriebibliotheken + `lib_cast.js`, `lib_anatomie.js`, `lib_bio.js`, scènes) te vervangen; `bouw/build.py` plakt die bibliotheken nu ook. Contactvel van de gewijzigde scènes bekeken; alle beelden in vwo en havo doorgelopen zonder JS-fouten; vragen afgespeeld met `?vragen=uit`.
+
+- Alle micro-scènes (titel, s06, s07, s15, s16, s23): geen korrel meer over het hele beeld; rustige stipjes alleen binnen een cel (`celTextuur`).
+- s01: 'jij' is Noor uit het castboek (zittend aan de bank); geen naam in beeld of stem.
+- s04, s10: paarse ovaal met boogjes als 'hersenen' vervangen door het hoofd in doorsnede uit de beeldbank (`hoofdHersenen`).
+- s09, s12: lever-, spier- en vetcel geen afgeronde dozen meer maar zachte ronde vormen met rustige textuur (`cel` in lib_hormonen).
+- s15, s23 (vwo): recht membraan als band → gebogen fosfolipidendubbellaag uit de beeldbank (`membraanBoog`); GLUT4-blaasjes versmelten met het gebogen membraan; de spiercel is geen rechthoek meer.
+- s16: eenvoudige niervorm → nier uit de beeldbank (`nierBijnier`, met urine in de urineleider); glucose en water lopen langs de urineleider.
+- s22: 'bewegen helpt' = Noor die van opzij voorbij loopt (castboekgang, steunvoet glijdt niet), op het woord 'Bewegen helpt' (de cue viel eerst al op 'weinig bewegen').
+- Bronnenlogboek `bron/bronnen.md` (eerste ronde). Lijsten voor Kamiel: `bron/opwaardering-v13.md`.
+- Regelnummers in de HTML sinds 1.1 (de tabel 'Waar wat in de HTML zit' hierboven is van 1.0): FILMDATA 154 · lib.js 155–383 · lib_voeding + lib_hormonen 384–1212 · lib_cast 1213–2025 · lib_anatomie 2026–2299 · lib_bio 2300–10740 · scenes.js 10741–10938 (SCENES 10785) · GLOSSARY en speler vanaf 10939.

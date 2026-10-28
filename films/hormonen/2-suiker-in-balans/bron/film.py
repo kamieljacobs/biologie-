@@ -8,7 +8,7 @@ film = {
  "lead": "Je bloedsuiker blijft de hele dag in een smalle band, ongeveer 4 tot 8 millimol per liter. Dat doet een regelkring in de alvleesklier: bètacellen geven insuline af als de glucose stijgt, alfacellen geven glucagon af als hij daalt. Bij diabetes type 1 valt de insuline weg; bij type 2 reageren de cellen er minder op.",
  "endHaak": "meten, bijsturen, terugkoppelen",
  "minis": {"Hoofdstuk 1": "Hoeveel glucose zit er in je bloed, en waarom moet dat in een band blijven?", "Hoofdstuk 2": "Hoe houden insuline en glucagon je bloedsuiker op peil?", "Hoofdstuk 3": "Wat gaat er mis bij diabetes type 1 en type 2?", "Recap": "Hoe blijft jouw bloedsuiker in de band?"},
- "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.1 · 28 oktober 2026 (prompt v13).",
  "questions": {
   "q02": {"q": "Bij jou meet niemand je bloedsuiker. Toch blijft die de hele dag binnen nauwe grenzen: na het ontbijt, na de gymles, midden in de nacht. Hoe kan dat?", "correct": 1, "explain": "Onthoud je keuze. Het antwoord zie je in hoofdstuk 2 en aan het eind."},
   "q08": {"q": "Na het ontbijt stijgt je glucose en geven de bètacellen insuline af. Wat doet die insuline met de glucose?", "correct": 1, "explain": "Insuline breekt niets af en laat de nieren niets uitplassen. Het is een signaal: spier- en vetcellen nemen meer glucose op, lever en spieren maken er glycogeen van, en de lever stopt met glucose afgeven."},
