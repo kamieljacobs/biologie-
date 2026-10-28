@@ -91,6 +91,7 @@ function doelcel(ctx, x, y, r, o = {}) {
   if (glow > 0.01) { const g = ctx.createRadialGradient(x, y, r * 0.6, x, y, r * 1.5); g.addColorStop(0, rgba(HK.hormoon, 0.28 * glow)); g.addColorStop(1, rgba(HK.hormoon, 0)); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r * 1.5, 0, 6.283); ctx.fill(); }
   blob(ctx, x, y, r, r * 0.92, 0.035, seed, t); shape(ctx, rgba(fill, 0.16 + 0.1 * glow), rgba(fill, 0.9), 2.5);
   blob(ctx, x, y, r - 8, r * 0.92 - 8, 0.035, seed, t); ctx.strokeStyle = rgba(fill, 0.45); ctx.lineWidth = 1.2; ctx.stroke();
+  celTextuur(ctx, (px, py) => Math.hypot(px - x, (py - y) / 0.92) < r - 14, 40, seed * 3 + 1, [x - r, y - r, 2 * r, 2 * r]);
   if (kern) { ctx.beginPath(); ctx.arc(x + r * 0.12, y + r * 0.08, r * 0.3, 0, 6.283); shape(ctx, rgba(C.kern, 0.55), C.kernR, 1.5); }
   if (!noRec) for (let i = 0; i < n; i++) { const an = rot + (i - (n - 1) / 2) * (Math.PI * 1.25 / Math.max(1, n - 1)); const bi = clamp(bound * n - i, 0, 1);
     receptor(ctx, x + Math.cos(an) * r * 0.97, y + Math.sin(an) * r * 0.97 * 0.92, an, kind, bi, 1, r / 170); }
@@ -111,32 +112,53 @@ function hartMeter(ctx, x, y, bpm, t, a = 1, w = 420) {
 }
 
 // ---------- lichaamskaart met hormoonklieren (Schema) ----------
-// lichaam() uit lib_voeding tekent het silhouet; de klieren liggen op vaste plekken t.o.v. (x, y, s)
-function KLIERPOS(x, y, s) { return {
-  hypothalamus: [x, y - 486 * s, 15 * s, 10 * s], hypofyse: [x, y - 452 * s, 9 * s, 9 * s], schildklier: [x, y - 352 * s, 30 * s, 14 * s],
-  bijnierL: [x - 78 * s, y - 2 * s, 20 * s, 12 * s], bijnierR: [x + 78 * s, y - 2 * s, 20 * s, 12 * s],
-  alvleesklier: [x + 6 * s, y + 46 * s, 64 * s, 15 * s], eierstokL: [x - 92 * s, y + 210 * s, 18 * s, 13 * s], eierstokR: [x + 92 * s, y + 210 * s, 18 * s, 13 * s] }; }
-function nierVorm(ctx, x, y, s, side, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(side * s, s);
-  ctx.beginPath(); ctx.moveTo(0, -48); ctx.bezierCurveTo(38, -50, 40, 48, 0, 48); ctx.bezierCurveTo(-22, 48, -24, 18, -12, 8); ctx.bezierCurveTo(-4, 2, -4, -2, -12, -8); ctx.bezierCurveTo(-24, -18, -22, -48, 0, -48); ctx.closePath();
-  shape(ctx, rgba('#9C5A50', 0.35), rgba('#C98A7E', 0.8), 2 / s); ctx.restore(); }
-// o.lit: {naam: 0..1} licht een klier op; o.labels: true; o.dimKlier: alpha voor niet-opgelichte klieren; o.hersenen
+// ---------- lichaamskaart (prompt v13, 28 okt 2026) ----------
+// Het oude grijze dummy-lichaam (lichaam() uit lib_voeding: blokromp met smileyhoofd) is vervangen door het realistische
+// lichaam uit personages/lib_anatomie.js (BEELDAFSPRAKEN: 'Lichaam met organen = castpersonage met lib_anatomie.js').
+// Zelfde aanroep klierKaart(ctx, x, y, s, o): kruin op y − 560 s, hoofdhoogte HH = 150 s, voeten op y + 535 s.
+// KP(x, y, s, ax, ay) = punt in hoofdhoogte-eenheden van lib_anatomie (ax vanaf het midden, ay vanaf de kruin).
+// Klieren op hun echte plek: schildklier in de hals, bijnieren als kapje op de nieren, alvleesklier achter de maag,
+// eierstokken in het bekken. Hypothalamus en hypofyse worden NIET over het gezicht getekend (Kamiel 25 okt 2026:
+// 'creepy'); hun ankerpunt staat midden in het hoofd, de film toont ze in een zoomcirkel naast het hoofd (hoofdHersenen).
+function dot(ctx, x, y, r, fill, stroke, lw = 1.2) { ctx.beginPath(); ctx.arc(x, y, r, 0, 6.2832); if (fill) { ctx.fillStyle = fill; ctx.fill(); } if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw; ctx.stroke(); } } // nodig voor lib_anatomie
+var BODY = (typeof BODY !== 'undefined') ? BODY : { cx: 960, yb: 1000, h: 900 };
+function KP(x, y, s, ax, ay) { return [x + ax * 150 * s, y - 560 * s + ay * 150 * s]; }
+function KLIERPOS(x, y, s) { const H = 150 * s, k = (ax, ay, rx, ry) => { const p = KP(x, y, s, ax, ay); return [p[0], p[1], rx * H, ry * H]; }; return {
+  hypothalamus: k(0, 0.42, 0.07, 0.05), hypofyse: k(0, 0.56, 0.05, 0.05), schildklier: k(0, 1.22, 0.12, 0.08),
+  bijnierL: k(-0.37, 2.73, 0.08, 0.05), bijnierR: k(0.37, 2.67, 0.08, 0.05),
+  alvleesklier: k(0.19, 2.78, 0.36, 0.08), eierstokL: k(-0.27, 3.62, 0.05, 0.035), eierstokR: k(0.27, 3.62, 0.05, 0.035) }; }
+function klierVorm(ctx, naam, v, s) { const H = 150 * s; ctx.beginPath();
+  if (naam === 'schildklier') { const [x, y] = v; ctx.moveTo(x, y - 0.02 * H); for (const sd of [1, -1]) { ctx.bezierCurveTo(x + sd * 0.05 * H, y - 0.1 * H, x + sd * 0.13 * H, y - 0.07 * H, x + sd * 0.12 * H, y + 0.04 * H); ctx.bezierCurveTo(x + sd * 0.11 * H, y + 0.1 * H, x + sd * 0.04 * H, y + 0.09 * H, x, y + 0.03 * H); } }
+  else if (naam === 'bijnier') { const [x, y] = v; ctx.moveTo(x - 0.08 * H, y + 0.04 * H); ctx.quadraticCurveTo(x - 0.03 * H, y - 0.07 * H, x, y - 0.06 * H); ctx.quadraticCurveTo(x + 0.04 * H, y - 0.06 * H, x + 0.08 * H, y + 0.04 * H); ctx.quadraticCurveTo(x, y + 0.02 * H, x - 0.08 * H, y + 0.04 * H); }
+  else ctx.ellipse(v[0], v[1], v[2], v[3], 0, 0, 6.283); }
 function klierKaart(ctx, x, y, s, o = {}) {
-  const { a = 1, lit = {}, base = 0.55, nieren = 1, hersenen = 1, show = {}, armen = 1 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
-  if (armen > 0.01) for (const d of [-1, 1]) { ctx.save(); ctx.globalAlpha *= armen; ctx.lineCap = 'round'; ctx.strokeStyle = rgba(C.mens, 0.8); ctx.lineWidth = 74 * s; ctx.beginPath(); ctx.moveTo(x + d * 205 * s, y - 300 * s); ctx.quadraticCurveTo(x + d * 290 * s, y - 120 * s, x + d * 300 * s, y + 60 * s); ctx.stroke(); ctx.strokeStyle = rgba(C.mens, 0.22); ctx.lineWidth = 70 * s; ctx.stroke(); ctx.restore(); }
-  lichaam(ctx, x, y, s, 1, { darm: 0, hoofd: false }); ctx.beginPath(); ctx.arc(x, y - 470 * s, 90 * s, 0, 6.283); shape(ctx, rgba(C.mens, 0.22), rgba(C.mens, 0.8), 2);
-  if (hersenen > 0.01) { ctx.save(); ctx.globalAlpha *= hersenen; ctx.beginPath(); ctx.ellipse(x, y - 498 * s, 64 * s, 40 * s, 0, Math.PI, 0); ctx.closePath(); shape(ctx, rgba(C.paars, 0.18), rgba(C.paars, 0.6), 1.5); ctx.restore(); }
-  nierVorm(ctx, x - 82 * s, y + 52 * s, 0.85 * s, -1, nieren); nierVorm(ctx, x + 82 * s, y + 52 * s, 0.85 * s, 1, nieren);
+  const { a = 1, lit = {}, base = 0.55, nieren = 1, show = {} } = o; if (a <= 0.01) return KLIERPOS(x, y, s);
+  const oud = BODY; BODY = { cx: x, yb: y + 535 * s, h: 1095 * s };
+  ctx.save(); ctx.globalAlpha *= a; anFigure(1); anCavity(0.6);
+  if (nieren > 0.01) { ctx.save(); ctx.globalAlpha *= nieren * 0.8; anKidney(-1, 1, 0); anKidney(1, 1, 0); ctx.restore(); }
   const K = KLIERPOS(x, y, s);
-  for (const [k, v] of Object.entries(K)) { const base2 = k.replace(/[LR]$/, ''); const l = lit[base2] || 0; const sh = show[base2] == null ? 1 : show[base2]; if (sh <= 0.01) continue;
-    ctx.save(); ctx.globalAlpha *= sh * (base + (1 - base) * l); if (l > 0.01) { const g = ctx.createRadialGradient(v[0], v[1], 0, v[0], v[1], v[2] * 3); g.addColorStop(0, rgba(HK.klier, 0.5 * l)); g.addColorStop(1, rgba(HK.klier, 0)); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(v[0], v[1], v[2] * 3, 0, 6.283); ctx.fill(); }
-    ctx.beginPath(); ctx.ellipse(v[0], v[1], v[2], v[3], 0, 0, 6.283); shape(ctx, rgba(HK.klier, 0.75), HK.klierR, 1.5); ctx.restore(); }
-  ctx.restore(); return K;
+  for (const [k, v] of Object.entries(K)) { const naam = k.replace(/[LR]$/, ''); if (naam === 'hypothalamus' || naam === 'hypofyse') continue;
+    const l = lit[naam] || 0; const sh = show[naam] == null ? 1 : show[naam]; if (sh <= 0.01) continue;
+    ctx.save(); ctx.globalAlpha *= sh * (base + (1 - base) * l);
+    if (naam === 'alvleesklier') pancreas(1, 0); else { klierVorm(ctx, naam, v, s); shape(ctx, mix2k(ANA.klier, HK.klier, 0.4), '#B88A2A', 1.4); }
+    if (l > 0.01) { ctx.globalAlpha *= l; ctx.strokeStyle = C.goud; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.ellipse(v[0], v[1], v[2] + 12, v[3] + 12, 0, 0, 6.283); ctx.stroke(); }
+    ctx.restore(); }
+  ctx.restore(); BODY = oud; return K;
 }
-// bloedbaan in het lichaam: lus hart → hoofd → hart → benen → hart (punten t.o.v. lichaam(x,y,s))
-function bloedLus(x, y, s) { const P = (a, b) => [x + a * s, y + b * s]; return [
-  P(14, -210), P(60, -300), P(40, -400), P(20, -540), P(-20, -540), P(-40, -400), P(-60, -300), P(-10, -210),
-  P(-150, -120), P(-160, 60), P(-120, 250), P(-110, 300), P(-60, 300), P(-40, 120), P(-10, 0), P(10, -60),
-  P(40, 0), P(60, 120), P(110, 300), P(160, 300), P(150, 250), P(160, 60), P(150, -120), P(14, -210)]; }
+function mix2k(h1, h2, u) { const a = parseInt(h1.slice(1), 16), b = parseInt(h2.slice(1), 16); const c = [16, 8, 0].map(k => Math.round(lerp((a >> k) & 255, (b >> k) & 255, u))); return `rgb(${c[0]},${c[1]},${c[2]})`; }
+// spieren van het lichaam van klierKaart (lib_anatomie anMuscles) op dezelfde (x, y, s)
+function kaartSpieren(ctx, x, y, s, a) { if (a <= 0.01) return; const oud = BODY; BODY = { cx: x, yb: y + 535 * s, h: 1095 * s }; anMuscles(a); BODY = oud; }
+// hoofd in mediane doorsnede (lib_bio hoofdHersenen) in een zoomcirkel náást het hoofd van klierKaart
+function kopZoom(ctx, x, y, s, a, o = {}) { const { cx = x + 330 * s + 60, cy = y - 470 * s + 40, r = 165, hth = 0, hyp = 0, t = 0 } = o; const head = KP(x, y, s, 0.3, 0.55); let R = null;
+  zoomCircle(ctx, cx, cy, r, head[0], head[1], 'hoofd in doorsnede', a, () => { ctx.fillStyle = C.bgSchema; ctx.fillRect(cx - r, cy - r, 2 * r, 2 * r); R = hoofdHersenen(ctx, cx - 10, cy + 10, r / 300, { hth, hyp, t }); });
+  return R || hoofdHersenen(ctx, cx - 10, cy + 10, r / 300, { a: 0 }); }
+// bloedbaan: hart → hals → hart → benen → hart, in lib_anatomie-eenheden (niet over het gezicht)
+function bloedLus(x, y, s) { const P = (a, b) => KP(x, y, s, a, b); return [
+  P(0.09, 2.15), P(0.08, 1.75), P(0.14, 1.35), P(0.13, 1.02), P(-0.13, 1.02), P(-0.14, 1.35), P(-0.08, 1.75), P(-0.05, 2.15),
+  P(-0.45, 2.45), P(-0.5, 3.1), P(-0.33, 3.9), P(-0.3, 5.2), P(-0.16, 5.2), P(-0.13, 3.9), P(-0.04, 3.2), P(0.0, 2.6),
+  P(0.04, 3.2), P(0.13, 3.9), P(0.16, 5.2), P(0.3, 5.2), P(0.33, 3.9), P(0.5, 3.1), P(0.45, 2.45), P(0.09, 2.15)]; }
+// rustige textuur in het cytoplasma (alleen binnen een cel; prompt v13 C2): weinig, kleine beige stipjes
+function celTextuur(ctx, inside, n = 60, seed = 1, box = [0, 0, 1920, 1080]) { ctx.save(); for (let i = 0; i < n; i++) { const px = box[0] + hash(i * 13 + seed) * box[2], py = box[1] + hash(i * 29 + seed * 7) * box[3]; if (!inside(px, py)) continue; ctx.fillStyle = rgba('#C9B896', 0.1 + 0.05 * hash(i * 3 + seed)); ctx.beginPath(); ctx.arc(px, py, 1.6 + 1.4 * hash(i * 5 + seed), 0, 6.283); ctx.fill(); } ctx.restore(); }
 function bloedNet(ctx, pts, a = 1, col = HK.bloed) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a * 0.7; ctx.strokeStyle = col; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); gladC(pts).forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke(); ctx.restore(); }
 // n hormoondeeltjes die vanaf fractie u0 langs de lus meestromen; spread 0..1 = hoe ver ze al zijn
 function hormoonStroom(ctx, pts, n, t, spread, kind = 'adrenaline', a = 1, r = 9, u0 = 0.55) {

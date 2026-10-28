@@ -27,7 +27,8 @@ function klas(ctx, t, o = {}) {
   // de stoel die achter de leerling omvalt (verder weg, dus kleiner, links achter)
   ctx.save(); ctx.translate(560, 700); ctx.scale(0.62, 0.62); ctx.rotate(-ease(stoel) * 1.5); ctx.fillStyle = '#6E7E9A';
   roundRect(ctx, -172, -420, 22, 420, 8); ctx.fill(); roundRect(ctx, -172, -230, 182, 24, 8); ctx.fill(); roundRect(ctx, -10, -230, 20, 230, 8); ctx.fill(); roundRect(ctx, -190, -420, 70, 110, 12); ctx.fill(); ctx.restore();
-  const pr = person(ctx, 960 + jx, 900 + jy, 600, 1, { armR: { a1: 0.55, a2: 1.25 }, armL: { a1: 0.55, a2: 1.25 }, open: schrik > 0.3 && schrik < 0.9, shirt: '#4F7A6A', hair: '#5A3C2E', hairStyle: 'curly', skin: SKINS[2] });
+  // jij = Noor uit het castboek (ROLLEN.md), zittend aan de schoolbank; geen naam in beeld of stem (B4)
+  const pr = persoon(ctx, 'noor', 960 + jx, 820 + jy, 600, { pose: 'zit', tafel: 650, uit: schrik > 0.3 && schrik < 0.9 ? 'verbaasd' : 'neutraal', t });
   // schoolbank met frontpaneel (verbergt de benen)
   roundRect(ctx, 640, 640, 640, 30, 6); shape(ctx, '#B08A5C', '#8C6A44', 2); ctx.fillStyle = '#8C6A44'; ctx.fillRect(660, 670, 600, 200);
   ctx.fillStyle = '#E6E1D3'; ctx.fillRect(880, 626, 170, 14);
@@ -37,7 +38,7 @@ function klas(ctx, t, o = {}) {
 
 // ---------- zenuw en post (Schema) ----------
 function zenuwLijn(ctx, x, y, s, a, pulse = -1) { // lijn van hersenen via ruggenmerg en arm naar de hand
-  if (a <= 0.01) return; const pts = [[x, y - 470 * s], [x, y - 330 * s], [x + 150 * s, y - 300 * s], [x + 250 * s, y - 120 * s], [x + 300 * s, y + 60 * s]];
+  const pts = [KP(x, y, s, 0, 0.92), KP(x, y, s, 0, 1.45), KP(x, y, s, 0.55, 1.5), KP(x, y, s, 0.9, 2.1), KP(x, y, s, 1.02, 3.0), KP(x, y, s, 1.17, 4.3)]; if (a <= 0.01) return pts;
   ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = HK.zenuw; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.beginPath(); pts.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke();
   if (pulse >= 0 && pulse <= 1) { const p = padPunt(pts, pulse, false); const g = ctx.createRadialGradient(p[0], p[1], 0, p[0], p[1], 34); g.addColorStop(0, rgba('#FFFFFF', 0.95)); g.addColorStop(0.4, rgba(HK.zenuw, 0.8)); g.addColorStop(1, rgba(HK.zenuw, 0)); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(p[0], p[1], 34, 0, 6.283); ctx.fill(); }
   ctx.restore(); return pts;
@@ -55,7 +56,7 @@ function vergTabel(ctx, x, y, o) { const { a = 1, rows = [], rowA = [], colA = [
 
 // ---------- iconen ----------
 function pan(ctx, x, y, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.ellipse(x, y, 70, 22, 0, 0, 6.283); shape(ctx, '#5B6B88', C.line, 2); ctx.fillStyle = '#5B6B88'; ctx.fillRect(x + 60, y - 8, 90, 14); for (let i = 0; i < 3; i++) { ctx.strokeStyle = rgba(C.koraal, 0.8); ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x - 30 + i * 30, y - 34); ctx.bezierCurveTo(x - 40 + i * 30, y - 60, x - 20 + i * 30, y - 70, x - 30 + i * 30, y - 96); ctx.stroke(); } ctx.restore(); }
-function lengteStreep(ctx, x, y, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; person(ctx, x - 50, y, 120, 1, { shirt: '#7FC48F' }); person(ctx, x + 40, y, 200, 1, { shirt: '#7FC48F' }); ctx.restore(); }
+function lengteStreep(ctx, x, y, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; persoon(ctx, 'kind', x - 55, y, 200 * 0.7 / ((CAST.kind && CAST.kind.lengte) || 1), {}); /* ± 1,15 m naast 1,65 m */ persoon(ctx, 'noor', x + 45, y, 200, {}); ctx.restore(); }
 function maan(ctx, x, y, r, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.fillStyle = '#E6E1D3'; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.fill(); ctx.fillStyle = C.bgSchema; ctx.beginPath(); ctx.arc(x + r * 0.45, y - r * 0.25, r * 0.85, 0, 6.283); ctx.fill(); ctx.restore(); }
 function druppel(ctx, x, y, r, a = 1, col = HK.water) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.moveTo(x, y - r * 1.4); ctx.bezierCurveTo(x + r, y - r * 0.2, x + r, y + r, x, y + r); ctx.bezierCurveTo(x - r, y + r, x - r, y - r * 0.2, x, y - r * 1.4); shape(ctx, rgba(col, 0.6), col, 2); ctx.restore(); }
 function glucoseZ(ctx, x, y, r = 12, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; hexagon(ctx, x, y, r, rgba(HK.glucose, 0.55), HK.glucose, 1.5, 0); ctx.restore(); }
@@ -64,14 +65,23 @@ function glucoseZ(ctx, x, y, r = 12, a = 1) { if (a <= 0.01) return; ctx.save();
 function membraanBand(ctx, y, a = 1, xa = 80, xb = 1840) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.fillStyle = rgba(HK.cel, 0.18); ctx.fillRect(xa, y - 22, xb - xa, 44);
   for (let x = xa; x < xb; x += 18) { circ(ctx, x, y - 16, 6, rgba(HK.cel, 0.85)); circ(ctx, x, y + 16, 6, rgba(HK.cel, 0.85)); ctx.strokeStyle = rgba(HK.cel, 0.5); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x - 2, y - 10); ctx.lineTo(x - 2, y + 10); ctx.moveTo(x + 2, y - 10); ctx.lineTo(x + 2, y + 10); ctx.stroke(); }
   metaText(ctx, 'BUITEN DE CEL', xa + 10, y - 50, C.grain, 'left', 24); metaText(ctx, 'IN DE CEL', xa + 10, y + 74, C.grain, 'left', 24); ctx.restore(); }
-function enzymBol(ctx, x, y, r, on, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.arc(x, y, r, 0.35, 6.283 - 0.35); ctx.lineTo(x, y); ctx.closePath(); shape(ctx, on > 0.5 ? rgba(HK.hormoon, 0.55) : rgba(C.enzym, 0.5), on > 0.5 ? HK.hormoonR : C.enzym, 2); ctx.restore(); }
+// gekromd celmembraan (prompt v13 C9: membraan altijd gebogen met de cel) uit de beeldbank; de cel ligt onder het membraan
+const MEM_R = 2600; function memY(my, x) { return my + MEM_R - Math.sqrt(MEM_R * MEM_R - (x - 960) * (x - 960)); }
+function membraanKrom(ctx, my, a = 1, t = 0) { if (a <= 0.01) return; const an = Math.asin(1050 / MEM_R); ctx.save(); ctx.globalAlpha *= a;
+  celTextuur(ctx, (px, py) => py > memY(my, px) + 40, 110, 5);
+  membraanBoog(ctx, 960, my + MEM_R, MEM_R, -Math.PI / 2 - an, -Math.PI / 2 + an, { t, s: 1.25 });
+  metaText(ctx, 'BUITEN DE CEL', 100, my - 110, C.grain, 'left', 24); metaText(ctx, 'IN DE CEL', 100, memY(my, 100) + 110, C.grain, 'left', 24); ctx.restore(); }
+// enzym als gevouwen kralenketen (enzymKluwen uit de beeldbank) in plaats van een pac-man-bolletje
+function enzymBol(ctx, x, y, r, on, a = 1) { if (a <= 0.01) return; enzymKluwen(ctx, x, y, r * 1.25, { a, col: on > 0.5 ? HK.hormoon : C.enzym, seed: 2 + Math.round(x / 50) % 5 }); }
 function cascade(ctx, x, y, u, a = 1) { // 1 → 3 → 9 enzymen, u = 0..1 hoe ver de kettingreactie is
   if (a <= 0.01) return; const lv = [[[x, y]], [], []]; for (let i = 0; i < 3; i++) lv[1].push([x - 260 + i * 260, y + 120]); for (let i = 0; i < 9; i++) lv[2].push([x - 400 + i * 100, y + 240]);
   for (let L = 0; L < 3; L++) lv[L].forEach((p, i) => { const on = clamp(u * 3 - L, 0, 1); if (L > 0) { const par = lv[L - 1][Math.floor(i / 3)]; ctx.save(); ctx.globalAlpha *= a * (0.3 + 0.7 * on); ctx.strokeStyle = on > 0.5 ? HK.hormoon : C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(par[0], par[1] + 22); ctx.lineTo(p[0], p[1] - 22); ctx.stroke(); ctx.restore(); } enzymBol(ctx, p[0], p[1], 22, on, a); });
 }
 function kernMetGen(ctx, x, y, r, gen = 0, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.ellipse(x, y, r, r * 0.75, 0, 0, 6.283); shape(ctx, rgba(C.kern, 0.45), C.kernR, 2);
-  ctx.strokeStyle = rgba(C.kernR, 0.9); ctx.lineWidth = 4; ctx.beginPath(); for (let px = -r * 0.7; px <= r * 0.7; px += 6) { const py = Math.sin(px * 0.08) * 10; px === -r * 0.7 ? ctx.moveTo(x + px, y + py) : ctx.lineTo(x + px, y + py); } ctx.stroke();
-  if (gen > 0.01) { ctx.save(); ctx.globalAlpha *= gen; ctx.strokeStyle = HK.hormoon; ctx.lineWidth = 9; ctx.beginPath(); for (let px = -40; px <= 40; px += 6) { const py = Math.sin(px * 0.08) * 10; px === -40 ? ctx.moveTo(x + px, y + py) : ctx.lineTo(x + px, y + py); } ctx.stroke(); metaText(ctx, 'GEN AAN', x, y + r * 0.75 + 40, C.goud, 'center', 24); ctx.restore(); }
+  // chromatine als losse, zacht kronkelende grijze draden (BEELDAFSPRAKEN; palet B: DNA-ruggengraat grijs)
+  const draad = (k, px) => Math.sin(px * 0.018 + k * 2.1) * r * 0.16 + Math.sin(px * 0.047 + k) * r * 0.05 + (k - 1) * r * 0.22;
+  ctx.strokeStyle = '#97A3B6'; ctx.lineWidth = 3; for (let k = 0; k < 3; k++) { ctx.beginPath(); for (let px = -r * 0.72; px <= r * 0.72; px += 6) { const py = draad(k, px); px === -r * 0.72 ? ctx.moveTo(x + px, y + py) : ctx.lineTo(x + px, y + py); } ctx.stroke(); }
+  if (gen > 0.01) { ctx.save(); ctx.globalAlpha *= gen; ctx.strokeStyle = HK.hormoon; ctx.lineWidth = 8; ctx.beginPath(); for (let px = -40; px <= 40; px += 6) { const py = draad(1, px); px === -40 ? ctx.moveTo(x + px, y + py) : ctx.lineTo(x + px, y + py); } ctx.stroke(); metaText(ctx, 'GEN AAN', x, y + r * 0.75 + 40, C.goud, 'center', 24); ctx.restore(); }
   ctx.restore(); }
 
 // ---------- adrenalineconcentratie (model) ----------
@@ -98,7 +108,7 @@ const SCENES = {
     const x = 700, y = 600, s = 0.8; klierKaart(ctx, x, y, s, { base: 0, show: {}, nieren: 0, hersenen: 1 });
     const z = q.on('zenuwstelsel', 1, 0.8); const p0 = q.at('signaal'); const pu = t > p0 ? clamp((t - p0) / 0.9, 0, 1) : -1;
     zenuwLijn(ctx, x, y, s, z, pu > 0 && pu < 1 ? pu : -1);
-    if (pu >= 1) { const fl = 1 - ramp(t, p0 + 0.9, 1.2); ctx.save(); ctx.globalAlpha *= fl; circ(ctx, x + 300 * s, y + 60 * s, 40, rgba(HK.zenuw, 0.4)); ctx.restore(); }
+    if (pu >= 1) { const fl = 1 - ramp(t, p0 + 0.9, 1.2), hp = KP(x, y, s, 1.17, 4.3); ctx.save(); ctx.globalAlpha *= fl; circ(ctx, hp[0], hp[1], 40, rgba(HK.zenuw, 0.4)); ctx.restore(); }
     metaText(ctx, 'ÉÉN VASTE LIJN · ÉÉN PLEK', 1340, 330, C.grain, 'center', 26 * 1);
     tag(ctx, 'tot 100 m/s', 1340, 450, HK.zenuw, q.on('honderd'));
     tag(ctx, 'en snel weer voorbij', 1340, 560, C.text2, q.on('voorbij'));
@@ -143,16 +153,17 @@ const SCENES = {
       regel(ctx, 'hormoonklier: geen afvoerbuis', 1320, 260, 1, C.text, 36, 'center'); metaText(ctx, 'BLOEDVAT', 1640, 660, HK.bloedL, 'right', 24); ctx.restore(); ctx.restore(); }
     if (kk > 0.01) { const x = 960, y = 620, s = 0.92; const lit = { hypofyse: q.on('hypofyse', 1), hypothalamus: q.on('taalamus', 1) || q.on('hypothalamus', 1), schildklier: q.on('schildklier', 1), bijnier: q.on('Boven', 2) };
       ctx.save(); ctx.globalAlpha *= kk; const K = klierKaart(ctx, x, y, s, { lit, base: 0.3, show: { alvleesklier: 0.3, eierstok: 0.3 } });
-      naamBij(ctx, 'hypofyse', 'onder de hersenen', K.hypofyse[0] + 100, K.hypofyse[1] + 12, lit.hypofyse, 'left');
-      naamBij(ctx, 'hypothalamus', 'deel van de hersenen', K.hypothalamus[0] - 100, K.hypothalamus[1] - 6, lit.hypothalamus, 'right');
-      label(ctx, 'schildklier', 'in je hals', K.schildklier[0] + 30, K.schildklier[1], 1360, 330, lit.schildklier);
-      label(ctx, 'bijnieren', 'boven op de nieren', K.bijnierR[0], K.bijnierR[1], 1400, 560, lit.bijnier);
+      const kz = Math.max(lit.hypofyse, lit.hypothalamus); const HZ = kopZoom(ctx, x, y, s, kz, { cx: 1330, cy: 250, r: 170, hth: lit.hypothalamus, hyp: lit.hypofyse, t });
+      naamBij(ctx, 'hypothalamus', 'deel van de hersenen', 1520, HZ.hth[1] - 10, kz * lit.hypothalamus, 'left');
+      naamBij(ctx, 'hypofyse', 'onder de hersenen', 1520, HZ.hyp[1] + 34, kz * lit.hypofyse, 'left');
+      naamBij(ctx, 'schildklier', 'in je hals', K.schildklier[0] - 60, K.schildklier[1] + 8, lit.schildklier, 'right');
+      naamBij(ctx, 'bijnieren', 'boven op de nieren', K.bijnierL[0] - 200, K.bijnierL[1] + 4, lit.bijnier, 'right');
       ctx.restore(); }
   },
   s08(ctx, t, q) { bg(ctx, 'schema');
     const x = 760, y = 620, s = 0.92; const al = q.on('alvleesklier', 1), ei = q.on('eierstokken', 1);
     const K = klierKaart(ctx, x, y, s, { lit: { alvleesklier: al, eierstok: ei, hypofyse: 0.5, hypothalamus: 0.5, schildklier: 0.5, bijnier: 0.5 }, base: 0.55 });
-    naamBij(ctx, 'alvleesklier', 'in je buik', K.alvleesklier[0], K.alvleesklier[1] + 70, al, 'center');
+    naamBij(ctx, 'alvleesklier', 'in je buik', x - 230, K.alvleesklier[1] + 8, al, 'right');
     label(ctx, 'eierstokken / zaadballen', '', K.eierstokR[0], K.eierstokR[1], 1060, 800, ei);
     const z = q.on('allebei', 1) * (1 - q.on('eierstokken', 1) * 0.0);
     zoomCircle(ctx, 1450, 400, 300, K.alvleesklier[0] + 50, K.alvleesklier[1], 'alvleesklier · vereenvoudigd', z, () => {
@@ -173,11 +184,10 @@ const SCENES = {
     const en = q.on('endocriene', 1), ex = q.on('exocriene', 1);
     tag(ctx, 'endocrien: stof aan het bloed', 520, 230, HK.hormoon, en); tag(ctx, 'exocrien: stof via een afvoerbuis', 520, 330, HK.klier, ex);
     tag(ctx, 'alvleesklier: allebei', 520, 430, C.text2, q.on('allebei', 1));
-    const hy = q.on('hypothalamus', 1); if (hy > 0.01) { ctx.save(); ctx.globalAlpha *= hy; ctx.beginPath(); ctx.ellipse(1350, 420, 300, 200, 0, Math.PI, 0); ctx.closePath(); shape(ctx, rgba(C.paars, 0.18), rgba(C.paars, 0.6), 2);
-      ctx.beginPath(); ctx.ellipse(1350, 400, 60, 38, 0, 0, 6.283); shape(ctx, rgba(HK.klier, 0.6), HK.klierR, 2); metaText(ctx, 'HYPOTHALAMUS', 1350, 330, C.grain, 'center', 24);
+    const hy = q.on('hypothalamus', 1); if (hy > 0.01) { ctx.save(); ctx.globalAlpha *= hy; const HH9 = hoofdHersenen(ctx, 1350, 400, 0.62, { hth: 1, hyp: 0.35, t }); naamBij(ctx, 'hypothalamus', '', HH9.hth[0] + 150, HH9.hth[1] - 60, 1, 'left');
       ctx.restore();
-      const zA = q.on('hersenen', 1); ctx.save(); ctx.globalAlpha *= zA; ctx.strokeStyle = HK.zenuw; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(1120, 300); ctx.lineTo(1300, 390); ctx.stroke(); metaText(ctx, 'ZENUWSIGNAAL', 1100, 280, HK.zenuw, 'center', 22); ctx.restore();
-      const hA = q.on('maakt', 1); for (let i = 0; i < 5; i++) { const u = (t * 0.35 + i / 5) % 1; hormoonVorm(ctx, 1350 + Math.sin(i * 2) * 20, lerp(440, 700, u), 8, 'adh', hA * (1 - u * 0.6)); } metaText(ctx, 'HORMOON → BLOED', 1350, 760, C.goud, 'center', 22 * 1);
+      const zA = q.on('hersenen', 1); ctx.save(); ctx.globalAlpha *= zA; ctx.strokeStyle = HK.zenuw; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(1180, 250); ctx.quadraticCurveTo(1300, 300, 1345, 392); ctx.stroke(); metaText(ctx, 'ZENUWSIGNAAL', 1150, 230, HK.zenuw, 'center', 22); ctx.restore();
+      const hA = q.on('maakt', 1); for (let i = 0; i < 5; i++) { const u = (t * 0.35 + i / 5) % 1; hormoonVorm(ctx, 1355 + Math.sin(i * 2) * 14, lerp(445, 740, u), 8, 'adh', hA * (1 - u * 0.6)); } metaText(ctx, 'HORMOON → BLOED', 1560, 700, C.goud, 'center', 22 * 1);
       tag(ctx, 'hier komen ze samen', 1350, 860, C.goud, q.on('samen', 1)); }
   },
 
@@ -185,13 +195,14 @@ const SCENES = {
   s10(ctx, t, q) { bg(ctx, 'schema');
     const x = 640, y = 620, s = 0.84; const K = klierKaart(ctx, x, y, s, { lit: { bijnier: q.on('bijnieren', 1) }, base: 0.3 });
     // zenuwsignaal van hersenen via ruggenmerg naar de bijnier
-    const za = q.on('zenuwstelsel', 1); const zp = [[x, y - 470 * s], [x, y - 300 * s], [x + 10 * s, y - 120 * s], [K.bijnierR[0], K.bijnierR[1] - 10]];
+    const za = q.on('zenuwstelsel', 1); const zp = [KP(x, y, s, 0, 0.92), KP(x, y, s, 0, 1.6), KP(x, y, s, 0.06, 2.35), [K.bijnierR[0], K.bijnierR[1] - 4]];
     ctx.save(); ctx.globalAlpha *= za; ctx.strokeStyle = HK.zenuw; ctx.lineWidth = 4; ctx.beginPath(); zp.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke();
     const p0 = q.at('signaal'); const pu = clamp((t - p0) / 0.8, 0, 1); if (t > p0 && pu < 1) { const p = padPunt(zp, pu, false); circ(ctx, p[0], p[1], 14, '#FFFFFF'); } ctx.restore();
-    const zm = q.on('bijniermerg', 1); zoomCircle(ctx, 1420, 330, 220, K.bijnierR[0], K.bijnierR[1], 'bijnier in doorsnede', zm, () => { ctx.fillStyle = C.bgMicro; ctx.fillRect(1200, 110, 440, 440);
-      ctx.beginPath(); ctx.ellipse(1420, 330, 180, 130, 0, 0, 6.283); shape(ctx, rgba(HK.klier, 0.35), HK.klierR, 2); ctx.beginPath(); ctx.ellipse(1420, 330, 95, 65, 0, 0, 6.283); shape(ctx, rgba(HK.klier, 0.5 + 0.3 * q.on('adrenaline', 1)), HK.klierR, 2.5);
-      text(ctx, 'schors', 1420, 222, fTekst(28, 600), C.text2, 'center'); 
-      const ad = q.on('adrenaline', 1); for (let i = 0; i < 8; i++) { const w2 = wander(i, t, 50, 0.9); hormoonVorm(ctx, 1420 + w2.x * 1.4, 330 + w2.y, 8, 'adrenaline', ad); } text(ctx, 'merg', 1420, 480, fTekst(32, 700), C.text, 'center'); });
+    const zm = q.on('bijniermerg', 1); zoomCircle(ctx, 1420, 330, 220, K.bijnierR[0], K.bijnierR[1], 'bijnier op de nier', zm, () => { ctx.fillStyle = C.bgSchema; ctx.fillRect(1200, 110, 440, 440);
+      const ad = q.on('adrenaline', 1); const NB = nierBijnier(ctx, 1410, 600, 2.0, { glowMerg: ad, t });
+      naamBij(ctx, 'schors', '', NB.bijnierSchors[0] + 10, NB.bijnierSchors[1] - 80, 1, 'center');
+      for (let i = 0; i < 8; i++) { const w2 = wander(i, t, 30, 0.9); hormoonVorm(ctx, NB.bijnierMerg[0] + w2.x * 1.6, NB.bijnierMerg[1] + w2.y * 0.6 - 10, 8, 'adrenaline', ad); }
+      naamBij(ctx, 'merg', '', NB.bijnierMerg[0] + 80, NB.bijnierMerg[1] + 50, 1, 'left'); });
     const L = bloedLus(x, y, s); bloedNet(ctx, L, q.on('bloed', 1)); hormoonStroom(ctx, L, 30, t, ramp(t, q.at('overal'), 2.5), 'adrenaline', 1, 8, 0.5);
     vraagteken(ctx, 1420, 760, q.on('Welke', 1), 120);
   },
@@ -221,33 +232,33 @@ const SCENES = {
   },
   s14(ctx, t, q) { bg(ctx, 'schema');
     const x = 700, y = 620, s = 0.84; klierKaart(ctx, x, y, s, { base: 0.2, lit: { bijnier: 0.6 } });
-    const sp = q.on('spieren', 1); ctx.save(); ctx.globalAlpha *= sp; for (const [dx, dy] of [[-180, 150], [180, 150], [-190, -230], [190, -230]]) { ctx.beginPath(); ctx.ellipse(x + dx * s, y + dy * s, 40 * s, 90 * s, dx > 0 ? -0.2 : 0.2, 0, 6.283); shape(ctx, rgba(C.koraal, 0.4), C.koraal, 2); } ctx.restore();
+    const sp = q.on('spieren', 1); kaartSpieren(ctx, x, y, s, sp * 0.5);
     hartMeter(ctx, 1240, 200, 125, t, q.on('hart', 1));
     tag(ctx, 'klaar voor een flinke inspanning', 1440, 470, C.goud, q.on('inspanning', 1));
     tag(ctx, 'meer bloed en brandstof', 1440, 560, C.koraal, q.on('brandstof', 1));
     const w = q.on('weet', 1); if (w > 0.01) { ctx.save(); ctx.globalAlpha *= w; roundRect(ctx, 1180, 640, 520, 210, 18); shape(ctx, rgba(C.bgMicro, 0.92), C.line, 1.5); receptor(ctx, 1440, 800, -Math.PI / 2, 'adrenaline', ramp(t, q.at('past'), 1.2), 1, 1.6); metaText(ctx, 'HET PAST, MEER NIET', 1440, 690, C.grain, 'center', 24); ctx.restore(); }
   },
   s15(ctx, t, q) { bg(ctx, 'micro');
-    const my = 330; membraanBand(ctx, my, 1);
-    const ra = Math.max(0.35, q.on('receptor', 1)); receptor(ctx, 960, my - 18, -Math.PI / 2, 'adrenaline', ramp(t, q.at('bindt'), 1.2) * (1 - ramp(t, q.at('loslaat'), 1)), ra, 2.2);
-    // receptor steekt door het membraan heen naar binnen
-    ctx.save(); ctx.globalAlpha *= ra; ctx.fillStyle = rgba(HK.receptor, 0.9); roundRect(ctx, 945, my, 30, 70, 10); ctx.fill(); ctx.restore();
+    const my = 330; membraanKrom(ctx, my, 1, t);
+    // receptor uit de beeldbank: kralenketen die zeven keer door het membraan gaat, pasvorm buiten, vormverandering bij binden
+    const ra = Math.max(0.35, q.on('receptor', 1)); const bnd = ramp(t, q.at('bindt'), 1.2) * (1 - ramp(t, q.at('loslaat'), 1));
+    membraanReceptor(ctx, 960, my, 1.05, { a: ra, bind: bnd, signaal: bnd, ligCol: HK.hormoon, vorm: 'drie', membraan: false, R: MEM_R, t });
     if (ra > 0.01 && t < q.at('bindt')) { for (let i = 0; i < 6; i++) { const w2 = wander(i, t, 30, 0.8); hormoonVorm(ctx, 400 + i * 220 + w2.x, 170 + w2.y, 11, i % 2 ? 'insuline' : 'adrenaline', 0.85); } }
     tag(ctx, 'lost op in water: kan niet door het membraan', 960, 110, C.text2, fade(q, 'water', 1, 'bindt', 1));
     const cu = clamp((t - q.at('kettingreactie')) / 3, 0, 1) * (1 - ramp(t, q.at('loslaat'), 1.5)); cascade(ctx, 960, 470, cu, q.on('kettingreactie', 1));
-    tag(ctx, 'signaaltransductie', 1500, 470, C.goud, q.on('signaaltransductie', 1));
-    tag(ctx, 'binnen seconden · groot effect', 1500, 570, C.goud, q.on('seconden', 1));
-    tag(ctx, 'en snel weer voorbij', 1500, 670, C.text2, q.on('voorbij', 1));
+    tag(ctx, 'signaaltransductie', 1560, 560, C.goud, q.on('signaaltransductie', 1));
+    tag(ctx, 'binnen seconden · groot effect', 1560, 650, C.goud, q.on('seconden', 1));
+    tag(ctx, 'en snel weer voorbij', 1560, 740, C.text2, q.on('voorbij', 1));
   },
   s16(ctx, t, q) { bg(ctx, 'micro');
-    const my = 260; membraanBand(ctx, my, 1);
+    const my = 260; membraanKrom(ctx, my, 1, t);
     const st = q.at('Steroïdhormonen'), dw = q.at('dwars'), rk = q.at('receptor'), kn = q.at('kern'), ew = q.at('eiwitten'), sk = q.at('Schildklierhormoon');
     const kx = 1300, ky = 640; kernMetGen(ctx, kx, ky, 230, q.on('genen', 1) * (1 - q.on('Schildklierhormoon', 1)), 1);
     // het cortisolmolecuul: buiten → door het membraan → bindt aan receptor in het cytoplasma → naar de kern
     const pIn = ramp(t, dw, 1.6), pB = ramp(t, rk + 0.3, 1.0), pK = ramp(t, kn, 2.0); const sA = q.on('Steroïdhormonen', 1) * (1 - q.on('Schildklierhormoon', 1));
     let hx = lerp(560, 600, pIn), hy = lerp(140, 470, pIn); const rx = 640 + pK * (kx - 120 - 640), ry = 520 + pK * (ky - 520);
     if (pB > 0.01) { hx = lerp(hx, rx - 18, pB); hy = lerp(hy, ry - 30, pB); }
-    ctx.save(); ctx.globalAlpha *= sA * q.on('receptor', 1); ctx.beginPath(); ctx.arc(rx, ry, 34, 0.5, 6.283 - 0.5); ctx.lineTo(rx, ry); ctx.closePath(); shape(ctx, rgba(HK.receptor, 0.85), lighten(HK.receptor, 0.3), 1.5); metaText(ctx, 'RECEPTOR IN DE CEL', rx, ry + 70, C.grain, 'center', 22); ctx.restore();
+    ctx.save(); ctx.globalAlpha *= sA * q.on('receptor', 1); enzymKluwen(ctx, rx, ry, 40, { col: HK.receptor, sluit: pB, seed: 3 }); metaText(ctx, 'RECEPTOR IN DE CEL', rx, ry + 70, C.grain, 'center', 22); ctx.restore();
     hormoonVorm(ctx, hx, hy, 22, 'cortisol', sA);
     tag(ctx, 'gemaakt van cholesterol · lost op in vet', 1300, 110, C.text2, fade(q, 'cholesterol', 1, 'dwars', 1));
     tag(ctx, 'cortisol · testosteron · oestrogeen', 1300, 190, HK.hormoon, fade(q, 'testosteron', 1, 'dwars', 1));

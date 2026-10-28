@@ -5,14 +5,15 @@
 | Bestand | films/hormonen/1-post-voor-iedereen.html (audio in films/hormonen/1-post-voor-iedereen/audio/) |
 | Reeks / nummer | Hormonen, film 1 van 5 (seriebrief in de Claude-doc *Seriebriefs uitlegfilms biologie*) |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blokken gelabeld: s09 (endocrien/exocrien, hypothalamus als schakel), s15–s18 met vraag q17 (membraanreceptor en signaaltransductie tegenover steroïdhormoon). Havo/Vwo-schakelaar, standaard Vwo |
-| Versie / datum | 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus; wacht op review door Kamiel) |
-| Prompt | onbekend · gemaakt 14 okt |
+| Versie / datum | **1.1 · 28 oktober 2026** — opwaardering naar prompt v13 (B14, zonder keuring): alleen beeld, stem en script ongewijzigd; oude versie in `bron/oud/1-post-voor-iedereen-v1.0.html`. 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus) |
+| Prompt | v13 |
+| Voldoet aan | prompt v13 (28 okt 2026, zonder keuring). Bewust niet: geen nieuwe opnames (de vragen hieronder en in `opwaardering-v13.md`); de doelcellen in s12 houden hun eigen receptor-'schoteltjes' (een kralenketenreceptor op 170 px per cel is een nieuwe tekening, voorgesteld voor de bibliotheek); de stoel en het klaslokaal in s01 blijven zoals ze waren; geen nieuwe caststijl met contourlijnen (nog niet goedgekeurd) |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow MMVz2cMbifnhMLPuXMzr; nodes en sessies in `stem/takes.json`) |
 | Duur | spraak 7:51 (vwo) / 6:00 (havo). Speeltijd met kaarten en vragen: vwo ≈ 9½ min, havo ≈ 7½ min |
 | Beeldstijl | Part C: Macro (klaslokaal, cold open), Schema (navy #1A2740: lichaamskaart met klieren, bloedbaan, tabellen, bak met kraan, grafiek), Micro (#121A26: doelcellen, membraan, kern); UI-laag vast; canvas 1920×1080. Seriekleuren in `lib_hormonen.js` (`HK`): hormonen goud met eigen vorm (adrenaline druppel, insuline zeshoek, glucagon ruit, cortisol ring, thyroxine ster, ADH driehoek), klieren oker, zenuw paars, bloed #B5574A, receptor #AFC0D0 |
 | Audio-opslag | 19 losse mp3's in audio/ (s01 … s23), loudnorm −15 LUFS, piek −1,5 dBTP, mono 44,1 kHz 96 kb/s; niet in de HTML ingebed |
 | Lettertypen | Fraunces 700, Source Sans 3 400/600/700, IBM Plex Mono 500 — ingebed als base64 |
-| Herkomst | gebouwd op 14 oktober 2026 met de bouwstraat van de voedingsreeks (`bouw/`), aangevuld met de seriebibliotheek `lib_hormonen.js` (nieuw; bevat ook `personReal` uit de DNA-bouwstraat) |
+| Herkomst | gebouwd op 14 oktober 2026 met de bouwstraat van de voedingsreeks (`bouw/`), aangevuld met de seriebibliotheek `lib_hormonen.js` (nieuw; bevat ook `personReal` uit de DNA-bouwstraat). Sinds 1.1 ook `lib_cast.js`, `lib_anatomie.js` (personages/) en `lib_bio.js` (bibliotheek/, stand 28 okt 2026) in `src/`, geplakt na lib_hormonen.js (`bouw/build.py`) |
 
 ## Bronbestanden in deze map
 
@@ -58,21 +59,23 @@ Checkvragen (statisch in de pagina): 1 Afvoerbuis en hormoonklier · 2 Zelfde ho
 
 Begrippen: hormoon, hormoonklier, receptor, doelcel/doelorgaan, bijniermerg, adrenaline, hypothalamus, hypofyse, eilandjes van Langerhans, concentratie; vwo: endocriene/exocriene klier, signaaltransductie, steroïdhormoon.
 
-## Waar wat in de HTML zit (regelnummers in `1-post-voor-iedereen.html`)
+## Waar wat in de HTML zit (regelnummers in `1-post-voor-iedereen.html`, versie 1.1)
 
 | Regel | Inhoud |
 |---|---|
 | 7–65 | Fonts (base64) en CSS |
-| 69 | Sitebalk `<nav class="sitenav">` met "← Terug naar Regeling" |
-| 76–100 | Speler: canvas, ondertitelband, knoppen, Havo/Vwo- en Leerling/Klas-schakelaar |
-| 101–145 | Checkvragen (101–111), Voor de docent (112–145) |
-| 146 | `window.FILMDATA` — segmenten, woordtijden, vragen, titelkaart (uit `build_data.py`) |
-| 147–368 | `lib.js`: Part C-tokens, `label`, `zoomCircle`, `human` |
-| 369–939 | `lib_voeding.js` (gebruikt: `lichaam`, `glycogen`, `hexagon`, `proteinChain`, `coilPath`, `arrow`, `klok`, `padPunt`, `gladC`) |
-| 940–1188 | `lib_hormonen.js`: seriebibliotheek (`person`, `HK`, `hormoonVorm`, `receptor`, `doelcel`, `hartMeter`, `klierKaart`, `bloedLus`, `grafiek`, `bakKraan`, `kringSchema`, `eilandje`, `cel`, `glycogeenKeten`, `telefoon`, …) |
-| 1189–1268 | `scenes.js`: hulpstukken van deze film |
-| 1269–1498 | `SCENES`: title 1270 · s01 1273 · s04 1285 · s05 1295 · s06 1306 · s07 1318 · s08 1340 · s09 1360 · s10 1373 · s12 1386 · s13 1397 · s14 1410 · s15 1418 · s16 1430 · s18 1449 · s19 1457 · s20 1463 · s21 1470 · s22 1478 · s23 1487 |
-| 1499–1666 | `GLOSSARY` en `player.js` (havo slaat vwo-segmenten over) |
+| 74 | Sitebalk `<nav class="sitenav">` met "← Terug naar Regeling" |
+| 151 | `window.FILMDATA` — segmenten, woordtijden, vragen, titelkaart |
+| 152–380 | `lib.js`: Part C-tokens, `bg` (sinds 1.1 zonder korrel), `naamBij`, `zoomCircle` |
+| 381–953 | `lib_voeding.js` |
+| 954–1224 | `lib_hormonen.js`: `HK`, `hormoonVorm`, `receptor`, `doelcel` (met `celTextuur`), `klierKaart` (1087; sinds 1.1 lib_anatomie-lichaam), `KP`, `bloedLus`, `kopZoom`, `kaartSpieren`, grafiek, bakKraan … |
+| 1225–2037 | `lib_cast.js` (castboek, `persoon` 1498) |
+| 2038–2311 | `lib_anatomie.js` (`anFigure`, `anKidney`, `anMuscles`, `pancreas`) |
+| 2312–10752 | `lib_bio.js` (beeldbank: `hoofdHersenen` 2357, `nierBijnier`, `membraanBoog`, `membraanReceptor`, `enzymKluwen`) |
+| 10753–11072 | `scenes.js`: hulpstukken (o.a. `membraanKrom`, `memY`, `enzymBol`, `kernMetGen`) en `SCENES` (10843; s01 10847, s07 10892, s10 10947, s15 10993, s16 11005) |
+| 11073–11259 | `GLOSSARY` en speler |
+
+Stand na een bouw kan een paar regels verschuiven; zoek op de functienaam. Sinds 1.1 is de site-HTML bijgewerkt door alleen de drie scriptblokken (lib, seriebibliotheken, scènes) te vervangen, zodat de latere spelerpatches (spelerfix, antwoordtekst enz.) bleven staan.
 
 ## Hoe je de film aanpast
 
@@ -130,3 +133,21 @@ Kamiel koos in de uitspraaktest (18–19 okt, 4 rondes) hoe de risicowoorden moe
 | Segment | TTS-node | Generatie | Credits | Duur |
 |---|---|---|---|---|
 | s16 | Pnls1Ho5rlSdCxpuUSYL | FtqICi4gyFMhshQfDcnC | 611 | 41.73 s |
+
+
+## Wijzigingen 1.1 (28 okt 2026): opwaardering naar prompt v13 (zonder keuring)
+
+Alleen beeld; stem, script, vragen, tijden en speler ongewijzigd. Contactvel van de gewijzigde scènes bekeken; alle beelden in vwo en havo doorgelopen zonder JS-fouten; vragen afgespeeld met `?vragen=uit`.
+
+- Alle micro-scènes: geen korrel meer over het hele beeld (`bg`); rustige stipjes alleen binnen een cel (`celTextuur` in doelcel en onder het membraan).
+- Titel, s04, s05, s07, s08, s10, s14: het grijze dummylichaam (blokromp, smileyhoofd) vervangen door het realistische lichaam uit `lib_anatomie.js`; klieren op hun echte plek (schildklier in de hals, bijnier als kapje op de nier, alvleesklier achter de maag, eierstokken in het bekken); oplichten = gouden ring in plaats van gloed. Bloedbaan en zenuwbaan opnieuw in lichaamseenheden (`KP`), niet over het gezicht.
+- s01: de leerling is Noor uit het castboek (zit aan de bank, kijkt verbaasd bij de knal); geen naam in beeld of stem.
+- s06: 'groeien' = Teun (± 1,15 m) naast Noor (± 1,65 m) in plaats van twee zelfgetekende poppetjes.
+- s07: hypothalamus en hypofyse niet meer als stippen op het gezicht, maar in een zoomcirkel naast het hoofd met de hoofddoorsnede uit de beeldbank (`hoofdHersenen`); namen schildklier en bijnieren direct bij het orgaan.
+- s08: naam alvleesklier naast het lichaam, zodat hij niet meer over de eierstokken valt.
+- s09 (vwo): halve ellips 'hersenen' vervangen door `hoofdHersenen` met oplichtende hypothalamus.
+- s10: bijnier in doorsnede = `nierBijnier` uit de beeldbank (bijnier op de nier, merg licht op bij 'adrenaline').
+- s14: koraal ovalen 'spieren' vervangen door de spieren van het lichaam (`anMuscles`, half doorzichtig).
+- s15 (vwo): recht membraan → gebogen fosfolipidendubbellaag (`membraanBoog`); receptor = kralenketen met zeven doorgangen en G-eiwit (`membraanReceptor`); enzymen van de kettingreactie als gevouwen kralenketen (`enzymKluwen`) in plaats van pac-manbolletjes; tags lager zodat ze niet over het membraan vallen.
+- s16 (vwo): gebogen membraan; receptor in de cel als kralenketen (`enzymKluwen`); DNA in de kern als drie losse, zacht kronkelende grijze draden (palet B) in plaats van een paarse golflijn.
+- Bronnenlogboek `bron/bronnen.md` (eerste ronde). Lijsten voor Kamiel: `bron/opwaardering-v13.md`.

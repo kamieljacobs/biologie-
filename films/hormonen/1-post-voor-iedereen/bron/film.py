@@ -8,7 +8,7 @@ film = {
  "lead": "Je lichaam heeft twee manieren om een bericht te sturen: zenuwen en hormonen. Een hormoon is een stof die een klier aan het bloed afgeeft. Het komt overal, maar alleen cellen met een passende receptor reageren. En hoe lang het werkt, hangt af van afgifte en afbraak: daarom bonkt je hart na een schrik nog minuten door.",
  "endHaak": "klier, bloed, receptor",
  "minis": {"Hoofdstuk 1": "Hoe verschilt een hormoon van een zenuwsignaal, en waar zitten de klieren?", "Hoofdstuk 2": "Waarom reageert niet elke cel op een hormoon?", "Hoofdstuk 3": "Waarom werkt een hormoon nog na als de klier stopt?", "Recap": "Waarom bonkt je hart nog minuten na de knal?"},
- "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.1 · 28 oktober 2026 (prompt v13).",
  "questions": {
   "q02": {"q": "Na de knal blijft je hart nog minuten bonken, terwijl je allang weet dat er niets aan de hand is. Waarom stopt dat niet meteen?", "correct": 1, "explain": "Onthoud je keuze. Het antwoord zie je in hoofdstuk 3 en aan het eind."},
   "q11": {"q": "Het bijniermerg geeft adrenaline af en het bloed brengt die overal heen. Welke cellen reageren op de adrenaline?", "correct": 2, "explain": "Adrenaline komt echt overal, maar alleen cellen met een passende receptor reageren. Zo'n cel heet een doelcel."},
