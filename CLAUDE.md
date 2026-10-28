@@ -15,6 +15,8 @@ Kamiel wil films later makkelijk kunnen aanpassen. Daarom geldt bij **elke** fil
 4. Voeg de film toe aan de tabel/bouwvormen in `films/BRONMAPPEN.md` als het een nieuwe bouwvorm is.
 5. Zet in de film de sitebalk (`<nav class="sitenav">`) met "← Terug naar <hoofdstuk>" naar `index.html#<hoofdstuk>`. Voeg de film toe aan `HOOFDSTUKKEN.<hoofdstuk>.films` in `index.html` (href, titel, vraag, tekst, duur, bij) en geef hem een lijntekening in `FILMKUNST` (sleutel = bestandsnaam zonder .html). Een nieuw hoofdstuk krijgt een eigen `HOOFDSTUKKEN`-blok, een kleur in `KLEUR` en een verwijzing (`#<id>`) in `NIVEAUS`.
 
+6. Draai `python3 scripts/nieuwste_films.py` en commit `films/nieuwste.json` mee (zie 'Nieuw op de site').
+
 Controle vóór elke push: `find films -name '*.html' -not -path '*/bron/*'` mag geen film opleveren zonder bronmap.
 
 ## Bronnenlogboek: controle van de vakinhoud (Kamiel 25 okt 2026)
@@ -196,3 +198,7 @@ Tools tijdelijk verborgen (Kamiel 26 okt 2026): op de site en in de jaarplanner 
 ## Leerdoelen en toetsen (26 okt 2026)
 
 Kamiel wil leerdoelen (boek + films, gecontroleerd tegen de eindtermen) en toetsen per hoofdstuk, eerst als oefentoets op de site. Werkwijze, stappen en de prompt voor een nieuwe chat staan in `toetsen/WERKWIJZE.md`; nog niet begonnen (wacht op de leerdoelen uit het boek).
+
+## Nieuw op de site (Kamiel 28 okt 2026)
+
+Op de hoofdpagina staat onder de titelkaart de rij 'Nieuw op de site': de 10 laatst gemaakte films als medaillons met datum en thema (sectie `#nieuwste`, functie `nieuwsteLaden()` in index.html; breed 2 rijen van 5, op de telefoon één rij om opzij te vegen). De data staat in `films/nieuwste.json`, gemaakt met `python3 scripts/nieuwste_films.py [aantal]`: 'gemaakt' = de datum waarop het filmbestand voor het eerst in de repo kwam (git-geschiedenis; een remake op hetzelfde pad houdt dus de oude datum). Telt films uit `HOOFDSTUKKEN` (ook extra en onderbouw) en `films/vervolg/films.json`. Vereist de volledige geschiedenis: bij een ondiepe clone eerst `git fetch --filter=blob:none --unshallow origin main`. Draai het na elke nieuwe film, in dezelfde commit.

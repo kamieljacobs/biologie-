@@ -469,6 +469,8 @@ a.tool:hover h3{color:var(--goud-text)}
 .wand{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:14px 10px}
 .tegel{display:flex;flex-direction:column;align-items:center;gap:7px;padding:6px 2px 4px;border-radius:12px;color:inherit;text-decoration:none;text-align:center;position:relative}
 .tegel[hidden]{display:none}
+.nieuwste{padding-top:8px;padding-bottom:8px}.nieuwste .wand{grid-template-columns:repeat(5,minmax(0,1fr))}
+@media(max-width:700px){.nieuwste .wand{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;padding-bottom:6px;-webkit-overflow-scrolling:touch}.nieuwste .tegel{flex:0 0 118px;scroll-snap-align:start}}.nieuwste .tegel small{line-height:1.3}
 .tegel .rond{width:72px;height:72px;border-radius:999px;overflow:hidden;border:1px solid color-mix(in srgb,var(--goud) 45%,transparent);background:#0F1726;display:flex;align-items:center;justify-content:center;flex:none}
 .tegel .rond img{width:100%;height:100%;display:block;transition:transform .25s}
 .tegel .rond svg{width:46px;height:46px}
@@ -3198,6 +3200,15 @@ function grondWissel(){
     const zicht=sets.filter(x=>getComputedStyle(x).display!=='none'),i=zicht.findIndex(x=>x.classList.contains('aan'));sets.forEach(x=>x.classList.remove('aan'));zicht[(i+1)%zicht.length].classList.add('aan');grondVideo()},14000);
 }
 
+/* 'Nieuw op de site' (Kamiel 28 okt 2026): de 10 laatst gemaakte films, uit films/nieuwste.json (python3 scripts/nieuwste_films.py na elke nieuwe film) */
+const MAANDEN=['jan','feb','mrt','apr','mei','jun','jul','aug','sep','okt','nov','dec'];
+function nieuwsteLaden(){
+  fetch('films/nieuwste.json',{cache:'no-cache'}).then(r=>r.json()).then(lijst=>{const sec=document.getElementById('nieuwste'); if(!sec||!lijst.length) return;
+    sec.querySelector('.wand').innerHTML=lijst.map(f=>{const d=new Date(f.datum), id=f.thema==='vervolg'?'gedrag':f.thema, g=gezien[f.href];
+      return `<a class="tegel${g?' is-gezien':''}${f.extra?' is-extra':''}" href="${BASE+esc(f.href)}" title="${esc(f.vraag||f.titel)}"><span class="rond">${filmKunst(f.href,id)}</span>${rv(f.href)}<b>${esc(f.titel)}</b><small>${d.getDate()} ${MAANDEN[d.getMonth()]} · ${esc(f.themaTitel)}</small></a>`}).join('');
+    sec.hidden=false;
+  }).catch(()=>{});
+}
 function home(){
   const nf=id=>HOOFDSTUKKEN[id]?HOOFDSTUKKEN[id].films.length:0;
   const thema=id=>{const h=HOOFDSTUKKEN[id];if(!h)return '';const vwo=/^vwo\b/.test(h.meta||'')?' <span class="vwo-tag mono">vwo</span>':'';
@@ -3210,6 +3221,7 @@ function home(){
       <div class="knoppen"><a class="knop" href="#vlak-basis">Kies een thema</a><a class="knop stil" href="#films">${nFilms('Alle # films')}</a></div>
     </div>
   </section>
+  <section class="wrap blok nieuwste" id="nieuwste" hidden aria-label="Nieuw op de site"><div class="ond-scheiding"><span class="mono">laatst gemaakt</span><h2>Nieuw op de site</h2></div><div class="wand"></div></section>
   <section class="wrap blok vlakken" aria-label="Kies waar je begint">
     <article class="vlak vlak-basis" id="vlak-basis">
       <header><span class="mono vlak-lbl">Alle thema's · havo en vwo</span><h2>Van molecuul tot planeet</h2><p>Biologie geordend van klein naar groot. Elk thema heeft films, tools en oefeningen.</p></header>
@@ -3437,7 +3449,7 @@ function render(){
   document.querySelectorAll('details.menu').forEach(d=>d.toggleAttribute('data-actief',pagina==='pta'||pagina==='onderbouw'));
   document.title=pagina==='home'?'Biologie bij Kamiel':`${pagina==='films'?'Films':pagina==='tools'?'Tools':pagina==='lessen'?'Lessen':pagina==='pta'?'PTA Agora':pagina==='onderbouw'?'Agora onderbouw':HOOFDSTUKKEN[id].titel} · Biologie bij Kamiel`;
   document.body.classList.toggle('op-home',pagina==='home'||pagina==='onderbouw');
-  if(pagina==='home') grondWissel(); else clearInterval(grondTimer);
+  if(pagina==='home'){grondWissel();nieuwsteLaden()} else clearInterval(grondTimer);
   const metKunst=pagina==='home'||(HOOFDSTUKKEN[pagina]&&window.THEMAKUNST&&THEMAKUNST[pagina]);
   document.body.dataset.kunst=metKunst?kunstStand:'uit';
   document.body.classList.toggle('op-thema',!!metKunst&&pagina!=='home');
