@@ -5,8 +5,9 @@
 | Bestand | films/zenuwstelsel/4-knoeien-met-de-spleet.html |
 | Reeks / nummer | Zenuwstelsel, film 4 (pagina: “wat koffie, wijn en medicijnen doen in de synaps · 5 vwo · film 4 van de reeks Zenuwstelsel”; `plan.series`: “Het zenuwstelsel · film 4 van 6”) |
 | Doelgroep / niveau | 5 vwo, één niveau (geen havo/vwo-schakelaar) |
-| Versie / datum | 1.0 · 4 oktober 2026 (credits op de pagina) |
-| Prompt | onbekend · gemaakt 4 okt |
+| Versie / datum | **1.1 · 28 oktober 2026** — opwaardering naar prompt v13 (B14, zonder keuring, alleen beeld; stem, script, vragen en timings gelijk); 1.0 · 4 oktober 2026 |
+| Prompt | v13 |
+| Voldoet aan | prompt v13 (28 okt 2026, zonder keuring). Bewust niet: de film houdt zijn eigen lichte reeksontwerp van vóór Part C (lichte achtergrond, Inter, paars als kleur van neurotransmitter en volgende cel), want omzetten naar de donkere Part C-look is een nieuwe stijl voor de hele reeks (vraag in `opwaardering-v13.md`); de synaps blijft de eigen tekening (de beeldbank heeft `synapsEcht`, maar overstappen raakt elke scène en elk anker); het beloningssysteem blijft één wolk (vraag); geen nieuwe caststijl met contourlijnen (nog niet goedgekeurd); oude versie in `bron/oud/4-knoeien-met-de-spleet-v1.0.html` |
 | Stem / model | Roos (ElevenLabs, eleven_multilingual_v2) |
 | Duur | 5:15 gesproken (som van 13 mp3’s, 315,8 s); speler-totaal incl. titel-, hoofdstuk- en eindkaarten en 5 aftellingen van 8 s: 6:26 |
 | Beeldstijl | Eigen reeksontwerp van vóór de Part C-stijlkaart: vlakke ‘wereld’ in tweeën (links ochtend met koffie, rechts avond met wijn, klokken) en lichte schema-scènes met de synaps van film 3 plus genummerde ingreepkaart, slaapdrukbalk, remketen, signaalmeter; Inter-systeemfont |
@@ -166,6 +167,13 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`; z
 - Verbeterd 12-10-2026: cue in a3 hangt nu aan "remmen" (de stem zegt "af te remmen"), label verschijnt op 3,54 s in het stuk. Dode link `reeks.html` → `../../index.html#regeling`; "film 4 van 7".
 
 ## Wijzigingen
+- **1.1 · 28 okt 2026** — opwaardering prompt v13 (B14, zonder keuring; Regeling-batch). Geen nieuwe opname. Details en open vragen: `opwaardering-v13.md`; vakinhoud: `bronnen.md`.
+  - *s00 (cold open):* de twee grijze poppetjes (rond hoofd, blokvormig lijf) vervangen door castpersonage Linda (moeder van Noor, volwassen; geen naam in beeld of stem): 's ochtends staand achter de tafel (uitdrukking `moe`, bij 'wakker' `blij`), 's avonds zittend op de bank (`neutraal`, bij 'losser' `lacht`). lib_cast.js afgeschermd in de film (`window.CASTSVG`, het castbeeld wordt bij het laden als `<image>` in de SVG gezet; ids `w-eyes1`/`w-eyes1o`/`w-p2a`/`w-p2b`). Ook in de gedimde wereld onder de samenvatting.
+  - *s00:* realistische maten (tafel 75 cm = 284 px): kopje ±10 cm (was ±24 cm), wijnglas ±20 cm (was ±42 cm, zweefde in de lucht) en staat nu op de armleuning.
+  - *s00 (lens), a1–a4 (synaps), a5 (gewenning):* het membraan van de volgende cel aan de kant van de spleet is gebogen in plaats van een rechte lijn.
+  - *Speler (ondertitels):* bij Vragen uit flitste na de sprong nog ±0,15 s de ondertitel ‘Het goede antwoord is B.’; `renderCaption` laat bij Vragen uit de frasen ‘Het goede antwoord is …’ en ‘Wat denk je?’ weg (prompt v8, B9).
+  - *Credits:* versie 1.1; dode link `reeks.html` → `../../index.html#regeling`.
+  - *Let op:* de regelnummers in ‘Techniek: waar zit wat in de HTML’ gelden voor 1.0; in 1.1 staan er vóór `window.FILM_AUDIO` twee scripts bij (lib_cast afgeschermd, ±830 regels, en de castopbouw), dus alles vanaf r. 442 schuift ±845 regels op. Zoek op functienaam.
 - 15 okt 2026 — Speler: de knop Vragen aan/uit (onthouden in `bk-vragen`, ook `?vragen=uit`) werkt nu altijd, ook na spoelen, in pauze en als je hem halverwege omzet. Bij Vragen uit vallen weg: de vraag zelf, de gesproken vraagzin(nen) ervoor (zinnen op '?', 'Wat denk je?', 'Denk even na.', 'Eerst een voorspelling.') en een los antwoord direct erna ('Antwoord B.', 'Ja.', 'Nee.', 'Precies.'); gewone uitlegzinnen blijven staan. De tijdbalk, tijd en hoofdstuktijden tonen de ingekorte duur. Code: `bkBouw()` maakt `BK.k` (stukken die de speler overslaat); regelnummers in de spelercode zijn daardoor een paar regels verschoven. Hoofdstukkaart 2,2 s in plaats van 3,0 s (duur van de `card`-stukken in `SEGS`).
 
 ## Wijziging 16 okt 2026
