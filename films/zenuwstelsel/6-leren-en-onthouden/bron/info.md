@@ -5,10 +5,11 @@
 | Bestand | films/zenuwstelsel/6-leren-en-onthouden.html |
 | Reeks / nummer | Zenuwstelsel, film 6 (pagina: “hoe je hersenen veranderen als je iets leert · 5 vwo · film 6 van de reeks Zenuwstelsel”; `plan.series`: “Het zenuwstelsel · film 6 van 7”) |
 | Doelgroep / niveau | 5 vwo, één niveau (geen havo/vwo-schakelaar) |
-| Versie / datum | 1.0 · 6 oktober 2026 (credits op de pagina) |
-| Prompt | onbekend · gemaakt 6 okt |
+| Versie / datum | **1.1 · 28 oktober 2026** — opwaardering naar prompt v13 (B14, zonder keuring; alleen beeld en één knip in s70; geen nieuwe opname); 1.0 · 6 oktober 2026 |
+| Prompt | v13 |
+| Voldoet aan | prompt v13 (28 okt 2026, zonder keuring). Bewust niet: de fietsers in de cold open en de samenvatting (kind van zes met volwassene, twee tieners) blijven eigen tekeningen, want het castboek heeft geen fietshouding en geen Noor op zesjarige leeftijd (vraag in `opwaardering-v13.md`); eigen lichte reeksontwerp van vóór Part C blijft (vraag voor de hele reeks); eigen hersentekening blijft (zoals film 5); geen nieuwe caststijl; oude versie in `bron/oud/6-leren-en-onthouden-v1.0.html` |
 | Stem / model | Roos (ElevenLabs, eleven_multilingual_v2) |
-| Duur | 6:04 gesproken (som van 15 mp3’s, 364,4 s); speler-totaal incl. titel-, hoofdstuk- en eindkaarten en 5 aftellingen van 8 s: 7:14 |
+| Duur | 6:01 gesproken (som van 15 mp3’s, 360,8 s; s70 is sinds 1.1 3,6 s korter); speler-totaal incl. titel-, hoofdstuk- en eindkaarten en 5 aftellingen van 8 s: 7:01 (was 7:04 volgens de speler, 7:14 in de oude telling) |
 | Beeldstijl | Eigen reeksontwerp van vóór de Part C-stijlkaart: vlakke ‘wereld’ (fietspad, open raam, kind met zijwieltjes en tien jaar later dezelfde persoon), lichte schema-scènes (synaps met toevalsdetector, netwerk van dertig cellen, Pavlov, archiefkaart Henry Molaison, plattegrond met hippocampus, grafieken); Inter-systeemfont |
 | Audio-opslag | 15 fragmenten, één per gesproken segment, als base64-data-URI in `window.FILM_AUDIO` (blobs 001–015) |
 | Reconstructie | 2026-10-12, uit de gepubliceerde HTML |
@@ -162,13 +163,19 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`; z
 
 ## Aandachtspunten
 
-- Eindkaart en slotzin verwijzen naar film 7 “Slaap en stress”, die nog niet in de repo staat.
+- Eindkaart en slotzin verwezen naar film 7 “Slaap en stress”; sinds 1.1 (28 okt 2026) is de slotzin geknipt en zegt de eindkaart ‘Volgende film: Slaap’.
 - Credits: “Naar de reeks: zie reeks.html in de zip” — verwijst naar een zip-levering, niet naar de site; geen werkende link.
 - Nieuwer dan films 1–5: `plan.questions[].optWords` timet de opties op woorden; hoofdstuk 2 heeft twee uitlegsegmenten (s21, s22) vóór de vraag, vandaar 15 fragmenten.
 - Jaartallen staan als “in het jaar 1953”/“Rond het jaar 1900” in de tekst, conform de uitspraakregel. Velden die de speler niet gebruikt: `questions[].misconception`, `segments[]`, `plan.series/next`.
 - Verbeterd 12-10-2026: credits linken naar `../../index.html#regeling`; eindkaart zegt "Volgende film: Slaap en stress (volgt)". De slotzin in de audio noemt film 7 nog wel.
 
 ## Wijzigingen
+- **1.1 · 28 okt 2026** — opwaardering prompt v13 (B14, zonder keuring; Regeling-batch). Details en open vragen: `opwaardering-v13.md`; vakinhoud: `bronnen.md`.
+  - *s22 (Pavlov):* de getekende cartoonhond vervangen door de goedgekeurde herder uit de dierenbibliotheek (`bibliotheek/dieren/lib_dieren.js`, `hond(ctx,'herder',…,{houding:'zitten',kijk:1})`, Kamiel 23 okt 2026), vooraf getekend op 6 px/cm en als `<image>` in `#pv-dog` gezet op 3 px/cm (grondpunt x 525, vloer y 790), zodat de speekseldruppels (vaste plek 612–626, 625) bij de bek vallen. Etensbak op ware grootte (±30 cm, was ±67 cm).
+  - *a1–a5 bij Vragen uit:* na de geknipte antwoordzin was het beeld eerst ±3 s leeg (de scènes faden pas in na de antwoord-overlay, `tReveal = 'antwoord' + 3,2 s`). Nu `tReveal = 'antwoord' − 0,4 s` als de vragen uit staan, zodat het beeld er staat als de vertelling verdergaat; met vragen aan ongewijzigd.
+  - *s70 en eindkaart:* de slotzinnen ‘Maar wat doen ze 's nachts, en als je gestrest bent? Dat zie je in de laatste film.’ uit de take geknipt (na ‘kijkt.’ op 32,38 s, 50 ms uitfaden, 0,35 s stilte; daar −45 à −52 dB, dus geen klankrest); `timing.s70` (duration 32,728, speech, phrases, words), `plan.cues.s70` (‘nachts’ weg), `segments[].text`, het transcript en de laatste regel van de samenvattingskaart (‘'s nachts en bij stress → film 7’) mee aangepast. Eindkaart en `plan.next`: ‘Volgende film: Slaap’ — ‘waarom je hersenen slaap nodig hebben’ — ‘🌙 een nacht doorhalen’ (film 7 heet *Slaap* en is niet de laatste; stress zit in Hormonen 4). Oude take: in `bron/oud/6-leren-en-onthouden-v1.0.html`.
+  - *Speler (ondertitels):* bij Vragen uit flitste na de sprong nog even ‘Het goede antwoord is …’; nu weg.
+  - *Credits:* versie 1.1.
 - 15 okt 2026 — Speler: de knop Vragen aan/uit (onthouden in `bk-vragen`, ook `?vragen=uit`) werkt nu altijd, ook na spoelen, in pauze en als je hem halverwege omzet. Bij Vragen uit vallen weg: de vraag zelf, de gesproken vraagzin(nen) ervoor (zinnen op '?', 'Wat denk je?', 'Denk even na.', 'Eerst een voorspelling.') en een los antwoord direct erna ('Antwoord B.', 'Ja.', 'Nee.', 'Precies.'); gewone uitlegzinnen blijven staan. De tijdbalk, tijd en hoofdstuktijden tonen de ingekorte duur. Code: `bkBouw()` maakt `BK.k` (stukken die de speler overslaat); regelnummers in de spelercode zijn daardoor een paar regels verschoven. Hoofdstukkaart 2,2 s in plaats van 3,0 s (duur van de `card`-stukken in `SEGS`).
 
 ## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen

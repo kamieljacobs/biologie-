@@ -323,7 +323,7 @@ Scène: `micro` (sceneMicro → microAuto())
 *[hoofdstukkaart 3,0 s op 6:27]*
 
 ## 15. s70 — samenvatting
-Audio: blob 015.mp3 (sleutel `s70` in FILM_AUDIO) · 6:30–7:06 (36,4 s mp3; timing.duration 36,362 s)
+Audio: blob 015.mp3 (sleutel `s70` in FILM_AUDIO; bij uitpakken met de huidige filmbron.py heet hij 016.mp3) · 6:30–7:03 (32,8 s mp3 sinds 1.1, was 36,4 s; timing.duration 32,728 s, was 36,362 s)
 Scène: `recap` (sceneRecap())
 
 [0:00.0] Terug naar het fietspad.
@@ -348,13 +348,11 @@ Scène: `recap` (sceneRecap())
 [0:29.5] Ze veranderen door wat je doet,
 [0:30.9] ook nu,
 [0:31.4] terwijl je dit kijkt.
-[0:32.4] Maar wat doen ze 's nachts,
-[0:33.6] en als je gestrest bent?
-[0:34.8] Dat zie je in de laatste film.
+> *Geknipt 28 okt 2026 (versie 1.1):* hier stonden nog ‘Maar wat doen ze 's nachts, en als je gestrest bent? Dat zie je in de laatste film.’ (0:32.4–0:36.4). Film 7 heet *Slaap* en is niet de laatste; stress zit in Hormonen 4. De take is na ‘kijkt.’ afgeknipt (32,38 s + 0,35 s stilte).
 
-> Beeld (cues uit `plan.cues`, op het woord): recap „receptoren” op ‘synapsen’; recap „voetjes” op ‘voetjes’; recap „samen vuren” op ‘Cellen’; recap „fietsen” op ‘fietsen’; recap „nummer” op ‘nummer’; recap „conditionering” op ‘reflex’; recap „hippocampus” op ‘hippocampus’; recap „gesnoeid” op ‘gesnoeid’; recap „nooit af” op ‘nooit’; recap „film 7” op ‘nachts’
+> Beeld (cues uit `plan.cues`, op het woord): recap „receptoren” op ‘synapsen’; recap „voetjes” op ‘voetjes’; recap „samen vuren” op ‘Cellen’; recap „fietsen” op ‘fietsen’; recap „nummer” op ‘nummer’; recap „conditionering” op ‘reflex’; recap „hippocampus” op ‘hippocampus’; recap „gesnoeid” op ‘gesnoeid’; recap „nooit af” op ‘nooit’
 
-*[eindkaart 8,0 s op 7:06: “Volgende film: Slaap en stress — wat je hersenen nodig hebben (🌙 de avond voor een toets)”]*
+*[eindkaart 8,0 s: “Volgende film: Slaap — waarom je hersenen slaap nodig hebben (🌙 een nacht doorhalen)”; tot 28 okt 2026 ‘Slaap en stress’]*
 
 ---
 Controle: 15 gesproken segmenten = 15 audiofragmenten in FILM_AUDIO = 15 mp3-blobs. Som audio (ffprobe) 6:04 (364,4 s); som timing.duration 363,7 s (per fragment ±0,05 s korter dan de mp3, encoderstilte). Filmduur in de speler incl. kaarten en aftellingen: 7:14 (434,7 s).
