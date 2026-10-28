@@ -18,7 +18,7 @@
 // keer opgebouwd en bewaard (snel in een film); alleen het hart en het oplichten worden elke frame getekend.
 // Geeft ankerpunten terug: { hart, hoofd, arm }.
 // =====================================================================================
-const _ECHO_A = { cache: {}, vlak: false, rot: 0 }; // rot = extra draaiing van het kind (rad)
+const _ECHO_A = { cache: {}, vlak: false, min: false, rot: 0 }; // rot = extra draaiing van het kind (rad)
 function _echoAHoofd() { // omtrek van het hoofd met profiel; het gezicht kijkt schuin omhoog (naar de transducer)
   const c = [-120, 0], pts = []; const bult = (th, m, w, h) => h * Math.exp(-((((th - m + 540) % 360 - 180) / w) ** 2));
   for (let th = -40; th <= 318; th += 2) { // graden, 0 = rechts, 90 = onder, 270 = boven (schermassen)
@@ -30,11 +30,11 @@ function _echoAVorm() { // vormen in kind-eenheden (R = 520), oorsprong = midden
   return {
     hoofd: _echoAHoofd(),
     schedel: [[-54, 56], [-90, 78], [-140, 82], [-184, 56], [-202, 10], [-196, -36], [-170, -68]], // achterhoofd-kruin-voorhoofd
-    romp: [[-86, -60], [-20, -70], [50, -70], [110, -56], [150, -30], [176, 0], [172, 40], [140, 62], [80, 74], [20, 76], [-40, 66], [-66, 40], [-60, -10]],
-    dij: [[140, -10], [122, -46], [102, -78]], onderbeen: [[102, -78], [126, -94], [156, -98], [176, -94]],
-    arm: [[-46, -48], [-44, -92], [-66, -108], [-90, -112]],
-    rug: [[-50, 50], [10, 62], [76, 60], [126, 46], [156, 22], [168, -6]],
-    hart: [-14, -22], maag: [66, -24], blaas: [146, 0]
+    romp: [[-80, -56], [-20, -66], [40, -66], [100, -56], [140, -36], [164, -6], [166, 28], [146, 54], [100, 68], [40, 72], [-20, 68], [-56, 52], [-70, 20], [-66, -24]],
+    dij: [[132, -6], [120, -40], [100, -66]], onderbeen: [[100, -66], [128, -80], [156, -80]],
+    arm: [[-50, -46], [-52, -80], [-70, -98]],
+    rug: [[-50, 40], [0, 52], [60, 54], [110, 44], [142, 24], [154, -2]],
+    hart: [-26, -18], maag: [70, -18], blaas: [136, 4]
   };
 }
 function _echoAKorrel(w, h, sd) { // rustige vlekking: ruis op lage resolutie, zacht opgeschaald
@@ -42,8 +42,8 @@ function _echoAKorrel(w, h, sd) { // rustige vlekking: ruis op lage resolutie, z
   for (let i = 0; i < cw * ch; i++) { const v = 200 + Math.floor(hash(sd + i * 1.37) * 55); im.data[i * 4] = im.data[i * 4 + 1] = im.data[i * 4 + 2] = v; im.data[i * 4 + 3] = 255; }
   g.putImageData(im, 0, 0); const o = document.createElement('canvas'); o.width = w; o.height = h; const og = o.getContext('2d'); og.imageSmoothingEnabled = true; og.filter = 'blur(1.5px)'; og.drawImage(c, 0, 0, w, h); return o;
 }
-function _echoABouw(R, s, open, vlak) {
-  const key = [Math.round(R), s.toFixed(2), open.toFixed(2), vlak ? 1 : 0].join('_'); if (_ECHO_A.cache[key]) return _ECHO_A.cache[key];
+function _echoABouw(R, s, open, vlak, min) {
+  const key = [Math.round(R), s.toFixed(2), open.toFixed(2), vlak ? 1 : 0, min ? 1 : 0].join('_'); if (_ECHO_A.cache[key]) return _ECHO_A.cache[key];
   const half = Math.sin(open / 2) * R, W = Math.ceil(half * 2 + 4), H = Math.ceil(R + 2), ox = W / 2; // apex op (ox, 0)
   const c = document.createElement('canvas'); c.width = W; c.height = H; const g = c.getContext('2d');
   const k = R / 520 * s * 0.8, cx = ox + R * 0.04, cy = R * 0.6, rot = _ECHO_A.rot; const F = _echoAVorm();
@@ -57,31 +57,31 @@ function _echoABouw(R, s, open, vlak) {
   const vul = (pts, v, dicht = true) => { g.beginPath(); bioPad(g, pts, dicht); g.fillStyle = grijs(v); g.fill(); };
   const lijn = (pts, v, w) => { g.beginPath(); bioPad(g, pts, false); g.strokeStyle = grijs(v); g.lineWidth = w; g.stroke(); };
   // weke delen
-  lijn(F.dij, 94, 50); lijn(F.onderbeen, 94, 36); g.beginPath(); g.ellipse(178, -92, 18, 11, 0.2, 0, 6.283); g.fillStyle = grijs(94); g.fill(); vul(F.romp, 92); vul(F.hoofd, 88);
+  lijn(F.dij, 94, 46); lijn(F.onderbeen, 94, 34); g.beginPath(); g.ellipse(166, -80, 16, 10, 0.2, 0, 6.283); g.fillStyle = grijs(94); g.fill(); vul(F.romp, 92); vul(F.hoofd, 88);
   g.beginPath(); g.ellipse(-62, -40, 26, 26, 0.4, 0, 6.283); g.fillStyle = grijs(92); g.fill(); // hals/schouder
   // huidrand iets helderder
-  for (const v of [F.romp, F.hoofd]) { g.beginPath(); bioPad(g, v, true); g.strokeStyle = grijs(165, 0.85); g.lineWidth = 5; g.stroke(); } // huid geeft een heldere grens met het vruchtwater
+  for (const [v, h] of [[F.romp, 140], [F.hoofd, 170]]) { g.beginPath(); bioPad(g, v, true); g.strokeStyle = grijs(h, 0.85); g.lineWidth = 5; g.stroke(); } // huid geeft een heldere grens met het vruchtwater
   // hersenen: donkerder binnen de schedel
   g.beginPath(); g.ellipse(-118, 18, 54, 50, 0.1, 0, 6.283); g.fillStyle = grijs(76); g.fill();
   // vochtholtes: maag en blaas zwart
   g.beginPath(); g.ellipse(F.maag[0], F.maag[1], 20, 14, -0.2, 0, 6.283); g.fillStyle = grijs(6); g.fill();
-  g.beginPath(); g.ellipse(F.blaas[0], F.blaas[1], 13, 11, 0.3, 0, 6.283); g.fillStyle = grijs(8); g.fill();
+  if (!min) { g.beginPath(); g.ellipse(F.blaas[0], F.blaas[1], 13, 11, 0.3, 0, 6.283); g.fillStyle = grijs(8); g.fill(); }
   // lever iets helderder onder het hart
-  g.beginPath(); g.ellipse(14, -40, 40, 18, 0.1, 0, 6.283); g.fillStyle = grijs(106, 0.8); g.fill();
+  if (!min) { g.beginPath(); g.ellipse(18, -36, 36, 18, 0.1, 0, 6.283); g.fillStyle = grijs(106, 0.8); g.fill(); }
   // longen rond het hart iets helderder
-  g.beginPath(); g.ellipse(-22, -4, 40, 36, 0, 0, 6.283); g.fillStyle = grijs(112, 0.7); g.fill();
+  if (!min) { g.beginPath(); g.ellipse(-22, -4, 40, 36, 0, 0, 6.283); g.fillStyle = grijs(112, 0.7); g.fill(); }
   // bot: schedel, neusbotje, kaak, wervels, ribben, arm- en beenbotjes
   lijn(F.schedel, 235, 11); // schedelrand (achter het gezicht open: daar zit het aangezicht)
   lijn([[-142, -80], [-145, -91]], 245, 6); // neusbotje
-  lijn([[-90, -66], [-100, -46], [-118, -32]], 185, 6); // onderkaak
-  const rug = bioDicht(F.rug, 22); rug.forEach((p, i) => { const q = rug[Math.min(rug.length - 1, i + 1)], pp = rug[Math.max(0, i - 1)], an = Math.atan2(q[1] - pp[1], q[0] - pp[0]); const nx = -Math.sin(an), ny = Math.cos(an); const d = lerp(9, 3.5, i / (rug.length - 1));
-    for (const sd of [-1, 1]) { g.beginPath(); g.ellipse(p[0] + nx * d * sd, p[1] + ny * d * sd, 5, 3.6, an, 0, 6.283); g.fillStyle = grijs(sd < 0 ? 240 : 205); g.fill(); } });
-  for (let i = 0; i < 4; i++) lijn([[-40 + i * 20, 46], [-46 + i * 20, 12], [-38 + i * 20, -20]], 120, 3); // ribben, zwak
-  lijn([[136, -16], [106, -70]], 235, 8); lijn([[114, -88], [160, -96]], 215, 6); // dijbeen, scheenbeen
-  for (const [px, py] of [[156, 10], [150, 24]]) { g.beginPath(); g.arc(px, py, 6, 0, 6.283); g.fillStyle = grijs(190); g.fill(); } // bekkenbotje
+  if (!min) { lijn([[-88, -70], [-100, -50], [-112, -40]], 185, 6); } // onderkaak
+  const rug = (() => { const D = bioDicht(F.rug, 20), out = [D[0]]; let acc = 0; for (let i = 1; i < D.length; i++) { acc += Math.hypot(D[i][0] - D[i - 1][0], D[i][1] - D[i - 1][1]); if (acc >= 13) { out.push(D[i]); acc = 0; } } return out; })(); rug.forEach((p, i) => { const q = rug[Math.min(rug.length - 1, i + 1)], pp = rug[Math.max(0, i - 1)], an = Math.atan2(q[1] - pp[1], q[0] - pp[0]); const nx = -Math.sin(an), ny = Math.cos(an); const d = lerp(8, 3, i / (rug.length - 1));
+    for (const sd of [-1, 1]) { g.beginPath(); g.ellipse(p[0] + nx * d * sd, p[1] + ny * d * sd, 4, 3.4, an, 0, 6.283); g.fillStyle = grijs(sd < 0 ? 245 : 215); g.fill(); } });
+  if (!min) { for (let i = 0; i < 4; i++) lijn([[-44 + i * 18, 38], [-50 + i * 18, 8], [-42 + i * 18, -22]], 118, 3); } // ribben, zwak
+  if (!min) { lijn([[126, -14], [106, -58]], 200, 7); lijn([[112, -72], [150, -78]], 185, 5); } // dijbeen, scheenbeen
+  if (!min) { for (const [px, py] of [[146, 8], [140, 22]]) { g.beginPath(); g.arc(px, py, 6, 0, 6.283); g.fillStyle = grijs(190); g.fill(); } } // bekkenbotje
   // arm en vuistje (zacht weefsel over de botjes)
-  lijn(F.arm, 100, 26); g.beginPath(); g.ellipse(-94, -112, 15, 12, 0.3, 0, 6.283); g.fillStyle = grijs(100); g.fill();
-  lijn([[-46, -54], [-44, -86]], 220, 6); lijn([[-50, -100], [-80, -110]], 210, 5); for (let f = 0; f < 4; f++) { g.beginPath(); g.arc(-102 + f * 2, -118 + f * 4, 2.4, 0, 6.283); g.fillStyle = grijs(225); g.fill(); }
+  lijn(F.arm, 100, 26); g.beginPath(); g.ellipse(-82, -104, 15, 12, 0.3, 0, 6.283); g.fillStyle = grijs(100); g.fill();
+  if (!min) { lijn([[-50, -52], [-52, -78]], 190, 5); lijn([[-56, -88], [-72, -100]], 180, 4); for (let f = 0; f < 4; f++) { g.beginPath(); g.arc(-90 + f * 3, -112 + f * 3, 2.4, 0, 6.283); g.fillStyle = grijs(225); g.fill(); } }
   // hart in rust: grijze vlek; kamers worden per frame getekend
   g.beginPath(); g.ellipse(F.hart[0], F.hart[1], 30, 25, -0.4, 0, 6.283); g.fillStyle = grijs(96); g.fill();
   g.restore();
@@ -94,9 +94,9 @@ function _echoABouw(R, s, open, vlak) {
 }
 function echoBeeld(ctx, x, y, R, o = {}) {
   const { a = 1, t = 0, hl = {}, s = 1, open = 1.22 } = o;
-  const B = _echoABouw(R, s, open, _ECHO_A.vlak); const F = _echoAVorm(); const k = B.k, bx = x - B.ox;
+  const B = _echoABouw(R, s, open, _ECHO_A.vlak, _ECHO_A.min); const F = _echoAVorm(); const k = B.k, bx = x - B.ox;
   const cr = Math.cos(_ECHO_A.rot), sr = Math.sin(_ECHO_A.rot); const P = (px, py) => [bx + B.cx + (px * cr - py * sr) * k, y + B.cy + (px * sr + py * cr) * k];
-  const ret = { hart: P(F.hart[0], F.hart[1]), hoofd: P(-110, 14), arm: P(-60, -104) };
+  const ret = { hart: P(F.hart[0], F.hart[1]), hoofd: P(-118, 18), arm: P(-62, -92) };
   if (a <= 0.01) return ret;
   const a0 = Math.PI / 2 - open / 2, a1 = Math.PI / 2 + open / 2;
   ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.moveTo(x, y); ctx.arc(x, y, R, a0, a1); ctx.closePath(); ctx.fillStyle = '#000'; ctx.fill(); ctx.save(); ctx.clip();
@@ -104,7 +104,7 @@ function echoBeeld(ctx, x, y, R, o = {}) {
   // kloppend hart: twee donkere kamers die samentrekken (± 140 slagen per minuut)
   const slag = Math.max(0, Math.sin(t * 2 * Math.PI * 2.3)) ** 2; const [hx, hy] = P(F.hart[0], F.hart[1]);
   ctx.save(); ctx.translate(hx, hy); ctx.rotate(-0.4); ctx.filter = `blur(${Math.max(0.6, R / 260)}px)`;
-  for (const [dx, dy, rx, ry] of [[-5, 0, 14, 11]]) { ctx.beginPath(); ctx.ellipse(dx * k, dy * k, rx * k * (1 - 0.3 * slag), ry * k * (1 - 0.3 * slag), 0, 0, 6.283); ctx.fillStyle = 'rgba(14,14,16,0.75)'; ctx.fill(); }
+  for (const [dx, dy, rx, ry] of [[-6, -2, 9, 8], [7, 3, 8, 7]]) { ctx.beginPath(); ctx.ellipse(dx * k, dy * k, rx * k * (1 - 0.3 * slag), ry * k * (1 - 0.3 * slag), 0, 0, 6.283); ctx.fillStyle = 'rgba(30,30,34,0.7)'; ctx.fill(); }
   ctx.filter = 'none'; ctx.restore();
   // oplichten (alleen als het gevraagd wordt)
   const hlv = (n) => clamp(hl[n] || 0, 0, 1);
