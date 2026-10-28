@@ -1,0 +1,597 @@
+{
+ "film": "films/erfelijkheid/2-monohybride-kruisingen.html",
+ "versie": "remake 2.0 · fase 1 · 28 okt 2026",
+ "prompt": "v13 (B16 lichte remake; C8–C10)",
+ "straat": "FILMDATA zoals Chromosomen 2.1: segments.json + scenes_erf2.js (één functie per alinea, cue via q.on/q.at) + teken_erf2.js; libs: lib.js, lib_cast.js, lib_bio.js, lib_micro_evo.js, lib_dieren.js (muizenpop) en teken_chr1.js (kamer, gezin, allelChip, staafAllel)",
+ "niveau": "havo en vwo, één niveau (geen vwo-blokken), zoals Chromosomen 2.1",
+ "kleuren": "vader/stuifmeel teal #5BA4C9, moeder/eicel oker #C9A35C (gelijk aan Chromosomen 2.1: vader boven, moeder links); goud = focus en de genband; fenotype: erwtenbloem lila-paars (vlag #B58CC4, vleugels donker kastanjerood #7C2F52, echte kleur volgens Cretan Flora) en wit #EEEAE0; groen alleen voor plant en conclusies; paars (UI) alleen voor DNA/chromosomen-kader — minder paars (BEELDAFSPRAKEN 28 okt)",
+ "bibliotheek": {
+  "hergebruik": [
+   "kamer, gezin, allelChip, staafAllel, chromatide1, termKaart, misvatting (films/erfelijkheid/1-chromosomen/bron/src/teken_chr1.js)",
+   "gezin De Wit (lib_cast.js)",
+   "muis / MUIS_DEF (bibliotheek/dieren/lib_dieren.js)",
+   "zoomCircle, naamBij, card (lib.js)",
+   "hist mendel (films/extra/geschiedenis-van-de-biologie/bron/scenes_lib.js)"
+  ],
+  "nieuw (kandidaat lib_bio, code in tekeningen/nieuw_erf2.js)": [
+   "erwtBloem (vlinderbloem van opzij; open, zonder meeldraden, stuifmeel, knop)",
+   "erwtenplant (hele plant met steunbladeren, blaadjes, ranken, bloemen, peulen)",
+   "plantje (eenvoudige plant voor schema's)",
+   "labmuis (zwart en albino als kleurvariant van de muizenpop)",
+   "generatieLadder + zelfLus",
+   "meioseAa (vereenvoudigd: één cel → vier gameten)",
+   "kruisSchema (vader boven teal, moeder links oker, fenotypebloempjes)",
+   "f2Veld (929 stippen)"
+  ],
+  "afstemmen met films 3–6": "kruisSchema en plantje/erwtBloem kunnen de andere films ook gebruiken; indeling vader boven/moeder links zoals film 1"
+ },
+ "scenes": [
+  {
+   "id": "title",
+   "look": "Schema",
+   "ziet": "titelkaart: titel links, puzzelvraag eronder (\"Twee ouders met Aa: hoe groot is de kans op aa?\"), rechts een paarse en een witte erwtenbloem (erwtBloem) met tussen hen ×; meta HAVO · VWO · ERFELIJKHEID 2/6",
+   "beweging": "bloemen wiegen heel licht",
+   "nieuw": [],
+   "bieb": []
+  },
+  {
+   "id": "s01",
+   "cue": [
+    "ouders",
+    "albinisme",
+    "Je weet",
+    "verborgen"
+   ],
+   "look": "Macro (kamer, gezin De Wit uit Chromosomen 2.1)",
+   "ziet": "de kamer en het gezin zoals in film 1, lijstjes van de grootouders; bij \"ouders\" gouden ringen onder vader en moeder, bij \"albinisme\" licht het kind met albinisme op; bij \"verborgen\" allelchips Aa bij beide ouders met de a goud omcirkeld en aa bij het kind",
+   "beweging": "rustig ademende personages (lib_cast t); chips faden in op hun cue",
+   "bieb": [
+    "kamer, gezin, allelChip (teken_chr1.js)",
+    "gezin De Wit (lib_cast.js)"
+   ],
+   "twijfel": "T1",
+   "keyframe": "keyframes/t1-opening-gezin-de-wit.webp",
+   "alinea": "Twee ouders zonder albinisme, en toch een kind met albinisme …",
+   "woorden": 23
+  },
+  {
+   "id": "s02",
+   "cue": [
+    "kans",
+    "uitproberen",
+    "Gregor Mendel",
+    "erwten"
+   ],
+   "look": "Macro → snede naar Macro (tuin)",
+   "ziet": "kaartje \"Puzzel: twee ouders met Aa. Hoe groot is de kans op een kind met aa?\" naast de moeder; bij \"Gregor Mendel\" wissel naar de kloostertuin (muurtje, nachtlucht) met rijen erwtenplanten tegen stokjes, paars en wit",
+   "beweging": "snede (zelfde look) met camera die zijwaarts schuift; de planten wiegen",
+   "bieb": [
+    "card"
+   ],
+   "nieuw": [
+    "tuin (vlak decor: lucht, bergen, muurtje, bodem)",
+    "erwtenplant"
+   ],
+   "twijfel": "T1",
+   "keyframe": "keyframes/t1-opening-gezin-de-wit.webp",
+   "alinea": "Maar hoe groot is de kans daarop? Bij mensen kun je dat niet …",
+   "woorden": 21
+  },
+  {
+   "id": "s03",
+   "cue": [
+    "bestuift zichzelf",
+    "kiel",
+    "eigen stamper",
+    "opengaat"
+   ],
+   "look": "Macro → zoomcirkel → Schema-detail",
+   "ziet": "één erwtenplant; zoomcirkel naar een bloem: de vlinderbloem van opzij (vlag, vleugels, kiel); bij \"kiel\" vervagen vleugel en kielwand (opengesneden) en worden meeldraden en stamper zichtbaar; bij \"eigen stamper\" vallen gele stuifmeelkorreltjes van de helmknoppen op de stempel; bij \"opengaat\" sluit de cirkel en gaat de bloem in de plant open",
+   "beweging": "morph open 0→1 (kielwand doorzichtig), stuifmeel als 5 korreltjes in een boog (C8), daarna knop 1→0 (bloem gaat open)",
+   "bieb": [
+    "zoomCircle, naamBij (lib.js)"
+   ],
+   "nieuw": [
+    "erwtBloem (vlinderbloem, opties open/zonder/stuif/knop)",
+    "erwtenplant"
+   ],
+   "twijfel": "T2",
+   "keyframe": "keyframes/t2-zelfbestuiving-erwtenbloem.webp",
+   "alinea": "Een erwtenbloem bestuift zichzelf. Meeldraden en stamper zit …",
+   "woorden": 26
+  },
+  {
+   "id": "s04",
+   "cue": [
+    "raszuivere",
+    "generatie na generatie",
+    "homozygoot",
+    "AA",
+    "aa"
+   ],
+   "look": "Macro (tuin)",
+   "ziet": "twee rijtjes planten: links drie generaties paars onder elkaar (kleine plantjes, oudste achteraan), rechts drie generaties wit; bij \"homozygoot\" de voorste paarse en witte plant groot, chips AA en aa",
+   "beweging": "de generaties groeien één voor één op (plantje uit de grond, morph)",
+   "bieb": [
+    "allelChip"
+   ],
+   "nieuw": [
+    "plantje (eenvoudige plant voor schema's)"
+   ],
+   "alinea": "Mendel begon met raszuivere planten: generatie na generatie  …",
+   "woorden": 24
+  },
+  {
+   "id": "s05",
+   "cue": [
+    "met de hand",
+    "meeldraden weg",
+    "stuifmeel",
+    "stamper"
+   ],
+   "look": "Macro (tuin) + zoomcirkel",
+   "ziet": "Mendel (historische figuur in castboekstijl, zwart pak, bril) tussen een paarse en een witte plant met een pincet; zoomcirkel op een jonge paarse bloem: kiel open, de meeldraden verdwijnen één voor één (pincet), daarna een helmknop van de witte bloem tegen de stempel",
+   "beweging": "pincet beweegt in een boog, kleine anticipatie vóór het pakken (C8); helmknoppen vallen weg (zonder 0→1), stuif 0→1",
+   "bieb": [
+    "persoon (lib_cast) met hold",
+    "erwtBloem"
+   ],
+   "nieuw": [
+    "Mendel als castfiguur (uit Geschiedenis van de biologie: hist mendel)"
+   ],
+   "twijfel": "T3",
+   "keyframe": "keyframes/t3-mendel-handkruising.webp",
+   "alinea": "Hij kruiste ze met de hand. Uit een jonge paarse bloem haald …",
+   "woorden": 27
+  },
+  {
+   "id": "s06",
+   "cue": [
+    "P-generatie",
+    "ouders",
+    "F1",
+    "kinderen",
+    "paars"
+   ],
+   "look": "snede naar Schema",
+   "ziet": "de generatieladder begint: links groot \"P\" met OUDERS, rechts het paarse en het witte plantje met ×; bij \"F1\" pijl omlaag en de rij F1 met drie paarse plantjes, label HUN KINDEREN",
+   "beweging": "ladder groeit regel voor regel (C8 schema lijn voor lijn)",
+   "nieuw": [
+    "generatieLadder",
+    "plantje"
+   ],
+   "keyframe": "keyframes/k1-generaties-p-f1-f2.webp",
+   "alinea": "Die ouders heten de P-generatie, van het Latijnse woord voor …",
+   "woorden": 25,
+   "bieb": []
+  },
+  {
+   "id": "s07",
+   "cue": [
+    "een A",
+    "een a",
+    "Aa",
+    "dominant",
+    "één eigenschap",
+    "monohybride"
+   ],
+   "look": "Schema",
+   "ziet": "uit elk P-plantje vliegt een allel (A oker van de moederplant, a teal van de stuifmeelplant) naar een F1-plantje → chip Aa; bij \"dominant\" licht de paarse bloem op; bij \"monohybride\" termkaart \"monohybride kruising: je let op één eigenschap\"",
+   "beweging": "allellen in een boog, chips faden in",
+   "bieb": [
+    "allelChip",
+    "termKaart (teken_chr1)"
+   ],
+   "nieuw": [],
+   "alinea": "Elke F1-plant kreeg een A van de ene ouder en een a van de a …",
+   "woorden": 38
+  },
+  {
+   "id": "s08",
+   "cue": [
+    "met elkaar",
+    "makkelijk",
+    "zichzelf bestuiven",
+    "Aa"
+   ],
+   "look": "Schema",
+   "ziet": "zelfde ladder; om de F1-rij verschijnt de lus \"zelfbestuiving\" (F1 × F1); kleine inzet: de vlinderbloem met eigen stuifmeel op de stempel, met A en a in de korrels",
+   "beweging": "de lus tekent zich (pijlpunt komt aan op het woord \"bestuiven\")",
+   "bieb": [
+    "erwtBloem"
+   ],
+   "nieuw": [
+    "zelfLus"
+   ],
+   "keyframe": "keyframes/k1-generaties-p-f1-f2.webp",
+   "alinea": "Dan de stap die het verschil maakt: Mendel kruiste de F1-pla …",
+   "woorden": 33
+  },
+  {
+   "id": "s09",
+   "cue": [
+    "tweede generatie",
+    "F2",
+    "ouders",
+    "kinderen van de F1"
+   ],
+   "look": "Schema",
+   "ziet": "rij F2 met vier grijze plantjes en een gouden vraagteken; kaart \"P = ouders · F1 = hun kinderen · F2 = kinderen van de F1\"; bij elk woord licht de rij op die genoemd wordt",
+   "beweging": "rijen lichten op in de volgorde van de zin",
+   "nieuw": [],
+   "keyframe": "keyframes/k1-generaties-p-f1-f2.webp",
+   "alinea": "Hun nakomelingen zijn de tweede generatie: de F2. Dus: P zij …",
+   "woorden": 23,
+   "bieb": []
+  },
+  {
+   "id": "s10",
+   "cue": [
+    "muis",
+    "broer met zus",
+    "inteelt",
+    "proef",
+    "Aa"
+   ],
+   "look": "Schema (zelfde ladder, nu met muizen)",
+   "ziet": "de plantjes schuiven opzij; dezelfde ladder met labmuizen: P zwart × wit (albino, rode ogen), F1 twee zwarte muizen met BROER en ZUS en chips Aa, een gouden ×, F2 met vraagteken; kaart INTEELT (koraal) bij \"inteelt\"",
+   "beweging": "muizen lopen hun plek in (muizenpop, stap), staan dan stil met ademhaling",
+   "bieb": [
+    "muis (lib_dieren.js, MUIS_DEF)"
+   ],
+   "nieuw": [
+    "labmuis (zwart en albino als kleurvariant van de muizenpop)"
+   ],
+   "twijfel": "T4",
+   "keyframe": "keyframes/t4-muizen-broer-zus.webp",
+   "alinea": "Bij dieren gaat dat niet: een muis bevrucht zichzelf niet. D …",
+   "woorden": 37
+  },
+  {
+   "id": "q11",
+   "look": "Schema (vraagkaart)",
+   "ziet": "vraagkaart \"Wat denk je?\" met drie opties",
+   "beweging": "countdown-lijn",
+   "nieuw": [],
+   "alinea": "Wat denk je? Hoe zien de nakomelingen van twee F1-planten er …",
+   "woorden": 13,
+   "bieb": []
+  },
+  {
+   "id": "s12",
+   "cue": [
+    "wit terug",
+    "zevenhonderdvijf",
+    "tweehonderdvierentwintig",
+    "drie op één",
+    "verborgen"
+   ],
+   "look": "Schema",
+   "ziet": "F2-veld: 929 stippen (705 lila, 224 wit) vullen zich rij voor rij; telkaart \"705 paars · 224 wit\", daaronder \"705 : 224 ≈ 3 : 1\"; bij \"verborgen\" kaart (groen) \"Het allel a zat in de F1, naast een A\"",
+   "beweging": "stippen vullen in ± 3 s (n 0→1), de witte flitsen even goud bij \"wit terug\"",
+   "nieuw": [
+    "f2Veld"
+   ],
+   "keyframe": "keyframes/k2-f2-wit-komt-terug.webp",
+   "alinea": "In de F2 kwam wit terug. Mendel telde zevenhonderdvijf paars …",
+   "woorden": 33,
+   "bieb": []
+  },
+  {
+   "id": "s13",
+   "cue": [
+    "verklaren",
+    "F1-plant",
+    "ene chromosoom",
+    "andere"
+   ],
+   "look": "snede naar Schema (cel, vereenvoudigd)",
+   "ziet": "één F1-plantje met zoomcirkel naar een cel met het chromosoompaar: A (oker, van de moederplant) en a (teal, van de stuifmeelplant) met de gouden genband",
+   "beweging": "zoomcirkel opent; chromosomen staan stil",
+   "bieb": [
+    "zoomCircle",
+    "chromatide1, staafAllel (teken_chr1)"
+   ],
+   "nieuw": [
+    "meioseAa (p = 0)"
+   ],
+   "alinea": "Die drie op één kun je verklaren. Neem een F1-plant met Aa.  …",
+   "woorden": 25
+  },
+  {
+   "id": "s14",
+   "cue": [
+    "meiose",
+    "uit elkaar",
+    "één allel",
+    "gameet"
+   ],
+   "look": "Schema",
+   "ziet": "de cel deelt (vereenvoudigd) tot vier cellen: twee met A, twee met a; bij \"gameet\" termkaart \"Gameet: geslachtscel met één chromosoom van elk paar, dus van elk gen één allel\"",
+   "beweging": "morph van één cel naar vier (cellen snoeren in), chromosomen reizen in een boog mee (C8)",
+   "nieuw": [
+    "meioseAa (p 0→1)"
+   ],
+   "keyframe": "keyframes/k3-gameten-meiose.webp",
+   "alinea": "Bij het maken van geslachtscellen, de meiose, gaan de twee c …",
+   "woorden": 29,
+   "bieb": []
+  },
+  {
+   "id": "s15",
+   "cue": [
+    "helft",
+    "kans",
+    "een half",
+    "stuifmeel",
+    "eicellen"
+   ],
+   "look": "Schema",
+   "ziet": "onder de gameten \"A · kans ½\" en \"a · kans ½\"; bij \"stuifmeel\" krijgen de gameten een teal rand en vormen ze de bovenrij van het schema, bij \"eicellen\" een tweede set met oker rand die links gaat staan",
+   "beweging": "gameten schuiven naar hun plek in het (nog lege) kruisingsschema",
+   "nieuw": [],
+   "keyframe": "keyframes/k3-gameten-meiose.webp",
+   "alinea": "De helft van de gameten krijgt A, de andere helft a. De kans …",
+   "woorden": 29,
+   "bieb": []
+  },
+  {
+   "id": "s16",
+   "cue": [
+    "kruisingsschema",
+    "Boven",
+    "links",
+    "vakje"
+   ],
+   "look": "Schema",
+   "ziet": "kruisingsschema 2×2 zoals de vooruitblik van Chromosomen 2.1: STUIFMEEL boven (teal), EICELLEN links (oker), vier lege vakjes; bij \"vakje\" licht één vakje goud op",
+   "beweging": "raster tekent lijn voor lijn",
+   "nieuw": [
+    "kruisSchema"
+   ],
+   "alinea": "Nu het kruisingsschema. Boven zet je de gameten van de ene o …",
+   "woorden": 23,
+   "bieb": []
+  },
+  {
+   "id": "s17",
+   "cue": [
+    "A met A",
+    "A met a",
+    "a met A",
+    "a met a"
+   ],
+   "look": "Schema",
+   "ziet": "de vakjes vullen zich één voor één op hun cue: AA, Aa, Aa, aa; de twee gameten van elk vakje lichten mee op",
+   "beweging": "letters vliegen uit kop en kant het vakje in",
+   "nieuw": [],
+   "keyframe": "keyframes/k4-kruisingsschema.webp",
+   "alinea": "A met A geeft AA. A met a geeft Aa, en a met A ook. a met a  …",
+   "woorden": 20,
+   "bieb": []
+  },
+  {
+   "id": "s18",
+   "cue": [
+    "minstens één A",
+    "aa",
+    "genotypen",
+    "fenotypen"
+   ],
+   "look": "Schema",
+   "ziet": "in elk vakje verschijnt het fenotype als bloempje (3 paars, 1 wit); kaarten GENOTYPEN 1 AA : 2 Aa : 1 aa en FENOTYPEN 3 paars : 1 wit (groen)",
+   "beweging": "bloempjes groeien uit; kaarten in volgorde",
+   "nieuw": [],
+   "keyframe": "keyframes/k4-kruisingsschema.webp",
+   "alinea": "Drie van de vier vakjes hebben minstens één A: paars. Eén va …",
+   "woorden": 34,
+   "bieb": []
+  },
+  {
+   "id": "s19",
+   "cue": [
+    "kwart",
+    "stuifmeel",
+    "eicel",
+    "half keer een half",
+    "productregel"
+   ],
+   "look": "Schema",
+   "ziet": "het aa-vakje goud; de a boven en de a links lichten op met ½; formule ½ × ½ = ¼; termkaart productregel",
+   "beweging": "formule bouwt op per woord",
+   "nieuw": [],
+   "alinea": "Elk vakje heeft een kans van een kwart. Voor aa moet het stu …",
+   "woorden": 39,
+   "bieb": []
+  },
+  {
+   "id": "s20",
+   "cue": [
+    "vier zaden"
+   ],
+   "look": "Schema",
+   "ziet": "één F1-plantje met vier zaadjes in een peul die openspringt",
+   "beweging": "peul opent",
+   "nieuw": [
+    "peul met zaden (erwtenplant-onderdeel)"
+   ],
+   "alinea": "Stel: je zaait vier zaden uit één F1-plant. …",
+   "woorden": 8,
+   "bieb": []
+  },
+  {
+   "id": "q21",
+   "look": "Schema (vraagkaart)",
+   "ziet": "vraagkaart, drie opties",
+   "beweging": "countdown-lijn",
+   "nieuw": [],
+   "alinea": "Wat denk je? Hoeveel van die vier planten bloeien wit? …",
+   "woorden": 10,
+   "bieb": []
+  },
+  {
+   "id": "s22",
+   "cue": [
+    "toeval",
+    "twee paars en twee wit",
+    "heel veel",
+    "kansen",
+    "vier kinderen"
+   ],
+   "look": "Schema",
+   "ziet": "simulatie: stippen vliegen uit willekeurige vakjes naar twee kolommen (lila/wit); na 4: 2 paars, 2 wit (kaart koraal); daarna versnelt het tot 400 (302 : 98 ≈ 3 : 1, kaart groen); misvattingkaart \"De 4 vakjes zijn 4 kinderen → elk vakje is een kans van ¼\"",
+   "beweging": "simulatie met vaste startwaarde (mulberry32), tempo versnelt, teller loopt mee; label SIMULATIE",
+   "bieb": [
+    "misvatting (teken_chr1)"
+   ],
+   "nieuw": [
+    "simulatie (opnieuw gebouwd naar de oude mkOffs)"
+   ],
+   "keyframe": "keyframes/k5-kansen-simulatie.webp",
+   "alinea": "Elke bevruchting is toeval. Bij vier zaden kan het best twee …",
+   "woorden": 42
+  },
+  {
+   "id": "s23",
+   "cue": [
+    "vier stappen",
+    "Eén",
+    "Twee",
+    "Drie",
+    "Vier"
+   ],
+   "look": "Schema",
+   "ziet": "titel STAPPENPLAN KRUISINGSVRAAG met vier kaarten die op hun cue verschijnen (cue voor kaart 4 op het tweede \"Vier\")",
+   "beweging": "kaarten in volgorde",
+   "nieuw": [],
+   "alinea": "Zo los je elke kruisingsvraag op, in vier stappen. Eén: schr …",
+   "woorden": 44,
+   "bieb": []
+  },
+  {
+   "id": "s24",
+   "cue": [
+    "tweede vraag",
+    "AA zijn, of Aa",
+    "zie je dat niet",
+    "witte plant",
+    "terugkruising"
+   ],
+   "look": "Schema",
+   "ziet": "paarse plant met chip \"A?\" naast een witte plant aa; kaart TERUGKRUISING: kruisen met een homozygoot recessieve plant (aa)",
+   "beweging": "× verschijnt tussen de planten",
+   "nieuw": [],
+   "alinea": "Dan de tweede vraag. Deze paarse plant kan AA zijn, of Aa. V …",
+   "woorden": 37,
+   "bieb": []
+  },
+  {
+   "id": "s25",
+   "cue": [
+    "altijd een a",
+    "kleur van elk kind",
+    "helft"
+   ],
+   "look": "Schema",
+   "ziet": "uit de witte plant gaan alleen a-gameten; vier nakomelingen verschijnen, twee paars en twee wit",
+   "beweging": "gameten in een boog naar de nakomelingen",
+   "nieuw": [],
+   "alinea": "De witte plant geeft altijd een a door. Dus bepaalt het alle …",
+   "woorden": 32,
+   "bieb": []
+  },
+  {
+   "id": "q26",
+   "look": "Schema (vraagkaart)",
+   "ziet": "vraagkaart, drie opties",
+   "beweging": "countdown-lijn",
+   "nieuw": [],
+   "alinea": "Wat denk je? Welk genotype had de paarse plant? …",
+   "woorden": 9,
+   "bieb": []
+  },
+  {
+   "id": "s27",
+   "cue": [
+    "AA",
+    "allemaal paars",
+    "Aa",
+    "Eén op één",
+    "één witte"
+   ],
+   "look": "Schema",
+   "ziet": "twee panelen: \"als de plant AA is\" (alles paars) en \"als de plant Aa is\" (1 paars : 1 wit, groen); bij \"één witte\" goud omcirkelde witte nakomeling met kaart \"bewijs: de paarse ouder had een a\"",
+   "beweging": "panelen naast elkaar, nakomelingen groeien",
+   "nieuw": [
+    "plantje"
+   ],
+   "keyframe": "keyframes/k6-terugkruising.webp",
+   "alinea": "Was de paarse plant AA, dan kreeg elk kind een A: allemaal p …",
+   "woorden": 47,
+   "bieb": []
+  },
+  {
+   "id": "s28",
+   "cue": [
+    "gezin",
+    "F1 van Mendel",
+    "kwart",
+    "steeds opnieuw"
+   ],
+   "look": "snede naar Macro (kamer)",
+   "ziet": "terug in de kamer; naast de ouders met Aa een klein kruisingsschema (zelfde als s16, met de kinderen als fenotype); bij \"steeds opnieuw\" lichten de drie kinderen één voor één op met \"¼\"",
+   "beweging": "rustig",
+   "bieb": [
+    "kamer, gezin, allelChip",
+    "kruisSchema"
+   ],
+   "nieuw": [],
+   "alinea": "Terug naar het gezin. Twee ouders met Aa: precies zoals de F …",
+   "woorden": 26
+  },
+  {
+   "id": "s29",
+   "cue": [
+    "drie kinderen",
+    "AA, Aa en aa",
+    "geen drie op één",
+    "weinig"
+   ],
+   "look": "Macro (kamer)",
+   "ziet": "chips AA, aa, Aa boven de drie kinderen (genotypen vast, LEVENSLOOP); kaart \"Per kind: kans op aa ¼, bij elk kind opnieuw\"",
+   "beweging": "chips op hun cue",
+   "nieuw": [],
+   "twijfel": "T5",
+   "keyframe": "keyframes/t5-recap-gezin-drie-kinderen.webp",
+   "alinea": "Dit gezin heeft drie kinderen: AA, Aa en aa. Dat is geen dri …",
+   "woorden": 23,
+   "bieb": []
+  },
+  {
+   "id": "s30",
+   "cue": [
+    "Samengevat",
+    "een half",
+    "combinaties",
+    "drie op één",
+    "één op één",
+    "volgende film"
+   ],
+   "look": "Schema (eindkaart-opbouw)",
+   "ziet": "vier kaarten zoals de eindkaart; onderaan \"Volgende film: voorbij dominant en recessief\" met een lichtroze (intermediair) bloempje als vooruitblik",
+   "beweging": "kaarten in volgorde",
+   "nieuw": [],
+   "alinea": "Samengevat. Elke ouder geeft per gen één allel door, elk met …",
+   "woorden": 52,
+   "bieb": []
+  },
+  {
+   "id": "end",
+   "look": "Schema",
+   "ziet": "eindkaart: drie kernzinnen met annotatiehaak, geen beeld",
+   "beweging": "—",
+   "nieuw": [],
+   "bieb": []
+  }
+ ]
+}

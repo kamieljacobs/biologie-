@@ -1,0 +1,138 @@
+<!doctype html><html lang="nl"><head><meta charset="utf-8"><title>Erf 5 keyframes</title>
+<link rel="stylesheet" href="fonts.css">
+<style>body{margin:0;background:#000}canvas{display:block}</style></head><body>
+<canvas id="c" width="1920" height="1080"></canvas>
+<!-- libs = kopie van de engine van Chromosomen 2.1 (lib.js, lib_voeding.js) + personages/lib_cast.js + bibliotheek/lib_bio.js (28 okt 2026) + teken_chr1.js; render.py zet ze naast dit bestand -->
+<script src="lib.js"></script><script src="lib_voeding.js"></script><script src="lib_cast.js"></script><script>if(typeof circ==="undefined") window.circ=function(ctx,x,y,r,fill,stroke,lw=1.5){ ctx.beginPath(); ctx.arc(x,y,Math.max(0.1,r),0,6.2832); if(fill){ ctx.fillStyle=fill; ctx.fill(); } if(stroke){ ctx.strokeStyle=stroke; ctx.lineWidth=lw; ctx.stroke(); } };</script>
+<script src="lib_bio.js"></script><script src="lib_micro_evo.js"></script><script src="teken_chr1.js"></script><script src="nieuw_erf5.js"></script>
+<script>
+const ctx = document.getElementById('c').getContext('2d');
+function kast(ctx, s) { ctx.save(); ctx.font = fTekst(44, 700); const w = Math.min(1700, ctx.measureText(s).width + 64); roundRect(ctx, W / 2 - w / 2, 930, w, 92, 12); shape(ctx, rgba('#0D1420', 0.9), null); text(ctx, s, W / 2, 990, fTekst(44, 700), C.text, 'center'); ctx.restore(); }
+function vwoBalk(ctx) { ctx.fillStyle = C.paars; ctx.fillRect(0, 0, 6, H); metaText(ctx, 'vwo', 40, 60, C.paars, 'left', 28); }
+function twijfelTag(ctx, s) { ctx.save(); ctx.font = fMeta(24); const w = ctx.measureText(s.toUpperCase()).width + 90; roundRect(ctx, W - w - 30, 24, w, 48, 8); shape(ctx, rgba(C.koraal, 0.18), C.koraal, 1.5); metaText(ctx, s, W - 50, 57, C.koraal, 'right', 24); ctx.restore(); }
+function tafel(ctx, x0, x1, y) { roundRect(ctx, x0, y, x1 - x0, 24, 6); shape(ctx, '#6A5440', '#836A52', 2); ctx.fillStyle = '#54402F'; ctx.fillRect(x0 + 30, y + 24, 22, VLOER - y - 24); ctx.fillRect(x1 - 52, y + 24, 22, VLOER - y - 24); }
+const S = {};
+
+// ---------- T1 · Cold open: opa (moederskant, gezin De Wit) sorteert aardbeien; rechts 'zo ziet hij het' (model)
+S.t1 = () => { kamer(ctx); LIJSTEN.forEach(([id, x]) => lijstje(ctx, id, x, 150, 1, id === 'opabos' ? 1 : 0));
+  persoon(ctx, 'opabos', 760, VLOER, 600, { uit: 'blij', pose: 'wijs', kijk: 1, t: 0.4 });
+  persoon(ctx, 'jens', 1130, VLOER, 400, { uit: 'blij', kijk: -1, t: 1.1 });
+  tafel(ctx, 560, 1420, 640);
+  aardbeienBak(ctx, 820, 630, 300, [1, 0.1, 1, 1, 0.05, 1]); aardbeienBak(ctx, 1180, 630, 300, [0.1, 1, 0.05, 0.1, 1, 0.1]);
+  // rechts van de deellijn: zelfde beeld door het kleurmodel
+  kleurModelDeutan(ctx, 1000, 0, 920, 900);
+  ctx.save(); ctx.strokeStyle = C.goud; ctx.lineWidth = 2; ctx.setLineDash([10, 8]); ctx.beginPath(); ctx.moveTo(1000, 110); ctx.lineTo(1000, 880); ctx.stroke(); ctx.restore();
+  metaText(ctx, 'zo zie jij het', 960 - 30, 120, C.grain, 'right', 28); metaText(ctx, 'zo ziet opa het · model', 1030, 120, C.grain, 'left', 28);
+  kast(ctx, 'Rood en groen lijken voor hem op elkaar.'); twijfelTag(ctx, 'twijfel · opa van De Wit kleurenblind'); };
+
+// ---------- K1 · Jongen of meisje (s04–s07): XX en XY, gameten, de X van een zoon komt van moeder
+S.k1 = () => { bg(ctx, 'schema');
+  // ouders als staafjes (moeder oker, vader teal = Chromosomen 2.1)
+  roundRect(ctx, 150, 140, 520, 330, 16); shape(ctx, rgba(C.fill, 0.9), C.line, 1.5); roundRect(ctx, 1250, 140, 520, 330, 16); shape(ctx, rgba(C.fill, 0.9), C.line, 1.5);
+  text(ctx, 'moeder · XX', 410, 200, fTekst(40, 700), C.text, 'center'); text(ctx, 'vader · XY', 1510, 200, fTekst(40, 700), C.text, 'center');
+  geslStaaf(ctx, 'X', 360, 320, 0.9, XK.moeder); geslStaaf(ctx, 'X', 460, 320, 0.9, XK.moeder);
+  geslStaaf(ctx, 'X', 1460, 320, 0.9, XK.vader); geslStaaf(ctx, 'Y', 1560, 320, 0.9, XK.vader);
+  // gameten
+  eicelEcht(ctx, 410, 640, 90, 1, false); geslStaaf(ctx, 'X', 410, 640, 0.5, XK.moeder); metaText(ctx, 'eicel · altijd x', 410, 780, C.grain, 'center', 28);
+  zaadcelEcht(ctx, 1380, 640, Math.PI, 0.3, 1.6); zaadcelEcht(ctx, 1640, 640, Math.PI, 0.9, 1.6);
+  text(ctx, 'X', 1380, 590, fTekst(40, 700), XK.vader, 'center'); text(ctx, 'Y', 1640, 590, fTekst(40, 700), XK.vader, 'center'); metaText(ctx, 'zaadcellen · helft x, helft y', 1510, 780, C.grain, 'center', 28);
+  // midden: de zoon
+  roundRect(ctx, 760, 520, 400, 290, 16); shape(ctx, rgba(C.bgSchema, 0.96), C.goud, 2); text(ctx, 'zoon', 960, 580, fTekst(40, 700), C.text, 'center');
+  geslStaaf(ctx, 'X', 910, 690, 0.75, XK.moeder); geslStaaf(ctx, 'Y', 1010, 690, 0.75, XK.vader);
+  genoTekst(ctx, G('X:m Y:v'), 960, 790, 48);
+  naamBij(ctx, 'van moeder', null, 880, 650, 1, 'right', XK.moeder); naamBij(ctx, 'van vader', null, 1040, 690, 1, 'left', XK.vader);
+  kast(ctx, 'Een jongen krijgt zijn X altijd van zijn moeder.'); };
+
+// ---------- T4 · Zoomcirkel náást het hoofd van opa naar het netvlies (s09): kegeltjes en staafjes (nieuwe tekening)
+S.t4 = () => { kamer(ctx); ctx.fillStyle = rgba(C.bgSchema, 0.55); ctx.fillRect(0, 0, W, H);
+  const x = 420, h = 900; persoon(ctx, 'opabos', x, VLOER + 420, h, { uit: 'neutraal', kijk: 1, t: 0.2 });
+  const hh = h / 6.1, top = VLOER + 420 - h, oogX = x + hh * 0.3, oogY = top + hh * 0.55;
+  ctx.save(); ctx.strokeStyle = C.goud; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(oogX, oogY, 16, 0, 6.283); ctx.stroke(); ctx.restore();
+  zoomCircle(ctx, 1260, 430, 360, oogX + 18, oogY, 'netvlies · vergroot', 1, () => { chMicro(ctx); const N = netvliesKegels(ctx, 900, 110, 720, 600, { staafjes: 1 });
+    // namen direct bij een onderdeel
+    const iS = N.typen.indexOf('S'), iL = N.typen.indexOf('L'), iM = N.typen.indexOf('M'), iR = N.typen.indexOf('staaf');
+    const xx = i => 900 + (i + 0.5) * N.dx; });
+  naamBij(ctx, 'kegeltjes', 'drie soorten', 1500, 860, 1, 'center'); naamBij(ctx, 'staafjes', 'licht en donker', 1010, 860, 1, 'center');
+  // legenda van de drie lichtgevoelige eiwitten (buitensegment)
+  [['blauw', XK.S], ['groen', XK.M], ['rood', XK.L]].forEach(([s, k], i) => { ctx.beginPath(); ctx.arc(1660, 150 + i * 60, 14, 0, 6.283); shape(ctx, k, lighten(k, 0.3), 1.5); text(ctx, s, 1690, 162 + i * 60, fTekst(36, 600), C.text, 'left'); });
+  metaText(ctx, 'licht ↑', 1260, 760, C.grain, 'center', 26);
+  kast(ctx, 'In je netvlies zitten kegeltjes: zintuigcellen voor kleur.'); twijfelTag(ctx, 'twijfel · nieuwe tekening netvlies'); };
+
+// ---------- T3 · Gevoeligheid en het kleurmodel (s10): krommen + rood-eiwit schuift + zo ziet hij het
+S.t3 = () => { bg(ctx, 'schema'); kegelKrommen(ctx, 130, 700, 900, 460, { schuif: 1 });
+  naamBij(ctx, 'blauw', null, 250, 210, 1, 'center', XK.S); naamBij(ctx, 'groen', null, 610, 210, 1, 'right', XK.M); naamBij(ctx, 'rood', 'afwijkend eiwit', 820, 260, 1, 'left', XK.L);
+  metaText(ctx, 'normaal rood-eiwit', 880, 340, C.text2, 'left', 26);
+  // rechts: dezelfde aardbeien, normaal en in het model
+  roundRect(ctx, 1170, 150, 660, 640, 16); shape(ctx, rgba(C.fill, 0.9), C.line, 1.5);
+  aardbeienBak(ctx, 1500, 380, 360, [1, 0.1, 1, 0.05, 1]); aardbeienBak(ctx, 1500, 670, 360, [1, 0.1, 1, 0.05, 1]); kleurModelDeutan(ctx, 1240, 520, 520, 230);
+  metaText(ctx, 'normaal', 1200, 210, C.grain, 'left', 26); metaText(ctx, 'rood-groen kleurenblind · model', 1200, 500, C.grain, 'left', 26);
+  kast(ctx, 'Dan reageren twee soorten kegeltjes bijna hetzelfde.'); twijfelTag(ctx, 'twijfel · echte kleuren buiten het palet'); };
+
+// ---------- K2 · Kruisingsschema (s17): vader boven, moeder links (zoals de vooruitblik van Chromosomen 2.1)
+S.k2 = () => { bg(ctx, 'schema'); const x0 = 700, y0 = 250, c = 220;
+  metaText(ctx, 'gameten vader', x0 + c * 1.5 + 60, y0 - 130, XK.vader, 'center', 28); metaText(ctx, 'gameten moeder', x0 - 90, y0 + c + 30, XK.moeder, 'center', 28);
+  genoTekst(ctx, G('X:v^A'), x0 + c + c / 2, y0 - 40, 56); genoTekst(ctx, G('Y:v'), x0 + 2 * c + c / 2, y0 - 40, 56);
+  genoTekst(ctx, G('X:m^A'), x0 + c / 2 - 30, y0 + c / 2 + 20, 56); genoTekst(ctx, G('X:m^a'), x0 + c / 2 - 30, y0 + c * 1.5 + 20, 56);
+  const vak = [[['X:m^A X:v^A', 'dochter', 0], ['X:m^A Y:v', 'zoon', 0]], [['X:m^a X:v^A', 'dochter · draagster', 1], ['X:m^a Y:v', 'zoon · kleurenblind', 2]]];
+  for (let i = 0; i < 2; i++) for (let j = 0; j < 2; j++) { const [g, f, s] = vak[i][j], X = x0 + c * (j + 1), Y = y0 + c * i;
+    roundRect(ctx, X + 6, Y + 6, c - 12, c - 12, 14); shape(ctx, s === 2 ? rgba(C.paars, 0.35) : rgba(C.fill, 0.9), s === 2 ? C.goud : C.line, s === 2 ? 3 : 1.5);
+    genoTekst(ctx, G(g), X + c / 2, Y + c / 2, 52); metaText(ctx, f, X + c / 2, Y + c / 2 + 60, s ? C.grain : C.text2, 'center', 24);
+    if (s === 1) { ctx.beginPath(); ctx.arc(X + c - 34, Y + 34, 10, 0, 6.283); shape(ctx, C.paars, C.text, 1.5); } }
+  card(ctx, 1420, 300, 430, 300, 'zonen', 'De helft is kleurenblind. Dochters zien normaal; de helft is draagster.', 1);
+  kast(ctx, 'De helft van de zonen is kleurenblind.'); };
+
+// ---------- K3 · Simulatie 200 kinderen (s18): echte loting, gesorteerd
+S.k3 = () => { bg(ctx, 'schema'); const r = _mb32(11); const kids = []; for (let i = 0; i < 200; i++) { const zoon = r() < 0.5, a = r() < 0.5; kids.push({ zoon, a }); }
+  const zonen = kids.filter(k => k.zoon), doch = kids.filter(k => !k.zoon);
+  const kol = (lijst, x0, titel) => { text(ctx, titel + ' · ' + lijst.length, x0 + 330, 170, fTekst(40, 700), C.text, 'center');
+    lijst.sort((p, q) => q.a - p.a).forEach((k, i) => { const x = x0 + (i % 12) * 56, y = 230 + Math.floor(i / 12) * 66;
+      if (k.zoon) { roundRect(ctx, x, y, 40, 40, 4); shape(ctx, k.a ? C.paars : '#243450', k.a ? lighten(C.paars, 0.4) : C.text, 2); }
+      else { ctx.beginPath(); ctx.arc(x + 20, y + 20, 20, 0, 6.283); shape(ctx, '#243450', C.text, 2); if (k.a) { ctx.beginPath(); ctx.arc(x + 32, y + 32, 6, 0, 6.283); shape(ctx, C.paars, C.text, 1); } } }); };
+  kol(zonen, 140, 'zonen'); kol(doch, 1060, 'dochters');
+  const kb = zonen.filter(k => k.a).length, dr = doch.filter(k => k.a).length;
+  metaText(ctx, 'kleurenblind: ' + kb + ' van ' + zonen.length, 470, 860, C.grain, 'center', 28); metaText(ctx, 'draagster: ' + dr + ' van ' + doch.length + ' · kleurenblind: 0', 1390, 860, C.grain, 'center', 28);
+  metaText(ctx, 'simulatie · loting per kind', 70, 1060 - 200, C.text2, 'left', 0.001);
+  kast(ctx, 'Van álle kinderen is dat dus maar zo\'n kwart.'); };
+
+// ---------- K4 · Stamboom van gezin De Wit (s22): opa → dochter draagster → zonen kans ½
+const STAMBOOM_WIT = [
+  { nr: 1, id: 'opabos', sekse: 'm', x: -260, gen: 1, ziek: 1 }, { nr: 2, id: 'omabos', sekse: 'v', x: -100, gen: 1 },
+  { nr: 3, id: 'opawit', sekse: 'm', x: 160, gen: 1 }, { nr: 4, id: 'omawit', sekse: 'v', x: 320, gen: 1 },
+  { nr: 5, id: 'marieke', sekse: 'v', x: -180, gen: 2, ouders: [1, 2], drager: 1 }, { nr: 6, id: 'dennis', sekse: 'm', x: 240, gen: 2, ouders: [3, 4] },
+  { nr: 7, id: 'sara', sekse: 'v', x: -160, gen: 3, ouders: [5, 6] }, { nr: 8, id: 'levi', sekse: 'm', x: 30, gen: 3, ouders: [5, 6] }, { nr: 9, id: 'jens', sekse: 'm', x: 220, gen: 3, ouders: [5, 6] }];
+S.k4 = () => { kamer(ctx); ctx.fillStyle = rgba(C.bgSchema, 0.86); ctx.fillRect(0, 0, W, H);
+  const A = stamboomSymbolen(ctx, 860, 460, 1.25, { personen: STAMBOOM_WIT, hi: 5 });
+  const lab = (nr, g, sub) => { const [x, y] = A.naam(nr); genoTekst(ctx, G(g), x, y + 10, 40); if (sub) metaText(ctx, sub, x, y + 52, C.grain, 'center', 24); };
+  lab(1, 'X:n^a Y:n', 'kleurenblind'); lab(5, 'X:m^A X:v^a', 'zeker draagster');
+  [8, 9].forEach(nr => { const [x, y] = A.naam(nr); text(ctx, 'kans ½', x, y + 10, fTekst(36, 700), C.goud, 'center'); metaText(ctx, 'kleurenblind', x, y + 48, C.grain, 'center', 24); });
+  const [sx, sy] = A.naam(7); text(ctx, 'kans ½', sx, sy + 10, fTekst(36, 700), C.text2, 'center'); metaText(ctx, 'draagster', sx, sy + 48, C.grain, 'center', 24);
+  card(ctx, 1400, 180, 450, 260, 'van opa', 'Hij heeft maar één X: Xᵃ. Die krijgt elke dochter.', 1);
+  kast(ctx, 'Zijn dochter is dus zeker draagster.'); };
+
+// ---------- K5 · Hemofilie in Europese koningshuizen (s23): ingekorte stamboom, symbolen zonder gezicht
+const STAMBOOM_VIC = [
+  { nr: 1, sekse: 'v', x: -120, gen: 1, drager: 1 }, { nr: 2, sekse: 'm', x: 40, gen: 1 },
+  { nr: 3, sekse: 'v', x: -560, gen: 2, ouders: [1, 2], drager: 1 }, { nr: 4, sekse: 'm', x: -40, gen: 2, ouders: [1, 2], ziek: 1 }, { nr: 5, sekse: 'v', x: 480, gen: 2, ouders: [1, 2], drager: 1 },
+  { nr: 6, sekse: 'v', x: -560, gen: 3, ouders: [3, 13], drager: 1 }, { nr: 7, sekse: 'v', x: 480, gen: 3, ouders: [5, 14], drager: 1 },
+  { nr: 8, sekse: 'm', x: -560, gen: 4, ouders: [6, 15], ziek: 1 }, { nr: 9, sekse: 'm', x: 400, gen: 4, ouders: [7, 16], ziek: 1 }, { nr: 10, sekse: 'm', x: 560, gen: 4, ouders: [7, 16], ziek: 1 },
+  { nr: 13, sekse: 'm', x: -720, gen: 2 }, { nr: 14, sekse: 'm', x: 640, gen: 2 }, { nr: 15, sekse: 'm', x: -400, gen: 3 }, { nr: 16, sekse: 'm', x: 640, gen: 3 }];
+S.k5 = () => { bg(ctx, 'schema'); const A = stamboomSymbolen(ctx, 960, 330, 0.95, { personen: STAMBOOM_VIC });
+  const nm = (nr, s, sub) => { const [x, y] = A.naam(nr); text(ctx, s, x, y + 6, fTekst(30, 600), C.text, 'center'); if (sub) metaText(ctx, sub, x, y + 38, C.grain, 'center', 22); };
+  nm(1, 'Victoria', 'engeland'); nm(4, 'Leopold'); nm(3, 'Alice'); nm(5, 'Beatrice'); nm(6, 'Alexandra', 'rusland'); nm(7, 'Victoria Eugenie', 'spanje'); nm(8, 'Alexei'); nm(9, 'Alfonso'); nm(10, 'Gonzalo');
+  metaText(ctx, 'ingekort · niet alle kinderen getekend', 70, 860, C.text2, 'left', 26);
+  kast(ctx, 'Koningin Victoria van Engeland was draagster.'); };
+
+// ---------- T2 · vwo: eicel met ± 100 000 mitochondriën tegenover de zaadcel; mitochondrion met DNA-ringetjes
+S.t2 = () => { chMicro(ctx); vwoBalk(ctx);
+  eicelEcht(ctx, 520, 470, 330, 1, true);
+  ctx.save(); ctx.beginPath(); ctx.arc(520, 470, 300, 0, 6.283); ctx.clip(); const r = _mb32(5); for (let i = 0; i < 420; i++) { const an = r() * 6.283, d = Math.sqrt(r()) * 290; ctx.beginPath(); ctx.ellipse(520 + Math.cos(an) * d, 470 + Math.sin(an) * d, 7, 3.5, r() * 3, 0, 6.283); ctx.fillStyle = rgba(C.koraal, 0.8); ctx.fill(); } ctx.restore();
+  naamBij(ctx, 'eicel', 'zo\'n 100 000 mitochondriën', 520, 880, 1, 'center');
+  zaadcelEcht(ctx, 1060, 760, 0, 0.5, 2.6); naamBij(ctx, 'zaadcel', 'hooguit zo\'n 100 · afgebroken', 1170, 860, 1, 'left');
+  const M = mitochondrionEcht(ctx, 1460, 340, 1.6, { t: 0.3, rot: -0.2 }); mtRingen(ctx, M, 1.3, 3);
+  naamBij(ctx, 'mitochondriaal DNA', 'ringetje · 37 genen', 1460, 520, 1, 'center');
+  metaText(ctx, 'vergroot · niet op schaal', 1850, 1060 - 200, C.text2, 'right', 26);
+  kast(ctx, 'Al jouw mitochondriën komen dus van je moeder.'); twijfelTag(ctx, 'twijfel · alleen vwo'); };
+
+const id = location.hash.slice(1) || 'k1';
+document.fonts.ready.then(() => { (S[id] || S.k1)(); window.KLAAR = true; });
+</script></body></html>

@@ -1,0 +1,141 @@
+<!doctype html><html lang="nl"><head><meta charset="utf-8"><title>Erfelijkheid 3 keyframes</title>
+<link rel="stylesheet" href="fonts.css">
+<style>body{margin:0;background:#000}canvas{display:block}</style></head><body>
+<canvas id="c" width="1920" height="1080"></canvas>
+<script src="lib.js"></script><script src="lib_cast.js"></script><script src="lib_bio.js"></script><script src="lib_dieren.js"></script><script src="nieuw_erf3.js"></script>
+<script>
+const ctx = document.getElementById('c').getContext('2d');
+function chMicro(ctx) { ctx.fillStyle = C.bgMicro; ctx.fillRect(0, 0, W, H); }
+function chSchema(ctx) { ctx.fillStyle = C.bgSchema; ctx.fillRect(0, 0, W, H); }
+function chMeta(ctx, s, x = W - 70, al = 'right') { metaText(ctx, s, x, 851, C.text2, al, 28); }
+function kast(ctx, s) { ctx.save(); ctx.font = fTekst(44, 700); const w = Math.min(1700, ctx.measureText(s).width + 64); roundRect(ctx, W / 2 - w / 2, 930, w, 92, 12); shape(ctx, rgba('#0D1420', 0.9), null); text(ctx, s, W / 2, 990, fTekst(44, 700), C.text, 'center'); ctx.restore(); }
+function twijfelTag(ctx, s) { ctx.save(); ctx.font = fMeta(24); const w = ctx.measureText(s.toUpperCase()).width + 90; roundRect(ctx, W - w - 30, 24, w, 48, 8); shape(ctx, rgba(C.koraal, 0.18), C.koraal, 1.5); metaText(ctx, s, W - 50, 57, C.koraal, 'right', 24); ctx.restore(); }
+function titelLinks(ctx, s) { text(ctx, s, 70, 120, fTitel(64), C.text, 'left'); }
+const VLOER = 846;
+function kamer(ctx) { ctx.fillStyle = '#20304C'; ctx.fillRect(0, 0, W, H); ctx.fillStyle = '#26385A'; ctx.fillRect(0, 0, W, 90); ctx.fillStyle = '#2F4268'; ctx.fillRect(0, VLOER - 10, W, 10); ctx.fillStyle = '#34405A'; ctx.fillRect(0, VLOER, W, H - VLOER);
+  roundRect(ctx, 120, 170, 260, 330, 8); shape(ctx, '#2C4A6E', '#3E5E86', 3); ctx.fillStyle = '#3E5E86'; ctx.fillRect(247, 170, 6, 330); ctx.fillRect(120, 330, 260, 6);
+  roundRect(ctx, 1560, 610, 260, 226, 8); shape(ctx, '#3A3248', '#4A4058', 2); ctx.fillStyle = '#4A4058'; ctx.fillRect(1560, 720, 260, 4);
+  ctx.fillStyle = '#5FA86E'; ctx.beginPath(); ctx.ellipse(1660, 580, 40, 36, 0, 0, 6.283); ctx.fill(); roundRect(ctx, 1640, 590, 40, 22, 4); shape(ctx, '#B08A5C', null); }
+function macroNacht(ctx) { ctx.fillStyle = C.bgMacroSky; ctx.fillRect(0, 0, W, H); ctx.fillStyle = '#26385A'; ctx.fillRect(0, 520, W, 160);
+  ctx.fillStyle = C.bgMacroHill; ctx.beginPath(); ctx.moveTo(0, 640); for (let x = 0; x <= W; x += 40) ctx.lineTo(x, 610 + Math.sin(x / 260) * 26); ctx.lineTo(W, H); ctx.lineTo(0, H); ctx.fill();
+  ctx.fillStyle = C.bgMacroFront; ctx.fillRect(0, 760, W, H - 760); ctx.fillStyle = '#4A3A2C'; roundRect(ctx, 120, 800, 1680, 60, 20); ctx.fill(); }
+function bloem(ctx, x, y, kl, s = 1) { leeuwenbek(ctx, x, y, 300 * s, kl, { seed: 3 + x % 7, n: 9 }); }
+const S = {};
+
+// ---------- T4 · Opening: rode × witte leeuwenbek → roze (Macro, nieuwe tekening leeuwenbek)
+S.t4 = () => { macroNacht(ctx);
+  leeuwenbek(ctx, 560, 820, 520, 'rood', { seed: 2 }); leeuwenbek(ctx, 900, 820, 520, 'wit', { seed: 5 });
+  text(ctx, '×', 730, 520, fTitel(90), C.text2, 'center');
+  for (let i = 0; i < 4; i++) leeuwenbek(ctx, 1180 + i * 165, 830, 400 + (i % 2) * 30, 'roze', { seed: 11 + i });
+  naamBij(ctx, 'rood', null, 560, 250, 1, 'center'); naamBij(ctx, 'wit', null, 900, 250, 1, 'center'); naamBij(ctx, 'alle nakomelingen roze', null, 1430, 360, 1, 'center');
+  chMeta(ctx, 'leeuwenbek · antirrhinum majus', 70, 'left');
+  kast(ctx, 'Zijn de allelen dan gemengd, zoals rode en witte verf?');
+  twijfelTag(ctx, 'twijfel · nieuwe tekening leeuwenbek'); };
+
+// ---------- K1 · Intermediair: enzym → kleurstof bij RR, RW, WW (zelfde enzymbeeld als Chromosomen 2.1)
+S.k1 = () => { chSchema(ctx); titelLinks(ctx, 'Intermediair');
+  const kol = [['RR', 2, 1, 'rood'], ['RW', 1, 0.5, 'roze'], ['WW', 0, 0, 'wit']];
+  kol.forEach(([g, n, v, kl], i) => { const x = 380 + i * 580; roundRect(ctx, x - 250, 190, 500, 640, 18); shape(ctx, rgba(C.fill, 0.45), C.line, 1.5);
+    allelChip(ctx, g, x, 250, 1, { px: 44 });
+    for (let k = 0; k < 2; k++) enzym(ctx, x - 70 + k * 140, 375, k < n, 2.2, 1, k);
+    metaText(ctx, 'kleurstof', x - 200, 456, C.text2, 'left', 26); kleurstofMeter(ctx, x - 200, 470, 400, v);
+    if (i === 1) metaText(ctx, 'model', x + 200, 456, C.goud, 'right', 26);
+    leeuwenbek(ctx, x, 812, 300, kl, { seed: 4 + i, n: 9 });
+    naamBij(ctx, kl, null, x + 120, 700, 1, 'left'); });
+  naamBij(ctx, 'werkend enzym', null, 380, 300, 1, 'center'); naamBij(ctx, 'werkt niet', null, 1540, 300, 1, 'center');
+  kast(ctx, 'Bij RW is één werkend allel niet genoeg voor volledig rood.'); };
+
+// ---------- K2 · Kruisingsschema roze × roze → 1 : 2 : 1 (opbouw als film 2)
+S.k2 = () => { chSchema(ctx); titelLinks(ctx, 'Roze × roze');
+  const kl = { RR: 'rood', RW: 'roze', WR: 'roze', WW: 'wit' };
+  kruisSchema(ctx, 520, 290, 250, ['R', 'W'], ['R', 'W'], (i, j, cx, cy, cs) => { const g = ['R', 'W'][i] + ['R', 'W'][j]; leeuwenbek(ctx, cx, cy + cs * 0.36, cs * 0.62, kl[g], { seed: i * 2 + j + 1, n: 7 }); allelChip(ctx, g === 'WR' ? 'RW' : g, cx + cs * 0.24, cy - cs * 0.32, 1, { px: 32 }); },
+    { kopL: 'gameten plant 1', kopB: 'gameten plant 2' });
+  // verhouding
+  roundRect(ctx, 1230, 330, 560, 380, 16); shape(ctx, rgba(C.bgSchema, 0.95), C.line, 1.5);
+  [['1', 'rood', 'rood'], ['2', 'roze', 'roze'], ['1', 'wit', 'wit']].forEach(([n, kl2, lab], i) => { const x = 1330 + i * 180; leeuwenbek(ctx, x, 600, 200, kl2, { seed: 7 + i, n: 7 }); text(ctx, n, x, 660, fTitel(64), C.text, 'center'); metaText(ctx, lab, x, 700, C.text2, 'center', 26); });
+  text(ctx, ':', 1420, 655, fTitel(56), C.text2, 'center'); text(ctx, ':', 1600, 655, fTitel(56), C.text2, 'center');
+  kast(ctx, 'Rood, roze en wit komen terug: één staat tot twee staat tot één.'); };
+
+// ---------- T1 · Bloedgroepen A, B, AB en O: O zonder A- en B-antigenen (Kamiels opmerking k8)
+S.t1 = () => { chMicro(ctx); titelLinks(ctx, 'Bloedgroepen');
+  const G = [['A', 'A', 'IᴬIᴬ of Iᴬi'], ['B', 'B', 'IᴮIᴮ of Iᴮi'], ['AB', 'AB', 'IᴬIᴮ'], ['O', 'O', 'ii']];
+  G.forEach(([n, s, g], i) => { const x = 290 + i * 450; bloedcelAntigeen(ctx, x, 440, 150, s, { n: 14, rk: 11 });
+    text(ctx, 'bloedgroep ' + n, x, 700, fTekst(44, 700), C.text, 'center'); text(ctx, g, x, 750, fTekst(36, 600), C.grain, 'center'); });
+  naamBij(ctx, 'antigeen A', null, 290, 225, 1, 'center', E3.agA); naamBij(ctx, 'antigeen B', null, 740, 225, 1, 'center', E3.agB);
+  naamBij(ctx, 'alleen de keten', 'geen a · geen b', 1640, 228, 1, 'center');
+  // alternatief: O helemaal glad (klein, rechtsonder)
+  roundRect(ctx, 1450, 780, 420, 120, 12); shape(ctx, rgba(C.bgSchema, 0.9), C.koraal, 1.5); bloedcelAntigeen(ctx, 1515, 840, 42, 'glad'); metaText(ctx, 'alternatief', 1580, 826, C.koraal, 'left', 22); metaText(ctx, 'O helemaal glad', 1580, 860, C.text2, 'left', 22);
+  chMeta(ctx, 'rode bloedcellen · van boven · ketens vergroot', 70, 'left');
+  kast(ctx, 'Met ii heb je bloedgroep O: geen antigeen A en geen antigeen B.');
+  twijfelTag(ctx, 'twijfel · tekening bloedgroep O'); };
+
+// ---------- K5 · Codominant tegenover intermediair (Kamiels opmerking k7)
+S.k5 = () => { chSchema(ctx);
+  roundRect(ctx, 120, 150, 760, 690, 18); shape(ctx, rgba(C.fill, 0.35), C.line, 1); roundRect(ctx, 1040, 150, 760, 690, 18); shape(ctx, rgba(C.fill, 0.45), C.goud, 2);
+  leeuwenbek(ctx, 360, 640, 420, 'roze', { seed: 8 }); allelChip(ctx, 'RW', 640, 270, 1);
+  text(ctx, 'ertussenin', 640, 440, fTekst(44, 700), C.text2, 'center'); termKaart(ctx, 'intermediair', null, 500, 690, 1, C.text2, 560, 44);
+  ctx.save(); ctx.fillStyle = C.bgMicro; ctx.beginPath(); ctx.arc(1260, 420, 200, 0, 6.283); ctx.fill(); ctx.restore(); bloedcelAntigeen(ctx, 1260, 420, 140, 'AB', { n: 16, rk: 10 });
+  allelChip(ctx, 'IᴬIᴮ', 1620, 270, 1); text(ctx, 'A én B', 1620, 440, fTekst(44, 700), C.text, 'center');
+  naamBij(ctx, 'antigeen A', null, 1530, 340, 1, 'left', E3.agA); naamBij(ctx, 'antigeen B', null, 1530, 520, 1, 'left', E3.agB);
+  termKaart(ctx, 'codominant', 'beide allelen komen volledig tot uiting', 1420, 660, 1, C.goud, 700, 60);
+  kast(ctx, 'Beide allelen komen volledig tot uiting. Dat heet codominant.'); };
+
+// ---------- T3 · Vraag q13 met het gezin uit film 1 (moeder A, vader B; de kinderen nog onbekend)
+S.t3 = () => { kamer(ctx);
+  const P = [['dennis', 560, 600], ['sara', 800, 500], ['levi', 990, 450], ['jens', 1160, 390], ['marieke', 1360, 575]];
+  P.forEach(([id, x, h]) => persoon(ctx, id, x, VLOER, h, { uit: 'blij', kijk: x < 950 ? 1 : -1 }));
+  const tag = (s, x, y, kl) => { ctx.save(); ctx.font = fTekst(36, 700); const w = ctx.measureText(s).width + 44; roundRect(ctx, x - w / 2, y - 44, w, 60, 30); shape(ctx, rgba(C.bgSchema, 0.92), kl, 2); text(ctx, s, x, y - 2, fTekst(36, 700), C.text, 'center'); ctx.restore(); };
+  tag('bloedgroep B', 560, 210, C.line); tag('bloedgroep A', 1360, 230, C.line); [800, 990, 1160].forEach((x, i) => tag('?', x, [300, 350, 410][i], C.goud));
+  kast(ctx, 'Kan hun kind bloedgroep O hebben?');
+  twijfelTag(ctx, 'twijfel · bloedgroepen voor gezin film 1'); };
+
+// ---------- K3 · Iᴬi × Iᴮi: alle vier de bloedgroepen, O = 1/4
+S.k3 = () => { chSchema(ctx); titelLinks(ctx, 'Moeder A × vader B');
+  const BG = { 'IᴬIᴮ': ['AB', 'AB'], 'Iᴬi': ['A', 'A'], 'iIᴮ': ['B', 'B'], 'ii': ['O', 'O'] };
+  kruisSchema(ctx, 560, 300, 250, ['Iᴬ', 'i'], ['Iᴮ', 'i'], (i, j, cx, cy, cs) => { const g = ['Iᴬ', 'i'][i] + ['Iᴮ', 'i'][j]; const [bg, s] = BG[g];
+    ctx.save(); ctx.fillStyle = C.bgMicro; ctx.beginPath(); ctx.arc(cx, cy - 18, 70, 0, 6.283); ctx.fill(); ctx.restore(); bloedcelAntigeen(ctx, cx, cy - 18, 46, s, { n: 14, rk: 4.4 });
+    text(ctx, (g === 'iIᴮ' ? 'Iᴮi' : g) + '  ·  ' + bg, cx, cy + cs * 0.38, fTekst(36, 700), C.text, 'center'); }, { kopL: 'gameten moeder (a)', kopB: 'gameten vader (b)', hl: [0, 0, 0, 1] });
+  text(ctx, 'kans op O', 1530, 470, fTekst(44, 700), C.text, 'center'); text(ctx, '¼', 1530, 590, fTitel(110), C.goud, 'center');
+  metaText(ctx, 'en ook A, B en AB: elk ¼', 1530, 660, C.text2, 'center', 26);
+  kast(ctx, 'Krijgt een kind van allebei de i, dan is het ii: bloedgroep O.'); };
+
+// ---------- T5 · Letale factor: Gg × Gg, GG valt weg; zoomcirkel: het embryo stopt vroeg (blastocyste)
+S.t5 = () => { chSchema(ctx); titelLinks(ctx, 'Een letale factor');
+  const kl = (g) => g === 'gg' ? 'grijs' : 'geel';
+  kruisSchema(ctx, 470, 300, 250, ['G', 'g'], ['G', 'g'], (i, j, cx, cy, cs) => { const g = ['G', 'g'][i] + ['G', 'g'][j]; const g2 = g === 'gG' ? 'Gg' : g;
+    if (g2 === 'GG') { ctx.save(); ctx.globalAlpha *= 0.6; blastocyste(ctx, cx, cy - 6, 52, {}); ctx.restore(); } else muisKleur(ctx, cx - 10, cy + 40, 15, kl(g2), { houding: 'staan', kijk: 1 });
+    allelChip(ctx, g2, cx + cs * 0.24, cy - cs * 0.32, 1, { px: 30 }); }, { kopL: 'gameten gele ouder 1', kopB: 'gameten gele ouder 2', uit: [1, 0, 0, 0] });
+  zoomCircle(ctx, 1420, 400, 220, 600, 420, 'embryo · enkele dagen oud · vergroot', 1, () => { chMicro(ctx); blastocyste(ctx, 1420, 400, 140, {}); });
+  naamBij(ctx, 'groeit niet verder', null, 1420, 214, 1, 'center', C.koraal);
+  // verhouding onder de zoomcirkel
+  muisKleur(ctx, 1180, 830, 9, 'geel', { kijk: 1 }); muisKleur(ctx, 1320, 830, 9, 'geel', { kijk: 1 }); muisKleur(ctx, 1460, 830, 9, 'grijs', { kijk: 1 });
+  text(ctx, '2 geel : 1 grijs', 1560, 820, fTekst(40, 700), C.text, 'left');
+  kast(ctx, 'In het kruisingsschema valt het vakje GG dus weg.');
+  twijfelTag(ctx, 'twijfel · gele muis + embryo'); };
+
+// ---------- T6 · Polygeen: een klas op volgorde van lengte → vloeiende reeks; model 1, 2, 3 genen
+S.t6 = () => { chSchema(ctx); titelLinks(ctx, 'Polygene overerving');
+  const cmPx = 2.1, voet = 760; // 1 cm = 2,1 px; 160–190 cm
+  const lengte = [158, 161, 163, 165, 166, 168, 169, 170, 171, 172, 173, 174, 175, 176, 178, 179, 181, 183, 186, 189];
+  const cast = { 2: 'yasmin', 5: 'noor', 9: 'daan', 12: 'lotte', 15: 'sam', 18: 'bilal' };
+  lengte.forEach((L, i) => { const x = 140 + i * 62, h = L * cmPx; if (cast[i]) persoon(ctx, cast[i], x, voet, h, { uit: 'blij' });
+    else { ctx.save(); ctx.fillStyle = rgba(C.mens, 0.55); circ(ctx, x, voet - h + h * 0.065, h * 0.065, rgba(C.mens, 0.55)); roundRect(ctx, x - h * 0.08, voet - h * 0.86, h * 0.16, h * 0.48, h * 0.05); ctx.fill(); ctx.fillRect(x - h * 0.06, voet - h * 0.4, h * 0.05, h * 0.4); ctx.fillRect(x + h * 0.01, voet - h * 0.4, h * 0.05, h * 0.4); ctx.restore(); } });
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(100, voet); ctx.lineTo(1420, voet); ctx.stroke();
+  metaText(ctx, '1 m 60', 100, voet + 40, C.text2, 'left', 26); metaText(ctx, '1 m 90', 1420, voet + 40, C.text2, 'right', 26);
+  // model rechts
+  roundRect(ctx, 1470, 150, 400, 700, 16); shape(ctx, rgba(C.bgSchema, 0.95), C.line, 1.5); metaText(ctx, 'model', 1840, 190, C.goud, 'right', 24);
+  histModel(ctx, 1510, 330, 320, 110, 1, { titel: '1 gen · 3 groepen' }); histModel(ctx, 1510, 540, 320, 110, 2, { titel: '2 genen · 5 groepen' }); histModel(ctx, 1510, 750, 320, 110, 3, { titel: '3 genen · 7 groepen', klok: 1 });
+  kast(ctx, 'Je ziet geen groepjes lang en kort, maar een vloeiende reeks.');
+  twijfelTag(ctx, 'twijfel · klas op volgorde'); };
+
+// ---------- K4 · Muizen: test van de twee vachtkleuren naast de goedgekeurde muis (palet-variant)
+S.k4 = () => { chSchema(ctx); titelLinks(ctx, 'Gele en grijze muis');
+  muis(ctx, 420, 560, 30, { houding: 'staan', kijk: 1 }); metaText(ctx, 'bibliotheek (bosmuis)', 420, 640, C.text2, 'center', 26);
+  muisKleur(ctx, 960, 560, 30, 'geel', { kijk: 1 }); metaText(ctx, 'geel', 960, 640, C.text2, 'center', 26);
+  muisKleur(ctx, 1500, 560, 30, 'grijs', { kijk: 1 }); metaText(ctx, 'grijs', 1500, 640, C.text2, 'center', 26);
+  muisKleur(ctx, 960, 860, 24, 'geel', { kijk: 1, houding: 'lopen', t: 0.3 }); muisKleur(ctx, 1500, 860, 24, 'grijs', { kijk: -1, houding: 'zitten' });
+  kast(ctx, 'Bij muizen bestaat een allel dat de vacht geel maakt.'); };
+
+const id = location.hash.slice(1) || 't1';
+document.fonts.ready.then(() => { try { S[id](); } catch (e) { console.error(e.stack || e); } window.KLAAR = true; });
+</script></body></html>
