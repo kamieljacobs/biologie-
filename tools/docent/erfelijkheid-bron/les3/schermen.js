@@ -1,6 +1,8 @@
 /* =====================================================================================
    Erfelijkheid · les 3 · Twee genen en een stamboom (28 okt 2026)
    Eigen hulpen met prefix L3_. Kleuren: vader teal, moeder oker, gen goud, aandoening koraal.
+   29 okt 2026 gelijkgetrokken met films 4 en 6 versie 2.0: fruitvlieg G/g en V/v (gekoppeld GV/gv),
+   dihybride schema en crossing-over vwo zoals in film 4, recombinatiepercentage en genkaart eruit (Kamiel: te diepgaand).
    ===================================================================================== */
 const L3_bult = (u) => Math.sin(Math.PI * clamp(u, 0, 1));
 // fenotypen van erwten: [geel, rond]; tint per fenotype (vast in de hele les)
@@ -83,7 +85,7 @@ function L3_icoonEvolutie(ctx, x, y, a, T) { ctx.save(); ctx.globalAlpha *= a; c
    0 · Start
    ===================================================================================== */
 SCHERMEN.push({ titel: 'Start', deel: 'Opening', geenKop: true,
-  stappen: [{ t: '<b>Erfelijkheid</b> · les 3: twee genen tegelijk, gekoppelde genen en stambomen lezen', n: 'Kies eerst havo of vwo. Groot scherm (F) vult het hele scherm; T zet de tekst eronder uit. Vorige les: monohybride kruisingen, intermediair en multipele allelen, X-chromosomale overerving. In les 1 zagen de leerlingen het gezin De Wit al (Levi heeft albinisme): vandaag lezen we hun stamboom.' }],
+  stappen: [{ t: '<b>Erfelijkheid</b> · les 3: twee genen tegelijk, gekoppelde genen en stambomen lezen', n: 'Kies eerst havo of vwo. Groot scherm (F) vult het hele scherm; T zet de tekst eronder uit. Vorige les: monohybride kruisingen, intermediair en multipele allelen, X-chromosomale overerving. In les 1 zagen de leerlingen het gezin De Wit al (Levi heeft albinisme): vandaag lezen we hun stamboom. Havo: het dihybride kruisingsschema (scherm 5–6) en crossing-over (scherm 8) zijn in film 4 vwo en vallen in de havo-stand weg.' }],
   teken(ctx, S) {
     metaText(ctx, 'Erfelijkheid · les 3', 140, 330, C.meta, 'left', 30);
     text(ctx, 'Twee genen', 140, 470, fTitel(112), C.text); text(ctx, 'en een stamboom', 140, 600, fTitel(112), C.goud);
@@ -101,10 +103,10 @@ SCHERMEN.push({ titel: 'Start', deel: 'Opening', geenKop: true,
    ===================================================================================== */
 SCHERMEN.push({ titel: 'Nieuwe combinaties', kop: 'Twee eigenschappen tegelijk', deel: 'Twee genen',
   stappen: [
-    { t: 'Mendel keek naar twee eigenschappen van de erwt tegelijk: de <b>kleur</b> (geel of groen) en de <b>vorm</b> (rond of gerimpeld).', n: 'Haak uit film 4 (Dihybride kruising en gekoppelde overerving). Het gaat om het zaad (de erwt), niet om de peul.' },
+    { t: 'Mendel keek naar twee eigenschappen van de erwt tegelijk: de <b>kleur</b> (geel of groen) en de <b>vorm</b> (rond of gerimpeld).', n: 'Film 4 (Dihybride kruising en gekoppelde overerving) opent in de moestuin: Opa Henk opent de peulen van een plant die uit een gele, ronde erwt groeide; de ouders hadden gele, ronde of groene, gerimpelde erwten. Het gaat om het zaad (de erwt), niet om de peul.' },
     { t: 'De planten van de <b>F1</b> hebben allemaal gele, ronde erwten: <b>geel</b> en <b>rond</b> zijn dominant.', n: 'De F1 kwam uit raszuivere ouders: geel-rond × groen-gerimpeld. Laat leerlingen zelf het genotype van die ouders en van de F1 noemen (GGRR × ggrr → GgRr); dat volgt op het volgende scherm.' },
-    { t: 'Hij liet de F1 met zichzelf bestuiven. Tussen de nakomelingen zitten vier soorten erwten.', n: 'Zelfbestuiving van de F1 = GgRr × GgRr. Hier 48 erwten in de verhouding van de verwachting; Mendel telde er 556 (scherm 5).' },
-    { t: 'Twee daarvan had geen van de ouders: <b>geel en gerimpeld</b>, en <b>groen en rond</b>. Nieuwe combinaties.', n: 'Startvraag voor de les (film 4): hoe kan dat? Kom erop terug bij scherm 4 (toeval in de meiose).' }
+    { t: 'Hij liet de F1 met zichzelf bestuiven. Tussen de nakomelingen zitten vier soorten erwten.', n: 'Zelfbestuiving van de F1 = GgRr × GgRr. Hier 48 erwten in de verhouding van de verwachting; Mendel telde er 556 (scherm 5, vwo).' },
+    { t: 'Twee daarvan had geen van de ouders: <b>geel en gerimpeld</b>, en <b>groen en rond</b>. Nieuwe combinaties.', n: 'Startvraag voor de les, de puzzel van film 4: die combinaties hadden de grootouders niet. Hoe kan dat? Kom erop terug bij scherm 4 (toeval in de meiose).' }
   ],
   teken(ctx, S) {
     const T = S.T, s0 = S.on(0, 0.9), s1 = S.on(1, 1.0), s2 = S.on(2, 2.2), s3 = S.on(3, 0.8);
@@ -131,7 +133,7 @@ SCHERMEN.push({ titel: 'Nieuwe combinaties', kop: 'Twee eigenschappen tegelijk',
    ===================================================================================== */
 SCHERMEN.push({ titel: 'Twee paren', kop: 'Twee genen, twee chromosoomparen', deel: 'Twee genen',
   stappen: [
-    { t: 'Geel = <b>G</b>, groen = <b>g</b>, rond = <b>R</b>, gerimpeld = <b>r</b>. De F1-planten zijn <b>GgRr</b>.', n: 'Hoofdletter = dominant allel. Vraag eventueel: welke gameten maakte de raszuivere geel-ronde ouder (GR) en de groen-gerimpelde (gr)?' },
+    { t: 'Geel = <b>G</b>, groen = <b>g</b>, rond = <b>R</b>, gerimpeld = <b>r</b>. De F1-planten zijn <b>GgRr</b>.', n: 'Letters als in film 4. Hoofdletter = dominant allel. Vraag eventueel: welke gameten maakte de raszuivere geel-ronde ouder (GR) en de groen-gerimpelde (gr)?' },
     { t: 'Het gen voor <b>kleur</b> ligt op een chromosoompaar: één chromosoom van de vader, één van de moeder.', n: 'Kleuren als in les 1: teal = van de vader, oker = van de moeder. Hier vóór het kopiëren getekend (één chromatide).' },
     { t: 'Het gen voor <b>vorm</b> ligt op een <b>ander</b> chromosoompaar. We volgen dus twee paren tegelijk.', n: 'Bij de erwt liggen de genen voor zaadkleur en zaadvorm op verschillende chromosomen. Lagen ze dicht bij elkaar op hetzelfde chromosoom, dan had hij geen 9 : 3 : 3 : 1 gevonden (scherm 7).' }
   ],
@@ -153,12 +155,12 @@ SCHERMEN.push({ titel: 'Twee paren', kop: 'Twee genen, twee chromosoomparen', de
    ===================================================================================== */
 SCHERMEN.push({ titel: 'Toeval in de meiose', kop: 'Toeval in de meiose', deel: 'Twee genen',
   stappen: [
-    { t: 'Bij de meiose gaan de chromosoomparen in het <b>midden</b> van de cel liggen. Hoe elk paar ligt, is toeval.', n: 'Metafase I: de homologe chromosomen liggen als paar aan weerszijden van het midden; elk chromosoom bestaat dan uit twee chromatiden (X-vorm).' },
+    { t: 'Bij de meiose gaan de chromosoomparen in het <b>midden</b> van de cel liggen. Hoe elk paar ligt, is toeval.', n: 'Vraag uit film 4: Een erwtenplant is heterozygoot voor kleur (Gg) en voor vorm (Rr); de genen liggen op verschillende chromosomen. Hoeveel soorten gameten kan hij maken? (vier) Metafase I: de homologe chromosomen liggen als paar aan weerszijden van het midden; elk chromosoom bestaat dan uit twee chromatiden (X-vorm).' },
     { t: 'Ligt het zo, dan ontstaan gameten met <b>GR</b> en met <b>gr</b>.', n: 'Voor het gemak per kant één gameet getekend; na meiose II zijn het er vier (twee GR, twee gr).' },
     { t: 'Ligt het vormpaar <b>andersom</b>, dan ontstaan gameten met <b>Gr</b> en met <b>gR</b>.', n: 'De letterkleur laat zien van welke ouder het allel komt: in Gr en gR zitten allelen van vader én moeder door elkaar.' },
     { t: 'Beide liggingen zijn <b>even waarschijnlijk</b>: elk de helft van de keren.' },
     { t: 'Bij honderden cellen: <b>vier soorten gameten</b>, elk ongeveer een kwart.', n: 'Hier 400 gameten, elk bolletje = 4 gameten. Kleine afwijkingen van 100 per soort zijn toeval.' },
-    { t: 'Dat heet <b>onafhankelijke overerving</b>: de allelen voor kleur en vorm worden los van elkaar verdeeld.', n: 'Mendels tweede wet (onafhankelijke splitsing). Geldt alleen voor genen op verschillende chromosomen, of heel ver uit elkaar op hetzelfde chromosoom (vwo: scherm 10).' }
+    { t: 'Dat heet <b>onafhankelijke overerving</b>: de allelen voor kleur en vorm worden los van elkaar verdeeld.', n: 'Mendels tweede wet (onafhankelijke splitsing). Geldt voor genen op verschillende chromosomen; genen op hetzelfde chromosoom: scherm 7. Daar zit ook het antwoord op de puzzel van scherm 2: gameten Gr en gR maakten de grootouders niet, deze plant wel.' }
   ],
   teken(ctx, S) {
     const T = S.T, s0 = S.on(0, 1.0), s1 = S.on(1, 1.0), s2 = S.on(2, 1.0), s3 = S.on(3, 0.7), s4 = S.on(4, 2.4), s5 = S.on(5, 0.8);
@@ -184,11 +186,11 @@ SCHERMEN.push({ titel: 'Toeval in de meiose', kop: 'Toeval in de meiose', deel: 
    ===================================================================================== */
 SCHERMEN.push({ titel: 'Zestien vakjes', kop: 'Negen, drie, drie, één', deel: 'Twee genen',
   stappen: [
-    { t: 'Beide F1-ouders (GgRr) maken vier soorten gameten: <b>GR</b>, <b>Gr</b>, <b>gR</b> en <b>gr</b>.', n: 'Vraag uit film 4: Hoeveel vakjes krijgt het kruisingsschema als beide ouders vier soorten gameten maken? (4 × 4 = 16)' },
-    { t: 'Vier keer vier: <b>zestien vakjes</b>. Elk vakje is even waarschijnlijk.', n: 'Werkwijze bij het invullen: per gen eerst de hoofdletter, dus GgRr en niet gGrR. Laat een paar vakjes hardop invullen.' },
-    { t: 'Tel de fenotypen: <b>9</b> geel-rond, <b>3</b> geel-gerimpeld, <b>3</b> groen-rond, <b>1</b> groen-gerimpeld.', n: 'Tip voor leerlingen: elk vakje met minstens één G is geel, elk vakje met minstens één R is rond.' },
-    { t: 'De verhouding is <b>9 : 3 : 3 : 1</b>.', n: 'Let op: dat is een verhouding tussen fenotypen. Genotypen zijn er negen verschillende (1 : 2 : 1 × 1 : 2 : 1).' },
-    { t: 'Mendel telde <b>315 : 101 : 108 : 32</b> erwten. Heel dicht bij 9 : 3 : 3 : 1.', n: 'Samen 556 erwten; verwacht bij 9 : 3 : 3 : 1 is ± 313 : 104 : 104 : 35. Of zo\'n afwijking nog toeval is, toets je met een chi-kwadraattoets (geen examenstof; staat in de briefing).' }
+    { vwo: true, t: 'Beide F1-ouders (GgRr) maken vier soorten gameten: <b>GR</b>, <b>Gr</b>, <b>gR</b> en <b>gr</b>.', n: 'Dit scherm en het volgende zijn vwo, zoals hoofdstuk 2 van film 4 (havo: dihybride komt in de havo-examens 2018–2026 niet voor, zie briefing). Vraag uit film 4 (vwo): Beide ouders maken vier soorten gameten. Hoeveel vakjes krijgt het kruisingsschema? (zestien)' },
+    { vwo: true, t: 'Vier keer vier: <b>zestien vakjes</b>. Elk vakje is even waarschijnlijk.', n: 'Werkwijze bij het invullen: per gen eerst de hoofdletter, dus GgRr en niet gGrR. Laat een paar vakjes hardop invullen.' },
+    { vwo: true, t: 'Tel de fenotypen: <b>9</b> geel-rond, <b>3</b> geel-gerimpeld, <b>3</b> groen-rond, <b>1</b> groen-gerimpeld.', n: 'Tip voor leerlingen: elk vakje met minstens één G is geel, elk vakje met minstens één R is rond.' },
+    { vwo: true, t: 'De verhouding is <b>9 : 3 : 3 : 1</b>.', n: 'Let op: dat is een verhouding tussen fenotypen. Genotypen zijn er negen verschillende (1 : 2 : 1 × 1 : 2 : 1).' },
+    { vwo: true, t: 'Mendel telde <b>315 : 101 : 108 : 32</b> erwten. Heel dicht bij 9 : 3 : 3 : 1.', n: 'Samen 556 erwten; verwacht bij 9 : 3 : 3 : 1 is ± 313 : 104 : 104 : 35. Of zo\'n afwijking nog toeval is, toets je met een chi-kwadraattoets (geen examenstof; staat in de briefing).' }
   ],
   teken(ctx, S) {
     const s0 = S.on(0, 1.0), s1 = S.on(1, 2.6), s2 = S.on(2, 1.0), s3 = S.on(3, 0.9), s4 = S.on(4, 0.9), KL = L3_FKL();
@@ -210,11 +212,11 @@ SCHERMEN.push({ titel: 'Zestien vakjes', kop: 'Negen, drie, drie, één', deel: 
    ===================================================================================== */
 SCHERMEN.push({ titel: 'Rekenen zonder schema', kop: 'Rekenen zonder schema', deel: 'Twee genen',
   stappen: [
-    { t: 'Kijk per gen apart. Gg × Gg: de kans op <b>geel</b> is <b>¾</b>.', n: 'Herhaling van les 1: Gg × Gg geeft 3 : 1.' },
-    { t: 'Rr × Rr: de kans op <b>rond</b> is ook <b>¾</b>.' },
-    { t: 'De genen zijn onafhankelijk, dus <b>vermenigvuldig</b>: ¾ × ¾ = <b>9/16</b> geel en rond.', n: 'Productregel (scherm 16 komt erop terug). Het vierkant is het oppervlaktemodel: kolommen = kleur, rijen = vorm.' },
-    { t: 'Groen en gerimpeld: ¼ × ¼ = <b>1/16</b>.', n: 'Laat zelf geel-gerimpeld uitrekenen: ¾ × ¼ = 3/16.' },
-    { t: '<b>Terugkruising</b> met een groene, gerimpelde plant (ggrr): de vier gameten van GgRr zie je direct terug, <b>1 : 1 : 1 : 1</b>.', n: 'ggrr maakt alleen gameten gr, dus elk fenotype van een nakomeling verraadt welke gameet de GgRr-ouder gaf. Zo toon je ook aan dat een geel-ronde plant GgRr is.' }
+    { vwo: true, t: 'Kijk per gen apart. Gg × Gg: de kans op <b>geel</b> is <b>¾</b>.', n: 'Herhaling van les 2: Aa × Aa geeft 3 : 1. Film 4 (vwo) noemt dit "de productregel uit de vorige film".' },
+    { vwo: true, t: 'Rr × Rr: de kans op <b>rond</b> is ook <b>¾</b>.' },
+    { vwo: true, t: 'De genen zijn onafhankelijk, dus <b>vermenigvuldig</b>: ¾ × ¾ = <b>9/16</b> geel en rond.', n: 'Productregel (scherm 14 komt erop terug). Het vierkant is het oppervlaktemodel: kolommen = kleur, rijen = vorm.' },
+    { vwo: true, t: 'Groen en gerimpeld: ¼ × ¼ = <b>1/16</b>.', n: 'Laat zelf geel-gerimpeld uitrekenen: ¾ × ¼ = 3/16.' },
+    { vwo: true, t: '<b>Terugkruising</b> met een groene, gerimpelde plant (ggrr): de vier gameten van GgRr zie je direct terug, <b>1 : 1 : 1 : 1</b>.', n: 'ggrr maakt alleen gameten gr, dus elk fenotype van een nakomeling verraadt welke gameet de GgRr-ouder gaf. Zo toon je ook aan dat een geel-ronde plant GgRr is.' }
   ],
   teken(ctx, S) {
     const s0 = S.on(0, 0.8), s1 = S.on(1, 0.8), s2 = S.on(2, 1.0), s3 = S.on(3, 0.9), s4 = S.on(4, 1.4), KL = L3_FKL();
@@ -242,29 +244,29 @@ SCHERMEN.push({ titel: 'Rekenen zonder schema', kop: 'Rekenen zonder schema', de
    ===================================================================================== */
 SCHERMEN.push({ titel: 'Gekoppelde genen', kop: 'Twee genen op één chromosoom', deel: 'Gekoppeld',
   stappen: [
-    { t: 'Bij de fruitvlieg: <b>B</b> = grijs lijf, <b>b</b> = zwart; <b>V</b> = normale vleugels, <b>v</b> = vleugelstompjes. Raszuiver grijs-normaal × zwart-stompjes.', n: 'Vraag uit film 4: Wat als twee genen op hetzelfde chromosoom liggen? Hoeveel soorten gameten verwacht je dan? (twee, zolang er niets wordt uitgewisseld)' },
-    { t: 'Beide genen liggen op <b>hetzelfde chromosoom</b>. De ene ouder geeft <b>B</b> en <b>V</b> samen, de andere <b>b</b> en <b>v</b>.', n: 'Raszuiver = homozygoot: BBVV heeft op beide chromosomen B naast V; bbvv b naast v.' },
-    { t: 'De F1 is BbVv. Welke allelen samen liggen, lees je af aan de <b>ouders</b>: BV op het ene, bv op het andere chromosoom.', n: 'Waren de ouders grijs-stompjes × zwart-normaal geweest, dan was het precies andersom: B naast v, b naast V. Hetzelfde genotype, een andere verdeling over de chromosomen (vwo-notatie BV/bv tegenover Bv/bV).' },
-    { t: 'De twee genen gaan <b>samen mee</b>: zonder uitwisseling ontstaan maar twee soorten gameten.', n: 'Vergelijk met scherm 4: daar lagen de genen op verschillende paren en ontstonden vier soorten.' },
+    { t: 'Bij de fruitvlieg: <b>G</b> = grijs lijf, <b>g</b> = zwart; <b>V</b> = normale vleugels, <b>v</b> = stompe vleugels. Raszuiver grijs-normaal × zwart-stomp.', n: 'Letters als in film 4 (de oude les had B/b). Let op: bij de erwt was G geel; bij de vlieg is G grijs. Grijs en normaal zijn dominant. De film begint met: kruis je zulke vliegjes, dan zie je veel minder nieuwe combinaties dan bij de erwten. Hoe kan dat?' },
+    { t: 'Beide genen liggen op <b>hetzelfde chromosoom</b>. De ene ouder geeft <b>G</b> en <b>V</b> samen, de andere <b>g</b> en <b>v</b>.', n: 'Raszuiver = homozygoot: GGVV heeft op beide chromosomen G naast V; ggvv g naast v.' },
+    { t: 'De F1 is GgVv. Welke allelen samen liggen, lees je af aan de <b>ouders</b>: GV op het ene, gv op het andere chromosoom.', n: 'Waren de ouders grijs-stomp × zwart-normaal geweest, dan was het precies andersom: G naast v, g naast V. Hetzelfde genotype, een andere verdeling over de chromosomen (notatie GV/gv tegenover Gv/gV). Vraag uit film 4 (vwo): Een vliegje Gv/gV wordt gekruist met gv/gv. Welke nakomelingen krijg je, zonder crossing-over? (grijs-stomp en zwart-normaal)' },
+    { t: 'De twee genen gaan <b>samen mee</b>: zonder uitwisseling ontstaan maar twee soorten gameten.', n: 'Vraag uit film 4: Twee genen liggen op hetzelfde chromosoom (G naast V, g naast v) en elk chromosoom gaat in zijn geheel naar een gameet. Hoeveel soorten gameten? (twee) Vergelijk met scherm 4: daar lagen de genen op verschillende paren en ontstonden vier soorten.' },
     { t: 'Zulke genen heten <b>gekoppeld</b>.', n: 'Examenvoorbeeld havo 2019-I vraag 12: HLA-genen liggen dicht bij elkaar en erven als één set; de kans dat een broer dezelfde sets heeft als zijn zus = ½ × ½ = ¼ (per ouder één van twee sets).' }
   ],
   teken(ctx, S) {
     const T = S.T, s0 = S.on(0, 0.9), s1 = S.on(1, 1.0), s2 = S.on(2, 1.4), s3 = S.on(3, 1.2), s4 = S.on(4, 0.8);
-    regel(ctx, 'B grijs  ·  b zwart', 1480, 230, s0, C.text2, 32, 'left', 600); regel(ctx, 'V normaal  ·  v stompjes', 1480, 280, s0, C.text2, 32, 'left', 600);
+    regel(ctx, 'G grijs  ·  g zwart', 1480, 230, s0, C.text2, 32, 'left', 600); regel(ctx, 'V normaal  ·  v stomp', 1480, 280, s0, C.text2, 32, 'left', 600);
     vlieg(ctx, 240, 300, 2.0, { a: s0, rot: Math.sin(T * 0.9) * 0.03 }); naam(ctx, 'grijs, normaal', 240, 500, s0, 'center', C.text, 32);
     regel(ctx, '×', 740, 330, s0, C.text2, 60, 'center', 700);
-    vlieg(ctx, 1000, 300, 2.0, { a: s0, zwart: true, stomp: true, rot: Math.sin(T * 0.9 + 1) * 0.03 }); naam(ctx, 'zwart, stompjes', 1000, 500, s0, 'center', C.text, 32);
+    vlieg(ctx, 1000, 300, 2.0, { a: s0, zwart: true, stomp: true, rot: Math.sin(T * 0.9 + 1) * 0.03 }); naam(ctx, 'zwart, stomp', 1000, 500, s0, 'center', C.text, 32);
     const bnd = (u, l1, l2) => [{ p: 0.26, letter: l1, px: 44 }, { p: 0.74, letter: l2, px: 44 }];
-    chromosoom(ctx, 470, 320, 260, { kl: CH.vader, dubbel: 0, a: s1, w: 40, banden: bnd(0, 'B', 'V') });
-    chromosoom(ctx, 1230, 320, 260, { kl: CH.moeder, dubbel: 0, a: s1, w: 40, banden: bnd(0, 'b', 'v') });
+    chromosoom(ctx, 470, 320, 260, { kl: CH.vader, dubbel: 0, a: s1, w: 40, banden: bnd(0, 'G', 'V') });
+    chromosoom(ctx, 1230, 320, 260, { kl: CH.moeder, dubbel: 0, a: s1, w: 40, banden: bnd(0, 'g', 'v') });
     if (s2 > 0.01) { pijl(ctx, 490, 520, 640, 600, C.text2, 4, s2); pijl(ctx, 1210, 520, 820, 600, C.text2, 4, s2);
       const a2 = s2 * S.on(2, 0.6, 0.4); vlieg(ctx, 380, 760, 2.0, { a: a2, rot: Math.sin(T * 0.9 + 2) * 0.03 }); naam(ctx, 'F1', 380, 960, a2, 'center', C.text, 34);
-      chromosoom(ctx, 660, 740, 260, { kl: CH.vader, dubbel: 0, a: s2, w: 40, banden: bnd(0, 'B', 'V'), letterLinks: true });
-      chromosoom(ctx, 790, 740, 260, { kl: CH.moeder, dubbel: 0, a: s2, w: 40, banden: bnd(0, 'b', 'v') });
-      allelChip(ctx, 'BbVv', 725, 980, s2 * S.on(2, 0.6, 0.8), { px: 36 }); }
+      chromosoom(ctx, 660, 740, 260, { kl: CH.vader, dubbel: 0, a: s2, w: 40, banden: bnd(0, 'G', 'V'), letterLinks: true });
+      chromosoom(ctx, 790, 740, 260, { kl: CH.moeder, dubbel: 0, a: s2, w: 40, banden: bnd(0, 'g', 'v') });
+      allelChip(ctx, 'GgVv', 725, 980, s2 * S.on(2, 0.6, 0.8), { px: 36 }); }
     if (s3 > 0.01) { pijl(ctx, 900, 740, 1010, 740, C.text2, 4, s3);
-      L3_gameet(ctx, 1110, 740, 74, ['B', 'V'], [CH.vader, CH.vader], s3 * S.on(3, 0.6, 0.2), { px: 48 }); L3_gameet(ctx, 1310, 740, 74, ['b', 'v'], [CH.moeder, CH.moeder], s3 * S.on(3, 0.6, 0.4), { px: 48 });
-      const g = s3 * S.on(3, 0.6, 0.8) * 0.6; L3_gameet(ctx, 1540, 690, 50, ['B', 'v'], [C.text2, C.text2], g, { px: 34 }); L3_gameet(ctx, 1700, 690, 50, ['b', 'V'], [C.text2, C.text2], g, { px: 34 });
+      L3_gameet(ctx, 1110, 740, 74, ['G', 'V'], [CH.vader, CH.vader], s3 * S.on(3, 0.6, 0.2), { px: 48 }); L3_gameet(ctx, 1310, 740, 74, ['g', 'v'], [CH.moeder, CH.moeder], s3 * S.on(3, 0.6, 0.4), { px: 48 });
+      const g = s3 * S.on(3, 0.6, 0.8) * 0.6; L3_gameet(ctx, 1540, 690, 50, ['G', 'v'], [C.text2, C.text2], g, { px: 34 }); L3_gameet(ctx, 1700, 690, 50, ['g', 'V'], [C.text2, C.text2], g, { px: 34 });
       kruis(ctx, 1540, 690, 30, g * 1.6, C.koraal); kruis(ctx, 1700, 690, 30, g * 1.6, C.koraal);
       regel(ctx, 'maar twee soorten', 1210, 630, s3 * S.on(3, 0.6, 0.6), C.goud, 36, 'center', 700); }
     termKaart(ctx, 'gekoppelde genen', 'liggen op hetzelfde chromosoom en gaan samen mee', 1380, 860, s4);
@@ -275,10 +277,10 @@ SCHERMEN.push({ titel: 'Gekoppelde genen', kop: 'Twee genen op één chromosoom'
    ===================================================================================== */
 SCHERMEN.push({ titel: 'Crossing-over', kop: 'Crossing-over', deel: 'Gekoppeld',
   stappen: [
-    { t: 'In de meiose liggen de <b>homologe chromosomen</b> dicht tegen elkaar, elk met twee chromatiden.', n: 'Profase I. Teal = het chromosoom met BV (van de grijs-normale ouder), oker = bv.' },
-    { t: 'Soms breken twee chromatiden op <b>dezelfde plek</b> en wisselen ze een stuk uit: <b>crossing-over</b>.', n: 'Vwo: de plek waar de chromatiden elkaar kruisen heet een chiasma (meervoud chiasmata). Het gebeurt tussen een chromatide van de vader en een van de moeder, niet tussen zusterchromatiden.' },
-    { t: 'Na de meiose: twee gameten met de <b>oude</b> combinatie en twee met een <b>nieuwe</b>: Bv en bV.', n: 'Valt de crossing-over niet tussen de twee genen, dan merk je er niets van: dan blijven BV en bv bij elkaar.' },
-    { t: 'Daaruit groeien vliegen die geen van de ouders was: grijs met stompjes en zwart met normale vleugels. Die heten <b>recombinanten</b>.', n: 'Havo: begripsmatig is genoeg (gekoppeld, crossing-over, nieuwe combinaties). Vwo rekent er op het volgende scherm mee.' }
+    { vwo: true, t: 'Toch zie je bij echte fruitvliegjes soms nieuwe combinaties. In de meiose liggen de <b>homologe chromosomen</b> dicht tegen elkaar, elk met twee chromatiden.', n: 'Vwo, zoals hoofdstuk 5 van film 4, en alleen kwalitatief: veel oude, weinig nieuwe combinaties, zonder getallen. Recombinatiepercentage, genkaart en afstand tussen genen zitten bewust niet in film en les (Kamiel: te diepgaand; achtergrond in de briefing). Film 4 kruist een GV/gv-vrouwtje met een zwart mannetje met stompe vleugels: bij fruitvliegmannetjes is er geen crossing-over. Profase I. Teal = het chromosoom met GV (van de grijs-normale ouder), oker = gv.' },
+    { vwo: true, t: 'Een chromatide van het ene en een van het andere chromosoom kunnen op <b>dezelfde plek</b> breken en een stuk uitwisselen: <b>crossing-over</b>.', n: 'Vwo: de plek waar de chromatiden elkaar kruisen heet een chiasma (meervoud chiasmata). Het gebeurt tussen een chromatide van de vader en een van de moeder, niet tussen zusterchromatiden.' },
+    { vwo: true, t: 'Uit zo\'n cel: twee gameten met de <b>oude</b> combinatie en twee met een <b>nieuwe</b>: Gv en gV.', n: 'Valt de crossing-over niet tussen de twee genen, dan merk je er niets van: dan blijven GV en gv bij elkaar.' },
+    { vwo: true, t: 'Daaruit groeien vliegen met een nieuwe combinatie: grijs met stompe en zwart met normale vleugels. Die heten <b>recombinanten</b>. Ze blijven in de minderheid.', n: 'Niet in elke cel valt een crossing-over tussen deze twee genen; daarom krijgen de gameten met een nieuwe combinatie in het kruisingsschema een kleinere kans. Crossing-over verbreekt de koppeling af en toe (film 4).' }
   ],
   teken(ctx, S) {
     const T = S.T, s0 = S.on(0, 1.0), s1 = S.on(1, 2.6), s2 = S.on(2, 1.4), s3 = S.on(3, 1.0);
@@ -287,7 +289,7 @@ SCHERMEN.push({ titel: 'Crossing-over', kop: 'Crossing-over', deel: 'Gekoppeld',
     const xs = [cx - 140 - sep, cx - 56 - sep + nader * 0.2, cx + 56 + sep - nader * 0.2, cx + 140 + sep];
     const dxo = [0, nader * 1.1, -nader * 1.1, 0];
     const kb = [kV, kV, kM, kM], ko = [kV, ruil > 0.5 ? kM : kV, ruil > 0.5 ? kV : kM, kM];
-    const lb = ['B', 'B', 'b', 'b'], lo = ['V', ruil > 0.5 ? 'v' : 'V', ruil > 0.5 ? 'V' : 'v', 'v'];
+    const lb = ['G', 'G', 'g', 'g'], lo = ['V', ruil > 0.5 ? 'v' : 'V', ruil > 0.5 ? 'V' : 'v', 'v'];
     for (let k = 0; k < 4; k++) L3_chromatide(ctx, xs[k], y0, len, w, kb[k], ko[k], br, [{ p: 0.22, letter: lb[k], px: 32 }, { p: 0.78, letter: lo[k], px: 32 }], s0 * (1 - 0.65 * s2), dxo[k]);
     if (s0 > 0.01) { [[0, 1], [2, 3]].forEach(([i, j]) => circ(ctx, (xs[i] + xs[j]) / 2, y0 + len * 0.38, 12, rgba(dk(kb[i]), s0 * (1 - 0.65 * s2)), null)); }
     if (s1 > 0.3 && s1 < 0.85) gloed(ctx, cx, y0 + len * br, 90, C.koraal, L3_bult((s1 - 0.3) / 0.55));
@@ -299,73 +301,21 @@ SCHERMEN.push({ titel: 'Crossing-over', kop: 'Crossing-over', deel: 'Gekoppeld',
       gameet(ctx, x, 720, 90, '', { soort: 'cel', kl: rec[k] ? C.goud : C.text2, a: e }); if (rec[k]) { ctx.save(); ctx.globalAlpha *= e; circ(ctx, x, 720, 102, null, C.goud, 3); ctx.restore(); }
       L3_chromatide(ctx, x, 645, 150, 34, kb[k], ko[k], br, [{ p: 0.22, letter: lb[k], px: 30 }, { p: 0.78, letter: lo[k], px: 30 }], e);
       regel(ctx, rec[k] ? 'nieuw' : 'oud', x, 858, e, rec[k] ? C.goud : C.text2, 34, 'center', 700); });
-    vlieg(ctx, 560, 950, 1.0, { a: s3, stomp: true }); naam(ctx, 'grijs, stompjes', 620, 962, s3, 'left', C.text, 32);
+    vlieg(ctx, 560, 950, 1.0, { a: s3, stomp: true }); naam(ctx, 'grijs, stomp', 620, 962, s3, 'left', C.text, 32);
     vlieg(ctx, 1010, 950, 1.0, { a: s3 * S.on(3, 0.6, 0.3), zwart: true }); naam(ctx, 'zwart, normaal', 1070, 962, s3 * S.on(3, 0.6, 0.3), 'left', C.text, 32);
     regel(ctx, 'recombinanten', 1600, 962, s3 * S.on(3, 0.6, 0.6), C.goud, 38, 'center', 700);
   } });
 
 /* =====================================================================================
-   8 · Recombinatiepercentage (vwo)
-   ===================================================================================== */
-const L3_RECOMB = (() => { const a = []; [[0, 415], [1, 415], [2, 85], [3, 85]].forEach(([k, n]) => { for (let i = 0; i < n; i++) a.push(k); }); const r = toeval(11); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; })();
-SCHERMEN.push({ titel: 'Recombinatiepercentage', kop: 'Hoe vaak gebeurt het?', deel: 'Gekoppeld',
-  stappen: [
-    { vwo: true, t: 'Terugkruising <b>BbVv × bbvv</b>: 1000 nakomelingen. De meeste hebben de oude combinatie, een deel is <b>recombinant</b>.', n: 'bbvv geeft alleen bv, dus het fenotype van elke nakomeling verraadt de gameet van de BbVv-ouder (zoals de terugkruising op scherm 6).' },
-    { vwo: true, t: '170 van de 1000 zijn recombinant: het <b>recombinatiepercentage</b> is 17 %.', n: 'Recombinatiepercentage = aantal recombinanten / totaal × 100 %. Getallen uit film 4.' },
-    { vwo: true, t: 'Hoe <b>verder</b> twee genen uit elkaar liggen, hoe groter de kans dat er een crossing-over tussen valt.', n: 'De koraalrode streepjes zijn plekken waar een crossing-over viel. Tussen genen die dicht bij elkaar liggen valt er zelden een.' }
-  ],
-  teken(ctx, S) {
-    const s0 = S.on(0, 2.2), s1 = S.on(1, 1.0), s2 = S.on(2, 1.2);
-    const KLR = [rgba(C.line, 0.7), rgba(C.line, 0.7), C.goud, C.goud];
-    stippen(ctx, 100, 190, 940, 620, 1000, (i) => KLR[L3_RECOMB[i]], 1, { zicht: Math.floor(1000 * s0) });
-    metaText(ctx, '1000 nakomelingen', 570, 850, C.meta, 'center', 22, s0);
-    vlieg(ctx, 1140, 290, 0.9, { a: s0 }); vlieg(ctx, 1250, 290, 0.9, { a: s0, zwart: true, stomp: true }); circ(ctx, 1340, 286, 12, KLR[0]);
-    regel(ctx, 'oud: 830', 1370, 300, s0, C.text, 40, 'left', 700);
-    const a1 = s0 * S.on(0, 0.6, 1); vlieg(ctx, 1140, 450, 0.9, { a: a1, stomp: true }); vlieg(ctx, 1250, 450, 0.9, { a: a1, zwart: true }); circ(ctx, 1340, 446, 12, rgba(C.goud, a1));
-    regel(ctx, 'recombinant: 170', 1370, 460, a1, C.goud, 40, 'left', 700);
-    regel(ctx, '170 / 1000 = 17 %', 1120, 610, s1, C.goud, 54, 'left', 700);
-    kansBalk(ctx, 100, 905, 760, 50, 0.17 * s1, C.goud, s1, '17 %');
-    if (s2 > 0.01) { const chr = (y, p1, p2, l1, l2, seed) => { ctx.save(); ctx.globalAlpha *= s2; roundRect(ctx, 1180, y - 20, 660, 40, 20); shape(ctx, rgba(C.paars, 0.5), C.paars, 2.5); ctx.restore();
-        const r = toeval(seed); for (let k = 0; k < 9; k++) { const u = 0.04 + 0.92 * r(), x = 1180 + 660 * u, tussen = u > p1 && u < p2; ctx.save(); ctx.globalAlpha *= s2 * S.on(2, 0.4, 0.4 + k * 0.08) * (tussen ? 1 : 0.35); ctx.strokeStyle = C.koraal; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x, y - 32); ctx.lineTo(x, y + 32); ctx.stroke(); ctx.restore(); }
-        [[p1, l1], [p2, l2]].forEach(([p, l]) => { const x = 1180 + 660 * p; ctx.save(); ctx.globalAlpha *= s2; roundRect(ctx, x - 13, y - 24, 26, 48, 5); shape(ctx, C.goud, dk(C.goud, 0.5), 2); ctx.restore(); regel(ctx, l, x, y - 38, s2, C.text, 32, 'center', 700); }); };
-      chr(770, 0.45, 0.55, 'A', 'B', 3); chr(930, 0.1, 0.9, 'A', 'C', 3);
-      naam(ctx, 'dichtbij', 1160, 782, s2, 'right', C.text2, 30); naam(ctx, 'ver uit elkaar', 1160, 942, s2, 'right', C.text2, 30); }
-  } });
-
-/* =====================================================================================
-   9 · Genkaart (vwo)
-   ===================================================================================== */
-SCHERMEN.push({ titel: 'Genkaart', kop: 'Een genkaart tekenen', deel: 'Gekoppeld',
-  stappen: [
-    { vwo: true, t: 'Gen A en gen B geven <b>10 %</b> recombinanten, gen A en gen C <b>30 %</b>.', n: 'Vraag uit film 4: Welk gen ligt het dichtst bij gen A? (B: minder recombinatie = dichter bij elkaar)' },
-    { vwo: true, t: 'Zet de genen op een lijn: 1 % recombinatie = 1 eenheid afstand. B ligt dichter bij A dan C.', n: 'De eenheid heet centimorgan (cM), naar Thomas Hunt Morgan. Of C links of rechts van A ligt, weet je pas met B–C: 20 % (C aan de kant van B) of 40 % (de andere kant).' },
-    { vwo: true, t: 'Het maximum is <b>50 %</b>: dan gedragen de genen zich alsof ze onafhankelijk zijn.', n: 'Liggen genen ver uit elkaar, dan valt er bijna altijd minstens één crossing-over tussen; een even aantal heft elkaar op. Gemiddeld is dan de helft recombinant: 1 : 1 : 1 : 1, net als bij genen op verschillende chromosomen. Grote afstanden bouw je daarom op uit kleine stukjes.' }
-  ],
-  teken(ctx, S) {
-    const s0 = S.on(0, 0.9), s1 = S.on(1, 1.6), s2 = S.on(2, 1.0);
-    allelChip(ctx, 'A – B   10 %', 620, 280, s0, { px: 52 }); allelChip(ctx, 'A – C   30 %', 1300, 280, s0 * S.on(0, 0.6, 0.3), { px: 52 });
-    const x0 = 360, e = 28, y = 560;
-    if (s1 + s2 > 0.01) { const a = Math.max(s1, s2); ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, 260, y - 28, 1580, 56, 28); shape(ctx, rgba(C.paars, 0.45), C.paars, 3); ctx.restore();
-      for (let p = 0; p <= 50; p += 10) { const x = x0 + p * e; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = rgba(C.line, 0.8); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, y + 38); ctx.lineTo(x, y + 56); ctx.stroke(); ctx.restore(); regel(ctx, String(p), x, y + 94, a, C.text2, 30, 'center', 500); }
-      const gen = (p, l, ga) => { const x = x0 + p * e; ctx.save(); ctx.globalAlpha *= ga; roundRect(ctx, x - 16, y - 32, 32, 64, 6); shape(ctx, C.goud, dk(C.goud, 0.5), 2.5); ctx.restore(); regel(ctx, l, x, y - 52, ga, C.text, 48, 'center', 700); };
-      gen(0, 'A', a); gen(10 * S.on(1, 0.8, 0.2), 'B', a * S.on(1, 0.4, 0.2)); gen(30 * S.on(1, 0.8, 0.8), 'C', a * S.on(1, 0.4, 0.8));
-      const boog = (p, yy, t, ga) => { if (ga <= 0.01) return; ctx.save(); ctx.globalAlpha *= ga; ctx.strokeStyle = C.goud; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(x0, yy - 16); ctx.lineTo(x0, yy); ctx.lineTo(x0 + p * e, yy); ctx.lineTo(x0 + p * e, yy - 16); ctx.stroke(); ctx.restore(); regel(ctx, t, x0 + p * e / 2, yy + 42, ga, C.goud, 36, 'center', 700); };
-      boog(10, 720, '10', s1 * S.on(1, 0.5, 1.0)); boog(30, 810, '30', s1 * S.on(1, 0.5, 1.3)); }
-    if (s2 > 0.01) { const x = x0 + 50 * e; ctx.save(); ctx.globalAlpha *= s2; ctx.strokeStyle = C.koraal; ctx.lineWidth = 4; ctx.setLineDash([10, 10]); ctx.beginPath(); ctx.moveTo(x, 440); ctx.lineTo(x, 690); ctx.stroke(); ctx.restore();
-      regel(ctx, 'max 50 %', x, 420, s2, C.koraal, 38, 'center', 700);
-      balk(ctx, 'maximaal 50 %: dan lijkt het onafhankelijk', 1180, 930, 1160, s2 * S.on(2, 0.6, 0.4), C.koraal, 40); }
-  } });
-
-/* =====================================================================================
-   10 · De taal van een stamboom
+   8 · De taal van een stamboom
    ===================================================================================== */
 SCHERMEN.push({ titel: 'De taal van een stamboom', kop: 'De taal van een stamboom', deel: 'Stambomen',
   stappen: [
-    { t: 'Een <b>vierkant</b> is een man, een <b>rondje</b> een vrouw. <b>Ingekleurd</b>: die persoon heeft de eigenschap.', n: 'Film 6 (Stambomen en kansrekenen) gebruikt Sanne, met een broer met taaislijmziekte. Hier het gezin De Wit uit les 1: Levi heeft albinisme. Zelfde redenering, zelfde getallen.' },
+    { t: 'Een <b>vierkant</b> is een man, een <b>rondje</b> een vrouw. <b>Ingekleurd</b>: die persoon heeft de eigenschap.', n: 'Film 6 (Stambomen en kansrekenen) gebruikt een vrouw van 34 (Sanne) bij de klinisch geneticus: haar jongste broer heeft taaislijmziekte, zijzelf, haar oudste broer en haar ouders niet. Hier het gezin De Wit uit les 1: Levi heeft albinisme. Zelfde redenering, zelfde getallen.' },
     { t: 'Generatie <b>I</b>: de grootouders. Een lijn tussen twee symbolen is een paar.', n: 'Generaties nummer je met Romeinse cijfers, personen in een generatie met gewone cijfers van links naar rechts (II-1, II-2).' },
     { t: 'Generatie <b>II</b>: Dennis en Marieke, elk onder zijn of haar eigen ouders.' },
     { t: 'Generatie <b>III</b>: de kinderen hangen onder het paar, van oud naar jong. Alleen <b>Levi</b> is ingekleurd: hij heeft albinisme.', n: 'Sara (13), Levi (10), Jens (7). Albinisme (OCA1): geen pigment in huid, haar en ogen.' },
-    { t: 'Dit is het gezin De Wit, dat de leerlingen in les 1 al zagen.', n: 'Wat de leerlingen niet weten: wie van Sara en Jens drager is. Dat is precies de vraag van scherm 15.' }
+    { t: 'Dit is het gezin De Wit, dat de leerlingen in les 1 al zagen.', n: 'Wat de leerlingen niet weten: wie van Sara en Jens drager is. Dat is precies de vraag van scherm 13.' }
   ],
   teken(ctx, S) {
     const T = S.T, s0 = S.on(0, 1.2), s1 = S.on(1, 0.9), s2 = S.on(2, 0.9), s3 = S.on(3, 1.2), s4 = S.on(4, 1.0);
@@ -379,14 +329,14 @@ SCHERMEN.push({ titel: 'De taal van een stamboom', kop: 'De taal van een stamboo
   } });
 
 /* =====================================================================================
-   11 · Stap 1: dominant of recessief?
+   9 · Stap 1: dominant of recessief?
    ===================================================================================== */
 SCHERMEN.push({ titel: 'Dominant of recessief?', kop: 'Stap 1: dominant of recessief?', deel: 'Stambomen',
   stappen: [
     { t: 'Zoek twee ouders <b>zonder</b> de eigenschap met een kind dat hem <b>wél</b> heeft: Dennis, Marieke en Levi.', n: 'Leerlingen wijzen zelf de drie personen aan voor je de ringen laat zien (Namen verbergen: L).' },
     { t: 'Dan droegen die ouders het allel verborgen bij zich. De eigenschap is <b>recessief</b>.', n: 'Andersom geldt het niet: twee gezonde ouders met alleen gezonde kinderen bewijzen niets.' },
     { t: 'Twee ouders <b>mét</b> de eigenschap en een kind <b>zonder</b>: dan is hij <b>dominant</b>.', n: 'Beide ouders zijn dan Aa; het gezonde kind is aa.' },
-    { t: 'Bij een dominante aandoening, zoals de <b>ziekte van Huntington</b>, heeft iedereen met de aandoening een ouder met de aandoening: hij slaat geen generatie over.', n: 'Uitzonderingen (nieuwe mutatie, onvolledige penetrantie) staan in de briefing; op havo/vwo-niveau niet nodig.' }
+    { t: 'Bij een dominante aandoening, zoals de <b>ziekte van Huntington</b>, heeft wie de aandoening heeft bijna altijd een ouder met de aandoening: hij slaat geen generatie over.', n: '"Bijna altijd", zoals film 6 (de oude film zei "iedereen"): uitzonderingen zijn een nieuwe mutatie en een ziekte die pas laat begint (Huntington meestal na je dertigste), zie briefing. Vraag uit film 6: Deze man heeft de ziekte van Huntington niet, maar zijn vader wel. Kan zijn kind de ziekte krijgen? (nee: hij is aa en heeft geen A om door te geven) In de stamboom hier: de gezonde zoon in generatie II. In die tak is het allel weg; een eigenschap die een generatie overslaat, is recessief.' }
   ],
   teken(ctx, S) {
     const s0 = S.on(0, 1.0), s1 = S.on(1, 0.8), s2 = S.on(2, 1.0), s3 = S.on(3, 1.4);
@@ -406,7 +356,7 @@ SCHERMEN.push({ titel: 'Dominant of recessief?', kop: 'Stap 1: dominant of reces
   } });
 
 /* =====================================================================================
-   12 · Stap 2: autosomaal of X?
+   10 · Stap 2: autosomaal of X?
    ===================================================================================== */
 SCHERMEN.push({ titel: 'Autosomaal of X?', kop: 'Stap 2: autosomaal of via het X-chromosoom?', deel: 'Stambomen',
   stappen: [
@@ -436,13 +386,13 @@ SCHERMEN.push({ titel: 'Autosomaal of X?', kop: 'Stap 2: autosomaal of via het X
   } });
 
 /* =====================================================================================
-   13 · Stap 3: genotypen invullen
+   11 · Stap 3: genotypen invullen
    ===================================================================================== */
 SCHERMEN.push({ titel: 'Genotypen invullen', kop: 'Stap 3: genotypen invullen', deel: 'Stambomen',
   stappen: [
     { t: 'Begin bij wie de eigenschap heeft. Albinisme is recessief, dus Levi is <b>aa</b>.', n: 'A = allel voor pigment (werkend enzym), a = albinisme.' },
     { t: 'Werk terug: Levi kreeg van <b>beide</b> ouders een a. Dennis en Marieke zijn gezond, dus <b>Aa</b>.', n: 'Ouders van een aa-kind zijn altijd minstens drager. Gezond + drager = Aa.' },
-    { t: 'Van Sara en Jens weet je alleen dat ze gezond zijn: minstens één A. Noteer <b>A_</b>.', n: 'In de familie liggen hun genotypen vast (Sara AA, Jens Aa, LEVENSLOOP), maar dat kun je uit de stamboom niet afleiden. Dat is de vraag van scherm 15.' },
+    { t: 'Van Sara en Jens weet je alleen dat ze gezond zijn: minstens één A. Noteer <b>A_</b>.', n: 'In de familie liggen hun genotypen vast (Sara AA, Jens Aa, LEVENSLOOP), maar dat kun je uit de stamboom niet afleiden. Dat is de vraag van scherm 13.' },
     { t: 'Ook de grootouders zijn <b>A_</b>.', n: 'Wel weet je: Dennis kreeg zijn a van opa Frank of oma Lucia, Marieke van opa Wim of oma Anja. Per kant is dus minstens één grootouder drager; wie, zie je niet.' }
   ],
   teken(ctx, S) {
@@ -456,15 +406,15 @@ SCHERMEN.push({ titel: 'Genotypen invullen', kop: 'Stap 3: genotypen invullen', 
   } });
 
 /* =====================================================================================
-   14 · Is Sara drager?
+   12 · Is Sara drager?
    ===================================================================================== */
 const L3_KIND300 = (() => { const a = []; [[0, 75], [1, 150], [2, 75]].forEach(([k, n]) => { for (let i = 0; i < n; i++) a.push(k); }); const r = toeval(23); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; })();
 SCHERMEN.push({ titel: 'Is Sara drager?', kop: 'Is Sara drager?', deel: 'Kansen',
   stappen: [
-    { t: 'Dennis en Marieke zijn allebei <b>Aa</b>. We simuleren <b>300 kinderen</b>: een kwart AA, de helft Aa, een kwart aa.', n: 'Vraag uit film 6: Sannes ouders zijn allebei Aa en Sanne is gezond. Hoe groot is de kans dat zij drager is? (⅔) Hier dezelfde vraag voor Sara.' },
-    { t: 'Maar we weten iets over Sara: ze is <b>gezond</b>. De kinderen met aa vallen weg.', n: 'Dat is voorwaardelijke kans: je rekent alleen binnen de groep die past bij wat je al weet.' },
+    { t: 'Dennis en Marieke zijn allebei <b>Aa</b>. We simuleren <b>300 kinderen</b>: een kwart AA, de helft Aa, een kwart aa.', n: 'Vraag uit film 6: Haar ouders zijn allebei Aa. De vrouw zelf is gezond. Hoe groot is de kans dat zij drager is? (twee derde) Hier dezelfde vraag als denkvoorbeeld voor Sara; film 6 simuleert ook 300 kinderen.' },
+    { t: 'Maar we weten iets over Sara: ze is <b>gezond</b>. De kinderen met aa vallen weg.', n: 'Haal weg wat je al weet: je rekent alleen binnen de groep die past bij wat je al weet. (In de wiskunde heet dat voorwaardelijke kans; film 6 en de syllabus gebruiken die term niet.)' },
     { t: 'Van de 225 die overblijven zijn er 150 drager: <b>twee derde</b>.', n: 'Of met het schema: van de vier vakjes valt aa weg; van de drie die overblijven zijn er twee Aa.' },
-    { t: 'De kans is dus ⅔, <b>niet ½</b>.', n: 'Misvatting: "Aa is de helft, dus ½." Die ½ geldt vóór je weet dat Sara gezond is. (In de familie is Sara AA; dat weet je pas met een dragerschapstest, scherm 17.)' }
+    { t: 'De kans is dus ⅔, <b>niet ½</b>.', n: 'Misvatting: "Aa is de helft, dus ½." Die ½ geldt vóór je weet dat Sara gezond is. Dit is een denkvoorbeeld: in de familie ligt vast dat Sara AA is (LEVENSLOOP). Dat weet je pas met een dragerschapstest (scherm 15).' }
   ],
   teken(ctx, S) {
     const T = S.T, s0 = S.on(0, 2.0), s1 = S.on(1, 1.4), s2 = S.on(2, 1.0), s3 = S.on(3, 1.0), KLG = [C.groen, C.goud, C.koraal];
@@ -482,13 +432,13 @@ SCHERMEN.push({ titel: 'Is Sara drager?', kop: 'Is Sara drager?', deel: 'Kansen'
   } });
 
 /* =====================================================================================
-   15 · Twee rekenregels
+   13 · Twee rekenregels
    ===================================================================================== */
 SCHERMEN.push({ titel: 'Twee rekenregels', kop: 'Twee rekenregels', deel: 'Kansen',
   stappen: [
-    { t: '<b>Productregel</b>: moeten twee onafhankelijke dingen allebei gebeuren, vermenigvuldig. Twee kinderen met aa: ¼ × ¼ = <b>1/16</b>.', n: 'Het vierkant: kolommen = eerste kind, rijen = tweede kind. Alleen het hoekvakje is "allebei aa". Zelfde rekenregel als ¾ × ¾ op scherm 6.' },
+    { t: '<b>Productregel</b>: moeten twee onafhankelijke dingen allebei gebeuren, vermenigvuldig. Twee kinderen met aa: ¼ × ¼ = <b>1/16</b>.', n: 'Het vierkant: kolommen = eerste kind, rijen = tweede kind. Alleen het hoekvakje is "allebei aa". Zelfde voorbeeld als film 6. Zelfde rekenregel als ½ × ½ in les 2 (vwo ook ¾ × ¾ op scherm 6).' },
     { t: '<b>Somregel</b>: sluiten twee mogelijkheden elkaar uit, tel op. Gezond = AA óf Aa: ¼ + ½ = <b>¾</b>.', n: 'Een kind kan niet tegelijk AA en Aa zijn: elkaar uitsluitend. Vraag terug: wat is de kans op een ziek kind? (1 − ¾ = ¼)' },
-    { t: 'Elk kind is een nieuwe trekking. Na een kind met aa is de kans voor het volgende kind <b>weer ¼</b>.', n: 'Misvatting: "Ze hebben al een ziek kind, dus de volgende drie zijn gezond." Toeval heeft geen geheugen. De Wit: Levi kwam als tweede, na Sara.' }
+    { t: 'Elk kind is een nieuwe trekking. Na een kind met aa is de kans voor het volgende kind <b>weer ¼</b>.', n: 'Vraag uit film 6: Twee dragers hebben al een kind met taaislijmziekte. Hoe groot is de kans dat hun volgende kind het ook krijgt? (een kwart) Misvatting: "Ze hebben al een ziek kind, dus de volgende drie zijn gezond." Toeval heeft geen geheugen. De Wit: Levi kwam als tweede, na Sara.' }
   ],
   teken(ctx, S) {
     const s0 = S.on(0, 1.2), s1 = S.on(1, 1.2), s2 = S.on(2, 1.2);
@@ -507,15 +457,15 @@ SCHERMEN.push({ titel: 'Twee rekenregels', kop: 'Twee rekenregels', deel: 'Kanse
   } });
 
 /* =====================================================================================
-   16 · Sara krijgt later een kind
+   14 · Sara krijgt later een kind
    ===================================================================================== */
 SCHERMEN.push({ titel: 'Sara krijgt een kind', kop: 'Sara krijgt later een kind', deel: 'Kansen',
   stappen: [
-    { t: 'Stel: Sara krijgt later een kind met een partner die <b>drager</b> is (Aa). We rekenen de kans op een kind met albinisme uit.', n: 'Vraag uit film 6: Sanne krijgt later een kind met Tom, Tom is drager. Hoe groot is de kans dat hun kind taaislijmziekte heeft? (⅙; zelfde getallen)' },
-    { t: 'Daarvoor moet Sara eerst <b>drager</b> zijn: kans ⅔. Is ze dat niet, dan wordt het kind niet ziek.', n: 'Die ⅔ komt van scherm 15.' },
+    { t: 'Stel: Sara krijgt later een kind met een partner die <b>drager</b> is (Aa). We rekenen de kans op een kind met albinisme uit.', n: 'Vraag uit film 6: De vrouw is gezond (kans ⅔ dat ze drager is), haar partner heeft zich laten testen en is drager. Hoe groot is de kans dat hun kind taaislijmziekte krijgt? (een zesde; zelfde getallen)' },
+    { t: 'Daarvoor moet Sara eerst <b>drager</b> zijn: kans ⅔. Is ze dat niet, dan wordt het kind niet ziek.', n: 'Die ⅔ komt van scherm 13.' },
     { t: 'Dan moet Sara een <b>a</b> doorgeven: kans ½.' },
     { t: 'En de partner ook een <b>a</b>: kans ½. Alles moet gebeuren, dus vermenigvuldig: ⅔ × ½ × ½ = <b>⅙</b>.', n: 'Productregel. Veelgemaakte fout: ½ × ½ = ¼ vergeten te vermenigvuldigen met de kans dat Sara drager is.' },
-    { t: 'Met een <b>dragerschapstest</b> weet Sara het zeker. Dan wordt de kans <b>¼</b> of <b>0</b>.', n: 'Zo werkt een erfelijkheidsadviseur. In Nederland vraag je zo\'n test via de huisarts aan bij een afdeling klinische genetica; bij albinisme of taaislijmziekte in de familie wordt hij vergoed (briefing). In het echt is Sara AA (LEVENSLOOP), dus de kans is 0; dat weet zij pas na de test.' }
+    { t: 'Met een <b>dragerschapstest</b> weet Sara het zeker. Dan wordt de kans <b>¼</b> of <b>0</b>.', n: 'Met zulke berekeningen werkt een klinisch geneticus (film 6; de oude film zei erfelijkheidsadviseur). In Nederland vraag je zo\'n test via de huisarts aan bij een afdeling klinische genetica; bij albinisme of taaislijmziekte in de familie wordt hij vergoed (briefing). Denkvoorbeeld: in de familie ligt vast dat Sara AA is (LEVENSLOOP), dus de kans is 0; dat weet zij pas na de test.' }
   ],
   teken(ctx, S) {
     const T = S.T, s0 = S.on(0, 1.0), s1 = S.on(1, 1.0), s2 = S.on(2, 0.8), s3 = S.on(3, 1.2), s4 = S.on(4, 1.2), r = 48;
@@ -538,15 +488,15 @@ SCHERMEN.push({ titel: 'Sara krijgt een kind', kop: 'Sara krijgt later een kind'
   } });
 
 /* =====================================================================================
-   17 · Samenvatting
+   15 · Samenvatting
    ===================================================================================== */
 SCHERMEN.push({ titel: 'Samenvatting', kop: 'Een stamboom in vier stappen', deel: 'Afsluiting',
   stappen: [
-    { t: '<b>Stap 1</b>: dominant of recessief? Gezonde ouders met een kind met de eigenschap: recessief.', n: 'Terug naar De Wit (scherm 11).' },
+    { t: '<b>Stap 1</b>: dominant of recessief? Gezonde ouders met een kind met de eigenschap: recessief.', n: 'Terug naar De Wit (scherm 9–12).' },
     { t: '<b>Stap 2</b>: autosomaal of via het X-chromosoom? Aangedane dochter met een gezonde vader: autosomaal.' },
     { t: '<b>Stap 3</b>: genotypen invullen, van aangedaan (aa) terug naar gezond (Aa of A_).' },
-    { t: '<b>Stap 4</b>: de kans. Vermenigvuldig wat allemaal moet gebeuren, tel op wat elkaar uitsluit, haal weg wat je al weet.', n: 'De drie regels: productregel (⅔ × ½ × ½), somregel (¼ + ½), voorwaardelijke kans (aa valt weg → ⅔).' },
-    { t: '<b>Twee genen</b>: los van elkaar 9 : 3 : 3 : 1; gekoppeld vooral de oude combinaties, crossing-over maakt recombinanten.', n: 'Vwo: het recombinatiepercentage zegt iets over de afstand (genkaart, max 50 %).' }
+    { t: '<b>Stap 4</b>: de kans. Vermenigvuldig wat allemaal moet gebeuren, tel op wat elkaar uitsluit, haal weg wat je al weet.', n: 'De drie regels, zoals de recap van film 6: productregel (⅔ × ½ × ½), somregel (¼ + ½), haal weg wat je weet (aa valt weg → ⅔).' },
+    { t: '<b>Twee genen</b>: los van elkaar 9 : 3 : 3 : 1; gekoppeld vooral de oude combinaties, crossing-over maakt recombinanten.', th: '<b>Twee genen</b>: op verschillende chromosomen vier soorten gameten, elk ¼; gekoppelde genen gaan meestal samen mee.', n: 'Zoals de recap van film 4. Recombinatiepercentage en genkaart zitten niet in film en les.' }
   ],
   teken(ctx, S) {
     const s = [0, 1, 2, 3, 4].map(k => S.on(k, 0.8));
@@ -556,14 +506,15 @@ SCHERMEN.push({ titel: 'Samenvatting', kop: 'Een stamboom in vier stappen', deel
       regel(ctx, kop, 250, y - 4, a, C.text, 42, 'left', 700); regel(ctx, sub, 250, y + 46, a, C.text2, 30, 'left', 500); });
     const a = s[4]; paneel(ctx, 1190, 180, 640, 820, a); metaText(ctx, 'twee genen', 1510, 232, C.meta, 'center', 24, a);
     if (a > 0.01) { L3_FEN.forEach(([g, rd], k) => erwt(ctx, 1330 + k * 120, 320, 36, { geel: g, rimpel: !rd, a }));
-      regel(ctx, 'los: 9 : 3 : 3 : 1', 1510, 430, a, C.goud, 46, 'center', 700); regel(ctx, 'terugkruising: 1 : 1 : 1 : 1', 1510, 490, a, C.text2, 32, 'center', 600);
+      if (S.vwo) { regel(ctx, 'los: 9 : 3 : 3 : 1', 1510, 430, a, C.goud, 46, 'center', 700); regel(ctx, 'terugkruising: 1 : 1 : 1 : 1', 1510, 490, a, C.text2, 32, 'center', 600); }
+      else { regel(ctx, 'los: 4 soorten gameten', 1510, 430, a, C.goud, 44, 'center', 700); regel(ctx, 'elk ¼', 1510, 490, a, C.text2, 32, 'center', 600); }
       vlieg(ctx, 1400, 610, 1.1, { a }); vlieg(ctx, 1620, 610, 1.1, { a, zwart: true, stomp: true });
-      regel(ctx, 'gekoppeld: oude combinaties', 1510, 760, a, C.text, 36, 'center', 700); regel(ctx, 'crossing-over → recombinanten', 1510, 820, a, C.text2, 32, 'center', 600);
-      if (S.vwo) regel(ctx, 'recombinatie % ~ afstand', 1510, 900, a, C.paars, 32, 'center', 600); if (S.vwo) regel(ctx, '(max 50 %)', 1510, 945, a, C.paars, 30, 'center', 600); }
+      regel(ctx, 'gekoppeld: oude combinaties', 1510, 760, a, C.text, 36, 'center', 700);
+      if (S.vwo) regel(ctx, 'crossing-over → recombinanten', 1510, 820, a, C.text2, 32, 'center', 600); }
   } });
 
 /* =====================================================================================
-   18 · Volgende keer
+   16 · Volgende keer
    ===================================================================================== */
 SCHERMEN.push({ titel: 'Volgende keer', deel: 'Vooruitblik', geenKop: true,
   stappen: [{ t: 'Dit was de laatste erfelijkheidsles. Volgende keer: alles <b>herhalen</b> en <b>oefenen</b> voor de toets.', n: 'Havo: daarna de toets van H3 (Biologie voor jou). Vwo: de toets van H5 (Nectar); § 5.5 (ethiek) doen de leerlingen zelf. Oefenen: de Kruisingtrainer (tools/kruisingtrainer.html, snel oefenen en opgaven met context) en de opdrachten onder de films. Daarna Evolutie: waar komen al die allelen vandaan? Huiswerk staat bij de lesopbouw.' }],

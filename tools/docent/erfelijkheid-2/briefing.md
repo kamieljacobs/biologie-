@@ -75,9 +75,9 @@ Bronnen: [LibreTexts (Khan Academy, naar OpenStax): Multiple alleles, incomplete
 Bronnen: [Dean 2005, Blood Groups and Red Cell Antigens (NCBI Bookshelf): The ABO blood group](https://ncbi.nlm.nih.gov/sites/books/NBK2267) · [Salt Lake CC College Biology](https://slcc.pressbooks.pub/collegebiology1/chapter/incomplete-dominance-and-codominance/)
 
 ### Letale factor: de gele muis
-Het **lethal yellow**-allel (Aʸ) ligt bij het agouti-gen van de muis. Aʸ/a-muizen zijn geel (en worden later vaak dik). Aʸ/Aʸ-embryo's sterven al **vóór de innesteling**. Daarom geeft geel × geel 2 geel : 1 grijs (agouti) in plaats van 3 : 1, en is een gele muis nooit raszuiver.
+Het **lethal yellow**-allel (Aʸ) ligt bij het agouti-gen van de muis. Aʸ/a-muizen zijn geel (en worden later vaak dik). Aʸ/Aʸ-embryo's sterven al **vóór de innesteling**. Daarom geeft geel × geel 2 geel : 1 grijs (agouti) in plaats van 3 : 1, en is een gele muis nooit raszuiver. In film 3 en de les heten de allelen G (geel) en g (grijs).
 
-Het mechanisme: bij Aʸ is een stuk DNA anders gelegd. Daardoor staat het agouti-gen voortdurend aan (gele vacht, dominant). Tegelijk is het naastgelegen gen **Raly** kapot, en dat heeft het vroege embryo nodig. Met één Aʸ is er nog een werkend Raly op het andere chromosoom; met twee niet. Voor de kleur is Aʸ dus dominant, voor het overleven recessief.
+Het mechanisme: bij Aʸ ontbreekt een stuk DNA (een deletie). Daardoor staat het agouti-gen voortdurend aan (gele vacht, dominant). Tegelijk is het naastgelegen gen **Raly** verdwenen, en dat heeft het vroege embryo nodig. Met één Aʸ is er nog een werkend Raly op het andere chromosoom; met twee niet. Voor de kleur is Aʸ dus dominant, voor het overleven recessief.
 
 **Als een leerling vraagt** "bestaat dit ook bij mensen?": ja. Veel ernstige recessieve aandoeningen zijn bij homozygoten dodelijk vóór de geboorte. Bij mensen tel je dat niet zo makkelijk als bij muizen.
 
@@ -97,9 +97,9 @@ Lengte wordt door duizenden genvarianten samen bepaald. In 2022 vond het GIANT-c
 Bronnen: [Broad Institute 2022: Largest genome-wide association study … height](https://www.broadinstitute.org/news/largest-genome-wide-association-study-ever-uncovers-nearly-all-genetic-variants-linked-height) · [University of Edinburgh (VIKING): Insights into the genetics of human height](https://viking.ed.ac.uk/research/insights-into-the-genetics-of-human-height)
 
 ### Kleurenblindheid en hemofilie
-- Het X-chromosoom is ± 155 miljoen basenparen lang. Het aantal eiwitgenen schat MedlinePlus op **900 tot 1.400**, afhankelijk van de telmethode. De film zegt 'zo'n achthonderd'; dat is aan de lage kant.
+- Het X-chromosoom is ± 155 miljoen basenparen lang. Het aantal eiwitgenen schat MedlinePlus op **900 tot 1.400**, afhankelijk van de telmethode. Film 5 zegt 'zo'n duizend' (de oude film zei achthonderd, te laag).
 - Rood-groen kleurenblindheid: genen **OPN1LW** (rood) en **OPN1MW** (groen) op de X. X-chromosomaal recessief: bij mannen is één veranderd allel genoeg, bij vrouwen zijn er twee nodig.
-- Frequentie bij mensen van Noord-Europese afkomst: **1 op 12 mannen** (≈ 8 %) en **1 op 200 vrouwen** (0,5 %). Dat past bij 8 % × 8 % ≈ 0,6 %.
+- Frequentie bij mensen van Noord-Europese afkomst: **1 op 12 mannen** (≈ 8 %) en **1 op 200 vrouwen** (0,5 %). Het bronnenlogboek van film 5 (`films/erfelijkheid/5-…/bron/bronnen.md`, B2) geeft gemeten ± 0,4 % bij vrouwen. Reken het niet uit als 8 % × 8 % ≈ 0,6 % (dat stond in de oude film en is weggehaald): er zijn twee vormen, via het rood-gen (OPN1LW) of via het groen-gen (OPN1MW), en een vrouw met op de ene X een afwijkend rood-gen en op de andere een afwijkend groen-gen ziet normaal. Ze moet op beide X-chromosomen een fout in hetzelfde gen hebben.
 
 **Hemofilie in de koningshuizen.** Prins Leopold, zoon van koningin Victoria, had hemofilie. In 2009 is DNA uit de resten van de Russische tsarenfamilie onderzocht. Tsarevitsj Alexei had één afwijkend allel van het **F9-gen**: het was **hemofilie B** (stollingsfactor IX), niet A. Tsarina Alexandra, kleindochter van Victoria, was draagster. Victoria zelf is niet getest; via de stamboom wijst alles naar haar. Waarschijnlijk ontstond de mutatie bij haar of bij een van haar ouders.
 
@@ -114,7 +114,7 @@ Bronnen: [MedlinePlus: Color vision deficiency](https://medlineplus.gov/genetics
 ### Mitochondriaal DNA
 - Menselijk mtDNA is een ring van **16.569 basenparen** met **37 genen**: 13 voor eiwitten van de oxidatieve fosforylering, 22 tRNA's en 2 rRNA's. Een gewone cel heeft ± 1.000 kopieën.
 - Een rijpe eicel heeft **meer dan 150.000 kopieën** mtDNA, een zaadcel ± 100. Het mtDNA van de zaadcel wordt in het vroege embryo actief opgeruimd. Overerving via de vader is bij mensen uiterst zeldzaam.
-- De film zegt 'meer dan honderdduizend mitochondriën' in de eicel. Strikt genomen gaat het om kopieën van het DNA (een mitochondrion heeft er vaak meer dan één), maar de boodschap klopt.
+- Film 5 zegt 'zo'n honderdduizend mitochondriën' in de eicel en 'hooguit zo'n honderd' in de zaadcel (bronnenlogboek van film 5, B16 en B17; de oude film zei 'een paar tientallen'). Strikt genomen gaat het om kopieën van het DNA (een mitochondrion heeft er vaak meer dan één), maar de boodschap klopt.
 
 **LHON** (Leber hereditaire opticusneuropathie) is een voorbeeld:
 

@@ -7,7 +7,7 @@ Gezocht in de Examenatlas (`examenatlas/havo.json`: 16 havo-examens 2018-I t/m 2
 - **Gekoppelde genen** komen precies één keer voor: **2019-I vraag 12** (opgave 'Nierdonor bij leven', 2 punten). HLA-genen liggen dicht bij elkaar en erven als één set over. De kans dat een twee-eiige tweelingbroer dezelfde sets heeft als zijn zus is ½ × ½ = ¼. In de atlas is dit het enige examen bij het onderwerp 'koppeling & crossing-over' ('komt op havo weinig voor').
 - **Crossing-over** staat alleen in de uitleg bij meiose en recombinatie, als bron van variatie. Een aparte vraag erover vond ik niet.
 
-Gevolg: op havo kun je het dihybride deel (scherm 5–6) kort houden. Houd wel de kern: genen op verschillende chromosomen worden los verdeeld, genen op één chromosoom gaan als set mee. De productregel komt ook terug bij stambomen.
+Gevolg: film 4 maakt het dihybride kruisingsschema (9 : 3 : 3 : 1, productregel per gen, terugkruising 1 : 1 : 1 : 1) en crossing-over vwo; in de les zijn scherm 5–6 en 8 daarom vwo. Houd op havo wel de kern: genen op verschillende chromosomen worden los verdeeld, genen op één chromosoom gaan als set mee. De productregel komt ook terug bij stambomen.
 
 *Niet met een bron gecontroleerd: de atlas is gemaakt uit de examens met een script en koppelt onderwerpen via tekst. Een vraag die een dihybride kruising gebruikt zonder het woord (bijvoorbeeld twee eigenschappen in één opgave) kan gemist zijn. Steekproef bij een examen dat je toch al bespreekt.*
 
@@ -38,7 +38,9 @@ Bronnen: [Mendel 1866, Engelse vertaling (Iowa State University)](https://www.ag
 ### Gekoppelde genen en crossing-over
 Genen die dicht bij elkaar op hetzelfde chromosoom liggen, worden meestal als paar doorgegeven: ze zijn **gekoppeld**. Bij crossing-over in profase I wisselen homologe chromosomen een stuk uit. Daardoor komen allelen van de vader en de moeder op hetzelfde chromosoom terecht: **recombinatie**. Hoe groter de afstand tussen twee genen, hoe groter de kans dat er ten minste één crossing-over tussen valt.
 
-Welke allelen samen op een chromosoom liggen, lees je af aan de ouders. Grijs-normaal (BBVV) × zwart-stompjes (bbvv) geeft een F1 met BV op het ene chromosoom en bv op het andere. Vwo-notatie: BV/bv tegenover Bv/bV.
+Welke allelen samen op een chromosoom liggen, lees je af aan de ouders. Grijs-normaal (GGVV) × zwart-stomp (ggvv) geeft een F1 met GV op het ene chromosoom en gv op het andere. Notatie: GV/gv tegenover Gv/gV (letters als in film 4; bij de erwt is G geel).
+
+**Alleen bij vrouwtjes.** Bij fruitvliegmannetjes is er geen crossing-over. Daarom kruist film 4 een GV/gv-vrouwtje met een zwart mannetje met stompe vleugels om recombinanten te laten zien.
 
 **Waarom maximaal 50 %?** Twee genen die ver uit elkaar liggen hebben bijna altijd een of meer crossing-overs tussen zich. Een even aantal herstelt de oude combinatie, een oneven aantal geeft een recombinant. Gemiddeld is de helft recombinant, net als bij genen op verschillende chromosomen.
 
@@ -50,8 +52,10 @@ Welke allelen samen op een chromosoom liggen, lees je af aan de ouders. Grijs-no
 
 Bronnen: [OpenStax Biology 2e, 12.3 Laws of Inheritance](https://openstax.org/books/biology-2e/pages/12-3-laws-of-inheritance) · [Nickle & Barrette-Ng, Online Open Genetics 7: Linkage and Mapping (LibreTexts)](https://bio.libretexts.org/Bookshelves/Genetics/Online_Open_Genetics_(Nickle_and_Barrette-Ng)/07%3A_Linkage_and_Mapping/7.S%3A_Linkage_and_Mapping_(Summary))
 
-### Recombinatiepercentage en genkaarten (vwo)
-**Recombinatiepercentage** = aantal recombinante nakomelingen / totaal × 100 %. Je meet het het makkelijkst met een terugkruising met een dubbel recessieve ouder (bbvv): die geeft alleen bv, dus elk fenotype verraadt de gameet van de andere ouder. In de film: 170 van de 1000 = 17 %.
+### Recombinatiepercentage en genkaarten (achtergrond)
+*Alleen achtergrond voor de docent: dit zit niet in film 4 en niet in de les (Kamiel 28 okt 2026: te diepgaand voor de doelgroep). Crossing-over blijft daar kwalitatief: veel oude, weinig nieuwe combinaties.*
+
+**Recombinatiepercentage** = aantal recombinante nakomelingen / totaal × 100 %. Je meet het het makkelijkst met een terugkruising met een dubbel recessieve ouder (ggvv): die geeft alleen gv, dus elk fenotype verraadt de gameet van de andere ouder. Rekenvoorbeeld: 170 recombinanten op 1000 = 17 % (een bedacht getal, dat de oude film gebruikte; volgens het bronnenlogboek van film 4 ging Morgans eigen telling over 2300 vliegen).
 
 **Sturtevant (1913)**, student van Morgan, gebruikte zulke percentages als maat voor afstand en zette zes X-gebonden factoren van Drosophila op een lijn. Zijn redenering: liggen de genen op een lijn, dan is de afstand A–C gelijk aan A–B plus B–C. Zo bepaalde hij de volgorde. Hij merkte al op dat dubbele crossing-overs de afstanden minder nauwkeurig maken.
 

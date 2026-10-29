@@ -138,6 +138,9 @@ function vlieg(ctx, x, y, s, o = {}) { const a = o.a == null ? 1 : o.a; if (a <=
 // rode bloedcel met antigenen: o.A, o.B (true/false). A = goud vertakt suikerketentje, B = teal
 function rodeBloedcel(ctx, x, y, r, o = {}) { const a = o.a == null ? 1 : o.a; if (a <= 0.01) return; const rb = C.licht ? '#D9675A' : '#E07A5F'; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.ellipse(x, y, r, r, 0, 0, 6.283); shape(ctx, rgba(rb, 0.85), dk(rb, 0.3), 3); ctx.beginPath(); ctx.ellipse(x, y, r * 0.5, r * 0.5, 0, 0, 6.283); shape(ctx, rgba(dk(rb, 0.25), 0.35), null);
   const soorten = [o.A ? 'A' : null, o.B ? 'B' : null].filter(Boolean), n = soorten.length ? 10 : 0;
+  // o.kaal: bloedgroep O = alleen de kale basisketen, geen extra suiker (zoals film 3)
+  if (!n && o.kaal) for (let i = 0; i < 10; i++) { const an = i / 10 * 6.283 + 0.2, bx = x + Math.cos(an) * r, by = y + Math.sin(an) * r, ex = x + Math.cos(an) * r * 1.16, ey = y + Math.sin(an) * r * 1.16;
+    ctx.strokeStyle = rgba(C.line, 0.95); ctx.lineWidth = 3; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(bx, by); ctx.lineTo(ex, ey); ctx.stroke(); }
   for (let i = 0; i < n; i++) { const an = i / n * 6.283 + 0.2, s = soorten[i % soorten.length], kl = s === 'A' ? C.goud : C.teal, bx = x + Math.cos(an) * r, by = y + Math.sin(an) * r, ex = x + Math.cos(an) * r * 1.22, ey = y + Math.sin(an) * r * 1.22;
     ctx.strokeStyle = kl; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(bx, by); ctx.lineTo(ex, ey); ctx.stroke(); if (s === 'A') { ctx.beginPath(); ctx.moveTo(ex, ey); ctx.lineTo(ex + Math.cos(an - 0.6) * r * 0.12, ey + Math.sin(an - 0.6) * r * 0.12); ctx.moveTo(ex, ey); ctx.lineTo(ex + Math.cos(an + 0.6) * r * 0.12, ey + Math.sin(an + 0.6) * r * 0.12); ctx.stroke(); circ(ctx, ex, ey, r * 0.045, kl); }
     else { roundRect(ctx, ex - r * 0.05, ey - r * 0.05, r * 0.1, r * 0.1, 2); shape(ctx, kl, null); circ(ctx, ex + Math.cos(an) * r * 0.1, ey + Math.sin(an) * r * 0.1, r * 0.04, kl); } }
