@@ -26,6 +26,8 @@ const LIJST = [
  ['insecten (verbeterronde 1, C)', c => { insect(c, 'mier', 630, 640, 1, { houding: 'lopen', t: 0.2 }); insect(c, 'bij', 770, 640, 1, { houding: 'lopen', t: 0.1 }); insect(c, 'kever', 1020, 640, 1, { houding: 'lopen', t: 0.3 }); insect(c, 'vlinder', 1430, 490, 1, { houding: 'vliegen', t: 0.8 }); }],
  ['bacterie + plasmide', c => { bacterie(c, 960, 540, 700); }], ['griepvirus', c => griepVirus(c, 960, 540, 220)], ['chromosoompaar', c => chromosoomPaar(c, 960, 540, 600, {})], ['sikkelcel', c => { rodeBloedcel(c, 700, 540, 160); sikkelcel(c, 1220, 540, 160); }],
 ];
+// ?licht=1: zelfde lichte palet als de lessen (beeldbank), om contrast op wit te controleren
+if (/licht=1/.test(location.search)) { Object.assign(C, { bgMicro: '#F4F6FA', bgSchema: '#FFFFFF', bgMacro: '#FFFFFF', fill: '#E9EDF3', text: '#121C2E', text2: '#4E5A6C', line: '#6B7687' }); document.body.style.background = '#E9EDF3'; }
 window.FOUTEN = [];
 for (const [naam, f] of LIJST) { const fig = document.createElement('figure'); const cv = document.createElement('canvas'); cv.width = 960; cv.height = 540; const cap = document.createElement('figcaption'); cap.textContent = naam; fig.append(cv, cap); g.append(fig);
   const ctx = cv.getContext('2d'); ctx.scale(0.5, 0.5); ctx.fillStyle = C.bgMacro || '#16213A'; ctx.fillRect(0, 0, 1920, 1080);

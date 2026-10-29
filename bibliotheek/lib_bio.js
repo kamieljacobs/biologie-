@@ -8492,6 +8492,8 @@ const _ERF_ROM = ['I', 'II', 'III', 'IV', 'V', 'VI'];
 // lichte stand? (C.bgSchema licht) — voor randen die op wit anders wegvallen
 function _erfLicht() { const b = C.bgSchema || '#1A2740'; if (b[0] !== '#' || b.length < 7) return false; const n = parseInt(b.slice(1, 7), 16); return ((n >> 16) * 0.299 + ((n >> 8) & 255) * 0.587 + (n & 255) * 0.114) > 150; }
 function _erfRand(h, k = 0.3) { return _erfLicht() ? _mixHex(h, '#000000', k) : h; }
+// wit op wit (witte bloem, albino muis): in de lichte stand een rustige, zachte schaduw rondom zodat de vorm blijft staan
+function _erfWitSchaduw(ctx, aan) { if (aan && _erfLicht()) { ctx.shadowColor = 'rgba(40,52,72,0.32)'; ctx.shadowBlur = 5; ctx.shadowOffsetX = 0; ctx.shadowOffsetY = 1; } }
 function _erfStip(ctx, x, y, r, f) { ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.fillStyle = f; ctx.fill(); }
 function _erfGlad(ctx, P, open = false) { const n = P.length; ctx.beginPath(); ctx.moveTo(P[0][0], P[0][1]);
   const m = open ? n - 1 : n; for (let i = 0; i < m; i++) { const p0 = P[(i - 1 + n) % n], p1 = P[i], p2 = P[(i + 1) % n], p3 = P[(i + 2) % n];
@@ -8515,7 +8517,7 @@ function _erfKruis(ctx, x, y, s, a = 1, col = C.koraal) { if (a <= 0.01) return;
 // =====================================================================================
 function erwtBloem(ctx, x, y, s, o = {}) { return _erfBloem(ctx, x, y, s, o); }
 function _erfBloem(ctx, x, y, s, o = {}) { const { kleur = 'paars', open = 0, zonder = 0, stuif = 0, knop = 0, kijk = 1, a = 1, rot = 0 } = o; if (a <= 0.01) return {};
-  const K = ERFK.bloem[kleur] || ERFK.bloem.paars, rd = (h) => _erfRand(h, kleur === 'wit' ? 0.45 : 0.25); ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(rot); ctx.scale(s * kijk, s); ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+  const K = ERFK.bloem[kleur] || ERFK.bloem.paars, rd = (h) => _erfRand(h, kleur === 'wit' ? 0.5 : 0.25); ctx.save(); ctx.globalAlpha *= a; _erfWitSchaduw(ctx, kleur === 'wit'); ctx.translate(x, y); ctx.rotate(rot); ctx.scale(s * kijk, s); ctx.lineJoin = 'round'; ctx.lineCap = 'round';
   const kv = 1 - 0.45 * knop;
   ctx.strokeStyle = ERFK.stengel; ctx.lineWidth = 0.9; ctx.beginPath(); ctx.moveTo(-14, 10); ctx.quadraticCurveTo(-8, 4, -2, 1); ctx.stroke(); // bloemsteel
   ctx.save(); ctx.translate(1, -1); ctx.rotate(-0.18); ctx.scale(kv * 0.95, kv * 0.88); // vlag
@@ -8569,16 +8571,17 @@ function _erfRank(ctx, x, y, l, ang, t = 0) { ctx.save(); ctx.translate(x, y); c
 // steunblaadjes bij elke knoop (groter dan de blaadjes), 1–3 paar blaadjes per blad, bloemen op een lange steel uit de
 // bladoksel bovenaan, oudere bloemen lager zijn al peulen (peul 60–80 × 10–14 mm), plant 60–150 cm (tot 2 m).
 // x, y = grondpunt; h = hoogte in px. o: kleur 'paars'|'wit', bloemen (aantal), peulen (aantal), peulOpen 0..1,
-//    peulErwten = [{kleur, vorm}] (inhoud van een open peul), seed, t (ranken wiegen), stok, hl (gouden ring bij de voet), a.
-// Geeft {bloemen: [ankers van erwtBloem], top} terug.
+//    peulErwten = [{kleur, vorm}] (inhoud van een open peul), seed, t (ranken wiegen), stok, hl (gouden ring bij de voet), a,
+//    zoom = {x, y, r, peul, open, erwten}: close-up van één peul in een zoomcirkel (een open peul is op plantgrootte klein).
+// Geeft {bloemen: [ankers van erwtBloem], peulen: [[x, y]], top} terug.
 // Bekende fouten (oude films): losse ronde bolletjes als blad; ranken als rechte streepjes; bloemen als rondjes.
 // =====================================================================================
-function erwtenplant(ctx, x, y, h, o = {}) { const { kleur = 'paars', bloemen = 3, peulen = 2, peulOpen = 0, peulErwten = null, seed = 1, t = 0, a = 1, stok = true, hl = 0 } = o; if (a <= 0.01) return {};
+function erwtenplant(ctx, x, y, h, o = {}) { const { kleur = 'paars', bloemen = 3, peulen = 2, peulOpen = 0, peulErwten = null, seed = 1, t = 0, a = 1, stok = true, hl = 0, zoom = null } = o; if (a <= 0.01) return {};
   ctx.save(); ctx.globalAlpha *= a; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; const r = (i) => hash(seed * 31 + i);
   if (stok) { ctx.strokeStyle = ERFK.stok; ctx.lineWidth = Math.max(3, h * 0.012); ctx.beginPath(); ctx.moveTo(x - h * 0.05, y + 4); ctx.lineTo(x - h * 0.03, y - h * 1.04); ctx.stroke(); }
   const N = 6, knopen = []; for (let i = 0; i <= N; i++) { const u = i / N; knopen.push([x + (i % 2 ? 1 : -1) * h * 0.035 + (r(i) - 0.5) * h * 0.02, y - u * h]); }
   ctx.strokeStyle = ERFK.stengel; ctx.lineWidth = Math.max(2, h * 0.012); ctx.beginPath(); knopen.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke();
-  const L = h * 0.11, Bp = [], Pp = [];
+  const L = h * 0.11, Bp = [], Pp = [], peulPos = [];
   knopen.slice(1, N).forEach(([kx, ky], i) => { const kant = i % 2 ? 1 : -1;
     _erfSteun(ctx, kx, ky, h * 0.045 * (1 - i * 0.06), -kant); _erfSteun(ctx, kx, ky, h * 0.04 * (1 - i * 0.06), kant);
     const bx = kx + kant * L * 1.1, by = ky - L * 0.35; ctx.strokeStyle = ERFK.stengel; ctx.lineWidth = Math.max(1.2, h * 0.006); ctx.beginPath(); ctx.moveTo(kx, ky); ctx.quadraticCurveTo(kx + kant * L * 0.5, ky - L * 0.3, bx, by); ctx.stroke();
@@ -8586,14 +8589,22 @@ function erwtenplant(ctx, x, y, h, o = {}) { const { kleur = 'paars', bloemen = 
       _erfBlaadje(ctx, sx, sy, L * 0.62, L * 0.26, ang - kant * 1.1 + (r(i * 7 + j) - 0.5) * 0.3); _erfBlaadje(ctx, sx, sy, L * 0.6, L * 0.25, ang + kant * 0.6 + (r(i * 5 + j) - 0.5) * 0.3); });
     _erfRank(ctx, bx, by, L * 0.9, kant > 0 ? -0.4 : Math.PI + 0.4, t + i);
     if (i >= N - 1 - bloemen && Bp.length < bloemen) Bp.push([kx, ky, kant]); else if (i < N - 1 - bloemen && Pp.length < peulen) Pp.push([kx, ky, kant]); });
-  Pp.forEach(([kx, ky, kant]) => { const sx = kx - kant * L * 0.25, sy = ky + L * 0.1, rot = kant > 0 ? 1.9 : 1.25, pl = h * 0.11; // peul aan een steeltje, hangt omlaag
+  Pp.forEach(([kx, ky, kant]) => { const sx = kx - kant * L * 0.25, sy = ky + L * 0.1, rot = kant > 0 ? 1.9 : 1.25, pl = h * 0.15; // peul aan een steeltje, hangt omlaag; ± 2× een blaadje (7 cm bij een plant van 50–70 cm), leesbaar
     ctx.strokeStyle = ERFK.stengel; ctx.lineWidth = 1.4; ctx.beginPath(); ctx.moveTo(kx, ky); ctx.lineTo(sx, sy); ctx.stroke();
-    _erfPeul(ctx, sx + Math.cos(rot) * pl / 2, sy + Math.sin(rot) * pl / 2, pl, { open: peulOpen, rot, erwten: peulErwten || [] }); });
+    const px = sx + Math.cos(rot) * pl / 2, py = sy + Math.sin(rot) * pl / 2; peulPos.push([px, py]); _erfPeul(ctx, px, py, pl, { open: peulOpen, rot, erwten: peulErwten || [] }); });
   const sB = h * 0.0036, bloemPos = [];
   Bp.forEach(([kx, ky, kant]) => { const ex = kx + kant * L * 0.55, ey = ky - L * 0.55; ctx.strokeStyle = ERFK.stengel; ctx.lineWidth = 1.3; ctx.beginPath(); ctx.moveTo(kx, ky); ctx.quadraticCurveTo(kx + kant * L * 0.1, ky - L * 0.5, ex, ey); ctx.stroke();
     bloemPos.push(_erfBloem(ctx, ex + kant * 14 * sB, ey - 10 * sB, sB, { kleur, kijk: kant, rot: kant * -0.15 })); });
   if (hl > 0.01) { ctx.save(); ctx.globalAlpha *= hl; ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.beginPath(); ctx.ellipse(x, y + 6, h * 0.16, 12, 0, 0, 6.283); ctx.stroke(); ctx.restore(); }
-  ctx.restore(); return { bloemen: bloemPos, top: [x, y - h] };
+  // close-up van één peul in een zoomcirkel: zoom = {x, y, r, peul (index, 0), open (1), erwten}
+  if (zoom && peulPos.length) { const [px, py] = peulPos[Math.min(zoom.peul || 0, peulPos.length - 1)], zr = zoom.r || h * 0.22, zx = zoom.x, zy = zoom.y, an = Math.atan2(zy - py, zx - px);
+    ctx.save(); ctx.strokeStyle = rgba(C.line, 0.7); ctx.lineWidth = 2; ctx.setLineDash([8, 9]); ctx.beginPath();
+    [1.75, -1.75].forEach(d => { ctx.moveTo(px, py); ctx.lineTo(zx + Math.cos(an + Math.PI + d * 0.5) * zr, zy + Math.sin(an + Math.PI + d * 0.5) * zr); }); ctx.stroke(); ctx.setLineDash([]);
+    ctx.beginPath(); ctx.arc(px, py, h * 0.05, 0, 6.283); ctx.stroke();
+    ctx.beginPath(); ctx.arc(zx, zy, zr, 0, 6.283); ctx.fillStyle = C.bgMicro; ctx.fill(); ctx.save(); ctx.clip();
+    _erfPeul(ctx, zx + zr * 0.04, zy - zr * 0.1, zr * 1.8, { open: zoom.open ?? 1, rot: -0.12, erwten: zoom.erwten || peulErwten || [{}, {}, {}, {}, {}, {}] }); ctx.restore();
+    ctx.beginPath(); ctx.arc(zx, zy, zr, 0, 6.283); ctx.strokeStyle = C.line; ctx.lineWidth = 3; ctx.stroke(); ctx.restore(); }
+  ctx.restore(); return { bloemen: bloemPos, peulen: peulPos, top: [x, y - h] };
 }
 // eenvoudige plant voor schema's (generaties, terugkruising) — herkomst Erfelijkheid 2 (`plantje`): rechte stengel,
 // twee paar blaadjes, steunbladeren, één grote bloem bovenaan. h = hoogte in px.
@@ -8654,7 +8665,7 @@ function _erfPeul(ctx, x, y, len, o = {}) {
 // Bekende fouten: losse rondjes als bloemen; alle bloemen even groot; tros zonder knoppen bovenaan; blad tussen de bloemen.
 // =====================================================================================
 function _erfLbBloem(ctx, x, y, s, kl, kant = 1, open = 1) { // s = bloemhoogte in px; zijaanzicht, bek naar 'kant'
-  const k = ERFK.lb[kl] || kl, kd = ERFK.lb[kl + 'D'] || _mixHex(k, '#000000', 0.2), rd = _erfRand(kd, kl === 'wit' ? 0.45 : 0.25);
+  const k = ERFK.lb[kl] || kl, kd = ERFK.lb[kl + 'D'] || _mixHex(k, '#000000', 0.2), rd = _erfRand(kd, kl === 'wit' ? 0.5 : 0.25);
   ctx.save(); ctx.translate(x, y); ctx.scale(kant * s / 100, s / 100);
   ctx.fillStyle = ERFK.lb.kelk; ctx.beginPath(); ctx.moveTo(-46, -8); ctx.lineTo(-30, -18); ctx.lineTo(-24, 6); ctx.lineTo(-44, 10); ctx.closePath(); ctx.fill(); // kelk
   ctx.beginPath(); ctx.moveTo(-34, -14); ctx.bezierCurveTo(-10, -30, 20, -34, 30, -26); ctx.lineTo(32, 8); ctx.bezierCurveTo(10, 16, -14, 14, -32, 6); ctx.closePath(); shape(ctx, kd, null); // kroonbuis
@@ -8676,7 +8687,7 @@ function leeuwenbek(ctx, x, y, h, kl = 'rood', o = {}) {
     shape(ctx, i % 3 ? ERFK.lb.blad : ERFK.lb.bladL, null); ctx.strokeStyle = rgba('#2E4A2E', 0.6); ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(0, -L * 0.92); ctx.stroke(); ctx.restore(); }
   const fb = 0.52, s0 = h * 0.11, lijst = []; // tros: spiraal van onder (open, groot) naar boven (knoppen, klein)
   for (let i = 0; i < n; i++) { const u = i / (n - 1), f = fb + u * 0.47, kant = (i % 2 ? 1 : -1), z = Math.cos(i * 2.4 + seed); lijst.push({ p: P(f), kant, z, s: s0 * (1 - u * 0.55), open: u < 0.72 ? 1 : 0 }); }
-  lijst.sort((A, B) => A.z - B.z).forEach(b => { ctx.save(); ctx.globalAlpha *= b.z < 0 ? 0.85 : 1; _erfLbBloem(ctx, b.p[0] + b.kant * h * 0.03, b.p[1], b.s, kl, b.kant, b.open); ctx.restore(); });
+  lijst.sort((A, B) => A.z - B.z).forEach(b => { ctx.save(); ctx.globalAlpha *= b.z < 0 ? 0.85 : 1; _erfWitSchaduw(ctx, kl === 'wit'); _erfLbBloem(ctx, b.p[0] + b.kant * h * 0.03, b.p[1], b.s, kl, b.kant, b.open); ctx.restore(); });
   ctx.restore(); }
 
 // =====================================================================================
@@ -8770,11 +8781,11 @@ function netvliesKegels(ctx, x, y, w, h, o = {}) { const { a = 1, staafjes = 1, 
   typen.forEach((tp, i) => { const cx = x + (i + 0.5) * dx; ctx.lineWidth = 1.5;
     if (tp === 'staaf') { roundRect(ctx, cx - dx * 0.16, top, dx * 0.32, cel * 0.55, dx * 0.12); shape(ctx, '#7E8AA0', lighten('#7E8AA0', 0.3), 1.2);
       roundRect(ctx, cx - dx * 0.12, top + cel * 0.55, dx * 0.24, cel * 0.45, dx * 0.1); shape(ctx, lijf, rand, 1); }
-    else { const kl = tp === 'L' ? _mixHex(K.L, K.M, verschuif * 0.8) : K[tp], y0 = top + cel * 0.18;
+    else { const kl = tp === 'L' ? _mixHex(K.L, K.M, verschuif * 0.8) : K[tp], y0 = top; // punt van het buitensegment tegen het pigmentepitheel, net als de staafjes
       ctx.beginPath(); ctx.moveTo(cx - dx * 0.32, y0 + cel * 0.38); ctx.lineTo(cx, y0); ctx.lineTo(cx + dx * 0.32, y0 + cel * 0.38); ctx.closePath(); shape(ctx, _mixHex(kl, '#121A26', 0.15), lighten(kl, 0.3), 1.2);
       roundRect(ctx, cx - dx * 0.34, y0 + cel * 0.38, dx * 0.68, cel * 0.44, dx * 0.2); shape(ctx, lijf, rand, 1);
       ctx.beginPath(); ctx.arc(cx, y0 + cel * 0.6, dx * 0.14, 0, 6.283); shape(ctx, C.kern, C.kernR, 1); }
-    ctx.strokeStyle = lijf; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(cx, top + cel); ctx.lineTo(cx, y + h * 0.82); ctx.stroke(); });
+    ctx.strokeStyle = lijf; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(cx, top + (tp === 'staaf' ? cel : cel * 0.82)); ctx.lineTo(cx, y + h * 0.82); ctx.stroke(); });
   roundRect(ctx, x, y + h * 0.82, w, h * 0.16, 10); shape(ctx, C.fill, C.line, 1); // zenuwcellagen (licht komt van onder)
   ctx.restore(); return { typen, dx, top, cel, labelY: y + h * 0.05 }; }
 

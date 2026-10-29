@@ -375,7 +375,7 @@ const ERF=(()=>{ const t=1.3, bl=(g)=>g.toLowerCase()===g?'wit':'paars';
  1:['planten · dieren · schema',[
   ['erwtBloem · paars · wit · knop',[0,60,1100,420],c=>{ erwtBloem(c,170,360,10); erwtBloem(c,530,360,10,{kleur:'wit'}); erwtBloem(c,890,360,10,{knop:1}); }],
   ['erwtBloem · open · zonder meeldraden + stuifmeel',[0,40,1000,460],c=>{ erwtBloem(c,200,330,12,{open:1}); erwtBloem(c,660,330,12,{open:1,zonder:1,stuif:1}); }],
-  ['erwtenplant · paars · wit met open peulen',[0,40,980,900],c=>{ erwtenplant(c,260,900,800,{t}); erwtenplant(c,700,900,800,{kleur:'wit',peulOpen:1,peulErwten:[{},{kleur:'groen'},{},{vorm:'gerimpeld'},{}],seed:3,t}); }],
+  ['erwtenplant · zoom op een peul',[0,40,1060,900],c=>{ erwtenplant(c,220,900,800,{t}); erwtenplant(c,560,900,800,{kleur:'wit',seed:3,t,zoom:{x:870,y:600,r:170,erwten:[{},{kleur:'groen'},{},{vorm:'gerimpeld'},{},{}]}}); }],
   ['erwtPlantje · erwtBloemIcoon',[0,60,820,480],c=>{ erwtPlantje(c,150,500,400,'paars'); erwtPlantje(c,400,500,400,'wit',{hl:1}); erwtBloemIcoon(c,640,230,70,'paars'); erwtBloemIcoon(c,640,400,70,'wit'); }],
   ['erwt · rond/gerimpeld · peul open en dicht',[0,30,980,610],c=>{ [['geel','rond'],['geel','gerimpeld'],['groen','rond'],['groen','gerimpeld']].forEach(([k,v],i)=>erwt(c,120+i*170,110,60,{kleur:k,vorm:v,seed:i+2})); peul(c,460,330,640,{erwten:[{},{},{kleur:'groen'},{},{vorm:'gerimpeld'},{},{kleur:'groen',vorm:'gerimpeld'}]}); peul(c,460,560,480,{open:0,rot:0.05}); }],
   ['leeuwenbek · rood · roze · wit',[0,60,1020,860],c=>{ leeuwenbek(c,200,900,800,'rood'); leeuwenbek(c,520,900,800,'roze',{seed:2}); leeuwenbek(c,840,900,800,'wit',{seed:3}); }],

@@ -6618,11 +6618,18 @@ const _MUISVACHT_PAL = {
   albino: [{ basis: '#ECE8E0', donker: '#DCD6CA', licht: '#F6F3EC', staart: '#E6B8B0', oorbin: '#F0B8B4', neus: '#E8A0A0', roze: '#F0B8B0' }, '#C8323C'],
   geel:   [{ basis: '#D9B356', donker: '#C29A3E', licht: '#F0E2B8', roze: '#E0B0A4', oorbin: '#E4B4A4', staart: '#C8A088', neus: '#C08478', klauw: '#9A7A60' }, null],
   grijs:  [{ basis: '#8A8478', donker: '#6E6A60', licht: '#D8D2C4', roze: '#D8A8A0', oorbin: '#D8A898', staart: '#A89488', neus: '#B57E78', klauw: '#8A6A60' }, null] };
+// lichte stand (C.bgSchema licht, zoals in de lessen): albino krijgt iets diepere schaduwtinten en een zachte schaduw rondom,
+// anders valt een witte muis op een witte achtergrond weg (Kamiel 29 okt 2026); de andere vachten blijven gelijk
+const _MUISVACHT_LICHT = { albino: { basis: '#E9E4D9', donker: '#CDC4B3', licht: '#F5F2EB', staart: '#D9A098', oorbin: '#E8A6A2', neus: '#D88686', roze: '#E2A49C' } };
+function _muisLicht() { const b = (typeof C !== 'undefined' && C.bgSchema) || '#1A2740'; if (b[0] !== '#' || b.length < 7) return false; const n = parseInt(b.slice(1, 7), 16); return ((n >> 16) * 0.299 + ((n >> 8) & 255) * 0.587 + (n & 255) * 0.114) > 150; }
 const _MUISVACHT = {};
 function muisVacht(ctx, x, y, s, o = {}) { if ((o.a ?? 1) <= 0.01) return; let v = o.vacht || 'wild'; if (v === 'wit') v = 'albino'; if (v === 'wild' || !_MUISVACHT_PAL[v]) return muis(ctx, x, y, s, o);
-  if (!_MUISVACHT[v]) { const [pal, oog] = _MUISVACHT_PAL[v], d = Object.assign({}, MUIS_DEF, { PAL: Object.assign({}, MUIS_DEF.PAL, pal) });
+  const licht = _muisLicht() && _MUISVACHT_LICHT[v], sleutel = v + (licht ? '-licht' : '');
+  if (!_MUISVACHT[sleutel]) { const [pal0, oog] = _MUISVACHT_PAL[v], pal = licht ? _MUISVACHT_LICHT[v] : pal0, d = Object.assign({}, MUIS_DEF, { PAL: Object.assign({}, MUIS_DEF.PAL, pal) });
     if (oog) d.GEZICHT = function (ctx, p, cm) { const O = cm([4.45, -3.0]); ctx.fillStyle = oog; ctx.beginPath(); ctx.ellipse(O[0], O[1], 0.44, 0.4, 0, 0, 6.283); ctx.fill();
       ctx.fillStyle = 'rgba(255,255,255,0.75)'; ctx.beginPath(); ctx.arc(O[0] + 0.15, O[1] - 0.15, 0.09, 0, 6.283); ctx.fill();
       ctx.strokeStyle = 'rgba(236,230,218,0.7)'; ctx.lineWidth = 0.035; const a = cm([5.35, -1.9]); for (let i = 0; i < 5; i++) { ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.quadraticCurveTo(a[0] + 1.2, a[1] - 0.4 + i * 0.2, a[0] + 2.4, a[1] - 0.9 + i * 0.5); ctx.stroke(); } };
-    _MUISVACHT[v] = HondPop.maak(d); }
-  const P = _MUISVACHT[v], oo = Object.assign({}, o); let h = oo.houding || 'staan'; h = { rennen: 'draven', zit: 'zitten' }[h] || h; if (!P.GANGEN[h] && !P.D.HOUDING[h]) h = 'staan'; oo.houding = h; return P.teken(ctx, x, y, s, oo); }
+    _MUISVACHT[sleutel] = HondPop.maak(d); }
+  const P = _MUISVACHT[sleutel], oo = Object.assign({}, o); let h = oo.houding || 'staan'; h = { rennen: 'draven', zit: 'zitten' }[h] || h; if (!P.GANGEN[h] && !P.D.HOUDING[h]) h = 'staan'; oo.houding = h;
+  if (!licht) return P.teken(ctx, x, y, s, oo);
+  ctx.save(); ctx.shadowColor = 'rgba(40,52,72,0.32)'; ctx.shadowBlur = 5; ctx.shadowOffsetY = 1; const r = P.teken(ctx, x, y, s, oo); ctx.restore(); return r; }

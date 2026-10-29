@@ -8,14 +8,14 @@ Bronnen per recept staan in de kop van de functie en in `bron/bronnen.md` van de
 |---|---|---|---|---|
 | Erwtenbloem | goedgekeurd in film 2 | `erwtBloem(ctx, x, y, s, {kleur, open, zonder, stuif, knop, kijk, rot, a})` → ankers `{stempel, kiel, vlag, vleugel, meeldraad, voet}`; s = px per mm | `kleur` paars/wit; `open` 0 → 1 (kiel opengesneden); `zonder` 1 = meeldraden weg (handkruising); `stuif`; `knop` | Erfelijkheid 2 |
 | Bloempictogram | idem | `erwtBloemIcoon(ctx, x, y, px, kleur, a)` | | Erfelijkheid 2 |
-| Erwtenplant | goedgekeurd in film 2 en 4 | `erwtenplant(ctx, x, y, h, {kleur, bloemen, peulen, peulOpen, peulErwten, seed, t, stok, hl, a})` → `{bloemen, top}` | `t` laat de ranken wiegen | Erfelijkheid 2 (plant) + 4 (peulen als `peul()`) |
+| Erwtenplant | goedgekeurd in film 2 en 4 (peulen groter en zoom: 29 okt 2026, ter keuring) | `erwtenplant(ctx, x, y, h, {kleur, bloemen, peulen, peulOpen, peulErwten, seed, t, stok, hl, zoom, a})` → `{bloemen, peulen, top}` | `t` laat de ranken wiegen; `zoom` = close-up van een peul | Erfelijkheid 2 (plant) + 4 (peulen als `peul()`) |
 | Plantje voor schema's | goedgekeurd in film 2 | `erwtPlantje(ctx, x, y, h, kleur, {hl, a})` | | Erfelijkheid 2 (`plantje`) |
 | Erwt | goedgekeurd in film 4 | `erwt(ctx, x, y, r, {kleur, vorm, seed, rot, hl, a})`; ook `{geel, rimpel}` (lessen) | geel/groen × rond/gerimpeld (zelfde formaat) | Erfelijkheid 4 |
 | Peul | goedgekeurd in film 4 | `peul(ctx, x, y, len, {erwten: [{kleur, vorm}], open, rot, a})`; (x, y) = midden | `open` 0 (dicht, met bolletjes) → 1 (twee kleppen) | Erfelijkheid 4 |
 | Leeuwenbek | goedgekeurd in film 3 | `leeuwenbek(ctx, x, y, h, kl, {seed, n, zwaai, groei, a})` | `kl` rood/roze/wit of hex; `groei` 0 → 1 | Erfelijkheid 3 (`leeuwenbek`, `groeiPlant`) |
 | Rode bloedcel met antigenen | goedgekeurd in film 3 (O = kale keten, Kamiel k8) | `bloedcelAntigeen(ctx, x, y, r, soort, {n, rk, eindIn, ketenA, rot, a})`; los: `suikerKeten(ctx, x, y, nx, ny, r, eind, a, o)` | A, B, AB, O, glad; `eindIn` 0 → 1 = het enzym zet de eindsuiker eraan | Erfelijkheid 3 |
 | Fruitvlieg | goedgekeurd in film 4 | `fruitvlieg(ctx, x, y, L, {lijf, vleugel, sekse, rot, hl, t, a})` | grijs/zwart × normaal/stomp × v/m | Erfelijkheid 4 |
-| Muis in vachtkleur | goedgekeurd in film 2 en 3 | `muisVacht(ctx, x, y, s, {vacht, houding, kijk, t, a})` (`dieren/lib_dieren.js`) | `vacht` wild/zwart/albino (wit)/geel/grijs; houdingen als `muis()` | Erfelijkheid 2 (`labmuis`) + 3 (`muisKleur`) |
+| Muis in vachtkleur | goedgekeurd in film 2 en 3 | `muisVacht(ctx, x, y, s, {vacht, houding, kijk, t, a})` (`dieren/lib_dieren.js`) | `vacht` wild/zwart/albino (wit)/geel/grijs; houdingen als `muis()`; albino met licht palet in de lichte stand | Erfelijkheid 2 (`labmuis`) + 3 (`muisKleur`) |
 | Netvlies | goedgekeurd in film 5 | `netvliesKegels(ctx, x, y, w, h, {staafjes, verschuif, seed, a})` → `{typen, dx, top, cel, labelY}` | `verschuif` 0 → 1 (L-eiwit lijkt op M) | Erfelijkheid 5 |
 | Gevoeligheidskrommen | goedgekeurd in film 5 | `kegelKrommen(ctx, x, y, w, h, {schuif, as, a})` → `{px(nm)}` | `schuif` 0 → 1 (L naar ± 545 nm) | Erfelijkheid 5 |
 | Kleurmodel deuteranoop | goedgekeurd in film 5 | `kleurModelDeutan(ctx, x, y, w, h)` (canvaspixels, zonder transformatie) | | Erfelijkheid 5 |
@@ -53,14 +53,15 @@ Bronnen per recept staan in de kop van de functie en in `bron/bronnen.md` van de
 
 ## Nog niet goed op het testvel (KAN, niet hersteld)
 
-- Witte objecten (witte erwtenbloem, witte leeuwenbek, albino muis) hebben in de lichte stand weinig contrast; de muizenpop kent geen licht palet.
-- Erwtenplant: de peulen zijn op plantgrootte klein (realistisch), een open peul aan de plant leest nauwelijks; gebruik `peul()` los in een close-up.
-- Netvlies: de punten van de kegeltjes raken het pigmentepitheel niet (de staafjes wel); in het echt liggen ook de kegeltjes ertegen.
 - Fruitvlieg: de poten staan wijd gespreid (zoals in de film goedgekeurd); van dichtbij oogt de vlieg wat spinachtig.
 - Kruisingsschema: een gekoppelde dihybride kruising (A,B/a,b) krijgt van `genotypeVan` 'AaBb' zonder koppelnotatie; geef de tekst dan zelf mee via `cel`.
 - Het gecombineerde kruisingsschema is nieuw als recept en nog niet door Kamiel gekeurd.
 
 ## Hersteld bij het inbouwen
+
+- Ronde 2 (29 okt 2026, Kamiel): witte erwtenbloem en witte leeuwenbek krijgen in de lichte stand een donkerdere rand en een zachte schaduw (`_erfWitSchaduw`); de albino muis heeft een licht palet (iets diepere schaduwtinten) plus dezelfde schaduw (`_MUISVACHT_LICHT` in `dieren/lib_dieren.js`; het dierentestvel toont licht met `?licht=1`).
+- Ronde 2: peulen aan de erwtenplant groter (0,15 × de planthoogte, ± 2× een blaadje), plus de optie `zoom: {x, y, r, peul, open, erwten}` voor een close-up van één peul in een zoomcirkel; de plant geeft nu ook `peulen` (posities) terug.
+- Ronde 2: de punten van de kegeltjes raken het pigmentepitheel, net als de staafjes.
 
 - Peul open: het steeltje hing in de opening tussen de twee kleppen; het zit nu aan de bovenste klep.
 - Kruisingsschema met fenotypepictogram: tekst en pictogram schoven over elkaar; de tekst staat nu hoger (cy − 0,2 vak).

@@ -58,7 +58,7 @@ Uit de lichte remakes Erfelijkheid 2–6 (versie 2.0); besluiten in `films/verbe
 | Functie | Wat | Herkomst |
 |---|---|---|
 | `erwtBloem`, `erwtBloemIcoon` | vlinderbloem van de erwt van opzij (vlag, vleugels, kiel; open = meeldraden en stamper, `zonder` = meeldraden weg, `stuif`, `knop`), paars of wit; klein pictogram voor schema's | Erfelijkheid 2 |
-| `erwtenplant`, `erwtPlantje` | hele plant aan een stok met steunbladeren, ranken, bloemen en peulen (`peulOpen`, `peulErwten`); eenvoudig plantje voor schema's | Erfelijkheid 2 + 4 (samengevoegd) |
+| `erwtenplant`, `erwtPlantje` | hele plant aan een stok met steunbladeren, ranken, bloemen en peulen (`peulOpen`, `peulErwten`, `zoom` = close-up van een peul in een zoomcirkel); eenvoudig plantje voor schema's | Erfelijkheid 2 + 4 (samengevoegd) |
 | `erwt`, `peul` | zaad geel/groen, rond/gerimpeld (ook `geel`/`rimpel` uit de lessen); peul open (twee kleppen, erwten aan de naad) of dicht | Erfelijkheid 4 |
 | `leeuwenbek` | plant met tros tweelippige bloemen (gehemelte, knoppen bovenaan), rood/roze/wit of hexkleur, `groei` 0..1 | Erfelijkheid 3 |
 | `bloedcelAntigeen`, `suikerKeten` | rode bloedcel met suikerketens: A groen zeshoekje, B teal vijfhoekje, AB afwisselend, O kale keten | Erfelijkheid 3 |
@@ -67,7 +67,7 @@ Uit de lichte remakes Erfelijkheid 2–6 (versie 2.0); besluiten in `films/verbe
 | `stamboom`, `sbSymbool`, `miniStamboom` | stamboom met het uitlijnrecept (generaties op één hoogte, partner-, afstammings-, broer-zus- en kindlijnen recht), ruit met '?', drager-stip, genotypen, opbouw per persoon | Erfelijkheid 6 (+ drager uit 5) |
 | `genoTekst`, `genoDelen` | genotype met echte superscripts en herkomstkleur: `'X:m^A Y:v'` | Erfelijkheid 5 |
 | `kruisingsSchema`, `genotypeVan` | één kruisingsschema voor alles: n × m, gameten rond/chip/eigen tekening, vullen in leesvolgorde, fenotype onder het genotype, goud vakje, letale vakjes, dimmen, X-chromosomaal met superscripts | Erfelijkheid 2, 3, 4 en `tools/docent/erfelijkheid-bron/erf_lib.js` (gecombineerd) |
-| `muisVacht` (in `dieren/lib_dieren.js`) | muizenpop in vachtkleur zwart, albino (rode ogen), geel, grijs | Erfelijkheid 2 + 3 |
+| `muisVacht` (in `dieren/lib_dieren.js`) | muizenpop in vachtkleur zwart, albino (rode ogen; in de lichte stand eigen palet + zachte schaduw), geel, grijs | Erfelijkheid 2 + 3 |
 
 Gregor Mendel staat sinds 29 okt 2026 in `personages/lib_cast.js` (`CAST.mendel`, `CAST_HISTORISCH`).
 
