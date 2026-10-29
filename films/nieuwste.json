@@ -1,5 +1,85 @@
 [
  {
+  "href": "films/ecologie/1-hoeveel-passen-er.html",
+  "titel": "Hoeveel passen er?",
+  "thema": "ecologie",
+  "themaTitel": "Ecologie",
+  "duur": 13,
+  "vraag": "Hoeveel bevers passen er in Nederland?",
+  "extra": false,
+  "datum": "2026-10-29"
+ },
+ {
+  "href": "films/ecologie/2-waar-past-een-soort.html",
+  "titel": "Waar past een soort?",
+  "thema": "ecologie",
+  "themaTitel": "Ecologie",
+  "duur": 11,
+  "vraag": "Waarom leven er in de ene beek wel steenvlieglarven en in de andere niet?",
+  "extra": false,
+  "datum": "2026-10-29"
+ },
+ {
+  "href": "films/ecologie/3-wie-eet-wie.html",
+  "titel": "Wie eet wie?",
+  "thema": "ecologie",
+  "themaTitel": "Ecologie",
+  "duur": 11,
+  "vraag": "Waarom eet een vos de konijnen nooit allemaal op?",
+  "extra": false,
+  "datum": "2026-10-29"
+ },
+ {
+  "href": "films/ecologie/4-waar-blijft-het-blad.html",
+  "titel": "Waar blijft het blad?",
+  "thema": "ecologie",
+  "themaTitel": "Ecologie",
+  "duur": 9,
+  "vraag": "Waar blijven alle herfstbladeren?",
+  "extra": false,
+  "datum": "2026-10-29"
+ },
+ {
+  "href": "films/ecologie/5-waarom-zo-weinig-roofdieren.html",
+  "titel": "Waarom zo weinig roofdieren?",
+  "thema": "ecologie",
+  "themaTitel": "Ecologie",
+  "duur": 10,
+  "vraag": "Waarom zijn er zo weinig roofdieren?",
+  "extra": false,
+  "datum": "2026-10-29"
+ },
+ {
+  "href": "films/ecologie/6-koolstof-gaat-rond.html",
+  "titel": "Koolstof gaat rond",
+  "thema": "ecologie",
+  "themaTitel": "Ecologie",
+  "duur": 9,
+  "vraag": "Hoe komt koolstof van een varen van driehonderd miljoen jaar geleden in de lucht boven jouw straat?",
+  "extra": false,
+  "datum": "2026-10-29"
+ },
+ {
+  "href": "films/ecologie/7-stikstof-gaat-rond.html",
+  "titel": "Stikstof gaat rond",
+  "thema": "ecologie",
+  "themaTitel": "Ecologie",
+  "duur": 12,
+  "vraag": "Waarom wordt een sloot naast een weiland groen?",
+  "extra": false,
+  "datum": "2026-10-29"
+ },
+ {
+  "href": "films/ecologie/8-van-zand-tot-bos.html",
+  "titel": "Van zand tot bos",
+  "thema": "ecologie",
+  "themaTitel": "Ecologie",
+  "duur": 8,
+  "vraag": "Hoe wordt kaal zand vanzelf een bos?",
+  "extra": false,
+  "datum": "2026-10-29"
+ },
+ {
   "href": "films/erfelijkheid/2-monohybride-kruisingen.html",
   "titel": "Monohybride kruisingen",
   "thema": "erfelijkheid",
@@ -18,85 +98,5 @@
   "vraag": "Rood × wit geeft roze. Mengen allelen dan, zoals verf?",
   "extra": false,
   "datum": "2026-10-28"
- },
- {
-  "href": "films/erfelijkheid/4-dihybride-kruising-en-gekoppelde-overerving.html",
-  "titel": "Dihybride kruising en gekoppelde overerving",
-  "thema": "erfelijkheid",
-  "themaTitel": "Erfelijkheid",
-  "duur": 9,
-  "vraag": "Hoe kan een erwtenplant gele, gerimpelde erwten hebben als de grootouders alleen geel-rond en groen-gerimpeld waren?",
-  "extra": false,
-  "datum": "2026-10-28"
- },
- {
-  "href": "films/erfelijkheid/5-overerving-via-x-chromosomen-en-mitochondrien.html",
-  "titel": "Overerving via het X-chromosoom",
-  "thema": "erfelijkheid",
-  "themaTitel": "Erfelijkheid",
-  "duur": 8,
-  "vraag": "Waarom zijn vooral mannen kleurenblind? En hoe kan een eigenschap een generatie overslaan?",
-  "extra": false,
-  "datum": "2026-10-28"
- },
- {
-  "href": "films/erfelijkheid/6-stambomen-en-kansrekenen.html",
-  "titel": "Stambomen en kansrekenen",
-  "thema": "erfelijkheid",
-  "themaTitel": "Erfelijkheid",
-  "duur": 7,
-  "vraag": "Je broer heeft taaislijmziekte, jij en je ouders niet. Hoe groot is de kans dat jij drager bent?",
-  "extra": false,
-  "datum": "2026-10-28"
- },
- {
-  "href": "films/vervolg/gezondheidswetenschappen-1-hoe-een-epidemie-groeit.html",
-  "titel": "Hoe een epidemie groeit en stopt",
-  "thema": "vervolg",
-  "themaTitel": "Wat word jij?",
-  "duur": 8,
-  "vraag": "Waarom groeide corona in maart 2020 zo snel, en waarom stopt een epidemie uiteindelijk?",
-  "extra": true,
-  "datum": "2026-10-27"
- },
- {
-  "href": "films/dna/6-genen-aan-en-uit.html",
-  "titel": "Genen aan en uit",
-  "thema": "dna",
-  "themaTitel": "DNA",
-  "duur": 12,
-  "vraag": "Hetzelfde DNA, en toch een huidcel, een levercel en twee verschillende tweelingzussen?",
-  "extra": false,
-  "datum": "2026-10-27"
- },
- {
-  "href": "films/dna/5-mutaties.html",
-  "titel": "Mutaties",
-  "thema": "dna",
-  "themaTitel": "DNA",
-  "duur": 12,
-  "vraag": "Hoe kan zonlicht je DNA veranderen, en waarom erven je kinderen dat niet?",
-  "extra": false,
-  "datum": "2026-10-27"
- },
- {
-  "href": "films/dna/4-de-genetische-code-lezen.html",
-  "titel": "De genetische code lezen",
-  "thema": "dna",
-  "themaTitel": "DNA",
-  "duur": 8,
-  "vraag": "Hoe leest een bacterie het recept van een mens?",
-  "extra": false,
-  "datum": "2026-10-27"
- },
- {
-  "href": "films/dna/3-van-dna-naar-eiwit.html",
-  "titel": "Van DNA naar eiwit",
-  "thema": "dna",
-  "themaTitel": "DNA",
-  "duur": 8,
-  "vraag": "Na een mRNA-prik maken je eigen spiercellen een eiwit van een virus. Hoe kan dat?",
-  "extra": false,
-  "datum": "2026-10-27"
  }
 ]
