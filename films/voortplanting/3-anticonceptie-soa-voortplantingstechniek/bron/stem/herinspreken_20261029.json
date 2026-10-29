@@ -1,0 +1,30 @@
+{
+ "datum": "2026-10-29",
+ "flow": "sOVfsEIzS5TEg0Sp1Y0f",
+ "model": "eleven_v4",
+ "voice_id": "7qdUFMklKPaaAVMsBTBt",
+ "werkwijze": "alleen de gewijzigde zinnen ingesproken, loudnorm I=-15 TP=-1.5, ingeplakt in een stilte met crossfade 30 ms; oude takes in bron/oud/audio-v1.2/",
+ "takes": {
+  "s01": {
+   "invoer": "Een meisje zit bij de huisarts. Ze wil voorlopig niet zwanger worden. Welke anticonceptie is het beste? De huisarts pakt een lijst. Daarop staat hoeveel vrouwen in een jaar toch zwanger worden. Ze denkt aan de pil.",
+   "node": "Q30lZ1lV1bdRWw6a4UZm",
+   "gen": "Z050EMJxK9cPXVfT2MNx",
+   "credits": 214,
+   "plak": "nieuw 0-13,30 s + oud vanaf 14,30 s ('Van de honderd ...')"
+  },
+  "s07": {
+   "invoer": "Een soa is een seksueel overdraagbare aandoening. Een jongen hoort dat zijn ex chlamydia heeft. Zelf merkt hij niets.",
+   "node": "dXgyo2QgzIwVAKxBqUJW",
+   "gen": "N7hlzARL9Kq0CCO37vzo",
+   "credits": 117,
+   "plak": "nieuw 0-7,95 s + oud vanaf 8,25 s ('Kan hij ...')"
+  },
+  "s09": {
+   "invoer": "En een vrouw kan onvruchtbaar worden. Daarom laat de jongen zich testen. Dat kan bij de huisarts. Ben je jonger dan vijfentwintig of ben je gewaarschuwd, dan kun je ook gratis terecht bij de GGD, als daar plek is.",
+   "node": "r4zPnf4iLGs29ZKdYIxj",
+   "gen": "7PefOr9ft5nsEwPuQBvd",
+   "credits": 213,
+   "plak": "oud 0-43,75 s + nieuw 2,15-13,10 s (vanaf 'Daarom', aanloopzin weggeknipt) + 0,25 s stilte + oud vanaf 53,05 s ('Tegen sommige virussen ...')"
+  }
+ }
+}

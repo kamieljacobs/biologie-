@@ -24,3 +24,8 @@ Totaal ± 1.200 credits (zinnen ingeplakt) tot ± 2.700 (hele alinea's). Daarna 
 Zie `info.md` → 'Opwaardering naar prompt v13 (1.2)'. Kort: actuele beeldbank en castboek; geen castnamen meer in beeld (s01, s07, s09); virussen niet meer paars (neutraal grijsblauw); hiv-curve koraal; resistente gonokokken oker in plaats van paars; DNA-icoon in palet B.
 
 Nacontrole (29 okt 2026): de ondertitels bij de onthullingen (s04 'Antwoord B.', s09 'Antwoord C.', s13 'Antwoord A.') tonen nu de gewone letter; de audio blijft. Zie `info.md` → Wijzigingen. Niets ingesproken.
+
+## Uitgevoerd 29 okt 2026
+
+- (a) s01, s07, s09: alleen de zinnen met castnamen (en in s09 de GGD-zin) opnieuw ingesproken en ingeplakt, 544 credits totaal (214 + 117 + 213). Nieuwe GGD-zin: 'Ben je jonger dan vijfentwintig of ben je gewaarschuwd, dan kun je ook gratis terecht bij de GGD, als daar plek is.' Tag in beeld meeveranderd.
+- (b) 1: gedaan (zie boven). 2: zin over het kleine risico toegevoegd aan het docentdeel. 3: telfiguren blijven neutrale pictogrammen (geen gezicht). 4: ongewijzigd.

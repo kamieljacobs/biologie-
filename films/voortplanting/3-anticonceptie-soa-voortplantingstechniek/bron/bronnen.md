@@ -2,10 +2,10 @@
 
 | Veld | Waarde |
 |---|---|
-| Gecontroleerde versie | 1.2 (opwaardering prompt v13, 29 okt 2026) |
+| Gecontroleerde versie | 1.3 (29 okt 2026; eerste ronde op 1.2) |
 | Gecontroleerd door | Claude (eerste ronde), 29 okt 2026 |
 | Menselijke steekproef | nog niet gedaan |
-| Samenvatting | 18 beweringen: 9 ✓, 7 ≈, 1 !, 1 ?. De `!` (gratis GGD-test onder 25) ligt bij de stem; geen fout die het beeld moet veranderen. Zie Aanpassingen. |
+| Samenvatting | 18 beweringen: 10 ✓, 7 ≈, 0 !, 1 ?. De `!` (gratis GGD-test onder 25) is in 1.3 aangepast in stem en beeld. Zie Aanpassingen. |
 
 ## Bronnen
 
@@ -29,6 +29,11 @@
 | B16 | A | NVOG-richtlijn *Oriënterend fertiliteitsonderzoek* (richtlijnendatabase) | https://richtlijnendatabase.nl/richtlijn/orienterend_fertiliteitsonderzoek_ofo | 29 okt 2026 |
 | B17 | B | Jeroen Bosch Ziekenhuis, patiënteninformatie *Wat is ivf/icsi* | https://www.jeroenboschziekenhuis.nl/afdelingen/voortplantingsgeneeskunde/ivficsi-behandeling/wat-is-ivficsi/pdf | 29 okt 2026 |
 | B18 | A | Ministerie van VWS, internetconsultatie *PGT* (toelichting, MUMC+) | https://internetconsultatie.nl/pgt/document/9817 | 29 okt 2026 |
+| B19 | A | Rijksoverheid, *Seksuele gezondheidszorg* ('Voor deze mensen is deze soa-zorg gratis en, als iemand dat wil, ook anoniem'; groepen o.a. gewaarschuwden en personen jonger dan 25; 'altijd terecht bij de huisarts'; bij de GGD soms geen plek) | https://www.rijksoverheid.nl/onderwerpen/gezondheid-en-preventie/seksuele-gezondheid/seksuele-gezondheidszorg | 29 okt 2026 |
+| B20 | A | RIVM, *Regeling Aanvullende Seksuele Gezondheidszorg (ASG)* ('gratis en, indien gewenst, anonieme' zorg; doelgroepen o.a. gewaarschuwden en jongeren tot 25, met aangepast testbeleid voor jongeren) | https://www.rivm.nl/soa/regeling-aanvullende-seksuele-gezondheidszorg-asg | 29 okt 2026 |
+| B21 | A | RIVM/LCI, *Draaiboek testbeleid CSG* (versie feb 2026): chlamydia alleen bij klachten of gewaarschuwd door partner met klachten; jongeren < 25 zonder risico minimaal op gonorroe | https://lci.rivm.nl/sites/default/files/2026-02/06-testbeleid.pdf | 29 okt 2026 |
+| B22 | A | RIVM, *NECCST* (Nederlandse Chlamydia Cohort Studie): PID 1,5× zo vaak na chlamydia, 2× bij chlamydia met klachten; onvruchtbaarheid door eileiderschade 1,5 % vs 0,5 % | https://www.rivm.nl/chlamydia-trachomatis/onderzoek/neccst | 29 okt 2026 |
+| B23 | A | RIVM, *Testen op vruchtbaarheidsrisico* ('de kans op problemen, zoals onvruchtbaarheid, is erg klein') | https://www.rivm.nl/chlamydia-trachomatis/testen-op-vruchtbaarheidsrisico | 29 okt 2026 |
 
 ## Beweringen
 
@@ -44,8 +49,8 @@
 | 8 | s06, s15 | Alleen het condoom beschermt ook tegen soa's | B3, B1 | ≈ | Van de methodes in de film klopt dit; B3 noemt condooms als bescherming. (Het vrouwencondoom ontbreekt in de film.) |
 | 9 | s09 | Gonorroe, chlamydia en syfilis (bacterie) zijn te genezen met antibiotica; hiv, HPV, herpes, hepatitis B (virus) niet | B3, B4 | ✓ | B3: 'four are curable: syphilis, gonorrhoea, chlamydia and trichomoniasis. The other four are viral infections and are incurable.' |
 | 10 | s09 | Van de 10 vrouwen met chlamydia merken er ± 7 niets; bij mannen de helft | B4, B3 | ≈ | B4: 'de meeste vrouwen … merken dat niet', 'bij mannen de helft'; B3: meestal geen klachten. '7 van de 10' is een afronding van 'de meeste'. |
-| 11 | s09 | Onbehandeld kan chlamydia of gonorroe de eileiders ontsteken, littekens, onvruchtbaarheid | B3, B4, B8 | ≈ | B3: 'major causes of PID and infertility in women'; B4: eileiders kunnen dichtgaan. Nuance (B8, RIVM-onderzoek 2024): bij chlamydia is het risico op verminderde vruchtbaarheid zeer klein. 'kan' in de film klopt; docentdeel kan dit noemen. |
-| 12 | s09 | Testen bij de huisarts of de GGD; jonger dan 25 is de test bij de GGD gratis | B6, B7, B5 | ! | B6/B7: jongeren < 25 zijn een doelgroep van de CSG ('als er plaats is'), maar sinds 2025 testen de GGD's niet meer op chlamydia zonder klachten of waarschuwing (B5, B6). 'Gratis voor iedereen onder 25' is te stellig, en past slecht bij Sam (gewaarschuwd, dus wel testbaar). Oplossen vraagt een nieuwe opname: voorstel aan Kamiel (herinspreeklijst). |
+| 11 | s09 | Onbehandeld kan chlamydia of gonorroe de eileiders ontsteken, littekens, onvruchtbaarheid | B3, B4, B8 | ≈ | B3: 'major causes of PID and infertility in women'; B4: eileiders kunnen dichtgaan. Nuance (B8, B22, B23): bij chlamydia is het risico op verminderde vruchtbaarheid klein (1,5 % vs 0,5 %). 'kan' in de film klopt; sinds 1.3 staat dit in het docentdeel. |
+| 12 | s09 | (sinds 1.3) Testen kan bij de huisarts; ben je jonger dan 25 of gewaarschuwd, dan kun je ook gratis terecht bij de GGD, als daar plek is | B19, B20, B21, B7 | ✓ | B19/B20 (A): gratis ASG-zorg voor o.a. gewaarschuwden en jongeren < 25; B19 en B7: huisarts altijd, GGD 'als er plaats is'. B21/B5: chlamydia alleen getest bij klachten of waarschuwing; de jongen in de film is gewaarschuwd, dus dat klopt. Was 1.2: 'jonger dan 25: test bij de GGD gratis' (`!`, te stellig). |
 | 13 | s09 | Jongens en meisjes krijgen rond hun tiende een HPV-vaccinatie via het Rijksvaccinatieprogramma; HPV kan kanker veroorzaken, vooral baarmoederhalskanker | B9, B3 | ✓ | B9: 'het jaar dat zij 10 worden', ook jongens; kanker van baarmoederhals e.a. |
 | 14 | s09 | Tegen hepatitis B is er een vaccin | B3, B9 | ✓ | B3: 'vaccines are available for 2 STIs: hepatitis B and HPV'. |
 | 15 | s09 | Met hiv-remmers geen meetbaar virus = via seks niet overdraagbaar; PrEP voorkomt besmetting | B12, B3 | ≈ | B12 (2020) noemt U=U nog 'verondersteld'; inmiddels bevestigd (PARTNER-studies), maar die zijn niet zelf geopend. |
@@ -55,7 +60,8 @@
 
 ## Aanpassingen
 
-- Geen aanpassing in het beeld nodig. Nr 12 (`!`, gratis GGD-test < 25) zit in de stem en in de tag 'jonger dan 25: gratis bij de GGD'; omdat de stem het zegt, blijft de tag staan tot Kamiel kiest (zie `opwaardering-v13.md`, herinspreeklijst en vragen).
+- Nr 12 (1.3, 29 okt 2026; keuze 9 hoofdsessie): was 'Daarom laat Sam zich testen. Dat kan bij de huisarts of bij de GGD. Ben je jonger dan vijfentwintig, dan is de test bij de GGD gratis.' + tag 'jonger dan 25: gratis bij de GGD' → nu 'Daarom laat de jongen zich testen. Dat kan bij de huisarts. Ben je jonger dan vijfentwintig of ben je gewaarschuwd, dan kun je ook gratis terecht bij de GGD, als daar plek is.' + tag 'onder 25 of gewaarschuwd: gratis bij de GGD' / 'als er plek is'. Bronnen B19, B20 (A), B21 (A), B7. Status ! → ✓.
+- Nr 11 (1.3, keuze 10): docentdeel aangevuld met het kleine risico op onvruchtbaarheid na chlamydia (B22, B23 (A), B8). Film zelf ongewijzigd ('kan').
 
 ## Menselijke controle
 

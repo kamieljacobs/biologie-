@@ -4,9 +4,9 @@ Voortplanting · anticonceptie en soa's · Roos (eleven_v4) · één take per al
 
 ## Cold open
 
-**s01** · 20.5 s · `audio/s01.mp3`
+**s01** · 19.5 s (nieuw ingeplakt 29 okt 2026) · `audio/s01.mp3`
 
-Lotte zit bij dokter Kim, de huisarts. Ze wil voorlopig niet zwanger worden. Welke anticonceptie is het beste? Dokter Kim pakt een lijst. Daarop staat hoeveel vrouwen in een jaar toch zwanger worden. Lotte denkt aan de pil. Van de honderd vrouwen die een jaar de pil slikken, hoeveel worden er toch zwanger? Wat denk je?
+Een meisje zit bij de huisarts. Ze wil voorlopig niet zwanger worden. Welke anticonceptie is het beste? De huisarts pakt een lijst. Daarop staat hoeveel vrouwen in een jaar toch zwanger worden. Ze denkt aan de pil. Van de honderd vrouwen die een jaar de pil slikken, hoeveel worden er toch zwanger? Wat denk je?
 
 **q02** (vraag): geen enkele · ongeveer zeven · ongeveer dertig
 
@@ -30,15 +30,15 @@ Hoe betrouwbaar is een methode? Dat meet je met de Pearl-index: hoeveel van de h
 
 ## Hoofdstuk 2 — Soa's: vaak zonder klachten
 
-**s07** · 15.7 s · `audio/s07.mp3`
+**s07** · 15.4 s (nieuw ingeplakt 29 okt 2026) · `audio/s07.mp3`
 
-Een soa is een seksueel overdraagbare aandoening. Sam hoort dat een ex van hem chlamydia heeft. Zelf merkt hij niets. Kan hij er iets aan doen? Welke van deze drie soa's kun je genezen met een kuur antibiotica? Wat denk je?
+Een soa is een seksueel overdraagbare aandoening. Een jongen hoort dat zijn ex chlamydia heeft. Zelf merkt hij niets. Kan hij er iets aan doen? Welke van deze drie soa's kun je genezen met een kuur antibiotica? Wat denk je?
 
 **q08** (vraag): hiv · herpes · gonorroe
 
-**s09** · 93.7 s · `audio/s09.mp3`
+**s09** · 94.9 s (nieuw ingeplakt 29 okt 2026) · `audio/s09.mp3`
 
-Antwoord cee. Gonorroe wordt veroorzaakt door een bacterie, net als chlamydia en syfilis. Antibiotica doden bacteriën, dus deze soa's zijn te genezen. Hiv, HPV, herpes en hepatitis B worden veroorzaakt door een virus. Een virus vermenigvuldigt zich in je eigen cellen. Antibiotica doen daar niets tegen. Het lastige: veel soa's geven geen klachten. Van de tien vrouwen met chlamydia merken er ongeveer zeven niets. Bij mannen ongeveer de helft. Toch kun je het doorgeven. En onbehandeld kan chlamydia of gonorroe de eileiders ontsteken. Er ontstaan littekens, de eileider gaat dicht, en een vrouw kan onvruchtbaar worden. Daarom laat Sam zich testen. Dat kan bij de huisarts of bij de GGD. Ben je jonger dan vijfentwintig, dan is de test bij de GGD gratis. Tegen sommige virussen bestaat een vaccin. HPV kan wratten veroorzaken, en sommige soorten HPV kunnen jaren later kanker veroorzaken, vooral baarmoederhalskanker. Daarom krijgen jongens en meisjes in Nederland rond hun tiende een HPV-vaccinatie, via het Rijksvaccinatieprogramma. Ook tegen hepatitis B is er een vaccin. Hiv is niet te genezen. Maar met hiv-remmers kun je er goed mee leven. Wie met remmers geen meetbaar virus meer in het bloed heeft, geeft hiv via seks niet meer door. En wie veel risico loopt, kan PrEP slikken: een pil die besmetting met hiv voorkomt.
+Antwoord cee. Gonorroe wordt veroorzaakt door een bacterie, net als chlamydia en syfilis. Antibiotica doden bacteriën, dus deze soa's zijn te genezen. Hiv, HPV, herpes en hepatitis B worden veroorzaakt door een virus. Een virus vermenigvuldigt zich in je eigen cellen. Antibiotica doen daar niets tegen. Het lastige: veel soa's geven geen klachten. Van de tien vrouwen met chlamydia merken er ongeveer zeven niets. Bij mannen ongeveer de helft. Toch kun je het doorgeven. En onbehandeld kan chlamydia of gonorroe de eileiders ontsteken. Er ontstaan littekens, de eileider gaat dicht, en een vrouw kan onvruchtbaar worden. Daarom laat de jongen zich testen. Dat kan bij de huisarts. Ben je jonger dan vijfentwintig of ben je gewaarschuwd, dan kun je ook gratis terecht bij de GGD, als daar plek is. Tegen sommige virussen bestaat een vaccin. HPV kan wratten veroorzaken, en sommige soorten HPV kunnen jaren later kanker veroorzaken, vooral baarmoederhalskanker. Daarom krijgen jongens en meisjes in Nederland rond hun tiende een HPV-vaccinatie, via het Rijksvaccinatieprogramma. Ook tegen hepatitis B is er een vaccin. Hiv is niet te genezen. Maar met hiv-remmers kun je er goed mee leven. Wie met remmers geen meetbaar virus meer in het bloed heeft, geeft hiv via seks niet meer door. En wie veel risico loopt, kan PrEP slikken: een pil die besmetting met hiv voorkomt.
 
 **s10** · vwo · 28.2 s · `audio/s10.mp3`
 

@@ -5,13 +5,13 @@
 | Bestand | films/voortplanting/3-anticonceptie-soa-voortplantingstechniek.html (audio in films/voortplanting/3-anticonceptie-soa-voortplantingstechniek/audio/) |
 | Reeks | Voortplanting (hoofdstuk `voortplanting`: vwo Nectar 4.1 H4, havo Biologie voor jou thema voortplanting), film 3 |
 | Niveau | havo + vwo, voor beide niveaus dezelfde film (sinds 16 okt 2026 geen vwo-blokken meer; s10 en s14 zijn basis) |
-| Versie / datum | **1.2 · 29 oktober 2026** — opwaardering naar prompt v13 (B14, zonder keuring): alleen beeld, stem en script ongewijzigd; oude versie in `bron/oud/3-anticonceptie-soa-voortplantingstechniek-v1.1.html`. 1.1 · 22 oktober 2026 (1.0 · 16 oktober 2026) |
+| Versie / datum | **1.3 · 29 oktober 2026** — open punten uitgevoerd (castnamen uit de stem, GGD-zin, docentdeel chlamydia); oude versie in `bron/oud/3-anticonceptie-soa-voortplantingstechniek-v1.2.html`, oude takes in `bron/oud/audio-v1.2/`. 1.2 · 29 oktober 2026 — opwaardering naar prompt v13 (B14, zonder keuring): alleen beeld, stem en script ongewijzigd; oude versie in `bron/oud/3-anticonceptie-soa-voortplantingstechniek-v1.1.html`. 1.1 · 22 oktober 2026 (1.0 · 16 oktober 2026) |
 | Prompt | v13 |
-| Voldoet aan | prompt v13 (29 okt 2026, zonder keuring). Bewust niet: de stem noemt nog Lotte, dokter Kim en Sam (s01, s07, s09; herinspreken staat op de lijst in `opwaardering-v13.md`, niets opgenomen); de zes telstelletjes in s11 blijven eenvoudige pictogrammen (telpoppetjes, beeldafspraak); de tag 'jonger dan 25: gratis bij de GGD' volgt de stem tot Kamiel over de GGD-zin beslist; geen nieuwe caststijl met contourlijnen; paars alleen nog op de hormoonspuitjes (hormonen) |
+| Voldoet aan | prompt v13 (29 okt 2026, zonder keuring). Sinds 1.3 geen castnamen meer in stem en ondertitel. Bewust niet: de zes telstelletjes in s11 blijven neutrale pictogrammen zonder gezicht (keuze 6, 29 okt 2026); geen nieuwe caststijl met contourlijnen; paars alleen nog op de hormoonspuitjes (hormonen) |
 | Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow XwPZNg4Ugc0gwL4LrtKa; respellings in `uitspraak_film.json` (soa → es-oo-aa, chlamydia → klamiedia, syfilis → siefilis, HPV → haa-pee-vee, PrEP → prep, ICSI → iksie, ivf → ie-vee-ef, PGT → pee-gee-tee, GGD → gee-gee-dee, FSH → ef-es-haa, Pearl-index → Perl-index, in-vietro-fertilisatie, hepatitis bee); zie `uitspraak.md` |
-| Duur | spraak 7:08; speeltijd met kaarten en vragen ± 8:13; met Vragen uit ± 7:10 (havo en vwo gelijk) |
+| Duur | spraak 7:09 (sinds 1.3); speeltijd met kaarten en vragen ± 8:13; met Vragen uit ± 7:10 (havo en vwo gelijk) |
 | Beeldstijl | Part C: Schema; schematische doorsnede (vooraanzicht) van baarmoeder, eileiders en eierstokken |
-| Personages | Lotte en dokter Kim (cold open), Sam (H2), Fleur en Ruben (HPV-prik, s09), Erik als donor (s13) uit het castboek, sinds 1.2 zonder naam in beeld; alleen de telpoppetjes (zes stelletjes, s11) zijn nog `figuur()` |
+| Personages | castpersonages zonder naam: meisje (Lotte) en huisarts (Kim) in de cold open, jongen (Sam) in H2, Fleur en Ruben (HPV-prik, s09), Erik als donor (s13) uit het castboek, sinds 1.2 zonder naam in beeld; alleen de telpoppetjes (zes stelletjes, s11) zijn nog `figuur()` |
 | Audio-opslag | 11 losse mp3's in audio/ (s01, s04, s05, s06, s07, s09, s10, s11, s13, s14, s15) |
 | Herkomst | Hoofdengine, werkmap `hw/vp3`; gebouwd met Claude in reeksmodus (geplande film 'Anticonceptie, soa's en voortplantingstechniek') |
 
@@ -61,6 +61,13 @@ Werkmap opzetten: kopieer `bron/` naar `hw/vp3` (scenes.js uit `src/`, `words/` 
 - `data-duur` voor de kijkcijfers komt pas na het toevoegen aan `HOOFDSTUKKEN` in index.html (daarna `scripts/teller.py` opnieuw draaien).
 
 ## Wijzigingen
+- 1.3 (29 okt 2026, open punten uit `films/UITVOEREN-VOORTPLANTING.md`, keuzes 6, 9, 10): alleen de betreffende zinnen opnieuw ingesproken (Roos, eleven_v4, één take per stuk, flow `sOVfsEIzS5TEg0Sp1Y0f`) en ingeplakt in de bestaande take (loudnorm I=-15, crossfade 30 ms in een stilte; stem-invoer en plakpunten in `stem/herinspreken_20261029.json`; woordtijden nieuw stuk met silalign, rest verschoven).
+  - s01: 'Een meisje zit bij de huisarts. … De huisarts pakt een lijst. … Ze denkt aan de pil.' (was Lotte / dokter Kim). 214 credits.
+  - s07: 'Een jongen hoort dat zijn ex chlamydia heeft.' (was Sam). Cue persoon `'Sam'` → `'jongen'`. 117 credits.
+  - s09: 'Daarom laat de jongen zich testen. Dat kan bij de huisarts. Ben je jonger dan vijfentwintig of ben je gewaarschuwd, dan kun je ook gratis terecht bij de GGD, als daar plek is.' (was: 'Sam … jonger dan vijfentwintig, dan is de test bij de GGD gratis'; bronnenlogboek nr 12). Tag in beeld → 'onder 25 of gewaarschuwd: gratis bij de GGD' + 'als er plek is'. 213 credits.
+  - Totaal 544 credits TTS, geen Scribe (silalign).
+  - Docentdeel: chlamydia en onvruchtbaarheid genuanceerd (RIVM NECCST: PID 1,5×, onvruchtbaarheid door eileiderschade 1,5 % vs 0,5 %, 'erg klein'), GGD-testbeleid sinds 2025; 'Sam' in de tabel → 'een jongen'.
+  - s11 telfiguren nagekeken: geen gezicht, blijven (keuze 6).
 - 1.2 nacontrole (29 okt 2026): ondertitels s04 'Antwoord B.', s09 'Antwoord C.', s13 'Antwoord A.' tonen de gewone letter in plaats van de stemspelling (bee/cee/aa). Oorzaak was gedeeld: de woordtijden volgen de stem-invoer en de speler zette alleen ee-er/dee-en-aa om. Opgelost in `scripts/spelerfix.py` (CAPLETTER_MARK, `capLetter` in `chunks0`), toegepast op deze film en `bron/src/player.js`; alleen de getoonde tekst, audio en knippen bij Vragen uit ongewijzigd. Getest: ondertitels met vragen aan, elke vraag met `?vragen=uit`, geen JS-fouten.
 - 1.0 (16 okt 2026): eerste versie. Script na één gecombineerde review (zie `reviews/review_v1.md`); beeld-QA op contactbladen.
 

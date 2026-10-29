@@ -1,5 +1,5 @@
 // Voortplanting 3 · Anticonceptie, soa's en voortplantingstechniek — scènes per alinea (v1.0, 16 okt 2026; v1.2, 29 okt 2026: prompt v13, geen namen in beeld, minder paars, DNA palet B).
-// Rode draad: de keten eisprong → bevruchting → innesteling. Lotte en dokter Kim (cold open), Sam (soa-test). Schematische doorsnede baarmoeder/eileiders/eierstokken.
+// Rode draad: de keten eisprong → bevruchting → innesteling. meisje bij de huisarts (cold open), jongen (soa-test); castpersonages zonder naam. Schematische doorsnede baarmoeder/eileiders/eierstokken.
 
 // ---------- titel past op het scherm: lange filmtitel automatisch iets kleiner (alleen voor deze film) ----------
 (function () { const _t = text; text = function (ctx, s, x, y, font, color, align, base) { try { if (window.FILMDATA && s === window.FILMDATA.film.title && /^700 \d+px/.test(font)) { ctx.font = font; const w = ctx.measureText(s).width; if (w > 1660) font = fTitel(Math.floor(parseInt(font.slice(4)) * 1660 / w)); } } catch (e) { } return _t(ctx, s, x, y, font, color, align, base); }; })();
@@ -246,7 +246,7 @@ const SCENES = {
 
   // ---------- H2 ----------
   s07(ctx, t, q) { bg(ctx, 'schema'); tag(ctx, 'soa = seksueel overdraagbare aandoening', 960, 120, C.koraal, q.on('soa', 1), 'center', 32);
-    const sa = q.on('Sam', 1); persoon(ctx, 'sam', 620, 880, 540, { a: sa, uit: q.on('niets', 1) > 0.5 ? 'denkt' : 'verbaasd', pose: 'vasthouden', kijk: 1, t, hold: (c, x, y) => telefoontje(c, x + 6, y - 10, 1.2, 0.2) });
+    const sa = q.on('jongen', 1); /* v1.3: stem zegt 'Een jongen' (geen castnaam) */ persoon(ctx, 'sam', 620, 880, 540, { a: sa, uit: q.on('niets', 1) > 0.5 ? 'denkt' : 'verbaasd', pose: 'vasthouden', kijk: 1, t, hold: (c, x, y) => telefoontje(c, x + 6, y - 10, 1.2, 0.2) });
     bubbel(ctx, 900, 330, 'je ex heeft chlamydia', q.on('chlamydia', 1), 28);
     chip(ctx, 'geen klachten', 880, 470, C.text2, q.on('niets', 1), 24);
     const ab = q.on('antibiotica', 1); capsule(ctx, 1380, 360, 1.5, ab); regel(ctx, 'antibiotica', 1380, 450, ab, C.text, 28, 'center', 700);
@@ -294,7 +294,7 @@ const SCENES = {
     if (Cc > 0.01) { ctx.save(); ctx.globalAlpha *= Cc; persoon(ctx, 'sam', 560, 880, 540, { uit: 'blij', pose: 'vasthouden', kijk: 1, t, hold: (c, x, y) => buisje(c, x + 4, y - 30, 0.9, 1) });
       regel(ctx, 'zelf laten testen', 1200, 220, 1, C.text, 40, 'center', 700);
       tag(ctx, 'huisarts', 1020, 380, C.teal, q.on('huisarts', 1), 'center', 32); tag(ctx, 'GGD', 1400, 380, C.teal, q.on('GGD', 1), 'center', 32);
-      tag(ctx, 'jonger dan 25: gratis bij de GGD', 1210, 540, C.groen, q.on('gratis', 1), 'center', 32); ctx.restore(); }
+      tag(ctx, 'onder 25 of gewaarschuwd: gratis bij de GGD', 1210, 540, C.groen, q.on('gratis', 1), 'center', 32); regel(ctx, 'als er plek is', 1210, 620, q.on('plek', 1), C.text2, 26, 'center', 600); ctx.restore(); } // v1.3: volgt de nieuwe GGD-zin (bronnen.md nr 12)
     if (D > 0.01) { ctx.save(); ctx.globalAlpha *= D; regel(ctx, 'een vaccin tegen HPV', 960, 140, 1, C.text, 38, 'center', 700);
       virus(ctx, 300, 340, 46, q.on('HPV', 1), VIRUS, t * 0.2); naamBij(ctx, 'HPV', '', 300, 450, q.on('HPV', 1), 'center');
       chip(ctx, 'wratten', 560, 290, C.text2, q.on('wratten', 1), 26); chip(ctx, 'jaren later: kanker', 560, 380, C.koraal, q.on('kanker', 1), 26);
