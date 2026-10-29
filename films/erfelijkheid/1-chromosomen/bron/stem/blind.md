@@ -28,3 +28,6 @@ Alleen deze twee takes blind getranscribeerd (generatie pE3uQr76iIxQG3DQSxLE, 21
 
 ## Nieuwe take s15 (eicel genuanceerd, na de frisse beeldreview, 25 okt 2026)
 Nieuwe tekst: 'Een eicel heeft drieëntwintig chromosomen: van elk paar precies één. In een zaadcel is een chromosoom niet gekopieerd: het bestaat uit maar één chromatide. Een eicel maakt haar laatste deling pas af als er een zaadcel binnendringt.' Eén take (generatie brUPsmVZZVOhkmcieCOo, 231 credits). Alleen deze alinea blind getranscribeerd (generatie Yj5D1aXGi3WwMZF5kMSU, 81 credits): woord voor woord goed (drieëntwintig als '23', chromatide, binnendringt). Oude take als raw_oud/s15.mp3 (niet in de repo).
+
+## Nieuwe take s20 (allelen, 29 okt 2026)
+Kamiel keurde 'allelen' in s20 af na luisteren (mislukte take; de gewone spelling blijft, uitspraaktest 28 okt). Eén nieuwe take met dezelfde stem-invoer (generatie 90d3iETpba4WrZcd8QTG, 291 credits). Alleen deze alinea blind getranscribeerd (Scribe, generatie RcRxHBhffvadbETaCL9O): woord voor woord goed, 'allelen' als 'allelen'. Oude take als raw_oud/s20.mp3 (niet in de repo).

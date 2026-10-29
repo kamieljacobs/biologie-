@@ -10,10 +10,10 @@ Versie 2.0 is een herbouw in de FILMDATA-straat (25 okt 2026); versie 2.1 verwer
 | Versie / datum | 2.2 · 28 okt 2026 (gerichte ronde 28 okt 2026) |
 | Prompt | v10 |
 | Voldoet aan | prompt v10 (25 okt 2026); bewust niet: één voorspelvraag per hoofdstuk (B4) in hoofdstuk 1, 3 en 5 (Kamiel 25 okt: geen extra vragen) |
-| Stem / model | Roos (`7qdUFMklKPaaAVMsBTBt`), ElevenLabs eleven_v4, één take per alinea (s30, s35 en s15 later opnieuw); flow `oAnn8B6fDC6LBw9fFw28` |
+| Stem / model | Roos (`7qdUFMklKPaaAVMsBTBt`), ElevenLabs eleven_v4, één take per alinea (s30, s35, s15, s26, s34 en s20 later opnieuw); flow `oAnn8B6fDC6LBw9fFw28` |
 | Duur | ± 9:15 (± 555 s met hoofdstukkaarten en vragen; 489 s spraak); `duur: 9` in HOOFDSTUKKEN |
 | Beeldstijl | Part C: Macro (kamer met gezin De Wit), Micro zonder korrel (huid, kern, DNA), Schema (karyogram, gen/allel, simulatie); zoomcirkels bij elke stap in schaal |
-| Audio-opslag | 37 losse mp3's (`../audio/sNN.mp3`), woordtijden `stem/woordtijden/` (silalign, lokaal) |
+| Audio-opslag | 37 losse mp3's (`../audio/sNN.mp3`, loudnorm −16 LUFS / −1 dBTP), woordtijden `stem/woordtijden/` (silalign, lokaal) |
 | Herkomst | verbeterblad 24 okt 2026 (12 voorstellen chr-1 t/m chr-12, alle goedgekeurd), keuring fase 1 25 okt 2026 (`keuring-fase1/`), frisse beeldreview 25 okt 2026 (9 MOET, 16 KAN; `review_fris_2026-10-25.md`) |
 
 ## Opbouw
@@ -61,6 +61,8 @@ Werkmap buiten de repo (bv. `hw/chr1`), met de bestanden uit deze bronmap: `segm
 - Klemtoon van DNA, allel en genotype staat op de wachtlijst voor Kamiels oor (`uitspraak.md`).
 
 ## Wijzigingen
+- 29 okt 2026 — s20 opnieuw ingesproken, take met afwijkende uitspraak van allelen (Kamiel na luisteren; geen nieuwe regel, gewone spelling 'allelen' blijft). Eén take, zelfde stem-invoer, generatie `90d3iETpba4WrZcd8QTG`, 291 credits; Scribe woord voor woord goed. Versie blijft 2.2.
+- 29 okt 2026 — Alle takes op −16 LUFS / −1 dBTP gezet (loudnorm in twee stappen, lineair, mono 44,1 kHz 128 kbit/s). De oorspronkelijke takes lagen rond −29 LUFS en waren nooit genormaliseerd, s20, s26 en s34 wel: die sprongen ± 12 dB uit. Nu liggen alle 37 alinea's tussen −16,3 en −17,0 LUFS (ebur128), true peak ≤ −1,0 dBTP. De duur is ongewijzigd, dus woordtijden en cues blijven staan. Takes van vóór het normaliseren staan in de werkmap (`hw/chr1/raw_oud/voor-lufs/`, niet in de repo).
 - 28 okt 2026 — Versie 2.2 (gerichte ronde na Kamiels review in de reviewstand): s26 opnieuw ingesproken ('allelen' klonk fout; uitspraaktest 28 okt: gewone spelling blijft), s34 opnieuw ingesproken met de nuance 'Dat geldt niet voor elk recessief allel: soms maakt het een eiwit dat alleen minder goed, of net anders werkt.' plus een label in beeld (cue 'geldt'); bronnen B22, B23, bewering 31. 205 + 357 credits.
 - 25 okt 2026 — Versie 2.1: frisse beeldreview verwerkt. s06 labels (celkern bij de goede kern, onderschriften leesbaar), s08 kopiëren zichtbaar (één chromatide → X), s15 opnieuw ingesproken en eicel genuanceerd (zaadcel één chromatide, eicel maakt laatste deling af na binnendringen zaadcel; Kamiel 25 okt), s15/s16 eicel met X'en, q14-uitleg, s21 en s41 vanaf t = 0 gevuld, s26 zonder '?' bij Vragen uit, s33 duidelijk meer melanine, s38 chromosomen 11 die van de ouders naar Levi gaan, plus kleine KAN-punten.
 - 25 okt 2026 — Versie 2.0: herbouw in de FILMDATA-straat volgens het verbeterblad (chr-1 t/m chr-12) en prompt v10; nieuwe stem (37 takes, s30 en s35 na de keuring opnieuw), gezin De Wit, nieuwe gedeelde tekeningen (huid, kern, DNA rond eiwitten, onderarm), karyogram en simulatie opnieuw gebouwd, huidige speler (snelheid, Vragen aan/uit), donker standaard, bronnenlogboek. De oude film staat in `oud/`.

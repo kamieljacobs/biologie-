@@ -93,7 +93,7 @@ We kiezen één paar: chromosoom elf. Ergens op dit chromosoom ligt een stukje D
 
 Dit gen ligt bij iedereen op precies dezelfde plek: op beide chromosomen elf, op dezelfde hoogte. Die plek heet de locus.
 
-**s20** · audio `s20.mp3` · 18.5 s · generation `7zKURlDjznePbOyhzdXk`
+**s20** · audio `s20.mp3` · 18.1 s · generation `90d3iETpba4WrZcd8QTG`
 
 Maar het gen hoeft niet bij allebei precies hetzelfde te zijn. Hier verschilt de DNA-volgorde op één plek. Twee versies van hetzelfde gen noemen we allelen. Een ander allel is een net iets andere instructie, en levert daardoor ook een net iets ander eiwit op. Straks zie je wat dat uitmaakt.
 

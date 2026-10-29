@@ -17,3 +17,9 @@ Stem Roos, eleven_v4, één take per alinea. Centrale lijst: `films/UITSPRAAK.md
 | tweeënnegentig | tweeënneguntig (centrale regel 'negentig') | s10 | blind goed |
 | tyrosinase | gewoon (tie-roo-zie-NAA-ze) | s24 | blind goed |
 | karyogram, homozygoot, heterozygoot, zusterchromatiden, centromeer, autosomen, melanine, fenotype, UV-licht | gewoon | div. | blind goed |
+
+## Beluisterd door Kamiel (29 okt 2026)
+
+De wachtlijst hierboven is beluisterd in de film zelf (luisterpagina, zie films/UITSPRAAK.md): 'allelen' in s20 fout (losse misser): s20 opnieuw ingesproken. Alle andere woorden goedgekeurd zoals ingesproken.
+
+Nieuwe take s20 (29 okt 2026, generatie `90d3iETpba4WrZcd8QTG`, 291 credits): stem-invoer ongewijzigd ('allelen' gewoon gespeld), Scribe hoorde 'allelen' woord voor woord goed. Klemtoon nog door Kamiel te beluisteren.
