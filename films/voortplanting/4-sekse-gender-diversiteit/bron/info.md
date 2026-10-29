@@ -5,9 +5,9 @@
 | Bestand | films/voortplanting/4-sekse-gender-diversiteit.html (audio in films/voortplanting/4-sekse-gender-diversiteit/audio/) |
 | Reeks | Voortplanting (hoofdstuk `voortplanting`: Nectar 4.1 H4 vwo, Biologie voor jou havo thema Voortplanting), film 4 |
 | Niveau | havo + vwo; vwo-blok s05 (SRY → SOX9-cascade, uitwisseling X–Y, XX-man, XY zonder werkend SRY) |
-| Versie / datum | 1.2 · 25 oktober 2026 (1.1 · 22 oktober; 1.0 · 16 oktober 2026) |
-| Prompt | v8 |
-| Voldoet aan | prompt uitlegfilms v8 (22 okt 2026); bewust anders: uitwendige geslachtsorganen blijven een woordschema |
+| Versie / datum | **1.3 · 29 oktober 2026** — opwaardering naar prompt v13 (B14, zonder keuring): alleen beeld, stem, script, inhoud en toon ongewijzigd; oude versie in `bron/oud/4-sekse-gender-diversiteit-v1.2.html`. 1.2 · 25 oktober 2026 (1.1 · 22 oktober; 1.0 · 16 oktober 2026) |
+| Prompt | v13 |
+| Voldoet aan | prompt v13 (29 okt 2026, zonder keuring). Bewust anders: uitwendige geslachtsorganen blijven een woordschema; inhoud en toon ongewijzigd (gevoelig onderwerp); de stem noemt Noor nog in s01 (herinspreken staat als voorstel in `opwaardering-v13.md`, niets opgenomen); paars alleen nog op het anti-Müllerhormoon (hormoon); geen nieuwe caststijl met contourlijnen |
 | Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow WnjDPUgOaw8w8lH9l0PM; film-eigen respellings in `uitspraak_film.json` (XX → iks-iks, XY → iks-ei, SRY → es-er-ei, SOX9 → soks-negen, Z/W → zet/wee, Klinefelter → Klainfelter, Turner → Törner, AGS → aa-gee-es, clownvissen → Klaunvissen), zie `uitspraak.md` |
 | Duur | spraak 7:23 (vwo) / 6:29 (havo); speeltijd met kaarten en vragen ± 8,5 min (vwo) / ± 7,5 min (havo) |
 | Beeldstijl | Part C: Schema. Kleurafspraak: zaadbal-route teal, eierstok-route koraal, aanleg oker, SRY goud |
@@ -103,3 +103,17 @@ Alle 13 voorstellen van het verbeterblad (claude.ai-artifact 'Verbeterblad promp
 ## Wijziging 25 okt 2026
 
 Uitspraaktest 25 okt: alinea s08 (DSD) opnieuw ingesproken in gewone spelling, 1 take, 1.632 credits; alleen `audio/s08.mp3` (URL ?v=3) en woordtijden/dur van s08 in `window.FILMDATA` vervangen (dur 105,01 -> 104,77 s). Regel DSD -> dee-es-dee uit `bron/uitspraak_film.json` gehaald. Versie 1.2.
+
+
+## Opwaardering naar prompt v13 (1.3 · 29 okt 2026, zonder keuring)
+
+Alleen beeld; stem, script, vragen, tijden, speler, inhoud en toon ongewijzigd, niets ingesproken (0 credits). Site-HTML bijgewerkt door alleen de blokken `scenes.js`, `lib_cast.js` en `lib_bio.js` te vervangen; versie in voettekst en `film.py`/`film.json` op 1.3. Datum in index.html blijft. Lijsten voor Kamiel: `bron/opwaardering-v13.md`; bronnenlogboek: `bron/bronnen.md` (eerste ronde).
+
+- Alle scènes: `src/lib_bio.js` = actuele `bibliotheek/lib_bio.js` (beeldbank na verbeterronde 1–3: echo, embryo, zaadbal, eierstok, nier/bijnier, ronde cel, eiwit, hoofd, kip, schildpad, krokodil); `src/lib_cast.js` = actuele `personages/lib_cast.js`.
+- s01: naam 'tante Petra' onder het personage → 'tante' (B4).
+- s04, s05, s06, s08 (en titel, recap): X-chromosomen (`chrX`) in de standaardkleur van palet B (`CD.std`, lichtgrijs) in plaats van paars; de namen X, één X idem. Y blijft teal (mannelijke route), de SRY-band goud.
+- s04: homologieschema: de bogen 'plooien' en de icoontjes bij balzak/schaamlippen oker (aanleg, de kleurafspraak van de film) in plaats van paars.
+- s05 (vwo): `dnaStuk` voor het SOX9-gen in palet B (grijze ruggengraat, basenparen A–T rood/geel, C–G lichtblauw/donkerblauw).
+- s09, s12: kip-chromosomen Z in de standaardkleur (W blijft koraal); schildpadnest met `boven: true` (de nieuwe standaard van de beeldbank is een doorsnede die over 'warm → vooral vrouwtjes / koeler → vooral mannetjes' viel).
+- Getest: contactvel van de gewijzigde scènes bekeken (geen JS-fouten); scripts `spelerfix`, `antwoordtekst`, `kortantwoord`, `antwoordletter` (met --check), `flipkaarten`, `licentie_noot`, `teller` in orde; elke vraag (q02, q07, q10) afgespeeld met `?vragen=uit`: alleen de vraagzinnen en 'Antwoord …' geknipt, geen resten in beeld of ondertitel.
+- Regelnummers in de HTML sinds 1.3 (de tabel hierboven is van 1.0): FILMDATA 158 · lib.js 159–387 · lib_voeding + lib_hormonen 388–1211 · lib_cast 1212 e.v. · lib_bio tot 10469 · scenes.js 10471–10710 (SCENES 10553) · speler 10711–10895.

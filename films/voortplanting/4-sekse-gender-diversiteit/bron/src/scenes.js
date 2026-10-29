@@ -1,4 +1,4 @@
-// Voortplanting 4 · Sekse, gender en diversiteit — scènes per alinea (v1.1, 22 okt 2026: tekeningen opgewaardeerd naar prompt v8 met bibliotheek/lib_bio.js). Noor en Dr. Kim bij de echo; trap van lagen (chromosomen → SRY → geslachtsklier → hormonen → geslachtsorganen → puberteit); variaties per laag; ZW, temperatuur, clownvis; vier begrippen.
+// Voortplanting 4 · Sekse, gender en diversiteit — scènes per alinea (v1.1, 22 okt 2026: tekeningen opgewaardeerd naar prompt v8 met bibliotheek/lib_bio.js; v1.2, 29 okt 2026: prompt v13, geen namen in beeld, chromosomen en DNA palet B, minder paars). Noor en Dr. Kim bij de echo; trap van lagen (chromosomen → SRY → geslachtsklier → hormonen → geslachtsorganen → puberteit); variaties per laag; ZW, temperatuur, clownvis; vier begrippen.
 
 // ---------- algemene helpers (zelfde stijl als Gedrag 12) ----------
 function tag(ctx, s, x, y, col, a = 1, align = 'center', px = 32) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fTekst(px, 600); const w = ctx.measureText(s).width + 40; const x0 = align === 'center' ? x - w / 2 : align === 'right' ? x - w : x; roundRect(ctx, x0, y - px - 6, w, px + 22, (px + 22) / 2); shape(ctx, rgba(col, 0.16), col, 1.5); text(ctx, s, x0 + w / 2, y, fTekst(px, 600), C.text, 'center'); ctx.restore(); }
@@ -26,7 +26,7 @@ function chromosoom(ctx, x, y, len, col, a = 1, o = {}) { if (a <= 0.01) return;
   circ(ctx, 0, cy, w * 0.32, lighten(col, 0.2));
   if (kruisBand > 0.01 && band != null) kruis(ctx, 0, top + len * band, w * 1.1, kruisBand);
   ctx.restore(); }
-function chrX(ctx, x, y, s, a = 1, o = {}) { chromosoom(ctx, x, y, 210 * s, o.col || C.paars, a, Object.assign({ cen: 0.42 }, o)); }
+function chrX(ctx, x, y, s, a = 1, o = {}) { chromosoom(ctx, x, y, 210 * s, o.col || CD.std, /* v1.2: palet B, chromosoom in standaardkleur (was paars) */ a, Object.assign({ cen: 0.42 }, o)); }
 function chrY(ctx, x, y, s, a = 1, o = {}) { chromosoom(ctx, x, y, 96 * s, o.col || C.teal, a, Object.assign({ cen: 0.3, band: 0.13 }, o)); }
 // geslachtsklier: mix 0 = aanleg (oker), soort 'm' = zaadbal (buisjes), 'v' = eierstok (follikels)
 function klier(ctx, x, y, s, soort, mix = 1, a = 1, t = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; // v1.1: echt weefsel uit de bibliotheek
@@ -75,8 +75,9 @@ function voetje(ctx, x, y, s, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.gl
   [[-30, -86, 11], [-10, -96, 10], [10, -96, 9], [27, -88, 8], [40, -74, 7]].forEach(([tx, ty, r]) => circ(ctx, tx, ty, r, '#E8B79E', '#C98E76', 2));
   ctx.beginPath(); ctx.moveTo(-18, 50); ctx.quadraticCurveTo(-30, 70, -18, 78); ctx.quadraticCurveTo(-6, 70, -18, 50); ctx.fillStyle = '#C8463C'; ctx.fill(); ctx.restore(); }
 // stukje DNA (dubbele helix) tussen x0 en x1
-function dnaStuk(ctx, x0, x1, y, t, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; for (const ph of [0, Math.PI]) { ctx.strokeStyle = ph ? C.paars : lighten(C.paars, 0.3); ctx.lineWidth = 4; ctx.beginPath(); for (let px = x0; px <= x1; px += 4) { const py = y + Math.sin((px - x0) / 26 + ph) * 16; px === x0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py); } ctx.stroke(); }
-  ctx.strokeStyle = rgba(C.text2, 0.5); ctx.lineWidth = 2; for (let px = x0 + 6; px < x1; px += 13) { const d = Math.sin((px - x0) / 26) * 16; ctx.beginPath(); ctx.moveTo(px, y + d); ctx.lineTo(px, y - d); ctx.stroke(); } ctx.restore(); }
+function dnaStuk(ctx, x0, x1, y, t, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; // v1.2: palet B (ruggengraat grijs, basenparen A–T rood/geel, C–G lichtblauw/donkerblauw)
+  const SQ = 'GATTACGCTAGCTTAGCGAT'; ctx.lineCap = 'round'; ctx.lineWidth = 3; let j = 0; for (let px = x0 + 6; px < x1; px += 13, j++) { const d = Math.sin((px - x0) / 26) * 16, b = SQ[j % SQ.length]; ctx.strokeStyle = DNA_BASE.base[b]; ctx.beginPath(); ctx.moveTo(px, y + d); ctx.lineTo(px, y); ctx.stroke(); ctx.strokeStyle = DNA_BASE.base[DNA_BASE.comp[b]]; ctx.beginPath(); ctx.moveTo(px, y); ctx.lineTo(px, y - d); ctx.stroke(); }
+  for (const ph of [0, Math.PI]) { ctx.strokeStyle = ph ? DNA_BASE.rug : DNA_BASE.rugR; ctx.lineWidth = 4; ctx.beginPath(); for (let px = x0; px <= x1; px += 4) { const py = y + Math.sin((px - x0) / 26 + ph) * 16; px === x0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py); } ctx.stroke(); } ctx.restore(); }
 const SRY_KRALEN = Array.from({ length: 34 }, (_, i) => Math.floor(hash(i * 13 + 5) * 20));
 // =======================================================================================
 const SCENES = {
@@ -88,7 +89,7 @@ const SCENES = {
       // echoscherm
       roundRect(ctx, 1060, 150, 720, 470, 18); shape(ctx, '#2A3242', '#6A7080', 3); roundRect(ctx, 1090, 180, 660, 410, 10); shape(ctx, '#0A0E14', null);
       if (sc > 0.01) { ctx.save(); ctx.beginPath(); ctx.rect(1090, 180, 660, 410); ctx.clip(); echoBeeld(ctx, 1420, 196, 380, { a: sc, t, hl: { hoofd: q.on('hoofdje', 1) * (1 - q.on('armpjes', 1)), armen: q.on('armpjes', 1) * (1 - q.on('hartje', 1)), hart: q.on('hartje', 1) } }); ctx.restore(); metaText(ctx, '20 weken', 1720, 570, C.text2, 'right', 22); }
-      persoon(ctx, 'noor', 300, 880, 440, { uit: q.on('arts', 1) > 0.5 ? 'verbaasd' : 'blij', pose: 'staan', kijk: 1, t }); persoon(ctx, 'petra', 560, 880, 480, { uit: 'blij', pose: 'staan', kijk: 1, zwanger: 0.45, t }); naamBij(ctx, 'tante Petra', null, 560, 940, q.on('tante', 1) * (1 - q.on('scherm', 1)), 'center', C.text2);
+      persoon(ctx, 'noor', 300, 880, 440, { uit: q.on('arts', 1) > 0.5 ? 'verbaasd' : 'blij', pose: 'staan', kijk: 1, t }); persoon(ctx, 'petra', 560, 880, 480, { uit: 'blij', pose: 'staan', kijk: 1, zwanger: 0.45, t }); naamBij(ctx, 'tante', null, 560, 940, q.on('tante', 1) * (1 - q.on('scherm', 1)), 'center', C.text2);
       persoon(ctx, 'kim', 860, 880, 500, { uit: q.on('vraagt', 1) > 0.5 && q.localT < q.at('wordt', 1) + 0.5 ? 'praat' : 'blij', pose: q.on('scherm', 1) > 0.5 && q.localT < q.at('arts', 1) ? 'wijs' : 'staan', kijk: 1, t });
       bubbel(ctx, 720, 300, 'jongen of meisje?', q.on('vraagt', 1) * (1 - q.on('echo', 2)), 30);
       chip(ctx, 'op een echo van 20 weken vaak al te zien', 1420, 690, C.text2, q.on('echo', 2), 26); ctx.restore(); }
@@ -123,10 +124,10 @@ const SCENES = {
       tag(ctx, 'meer in de film Van bevruchting tot baby', X0 + 985, 760, C.goud, q.on('film', 1), 'center', 24); ctx.restore(); }
     if (P4 > 0.01) { ctx.save(); ctx.globalAlpha *= P4; const vb = q.on('buiten', 1), da = q.on('dezelfde', 1);
       tag(ctx, 'primaire geslachtskenmerken', CX + 80, 150, C.goud, q.on('primaire', 1), 'center', 30);
-      paneel(ctx, CX - 200, 200, 560, 230, 'dezelfde aanleg', 1); circ(ctx, CX + 80, 320, 30, rgba(C.goud, 0.4), C.goud, 3); ctx.strokeStyle = C.paars; ctx.lineWidth = 9; ctx.lineCap = 'round'; for (const sx of [-1, 1]) { ctx.beginPath(); ctx.arc(CX + 80 + sx * 80, 345, 44, sx < 0 ? 1.1 : -1.1 + Math.PI * 0, sx < 0 ? 2.6 : 0.5); ctx.stroke(); }
-      naamBij(ctx, 'knobbeltje', null, CX + 80, 284, 1, 'center', C.goud); naamBij(ctx, 'plooien', null, CX + 80, 412, 1, 'center', C.paars);
+      paneel(ctx, CX - 200, 200, 560, 230, 'dezelfde aanleg', 1); circ(ctx, CX + 80, 320, 30, rgba(C.goud, 0.4), C.goud, 3); ctx.strokeStyle = C.oker; ctx.lineWidth = 9; ctx.lineCap = 'round'; for (const sx of [-1, 1]) { ctx.beginPath(); ctx.arc(CX + 80 + sx * 80, 345, 44, sx < 0 ? 1.1 : -1.1 + Math.PI * 0, sx < 0 ? 2.6 : 0.5); ctx.stroke(); }
+      naamBij(ctx, 'knobbeltje', null, CX + 80, 284, 1, 'center', C.goud); naamBij(ctx, 'plooien', null, CX + 80, 412, 1, 'center', C.oker);
       pijl(ctx, CX - 20, 440, CX - 250, 560, C.line, vb); pijl(ctx, CX + 180, 440, CX + 410, 560, C.line, vb);
-      [[CX - 330, SEXM, 'penis', 'balzak'], [CX + 490, SEXV, 'clitoris', 'schaamlippen']].forEach(([bx, col, a1, a2], i) => { const al = vb * q.on(i ? 'clitoris' : 'penis', 1); if (al < 0.01) return; ctx.save(); ctx.globalAlpha *= al; roundRect(ctx, bx - 200, 580, 400, 230, 16); shape(ctx, rgba(col, 0.1), col, 2); circ(ctx, bx - 140, 650, 14, C.goud); text(ctx, a1, bx - 110, 662, fTekst(36, 700), C.text, 'left'); ctx.strokeStyle = C.paars; ctx.lineWidth = 7; ctx.beginPath(); ctx.arc(bx - 140, 752, 16, 0.3, 2.8); ctx.stroke(); text(ctx, a2, bx - 110, 764, fTekst(36, 700), C.text, 'left'); ctx.restore(); });
+      [[CX - 330, SEXM, 'penis', 'balzak'], [CX + 490, SEXV, 'clitoris', 'schaamlippen']].forEach(([bx, col, a1, a2], i) => { const al = vb * q.on(i ? 'clitoris' : 'penis', 1); if (al < 0.01) return; ctx.save(); ctx.globalAlpha *= al; roundRect(ctx, bx - 200, 580, 400, 230, 16); shape(ctx, rgba(col, 0.1), col, 2); circ(ctx, bx - 140, 650, 14, C.goud); text(ctx, a1, bx - 110, 662, fTekst(36, 700), C.text, 'left'); ctx.strokeStyle = C.oker; ctx.lineWidth = 7; ctx.beginPath(); ctx.arc(bx - 140, 752, 16, 0.3, 2.8); ctx.stroke(); text(ctx, a2, bx - 110, 764, fTekst(36, 700), C.text, 'left'); ctx.restore(); });
       tag(ctx, 'zelfde kleur = zelfde aanleg', CX + 80, 870, C.goud, da, 'center', 26); ctx.restore(); }
     if (P5 > 0.01) { ctx.save(); ctx.globalAlpha *= P5; tag(ctx, 'jaren later', CX + 80, 150, C.text2, 1, 'center', 28);
       const HH = hoofdHersenen(ctx, X0 + 170, 380, 0.52, { hth: q.on('hypothalamus', 1) * (0.6 + 0.4 * q.on('startsein', 1)), hyp: q.on('hypofyse', 1), t }); naamBij(ctx, 'hypothalamus', null, HH.hth[0] - 14, HH.hth[1] - 30, q.on('hypothalamus', 1), 'right', C.goud); naamBij(ctx, 'hypofyse', null, HH.hyp[0] - 18, HH.hyp[1] + 40, q.on('hypofyse', 1), 'right', C.goud);
@@ -147,7 +148,7 @@ const SCENES = {
       tag(ctx, 'cascade: één schakelaar zet een hele ontwikkeling in gang', 960, 700, C.goud, ca, 'center', 30); ctx.restore(); }
     if (B > 0.01) { ctx.save(); ctx.globalAlpha *= B; regel(ctx, 'bij de vorming van zaadcellen (meiose in de vader)', 140, 150, 1, C.text, 32, 'left', 700);
       const st = q.on('stukje', 1, 1.2), sw = q.on('mee', 1, 1.2), yx = lerp(1160, 900, ease(st)), yy = lerp(430, 376, ease(st));
-      chrX(ctx, 760, 480, 2.0, 1, { band: 0.08, bandA: sw }); chrY(ctx, yx, yy, 2.2, 1, { bandA: 1 - sw }); naamBij(ctx, 'X', null, 760, 740, 1, 'center', C.paars); naamBij(ctx, 'Y', null, yx, yy + 150, 1, 'center', SEXM);
+      chrX(ctx, 760, 480, 2.0, 1, { band: 0.08, bandA: sw }); chrY(ctx, yx, yy, 2.2, 1, { bandA: 1 - sw }); naamBij(ctx, 'X', null, 760, 740, 1, 'center', CD.std); naamBij(ctx, 'Y', null, yx, yy + 150, 1, 'center', SEXM);
       // overkruising tussen de topjes (het stuk dat X en Y gemeen hebben)
       if (st > 0.6) { const ka = (st - 0.6) / 0.4; ctx.save(); ctx.globalAlpha *= ka; ctx.strokeStyle = sw > 0.01 ? C.goud : C.text2; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(790, 290); ctx.bezierCurveTo(830, 300, 840, 318, 872, 330); ctx.moveTo(790, 330); ctx.bezierCurveTo(830, 320, 840, 302, 872, 292); ctx.stroke(); ctx.restore(); }
       regel(ctx, 'stukje uitwisselen', 830, 230, st, C.text2, 26, 'center', 700);
@@ -162,7 +163,7 @@ const SCENES = {
   // ---------- H2 ----------
   s06(ctx, t, q) { bg(ctx, 'schema'); const an = q.on('anders', 1); const flick = an > 0.5 ? Math.floor(t * 1.5) % 5 : -1; trap(ctx, [0, 1, 2, 3, 4].map(i => i === flick ? 3 : 1), 1);
     tag(ctx, 'meestal passen alle lagen bij elkaar', 1220, 160, C.groen, q.on('passen', 1), 'center', 30); tag(ctx, 'maar elke laag kan anders lopen', 1220, 250, C.koraal, an, 'center', 30);
-    const dr = q.on('drie', 1); chrX(ctx, 980, 560, 1.4, dr); chrX(ctx, 1160, 560, 1.4, dr * q.on('X', 2)); chrY(ctx, 1340, 600, 2.0, dr * q.on('Y', 1)); naamBij(ctx, 'X', null, 980, 780, dr, 'center', C.paars); naamBij(ctx, 'X', null, 1160, 780, dr * q.on('X', 2), 'center', C.paars); naamBij(ctx, 'Y', null, 1340, 780, dr * q.on('Y', 1), 'center', SEXM);
+    const dr = q.on('drie', 1); chrX(ctx, 980, 560, 1.4, dr); chrX(ctx, 1160, 560, 1.4, dr * q.on('X', 2)); chrY(ctx, 1340, 600, 2.0, dr * q.on('Y', 1)); naamBij(ctx, 'X', null, 980, 780, dr, 'center', CD.std); naamBij(ctx, 'X', null, 1160, 780, dr * q.on('X', 2), 'center', CD.std); naamBij(ctx, 'Y', null, 1340, 780, dr * q.on('Y', 1), 'center', SEXM);
     vraagteken(ctx, 1600, 620, q.on('denk', 1), 140); },
 
   s08(ctx, t, q) { bg(ctx, 'schema'); const [P1, P2, P3, P4, P5] = fasen(q, [null, ['Turner', 1], ['hormoonlaag', 1], ['adrenogenitaal', 1], ['standaardplaatje', 1]]);
@@ -171,7 +172,7 @@ const SCENES = {
       chrX(ctx, X0 + 160, 400, 1.15); chrX(ctx, X0 + 290, 400, 1.15); chrY(ctx, X0 + 420, 430, 1.7, 1); naamBij(ctx, 'XXY', null, X0 + 290, 580, 1, 'center', C.text); pijl(ctx, X0 + 500, 420, X0 + 640, 420, SEXM, 1, 5); klier(ctx, X0 + 760, 420, 1.0, 'm', 1, 1, t); naamBij(ctx, 'zaadballen', null, X0 + 760, 510, 1, 'center', SEXM);
       tag(ctx, '± 1 op 700 jongens', X0 + 1080, 330, C.goud, q.on('zevenhonderd', 1), 'center', 30); tag(ctx, 'vaak lang niets van gemerkt', X0 + 1080, 450, C.text2, q.on('lang', 1), 'center', 24); tag(ctx, 'vaak onvruchtbaar', X0 + 1080, 540, C.koraal, q.on('onvruchtbaar', 1), 'center', 26); ctx.restore(); }
     if (P2 > 0.01) { ctx.save(); ctx.globalAlpha *= P2; regel(ctx, 'syndroom van Turner', X0 + 60, 170, 1, C.text, 34, 'left', 700);
-      chrX(ctx, X0 + 260, 420, 1.3); ctx.save(); ctx.setLineDash([10, 8]); ctx.strokeStyle = C.text2; ctx.lineWidth = 3; roundRect(ctx, X0 + 340, 300, 90, 240, 20); ctx.stroke(); ctx.restore(); naamBij(ctx, 'één X', null, X0 + 300, 600, 1, 'center', C.paars);
+      chrX(ctx, X0 + 260, 420, 1.3); ctx.save(); ctx.setLineDash([10, 8]); ctx.strokeStyle = C.text2; ctx.lineWidth = 3; roundRect(ctx, X0 + 340, 300, 90, 240, 20); ctx.stroke(); ctx.restore(); naamBij(ctx, 'één X', null, X0 + 300, 600, 1, 'center', CD.std);
       klier(ctx, X0 + 720, 420, 1.0, 'v', 1, 1 - 0.55 * q.on('eierstokken', 1), t); naamBij(ctx, 'eierstokken werken vaak niet goed', null, X0 + 720, 520, q.on('eierstokken', 1), 'center', SEXV);
       tag(ctx, '± 1 op 2500 meisjes', X0 + 1080, 330, C.goud, q.on('tweeduizendvijfhonderd', 1), 'center', 30); tag(ctx, 'vaak kleiner dan gemiddeld', X0 + 1080, 450, C.text2, q.on('kleiner', 1), 'center', 24); tag(ctx, 'hormonen → puberteit', X0 + 1080, 540, C.groen, q.on('hormonen', 1), 'center', 26); ctx.restore(); }
     if (P3 > 0.01) { ctx.save(); ctx.globalAlpha *= P3; regel(ctx, 'androgeen-ongevoeligheid', X0 + 60, 170, q.on('androgeen', 1), C.text, 34, 'left', 700);
@@ -198,9 +199,9 @@ const SCENES = {
   s09(ctx, t, q) { bg(ctx, 'schema'); const [A, B] = fasen(q, [null, ['Clownvissen', 1]]);
     if (A > 0.01) { ctx.save(); ctx.globalAlpha *= A; tag(ctx, 'bij andere dieren: anders geregeld', 960, 150, C.goud, 1, 'center', 30);
       const vo = q.on('vogels', 1); paneel(ctx, 80, 210, 560, 640, 'vogels', vo); kipEcht(ctx, 360, 410, 1.05, { a: vo, t });
-      [[220, 'vrouwtje', 'Z', 'W', q.on('verschillende', 1)], [500, 'mannetje', 'Z', 'Z', q.on('mannetje', 1)]].forEach(([bx, l, a1, a2, al]) => { const aa = vo * al; chromosoom(ctx, bx - 30, 660, 120, C.paars, aa, { cen: 0.4 }); chromosoom(ctx, bx + 30, a2 === 'W' ? 680 : 660, a2 === 'W' ? 80 : 120, a2 === 'W' ? C.koraal : C.paars, aa, { cen: 0.35 }); regel(ctx, a1 + a2, bx, 780, aa, C.text, 32, 'center', 800); regel(ctx, l, bx, 820, aa, C.text2, 24, 'center', 700); });
+      [[220, 'vrouwtje', 'Z', 'W', q.on('verschillende', 1)], [500, 'mannetje', 'Z', 'Z', q.on('mannetje', 1)]].forEach(([bx, l, a1, a2, al]) => { const aa = vo * al; chromosoom(ctx, bx - 30, 660, 120, CD.std, aa, { cen: 0.4 }); chromosoom(ctx, bx + 30, a2 === 'W' ? 680 : 660, a2 === 'W' ? 80 : 120, a2 === 'W' ? C.koraal : CD.std, aa, { cen: 0.35 }); regel(ctx, a1 + a2, bx, 780, aa, C.text, 32, 'center', 800); regel(ctx, l, bx, 820, aa, C.text2, 24, 'center', 700); });
       const sp = q.on('schildpadden', 1); paneel(ctx, 680, 210, 560, 640, 'veel schildpadden', sp); zeeschildpad(ctx, 960, 400, 0.78, { a: sp, vin: 0.5 + 0.5 * Math.sin(t * 1.2) }); thermometer(ctx, 760, 760, 260, lerp(0.4, 0.85, q.on('warm', 1)) - 0.45 * q.on('koeler', 1), q.on('koeler', 1) > 0.5 ? C.teal : C.koraal, sp);
-      schildpadNest(ctx, 1040, 640, 0.85, { a: sp }); regel(ctx, 'warm → vooral vrouwtjes', 1010, 740, q.on('warm', 1), C.koraal, 26, 'center', 700); regel(ctx, 'koeler → vooral mannetjes', 1010, 790, q.on('koeler', 1), C.teal, 26, 'center', 700);
+      schildpadNest(ctx, 1040, 640, 0.85, { a: sp, boven: true, n: 9 }); /* v1.2: bovenaanzicht; de nieuwe standaard is een doorsnede die over de temperatuurnamen valt */ regel(ctx, 'warm → vooral vrouwtjes', 1010, 740, q.on('warm', 1), C.koraal, 26, 'center', 700); regel(ctx, 'koeler → vooral mannetjes', 1010, 790, q.on('koeler', 1), C.teal, 26, 'center', 700);
       const kr = q.on('krokodillen', 1); paneel(ctx, 1280, 210, 560, 640, 'krokodillen', kr); krokodilEcht(ctx, 1560, 470, 0.82, { a: kr, t }); thermometer(ctx, 1560, 760, 200, 0.6, C.goud, kr); regel(ctx, 'ook temperatuur', 1560, 830, kr, C.text2, 24, 'center', 700); ctx.restore(); }
     if (B > 0.01) { ctx.save(); ctx.globalAlpha *= B; anemoon(ctx, 960, 860, 1.2, 1, t);
       const v = q.on('grootste', 1), m = q.on('tweede', 1), r = q.on('rest', 1); clownvis(ctx, 760 + Math.sin(t * 0.7) * 30, 330, 1.5, 1, t); naamBij(ctx, 'vrouwtje (grootste)', null, 760, 430, v, 'center', SEXV);
