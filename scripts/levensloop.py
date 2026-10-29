@@ -9,6 +9,8 @@ blok = cast[cast.index('const CAST = {'):cast.index('const CAST_FAMILIE')]
 ids = {}
 for m in re.finditer(r"^  (\w+):\s*\{ naam: '([^']+)'", blok, re.M):
     ids[m.group(1)] = m.group(2)
+# twee personages met dezelfde naam: in deze films hoort de naam in het script bij het andere personage (29 okt 2026: Sanne in Hormonen 2 = sanne16, niet de verpleegkundige)
+NAAM_NIET = {'sanne': ('films/hormonen/2-suiker-in-balans',)}
 aanroep = {i: re.compile(r"\b(?:persoon|pers)\(\s*(?:ctx\s*,\s*)?['\"]%s['\"]" % i) for i in ids}
 films = collections.defaultdict(set)  # id -> set(filmmap)
 for f in (R/'films').rglob('bron'):
@@ -25,6 +27,7 @@ for f in (R/'films').rglob('bron'):
     if sc.exists():
         t = sc.read_text(encoding='utf8')
         for i, n in ids.items():
+            if film in NAAM_NIET.get(i, ()): continue
             if len(n) > 3 and re.search(r'\b%s\b' % re.escape(n), t): films[i].add(film)
 def groep(p):
     d = p.split('/')

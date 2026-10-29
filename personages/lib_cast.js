@@ -14,6 +14,7 @@
 // Zijaanzicht (21 okt 2026): { zij: true, kijk: 1|-1, gang: 'loop'|'ren', t (of fase 0..1), tempo } — van opzij, lopend of rennend; zie _zij onderaan
 //   o.arm = [bovenarm, elleboog] (rad vanaf recht omlaag) = vrije armhoek rechterarm in zijaanzicht, o.armVer idem andere arm; handR geeft dan ook elx, ely, shx, shy, hh (26 okt 2026, Spieren en beweging)
 
+// Accessoires diabetes (29 okt 2026, vooraanzicht): 'glucosesensor' (rond plakkertje op de bovenarm aan de kant -kijk) en 'insulinepomp' (kastje aan de broeksband); persoon() geeft dan ook sensor:{x,y,r} en pomp:{x,y} terug.
 // plaatsdelict (25 okt 2026): forensisch onderzoeker in witte wegwerpoverall (Tyvek) met capuchon over het haar, mondkapje, nitrilhandschoenen en witte overschoenen
 const _NITRIL = '#5B8CC9', _MASKER = '#DCE5EC';
 const _PLAATSDELICT = { top: 'overall', topKleur: '#F2F2EE', topAccent: '#D4D8DE', broek: '#F2F2EE', schoen: '#F2F2EE', schoenAccent: '#D4D8DE', veiligheidsbril: false, accessoire: ['capuchon', 'mondkapje', 'handschoenen'] };
@@ -192,7 +193,10 @@ const CAST = {
   // Gregor Mendel (1822–1884), Augustijner monnik in Brno; kruiste 1856–1863 erwten in de kloostertuin (rond zijn 38e in beeld).
   // Uit Erfelijkheid 2 Monohybride kruisingen 2.0 (28 okt 2026, goedgekeurd door Kamiel): zwarte jas, bril, kort donker haar.
   mendel: { naam: 'Gregor Mendel', leeftijd: 38, rol: 'historisch figuur · monnik en onderzoeker (1822–1884) · kruiste erwten in de kloostertuin · alleen in historische scènes', huid: '#EBC6A6', haar: '#5A4A3A', kapsel: 'kort', wenkbrauw: '#2A1C16',
-            top: 'jas', topKleur: '#22222A', topAccent: '#1A1A20', broek: '#22222A', schoen: '#2A2F3E', schoenAccent: '#3A3F4E', accessoire: ['bril'], lengte: 1 }
+            top: 'jas', topKleur: '#22222A', topAccent: '#1A1A20', broek: '#22222A', schoen: '#2A2F3E', schoenAccent: '#3A3F4E', accessoire: ['bril'], lengte: 1 },
+  // ===== Figurant in Hormonen 2 Suiker in balans (29 okt 2026, keuze Kamiel: nieuwe figurant, de naam Sanne mag blijven; los van alle families) =====
+  sanne16: { naam: 'Sanne', leeftijd: 16, rol: 'figurant · leerling met diabetes type 1: glucosesensor op de bovenarm, insulinepomp aan de broeksband (Hormonen 2 Suiker in balans) · los van alle families; niet de verpleegkundige Sanne (id sanne) uit Bio-informatica 3', huid: '#EFCFB4', haar: '#8A4A28', kapsel: 'vlecht', elastiek: '#E0A43A', wenkbrauw: '#6A3A1E', wimpers: true,
+            top: 'tshirt', topKleur: '#B36A5E', topAccent: '#9A5A4F', broek: '#3E4A63', schoen: '#F2F2EE', schoenAccent: '#B36A5E', accessoire: ['glucosesensor', 'insulinepomp', 'sproeten'], lengte: 0.97 } // korte mouwen, zodat de sensor op de bovenarm te zien is
 };
 // families en vaste verbanden (getekend op de castboekpagina 'Families'); ouders: [vader, moeder]
 const CAST_FAMILIE = {
@@ -207,7 +211,7 @@ const CAST_FAMILIE = {
   sara: { ouders: ['dennis', 'marieke'], broerzus: ['levi', 'jens'] }, levi: { ouders: ['dennis', 'marieke'] }, jens: { ouders: ['dennis', 'marieke'] },
   anouk: { partner: 'milan' }
 };
-const CAST_EXTRA = ['linda', 'rachid', 'ria', 'ahmed', 'malika', 'petra', 'thijs', 'erik', 'joost', 'buurvrouw'];
+const CAST_EXTRA = ['linda', 'rachid', 'ria', 'ahmed', 'malika', 'petra', 'thijs', 'erik', 'joost', 'buurvrouw', 'sanne16']; // sanne16 (29 okt 2026): figurant met diabetes type 1, Hormonen 2
 const CAST_VOLGORDE = ['noor', 'sam', 'lotte', 'daan', 'yasmin', 'bilal', 'kim', 'henk', 'visser', 'ravi', 'jesse', 'femke', 'mirjam', 'esra', 'mila', 'gerrit', 'wouter', 'ilse', 'lieke', 'merel', 'bas', 'hanneke', 'farid'];
 const CAST_JONG = ['kind', 'fleur', 'ruben', 'baby']; // 22 okt 2026: Fleur en Ruben (± 10 jaar)
 const CAST_OUDERS_BI = ['anouk', 'milan']; // 25 okt 2026: ouders in het uitslaggesprek van Bio-informatica 2 (figuranten, ter keuring)
@@ -369,6 +373,8 @@ function persoon(ctx, id, x, y, h, o = {}) {
     if (P.top === 'tshirt') { ctx.strokeStyle = P.huid; ctx.lineWidth = hh * 0.29; ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(ex, ey); ctx.stroke(); ctx.strokeStyle = mouw; ctx.lineWidth = hh * 0.46; ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(sx + (ex - sx) * 0.45, sy + (ey - sy) * 0.45); ctx.stroke(); }
     if (P.top !== 'tshirt') { ctx.strokeStyle = mouw; ctx.lineWidth = hh * 0.42; ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(ex, ey); } if (kort) ctx.lineTo(ex + (hx - ex) * 0.72, ey + (hy - ey) * 0.72); if (P.top !== 'tshirt') ctx.stroke();
     if (kort) { ctx.strokeStyle = _donker(mouw, 0.12); ctx.lineWidth = hh * 0.44; ctx.beginPath(); ctx.moveTo(ex + (hx - ex) * 0.66, ey + (hy - ey) * 0.66); ctx.lineTo(ex + (hx - ex) * 0.74, ey + (hy - ey) * 0.74); ctx.stroke(); }
+    if (s === -kijk && P.accessoire.includes('glucosesensor')) { const gx = sx + (ex - sx) * 0.62 - s * hh * 0.06, gy = sy + (ey - sy) * 0.62; _acc.sensor = { x: gx, y: gy, r: hh * 0.13 }; // glucosesensor (29 okt 2026): wit rond plakkertje op de bovenarm
+      circ(ctx, gx, gy, hh * 0.13, '#F2F2EE'); ctx.strokeStyle = '#9AA3B2'; ctx.lineWidth = Math.max(1, hh * 0.025); ctx.beginPath(); ctx.arc(gx, gy, hh * 0.13, 0, 6.283); ctx.stroke(); circ(ctx, gx, gy, hh * 0.045, '#9AA3B2'); }
     if (o.pose === 'handdruk' && s === kijk) return _grip(ctx, hx, hy, Math.atan2(hy - ey, hx - ex), hh, handK, null);
     const ang = Math.atan2(hy - ey, hx - ex); ctx.fillStyle = handK; ctx.beginPath(); ctx.ellipse(hx + Math.cos(ang) * hh * 0.08, hy + Math.sin(ang) * hh * 0.08, hh * 0.19, hh * 0.15, ang, 0, 6.283); ctx.fill();
     if (!zit && (Math.abs(a2 - a1) > 1.2 || a2 > 1.3)) { ctx.strokeStyle = handK; ctx.lineWidth = hh * 0.08; ctx.beginPath(); ctx.moveTo(hx + Math.cos(ang) * hh * 0.18, hy + Math.sin(ang) * hh * 0.18); ctx.lineTo(hx + Math.cos(ang) * hh * 0.36, hy + Math.sin(ang) * hh * 0.36); ctx.stroke(); }
@@ -389,6 +395,10 @@ function persoon(ctx, id, x, y, h, o = {}) {
       const [b1, b2] = _ikUit(s * (tx - sx) - hh * 0.12, ty - sy, L1 * k1, L2 * k2); return [b1, b2, k1, k2]; };
     R = doel(kijk); L = doel(-kijk); }
   // kijk -1 (25 okt 2026): arm(kijk, …) spiegelt al; de oude extra wissel [R, L] = [L, R] zette de wijs-/vasthoudarm terug naar rechts
+  const _acc = {};
+  if (P.accessoire.includes('insulinepomp')) { const px = cx + kijk * hw2 * 0.22, py = heupY - hh * 0.02; _acc.pomp = { x: px, y: py }; // insulinepomp (29 okt 2026): klein grijs kastje aan de broeksband met een dun slangetje
+    ctx.strokeStyle = '#C9CED6'; ctx.lineWidth = Math.max(1, hh * 0.025); ctx.beginPath(); ctx.moveTo(px - kijk * hh * 0.2, py); ctx.quadraticCurveTo(px - kijk * hh * 0.45, py - hh * 0.1, px - kijk * hh * 0.4, py - hh * 0.4); ctx.stroke();
+    roundRect(ctx, px - hh * 0.22, py - hh * 0.15, hh * 0.44, hh * 0.3, hh * 0.07); ctx.fillStyle = '#5B6B88'; ctx.fill(); ctx.strokeStyle = '#AFC0D0'; ctx.lineWidth = Math.max(1, hh * 0.02); ctx.stroke(); ctx.fillStyle = '#AFC0D0'; ctx.fillRect(px - hh * 0.13, py - hh * 0.07, hh * 0.15, hh * 0.1); }
   const handR = arm(kijk, R), handL = arm(-kijk, L);
   if (o.hold) o.hold(ctx, handR.x, handR.y, handR.ang);
   if (P.kapsel === 'golf') { for (const s of [-1, 1]) { const N = 14, y0 = hoofdY + hh * 0.05, y1 = schouderY + hh * (P.golfLang ?? 1.05); const xs = (u, off) => cx + s * (hh * (0.36 + 0.22 * u) + off + Math.sin(u * 9 + (s > 0 ? 0.6 : 0)) * hh * 0.07);
@@ -506,7 +516,7 @@ function persoon(ctx, id, x, y, h, o = {}) {
   if (!masker && mond === 'zuur') { ctx.beginPath(); ctx.moveTo(ex0 - fw * 0.11, my + hh * 0.04); ctx.quadraticCurveTo(ex0, my - hh * 0.02, ex0 + fw * 0.11, my + hh * 0.04); ctx.stroke(); }
   if (P.baard) { ctx.fillStyle = P.haar; ctx.beginPath(); ctx.ellipse(ex0, my - hh * 0.07, fw * 0.2, hh * 0.05, 0, Math.PI, 0); ctx.fill(); }
   ctx.restore();
-  return { hoofd: { x: cx, y: hy, r: hh * 0.55 }, handR, handL, heup: { x: cx, y: heupY }, top: hy - hh * 0.75, schoot: zit ? { x: cx, y: heupY + hh * 0.05 } : undefined, zit: zit ? { y: heupY } : undefined };
+  return { hoofd: { x: cx, y: hy, r: hh * 0.55 }, handR, handL, heup: { x: cx, y: heupY }, top: hy - hh * 0.75, schoot: zit ? { x: cx, y: heupY + hh * 0.05 } : undefined, zit: zit ? { y: heupY } : undefined, sensor: _acc.sensor, pomp: _acc.pomp };
 }
 
 // ===== baby (20 okt 2026): ligt op de rug, hoofd links. (x, y) = midden onder de baby, h = lengte. Vlak, geen omlijning, één schaduwtint.

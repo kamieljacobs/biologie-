@@ -50,6 +50,8 @@
 
 **Sanne** (34), **Bram** (46), **Wilma** (63) en de **Voorbijganger** · vast: figuranten in het bedachte uitbraakvoorbeeld van Wat word jij? · Bio-informatica 3; Sanne is verpleegkundige op dezelfde afdeling als Jesse, Bram zorgmedewerker in een ander ziekenhuis, Wilma zit als patiënt in gewone kleding op een stoel, de Voorbijganger heeft geen naam en geen rol (zoals Erik en Joost); los van Noors familie, gezin De Wit en alle andere families; ter keuring (25 okt 2026). Gebeurd: Bio-informatica 3 (nog onder de tijdelijke sleutels `zorgc`, `zorgb`, `patiente`); Sanne in Erfelijkheid 6 Stambomen en kansrekenen 2.0 (28 okt 2026, Kamiel keurde dit): zit als 'de vrouw' (niet bij naam) bij Dr. Kim voor erfelijkheidsadvies, haar jongste broer heeft taaislijmziekte, haar ouders en zij niet; haar partner is getest en drager (alleen als symbool); ze krijgt een formulier voor een dragerschapstest. Grenzen: blijven figuranten; geen ziekte of schuld als vast kenmerk (wie in dat voorbeeld besmet raakt of de bron is, ligt aan dat verhaal, niet aan de persoon; geen gezichtsuitdrukking die schuld of ziekte suggereert); de Voorbijganger krijgt geen naam of verhaal.
 
+**Sanne** (16, `sanne16`) · vast: figurant, leerling met diabetes type 1 (glucosesensor op de bovenarm, insulinepomp aan de broeksband, accessoires `glucosesensor` en `insulinepomp`); een ander personage dan de verpleegkundige Sanne (`sanne`); los van alle families; keuze Kamiel 29 okt 2026 (nieuwe figurant, de naam mag in stem en beeld blijven). Gebeurd: staat naast 'jou' (Noor) in de biologieklas en kijkt haar glucose op haar telefoon; krijgt na het sporten een hypo en eet een paar dextro's; doet gewoon mee met gym (Hormonen 2 Suiker in balans 1.2, 29 okt 2026). Grenzen: diabetes type 1 is een vast kenmerk maar geen drama: ze regelt het zelf, nooit zielig of 'schuld'; geen andere ziekte erbij.
+
 ## Automatisch: waar komt wie voor
 
 Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `films/**/bron/**/*.js` en de naam in `bron/script.md`; films die een personage alleen via een variabele aanroepen ontbreken mogelijk).
@@ -310,9 +312,8 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 ### Milan (`milan`) — 1 films
 - `vervolg`: bioinformatica-2-miljoenen-varianten
 
-### Sanne (`sanne`) — 2 films
+### Sanne (`sanne`) — 1 films
 - `erfelijkheid`: 6-stambomen-en-kansrekenen
-- `hormonen`: 2-suiker-in-balans
 
 ### Bram (`bram`) — 1 films
 - `afweer`: 2-antistoffen-op-maat
@@ -322,4 +323,7 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 
 ### Voorbijganger (`passant`) — 1 films
 - `hormonen`: 3-de-baas-van-de-klieren
+
+### Sanne (`sanne16`) — 1 films
+- `hormonen`: 2-suiker-in-balans
 <!-- AUTO:end -->

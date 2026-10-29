@@ -54,12 +54,16 @@ function personReal(ctx,x,y,h,alpha=1,o={}){ if(alpha<=0.01) return {}; ctx.save
 // series person (12 Oct 2026): every film draws the friendly person; each scenes file may set PERSON_LOOK
 
 // ---------- seriekleuren (Seriebrief Hormonen) ----------
-const HK = { hormoon: C.goud, hormoonR: '#F0CC7A', klier: C.oker, klierR: '#E2C38A', bloed: '#B5574A', bloedL: '#D88A7E',
-  glucose: C.teal, water: C.teal, receptor: '#AFC0D0', rem: '#9A8FB8', zenuw: C.paars, cel: '#C9B896' };
+// Kleuren gelijkgetrokken (Kamiel 29 okt 2026, UITVOEREN-REGELING.md): hormoon paars, insuline paars, glucagon groen, adrenaline koraal, cortisol oker,
+// hypofysehormonen licht paars, glucose oker (vaste moleculekleur), water teal, zenuwsignaal teal. Klieren neutraal beige, zodat ze niet met glucose botsen.
+const HK = { hormoon: C.paars, hormoonR: '#B3A6DA', klier: '#C9B896', klierR: '#DCCFB0', bloed: '#B5574A', bloedL: '#D88A7E',
+  glucose: C.oker, water: C.teal, receptor: '#AFC0D0', rem: C.line, zenuw: C.teal, cel: '#C9B896',
+  insuline: C.paars, glucagon: C.groen, adrenaline: C.koraal, cortisol: C.oker, hypofyse: '#B3A6DA', beta: '#B3A6DA', alfa: C.groen };
+const HKVORM = { insuline: HK.insuline, glucagon: HK.glucagon, adrenaline: HK.adrenaline, cortisol: HK.cortisol };
 
-// ---------- hormonen: elk een eigen vorm, allemaal goud ----------
-function hormoonVorm(ctx, x, y, r = 10, kind = 'adrenaline', a = 1, col = HK.hormoon) {
-  if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath();
+// ---------- hormonen: elk een eigen vorm én een vaste kleur (HKVORM; anders paars) ----------
+function hormoonVorm(ctx, x, y, r = 10, kind = 'adrenaline', a = 1, col = null) {
+  if (a <= 0.01) return; col = col || HKVORM[kind] || HK.hormoon; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath();
   if (kind === 'adrenaline') { ctx.moveTo(x, y - r * 1.35); ctx.bezierCurveTo(x + r * 0.9, y - r * 0.2, x + r, y + r * 0.9, x, y + r); ctx.bezierCurveTo(x - r, y + r * 0.9, x - r * 0.9, y - r * 0.2, x, y - r * 1.35); }
   else if (kind === 'insuline') { roundRect(ctx, x - r * 0.95, y - r * 0.95, r * 1.9, r * 1.9, r * 0.45); }
   else if (kind === 'glucagon') { ctx.moveTo(x, y - r * 1.2); ctx.lineTo(x + r, y); ctx.lineTo(x, y + r * 1.2); ctx.lineTo(x - r, y); ctx.closePath(); }
@@ -77,7 +81,7 @@ function receptor(ctx, x, y, ang, kind = 'adrenaline', bound = 0, a = 1, s = 1, 
   ctx.fillStyle = rgba(col, 0.9); roundRect(ctx, -7 * s, -6 * s, 14 * s, 30 * s, 5 * s); ctx.fill();
   ctx.beginPath(); ctx.moveTo(-22 * s, -10 * s); ctx.lineTo(-22 * s, -42 * s); ctx.lineTo(-11 * s, -42 * s); ctx.lineTo(-11 * s, -22 * s); ctx.lineTo(11 * s, -22 * s); ctx.lineTo(11 * s, -42 * s); ctx.lineTo(22 * s, -42 * s); ctx.lineTo(22 * s, -10 * s); ctx.closePath();
   ctx.fillStyle = rgba(col, 0.9); ctx.fill(); ctx.strokeStyle = lighten(col, 0.3); ctx.lineWidth = 1.2; ctx.stroke();
-  if (bound < 0.99) { ctx.save(); ctx.globalAlpha *= 1 - bound; ctx.setLineDash([3 * s, 3 * s]); ctx.strokeStyle = HK.hormoon; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(0, -32 * s, 9 * s, 0, 6.283); ctx.stroke(); ctx.restore(); }
+  if (bound < 0.99) { ctx.save(); ctx.globalAlpha *= 1 - bound; ctx.setLineDash([3 * s, 3 * s]); ctx.strokeStyle = HKVORM[kind] || HK.hormoon; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(0, -32 * s, 9 * s, 0, 6.283); ctx.stroke(); ctx.restore(); }
   ctx.restore();
   if (bound > 0.01) { const d = 32 * s + 70 * s * (1 - ease(bound)); hormoonVorm(ctx, x + Math.cos(ang) * d, y + Math.sin(ang) * d, 9 * s, kind, Math.min(1, bound * 4)); }
   ctx.restore();
@@ -198,11 +202,11 @@ function telefoon(ctx, x, y, w, h, o = {}) { const { a = 1, val = 5.4, curve = n
   roundRect(ctx, x, y, w, h, 28); shape(ctx, '#0D1420', '#5B6B88', 4); roundRect(ctx, x + 14, y + 40, w - 28, h - 70, 12); ctx.fillStyle = alarm > 0.3 && (t * 3 % 1) < 0.5 ? rgba(C.koraal, 0.35) : '#141E30'; ctx.fill();
   text(ctx, val.toFixed(1).replace('.', ','), x + w / 2, y + 150, fTitel(76), alarm > 0.3 ? C.koraal : C.text, 'center'); metaText(ctx, label, x + w / 2, y + 190, C.grain, 'center', 20);
   const gx = x + 30, gw = w - 60, gy = y + 220, gh = h - 290; ctx.fillStyle = rgba(C.groen, 0.14); ctx.fillRect(gx, gy + gh * (1 - 8 / 14), gw, gh * 4 / 14);
-  if (curve) { ctx.strokeStyle = C.teal; ctx.lineWidth = 3; ctx.beginPath(); for (let i = 0; i <= 60; i++) { const v = curve(i / 60); const px = gx + gw * i / 60, py = gy + gh * (1 - clamp(v / 14, 0, 1)); i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke(); }
+  if (curve) { ctx.strokeStyle = HK.glucose; ctx.lineWidth = 3; ctx.beginPath(); for (let i = 0; i <= 60; i++) { const v = curve(i / 60); const px = gx + gw * i / 60, py = gy + gh * (1 - clamp(v / 14, 0, 1)); i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke(); }
   ctx.restore(); }
 // rond sensortje op de bovenarm (punt (x,y))
 function sensor(ctx, x, y, r = 16, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, r, '#E6E1D3', '#9AA3B2', 2); circ(ctx, x, y, r * 0.35, '#9AA3B2'); ctx.restore(); }
-function insulinePomp(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 40 * s, y - 26 * s, 80 * s, 52 * s, 10 * s); shape(ctx, '#5B6B88', '#AFC0D0', 2); circ(ctx, x + 20 * s, y, 8 * s, HK.hormoon); ctx.restore(); }
+function insulinePomp(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 40 * s, y - 26 * s, 80 * s, 52 * s, 10 * s); shape(ctx, '#5B6B88', '#AFC0D0', 2); circ(ctx, x + 20 * s, y, 8 * s, HK.insuline); ctx.restore(); }
 
 // regelkring-schema: vier knopen rond een lus, pijlen met de klok mee, minteken in het midden
 // o.nodes: [{t:'titel', s:'onderschrift', col, a}], o.arr:[a0..a3] (pijl van knoop i naar i+1), o.minus, o.pulse 0..1, o.broken:{i:0..1}, o.thin:{i:0..1}
@@ -225,12 +229,12 @@ function kringSchema(ctx, cx, cy, o = {}) {
   if (minus > 0.01) { ctx.save(); ctx.globalAlpha *= minus; circ(ctx, cx, cy, 54, rgba(HK.rem, 0.25), HK.rem, 3); ctx.fillStyle = C.text; ctx.fillRect(cx - 24, cy - 5, 48, 10); metaText(ctx, 'NEGATIEVE TERUGKOPPELING', cx, cy + 96, C.grain, 'center', 22); ctx.restore(); }
   ctx.restore(); return P;
 }
-// eilandje van Langerhans (Micro): bètacellen (oker) en alfacellen (groen) rond een haarvat
+// eilandje van Langerhans (Micro): bètacellen (licht paars, maken insuline) en alfacellen (groen, maken glucagon) rond een haarvat
 function eilandje(ctx, x, y, r, o = {}) { const { a = 1, beta = 0, alfa = 0, t = 0, kapot = 0, moe = 0 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
   blob(ctx, x, y, r, r * 0.86, 0.05, 5, t); shape(ctx, rgba(HK.klier, 0.12), HK.klierR, 2);
   ctx.strokeStyle = HK.bloed; ctx.lineWidth = r * 0.12; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x - r * 1.05, y + r * 0.1); ctx.bezierCurveTo(x - r * 0.3, y - r * 0.25, x + r * 0.3, y + r * 0.35, x + r * 1.05, y - r * 0.05); ctx.stroke();
   for (let i = 0; i < 26; i++) { const an = hash(i * 3 + 1) * 6.283, d = Math.sqrt(hash(i * 3 + 2)) * r * 0.78; const cx2 = x + Math.cos(an) * d, cy2 = y + Math.sin(an) * d * 0.86; const isA = i % 4 === 0;
-    let col = isA ? C.groen : HK.klierR, glow = isA ? alfa : beta; if (!isA && kapot > 0.01) { ctx.save(); ctx.globalAlpha *= 1 - kapot * 0.85; }
+    let col = isA ? HK.alfa : HK.beta, glow = isA ? alfa : beta; if (!isA && kapot > 0.01) { ctx.save(); ctx.globalAlpha *= 1 - kapot * 0.85; }
     circ(ctx, cx2, cy2, r * 0.1, rgba(col, 0.3 + 0.5 * glow * (isA ? 1 : 1 - moe * 0.6)), col, 1.5); if (!isA && kapot > 0.01) ctx.restore(); }
   ctx.restore(); }
 // cel met glycogeen (lever of spier); fill 0..1
@@ -240,7 +244,7 @@ function cel(ctx, x, y, w, h, o = {}) { const { a = 1, naam = '', glyco = 0, col
   if (glyco > 0.01) glycogeenKeten(ctx, x - w * 0.15, y + h * 0.08, 0.55 + 0.6 * glyco, Math.min(1, glyco * 2), glyco);
   if (naam) text(ctx, naam, x, y + h / 2 + 46, fTekst(34, 700), C.text, 'center'); ctx.restore(); }
 
-// glycogeen als vertakte keten van glucose (teal zeshoekjes), zodat het niet op een hormoon lijkt; n 0..1 = hoe vol
+// glycogeen als vertakte keten van glucose (oker zeshoekjes), zodat het niet op een hormoon lijkt; n 0..1 = hoe vol
 function glycogeenKeten(ctx, x, y, s = 1, a = 1, n = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const r = 9 * s, d = 17 * s; const pts = [];
   for (let i = 0; i < 7; i++) pts.push([x - 3 * d + i * d, y]);
   for (const [bi, dir] of [[1, -1], [3, 1], [5, -1]]) for (let k = 1; k <= 3; k++) pts.push([x - 3 * d + bi * d + k * d * 0.5, y + dir * k * d * 0.86]);
