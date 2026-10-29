@@ -8,7 +8,7 @@ Kamiel: 'gewoon stapsgewijs alles doen wat moet gebeuren'. Keuzes van de hoofdse
 - **Sekse 1.4** (63 cr): s01 zin 1 zonder Noor; AGS 10–15 per jaar klopt (RIVM factsheet 2023, monitor 2024).
 - **Celdeling 2.2** (623 cr): x01 en x02 zin 1 zonder namen; oude scènes met beeldbankchromosomen, s30 `tumorGroei`; vader teal, moeder oker; geslachtelijk goud.
 - B15-rapport bijgewerkt: voorstel om P1 vast te maken (Kamiel beslist).
-- **Nog voor Kamiel:** nieuwe takes beluisteren (vooral de plakplekken: Celdeling x02 rond 5,3 s, Sekse s01, Anticonceptie s01/s07/s09); de antwoordletters in films 3 en 4. Later eventueel: lichte remake of havo-modus van Van bevruchting tot baby.
+- **Nog voor Kamiel:** nieuwe takes beluisteren op de luisterpagina https://claude.ai/artifact/1AfuNBUoJjSB7YR7jFsJtp (11 fragmenten, keuzes in collectie `keuzes`, doc-id = fragment-id) (vooral de plakplekken: Celdeling x02 rond 5,3 s, Sekse s01, Anticonceptie s01/s07/s09); de antwoordletters in films 3 en 4. Later eventueel: lichte remake of havo-modus van Van bevruchting tot baby.
 - Alle vijf op 'nog bekijken'.
 
 ---
