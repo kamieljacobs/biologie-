@@ -3,10 +3,10 @@
 python3 scripts/dobbelsteen.py [--klein 2] [--zaad <getal>] [--toon]
 
 Variant A = klassiek (volgt het plan), B = kleine mutaties, C = één grote mutatie.
-Weegt elke soort naar de winkans in films/logboek/mutaties.jsonl:
+Weegt elke soort naar de winkans in films/logboek/mutaties.jsonl (alleen duidelijke uitslagen, zie b15lib.py):
 gewicht = (winst + 1) / (geprobeerd + 2), begrensd tussen 0,15 en 0,85,
 zodat een soort die verliest minder vaak terugkomt maar nooit verdwijnt.
-Proefregel P1 (B15): de grote mutatie moet het concept zelf naspelen. Kan de
+Proefregel P1 (films/logboek/regels.json): de grote mutatie moet het concept zelf naspelen. Kan de
 getrokken vorm dat bij dit onderwerp niet, trek dan één keer opnieuw
 (--zaad weglaten) en noteer de reden in de filmbrief.
 --toon geeft alleen de tabel met winkansen."""
@@ -20,18 +20,10 @@ n_klein = int(args[args.index('--klein') + 1]) if '--klein' in args else 2
 zaad = args[args.index('--zaad') + 1] if '--zaad' in args else None
 rnd = random.Random(zaad)
 
-rijen = [json.loads(l) for l in open(LOG) if l.strip()] if os.path.exists(LOG) else []
-tel = collections.defaultdict(lambda: [0, 0])  # soort -> [gewonnen, geprobeerd]
-for r in rijen:
-    if r.get('soort') == 'groot':
-        sleutels = [r.get('vertelvorm')]
-    elif r.get('soort') == 'klein':
-        sleutels = r.get('mutaties') or []
-    else:
-        sleutels = []
-    for s in sleutels:
-        tel[s][1] += 1
-        tel[s][0] += 1 if r.get('won') else 0
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import b15lib
+# Nipt telt niet (Kamiel 29 okt 2026): alleen films met een duidelijke winnaar (of Kamiels keuze) tellen mee.
+tel = b15lib.winkansen(alleen_duidelijk=True)
 
 def gewicht(s):
     w, g = tel[s]

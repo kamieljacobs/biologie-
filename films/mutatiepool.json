@@ -1,5 +1,5 @@
 {
-  "_uitleg": "Mutatiepool voor B15 (prompt v10). scripts/dobbelsteen.py trekt hieruit, gewogen naar de winkans in films/logboek/mutaties.jsonl. Een soort toevoegen of schrappen mag alleen bij een patroonronde, met Kamiels akkoord. 'concept_vorm' = de vertelvorm kan het concept zelf naspelen (proefregel P1); een grote mutatie hoort bij voorkeur zo'n vorm te zijn.",
+  "_uitleg": "Mutatiepool voor B15 (prompt v10). scripts/dobbelsteen.py trekt hieruit, gewogen naar de winkans in films/logboek/mutaties.jsonl. Een soort toevoegen of schrappen mag alleen bij een patroonronde, met Kamiels akkoord. 'concept_vormen' = de vertelvorm kan het concept zelf naspelen (proefregel P1); een grote mutatie hoort bij voorkeur zo'n vorm te zijn.",
   "klein": [
     "opening",
     "metafoor",
@@ -28,5 +28,9 @@
     "animatieprincipes",
     "rijkere illustratie",
     "andere techniek"
+  ],
+  "concept_vormen": [
+    "kijker-speelt-mee",
+    "experiment-als-kapstok"
   ]
 }

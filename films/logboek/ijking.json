@@ -1,0 +1,176 @@
+{
+ "beeldbank": {
+  "alle": {
+   "n": 89,
+   "eens": 54,
+   "pct": 61,
+   "toeval_pct": 36
+  },
+  "nipt": {
+   "n": 22,
+   "eens": 12,
+   "pct": 55,
+   "toeval_pct": 31
+  },
+  "duidelijk": {
+   "n": 67,
+   "eens": 42,
+   "pct": 63,
+   "toeval_pct": 37
+  }
+ },
+ "scripts": {},
+ "beeldbank_oneens_duidelijk": [
+  {
+   "groep": "cel-afweer",
+   "obj": "lipideNanodeeltje",
+   "blind": "A",
+   "kamiel": "B"
+  },
+  {
+   "groep": "cel-afweer",
+   "obj": "tumorGroei",
+   "blind": "C",
+   "kamiel": "A"
+  },
+  {
+   "groep": "cel-molecuul",
+   "obj": "celrond",
+   "blind": "C",
+   "kamiel": "A"
+  },
+  {
+   "groep": "cel-molecuul",
+   "obj": "eiwitvouw",
+   "blind": "A",
+   "kamiel": "B"
+  },
+  {
+   "groep": "cel-nieuw",
+   "obj": "chloroplastEcht",
+   "blind": "A",
+   "kamiel": "B"
+  },
+  {
+   "groep": "cel-nieuw",
+   "obj": "mitochondrionEcht",
+   "blind": "A",
+   "kamiel": "B"
+  },
+  {
+   "groep": "dna",
+   "obj": "cdcel-cdpool-cdkernmembraan-cddraad",
+   "blind": "C",
+   "kamiel": "oud"
+  },
+  {
+   "groep": "dna",
+   "obj": "helicasering-primase-ligase",
+   "blind": "B",
+   "kamiel": "C"
+  },
+  {
+   "groep": "dna",
+   "obj": "kernchromatine",
+   "blind": "C",
+   "kamiel": "A"
+  },
+  {
+   "groep": "dna",
+   "obj": "ribosoomEcht",
+   "blind": "C",
+   "kamiel": "A"
+  },
+  {
+   "groep": "dna",
+   "obj": "rnaPolymerase",
+   "blind": "C",
+   "kamiel": "A"
+  },
+  {
+   "groep": "dna",
+   "obj": "vork",
+   "blind": "C",
+   "kamiel": "oud"
+  },
+  {
+   "groep": "genregulatie",
+   "obj": "genOpbouw",
+   "blind": "B",
+   "kamiel": "A"
+  },
+  {
+   "groep": "genregulatie",
+   "obj": "nucleosoomAcetyl",
+   "blind": "C",
+   "kamiel": "B"
+  },
+  {
+   "groep": "genregulatie",
+   "obj": "transcriptiefactor",
+   "blind": "C",
+   "kamiel": "B"
+  },
+  {
+   "groep": "lab",
+   "obj": "microscoop",
+   "blind": "C",
+   "kamiel": "A"
+  },
+  {
+   "groep": "lab",
+   "obj": "primerStuk",
+   "blind": "C",
+   "kamiel": "B"
+  },
+  {
+   "groep": "lab",
+   "obj": "restrictieEnzym",
+   "blind": "C",
+   "kamiel": "B"
+  },
+  {
+   "groep": "organen-plant",
+   "obj": "hartDoorsnede",
+   "blind": "C",
+   "kamiel": "A"
+  },
+  {
+   "groep": "organen-plant",
+   "obj": "longblaasje",
+   "blind": "C",
+   "kamiel": "A"
+  },
+  {
+   "groep": "organen-plant",
+   "obj": "stamboomSymbolen",
+   "blind": "A",
+   "kamiel": "B"
+  },
+  {
+   "groep": "voortplanting",
+   "obj": "eicelecht-follikel",
+   "blind": "A",
+   "kamiel": "B"
+  },
+  {
+   "groep": "weefsel-organen",
+   "obj": "nierbijnier",
+   "blind": "C",
+   "kamiel": "A"
+  },
+  {
+   "groep": "dieren-b",
+   "obj": "schimmelGist",
+   "blind": "A",
+   "kamiel": "R1"
+  },
+  {
+   "groep": "cel-molecuul",
+   "obj": "zetmeelspiraal",
+   "blind": "A",
+   "kamiel": "oud"
+  }
+ ],
+ "scripts_n": 0
+}

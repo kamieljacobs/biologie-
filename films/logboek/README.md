@@ -17,6 +17,14 @@ Bijhouden: na elke review, keuring, feedbackronde en bij elke fout die Claude ze
 
 ## Mutatielogboek (prompt v10, B15; sinds 25 okt 2026)
 
-`mutaties.jsonl`: één regel per scriptvariant die de blinde beoordelaar zag. Velden: `datum`, `reeks`, `film`, `variant` (A klassiek / B klein / C groot), `blindlabel` (X/Y/Z), `soort` (`klassiek` | `klein` | `groot`), `vertelvorm` (sleutel uit `films/mutatiepool.json`), `mutaties` (kleine mutaties uit de pool), `score`, `max`, `won`, `marge` (winnaar: voorsprong op nummer twee; verliezer: achterstand), `beslist_door` (`beoordelaar` | `combinatie` | `kamiel`), `beoordelaar_model`, `bron` (pad naar het oordeel), bij de winnaar `reden`.
+`mutaties.jsonl`: één regel per scriptvariant die de blinde beoordelaar zag. Velden: `datum`, `reeks`, `film`, `variant` (A klassiek / B klein / C groot), `blindlabel` (X/Y/Z), `soort` (`klassiek` | `klein` | `groot`), `vertelvorm` (sleutel uit `films/mutatiepool.json`), `mutaties` (kleine mutaties uit de pool), `score`, `max`, `won`, `marge` (winnaar: voorsprong op nummer twee; verliezer: achterstand), `beslist_door` (`beoordelaar` | `combinatie` | `kamiel`), `beoordelaar_model` (sinds 29 okt 2026 verplicht: model of `niet-blind`), `bron` (pad naar het oordeel), bij de winnaar `reden`. Sinds 29 okt 2026 ook: `pad` (href van de film op de site, verplicht; de 64 oudere regels zijn aangevuld), optioneel `proefregels` (ids uit `regels.json` die deze variant bewust toepast) en `kamiel_keuze` + `beslist_door: kamiel` als Kamiel zelf koos.
 
 Bijhouden direct na elk blind oordeel (prompt B4). `scripts/dobbelsteen.py` trekt de mutaties voor de volgende film met deze winkansen (`--toon` geeft de tabel). De zwaktes die de beoordelaar bij de winnaar noemt, gaan als regels met `gevonden_door: beoordelaar` in `fouten.jsonl`, zodat `foutenpatronen.py` ze meetelt.
+
+## Zelflerende kringloop (sinds 29 okt 2026)
+
+- `regels.json` — erfelijke B15-regels (proef / vast / uitgestorven); bewaakt door `scripts/regelcheck.py`.
+- `b15_uitzonderingen.jsonl` — films zonder B15 met reden (lichte-remake, gericht, opwaardering, klein-herstel, kamiel-zonder-b15); gelezen door `scripts/b15poort.py`.
+- `rapporten/` — B15-rapporten, elke 5 logregels (`scripts/b15rapport.py`); `stand.json` = hoeveel regels het laatste rapport dekte.
+- `ijking.json` — overeenstemming blinde beoordelaar ↔ Kamiel (`scripts/ijking.py`).
+- Alles samen: `python3 scripts/controle.py` (vóór elke push, en op GitHub na elke push).

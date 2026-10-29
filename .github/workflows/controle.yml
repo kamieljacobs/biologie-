@@ -1,0 +1,36 @@
+name: B15-controle
+
+# Na elke push naar main: bewaakt de zelflerende kringloop van de filmprompt (Kamiel 29 okt 2026).
+# regelcheck (geen erfelijke regel kwijt), B15-poort (elke nieuwe film door B15 of met uitzondering),
+# B15-rapport (na elke 5 logregels een rapport). Rood kruisje op GitHub = iets is overgeslagen;
+# de site zelf blijft gewoon online.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "films/**"
+      - "index.html"
+      - "scripts/**"
+      - "bibliotheek/logboek/**"
+  workflow_dispatch:
+
+jobs:
+  controle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 20
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Controle
+        run: |
+          VORIGE="${{ github.event.before }}"
+          if [ -n "$VORIGE" ] && git cat-file -e "$VORIGE" 2>/dev/null; then
+            python3 scripts/controle.py --tegen "$VORIGE"
+          else
+            python3 scripts/controle.py
+          fi

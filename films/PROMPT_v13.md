@@ -337,10 +337,10 @@ Make several versions where it is cheap, judge them hard, and keep the best. Jud
 2. **Drie behandelingen.** Three treatments A, B and C in bron/varianten/ (variant-a.md, variant-b.md, variant-c.md), each about half a page: the rode draad, the cold open written out in full, the scenes in order with one line each, the central metaphor or casus, and the mutations it carries. That is the level at which big mutations differ; details come later. Only the winner is written out as a full script. A fast model writes the treatments, the strongest model writes the winning script. Text only, no credits.
 3. **Echte blinde beoordelaar.** A separate agent on another model than the maker gets only the brief, the three variants under shuffled labels and the fitnesscheck. Its full report goes to bron/varianten/beoordeling.md. No agent available: the film is marked "B15 niet blind" in the bouwlijst and on the storyboardblad, and Claude says so.
 4. **Kamiel ziet het bij de storyboardkeuring.** The storyboardblad opens with a B15 block: the draw, the three variants in one line each, the judge's scores and winner, and a switch "toch variant B / C" with room for a remark. Kamiel's choice is logged next to the judge's, so we learn how often they agree.
-5. **Poort.** A film without the B15 block on its storyboardblad and a record in mutaties.jsonl does not go to storyboardkeuring and does not get status "Gebouwd". The bouwlijst has a B15 column: ✓, niet blind, or overgeslagen + reason.
+5. **Poort (in code since 29 okt 2026).** `scripts/b15poort.py` refuses every film with a datum from 29 okt 2026 that has no row in mutaties.jsonl (field `pad` = the film's href, `beoordelaar_model` filled in or `niet-blind`) and no line in `films/logboek/b15_uitzonderingen.jsonl` (lichte remake, gericht, opwaardering, klein herstel, Kamiel zonder B15). It runs in `scripts/controle.py` before every push and on GitHub after every push. Also: a film without the B15 block on its storyboardblad and a record in mutaties.jsonl does not go to storyboardkeuring and does not get status "Gebouwd". The bouwlijst has a B15 column: ✓, niet blind, or overgeslagen + reason.
 6. **Uitzonderingen.** Only a small fix (B13), an upgrade (B14) or Kamiel's explicit "zonder B15" for a film. Each exception is logged as overgeslagen with its reason.
 7. **Ook in het beeld.** Per reeks at least one grote animatiemutatie is tried on the benchmarkscène. The nulmeting of the benchmarkscène is built once in bibliotheek/benchmark/ before the first of these; every attempt is stored there next to it.
-8. **Terugkoppeling.** At the end of each reeks, or after every 5 films, Claude gives a short B15 report: win rate per kind of mutation, how often judge and Kamiel agreed, and proposals for proefregels to add, promote or drop. Kamiel decides. A grote mutatie that wins goes onto the Proefregels list straight away.
+8. **Terugkoppeling (automatic since 29 okt 2026).** `scripts/b15rapport.py` writes the report to `films/logboek/rapporten/`; the controle fails as soon as 5 log rows have no report yet. At the end of each reeks, or after every 5 films, Claude gives a short B15 report: win rate per kind of mutation, how often judge and Kamiel agreed, and proposals for proefregels to add, promote or drop. Kamiel decides. A grote mutatie that wins goes onto the Proefregels list straight away.
 
 | Level | Variants | Who selects | Cost |
 | --- | --- | --- | --- |
@@ -360,14 +360,14 @@ Make several versions where it is cheap, judge them hard, and keep the best. Jud
 **Erfelijk maken.** The prompt is the films' DNA: a mutation that wins must be inherited, or every film starts from zero again.
 
 - **Proefregel first.** A mutation that wins once may be luck or fit only that film. It goes on the Proefregels list below, and the next films try it on purpose.
-- **Vaste regel after repeated wins.** After winning in 2–3 films, or earlier when Kamiel says "dit wil ik altijd", it moves into Part B or C with its own line under Wijzigingen.
+- **Herhalen voor je promoveert** (29 okt 2026). A proefregel becomes vast only after a duidelijke winst in ≥ 2 films, of which ≥ 1 in a reeks where it was not discovered (`ontdekt_in_reeksen`), or earlier when Kamiel says "dit wil ik altijd" (stored as `akkoord`). Promotion = status vast in regels.json plus a line under Wijzigingen.
+- **Nipt telt niet** (29 okt 2026). A film whose winner wins nipt (≤ 1 point, or the judge calls it nipt) counts neither as a win nor as a loss for the dobbelsteen; only duidelijke winsten and Kamiel's own choices move the win rates (`scripts/b15lib.py`).
+- **De beoordelaar wordt geijkt** (29 okt 2026). `scripts/ijking.py` compares the blind judge with Kamiel's own choices (beeldbank keuzes, and every keuzeblad where Kamiel picked a script variant: log him as `beslist_door: kamiel` with `kamiel_keuze`). The agreement goes into every B15 report. When the judge brief changes, the ijking is run again on the same choices: a vaste meetlat.
 - **Uitsterven.** A rule that keeps losing or keeps drawing Kamiel's feedback goes out or back to proef, so the prompt doesn't only grow.
 - **Kamiel decides what becomes erfelijk.** Claude proposes promotions and removals at the end of a film or reeks; nothing moves without his OK.
 - **Animation goes faster.** A winner from the benchmarkscène may go straight into Part C after Kamiel picks it, because that scene is built to generalise (person, organ, zoom, molecules).
 
-**Proefregels** (rule · since · films tried · won/lost):
-
-- none yet; the first entries come from the films built under v11
+**Proefregels en vaste regels staan als data in `films/logboek/regels.json`** (v13 aanvulling, 29 okt 2026), niet meer in deze tekst: elke prompt herschreef de lijst en zo verdwenen P1 en P2 tussen v10 en v13. Read that file at B4 and apply every rule with status proef or vast. Never rewrite or drop a rule here; change its status in the file. `scripts/regelcheck.py` fails when a rule disappears, dies out without Kamiel's akkoord, or becomes vast without repetition.
 
 **Welke mutaties.** If Claude picks the mutations, it picks what it already finds logical: inbreeding. So:
 
@@ -375,7 +375,7 @@ Make several versions where it is cheap, judge them hard, and keep the best. Jud
 - **Meestal klein, soms groot.** Per film one grote mutatie, the rest small.
 - **Logboek.** Every mutation tried is logged with won or lost. Kinds that win get a somewhat higher chance, kinds that lose a lower one, never 100% and never 0%.
 - **Genen van buiten.** Now and then a mutation borrowed from elsewhere: a film by Kamiel's brother, a documentary, a question a student asked in class.
-- **Leerlingdata als selectie.** The site already measures uitgekeken (GoatCounter) and scores on the oefeningen. After a few months, check which kinds of choices go with better watching and scores: noisy, but an independent selection next to the judge and Kamiel.
+- **Leerlingdata als selectie.** The site already measures uitgekeken (GoatCounter) and scores on the oefeningen. After a few months, check which kinds of choices go with better watching and scores: noisy, but an independent selection next to the judge and Kamiel. The B15 report shows started vs uitgekeken per vertelvorm of the winner as soon as `statistieken/data.json` holds numbers (films with ≥ 20 starts). A rule is only really better when judge, Kamiel and students point the same way.
 
 **Als we veel afkeuren.** Keep the win rate of mutations in the logboek. Almost everything wins → the judge is too mild. Almost nothing wins → ask three questions before changing anything:
 
@@ -734,6 +734,8 @@ Kerndoel 32D (relationele en seksuele gezondheid) gets no films for now. If it i
 ## Wijzigingen
 
 ✦ v13 (27 okt 2026): B14 rebuilt for upgrading many films cheaply: zonder keuring as default mode (verbeterblad only on request, one per batch, grouped per kind), text-only triage first, one fix for every film, no B15, light model for routine, contact sheets of changed scenes only, re-recording batched with a credit estimate and a test film for a new kind; ElevenLabs takes kept (picture follows the voice, cut before recording, solve in the picture); B4 and C1: castpersonages are no longer named in the narration or on screen (bovenbouw).
+
+✦ v13 aanvulling (29 okt 2026, Kamiel: 'een zelflerende prompt'): B15 made mechanical. Rules as data in `films/logboek/regels.json` (P1 and P2, lost in v12/v13, restored); `scripts/regelcheck.py`; poort `scripts/b15poort.py` and `scripts/controle.py` (also as GitHub check); automatic report `scripts/b15rapport.py` every 5 log rows; nipt telt niet for the win rates; judge ijking `scripts/ijking.py` against Kamiel's choices; leerlingsignaal per vertelvorm; herhalen voor je promoveert (a win in a second reeks).
 
 ✦ v12 (27 okt 2026), efficiency: B15 works with half-page treatments instead of full scripts, and only the winner becomes a full script (fast model for the treatments, strongest model for the winner); B11 contact sheets as tiles of 12–16 frames per image, phone view only for frames with text, one QA sub-agent per film unless it runs longer than about 12 minutes; new Laadwijzer under How to use: each step and sub-agent loads only the parts it needs. Proposal for the onderhoudsbeurt in the tab Onderhoudsbeurt v12, waiting for Kamiel's OK per row.
 
