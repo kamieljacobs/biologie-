@@ -1,12 +1,15 @@
 window.VRAAG_VANAF = { s33: 'Nog' }; // Vragen uit: ook de aanloop 'Nog één vraag. Een huidcel …' weg (B11)
 // Celdeling 2.0 — scènes (lichte remake, prompt v10, 26 okt 2026). Eén functie per gesproken alinea.
 // q.at('woord', n) = start van het n-de woord dat 'woord' bevat (hoofdletterongevoelig, stukje van een woord).
-// Vaderskant donkerblauw (CD.vader), moederskant zandgeel (CD.moeder): palet B uit bibliotheek/lib_bio.js (sinds 2.1, 29 okt 2026; was teal/oker). 'Ons paar' = het lange paar, gouden rand.
+// Tekening uit de beeldbank (cdChromosoom, palet B); herkomst: vaderskant teal, moederskant oker, ook als tekstkleur (keuze 29 okt 2026, gelijk aan de Erfelijkheid-lessen en -films; 2.1 had donkerblauw/zandgeel). 'Ons paar' = het lange paar, gouden rand.
 // Nieuwe tekeningen: teken_celdeling.js (cdChromosoom, cdEen, cdKluwen, cdCel, cdPool, cdDraad, cdKernmembraan, cdTeller).
 
-C.vader = CD.vader; C.moeder = CD.moeder; C.spoel = '#8FA0B5'; // oude helpers (chrom_lib, comparePanels) krijgen dezelfde kleuren
+CD.vader = C.teal; CD.moeder = C.oker; C.vader = CD.vader; C.moeder = CD.moeder; C.spoel = '#8FA0B5'; // oude helpers (chrom_lib, comparePanels) krijgen dezelfde kleuren
 const KL = { L: 140, w: 15 };
-const VADER_TEKST = '#86A8D8'; // lichtere tint van CD.vader voor tekst op navy (contrast ≥ 4,5:1); de chromosomen zelf houden palet B
+const VADER_TEKST = C.teal; // vader teal, ook als tekst (29 okt 2026)
+// cel met chromosomen uit de beeldbank (vervangt cellWith uit chrom_lib, 2.2): chs = [{x, y, len, color, dup, w, cen}]
+function cdCelMet(ctx, cx, cy, r, chs, o = {}) { const { nuc = false, seed = 3, t = 0 } = o; cdCel(ctx, cx, cy, r, r * 0.9, { seed, t }); if (nuc) cdKernmembraan(ctx, cx, cy, r * 0.62, 0, 1);
+  chs.forEach(c => { const w = c.w || 12; if (c.dup) cdChromosoom(ctx, cx + c.x, cy + c.y, c.len, { w, kl: c.color, cen: c.cen || 0.38 }); else cdEen(ctx, cx + c.x, cy + c.y, c.len, { w, kl: c.color, cen: c.cen || 0.38 }); }); }
 // modelcel 2n = 4: plekken in de metafase (y per chromosoom) en in de profase (verspreid in de kern)
 const MOD = [{ p: 'L', k: 'vader', py: [-80, -62] }, { p: 'L', k: 'moeder', py: [70, -22] }, { p: 'K', k: 'vader', py: [-40, 44] }, { p: 'K', k: 'moeder', py: [90, 92] }];
 const MY = [-240, -75, 75, 190]; // y in het equatorvlak t.o.v. het midden
@@ -389,7 +392,7 @@ Object.assign(SCENES, {
   },
   x01(ctx, t, q) {
     bg(ctx, 'schema');
-    const tZa = q.at('Zaadcellen'), tVr = q.at('vrouw'), tLi = q.at('Linda'), tRi = q.at('Ria'), tEi = q.at('eierstokken'), tCr = q.at('crossing'), tSt = q.at('stopten'), tOo = q.at('oöcyt'), tZe = q.at('zevenentwintig'), tHo = q.at('Hoe', 2);
+    const tZa = q.at('Zaadcellen'), tVr = q.at('vrouw'), tLi = q.at('Neem'), tRi = q.at('oma'), tEi = q.at('eierstokken'), tCr = q.at('crossing'), tSt = q.at('stopten'), tOo = q.at('oöcyt'), tZe = q.at('zevenentwintig'), tHo = q.at('Hoe', 2);
     const za = 1 - ramp(t, tLi, 0.5); if (za > 0) { ctx.save(); ctx.globalAlpha *= za; for (let i = 0; i < 8; i++) zaadcelEcht(ctx, 520 + i * 120, 330 + Math.sin(i * 1.7) * 40, 0, t + i * 0.3, 1.3); metaText(ctx, 'man: vanaf de puberteit elke dag nieuwe zaadcellen', 960, 500, C.grain, 'center', 26); ctx.restore(); }
     pill(ctx, 960, 110, 'hoe lang duurt de meiose van een eicel?', C.oker, fadeIO(t, 0.2, tLi, 0.4), 32);
     const tl = ramp(t, tLi, 0.6), yb = 760;
@@ -503,7 +506,7 @@ Object.assign(SCENES, {
         ctx.font = fTekst(28, 600); ctx.fillStyle = C.text; ctx.textAlign = 'center'; wrap(ctx, p[0], cx, y + h - 90, w - 40, 34); ctx.restore(); });
       ctx.restore(); }
     if (quiz > 0) { ctx.save(); ctx.globalAlpha = quiz; const hc = ramp(t, q.at('huidcel'), 0.5), zc = ramp(t, q.at('zaadcel'), 0.5);
-      ctx.save(); ctx.globalAlpha *= hc; cdCel(ctx, 560, 440, 150, 120, { t }); ctx.beginPath(); ctx.arc(570, 440, 60, 0, 6.283); ctx.fillStyle = rgba(C.kern, 0.3); ctx.fill(); ctx.strokeStyle = C.kernR; ctx.stroke(); metaText(ctx, 'huidcel (deelt niet)', 560, 620, C.grain, 'center', 22); ctx.restore();
+      ctx.save(); ctx.globalAlpha *= hc; cdCel(ctx, 560, 440, 150, 120, { t }); kernChromatine(ctx, 570, 440, 62, { c: 0, seed: 6, n: 14 }); metaText(ctx, 'huidcel (deelt niet)', 560, 620, C.grain, 'center', 22); ctx.restore();
       ctx.save(); ctx.globalAlpha *= zc; zaadcelEcht(ctx, 1360, 440, 0, t, 2.6); metaText(ctx, 'zaadcel', 1300, 620, C.grain, 'center', 22); ctx.restore();
       text(ctx, 'meer DNA in de kern?', 960, 200, fTekst(44, 600), C.text, 'center'); ctx.restore(); }
   },
@@ -541,11 +544,11 @@ Object.assign(SCENES, {
   pill(ctx,960,92,'ongeslachtelijke voortplanting: één ouder, geen bevruchting',C.goud,ramp(t,q.at('ongeslachtelijke'),0.5)*(1-ramp(t,tC,0.5)),30);
   if(A>0.01){ ctx.save(); ctx.globalAlpha*=A;
     const chs=(s)=>MODEL.map((m,i)=>({x:[-40,-12,16,44][i]*s,y:(m.pair?24:-22)*s,len:m.len*0.42*s,color:m.color,dup:false,w:9*s}));
-    cellWith(ctx,520,470,150,chs(1.25),{nuc:true});
+    cdCelMet(ctx,520,470,150,chs(1.25),{nuc:true});
     naamBij(ctx,'ouder','één organisme',520,262,1,'center');
     const d=ramp(t,q.at('mitose',2),1.4);
     arrow(ctx,710,470,980,470,C.goud,5,18,ramp(t,q.at('mitose',2),0.4)); metaA(ctx,'mitose',845,440,C.goud,ramp(t,q.at('mitose',2),0.4),22);
-    if(d>0){ for(const [x,y] of [[1240,330],[1560,600]]){ ctx.save(); ctx.globalAlpha*=d; cellWith(ctx,x,y,lerp(60,120,d),chs(lerp(0.5,1,d)),{nuc:true}); ctx.restore(); } }
+    if(d>0){ for(const [x,y] of [[1240,330],[1560,600]]){ ctx.save(); ctx.globalAlpha*=d; cdCelMet(ctx,x,y,lerp(60,120,d),chs(lerp(0.5,1,d)),{nuc:true}); ctx.restore(); } }
     naamBij(ctx,'nakomelingen','',1400,170,ramp(t,q.at('nakomelingen'),0.5),'center');
     pill(ctx,960,820,'genetisch gelijk aan de ouder: klonen',C.groen,ramp(t,q.at('klonen'),0.5),30);
     ctx.restore(); }
@@ -561,49 +564,49 @@ Object.assign(SCENES, {
       naamBij(ctx,naam,meta,cx,730,1,'center',foc>0.6?C.goud:C.text); ctx.restore(); });
     metaText(ctx,'nakomelingen zijn klonen van de ouder',960,862,C.grain,'center',22);
     ctx.restore(); }
-  const cC=ramp(t,tC,0.6); if(cC>0){ pill(ctx,960,470,'geslachtelijke voortplanting: twee ouders, een andere deling',C.paars,cC,34); }
+  const cC=ramp(t,tC,0.6); if(cC>0){ pill(ctx,960,470,'geslachtelijke voortplanting: twee ouders, een andere deling',C.goud,cC,34); }
   scaleBar(ctx);
 },
   s21(ctx, t, q){
   bg(ctx,'schema');
   const dip=ramp(t,q.at('lichaamscel'),0.6); const a1=1-dip;
   if(a1>0){ ctx.save(); ctx.globalAlpha=a1; const meet=ramp(t,q.at('versmelten'),1.6);
-    egg(ctx,1100,470,150,1); sperm(ctx,lerp(500,930,meet),470,2,1,0,t);
+    eicelEcht(ctx,1100,470,150,1,false); zaadcelEcht(ctx,lerp(500,900,meet),470,0,t,2.2);
     text(ctx,'46',lerp(500,930,meet),400,fTekst(36,700),C.text,'center'); text(ctx,'46',1100,330,fTekst(36,700),C.text,'center');
     const k=ramp(t,q.at('kind'),0.5); if(k>0){ ctx.save(); ctx.globalAlpha*=k; text(ctx,'= 92 ?',1400,490,fTitel(70),C.koraal,'left'); crossOut(ctx,1500,470,70,ramp(t,q.at('tweeënnegentig'),0.3)); ctx.restore(); }
     ctx.restore(); }
   if(dip>0){ ctx.save(); ctx.globalAlpha=dip; const hap=ramp(t,q.at('geslachtscel',2),0.6);
-    cellWith(ctx,560,470,220,[{x:-70,y:-40,len:85,color:C.vader,dup:false},{x:-40,y:-40,len:85,color:C.moeder,dup:false},{x:40,y:40,len:55,color:C.vader,dup:false},{x:70,y:40,len:55,color:C.moeder,dup:false}],{nuc:true});
+    cdCelMet(ctx,560,470,220,[{x:-70,y:-40,len:85,color:C.vader,dup:false},{x:-40,y:-40,len:85,color:C.moeder,dup:false},{x:40,y:40,len:55,color:C.vader,dup:false},{x:70,y:40,len:55,color:C.moeder,dup:false}],{nuc:true});
     text(ctx,'diploïd',560,190,fTekst(40,600),C.text,'center'); text(ctx,'2n = 46',560,800,fTitel(48),C.goud,'center');
-    ctx.save(); ctx.globalAlpha*=hap; cellWith(ctx,1360,470,170,[{x:-30,y:-30,len:85,color:C.moeder,dup:false},{x:35,y:35,len:55,color:C.vader,dup:false}],{nuc:true}); text(ctx,'haploïd',1360,190,fTekst(40,600),C.text,'center'); text(ctx,'n = 23',1360,800,fTitel(48),C.goud,'center'); metaText(ctx,'van elk paar één',1360,700,C.grain,'center',22); ctx.restore();
+    ctx.save(); ctx.globalAlpha*=hap; cdCelMet(ctx,1360,470,170,[{x:-30,y:-30,len:85,color:C.moeder,dup:false},{x:35,y:35,len:55,color:C.vader,dup:false}],{nuc:true}); text(ctx,'haploïd',1360,190,fTekst(40,600),C.text,'center'); text(ctx,'n = 23',1360,800,fTitel(48),C.goud,'center'); metaText(ctx,'van elk paar één',1360,700,C.grain,'center',22); ctx.restore();
     metaText(ctx,'paren chromosomen',560,710,C.grain,'center',22); ctx.restore(); }
 },
   v02(ctx, t, q){
   bg(ctx,'schema');
   const tB=q.at('Ongeslachtelijke')-0.2; const A=1-ramp(t,tB,0.6), B=ramp(t,tB,0.6);
-  pill(ctx,960,92,'geslachtelijke voortplanting',C.paars,A*ramp(t,0.2,0.5),30);
+  pill(ctx,960,92,'geslachtelijke voortplanting',C.goud,A*ramp(t,0.2,0.5),30);
   if(A>0.01){ ctx.save(); ctx.globalAlpha*=A;
     const P1=[C.vader,'#3E7FA3'], P2=[C.moeder,'#A88440'];
     const ch=(La,Sa,s=1)=>[{x:-22*s,y:0,len:70*s,color:La,dup:false,w:10*s},{x:22*s,y:0,len:44*s,color:Sa,dup:false,w:10*s}];
     const ch4=(L1,L2,S1,S2,s=1)=>[{x:-36*s,y:-14*s,len:70*s,color:L1,dup:false,w:10*s},{x:-12*s,y:-14*s,len:70*s,color:L2,dup:false,w:10*s},{x:14*s,y:18*s,len:44*s,color:S1,dup:false,w:10*s},{x:38*s,y:18*s,len:44*s,color:S2,dup:false,w:10*s}];
     const par=ramp(t,q.at('geslachtelijke')+0.4,0.6);
     ctx.save(); ctx.globalAlpha*=par;
-    cellWith(ctx,420,255,105,ch4(P1[0],P1[1],P1[0],P1[1],1.1),{nuc:true}); cellWith(ctx,1500,255,105,ch4(P2[0],P2[1],P2[0],P2[1],1.1),{nuc:true});
+    cdCelMet(ctx,420,255,105,ch4(P1[0],P1[1],P1[0],P1[1],1.1),{nuc:true}); cdCelMet(ctx,1500,255,105,ch4(P2[0],P2[1],P2[0],P2[1],1.1),{nuc:true});
     naamBij(ctx,'ouder 1','2n',290,250,1,'right'); naamBij(ctx,'ouder 2','2n',1630,250,1,'left'); ctx.restore();
     const mei=ramp(t,q.at('meiose'),0.8); const fus=ramp(t,q.at('versmelten'),1.6); const zy=ramp(t,q.at('zygote')-0.3,0.5);
     const G1=[[300,ch(P1[0],P1[1],0.8)],[540,ch(P1[1],P1[0],0.8)]], G2=[[1380,ch(P2[0],P2[0],0.8)],[1620,ch(P2[1],P2[1],0.8)]];
     if(mei>0){ ctx.save(); ctx.globalAlpha*=mei;
       for(const [x] of G1) arrow(ctx,420,370,x,430,C.line,2.5,12,1); for(const [x] of G2) arrow(ctx,1500,370,x,430,C.line,2.5,12,1);
-      G1.forEach(([x,c],i)=>{ const mv=i===1?fus:0; const gx=lerp(x,880,mv); ctx.save(); ctx.globalAlpha*=(1-zy*(i===1?1:0)); cellWith(ctx,gx,500,58,c); ctx.strokeStyle=C.text; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(gx-58,500); for(let k=0;k<=16;k++) ctx.lineTo(gx-58-k*5,500+Math.sin(k*0.8+t*8)*5); ctx.stroke(); ctx.restore(); });
-      G2.forEach(([x,c],i)=>{ const mv=i===0?fus:0; const gx=lerp(x,1040,mv); ctx.save(); ctx.globalAlpha*=(1-zy*(i===0?1:0)); cellWith(ctx,gx,500,64,c); ctx.restore(); });
+      G1.forEach(([x,c],i)=>{ const mv=i===1?fus:0; const gx=lerp(x,880,mv); ctx.save(); ctx.globalAlpha*=(1-zy*(i===1?1:0)); cdCelMet(ctx,gx,500,58,c); ctx.strokeStyle=C.text; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(gx-58,500); for(let k=0;k<=16;k++) ctx.lineTo(gx-58-k*5,500+Math.sin(k*0.8+t*8)*5); ctx.stroke(); ctx.restore(); });
+      G2.forEach(([x,c],i)=>{ const mv=i===0?fus:0; const gx=lerp(x,1040,mv); ctx.save(); ctx.globalAlpha*=(1-zy*(i===0?1:0)); cdCelMet(ctx,gx,500,64,c); ctx.restore(); });
       metaText(ctx,'zaadcellen · n',420,610,C.grain,'center',20); metaText(ctx,'eicellen · n',1500,610,C.grain,'center',20);
       pill(ctx,960,385,'meiose → haploïde geslachtscellen',C.goud,ramp(t,q.at('haploïde'),0.4)*(1-ramp(t,q.at('bevruchting'),0.4)),26);
       ctx.restore(); }
-    if(zy>0){ ctx.save(); ctx.globalAlpha*=zy; cellWith(ctx,960,500,88,ch4(P1[1],P2[0],P1[0],P2[0],1.05),{nuc:true}); ctx.restore();
+    if(zy>0){ ctx.save(); ctx.globalAlpha*=zy; cdCelMet(ctx,960,500,88,ch4(P1[1],P2[0],P1[0],P2[0],1.05),{nuc:true}); ctx.restore();
       naamBij(ctx,'zygote','bevruchte eicel',960,370,zy,'center'); metaA(ctx,'weer diploïd · 2n',960,622,C.goud,ramp(t,q.at('diploïd'),0.3),20); }
     const kids=ramp(t,q.at('nakomelingen'),0.6);
     if(kids>0){ const K=[[P1[0],P2[1],P1[1],P2[0]],[P1[1],P2[0],P1[0],P2[0]],[P1[0],P2[0],P1[0],P2[1]],[P1[1],P2[1],P1[1],P2[1]]];
-      K.forEach((c,i)=>{ ctx.save(); ctx.globalAlpha*=ramp(t,q.at('nakomelingen')+i*0.25,0.4); cellWith(ctx,600+i*240,765,56,ch4(c[0],c[1],c[2],c[3],0.7)); ctx.restore(); });
+      K.forEach((c,i)=>{ ctx.save(); ctx.globalAlpha*=ramp(t,q.at('nakomelingen')+i*0.25,0.4); cdCelMet(ctx,600+i*240,765,56,ch4(c[0],c[1],c[2],c[3],0.7)); ctx.restore(); });
       metaA(ctx,'nakomelingen: allemaal anders',960,862,C.grain,kids,22); }
     pill(ctx,960,680,'variatie: door meiose en door toeval bij de bevruchting',C.groen,ramp(t,q.at('verschillen'),0.4),24);
     ctx.restore(); }
@@ -615,10 +618,10 @@ Object.assign(SCENES, {
     const blijft=[1,4];
     kols.forEach(([cx,naam,a],side)=>{ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a;
       roundRect(ctx,cx-420,150,840,700,18); shape(ctx,rgba(C.fill,0.45),C.line,1.2);
-      text(ctx,naam,cx,225,fTekst(44,600),side?C.paars:C.goud,'center');
+      text(ctx,naam,cx,225,fTekst(44,600),C.goud,'center');
       for(let i=0;i<6;i++){ const x=cx-300+i*120, y=390; const c=side?VAR[i]:[C.goud,C.goud];
         const sterf=side?(blijft.includes(i)?0:doodR):dood; ctx.save(); ctx.globalAlpha*=1-0.75*sterf;
-        cellWith(ctx,x,y,46,[{x:-11,y:0,len:46,color:c[0],dup:false,w:9},{x:11,y:0,len:46,color:c[1],dup:false,w:9}]); ctx.restore();
+        cdCelMet(ctx,x,y,46,[{x:-11,y:0,len:46,color:c[0],dup:false,w:9},{x:11,y:0,len:46,color:c[1],dup:false,w:9}]); ctx.restore();
         if(sterf>0.05) crossOut(ctx,x,y,24,sterf);
         if(side&&blijft.includes(i)&&doodR>0){ ctx.save(); ctx.globalAlpha*=doodR; ctx.strokeStyle=C.groen; ctx.lineWidth=4; ctx.beginPath(); ctx.arc(x,y,58,0,6.2832); ctx.stroke(); ctx.restore(); } }
       const z=side?ziekR:ziek; if(z>0&&z<1){ for(let k=0;k<5;k++){ const x=cx-380+z*760, y=320+k*36; ctx.save(); ctx.globalAlpha*=Math.sin(z*Math.PI); dot0(ctx,x+Math.sin(k*2.1+t*3)*14,y,9,C.koraal); for(let s=0;s<6;s++){ const an=s/6*6.2832; ctx.strokeStyle=C.koraal; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(x+Math.sin(k*2.1+t*3)*14+Math.cos(an)*9,y+Math.sin(an)*9); ctx.lineTo(x+Math.sin(k*2.1+t*3)*14+Math.cos(an)*15,y+Math.sin(an)*15); ctx.stroke(); } ctx.restore(); } }
@@ -634,10 +637,8 @@ Object.assign(SCENES, {
   micro2(ctx); const nd=ramp(t,q.at('meiose'),0.6); const k1=1-nd;
   if(k1>0){ ctx.save(); ctx.globalAlpha=k1;
     const brk=ramp(t,q.at('Raken'),0.6), tum=ramp(t,q.at('tumor'),2.0), inv=ramp(t,q.at('kanker'),1.5);
-    // tissue: neat row of cells
-    for(let k=0;k<12;k++){ roundRect(ctx,180+k*130,620,120,90,14); shape(ctx,rgba(C.koraal,0.2),rgba(C.koraal,0.6),1.5); }
-    if(tum>0){ const n=Math.floor(4+tum*40); for(let k=0;k<n;k++){ const a=hash(k*3)*6.28, d=Math.sqrt(hash(k*3+1))*lerp(40,200,tum); dot0(ctx,900+Math.cos(a)*d*1.3,430+Math.sin(a)*d*0.8,22,rgba(C.koraal,0.55)); } }
-    if(inv>0){ for(let k=0;k<6;k++){ const u=clamp(inv*1.2-k*0.1,0,1); dot0(ctx,900+(k-2.5)*70,lerp(560,680,u),18,rgba(C.koraal,0.75)); } }
+    // weefsel uit de beeldbank: één laag cellen op het basaalmembraan; de tumor groeit uit één cel en breekt bij 'kanker' door het membraan
+    tumorGroei(ctx,860,660,1.3,{g:0.74*tum+0.26*inv,t});
     // brake light
     const gx=1500, gy=250; roundRect(ctx,gx-50,gy-110,100,220,20); shape(ctx,rgba(C.bgSchema,0.9),C.line,1.5); dot0(ctx,gx,gy-50,30,C.groen); dot0(ctx,gx,gy+50,30,rgba(C.koraal,0.25)); if(brk>0.5) crossOut(ctx,gx,gy+50,26,brk); metaText(ctx,brk>0.5?'rem kapot: altijd groen':'controlepunt',gx,gy+150,C.grain,'center',22);
     pill(ctx,700,150,'normaal: alleen delen als het nodig is',C.groen,fadeIO(t,q.at('Normaal'),q.at('Raken'),0.4),28);
@@ -645,12 +646,12 @@ Object.assign(SCENES, {
     pill(ctx,700,150,'tumor: cellen blijven delen',C.koraal,fadeIO(t,q.at('tumor'),q.at('kanker'),0.4),28);
     pill(ctx,700,150,'kanker: cellen dringen andere weefsels binnen',C.koraal,ramp(t,q.at('kanker'),0.4),28); ctx.restore(); }
   if(nd>0){ ctx.save(); ctx.globalAlpha=nd; const sep=ramp(t,q.at('Soms',2),2.5), res=ramp(t,q.at('ene'),0.6);
-    cellBody(ctx,960,430,520,280,ramp(t,q.at('ene'),1.0));
+    cdCel(ctx,960,430,520,280,{insnoer:0.9*ramp(t,q.at('ene'),1.0),t,seed:5});
     // pair A fails to separate (both go left), pair B separates normally
-    const y1=360, y2=520; chromX(ctx,960-34-sep*300,y1,110,C.vader,{w:16}); chromX(ctx,960+34-sep*240,y1,110,C.moeder,{w:16}); chromX(ctx,960-34-sep*300,y2,70,C.vader,{w:16}); chromX(ctx,960+34+sep*300,y2,70,C.moeder,{w:16});
+    const y1=360, y2=520; cdChromosoom(ctx,960-34-sep*300,y1,110,{w:16,kl:CD.vader}); cdChromosoom(ctx,960+34-sep*240,y1,110,{w:16,kl:CD.moeder}); cdChromosoom(ctx,960-34-sep*300,y2,70,{w:16,kl:CD.vader,cen:0.3}); cdChromosoom(ctx,960+34+sep*300,y2,70,{w:16,kl:CD.moeder,cen:0.3});
     pill(ctx,960,100,'non-disjunctie: een paar gaat niet uit elkaar',C.koraal,ramp(t,q.at('disjunctie'),0.4),28);
     if(res>0){ ctx.save(); ctx.globalAlpha*=res; text(ctx,'één te veel',640,780,fTekst(34,700),C.koraal,'center'); text(ctx,'één te weinig',1280,780,fTekst(34,700),C.koraal,'center'); ctx.restore(); }
-    const e=ramp(t,q.at('eicel'),0.5); if(e>0){ ctx.save(); ctx.globalAlpha*=e; micro2(ctx); egg(ctx,1100,470,150,1); text(ctx,'24',1100,330,fTekst(40,700),C.koraal,'center'); sperm(ctx,560,470,2,ramp(t,q.at('zaadcel'),0.4),0,t); ctx.save(); ctx.globalAlpha*=ramp(t,q.at('zaadcel'),0.4); text(ctx,'23',560,400,fTekst(40,700),C.text,'center'); ctx.restore(); if(!vragenUit2()) text(ctx,'?',1400,500,fTitel(90),C.goud,'center'); ctx.restore(); } ctx.restore(); }
+    const e=ramp(t,q.at('eicel'),0.5); if(e>0){ ctx.save(); ctx.globalAlpha*=e; micro2(ctx); eicelEcht(ctx,1100,470,150,1,false); text(ctx,'24',1100,330,fTekst(40,700),C.koraal,'center'); zaadcelEcht(ctx,560,470,0,t,2.2,{a:ramp(t,q.at('zaadcel'),0.4)}); ctx.save(); ctx.globalAlpha*=ramp(t,q.at('zaadcel'),0.4); text(ctx,'23',560,400,fTekst(40,700),C.text,'center'); ctx.restore(); if(!vragenUit2()) text(ctx,'?',1400,500,fTitel(90),C.goud,'center'); ctx.restore(); } ctx.restore(); }
   scaleBar(ctx);
 }
 });

@@ -112,3 +112,7 @@ Alle bronnen op 25 okt 2026 zelf geopend via WebFetch. NCBI (Bookshelf, PMC) en 
 ## Opwaardering v13 (29 okt 2026)
 
 Geen nieuwe of gewijzigde beweringen: script en stem zijn gelijk gebleven. Alleen kleuren (palet B), beeldbankobjecten (eicel, eierstok, zaadbal, chromosomen) en namen in beeld veranderd; de bronnen van die objecten staan in `bibliotheek/README.md` en de verbeterronde-mappen. De vraagtekst xq is herschreven zonder namen ('Een moeder was 27 …'); inhoud gelijk.
+
+## Open punten uitgevoerd (29 okt 2026)
+
+x01 en de eerste zin van x02 opnieuw ingesproken zonder castnamen ('een moeder en haar dochter', 'sinds vóór haar eigen geboorte'); de inhoud (bewering 31: meiose I begint vóór de geboorte, eicel staat ruim 27 jaar stil) is ongewijzigd en houdt dezelfde bronnen. Verder alleen beeld (beeldbankchromosomen, `tumorGroei` in s30: bewering 34 ongewijzigd). Geen nieuwe beweringen.

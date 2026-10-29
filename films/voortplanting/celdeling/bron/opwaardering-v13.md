@@ -23,3 +23,7 @@ Totaal ± 1.300 TTS + ± 90 Scribe. Nieuwe soort herinspreken: volgens B14 eerst
 Zie `info.md` → 'Wijzigingen 2.1'. Kort: chromosomen en chromatine in palet B uit de beeldbank; minder paars (celcyclusring, DNA-grafiek, pillen); eicel, eierstok en zaadbal uit de gekeurde beeldbank; geen korrel in s30; geen castnamen meer in beeld en in de vraagtekst. Bronnenlogboek: niets inhoudelijks veranderd, aanvulling onderaan `bronnen.md`.
 
 Nacontrole (29 okt 2026): de labels 'cytokinese' en 'mitose' op de celcyclusring (s06–s10) liggen niet meer over elkaar: cytokinese boven zijn stukje, mitose binnen de ring. Zie `info.md`. Niets ingesproken.
+
+## Uitgevoerd 29 okt 2026
+
+Keuzes van de hoofdsessie (`films/UITVOEREN-VOORTPLANTING.md`): (a) x01 opnieuw ingesproken volgens het voorstel, x02 alleen de eerste zin (623 credits); (b1) ja, v01/s21/v02/s30/s33 in beeldbankchromosomen; (b2) ja, `tumorGroei` in s30; (b3) vader teal en moeder oker, ook als tekst (geen donkerblauw meer); (b4) 'geslachtelijke voortplanting' goud in plaats van paars. De paarse tabelkolom 'meiose' (s29), trisomie-pil (s32), huidcelbalk (s35) en 'meiose in teelballen'-pil (s22) blijven paars (erfelijkheid, toegestaan). Zie `info.md` → Wijzigingen 2.2.

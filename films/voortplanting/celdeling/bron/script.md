@@ -102,14 +102,14 @@ Uitleg: 23: de paren gaan in meiose I uit elkaar. Elk chromosoom heeft nog twee 
 **s24** · basis · 28.0 s · `audio/s24.mp3`
 Na meiose één heeft elke cel drieëntwintig chromosomen: van elk paar één, elk nog met twee chromatiden. Het halveren gebeurt dus al in meiose één. In meiose twee gaan de chromatiden uit elkaar, net als bij de mitose. Bij een man ontstaan zo vier zaadcellen. Bij een vrouw verloopt de deling scheef, en de laatste stap gebeurt pas bij de bevruchting. Er ontstaat één grote eicel. De andere cellen zijn klein en gaan te gronde.
 
-**x01** · extra · 32.5 s · `audio/x01.mp3` · stem-invoer wijkt af
-Hoe lang duurt de meiose van een eicel eigenlijk? Zaadcellen worden vanaf de puberteit elke dag nieuw gemaakt. Bij een vrouw begint de meiose al vóór haar geboorte. Neem Linda, de moeder van Noor. Toen oma Ria zwanger was van Linda, begonnen in Linda's eierstokken de voorlopers van eicellen aan meiose één. Na de crossing-over stopten ze: zo'n cel heet een oöcyt. Linda was zevenentwintig toen er een eicel vrijkwam waaruit Noor zou groeien. Hoe lang heeft de meiose van die eicel stilgestaan? Wat denk je?
+**x01** · extra · 33.7 s · `audio/x01.mp3` · stem-invoer wijkt af
+Hoe lang duurt de meiose van een eicel eigenlijk? Zaadcellen worden vanaf de puberteit elke dag nieuw gemaakt. Bij een vrouw begint de meiose al vóór haar geboorte. Neem een moeder en haar dochter. Toen oma zwanger was van die moeder, begonnen in de eierstokken van het ongeboren meisje de voorlopers van eicellen aan meiose één. Na de crossing-over stopten ze: zo'n cel heet een oöcyt. De moeder was zevenentwintig toen er een eicel vrijkwam waaruit haar dochter zou groeien. Hoe lang heeft de meiose van die eicel stilgestaan? Wat denk je?
 
-[VRAAG xq] Linda was 27 toen de eicel vrijkwam waaruit Noor groeide. Hoe lang heeft de meiose van die eicel stilgestaan? — a vier weken: één cyclus · b zo'n veertien jaar: sinds haar puberteit · **c ruim zevenentwintig jaar: sinds vóór haar geboorte**
-Uitleg: Ruim zevenentwintig jaar: Linda's meiose I begon al vóór haar eigen geboorte en stond sindsdien stil.
+[VRAAG xq] Een moeder was 27 toen de eicel vrijkwam waaruit haar dochter groeide. Hoe lang heeft de meiose van die eicel stilgestaan? — a vier weken: één cyclus · b zo'n veertien jaar: sinds haar puberteit · **c ruim zevenentwintig jaar: sinds vóór haar geboorte**
+Uitleg: Ruim zevenentwintig jaar: de meiose I van die eicel begon al vóór de geboorte van de moeder en stond sindsdien stil.
 
 **x02** · extra · 33.2 s · `audio/x02.mp3` · stem-invoer wijkt af
-Die eicel stond ruim zevenentwintig jaar stil: sinds vóór Linda's eigen geboorte. Vlak voor de eisprong maakt één oöcyt meiose één af, met een klein poollichaampje ernaast. Daarna stopt hij opnieuw, in meiose twee. Pas als een zaadcel binnendringt, maakt hij de meiose af. Al die jaren houden eiwitringen, cohesine, de chromosomen bij elkaar. Die slijten langzaam. Dat is waarschijnlijk een belangrijke reden dat bij oudere moeders chromosomen vaker niet goed uit elkaar gaan. Terug naar de hoofdlijn.
+Die eicel stond ruim zevenentwintig jaar stil: sinds vóór haar eigen geboorte. Vlak voor de eisprong maakt één oöcyt meiose één af, met een klein poollichaampje ernaast. Daarna stopt hij opnieuw, in meiose twee. Pas als een zaadcel binnendringt, maakt hij de meiose af. Al die jaren houden eiwitringen, cohesine, de chromosomen bij elkaar. Die slijten langzaam. Dat is waarschijnlijk een belangrijke reden dat bij oudere moeders chromosomen vaker niet goed uit elkaar gaan. Terug naar de hoofdlijn.
 
 **s25** · basis · 9.2 s · `audio/s25.mp3`
 In de grafiek: het DNA gaat van p naar twee p, na meiose één terug naar p, en na meiose twee naar een half p.
