@@ -1,31 +1,44 @@
 {
-  "_uitleg": "Erfelijke regels uit B15 (Kamiel 29 okt 2026: regels als data, niet als proza). De prompt verwijst hiernaar en herschrijft ze niet. status: proef | vast | uitgestorven. Promoveren naar vast: duidelijke winst in >= 2 films, waarvan >= 1 in een reeks buiten ontdekt_in_reeksen (herhalen), of Kamiels akkoord. Uitsterven alleen met Kamiels akkoord (veld akkoord: {datum, citaat}). Geen regel mag uit dit bestand verdwijnen; scripts/regelcheck.py bewaakt dat. meet = 'concept_vorm' telt automatisch uit het logboek; andere regels tellen films waar een variant 'proefregels': [id] draagt.",
-  "regels": [
-    {
-      "id": "P1",
-      "status": "proef",
-      "sinds": "2026-10-25",
-      "meet": "concept_vorm",
-      "ontdekt_in_reeksen": [
-        "vervolg-biotechnologie",
-        "vervolg-forensisch",
-        "vervolg-bioinformatica"
-      ],
-      "tekst": "De grote mutatie speelt het concept na: een grote vertelvorm moet een vorm zijn waarin de kijker het concept zelf doet of ziet (selecteren = gerichte evolutie, een verzegelde envelop = een voorspelling toetsen, een rechter = bron versus activiteit), geen lijst eromheen (achteruit, wedstrijd, raadsel, checklist). Kan de getrokken vorm dat bij dit onderwerp niet, trek één keer opnieuw en noteer waarom.",
-      "herkomst": "prompt v10 (25 okt 2026): uit 10 films won een conceptvorm 4 van 5, een lijstvorm 0 van 7. Was weggevallen in v12/v13, teruggezet 29 okt 2026."
-    },
-    {
-      "id": "P2",
-      "status": "proef",
-      "sinds": "2026-10-25",
-      "meet": "logboek",
-      "ontdekt_in_reeksen": [
-        "vervolg-biotechnologie",
-        "vervolg-forensisch",
-        "vervolg-bioinformatica"
-      ],
-      "tekst": "Elke misconceptie een vraag, de begeleider een eigen beurt: elke misconceptie uit de brief wordt getoetst met een voorspel- of controlevraag, niet alleen verteld; de begeleider heeft minstens één scène met eigen tekst en het beroep wordt uitgesproken.",
-      "herkomst": "prompt v10 (25 okt 2026): in alle 10 films werd een van de twee bij de zwakke plekken genoemd. Was weggevallen in v12/v13, teruggezet 29 okt 2026."
-    }
-  ]
+ "_uitleg": "Erfelijke regels uit B15 (Kamiel 29 okt 2026: regels als data, niet als proza). De prompt verwijst hiernaar en herschrijft ze niet. status: proef | vast | uitgestorven. Promoveren naar vast: duidelijke winst in >= 2 films, waarvan >= 1 in een reeks buiten ontdekt_in_reeksen (herhalen), of Kamiels akkoord. Uitsterven alleen met Kamiels akkoord (veld akkoord: {datum, citaat}). Geen regel mag uit dit bestand verdwijnen; scripts/regelcheck.py bewaakt dat. meet = 'concept_vorm' telt automatisch uit het logboek; andere regels tellen films waar een variant 'proefregels': [id] draagt.",
+ "regels": [
+  {
+   "id": "P1",
+   "status": "proef",
+   "sinds": "2026-10-25",
+   "meet": "concept_vorm",
+   "ontdekt_in_reeksen": [
+    "vervolg-biotechnologie",
+    "vervolg-forensisch",
+    "vervolg-bioinformatica"
+   ],
+   "tekst": "De grote mutatie speelt het concept na: een grote vertelvorm moet een vorm zijn waarin de kijker het concept zelf doet of ziet (selecteren = gerichte evolutie, een verzegelde envelop = een voorspelling toetsen, een rechter = bron versus activiteit), geen lijst eromheen (achteruit, wedstrijd, raadsel, checklist). Kan de getrokken vorm dat bij dit onderwerp niet, trek één keer opnieuw en noteer waarom.",
+   "herkomst": "prompt v10 (25 okt 2026): uit 10 films won een conceptvorm 4 van 5, een lijstvorm 0 van 7. Was weggevallen in v12/v13, teruggezet 29 okt 2026."
+  },
+  {
+   "id": "P2",
+   "status": "proef",
+   "sinds": "2026-10-25",
+   "meet": "logboek",
+   "ontdekt_in_reeksen": [
+    "vervolg-biotechnologie",
+    "vervolg-forensisch",
+    "vervolg-bioinformatica"
+   ],
+   "tekst": "Elke misconceptie een vraag, de begeleider een eigen beurt: elke misconceptie uit de brief wordt getoetst met een voorspel- of controlevraag, niet alleen verteld; de begeleider heeft minstens één scène met eigen tekst en het beroep wordt uitgesproken.",
+   "herkomst": "prompt v10 (25 okt 2026): in alle 10 films werd een van de twee bij de zwakke plekken genoemd. Was weggevallen in v12/v13, teruggezet 29 okt 2026."
+  },
+  {
+   "id": "V1",
+   "status": "vast",
+   "sinds": "2026-10-25",
+   "meet": "kamiel",
+   "ontdekt_in_reeksen": [],
+   "tekst": "Storyboardkeuring alleen voor twijfelscènes (nieuw personage of nieuwe tekening, gevoelig onderwerp, afwijking van brief of plan, feit zonder bron, pose die de cast niet goed kan), elk met de regels 'Twijfel' en 'Waarom'. Alle andere scènes gaan zonder wachten in productie. Het B15-blok staat altijd op het blad.",
+   "herkomst": "Kamiel 25 okt 2026 (prompt v10 B7). Viel weg in v12/v13; teruggezet 29 okt 2026 na Kamiels vraag 'we deden toch dat ik alleen keek naar de delen van het script waar je over twijfelde?'.",
+   "akkoord": {
+    "datum": "2026-10-25",
+    "citaat": "misschien kun je vooral laten beoordelen waar je over twijfelt"
+   }
+  }
+ ]
 }
