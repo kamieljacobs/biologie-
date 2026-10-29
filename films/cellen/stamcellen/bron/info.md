@@ -5,14 +5,15 @@
 | Bestand | films/cellen/stamcellen.html (audio in films/cellen/stamcellen/audio/) |
 | Reeks / nummer | Cellen, losse film (Kamiel 14 okt 2026: "ik wil algemene celdifferentiatie en stamcellen als losse video", met een emergente eigenschap). Sluit aan op Van molecuul tot biosfeer (differentiatie kort) en Celdeling (mitose) |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blokken gelabeld: s09 (promotor, transcriptiefactoren, RNA-polymerase, methylering, histonen: epigenetica) en s20 (toti-, pluri-, multi-, unipotent; Yamanaka, iPS-cel, Gurdon). Havo/Vwo-schakelaar, standaard Vwo |
-| Versie / datum | 1.2 · 25 oktober 2026 (heropname s09 en s18 na de uitspraaktest; 1.1: 14 oktober 2026, zelfstandig gebouwd in reeksmodus, eindreview verwerkt; wacht op review door Kamiel) |
-| Prompt | onbekend · gemaakt 14 okt |
+| Versie / datum | **2.0 · 29 oktober 2026** — beeld-remake op prompt v13, takes behouden (oude versie in `oud/stamcellen-1.2.html`, `oud/info-1.2.md`, `oud/src/scenes-1.2.js`). 1.2 · 25 oktober 2026 (heropname s09 en s18 na de uitspraaktest; 1.1: 14 oktober 2026, zelfstandig gebouwd in reeksmodus, eindreview verwerkt; wacht op review door Kamiel) |
+| Prompt | v13 |
+| Voldoet aan | prompt v13 (29 okt 2026, beeld-remake, takes behouden). Bewust niet: geen nieuwe caststijl met contourlijnen (castvel nog niet gekeurd); speler, pagina en FILMDATA zijn die van 1.2 (alleen het scèneblok is vervangen, zie 'Hoe je de film aanpast') |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow CiG3slI2g101iKV2bsAG "Stamcellen — voice-over"; nodes in `stem/takes.json`) |
 | Duur | spraak 8:02 (vwo) / 6:16 (havo). Speeltijd met kaarten en vragen: vwo ≈ 9 min, havo ≈ 7,5 min |
 | Beeldstijl | Part C: Macro (knie met schaafwond die geneest, hart met litteken), Micro (bevruchte eicel die deelt; zenuwcel, spiercel, alvleeskliercel, huidcel met dezelfde chromosomen en genen als lampjes; rode bloedcel zonder kern; opperhuid met kiemlaag waarin stamcellen delen en cellen omhoog schuiven, verhoornen en afschilferen; beenmerg; darmvlok; blastocyst met binnenste celmassa; kweekschaal; hartspiercellen die los en samen kloppen), Schema (vwo: DNA met promotor, transcriptiefactoren, RNA-polymerase, methylgroepen, histonen; leukemie, infuus, donor- en patiëntcel met herkenningseiwitten, patiënt met donor-DNA in het bloed; ethiek; potentie-ladder; Yamanaka-panel). Kleuren in `scenes.js`: `SPIER`, `ZENUW`, `HUIDC`, `STAM`, `ALV`, `ROOD`, `WIT`, `HOORN`, `LEUK` |
 | Audio-opslag | 17 losse mp3's in audio/ (s01 … s21), loudnorm −15 LUFS, piek −1,5 dBTP, mono 44,1 kHz 96 kb/s; niet in de HTML ingebed |
 | Lettertypen | Fraunces 700, Source Sans 3 400/600/700, IBM Plex Mono 500 — ingebed als base64 |
-| Herkomst | gebouwd op 14 oktober 2026 met de bouwstraat van de voedingsreeks (`bouw/`) en `lib_hormonen.js` (`person`, `circ`) en `lib_voeding.js` (`darmvlok`); helpers `tag`, `regel`, `kruis`, `vink` uit Van molecuul tot biosfeer; alle figuren nieuw getekend |
+| Herkomst | 2.0: alle scènes opnieuw getekend met de beeldbank (`bibliotheek/lib_bio.js`, uittreksel `src/lib_bio_deel.js`) en het castboek (`src/lib_cast.js`); 1.x: gebouwd op 14 oktober 2026 met de bouwstraat van de voedingsreeks (`bouw/`) en `lib_hormonen.js` (`person`, `circ`) en `lib_voeding.js` (`darmvlok`); helpers `tag`, `regel`, `kruis`, `vink` uit Van molecuul tot biosfeer; alle figuren nieuw getekend |
 
 ## Bronbestanden in deze map
 
@@ -26,8 +27,10 @@
 | `uitspraak.md` | Risicowoorden met stem-invoer; wachtlijst voor Kamiel |
 | `stem/woordtijden/sNN.json` | Woordtijden per take (Scribe, op de ondertitelwoorden) |
 | `stem/takes.json`, `stem/gen.json` | ElevenLabs-flow en node per take; generatie-id en duur |
-| `src/` | `scenes.js` (deze film), `lib.js`, `lib_voeding.js`, `lib_hormonen.js`, `player.js`, `page.html`, `fonts.css` |
-| `bouw/` | `make_segments.py`, `align.py`, `build_data.py`, `build.py`, `stills.py`, `fake_words.py`, `uitspraak_subs.json` (reeks), **`uitspraak_film.json`** (alleen deze film: emergente, iPS-cel, ivf, Gurdon) en `wachtlijst.md` |
+| `src/` | 2.0: `scenes_v2.js` (scènes), `obj.js` (eigen objecten), `lib_bio_deel.js` (uittreksel beeldbank), `lib_cast.js` (castboek), `lib.js` (zonder korrel), `lib_voeding.js`, `lib_hormonen.js`, `player.js`, `page.html`, `fonts.css`. De 1.2-scènes staan in `oud/src/scenes-1.2.js` |
+| `bouw/` | `make_segments.py`, `align.py`, `build_data.py`, `build.py`, `stills.py`, `fake_words.py`, `uitspraak_subs.json` (reeks), **`uitspraak_film.json`** (alleen deze film: emergente, iPS-cel, ivf, Gurdon) en `wachtlijst.md`; 2.0: `wissel_scenes.py` (scèneblok in de site-HTML zetten), `bio_deel.py`, `build.py` (plakt lib_cast.js mee), `vel.py`/`sheet.py` (contactvel) |
+| `storyboard-remake.md`, `opwaardering-v13.md`, `bronnen.md` | 2.0: storyboard per scène, lijsten voor Kamiel, bronnenlogboek |
+| `oud/` | versie 1.2: `stamcellen-1.2.html`, `info-1.2.md`, `src/scenes-1.2.js` |
 | `reviews/` | Expert (cel- en ontwikkelingsbiologie), curriculum (met checkvragen, ook los in `checkvragen.html`), eindreview `eind.md` (alles verwerkt zonder nieuwe opname) |
 
 **Werkmap opzetten:** maak `d1/` met `script_v2.md`, `film.py`, `sections.html`, `scenes.js` (uit `src/`), `uitspraak_film.json` (uit `bouw/`), `words/` (= `stem/woordtijden/`) en `film/stamcellen/audio/` (= `../audio/`); zet `src/*.js` (behalve scenes.js), `src/page.html`, `src/fonts.css` en `bouw/*` samen in `engine/`. Dan: `python3 engine/make_segments.py d1 script_v2.md && (cd d1 && python3 film.py) && python3 engine/build_data.py d1 && python3 engine/build.py d1` → `d1/film/stamcellen.html`.
@@ -58,29 +61,57 @@ Checkvragen (statisch in de pagina): 1 Zelfde genen, ander werk (genexpressie in
 
 Begrippen: differentiatie, gedifferentieerde cel, stamcel, kiemlaag, volwassen stamcel, embryonale stamcel, stamceltransplantatie, afstoting, geïnduceerde stamcel (iPS-cel), weefsel, emergente eigenschap, transcriptiefactor (vwo), epigenetica (vwo), toti-/pluri-/multi-/unipotent (vwo).
 
-## Waar wat in de HTML zit (regelnummers in `stamcellen.html`)
+## Versie 2.0 (29 okt 2026): beeld-remake op prompt v13
+
+Brief: `films/OPWAARDEREN-CELLEN.md`. Stem, script, takes, woordtijden, vragen, begrippen, docentdeel en oefeningen ongewijzigd; geen ElevenLabs. Per scène: `storyboard-remake.md`; twijfelscènes, (lege) herinspreeklijst, vragen en nieuwe objecten: `opwaardering-v13.md`; vakinhoud: `bronnen.md`.
+
+- **Rode draad 'zelfde DNA, andere genen aan'**: onder elke cel staat hetzelfde chromosoom (`genChrom`: palet B grijs, vijf genen op vaste plekken); alleen het gen dat aan staat licht goud op; een gen dat er wel is maar uit staat krijgt een gestippelde koraalrand; de rode bloedcel heeft een leeg (gestippeld) chromosoom.
+- **Mensen**: `person()` (grijs poppetje uit lib_hormonen.js) vervangen door castpersonages zonder naam in beeld: de leerling uit de familie van Noor (s01, s06; sportoutfit in s01) en figurant Erik als patiënt (s14). Hersenen en spier in zoomcirkels náást het lichaam.
+- **Beeldbank**: `gedifferentieerdeCellen`, `stamcelDeling`, `huidDoorsnede`, `blastocyste`, `zenuwcel`, `spierVezel`, `rodeBloedcel`, `witteBloedcellen`, `transcriptiefactor`, `methylgroep`, `nucleosoomDraad`, `mrnaSliert`, `schaafwond`, `hartDoorsnede`, `botDoorsnede`, `petrischaal`, `microscoop`, `tumorGroei`, `zaadcelEcht`, `enzymKluwen` (kralenketen), `celRond`, `schaalStreep`; `darmvlok` uit lib_voeding.js.
+- **Minder paars**: stamcellen niet meer paars maar de neutrale beeldbankcel; potentieladder (s20) zonder paarse balken; DNA grijs (palet B). Paars blijft alleen voor kernen en de vwo-balk.
+- **Geen korrel** buiten cellen (ook `bg('micro')` in de pagina: `grain()` uitgezet).
+- **Beweging (C8)**: klieving als insnoerende morph (s04, s11), één cel met gouden rand volgen door de opperhuid (s10), donorstamcellen die in het beenmerg nestelen (s14), hartspiercellen die eerst elk in eigen tempo en na een signaalgolf samen kloppen (s18), mRNA dat groeit bij RNA-polymerase (s09), schaal voelbaar met een schaalstreep (s11).
+- **Overgangen**: eerst het oude beeld weg, dan het nieuwe (`uitF`/`inF`), geen dubbelbeeld.
+- Getest: elke scène als contactvel (5 stills per alinea, vwo) zelf bekeken en verbeterd; tweede ronde met verse ogen; site-HTML in Chromium zonder JS-fouten (vwo vragen aan, havo en vwo vragen uit, elke alinea op 6 tijdstippen); `?vragen=uit`: knippen in s01, s06, s08, s11, s15, s17, s21 zoals in 1.2 en geen 'antwoord a/b/c' in beeld (antwoordtekst-wrapper op `tag`); spelerfix/antwoordtekst/kortantwoord/antwoordletter `--check` in orde.
+
+## Waar wat in de HTML zit (regelnummers in `stamcellen.html`, versie 2.0)
 
 | Regel | Inhoud |
 |---|---|
 | 7–65 | Fonts (base64) en CSS |
-| 69 | Sitebalk `<nav class="sitenav">` met "← Terug naar Cellen" |
-| 76–99 | Speler: canvas, ondertitelband, knoppen, Havo/Vwo- en Leerling/Klas-schakelaar |
-| 100–168 | Checkvragen (100–133), Voor de docent (134–168) |
-| 169 | `window.FILMDATA` — segmenten, woordtijden, vragen, titelkaart (uit `build_data.py`) |
-| 170–391 | `lib.js`: Part C-tokens, `label`, `zoomCircle`, `human` |
-| 392–962 | `lib_voeding.js` (gebruikt: `lichaam`, `glycogen`, `hexagon`, `proteinChain`, `coilPath`, `arrow`, `klok`, `padPunt`, `gladC`) |
-| 963–1213 | `lib_hormonen.js`: seriebibliotheek (`person`, `HK`, `hormoonVorm`, `receptor`, `doelcel`, `hartMeter`, `klierKaart`, `bloedLus`, `grafiek`, `bakKraan`, `kringSchema`, `eilandje`, `cel`, `glycogeenKeten`, `telefoon`, …) |
-| 1214–1271 | `scenes.js`: hulpstukken van deze film |
-| 1272–1424 | `SCENES`: title 1273 · s01 1276 · s04 1283 · s05 1294 · s06 1302 · s08 1306 · s09 1315 · s10 1331 · s11 1339 · s12 1348 · s13 1357 · s14 1364 · s15 1377 · s17 1379 · s18 1389 · s19 1397 · s20 1405 · s21 1417 |
-| 1425–1592 | `GLOSSARY` en `player.js` (havo slaat vwo-segmenten over) |
+| 74 | Sitebalk `<nav class="sitenav">` met "← Terug naar Cellen" |
+| 76–172 | Speler, checkvragen, Voor de docent (ongewijzigd t.o.v. 1.2) |
+| 174 | `window.FILMDATA` (ongewijzigd) |
+| 175–403 | `lib.js` (zonder korrel in `bg`) |
+| 404–1227 | `lib_voeding.js` en `lib_hormonen.js` (alleen nog `circ`, `darmvlok` e.d. gebruikt) |
+| 1228 | begin scèneblok (`/*STAMCELLEN_2_SCENES*/`) |
+| 1249–2055 | `lib_cast.js` (castboek) |
+| 2056–3582 | `lib_bio_deel.js` (uittreksel beeldbank) |
+| 3583–3721 | `obj.js`: `genChrom`, `betacel`, `celType`, `hartspiercel`, `hartspierWeefsel`, `klieving`, `infuus`, `hlaCel` |
+| 3722–3765 | `scenes_v2.js` hulpstukken: `stam`, `cel`, `celRij`, `knieHuid`, `infarct`, `hartMetInfarct`, `beenmergVeld`, `bloedplaatje` |
+| 3766–4002 | `SCENES`: title 3767 · s01 3772 · s04 3784 · s05 3798 · s06 3807 · s08 3815 · s09 3824 · s10 3846 · s11 3865 · s12 3880 · s13 3896 · s14 3906 · s15 3930 · s17 3935 · s18 3953 · s19 3963 · s20 3971 · s21 3989 |
+| 4004– | speler (`player.js` met spelerfix, Vragen aan/uit) en de latere fixes (antwoordtekst, flipkaarten, oefenen) |
 
-## Hoe je de film aanpast
+## Hoe je de film aanpast (versie 2.0)
+
+- **Een beeld**: wijzig `src/scenes_v2.js` (scènes) of `src/obj.js` (eigen objecten), en zet het scèneblok in de site-HTML met `python3 bouw/wissel_scenes.py oud/stamcellen-1.2.html src ../../stamcellen.html` (vanuit `bron/`). Dat vervangt alleen het scèneblok en houdt speler, pagina, FILMDATA en alle eerdere fixes van 1.2. Daarna de site-scripts (spelerfix, antwoordtekst, kortantwoord, antwoordletter met `--check`, flipkaarten, licentie_noot, teller).
+- **Beeldbank bijwerken**: kopieer `bibliotheek/lib_bio.js` naar een werkmap en maak het uittreksel opnieuw: `python3 bouw/bio_deel.py lib_bio.js src/lib_bio_deel.js src/lib.js src/lib_voeding.js src/lib_hormonen.js src/lib_cast.js src/obj.js src/scenes_v2.js -- gedifferentieerdeCellen stamcelDeling huidDoorsnede blastocyste zenuwcel spierVezel rodeBloedcel witteBloedcellen transcriptiefactor methylgroep nucleosoomDraad schaafwond hartDoorsnede petrischaal microscoop botDoorsnede tumorGroei zaadcelEcht enzymKluwen mrnaSliert celRond schaalStreep _scbCel _gdCel _gdKern _gdPoly _GD CD _cdk BIO _mixHex bioPad`.
+- **Stills en contactvel**: bouw een standalone in een werkmap (zie 'Werkmap opzetten' hierboven; `scenes.js` = `lib_bio_deel.js` + `obj.js` + `scenes_v2.js`, en `build.py` uit `bouw/` plakt `lib_cast.js` mee), dan `FIVE=1 python3 bouw/stills.py d1 uit contact` en `python3 bouw/vel.py uit vel`.
+- **Cues**: zoals in 1.x via `q.on('woord', n, duur)` / `q.at('woord', n)`; de woorden staan in `stem/woordtijden/`.
+- Tekst, vragen, checkvragen: zoals hieronder bij 1.x (ongewijzigd).
+
+## Hoe je de film aanpast (1.x, bewaard)
+
 
 - **Tekst van een alinea:** wijzig `script_v2.md`, draai `make_segments.py` (met `uitspraak_film.json` in de werkmap), neem alleen die take opnieuw op (stem-invoer staat in `segments.json` → `voice`), haal woordtijden op met Scribe en `align.py`, zet de mp3 genormaliseerd in `audio/` en bouw opnieuw.
 - **Een antwoordoptie of vraagtekst:** opties in `script_v2.md` bij `[VRAAG]`, vraagtekst en uitleg in `film.py`; geen nieuwe opname nodig (behalve als het juiste antwoord verschuift: dat noemt de audio).
 - **Een beeld:** `scenes.js` (zie regelnummers hierboven); cues hangen aan woorden via `q.on('woord', n)` (n = de hoeveelste keer dat het woord in die alinea voorkomt; het zoekt op deel van het woord, dus 'stamcel' vindt ook 'Bloedstamcellen' en 'spiercel' ook 'hartspiercel'). Controleer met `cuecheck.py`/`cuewhere.py` uit de werkmap.
 - **Figuren:** `opperhuid(ctx, x, y, w, h, t, {a, beweeg, schilfer})` (kiemlaag met stamcellen, cellen schuiven omhoog en schilferen af), `stamcel`, `lampjes(ctx, x, y, aan[], kleur, a, hl)` (genen aan/uit), `chromRij`, `hart(ctx, x, y, s, a, t, dood, litteken)`, `knie`, `bot` (beenmerg, met `inhoud`-callback), `blastocyst`, `schaal`, `infuus`, `dnaStreng`, `tf`, `histon`, `methyl`, `spiercel`, `zenuwcel`, `huidcel`, `alvcel`, `rodeBC`, `witteBC`, `plaatje`, `leukcel`.
 - **Checkvragen of docentdeel:** `sections.html` → `python3 film.py` → `build.py`.
+
+## Waar wat zat in 1.2
+
+Zie `oud/info-1.2.md`.
 
 ## Aandachtspunten
 
