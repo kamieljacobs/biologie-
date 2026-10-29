@@ -10,10 +10,10 @@
 | Voldoet aan | prompt v13 (29 okt 2026). Bewust niet: (1) de stem is die van versie 1.0 (Kamiel: 'de stem blijft waar het beeld erop past'); alleen de vijf vraagalinea's zijn opnieuw ingesproken. De aanvullingen op de wachtlijst van 15 okt (lawine van natriumkanalen, refractaire periode en vuurfrequentie, rekrutering in a5) zijn dus nog niet ingesproken; (2) nieuwe tekeningen (drukzintuig als lichaampje van Pacini, vinger, zenuw in dwarsdoorsnede, axon als kabel) staan in `bron/src/teken_z2.js`, niet in `bibliotheek/lib_bio.js` (Kamiel 29 okt: nieuwe beeldbankobjecten later); (3) geen B15 (lichte remake). |
 | Herkomst | lichte remake, keuze Kamiel 29 okt 2026 (keuzeblad 'Regeling: jouw keuzes'; brief `films/UITVOEREN-REGELING.md`) |
 | Stem / model | Roos (ElevenLabs, `7qdUFMklKPaaAVMsBTBt`, `eleven_multilingual_v2`) |
-| Duur | gesproken 5:11 (20 alinea's); speler met kaarten, aftellingen en onthullingen 6:42; met Vragen uit 4:32 |
+| Duur | gesproken 5:11 (14 alinea's); speler met kaarten, aftellingen en onthullingen 6:42; met Vragen uit 4:32 |
 | Beeldstijl | Part C donker: Micro (#121A26) voor neuron, membraan en axon, Schema-navy voor huid, sporen en samenvatting, keukendecor 's nachts alleen onder de cold open en de teenscène. Kleuren (brief Regeling): zenuwsignaal teal, Na⁺ oker, K⁺ groen (elk ion met zijn naam erin), ATP koraal, focus/drempel goud. Fraunces / Source Sans 3 / IBM Plex Mono. |
 | Bouwvorm | FILMDATA-straat (zoals DNA 1 en Zenuwstelsel 9): `segments.json` + `bron/src/scenes_z2.js` (één functie per alinea, cues via `q.at`/`q.on`) + `bron/src/teken_z2.js`; speler van `films/gedrag/5-emotieregulatie/bron/src/player.js` met twee kleine aanpassingen (zie Techniek) |
-| Audio-opslag | 20 losse mp3's in `films/zenuwstelsel/2-het-kabelnetwerk/audio/` (sNN.mp3 = segment-id); woordtijden in `bron/stem/woordtijden/` |
+| Audio-opslag | 14 losse mp3's in `films/zenuwstelsel/2-het-kabelnetwerk/audio/` (sNN.mp3 = segment-id); woordtijden in `bron/stem/woordtijden/` |
 | Personage | Noor (castboek), eigen outfit `nacht` in deze film (t-shirt, pyjamabroek, blote voeten; gezet in `scenes_z2.js` r. 3) |
 
 ## Opbouw
