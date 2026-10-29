@@ -187,7 +187,12 @@ const CAST = {
   wilma:  { naam: 'Wilma', leeftijd: 63, rol: 'figurant · patiënt op de afdeling, zittend in gewone kleding (Bio-informatica 3, bedacht uitbraakvoorbeeld) · los van alle families', huid: '#E9C1A0', haar: '#A8A49C', kapsel: 'bob', wenkbrauw: '#8A847A', wimpers: true, lippen: '#B4605A',
             top: 'vest', topKleur: '#8A6A8E', topAccent: '#745878', binnen: '#EEE6DA', broek: '#3E4A5E', schoen: '#4A3A2E', schoenAccent: '#2E241C', accessoire: ['bril'], lengte: 0.95 },
   passant: { naam: 'Voorbijganger', leeftijd: 40, rol: 'figurant (naamloos, net als Erik en Joost zonder verhaal) · iemand uit de buurt, geen vaste rol (Bio-informatica 3)', huid: '#C99A78', haar: '#5A4232', kapsel: 'kort', wenkbrauw: '#4A3628',
-            top: 'trui', topKleur: '#6E8A6A', topAccent: '#5A7458', broek: '#3E4658', schoen: '#4A4A52', schoenAccent: '#34343A', accessoire: [], lengte: 1.0 }
+            top: 'trui', topKleur: '#6E8A6A', topAccent: '#5A7458', broek: '#3E4658', schoen: '#4A4A52', schoenAccent: '#34343A', accessoire: [], lengte: 1.0 },
+  // ===== Historische figuren (29 okt 2026; alleen in historische scènes, geen portret maar castboekstijl) =====
+  // Gregor Mendel (1822–1884), Augustijner monnik in Brno; kruiste 1856–1863 erwten in de kloostertuin (rond zijn 38e in beeld).
+  // Uit Erfelijkheid 2 Monohybride kruisingen 2.0 (28 okt 2026, goedgekeurd door Kamiel): zwarte jas, bril, kort donker haar.
+  mendel: { naam: 'Gregor Mendel', leeftijd: 38, rol: 'historisch figuur · monnik en onderzoeker (1822–1884) · kruiste erwten in de kloostertuin · alleen in historische scènes', huid: '#EBC6A6', haar: '#5A4A3A', kapsel: 'kort', wenkbrauw: '#2A1C16',
+            top: 'jas', topKleur: '#22222A', topAccent: '#1A1A20', broek: '#22222A', schoen: '#2A2F3E', schoenAccent: '#3A3F4E', accessoire: ['bril'], lengte: 1 }
 };
 // families en vaste verbanden (getekend op de castboekpagina 'Families'); ouders: [vader, moeder]
 const CAST_FAMILIE = {
@@ -208,6 +213,7 @@ const CAST_JONG = ['kind', 'fleur', 'ruben', 'baby']; // 22 okt 2026: Fleur en R
 const CAST_OUDERS_BI = ['anouk', 'milan']; // 25 okt 2026: ouders in het uitslaggesprek van Bio-informatica 2 (figuranten, ter keuring)
 const CAST_FIGURANTEN_BI3 = ['sanne', 'bram', 'wilma', 'passant']; // 25 okt 2026: Bio-informatica 3, bedacht uitbraakvoorbeeld (ter keuring)
 const CAST_GEZIN_WIT = ['opawit', 'omawit', 'opabos', 'omabos', 'dennis', 'marieke', 'sara', 'levi', 'jens']; // 25 okt 2026, ter keuring
+const CAST_HISTORISCH = ['mendel']; // 29 okt 2026: historische figuren (Gregor Mendel uit Erfelijkheid 2)
 // // jonge personages (20 okt 2026): Teun (± 6 jaar) en een baby
 
 function _mix(hex, k, naar = '#000000') { const a = parseInt(hex.slice(1), 16), b = parseInt(naar.slice(1), 16); const c = (s) => Math.round(((a >> s) & 255) * (1 - k) + ((b >> s) & 255) * k); return `rgb(${c(16)},${c(8)},${c(0)})`; }

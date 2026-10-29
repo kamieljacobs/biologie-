@@ -6604,3 +6604,25 @@ function _hoefMuilStaart(def) { const D = Object.assign({}, def, { DELEN: Object
   return D; }
 var HOEF_MUIL_STAART = HoefPop.maak(_hoefMuilStaart(HOEF_MUIL_DEF));
 function muilezel(ctx, x, y, s = 1, o = {}) { return _hoefWrap(ctx, HOEF_MUIL_STAART, x, y, s, o); }
+
+// =====================================================================================================
+// MUIS IN EEN EIGEN VACHTKLEUR (29 okt 2026) — herkomst: Erfelijkheid 2 (`labmuis`: zwart en albino) en Erfelijkheid 3
+// (`muisKleur`: geel en grijs), samengevoegd. Zelfde goedgekeurde muizenpop (MUIS_DEF, HondPop), alleen het palet en
+// (bij albino) de ogen anders; zelfde houdingen en schaal (s = px per cm, kop-romp ± 10 cm).
+// vacht: 'wild' (bosmuis, = muis()), 'zwart' (C57BL/6-achtig, zwarte ogen), 'albino' of 'wit' (Tyr c/c: witte vacht, roze huid,
+// rode ogen; MGI:1855976; Beermann e.a. 2004), 'geel' ('lethal yellow', Aʸ), 'grijs' (wildkleur/agouti, grijs).
+// Let op: de pop is een bosmuis (grote oren, lange staart); voor een labmuis is dat een vereenvoudiging (Erfelijkheid 2 zo goedgekeurd).
+// =====================================================================================================
+const _MUISVACHT_PAL = {
+  zwart:  [{ basis: '#46424A', donker: '#36333A', licht: '#58545C', staart: '#4A4044', oorbin: '#6A5458', neus: '#5A4448', roze: '#6A5458' }, '#0A0808'],
+  albino: [{ basis: '#ECE8E0', donker: '#DCD6CA', licht: '#F6F3EC', staart: '#E6B8B0', oorbin: '#F0B8B4', neus: '#E8A0A0', roze: '#F0B8B0' }, '#C8323C'],
+  geel:   [{ basis: '#D9B356', donker: '#C29A3E', licht: '#F0E2B8', roze: '#E0B0A4', oorbin: '#E4B4A4', staart: '#C8A088', neus: '#C08478', klauw: '#9A7A60' }, null],
+  grijs:  [{ basis: '#8A8478', donker: '#6E6A60', licht: '#D8D2C4', roze: '#D8A8A0', oorbin: '#D8A898', staart: '#A89488', neus: '#B57E78', klauw: '#8A6A60' }, null] };
+const _MUISVACHT = {};
+function muisVacht(ctx, x, y, s, o = {}) { if ((o.a ?? 1) <= 0.01) return; let v = o.vacht || 'wild'; if (v === 'wit') v = 'albino'; if (v === 'wild' || !_MUISVACHT_PAL[v]) return muis(ctx, x, y, s, o);
+  if (!_MUISVACHT[v]) { const [pal, oog] = _MUISVACHT_PAL[v], d = Object.assign({}, MUIS_DEF, { PAL: Object.assign({}, MUIS_DEF.PAL, pal) });
+    if (oog) d.GEZICHT = function (ctx, p, cm) { const O = cm([4.45, -3.0]); ctx.fillStyle = oog; ctx.beginPath(); ctx.ellipse(O[0], O[1], 0.44, 0.4, 0, 0, 6.283); ctx.fill();
+      ctx.fillStyle = 'rgba(255,255,255,0.75)'; ctx.beginPath(); ctx.arc(O[0] + 0.15, O[1] - 0.15, 0.09, 0, 6.283); ctx.fill();
+      ctx.strokeStyle = 'rgba(236,230,218,0.7)'; ctx.lineWidth = 0.035; const a = cm([5.35, -1.9]); for (let i = 0; i < 5; i++) { ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.quadraticCurveTo(a[0] + 1.2, a[1] - 0.4 + i * 0.2, a[0] + 2.4, a[1] - 0.9 + i * 0.5); ctx.stroke(); } };
+    _MUISVACHT[v] = HondPop.maak(d); }
+  const P = _MUISVACHT[v], oo = Object.assign({}, o); let h = oo.houding || 'staan'; h = { rennen: 'draven', zit: 'zitten' }[h] || h; if (!P.GANGEN[h] && !P.D.HOUDING[h]) h = 'staan'; oo.houding = h; return P.teken(ctx, x, y, s, oo); }
