@@ -1,0 +1,125 @@
+<title>Regeling: jouw keuzes</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: één kolom met vier blokken (beeldbank, grote keuze, inspreeklijst met teller, vragen); zelfde huisstijl als de keuringsbladen. */
+:root{--bg:#F4F2EC;--surface:#FFF;--surface2:#ECE8DF;--line:#D5CFC2;--text:#121C2E;--text2:#4E5A6C;--text3:#7A8494;--goud:#A87A12;--goud-soft:rgba(201,150,31,.16);--mis:#B4452E;--plaat:#1A2740;
+--f-titel:"Fraunces",Georgia,serif;--f-tekst:"Source Sans 3",system-ui,sans-serif;--f-meta:"IBM Plex Mono",ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1828;--surface:#16213A;--surface2:#1D2A46;--line:#2C3B5A;--text:#F2F2EE;--text2:#A9B2C1;--text3:#7F8AA0;--goud:#E0B64A;--goud-soft:rgba(224,182,74,.14);--mis:#E07A5F;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0F1828;--surface:#16213A;--surface2:#1D2A46;--line:#2C3B5A;--text:#F2F2EE;--text2:#A9B2C1;--text3:#7F8AA0;--goud:#E0B64A;--goud-soft:rgba(224,182,74,.14);--mis:#E07A5F;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font:16px/1.5 var(--f-tekst);margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:1000px;margin:0 auto;padding-block:28px 60px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1{font:700 clamp(30px,4vw,44px)/1.1 var(--f-titel);margin:0 0 8px;text-wrap:balance}
+h2{font:700 26px/1.2 var(--f-titel);margin:34px 0 6px;text-wrap:balance}
+h3{font:700 18px/1.25 var(--f-titel);margin:0;text-wrap:balance}
+.mono{font:600 12px/1.3 var(--f-meta);letter-spacing:.09em;text-transform:uppercase;color:var(--text3)}
+.intro{color:var(--text2);max-width:72ch;margin:6px 0 14px}
+.melding{padding:10px 12px;border-radius:10px;background:var(--surface2);color:var(--text2);font-size:14px;margin:10px 0}
+.kaart{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;margin-top:12px}
+.kaart.klaar{border-color:color-mix(in srgb,var(--goud) 50%,var(--line))}
+.kaart p{margin:4px 0 0;color:var(--text2);max-width:80ch}
+.kop{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline;justify-content:space-between}
+.chip{font:600 11px/1 var(--f-meta);letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:999px;border:1px solid var(--line);color:var(--text2);white-space:nowrap}
+.seg{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.seg button{font:inherit;color:inherit;border:1px solid var(--line);background:var(--surface2);border-radius:999px;padding:6px 14px;min-height:36px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--goud);color:#1A1406;border-color:var(--goud);font-weight:700}
+.seg button:disabled{opacity:.5;cursor:default}
+textarea{font:inherit;color:inherit;width:100%;min-height:44px;resize:vertical;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 10px;margin-top:10px}
+.beelden{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:10px;margin-top:10px}
+.beelden figure{margin:0;display:flex;flex-direction:column;gap:4px;min-width:0}
+.beelden figcaption{font:600 12px var(--f-meta);color:var(--text3)}
+.plaat{background:var(--plaat);border-radius:8px;aspect-ratio:16/9;overflow:hidden;max-width:100%}
+.plaat img{width:100%;height:100%;object-fit:contain;display:block;cursor:zoom-in}
+.teller{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding:10px 0;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline}
+.teller b{font:700 22px var(--f-titel);font-variant-numeric:tabular-nums}
+.teller span{color:var(--text2);font-size:14px}
+button:focus-visible,textarea:focus-visible{outline:2px solid var(--goud);outline-offset:2px}
+dialog{border:0;border-radius:12px;padding:0;background:var(--plaat);max-width:96vw}
+dialog img{display:block;max-width:96vw;max-height:90vh}
+dialog::backdrop{background:rgba(0,0,0,.75)}
+</style>
+
+<div class="wrap">
+  <div class="mono">Biologie bij Kamiel · thema Regeling · na de opwaardering van 29 okt 2026</div>
+  <h1>Regeling: jouw keuzes</h1>
+  <p class="intro">Alles wat na de nacht van 28 op 29 oktober nog op jouw beslissing wacht, op één plek. Wat je niet aanklikt, blijft zoals het nu is. Er wordt niets ingesproken voordat jij hier 'Doen' kiest.</p>
+  <div id="melding" class="melding" hidden></div>
+
+  <h2>Beeldbank: polymerase</h2>
+  <div id="pol"></div>
+
+  <h2>De grootste keuze</h2>
+  <div id="groot"></div>
+
+  <h2>Inspreeklijst</h2>
+  <p class="intro">Per alinea: opnieuw inspreken, gratis knippen (waar dat kan), of zo laten. De teller telt de geschatte credits van wat je op 'Inspreken' zet.</p>
+  <div class="teller"><b id="som">0</b><span>credits gekozen</span><span id="aantal"></span></div>
+  <div id="spreek"></div>
+
+  <h2>Vragen</h2>
+  <div id="vragen"></div>
+</div>
+<dialog id="groot-beeld"><img id="grootImg" alt=""></dialog>
+
+<script>
+'use strict';
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const POL={id:'polymerase',titel:'Polymerase: welke versie?',tekst:'Je zag geen duidelijke winnaar. De huidige versie in de beeldbank is een vlakke vorm (geen kralenketen) en gaf het "dubbel zo dik"-probleem. Voorstel: versie 2, de eenvoudige kralenlus die de blinde beoordelaar koos; past bij alle andere eiwitten.',beelden:[['img/pol1.webp','Versie 1'],['img/pol2.webp','Versie 2 (voorstel)'],['img/pol3.webp','Versie 3']],opties:[['v2','Versie 2 (voorstel)'],['v1','Versie 1'],['v3','Versie 3'],['huidig','Huidige versie houden']]};
+const GROOT={id:'donker',titel:'Zenuwstelsel 1–6 naar de donkere beeldstijl?',tekst:'Deze zes oudste films hebben nog het lichte ontwerp van vóór de huidige beeldstijl (Part C). Omzetten naar donker met de beeldbank is een lichte remake: nieuw beeld, script als geraamte, de stem kan blijven waar het beeld erop past. De oude versie blijft online tot jij de nieuwe goedkeurt.',opties:[['ja','Ja, lichte remake'],['later','Later, eerst andere thema\'s'],['nee','Nee, zo laten']]};
+const SPREEK=[
+ {id:'slaap-namen',film:'Zenuwstelsel 7 Slaap',wat:'s01, s12, s19: "Bilal en Sam" → "twee vrienden" (namen niet meer uitspreken). In s12 meteen "alleen opgeruimd" → "vooral opgeruimd als je slaapt".',cr:1550},
+ {id:'zintuigen-namen',film:'Zenuwstelsel 8 Zintuigen',wat:'s01, s12, s20: "Noor" → "een sporter" / "je". Knippen kan alleen voor "Terug naar Noor." in s12; de andere namen blijven dan staan.',cr:2000,knip:'Alleen s12 knippen (gratis)'},
+ {id:'voorspel',film:'Zenuwstelsel 1 en 2',wat:'q1–q6 en q1–q5: de vraag opent met "Voorspel." (jij koos eerder "Wat denk je?"). Knippen = het woord gratis weglaten.',cr:1650,knip:'Woord wegknippen (gratis)'},
+ {id:'druk',film:'Zenuwstelsel 2 Het kabelnetwerk',wat:'q5 "Alleen op druk?" is te stellig: een heel sterke andere prikkel kan een receptor ook prikkelen. Voorstel "Vooral op druk?".',cr:200},
+ {id:'reactietijd',film:'Zenuwstelsel 1 Eén seconde',wat:'a3 "van bal tot knijpen ongeveer tweehonderd milliseconden": geldt als je de bal verwacht; onverwacht eerder ± 1 s. Zie de vraag hieronder; alleen nodig als je de tekst wilt aanpassen.',cr:450},
+ {id:'tien-sec',film:'Zenuwstelsel 4 Knoeien met de synaps',wat:'a4 "binnen tien seconden na een trek" → "binnen een paar seconden" (aan de snelle kant, geen echte fout). Optioneel.',cr:1000},
+ {id:'temperatuur',film:'Zenuwstelsel 5 Het hoofdkantoor',wat:'a5: de aanvulling temperatuurregeling die al op de wachtlijst stond (15 okt), vijf zinnen plus een nieuw beeld (regelkring).',cr:1500},
+ {id:'adrenaline',film:'Hormonen 1 Post voor iedereen',wat:'s20 "ongeveer een tienmiljoenste gram" → "minder dan een tienmiljoenste gram" (bronnen: 0,25–0,75).',cr:480},
+ {id:'gprot',film:'Hormonen 1 Post voor iedereen',wat:'s15 (vwo): aanvulling eerste/tweede boodschapper, G-eiwit, cAMP (stond op de wachtlijst; het G-eiwit staat al in beeld).',cr:710},
+ {id:'sanne',film:'Hormonen 2 Suiker in balans',wat:'s01, s16, s17, s24: de naam "Sanne" (meisje met diabetes type 1). Alleen nodig als zij een castpersonage wordt (zie de vraag hieronder).',cr:2200}
+];
+const VRAGEN=[
+ {id:'reactietijd-v',titel:'Zenuwstelsel 1: reactietijd 0,2 s',tekst:'De film zegt "van bal tot remmen ongeveer 0,2 s". Dat klopt voor een prikkel die je verwacht (eenvoudige reactietijd). Bij een bal die onverwacht de weg op rolt is het eerder ± 1 s.',opties:[['zin','Stem aanpassen (zie inspreeklijst)'],['beeld','Alleen een label: "als je hem verwacht"'],['laten','Zo laten']]},
+ {id:'kleuren',titel:'Kleuren in Zenuwstelsel en Hormonen gelijktrekken?',tekst:'Zenuwen en neurotransmitter zijn paars, terwijl de beeldafspraak zegt: zenuwsignaal teal. Cortisol is teal, REM-slaap paars. Voorstel: zenuwsignaal teal, hormonen in hun vaste kleuren, paars alleen voor de kern.',opties:[['ja','Ja, gelijktrekken'],['nee','Zo laten']]},
+ {id:'sanne-v',titel:'Hormonen 2: wie heeft diabetes type 1?',tekst:'"Sanne" is nog een eigen getekende figuur. Een castpersonage dat diabetes type 1 krijgt, of een nieuwe figurant? Een castpersonage mag niet bij naam genoemd worden, dus dan moet de naam uit de stem (inspreeklijst).',opties:[['yasmin','Yasmin uit het castboek'],['figurant','Nieuwe figurant (naam mag blijven)'],['laten','Zo laten']]},
+ {id:'stress-decor',titel:'Hormonen 4 Stress: decor',tekst:'De cold open speelt in een klas, terwijl de stem zegt dat ze \'s avonds thuis leert.',opties:[['thuis','Decor naar thuis'],['laten','Zo laten']]},
+ {id:'wijn',titel:'Zenuwstelsel 4: Linda met wijn',tekst:'In de "je"-scène over alcohol zit Linda (volwassen) met een glas wijn op de bank. Noor (16) kan dat niet.',opties:[['ok','Prima'],['anders','Liever anders (opmerking)']]},
+ {id:'synaps',titel:'Zenuwstelsel 4: synaps en beloningssysteem',tekst:'De film heeft een eigen synapstekening en het beloningssysteem als wolk. Voorstel: synapsEcht uit de beeldbank en een hersendoorsnede.',opties:[['ja','Ja'],['nee','Zo laten']]},
+ {id:'oudziend',titel:'Zenuwstelsel 8: "oudziend vanaf je veertigste"',tekst:'Het National Eye Institute zegt: meestal na je 45e. Kan met een label of bij een volgende opname.',opties:[['label','Label "rond je 40e–45e"'],['laten','Zo laten']]},
+ {id:'beeldbank-nieuw',titel:'Nieuwe beeldbankobjecten maken?',tekst:'Voorgesteld door de helpers: oog, oor, evenwichtsorgaan, hersenen zijaanzicht met echte plooien, insulinereceptor, eilandje van Langerhans, cytotoxische T-cel, kinderbot met groeischijven, antistof, kleine membraanreceptor; castboek: pose "fiets" en Noor als kind (± 6 jaar). Gaat via een keuringsblad zoals de beeldbankrondes.',opties:[['ja','Ja, nieuwe ronde'],['later','Later'],['nee','Nee']]}
+];
+let D={},db=null,mag=true;
+function meld(t){const m=$('#melding');m.textContent=t;m.hidden=!t;}
+function knoppen(id,opties){const k=D[id]||{};return `<div class="seg">${opties.map(([w,t])=>`<button type="button" data-id="${id}" data-w="${w}" aria-pressed="${k.antwoord===w}" ${mag?'':'disabled'}>${esc(t)}</button>`).join('')}</div><textarea id="op-${id}" data-op="${id}" placeholder="Opmerking (optioneel)" ${mag?'':'disabled'} aria-label="Opmerking">${esc(k.opmerking||'')}</textarea>`;}
+function vraagKaart(v,extra=''){const k=D[v.id]||{};return `<div class="kaart${k.antwoord?' klaar':''}"><h3>${esc(v.titel)}</h3><p>${esc(v.tekst)}</p>${extra}${knoppen(v.id,v.opties)}</div>`;}
+function teken(){
+  const act=document.activeElement,aid=act&&act.matches&&act.matches('textarea')?act.id:null,aval=aid?act.value:null;
+  $('#pol').innerHTML=vraagKaart(POL,`<div class="beelden">${POL.beelden.map(([s,t])=>`<figure><div class="plaat"><img src="${s}" alt="${esc(t)}" loading="lazy"></div><figcaption>${esc(t)}</figcaption></figure>`).join('')}</div>`);
+  $('#groot').innerHTML=vraagKaart(GROOT);
+  $('#spreek').innerHTML=SPREEK.map(s=>{const k=D[s.id]||{};const opts=[['doen','Inspreken'],...(s.knip?[['knip',s.knip]]:[]),['laten','Zo laten']];
+    return `<div class="kaart${k.antwoord?' klaar':''}"><div class="kop"><h3>${esc(s.film)}</h3><span class="chip">± ${s.cr.toLocaleString('nl-NL')} credits</span></div><p>${esc(s.wat)}</p>${knoppen(s.id,opts)}</div>`;}).join('');
+  $('#vragen').innerHTML=VRAGEN.map(v=>vraagKaart(v)).join('');
+  if(aid){const t=document.getElementById(aid);if(t){t.value=aval;t.focus();}}
+  const gekozen=SPREEK.filter(s=>(D[s.id]||{}).antwoord==='doen');
+  $('#som').textContent='± '+gekozen.reduce((a,s)=>a+s.cr,0).toLocaleString('nl-NL');
+  const n=[POL,GROOT,...SPREEK,...VRAGEN].filter(x=>(D[x.id]||{}).antwoord).length;
+  $('#aantal').textContent=`${n} van ${2+SPREEK.length+VRAGEN.length} beantwoord`;
+}
+async function bewaar(id,patch){D[id]=Object.assign({},D[id],patch,{tijd:new Date().toISOString()});teken();
+  if(!db||!mag)return;try{await db.collection('keuze').doc(id).set(D[id]);meld('');}catch(e){meld('Opslaan lukte niet. Probeer het zo nog eens.');}}
+document.addEventListener('click',e=>{const b=e.target.closest('.seg button');if(b){bewaar(b.dataset.id,{antwoord:b.dataset.w});return;}
+  const im=e.target.closest('.plaat img');if(im){$('#grootImg').src=im.src;$('#grootImg').alt=im.alt;$('#groot-beeld').showModal();}});
+$('#groot-beeld').addEventListener('click',()=>$('#groot-beeld').close());
+document.addEventListener('change',e=>{if(e.target.matches('textarea[data-op]'))bewaar(e.target.dataset.op,{opmerking:e.target.value.slice(0,2000)});});
+(async()=>{teken();
+  try{db=await window.claude?.use?.('db');}catch(e){db=null;}
+  if(!db){mag=false;meld('Opslaan werkt alleen als je bent ingelogd op claude.ai. Je kunt wel kijken.');teken();return;}
+  try{const u=await window.claude.use('user');if(u&&u.can&&u.can('data.write')===false){mag=false;meld('Je kunt kijken maar niet opslaan.');}}catch(e){}
+  db.collection('keuze').onSnapshot(s=>{D={};s.docs.forEach(d=>D[d.id]=d.data());teken();},()=>{});
+})();
+</script>

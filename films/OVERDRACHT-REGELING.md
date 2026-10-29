@@ -8,6 +8,8 @@ Lees dit in een nieuwe chat om verder te gaan. Brief van de nacht: `films/OPWAAR
 - Alle 13 staan op 'nog bekijken' (index.html REVIEW). Had een film in de reviewpagina al status 'bekeken/goed': daar op 'Opnieuw bekijken' zetten.
 
 ## Open voor Kamiel
+
+Alles hieronder staat op het keuzeblad 'Regeling: jouw keuzes' (https://claude.ai/artifact/1AwKuLaFUeSsEF2xypEnQG, db-collectie keuze; bron in films/regeling-keuzeblad/). Lees die collectie en voer de keuzes uit.
 **Polymerase** (beeldbank): 'geen duidelijke winnaar'; voorstel = de kralenlus van de beoordelaar (verbeterronde-3/dna/polymeraseachter-polymerasevoor, W.js). Wacht op ja/nee.
 
 **Herinspreeklijst (niets opgenomen; totaal ± 5.000–8.500 credits, afhankelijk van keuzes):**
