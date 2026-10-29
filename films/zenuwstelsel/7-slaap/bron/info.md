@@ -5,13 +5,13 @@
 | Bestand | films/zenuwstelsel/7-slaap.html (audio in films/zenuwstelsel/7-slaap/audio/) |
 | Reeks | Zenuwstelsel (hoofdstuk `regeling`, op de site 'Regeling'), film 7 |
 | Niveau | havo + vwo; één vwo-blok s13 (klokgenen met negatieve terugkoppeling) |
-| Versie / datum | **1.1 · 28 oktober 2026** — opwaardering naar prompt v13 (B14, zonder keuring): alleen beeld en schermtekst, stem en timing ongewijzigd (oude versie in `bron/oud/7-slaap-v1.0.3.html`); 1.0 · 16 oktober 2026 |
+| Versie / datum | **1.2 · 29 oktober 2026** — regeling, keuzes Kamiel: namen uit de stem (s01, s12, s19 opnieuw ingesproken), 'vooral opgeruimd' in s12, kleuren gelijkgetrokken (oude versie in `bron/oud/7-slaap-v1.1.html`, `oud/scenes-v1.1.js`, `oud/audio-v1.1/`); 1.1 · 28 oktober 2026 — opwaardering naar prompt v13 (B14) (`bron/oud/7-slaap-v1.0.3.html`); 1.0 · 16 oktober 2026 |
 | Prompt | v13 |
-| Voldoet aan | prompt v13 (28 okt 2026, zonder keuring). Bewust niet: de uitgesproken namen van castpersonages (s01, s12, s19) staan nog in de stem, want herinspreken wacht op Kamiels akkoord (lijst in `bron/opwaardering-v13.md`); REM-slaap houdt paars als categoriekleur (vraag aan Kamiel); het hoofd met hersenen blijft een losse doorsnede zonder castpersonage ernaast (geen nieuwe scène-aanpak zonder keuring); geen nieuwe caststijl met contourlijnen (nog niet goedgekeurd) |
+| Voldoet aan | prompt v13 (28 okt 2026, zonder keuring). Sinds 1.2 (29 okt 2026) geen namen meer in de stem en REM-slaap in koraal (keuzes Kamiel). Bewust niet: het hoofd met hersenen blijft een losse doorsnede zonder castpersonage ernaast (geen nieuwe scène-aanpak zonder keuring); geen nieuwe caststijl met contourlijnen (nog niet goedgekeurd) |
 | Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow GG2iFDV7c2CAFOv0JQWU (nodes in `stem/nodes.json`); respellings EEG → E-E-G (Kamiel 16 okt: Nederlandse letternamen, niet Engels), microslaap → mikroslaap; adenosine, melatonine, circadiaans en REM(-slaap) sinds 20 okt in gewone spelling (`uitspraak_film.json`, zie `uitspraak.md`) |
-| Duur | spraak 6:59 (vwo) / 6:27 (havo); speeltijd met kaarten en vragen ± 8:04 (vwo) / 7:31 (havo) |
+| Duur | spraak 6:58 (vwo) / 6:26 (havo) sinds 1.2; speeltijd met kaarten en vragen ± 8:04 (vwo) / 7:31 (havo) |
 | Beeldstijl | Part C: Schema; sinds 1.1 bibliotheekobjecten: `hoofdHersenen`, `membraanBoog`, `membraanReceptor`, `mrnaSliert` (uittreksel uit `bibliotheek/lib_bio.js` in `src/lib_bio_uittreksel.js`) en `hond`, `muis` (uittreksel uit `bibliotheek/dieren/lib_dieren.js` in `src/lib_dieren_uittreksel.js`) |
-| Personages | Bilal en Sam (cold open, gevolgen), Noor (in bed met EEG, droom) uit het castboek, sinds 1.1 met de actuele `personages/lib_cast.js` (zijaanzicht en rennen); namen niet meer in beeld (wel nog in de stem van s01, s12, s19); eigen `slaper()` legt een castpersonage in bed met `ogenDicht()` |
+| Personages | twee vrienden (castboek-id's `bilal` en `sam`; cold open, gevolgen), Noor (castboek-id `noor`; in bed met EEG, droom), sinds 1.1 met de actuele `personages/lib_cast.js` (zijaanzicht en rennen); namen niet in beeld en sinds 1.2 ook niet in de stem; eigen `slaper()` legt een castpersonage in bed met `ogenDicht()` |
 | Audio-opslag | 16 losse mp3's in audio/ (s01, s04, s05, s07–s16, s18–s20) |
 | Herkomst | Hoofdengine, werkmap `hw/zs7`; gebouwd met Claude op verzoek van Kamiel (geplande film 'Slaap' in `HOOFDSTUKKEN.regeling.komt`) |
 
@@ -61,6 +61,13 @@ Werkmap opzetten: kopieer `bron/` naar `hw/zs7` (scenes.js uit `src/`, `words/` 
 - Puberklok en sociale jetlag alleen kort; die horen in de geplande Nieuwsgierig?-film 'Slaap en je biologische klok'.
 
 ## Wijzigingen
+- 1.2 (29 okt 2026) — regeling, keuzes Kamiel op het keuzeblad 'Regeling' (`films/UITVOEREN-REGELING.md`). Speler, datum, vragen en de overige stem blijven.
+  - s01: 'Bilal en Sam … Sam gaapt, en Bilal valt bijna in slaap met zijn controller' → 'Twee vrienden … De een gaapt, de ander valt bijna in slaap met de controller'. Opnieuw ingesproken (Roos, eleven_v4, 1 take, 320 credits).
+  - s12: 'Terug naar Bilal en Sam.' → 'Terug naar de twee vrienden.'; 'Die wordt alleen opgeruimd' → 'Die wordt vooral opgeruimd als je slaapt' (bronnenlogboek bewering 18; ook in `oefenen.json`). Opnieuw ingesproken (470 credits). Cue van de kop 'wakker vanaf 08:00' nu op 'vrienden'.
+  - s19: 'Bilal en Sam zaten' → 'De twee vrienden zaten'. Opnieuw ingesproken (411 credits). Cue van het blok '24 uur wakker' nu op 'vrienden'.
+  - Stem: flow UaHCv2azK4E5fdqZAdJ1 (nodes in `stem/gen.json`, `stem/takes.json`), stem-invoer letterlijk in `stem/invoer-2026-10-29.json` (regels uit `films/uitspraak.json` + `uitspraak_film.json`: microslaap → mikroslaap). Woordtijden lokaal met `silalign.py` (geen Scribe); alleen audio, woorden en duur van deze drie alinea's in `window.FILMDATA` vervangen. Totaal 1.201 credits.
+  - Kleuren volgens de tabel Zenuwstelsel/Hormonen (`src/scenes.js` regel 15–17): slaapstadia wakker goud / lichte slaap licht teal #9CCBE3 / diepe slaap teal / REM koraal (was paars; raakt s04, s05 (REM-spoor, oogpijlen, afkorting), s07, s08, s20); melatonine paars #8C7BBF (was lavendel #B6A6E6; s11, s20), naam 'pijnappelklier' iets lichter voor contrast op de hersenen; groeihormoon paars (was goud molecuul en oker tekst, s15 paneel 'herstel').
+  - Ingebouwd met `bouw/inbouw.py`; nieuwe stills bekeken, Vragen uit gecontroleerd (knip q02 bij 18,32 s en 'Antwoord cee.' in s12 tot 1,72 s vallen in stilte).
 - 29 okt 2026 — nacontrole 29 okt: s11 de melatonine komt nu zichtbaar uit de pijnappelklier (pulserende gloed om de klier, moleculen ontstaan daar en zakken achter de hersenstam naar beneden), niet meer vanaf hypothalamus/hypofyse; molecuul kleiner getekend (schaal 0,75). Alleen `s11` in `src/scenes.js`, ingebouwd met `bouw/inbouw.py`.
 - 1.0 (16 okt 2026): eerste versie. Script na een kritische eigen review (zie `reviews/review_v1.md`); beeld-QA via contactsheets (zie `checkpoint.html`).
 - 1.0.1 (16 okt 2026): EEG → E-E-G (feedback Kamiel); s04 en s05 opnieuw ingesproken (Roos, eleven_v4, 1 take), woordtijden opnieuw uitgelijnd.

@@ -53,7 +53,7 @@ Alle bronnen zijn op 28 okt 2026 zelf geopend.
 | 15 | s11 | Fel licht 's avonds, ook van een scherm, remt de melatonine een beetje | B6, B4 | ✓ | B6: lichtgevend scherm vs. boek. |
 | 16 | s11 | In de puberteit komt de melatonine 's avonds ongeveer een tot twee uur later | B7 | ≈ | B7: melatoninefase later, fase verschuift tijdens de puberteit. De grootte (1–2 uur) staat niet in de geopende dia's. |
 | 17 | s12 | Om 4 uur dubbel slaperig (slaapdruk hoog, klok op het diepste punt); rond 8 uur geeft de klok een wekker-signaal; licht is een signaal, geen energie | B1, B4 | ≈ | Tweeprocessenmodel (slaapdruk + klok, Borbély 1982), schematisch. B1 noemt beide systemen; de grafiek is een model, geen meting. |
-| 18 | s12 | Adenosine wordt alleen opgeruimd als je slaapt | B1 | ≈ | Vereenvoudiging: de slaapdruk zakt vooral in de slaap. Geen geopende bron met 'alleen'. Voorstel bij een nieuwe opname: 'vooral als je slaapt'. |
+| 18 | s12 | Adenosine wordt vooral opgeruimd als je slaapt (tot 29 okt 2026: 'alleen') | B1 | ≈ | De slaapdruk zakt vooral in de slaap (tweeprocessenmodel, B1); sinds 29 okt 2026 ingesproken als 'vooral' (keuze Kamiel). Eén geopende bron, dus ≈. |
 | 19 | s13 | Klokgenen → klokeiwitten die opstapelen, de kern in gaan en hun eigen genen remmen; afbraak, opnieuw; ± een etmaal; Nobelprijs 2017 voor drie onderzoekers | B5 | ≈ | Eén bron (de oorsprong: het Nobelcomité over het eigen besluit). Tweede bron nog openen voor het mechanisme. |
 | 20 | s14 | In de diepe slaap speelt de hippocampus de dag nog eens af; verbindingen in de schors worden vastgelegd; wie na het leren goed slaapt, onthoudt meer | B8, B1 | ✓ | |
 | 21 | s15 | In de diepe slaap stroomt meer vloeistof tussen de hersencellen en spoelt afval weg; vooral bij muizen onderzocht | B9, B1 | ✓ | De film is voorzichtig; B9 noemt het muismodel en dat de methode nog niet bij mensen kan. |
@@ -68,6 +68,7 @@ Alle bronnen zijn op 28 okt 2026 zelf geopend.
 ## Aanpassingen
 
 - Geen `!`. Wel een voorstel voor een volgende opname (geen herinspreken op grond van de bronnen): s12 'alleen als je slaapt' → 'vooral als je slaapt' (bewering 18).
+- 29 okt 2026 (regeling, keuze Kamiel): bewering 18 in s12 was 'Die wordt alleen opgeruimd als je slaapt' → nu 'Die wordt vooral opgeruimd als je slaapt' (opnieuw ingesproken; bron B1). Ook in de modeluitleg van `oefenen.json`.
 - Beeld s15: groeihormoon tekende in de vorm van insuline; nu in de eigen vorm `'groei'` uit de hormoonbibliotheek (consistentie, geen vakinhoud in de stem).
 
 ## Menselijke controle

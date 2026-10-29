@@ -4,9 +4,9 @@ Zenuwstelsel · slaap · Roos (eleven_v4) · één take per alinea · audio in `
 
 ## Cold open
 
-**s01** · 21.2 s · `audio/s01.mp3`
+**s01** · 20.7 s · `audio/s01.mp3`
 
-Bilal en Sam halen een nacht door met gamen. Om vier uur 's nachts zijn ze kapot. Sam gaapt, en Bilal valt bijna in slaap met zijn controller in zijn hand. Ze houden vol. Om acht uur komt de zon op, en ineens voelen ze zich wat wakkerder. Terwijl ze nu nog langer wakker zijn dan om vier uur. Hoe kan dat? Wat denk je?
+Twee vrienden halen een nacht door met gamen. Om vier uur 's nachts zijn ze kapot. De een gaapt, de ander valt bijna in slaap met de controller in zijn hand. Ze houden vol. Om acht uur komt de zon op, en ineens voelen ze zich wat wakkerder. Terwijl ze nu nog langer wakker zijn dan om vier uur. Hoe kan dat? Wat denk je?
 
 **q02** (vraag): de stof die je moe maakt, is vanzelf opgeruimd · het daglicht geeft hun cellen nieuwe energie · een tweede systeem in hun hersenen geeft 's ochtends een wekker-signaal
 
@@ -48,9 +48,9 @@ Het tweede systeem is je biologische klok. Die zit in een klein kerngebied in je
 
 's Avonds, als het donker wordt, laat de klok de pijnappelklier het hormoon melatonine afgeven. Melatonine vertelt je lichaam: het is nacht. Fel licht 's avonds, ook van een scherm, remt de melatonine een beetje. In de puberteit komt de melatonine 's avonds ongeveer een tot twee uur later. Daarom ben je als tiener vaak pas laat moe.
 
-**s12** · 31.6 s · `audio/s12.mp3`
+**s12** · 31.2 s · `audio/s12.mp3`
 
-Antwoord cee. Terug naar Bilal en Sam. Hun slaapdruk liep de hele nacht door op. Om vier uur 's nachts staat hun klok bovendien op het diepste punt. Dubbel slaperig. Maar rond acht uur geeft de klok een wekker-signaal, en dat duwt tegen de slaapdruk in. Het daglicht helpt mee, maar niet als energie: licht is een signaal voor de klok. Misschien dacht je: de adenosine is vanzelf weg. Die wordt alleen opgeruimd als je slaapt. Daarom storten ze 's middags alsnog in.
+Antwoord cee. Terug naar de twee vrienden. Hun slaapdruk liep de hele nacht door op. Om vier uur 's nachts staat hun klok bovendien op het diepste punt. Dubbel slaperig. Maar rond acht uur geeft de klok een wekker-signaal, en dat duwt tegen de slaapdruk in. Het daglicht helpt mee, maar niet als energie: licht is een signaal voor de klok. Misschien dacht je: de adenosine is vanzelf weg. Die wordt vooral opgeruimd als je slaapt. Daarom storten ze 's middags alsnog in.
 
 **s13** · vwo · 32.6 s · `audio/s13.mp3`
 
@@ -76,9 +76,9 @@ Hoeveel slaap heb je nodig? Als tiener ongeveer acht tot tien uur per nacht. Ste
 
 Antwoord bee. In een bekend onderzoek sliepen volwassenen twee weken lang zes uur per nacht. Ze voelden zich maar een beetje slaperig. Maar hun reactietijd werd steeds slechter: aan het eind net zo slecht als na een hele nacht zonder slaap. Je went dus niet aan te weinig slaap: je merkt het alleen minder goed. Uitslapen in het weekend helpt een beetje, maar haalt niet alles in.
 
-**s19** · 25.6 s · `audio/s19.mp3`
+**s19** · 25.8 s · `audio/s19.mp3`
 
-Te weinig slaap heeft meer gevolgen. Je concentratie en je humeur worden slechter, en je wordt sneller ziek. Na ongeveer achttien uur wakker reageer je zo traag als met een half promille alcohol in je bloed. Bilal en Sam zaten 's ochtends op vierentwintig uur: ongeveer één promille. In het verkeer is dat gevaarlijk: je kunt zelfs een paar seconden in slaap vallen, zonder dat je het merkt: een microslaap.
+Te weinig slaap heeft meer gevolgen. Je concentratie en je humeur worden slechter, en je wordt sneller ziek. Na ongeveer achttien uur wakker reageer je zo traag als met een half promille alcohol in je bloed. De twee vrienden zaten 's ochtends op vierentwintig uur: ongeveer één promille. In het verkeer is dat gevaarlijk: je kunt zelfs een paar seconden in slaap vallen, zonder dat je het merkt: een microslaap.
 
 ## Recap
 

@@ -14,7 +14,7 @@ Misconcepties: (1) als je slaapt staan je hersenen uit → H1; (2) slaap is de h
 ---
 
 ## Cold open [Schema: nacht; kamer met tv; Bilal en Sam met controllers achter een bank; klok 4:00 → 8:00, de zon komt op]
-Bilal en Sam halen een nacht door met gamen. Om vier uur 's nachts zijn ze kapot. Sam gaapt, en Bilal valt bijna in slaap met zijn controller in zijn hand.
+Twee vrienden halen een nacht door met gamen. Om vier uur 's nachts zijn ze kapot. De een gaapt, de ander valt bijna in slaap met de controller in zijn hand.
 Ze houden vol. Om acht uur komt de zon op, en ineens voelen ze zich wat wakkerder. Terwijl ze nu nog langer wakker zijn dan om vier uur. Hoe kan dat? Wat denk je?
 [VRAAG] (a) de stof die je moe maakt, is vanzelf opgeruimd · (b) het daglicht geeft hun cellen nieuwe energie · (c) een tweede systeem in hun hersenen geeft 's ochtends een wekker-signaal
 
@@ -41,7 +41,7 @@ Het tweede systeem is je biologische klok. Die zit in een klein kerngebied in je
 
 's Avonds, als het donker wordt, laat de klok de pijnappelklier het hormoon melatonine afgeven. Melatonine vertelt je lichaam: het is nacht. Fel licht 's avonds, ook van een scherm, remt de melatonine een beetje. In de puberteit komt de melatonine 's avonds ongeveer een tot twee uur later. Daarom ben je als tiener vaak pas laat moe.
 
-Antwoord cee. Terug naar Bilal en Sam. Hun slaapdruk liep de hele nacht door op. Om vier uur 's nachts staat hun klok bovendien op het diepste punt. Dubbel slaperig. Maar rond acht uur geeft de klok een wekker-signaal, en dat duwt tegen de slaapdruk in. Het daglicht helpt mee, maar niet als energie: licht is een signaal voor de klok. Misschien dacht je: de adenosine is vanzelf weg. Die wordt alleen opgeruimd als je slaapt. Daarom storten ze 's middags alsnog in.
+Antwoord cee. Terug naar de twee vrienden. Hun slaapdruk liep de hele nacht door op. Om vier uur 's nachts staat hun klok bovendien op het diepste punt. Dubbel slaperig. Maar rond acht uur geeft de klok een wekker-signaal, en dat duwt tegen de slaapdruk in. Het daglicht helpt mee, maar niet als energie: licht is een signaal voor de klok. Misschien dacht je: de adenosine is vanzelf weg. Die wordt vooral opgeruimd als je slaapt. Daarom storten ze 's middags alsnog in.
 
 [VWO-START] Hoe kan een groep zenuwcellen de tijd bijhouden? In de zenuwcellen van de klok worden een paar klokgenen afgelezen, en de cel maakt er klokeiwitten van. Die stapelen zich op, gaan de kern in, en remmen hun eigen genen. De eiwitten worden langzaam afgebroken, de rem valt weg, en het begint opnieuw. Eén rondje duurt ongeveer een etmaal. Ook dit is negatieve terugkoppeling: het product remt zijn eigen aanmaak. Voor deze ontdekking kregen drie onderzoekers in het jaar 2017 de Nobelprijs. [VWO-END]
 
@@ -56,7 +56,7 @@ Hoeveel slaap heb je nodig? Als tiener ongeveer acht tot tien uur per nacht. Ste
 
 Antwoord bee. In een bekend onderzoek sliepen volwassenen twee weken lang zes uur per nacht. Ze voelden zich maar een beetje slaperig. Maar hun reactietijd werd steeds slechter: aan het eind net zo slecht als na een hele nacht zonder slaap. Je went dus niet aan te weinig slaap: je merkt het alleen minder goed. Uitslapen in het weekend helpt een beetje, maar haalt niet alles in.
 
-Te weinig slaap heeft meer gevolgen. Je concentratie en je humeur worden slechter, en je wordt sneller ziek. Na ongeveer achttien uur wakker reageer je zo traag als met een half promille alcohol in je bloed. Bilal en Sam zaten 's ochtends op vierentwintig uur: ongeveer één promille. In het verkeer is dat gevaarlijk: je kunt zelfs een paar seconden in slaap vallen, zonder dat je het merkt: een microslaap.
+Te weinig slaap heeft meer gevolgen. Je concentratie en je humeur worden slechter, en je wordt sneller ziek. Na ongeveer achttien uur wakker reageer je zo traag als met een half promille alcohol in je bloed. De twee vrienden zaten 's ochtends op vierentwintig uur: ongeveer één promille. In het verkeer is dat gevaarlijk: je kunt zelfs een paar seconden in slaap vallen, zonder dat je het merkt: een microslaap.
 
 ## Recap [Schema: slaapgrafiek; slaapdruk en klok; vier redenen; balk 'presteren']
 Je slaapt in cycli van ongeveer anderhalf uur: lichte slaap, diepe slaap en REM-slaap, waarin je droomt en je spieren slap zijn. Wanneer je moe wordt, bepalen twee systemen: slaapdruk door adenosine, en je biologische klok, die door licht wordt gelijkgezet en 's avonds melatonine laat maken. Je slaapt voor je geheugen, voor opruimen en herstel, en voor je afweer. Te weinig slaap merk je minder dan je denkt.

@@ -35,3 +35,7 @@ Totaal ± 1.550 credits (TTS + Scribe). Na het inspreken in `src/scenes.js` de c
 Getest: stills van alle gewijzigde scènes (s01, s05, s07, s09, s10, s11, s12, s13, s14, s15, titel) bekeken; geen paginafouten; Vragen uit: geen vraagitems in vwo en havo, de randen rond q02, q06 en q17 bekeken; `spelerfix.py --check`, `antwoordtekst.py --check`, `kortantwoord.py --check`, `antwoordletter.py --check` in orde; `flipkaarten.py`, `licentie_noot.py`, `teller.py` gedraaid (geen wijzigingen nodig).
 
 Voor de bibliotheek (niet zelf gedaan): een `antistofY` (Y van vier ketens) ontbreekt in `lib_bio.js`, al noemt de README hem; deze film tekent er een eenvoudige in `src/scenes.js` (`antistof`).
+
+## (d) Uitgevoerd op 29 okt 2026 (keuzes Kamiel, versie 1.2)
+
+(a) herinspreken s01, s12, s19 gedaan (inclusief 'vooral opgeruimd', vraag 3); vraag 1: REM-slaap nu koraal volgens de kleurentabel. Zie `info.md` → Wijzigingen 1.2.

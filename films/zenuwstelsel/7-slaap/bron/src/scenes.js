@@ -1,4 +1,4 @@
-// Zenuwstelsel 7 · Slaap — scènes per alinea (v1.0, 16 okt 2026; v1.1 opgewaardeerd naar prompt v13, 28 okt 2026: bibliotheekobjecten, zie bron/info.md). Bilal en Sam (castboek) halen een nacht door; EEG en slaapcyclus; slaapdruk (adenosine) en biologische klok (melatonine); waarom slapen; vwo: klokgenen.
+// Zenuwstelsel 7 · Slaap — scènes per alinea (v1.0, 16 okt 2026; v1.1 opgewaardeerd naar prompt v13, 28 okt 2026: bibliotheekobjecten, zie bron/info.md). twee vrienden (castboek; namen niet in stem of beeld) halen een nacht door; EEG en slaapcyclus; slaapdruk (adenosine) en biologische klok (melatonine); waarom slapen; vwo: klokgenen.
 
 // ---------- algemene helpers (zoals Gedrag 12) ----------
 function tag(ctx, s, x, y, col, a = 1, align = 'center', px = 32) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fTekst(px, 600); const w = ctx.measureText(s).width + 40; const x0 = align === 'center' ? x - w / 2 : align === 'right' ? x - w : x; roundRect(ctx, x0, y - px - 6, w, px + 22, (px + 22) / 2); shape(ctx, rgba(col, 0.16), col, 1.5); text(ctx, s, x0 + w / 2, y, fTekst(px, 600), C.text, 'center'); ctx.restore(); }
@@ -12,8 +12,9 @@ function paneel(ctx, x, y, w, h, titel, a = 1, col = C.text) { if (a <= 0.01) re
 function fadeIn(q, w, n = 1, d = 0.6) { return q.on(w, n, d); }
 
 // ---------- kleuren van deze film ----------
-const ADENO = C.goud, CAF = C.koraal, MELA = '#B6A6E6', KLOK = C.teal, NACHT = '#0E1626';
-const NIV = { wakker: '#F2F2EE', rem: C.paars, licht: '#8FB8D8', diep: C.teal };
+// kleuren gelijkgetrokken met Zenuwstelsel en Hormonen (Kamiel 29 okt 2026): slaap wakker goud / licht licht teal / diep teal / REM koraal; melatonine en groeihormoon (hormonen) paars; klok (zenuwsignaal) teal
+const ADENO = C.goud, CAF = C.koraal, MELA = C.paars, KLOK = C.teal, NACHT = '#0E1626', HORMOON = C.paars;
+const NIV = { wakker: C.goud, rem: C.koraal, licht: '#9CCBE3', diep: C.teal };
 
 // ---------- personages: ogen dicht ----------
 function ogenDicht(ctx, A, id, frac = 1, kijk = 1) { if (!A || !A.hoofd || frac <= 0.01) return; const P = CAST[id]; const hh = A.hoofd.r / 0.55, fw = hh * 0.86, ax = kijk * hh * 0.03;
@@ -175,12 +176,12 @@ const SCENES = {
 
   s05(ctx, t, q) { bg(ctx, 'schema'); const B = q.on('droomt', 1, 0.8), A = 1 - B;
     slaper(ctx, 'noor', 150, 760, 430, { t, elektroden: 1 });
-    const ogen = q.on('ogen', 1); if (ogen > 0.01) { ctx.save(); ctx.globalAlpha *= ogen; const ox = 200, oy = 760; const d = Math.sin(t * 7) * 18; pijl(ctx, ox - 10 + d, oy - 120, ox + 50 + d, oy - 120, C.paars, 1, 4, 14); pijl(ctx, ox + 40 - d, oy - 150, ox - 20 - d, oy - 150, C.paars, 1, 4, 14); regel(ctx, 'ogen schieten heen en weer', 120, 560, 1, C.paars, 26, 'left', 700); ctx.restore(); }
+    const ogen = q.on('ogen', 1); if (ogen > 0.01) { ctx.save(); ctx.globalAlpha *= ogen; const ox = 200, oy = 760; const d = Math.sin(t * 7) * 18; pijl(ctx, ox - 10 + d, oy - 120, ox + 50 + d, oy - 120, NIV.rem, 1, 4, 14); pijl(ctx, ox + 40 - d, oy - 150, ox - 20 - d, oy - 150, NIV.rem, 1, 4, 14); regel(ctx, 'ogen schieten heen en weer', 120, 560, 1, NIV.rem, 26, 'left', 700); ctx.restore(); }
     if (A > 0.01) { ctx.save(); ctx.globalAlpha *= A; monitor(ctx, 860, 230, 960, 520, 1);
       regel(ctx, 'wakker', 890, 290, 1, NIV.wakker, 28, 'left', 700); eegSpoor(ctx, 890, 350, 900, 52, 'wakker', t, 0.6, NIV.wakker);
       const r = q.on('REM-slaap', 1); regel(ctx, 'REM-slaap', 890, 490, r, NIV.rem, 28, 'left', 700); eegSpoor(ctx, 890, 550, 900, 52, 'rem', t, r, NIV.rem, clamp((t - q.at('REM-slaap')) / 1.2, 0, 1));
       regel(ctx, 'lijkt bijna op wakker', 1790, 490, q.on('lijkt', 1), C.text2, 24, 'right', 600);
-      tag(ctx, 'REM = rapid eye movement: snelle oogbewegingen', 1340, 680, C.paars, q.on('afkorting', 1), 'center', 24); ctx.restore(); }
+      tag(ctx, 'REM = rapid eye movement: snelle oogbewegingen', 1340, 680, NIV.rem, q.on('afkorting', 1), 'center', 24); ctx.restore(); }
     if (B > 0.01) { ctx.save(); ctx.globalAlpha *= B; ctx.beginPath(); ctx.ellipse(1300, 400, 440, 250, 0, 0, 6.283); shape(ctx, rgba('#F2F2EE', 0.92), null); circ(ctx, 900, 640, 22, rgba('#F2F2EE', 0.92)); circ(ctx, 840, 690, 13, rgba('#F2F2EE', 0.92));
       // droom: je rent weg voor een hond (castboek-zijaanzicht 'ren'; de grond schuift mee met gangSnelheid, zodat de steunvoet niet glijdt; de hond draaft met dezelfde grondsnelheid: draf-pas 108 cm)
       ctx.save(); ctx.beginPath(); ctx.ellipse(1300, 400, 436, 246, 0, 0, 6.283); ctx.clip(); const v = gangSnelheid('noor', 300, 'ren'), sx = t * v;
@@ -233,7 +234,7 @@ const SCENES = {
   s11(ctx, t, q) { bg(ctx, 'schema'); const X = 520, Y = 470, S = 1.4; const donker = q.on('donker', 1, 1.2);
     ctx.save(); ctx.fillStyle = rgba(NACHT, 0.6 * donker); ctx.fillRect(0, 0, W, CAPTION_Y); ctx.restore();
     hoofdZij(ctx, X, Y, S, { scn: 1, zenuw: 0.6, oog: 1, t, pijnappel: q.on('pijnappelklier', 1) });
-    const [px, py] = HZ(X, Y, S, ...HZP.pijnappel); naamBij(ctx, 'pijnappelklier', null, px - 30, py - 50, q.on('pijnappelklier', 1), 'center', MELA);
+    const [px, py] = HZ(X, Y, S, ...HZP.pijnappel); naamBij(ctx, 'pijnappelklier', null, px - 30, py - 50, q.on('pijnappelklier', 1), 'center', lighten(MELA, 0.4));
     const [kx, ky] = HZ(X, Y, S, ...HZP.scn); naamBij(ctx, 'klok', null, kx + 40, ky - 20, 1, 'left', KLOK);
     const mel = q.on('melatonine', 1); if (mel > 0.01) { // nacontrole 29 okt 2026: melatonine komt zichtbaar uit de pijnappelklier (gloed + wolkje) en zakt achter de hersenstam naar het bloed; klein molecuul (s 0,75)
       const gl = mel * (0.55 + 0.3 * Math.sin(t * 3)); ctx.save(); ctx.globalAlpha *= gl; const rg = ctx.createRadialGradient(px, py, 4, px, py, 46); rg.addColorStop(0, rgba(MELA, 0.85)); rg.addColorStop(1, rgba(MELA, 0)); ctx.fillStyle = rg; ctx.beginPath(); ctx.arc(px, py, 46, 0, 6.283); ctx.fill(); ctx.restore();
@@ -250,7 +251,7 @@ const SCENES = {
     tag(ctx, 'puberteit: 1 à 2 uur later moe', 1440, 840, C.goud, q.on('puberteit', 1), 'center', 26); },
 
   s12(ctx, t, q) { bg(ctx, 'schema'); const gx = 160, gy = 220, gw = 1060, gh = 460; const H0 = 8, span = 30;
-    regel(ctx, 'wakker vanaf 08:00', gx, 150, q.on('Bilal', 1), C.text, 30, 'left', 700); assen(ctx, gx, gy, gw, gh, 'tijd', '');
+    regel(ctx, 'wakker vanaf 08:00', gx, 150, q.on('vrienden', 1), C.text, 30, 'left', 700); assen(ctx, gx, gy, gw, gh, 'tijd', '');
     for (let h = 0; h <= span; h += 4) text(ctx, String((H0 + h) % 24).padStart(2, '0') + ':00', gx + gw * h / span, gy + gh + 36, fTekst(22, 600), C.text2, 'center');
     ctx.fillStyle = rgba('#5A6A9A', 0.2); ctx.fillRect(gx + gw * (14 / span), gy, gw * (10 / span), gh);
     const S = (v) => 0.12 + 0.8 * (1 - Math.exp(-(v * span) / 16)); const Cc = (v) => 0.05 + 0.5 * circadiaan(H0 + v * span);
@@ -282,8 +283,8 @@ const SCENES = {
     panel(0, '2 · opruimen', C.teal, q.on('opruimen', 1), (x) => { for (let i = 0; i < 3; i++) for (let j = 0; j < 3; j++) { blob(ctx, x + 110 + i * 160, y0 + 160 + j * 120, 62, 46, 0.06, i * 3 + j, 0); shape(ctx, rgba('#8FA0B5', 0.2), '#8FA0B5', 1.5); }
       const fl = q.on('vloeistof', 1); for (let k = 0; k < 26; k++) { const u = ((t * 0.25 + hash(k)) % 1); const lane = k % 4; const px = x + 20 + u * (pw - 40), py = y0 + 220 + lane * 120 - 60 + Math.sin(u * 9 + k) * 8; circ(ctx, px, py, 5, rgba(C.teal, 0.8 * fl)); if (k % 3 === 0) { ctx.save(); ctx.globalAlpha *= q.on('afvalstoffen', 1) * fl; ctx.fillStyle = C.oker; ctx.fillRect(px + 8, py - 4, 8, 8); ctx.restore(); } }
       muis(ctx, x + 410, y0 + 520, 11, { kijk: -1, a: q.on('muizen', 1) }); regel(ctx, 'vooral bij muizen onderzocht', x + pw / 2, y0 + 580, q.on('muizen', 1), C.text2, 22, 'center', 700); });
-    panel(1, '3 · herstel', C.oker, q.on('herstel', 1), (x) => { hoofdZij(ctx, x + 230, y0 + 300, 0.75, { hypofyse: q.on('hypofyse', 1), oog: 0.4 }); const [hx, hy] = HZ(x + 230, y0 + 300, 0.75, ...HZP.hypofyse); naamBij(ctx, 'hypofyse', null, hx + 30, hy + 10, q.on('hypofyse', 1), 'left', C.oker);
-      const g = q.on('groeihormoon', 1); for (let k = 0; k < 8; k++) { const u = ((t * 0.3 + hash(k * 7)) % 1); hormoonVorm(ctx, hx + 20 + u * 160, hy + 30 + u * 140 + Math.sin(k) * 20, 9, 'groei', g * Math.sin(u * Math.PI)); } regel(ctx, 'groeihormoon', x + pw / 2, y0 + 520, g, C.oker, 28, 'center', 700); regel(ctx, 'groei en herstel', x + pw / 2, y0 + 566, q.on('groei', 2), C.text2, 24, 'center', 600); });
+    panel(1, '3 · herstel', HORMOON, q.on('herstel', 1), (x) => { hoofdZij(ctx, x + 230, y0 + 300, 0.75, { hypofyse: q.on('hypofyse', 1), oog: 0.4 }); const [hx, hy] = HZ(x + 230, y0 + 300, 0.75, ...HZP.hypofyse); naamBij(ctx, 'hypofyse', null, hx + 30, hy + 10, q.on('hypofyse', 1), 'left', C.oker);
+      const g = q.on('groeihormoon', 1); for (let k = 0; k < 8; k++) { const u = ((t * 0.3 + hash(k * 7)) % 1); hormoonVorm(ctx, hx + 20 + u * 160, hy + 30 + u * 140 + Math.sin(k) * 20, 9, 'groei', g * Math.sin(u * Math.PI), HORMOON); } regel(ctx, 'groeihormoon', x + pw / 2, y0 + 520, g, HORMOON, 28, 'center', 700); regel(ctx, 'groei en herstel', x + pw / 2, y0 + 566, q.on('groei', 2), C.text2, 24, 'center', 600); });
     panel(2, '4 · afweer', C.groen, q.on('afweer', 1), (x) => { spuitje(ctx, x + 160, y0 + 230, 1.2, q.on('vaccinatie', 1)); const goed = 14, weinig = 6, v = q.on('antistoffen', 1);
       regel(ctx, 'goed geslapen', x + 150, y0 + 360, v, C.text, 22, 'center', 700); regel(ctx, 'te weinig', x + 400, y0 + 360, v, C.koraal, 22, 'center', 700);
       for (let k = 0; k < goed; k++) antistof(ctx, x + 70 + (k % 4) * 52, y0 + 410 + Math.floor(k / 4) * 50, 1, v); for (let k = 0; k < weinig; k++) antistof(ctx, x + 340 + (k % 3) * 56, y0 + 410 + Math.floor(k / 3) * 50, 1, v); regel(ctx, 'minder antistoffen', x + pw / 2, y0 + 580, v, C.koraal, 24, 'center', 700); }); },
@@ -303,7 +304,7 @@ const SCENES = {
   s19(ctx, t, q) { bg(ctx, 'schema'); regel(ctx, 'gevolgen van te weinig slaap', 140, 150, q.on('gevolgen', 1), C.text, 36, 'left', 700);
     [['concentratie ↓', 'concentratie', C.koraal], ['humeur ↓', 'humeur', C.koraal], ['sneller ziek', 'ziek', C.koraal]].forEach(([s2, w, c], i) => tag(ctx, s2, 300 + i * 340, 250, c, q.on(w, 1), 'center', 28));
     const al = q.on('achttien', 1); if (al > 0.01) { ctx.save(); ctx.globalAlpha *= al; regel(ctx, '± 18 uur wakker', 300, 380, 1, C.text, 28, 'center', 700); text(ctx, '≈', 450, 480, fTitel(60), C.text2, 'center'); glas(ctx, 560, 560, 140, 0.4, 1, '0,5 promille'); ctx.restore(); }
-    const bs = q.on('Bilal', 1); if (bs > 0.01) { ctx.save(); ctx.globalAlpha *= bs; regel(ctx, '24 uur wakker', 900, 380, 1, C.text, 28, 'center', 700); text(ctx, '≈', 1030, 480, fTitel(60), C.text2, 'center'); glas(ctx, 1140, 560, 140, 0.8, 1, '1 promille'); persoon(ctx, 'bilal', 780, 860, 300, { uit: 'bezorgd', t }); persoon(ctx, 'sam', 1000, 860, 300, { uit: 'bezorgd', t }); ctx.restore(); }
+    const bs = q.on('vrienden', 1); if (bs > 0.01) { ctx.save(); ctx.globalAlpha *= bs; regel(ctx, '24 uur wakker', 900, 380, 1, C.text, 28, 'center', 700); text(ctx, '≈', 1030, 480, fTitel(60), C.text2, 'center'); glas(ctx, 1140, 560, 140, 0.8, 1, '1 promille'); persoon(ctx, 'bilal', 780, 860, 300, { uit: 'bezorgd', t }); persoon(ctx, 'sam', 1000, 860, 300, { uit: 'bezorgd', t }); ctx.restore(); }
     const vk = q.on('verkeer', 1); if (vk > 0.01) { ctx.save(); ctx.globalAlpha *= vk; roundRect(ctx, 1340, 360, 480, 440, 20); shape(ctx, rgba(C.fill, 0.5), C.line, 1.5); ctx.fillStyle = '#3A4458'; ctx.fillRect(1360, 640, 440, 90); ctx.strokeStyle = '#F2F2EE'; ctx.setLineDash([30, 20]); ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(1360, 685); ctx.lineTo(1800, 685); ctx.stroke(); ctx.setLineDash([]);
       const cx2 = 1420 + ((t * 60) % 300); roundRect(ctx, cx2, 600, 130, 50, 14); shape(ctx, C.koraal, '#9A4A3A', 2); circ(ctx, cx2 + 30, 655, 14, '#1A1A1A'); circ(ctx, cx2 + 100, 655, 14, '#1A1A1A'); regel(ctx, 'een paar seconden slapen', 1580, 440, q.on('seconden', 1), C.text, 26, 'center', 700); tag(ctx, 'microslaap', 1580, 540, C.koraal, q.on('microslaap', 1), 'center', 32); ctx.restore(); } },
 
