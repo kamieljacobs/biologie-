@@ -1017,16 +1017,19 @@ function personReal(ctx,x,y,h,alpha=1,o={}){ if(alpha<=0.01) return {}; ctx.save
 // series person (12 Oct 2026): every film draws the friendly person; each scenes file may set PERSON_LOOK
 
 // ---------- seriekleuren (Seriebrief Hormonen) ----------
-const HK = { hormoon: C.goud, hormoonR: '#F0CC7A', klier: C.oker, klierR: '#E2C38A', bloed: '#B5574A', bloedL: '#D88A7E',
-  glucose: C.teal, water: C.teal, receptor: '#AFC0D0', rem: '#9A8FB8', zenuw: C.paars, cel: '#C9B896' };
+// 1.2 (29 okt 2026, Kamiel: kleuren gelijktrekken in Zenuwstelsel en Hormonen; tabel in films/UITVOEREN-REGELING.md):
+// hormoon paars, hypofyse- en releasinghormonen licht paars, adrenaline koraal, cortisol oker (ruit), glucose oker (zeshoek), zenuwsignaal teal
+const HK = { hormoon: C.paars, hormoonR: '#B3A6DA', klier: C.oker, klierR: '#E2C38A', bloed: '#B5574A', bloedL: '#D88A7E',
+  glucose: C.oker, water: C.teal, receptor: '#AFC0D0', rem: C.oker, zenuw: C.teal, impuls: '#C4E2F2', cel: '#C9B896',
+  adrenaline: C.koraal, cortisol: C.oker, tropine: '#B3A6DA', insuline: C.paars, glucagon: C.groen };
 
 // ---------- hormonen: elk een eigen vorm, allemaal goud ----------
-function hormoonVorm(ctx, x, y, r = 10, kind = 'adrenaline', a = 1, col = HK.hormoon) {
+function hormoonVorm(ctx, x, y, r = 10, kind = 'adrenaline', a = 1, col = HK[kind] || HK.hormoon) {
   if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath();
   if (kind === 'adrenaline') { ctx.moveTo(x, y - r * 1.35); ctx.bezierCurveTo(x + r * 0.9, y - r * 0.2, x + r, y + r * 0.9, x, y + r); ctx.bezierCurveTo(x - r, y + r * 0.9, x - r * 0.9, y - r * 0.2, x, y - r * 1.35); }
   else if (kind === 'insuline') { roundRect(ctx, x - r * 0.95, y - r * 0.95, r * 1.9, r * 1.9, r * 0.45); }
   else if (kind === 'glucagon') { ctx.moveTo(x, y - r * 1.2); ctx.lineTo(x + r, y); ctx.lineTo(x, y + r * 1.2); ctx.lineTo(x - r, y); ctx.closePath(); }
-  else if (kind === 'cortisol') { ctx.arc(x, y, r, 0, 6.283); ctx.moveTo(x + r * 0.5, y); ctx.arc(x, y, r * 0.5, 0, 6.283, true); }
+  else if (kind === 'cortisol') { const R = r * 1.2, q = r * 0.55; ctx.moveTo(x, y - R); ctx.lineTo(x + R, y); ctx.lineTo(x, y + R); ctx.lineTo(x - R, y); ctx.closePath(); ctx.moveTo(x, y - q); ctx.lineTo(x - q, y); ctx.lineTo(x, y + q); ctx.lineTo(x + q, y); ctx.closePath(); } // 1.2: ruit met gat (naast glucose = zeshoek)
   else if (kind === 'thyroxine') { for (let i = 0; i < 10; i++) { const an = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * 0.5 : r * 1.15; i ? ctx.lineTo(x + Math.cos(an) * rr, y + Math.sin(an) * rr) : ctx.moveTo(x + Math.cos(an) * rr, y + Math.sin(an) * rr); } ctx.closePath(); }
   else if (kind === 'tropine') { roundRect(ctx, x - r * 1.3, y - r * 0.6, r * 2.6, r * 1.2, r * 0.6); }
   else if (kind === 'groei') { for (let i = 0; i < 5; i++) { const an = -Math.PI / 2 + i * 2 * Math.PI / 5; i ? ctx.lineTo(x + Math.cos(an) * r * 1.1, y + Math.sin(an) * r * 1.1) : ctx.moveTo(x + Math.cos(an) * r * 1.1, y + Math.sin(an) * r * 1.1); } ctx.closePath(); }
@@ -1042,7 +1045,7 @@ function receptor(ctx, x, y, ang, kind = 'adrenaline', bound = 0, a = 1, s = 1, 
   ctx.fillStyle = rgba(col, 0.9); roundRect(ctx, -7 * s, -6 * s, 14 * s, 30 * s, 5 * s); ctx.fill();
   ctx.beginPath(); ctx.moveTo(-22 * s, -10 * s); ctx.lineTo(-22 * s, -42 * s); ctx.lineTo(-11 * s, -42 * s); ctx.lineTo(-11 * s, -22 * s); ctx.lineTo(11 * s, -22 * s); ctx.lineTo(11 * s, -42 * s); ctx.lineTo(22 * s, -42 * s); ctx.lineTo(22 * s, -10 * s); ctx.closePath();
   ctx.fillStyle = rgba(col, 0.9); ctx.fill(); ctx.strokeStyle = lighten(col, 0.3); ctx.lineWidth = 1.2; ctx.stroke();
-  if (bound < 0.99) { ctx.save(); ctx.globalAlpha *= 1 - bound; ctx.setLineDash([3 * s, 3 * s]); ctx.strokeStyle = HK.hormoon; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(0, -32 * s, 9 * s, 0, 6.283); ctx.stroke(); ctx.restore(); }
+  if (bound < 0.99) { ctx.save(); ctx.globalAlpha *= 1 - bound; ctx.setLineDash([3 * s, 3 * s]); ctx.strokeStyle = HK[kind] || HK.hormoon; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(0, -32 * s, 9 * s, 0, 6.283); ctx.stroke(); ctx.restore(); }
   ctx.restore();
   if (bound > 0.01) { const d = 32 * s + 70 * s * (1 - ease(bound)); hormoonVorm(ctx, x + Math.cos(ang) * d, y + Math.sin(ang) * d, 9 * s, kind, Math.min(1, bound * 4)); }
   ctx.restore();
@@ -2928,7 +2931,8 @@ function tag(ctx, s, x, y, col, a = 1, align = 'center') { if (a <= 0.01) return
 function vraagteken(ctx, x, y, a = 1, px = 120) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; text(ctx, '?', x, y, fTitel(px), C.goud, 'center'); ctx.restore(); }
 function kop(ctx, s, x, y, a = 1, col = C.text, px = 44, align = 'center') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; text(ctx, s, x, y, fTitel(px), col, align); ctx.restore(); }
 function regel(ctx, s, x, y, a = 1, col = C.text, px = 34, align = 'left', w = 600) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; text(ctx, s, x, y, fTekst(px, w), col, align); ctx.restore(); }
-const MERG = '#B0703F', SCHORS = HK.klier, CORT = C.teal, ADR = HK.hormoon, AFW = '#E6E1D3';
+// 1.2 (29 okt 2026): kleuren volgens de tabel van Kamiel (cortisol oker als ruit, adrenaline koraal, ACTH/CRH licht paars, zenuwsignaal teal)
+const MERG = '#B0703F', SCHORS = HK.klier, CORT = HK.cortisol, ADR = HK.adrenaline, TROP = HK.tropine, AFW = '#E6E1D3';
 
 // ---------- bijnier: kapje op de nier, en doorsnede met merg en schors ----------
 // 1.1: nier met bijnier uit de beeldbank (bibliotheek/lib_bio.js, nierBijnier: schors, piramides, bekken, vaten; bijnier als kapje met schors en merg)
@@ -2946,7 +2950,7 @@ function bijnierDoorsnede(ctx, x, y, s = 1, o = {}) { const { a = 1, merg = 1, s
   ctx.restore(); }
 function zenuwLijn(ctx, pts, a = 1, t = 0, puls = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = HK.zenuw; ctx.lineWidth = 4; ctx.lineCap = 'round'; ctx.beginPath(); pts.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke();
   if (puls > 0.01) { let L = 0; const seg = []; for (let i = 1; i < pts.length; i++) { const d = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]); seg.push(d); L += d; }
-    let u = ((t * 0.9) % 1) * L; for (let i = 1; i < pts.length; i++) { if (u <= seg[i - 1]) { const f = u / seg[i - 1]; circ(ctx, lerp(pts[i - 1][0], pts[i][0], f), lerp(pts[i - 1][1], pts[i][1], f), 9, rgba('#CDBDF2', puls)); break; } u -= seg[i - 1]; } }
+    let u = ((t * 0.9) % 1) * L; for (let i = 1; i < pts.length; i++) { if (u <= seg[i - 1]) { const f = u / seg[i - 1]; circ(ctx, lerp(pts[i - 1][0], pts[i][0], f), lerp(pts[i - 1][1], pts[i][1], f), 9, rgba(HK.impuls, puls)); break; } u -= seg[i - 1]; } }
   ctx.restore(); }
 // 1.1: witte bloedcellen uit de beeldbank (witteBloedcellen: neutrofiel met gelobde kern, B-cel, macrofaag); geremd = gedimd en trager
 const AFW_SOORT = ['neutrofiel', 'bcel', 'macrofaag', 'neutrofiel', 'bcel', 'neutrofiel', 'bcel'];
@@ -2960,9 +2964,9 @@ function hormoonPil(ctx, s, x, y, col, a = 1) { if (a <= 0.01) return; ctx.save(
 function hpaKeten(ctx, x, y0, o = {}) { const { a = 1, show = [1, 1, 1, 1, 1], rem = 0, remBeide = 0, hormoon = 'ACTH', crh = 0, dim = [1, 1, 1], krimp = 0, laag = 0 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
   const ys = [y0, y0 + 230, y0 + 460];
   ketenBox(ctx, x, ys[0], 380, 96, 'hypothalamus', '', HK.klierR, show[0] * dim[0]);
-  if (show[1] > 0.01) { arrow(ctx, x, ys[0] + 52, x, ys[1] - 56, HK.hormoon, show[1] * (1 - 0.6 * laag), 4); hormoonPil(ctx, 'CRH', x + 90, (ys[0] + ys[1]) / 2 + 6, HK.hormoon, show[1] * crh * (1 - 0.6 * laag)); }
+  if (show[1] > 0.01) { arrow(ctx, x, ys[0] + 52, x, ys[1] - 56, TROP, show[1] * (1 - 0.6 * laag), 4); hormoonPil(ctx, 'CRH', x + 90, (ys[0] + ys[1]) / 2 + 6, TROP, show[1] * crh * (1 - 0.6 * laag)); }
   ketenBox(ctx, x, ys[1], 380, 96, 'hypofyse', '', HK.klierR, show[1] * dim[1]);
-  if (show[2] > 0.01) { arrow(ctx, x, ys[1] + 52, x, ys[2] - 56, HK.hormoon, show[2] * (1 - 0.7 * laag), 4); hormoonPil(ctx, hormoon, x + 100, (ys[1] + ys[2]) / 2 + 6, HK.hormoon, show[2] * (1 - 0.6 * laag)); }
+  if (show[2] > 0.01) { arrow(ctx, x, ys[1] + 52, x, ys[2] - 56, TROP, show[2] * (1 - 0.7 * laag), 4); hormoonPil(ctx, hormoon, x + 100, (ys[1] + ys[2]) / 2 + 6, TROP, show[2] * (1 - 0.6 * laag)); }
   ctx.save(); ctx.globalAlpha *= show[3]; const kw = 380 * (1 - 0.35 * krimp); roundRect(ctx, x - kw / 2, ys[2] - 48, kw, 96, 18); shape(ctx, rgba(SCHORS, 0.25), SCHORS, 2.5); text(ctx, 'bijnierschors', x, ys[2] + 12, fTekst(36, 700), C.text, 'center'); ctx.restore();
   if (show[4] > 0.01) { arrow(ctx, x, ys[2] + 52, x, ys[2] + 120, CORT, show[4], 4); hormoonPil(ctx, 'cortisol', x, ys[2] + 160, CORT, show[4]); }
   const rv = o.remVan || [x - 90, ys[2] + 150]; const remBoog = (yt, al) => { if (al <= 0.01) return; ctx.save(); ctx.globalAlpha *= al; ctx.setLineDash([10, 10]); ctx.strokeStyle = HK.rem; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(rv[0], rv[1]); ctx.bezierCurveTo(x - 420, ys[2] + 100, x - 420, yt, x - 200, yt); ctx.stroke(); ctx.setLineDash([]); ctx.fillStyle = HK.rem; ctx.font = fTekst(40, 700); ctx.textAlign = 'center'; ctx.fillText('−', x - 215, yt - 10); ctx.restore(); };
@@ -2983,6 +2987,39 @@ function bedScene(ctx, x, y, a = 1, t = 0) { if (a <= 0.01) return; ctx.save(); 
   ctx.restore(); }
 function darken(c, k) { return lighten(c, -k); }
 
+// 1.2 (29 okt 2026, keuze Kamiel): cold open thuis 's avonds aan het bureau, zoals de stem zegt ('elke avond tot laat leren'), niet meer in de klas.
+// Muur, raam met avondlucht (maan, daken met een paar verlichte ramen), wandklok die van 20:00 naar 23:30 loopt, bureau met lamp, schrift en boeken.
+function thuisAvond(ctx, t, laat = 0) {
+  ctx.fillStyle = '#26354F'; ctx.fillRect(0, 0, W, H);
+  ctx.fillStyle = '#3A3128'; ctx.fillRect(0, 820, W, H - 820); ctx.fillStyle = '#1E2A40'; ctx.fillRect(0, 808, W, 14);
+  ctx.strokeStyle = rgba('#000000', 0.18); ctx.lineWidth = 2; for (let i = 0; i < 4; i++) { const y = 860 + i * 56; ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
+  // raam
+  const rx = 150, ry = 120, rw = 470, rh = 430;
+  ctx.fillStyle = _mixHex('#22355C', '#111C33', laat); ctx.fillRect(rx, ry, rw, rh);
+  ctx.fillStyle = _mixHex('#2E4570', '#17243F', laat); ctx.fillRect(rx, ry + rh * 0.62, rw, rh * 0.38);
+  [[0.12, 0.18], [0.3, 0.09], [0.55, 0.22], [0.72, 0.12], [0.86, 0.3], [0.42, 0.32]].forEach(([u, v]) => circ(ctx, rx + rw * u, ry + rh * v, 2.4, rgba('#E6E1D3', 0.5 + 0.4 * laat)));
+  ctx.save(); ctx.beginPath(); ctx.arc(rx + rw * 0.74, ry + rh * 0.24, 34, 0, 6.283); ctx.fillStyle = '#E6E1D3'; ctx.fill(); ctx.beginPath(); ctx.arc(rx + rw * 0.74 + 16, ry + rh * 0.24 - 8, 30, 0, 6.283); ctx.fillStyle = _mixHex('#22355C', '#111C33', laat); ctx.fill(); ctx.restore();
+  // daken met verlichte ramen
+  ctx.fillStyle = '#121A2B'; ctx.beginPath(); ctx.moveTo(rx, ry + rh); [[0, 0.78], [0.14, 0.66], [0.28, 0.78], [0.28, 0.72], [0.5, 0.72], [0.5, 0.62], [0.64, 0.5], [0.78, 0.62], [0.78, 0.74], [1, 0.74], [1, 1]].forEach(([u, v]) => ctx.lineTo(rx + rw * u, ry + rh * v)); ctx.closePath(); ctx.fill();
+  [[0.08, 0.84], [0.36, 0.8], [0.6, 0.66], [0.66, 0.8], [0.88, 0.84]].forEach(([u, v], i) => { if (i === 3 && laat > 0.6) return; ctx.fillStyle = rgba(C.oker, 0.8); ctx.fillRect(rx + rw * u, ry + rh * v, 22, 26); });
+  ctx.strokeStyle = '#C9C2B4'; ctx.lineWidth = 12; ctx.strokeRect(rx, ry, rw, rh); ctx.lineWidth = 8; ctx.beginPath(); ctx.moveTo(rx + rw / 2, ry); ctx.lineTo(rx + rw / 2, ry + rh); ctx.moveTo(rx, ry + rh * 0.45); ctx.lineTo(rx + rw, ry + rh * 0.45); ctx.stroke();
+  roundRect(ctx, rx - 24, ry + rh + 4, rw + 48, 20, 4); shape(ctx, '#C9C2B4', '#A39C8E', 1.5);
+  ctx.beginPath(); ctx.moveTo(rx + rw + 10, ry - 30); ctx.lineTo(rx + rw + 110, ry - 30); ctx.quadraticCurveTo(rx + rw + 90, ry + rh * 0.5, rx + rw + 120, ry + rh + 60); ctx.lineTo(rx + rw + 20, ry + rh + 60); ctx.quadraticCurveTo(rx + rw - 6, ry + rh * 0.5, rx + rw + 10, ry - 30); ctx.closePath(); shape(ctx, '#7A5245', '#5E3F35', 2);
+  // wandklok: van acht uur tot half twaalf
+  klok(ctx, 820, 220, 62, 8 + 3.5 * laat, '', 1, C.goud);
+}
+function bureau(ctx, x, y, w) { roundRect(ctx, x - w / 2, y, w, 30, 6); shape(ctx, '#9C7A52', '#7A5C3C', 2); ctx.fillStyle = '#7A5C3C'; ctx.fillRect(x - w / 2 + 30, y + 30, 26, 160); roundRect(ctx, x + w / 2 - 300, y + 30, 270, 160, 6); shape(ctx, '#8C6A44', '#6E5234', 2); for (let i = 0; i < 2; i++) { roundRect(ctx, x + w / 2 - 285, y + 44 + i * 74, 240, 60, 4); shape(ctx, '#957250', '#6E5234', 1.5); roundRect(ctx, x + w / 2 - 190, y + 70 + i * 74, 50, 8, 4); ctx.fillStyle = '#C9C2B4'; ctx.fill(); } }
+function schrift(ctx, x, y, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.moveTo(x - 150, y - 8); ctx.lineTo(x, y - 2); ctx.lineTo(x + 150, y - 8); ctx.lineTo(x + 160, y + 18); ctx.lineTo(x, y + 24); ctx.lineTo(x - 160, y + 18); ctx.closePath(); shape(ctx, '#EDE8DA', '#B8B1A2', 1.5);
+  ctx.strokeStyle = rgba('#5A7FA0', 0.6); ctx.lineWidth = 1.2; for (let i = 0; i < 3; i++) { const yy = y + 2 + i * 6; ctx.beginPath(); ctx.moveTo(x - 140, yy); ctx.lineTo(x - 14, yy + 3); ctx.moveTo(x + 14, yy + 3); ctx.lineTo(x + 140, yy); ctx.stroke(); }
+  ctx.strokeStyle = '#3A3530'; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x + 60, y + 30); ctx.lineTo(x + 150, y + 22); ctx.stroke(); ctx.restore(); }
+function bureauLamp(ctx, x, y, aan = 1) { // voet op (x, y) = bovenkant bureau; kap boven het schrift
+  const kx = x - 150, ky = y - 250;
+  if (aan > 0.01) { ctx.save(); ctx.globalAlpha *= aan; ctx.beginPath(); ctx.moveTo(kx - 30, ky + 26); ctx.lineTo(kx + 36, ky + 22); ctx.lineTo(kx - 20, y - 4); ctx.lineTo(kx - 360, y - 4); ctx.closePath(); ctx.fillStyle = rgba('#FFE7A8', 0.08); ctx.fill(); ctx.beginPath(); ctx.ellipse(kx - 200, y - 2, 190, 16, 0, 0, 6.283); ctx.fillStyle = rgba('#FFE7A8', 0.14); ctx.fill(); ctx.restore(); }
+  ctx.beginPath(); ctx.ellipse(x, y - 6, 52, 12, 0, 0, 6.283); shape(ctx, '#3E4A5E', '#5B6B88', 2);
+  ctx.strokeStyle = '#5B6B88'; ctx.lineWidth = 9; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x, y - 12); ctx.lineTo(x + 30, y - 170); ctx.lineTo(kx + 20, ky); ctx.stroke(); circ(ctx, x + 30, y - 170, 9, '#3E4A5E', '#8FA0B5', 2);
+  ctx.save(); ctx.translate(kx, ky); ctx.rotate(-0.35); ctx.beginPath(); ctx.moveTo(-10, -22); ctx.lineTo(40, -26); ctx.lineTo(62, 26); ctx.lineTo(-40, 30); ctx.closePath(); shape(ctx, '#3E4A5E', '#8FA0B5', 2); ctx.beginPath(); ctx.ellipse(10, 28, 50, 7, 0, 0, 6.283); ctx.fillStyle = aan > 0.5 ? '#FFE7A8' : '#8FA0B5'; ctx.fill(); ctx.restore();
+}
+
 // lichaam van s06 (lib_anatomie: BODY = {cx, yb, h}; AP(x, y) in hoofdhoogtes, x > 0 = rechts in beeld = links in het lichaam)
 const S6_BODY = { cx: 540, yb: 880, h: 740 }; var BODY = S6_BODY;
 // bloedlus vanaf de bijnier: holle ader → hart → halsslagaders → terug → aorta → benen → terug langs de nieren
@@ -2991,11 +3028,12 @@ const S6_LUS = [[0.37, 2.72], [0.12, 2.6], [0.04, 2.3], [0.12, 1.8], [0.15, 1.3]
 const SCENES = {
   title(ctx, t) { bijnierDoorsnede(ctx, 1440, 560, 1.1, { gMerg: 0.5 + 0.5 * Math.sin(t * 3), gSchors: 0.5 + 0.5 * Math.sin(t * 0.8) }); },
 
-  s01(ctx, t, q) { klasAchtergrond(ctx);
-    const bed = q.on('bed', 1);
-    ctx.save(); ctx.globalAlpha *= 1 - bed; weekBalk(ctx, 1320, 130, 520, q.on('Toetsweek', 1));
-    schoolbank(ctx, 960, 700, 560); ctx.save(); ctx.beginPath(); ctx.rect(0, 0, W, 712); ctx.clip(); persoon(ctx, 'noor', 960, 940, 560, { pose: 'zit', tafel: 704, uit: q.on('avond', 1) > 0.5 ? 'moe' : 'denkt', kijk: 1, t }); ctx.restore(); boek(ctx, 760, 650, 140, 46, '#B36A5E'); boek(ctx, 780, 610, 120, 40, '#5A7FA0'); boek(ctx, 1080, 660, 160, 36, '#C9A35C');
-    const lamp = q.on('avond', 1); if (lamp > 0.01) { ctx.fillStyle = rgba('#000814', 0.45 * lamp); ctx.fillRect(0, 0, W, H); const g = ctx.createRadialGradient(1180, 560, 0, 1180, 560, 380); g.addColorStop(0, rgba('#FFE7A8', 0.35 * lamp)); g.addColorStop(1, rgba('#FFE7A8', 0)); ctx.fillStyle = g; ctx.fillRect(700, 200, 900, 700); }
+  s01(ctx, t, q) { // 1.2: thuis 's avonds aan het bureau (was: klaslokaal)
+    const bed = q.on('bed', 1), laat = q.on('laat', 1);
+    ctx.save(); ctx.globalAlpha *= 1 - bed; thuisAvond(ctx, t, laat);
+    bureau(ctx, 960, 704, 1120); ctx.save(); ctx.beginPath(); ctx.rect(0, 0, W, 712); ctx.clip(); persoon(ctx, 'noor', 960, 940, 560, { pose: 'zit', tafel: 704, uit: laat > 0.5 ? 'moe' : 'denkt', kijk: 1, t }); ctx.restore();
+    schrift(ctx, 960, 690); boek(ctx, 560, 650, 150, 46, '#B36A5E'); boek(ctx, 575, 610, 125, 40, '#5A7FA0'); boek(ctx, 590, 576, 110, 34, '#7FA07F');
+    ctx.fillStyle = rgba('#000814', 0.18 + 0.27 * laat); ctx.fillRect(0, 0, W, H); bureauLamp(ctx, 1360, 704, 1); weekBalk(ctx, 1320, 130, 520, q.on('Toetsweek', 1));
     ctx.restore();
     if (bed > 0.01) { ctx.save(); ctx.globalAlpha *= bed; ctx.fillStyle = '#26364F'; ctx.fillRect(0, 0, W, H); ctx.fillStyle = '#3A3530'; ctx.fillRect(0, 700, W, H - 700); bedScene(ctx, 900, 640, 1, t); ctx.restore();
       tag(ctx, 'verkouden · keelpijn', 960, 260, C.koraal, q.on('Verkouden', 1)); }
@@ -3009,8 +3047,8 @@ const SCENES = {
     naamBij(ctx, 'merg', 'binnenin', 770, 570, q.on('merg', 1) * cut, 'center', lighten(MERG, 0.3)); naamBij(ctx, 'schors', 'daaromheen', 480, 560, q.on('schors', 1) * cut, 'right', HK.klierR);
     tag(ctx, 'twee klieren in één', 760, 830, C.goud, q.on('klieren', 1) * (1 - q.on('adrenaline', 1)));
     const ad = q.on('adrenaline', 1), co = q.on('cortisol', 1);
-    if (ad > 0.01) { ctx.save(); ctx.globalAlpha *= ad; regel(ctx, 'merg → adrenaline', 1180, 520, 1, C.text, 36); zenuwLijn(ctx, [[300, 200], [470, 360], [640, 450], [740, 500]], q.on('zenuw', 1), t, 1); regel(ctx, 'aangezet door een zenuw', 1180, 570, q.on('zenuw', 1), HK.zenuw, 30); ctx.restore(); }
-    if (co > 0.01) { ctx.save(); ctx.globalAlpha *= co; regel(ctx, 'schors → cortisol', 1180, 690, 1, C.text, 36); regel(ctx, 'aangezet door een hormoon van de hypofyse', 1180, 740, q.on('hypofyse', 1), HK.hormoon, 30); ctx.restore(); }
+    if (ad > 0.01) { ctx.save(); ctx.globalAlpha *= ad; regel(ctx, 'merg → adrenaline', 1180, 520, 1, C.text, 36); hormoonVorm(ctx, 1520, 506, 13, 'adrenaline', 1); zenuwLijn(ctx, [[300, 200], [470, 360], [640, 450], [740, 500]], q.on('zenuw', 1), t, 1); regel(ctx, 'aangezet door een zenuw', 1180, 570, q.on('zenuw', 1), HK.zenuw, 30); ctx.restore(); }
+    if (co > 0.01) { ctx.save(); ctx.globalAlpha *= co; regel(ctx, 'schors → cortisol', 1180, 690, 1, C.text, 36); hormoonVorm(ctx, 1490, 676, 13, 'cortisol', 1); regel(ctx, 'aangezet door een hormoon van de hypofyse', 1180, 740, q.on('hypofyse', 1), TROP, 30); ctx.restore(); }
     vraagteken(ctx, 1700, 860, q.on('Welke', 1), 100);
   },
 
@@ -3054,7 +3092,7 @@ const SCENES = {
     const st = q.on('stresshormoon', 1) * (1 - q.on('bonken', 1)); if (st > 0.01) tag(ctx, 'cortisol = hét stresshormoon?', 1370, 820, CORT, st);
   },
   s09(ctx, t, q) { bg(ctx, 'schema');
-    hormoonPil(ctx, 'cortisol', 760, 480, CORT, 1); arrow(ctx, 880, 480, 1020, 480, C.line, 1, 4); for (let i = 0; i < 5; i++) glucoseDeeltje(ctx, 1100 + (i % 3) * 60, 440 + Math.floor(i / 3) * 70, 22, 1);
+    hormoonPil(ctx, 'cortisol', 760, 480, CORT, 1); hormoonVorm(ctx, 760, 400, 18, 'cortisol', 1); arrow(ctx, 880, 480, 1020, 480, C.line, 1, 4); for (let i = 0; i < 5; i++) glucoseDeeltje(ctx, 1100 + (i % 3) * 60, 440 + Math.floor(i / 3) * 70, 22, 1);
     vraagteken(ctx, 1380, 520, q.on('Wat', 2) || q.on('denk', 1), 140);
   },
   s11(ctx, t, q) { bg(ctx, 'schema');
@@ -3065,9 +3103,9 @@ const SCENES = {
     for (let i = 0; i < 8; i++) { const u = ((t * 0.25 + i / 8) % 1); const bx = lerp(580, 860, u), by = 450 + Math.sin(u * 6 + i) * 40; ctx.save(); ctx.globalAlpha *= am; circ(ctx, bx, by, 11, rgba(C.groen, 0.7 * Math.max(sp, 0.3)), C.groen, 1.5); ctx.restore(); }
     tag(ctx, 'eiwit → aminozuren', 390, 230, C.groen, sp);
     const ng = q.on('nieuwe', 1); for (let i = 0; i < 7; i++) { const u = ((t * 0.3 + i / 7) % 1); glucoseDeeltje(ctx, lerp(1260, 1640, u), 460 + Math.sin(u * 5 + i) * 60, 18, ng * (1 - u * 0.3)); }
-    tag(ctx, 'nieuwe glucose', 1480, 300, C.teal, ng);
-    const vg = q.on('voorraad', 1); if (vg > 0.01) { ctx.save(); ctx.globalAlpha *= vg; roundRect(ctx, 260, 720, 640, 120, 18); shape(ctx, rgba(ADR, 0.1), rgba(ADR, 0.6), 1.5); text(ctx, 'adrenaline: uit de voorraad (glycogeen)', 580, 790, fTekst(30, 600), C.text, 'center'); ctx.restore(); }
-    const nb = q.on('laat', 2); if (nb > 0.01) { ctx.save(); ctx.globalAlpha *= nb; roundRect(ctx, 1020, 720, 640, 120, 18); shape(ctx, rgba(CORT, 0.12), rgba(CORT, 0.7), 1.5); text(ctx, 'cortisol: nieuwe glucose erbij', 1340, 790, fTekst(30, 600), C.text, 'center'); ctx.restore(); }
+    tag(ctx, 'nieuwe glucose', 1480, 300, HK.glucose, ng);
+    const vg = q.on('voorraad', 1); if (vg > 0.01) { ctx.save(); ctx.globalAlpha *= vg; roundRect(ctx, 260, 720, 640, 120, 18); shape(ctx, rgba(ADR, 0.1), rgba(ADR, 0.6), 1.5); hormoonVorm(ctx, 296, 780, 13, 'adrenaline', 1); text(ctx, 'adrenaline: uit de voorraad (glycogeen)', 590, 790, fTekst(30, 600), C.text, 'center'); ctx.restore(); }
+    const nb = q.on('laat', 2); if (nb > 0.01) { ctx.save(); ctx.globalAlpha *= nb; roundRect(ctx, 1020, 720, 640, 120, 18); shape(ctx, rgba(CORT, 0.12), rgba(CORT, 0.7), 1.5); hormoonVorm(ctx, 1060, 780, 13, 'cortisol', 1); text(ctx, 'cortisol: nieuwe glucose erbij', 1350, 790, fTekst(30, 600), C.text, 'center'); ctx.restore(); }
   },
   s12(ctx, t, q) { bg(ctx, 'micro');
     const rem = ramp(t, q.at('remt'), 2);
@@ -3080,12 +3118,12 @@ const SCENES = {
   },
   s13(ctx, t, q) { bg(ctx, 'schema');
     const dr = q.on('Nog', 1);
-    const nodes = [{ t: 'cortisol in het bloed', s: 'glucose omhoog, afweer omlaag', col: CORT, rol: 'WAARDE' }, { t: 'hypothalamus + hypofyse', s: 'meten cortisol', col: HK.klierR, rol: 'REGELCENTRUM' }, { t: 'ACTH', s: 'de opdracht', col: HK.hormoon, rol: 'SIGNAAL' }, { t: 'bijnierschors', s: 'maakt cortisol', col: SCHORS, rol: 'EFFECTOR' }];
+    const nodes = [{ t: 'cortisol in het bloed', s: 'glucose omhoog, afweer omlaag', col: CORT, rol: 'WAARDE' }, { t: 'hypothalamus + hypofyse', s: 'meten cortisol', col: HK.klierR, rol: 'REGELCENTRUM' }, { t: 'ACTH', s: 'de opdracht', col: TROP, rol: 'SIGNAAL' }, { t: 'bijnierschors', s: 'maakt cortisol', col: SCHORS, rol: 'EFFECTOR' }];
     kringSchema(ctx, 960, 470, { a: 1 - dr, nodes, rx: 540, ry: 290, bw: 460, bh: 120, arr: [q.on('remt', 1), q.on('ACTH', 1), q.on('minder', 2), 1], minus: q.on('terugkoppeling', 1), pulse: (t / 5) % 1 });
     tag(ctx, 'eindproduct remt zijn eigen aanmaak', 960, 470 + 0, C.goud, q.on('eindproduct', 1) * (1 - q.on('terugkoppeling', 1)) * (1 - dr));
     if (dr > 0.01) { const f = h => h < 7.5 ? 20 + 80 * Math.exp(-Math.pow((h - 7.5) / 2, 2)) : 20 + 80 * Math.exp(-(h - 7.5) / 4);
       grafiek(ctx, 300, 200, 1320, 480, { a: dr, xmax: 24, ymax: 110, f, u: ramp(t, q.at('Nog'), 3), xticks: [0, 6, 12, 18, 24], yticks: [], xlab: 'uur van de dag', ylab: 'cortisol (model)', col: CORT, xfmt: v => v + ':00' });
-      tag(ctx, 'hoogst: wakker worden', 820, 150, CORT, q.on('wakker', 1)); tag(ctx, 'laagst: middernacht', 1560, 500, C.text2, q.on('middernacht', 1)); tag(ctx, 'biologische klok', 960, 760, C.paars, q.on('ritme', 1)); }
+      tag(ctx, 'hoogst: wakker worden', 820, 150, CORT, q.on('wakker', 1)); tag(ctx, 'laagst: middernacht', 1560, 500, C.text2, q.on('middernacht', 1)); tag(ctx, 'biologische klok', 960, 760, C.text2, q.on('ritme', 1)); }
   },
   s14(ctx, t, q) { bg(ctx, 'schema');
     const cel = q.on('Adrenaline', 1), pr = q.on('prednison', 1);
@@ -3105,7 +3143,7 @@ const SCENES = {
     const laag = q.on('weinig', 1), kr = q.on('kleiner', 1), stop = q.on('Stopt', 1);
     hpaKeten(ctx, 520, 190, { crh: 1, rem: 1 - stop, remBeide: 1 - stop, laag, krimp: ramp(t, q.at('kleiner'), 2), show: [1, 1, 1, 1, 0.3], remVan: [200, 790] });
     hormoonPil(ctx, 'prednison', 200, 820, '#F2F2EE', 1 - stop);
-    tag(ctx, 'weinig CRH en ACTH', 1200, 300, HK.rem, laag); tag(ctx, 'bijnierschors krimpt', 1200, 400, SCHORS, kr); tag(ctx, 'te weinig cortisol', 1200, 500, C.koraal, q.on('weinig', 2));
+    tag(ctx, 'weinig CRH en ACTH', 1200, 300, TROP, laag); tag(ctx, 'bijnierschors krimpt', 1200, 400, SCHORS, kr); tag(ctx, 'te weinig cortisol', 1200, 500, C.koraal, q.on('weinig', 2));
     const af = q.on('bouwen', 1); if (af > 0.01) { ctx.save(); ctx.globalAlpha *= af; metaText(ctx, 'DOSIS PREDNISON', 1060, 620, C.grain, 'left', 22); for (let i = 0; i < 6; i++) { const h = 180 - i * 30; roundRect(ctx, 1060 + i * 110, 820 - h, 80, h, 8); shape(ctx, rgba('#F2F2EE', 0.3), '#C9C2B4', 1.5); } regel(ctx, 'langzaam afbouwen', 1060, 870, 1, C.text, 30); ctx.restore(); }
     tag(ctx, 'stop nooit zelf: overleg met je arts', 1300, 160, C.goud, q.on('overleg', 1));
   },
@@ -3122,7 +3160,7 @@ const SCENES = {
       arrow(ctx, 1500, 420, 1180, 420, HK.rem, 1, 4); text(ctx, 'cortisol: rem', 1340, 370, fTekst(36, 700), HK.rem, 'center');
       tag(ctx, 'gas sterker dan rem', 960, 620, C.goud, q.on('gaspedaal', 1));
       tag(ctx, "'s avonds blijft cortisol te hoog", 960, 760, CORT, q.on('avonds', 1)); ctx.restore(); }
-    if (ph3 > 0.01) { const P = [['afweer geremd', 'sneller ziek, wondjes trager', AFW, q.on('afweer', 1)], ['glucose hoger', '', C.teal, q.on('glucose', 1)], ['slechter slapen', '', C.paars, q.on('slaapt', 1)]];
+    if (ph3 > 0.01) { const P = [['afweer geremd', 'sneller ziek, wondjes trager', AFW, q.on('afweer', 1)], ['glucose hoger', '', HK.glucose, q.on('glucose', 1)], ['slechter slapen', '', C.text2, q.on('slaapt', 1)]];
       P.forEach(([a1, a2, c, al], i) => { if (al <= 0.01) return; const x = 380 + i * 580; ctx.save(); ctx.globalAlpha *= al * ph3; roundRect(ctx, x - 250, 300, 500, 360, 24); shape(ctx, rgba(c, 0.1), c, 2); text(ctx, a1, x, 470, fTekst(40, 700), C.text, 'center'); if (a2) text(ctx, a2, x, 530, fTekst(28), C.text2, 'center'); ctx.restore(); });
       tag(ctx, 'wat kort helpt, werkt nu tegen je', 960, 200, C.koraal, ph3); }
   },

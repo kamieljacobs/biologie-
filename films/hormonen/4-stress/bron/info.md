@@ -5,12 +5,12 @@
 | Bestand | films/hormonen/4-stress.html (audio in films/hormonen/4-stress/audio/) |
 | Reeks / nummer | Hormonen, film 4 van 5 (seriebrief in de Claude-doc *Seriebriefs uitlegfilms biologie*) |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blok gelabeld: s14–s16 met vraag q15 (CRH en HPA-as, receptor op het membraan tegenover in de cel, prednison en afbouwen). Havo/Vwo-schakelaar, standaard Vwo |
-| Versie / datum | **1.1 · 28 oktober 2026** — opwaardering naar prompt v13 (B14, zonder keuring; zie Wijzigingen); 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus). Oude versie: `bron/oud/4-stress-v1.0.html` |
+| Versie / datum | **1.2 · 29 oktober 2026** — keuzes van Kamiel (regeling): cold open thuis 's avonds, kleuren gelijkgetrokken (zie Wijzigingen); oude versie `bron/oud/4-stress-v1.1.html`. 1.1 · 28 oktober 2026 — opwaardering naar prompt v13 (B14, zonder keuring); 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus). Oude versie: `bron/oud/4-stress-v1.0.html` |
 | Prompt | v13 |
-| Voldoet aan | prompt v13 (28 okt 2026, zonder keuring; takes behouden, alleen ‘Voor vwo …’ uit s14 geknipt). Bewust niet: seriekleuren (zenuw paars, cortisol teal) niet omgezet naar Part C (zenuwsignalen teal) omdat dat de hele reeks raakt: vraag aan Kamiel; s14-cellen (adrenaline/cortisol) blijven schematische ovalen met één membraanlijn (vergelijking, geen celbouw); lichtgloed van de bureaulamp in de cold open blijft (sfeer, geen betekenis); geen nieuwe caststijl met contourlijnen (nog niet goedgekeurd); geen nieuw herkenbaar moment toegevoegd (Noor in de cold open en recap draagt het concept al) |
+| Voldoet aan | prompt v13 (28 okt 2026, zonder keuring; takes behouden, alleen ‘Voor vwo …’ uit s14 geknipt). Sinds 1.2 zijn de seriekleuren volgens Part C en Kamiels tabel (29 okt 2026). Bewust niet: s14-cellen (adrenaline/cortisol) blijven schematische ovalen met één membraanlijn (vergelijking, geen celbouw); zachte lichtbundel van de bureaulamp in de cold open (sfeer, geen betekenis); geen nieuwe caststijl met contourlijnen (nog niet goedgekeurd); geen nieuw herkenbaar moment toegevoegd (Noor in de cold open en recap draagt het concept al) |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow oh3JHEiaYnWofBSvXTy5; nodes in `stem/takes.json`). s12 en s16 zijn na de eindreview opnieuw ingesproken; s14 sinds 1.1 geknipt (zonder ‘Voor vwo …’, oude take in `bron/oud/audio/s14.mp3`) |
 | Duur | spraak 6:50 (vwo, sinds 1.1) / 5:23 (havo); met ‘Vragen uit’ vwo 6:51, havo 5:28 inclusief kaarten (gemeten 28 okt 2026). Speeltijd met kaarten en vragen: vwo ≈ 9 min, havo ≈ 7 min |
-| Beeldstijl | Part C: Macro (klaslokaal en slaapkamer, cold open), Schema (navy: bijnier, lichaamskaart, keten, regelkring, grafieken), Micro (afweercellen). Seriekleuren in `lib_hormonen.js` (`HK`); in deze film: adrenaline goud (druppel), cortisol teal (ring), merg `#B0703F`, schors oker |
+| Beeldstijl | Part C: Macro (kamer thuis en slaapkamer, cold open), Schema (navy: bijnier, lichaamskaart, keten, regelkring, grafieken), Micro (afweercellen). Seriekleuren in `lib_hormonen.js` (`HK`, sinds 1.2 volgens de tabel van 29 okt 2026); in deze film: adrenaline koraal (druppel), cortisol oker (ruit met gat; glucose oker als zeshoek), CRH en ACTH licht paars `#B3A6DA`, zenuwbaan teal met lichte impuls, merg `#B0703F`, schors oker |
 | Audio-opslag | 14 losse mp3's in audio/ (s01 … s19), loudnorm −15 LUFS, piek −1,5 dBTP, mono 44,1 kHz 96 kb/s; niet in de HTML ingebed |
 | Lettertypen | Fraunces 700, Source Sans 3 400/600/700, IBM Plex Mono 500 — ingebed als base64 |
 | Herkomst | gebouwd op 14 oktober 2026 met de bouwstraat van de voedingsreeks (`bouw/`) en de seriebibliotheek `lib_hormonen.js` |
@@ -39,7 +39,7 @@
 
 | Hoofdstuk | Type · look | Kernbeeld |
 |---|---|---|
-| Cold open (s01, q02) | I · Macro | Klaslokaal met rooster van de toetsweek, leerling leert tot laat (lamp); daarna in bed met tissues; vraag q02 |
+| Cold open (s01, q02) | I · Macro | Thuis 's avonds: Noor aan haar bureau (schrift, boeken, bureaulamp), raam met avondlucht, wandklok 20:00 → 23:30, rooster van de toetsweek; daarna in bed met tissues; vraag q02 |
 | Titel | Schema | Bijnierdoorsnede met pulserend merg en schors |
 | H1 Eén klier, twee delen (s04, q05) | B · Schema | Nier met bijnier als kapje; doorsnede: merg binnen, schors eromheen; zenuw naar het merg; "merg → adrenaline", "schors → cortisol"; vraag q05 |
 | H2 De snelle route (s06–s07) | D · Schema | Lichaamskaart: zenuw van de hypothalamus naar het bijniermerg; mergcel met adrenaline in blaasjes; adrenaline in de bloedlus; doelwitcellen (met en zonder receptor); vijf effecten; grafiek: extra adrenaline na een paar minuten weg |
@@ -76,7 +76,7 @@ Begrippen: bijnier, bijniermerg, bijnierschors, orthosympathisch zenuwstelsel, a
 | 379–949 | `lib_voeding.js` (gebruikt: `lichaam`, `glycogen`, `hexagon`, `proteinChain`, `coilPath`, `arrow`, `klok`, `padPunt`, `gladC`) |
 | 950–1200 | `lib_hormonen.js`: seriebibliotheek (`person`, `HK`, `hormoonVorm`, `receptor`, `doelcel`, `hartMeter`, `klierKaart`, `bloedLus`, `grafiek`, `bakKraan`, `kringSchema`, `eilandje`, `cel`, `glycogeenKeten`, `telefoon`, …) |
 | 1201–1254 | `scenes.js`: hulpstukken van deze film |
-| 1255–1402 | `SCENES`: title 1256 · s01 1258 · s04 1269 · s06 1281 · s07 1293 · s08 1299 · s09 1310 · s11 1314 · s12 1325 · s13 1334 · s14 1343 · s16 1357 · s17 1366 · s18 1382 · s19 1389 |
+| 2925–3187 | `scenes.js` (stand 1.2): hulpstukken, cold open `thuisAvond`/`bureau`/`schrift`/`bureauLamp` vanaf 2992; `SCENES` 3028: title 3029 · s01 3031 · s04 3043 · s06 3055 · s07 3077 · s08 3083 · s09 3094 · s11 3098 · s12 3110 · s13 3119 · s14 3128 · s16 3142 · s17 3151 · s18 3167 · s19 3174 (de regelnummers erboven zijn van 1.0; sinds 1.1 staan castboek, anatomie en beeldbank-uittreksel ervoor) |
 | 1403–1570 | `GLOSSARY` en `player.js` (havo slaat vwo-segmenten over) |
 
 ## Hoe je de film aanpast
@@ -117,6 +117,12 @@ Kamiel koos in de uitspraaktest (18–19 okt, 4 rondes) hoe de risicowoorden moe
 
 
 ## Wijzigingen
+
+- **1.2 · 29 okt 2026** — keuzes van Kamiel op het keuzeblad 'Regeling: jouw keuzes' (brief `films/UITVOEREN-REGELING.md`). Niets ingesproken (0 credits); stem, script, vragen, timings en datum gelijk. Voldoet aan: prompt v13 (blijft). Ingebouwd met `bouw/splice.py`; oude versie `bron/oud/4-stress-v1.1.html`, oude `scenes.js` en `lib_hormonen.js` in `bron/oud/src-v1.1/`.
+  - *s01 (cold open):* decor van klaslokaal naar thuis 's avonds, in lijn met de stem ('elke avond tot laat leren'): nieuwe functies `thuisAvond` (muur, raam met avondlucht, maan, daken met verlichte ramen, gordijn, wandklok die bij 'laat' van 20:00 naar 23:30 loopt), `bureau`, `schrift` en `bureauLamp` (zachte lichtbundel op het schrift) in `src/scenes.js`. Noor (castboek) zit aan haar bureau, 'denkt' en vanaf 'laat' 'moe'; de kamer wordt donkerder. Rooster van de toetsweek nu boven het donker getekend. Bedscène ongewijzigd.
+  - *Kleuren (alle scènes, tabel Kamiel 29 okt 2026):* `HK` in `src/lib_hormonen.js`: hormoon paars, `hormoonR`/`tropine` licht paars `#B3A6DA`, `adrenaline` koraal, `cortisol` oker, `glucose` oker, `zenuw` teal, `impuls` licht, `rem` oker (de rem is cortisol). `hormoonVorm` kiest de kleur bij het hormoon (`HK[kind]`), cortisol is een ruit met gat (naast glucose = zeshoek). In `scenes.js`: `CORT`/`ADR`/`TROP`; CRH- en ACTH-pijlen en -pillen licht paars (s04, s08, s13, s14, s16); 'nieuwe glucose' en 'glucose hoger' oker; 'biologische klok' en 'slechter slapen' neutraal (geen paars meer); zenuwimpuls licht teal in plaats van lavendel.
+  - *Legenda bij de eerste keer:* in s04 staat het vormpje naast 'merg → adrenaline' en 'schors → cortisol'; in s09 een cortisolruit boven de pil; in s11 vormpjes in de vakken 'adrenaline: uit de voorraad' en 'cortisol: nieuwe glucose erbij'. Zo is de kleur nooit de enige drager.
+  - Getest: stills van alle gewijzigde scènes (s01, s04, s06, s08, s09, s11–s14, s16, s17, s19) bekeken; q02 met `?vragen=uit` afgespeeld (vwo en havo, geen JS-fouten); spelerfix, antwoordtekst, antwoordletter `--check` in orde, kortantwoord-merk aanwezig.
 
 - **1.1 · 28 okt 2026** — opwaardering prompt v2–v5 → v13 (B14, zonder keuring). Stem, script, vragen en timings gelijk, behalve de knip in s14. Ingebouwd met `bouw/splice.py`; daarna spelerfix, antwoordtekst, kortantwoord, antwoordletter (alle `--check` in orde), flipkaarten, licentie_noot, teller. Elke vraag met `?vragen=uit` afgespeeld (vwo en havo).
   - *s14 (vwo):* ‘Voor vwo gaan we hier nog een stap verder.’ uit de take geknipt (0–3,06 s weg, 80 ms stilte + 20 ms fade-in; woordtijden −2,98 s, dur 57,97 → 54,99 s; audio `?v=3`). Ook uit `script_v2.md`, `script.md` en `segments.json` (display).

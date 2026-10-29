@@ -54,16 +54,19 @@ function personReal(ctx,x,y,h,alpha=1,o={}){ if(alpha<=0.01) return {}; ctx.save
 // series person (12 Oct 2026): every film draws the friendly person; each scenes file may set PERSON_LOOK
 
 // ---------- seriekleuren (Seriebrief Hormonen) ----------
-const HK = { hormoon: C.goud, hormoonR: '#F0CC7A', klier: C.oker, klierR: '#E2C38A', bloed: '#B5574A', bloedL: '#D88A7E',
-  glucose: C.teal, water: C.teal, receptor: '#AFC0D0', rem: '#9A8FB8', zenuw: C.paars, cel: '#C9B896' };
+// 1.2 (29 okt 2026, Kamiel: kleuren gelijktrekken in Zenuwstelsel en Hormonen; tabel in films/UITVOEREN-REGELING.md):
+// hormoon paars, hypofyse- en releasinghormonen licht paars, adrenaline koraal, cortisol oker (ruit), glucose oker (zeshoek), zenuwsignaal teal
+const HK = { hormoon: C.paars, hormoonR: '#B3A6DA', klier: C.oker, klierR: '#E2C38A', bloed: '#B5574A', bloedL: '#D88A7E',
+  glucose: C.oker, water: C.teal, receptor: '#AFC0D0', rem: C.oker, zenuw: C.teal, impuls: '#C4E2F2', cel: '#C9B896',
+  adrenaline: C.koraal, cortisol: C.oker, tropine: '#B3A6DA', insuline: C.paars, glucagon: C.groen };
 
 // ---------- hormonen: elk een eigen vorm, allemaal goud ----------
-function hormoonVorm(ctx, x, y, r = 10, kind = 'adrenaline', a = 1, col = HK.hormoon) {
+function hormoonVorm(ctx, x, y, r = 10, kind = 'adrenaline', a = 1, col = HK[kind] || HK.hormoon) {
   if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath();
   if (kind === 'adrenaline') { ctx.moveTo(x, y - r * 1.35); ctx.bezierCurveTo(x + r * 0.9, y - r * 0.2, x + r, y + r * 0.9, x, y + r); ctx.bezierCurveTo(x - r, y + r * 0.9, x - r * 0.9, y - r * 0.2, x, y - r * 1.35); }
   else if (kind === 'insuline') { roundRect(ctx, x - r * 0.95, y - r * 0.95, r * 1.9, r * 1.9, r * 0.45); }
   else if (kind === 'glucagon') { ctx.moveTo(x, y - r * 1.2); ctx.lineTo(x + r, y); ctx.lineTo(x, y + r * 1.2); ctx.lineTo(x - r, y); ctx.closePath(); }
-  else if (kind === 'cortisol') { ctx.arc(x, y, r, 0, 6.283); ctx.moveTo(x + r * 0.5, y); ctx.arc(x, y, r * 0.5, 0, 6.283, true); }
+  else if (kind === 'cortisol') { const R = r * 1.2, q = r * 0.55; ctx.moveTo(x, y - R); ctx.lineTo(x + R, y); ctx.lineTo(x, y + R); ctx.lineTo(x - R, y); ctx.closePath(); ctx.moveTo(x, y - q); ctx.lineTo(x - q, y); ctx.lineTo(x, y + q); ctx.lineTo(x + q, y); ctx.closePath(); } // 1.2: ruit met gat (naast glucose = zeshoek)
   else if (kind === 'thyroxine') { for (let i = 0; i < 10; i++) { const an = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * 0.5 : r * 1.15; i ? ctx.lineTo(x + Math.cos(an) * rr, y + Math.sin(an) * rr) : ctx.moveTo(x + Math.cos(an) * rr, y + Math.sin(an) * rr); } ctx.closePath(); }
   else if (kind === 'tropine') { roundRect(ctx, x - r * 1.3, y - r * 0.6, r * 2.6, r * 1.2, r * 0.6); }
   else if (kind === 'groei') { for (let i = 0; i < 5; i++) { const an = -Math.PI / 2 + i * 2 * Math.PI / 5; i ? ctx.lineTo(x + Math.cos(an) * r * 1.1, y + Math.sin(an) * r * 1.1) : ctx.moveTo(x + Math.cos(an) * r * 1.1, y + Math.sin(an) * r * 1.1); } ctx.closePath(); }
@@ -79,7 +82,7 @@ function receptor(ctx, x, y, ang, kind = 'adrenaline', bound = 0, a = 1, s = 1, 
   ctx.fillStyle = rgba(col, 0.9); roundRect(ctx, -7 * s, -6 * s, 14 * s, 30 * s, 5 * s); ctx.fill();
   ctx.beginPath(); ctx.moveTo(-22 * s, -10 * s); ctx.lineTo(-22 * s, -42 * s); ctx.lineTo(-11 * s, -42 * s); ctx.lineTo(-11 * s, -22 * s); ctx.lineTo(11 * s, -22 * s); ctx.lineTo(11 * s, -42 * s); ctx.lineTo(22 * s, -42 * s); ctx.lineTo(22 * s, -10 * s); ctx.closePath();
   ctx.fillStyle = rgba(col, 0.9); ctx.fill(); ctx.strokeStyle = lighten(col, 0.3); ctx.lineWidth = 1.2; ctx.stroke();
-  if (bound < 0.99) { ctx.save(); ctx.globalAlpha *= 1 - bound; ctx.setLineDash([3 * s, 3 * s]); ctx.strokeStyle = HK.hormoon; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(0, -32 * s, 9 * s, 0, 6.283); ctx.stroke(); ctx.restore(); }
+  if (bound < 0.99) { ctx.save(); ctx.globalAlpha *= 1 - bound; ctx.setLineDash([3 * s, 3 * s]); ctx.strokeStyle = HK[kind] || HK.hormoon; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(0, -32 * s, 9 * s, 0, 6.283); ctx.stroke(); ctx.restore(); }
   ctx.restore();
   if (bound > 0.01) { const d = 32 * s + 70 * s * (1 - ease(bound)); hormoonVorm(ctx, x + Math.cos(ang) * d, y + Math.sin(ang) * d, 9 * s, kind, Math.min(1, bound * 4)); }
   ctx.restore();
