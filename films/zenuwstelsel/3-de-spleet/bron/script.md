@@ -1,5 +1,7 @@
 # De spleet — script
 
+> **2.0 (29 okt 2026):** tekst en takes ongewijzigd. De tijden hieronder zijn die van 1.1; voor 2.0 gelden de nieuwe woordtijden in `remake-2026-10/words/<id>.json` (silalign), die in de lange alinea's tot enkele seconden afwijken. Audio van 2.0: `films/zenuwstelsel/3-de-spleet/audio/<id>.mp3`.
+
 Bron: gereconstrueerd uit de scriptdata in de gepubliceerde HTML (2026-10-12): `window.FILM.timing[<id>].phrases` (de ondertitelfrasen; identiek aan `segments[].text` en aan het transcript op de pagina). Stem-invoer met respellings (uitspraaklijst) staat niet in de HTML; de tekst hieronder is de ondertiteltekst.
 
 Tijden in de kop van elk segment zijn filmtijd (mastertijd van de speler, zonder wachttijd bij de vragen); de tijden `[m:ss.s]` vóór elke regel zijn de begintijden van de frase **binnen het audiofragment** (zoals in `timing[<id>].phrases[].t0`).

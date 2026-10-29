@@ -4,7 +4,7 @@ Werkwijze en criteria: `films/BRONNEN.md`.
 
 | Veld | Waarde |
 |---|---|
-| Gecontroleerde versie | 1.1 (28 okt 2026; stem en script ongewijzigd sinds 1.0) |
+| Gecontroleerde versie | 1.1 (28 okt 2026; stem en script ongewijzigd sinds 1.0); 2.0 (29 okt 2026, nieuw beeld, zie 'Remake 2.0') |
 | Eerste ronde | Claude, 28 okt 2026 (opwaardering prompt v13): 19 beweringen, 9 bronnen geopend |
 | Steekproef | nog niet gedaan |
 | Vakexpert | geen |
@@ -54,6 +54,10 @@ Alle bronnen zijn op 28 okt 2026 zelf geopend. A* = universitair open leerboek.
 
 - Docentdeel, tabel 'De getallen': Wikipedia-links (niveau C) vervangen door B4/B5 (spleet), B1 (vertraging), B7 (synapsen per neuron) en B6; twee getallen die de film niet noemt (moleculen per blaasje, snelheid van het enzym) staan nu als 'nog niet nagegaan in een A-bron'.
 - Geen `!`.
+
+## Remake 2.0 (29 okt 2026)
+
+Script en stem zijn ongewijzigd, dus de beweringen hierboven gelden ook voor 2.0; er is geen `!` gevonden. Nieuw in beeld, met dezelfde bronnen: synapsspleet '± 20 nanometer' en '50.000 spleten = 1 mm' (B4, B5: 20 nm × 50.000 = 1 mm ✓); tijdbalk 0–1 ms (B1 ✓); exocytose als versmelten met het membraan, Ca²⁺-kanalen in het knopje, heropname via transporters, afbraak door acetylcholinesterase (B1, B6 ✓); exciterend = Na⁺ naar binnen, remmend = Cl⁻ naar binnen, optellen aan het begin van het axon, drempel −55 mV (B1, B2, B8 ✓). De uitslagen in de meter (± +13 en −9 mV) zijn vergrote modelwaarden (≈, staat in het docentdeel). De synapstekening volgt het recept van `synapsEcht` in de beeldbank (OpenStax 35.2; BioNumbers 100721).
 
 ## Menselijke controle
 

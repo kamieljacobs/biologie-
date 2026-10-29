@@ -1,5 +1,67 @@
 # De spleet — bronmap
 
+> **Versie 2.0 (lichte remake in de donkere stijl, 29 okt 2026) staat als preview op `films/zenuwstelsel/3-de-spleet-nieuw.html`.** De oude versie 1.1 (`films/zenuwstelsel/3-de-spleet.html`) blijft online tot Kamiel de nieuwe goedkeurt; bij goedkeuring wisselt de hoofdsessie ze om (1.1 naar `bron/oud/`, datum, B15-uitzondering 'lichte-remake'). Na de wissel geldt de sectie 'Versie 2.0' hieronder; de sectie 'Versie 1.1' beschrijft dan `bron/oud/`.
+
+## Versie 2.0 — lichte remake
+
+| Veld | Waarde |
+|---|---|
+| Bestand | films/zenuwstelsel/3-de-spleet-nieuw.html (preview; wordt `3-de-spleet.html` na goedkeuring) |
+| Reeks / nummer | Zenuwstelsel, film 3 · 5 vwo, één niveau (`alleen: 'vwo'`, geen havo/vwo-schakelaar) |
+| Versie / datum | **2.0 · 29 oktober 2026** |
+| Prompt | v13 |
+| Voldoet aan | prompt v13 (lichte remake, B16; beeld helemaal nieuw in Part C, stem en script van 1.0 behouden) |
+| Herkomst | lichte remake, keuze Kamiel 29 okt 2026 (keuzeblad 'Regeling: jouw keuzes': Zenuwstelsel 1–6 naar de donkere beeldstijl; brief `films/UITVOEREN-REGELING.md`) |
+| Stem / model | Roos (ElevenLabs, eleven_multilingual_v2) — de 13 takes van 1.0, niet opnieuw ingesproken (geen inspreekpunten voor deze film; 0 credits) |
+| Audio-opslag | losse mp3's in `films/zenuwstelsel/3-de-spleet/audio/<id>.mp3` (s00, q1–q5, a1–a5, s21, s70), uitgepakt uit `window.FILM_AUDIO` van 1.1 |
+| Woordtijden | opnieuw bepaald met `silalign.py` (drempel −25 dB, stilte ≥ 60 ms; `remake-2026-10/words/`). De oude tijden in 1.1 liepen in de lange alinea's tot 5 s uit (s21, a3, a4): de laatste woorden waren uitgerekt tot het einde van de take |
+| Duur | gesproken 5:04; speler 6:36 met vragen, 4:23 met Vragen uit |
+| Beeldstijl | Part C: Schema-navy voor alle uitleg, Macro-straat (nacht) in de cold open; Fraunces/Source Sans 3/IBM Plex Mono; geen korrel buiten cellen |
+| Kleuren (Regeling 29 okt) | zenuwsignaal/impuls teal #5BA4C9 (vlak bandje, geen gloed); neurotransmitter (ook acetylcholine) licht teal #9CCBE3; zenuwcellen en volgende cel neutraal grijsblauw; ionen licht (#D8DDE6) met label Na⁺/Cl⁻/Ca²⁺; exciterend groen (+), remmend koraal (−); enzym grijsblauw; geen paars meer |
+| Bouwvorm | FILMDATA-straat (zoals Zenuwstelsel 9): bron in `remake-2026-10/` (`src/` engine, `bouw/`, `teken_z3.js`, `scenes_z3.js`, `segments.json`, `film.py`, `sections.html`, `glossary.json`, `words/`, `bouw.sh`), speler van `films/gedrag/5-emotieregulatie/bron/src/player.js` |
+| Storyboard | `remake-2026-10/storyboard/` (15 keyframes 960×540 + `storyboard.json`) |
+
+### Wat er per scène veranderde (beeld; stem en tekst gelijk)
+
+| Scène | 1.1 | 2.0 |
+|---|---|---|
+| s00 cold open | lichte wereld, fietser (Daan) en lens op het hoofd | Macro-nachtstraat met bakkerij; castpersonage loopt (zijaanzicht, castboek-gang, geen naam) en blijft staan; geurspoor; zoomcirkel náást het hoofd: neus → drie zenuwcellen (`zenuwcel`, beeldbank) → hersenen (`breinVoor`), impuls teal, spleet in goud, vraagteken |
+| titel | HTML-kaart | titel links, synaps rechts die rustig door de fasen loopt |
+| q1–q5 (gesproken vraag) | vraagkaart | vraag links, opties verschijnen als ze uitgesproken worden, rechts een klein beeld (twee zenuwcellen / synaps / cel met knopje / bezette receptoren / pijl heen en terug) |
+| a1 De aansluiting | vlakke dwarsdoorsnede | doorlopende zoom van twee zenuwcellen naar het eindknopje; synaps afgeleid van `synapsEcht` (gebogen membranen, blaasjes, mitochondriën, receptoren loodrecht in het membraan); maatlijn ± 20 nm; '50.000 spleten = 1 mm'; zoomcirkel: de stof past in de receptor; drie kernwoorden |
+| s21 Oversteken | deeltjes + tijdbalk | één tijdlijn op de woorden: impuls → Ca²⁺-kanalen → blaasjes versmelten (Ω-vorm, exocytose) → neurotransmitter → receptoren → ionen → nieuwe impuls in de volgende cel; tijdbalk 0–1 ms; 'niet als stroom / als stof' |
+| a2 | — | synaps op zijn kant, drie haken: elektrisch · chemisch · elektrisch |
+| a3 Gas en rem | cel met + en − en voltmeter | grote zenuwcel met een exciterend (+, Na⁺ in) en een remmend (−, Cl⁻ in) knopje; meter van de membraanpotentiaal met drempel −55 mV (modelwaarden, vergroot); duizenden knopjes; optellen aan het begin van het axon; impuls vertrekt (teal op het axon, piek in de meter); slot vaste draad vs synaps |
+| a4 Opruimen | drie kaarten | receptoren blijven bezet en de volgende cel blijft vuren; drie kaartjes; enzym (`enzymKluwen`, kralenketen) knipt moleculen in tweeën, heropname via transporters in het knopje, wegdrijven uit de spleet; 'schoon'; 'hier grijpen medicijnen en drugs in' |
+| a5 Eenrichtingsverkeer | twee kanten + spiervezel | blaasjes alleen vóór, receptoren alleen ná (goud), pijl één kant op, pijl terug doorgekruist; daarna motorisch neuron op een spiervezel (`spierVezel`, beeldbank) met acetylcholine en receptoren; vezel trekt samen |
+| s70 Samenvatting | kaart over gedimde wereld | synaps volgt de stappen; tien regels op ankerwoorden; aan het eind de keten neus → hersenen |
+| eindkaart | 'Volgende film' met emoji | drie kernzinnen + haak met vooruitblik op film 4 |
+
+Opgelost uit 'Bewust niet' van 1.1: donker Part C-ontwerp; geen paars meer voor neurotransmitter en volgende cel (Regeling-kleuren, ook gelijk aan Knoeien met de spleet); synaps uit de beeldbank (`synapsEcht`-recept); lens over het hoofd vervangen door een zoomcirkel náást het hoofd.
+
+### Speler (2.0)
+- Twee kleine uitbreidingen in de speler (gemarkeerd 'De spleet 2.0'): `seg.vraagzin` — bij Vragen uit valt de hele gesproken vraag (q1–q5, die ook de opties voorleest) weg; `seg.antwKop` — bij Vragen uit wordt 'Het goede antwoord is X.' aan het begin van a1–a5 geknipt (in a3 deed de standaardregel dat niet, omdat het woord 'begin' in de alinea staat).
+- `scenes_z3.js` gebruikt exacte woordmatch (`QX`): de standaard `q.at` zoekt een deel van een woord ('drie' zat in 'dendriet').
+
+### Waar wat in de HTML zit (`3-de-spleet-nieuw.html`, 11.367 regels)
+- r. 9 themaregel · r. 143 `window.FILMDATA` (segmenten, woordtijden, vragen, film-meta)
+- r. 10801 `synapsZ3` (synaps, afgeleid van `synapsEcht`; kandidaat voor de beeldbank) · 10867 `ketting` · 10877 `potMeter` · 10895 `knopOp` · 10917 `eindplaat` · 10933 `bakkerij` · 10958 `vraagLinks`
+- scènes: r. 10973 `s00` · 10990 `q1`–`q5` · 11002 `a1` · 11031 `s21` · 11053 `a2` · 11066 `a3` · 11096 `a4` · 11129 `a5` · 11149 `s70` · 11162 `QX`
+- r. 11170 speler (`const DATA = window.FILMDATA`), r. 11208 `vraagzin`/`antwKop`
+
+### Hoe je 2.0 aanpast
+1. Bewerk `remake-2026-10/scenes_z3.js` (scènes, cues via `q.on(woord, n)` met exacte woorden) of `teken_z3.js` (tekeningen); tekst van vragen en uitleg bij de vragen in `film.py`; ankerwoorden staan in `words/<id>.json`.
+2. Bouw met `remake-2026-10/bouw.sh` (zie de kop van dat bestand voor de werkmap) en voer de scripts uit die daar genoemd staan.
+3. Eén alinea opnieuw inspreken: mp3 in `3-de-spleet/audio/<id>.mp3` vervangen, `silalign.py` (met −25 dB/60 ms) voor `words/<id>.json`, scène-cues nalopen.
+
+### Wijzigingen
+- 29 okt 2026 — 2.0 lichte remake in de donkere stijl (preview naast 1.1). Getest: B11-scripts met `--check` (alle in orde), alle vijf vragen met `?vragen=uit` afgespeeld van 5 s ervoor tot 5 s erna (geen vraag, geen 'antwoord' in geluid of ondertitel), contactvel van alle scènes, 375 en 360 px zonder horizontale scroll. Geen opnames, 0 credits.
+
+---
+
+## Versie 1.1 (oude film, nog online)
+
+
 | Veld | Waarde |
 |---|---|
 | Bestand | films/zenuwstelsel/3-de-spleet.html |
