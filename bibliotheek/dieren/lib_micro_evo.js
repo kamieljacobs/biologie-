@@ -207,12 +207,13 @@ function griepVirus(ctx, x, y, r, a = 1) {
   // envelop (dubbellaag) en M1-laag
   circ(ctx, 0, 0, r, C.bgMicro); circ(ctx, 0, 0, r, rgba(HA, 0.12), _mvL(HA, 0.2), Math.max(1.4, r * 0.04)); circ(ctx, 0, 0, r * 0.93, null, rgba(HA, 0.7), Math.max(1, r * 0.025));
   ctx.fillStyle = rgba('#9AA3B2', 0.6); const nm = Math.max(18, Math.round(r * 0.9)); for (let i = 0; i < nm; i++) { const an = i / nm * 6.283; ctx.beginPath(); ctx.arc(Math.cos(an) * r * 0.86, Math.sin(an) * r * 0.86, Math.max(0.8, r * 0.025), 0, 6.283); ctx.fill(); }
+  const RNA = '#3E86AE'; // palet B (29 okt 2026): RNA-segmenten teal zoals D2.rna in lib_bio.js, was paars (RNA)
   // 8 RNP's in een 7+1-bundel, hangend aan de bovenpool; het middelste staafje vooraan
   const L = [0.95, 0.7, 0.9, 0.58, 0.82, 0.5, 0.66, 0.42], X = [-0.33, 0.33, -0.22, 0.22, -0.11, 0.11, 0.0, 0.0], bw = r * 0.1, yT = -r * 0.7;
   [0, 1, 2, 3, 4, 5, 7, 6].forEach((k) => { const xx = X[k] * r + (k === 7 ? r * 0.05 : 0), ll = L[k] * r * 0.95; const yt = yT + Math.abs(X[k]) * r * 0.35;
     ctx.save(); ctx.translate(xx, yt); ctx.rotate(-X[k] * 0.45 + (hash(k * 3.1) - 0.5) * 0.12); // bundel: staafjes lopen naar de pool toe samen
-    roundRect(ctx, -bw / 2, 0, bw, ll, bw / 2); shape(ctx, k === 6 ? rgba(C.kernR, 0.55) : rgba(C.kernR, 0.32), C.kernR, Math.max(0.8, r * 0.02));
-    roundRect(ctx, -bw / 2, 0, bw, ll, bw / 2); ctx.clip(); ctx.strokeStyle = rgba(_mvL(C.kernR, 0.3), 0.8); ctx.lineWidth = Math.max(0.7, r * 0.015); ctx.beginPath();
+    roundRect(ctx, -bw / 2, 0, bw, ll, bw / 2); shape(ctx, k === 6 ? rgba(RNA, 0.55) : rgba(RNA, 0.32), RNA, Math.max(0.8, r * 0.02));
+    roundRect(ctx, -bw / 2, 0, bw, ll, bw / 2); ctx.clip(); ctx.strokeStyle = rgba(_mvL(RNA, 0.3), 0.8); ctx.lineWidth = Math.max(0.7, r * 0.015); ctx.beginPath();
     for (let d = 0; d < ll + bw; d += bw * 0.7) { ctx.moveTo(-bw / 2, d); ctx.lineTo(bw / 2, d - bw * 0.5); } ctx.stroke(); ctx.restore(); });
   ctx.restore(); }
 
@@ -220,7 +221,7 @@ function griepVirus(ctx, x, y, r, a = 1) {
 // CHROMOSOOM. Recept: een chromosoom is één DNA-molecuul, om eiwitten gewonden en opgevouwen in lussen. Niet verdubbeld
 // (G1, of in een geslachtscel) = één staafje; vorm: ronde uiteinden (telomeren), een duidelijke insnoering (centromeer,
 // ±55–60 % van de breedte), licht golvende randen. Bandenpatroon (G-banden) als afwisselend donkere en lichte banden van
-// ongelijke breedte. Een gen = een band op een vaste plek (locus) in de allelkleur. Kleur paars (Part C: DNA).
+// ongelijke breedte. Een gen = een band op een vaste plek (locus) in de allelkleur. Kleur lichtgrijs #AEB8C8 met rand #5E6A80 (palet B, 29 okt 2026; was paars C.kern/C.kernR).
 // Bekende fouten: rechthoekig staafje; centromeer als zwart blokje; gen als los kader naast het chromosoom.
 // =====================================================================================
 function _chromPad(ctx, cx, top, h, breed, cen, seed = 0) {
@@ -252,11 +253,11 @@ function chromosoomPaar(ctx, x, y, h, o = {}) {
   const { allelen = [EVO.a1, EVO.a2], band = 0.32, a = 1, breed = 34, gap = 30, cen = 0.58, nieuw = null } = o; if (a <= 0.01) return;
   ctx.save(); ctx.globalAlpha *= a; const hh = _bandH(h);
   for (let k = 0; k < 2; k++) { const cx = x + (k ? 1 : -1) * (gap / 2 + breed / 2); const isN = nieuw && nieuw[0] === k; const kl = isN ? nieuw[1] : allelen[k];
-    _chromTekening(ctx, cx, y - h / 2, h, breed, cen, C.kern, C.kernR, { band, hh, halfT: hh / h / 2, kleur: kl, nieuw: isN }, k * 2.3); }
+    _chromTekening(ctx, cx, y - h / 2, h, breed, cen, '#AEB8C8', '#5E6A80', { band, hh, halfT: hh / h / 2, kleur: kl, nieuw: isN }, k * 2.3); }
   ctx.restore(); }
 function chromosoom1(ctx, x, y, h, kleur, o = {}) {
   const { band = 0.32, breed = 34, cen = 0.58, a = 1 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const hh = _bandH(h);
-  _chromTekening(ctx, x, y - h / 2, h, breed, cen, C.kern, C.kernR, { band, hh, halfT: hh / h / 2, kleur }, 0.9); ctx.restore(); }
+  _chromTekening(ctx, x, y - h / 2, h, breed, cen, '#AEB8C8', '#5E6A80', { band, hh, halfT: hh / h / 2, kleur }, 0.9); ctx.restore(); }
 // chromosoom (muilezel-meiose, film 6): staafje 14 px breed, centromeer op 38 % van boven, eigen kleur per set
 function chromosoom(ctx, x, y, l, kleur, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; _chromTekening(ctx, x, y - l / 2, l, 14, 0.38, kleur, _mvL(kleur, 0.35), null, l * 0.01); ctx.restore(); }
 
