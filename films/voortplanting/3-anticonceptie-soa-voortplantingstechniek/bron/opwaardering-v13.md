@@ -22,3 +22,5 @@ Totaal ± 1.200 credits (zinnen ingeplakt) tot ± 2.700 (hele alinea's). Daarna 
 ## (c) Wat ik veranderde
 
 Zie `info.md` → 'Opwaardering naar prompt v13 (1.2)'. Kort: actuele beeldbank en castboek; geen castnamen meer in beeld (s01, s07, s09); virussen niet meer paars (neutraal grijsblauw); hiv-curve koraal; resistente gonokokken oker in plaats van paars; DNA-icoon in palet B.
+
+Nacontrole (29 okt 2026): de ondertitels bij de onthullingen (s04 'Antwoord B.', s09 'Antwoord C.', s13 'Antwoord A.') tonen nu de gewone letter; de audio blijft. Zie `info.md` → Wijzigingen. Niets ingesproken.

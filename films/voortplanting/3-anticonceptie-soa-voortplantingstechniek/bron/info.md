@@ -61,6 +61,7 @@ Werkmap opzetten: kopieer `bron/` naar `hw/vp3` (scenes.js uit `src/`, `words/` 
 - `data-duur` voor de kijkcijfers komt pas na het toevoegen aan `HOOFDSTUKKEN` in index.html (daarna `scripts/teller.py` opnieuw draaien).
 
 ## Wijzigingen
+- 1.2 nacontrole (29 okt 2026): ondertitels s04 'Antwoord B.', s09 'Antwoord C.', s13 'Antwoord A.' tonen de gewone letter in plaats van de stemspelling (bee/cee/aa). Oorzaak was gedeeld: de woordtijden volgen de stem-invoer en de speler zette alleen ee-er/dee-en-aa om. Opgelost in `scripts/spelerfix.py` (CAPLETTER_MARK, `capLetter` in `chunks0`), toegepast op deze film en `bron/src/player.js`; alleen de getoonde tekst, audio en knippen bij Vragen uit ongewijzigd. Getest: ondertitels met vragen aan, elke vraag met `?vragen=uit`, geen JS-fouten.
 - 1.0 (16 okt 2026): eerste versie. Script na één gecombineerde review (zie `reviews/review_v1.md`); beeld-QA op contactbladen.
 
 

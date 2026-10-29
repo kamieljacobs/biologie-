@@ -44,7 +44,7 @@ Ernst: **hoog** = fout of lelijk zichtbaar voor leerlingen, **laag** = detail. T
 
 ## 3 · Anticonceptie, soa's en voortplantingstechniek (`3-anticonceptie-soa-voortplantingstechniek.html`)
 
-1. In de ondertitels, met vragen aan, staat de fonetische stemspelling: s04 'Antwoord bee.', s09 'Antwoord cee.', s13 'Antwoord aa.'. Volgens eerdere feedback klinkt 'bee' als stemspelling bovendien Engels (21 okt 2026); dat heb ik niet beluisterd. Met vragen uit vallen deze zinnen goed weg. **hoog**
+1. In de ondertitels, met vragen aan, staat de fonetische stemspelling: s04 'Antwoord bee.', s09 'Antwoord cee.', s13 'Antwoord aa.'. Volgens eerdere feedback klinkt 'bee' als stemspelling bovendien Engels (21 okt 2026); dat heb ik niet beluisterd. Met vragen uit vallen deze zinnen goed weg. **hoog** · **hersteld** (29 okt 2026): ondertitels tonen 'Antwoord B/C/A'; gedeelde oorzaak in de speler, opgelost in `scripts/spelerfix.py` (CAPLETTER_MARK). Andere films met hetzelfde (niet aangeraakt): zie 'Antwoordletter in ondertitels' onderaan.
 2. s06 begin ± 2:00–2:05 ('Hoe betrouwbaar is een methode?'): een paar seconden helemaal leeg beeld. Pas daarna verschijnt de kop over de Pearl-index. **laag**
 3. s15 ± 7:40–7:45: de stem zegt 'Alleen het condoom beschermt ook tegen soa's', maar het condoomkaartje verschijnt pas een paar seconden later. **laag**
 4. s01 (huisarts): Lotte en de huisarts staan achter dezelfde balie, en de wijzende hand van de huisarts komt tot vlak bij Lotte. Dat leest wat vreemd. **laag**
@@ -52,7 +52,7 @@ Ernst: **hoog** = fout of lelijk zichtbaar voor leerlingen, **laag** = detail. T
 
 ## 4 · Sekse, gender en diversiteit (`4-sekse-gender-diversiteit.html`)
 
-1. In de ondertitels, met vragen aan, staat de fonetische stemspelling: s04 'Antwoord cee.', s08 'Antwoord aa.', s11 'Antwoord bee.' (zie film 3). Met vragen uit vallen deze zinnen goed weg. **hoog**
+1. In de ondertitels, met vragen aan, staat de fonetische stemspelling: s04 'Antwoord cee.', s08 'Antwoord aa.', s11 'Antwoord bee.' (zie film 3). Met vragen uit vallen deze zinnen goed weg. **hoog** · **hersteld** (29 okt 2026): ondertitels tonen 'Antwoord B/C/A'; gedeelde oorzaak in de speler, opgelost in `scripts/spelerfix.py` (CAPLETTER_MARK). Andere films met hetzelfde (niet aangeraakt): zie 'Antwoordletter in ondertitels' onderaan.
 2. s09 ± 5:20–5:30 ('Bij andere dieren is sekse soms heel anders geregeld'): leeg beeld, alleen de pil 'bij andere dieren: anders geregeld'. De clownvissen komen pas later. **laag**
 3. s08 ± 4:37 (androgeen-ongevoeligheid): 'kern' en 'receptor in de cel' liggen over organellen in het cytoplasma. De inhoud blijft binnen het membraan ✓. **laag**
 4. s01 → s03 (± 0:14–0:20, vooral met vragen uit): tijdens de overgang ligt de embryolens over de vervagende personages en het echobeeld. **laag**
@@ -66,3 +66,53 @@ Ernst: **hoog** = fout of lelijk zichtbaar voor leerlingen, **laag** = detail. T
 4. s33 (samenvatting): het eerste kaartje 'eerst kopiëren, in de interfase' heeft links een bijna onzichtbaar vormpje. **laag**
 5. In de ondertitels staat 'meiose één' (ook 'profase één' in film 1), terwijl het beeld 'meiose I' zegt. Dat is acceptabel. **laag**
 6. Chromosomen in palet B (vader donkerblauw, moeder zandgeel) ✓. Niets buiten het membraan ✓. Geen korrel ✓. Castpersonages (Noor, Linda, oma) op goede maat ✓. Vragen uit ✓.
+
+---
+
+## Antwoordletter in ondertitels: andere films (29 okt 2026, niet aangeraakt)
+
+Oorzaak: de woordtijden (FILMDATA `words`) volgen de stem-invoer ('Antwoord bee.'), en `chunks0` in de FILMDATA-speler zette alleen 'ee-er' en 'dee-en-aa' om. Fix: `scripts/spelerfix.py` (CAPLETTER_MARK) voegt `capLetter` toe, die de letter direct na 'antwoord' (of 'antwoord is/was') als hoofdletter toont. Alleen tekst; audio, woordtijden en knippen bij Vragen uit blijven gelijk. Toegepast op Voortplanting 1, 3, 4 en Celdeling. Ook de spelerbron `films/gedrag/5-emotieregulatie/bron/src/player.js` (waar nieuwe films hun speler vandaan halen) en `films/dna/_bouw/src/player*.js` hebben de fix nog niet.
+
+Deze 42 films hebben dezelfde stemspelling in hun woordtijden en tonen die dus in de ondertitels. Herstel = `python3 scripts/spelerfix.py <film.html> <bron/src/player.js>` per film:
+- `afweer/1-de-eerste-verdediging.html`
+- `afweer/2-antistoffen-op-maat.html`
+- `afweer/3-t-cellen-en-virussen.html`
+- `afweer/4-vaccins-allergie-en-bloedgroepen.html`
+- `cellen/stamcellen.html`
+- `cellen/van-molecuul-tot-biosfeer.html`
+- `ecologie/3-een-aarde.html`
+- `ecologie/4-ingrijpen-of-laten-gaan.html`
+- `ecologie/5-binnen-de-grenzen.html`
+- `erfelijkheid/1-chromosomen.html`
+- `erfelijkheid/2-monohybride-kruisingen.html`
+- `erfelijkheid/6-stambomen-en-kansrekenen.html`
+- `extra/geschiedenis-van-de-biologie.html`
+- `gaswisseling/2-gas-op-reis.html`
+- `gaswisseling/3-uitscheiding-en-evenwicht.html`
+- `gedrag/10-helpen.html`
+- `gedrag/11-slimme-dieren.html`
+- `gedrag/12-psychologie-experimenten.html`
+- `gedrag/2-inprenting-en-de-sensitieve-periode.html`
+- `gedrag/3-baltsen-en-kiezen.html`
+- `gedrag/4-hechting.html`
+- `gedrag/7-leren.html`
+- `gedrag/8-honingbij.html`
+- `gedrag/9-mierenkolonie.html`
+- `transport/1-een-pomp-twee-rondjes.html`
+- `transport/2-buizen-onder-druk.html`
+- `transport/3-wat-er-in-je-bloed-zit.html`
+- `transport/4-weefselvloeistof-en-lymfe.html`
+- `transport/5-het-hart-onder-controle.html`
+- `transport/6-transport-in-planten.html`
+- `transport/7-hoe-een-plant-groeit.html`
+- `vervolg/bioinformatica-2-miljoenen-varianten.html`
+- `vervolg/psychologie-1-welke-therapie-werkt.html`
+- `vervolg/psychologie-2-kijken-in-een-denkend-brein.html`
+- `vervolg/psychologie-3-aanleg-of-opvoeding.html`
+- `vervolg/psychologie-4-meten-wat-je-niet-kunt-zien.html`
+- `vervolg/psychologie-5-in-de-spreekkamer.html`
+- `vervolg/psychologie-6-kun-je-je-geheugen-vertrouwen.html`
+- `vervolg/psychologie-7-waarom-raakt-de-een-opgebrand.html`
+- `voeding/7-supplementen-en-superfoods.html`
+- `zenuwstelsel/7-slaap.html`
+- `zenuwstelsel/8-zintuigen.html`
