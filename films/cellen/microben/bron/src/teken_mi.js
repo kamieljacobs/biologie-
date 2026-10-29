@@ -1,12 +1,12 @@
 // ===== teken_mi.js · Bacteriën, virussen en schimmels (films/cellen/microben) =====
 // Nieuwe tekeningen (kandidaat voor bibliotheek/lib_bio.js). Recepten bovenaan elke functie.
-// Kleuren: brood = oker (voedsel), schimmel en bacterie = teal/grijs (organismengroep C3), DNA/RNA = paars,
+// Kleuren: brood = oker (voedsel), schimmel = teal/grijs (organismengroep C3), DNA = grijs, RNA = teal (palet B), kern = paars,
 // eiwitmantel = grijsblauw (eiwit, C.enzym-familie). Geen gloed, geen verloop.
 
 function miRng(seed) { let s = seed >>> 0; return () => { s = (s + 0x6D2B79F5) | 0; let t = Math.imul(s ^ (s >>> 15), 1 | s); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
 const MI = { korst: '#A0743F', korstR: '#C79A5E', kruim: '#E2CC9C', kruimR: '#F0E0BC', porie: '#C2A672',
   hyfe: '#D8DEE2', hyfeR: '#F2F2EE', sporZw: '#3A4048', sporZwR: '#6A7280', peni: '#6F9FA8', peniR: '#A9CDD2',
-  trommel: '#4E7FA6', trommelR: '#7FA8C8', mantel: '#8E9DB8', mantelR: '#C4CEDF', rna: '#BBAFE0' };
+  trommel: '#4E7FA6', trommelR: '#7FA8C8', mantel: '#8E9DB8', mantelR: '#C4CEDF', rna: '#8CC6E1', kern: '#9C86D8' }; // rna = RNA-teal (palet B, 28 okt 2026), kern = kernpaars (Part C); DNA is grijs (DNA_BASE.rugR)
 
 // ---------------------------------------------------------------------------------------------
 // BOTERHAM (bovenaanzicht). Recept: een snee bruin of wit brood is ± 10–12 cm breed; vorm = rechthoek met bolle
@@ -84,7 +84,7 @@ function miMycelium(ctx, x, y, w, h, o = {}) { const { a = 1, t = 0, k = 1, spor
     const foc = hl > 0.01 && tk.id === 'h1' ? hl : 0; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
     ctx.beginPath(); bioPad(ctx, P); ctx.strokeStyle = foc > 0 ? _mixHex(MI.hyfeR, '#E0B64A', foc) : MI.hyfeR; ctx.lineWidth = hd + 3; ctx.stroke();
     ctx.beginPath(); bioPad(ctx, P); ctx.strokeStyle = '#3E5A66'; ctx.lineWidth = hd - 2; ctx.stroke();
-    for (let i = 1; i < P.length - 1; i += 2) circ(ctx, P[i][0], P[i][1], hd * 0.2, rgba(MI.rna, 0.9));
+    for (let i = 1; i < P.length - 1; i += 2) circ(ctx, P[i][0], P[i][1], hd * 0.2, rgba(MI.kern, 0.9));
     if (enz > 0.01) { const e = P[P.length - 1]; for (let j = 0; j < 4; j++) { const an = j * 1.55 + t * 0.5, rr = hd * (2.4 + j * 0.6) * enz; circ(ctx, e[0] + Math.cos(an) * rr, e[1] + Math.sin(an) * rr, 3.2, rgba('#7A8BA8', 0.95 * enz), rgba(C.goud, 0.85 * enz), 1.2); } } }
   // zetmeelkorrels (worden kleiner waar enzymen werken)
   for (const [px, py, r] of zm) { let rr = r; if (enz > 0.01) { const dd = Math.hypot(px - x0, py - yo - h * 0.2); rr = r * (1 - 0.65 * enz * clamp(1 - dd / (h * 0.5), 0, 1)); }
@@ -106,7 +106,7 @@ function miMycelium(ctx, x, y, w, h, o = {}) { const { a = 1, t = 0, k = 1, spor
 function miSpore(ctx, x, y, r, o = {}) { const { a = 1, kiem = 0, an = 0.6 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
   if (kiem > 0.01) { const L = r * 6 * kiem; ctx.lineCap = 'round'; ctx.strokeStyle = MI.hyfeR; ctx.lineWidth = r * 0.9; ctx.beginPath(); ctx.moveTo(x, y); ctx.quadraticCurveTo(x + Math.cos(an) * L * 0.5 + r, y + Math.sin(an) * L * 0.5, x + Math.cos(an) * L, y + Math.sin(an) * L); ctx.stroke();
     ctx.strokeStyle = '#3E5A66'; ctx.lineWidth = r * 0.55; ctx.stroke(); }
-  circ(ctx, x, y, r, MI.sporZwR, MI.hyfeR, Math.max(1.5, r * 0.14)); circ(ctx, x + r * 0.15, y - r * 0.1, r * 0.3, rgba(MI.rna, 0.9)); ctx.restore(); }
+  circ(ctx, x, y, r, MI.sporZwR, MI.hyfeR, Math.max(1.5, r * 0.14)); circ(ctx, x + r * 0.15, y - r * 0.1, r * 0.3, rgba(MI.kern, 0.9)); ctx.restore(); }
 
 // ---------------------------------------------------------------------------------------------
 // VIRUSDEELTJE (micro). Recept (getallen.md): geen cel; eiwitmantel (capside) van herhaalde eiwitbouwstenen
@@ -128,7 +128,7 @@ function miVirus(ctx, x, y, r, o = {}) { const { a = 1, t = 0, envelop = 0, open
     const seg = [[-0.35, -0.3, 0.3], [0, -0.42, 0], [0.35, -0.28, -0.3], [-0.42, 0.05, 0.1], [0, -0.05, 0], [0.4, 0.08, -0.1], [-0.2, 0.38, 0.4], [0.22, 0.4, -0.4]];
     seg.forEach(([sx, sy, rot2], i) => { ctx.save(); ctx.translate(sx * r, sy * r); ctx.rotate(Math.PI / 2 + rot2); ctx.beginPath(); const L = r * (0.26 + 0.04 * (i % 3)); for (let k = 0; k <= 24; k++) { const u = k / 24; const px = -L / 2 + u * L, py = Math.sin(u * 6.283 * 2.5) * r * 0.045; k ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.strokeStyle = MI.rna; ctx.lineWidth = Math.max(2, r * 0.05); ctx.lineCap = 'round'; ctx.stroke(); ctx.restore(); });
     ctx.restore(); return; }
-  // erfelijk materiaal (RNA of DNA, paars)
+  // erfelijk materiaal (RNA, teal: verkoudheids- en griepvirus zijn RNA-virussen)
   ctx.save(); ctx.strokeStyle = MI.rna; ctx.lineWidth = Math.max(1.6, rc * 0.045); ctx.lineCap = 'round'; ctx.beginPath(); for (let i = 0; i <= 160; i++) { const u = i / 160 * 6.283 * 3; const rr = rc * (0.18 + 0.42 * Math.abs(Math.sin(u * 0.53 + 0.4))); const px = Math.cos(u * 1.7) * rr, py = Math.sin(u * 2.3) * rr * 0.9; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke(); ctx.restore();
   // eiwitmantel: zeshoek met capsomeren
   const hex = [...Array(6)].map((_, i) => [Math.cos(i / 6 * 6.283 + Math.PI / 6) * rc, Math.sin(i / 6 * 6.283 + Math.PI / 6) * rc]);
@@ -153,36 +153,31 @@ function miFaag(ctx, x, y, s, o = {}) { const { a = 1, t = 0 } = o; if (a <= 0.0
 // kopieën schuiven uit elkaar, in het midden groeit een nieuwe wand naar binnen (insnoering) tot twee cellen.
 // fase 0..1: 0–0.4 groeien + DNA kopiëren, 0.4–0.85 insnoeren, 0.85–1 los. Hergebruikt de vormtaal van bacterieCel.
 // ---------------------------------------------------------------------------------------------
-function miBacterie(ctx, x, y, L, o = {}) { const { a = 1, t = 0, rot = 0, fase = 0, plasmide = true, flagel = false, hl = {}, wandA = 1 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(rot);
+function miBacterie(ctx, x, y, L, o = {}) { const { a = 1, t = 0, rot = 0, fase = 0, plasmide = true, flagel = false, hl = {} } = o; if (a <= 0.01) return {};
+  // Beeldbank-bacterie (bacterieEcht, EM-doorsnede: wand, membraan, nucleoïde grijs, ribosomen, fimbriae) in plaats van de eigen tekening.
+  // Gouden accenten: wand en ribosomen via de bibliotheek, DNA / plasmide / membraan als gouden stippelrand eromheen.
+  const hw = L / 5, half = L / 2 - hw, ww = Math.max(2, hw * 0.16); const base = { t, plasmide, flagel, hlWand: hl.wand ? 1 : 0, riboHl: hl.ribo ? 1 : 0 };
+  ctx.save(); ctx.translate(x, y); ctx.rotate(rot);
+  if (fase <= 0) { const r = bacterieEcht(ctx, 0, 0, L, Object.assign({ a }, base));
+    const gold = (fn) => { ctx.save(); ctx.setLineDash([10, 7]); ctx.strokeStyle = C.goud; ctx.lineWidth = 4.5; ctx.beginPath(); fn(); ctx.stroke(); ctx.restore(); };
+    if (hl.dna) gold(() => ctx.ellipse(-half * 0.12, 0, half * 0.78 + hw * 0.15, hw * 0.52, 0, 0, 6.283));
+    if (hl.plasmide) gold(() => ctx.arc(half * 0.62, hw * 0.32, hw * 0.24, 0, 6.283));
+    if (hl.membraan) gold(() => { const r2 = hw - ww - Math.max(1.5, hw * 0.06); ctx.moveTo(-half, -r2); ctx.lineTo(half, -r2); ctx.arc(half, 0, r2, -Math.PI / 2, Math.PI / 2); ctx.lineTo(-half, r2); ctx.arc(-half, 0, r2, Math.PI / 2, Math.PI * 1.5); ctx.closePath(); });
+    ctx.restore(); return { lengte: L, half: hw, anker: r }; }
+  // TWEEDELING: twee gehalveerde cellen (elk met eigen nucleoïde) die samen één capsule vormen; de overlap e krimpt van hw naar 0,
+  // zodat de insnoering vanzelf als kerf ontstaat; daarna schuiven de dochters uit elkaar. Eerst vloeit de enkele cel over in twee nucleoïden (DNA kopiëren).
   const g = ease(clamp(fase / 0.4, 0, 1)), ins = ease(clamp((fase - 0.4) / 0.45, 0, 1)), los = ease(clamp((fase - 0.85) / 0.15, 0, 1));
-  const hw = L * 0.21, len = L * (1 + g), gap = los * hw * 0.6, wand = Math.max(4, hw * 0.16);
-  // omtrek als profiel: capsule (halve cirkels aan de uiteinden) met een gladde insnoering in het midden
-  const pad = (inset) => { const r = hw - inset; ctx.beginPath(); const N = 120;
-    const caps = (cx, hl2) => { ctx.moveTo(cx - hl2 + r, -r); ctx.lineTo(cx + hl2 - r, -r); ctx.arc(cx + hl2 - r, 0, r, -Math.PI / 2, Math.PI / 2); ctx.lineTo(cx - hl2 + r, r); ctx.arc(cx - hl2 + r, 0, r, Math.PI / 2, Math.PI * 1.5); ctx.closePath(); };
-    if (ins > 0.995) { const hl2 = len / 4 - inset * 0.5; caps(-(len / 4 + gap / 2), hl2); caps(len / 4 + gap / 2, hl2); return; }
-    const prof = (xx) => { const ax = Math.abs(xx), end = len / 2 - ax; let yy = r; if (end < r) yy = Math.sqrt(Math.max(0, r * r - (r - end) * (r - end)));
-      const nk = 1 - ins * 0.97 * Math.exp(-Math.pow(ax / (r * 0.85), 2)); return yy * nk; };
-    for (let i = 0; i <= N; i++) { const xx = -len / 2 + inset + (len - 2 * inset) * i / N; i ? ctx.lineTo(xx, -prof(xx)) : ctx.moveTo(xx, -prof(xx)); }
-    for (let i = N; i >= 0; i--) { const xx = -len / 2 + inset + (len - 2 * inset) * i / N; ctx.lineTo(xx, prof(xx)); } ctx.closePath(); };
-  if (flagel) { ctx.beginPath(); const fl = L * 1.8; for (let i = 0; i <= 60; i++) { const u = i / 60, d = u * fl; ctx.lineTo(-len / 2 - gap / 2 - d, Math.sin(d / (L * 0.4) * 6.283 - t * 8) * hw * 0.45 * Math.min(1, u * 4)); } ctx.strokeStyle = rgba(hl.flagel ? '#E0B64A' : '#F2F2EE', 0.8); ctx.lineWidth = 2.4; ctx.stroke(); }
-  pad(0); shape(ctx, rgba(C.teal, 0.2 * wandA), rgba(hl.wand ? '#E0B64A' : '#7FB8D6', wandA), wand);
-  pad(wand * 0.5 + 2); ctx.fillStyle = rgba('#7FC48F', 0.13); ctx.fill(); ctx.strokeStyle = hl.membraan ? '#E0B64A' : '#AFC0D0'; ctx.lineWidth = 2; ctx.stroke();
-  ctx.save(); pad(wand * 0.5 + 3); ctx.clip();
-  const sch = lerp(0, len / 4 + gap / 2, ease(clamp((fase - 0.2) / 0.3, 0, 1))), kop = ease(clamp((fase - 0.1) / 0.25, 0, 1));
-  for (let i = 0; i < 80; i++) { const px = (hash(i * 2.7 + 1) - 0.5) * (len + gap) * 0.94, py = (hash(i * 3.9 + 2) - 0.5) * hw * 1.6; circ(ctx, px, py, Math.max(1.8, hw * 0.05), hl.ribo ? '#E0B64A' : rgba('#C9B896', 0.85)); }
-  const rx = Math.min(L * 0.26, len / 4 - hw * 0.15);
-  const dna = (cx, al) => { ctx.beginPath(); for (let i = 0; i <= 160; i++) { const u = i / 160 * 6.283; const cr = hw * (0.09 + 0.035 * Math.sin(u * 3)); const px = cx + Math.cos(u) * rx + Math.cos(u * 21) * cr, py = Math.sin(u) * hw * 0.3 + Math.sin(u * 21) * cr * 0.9; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.strokeStyle = rgba(hl.dna ? '#E0B64A' : '#BBAFE0', 0.95 * al); ctx.lineWidth = 2.2; ctx.stroke(); };
-  dna(-sch, 1); if (kop > 0.01) dna(sch, kop);
-  if (plasmide) { const pl = (px, py, al) => { ctx.beginPath(); ctx.ellipse(px, py, hw * 0.13, hw * 0.1, 0.3, 0, 6.283); ctx.strokeStyle = rgba(hl.plasmide ? '#E0B64A' : '#BBAFE0', al); ctx.lineWidth = 2.2; ctx.stroke(); };
-    pl(-(len + gap) * 0.38, hw * 0.45, 1); pl((len + gap) * 0.38, -hw * 0.45, kop); }
-  ctx.restore(); ctx.restore(); return { lengte: len + gap, half: hw }; }
+  const T2 = L * (1 + g), gap = los * hw * 0.6, e = hw * (1 - ins), split = ease(clamp((fase - 0.12) / 0.14, 0, 1));
+  const half2 = (sd, seed) => { const LA = T2 / 2 + e, cx = sd * (T2 / 2 - e) / 2 + sd * gap / 2; ctx.save(); ctx.beginPath(); if (sd < 0) ctx.rect(-L * 6, -L * 3, L * 6 - gap / 2, L * 6); else ctx.rect(gap / 2, -L * 3, L * 6, L * 6); ctx.clip();
+    bacterieEcht(ctx, cx, 0, LA, { a, t, plasmide, hlWand: 0, seed, h: 2 * hw }); ctx.restore(); };
+  half2(-1, 3); half2(1, 7);
+  if (split < 0.999 && gap < 0.5 && ins < 0.5) bacterieEcht(ctx, 0, 0, T2, { a: a * (1 - split), t, plasmide, seed: 3, h: 2 * hw });
+  ctx.restore(); return { lengte: T2 + gap, half: hw }; }
 
 // GISTCEL hergebruik uit teken_bt1 (gistcel) — hier een eenvoudige versie met knop.
-function miGist(ctx, x, y, r, o = {}) { const { a = 1, knop = 0.4 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
-  ctx.beginPath(); ctx.ellipse(x, y, r, r * 0.86, 0.2, 0, 6.283); shape(ctx, rgba(C.teal, 0.18), '#7FB8D6', 3);
-  if (knop > 0.01) { const kr = r * 0.5 * knop; ctx.beginPath(); ctx.arc(x + r * 0.95, y - r * 0.45, kr, 0, 6.283); shape(ctx, rgba(C.teal, 0.18), '#7FB8D6', 3); }
-  circ(ctx, x - r * 0.15, y + r * 0.05, r * 0.3, rgba('#8C7BBF', 0.7), '#A392D6', 2); ctx.beginPath(); ctx.ellipse(x + r * 0.35, y + r * 0.25, r * 0.3, r * 0.22, 0, 0, 6.283); ctx.fillStyle = rgba('#5BA4C9', 0.25); ctx.fill();
-  ctx.restore(); }
+function miGist(ctx, x, y, r, o = {}) { const { a = 1, knop = 0.4 } = o; if (a <= 0.01) return;
+  // beeldbank-gistcel (schimmelGist, soort 'gist': wand, vacuole, kern paars, knoplitteken); r = oude straal in px (62 px ≈ s 3,4)
+  schimmelGist(ctx, x, y, r / 18, { soort: 'gist', t: knop, a }); }
 
 // SCHAALLADDER (schema): balk op log-schaal van 10 nm tot 100 µm met objecten erboven. items = [{naam, m (meter), kleur}]
 function miLadder(ctx, x, y, w, items, o = {}) { const { a = 1, k = 1 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
@@ -194,12 +189,17 @@ function miLadder(ctx, x, y, w, items, o = {}) { const { a = 1, k = 1 } = o; if 
 
 // PETRISCHAAL (bovenaanzicht, Schema-lab). Recept: Ø ± 9 cm, deksel iets groter, voedingsbodem als vlak (oker-licht),
 // kolonies als stipjes (teal/grijs, rond, glanzend randje), dicht = plakband (twee stroken) over de rand.
-function miSchaal(ctx, x, y, r, o = {}) { const { a = 1, kol = 0, seed = 1, dicht = 1, label = '', n = 18 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+function miSchaal(ctx, x, y, r, o = {}) { const { a = 1, kol = 0, dicht = 1, label = '' } = o; if (a <= 0.01) return; const s = r / 43, sy = Math.sin(35 * Math.PI / 180), cz = Math.cos(35 * Math.PI / 180), yb = y + r * 0.2;
+  // beeldbank-petrischaal (3/4-aanzicht, 90 mm, agar 4 mm, deksel): losse kolonies als bultjes; dicht = plakband over de rand, anders deksel open
+  petrischaal(ctx, x, yb, s, { a, gazon: false, schijf: false, groei: kol, deksel: clamp(1 - dicht, 0, 1) });
+  if (dicht > 0.01) { ctx.save(); ctx.globalAlpha *= a * dicht; ctx.strokeStyle = rgba('#E0D6B8', 0.85); ctx.lineWidth = Math.max(3, r * 0.14); ctx.lineCap = 'butt';
+    for (const an of [Math.PI * 0.27, Math.PI * 0.73]) { ctx.beginPath(); ctx.ellipse(x, yb - 15 * cz * s, 46.5 * s, 46.5 * s * sy, 0, an - 0.2, an + 0.2); ctx.stroke(); } ctx.restore(); }
+  if (label) metaText(ctx, label, x, yb + 45 * sy * s + 52, C.grain, 'center', 28); }
+// PETRISCHAAL bovenaanzicht (alleen voor de remmingszone van Fleming, s38): vlak van boven, kolonies als stipjes.
+function miSchaalBoven(ctx, x, y, r, o = {}) { const { a = 1, kol = 0, seed = 1, n = 18 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
   circ(ctx, x, y, r * 1.06, rgba('#AFC0D0', 0.08), '#AFC0D0', 2.5); circ(ctx, x, y, r * 0.97, '#B9A77A', rgba('#E8D9A8', 0.7), 1.5);
   const rnd = miRng(seed * 31 + 7); for (let i = 0; i < n; i++) { const u = clamp(kol * n - i, 0, 1); if (u <= 0) break; const an = rnd() * 6.283, rr = Math.sqrt(rnd()) * r * 0.82, kr = r * (0.03 + rnd() * 0.04) * u;
     circ(ctx, x + Math.cos(an) * rr, y + Math.sin(an) * rr, kr, '#C9D6DA', '#F2F2EE', 1.2); }
-  if (dicht > 0.01) { ctx.save(); ctx.globalAlpha *= dicht; ctx.strokeStyle = rgba('#E0D6B8', 0.75); ctx.lineWidth = r * 0.16; for (const an of [0.4, 0.4 + Math.PI]) { ctx.beginPath(); ctx.arc(x, y, r * 1.06, an - 0.28, an + 0.28); ctx.stroke(); } ctx.restore(); }
-  if (label) metaText(ctx, label, x, y + r * 1.06 + 44, C.grain, 'center', 28);
   ctx.restore(); }
 // ZAKJE met boterham (dicht, plastic): boterham + doorzichtige rechthoek met sluitstrip.
 function miZakje(ctx, x, y, w, o = {}) { const { a = 1, schimmel = [], label = '', droog = 0 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;

@@ -12,7 +12,9 @@
 //   o.zitHoogte = zithoogte in px (standaard 1,45 × kopmaat ≈ 45 cm); zijaanzicht: o.reik = hoe ver de handen op tafel vóór de borst liggen (× kopmaat, standaard 1,0).
 //   Zonder tafel liggen de handen in de schoot. Geeft ook schoot:{x,y} (midden bovenop de dijen) en zit:{y} (zithoogte) terug.
 // Zijaanzicht (21 okt 2026): { zij: true, kijk: 1|-1, gang: 'loop'|'ren', t (of fase 0..1), tempo } — van opzij, lopend of rennend; zie _zij onderaan
+//   o.arm = [bovenarm, elleboog] (rad vanaf recht omlaag) = vrije armhoek rechterarm in zijaanzicht, o.armVer idem andere arm; handR geeft dan ook elx, ely, shx, shy, hh (26 okt 2026, Spieren en beweging)
 
+// Accessoires diabetes (29 okt 2026, vooraanzicht): 'glucosesensor' (rond plakkertje op de bovenarm aan de kant -kijk) en 'insulinepomp' (kastje aan de broeksband); persoon() geeft dan ook sensor:{x,y,r} en pomp:{x,y} terug.
 // plaatsdelict (25 okt 2026): forensisch onderzoeker in witte wegwerpoverall (Tyvek) met capuchon over het haar, mondkapje, nitrilhandschoenen en witte overschoenen
 const _NITRIL = '#5B8CC9', _MASKER = '#DCE5EC';
 const _PLAATSDELICT = { top: 'overall', topKleur: '#F2F2EE', topAccent: '#D4D8DE', broek: '#F2F2EE', schoen: '#F2F2EE', schoenAccent: '#D4D8DE', veiligheidsbril: false, accessoire: ['capuchon', 'mondkapje', 'handschoenen'] };
@@ -111,7 +113,8 @@ const CAST = {
   erik:   { naam: 'Erik', leeftijd: 38, rol: 'figurant · verdachte, voorbijganger, iemand uit een onderzoek', huid: '#E3B998', haar: '#7A6A58', kapsel: 'kort', wenkbrauw: '#5A4A3A', stoppels: true,
             top: 'jas', topKleur: '#3A3F4E', topAccent: '#2C303C', broek: '#4A4E5E', schoen: '#2A2F3E', schoenAccent: '#1E2230', accessoire: [], lengte: 1.02 },
   joost:  { naam: 'Joost', leeftijd: 55, rol: 'figurant · verre familie, buurman, iemand uit een onderzoek', huid: '#E6BE9A', haar: '#B8B0A0', kapsel: 'kort', wenkbrauw: '#9A9284',
-            top: 'trui', topKleur: '#8A5A3A', topAccent: '#744A30', broek: '#33415C', schoen: '#4A3A2E', schoenAccent: '#2E241C', accessoire: ['bril'], lengte: 1.0 },
+            top: 'trui', topKleur: '#8A5A3A', topAccent: '#744A30', broek: '#33415C', schoen: '#4A3A2E', schoenAccent: '#2E241C', accessoire: ['bril'], lengte: 1.0,
+            garderobe: { gewoon: {}, spreekuur: { heupK: 1.66, schouderK: 2.02 } } }, // spreekuur (26 okt 2026, Voeding en diëtetiek): iets vollere romp, geen karikatuur (Kamiel akkoord)
   buurvrouw: { naam: 'Mevrouw Jansen', leeftijd: 72, rol: 'buurvrouw · oudere vrouw, los van Noors familie', huid: '#E8C3A4', haar: '#DCD8D0', kapsel: 'kort', wenkbrauw: '#BEB6AA', wimpers: true, lippen: '#B4605A',
             top: 'vest', topKleur: '#6E8A5E', topAccent: '#5C744E', binnen: '#EEE6DA', broek: '#4A4E5E', schoen: '#4A3A2E', schoenAccent: '#2E241C', accessoire: ['oorbel'], lengte: 0.93, krom: 0.03,
             garderobe: { thuis: {}, buiten: { top: 'jas', topKleur: '#7A5A6E', topAccent: '#644A5A' } } }, // 25 okt 2026 (Forensisch onderzoek 3): kort wit haar, groen vest; bewust anders dan Oma Ria (geen bob, geen bril)
@@ -124,6 +127,12 @@ const CAST = {
   bas:    { naam: 'Ecoloog Bas', leeftijd: 46, rol: 'ecoloog · telt, meet en maakt plannen voor natuurgebieden · alleen in zijn eigen vak', huid: '#E0B08C', haar: '#7A5A3A', kapsel: 'kort', wenkbrauw: '#5E4430', baard: true,
             top: 'jas', topKleur: '#6B6A3A', topAccent: '#58572E', broek: '#4A4636', schoen: '#3A2E22', schoenAccent: '#2A2018', accessoire: ['verrekijker'], lengte: 1.04,
             garderobe: { veld: {}, gewoon: { top: 'overhemd', topKleur: '#7A8A5A', topAccent: '#66744A', broek: '#33415C', schoen: '#4A3A2E', schoenAccent: '#2E241C', accessoire: [] } } }, // 25 okt 2026 (Ecologie, begeleider van Daan; goedgekeurd door Kamiel 25 okt 2026): olijfgroene veldjas, laarzen, verrekijker, baard
+  hanneke: { naam: 'Diëtist Hanneke', leeftijd: 41, rol: 'diëtist · vraagt wat je eet en wat jij wilt veranderen · alleen in haar eigen vak', huid: '#A87252', haar: '#2A1A12', kapsel: 'krul', wenkbrauw: '#22150E', wimpers: true, lippen: '#A9584E',
+            top: 'vest', topKleur: '#5E8A6A', topAccent: '#4E7458', binnen: '#F2ECE2', broek: '#33415C', schoen: '#4A3A2E', schoenAccent: '#2E241C', accessoire: ['oorbel'], lengte: 0.98,
+            garderobe: { praktijk: {}, buiten: { top: 'jas', topKleur: '#7A5A3A', topAccent: '#664A30' } } }, // 26 okt 2026 (Voeding en diëtetiek, goedgekeurd door Kamiel 26 okt 2026, voorstel A): krullen, groen vest, gewone kleding, geen labjas
+  farid:  { naam: 'Epidemioloog Farid', leeftijd: 38, rol: 'epidemioloog · rekent uit hoe een ziekte zich verspreidt en wat een maatregel doet · alleen in zijn eigen vak', huid: '#A87454', haar: '#1C1410', kapsel: 'kort', wenkbrauw: '#1A120E', baard: true,
+            top: 'trui', topKleur: '#7A3E4A', topAccent: '#66323C', broek: '#2E3442', schoen: '#4A3A2E', schoenAccent: '#2E241C', accessoire: [], lengte: 1.03,
+            garderobe: { kantoor: {}, buiten: { top: 'jas', topKleur: '#3E4A5C', topAccent: '#323C4C' } } }, // 26 okt 2026 (Gezondheidswetenschappen, begeleider van Yasmin bij de GGD; goedgekeurd door Kamiel 26 okt 2026, voorstel B): bordeauxrode trui, baard
   fleur:  { naam: 'Fleur', leeftijd: 10, rol: 'meisje van ± 10 jaar (groep 7) · voor scènes met een basisschoolkind, bv. de HPV-prik', huid: '#C99872', haar: '#3A2418', kapsel: 'vlecht', wenkbrauw: '#2A1A12',
             top: 'tshirt', strepen: null, topKleur: '#E07A8F', topAccent: '#C8667A', broek: '#4D6E9C', schoen: '#F2F2EE', schoenAccent: '#E07A8F', accessoire: [], lengte: 1,
             kop: 5.8, armK: 0.9, schouderK: 1.42, heupK: 1.24 }, // kinderverhoudingen (± 10 jaar, ± 140 cm): hoofd iets kleiner dan bij Teun
@@ -136,7 +145,7 @@ const CAST = {
   // Garderobe 'licht' = variant B voor de keuring: een gezin met een lichte huid (dan valt Levi minder op; Kamiel kiest).
   dennis: { naam: 'Dennis', leeftijd: 43, rol: 'figurant · vader in het gezin De Wit (Aa)', huid: '#8E6248', haar: '#1E1612', kapsel: 'krul', wenkbrauw: '#16100C', stoppels: true,
             top: 'trui', topKleur: '#4D6E9C', topAccent: '#3F5C84', broek: '#3A3F4E', schoen: '#3A2E26', schoenAccent: '#241C16', accessoire: [], lengte: 1.04,
-            garderobe: { gewoon: {}, licht: { huid: '#E6BE9A', haar: '#6A4A30', wenkbrauw: '#4A3220', kapsel: 'kort' } } },
+            garderobe: { gewoon: {}, licht: { huid: '#E6BE9A', haar: '#6A4A30', wenkbrauw: '#4A3220', kapsel: 'kort' }, sport: { top: 'tshirt', strepen: null, topKleur: '#4F8FB0', topAccent: '#3E7896', broek: '#2E3442', schoen: '#F2F2EE', schoenAccent: '#4F8FB0', schouderK: 2.1, heupK: 1.4 } } }, // sport: 26 okt 2026 (Voeding 2, sporter met index 26)
   marieke: { naam: 'Marieke', leeftijd: 41, rol: 'figurant · moeder in het gezin De Wit (Aa)', huid: '#B98563', haar: '#3A2418', kapsel: 'golf', golfLang: 0.6, wenkbrauw: '#2A1A12', wimpers: true, lippen: '#A8564E',
             top: 'vest', topKleur: '#C9654B', topAccent: '#A8523C', binnen: '#F2ECE2', broek: '#33415C', schoen: '#4A3A2E', schoenAccent: '#2E241C', accessoire: ['oorbel'], lengte: 0.97,
             garderobe: { gewoon: {}, licht: { huid: '#EFC9A8', haar: '#8A5A30', wenkbrauw: '#6A4422' } } },
@@ -179,7 +188,15 @@ const CAST = {
   wilma:  { naam: 'Wilma', leeftijd: 63, rol: 'figurant · patiënt op de afdeling, zittend in gewone kleding (Bio-informatica 3, bedacht uitbraakvoorbeeld) · los van alle families', huid: '#E9C1A0', haar: '#A8A49C', kapsel: 'bob', wenkbrauw: '#8A847A', wimpers: true, lippen: '#B4605A',
             top: 'vest', topKleur: '#8A6A8E', topAccent: '#745878', binnen: '#EEE6DA', broek: '#3E4A5E', schoen: '#4A3A2E', schoenAccent: '#2E241C', accessoire: ['bril'], lengte: 0.95 },
   passant: { naam: 'Voorbijganger', leeftijd: 40, rol: 'figurant (naamloos, net als Erik en Joost zonder verhaal) · iemand uit de buurt, geen vaste rol (Bio-informatica 3)', huid: '#C99A78', haar: '#5A4232', kapsel: 'kort', wenkbrauw: '#4A3628',
-            top: 'trui', topKleur: '#6E8A6A', topAccent: '#5A7458', broek: '#3E4658', schoen: '#4A4A52', schoenAccent: '#34343A', accessoire: [], lengte: 1.0 }
+            top: 'trui', topKleur: '#6E8A6A', topAccent: '#5A7458', broek: '#3E4658', schoen: '#4A4A52', schoenAccent: '#34343A', accessoire: [], lengte: 1.0 },
+  // ===== Historische figuren (29 okt 2026; alleen in historische scènes, geen portret maar castboekstijl) =====
+  // Gregor Mendel (1822–1884), Augustijner monnik in Brno; kruiste 1856–1863 erwten in de kloostertuin (rond zijn 38e in beeld).
+  // Uit Erfelijkheid 2 Monohybride kruisingen 2.0 (28 okt 2026, goedgekeurd door Kamiel): zwarte jas, bril, kort donker haar.
+  mendel: { naam: 'Gregor Mendel', leeftijd: 38, rol: 'historisch figuur · monnik en onderzoeker (1822–1884) · kruiste erwten in de kloostertuin · alleen in historische scènes', huid: '#EBC6A6', haar: '#5A4A3A', kapsel: 'kort', wenkbrauw: '#2A1C16',
+            top: 'jas', topKleur: '#22222A', topAccent: '#1A1A20', broek: '#22222A', schoen: '#2A2F3E', schoenAccent: '#3A3F4E', accessoire: ['bril'], lengte: 1 },
+  // ===== Figurant in Hormonen 2 Suiker in balans (29 okt 2026, keuze Kamiel: nieuwe figurant, de naam Sanne mag blijven; los van alle families) =====
+  sanne16: { naam: 'Sanne', leeftijd: 16, rol: 'figurant · leerling met diabetes type 1: glucosesensor op de bovenarm, insulinepomp aan de broeksband (Hormonen 2 Suiker in balans) · los van alle families; niet de verpleegkundige Sanne (id sanne) uit Bio-informatica 3', huid: '#EFCFB4', haar: '#8A4A28', kapsel: 'vlecht', elastiek: '#E0A43A', wenkbrauw: '#6A3A1E', wimpers: true,
+            top: 'tshirt', topKleur: '#B36A5E', topAccent: '#9A5A4F', broek: '#3E4A63', schoen: '#F2F2EE', schoenAccent: '#B36A5E', accessoire: ['glucosesensor', 'insulinepomp', 'sproeten'], lengte: 0.97 } // korte mouwen, zodat de sensor op de bovenarm te zien is
 };
 // families en vaste verbanden (getekend op de castboekpagina 'Families'); ouders: [vader, moeder]
 const CAST_FAMILIE = {
@@ -194,12 +211,13 @@ const CAST_FAMILIE = {
   sara: { ouders: ['dennis', 'marieke'], broerzus: ['levi', 'jens'] }, levi: { ouders: ['dennis', 'marieke'] }, jens: { ouders: ['dennis', 'marieke'] },
   anouk: { partner: 'milan' }
 };
-const CAST_EXTRA = ['linda', 'rachid', 'ria', 'ahmed', 'malika', 'petra', 'thijs', 'erik', 'joost', 'buurvrouw'];
-const CAST_VOLGORDE = ['noor', 'sam', 'lotte', 'daan', 'yasmin', 'bilal', 'kim', 'henk', 'visser', 'ravi', 'jesse', 'femke', 'mirjam', 'esra', 'mila', 'gerrit', 'wouter', 'ilse', 'lieke', 'merel', 'bas'];
+const CAST_EXTRA = ['linda', 'rachid', 'ria', 'ahmed', 'malika', 'petra', 'thijs', 'erik', 'joost', 'buurvrouw', 'sanne16']; // sanne16 (29 okt 2026): figurant met diabetes type 1, Hormonen 2
+const CAST_VOLGORDE = ['noor', 'sam', 'lotte', 'daan', 'yasmin', 'bilal', 'kim', 'henk', 'visser', 'ravi', 'jesse', 'femke', 'mirjam', 'esra', 'mila', 'gerrit', 'wouter', 'ilse', 'lieke', 'merel', 'bas', 'hanneke', 'farid'];
 const CAST_JONG = ['kind', 'fleur', 'ruben', 'baby']; // 22 okt 2026: Fleur en Ruben (± 10 jaar)
 const CAST_OUDERS_BI = ['anouk', 'milan']; // 25 okt 2026: ouders in het uitslaggesprek van Bio-informatica 2 (figuranten, ter keuring)
 const CAST_FIGURANTEN_BI3 = ['sanne', 'bram', 'wilma', 'passant']; // 25 okt 2026: Bio-informatica 3, bedacht uitbraakvoorbeeld (ter keuring)
 const CAST_GEZIN_WIT = ['opawit', 'omawit', 'opabos', 'omabos', 'dennis', 'marieke', 'sara', 'levi', 'jens']; // 25 okt 2026, ter keuring
+const CAST_HISTORISCH = ['mendel']; // 29 okt 2026: historische figuren (Gregor Mendel uit Erfelijkheid 2)
 // // jonge personages (20 okt 2026): Teun (± 6 jaar) en een baby
 
 function _mix(hex, k, naar = '#000000') { const a = parseInt(hex.slice(1), 16), b = parseInt(naar.slice(1), 16); const c = (s) => Math.round(((a >> s) & 255) * (1 - k) + ((b >> s) & 255) * k); return `rgb(${c(16)},${c(8)},${c(0)})`; }
@@ -355,6 +373,8 @@ function persoon(ctx, id, x, y, h, o = {}) {
     if (P.top === 'tshirt') { ctx.strokeStyle = P.huid; ctx.lineWidth = hh * 0.29; ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(ex, ey); ctx.stroke(); ctx.strokeStyle = mouw; ctx.lineWidth = hh * 0.46; ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(sx + (ex - sx) * 0.45, sy + (ey - sy) * 0.45); ctx.stroke(); }
     if (P.top !== 'tshirt') { ctx.strokeStyle = mouw; ctx.lineWidth = hh * 0.42; ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(ex, ey); } if (kort) ctx.lineTo(ex + (hx - ex) * 0.72, ey + (hy - ey) * 0.72); if (P.top !== 'tshirt') ctx.stroke();
     if (kort) { ctx.strokeStyle = _donker(mouw, 0.12); ctx.lineWidth = hh * 0.44; ctx.beginPath(); ctx.moveTo(ex + (hx - ex) * 0.66, ey + (hy - ey) * 0.66); ctx.lineTo(ex + (hx - ex) * 0.74, ey + (hy - ey) * 0.74); ctx.stroke(); }
+    if (s === -kijk && P.accessoire.includes('glucosesensor')) { const gx = sx + (ex - sx) * 0.62 - s * hh * 0.06, gy = sy + (ey - sy) * 0.62; _acc.sensor = { x: gx, y: gy, r: hh * 0.13 }; // glucosesensor (29 okt 2026): wit rond plakkertje op de bovenarm
+      circ(ctx, gx, gy, hh * 0.13, '#F2F2EE'); ctx.strokeStyle = '#9AA3B2'; ctx.lineWidth = Math.max(1, hh * 0.025); ctx.beginPath(); ctx.arc(gx, gy, hh * 0.13, 0, 6.283); ctx.stroke(); circ(ctx, gx, gy, hh * 0.045, '#9AA3B2'); }
     if (o.pose === 'handdruk' && s === kijk) return _grip(ctx, hx, hy, Math.atan2(hy - ey, hx - ex), hh, handK, null);
     const ang = Math.atan2(hy - ey, hx - ex); ctx.fillStyle = handK; ctx.beginPath(); ctx.ellipse(hx + Math.cos(ang) * hh * 0.08, hy + Math.sin(ang) * hh * 0.08, hh * 0.19, hh * 0.15, ang, 0, 6.283); ctx.fill();
     if (!zit && (Math.abs(a2 - a1) > 1.2 || a2 > 1.3)) { ctx.strokeStyle = handK; ctx.lineWidth = hh * 0.08; ctx.beginPath(); ctx.moveTo(hx + Math.cos(ang) * hh * 0.18, hy + Math.sin(ang) * hh * 0.18); ctx.lineTo(hx + Math.cos(ang) * hh * 0.36, hy + Math.sin(ang) * hh * 0.36); ctx.stroke(); }
@@ -375,6 +395,10 @@ function persoon(ctx, id, x, y, h, o = {}) {
       const [b1, b2] = _ikUit(s * (tx - sx) - hh * 0.12, ty - sy, L1 * k1, L2 * k2); return [b1, b2, k1, k2]; };
     R = doel(kijk); L = doel(-kijk); }
   // kijk -1 (25 okt 2026): arm(kijk, …) spiegelt al; de oude extra wissel [R, L] = [L, R] zette de wijs-/vasthoudarm terug naar rechts
+  const _acc = {};
+  if (P.accessoire.includes('insulinepomp')) { const px = cx + kijk * hw2 * 0.22, py = heupY - hh * 0.02; _acc.pomp = { x: px, y: py }; // insulinepomp (29 okt 2026): klein grijs kastje aan de broeksband met een dun slangetje
+    ctx.strokeStyle = '#C9CED6'; ctx.lineWidth = Math.max(1, hh * 0.025); ctx.beginPath(); ctx.moveTo(px - kijk * hh * 0.2, py); ctx.quadraticCurveTo(px - kijk * hh * 0.45, py - hh * 0.1, px - kijk * hh * 0.4, py - hh * 0.4); ctx.stroke();
+    roundRect(ctx, px - hh * 0.22, py - hh * 0.15, hh * 0.44, hh * 0.3, hh * 0.07); ctx.fillStyle = '#5B6B88'; ctx.fill(); ctx.strokeStyle = '#AFC0D0'; ctx.lineWidth = Math.max(1, hh * 0.02); ctx.stroke(); ctx.fillStyle = '#AFC0D0'; ctx.fillRect(px - hh * 0.13, py - hh * 0.07, hh * 0.15, hh * 0.1); }
   const handR = arm(kijk, R), handL = arm(-kijk, L);
   if (o.hold) o.hold(ctx, handR.x, handR.y, handR.ang);
   if (P.kapsel === 'golf') { for (const s of [-1, 1]) { const N = 14, y0 = hoofdY + hh * 0.05, y1 = schouderY + hh * (P.golfLang ?? 1.05); const xs = (u, off) => cx + s * (hh * (0.36 + 0.22 * u) + off + Math.sin(u * 9 + (s > 0 ? 0.6 : 0)) * hh * 0.07);
@@ -492,7 +516,7 @@ function persoon(ctx, id, x, y, h, o = {}) {
   if (!masker && mond === 'zuur') { ctx.beginPath(); ctx.moveTo(ex0 - fw * 0.11, my + hh * 0.04); ctx.quadraticCurveTo(ex0, my - hh * 0.02, ex0 + fw * 0.11, my + hh * 0.04); ctx.stroke(); }
   if (P.baard) { ctx.fillStyle = P.haar; ctx.beginPath(); ctx.ellipse(ex0, my - hh * 0.07, fw * 0.2, hh * 0.05, 0, Math.PI, 0); ctx.fill(); }
   ctx.restore();
-  return { hoofd: { x: cx, y: hy, r: hh * 0.55 }, handR, handL, heup: { x: cx, y: heupY }, top: hy - hh * 0.75, schoot: zit ? { x: cx, y: heupY + hh * 0.05 } : undefined, zit: zit ? { y: heupY } : undefined };
+  return { hoofd: { x: cx, y: hy, r: hh * 0.55 }, handR, handL, heup: { x: cx, y: heupY }, top: hy - hh * 0.75, schoot: zit ? { x: cx, y: heupY + hh * 0.05 } : undefined, zit: zit ? { y: heupY } : undefined, sensor: _acc.sensor, pomp: _acc.pomp };
 }
 
 // ===== baby (20 okt 2026): ligt op de rug, hoofd links. (x, y) = midden onder de baby, h = lengte. Vlak, geen omlijning, één schaduwtint.
@@ -633,6 +657,8 @@ function _zij(ctx, P, x, y, h, a, o) {
   const armHoek = (B, kant) => { // kant 1 = dichtbij; B = been aan dezelfde kant
     if (G) { const D = Math.PI / 180, th = B.th / D + (G.kantel || 0), v = 1 - (th - thMin) / (thMax - thMin); // v: 0 = arm achter, 1 = arm voor
       const w = v * v * (3 - 2 * v); return [(G.arm[0] + (G.arm[1] - G.arm[0]) * w) * D, (G.elle[0] + (G.elle[1] - G.elle[0]) * w) * D]; }
+    if (o.arm && kant > 0) return o.arm; // (26 okt 2026, Spieren en beweging) vrije armhoek [bovenarm, elleboog] in rad vanaf 'recht omlaag'
+    if (o.armVer && kant < 0) return o.armVer;
     if (o.pose === 'wijs' && kant > 0) return [1.35, 0.1];
     if (o.pose === 'wijsOmhoog' && kant > 0) return [2.4, 0.2];
     if (o.pose === 'zwaai' && kant > 0) return [2.6, 0.5 + 0.35 * Math.sin(t * 7)];
@@ -662,7 +688,7 @@ function _zij(ctx, P, x, y, h, a, o) {
     if (lang) { ctx.strokeStyle = ver ? _donker(P.top === 'labjas' ? P.topKleur : (P.topAccent || P.topKleur), 0.3) : _donker(P.topKleur, 0.06); ctx.lineWidth = hh * 0.42; ctx.beginPath(); ctx.moveTo(ex + (hx - ex) * 0.66, ey + (hy - ey) * 0.66); ctx.lineTo(ex + (hx - ex) * 0.74, ey + (hy - ey) * 0.74); ctx.stroke(); }
     if (o.pose === 'handdruk' && kant > 0 && !G) { const H = _grip(ctx, hx, hy, Math.PI / 2 - f, hh, hu, rand); return Object.assign(H, { x: H.x, y: H.y }); }
     ctx.fillStyle = hu; handPad(); ctx.fill();
-    return { x: hx + Math.sin(f) * hh * 0.12, y: hy + Math.cos(f) * hh * 0.12, ang: Math.PI / 2 - f }; };
+    return { x: hx + Math.sin(f) * hh * 0.12, y: hy + Math.cos(f) * hh * 0.12, ang: Math.PI / 2 - f, elx: ex, ely: ey, shx: sx, shy: sy, hh }; };
   // tekenvolgorde: ver been, ver arm, romp, dichtbij been (onder de romp door), dichtbij arm, hoofd
   tekenBeen(B2, true);
   const hand2 = tekenArm(B2, -1);

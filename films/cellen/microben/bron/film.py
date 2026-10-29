@@ -3,7 +3,7 @@ film = {
  "slug": "microben", "hoofdstuk": "cellen", "hoofdstukNaam": "Cellen",
  "title": "Wat groeit er op je boterham?", "sub": "bacteriën, virussen en schimmels",
  "puzzle": "Een boterham ligt een week vergeten in je trommel. Wat groeit erop, en waar komt het vandaan?",
- "meta": "cellen · Biologie voor jou § 4.2", "alleen": "havo 4", "version": "1.0 · oktober 2026", "titleLook": "schema",
+ "meta": "cellen · Biologie voor jou § 4.2", "alleen": "havo 4", "version": "1.1 · oktober 2026", "titleLook": "schema",
  "seriesline": "Biologie bij Kamiel · Cellen",
  "lead": "Noor vindt haar broodtrommel terug, een week vergeten. Op de boterham zit groen en wit pluis, en de trommel was dicht. Met een proef van Mevrouw Visser ontdek je wat schimmels, bacteriën en virussen zijn, hoe ze groeien, en waarom een antibioticum niet helpt tegen je verkoudheid.",
  "endHaak": "welke microben heb jij vandaag al gebruikt, zonder dat je het merkte?",

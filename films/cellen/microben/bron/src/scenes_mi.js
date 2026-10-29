@@ -1,6 +1,6 @@
 // Cellen · Bacteriën, virussen en schimmels — Wat groeit er op je boterham? — scènes per alinea (v1.0, 26 okt 2026, script v2).
 // Look: Schema (keuken, lokaal, schema's) met cast (Noor, Teun, Mevrouw Visser); Micro in zoomcirkels (hyfe, bacterie, virus);
-// Macro-dag alleen in de tuin (paddenstoel). Kleuren: brood oker, schimmel/bacterie teal-grijs, DNA/RNA paars, focus goud,
+// Macro-dag alleen in de tuin (paddenstoel). Kleuren: brood oker, schimmel/bacterie teal-grijs, DNA grijs, RNA teal, kern paars, focus goud,
 // koraal = let op. Eén proef draagt de film: drie dichte zakjes brood (H1) en drie dichte schaaltjes (H3).
 
 // ---------- hulpjes ----------
@@ -109,7 +109,7 @@ Object.assign(SCENES, {
     naamBij(ctx, 'enzymen', 'GAAN NAAR BUITEN', 300, 560, q.on('enzymen', 1), 'right'); naamBij(ctx, 'zetmeel', 'WORDT AFGEBROKEN', 1300, 640, q.on('verteert', 1));
     zoomCircle(ctx, 1640, 330, 190, 1640, 330, 'EEN HYFE · VERGROOT', q.on('kernen', 1), () => { binnen(ctx, 1640, 330, 190);
       const W2 = q.on('chitine', 1); ctx.lineCap = 'round'; ctx.strokeStyle = W2 > 0.5 ? C.goud : MI.hyfeR; ctx.lineWidth = 92; ctx.beginPath(); ctx.moveTo(1440, 330); ctx.lineTo(1840, 330); ctx.stroke();
-      ctx.strokeStyle = '#3E5A66'; ctx.lineWidth = 76; ctx.stroke(); [1520, 1620, 1720].forEach(x => circ(ctx, x, 330 + (x % 3 - 1) * 10, 13, rgba(MI.rna, 0.9), MI.rna, 1.5)); });
+      ctx.strokeStyle = '#3E5A66'; ctx.lineWidth = 76; ctx.stroke(); [1520, 1620, 1720].forEach(x => circ(ctx, x, 330 + (x % 3 - 1) * 10, 13, rgba(MI.kern, 0.9), MI.kern, 1.5)); });
     naamBij(ctx, 'kern', 'EUKARYOOT', 1640, 230, q.on('kernen', 1), 'center'); naamBij(ctx, 'celwand', 'MET CHITINE', 1640, 450, q.on('chitine', 1), 'center');
     schaalbalk(ctx, 60, '± 10 µm', 1); },
   s11(ctx, t, q) { keuken(ctx); tafel(ctx, 640, 1280, TAFEL, '#8C6A44'); miBoterham(ctx, 960, TAFEL - 18, 40, { schimmel: plekken(1, 2) });
@@ -127,7 +127,7 @@ Object.assign(SCENES, {
   s14(ctx, t, q) { bg(ctx, 'schema'); const K = q.on('knopvorming', 1, 1.2), C2 = q.on('koolstofdioxide', 1), R = q.on('rees', 1, 1.5);
     broodHeel(ctx, 420, 620, 360, 1); naamBij(ctx, 'brood', 'GEBAKKEN MET GIST', 420, 700, 1, 'center');
     zoomCircle(ctx, 1000, 380, 260, 420, 520, 'GISTCEL · VERGROOT', q.on('gist', 1, 0.6), () => { bg(ctx, 'micro'); miGist(ctx, 980, 390, 62, { knop: lerp(0.12, 1, K) }); });
-    naamBij(ctx, 'knop', 'NIEUWE GISTCEL', 1110, 290, K); schaalbalk(ctx, 124, '5 µm', q.on('gist', 1));
+    naamBij(ctx, 'knop', 'NIEUWE GISTCEL', 1150, 256, K, 'center'); schaalbalk(ctx, 124, '5 µm', q.on('gist', 1));
     laag(ctx, C2, () => { roundRect(ctx, 1400, 560 - 140 * R, 400, 220 + 140 * R, 60); shape(ctx, '#E2CC9C', '#F0E0BC', 2);
       const r = miRng(12); for (let i = 0; i < 22; i++) { const bx = 1440 + r() * 320, by = 590 + r() * 150 - ((t * 30 + r() * 200) % 220) * R; circ(ctx, bx, by, 6 + r() * 7, rgba('#F6F6F0', 0.7), rgba(C.teal, 0.8), 1.5); }
       naamBij(ctx, 'belletjes CO₂', 'DEEG RIJST', 1600, 340 - 100 * R, 1, 'center'); }); },
@@ -162,11 +162,11 @@ Object.assign(SCENES, {
   s20(ctx, t, q) { bg(ctx, 'micro'); const Z = q.on('Zoom', 1, 0.8);
     laag(ctx, 0.55 * q.on('lang', 1), () => { ctx.beginPath(); ctx.arc(960, 760 + 5000, 5000, -Math.PI / 2 - 0.2, -Math.PI / 2 + 0.2); ctx.strokeStyle = '#AFC0D0'; ctx.lineWidth = 3; ctx.stroke(); metaA(ctx, 'RAND VAN JOUW CEL', 1600, 800, 1, C.text2, 'center', 24); });
     const hl = { dna: q.on('DNA', 1) * (1 - q.on('plasmiden', 1)) > 0.5, plasmide: q.on('plasmiden', 1) * (1 - q.on('celmembraan', 1)) > 0.5, membraan: q.on('celmembraan', 1) * (1 - q.on('celwand', 1)) > 0.5, wand: q.on('celwand', 1) * (1 - q.on('ribosomen', 1)) > 0.5, ribo: q.on('ribosomen', 1) * (1 - q.on('zweepdraad', 1)) > 0.5, flagel: q.on('zweepdraad', 1) * (1 - q.on('wél', 1)) > 0.5 };
-    laag(ctx, Z, () => miBacterie(ctx, 1060, 440, 520 * lerp(0.4, 1, Z), { flagel: q.on('zweepdraad', 1) > 0.3, hl, t }));
+    laag(ctx, Z, () => miBacterie(ctx, 1060, 440, 700 * lerp(0.4, 1, Z), { flagel: q.on('zweepdraad', 1) > 0.3, hl, t }));
     metaA(ctx, 'MODEL · E. COLI', 1820, 120, Z, C.grain, 'right', 26);
-    naamBij(ctx, 'DNA', 'ÉÉN RING', 1060, 300, q.on('DNA', 1), 'center'); naamBij(ctx, 'plasmide', '', 862, 540, q.on('plasmiden', 1), 'center');
-    naamBij(ctx, 'celmembraan', '', 1300, 600, q.on('celmembraan', 1)); naamBij(ctx, 'celwand', '', 800, 610, q.on('celwand', 1), 'right');
-    naamBij(ctx, 'ribosomen', 'KLEINER', 1340, 420, q.on('ribosomen', 1)); naamBij(ctx, 'zweepdraad', '', 420, 360, q.on('zweepdraad', 1), 'right');
+    naamBij(ctx, 'DNA', 'ÉÉN RING', 1035, 236, q.on('DNA', 1), 'center'); naamBij(ctx, 'plasmide', '', 1340, 650, q.on('plasmiden', 1), 'center');
+    naamBij(ctx, 'celmembraan', '', 1090, 650, q.on('celmembraan', 1), 'center'); naamBij(ctx, 'celwand', '', 820, 650, q.on('celwand', 1), 'center');
+    naamBij(ctx, 'ribosomen', 'KLEINER', 1480, 430, q.on('ribosomen', 1)); naamBij(ctx, 'zweepdraad', '', 420, 330, q.on('zweepdraad', 1), 'center');
     schaalbalk(ctx, 260, '1 µm', Z); vraagteken(ctx, 1640, 230, q.on('wél', 1), 80); },
   s22(ctx, t, q) { bg(ctx, 'micro'); antwoord(ctx, 'antwoord a: een kern', 1 - q.on('bacterie', 1));
     ctx.beginPath(); ctx.arc(560, 470, 260, 0, 6.283); shape(ctx, rgba('#C9B896', 0.08), '#AFC0D0', 3); for (let i = 0; i < 30; i++) circ(ctx, 560 + Math.cos(i * 2.4) * (60 + (i * 37) % 170), 470 + Math.sin(i * 2.4) * (60 + (i * 53) % 170), 3, rgba('#C9B896', 0.35)); circ(ctx, 480, 430, 86, rgba(C.kern, 0.6), q.on('kern', 1) > 0.5 && q.on('prokaryoot', 1) < 0.5 ? C.goud : C.kernR, 3);
@@ -175,7 +175,7 @@ Object.assign(SCENES, {
     laag(ctx, q.on('kern', 1), () => { ctx.save(); ctx.setLineDash([10, 8]); ctx.strokeStyle = C.goud; ctx.lineWidth = 2.5; roundRect(ctx, 1290, 420, 120, 100, 14); ctx.stroke(); ctx.restore(); });
     metaA(ctx, 'NIET OP SCHAAL', 1820, 860, 1, C.grain, 'right', 24); },
   s23(ctx, t, q) { bg(ctx, 'micro'); const t0 = q.at('kopieert', 1), t1 = q.at('splitst', 1) + 2.2; const f = clamp((t - t0 + 0.5) / Math.max(1, t1 - t0), 0, 1);
-    miBacterie(ctx, 960, 430, 240, { fase: f, t, plasmide: true });
+    miBacterie(ctx, 960, 450, 400, { fase: f, t, plasmide: true });
     naamBij(ctx, 'DNA kopiëren', '', 960, 260, fase(t, q.at('kopieert', 1), q.at('groeit', 1) + 1.2), 'center'); naamBij(ctx, 'groeien', '', 960, 260, fase(t, q.at('groeit', 1), q.at('splitst', 1)), 'center'); naamBij(ctx, 'in twee', 'TWEEDELING', 960, 260, q.on('splitst', 1), 'center');
     laag(ctx, q.on('twintig', 1), () => { klokje(ctx, 1600, 220, 60, (t * 0.2) % 1); metaText(ctx, '± 20 MIN · IDEAAL', 1600, 330, C.grain, 'center', 24); });
     vraagteken(ctx, 960, 720, q.on('uur', 1), 80); schaalbalk(ctx, 150, '1 µm', 1); },
@@ -243,7 +243,7 @@ Object.assign(SCENES, {
     haak(ctx, 300, 1620, 140, '', C.goud, S); laag(ctx, S, () => text(ctx, 'symbiose: nauw samenleven', 960, 110, fTekst(38, 700), C.goud, 'center')); },
   s38(ctx, t, q) { bg(ctx, 'schema'); const Y = q.on('yoghurt', 1), F = q.on('Fleming', 1, 0.8);
     laag(ctx, Y * (1 - F * 0.6), () => { yoghurt(ctx, 380, 560, 1.4); naamBij(ctx, 'melkzuurbacteriën', '', 380, 640, 1, 'center'); });
-    laag(ctx, F, () => { miSchaal(ctx, 1100, 450, 220, { kol: 1, seed: 9, dicht: 0, n: 40 }); ctx.save(); ctx.beginPath(); ctx.arc(1100, 450, 120, 0, 6.283); ctx.fillStyle = '#B9A77A'; ctx.fill(); ctx.restore(); miKolonie(ctx, 1100, 450, 46, 1, 'groen', 0, 5);
+    laag(ctx, F, () => { miSchaalBoven(ctx, 1100, 450, 220, { kol: 1, seed: 9, n: 40 }); ctx.save(); ctx.beginPath(); ctx.arc(1100, 450, 120, 0, 6.283); ctx.fillStyle = '#B9A77A'; ctx.fill(); ctx.restore(); miKolonie(ctx, 1100, 450, 46, 1, 'groen', 0, 5);
       ctx.save(); ctx.setLineDash([8, 7]); ctx.strokeStyle = C.goud; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(1100, 450, 120, 0, 6.283); ctx.stroke(); ctx.restore();
       naamBij(ctx, 'Penicillium', 'SCHIMMEL', 1100, 210, 1, 'center'); naamBij(ctx, 'geen bacteriën', '', 1100, 540, q.on('eromheen', 1), 'center'); metaA(ctx, 'HET JAAR 1928', 1100, 740, 1, C.grain, 'center', 24); });
     pijlChip(ctx, 'penicilline: eerste antibioticum', 1540, 200, C.goud, q.on('penicilline', 1)); },

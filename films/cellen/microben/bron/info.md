@@ -5,12 +5,12 @@
 | Bestand | `films/cellen/microben.html` (audio in `microben/audio/`) |
 | Reeks | Cellen · losse film bij Biologie voor jou havo 4 § 4.2 Bacteriën, virussen en schimmels |
 | Niveau | havo 4 (één niveau) |
-| Versie | 1.0 · oktober 2026 · 26 oktober 2026 (script v2) |
-| Prompt | v10 |
-| Voldoet aan | prompt v10 |
+| Versie | 1.1 · oktober 2026 (1.0 = 26 oktober 2026, script v2; 1.1 = 29 oktober 2026, opwaardering naar prompt v13) |
+| Prompt | v13 |
+| Voldoet aan | prompt v13 (29 okt 2026, zonder keuring; zie 'Versie 1.1' en `opwaardering-v13.md`) |
 | Stem | Roos (ElevenLabs eleven_v4), één take per alinea; generation-id's in `stem/gen.json`, sessies in `stem/sessions.json`; blinde uitspraakcheck in `stem/transcriptcheck.md` |
 | Duur | spraak 7:12 (432 s); met vragen en kaarten ± 9 min |
-| Beeldstijl | Schema (keuken, practicumlokaal) met cast (Noor, Teun, Mevrouw Visser); Micro in zoomcirkels (hyfen, bacterie, virus, schaalladder); Macro-dag alleen bij de paddenstoel. Schimmel en bacterie teal-grijs (groen = plant) |
+| Beeldstijl | Schema (keuken, practicumlokaal) met cast (Noor, Teun, Mevrouw Visser); Micro in zoomcirkels (hyfen, bacterie, virus, schaalladder); Macro-dag alleen bij de paddenstoel. Schimmel teal-grijs (groen = plant); bacterie sinds 1.1 als beeldbankcel (oker wand, grijs DNA) |
 | Bouwvorm | FILMDATA-straat (`bron/src` + `bron/bouw`), werkwijze in `films/vervolg/BOUWEN.md` |
 | Medaillon | `img/kunst/films/microben.webp` (los medaillon, ElevenLabs-flow JjEYm3AOoxNDs3o3VI8L) |
 | Herkomst | gemaakt door Claude, 26 okt 2026, spec `films/cellen/microben/BRIEF.md`, raadsel B (vergeten boterham). Werkwijze prompt v10: 4 scriptvarianten via dobbelsteen (werk/script_A–D) + blinde beoordelaar (werk/blind/, nipt → combinatie) → v1 → frisse bronnen- en scriptreview (reviews/review_v1.md) → v2 → storyboard; twijfelscènes gekeurd door Kamiel (artifact https://claude.ai/artifact/8BmLhCo7ufjEUFa1s8yhTK) → opname → frisse beeldreview (reviews/review_beeld.md), alle MOET-punten verwerkt |
@@ -37,15 +37,15 @@ schimmel, hyfe, mycelium, spore, vruchtlichaam, gist, prokaryoot, eukaryoot, pla
 ## Waar wat in de HTML zit
 | Regel | Inhoud |
 |---|---|
-| 98 | Begrippen |
-| 100 | Checkvragen |
-| 112 | Voor de docent |
-| 163 | `window.FILMDATA` (segmenten, woordtijden, vragen) |
-| 2050 | `const SCENES = {}` (gedeelde engine: brein, teken, extra, lib_bio) |
-| 5283 | tekenfuncties van deze film (`miBoterham`, `miKolonie`, `miTrommel`, `miMycelium`, `miSpore`, `miVirus`, `miFaag`, `miBacterie`, `miGist`, `miLadder`, `miSchaal`, `miZakje`, `miPaddenstoel`) |
-| 5511 | decorhulpjes (`keuken`, `lokaal`, `trommelBrood`, `sporenRegen`, `groeiGrafiek` …) |
-| 5559 | scènes per alinea (`title`, `s01` … `s39`) |
-| 5765 | speler (`const DATA = window.FILMDATA`) |
+| 102 | Begrippen |
+| 104 | Checkvragen |
+| 116 | Voor de docent |
+| 167 | `window.FILMDATA` (segmenten, woordtijden, vragen) |
+| 2080 | `const SCENES = {}` (gedeelde engine: brein, teken, extra, lib_bio = actuele beeldbank van 29 okt 2026, o.a. `bacterieEcht` r. 4939, `petrischaal` r. 9438, `schimmelGist` r. 10480) |
+| 11164 | tekenfuncties van deze film (`MI` kleuren, `miBoterham`, `miKolonie`, `miTrommel`, `miMycelium`, `miSpore`, `miVirus` r. 11276, `miFaag`, `miBacterie` r. 11313 (= `bacterieEcht`, tweedeling uit twee gehalveerde cellen), `miGist` r. 11335 (= `schimmelGist`), `miLadder`, `miSchaal` r. 11349 (= `petrischaal`), `miSchaalBoven` (alleen s38), `miZakje`, `miPaddenstoel`) |
+| 11391 | decorhulpjes (`keuken`, `lokaal`, `trommelBrood`, `sporenRegen`, `groeiGrafiek` …) |
+| 11438 | scènes per alinea (`title`, `s01` … `s39`) |
+| 11645 | speler (`const DATA = window.FILMDATA`) |
 
 ## Hoe je de film aanpast
 Werkmap `hw/mi` opzetten volgens `films/vervolg/BOUWEN.md` (`src/` en `bouw/` naar `engine/`, de rest naar de werkmap; `stem/woordtijden` naar `words/`, `../audio` naar `audio/` en `raw/`). Bouwen: `bash mi/bouw.sh` (zie `bouw.sh`); in de repo zetten met `engine/pak_thema.py mi cellen` (= pak.py met doel `films/<hoofdstuk>/`).
@@ -57,6 +57,15 @@ Werkmap `hw/mi` opzetten volgens `films/vervolg/BOUWEN.md` (`src/` en `bouw/` na
 ## Site en planner
 - `HOOFDSTUKKEN.cellen.films` in `index.html` (+ `FILMKUNST.microben`, `FICOON`).
 - Jaarplanner havo 4 § 4.1 + 4.2 (week van 4 januari 2027), Nijmegen én Groesbeek (`havo4`, `havo4gb`); `jaarplanner-dekking.json` `bvj-havo4` § 4.2: kern, dekking goed. Termen niet gecontroleerd tegen de boektekst.
+
+## Versie 1.1 (29 okt 2026, opwaardering v10 → v13, zonder keuring)
+Alleen wijzigingen die volgen uit regels die Kamiel al gaf; stem, script, takes, vragen, timings, speler en datum in index.html ongewijzigd. Oude versie: `bron/oud/microben-1.0.html`. Details en lijsten voor Kamiel: `opwaardering-v13.md`.
+- `bron/src/lib_bio.js` en `lib_cast.js` vervangen door de actuele beeldbank (29 okt 2026); `film.py` versie 1.1.
+- Kleuren (palet B, 28 okt): DNA grijs, RNA teal, kern paars; het eigen lavendelpaars (`MI.rna`) is weg. Virussen (verkoudheid, griep: RNA-virussen) hebben teal RNA; kernen in hyfe en spore blijven paars. Bacterie-DNA en plasmide grijs (via de beeldbank).
+- s19, s20, s22, s23, s25, s32, s38 en recap: bacterie vervangen door `bacterieEcht` (wand, membraan, nucleoïde, ribosomen, fimbriae). s20 groter (700 px) met labels opnieuw direct bij het onderdeel en gouden stippelrand als accent voor DNA, plasmide en membraan (wand en ribosomen lichten via de bibliotheek goud op). s23: tweedeling opnieuw getekend met dezelfde cel (nucleoïde verdubbelt, kerf, uit elkaar), cel groter (400 px).
+- s14 en schaalladder (s29): gistcel = `schimmelGist` (wand, vacuole, kern, knoplitteken); label 'knop' hoger.
+- s18, s19, s26, s28 en telefoon (s33): petrischaal = `petrischaal` (3/4-aanzicht, agar, kolonies als bultjes, deksel, plakband als aparte laag). s38 (Fleming, remmingszone) blijft bewust bovenaanzicht (`miSchaalBoven`).
+- Niet aangeraakt: personages (lib_cast alleen bijgewerkt), schimmel/hyfe/brood-tekeningen (geen betere beeldbankversie die dezelfde scène draagt), microscoop (niet in de film).
 
 ## Aandachtspunten
 - Veiligheid: de film laat níét op een schaaltje niezen (gedachte-experiment); kweken alleen vingers/lucht bij kamertemperatuur, dicht met plakband, verhitten vóór afvoer (MISAC, Practical Biology).
