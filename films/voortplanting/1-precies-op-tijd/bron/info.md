@@ -7,7 +7,7 @@ Versie 3.0 (29 okt 2026): omgezet naar de standaardspeler (FILMDATA-straat, zoal
 | Bestand | films/voortplanting/1-precies-op-tijd.html (audio in `1-precies-op-tijd/audio/sNN.mp3`, oefeningen in `1-precies-op-tijd/oefenen.json`) |
 | Reeks / nummer | Voortplanting, 'Film 3' in de filmlijst (`HOOFDSTUKKEN.voortplanting`); les 2 Voortplanting (`tools/docent/voortplanting-2/`) hoort erbij (`uitleg`-knop) |
 | Niveau | vwo (`alleen: 'vwo'`, geen havo/vwo-knop; er zijn geen vwo-blokken) |
-| Versie / datum | 3.0 · 29 oktober 2026 (standaardspeler + opwaardering) · eerder 2.6 · 22 okt 2026, 2.5 (prompt v8), 2.1 · 11 okt 2026. De datum in index.html blijft 2026-10-11 (opwaardering) |
+| Versie / datum | 3.0.1 · 29 oktober 2026 (nacontrole: labels hypothalamus/hypofyse, grafiek H3) · 3.0 · 29 oktober 2026 (standaardspeler + opwaardering) · eerder 2.6 · 22 okt 2026, 2.5 (prompt v8), 2.1 · 11 okt 2026. De datum in index.html blijft 2026-10-11 (opwaardering) |
 | Prompt | v13 |
 | Voldoet aan | prompt v13 (29 okt 2026, zonder keuring); bewust niet: zie 'Bewust niet' onderaan |
 | Stem / model | Roos (ElevenLabs, eleven_multilingual_v2), opname van v1 (september 2026), zes zinnen uit v2.1 (hCG als 'ha cee gee'; vraag H8 met 'Wat denk je?') |
@@ -75,6 +75,15 @@ Beeld (prompt v13, zonder keuring), één regel per gewijzigde scène:
 - Hoofdstukstarts (s03, s09, s16, s50): het eerste beeld staat er meteen (was ± 1 s leeg navy door de oude infade).
 
 Getest (29 okt 2026): elk item op 5 tijdstippen gerenderd zonder fouten; elke vraag afgespeeld met `?vragen=uit` (5 s ervoor tot 5 s erna): geen vraagkaart, geen gesproken vraag, geen restje in de ondertitels, de vertelling gaat door in het volgende hoofdstuk; vraag 1 afgespeeld met vragen aan (vraagzin, bedenktijd, antwoord, onthulling); reviewstand (`?review=1`: klik pauzeert, typvak met de gesproken zin); op de site: `index.html#voortplanting` linkt naar hetzelfde pad, 'Les 2' opent `tools/docent/voortplanting-2/index.html#2` en de les linkt terug naar de film; telefoon 375 px zonder horizontaal scrollen, ondertitels onder het beeld. `spelerfix.py --check`, `antwoordtekst.py --check`, `kortantwoord.py --check`, `antwoordletter.py --check` in orde. Contactvel van de gewijzigde scènes bekeken.
+
+## Wijzigingen 3.0.1 (29 okt 2026, nacontrole)
+
+Herstel van de 'hoog'-punten uit `films/CONTROLE-VOORTPLANTING.md` (alleen beeld; stem, timings en speler gelijk, 0 credits):
+- s09–s13, s43–s44 en s45–s49 (regelkring `hpg` in `src/scenes_oud.js`): 'hypothalamus' staat nu direct links boven de gele hypothalamus, 'hypofyse' direct rechts naast de hypofyse in het Turkse zadel, 'GnRH' naast het steeltje (stonden links naast de kleine hersenen). De remlijnen naar de hypofyse (terugkoppeling s13, inhibine s13, pil s46) eindigen nu boven of onder het label in plaats van erdoorheen.
+- s16 (H3 begin): de grafiek 'man: stabiel / vrouw: elke maand één piek' staat rechts náást de eierstok (liep er dwars doorheen); 'man: stabiel' staat in de grafiek onder de lijn.
+- Speler (via `scripts/spelerfix.py`, CAPLETTER_MARK): ondertitels tonen na 'Antwoord' de gewone letter (A/B/C) in plaats van de stemspelling. In deze film komt dat niet voor; de fix staat er voor de volgende bouw.
+
+Getest: bouw.sh + de vaste scripts; elke vraag afgespeeld met `?vragen=uit` (`bouw/vragenuit.py`, geen restjes, geen JS-fouten); contactvel van s09, s10, s13, s16, s43, s44, s46 bekeken.
 
 ## Bewust niet (zonder keuring niet gedaan; zie de vragen in `opwaardering-v13.md`)
 

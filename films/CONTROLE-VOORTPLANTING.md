@@ -25,8 +25,8 @@ Ernst: **hoog** = fout of lelijk zichtbaar voor leerlingen, **laag** = detail. T
 
 **Vragen uit:** geen vraag- of antwoordresten. De vraagalinea's (s07, s14, s22 …) vallen helemaal weg.
 
-1. s13 ± 3:50–3:58 (regelkring man), en ook s43–s44 ± 13:58–14:30 (oxytocine): 'hypothalamus' en 'hypofyse' staan links náást de achterkant van de hoofddoorsnede, bij de kleine hersenen (het roze bolletje). Bij de hypothalamus en hypofyse zelf (geel, midden in het hoofd) staan ze niet. Zonder wijslijn lijkt het bolletje de hypofyse. **hoog**
-2. s16 begin ± 4:23–4:30 (begin hoofdstuk 5, 'Bij de vrouw ligt het ingewikkelder'): de grafieklijnen 'man: stabiel' en de as 'TIJD' lopen dwars door de eierstok en de grote follikel. **hoog**
+1. s13 ± 3:50–3:58 (regelkring man), en ook s43–s44 ± 13:58–14:30 (oxytocine): 'hypothalamus' en 'hypofyse' staan links náást de achterkant van de hoofddoorsnede, bij de kleine hersenen (het roze bolletje). Bij de hypothalamus en hypofyse zelf (geel, midden in het hoofd) staan ze niet. Zonder wijslijn lijkt het bolletje de hypofyse. **hoog** · **hersteld** (29 okt 2026, versie 3.0.1): labels direct bij de gele hypothalamus en hypofyse, remlijnen eromheen.
+2. s16 begin ± 4:23–4:30 (begin hoofdstuk 5, 'Bij de vrouw ligt het ingewikkelder'): de grafieklijnen 'man: stabiel' en de as 'TIJD' lopen dwars door de eierstok en de grote follikel. **hoog** · **hersteld** (29 okt 2026, versie 3.0.1): grafiek rechts naast de eierstok, 'man: stabiel' in de grafiek.
 3. s13 ± 3:50: het label 'testosteron' wordt doorkruist door een lijn ('testoster–on'). 'inhibine / REMT VOORAL FSH' loopt tegen 'Leydigcellen / MAKEN TESTOSTERON' aan. De curve loopt door 'instelwaarde'. **laag**
 4. s20 ± 6:37 en s25 ± 8:30 (cyclusgrafiek): het lijntje van de FSH-legenda loopt door '(MODEL)' in 'SPIEGEL (MODEL)'. **laag**
 5. s31 ± 10:24: 'geel lichaam / BLIJFT LEVEN · BLIJFT PROGESTERON MAKEN' loopt onder de progesteronbalk en het label 'progesteron' door. **laag**

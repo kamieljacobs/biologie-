@@ -93,22 +93,24 @@ window.LIB = (function () {
     const aH = a * (o.hyp == null ? 1 : o.hyp), aP = a * (o.pit == null ? 1 : o.pit), aG = a * (o.gon == null ? 1 : o.gon);
     const c = g.ctx; g.screen();
     if (Math.max(aH, aP) > 0.01) { c.save(); c.globalAlpha = Math.max(aH, aP); hoofdHersenen(c, hthP[0], hthP[1], s, { hth: aH * (o.hthGloed == null ? 1 : o.hthGloed), hyp: aP * (o.hypGloed == null ? 1 : o.hypGloed) }); c.restore();
-      g.text('hypothalamus', x - 175, hthP[1] - 6, { size: 36, w: 600, align: 'right', alpha: aH, halo: 7 });
-      g.text('hypofyse', x - 175, hypP[1] + 34, { size: 36, w: 600, align: 'right', alpha: aP, halo: 7 }); }
+      // v3.1 (nacontrole 29 okt): labels direct naast de gele structuren zelf (stonden links naast de kleine hersenen):
+      // hypothalamus links erboven op de grote hersenen, hypofyse rechts naast de hypofyse in het Turkse zadel
+      g.text('hypothalamus', hthP[0] - 22, hthP[1] - 14, { size: 32, w: 600, align: 'right', alpha: aH, halo: 7 });
+      g.text('hypofyse', hypP[0] + 26, hypP[1] + 10, { size: 32, w: 600, align: 'left', alpha: aP, halo: 7 }); }
     if (aG > 0.01) { g.box(x - bw / 2, Y.gon, bw, bh, { alpha: aG }); g.text(o.gonName || 'geslachtsklier', x, Y.gon + 60, { size: 36, w: 600, align: 'center', alpha: aG }); }
     if (o.gnrh) { const ag = a * o.gnrh; const ph = (t * 1.6) % 1; if (ph < 0.6) { for (let k = 0; k < 3; k++) { const u = E.clamp(ph / 0.6 - k * 0.15, 0, 1); E.hormone(g, E.lerp(hthP[0] + 4, hypP[0], u), E.lerp(hthP[1] + 10, hypP[1] - 6, u), HC.GnRH, { r: 5, alpha: ag }); } }
-      g.text('GnRH', x - 175, hthP[1] + 36, { size: 32, w: 600, align: 'right', color: HC.GnRH, alpha: ag, halo: 7 }); }
+      g.text('GnRH', hthP[0] - 20, hthP[1] + 24, { size: 26, w: 600, align: 'right', color: HC.GnRH, alpha: ag, halo: 6 }); }
     if (o.fsh || o.lh) { const af = a * Math.max(o.fsh || 0, o.lh || 0); const vat = [[hypP[0] + 4, hypP[1] + 16], [x + 26, y0 + 300], [x + 34, y0 + 400], [x + 20, Y.gon - 4]];
       c.save(); c.globalAlpha = af; bloedvat(c, vat, 11, t, { n: 6, cel: 6, speed: 0.25 }); c.restore();
       L_stream2(g, vat, t, 0.3, 3, HC.FSH, { alpha: a * (o.fsh || 0), r: 6 }); L_stream2(g, vat, t + 1.1, 0.3, 3, HC.LH, { alpha: a * (o.lh || 0), r: 6 });
       g.text('FSH', x - 20, y0 + 410, { size: 36, w: 600, color: HC.FSH, align: 'right', alpha: a * (o.fsh || 0) }); g.text('LH', x + 70, y0 + 410, { size: 36, w: 600, color: HC.LH, alpha: a * (o.lh || 0) }); }
     if (o.fb) { // negatieve terugkoppeling: gebogen remlijn van de klier terug naar hypofyse en hypothalamus
       const col = o.fbColor || HC.T;
-      g.inhibit(x + bw / 2, Y.gon + bh / 2, hypP[0] + 34, hypP[1] + 4, { color: col, alpha: a * o.fb, lw: 2, bend: -0.35 });
+      g.inhibit(x + bw / 2, Y.gon + bh / 2, hypP[0] + 22, hypP[1] + 26, { color: col, alpha: a * o.fb, lw: 2, bend: -0.35 });
       g.inhibit(x + bw / 2, Y.gon + bh / 2, hthP[0] + 40, hthP[1], { color: col, alpha: a * o.fb, lw: 2, bend: -0.42 });
       g.text('−', x + bw / 2 + 150, (hypP[1] + Y.gon) / 2, { size: 48, w: 700, color: col, alpha: a * o.fb, align: 'center' });
     }
-    if (o.fbPos) { const col = o.fbColor || HC.E2; g.arrow(x + bw / 2, Y.gon + bh / 2, hypP[0] + 34, hypP[1] + 4, { color: col, alpha: a * o.fbPos, lw: 2.5, bend: -0.35 }); g.text('+', x + bw / 2 + 150, (hypP[1] + Y.gon) / 2, { size: 48, w: 700, color: col, alpha: a * o.fbPos, align: 'center' }); }
+    if (o.fbPos) { const col = o.fbColor || HC.E2; g.arrow(x + bw / 2, Y.gon + bh / 2, hypP[0] + 22, hypP[1] + 26, { color: col, alpha: a * o.fbPos, lw: 2.5, bend: -0.35 }); g.text('+', x + bw / 2 + 150, (hypP[1] + Y.gon) / 2, { size: 48, w: 700, color: col, alpha: a * o.fbPos, align: 'center' }); }
     return Y;
   }
   function L_stream2(g, pts, t, rate, n, col, o) { for (let i = 0; i < n; i++) { const p = ((t * rate + i / n) % 1); const P = bioPunt(pts, p); E.hormone(g, P[0], P[1], col, { alpha: o.alpha, r: o.r }); } }
@@ -472,7 +474,7 @@ OSC['2'] = function ({ TL }) {
       g.label('Sertolicellen', 'VERZORGERS (FSH + TESTOSTERON)', null, null, 1300, 72, { alpha: aCp * E.vis(t, T.sertoli, null), noline: true });
       // inhibine uit Sertolicellen naar FSH
       const aI = aCp * E.vis(t, T.inhibine, null);
-      g.inhibit(bx - 420, by - 110, Y.hypP[0] + 30, Y.hypP[1] - 4, { color: HC.INH, alpha: aI, lw: 2, bend: 0.12, dash: [10, 8] });
+      g.inhibit(bx - 420, by - 110, Y.hypP[0] + 14, Y.hypP[1] - 18, { color: HC.INH, alpha: aI, lw: 2, bend: 0.12, dash: [10, 8] });
       g.text('inhibine', 600, 112, { size: 36, w: 600, color: HC.INH, alpha: aI }); g.text('REMT VOORAL FSH', 600, 144, { size: 28, f: 'mono', color: C.grain, alpha: aI, layer: 'meta' });
       g.text('testosteron', 612, 480, { size: 34, w: 600, color: HC.T, alpha: aCp * E.vis(t, T.remt, null), halo: 7 });
       // live model: spiegel testosteron met instelwaarde; verstoring op 'Stijgt'
@@ -516,10 +518,10 @@ OSC['3'] = function ({ TL }) {
     c.save(); c.globalAlpha = aO; eierstokDoorsnede(c, 830, 540, 400, 300, { n: 120 }); c.restore();
     const aIn = aScene * E.vis(t, T.vrouw, T.follikel - 0.3, 0.4, 0.4);
     if (aIn > 0.01) {
-      const B = { x: 1120, y: 300, w: 480, h: 260 }; L.graphBox(g, B, { alpha: aIn, xlabel: 'TIJD' });
+      const B = { x: 1380, y: 300, w: 380, h: 260 }; L.graphBox(g, B, { alpha: aIn, xlabel: 'TIJD' });   // v3.1 (nacontrole 29 okt): grafiek rechts naast de eierstok (liep er dwars doorheen)
       const c2 = g.ctx; c2.save(); c2.globalAlpha = aIn; c2.lineWidth = 3; c2.strokeStyle = HC.T; c2.beginPath(); c2.moveTo(B.x, B.y + 150); c2.lineTo(B.x + B.w, B.y + 150); c2.stroke();
       c2.strokeStyle = HC.LH; c2.beginPath(); for (let i = 0; i <= 100; i++) { const x = B.x + i / 100 * B.w; const y = B.y + B.h - 40 - 200 * Math.exp(-Math.pow((i - 55) / 5, 2)) * E.ep(t, T.piek - 0.5, 0.8); i ? c2.lineTo(x, y) : c2.moveTo(x, y); } c2.stroke(); c2.restore();
-      g.text('man: stabiel', B.x + B.w + 16, B.y + 160, { size: 32, w: 600, color: HC.T, alpha: aIn });
+      g.text('man: stabiel', B.x + 10, B.y + 188, { size: 30, w: 600, color: HC.T, alpha: aIn, halo: 6 });
       g.text('vrouw: elke maand één piek', B.x, B.y - 30, { size: 36, w: 600, color: HC.LH, alpha: aIn * E.vis(t, T.piek - 0.5, null) });
     }
     g.text('EIERSTOK · DOORSNEDE', 830, 210, { size: 28, f: 'mono', color: C.grain, align: 'center', alpha: aO, ls: 3, layer: 'meta' });
@@ -1131,7 +1133,7 @@ OSC['10'] = function ({ TL }) {
       // de pil: twee moleculen (oestrogeen paars, progestageen paars-licht) die de spiegel hoog houden → remlijn naar de hypofyse
       g.box(680, 140, 300, 110, { alpha: aP, fill: C.fill2, r: 55 }); E.hormone(g, 740, 195, HC.E2, { alpha: aP, r: 16, kind: 'steroid' }); E.hormone(g, 800, 195, HC.P4, { alpha: aP, r: 16, kind: 'steroid' });
       g.text('combinatiepil', 860, 208, { size: 36, w: 600, alpha: aP }); g.label('oestrogeen + progestageen', 'NAGEMAAKT PROGESTERON', 800, 250, 700, 300, { alpha: aP, color: HC.P4, noline: true });
-      g.inhibit(690, 250, Y.hypP[0] + 34, Y.hypP[1], { color: HC.P4, alpha: aA * E.vis(t, T.spiegels, null), lw: 2.5, bend: 0.1 }); g.text('−', 640, 330, { size: 48, w: 700, color: HC.P4, alpha: aA * E.vis(t, T.spiegels, null) });
+      g.inhibit(690, 250, Y.hypP[0] + 14, Y.hypP[1] - 18, { color: HC.P4, alpha: aA * E.vis(t, T.spiegels, null), lw: 2.5, bend: 0.1 }); g.text('−', 640, 330, { size: 48, w: 700, color: HC.P4, alpha: aA * E.vis(t, T.spiegels, null) });
       // grafiek: model met de pil, 35 dagen; FSH blijft laag, geen LH-piek; stopweek: bloeding
       const B = { x: 1080, y: 160, w: 760, h: 420 }; const day = E.lerp(0, 35, E.ep(t, T.spiegels, T.onttrekking + 1.5 - T.spiegels));
       L.graphBox(g, B, { alpha: aP, x0: 0, x1: 35, xticks: [[1, '1'], [7, '7'], [14, '14'], [21, '21'], [28, '28']], xlabel: 'DAG' });

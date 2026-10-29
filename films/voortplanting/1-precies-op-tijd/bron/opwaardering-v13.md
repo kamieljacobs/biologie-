@@ -24,3 +24,5 @@ Ook voor de hoofdsessie (niet in mijn bestanden): index.html `duur: 20` en `bij:
 ## (c) Wat ik veranderde
 
 Zie `info.md` → 'Wijzigingen 3.0'. Kort: standaardspeler met losse alinea-audio (zelfde opname); vraagkaart met de cyclusgrafiek; navelstreng met de kleur naar zuurstof (H7, H9); receptoren uit de beeldbank als kralenketen (H2); DNA, chromosomen en RNA in palet B (H1, H2, H4, H5, H10); verwijzing naar de niet-bestaande film 'Eén wordt twee' geknipt; geen lege beelden meer aan het begin van een hoofdstuk; bronnenlogboek (38 beweringen, 0 `!`, 6 `?`).
+
+Nacontrole (29 okt 2026, versie 3.0.1): 'hypothalamus' en 'hypofyse' staan nu op de juiste gele structuren in het hoofd (s09–s13, s43–s44, s45–s49), en de grafiek 'man: stabiel' in s16 staat naast de eierstok in plaats van erdoorheen. Zie `info.md` → 'Wijzigingen 3.0.1'. Niets ingesproken.

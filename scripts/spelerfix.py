@@ -392,6 +392,27 @@ def fix_antwletter(s):
     return s.replace(ANTW_OUD, ANTW_NIEUW), ['antwoordletter bé']
 
 
+# Ondertitel-antwoordletter (29 okt 2026, frisse controle Voortplanting): de woordtijden komen uit de stem-invoer, dus in de
+# ondertitels stond 'Antwoord bee.' / 'cee.' / 'aa.'. chunks0 zet (net als ee-er -> ER) de letter direct na 'antwoord'
+# (of na 'antwoord is/was') om naar de gewone hoofdletter: 'Antwoord B.'. Alleen de getoonde tekst; de audio, de
+# woordtijden en de knipherkenning bij Vragen uit (die op seg.words werkt) blijven gelijk. Idempotent (CAPLETTER_MARK).
+CAP_OUD = "for(const w of seg.words){ const t=w.t.replace(/\\b(ee-er)\\b/gi,'ER').replace(/dee-en-aa/gi,'DNA');"
+CAP_NIEUW = ("/*CAPLETTER_MARK 29okt2026*/ let capVorige=''; "
+             "for(const w of seg.words){ const t=capLetter(w.t.replace(/\\b(ee-er)\\b/gi,'ER').replace(/dee-en-aa/gi,'DNA'),capVorige); capVorige=(capVorige+' '+w.t).split(' ').slice(-3).join(' ');")
+CAP_FN = ("/*CAPLETTER_MARK fn*/ function capLetter(t,v){ if(!/\\bantwoord(\\s+(is|was))?[:,]?$/i.test(v.trim())) return t; "
+          "const m=t.match(/^(aa|bee|bé|bè|cee|dee|a|b|c|d)([.,:;!?]*)$/i); if(!m) return t; const k=m[1].toLowerCase(); "
+          "return ({aa:'A',a:'A',bee:'B','bé':'B','bè':'B',b:'B',cee:'C',c:'C',dee:'D',d:'D'})[k]+m[2]; } ")
+
+
+def fix_capletter(s):
+    if 'CAPLETTER_MARK' in s or CAP_OUD not in s:
+        return s, []
+    s = s.replace(CAP_OUD, CAP_NIEUW, 1)
+    i = s.find('function chunks0(')
+    s = s[:i] + CAP_FN + s[i:]
+    return s, ['ondertitel-antwoordletter']
+
+
 def alle_bestanden():
     fs = [f for f in glob.glob(os.path.join(ROOT, 'films/**/*.html'), recursive=True)
           if '/bron/' not in f and not f.endswith('presentatie.html')]
@@ -414,6 +435,7 @@ def main(argv):
                 pass
             s2 = s3; log += log2
         s2, log3 = fix_antwletter(s2); log += log3
+        s2, log4 = fix_capletter(s2); log += log4
         if check:
             ok = MARK in s
             if not ok:
