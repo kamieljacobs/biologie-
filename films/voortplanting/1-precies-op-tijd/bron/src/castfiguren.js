@@ -1,11 +1,4 @@
-/* castfiguren.js — Van bevruchting tot baby v2.2 (22 okt 2026): vaste personages uit het castboek in deze film.
-   Het castboek (lib_cast.js) gebruikt globale hulpjes rgba/circ/roundRect; die staan hieronder (deze film heeft ze alleen binnen de engine).
-   castFig(g, id, x, y, h, o) tekent een castpersonage in de huidige transformatie van g.ctx, met o.alpha (absoluut) via een eigen canvas,
-   zodat overlappende delen bij het in- en uitfaden niet doorschijnen. castFoetus(c, x, y, s, o) tekent een ongeboren kind (opgekruld),
-   o.rot = draaiing (Math.PI = hoofd naar beneden); geeft { navel, bekken, hoofd } in dezelfde coördinaten terug. */
-function rgba(hex, a) { const n = parseInt(hex.slice(1), 16); return `rgba(${n >> 16},${(n >> 8) & 255},${n & 255},${a})`; }
-function circ(ctx, x, y, r, fill, stroke, lw = 1.5) { ctx.beginPath(); ctx.arc(x, y, Math.max(0.1, r), 0, 6.283); if (fill) { ctx.fillStyle = fill; ctx.fill(); } if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw; ctx.stroke(); } }
-function roundRect(ctx, x, y, w, h, r) { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
+/* castfiguren.js — hulpjes om castboekpersonages in de oude engine (ENG.G) te tekenen; v2.2–2.3, sinds 3.0 zonder castNavelstreng */
 let _castOff = null;
 function castFig(g, id, x, y, h, o = {}) {
   const a = o.alpha == null ? 1 : o.alpha; if (a <= 0.01) return {}; const ctx = g.ctx; const opts = Object.assign({}, o, { a: 1 });
@@ -45,7 +38,5 @@ function castFoetus(c, x, y, s, o = {}) {
   c.restore(); return ret;
 }
 // navelstreng: zacht golvende streng van a naar b (bleek, met slagaders en ader als dunne lijntjes)
-function castNavelstreng(c, ax, ay, bx, by, t, a = 1, w = 14) { if (a <= 0.01) return; c.save(); c.globalAlpha = a; c.lineCap = 'round';
-  const N = 24, d = Math.hypot(bx - ax, by - ay), nx = -(by - ay) / d, ny = (bx - ax) / d; const pts = []; for (let i = 0; i <= N; i++) { const u = i / N, wv = Math.sin(u * 9 + t * 1.2) * 16 * Math.sin(u * Math.PI); pts.push([ax + (bx - ax) * u + nx * wv, ay + (by - ay) * u + ny * wv]); }
-  const lijn = (lw, col, off) => { c.strokeStyle = col; c.lineWidth = lw; c.beginPath(); pts.forEach((p, i) => { const q = [p[0] + nx * off, p[1] + ny * off]; i ? c.lineTo(q[0], q[1]) : c.moveTo(q[0], q[1]); }); c.stroke(); };
-  lijn(w, '#D8CDD6', 0); lijn(w * 0.22, '#C8584A', -w * 0.24); lijn(w * 0.22, '#C8584A', w * 0.24); lijn(w * 0.3, '#5E7FB0', 0); c.restore(); }
+// castNavelstreng is vervangen door bioNavelstreng uit lib_bio.js (kleur volgt zuurstof, Kamiel 28 okt 2026)
+
