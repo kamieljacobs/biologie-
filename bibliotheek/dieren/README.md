@@ -19,6 +19,7 @@ Alle dieren: `dier(ctx, x, y, s, { houding, t, kijk, a, … })`, x/y = grondpunt
 | wolf | `wolf` | staan, lopen, draf, galop, huilen | goedgekeurd |
 | hond (herder, teckel, mops, chihuahua …) | `hond(ctx, ras, …)` | staan, lopen | goedgekeurd |
 | zeehond, muis | `zeehond`, `muis` | liggen/zwemmen, rechtop | goedgekeurd |
+| muis in vachtkleur (zwart, albino, geel, grijs) | `muisVacht(ctx, x, y, s, { vacht, houding, kijk })` | zelfde als muis | goedgekeurd in Erfelijkheid 2 en 3 (28 okt 2026), ingebouwd 29 okt 2026; zelfde pop, eigen palet; albino met rode ogen |
 | jachtluipaard, leeuw, tijger, huiskat | `jachtluipaard`, `leeuw`, `tijger`, `huiskat` | staan, lopen, galop, liggen, zitten | goedgekeurd (ronde 4, eigen plaat per dier) |
 | paard, ezel, muilezel | `paard`, `ezel`, `muilezel` | staan, stap, draf, grazen | goedgekeurd (ronde 4) |
 | edelhert, koe, nijlpaard | `edelhert`, `koe7`, `nijlpaard` | staan, lopen, grazen, burlen | goedgekeurd (koe ronde 3) |

@@ -8515,7 +8515,7 @@ function _erfKruis(ctx, x, y, s, a = 1, col = C.koraal) { if (a <= 0.01) return;
 // =====================================================================================
 function erwtBloem(ctx, x, y, s, o = {}) { return _erfBloem(ctx, x, y, s, o); }
 function _erfBloem(ctx, x, y, s, o = {}) { const { kleur = 'paars', open = 0, zonder = 0, stuif = 0, knop = 0, kijk = 1, a = 1, rot = 0 } = o; if (a <= 0.01) return {};
-  const K = ERFK.bloem[kleur] || ERFK.bloem.paars, rd = (h) => _erfRand(h, 0.25); ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(rot); ctx.scale(s * kijk, s); ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+  const K = ERFK.bloem[kleur] || ERFK.bloem.paars, rd = (h) => _erfRand(h, kleur === 'wit' ? 0.45 : 0.25); ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(rot); ctx.scale(s * kijk, s); ctx.lineJoin = 'round'; ctx.lineCap = 'round';
   const kv = 1 - 0.45 * knop;
   ctx.strokeStyle = ERFK.stengel; ctx.lineWidth = 0.9; ctx.beginPath(); ctx.moveTo(-14, 10); ctx.quadraticCurveTo(-8, 4, -2, 1); ctx.stroke(); // bloemsteel
   ctx.save(); ctx.translate(1, -1); ctx.rotate(-0.18); ctx.scale(kv * 0.95, kv * 0.88); // vlag
@@ -8640,7 +8640,7 @@ function _erfPeul(ctx, x, y, len, o = {}) {
     ctx.bezierCurveTo(len * 0.35, dy * w * 0.25, -len * 0.3, dy * w * 0.25, -len / 2, 0); ctx.closePath(); shape(ctx, binnen ? ERFK.peulBinnen : ERFK.peul, ERFK.peulD, Math.max(1, Math.min(2, len * 0.012))); };
   const sp = open * w * 0.55; ctx.save(); ctx.translate(0, -sp); klep(-1, open > 0.3); ctx.restore(); ctx.save(); ctx.translate(0, sp); klep(1, false); ctx.restore();
   if (open <= 0.3) { ctx.strokeStyle = rgba(ERFK.peulD, 0.55); ctx.lineWidth = Math.max(0.8, len * 0.008); for (let k = 1; k < 6; k++) { ctx.beginPath(); ctx.arc(-len / 2 + len * k / 6.2, w * 0.18, w * 0.3, 0, 6.283); ctx.stroke(); } } // bolletjes door de dichte peul
-  ctx.strokeStyle = ERFK.peulD; ctx.lineWidth = Math.max(2, len * 0.02); ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(-len / 2, 0); ctx.quadraticCurveTo(-len * 0.58, -w * 0.2, -len * 0.62, -w * 0.9); ctx.stroke(); // steeltje
+  ctx.strokeStyle = ERFK.peulD; ctx.lineWidth = Math.max(2, len * 0.02); ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(-len / 2, -sp); ctx.quadraticCurveTo(-len * 0.58, -sp - w * 0.2, -len * 0.62, -sp - w * 0.9); ctx.stroke(); // steeltje (aan de bovenste klep als de peul open is)
   if (open > 0.3) { const r = Math.min(len * 0.06, (len * 0.78) / n / 2.05);
     erwten.forEach((e, i) => _erfErwt(ctx, -len * 0.38 + (i + 0.5) * (len * 0.74 / n), sp + w * 0.32, r, Object.assign({ seed: i * 2 + 1, a: clamp((open - 0.3) / 0.4, 0, 1) }, e))); }
   ctx.restore(); }
@@ -8654,7 +8654,7 @@ function _erfPeul(ctx, x, y, len, o = {}) {
 // Bekende fouten: losse rondjes als bloemen; alle bloemen even groot; tros zonder knoppen bovenaan; blad tussen de bloemen.
 // =====================================================================================
 function _erfLbBloem(ctx, x, y, s, kl, kant = 1, open = 1) { // s = bloemhoogte in px; zijaanzicht, bek naar 'kant'
-  const k = ERFK.lb[kl] || kl, kd = ERFK.lb[kl + 'D'] || _mixHex(k, '#000000', 0.2), rd = _erfRand(kd, 0.25);
+  const k = ERFK.lb[kl] || kl, kd = ERFK.lb[kl + 'D'] || _mixHex(k, '#000000', 0.2), rd = _erfRand(kd, kl === 'wit' ? 0.45 : 0.25);
   ctx.save(); ctx.translate(x, y); ctx.scale(kant * s / 100, s / 100);
   ctx.fillStyle = ERFK.lb.kelk; ctx.beginPath(); ctx.moveTo(-46, -8); ctx.lineTo(-30, -18); ctx.lineTo(-24, 6); ctx.lineTo(-44, 10); ctx.closePath(); ctx.fill(); // kelk
   ctx.beginPath(); ctx.moveTo(-34, -14); ctx.bezierCurveTo(-10, -30, 20, -34, 30, -26); ctx.lineTo(32, 8); ctx.bezierCurveTo(10, 16, -14, 14, -32, 6); ctx.closePath(); shape(ctx, kd, null); // kroonbuis
@@ -8681,7 +8681,7 @@ function leeuwenbek(ctx, x, y, h, kl = 'rood', o = {}) {
 
 // =====================================================================================
 // RODE BLOEDCEL MET ANTIGENEN (ABO) — herkomst: Erfelijkheid 3 (`suikerKeten`, `bloedcelAntigeen`); bouwt op rodeBloedcel().
-// Recept (Dean 2015, NCBI Blood Groups and Red Cell Antigens; Reactome): op de rode bloedcel zitten korte suikerketens (de
+// Recept (Dean, Medical Genetics Summaries 'ABO Blood Group'; Reactome R-HSA-9033807: B5, B6 in films/erfelijkheid/3-…/bron/bronnen.md): op de rode bloedcel zitten korte suikerketens (de
 // H-stof). Het Iᴬ-enzym zet er één extra suiker aan (N-acetylgalactosamine) = antigeen A; het Iᴮ-enzym een andere
 // (galactose) = antigeen B; bloedgroep O: de keten blijft kaal. Tekening: keten = 2 kleine zeshoekjes (suikerringen) in
 // neutraal grijs, loodrecht op het membraan; eindsuiker A = groen zeshoekje, B = teal vijfhoekje (ook zonder kleur te
@@ -8779,7 +8779,7 @@ function netvliesKegels(ctx, x, y, w, h, o = {}) { const { a = 1, staafjes = 1, 
   ctx.restore(); return { typen, dx, top, cel, labelY: y + h * 0.05 }; }
 
 // GEVOELIGHEIDSKROMMEN van de drie kegeltjes — herkomst: Erfelijkheid 5 (`kegelKrommen`). Pieken ± 420 (S), 530 (M) en
-// 560 nm (L) (Stockman & Sharpe 2000; OpenStax). Vorm: lognormale benadering (vereenvoudigd, geen meetcurve). (x, y) = oorsprong
+// 560 nm (L) (OpenStax Biology 2e; Schnapf e.a. 1987: B8, B9 in films/erfelijkheid/5-…/bron/bronnen.md). Vorm: lognormale benadering (vereenvoudigd, geen meetcurve). (x, y) = oorsprong
 // linksonder, w × h. o: schuif 0..1 = het afwijkende rood-eiwit schuift naar ± 545 nm (deuteranomalie-achtig), as 0|1, a.
 // Onder de as een gedempte spectrumbalk: de enige plek met 'echte' lichtkleuren. Geeft {px(nm)} terug.
 function kegelKrommen(ctx, x, y, w, h, o = {}) { const { a = 1, schuif = 0, as = 1 } = o; if (a <= 0.01) return {}; ctx.save(); ctx.globalAlpha *= a;
@@ -8888,7 +8888,8 @@ function genoTekst(ctx, g, x, y, px = 48, o = {}) {
 // Kleur (zoals film 2 en Chromosomen 2.1): gameten boven teal, links oker; zet klBoven/klLinks om voor vader/moeder.
 // (x, y) = linkerbovenhoek van het rooster zonder de gameten (die staan een half vak links en boven).
 // o: links [], boven [] (gameten als tekst, bv. 'A', 'GR', 'Iᴬ', 'X^A', 'Y'), vak (130), gap (10), px (letterhoogte),
-//    klLinks (C.oker), klBoven (C.teal), kopLinks, kopBoven (kopjes, bv. 'eicellen'), gameet 'rond' | 'chip' | functie
+//    klLinks (C.oker), klBoven (C.teal), kopLinks, kopBoven (kopjes, bv. 'eicellen'; metaText zet ze in hoofdletters, dus geen
+//    genotype in een kopje), gameet 'rond' | 'chip' | functie
 //    (ctx, kant 'l'|'b', idx, x, y, r, a) voor een eigen tekening (bv. een gameetcel met chromosomen),
 //    prog 0..1 (vakjes vullen in leesvolgorde; of n = aantal vakjes), gametA(kant, idx) 0..1,
 //    cel(i, j, g, cx, cy, vak, a) → undefined (standaard: genotype als tekst), false (de functie tekende alles zelf) of
@@ -8927,8 +8928,8 @@ function kruisingsSchema(ctx, x, y, o = {}) {
     if (e > 0.01) { const g = genotypeVan(L[i], B[j]); let c = o.cel ? o.cel(i, j, g, cx, cy, v, a * dA * e) : undefined;
       if (c !== false) { c = c || {}; const ca = a * dA * e * (1 - 0.7 * u);
         if (c.vul) { ctx.save(); ctx.globalAlpha *= ca; roundRect(ctx, x + j * v + gap / 2 + 4, y + i * v + gap / 2 + 4, v - gap - 8, v - gap - 8, 9); shape(ctx, c.vul, c.rand || null, 3); ctx.restore(); }
-        if (c.teken) c.teken(ctx, cx, cy, ca); else _erfLabel(ctx, c.t == null ? g : String(c.t), cx, c.onder ? cy - v * 0.12 : cy, c.px || px, c.kl || C.text, ca);
-        if (c.onder) c.onder(ctx, cx, cy + v * 0.16, v, ca); } }
+        if (c.teken) c.teken(ctx, cx, cy, ca); else _erfLabel(ctx, c.t == null ? g : String(c.t), cx, c.onder ? cy - v * 0.2 : cy, c.px || px, c.kl || C.text, ca);
+        if (c.onder) c.onder(ctx, cx, cy + v * 0.14, v, ca); } }
     if (u > 0.01) _erfKruis(ctx, cx, cy, v * 0.3, a * dA * u, C.koraal);
     if (h > 0.01) { ctx.save(); ctx.globalAlpha *= a * h; ctx.strokeStyle = C.goud; ctx.lineWidth = 4; roundRect(ctx, x + j * v + gap / 2, y + i * v + gap / 2, v - gap, v - gap, 12); ctx.stroke(); ctx.restore(); } }
   return uit; }

@@ -15,6 +15,7 @@ const LIJST = [
  ['wolf', c => wolf(c, 960, 860, 6.6)], ['wolf · huilen', c => wolf(c, 960, 860, 6.6, { houding: 'huilen' })],
  ['herder', c => hond(c, 'herder', 960, 860, 6)], ['teckel', c => hond(c, 'teckel', 960, 860, 6)], ['mops', c => hond(c, 'mops', 960, 860, 7)], ['chihuahua', c => hond(c, 'chihuahua', 960, 860, 9)],
  ['zeehond', c => zeehond(c, 960, 760, 1.2)], ['muis', c => muis(c, 960, 760, 14)],
+ ['muisVacht · zwart, albino, geel, grijs (Erfelijkheid 2–3, 29 okt 2026)', c => { [['zwart', 620, 560], ['albino', 1320, 560], ['geel', 620, 900], ['grijs', 1320, 900]].forEach(([v, x, y]) => muisVacht(c, x, y, 18, { vacht: v })); }],
  ['jachtluipaard', c => jachtluipaard(c, 960, 860, 1.15)], ['leeuw', c => leeuw(c, 960, 860, 0.95)], ['tijger', c => tijger(c, 960, 860, 1.0)], ['huiskat', c => huiskat(c, 960, 860, 0.5, { houding: 'zitten' })],
  ['paard', c => paard(c, 960, 900, 1.6)], ['ezel', c => ezel(c, 960, 900, 2.2)], ['muilezel', c => muilezel(c, 960, 900, 2.0)], ['edelhert', c => edelhert(c, 960, 920, 1.25)], ['koe', c => koe7(c, 960, 900, 1.0)], ['nijlpaard', c => nijlpaard(c, 960, 860, 1.4)],
  ['krokodil', c => krokodil(c, 960, 780, 0.9)], ['hagedis', c => hagedis(c, 960, 600, 1.3)],

@@ -51,6 +51,26 @@ Tekenrecepten volgens prompt uitlegfilms v8, C9: elk object is eerst opgezocht (
 
 | `hormDeeltje`, `hypofysePoort`, `manDoorsnede`, `penisDoorsnede`, `vulvaSchema`, `schaalStreep` | hormoon met vaste vorm en kleur (GnRH goud, FSH teal, LH groen, steroïden paars; `volg` = gouden ring); hypothalamus met GnRH-cellen, bloedvaatjes in het steeltje (poortaders) en voorkwab die FSH/LH maakt; mannelijke organen in mediane doorsnede op schaal (1 cm = 14 px × s) met de echte route van de zaadleider (`route`, `naam`, `P`), kringspier, zwellichamen; penis in dwarsdoorsnede (rust → vol bloed); vulva als vlak schema. Vereist hormoonVorm (lib_hormonen.js). Status: in de film, wacht op keuring | Geslachtsorganen en puberteit 2.0 |
 
+## Erfelijkheid 2–6: ingebouwd op 29 okt 2026 (films goedgekeurd door Kamiel, 28 okt 2026)
+
+Uit de lichte remakes Erfelijkheid 2–6 (versie 2.0); besluiten in `films/verbeterbladen/erfelijkheid-2026-10/besluiten.md`, registratie en lessen in `lessen_erfelijkheid.md`. Testvel: knoppen 'Erfelijkheid 2–6' (`testvel.html#erf-1`, `#erf-2`, met `-licht` voor het lichte palet). Alle recepten kleuren mee met een licht palet (`Object.assign(C, LICHT)`, zoals `BB.thema` in de lessen). De films en lessen zelf zijn niet aangepast: zij houden hun eigen kopie.
+
+| Functie | Wat | Herkomst |
+|---|---|---|
+| `erwtBloem`, `erwtBloemIcoon` | vlinderbloem van de erwt van opzij (vlag, vleugels, kiel; open = meeldraden en stamper, `zonder` = meeldraden weg, `stuif`, `knop`), paars of wit; klein pictogram voor schema's | Erfelijkheid 2 |
+| `erwtenplant`, `erwtPlantje` | hele plant aan een stok met steunbladeren, ranken, bloemen en peulen (`peulOpen`, `peulErwten`); eenvoudig plantje voor schema's | Erfelijkheid 2 + 4 (samengevoegd) |
+| `erwt`, `peul` | zaad geel/groen, rond/gerimpeld (ook `geel`/`rimpel` uit de lessen); peul open (twee kleppen, erwten aan de naad) of dicht | Erfelijkheid 4 |
+| `leeuwenbek` | plant met tros tweelippige bloemen (gehemelte, knoppen bovenaan), rood/roze/wit of hexkleur, `groei` 0..1 | Erfelijkheid 3 |
+| `bloedcelAntigeen`, `suikerKeten` | rode bloedcel met suikerketens: A groen zeshoekje, B teal vijfhoekje, AB afwisselend, O kale keten | Erfelijkheid 3 |
+| `fruitvlieg` | Drosophila van boven, grijs/zwart, normale/stompe vleugels, vrouwtje/mannetje | Erfelijkheid 4 |
+| `netvliesKegels`, `kegelKrommen`, `kleurModelDeutan` | netvlies met S/M/L-kegeltjes en staafjes (`verschuif`); gevoeligheidskrommen met spectrumbalk (`schuif`); deuteranoop-model (Viénot e.a. 1999) op een stuk canvas | Erfelijkheid 5 |
+| `stamboom`, `sbSymbool`, `miniStamboom` | stamboom met het uitlijnrecept (generaties op één hoogte, partner-, afstammings-, broer-zus- en kindlijnen recht), ruit met '?', drager-stip, genotypen, opbouw per persoon | Erfelijkheid 6 (+ drager uit 5) |
+| `genoTekst`, `genoDelen` | genotype met echte superscripts en herkomstkleur: `'X:m^A Y:v'` | Erfelijkheid 5 |
+| `kruisingsSchema`, `genotypeVan` | één kruisingsschema voor alles: n × m, gameten rond/chip/eigen tekening, vullen in leesvolgorde, fenotype onder het genotype, goud vakje, letale vakjes, dimmen, X-chromosomaal met superscripts | Erfelijkheid 2, 3, 4 en `tools/docent/erfelijkheid-bron/erf_lib.js` (gecombineerd) |
+| `muisVacht` (in `dieren/lib_dieren.js`) | muizenpop in vachtkleur zwart, albino (rode ogen), geel, grijs | Erfelijkheid 2 + 3 |
+
+Gregor Mendel staat sinds 29 okt 2026 in `personages/lib_cast.js` (`CAST.mendel`, `CAST_HISTORISCH`).
+
 Registratie en lessen van de chromosoomrecepten (status, aanroep, houdingen): `lessen_chromosomen.md`; van de DNA-basevorm: `lessen_dna.md`.
 | `vorkModel`, `vork` (+ `vorkTeken`, `vorkEnzymen`, `vorkAchter`) | replicatievork als simulatie: één model met f (vorkpositie, bp) en t; helix vóór de vork draait mee, leidende streng continu, volgende streng met RNA-primer per fragment, polymerase bouwt van de vork af, primer vervangen, ligase dicht de naad; deterministisch | DNA kopiëren 2.0 (keuring 25 okt 2026) |
 | `polymeraseAchter`, `polymeraseVoor` | DNA-polymerase als gevouwen kralenketen in C-vorm (variant A, ronde 3, Kamiel 29 okt 2026): DNA vrij in het kanaal, vingers (α-helix) sluiten om de nucleotide, gouden actief centrum, klem als kralenring óm het DNA; twee lagen rond het DNA; g ≈ 0,55 × DNA-breedte | idem |

@@ -324,6 +324,11 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 ### Voorbijganger (`passant`) — 1 films
 - `hormonen`: 3-de-baas-van-de-klieren
 
+### Gregor Mendel (`mendel`) — 3 films
+- `cellen`: onderzoek-doen
+- `erfelijkheid`: 2-monohybride-kruisingen
+- `extra`: geschiedenis-van-de-biologie
+
 ### Sanne (`sanne16`) — 1 films
 - `hormonen`: 2-suiker-in-balans
 <!-- AUTO:end -->
