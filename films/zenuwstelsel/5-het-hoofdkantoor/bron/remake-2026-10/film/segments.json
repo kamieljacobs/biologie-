@@ -1,0 +1,172 @@
+[
+ {
+  "id": "s00",
+  "kind": "speech",
+  "chapter": "Cold open",
+  "level": "basis",
+  "display": "Zaterdagochtend. De radio staat aan. Twee tonen. Meer heb je niet nodig: dit is jouw nummer. Je voet tikt mee. Je zingt het refrein. En op je arm staat kippenvel. Dat gebeurt allemaal binnen een paar seconden, zonder dat je erover nadenkt. Wie regelt dat? Waar in je hoofd zit de baas?"
+ },
+ {
+  "id": "t01",
+  "kind": "title",
+  "chapter": "Titel",
+  "level": "basis",
+  "text": "Het hoofdkantoor"
+ },
+ {
+  "id": "q1",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 1 — Drie delen",
+  "level": "basis",
+  "display": "Wat denk je? Je luistert naar een nummer dat je kent. Hoeveel van je hersenen doet mee? Ongeveer tien procent? Eén hersenhelft? Of gebieden verspreid door je hele hersenen?",
+  "vraag": true
+ },
+ {
+  "id": "v1",
+  "kind": "question",
+  "chapter": "Hoofdstuk 1 — Drie delen",
+  "level": "basis",
+  "options": [
+   "Ongeveer tien procent",
+   "Eén hersenhelft",
+   "Gebieden verspreid door je hele hersenen"
+  ]
+ },
+ {
+  "id": "a1",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 1 — Drie delen",
+  "level": "basis",
+  "display": "Het goede antwoord is C. Dat je maar tien procent gebruikt, is een fabel. Er is bijna geen plek in je hersenen die je kunt missen zonder iets kwijt te raken. Eerst de bouw. Bovenop liggen de grote hersenen: twee helften, verbonden door de hersenbalk. Elke helft heeft vier kwabben: vooraan de voorhoofdskwab, bovenop de wandbeenkwab, opzij de slaapkwab en achteraan de achterhoofdskwab. Achteronder zitten de kleine hersenen. En in het midden daaronder de hersenstam, die overgaat in het ruggenmerg. Maak je een doorsnede, dan zie je twee kleuren. Buiten een dunne laag grijze stof: de hersenschors. Daar zitten vooral de cellichamen. Binnen witte stof: axonen met een laagje myeline, de kabels uit film 2. Ook de hersenbalk is witte stof: zo'n tweehonderd miljoen axonen van de ene helft naar de andere. Grijs rekent, wit verbindt."
+ },
+ {
+  "id": "s21",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 2 — Horen en herkennen",
+  "level": "basis",
+  "display": "Je oor zet geluid om in impulsen. Dat gebeurt in het slakkenhuis, op het basilair membraan. Aan het begin is dat smal en stijf: het trilt mee met hoge tonen. Bij de top is het breed en slap: het trilt mee met lage tonen. Zo prikkelt elke toon zijn eigen zintuigcellen. De impulsen gaan via de gehoorzenuw naar de hersenstam. Daarna langs de thalamus, een schakelstation voor bijna alle zintuigen. En dan naar de schors van de slaapkwab, opzij in je hoofd: de primaire gehoorschors. Hier komen toonhoogte en luidheid binnen. Ook hier heeft elke toon zijn eigen plek, van laag naar hoog, in dezelfde volgorde als in het slakkenhuis. Maar dat dit jouw nummer is, weet de primaire schors niet. Dat zoekt het gebied eromheen uit: de associatieve schors. Die legt verbanden met wat je al kent. Zo werkt het overal. In de achterhoofdskwab ligt de primaire schors voor zien. Over je kruin loopt een diepe groeve. Ervoor, in de voorhoofdskwab, ligt de strook voor bewegen. Erachter, in de wandbeenkwab, de strook voor voelen. En rond elk primair gebied ligt associatieve schors die er betekenis aan geeft. De voorhoofdskwab heeft daar het meeste van: plannen, kiezen, en je inhouden."
+ },
+ {
+  "id": "q2",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 2 — Horen en herkennen",
+  "level": "basis",
+  "display": "Wat denk je? Iemand heeft gezonde oren en een gezonde primaire gehoorschors. Maar de associatieve schors eromheen is aan beide kanten beschadigd. Zijn lievelingsnummer komt op. Wat merkt hij? Hij hoort niets? Hij hoort tonen, maar herkent het nummer niet? Of hij hoort en herkent het gewoon?",
+  "vraag": true
+ },
+ {
+  "id": "v2",
+  "kind": "question",
+  "chapter": "Hoofdstuk 2 — Horen en herkennen",
+  "level": "basis",
+  "options": [
+   "Hij hoort niets",
+   "Hij hoort tonen, maar herkent het nummer niet",
+   "Hij hoort en herkent het gewoon"
+  ]
+ },
+ {
+  "id": "a2",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 2 — Horen en herkennen",
+  "level": "basis",
+  "display": "Het goede antwoord is B. De tonen komen binnen in de primaire schors. Maar zonder de associatieve schors blijven het losse geluiden. Horen is iets anders dan herkennen. Hoe de associatieve schors weet wat jouw nummer is? Dat heb je ooit geleerd. Daarover gaat de volgende film."
+ },
+ {
+  "id": "q3",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 3 — Kruislings",
+  "level": "basis",
+  "display": "Wat denk je? Je tikt de maat met je rechterhand. Welke hersenhelft stuurt die hand? De rechterhelft? De linkerhelft? Of allebei evenveel?",
+  "vraag": true
+ },
+ {
+  "id": "v3",
+  "kind": "question",
+  "chapter": "Hoofdstuk 3 — Kruislings",
+  "level": "basis",
+  "options": [
+   "De rechterhelft",
+   "De linkerhelft",
+   "Allebei evenveel"
+  ]
+ },
+ {
+  "id": "a3",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 3 — Kruislings",
+  "level": "basis",
+  "display": "Het goede antwoord is B. De motorische schors links stuurt je rechterhand. De banen kruisen in de hersenstam naar de andere kant. Voelen gaat ook kruislings: wat je rechterhand voelt, komt links aan. Kijk nu naar die strook motorische schors. Elk stukje stuurt een ander deel van je lichaam. Teken je dat als een mannetje, dan krijg je dit: de homunculus. Enorme handen. Grote lippen en een grote tong. Een smalle rug. Hoe groot een stuk schors is, hangt niet af van de grootte van het lichaamsdeel. Het hangt af van hoe fijn je het beweegt. Tikken en zingen: precies de delen met de meeste schors."
+ },
+ {
+  "id": "q4",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 4 — De maat houden",
+  "level": "basis",
+  "display": "Wat denk je? Iemand heeft schade aan zijn kleine hersenen. Hij kan zijn arm nog gewoon bewegen. Wat gaat er dan mis? Niets, de kleine hersenen doen weinig? Zijn bewegingen worden onhandig en slecht getimed? Of hij raakt toch verlamd?",
+  "vraag": true
+ },
+ {
+  "id": "v4",
+  "kind": "question",
+  "chapter": "Hoofdstuk 4 — De maat houden",
+  "level": "basis",
+  "options": [
+   "Niets, de kleine hersenen doen weinig",
+   "Bewegingen worden onhandig en slecht getimed",
+   "Hij raakt toch verlamd"
+  ]
+ },
+ {
+  "id": "a4",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 4 — De maat houden",
+  "level": "basis",
+  "display": "Het goede antwoord is B. De motorische schors geeft het bevel: tik. De kleine hersenen krijgen een kopie van dat bevel. En ze horen van je spieren en gewrichten wat er echt gebeurt. Klopt het niet, dan sturen ze bij. Daardoor valt je tik precies op de tel. Zonder kleine hersenen beweeg je nog wel, maar schokkerig en net te laat. Ook je evenwicht wordt slechter. De kleine hersenen zijn maar een tiende van je hersenen. Toch zit er ongeveer vier vijfde van al je zenuwcellen in."
+ },
+ {
+  "id": "q5",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 5 — Vanzelf",
+  "level": "basis",
+  "display": "Wat denk je? Je slaapt. Je denkt nergens aan. Wat houdt je ademhaling dan gaande? Je grote hersenen? Je hersenstam? Of niets: je longen ademen vanzelf?",
+  "vraag": true
+ },
+ {
+  "id": "v5",
+  "kind": "question",
+  "chapter": "Hoofdstuk 5 — Vanzelf",
+  "level": "basis",
+  "options": [
+   "Je grote hersenen",
+   "Je hersenstam",
+   "Niets: je longen ademen vanzelf"
+  ]
+ },
+ {
+  "id": "a5",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 5 — Vanzelf",
+  "level": "basis",
+  "display": "Het goede antwoord is B. In het onderste deel van de hersenstam, het verlengde merg, zitten centra voor je ademhaling en het tempo van je hart. Die werken dag en nacht, ook als jij slaapt. Je longen kunnen dat niet zelf. Je middenrif beweegt pas als de hersenstam een signaal stuurt. Net boven de hersenstam ligt de hypothalamus. Klein, maar hij houdt je lichaam op peil: temperatuur, honger, dorst. Hij stuurt het autonome zenuwstelsel uit film 1. En via de hypofyse ook veel van je hormonen. Een voorbeeld: je temperatuur. Temperatuurzintuigen in je huid en in je hersenen melden hoe warm je bent. De hypothalamus vergelijkt dat met de normwaarde: ongeveer 37 graden. Te warm? Dan maken je zweetklieren zweet, en worden de bloedvaten in je huid wijder, zodat je warmte kwijtraakt. Te koud? Dan worden die bloedvaten nauwer, en ga je rillen: je spieren maken warmte. Elke afwijking wordt zo tegengewerkt. Dat heet negatieve terugkoppeling. Dan komt het refrein. Je hart klopt sneller, je haartjes gaan overeind. Kippenvel kies je niet. Dat regelt het autonome zenuwstelsel, vanuit deze automatische afdelingen."
+ },
+ {
+  "id": "s70",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 6 — Samenvatting",
+  "level": "basis",
+  "display": "Terug naar het nummer. De gehoorschors hoort de tonen. De associatieve schors herkent ze. Links in je motorische schors begint de tik van je rechterhand, en de kleine hersenen houden hem op de maat. Lippen en tong zingen mee, met een groot stuk schors. De hersenstam houdt je adem gaande, en het kippenvel komt vanzelf. Allemaal tegelijk, verbonden door witte stof. Er is geen baas. Het hoofdkantoor heeft geen directeur: de afdelingen maken samen jouw ervaring. Maar hoe wist je na twee tonen dat het jouw nummer was? Dat heb je geleerd. Daarover gaat de volgende film."
+ },
+ {
+  "id": "e01",
+  "kind": "card",
+  "chapter": "Eindkaart",
+  "level": "basis",
+  "lines": [
+   "Hersengebieden werken tegelijk, verbonden door witte stof.",
+   "Primaire schors ontvangt, associatieve schors herkent.",
+   "Links stuurt rechts; de kleine hersenen houden de maat.",
+   "Hersenstam en hypothalamus regelen wat vanzelf gaat."
+  ]
+ }
+]

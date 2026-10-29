@@ -1,5 +1,7 @@
 # Het hoofdkantoor — script
 
+> Versie 2.0 (lichte remake, 29 okt 2026): tekst en takes ongewijzigd behalve a5 (zie hieronder). In de nieuwe speler zijn q1–q5 eigen alinea's; de tijden in de koppen gelden voor de oude speler (1.x).
+
 Bron: gereconstrueerd uit de scriptdata in de gepubliceerde HTML (2026-10-12): `window.FILM.timing[<id>].phrases` (de ondertitelfrasen; identiek aan `segments[].text` en aan het transcript op de pagina). Stem-invoer met respellings (uitspraaklijst) staat niet in de HTML; de tekst hieronder is de ondertiteltekst.
 
 Tijden in de kop van elk segment zijn filmtijd (mastertijd van de speler, zonder wachttijd bij de vragen); de tijden `[m:ss.s]` vóór elke regel zijn de begintijden van de frase **binnen het audiofragment** (zoals in `timing[<id>].phrases[].t0`).
@@ -276,39 +278,37 @@ Scène: `question` (sceneQuestion())
 *[aftelling 8,0 s (`cd5`) — in Leerling-modus wacht de film hier op een antwoord]*
 
 ## 12. a5 — antwoord op vraag 5
-> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
-Audio: blob 012.mp3 (sleutel `a5` in FILM_AUDIO) · 5:16–5:51 (35,1 s mp3; timing.duration 35,109 s)
-Scène: `micro` (sceneMicro → microVanzelf())
+> **Opnieuw ingesproken 29 okt 2026 (versie 2.0)**: temperatuurregeling toegevoegd, ná 'En via de hypofyse ook veel van je hormonen.' Stem-invoer: `stem/invoer.md`. Audio `../audio/a5.mp3` (61,3 s), woordtijden Scribe.
+Scène: `a5` in `remake-2026-10/film/scenes_z5.js` (ademhaling → hypothalamus en hypofyse → regelkring temperatuur → refrein).
 
 [0:00.0] Het goede antwoord is B.
-[0:01.5] In het onderste deel van de hersenstam,
-[0:03.3] het verlengde merg,
-[0:04.5] zitten centra voor je ademhaling en het tempo van je hart.
-[0:07.5] Die werken dag en nacht,
-[0:08.9] ook als jij slaapt.
-[0:10.2] Je longen kunnen dat niet zelf.
-[0:11.8] Je middenrif beweegt pas als de hersenstam een signaal stuurt.
-[0:14.8] Net boven de hersenstam ligt de hypothalamus.
-[0:17.3] Klein,
-[0:17.8] maar hij houdt je lichaam op peil:
-[0:19.3] temperatuur,
-[0:20.1] honger,
-[0:20.6] dorst.
-[nieuw] Neem je temperatuur. Temperatuurzintuigen in je huid en in je hersenen melden hoe warm je bent.
-[nieuw] De hypothalamus vergelijkt dat met de normwaarde: ongeveer zevenendertig graden.
-[nieuw] Te warm? Dan maken je zweetklieren zweet, en worden de bloedvaten in je huid wijder, zodat je warmte kwijtraakt.
-[nieuw] Te koud? Dan worden die bloedvaten nauwer, en ga je rillen: je spieren maken warmte.
-[nieuw] Elke afwijking wordt zo tegengewerkt. Dat heet negatieve terugkoppeling.
-[0:21.1] Hij stuurt het autonome zenuwstelsel uit film 1.
-[0:23.7] En via de hypofyse ook veel van je hormonen.
-[0:26.1] Dan komt het refrein.
-[0:27.2] Je hart klopt sneller,
-[0:28.4] je haartjes gaan overeind.
-[0:29.7] Kippenvel kies je niet.
-[0:30.9] Dat regelt het autonome zenuwstelsel,
-[0:33.0] vanuit deze automatische afdelingen.
+[0:01.8] In het onderste deel van de hersenstam, het verlengde merg, zitten centra voor je ademhaling en het tempo van je hart.
+[0:08.2] Die werken dag en nacht, ook als jij slaapt.
+[0:11.0] Je longen kunnen dat niet zelf.
+[0:12.5] Je middenrif beweegt pas als de hersenstam een signaal stuurt.
+[0:15.5] Net boven de hersenstam ligt de hypothalamus.
+[0:18.1] Klein, maar hij houdt je lichaam op peil:
+[0:20.2] temperatuur, honger, dorst.
+[0:22.2] Hij stuurt het autonome zenuwstelsel uit film 1.
+[0:24.9] En via de hypofyse ook veel van je hormonen.
+[0:27.5] Een voorbeeld:
+[0:28.3] je temperatuur.
+[0:29.4] Temperatuurzintuigen in je huid en in je hersenen melden hoe warm je bent.
+[0:33.3] De hypothalamus vergelijkt dat met de normwaarde:
+[0:36.0] ongeveer 37 graden.
+[0:37.8] Te warm?
+[0:38.4] Dan maken je zweetklieren zweet, en worden de bloedvaten in je huid wijder, zodat je warmte kwijtraakt.
+[0:43.5] Te koud?
+[0:44.2] Dan worden die bloedvaten nauwer, en ga je rillen:
+[0:46.8] je spieren maken warmte.
+[0:48.1] Elke afwijking wordt zo tegengewerkt.
+[0:50.2] Dat heet negatieve terugkoppeling.
+[0:52.0] Dan komt het refrein.
+[0:53.2] Je hart klopt sneller, je haartjes gaan overeind.
+[0:55.7] Kippenvel kies je niet.
+[0:56.9] Dat regelt het autonome zenuwstelsel, vanuit deze automatische afdelingen.
 
-> Beeld (cues uit `plan.cues`, op het woord): term „verlengde merg” op ‘verlengde’; beat „middenrif” op ‘middenrif’; term „hypothalamus” op ‘hypothalamus’; beat „op peil” op ‘temperatuur’; term „autonoom zenuwstelsel” op ‘autonome’; term „hypofyse” op ‘hypofyse’; beat „refrein” op ‘refrein’; beat „kippenvel” op ‘Kippenvel’
+> Beeld (ankerwoorden): middenrif, signaal, verlengde, hypothalamus, temperatuur/honger/dorst, autonome, hypofyse; voorbeeld (grafiek), Temperatuurzintuigen (sensor), hypothalamus (2e, regelcentrum), normwaarde (wijzer 37 °C), warm (2e, verstoring), zweetklieren, bloedvaten, koud, bloedvaten (2e), rillen, afwijking, negatieve; refrein, sneller, haartjes, Kippenvel, automatische.
 
 ### Hoofdstuk 6 · Samenvatting
 *[hoofdstukkaart 3,0 s op 5:51]*

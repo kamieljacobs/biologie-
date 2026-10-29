@@ -1,6 +1,6 @@
 # Bronnenlogboek · Zenuwstelsel 5 · Het hoofdkantoor
 
-Gecontroleerd: versie 1.2 (opwaardering prompt v13; script en stem gelijk aan 1.1), 28 okt 2026, door Claude (eerste ronde, alle bronnen zelf geopend). Ook de vijf zinnen op de wachtlijst voor a5 (temperatuurregeling, nog niet opgenomen) zijn nagelopen. Status: 26 beweringen, 17 ✓, 9 ≈, 0 !, 0 ?. Menselijke steekproef: nog niet gedaan.
+Bijgewerkt voor versie 2.0 (lichte remake, 29 okt 2026): bewering 25 staat nu in de film; in beeld de normwaarde 37 °C en de regelkring; geen nieuwe beweringen buiten 25 (de beeldlabels 'zweten · vaten wijd', 'vaten nauw · rillen', 'haarspiertje trekt samen' vallen onder 25 en 26). Eerder gecontroleerd: versie 1.2 (opwaardering prompt v13; script en stem gelijk aan 1.1), 28 okt 2026, door Claude (eerste ronde, alle bronnen zelf geopend). Ook de vijf zinnen op de wachtlijst voor a5 (temperatuurregeling, nog niet opgenomen) zijn nagelopen. Status: 26 beweringen, 17 ✓, 9 ≈, 0 !, 0 ?. Menselijke steekproef: nog niet gedaan.
 
 ## Bronnen
 
@@ -50,7 +50,7 @@ Gecontroleerd: versie 1.2 (opwaardering prompt v13; script en stem gelijk aan 1.
 | 22 | a5 | In het verlengde merg zitten centra voor ademhaling en hartritme; die werken dag en nacht. | B1, B12 | ✓ | |
 | 23 | a5 | Je middenrif beweegt pas als de hersenstam een signaal stuurt. | B12, B1 | ✓ | B12: de ventrale respiratoire groep laat middenrif en tussenribspieren samentrekken. |
 | 24 | a5 | De hypothalamus houdt temperatuur, honger en dorst op peil, stuurt het autonome zenuwstelsel en via de hypofyse veel hormonen. | B1, B13 | ✓ | |
-| 25 | a5 (wachtlijst) | Temperatuurzintuigen in huid en hersenen; normwaarde ±37 °C; te warm: zweet en wijde huidvaten; te koud: nauwe huidvaten en rillen; negatieve terugkoppeling. | B13, B1 | ✓ | 37 ± 0,5 °C (B13). Nog niet ingesproken. |
+| 25 | a5 (sinds 2.0 ingesproken) | Temperatuurzintuigen in huid en hersenen; normwaarde ±37 °C; te warm: zweet en wijde huidvaten; te koud: nauwe huidvaten en rillen; negatieve terugkoppeling. | B13, B1 | ✓ | 37 ± 0,5 °C (B13). Ingesproken in 2.0 (29 okt 2026), met 'zodat je warmte kwijtraakt' en 'je spieren maken warmte' (B13: zweten, vasodilatatie; rillen = warmteproductie door spieren). |
 | 26 | a5, s70 | Kippenvel en een snellere hartslag bij het refrein regelt het autonome zenuwstelsel; kippenvel kies je niet. | B14, B1 | ✓ | Haarspiertje + sympathische zenuw (B14). |
 
 Examenstof: grote en kleine hersenen, centra in de hersenschors, witte en grijze stof, hersenstam en ruggenmerg staan in de syllabus (B15, O2.3).

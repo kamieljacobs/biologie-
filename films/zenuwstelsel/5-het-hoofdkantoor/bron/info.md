@@ -1,20 +1,39 @@
 # Het hoofdkantoor — bronmap
 
+Voldoet aan: prompt v13 (29 okt 2026, lichte remake 2.0)
+
 | Veld | Waarde |
 |---|---|
-| Bestand | films/zenuwstelsel/5-het-hoofdkantoor.html |
-| Reeks / nummer | Zenuwstelsel, film 5 (pagina: “wat je hersenen doen als je een nummer hoort · 5 vwo · film 5 van de reeks Zenuwstelsel”; `plan.series`: “Het zenuwstelsel · film 5 van 7”) |
-| Doelgroep / niveau | 5 vwo, één niveau (geen havo/vwo-schakelaar) |
-| Versie / datum | **1.2 · 28 oktober 2026** — opwaardering naar prompt v13 (B14, zonder keuring, alleen beeld; stem, script, vragen en timings gelijk); 1.1 · 5 oktober 2026 |
+| Bestand | **preview 2.0:** films/zenuwstelsel/5-het-hoofdkantoor-nieuw.html (audio in `5-het-hoofdkantoor/audio/`); de oude film films/zenuwstelsel/5-het-hoofdkantoor.html (1.2) blijft online tot Kamiel de nieuwe goedkeurt |
+| Reeks / nummer | Zenuwstelsel, film 5 |
+| Doelgroep / niveau | 5 vwo, één niveau (`alleen: 'vwo'`, geen havo/vwo-knop) |
+| Versie / datum | **2.0 · 29 oktober 2026** — lichte remake in de donkere stijl (Part C); 1.2 · 28 okt 2026; 1.1 · 5 okt 2026 |
 | Prompt | v13 |
-| Voldoet aan | prompt v13 (28 okt 2026, zonder keuring). Bewust niet: eigen lichte reeksontwerp van vóór Part C (lichte achtergrond, Inter, eigen kleuren per functie) blijft, want de hele reeks omzetten is een nieuwe stijl (vraag in `opwaardering-v13.md`); de eigen hersentekening (zijaanzicht met kwabben, doorsnede) blijft, omdat de beeldbank geen zijaanzicht met kwabben heeft en alle overlays (gebieden, banen) erop hangen; de homunculus blijft een schematisch mannetje (klassiek schema, geen persoon met een rol); de temperatuur-aanvulling in a5 staat nog op de wachtlijst (geen opnames); oude versie in `bron/oud/5-het-hoofdkantoor-v1.1.html` |
-| Stem / model | Roos (ElevenLabs, eleven_multilingual_v2) |
-| Duur | 5:21 gesproken (som van 13 mp3’s, 321,4 s); speler-totaal incl. titel-, hoofdstuk- en eindkaarten en 5 aftellingen van 8 s: 6:31 |
-| Beeldstijl | Eigen reeksontwerp van vóór de Part C-stijlkaart: vlakke ‘wereld’ (zaterdagochtend, keuken, radio, meisje, inzet arm met kippenvel, lens op het hoofd) en lichte schema-scènes met een ‘plattegrond’: zijaanzicht van de linkerhersenhelft waarop per hoofdstuk een afdeling oplicht, diepe structuren gestippeld; Inter-systeemfont |
-| Audio-opslag | 13 fragmenten, één per gesproken segment, als base64-data-URI in `window.FILM_AUDIO` (blobs 001–013) |
-| Reconstructie | 2026-10-12, uit de gepubliceerde HTML |
+| Voldoet aan | prompt v13 (29 okt 2026, lichte remake). De 'bewust niet'-punten van 1.2 zijn opgelost: Part C donker (navy, Fraunces/Source Sans 3/IBM Plex Mono, betekeniskleuren), FILMDATA-speler, hersenen in zijaanzicht en doorsnede opnieuw getekend in de bronmap (beeldbankobjecten later, keuze Kamiel 29 okt), temperatuurregeling in a5 ingesproken en in beeld. Bewust niet: geen B15 (lichte remake met de oude stem); de homunculus blijft een schematisch mannetje (Penfield-verhoudingen) |
+| Herkomst | lichte remake, keuze Kamiel 29 okt 2026 (keuzeblad 'Regeling: jouw keuzes'); script, vragen, opties en volgorde uit 1.2; stem = de oude takes, alleen a5 opnieuw |
+| Stem / model | Roos (ElevenLabs, eleven_multilingual_v2); stem-invoer a5 in `stem/invoer.md` |
+| Duur | 349 s gesproken (13 takes); speler met vragen aan 7:21, met vragen uit 5:08 |
+| Beeldstijl | Part C: Schema (navy) met een keuken als cold open (personage uit het castboek, zomeroutfit, geen naam), hersenen in zijaanzicht als rode draad, lichaam uit `lib_anatomie.js`, huid en hoofd-doorsnede uit `bibliotheek/lib_bio.js` |
+| Audio-opslag | 13 losse mp3's in `../audio/` (`s00 q1 a1 s21 q2 a2 q3 a3 q4 a4 q5 a5 s70`); oude takes uit 1.2 (`window.FILM_AUDIO`), a5 nieuw (−17 LUFS) |
+| Werkmap | `remake-2026-10/` (zie 'Versie 2.0' hieronder) |
 
-## Opbouw
+
+## Versie 2.0 · lichte remake (29 okt 2026) — waar wat zit en hoe je hem aanpast
+
+Bouwvorm: FILMDATA-straat (zoals Zenuwstelsel 9 en DNA 1). Alles in `remake-2026-10/`:
+- `film/segments.json` (uit `maak_segs.py`: oude ondertiteltekst + oude woordtijden uit `oud_film.json`, a5 uit `nieuw_a5.json`), `film/words/<id>.json`, `film/film.py` (titel, vragen met uitleg, begrippen + normwaarde en negatieve terugkoppeling), `film/sections.html` (checkvragen 1–6, docentdeel).
+- `film/teken_z5.js` (nieuwe tekeningen: `z5Brein` zijaanzicht met kwabben, groeven, primaire en associatieve schors, motorische strook per lichaamsdeel, diepe structuren; `z5Doorsnede`; `z5Boven`; `z5Slak` en `z5Basilair`; `z5Homunculus`; `z5Knop` thermostaat 35–42 °C; `z5Baan` baan met impuls), `film/scenes_z5.js` (een scène per segment-id).
+- `eng/` = engine (lib.js, scenes_kop.js, lib_cast.js, lib_anatomie.js, lib_bio.js, lib_voeding.js, lib_hormonen.js, page.html, fonts.css, player.js van Gedrag 5 + build_data.py, build.py, stills.py, silalign.py). **Aanpassing aan de speler:** gesproken vraagalinea's (`q1`–`q5`, veld `vraag: true`) vallen bij Vragen uit helemaal weg (`/*VRAAGSEG*/` in `buildTimeline`; `build_data.py` geeft het veld door). Opties lichten tijdens de gesproken vraag op in `vraagScene`.
+- Bouwen: werkmap met `film/` naast `eng/`, audio als `film/audio/<id>.mp3` (kopie uit `../audio/`), dan `bash film/bouw.sh` en `bash film/installeer.sh` (zet het donker-regeltje en schrijft `films/zenuwstelsel/5-het-hoofdkantoor-nieuw.html`). Stills: `python3 eng/stills.py film <map> <id>:<t> …`. Daarna in de repo de scripts uit CLAUDE.md.
+- Storyboard: `remake-2026-10/storyboard/` (24 keyframes 960×540 + `storyboard.json`).
+
+Regelnummers in `5-het-hoofdkantoor-nieuw.html` (11481 regels): FILMDATA r. 144 · `z5Brein` r. 10817 · `z5Doorsnede` 10882 · `z5Boven` 10899 · `z5Basilair` 10921 · `z5Homunculus` 10932 · `z5Knop` 10963 · `keuken` 11001 · `vraagScene` 11025 · scènes `s00` 11037, `a1` 11059, `s21` 11090, `a2` 11135, `a3` 11150, `a4` 11175, `a5` 11206, `s70` 11270 · speler (VRAAGSEG) 11322.
+
+**Een alinea opnieuw inspreken:** nieuwe mp3 als `../audio/<id>.mp3`, woordtijden in `film/words/<id>.json` (Scribe of `silalign.py`), tekst in `segments.json` (`display`), opnieuw bouwen; de scènes hangen aan woorden via `q.at(woord, n)` / `q.on(woord, n, duur)`.
+
+Kleuren (tabel 'gelijktrekken' 29 okt): zenuwsignaal teal, bewegen (motorisch) koraal, primaire zintuigschors teal, associatieve schors oker, focus goud, hypothalamus/hormonen paars, hypofyse licht paars, warmte koraal, koud teal, negatieve terugkoppeling groen.
+
+## Opbouw (versie 1.x; tijden van de oude speler)
 
 | Begin | Hoofdstuk | Segmenten | Type (docentdeel) | Kernbeeld (docentdeel) |
 |---|---|---|---|---|
@@ -171,6 +190,8 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`; z
 
 ## Wachtlijst opnieuw inspreken
 
+**Verwerkt in 2.0 (29 okt 2026):** a5 is opnieuw ingesproken en de regelkring staat in beeld; de risicowoorden hieronder staan nog op de luisterlijst (`stem/invoer.md`).
+
 - **a5 — antwoord op vraag 5, Vanzelf (blob 012.mp3), 15-10-2026, aanvulling na vergelijking met Gewoon Uitgelegd.** Erbij: na „temperatuur, honger, dorst.” de temperatuurregeling als regelkring (temperatuurzintuigen → hypothalamus vergelijkt met normwaarde ≈ 37 °C → zweetklieren en wijde huidvaten of nauwe huidvaten en rillen; negatieve terugkoppeling). Vijf zinnen.
   - Hele segment a5 opnieuw opnemen (blob 012.mp3), `timing.a5`, `segments[].text` en transcript bijwerken. Ca. 25 s langer; s70 en de eindkaart schuiven vanzelf op.
   - Ankerwoorden blijven staan: `temperatuur` en `hypothalamus` komen nu vaker voor, maar `T()` pakt het eerste voorkomen (vóór de aanvulling). In de nieuwe zinnen staan geen „hart”, „autonome”, „hypofyse”, „refrein” of „Kippenvel”. Let op: microVanzelf laat ‘op peil’ op `temperatuur` beginnen; het beeld voor de nieuwe regelkring moet op een nieuw ankerwoord (bv. `normwaarde`, `zweetklieren`, `rillen`, `terugkoppeling`).
@@ -184,6 +205,19 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`; z
   - *normwaarde, huidvaten, rillen* — laag risico, als geschreven.
 
 ## Wijzigingen
+- **2.0 · 29 okt 2026** — lichte remake in de donkere stijl (keuze Kamiel 29 okt; preview `5-het-hoofdkantoor-nieuw.html`, de oude 1.2 blijft online). Credits: a5 1130 (take) + 0 (Scribe) = **1130**.
+  - *Alles:* Part C donker, FILMDATA-speler (snelheid, Vragen aan/uit, Leerling/Klas), lettertypes en kleuren van Part C; vraagkaarten van de speler; ondertitelkast.
+  - *s00:* keuken op Schema-navy (aanrecht 87 cm, radio ± 50 cm), personage uit het castboek in zomeroutfit (1,60 m, geen naam), noten uit de radio, tikboogjes bij de voet, mond zingt (`praat`), kippenvel als zoomcirkel met de huid uit de beeldbank (`huidBlok`, `kip`), hersenen in een zoomcirkel náást het hoofd.
+  - *q1–q5:* vraagkaart al tijdens de gesproken vraag; opties lichten op als ze genoemd worden; bij Vragen uit valt de hele alinea weg.
+  - *a1:* zijaanzicht (nieuw getekend: groeven, kwabben, kleine hersenen, hersenstam, ruggenmerg); '10 %' doorgestreept bij 'fabel'; kwab voor kwab goud met de naam erbij; bovenaanzicht met de hersenbalk als inzet; dwarse doorsnede met grijze stof (schors), witte stof en hersenbalk.
+  - *s21:* slakkenhuis + uitgerold basilair membraan met een golf op de plek van de toon (hoog bij het begin, laag bij de top); impuls langs gehoorzenuw → hersenstam → thalamus → primaire gehoorschors; tonotopie in een zoomcirkel; associatieve schors (oker); daarna zien (teal), centrale groeve (goud), bewegen (koraal), voelen (teal), associatieve schors en plannen/kiezen/inhouden.
+  - *a2:* associatieve schors gearceerd koraal (beschadigd), noten blijven los; horen ✓, herkennen ✗.
+  - *a3:* bovenaanzicht met kruisende banen (koraal bewegen, teal voelen) naar de handen; motorische strook per lichaamsdeel (been, romp, arm, hand, gezicht, lippen, tong) en een homunculus met grote handen, lippen en tong.
+  - *a4:* bevel (koraal), kopie (goud), terugmelding (teal), bijsturen (groen); tikken op de tel met en zonder kleine hersenen; staafjes 'een tiende' en 'vier vijfde'.
+  - *a5:* **opnieuw ingesproken** met de temperatuurregeling (wachtlijst 15 okt; vijf zinnen ná de hormonen, zie `stem/invoer.md`). Beeld: ademhaling (lichaam uit `lib_anatomie.js`, middenrif, signaal uit de hersenstam, hersenen in zoomcirkel), hypothalamus en hypofyse in de mediane doorsnede uit de beeldbank, **nieuwe regelkring als levend model (type D)**: grafiek lichaamstemperatuur met verstoring (te warm koraal, te koud teal) en terugkeer naar de normwaarde 37 °C, sensor (temperatuurzintuigen), regelcentrum (hypothalamus met thermostaatknop: gouden wijzer = normwaarde, boog = lichaamstemperatuur), effectoren in de huid (zweten, vaten wijd/nauw, rillen), negatieve terugkoppeling (−); refrein: hart sneller, kippenvel, automatische afdelingen.
+  - *s70:* gebieden lichten op op de ankerwoorden, verbindingen van witte stof, samenvattingspaneel, 'geen baas' als annotatiehaak.
+  - *Pagina:* checkvraag 6 (temperatuurregeling), begrippen normwaarde en negatieve terugkoppeling, docentdeel met niveau-A-bronnen in plaats van Wikipedia.
+  - *Lege plekken:* uitspraak van a5 niet door een mens beluisterd (wachtlijst in `stem/invoer.md`); `index.html`, REVIEW en datum nog niet aangepast (doet de hoofdsessie bij goedkeuring).
 - **1.2 · 28 okt 2026** — opwaardering prompt v13 (B14, zonder keuring; Regeling-batch). Geen nieuwe opname. Details en open vragen: `opwaardering-v13.md`; vakinhoud: `bronnen.md`.
   - *s00 (cold open):* poppetje (rond hoofd met smiley, blokvormig lijf) vervangen door castpersonage Noor ('jij', zomeroutfit zodat het kippenvel op de blote arm klopt; geen naam in beeld of stem). Mond: `blij`, bij 'refrein' wisselend `praat` open/dicht; de rechtervoet (alleen de schoen) is een los beeld dat bij 'tikt' op de hiel kantelt (`#w-foot2`, draaipunt `NOOR_HIEL`). lib_cast.js afgeschermd in de film (`window.CASTSVG`).
   - *s00:* realistische maten (aanrecht 87 cm = 210 px): Noor 1,60 m (was ± 2,3 m naast het aanrecht), radio ± 50 cm breed (was ± 1,25 m); de noten starten bij de kleinere radio. Huid in de kippenvel-inzet = huid van Noor.
