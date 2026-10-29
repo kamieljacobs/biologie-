@@ -1,0 +1,777 @@
+{
+ "film": 3,
+ "titel": "Wie eet wie?",
+ "slug": "3-wie-eet-wie",
+ "puzzel": "Waarom eet een vos de konijnen nooit allemaal op?",
+ "haak": "Een vos jaagt al ruim vijftig jaar in de duinen, en toch zijn de konijnen er elk voorjaar weer.",
+ "duur": {
+  "basis_min": 12.2,
+  "met_vwo_min": 13.0,
+  "woorden": 1590,
+  "woorden_basis": 1477
+ },
+ "hoofdstukken": [
+  {
+   "nr": 1,
+   "titel": "Pijlen van voedsel",
+   "minivraag": "In welke richting wijst een pijl in een voedselketen?",
+   "type": "F",
+   "look": "Schema"
+  },
+  {
+   "nr": 2,
+   "titel": "Eten zonder te doden",
+   "minivraag": "Is een konijn dat aan een eikje knabbelt een rover?",
+   "type": "F",
+   "look": "Macro"
+  },
+  {
+   "nr": 3,
+   "titel": "De golven",
+   "minivraag": "Wat gebeurt er met een rover als zijn prooi schaars wordt?",
+   "type": "F",
+   "look": "Schema"
+  },
+  {
+   "nr": 4,
+   "titel": "Samenleven",
+   "minivraag": "Wie heeft voordeel als een gaai eikels verstopt?",
+   "type": "F",
+   "look": "Macro"
+  },
+  {
+   "nr": 5,
+   "titel": "Twee gastheren",
+   "minivraag": "Waarom heeft een parasiet soms twee gastheren nodig?",
+   "type": "C",
+   "look": "Schema"
+  }
+ ],
+ "scenes": [
+  {
+   "id": "e3s01",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Avond in de duinen. Een vos sluipt naar een veld vol konijnen.",
+   "beweging": "De vos sluipt van links naar rechts door het helm, laag bij de grond; de konijnen grazen en kijken niet op."
+  },
+  {
+   "id": "e3s02",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Hij vangt er één. Morgen weer één. Toch zijn de konijnen er elk voorjaar nog. Waarom eet een vos de konijnen nooit allemaal op?",
+   "beweging": "De konijnen schieten weg naar hun holen; een teller van dagen loopt door en het veld vult zich weer met konijnen."
+  },
+  {
+   "id": "e3s03",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "",
+   "beweging": "Titelkaart: titel en puzzel; rechts de vos en een konijn in het helm."
+  },
+  {
+   "id": "e3s04",
+   "hoofdstuk": "H1 Pijlen van voedsel",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Begin bij wat de konijnen eten: gras en helm op de duinen. Het konijn eet de plant. De vos eet het konijn. Zo'n rij heet een voedselketen.",
+   "beweging": "Het konijn graast aan een helmpol; de camera schuift naar de vos die toekijkt; drie namen verschijnen boven de drie."
+  },
+  {
+   "id": "e3q05",
+   "hoofdstuk": "H1 Pijlen van voedsel",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Je tekent deze voedselketen met pijlen. Hoe loopt de pijl tussen het konijn en de vos?",
+   "beweging": "Vraagkaart met aftellijn.",
+   "opties": "A Van het konijn naar de vos · B Van de vos naar het konijn: de vos eet het konijn · C Een lijn zonder richting: ze horen bij elkaar",
+   "juist": "A"
+  },
+  {
+   "id": "e3s06",
+   "hoofdstuk": "H1 Pijlen van voedsel",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "In een voedselketen wijst de pijl van wie gegeten wordt naar wie eet. De pijl volgt het voedsel: de stoffen uit het konijn komen in de vos terecht. Lees de pijl dus als 'wordt gegeten door'. Met het voedsel gaat ook energie mee. Die stroomt één kant op, de keten in, en komt nooit terug bij de plant.",
+   "beweging": "Helm, konijn en vos staan op een rij; de pijlen groeien van helm naar konijn en van konijn naar vos; een gouden stip reist langs de pijl mee."
+  },
+  {
+   "id": "e3s07",
+   "hoofdstuk": "H1 Pijlen van voedsel",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Aan het begin staat altijd een producent: een plant die met licht zijn eigen voedsel maakt. Daarna komen de consumenten. Dat zijn organismen die andere organismen eten.",
+   "beweging": "De helmpol licht groen op met het label 'producent'; konijn en vos krijgen samen het label 'consumenten'."
+  },
+  {
+   "id": "e3s08",
+   "hoofdstuk": "H1 Pijlen van voedsel",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Een konijn eet alleen planten: het is een herbivoor. Een dier dat vooral andere dieren eet, is een carnivoor. En de vos? Die eet konijnen en muizen, maar in de zomer ook bramen. Hij is een omnivoor, een alleseter. Vindt hij een dood konijn, dan eet hij dat ook. Dan is hij een aaseter.",
+   "beweging": "Drie kolommen vullen zich: konijn bij herbivoor; bij de vos verschijnen een muis en een braamtak; de vos schuift naar omnivoor."
+  },
+  {
+   "id": "e3s09",
+   "hoofdstuk": "H1 Pijlen van voedsel",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Zo netjes in één rij gaat het in de duinen niet. Een muis eet zaden en eikels, en de vos eet de muis. Een rups eet eikenblad, en een merel eet de rups. Alle voedselketens van één gebied samen vormen een voedselweb.",
+   "beweging": "Het rijtje groeit uit tot een web: eik, rups, merel, muis en gaai komen erbij, elke nieuwe pijl tekent zich van voedsel naar eter."
+  },
+  {
+   "id": "e3s10",
+   "hoofdstuk": "H1 Pijlen van voedsel",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Elke stap in een keten is een trofisch niveau. Planten vormen het eerste niveau. Het konijn is consument van de eerste orde, de vos van de tweede orde. Maar eet de vos bramen, dan is hij ook consument van de eerste orde. Eén dier kan dus op twee niveaus tegelijk zitten.",
+   "beweging": "Het web ordent zich in drie banden van onder naar boven; de vos staat in de bovenste band met een tweede, gedimde vos in de middelste band naast de braam."
+  },
+  {
+   "id": "e3s11",
+   "hoofdstuk": "H1 Pijlen van voedsel",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "In een web werkt een verandering door. Stel dat de muizen in een jaar bijna verdwijnen. Dan heeft de vos minder te eten, en jaagt hij vaker op konijnen. Er komen meer eikels in de grond terecht, want de muizen eten ze niet. Volg in zo’n web steeds één pijl tegelijk.",
+   "beweging": "In het web dimt de muis naar 35 procent; de pijl van konijn naar vos wordt dikker; bij de eik verschijnen extra eikels in de grond."
+  },
+  {
+   "id": "e3s12",
+   "hoofdstuk": "H2 Eten zonder te doden",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "In het duinbos staat een eikje van een paar jaar oud. Een konijn knabbelt de knoppen en jonge blaadjes eraf.",
+   "beweging": "Het konijn richt zich op en knabbelt; een blaadje verdwijnt; het eikje wiegt even en blijft staan."
+  },
+  {
+   "id": "e3q13",
+   "hoofdstuk": "H2 Eten zonder te doden",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Het konijn eet een deel van het eikje. Het eikje blijft leven. Hoe heet deze relatie?",
+   "beweging": "Vraagkaart met aftellijn.",
+   "opties": "A Predatie · B Parasitisme · C Vraat",
+   "juist": "C"
+  },
+  {
+   "id": "e3s14",
+   "hoofdstuk": "H2 Eten zonder te doden",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Eet een dier een deel van een plant en blijft de plant leven, dan heet dat vraat. Bij predatie gaat de prooi dood: een rover doodt zijn prooi en eet hem op. Een vos die een konijn vangt, is een predator.",
+   "beweging": "Twee vakken naast elkaar: links konijn en eikje met 'vraat · de plant leeft door', rechts vos en konijn met 'predatie · de prooi gaat dood'."
+  },
+  {
+   "id": "e3s15",
+   "hoofdstuk": "H2 Eten zonder te doden",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Planten kunnen niet weglopen. Toch zijn ze niet weerloos. Een braam heeft stekels. Eikenbladeren bevatten looizuren: bittere stoffen die het blad moeilijk verteerbaar maken. In de loop van de zomer stijgt het gehalte nog. Zo worden ze minder gegeten.",
+   "beweging": "Een zoomcirkel op een braamtak toont de stekels; een tweede zoomcirkel op een eikenblad kleurt in een zomerbalk van lichtgroen naar donker."
+  },
+  {
+   "id": "e3s16",
+   "hoofdstuk": "H3 De golven",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Terug naar de vos. Eet hij de konijnen op, dan heeft hij straks zelf niets. Hoe loopt dat af? In de duinen heeft niemand dat honderd jaar lang bijgehouden. In Canada wel, bij een ander paar: de sneeuwschoenhaas en de lynx.",
+   "beweging": "Harde snede naar een besneeuwd naaldbos; een witte sneeuwschoenhaas zit stil, een lynx loopt tussen de stammen."
+  },
+  {
+   "id": "e3s17",
+   "hoofdstuk": "H3 De golven",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Een lynx eet in de winter vooral sneeuwschoenhazen. Als er veel hazen zijn, vangt hij er ongeveer één per dag of twee.",
+   "beweging": "De lynx sluipt, de haas schiet weg in de sneeuw; een teller telt hazen per week."
+  },
+  {
+   "id": "e3s18",
+   "hoofdstuk": "H3 De golven",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Van het jaar 1845 tot het jaar 1935 kocht een Canadese pelshandel vellen van jagers, en schreef elk jaar op hoeveel. Dat zijn vangsten, geen tellingen. Toch geven ze een goed beeld van hoeveel dieren er rondliepen. Hier zie je twintig jaar uit die reeks: de hazen en de lynxen.",
+   "beweging": "De grafiek tekent zich jaar voor jaar van 1900 naar 1920; eerst de hazenlijn (teal), dan de lynxlijn (oker); de assen in duizenden vellen."
+  },
+  {
+   "id": "e3q19",
+   "hoofdstuk": "H3 De golven",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Kijk naar de piek van de hazen rond het jaar 1903. Wat doet de lijn van de lynx vlak daarna?",
+   "beweging": "Vraagkaart met aftellijn.",
+   "opties": "A Hij daalt meteen mee · B Hij stijgt nog een jaar of twee door · C Hij blijft gelijk",
+   "juist": "B"
+  },
+  {
+   "id": "e3s20",
+   "hoofdstuk": "H3 De golven",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "De lynxen pieken een jaar of twee na de hazen. Dat zie je bij elke golf opnieuw. Zo’n golf duurt ongeveer tien jaar. Lees zo’n grafiek altijd in deze volgorde: zoek de pieken, en kijk welke lijn eerst piekt. De prooi gaat voorop, de rover volgt.",
+   "beweging": "Gouden streepjes markeren de pieken van 1903–1904 en 1913–1915; een korte pijl springt van elke hazenpiek naar de lynxpiek erna."
+  },
+  {
+   "id": "e3s21",
+   "hoofdstuk": "H3 De golven",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Zo ontstaat de golf. Zijn er veel hazen, dan overleven meer jonge lynxen. Meer lynxen eten meer hazen, en de hazen vinden ook minder te eten. Het aantal hazen daalt. Even later vinden de lynxen te weinig hazen. Er sterven er veel, en er komen weinig jongen bij. Nu kunnen de hazen weer groeien.",
+   "beweging": "Een kringschema met vier vakken draait één keer rond: veel hazen → meer lynxen → minder hazen → minder lynxen; bij elk vak een klein haas- of lynxsilhouet dat groeit of krimpt."
+  },
+  {
+   "id": "e3q22",
+   "hoofdstuk": "H3 De golven",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? In een duingebied haal je alle vossen weg. Wat gebeurt er met de konijnen?",
+   "beweging": "Vraagkaart met aftellijn.",
+   "opties": "A Ze verdwijnen ook · B Ze nemen toe tot voedsel of ziekte ze remt · C Ze groeien door tot het hele duin vol zit",
+   "juist": "B"
+  },
+  {
+   "id": "e3s23",
+   "hoofdstuk": "H3 De golven",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Zonder vossen nemen de konijnen eerst toe. Maar ook dan houdt het op. Het gras raakt op, en in een drukke populatie verspreiden ziektes zich snel. In de jaren vijftig doodde de ziekte myxomatose meer dan negen op de tien konijnen in de duinen.",
+   "beweging": "Het duinveld loopt vol konijnen; het gras wordt kaal en geel; daarna dimt het grootste deel van de konijnen naar 35 procent."
+  },
+  {
+   "id": "e3s24",
+   "hoofdstuk": "H3 De golven",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "En de vos? Hij jaagt sinds het jaar 1968 weer in deze duinen. Als er weinig konijnen zijn, kost elke jacht meer tijd. Hij vangt er dan minder, en eet meer muizen en bramen. Hij krijgt minder jongen. Zo blijft er altijd een deel van de konijnen over. Een rover roeit zijn prooi niet uit.",
+   "beweging": "De vos sluipt over een leeg duinveld en springt op een muis; twee konijnen blijven bij hun hol; een groene annotatiehaak onder de konijnen."
+  },
+  {
+   "id": "e3s25",
+   "hoofdstuk": "H4 Samenleven",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Niet elke relatie draait om eten. Kijk naar een gaai in het duinbos. In de herfst verzamelt hij eikels. Hij stopt er een paar tegelijk in zijn keel en vliegt ermee weg, soms honderden meters ver. Elke eikel duwt hij apart in de grond.",
+   "beweging": "De gaai landt met een eikel in de snavel, duwt hem in drie stoten in de grond en tikt er aarde over."
+  },
+  {
+   "id": "e3q26",
+   "hoofdstuk": "H4 Samenleven",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Wie heeft voordeel als een gaai eikels verstopt?",
+   "beweging": "Vraagkaart met aftellijn.",
+   "opties": "A De gaai én de eik · B Alleen de gaai: hij eet de eikels later op · C Alleen de eik: zijn eikels komen in de grond",
+   "juist": "A"
+  },
+  {
+   "id": "e3s27",
+   "hoofdstuk": "H4 Samenleven",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Een gaai verstopt in één herfst ongeveer vijfduizend eikels. In de winter en het voorjaar vindt hij er veel terug. Maar niet allemaal. Uit een vergeten eikel groeit een nieuwe eik, soms ver van de oude boom. De gaai krijgt voedsel, de eik wordt verspreid.",
+   "beweging": "Een kaartje van het duinbos vult zich met stippen (verstopte eikels); de meeste doven uit in de winter; uit een paar groeit in het voorjaar een kiemplantje."
+  },
+  {
+   "id": "e3s28",
+   "hoofdstuk": "H4 Samenleven",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Je kunt elke relatie tussen twee soorten opschrijven met twee tekens. Plus is voordeel, min is nadeel, nul is geen van beide. Gaai en eik: plus en plus. Dat heet mutualisme.",
+   "beweging": "Boven de gaai verschijnt een groene '+', boven de eik ook; eronder het woord mutualisme."
+  },
+  {
+   "id": "e3s29",
+   "hoofdstuk": "H4 Samenleven",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Konijnen graven holen in het duin. Een bergeend gebruikt zo’n hol soms om in te broeden. De eend heeft een veilige plek voor haar eieren. Het konijn merkt er nauwelijks iets van. Plus en nul: dat heet commensalisme.",
+   "beweging": "Een bergeend waggelt naar een konijnenhol in de duinhelling en verdwijnt erin; even verderop zit een konijn bij een tweede hol; boven de eend '+', boven het konijn '0'.",
+   "twijfel": "Nieuwe tekening voor de bibliotheek: een bergeend (zijaanzicht, vlak), getekend zonder referentieplaat.",
+   "waarom": "Nieuw dier dat in de bibliotheek komt; de pop is eenvoudig en niet getest op een plaat."
+  },
+  {
+   "id": "e3s30",
+   "hoofdstuk": "H4 Samenleven",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Leven twee soorten lang en nauw met elkaar samen, dan heet dat symbiose. Er zijn drie vormen: mutualisme, commensalisme en parasitisme. Mutualisme kan ook bij een lossere relatie, zoals die van gaai en eik. Bij parasitisme heeft de één voordeel en de ander nadeel: plus en min. Bij predatie is dat ook zo. Het verschil: een rover doodt zijn prooi meteen. Een parasiet leeft lange tijd van een gastheer die blijft leven.",
+   "beweging": "Een tabel bouwt zich rij voor rij op: mutualisme +/+ (gaai en eik), commensalisme +/0 (bergeend en konijn), parasitisme +/−; onder de streep predatie +/− met het verschil in één regel."
+  },
+  {
+   "id": "e3s31",
+   "hoofdstuk": "H4 Samenleven",
+   "laag": "vwo",
+   "look": "Micro",
+   "tekst": "Ook in jou leeft zo’n gemeenschap. In je dikke darm wonen ongeveer evenveel bacteriën als je lichaam cellen heeft: zo’n veertig biljoen. Ze leven van resten van je voedsel die jij zelf niet kunt verteren. Daarbij maken ze stoffen die jij gebruikt, zoals vitamine K. Darmflora en mens: plus en plus.",
+   "beweging": "Een zoomcirkel vanaf de buik van een tiener toont het darmslijmvlies met staafvormige bacteriën die vezelresten afbreken; kleine oker vormpjes (vitamine) komen vrij."
+  },
+  {
+   "id": "e3s32",
+   "hoofdstuk": "H4 Samenleven",
+   "laag": "vwo",
+   "look": "Micro",
+   "tekst": "Ook onder de grond. Om de wortels van de meeste planten groeien schimmeldraden: dat heet mycorrhiza. De draden halen water en mineralen uit bodem die de wortel zelf niet bereikt. Een plant kan zo een groot deel van zijn stikstof en fosfaat van de schimmel krijgen. De schimmel krijgt suikers terug. Zo leven in een gebied veel soorten van en met elkaar.",
+   "beweging": "Zoomcirkel onder een jonge grove den: een worteltop met witte schimmeldraden die ver de bodem in gaan; blauwe stippen (mineralen) gaan naar de wortel, groene (suikers) naar de schimmel."
+  },
+  {
+   "id": "e3s33",
+   "hoofdstuk": "H5 Twee gastheren",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "In veel duingebieden grazen schapen. Ze houden het gras kort. Maar één schaap wordt steeds magerder. De schapenhouder belt de dierenarts.",
+   "beweging": "Een kudde graast in een natte duinvallei; één schaap staat apart met de kop laag; de schapenhouder loopt erheen."
+  },
+  {
+   "id": "e3s34",
+   "hoofdstuk": "H5 Twee gastheren",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "De dierenarts onderzoekt het schaap en een beetje mest. Haar conclusie: leverbot. Dat is een platte worm van ongeveer drie centimeter. Hij leeft in de galgangen van de lever. De worm heeft er voordeel van, het schaap nadeel. Het schaap is de gastheer van deze parasiet.",
+   "beweging": "De dierenarts staat bij het schaap en houdt een buisje met mest omhoog; de schapenhouder kijkt mee."
+  },
+  {
+   "id": "e3s35",
+   "hoofdstuk": "H5 Twee gastheren",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "In de lever worden de wormen volwassen. Ze leggen eitjes, en die komen met de mest naar buiten.",
+   "beweging": "Zoomcirkel vanaf de rechterflank van het schaap naar de lever (schematisch, niet op schaal): twee platte wormen in een galgang; eitjes schuiven naar de darm.",
+   "twijfel": "Nieuwe tekening voor de bibliotheek: de leverbot en de lever van een schaap in een zoomcirkel.",
+   "waarom": "Nieuwe bibliotheektekening zonder referentieplaat; vorm en plaats wil ik door Kamiel laten keuren."
+  },
+  {
+   "id": "e3q36",
+   "hoofdstuk": "H5 Twee gastheren",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Uit een eitje komt een larve. Die kan geen schaap besmetten. Eerst moet hij een kleine slak vinden. Waarom heeft de leverbot die slak nodig?",
+   "beweging": "Vraagkaart met aftellijn.",
+   "opties": "A De slak is voedsel voor de larve · B De slak brengt de eitjes naar het schaap · C In de slak vermenigvuldigt de larve zich",
+   "juist": "C"
+  },
+  {
+   "id": "e3s37",
+   "hoofdstuk": "H5 Twee gastheren",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Een larve uit het eitje zwemt in een plasje. Vindt hij binnen een dag geen leverbotslak, dan gaat hij dood. In de slak vermenigvuldigt hij zich: uit één larve komen er honderden. Na vijf tot zeven weken verlaten ze de slak. Op het gras kapselen ze zich in: dat zijn cysten. Een schaap eet ze op met het gras. De kring is rond.",
+   "beweging": "Een levenscyclus tekent zich als cirkel: schaap → eitjes in mest → larve in water → slak → honderden larven → cysten op gras → schaap; elke stap verschijnt op het woord.",
+   "twijfel": "Nieuwe tekeningen voor de levenscyclus (ei, trilhaarlarve, larven uit de slak, cyste op een grasspriet).",
+   "waarom": "Nieuwe bibliotheektekeningen van microscopische stadia, getekend als vereenvoudigd schema; Kamiel beslist of dit detailniveau goed is."
+  },
+  {
+   "id": "e3s38",
+   "hoofdstuk": "H5 Twee gastheren",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Het schaap, waarin de worm volwassen wordt en eitjes legt, heet de eindgastheer. De slak, waarin de larven zich vermenigvuldigen, heet de tussengastheer. Met twee gastheren maakt één worm duizenden nakomelingen. Een deel komt terecht waar schapen grazen.",
+   "beweging": "Op de cirkel lichten het schaap ('eindgastheer') en de slak ('tussengastheer') goud op; bij de slak telt een getal van 1 naar honderden."
+  },
+  {
+   "id": "e3q39",
+   "hoofdstuk": "H5 Twee gastheren",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Een leverbot doodt zijn gastheer meestal niet snel. Hoe komt dat?",
+   "beweging": "Vraagkaart met aftellijn.",
+   "opties": "A Snelle doders kregen minder nakomelingen · B Hij wil zijn gastheer sparen · C Een worm is te klein om te doden",
+   "juist": "A"
+  },
+  {
+   "id": "e3s40",
+   "hoofdstuk": "H5 Twee gastheren",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Een leverbot leeft van een levend schaap. Leverbotten waardoor het schaap snel stierf, hadden minder tijd om eitjes te leggen. Ze lieten minder nakomelingen na. Willen doet een worm niets. Toch kan een zware besmetting een schaap doden. Daarom behandelt de dierenarts de kudde, en houdt de schapenhouder ze weg van de natste plekken, waar de slakken leven.",
+   "beweging": "Twee tijdbalken: een schaap dat lang leeft met veel eitjesstippen tegenover een schaap dat vroeg sterft (gedimd) met weinig stippen; daarna een hek voor de natte plek in de duinvallei."
+  },
+  {
+   "id": "e3s41",
+   "hoofdstuk": "Samenvatting",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Langs dezelfde pijlen gaan ook stoffen die niet afbreken. Ze hopen zich op bij de eters bovenaan het web. Dat heet accumulatie. Meer daarover zie je in de film Eén aarde.",
+   "beweging": "In het voedselweb kleuren een paar stippen langs de pijlen omhoog en stapelen zich op bij de vos."
+  },
+  {
+   "id": "e3s42",
+   "hoofdstuk": "Samenvatting",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wie eet wie? De pijlen in een voedselweb wijzen van voedsel naar eter. Een rover doodt zijn prooi; bij vraat blijft de plant leven. En soorten leven ook samen: plus en plus, plus en nul, of plus en min.",
+   "beweging": "Het complete web van de duinen staat er; de relatietekens verschijnen bij gaai en eik, bij bergeend en konijn, en bij leverbot en schaap."
+  },
+  {
+   "id": "e3s43",
+   "hoofdstuk": "Samenvatting",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "En de vos? Hoe minder konijnen, hoe moeilijker hij ze vindt. Hij eet dan iets anders en krijgt minder jongen. Zo kan het aantal vossen meegaan met het aantal konijnen, zoals bij lynxen en hazen. Daarom eet een vos de konijnen nooit allemaal op.",
+   "beweging": "Terug naar het avondveld uit de opening: de vos zit op een duintop, beneden grazen konijnen; een kleine golfgrafiek in de lucht."
+  },
+  {
+   "id": "e3s44",
+   "hoofdstuk": "Samenvatting",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "",
+   "beweging": "Eindkaart: drie zinnen met annotatiehaak: 'De pijl wijst van voedsel naar eter.' · 'Rover en prooi golven samen.' · 'Symbiose: +/+, +/0 of +/−.'"
+  }
+ ],
+ "checkvragen": [
+  {
+   "niveau": "basis",
+   "vraag": "In een duingebied eten konijnen gras, eten muizen zaden, eten vossen konijnen en muizen, en eet een buizerd muizen. Teken het voedselweb met pijlen en noem de producent en de consumenten van de tweede orde.",
+   "antwoord": "Pijlen van voedsel naar eter: gras → konijn, zaden (plant) → muis, konijn → vos, muis → vos, muis → buizerd. Producent: de plant (gras, zaden). Consumenten van de tweede orde: vos en buizerd."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Leg uit wat het verschil is tussen predatie en parasitisme. Geef bij allebei een voorbeeld uit de film.",
+   "antwoord": "Bij predatie doodt de rover zijn prooi en eet hem op (vos en konijn, lynx en haas). Bij parasitisme leeft de parasiet lange tijd van een gastheer die blijft leven (leverbot in een schaap). Allebei +/−."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "In de grafiek van de pelshandel piekt de lynx een of twee jaar na de sneeuwschoenhaas. Leg dit uit.",
+   "antwoord": "Bij veel hazen is er veel voedsel: meer jonge lynxen overleven en het aantal lynxen stijgt pas daarna. Veel lynxen eten veel hazen (en de hazen vinden minder voedsel), zodat de hazen dalen; daarna dalen ook de lynxen door voedselgebrek."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Een leerling zegt: \"Een parasiet wil zijn gastheer in leven houden, anders heeft hij geen voedsel meer.\" Verbeter deze uitspraak.",
+   "antwoord": "Een parasiet wil niets. Parasieten die hun gastheer snel doodden, hadden minder tijd om nakomelingen te maken en lieten dus minder nakomelingen na; daardoor komen vooral parasieten voor die hun gastheer niet snel doden."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Noem de eindgastheer en de tussengastheer van de leverbot en leg uit waarom de leverbot de tussengastheer nodig heeft.",
+   "antwoord": "Eindgastheer: het schaap (volwassen worm, eitjes). Tussengastheer: de leverbotslak. In de slak vermenigvuldigen de larven zich: uit één larve komen er honderden, die als cysten op het gras komen."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Een bergeend broedt in een konijnenhol. Een gaai verstopt eikels. Benoem beide relaties met plus, min en nul en met de juiste naam.",
+   "antwoord": "Bergeend en konijn: +/0, commensalisme. Gaai en eik: +/+, mutualisme (de gaai krijgt voedsel, vergeten eikels kiemen ver van de boom)."
+  },
+  {
+   "niveau": "vwo",
+   "vraag": "Leg uit waarom mycorrhiza een vorm van mutualisme is. Noem welke stoffen elke partner krijgt.",
+   "antwoord": "Beide partners hebben voordeel: de schimmel (heterotroof) krijgt suikers uit de fotosynthese van de plant; de plant krijgt via de schimmeldraden water en mineralen (stikstof, fosfaat) uit bodem die de wortel zelf niet bereikt."
+  },
+  {
+   "niveau": "vwo",
+   "vraag": "Leg uit waarom de relatie tussen jou en je darmbacteriën mutualisme is en geen commensalisme.",
+   "antwoord": "Ook de mens heeft voordeel: de bacteriën breken voedselresten af die wij niet kunnen verteren en maken stoffen die wij gebruiken, zoals vitamine K. De bacteriën krijgen voedsel en een woonplaats. Dus +/+."
+  }
+ ],
+ "begrippen": [
+  {
+   "begrip": "voedselketen",
+   "uitleg": "Een rij organismen waarin elk organisme voedsel is voor het volgende. De pijl wijst van wie gegeten wordt naar de eter.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "voedselweb",
+   "uitleg": "Alle voedselketens in een gebied samen, met elkaar verbonden.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "producent",
+   "uitleg": "Organisme dat met licht zelf organische stoffen maakt (fotosynthese), zoals gras, helm of een eik. Staat altijd aan het begin van een voedselketen.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "consument",
+   "uitleg": "Organisme dat organische stoffen uit andere organismen haalt door ze (deels) te eten. Consument van de eerste orde eet producenten, van de tweede orde eet consumenten van de eerste orde, enzovoort.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "herbivoor · carnivoor · omnivoor",
+   "uitleg": "Planteneter · vleeseter · alleseter (eet planten én dieren, zoals de vos).",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "aaseter",
+   "uitleg": "Dier dat dode dieren eet die het niet zelf heeft gedood.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "trofisch niveau",
+   "uitleg": "De plaats van een organisme in een voedselketen: producent, consument van de eerste orde, van de tweede orde, enzovoort. Eén dier kan op meer niveaus zitten.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "predatie",
+   "uitleg": "Een predator (rover) doodt zijn prooi en eet hem op: +/−.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "vraat",
+   "uitleg": "Een dier eet een deel van een plant; de plant blijft leven: +/−.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "afweer tegen vraat",
+   "uitleg": "Eigenschappen waarmee een plant minder gegeten wordt, zoals stekels (braam) en bittere of slecht verteerbare stoffen (looizuren in eikenblad).",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "predator-prooirelatie",
+   "uitleg": "De aantallen van rover en prooi golven samen; de rover piekt iets later dan de prooi (sneeuwschoenhaas en lynx: golf van ongeveer tien jaar, lynx één tot twee jaar later).",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "symbiose",
+   "uitleg": "Twee soorten leven langdurig en nauw met elkaar samen. Vormen: mutualisme, commensalisme, parasitisme.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "mutualisme",
+   "uitleg": "Symbiose waarbij beide soorten voordeel hebben: +/+ (gaai en eik).",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "commensalisme",
+   "uitleg": "Symbiose waarbij de ene soort voordeel heeft en de andere geen voordeel en geen nadeel: +/0 (bergeend die broedt in een konijnenhol).",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "parasitisme",
+   "uitleg": "Symbiose waarbij de parasiet voordeel heeft en de gastheer nadeel; de parasiet leeft lange tijd van een levende gastheer: +/− (leverbot in een schaap).",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "gastheer",
+   "uitleg": "Organisme waarin of waarop een parasiet leeft.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "eindgastheer · tussengastheer",
+   "uitleg": "Gastheer waarin de parasiet volwassen wordt en zich geslachtelijk voortplant (schaap) · gastheer waarin de larven leven en zich vaak vermenigvuldigen (leverbotslak).",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "levenscyclus",
+   "uitleg": "De vaste rij stadia die een parasiet doorloopt, van ei via larve en tussengastheer terug naar de eindgastheer.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "darmflora",
+   "uitleg": "De bacteriën die in je darm leven; de relatie met de mens is mutualisme (vitamine K, afbraak van onverteerbare resten).",
+   "niveau": "vwo"
+  },
+  {
+   "begrip": "mycorrhiza",
+   "uitleg": "Symbiose tussen schimmeldraden en plantenwortels: de schimmel levert water en mineralen, de plant suikers (mutualisme).",
+   "niveau": "vwo"
+  }
+ ],
+ "getallen": [
+  {
+   "waarde": "sneeuwschoenhaas–lynx: golf van ongeveer 10 jaar; lynx volgt de haas met 1–2 jaar vertraging; ± 95 % van de gezenderde hazen stierf door predatie",
+   "bron": "Krebs e.a., The lynx-hare cycle (zoology.ubc.ca/~krebs/papers/180.pdf)"
+  },
+  {
+   "waarde": "pelsvangsten Hudson’s Bay Company 1845–1935, in duizenden vellen; grafiek 1900–1920: haas 30; 47,2; 70,2; 77,4; 36,3; 20,6; 18,1; 21,4; 22; 25,4; 27,1; 40,3; 57; 76,6; 52,3; 19,5; 11,2; 7,6; 14,6; 16,2; 24,7 · lynx 4; 6,1; 9,8; 35,2; 59,4; 41,7; 19; 13; 8,3; 9,1; 7,4; 8; 12,3; 19,5; 45,7; 51,1; 29,7; 15,8; 9,7; 10,1; 8,6 (pieken haas 1903 en 1913, lynx 1904 en 1915)",
+   "bron": "Odum 1953, Fundamentals of Ecology, via jmahaffy.sdsu.edu (lab q3v1) en R-pakket astsa (Hare/Lynx, 1845–1935); vangsten, geen tellingen; reeks samengesteld uit meerdere gebieden (rdrr.io ecostudy/lynxhare)"
+  },
+  {
+   "waarde": "lynx: in de winter > 75 % sneeuwschoenhaas; bij veel hazen ± 1 haas per 1–2 dagen",
+   "bron": "Hinterland Who’s Who, Canada lynx (hww.ca)"
+  },
+  {
+   "waarde": "myxomatose in de Hollandse duinen vanaf september 1953; > 95 % minder konijnen in 1956; VHS/RHD 1990–2003 nog eens ± 90 % minder",
+   "bron": "Van der Meijden, Holland’s Duinen 72 (Dunea), p. 6"
+  },
+  {
+   "waarde": "tapuit en bergeend nestelen graag in konijnenholen",
+   "bron": "NH Nieuws, Schoorlse duinen bijna zonder konijnen (nhnieuws.nl/nieuws/210341)"
+  },
+  {
+   "waarde": "vos in de duinen rond 1400 uitgeroeid, sinds 1968 terug",
+   "bron": "Van der Meijden, Holland’s Duinen 72 (Dunea), p. 8"
+  },
+  {
+   "waarde": "gaai verstopt ± 5000 eikels per herfst, elk apart",
+   "bron": "Bossema (1979), samengevat in Straatgras 1979 (natuurtijdschriften.nl STR1979011004001); Rodi Heiloo: tot 6000, tot 5 tegelijk in de keelzak"
+  },
+  {
+   "waarde": "gaai vervoert eikels tot ± een halve kilometer ver; tot 9 tegelijk, meestal 1–2",
+   "bron": "The Rattling Crow (2025) met Pons & Pausas 2007 en Kurek e.a. 2019"
+  },
+  {
+   "waarde": "looizuren in eikenblad nemen in de loop van de zomer toe",
+   "bron": "Feeny 1970, Ecology 51, geciteerd in Suurd 2022 (RUG-scriptie)"
+  },
+  {
+   "waarde": "leverbot volwassen 2,0–3,5 cm lang, in de galgangen; tot 300 eitjes per dag; cercariën 5–7 weken na besmetting van de slak; honderden (soms duizenden) per besmetting",
+   "bron": "Para-site, Fasciola hepatica (parasite.org.au)"
+  },
+  {
+   "waarde": "trilhaarlarve sterft als hij binnen 24 uur geen slak vindt; Galba truncatula in vochtige tot natte plekken; eitjes in de mest 10–12 weken na besmetting",
+   "bron": "WUR, leverbot bij schapen (edepot.wur.nl/312417)"
+  },
+  {
+   "waarde": "leverbotslak: huisje 5–10 mm",
+   "bron": "lessen_pop_eco_klein2.md (Mollusc Ireland)"
+  },
+  {
+   "waarde": "in een mens ± 3,8 × 10¹³ bacteriën en ± 3,0 × 10¹³ lichaamscellen (verhouding ± 1 : 1)",
+   "bron": "Sender, Fuchs & Milo 2016, PLoS Biol 14: e1002533 (via BioNumbers 113006 en ScienceDaily 2016)"
+  },
+  {
+   "waarde": "darmbacteriën maken vitamine K en B-vitamines en zetten voor de mens onverteerbare stoffen om in korteketenvetzuren",
+   "bron": "Orthica, inleiding darmwerking (2022); Test-Aankoop, microbiota"
+  },
+  {
+   "waarde": "de meeste planten vormen mycorrhiza; plant kan tot 80 % van zijn stikstof en tot 90 % van zijn fosfor via de schimmel krijgen",
+   "bron": "Van der Heijden, Universiteit Utrecht (uu.nl, plant-microbe interactions)"
+  }
+ ],
+ "uitspraak": [
+  {
+   "woord": "mycorrhiza",
+   "invoer": "mycorrhiza",
+   "ipa": "/mi.kɔˈri.za/ (mie-ko-RIE-za)",
+   "bron": "Onze Taal, mycorriza (klemtoon op rie); nieuwe spelling mycorriza, methodes gebruiken mycorrhiza"
+  },
+  {
+   "woord": "commensalisme",
+   "invoer": "commensalisme",
+   "ipa": "[kɔmɛnsaˈlɪsmə]",
+   "bron": "Encyclo.nl / woorden.org"
+  },
+  {
+   "woord": "mutualisme",
+   "invoer": "mutualisme",
+   "ipa": "/my.ty.waˈlɪs.mə/ (klemtoon op lis; afgeleid)",
+   "bron": "Duden Mutualismus (klemtoon op lis); geen Nederlandse IPA gevonden: twijfelwoord"
+  },
+  {
+   "woord": "omnivoor",
+   "invoer": "omnivoor",
+   "ipa": "[ɔmniˈvor]",
+   "bron": "Encyclo.nl"
+  },
+  {
+   "woord": "cysten",
+   "invoer": "cysten",
+   "ipa": "/ˈkɪ.stə(n)/ volgens kaikki; in het Nederlands ook sis-ten gehoord",
+   "bron": "kaikki.org (Dutch, cyste); bronnen niet eens: twijfelwoord, op de wachtlijst"
+  },
+  {
+   "woord": "myxomatose",
+   "invoer": "myxomatose",
+   "ipa": "/mɪk.soː.maːˈtoː.zə/ (afgeleid; klemtoon op to)",
+   "bron": "geen IPA gevonden; klemtoon zoals bij -ose-woorden (tuberculose): twijfelwoord"
+  },
+  {
+   "woord": "trofisch",
+   "invoer": "trofisch",
+   "ipa": "/ˈtroː.fis/ (afgeleid)",
+   "bron": "geen IPA gevonden; staat niet op de lijst"
+  },
+  {
+   "woord": "looizuren",
+   "invoer": "looizuren",
+   "ipa": "/ˈloːi.zy.rən/",
+   "bron": "stond al op de wachtlijst van Plek genoeg?"
+  },
+  {
+   "woord": "bergeend",
+   "invoer": "bergeend",
+   "ipa": "/ˈbɛr.ɣeːnt/",
+   "bron": "gewoon Nederlands samengesteld woord"
+  },
+  {
+   "woord": "sneeuwschoenhaas",
+   "invoer": "sneeuwschoenhaas",
+   "ipa": "/ˈsneːu̯.sxun.ɦaːs/",
+   "bron": "gewoon Nederlands samengesteld woord"
+  },
+  {
+   "woord": "vitamine K",
+   "invoer": "vitamine K",
+   "ipa": "/vi.taːˈmi.nə kaː/",
+   "bron": "uitspraaklijst: vitamine B6 gewoon (25 okt 2026)"
+  },
+  {
+   "woord": "jaartallen",
+   "invoer": "het jaar 1845, het jaar 1935, het jaar 1903, het jaar 1968",
+   "ipa": "—",
+   "bron": "Kamiels vaste afspraak"
+  }
+ ],
+ "nieuw_in_bibliotheek": [
+  "e3Leverbot — platte bladvormige worm (± 3 cm, mondzuignapje, bruin-grijs), in een galgang; twijfelscène",
+  "e3Lever — schapenlever als schema met galgangen in een zoomcirkel; twijfelscène",
+  "e3Stadium — ei, trilhaarlarve, larven uit de slak, cyste op een grasspriet (vereenvoudigd schema); twijfelscène",
+  "e3Braam — braamtak met stekels en bramen",
+  "e3Grafiek — pelsgrafiek haas/lynx 1900–1920 (Schema)",
+  "e3Web — voedselweb van de duinen als schema met pictogrammen uit de poppen",
+  "e3Teken — relatieteken plus/min/nul boven een soort",
+  "e3Bergeend — bergeend (Tadorna tadorna), zijaanzicht, ± 60 cm; twijfelscène",
+  "e3Hol — konijnenhol in een duinhelling",
+  "e3Bacterie / e3Darm / e3Mycorrhiza — darmbacterie, darmslijmvlies, worteltop met schimmeldraden (Micro)",
+  "e3Rups — rups met segmentbanden (eigen versie: rups() uit teken_evo2 laadt niet in deze reeks)",
+  "e3Duin / e3Sneeuwbos / e3HelmBoven / e3Boom — duinlandschap, Canadees sneeuwbos, helm en bomen zonder wortels (in een landschap)"
+ ],
+ "keuzes_en_twijfels": [
+  "B15: trekking 1 (wedstrijd) geschrapt volgens P1; gewonnen heeft de combinatie W (geraamte A klassiek, overnames uit B en C), tweede ronde 38 tegen 32. Zie b15/f3/beoordeling.md.",
+  "Grafiek: geen Binas 93D2 nagetekend maar de oorspronkelijke vangstcijfers (Odum 1953) voor 1900–1920; twee volledige golven, zodat de kijker de vertraging twee keer ziet.",
+  "Pelsregisters zijn vangsten, geen tellingen; dat wordt gezegd (de beoordelaar wees erop).",
+  "De vos staat bij omnivoor (eet ook bramen en kevers); BvJ en Nectar noemen de vos soms carnivoor. De film laat zien dat één dier op twee niveaus zit.",
+  "Commensalisme: bergeend in een konijnenhol (bron: NH Nieuws, Schoorlse duinen: tapuit en bergeend nestelen graag in konijnenholen).",
+  "Mycorrhiza en darmflora als vwo-blok in H4; de basislijn H4 → H5 loopt zonder die twee scènes door.",
+  "Misconceptie \"energie gaat rond\" wordt in H1 in één zin gezegd (de energiestroom zelf is film 5) en niet met een vraag getoetst; de andere misconcepties uit de reeks die hier spelen (pijl = eet, rover roeit prooi uit, parasiet wil doden, populatie groeit tot alles op is) krijgen elk een vraag.",
+  "Castrollen: de schapenhouder is Veehouder Gerrit (vaste rol boer/veehouder), de dierenarts is Mila (eigen vak); de vertelling noemt alleen hun beroep. In de darmflora-scène staat Noor (jij, bovenbouw).",
+  "Bibliotheekbotsing gevonden bij het testvel (const ECO in lib_eco.js en pop_eco_klein.js; _ecoWrap in pop_eco_hoef.js en pop_eco_klein.js); door de coördinator opgelost (ECOK, _ecoWrapHoef), daarna alles opnieuw gerenderd zonder eigen kopieën. Bij elke render blijft één melding over die niet van deze film is: berkenspanner is not defined (dieren_overig.js r. 827).",
+  "P2 (begeleider met een eigen beurt) past maar half: deze film heeft geen begeleider. Schapenhouder en dierenarts hebben een eigen moment in beeld en hun beroep wordt genoemd, maar ze spreken zelf niet.",
+  "Myxomatose: de dode konijnen zijn gedimd (35 %), niet als kadavers getekend.",
+  "Uitspraak: mutualisme, myxomatose en cysten hebben geen gevonden Nederlandse IPA (wachtlijst).",
+  "Review MOET F3-1 (e3s25): gaai en eiken nu op dezelfde schaal (6 px/cm); de eik is een oude boom die boven uit beeld loopt.",
+  "Review MOET F3-2 en coördinatorbesluit 1 (e3s29): pimpelmees in de holte vervangen door een bergeend in een konijnenhol (commensalisme, bron NH Nieuws); in het voedselweb is de pimpelmees vervangen door de merel (e3s09–e3s11, e3s41, e3s42); tabel, checkvraag en begrip aangepast.",
+  "Review MOET F3-3 (e3s43): 'golven zo samen, net als lynxen' werd 'zo kan het aantal vossen meegaan met het aantal konijnen, zoals bij lynxen en hazen'.",
+  "Review KAN (e3s32): beweging zegt nu grove den; pijlen 'suikers' en 'water, mineralen' staan bij de goede richting; 'bijna alle planten' werd 'de meeste planten'.",
+  "Review KAN (e3s30): toegevoegd dat mutualisme ook bij een lossere relatie kan (gaai en eik).",
+  "Review KAN (e3s38, e3s15): teleologie weg ('een deel komt terecht waar schapen grazen'; 'zo worden ze minder gegeten').",
+  "Coördinatorbesluit 2: de vraag over de pijlrichting blijft in deze film (e3q05), ongewijzigd."
+ ],
+ "b15": {
+  "trekking": "run 1: A klassiek · B rol van het personage, volgorde · C wedstrijd (geschrapt, P1: lijstvorm, voedselrelaties zijn geen twee aanpakken met een score) → run 3: A klassiek · B metafoor, volgorde · C casus (één duingebied, een jaar lang)",
+  "varianten": {
+   "A": "Klassiek: puzzel als draad; keten → vraat → golven → samenleven → leverbot; vos en konijn, lynx en haas, gaai en eik, leverbot.",
+   "B": "Plus, min of nul als gereedschap voor elke relatie; eerst de relaties, dan de voedselketen, de golven als slot.",
+   "C": "Casus: één duingebied (Meijendel) door één jaar, het web van dat gebied groeit; lynx en haas als de meting die de duinen niet hebben."
+  },
+  "scores": {
+   "ronde1": {
+    "A": 33,
+    "B": 33,
+    "C": 32,
+    "max": 50,
+    "labels": {
+     "A": "X",
+     "B": "Z",
+     "C": "Y"
+    }
+   },
+   "ronde2": {
+    "combinatie_W": 38,
+    "A": 32,
+    "B": 32,
+    "C": 31
+   }
+  },
+  "winnaar": "combinatie W (geraamte A)",
+  "reden": "Ronde 1 nipt voor A (schone indeling, vragen vóór de uitleg, zuiverste vakinhoud) maar zwak in rode draad, cast en antwoordposities; de beoordelaar adviseerde een combinatie, die in ronde 2 duidelijk won (38 tegen 32).",
+  "beoordelaar_model": "sonnet (claude-sonnet-5-5)",
+  "overgenomen": [
+   "plus/min/nul-teken en slottabel (B)",
+   "vraag 'waarom heeft de leverbot een slak nodig?' (B)",
+   "brug 'in de duinen telde niemand honderd jaar lang' (C)",
+   "'ook in jou leeft zo'n gemeenschap' bij de darmflora (C)",
+   "vos terug sinds het jaar 1968 (C)",
+   "antwoordposities gewisseld, schapenhouder en dierenarts als menselijk moment, H3 gesplitst (advies ronde 2)"
+  ]
+ }
+}

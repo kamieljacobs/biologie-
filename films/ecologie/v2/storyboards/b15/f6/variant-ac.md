@@ -1,0 +1,17 @@
+# Film 6 Koolstof gaat rond — combinatie A + C (na het eerste oordeel)
+
+**Rode draad.** Eén koolstofatoom op reis, vooruit in de tijd: van een boomvaren in een moerasbos van driehonderd miljoen jaar geleden, via veen en steenkool, de schoorsteen van een kolencentrale en de lucht, naar een eikenblad in een straat van nu. Het kringloopschema groeit mee: reservoirs als vakken, met bij elk vak een verblijftijdlabel (uren · jaren · miljoenen jaren), stromen als pijlen. Zo worden de snelle en de trage kringloop zichtbaar. Een herkenbaar mens per plek: een mijnwerker uit de Limburgse mijnen (historisch), iemand in de straat, een boswachter.
+
+**Cold open (± 18 s, Macro-nacht).** Een moerasbos met boomvarens; één koolstofatoom licht goud op in een varenblad. "Dit koolstofatoom zat driehonderd miljoen jaar geleden in een varen. Vandaag zweeft het als CO₂ boven jouw straat. Hoe is het daar gekomen?"
+
+**Scènes in volgorde.**
+1. Cold open, titelkaart.
+2. H1 De snelle kringloop (dagen tot jaren): fotosynthese legt CO₂ vast in een blad; de plant dissimileert zelf, dag en nacht; het blad valt, reducenten breken het af, CO₂ terug in de lucht. Vraag: geven planten ook CO₂ af? (misvatting: nee, alleen opname). Beat: de pijlen in dit schema zijn stromen van koolstof, niet "eet"; koolstof gaat rond, energie stroomt één kant op.
+3. H2 Waar afbraak stopt: het moerasbos in het Carboon; nat en zuurstofarm, dus afbraak stopt: veen; onder lagen zand en klei, druk en warmte: bruinkool, steenkool. Vraag: hoe lang zat het atoom in de steenkool? (tien jaar · duizend jaar · driehonderd miljoen jaar). Ook olie en gas (plankton) en kalksteen (schelpen, mergel in Limburg) als trage voorraden. Payoff puzzel A: de mijnwerker haalt de steenkool boven, de kolencentrale verbrandt hem, het atoom gaat als CO₂ de schoorsteen uit.
+4. H3 Reservoirs en de badkuip: een staafdiagram met voorraden in gigaton koolstof (lucht, planten, bodem, oceaan, fossiele brandstoffen, gesteente) — lezen in examenstijl; vraag: waar zit de meeste koolstof? (misvatting: in de lucht). Voorraad (Gt C) tegenover stroom (Gt C per jaar); de mens haalt in een paar honderd jaar boven wat in miljoenen jaren is opgeslagen: ± 10 Gt C per jaar; oceaan en planten nemen ongeveer de helft op. Vraag: wat doet het niveau in de badkuip? (misvatting: de oceaan neemt alles op). Broeikaseffect: één zin, verwijzing naar Eén aarde.
+5. Vwo-blok: de Keelingcurve lezen: elk jaar op en neer, en elk jaar iets hoger; vraag: waarom daalt de lijn juist in de zomer? (misvatting: 's zomers ademen planten niet). Positieve terugkoppeling: warmer zeewater lost minder CO₂ op. Puzzel B.
+6. H4 Is een bos een opslag of een kringloop? Een boswachter bij jonge en oude bomen: een groeiend bos legt netto vast; een volgroeid bos is ongeveer in evenwicht; hout dat verbrandt of verteert gaat terug. Vraag puzzel C (misvatting: een oud bos haalt het meeste CO₂ uit de lucht).
+7. Samenvatting: de hele reis van het atoom in tien seconden vooruit (varen → veen → steenkool → schoorsteen → lucht → eikenblad), drie zinnen; eindkaart.
+
+**Centrale casus.** Eén koolstofatoom van varen naar eikenblad.
+**Mutaties.** Uit C: verblijftijdlabels, de steenkoolvraag, de reis vooruit in de samenvatting; uit B: de zomervraag en de trendzin bij de Keelingcurve; reparaties: schoorsteen van een kolencentrale (geen auto), staafdiagram reservoirs in de basis, cast, pijlbeat.

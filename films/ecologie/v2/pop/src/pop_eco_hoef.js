@@ -516,7 +516,7 @@ ECO_HOEF.wildzwijn = EcoHoefPop.maak(ECO_ZWIJN_DEF); ECO_HOEF.frisling = EcoHoef
 // moeflon 'staan' | 'lopen' | 'grazen' | 'rennen'; wildzwijn/frisling 'staan' | 'lopen' | 'wroeten' (zwijn) | 'draven'. o.t = fase (0-1), o.kijk = ±1, o.a.
 // =====================================================================================================
 const _ECO_HMAP = { draf: 'draven', galop: 'rennen', vlucht: 'sprong', springen: 'sprong', snuffelen: 'grazen', eten: 'grazen', lig: 'liggen', zitten: 'liggen' };
-function _ecoWrap(ctx, P, x, y, s, o) { if (o == null) o = {}; if (typeof o === 'number') o = { a: o }; if ((o.a ?? 1) <= 0.01) return; const oo = Object.assign({}, o);
+function _ecoWrapHoef(ctx, P, x, y, s, o) { if (o == null) o = {}; if (typeof o === 'number') o = { a: o }; if ((o.a ?? 1) <= 0.01) return; const oo = Object.assign({}, o);
   if (oo.fase != null && oo.t == null) oo.t = oo.fase; if (oo.fase != null && !oo.houding) oo.houding = 'lopen';
   let h = oo.houding || 'staan'; h = _ECO_HMAP[h] || h; const ok = (k) => P.GANGEN[k] || P.D.HOUDING[k];
   if (!ok(h)) h = ({ rennen: ['sprong', 'draven', 'lopen'], sprong: ['rennen', 'draven', 'lopen'], draven: ['rennen', 'lopen'], wroeten: ['grazen'], grazen: ['wroeten'] }[h] || []).find(ok) || 'staan';
@@ -526,11 +526,11 @@ function _ecoWrap(ctx, P, x, y, s, o) { if (o == null) o = {}; if (typeof o === 
     ctx.save(); ctx.globalAlpha *= (o.a ?? 1); ctx.fillStyle = '#4E3D2E'; ctx.beginPath(); ctx.ellipse(gx + 2 * s * k, y + 0.4 * s, 16 * s * (P.D.H / 80), 3.6 * s * (P.D.H / 80), 0, Math.PI, 2 * Math.PI); ctx.fill();
     ctx.fillStyle = '#634E3A'; for (let i = 0; i < 4; i++) { const ph = (o.t || 0) * 6.283 + i * 1.7; ctx.beginPath(); ctx.ellipse(gx + (-9 + i * 6 + 1.5 * Math.sin(ph)) * s * k * (P.D.H / 80), y - (2.2 + 1.2 * Math.max(0, Math.sin(ph))) * s * (P.D.H / 80), 1.3 * s * (P.D.H / 80), 0.9 * s * (P.D.H / 80), 0, 0, 6.283); ctx.fill(); } ctx.restore(); }
   return st; }
-function ecoSchaap(ctx, x, y, s = 1, o = {}) { return _ecoWrap(ctx, ECO_HOEF.schaap, x, y, s, o); }
-function ecoRee(ctx, x, y, s = 1, o = {}) { return _ecoWrap(ctx, ECO_HOEF.ree, x, y, s, o); }
-function ecoMoeflon(ctx, x, y, s = 1, o = {}) { return _ecoWrap(ctx, ECO_HOEF.moeflon, x, y, s, o); }
-function ecoWildzwijn(ctx, x, y, s = 1, o = {}) { return _ecoWrap(ctx, (o && o.jong) ? ECO_HOEF.frisling : ECO_HOEF.wildzwijn, x, y, s, o); }
-function ecoFrisling(ctx, x, y, s = 1, o = {}) { return _ecoWrap(ctx, ECO_HOEF.frisling, x, y, s, o); }
+function ecoSchaap(ctx, x, y, s = 1, o = {}) { return _ecoWrapHoef(ctx, ECO_HOEF.schaap, x, y, s, o); }
+function ecoRee(ctx, x, y, s = 1, o = {}) { return _ecoWrapHoef(ctx, ECO_HOEF.ree, x, y, s, o); }
+function ecoMoeflon(ctx, x, y, s = 1, o = {}) { return _ecoWrapHoef(ctx, ECO_HOEF.moeflon, x, y, s, o); }
+function ecoWildzwijn(ctx, x, y, s = 1, o = {}) { return _ecoWrapHoef(ctx, (o && o.jong) ? ECO_HOEF.frisling : ECO_HOEF.wildzwijn, x, y, s, o); }
+function ecoFrisling(ctx, x, y, s = 1, o = {}) { return _ecoWrapHoef(ctx, ECO_HOEF.frisling, x, y, s, o); }
 // korte namen (bestonden nog niet in src/)
 if (typeof schaap === 'undefined') var schaap = ecoSchaap;
 if (typeof ree === 'undefined') var ree = ecoRee;

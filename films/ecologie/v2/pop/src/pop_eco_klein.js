@@ -636,22 +636,22 @@ const ECO_SPITSMUIS_DEF = {
     A: { metaS: [[0, 12], [0.5, 20], [1, 70]], metaZ: [[0, 70], [0.4, 80], [0.8, 14], [1, 12]], pootS: [[0, 4], [0.6, 4], [1, 50]], pootZ: [[0, 50], [0.4, 60], [0.85, 6], [1, 4]] } } },
 };
 
-const ECO = {};
-ECO.bever = EcoPop.maak(ECO_BEVER_DEF);
-ECO.konijn = EcoPop.maak(ECO_KONIJN_DEF);
-ECO.haas = EcoPop.maak(ECO_HAAS_DEF);
-ECO.spitsmuis = EcoPop.maak(ECO_SPITSMUIS_DEF);
+const ECO_KLEIN = {};
+ECO_KLEIN.bever = EcoPop.maak(ECO_BEVER_DEF);
+ECO_KLEIN.konijn = EcoPop.maak(ECO_KONIJN_DEF);
+ECO_KLEIN.haas = EcoPop.maak(ECO_HAAS_DEF);
+ECO_KLEIN.spitsmuis = EcoPop.maak(ECO_SPITSMUIS_DEF);
 // ---- wrappers: naam(ctx, x, y, s, o); s = px per cm (zelfde conventie als wolf()/hond(): wolf 80 cm schoft -> 80·s px), x/y = grondpunt midden onder het dier ----
-function _ecoWrap(P, ctx, x, y, s, o, map) { if (o == null) o = {}; if ((o.a ?? 1) <= 0.01) return; const oo = Object.assign({}, o); if (oo.fase != null && oo.t == null) oo.t = oo.fase;
+function _ecoWrapKlein(P, ctx, x, y, s, o, map) { if (o == null) o = {}; if ((o.a ?? 1) <= 0.01) return; const oo = Object.assign({}, o); if (oo.fase != null && oo.t == null) oo.t = oo.fase;
   let h = oo.houding || P.D.STANDAARD || 'staan'; h = (map || {})[h] || h; if (!P.GANGEN[h] && !P.D.HOUDING[h] && !(P.D.FIGUUR || {})[h]) h = P.D.STANDAARD || 'staan'; oo.houding = h; return P.teken(ctx, x, y, s, oo); }
 // bever: 'staan' | 'lopen' | 'knagen' (rechtop met tak; o.tak = false zonder tak) | 'zwemmen' (y = waterlijn; o.water = false: alleen het deel boven water)
-function ecoBever(ctx, x, y, s, o) { return _ecoWrap(ECO.bever, ctx, x, y, s, o, { stap: 'lopen', wandelen: 'lopen', knaag: 'knagen', eten: 'knagen', rechtop: 'knagen', zwem: 'zwemmen' }); }
+function ecoBever(ctx, x, y, s, o) { return _ecoWrapKlein(ECO_KLEIN.bever, ctx, x, y, s, o, { stap: 'lopen', wandelen: 'lopen', knaag: 'knagen', eten: 'knagen', rechtop: 'knagen', zwem: 'zwemmen' }); }
 // konijn: 'zitten' (standaard) | 'grazen' | 'huppen' | 'rennen'
-function ecoKonijn(ctx, x, y, s, o) { return _ecoWrap(ECO.konijn, ctx, x, y, s, o, { staan: 'zitten', eten: 'grazen', snuffelen: 'grazen', hup: 'huppen', springen: 'huppen', lopen: 'huppen', sprint: 'rennen', vluchten: 'rennen' }); }
+function ecoKonijn(ctx, x, y, s, o) { return _ecoWrapKlein(ECO_KLEIN.konijn, ctx, x, y, s, o, { staan: 'zitten', eten: 'grazen', snuffelen: 'grazen', hup: 'huppen', springen: 'huppen', lopen: 'huppen', sprint: 'rennen', vluchten: 'rennen' }); }
 // sneeuwschoenhaas: 'zitten' (standaard) | 'rennen' | 'staan'; o.vacht = 'zomer' | 'winter' | 0..1
-function ecoSneeuwschoenhaas(ctx, x, y, s, o) { return _ecoWrap(ECO.haas, ctx, x, y, s, o, { lopen: 'rennen', sprint: 'rennen', vluchten: 'rennen', huppen: 'rennen' }); }
+function ecoSneeuwschoenhaas(ctx, x, y, s, o) { return _ecoWrapKlein(ECO_KLEIN.haas, ctx, x, y, s, o, { lopen: 'rennen', sprint: 'rennen', vluchten: 'rennen', huppen: 'rennen' }); }
 // bosspitsmuis: 'staan' | 'rennen' | 'snuffelen' (o.t laat de snuit bewegen)
-function ecoSpitsmuis(ctx, x, y, s, o) { return _ecoWrap(ECO.spitsmuis, ctx, x, y, s, o, { lopen: 'rennen', trippelen: 'rennen', eten: 'snuffelen', zoeken: 'snuffelen' }); }
+function ecoSpitsmuis(ctx, x, y, s, o) { return _ecoWrapKlein(ECO_KLEIN.spitsmuis, ctx, x, y, s, o, { lopen: 'rennen', trippelen: 'rennen', eten: 'snuffelen', zoeken: 'snuffelen' }); }
 if (typeof bever === 'undefined') var bever = ecoBever;
 if (typeof konijn === 'undefined') var konijn = ecoKonijn;
 if (typeof sneeuwschoenhaas === 'undefined') var sneeuwschoenhaas = ecoSneeuwschoenhaas;

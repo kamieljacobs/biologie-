@@ -1,0 +1,594 @@
+{
+ "film": 8,
+ "titel": "Van zand tot bos",
+ "slug": "8-van-zand-tot-bos",
+ "puzzel": "Hoe wordt kaal zand vanzelf een bos?",
+ "haak": "Op de Veluwe ligt een woestijn van stuivend zand, maar aan de rand rukken bomen op die niemand plant.",
+ "hoofdstukken": [
+  {
+   "nr": 1,
+   "titel": "De eerste bewoners",
+   "minivraag": "Wie kan er leven op kaal, stuivend zand?",
+   "type": "F",
+   "look": "Macro"
+  },
+  {
+   "nr": 2,
+   "titel": "Pioniers veranderen de plek",
+   "minivraag": "Waarom verdwijnen de eerste soorten weer?",
+   "type": "F",
+   "look": "Schema"
+  },
+  {
+   "nr": 3,
+   "titel": "Is het bos ooit af?",
+   "minivraag": "Wanneer stopt de successie?",
+   "type": "F",
+   "look": "Macro"
+  },
+  {
+   "nr": 4,
+   "titel": "Na de brand",
+   "minivraag": "Waarom groeit na een brand alles veel sneller terug?",
+   "type": "F",
+   "look": "Macro"
+  }
+ ],
+ "scenes": [
+  {
+   "id": "e8s01",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Midden op de Veluwe ligt een zandvlakte. Het zand stuift in de wind. Toch staan er aan de rand bomen, en elk jaar staan ze een stukje verder het zand op. Niemand plant ze.",
+   "beweging": "Wijd landschap: het Kootwijkerzand onder een nachtblauwe lucht, zandslierten waaien over de vlakte; aan de rand grillige dennen."
+  },
+  {
+   "id": "e8s02",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Op het zand staat een paaltje met een nummer. Hier meten ecologen steeds hetzelfde stukje grond. Hoe wordt kaal zand vanzelf een bos?",
+   "beweging": "De camera daalt naar één genummerd paaltje in het zand; de ecoloog en een vrijwilliger komen aanlopen met een map; de vraag verschijnt in de lucht."
+  },
+  {
+   "id": "e8s03",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "",
+   "beweging": "Titelkaart: titel en puzzel links; rechts het eerste blad (kaal zand) en het laatste blad (bos) van het dossier naast elkaar."
+  },
+  {
+   "id": "e8s04",
+   "hoofdstuk": "1 De eerste bewoners",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Elk blad in het dossier is een opname van zo'n stukje grond van vier bij vier meter. Welke soorten staan er, en hoeveel van de grond bedekken ze? Hoe dik is de bodem? Hoe warm en hoe droog is het?",
+   "beweging": "De ecoloog zet een vierkant uit met vier paaltjes en een touw; de vrijwilliger schrijft in de map; het eerste lege blad ligt in beeld.",
+   "twijfel": "Ecoloog Bas en Mevrouw Jansen als vrijwilliger (beide uit Wat word jij? · Ecologie) verschijnen in een kernfilm, zonder naam in de stem.",
+   "waarom": "ROLLEN.md zegt bij Bas \"alleen in zijn eigen vak\": of een kernfilm daaronder valt, beslis jij."
+  },
+  {
+   "id": "e8s05",
+   "hoofdstuk": "1 De eerste bewoners",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Blad één: kaal zand. Aan het oppervlak wordt het op een zomerdag meer dan vijfenveertig graden. Het zand houdt geen water vast. Er zit bijna niets in waar een plant van kan leven. En het stuift.",
+   "beweging": "Blad 1 vult zich: thermometer bij het oppervlak, een leeg bodemprofiel (geen humuslaag), soortenlijst leeg; zandkorrels waaien over het blad."
+  },
+  {
+   "id": "e8q06",
+   "hoofdstuk": "1 De eerste bewoners",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Waarom staan er op blad één geen eiken?",
+   "beweging": "Vraagkaart met blad 1 en een eikel ernaast.",
+   "opties": "A Er komen nooit eikels op het zand · B Eiken groeien alleen waar mensen ze planten · C Een eikel die kiemt, overleeft het hete, droge en stuivende zand niet",
+   "juist": "C"
+  },
+  {
+   "id": "e8s07",
+   "hoofdstuk": "1 De eerste bewoners",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Gaaien en wind brengen wel zaden en sporen. Maar alleen een paar soorten overleven hier. Eerst buntgras, een grijs pollenpolletje, en algen. Daarna mossen en korstmossen. Ze verdragen hitte, droogte en een arme bodem.",
+   "beweging": "Zoom op het vierkant: eerst een pol buntgras en een groene waas van algen, daarna plukjes mos en grijze korstmosjes op het kale zand."
+  },
+  {
+   "id": "e8s08",
+   "hoofdstuk": "1 De eerste bewoners",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Zulke soorten heten pioniersoorten. Ze hebben een brede tolerantie voor hitte en droogte. Ze maken veel kleine zaden of sporen die ver waaien, en die lang kiemkrachtig blijven. Zo zijn ze er als eerste bij als er ergens kale grond is.",
+   "beweging": "Een kaartje \"pioniersoort\" bouwt zich op met vier kenmerken naast het buntgras; een brede optimumkromme verschijnt naast een smalle."
+  },
+  {
+   "id": "e8s09",
+   "hoofdstuk": "1 De eerste bewoners",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Het buntgras houdt met zijn wortels het zand vast. Waar het staat, stuift het minder. Wordt het een beetje overstoven, dan groeit het er gewoon doorheen.",
+   "beweging": "Een pol buntgras in doorsnede: wortels houden zandkorrels vast; een laagje zand waait eroverheen en nieuwe sprieten groeien erdoor."
+  },
+  {
+   "id": "e8s10",
+   "hoofdstuk": "2 Pioniers veranderen de plek",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Blad drie, zo'n tien jaar later. De pioniers zijn gegroeid en afgestorven. Hun resten zijn afgebroken tot humus. Kijk naar het bodemprofiel: bovenop ligt nu een dun, donker laagje.",
+   "beweging": "Blad 3 schuift over blad 1: het bodemprofiel krijgt een donkere humuslaag van een paar centimeter; de soortenlijst wordt langer."
+  },
+  {
+   "id": "e8s11",
+   "hoofdstuk": "2 Pioniers veranderen de plek",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Met die humus verandert de plek. De bodem houdt meer water vast. Er komen meer voedingsstoffen vrij. Het zand stuift minder, en in de schaduw van de planten is het koeler. De pioniers hebben de abiotische factoren zelf veranderd.",
+   "beweging": "Vier meters op het blad schuiven: vocht omhoog, voedingsstoffen omhoog, stuiven omlaag, temperatuur omlaag."
+  },
+  {
+   "id": "e8s12",
+   "hoofdstuk": "2 Pioniers veranderen de plek",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Nu kunnen soorten groeien die het eerst niet redden. Struikheide. En zaailingen van de grove den. Zij worden groter dan de pioniers.",
+   "beweging": "Het vierkant: struikheide breidt zich uit, kleine dennetjes komen op tussen het buntgras."
+  },
+  {
+   "id": "e8s13",
+   "hoofdstuk": "2 Pioniers veranderen de plek",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "De vrijwilliger bladert vooruit en zegt: het buntgras is gewoon oud geworden. De ecoloog wijst naar de metingen. Daar staat iets anders.",
+   "beweging": "De vrijwilliger wijst naar blad 4 waarop het buntgras ontbreekt; de ecoloog legt zijn vinger bij de rij met lichtmetingen op de grond."
+  },
+  {
+   "id": "e8q14",
+   "hoofdstuk": "2 Pioniers veranderen de plek",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Waarom is het buntgras op blad vier verdwenen?",
+   "beweging": "Vraagkaart met blad 3 (buntgras, heide, dennetjes) naast blad 4 (heide en dennen, geen buntgras).",
+   "opties": "A Heide en dennen nemen licht, water en voedingsstoffen weg · B Het buntgras is oud geworden en doodgegaan · C Het zand is te voedselarm geworden voor buntgras",
+   "juist": "A"
+  },
+  {
+   "id": "e8s15",
+   "hoofdstuk": "2 Pioniers veranderen de plek",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Op blad vier valt op de grond nog maar een deel van het licht. Heide en jonge dennen groeien over het buntgras heen. Het verliest de concurrentie om licht, water en voedingsstoffen. Een pioniersoort verdwijnt dus doordat hij zelf de plek heeft veranderd.",
+   "beweging": "Op blad 4 licht de rij \"licht op de grond\" op; de pol buntgras staat in de schaduw van de heide en wordt grijs."
+  },
+  {
+   "id": "e8s16",
+   "hoofdstuk": "2 Pioniers veranderen de plek",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Zo volgen levensgemeenschappen op één plek elkaar op. Dat heet successie. Begint het op kale grond zonder humus, zoals hier op het zand, dan heet het primaire successie.",
+   "beweging": "Een successiebalk onder de bladen: kaal zand, pioniers, heide, dennen, en nog lege vakjes."
+  },
+  {
+   "id": "e8s17",
+   "hoofdstuk": "2 Pioniers veranderen de plek",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "In het dossier staat het ook als tabel. Per blad zie je welk deel van de grond elke soort bedekt. Korstmos en buntgras gaan eerst omhoog en dan weer omlaag. Heide en den komen later op en blijven. Zo lees je een successie af uit getallen.",
+   "beweging": "Een tabel met vier rijen (korstmos, buntgras, struikheide, grove den) en zes kolommen (blad 1 tot 6), bedekking in procent; de rij buntgras licht op."
+  },
+  {
+   "id": "e8s18",
+   "hoofdstuk": "3 Is het bos ooit af?",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "De bladen hierna komen niet van één bezoek. Zo'n bos groeit in tientallen tot honderden jaren. Daarom meten ecologen ook op plekken van verschillende leeftijd. Samen vullen die het dossier.",
+   "beweging": "Kaart van het Kootwijkerzand met vier genummerde meetplekken: open zand, heide, jong dennenbos, oud bos; bij elk een jaartal van de laatste verstuiving."
+  },
+  {
+   "id": "e8s19",
+   "hoofdstuk": "3 Is het bos ooit af?",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Blad vijf: een bos van grove den en berk. Onder de bomen is het schaduwrijk en vochtig. Daar kiemen eikels die gaaien hier verstopten. Jonge eiken verdragen wat schaduw. Jonge dennen en berken niet.",
+   "beweging": "Dennenbos met berken; onder de dennen komen jonge eikjes op, er zijn geen jonge dennetjes."
+  },
+  {
+   "id": "e8s20",
+   "hoofdstuk": "3 Is het bos ooit af?",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Blad zes: een bos van eiken, met hier en daar een beuk. De bodem is dik en donker. De soortenlijst is lang. Dit lijkt het eindpunt: een climaxecosysteem.",
+   "beweging": "Blad 6 bovenop de stapel: dikke humuslaag in het profiel, lange soortenlijst, foto van boven met een gesloten kronendak."
+  },
+  {
+   "id": "e8q21",
+   "hoofdstuk": "3 Is het bos ooit af?",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Is het bos op blad zes nu af?",
+   "beweging": "Vraagkaart met blad 6 en een vraagteken bij het jaartal.",
+   "opties": "A Ja, een climaxbos verandert nooit meer · B Nee, het verandert steeds een beetje, maar blijft een bos · C Nee, over honderd jaar is het weer kaal zand",
+   "juist": "B"
+  },
+  {
+   "id": "e8s22",
+   "hoofdstuk": "3 Is het bos ooit af?",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Ook een climaxbos verandert. Een storm gooit een oude eik om. In het gat valt licht op de grond, en daar beginnen pioniers opnieuw. Elders sterven bomen door een ziekte, of worden ze verzwakt door rupsenvraat.",
+   "beweging": "Een oude eik ligt omgewaaid met zijn wortelkluit omhoog; in de lichte plek komen berkjes en braam op."
+  },
+  {
+   "id": "e8s23",
+   "hoofdstuk": "3 Is het bos ooit af?",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Over het hele bos gezien blijft het toch een eikenbos. De soorten en hun aantallen schommelen, maar ze blijven binnen grenzen. Dat heet een biologisch evenwicht. Het is dynamisch: het verandert steeds een beetje, zonder te verdwijnen.",
+   "beweging": "Een grafiekje met het aandeel eik over tweehonderd jaar: kleine schommelingen rond een vaste lijn; de dip na de storm herstelt."
+  },
+  {
+   "id": "e8s24",
+   "hoofdstuk": "3 Is het bos ooit af?",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Op het Kootwijkerzand willen beheerders juist het open zand houden, met zijn eigen soorten. Dan moet de successie steeds een stap terug. Ze kappen bomen en halen de bovenste laag met mos en humus weg. Op heide doen schapen hetzelfde: ze eten de jonge boompjes op.",
+   "beweging": "Beheerders zagen een den om aan de rand van het zand; ernaast een kudde schapen die kiemplantjes van berk opeten op de heide."
+  },
+  {
+   "id": "e8s25",
+   "hoofdstuk": "3 Is het bos ooit af?",
+   "laag": "vwo",
+   "look": "Schema",
+   "tekst": "Kijk nog eens naar de metingen in het dossier. Op de eerste bladen bepalen hitte, droogte en stuivend zand welke soorten er staan. Op de latere bladen bepaalt vooral concurrentie het, om licht. In het begin stuurt de abiotische omgeving de successie, later sturen de organismen zelf hem.",
+   "beweging": "Twee lijnen over de bladen heen: \"invloed abiotisch\" daalt, \"invloed concurrentie\" stijgt; ze kruisen bij blad 4."
+  },
+  {
+   "id": "e8s26",
+   "hoofdstuk": "4 Na de brand",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "In het jaar 2010 brandde op de Strabrechtse Heide, bij Eindhoven, ongeveer honderdvijftig hectare bos en heide af. Alles zwart. Duurt het hier ook honderden jaren voor er weer een bos staat?",
+   "beweging": "Zwarte, verbrande heide en verkoolde stammen onder een nachtblauwe lucht; rook trekt nog op.",
+   "twijfel": "De Strabrechtse Heide-brand (2010) is een echte gebeurtenis; ik toon verbrande grond, geen slachtoffers.",
+   "waarom": "Een echt rampgebied in beeld is gevoelig en de brief noemt deze casus niet (afwijking van het plan)."
+  },
+  {
+   "id": "e8s27",
+   "hoofdstuk": "4 Na de brand",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "De ecoloog begint een tweede dossier, voor de brandplek. De vrijwilliger legt het eerste blad naast blad één van het zand. Het verschil zie je direct in het bodemprofiel.",
+   "beweging": "Twee bladen 1 naast elkaar: links kaal zand zonder humus, rechts verbrande grond met een dikke humuslaag en zaadjes en wortels erin."
+  },
+  {
+   "id": "e8q28",
+   "hoofdstuk": "4 Na de brand",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Waarom groeit er op de brandplek veel sneller iets terug dan op het kale zand?",
+   "beweging": "Vraagkaart met de twee bodemprofielen naast elkaar.",
+   "opties": "A Na een brand waaien er van ver veel meer zaden aan · B Na een brand regent het meer · C In de bodem zitten al humus, zaden en levende wortels",
+   "juist": "C"
+  },
+  {
+   "id": "e8s29",
+   "hoofdstuk": "4 Na de brand",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Onder de zwarte laag ligt nog steeds een bodem met humus. Die houdt water en voedingsstoffen vast. En in de grond zitten zaden die jarenlang kiemkrachtig blijven: de zaadbank. Ook wortels van sommige planten overleven en lopen weer uit. De as geeft wat extra mineralen, maar de bodem en de zaden zijn de hoofdreden.",
+   "beweging": "Zoom in het bodemprofiel van de brandplek: humuslaag, zaadjes van heide en berk, een wortelstok die een nieuwe scheut maakt."
+  },
+  {
+   "id": "e8s30",
+   "hoofdstuk": "4 Na de brand",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Al in het eerste jaar kiemt de heide uit de zaadbank. Berkenzaad waait in grote aantallen aan, en de berken schieten snel op. Zo'n successie op een bodem die er al is, heet secundaire successie. Die gaat veel sneller dan primaire successie.",
+   "beweging": "De brandplek een jaar later: groene heideplantjes en jonge berkjes tussen zwarte stobben; berkenzaadjes waaien aan."
+  },
+  {
+   "id": "e8s31",
+   "hoofdstuk": "4 Na de brand",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Hetzelfde gebeurt op een akker waar een boer mee stopt. In de eerste jaren groeien er snelle eenjarige planten. Daarna grassen en ruigte, na een paar jaar struiken, en na tientallen jaren bomen.",
+   "beweging": "Een verlaten akker in vier stappen naast elkaar: eenjarige kruiden, gras en ruigte, braam en struiken, jonge bomen."
+  },
+  {
+   "id": "e8s32",
+   "hoofdstuk": "4 Na de brand",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Soms verandert de successie door een soort die de mens uit een ander land heeft meegenomen. Zo'n invasieve exoot kan inheemse soorten verdringen. Daar gaat de film Ingrijpen of laten gaan? over.",
+   "beweging": "Op het stuifzand verschijnt een dicht tapijt van een uitheems mos tussen de korstmossen; een verwijskaartje naar de andere film."
+  },
+  {
+   "id": "e8s33",
+   "hoofdstuk": "Samenvatting",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Terug naar het paaltje. Kaal zand wordt vanzelf bos, doordat de soorten zelf de plek veranderen. Pioniers maken humus en houden het zand vast. Daarna groeien soorten die de pioniers wegconcurreren. Na een brand gaat het veel sneller, want de bodem en de zaadbank zijn er al. En een bos is nooit helemaal af: het blijft een evenwicht dat steeds een beetje verandert.",
+   "beweging": "De twee dossiers naast elkaar; de successiebalk eronder licht vak voor vak op; het paaltje uit de opening staat klein rechtsonder."
+  },
+  {
+   "id": "e8s34",
+   "hoofdstuk": "Samenvatting",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Niemand plant het bos. De plek verandert zichzelf.",
+   "beweging": "Eindkaart: drie kernzinnen met een groene annotatiehaak, geen beeld."
+  }
+ ],
+ "checkvragen": [
+  {
+   "niveau": "basis",
+   "vraag": "Noem drie kenmerken van een pioniersoort.",
+   "antwoord": "Bijvoorbeeld: brede tolerantie (hitte, droogte, arme bodem); veel kleine, goed verspreidbare zaden of sporen; zaden lang kiemkrachtig; snelle groei en vaak kort leven; vestigt zich als eerste op kale of verstoorde grond."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Een leerling zegt: \"Het buntgras verdwijnt van het stuifzand omdat de planten oud worden.\" Leg uit wat er niet klopt.",
+   "antwoord": "Het buntgras verdwijnt doordat het zelf (met andere pioniers) de standplaats heeft veranderd: er ontstaat humus, de bodem houdt water vast. Daardoor kunnen heide en dennen groeien, die het buntgras beschaduwen en het de concurrentie om licht, water en voedingsstoffen laten verliezen."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Wat is het verschil tussen primaire en secundaire successie? Geef van elk een voorbeeld.",
+   "antwoord": "Primair: begint op kale grond zonder humus en zonder zaadbank, bijvoorbeeld stuifzand of een nieuw eiland. Secundair: begint op een bodem die er al is (met humus, zaden en wortels), bijvoorbeeld na een bosbrand of op een verlaten akker."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Leg uit waarom secundaire successie sneller gaat dan primaire successie.",
+   "antwoord": "De bodem met humus houdt al water en voedingsstoffen vast, en er is een zaadbank en er zijn overlevende wortels. Soorten hoeven niet eerst van ver te komen en de pioniersfase die de bodem maakt, is niet nodig."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Is een climaxbos een ecosysteem dat niet meer verandert? Leg uit.",
+   "antwoord": "Nee. Er vallen bomen om (storm), sterven bomen door ziekte of vraat; in de gaten begint de successie opnieuw. Het bos als geheel blijft wel een bos: de aantallen schommelen binnen grenzen (biologisch evenwicht, dynamisch)."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Op een heideterrein houdt de beheerder schapen. Leg uit hoe de schapen de successie beïnvloeden.",
+   "antwoord": "Schapen eten kiemplanten en jonge boompjes (berk, den) op of vertrappen ze. Daardoor kunnen bomen zich niet vestigen en remmen de schapen de successie naar bos; de heide blijft open."
+  },
+  {
+   "niveau": "vwo",
+   "vraag": "Leg uit wat bedoeld wordt met \"van abiotische naar biotische sturing\" in een successie op stuifzand.",
+   "antwoord": "In het begin bepalen abiotische factoren (hitte, droogte, stuivend zand, weinig voedingsstoffen) welke soorten kunnen overleven. Later, als de bodem beter is, bepalen vooral biotische factoren zoals concurrentie om licht welke soorten winnen."
+  }
+ ],
+ "begrippen": [
+  {
+   "begrip": "successie",
+   "uitleg": "Geleidelijke verandering van de levensgemeenschap op één plek, doordat soorten elkaar opvolgen.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "primaire successie",
+   "uitleg": "Successie die begint op kale grond zonder humus, zoals stuifzand.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "secundaire successie",
+   "uitleg": "Successie op een bodem die er al is (met humus, zaden en wortels), bijvoorbeeld na brand of op een verlaten akker; gaat sneller.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "pioniersoort",
+   "uitleg": "Soort die zich als eerste vestigt op kale of verstoorde grond: brede tolerantie, veel kleine en lang kiemkrachtige zaden of sporen; verandert de standplaats en verdwijnt later door concurrentie.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "tolerantie",
+   "uitleg": "Het bereik van een abiotische factor waarbinnen een soort kan leven (uitgelegd in de film Waar past een soort?).",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "humus",
+   "uitleg": "Donker, afgebroken organisch materiaal in de bovenste bodemlaag; houdt water en voedingsstoffen vast.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "climaxecosysteem",
+   "uitleg": "Relatief stabiel eindstadium van een successie, in Nederland meestal bos; blijft dynamisch.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "zaadbank",
+   "uitleg": "Voorraad kiemkrachtige zaden in de bodem.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "biologisch evenwicht",
+   "uitleg": "Toestand waarin de aantallen van soorten in een ecosysteem schommelen binnen grenzen.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "dynamiek",
+   "uitleg": "Voortdurende kleine veranderingen in een ecosysteem, bijvoorbeeld door storm, ziekte of vraat.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "invasieve exoot",
+   "uitleg": "Uitheemse soort die zich snel uitbreidt en inheemse soorten verdringt (uitgewerkt in de film Ingrijpen of laten gaan?).",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "abiotische en biotische sturing",
+   "uitleg": "In het begin van een successie bepalen vooral abiotische factoren welke soorten er groeien, later vooral biotische factoren zoals concurrentie.",
+   "niveau": "vwo"
+  }
+ ],
+ "getallen": [
+  {
+   "waarde": "Kootwijkerzand: ± 700 ha natuurgebied binnen Boswachterij Kootwijk (± 3600 ha); grootste stuifzandgebied van West-Europa; ontstaan na houtkap in de middeleeuwen",
+   "bron": "Wikipedia NL Kootwijkerzand (via wikiwand); BNNVARA Vroege Vogels \"Het stuivende zand van Kootwijk\""
+  },
+  {
+   "waarde": "volgorde op stuifzand: Buntgras en algen, mossen, korstmossen, ten slotte grassen; zonder verstoring ontwikkeling richting vliegdennenbos; stikstofdepositie versnelt de successie",
+   "bron": "Natura 2000 Profiel habitattype 2330 (natura2000.nl); Hulshorsterzand-artikel De Levende Natuur 2017 (natuurtijdschriften.nl)"
+  },
+  {
+   "waarde": "korstmosrijke begroeiing ± 10 jaar na de open zandfase",
+   "bron": "De Levende Natuur 2017, 118(2) (natuurtijdschriften.nl/pub/1010561)"
+  },
+  {
+   "waarde": "duinzand aan het oppervlak op een heldere zomerdag \"tot 45 graden en meer\"; gezegd: \"meer dan vijfenveertig graden\"",
+   "bron": "Minnaert, De natuurkunde van 't vrije veld, deel II §62 (dbnl.org); hogere waarden (± 50 °C) in andere bronnen voor zand in de zon (KRIS 6, Padre Island 122 °F)"
+  },
+  {
+   "waarde": "Strabrechtse Heide: brand op 2 juli 2010, ± 150 ha bos en heide; heide en berk kiemden uit de zaadbank, berken schoten snel op",
+   "bron": "BNNVARA Vroege Vogels \"Vijf jaar na de brand op de Strabrechtse Heide\"; NOS 2019 \"Strabrechtse Heide laat Australië zien: natuur kán herstellen\""
+  },
+  {
+   "waarde": "verlaten akker: eenjarigen jaar 1–2, grassen vanaf ± jaar 3, struiken en zaailingen vanaf ± jaar 5, bomen na tientallen jaren, loofbos na 100–200 jaar (Virginia Piedmont)",
+   "bron": "Virginia Tech, Virtual Forest Succession Users Guide (virtualforest.ext.vt.edu); Nederlandse tijden kunnen verschillen: in de film alleen \"eerste jaren, na een paar jaar, na tientallen jaren\""
+  },
+  {
+   "waarde": "secundaire successie sneller: bodem aanwezig, zaden, wortels en ondergrondse delen overleven",
+   "bron": "Wikipedia Secondary succession (via wikiwand)"
+  },
+  {
+   "waarde": "beuk = climaxboomsoort; eik belangrijkste boomsoort in het middenbos; windworp maakt gaten en structuur",
+   "bron": "Natura 2000 herstelstrategie H9110 (natura2000.nl)"
+  },
+  {
+   "waarde": "grijs kronkelsteeltje: uitheems mos van het zuidelijk halfrond, in Nederland sinds 1961; dichte matten verhinderen kieming op stuifzand",
+   "bron": "NVWA factsheet Grijs kronkelsteeltje; BLWG Sparrius 2019 (korstmossen achteruit, kronkelsteeltje vooruit)"
+  },
+  {
+   "waarde": "beheer stuifzand: plaggen, eggen, begrazen en kappen om het zand open te houden; ± 99 % van het kale stuifzand verdween in 150 jaar",
+   "bron": "BNNVARA Vroege Vogels \"De dynamiek van stuifzanden\""
+  },
+  {
+   "waarde": "bedekkingstabel per blad (korstmos, buntgras, heide, den): zelf gekozen voorbeeldgetallen in de volgorde van de bronnen",
+   "bron": "voorbeeld; volgorde volgens Natura 2000 profiel H2330 en BLWG 2019; in beeld \"voorbeeld\""
+  },
+  {
+   "waarde": "meetvierkant 4 × 4 m (proefvlak voor een vegetatieopname)",
+   "bron": "gangbare proefvlakgrootte voor heide en lage vegetatie (Schaminée e.a., methodiek vegetatieopnamen); in beeld als voorbeeld — niet met een geopende bron vastgelegd, zie keuzes_en_twijfels"
+  }
+ ],
+ "uitspraak": [
+  {
+   "woord": "Kootwijkerzand",
+   "invoer": "Kootwijkerzand",
+   "ipa": "/ˈkoːt.ʋɛi̯.kər.zɑnt/",
+   "bron": "plaatsnaam (Kootwijk); wachtlijst"
+  },
+  {
+   "woord": "Veluwe",
+   "invoer": "Veluwe",
+   "ipa": "/ˈveː.ly.ʋə/",
+   "bron": "gangbaar; geen risico verwacht"
+  },
+  {
+   "woord": "buntgras",
+   "invoer": "buntgras",
+   "ipa": "/ˈbʏnt.ɣrɑs/",
+   "bron": "samenstelling; wachtlijst (klemtoon op bunt)"
+  },
+  {
+   "woord": "korstmossen",
+   "invoer": "korstmossen",
+   "ipa": "/ˈkɔrst.mɔ.sə(n)/",
+   "bron": "samenstelling van gewone woorden"
+  },
+  {
+   "woord": "climaxecosysteem",
+   "invoer": "climax-ecosysteem",
+   "ipa": "/ˈkli.mɑks.ˈeː.koː.sisˌteːm/",
+   "bron": "afgeleid; climax uit en.wiktionary (/ˈkli.mɑks/); wachtlijst"
+  },
+  {
+   "woord": "Strabrechtse Heide",
+   "invoer": "Strabrechtse Heide",
+   "ipa": "/ˈstraː.brɛxt.sə ˈɦɛi̯.də/",
+   "bron": "plaatsnaam; wachtlijst"
+  },
+  {
+   "woord": "abiotische",
+   "invoer": "abiotische",
+   "ipa": "—",
+   "bron": "goedgekeurd (Kamiel: zonder dubbele a)"
+  },
+  {
+   "woord": "jaartal 2010",
+   "invoer": "in het jaar 2010",
+   "ipa": "—",
+   "bron": "Kamiels regel"
+  },
+  {
+   "woord": "vijfenveertig",
+   "invoer": "vijfenveertig",
+   "ipa": "/ˌvɛi̯f.ən.ˈveːr.təx/",
+   "bron": "gewoon getal; let op: \"negentig\"-regel geldt hier niet"
+  }
+ ],
+ "nieuw_in_bibliotheek": [
+  "e8Dossier(ctx, x, y, o) — meetblad uit het dossier: soortenlijst met bedekking, bodemprofiel (humuslaag dikte), meters (temperatuur, vocht, licht op de grond, stuiven), foto van boven; o.blad 1–6, o.brand",
+  "e8Profiel(ctx, x, y, w, h, humus, o) — bodemprofiel: zand met humuslaag; o.zaden, o.wortels (brandplek)",
+  "e8Zandvlakte(ctx, o) — Macro-landschap stuifzand met waaiend zand en vliegdennen aan de rand",
+  "e8Vierkant(ctx, x, y, w, stadium, o) — meetvierkant van boven/schuin met de begroeiing per stadium (0 kaal … 6 eikenbos)",
+  "e8Buntgras(ctx, x, y, s, o) — buntgraspol (grijsgroen, fijne borstelige bladeren, roze-paarse pluimpjes) met wortels; o.overstoven",
+  "e8Korstmos(ctx, x, y, s) en e8Mos — grijze bekermosjes en groen mos als pioniertapijt",
+  "e8Paaltje(ctx, x, y, nr) — genummerd meetpaaltje",
+  "e8Balk(ctx, x, y, w, stap) — successiebalk (kaal zand → pioniers → heide → den en berk → eik en beuk)",
+  "e8Brand(ctx, o) — verbrande heide met zwarte stobben, later met heidekiemplantjes en berkjes",
+  "e8Akker(ctx, x, y, w, stap) — verlaten akker in vier stadia"
+ ],
+ "keuzes_en_twijfels": [
+  "Review 29 okt (MOET 1): optie A van e8q28 is nu een echte misvatting (\"na een brand waaien er van ver veel meer zaden aan\"); e8s29 noemt de as als kleine bijdrage.",
+  "Review (MOET 2): gaai uit e8s19 (en e8s07) gehaald; in de stem nog een halve zin \"eikels die gaaien hier verstopten\" (casus van film 3).",
+  "Review (MOET 3): schapen op ware grootte (schofthoogte ± 72 cm naast de ecoloog van 1,80 m) en op heide in e8s24.",
+  "Review (MOET 4) + coördinator: Daan (15) vervangen door Mevrouw Jansen als vrijwilliger (ROLLEN.md: vrijwillige vlinderteller in Ecologie), volwassen castpersonage op castboek-lengte; in de stem \"vrijwilliger\" i.p.v. \"stagiair\".",
+  "Review (KAN): volgorde pioniers volgens Natura 2000 H2330 (buntgras en algen, dan mossen en korstmossen); berk waait aan, heide uit de zaadbank (e8s29, e8s30); \"Wat denk je\" uit vertelscène e8s26; \"verzwakt door rupsenvraat\" (e8s22).",
+  "B15: C (dossier) won duidelijk (45 – 38 – 35); geen tweede ronde. Overnames uit A: hoofdstuktitels \"De eerste bewoners\", \"Pioniers veranderen de plek\", \"Is het bos ooit af?\" met storm/vraat als eigen moment, verlaten akker; uit B: bodemprofiel dat per blad dikker wordt, het dossier dat bij de brand opnieuw begint (klok terug), de hittemeting op blad 1. Reparaties van de beoordelaar: de stagiair krijgt een eigen beurt (b4, zijn misvatting wordt de vraag), \"plot\" en \"vegetatieopname\" niet in de stem (wel \"opname van een stukje grond\"), tijdschaal uitgelegd (c1: meetplekken van verschillende leeftijd), brand in bos en heide (puzzel B).",
+  "Puzzel A als hoofdpuzzel; B in H4, C in H3.",
+  "Successie wordt beschreven zonder doel: \"niemand plant het bos\", \"de plek verandert zichzelf\"; geen \"de natuur wil\".",
+  "Hittegetal: bron (Minnaert) zegt \"tot 45 graden en meer\"; gezegd \"meer dan vijfenveertig graden\" in plaats van de 60 °C uit de treatment.",
+  "Proefvlak 4 × 4 m komt uit de gangbare veldpraktijk, niet uit een geopende bron; staat in beeld als \"voorbeeld\". Laat ik weg als je dat liever hebt.",
+  "De Strabrechtse Heide (Noord-Brabant) is een tweede, echte casus naast het Kootwijkerzand: de brief noemt alleen \"na een bosbrand\". Gekozen omdat er een bron is voor brand, zaadbank en snel herstel (twijfelscène d1).",
+  "Helm (uit de brief) niet gebruikt: helm groeit in de kustduinen, niet op het Kootwijkerzand; buntgras is de pionier van het binnenlandse stuifzand (Natura 2000 profiel H2330). Helm staat wel in de bibliotheek (ecoHelm) en kan in één zin als kustvoorbeeld, als je dat wilt.",
+  "Grijs kronkelsteeltje als voorbeeld van een invasieve exoot (één zin, d6), zonder de naam uit te spreken; Amerikaanse vogelkers hoort bij de milieufilms.",
+  "Stikstofdepositie die het stuifzand versneld laat dichtgroeien niet genoemd (hoort bij Eén aarde / film 7).",
+  "Cast: Ecoloog Bas (veldjas) en Mevrouw Jansen als vrijwilliger (outfit buiten), beide uit ROLLEN.md (Wat word jij? · Ecologie); twijfelscène e8s04 over Bas buiten zijn eigen vak. Bas komt uit de castlib (25 okt 2026); de verrekijker tekent de lokale castlib niet.",
+  "Proefregel P2: misconcepties bevraagd: climaxbos verandert nooit (cq), pionier wordt oud (bq, via de stagiair), na een brand waaien er meer zaden aan (dq), eiken komen alleen door planten (aq). \"Successie heeft een doel\" via de slotzin en checkvraag 5.",
+  "Eerder zelf gevonden en hersteld: alle juiste antwoorden waren B (nu C, A, C, C → zie juist-velden); 60 °C zonder bron → \"meer dan 45 graden\"; helm → buntgras; _ecoWrap-botsing (schaap direct via ECO_HOEF); dossiertekst vergroot."
+ ],
+ "duur": {
+  "basis_min": 8.3,
+  "met_vwo_min": 8.7,
+  "woorden": 1066,
+  "woorden_basis": 1018,
+  "woorden_vwo": 48
+ },
+ "b15": {
+  "trekking": "scripts/dobbelsteen.py (29 okt 2026): A klassiek · B kleine mutaties: tempo, perspectief · C grote mutatie: dossier (conceptvorm volgens P1: het dossier ís de successie; niet opnieuw getrokken)",
+  "varianten": {
+   "A": "Klassiek: het Kootwijkerzand stap voor stap met een successiebalk, daarna een verlaten akker en de vraag of een bos af is.",
+   "B": "Eén plek van twee bij twee meter vanaf de grond, met een klok die steeds sneller loopt (tempo, perspectief).",
+   "C": "Het meetdossier van één meetplek: een ecoloog en een stagiair vullen blad na blad (soorten, bodemprofiel, metingen); een tweede dossier voor een brandplek."
+  },
+  "scores": {
+   "ronde1 (max 60)": {
+    "A": 38,
+    "B": 35,
+    "C": 45
+   }
+  },
+  "winnaar": "C",
+  "reden": "Duidelijke winst: de enige variant met cast, gegevens in examenstijl en vragen die echt voorspellen; vorm en lengte passen.",
+  "beoordelaar_model": "sonnet",
+  "overgenomen": [
+   "A: hoofdstuktitels en \"Is het bos ooit af?\" met storm/vraat apart",
+   "A: verlaten akker naast de brandplek",
+   "B: bodemprofiel per blad dikker",
+   "B: klok terug bij de brand (nieuw dossier)",
+   "B: hittemeting op blad 1"
+  ],
+  "rapporten": [
+   "b15/f8/beoordeling.md"
+  ]
+ }
+}

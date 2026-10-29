@@ -1,0 +1,19 @@
+# Film 3 Wie eet wie? — variant W (combinatie)
+
+**Geraamte:** variant X.
+**Overnames:** uit Z het plus/min/nul-teken als terugkerend beeld boven twee soorten (H4) en de slottabel; uit Z de vraag "waarom heeft de leverbot een slak nodig?" (puzzel C); uit Y de brug "in de duinen telde niemand honderd jaar lang; in Canada wel"; uit Y het haakje "wie woont er in jou?" bij de darmflora (vwo); uit Y dat de vos sinds het jaar 1968 weer in de duinen leeft (bron: Dunea, Holland's Duinen 72).
+**Herstel:** antwoordposities wisselen (A, C, B, B, A, C, A); juiste optie niet steeds de langste; pelsregisters = vangsten, geen tellingen; de golf heeft meer remmers dan verhongeren; de puzzel krijgt in H3 een eerste antwoord en in de samenvatting zijn volle antwoord (met keten, golf en relaties samen); een mens met een eigen moment: een schapenhouder en een dierenarts bekijken een schaap met leverbot (de vertelling noemt hun beroep, niet hun naam).
+
+**Cold open (± 15 s):** "Avond in de duinen. Een vos sluipt naar een veld vol konijnen. Hij vangt er één. Morgen weer één. Toch zijn de konijnen er elk voorjaar nog. Waarom eet een vos de konijnen nooit allemaal op?"
+
+**Scènes**
+1. Opening + titelkaart.
+2. H1 Wie eet wie: gras → konijn → vos. Vraag 1 (pijl) vóór de uitleg: A van konijn naar vos · B van vos naar konijn ("de vos eet het konijn") · C een lijn zonder richting. Uitleg: de pijl volgt het voedsel. Producent, consument; herbivoor, carnivoor, omnivoor (de vos eet ook bramen en kevers); aaseter (kraai bij een dood konijn); trofisch niveau; voedselweb (muis, buizerd, gaai, eik). Eén dier op twee niveaus.
+3. H2 Vraat en afweer: vraag 2 vóór de uitleg (konijn knabbelt aan een jong eikje: A predatie · B parasitisme · C vraat). Vraat: plant leeft door. Afweer: stekels van de braam, looizuren in eikenblad (nemen in de zomer toe).
+4. H3 De golven: in de duinen telde niemand honderd jaar lang; in Canada noteerde een pelshandel elk jaar hoeveel vellen van sneeuwschoenhaas en lynx er binnenkwamen. Vraag 3 (grafiek, vóór de uitleg): wat doet de lynxlijn vlak na een hazenpiek? (A daalt meteen · B stijgt nog een jaar of twee · C blijft gelijk). Uitleg golf (ongeveer tien jaar; lynx een of twee jaar later; hazen dalen ook door gebrek aan voedsel en door andere rovers). Vraag 4 (misvatting): wat als je alle vossen weghaalt? (A de konijnen verdwijnen · B konijnen nemen toe tot voedsel of ziekte ze remt · C de konijnen groeien eindeloos door). Eerste antwoord op de puzzel: als konijnen schaars worden, vangt de vos er minder, eet hij meer muizen en kevers en krijgt hij minder jongen.
+5. H4 Samenleven: plus, min, nul boven twee soorten. Vraag 5 (puzzel B): wie heeft voordeel als een gaai eikels verstopt? (A allebei · B alleen de gaai · C alleen de eik). Mutualisme; commensalisme (kraai nestelt in een duinden); parasitisme (vlo op de vos); symbiose.
+6. Vwo-blok: wie woont er in jou? darmflora (ongeveer evenveel bacteriën als lichaamscellen) als mutualisme; mycorrhiza.
+7. H5 Twee gastheren: schapenhouder en dierenarts met een mager schaap; leverbot in de lever. Vraag 6 (puzzel C, vóór de levenscyclus): waarom heeft de leverbot een slak nodig? (A de slak is voedsel voor de worm · B de slak brengt de eitjes naar het schaap · C in de slak vermenigvuldigen de larven zich en worden ze klaar om een schaap te besmetten). Levenscyclus, tussengastheer, eindgastheer. Vraag 7 (misvatting): waarom doodt de leverbot het schaap meestal niet snel? (A leverbotten die hun gastheer snel doodden lieten minder nakomelingen na · B de leverbot wil zijn gastheer sparen · C een worm is te klein om te doden).
+8. Accumulatie één zin. Samenvatting: het web met de relatietabel (plus/min/nul) en het volledige antwoord op de puzzel. Eindkaart.
+
+**Lengte:** ± 1550 woorden basis, ± 1700 met vwo; zeven vragen; ± 12,5 / 13,5 min.
