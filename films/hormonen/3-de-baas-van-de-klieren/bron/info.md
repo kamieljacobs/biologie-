@@ -5,7 +5,7 @@
 | Bestand | films/hormonen/3-de-baas-van-de-klieren.html (audio in films/hormonen/3-de-baas-van-de-klieren/audio/) |
 | Reeks / nummer | Hormonen, film 3 van 5 (seriebrief in de Claude-doc *Seriebriefs uitlegfilms biologie*) |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blok gelabeld: s16–s18 met vraag q17 (TRH, terugkoppeling op twee niveaus, ziekte van Graves). Havo/Vwo-schakelaar, standaard Vwo |
-| Versie / datum | **1.1 · 28 oktober 2026** — opwaardering naar prompt v13 (B14, zonder keuring): alleen beeld, stem en script ongewijzigd; oude versie in `bron/oud/3-de-baas-van-de-klieren-v1.0.html`. 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus; wacht op review door Kamiel) |
+| Versie / datum | **1.2 · 29 oktober 2026** — kleuren gelijkgetrokken volgens de reeksafspraak (Kamiel 29 okt 2026, keuzeblad Regeling); oude versie in `bron/oud/3-de-baas-van-de-klieren-v1.1.html`. **1.1 · 28 oktober 2026** — opwaardering naar prompt v13 (B14, zonder keuring): alleen beeld, stem en script ongewijzigd; oude versie in `bron/oud/3-de-baas-van-de-klieren-v1.0.html`. 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus; wacht op review door Kamiel) |
 | Prompt | v13 |
 | Voldoet aan | prompt v13 (28 okt 2026, zonder keuring). Bewust niet: geen nieuwe opnames; het bot met groeischijven (s06, s19, s20), de lever als ovaal (s19) en de antistoffen als Y-lijntjes (s16) blijven de eigen tekeningen van de reeks (geen passend object in de beeldbank; voorgesteld voor de bibliotheek); geen nieuwe caststijl met contourlijnen |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow daxBASBxKqL575X9NCK6; nodes in `stem/takes.json`). s14, s18 en s19 zijn na de eindreview opnieuw ingesproken |
@@ -112,6 +112,13 @@ Kamiel koos in de uitspraaktest (18–19 okt, 4 rondes) hoe de risicowoorden moe
 |---|---|---|---|---|
 | s16 | AfewTdzTU2okXeR6bR0G | Z5JYWbM9zpxEqbyJqeGw | 528 | 39.17 s |
 
+
+## Wijzigingen 1.2 (29 okt 2026): kleuren gelijkgetrokken (keuze Kamiel)
+
+Alleen kleur; stem, script, vragen, tijden en speler ongewijzigd, 0 credits. Betekeniskleuren uit Part C (zie `films/UITVOEREN-REGELING.md`): hormoon paars #8C7BBF (was goud), zenuw/zenuwbaan teal, zenuwsignaal teal (`HK.zenuw`), glucose oker (`HK.glucose`), terugkoppeling/rem paars (`HK.rem`). Gewijzigd in `bron/src/lib_hormonen.js` (`HK`, signaalbolletje in `kringSchema`) en `bron/src/scenes.js`; site-HTML bijgewerkt door alleen die twee blokken te vervangen.
+- Licht paars (`HK.hormoonL` #B3A6DA) voor hypofyse- en releasinghormonen naast een klierhormoon: TSH, TRH, de hormonen in het organogram (s05/s06) en de TSH-balken; thyroxine, groeihormoon en ADH paars; de namen staan bij het hormoon (tags), dus kleur is nooit de enige drager.
+- s20 (en s06): zenuwen en de 'slaap'-arcering teal in plaats van paars; 'rest van de hersenen' (s19-ladder) teal.
+- Jodium (atomen en balk, s09 en s14) was paars: nu zilvergrijs (#A9B4C2) met donkere 'I', omdat paars voor hormonen gereserveerd is.
 
 ## Wijzigingen 1.1 (28 okt 2026): opwaardering naar prompt v13 (zonder keuring)
 
