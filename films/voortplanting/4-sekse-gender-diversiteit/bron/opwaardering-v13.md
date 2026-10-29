@@ -28,3 +28,4 @@ Nacontrole (29 okt 2026): de ondertitels bij de onthullingen (s04 'Antwoord C.',
 - (a) s01 zin 1 opnieuw ingesproken en ingeplakt: 'Je tante is twintig weken zwanger, en jij mag mee naar de echo.' 63 credits (TTS), geen Scribe. Versie 1.4.
 - (b) 2 AGS-getal: blijft '± 10–15 per jaar'; nu onderbouwd met PNS-factsheet hielprikscreening 2023 en Monitor neonatale hielprikscreening 2024 (`bronnen.md`, bewering 10 → ✓).
 - (b) 3 en 4: ongewijzigd (bewuste keuze, castvel nog niet gekeurd).
+- Nieuwe takes van 29 okt 2026 beluisterd en goedgekeurd door Kamiel (luisterpagina, 29 okt 2026).

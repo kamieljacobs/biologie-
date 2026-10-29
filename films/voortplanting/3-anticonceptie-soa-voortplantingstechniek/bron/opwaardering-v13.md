@@ -29,3 +29,4 @@ Nacontrole (29 okt 2026): de ondertitels bij de onthullingen (s04 'Antwoord B.',
 
 - (a) s01, s07, s09: alleen de zinnen met castnamen (en in s09 de GGD-zin) opnieuw ingesproken en ingeplakt, 544 credits totaal (214 + 117 + 213). Nieuwe GGD-zin: 'Ben je jonger dan vijfentwintig of ben je gewaarschuwd, dan kun je ook gratis terecht bij de GGD, als daar plek is.' Tag in beeld meeveranderd.
 - (b) 1: gedaan (zie boven). 2: zin over het kleine risico toegevoegd aan het docentdeel. 3: telfiguren blijven neutrale pictogrammen (geen gezicht). 4: ongewijzigd.
+- Nieuwe takes van 29 okt 2026 beluisterd en goedgekeurd door Kamiel (luisterpagina, 29 okt 2026).

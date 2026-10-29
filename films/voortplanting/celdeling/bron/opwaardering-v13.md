@@ -27,3 +27,4 @@ Nacontrole (29 okt 2026): de labels 'cytokinese' en 'mitose' op de celcyclusring
 ## Uitgevoerd 29 okt 2026
 
 Keuzes van de hoofdsessie (`films/UITVOEREN-VOORTPLANTING.md`): (a) x01 opnieuw ingesproken volgens het voorstel, x02 alleen de eerste zin (623 credits); (b1) ja, v01/s21/v02/s30/s33 in beeldbankchromosomen; (b2) ja, `tumorGroei` in s30; (b3) vader teal en moeder oker, ook als tekst (geen donkerblauw meer); (b4) 'geslachtelijke voortplanting' goud in plaats van paars. De paarse tabelkolom 'meiose' (s29), trisomie-pil (s32), huidcelbalk (s35) en 'meiose in teelballen'-pil (s22) blijven paars (erfelijkheid, toegestaan). Zie `info.md` → Wijzigingen 2.2.
+- Nieuwe takes van 29 okt 2026 beluisterd en goedgekeurd door Kamiel (luisterpagina, 29 okt 2026).
