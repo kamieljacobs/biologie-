@@ -71,3 +71,9 @@ Algemene feedback van Kamiel die voor (bijna) elke film geldt. Lees dit vóór h
   - bestaande objecten en films gaan mee bij hun volgende herziening, niet allemaal tegelijk.
 - **DNA- en RNA-kleuren: palet B** (Kamiel 28 okt 2026, beeldbank verbeterronde 2; geldt voor alle films en de beeldbank, vervangt 'DNA paars'): de DNA-ruggengraat is **grijs** (ook een DNA-draad, chromatine en een chromosoom in de standaardkleur), niet meer paars. De basen zijn twee families: A–T warm, C–G koel, binnen elk paar een groot verschil in lichtheid: **A koraalrood** `#D8604A`, **T zandgeel** `#F2CF7A`, **C lichtblauw** `#86C3E8`, **G donkerblauw** `#34609A` (letter donker op A, T, C; licht op G). Ook bij rood-groen-kleurenblindheid goed uit elkaar (bron en test: `bibliotheek/verbeterronde-2/dna/kleuren/palet.md`). **RNA** krijgt dezelfde basekleuren, U de kleur van T; alleen de RNA-ruggengraat houdt zijn eigen kleur (teal). Herkomst van chromosomen: vader donkerblauw, moeder zandgeel. Gebruik de waarden uit `DNA_BASE`, `RNA_BASE`, `D2` en `CD` in `bibliotheek/lib_bio.js`, nooit eigen tinten; de nucleotiden zijn overal dezelfde kleur. **Paars blijft** voor de kern, erfelijkheid, hormonen en de vwo-balk.
 
+
+## Ecologie v2, frisse beeldreview (29 okt 2026)
+- Bomen en struiken in een landschap tekenen zonder zichtbare wortels; wortels alleen in een doorsnede, en dan binnen de bodemband (nooit in de lucht of in de ondertitelzone).
+- Wat de stem op dat moment noemt, is nooit gedimd of doorzichtig; dimmen is alleen voor wat níet besproken wordt.
+- Een meter, thermometer, teller of weegschaal toont het getal dat de stem noemt, op het moment dat het genoemd wordt.
+- Nooit halfdoorzichtige mensen of dieren, ook niet onder water of 'achter' een schema: water als vlak vóór het lichaam, of het dier ergens anders neerzetten.
