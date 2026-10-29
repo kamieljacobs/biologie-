@@ -8,7 +8,7 @@ film = {
  "sub": "eerst kopiëren, dan verdelen",
  "puzzle": "Hoe verdeelt een cel twee meter DNA eerlijk over twee nieuwe cellen? En waarom heeft een geslachtscel maar de helft?",
  "meta": "voortplanting · celdeling",
- "version": "2.0 · oktober 2026",
+ "version": "2.1 · oktober 2026",
  "titleLook": "schema",
  "delen": {"Cold open": "Deel 1 · Celcyclus en mitose", "Hoofdstuk 5 — Meiose": "Deel 2 · Meiose"},
  "seriesline": "Biologie bij Kamiel · reeks Voortplanting · Deel 1 celcyclus en mitose · Deel 2 meiose · sluit aan op <a href=\"../../erfelijkheid/1-chromosomen.html\">Chromosomen</a>",
@@ -24,7 +24,7 @@ film = {
   "Hoofdstuk 6": "Is meiose gewoon twee keer mitose?",
   "Recap": "Hoe verdeelt een cel zijn DNA eerlijk?"
  },
- "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Noor en haar familie uit het castboek. Tekeningen: gedeelde bibliotheek (chromosomen met armen, delende cel, spoelfiguur, huid, eicel, zaadcel). Stijl: Part C van de filmprompt (v10). Versie 2.0 · oktober 2026 (lichte remake).",
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Tekeningen: gedeelde bibliotheek (chromosomen met armen, delende cel, spoelfiguur, huid, eicel, zaadcel). Stijl: Part C van de filmprompt (v13). Versie 2.1 · oktober 2026 (prompt v13).",
  "questions": {
   "q02": {"q": "Hoe verdeelt een cel zijn DNA eerlijk over twee nieuwe cellen?", "correct": 1,
           "explain": "Eerst kopiëren, dan verdelen. Zo krijgt elke nieuwe cel al het DNA."},
@@ -38,8 +38,8 @@ film = {
           "explain": "46, net als de moedercel: elke dochtercel krijgt van elk chromosoom één chromatide."},
   "q23": {"q": "Hoeveel chromosomen heeft elke cel na meiose I (mens)?", "correct": 1,
           "explain": "23: de paren gaan in meiose I uit elkaar. Elk chromosoom heeft nog twee chromatiden."},
-  "xq": {"q": "Linda was 27 toen de eicel vrijkwam waaruit Noor groeide. Hoe lang heeft de meiose van die eicel stilgestaan?", "correct": 2,
-         "explain": "Ruim zevenentwintig jaar: Linda's meiose I begon al vóór haar eigen geboorte en stond sindsdien stil."},
+  "xq": {"q": "Een moeder was 27 toen de eicel vrijkwam waaruit haar dochter groeide. Hoe lang heeft de meiose van die eicel stilgestaan?", "correct": 2,
+         "explain": "Ruim zevenentwintig jaar: de meiose I van die eicel begon al vóór de geboorte van de moeder en stond sindsdien stil."},
   "q28": {"q": "Bij welke deling liggen homologe chromosomen als paren in het equatorvlak?", "correct": 1,
           "explain": "Alleen in meiose I liggen homologe chromosomen als paren in het equatorvlak."},
   "q31": {"q": "Een eicel met 24 chromosomen wordt bevrucht door een normale zaadcel. Hoeveel chromosomen heeft het kind?", "correct": 2,

@@ -7,14 +7,28 @@ Versie 2.0 is een lichte remake (prompt v10, B16) in de FILMDATA-straat van Chro
 | Bestand | films/voortplanting/celdeling/index.html (audio in `audio/`, 33 mp3's) |
 | Reeks / nummer | Voortplanting · film 1 (celdeling), in twee delen: Deel 1 Celcyclus en mitose · Deel 2 Meiose; sluit aan op Erfelijkheid 1 Chromosomen en op Geslachtsorganen en puberteit |
 | Doelgroep / niveau | havo + vwo; vwo-blokken s10 (controlepunten) en s30–s32 (kanker, non-disjunctie, trisomie 21); twee extra-uitdagingblokken (havo én vwo, schakelaar Extra aan/uit): e01–e03 (kinetochoren, wachtsignaal) en x01–x02 (meiose van de eicel, met Linda) |
-| Versie / datum | 2.0 · 26 oktober 2026 |
-| Prompt | v10 |
-| Voldoet aan | prompt v10 (26 okt 2026) |
+| Versie / datum | **2.1 · 29 oktober 2026** — opwaardering naar prompt v13 (B14, zonder keuring): alleen beeld, stem en script ongewijzigd; oude versie in `oud/index-v2.0.html` (+ `info-v2.0.md`, `teken_celdeling-v2.0.js`). 2.0 · 26 oktober 2026 |
+| Prompt | v13 |
+| Voldoet aan | prompt v13 (29 okt 2026, zonder keuring). Bewust niet: de stem noemt Linda, Noor en oma Ria in de extra uitdaging x01/x02 (B4) — niet opnieuw ingesproken, op de herinspreeklijst; de oude helpers uit 1.4 (`chrom_lib.js`, `oud_hulp.js`: v01, s21, v02, s30, s33) houden hun eigen chromosoomtekening (chromX) in de oude vader/moederkleuren; geen nieuwe caststijl met contourlijnen |
 | Stem / model | Roos (`7qdUFMklKPaaAVMsBTBt`), ElevenLabs eleven_v4, één take per alinea, alle 33 alinea's nieuw; ids per take in `stem/gen.json` en `stem/sessions.json`; ± 12.470 credits spraak + ± 565 transcriptie |
 | Duur | 850 s gesproken (basis 650, vwo 73, extra 127). Speeltijd met kaarten en vragen: vwo + extra 16:53; havo zonder extra 12:51; havo, extra uit, vragen uit 10:40. Deel 2 begint bij 8:51 (vwo + extra) of 7:24 (havo zonder extra). `duur: 14` in HOOFDSTUKKEN |
 | Beeldstijl | Part C: Micro (cel, chromosomen), Schema (celcyclus, grafiek, tabel), Macro (Noor, Rachid, Linda, Ria). Modelcel 2n = 4 (lang en kort paar); vaderskant teal (`C.teal`), moederskant oker (`C.oker`), zoals Chromosomen 2.1; het lange paar wordt gevolgd (gouden rand); cohesineringen goud-grijs (`C.grain`); okerbalk = extra uitdaging |
 | Audio-opslag | 33 losse mp3's, gemasterd op −16 LUFS / −1,5 dBTP (loudnorm, één pass); ruwe takes buiten de repo |
 | Herkomst | lichte remake (B16), keuring 25 okt 2026 (besluiten: één film in twee delen; Linda, eicel ruim 27 jaar; cohesine goud-grijs; één crossing-over per paar; script; `films/verbeterbladen/remake-2026-10/besluiten.md`). Fase 1: `remake-2026-10/` (script_v2, storyboard, keyframes, twijfelscènes, bronnen, samenvatting). Frisse beeldreview: `review_fris_2026-10-26.md` (17 MOET, alle hersteld op 26 okt 2026; KAN 6, 7 deels: mitoseboog 4 %, ringschets meteen in beeld) |
+
+## Wijzigingen 2.1 (29 okt 2026): opwaardering naar prompt v13 (zonder keuring)
+
+Alleen beeld; stem, script, vragen, timings, speler en datum ongewijzigd. Site-HTML bijgewerkt door alleen het scèneblok, FILMDATA en de footer te vervangen. `src/teken_celdeling.js` is weg (naar `oud/`): de film gebruikt nu de cd*-tekeningen uit `bibliotheek/lib_bio.js` (palet B) via het uittreksel `src/lib_bio_deel.js` (`bouw/bio_deel.py`, regel onderaan `bouw.sh`); `lib_micro_evo.js` = actuele kopie uit `bibliotheek/dieren/`. Contactvel van de gewijzigde scènes bekeken (118 stills vwo + extra, geen JS-fouten); vragen afgespeeld met `?vragen=uit` (havo en vwo).
+
+- Alle scènes met cdChromosoom/cdEen/cdKluwen/kernChromatine (s01, s11–s29, e01–e03, x01, x02): chromosomen in palet B: vaderskant donkerblauw, moederskant zandgeel (was teal/oker); chromatine in de kern grijs in plaats van paars.
+- s11, s17 (labels 'van je vader', 'van vaderskant'): tekst in een lichtere tint van het vaderblauw (`VADER_TEKST`), zodat hij leesbaar blijft op navy.
+- s06–s10: celcyclusring interfase teal in plaats van paars (minder paars); s20/s25 DNA-grafiek: lijn teal in plaats van paars.
+- s04, s09: pillen 'uitgerekt 2 meter DNA' (teal) en 'zie de film DNA kopiëren' (goud) niet meer paars.
+- x01: balk 'stil · ± 27 jaar' neutraal in plaats van paars.
+- s26, x02, s22: eicel, eierstok en zaadbal in de gekeurde beeldbankversie (eicelEcht variant B met zona en stralenkrans, eierstokDoorsnede variant B, zaadbalDoorsnede met ovale profielen).
+- s30 (vwo): achtergrond zonder korrel (`bg('micro')` → `micro2`).
+- x01, x02, xq: geen castnamen meer in beeld ('oma, zwanger van moeder', 'moeder 27: eisprong', 'dochter 16', 'sinds vóór de geboorte van moeder'; vraagtekst xq 'Een moeder was 27 …'). Footer zonder personagenamen.
+- Lijsten voor Kamiel: `opwaardering-v13.md`.
 
 ## Bronbestanden (in deze map)
 
@@ -27,7 +41,7 @@ Versie 2.0 is een lichte remake (prompt v10, B16) in de FILMDATA-straat van Chro
 | `stem/segmenten_stem-invoer.json`, `stem/uitspraak_film.json` | Letterlijke stem-invoer en film-eigen respellings (X-vorm → iks-vorm, XX/XY, oöcyt → oo-oosiet) |
 | `stem/woordtijden/<id>.json` | Woordtijden (silalign) |
 | `stem/blind.md` | Blinde transcriptie (B5) |
-| `src/teken_celdeling.js` | Nieuwe tekenobjecten (ook in `bibliotheek/lib_bio.js`): `cdPad`, `cdChromatide`, `cdChromosoom` (zusters, centromeer, kinetochoren, cohesineringen, crossing-over-kleuren), `cdEen` (losse chromatide, centromeer vóórop), `cdKluwen` (morph chromatine → chromatide), `cdKernmembraan`, `cdCel` (insnoerende cel), `cdPool`, `cdDraad`, `cdTeller` |
+| `src/teken_celdeling.js` (sinds 2.1 in `oud/`; de film gebruikt `bibliotheek/lib_bio.js` via `src/lib_bio_deel.js`) | Tekenobjecten: `cdPad`, `cdChromatide`, `cdChromosoom` (zusters, centromeer, kinetochoren, cohesineringen, crossing-over-kleuren), `cdEen` (losse chromatide, centromeer vóórop), `cdKluwen` (morph chromatine → chromatide), `cdKernmembraan`, `cdCel` (insnoerende cel), `cdPool`, `cdDraad`, `cdTeller` |
 | `src/scenes_cd2.js` | Alle scènes; bovenaan `mitoseCel` (één doorlopende cel, toestand c/nm/sp/me/an/te/cy) en `meioseCel` (pa/co/eq/an), `NA_M1` (inhoud van de cellen na meiose I), `drieMetafasen` (H6). Onderaan v01, s21, v02, s30 uit 1.4 met nieuwe cues |
 | `src/` overig | Gedeelde bibliotheken (lib.js, lib_cast.js, lib_bio.js, lib_anatomie.js, …), `chrom_lib.js`, `scenes_lib.js`, `oud_hulp.js` (helpers uit 1.4: cycleRing, vp*, cellSwarm), `player.js` (spelerfix, Vragen aan/uit, Extra aan/uit, deelkoppen), `page.html` |
 | `bouw/`, `bouw.sh` | Bouwstraat (build_data.py met `delen` en `audioPad`, build.py, stills.py, sheet.py, cuecheck2.py) |

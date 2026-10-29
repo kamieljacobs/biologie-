@@ -93,7 +93,7 @@ function fibres(ctx,pole,k,att,{n=5,spread=10,curve=0,color=C.spoel,lw=2.2}={}){
   ctx.restore(); }
 function cycleRing(ctx,t,q,{phase}){
   const cx=620, cy=480, R=270, th=70; const A0=-Math.PI/2; const ang=(f)=>A0+f*6.2832;
-  const segs=[['interfase',0,0.92,C.paars],['mitose',0.92,0.96,C.goud],['cytokinese',0.96,1,C.groen]];
+  const segs=[['interfase',0,0.92,C.teal],['mitose',0.92,0.96,C.goud],['cytokinese',0.96,1,C.groen]];
   const show=(cue)=> phase==='intro'? ramp(t,q.at(cue),0.5) : 1;
   const ringA=phase==='intro'? 0.5+0.5*ramp(t,q.at('celcyclus'),0.6):1;
   ctx.save(); ctx.globalAlpha=ringA; ctx.lineWidth=th; ctx.strokeStyle=rgba(C.line,0.25); ctx.beginPath(); ctx.arc(cx,cy,R,0,6.2832); ctx.stroke(); ctx.restore();

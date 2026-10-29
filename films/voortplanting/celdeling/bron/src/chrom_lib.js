@@ -76,7 +76,7 @@ function dnaGraph(ctx,x,y,w,h,pts,progress,{labels=[],alpha=1,title='DNA per ker
   for(const [v,l] of [[2,'2p'],[1,'p'],[0.5,'½p']]){ if(!pts.some(p=>Math.abs(p[1]-v)<0.01)) continue; ctx.save(); ctx.setLineDash([4,6]); ctx.strokeStyle=rgba(C.line,0.4); ctx.beginPath(); ctx.moveTo(gx,Y(v)); ctx.lineTo(gx+gw,Y(v)); ctx.stroke(); ctx.restore(); text(ctx,l,gx-16,Y(v)+10,fTekst(28,600),C.text,'right'); }
   metaText(ctx,title,x+24,y+40,C.grain,'left',22); metaText(ctx,'tijd →',gx+gw,gy+44,C.grain,'right',20);
   // path
-  const total=pts.length-1; const upto=progress*total; ctx.strokeStyle=C.paars; ctx.lineWidth=5; ctx.lineJoin='round'; ctx.beginPath();
+  const total=pts.length-1; const upto=progress*total; ctx.strokeStyle=C.teal; ctx.lineWidth=5; ctx.lineJoin='round'; ctx.beginPath();
   for(let k=0;k<=Math.floor(upto)&&k<pts.length;k++){ const P=pts[k]; const px=gx+P[0]*gw, py=Y(P[1]); k?ctx.lineTo(px,py):ctx.moveTo(px,py); }
   const k0=Math.floor(upto); if(k0<total){ const A=pts[k0], B=pts[k0+1], u=upto-k0; ctx.lineTo(gx+lerp(A[0],B[0],u)*gw, Y(lerp(A[1],B[1],u))); }
   ctx.stroke();

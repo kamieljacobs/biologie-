@@ -1,11 +1,12 @@
 window.VRAAG_VANAF = { s33: 'Nog' }; // Vragen uit: ook de aanloop 'Nog één vraag. Een huidcel …' weg (B11)
 // Celdeling 2.0 — scènes (lichte remake, prompt v10, 26 okt 2026). Eén functie per gesproken alinea.
 // q.at('woord', n) = start van het n-de woord dat 'woord' bevat (hoofdletterongevoelig, stukje van een woord).
-// Vaderskant teal (CD.vader), moederskant oker (CD.moeder), zoals Chromosomen 2.1. 'Ons paar' = het lange paar, gouden rand.
+// Vaderskant donkerblauw (CD.vader), moederskant zandgeel (CD.moeder): palet B uit bibliotheek/lib_bio.js (sinds 2.1, 29 okt 2026; was teal/oker). 'Ons paar' = het lange paar, gouden rand.
 // Nieuwe tekeningen: teken_celdeling.js (cdChromosoom, cdEen, cdKluwen, cdCel, cdPool, cdDraad, cdKernmembraan, cdTeller).
 
 C.vader = CD.vader; C.moeder = CD.moeder; C.spoel = '#8FA0B5'; // oude helpers (chrom_lib, comparePanels) krijgen dezelfde kleuren
 const KL = { L: 140, w: 15 };
+const VADER_TEKST = '#86A8D8'; // lichtere tint van CD.vader voor tekst op navy (contrast ≥ 4,5:1); de chromosomen zelf houden palet B
 // modelcel 2n = 4: plekken in de metafase (y per chromosoom) en in de profase (verspreid in de kern)
 const MOD = [{ p: 'L', k: 'vader', py: [-80, -62] }, { p: 'L', k: 'moeder', py: [70, -22] }, { p: 'K', k: 'vader', py: [-40, 44] }, { p: 'K', k: 'moeder', py: [90, 92] }];
 const MY = [-240, -75, 75, 190]; // y in het equatorvlak t.o.v. het midden
@@ -112,7 +113,7 @@ Object.assign(SCENES, {
     const z = ramp(t, q.at('bijna'), 0.7);
     zoomCircle(ctx, 1360, 440, 300, 640, 520, 'één cel · één kern', z * (1 - ramp(t, q.at('Elke', 2), 0.5)), () => { ctx.fillStyle = C.bgMicro; ctx.fillRect(1060, 140, 600, 600);
       kernChromatine(ctx, 1360, 440, 230, { c: 0, seed: 4, kleuren: (i) => i === 0 ? CD.vader : i === 1 ? CD.moeder : C.kernR }); });
-    if (z > 0) pill(ctx, 1360, 845, 'uitgerekt 2 meter DNA, in een kern van een paar micrometer', C.paars, ramp(t, q.at('meter'), 0.5) * (1 - ramp(t, q.at('Elke', 2), 0.5)), 24);
+    if (z > 0) pill(ctx, 1360, 845, 'uitgerekt 2 meter DNA, in een kern van een paar micrometer', C.teal, ramp(t, q.at('meter'), 0.5) * (1 - ramp(t, q.at('Elke', 2), 0.5)), 24);
     const dv = ramp(t, q.at('Elke', 2), 0.6); if (dv > 0) { ctx.save(); ctx.globalAlpha = dv;
       cdCel(ctx, 1360, 470, 330, 230, { insnoer: 0.8 * ramp(t, q.at('Elke', 2) + 0.3, 1.6), t }); if (!vragenUit2()) for (const sx of [-1, 1]) text(ctx, '?', 1360 + sx * 150, 500, fTitel(90), C.goud, 'center'); ctx.restore();
       pill(ctx, 1360, 800, 'geen stukje te veel, geen stukje te weinig', C.goud, ramp(t, q.at('Geen'), 0.4), 26); }
@@ -161,7 +162,7 @@ Object.assign(SCENES, {
   s08(ctx, t, q) {
     bg(ctx, 'schema'); cycleRing(ctx, t, q, { phase: 'copy' });
     const a = ramp(t, q.at('dubbel'), 0.5); if (a > 0) { ctx.save(); ctx.globalAlpha = a; cdKluwen(ctx, 1380, 470, 150, { c: 0, dubbel: false, w: 14, kl: CD.vader, seed: 3, R: 70 }); cdKluwen(ctx, 1640, 470, 150, { c: 0, dubbel: true, w: 14, kl: CD.vader, seed: 3, R: 70 }); arrow(ctx, 1460, 470, 1560, 470, C.goud, 4, 16); metaText(ctx, 'na het kopiëren: dubbel', 1510, 600, C.grain, 'center', 22); ctx.restore(); }
-    pill(ctx, 1500, 780, 'zie de film DNA kopiëren', C.paars, ramp(t, q.at('film'), 0.4), 26);
+    pill(ctx, 1500, 780, 'zie de film DNA kopiëren', C.goud, ramp(t, q.at('film'), 0.4), 26);
   },
   s09(ctx, t, q) {
     bg(ctx, 'schema'); cycleRing(ctx, t, q, { phase: 'g1sg2' });
@@ -180,7 +181,7 @@ Object.assign(SCENES, {
     naamBij(ctx, 'chromatine', 'DNA los in de kern', 1080, 300, ramp(t, q.at('chromatine'), 0.4), 'left');
     naamBij(ctx, 'één draad = één chromosoom', null, 1080, 380, ramp(t, q.at('Elke'), 0.4), 'left');
     const c46 = ramp(t, tZe, 0.5); if (c46 > 0) { ctx.save(); ctx.globalAlpha *= c46; text(ctx, '46', 1260, 520, fTitel(110), C.goud, 'center'); metaText(ctx, 'chromosomen · 23 paren', 1260, 570, C.grain, 'center', 24); ctx.restore(); }
-    if (pa > 0) { naamBij(ctx, 'van je vader', null, 1080, 660, pa, 'left', CD.vader); naamBij(ctx, 'van je moeder', null, 1080, 710, pa, 'left', CD.moeder); }
+    if (pa > 0) { naamBij(ctx, 'van je vader', null, 1080, 660, pa, 'left', VADER_TEKST); naamBij(ctx, 'van je moeder', null, 1080, 710, pa, 'left', CD.moeder); }
     pill(ctx, 960, 830, 'homologe chromosomen: even lang, dezelfde genen op dezelfde plekken', C.goud, ramp(t, tHo, 0.4), 26);
     meta2(ctx, 'kern · ± 6 micrometer · draden niet op schaal');
   },
@@ -303,7 +304,7 @@ Object.assign(SCENES, {
     ctx.save(); ctx.globalAlpha = 1 - 0.88 * plant; mitoseCel(ctx, 960, 470, st, t); ctx.restore();
     pill(ctx, 960, 92, 'anafase', C.goud, fadeIO(t, 0, tTf, 0.3), 34); pill(ctx, 960, 92, 'telofase', C.goud, fadeIO(t, tTf, tOn, 0.3), 34); pill(ctx, 960, 92, 'cytokinese', C.goud, fadeIO(t, tOn, tPl, 0.3), 34);
     pill(ctx, 960, 860, 'centromeren splitsen', C.text, fadeIO(t, q.at('splitsen'), tKi, 0.4), 26);
-    naamBij(ctx, 'van vaderskant: één chromatide naar elke pool', null, 960, 860, fadeIO(t, tKi + 1, tMo, 0.4), 'center', CD.vader);
+    naamBij(ctx, 'van vaderskant: één chromatide naar elke pool', null, 960, 860, fadeIO(t, tKi + 1, tMo, 0.4), 'center', VADER_TEKST);
     naamBij(ctx, 'van moederskant ook', null, 960, 860, fadeIO(t, tMo, tVa, 0.4), 'center', CD.moeder);
     pill(ctx, 960, 860, 'elke chromatide heet nu een chromosoom', C.text, fadeIO(t, tVa, tEv, 0.4), 26);
     pill(ctx, 960, 860, 'mens: even 92 chromosomen in één cel', C.goud, fadeIO(t, tEv, tTf, 0.4), 26);
@@ -394,9 +395,9 @@ Object.assign(SCENES, {
     const tl = ramp(t, tLi, 0.6), yb = 760;
     if (tl > 0.01) { ctx.save(); ctx.globalAlpha *= tl; ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(180, yb + 40); ctx.lineTo(1760, yb + 40); ctx.stroke();
       const ar = ramp(t, tRi, 0.5), al = ramp(t, tZe, 0.5), an = ramp(t, tLi, 0.5);
-      ctx.save(); ctx.globalAlpha *= ar; persoon(ctx, 'ria', 330, yb, 330, { outfit: 'vroeger', zwanger: 0.85, uit: 'blij', t }); metaText(ctx, '± 45 jaar geleden', 330, yb + 82, C.text2, 'center', 22); text(ctx, 'oma Ria zwanger van Linda', 330, yb + 122, fTekst(30, 600), C.text, 'center'); ctx.restore();
-      ctx.save(); ctx.globalAlpha *= al; persoon(ctx, 'linda', 1080, yb, 340, { outfit: 'zwanger', zwanger: 0, uit: 'blij', t, kijk: 1 }); metaText(ctx, '± 17 jaar geleden', 1080, yb + 82, C.text2, 'center', 22); text(ctx, 'Linda 27: eisprong', 1080, yb + 122, fTekst(30, 600), C.text, 'center'); ctx.restore();
-      ctx.save(); ctx.globalAlpha *= an; persoon(ctx, 'noor', 1600, yb, 330, { uit: 'blij', t, kijk: -1 }); metaText(ctx, 'nu', 1600, yb + 82, C.text2, 'center', 22); text(ctx, 'Noor 16', 1600, yb + 122, fTekst(30, 600), C.text, 'center'); ctx.restore();
+      ctx.save(); ctx.globalAlpha *= ar; persoon(ctx, 'ria', 330, yb, 330, { outfit: 'vroeger', zwanger: 0.85, uit: 'blij', t }); metaText(ctx, '± 45 jaar geleden', 330, yb + 82, C.text2, 'center', 22); text(ctx, 'oma, zwanger van moeder', 330, yb + 122, fTekst(30, 600), C.text, 'center'); ctx.restore();
+      ctx.save(); ctx.globalAlpha *= al; persoon(ctx, 'linda', 1080, yb, 340, { outfit: 'zwanger', zwanger: 0, uit: 'blij', t, kijk: 1 }); metaText(ctx, '± 17 jaar geleden', 1080, yb + 82, C.text2, 'center', 22); text(ctx, 'moeder 27: eisprong', 1080, yb + 122, fTekst(30, 600), C.text, 'center'); ctx.restore();
+      ctx.save(); ctx.globalAlpha *= an; persoon(ctx, 'noor', 1600, yb, 330, { uit: 'blij', t, kijk: -1 }); metaText(ctx, 'nu', 1600, yb + 82, C.text2, 'center', 22); text(ctx, 'dochter 16', 1600, yb + 122, fTekst(30, 600), C.text, 'center'); ctx.restore();
       ctx.restore(); }
     // de oöcyt: paren tegen elkaar met crossing-over, dan stil (pauzeteken)
     const oc = ramp(t, tEi, 0.6); if (oc > 0.01) { ctx.save(); ctx.globalAlpha *= oc * (1 - 0.0); const x = 470, y = 230, cr = ramp(t, tCr, 1.2);
@@ -406,14 +407,14 @@ Object.assign(SCENES, {
       naamBij(ctx, 'crossing-over', null, x, y - 150, fadeIO(t, tCr, tSt, 0.4), 'center', C.goud);
       naamBij(ctx, 'oöcyt', 'meiose I staat stil', x, y + 170, ramp(t, tOo, 0.4), 'center');
       ctx.restore(); }
-    const bal = ramp(t, tZe, 0.8); if (bal > 0) { ctx.save(); ctx.globalAlpha *= bal; roundRect(ctx, 620, 212, lerp(0, 600, bal), 36, 18); shape(ctx, rgba(C.paars, 0.35), C.paars, 1.5); text(ctx, 'stil · ± 27 jaar', 920, 240, fTekst(30, 700), C.text, 'center'); eicelEcht(ctx, 1290, 230, 34, 1, true); ctx.restore(); }
+    const bal = ramp(t, tZe, 0.8); if (bal > 0) { ctx.save(); ctx.globalAlpha *= bal; roundRect(ctx, 620, 212, lerp(0, 600, bal), 36, 18); shape(ctx, rgba(C.line, 0.3), C.line, 1.5); text(ctx, 'stil · ± 27 jaar', 920, 240, fTekst(30, 700), C.text, 'center'); eicelEcht(ctx, 1290, 230, 34, 1, true); ctx.restore(); }
     if (!vragenUit2()) { const qa = ramp(t, tHo, 0.5); if (qa > 0) text(ctx, '?', 1500, 280, fTitel(120), rgba(C.goud, qa), 'center'); }
     meta2(ctx, 'niet op schaal');
   },
   x02(ctx, t, q) {
     micro2(ctx);
     const tVl = q.at('Vlak'), tPo = q.at('poollichaampje'), tDa = q.at('Daarna'), tPa = q.at('Pas'), tAl = q.at('jaren') - 0.4, tSl = q.at('slijten'), tDat = q.at('Dat'), tTe = q.at('Terug');
-    pill(ctx, 960, 92, 'ruim 27 jaar stil: sinds vóór Linda\'s geboorte', C.oker, fadeIO(t, 0, tVl, 0.4), 30);
+    pill(ctx, 960, 92, 'ruim 27 jaar stil: sinds vóór de geboorte van moeder', C.oker, fadeIO(t, 0, tVl, 0.4), 30);
     const A = 1 - ramp(t, tAl - 0.2, 0.4);
     if (A > 0.01) { ctx.save(); ctx.globalAlpha *= A; const x = 820, y = 500, m1 = ramp(t, tVl, 2.0), m2 = ramp(t, tPa, 1.6);
       eicelEcht(ctx, x, y, 165, 1, true);
@@ -630,7 +631,7 @@ Object.assign(SCENES, {
   scaleBar(ctx);
 },
   s30(ctx, t, q){
-  micro(ctx); const nd=ramp(t,q.at('meiose'),0.6); const k1=1-nd;
+  micro2(ctx); const nd=ramp(t,q.at('meiose'),0.6); const k1=1-nd;
   if(k1>0){ ctx.save(); ctx.globalAlpha=k1;
     const brk=ramp(t,q.at('Raken'),0.6), tum=ramp(t,q.at('tumor'),2.0), inv=ramp(t,q.at('kanker'),1.5);
     // tissue: neat row of cells
@@ -649,7 +650,7 @@ Object.assign(SCENES, {
     const y1=360, y2=520; chromX(ctx,960-34-sep*300,y1,110,C.vader,{w:16}); chromX(ctx,960+34-sep*240,y1,110,C.moeder,{w:16}); chromX(ctx,960-34-sep*300,y2,70,C.vader,{w:16}); chromX(ctx,960+34+sep*300,y2,70,C.moeder,{w:16});
     pill(ctx,960,100,'non-disjunctie: een paar gaat niet uit elkaar',C.koraal,ramp(t,q.at('disjunctie'),0.4),28);
     if(res>0){ ctx.save(); ctx.globalAlpha*=res; text(ctx,'één te veel',640,780,fTekst(34,700),C.koraal,'center'); text(ctx,'één te weinig',1280,780,fTekst(34,700),C.koraal,'center'); ctx.restore(); }
-    const e=ramp(t,q.at('eicel'),0.5); if(e>0){ ctx.save(); ctx.globalAlpha*=e; bg(ctx,'micro'); egg(ctx,1100,470,150,1); text(ctx,'24',1100,330,fTekst(40,700),C.koraal,'center'); sperm(ctx,560,470,2,ramp(t,q.at('zaadcel'),0.4),0,t); ctx.save(); ctx.globalAlpha*=ramp(t,q.at('zaadcel'),0.4); text(ctx,'23',560,400,fTekst(40,700),C.text,'center'); ctx.restore(); if(!vragenUit2()) text(ctx,'?',1400,500,fTitel(90),C.goud,'center'); ctx.restore(); } ctx.restore(); }
+    const e=ramp(t,q.at('eicel'),0.5); if(e>0){ ctx.save(); ctx.globalAlpha*=e; micro2(ctx); egg(ctx,1100,470,150,1); text(ctx,'24',1100,330,fTekst(40,700),C.koraal,'center'); sperm(ctx,560,470,2,ramp(t,q.at('zaadcel'),0.4),0,t); ctx.save(); ctx.globalAlpha*=ramp(t,q.at('zaadcel'),0.4); text(ctx,'23',560,400,fTekst(40,700),C.text,'center'); ctx.restore(); if(!vragenUit2()) text(ctx,'?',1400,500,fTitel(90),C.goud,'center'); ctx.restore(); } ctx.restore(); }
   scaleBar(ctx);
 }
 });

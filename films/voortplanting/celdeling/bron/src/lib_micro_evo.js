@@ -1,7 +1,7 @@
 // Evolutie v2 · tekenronde 2 (23 okt 2026) — Micro-objecten opnieuw getekend volgens Part C2 en C9 (Moleculen, Cellen).
 // Wordt NA teken_evo1..8 geladen en overschrijft daar: bacterie, plasmideRing, pilus, antibioticum, griepVirus (evo4),
 // chromosoom (evo6), chromosoom1, chromosoomPaar, geslachtscel (evo1), sikkelcel (evo5) en rodeBloedcel (lib_bio).
-// Nieuw en herbruikbaar: dnaDraad (DNA als touw of dubbele helix langs een pad) en nucleoide (bacterie-DNA als rozet van lussen).
+// Herbruikbaar: nucleoide (bacterie-DNA als rozet van lussen). dnaDraad (DNA als touw of dubbele helix langs een pad) staat sinds 28 okt 2026 in lib_bio.js: laad dat mee.
 // Functienamen en parameters zijn gelijk aan de oude, zodat alle keyframes vanzelf de nieuwe tekening gebruiken.
 
 // ---------- hulpjes ----------
@@ -22,34 +22,8 @@ function _mvGelijk(P, step, closed) { // punten op gelijke booglengte (+ normaal
   return out; }
 function _mvPad(ctx, P, closed = true) { ctx.beginPath(); bioPad(ctx, P, closed); }
 
-// =====================================================================================
-// DNA-DRAAD. Recept (Part C9 Moleculen): rechtsdraaiende dubbele helix, 2 nm breed, één winding per ±10 bp (3,4 nm),
-// grote en kleine groef ongelijk; kleur paars. Op een kleine schaal (w < 6 px) is de helix niet meer te zien: dan een
-// touw met een lichte rand en een donkere kern die om de halve winding onderbreekt (suggereert de draaiing).
-// Bekende fouten: platte ladder; linksdraaiend; een te dun lijntje dat in de achtergrond verdwijnt (Kamiel: 'ietsje dikker').
-// P = punten van het pad; o.w = breedte in px; o.dicht = ring (plasmide, bacteriechromosoom).
-// =====================================================================================
-function dnaDraad(ctx, P, o = {}) {
-  const { w = 4, kleur = C.kernR, donker = C.kern, a = 1, dicht = false, helix = 'auto', fase = 0, glad = true } = o; if (a <= 0.01 || P.length < 2) return;
-  const pts = glad ? _mvCR(P, dicht, 8) : P.slice();
-  ctx.save(); ctx.globalAlpha *= a; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
-  const metHelix = helix === true || (helix === 'auto' && w >= 6);
-  if (!metHelix) {
-    const pad = () => { ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]); for (const p of pts) ctx.lineTo(p[0], p[1]); if (dicht) ctx.closePath(); };
-    pad(); ctx.strokeStyle = kleur; ctx.lineWidth = w; ctx.stroke();
-    if (w >= 2.4) { pad(); ctx.strokeStyle = donker; ctx.lineWidth = w * 0.42; const per = w * 1.7; ctx.setLineDash([per * 0.55, per * 0.45]); ctx.lineDashOffset = -fase * per; ctx.stroke(); ctx.setLineDash([]); }
-    ctx.restore(); return; }
-  // dubbele helix langs het pad
-  const S = _mvGelijk(pts, Math.max(1.2, w * 0.18), dicht), hw = w / 2, pitch = w * 1.75, sl = Math.max(1.1, w * 0.24);
-  const off = (q, k) => { const ph = q.s / pitch * 6.283 + fase * 6.283 + (k ? 2.3 : 0); return [q.x + q.nx * hw * Math.sin(ph), q.y + q.ny * hw * Math.sin(ph), Math.cos(ph)]; };
-  const streng = (k, voor) => { ctx.strokeStyle = voor ? _mvL(kleur, 0.18) : donker; ctx.lineWidth = sl; ctx.beginPath(); let aan = false;
-    for (let i = 0; i < S.length; i++) { const [px, py, z] = off(S[i], k); const zij = voor ? z >= 0 : z < 0; if (zij) { if (!aan) { ctx.moveTo(px, py); aan = true; } else ctx.lineTo(px, py); } else aan = false; } ctx.stroke(); };
-  streng(0, false); streng(1, false);
-  // baseparen: sporten loodrecht op de as, ±4 per winding getekend (rustig), iets transparant
-  ctx.strokeStyle = rgba(kleur, 0.55); ctx.lineWidth = Math.max(0.8, sl * 0.55); ctx.beginPath(); const stap = pitch / 4;
-  let volg = 0; for (const q of S) { if (q.s < volg) continue; volg = q.s + stap; const A = off(q, 0), B = off(q, 1); ctx.moveTo(A[0], A[1]); ctx.lineTo(B[0], B[1]); } ctx.stroke();
-  streng(0, true); streng(1, true);
-  ctx.restore(); }
+// DNA-DRAAD: dnaDraad(ctx, P, o) staat sinds 28 okt 2026 in lib_bio.js (verbeterronde 1, kernChromatine), zelfde aanroep en beeld.
+// Laad lib_bio.js vóór of na dit bestand; nucleoide, plasmideRing en de andere objecten hieronder roepen hem pas bij het tekenen aan.
 
 // =====================================================================================
 // NUCLEOÏDE. Recept: het bacteriechromosoom is één ringvormig DNA-molecuul (E. coli 4,6 Mbp, ±1,5 mm lang) zonder
@@ -59,8 +33,8 @@ function dnaDraad(ctx, P, o = {}) {
 // Bekende fouten: losse krul zonder einde (het is een ring); DNA in een kern met membraan.
 // (cx, cy) = midden; rx, ry = halve maten; o.T = puntafbeelding (bv. voor een gebogen bacterie).
 // =====================================================================================
-function nucleoide(ctx, cx, cy, rx, ry, o = {}) {
-  const { w = 3, lussen = 13, seed = 1, a = 1, kleur = C.kernR, donker = C.kern, rot = 0, T = null, helix = 'auto', fase = 0 } = o; if (a <= 0.01) return;
+function nucleoide(ctx, cx, cy, rx, ry, o = {}) { // palet B (verbeterronde 3, 28 okt 2026): standaard grijs zoals dnaDraad in lib_bio.js, was paars (C.kernR/C.kern)
+  const { w = 3, lussen = 13, seed = 1, a = 1, kleur = DNA_BASE.rugR, donker = DNA_BASE.rug, rot = 0, T = null, helix = 'auto', fase = 0 } = o; if (a <= 0.01) return;
   const P = [], rc = 0.2, n = lussen, cs = Math.cos(rot), sn = Math.sin(rot);
   const kaart = (u, v) => { const px = u * rx, py = v * ry; const q = [cx + px * cs - py * sn, cy + px * sn + py * cs]; return T ? T(q[0], q[1]) : q; };
   for (let k = 0; k < n; k++) {
@@ -83,7 +57,7 @@ function nucleoide(ctx, cx, cy, rx, ry, o = {}) {
 // BACTERIE (E. coli). Recept: staafje 2–4 µm lang, 0,7–1 µm breed (BioNumbers 104113: K-12 2,6–4,0 × 0,68–1,04 µm),
 // getekend als 1 : 0,28; ronde polen, soms licht gebogen. Gramnegatief: buitenmembraan + dunne celwand (peptidoglycaan)
 // als één lichte band, periplasma als smalle donkere spleet, celmembraan als tweede lichte lijn → dubbele rand.
-// Binnen: nucleoïde (paarse kluwen, zonder membraan), ribosomen als dichte kleine stippen (±20 nm, tienduizenden),
+// Binnen: nucleoïde (grijze kluwen in palet B, zonder membraan), ribosomen als dichte kleine stippen (±20 nm, tienduizenden),
 // een paar polysomen (kralensnoertjes). Buiten: 4–6 flagellen, 5–10 µm lang (2–4× de cel), helix met spoed ±2,3 µm
 // (BioNumbers 100095), bij zwemmen gebundeld achter de cel; honderden fimbriae, kort en fijn, loodrecht op de wand.
 // Kleur van de cel = allel (teal gevoelig, oker resistent). Gedood: 40%, wand open, inhoud lekt.

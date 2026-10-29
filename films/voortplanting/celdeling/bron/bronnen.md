@@ -108,3 +108,7 @@ Alle bronnen op 25 okt 2026 zelf geopend via WebFetch. NCBI (Bookshelf, PMC) en 
 - Bewering 21: één A-bron die zegt dat spindelgif (taxanen, vinca-alkaloïden) cellen in de mitose laat stoppen.
 - Bewering 9: tweede bron voor 'mitose ± een uur'.
 - Menselijke steekproef (Kamiel): minstens 27, 32, 3 en 1.
+
+## Opwaardering v13 (29 okt 2026)
+
+Geen nieuwe of gewijzigde beweringen: script en stem zijn gelijk gebleven. Alleen kleuren (palet B), beeldbankobjecten (eicel, eierstok, zaadbal, chromosomen) en namen in beeld veranderd; de bronnen van die objecten staan in `bibliotheek/README.md` en de verbeterronde-mappen. De vraagtekst xq is herschreven zonder namen ('Een moeder was 27 …'); inhoud gelijk.
