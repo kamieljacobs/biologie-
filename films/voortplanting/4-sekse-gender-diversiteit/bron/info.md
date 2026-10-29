@@ -61,6 +61,7 @@ Werkmap opzetten: kopieer `bron/` naar `hw/vp4` (scenes.js uit `src/`, `words/` 
 - Opname: de eerste ronde stopte halverwege op het ElevenLabs-tegoed; s04, s08, s11 en s12 zijn later in dezelfde flow opnieuw ingesproken (nieuwe nodes, zie `stem/takes.json`).
 
 ## Wijzigingen
+- 1.2 nacontrole (29 okt 2026): ondertitels s04 'Antwoord C.', s08 'Antwoord A.', s11 'Antwoord B.' tonen de gewone letter in plaats van de stemspelling (bee/cee/aa). Oorzaak was gedeeld: de woordtijden volgen de stem-invoer en de speler zette alleen ee-er/dee-en-aa om. Opgelost in `scripts/spelerfix.py` (CAPLETTER_MARK, `capLetter` in `chunks0`), toegepast op deze film en `bron/src/player.js`; alleen de getoonde tekst, audio en knippen bij Vragen uit ongewijzigd. Getest: ondertitels met vragen aan, elke vraag met `?vragen=uit`, geen JS-fouten.
 - 1.1 (22 okt 2026): tekeningen opgewaardeerd naar prompt v8, zie hieronder.
 - 1.0 (16 okt 2026): eerste versie. Script na eigen review (zie `reviews/review_v1.md`).
 

@@ -20,3 +20,5 @@ Totaal ± 220–600 credits. Omdat de film inhoudelijk niet mocht veranderen, is
 ## (c) Wat ik veranderde
 
 Zie `info.md` → 'Opwaardering naar prompt v13 (1.3)'. Kort: actuele beeldbank en castboek; naam 'tante Petra' in beeld → 'tante'; X-chromosomen en de chromosomen van kip (Z) in de standaardkleur van palet B (lichtgrijs) in plaats van paars; DNA-stukje (SOX9) in palet B; 'plooien' en de homologiebogen oker (aanleg) in plaats van paars; schildpadnest in bovenaanzicht zodat de temperatuurnamen leesbaar blijven.
+
+Nacontrole (29 okt 2026): de ondertitels bij de onthullingen (s04 'Antwoord C.', s08 'Antwoord A.', s11 'Antwoord B.') tonen nu de gewone letter; de audio blijft. Zie `info.md` → Wijzigingen. Niets ingesproken.
