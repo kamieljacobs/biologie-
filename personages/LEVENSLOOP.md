@@ -4,7 +4,7 @@
 
 ## Per personage (met de hand)
 
-**Noor** (16) · vast: leerling, stelt de vragen, familie van Linda en Rachid, broertje Teun (`kind`). Gebeurd: Doet bij mevrouw Visser een EMG-practicum met plakkers op biceps en triceps (zomeroutfit): tilt een veertje, boeken en haar volle schooltas, probeert een tafel op te tillen; Sam laat onverwacht een boek in haar tas vallen terwijl ze haar ogen dicht heeft (Zenuwstelsel 9 Spieren en beweging, okt 2026). Haalt in een schoolpracticum haar eigen DNA uit wangcellen (zout spoelwater, afwasmiddel, alcohol: witte draadjes), labjas `practicum` (DNA 1 Wat is DNA? 3.0, okt 2026). Heeft een schaafwond op haar onderarm die in een week heelt (DNA 2 DNA kopiëren 2.0, okt 2026). Krijgt een mRNA-vaccin in haar bovenarm (DNA 3 Van DNA naar eiwit 1.2, 27 okt 2026). Staat op zaterdagochtend in de keuken bij de radio: herkent haar nummer na twee tonen, tikt met haar voet mee, zingt het refrein en krijgt kippenvel, zomeroutfit (Zenuwstelsel 5 Het hoofdkantoor 1.2, 28 okt 2026; zonder keuring). Verbrandt in de zon op het strand, met een plekje op haar onderarm (DNA 5 Mutaties 1.2, 27 okt 2026). Rent een rondje in het park (rood en bezweet) en staat op een koude dag bleek met kippenvel, sportoutfit (Uitscheiding en evenwicht 1.1, hoofdstuk De huid, 26 okt 2026). Grenzen: familie blijft heel; niet in een beroepsrol. Vindt een week vergeten broodtrommel met beschimmelde boterham terug; doet met mevrouw Visser de proef met drie zakjes brood en kweekschaaltjes (vingers, lucht); wil een antibioticum tegen haar verkoudheid (Wat groeit er op je boterham?, Cellen). Leert in de toetsweek elke avond tot laat aan de schoolbank en zit de dag na de laatste toets verkouden rechtop in bed met tissues (Hormonen 4 Stress 1.1, 28 okt 2026). Sport twee uur op een warme dag (sportoutfit, moe, zweet) en drinkt op een rustige dag binnen zittend een hele fles water (Hormonen 5 Water in balans 1.1, 28 okt 2026).
+**Noor** (16) · vast: leerling, stelt de vragen, familie van Linda en Rachid, broertje Teun (`kind`). Gebeurd: Doet bij mevrouw Visser een EMG-practicum met plakkers op biceps en triceps (zomeroutfit): tilt een veertje, boeken en haar volle schooltas, probeert een tafel op te tillen; Sam laat onverwacht een boek in haar tas vallen terwijl ze haar ogen dicht heeft (Zenuwstelsel 9 Spieren en beweging, okt 2026). Haalt in een schoolpracticum haar eigen DNA uit wangcellen (zout spoelwater, afwasmiddel, alcohol: witte draadjes), labjas `practicum` (DNA 1 Wat is DNA? 3.0, okt 2026). Heeft een schaafwond op haar onderarm die in een week heelt (DNA 2 DNA kopiëren 2.0, okt 2026). Krijgt een mRNA-vaccin in haar bovenarm (DNA 3 Van DNA naar eiwit 1.2, 27 okt 2026). Staat op zaterdagochtend in de keuken bij de radio: herkent haar nummer na twee tonen, tikt met haar voet mee, zingt het refrein en krijgt kippenvel, zomeroutfit (Zenuwstelsel 5 Het hoofdkantoor 1.2, 28 okt 2026; zonder keuring). Verbrandt in de zon op het strand, met een plekje op haar onderarm (DNA 5 Mutaties 1.2, 27 okt 2026). Rent een rondje in het park (rood en bezweet) en staat op een koude dag bleek met kippenvel, sportoutfit (Uitscheiding en evenwicht 1.1, hoofdstuk De huid, 26 okt 2026). Grenzen: familie blijft heel; niet in een beroepsrol. Vindt een week vergeten broodtrommel met beschimmelde boterham terug; doet met mevrouw Visser de proef met drie zakjes brood en kweekschaaltjes (vingers, lucht); wil een antibioticum tegen haar verkoudheid (Wat groeit er op je boterham?, Cellen). Leert in de toetsweek elke avond tot laat aan de schoolbank en zit de dag na de laatste toets verkouden rechtop in bed met tissues (Hormonen 4 Stress 1.1, 28 okt 2026). Sport twee uur op een warme dag (sportoutfit, moe, zweet) en drinkt op een rustige dag binnen zittend een hele fles water (Hormonen 5 Water in balans 1.1, 28 okt 2026). Stoot 's nachts in de keuken haar blote teen tegen de tafelpoot (Zenuwstelsel 2 Het kabelnetwerk 2.0, 29 okt 2026; outfit `nacht` alleen in die film; ter keuring).
 
 **Opa Henk** (71) · vast: opa van Noor, man van Oma Ria, vader van Linda en Petra, tuiniert, af en toe patiënt. Gebeurd: patiënt (etiket H. de Vries) in Laboratoriumtechniek 2, 3 en 4. Spuit insuline met een pen in de opening van DNA 4 De genetische code lezen 1.2 (27 okt 2026; ter keuring). Opent erwtenpeulen in zijn moestuin en vindt gele gerimpelde en groene ronde erwten, zonder naam (Erfelijkheid 4 Dihybride kruising en gekoppelde overerving 2.0, 28 okt 2026). Doet met Yasmin vier bodemproefjes in zijn moestuin (Landbouw 2, 25 okt 2026). Kijkt over het hek mee op het melkveebedrijf; vroeger hield je zwartbonte koeien voor melk én vlees (Landbouw 3 Fokken, 26 okt 2026). Grenzen: Opa Henk en Oma Ria overlijden niet in een film; hij is geen arts of onderzoeker.
 
@@ -57,7 +57,7 @@
 Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `films/**/bron/**/*.js` en de naam in `bron/script.md`; films die een personage alleen via een variabele aanroepen ontbreken mogelijk).
 
 <!-- AUTO:start -->
-### Noor (`noor`) — 74 films
+### Noor (`noor`) — 78 films
 - `afweer`: 1-de-eerste-verdediging, 2-antistoffen-op-maat, 3-t-cellen-en-virussen, 4-vaccins-allergie-en-bloedgroepen
 - `cellen`: celorganellen, diffusie-osmose, microben, van-molecuul-tot-biosfeer
 - `dna`: 1-wat-is-dna, 2-dna-kopieren
@@ -76,9 +76,9 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `vervolg`: biomedisch-1-signalen-in-de-cel, biomedisch-3-van-lab-tot-patient, biomedisch-4-toeval-of-echt, diergeneeskunde-1-hond-koe-paard, diergeneeskunde-3-van-dier-naar-mens, farmacie-1-van-pil-tot-plek, fysiotherapie-2-opnieuw-leren-bewegen, fysiotherapie-3-trainen, fysiotherapie-4-welke-oefening-helpt, geneeskunde-3-welk-antibioticum, leraar-1-waar-blijft-je-vet, leraar-2-een-practicum-dat-werkt, mbrt-1-in-het-lichaam-kijken, neurowetenschappen-3-als-hersencellen-uitvallen, psychologie-6-kun-je-je-geheugen-vertrouwen, psychologie-7-waarom-raakt-de-een-opgebrand, tandheelkunde-4-een-tand-door-bot, voedingsleer-1-bij-de-dietist, voedingsleer-2-waarom-afvallen-zo-moeilijk-is
 - `voeding`: 1-wat-zit-er-in-je-eten, 4-van-darm-naar-bloed, 5-de-lever-als-fabriek, 6-je-darmbewoners, 7-supplementen-en-superfoods
 - `voortplanting`: 2-geslachtsorganen-puberteit, 4-sekse-gender-diversiteit, celdeling
-- `zenuwstelsel`: 7-slaap, 8-zintuigen, 9-spieren-en-beweging
+- `zenuwstelsel`: 2-het-kabelnetwerk, 4-knoeien-met-de-spleet, 5-het-hoofdkantoor, 6-leren-en-onthouden, 7-slaap, 8-zintuigen, 9-spieren-en-beweging
 
-### Sam (`sam`) — 37 films
+### Sam (`sam`) — 38 films
 - `afweer`: 3-t-cellen-en-virussen
 - `evolutie`: 4-de-mens-als-selectiefactor
 - `gedrag`: 1-waarom-doet-een-dier-wat-het-doet, 6-attributie, 9-mierenkolonie
@@ -88,9 +88,9 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `vervolg`: bioinformatica-1-zoeken-in-dna, bioinformatica-2-miljoenen-varianten, bioinformatica-3-een-uitbraak-volgen, bioinformatica-4-eiwitstructuur-voorspellen, biotechnologie-1-bacterien-als-fabriek, biotechnologie-2-enzymen-op-maat, biotechnologie-3-mag-dat, farmacie-2-sleutel-slot-en-dosis, leraar-1-waar-blijft-je-vet, neurowetenschappen-1-je-brein-vult-het-in, pedagogiek-1-een-brein-in-aanbouw, psychologie-1-welke-therapie-werkt, psychologie-5-in-de-spreekkamer, tandheelkunde-1-zuur-in-je-mond, verpleegkunde-2-hoe-weefsel-herstelt
 - `voeding`: 1-wat-zit-er-in-je-eten, 2-de-reis-door-je-buik, 6-je-darmbewoners
 - `voortplanting`: 2-geslachtsorganen-puberteit, 3-anticonceptie-soa-voortplantingstechniek, 4-sekse-gender-diversiteit
-- `zenuwstelsel`: 7-slaap, 9-spieren-en-beweging
+- `zenuwstelsel`: 5-het-hoofdkantoor, 7-slaap, 9-spieren-en-beweging
 
-### Daan (`daan`) — 27 films
+### Daan (`daan`) — 30 films
 - `ecologie`: 3-een-aarde
 - `evolutie`: 1-wat-is-evolutie, 4-de-mens-als-selectiefactor
 - `gaswisseling`: 1-adem-in-adem-uit
@@ -102,6 +102,7 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `transport`: 7-hoe-een-plant-groeit
 - `vervolg`: biomedisch-4-toeval-of-echt, ecologie-1-tellen-in-het-veld, ecologie-2-stikstof, ecologie-3-een-plan-voor-de-natuur, leraar-1-waar-blijft-je-vet, leraar-2-een-practicum-dat-werkt, neurowetenschappen-1-je-brein-vult-het-in, neurowetenschappen-2-brein-en-computer, pedagogiek-1-een-brein-in-aanbouw, psychologie-6-kun-je-je-geheugen-vertrouwen, psychologie-7-waarom-raakt-de-een-opgebrand
 - `voortplanting`: 2-geslachtsorganen-puberteit
+- `zenuwstelsel`: 1-een-seconde, 3-de-spleet, 4-knoeien-met-de-spleet
 
 ### Yasmin (`yasmin`) — 22 films
 - `evolutie`: 1-wat-is-evolutie
@@ -164,14 +165,14 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `voeding`: 1-wat-zit-er-in-je-eten, 4-van-darm-naar-bloed, 5-de-lever-als-fabriek, 6-je-darmbewoners
 - `voortplanting`: 4-sekse-gender-diversiteit
 
-### Mevrouw Visser (`visser`) — 13 films
+### Mevrouw Visser (`visser`) — 14 films
 - `cellen`: microben
 - `dna`: 2-dna-kopieren
 - `erfelijkheid`: 1-chromosomen, 2-monohybride-kruisingen, 4-dihybride-kruising-en-gekoppelde-overerving, 5-overerving-via-x-chromosomen-en-mitochondrien, 6-stambomen-en-kansrekenen
 - `evolutie`: 8-stambomen-lezen
 - `onderbouw/32a`: 2-van-cel-tot-lichaam
 - `vervolg`: geneeskunde-4-wat-de-patholoog-ziet, leraar-1-waar-blijft-je-vet, leraar-2-een-practicum-dat-werkt
-- `zenuwstelsel`: 9-spieren-en-beweging
+- `zenuwstelsel`: 5-het-hoofdkantoor, 9-spieren-en-beweging
 
 ### Opa Henk (`henk`) — 42 films
 - `afweer`: 3-t-cellen-en-virussen
@@ -219,15 +220,16 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 ### Mondhygiënist Ilse (`ilse`) — 3 films
 - `vervolg`: tandheelkunde-1-zuur-in-je-mond, tandheelkunde-3-bloedend-tandvlees, tandheelkunde-4-een-tand-door-bot
 
-### Linda (`linda`) — 4 films
+### Linda (`linda`) — 5 films
 - `evolutie`: x2-het-ontstaan-van-het-leven
 - `vervolg`: biomedisch-2-crispr-wat-doet-dit-gen
 - `voortplanting`: celdeling
-- `zenuwstelsel`: 8-zintuigen
+- `zenuwstelsel`: 4-knoeien-met-de-spleet, 8-zintuigen
 
-### Rachid (`rachid`) — 2 films
+### Rachid (`rachid`) — 3 films
 - `evolutie`: x2-het-ontstaan-van-het-leven
 - `voortplanting`: celdeling
+- `zenuwstelsel`: 6-leren-en-onthouden
 
 ### Oma Ria (`ria`) — 3 films
 - `evolutie`: x2-het-ontstaan-van-het-leven

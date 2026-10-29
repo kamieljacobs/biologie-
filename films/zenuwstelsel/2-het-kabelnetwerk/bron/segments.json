@@ -1,0 +1,206 @@
+[
+ {
+  "id": "s01",
+  "kind": "speech",
+  "chapter": "Cold open",
+  "look": "",
+  "level": "basis",
+  "display": "Midden in de nacht loop je naar de keuken. Bam. Je teen tegen de tafelpoot. Eerst voel je de stoot. Dan, bijna een seconde later, de pijn. Twee berichten van één klap. Hoe kan het dat ze niet tegelijk aankomen?",
+  "oud": "s00"
+ },
+ {
+  "id": "s02",
+  "kind": "title",
+  "chapter": "Titel",
+  "level": "basis",
+  "text": "Het kabelnetwerk"
+ },
+ {
+  "id": "s03",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 1 — De zenuwcel",
+  "look": "",
+  "level": "basis",
+  "display": "Wat denk je? Een impuls loopt door een neuron. Waar begint hij, en welke kant gaat hij op? Bij de dendrieten, richting de eindknopjes? Bij de eindknopjes, richting het cellichaam? Of overal tegelijk, beide kanten op?",
+  "oud": "q1",
+  "vraagzin": true
+ },
+ {
+  "id": "q04",
+  "kind": "question",
+  "chapter": "Hoofdstuk 1 — De zenuwcel",
+  "level": "basis",
+  "options": [
+   "Bij de dendrieten, richting de eindknopjes",
+   "Bij de eindknopjes, richting het cellichaam",
+   "Overal tegelijk, beide kanten op"
+  ]
+ },
+ {
+  "id": "s05",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 1 — De zenuwcel",
+  "look": "",
+  "level": "basis",
+  "display": "Het goede antwoord is A. We zoomen in op je been. In een zenuw liggen duizenden uitlopers naast elkaar. We volgen er één, tot aan de cel waar hij bij hoort. Dit is een neuron. De korte uitlopers heten dendrieten. Daar komt informatie binnen. Het cellichaam heeft de kern. De lange uitloper is het axon. Die kan wel een meter lang zijn: van je teen tot in je ruggenmerg. Om het axon zit een vettige laag: de myelineschede. Die wordt gemaakt door cellen van Schwann. Tussen die cellen zitten smalle insnoeringen. Aan het eind: de eindknopjes. Een impuls begint bij de dendrieten en loopt naar de eindknopjes. Nooit andersom. Waarom dat zo is, zie je straks.",
+  "oud": "a1"
+ },
+ {
+  "id": "s06",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 2 — Rust",
+  "look": "",
+  "level": "basis",
+  "display": "Eerst een neuron dat niets doet. Kijk naar het membraan. Buiten de cel zit veel natrium. Binnen zit veel kalium. Dat is geen toeval. In het membraan zit een pomp. Elke slag duwt hij drie natriumionen naar buiten en twee kaliumionen naar binnen. Daar gebruikt hij energie voor, uit ATP. Er zijn ook kanaaltjes die altijd openstaan voor kalium. Daardoor lekt kalium naar buiten. Positieve lading verlaat de cel. Zet er een voltmeter op. Binnen is het negatief ten opzichte van buiten: ongeveer min zeventig millivolt. Dit heet het rustpotentiaal. Het neuron is als een opgeladen batterij. Klaar om te vuren.",
+  "oud": "s21"
+ },
+ {
+  "id": "s07",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 2 — Rust",
+  "look": "",
+  "level": "basis",
+  "display": "Wat denk je? Een gif legt de natrium-kaliumpomp stil. Wat gebeurt er op den duur met het rustpotentiaal? Het verschil wordt langzaam kleiner? Het verschil wordt groter? Of er verandert niets, de pomp was alleen nodig om op te starten?",
+  "oud": "q2",
+  "vraagzin": true
+ },
+ {
+  "id": "q08",
+  "kind": "question",
+  "chapter": "Hoofdstuk 2 — Rust",
+  "level": "basis",
+  "options": [
+   "Het verschil wordt langzaam kleiner",
+   "Het verschil wordt groter",
+   "Er verandert niets"
+  ]
+ },
+ {
+  "id": "s09",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 2 — Rust",
+  "look": "",
+  "level": "basis",
+  "display": "Het goede antwoord is A. Zonder pomp lekt kalium naar buiten, en bij elke impuls komt natrium naar binnen. Niemand ruimt op. Het verschil tussen binnen en buiten wordt langzaam kleiner. De batterij loopt leeg.",
+  "oud": "a2"
+ },
+ {
+  "id": "s10",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 3 — De impuls",
+  "look": "",
+  "level": "basis",
+  "display": "Nu komt er een prikkel. Het membraan wordt een beetje minder negatief. Even niets. Maar bij ongeveer min vijfenvijftig millivolt gebeurt er iets. Dat is de drempelwaarde. Natriumkanalen schieten open. Natrium stroomt naar binnen. Binnen wordt het positief, tot boven nul. Dit heet depolarisatie. Dan sluiten de natriumkanalen. Kaliumkanalen gaan open. Kalium stroomt naar buiten. De binnenkant wordt weer negatief: repolarisatie. Even schiet het zelfs door, onder de min zeventig: hyperpolarisatie. Dit hele golfje heet een actiepotentiaal. Het duurt maar een paar duizendste seconde. En dit stukje membraan prikkelt het volgende stukje. Zo rolt de actiepotentiaal over het axon. Terug kan hij niet: het stukje erachter is even niet prikkelbaar. Dat heet de refractaire periode. Daarom loopt een impuls maar één kant op.",
+  "oud": "s31"
+ },
+ {
+  "id": "s11",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 3 — De impuls",
+  "look": "",
+  "level": "basis",
+  "display": "Wat denk je? Je drukt harder op je huid. Wat verandert er aan de impulsen? Ze worden groter? Er komen er meer per seconde? Of ze worden langer?",
+  "oud": "q3",
+  "vraagzin": true
+ },
+ {
+  "id": "q12",
+  "kind": "question",
+  "chapter": "Hoofdstuk 3 — De impuls",
+  "level": "basis",
+  "options": [
+   "Ze worden groter",
+   "Er komen er meer per seconde",
+   "Ze worden langer"
+  ]
+ },
+ {
+  "id": "s13",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 3 — De impuls",
+  "look": "",
+  "level": "basis",
+  "display": "Het goede antwoord is B. Een actiepotentiaal is altijd even groot. Of hij komt helemaal, of hij komt niet. Dat heet alles-of-niets. Een sterkere prikkel geeft dus geen grotere impuls. Hij geeft meer impulsen per seconde. De sterkte zit in de frequentie.",
+  "oud": "a3"
+ },
+ {
+  "id": "s14",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 4 — Snel en langzaam",
+  "look": "",
+  "level": "basis",
+  "display": "Wat denk je? Twee axonen, even lang. Eén is dik en heeft myeline. Eén is dun en heeft geen myeline. Welke impuls komt het eerst aan? De dikke met myeline? De dunne zonder myeline? Of ze komen tegelijk aan?",
+  "oud": "q4",
+  "vraagzin": true
+ },
+ {
+  "id": "q15",
+  "kind": "question",
+  "chapter": "Hoofdstuk 4 — Snel en langzaam",
+  "level": "basis",
+  "options": [
+   "De dikke met myeline",
+   "De dunne zonder myeline",
+   "Ze komen tegelijk aan"
+  ]
+ },
+ {
+  "id": "s16",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 4 — Snel en langzaam",
+  "look": "",
+  "level": "basis",
+  "display": "Het goede antwoord is A. Kijk naar de race. In het dunne axon zonder myeline prikkelt elk stukje membraan het volgende. Stap voor stap. Ongeveer één meter per seconde. In het axon met myeline kan dat niet. De vettige laag laat geen ionen door. Alleen bij de insnoeringen kan een actiepotentiaal ontstaan. De impuls springt van insnoering naar insnoering. Dat heet sprongsgewijze geleiding. Tot wel honderdtwintig meter per seconde. En hoe dikker het axon, hoe sneller. Terug naar je teen. De aanraking reist over dikke vezels met myeline. Ongeveer vijftig meter per seconde. Eén meter naar je ruggenmerg: twintig milliseconden. De doffe pijn reist over dunne vezels zonder myeline. Ongeveer één meter per seconde. Dezelfde meter: een hele seconde. Dat is je puzzel. Twee kabels, twee snelheden.",
+  "oud": "a4"
+ },
+ {
+  "id": "s17",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 5 — Van prikkel naar impuls",
+  "look": "",
+  "level": "basis",
+  "display": "Wat denk je? Een drukreceptor in je huid. Waar reageert hij het makkelijkst op? Vooral op druk? Op druk en op licht? Of op elke prikkel, als die maar sterk genoeg is?",
+  "oud": "q5",
+  "vraagzin": true
+ },
+ {
+  "id": "q18",
+  "kind": "question",
+  "chapter": "Hoofdstuk 5 — Van prikkel naar impuls",
+  "level": "basis",
+  "options": [
+   "Vooral op druk",
+   "Op druk en op licht",
+   "Op elke prikkel, als die maar sterk genoeg is"
+  ]
+ },
+ {
+  "id": "s19",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 5 — Van prikkel naar impuls",
+  "look": "",
+  "level": "basis",
+  "display": "Het goede antwoord is A. Nog één vraag. Hoe begint het eigenlijk? Een receptor in je huid is een cel met een gevoelig membraan. Druk vervormt dat membraan. Daardoor gaan kanaaltjes open. Het membraan wordt minder negatief. Zacht drukken: te weinig. Harder drukken: de drempel wordt gehaald, en er vertrekt een impuls. Harder nog: meer impulsen per seconde. Elke receptor heeft zijn eigen prikkel. Druk voor de huid, licht voor het oog. Dat heet de adequate prikkel. Een prikkel komt dus nooit zelf de zenuw in. De receptor vertaalt hem naar impulsen.",
+  "oud": "a5"
+ },
+ {
+  "id": "s20",
+  "kind": "speech",
+  "chapter": "Samenvatting",
+  "look": "",
+  "level": "basis",
+  "display": "Terug naar je teen. De klap vervormt receptoren in je huid. Ze halen de drempel. Natriumkanalen open, kaliumkanalen open: een actiepotentiaal. Altijd even groot, en altijd één kant op. De aanraking neemt de snelle kabel: dik, met myeline, springend van insnoering naar insnoering. Twintig milliseconden. De pijn neemt de langzame kabel: dun, zonder myeline, stap voor stap. Een seconde. Eén klap, twee kabels, twee aankomsttijden.",
+  "oud": "s70"
+ },
+ {
+  "id": "s21",
+  "kind": "card",
+  "chapter": "Eindkaart",
+  "level": "basis",
+  "lines": [
+   "Een impuls is altijd even groot en loopt één kant op.",
+   "De sterkte van een prikkel zit in de frequentie.",
+   "Myeline en een dik axon maken de kabel snel."
+  ]
+ }
+]

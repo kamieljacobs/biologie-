@@ -1,0 +1,92 @@
+[
+ {
+  "scene": "title",
+  "still": "title_003.00.png",
+  "tekst": "",
+  "noot": "titelkaart: zenuwcel uit de beeldbank (zenuwcel) met myeline, impuls in teal springt van insnoering naar insnoering"
+ },
+ {
+  "scene": "s01",
+  "still": "s01_008.60.png",
+  "tekst": "Twee berichten van één klap.",
+  "noot": "cold open: Noor (castboek, eigen nachtkleding met blote voeten) loopt van opzij (gang loop) tegen de tafelpoot; twee signalen in teal over dezelfde schematische zenuwbaan, tijdbalk 0–1 s; vervangt het losse been van versie 1"
+ },
+ {
+  "scene": "s03",
+  "still": "s03_007.00.png",
+  "tekst": "Bij de dendrieten, richting de eindknopjes?",
+  "noot": "vraagalinea (nieuw ingesproken, Wat denk je?): neuron met vraagtekens aan beide kanten, pijlen beide richtingen; verraadt het antwoord niet"
+ },
+ {
+  "scene": "s05",
+  "still": "s05_026.00.png",
+  "tekst": "Aan het eind:",
+  "noot": "zoomcirkel van Noors been naar een zenuw in dwarsdoorsnede, één uitloper in goud; daarna het neuron (beeldbank zenuwcel) met namen direct bij de onderdelen, insnoeringen goud omcirkeld, impuls teal van dendriet naar eindknopje, kruis bij nooit andersom"
+ },
+ {
+  "scene": "s06",
+  "still": "s06_026.00.png",
+  "tekst": "Dit heet het rustpotentiaal.",
+  "noot": "gebogen membraan (membraanBoog, stuk van een ronde cel) met natrium-kaliumpomp en kaliumlekkanaal; Na⁺ oker en K⁺ groen met hun naam erin; voltmeter naar −70 mV, batterij"
+ },
+ {
+  "scene": "s07",
+  "still": "s07_007.00.png",
+  "tekst": "Het verschil wordt langzaam kleiner?",
+  "noot": "vraagalinea: pomp met kruis (stilgelegd), voltmeter, vraagteken"
+ },
+ {
+  "scene": "s09",
+  "still": "s09_009.50.png",
+  "tekst": "De batterij loopt leeg.",
+  "noot": "pomp stil: K⁺ lekt, Na⁺ komt binnen, het verschil loopt versneld weg (label op den duur · versneld), voltmeter naar −15 mV, batterij leeg"
+ },
+ {
+  "scene": "s10",
+  "still": "s10_014.00.png",
+  "tekst": "Dit heet depolarisatie.",
+  "noot": "natrium- en kaliumkanaal openen en sluiten op de woorden, ionen stromen door de porie; grafiek loopt live mee (drempel goud, curve teal); daarna een axon zonder myeline waarover de actiepotentiaal rolt met refractaire zone erachter. De zin over de pomp is geknipt (vakfout)"
+ },
+ {
+  "scene": "s11",
+  "still": "s11_004.50.png",
+  "tekst": "Ze worden groter?",
+  "noot": "vraagalinea: vinger drukt op de huid met drukzintuig, lege grafiek met vraagteken"
+ },
+ {
+  "scene": "s13",
+  "still": "s13_014.00.png",
+  "tekst": "De sterkte zit in de frequentie.",
+  "noot": "twee sporen: zachte prikkel 3 impulsen, harde prikkel 8, alle even groot; doorgestreepte grotere piek; haak de sterkte zit in de frequentie"
+ },
+ {
+  "scene": "s14",
+  "still": "s14_009.00.png",
+  "tekst": "De dunne zonder myeline?",
+  "noot": "vraagalinea: dun axon zonder myeline en dik axon met myeline tussen start en finish"
+ },
+ {
+  "scene": "s16",
+  "still": "s16_020.00.png",
+  "tekst": "Dat heet sprongsgewijze geleiding.",
+  "noot": "race: golf stap voor stap in het dunne axon, sprong van insnoering naar insnoering in het dikke; ionen ketsen af op myeline; daarna terug naar Noors teen met tijdbalk 20 ms / 1 s"
+ },
+ {
+  "scene": "s17",
+  "still": "s17_006.00.png",
+  "tekst": "Op druk en op licht?",
+  "noot": "vraagalinea: drukreceptor in de lederhuid onder een vinger, vraagteken"
+ },
+ {
+  "scene": "s19",
+  "still": "s19_016.00.png",
+  "tekst": "de drempel wordt gehaald, en er vertrekt een impuls.",
+  "noot": "vinger drukt harder: drukzintuig wordt platgedrukt, kanaaltjes open, receptorspanning onder/boven de drempel, steeds meer impulsen; daarna adequate prikkel (met de nuance) en prikkel → receptor → impulsen"
+ },
+ {
+  "scene": "s20",
+  "still": "s20_022.00.png",
+  "tekst": "Eén klap, twee kabels, twee aankomsttijden.",
+  "noot": "samenvattingskaart: zes regels verschijnen op hun ankerwoord"
+ }
+]
