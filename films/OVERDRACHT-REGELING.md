@@ -10,6 +10,16 @@ Lees dit in een nieuwe chat om verder te gaan. Brief van de nacht: `films/OPWAAR
 ## Kamiels keuzes (29 okt 2026, keuzeblad) — in uitvoering
 Brief: `films/UITVOEREN-REGELING.md`. Polymerase: versie 1 = variant A, ingebouwd (beoordelaar koos W). Zenuwstelsel 1–6: lichte remake naar donker; nieuwe versie als `films/zenuwstelsel/<slug>-nieuw.html`, de oude blijft online tot Kamiel goedkeurt (dan omwisselen: oude naar `bron/oud/`, datum, B15-uitzondering 'lichte-remake', REVIEW). Inspreken: alles 'doen', behalve Sanne (Kamiel koos een figurant, naam mag blijven). Kleuren gelijktrekken (tabel in de brief), Stress-decor thuis, synapsEcht + hersendoorsnede, label oudziend, reactietijd via de stem, wijn prima, nieuwe beeldbankobjecten later. Griepvirus en chromosomen in `lib_micro_evo.js` zijn naar palet B (29 okt).
 
+### Stand 29 okt 2026 (middag): alles uitgevoerd
+- Opgewaardeerd en online (versie 1.2): Zenuwstelsel 7 Slaap (1.201 cr), 8 Zintuigen (1.571 cr), Hormonen 1 (1.092 cr), 2 (figurant `sanne16`), 3, 4 (decor thuis), 5.
+- Lichte remakes als preview `films/zenuwstelsel/<slug>-nieuw.html` (oude films nog online): 1 (1.910 cr), 2 (964 cr), 3, 4 (883 cr), 5 (1.130 cr), 6. Storyboards in `bron/remake-2026-10/storyboard/`.
+- Totaal ingesproken: 8.751 credits. Sanne niet ingesproken (figurant, naam mag blijven).
+- **Keuringsblad remakes**: 'Zenuwstelsel remakes keuren' https://claude.ai/artifact/Uco1ZkZaVLtNthi4LoaGxH, db-collectie `keuring` (doc-id `<slug>__oordeel` met antwoord ok/aanpassen/oud, en `<slug>__<scène>` met goed/opm + opmerking); bron in `films/regeling-keuring/`.
+- **Bij 'ok' omwisselen**: `<slug>.html` → `bron/oud/<slug>-v1.x.html`, `<slug>-nieuw.html` → `<slug>.html`; datum in HOOFDSTUKKEN = dag van omwisselen; regel in `films/logboek/b15_uitzonderingen.jsonl` (soort lichte-remake); duur in HOOFDSTUKKEN controleren; `scripts/nieuwste_films.py`, `teller.py`, `reviewlijst.py`; REVIEW op nog bekijken; `uitleg`/oefenen-links nalopen.
+- Nog te beluisteren (uitspraaktest-batch): G-eiwit, cAMP (Hormonen 1), hypothalamus en '37 graden' (Zenuwstelsel 5 a5), de nieuwe takes van Slaap/Zintuigen. Zintuigen s17 zegt nog 'Antwoord bee.' (Engels) → bij een volgende inspreekronde.
+- Nog niet in de beeldbank (Kamiel: nieuwe objecten 'later'): eigen tekeningen uit de remakes (fiets, oog, zenuw/ruggenmerg in doorsnede, drukzintuig, synaps-varianten, hersenen opzij, slakkenhuis, homunculus, dendrietvoetje, pose 'fiets').
+- Les: helpers die tegelijk in één werkmap committen zitten elkaar in de weg (een vastgelopen `rebase --autostash` zette ongecommit werk weg). Volgende keer elke filmhelper `isolation: worktree` geven.
+
 ## Open voor Kamiel (stand vóór het keuzeblad)
 
 Alles hieronder staat op het keuzeblad 'Regeling: jouw keuzes' (https://claude.ai/artifact/1AwKuLaFUeSsEF2xypEnQG, db-collectie keuze; bron in films/regeling-keuzeblad/). Lees die collectie en voer de keuzes uit.
