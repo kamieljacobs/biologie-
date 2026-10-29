@@ -5,13 +5,13 @@
 | Bestand | films/voortplanting/3-anticonceptie-soa-voortplantingstechniek.html (audio in films/voortplanting/3-anticonceptie-soa-voortplantingstechniek/audio/) |
 | Reeks | Voortplanting (hoofdstuk `voortplanting`: vwo Nectar 4.1 H4, havo Biologie voor jou thema voortplanting), film 3 |
 | Niveau | havo + vwo, voor beide niveaus dezelfde film (sinds 16 okt 2026 geen vwo-blokken meer; s10 en s14 zijn basis) |
-| Versie / datum | 1.1 · 22 oktober 2026 (1.0 · 16 oktober 2026) |
-| Prompt | v8 |
-| Voldoet aan | prompt v8 |
+| Versie / datum | **1.2 · 29 oktober 2026** — opwaardering naar prompt v13 (B14, zonder keuring): alleen beeld, stem en script ongewijzigd; oude versie in `bron/oud/3-anticonceptie-soa-voortplantingstechniek-v1.1.html`. 1.1 · 22 oktober 2026 (1.0 · 16 oktober 2026) |
+| Prompt | v13 |
+| Voldoet aan | prompt v13 (29 okt 2026, zonder keuring). Bewust niet: de stem noemt nog Lotte, dokter Kim en Sam (s01, s07, s09; herinspreken staat op de lijst in `opwaardering-v13.md`, niets opgenomen); de zes telstelletjes in s11 blijven eenvoudige pictogrammen (telpoppetjes, beeldafspraak); de tag 'jonger dan 25: gratis bij de GGD' volgt de stem tot Kamiel over de GGD-zin beslist; geen nieuwe caststijl met contourlijnen; paars alleen nog op de hormoonspuitjes (hormonen) |
 | Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow XwPZNg4Ugc0gwL4LrtKa; respellings in `uitspraak_film.json` (soa → es-oo-aa, chlamydia → klamiedia, syfilis → siefilis, HPV → haa-pee-vee, PrEP → prep, ICSI → iksie, ivf → ie-vee-ef, PGT → pee-gee-tee, GGD → gee-gee-dee, FSH → ef-es-haa, Pearl-index → Perl-index, in-vietro-fertilisatie, hepatitis bee); zie `uitspraak.md` |
 | Duur | spraak 7:08; speeltijd met kaarten en vragen ± 8:13; met Vragen uit ± 7:10 (havo en vwo gelijk) |
 | Beeldstijl | Part C: Schema; schematische doorsnede (vooraanzicht) van baarmoeder, eileiders en eierstokken |
-| Personages | Lotte en dokter Kim (cold open), Sam (H2), Fleur en Ruben (HPV-prik, s09), Erik als donor (s13) uit het castboek; alleen de telpoppetjes (zes stelletjes, s11) zijn nog `figuur()` |
+| Personages | Lotte en dokter Kim (cold open), Sam (H2), Fleur en Ruben (HPV-prik, s09), Erik als donor (s13) uit het castboek, sinds 1.2 zonder naam in beeld; alleen de telpoppetjes (zes stelletjes, s11) zijn nog `figuur()` |
 | Audio-opslag | 11 losse mp3's in audio/ (s01, s04, s05, s06, s07, s09, s10, s11, s13, s14, s15) |
 | Herkomst | Hoofdengine, werkmap `hw/vp3`; gebouwd met Claude in reeksmodus (geplande film 'Anticonceptie, soa's en voortplantingstechniek') |
 
@@ -125,3 +125,18 @@ Hoe het in de pagina zit: `bron/src/scenes.js` is vervangen in de HTML; `bron/sr
 Nieuw in de bibliotheek (`bibliotheek/lib_bio.js`, ook op het testvel, vel 3): `eileiderDoorsnede`, `gonokok`, `chlamydiaCel`, `spirocheet`, `bacterieGroot`, `blastocyste`. Nieuw in het castboek: Fleur en Ruben (± 10 jaar; castboekknop 'Fleur en Ruben'), nog te keuren door Kamiel.
 
 Vragen uit (B9/B11) nagelopen met `?vragen=uit`: q02, q08 en q12 vallen weg, de spreekzin 'Wat denk je?' en het antwoord ('Antwoord bee/cee/aa') worden geknipt (s01 14,4 s, s04 23,3 s, s07 8,5 s, s09 91,7 s, s11 33,9 s, s13 57,6 s); laatste beelden vóór de knip en eerste erna bekeken: geen vraagkaart of antwoordtekst, de vertelling na de vraag leunt er niet op. Scripts `spelerfix`, `antwoordtekst`, `kortantwoord` geven OK.
+
+
+## Opwaardering naar prompt v13 (1.2 · 29 okt 2026, zonder keuring)
+
+Alleen beeld; stem, script, vragen, tijden en speler ongewijzigd, niets ingesproken (0 credits). Site-HTML bijgewerkt door alleen de letterlijke blokken `scenes.js`, `lib_cast.js` en `lib_bio.js` te vervangen (geen volledige herbouw); de versie in de voettekst en `film.py`/`film.json` staat op 1.2. Datum in index.html blijft (opwaardering). Lijsten voor Kamiel: `bron/opwaardering-v13.md`; bronnenlogboek: `bron/bronnen.md` (eerste ronde).
+
+- Alle scènes: `src/lib_bio.js` = actuele `bibliotheek/lib_bio.js` (beeldbank na verbeterronde 1–3: eierstok, follikel, eicel, zaadcel, baarmoederwand, blastocyste, gonokok, chlamydia, spirocheet, bacterie en ronde cel in hun goedgekeurde versie); `src/lib_cast.js` = actuele `personages/lib_cast.js`.
+- s01: namen 'Lotte' en 'dokter Kim · huisarts' onder de personages weg; alleen 'huisarts' bij de arts (B4).
+- s07: naam 'Sam' boven het personage weg (B4).
+- s09: kop 'Sam laat zich testen' → 'zelf laten testen' (B4); virussen (hiv, HPV, en de virussen in en rond de lichaamscel) neutraal grijsblauw (`VIRUS`) in plaats van paars; de curve 'virus in het bloed' koraal in plaats van paars (minder paars).
+- s10: resistente gonokokken en de naam 'toevallige mutatie: overleeft' oker in plaats van paars.
+- s14: `dnaIcon` in palet B (grijze ruggengraat, basenparen A–T rood/geel, C–G lichtblauw/donkerblauw) in plaats van een teal-gouden helix.
+- s15: virus in het paneel 'bacterie of virus' grijsblauw.
+- Getest: contactvel van de gewijzigde scènes bekeken (geen JS-fouten); scripts `spelerfix`, `antwoordtekst`, `kortantwoord`, `antwoordletter` (met --check), `flipkaarten`, `licentie_noot`, `teller` in orde; elke vraag (q02, q08, q12) afgespeeld met `?vragen=uit`: alleen 'Wat denk je?'-zinnen en 'Antwoord …' geknipt, geen vraag- of antwoordresten in beeld of ondertitel.
+- Regelnummers in de HTML sinds 1.2 (de tabel 'Waar wat in de HTML zit' hierboven is van 1.0): FILMDATA 160 · lib.js 161–389 · lib_voeding + lib_hormonen 390–1213 · lib_cast 1214 e.v. · lib_bio tot 10472 · scenes.js 10474–10886 (SCENES 10617) · speler 10887–11071.
