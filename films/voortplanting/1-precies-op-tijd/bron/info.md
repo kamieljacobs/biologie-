@@ -7,7 +7,7 @@ Versie 3.0 (29 okt 2026): omgezet naar de standaardspeler (FILMDATA-straat, zoal
 | Bestand | films/voortplanting/1-precies-op-tijd.html (audio in `1-precies-op-tijd/audio/sNN.mp3`, oefeningen in `1-precies-op-tijd/oefenen.json`) |
 | Reeks / nummer | Voortplanting, 'Film 3' in de filmlijst (`HOOFDSTUKKEN.voortplanting`); les 2 Voortplanting (`tools/docent/voortplanting-2/`) hoort erbij (`uitleg`-knop) |
 | Niveau | vwo (`alleen: 'vwo'`, geen havo/vwo-knop; er zijn geen vwo-blokken) |
-| Versie / datum | 3.0.1 · 29 oktober 2026 (nacontrole: labels hypothalamus/hypofyse, grafiek H3) · 3.0 · 29 oktober 2026 (standaardspeler + opwaardering) · eerder 2.6 · 22 okt 2026, 2.5 (prompt v8), 2.1 · 11 okt 2026. De datum in index.html blijft 2026-10-11 (opwaardering) |
+| Versie / datum | 3.1 · 29 oktober 2026 (hormoonkleuren gelijk met Les 2, placenta-tijdlijn; oude versie `oud/1-precies-op-tijd-v3.0.1.html`) · 3.0.1 · 29 oktober 2026 (nacontrole: labels hypothalamus/hypofyse, grafiek H3) · 3.0 · 29 oktober 2026 (standaardspeler + opwaardering) · eerder 2.6 · 22 okt 2026, 2.5 (prompt v8), 2.1 · 11 okt 2026. De datum in index.html blijft 2026-10-11 (opwaardering) |
 | Prompt | v13 |
 | Voldoet aan | prompt v13 (29 okt 2026, zonder keuring); bewust niet: zie 'Bewust niet' onderaan |
 | Stem / model | Roos (ElevenLabs, eleven_multilingual_v2), opname van v1 (september 2026), zes zinnen uit v2.1 (hCG als 'ha cee gee'; vraag H8 met 'Wat denk je?') |
@@ -85,10 +85,19 @@ Herstel van de 'hoog'-punten uit `films/CONTROLE-VOORTPLANTING.md` (alleen beeld
 
 Getest: bouw.sh + de vaste scripts; elke vraag afgespeeld met `?vragen=uit` (`bouw/vragenuit.py`, geen restjes, geen JS-fouten); contactvel van s09, s10, s13, s16, s43, s44, s46 bekeken.
 
+## Wijzigingen 3.1 (29 okt 2026, open punten uitgevoerd volgens `films/UITVOEREN-VOORTPLANTING.md`, keuzes 1, 12, 13)
+
+Alleen beeld en docentdeel; stem, timings en speler gelijk, niets ingesproken (0 credits). Oude versie: `oud/1-precies-op-tijd-v3.0.1.html`.
+- Hormoonkleuren (keuze 1), alle scènes via `HC` in `src/scenes_oud.js` (regel 7–10) plus de svg-legenda `cycleSVG` en de vraagkaartgrafiek (`player_vp1.js` leest `LIB.HC`): gelijk met Les 2 (`HK()`): FSH groen, LH goud, oestrogeen koraal, progesteron paars, testosteron teal, hCG oker, oxytocine teal; GnRH licht paars #B3A6DA. Inhibine en AMH (niet in Les 2) neutraal grijs (`C.ink2`), DHT donker teal. Overal staat bij de eerste keer de naam of een legenda (kleur nooit de enige drager). Was: eiwithormonen teal, steroïden paars.
+- s32 (H6, tijdlijn in weken, keuze 13): balk 'geel lichaam' dooft geleidelijk uit tussen week 7 en 10, balk 'placenta neemt het over' begint in week 7 en groeit aan, lichte band week 7–10; tekst 'geleidelijk, rond week 7–10 van de zwangerschap' (was: placenta vanaf week 8, 'vanaf week 8–10 is het gele lichaam niet meer nodig'). De stem 'rond week acht tot tien' valt binnen dat venster en blijft. Docentdeel (`sections.html`, getallen) met de bronnen bijgewerkt.
+- s46 'onttrekkingsbloeding, geen echte menstruatie' (keuze 12): gecontroleerd en blijft staan (NHG-Standaard Anticonceptie + 3 bronnen, `bronnen.md` bewering 31 nu ✓).
+
+Getest: bouw.sh + de vaste scripts (alle `--check` in orde); vragen met `?vragen=uit` afgespeeld; contactvel van s10, s12, s16, s18, s22, s32, s38, s43, s46 en de vraagkaart q23 bekeken.
+
 ## Bewust niet (zonder keuring niet gedaan; zie de vragen in `opwaardering-v13.md`)
 
 - De scènes zijn niet herschreven naar de tekenstraat van de lichte remakes (`lib.js`, één scène per alinea); ze draaien op de engine van 2.6. Dat is een lichte remake.
-- Hormoonkleuren van de film (eiwithormonen teal, steroïden paars) niet gelijkgetrokken met Les 2 (`HK()`) en de beeldbank (`HORM`: LH groen). De hormoondeeltjes blijven bolletjes en ruitjes uit de oude engine.
+- De hormoondeeltjes blijven bolletjes en ruitjes uit de oude engine (sinds 3.1 wel in de kleuren van Les 2, niet de deeltjes uit de beeldbank).
 - Het vergrote zaadcelbeeld in H1 ('ZAADCEL · VERGROOT') houdt de schematische zaadcel (namen kern/mitochondriën/staart staan erop), zoals sinds 2.5.
 - De telpoppetjes bij 'één op de zes stellen' (H11) blijven pictogrammen (toegestaan).
 - Geen havo-stand (er zijn geen vwo-blokken), terwijl index en les 2 de film ook bij havo noemen.

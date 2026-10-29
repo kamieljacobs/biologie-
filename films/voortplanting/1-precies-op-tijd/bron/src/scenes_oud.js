@@ -3,8 +3,11 @@ window.OSC = {};
 window.LIB = (function () {
   'use strict';
   const E = ENG, C = E.C;
-  /* kleurafspraak van deze film (series colours): hormonen uit hersenen/hypofyse/embryo (eiwithormonen) = teal; geslachtshormonen (steroïden) + inhibine + AMH = paars; bloed = koraal; leven/kind/positief = groen; voedsel/cholesterol/geel lichaam = oker; focus = goud */
-  const HC = { GnRH: C.tealD, FSH: C.teal, LH: C.tealL, hCG: C.tealL, OXT: C.teal, T: C.purple, E2: C.purple, P4: C.purpleL, INH: C.purpleD, AMH: C.purpleL, DHT: C.purpleD };
+  /* kleurafspraak hormonen (v3.1, 29 okt 2026): gelijk met Les 2 Voortplanting (HK() in tools/docent/voortplanting-2): FSH groen, LH goud, oestrogeen koraal,
+     progesteron paars, testosteron teal, hCG oker, oxytocine teal; GnRH (releasing-hormoon) licht paars #B3A6DA. Hormonen die Les 2 niet kent (inhibine, AMH) neutraal grijs,
+     DHT donker teal (familie van testosteron). Kleur is nooit de enige drager: elk hormoon staat er bij de eerste keer met naam of legenda bij.
+     Overig: bloed = koraal; leven/kind/positief = groen; voedsel/cholesterol/geel lichaam = oker; focus = goud */
+  const HC = { GnRH: '#B3A6DA', FSH: C.green, LH: C.gold, hCG: C.ochre, OXT: C.teal, T: C.teal, E2: C.coral, P4: C.purple, INH: C.ink2, AMH: C.ink2, DHT: C.tealD };
 
   /* ---------- cyclusmodel: een eenvoudig terugkoppelmodel, vast tijdstapje, deterministisch ----------
      F = grootte dominante follikel (0..1), E2 = oestrogeen, P4 = progesteron, FSH, LH, CL = geel lichaam (activiteit), endo = dikte slijmvlies.
@@ -78,8 +81,8 @@ window.LIB = (function () {
     const M = CYC, w = 900, h = 300, x0 = 0, x1 = 28, L = 70, Bm = 50, ymax = 3.4;
     const path = (key, col, dash) => { let d = ''; for (let i = 0; i <= Math.round(28 / M.dt); i++) { const x = L + (M.t[i] / 28) * (w - L - 20), y = 20 + (h - Bm - 20) * (1 - E.clamp(M[key][i] / ymax, 0, 1)); d += (i ? 'L' : 'M') + x.toFixed(1) + ' ' + y.toFixed(1); } return `<path d="${d}" fill="none" stroke="${col}" stroke-width="3" ${dash ? `stroke-dasharray="${dash}"` : ''}/>`; };
     const ticks = [0, 7, 14, 21, 28].map((d) => { const x = L + d / 28 * (w - L - 20); return `<text x="${x}" y="${h - 14}" fill="#C9B896" font-family="IBM Plex Mono,monospace" font-size="22" text-anchor="middle">${d}</text><line x1="${x}" y1="${h - Bm}" x2="${x}" y2="${h - Bm + 6}" stroke="#8FA0B5"/>`; }).join('');
-    const leg = [['FSH', C.teal, ''], ['LH', C.tealL, '10 7'], ['oestrogeen', C.purple, ''], ['progesteron', C.purpleL, '10 7']].map(([s, col, dash], i) => `<line x1="${L + 10 + i * 210}" y1="18" x2="${L + 50 + i * 210}" y2="18" stroke="${col}" stroke-width="3" ${dash ? `stroke-dasharray="${dash}"` : ''}/><text x="${L + 60 + i * 210}" y="25" fill="#F2F2EE" font-family="Source Sans 3,sans-serif" font-size="22">${s}</text>`).join('');
-    return `<svg viewBox="0 0 ${w} ${h}" width="100%" role="img" aria-label="Grafiek van FSH, LH, oestrogeen en progesteron over 28 dagen" style="display:block;margin:.4cqw 0 1cqw;background:#1A2740;border-radius:.6cqw">${leg}<line x1="${L}" y1="20" x2="${L}" y2="${h - Bm}" stroke="#8FA0B5" stroke-width="1.5"/><line x1="${L}" y1="${h - Bm}" x2="${w - 20}" y2="${h - Bm}" stroke="#8FA0B5" stroke-width="1.5"/>${ticks}<text x="${w - 20}" y="${h - 14}" fill="#C9B896" font-family="IBM Plex Mono,monospace" font-size="20" text-anchor="end">dag</text>${path('FSH', C.teal)}${path('LH', C.tealL, '10 7')}${path('E2', C.purple)}${path('P4', C.purpleL, '10 7')}</svg>`;
+    const leg = [['FSH', HC.FSH, ''], ['LH', HC.LH, '10 7'], ['oestrogeen', HC.E2, ''], ['progesteron', HC.P4, '10 7']].map(([s, col, dash], i) => `<line x1="${L + 10 + i * 210}" y1="18" x2="${L + 50 + i * 210}" y2="18" stroke="${col}" stroke-width="3" ${dash ? `stroke-dasharray="${dash}"` : ''}/><text x="${L + 60 + i * 210}" y="25" fill="#F2F2EE" font-family="Source Sans 3,sans-serif" font-size="22">${s}</text>`).join('');
+    return `<svg viewBox="0 0 ${w} ${h}" width="100%" role="img" aria-label="Grafiek van FSH, LH, oestrogeen en progesteron over 28 dagen" style="display:block;margin:.4cqw 0 1cqw;background:#1A2740;border-radius:.6cqw">${leg}<line x1="${L}" y1="20" x2="${L}" y2="${h - Bm}" stroke="#8FA0B5" stroke-width="1.5"/><line x1="${L}" y1="${h - Bm}" x2="${w - 20}" y2="${h - Bm}" stroke="#8FA0B5" stroke-width="1.5"/>${ticks}<text x="${w - 20}" y="${h - 14}" fill="#C9B896" font-family="IBM Plex Mono,monospace" font-size="20" text-anchor="end">dag</text>${path('FSH', HC.FSH)}${path('LH', HC.LH, '10 7')}${path('E2', HC.E2)}${path('P4', HC.P4, '10 7')}</svg>`;
   }
 
   /* ---------- regelkring (Schema): hypothalamus, hypofyse, geslachtsklier in een kolom; pijlen in de kleur van het signaal ---------- */
@@ -886,11 +889,17 @@ OSC['6'] = function ({ TL }) {
       const x0 = 300, x1 = 1620, y = 760; c.save(); c.globalAlpha = aT; c.strokeStyle = C.line; c.lineWidth = 1.5; c.beginPath(); c.moveTo(x0, y); c.lineTo(x1, y); for (let w = 0; w <= 12; w++) { const x = x0 + w / 12 * (x1 - x0); c.moveTo(x, y - 8); c.lineTo(x, y + 8); } c.stroke(); c.restore();
       for (let w = 0; w <= 12; w += 2) g.text(String(w), x0 + w / 12 * (x1 - x0), y + 44, { size: 28, f: 'mono', color: C.grain, align: 'center', alpha: aT, layer: 'meta' });
       g.text('WEKEN', x0 - 24, y + 44, { size: 28, f: 'mono', color: C.grain, align: 'right', alpha: aT, layer: 'meta' });
-      // balken: geel lichaam (oker) tot week 10, placenta (groen) vanaf week 8
-      const pw = E.ep(t, T.placenta, 1.6);
-      g.box(x0, y - 80, (x1 - x0) * 10 / 12, 30, { alpha: aT, fill: C.ochre, r: 6 }); g.text('geel lichaam maakt progesteron', x0 + 10, y - 92, { size: 32, w: 600, color: C.ochre, alpha: aT });
-      g.box(x0 + (x1 - x0) * 8 / 12, y - 130, (x1 - x0) * 4 / 12 * pw, 30, { alpha: aT, fill: C.green, r: 6 }); g.text('placenta neemt het over', x0 + (x1 - x0) * 8 / 12, y - 142, { size: 32, w: 600, color: C.green, alpha: aT * pw });
-      g.annot(x0 + (x1 - x0) * 8 / 12, x0 + (x1 - x0) * 10 / 12, y + 70, 'vanaf week 8–10 is het gele lichaam niet meer nodig', { alpha: aT * E.vis(t, T.nodig - 1, null), color: C.green, maxW: 700 });
+      // v3.1 (29 okt 2026): geleidelijke overname rond week 7–10 (Endotext 'luteal-placental shift' week 7–9; Neumann e.a. 2020: placenta vanaf week 7).
+      // Geel lichaam (oker) dooft uit tussen week 7 en 10; placenta (groen) begint in week 7 en groeit; band week 7–10 = de overgang.
+      const pw = E.ep(t, T.placenta, 1.6), wx = (w) => x0 + w / 12 * (x1 - x0);
+      c.save(); c.globalAlpha = aT * 0.16 * pw; c.fillStyle = C.green; c.fillRect(wx(7), y - 170, wx(10) - wx(7), 170); c.restore();
+      { const gr = c.createLinearGradient(wx(7), 0, wx(10), 0); gr.addColorStop(0, C.ochre); gr.addColorStop(1, 'rgba(201,163,92,0.12)');
+        g.box(x0, y - 80, wx(7) - x0, 30, { alpha: aT, fill: C.ochre, r: 6 }); c.save(); c.globalAlpha = aT; c.fillStyle = gr; E.rr(c, wx(7) - 6, y - 80, wx(10) - wx(7) + 6, 30, 6); c.fill(); c.restore(); }
+      g.text('geel lichaam maakt progesteron', x0 + 10, y - 92, { size: 32, w: 600, color: C.ochre, alpha: aT });
+      { const gr = c.createLinearGradient(wx(7), 0, wx(10), 0); gr.addColorStop(0, 'rgba(127,196,143,0.15)'); gr.addColorStop(1, C.green);
+        const L1 = (x1 - wx(7)) * pw; c.save(); c.globalAlpha = aT; c.fillStyle = gr; E.rr(c, wx(7), y - 130, L1, 30, 6); c.fill(); c.restore(); }
+      g.text('placenta neemt het over', wx(7), y - 142, { size: 32, w: 600, color: C.green, alpha: aT * pw });
+      g.annot(wx(7), wx(10), y + 70, 'geleidelijk, rond week 7–10 van de zwangerschap', { alpha: aT * E.vis(t, T.nodig - 1, null), color: C.green, maxW: 700 });
     }
     CM.after(g, t, TL);
   }

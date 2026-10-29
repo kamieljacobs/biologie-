@@ -1,4 +1,4 @@
-# Van bevruchting tot baby — gesproken tekst (versie 3.0, 29 okt 2026)
+# Van bevruchting tot baby — gesproken tekst (versie 3.1, 29 okt 2026; tekst ongewijzigd sinds 3.0)
 
 Stem Roos (ElevenLabs, eleven_multilingual_v2), opname van versie 1 (september 2026) met zes zinnen uit v2.1. Sinds 3.0 per alinea geknipt uit de oude hoofdstuk-takes (`bouw/plan.py`), niets opnieuw ingesproken. Audio: `../audio/<id>.mp3`; woordtijden: `stem/woordtijden/<id>.json` (de oude woordtijden van v2.6, verschoven; bij de gesproken vragen silalign). `oud` = hoofdstuk en begintijd in de oude hoofdstuk-take (`bron/oud/1-precies-op-tijd-v2.6.html`). Oude versie van dit bestand: `oud/script-v2.6.md`.
 

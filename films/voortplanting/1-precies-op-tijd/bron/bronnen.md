@@ -2,10 +2,10 @@
 
 | Veld | Waarde |
 |---|---|
-| Gecontroleerde versie | 3.0 (standaardspeler + opwaardering prompt v13, 29 okt 2026); tekst = de opname van v1/v2.1, ongewijzigd op één geknipte zin na |
+| Gecontroleerde versie | 3.1 (29 okt 2026: bewering 22 en 31 opnieuw nagegaan); daarvoor 3.0 (standaardspeler + opwaardering prompt v13); tekst = de opname van v1/v2.1, ongewijzigd op één geknipte zin na |
 | Gecontroleerd door | Claude (eerste ronde), 29 okt 2026 |
 | Menselijke steekproef | nog niet gedaan |
-| Samenvatting | 38 beweringen: 17 ✓, 15 ≈, 0 !, 6 ? (eicelpiek 7 miljoen, LH-piek → eisprong 36 uur, onttrekkingsbloeding, mifepriston, antibiotica vs virus, antistoffen door de placenta: nog niet met twee zelf geopende bronnen). Geen fout gevonden die de stem moet veranderen. Wel geknipt: een verwijzing naar een film die niet bestaat (zie Aanpassingen). |
+| Samenvatting | 38 beweringen: 19 ✓, 14 ≈, 0 !, 5 ? (eicelpiek 7 miljoen, LH-piek → eisprong 36 uur, mifepriston, antibiotica vs virus, antistoffen door de placenta: nog niet met twee zelf geopende bronnen). 3.1: onttrekkingsbloeding nu ✓; placenta-overname ✓ voor 'geleidelijk rond week 7–10' (beeld en docentdeel aangepast, de stem 'rond week acht tot tien' valt erbinnen). Geen fout gevonden die de stem moet veranderen. Wel geknipt: een verwijzing naar een film die niet bestaat (zie Aanpassingen). |
 
 ## Bronnen
 
@@ -36,6 +36,12 @@
 | B23 | B | Sensoa, Zanzu, *De pil* | https://zanzu.be/nl/de-pil | 29 okt 2026 |
 | B24 | A | NHS, *What is the combined pill?* | https://www.nhs.uk/contraception/methods-of-contraception/combined-pill/what-is-it/ | 29 okt 2026 |
 | B25 | B | WikiVet, *Positive Feedback — Anatomy & Physiology* | https://en.wikivet.net/Positive_Feedback_-_Anatomy_%26_Physiology | 29 okt 2026 |
+| B26 | A | Neumann K., Depenbusch M., Schultze-Mosgau A., Griesinger G. (2020), *Characterization of early pregnancy placental progesterone production by use of dydrogesterone in programmed frozen-thawed embryo transfer cycles*, Reproductive BioMedicine Online 40(5): 743–751 (samenvatting) | https://research.uni-luebeck.de/en/publications/characterization-of-early-pregnancy-placental-progesterone-produc/ | 29 okt 2026 |
+| B27 | B | McKenzie L.J. en Buster J.E., *Progesterone in early pregnancy: measuring it, giving it*, Contemporary OB/GYN, 1 maart 2004 (bespreekt Csapo e.a. 1972) | https://www.contemporaryobgyn.net/view/cover-story-progesterone-early-pregnancy-measuring-it-giving-it | 29 okt 2026 |
+| B28 | A | University of Sheffield Health Service, *How to take the combined contraceptive pill* (eigen patiëntinformatie van de universitaire huisartsenpraktijk) | https://sheffield.ac.uk/health-service/more-services/information-resources/sexual-health/how-take-combined-contraceptive-pill | 29 okt 2026 |
+| B29 | B | OLVG (ziekenhuis Amsterdam), folder 0467 *Anticonceptie: voorkomen van een zwangerschap*, 8 aug 2018 | https://olvg-web-prod.azurewebsites.net/media/3v3nerfh/anticonceptie-voorkomen-van-een-zwangerschap-0467_0.pdf | 29 okt 2026 |
+| B30 | B | Reproductive Health Access Project, *Bleeding on Hormonal Birth Control*, maart 2026 | https://www.reproductiveaccess.org/wp-content/uploads/2026/03/2026-03-Bleeding-on-Hormonal-Birth-Control_Final.pdf | 29 okt 2026 |
+| B31 | A | NHG, *NHG-Standaard Anticonceptie (M02)*, versie 2.2, mei 2020 (pdf-kopie bij ec-ec.org), tabel 3 en § continu gebruik | https://www.ec-ec.org/wp-content/uploads/2021/11/NHG-NETHERLANDS-CONTRACEPTION-GUIDE-2020.pdf | 29 okt 2026 |
 
 Niet meegeteld (geopend, maar alleen een captcha of zonder bronvermelding): PMC/PubMed-pagina's (Wallace & Kelsey 2010, Csapo 1972, NBK532300), pathologystudent.com (geen auteur, geen bronnen).
 
@@ -64,7 +70,7 @@ Niet meegeteld (geopend, maar alleen een captcha of zonder bronvermelding): PMC/
 | 19 | s25–s26 | Calcium → corticale reactie: geen tweede zaadcel; meiose II wordt afgemaakt; zygote met 46 chromosomen | B6, B8 | ✓ | |
 | 20 | s29–s31 | Klieving zonder groei, blastocyste met trofoblast, innesteling vanaf ± dag 6; trofoblast maakt hCG dat het gele lichaam in stand houdt | B2, B10, B11 | ✓ | B2: innesteling eind eerste week, hCG houdt het gele lichaam in leven; B10: dag 5–6; B11: hCG vanaf ± 6 dagen na de bevruchting |
 | 21 | s32 | Een zwangerschapstest meet hCG en is betrouwbaar vanaf de dag van de verwachte menstruatie | B11 | ≈ | B11 letterlijk; een tweede onafhankelijke bron nog niet geopend |
-| 22 | s32 | Rond week acht tot tien neemt de placenta de productie van progesteron over | B7, B3 | ≈ | Bronnen verschillen in hoe ze het tellen: B7 'luteal-placental shift' rond week 7–9; B3 de placenta neemt het geleidelijk over in week 12–17 vanaf de laatste menstruatie. 'Rond week acht tot tien' ligt bij het omslagpunt; geen aanpassing |
+| 22 | s32 | Rond week acht tot tien neemt de placenta de productie van progesteron over | B7, B26, B27 | ✓ | 3.1: B7 'luteal-placental shift' ± week 7–9 van de zwangerschap; B26 (samenvatting): 'the onset of substantial progesterone production is the 7th gestational week'; B27: tot ± week 7 hangt het af van het gele lichaam, de shift 'occurs between 7 and 10 weeks', gele lichaam weghalen vóór week 7 gaf bijna altijd een miskraam. De overgang is geleidelijk (± week 7–10). De stem 'rond week acht tot tien' valt binnen dat venster en blijft; beeld (tijdlijn) en docentdeel tonen nu de geleidelijke overgang 7–10 (zie Aanpassingen). B3 (OpenStax: geleidelijk tot week 12–17) niet opnieuw te openen in deze ronde |
 | 23 | s35–s36 | Vlokken in holtes met moederbloed, een dunne laag cellen ertussen: het bloed mengt niet | B2, B10 | ✓ | |
 | 24 | s36 | Zuurstof, glucose, aminozuren, alcohol, nicotine en sommige virussen gaan door de placenta | B2, B10 | ✓ | B2: zuurstof, voedingsstoffen, alcohol, nicotine, 'certain pathogens'; B10: virussen. Antistoffen: zie 25 |
 | 25 | s36 | Antistoffen van de moeder worden doorgegeven | — | ? | Niet in de geopende bronnen (standaardleerstof: IgG passeert actief); nog na te gaan |
@@ -73,7 +79,7 @@ Niet meegeteld (geopend, maar alleen een captcha of zonder bronvermelding): PMC/
 | 28 | s38–s40, q42 | Tot ± week 6 één aanleg met buizen van Wolff en Müller; SRY → zaadbal; testosteron houdt Wolff in stand; zonder deze signalen vrouwelijk; bij een niet werkende androgeenreceptor: zaadballen, geen baarmoeder, uitwendig vrouwelijk | B17, B18, B19 | ✓ | B18: beide buizen week 4–7, SRY; B17: Leydig-testosteron, Wolff/Müller; B19: CAIS 'lack internal female reproductive organs', uitwendig vrouwelijk. Anti-Müllerhormoon zelf alleen in B19 ('Müllerian inhibiting factor'): ≈ voor die deelbewering |
 | 29 | s43–s44 | Rek van de baarmoederhals → hypothalamus → oxytocine uit de achterkwab → wee, versterkt zichzelf | B3, B25 | ✓ | B3: positieve terugkoppeling, oxytocine uit de achterkwab |
 | 30 | s45–s46 | De pil houdt de spiegels hoog, remt via terugkoppeling de LH-piek: geen eisprong; drie dagen vergeten kan toch een eisprong geven | B24, B23, B1 | ≈ | B24: 'stopping the ovaries releasing an egg'; B23: bij 2+ vergeten pillen condoom/noodpil. Taai slijm: niet in de geopende bronnen |
-| 31 | s46 | De bloeding in de stopweek is een onttrekkingsbloeding, geen echte menstruatie | B23 | ? | B23 noemt het 'jouw menstruatie' (eenvoudige taal); de fysiologie (onttrekkingsbloeding) staat in leerboeken, nog niet met twee geopende bronnen |
+| 31 | s46 | De bloeding in de stopweek is een onttrekkingsbloeding, geen echte menstruatie | B31, B28, B29, B30 | ✓ | 3.1: B31 (NHG): bloedingspatroon combinatiepil 'in stopweek onttrekkingsbloeding'; B28: 'This "period" is completely artificial … It is called a hormone withdrawal bleed'; B29: 'een bloeding die op een menstruatie lijkt, maar onttrekkingsbloeding wordt genoemd'; B30: 'The bleeding you have each month is called withdrawal bleeding'. B23 (Zanzu) noemt het in eenvoudige taal 'je menstruatie'. Blijft staan (keuze 12) |
 | 32 | s47 | De morning-afterpil stelt de LH-piek en de eisprong uit en werkt alleen vóór de LH-piek | B14 | ✓ | FIGO/ICEC (B14) is de gezaghebbende verklaring; geen abortuspil |
 | 33 | s47 | Mifepriston blokkeert de progesteronreceptor; het slijmvlies wordt afgestoten | — | ? | Bronnen die ik probeerde (Cureus, Canadese handleiding) waren niet te openen |
 | 34 | s48 | Een condoom beschermt; hiv infecteert T-helpercellen, het aantal daalt, aids; virusremmers onderdrukken maar verwijderen niet | B15 | ≈ | B15: 'targets the body's white blood cells', AIDS, ART verlaagt de hoeveelheid virus, geen genezing. CD4 = T-helpercel staat niet letterlijk in B15 |
@@ -88,6 +94,8 @@ Niet meegeteld (geopend, maar alleen een captcha of zonder bronvermelding): PMC/
 |---|---|---|---|
 | H1 s04: verwijzing naar een andere film | 'Hoe de meiose zelf verloopt, zag je in de film 'Eén wordt twee'.' (gesproken en in beeld) | Zin uit de take geknipt (3,9 s); in beeld 'meiose zelf: zie de film Celdeling' | Geen vakinhoudelijke fout: de film 'Eén wordt twee' bestaat niet in de repo; de meiose staat in Celdeling. Knippen kost geen credits (prompt B14, 'cut before recording') |
 | Navelstreng (H9 s43–s44, H7 s35) | slagaders rood, ader blauw (castNavelstreng); in de placenta zuurstofarm blauwpaars | `bioNavelstreng` en `placentaDoorsnede(… kleurO2: false)`: slagaders blauw, ader rood | B2 (zuurstofarm via de slagaders, zuurstofrijk via de ader); kleurregel Kamiel 28 okt 2026 |
+
+| Tijdlijn placenta (s32, beeld) en docentdeel (getallen) | balk 'placenta neemt het over' vanaf week 8, gele lichaam tot week 10, tekst 'vanaf week 8–10 is het gele lichaam niet meer nodig'; docentdeel 'week 8–10, leerboek' | overgangsband week 7–10: gele lichaam dooft geleidelijk uit, placenta groeit vanaf week 7; tekst 'geleidelijk, rond week 7–10 van de zwangerschap'; docentdeel met de bronnen | B7, B26, B27 (bewering 22). Geen fout in de stem: 'rond week acht tot tien' valt binnen het venster |
 
 Geen beweringen met `!`.
 
