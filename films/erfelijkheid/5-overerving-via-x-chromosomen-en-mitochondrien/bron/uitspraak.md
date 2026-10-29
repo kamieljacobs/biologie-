@@ -26,3 +26,7 @@ Stem Roos, eleven_v4, één take per alinea (28 okt 2026, flow `GdHrddvvf18QZtim
 | rood-groen | gewoon | s02 | koppelteken niet als 'min' |
 
 Geen Scribe-transcriptie gedaan (brief fase 2: alleen bij twijfel). Kamiel luistert de alinea's met genotypen (s14, s15, s25, s35) in de volgende luisterbatch; klinkt iets fout, dan alleen die alinea opnieuw inspreken.
+
+## Beluisterd door Kamiel (29 okt 2026)
+
+De wachtlijst hierboven is beluisterd in de film zelf (luisterpagina, zie films/UITSPRAAK.md): Alle andere woorden goedgekeurd zoals ingesproken.

@@ -28,3 +28,7 @@ Er is geen blinde transcriptie gedaan (brief fase 2: geen Scribe van hele films)
 | grote G / kleine g | gewoon | s04, s05, s09, s11, s17 | 'g' als Nederlands 'gee', niet Engels 'djie' |
 | raszuiver | gewoon | s05, s23 | — |
 | stuifmeel | gewoon | s12 | — |
+
+## Beluisterd door Kamiel (29 okt 2026)
+
+De wachtlijst hierboven is beluisterd in de film zelf (luisterpagina, zie films/UITSPRAAK.md): Alle andere woorden goedgekeurd zoals ingesproken.

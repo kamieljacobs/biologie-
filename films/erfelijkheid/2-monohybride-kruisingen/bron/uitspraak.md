@@ -34,3 +34,7 @@ Stem Roos, eleven_v4, één take per alinea (28 okt 2026). Toegepast: de central
 | kiel, meeldraden, stamper | s04, s06 | — |
 
 Goedgekeurde keuzes daarna in `films/UITSPRAAK.md` en `films/uitspraak.json` zetten (hoofdsessie); de erwt-regels kunnen daar meteen bij.
+
+## Beluisterd door Kamiel (29 okt 2026)
+
+De wachtlijst hierboven is beluisterd in de film zelf (luisterpagina, zie films/UITSPRAAK.md): Alle andere woorden goedgekeurd zoals ingesproken.

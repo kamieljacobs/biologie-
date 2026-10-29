@@ -150,3 +150,21 @@ Luisterpagina https://claude.ai/artifact/K3YNurbu7mGVzPFfqt33Ra (collectie `keuz
 | Iᴬ, Iᴮ, i (bloedgroep) | I-A, I-B, i (dus IᴬIᴮ = 'I-A I-B', Iᴬi = 'I-A i', ii = 'i i') | ie-aa ie-bee / kleine ie; grote I A / kleine i |
 
 Les: bij eleven_v4 is 'allel' met de gewone spelling goed; een losse misser in één take = die alinea opnieuw (één take), geen respelling.
+
+## Beluisterd in de films Erfelijkheid 1–6 (29 okt 2026)
+
+Kamiel beluisterde 77 fragmenten uit de nieuwe films zelf (luisterpagina https://claude.ai/artifact/1heR155ADjngDCZxBKFDRz, collecties `uitspraak` en `tekeningen`). Alles goed, op één take na: 'allelen' in Chromosomen s20 (losse misser, alinea opnieuw ingesproken; 'allel'/'allelen' in de andere films klonk goed).
+
+Goedgekeurd met een eigen stem-invoer (film-eigen regels, mogen centraal gebruikt worden):
+
+- n, 2n (stem: en, twee-en)
+- X-chromosomen, X, Y-chromosoom (stem: iks, ei)
+- tweeënnegentig (stem: tweeënneguntig)
+- F1 / F2 (stem: F-één, F-twee)
+- R, W, RR, RW, WW (stem: losse letters)
+- G, g, GG, Gg (stem: grote G, kleine g)
+- XX, XY (stem: iks iks, iks ei)
+- Xᴬ, Xᵃ (stem: iks grote A, iks kleine a)
+- A_ (stem: grote A streepje)
+
+Goedgekeurd zoals ingesproken (gewone spelling of de stem-invoer in `bron/uitspraak.md` van de film): Gregor Mendel, Huntington, Latijnse, Mendel, P-generatie, Romeins, UV-licht, Victoria, Leopold, XᴬXᵃ, XᴬY, XᵃY, XᵃXᵃ, aardbeien, antigeen / antigenen, autosomen, autosoom, bloedgroep O, codominant, dragerschapstest, driehonderdvijftien, honderdeen, honderdacht, tweeëndertig, een half, een kwart, een zesde, een zestiende, embryo, fenotype, grote G / kleine g, hemofilie, heterozygoot, heterozygoot / homozygoten, homozygoot, inteelt, intermediair, karyogram, kegeltjes, netvlies, kiel, meeldraden, stamper, klinisch geneticus, leeuwenbek, letale factor, melanine, mitochondriaal DNA, mitochondriën, monohybride, multipele allelen, onvolledig dominant, polygene overerving, productregel, raszuiver, recombinant, rood-groen, stuifmeel, taaislijmziekte, terugkruising, homozygoot recessief, twee derde, tyrosinase, vierendertig, wél, zevenhonderdvijf, tweehonderdvierentwintig, zusterchromatiden, één staat tot twee staat tot één, óf.

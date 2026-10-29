@@ -34,3 +34,7 @@ Na de opname: blind transcriberen (B5) de alinea's met een risicowoord (s01, s05
 ## Na de opname (28 okt 2026)
 
 Ingesproken met eleven_v4, één take per alinea, flow `wrxM7cKAWDBF2BY7lEF4`. Stem-invoer per alinea in `stem/voice.txt` en in `script.md`. Film-eigen regels in `uitspraak_film.json`: A_ → 'grote A streepje', 'wél' → 'wel', 'mét' → 'met', 'óf' → 'of' (de nadruk staat alleen in de ondertitel; voorkomt 'weel'/'oof'), plus de A/a-regels van Chromosomen. Geen Scribe-transcriptie (brief fase 2: te duur); te beluisteren alinea's met een nieuw risicowoord: s01 (taaislijmziekte, allel), s06 en s07 (Huntington), s11 (iks-chromosoom, autosoom), s14 (grote A streepje), s27 (klinisch geneticus, dragerschapstest).
+
+## Beluisterd door Kamiel (29 okt 2026)
+
+De wachtlijst hierboven is beluisterd in de film zelf (luisterpagina, zie films/UITSPRAAK.md): Alle andere woorden goedgekeurd zoals ingesproken.

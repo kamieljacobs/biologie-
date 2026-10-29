@@ -35,3 +35,7 @@ Al eerder vastgesteld en hier gebruikt: bloedgroep AB = 'A B' (met spatie); de l
 | embryo | gewoon (EM-bri-o) | s18 | — |
 | één staat tot twee staat tot één | gewoon | s07 | — |
 | een kwart, een half | gewoon | s07, s14 | — |
+
+## Beluisterd door Kamiel (29 okt 2026)
+
+De wachtlijst hierboven is beluisterd in de film zelf (luisterpagina, zie films/UITSPRAAK.md): Alle andere woorden goedgekeurd zoals ingesproken.
