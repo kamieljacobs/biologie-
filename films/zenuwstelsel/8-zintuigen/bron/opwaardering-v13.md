@@ -2,7 +2,7 @@
 
 Versie 1.0 → 1.1. Stem, script, vragen, timing en speler zijn gelijk gebleven. Oude versie: `bron/oud/8-zintuigen-v1.0.html` (en `oud/scenes-v1.0.js`).
 
-## (a) Herinspreeklijst (wacht op Kamiels akkoord)
+## (a) Herinspreeklijst — uitgevoerd 29 okt 2026 (versie 1.2, 1.571 credits; s12 werd 'Terug naar de sporter.' en 'ziet ze weer iets'; zie info.md)
 
 Reden: de naam van een castpersonage wordt niet meer uitgesproken (prompt v13, B4). Roos, eleven_v4, één take per alinea, daarna Scribe en `align.py` (`info.md` → 'Hoe je de film aanpast').
 
@@ -16,7 +16,7 @@ Totaal ± 2.000 credits (TTS + Scribe). Gratis deel-alternatief voor s12: 'Terug
 
 ## (b) Vragen aan Kamiel (niet gedaan)
 
-1. **Oudziend 'vanaf je veertigste'** (s10): het National Eye Institute zegt 'meestal na 45 jaar'. Meenemen bij een volgende opname ('rond je vijfenveertigste')? Zie `bronnen.md`, bewering 8.
+1. **(Beslist 29 okt: label 'rond je 40e–45e', stem blijft.)** **Oudziend 'vanaf je veertigste'** (s10): het National Eye Institute zegt 'meestal na 45 jaar'. Meenemen bij een volgende opname ('rond je vijfenveertigste')? Zie `bronnen.md`, bewering 8.
 2. **Oog en oor uit de bibliotheek?** Oog (doorsnede), oor (uitwendig, midden, binnen) en evenwichtsorgaan zijn eigen tekeningen van deze film; de bibliotheek heeft ze niet. Wil je dat ik ze als nieuwe bibliotheekobjecten laat maken (testvel + keuring), zodat andere films ze ook gebruiken?
 3. **Evenwichtsorgaan** blijft vereenvoudigd (drie losse bogen, één blaasje met 'er zijn er twee'). Een echtere tekening (kanalen die op elkaar staan, ampullen) is een nieuwe tekening: na keuring?
 4. **Sporter in de schermtekst**: titelkaart en vraagkaart zeggen nu 'een sporter' en 'je'. Goed zo?

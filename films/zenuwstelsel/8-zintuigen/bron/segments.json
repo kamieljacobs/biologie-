@@ -6,12 +6,12 @@
   "look": "Macro: avond; een fel verlicht kunstgrasveld; een meisje loopt na de training een donker fietspad op",
   "level": "basis",
   "lines": [
-   "Noor traint op een fel verlicht kunstgrasveld. Na de training loopt ze een donker fietspad op.",
+   "Een sporter traint op een fel verlicht kunstgrasveld. Na de training loopt ze een donker fietspad op.",
    "Eerst ziet ze bijna niets. Na een tijdje ziet ze weer de bomen en het pad. Maar alles lijkt grijs: haar rode jas lijkt bijna zwart.",
    "Waarom duurt het even voordat ze weer iets ziet, en waarom zonder kleur? Wat denk je?"
   ],
-  "display": "Noor traint op een fel verlicht kunstgrasveld. Na de training loopt ze een donker fietspad op. Eerst ziet ze bijna niets. Na een tijdje ziet ze weer de bomen en het pad. Maar alles lijkt grijs: haar rode jas lijkt bijna zwart. Waarom duurt het even voordat ze weer iets ziet, en waarom zonder kleur? Wat denk je?",
-  "voice": "Noor traint op een fel verlicht kunstgrasveld. Na de training loopt ze een donker fietspad op. Eerst ziet ze bijna niets. Na een tijdje ziet ze weer de bomen en het pad. Maar alles lijkt grijs: haar rode jas lijkt bijna zwart. Waarom duurt het even voordat ze weer iets ziet, en waarom zonder kleur? Wat denk je?",
+  "display": "Een sporter traint op een fel verlicht kunstgrasveld. Na de training loopt ze een donker fietspad op. Eerst ziet ze bijna niets. Na een tijdje ziet ze weer de bomen en het pad. Maar alles lijkt grijs: haar rode jas lijkt bijna zwart. Waarom duurt het even voordat ze weer iets ziet, en waarom zonder kleur? Wat denk je?",
+  "voice": "Een sporter traint op een fel verlicht kunstgrasveld. Na de training loopt ze een donker fietspad op. Eerst ziet ze bijna niets. Na een tijdje ziet ze weer de bomen en het pad. Maar alles lijkt grijs: haar rode jas lijkt bijna zwart. Waarom duurt het even voordat ze weer iets ziet, en waarom zonder kleur? Wat denk je?",
   "vmap": [
    0,
    1,
@@ -70,7 +70,8 @@
    54,
    55,
    56,
-   57
+   57,
+   58
   ]
  },
  {
@@ -688,11 +689,11 @@
   "look": "Micro: netvlies met staafjes en kegeltjes; gele vlek; blinde vlek; donkeradaptatie in twee fasen",
   "level": "basis",
   "lines": [
-   "Terug naar Noor. Antwoord bee. Misschien dacht je: haar pupil wordt groter. Dat gebeurt ook, maar binnen een paar seconden, en het helpt maar een beetje.",
-   "Het meeste gebeurt in de staafjes. In fel licht is hun lichtgevoelige stof grotendeels afgebroken. In het donker wordt die stof weer aangemaakt. Na een minuut of tien ziet Noor weer iets, na twintig tot dertig minuten het best. Staafjes zien geen kleur, en ze zijn haast blind voor rood licht. Daarom leek haar rode jas bijna zwart. Dit heet adaptatie. Andersom gaat het snel: kom je uit het donker in het licht, dan ben je binnen een minuut gewend."
+   "Terug naar de sporter. Antwoord bee. Misschien dacht je: haar pupil wordt groter. Dat gebeurt ook, maar binnen een paar seconden, en het helpt maar een beetje.",
+   "Het meeste gebeurt in de staafjes. In fel licht is hun lichtgevoelige stof grotendeels afgebroken. In het donker wordt die stof weer aangemaakt. Na een minuut of tien ziet ze weer iets, na twintig tot dertig minuten het best. Staafjes zien geen kleur, en ze zijn haast blind voor rood licht. Daarom leek haar rode jas bijna zwart. Dit heet adaptatie. Andersom gaat het snel: kom je uit het donker in het licht, dan ben je binnen een minuut gewend."
   ],
-  "display": "Terug naar Noor. Antwoord bee. Misschien dacht je: haar pupil wordt groter. Dat gebeurt ook, maar binnen een paar seconden, en het helpt maar een beetje. Het meeste gebeurt in de staafjes. In fel licht is hun lichtgevoelige stof grotendeels afgebroken. In het donker wordt die stof weer aangemaakt. Na een minuut of tien ziet Noor weer iets, na twintig tot dertig minuten het best. Staafjes zien geen kleur, en ze zijn haast blind voor rood licht. Daarom leek haar rode jas bijna zwart. Dit heet adaptatie. Andersom gaat het snel: kom je uit het donker in het licht, dan ben je binnen een minuut gewend.",
-  "voice": "Terug naar Noor. Antwoord bee. Misschien dacht je: haar pupil wordt groter. Dat gebeurt ook, maar binnen een paar seconden, en het helpt maar een beetje. Het meeste gebeurt in de staafjes. In fel licht is hun lichtgevoelige stof grotendeels afgebroken. In het donker wordt die stof weer aangemaakt. Na een minuut of tien ziet Noor weer iets, na twintig tot dertig minuten het best. Staafjes zien geen kleur, en ze zijn haast blind voor rood licht. Daarom leek haar rode jas bijna zwart. Dit heet adaptatie. Andersom gaat het snel: kom je uit het donker in het licht, dan ben je binnen een minuut gewend.",
+  "display": "Terug naar de sporter. Antwoord bee. Misschien dacht je: haar pupil wordt groter. Dat gebeurt ook, maar binnen een paar seconden, en het helpt maar een beetje. Het meeste gebeurt in de staafjes. In fel licht is hun lichtgevoelige stof grotendeels afgebroken. In het donker wordt die stof weer aangemaakt. Na een minuut of tien ziet ze weer iets, na twintig tot dertig minuten het best. Staafjes zien geen kleur, en ze zijn haast blind voor rood licht. Daarom leek haar rode jas bijna zwart. Dit heet adaptatie. Andersom gaat het snel: kom je uit het donker in het licht, dan ben je binnen een minuut gewend.",
+  "voice": "Terug naar de sporter. Antwoord bé. Misschien dacht je: haar pupil wordt groter. Dat gebeurt ook, maar binnen een paar seconden, en het helpt maar een beetje. Het meeste gebeurt in de staafjes. In fel licht is hun lichtgevoelige stof grotendeels afgebroken. In het donker wordt die stof weer aangemaakt. Na een minuut of tien ziet ze weer iets, na twintig tot dertig minuten het best. Staafjes zien geen kleur, en ze zijn haast blind voor rood licht. Daarom leek haar rode jas bijna zwart. Dit heet adaptatie. Andersom gaat het snel: kom je uit het donker in het licht, dan ben je binnen een minuut gewend.",
   "vmap": [
    0,
    1,
@@ -799,7 +800,8 @@
    102,
    103,
    104,
-   105
+   105,
+   106
   ]
  },
  {
@@ -1439,16 +1441,16 @@
   "id": "s20",
   "kind": "speech",
   "chapter": "Recap",
-  "look": "Macro: Noor op het donkere fietspad; nu ziet ze de bomen",
+  "look": "Macro: de sporter op het donkere fietspad; nu ziet ze de bomen",
   "level": "basis",
   "lines": [
-   "Waarom zag Noor op het donkere pad eerst niets, en daarna alles grijs?",
+   "Waarom zag de sporter op het donkere pad eerst niets, en daarna alles grijs?",
    "In het felle licht werkten vooral haar kegeltjes. De lichtgevoelige stof in haar staafjes was afgebroken. In het donker werd die weer aangemaakt, en dat duurt minuten. Staafjes zien geen kleur.",
    "Het antwoord was dus bee: andere cellen in haar ogen nemen het over, en die moeten opladen.",
    "In de film Eén seconde zag je hoe een receptor een impuls maakt. Vandaag zag je hoe je oog en je oor de prikkel eerst opvangen. Het hoornvlies en de lens richten het licht, de gehoorbeentjes versterken de trilling. Pas daarna maken staafjes, kegeltjes en haarcellen er een impuls van."
   ],
-  "display": "Waarom zag Noor op het donkere pad eerst niets, en daarna alles grijs? In het felle licht werkten vooral haar kegeltjes. De lichtgevoelige stof in haar staafjes was afgebroken. In het donker werd die weer aangemaakt, en dat duurt minuten. Staafjes zien geen kleur. Het antwoord was dus bee: andere cellen in haar ogen nemen het over, en die moeten opladen. In de film Eén seconde zag je hoe een receptor een impuls maakt. Vandaag zag je hoe je oog en je oor de prikkel eerst opvangen. Het hoornvlies en de lens richten het licht, de gehoorbeentjes versterken de trilling. Pas daarna maken staafjes, kegeltjes en haarcellen er een impuls van.",
-  "voice": "Waarom zag Noor op het donkere pad eerst niets, en daarna alles grijs? In het felle licht werkten vooral haar kegeltjes. De lichtgevoelige stof in haar staafjes was afgebroken. In het donker werd die weer aangemaakt, en dat duurt minuten. Staafjes zien geen kleur. Het antwoord was dus bee: andere cellen in haar ogen nemen het over, en die moeten opladen. In de film Eén seconde zag je hoe een reseptor een impuls maakt. Vandaag zag je hoe je oog en je oor de prikkel eerst opvangen. Het hoornvlies en de lens richten het licht, de gehoorbeentjes versterken de trilling. Pas daarna maken staafjes, kegeltjes en haarcellen er een impuls van.",
+  "display": "Waarom zag de sporter op het donkere pad eerst niets, en daarna alles grijs? In het felle licht werkten vooral haar kegeltjes. De lichtgevoelige stof in haar staafjes was afgebroken. In het donker werd die weer aangemaakt, en dat duurt minuten. Staafjes zien geen kleur. Het antwoord was dus bee: andere cellen in haar ogen nemen het over, en die moeten opladen. In de film Eén seconde zag je hoe een receptor een impuls maakt. Vandaag zag je hoe je oog en je oor de prikkel eerst opvangen. Het hoornvlies en de lens richten het licht, de gehoorbeentjes versterken de trilling. Pas daarna maken staafjes, kegeltjes en haarcellen er een impuls van.",
+  "voice": "Waarom zag de sporter op het donkere pad eerst niets, en daarna alles grijs? In het felle licht werkten vooral haar kegeltjes. De lichtgevoelige stof in haar staafjes was afgebroken. In het donker werd die weer aangemaakt, en dat duurt minuten. Staafjes zien geen kleur. Het antwoord was dus bé: andere cellen in haar ogen nemen het over, en die moeten opladen. In de film Eén seconde zag je hoe een reseptor een impuls maakt. Vandaag zag je hoe je oog en je oor de prikkel eerst opvangen. Het hoornvlies en de lens richten het licht, de gehoorbeentjes versterken de trilling. Pas daarna maken staafjes, kegeltjes en haarcellen er een impuls van.",
   "vmap": [
    0,
    1,
@@ -1560,7 +1562,8 @@
    107,
    108,
    109,
-   110
+   110,
+   111
   ]
  },
  {

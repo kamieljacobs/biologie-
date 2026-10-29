@@ -1,7 +1,15 @@
 {
  "s01": {
-  "dur": 21.0,
-  "generation_id": "KszvVcYQ6bL7ZVXLgO9g"
+  "dur": 21.24,
+  "generation_id": "I0J2jaI9RMSs0YlWkpIz",
+  "datum": "2026-10-29",
+  "credits": 319,
+  "model": "eleven_v4",
+  "stem_invoer": "Een sporter traint op een fel verlicht kunstgrasveld. Na de training loopt ze een donker fietspad op. Eerst ziet ze bijna niets. Na een tijdje ziet ze weer de bomen en het pad. Maar alles lijkt grijs: haar rode jas lijkt bijna zwart. Waarom duurt het even voordat ze weer iets ziet, en waarom zonder kleur? Wat denk je?",
+  "vorige": {
+   "dur": 21.0,
+   "generation_id": "KszvVcYQ6bL7ZVXLgO9g"
+  }
  },
  "s04": {
   "dur": 38.53,
@@ -28,8 +36,16 @@
   "generation_id": "dgx8gxgrxxY6Vhy0aQed"
  },
  "s12": {
-  "dur": 38.61,
-  "generation_id": "7kp3Bo2itkqsXb0lf96Y"
+  "dur": 38.77,
+  "generation_id": "V7apmdpZML9LT6BZJz13",
+  "datum": "2026-10-29",
+  "credits": 606,
+  "model": "eleven_v4",
+  "stem_invoer": "Terug naar de sporter. Antwoord bé. Misschien dacht je: haar pupil wordt groter. Dat gebeurt ook, maar binnen een paar seconden, en het helpt maar een beetje. Het meeste gebeurt in de staafjes. In fel licht is hun lichtgevoelige stof grotendeels afgebroken. In het donker wordt die stof weer aangemaakt. Na een minuut of tien ziet ze weer iets, na twintig tot dertig minuten het best. Staafjes zien geen kleur, en ze zijn haast blind voor rood licht. Daarom leek haar rode jas bijna zwart. Dit heet adaptatie. Andersom gaat het snel: kom je uit het donker in het licht, dan ben je binnen een minuut gewend.",
+  "vorige": {
+   "dur": 38.61,
+   "generation_id": "7kp3Bo2itkqsXb0lf96Y"
+  }
  },
  "s13": {
   "dur": 41.56,
@@ -59,7 +75,15 @@
   "heropname": "uitspraak 19 okt 2026"
  },
  "s20": {
-  "dur": 40.75,
-  "generation_id": "u2pjapw3xilzRXFjgwUZ"
+  "dur": 41.17,
+  "generation_id": "KMzWP4mAWuRmmJ6SFKxM",
+  "datum": "2026-10-29",
+  "credits": 646,
+  "model": "eleven_v4",
+  "stem_invoer": "Waarom zag de sporter op het donkere pad eerst niets, en daarna alles grijs? In het felle licht werkten vooral haar kegeltjes. De lichtgevoelige stof in haar staafjes was afgebroken. In het donker werd die weer aangemaakt, en dat duurt minuten. Staafjes zien geen kleur. Het antwoord was dus bé: andere cellen in haar ogen nemen het over, en die moeten opladen. In de film Eén seconde zag je hoe een reseptor een impuls maakt. Vandaag zag je hoe je oog en je oor de prikkel eerst opvangen. Het hoornvlies en de lens richten het licht, de gehoorbeentjes versterken de trilling. Pas daarna maken staafjes, kegeltjes en haarcellen er een impuls van.",
+  "vorige": {
+   "dur": 40.75,
+   "generation_id": "u2pjapw3xilzRXFjgwUZ"
+  }
  }
 }

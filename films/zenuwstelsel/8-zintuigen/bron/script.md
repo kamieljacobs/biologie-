@@ -4,9 +4,9 @@ Zenuwstelsel · zintuigen · Roos (eleven_v4) · één take per alinea · audio 
 
 ## Cold open
 
-**s01** · 21.5 s · `audio/s01.mp3`
+**s01** · 21.5 s (opgenomen 29 okt 2026) · `audio/s01.mp3`
 
-Noor traint op een fel verlicht kunstgrasveld. Na de training loopt ze een donker fietspad op. Eerst ziet ze bijna niets. Na een tijdje ziet ze weer de bomen en het pad. Maar alles lijkt grijs: haar rode jas lijkt bijna zwart. Waarom duurt het even voordat ze weer iets ziet, en waarom zonder kleur? Wat denk je?
+Een sporter traint op een fel verlicht kunstgrasveld. Na de training loopt ze een donker fietspad op. Eerst ziet ze bijna niets. Na een tijdje ziet ze weer de bomen en het pad. Maar alles lijkt grijs: haar rode jas lijkt bijna zwart. Waarom duurt het even voordat ze weer iets ziet, en waarom zonder kleur? Wat denk je?
 
 **q02** (vraag): haar pupil wordt groter, en dat duurt een paar minuten · andere cellen in haar ogen nemen het over, en die moeten opladen · haar hersenen moeten wennen, haar ogen werken gewoon door
 
@@ -46,9 +46,9 @@ Antwoord cee. Bij bijziendheid is het oog vaak iets te lang. Het licht komt dan 
 
 In je netvlies zitten twee soorten lichtreceptoren. Kegeltjes zien kleur en details, maar alleen bij genoeg licht. Ze zitten het dichtst op elkaar in de gele vlek, recht achter de lens. Er zijn drie soorten kegeltjes: het gevoeligst voor rood, groen of blauw licht. Staafjes zijn veel gevoeliger, maar zien geen kleur. Ze zitten vooral aan de rand van het netvlies. Per oog heb je zo'n honderdtwintig miljoen staafjes, en zes miljoen kegeltjes. Waar de oogzenuw het oog verlaat, zitten helemaal geen receptoren: de blinde vlek.
 
-**s12** · 39.0 s · `audio/s12.mp3`
+**s12** · 39.0 s (opgenomen 29 okt 2026) · `audio/s12.mp3`
 
-Terug naar Noor. Antwoord bee. Misschien dacht je: haar pupil wordt groter. Dat gebeurt ook, maar binnen een paar seconden, en het helpt maar een beetje. Het meeste gebeurt in de staafjes. In fel licht is hun lichtgevoelige stof grotendeels afgebroken. In het donker wordt die stof weer aangemaakt. Na een minuut of tien ziet Noor weer iets, na twintig tot dertig minuten het best. Staafjes zien geen kleur, en ze zijn haast blind voor rood licht. Daarom leek haar rode jas bijna zwart. Dit heet adaptatie. Andersom gaat het snel: kom je uit het donker in het licht, dan ben je binnen een minuut gewend.
+Terug naar de sporter. Antwoord bee. Misschien dacht je: haar pupil wordt groter. Dat gebeurt ook, maar binnen een paar seconden, en het helpt maar een beetje. Het meeste gebeurt in de staafjes. In fel licht is hun lichtgevoelige stof grotendeels afgebroken. In het donker wordt die stof weer aangemaakt. Na een minuut of tien ziet ze weer iets, na twintig tot dertig minuten het best. Staafjes zien geen kleur, en ze zijn haast blind voor rood licht. Daarom leek haar rode jas bijna zwart. Dit heet adaptatie. Andersom gaat het snel: kom je uit het donker in het licht, dan ben je binnen een minuut gewend.
 
 **s13** · vwo · 41.7 s · `audio/s13.mp3`
 
@@ -80,9 +80,9 @@ Voor vwo gaan we hier nog een stap verder. De haarcellen in het slakkenhuis staa
 
 ## Recap
 
-**s20** · 41.2 s · `audio/s20.mp3`
+**s20** · 41.4 s (opgenomen 29 okt 2026) · `audio/s20.mp3`
 
-Waarom zag Noor op het donkere pad eerst niets, en daarna alles grijs? In het felle licht werkten vooral haar kegeltjes. De lichtgevoelige stof in haar staafjes was afgebroken. In het donker werd die weer aangemaakt, en dat duurt minuten. Staafjes zien geen kleur. Het antwoord was dus bee: andere cellen in haar ogen nemen het over, en die moeten opladen. In de film Eén seconde zag je hoe een receptor een impuls maakt. Vandaag zag je hoe je oog en je oor de prikkel eerst opvangen. Het hoornvlies en de lens richten het licht, de gehoorbeentjes versterken de trilling. Pas daarna maken staafjes, kegeltjes en haarcellen er een impuls van.
+Waarom zag de sporter op het donkere pad eerst niets, en daarna alles grijs? In het felle licht werkten vooral haar kegeltjes. De lichtgevoelige stof in haar staafjes was afgebroken. In het donker werd die weer aangemaakt, en dat duurt minuten. Staafjes zien geen kleur. Het antwoord was dus bee: andere cellen in haar ogen nemen het over, en die moeten opladen. In de film Eén seconde zag je hoe een receptor een impuls maakt. Vandaag zag je hoe je oog en je oor de prikkel eerst opvangen. Het hoornvlies en de lens richten het licht, de gehoorbeentjes versterken de trilling. Pas daarna maken staafjes, kegeltjes en haarcellen er een impuls van.
 
 ## Eindkaart
 

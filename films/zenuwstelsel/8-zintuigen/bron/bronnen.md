@@ -4,7 +4,7 @@ Werkwijze en criteria: `films/BRONNEN.md`.
 
 | Veld | Waarde |
 |---|---|
-| Gecontroleerde versie | 1.1 (28 okt 2026; gesproken tekst gelijk aan 1.0) |
+| Gecontroleerde versie | 1.1 (28 okt 2026; gesproken tekst gelijk aan 1.0); 1.2 (29 okt 2026) alleen de naam uit s01, s12, s20 en het label bij bewering 8 |
 | Eerste ronde | Claude, 28 okt 2026: 31 beweringen, 10 bronnen geopend. PubMed, PMC en NCBI Bookshelf (Webvision, Purves) waren niet bereikbaar (captcha of geblokkeerd); veel beweringen rusten daardoor nog op één bron. |
 | Steekproef | nog niet gedaan |
 | Vakexpert | geen (bij de bouw las een 'expert'-review mee: `reviews/`, geen mens) |
@@ -38,7 +38,7 @@ Alle bronnen zijn op 28 okt 2026 zelf geopend.
 | 5 | s08 | Bij fel licht trekt een kringspier in de iris samen, de pupil wordt binnen een seconde kleiner (pupilreflex) | B10 | ? | B10: iris regelt de pupil; tijdsduur en kringspier niet geopend. |
 | 6 | s08, s10 | Bijziend: oog vaak te lang, beeld vóór het netvlies, ver weg wazig; holle lens | B2, B10 | ✓ | Holle (negatieve) brillenglazen niet letterlijk in de geopende bronnen; B10: corrigeren met lenzen. |
 | 7 | s10 | Verziend: oog te kort, beeld achter het netvlies; bolle lens | B2, B10 | ✓ | Idem voor de bolle lens. |
-| 8 | s10 | Vanaf je veertigste wordt je lens stugger: oudziend, leesbril | B2 | ≈ | B2: begint meestal na 45 jaar. 'Vanaf je veertigste' is ruim; bij een nieuwe opname 'vanaf ongeveer je veertigste tot vijftigste' of 'rond je vijfenveertigste' overwegen (vraag aan Kamiel). |
+| 8 | s10 | Vanaf je veertigste wordt je lens stugger: oudziend, leesbril (label sinds 1.2: 'rond je 40e–45e') | B2 | ≈ | B2: begint meestal na 45 jaar. Kamiel koos 29 okt 2026 het label 'rond je 40e–45e' in beeld; de stem ('vanaf je veertigste') is niet opnieuw ingesproken. |
 | 9 | s11 | Kegeltjes: kleur en details, alleen bij genoeg licht; het dichtst opeen in de gele vlek | B3 | ≈ | Eén bron (B). |
 | 10 | s11 | Drie soorten kegeltjes, het gevoeligst voor rood, groen of blauw licht | B3 | ≈ | Eén bron (B). |
 | 11 | s11 | Staafjes veel gevoeliger, geen kleur, vooral aan de rand van het netvlies | B3, B4 | ≈ | 'Vooral aan de rand' niet letterlijk geopend. |
@@ -65,7 +65,7 @@ Alle bronnen zijn op 28 okt 2026 zelf geopend.
 
 ## Aanpassingen
 
-- Geen `!`. Voorstel voor een volgende opname (geen vakfout): s10 'vanaf je veertigste' ruimer formuleren (bewering 8, B2: meestal na 45).
+- Geen `!`. 29 okt 2026 (versie 1.2): label oudziend in s10 'rond je 40e–45e' (bewering 8, B2); s01, s12, s20 opnieuw ingesproken zonder personagenaam, inhoud gelijk.
 - Nog te doen: niveau-A-bronnen openen voor het oog (Purves/Webvision via een bereikbare kopie) en voor 20–20 000 Hz, de drukversterking en de convergentie.
 
 ## Menselijke controle

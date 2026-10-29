@@ -5,12 +5,12 @@
 | Bestand | films/zenuwstelsel/8-zintuigen.html (audio in films/zenuwstelsel/8-zintuigen/audio/) |
 | Reeks / nummer | Zenuwstelsel, losse film 8 (aanvulling Regeling: zintuigen ontbrak, 14 okt 2026); bouwt voort op film 1 "Eén seconde" (receptor, prikkel, impuls). Film 7 "Slaap en stress" staat nog open |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blokken gelabeld: s13 (rodopsine, staafje wordt negatiever, convergentie) en s19 (basilair membraan, toonhoogte). Havo/Vwo-schakelaar, standaard Vwo |
-| Versie / datum | **1.1 · 28 oktober 2026** — opwaardering naar prompt v13 (B14, zonder keuring): alleen beeld en schermtekst, stem en timing ongewijzigd (oude versie in `bron/oud/8-zintuigen-v1.0.html`); 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus) |
+| Versie / datum | **1.2 · 29 oktober 2026** — keuzes Kamiel (regeling-keuzeblad): s01, s12, s20 opnieuw ingesproken zonder de naam Noor, kleuren volgens de reekstabel, label oudziend 'rond je 40e–45e' (oude versie in `bron/oud/8-zintuigen-v1.1.html`, `oud/scenes-v1.1.js`, `oud/audio-v1.1/`); 1.1 · 28 oktober 2026 — opwaardering naar prompt v13 (B14, zonder keuring): alleen beeld en schermtekst, stem en timing ongewijzigd (oude versie in `bron/oud/8-zintuigen-v1.0.html`); 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus) |
 | Prompt | v13 |
-| Voldoet aan | prompt v13 (28 okt 2026, zonder keuring). Bewust niet: de naam Noor staat nog in de stem (s01, s12, s20), want herinspreken wacht op Kamiels akkoord (lijst in `bron/opwaardering-v13.md`); oog, oor en evenwichtsorgaan blijven eigen tekeningen (de bibliotheek heeft geen zintuigdoorsneden; nieuwe tekeningen alleen na keuring); geen nieuwe caststijl met contourlijnen (nog niet goedgekeurd) |
-| Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow jwxXn0Jgpax90BkTRIQ3 "Zenuwstelsel · Zintuigen"; nodes in `stem/takes.json`) |
+| Voldoet aan | prompt v13 (28 okt 2026, zonder keuring). Bewust niet: oog, oor en evenwichtsorgaan blijven eigen tekeningen (de bibliotheek heeft geen zintuigdoorsneden; nieuwe tekeningen alleen na keuring); geen nieuwe caststijl met contourlijnen (nog niet goedgekeurd) |
+| Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow jwxXn0Jgpax90BkTRIQ3 "Zenuwstelsel · Zintuigen"; s01, s12, s20 sinds 29 okt in flow wS9UCTBpbrOEvwsDVfXg; nodes in `stem/takes.json`, stem-invoer en generatie-id in `stem/gen.json`) |
 | Duur | spraak 8:08 (vwo) / 6:55 (havo). Speeltijd met kaarten en vragen: vwo ≈ 10 min, havo ≈ 9 min |
-| Beeldstijl | Part C: Macro (avond, fel verlicht kunstgrasveld, donker fietspad met bomen, Noor in een rode jas die grijs wordt), Schema (doorsnede van het oog met hoornvlies, iris, lens, straalvormig lichaam, lensbandjes, netvlies, gele en blinde vlek, oogzenuw; lichtstralen; vooraanzicht iris en pupil; bijziend/verziend met brillenglazen; doorsnede van het oor met zones, gehoorbeentjes, buis van Eustachius, slakkenhuis, kanalen; evenwichtsorgaan met hoofd in profiel; slakkenhuis uitgerold), Micro (staafjes en kegeltjes, adaptatiegrafiek, rodopsine, convergentie, haarcellen, dB-tabel). Kleuren in `scenes.js`: `LICHT`, `NETV`, `IRIS`, `LENS`, `STRAAL`, `ZENUW`, kegeltjes `KEG` (rood, groen, blauw), `STAAF`, `SLAK`, `KANAAL`, `BOT` |
+| Beeldstijl | Part C: Macro (avond, fel verlicht kunstgrasveld, donker fietspad met bomen, Noor in een rode jas die grijs wordt), Schema (doorsnede van het oog met hoornvlies, iris, lens, straalvormig lichaam, lensbandjes, netvlies, gele en blinde vlek, oogzenuw; lichtstralen; vooraanzicht iris en pupil; bijziend/verziend met brillenglazen; doorsnede van het oor met zones, gehoorbeentjes, buis van Eustachius, slakkenhuis, kanalen; evenwichtsorgaan met hoofd in profiel; slakkenhuis uitgerold), Micro (staafjes en kegeltjes, adaptatiegrafiek, rodopsine, convergentie, haarcellen, dB-tabel). Kleuren in `scenes.js`: `LICHT`, `NETV` (ook receptor in de keten), `IRIS`, `LENS`, `STRAAL`, `ZENUW` (teal #5BA4C9 = zenuwsignaal: oogzenuw, gehoorzenuw, zenuwcellen, 'impuls'; signaalstof licht teal #9CCBE3; sinds 1.2), kegeltjes `KEG` (rood, groen, blauw), `STAAF`, `SLAK`, `KANAAL`, `BOT` |
 | Audio-opslag | 15 losse mp3's in audio/ (s01 … s20), loudnorm −15 LUFS, piek −1,5 dBTP, mono 44,1 kHz 96 kb/s; niet in de HTML ingebed |
 | Lettertypen | Fraunces 700, Source Sans 3 400/600/700, IBM Plex Mono 500 — ingebed als base64 |
 | Herkomst | gebouwd op 14 oktober 2026 met de bouwstraat van de voedingsreeks (`bouw/`) en de bibliotheek `lib_hormonen.js` (`person`, `circ`); helpers `tag`, `regel`, `kruis`, `vink` overgenomen uit de afweerreeks; oog, oor en receptoren nieuw getekend |
@@ -37,7 +37,7 @@
 
 | Hoofdstuk | Type · look | Kernbeeld |
 |---|---|---|
-| Cold open (s01, q02) | D · Macro | Noor traint op een fel verlicht kunstgrasveld en loopt een donker fietspad op: eerst zwart, dan bomen en pad in grijs, rode jas bijna zwart; vraag q02 (antwoord in s12 en de recap) |
+| Cold open (s01, q02) | D · Macro | Een sporter (Noor uit het castboek, naam niet genoemd) traint op een fel verlicht kunstgrasveld en loopt een donker fietspad op: eerst zwart, dan bomen en pad in grijs, rode jas bijna zwart; vraag q02 (antwoord in s12 en de recap) |
 | Titel | Schema | Oog in doorsnede |
 | H1 Een camera met een levende lens (s04–s10) | B · Schema | Brug naar Eén seconde (prikkel → receptor → impuls; zintuig = receptoren + delen die opvangen en richten); doorsnede van het oog met labels; stralen knikken bij hoornvlies en lens, hoornvlies licht op bij 'tweederde'; straalvormig lichaam en lensbandjes; telefoon en bushalte, vraag q06; verte (plat) en dichtbij (bol), 'accommoderen', afleiders 'boller voor de verte' en camera; pupilreflex (vooraanzicht, zon); bijziende: dichtbij scherp, ver wazig, vraag q09; brandpunt vóór het netvlies, hol brillenglas; verziend met bol glas; oudziend met leesbril |
 | H2 Twee soorten lichtreceptoren (s11–s13) | D · Micro | Klein oog met gele en blinde vlek; rij kegeltjes (drie kleuren) en staafjes; 120 miljoen tegenover 6 miljoen; antwoord b: pupil groter helpt een beetje, de stof in de staafjes wordt afgebroken en weer aangemaakt; adaptatiegrafiek met twee fasen (10 min, 20–30 min); rood wordt zwart; donker → licht binnen een minuut. Vwo s13: rodopsine (eiwit met lichtgevoelig deel) verandert van vorm en valt uit elkaar; lading van −40 naar −70 mV, minder signaalstof, impuls pas verderop; convergentie (staafjes) tegenover eigen zenuwcel (kegeltjes) |
@@ -49,7 +49,7 @@
 
 | Id | Niveau | Vraag | Juist |
 |---|---|---|---|
-| q02 | basis | Waarom ziet Noor eerst niets, en daarna alles grijs? | b andere cellen in haar ogen nemen het over, en die moeten opladen (onthulling in s12 en de recap s20) |
+| q02 | basis | Op het donkere fietspad zie je eerst bijna niets, en na een tijdje alles in grijs. Hoe komt dat? | b andere cellen in haar ogen nemen het over, en die moeten opladen (onthulling in s12 en de recap s20) |
 | q06 | basis | Je kijkt van je telefoon op naar een bord aan de overkant. Wat gebeurt er met je lens? | a die wordt platter: de kringspier eromheen ontspant |
 | q09 | basis | Waar valt bij een bijziende het scherpe beeld van iets in de verte? | c vóór het netvlies, want zijn oog is te lang |
 | q16 | basis | Na harde muziek hoor je een hoge piep. Wat is er aan de hand? | b de cellen die geluid opvangen zijn overbelast geraakt |
@@ -98,6 +98,20 @@ Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `la
 ## Wijziging 20 okt 2026
 
 Uitspraak na de uitspraaktest van 18 okt: stem-invoer rodopsinuh → rodopsine (s13, vwo), Eu-staagie-jus → Eustachius (s15), baazie-lèr → basilair (s19, vwo); regels uit `bouw/uitspraak_film.json` gehaald. Deze drie alinea's opnieuw ingesproken (Roos, eleven_v4, 1 take per alinea, flow jwxXn0Jgpax90BkTRIQ3; nodes in `stem/takes.json`; 1.497 credits TTS + Scribe voor de woordtijden). Alleen de mp3's in `audio/` en de woordtijden in `window.FILMDATA` zijn vervangen; beeld en speler ongewijzigd. Duur vrijwel gelijk (spraak 8:08 → 8:07).
+
+## Wijzigingen 1.2 (29 okt 2026, keuzes Kamiel op het keuzeblad 'Regeling: jouw keuzes')
+
+Speler, vragen, opties en de andere takes ongewijzigd. Per scène:
+- s01: opnieuw ingesproken, 'Noor traint' → 'Een sporter traint' (rest gelijk). 319 credits.
+- s12: opnieuw ingesproken, 'Terug naar Noor.' → 'Terug naar de sporter.' en 'ziet Noor weer iets' → 'ziet ze weer iets'; antwoordletter als 'bé' (centrale regel uitspraak.json). Kleuren gelijk. 606 credits.
+- s20: opnieuw ingesproken, 'zag Noor op' → 'zag de sporter op'; 'dus bé'. Keten: receptor peach (`NETV`), impuls teal (`ZENUW`); 'hoornvlies en lens richten het licht' in lichtgeel, 'staafjes, kegeltjes, haarcellen → impuls' teal. 646 credits.
+- s04: keten prikkel → receptor → impuls met dezelfde kleuren (impuls teal, was goud).
+- s10: label oudziend 'rond je 40e–45e: lens stugger, minder bol' (was 'vanaf ± 40 jaar'; Kamiel 29 okt, bron NEI, `bronnen.md` bewering 8). De stem zegt nog 'vanaf je veertigste' (niet opnieuw ingesproken).
+- s13 (vwo): 'minder signaalstof' licht teal (neurotransmitter), 'impuls pas verderop' teal; zenuwcellen onder staafjes en kegeltjes teal.
+- Overal: `ZENUW` goud → teal (oogzenuw, gehoorzenuw s14, zenuwcellen s13).
+- Docentdeel (opbouwtabel): 'Noor' → 'een sporter'/'de sporter'.
+- Techniek: woordtijden met `silalign.py` (`stem/woordtijden/`), mp3 loudnorm −15 LUFS in `audio/`; FILMDATA (woorden en duur van s01, s12, s20; versie 1.2) direct in de HTML bijgewerkt, scènes met `bouw/inbouw.py`. Vragen uit: knippen vallen in stiltes (s01 vóór 'Waarom', s12 'Antwoord bé', s20 'Het antwoord was dus bé').
+- Credits: 319 + 606 + 646 = 1.571 (TTS; geen Scribe).
 
 ## Wijzigingen na 1.1
 - 29 okt 2026 — nacontrole 29 okt: s18 de labels 'stop je: vloeistof stroomt nog even door' en 'hersenen: "ik draai nog" → duizelig' boven Noors hoofd lopen nu na elkaar (eerste weg in de eerste helft van de overgang, tweede komt in de tweede helft) in plaats van over elkaar heen. Alleen `s18` in `src/scenes.js`, ingebouwd met `bouw/inbouw.py`.

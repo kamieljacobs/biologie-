@@ -1,4 +1,4 @@
-// Zenuwstelsel · Zintuigen — scènes per alinea (v1.0, 14 okt 2026; v1.1 opgewaardeerd naar prompt v13, 28 okt 2026: castpersonages, geen korrel en gloed, rodopsine als kralenketen; zie bron/info.md).
+// Zenuwstelsel · Zintuigen — scènes per alinea (v1.0, 14 okt 2026; v1.1 opgewaardeerd naar prompt v13, 28 okt 2026: castpersonages, geen korrel en gloed, rodopsine als kralenketen; v1.2 29 okt 2026: kleuren volgens de reekstabel, label oudziend; zie bron/info.md).
 // Achtergrond Micro zonder korrel buiten cellen (Part C2, beeldafspraak 15 okt 2026).
 function bgM(ctx) { ctx.fillStyle = C.bgMicro; ctx.fillRect(0, 0, W, H); }
 const PERSON_LOOK = { skin: SKINS[2], hair: '#2E211A', shirt: '#C9483E', hairStyle: 'long', trousers: '#2A3242' };
@@ -11,7 +11,7 @@ function vink(ctx, x, y, s, a = 1, col = C.groen) { if (a <= 0.01) return; ctx.s
 function mixHex(a, b, u) { u = clamp(u, 0, 1); const p = s => { const n = parseInt(s.slice(1), 16); return [n >> 16, (n >> 8) & 255, n & 255]; }; const A = p(a), B = p(b); const h = A.map((v, i) => Math.round(v + (B[i] - v) * u).toString(16).padStart(2, '0')).join(''); return '#' + h; }
 
 // ---------- kleuren ----------
-const LICHT = '#F2D27A', SCLERA = '#D8DCE2', VAAT = '#8C3A4A', NETV = '#E0A07A', IRIS = '#5B8C6A', LENS = '#BFE0F0', STRAAL = '#B5574A', ZENUW = '#E0B64A';
+const LICHT = '#F2D27A', SCLERA = '#D8DCE2', VAAT = '#8C3A4A', NETV = '#E0A07A', IRIS = '#5B8C6A', LENS = '#BFE0F0', STRAAL = '#B5574A', ZENUW = '#5BA4C9';
 const KEG = ['#E07A5F', '#7FC48F', '#5BA4C9'], STAAF = '#9AA3B2', HUID = '#C99A78', BOT = '#E6D8A8', SLAK = '#C9A35C', KANAAL = '#5BA4C9';
 
 // ---------- het oog (licht komt van links) ----------
@@ -148,7 +148,7 @@ const SCENES = {
   s04(ctx, t, q) { bg(ctx, 'schema');
     const p2 = q.on('Licht', 1), p1 = 1 - p2;
     if (p1 > 0.01) { ctx.save(); ctx.globalAlpha *= p1; metaText(ctx, 'film Eén seconde', 960, 220, C.grain, 'center', 26);
-      keten(ctx, 470, 420, [['prikkel', LICHT], ['receptor', C.teal], ['impuls', C.goud]], [q.on('prikkel', 1), q.on('receptor', 1), q.on('impuls', 1)]);
+      keten(ctx, 470, 420, [['prikkel', LICHT], ['receptor', NETV], ['impuls', ZENUW]], [q.on('prikkel', 1), q.on('receptor', 1), q.on('impuls', 1)]);
       roundRect(ctx, 260, 560, 1400, 200, 26); shape(ctx, rgba(C.fill, 0.4 * q.on('zintuig', 1)), rgba(C.groen, q.on('zintuig', 1)), 2);
       regel(ctx, 'zintuig = receptoren', 960, 640, q.on('zintuig', 1), C.groen, 38, 'center', 700); regel(ctx, '+ delen die de prikkel opvangen en richten', 960, 710, q.on('onderdelen', 1), C.text, 32, 'center', 600); ctx.restore(); }
     if (p2 > 0.01) { ctx.save(); ctx.globalAlpha *= p2; const E = oog(ctx, 1000, 500, 300, { bol: 0.4, pupil: 0.6 });
@@ -212,7 +212,7 @@ const SCENES = {
       brilglas(ctx, 450, 470, 140, false, '#BFE0F0', bl); regel(ctx, 'bolle lens', 450, 680, bl, C.teal, 28, 'center', 700); ctx.restore(); }
     if (ou > 0.01) { ctx.save(); ctx.globalAlpha *= ou; const E = oog(ctx, 1150, 470, 260, { bol: 0.2, pupil: 0.5 }); const lb = q.on('leesbril', 1); const G = CAST.linda.garderobe; G._bril = Object.assign({}, G.gewoon, { accessoire: ['oorbel', 'bril'] });
       persoon(ctx, 'linda', 380, 820, 420, { uit: 'denkt', a: 1 - lb }); persoon(ctx, 'linda', 380, 820, 420, { uit: 'neutraal', outfit: '_bril', a: lb });
-      tag(ctx, 'vanaf ± 40 jaar: lens stugger, minder bol', 1150, 150, C.text2, q.on('stugger', 1)); ctx.globalAlpha *= lb; tag(ctx, 'oudziend: leesbril (bolle lens)', 1150, 840, C.goud, 1); ctx.restore(); } },
+      tag(ctx, 'rond je 40e–45e: lens stugger, minder bol', 1150, 150, C.text2, q.on('stugger', 1)); ctx.globalAlpha *= lb; tag(ctx, 'oudziend: leesbril (bolle lens)', 1150, 840, C.goud, 1); ctx.restore(); } },
 
   s11(ctx, t, q) { bgM(ctx);
     const E = oog(ctx, 400, 470, 210, { bol: 0.4, pupil: 0.5, gv: q.on('gele', 1), bv: q.on('blinde', 1) });
@@ -248,7 +248,7 @@ const SCENES = {
       const ng = q.on('negatiever', 1); regel(ctx, 'lading van het staafje', 1330, 200, q.on('reeks', 1), C.text2, 26, 'center', 700);
       ctx.save(); ctx.globalAlpha *= q.on('reeks', 1); ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(1000, 260); ctx.lineTo(1000, 560); ctx.lineTo(1700, 560); ctx.stroke(); regel(ctx, '−40 mV', 990, 330, 1, C.text2, 22, 'right', 600); regel(ctx, '−70 mV', 990, 520, 1, C.text2, 22, 'right', 600);
       ctx.strokeStyle = STAAF; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(1010, 320); ctx.lineTo(1250, 320); ctx.bezierCurveTo(1300, 320, 1300, lerp(320, 510, ng), 1360, lerp(320, 510, ng)); ctx.lineTo(1690, lerp(320, 510, ng)); ctx.stroke(); regel(ctx, 'licht aan', 1260, 290, ng, LICHT, 22, 'center', 700); ctx.restore();
-      tag(ctx, 'negatiever: minder signaalstof', 1350, 660, C.teal, q.on('signaalstof', 1)); tag(ctx, 'impuls pas verderop in het netvlies', 1350, 760, C.goud, q.on('verderop', 1)); ctx.restore(); }
+      tag(ctx, 'negatiever: minder signaalstof', 1350, 660, '#9CCBE3', q.on('signaalstof', 1)); tag(ctx, 'impuls pas verderop in het netvlies', 1350, 760, ZENUW, q.on('verderop', 1)); ctx.restore(); }
     if (p2 > 0.01) { ctx.save(); ctx.globalAlpha *= p2;
       for (let i = 0; i < 8; i++) { staafje(ctx, 220 + i * 60, 420, 0.8, 1, 1); ctx.strokeStyle = rgba(C.line, 0.7); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(220 + i * 60, 440); ctx.lineTo(430, 600); ctx.stroke(); }
       circ(ctx, 430, 620, 26, rgba(ZENUW, 0.5), ZENUW, 3); ctx.strokeStyle = ZENUW; ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(430, 646); ctx.lineTo(430, 760); ctx.stroke();
@@ -325,7 +325,7 @@ const SCENES = {
       ctx.fillStyle = rgba('#0B0F16', 0.8 * q.on('felle', 1)); ctx.fillRect(40, 110, 780, 420);
       tag(ctx, 'fel licht: vooral kegeltjes', 60, 170, KEG[0], q.on('felle', 1), 'left'); tag(ctx, 'stof in de staafjes afgebroken', 60, 250, '#C98AC0', q.on('afgebroken', 1), 'left'); tag(ctx, 'donker: weer aangemaakt, minuten', 60, 330, C.groen, q.on('aangemaakt', 1), 'left'); tag(ctx, 'staafjes: geen kleur', 60, 410, STAAF, q.on('kleur', 1), 'left'); tag(ctx, 'antwoord b', 60, 490, C.goud, q.on('antwoord', 1), 'left'); ctx.restore(); }
     if (p2 > 0.01) { ctx.save(); ctx.globalAlpha *= p2; bg(ctx, 'schema'); metaText(ctx, 'Eén seconde + Zintuigen', 960, 200, C.grain, 'center', 26);
-      keten(ctx, 465, 420, [['prikkel', LICHT], ['zintuig', C.groen], ['receptor', C.teal], ['impuls', C.goud]], [1, q.on('opvangen', 1), q.on('staafjes', 3), q.on('impuls', 2)]);
-      tag(ctx, 'hoornvlies en lens richten het licht', 960, 620, C.teal, q.on('richten', 1)); tag(ctx, 'gehoorbeentjes versterken de trilling', 960, 720, BOT, q.on('versterken', 1)); tag(ctx, 'staafjes, kegeltjes, haarcellen → impuls', 960, 820, C.goud, q.on('staafjes', 3)); ctx.restore(); }
+      keten(ctx, 465, 420, [['prikkel', LICHT], ['zintuig', C.groen], ['receptor', NETV], ['impuls', ZENUW]], [1, q.on('opvangen', 1), q.on('staafjes', 3), q.on('impuls', 2)]);
+      tag(ctx, 'hoornvlies en lens richten het licht', 960, 620, LICHT, q.on('richten', 1)); tag(ctx, 'gehoorbeentjes versterken de trilling', 960, 720, BOT, q.on('versterken', 1)); tag(ctx, 'staafjes, kegeltjes, haarcellen → impuls', 960, 820, ZENUW, q.on('staafjes', 3)); ctx.restore(); }
   },
 };
