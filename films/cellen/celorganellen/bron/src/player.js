@@ -84,7 +84,7 @@ function drawQuestion(ctx,it,t){
 }
 // captions: phrase chunks of ≤ 2 lines ≤ 44 chars
 function chunks(seg){ if(seg._chunks) return seg._chunks; const out=[]; let cur=[]; let len=0;
-  for(const w of seg.words){ const t=w.t.replace(/\b(ee-er)\b/gi,'ER').replace(/dee-en-aa/gi,'DNA'); cur.push({...w,t}); len+=t.length+1; const endS=/[.?!:]$/.test(t);
+  /*CAPLETTER_MARK 29okt2026*/ let capVorige=''; for(const w of seg.words){ const t=capLetter(w.t.replace(/\b(ee-er)\b/gi,'ER').replace(/dee-en-aa/gi,'DNA'),capVorige); capVorige=(capVorige+' '+w.t).split(' ').slice(-3).join(' '); cur.push({...w,t}); len+=t.length+1; const endS=/[.?!:]$/.test(t);
     if(len>80||(endS&&len>30)){ out.push(cur); cur=[]; len=0; } }
   if(cur.length) out.push(cur); seg._chunks=out; return out; }
 function drawCaption(ctx,seg,t){ const ch=chunks(seg).find(c=>t>=c[0].s-0.15 && t<=c[c.length-1].e+0.6); if(!ch) return;
@@ -143,4 +143,4 @@ function init(){
   const tr=document.getElementById('transcript'); DATA.segments.filter(s=>s.kind==='speech').forEach(s=>{ const p=document.createElement('p'); p.className=s.level; p.innerHTML=(s.level==='vwo'?'<i>vwo</i> ':'')+s.words.map(w=>w.t).join(' ').replace(/ee-er/g,'ER').replace(/dee-en-aa/g,'DNA'); tr.appendChild(p); });
   tick();
 }
-window.addEventListener('load',init);
+window.addEventListener('load',init);/*CAPLETTER_MARK fn*/ function capLetter(t,v){ if(!/\bantwoord(\s+(is|was))?[:,]?$/i.test(v.trim())) return t; const m=t.match(/^(aa|bee|bé|bè|cee|dee|a|b|c|d)([.,:;!?]*)$/i); if(!m) return t; const k=m[1].toLowerCase(); return ({aa:'A',a:'A',bee:'B','bé':'B','bè':'B',b:'B',cee:'C',c:'C',dee:'D',d:'D'})[k]+m[2]; } 

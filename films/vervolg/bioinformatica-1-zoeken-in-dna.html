@@ -5097,8 +5097,8 @@ function drawQuestion(ctx,it,t){
   state.optionZones=seg.options.map((o,i)=>({x:120,y:430+i*112,w:1680,h:96,i}));
 }
 // captions: phrase chunks of ≤ 2 lines ≤ 44 chars
-function chunks(seg){ const it=state.items[state.idx]; const cu=(it&&it.seg===seg&&it.cuts)||[]; const cs=chunks0(seg); return cu.length?cs.map(c=>c.filter(w=>!cu.some(k=>w.s>=k[0]-0.02&&w.s<k[1]-0.02))).filter(c=>c.length):cs; } function chunks0(seg){ if(seg._chunks) return seg._chunks; const out=[]; let cur=[]; let len=0;
-  for(const w of seg.words){ const t=w.t.replace(/\b(ee-er)\b/gi,'ER').replace(/dee-en-aa/gi,'DNA'); cur.push({...w,t}); len+=t.length+1; const endS=/[.?!:]$/.test(t);
+function chunks(seg){ const it=state.items[state.idx]; const cu=(it&&it.seg===seg&&it.cuts)||[]; const cs=chunks0(seg); return cu.length?cs.map(c=>c.filter(w=>!cu.some(k=>w.s>=k[0]-0.02&&w.s<k[1]-0.02))).filter(c=>c.length):cs; } /*CAPLETTER_MARK fn*/ function capLetter(t,v){ if(!/\bantwoord(\s+(is|was))?[:,]?$/i.test(v.trim())) return t; const m=t.match(/^(aa|bee|bé|bè|cee|dee|a|b|c|d)([.,:;!?]*)$/i); if(!m) return t; const k=m[1].toLowerCase(); return ({aa:'A',a:'A',bee:'B','bé':'B','bè':'B',b:'B',cee:'C',c:'C',dee:'D',d:'D'})[k]+m[2]; } function chunks0(seg){ if(seg._chunks) return seg._chunks; const out=[]; let cur=[]; let len=0;
+  /*CAPLETTER_MARK 29okt2026*/ let capVorige=''; for(const w of seg.words){ const t=capLetter(w.t.replace(/\b(ee-er)\b/gi,'ER').replace(/dee-en-aa/gi,'DNA'),capVorige); capVorige=(capVorige+' '+w.t).split(' ').slice(-3).join(' '); cur.push({...w,t}); len+=t.length+1; const endS=/[.?!:]$/.test(t);
     const comma=/[,;]$/.test(t);
     if(len>88||(endS&&len>24)||(comma&&len>48)){ out.push(cur); cur=[]; len=0; } }
   if(cur.length) out.push(cur); seg._chunks=out; return out; }
