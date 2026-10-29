@@ -1,6 +1,6 @@
 # Bronnenlogboek · Zenuwstelsel 4 · Knoeien met de synaps
 
-Gecontroleerd: versie 1.1 (opwaardering prompt v13, script en stem ongewijzigd sinds 1.0), 28 okt 2026, door Claude (eerste ronde, alle bronnen zelf geopend). Status: 24 beweringen, 14 ✓, 10 ≈, 0 !, 0 ?. Menselijke steekproef: nog niet gedaan.
+Gecontroleerd: versie 1.1 (opwaardering prompt v13), 28 okt 2026, door Claude (eerste ronde, alle bronnen zelf geopend). Bijgewerkt voor versie 2.0 (lichte remake), 29 okt 2026: bewering 16 aangepast (nieuwe opname), 21 en 25–26 nieuw/aangevuld voor het nieuwe beeld. Status: 26 beweringen, 16 ✓, 10 ≈, 0 !, 0 ?. Menselijke steekproef: nog niet gedaan.
 
 ## Bronnen
 
@@ -43,21 +43,24 @@ Gecontroleerd: versie 1.1 (opwaardering prompt v13, script en stem ongewijzigd s
 | 13 | s31 | Trager reageren, dubbele tong, minder herinneringen. | B8, B9 | ≈ | Algemeen bekende gevolgen van onderdrukte prikkeloverdracht; geheugen via NMDA-remming (B8). |
 | 14 | a3 | Eerst worden de cellen geremd die jou afremmen (rem op de rem), daarom eerst losser. | B9 | ≈ | De prefrontale schors is 'especially susceptible to the effects of alcohol, leading to behavioral disinhibition' (B9). Het precieze celmechanisme is nog onderzoek (B9 zelf: 'neural basis … ?'); film zegt het als model. |
 | 15 | a4 | Nicotine is een agonist op een receptor voor acetylcholine. | B10, B2 | ✓ | Nicotinerge acetylcholinereceptoren (B10). |
-| 16 | a4 | Binnen tien seconden na een trek zit nicotine in je hersenen. | B10 | ≈ | B10: 'moves into the brain within seconds'. Vaak genoemd 10–20 s; 'binnen tien seconden' is aan de snelle kant, 'binnen seconden' is veilig. Geen nieuwe opname (tekst niet fout genoeg). |
+| 16 | a4 (2.0: s15) | Binnen een paar seconden na een trek zit nicotine in je hersenen. | B10 | ≈ | B10: 'moves into the brain within seconds'. Tot 1.1 stond er 'binnen tien seconden' (aan de snelle kant, vaak genoemd 10–20 s); in 2.0 opnieuw ingesproken als 'binnen een paar seconden' (keuze Kamiel 29 okt 2026). Eén bron, maar de formulering volgt die bron letterlijk. |
 | 17 | a4 | Een SSRI blokkeert de heropname van serotonine; de stof blijft langer in de spleet. | B1, B11 | ✓ | |
 | 18 | a4 | Het medicijn werkt pas na weken, de heropname is al na een uur geremd. | B11, B12 | ≈ | Effect na 2 weken, volledig na 4–6 weken (B11); latentie 'several weeks' (B12). Transportblokkade al uren na de eerste dosis (B12, meting na 6 uur); 'na een uur' is een afronding. |
 | 19 | a4 | Waardoor depressie ontstaat is minder zeker; niet simpelweg een tekort aan één stof. | B13, B12 | ✓ | B13: 'no support for the hypothesis that depression is caused by lowered serotonin'. |
 | 20 | a4 | Bij Parkinson sterven zenuwcellen af die dopamine maken. | B14, B15 | ✓ | Substantia nigra (B14, B15). |
-| 21 | a4 | Dopamine komt niet in de hersenen; levodopa wel en wordt daar omgezet in dopamine. | B14, B15 | ✓ | 'Unlike dopamine, levodopa can cross the BBB' (B14); dopamine passeert de bloed-hersenbarrière niet makkelijk (B15). |
+| 21 | a4 (2.0: s15) | Dopamine komt niet in de hersenen; levodopa wel en wordt daar omgezet in dopamine. | B14, B15 | ✓ | 'Unlike dopamine, levodopa can cross the BBB' (B14); dopamine passeert de bloed-hersenbarrière niet makkelijk (B15). In 2.0 in beeld als bloedvat met barrière; de taalfout 'Dopamine zelf kom je niet' is in de nieuwe opname 'komt niet'. |
 | 22 | a5 | Bij te veel signaal haalt een cel receptoren weg of maakt ze minder gevoelig: tolerantie; meer nodig voor hetzelfde. | B2, B10 | ≈ | B2: minder receptoren of minder neurotransmitter → meer nodig. B10: bij nicotine juist méér bindingsplaatsen na desensitisatie; 'minder gevoelig' dekt dat. |
 | 23 | a5 | Veel stoffen laten dopamine vrijkomen in het beloningssysteem, dat er is voor eten en gezelschap; een stof zet het sterker aan. | B2, B16 | ✓ | B2: 'eating, socializing'; grotere dopaminepieken bij drugs. B16: VTA → nucleus accumbens. |
 | 24 | a5 | Verlangen gaat voor het effect uit, ook als het effect weg is; verslaving is een aangepaste synaps, geen zwakke wil. | B16, B2 | ≈ | 'Wanting' zonder 'liking' (incentive sensitization, B16); hunkering na lange onthouding (B2). 'Geen zwakke wil' is een didactische keuze in lijn met B2 (verslaving als hersenaandoening). |
+
+| 25 | s18 (beeld, 2.0) | Het beloningssysteem is een baan: dopaminecellen in het ventraal tegmentum naar de nucleus accumbens en de prefrontale schors. | B16, B2 | ✓ | B16: 'The mesolimbic pathway … dopaminergic neurons that innervate cells in the nucleus accumbens'; 'The mesocortical pathway is made up of VTA dopamine neurons that synapse with cells in the prefrontal cortex'. B2: beloningscircuit, rol van de prefrontale schors bij zelfbeheersing. Getekend in de mediane doorsnede van hoofdHersenen (vereenvoudigd als één baan). |
+| 26 | s08 (beeld, 2.0) | Cafeïne lijkt op adenosine (zelfde basisvorm in beeld). | B3, B4 | ✓ | Beide zijn purineverbindingen; cafeïne bindt competitief op dezelfde receptor (B3, B4). De vormpjes zijn symbolisch, geen structuurformule. |
 
 Examenstof: synaps, neurotransmitter, exciterend en inhiberend staan in de syllabus (B17, M4.2); de stoffen zelf (cafeïne, alcohol, SSRI, levodopa) zijn contexten en niet strijdig met de syllabus.
 
 ## Aanpassingen
 
-Geen: geen bewering met status `!`. Bewering 16 is als mogelijke verbetering ('binnen seconden') genoteerd in `opwaardering-v13.md` (herinspreeklijst, optioneel).
+- 29 okt 2026 (2.0): bewering 16 'binnen tien seconden' → 'binnen een paar seconden' (B10; keuze Kamiel, geen `!`). Geen andere bewering met status `!`. Bewering 16 is als mogelijke verbetering ('binnen seconden') genoteerd in `opwaardering-v13.md` (herinspreeklijst, optioneel).
 
 ## Menselijke controle
 

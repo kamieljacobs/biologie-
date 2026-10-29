@@ -1,5 +1,192 @@
 # Knoeien met de synaps — script
 
+## Versie 2.0 (lichte remake, 29 okt 2026)
+
+Segmenten van de FILMDATA-speler met hun audiobestand (films/zenuwstelsel/4-knoeien-met-de-spleet/audio/<id>.mp3). Tekst = ondertitel; tijden = begin van de zin in het fragment. Alleen **s15** is nieuw ingesproken (was a4); de rest zijn de oude takes, geknipt/herschikt: in de vraagzinnen staat "Wat denk je?" nu achteraan, en "Het goede antwoord is X." aan het begin van de antwoorden is weggeknipt.
+
+### s01 · Cold open · was s00 · 16.1 s
+
+[0:00.0] Ochtend.
+[0:00.7] Koffie.
+[0:01.2] Na een kwartier ben je wakker.
+[0:02.9] Avond.
+[0:03.6] Een glas wijn.
+[0:04.5] Na een kwartier ben je losser, en trager.
+[0:06.9] Twee drankjes, twee tegengestelde effecten.
+[0:09.8] En allebei doen ze hetzelfde: ze knoeien met de spleet uit de vorige film.
+[0:13.4] Hoe kan dezelfde spleet zo verschillend reageren?
+
+### s02 · titelkaart
+
+### s03 · Hoofdstuk 1 — Vier plekken · was q1 · 12.6 s
+
+[0:00.1] Een stof komt in je bloed en verandert hoe je je voelt.
+[0:03.1] Op hoeveel plekken in een synaps kan zo'n stof ingrijpen?
+[0:06.0] Op één plek: de receptor?
+[0:07.6] Op twee plekken: afgifte en receptor?
+[0:09.4] Of op meer dan twee?
+[0:11.8] Wat denk je?
+
+### q04 · vraagkaart: op één plek: de receptor · op twee plekken: afgifte en receptor · op meer dan twee plekken
+
+### s05 · Hoofdstuk 1 — Vier plekken · was a1 · 33.8 s
+
+[0:00.1] Hier is de synaps weer.
+[0:01.2] Een stof kan op vier plekken ingrijpen.
+[0:03.4] Eén: bij de afgifte.
+[0:04.8] Meer of minder blaasjes die leeglopen.
+[0:06.8] Twee: op de receptor.
+[0:08.4] Een stof die precies de vorm van de neurotransmitter heeft, past in de receptor en zet hem aan.
+[0:13.1] Dat heet een agonist.
+[0:14.6] Een stof die wel past maar niets doet, zit de echte neurotransmitter in de weg.
+[0:18.7] Dat heet een antagonist: een blokkade.
+[0:20.5] Drie: bij het opruimen.
+[0:22.2] Rem de heropname of het enzym, en de stof blijft langer in de spleet.
+[0:26.3] Vier: bij de aanmaak.
+[0:27.2] Meer grondstof, meer neurotransmitter.
+[0:29.0] Onthoud deze kaart.
+[0:30.2] Elke stof in deze film krijgt er een plek op.
+
+### s06 · Hoofdstuk 2 — Koffie · was q2 · 10.1 s
+
+[0:00.1] Hoe maakt cafeïne je wakker?
+[0:01.6] Cafeïne geeft je cellen energie?
+[0:03.5] Cafeïne blokkeert een stof die je slaperig maakt?
+[0:06.1] Of cafeïne laat je hart direct sneller kloppen?
+[0:09.6] Wat denk je?
+
+### q07 · vraagkaart: cafeïne geeft je cellen energie · cafeïne blokkeert een stof die je slaperig maakt · cafeïne laat je hart direct sneller kloppen
+
+### s08 · Hoofdstuk 2 — Koffie · was a2 · 31.7 s
+
+[0:00.1] In je hersenen zit een stof die zich overdag ophoopt: adenosine.
+[0:04.0] Hoe langer je wakker bent, hoe meer adenosine.
+[0:06.7] Adenosine past in zijn eigen receptor en remt zenuwcellen.
+[0:09.9] Dat is je slaapdruk.
+[0:11.5] Cafeïne lijkt op adenosine.
+[0:13.4] Het past in dezelfde receptor, maar zet hem niet aan.
+[0:16.1] Het zit alleen in de weg.
+[0:17.3] Cafeïne is een antagonist.
+[0:19.1] De rem valt weg, en je voelt je wakker.
+[0:21.1] Maar de adenosine is er nog steeds.
+[0:23.0] Hij wacht.
+[0:23.6] Na een paar uur is de cafeïne afgebroken, en komt alles tegelijk binnen.
+[0:27.8] Dat is de dip.
+[0:28.4] Cafeïne geeft geen energie.
+[0:30.2] Het verbergt je vermoeidheid.
+
+### s09 · Hoofdstuk 3 — Wijn · was s31 · 26.4 s
+
+[0:00.0] Alcohol werkt anders.
+[0:01.3] Het grijpt niet op één soort synaps in, maar op twee.
+[0:04.0] De eerste gebruikt GABA, de belangrijkste remmende neurotransmitter van je hersenen.
+[0:08.4] Alcohol maakt die receptor gevoeliger: de rem werkt harder.
+[0:11.5] De tweede gebruikt glutamaat, de belangrijkste exciterende neurotransmitter.
+[0:15.5] Die receptor remt alcohol juist af: het gas werkt minder.
+[0:18.7] Meer rem, minder gas.
+[0:20.2] Het hele netwerk wordt trager.
+[0:21.8] Je reageert langzamer, je praat met dubbele tong, je bewaart minder herinneringen aan de avond.
+
+### s10 · Hoofdstuk 3 — Wijn · was q3 · 12.3 s
+
+[0:00.1] Alcohol remt je hersenen.
+[0:01.5] Waarom word je dan na één glas eerst juist losser en spraakzamer?
+[0:04.6] Omdat een beetje alcohol opwekkend werkt?
+[0:06.2] Omdat eerst de cellen worden geremd die jou afremmen?
+[0:09.0] Of omdat je het verwacht?
+[0:11.6] Wat denk je?
+
+### q11 · vraagkaart: een beetje alcohol werkt opwekkend · eerst worden de cellen geremd die jou afremmen · omdat je het verwacht
+
+### s12 · Hoofdstuk 3 — Wijn · was a3 · 17.3 s
+
+[0:00.1] Een deel van je hersenen is er om je af te remmen: niet alles zeggen, niet alles doen.
+[0:04.4] Die cellen zijn als eerste gevoelig voor alcohol.
+[0:07.2] De rem op de rem valt weg.
+[0:08.9] Daarom word je eerst losser.
+[0:10.8] Pas bij meer alcohol remt de rest ook af, en wordt alles traag.
+[0:14.4] Alcohol is dus geen gas.
+[0:15.7] Het is overal rem, en de volgorde bepaalt wat je merkt.
+
+### s13 · Hoofdstuk 4 — Medicijnen · was q4 · 12.7 s
+
+[0:00.1] Een antidepressivum van het type SSRI remt de heropname van serotonine.
+[0:03.9] Wat gebeurt er dan in de spleet?
+[0:05.9] Er komt meer serotonine bij?
+[0:07.5] De serotonine blijft langer in de spleet hangen?
+[0:09.8] Of de receptoren worden gevoeliger?
+[0:12.1] Wat denk je?
+
+### q14 · vraagkaart: er komt meer serotonine bij · de serotonine blijft langer in de spleet hangen · de receptoren worden gevoeliger
+
+### s15 · Hoofdstuk 4 — Medicijnen · was a4 (nieuw) · 49.0 s
+
+[0:00.0] Terug naar de kaart.
+[0:01.1] Nicotine: een agonist.
+[0:03.1] Het past in een receptor voor acetylcholine en zet hem aan.
+[0:06.3] Binnen een paar seconden na een trek zit het in je hersenen.
+[0:09.8] SSRI's: een rem op het opruimen.
+[0:12.0] De heropname van serotonine wordt geblokkeerd, dus de stof blijft langer in de spleet.
+[0:16.5] Dat is wat er in de synaps gebeurt, en dat is zeker.
+[0:19.3] Waardoor een depressie ontstaat, is minder zeker.
+[0:21.8] Het is in elk geval niet simpelweg een tekort aan één stof.
+[0:24.5] En het medicijn werkt pas na weken, terwijl de heropname al na een uur geremd is.
+[0:28.7] Er verandert dus meer in de hersenen dan de hoeveelheid stof in de spleet.
+[0:33.3] Levodopa: ingrijpen bij de aanmaak.
+[0:35.6] Bij de ziekte van Parkinson sterven zenuwcellen af die dopamine maken.
+[0:39.5] Dopamine zelf komt niet in de hersenen; levodopa wel.
+[0:42.9] Daar wordt het omgezet in dopamine.
+[0:44.8] Meer grondstof, meer neurotransmitter.
+[0:46.9] Drie medicijnen, drie plekken op de kaart.
+
+### s16 · Hoofdstuk 5 — Gewenning en verslaving · was q5 · 13.3 s
+
+[0:00.1] Een zenuwcel krijgt wekenlang veel meer signaal dan normaal, bijvoorbeeld door een stof.
+[0:04.4] Wat doet die cel?
+[0:05.8] Niets, hij vuurt gewoon vaker?
+[0:07.4] Hij maakt minder receptoren, zodat het signaal weer normaal wordt?
+[0:11.0] Of hij raakt beschadigd?
+[0:12.7] Wat denk je?
+
+### q17 · vraagkaart: niets, hij vuurt gewoon vaker · hij maakt minder receptoren, zodat het signaal weer normaal wordt · hij raakt beschadigd
+
+### s18 · Hoofdstuk 5 — Gewenning en verslaving · was a5 · 42.6 s
+
+[0:00.1] Een zenuwcel houdt van normaal.
+[0:01.8] Krijgt hij te veel signaal, dan haalt hij receptoren weg of maakt ze minder gevoelig.
+[0:06.1] Het effect van de stof wordt kleiner.
+[0:07.9] Dat heet gewenning, of tolerantie.
+[0:09.9] Je hebt meer nodig voor hetzelfde.
+[0:11.7] Stop je nu, dan is er ineens te weinig signaal: te weinig receptoren voor de gewone hoeveelheid stof.
+[0:16.9] Dat is ontwenning.
+[0:17.7] Hoofdpijn zonder koffie, trillen zonder alcohol.
+[0:21.0] Er is nog iets.
+[0:22.1] Veel stoffen laten dopamine vrijkomen in een deel van je hersenen dat beloont: dit was goed, doe het nog eens.
+[0:27.3] Dat systeem is er voor eten en gezelschap.
+[0:29.1] Een stof kan het sterker aanzetten dan het gewone leven.
+[0:31.9] Dan gaat het verlangen voor het effect uit, ook als het effect allang weg is.
+[0:36.2] Dat is verslaving.
+[0:37.4] Geen zwakke wil, maar een synaps die zich heeft aangepast.
+
+### s19 · Samenvatting · was s70 · 25.1 s
+
+[0:00.1] Terug naar de koffie en de wijn.
+[0:01.5] Vier plekken in de synaps: afgifte, receptor, opruimen, aanmaak.
+[0:05.6] Cafeïne blokkeert de rem van adenosine.
+[0:07.5] Alcohol versterkt de rem en verzwakt het gas.
+[0:10.0] Nicotine zet een receptor aan.
+[0:11.7] Een SSRI houdt serotonine in de spleet.
+[0:14.1] Levodopa levert grondstof voor dopamine.
+[0:16.7] En elke cel past zich aan: gewenning, ontwenning, verlangen.
+[0:20.2] Dezelfde spleet, en toch elke keer een ander effect.
+[0:23.4] Het hangt af van waar je knoeit.
+
+### s20 · eindkaart: Een stof grijpt in op één van vier plekken: afgifte, receptor, opruimen, aanmaak. / Agonist zet een receptor aan, antagonist blokkeert hem. / Een cel past zich aan: gewenning, ontwenning, verlangen. / Volgende film: Het hoofdkantoor.
+
+---
+
+## Versie 1.x (oude film, reconstructie 12 okt 2026)
+
 Bron: gereconstrueerd uit de scriptdata in de gepubliceerde HTML (2026-10-12): `window.FILM.timing[<id>].phrases` (de ondertitelfrasen; identiek aan `segments[].text` en aan het transcript op de pagina). Stem-invoer met respellings (uitspraaklijst) staat niet in de HTML; de tekst hieronder is de ondertiteltekst.
 
 Tijden in de kop van elk segment zijn filmtijd (mastertijd van de speler, zonder wachttijd bij de vragen); de tijden `[m:ss.s]` vóór elke regel zijn de begintijden van de frase **binnen het audiofragment** (zoals in `timing[<id>].phrases[].t0`).

@@ -2,31 +2,34 @@
 
 | Veld | Waarde |
 |---|---|
-| Bestand | films/zenuwstelsel/4-knoeien-met-de-spleet.html |
-| Reeks / nummer | Zenuwstelsel, film 4 (pagina: “wat koffie, wijn en medicijnen doen in de synaps · 5 vwo · film 4 van de reeks Zenuwstelsel”; `plan.series`: “Het zenuwstelsel · film 4 van 6”) |
-| Doelgroep / niveau | 5 vwo, één niveau (geen havo/vwo-schakelaar) |
-| Versie / datum | **1.1 · 28 oktober 2026** — opwaardering naar prompt v13 (B14, zonder keuring, alleen beeld; stem, script, vragen en timings gelijk); 1.0 · 4 oktober 2026 |
+| Bestand | **preview** films/zenuwstelsel/4-knoeien-met-de-spleet-nieuw.html (lichte remake 2.0); de oude 1.1 blijft online als films/zenuwstelsel/4-knoeien-met-de-spleet.html tot Kamiel de nieuwe goedkeurt (dan wisselt de hoofdsessie ze om: oude naar bron/oud/, datum, B15-uitzondering 'lichte-remake') |
+| Reeks / nummer | Zenuwstelsel, film 4 |
+| Doelgroep / niveau | 5 vwo, één niveau (`alleen: 'vwo'`, geen havo/vwo-schakelaar) |
+| Versie / datum | **2.0 · 29 oktober 2026** — lichte remake in de donkere Part C-stijl; 1.1 · 28 okt 2026; 1.0 · 4 okt 2026 |
 | Prompt | v13 |
-| Voldoet aan | prompt v13 (28 okt 2026, zonder keuring). Bewust niet: de film houdt zijn eigen lichte reeksontwerp van vóór Part C (lichte achtergrond, Inter, paars als kleur van neurotransmitter en volgende cel), want omzetten naar de donkere Part C-look is een nieuwe stijl voor de hele reeks (vraag in `opwaardering-v13.md`); de synaps blijft de eigen tekening (de beeldbank heeft `synapsEcht`, maar overstappen raakt elke scène en elk anker); het beloningssysteem blijft één wolk (vraag); geen nieuwe caststijl met contourlijnen (nog niet goedgekeurd); oude versie in `bron/oud/4-knoeien-met-de-spleet-v1.0.html` |
-| Stem / model | Roos (ElevenLabs, eleven_multilingual_v2) |
-| Duur | 5:15 gesproken (som van 13 mp3’s, 315,8 s); speler-totaal incl. titel-, hoofdstuk- en eindkaarten en 5 aftellingen van 8 s: 6:26 |
-| Beeldstijl | Eigen reeksontwerp van vóór de Part C-stijlkaart: vlakke ‘wereld’ in tweeën (links ochtend met koffie, rechts avond met wijn, klokken) en lichte schema-scènes met de synaps van film 3 plus genummerde ingreepkaart, slaapdrukbalk, remketen, signaalmeter; Inter-systeemfont |
-| Audio-opslag | 13 fragmenten, één per gesproken segment, als base64-data-URI in `window.FILM_AUDIO` (blobs 001–013) |
-| Reconstructie | 2026-10-12, uit de gepubliceerde HTML |
+| Voldoet aan | prompt v13 (29 okt 2026). Bewust niet: geen B15-varianten (lichte remake); de receptoren zijn een eenvoudig ionkanaal, ook de adenosinereceptor (eigenlijk een G-eiwitgekoppelde receptor; vermeld bij Vereenvoudigingen); personages in de oude caststijl (nieuwe caststijl met contourlijnen nog niet goedgekeurd) |
+| Herkomst | lichte remake, keuze Kamiel 29 okt 2026 (keuzeblad 'Regeling: jouw keuzes'; brief films/UITVOEREN-REGELING.md): synaps = synapsEcht uit de beeldbank, beloningssysteem als hersendoorsnede, Linda met wijn blijft, a4 'binnen een paar seconden' |
+| Stem / model | Roos (ElevenLabs, eleven_multilingual_v2). 12 alinea's zijn de oude takes van 4 okt 2026 (geknipt/herschikt), s15 (was a4) is nieuw ingesproken op 29 okt 2026 (883 credits). Invoer: bron/stem/invoer.md |
+| Duur | gesproken 5:09 (309 s); speler met vragen aan 6:41, met vragen uit 4:40 |
+| Beeldstijl | Part C donker: Micro (#121A26, korrel alleen in cellen) voor synaps en receptoren, Schema (#1A2740) voor de thuisscènes; Fraunces / Source Sans 3 / IBM Plex Mono. Kleuren volgens de tabel Zenuwstelsel/Hormonen (29 okt 2026): zenuwsignaal teal #5BA4C9, neurotransmitter (ook adenosine, GABA, glutamaat, serotonine, dopamine) licht teal #9CCBE3; cafeïne koffiebruin #B98A5E (zelfde basisvorm als adenosine), lichaamsvreemde stof (nicotine, alcohol) lichtgrijs #D8DDE6, levodopa = grondstof oker #C9A35C, SSRI-blokkade koraal (zoals in synapsEcht) |
+| Audio-opslag | 13 losse mp3's in films/zenuwstelsel/4-knoeien-met-de-spleet/audio/ (s01 … s19), FILMDATA-straat |
+| Bouwstraat | FILMDATA zoals Zenuwstelsel 9: bron/remake-2026-10/ (src/, bouw/, film/, prep_audio.py, bouw.sh, afmaken.sh), speler = films/gedrag/5-emotieregulatie/bron/src/player.js |
 
-## Opbouw
+## Opbouw (2.0)
 
-| Begin | Hoofdstuk | Segmenten | Type (docentdeel) | Kernbeeld (docentdeel) |
-|---|---|---|---|---|
-| 0:00 | Cold open | s00 | — | wereld: gesplitst beeld ochtend (koffie, wakker) en avond (wijn, losser), lens op dezelfde spleet |
-| 0:21 | 1 Vier plekken | q1, a1 | structuur en functie | synaps met vier genummerde plekken; agonist en antagonist als sleutel die past en opent of past en blokkeert |
-| 1:22 | 2 Koffie | q2, a2 | mechanisme | adenosine hoopt op (slaapdrukbalk met klok); cafeïne blokkeert de receptor; de dip |
-| 2:19 | 3 Wijn | s31, q3, a3 | mechanisme | GABA-synaps versterkt, glutamaatsynaps geremd; netwerk trager; rem op de rem |
-| 3:27 | 4 Medicijnen | q4, a4 | mechanisme | nicotine (agonist), SSRI (heropname), levodopa (aanmaak, bloed-hersenbarrière) |
-| 4:41 | 5 Gewenning en verslaving | q5, a5 | regulatie | signaalmeter: receptoren verdwijnen (tolerantie), stof weg (ontwenning); beloningssysteem met effect- en verlangenmeter |
-| 5:50 | 6 Samenvatting | s70 | — | samenvattingskaart (`#m-recap`) over de gedimde ochtend/avond-wereld |
+| Begin (vragen aan) | Hoofdstuk | Segmenten | Kernbeeld |
+|---|---|---|---|
+| 0:00 | Cold open | s01 | Linda (castboek) thuis: 's ochtends staand met koffie, 's avonds op de bank met een glas wijn op de armleuning; zoomcirkel van beide hoofden naar dezelfde synaps |
+| 0:17 | Titel | s02 | synapsZ4 rechts, in een rustige cyclus |
+| 0:22 | 1 Vier plekken | s03, q04, s05 | stof in het bloed → synaps; vier gouden ringen + nummers op synapsZ4 (afgifte, receptor, opruimen, aanmaak met grondstof die neurotransmitter wordt); zoomcirkel op de receptor: agonist opent het kanaal, antagonist past en blokkeert; de ingreepkaart bouwt op |
+| 1:24 | 2 Koffie | s06, q07, s08 | klok 08:00→22:00 + slaapdrukbalk met adenosine + Linda (moe/blij/moe); ronde zenuwcel met vier receptoren: adenosine remt, cafeïne bezet ze, adenosine wacht, cafeïne afgebroken → de dip |
+| 2:22 | 3 Wijn | s09, s10, q11, s12 | twee ronde cellen: GABA-receptor (Cl⁻, rem) gaat verder open, glutamaatreceptor (Na⁺, gas) minder; meters; netwerk dat trager vuurt; schakeling remcel → zenuwcel voor gedrag → 'praten en doen' (rem op de rem) |
+| 3:35 | 4 Medicijnen | s13, q14, s15 | ingreepkaart rechts vult zich; nicotine op de acetylcholinereceptor; SSRI blokkeert de transporter; zeker/minder zeker + tijdlijn uur tegen weken; Parkinson-cellen sterven af; dopamine botst op de bloed-hersenbarrière, levodopa gaat erdoor en wordt in het eindknopje dopamine |
+| 4:53 | 5 Gewenning en verslaving | s16, q17, s18 | ronde cel + signaalmeter: receptoren gaan de cel in (gewenning), stof weg (ontwenning); hoofd in doorsnede (beeldbank hoofdHersenen) met de beloningsbaan ventraal tegmentum → nucleus accumbens → prefrontale schors; eten en gezelschap (Noor, Daan); effect- en verlangenmeter |
+| 6:05 | Samenvatting | s19 | synaps met vier nummers en de volle ingreepkaart |
+| 6:32 | Eindkaart | s20 | drie kernzinnen + volgende film |
 
-Begintijden = begin van de hoofdstukkaart in de speler, zonder wachttijd bij de vragen (zoals in de hoofdstuklijst op de pagina). Type-letters A–I uit de prompt staan niet in de HTML; de typering hierboven is die uit de tabel “Per hoofdstuk” in het docentdeel.
+Met vragen uit: hoofdstukken op 0:22, 1:00, 1:34, 2:21, 3:16, 4:04, eindkaart 4:31.
 
 ## Vragen
 
@@ -34,13 +37,13 @@ Begintijden = begin van de hoofdstukkaart in de speler, zonder wachttijd bij de 
 
 | Nr | Plek | Vraag | Opties | Juist | Misconceptie-optie | Niveau |
 |---|---|---|---|---|---|---|
-| V1 | H1 Vier plekken, 0:24 | Op hoeveel plekken in een synaps kan een stof ingrijpen? | A. Op één plek: de receptor / B. Op twee plekken: afgifte en receptor / C. Op meer dan twee plekken | C | A | basis (5 vwo) |
-| V2 | H2 Koffie, 1:25 | Hoe maakt cafeïne je wakker? | A. Cafeïne geeft je cellen energie / B. Cafeïne blokkeert een stof die je slaperig maakt / C. Cafeïne laat je hart direct sneller kloppen | B | A | basis (5 vwo) |
-| V3 | H3 Wijn, 2:48 | Alcohol remt je hersenen. Waarom word je na één glas eerst juist losser en spraakzamer? | A. Een beetje alcohol werkt opwekkend / B. Eerst worden de cellen geremd die jou afremmen / C. Omdat je het verwacht | B | A | basis (5 vwo) |
-| V4 | H4 Medicijnen, 3:30 | Een SSRI remt de heropname van serotonine. Wat gebeurt er dan in de spleet? | A. Er komt meer serotonine bij / B. De serotonine blijft langer in de spleet hangen / C. De receptoren worden gevoeliger | B | A | basis (5 vwo) |
-| V5 | H5 Gewenning en verslaving, 4:44 | Een zenuwcel krijgt wekenlang veel meer signaal dan normaal. Wat doet die cel? | A. Niets, hij vuurt gewoon vaker / B. Hij maakt minder receptoren, zodat het signaal weer normaal wordt / C. Hij raakt beschadigd | B | A | basis (5 vwo) |
+| V1 (q04) | H1 Vier plekken | Op hoeveel plekken in een synaps kan een stof ingrijpen? | A. Op één plek: de receptor / B. Op twee plekken: afgifte en receptor / C. Op meer dan twee plekken | C | A | basis (5 vwo) |
+| V2 (q07) | H2 Koffie | Hoe maakt cafeïne je wakker? | A. Cafeïne geeft je cellen energie / B. Cafeïne blokkeert een stof die je slaperig maakt / C. Cafeïne laat je hart direct sneller kloppen | B | A | basis (5 vwo) |
+| V3 (q11) | H3 Wijn | Alcohol remt je hersenen. Waarom word je na één glas eerst juist losser en spraakzamer? | A. Een beetje alcohol werkt opwekkend / B. Eerst worden de cellen geremd die jou afremmen / C. Omdat je het verwacht | B | A | basis (5 vwo) |
+| V4 (q14) | H4 Medicijnen | Een SSRI remt de heropname van serotonine. Wat gebeurt er dan in de spleet? | A. Er komt meer serotonine bij / B. De serotonine blijft langer in de spleet hangen / C. De receptoren worden gevoeliger | B | A | basis (5 vwo) |
+| V5 (q17) | H5 Gewenning en verslaving | Een zenuwcel krijgt wekenlang veel meer signaal dan normaal. Wat doet die cel? | A. Niets, hij vuurt gewoon vaker / B. Hij maakt minder receptoren, zodat het signaal weer normaal wordt / C. Hij raakt beschadigd | B | A | basis (5 vwo) |
 
-Alle antwoordsegmenten beginnen met “Het goede antwoord is …”. De gesproken vraag begint met “Wat denk je?”.
+In 2.0 zijn de vragen dezelfde; de gesproken vraagzin eindigt nu op “Wat denk je?” en het gesproken “Het goede antwoord is …” is weggeknipt (de vraagkaart van de speler toont het antwoord met uitleg).
 
 ### Checkvragen op de pagina
 
@@ -115,58 +118,47 @@ De signaalmeter in hoofdstuk 5 is een model: signaal = stof × receptoren, terug
 
 Vier aangrijpingspunten (V1, C1) · agonist en antagonist (V2, C2) · cafeïne en alcohol (V2, V3, C2, C3) · heropnameremming en het onderscheid middel/aandoening (V4, C4) · levodopa en aanmaak (C4) · tolerantie, ontwenning, verslaving (V5, C5).
 
-## Techniek: waar zit wat in de HTML
+## Techniek: waar zit wat (2.0)
 
-Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`; zelfde regelnummers als de film-HTML zelf, 786 regels).
+Werkmap om te bouwen: kopieer bron/remake-2026-10/ naar /home/claude/werk/zen4/ (src/ → eng/ samen met bouw/*.py; film/ → film/; raw/ = de mp3's uit ../audio), dan `bash bouw.sh` en `bash afmaken.sh` (zet het resultaat in de repo en draait spelerfix, antwoordtekst, kortantwoord, antwoordletter, flipkaarten, tabel_mobiel, licentie_noot, teller; een nieuw bestand eerst `git add`, anders slaat licentie_noot het over).
 
-- **`window.FILM_AUDIO`** (r. 427): object `{segment-id: 'data:audio/mpeg;base64,…'}`, één mp3 per gesproken segment. Koppeling id → blob: s00=001.mp3, q1=002.mp3, a1=003.mp3, q2=004.mp3, a2=005.mp3, s31=006.mp3, q3=007.mp3, a3=008.mp3, q4=009.mp3, a4=010.mp3, q5=011.mp3, a5=012.mp3, s70=013.mp3.
-- **`window.FILM`** (r. 430, één lange JSON-regel) met drie delen:
-  - `plan`: `title`, `subtitle`, `series`, `next` (worden door de speler niet gebruikt; de zichtbare titels staan als HTML in `#card-title`/`#card-end` en de `<h1>`), `chapters` (6× `{n,title,verdieping}`), `timeline` (26 items: narration/title/card/countdown/end; kaarten hebben een vaste `dur`, narration-items krijgen hun duur uit `timing`), `questions` ({q, opts[3], correct, misconception}), `cues` (`[woord, n-de keer, soort, tekst]` per segment; soorten: beat, number, recap, term).
-  - `timing[<id>]`: `duration` (s), `speech` ([begin, eind] van de spraak), `phrases` (ondertitelfrasen met `t0`/`t1`), `words` (elk woord met `t0`/`t1`). Bron van de woordtijden (vermoedelijk ElevenLabs-alignment): onbekend (niet in de HTML).
-  - `segments[]`: `{id, chapter, text}` — volledige tekst per segment; **niet gebruikt door de speler** (alleen documentatie).
-- **Speler** (IIFE vanaf r. 434): bouwt `SEGS` uit `plan.timeline` (starttijden opgeteld; narration-duur = `timing.duration`), zet `window.FILM_SEGS` en `window.FILM_CUES` (r. 484). `FILM_CUES` is een opgeloste cuetabel met absolute tijden voor QA; de scènes lezen de cues niet, maar zoeken hun eigen ankerwoorden op met `wt(id, woord, n)` (begintijd van het n-de voorkomen van dat woord in `timing[id].words`).
-- **Audio**: `AUD[id]=new Audio(FILM_AUDIO[id])` (r. 494). De klok (`tick`) volgt `audio.currentTime` tijdens een narration-segment; kaarten en aftellingen lopen op de wandklok. Aan het eind van een fragment springt de speler naar het volgende segment.
-- **Scènes**: `render(T)` kiest per segment op `scene`: `sceneWorld` r. 572, `sceneMicro` r. 584, `sceneRecap` r. 675, `sceneCard` r. 684, `sceneQuestion` r. 692, `sceneReveal` r. 707, `render` r. 716, `tick` r. 734. `sceneMicro` verdeelt per segment: a1→microVier, a2→microKoffie, s31→microWijn, a3→microRem, a4→microMed, a5→microTol.
-- **Ondertitels**: `renderCaption` toont de lopende frase uit `timing[id].phrases` (frasen < 18 tekens worden met de volgende samengevoegd); in staande stand op de telefoon in `#capband` onder het beeld.
-- **Vragen**: `sceneQuestion` toont `plan.questions[n]` tijdens het q-segment en de aftelling; opties lichten op op vaste fracties 0,30/0,55/0,80 van de duur van het q-segment. `sceneReveal` legt de vraag over het begin van het a-segment en kleurt het juiste antwoord op het woord “antwoord” (tot 3,2 s erna).
-- **Modi**: Leerling (wacht na de aftelling tot er een optie getikt is), Klas (`?modus=klas`; knop “verder”), vinkje “automatisch door”. Ondertitels (C), stem aan/uit (M), volledig scherm (F, met nep-fullscreen voor iPhone). Geen havo/vwo-schakelaar.
-- **Pagina onder de speler**: hoofdstuklijst (gegenereerd uit `plan.chapters`), Begrippen r. 341, Transcript r. 363, Checkvragen r. 386, Voor de docent r. 394, Credits r. 422.
-- **QA**: `window.FILM_API.renderAt(T)` (r. 780) rendert deterministisch één frame.
-
-**Ankerwoorden per segment** (woorden waarop beeld of cues getimed zijn, gevonden in de code en in `plan.cues`; mogelijk niet volledig): 
-
-- `s00`: Avond, Hoe, losser, Ochtend, reageren, spleet, wakker
-- `q1`: —
-- `a1`: agonist, antagonist, Drie, Eén, kaart, synaps, Twee, Vier + “antwoord” (reveal)
-- `q2`: —
-- `a2`: adenosine, afgebroken, antagonist, Cafeïne, dip, energie, langer, remt, slaapdruk, wacht, wakker + “antwoord” (reveal)
-- `s31`: GABA, gevoeliger, glutamaat, Meer, remt, trager, twee
-- `q3`: —
-- `a3`: afremmen, gas, gevoelig, losser, Pas, traag + “antwoord” (reveal)
-- `q4`: —
-- `a4`: Drie, Levodopa, minder, Nicotine, Parkinson, seconden, SSRI's, weken, zeker + “antwoord” (reveal)
-- `q5`: —
-- `a5`: beloont, dopamine, iets, meer, normaal, ontwenning, sterker, Stop, tolerantie, veel, verlangen, verslaving, weg + “antwoord” (reveal)
-- `s70`: Alcohol, Cafeïne, gewenning, knoeit, Levodopa, Nicotine, SSRI, Vier
+- `film/segments.json` — 20 segmenten (speech/question/title/card); `film/maak_segments.py` maakt hem uit `disp_oud.json` (prep_audio.py) en `a4_voice.txt`.
+- `film/words/<id>.json` — woordtijden (oude ElevenLabs-tijden herschikt; s15 silalign).
+- `film/film.py` — titel, vragen met uitleg (`questions`), begrippen, footer, `audiomap` (audio staat in de map van de oude film).
+- `film/sections.html` — checkvragen en docentdeel op de pagina.
+- `film/synaps_z4.js` — `synapsZ4` = synapsEcht uit bibliotheek/lib_bio.js met drie kleuropties (nt, imp, trans).
+- `film/teken_z4.js` — hulpjes: `Z4` (kleuren) r. 3, `mol` r. 18 (molecuulvormpjes nt/ado/cafe/alc/grond/blok), `celBoog` r. 35 (ronde cel met dubbellaag), `receptor` r. 54 (ionkanaal met bindingsplek), `ingreepkaart` r. 70, `PLEKPOS`/`plekRing` r. 87, `aanmaak` r. 94, `cel`/`axon` r. 100, `meter` r. 112, decor (raam, tafel, kopje ± 10 cm, wijnglas ± 20 cm, bank met zithoogte 45 cm, lamp) r. 120–145, `ochtend`/`avond` r. 146/154 (Linda, 1 cm = s px), `pil`, `bord`, `BELONING` + `beloningsbaan` r. 170, `balkMeter` r. 179.
+- `film/scenes_z4.js` — één functie per alinea: title r. 7, s01 r. 10, s03 r. 22, s05 r. 29, s06 r. 52, s08 r. 54, s09 r. 83, s10 r. 101, s12 r. 103, s13 r. 129, s15 r. 134, s16 r. 188, s18 r. 194, s19 r. 230. Cues via `q.on(woord, n, duur)` / `q.at(woord, n)`; let op: `q.at` zoekt op 'woord zit erin' (bv. 'Er' vindt ook 'Terug'), kies dus een uniek woord.
+- `storyboard/` — 24 keyframes (960×540) + storyboard.json voor het keuringsblad.
 
 ## Zo pas je deze film aan
 
-1. **Tekst in beeld wijzigen** (labels, termen, kaarten): zoek de tekst in de SVG-lagen (`#world`, `#micro`) of in `#cards`; titel- en eindkaart staan als HTML in `#card-title` / `#card-end`. Vraagteksten en opties wijzig je in `plan.questions` (let op: de gesproken vraag in het q-fragment noemt de opties ook).
-2. **Eén alinea opnieuw inspreken**: elk segment is een eigen mp3. Vervang alleen het blob van dat segment (zie tabel hierboven) met dezelfde naam, en vervang in `window.FILM.timing[<id>]` `duration`, `speech`, `phrases` en `words` door de nieuwe tijden (ElevenLabs met timestamps). Pas `segments[].text` en het transcript op de pagina mee aan. De andere segmenten blijven ongemoeid; de starttijden schuiven vanzelf op.
-3. **Let op de ankerwoorden**: de animatie hangt aan woorden via `wt()`. Verdwijnt of verandert een ankerwoord (lijst hierboven), dan geeft `wt` 0 terug en springt dat beeldmoment naar het begin van het segment. Een a-segment moet het woord “antwoord” bevatten (reveal), en het n-de voorkomen telt (`wt(id,woord,2)`).
-4. **Vraag aanpassen**: `plan.questions[n]` (`q`, `opts`, `correct` 0-gebaseerd, `misconception`); het q- en a-fragment opnieuw inspreken als de gesproken tekst niet meer klopt. De aftelling (`cdN`, 8 s) staat in `plan.timeline`.
-5. **Kaarten en pauzes**: de duur van titel-, hoofdstuk- en eindkaart en de aftellingen staat als `dur` in `plan.timeline`.
-6. **Inpakken**: werk in een tijdelijke map met `python3 scripts/filmbron.py uitpakken|inpakken|controleer`; zet geen uitgepakte mappen in de repo.
+1. **Beeld**: pas de scènefunctie in scenes_z4.js aan (cues op dezelfde woorden), bouw, bekijk stills met `python3 bouw/stills.py film /tmp/x s05:16 …`.
+2. **Eén alinea opnieuw inspreken**: model eleven_multilingual_v2, stem Roos, uitspraakregels uit films/uitspraak.json; mp3 naar raw/<id>.mp3 en ../audio/<id>.mp3, `display` in segments.json bijwerken, woordtijden met `SIL_DB=-26 SIL_MIN=8 python3 bouw/silalign.py film <id>`, cues nalopen.
+3. **Vraag**: opties in segments.json (`options`), vraag/juist/uitleg in film.py (`questions`).
+4. Na elke bouw: `bash afmaken.sh`, Vragen uit afspelen rond elke vraag (test/vragenuit.py in de werkmap, zie Wijzigingen).
 
 ## Aandachtspunten
 
-- Ankerfout: `microRem` (r. 628) zoekt het woord ‘afremmen’ in a3, maar de tekst zegt “af te remmen”; `wt` geeft 0, dus het label ‘de remcel houdt de doelcel stil’ staat er vanaf het begin van a3 in plaats van op dat woord (valt grotendeels onder de antwoord-overlay).
-- Credits linken naar `reeks.html`, dat niet in de repo staat (dode link). `plan.series` zegt “film 4 van 6”.
-- Gevoelig onderwerp: docentdeel heeft een apart blok ‘Vooraf: gevoelige thema’s’ met links naar Trimbos en drugsinfo.nl; de SSRI-passage volgt Kamiels wens (geen oorzaakclaims over depressie). Bij herschrijven bewaken.
-- Velden die de speler niet gebruikt: `questions[].misconception`, `segments[]`, `plan.series/next`.
-- Verbeterd 12-10-2026: cue in a3 hangt nu aan "remmen" (de stem zegt "af te remmen"), label verschijnt op 3,54 s in het stuk. Dode link `reeks.html` → `../../index.html#regeling`; "film 4 van 7".
+- Gevoelig onderwerp: het docentdeel houdt het blok 'Vooraf: gevoelige thema's'; de SSRI-passage doet geen oorzaakclaim over depressie.
+- Nieuwe tekeningen nog niet in de beeldbank (Kamiel: 'nieuwe beeldbankobjecten: later'): `receptor` (eenvoudig ionkanaal met bindingsplek, agonist/antagonist), `mol` (adenosine/cafeïne met dezelfde basisvorm, ethanol, grondstof), `beloningsbaan` op hoofdHersenen, decor thuis (kopje, wijnglas, bank, lamp, raam), en de kleuropties van synapsZ4. Kandidaten voor lib_bio.js.
+- Castpersonages zonder naam in stem of beeld: Linda (cold open, koffie, wijn), Noor en Daan (gezelschap, s18).
 
 ## Wijzigingen
+- **2.0 · 29 okt 2026 — lichte remake in de donkere stijl (preview naast de oude film)**, keuze Kamiel 29 okt 2026. Script, vragen en volgorde gelijk; stem blijft behalve s15.
+  - *Alle scènes:* nieuw beeld in Part C (donker navy, Fraunces/Source Sans 3), FILMDATA-speler met snelheid en Vragen aan/uit; alle membranen gebogen, cellen rond; geen korrel buiten cellen; kleuren volgens de tabel (neurotransmitter licht teal, zenuwsignaal teal, niet meer paars).
+  - *s01 (cold open):* twee kamers thuis (ochtend/avond) met Linda, realistische maten; zoomcirkel naar synapsZ4 i.p.v. de oude lens.
+  - *s03/s05 (Vier plekken):* synapsZ4 uit de beeldbank (keuze Kamiel) i.p.v. de eigen synaps; vier plekken als gouden ringen met nummers; agonist/antagonist in een zoomcirkel op de receptor; ingreepkaart als vast UI-element.
+  - *s06/s08 (Koffie):* klok, slaapdrukbalk en Linda; ronde cel met receptoren; cafeïne heeft dezelfde basisvorm als adenosine ('lijkt op').
+  - *s09–s12 (Wijn):* GABA- en glutamaatreceptor in twee ronde cellen met meters; netwerk dat trager vuurt; schakeling voor 'rem op de rem'.
+  - *s13/s15 (Medicijnen):* **nieuwe opname** (883 credits): 'binnen tien seconden' → 'binnen een paar seconden' (bewering 16, keuze Kamiel), taalfout 'Dopamine zelf kom je niet' → 'komt niet'; SSRI met de beeldbank-blokkade; tijdlijn uur tegen weken; bloed-hersenbarrière met levodopa als grondstof.
+  - *s16/s18 (Gewenning en verslaving):* receptoren gaan zichtbaar de cel in (gewenning); beloningssysteem als hersendoorsnede (beeldbank `hoofdHersenen`) met de baan ventraal tegmentum → nucleus accumbens → prefrontale schors i.p.v. een wolk (keuze Kamiel); eten en gezelschap met Noor en Daan.
+  - *s19/s20:* samenvatting met de volle ingreepkaart; eindkaart met drie kernzinnen.
+  - *Audio:* 'Het goede antwoord is X.' aan het begin van a1, a2, a3, a5 weggeknipt (de vraagkaart toont het antwoord); 'Wat denk je?' achteraan de vraagzinnen, zodat bij Vragen uit niets van de vraag overblijft.
+  - *Pagina:* docentdeel met A-bronnen i.p.v. Wikipedia; begrip 'bloed-hersenbarrière' erbij; beloningssysteem als keten beschreven.
+  - *Getest:* contactvel van alle scènes (ook na correcties), elke vraag afgespeeld met `?vragen=uit` (5 s ervoor tot 5 s erna: alleen de contextzin blijft, geen vraag of antwoord), 375 en 360 px (geen horizontale scroll), geen fouten in de console, B11-scripts met --check.
+
+## Geschiedenis versie 1.x (oude film, nog online als 4-knoeien-met-de-spleet.html)
 - **1.1 · 28 okt 2026** — opwaardering prompt v13 (B14, zonder keuring; Regeling-batch). Geen nieuwe opname. Details en open vragen: `opwaardering-v13.md`; vakinhoud: `bronnen.md`.
   - *s00 (cold open):* de twee grijze poppetjes (rond hoofd, blokvormig lijf) vervangen door castpersonage Linda (moeder van Noor, volwassen; geen naam in beeld of stem): 's ochtends staand achter de tafel (uitdrukking `moe`, bij 'wakker' `blij`), 's avonds zittend op de bank (`neutraal`, bij 'losser' `lacht`). lib_cast.js afgeschermd in de film (`window.CASTSVG`, het castbeeld wordt bij het laden als `<image>` in de SVG gezet; ids `w-eyes1`/`w-eyes1o`/`w-p2a`/`w-p2b`). Ook in de gedimde wereld onder de samenvatting.
   - *s00:* realistische maten (tafel 75 cm = 284 px): kopje ±10 cm (was ±24 cm), wijnglas ±20 cm (was ±42 cm, zweefde in de lucht) en staat nu op de armleuning.
@@ -176,8 +168,8 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`; z
   - *Let op:* de regelnummers in ‘Techniek: waar zit wat in de HTML’ gelden voor 1.0; in 1.1 staan er vóór `window.FILM_AUDIO` twee scripts bij (lib_cast afgeschermd, ±830 regels, en de castopbouw), dus alles vanaf r. 442 schuift ±845 regels op. Zoek op functienaam.
 - 15 okt 2026 — Speler: de knop Vragen aan/uit (onthouden in `bk-vragen`, ook `?vragen=uit`) werkt nu altijd, ook na spoelen, in pauze en als je hem halverwege omzet. Bij Vragen uit vallen weg: de vraag zelf, de gesproken vraagzin(nen) ervoor (zinnen op '?', 'Wat denk je?', 'Denk even na.', 'Eerst een voorspelling.') en een los antwoord direct erna ('Antwoord B.', 'Ja.', 'Nee.', 'Precies.'); gewone uitlegzinnen blijven staan. De tijdbalk, tijd en hoofdstuktijden tonen de ingekorte duur. Code: `bkBouw()` maakt `BK.k` (stukken die de speler overslaat); regelnummers in de spelercode zijn daardoor een paar regels verschoven. Hoofdstukkaart 2,2 s in plaats van 3,0 s (duur van de `card`-stukken in `SEGS`).
 
-## Wijziging 16 okt 2026
+### Wijziging 16 okt 2026
 Titel op verzoek van Kamiel: "Knoeien met de synaps" (was "Knoeien met de spleet") in `<title>`, kop, titelkaart en `FILM.plan.title`; ook in de eindkaart van film 3, `index.html`, `pta-route.html` en de verwijzing in Slaap. Bestandsnaam blijft `4-knoeien-met-de-spleet.html` (links en kijkcijfers). De gesproken zin "ze knoeien met de spleet uit de vorige film" (s00, 0:11) gaat over de synapsspleet en is niet opnieuw ingesproken.
 
-## Wijziging 16 okt 2026: begrippen als kaartjesraster
+### Wijziging 16 okt 2026: begrippen als kaartjesraster
 Het begrippenblok ziet er nu uit als in de hoofdengine (bv. `films/cellen/van-molecuul-tot-biosfeer.html`): onder de kop "Begrippen" een `<div id="glossary">` met per begrip een kaartje `<div class="term"><b>begrip</b><p>uitleg</p></div>` (raster `repeat(auto-fill,minmax(260px,1fr))`). Volgorde en tekst van de begrippen zijn ongewijzigd; extra kolommen (bron, hoofdstuknummer) staan klein onder de uitleg in `<p class="gl-meta">`. De opmaak staat in `<style id="glossary-stijl">` vlak voor `</head>` (kleuren via de variabelen van deze pagina). Nieuw begrip: voeg een kaartje toe in `#glossary`. Omgezet met een script; regelnummers verderop in dit bestand kunnen enkele regels verschoven zijn. De kop "Begrippen" is een `<h2 class="gl-kop">` met dezelfde opmaak als op de voorbeeldpagina (Fraunces 700, 30px, regelhoogte 1,5, marge 0 0 12px; het lettertype zit als `@font-face` 'Fraunces Begrippen' in `#glossary-stijl`, kleur = tekstkleur van deze pagina).
