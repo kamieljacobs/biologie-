@@ -153,7 +153,7 @@ Object.assign(SCENES, {
       roundRect(ctx, ax(9), 470, ax(14) - ax(9), 70, 35); shape(ctx, rgba(C.teal, 0.3), C.teal, 2); regel(ctx, 'jongens: 9 tot 14 jaar', (ax(9) + ax(14)) / 2, 516, 1, C.text, 26, 'center', 700);
       chip(ctx, 'vroeg is normaal', ax(9), 800, C.groen, q.on('Vroeg', 1), 26); chip(ctx, 'laat ook', ax(13.5), 800, C.groen, q.on('laat', 1), 26); ctx.restore(); }
     const sd = q.on('Daan', 1); persoon(ctx, 'daan', 1500, 880, 390 / 0.95, { uit: sd > 0.5 ? 'blij' : 'neutraal', pose: 'staan', kijk: 1, t, a: 0.35 + 0.65 * B }); persoon(ctx, 'sam', 1760, 880, 470 / 1.04, { uit: 'blij', pose: 'staan', kijk: -1, t, a: 0.35 + 0.65 * B });
-    startlamp(ctx, 1500, 400, sd > 0.6 ? 1 : 0, B); startlamp(ctx, 1760, 320, 1, B); chip(ctx, 'Daan: gewoon later', 1500, 290, C.groen, sd, 26); },
+    startlamp(ctx, 1500, 400, sd > 0.6 ? 1 : 0, B); startlamp(ctx, 1760, 320, 1, B); chip(ctx, 'gewoon later', 1500, 290, C.groen, sd, 26); },
 
   // ---------- vwo ----------
   s12(ctx, t, q) { bg(ctx, 'schema');
@@ -316,5 +316,5 @@ Object.assign(SCENES, {
       paneel(ctx, 980, 160, 820, 640, 'eicellen', ec); if (ec > 0.01) { ctx.save(); ctx.globalAlpha *= ec; eierstokDoorsnede(ctx, 1390, 430, 260, 170, { groei: 0.2, t }); regel(ctx, 'voorraad al vóór de geboorte', 1390, 690, 1, C.goud, 26, 'center', 700); regel(ctx, 'geen nieuwe erbij', 1390, 740, q.on('geen', 1), C.koraal, 26, 'center', 700); ctx.restore(); }
       ctx.restore(); }
     if (d > 0.01) { ctx.save(); ctx.globalAlpha *= d; klasAchtergrond(ctx); meetlat(ctx, 1250, 880, 360, 1); persoon(ctx, 'daan', 1080, 880, lerp(382, 400, q.on('later', 1)) / 0.95, { uit: 'blij', kijk: 1, t }); persoon(ctx, 'sam', 1420, 880, 470 / 1.04, { uit: 'blij', kijk: -1, t });
-      startlamp(ctx, 1080, 380, q.on('later', 1) > 0.5 ? 1 : 0, 1); startlamp(ctx, 1420, 320, 1, 1); tag(ctx, 'Daan: startsein komt gewoon wat later', 760, 200, C.groen, 1, 'center', 28); ctx.restore(); } },
+      startlamp(ctx, 1080, 380, q.on('later', 1) > 0.5 ? 1 : 0, 1); startlamp(ctx, 1420, 320, 1, 1); tag(ctx, 'startsein komt gewoon wat later', 760, 200, C.groen, 1, 'center', 28); ctx.restore(); } },
 });

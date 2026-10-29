@@ -7,9 +7,9 @@ Versie 2.0 is een lichte remake (prompt v10 B16) in de FILMDATA-straat, 26 okt 2
 | Bestand | films/voortplanting/2-geslachtsorganen-puberteit.html (audio in `2-geslachtsorganen-puberteit/audio/`) |
 | Reeks | Voortplanting (hoofdstuk `voortplanting`), film 2; sluit aan op Celdeling (meiose) |
 | Niveau | havo + vwo; vwo-blok s12–s14 (kisspeptine, leptine en vetreserve, eerste menstruatie steeds vroeger) |
-| Versie / datum | 2.0 · 26 oktober 2026 (lichte remake) · eerder 1.1 · 22 okt 2026, 1.0 · 16 okt 2026 |
-| Prompt | v10 |
-| Voldoet aan | prompt v10 (26 okt 2026) |
+| Versie / datum | **2.1 · 29 oktober 2026** — opwaardering naar prompt v13 (B14, zonder keuring): alleen beeld, stem en script ongewijzigd; oude versie in `bron/oud/2-geslachtsorganen-puberteit-v2.0.html` (+ `info-v2.0.md`). 2.0 · 26 oktober 2026 (lichte remake) · eerder 1.1 · 22 okt 2026, 1.0 · 16 okt 2026 |
+| Prompt | v13 |
+| Voldoet aan | prompt v13 (29 okt 2026, zonder keuring). Bewust niet: de stem noemt Sam en Daan (s01, s11, s32; B4) — niet opnieuw ingesproken, staat op de herinspreeklijst; hormoonkleuren (testosteron/oestrogeen paars, steroïden = paars volgens de hormonen-afspraak) en de paarse prostaat blijven tot Kamiel kiest (vraag); geen nieuwe caststijl met contourlijnen |
 | Stem / model | Roos (`7qdUFMklKPaaAVMsBTBt`), ElevenLabs eleven_v4, één take per alinea (28 takes), flow `2gVdRpBnFclUy5DZxMY2`; stem-invoer via `films/uitspraak.json` + `uitspraak_film.json` (GnRH → G-N-R-H); 'meiose' zoals geschreven (gelijk aan Celdeling) |
 | Duur | spraak 7:42 (vwo) / 6:48 (havo); met titel, hoofdstukkaarten en vragen ± 9 min; `duur: 9` in HOOFDSTUKKEN |
 | Beeldstijl | Part C: Macro-vlak (klas), Schema, Micro in zoomcirkels; organen op schaal (mannelijke organen 1 cm = 14 px × s) |
@@ -17,6 +17,19 @@ Versie 2.0 is een lichte remake (prompt v10 B16) in de FILMDATA-straat, 26 okt 2
 | Audio-opslag | 28 losse mp3's (`../audio/sNN.mp3`), woordtijden `stem/woordtijden/` (silalign, lokaal) |
 | Herkomst | lichte remake (B16), keuring twijfelscènes 25 okt 2026 (`films/verbeterbladen/remake-2026-10/besluiten.md`): t1, t3, t4, t5, t7, t8 voorstel; t2 gezichten heel, organen in een zoomcirkel naast het lichaam; t6 alternatief (remzin 'Veel oestrogeen remt de hypofyse weer.' voor havo en vwo) |
 | ElevenLabs-verbruik | TTS ± 7 065 credits (28 takes), Scribe ± 419 credits (blinde check s05, s07, s08, s15) |
+
+## Wijzigingen 2.1 (29 okt 2026): opwaardering naar prompt v13 (zonder keuring)
+
+Alleen beeld; stem, script, vragen, timings, speler en datum ongewijzigd. Site-HTML bijgewerkt door alleen het scèneblok en FILMDATA te vervangen (speler en nabewerkingen bleven staan). Bibliotheek: de eigen kopieën in `teken_g2.js` deel 2 (hormDeeltje, hypofysePoort, manDoorsnede, penisDoorsnede, vulvaSchema, schaalStreep) zijn weg; de film gebruikt nu de gekeurde versies uit `bibliotheek/lib_bio.js` (verbeterronde 1–3) via het uittreksel `src/lib_bio_deel.js` (`bouw/bio_deel.py`, zie `bouw.sh`). Contactvel van de gewijzigde scènes bekeken; alle 93 contactstills in vwo zonder JS-fouten; vragen afgespeeld met `?vragen=uit` (havo en vwo).
+
+- s06, s07, s29, s31: hypofysePoort uit de beeldbank (variant A): hypothalamus met thalamus en derde hersenkamer, Turks zadel als bot onder de hypofyse.
+- s07, s08, s13, s29 en alle scènes met hormoondeeltjes: hormDeeltje variant C (GnRH als kralenketen, FSH/LH als α+β-kralenketens, steroïden als ringstructuur) in plaats van de oude vormpjes.
+- s08, s26, s28, s29, s32: eierstokDoorsnede variant B (follikels in rijping, geel lichaam) in plaats van het vlak met stipjes.
+- s08, s15: zaadbalWeefsel en zaadcelEcht in de gekeurde versie (acrosoom op ± 60 % van de kop; ovale, gedraaide profielen).
+- s13 (vwo): vetweefsel met het haarvat langs de celgrenzen (was dwars over de vetcellen).
+- s09, s12, s31: kleine verschillen door de gekeurde zenuwcel en hormoonvormen.
+- titel: puzzelvraag zonder castnamen ('Twee jongens uit dezelfde klas …'); s11 chip 'gewoon later' en s32 label 'startsein komt gewoon wat later' zonder 'Daan:' (B4: geen castnamen in beeld). Footer: geen personagenamen meer.
+- Lijsten voor Kamiel: `bron/opwaardering-v13.md`.
 
 ## Opbouw
 | Hoofdstuk | Segmenten | Kernbeeld |

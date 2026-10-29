@@ -116,3 +116,7 @@ Opmerking bij 29: een verbetering van de nauwkeurigheid, geen fout ('langs de bl
 
 ## Menselijke controle
 Nog niet gedaan. Voorstel steekproef Kamiel: 15/16 (groeispurt), 34 (sperma), 6 (slaap), 29 (route zaadleider).
+
+## Opwaardering v13 (29 okt 2026)
+
+Geen nieuwe of gewijzigde beweringen: script en stem zijn gelijk gebleven. Alleen beeldobjecten vervangen door de gekeurde beeldbankversies; de bronnen van die objecten staan in `bibliotheek/README.md` en de verbeterronde-mappen (o.a. acrosoom ± 60 % van de kop: MeSH/DeCS + 'Acrosome'; haarvat in vetweefsel langs de celgrenzen). Status blijft 43 beweringen · 34 ✓ · 9 ≈ · 0 ! · 0 ?.
