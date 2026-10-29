@@ -17,6 +17,9 @@ Gecontroleerd: versie 1.1 (opwaardering prompt v13; script en stem gelijk aan 1.
 | B9 | A | Feld & Diekelmann · Frontiers in Psychology 6:622 | Sleep smart: optimizing sleep for declarative learning and memory (review) | 2015 | https://www.frontiersin.org/articles/10.3389/fpsyg.2015.00622/full | 2026-10-28 |
 | B10 | A | OpenStax (Rice Univ.) | Anatomy and Physiology, 14.3 Motor Responses | © 2013 | https://openstax.org/books/anatomy-and-physiology/pages/14-3-motor-responses | 2026-10-28 |
 | B11 | A | OpenStax (Rice Univ.) | Anatomy and Physiology 2e, 13.2 The Central Nervous System | © 2022 | https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system | 2026-10-28 |
+| B12 | A | LibreTexts (Boundless General Biology) | 35.8 How Neurons Communicate – Synaptic Plasticity | – | https://bio.libretexts.org/Bookshelves/Introductory_and_General_Biology/Book:_General_Biology_(Boundless)/35:_The_Nervous_System/35.08:__How_Neurons_Communicate_-_Synaptic_Plasticity | 29-10-2026 |
+| B13 | A | Harris, Fiala, Ostroff · Phil Trans R Soc B 358:745–748 | Structural changes at dendritic spine synapses during long-term potentiation | 2003 | https://synapseweb.clm.utexas.edu/sites/default/files/legacy/documents/2003_phil_trans_r_soc_lond_harris_ostroff_structural_changes.pdf | 29-10-2026 |
+| B14 | A | OpenStax / LibreTexts | Anatomy and Physiology 1e, Key Terms hoofdstuk 13 (hippocampus, basale kernen, centrale groeve, laterale groeve, kleine hersenen) | – | https://med.libretexts.org/Bookshelves/Anatomy_and_Physiology/Anatomy_and_Physiology_1e_(OpenStax)/zz%3A_Back_Matter/Key_Terms_Chapter_13%3A_Anatomy_of_Nervous_System | 29-10-2026 |
 
 ## Beweringen
 
@@ -46,12 +49,17 @@ Gecontroleerd: versie 1.1 (opwaardering prompt v13; script en stem gelijk aan 1.
 | 22 | a4 | Synapsen die weinig gebruikt worden, worden afgezwakt of opgeruimd (snoeien); tot ver na de puberteit, ook in de voorhoofdskwab. | B8, B1 | ✓ | Afname van spines in de prefrontale schors 'continues beyond adolescence', tot in het derde decennium (B8); LTD = afzwakken (B1). |
 | 23 | a5 | Een beginner gebruikt de voorhoofdskwab; na veel oefenen nemen kleine hersenen en basale kernen het over (automatiseren); daarom verleer je fietsen bijna nooit. | B2, B10 | ≈ | Procedureel geheugen 'eventually runs automatically', basale kernen (B2); kleine hersenen (B10). De verschuiving van de voorhoofdskwab af is gangbaar maar niet in deze bronnen beschreven. |
 | 24 | a5, s70 | Een deel van het vastleggen gebeurt daarna, als je slaapt. | B9, B2 | ✓ | Slaap draagt bij aan blijvende herinneringen, ook motorische vaardigheden (B9). |
+| 25 | a1 (beeld, remake 2.0) | In het beeld: de NMDA-receptor (toevalsdetector) is geblokkeerd door magnesium; pas als de volgende cel actief is gaat het magnesium eruit en stroomt calcium het voetje in; daarna worden extra AMPA-receptoren ingebouwd. | B12, B1 | ✓ | B12: 'normally blocked by magnesium ions', depolarisatie duwt Mg eruit, Ca2+ in, AMPA-receptoren 'inserted into the postsynaptic membrane'. |
+| 26 | a1 (beeld, remake 2.0) | Na herhaling: nieuwe eiwitten, een groter voetje en een nieuw voetje. | B13, B1 | ✓ | B13: blijvende LTP vraagt nieuwe eiwitsynthese; vooral vergroting van bestaande synapsen, plus enkele nieuwe uitsteeksels. |
+| 27 | s31, a3, a5 (beeld, remake 2.0) | Hersenen van opzij: hippocampus diep in de slaapkwab, basale kernen diep in de grote hersenen, kleine hersenen achter-onder, motorische schors vlak vóór de centrale groeve (in de voorhoofdskwab), slaapkwab onder de laterale groeve. | B14, B11 | ≈ | B14 bevestigt hippocampus 'deep in the temporal lobe', basale kernen, laterale groeve; B14 zet de motorische schors bij 'postcentral' (fout in die verklarende lijst); B11 en de standaardanatomie: motorische schors in de gyrus precentralis, vóór de centrale groeve. |
 
 ## Aanpassingen
 
 | Waar | Was | Nu | Onderbouwing |
 |---|---|---|---|
 | s70 (slot) | ‘Maar wat doen ze 's nachts, en als je gestrest bent? Dat zie je in de laatste film.’ + eindkaart ‘Volgende film: Slaap en stress’ | Zinnen uit de take geknipt (na ‘kijkt.’); eindkaart ‘Volgende film: Slaap — waarom je hersenen slaap nodig hebben’ | Geen vakinhoud maar een feitelijke fout over de reeks: film 7 heet *Slaap* (index.html) en is niet de laatste film (8 Zintuigen en 9 Spieren en beweging volgen); stress zit in Hormonen 4. Geknipt in de bestaande take, geen nieuwe opname. |
+
+Lichte remake 2.0 (29 okt 2026): geen tekst veranderd (geen inspreekpunten); alleen het beeld is nieuw. Beweringen 25–27 gaan over wat de nieuwe tekeningen laten zien.
 
 ## Menselijke controle
 

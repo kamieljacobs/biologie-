@@ -1,0 +1,200 @@
+[
+ {
+  "id": "s00",
+  "kind": "speech",
+  "chapter": "Cold open",
+  "level": "basis",
+  "display": "Je bent zes. De zijwieltjes gaan eraf. Iemand houdt je zadel vast, en jij zwabbert alle kanten op. Tien jaar later fiets je naar school en klets je ondertussen met een vriendin. Uit een open raam klinken twee tonen, en je weet meteen welk nummer het is. Niemand wordt geboren met fietsen, of met een lievelingsnummer. Wat is er in je hoofd veranderd?",
+  "voice": "(bestaande take, oude film 1.1)"
+ },
+ {
+  "id": "titel",
+  "kind": "title",
+  "chapter": "Titel",
+  "level": "basis",
+  "text": "Leren en onthouden."
+ },
+ {
+  "id": "q1",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 1 — Sterker door samen",
+  "level": "basis",
+  "display": "Wat denk je? Je leert iets nieuws: wat verandert er dan in je hersenen? Er komen nieuwe zenuwcellen bij? Bestaande verbindingen worden sterker, en er groeien nieuwe? Of je hersenen worden groter en zwaarder?",
+  "voice": "(bestaande take, oude film 1.1)"
+ },
+ {
+  "id": "v1",
+  "kind": "question",
+  "chapter": "Hoofdstuk 1 — Sterker door samen",
+  "level": "basis",
+  "options": [
+   "Er komen nieuwe zenuwcellen bij",
+   "Bestaande verbindingen worden sterker, en er groeien nieuwe",
+   "Je hersenen worden groter en zwaarder"
+  ],
+  "n": "1"
+ },
+ {
+  "id": "a1",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 1 — Sterker door samen",
+  "level": "basis",
+  "display": "Het goede antwoord is B. Er komen hooguit een paar nieuwe zenuwcellen bij. Leren zit vooral in de verbindingen: de synapsen uit film 3. Kijk naar twee cellen die vaak tegelijk actief zijn. Het eindknopje geeft glutamaat af, terwijl de volgende cel al actief is. Dan doet een speciale receptor mee. Die werkt als een toevalsdetector: hij laat alleen calcium door als beide cellen tegelijk actief zijn. Calcium stroomt het dendrietvoetje in. Het voetje bouwt extra receptoren in. Hetzelfde signaal geeft nu een grotere reactie. Dat gaat snel, binnen minuten, maar het blijft niet vanzelf. Herhaal je het vaak genoeg, dan maakt de cel nieuwe eiwitten. Het voetje wordt groter, en er groeien nieuwe voetjes bij. Dat kan maanden blijven. Cellen die samen vuren, raken met elkaar verbonden.",
+  "voice": "(bestaande take, oude film 1.1)"
+ },
+ {
+  "id": "s21",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 2 — Patronen en koppelingen",
+  "level": "basis",
+  "display": "Een nummer is geen losse herinnering. Het zijn duizenden cellen: voor de tonen, het ritme, de stem, en waar je was toen je het hoorde. Door vaak luisteren zijn de verbindingen tussen die cellen sterker geworden. Samen vormen ze een patroon. Hoor je twee tonen, dan worden een paar cellen van dat patroon actief. Via de sterke verbindingen zetten die de rest aan. Het hele nummer is er weer. Een deel van het patroon roept het geheel op. En omdat het patroon verspreid ligt over veel cellen, verdwijnt een herinnering niet als er één cel uitvalt.",
+  "voice": "(bestaande take, oude film 1.1)"
+ },
+ {
+  "id": "s22",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 2 — Patronen en koppelingen",
+  "level": "basis",
+  "display": "Zo leer je ook koppelingen die je nooit hebt gekozen. Rond het jaar 1900 liet de Russische onderzoeker Pavlov een bel klinken, vlak voordat zijn honden eten kregen. Eten is een ongeconditioneerde prikkel: het geeft vanzelf speeksel, een reflex, zoals in film 1. De bel gaf eerst geen speeksel: een neutrale prikkel. Maar bel en eten kwamen steeds samen. Na een tijdje gaf de bel alleen al speeksel. De bel was een geconditioneerde prikkel geworden. Dat heet klassieke conditionering: een reflex raakt gekoppeld aan een nieuwe prikkel. Bij jou werkt het net zo. Ruik je friet als je honger hebt, dan loopt het water je al in de mond, nog voor de eerste hap.",
+  "voice": "(bestaande take, oude film 1.1)"
+ },
+ {
+  "id": "q2",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 2 — Patronen en koppelingen",
+  "level": "basis",
+  "display": "Wat denk je? Pavlov laat daarna steeds weer de bel klinken, maar geeft geen eten meer: wat gebeurt er met het speeksel bij de bel? De hond blijft net zoveel speeksel maken? Het speeksel wordt langzaam minder? Of de hond maakt juist meer speeksel, om het eten te lokken?",
+  "voice": "(bestaande take, oude film 1.1)"
+ },
+ {
+  "id": "v2",
+  "kind": "question",
+  "chapter": "Hoofdstuk 2 — Patronen en koppelingen",
+  "level": "basis",
+  "options": [
+   "De hond blijft net zoveel speeksel maken",
+   "Het speeksel wordt langzaam minder",
+   "De hond maakt juist meer speeksel, om het eten te lokken"
+  ],
+  "n": "2"
+ },
+ {
+  "id": "a2",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 2 — Patronen en koppelingen",
+  "level": "basis",
+  "display": "Het goede antwoord is B. Komt de bel steeds zonder eten, dan wordt de reactie zwakker. Dat heet uitdoven, of extinctie. De koppeling wordt daarbij niet gewist. De hond leert er iets bij: de bel betekent nu geen eten. Daarom kan de reactie na een pauze ineens even terugkomen, wat zwakker. Ook uitdoven is dus leren.",
+  "voice": "(bestaande take, oude film 1.1)"
+ },
+ {
+  "id": "s31",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 3 — Twee soorten geheugen",
+  "level": "basis",
+  "display": "In het jaar 1953 werd bij een man, Henry, aan beide kanten een stuk van de slaapkwab weggehaald, tegen zware epilepsie. Daarbij verdween ook een groot deel van zijn hippocampus, een gebied diep in de slaapkwab. De aanvallen werden minder. Maar Henry kon bijna geen nieuwe herinneringen aan gebeurtenissen en feiten meer vastleggen. Na een halve minuut was een gesprek weg. Zijn jeugd herinnerde hij zich nog wel. De hippocampus legt nieuwe herinneringen aan gebeurtenissen en feiten vast, en geeft ze later door aan de schors.",
+  "voice": "(bestaande take, oude film 1.1)"
+ },
+ {
+  "id": "q3",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 3 — Twee soorten geheugen",
+  "level": "basis",
+  "display": "Wat denk je? Henry oefent dagenlang een moeilijke tekentaak: een ster natekenen terwijl hij alleen in een spiegel kijkt, wordt hij beter? Nee, hij onthoudt niets? Ja, maar hij weet niet dat hij geoefend heeft? Of alleen als hij het elke dag opschrijft?",
+  "voice": "(bestaande take, oude film 1.1)"
+ },
+ {
+  "id": "v3",
+  "kind": "question",
+  "chapter": "Hoofdstuk 3 — Twee soorten geheugen",
+  "level": "basis",
+  "options": [
+   "Nee, hij onthoudt niets",
+   "Ja, maar hij weet niet dat hij geoefend heeft",
+   "Alleen als hij het elke dag opschrijft"
+  ],
+  "n": "3"
+ },
+ {
+  "id": "a3",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 3 — Twee soorten geheugen",
+  "level": "basis",
+  "display": "Het goede antwoord is B. Henry werd elke dag beter in spiegeltekenen. Maar elke dag zei hij dat hij het nooit eerder had gedaan. Vaardigheden lopen niet via de hippocampus. Ze lopen via de kleine hersenen, de basale kernen diep in de grote hersenen, en de motorische schors. Weten wát er is of gebeurd is, en weten hoe iets moet: dat zijn twee soorten geheugen. Fietsen hoort bij de tweede soort.",
+  "voice": "(bestaande take, oude film 1.1)"
+ },
+ {
+  "id": "q4",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 4 — Oefenen en vergeten",
+  "level": "basis",
+  "display": "Wat denk je? Je hebt drie uur om te leren voor een toets: wat blijft het best hangen? Drie uur op de avond ervoor? Drie keer een uur, verspreid over drie dagen? Of het maakt niet uit, uur is uur?",
+  "voice": "(bestaande take, oude film 1.1)"
+ },
+ {
+  "id": "v4",
+  "kind": "question",
+  "chapter": "Hoofdstuk 4 — Oefenen en vergeten",
+  "level": "basis",
+  "options": [
+   "Drie uur op de avond ervoor",
+   "Drie keer een uur, verspreid over drie dagen",
+   "Het maakt niet uit: uur is uur"
+  ],
+  "n": "4"
+ },
+ {
+  "id": "a4",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 4 — Oefenen en vergeten",
+  "level": "basis",
+  "display": "Het goede antwoord is B. Gespreid leren werkt beter, in bijna alle onderzoeken die het vergeleken. Elke keer dat je iets na een pauze weer ophaalt, gebruik je het patroon opnieuw, en wordt het steviger. Wat je niet gebruikt, wordt juist zwakker. Synapsen die weinig gebruikt worden, worden afgezwakt of opgeruimd. Dat heet snoeien. Tot ver na je puberteit snoeien je hersenen flink, ook in de voorhoofdskwab. Dat is geen verlies: het netwerk wordt er efficiënter van. Gebruik het, of raak het kwijt.",
+  "voice": "(bestaande take, oude film 1.1)"
+ },
+ {
+  "id": "q5",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 5 — Zijwieltjes eraf",
+  "level": "basis",
+  "display": "Wat denk je? Een beginner kan niet praten tijdens het fietsen, iemand die al jaren fietst wel: hoe komt dat? Ervaren fietsers zijn gewoon sterker? Bij ervaren fietsers regelen andere hersengebieden het fietsen, zodat je voorhoofdskwab vrij is? Of ervaren fietsers denken sneller?",
+  "voice": "(bestaande take, oude film 1.1)"
+ },
+ {
+  "id": "v5",
+  "kind": "question",
+  "chapter": "Hoofdstuk 5 — Zijwieltjes eraf",
+  "level": "basis",
+  "options": [
+   "Ervaren fietsers zijn gewoon sterker",
+   "Andere hersengebieden regelen het fietsen, zodat de voorhoofdskwab vrij is",
+   "Ervaren fietsers denken sneller"
+  ],
+  "n": "5"
+ },
+ {
+  "id": "a5",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 5 — Zijwieltjes eraf",
+  "level": "basis",
+  "display": "Het goede antwoord is B. Een ​beginner moet over alles nadenken: sturen, trappen, evenwicht. Daar is de voorhoofdskwab druk mee. Na veel oefenen nemen de kleine hersenen en de basale kernen het over. Zij hebben het patroon vastgelegd, en sturen bij zonder dat jij erover nadenkt. Je voorhoofdskwab is weer vrij: om te praten, te kijken, de weg te zoeken. Dat heet automatiseren. Daarom verleer je fietsen ook bijna nooit. En een deel van dat vastleggen gebeurt niet tijdens het oefenen, maar daarna: als je slaapt.",
+  "voice": "(bestaande take, oude film 1.1)"
+ },
+ {
+  "id": "s70",
+  "kind": "speech",
+  "chapter": "Samenvatting",
+  "level": "basis",
+  "display": "Terug naar het fietspad. Elke keer dat je oefende, werden synapsen sterker: meer receptoren, grotere voetjes, nieuwe voetjes. Cellen die samen vuren, raken verbonden. Zo werd fietsen een patroon in je kleine hersenen en basale kernen. En je nummer werd een patroon in je schors, dat twee tonen weer aanzetten. Zelfs een reflex kun je koppelen aan iets nieuws, zoals de bel aan het eten. De hippocampus legt vast wat je meemaakt. Wat je gebruikt, wordt sterker, en wat je niet gebruikt, wordt gesnoeid. Je hersenen zijn dus nooit af. Ze veranderen door wat je doet, ook nu, terwijl je dit kijkt.",
+  "voice": "(bestaande take, oude film 1.1)"
+ },
+ {
+  "id": "eind",
+  "kind": "card",
+  "chapter": "Eindkaart",
+  "level": "basis",
+  "lines": [
+   "Leren zit in synapsen: ze worden sterker, zwakker of nieuw.",
+   "Weten wát gaat via de hippocampus; weten hoe via kleine hersenen en basale kernen.",
+   "Gespreid herhalen werkt; wat je niet gebruikt, wordt gesnoeid."
+  ]
+ }
+]

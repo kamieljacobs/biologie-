@@ -4,6 +4,8 @@ Bron: gereconstrueerd uit de scriptdata in de gepubliceerde HTML (2026-10-12): `
 
 Tijden in de kop van elk segment zijn filmtijd (mastertijd van de speler, zonder wachttijd bij de vragen); de tijden `[m:ss.s]` vóór elke regel zijn de begintijden van de frase **binnen het audiofragment** (zoals in `timing[<id>].phrases[].t0`).
 
+**Versie 2.0 (29 okt 2026, lichte remake):** gesproken tekst en takes ongewijzigd. Alleen de ondertitel van de vraagfragmenten verschilt een leesteken: de zin vóór de vraag eindigt op ':' of ',' ('Je leert iets nieuws: wat verandert er dan in je hersenen?'; zo ook q2–q5), zodat de speler bij Vragen uit het hele vraagfragment wegknipt. In 2.0 heten de audiobestanden `audio/<id>.mp3` (zelfde id's als hieronder); de vragen zelf zijn segmenten v1–v5.
+
 ## 1. s00 — cold open
 Audio: blob 001.mp3 (sleutel `s00` in FILM_AUDIO) · 0:00–0:17 (17,7 s mp3; timing.duration 17,694 s)
 Scène: `world` (sceneWorld())

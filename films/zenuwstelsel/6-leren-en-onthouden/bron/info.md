@@ -2,17 +2,19 @@
 
 | Veld | Waarde |
 |---|---|
-| Bestand | films/zenuwstelsel/6-leren-en-onthouden.html |
-| Reeks / nummer | Zenuwstelsel, film 6 (pagina: “hoe je hersenen veranderen als je iets leert · 5 vwo · film 6 van de reeks Zenuwstelsel”; `plan.series`: “Het zenuwstelsel · film 6 van 7”) |
-| Doelgroep / niveau | 5 vwo, één niveau (geen havo/vwo-schakelaar) |
-| Versie / datum | **1.1 · 28 oktober 2026** — opwaardering naar prompt v13 (B14, zonder keuring; alleen beeld en één knip in s70; geen nieuwe opname); 1.0 · 6 oktober 2026 |
+| Bestand | **2.0 (preview):** films/zenuwstelsel/6-leren-en-onthouden-nieuw.html · 1.1 (online tot Kamiel 2.0 goedkeurt): films/zenuwstelsel/6-leren-en-onthouden.html |
+| Reeks / nummer | Zenuwstelsel, film 6 |
+| Doelgroep / niveau | 5 vwo, één niveau (`alleen: 'vwo'`, geen havo/vwo-schakelaar) |
+| Versie / datum | **2.0 · 29 oktober 2026** — lichte remake in de donkere stijl (Part C), FILMDATA-straat; 1.1 · 28 oktober 2026; 1.0 · 6 oktober 2026 |
 | Prompt | v13 |
-| Voldoet aan | prompt v13 (28 okt 2026, zonder keuring). Bewust niet: de fietsers in de cold open en de samenvatting (kind van zes met volwassene, twee tieners) blijven eigen tekeningen, want het castboek heeft geen fietshouding en geen Noor op zesjarige leeftijd (vraag in `opwaardering-v13.md`); eigen lichte reeksontwerp van vóór Part C blijft (vraag voor de hele reeks); eigen hersentekening blijft (zoals film 5); geen nieuwe caststijl; oude versie in `bron/oud/6-leren-en-onthouden-v1.0.html` |
-| Stem / model | Roos (ElevenLabs, eleven_multilingual_v2) |
-| Duur | 6:01 gesproken (som van 15 mp3’s, 360,8 s; s70 is sinds 1.1 3,6 s korter); speler-totaal incl. titel-, hoofdstuk- en eindkaarten en 5 aftellingen van 8 s: 7:01 (was 7:04 volgens de speler, 7:14 in de oude telling) |
-| Beeldstijl | Eigen reeksontwerp van vóór de Part C-stijlkaart: vlakke ‘wereld’ (fietspad, open raam, kind met zijwieltjes en tien jaar later dezelfde persoon), lichte schema-scènes (synaps met toevalsdetector, netwerk van dertig cellen, Pavlov, archiefkaart Henry Molaison, plattegrond met hippocampus, grafieken); Inter-systeemfont |
-| Audio-opslag | 15 fragmenten, één per gesproken segment, als base64-data-URI in `window.FILM_AUDIO` (blobs 001–015) |
-| Reconstructie | 2026-10-12, uit de gepubliceerde HTML |
+| Voldoet aan | prompt v13 (29 okt 2026, lichte remake). Opgelost t.o.v. 1.1: eigen lichte reeksontwerp → Part C (donker navy, Fraunces/Source Sans 3/IBM Plex Mono, betekeniskleuren volgens de Regeling-tabel); zelfgetekende fietsers → castpersonages op een fiets; eigen hersentekening → hersenen van opzij in Part C-stijl met hippocampus en basale kernen diep (gestippeld); synaps als Micro-tekening met dendrietvoetje. Bewust niet: de fiets, de pose 'fiets' (in de filmkopie van lib_cast.js), hersenZij, netwerk en synapsVoetje staan nog niet in de beeldbank/het castboek (Kamiel 29 okt: nieuwe beeldbankobjecten later); het kind van zes is Teun (het castboek heeft geen Noor op zesjarige leeftijd), tien jaar later fietsen Noor en Yasmin: twee castpersonages voor 'je' op twee leeftijden (keuringspunt). |
+| Herkomst | lichte remake, keuze Kamiel 29 okt 2026 (keuzeblad 'Regeling: jouw keuzes'); brief `films/UITVOEREN-REGELING.md` |
+| Stem / model | Roos (ElevenLabs, eleven_multilingual_v2) — de 15 bestaande takes van 1.1, niets opnieuw ingesproken (0 credits) |
+| Duur | 6:01 gesproken (15 takes); speler-totaal met vragen aan 7:22, met vragen uit 5:02 |
+| Beeldstijl | Part C: cold open en samenvatting Macro-nacht (straat met huizen, fietspad), synaps Micro (zonder korrel buiten de cel), de rest Schema |
+| Audio-opslag | losse mp3's in `films/zenuwstelsel/6-leren-en-onthouden/audio/<id>.mp3` (s00, q1, a1, s21, s22, q2, a2, s31, q3, a3, q4, a4, q5, a5, s70); 1.1 had ze als base64 in de HTML |
+| Woordtijden | de ElevenLabs-alignment uit 1.1 (`remake-2026-10/words/`); silalign.py ter controle gedraaid: koppelde in deze takes te weinig stiltes (mediaan 0,19 s, p90 0,62 s afwijking), dus niet gebruikt |
+| Reconstructie | 1.x: 2026-10-12, uit de gepubliceerde HTML |
 
 ## Opbouw
 
@@ -152,6 +154,19 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`; z
 - `a5`: automatiseren, basale, bij, daarna, evenwicht, kijken, kleine, nadenken, oefenen, praten, slaapt, sturen, trappen, voorhoofdskwab, vrij, weg + “antwoord” (reveal)
 - `s70`: Cellen, fietsen, gesnoeid, hippocampus, nachts, nooit, nu, nummer, reflex, synapsen, voetjes
 
+
+## Versie 2.0: waar wat zit en hoe je de film aanpast
+
+Werkmap `bron/remake-2026-10/` (FILMDATA-straat zoals Zenuwstelsel 9):
+- `eng/` = engine-kopie: `page.html`, `player.js` (van gedrag/5, actueel), `lib.js`, `scenes_kop.js`, `fonts.css`, `build.py`, `build_data.py` (met veld `audiomap`), `stills.py`, `silalign.py`; bibliotheekkopieën `lib_bio.js`, `lib_anatomie.js`, `lib_hormonen.js`, `lib_voeding.js` en `lib_cast.js` (**filmkopie met de pose 'fiets'** en `reikNaar` voor een hand naar een vast punt tijdens het lopen; zoek op 'Zenuwstelsel 6').
+- `maak_segments.py` → `segments.json` + `words/<id>.json` uit de takes en woordtijden van 1.1 (`oudfilm.json` in de werkmap; zie het commentaar). Vraagfragmenten q1–q5: de zin vóór de vraag eindigt in de ondertitel op ':' of ',' zodat de speler bij Vragen uit het hele fragment knipt. a5: zero-width spatie vóór 'beginner' (anders leest de speler het als 'begin…' en knipt hij 'Het goede antwoord is B.' niet).
+- `film.py` (titel, vragen v1–v5 met uitleg, begrippen uit `glossary.json`, `sections.html` = checkvragen + docentdeel), `bouw.sh` (werkmap `/home/claude/werk/zen6/film`, engine in `../eng`).
+- `src/teken_zen6.js`: eigen tekeningen (regels): `fietsMaat`/`fiets` 21–57, `fietser` 58, `straat` 69, `noot`/`spraakwolk` 92–94, `hersenZij` 115, `netwerk` 152–174, `synapsVoetje` 175, `bel`/`etensbak`/`druppel`/`frietbak`/`ster`/`maan`/`kaartje` 233–250. `src/hond_img.js` = herder (zittend) uit de dierenbibliotheek als png (ook `src/herder-zittend.png`).
+- `src/scenes_zen6.js` (één functie per take, cues via `q.on(woord, n)`): title 19, s00 23, q1 54, a1 63, s21 104, s22 126, q2 155, a2 163, s31 177, q3 193, a3 201, q4 218, a4 224, q5 247, a5 253, s70 270. `cuechk.py` toont per cue welk woord (en welk voorkomen) gevonden wordt: let op deelwoorden ('Cellen' vindt eerst 'zenuwcellen', 'groter' eerst 'grotere').
+- `storyboard/` = één keyframe per scène (960×540) + `storyboard.json`.
+
+Aanpassen: bewerk `src/`, kopieer naar de werkmap, `bash bouw.sh`, zet de themaregel na `<meta charset>`, kopieer naar `films/zenuwstelsel/6-leren-en-onthouden-nieuw.html` en draai spelerfix, antwoordtekst, kortantwoord, flipkaarten, tabel_mobiel, licentie_noot, teller. Een alinea opnieuw inspreken: nieuwe mp3 in `audio/`, woordtijden in `words/<id>.json`, `segments.json` opnieuw maken.
+
 ## Zo pas je deze film aan
 
 1. **Tekst in beeld wijzigen** (labels, termen, kaarten): zoek de tekst in de SVG-lagen (`#world`, `#micro`) of in `#cards`; titel- en eindkaart staan als HTML in `#card-title` / `#card-end`. Vraagteksten en opties wijzig je in `plan.questions` (let op: de gesproken vraag in het q-fragment noemt de opties ook).
@@ -170,6 +185,18 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`; z
 - Verbeterd 12-10-2026: credits linken naar `../../index.html#regeling`; eindkaart zegt "Volgende film: Slaap en stress (volgt)". De slotzin in de audio noemt film 7 nog wel.
 
 ## Wijzigingen
+- **2.0 · 29 okt 2026** — lichte remake in de donkere stijl (keuze Kamiel 29 okt; preview naast 1.1). Stem, script, vragen en volgorde ongewijzigd; geen inspreekpunten (0 credits). Per scène:
+  - *s00 cold open:* Macro-nacht met een straat die meeschuift; Teun (6) op een kinderfiets met zijwieltjes, Rachid loopt mee en houdt het zadel vast; zijwieltjes vallen eraf, wiebelspoor; tien jaar later Noor en Yasmin op de fiets, kletsen (spraakwolkjes), twee tonen uit een open raam, 'ken ik!', zoomcirkel náást het hoofd met een netwerk.
+  - *q1:* hersenen van opzij + drie kaartjes op de optiewoorden (meer cellen, sterkere verbindingen, groter brein).
+  - *a1:* twee zenuwcellen vuren tegelijk → zoomcirkel → doorlopende zoom tot in één synaps (eindknopje, glutamaat licht teal, dendrietvoetje met AMPA- en NMDA-receptor, magnesium, calcium, extra receptoren, eiwitten als kralenketen, groter en nieuw voetje); paneel toevalsdetector, reactie, tijdbalk minuten–maanden; haak 'samen vuren → verbonden'.
+  - *s21:* netwerk met een patroon (tonen, ritme, stem, plek), verbindingen sterker, twee tonen zetten de rest aan, één cel valt uit.
+  - *s22, q2, a2:* herder uit de dierenbibliotheek met bel en etensbak, vier koppelregels, friet; mini-grafieken bij de vraag; extinctiegrafiek met pauze en spontaan herstel.
+  - *s31, q3, a3:* hersenen van opzij met weggehaald stuk slaapkwab en hippocampus (diep, gestippeld), archiefkaart Henry Molaison; spiegeltekenen; fouten per dag met 'nooit gedaan'; weten wát / weten hoe met de gebieden oplichtend in goud.
+  - *q4, a4:* planning drie dagen; schets gespreid tegenover één keer; netwerk dat snoeit; voorhoofdskwab met tijdbalk kind–puberteit–volwassen.
+  - *q5, a5:* beginner (Teun) tegenover twee kletsende tieners; drukte-meter van de voorhoofdskwab, kleine hersenen en basale kernen nemen het over.
+  - *s70:* fietsen op het fietspad met samenvattingspaneel (acht regels op de cue-woorden).
+  - Page: zelfde checkvragen en docentdeel (sleutelbeelden bijgewerkt), tabellen scrollen op de telefoon.
+  - Getest: alle vijf vragen met `?vragen=uit` (vraagfragment helemaal weg, 'Het goede antwoord is B.' geknipt, beeld gevuld 5 s ervoor tot 5 s erna), contactvel van alle scènes, 375 px (geen horizontale scroll), geen consolefouten; spelerfix/antwoordtekst/kortantwoord --check ok.
 - 29 okt 2026 — nacontrole 29 okt: de lens met het hersennetwerk (`lensNet`, s70 en ook s00 'hoofd') ligt niet meer op hoofd en gezicht van de fietser: zoomcirkel náást het hoofd (midden 340, 340; r 220; `#w-lnet` verschoven), met een ring om het hoofd en twee lijnen ernaartoe (`#w-lenslijn`, `lensLijnen()`, zoals film 5).
 - **1.1 · 28 okt 2026** — opwaardering prompt v13 (B14, zonder keuring; Regeling-batch). Details en open vragen: `opwaardering-v13.md`; vakinhoud: `bronnen.md`.
   - *s22 (Pavlov):* de getekende cartoonhond vervangen door de goedgekeurde herder uit de dierenbibliotheek (`bibliotheek/dieren/lib_dieren.js`, `hond(ctx,'herder',…,{houding:'zitten',kijk:1})`, Kamiel 23 okt 2026), vooraf getekend op 6 px/cm en als `<image>` in `#pv-dog` gezet op 3 px/cm (grondpunt x 525, vloer y 790), zodat de speekseldruppels (vaste plek 612–626, 625) bij de bek vallen. Etensbak op ware grootte (±30 cm, was ±67 cm).
