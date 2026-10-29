@@ -27,3 +27,12 @@ Deze keuzes vervangen de eerdere stem-invoer van deze woorden hierboven. Opnieuw
 | Woord | Stem-invoer | Alinea's | Status |
 |---|---|---|---|
 | transcriptiefactor | transcriptsie-factor | s16 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
+
+
+## Wachtlijst 29 okt 2026 (s15, s20 opnieuw ingesproken, nog niet beluisterd)
+
+| Woord | Moet klinken als | Stem-invoer | Alinea |
+|---|---|---|---|
+| G-eiwit | /ɣeːˈɛi̯.ʋɪt/ (GEE-eiwit, Nederlandse letter G) | `gee-eiwit` | s15 |
+| cAMP | /seː.aː.ɛmˈpeː/ (cee-aa-em-PEE, letters, niet Engels 'camp'), beide keren gelijk | `cee-aa-em-pee` | s15 (2×) |
+| boodschapper | zoals geschreven | zoals geschreven | s15 |

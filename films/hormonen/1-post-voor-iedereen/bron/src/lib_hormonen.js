@@ -54,11 +54,14 @@ function personReal(ctx,x,y,h,alpha=1,o={}){ if(alpha<=0.01) return {}; ctx.save
 // series person (12 Oct 2026): every film draws the friendly person; each scenes file may set PERSON_LOOK
 
 // ---------- seriekleuren (Seriebrief Hormonen) ----------
-const HK = { hormoon: C.goud, hormoonR: '#F0CC7A', klier: C.oker, klierR: '#E2C38A', bloed: '#B5574A', bloedL: '#D88A7E',
-  glucose: C.teal, water: C.teal, receptor: '#AFC0D0', rem: '#9A8FB8', zenuw: C.paars, cel: '#C9B896' };
+const HK = { hormoon: C.paars, hormoonR: '#B3A6DA', klier: C.oker, klierR: '#E2C38A', bloed: '#B5574A', bloedL: '#D88A7E',
+  glucose: C.oker, water: C.teal, receptor: '#AFC0D0', rem: '#9A8FB8', zenuw: C.teal, cel: '#C9B896' };
+// Regeling 29 okt 2026 (Kamiel: kleuren gelijktrekken): elk hormoon één vaste kleur in de hele reeks
+const HKIND = { adrenaline: C.koraal, insuline: C.paars, glucagon: C.groen, cortisol: C.oker, thyroxine: C.paars, adh: C.paars };
+function hkleur(kind) { return HKIND[kind] || HK.hormoon; }
 
 // ---------- hormonen: elk een eigen vorm, allemaal goud ----------
-function hormoonVorm(ctx, x, y, r = 10, kind = 'adrenaline', a = 1, col = HK.hormoon) {
+function hormoonVorm(ctx, x, y, r = 10, kind = 'adrenaline', a = 1, col = hkleur(kind)) {
   if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath();
   if (kind === 'adrenaline') { ctx.moveTo(x, y - r * 1.35); ctx.bezierCurveTo(x + r * 0.9, y - r * 0.2, x + r, y + r * 0.9, x, y + r); ctx.bezierCurveTo(x - r, y + r * 0.9, x - r * 0.9, y - r * 0.2, x, y - r * 1.35); }
   else if (kind === 'insuline') { roundRect(ctx, x - r * 0.95, y - r * 0.95, r * 1.9, r * 1.9, r * 0.45); }
@@ -77,7 +80,7 @@ function receptor(ctx, x, y, ang, kind = 'adrenaline', bound = 0, a = 1, s = 1, 
   ctx.fillStyle = rgba(col, 0.9); roundRect(ctx, -7 * s, -6 * s, 14 * s, 30 * s, 5 * s); ctx.fill();
   ctx.beginPath(); ctx.moveTo(-22 * s, -10 * s); ctx.lineTo(-22 * s, -42 * s); ctx.lineTo(-11 * s, -42 * s); ctx.lineTo(-11 * s, -22 * s); ctx.lineTo(11 * s, -22 * s); ctx.lineTo(11 * s, -42 * s); ctx.lineTo(22 * s, -42 * s); ctx.lineTo(22 * s, -10 * s); ctx.closePath();
   ctx.fillStyle = rgba(col, 0.9); ctx.fill(); ctx.strokeStyle = lighten(col, 0.3); ctx.lineWidth = 1.2; ctx.stroke();
-  if (bound < 0.99) { ctx.save(); ctx.globalAlpha *= 1 - bound; ctx.setLineDash([3 * s, 3 * s]); ctx.strokeStyle = HK.hormoon; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(0, -32 * s, 9 * s, 0, 6.283); ctx.stroke(); ctx.restore(); }
+  if (bound < 0.99) { ctx.save(); ctx.globalAlpha *= 1 - bound; ctx.setLineDash([3 * s, 3 * s]); ctx.strokeStyle = hkleur(kind); ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(0, -32 * s, 9 * s, 0, 6.283); ctx.stroke(); ctx.restore(); }
   ctx.restore();
   if (bound > 0.01) { const d = 32 * s + 70 * s * (1 - ease(bound)); hormoonVorm(ctx, x + Math.cos(ang) * d, y + Math.sin(ang) * d, 9 * s, kind, Math.min(1, bound * 4)); }
   ctx.restore();
@@ -88,7 +91,7 @@ function receptor(ctx, x, y, ang, kind = 'adrenaline', bound = 0, a = 1, s = 1, 
 function doelcel(ctx, x, y, r, o = {}) {
   const { a = 1, n = 6, kind = 'adrenaline', bound = 0, glow = 0, noRec = false, kern = true, t = 0, seed = 1, fill = HK.cel, rot = -Math.PI / 2 } = o; if (a <= 0.01) return;
   ctx.save(); ctx.globalAlpha *= a;
-  if (glow > 0.01) { const g = ctx.createRadialGradient(x, y, r * 0.6, x, y, r * 1.5); g.addColorStop(0, rgba(HK.hormoon, 0.28 * glow)); g.addColorStop(1, rgba(HK.hormoon, 0)); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r * 1.5, 0, 6.283); ctx.fill(); }
+  if (glow > 0.01) { const g = ctx.createRadialGradient(x, y, r * 0.6, x, y, r * 1.5); g.addColorStop(0, rgba(hkleur(kind), 0.28 * glow)); g.addColorStop(1, rgba(hkleur(kind), 0)); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r * 1.5, 0, 6.283); ctx.fill(); }
   blob(ctx, x, y, r, r * 0.92, 0.035, seed, t); shape(ctx, rgba(fill, 0.16 + 0.1 * glow), rgba(fill, 0.9), 2.5);
   blob(ctx, x, y, r - 8, r * 0.92 - 8, 0.035, seed, t); ctx.strokeStyle = rgba(fill, 0.45); ctx.lineWidth = 1.2; ctx.stroke();
   celTextuur(ctx, (px, py) => Math.hypot(px - x, (py - y) / 0.92) < r - 14, 40, seed * 3 + 1, [x - r, y - r, 2 * r, 2 * r]);

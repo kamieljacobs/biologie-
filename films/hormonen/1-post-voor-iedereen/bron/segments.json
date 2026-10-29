@@ -877,11 +877,13 @@
   "lines": [
    "Hoe komt het bericht de cel in? Daarin verschillen hormonen sterk.",
    "Adrenaline en insuline lossen goed op in water. Ze kunnen niet door het celmembraan. Hun receptor zit dus op het membraan.",
-   "Als het hormoon bindt, verandert de receptor van vorm. Binnen in de cel start dan een kettingreactie: een enzym zet veel andere enzymen aan, en die weer meer. Dat heet signaaltransductie.",
+   "Het hormoon zelf blijft buiten: het is de eerste boodschapper. Als het bindt, verandert de receptor van vorm.",
+   "Bij adrenaline zet de receptor dan aan de binnenkant een G-eiwit aan. Dat laat een enzym een tweede boodschapper maken: cAMP.",
+   "Het cAMP start binnen in de cel een kettingreactie: een enzym zet veel andere enzymen aan, en die weer meer. Dat heet signaaltransductie.",
    "Eén hormoonmolecuul aan de buitenkant geeft zo binnen seconden een groot effect. Maar dat effect is ook snel weer voorbij, als het hormoon loslaat."
   ],
-  "display": "Hoe komt het bericht de cel in? Daarin verschillen hormonen sterk. Adrenaline en insuline lossen goed op in water. Ze kunnen niet door het celmembraan. Hun receptor zit dus op het membraan. Als het hormoon bindt, verandert de receptor van vorm. Binnen in de cel start dan een kettingreactie: een enzym zet veel andere enzymen aan, en die weer meer. Dat heet signaaltransductie. Eén hormoonmolecuul aan de buitenkant geeft zo binnen seconden een groot effect. Maar dat effect is ook snel weer voorbij, als het hormoon loslaat.",
-  "voice": "Hoe komt het bericht de cel in? Daarin verschillen hormonen sterk. Adrenaline en insuline lossen goed op in water. Ze kunnen niet door het celmembraan. Hun receptor zit dus op het membraan. Als het hormoon bindt, verandert de receptor van vorm. Binnen in de cel start dan een kettingreactie: een enzym zet veel andere enzymen aan, en die weer meer. Dat heet signaaltransductie. Eén hormoonmolecuul aan de buitenkant geeft zo binnen seconden een groot effect. Maar dat effect is ook snel weer voorbij, als het hormoon loslaat.",
+  "display": "Hoe komt het bericht de cel in? Daarin verschillen hormonen sterk. Adrenaline en insuline lossen goed op in water. Ze kunnen niet door het celmembraan. Hun receptor zit dus op het membraan. Het hormoon zelf blijft buiten: het is de eerste boodschapper. Als het bindt, verandert de receptor van vorm. Bij adrenaline zet de receptor dan aan de binnenkant een G-eiwit aan. Dat laat een enzym een tweede boodschapper maken: cAMP. Het cAMP start binnen in de cel een kettingreactie: een enzym zet veel andere enzymen aan, en die weer meer. Dat heet signaaltransductie. Eén hormoonmolecuul aan de buitenkant geeft zo binnen seconden een groot effect. Maar dat effect is ook snel weer voorbij, als het hormoon loslaat.",
+  "voice": "Hoe komt het bericht de cel in? Daarin verschillen hormonen sterk. Adrenaline en insuline lossen goed op in water. Ze kunnen niet door het celmembraan. Hun receptor zit dus op het membraan. Het hormoon zelf blijft buiten: het is de eerste boodschapper. Als het bindt, verandert de receptor van vorm. Bij adrenaline zet de receptor dan aan de binnenkant een gee-eiwit aan. Dat laat een enzym een tweede boodschapper maken: cee-aa-em-pee. Het cee-aa-em-pee start binnen in de cel een kettingreactie: een enzym zet veel andere enzymen aan, en die weer meer. Dat heet signaaltransductie. Eén hormoonmolecuul aan de buitenkant geeft zo binnen seconden een groot effect. Maar dat effect is ook snel weer voorbij, als het hormoon loslaat.",
   "vmap": [
    0,
    1,
@@ -969,7 +971,38 @@
    83,
    84,
    85,
-   86
+   86,
+   87,
+   88,
+   89,
+   90,
+   91,
+   92,
+   93,
+   94,
+   95,
+   96,
+   97,
+   98,
+   99,
+   100,
+   101,
+   102,
+   103,
+   104,
+   105,
+   106,
+   107,
+   108,
+   109,
+   110,
+   111,
+   112,
+   113,
+   114,
+   115,
+   116,
+   117
   ]
  },
  {
@@ -1249,12 +1282,12 @@
   "look": "Schema: bak met kraan en afvoer; grafiek concentratie adrenaline tegen tijd",
   "level": "basis",
   "lines": [
-   "Hormonen werken al bij heel lage concentraties. Van adrenaline zit er in rust ongeveer een tienmiljoenste gram in een liter bloed.",
+   "Hormonen werken al bij heel lage concentraties. Van adrenaline zit er in rust minder dan een tienmiljoenste gram in een liter bloed.",
    "Bij de knal draait de kraan even wijd open. De concentratie schiet omhoog, tot wel tien keer zo hoog.",
    "Dan stopt het signaal naar je bijniermerg. De kraan gaat dicht. Maar de adrenaline die al in je bloed zit, is niet meteen weg."
   ],
-  "display": "Hormonen werken al bij heel lage concentraties. Van adrenaline zit er in rust ongeveer een tienmiljoenste gram in een liter bloed. Bij de knal draait de kraan even wijd open. De concentratie schiet omhoog, tot wel tien keer zo hoog. Dan stopt het signaal naar je bijniermerg. De kraan gaat dicht. Maar de adrenaline die al in je bloed zit, is niet meteen weg.",
-  "voice": "Hormonen werken al bij heel lage concentraties. Van adrenaline zit er in rust ongeveer een tienmiljoenste gram in een liter bloed. Bij de knal draait de kraan even wijd open. De concentratie schiet omhoog, tot wel tien keer zo hoog. Dan stopt het signaal naar je bijniermerg. De kraan gaat dicht. Maar de adrenaline die al in je bloed zit, is niet meteen weg.",
+  "display": "Hormonen werken al bij heel lage concentraties. Van adrenaline zit er in rust minder dan een tienmiljoenste gram in een liter bloed. Bij de knal draait de kraan even wijd open. De concentratie schiet omhoog, tot wel tien keer zo hoog. Dan stopt het signaal naar je bijniermerg. De kraan gaat dicht. Maar de adrenaline die al in je bloed zit, is niet meteen weg.",
+  "voice": "Hormonen werken al bij heel lage concentraties. Van adrenaline zit er in rust minder dan een tienmiljoenste gram in een liter bloed. Bij de knal draait de kraan even wijd open. De concentratie schiet omhoog, tot wel tien keer zo hoog. Dan stopt het signaal naar je bijniermerg. De kraan gaat dicht. Maar de adrenaline die al in je bloed zit, is niet meteen weg.",
   "vmap": [
    0,
    1,
@@ -1319,7 +1352,8 @@
    60,
    61,
    62,
-   63
+   63,
+   64
   ]
  },
  {

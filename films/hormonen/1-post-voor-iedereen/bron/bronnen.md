@@ -2,7 +2,7 @@
 
 | Veld | Waarde |
 |---|---|
-| Gecontroleerde versie | 1.1 (opwaardering prompt v13, 28 okt 2026) |
+| Gecontroleerde versie | 1.2 (29 okt 2026; beweringen 20 en 21 nagelopen) — eerder 1.1 (opwaardering prompt v13, 28 okt 2026) |
 | Gecontroleerd door | Claude (eerste ronde), 28 okt 2026 |
 | Menselijke steekproef | nog niet gedaan |
 | Samenvatting | 20 beweringen: 9 ✓, 9 ≈, 0 !, 2 ? (zenuwsnelheid en 'bloed één keer per minuut rond' nog niet met twee geopende bronnen). Geen fout gevonden die de film zelf moet veranderen; één voorstel aan Kamiel (s20, rustwaarde adrenaline). |
@@ -43,11 +43,13 @@
 | 17 | s16 | Cortisol uit de bijnierschors is een steroïd | B1, B4 | ✓ | |
 | 18 | s16 | Schildklierhormoon is geen steroïd, gaat wel door het membraan; receptor in de cel | B3, B4, B8 | ≈ | B3: thyroxine heeft een kernreceptor die net zo werkt; B4: gaat door de plasmamembraan; B8: vetoplosbaar door de benzeenring. 'Werkt pas na uren, duurt dagen' niet letterlijk in een geopende bron |
 | 19 | s19 | Lever en nieren breken hormonen af of halen ze uit het bloed | B4 | ≈ | B4: 'door bepaalde cellen in de lever of de nieren … afgebroken' |
-| 20 | s20, s21 | Adrenaline in rust ± een tienmiljoenste gram per liter, bij schrik tot tien keer zo hoog; halfwaardetijd ± 2 minuten | B5, B4 | ≈ | B5: basale waarden ± 24–74 pg/ml (= 0,24–0,74 tienmiljoenste gram per liter), effecten vanaf 50–200 pg/ml, infusies tot 1020 pg/ml; B4: een vrij hormoon blijft 'soms maar twee minuten' werkzaam. De film rondt de rustwaarde naar boven af (orde van grootte klopt) en noemt de grafiek een model |
+| 20 | s20, s21 | Adrenaline in rust minder dan een tienmiljoenste gram per liter (sinds 1.2; was 'ongeveer'), bij schrik tot tien keer zo hoog; halfwaardetijd ± 2 minuten | B5, B4 | ≈ | B5: basale waarden ± 24–74 pg/ml (= 0,24–0,74 tienmiljoenste gram per liter), effecten vanaf 50–200 pg/ml, infusies tot 1020 pg/ml; B4: een vrij hormoon blijft 'soms maar twee minuten' werkzaam. Sinds 1.2 'minder dan een tienmiljoenste gram' (past bij B5); de grafiek heet een model |
+| 21 | s15 | Het hormoon blijft buiten de cel (eerste boodschapper); bij adrenaline zet de receptor een G-eiwit aan, dat een enzym in het membraan een tweede boodschapper laat maken: cAMP; dat start de kettingreactie | B3, B4 | ✓ | B3 (geopend 29 okt 2026): 'first messenger', G-protein → adenylyl cyclase → cAMP 'one very important second messenger', voor adrenaline (β-receptor); B4: 'eerste en tweede signaalstof', G-eiwit, adenylaatcyclase zet ATP om in cAMP. Geen van beide noemt een G-eiwit bij insuline, daarom 'bij adrenaline'. PKA tussen cAMP en de enzymen is weggelaten (vereenvoudiging) |
 
 ## Aanpassingen
 
-- Geen aanpassing in de film nodig op grond van deze controle.
+- 29 okt 2026 (keuze Kamiel): s20 'ongeveer een tienmiljoenste gram' → nu 'minder dan een tienmiljoenste gram' (B5); s15 aangevuld met eerste/tweede boodschapper, G-eiwit, cAMP (B3, B4; bewering 21).
+- Bij de eerste controle (28 okt) was geen aanpassing nodig.
 - Voorstel aan Kamiel (geen `!`, de orde van grootte klopt): in s20 'ongeveer een tienmiljoenste gram' → 'minder dan een tienmiljoenste gram' (vraagt een nieuwe opname van s20; staat op de lijst in `opwaardering-v13.md`).
 
 ## Menselijke controle

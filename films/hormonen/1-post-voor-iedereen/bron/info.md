@@ -5,12 +5,12 @@
 | Bestand | films/hormonen/1-post-voor-iedereen.html (audio in films/hormonen/1-post-voor-iedereen/audio/) |
 | Reeks / nummer | Hormonen, film 1 van 5 (seriebrief in de Claude-doc *Seriebriefs uitlegfilms biologie*) |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blokken gelabeld: s09 (endocrien/exocrien, hypothalamus als schakel), s15–s18 met vraag q17 (membraanreceptor en signaaltransductie tegenover steroïdhormoon). Havo/Vwo-schakelaar, standaard Vwo |
-| Versie / datum | **1.1 · 28 oktober 2026** — opwaardering naar prompt v13 (B14, zonder keuring): alleen beeld, stem en script ongewijzigd; oude versie in `bron/oud/1-post-voor-iedereen-v1.0.html`. 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus) |
+| Versie / datum | **1.2 · 29 oktober 2026** — keuzes Kamiel (Regeling): s15 en s20 opnieuw ingesproken, kleuren gelijkgetrokken; oude versie in `bron/oud/1-post-voor-iedereen-v1.1.html`. 1.1 · 28 oktober 2026 — opwaardering naar prompt v13 (B14, zonder keuring): alleen beeld, stem en script ongewijzigd; oude versie in `bron/oud/1-post-voor-iedereen-v1.0.html`. 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus) |
 | Prompt | v13 |
 | Voldoet aan | prompt v13 (28 okt 2026, zonder keuring). Bewust niet: geen nieuwe opnames (de vragen hieronder en in `opwaardering-v13.md`); de doelcellen in s12 houden hun eigen receptor-'schoteltjes' (een kralenketenreceptor op 170 px per cel is een nieuwe tekening, voorgesteld voor de bibliotheek); de stoel en het klaslokaal in s01 blijven zoals ze waren; geen nieuwe caststijl met contourlijnen (nog niet goedgekeurd) |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow MMVz2cMbifnhMLPuXMzr; nodes en sessies in `stem/takes.json`) |
 | Duur | spraak 7:51 (vwo) / 6:00 (havo). Speeltijd met kaarten en vragen: vwo ≈ 9½ min, havo ≈ 7½ min |
-| Beeldstijl | Part C: Macro (klaslokaal, cold open), Schema (navy #1A2740: lichaamskaart met klieren, bloedbaan, tabellen, bak met kraan, grafiek), Micro (#121A26: doelcellen, membraan, kern); UI-laag vast; canvas 1920×1080. Seriekleuren in `lib_hormonen.js` (`HK`): hormonen goud met eigen vorm (adrenaline druppel, insuline zeshoek, glucagon ruit, cortisol ring, thyroxine ster, ADH driehoek), klieren oker, zenuw paars, bloed #B5574A, receptor #AFC0D0 |
+| Beeldstijl | Part C: Macro (klaslokaal, cold open), Schema (navy #1A2740: lichaamskaart met klieren, bloedbaan, tabellen, bak met kraan, grafiek), Micro (#121A26: doelcellen, membraan, kern); UI-laag vast; canvas 1920×1080. Seriekleuren in `lib_hormonen.js` (`HK`, `HKIND`, `hkleur()`; sinds 1.2 volgens de kleurentabel van de Regeling, 29 okt 2026): elk hormoon één vaste kleur én een eigen vorm — adrenaline koraal druppel, insuline paars afgerond vierkant, glucagon groen ruit, cortisol oker ring, thyroxine paars ster, ADH paars driehoek, hormoon in het algemeen paars; zenuwsignaal teal; glucose oker; klieren oker; bloed #B5574A; receptor #AFC0D0; actieve enzymen, gen aan en cAMP goud |
 | Audio-opslag | 19 losse mp3's in audio/ (s01 … s23), loudnorm −15 LUFS, piek −1,5 dBTP, mono 44,1 kHz 96 kb/s; niet in de HTML ingebed |
 | Lettertypen | Fraunces 700, Source Sans 3 400/600/700, IBM Plex Mono 500 — ingebed als base64 |
 | Herkomst | gebouwd op 14 oktober 2026 met de bouwstraat van de voedingsreeks (`bouw/`), aangevuld met de seriebibliotheek `lib_hormonen.js` (nieuw; bevat ook `personReal` uit de DNA-bouwstraat). Sinds 1.1 ook `lib_cast.js`, `lib_anatomie.js` (personages/) en `lib_bio.js` (bibliotheek/, stand 28 okt 2026) in `src/`, geplakt na lib_hormonen.js (`bouw/build.py`) |
@@ -68,11 +68,11 @@ Begrippen: hormoon, hormoonklier, receptor, doelcel/doelorgaan, bijniermerg, adr
 | 151 | `window.FILMDATA` — segmenten, woordtijden, vragen, titelkaart |
 | 152–380 | `lib.js`: Part C-tokens, `bg` (sinds 1.1 zonder korrel), `naamBij`, `zoomCircle` |
 | 381–953 | `lib_voeding.js` |
-| 954–1224 | `lib_hormonen.js`: `HK`, `hormoonVorm`, `receptor`, `doelcel` (met `celTextuur`), `klierKaart` (1087; sinds 1.1 lib_anatomie-lichaam), `KP`, `bloedLus`, `kopZoom`, `kaartSpieren`, grafiek, bakKraan … |
+| 954–1227 | `lib_hormonen.js`: `HK`, `HKIND`/`hkleur` (1013), `hormoonVorm`, `receptor`, `doelcel` (met `celTextuur`), `klierKaart` (1087; sinds 1.1 lib_anatomie-lichaam), `KP`, `bloedLus`, `kopZoom`, `kaartSpieren`, grafiek, bakKraan … |
 | 1225–2037 | `lib_cast.js` (castboek, `persoon` 1498) |
 | 2038–2311 | `lib_anatomie.js` (`anFigure`, `anKidney`, `anMuscles`, `pancreas`) |
 | 2312–10752 | `lib_bio.js` (beeldbank: `hoofdHersenen` 2357, `nierBijnier`, `membraanBoog`, `membraanReceptor`, `enzymKluwen`) |
-| 10753–11072 | `scenes.js`: hulpstukken (o.a. `membraanKrom`, `memY`, `enzymBol`, `kernMetGen`) en `SCENES` (10843; s01 10847, s07 10892, s10 10947, s15 10993, s16 11005) |
+| 10756–11093 | `scenes.js` (stand 1.2): hulpstukken (o.a. `legenda` 10768, `membraanKrom`, `memY`, `enzymBol`, `kernMetGen`) en `SCENES` (10847; s15 11000, s16 11026, s20 11059) |
 | 11073–11259 | `GLOSSARY` en speler |
 
 Stand na een bouw kan een paar regels verschuiven; zoek op de functienaam. Sinds 1.1 is de site-HTML bijgewerkt door alleen de drie scriptblokken (lib, seriebibliotheken, scènes) te vervangen, zodat de latere spelerpatches (spelerfix, antwoordtekst enz.) bleven staan.
@@ -94,7 +94,7 @@ Stand na een bouw kan een paar regels verschuiven; zoek op de functienaam. Sinds
 
 - 15 okt 2026: vwo-segment opnieuw ingesproken zonder 'Voor vwo' (Roos, eleven_v4, één take, flow wSVfswmRwrmJKmHQ57hW); audio-URL met ?v=2. Overige 'Voor vwo'-aankondigingen worden door de speler weggeknipt (vwoCuts).
 
-## Wachtlijst opnieuw inspreken
+## Wachtlijst opnieuw inspreken (s15 is op 29 okt 2026 ingesproken, zie Wijzigingen 1.2)
 
 Aanvulling 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als [nieuw] in `script.md`; zet hem bij het opnemen ook in `script_v2.md`).
 
@@ -151,3 +151,21 @@ Alleen beeld; stem, script, vragen, tijden en speler ongewijzigd. Contactvel van
 - s15 (vwo): recht membraan → gebogen fosfolipidendubbellaag (`membraanBoog`); receptor = kralenketen met zeven doorgangen en G-eiwit (`membraanReceptor`); enzymen van de kettingreactie als gevouwen kralenketen (`enzymKluwen`) in plaats van pac-manbolletjes; tags lager zodat ze niet over het membraan vallen.
 - s16 (vwo): gebogen membraan; receptor in de cel als kralenketen (`enzymKluwen`); DNA in de kern als drie losse, zacht kronkelende grijze draden (palet B) in plaats van een paarse golflijn.
 - Bronnenlogboek `bron/bronnen.md` (eerste ronde). Lijsten voor Kamiel: `bron/opwaardering-v13.md`.
+
+
+## Wijzigingen 1.2 (29 okt 2026): keuzes Kamiel (Regeling)
+
+Keuzeblad 'Regeling: jouw keuzes'; brief `films/UITVOEREN-REGELING.md`. Prompt v13 blijft; datum op de site blijft (gerichte verbetering).
+
+| Scène | Wat |
+|---|---|
+| s20 | Opnieuw ingesproken: 'ongeveer een tienmiljoenste gram' → 'minder dan een tienmiljoenste gram' (Clutter e.a. 1980: rust ± 24–74 pg/ml). Label in beeld 'in rust: < een tienmiljoenste gram per liter' (en iets naar links, viel van het beeld af) |
+| s15 (vwo) | Opnieuw ingesproken met de aanvulling van de wachtlijst (15 okt): eerste boodschapper, G-eiwit, tweede boodschapper cAMP ('Bij adrenaline …', want de bronnen beschrijven de G-eiwit-route voor adrenaline, niet voor insuline). Nieuwe beeldstap: naam 'eerste boodschapper · blijft buiten de cel' bij het gebonden hormoon; naam 'G-eiwit' bij het G-eiwit van de beeldbankreceptor, dat bij 'G-eiwit' loslaat; een enzym in het membraan krijgt een gouden ring bij 'enzym' en laat vanaf 'cAMP' kleine gouden vijfhoeken ontstaan (naam 'cAMP · tweede boodschapper'), die naar het eerste enzym van de cascade gaan; cascade 1 → 3 → 9 iets lager (y 580). Legenda adrenaline/insuline bij de zwevende hormonen. Begrip 'eerste en tweede boodschapper (cAMP)' (vwo) toegevoegd; docentdeel aangevuld |
+| alle | Kleuren volgens de tabel: hormonen niet meer goud; adrenaline koraal (druppel, ook in grafieken s21/s23), insuline paars, cortisol oker, thyroxine en ADH paars, hormoon algemeen paars (folder, tabelkop, endocrien); zenuwsignaal teal i.p.v. paars; glucose oker i.p.v. teal; actieve enzymen en 'gen aan' blijven goud. Legenda/naam bij de eerste keer: 'adrenaline'-chip in s05, s10 en s12, 'insuline' bij het eilandje van Langerhans (s08) |
+
+- Stem: Roos (7qdUFMklKPaaAVMsBTBt), eleven_v4 (zelfde model als de andere takes), één take per alinea, ElevenLabs-flow `SZcRYlqXcH7VAsu2Nl9t`; stem-invoer letterlijk in `stem/herinspreken_20261029.json`. Respellings nieuw: `G-eiwit` → `gee-eiwit`, `cAMP` → `cee-aa-em-pee` (beide keren gelijk; in `bouw/uitspraak_subs.json`). 'receptor' bewust zoals geschreven gelaten (niet 'reseptor' uit de centrale lijst), zodat het woord in s12, s15 en s16 hetzelfde klinkt.
+- Woordtijden lokaal met `silalign.py` (geen Scribe); mastering loudnorm −15 LUFS / −1,5 dBTP, mono 44,1 kHz 96 kb/s; audio-URL's s15 `?v=3`, s20 `?v=2`.
+- Credits: s20 361, s15 731 → **1.092** (TTS; geen Scribe).
+- Site-HTML bijgewerkt door alleen de seriebibliotheek- en scènesblokken, de FILMDATA van s15/s20, het begrip, het docentdeel en de voettekst te vervangen (spelerpatches blijven staan).
+- Getest: B11-scripts met --check (spelerfix, antwoordtekst, kortantwoord, antwoordletter), flipkaarten, tabel_mobiel, licentie_noot, teller; geen JS-fouten op 1280 en 375 px (geen horizontale scroll); doorspelen met `?vragen=uit` over s16 → q17 → s18; contactvel van s01, s04, s05, s08, s09, s10, s12, s13, s15 (9 momenten), s16, s20, s21, s23 bekeken.
+- Uitspraak-wachtlijst: G-eiwit (`gee-eiwit`) en cAMP (`cee-aa-em-pee`) in s15, en 'minder dan een tienmiljoenste' in s20, nog niet beluisterd (zie `uitspraak.md`).

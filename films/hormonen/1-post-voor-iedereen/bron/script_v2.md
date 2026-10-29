@@ -16,7 +16,7 @@ Getallen: adrenaline heeft in het bloed een halfwaardetijd van ongeveer twee à 
 
 Verwerkt na de drie reviews (zelfcheck 14 okt 2026): openingsvraag herschreven (optie a was deels waar; de recap zegt nu dat de zenuwen snel kalmeren maar de adrenaline blijft); bijniermerg in plaats van bijnieren, bijnierschors als contrast; alvleesklier als gemengde klier (alvleessap via een buis, eilandjes van Langerhans maken hormonen); endocrien/exocrien als vwo-termen op het scherm; tenen reageren wél (vaatjes knijpen samen, koude tenen) en worden de verrassing; vraag 2 herschreven zonder het antwoord te verklappen; "hormoonstelsel is meestal trager"; adrenaline-rustwaarde aangescherpt (ongeveer een tienmiljoenste gram per liter); afbraak ook door weefsels; glycogeen → glucose in de lever; effect hangt af van receptor én cel; vwo-blok met signaaltransductie, versterking, korte duur, transcriptiefactor, schildklierhormoon als uitzondering (geen steroïd, wel receptor in de cel); vwo-vraag is nu een toepassing (schildklierhormoon); rekenvoorbeeld halvering; concentratie als grafiek met assen; hypothalamus als schakel; misconceptie "alleen puberteitsstoffen" benoemd; eindkaart met zenuw tegenover hormoon; "twee tot drie", "één voor één".
 
-Getallen (aangescherpt): adrenaline in rust ongeveer 20–60 ng/L (een paar honderdmiljoenste gram per liter; gezegd als "ongeveer een tienmiljoenste gram"), bij flinke schrik tien tot twintig keer zoveel (Cryer, Endocrinology; Guyton & Hall); halfwaardetijd 1–3 min, gezegd als "ongeveer twee minuten"; circulatietijd ≈ 1 min; zenuwsnelheid tot ≈ 100 m/s.
+Getallen (aangescherpt): adrenaline in rust ongeveer 20–60 ng/L (een paar honderdmiljoenste gram per liter; gezegd als "minder dan een tienmiljoenste gram", sinds 29 okt 2026), bij flinke schrik tien tot twintig keer zoveel (Cryer, Endocrinology; Guyton & Hall); halfwaardetijd 1–3 min, gezegd als "ongeveer twee minuten"; circulatietijd ≈ 1 min; zenuwsnelheid tot ≈ 100 m/s.
 
 ---
 
@@ -70,7 +70,9 @@ Dat is handig als je moet wegrennen of vechten. Maar het hormoon zelf weet daar 
 
 [VWO-START] Hoe komt het bericht de cel in? Daarin verschillen hormonen sterk.
 Adrenaline en insuline lossen goed op in water. Ze kunnen niet door het celmembraan. Hun receptor zit dus op het membraan.
-Als het hormoon bindt, verandert de receptor van vorm. Binnen in de cel start dan een kettingreactie: een enzym zet veel andere enzymen aan, en die weer meer. Dat heet signaaltransductie.
+Het hormoon zelf blijft buiten: het is de eerste boodschapper. Als het bindt, verandert de receptor van vorm.
+Bij adrenaline zet de receptor dan aan de binnenkant een G-eiwit aan. Dat laat een enzym een tweede boodschapper maken: cAMP.
+Het cAMP start binnen in de cel een kettingreactie: een enzym zet veel andere enzymen aan, en die weer meer. Dat heet signaaltransductie.
 Eén hormoonmolecuul aan de buitenkant geeft zo binnen seconden een groot effect. Maar dat effect is ook snel weer voorbij, als het hormoon loslaat.
 
 Steroïdhormonen werken anders. Ze zijn gemaakt van cholesterol en lossen op in vet. Cortisol uit de bijnierschors is er een, net als testosteron en oestrogeen.
@@ -85,7 +87,7 @@ Hoe lang een hormoon werkt, hangt af van hoeveel er in je bloed zit: de concentr
 Denk aan een bak met een kraan en een afvoer. De klier is de kraan: die voegt hormoon toe. De afvoer is de afbraak. Je lever, je nieren en andere weefsels breken hormonen af of halen ze uit het bloed.
 Het waterpeil in de bak is de concentratie. Kraan en afvoer samen bepalen hoe hoog dat peil staat.
 
-Hormonen werken al bij heel lage concentraties. Van adrenaline zit er in rust ongeveer een tienmiljoenste gram in een liter bloed.
+Hormonen werken al bij heel lage concentraties. Van adrenaline zit er in rust minder dan een tienmiljoenste gram in een liter bloed.
 Bij de knal draait de kraan even wijd open. De concentratie schiet omhoog, tot wel tien keer zo hoog.
 Dan stopt het signaal naar je bijniermerg. De kraan gaat dicht. Maar de adrenaline die al in je bloed zit, is niet meteen weg.
 

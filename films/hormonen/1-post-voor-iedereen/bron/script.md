@@ -41,7 +41,7 @@ In je buik ligt de alvleesklier. Die doet allebei: verteringssap gaat via een bu
 Voor vwo: klieren die hun stof aan het bloed afgeven, heten endocriene klieren. Klieren met een afvoerbuis heten exocriene klieren. De alvleesklier is allebei. De hypothalamus is bijzonder. Het is een stuk hersenen, maar het maakt ook hormonen. Daar komen zenuwstelsel en hormoonstelsel samen.
 
 ## Hoofdstuk 2 — Wie leest de post?
-> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
+> De aanvulling van 15-10-2026 (eerste/tweede boodschapper, G-eiwit, cAMP) is op 29-10-2026 ingesproken in s15.
 
 **s10** · 18.9 s · `audio/s10.mp3`
 
@@ -61,11 +61,9 @@ En nu het mooie: één hormoon kan in verschillende doelcellen iets anders doen.
 
 Het effect is dat je lichaam klaar staat voor een flinke inspanning. Je spieren krijgen meer bloed en meer brandstof, je hart pompt harder. Dat is handig als je moet wegrennen of vechten. Maar het hormoon zelf weet daar niets van. Het past gewoon op bepaalde receptoren.
 
-**s15** · vwo · 36.0 s · `audio/s15.mp3`
+**s15** · vwo · 46.4 s · `audio/s15.mp3` (opnieuw ingesproken 29 okt 2026)
 
-Hoe komt het bericht de cel in? Daarin verschillen hormonen sterk. Adrenaline en insuline lossen goed op in water. Ze kunnen niet door het celmembraan. Hun receptor zit dus op het membraan. Als het hormoon bindt, verandert de receptor van vorm.
-[nieuw] Het hormoon zelf komt de cel niet in: het is de eerste boodschapper. De receptor zet aan de binnenkant een G-eiwit aan, en dat laat een enzym een tweede boodschapper maken: cAMP. Dat cAMP geeft het bericht in de cel door.
-Binnen in de cel start dan een kettingreactie: een enzym zet veel andere enzymen aan, en die weer meer. Dat heet signaaltransductie. Eén hormoonmolecuul aan de buitenkant geeft zo binnen seconden een groot effect. Maar dat effect is ook snel weer voorbij, als het hormoon loslaat.
+Hoe komt het bericht de cel in? Daarin verschillen hormonen sterk. Adrenaline en insuline lossen goed op in water. Ze kunnen niet door het celmembraan. Hun receptor zit dus op het membraan. Het hormoon zelf blijft buiten: het is de eerste boodschapper. Als het bindt, verandert de receptor van vorm. Bij adrenaline zet de receptor dan aan de binnenkant een G-eiwit aan. Dat laat een enzym een tweede boodschapper maken: cAMP. Het cAMP start binnen in de cel een kettingreactie: een enzym zet veel andere enzymen aan, en die weer meer. Dat heet signaaltransductie. Eén hormoonmolecuul aan de buitenkant geeft zo binnen seconden een groot effect. Maar dat effect is ook snel weer voorbij, als het hormoon loslaat.
 
 **s16** · vwo · 42.2 s · `audio/s16.mp3`
 
@@ -83,9 +81,9 @@ Antwoord a. Het gaat om de werking, niet om de naam. Een effect dat uren op zich
 
 Hoe lang een hormoon werkt, hangt af van hoeveel er in je bloed zit: de concentratie. Denk aan een bak met een kraan en een afvoer. De klier is de kraan: die voegt hormoon toe. De afvoer is de afbraak. Je lever, je nieren en andere weefsels breken hormonen af of halen ze uit het bloed. Het waterpeil in de bak is de concentratie. Kraan en afvoer samen bepalen hoe hoog dat peil staat.
 
-**s20** · 23.6 s · `audio/s20.mp3`
+**s20** · 23.8 s · `audio/s20.mp3` (opnieuw ingesproken 29 okt 2026)
 
-Hormonen werken al bij heel lage concentraties. Van adrenaline zit er in rust ongeveer een tienmiljoenste gram in een liter bloed. Bij de knal draait de kraan even wijd open. De concentratie schiet omhoog, tot wel tien keer zo hoog. Dan stopt het signaal naar je bijniermerg. De kraan gaat dicht. Maar de adrenaline die al in je bloed zit, is niet meteen weg.
+Hormonen werken al bij heel lage concentraties. Van adrenaline zit er in rust minder dan een tienmiljoenste gram in een liter bloed. Bij de knal draait de kraan even wijd open. De concentratie schiet omhoog, tot wel tien keer zo hoog. Dan stopt het signaal naar je bijniermerg. De kraan gaat dicht. Maar de adrenaline die al in je bloed zit, is niet meteen weg.
 
 **s21** · 24.9 s · `audio/s21.mp3`
 

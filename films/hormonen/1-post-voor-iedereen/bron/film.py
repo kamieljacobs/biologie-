@@ -3,12 +3,12 @@ film = {
  "slug": "1-post-voor-iedereen", "hoofdstuk": "regeling", "hoofdstukNaam": "Regeling",
  "title": "Post voor iedereen", "sub": "Hoe hormonen berichten door je lichaam sturen",
  "puzzle": "Je schrikt van een knal. Waarom bonkt je hart nog minuten door, terwijl de schrik allang voorbij is?",
- "meta": "hormonen 1/5", "version": "1.0 · oktober 2026", "titleLook": "schema",
+ "meta": "hormonen 1/5", "version": "1.2 · oktober 2026", "titleLook": "schema",
  "seriesline": "Biologie bij Kamiel · reeks Hormonen · film 1 van 5",
  "lead": "Je lichaam heeft twee manieren om een bericht te sturen: zenuwen en hormonen. Een hormoon is een stof die een klier aan het bloed afgeeft. Het komt overal, maar alleen cellen met een passende receptor reageren. En hoe lang het werkt, hangt af van afgifte en afbraak: daarom bonkt je hart na een schrik nog minuten door.",
  "endHaak": "klier, bloed, receptor",
  "minis": {"Hoofdstuk 1": "Hoe verschilt een hormoon van een zenuwsignaal, en waar zitten de klieren?", "Hoofdstuk 2": "Waarom reageert niet elke cel op een hormoon?", "Hoofdstuk 3": "Waarom werkt een hormoon nog na als de klier stopt?", "Recap": "Waarom bonkt je hart nog minuten na de knal?"},
- "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.1 · 28 oktober 2026 (prompt v13).",
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.2 · 29 oktober 2026 (prompt v13).",
  "questions": {
   "q02": {"q": "Na de knal blijft je hart nog minuten bonken, terwijl je allang weet dat er niets aan de hand is. Waarom stopt dat niet meteen?", "correct": 1, "explain": "Onthoud je keuze. Het antwoord zie je in hoofdstuk 3 en aan het eind."},
   "q11": {"q": "Het bijniermerg geeft adrenaline af en het bloed brengt die overal heen. Welke cellen reageren op de adrenaline?", "correct": 2, "explain": "Adrenaline komt echt overal, maar alleen cellen met een passende receptor reageren. Zo'n cel heet een doelcel."},
@@ -26,6 +26,7 @@ film = {
   {"t": "eilandjes van Langerhans", "d": "Groepjes cellen in de alvleesklier die hormonen aan het bloed afgeven (insuline en glucagon)."},
   {"t": "concentratie", "d": "Hoeveel van een stof er per liter bloed zit. Bij een hormoon bepalen afgifte en afbraak samen de concentratie."},
   {"t": "endocriene / exocriene klier", "d": "Endocrien: geeft zijn stof aan het bloed af (hormoonklier). Exocrien: brengt zijn stof via een afvoerbuis naar buiten of in de darm (speekselklier).", "vwo": True},
+  {"t": "eerste en tweede boodschapper (cAMP)", "d": "Het hormoon is de eerste boodschapper: het blijft buiten de cel en bindt aan een receptor op het membraan. Via een G-eiwit laat de receptor een enzym in het membraan een tweede boodschapper maken, bijvoorbeeld cAMP, die het bericht in de cel doorgeeft.", "vwo": True},
   {"t": "signaaltransductie", "d": "Kettingreactie in de cel nadat een hormoon aan een receptor op het membraan bindt: enzymen zetten steeds meer enzymen aan. Snel, versterkt, kort.", "vwo": True},
   {"t": "steroïdhormoon", "d": "Hormoon gemaakt van cholesterol dat oplost in vet (cortisol, testosteron, oestrogeen). Gaat door het membraan; de receptor zit in de cel en zet genen aan of uit.", "vwo": True}
  ],
@@ -52,12 +53,12 @@ film = {
     </table>
     <h3>Vereenvoudigingen</h3>
     <ul>
-      <li>De grafiek in H3 toont de extra adrenaline boven het rustniveau (piek = 100). Het rustniveau zelf (ongeveer een tiende van de piek) blijft over. De film noemt de rustwaarde "ongeveer een tienmiljoenste gram per liter" (100 ng/L) als orde van grootte; gemeten waarden liggen rond 20–60 ng/L.</li>
+      <li>De grafiek in H3 toont de extra adrenaline boven het rustniveau (piek = 100). Het rustniveau zelf (ongeveer een tiende van de piek) blijft over. De film noemt de rustwaarde "minder dan een tienmiljoenste gram per liter" (onder 100 ng/L); gemeten waarden liggen rond 20–75 ng/L (Clutter e.a. 1980).</li>
       <li>De halfwaardetijd van adrenaline in het bloed is in de literatuur 1–3 minuten; de film rekent met 2 minuten en noemt de grafiek een model.</li>
       <li>Het hart blijft ook kort door sympathische zenuwen versneld; de film zegt dat de zenuwen snel kalmeren en dat het lange naijlen door de adrenaline komt.</li>
       <li>"Hormonen komen uit klieren": ook andere organen maken hormonen (maag- en darmwand, nieren met EPO). De film noemt de belangrijkste klieren.</li>
       <li>De receptor is getekend als een kommetje met een vaste vorm; in werkelijkheid zijn er meerdere typen adrenalinereceptoren, en dat verklaart mede waarom vaten in spieren wijder en in de darm nauwer worden.</li>
-      <li>Signaaltransductie is getekend als 1 → 3 → 9 enzymen; de echte versterking is veel groter (second messenger cAMP is weggelaten).</li>
+      <li>Signaaltransductie is getekend als receptor → G-eiwit → enzym in het membraan (adenylaatcyclase, niet bij naam genoemd) → cAMP → 1 → 3 → 9 enzymen; de echte versterking is veel groter, en proteïnekinase A tussen cAMP en de enzymen is weggelaten. De bronnen (OpenStax Biology § 37.2; Martini H10, daar 'eerste en tweede signaalstof') beschrijven deze G-eiwit-route voor adrenaline, niet voor insuline; daarom zegt de stem "bij adrenaline".</li>
     </ul>
     <h3>Leerdoelen en waar ze zitten</h3>
     <table><tr><th>Leerdoel</th><th>Niveau</th><th>Waar</th></tr>
