@@ -5,7 +5,7 @@
 | Bestand | films/hormonen/5-water-in-balans.html (audio in films/hormonen/5-water-in-balans/audio/) |
 | Reeks / nummer | Hormonen, film 5 van 5 (seriebrief in de Claude-doc *Seriebriefs uitlegfilms biologie*). Vervangt de geplande Gaswisseling 3 (nieren) |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blok gelabeld: s15–s17 met vraag q16 (aquaporinen, lis van Henle, kangoeroerat, aldosteron). Havo/Vwo-schakelaar, standaard Vwo |
-| Versie / datum | **1.1 · 28 oktober 2026** — opwaardering naar prompt v13 (B14, zonder keuring; zie Wijzigingen); 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus). Oude versie: `bron/oud/5-water-in-balans-v1.0.html` |
+| Versie / datum | **1.2 · 29 oktober 2026** — kleuren gelijkgetrokken volgens de reeksafspraak (Kamiel 29 okt 2026, keuzeblad Regeling); oude versie in `bron/oud/5-water-in-balans-v1.1.html`. **1.1 · 28 oktober 2026** — opwaardering naar prompt v13 (B14, zonder keuring; zie Wijzigingen); 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus). Oude versie: `bron/oud/5-water-in-balans-v1.0.html` |
 | Prompt | v13 |
 | Voldoet aan | prompt v13 (28 okt 2026, zonder keuring; takes behouden, alleen ‘Voor vwo …’ uit s15 geknipt). Bewust niet: uitgerold nefron, verzamelbuis en lis van Henle blijven Schema-buizen (C4 staat een schematische buis toe; geen nieuwe tekenstijl zonder akkoord); cold-open-decors (sportveld, kamer) en de lijntekeningen van fles en beker blijven; seriekleuren (zenuw paars, water/glucose teal) niet gewijzigd: vraag aan Kamiel; geen nieuwe caststijl met contourlijnen (nog niet goedgekeurd) |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow NcitC07HDtwYSQHTnaDB; nodes in `stem/takes.json`); s15 sinds 1.1 geknipt (zonder ‘Voor vwo …’, oude take in `bron/oud/audio/s15.mp3`) |
@@ -117,6 +117,11 @@ Kamiel koos in de uitspraaktest (18–19 okt, 4 rondes) hoe de risicowoorden moe
 |---|---|---|---|---|
 | s06 | 6RXPH8FfUxgruwCzwVRV | RkJea2ziM3fV96fO0J4P | 542 | 36.61 s |
 
+
+## Wijzigingen 1.2 (29 okt 2026): kleuren gelijkgetrokken (keuze Kamiel)
+
+Alleen kleur; stem, script, vragen, tijden en speler ongewijzigd, 0 credits. Betekeniskleuren uit Part C (zie `films/UITVOEREN-REGELING.md`): hormoon paars #8C7BBF (was goud),  zenuwsignaal teal (`HK.zenuw`), glucose oker (`HK.glucose`), terugkoppeling/rem paars (`HK.rem`). Gewijzigd in `bron/src/lib_hormonen.js` (`HK`, signaalbolletje in `kringSchema`) en `bron/src/scenes.js`; site-HTML bijgewerkt door alleen die twee blokken te vervangen.
+- ADH (`ADHC = HK.hormoon`) en aldosteron (pijl in de bijnierschorsketen) paars; de tag 'ADH maakt geen water → dorst' volgt de ADH-kleur; terugkoppelingsrem en signaalbolletje paars. Zenuw- en glucosekleur komen in deze film niet in beeld.
 
 ## Wijzigingen
 - 29 okt 2026 — nacontrole 29 okt: s04 de namen 'lever' en 'nieren / achter in je buik' staan náást de armen (x = lichaamsmidden − 170 en + 160) in plaats van half achter de arm en op het lichaam. Alleen `s04` in `src/scenes.js`, ingebouwd met `films/zenuwstelsel/7-slaap/bron/bouw/inbouw.py <film.html> src/scenes.js "// Hormonen 5 · Water in balans — scènes"`.

@@ -54,8 +54,8 @@ function personReal(ctx,x,y,h,alpha=1,o={}){ if(alpha<=0.01) return {}; ctx.save
 // series person (12 Oct 2026): every film draws the friendly person; each scenes file may set PERSON_LOOK
 
 // ---------- seriekleuren (Seriebrief Hormonen) ----------
-const HK = { hormoon: C.goud, hormoonR: '#F0CC7A', klier: C.oker, klierR: '#E2C38A', bloed: '#B5574A', bloedL: '#D88A7E',
-  glucose: C.teal, water: C.teal, receptor: '#AFC0D0', rem: '#9A8FB8', zenuw: C.paars, cel: '#C9B896' };
+const HK = { hormoon: C.paars, hormoonR: '#B3A6DA', hormoonL: '#B3A6DA', /* paars = hormoon; licht paars = hypofyse-/releasinghormoon naast een klierhormoon (Kamiel 29 okt 2026) */ klier: C.oker, klierR: '#E2C38A', bloed: '#B5574A', bloedL: '#D88A7E',
+  glucose: C.oker, water: C.teal, receptor: '#AFC0D0', rem: C.paars, zenuw: C.teal, cel: '#C9B896' };
 
 // ---------- hormonen: elk een eigen vorm, allemaal goud ----------
 function hormoonVorm(ctx, x, y, r = 10, kind = 'adrenaline', a = 1, col = HK.hormoon) {
@@ -219,7 +219,7 @@ function kringSchema(ctx, cx, cy, o = {}) {
     ctx.beginPath(); ctx.moveTo(s0[0], s0[1]); ctx.quadraticCurveTo(ctrl[0], ctrl[1], s1[0], s1[1]); ctx.stroke(); ctx.setLineDash([]);
     const an = Math.atan2(s1[1] - ctrl[1], s1[0] - ctrl[0]); ctx.beginPath(); ctx.moveTo(s1[0] - Math.cos(an - 0.45) * 18, s1[1] - Math.sin(an - 0.45) * 18); ctx.lineTo(s1[0], s1[1]); ctx.lineTo(s1[0] - Math.cos(an + 0.45) * 18, s1[1] - Math.sin(an + 0.45) * 18); ctx.stroke();
     if (b > 0.5) { const m = [(s0[0] + 2 * ctrl[0] + s1[0]) / 4, (s0[1] + 2 * ctrl[1] + s1[1]) / 4]; ctx.strokeStyle = C.koraal; ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(m[0] - 22, m[1] - 22); ctx.lineTo(m[0] + 22, m[1] + 22); ctx.moveTo(m[0] + 22, m[1] - 22); ctx.lineTo(m[0] - 22, m[1] + 22); ctx.stroke(); }
-    if (pulse >= 0 && Math.floor(pulse * 4) === i && b < 0.5) { const u = pulse * 4 - i; const q1 = [lerp(lerp(s0[0], ctrl[0], u), lerp(ctrl[0], s1[0], u), u), lerp(lerp(s0[1], ctrl[1], u), lerp(ctrl[1], s1[1], u), u)]; circ(ctx, q1[0], q1[1], 10, C.goud); }
+    if (pulse >= 0 && Math.floor(pulse * 4) === i && b < 0.5) { const u = pulse * 4 - i; const q1 = [lerp(lerp(s0[0], ctrl[0], u), lerp(ctrl[0], s1[0], u), u), lerp(lerp(s0[1], ctrl[1], u), lerp(ctrl[1], s1[1], u), u)]; circ(ctx, q1[0], q1[1], 10, HK.hormoon); }
     ctx.restore(); }
   nodes.forEach((nd, i) => { const na = nd.a == null ? 1 : nd.a; if (na <= 0.01) return; const [x, y] = P[i]; ctx.save(); ctx.globalAlpha *= na; roundRect(ctx, x - bw / 2, y - bh / 2, bw, bh, 18); shape(ctx, rgba(C.bgSchema, 0.95), nd.col || C.line, 2.5);
     if (nd.rol) metaText(ctx, nd.rol, x, y - bh / 2 - 14, nd.col || C.grain, 'center', 22);

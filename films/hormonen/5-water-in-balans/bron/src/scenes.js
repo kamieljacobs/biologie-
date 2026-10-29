@@ -154,7 +154,7 @@ const SCENES = {
     const nodes = [{ t: 'osmotische waarde bloed', s: 'opgeloste stoffen per water', col: C.teal, rol: 'WAARDE' }, { t: 'hypothalamus', s: 'meet', col: HK.klierR, rol: 'SENSOR + REGELCENTRUM' }, { t: 'ADH', s: 'via de hypofyse', col: ADHC, rol: 'SIGNAAL' }, { t: 'verzamelbuis', s: 'haalt water terug', col: '#C9D2DE', rol: 'EFFECTOR' }];
     kringSchema(ctx, 960, 450, { a: 1 - 0.0 * w2, nodes, rx: 540, ry: 280, bw: 470, bh: 120, arr: [q.on('meet', 1), q.on('ADH', 2), q.on('terug', 1), q.on('daalt', 1)], minus: q.on('terugkoppeling', 1), pulse: (t / 5) % 1 });
     tag(ctx, 'zweten → osmotische waarde omhoog', 960, 330, C.koraal, q.on('zweten', 1) * (1 - q.on('dorst', 1)));
-    const d = q.on('dorst', 1) * (1 - q.on('daalt', 1)); if (d > 0.01) { tag(ctx, 'ADH maakt geen water → dorst', 960, 330, C.goud, d); }
+    const d = q.on('dorst', 1) * (1 - q.on('daalt', 1)); if (d > 0.01) { tag(ctx, 'ADH maakt geen water → dorst', 960, 330, ADHC, d); }
     tag(ctx, 'fles water → weinig ADH → veel urine', 960, 330, WATER, w2 * (1 - q.on('plassen', 1)));
     tag(ctx, 'veel plassen ≠ betere nieren', 960, 330, C.koraal, q.on('plassen', 1));
   },
