@@ -1,5 +1,18 @@
 # Overdracht opwaardering Voortplanting (29 okt 2026)
 
+## Stand 29 okt 2026 (avond): open punten uitgevoerd
+Kamiel: 'gewoon stapsgewijs alles doen wat moet gebeuren'. Keuzes van de hoofdsessie in `films/UITVOEREN-VOORTPLANTING.md`. Alles getest en online; totaal 1.513 credits.
+- **Van bevruchting tot baby 3.1** (0 cr): hormoonkleuren als Les 2 (inhibine/AMH grijs, DHT donker teal: eigen keuze helper); placenta-overname in beeld 'geleidelijk, rond week 7–10' (stem 'week acht tot tien' valt erbinnen); onttrekkingsbloeding klopt.
+- **Geslachtsorganen 2.2** (283 cr): s01 zonder namen ingesproken, Daan-zinnen s11/s32 geknipt (slotscène klas s32 weg); hormoonkleuren als Les 2; prostaat orgaankleur #B9786A, ook in `bibliotheek/lib_bio.js`.
+- **Anticonceptie 1.3** (544 cr): s01, s07, s09 zonder namen; GGD-zin nu 'Ben je jonger dan vijfentwintig of ben je gewaarschuwd, dan kun je ook gratis terecht bij de GGD, als daar plek is.' (+ tag in beeld); chlamydia-risico in docentdeel (RIVM NECCST); telfiguren zonder gezicht, blijven.
+- **Sekse 1.4** (63 cr): s01 zin 1 zonder Noor; AGS 10–15 per jaar klopt (RIVM factsheet 2023, monitor 2024).
+- **Celdeling 2.2** (623 cr): x01 en x02 zin 1 zonder namen; oude scènes met beeldbankchromosomen, s30 `tumorGroei`; vader teal, moeder oker; geslachtelijk goud.
+- B15-rapport bijgewerkt: voorstel om P1 vast te maken (Kamiel beslist).
+- **Nog voor Kamiel:** nieuwe takes beluisteren (vooral de plakplekken: Celdeling x02 rond 5,3 s, Sekse s01, Anticonceptie s01/s07/s09); de antwoordletters in films 3 en 4. Later eventueel: lichte remake of havo-modus van Van bevruchting tot baby.
+- Alle vijf op 'nog bekijken'.
+
+---
+
 Alle vijf films van Voortplanting staan op prompt v13 (B14, zonder keuring), zijn getest en online. Er is niets ingesproken (0 credits). Brief: `films/OPWAARDEREN-VOORTPLANTING.md`. Frisse controle: `films/CONTROLE-VOORTPLANTING.md` (4 punten 'hoog', alle hersteld). Details per film: `bron/opwaardering-v13.md`.
 
 ## Wat er veranderde
