@@ -1,7 +1,7 @@
 # Ronde 3: Kamiels besluiten (28 okt 2026), ingebouwd dezelfde dag
 
 1. **methylgroep**: de ronde-2-winnaar in palet B (`genregulatie/methylgroep/W.js`), met één aanpassing: de methylgroep (CH3) groen in plaats van koraal (koraal leek op de rode A). De transcriptiefactor was grijsgroen en is daarom grijs geworden. Nieuw in `lib_bio.js` (stond er nog niet in).
-2. **polymeraseAchter / polymeraseVoor**: niet aangeraakt. Kamiel zag geen duidelijke winnaar en beslist nog.
+2. **polymeraseAchter / polymeraseVoor**: Kamiel koos op 29 okt 2026 (keuzeblad Regeling) versie 1 = **variant A** (kluwen als C-klem, DNA in het kanaal); ingebouwd in `lib_bio.js` en `dieren/lib_bio.js`. De beoordelaar koos W.
 3. **Vijf eiwitten als kralenketen**: `eiwitten/<obj>/DEF.js` (rnaPolymerase, kopStand, kernEnvelopPorie, tHelperCel, hivVirus).
 4. **zetmeelSpiraal** met optie `vertakt` (amylopectine), **bladDoorsnede** met waterdamp (optie `water`), **embryoEcht** na de bronnenronde: de DEF.js uit `<groep>/<obj>/`.
 5. **Navelstreng: kleur volgt zuurstof.** Embryo: de ader (zuurstofrijk, van placenta naar kind) rood, de twee slagaders blauw (was andersom). Ook elders in lib_bio.js: `placentaDoorsnede` met `kleurO2: false` tekende de slagaders rood (via `castNavelstreng` uit een film) en tekent nu zuurstofarm blauw; `vrouwOrganenVoor` gebruikt de nieuwe `bioNavelstreng` (slagaders blauw, ader rood) in plaats van `castNavelstreng`. Met `kleurO2` aan (standaard) waren de slagaders al blauwpaars (`PLAC.arm`, zuurstofarm foetaal bloed) en de ader rood; dat blijft. `vlokVergroot` volgde de regel al.

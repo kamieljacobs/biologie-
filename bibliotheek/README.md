@@ -53,7 +53,7 @@ Tekenrecepten volgens prompt uitlegfilms v8, C9: elk object is eerst opgezocht (
 
 Registratie en lessen van de chromosoomrecepten (status, aanroep, houdingen): `lessen_chromosomen.md`; van de DNA-basevorm: `lessen_dna.md`.
 | `vorkModel`, `vork` (+ `vorkTeken`, `vorkEnzymen`, `vorkAchter`) | replicatievork als simulatie: één model met f (vorkpositie, bp) en t; helix vóór de vork draait mee, leidende streng continu, volgende streng met RNA-primer per fragment, polymerase bouwt van de vork af, primer vervangen, ligase dicht de naad; deterministisch | DNA kopiëren 2.0 (keuring 25 okt 2026) |
-| `polymeraseAchter`, `polymeraseVoor` | DNA-polymerase als 'rechterhand' (handpalm, duim, vingers die sluiten, klem om het DNA), actief centrum goud; twee lagen rond het DNA | idem |
+| `polymeraseAchter`, `polymeraseVoor` | DNA-polymerase als gevouwen kralenketen in C-vorm (variant A, ronde 3, Kamiel 29 okt 2026): DNA vrij in het kanaal, vingers (α-helix) sluiten om de nucleotide, gouden actief centrum, klem als kralenring óm het DNA; twee lagen rond het DNA; g ≈ 0,55 × DNA-breedte | idem |
 | `helicaseRing`, `primase`, `ligase` | helicase als ring van zes eiwitten om één streng (voor/achter); primase en ligase via `enzymKluwen` | idem |
 | `vrijNucleotide`, `d2Base`, `d2Rug`, `baseRingRNA` | vrije nucleotide (fosfaat, suiker, base); basen in de vorm van `baseRing` langs een gebogen streng (staafje als ze kleiner zijn dan 9 px); RNA-base in dezelfde puzzelvorm (U = rand van T, teal) | idem |
 | `schaafwond` | schaafwond op `onderarm()` die heelt: `heel` 0 vers · 0,35 korst · 0,7 roze · 1 weg | idem |
@@ -202,7 +202,7 @@ Kamiel koos op het keuringsblad van ronde 2 (`verbeterronde-2/keuringsblad/`); b
 
 Kamiels besluiten in `verbeterronde-3/uitslag/BESLUITEN.md`; varianten en stills per object in `verbeterronde-3/<groep>/<obj>/` (overzicht `verbeterronde-3/OVERZICHT.md`). Objecten die na zijn keuze nog zijn aangepast: `verbeterronde-3/uitslag/VERANDERD.json` (met voor/na). Eén regel per object in `logboek/keuzes.jsonl` (ronde `beeldbank-3`). Oude versies (stand vlak vóór deze ronde): `oud/2026-10-28b/` (lib_bio.js, dieren/lib_micro_evo.js, testvel.html, README.md). Testvel: knop 'Verbeterronde 3' (`testvel.html#vr3-1`, alle objecten uit deze ronde).
 
-- **Niet ingebouwd**: `polymeraseAchter`/`-Voor` (Kamiel zag geen duidelijke winnaar; hij beslist nog). `primerStuk` tekent zijn eigen polymerase nog steeds zelf.
+- **Polymerase** (29 okt 2026): Kamiel koos variant A op het keuzeblad Regeling; ingebouwd. `primerStuk` tekent zijn eigen polymerase nog zelf (kan later naar polymeraseAchter/-Voor).
 - **Navelstreng: kleur volgt zuurstof** (Kamiel): de twee navelstrengslagaders blauw (zuurstofarm, kind → placenta), de ader rood (zuurstofrijk, placenta → kind). Geldt in `embryoEcht`, in `placentaDoorsnede` (met `kleurO2: false` nu ook; standaard blijft blauwpaars `PLAC.arm` voor zuurstofarm foetaal bloed) en in de nieuwe `bioNavelstreng(c, ax, ay, bx, by, t, a, w)` (zelfde aanroep als `castNavelstreng` uit de films, die de slagaders rood tekent); `vrouwOrganenVoor` gebruikt nu `bioNavelstreng`.
 - **RNA**: ruggengraat teal (`D2.rna`), basen palet B (`RNA_BASE`), ook in kleine objecten via `_rnaTikjes(ctx, pts, lw, {stap, lang, seed})`.
 - **Vork**: geen puzzelvorm meer, elke base één staafje van dx/2 breed; `d2Base` kreeg `o.staafLetter` (alleen de vork gebruikt het).

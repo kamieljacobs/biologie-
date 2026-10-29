@@ -132,7 +132,7 @@ window.replVel=function(){ if(typeof CAST==='undefined'){ chrLibs().then(()=>rep
  const st={i0:0,i1:110,X0:60,cy:330,g:46,dx:13,Dmax:160,Lsplit:9,Ltw:10,Lf:26,pl:4,p1:30,lead:4,startLead:0,vlag:1.4,t:0.7};
  ctx.save(); ctx.beginPath(); ctx.rect(0,100,950,500); ctx.clip(); ctx.translate(0,0); ctx.scale(0.6,1); vork(ctx,Object.assign({},st,{f:76})); ctx.restore(); text(ctx,'vork(): f = 76 (leidende streng, volgende streng met primers)',60,560,fMeta(20),C.text2,'left');
  ctx.save(); ctx.beginPath(); ctx.rect(970,100,950,500); ctx.clip(); ctx.translate(970,0); ctx.scale(0.6,1); vork(ctx,Object.assign({},st,{f:107})); ctx.restore(); text(ctx,'f = 107 (primer vervangen, ligase)',1000,560,fMeta(20),C.text2,'left');
- polymeraseAchter(ctx,300,800,140,{}); ['A','G','T','C','A','G'].forEach((b,i)=>d2Base(ctx,120+i*36,840,-Math.PI/2,b,60,9,{})); polymeraseVoor(ctx,300,800,140,{sluit:1,a:0.94}); text(ctx,'polymerase (sluit 1)',200,1000,fMeta(20),C.text2,'left');
+ polymeraseAchter(ctx,300,800,62,{}); /* g ≈ 0,55 × DNA-breedte sinds variant A (29 okt 2026) */ ['A','G','T','C','A','G'].forEach((b,i)=>d2Base(ctx,120+i*36,840,-Math.PI/2,b,60,9,{})); polymeraseVoor(ctx,300,800,62,{sluit:1,a:0.94}); text(ctx,'polymerase (sluit 1)',200,1000,fMeta(20),C.text2,'left');
  helicaseRing(ctx,640,800,60,{}); text(ctx,'helicaseRing',600,1000,fMeta(20),C.text2,'left');
  primase(ctx,820,800,44,{}); ligase(ctx,940,800,44,{sluit:1}); text(ctx,'primase · ligase',800,1000,fMeta(20),C.text2,'left');
  vrijNucleotide(ctx,1100,800,'G',0,1.1,{rand:C.goud}); text(ctx,'vrijNucleotide',1060,1000,fMeta(20),C.text2,'left');
