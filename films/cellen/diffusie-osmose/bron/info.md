@@ -5,11 +5,12 @@
 | Bestand | films/cellen/diffusie-osmose/index.html (audio in films/cellen/diffusie-osmose/audio/) |
 | Reeks / nummer | Cel, film 1 van 3 ("Biologie bij Kamiel · reeks Cel · film 1 van 3"); film 2 = Celorganellen |
 | Doelgroep / niveau | havo + vwo met gelabelde vwo-blokken (Havo/Vwo-schakelaar; standaard Vwo). Vwo-blokken: gefaciliteerde diffusie (H4) en natrium-kaliumpomp (H6). Iso-/hypo-/hypertonisch staat op verzoek van Kamiel in het havo-deel |
-| Versie / datum | Versie 1.2 · 16 oktober 2026 (uitgeversniveau, na de redactiereview; zie "Versie 1.2" onderaan). Eerder: 1.1 · 12 oktober 2026 |
-| Prompt | onbekend · gemaakt 16 okt |
+| Versie / datum | Versie 2.0 · 29 oktober 2026 (beeld-remake op prompt v13, takes behouden; zie "Versie 2.0" onderaan). Eerder: 1.2 · 16 oktober 2026 (in `oud/index-1.2.html`), 1.1 · 12 oktober 2026 |
+| Voldoet aan | prompt v13 (29 okt 2026, beeld-remake, takes behouden) |
+| Prompt | v13 |
 | Stem / model | Roos (ElevenLabs, model eleven_v4, voice_id 7qdUFMklKPaaAVMsBTBt), één take per segment; woordtijden met Scribe (eleven_scribe_v1) |
 | Duur | 10:02 gesproken (som van 24 mp3's: 602 s; vwo-blokken 50 s). Speeltijd met kaarten en vragen (versie 1.2): Vwo 12:47, Havo 11:47, Vwo zonder vragen 9:55. `script.md` heeft de begintijden per segment. `data-duur="9"` op de tellerscript-tag is de oude gesproken duur in minuten (alleen voor de kijkcijferteller; bijwerken met `scripts/teller.py` als dat gewenst is) |
-| Beeldstijl | Part C-stijlkaart: Micro (#121A26, sinds 1.2 zonder korrel), Schema (#1A2740), Macro (bootje op zee). Kleurbetekenis in deze film: goud = opgeloste stof/kleurstof, teal = water en zuurstof, koraal = ATP/energie, groen = conclusie/celwand, grijs = CO₂, oker = glucose/mineralen, paars = vwo (ook K⁺ in het vwo-blok). Canvas 1920×1080, ondertitels onder CAPTION_Y = 900 |
+| Beeldstijl | Part C-stijlkaart: Micro (#121A26, zonder korrel), Schema (#1A2740), Macro (bootje op zee). Sinds 2.0 getekend met de beeldbank (`membraanBoog`, `celRond`, `plantencel`, `rodeBloedcel`, `bloedvat`, `longblaasje`, `wortelHaren`, `eiwitVouw`) en eigen moleculen (`src/scenes_mol.js`). Kleurbetekenis: goud = kleurstof (focus), teal = water (H₂O) en zuurstof, koraal = ATP/energie, groen = conclusie/celwand en K⁺, grijs = CO₂, oker = glucose/mineralen/Na⁺, grijsblauw = Cl⁻, paars alleen de vwo-balk. Canvas 1920×1080, ondertitels onder CAPTION_Y = 900 |
 | Audio-opslag | 24 losse mp3's in audio/ (s01, s04, s05, s06, s08, s09, s11, s12, s14, s15, s17, s18, s20, s21, s22, s23, s25, s27, s28, s29, s31, s32, s33, s35), gemasterd op −16 LUFS / −1,5 dBTP (ffmpeg loudnorm, twee passes, lineair) |
 | Herkomst | Eerste versie ("Alles beweegt") door Kamiels broer, naar ontwerp van Kamiel Jacobs. Deze remake in Part C: Claude met Kamiel (12 okt 2026), met dezelfde bouwstraat als Celorganellen. Op verzoek van Kamiel (16 okt 2026) staat de broer voorlopig niet in de credits; ze werken samen |
 
@@ -24,8 +25,14 @@
 | `stem/woordtijden/sNN.json` | Woordtijden per take (Scribe) |
 | `stem/uitspraaktest.mp3` | A/B-test van de risicowoorden |
 | `src/lib.js` | Part C-tokens en reeksbibliotheek (gedeeld met Celorganellen) |
-| `src/scenes_lib.js` | Helpers voor deze film: deterministische deeltjessimulatie `sim()`, lipidedubbellaag, kanaaleiwit, drukmeter, plantencel, rode bloedcel, bekerglas, ATP |
+| `src/lib_cast.js` | Kopie van `personages/lib_cast.js` (29 okt 2026) |
+| `src/lib_bio.js`, `src/lib_bio_deel.js` | Kopie van `bibliotheek/lib_bio.js` (29 okt 2026) en het uittreksel dat in de film staat (`bouw/bio_deel.py`, zie 'Hoe je de film aanpast') |
+| `src/voeding_deel.js` | `V`, `hexagon`, `bead` uit `films/voeding/1-wat-zit-er-in-je-eten/bron/src/lib_voeding.js` (nodig voor de beeldbank) |
+| `src/scenes_lib.js` | Helpers voor deze film: deterministische deeltjessimulatie `sim()`, pijlen, drukmeter, thermometer, bekerglas, pill, kaart, ATP-molecuul, membraanboog-rekenhulp `mY`/`mA` |
+| `src/scenes_mol.js` | Nieuw in 2.0: moleculen (`h2o`, `waterField`, `kleurstof`, `ionMol` met watermantel, `glucoseMol`, `o2`, `co2`, `mineraalIon`), membraan via de beeldbank (`memH`, `memV`), `dragerEiwit`, `pompEiwit`, `bloedcelOsmose`, `fosfolipideGroot`; recept als commentaar boven elke functie |
 | `src/scenes.js` | Eén scènefunctie per segment |
+| `oud/` | Versie 1.2: `index-1.2.html`, `src-1.2/`, `info-1.2.md` |
+| `storyboard-remake.md`, `opwaardering-v13.md`, `bronnen.md` | Storyboard van de remake, lijsten voor Kamiel, bronnenlogboek |
 | `src/player.js` | Speler (tijdlijn, vragen, Havo/Vwo, Leerling/Klas, ondertitels) |
 | `src/page.html` | Sjabloon met kop, checkvragen, docentdeel, begrippen; placeholders `/*FILMDATA*/ /*LIB*/ /*SCENES*/ /*PLAYER*/ /*NAV*/` |
 | `bouw/*.py`, `bouw/checkcues.js` | Bouwstraat, stills, tests; `checkcues.js` controleert dat elk `q.at('woord',n)` in de take bestaat |
@@ -67,27 +74,32 @@ deeltjesbeweging, diffusie, concentratie, concentratieverschil (concentratiegrad
 ## Docentdeel
 Op de pagina zelf: tabel "Hoe de film het uitlegt", de natuurkundige uitleg van osmose (Kramer & Myers 2013), misconcepties, pauzemomenten, getallen met bron of berekening, vereenvoudigingen, leerdoelen en dekking, practicumsuggesties. Zes checkvragen in examenstijl (vier basis, twee vwo).
 
-## Waar wat in de HTML zit (`index.html`, versie 1.2)
+## Waar wat in de HTML zit (`index.html`, versie 2.0)
 
 | Regel | Inhoud |
 |---|---|
-| 70 | Sitebalk: "Biologie bij Kamiel" en "← Terug naar Cellen" (`../../../index.html#cellen`; gaat terug in de geschiedenis als je van de site kwam) |
+| 74 | Sitebalk: "Biologie bij Kamiel" en "← Terug naar Cellen" |
 | 99 | Checkvragen |
-| 117 | Docentdeel (tabellen in `<div class="tabelkader">`, eigen horizontale scroll op de telefoon) |
-| 165 | Footer met credits en versie |
-| 166 | `window.FILMDATA` (segmenten, woordtijden, vragen, antwoorden) |
-| 167 | Part C-tokens (`const C`) en reeksbibliotheek (lib.js); `bg()` zonder korrel; `metaText()` minimaal 26 px |
-| 371 | Castboek `lib_cast.js` (`persoon()`, sinds 22 okt 2026) |
-| 963 | Filmhelpers (scenes_lib.js); `sim()` 976; `fosfolipide()` 1037; `atp()` (molecuul, fosfaat springt eraf) 1081; `circ()` 1098 (nodig voor lib_cast.js) |
-| 1140 | `const SCENES`; s01 1142, s04 1171, s05 1202, s06 1218, s08 1231, s09 1242, s11 1263, s12 1299, s14 1335, s15 1365, s17 1388, s18 1400, s20 1413, s21 1436 (porie), s22 1477 (U-buis + deeltjes tellen), s23 1514, s25 1550, s27 1561, s28 1575, s29 1597, s31 1614, s32 1633 (Na/K-pomp), s33 1677 (bootje met Noor), s35 1721 |
-| 1742 | Begrippenlijst (`GLOSSARY`) |
-| ±1770 | Speler (eindkaart in `drawEnd` 1855) |
+| 117 | Docentdeel |
+| 169 | Footer met credits en versie (2.0 · 29 oktober 2026) |
+| 170 | `window.FILMDATA` (segmenten, woordtijden, vragen, antwoorden) |
+| 171 | Part C-tokens (`const C`) en reeksbibliotheek (lib.js) |
+| 374 | Castboek `lib_cast.js` |
+| 1201 | `voeding_deel.js` (`V`, `hexagon`, `bead`) |
+| 1237 | Uittreksel beeldbank (`lib_bio_deel.js`): `membraanBoog` 1342, `plantencel` 1908, `longblaasje` 2060, `wortelHaren` 2103 (ook `celRond`, `rodeBloedcel`, `bloedvat`, `eiwitVouw`) |
+| 2173 | Filmhelpers (scenes_lib.js): `sim()` 2173, `atp()` 2230, `circ()` 2247 |
+| 2249 | Moleculen en eiwitten (scenes_mol.js): `h2o` 2258, `ionMol` 2285, `memH` 2318, `dragerEiwit` 2345, `pompEiwit` 2352, `bloedcelOsmose` 2365 |
+| 2430 | `const SCENES`; s01 2432, s04 2457, s05 2488, s06 2503, s08 2515, s09 2525, s11 2549, s12 2583, s14 2621, s15 2649, s17 2666, s18 2678, s20 2692, s21 2713 (porie), s22 2752, s23 2783, s25 2820, s27 2830, s28 2844, s29 2866, s31 2883, s32 2901, s33 2939, s35 2980 |
+| 3000 | Begrippenlijst (`GLOSSARY`) |
+| 3099 | Titelkaart (`drawTitle`, wolk van kleurstof- en watermoleculen); eindkaart `drawEnd` 3113 |
 
 Pas nooit `index.html` direct aan: wijzig de bron in `src/` en bouw opnieuw.
 
 ## Hoe je de film aanpast
 
 **Werkmap opzetten** (buiten de repo): kopieer `bron/src/`, `bron/bouw/*`, `bron/script_v2.md` naar een werkmap (sinds 1.2 bouwen `src/` en `bouw/` exact de live `index.html`; speler en pagina zijn weer gelijk); `stem/segmenten_stem-invoer.json` → `segments.json`; `stem/woordtijden/` → `words/`; mp3's uit `../audio/` → `master/` en `film/audio/`. Daarna `python3 build_data.py && python3 build.py && node checkcues.js`. Resultaat: `film/index.html` (site) en `film/standalone.html` (zonder sitebalk).
+
+**Bouwen sinds 2.0:** `bouw/build.py` plakt het scèneblok uit `lib_cast.js`, `voeding_deel.js`, `lib_bio_deel.js`, `scenes_lib.js`, `scenes_mol.js`, `scenes.js`. Nieuwe beeldbankfunctie nodig: kopieer `bibliotheek/lib_bio.js` naar `src/lib_bio.js` en maak het uittreksel opnieuw: `python3 bio_deel.py src/lib_bio.js src/lib_bio_deel.js src/lib.js src/lib_cast.js src/voeding_deel.js src/scenes_lib.js src/scenes_mol.js src/scenes.js src/player.js -- BIO membraanBoog celRond plantencel rodeBloedcel bloedvat eiwitVouw longblaasje wortelHaren _kkHelix _kkPad` (+ de nieuwe naam). Op de site zetten zonder de nabewerkingen kwijt te raken: `python3 bouw/splice.py <live index.html> <uit>` (vervangt alleen het scèneblok, de titelwolk en de versieregels), daarna de vaste scripts. Contactbladen: `python3 contact2.py <uit> 4 [s21,s23]` en `python3 klein.py 1100 '<uit>/sheet_*.png'`; vragen uit nalopen: `python3 bouw/vragenuit.py` (met de repo geserveerd op poort 8766).
 
 **Beeld wijzigen:** pas de scène in `src/scenes.js` aan (cue-woorden via `q.at('woord', n)`; n telt alle woorden die het woord bevatten, dus "Glucose" vindt ook "glucose,"). Controleer met `python3 shots.py uit s21:20 s21:30`, `python3 contact2.py uit 4 [s12,s21]` (contactbladen per segment) en `node checkcues.js`. Speler en telefoon (390 px): `python3 test_v12.py` met `python3 -m http.server 8765` in de werkmap.
 
@@ -165,3 +177,28 @@ Kamiel (20 okt 2026): geen grijze plaatsvervanger-poppetjes meer. In s33 (Recap,
 - `bron/src/scenes_lib.js`: `circ()` toegevoegd (lib_cast.js gebruikt hem). `human()` staat er nog maar wordt niet meer gebruikt.
 - `index.html`: alleen het scèneblok (lib_cast + scenes_lib + scenes) vervangen; nabewerkingen (spelerfix, flipkaarten, oefenen, teller, licentie) zijn blijven staan. Let op: `filmdata.json` staat niet in de bronmap, dus 'opnieuw bouwen' vraagt eerst de werkmap uit 'Hoe je de film aanpast'.
 
+
+## Versie 2.0 (29 oktober 2026): beeld-remake op prompt v13, takes behouden
+
+Brief: `films/OPWAARDEREN-CELLEN.md`. Stem, script, takes, woordtijden, cue-woorden, vragen, hoofdstukken, docentdeel, begrippen en oefeningen ongewijzigd; 0 credits. Alleen het scèneblok, de titelwolk en de versieregels in `index.html` zijn vervangen (`bouw/splice.py`), dus de nabewerkingen van de site zijn gebleven. Oude versie: `oud/index-1.2.html` (online tot Kamiel 2.0 goedkeurt; terugzetten = dat bestand terugkopiëren). Storyboard: `storyboard-remake.md`; lijsten voor Kamiel: `opwaardering-v13.md`; bronnenlogboek: `bronnen.md` (nieuw).
+
+Per scène:
+- Overal: moleculen herkenbaar (water = geknikt H₂O, kleurstof = twee zesringen in goud, Na⁺ klein oker met +, Cl⁻ groter grijsblauw met −, in water met watermantel; glucose = zesring met O en zijtak; mineralen oker). Membranen = `membraanBoog` uit de beeldbank (fosfolipiden, gebogen); eiwitten als kralenketen. Minder paars: vwo-pillen en 'zie je terug bij zenuwimpulsen' goud/wit, K⁺ groen. Labels minimaal 26 px. Paars alleen nog de vwo-balk.
+- s01: zoomcirkel toont kleurstof- en watermoleculen ('ingezoomd: moleculen').
+- s04–s08: zelfde `sim()`; deeltjes zijn kleurstofmoleculen die meedraaien, water als H₂O; het gevolgde deeltje is wit met gouden rand; botsende watermoleculen.
+- s09: oppervlak als klein en groot stuk dubbellaag; cellen als `celRond` (zonder organellen).
+- s11: longblaasjes = `longblaasje` (trosje met haarvatennet); zoomcirkel op de blaasjeswand met een haarvat (`bloedvat`, rode bloedcellen één voor één); O₂ in, CO₂ uit.
+- s12: doorlopende zoom van een volle `celRond` naar het membraan; dubbellaag groot als `membraanBoog`; Na⁺ met watermantel kaatst terug.
+- s14: kanaaleiwit (waterkanaal, kralen) en dragereiwit (kralen, klapt om) verschijnen rustig in het membraan; conclusiekaarten met de nieuwe moleculen.
+- s15/s17 (vwo): kanaaleiwit met water in één rij; `dragerEiwit` klapt om (open buiten → glucose → open binnen).
+- s18/s20: membraan in de bak = gebogen dubbellaag met drie waterkanalen; water steekt over als H₂O; zout als Na⁺/Cl⁻; bij 'stroomt' gaat het water in een rij door elk kanaal.
+- s21 (kern): het gaatje is een waterkanaal in de dubbellaag; Na⁺/Cl⁻ met watermantel botsen en kaatsen terug en duwen H₂O weg; bij 'druk' wordt de zone in de opening aan de zoute kant zichtbaar leger aan watermoleculen; drukmeters, kaarten en volgorde als 1.2.
+- s22: U-buis met een klein stukje dubbellaag; zout als Na⁺/Cl⁻; deeltjes tellen met losse ionen.
+- s23/s25: plantencel = `plantencel` (plasmolyse 0 → 1 → 0, buitenoplossing tussen wand en membraan); turgorpijlen; komkommercellen als vier `plantencel`-en.
+- s25/s27/s28/s35: rode bloedcel = `rodeBloedcel` (ingedeukte schijf); zwellen = bol, krimpen = gekarteld, hemolyse = leeg membraan terwijl de inhoud wegstroomt (`bloedcelOsmose`).
+- s29: wortelhaarcel = `wortelHaren` met zoom; mineralen veel in de haarcel, weinig in de bodem.
+- s31/s32: pomp = `pompEiwit` (kralenhelices + gevouwen ATP-domein binnen) in `membraanBoog`; Na/K-pomp met de stappen van 1.2.
+- s33: panelen met mini-dubbellaag en de nieuwe moleculen; zon vlak zonder gloed.
+- Titelkaart: wolk van kleurstof- en watermoleculen.
+
+Getest: contactvellen van alle 24 scènes (elke 4 s) zelf bekeken, daarna gericht s05, s11, s22, s23, s29 opnieuw; geen JS-fouten; `checkcues.js` 0 fout; speler (havo 701 s / vwo 761 s, vragen uit 584 s, zoeken, q19 beantwoorden), telefoon 390 px zonder horizontaal scrollen; elke vraag met `?vragen=uit` (5 s ervoor tot 3 s erna: geen vraag- of antwoordtekst in beeld); vaste scripts (spelerfix, antwoordtekst, kortantwoord, antwoordletter met --check), flipkaarten, licentie_noot, teller.

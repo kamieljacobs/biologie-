@@ -102,7 +102,7 @@ function drawTitle(ctx,t){ bg(ctx,'micro'); const a=ramp(t,0.2,0.8);
   // background: a slowly spreading cloud of dye particles
   ctx.save(); ctx.globalAlpha=ramp(t,0.4,1.2);
   for(let i=0;i<260;i++){ const sp=40+260*Math.sqrt(hash(i*3+1))*(0.35+0.65*clamp(t/5,0,1)); const ang=hash(i*3+2)*6.283; const w=wander(i,t,22,1.2);
-    const x=1400+Math.cos(ang)*sp+w.x, y=520+Math.sin(ang)*sp*0.8+w.y; ctx.fillStyle=i%5? rgba(C.goud,0.85): C.koraal; ctx.beginPath(); ctx.arc(x,y,6,0,6.283); ctx.fill(); }
+    const x=1400+Math.cos(ang)*sp+w.x, y=520+Math.sin(ang)*sp*0.8+w.y; if(i%2) kleurstof(ctx,x,y,0.9,hash(i)*6.283+t*0.3,0.9); else h2o(ctx,x,y,4.5,hash(i*5)*6.283+t*0.4,0.6); }
   ctx.restore();
   ctx.save(); ctx.globalAlpha=a; text(ctx,'Diffusie en osmose',120,360,fTitel(110),C.text); text(ctx,'Alles beweegt',120,440,fTekst(44),C.text2);
   ctx.font=fTekst(34); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,'Hoe komen stoffen een cel in en uit, zonder dat iemand ze duwt?',120,540,760,44);
@@ -113,7 +113,7 @@ function drawChapterCard(ctx,it,t){ bg(ctx,'schema'); const a=ramp(t,0.05,0.3)*(
   const mini={'Hoofdstuk 1':'Staan deeltjes ooit stil?','Hoofdstuk 2':'Waarom gaat het van veel naar weinig?','Hoofdstuk 3':'Waarom zijn cellen zo klein?','Hoofdstuk 4':'Wat komt er door het membraan?','Hoofdstuk 5':'Waarom stroomt water naar het zout?','Hoofdstuk 6':'Hoe krijgt een cel iets bergop?','Recap':'Wat hebben we gezien?'}[num||it.chapter];
   if(mini) text(ctx,mini,W/2,620,fTekst(36),C.text2,'center'); ctx.restore(); }
 function drawEnd(ctx,it,t){ bg(ctx,'schema'); const lines=it.seg.lines; lines.forEach((l,i)=>{ const a=ramp(t,0.3+i*1.2,0.6); ctx.save(); ctx.globalAlpha=a; text(ctx,l,W/2,380+i*120,fTekst(44,600),C.text,'center'); ctx.restore(); });
-  haak(ctx,400,1520,740,'alles beweegt, niemand stuurt',C.groen,ramp(t,4.2,0.6)); metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.2 · 16 oktober 2026',W/2,CAPTION_Y-60,C.text2,'center',24); }
+  haak(ctx,400,1520,740,'alles beweegt, niemand stuurt',C.groen,ramp(t,4.2,0.6)); metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 2.0 · 29 oktober 2026',W/2,CAPTION_Y-60,C.text2,'center',24); }
 function drawQuestion(ctx,it,t){
   bg(ctx,'schema'); const seg=it.seg; const ph=state.qPhase||{phase:'countdown',start:0};
   text(ctx,'Wat denk je?',120,200,fTitel(64),C.text); ctx.font=fTekst(40,600); ctx.fillStyle=C.text; wrap(ctx,seg.q,120,290,1680,52);
