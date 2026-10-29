@@ -120,3 +120,7 @@ Nog niet gedaan. Voorstel steekproef Kamiel: 15/16 (groeispurt), 34 (sperma), 6 
 ## Opwaardering v13 (29 okt 2026)
 
 Geen nieuwe of gewijzigde beweringen: script en stem zijn gelijk gebleven. Alleen beeldobjecten vervangen door de gekeurde beeldbankversies; de bronnen van die objecten staan in `bibliotheek/README.md` en de verbeterronde-mappen (o.a. acrosoom ± 60 % van de kop: MeSH/DeCS + 'Acrosome'; haarvat in vetweefsel langs de celgrenzen). Status blijft 43 beweringen · 34 ✓ · 9 ≈ · 0 ! · 0 ?.
+
+## Versie 2.2 (29 okt 2026)
+
+Geen nieuwe of gewijzigde beweringen. s01 zegt hetzelfde zonder namen; in s11 en s32 is alleen de slotzin over het personage weggeknipt ('groeit gewoon later' blijft gedekt door bewering over de spreiding, 'vroeg is normaal, laat ook'). Kleurwijzigingen raken de inhoud niet.

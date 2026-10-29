@@ -1,12 +1,12 @@
-# Geslachtsorganen en puberteit — gesproken tekst (versie 2.0, lichte remake, 26 okt 2026)
+# Geslachtsorganen en puberteit — gesproken tekst (versie 2.2, 29 okt 2026; basis 2.0, lichte remake, 26 okt 2026)
 
 Stem Roos (7qdUFMklKPaaAVMsBTBt), ElevenLabs eleven_v4, één take per alinea, flow `2gVdRpBnFclUy5DZxMY2`. Audio: `../audio/<id>.mp3` (loudnorm I=-15, mono 44,1 kHz 96 kb/s); woordtijden: `stem/woordtijden/<id>.json` (silalign, lokaal). Stem-invoer staat erbij waar die afwijkt van de ondertitel. Oude versie: `oud/script-v1.md`.
 
 ## Cold open
 
-**s01** · audio `s01.mp3` · 19.1 s · generation `BelC06IABYgJVBIHbcjj`
+**s01** · audio `s01.mp3` · 18.8 s · generation `YVFGlF2FTPahi9ZRinza` (opnieuw ingesproken 29 okt 2026, flow `SZ5dFfE9QdEKnKW74sAP`, eleven_v4, 283 credits; loudnorm I=-16,5; stem-invoer = ondertitel, `stem/s01-2026-10-29.txt`)
 
-Sam en Daan zitten in dezelfde klas, en ze zijn bijna even oud. Vorig jaar waren ze nog even groot. Nu is Sam een kop groter, en zijn stem is laag geworden. Daan is bijna niet gegroeid. Is er iets mis met Daan? Nee. Bij hem is het startsein voor de puberteit nog niet gegeven.
+Twee jongens zitten in dezelfde klas, en ze zijn bijna even oud. Vorig jaar waren ze nog even groot. Nu is de één een kop groter, en zijn stem is laag geworden. De ander is bijna niet gegroeid. Is er iets mis met hem? Nee. Bij hem is het startsein voor de puberteit nog niet gegeven.
 
 **s02** · audio `s02.mp3` · 3.5 s · generation `ygmPtGTTboDihvpvaxdR`
 
@@ -57,9 +57,9 @@ _Stem-invoer:_ Testosteron en eustrogeen veranderen je lichaam. Je geslachtsorga
 
 Bij jongens groeit er haar op de kin, worden de schouders breder en de spieren sterker, en groeit het strottenhoofd. Daardoor wordt de stem lager. Bij meisjes groeien de borsten en worden de heupen breder. Bij iedereen komt er haar onder de oksels en rond de geslachtsorganen, en komt er een groeispurt. Ook de geslachtsorganen zelf groeien, en ze gaan werken. Bij jongens komt er een eerste zaadlozing, bij meisjes een eerste menstruatie.
 
-**s11** · audio `s11.mp3` · 18.8 s · generation `MkU5j1cJje8tTmHqAoCi`
+**s11** · audio `s11.mp3` · 17.1 s · generation `MkU5j1cJje8tTmHqAoCi` (29 okt 2026: slotzin 'Daan groeit gewoon later.' weggeknipt bij 17,05 s, in de stilte; 0 credits)
 
-Bij meisjes begint de puberteit gemiddeld iets eerder dan bij jongens, en hun groeispurt komt zo'n twee jaar eerder. Daarom zijn meisjes rond hun twaalfde vaak even langer dan de jongens in hun klas. Maar de verschillen tussen mensen zijn groot. Vroeg beginnen is normaal, en laat beginnen ook. Daan groeit gewoon later.
+Bij meisjes begint de puberteit gemiddeld iets eerder dan bij jongens, en hun groeispurt komt zo'n twee jaar eerder. Daarom zijn meisjes rond hun twaalfde vaak even langer dan de jongens in hun klas. Maar de verschillen tussen mensen zijn groot. Vroeg beginnen is normaal, en laat beginnen ook.
 
 **s12** · vwo · audio `s12.mp3` · 14.6 s · generation `Sdww7zjyMpKfAURx1LEN`
 
@@ -155,9 +155,9 @@ Het startsein voor de puberteit komt uit je hersenen. De hypothalamus geeft stot
 
 _Stem-invoer:_ Het startsein voor de puberteit komt uit je hersenen. De hiepo-taalamus geeft stoten G-N-R-H, de hypofyse maakt FSH en LH, en die zetten de zaadballen of eierstokken aan. Hun hormonen, testosteron en eustrogeen, zorgen voor de secundaire geslachtskenmerken. Wanneer dat begint, verschilt veel tussen mensen.
 
-**s32** · audio `s32.mp3` · 14.7 s · generation `arCWRIXUhw8Ctu2Flnc7`
+**s32** · audio `s32.mp3` · 11.6 s · generation `arCWRIXUhw8Ctu2Flnc7` (29 okt 2026: 'En Daan? Die krijgt zijn startsein gewoon wat later.' weggeknipt bij 11,55 s, in de stilte; 0 credits)
 
-Zaadcellen worden steeds opnieuw gemaakt in de zaadballen; het meeste vocht van sperma komt uit de zaadblaasjes en de prostaat. Eicellen zijn er al vanaf de geboorte, en er komen er geen nieuwe bij. En Daan? Die krijgt zijn startsein gewoon wat later.
+Zaadcellen worden steeds opnieuw gemaakt in de zaadballen; het meeste vocht van sperma komt uit de zaadblaasjes en de prostaat. Eicellen zijn er al vanaf de geboorte, en er komen er geen nieuwe bij.
 
 ## Eindkaart
 

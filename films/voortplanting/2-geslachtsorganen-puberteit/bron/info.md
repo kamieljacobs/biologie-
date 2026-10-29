@@ -7,16 +7,28 @@ Versie 2.0 is een lichte remake (prompt v10 B16) in de FILMDATA-straat, 26 okt 2
 | Bestand | films/voortplanting/2-geslachtsorganen-puberteit.html (audio in `2-geslachtsorganen-puberteit/audio/`) |
 | Reeks | Voortplanting (hoofdstuk `voortplanting`), film 2; sluit aan op Celdeling (meiose) |
 | Niveau | havo + vwo; vwo-blok s12–s14 (kisspeptine, leptine en vetreserve, eerste menstruatie steeds vroeger) |
-| Versie / datum | **2.1 · 29 oktober 2026** — opwaardering naar prompt v13 (B14, zonder keuring): alleen beeld, stem en script ongewijzigd; oude versie in `bron/oud/2-geslachtsorganen-puberteit-v2.0.html` (+ `info-v2.0.md`). 2.0 · 26 oktober 2026 (lichte remake) · eerder 1.1 · 22 okt 2026, 1.0 · 16 okt 2026 |
+| Versie / datum | **2.2 · 29 oktober 2026** — open punten uitgevoerd (`films/UITVOEREN-VOORTPLANTING.md`): hormoonkleuren als Les 2, prostaat in orgaankleur, castnamen uit de stem (s01 opnieuw ingesproken, s11/s32 geknipt); oude versie in `bron/oud/2-geslachtsorganen-puberteit-v2.1.html` (+ `info-v2.1.md`, audio `oud/audio-v2.1/`). 2.1 · 29 oktober 2026 — opwaardering naar prompt v13 (B14, zonder keuring), oude versie `oud/2-geslachtsorganen-puberteit-v2.0.html`. 2.0 · 26 oktober 2026 (lichte remake) · eerder 1.1 · 22 okt 2026, 1.0 · 16 okt 2026 |
 | Prompt | v13 |
-| Voldoet aan | prompt v13 (29 okt 2026, zonder keuring). Bewust niet: de stem noemt Sam en Daan (s01, s11, s32; B4) — niet opnieuw ingesproken, staat op de herinspreeklijst; hormoonkleuren (testosteron/oestrogeen paars, steroïden = paars volgens de hormonen-afspraak) en de paarse prostaat blijven tot Kamiel kiest (vraag); geen nieuwe caststijl met contourlijnen |
+| Voldoet aan | prompt v13 (29 okt 2026, zonder keuring). Sinds 2.2 geen castnamen meer in stem, ondertitel of beeld (B4). Bewust niet: geen nieuwe caststijl met contourlijnen |
 | Stem / model | Roos (`7qdUFMklKPaaAVMsBTBt`), ElevenLabs eleven_v4, één take per alinea (28 takes), flow `2gVdRpBnFclUy5DZxMY2`; stem-invoer via `films/uitspraak.json` + `uitspraak_film.json` (GnRH → G-N-R-H); 'meiose' zoals geschreven (gelijk aan Celdeling) |
 | Duur | spraak 7:42 (vwo) / 6:48 (havo); met titel, hoofdstukkaarten en vragen ± 9 min; `duur: 9` in HOOFDSTUKKEN |
 | Beeldstijl | Part C: Macro-vlak (klas), Schema, Micro in zoomcirkels; organen op schaal (mannelijke organen 1 cm = 14 px × s) |
-| Personages | Sam (zijaanzicht), Daan, Noor (castboek); gezichten blijven heel: organen alleen in zoomcirkels náást het lichaam (BEELDAFSPRAKEN 25 okt 2026) |
+| Personages | castboek-personages sam (zijaanzicht), daan, noor, alleen in beeld en zonder naam; gezichten blijven heel: organen alleen in zoomcirkels náást het lichaam (BEELDAFSPRAKEN 25 okt 2026) |
 | Audio-opslag | 28 losse mp3's (`../audio/sNN.mp3`), woordtijden `stem/woordtijden/` (silalign, lokaal) |
 | Herkomst | lichte remake (B16), keuring twijfelscènes 25 okt 2026 (`films/verbeterbladen/remake-2026-10/besluiten.md`): t1, t3, t4, t5, t7, t8 voorstel; t2 gezichten heel, organen in een zoomcirkel naast het lichaam; t6 alternatief (remzin 'Veel oestrogeen remt de hypofyse weer.' voor havo en vwo) |
-| ElevenLabs-verbruik | TTS ± 7 065 credits (28 takes), Scribe ± 419 credits (blinde check s05, s07, s08, s15) |
+| ElevenLabs-verbruik | TTS ± 7 065 credits (28 takes), Scribe ± 419 credits (blinde check s05, s07, s08, s15); 2.2: s01 opnieuw 283 credits (flow `SZ5dFfE9QdEKnKW74sAP`), s11/s32 geknipt (0) |
+
+## Wijzigingen 2.2 (29 okt 2026): open punten uitgevoerd
+
+Keuzes van de hoofdsessie (`films/UITVOEREN-VOORTPLANTING.md`, keuze 1–3 en Inspreken). Datum in index.html blijft (opwaardering).
+- **Hormoonkleuren gelijk met Les 2** (`tools/docent/voortplanting-2`, `HK()`): FSH groen, LH goud, oestrogeen koraal, testosteron teal, GnRH licht paars `#B3A6DA`. In `teken_g2.js` staat `HKLEUR`; die overschrijft `HORM`/`HORM_A` van de bibliotheek alleen in deze film (deeltjes, namen, bloedbanen). GnRH-cellen en stotengrafiek (s06, s12, s13) in GnRH-kleur; kisspeptinecel s12 eigen roze `#D98AB0` (geen paars meer, paars = GnRH-familie); leptine (s13) oker. Labels in kleur: s29 'FSH en LH' als FSH groen + LH goud, s31 'testosteron en oestrogeen' als teal + koraal, remlijn s29 koraal (oestrogeen). Kleur is nooit de enige drager: elke hormoonnaam staat bij de eerste keer als woord in beeld. Receptorringen s08 neutraal (wit) in plaats van groen, zodat ze niet als FSH lezen.
+- **Prostaat in orgaankleur** `PROSTAAT = '#B9786A'` (warm roze-bruin, klierweefsel, zoals de organen in `lib_anatomie.js`) in `manDoorsnede` (ook in `bibliotheek/lib_bio.js`, dus voor alle films die het object opnieuw ophalen), het maatglas s22 en de regel 'prostaat: kwart tot een derde'.
+- **Vader/moeder** (keuze 3): komt in deze film niet voor; niets veranderd.
+- **s01 opnieuw ingesproken** (eleven_v4, Roos, 1 take, 283 credits, generation `YVFGlF2FTPahi9ZRinza`): 'Twee jongens zitten in dezelfde klas … Nu is de één een kop groter … De ander is bijna niet gegroeid. Is er iets mis met hem? …'. loudnorm naar −16,5 LUFS zoals de oude take; woordtijden met silalign (6 van 8 leestekens aan een stilte gekoppeld); cues ('Vorig', 'Nu', 'kop', 'stem', 'gegroeid', 'mis', 'Nee', 'startsein') ongewijzigd geldig (cuecheck).
+- **s11 geknipt** (0 credits): 'Daan groeit gewoon later.' weg bij 17,05 s (stilte −70 dB, fade 0,1 s). De chip 'gewoon later' en het startlampje komen nu op 'laat beginnen ook'.
+- **s32 geknipt** (0 credits): 'En Daan? Die krijgt zijn startsein gewoon wat later.' weg bij 11,55 s (stilte). De slotscène in de klas is weg; s32 blijft op de twee panelen (zaadcel, eicellen).
+- Docentdeel: 'Sam en Daan' en 'Daan groeit later' zonder namen. Footer en versie 2.2.
+- Getest: alle cues (cuecheck), contactvel van s01, s06–s09, s11–s13, s22, s29, s31, s32 bekeken; site-HTML laadt zonder JS-fouten met `?vragen=uit` (havo en vwo) en `?vragen=aan`; vragen zelf ongewijzigd (q03, q21, q27). spelerfix, antwoordtekst, kortantwoord, antwoordletter (met --check), flipkaarten, licentie_noot, teller gedraaid.
 
 ## Wijzigingen 2.1 (29 okt 2026): opwaardering naar prompt v13 (zonder keuring)
 
@@ -38,7 +50,7 @@ Alleen beeld; stem, script, vragen, timings, speler en datum ongewijzigd. Site-H
 | H1 Het startsein | s05–s11 (+ vwo s12–s14) | Sam van opzij, hersenen in een zoomcirkel naast het hoofd (hypothalamus, gehemelte); hypofyse met GnRH-cellen en bloedvaatjes in het steeltje, GnRH-stoten synchroon met een stotengrafiek (eerst 's nachts); voorkwab maakt FSH en LH, erwt op dezelfde vergroting; FSH/LH door het lichaam (schema tussen Sam en Noor), spiercel zonder receptoren, zoomcirkels naar zaadbal en eierstok; zaadbalweefsel met testosteron, eierstok met follikel en oestrogeen; kenmerken; groeicurven (piek meisjes ± 11, jongens ± 13) en startbalken. vwo: kisspeptinecel → GnRH-cel, slagboom 'toestemming' van leptine, grafiek eerste menstruatie |
 | H2 Van zaadbal tot penis | s15–s20, q21, s22 | mediane doorsnede op schaal; zaadbuisjes in een zoomcirkel, meiose 1 → 4 cellen; zaadcel volgt de echte route (bijbal, lieskanaal, boog naar de achterkant van de blaas), wand knijpt hem vooruit; kringspier; zwellichamen als dwarsdoorsnede (rust → vol bloed); maatglas sperma (zaadblaasjes ruim de helft, prostaat kwart tot een derde, zaadcellen een paar procent) |
 | H3 Eierstok en baarmoeder | s23–s26, q27, s28–s30 | Noor met het bekken in een zoomcirkel ernaast (bibliotheek `vrouwOrganenVoor`); buitenkant als vlak schema in een paneel; telvlak 300 000 eicellen met 400 in goud; keten hypofyse → eierstok → baarmoederwand met remlijn; menstruatie (functionele laag laat los) |
-| Recap | s31–s32 | startsein met het gevolgde LH-deeltje, kenmerken, route zaadcel, eicellen; slot in de klas met Daan |
+| Recap | s31–s32 | startsein met het gevolgde LH-deeltje, kenmerken, route zaadcel, eicellen (slot in de klas sinds 2.2 weg) |
 | Eindkaart | s33 | drie regels |
 
 ## Vragen (juiste antwoorden c, b, a)

@@ -3,13 +3,13 @@
   "id": "s01",
   "kind": "speech",
   "chapter": "Cold open",
-  "look": "Schema · klas; Sam en Daan, Sam een kop groter",
+  "look": "Schema · klas; twee jongens, de een een kop groter",
   "level": "basis",
   "lines": [
-   "Sam en Daan zitten in dezelfde klas, en ze zijn bijna even oud. Vorig jaar waren ze nog even groot. Nu is Sam een kop groter, en zijn stem is laag geworden. Daan is bijna niet gegroeid. Is er iets mis met Daan? Nee. Bij hem is het startsein voor de puberteit nog niet gegeven."
+   "Twee jongens zitten in dezelfde klas, en ze zijn bijna even oud. Vorig jaar waren ze nog even groot. Nu is de één een kop groter, en zijn stem is laag geworden. De ander is bijna niet gegroeid. Is er iets mis met hem? Nee. Bij hem is het startsein voor de puberteit nog niet gegeven."
   ],
-  "display": "Sam en Daan zitten in dezelfde klas, en ze zijn bijna even oud. Vorig jaar waren ze nog even groot. Nu is Sam een kop groter, en zijn stem is laag geworden. Daan is bijna niet gegroeid. Is er iets mis met Daan? Nee. Bij hem is het startsein voor de puberteit nog niet gegeven.",
-  "voice": "Sam en Daan zitten in dezelfde klas, en ze zijn bijna even oud. Vorig jaar waren ze nog even groot. Nu is Sam een kop groter, en zijn stem is laag geworden. Daan is bijna niet gegroeid. Is er iets mis met Daan? Nee. Bij hem is het startsein voor de puberteit nog niet gegeven.",
+  "display": "Twee jongens zitten in dezelfde klas, en ze zijn bijna even oud. Vorig jaar waren ze nog even groot. Nu is de één een kop groter, en zijn stem is laag geworden. De ander is bijna niet gegroeid. Is er iets mis met hem? Nee. Bij hem is het startsein voor de puberteit nog niet gegeven.",
+  "voice": "Twee jongens zitten in dezelfde klas, en ze zijn bijna even oud. Vorig jaar waren ze nog even groot. Nu is de één een kop groter, en zijn stem is laag geworden. De ander is bijna niet gegroeid. Is er iets mis met hem? Nee. Bij hem is het startsein voor de puberteit nog niet gegeven.",
   "vmap": [
    0,
    1,
@@ -65,14 +65,15 @@
    51,
    52,
    53,
-   54
+   54,
+   55
   ]
  },
  {
   "id": "s02",
   "kind": "speech",
   "chapter": "Cold open",
-  "look": "Schema · klas; Sam en Daan, Sam een kop groter",
+  "look": "Schema · klas; twee jongens, de een een kop groter",
   "level": "basis",
   "lines": [
    "Maar wie geeft dat startsein eigenlijk? Wat denk je?"
@@ -113,7 +114,7 @@
   "id": "s05",
   "kind": "speech",
   "chapter": "Hoofdstuk 1 — Het startsein",
-  "look": "Schema → Micro-zoom; doorlopende zoom Sam → hoofd → hypothalamus → hypofyse",
+  "look": "Schema → Micro-zoom; doorlopende zoom jongen → hoofd → hypothalamus → hypofyse",
   "level": "basis",
   "lines": [
    "Het startsein komt van de hypothalamus, een klein deel van je hersenen, vlak boven je gehemelte. Zaadballen of eierstokken heb je al vanaf je geboorte. Maar in je kindertijd houdt de hypothalamus ze bijna stil."
@@ -162,7 +163,7 @@
   "id": "s06",
   "kind": "speech",
   "chapter": "Hoofdstuk 1 — Het startsein",
-  "look": "Schema → Micro-zoom; doorlopende zoom Sam → hoofd → hypothalamus → hypofyse",
+  "look": "Schema → Micro-zoom; doorlopende zoom jongen → hoofd → hypothalamus → hypofyse",
   "level": "basis",
   "lines": [
    "Ergens tussen je achtste en veertiende jaar verandert dat. Dan geeft de hypothalamus steeds vaker kleine stoten van een hormoon: GnRH. In het begin vooral 's nachts, als je diep slaapt."
@@ -207,7 +208,7 @@
   "id": "s07",
   "kind": "speech",
   "chapter": "Hoofdstuk 1 — Het startsein",
-  "look": "Schema → Micro-zoom; doorlopende zoom Sam → hoofd → hypothalamus → hypofyse",
+  "look": "Schema → Micro-zoom; doorlopende zoom jongen → hoofd → hypothalamus → hypofyse",
   "level": "basis",
   "lines": [
    "Elke stoot GnRH gaat via kleine bloedvaatjes in het steeltje naar de hypofyse, een klier ter grootte van een erwt. De hypofyse gaat dan meer van twee hormonen maken: FSH en LH."
@@ -253,7 +254,7 @@
   "id": "s08",
   "kind": "speech",
   "chapter": "Hoofdstuk 1 — Het startsein",
-  "look": "Schema → Micro-zoom; doorlopende zoom Sam → hoofd → hypothalamus → hypofyse",
+  "look": "Schema → Micro-zoom; doorlopende zoom jongen → hoofd → hypothalamus → hypofyse",
   "level": "basis",
   "lines": [
    "FSH en LH gaan met het bloed door je hele lichaam. Ze komen overal langs, maar alleen de zaadballen en de eierstokken hebben er receptoren voor. Daar gaan cellen zelf hormonen maken: in de zaadballen vooral testosteron, in de eierstokken vooral oestrogeen. En ze laten geslachtscellen rijpen: zaadcellen, of eicellen."
@@ -317,7 +318,7 @@
   "id": "s09",
   "kind": "speech",
   "chapter": "Hoofdstuk 1 — Het startsein",
-  "look": "Schema → Micro-zoom; doorlopende zoom Sam → hoofd → hypothalamus → hypofyse",
+  "look": "Schema → Micro-zoom; doorlopende zoom jongen → hoofd → hypothalamus → hypofyse",
   "level": "basis",
   "lines": [
    "Testosteron en oestrogeen veranderen je lichaam. Je geslachtsorganen had je al bij je geboorte. Dat zijn de primaire geslachtskenmerken. In de puberteit komen de secundaire geslachtskenmerken erbij."
@@ -358,7 +359,7 @@
   "id": "s10",
   "kind": "speech",
   "chapter": "Hoofdstuk 1 — Het startsein",
-  "look": "Schema → Micro-zoom; doorlopende zoom Sam → hoofd → hypothalamus → hypofyse",
+  "look": "Schema → Micro-zoom; doorlopende zoom jongen → hoofd → hypothalamus → hypofyse",
   "level": "basis",
   "lines": [
    "Bij jongens groeit er haar op de kin, worden de schouders breder en de spieren sterker, en groeit het strottenhoofd. Daardoor wordt de stem lager. Bij meisjes groeien de borsten en worden de heupen breder. Bij iedereen komt er haar onder de oksels en rond de geslachtsorganen, en komt er een groeispurt. Ook de geslachtsorganen zelf groeien, en ze gaan werken. Bij jongens komt er een eerste zaadlozing, bij meisjes een eerste menstruatie."
@@ -445,13 +446,13 @@
   "id": "s11",
   "kind": "speech",
   "chapter": "Hoofdstuk 1 — Het startsein",
-  "look": "Schema → Micro-zoom; doorlopende zoom Sam → hoofd → hypothalamus → hypofyse",
+  "look": "Schema → Micro-zoom; doorlopende zoom jongen → hoofd → hypothalamus → hypofyse",
   "level": "basis",
   "lines": [
-   "Bij meisjes begint de puberteit gemiddeld iets eerder dan bij jongens, en hun groeispurt komt zo'n twee jaar eerder. Daarom zijn meisjes rond hun twaalfde vaak even langer dan de jongens in hun klas. Maar de verschillen tussen mensen zijn groot. Vroeg beginnen is normaal, en laat beginnen ook. Daan groeit gewoon later."
+   "Bij meisjes begint de puberteit gemiddeld iets eerder dan bij jongens, en hun groeispurt komt zo'n twee jaar eerder. Daarom zijn meisjes rond hun twaalfde vaak even langer dan de jongens in hun klas. Maar de verschillen tussen mensen zijn groot. Vroeg beginnen is normaal, en laat beginnen ook."
   ],
-  "display": "Bij meisjes begint de puberteit gemiddeld iets eerder dan bij jongens, en hun groeispurt komt zo'n twee jaar eerder. Daarom zijn meisjes rond hun twaalfde vaak even langer dan de jongens in hun klas. Maar de verschillen tussen mensen zijn groot. Vroeg beginnen is normaal, en laat beginnen ook. Daan groeit gewoon later.",
-  "voice": "Bij meisjes begint de puberteit gemiddeld iets eerder dan bij jongens, en hun groeispurt komt zo'n twee jaar eerder. Daarom zijn meisjes rond hun twaalfde vaak even langer dan de jongens in hun klas. Maar de verschillen tussen mensen zijn groot. Vroeg beginnen is normaal, en laat beginnen ook. Daan groeit gewoon later.",
+  "display": "Bij meisjes begint de puberteit gemiddeld iets eerder dan bij jongens, en hun groeispurt komt zo'n twee jaar eerder. Daarom zijn meisjes rond hun twaalfde vaak even langer dan de jongens in hun klas. Maar de verschillen tussen mensen zijn groot. Vroeg beginnen is normaal, en laat beginnen ook.",
+  "voice": "Bij meisjes begint de puberteit gemiddeld iets eerder dan bij jongens, en hun groeispurt komt zo'n twee jaar eerder. Daarom zijn meisjes rond hun twaalfde vaak even langer dan de jongens in hun klas. Maar de verschillen tussen mensen zijn groot. Vroeg beginnen is normaal, en laat beginnen ook.",
   "vmap": [
    0,
    1,
@@ -501,18 +502,14 @@
    45,
    46,
    47,
-   48,
-   49,
-   50,
-   51,
-   52
+   48
   ]
  },
  {
   "id": "s12",
   "kind": "speech",
   "chapter": "Hoofdstuk 1 — Het startsein",
-  "look": "Schema → Micro-zoom; doorlopende zoom Sam → hoofd → hypothalamus → hypofyse",
+  "look": "Schema → Micro-zoom; doorlopende zoom jongen → hoofd → hypothalamus → hypofyse",
   "level": "vwo",
   "lines": [
    "Wat bepaalt wanneer het startsein komt? In de hypothalamus liggen cellen die kisspeptine maken. Die stof zet de cellen aan die GnRH maken. Werkt de receptor voor kisspeptine niet, dan begint de puberteit niet vanzelf."
@@ -561,7 +558,7 @@
   "id": "s13",
   "kind": "speech",
   "chapter": "Hoofdstuk 1 — Het startsein",
-  "look": "Schema → Micro-zoom; doorlopende zoom Sam → hoofd → hypothalamus → hypofyse",
+  "look": "Schema → Micro-zoom; doorlopende zoom jongen → hoofd → hypothalamus → hypofyse",
   "level": "vwo",
   "lines": [
    "Ook je vetreserve telt mee. Vetweefsel maakt het hormoon leptine. Veel leptine betekent: er is genoeg energie opgeslagen voor groei, en later voor een zwangerschap. Leptine geeft geen startsein, maar wel toestemming. Bij meisjes met heel weinig lichaamsvet, bijvoorbeeld door topsport of een eetstoornis, komt de eerste menstruatie later, of stopt de menstruatie."
@@ -628,7 +625,7 @@
   "id": "s14",
   "kind": "speech",
   "chapter": "Hoofdstuk 1 — Het startsein",
-  "look": "Schema → Micro-zoom; doorlopende zoom Sam → hoofd → hypothalamus → hypofyse",
+  "look": "Schema → Micro-zoom; doorlopende zoom jongen → hoofd → hypothalamus → hypofyse",
   "level": "vwo",
   "lines": [
    "Voeding speelt ook mee in een lange trend. Rond het jaar 1850 kregen meisjes in West-Europa hun eerste menstruatie gemiddeld rond hun zestiende, zeventiende. Nu is dat in Nederland rond hun dertiende. Terug naar wat iedereen doormaakt."
@@ -1549,10 +1546,10 @@
   "look": "Schema · vier panelen, het gevolgde LH-deeltje komt terug",
   "level": "basis",
   "lines": [
-   "Zaadcellen worden steeds opnieuw gemaakt in de zaadballen; het meeste vocht van sperma komt uit de zaadblaasjes en de prostaat. Eicellen zijn er al vanaf de geboorte, en er komen er geen nieuwe bij. En Daan? Die krijgt zijn startsein gewoon wat later."
+   "Zaadcellen worden steeds opnieuw gemaakt in de zaadballen; het meeste vocht van sperma komt uit de zaadblaasjes en de prostaat. Eicellen zijn er al vanaf de geboorte, en er komen er geen nieuwe bij."
   ],
-  "display": "Zaadcellen worden steeds opnieuw gemaakt in de zaadballen; het meeste vocht van sperma komt uit de zaadblaasjes en de prostaat. Eicellen zijn er al vanaf de geboorte, en er komen er geen nieuwe bij. En Daan? Die krijgt zijn startsein gewoon wat later.",
-  "voice": "Zaadcellen worden steeds opnieuw gemaakt in de zaadballen; het meeste vocht van sperma komt uit de zaadblaasjes en de prostaat. Eicellen zijn er al vanaf de geboorte, en er komen er geen nieuwe bij. En Daan? Die krijgt zijn startsein gewoon wat later.",
+  "display": "Zaadcellen worden steeds opnieuw gemaakt in de zaadballen; het meeste vocht van sperma komt uit de zaadblaasjes en de prostaat. Eicellen zijn er al vanaf de geboorte, en er komen er geen nieuwe bij.",
+  "voice": "Zaadcellen worden steeds opnieuw gemaakt in de zaadballen; het meeste vocht van sperma komt uit de zaadblaasjes en de prostaat. Eicellen zijn er al vanaf de geboorte, en er komen er geen nieuwe bij.",
   "vmap": [
    0,
    1,
@@ -1587,16 +1584,7 @@
    30,
    31,
    32,
-   33,
-   34,
-   35,
-   36,
-   37,
-   38,
-   39,
-   40,
-   41,
-   42
+   33
   ]
  },
  {

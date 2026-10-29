@@ -1,8 +1,16 @@
 {
  "s01": {
-  "generation_id": "BelC06IABYgJVBIHbcjj",
-  "session_id": "RZXZ0XwEkLVbqyqbYlLX",
-  "dur": 19.07
+  "generation_id": "YVFGlF2FTPahi9ZRinza",
+  "session_id": "sitxDJu5v1taUeDqYKuS",
+  "flow_id": "SZ5dFfE9QdEKnKW74sAP",
+  "dur": 18.8,
+  "credits": 283,
+  "datum": "2026-10-29",
+  "vorig": {
+   "generation_id": "BelC06IABYgJVBIHbcjj",
+   "session_id": "RZXZ0XwEkLVbqyqbYlLX",
+   "dur": 19.07
+  }
  },
  "s02": {
   "generation_id": "ygmPtGTTboDihvpvaxdR",
@@ -42,7 +50,8 @@
  "s11": {
   "generation_id": "MkU5j1cJje8tTmHqAoCi",
   "session_id": "Ete480L4ofkaNbQbOotz",
-  "dur": 18.83
+  "dur": 18.83,
+  "geknipt": "2026-10-29: slotzin weg, tot 17.05 s"
  },
  "s12": {
   "generation_id": "Sdww7zjyMpKfAURx1LEN",
@@ -137,6 +146,7 @@
  "s32": {
   "generation_id": "arCWRIXUhw8Ctu2Flnc7",
   "session_id": "7EX5A8r4k0XeKUkX30PE",
-  "dur": 14.68
+  "dur": 14.68,
+  "geknipt": "2026-10-29: slotzinnen weg, tot 11.55 s"
  }
 }

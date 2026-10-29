@@ -4,8 +4,8 @@ Definitief na de keuring van 25 okt 2026 (`remake-2026-10/script_v2.md` + beslui
 
 ---
 
-## Cold open [Schema · klas; Sam en Daan, Sam een kop groter]
-Sam en Daan zitten in dezelfde klas, en ze zijn bijna even oud. Vorig jaar waren ze nog even groot. Nu is Sam een kop groter, en zijn stem is laag geworden. Daan is bijna niet gegroeid. Is er iets mis met Daan? Nee. Bij hem is het startsein voor de puberteit nog niet gegeven.
+## Cold open [Schema · klas; twee jongens, de een een kop groter]
+Twee jongens zitten in dezelfde klas, en ze zijn bijna even oud. Vorig jaar waren ze nog even groot. Nu is de één een kop groter, en zijn stem is laag geworden. De ander is bijna niet gegroeid. Is er iets mis met hem? Nee. Bij hem is het startsein voor de puberteit nog niet gegeven.
 
 Maar wie geeft dat startsein eigenlijk? Wat denk je?
 [VRAAG] (a) de zaadballen of de eierstokken zelf · (b) de hypofyse, een klier onder je hersenen · (c) de hypothalamus, een deel van je hersenen
@@ -13,7 +13,7 @@ Maar wie geeft dat startsein eigenlijk? Wat denk je?
 ## Titel
 Geslachtsorganen en puberteit.
 
-## Hoofdstuk 1 — Het startsein [Schema → Micro-zoom; doorlopende zoom Sam → hoofd → hypothalamus → hypofyse]
+## Hoofdstuk 1 — Het startsein [Schema → Micro-zoom; doorlopende zoom jongen → hoofd → hypothalamus → hypofyse]
 Het startsein komt van de hypothalamus, een klein deel van je hersenen, vlak boven je gehemelte. Zaadballen of eierstokken heb je al vanaf je geboorte. Maar in je kindertijd houdt de hypothalamus ze bijna stil.
 
 Ergens tussen je achtste en veertiende jaar verandert dat. Dan geeft de hypothalamus steeds vaker kleine stoten van een hormoon: GnRH. In het begin vooral 's nachts, als je diep slaapt.
@@ -26,7 +26,7 @@ Testosteron en oestrogeen veranderen je lichaam. Je geslachtsorganen had je al b
 
 Bij jongens groeit er haar op de kin, worden de schouders breder en de spieren sterker, en groeit het strottenhoofd. Daardoor wordt de stem lager. Bij meisjes groeien de borsten en worden de heupen breder. Bij iedereen komt er haar onder de oksels en rond de geslachtsorganen, en komt er een groeispurt. Ook de geslachtsorganen zelf groeien, en ze gaan werken. Bij jongens komt er een eerste zaadlozing, bij meisjes een eerste menstruatie.
 
-Bij meisjes begint de puberteit gemiddeld iets eerder dan bij jongens, en hun groeispurt komt zo'n twee jaar eerder. Daarom zijn meisjes rond hun twaalfde vaak even langer dan de jongens in hun klas. Maar de verschillen tussen mensen zijn groot. Vroeg beginnen is normaal, en laat beginnen ook. Daan groeit gewoon later.
+Bij meisjes begint de puberteit gemiddeld iets eerder dan bij jongens, en hun groeispurt komt zo'n twee jaar eerder. Daarom zijn meisjes rond hun twaalfde vaak even langer dan de jongens in hun klas. Maar de verschillen tussen mensen zijn groot. Vroeg beginnen is normaal, en laat beginnen ook.
 
 [VWO-START] Wat bepaalt wanneer het startsein komt? In de hypothalamus liggen cellen die kisspeptine maken. Die stof zet de cellen aan die GnRH maken. Werkt de receptor voor kisspeptine niet, dan begint de puberteit niet vanzelf.
 
@@ -69,7 +69,7 @@ Wordt de eicel niet bevrucht, dan laat het slijmvlies ongeveer twee weken na de 
 ## Recap [Schema · vier panelen, het gevolgde LH-deeltje komt terug]
 Het startsein voor de puberteit komt uit je hersenen. De hypothalamus geeft stoten GnRH, de hypofyse maakt FSH en LH, en die zetten de zaadballen of eierstokken aan. Hun hormonen, testosteron en oestrogeen, zorgen voor de secundaire geslachtskenmerken. Wanneer dat begint, verschilt veel tussen mensen.
 
-Zaadcellen worden steeds opnieuw gemaakt in de zaadballen; het meeste vocht van sperma komt uit de zaadblaasjes en de prostaat. Eicellen zijn er al vanaf de geboorte, en er komen er geen nieuwe bij. En Daan? Die krijgt zijn startsein gewoon wat later.
+Zaadcellen worden steeds opnieuw gemaakt in de zaadballen; het meeste vocht van sperma komt uit de zaadblaasjes en de prostaat. Eicellen zijn er al vanaf de geboorte, en er komen er geen nieuwe bij.
 
 ## Eindkaart
 Startsein: hypothalamus → hypofyse → zaadballen of eierstokken.

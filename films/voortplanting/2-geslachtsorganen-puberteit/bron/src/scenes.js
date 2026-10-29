@@ -1146,6 +1146,7 @@ function hypofysePoort(ctx, x, y, s = 1, o = {}) {
   ctx.restore();
   return { hth: P(0, -200), steel: P(0, 80), voor: P(150, 250), achter: P(-110, 250), uit: UIT[3], eind };
 }
+const PROSTAAT = '#B9786A'; // orgaankleur (klierweefsel, warm roze-bruin zoals de organen in lib_anatomie); niet paars, paars is voor hormonen (29 okt 2026)
 const MD = { k: 14 };
 const MD_VAS = [[-0.3, 13.6], [-0.75, 11.4], [-0.2, 8.6], [1.3, 5.4], [1.7, 2.2], [1.4, -0.6], [0.4, -2.6], [-1.6, -3.7], [-4.2, -3.6], [-6.6, -2.4], [-7.6, -0.4], [-7.3, 1.6], [-6.5, 3.1], [-5.3, 4.2], [-3.9, 4.9]];
 const MD_URE = [[-3.4, 3.1], [-3.4, 4.6], [-3.1, 6.2], [-2.4, 7.3], [-0.9, 7.7], [0.9, 7.2], [2.1, 6.9], [2.6, 8.2], [2.72, 10.5], [2.8, 13.4], [3.0, 14.75]]; // urinebuis langs de onderkant (kant van de balzak) in het kleine zwellichaam
@@ -1179,8 +1180,8 @@ function manDoorsnede(ctx, x, y, s = 1, o = {}) {
   ctx.save(); ctx.globalAlpha *= al('blaasjes'); const [vx, vy] = P(-6.7, 2.3); ctx.translate(vx, vy); ctx.rotate(0.75); ctx.beginPath();
   for (let i = 0; i <= 48; i++) { const an = i / 48 * 6.283, w = 1 + 0.13 * Math.sin(an * 7); const px = Math.cos(an) * 2.3 * k * w, py = Math.sin(an) * 0.85 * k * w; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.closePath(); shape(ctx, rgba(C.groen, 0.5), lighten(C.groen, 0.3), 2); ctx.restore();
   // prostaat rond de urinebuis
-  gl(P(-3.3, 4.7), 2.4, C.paars, hl.prostaat || 0);
-  ctx.save(); ctx.globalAlpha *= al('prostaat'); ctx.beginPath(); bioPad(ctx, Ps([[-3.4, 3.1], [-5.0, 3.5], [-5.3, 4.9], [-4.4, 6.1], [-3.1, 6.3], [-1.9, 5.5], [-1.8, 4.0], [-2.4, 3.2]]), true); shape(ctx, rgba(C.paars, 0.55), lighten(C.paars, 0.3), 2); ctx.restore();
+  gl(P(-3.3, 4.7), 2.4, PROSTAAT, hl.prostaat || 0);
+  ctx.save(); ctx.globalAlpha *= al('prostaat'); ctx.beginPath(); bioPad(ctx, Ps([[-3.4, 3.1], [-5.0, 3.5], [-5.3, 4.9], [-4.4, 6.1], [-3.1, 6.3], [-1.9, 5.5], [-1.8, 4.0], [-2.4, 3.2]]), true); shape(ctx, rgba(PROSTAAT, 0.7), lighten(PROSTAAT, 0.25), 2); ctx.restore();
   // zwellichamen + penis (rust ± 9 cm; zw maakt ze iets voller)
   ctx.save(); ctx.globalAlpha *= al('penis'); const zb = 1 + 0.12 * zw;
   ctx.beginPath(); bioPad(ctx, Ps([[0.9, 6.0], [2.6, 6.2], [3.9 * zb, 8.6], [4.05 * zb, 13.0], [3.7, 14.6], [3.1, 14.9], [2.55, 13.8], [2.45, 9.4], [2.0, 7.6], [0.7, 7.0]]), true); shape(ctx, rgba(BIO.huid, 0.22), rgba(BIO.huid, 0.75), 2);
@@ -1371,9 +1372,15 @@ function padPunt(pts, d) { const L = padLengte(pts); d = clamp(d, 0, L[L.length 
 function padTot(pts, k) { return padLengte(pts)[k]; }
 function lijnPad(ctx, pts, col, lw, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); gladC(pts).forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke(); ctx.restore(); }
 
+
+// Hormoonkleuren gelijk met Les 2 (HK(): FSH groen, LH goud, oestrogeen koraal, testosteron teal) en GnRH licht paars
+// (keuze hoofdsessie 29 okt 2026). Overschrijft de bibliotheekkleuren alleen in deze film.
+const HKLEUR = { gnrh: '#B3A6DA', fsh: C.groen, lh: C.goud, testo: C.teal, oestro: C.koraal, kiss: '#D98AB0', leptine: C.oker };
+for (const k of ['gnrh', 'fsh', 'lh', 'testo', 'oestro']) { HORM[k][0] = HKLEUR[k]; HORM_A[k][0] = HKLEUR[k]; }
+
 // =======================================================================================
 // Mannelijke geslachtsorganen, schematische doorsnede (zijaanzicht, voorkant rechts). Ontwerpcoördinaten rond (700, 480).
-const MK = { zaadbal: '#D9A48F', bijbal: C.oker, leider: C.goud, blaasjes: C.groen, prostaat: C.paars, blaas: C.teal, buis: '#C9CED6', zwel: '#B5574A' };
+const MK = { zaadbal: '#D9A48F', bijbal: C.oker, leider: C.goud, blaasjes: C.groen, prostaat: PROSTAAT, blaas: C.teal, buis: '#C9CED6', zwel: '#B5574A' };
 const VAS = [[786, 752], [764, 700], [768, 630], [826, 586], [872, 470], [878, 360], [840, 285], [760, 262], [680, 290], [652, 360], [672, 440], [712, 480], [742, 498], [762, 516]];
 const URETHRA = [[765, 462], [762, 500], [764, 538], [790, 566], [850, 566], [884, 590], [900, 660], [918, 740], [934, 786]];
 const ZAADROUTE = [[808, 712], [792, 690], [772, 660], [770, 700], [782, 746]].concat(VAS.slice(1)).concat(URETHRA.slice(3)).concat([[948, 840]]);
@@ -1519,12 +1526,12 @@ function stotenGrafiek(ctx, gx, gy, gw, gh, tot, a = 1, o = {}) { if (a <= 0.01)
   ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(gx, gy); ctx.lineTo(gx, gy + gh); ctx.lineTo(gx + gw, gy + gh); ctx.stroke();
   for (const v of [0, 4, 8, 12, 16]) text(ctx, String(v), gx + v / 16 * gw, gy + gh + 36, fTekst(24), C.text2, 'center');
   metaText(ctx, 'leeftijd (jaar)', gx + gw, gy + gh + 74, C.grain, 'right', 20); metaText(ctx, 'stoten GnRH (schets)', gx, gy - 16, C.grain, 'left', 20);
-  ctx.fillStyle = rgba(C.goud, 0.12 * (o.band == null ? 1 : o.band)); ctx.fillRect(gx + 8 / 16 * gw, gy, 6 / 16 * gw, gh); text(ctx, 'start: ergens tussen 8 en 14', gx + 11 / 16 * gw, gy + 32, fTekst(22, 700), rgba(C.goud, o.band == null ? 1 : o.band), 'center');
-  ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(gx, gy + gh); let last = null;
+  ctx.fillStyle = rgba(HKLEUR.gnrh, 0.12 * (o.band == null ? 1 : o.band)); ctx.fillRect(gx + 8 / 16 * gw, gy, 6 / 16 * gw, gh); text(ctx, 'start: ergens tussen 8 en 14', gx + 11 / 16 * gw, gy + 32, fTekst(22, 700), rgba(HKLEUR.gnrh, o.band == null ? 1 : o.band), 'center');
+  ctx.strokeStyle = HKLEUR.gnrh; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(gx, gy + gh); let last = null;
   for (let k = 0; k < 1600; k++) { const age = k / 100; if (age > tot) break; const f = age < 8 ? 0.5 : lerp(0.5, 2.6, (age - 8) / 6); const hgt = age < 8 ? 0.1 : lerp(0.1, 0.85, clamp((age - 8) / 6, 0, 1)); const ph = (age * f * 2) % 1; const v = ph < 0.2 ? Math.sin(ph / 0.2 * Math.PI) * hgt : 0; last = [gx + age / 16 * gw, gy + gh - v * (gh - 50)]; ctx.lineTo(last[0], last[1]); }
   ctx.stroke(); ctx.restore(); }
 function maatglas(ctx, x, y, w, h, f, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; // f = [zaadcellen, blaasjes, prostaat] 0..1 (vulgraad per laag)
-  const parts = [[0.05, '#F2F2EE'], [0.6, C.groen], [0.3, C.paars]]; let yy = y + h;
+  const parts = [[0.05, '#F2F2EE'], [0.6, C.groen], [0.3, PROSTAAT]]; let yy = y + h;
   parts.forEach(([frac, col], i) => { const hh = h * 0.95 * frac * clamp(f[i], 0, 1); ctx.fillStyle = rgba(col, 0.75); ctx.fillRect(x + 4, yy - hh, w - 8, hh); yy -= hh; });
   ctx.strokeStyle = C.line; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x, y - 10); ctx.lineTo(x, y + h); ctx.lineTo(x + w, y + h); ctx.lineTo(x + w, y - 10); ctx.stroke();
   for (let i = 1; i < 6; i++) { ctx.beginPath(); ctx.moveTo(x + w - 18, y + h - i * h / 6); ctx.lineTo(x + w, y + h - i * h / 6); ctx.stroke(); } ctx.restore(); }
@@ -1581,7 +1588,7 @@ Object.assign(SCENES, {
     hypofysePoort(ctx, 480, 520, 0.85, { puls: gr > 0.5 ? stootFase : -1, aan: 0.25 * nu, uit: 0.2 * nu, t });
     naamBij(ctx, 'hypothalamus', null, 120, 220, 1, 'left');
     stotenGrafiek(ctx, 1060, 260, 760, 380, gr > 0.01 ? lerp(4, tot, gr) : 0, gr, { band: q.on('veertiende', 1), nacht: q.on('nachts', 1) });
-    naamBij(ctx, 'GnRH', 'steeds vaker een stoot', 790, 560, q.on('GnRH', 1), 'left', C.goud);
+    naamBij(ctx, 'GnRH', 'steeds vaker een stoot', 790, 560, q.on('GnRH', 1), 'left', HKLEUR.gnrh);
     const nt = q.on('nachts', 1); if (nt > 0.01) { maan(ctx, 1150, 760, 26, nt); regel(ctx, 'in het begin vooral ’s nachts, in diepe slaap', 1200, 772, nt, C.text, 26, 'left', 700); } },
 
   s07(ctx, t, q) { bg(ctx, 'schema'); const st = q.on('stoot', 1), aan = q.on('FSH', 1), sl = q.on('steeltje', 1);
@@ -1607,7 +1614,7 @@ Object.assign(SCENES, {
       if (ov > 0.01) { ctx.save(); ctx.globalAlpha *= ov; doelcel(ctx, 960, 690, 70, { noRec: true, t, fill: '#B5574A' }); ctx.restore(); naamBij(ctx, 'spiercel', 'geen receptoren: er gebeurt niets', 960, 800, ov * (1 - rc * 0.0), 'center'); }
       zoomNaast(ctx, heupS.x + 30, heupS.y + 70, 470, 690, 130, rc, 'zaadbal · vergroot', () => zaadbalWeefsel(ctx, 470, 690, 300, 210, { t, leydig: rc, sertoli: 0.3 }));
       zoomNaast(ctx, heupN.x - 10, heupN.y + 10, 1450, 690, 130, rc, 'eierstok · vergroot', () => eierstokDoorsnede(ctx, 1450, 690, 115, 80, { groei: 0.4, t }));
-      if (rc > 0.01) { for (const [x, y] of [[560, 640], [1360, 640]]) { ctx.save(); ctx.globalAlpha *= rc; ctx.strokeStyle = C.groen; ctx.lineWidth = 4; ctx.beginPath(); ctx.arc(x, y, 22, 0, 6.283); ctx.stroke(); ctx.restore(); } naamBij(ctx, 'receptoren', null, 560, 600, rc, 'center', C.groen); naamBij(ctx, 'receptoren', null, 1360, 600, rc, 'center', C.groen); }
+      if (rc > 0.01) { for (const [x, y] of [[560, 640], [1360, 640]]) { ctx.save(); ctx.globalAlpha *= rc; ctx.strokeStyle = C.text; ctx.lineWidth = 4; ctx.beginPath(); ctx.arc(x, y, 22, 0, 6.283); ctx.stroke(); ctx.restore(); } naamBij(ctx, 'receptoren', null, 560, 600, rc, 'center'); naamBij(ctx, 'receptoren', null, 1360, 600, rc, 'center'); }
       text(ctx, 'FSH en LH reizen met het bloed door je hele lichaam', 960, 90, fTekst(34, 700), C.text, 'center');
       ctx.restore(); }
     if (B > 0.01) { ctx.save(); ctx.globalAlpha *= B; ctx.fillStyle = C.bgMicro; ctx.fillRect(0, 0, W, H);
@@ -1655,22 +1662,22 @@ Object.assign(SCENES, {
       roundRect(ctx, ax(8), 360, ax(13) - ax(8), 70, 35); shape(ctx, rgba(C.koraal, 0.3), C.koraal, 2); regel(ctx, 'meisjes: 8 tot 13 jaar', (ax(8) + ax(13)) / 2, 406, 1, C.text, 26, 'center', 700);
       roundRect(ctx, ax(9), 470, ax(14) - ax(9), 70, 35); shape(ctx, rgba(C.teal, 0.3), C.teal, 2); regel(ctx, 'jongens: 9 tot 14 jaar', (ax(9) + ax(14)) / 2, 516, 1, C.text, 26, 'center', 700);
       chip(ctx, 'vroeg is normaal', ax(9), 800, C.groen, q.on('Vroeg', 1), 26); chip(ctx, 'laat ook', ax(13.5), 800, C.groen, q.on('laat', 1), 26); ctx.restore(); }
-    const sd = q.on('Daan', 1); persoon(ctx, 'daan', 1500, 880, 390 / 0.95, { uit: sd > 0.5 ? 'blij' : 'neutraal', pose: 'staan', kijk: 1, t, a: 0.35 + 0.65 * B }); persoon(ctx, 'sam', 1760, 880, 470 / 1.04, { uit: 'blij', pose: 'staan', kijk: -1, t, a: 0.35 + 0.65 * B });
+    const sd = q.on('laat', 1, 0.8); persoon(ctx, 'daan', 1500, 880, 390 / 0.95, { uit: sd > 0.5 ? 'blij' : 'neutraal', pose: 'staan', kijk: 1, t, a: 0.35 + 0.65 * B }); persoon(ctx, 'sam', 1760, 880, 470 / 1.04, { uit: 'blij', pose: 'staan', kijk: -1, t, a: 0.35 + 0.65 * B });
     startlamp(ctx, 1500, 400, sd > 0.6 ? 1 : 0, B); startlamp(ctx, 1760, 320, 1, B); chip(ctx, 'gewoon later', 1500, 290, C.groen, sd, 26); },
 
   // ---------- vwo ----------
   s12(ctx, t, q) { bg(ctx, 'schema');
     circ(ctx, 760, 470, 320, rgba(HK.klier, 0.08), rgba(HK.klier, 0.6), 2); metaText(ctx, 'hypothalamus · vergroot', 760, 130, C.grain, 'center', 22);
     const kc = q.on('kisspeptine', 1), gc = q.on('GnRH', 1), rx = q.on('receptor', 1); const kp = ((t * 0.6) % 1);
-    const eind = zenuwcel(ctx, 560, 380, { a: Math.max(0.25, kc), s: 0.95, col: C.paars, naar: [850, 470], seed: 2, puls: gc > 0.01 ? kp : -1, pulsCol: _mixHex(C.paars, '#FFFFFF', 0.4) });
-    zenuwcel(ctx, 900, 510, { a: Math.max(0.25, gc), s: 0.95, col: C.goud, naar: [950, 740], seed: 5, takken: 5 });
+    const eind = zenuwcel(ctx, 560, 380, { a: Math.max(0.25, kc), s: 0.95, col: HKLEUR.kiss, naar: [850, 470], seed: 2, puls: gc > 0.01 ? kp : -1, pulsCol: _mixHex(HKLEUR.kiss, '#FFFFFF', 0.4) });
+    zenuwcel(ctx, 900, 510, { a: Math.max(0.25, gc), s: 0.95, col: HKLEUR.gnrh, naar: [950, 740], seed: 5, takken: 5 });
     naamBij(ctx, 'kisspeptinecel', null, 520, 500, kc, 'center'); naamBij(ctx, 'GnRH-cel', null, 1040, 540, gc, 'left');
-    if (gc > 0.01 && eind) for (let i = 0; i < 5; i++) { const u = (t * 0.5 + i / 5) % 1; circ(ctx, lerp(eind[0] - 10, 880, u), lerp(eind[1] - 4, 500, u) + Math.sin(u * 7 + i) * 6, 5, rgba(C.paars, gc * (1 - 0.8 * rx))); }
+    if (gc > 0.01 && eind) for (let i = 0; i < 5; i++) { const u = (t * 0.5 + i / 5) % 1; circ(ctx, lerp(eind[0] - 10, 880, u), lerp(eind[1] - 4, 500, u) + Math.sin(u * 7 + i) * 6, 5, rgba(HKLEUR.kiss, gc * (1 - 0.8 * rx))); }
     kruis(ctx, 872, 492, 24, rx); chip(ctx, 'receptor werkt niet: de puberteit begint niet vanzelf', 760, 860, C.koraal, rx, 24); },
   s13(ctx, t, q) { bg(ctx, 'schema'); const vw = q.on('Vetweefsel', 1), lp = q.on('leptine', 1), ts = q.on('toestemming', 1), wn = q.on('weinig', 1, 1.2);
     vetweefsel(ctx, 1460, 440, lerp(460, 260, wn), lerp(380, 220, wn), { t, d: lerp(100, 55, wn), seed: 7, a: Math.max(0.3, vw) }); naamBij(ctx, 'vetweefsel', 'vetcellen · vergroot', 1460, 680, vw, 'center');
-    zenuwcel(ctx, 420, 430, { s: 0.95, col: C.goud, naar: [470, 680], seed: 5, takken: 5 }); naamBij(ctx, 'GnRH-cel', null, 420, 330, 1, 'center');
-    if (lp > 0.01) { regel(ctx, 'leptine', 960, 300, lp, C.goud, 30, 'center', 800); for (let i = 0; i < 7; i++) { if (wn > 0.5 && i % 3) continue; const u = (t * 0.3 + i / 7) % 1; circ(ctx, lerp(1220, 640, u), lerp(420, 430, u) + Math.sin(u * 9 + i) * 14, 8, rgba(C.goud, lp)); } }
+    zenuwcel(ctx, 420, 430, { s: 0.95, col: HKLEUR.gnrh, naar: [470, 680], seed: 5, takken: 5 }); naamBij(ctx, 'GnRH-cel', null, 420, 330, 1, 'center');
+    if (lp > 0.01) { regel(ctx, 'leptine', 960, 300, lp, HKLEUR.leptine, 30, 'center', 800); for (let i = 0; i < 7; i++) { if (wn > 0.5 && i % 3) continue; const u = (t * 0.3 + i / 7) % 1; circ(ctx, lerp(1220, 640, u), lerp(420, 430, u) + Math.sin(u * 9 + i) * 14, 8, rgba(HKLEUR.leptine, lp)); } }
     // slagboom: gaat alleen open met genoeg leptine (toestemming, geen startknop)
     if (ts > 0.01) { ctx.save(); ctx.globalAlpha *= ts; const open = ease(clamp((t - q.at('toestemming')) / 1.2, 0, 1)) * (1 - q.on('weinig', 1)); ctx.fillStyle = '#6B7287'; ctx.fillRect(612, 470, 16, 120); ctx.save(); ctx.translate(620, 480); ctx.rotate(-open * 1.3); roundRect(ctx, 0, -10, 230, 20, 8); shape(ctx, '#E6E1D3', C.koraal, 2); for (let k = 0; k < 4; k++) { ctx.fillStyle = C.koraal; ctx.fillRect(30 + k * 52, -10, 22, 20); } ctx.restore(); ctx.restore(); chip(ctx, 'geen startsein, wel toestemming', 760, 660, C.groen, ts * (1 - q.on('weinig', 1)), 24); }
     chip(ctx, 'veel leptine = genoeg energie opgeslagen', 960, 820, C.groen, q.on('genoeg', 1) * (1 - q.on('weinig', 1)), 24);
@@ -1734,7 +1741,7 @@ Object.assign(SCENES, {
     const fz = (w) => ease(clamp((t - q.at(w)) / 1.4, 0, 1));
     maatglas(ctx, 1040, 260, 220, 460, [zc > 0.01 ? fz('procent') : 0, zb > 0.01 ? fz('zaadblaasjes') : 0, pr > 0.01 ? fz('prostaat') : 0]);
     regel(ctx, 'zaadblaasjes: ruim de helft', 1300, 560, zb, C.groen, 28, 'left', 800); regel(ctx, 'met suiker als brandstof', 1300, 600, q.on('suiker', 1), C.text2, 24, 'left', 600);
-    regel(ctx, 'prostaat: kwart tot een derde', 1300, 360, pr, C.paars, 28, 'left', 800); regel(ctx, 'helpt overleven en bewegen', 1300, 400, q.on('overleven', 1), C.text2, 24, 'left', 600);
+    regel(ctx, 'prostaat: kwart tot een derde', 1300, 360, pr, PROSTAAT, 28, 'left', 800); regel(ctx, 'helpt overleven en bewegen', 1300, 400, q.on('overleven', 1), C.text2, 24, 'left', 600);
     regel(ctx, 'zaadcellen: een paar procent', 1300, 710, zc, C.text, 26, 'left', 800);
     const mis = q.on('dus', 1); if (mis > 0.01) { tag(ctx, 'zaadcellen komen uit de prostaat', 1500, 180, C.koraal, mis * (1 - al), 'center', 26); kruis(ctx, 1250, 164, 24, mis * (1 - al)); }
     tag(ctx, 'zaadcellen: alleen uit de zaadballen', 1500, 180, C.groen, al, 'center', 28); },
@@ -1786,13 +1793,13 @@ Object.assign(SCENES, {
   s29(ctx, t, q) { bg(ctx, 'schema'); const on = (w) => q.on(w, 1);
     const dag = lerp(1, 14, ease(clamp((t - q.at('rijpen')) / Math.max(1, q.at('eisprong') - q.at('rijpen') + 1.5), 0, 1)));
     const HP = hypofysePoort(ctx, 260, 330, 0.42, { aan: on('hypofyse'), uit: on('FSH'), t }); naamBij(ctx, 'hypofyse', 'voorkwab', HP.voor[0] - 90, HP.voor[1] + 120, 1, 'center'); naamBij(ctx, 'hypothalamus', null, 260, 160, 0.8, 'center');
-    const D1 = [[430, 490], [560, 510], [700, 470]]; bloedbaan(ctx, D1, t, ['fsh', 'lh'], on('FSH'), 5); text(ctx, 'FSH en LH', 565, 600, fTekst(26, 700), rgba(C.teal, on('FSH')), 'center');
+    const D1 = [[430, 490], [560, 510], [700, 470]]; bloedbaan(ctx, D1, t, ['fsh', 'lh'], on('FSH'), 5); text(ctx, 'FSH', 530, 600, fTekst(26, 700), rgba(HKLEUR.fsh, on('FSH')), 'right'); text(ctx, 'en', 565, 600, fTekst(26, 700), rgba(C.text, on('FSH')), 'center'); text(ctx, 'LH', 600, 600, fTekst(26, 700), rgba(HKLEUR.lh, on('FSH')), 'left');
     const eis = on('eisprong') * clamp((t - q.at('eisprong')) / 2, 0, 1); eileiderStuk(ctx, 960, 420, on('eisprong'));
     const E = eierstokDoorsnede(ctx, 960, 420, 210, 140, { groei: lerp(0.2, 0.95, (dag - 1) / 13), eis: 0, t, winnaar: 3 }); text(ctx, 'eierstok', 960, 240, fTekst(28, 700), C.text, 'center');
     if (eis > 0.01) { const e = ease(eis); eicelEcht(ctx, lerp(1150, 1185, e), lerp(390, 245, e), 14, 1 - clamp((eis - 0.85) / 0.15, 0, 1) * 0.6, true); }
     const D2 = [[1190, 500], [1290, 530], [1400, 500]]; bloedbaan(ctx, D2, t, ['oestro'], on('dikker'), 5); text(ctx, 'hormonen van de eierstok', 1300, 600, fTekst(24, 700), rgba(HORM.oestro[0], on('dikker')), 'center');
     baarmoederwand(ctx, 1440, 290, 420, 380, slijmDikte(dag), { t, kronkel: 0.2, a: Math.max(0.35, on('baarmoeder')) }); text(ctx, 'baarmoederslijmvlies', 1650, 250, fTekst(28, 700), C.text, 'center');
-    const rm = on('remt'); if (rm > 0.01) { ctx.save(); ctx.globalAlpha *= rm; ctx.strokeStyle = C.paars; ctx.lineWidth = 4; ctx.setLineDash([12, 10]); ctx.beginPath(); ctx.moveTo(830, 320); ctx.bezierCurveTo(760, 200, 560, 200, HP.voor[0] + 40, HP.voor[1] - 20); ctx.stroke(); ctx.setLineDash([]); ctx.beginPath(); { const [vx, vy] = [HP.voor[0] + 40, HP.voor[1] - 20]; ctx.moveTo(vx - 14, vy - 14); ctx.lineTo(vx + 14, vy + 14); } ctx.lineWidth = 7; ctx.stroke(); ctx.restore(); text(ctx, 'veel oestrogeen remt de hypofyse weer', 640, 150, fTekst(26, 700), rgba(C.paars, rm), 'center'); }
+    const rm = on('remt'); if (rm > 0.01) { ctx.save(); ctx.globalAlpha *= rm; ctx.strokeStyle = HKLEUR.oestro; ctx.lineWidth = 4; ctx.setLineDash([12, 10]); ctx.beginPath(); ctx.moveTo(830, 320); ctx.bezierCurveTo(760, 200, 560, 200, HP.voor[0] + 40, HP.voor[1] - 20); ctx.stroke(); ctx.setLineDash([]); ctx.beginPath(); { const [vx, vy] = [HP.voor[0] + 40, HP.voor[1] - 20]; ctx.moveTo(vx - 14, vy - 14); ctx.lineTo(vx + 14, vy + 14); } ctx.lineWidth = 7; ctx.stroke(); ctx.restore(); text(ctx, 'veel oestrogeen remt de hypofyse weer', 640, 150, fTekst(26, 700), rgba(HKLEUR.oestro, rm), 'center'); }
     cyclusKlok(ctx, 960, 740, 85, dag, { fasen: 0, a: on('cyclus') }); text(ctx, 'dag ' + Math.floor(dag), 1065, 755, fTekst(26, 700), rgba(C.text, on('cyclus')), 'left');
     chip(ctx, 'eisprong: de eicel gaat de eileider in', 1500, 780, C.goud, on('eisprong'), 24); },
 
@@ -1811,13 +1818,12 @@ Object.assign(SCENES, {
     paneel(ctx, 120, 160, 820, 640, 'startsein', 1); if (1) { ctx.save(); hypofysePoort(ctx, 400, 420, 0.42, { puls: (t * 0.4) % 1, aan: q.on('FSH', 1), uit: q.on('FSH', 1), t });
       const D = [[560, 500], [700, 560], [820, 700]]; bloedbaan(ctx, D, t, ['fsh', 'lh'], q.on('FSH', 1), 5, (t * 0.15) % 1);
       regel(ctx, 'hypothalamus → GnRH → hypofyse → FSH en LH', 530, 760, 1, C.text, 24, 'center', 700); ctx.restore(); }
-    paneel(ctx, 980, 160, 820, 640, 'kenmerken', sk); if (sk > 0.01) { ctx.save(); ctx.globalAlpha *= sk; persoon(ctx, 'sam', 1250, 740, 460, { uit: 'blij', t }); persoon(ctx, 'noor', 1530, 740, 450, { uit: 'blij', t, kijk: -1 }); regel(ctx, 'testosteron en oestrogeen', 1390, 252, 1, C.paars, 26, 'center', 700); ctx.restore(); }
+    paneel(ctx, 980, 160, 820, 640, 'kenmerken', sk); if (sk > 0.01) { ctx.save(); ctx.globalAlpha *= sk; persoon(ctx, 'sam', 1250, 740, 460, { uit: 'blij', t }); persoon(ctx, 'noor', 1530, 740, 450, { uit: 'blij', t, kijk: -1 }); regel(ctx, 'testosteron', 1366, 252, 1, HKLEUR.testo, 26, 'right', 700); regel(ctx, 'en', 1390, 252, 1, C.text, 26, 'center', 700); regel(ctx, 'oestrogeen', 1414, 252, 1, HKLEUR.oestro, 26, 'left', 700); ctx.restore(); }
     tag(ctx, 'wanneer het begint, verschilt veel tussen mensen', 960, 860, C.goud, q.on('verschilt', 1), 'center', 28); },
-  s32(ctx, t, q) { bg(ctx, 'schema'); const ec = q.on('Eicellen', 1), d = q.on('Daan', 1), A = 1 - d;
+  s32(ctx, t, q) { bg(ctx, 'schema'); const ec = q.on('Eicellen', 1), d = 0, A = 1; // 29 okt 2026: slotzin met de klas geknipt (castnaam in de stem)
     if (A > 0.01) { ctx.save(); ctx.globalAlpha *= A;
       paneel(ctx, 120, 160, 820, 640, 'zaadcel', 1); if (1) { ctx.save(); ctx.save(); ctx.beginPath(); ctx.rect(122, 222, 816, 520); ctx.clip(); const M = manDoorsnede(ctx, 560, 330, 1.25, { t, dim: ['darm'], hl: { blaasjes: q.on('vocht', 1), prostaat: q.on('vocht', 1) } }); ctx.save(); ctx.globalAlpha *= 0.8; lijnStrip(ctx, M.route, C.goud, 3); ctx.restore(); ctx.restore(); regel(ctx, 'vocht: zaadblaasjes en prostaat', 530, 770, q.on('vocht', 1), C.text, 24, 'center', 700); ctx.restore(); }
       paneel(ctx, 980, 160, 820, 640, 'eicellen', ec); if (ec > 0.01) { ctx.save(); ctx.globalAlpha *= ec; eierstokDoorsnede(ctx, 1390, 430, 260, 170, { groei: 0.2, t }); regel(ctx, 'voorraad al vóór de geboorte', 1390, 690, 1, C.goud, 26, 'center', 700); regel(ctx, 'geen nieuwe erbij', 1390, 740, q.on('geen', 1), C.koraal, 26, 'center', 700); ctx.restore(); }
       ctx.restore(); }
-    if (d > 0.01) { ctx.save(); ctx.globalAlpha *= d; klasAchtergrond(ctx); meetlat(ctx, 1250, 880, 360, 1); persoon(ctx, 'daan', 1080, 880, lerp(382, 400, q.on('later', 1)) / 0.95, { uit: 'blij', kijk: 1, t }); persoon(ctx, 'sam', 1420, 880, 470 / 1.04, { uit: 'blij', kijk: -1, t });
-      startlamp(ctx, 1080, 380, q.on('later', 1) > 0.5 ? 1 : 0, 1); startlamp(ctx, 1420, 320, 1, 1); tag(ctx, 'startsein komt gewoon wat later', 760, 200, C.groen, 1, 'center', 28); ctx.restore(); } },
+  },
 });

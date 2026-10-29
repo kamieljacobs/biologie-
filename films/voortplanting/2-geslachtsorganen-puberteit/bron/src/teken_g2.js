@@ -30,9 +30,15 @@ function padPunt(pts, d) { const L = padLengte(pts); d = clamp(d, 0, L[L.length 
 function padTot(pts, k) { return padLengte(pts)[k]; }
 function lijnPad(ctx, pts, col, lw, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); gladC(pts).forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke(); ctx.restore(); }
 
+
+// Hormoonkleuren gelijk met Les 2 (HK(): FSH groen, LH goud, oestrogeen koraal, testosteron teal) en GnRH licht paars
+// (keuze hoofdsessie 29 okt 2026). Overschrijft de bibliotheekkleuren alleen in deze film.
+const HKLEUR = { gnrh: '#B3A6DA', fsh: C.groen, lh: C.goud, testo: C.teal, oestro: C.koraal, kiss: '#D98AB0', leptine: C.oker };
+for (const k of ['gnrh', 'fsh', 'lh', 'testo', 'oestro']) { HORM[k][0] = HKLEUR[k]; HORM_A[k][0] = HKLEUR[k]; }
+
 // =======================================================================================
 // Mannelijke geslachtsorganen, schematische doorsnede (zijaanzicht, voorkant rechts). Ontwerpcoördinaten rond (700, 480).
-const MK = { zaadbal: '#D9A48F', bijbal: C.oker, leider: C.goud, blaasjes: C.groen, prostaat: C.paars, blaas: C.teal, buis: '#C9CED6', zwel: '#B5574A' };
+const MK = { zaadbal: '#D9A48F', bijbal: C.oker, leider: C.goud, blaasjes: C.groen, prostaat: PROSTAAT, blaas: C.teal, buis: '#C9CED6', zwel: '#B5574A' };
 const VAS = [[786, 752], [764, 700], [768, 630], [826, 586], [872, 470], [878, 360], [840, 285], [760, 262], [680, 290], [652, 360], [672, 440], [712, 480], [742, 498], [762, 516]];
 const URETHRA = [[765, 462], [762, 500], [764, 538], [790, 566], [850, 566], [884, 590], [900, 660], [918, 740], [934, 786]];
 const ZAADROUTE = [[808, 712], [792, 690], [772, 660], [770, 700], [782, 746]].concat(VAS.slice(1)).concat(URETHRA.slice(3)).concat([[948, 840]]);

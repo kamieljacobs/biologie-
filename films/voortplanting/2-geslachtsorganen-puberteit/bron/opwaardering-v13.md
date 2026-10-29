@@ -21,3 +21,9 @@ Totaal bij opnieuw inspreken: ± 1.150 TTS + ± 150 Scribe. Nog niets geknipt: e
 ## (c) Wat ik veranderde
 
 Zie `info.md` → 'Wijzigingen 2.1'. Kort: alle eigen kopieën van de nieuwe tekeningen vervangen door de gekeurde beeldbankversies (hypofysePoort met Turks zadel, hormoondeeltjes als kralenketens, eierstok variant B, zaadcel/zaadbalweefsel, vetweefsel met haarvat langs de celgrenzen); castnamen weg uit beeld (titel, s11, s32, footer). Vakinhoud: niets inhoudelijks gewijzigd; het bronnenlogboek van 26 okt (43 beweringen, 0 open `!`) blijft gelden, aanvulling onderaan `bronnen.md`.
+
+## Uitgevoerd 29 okt 2026
+
+Volgens `films/UITVOEREN-VOORTPLANTING.md` (versie 2.2, zie `info.md` → Wijzigingen 2.2):
+- (a) s01 opnieuw ingesproken met 'Twee jongens … de één … De ander … met hem?' (283 credits); s11 en s32: de slotzinnen met Daan geknipt (0 credits). Geen castnaam meer in stem of ondertitel.
+- (b) 1: prostaat in orgaankleur `#B9786A` (bibliotheek en film). 2: hormoonkleuren gelijk met Les 2 (FSH groen, LH goud, oestrogeen koraal, testosteron teal, GnRH licht paars). 3: blijft open, alleen op Kamiels verzoek.
