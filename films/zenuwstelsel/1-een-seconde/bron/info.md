@@ -2,17 +2,18 @@
 
 | Veld | Waarde |
 |---|---|
-| Bestand | films/zenuwstelsel/1-een-seconde.html |
-| Reeks / nummer | Zenuwstelsel, film 1 (pagina: “het zenuwstelsel in vogelvlucht · 5 vwo · film 1 van de reeks Zenuwstelsel”; `plan.series`: ontbreekt) |
-| Doelgroep / niveau | 5 vwo, één niveau (geen havo/vwo-schakelaar); hoofdstuk 6 “Weten” als verdieping gemarkeerd (`verdieping: true`, label op hoofdstukkaart en in hoofdstuklijst) |
-| Versie / datum | **1.2 · 28 oktober 2026** — opwaardering naar prompt v13 (B14, zonder keuring): fietser en kind zijn castpersonages; 1.1 · 4 oktober 2026 (credits op de pagina) |
+| Bestand | films/zenuwstelsel/1-een-seconde-nieuw.html (2.0, preview; de oude 1.2 blijft films/zenuwstelsel/1-een-seconde.html tot Kamiel 2.0 goedkeurt) |
+| Reeks / nummer | Zenuwstelsel, film 1 |
+| Doelgroep / niveau | 5 vwo, één niveau (`alleen: vwo`, geen havo/vwo-schakelaar); hoofdstuk 6 "Weten" als verdieping gemarkeerd (label 'verdieping' rechtsboven) |
+| Versie / datum | **2.0 · 29 oktober 2026** — lichte remake in de donkere stijl (Part C, FILMDATA-straat); 1.2 · 28 okt 2026; 1.1 · 4 okt 2026 |
 | Prompt | v13 |
-| Voldoet aan | prompt v13 (28 okt 2026, zonder keuring; takes, script, vragen, timings en speler behouden; geen namen van castpersonages in stem of beeld). Bewust niet: (1) de film blijft in het eigen lichte reeksontwerp van vóór Part C (lichte schema-scènes #EEF1F7, warme wereld met verlopen in lucht en zon, Inter); omzetten naar de donkere Part C-look is een nieuwe stijl voor de hele film → vraag aan Kamiel; (2) de vlakke schema-iconen (blauwe vlek als hersenen, hartje, longen als ovalen, cirkel als oog) zijn niet vervangen door beeldbankobjecten: die zijn voor donker navy ontworpen en vragen de lib.js-motor (hoort bij dezelfde vraag); (3) de lens met de gegenereerde lichaamsillustratie (PNG, ontblote man) blijft, ook al is de fietser nu Daan; (4) de nieuwe caststijl met contourlijnen nog niet (castvel niet gekeurd); (5) geen nieuwe opnames: 'Voorspel.' in q1–q6 en de reactietijd van 0,2 s blijven (zie `opwaardering-v13.md`) |
-| Stem / model | Roos (ElevenLabs, eleven_multilingual_v2) |
-| Duur | 5:54 gesproken (som van 18 mp3’s, 354,8 s); speler-totaal incl. titel-, hoofdstuk- en eindkaarten en 6 aftellingen van 8 s: 7:14 |
-| Beeldstijl | Eigen reeksontwerp van vóór de Part C-stijlkaart: warme vlakke ‘wereld’ (lucht-gradiënt, huizen, fietser, bal, kind), een lens met gegenereerde doorkijk-anatomie (PNG) met zenuwbanen als vectorlaag, en lichte schema-scènes (#EEF1F7) voor de micro-uitleg; Inter-lettertype (systeemfont, niet ingebed) |
-| Audio-opslag | 18 fragmenten, één per gesproken segment, als base64-data-URI in `window.FILM_AUDIO` (blobs 002–019); daarnaast blob 001.png = lichaamsillustratie in de lens (gpt-image-2), als data-URI in `<image>` op r. 174 |
-| Reconstructie | 2026-10-12, uit de gepubliceerde HTML |
+| Voldoet aan | prompt v13 (29 okt 2026). Bewust niet: (1) de nieuwe caststijl met contourlijnen (castvel nog niet gekeurd); (2) de wachtlijst van 15 okt (a4 antagonisten, s51 effectoren) is niet ingesproken: niet in Kamiels keuze; (3) geen beeldbankobjecten voor oog, ruggenmerg en zenuw in doorsnede: eigen tekeningen in `remake-2026-10/src/teken_z1.js` (Kamiel: nieuwe beeldbankobjecten later); (4) geen B15 (lichte remake) |
+| Herkomst | lichte remake, keuze Kamiel 29 okt 2026 (keuzeblad 'Regeling: jouw keuzes'); script, vragen, opties en volgorde van 1.2 als geraamte; beeld helemaal nieuw |
+| Stem / model | Roos (ElevenLabs, eleven_multilingual_v2); 11 takes uit 1.2, 7 nieuw (q1–q6, a3) |
+| Duur | gesproken 364 s (18 mp3's); speler met vragen ± 7:00, met Vragen uit 5:12 |
+| Beeldstijl | Part C: Schema-navy voor kaart, schema's en vragen; Macro-nacht voor de straat (cold open); castpersonages Daan (fietser) en Teun (kind), zonder namen |
+| Audio-opslag | `films/zenuwstelsel/1-een-seconde/audio/<id>.mp3` (s00, s11, q1, a1, s21, q2, a2, q3, a3, q4, a4, s51, q5, a5, s61, q6, a6, s70) |
+| Bron 2.0 | `remake-2026-10/` (src = motor + tekeningen, bouw = scripts, film.py, sections.html, segments.json, words/, storyboard/, bouw.sh) |
 
 ## Opbouw
 
@@ -196,6 +197,24 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`; z
   - *gladde spieren, buigspier, strekspier, hartspier, remmend* — gewone Nederlandse woorden, laag risico; als geschreven.
 
 ## Wijzigingen
+- 29 okt 2026 — **Versie 2.0, lichte remake in de donkere stijl** (keuze Kamiel 29 okt 2026; preview `1-een-seconde-nieuw.html`, oude film blijft online). Nieuw gebouwd in de FILMDATA-straat (speler van Emotieregulatie, `lib.js`, `lib_cast.js`, `lib_anatomie.js`, `lib_bio.js`); de PNG-lichaamsplaat (ontblote man) en de lens vervallen. Per scène (regelnummers in `1-een-seconde-nieuw.html`; teken_z1.js vanaf r. 9962, scenes_z1.js vanaf r. 10168):
+  - s00 (r. 10182): straat in Macro-nacht (`straat`), Daan op een getekende fiets (`fietsMetFietser`, r. 10017; maten 1 m ≈ 244 px bij h 440), bal rolt de straat op, remhendel knijpt op 'knijpen', Teun loopt aan op 'kind', vraagteken op 'weet', tijdbalk rechtsboven (`tijdbalk`, r. 9987) op 'seconde'.
+  - titel: Daan van voren met zijn zenuwstelsel als laag, impuls door ruggenmerg en arm.
+  - s11 (r. 10194): `lichaamKaart` (r. 10041): Daan van voren, zenuwen als laag op het lichaam, hersenen in een zoomcirkel náást het hoofd (`hoofdHersenen`); centraal en perifeer om de beurt goud; ringen bij oog, arm en hart.
+  - q1–q6: `vraagVoor` (r. 10069), dezelfde opmaak als de vraagkaart; opties verschijnen op hun woord. Nieuwe takes 'Wat denk je?' in plaats van 'Voorspel.'; vraagzinnen die vóór de opties een punt hadden, eindigen nu op een dubbele punt + vraag (q2–q6), zodat Vragen uit de hele vraag knipt.
+  - a1 (r. 10205): zoomcirkel op de armzenuw, `zenuwDoorsnede` (r. 10105: bundels met perineurium, gemyeliniseerde uitlopers, bloedvaatjes); één uitloper goud + `zenuwcel` uit de bibliotheek; impulsen naar binnen en naar buiten in teal.
+  - s21 (r. 10220): `oogDoorsnede` (r. 10075) met lichtstralen van de bal, zoomcirkel op het netvlies met staafjes en kegeltjes; prikkel (licht) en impuls (teal).
+  - a2 (r. 10232): drie receptoren met hetzelfde signaal; drempelwaarde met drie prikkels; oogzenuw in de zoomcirkel van het hoofd; tijdbalk naar 0,1 s.
+  - a3 (r. 10256): route oog → hersenen → ruggenmerg → motorische zenuw → onderarmspieren op de kaart, inzet hand knijpt de rem; **nieuwe take**: '… Als je erop bedacht bent, zit er ongeveer tweehonderd milliseconden tussen bal en knijpen. Een vijfde seconde. Komt de bal echt onverwacht, dan duurt het eerder een seconde. …' met een grote tijdbalk (± 0,2 s goud, ± 1 s gestippeld).
+  - a4 (r. 10288): bal stuitert tegen de vingers, de hand schiet terug (zijaanzicht); reflexboog met `ruggenmergDoorsnede` (r. 10119) en `armAnatomie` (biceps = effector), impulsen in teal; rij van vijf; 'pas daarna omhoog'; kniepeesreflex met hamertje, 18 ms; drie kenmerken.
+  - s51 (r. 10333): `hartDoorsnede` (bonkt), klamme hand, pupil groter; sympathisch (koraal) en parasympathisch (groen) als kolommen; gas en rem naar hetzelfde hart, hartslagmeter (model).
+  - a5 (r. 10354): rem dieper, gas minder, hartslag daalt; animaal naast autonoom.
+  - s61 (r. 10367): 'een kind!', grote hersenen in de zoomcirkel; Libet-tijdlijn met 'voelt als meteen'.
+  - a6 (r. 10383): de kaart als boom; ruggenmerg met de drie soorten neuronen; grijze stof met cellichamen, witte stof, zoomcirkel op de vettige laag.
+  - s70 (r. 10407): één tijdlijn 0–1 s met de markeringen in volgorde.
+  - Eindkaart: drie kernzinnen; ondertitel van film 2 gelijkgetrokken ('hoe een zenuwcel een bericht verstuurt').
+  - Opgenomen: q1 167, q2 246, q3 210, q4 174, q5 256, q6 169, a3 688 credits = **1.910 credits** (flow https://elevenlabs.io/app/flows/Z2RI92sY9v4ayg9gCUAC, één take per alinea). Stem-invoer: `stem/invoer.json`.
+  - Getest: spelerfix, antwoordtekst, kortantwoord, antwoordletter (--check ok), flipkaarten, tabel_mobiel, licentie_noot, teller; Vragen uit: de vraagalinea's worden geheel overgeslagen, 'Het goede antwoord is X.' geknipt; 375 px zonder horizontaal scrollen; contactvel van alle scènes bekeken. Storyboard: `remake-2026-10/storyboard/`.
 - 28 okt 2026 — Opwaardering prompt v13 (versie 1.2), oude versie in `bron/oud/1-een-seconde-v1.1.html`:
   - Wereld (s00, s11–a5 achter de lens, s61, s70): de zelfgetekende fietser zonder gezicht is nu castpersonage **Daan** (zijaanzicht, zittend op het zadel, handen aan het stuur; `#w-cast-fiets`), het kind op de stoep is **Teun** (`kind`, zijaanzicht; `#w-cast-kind`). Geen namen in beeld of stem. Code: `bron/src/cast_svg.js` (hulpjes voor lib_cast.js, `castBeeld`, `fietser`, `kindBeeld`) en een kopie van `personages/lib_cast.js` (28 okt 2026), beide als `<script id="lib-cast">` / `<script id="cast-svg">` vóór `window.FILM_AUDIO`; aanroepen in `render()` (standaardstand), in `sceneWorld` s00 (het kind loopt de straat op, loopfase volgt de verplaatsing) en in `sceneLens` a4 (de hand schiet van het stuur, `fietser(CASTI.fiets, fl)`; vroeger draaide `#w-arm` om een verkeerd punt en bewoog de hand niet zichtbaar).
   - Lens: het losse ringetje (`#lens-ring2`) is verborgen zolang de lens dicht is (stond als klein rondje in beeld vóór het openen in a4).

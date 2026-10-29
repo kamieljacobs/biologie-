@@ -1,0 +1,122 @@
+[
+ {
+  "scene": "s00",
+  "still": "00-s00.png",
+  "tekst": "Je fietst. Een bal rolt de straat op. Je handen knijpen in de remmen. Pas daarna zie je het kind. Hoe kan je lichaam al reageren, voordat jij het weet? Alles wat daarvoor nodig is, past in één seconde.",
+  "noot": "Cold open (Macro, straat 's avonds): fietser rijdt, bal rolt de straat op, remhendel knijpt, kind (Teun) komt aanlopen; vraagteken op 'weet'; tijdbalk op 'seconde'."
+ },
+ {
+  "scene": "titel",
+  "still": "01-titel.png",
+  "tekst": "Eén seconde (titelkaart)",
+  "noot": "Titelkaart: rechts de fietser van voren met zijn zenuwstelsel als laag, een impuls loopt door ruggenmerg en arm."
+ },
+ {
+  "scene": "s11",
+  "still": "02-s11.png",
+  "tekst": "We zetten de tijd stil. Nul seconden. Dit is je zenuwstelsel. In het midden: de hersenen en het ruggenmerg. Samen heten ze het centrale zenuwstelsel. Alles wat van daaruit je lichaam in loopt, is het perifere zenuwstelsel. Zenuwen naar je ogen, je armen, je hart.",
+  "noot": "De kaart: Daan van voren, zenuwen als laag, hersenen in een zoomcirkel naast het hoofd (hoofdHersenen). Centraal goud, daarna perifeer goud; ringen bij oog, arm, hart. Tijdbalk 0,000 s."
+ },
+ {
+  "scene": "q1",
+  "still": "03-q1.png",
+  "tekst": "Wat denk je? Een zenuw in je arm is: één lange zenuwcel? Een bundel uitlopers van heel veel zenuwcellen? Of een buisje waar het signaal als vloeistof doorheen stroomt?",
+  "noot": "Vraag vooraf: kaart in de stijl van de vraagkaart, opties verschijnen op hun woord."
+ },
+ {
+  "scene": "a1",
+  "still": "05-a1.png",
+  "tekst": "Het goede antwoord is B. Een zenuw is een bundel. Hij zit vol lange uitlopers van zenuwcellen. Zo'n zenuwcel heet een neuron. Hoe een neuron eruitziet, zie je in de volgende film. Voor nu alleen dit: informatie reist als impulsen door neuronen. Eerst naar binnen, naar het centrale zenuwstelsel. Dan weer naar buiten.",
+  "noot": "Zoomcirkel op de armzenuw: doorsnede met bundels vol gemyeliniseerde uitlopers; één uitloper goud = één neuron (bibliotheek: zenuwcel). Daarna impulsen naar binnen en naar buiten (teal)."
+ },
+ {
+  "scene": "s21",
+  "still": "06-s21.png",
+  "tekst": "De bal rolt. Licht van de bal valt op je netvlies. Daar zitten receptoren: cellen die op licht reageren. Het licht is de prikkel. De receptor zet de prikkel om in een impuls. Onthoud het verschil. Een prikkel komt van buiten. Een impuls is het signaal in het neuron.",
+  "noot": "Oog in doorsnede, licht van de bal valt op het netvlies; zoomcirkel met staafjes en kegeltjes; prikkel (licht) en impuls (teal) benoemd."
+ },
+ {
+  "scene": "q2",
+  "still": "07-q2.png",
+  "tekst": "Wat denk je? Je drukt in het donker zachtjes op je gesloten oog en ziet een lichtvlek: hoe kan dat? Door de druk ontstaat er licht in je oog? De receptor geeft een impuls af, en je hersenen maken daar altijd licht van? Of je oog raakt beschadigd?",
+  "noot": "Vraag vooraf."
+ },
+ {
+  "scene": "a2",
+  "still": "09-a2.png",
+  "tekst": "Het goede antwoord is B. Elke receptor heeft zijn eigen prikkel. Licht voor je oog, trillingen voor je oor, druk voor je huid. Maar de impuls is overal hetzelfde signaal. Wat je ervaart, hangt af van waar de impuls aankomt in je hersenen. Een receptor reageert pas als de prikkel sterk genoeg is. Dat heet de drempelwaarde. De impuls verlaat het oog door de oogzenuw. Dat is een sensorische zenuw: hij brengt informatie naar het centrale zenuwstelsel. Kijk naar de tijdbalk. Ongeveer honderd milliseconden na het licht is de impuls in je hersenen.",
+  "noot": "Drie receptoren, drie prikkels, hetzelfde teal signaal; drempelwaarde met drie prikkels; oogzenuw in het hoofd naar de achterhoofdskwab, tijdbalk naar 0,1 s."
+ },
+ {
+  "scene": "q3",
+  "still": "10-q3.png",
+  "tekst": "Wat denk je? Je hand knijpt al in de rem: waar is het signaal geweest? In het ruggenmerg, en de hersenen horen het later? In de hersenen, en vandaar naar je handen? Of nergens: de spier reageert zelf op de bal?",
+  "noot": "Vraag vooraf."
+ },
+ {
+  "scene": "a3",
+  "still": "12-a3.png",
+  "tekst": "Het goede antwoord is B. De impuls komt in je hersenen. Daar wordt het beeld verwerkt: er rolt iets op de weg. Vanuit de hersenen vertrekt een nieuwe impuls. Naar beneden, door het ruggenmerg. Dan via een motorische zenuw naar je handen. Motorisch betekent: naar een spier of een klier. De spieren in je onderarmen trekken samen. Je knijpt. Dit is geen reflex. Het signaal ging via je hersenen. Toch is het snel. Als je erop bedacht bent, zit er ongeveer tweehonderd milliseconden tussen bal en knijpen. Een vijfde seconde. Komt de bal echt onverwacht, dan duurt het eerder een seconde. Je hersenen hebben deze beweging honderden keren geoefend. Maar bewust beslissen? Dat komt pas later.",
+  "noot": "Route via de hersenen: oog → achterhoofd → motorische schors → ruggenmerg → motorische zenuw → onderarmspieren; inzet hand knijpt; daarna een grote tijdbalk: ± 0,2 s als je erop bedacht bent, ± 1 s als de bal echt onverwacht komt (nieuw ingesproken)."
+ },
+ {
+  "scene": "q4",
+  "still": "13-q4.png",
+  "tekst": "Wat denk je? Je hand raakt iets scherps: wat gebeurt er eerst? Je voelt pijn en trekt dan je hand weg? Je hand trekt weg, en daarna voel je pijn? Of allebei precies tegelijk?",
+  "noot": "Vraag vooraf."
+ },
+ {
+  "scene": "a4",
+  "still": "15-a4.png",
+  "tekst": "Het goede antwoord is B. De bal stuitert op en slaat tegen je vingers. Kijk goed: je hand trekt al terug voordat je iets voelt. Dit is wél een reflex. Receptoren in je huid geven impulsen af. Via een sensorisch neuron gaan ze naar het ruggenmerg. Daar zit een schakelneuron. Dat geeft de impuls meteen door aan een motorisch neuron. En dat loopt terug naar de spieren van je arm. De spier is de effector: het orgaan dat reageert. Receptor, sensorisch neuron, schakelneuron, motorisch neuron, effector. Dat is de reflexboog. De hersenen zitten er niet tussen. Pas daarna gaat er ook een impuls omhoog, en voel je de klap. Daarom is een reflex zo snel. De kniepeesreflex, die de dokter test, duurt zelfs maar achttien milliseconden. Daar zit niet eens een schakelneuron tussen. Een reflex is aangeboren, verloopt altijd hetzelfde, en je kunt hem nauwelijks tegenhouden. Dat is precies wat je wilt als er gevaar is.",
+  "noot": "Terugtrekreflex: bal tegen de vingers, hand schiet terug. Reflexboog met ruggenmerg in doorsnede en de arm (armAnatomie): receptor, sensorisch neuron, schakelneuron, motorisch neuron, biceps als effector. Daarna kniepeesreflex 18 ms en drie kenmerken."
+ },
+ {
+  "scene": "s51",
+  "still": "16-s51.png",
+  "tekst": "Een halve seconde. Je hart begint te bonken. Je handen worden klam. Je pupillen worden groter. Dat heb je niet besloten. Dit doet het autonome zenuwstelsel: het deel dat je organen regelt zonder dat je het merkt. Het heeft twee delen. Het sympathische deel maakt je klaar voor actie: hart sneller, pupil wijder, ademhaling dieper. Het parasympathische deel doet het tegenovergestelde: rust, verteren, herstellen. Beide delen lopen naar dezelfde organen. Het ene is het gaspedaal, het andere de rem. Hoe snel je hart slaat, hangt af van welk pedaal het diepst staat.",
+  "noot": "Hart bonkt (hartDoorsnede), klamme hand, pupil groter; sympathisch (koraal) en parasympathisch (groen) als twee kolommen; daarna gas en rem naar hetzelfde hart met een hartslagmeter (model)."
+ },
+ {
+  "scene": "q5",
+  "still": "17-q5.png",
+  "tekst": "Wat denk je? Het kind staat veilig op de stoep: hoe komt je hart weer tot rust? Alleen het sympathische deel wordt minder actief? Het parasympathische deel wordt actiever én het sympathische minder? Of het hart heeft geen zenuwen nodig en regelt dit zelf?",
+  "noot": "Vraag vooraf."
+ },
+ {
+  "scene": "a5",
+  "still": "19-a5.png",
+  "tekst": "Het goede antwoord is B. Dit alles gaat onbewust. Het deel van je zenuwstelsel dat je skeletspieren aanstuurt, heet het animale zenuwstelsel. Knijpen in de rem: animaal. Hart dat bonkt: autonoom.",
+  "noot": "Rem dieper, gas minder: de hartslag daalt. Daarna animaal (knijpen in de rem) naast autonoom (hart dat bonkt)."
+ },
+ {
+  "scene": "s61",
+  "still": "20-s61.png",
+  "tekst": "Ongeveer een halve seconde na de bal weet je het pas echt: een kind! Die bewustwording gebeurt in de grote hersenen. Het signaal was er al eerder. Bewust worden kost tijd. Onderzoekers hebben gemeten dat je een aanraking van je huid pas na ongeveer een halve seconde bewust opmerkt. Toch voelt het alsof je het meteen merkte. Daarom lijkt het of je lichaam voor je uit loopt. Dat doet het ook.",
+  "noot": "Verdieping: 'een kind!' in een wolk, grote hersenen in de zoomcirkel; meting na Libet: aanraking 0 ms, signaal na enkele tientallen ms, bewust ± 0,5 s, terugverwijzing 'voelt als meteen'."
+ },
+ {
+  "scene": "q6",
+  "still": "21-q6.png",
+  "tekst": "Wat denk je? In het ruggenmerg zie je grijze stof en witte stof: wat zit er in de grijze stof? De cellichamen van neuronen? Alleen lange uitlopers? Of vooral bloedvaten?",
+  "noot": "Vraag vooraf."
+ },
+ {
+  "scene": "a6",
+  "still": "23-a6.png",
+  "tekst": "Het goede antwoord is A. Nu de kaart compleet. Centraal: hersenen en ruggenmerg. Perifeer: alle zenuwen. Animaal: naar je skeletspieren, vaak bewust. Autonoom: naar je organen, onbewust, met gas en rem. En drie soorten neuronen. Sensorisch naar binnen, schakelneuronen in het midden, motorisch naar buiten. In het ruggenmerg zie je waar ze liggen. De cellichamen in de grijze stof, de uitlopers in de witte stof. Witte stof is wit door een vettige laag om de uitlopers. Hoe die laag de impuls sneller maakt, zie je in de volgende film.",
+  "noot": "De kaart als boom (centraal, perifeer, animaal, autonoom, gas en rem); ruggenmerg in doorsnede met de drie soorten neuronen; grijze stof met cellichamen, witte stof met uitlopers; zoomcirkel op de vettige laag."
+ },
+ {
+  "scene": "s70",
+  "still": "24-s70.png",
+  "tekst": "Terug naar de seconde. Nul: licht op je netvlies, een receptor maakt een impuls. Honderd milliseconden: de impuls is in je hersenen. Tweehonderd: je handen remmen. Via de hersenen, geleerd en snel. De bal raakt je hand: een reflex via het ruggenmerg. Nog sneller, zonder hersenen. Een halve seconde: je hart bonkt, autonoom. En dan pas weet je het. Je lichaam reageerde voordat jij het wist, omdat elk deel van je zenuwstelsel zijn eigen snelste route heeft.",
+  "noot": "Samenvatting: één tijdlijn van 0 tot 1 s met de markeringen in volgorde van de vertelling."
+ },
+ {
+  "scene": "eind",
+  "still": "25-eind.png",
+  "tekst": "Een prikkel wordt in een receptor een impuls. · Een reflex gaat via het ruggenmerg, zonder de hersenen. · Het autonome zenuwstelsel regelt je organen: gas en rem.",
+  "noot": "Eindkaart: drie kernzinnen, haak met de volgende film."
+ }
+]

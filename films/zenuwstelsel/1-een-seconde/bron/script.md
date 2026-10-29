@@ -4,6 +4,86 @@ Bron: gereconstrueerd uit de scriptdata in de gepubliceerde HTML (2026-10-12): `
 
 Tijden in de kop van elk segment zijn filmtijd (mastertijd van de speler, zonder wachttijd bij de vragen); de tijden `[m:ss.s]` vóór elke regel zijn de begintijden van de frase **binnen het audiofragment** (zoals in `timing[<id>].phrases[].t0`).
 
+## Versie 2.0 (lichte remake, 29 okt 2026): opnieuw ingesproken alinea's
+
+In 2.0 staat elke take als losse mp3 in `films/zenuwstelsel/1-een-seconde/audio/<id>.mp3`; de woordtijden in `remake-2026-10/words/<id>.json` (oude takes: ElevenLabs-alignment uit 1.2; nieuwe takes: `bouw/align25.py`, silalign met drempel −25 dB). De andere elf alinea's zijn ongewijzigd (tekst hieronder bij versie 1.2). Stem-invoer letterlijk: `stem/invoer.json`. Model eleven_multilingual_v2, stem Roos.
+
+### q1 (nieuw, 8.8 s)
+[0:00.0] Wat denk je?
+[0:00.9] Een zenuw in je arm is:
+[0:02.3] één lange zenuwcel?
+[0:03.6] Een bundel uitlopers van heel veel zenuwcellen?
+[0:06.1] Of een buisje waar het signaal als vloeistof doorheen stroomt?
+
+### q2 (nieuw, 12.7 s)
+[0:00.0] Wat denk je?
+[0:00.8] Je drukt in het donker zachtjes op je gesloten oog en ziet een lichtvlek:
+[0:04.4] hoe kan dat?
+[0:05.2] Door de druk ontstaat er licht in je oog?
+[0:07.3] De receptor geeft een impuls af, en je hersenen maken daar altijd licht van?
+[0:11.2] Of je oog raakt beschadigd?
+
+Stem-invoer wijkt af: `Wat denk je? Je drukt in het donker zachtjes op je gesloten oog en ziet een lichtvlek: hoe kan dat? Door de druk ontstaat er licht in je oog? De reseptor geeft een impuls af, en je hersenen maken daar altijd licht van? Of je oog raakt beschadigd?`
+
+### q3 (nieuw, 10.3 s)
+[0:00.0] Wat denk je?
+[0:00.8] Je hand knijpt al in de rem:
+[0:02.0] waar is het signaal geweest?
+[0:03.4] In het ruggenmerg, en de hersenen horen het later?
+[0:06.0] In de hersenen, en vandaar naar je handen?
+[0:07.9] Of nergens:
+[0:08.7] de spier reageert zelf op de bal?
+
+### a3 (nieuw, 36.4 s)
+[0:00.0] Het goede antwoord is B.
+[0:01.7] De impuls komt in je hersenen.
+[0:03.2] Daar wordt het beeld verwerkt:
+[0:04.6] er rolt iets op de weg.
+[0:05.8] Vanuit de hersenen vertrekt een nieuwe impuls.
+[0:08.2] Naar beneden, door het ruggenmerg.
+[0:09.9] Dan via een motorische zenuw naar je handen.
+[0:12.3] Motorisch betekent:
+[0:13.5] naar een spier of een klier.
+[0:14.9] De spieren in je onderarmen trekken samen.
+[0:17.2] Je knijpt.
+[0:17.9] Dit is geen reflex.
+[0:19.2] Het signaal ging via je hersenen.
+[0:20.9] Toch is het snel.
+[0:21.8] Als je erop bedacht bent, zit er ongeveer tweehonderd milliseconden tussen bal en knijpen.
+[0:26.6] Een vijfde seconde.
+[0:28.4] Komt de bal echt onverwacht, dan duurt het eerder een seconde.
+[0:31.0] Je hersenen hebben deze beweging honderden keren geoefend.
+[0:34.1] Maar bewust beslissen?
+[0:35.3] Dat komt pas later.
+
+### q4 (nieuw, 9.7 s)
+[0:00.0] Wat denk je?
+[0:01.0] Je hand raakt iets scherps:
+[0:02.3] wat gebeurt er eerst?
+[0:03.5] Je voelt pijn en trekt dan je hand weg?
+[0:05.9] Je hand trekt weg, en daarna voel je pijn?
+[0:08.3] Of allebei precies tegelijk?
+
+### q5 (nieuw, 13.3 s)
+[0:00.0] Wat denk je?
+[0:00.9] Het kind staat veilig op de stoep:
+[0:02.5] hoe komt je hart weer tot rust?
+[0:04.2] Alleen het sympathische deel wordt minder actief?
+[0:06.9] Het parasympathische deel wordt actiever én het sympathische minder?
+[0:10.6] Of het hart heeft geen zenuwen nodig en regelt dit zelf?
+
+Stem-invoer wijkt af: `Wat denk je? Het kind staat veilig op de stoep: hoe komt je hart weer tot rust? Alleen het sympathische deel wordt minder actief? Het parasympathische deel wordt actiever, en het sympathische minder? Of het hart heeft geen zenuwen nodig en regelt dit zelf?`
+
+### q6 (nieuw, 9.6 s)
+[0:00.0] Wat denk je?
+[0:00.6] In het ruggenmerg zie je grijze stof en witte stof:
+[0:03.8] wat zit er in de grijze stof?
+[0:05.4] De cellichamen van neuronen?
+[0:07.1] Alleen lange uitlopers?
+[0:08.5] Of vooral bloedvaten?
+
+## Versie 1.2 (4 okt 2026; de oude film, ook de tekst van de elf ongewijzigde alinea's)
+
 ## 1. s00 — cold open
 Audio: blob 002.mp3 (sleutel `s00` in FILM_AUDIO) · 0:00–0:10 (10,8 s mp3; timing.duration 10,774 s)
 Scène: `world` (sceneWorld())

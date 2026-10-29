@@ -4,11 +4,11 @@ Werkwijze en criteria: `films/BRONNEN.md`.
 
 | Veld | Waarde |
 |---|---|
-| Gecontroleerde versie | 1.2 (28 okt 2026; stem en script ongewijzigd sinds 1.1) |
+| Gecontroleerde versie | 2.0 (29 okt 2026; lichte remake, a3 en q1–q6 opnieuw ingesproken) |
 | Eerste ronde | Claude, 28 okt 2026 (opwaardering prompt v13): 22 beweringen, 17 bronnen geopend |
 | Steekproef | nog niet gedaan |
 | Vakexpert | geen |
-| Stand | 17 ✓ · 4 ≈ · 1 ! · 0 ? |
+| Stand | 18 ✓ · 4 ≈ · 0 ! · 0 ? |
 
 ## Bronnen
 
@@ -33,6 +33,7 @@ Alle bronnen zijn op 28 okt 2026 zelf geopend. Niveau volgens `films/BRONNEN.md`
 | B15 | A* | J. Tuthill e.a. (University of Washington), *Physiology*, hoofdstuk Sensory Receptors (adequate prikkel, drempel, frequentie) | https://uw.pressbooks.pub/physiology/chapter/sensory-receptors/ |
 | B16 | A* | J. Tuthill (University of Washington), *Sensory systems*, The Labeled Line Principle | https://uw.pressbooks.pub/sensory/?p=26 |
 | B17 | B | Cleveland Clinic, *Phosphenes* | https://my.clevelandclinic.org/health/articles/24888-phosphenes |
+| B18 | A | Markkula, Engström, Lodin, Bärgman & Victor (2016). *A farewell to brake reaction times? Kinematics-dependent brake response in naturalistic rear-end emergencies.* Accident Analysis and Prevention 95: 209–226 (geeft de waarden van Green 2000: 0,70–0,75 s volledig verwacht, 1,25 s onverwacht maar gewoon, 1,5 s verrassing; geopend 29 okt 2026) | https://eprints.whiterose.ac.uk/102162/ |
 
 ## Beweringen
 
@@ -48,7 +49,7 @@ Alle bronnen zijn op 28 okt 2026 zelf geopend. Niveau volgens `films/BRONNEN.md`
 | 8 | a2 | Ongeveer honderd milliseconden na het licht is de impuls in je hersenen. | B13 | ≈ | P100 ≈ 100 ms = activiteit van de primaire visuele schors; eerste aankomst in de schors is wat eerder. Orde van grootte klopt; één A-bron. |
 | 9 | a3 | Remmen in de rem gaat via de hersenen: beeld verwerkt, nieuwe impuls via het ruggenmerg en een motorische zenuw naar de onderarmspieren. | B3, B2 | ✓ | B3: motoriek vanuit de schors daalt af naar het ruggenmerg, onderste motorneuronen naar de spier. |
 | 10 | a3 | Motorisch betekent: naar een spier of een klier. | B4, B7 | ✓ | Effectoren = spieren en klieren. |
-| 11 | a3 | Van bal tot knijpen ongeveer tweehonderd milliseconden. | B11, B12 | ! | Eenvoudige reactietijd (je weet dat er een prikkel komt) ± 213–231 ms (B11). Bij een onverwacht obstakel in het verkeer is de remreactietijd eerder 1,0–1,5 s (B12, over Green 2000). Voor een bal die onverwacht de straat op rolt is 0,2 s dus te snel. Niet zelf aangepast: het getal zit in stem, tijdbalk en het verhaal van de hele film (keuze voor Kamiel, zie opwaardering-v13.md). Docentdeel aangevuld met de nuance. |
+| 11 | a3 | Als je erop bedacht bent, zit er ongeveer tweehonderd milliseconden tussen bal en knijpen; komt de bal echt onverwacht, dan duurt het eerder een seconde. | B11, B18, B12 | ✓ | Eenvoudige reactietijd ± 213–231 ms (B11). Remreactietijd: volledig verwacht 0,70–0,75 s, onverwacht 1,25 s, verrassing 1,5 s (B18 over Green 2000; B12). 'Eerder een seconde' is afgerond naar beneden; de tijdbalk toont ± 1 s gestippeld. Was `!` in 1.2 ('van bal tot knijpen ongeveer tweehonderd milliseconden'); opnieuw ingesproken op Kamiels keuze. |
 | 12 | q4, a4 | Bij iets scherps trekt je hand al terug voordat je pijn voelt (terugtrekreflex). | B3, B2 | ≈ | B3: de terugtrekreflex loopt via het ruggenmerg en is sneller dan de route via de hersenen; pijn wordt pas in de schors bewust (B2). Dat de beweging vóór de pijn komt, staat niet letterlijk in B3. |
 | 13 | a4 | Reflexboog: receptor → sensorisch neuron → schakelneuron in het ruggenmerg → motorisch neuron → effector. | B3, B9 | ✓ | |
 | 14 | a4 | Een remmend schakelneuron remt het motorische neuron naar de strekspier (antagonisten). | B3, B8 | ✓ | Wederzijdse remming. |
@@ -65,6 +66,7 @@ Alle bronnen zijn op 28 okt 2026 zelf geopend. Niveau volgens `films/BRONNEN.md`
 
 - Docentdeel, tabel 'De getallen': de Wikipedia-links (niveau C) vervangen door B10, B11, B3, B14 en B13; bij de reactietijd de nuance 'onverwacht obstakel ≈ 1 s' toegevoegd (versie 1.2, 28 okt 2026).
 - Bewering 11 (`!`): voorstel aan Kamiel in `opwaardering-v13.md` (stem en tijdbalk), niet zelf aangepast.
+- 29 okt 2026 (2.0), bewering 11: was 'van bal tot knijpen ongeveer tweehonderd milliseconden' → nu '… als je erop bedacht bent, ongeveer tweehonderd milliseconden … komt de bal echt onverwacht, dan duurt het eerder een seconde' (keuze Kamiel 29 okt 2026; bronnen B11, B18, B12). Status `!` → `✓`.
 
 ## Menselijke controle
 
