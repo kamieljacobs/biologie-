@@ -140,8 +140,11 @@ const SB5 = {
   // ================= H5 WARM OF KOUD =================
   e5s33(ctx) { e5Weiland(ctx, { horizon: 300, slootY: 960, bomen: false }); ecoTag(ctx, _F5, 'WARM OF KOUD');
     ecoSpitsmuis(ctx, 900, 760, 40, { houding: 'snuffelen', t: 0.2 }); ecoRegenworm(ctx, 1420, 800, 22, { houding: 'zij', t: 0.4 });
-    e5Klok(ctx, 220, 240, 80, 3); naamBij(ctx, 'om de 2 à 3 uur eten', null, 220, 380, 1, 'center');
-    naamBij(ctx, 'bosspitsmuis', '± 10 gram · vergroot', 900, 470, 1, 'center'); },
+    metaText(ctx, 'ENERGIE PER DAG · ± 8 GRAM', 120, 180, C.grain, 'left', 26);
+    roundRect(ctx, 120, 210, 260, 50, 10); shape(ctx, rgba(C.koraal, 0.35), C.line, 2); text(ctx, 'verwacht', 400, 246, fTekst(36, 600), C.text, 'left');
+    roundRect(ctx, 120, 280, 610, 50, 10); shape(ctx, rgba(C.koraal, 0.85), C.koraal, 2); text(ctx, 'gemeten: ± 58 kJ', 750, 316, fTekst(36, 700), C.text, 'left');
+    metaText(ctx, '2–2,5× ZO VEEL · OCHOCIŃSKA & TAYLOR 2005', 120, 372, C.text2, 'left', 26);
+    naamBij(ctx, 'bosspitsmuis', '± 8 gram · vergroot', 900, 470, 1, 'center'); },
   e5s34(ctx) { e5Bg(ctx); ecoTag(ctx, _F5, 'WARM OF KOUD');
     e5Bakje(ctx, 110, 680, 540, 380, { label: 'spitsmuis' }); ecoSpitsmuis(ctx, 420, 656, 24, { houding: 'staan' }); e5Hoopje(ctx, 200, 658, 50);
     e5Bakje(ctx, 690, 680, 540, 380, { label: 'zandhagedis' }); hagedis(ctx, 980, 654, 0.95, { houding: 'staan' }); e5Hoopje(ctx, 780, 658, 50);

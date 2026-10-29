@@ -318,10 +318,8 @@
    "hoofdstuk": "H5 Warm of koud",
    "laag": "basis",
    "look": "Macro",
-   "tekst": "In de slootkant scharrelt een bosspitsmuis van ongeveer tien gram. Ze eet per dag bijna haar eigen gewicht aan insecten en wormen. Om de twee à drie uur moet ze eten, anders haalt ze het niet.",
-   "beweging": "De spitsmuis snuffelt door het gras en vindt een regenworm; een klokje linksonder tikt drie uur verder.",
-   "twijfel": "Hoeveel eet een bosspitsmuis per dag: bijna haar eigen gewicht, of twee tot drie keer haar gewicht?",
-   "waarom": "De bronnen spreken elkaar tegen (Mammal Society 80–90 %, Wikipedia 200–300 %); ik koos het voorzichtige getal."
+   "tekst": "In de slootkant scharrelt een bosspitsmuis van ongeveer acht gram. Onderzoekers maten bij vrij levende spitsmuizen dat zo'n diertje per dag ongeveer achtenvijftig kilojoule verbruikt. Dat is twee tot tweeënhalf keer zoveel als je bij een zoogdier van dat gewicht verwacht. Per gram is het het hoogste dat ooit bij een zoogdier in het wild is gemeten. Ze leeft dicht bij haar grens, en moet daarom bijna aan één stuk eten.",
+   "beweging": "De spitsmuis snuffelt door het gras en vindt een regenworm; linksboven een balk: verwacht voor een zoogdier van 8 gram tegenover gemeten (2–2,5× zo lang)."
   },
   {
    "id": "e5s34",
@@ -547,8 +545,12 @@
    "bron": "Wikipedia (en) Common vole, geraadpleegd 29 okt 2026; film: \"honderden muizen en spitsmuizen\""
   },
   {
-   "waarde": "Bosspitsmuis (Sorex araneus): 5–14 g; eet 80–90 % van het eigen gewicht per dag; moet elke 2–3 uur eten",
-   "bron": "The Mammal Society, Common shrew (mammal.org.uk); Wikipedia Common shrew: 5–12 g, elke 2–3 uur eten (noemt 200–300 % per dag: tegenstrijdig, zie twijfel)"
+   "waarde": "Bosspitsmuis (Sorex araneus), veldmeting met dubbel gelabeld water, NO-Polen, zomer: ± 8,2 g, veldmetabolisme 58,1 ± 8,0 kJ per dag = 216–258 % van de verwachting voor een standaardzoogdier van die massa; hoogste massaspecifieke veldmetabolisme bij zoogdieren; \"operates close to its physiological limits\"",
+   "bron": "Ochocińska & Taylor 2005, Physiological and Biochemical Zoology 78(5): 808–818, doi 10.1086/431190 (abstract geopend via bib-bvb.de, JSTOR 30161319)"
+  },
+  {
+   "waarde": "Berekening (niet in de vertelling): 58,1 kJ / 8,2 g ≈ 7,1 kJ per gram per dag; voor 60 kg zou dat ± 425.000 kJ per dag zijn. Niet gebruikt, omdat ik voor het verbruik van een mens geen A-bron kon openen.",
+   "bron": "eigen berekening uit Ochocińska & Taylor 2005"
   },
   {
    "waarde": "Zandhagedis: ±15 g, tot ±20 cm met staart",
@@ -639,7 +641,7 @@
   "Twee percentages kunnen botsen: productie van één koe (±2,5 % van de opname) en ±10 % per trofisch niveau. De film zegt expliciet dat de 10 % een gemiddelde over een heel niveau is en dat het bij warmbloedige dieren vaak minder is.",
   "NPP ≈ de helft van BPP: de bron (Collalti & Prentice) gaat over bossen; voor grasland \"vaak ongeveer de helft\" gelaten.",
   "Grasopbrengst 14 t ds/ha is de oogstbare bovengrondse opbrengst van bemest grasland (maximaal haalbaar), geen volledige NPP; daarom \"kan oplopen tot\". Het staafdiagram (vwo) gebruikt natuurlijke ecosystemen (Ricklefs).",
-  "Spitsmuis: Mammal Society 80–90 % van het eigen gewicht per dag, Wikipedia 200–300 %. Gekozen: \"bijna haar eigen gewicht\" (twijfelscène e5s35).",
+  "Kamiel: Mammal Society geen A-bron → Ochocińska & Taylor 2005. e5s33 zegt nu het gemeten energieverbruik (± 58 kJ per dag bij ± 8 g, 2–2,5× de verwachting) in plaats van \"bijna haar eigen gewicht\"; \"om de twee à drie uur\" (Mammal Society/Wikipedia) is vervangen door \"dicht bij haar grens … bijna aan één stuk eten\". Twijfel weg.",
   "Familie aan tafel bij de biefstuk: familie van Noor (Noor, Linda, Rachid, Teun) als menselijk moment dat de voedselconversie draagt; niet bij naam genoemd. Veehouder = Veehouder Gerrit (vaste rol), niet bij naam genoemd.",
   "Omgekeerde piramide van aantallen: één knotwilg aan de slootkant met bladluizen en lieveheersbeestjes (lhb uit lib_evo, Aziatisch lieveheersbeestje); eik/rups/pimpelmees hoort bij film 2 (besluit coördinator).",
   "HERSTEL review (MOET 1): e5s36 noemde 20 °C en gewicht \"controle\"; nu \"constant gehouden\", plus een derde bakje met alleen voer als echte controle (in tekst en beeld).",
@@ -689,10 +691,10 @@
   "beoordeling": "films/ecologie/v2/b15/f5/beoordeling.md"
  },
  "duur": {
-  "basis_min": 10.3,
-  "met_vwo_min": 11.1,
-  "woorden": 1371,
-  "woorden_basis": 1255,
+  "basis_min": 10.5,
+  "met_vwo_min": 11.3,
+  "woorden": 1406,
+  "woorden_basis": 1290,
   "woorden_vwo": 116
  }
 }

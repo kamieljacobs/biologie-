@@ -131,21 +131,27 @@
    "hoofdstuk": "1 Stikstof uit de lucht",
    "laag": "basis",
    "look": "Schema",
-   "tekst": "Het gras blijft klein en geel. De klaver staat groen en dicht. Trek je een klaverplant voorzichtig uit, dan zie je kleine bolletjes aan de wortels. Dat zijn wortelknolletjes.",
-   "beweging": "De bakken na acht weken naast elkaar; een hand tilt de klaver op, de knolletjes aan de wortels worden goud omlijnd."
+   "tekst": "Het gras blijft klein en geel. De klaver staat groen en dicht.",
+   "beweging": "De bakken na acht weken naast elkaar: geel, laag gras tegenover dichte groene klaver."
   },
   {
    "id": "e7s12",
    "hoofdstuk": "1 Stikstof uit de lucht",
    "laag": "basis",
-   "look": "Micro",
-   "tekst": "In elk knolletje leven bacteriën. Zij krijgen het wel voor elkaar. Ze maken van stikstofgas ammonium. Dat heet stikstofbinding. Een knolletje dat werkt, is vanbinnen roze.",
-   "beweging": "Zoomcirkel van een knolletje naar zijn doorsnede: cellen vol bacteriën; stikstofgas gaat erin, ammonium komt eruit.",
-   "twijfel": "Nieuwe tekening voor de bibliotheek: doorsnede van een wortelknolletje met bacteriën, zonder referentieplaat getekend.",
-   "waarom": "Een nieuw Micro-object dat in de bibliotheek komt, keur jij volgens V1; er is nog geen referentie van je broer."
+   "look": "Macro",
+   "tekst": "Trek je een klaverplant voorzichtig uit de grond, dan hangen er aan de wortels een stuk of vijftien roze bolletjes van een paar millimeter. Dat zijn wortelknolletjes.",
+   "beweging": "Yasmin trekt een witte klaverplant uit het weiland; in een vergrote uitsnede (ware verhoudingen, schaalstreep 1 cm) hangen de wortels met roze knolletjes van 2–4 mm, aarde valt eraf."
   },
   {
    "id": "e7s13",
+   "hoofdstuk": "1 Stikstof uit de lucht",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "In elk knolletje leven bacteriën. Zij krijgen het wel voor elkaar. Ze maken van stikstofgas ammonium. Dat heet stikstofbinding. Een knolletje dat werkt, is vanbinnen roze.",
+   "beweging": "Zoomcirkel van een knolletje naar zijn doorsnede: cellen vol bacteriën; stikstofgas gaat erin, ammonium komt eruit."
+  },
+  {
+   "id": "e7s14",
    "hoofdstuk": "1 Stikstof uit de lucht",
    "laag": "basis",
    "look": "Schema",
@@ -153,7 +159,7 @@
    "beweging": "Twee pijlen tussen plant en bacterie: groen (suikers) naar de bacterie, blauw (ammonium) naar de plant; een haak \"mutualisme\"."
   },
   {
-   "id": "e7s14",
+   "id": "e7s15",
    "hoofdstuk": "1 Stikstof uit de lucht",
    "laag": "basis",
    "look": "Macro",
@@ -161,7 +167,7 @@
    "beweging": "De veehouder loopt over zijn weiland en strooit klaverzaad; tussen het gras komen klaverblaadjes op."
   },
   {
-   "id": "e7s15",
+   "id": "e7s16",
    "hoofdstuk": "1 Stikstof uit de lucht",
    "laag": "basis",
    "look": "Macro",
@@ -169,7 +175,7 @@
    "beweging": "Een akker na de oogst: een groene laag klaver komt op; een ploeg keert hem om in de grond."
   },
   {
-   "id": "e7s16",
+   "id": "e7s17",
    "hoofdstuk": "1 Stikstof uit de lucht",
    "laag": "basis",
    "look": "Schema",
@@ -177,7 +183,7 @@
    "beweging": "Drie pijlen uit de lucht naar de bodem: bacteriën, bliksem (dun) en fabriek (dik); de dikte van de pijl is de hoeveelheid."
   },
   {
-   "id": "e7s17",
+   "id": "e7s18",
    "hoofdstuk": "2 Van mest tot nitraat",
    "laag": "basis",
    "look": "Schema",
@@ -185,7 +191,7 @@
    "beweging": "Wortel neemt blauwe bolletjes op; in het blad haken ze aan groene suikers en vormen een kralenketting die zich vouwt."
   },
   {
-   "id": "e7s18",
+   "id": "e7s19",
    "hoofdstuk": "2 Van mest tot nitraat",
    "laag": "basis",
    "look": "Macro",
@@ -193,7 +199,7 @@
    "beweging": "Koe graast; blauwe stippen gaan van het gras de koe in en komen eruit als urine en mest op de grond."
   },
   {
-   "id": "e7s19",
+   "id": "e7s20",
    "hoofdstuk": "2 Van mest tot nitraat",
    "laag": "basis",
    "look": "Schema",
@@ -201,7 +207,7 @@
    "beweging": "De veehouder zet een emmer mest neer en schept een laag in bak 3; de seizoensklok staat op week 0, twee strips liggen klaar."
   },
   {
-   "id": "e7s20",
+   "id": "e7s21",
    "hoofdstuk": "2 Van mest tot nitraat",
    "laag": "basis",
    "look": "Schema",
@@ -209,7 +215,7 @@
    "beweging": "Seizoensklok week 1; de ammoniumstrip kleurt; zoomcirkel in de mest: afbrekers knippen eiwitketens en laten ammonium los."
   },
   {
-   "id": "e7s21",
+   "id": "e7s22",
    "hoofdstuk": "2 Van mest tot nitraat",
    "laag": "basis",
    "look": "Schema",
@@ -217,7 +223,7 @@
    "beweging": "Doorsnede van een stal (Schema): koe in de stal, urine en mest vloeien samen in de put; kleine blauwe ammoniakbolletjes stijgen op en drijven weg."
   },
   {
-   "id": "e7s22",
+   "id": "e7s23",
    "hoofdstuk": "2 Van mest tot nitraat",
    "laag": "basis",
    "look": "Schema",
@@ -225,7 +231,7 @@
    "beweging": "Seizoensklok week 4; ammonium daalt, nitraat stijgt in een kleine meetgrafiek naast de bak."
   },
   {
-   "id": "e7q23",
+   "id": "e7q24",
    "hoofdstuk": "2 Van mest tot nitraat",
    "laag": "basis",
    "look": "Schema",
@@ -235,7 +241,7 @@
    "juist": "A"
   },
   {
-   "id": "e7s24",
+   "id": "e7s25",
    "hoofdstuk": "2 Van mest tot nitraat",
    "laag": "basis",
    "look": "Schema",
@@ -243,7 +249,7 @@
    "beweging": "De twee meetgrafiekjes naast elkaar: open bak ammonium omlaag en nitraat omhoog, dichte bak ammonium blijft hoog en nitraat vlak."
   },
   {
-   "id": "e7s25",
+   "id": "e7s26",
    "hoofdstuk": "2 Van mest tot nitraat",
    "laag": "vwo",
    "look": "Micro",
@@ -251,7 +257,7 @@
    "beweging": "Een staafvormige bacterie: ammonium gaat erin, nitraat eruit, een gouden energiepijl naar binnen; een doorgestreept zonnetje."
   },
   {
-   "id": "e7s26",
+   "id": "e7s27",
    "hoofdstuk": "2 Van mest tot nitraat",
    "laag": "vwo",
    "look": "Schema",
@@ -259,7 +265,7 @@
    "beweging": "Twee staafjes C tegenover N voor stro en klaver, zonder grenslijn; een verwijskaartje naar de film over afbraak."
   },
   {
-   "id": "e7s27",
+   "id": "e7s28",
    "hoofdstuk": "3 Het lek naar de sloot",
    "laag": "basis",
    "look": "Schema",
@@ -267,7 +273,7 @@
    "beweging": "Een leeftijdgenoot giet water over een kleibak en een zandbak; druppels zakken door de lagen naar de kraantjes."
   },
   {
-   "id": "e7q28",
+   "id": "e7q29",
    "hoofdstuk": "3 Het lek naar de sloot",
    "laag": "basis",
    "look": "Schema",
@@ -277,7 +283,7 @@
    "juist": "C"
   },
   {
-   "id": "e7s29",
+   "id": "e7s30",
    "hoofdstuk": "3 Het lek naar de sloot",
    "laag": "basis",
    "look": "Schema",
@@ -285,7 +291,7 @@
    "beweging": "Model van een kleideeltje met mintekens: ammonium (plus) blijft hangen, nitraat (min) glijdt met waterdruppels omlaag."
   },
   {
-   "id": "e7s30",
+   "id": "e7s31",
    "hoofdstuk": "3 Het lek naar de sloot",
    "laag": "basis",
    "look": "Schema",
@@ -293,7 +299,7 @@
    "beweging": "De opvangbekers van klei- en zandbak naast elkaar met hun strips."
   },
   {
-   "id": "e7s31",
+   "id": "e7s32",
    "hoofdstuk": "3 Het lek naar de sloot",
    "laag": "basis",
    "look": "Macro",
@@ -301,7 +307,7 @@
    "beweging": "Doorsnede van weiland en sloot: blauwe nitraatpijlen en een paar oranje fosfaatpijlen zakken door de grond en stromen zijdelings de sloot in; het kroos groeit dicht."
   },
   {
-   "id": "e7s32",
+   "id": "e7s33",
    "hoofdstuk": "3 Het lek naar de sloot",
    "laag": "basis",
    "look": "Macro",
@@ -309,7 +315,7 @@
    "beweging": "Hetzelfde weiland in drie seizoenen: in de zomer nemen de wortels de blauwe stippen op, in de winter zakken ze met de regen weg."
   },
   {
-   "id": "e7s33",
+   "id": "e7s34",
    "hoofdstuk": "3 Het lek naar de sloot",
    "laag": "basis",
    "look": "Schema",
@@ -317,7 +323,7 @@
    "beweging": "Een staafdiagram bouwt zich op: links drie blokken aanvoer op elkaar, rechts één blok afvoer."
   },
   {
-   "id": "e7q34",
+   "id": "e7q35",
    "hoofdstuk": "3 Het lek naar de sloot",
    "laag": "basis",
    "look": "Schema",
@@ -327,7 +333,7 @@
    "juist": "B"
   },
   {
-   "id": "e7s35",
+   "id": "e7s36",
    "hoofdstuk": "3 Het lek naar de sloot",
    "laag": "basis",
    "look": "Schema",
@@ -335,7 +341,7 @@
    "beweging": "Het verschil tussen de staven licht goud op als overschot en splitst in drie pijlen: lucht, grondwater, stikstofgas."
   },
   {
-   "id": "e7s36",
+   "id": "e7s37",
    "hoofdstuk": "3 Het lek naar de sloot",
    "laag": "basis",
    "look": "Schema",
@@ -343,7 +349,7 @@
    "beweging": "Naast de stikstofkringloop een kleinere oranje fosforkringloop zonder lucht-deel: bodem, plant, dier, mest, sloot."
   },
   {
-   "id": "e7s37",
+   "id": "e7s38",
    "hoofdstuk": "4 Zonder zuurstof",
    "laag": "basis",
    "look": "Schema",
@@ -351,7 +357,7 @@
    "beweging": "Een leeftijdgenoot draait het kraantje dicht en giet de bak vol; het waterpeil stijgt boven de grond; de seizoensklok loopt drie weken."
   },
   {
-   "id": "e7q38",
+   "id": "e7q39",
    "hoofdstuk": "4 Zonder zuurstof",
    "laag": "basis",
    "look": "Schema",
@@ -361,7 +367,7 @@
    "juist": "A"
   },
   {
-   "id": "e7s39",
+   "id": "e7s40",
    "hoofdstuk": "4 Zonder zuurstof",
    "laag": "basis",
    "look": "Schema",
@@ -369,7 +375,7 @@
    "beweging": "Seizoensklok week 3; de nitraatstrip blijft wit; zoomcirkel in de natte grond: bacteriën nemen nitraat op en laten stikstofgas los, dat opstijgt."
   },
   {
-   "id": "e7s40",
+   "id": "e7s41",
    "hoofdstuk": "4 Zonder zuurstof",
    "laag": "basis",
    "look": "Macro",
@@ -377,7 +383,7 @@
    "beweging": "Doorsnede van een nat weiland en de slootbodem: in de donkere, natte laag stijgen stikstofbelletjes op."
   },
   {
-   "id": "e7s41",
+   "id": "e7s42",
    "hoofdstuk": "4 Zonder zuurstof",
    "laag": "basis",
    "look": "Schema",
@@ -385,7 +391,7 @@
    "beweging": "Het hele kringloopschema licht stap voor stap op; de pijlen met en zonder zuurstof krijgen elk een eigen markering."
   },
   {
-   "id": "e7s42",
+   "id": "e7s43",
    "hoofdstuk": "5 Van wc tot kraan",
    "laag": "basis",
    "look": "Schema",
@@ -393,7 +399,7 @@
    "beweging": "Een leeftijdgenoot drukt op de spoelknop van een toilet; een buis loopt van het huis onder de straat naar een zuivering."
   },
   {
-   "id": "e7s43",
+   "id": "e7s44",
    "hoofdstuk": "5 Van wc tot kraan",
    "laag": "basis",
    "look": "Schema",
@@ -401,7 +407,7 @@
    "beweging": "De zuivering als schema van links naar rechts: rooster, bezinktank, beluchtingstank met opstijgende luchtbellen; ammonium wordt nitraat."
   },
   {
-   "id": "e7s44",
+   "id": "e7s45",
    "hoofdstuk": "5 Van wc tot kraan",
    "laag": "basis",
    "look": "Schema",
@@ -409,7 +415,7 @@
    "beweging": "Een tank zonder bellen; nitraat wordt stikstofgas dat opstijgt; een oranje fosfaatpijl gaat naar het slib."
   },
   {
-   "id": "e7s45",
+   "id": "e7s46",
    "hoofdstuk": "5 Van wc tot kraan",
    "laag": "vwo",
    "look": "Micro",
@@ -417,7 +423,7 @@
    "beweging": "Een rond anammoxbacterie-cluster: ammonium en nitriet gaan samen naar binnen, stikstofgas komt eruit."
   },
   {
-   "id": "e7q46",
+   "id": "e7q47",
    "hoofdstuk": "5 Van wc tot kraan",
    "laag": "basis",
    "look": "Schema",
@@ -427,7 +433,7 @@
    "juist": "C"
   },
   {
-   "id": "e7s47",
+   "id": "e7s48",
    "hoofdstuk": "5 Van wc tot kraan",
    "laag": "basis",
    "look": "Macro",
@@ -435,7 +441,7 @@
    "beweging": "Lange camerabeweging stroomafwaarts: uitlaat van de zuivering, de Maas, een innamepunt, de bekkens, een drinkwaterbedrijf, een kraan."
   },
   {
-   "id": "e7s48",
+   "id": "e7s49",
    "hoofdstuk": "5 Van wc tot kraan",
    "laag": "basis",
    "look": "Schema",
@@ -443,7 +449,7 @@
    "beweging": "Een glas water met een nitraatstrip ernaast; een meetlat met de grens bij 50 mg per liter."
   },
   {
-   "id": "e7s49",
+   "id": "e7s50",
    "hoofdstuk": "Samenvatting",
    "laag": "basis",
    "look": "Schema",
@@ -451,7 +457,7 @@
    "beweging": "De bakken staan links naast het volle kringloopschema; elke zin licht zijn eigen pijl op; de sloot uit de opening staat klein rechtsonder."
   },
   {
-   "id": "e7s50",
+   "id": "e7s51",
    "hoofdstuk": "Samenvatting",
    "laag": "basis",
    "look": "Schema",
@@ -629,6 +635,10 @@
   }
  ],
  "getallen": [
+  {
+   "waarde": "witte klaver: ± 15 knolletjes per plant, klein, langwerpig (cilindrisch), actief = roze/rood van binnen, over de hele worteldiepte; pop-maat 2–4 mm, wortels ± 15 cm, plant 10–20 cm",
+   "bron": "Organic Eprints 2017, Root nodules factsheet (orgprints.dk/id/eprint/31344, via lessen_pop_eco_klein2.md); Acta Soc. Bot. Pol. (DOAJ) cilindrische knolletjes bij Trifolium repens; maat 2–4 mm uit de goedgekeurde klaverpop, niet zelf in een geopende bron gecontroleerd"
+  },
   {
    "waarde": "lucht ± 78 % stikstofgas (N₂); planten en dieren kunnen het niet gebruiken",
    "bron": "IVN, Kringlopen (ivn.nl, 2022): \"N2 goed voor 78% van de troposfeer\"; methodekennis BvJ/Nectar"
@@ -831,6 +841,7 @@
   "e7Route(ctx) — stroomafwaartse route rwzi → Maas → inname → Biesbosch-bekkens → drinkwaterbedrijf → kraan"
  ],
  "keuzes_en_twijfels": [
+  "Kamiel: wortels met knolletjes erbij (bij e7s12, goedgekeurd met opmerking): nieuwe Macro-scène vóór de doorsnede (Yasmin trekt een witte klaver uit de grond; uitsnede op ware verhouding met ± 15 roze knolletjes van 2–4 mm en schaalstreep). e7s12 (doorsnede) is goedgekeurd: geen twijfelscène meer.",
   "Review 29 okt (MOET 1): puzzelantwoord en eutrofiëring nu met nitraat én fosfaat (e7s31, e7s36, e7s49, eindkaart e7s50); fosfaat vaak beperkend in zoet water; oranje fosfaatpijlen in e7s31.",
   "Review (MOET 2): e7s05 plant, koe en jij in drie aparte vakjes met \"niet op schaal\".",
   "Review (MOET 3): e7s04 kraantje-label onder de tafel bij bak 1, met een gouden ring om het kraantje.",
@@ -848,15 +859,14 @@
   "Fabrieken tegenover bacteriën: ± 150 Tg tegenover ± 120 Tg N per jaar; daarom \"minstens evenveel als alle bacteriën op het land samen\" (voorzichtig; de schattingen lopen uiteen), niet \"als alle bacteriën samen\" (in zee binden bacteriën ook veel).",
   "Castpersonages: Yasmin en Bilal (leeftijdgenoten, rol uit ROLLEN.md) doen de bakkenproef; Veehouder Gerrit (boer) zaait klaver en brengt mest. Niet bij naam genoemd.",
   "Proefregel P2: elke misconceptie uit de brief die in deze film speelt, wordt bevraagd (planten halen stikstof uit de lucht: e7q07; zonder lucht gebeurt er niets: e7q23/e7q38; wc-water gaat rechtstreeks naar de kraan: e7q46; energie gaat rond en stikstof in de lucht is vervuiling: checkvragen). Een begeleider met beroep is er niet (geen Wat word jij?-film); het beroep veehouder wordt wel uitgesproken (e7s14).",
-  "Twijfelscène e7s12: het wortelknolletje in doorsnede is een nieuwe Micro-tekening voor de bibliotheek, gemaakt zonder referentieplaat. Alle andere nieuwe tekeningen zijn film-eigen schema's en zelf gekeurd op het contactblad.",
-  "Wolf, zonnedauw, Veluwemeer niet gebruikt. Het oude ree-voorbeeld (Alles gaat rond) niet overgenomen.",
-  "Eerder zelf gevonden en hersteld: vraagoptie huidmondjes vs. vertelling; scène na de luchtdicht-vraag zelfstandig gemaakt; eiwitVouw- en _mix-botsing vervangen door eigen functies; kringloopschema zonder kruisende pijlen; bodemdoorsnede met rechte veelhoeken; ± 10 labels verplaatst."
+  "(Was twijfelscène e7s12, nu goedgekeurd door Kamiel:) het wortelknolletje in doorsnede is een nieuwe Micro-tekening voor de bibliotheek, gemaakt zonder referentieplaat. Alle andere nieuwe tekeningen zijn film-eigen schema's en zelf gekeurd op het contactblad.",
+  "Wolf, zonnedauw, Veluwemeer niet gebruikt. Het oude ree-voorbeeld (Alles gaat rond) niet overgenomen."
  ],
  "duur": {
-  "basis_min": 12.5,
-  "met_vwo_min": 13.3,
-  "woorden": 1636,
-  "woorden_basis": 1526,
+  "basis_min": 12.6,
+  "met_vwo_min": 13.4,
+  "woorden": 1646,
+  "woorden_basis": 1536,
   "woorden_vwo": 110
  },
  "b15": {
