@@ -1,0 +1,5 @@
+# Ecologie v2 — uitknippoppen (ter keuring, 29 okt 2026)
+Nog NIET in de beeldbank: pas na Kamiels keuring (artifact 'Beeldbank: ecologiedieren', https://claude.ai/artifact/H3FxJPp1vF1xqxu2rm4Avo, db-collecties `keuring` (doc-id = dier, oordeel goed|bijna|opnieuw, opmerking) en `vragen` (bomen, detail)) gaan de goedgekeurde dieren naar `bibliotheek/dieren/`.
+- `src/pop_eco_rovers.js` vos, lynx · `pop_eco_hoef.js` schaap, ree, moeflon, wild zwijn, frisling · `pop_eco_klein.js` bever, konijn, sneeuwschoenhaas, spitsmuis · `pop_eco_klein2.js` gaai, pimpelmees, pissebed, regenworm, duizendpoot, leverbotslak, waterlarven, eikenblad, klaver, helm, heide, den, berk, eik.
+- Renderen: werkmap met de render-opzet van `films/evolutie/storyboards-v2/` (render.py, render.html, src/), dan `python3 render.py dieren_zoog,dieren_overig,wolf_pop,pop_honden,pop_katten,pop_hoef,pop_vogels,pop_darwin,pop_eco_<familie>,tv_pop_eco_<familie> TV_pop_eco_<familie>`.
+- Lessen per familie: `lessen_pop_eco_*.md`; opdracht: `POPBRIEF.md`. Filmpjes van de bewegingen: `films/`.
