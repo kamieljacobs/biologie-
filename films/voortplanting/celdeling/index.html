@@ -4140,7 +4140,7 @@ function cycleRing(ctx,t,q,{phase}){
   ctx.save(); ctx.globalAlpha=ringA; ctx.lineWidth=th; ctx.strokeStyle=rgba(C.line,0.25); ctx.beginPath(); ctx.arc(cx,cy,R,0,6.2832); ctx.stroke(); ctx.restore();
   const cues={interfase:'interfase',mitose:'mitose',cytokinese:'cytokinese'};
   segs.forEach(([n,f0,f1,col])=>{ const a=show(cues[n]); if(a<=0) return; ctx.save(); ctx.globalAlpha=a; ctx.lineWidth=th; ctx.strokeStyle=rgba(col,0.75); ctx.beginPath(); ctx.arc(cx,cy,R,ang(f0)+0.01,ang(f1)-0.01); ctx.stroke();
-    const fm=(f0+f1)/2, lx=cx+Math.cos(ang(fm))*(R+th/2+40), ly=cy+Math.sin(ang(fm))*(R+th/2+40); if(n==='interfase') text(ctx,'interfase',cx,cy-10,fTekst(44,600),C.text,'center'); else text(ctx,n,lx,ly,fTekst(30,600),C.text,lx<cx?'right':'left'); ctx.restore(); });
+    const fm=(f0+f1)/2, lx=cx+Math.cos(ang(fm))*(R+th/2+40), ly=cy+Math.sin(ang(fm))*(R+th/2+40); if(n==='interfase') text(ctx,'interfase',cx,cy-10,fTekst(44,600),C.text,'center'); else if(n==='cytokinese'){ const p=[cx+Math.cos(ang(fm))*(R+th/2),cy+Math.sin(ang(fm))*(R+th/2)]; text(ctx,n,p[0]+4,p[1]-24,fTekst(30,600),C.text,'center'); } else { const p=[cx+Math.cos(ang(fm))*(R-th/2-58),cy+Math.sin(ang(fm))*(R-th/2-58)]; text(ctx,n,p[0],p[1],fTekst(30,600),C.text,'center'); } ctx.restore(); });   // v2.2.1 (nacontrole 29 okt): cytokinese boven zijn stukje, mitose binnen de ring onder zijn stukje (lagen over elkaar)
   if(phase==='g1sg2'||phase==='check'){ const subs=[['G1',0,0.4,'G1'],['S',0.4,0.7,'S-fase'],['G2',0.7,0.92,'G2']];
     subs.forEach(([n,f0,f1,cue])=>{ const a=phase==='g1sg2'?ramp(t,q.at(cue),0.4):1; if(a<=0) return; ctx.save(); ctx.globalAlpha=a; ctx.strokeStyle=C.bgSchema; ctx.lineWidth=6; for(const f of [f0,f1]){ ctx.beginPath(); ctx.moveTo(cx+Math.cos(ang(f))*(R-th/2),cy+Math.sin(ang(f))*(R-th/2)); ctx.lineTo(cx+Math.cos(ang(f))*(R+th/2),cy+Math.sin(ang(f))*(R+th/2)); ctx.stroke(); }
       const fm=(f0+f1)/2; text(ctx,n,cx+Math.cos(ang(fm))*R,cy+Math.sin(ang(fm))*R+12,fTekst(34,700),C.text,'center'); ctx.restore(); });
@@ -4937,8 +4937,8 @@ function drawQuestion(ctx,it,t){
   state.optionZones=seg.options.map((o,i)=>({x:120,y:430+i*112,w:1680,h:96,i}));
 }
 // captions: phrase chunks of ≤ 2 lines ≤ 44 chars
-function chunks(seg){ const it=state.items[state.idx]; const cu=(it&&it.seg===seg&&it.cuts)||[]; const cs=chunks0(seg); return cu.length?cs.map(c=>c.filter(w=>!cu.some(k=>w.s>=k[0]-0.02&&w.s<k[1]-0.02))).filter(c=>c.length):cs; } function chunks0(seg){ if(seg._chunks) return seg._chunks; const out=[]; let cur=[]; let len=0;
-  for(const w of seg.words){ const t=w.t.replace(/\b(ee-er)\b/gi,'ER').replace(/dee-en-aa/gi,'DNA'); cur.push({...w,t}); len+=t.length+1; const endS=/[.?!:]$/.test(t);
+function chunks(seg){ const it=state.items[state.idx]; const cu=(it&&it.seg===seg&&it.cuts)||[]; const cs=chunks0(seg); return cu.length?cs.map(c=>c.filter(w=>!cu.some(k=>w.s>=k[0]-0.02&&w.s<k[1]-0.02))).filter(c=>c.length):cs; } /*CAPLETTER_MARK fn*/ function capLetter(t,v){ if(!/\bantwoord(\s+(is|was))?[:,]?$/i.test(v.trim())) return t; const m=t.match(/^(aa|bee|bé|bè|cee|dee|a|b|c|d)([.,:;!?]*)$/i); if(!m) return t; const k=m[1].toLowerCase(); return ({aa:'A',a:'A',bee:'B','bé':'B','bè':'B',b:'B',cee:'C',c:'C',dee:'D',d:'D'})[k]+m[2]; } function chunks0(seg){ if(seg._chunks) return seg._chunks; const out=[]; let cur=[]; let len=0;
+  /*CAPLETTER_MARK 29okt2026*/ let capVorige=''; for(const w of seg.words){ const t=capLetter(w.t.replace(/\b(ee-er)\b/gi,'ER').replace(/dee-en-aa/gi,'DNA'),capVorige); capVorige=(capVorige+' '+w.t).split(' ').slice(-3).join(' '); cur.push({...w,t}); len+=t.length+1; const endS=/[.?!:]$/.test(t);
     const comma=/[,;]$/.test(t);
     if(len>88||(endS&&len>24)||(comma&&len>48)){ out.push(cur); cur=[]; len=0; } }
   if(cur.length) out.push(cur); seg._chunks=out; return out; }

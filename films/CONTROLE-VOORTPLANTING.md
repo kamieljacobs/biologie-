@@ -60,7 +60,7 @@ Ernst: **hoog** = fout of lelijk zichtbaar voor leerlingen, **laag** = detail. T
 
 ## 5 · Celdeling (`celdeling/index.html`)
 
-1. s06, einde (de celcyclus-ring, 'De twee nieuwe cellen krijgen allebei al het DNA'): de labels 'cytokinese' en 'mitose' bovenaan de ring liggen over elkaar. **hoog**
+1. s06, einde (de celcyclus-ring, 'De twee nieuwe cellen krijgen allebei al het DNA'): de labels 'cytokinese' en 'mitose' bovenaan de ring liggen over elkaar. **hoog** · **hersteld** (29 okt 2026): cytokinese boven zijn stukje, mitose binnen de ring (s06–s10).
 2. e01, einde (plantencel): 'celplaat / WORDT EEN NIEUWE CELWAND' raakt de bovenrand van de groene celwand. Achter de plantencel schemert nog de vorige (dierlijke) cel. **laag**
 3. s27 ('Een normale zaadcel bevrucht hem'): het rode getal '24' staat op het membraan van de eicel, en er is geen zaadcel te zien. **laag**
 4. s33 (samenvatting): het eerste kaartje 'eerst kopiëren, in de interfase' heeft links een bijna onzichtbaar vormpje. **laag**

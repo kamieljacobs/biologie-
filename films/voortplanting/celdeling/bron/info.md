@@ -16,6 +16,12 @@ Versie 2.0 is een lichte remake (prompt v10, B16) in de FILMDATA-straat van Chro
 | Audio-opslag | 33 losse mp3's, gemasterd op −16 LUFS / −1,5 dBTP (loudnorm, één pass); ruwe takes buiten de repo |
 | Herkomst | lichte remake (B16), keuring 25 okt 2026 (besluiten: één film in twee delen; Linda, eicel ruim 27 jaar; cohesine goud-grijs; één crossing-over per paar; script; `films/verbeterbladen/remake-2026-10/besluiten.md`). Fase 1: `remake-2026-10/` (script_v2, storyboard, keyframes, twijfelscènes, bronnen, samenvatting). Frisse beeldreview: `review_fris_2026-10-26.md` (17 MOET, alle hersteld op 26 okt 2026; KAN 6, 7 deels: mitoseboog 4 %, ringschets meteen in beeld) |
 
+## Wijzigingen 2.1 nacontrole (29 okt 2026)
+
+- s06, s08, s09, s10 (celcyclusring, `cycleRing` in `src/oud_hulp.js`): 'cytokinese' staat nu boven zijn groene stukje en 'mitose' binnen de ring onder zijn gele stukje; de twee labels lagen over elkaar (ook over het stoplichtje in s10).
+- Speler (via `scripts/spelerfix.py`, CAPLETTER_MARK): ondertitels tonen na 'Antwoord' de gewone letter; in deze film komt dat niet voor.
+- Herbouwd volgens `bouw.sh`; de nieuwe index.html verschilt van de vorige alleen in deze twee punten. Getest: vaste scripts, elke vraag met `?vragen=uit` (geen restjes, geen JS-fouten), contactvel s06–s10 bekeken. Stem en timings ongewijzigd, 0 credits.
+
 ## Wijzigingen 2.1 (29 okt 2026): opwaardering naar prompt v13 (zonder keuring)
 
 Alleen beeld; stem, script, vragen, timings, speler en datum ongewijzigd. Site-HTML bijgewerkt door alleen het scèneblok, FILMDATA en de footer te vervangen. `src/teken_celdeling.js` is weg (naar `oud/`): de film gebruikt nu de cd*-tekeningen uit `bibliotheek/lib_bio.js` (palet B) via het uittreksel `src/lib_bio_deel.js` (`bouw/bio_deel.py`, regel onderaan `bouw.sh`); `lib_micro_evo.js` = actuele kopie uit `bibliotheek/dieren/`. Contactvel van de gewijzigde scènes bekeken (118 stills vwo + extra, geen JS-fouten); vragen afgespeeld met `?vragen=uit` (havo en vwo).

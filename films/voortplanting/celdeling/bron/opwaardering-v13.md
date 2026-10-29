@@ -21,3 +21,5 @@ Totaal ± 1.300 TTS + ± 90 Scribe. Nieuwe soort herinspreken: volgens B14 eerst
 ## (c) Wat ik veranderde
 
 Zie `info.md` → 'Wijzigingen 2.1'. Kort: chromosomen en chromatine in palet B uit de beeldbank; minder paars (celcyclusring, DNA-grafiek, pillen); eicel, eierstok en zaadbal uit de gekeurde beeldbank; geen korrel in s30; geen castnamen meer in beeld en in de vraagtekst. Bronnenlogboek: niets inhoudelijks veranderd, aanvulling onderaan `bronnen.md`.
+
+Nacontrole (29 okt 2026): de labels 'cytokinese' en 'mitose' op de celcyclusring (s06–s10) liggen niet meer over elkaar: cytokinese boven zijn stukje, mitose binnen de ring. Zie `info.md`. Niets ingesproken.
