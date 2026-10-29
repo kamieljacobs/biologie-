@@ -1,1 +1,25 @@
-{"nodes": {"s01": "hIePEprzLI8fts3AIDaZ", "s04": "jmbuW3w4SXmGBZIzshle", "s05": "AYhhkhrLzX5K2wPeQo9y", "s06": "7kVldxoi4R6TdEuzcBCR", "s08": "czOVrBAnAEplLkceLnWJ", "s09": "DPjRjbOH5ycFmIFXGfbd", "s11": "1UHpTBZv1hKHMEJk3jNN", "s12": "2Re3rggC9K5S3etiNm91"}}
+{
+ "nodes": {
+  "s01": "hIePEprzLI8fts3AIDaZ",
+  "s04": "jmbuW3w4SXmGBZIzshle",
+  "s05": "AYhhkhrLzX5K2wPeQo9y",
+  "s06": "7kVldxoi4R6TdEuzcBCR",
+  "s08": "czOVrBAnAEplLkceLnWJ",
+  "s09": "DPjRjbOH5ycFmIFXGfbd",
+  "s11": "1UHpTBZv1hKHMEJk3jNN",
+  "s12": "2Re3rggC9K5S3etiNm91"
+ },
+ "herinspreken_20261029": {
+  "s01_zin1": {
+   "flow": "3ev7KH5LMI4TiMg9uRdj",
+   "node": "LZ4BNh4wQ6oSsntRe5Qa",
+   "generatie": "jKl7QwbURvHlMfAg1Jsd",
+   "model": "eleven_v4",
+   "voice": "7qdUFMklKPaaAVMsBTBt",
+   "invoer": "stem/s01_zin1_20261029.txt",
+   "credits": 63,
+   "duur_s": 4.08,
+   "ingeplakt": "0–4,00 s nieuwe zin, oud vanaf 4,45 s (stilte), crossfade 20 ms"
+  }
+ }
+}

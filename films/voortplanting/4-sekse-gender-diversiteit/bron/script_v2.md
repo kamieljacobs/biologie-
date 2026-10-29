@@ -14,7 +14,7 @@ Misconcepties: (1) een embryo is vanaf het begin zichtbaar jongen of meisje → 
 ---
 
 ## Cold open [Schema: Noor en Dr. Kim bij het echoscherm; scherm met een baby van 20 weken; daarna een embryo van zes weken met een vraagteken bij de geslachtsorganen]
-De tante van Noor is twintig weken zwanger, en Noor mag mee naar de echo. Op het scherm zie je het hoofdje, de armpjes en het hartje. De arts vraagt: willen jullie weten of het een jongen of een meisje wordt? Op een echo van twintig weken is dat vaak al te zien. Maar een paar maanden eerder was dit kindje een embryo van een paar millimeter. Hoe zagen de geslachtsorganen er toen uit? Wat denk je?
+Je tante is twintig weken zwanger, en jij mag mee naar de echo. Op het scherm zie je het hoofdje, de armpjes en het hartje. De arts vraagt: willen jullie weten of het een jongen of een meisje wordt? Op een echo van twintig weken is dat vaak al te zien. Maar een paar maanden eerder was dit kindje een embryo van een paar millimeter. Hoe zagen de geslachtsorganen er toen uit? Wat denk je?
 [VRAAG] (a) al duidelijk jongen of meisje · (b) alleen bij jongens was al iets te zien · (c) bij jongens en meisjes nog precies hetzelfde
 
 ## Titel

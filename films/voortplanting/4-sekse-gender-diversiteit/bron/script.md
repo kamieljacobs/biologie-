@@ -6,7 +6,7 @@ Voortplanting · geslachtsontwikkeling · Roos (eleven_v4) · één take per ali
 
 **s01** · 25.6 s · `audio/s01.mp3`
 
-De tante van Noor is twintig weken zwanger, en Noor mag mee naar de echo. Op het scherm zie je het hoofdje, de armpjes en het hartje. De arts vraagt: willen jullie weten of het een jongen of een meisje wordt? Op een echo van twintig weken is dat vaak al te zien. Maar een paar maanden eerder was dit kindje een embryo van een paar millimeter. Hoe zagen de geslachtsorganen er toen uit? Wat denk je?
+Je tante is twintig weken zwanger, en jij mag mee naar de echo. Op het scherm zie je het hoofdje, de armpjes en het hartje. De arts vraagt: willen jullie weten of het een jongen of een meisje wordt? Op een echo van twintig weken is dat vaak al te zien. Maar een paar maanden eerder was dit kindje een embryo van een paar millimeter. Hoe zagen de geslachtsorganen er toen uit? Wat denk je?
 
 **q02** (vraag): al duidelijk jongen of meisje · alleen bij jongens was al iets te zien · bij jongens en meisjes nog precies hetzelfde
 
