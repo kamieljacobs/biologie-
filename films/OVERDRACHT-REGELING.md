@@ -7,7 +7,10 @@ Lees dit in een nieuwe chat om verder te gaan. Brief van de nacht: `films/OPWAAR
 - **Regeling**: alle 13 films (Zenuwstelsel 1–8, Hormonen 1–5) zijn naar prompt v13 opgewaardeerd **zonder keuring**, getest (B11-scripts, elke vraag met Vragen uit, contactvel van de gewijzigde scènes) en gepusht. Stem, script, vragen, timings en datum bleven; niets ingesproken, 0 credits. Hoofdpunten: grijze poppetjes → castpersonages (Noor, Daan, Teun, Linda, Erik); realistisch lichaam (`lib_anatomie.js`) met organen op hun plek en zoomcirkel náást het hoofd; beeldbankobjecten (hoofd/hersenen, nier/bijnier, membraan, receptor, lever, spier, witte bloedcellen); geen korrel buiten cellen; gebogen membranen; minder paars; gesproken 'voor vwo'-aankondigingen geknipt; bij Vragen uit geen 'Het goede antwoord is …' meer in de ondertitel; bronnenlogboek per film.
 - Alle 13 staan op 'nog bekijken' (index.html REVIEW). Had een film in de reviewpagina al status 'bekeken/goed': daar op 'Opnieuw bekijken' zetten.
 
-## Open voor Kamiel
+## Kamiels keuzes (29 okt 2026, keuzeblad) — in uitvoering
+Brief: `films/UITVOEREN-REGELING.md`. Polymerase: versie 1 = variant A, ingebouwd (beoordelaar koos W). Zenuwstelsel 1–6: lichte remake naar donker; nieuwe versie als `films/zenuwstelsel/<slug>-nieuw.html`, de oude blijft online tot Kamiel goedkeurt (dan omwisselen: oude naar `bron/oud/`, datum, B15-uitzondering 'lichte-remake', REVIEW). Inspreken: alles 'doen', behalve Sanne (Kamiel koos een figurant, naam mag blijven). Kleuren gelijktrekken (tabel in de brief), Stress-decor thuis, synapsEcht + hersendoorsnede, label oudziend, reactietijd via de stem, wijn prima, nieuwe beeldbankobjecten later. Griepvirus en chromosomen in `lib_micro_evo.js` zijn naar palet B (29 okt).
+
+## Open voor Kamiel (stand vóór het keuzeblad)
 
 Alles hieronder staat op het keuzeblad 'Regeling: jouw keuzes' (https://claude.ai/artifact/1AwKuLaFUeSsEF2xypEnQG, db-collectie keuze; bron in films/regeling-keuzeblad/). Lees die collectie en voer de keuzes uit.
 **Polymerase** (beeldbank): 'geen duidelijke winnaar'; voorstel = de kralenlus van de beoordelaar (verbeterronde-3/dna/polymeraseachter-polymerasevoor, W.js). Wacht op ja/nee.
