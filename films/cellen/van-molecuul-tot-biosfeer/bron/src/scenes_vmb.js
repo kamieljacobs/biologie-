@@ -39,7 +39,7 @@ Object.assign(SCENES, {
       else if (i === 6) koolmees(ctx, x + 30, y + 60, 0.62);
       else aarde(ctx, x, y, r, 1, t);
       ctx.restore(); ctx.strokeStyle = C.goud; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.stroke();
-      metaText(ctx, n.toUpperCase(), x, y + r + 32, C.grain, 'center', 22); })); },
+      metaText(ctx, n.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')), x, y + r + 32, C.grain, 'center', 22); })); },
 
   // ---------- s01: ziek in bed; griepvirussen in de keel; elk jaar een nieuwe prik; deurklink ----------
   s01(ctx, t, q) { const tD = q.at('deurklink'), aD = ramp(t, tD - 0.15, 0.5);
@@ -329,7 +329,7 @@ Object.assign(SCENES, {
     // beeld van het huidige niveau
     if (t >= tC - 0.4 && t < tDe) { const items = cues.map((c, i) => c ? [i, q.at(c[0], c[1])] : null).filter(Boolean);
       items.forEach(([i, ti], k) => { const tv = k + 1 < items.length ? items[k + 1][1] : tDe; const a = ramp(t, ti - 0.2, 0.4) * (1 - ramp(t, tv - 0.2, 0.4)); if (a > 0.01) A(ctx, a, () => { ctx.save(); ctx.beginPath(); ctx.arc(1200, 460, 330, 0, 6.283); ctx.fillStyle = i <= 4 ? '#121A26' : '#2A3E5C'; ctx.fill(); ctx.clip(); niveauIcoon(ctx, i, 1200, 460, 560, t); ctx.restore();
-        ctx.strokeStyle = C.goud; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(1200, 460, 330, 0, 6.283); ctx.stroke(); metaText(ctx, NIV[i].toUpperCase(), 1200, 840, C.grain, 'center', 26); }); });
+        ctx.strokeStyle = C.goud; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(1200, 460, 330, 0, 6.283); ctx.stroke(); metaText(ctx, NIV[i].toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')), 1200, 840, C.grain, 'center', 26); }); });
       naamBij(ctx, 'differentiatie', 'zelfde DNA, andere genen aan', 1200, 92, q.on('differentiatie', 1) * (1 - ramp(t, q.at('weefsels'), 0.4)), 'center'); }
     // de koolmees en Noor op de ladder; het virus ernaast
     const aO = ramp(t, tDe - 0.2, 0.5); if (aO > 0.01) A(ctx, aO, () => { persoon(ctx, 'noor', 1460, 800, 520, { uit: 'moe', a: q.on('net', 1, 0.6) });

@@ -22,7 +22,7 @@ function card(ctx, x, y, w, h, title, body, alpha = 1, accent = C.goud) {
 function wrap(ctx, s, x, y, maxW, lh) { const words = s.split(' '); let line = ''; for (const w of words) { const test = line ? line + ' ' + w : w; if (ctx.measureText(test).width > maxW && line) { ctx.fillText(line, x, y); y += lh; line = w; } else line = test; } if (line) ctx.fillText(line, x, y); return y; }
 // naam bij een schermpunt p (met verschuiving), altijd binnen het beeld en boven de ondertitels
 function nm(ctx, name, meta, p, dx, dy, a, align = 'left', col = C.text) { if (a <= 0.01 || !p) return; const y = clamp(p[1] + dy, 64, CAPTION_Y - (meta ? 52 : 24)); naamBij(ctx, name, meta, p[0] + dx, y, a, align, col); }
-function pil(ctx, s, x, y, a, col = C.goud) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fMeta(26); ctx.letterSpacing = '3px'; const w = ctx.measureText(s.toUpperCase()).width + 44; ctx.letterSpacing = '0px';
+function pil(ctx, s, x, y, a, col = C.goud) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fMeta(26); ctx.letterSpacing = '3px'; const w = ctx.measureText(s.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():''))).width + 44; ctx.letterSpacing = '0px';
   roundRect(ctx, x - w / 2, y - 30, w, 48, 10); shape(ctx, rgba(C.bgSchema, 0.92), col, 1.5); metaText(ctx, s, x, y + 2, col, 'center', 26); ctx.restore(); }
 // cytoplasma als achtergrond (we zitten ín een cel): vlak met weinig rustige deeltjes
 let _cytoCache = null;

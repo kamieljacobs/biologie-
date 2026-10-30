@@ -227,14 +227,14 @@ function blob(ctx, x, y, rx, ry, wob=0, seed=0, t=0){ // organic ellipse
 function roundRect(ctx,x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
 function text(ctx, s, x, y, font, color, align='left', base='alphabetic'){ ctx.font=font; ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline=base; ctx.fillText(s,x,y); }
 const fTitel=(px)=>`700 ${px}px ${F.titel}`, fTekst=(px,w=400)=>`${w} ${px}px ${F.tekst}`, fMeta=(px)=>`500 ${px}px ${F.meta}`;
-function metaText(ctx,s,x,y,color=C.grain,align='left',px=28){ ctx.save(); ctx.font=fMeta(px); ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline='alphabetic'; ctx.letterSpacing='3px'; ctx.fillText(s.toUpperCase(),x,y); ctx.restore(); }
+function metaText(ctx,s,x,y,color=C.grain,align='left',px=28){ ctx.save(); ctx.font=fMeta(px); ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline='alphabetic'; ctx.letterSpacing='3px'; ctx.fillText(s.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')),x,y); ctx.restore(); }
 
 // ===== UI layer =====
 // two-line label with leader line ending in dot; alpha for fade
 function naamBij(ctx, name, meta, x, y, alpha=1, align='left', color=C.text){
   // naam (+ korte toelichting) direct bij een onderdeel, met donkere rand voor leesbaarheid; geen wijslijn
   if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.textBaseline='alphabetic'; ctx.lineJoin='round';
-  const regels=[[name,fTekst(36,600),color,0,'0px']]; if(meta) regels.push([meta.toUpperCase(),fMeta(26),C.grain,28,'3px']);
+  const regels=[[name,fTekst(36,600),color,0,'0px']]; if(meta) regels.push([meta.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')),fMeta(26),C.grain,28,'3px']);
   const maat=regels.map(([s,f,,,ls])=>{ ctx.font=f; ctx.letterSpacing=ls; return ctx.measureText(s).width; }); const w=Math.max(...maat);
   let bx = align==='left'?x:(align==='right'?x-w:x-w/2); bx=Math.max(24,Math.min(W-24-w,bx));
   regels.forEach(([s,f,col,dy,ls],i)=>{ ctx.font=f; ctx.letterSpacing=ls; ctx.textAlign='left'; const lx = align==='left'?bx:(align==='right'?bx+w-maat[i]:bx+(w-maat[i])/2); ctx.strokeStyle=rgba(C.bgMicro,0.85); ctx.lineWidth=7; ctx.strokeText(s,lx,y+dy); ctx.fillStyle=col; ctx.fillText(s,lx,y+dy); });
@@ -5101,7 +5101,7 @@ function ladderBalk(ctx, cur, o = {}) { const { a = 1, x = 54, y0 = 836, dy = 66
     if (isC) { roundRect(ctx, x - 12, y - 32, breed - 6, 52, 26); shape(ctx, rgba(C.goud, 0.2), C.goud, 1.6); }
     circ(ctx, x + 6, y - 6, isC ? 7 : 5, isC ? C.goud : rgba(C.line, 0.8));
     ctx.save(); ctx.globalAlpha *= Math.max(0.35, al); text(ctx, n, x + 26, y + 2, fTekst(n.length > 15 ? 25 : 28, EXAMEN[i] ? 700 : 500), isC ? C.text : C.text2, 'left'); ctx.restore();
-    if (isC && maat && NIV_MAAT[i]) metaText(ctx, NIV_MAAT[i].toUpperCase(), x + breed - 22, y + 2, C.grain, 'right', 18); });
+    if (isC && maat && NIV_MAAT[i]) metaText(ctx, NIV_MAAT[i].toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')), x + breed - 22, y + 2, C.grain, 'right', 18); });
   if (virus > 0.01) { const y = y0 - 2 * dy; ctx.save(); ctx.globalAlpha *= virus; griepVirus(ctx, x + breed + 46, y - 8, 22); ctx.setLineDash([6, 6]); ctx.strokeStyle = C.koraal; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x + breed + 18, y - 8); ctx.lineTo(x + breed - 8, y - 8); ctx.stroke(); ctx.setLineDash([]);
     naamBij(ctx, 'virus', 'geen cel', x + breed + 80, y - 18, 1, 'left', C.koraal); ctx.restore(); }
   ctx.restore(); }
@@ -5201,7 +5201,7 @@ Object.assign(SCENES, {
       else if (i === 6) koolmees(ctx, x + 30, y + 60, 0.62);
       else aarde(ctx, x, y, r, 1, t);
       ctx.restore(); ctx.strokeStyle = C.goud; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.stroke();
-      metaText(ctx, n.toUpperCase(), x, y + r + 32, C.grain, 'center', 22); })); },
+      metaText(ctx, n.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')), x, y + r + 32, C.grain, 'center', 22); })); },
 
   // ---------- s01: ziek in bed; griepvirussen in de keel; elk jaar een nieuwe prik; deurklink ----------
   s01(ctx, t, q) { const tD = q.at('deurklink'), aD = ramp(t, tD - 0.15, 0.5);
@@ -5491,7 +5491,7 @@ Object.assign(SCENES, {
     // beeld van het huidige niveau
     if (t >= tC - 0.4 && t < tDe) { const items = cues.map((c, i) => c ? [i, q.at(c[0], c[1])] : null).filter(Boolean);
       items.forEach(([i, ti], k) => { const tv = k + 1 < items.length ? items[k + 1][1] : tDe; const a = ramp(t, ti - 0.2, 0.4) * (1 - ramp(t, tv - 0.2, 0.4)); if (a > 0.01) A(ctx, a, () => { ctx.save(); ctx.beginPath(); ctx.arc(1200, 460, 330, 0, 6.283); ctx.fillStyle = i <= 4 ? '#121A26' : '#2A3E5C'; ctx.fill(); ctx.clip(); niveauIcoon(ctx, i, 1200, 460, 560, t); ctx.restore();
-        ctx.strokeStyle = C.goud; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(1200, 460, 330, 0, 6.283); ctx.stroke(); metaText(ctx, NIV[i].toUpperCase(), 1200, 840, C.grain, 'center', 26); }); });
+        ctx.strokeStyle = C.goud; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(1200, 460, 330, 0, 6.283); ctx.stroke(); metaText(ctx, NIV[i].toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')), 1200, 840, C.grain, 'center', 26); }); });
       naamBij(ctx, 'differentiatie', 'zelfde DNA, andere genen aan', 1200, 92, q.on('differentiatie', 1) * (1 - ramp(t, q.at('weefsels'), 0.4)), 'center'); }
     // de koolmees en Noor op de ladder; het virus ernaast
     const aO = ramp(t, tDe - 0.2, 0.5); if (aO > 0.01) A(ctx, aO, () => { persoon(ctx, 'noor', 1460, 800, 520, { uit: 'moe', a: q.on('net', 1, 0.6) });
@@ -5595,7 +5595,7 @@ function drawTitle(ctx,t){ const f=DATA.film; bg(ctx,f.titleLook||'schema'); con
   if(SCENES.title){ ctx.save(); ctx.globalAlpha=ramp(t,0.6,1); SCENES.title(ctx,t); ctx.restore(); }
   ctx.save(); ctx.globalAlpha=a; text(ctx,f.title,120,360,fTitel(f.title.length>22?96:120),C.text); text(ctx,f.sub,120,440,fTekst(44),C.text2);
   ctx.font=fTekst(36); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,f.puzzle,120,540,820,48);
-  metaText(ctx,(state.niveau==='havo'?'HAVO':'HAVO · VWO')+' · '+f.meta.toUpperCase(),W-80,60,C.text2,'right',28); ctx.restore(); }
+  metaText(ctx,(state.niveau==='havo'?'HAVO':'HAVO · VWO')+' · '+f.meta.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')),W-80,60,C.text2,'right',28); ctx.restore(); }
 function drawChapterCard(ctx,it,t){ bg(ctx,'schema'); const a=ramp(t,0.05,0.3)*(1-ramp(t,it.dur-0.3,0.3)); ctx.save(); ctx.globalAlpha=a;
   const m=it.chapter.match(/^(Hoofdstuk [^—]+)—\s*(.*)$/); const num=m?m[1].trim():''; const title=m?m[2]:it.chapter;
   if(num) metaText(ctx,num,W/2,430,C.grain,'center',30); text(ctx,title,W/2,540,fTitel(72),C.text,'center');

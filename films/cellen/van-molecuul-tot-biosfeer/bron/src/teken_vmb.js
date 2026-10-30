@@ -221,7 +221,7 @@ function ladderBalk(ctx, cur, o = {}) { const { a = 1, x = 54, y0 = 836, dy = 66
     if (isC) { roundRect(ctx, x - 12, y - 32, breed - 6, 52, 26); shape(ctx, rgba(C.goud, 0.2), C.goud, 1.6); }
     circ(ctx, x + 6, y - 6, isC ? 7 : 5, isC ? C.goud : rgba(C.line, 0.8));
     ctx.save(); ctx.globalAlpha *= Math.max(0.35, al); text(ctx, n, x + 26, y + 2, fTekst(n.length > 15 ? 25 : 28, EXAMEN[i] ? 700 : 500), isC ? C.text : C.text2, 'left'); ctx.restore();
-    if (isC && maat && NIV_MAAT[i]) metaText(ctx, NIV_MAAT[i].toUpperCase(), x + breed - 22, y + 2, C.grain, 'right', 18); });
+    if (isC && maat && NIV_MAAT[i]) metaText(ctx, NIV_MAAT[i].toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')), x + breed - 22, y + 2, C.grain, 'right', 18); });
   if (virus > 0.01) { const y = y0 - 2 * dy; ctx.save(); ctx.globalAlpha *= virus; griepVirus(ctx, x + breed + 46, y - 8, 22); ctx.setLineDash([6, 6]); ctx.strokeStyle = C.koraal; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x + breed + 18, y - 8); ctx.lineTo(x + breed - 8, y - 8); ctx.stroke(); ctx.setLineDash([]);
     naamBij(ctx, 'virus', 'geen cel', x + breed + 80, y - 18, 1, 'left', C.koraal); ctx.restore(); }
   ctx.restore(); }
