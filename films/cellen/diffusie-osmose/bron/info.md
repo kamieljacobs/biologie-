@@ -201,4 +201,6 @@ Per scène:
 - s33: panelen met mini-dubbellaag en de nieuwe moleculen; zon vlak zonder gloed.
 - Titelkaart: wolk van kleurstof- en watermoleculen.
 
+Frisse beeldreview (30 okt 2026, versie blijft 2.0): elf scènes bijgesteld (tekstbalken niet meer over elkaar in s04/s20/s21, labels vrij van tekening en rand in s06, s11, s12, s14, s15, s22, s25, beeld gevuld vanaf t = 0 in s28) en de wandmaat en het longoppervlak in s11 en in het docentdeel naar de bronnen (± 0,001 mm; ± 70–130 m²). Stem en script ongewijzigd. Details en open punten: `opwaardering-v13.md` § Frisse beeldreview; bronnen: `bronnen.md` (tweede ronde).
+
 Getest: contactvellen van alle 24 scènes (elke 4 s) zelf bekeken, daarna gericht s05, s11, s22, s23, s29 opnieuw; geen JS-fouten; `checkcues.js` 0 fout; speler (havo 701 s / vwo 761 s, vragen uit 584 s, zoeken, q19 beantwoorden), telefoon 390 px zonder horizontaal scrollen; elke vraag met `?vragen=uit` (5 s ervoor tot 3 s erna: geen vraag- of antwoordtekst in beeld); vaste scripts (spelerfix, antwoordtekst, kortantwoord, antwoordletter met --check), flipkaarten, licentie_noot, teller.
