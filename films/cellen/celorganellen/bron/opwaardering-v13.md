@@ -49,3 +49,22 @@ Nieuw getekend in `src/celhulp.js` (recept als commentaar erboven), voorstel om 
 - `granum` (stapel thylakoïden met lichtvangende eiwitten)
 - `blaasjeHeld`, `knop` (blaasje snoert af van ER/golgi), `fusieOpCel` (exo-/endocytose op het membraan van `celDier`), `adresLabel`, `suikerBoom`
 - camera-hulpjes `zicht`/`camPad` en `celMet` (vloeiende nadruk op `celDier`)
+
+## Frisse beeldreview (30 okt 2026)
+
+Tweede Claude, niet de maker. Gebouwd met `bron/bouw/zet_beeld.py`, contactvellen van alle 37 items (vwo, elke 4 s, Playwright `seekGlobal`), daarna de gewijzigde scènes opnieuw.
+
+**Goed**: cue-woorden en beeld lopen gelijk; membranen gebogen, cellen rond, niets steekt buiten het celmembraan (behalve exocytose); palet B in de kern, mRNA sliertig, eiwitten als kralenketen die vouwen; transcriptie en replicatie elk met eigen label; minder paars (alleen kern); Noor zonder naam in beeld, gezicht heel, organen in een kijkje op de goede hoogte; geen wijslijnen; rustige beelden.
+
+**Hersteld** (in `bron/src/`, opnieuw gebouwd en bekeken):
+- Korrel buiten cellen: `bg(ctx,'micro')` legde de grain-laag over het hele scherm (s04, s05, s07, s09, s11, s14, s18, s20, s21). Uit in `lib.js`; textuur blijft alleen ín cellen (`cytoGrond`, `celDier`).
+- Labels over elkaar: 'enzym = eiwit' over 'ribosoom · vergroot' (s09), 'gevouwen en gecontroleerd' over 'ribosoom op het ruw ER · vergroot' (s09), 'blokje' + toelichting liep over de cel en uit beeld (s05), 'hartspiercel' over de cel zelf (s16), 'ontvanger-eiwit' / 'de cel doet iets anders' over elkaar (s21), 'wand'/'membraan' in de zoomcirkel over het onderschrift (s23), toelichting 'chloroplast' en 'mitochondrium' raakten elkaar (s25), 'eiwitten die licht vangen' over de lichtgolfjes (s26), mythekaart 'De kern bestuurt de cel' faadde in over het transcriptielabel (s07, start nu 0,6 s later).
+- Hartspiercel (s16) had een rechte, hoekige omtrek: nu gebogen (Catmull-Rom door dezelfde punten).
+- Bronnenlogboek: getallen zelf nagegaan (B5–B20): 120 dagen, pH 7,2/4,7, 1/3 mitochondriën, 8 nm, ruim een liter → ✓; route ER → golgi → membraan nu met twee niveau-A-bronnen ✓. Geen `!`.
+
+**Open** (smaak of inhoud, niet veranderd):
+1. s27: de bacterie staat daar weer vergroot naast de cel (in s04 op schaal); bewuste keuze?
+2. s07: na de mythekaart blijft het transcriptielabel nog even half zichtbaar onder de kaart; rustiger als de zoomcirkel eerst weg is.
+3. s11 'van zakje naar zakje': B13 (Lodish) beschrijft cisternale rijping (de zakjes schuiven op). Prima vereenvoudiging voor vwo, eventueel een zin in het docentdeel.
+4. Bronnen nog met één bron (≈): '10 × zo lang en breed' (B11, eigenlijk 5–10 ×), '5 × oppervlak in levercel' (B12), 'miljoenen ribosomen' (B20).
+5. s21 'klein: gaat erdoor / groot: niet' staat in beeld terwijl de stem algemeen 'sommige stoffen' zegt; klopt, maar is een extra boodschap.

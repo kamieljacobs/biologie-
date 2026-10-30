@@ -204,7 +204,7 @@ function grain(ctx){
 function bg(ctx, look){
   ctx.fillStyle = look==='micro'?C.bgMicro: look==='macro'?C.bgMacroSky : C.bgSchema;
   ctx.fillRect(0,0,W,H);
-  if(look==='micro') grain(ctx);
+  // geen korrel buiten cellen (BEELDAFSPRAKEN, frisse beeldreview 30 okt 2026): textuur alleen binnen een cel (cytoGrond / celDier)
 }
 
 // ===== shape primitives =====
@@ -2883,7 +2883,7 @@ function motorEiwit(ctx, x, y, d, steel, a = 1) { if (a <= 0.01) return; const s
 // het midden, myofibrillen in de lengte met dwarsstrepen, mitochondriën in rijen ertussen (± 1/3 van het volume), aan de uiteinden
 // tussenschijven. Huidcel (keratinocyt): rond-hoekig, kern, weinig ER, een paar mitochondriën, veel keratinedraden.
 function hartspiercel(ctx, x, y, w, h, t = 0, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const L = x - w / 2, R = x + w / 2, T = y - h / 2, B = y + h / 2;
-  const omtrek = () => { ctx.beginPath(); ctx.moveTo(L + 20, T); ctx.lineTo(R - 60, T); ctx.lineTo(R - 30, T - h * 0.25); ctx.lineTo(R, T - h * 0.18); ctx.lineTo(R - 18, T + h * 0.1); ctx.lineTo(R - 10, B); ctx.lineTo(L + 30, B); ctx.lineTo(L, B - h * 0.3); ctx.lineTo(L + 6, T + h * 0.2); ctx.closePath(); };
+  const omtrek = () => { ctx.beginPath(); bioPad(ctx, [[L + 20, T], [x, T + 4], [R - 60, T], [R - 30, T - h * 0.25], [R, T - h * 0.18], [R - 18, T + h * 0.1], [R - 10, B], [x, B - 4], [L + 30, B], [L, B - h * 0.3], [L + 6, T + h * 0.2]], true); ctx.closePath(); }; // gebogen membraan (frisse review 30 okt 2026)
   omtrek(); ctx.fillStyle = '#26324A'; ctx.fill(); ctx.save(); omtrek(); ctx.clip();
   const rijen = 5; for (let r = 0; r < rijen; r++) { const yy = T + (r + 0.5) * h / rijen; ctx.fillStyle = rgba('#B87A6A', 0.45); ctx.fillRect(L, yy - h / rijen * 0.22, w, h / rijen * 0.44);
     ctx.strokeStyle = rgba('#E0B0A0', 0.5); ctx.lineWidth = 1.2; for (let xx = L; xx < R; xx += 14) { ctx.beginPath(); ctx.moveTo(xx, yy - h / rijen * 0.22); ctx.lineTo(xx, yy + h / rijen * 0.22); ctx.stroke(); }
@@ -3095,7 +3095,7 @@ s05(ctx, t, q, st) {
   nm(ctx, 'een cel uit de alvleesklier', '', [cx, cy - 425 * s * k], 0, -26, ramp(t, 0, 0.6) * (1 - ramp(t, q.at('plat'), 0.5)), 'center');
   { const a = ramp(t, q.at('honderdste'), 0.6) * (1 - ramp(t, q.at('plat'), 0.5)); if (a > 0.01) { ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.goud; ctx.lineWidth = 1.5; const yy = cy + 425 * s + 22, xL = cx - 455 * s, xR = cx + 455 * s;
     ctx.beginPath(); ctx.moveTo(xL, yy - 8); ctx.lineTo(xL, yy); ctx.lineTo(xR, yy); ctx.lineTo(xR, yy - 8); ctx.stroke(); metaText(ctx, 'ongeveer 0,01 mm', cx, yy + 34, C.goud, 'center', 28); ctx.restore(); } }
-  nm(ctx, 'blokje', 'organellen liggen ook voor en achter elkaar', [cx + 455 * s, cy + T], 26, -10, blok, 'left');
+  nm(ctx, 'blokje', 'organellen liggen ook voor en achter elkaar', [cx, 215], 0, 0, blok, 'center');
   pil(ctx, 'vereenvoudigd · niet op schaal', 1600, 150, ramp(t, q.at('vereenvoudigd'), 0.5) * (1 - ramp(t, q.at('Eromheen'), 0.5)), C.grain);
   nm(ctx, 'celmembraan', 'dun vlies om de cel', [cx + 455 * s * 0.72, cy - 425 * s * 0.7], 30, -20, ramp(t, tM, 0.5) * (1 - ramp(t, tC, 0.5)), 'left');
   nm(ctx, 'cytoplasma', 'stroperige vulling', [cx - 455 * s * 0.35, cy + 425 * s * 0.62], 0, 0, ramp(t, tC, 0.5) * (1 - ramp(t, tO, 0.5)), 'center');
@@ -3139,7 +3139,7 @@ s07(ctx, t, q, st) {
     const ba = az * (isT ? tr : ramp(t, tR, 0.5)); if (ba > 0.01) { ctx.save(); ctx.globalAlpha *= ba; roundRect(ctx, Z.x - 300, Z.y - Z.r - 96, 600, 70, 12); shape(ctx, rgba(C.bgSchema, 0.94), bc, 2); text(ctx, bt, Z.x, Z.y - Z.r - 62, fTekst(30, 700), bc, 'center'); metaText(ctx, bs, Z.x, Z.y - Z.r - 36, C.grain, 'center', 20); ctx.restore(); } }
   nm(ctx, 'DNA', 'bouwtekening · dubbele helix', [Z.x, Z.y - Z.r], 0, -24, az * ramp(t, q.at('dna', 1), 0.5) * (1 - tr), 'center');
   haak(ctx, Z.x - Z.r, Z.x + Z.r, Z.y + Z.r + 50, 'het DNA zelf blijft in de kern', C.groen, ramp(t, q.at('blijft'), 0.5) * (1 - ramp(t, tB, 0.5)));
-  card(ctx, 1060, 250, 800, 180, '"De kern bestuurt de cel"', 'Klopt, maar niet met bevelen: de kern bepaalt welke werkkopieën eruit gaan.', ramp(t, tB, 0.5) * (1 - ramp(t, q.at('deelt'), 0.5)), C.groen);
+  card(ctx, 1060, 250, 800, 180, '"De kern bestuurt de cel"', 'Klopt, maar niet met bevelen: de kern bepaalt welke werkkopieën eruit gaan.', ramp(t, tB + 0.6, 0.5) * (1 - ramp(t, q.at('deelt'), 0.5)), C.groen);
   haak(ctx, Z.x - Z.r, Z.x + Z.r, Z.y + Z.r + 50, 'al het DNA gekopieerd → de cel kan delen', C.groen, ramp(t, tR + 1.5, 0.5) * (1 - ramp(t, tRode, 0.5)));
   // rode bloedcel: geen kern
   const rb = ramp(t, tRode, 0.6); if (rb > 0.01) { ctx.save(); ctx.globalAlpha = rb * 0.95; ctx.fillStyle = C.bgMicro; ctx.fillRect(0, 0, W, H); ctx.restore();
@@ -3180,7 +3180,7 @@ s09(ctx, t, q, st) {
     zoomCircle(ctx, Zc.x, Zc.y, Zc.r, src[0], src[1], 'ribosoom · vergroot', zA, () => { ctx.fillStyle = '#222D43'; ctx.fillRect(Zc.x - Zc.r, Zc.y - Zc.r, 2 * Zc.r, 2 * Zc.r);
       const f = ramp(t, tVer + 0.6, 2.4); mrnaSliert(ctx, Zc.x - 230, Zc.y + 110, 460, { t, basen: 0.3, kronkel: 0.3, a: 1 - f });
       ribosoomEcht(ctx, Zc.x - 40, Zc.y + 110, 0.8, { keten: 16, t, a: 1 - f }); if (f > 0.01) eiwitVouw(ctx, Zc.x, Zc.y - 10, 1.0, f, Array.from({ length: 46 }, (_, i) => i % 20), { t, a: f, kleur: 'eiwit' }); });
-    nm(ctx, 'enzym = eiwit', '', [1620, 560], 0, 44, zA * ramp(t, q.at('eiwitten', 2), 0.4), 'center', C.goud); }
+    nm(ctx, 'enzym = eiwit', '', [1620, 560], 0, 96, zA * ramp(t, q.at('eiwitten', 2), 0.4), 'center', C.goud); }
   nm(ctx, 'eiwitten die de cel zelf houdt', 'de cel groeit', [960, 80], 0, 0, groei, 'center');
   // zoomcirkel B: ribosoom op het ER, de keten gaat het ER in en vouwt daar
   const zB = ramp(t, tIn - 0.6, 0.6) * (1 - ramp(t, tBl - 0.2, 0.5)); if (zB > 0.01) { const src = V.P(DOCK); const Zc = { x: 1500, y: 360, r: 260 };
@@ -3189,7 +3189,7 @@ s09(ctx, t, q, st) {
       ribosoomEcht(ctx, Zc.x, Zc.y + 190, 0.95, { stand: 'er', keten: Math.round(lerp(4, 20, ramp(t, tIn - 0.6, 2.5))), t, a: 1 - vouw * 0.6 });
       if (vouw > 0.01) eiwitVouw(ctx, Zc.x + 10, Zc.y - 150, 0.8, vouw, Array.from({ length: 46 }, (_, i) => i % 20), { t, a: vouw, kleur: 'eiwit' });
       metaText(ctx, 'binnen in het ER', Zc.x, Zc.y - 210, C.grain, 'center', 22); metaText(ctx, 'cytoplasma', Zc.x - 150, Zc.y + 60, C.grain, 'center', 22); });
-    nm(ctx, 'gevouwen en gecontroleerd', '', [1500, 650], 0, 40, zB * ramp(t, tGev, 0.5), 'center', C.goud); }
+    nm(ctx, 'gevouwen en gecontroleerd', '', [1500, 650], 0, 100, zB * ramp(t, tGev, 0.5), 'center', C.goud); }
   haak(ctx, 520, 1400, 800, 'stoffen omzetten tot iets nieuws: stofwisseling (opbouw)', C.groen, ramp(t, q.at('opbouwkant'), 0.6) * (1 - ramp(t, tAlv, 0.5)));
   // vergelijking: alvleeskliercel naast huidcel
   const av = ramp(t, tAlv + 0.6, 0.8); if (av > 0.01) { huidcel(ctx, 1450, 430, 230, t, av); nm(ctx, 'alvleeskliercel', 'veel ruw ER', V.P([0, -430]), 0, -14, av, 'center'); nm(ctx, 'huidcel', 'weinig ER', [1450, 200], 0, -14, av, 'center'); }
@@ -3292,7 +3292,7 @@ s16(ctx, t, q, st) {
       naamBij(ctx, 'ATP', '', 600, 200, ae, 'left'); naamBij(ctx, 'ATP', '', 1340, 200, ae, 'left'); }
     haak(ctx, 330, 1450, 720, 'meer plooien → meer oppervlak → meer ATP', C.groen, ramp(t, q.at('plooien', 1), 0.6)); ctx.restore(); }
   if (ah > 0.01) { ctx.save(); ctx.globalAlpha *= ah; hartspiercel(ctx, 600, 420, 760, 240, t); huidcel(ctx, 1460, 420, 190, t); ctx.restore();
-    nm(ctx, 'hartspiercel', 'een derde vol mitochondriën · duizenden', [600, 270], 0, -10, ah, 'center'); nm(ctx, 'huidcel', 'een paar honderd', [1460, 210], 0, -10, ramp(t, q.at('huidcel'), 0.5), 'center');
+    nm(ctx, 'hartspiercel', 'een derde vol mitochondriën · duizenden', [600, 270], 0, -80, ah, 'center'); nm(ctx, 'huidcel', 'een paar honderd', [1460, 210], 0, -10, ramp(t, q.at('huidcel'), 0.5), 'center');
     metaText(ctx, 'schematisch · aantallen niet op schaal', 960, 690, C.text2, 'center', 22); }
   const as = ramp(t, q.at('afbraakkant'), 0.5); if (as > 0.01) { ctx.save(); ctx.globalAlpha = as; roundRect(ctx, 460, 740, 1000, 90, 12); shape(ctx, rgba(C.bgSchema, 0.95), C.line, 1); text(ctx, ramp(t, q.at('assimilatie'), 0.3) > 0.5 ? 'opbouw = assimilatie   ·   afbraak = dissimilatie' : 'energie vrijmaken = stofwisseling (afbraak)', 960, 797, fTekst(36, 600), C.text, 'center'); ctx.restore(); }
 },
@@ -3371,9 +3371,9 @@ s21(ctx, t, q, st) {
       for (let k = 0; k < 5; k++) { const ph = (t * 0.35 + k / 5) % 1; const x = kx + (k - 2) * 6, y = lerp(250, 720, ph); waterMol(ctx, x + Math.sin(ph * 9 + k) * 6, y, 1.6, ap * Math.min(1, ph * 6, (1 - ph) * 6), k); }
       for (let k = 0; k < 4; k++) { const ph = (t * 0.4 + k / 4) % 1; const x = 520 + k * 120; const y = 330 + 120 * Math.abs(Math.sin(ph * Math.PI)) - 120; glucoseMol(ctx, x, 360 - Math.abs(Math.sin(ph * Math.PI * 2)) * 110, 2.2, ap, ph); }
       naamBij(ctx, 'klein: gaat erdoor', '', kx + 40, 300, ap, 'left'); naamBij(ctx, 'groot: niet', '', 560, 190, ap, 'left'); }
-    nm(ctx, 'hormoon', 'signaal van buiten', [rp[0], 190], 30, 0, ramp(t, tH, 0.5), 'left', C.goud); nm(ctx, 'ontvanger-eiwit', 'past precies op één hormoon', [rp[0], rp[1] + 190], 0, 0, aR, 'center');
-    nm(ctx, 'de cel doet iets anders', '', [rp[0], rp[1] + 290], 0, 0, ramp(t, tV, 0.5), 'center', C.goud);
-    nm(ctx, 'celmembraan', 'gebogen: een cel is rond', [960, 600], 0, 0, ramp(t, 0.2, 0.5) * (1 - ramp(t, q.at('sommige'), 0.5)), 'center');
+    nm(ctx, 'hormoon', 'signaal van buiten', [rp[0], 190], 30, 0, ramp(t, tH, 0.5), 'left', C.goud); nm(ctx, 'ontvanger-eiwit', 'past precies op één hormoon', [rp[0] - 90, rp[1] - 200], 0, 0, aR, 'right');
+    nm(ctx, 'de cel doet iets anders', '', [rp[0], rp[1] + 230], 0, 0, ramp(t, tV, 0.5), 'center', C.goud);
+    nm(ctx, 'celmembraan', 'gebogen: een cel is rond', [960, 680], 0, 0, ramp(t, 0.2, 0.5) * (1 - ramp(t, q.at('sommige'), 0.5)), 'center');
     scaleBar(ctx, 'sterk vergroot · schematisch'); return; }
   bg(ctx, 'micro'); const mo = ramp(t, q.at('beweegt'), 0.8); const tN = q.at('netwerk');
   const ank = celDier(ctx, 640, 440, 0.82, { t: t * (1 + 5 * mo), exo: true, nadruk: t > tN - 0.3 && t < q.at('kruipen') ? 'cytoskelet' : null });
@@ -3419,7 +3419,7 @@ s23(ctx, t, q, st) {
       membraanBoog(ctx, Zc.x + 1400, Zc.y, 1400 - 0, Math.PI - 0.2, Math.PI + 0.2, { s: 0.9, t, eiwitten: [{ an: Math.PI - 0.02, soort: 'kanaal', open: 1 }] });
       for (let k = 0; k < 8; k++) { const ph = (t * 0.35 + k / 8) % 1, y = Zc.y - 180 + k * 48; const groot = k % 3 === 0; const xe = groot ? Zc.x + 6 : Zc.x + 200; const x = lerp(Zc.x - 230, xe, Math.min(1, ph * 1.2));
         if (groot) glucoseMol(ctx, x, y, 1.6, az * (1 - ramp(ph, 0.85, 0.15))); else waterMol(ctx, x, y, 1.5, az * (1 - ramp(ph, 0.9, 0.1)), k); }
-      metaText(ctx, 'wand', xw, Zc.y + Zc.r - 30, C.groen, 'center', 22); metaText(ctx, 'membraan', Zc.x + 10, Zc.y + Zc.r - 30, C.er, 'center', 22); });
+      metaText(ctx, 'wand', Zc.x - 40, Zc.y + Zc.r - 80, C.groen, 'right', 22); metaText(ctx, 'membraan', Zc.x + 50, Zc.y + Zc.r - 80, C.er, 'left', 22); });
     nm(ctx, 'wand = zeef', 'het membraan kiest', [1610, 120], 0, -34, az, 'center', C.goud); }
   haak(ctx, 960, 1560, base + 70, 'wand eromheen, membraan ertegenaan: allebei', C.groen, ramp(t, tAl, 0.5) * (1 - ramp(t, tCh, 0.5)));
   nm(ctx, 'chloroplasten', 'bladgroenkorrels · fotosynthese', P.bladgroenkorrel, 20, -30, ramp(t, tCh + 0.4, 0.5) * (1 - ramp(t, tV2, 0.5)), 'left');
@@ -3438,7 +3438,7 @@ s25(ctx, t, q, st) {
   const gl = 1 - night; molFlow(ctx, [[860, 470], [1080, 470]], 5, t, 80, (x, y, a, k) => glucoseMol(ctx, x, y, 1.5, a, t * 0.5 + k), 1000, gl); naamBij(ctx, 'glucose', '', 970, 420, gl, 'center', C.oker);
   molFlow(ctx, [[1500, 470], [1720, 360]], 6, t, 90, (x, y, a) => atpMol(ctx, x, y, 1.4, a), 1100, 1 - night * hyp); naamBij(ctx, 'ATP', '', 1730, 330, 1 - night * hyp, 'center', C.koraal);
   if (night > 0.3) pil(ctx, 'geen licht → geen nieuwe glucose', 650, 300, night, C.koraal);
-  nm(ctx, 'chloroplast', 'maakt glucose · alleen bij licht', [650, 600], 0, 40, 1, 'center'); nm(ctx, 'mitochondrium', 'verbrandt glucose · dag en nacht', [1290, 600], 0, 40, 1, 'center');
+  nm(ctx, 'chloroplast', 'maakt glucose · alleen bij licht', [615, 600], 0, 40, 1, 'center'); nm(ctx, 'mitochondrium', 'verbrandt glucose · dag en nacht', [1325, 600], 0, 40, 1, 'center');
   haak(ctx, 450, 1490, 720, 'allebei nodig, in elke plantencel', C.groen, ramp(t, q.at('allebei'), 0.5));
 },
 s26(ctx, t, q, st) {
@@ -3446,7 +3446,7 @@ s26(ctx, t, q, st) {
   const ag = ramp(t, q.at('grana'), 0.6); const c = chloroplastEcht(ctx, 560, 470, 3.0, { t, licht: 1 });
   const src = c.granum || [560, 470];
   zoomCircle(ctx, 1380, 430, 280, src[0], src[1], 'granum: stapel schijfjes (thylakoïden)', ag, () => { ctx.fillStyle = '#2B4A36'; ctx.fillRect(1100, 150, 560, 560); granum(ctx, 1380, 430, 300, 6, ramp(t, q.at('eiwitten'), 0.6)); });
-  nm(ctx, 'eiwitten die licht vangen', '', [1380, 150], 0, -14, ramp(t, q.at('eiwitten'), 0.5), 'center', C.goud);
+  nm(ctx, 'eiwitten die licht vangen', '', [1380, 150], 0, -62, ramp(t, q.at('eiwitten'), 0.5), 'center', C.goud);
   const al = ramp(t, q.at('licht', 1), 0.5); if (al > 0.01) { ctx.save(); ctx.globalAlpha *= al; ctx.strokeStyle = C.goud; ctx.lineWidth = 2.5; for (let k = 0; k < 3; k++) { const x = 1150 + k * 90, y = 120; ctx.beginPath(); for (let i = 0; i <= 20; i++) { const u = i / 20; ctx.lineTo(x + u * 80 + Math.sin(u * 18 + t * 6) * 6, y + u * 120); } ctx.stroke(); } ctx.restore(); }
   haak(ctx, 1100, 1660, 790, 'veel oppervlak, veel licht · net als de cristae', C.groen, ramp(t, q.at('cristae'), 0.5));
   scaleBar(ctx);

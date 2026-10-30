@@ -127,7 +127,7 @@ function motorEiwit(ctx, x, y, d, steel, a = 1) { if (a <= 0.01) return; const s
 // het midden, myofibrillen in de lengte met dwarsstrepen, mitochondriën in rijen ertussen (± 1/3 van het volume), aan de uiteinden
 // tussenschijven. Huidcel (keratinocyt): rond-hoekig, kern, weinig ER, een paar mitochondriën, veel keratinedraden.
 function hartspiercel(ctx, x, y, w, h, t = 0, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const L = x - w / 2, R = x + w / 2, T = y - h / 2, B = y + h / 2;
-  const omtrek = () => { ctx.beginPath(); ctx.moveTo(L + 20, T); ctx.lineTo(R - 60, T); ctx.lineTo(R - 30, T - h * 0.25); ctx.lineTo(R, T - h * 0.18); ctx.lineTo(R - 18, T + h * 0.1); ctx.lineTo(R - 10, B); ctx.lineTo(L + 30, B); ctx.lineTo(L, B - h * 0.3); ctx.lineTo(L + 6, T + h * 0.2); ctx.closePath(); };
+  const omtrek = () => { ctx.beginPath(); bioPad(ctx, [[L + 20, T], [x, T + 4], [R - 60, T], [R - 30, T - h * 0.25], [R, T - h * 0.18], [R - 18, T + h * 0.1], [R - 10, B], [x, B - 4], [L + 30, B], [L, B - h * 0.3], [L + 6, T + h * 0.2]], true); ctx.closePath(); }; // gebogen membraan (frisse review 30 okt 2026)
   omtrek(); ctx.fillStyle = '#26324A'; ctx.fill(); ctx.save(); omtrek(); ctx.clip();
   const rijen = 5; for (let r = 0; r < rijen; r++) { const yy = T + (r + 0.5) * h / rijen; ctx.fillStyle = rgba('#B87A6A', 0.45); ctx.fillRect(L, yy - h / rijen * 0.22, w, h / rijen * 0.44);
     ctx.strokeStyle = rgba('#E0B0A0', 0.5); ctx.lineWidth = 1.2; for (let xx = L; xx < R; xx += 14) { ctx.beginPath(); ctx.moveTo(xx, yy - h / rijen * 0.22); ctx.lineTo(xx, yy + h / rijen * 0.22); ctx.stroke(); }
