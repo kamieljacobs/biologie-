@@ -1,5 +1,45 @@
 [
  {
+  "href": "films/cellen/stamcellen.html",
+  "titel": "Stamcellen",
+  "thema": "cellen",
+  "themaTitel": "Cellen",
+  "duur": 9,
+  "vraag": "Waarom herstelt je huid wel, en je hartspier bijna niet?",
+  "extra": false,
+  "datum": "2026-10-30"
+ },
+ {
+  "href": "films/cellen/van-molecuul-tot-biosfeer.html",
+  "titel": "Van molecuul tot biosfeer",
+  "thema": "cellen",
+  "themaTitel": "Cellen",
+  "duur": 7,
+  "vraag": "Leeft een griepvirus eigenlijk?",
+  "extra": false,
+  "datum": "2026-10-30"
+ },
+ {
+  "href": "films/cellen/diffusie-osmose/index.html",
+  "titel": "Diffusie en osmose",
+  "thema": "cellen",
+  "themaTitel": "Cellen",
+  "duur": 10,
+  "vraag": "Niemand heeft geroerd. Hoe komt de kleurstof dan overal?",
+  "extra": false,
+  "datum": "2026-10-30"
+ },
+ {
+  "href": "films/cellen/celorganellen/index.html",
+  "titel": "Celorganellen",
+  "thema": "cellen",
+  "themaTitel": "Cellen",
+  "duur": 11,
+  "vraag": "Je alvleesklier maakt enzymen die buiten zijn cellen werken. Hoe komen ze de cel uit?",
+  "extra": false,
+  "datum": "2026-10-30"
+ },
+ {
   "href": "films/ecologie/1-hoeveel-passen-er.html",
   "titel": "Hoeveel passen er?",
   "thema": "ecologie",
@@ -58,45 +98,5 @@
   "vraag": "Hoe komt koolstof van een varen van driehonderd miljoen jaar geleden in de lucht boven jouw straat?",
   "extra": false,
   "datum": "2026-10-29"
- },
- {
-  "href": "films/ecologie/7-stikstof-gaat-rond.html",
-  "titel": "Stikstof gaat rond",
-  "thema": "ecologie",
-  "themaTitel": "Ecologie",
-  "duur": 12,
-  "vraag": "Waarom wordt een sloot naast een weiland groen?",
-  "extra": false,
-  "datum": "2026-10-29"
- },
- {
-  "href": "films/ecologie/8-van-zand-tot-bos.html",
-  "titel": "Van zand tot bos",
-  "thema": "ecologie",
-  "themaTitel": "Ecologie",
-  "duur": 8,
-  "vraag": "Hoe wordt kaal zand vanzelf een bos?",
-  "extra": false,
-  "datum": "2026-10-29"
- },
- {
-  "href": "films/erfelijkheid/2-monohybride-kruisingen.html",
-  "titel": "Monohybride kruisingen",
-  "thema": "erfelijkheid",
-  "themaTitel": "Erfelijkheid",
-  "duur": 7,
-  "vraag": "Twee ouders zonder albinisme kregen al een kind mét. Hoe groot is de kans dat het volgende kind het ook heeft?",
-  "extra": false,
-  "datum": "2026-10-28"
- },
- {
-  "href": "films/erfelijkheid/3-voorbij-dominant-en-recessief.html",
-  "titel": "Voorbij dominant en recessief",
-  "thema": "erfelijkheid",
-  "themaTitel": "Erfelijkheid",
-  "duur": 8,
-  "vraag": "Rood × wit geeft roze. Mengen allelen dan, zoals verf?",
-  "extra": false,
-  "datum": "2026-10-28"
  }
 ]
