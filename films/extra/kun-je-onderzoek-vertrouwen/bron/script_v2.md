@@ -34,9 +34,9 @@ Stap drie: hoe vaak ligt een uitkomst minstens zo ver van de verwachting als die
 Biologen leggen de grens meestal bij nul komma nul vijf: één op de twintig. Is p kleiner, dan heet een afwijking significant. Dan ga je twijfelen aan de nulhypothese.
 
 Een onderzoek vindt p is nul komma nul drie. Wat betekent dat? Wat denk je?
-[VRAAG] (a) er is drie procent kans dat de hypothese niet klopt · (b) als alleen toeval speelt, krijg je zo'n grote of grotere afwijking maar in drie procent van de gevallen · (c) het effect is drie procent groot
+[VRAAG] (a) er is drie procent kans dat de hypothese niet klopt · (b) het effect is drie procent groot · (c) als alleen toeval speelt, krijg je zo'n grote of grotere afwijking maar in drie procent van de gevallen
 
-Antwoord b. De p-waarde rekent vanuit de nulhypothese: stel dat alleen toeval speelt, hoe vaak krijg je dan zo'n uitkomst? Misschien dacht je: drie procent kans dat het niet klopt. Zo lijkt het, maar die kans zegt de p-waarde niet. En de p-waarde zegt ook niet hoe groot een effect is. Een piepklein verschil wordt significant als je maar genoeg metingen doet.
+Antwoord c. De p-waarde rekent vanuit de nulhypothese: stel dat alleen toeval speelt, hoe vaak krijg je dan zo'n uitkomst? Misschien dacht je: drie procent kans dat het niet klopt. Zo lijkt het, maar die kans zegt de p-waarde niet. En de p-waarde zegt ook niet hoe groot een effect is. Een piepklein verschil wordt significant als je maar genoeg metingen doet.
 
 En Mendel? Zijn uitkomst is niet significant. Dat bewijst de drie staat tot één niet. Je hebt alleen geen reden gevonden om eraan te twijfelen.
 
@@ -46,9 +46,9 @@ In de praktijk simuleer je niet. Je doet een chi-kwadraattoets. Per groep neem j
 Toeval zorgt voor afwijkingen. Kleine meestal, en soms grote. Wat betekent het dan als er bijna geen afwijkingen zijn?
 
 Iemand gooit tien keer honderd keer een munt op. Elke keer meldt hij negenenveertig, vijftig of eenenvijftig keer kop. Wat denk je?
-[VRAAG] (a) een eerlijke munt: het zit telkens netjes rond de helft · (b) te netjes: bij echt toeval wijkt het vaker af · (c) een vervalste munt
+[VRAAG] (a) te netjes: bij echt toeval wijkt het vaker af · (b) een eerlijke munt: het zit telkens netjes rond de helft · (c) een vervalste munt
 
-Antwoord b. Elke uitkomst op zich is heel gewoon. Maar tien keer achter elkaar zo dicht bij de helft is bij echt toeval bijna onmogelijk. Misschien dacht je: hoe dichter bij de verwachting, hoe betrouwbaarder. Maar echte metingen hebben spreiding.
+Antwoord a. Elke uitkomst op zich is heel gewoon. Maar tien keer achter elkaar zo dicht bij de helft is bij echt toeval bijna onmogelijk. Misschien dacht je: hoe dichter bij de verwachting, hoe betrouwbaarder. Maar echte metingen hebben spreiding.
 
 In het jaar 1936 keek de statisticus Ronald Fisher zo naar alle proeven van Mendel samen. Bijna allemaal zaten ze opvallend dicht bij de verwachting. Of hier echt iets mis was, is nog altijd omstreden. Een mogelijke verklaring: twijfelgevallen werden, zonder opzet, ingedeeld bij de groep die je verwacht. Of je stopt met tellen zodra de verhouding er mooi uitziet. Dat heet bevestigingsbias: je ziet wat je verwacht.
 
@@ -74,9 +74,9 @@ Zo ging het met de berkenspanner, een nachtvlinder met een lichte en een donkere
 Maar soms hapert het systeem. Terug naar de drieënvijftig kankerstudies. Waarom lukte het zo vaak niet? Antwoord b. Veel studies hadden een zwakke opzet: weinig herhalingen, en niet blind gemeten. En tijdschriften publiceren liever opvallende uitkomsten. Onderzoek waarin niets gevonden werd, verdwijnt in de la. Dat heet publicatiebias. Misschien dacht je: dan waren het fraudeurs. Maar daarvoor was geen bewijs. Zwakke opzet, selectief publiceren en toeval samen zijn genoeg.
 
 Je toetst twintig keer iets wat in werkelijkheid geen effect heeft. Hoe vaak verwacht je toch een significante uitkomst? Wat denk je?
-[VRAAG] (a) nooit: zonder effect is p altijd groot · (b) ongeveer één keer · (c) ongeveer tien keer
+[VRAAG] (a) nooit: zonder effect is p altijd groot · (b) ongeveer tien keer · (c) ongeveer één keer
 
-Antwoord b. Met een grens van één op de twintig verwacht je bij twintig toetsen één toevalstreffer. De kans op minstens één is zelfs bijna twee op drie. Net zo lang analyseren tot er iets significants uitkomt, en alleen dat melden, heet p-hacking. Een oplossing: vóóraf vastleggen wat je gaat meten en hoe je het toetst. Dat heet preregistratie. En ook uitkomsten zonder effect publiceren. Dan kun je later alle studies samen bekijken, in plaats van één opvallende.
+Antwoord c. Met een grens van één op de twintig verwacht je bij twintig toetsen één toevalstreffer. De kans op minstens één is zelfs bijna twee op drie. Net zo lang analyseren tot er iets significants uitkomt, en alleen dat melden, heet p-hacking. Een oplossing: vóóraf vastleggen wat je gaat meten en hoe je het toetst. Dat heet preregistratie. En ook uitkomsten zonder effect publiceren. Dan kun je later alle studies samen bekijken, in plaats van één opvallende.
 
 Soms is het wél fraude. In het jaar 2004 meldde een Zuid-Koreaanse onderzoeker dat hij stamcellen had gemaakt uit gekloonde menselijke embryo's, en in het jaar 2005 nog eens. De artikelen kwamen gewoon door de peer review. Peer review vangt veel, maar geen verzonnen gegevens. Jonge onderzoekers en journalisten zagen na publicatie dat foto's van verschillende cellijnen dezelfde waren. De gegevens bleken verzonnen, en de artikelen werden ingetrokken.
 
