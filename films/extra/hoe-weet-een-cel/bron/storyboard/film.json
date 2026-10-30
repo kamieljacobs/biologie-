@@ -1,0 +1,690 @@
+{
+ "film": 1,
+ "titel": "Hoe weet een cel wat hij moet worden?",
+ "slug": "hoe-weet-een-cel",
+ "puzzel": "Hoe 'weet' één cel wat hij moet worden?",
+ "haak": "Vijf dagen na de bevruchting ben je een bal van ruim honderd cellen met hetzelfde DNA; acht weken later klopt er een hart.",
+ "duur": "± 17 min (16 min gesproken + kaarten en vraagpauzes)",
+ "hoofdstukken": [
+  {
+   "nr": 1,
+   "titel": "Een knikker op een heuvel",
+   "minivraag": "Raakt een cel genen kwijt als hij zich specialiseert?",
+   "type": "C",
+   "look": "Schema"
+  },
+  {
+   "nr": 2,
+   "titel": "Binnen of buiten",
+   "minivraag": "Wat bepaalt of een cel embryo of placenta wordt?",
+   "type": "C",
+   "look": "Micro"
+  },
+  {
+   "nr": 3,
+   "titel": "Drie lagen",
+   "minivraag": "Hoe ontstaan de kiembladen?",
+   "type": "C",
+   "look": "Micro"
+  },
+  {
+   "nr": 4,
+   "titel": "De eerste buis",
+   "minivraag": "Hoe kunnen cellen het lot van hun buren veranderen?",
+   "type": "C",
+   "look": "Micro"
+  },
+  {
+   "nr": 5,
+   "titel": "Hoeveel signaal?",
+   "minivraag": "Hoe krijgt elke vinger zijn eigen vorm?",
+   "type": "D",
+   "look": "Schema"
+  },
+  {
+   "nr": 6,
+   "titel": "Een bericht voor onze cel",
+   "minivraag": "Bevat een signaal de bouwtekening van een lens?",
+   "type": "C",
+   "look": "Micro"
+  },
+  {
+   "nr": 7,
+   "titel": "Mastergen en adresboek",
+   "minivraag": "Staat er een plattegrond van je lichaam in je DNA?",
+   "type": "D",
+   "look": "Schema"
+  },
+  {
+   "nr": 8,
+   "titel": "Vastzetten",
+   "minivraag": "Waarom blijft een lenscel een lenscel als het signaal weg is?",
+   "type": "D",
+   "look": "Micro"
+  },
+  {
+   "nr": 9,
+   "titel": "Kan de knikker terug?",
+   "minivraag": "Is het DNA in een gespecialiseerde cel nog compleet?",
+   "type": "G",
+   "look": "Schema"
+  },
+  {
+   "nr": 10,
+   "titel": "Terug naar de lens",
+   "minivraag": "Hoe kwam onze cel aan zijn lot?",
+   "type": "C",
+   "look": "Macro"
+  }
+ ],
+ "scenes": [
+  {
+   "id": "w01",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Vijf dagen na de bevruchting ben je een holle bal van ruim honderd cellen.",
+   "beweging": "Blastocyste van dag 5 (beeldbank `blastocyste`) draait langzaam; één cel in de binnenste celmassa licht goud op: 'onze cel'."
+  },
+  {
+   "id": "w02",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Acht weken na de bevruchting klopt er een hart, en heb je oogjes en tien vingers. Niemand deelde een bouwtekening uit. Hoe 'weet' één cel wat hij moet worden?",
+   "beweging": "Doorlopende zoom uit: de bal groeit tot embryo (beeldbank `embryoEcht`, ±8 weken: hartje klopt, oogje, handje met vingerstralen); schaalbalk ± 3 cm; het oog krijgt de gouden focuscirkel."
+  },
+  {
+   "id": "w03",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "",
+   "beweging": "Titelkaart 'Hoe weet een cel wat hij moet worden?' met kleine blastocyste links en het oog rechts."
+  },
+  {
+   "id": "w04",
+   "hoofdstuk": "1 Een knikker op een heuvel",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Al die cellen zijn ontstaan uit één bevruchte eicel. Ze hebben dus hetzelfde DNA.",
+   "beweging": "Eén eicel deelt 2-4-8; in elke cel dezelfde grijze DNA-draad (palet B), die in een levercel en een zenuwcel naast elkaar staat."
+  },
+  {
+   "id": "wq05",
+   "hoofdstuk": "1 Een knikker op een heuvel",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Een levercel heeft het gen voor insuline. Wat is er met dat gen aan de hand?",
+   "beweging": "Vraagkaart; links een levercel met in de kern één gemarkeerd gen 'insuline'.",
+   "opties": "A Het is weggeknipt toen de cel levercel werd · B Het is er nog, maar het staat uit · C Het staat aan, maar de cel breekt het eiwit meteen af",
+   "juist": "B"
+  },
+  {
+   "id": "w06",
+   "hoofdstuk": "1 Een knikker op een heuvel",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Het gen is er nog. Het staat alleen uit. In de film over stamcellen zag je dat al. Bijna elke cel houdt al zijn genen, en zet er andere aan en uit.",
+   "beweging": "In de levercel: het insulinegen blijft staan maar dimt (35%); genen voor leverenzymen lichten op; ernaast de zenuwcel met een ander patroon van lichtjes op hetzelfde DNA."
+  },
+  {
+   "id": "w07",
+   "hoofdstuk": "1 Een knikker op een heuvel",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Biologen hebben daar een beeld voor, van de bioloog Conrad Waddington. Het is een model: de heuvel bestaat niet echt, hij staat voor hoe genen aan en uit gaan. Stel je een heuvel voor met een knikker bovenop. Van de top lopen dalen naar beneden. Die dalen splitsen zich, steeds weer.",
+   "beweging": "Het landschap van Waddington bouwt zich op als schuin aanzicht: een heuvel met vertakkende dalen; label MODEL rechtsboven; de knikker (goud) ligt bovenop.",
+   "twijfel": "Het landschap van Waddington is een nieuwe tekening die de hele film terugkomt (na elke keuze) en de bibliotheek in gaat. Voorstel: schuin bovenaanzicht als lijnenreliëf in Schema-navy, dalen als groeven, knikker goud, gekozen dal licht op en afgevallen dalen dimmen naar 35%.",
+   "waarom": "Dit beeld draagt de hele film; de stijl ervan (strak lijnenreliëf of zachter, landschapachtiger) is jouw keuze."
+  },
+  {
+   "id": "w08",
+   "hoofdstuk": "1 Een knikker op een heuvel",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "De knikker is een cel. Elk dal onderaan is een celsoort: een spiercel, een zenuwcel, een levercel. Bovenaan kan de knikker nog alle kanten op. Bij elk dal dat hij in rolt, vallen er wegen af. Een cel in het dal 'huid' wordt normaal gesproken geen levercel meer.",
+   "beweging": "Onderaan elk dal een klein celtype (spiervezel, zenuwcel, levercel, huidcel uit lib_bio); een tweede knikker rolt het dal 'huid' in, de andere dalen dimmen."
+  },
+  {
+   "id": "w09",
+   "hoofdstuk": "1 Een knikker op een heuvel",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "De vraag is dus: wat duwt de knikker welk dal in? Doe een gedachte-experiment. Stel dat we één cel volgen, en dat hij over een paar weken een stukje van je ooglens is. En aan het eind snap je ook waarom een lapjeskat vlekken heeft.",
+   "beweging": "De gouden knikker bovenaan; een stippellijn loopt alvast naar een dal 'lens' (label GEDACHTE-EXPERIMENT); rechtsonder kort het silhouet van een lapjeskat (belofte)."
+  },
+  {
+   "id": "w10",
+   "hoofdstuk": "2 Binnen of buiten",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Dag vijf. De bal van cellen heet nu een blastocyste. Er is een buitenste laag, en binnenin een klompje cellen. De buitenste laag wordt later een deel van de placenta. Uit het klompje binnenin ontstaan jij, en de vliezen om je heen.",
+   "beweging": "Doorsnede blastocyste (beeldbank): buitenlaag (trofoblast) en binnenste celmassa krijgen hun naam direct op het onderdeel; dagteller DAG 5."
+  },
+  {
+   "id": "wq11",
+   "hoofdstuk": "2 Binnen of buiten",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Wat bepaalt of een cel in de buitenlaag of in het klompje terechtkomt?",
+   "beweging": "Vraagkaart met de doorsnede klein rechts.",
+   "opties": "A Waar de cel ligt: aan de rand of middenin · B Buitencellen hebben ander DNA dan binnencellen · C De cellen zijn vanaf de eerste deling al verschillend en blijven dat",
+   "juist": "A"
+  },
+  {
+   "id": "w12",
+   "hoofdstuk": "2 Binnen of buiten",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Het is vooral de plek. Een cel aan de buitenkant heeft één kant vrij. Een cel binnenin raakt aan alle kanten buren. Dat verschil zet in de buitencellen andere genen aan dan in de binnencellen.",
+   "beweging": "Vroeg embryo van ±16 cellen (morula): één buitencel met een vrije kant (goud omlijnd), één binnencel volledig omringd; in beide kernen gaan andere genen aan (lichtjes); label VEREENVOUDIGD."
+  },
+  {
+   "id": "w13",
+   "hoofdstuk": "2 Binnen of buiten",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Leg je in een heel jong muizenembryo een buitencel naar binnen, dan gaat hij zich gedragen als een binnencel.",
+   "beweging": "Een gemarkeerde buitencel schuift naar het midden; zijn kernlichtjes wisselen naar het binnenpatroon. Meta: MUIZENEMBRYO."
+  },
+  {
+   "id": "w14",
+   "hoofdstuk": "2 Binnen of buiten",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Onze cel ligt binnenin. De knikker rolt zijn eerste dal in: embryo, geen placenta. Positie telt dus. Dat is het eerste deel van het antwoord.",
+   "beweging": "Terug naar het landschap: knikker rolt het eerste dal in (embryo), het dal 'placenta' dimt; rechts verschijnt de eerste van vier antwoordtegels: POSITIE."
+  },
+  {
+   "id": "w15",
+   "hoofdstuk": "3 Drie lagen",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Week drie. Het klompje is een plat schijfje geworden. Over het midden loopt een gleuf: de oerstreep. Cellen kruipen naar die gleuf, duiken erin en schuiven onder de bovenste laag door. Dit heet de gastrulatie.",
+   "beweging": "Schuin aanzicht van de kiemschijf met de oerstreep; doorsnede eronder: cellen kruipen naar de streep, duiken in en schuiven als nieuwe lagen onder de bovenlaag. Tijdbalk WEEK 3.",
+   "twijfel": "Gastrulatie en de drie kiembladen zijn nieuwe tekeningen voor de bibliotheek. Voorstel voor de kiembladkleuren: ectoderm teal, mesoderm koraal, endoderm oker (de schoolboekconventie blauw/rood/geel, vertaald naar de vaste betekeniskleuren).",
+   "waarom": "Deze drie kleuren gaan vast in de bibliotheek en komen in toekomstige films terug; teal en koraal hebben al een betekenis (water/informatie, bloed/energie)."
+  },
+  {
+   "id": "w16",
+   "hoofdstuk": "3 Drie lagen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Zo ontstaan drie lagen: de kiembladen. De bovenste laag is het ectoderm. Daaruit komen je opperhuid, je hersenen en zenuwen, en de lens van je oog. De middelste laag is het mesoderm. Daaruit komen je spieren, de meeste botten, je bloed en je nieren. De onderste laag is het endoderm. Daaruit komt de bekleding van je darm en je longen, en ook je lever en je alvleesklier.",
+   "beweging": "Drie banden boven elkaar in de kiembladkleuren; per laag schuiven kleine iconen van de organen eruit (opperhuid, brein, oog / spier, bot, druppel bloed, nier / darm, long, lever, alvleesklier)."
+  },
+  {
+   "id": "w17",
+   "hoofdstuk": "3 Drie lagen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Onze cel duikt niet de gleuf in. Hij blijft boven: ectoderm. Weer een dal dieper. Levercel of spiercel wordt hij niet meer.",
+   "beweging": "Landschap: knikker kiest het ectoderm-dal; dalen 'mesoderm' en 'endoderm' dimmen."
+  },
+  {
+   "id": "wq18",
+   "hoofdstuk": "3 Drie lagen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Uit welke laag komt je hart? Het pompt bloed en het bestaat uit spierweefsel.",
+   "beweging": "Vraagkaart met de drie banden en een hartje zonder kleur.",
+   "opties": "A Ectoderm · B Mesoderm · C Endoderm",
+   "juist": "B"
+  },
+  {
+   "id": "w19",
+   "hoofdstuk": "3 Drie lagen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Uit het mesoderm, de middelste laag. Net als je bloed en je andere spieren.",
+   "beweging": "Het hartje kleurt koraal en zakt in de middelste band."
+  },
+  {
+   "id": "w20",
+   "hoofdstuk": "4 De eerste buis",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Dag negentien. Onder het midden van het ectoderm ligt een staafje cellen uit het mesoderm: de chorda. De chorda en het weefsel eromheen maken signaalstoffen. Die verspreiden zich naar het ectoderm erboven, en zetten daar genen aan. Dat stuk ectoderm wordt dikker: de neurale plaat.",
+   "beweging": "Dwarsdoorsnede: chorda (koraal) onder het ectoderm (teal); signaalstofjes stijgen op (goud), het ectoderm erboven verdikt tot de neurale plaat.",
+   "twijfel": "Nieuwe tekening voor de bibliotheek: de neurale plaat die oprolt tot neurale buis, in dwarsdoorsnede.",
+   "waarom": "Nieuwe tekening die vaker terugkomt (zenuwstelsel, voortplanting); jij keurt of de vorm herkenbaar genoeg is."
+  },
+  {
+   "id": "w21",
+   "hoofdstuk": "4 De eerste buis",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "De randen van de plaat komen omhoog, buigen naar elkaar toe en sluiten zich. Zo ontstaat een buis: de neurale buis. Daaruit groeien je hersenen en je ruggenmerg. Onze cel ligt niet in de plaat, maar ernaast, in het ectoderm dat huid en lens wordt. Weer een dal dieper.",
+   "beweging": "De plaat vouwt op tot buis die onder de huid wegzakt; onze gouden cel ligt naast de plaat in het buitenste ectoderm; klein landschap rechtsboven: een dal dieper."
+  },
+  {
+   "id": "w22",
+   "hoofdstuk": "4 De eerste buis",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Een groepje cellen dat het lot van zijn buren verandert: dat heet inductie.",
+   "beweging": "Kaart met het begrip 'inductie' en een mini-schema: groepje cellen → signaal → buren veranderen."
+  },
+  {
+   "id": "w23",
+   "hoofdstuk": "4 De eerste buis",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "In het jaar 1924 beschreven Hans Spemann en Hilde Mangold een beroemd voorbeeld. Mangold plantte een stukje van de rand van de oermond van een jong salamanderembryo over naar de buikkant van een ander embryo. Het stukje had een andere kleur, zodat ze de cellen kon volgen. Er groeide een tweede lichaam aan vast, met een eigen neurale buis. Het meeste daarvan bestond uit cellen van het ontvangende embryo. Het overgeplante stukje had zijn buren een ander lot gegeven. Zo'n stukje heet een organisator.",
+   "beweging": "Twee bolvormige salamanderembryo's (één licht, één donker gepigmenteerd); een stukje van de donkere wordt in de lichte gezet; daarna een larfje met een tweede lichaamsas aan de buikkant, die tweede as grotendeels licht met een smal donker streepje (de cellen van het stukje). Meta: SALAMANDER · 1924.",
+   "twijfel": "Nieuwe tekening: salamanderembryo en een larfje met een tweede lichaamsas. Het is een dubbel larfje: dat kan vreemd of eng ogen.",
+   "waarom": "Nieuw object, en de toon (eng of fascinerend) is een keuze; inkorten van dit uitstapje is ook een kandidaat om de film korter te maken."
+  },
+  {
+   "id": "w24",
+   "hoofdstuk": "4 De eerste buis",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Terug naar jou. Aan het eind van week vier moet de neurale buis helemaal dicht zijn. Gaat dat mis, dan blijft een stuk open. Onderaan geeft dat een open rug.",
+   "beweging": "Schema van het embryo van ± 4 weken van achteren: de buis sluit als een rits van het midden naar beide uiteinden; een klein stukje onderaan blijft open (gestippeld omlijnd, geen naar beeld). Tijdbalk WEEK 4.",
+   "twijfel": "Een aangeboren afwijking (open rug) in beeld.",
+   "waarom": "Gevoelig onderwerp (regel V1): voorstel is alleen het schema van de buis die niet helemaal sluit, geen kind met een open rug."
+  },
+  {
+   "id": "w25",
+   "hoofdstuk": "4 De eerste buis",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Foliumzuur, een B-vitamine, verkleint die kans. Maar de buis sluit vaak al voordat iemand weet dat ze zwanger is. Daarom is het advies: begin met foliumzuur al vóór je zwanger bent.",
+   "beweging": "Esra (castboek) met haar partner aan de keukentafel, ze schudt een tabletje uit een potje 'foliumzuur'; een kalender met een kruisje vóór het moment van de zwangerschapstest.",
+   "twijfel": "Esra (in ROLLEN.md 'zwangere vrouw, cliënte bij de verloskundige') hier vóór haar zwangerschap, met de kinderwens als warm menselijk moment.",
+   "waarom": "Nieuwe rol voor een castpersonage en een gevoelig onderwerp; check of dit past bij haar levensloop."
+  },
+  {
+   "id": "w26",
+   "hoofdstuk": "4 De eerste buis",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Eén van de signaalstoffen van de chorda heet Sonic hedgehog. Die kom je zo nog tegen.",
+   "beweging": "In de dwarsdoorsnede licht één soort signaalstofje uit de chorda op met de naam Sonic hedgehog direct ernaast."
+  },
+  {
+   "id": "w27",
+   "hoofdstuk": "5 Hoeveel signaal?",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Een signaal kan meer dan aan of uit. De hoeveelheid signaal kan per plek verschillen. Kijk naar de knop waaruit je arm groeit, in week vijf. Aan de kant waar later je pink komt, ligt een groepje cellen dat Sonic hedgehog maakt.",
+   "beweging": "Zoom op de armknop van het embryo; bron aan de pinkkant licht goud op.",
+   "twijfel": "Nieuwe tekening: de armknop (later handplaat) van het embryo.",
+   "waarom": "Nieuw object voor de bibliotheek."
+  },
+  {
+   "id": "w28",
+   "hoofdstuk": "5 Hoeveel signaal?",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "De stof verspreidt zich door de knop. Dicht bij de bron is er veel, verder weg steeds minder. Een verloop van hoog naar laag: een gradiënt. Cellen dicht bij de bron vangen veel signaal op, en dat lang. Daar groeit een pink. Cellen verder weg vangen minder op. Daar groeien de middelste vingers. Hoeveel signaal en hoe lang: allebei tellen ze mee. Dit is vereenvoudigd.",
+   "beweging": "Goudstipjes verspreiden zich; een kromme 'hoeveelheid signaal' tekent zich boven de knop; de handplaat verschijnt met vijf vingerstralen, de pink dicht bij de bron; label VEREENVOUDIGD."
+  },
+  {
+   "id": "w29",
+   "hoofdstuk": "5 Hoeveel signaal?",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Onderzoekers deden een proef met kippenembryo's. Een kippenvleugel heeft drie vingers: een voorste, een middelste en een achterste. De bron van het signaal zit achter in de vleugelknop. Ze plantten een tweede bron in aan de voorkant.",
+   "beweging": "Kippenembryo (schema) met vleugelknop, achter de bron; een pincet zet een tweede bron aan de voorkant. Daarnaast klein: een normale kippenvleugel met drie vingers (voor, midden, achter).",
+   "twijfel": "Nieuwe tekening: kippenembryo met vleugelknop en een vleugelskelet met drie vingers.",
+   "waarom": "Nieuw object voor de bibliotheek (de leghen `kipEcht` bestaat, het embryo nog niet)."
+  },
+  {
+   "id": "wq30",
+   "hoofdstuk": "5 Hoeveel signaal?",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je dat er groeit?",
+   "beweging": "Vraagkaart met de vleugelknop met twee bronnen.",
+   "opties": "A Extra vingers, in dezelfde volgorde nog een keer erachter · B Minder vingers, omdat de twee bronnen elkaar opheffen · C Extra vingers in spiegelbeeld",
+   "juist": "C"
+  },
+  {
+   "id": "w31",
+   "hoofdstuk": "5 Hoeveel signaal?",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Er groeiden extra vingers, in spiegelbeeld. In plaats van drie, zes: achter, midden, voor, voor, midden, achter. Bij elke hoeveelheid signaal gaan in een cel andere genen aan. Zo krijgt elke cel een plek in een patroon, zonder dat er ergens een tekening is.",
+   "beweging": "De gradiëntkromme wordt een dal-vorm met twee pieken; het vleugelskelet groeit met zes vingers in spiegelbeeld; labels achter-midden-voor-voor-midden-achter onder de vingers."
+  },
+  {
+   "id": "w32",
+   "hoofdstuk": "6 Een bericht voor onze cel",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Een week eerder, in week vier. Terug naar onze cel, in het ectoderm aan de zijkant van de kop. Vanuit de groeiende hersenen bult aan elke kant een blaasje naar buiten: het oogblaasje. Het groeit door tot het tegen het ectoderm aan ligt. Precies tegen onze cel.",
+   "beweging": "Tijdbalk springt terug naar WEEK 4. Doorsnede van de kop: hersenblaasje (teal) met een uitstulping die naar het oppervlak groeit en tegen het ectoderm komt, waar onze gouden cel ligt.",
+   "twijfel": "Nieuwe tekening: oogblaasje, lensplaatje, lensblaasje en oogbeker in doorsnede (vier stadia die in elkaar overgaan).",
+   "waarom": "Nieuw object dat de kern van de film draagt; het moet anatomisch kloppen en tegelijk rustig blijven."
+  },
+  {
+   "id": "w33",
+   "hoofdstuk": "6 Een bericht voor onze cel",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Onder invloed van signalen van het oogblaasje, en van eerdere signalen, wordt het ectoderm daar dikker. Het stulpt naar binnen en snoert af tot een bolletje: het lensblaasje. Onze cel zit erin. Hij wordt lens.",
+   "beweging": "Signaalstipjes (goud) van het oogblaasje naar het ectoderm; het ectoderm verdikt, stulpt in en snoert af tot lensblaasje met onze cel erin; landschap klein rechtsboven: dal 'lens'."
+  },
+  {
+   "id": "w34",
+   "hoofdstuk": "6 Een bericht voor onze cel",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Het lensblaasje draagt op zijn beurt bij aan wat het oogblaasje doet: dat vouwt zich om de lens heen tot een oogbeker. Daaruit groeit je netvlies.",
+   "beweging": "Het oogblaasje vouwt in tot een dubbelwandige beker om het lensblaasje; de binnenwand krijgt de naam 'netvlies' direct op de wand."
+  },
+  {
+   "id": "w35",
+   "hoofdstuk": "6 Een bericht voor onze cel",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Nu een proef met muizen. Bij sommige muizen werkt het gen Pax zes niet, alleen in de huid. Het oogblaasje groeit gewoon tot tegen die huid aan.",
+   "beweging": "Dezelfde doorsnede, maar het ectoderm is grijs gemarkeerd 'zonder Pax6'; het oogblaasje groeit tot tegen de huid. Meta: MUIS · PAX6 ALLEEN IN DE HUID UITGESCHAKELD."
+  },
+  {
+   "id": "wq36",
+   "hoofdstuk": "6 Een bericht voor onze cel",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Ontstaat er een lens?",
+   "beweging": "Vraagkaart met de doorsnede.",
+   "opties": "A Nee, er ontstaat geen lens · B Ja, want het oogblaasje geeft gewoon zijn signaal af",
+   "juist": "A"
+  },
+  {
+   "id": "w37",
+   "hoofdstuk": "6 Een bericht voor onze cel",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Er ontstaat geen lens. Het signaal komt aan, maar de huid reageert niet. Het signaal bevat dus geen plan voor een lens. Hoe een cel reageert, hangt af van de cel zelf: heeft hij de juiste receptor, en zijn de juiste genen aanwezig? Dat heet competentie. En competentie duurt niet eeuwig: is het moment voorbij, dan reageert dezelfde huid niet meer.",
+   "beweging": "Signaalstipjes komen aan bij de huidcellen maar er gebeurt niets; inzoom op één huidcel: receptor in het membraan, in de kern de lensgenen die niet aangaan; daarna een cel mét Pax6 waar de genen wel aangaan. Kaart 'competentie'; klein klokje dat afloopt."
+  },
+  {
+   "id": "w38",
+   "hoofdstuk": "7 Mastergen en adresboek",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Pax zes is een bijzonder gen. Het maakt een transcriptiefactor die, samen met andere, een heel netwerk van genen aanzet. Die zetten weer andere aan.",
+   "beweging": "Kern met DNA-draad: het Pax6-gen maakt een eiwit (kralenketen) dat op meerdere plekken op het DNA bindt; een netwerk van genen licht stap voor stap op."
+  },
+  {
+   "id": "w39",
+   "hoofdstuk": "7 Mastergen en adresboek",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Fruitvliegen hebben een verwant gen. Daar heet het eyeless. In het jaar 1995 zetten onderzoekers eyeless aan op plekken waar het normaal uit staat. Er groeiden ogen. Op de vleugels, op de poten, op de voelsprieten. Echte facetogen, met lichtgevoelige cellen. Wel alleen in weefsel dat kon reageren. Eén gen dat een heel programma op gang kan brengen: dat heet een mastergen.",
+   "beweging": "Fruitvlieg (beeldbank `fruitvlieg`, groot) met kleine rode facetoogjes op een poot, de vleugelbasis en een voelspriet, goud omcirkeld; zoom op één extra oogje: facetten. Meta: FRUITVLIEG · 1995.",
+   "twijfel": "De bestaande fruitvlieg is alleen van boven en zonder extra ogen; nodig is een variant met ogen op poten en vleugels.",
+   "waarom": "Nieuwe pose en variant van een beeldbankobject; het beeld moet echt en niet griezelig ogen."
+  },
+  {
+   "id": "w40",
+   "hoofdstuk": "7 Mastergen en adresboek",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Maar waarom wordt een poot een poot, en geen voelspriet? Daarvoor zijn er de Hox-genen. Bij de fruitvlieg liggen ze op een rij op het chromosoom. En die rij loopt in dezelfde volgorde als het lichaam: de eerste genen zijn actief vooraan, de laatste achteraan.",
+   "beweging": "Boven: een rij gekleurde genblokjes op een chromosoom; onder: de vlieg van opzij, met dezelfde kleuren als stroken van kop naar achterlijf; lijntjes vallen niet nodig, de kleuren koppelen."
+  },
+  {
+   "id": "w41",
+   "hoofdstuk": "7 Mastergen en adresboek",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Zo krijgt elke strook van het embryo een eigen combinatie van Hox-genen. Een soort adres. Bij jou werkt het net zo, alleen met vier van zulke rijen. Bij jou beginnen ze in je hersenstam en lopen ze door tot je staartstreek.",
+   "beweging": "Naast de vlieg een menselijk embryo van opzij met dezelfde kleurstroken van hersenstam tot staartstreek; vier rijtjes genen boven elkaar."
+  },
+  {
+   "id": "wq42",
+   "hoofdstuk": "7 Mastergen en adresboek",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Bij een vlieg staat door een mutatie een Hox-gen aan op de plek van de voelsprieten, waar het normaal uit staat. Wat groeit daar?",
+   "beweging": "Vraagkaart met de kop van de vlieg; de strook van de voelsprieten krijgt de kleur van de borststrook.",
+   "opties": "A Niets, want de voelsprieten verdwijnen gewoon · B Poten, op de plek van de voelsprieten · C Voelsprieten, maar dan op de poten",
+   "juist": "B"
+  },
+  {
+   "id": "w43",
+   "hoofdstuk": "7 Mastergen en adresboek",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Er groeien poten op de kop. Deze mutatie heet Antennapedia. Een onderdeel dat groeit op de plek van een ander: dat heet een homeotische mutatie.",
+   "beweging": "Kop van een fruitvlieg van voren: normaal (voelsprieten) naast Antennapedia (twee pootjes waar de voelsprieten horen).",
+   "twijfel": "Nieuwe tekening: fruitvliegkop van voren, normaal en Antennapedia.",
+   "waarom": "Nieuwe pose van een beeldbankdier; moet kloppen met de echte mutant."
+  },
+  {
+   "id": "w44",
+   "hoofdstuk": "7 Mastergen en adresboek",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Let op: de rij Hox-genen is geen tekening van je lichaam. Het is een volgorde van schakelaars. Positie geeft signalen, signalen zetten genen aan, en die zetten de volgende aan. De vorm van je lichaam volgt uit die volgorde.",
+   "beweging": "Een keten van drie tegels: positie → signaal → genen aan → volgende genen; daaronder het landschap, de knikker in het dal 'lens'; tweede antwoordtegel SIGNAAL, derde GEVOELIGHEID."
+  },
+  {
+   "id": "w45",
+   "hoofdstuk": "8 Vastzetten",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Over een paar weken is het oogblaasje allang geen blaasje meer. Toch blijft onze cel een lenscel. En de cellen die uit hem ontstaan zolang hij nog deelt, worden dat ook. Hoe kan dat?",
+   "beweging": "Lens met oogbeker; het signaal uit het oogblaasje dooft uit; onze cel deelt en beide dochtercellen houden het lenspatroon in de kern."
+  },
+  {
+   "id": "w46",
+   "hoofdstuk": "8 Vastzetten",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Ten eerste: positieve terugkoppeling. Veel mastergenen maken een eiwit dat ook zijn eigen gen aanzet. Staat zo'n gen eenmaal aan, dan versterkt het zichzelf. Ook als het signaal van buiten weg is.",
+   "beweging": "Gen → eiwit (kralenketen) → bindt weer op zijn eigen gen; een kringpijl in groen met '+'; het signaal van buiten verdwijnt maar de kring blijft draaien."
+  },
+  {
+   "id": "w47",
+   "hoofdstuk": "8 Vastzetten",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Ten tweede: slotjes op het DNA. Genen die uit staan, krijgen vaak methylgroepen en zitten strakker opgerold. Bij een celdeling worden die slotjes grotendeels doorgegeven. Dat zag je in de film over genen aan en uit: epigenetica. Dit is vereenvoudigd.",
+   "beweging": "Stuk DNA-draad: uitgezette genen krijgen slotjes (methylgroep zoals in DNA 6) en rollen strak op; bij een deling krijgen beide kopieën de slotjes; label VEREENVOUDIGD."
+  },
+  {
+   "id": "w48",
+   "hoofdstuk": "8 Vastzetten",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Daarmee kunnen we de lapjeskat verklaren. Bij katten ligt een gen voor vachtkleur op het X-chromosoom. De ene versie geeft oranje, de andere zwart. Een poes heeft twee X-chromosomen. Ze kan dus van elke versie één hebben.",
+   "beweging": "Lapjeskat zittend op een vensterbank; daarnaast twee X-chromosomen, één met een oranje, één met een zwart allel.",
+   "twijfel": "Lapjeskat: de goedgekeurde huiskat-pop met een nieuw lapjespatroon (zwart, oranje, wit).",
+   "waarom": "Nieuwe vachtvariant van een beeldbankdier; je zei eerder dat de huiskat 'schattiger' mocht."
+  },
+  {
+   "id": "w49",
+   "hoofdstuk": "8 Vastzetten",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Vroeg in het embryo raakt in elke cel één van de twee X-chromosomen uitgeschakeld. Welke, is toeval.",
+   "beweging": "Een embryo van ±16 cellen: in elke kern rolt één X op tot een compact bolletje (Barr-lichaampje), willekeurig de oranje of de zwarte."
+  },
+  {
+   "id": "wq50",
+   "hoofdstuk": "8 Vastzetten",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Waarom zitten de kleuren in groepjes, en niet haar voor haar door elkaar?",
+   "beweging": "Vraagkaart met een close-up van de vacht.",
+   "opties": "A Omdat oranje en zwarte cellen elkaar afstoten en uit elkaar gaan liggen · B Omdat elke cel bij elke deling opnieuw bij toeval kiest welke X uit gaat · C Omdat de uitgeschakelde X bij alle nakomelingen van een cel dezelfde blijft",
+   "juist": "C"
+  },
+  {
+   "id": "w51",
+   "hoofdstuk": "8 Vastzetten",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "De uitgeschakelde X blijft bij de nakomelingen dezelfde. Een vlek ontstaat uit een groepje cellen met dezelfde keuze, door heel veel celdelingen heen. De witte stukken komen door een ander gen. Dat staat er los van.",
+   "beweging": "Uit de cellen van het embryo groeien kloontjes die uitwaaieren tot vlekken op de vacht (oranje en zwart); het wit verschijnt als derde, apart gelabeld 'ander gen'."
+  },
+  {
+   "id": "w52",
+   "hoofdstuk": "9 Kan de knikker terug?",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Is de knikker eenmaal beneden, kan hij dan ooit nog terug?",
+   "beweging": "Landschap: de knikker beneden in het dal 'lens'; een gestippelde pijl omhoog met een vraagteken."
+  },
+  {
+   "id": "w53",
+   "hoofdstuk": "9 Kan de knikker terug?",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Een axolotl, een soort salamander, kan dat een beetje. Verliest hij een poot, dan groeit er een nieuwe. Bij de wond ontstaat een klompje cellen dat weer gaat delen.",
+   "beweging": "Axolotl in water van opzij; bij de stomp van de voorpoot een bolletje cellen (blastema) dat uitgroeit tot een nieuwe poot.",
+   "twijfel": "Nieuw dier: axolotl. Volgens de dierenwerkwijze eerst een ElevenLabs-referentieplaat (± 190 credits) en dan een pop.",
+   "waarom": "Nieuw dier voor de beeldbank en credits; alternatief is een eenvoudig schema van alleen de poot."
+  },
+  {
+   "id": "w54",
+   "hoofdstuk": "9 Kan de knikker terug?",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Een tijd werd gedacht dat die cellen helemaal terug naar de top rolden. Maar in het jaar 2009 kleurden onderzoekers cellen in zo'n poot. Spiercellen maakten alleen weer spier. De buitenste huidlaag maakte alleen weer buitenste huidlaag. Alleen de lederhuid en het kraakbeen bleken soms van baan te wisselen. De knikker rolt een stukje omhoog, en blijft in de buurt van zijn dal.",
+   "beweging": "Poot in doorsnede met gekleurde cellijnen (spier, opperhuid, lederhuid, kraakbeen); in de nieuwe poot blijft elke kleur in zijn eigen weefsel, behalve lederhuid en kraakbeen die deels wisselen; in het landschap rolt de knikker een stukje omhoog en blijft hangen. Meta: AXOLOTL · 2009."
+  },
+  {
+   "id": "w55",
+   "hoofdstuk": "9 Kan de knikker terug?",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wij kunnen geen hele arm opnieuw laten groeien. Maar is het DNA in onze gespecialiseerde cellen nog compleet? In het jaar 1962 haalde John Gurdon de kern uit een darmcel van een kikkervisje. Die zette hij in een eicel waarvan de eigen kern weg was.",
+   "beweging": "Schema van de kerntransplantatie: darmcel van een kikkervisje → kern met een pipet eruit → eicel waarvan de kern is verwijderd → kern erin. Meta: KIKKER · 1962.",
+   "twijfel": "Kikkervisje: nieuw dier, voorstel als klein schematisch silhouet in de Schema-look, zonder referentieplaat.",
+   "waarom": "Nieuw dier; als schema in plaats van een pop scheelt het credits en tijd, maar het is minder mooi."
+  },
+  {
+   "id": "wq56",
+   "hoofdstuk": "9 Kan de knikker terug?",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Kan zo'n eicel uitgroeien tot een nieuw kikkervisje?",
+   "beweging": "Vraagkaart met de eicel met de darmkern.",
+   "opties": "A Nee, want de darmkern mist de genen die hij niet gebruikte · B Nee, want de eicel kan alleen een darmcel maken · C Ja, de darmkern heeft nog alle genen voor een heel dier",
+   "juist": "C"
+  },
+  {
+   "id": "w57",
+   "hoofdstuk": "9 Kan de knikker terug?",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "In een klein aantal gevallen groeide er een kikkervisje uit. De darmkern had dus nog alle genen voor een heel dier. Bij het schaap Dolly lukte later hetzelfde met een cel uit een uier.",
+   "beweging": "Uit de eicel groeit een kikkervisje (één van vele eicellen, de meeste blijven grijs); daarna een klein tweede schema: uiercel → eicel → lam, met alleen tekst 'schaap Dolly · 1996' en een eenvoudig lam-silhouet."
+  },
+  {
+   "id": "w58",
+   "hoofdstuk": "9 Kan de knikker terug?",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "In het jaar 2006 ging Shinya Yamanaka nog verder. Met vier genen duwde hij bindweefselcellen van een muis terug de heuvel op. Ze werden stamcellen die bijna elke celsoort van het lichaam kunnen worden. In de film over stamcellen zag je wat je daarmee kunt. Bij differentiatie blijft het DNA dus bij bijna alle cellen compleet. Er worden schakelaars omgezet.",
+   "beweging": "Landschap: vier gouden genen duwen een knikker uit het dal 'bindweefsel' terug naar bijna de top (net onder de top: niet placenta); meta: MUIS · 2006; vierde antwoordtegel GEHEUGEN verschijnt."
+  },
+  {
+   "id": "w59",
+   "hoofdstuk": "10 Terug naar de lens",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Onze cel wordt een lensvezelcel, diep in zijn dal. En er gebeurt nog één ding. Een lensvezelcel maakt heel veel doorzichtige eiwitten. Daarna breekt hij zijn eigen kern en organellen af. Daardoor verstrooit de cel bijna geen licht meer. Hier kan de knikker niet meer terug. Zonder kern deelt deze cel nooit meer.",
+   "beweging": "Onze cel rekt uit tot een lange vezel, vult zich met doorzichtige eiwitten (kralenketens, vervagend); kern en organellen vallen uiteen en verdwijnen; een lichtstraal gaat er recht doorheen."
+  },
+  {
+   "id": "w60",
+   "hoofdstuk": "10 Terug naar de lens",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Hoe kwam onze cel aan zijn lot? Niets in de cel 'wist' het. Er speelden ten minste vier dingen mee. Positie: waar hij lag, binnen of buiten, boven of onder. Signaal: welke signalen bij hem aankwamen, hoeveel en hoe lang. Gevoeligheid: welke receptoren en genen er op dat moment aanwezig waren. Geheugen: elke keuze werd vastgezet en doorgegeven.",
+   "beweging": "Het hele landschap met het pad van de knikker (embryo → ectoderm → naast de plaat → lens → lensvezel); de vier antwoordtegels lichten één voor één op bij het woord."
+  },
+  {
+   "id": "w61",
+   "hoofdstuk": "10 Terug naar de lens",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Zo werd een bal van cellen met hetzelfde DNA een lichaam. En onze cel? Daar kijk je nu doorheen.",
+   "beweging": "Doorlopende zoom uit: van de lensvezel via de lens naar het oog van Noor (castboek, 'jij' in de bovenbouw volgens ROLLEN.md) die naar een scherm kijkt; de lapjeskat ligt op de bank naast haar; eindkaart."
+  }
+ ],
+ "checkvragen": "Zie ../script.md (5 vragen in examenstijl).",
+ "begrippen": "Zie ../script.md.",
+ "getallen": [
+  [
+   "dag 5: blastocyste, ruim honderd cellen",
+   "embryology.ch / vakkennis; nog te bevestigen in bronnen.md"
+  ],
+  [
+   "dag 19: neurale plaat; buis dicht eind week 4 (dag 25–30, bronnen verschillen)",
+   "embryology.ch; collegenotities UAMS (review-expert.md S6)"
+  ],
+  [
+   "foliumzuur vanaf ≥ 4 weken vóór tot 8 weken ná de conceptie",
+   "Passier e.a. 2021 via Lareb (S5)"
+  ],
+  [
+   "kippenvleugel 3 vingers; ZPA-transplantaat → 3-2-1-1-2-3",
+   "Tickle & Towers 2017 (S1)"
+  ],
+  [
+   "eyeless 1995: ogen op vleugels, poten, voelsprieten",
+   "Halder e.a. 1995, PubMed 7892602"
+  ],
+  [
+   "axolotl 2009: weefselgeheugen, dermis en kraakbeen soms wisselen",
+   "Kragl e.a. 2009 (S2)"
+  ],
+  [
+   "Gurdon 1962, Dolly 1996, Yamanaka 2006",
+   "nog te openen: Nobelprijs 2012, Wilmut 1997"
+  ]
+ ],
+ "uitspraak": "Zie ../uitspraak.md.",
+ "nieuw_in_bibliotheek": [
+  "landschap van Waddington",
+  "kiemschijf + gastrulatie (kiembladkleuren)",
+  "neurale plaat → buis",
+  "salamanderembryo met tweede as",
+  "armknop/handplaat",
+  "kippenembryo met vleugelknop + vleugelskelet",
+  "oogblaasje → lensblaasje → oogbeker",
+  "fruitvlieg met extra ogen; fruitvliegkop van voren (normaal + Antennapedia)",
+  "lapjeskat (huiskat-variant)",
+  "axolotl",
+  "kikkervisje (schema)",
+  "lensvezelcel"
+ ],
+ "keuzes_en_twijfels": [
+  "Lengte: ± 16 min gesproken, ± 17 min met kaarten en vragen; doel was 13–15. Kandidaten om in te korten: Spemann-Mangold (w23), oogbeker (w34), Dolly (w57).",
+  "Schaap Dolly zonder nieuw dier: alleen een klein lam-silhouet in een schema (geen pop, geen referentieplaat).",
+  "Mensen: Esra (w25, vóór haar zwangerschap) en Noor als 'jij' (w61, volgens ROLLEN.md); geen namen in de stem (bovenbouwregel).",
+  "Expertreview (25 punten) is verwerkt in script v0.2; zie ../review-expert.md."
+ ],
+ "b15": {
+  "trekking": "scripts/dobbelsteen.py (30 okt 2026): A klassiek · B kleine mutaties: opening, volgorde · C grote mutatie: experiment-als-kapstok (past bij P1: de kijker voorspelt wat een verplaatste cel wordt). Een tweede, per ongeluk gedraaide trekking (perspectief, volgorde; dossier) is niet gebruikt.",
+  "varianten": {
+   "A": "Klassiek: we volgen één cel die jouw ooglens wordt, met het landschap van Waddington na elke keuze (positie, kiembladen, inductie, gradiënt, lens, mastergen, geheugen, terugdraaien).",
+   "B": "Opent met een lapjeskat (opening) en zet mastergenen en Hox vóór de signalen (volgorde).",
+   "C": "Zeven echte proeven als kapstok (gedeeld embryo, organisator, spiegelvingers, oogblaasje weg, eyeless, gekloonde lapjeskat, Gurdon), met de mens als tweede spoor."
+  },
+  "scores": {
+   "ronde1 (max 65)": {
+    "A": 50,
+    "B": 41,
+    "C": 40
+   }
+  },
+  "winnaar": "A",
+  "reden": "Duidelijke winst: volgt de goedgekeurde opbouw en elk uitstapje komt voort uit de ene oogcel; C breekt de rode draad met zeven proeven op zeven dieren, B zet de vlieg vóór de signalen.",
+  "beoordelaar_model": "sonnet",
+  "overgenomen": [
+   "C: wat-denk-je-vragen vóór de uitkomst bij gradiënt en lens",
+   "C: Spemann en Mangold kort na de chorda",
+   "B: de plattegrond-gedachte bij Hox en de lapjeskat als belofte en slot"
+  ]
+ }
+}
