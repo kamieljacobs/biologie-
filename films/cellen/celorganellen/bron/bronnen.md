@@ -32,7 +32,7 @@ Gecontroleerd: versie 2.0 (beeld-remake, 30 okt 2026), door Claude (eerste ronde
 | Nr | Waar | Bewering in de film | Bronnen | Status | Toelichting |
 |---|---|---|---|---|---|
 | 1 | s09, s11 | Ribosomen op het ruw ER brengen het nieuwe eiwit in het ER; daar wordt het gevouwen en krijgt het zijketens (suikers) | B1, B13 | ✓ | B13: de keten gaat tijdens de synthese het ER-lumen in. |
-| 2 | s09, s11 | Blaasjes van het ER gaan naar de ciskant van het golgisysteem en versmelten ermee | B1, B13 | ✓ | B13: transportblaasjes van het ER versmelten tot nieuwe cis-cisternen. 'Van zakje naar zakje' (s11): B13 beschrijft cisternale rijping (de zakjes schuiven zelf op); de film tekent het eiwit dat van zakje naar zakje gaat. Bekend modelverschil, geen fout; zie vraag 3 in opwaardering-v13.md. |
+| 2 | s09, s11 | Blaasjes van het ER gaan naar de ciskant van het golgisysteem en versmelten ermee | B1, B13 | ✓ | B13: transportblaasjes van het ER versmelten tot nieuwe cis-cisternen. 'Van zakje naar zakje' (s11): B13 beschrijft cisternale rijping (de zakjes schuiven zelf op); de film tekent het eiwit dat van zakje naar zakje gaat. Bekend modelverschil, geen fout; zie vraag 3 in opwaardering-v13.md. Sinds 2.1 (30 okt 2026) staat dit als zin in het docentdeel (Vereenvoudigingen), met B13. |
 | 3 | s11 | Het golgisysteem bewerkt (suikers), sorteert en zet labels; blaasjes van de transkant versmelten met het celmembraan en geven de inhoud buiten af | B1, B13 | ✓ | B13: constitutieve en gereguleerde secretie vanaf de trans-golgi; lysosoomeiwitten via het late endosoom. 'Adreslabel' is een vereenvoudiging (docentdeel). |
 | 4 | s18 | Binnen in een lysosoom is het zuur; daar werken de afbraakenzymen het best | B2, B8, B9 | ✓ | pH 4,5–5 (B2, B8), 4,7 (B9). In beeld: lysosoom ± 4,8. |
 | 5 | s18 | Cytoplasma pH ± 7,2 | B9, B10 | ✓ | Twee BioNumbers-regels met verschillende oorspronkelijke publicaties (Casey 2010, Pielak 2009). |
@@ -46,6 +46,8 @@ Gecontroleerd: versie 2.0 (beeld-remake, 30 okt 2026), door Claude (eerste ronde
 
 ## Aanpassingen
 Geen: geen `!` gevonden, ook niet in de tweede ronde. Het beeld volgt B1/B13 (route ER → cis → trans → membraan) en B2/B8 (zuur lysosoom); de getallen in stem en beeld (120 dagen, pH 4,8/7,2, 1/3, 8 nm, ruim een liter) kloppen met de bronnen.
+
+- Versie 2.1 (30 okt 2026), docentdeel: zin dat 'van zakje naar zakje' een vereenvoudiging is (cisternale rijping: de zakjes schuiven zelf op van cis naar trans), bron B13. Geen `!`; stem en beeld ongewijzigd op dit punt.
 
 ## Menselijke controle
 Nog niet gedaan.

@@ -5,7 +5,7 @@
 | Bestand | films/cellen/celorganellen/index.html (audio in films/cellen/celorganellen/audio/) |
 | Reeks / nummer | Cel, film 2 van 3 ("Biologie bij Kamiel · reeks Cel · film 2 van 3") |
 | Doelgroep / niveau | havo + vwo met gelabelde vwo-blokken (Havo/Vwo-schakelaar; standaard Vwo) |
-| Versie / datum | **Versie 2.0 · 30 oktober 2026** — beeld-remake op prompt v13 (stem en script van 1.5; zie 'Versie 2.0' hieronder; oude versie `oud/index-1.5.html`). Versie 1.5 · 22 oktober 2026 (footer; 1.4 = 15 okt beeld, 1.5 = Noor i.p.v. grijs poppetje in de cold open). 1.0 eerste versie; 1.1 "vesikel" → "blaasje" (s09, s11, s22 opnieuw ingesproken), Terug- en Hoofdpagina-knop; 1.2 H2 DNA als dubbele helix met RNA-werkkopie, H4 CO₂ komt vrij; 1.3 (12 okt 2026) na de onafhankelijke review, zie `reviews/review_v2.md` |
+| Versie / datum | **Versie 2.1 · 30 oktober 2026** — open punten uitgevoerd (docentdeel cisternale rijping, beeldpunten s07 en s27), zie Wijzigingen 2.1; versie 2.0 in `oud/index-2.0.html`. Versie 2.0 · 30 oktober 2026 — beeld-remake op prompt v13 (stem en script van 1.5; zie 'Versie 2.0' hieronder; oude versie `oud/index-1.5.html`). Versie 1.5 · 22 oktober 2026 (footer; 1.4 = 15 okt beeld, 1.5 = Noor i.p.v. grijs poppetje in de cold open). 1.0 eerste versie; 1.1 "vesikel" → "blaasje" (s09, s11, s22 opnieuw ingesproken), Terug- en Hoofdpagina-knop; 1.2 H2 DNA als dubbele helix met RNA-werkkopie, H4 CO₂ komt vrij; 1.3 (12 okt 2026) na de onafhankelijke review, zie `reviews/review_v2.md` |
 | Prompt | v13 |
 | Voldoet aan | prompt v13 (30 okt 2026, beeld-remake, takes behouden). Bewust niet: nieuwe caststijl met contourlijnen (Noor in de cold open is de huidige castversie) |
 | Stem / model | Roos (ElevenLabs, model eleven_v4) |
@@ -209,3 +209,11 @@ Brief `films/OPWAARDEREN-CELLEN.md`. Stem, script, takes, woordtijden, vragen, b
 - **Bouwen**: `python3 bron/bouw/zet_beeld.py` (vanuit de filmmap) vervangt in `index.html` alleen het LIB-blok (`src/lib.js`) en het SCENES-blok (`lib_cast.js` + `lib_anatomie.js` + `lib_bio_deel.js` + `celhulp.js` + `scenes.js`) en de titelkaart; filmdata, speler (met spelerfix enz.), begrippen en pagina blijven. Daarna de vaste scripts (spelerfix, antwoordtekst, kortantwoord, antwoordletter, flipkaarten, licentie_noot, teller). `bouw/build.py` (oude bouwstraat) is niet bijgewerkt: gebruik `zet_beeld.py`.
 - **Waar wat in de HTML zit (2.0)**: FILMDATA regel 162; lib.js vanaf regel 163; castboek, anatomie, beeldbank en celhulp vanaf regel 457; `const SCENES` ± regel 3026 (s01 … s27); GLOSSARY ± 3472; speler ± 3503 (render ± 3559).
 - **Getest**: cuecheck (alle `q.at`-woorden bestaan), contactvellen van alle 18 scènes (vwo) bekeken en verbeterd in drie rondes, geen paginafouten, `?vragen=uit`-controles van de scripts groen.
+
+## Wijzigingen 2.1 (30 okt 2026, brief `films/UITVOEREN-CELLEN.md`; geen opname, 0 credits)
+
+- **Docentdeel** (Vereenvoudigingen, in `index.html` en `src/page.html`): 'van zakje naar zakje' door het golgisysteem is een vereenvoudiging; volgens het gangbare model (cisternale rijping) schuiven de zakjes zelf op van cis naar trans (Lodish, B13 in `bronnen.md`).
+- **s07**: zoomcirkel met het TRANSCRIPTIE-label, het DNA-label en de haak 'het DNA zelf blijft in de kern' zijn weg vóór de mythekaart 'De kern bestuurt de cel' verschijnt (`tU = tB − 0,8` in `src/scenes.js`); eerder bleef het label half zichtbaar onder de kaart.
+- **s27**: de bacterie (hier vergroot naast de cel, in s04 op schaal) heeft nu de meta 'bacterie · vergroot' onder 'één ruimte'.
+- Versie in voettekst en eindkaart 2.1. Ingebouwd met `python3 bron/bouw/zet_beeld.py`. Getest: stills van s07 en s27, `?vragen=uit` en aan zonder JS-fouten (8 vragen bij aan, 0 bij uit), afrondscripts met `--check`.
+

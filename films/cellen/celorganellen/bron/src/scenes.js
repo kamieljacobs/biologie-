@@ -160,6 +160,7 @@ s05(ctx, t, q, st) {
 s07(ctx, t, q, st) {
   bg(ctx, 'micro');
   const tW = q.at('werkkopieën', 1), tB = q.at('bestuurt'), tR = q.at('gekopieerd'), tRode = q.at('rode');
+  const tU = tB - 0.8; // 2.1 (open punt frisse review): zoomcirkel, TRANSCRIPTIE-label en haak zijn weg vóór de mythekaart verschijnt
   const V = camPad(t, [[0, 0, -60, -10, 1.0], [0, 2.4, -150, -40, 2.1, 640, 470]]);
   const ank = celMet(ctx, V, t, [], { exo: false });
   nm(ctx, 'celkern', 'grootste losse organel', V.P([-150, 60]), 0, 0, ramp(t, q.at('celkern'), 0.5) * (1 - ramp(t, q.at('kernmembraan'), 0.4)), 'center');
@@ -173,7 +174,7 @@ s07(ctx, t, q, st) {
     const m2 = ramp(t, q.at('bepaalt', 1), 2.5); for (const [pi, dx] of [[9, -60], [11, 50]]) { const pp = poriePunt(pi); const pad = [[pp[0] * 0.6 - 60, pp[1] * 0.6 + 40], pp, [pp[0] + dx * 0.5, pp[1] - 40], [pp[0] + dx, pp[1] - 85]].map(V.P); mrnaLangs(ctx, pad, 0, lerp(0.05, 1, m2), 2.6, am * ramp(m2, 0, 0.1), t); } }
   nm(ctx, 'werkkopie', 'van één gen', V.P(MRNA_PAD[4]), 22, -20, ramp(t, tW + 2.5, 0.5) * (1 - ramp(t, tB, 0.5)), 'left');
   // zoomcirkel: een stukje DNA (palet B); transcriptie leest één gen, bij replicatie wordt al het DNA verdubbeld
-  const Z = { x: 1450, y: 470, r: 255 }; const az = ramp(t, q.at('dna', 1), 0.8) * (1 - ramp(t, tB, 0.6)) + ramp(t, q.at('deelt'), 0.6) * (1 - ramp(t, tRode, 0.5));
+  const Z = { x: 1450, y: 470, r: 255 }; const az = ramp(t, q.at('dna', 1), 0.8) * (1 - ramp(t, tU, 0.6)) + ramp(t, q.at('deelt'), 0.6) * (1 - ramp(t, tRode, 0.5));
   const tr = ramp(t, tW, 0.8), rep = ramp(t, tR, 2.0); const bron = V.P([-180, 10]);
   zoomCircle(ctx, Z.x, Z.y, Z.r, bron[0], bron[1], 'een stukje DNA · vergroot', az, () => {
     ctx.fillStyle = _mixHex(C.kern, '#121A26', 0.6); ctx.fillRect(Z.x - Z.r, Z.y - Z.r, 2 * Z.r, 2 * Z.r);
@@ -189,7 +190,7 @@ s07(ctx, t, q, st) {
   { const isT = t < tB + 0.5; const bt = isT ? 'TRANSCRIPTIE' : 'DNA-REPLICATIE', bs = isT ? 'één gen → één werkkopie (RNA)' : 'al het DNA → twee kopieën, vóór de deling'; const bc = isT ? C.teal : '#DCE3EC';
     const ba = az * (isT ? tr : ramp(t, tR, 0.5)); if (ba > 0.01) { ctx.save(); ctx.globalAlpha *= ba; roundRect(ctx, Z.x - 300, Z.y - Z.r - 96, 600, 70, 12); shape(ctx, rgba(C.bgSchema, 0.94), bc, 2); text(ctx, bt, Z.x, Z.y - Z.r - 62, fTekst(30, 700), bc, 'center'); metaText(ctx, bs, Z.x, Z.y - Z.r - 36, C.grain, 'center', 20); ctx.restore(); } }
   nm(ctx, 'DNA', 'bouwtekening · dubbele helix', [Z.x, Z.y - Z.r], 0, -24, az * ramp(t, q.at('dna', 1), 0.5) * (1 - tr), 'center');
-  haak(ctx, Z.x - Z.r, Z.x + Z.r, Z.y + Z.r + 50, 'het DNA zelf blijft in de kern', C.groen, ramp(t, q.at('blijft'), 0.5) * (1 - ramp(t, tB, 0.5)));
+  haak(ctx, Z.x - Z.r, Z.x + Z.r, Z.y + Z.r + 50, 'het DNA zelf blijft in de kern', C.groen, ramp(t, q.at('blijft'), 0.5) * (1 - ramp(t, tU, 0.5)));
   card(ctx, 1060, 250, 800, 180, '"De kern bestuurt de cel"', 'Klopt, maar niet met bevelen: de kern bepaalt welke werkkopieën eruit gaan.', ramp(t, tB + 0.6, 0.5) * (1 - ramp(t, q.at('deelt'), 0.5)), C.groen);
   haak(ctx, Z.x - Z.r, Z.x + Z.r, Z.y + Z.r + 50, 'al het DNA gekopieerd → de cel kan delen', C.groen, ramp(t, tR + 1.5, 0.5) * (1 - ramp(t, tRode, 0.5)));
   // rode bloedcel: geen kern
@@ -507,7 +508,7 @@ s27(ctx, t, q, st) {
   bg(ctx, 'schema');
   const rr = ramp(t, q.at('route'), 0.6);
   const ab = ramp(t, q.at('bacterie'), 0.5) * (1 - rr); if (ab > 0.01) { bacterieEcht(ctx, 560, 400, 300, { t, a: ab }); celDier(ctx, 1300, 420, 0.42, { t, a: ab * ramp(t, q.at('jouw'), 0.5) });
-    nm(ctx, 'één ruimte', '', [560, 480], 0, 40, ab, 'center'); nm(ctx, 'afdelingen', 'organellen', [1300, 600], 0, 40, ab * ramp(t, q.at('organellen'), 0.5), 'center');
+    nm(ctx, 'één ruimte', 'bacterie · vergroot', [560, 480], 0, 40, ab, 'center'); // 2.1: in s04 op schaal, hier vergroot nm(ctx, 'afdelingen', 'organellen', [1300, 600], 0, 40, ab * ramp(t, q.at('organellen'), 0.5), 'center');
     pil(ctx, 'niet lekken · niet pompen', 960, 760, ramp(t, q.at('puzzel'), 0.5) * ab, C.goud); }
   const items = [['kern', 'bouwtekening', 'kern,', (x, y) => kernEnvelopPorie(ctx, x, y, 0.36, { r: 150, t, mrna: 0.6, mrnaPorie: 10 })], ['ribosomen', 'maken eiwit', 'ribosomen,', (x, y) => ribosoomEcht(ctx, x, y + 24, 0.32, { keten: 9, t })],
     ['ER', 'vouwen', q.at('golgisysteem') - 0.9, (x, y) => ruwER(ctx, x - 70, y + 60, 0.55, { r0: 90, a0: -1.45, a1: -0.25, lagen: 3, kern: true, glad: 0, t })], ['golgisysteem', 'sorteert, verpakt', 'golgisysteem,', (x, y) => golgiStapel(ctx, x, y + 6, 0.5, { t })],

@@ -68,3 +68,9 @@ Tweede Claude, niet de maker. Gebouwd met `bron/bouw/zet_beeld.py`, contactvelle
 3. s11 'van zakje naar zakje': B13 (Lodish) beschrijft cisternale rijping (de zakjes schuiven op). Prima vereenvoudiging voor vwo, eventueel een zin in het docentdeel.
 4. Bronnen nog met één bron (≈): '10 × zo lang en breed' (B11, eigenlijk 5–10 ×), '5 × oppervlak in levercel' (B12), 'miljoenen ribosomen' (B20).
 5. s21 'klein: gaat erdoor / groot: niet' staat in beeld terwijl de stem algemeen 'sommige stoffen' zegt; klopt, maar is een extra boodschap.
+
+## Uitgevoerd 30 okt 2026 (versie 2.1, `films/UITVOEREN-CELLEN.md`)
+- Vraag 3 (cisternale rijping): zin in het docentdeel met B13.
+- Open punten 1 en 2: s27 bacterie met 'vergroot', s07 transcriptielabel weg vóór de mythekaart.
+- Twijfelscènes blijven zoals gebouwd (Kamiel 30 okt 2026). Geen opname.
+
