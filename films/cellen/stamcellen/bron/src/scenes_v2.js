@@ -62,9 +62,9 @@ const SCENES = {
 
   s04(ctx, t, q) { bg(ctx, 'micro'); const B = q.on('Nu', 1, 0.8), K = q.on('kopie', 1, 0.8);
     fade(ctx, uitF(B), () => { const f = q.at('deelde', 1) < 99 ? clamp((t - q.at('deelde', 1)) / ((q.at('weer', 1) - q.at('deelde', 1)) + 0.9) * 3, 0, 3) : 0;
-      klieving(ctx, 960, 440, 175, f, { a: q.on('cel', 1) });
+      const ea = Math.max(ramp(t, 0, 0.6), q.on('cel', 1)); klieving(ctx, 960, 440, 175, f, { a: ea }); // frisse review 30 okt: eicel al bij t = 0, niet een losse schaalmaat op leeg beeld
       naamBij(ctx, 'bevruchte eicel', null, 960, 205, q.on('bevruchte', 1) * (1 - q.on('deelde', 1)), 'center'); naamBij(ctx, 'mitose: steeds meer cellen', null, 960, 205, q.on('deelde', 1), 'center');
-      metaText(ctx, '± 0,1 mm', 960, 700, C.grain, 'center', 28); });
+      ctx.save(); ctx.globalAlpha *= ea; metaText(ctx, '± 0,1 mm', 960, 700, C.grain, 'center', 28); ctx.restore(); });
     fade(ctx, inF(B) * uitF(K), () => { gedifferentieerdeCellen(ctx, 960, 430, 1.6, { d: ramp(t, q.at('Nu', 1) + 0.5, 3), genen: 0, t });
       tag(ctx, '± 30 biljoen cellen, meer dan 200 soorten', 960, 820, C.goud, q.on('dertig', 1)); });
     fade(ctx, inF(K), () => { const nm = ['zenuwcel', 'spiercel', 'alvleesklier', 'lichaamscellen'];
@@ -115,15 +115,15 @@ const SCENES = {
     fade(ctx, inF(U), () => { const m = q.on('methylgroep', 1, 1.2), str = q.on('strak', 1, 1.5), tfB = ramp(t, q.at('wordt', 1), 2.2), dl = ramp(t, q.at('blijven', 1), 2.5);
       const mx = lerp(620, 960, D), my = lerp(470, 440, D);
       const r = methylgroep(ctx, mx, my, 0.85, { m, tf: D > 0.5 ? 0 : tfB, deling: dl * D, t });
-      if (r.sites && r.sites.length) naamBij(ctx, 'methylgroep op de promotor', null, mx, 230, m * (1 - D), 'center', '#8CCB5E');
+      if (r.sites && r.sites.length) naamBij(ctx, 'methylgroep op de promotor', null, mx, 690, m * (1 - D), 'center', '#8CCB5E'); // frisse review 30 okt: onder de DNA, niet over de transcriptiefactor die wegdrijft
       fade(ctx, 1 - D, () => { nucleosoomDraad(ctx, 1180, 470, 1820, 470, { n: 4, R: 52, compact: str, t }); naamBij(ctx, 'histonen', null, 1500, 330, q.on('histonen', 1), 'center');
         tag(ctx, 'strak gewonden', 1500, 640, C.text2, str); });
-      tag(ctx, 'gen uit: niet overgeschreven', 620, 780, C.koraal, q.on('overgeschreven', 1) * (1 - D));
+      tag(ctx, 'gen uit: niet overgeschreven', 620, 790, C.koraal, q.on('overgeschreven', 1) * (1 - D));
       if (D > 0.01 && r.dochters) { const h = q.on('huidcel', 1); r.dochters.forEach(([dx, dy]) => cel(ctx, 'huid', 380, dy, 44, t, h * D)); naamBij(ctx, 'huidcel', null, 380, 860 - 40, h * D, 'center'); }
       tag(ctx, 'markeringen blijven na de deling: epigenetica', 960, 850, C.goud, q.on('epigenetica', 1)); }); },
 
   s10(ctx, t, q) { bg(ctx, 'micro'); const X0 = 120, Y0 = 120, Wd = 860, Hd = 700;
-    const info = huidDoorsnede(ctx, X0, Y0, Wd, Hd, { um: 200, deling: ramp(t, q.at('deling', 1), 1.6), hl: q.on('kiemlaag', 1) * (1 - q.on('omhoog', 1)) > 0.5 ? 'basaal' : null, t, a: q.on('Onderin', 1) });
+    const info = huidDoorsnede(ctx, X0, Y0, Wd, Hd, { um: 200, deling: ramp(t, q.at('deling', 1), 1.6), hl: q.on('kiemlaag', 1) * (1 - q.on('omhoog', 1)) > 0.5 ? 'basaal' : null, t, a: Math.max(ramp(t, 0, 0.6), q.on('Onderin', 1)) }); // frisse review 30 okt: beeld al gevuld bij t = 0
     naamBij(ctx, 'opperhuid', null, X0 + Wd / 2, Y0 - 20, q.on('opperhuid', 1), 'center');
     if (info.yBasaal) naamBij(ctx, 'kiemlaag', 'stamcellen', X0 + Wd + 16, info.yBasaal(X0 + Wd) - 20, q.on('kiemlaag', 1), 'left', C.goud);
     // één cel volgen (gouden rand): van de kiemlaag omhoog, verhoornt, schilfert af
@@ -147,7 +147,7 @@ const SCENES = {
       naamBij(ctx, 'huid: stamcellen in de kiemlaag', null, 470, 770, q.on('huid', 1), 'center', C.groen);
       hartspierWeefsel(ctx, 1060, 230, 720, 440, { a: q.on('hartspier', 1), n: 4, m: 3, fase: i => beat(t, 0) });
       kruis(ctx, 1810, 200, 24, q.on('gevonden', 1)); naamBij(ctx, 'hartspier: geen stamcellen gevonden', null, 1420, 750, q.on('gevonden', 1), 'center', C.koraal);
-      tag(ctx, 'hartspiercellen: ± 1 % per jaar vernieuwd', 1420, 840, C.text2, q.on('procent', 1)); });
+      tag(ctx, 'hartspiercellen: hooguit ± 1 % per jaar vernieuwd', 1420, 840, C.text2, q.on('procent', 1)); });
     fade(ctx, inF(M), () => { const k = 3; // 3 px per µm
       hartspiercel(ctx, 240, 450, 100 * k, 18 * k, { c: beat(t), vertak: 0 }); naamBij(ctx, 'hartspiercel', '50–100 micrometer lang', 390, 360, 1, 'center');
       tag(ctx, '"te groot om te delen"?', 390, 600, C.text2, q.on('groot', 1) * (1 - q.on('eicel', 1)));
@@ -177,9 +177,9 @@ const SCENES = {
     naamBij(ctx, 'embryo van 5 dagen: holle bol', null, x, y + R + 70, q.on('holle', 1), 'center'); 
     const ix = x + Math.cos(icm) * R * 0.55, iy = y + Math.sin(icm) * R * 0.55;
     naamBij(ctx, 'binnenste celmassa', null, x + 40, y - R - 40, q.on('klompje', 1), 'center', C.goud);
-    fade(ctx, cs, () => { const D = [['zenuw', 1350, 230], ['spier', 1500, 410], ['alv', 1400, 590], ['hart', 1560, 760]]; D.forEach(([tp, dx, dy], i) => { const g = ease(clamp((t - q.at('celsoort', 1) - i * 0.2) / 0.6, 0, 1)); boogPijl(ctx, ix + 60, iy, dx - 120, dy, 0.08, C.line, g, 2.5); cel(ctx, tp, dx, dy, 40, t, g); });
+    fade(ctx, cs * uitF(kw), () => { const D = [['zenuw', 1350, 230], ['spier', 1500, 410], ['alv', 1400, 590], ['hart', 1560, 760]]; D.forEach(([tp, dx, dy], i) => { const g = ease(clamp((t - q.at('celsoort', 1) - i * 0.2) / 0.6, 0, 1)); boogPijl(ctx, ix + 60, iy, dx - 120, dy, 0.08, C.line, g, 2.5); cel(ctx, tp, dx, dy, 40, t, g); });
       naamBij(ctx, 'elke celsoort', null, 1700, 140, 1, 'center', C.text); });
-    fade(ctx, kw, () => { const ps = petrischaal(ctx, 1460, 520, 3.6, { gazon: false, schijf: false, groei: ramp(t, q.at('kweken', 1), 1.8), t }); boogPijl(ctx, ix + 60, iy, 1300, 420, -0.12, C.line, 1, 2.5); naamBij(ctx, 'kweek in het lab', null, 1460, 750, 1, 'center'); });
+    fade(ctx, inF(kw), () => { const ps = petrischaal(ctx, 1460, 520, 3.6, { gazon: false, schijf: false, groei: ramp(t, q.at('kweken', 1), 1.8), t }); boogPijl(ctx, ix + 60, iy, 1300, 420, -0.12, C.line, 1, 2.5); naamBij(ctx, 'kweek in het lab', null, 1460, 750, 1, 'center'); });
     tag(ctx, 'embryonale stamcellen', 1460, 840, C.goud, q.on('embryonale', 2)); },
 
   s14(ctx, t, q) { bg(ctx, 'schema'); const B = q.on('Daarna', 1, 0.8), P = q.on('donor', 2, 0.8), D = q.on('Daarna', 2, 0.8);
@@ -206,7 +206,7 @@ const SCENES = {
         naamBij(ctx, nm, null, 1050, yy - 10, a, 'left'); tag(ctx, dna, 1050, yy + 60, col, a * (i === 0 ? q.on('DNA', 1) : 1), 'left'); });
       metaText(ctx, 'gekleurde rand = cel van de donor', 1050, 860, C.grain, 'left', 28); }); },
 
-  s15(ctx, t, q) { bg(ctx, 'schema'); const a = q.on('bloedstamcellen', 1), h = q.on('hart', 1);
+  s15(ctx, t, q) { bg(ctx, 'schema'); const a = Math.max(ramp(t, 0, 0.6), q.on('bloedstamcellen', 1)), h = q.on('hart', 1); // frisse review 30 okt: bloedstamcel al bij t = 0
     stam(ctx, 480, 450, 100, a); naamBij(ctx, 'bloedstamcel', null, 480, 700, a, 'center');
     pijl(ctx, 700, 450, 1080, 450, C.line, h); hartMetInfarct(ctx, 1400, 430, 0.62, t, { a: h, dood: 1, litteken: 1 }); naamBij(ctx, 'beschadigd hart', null, 1400, 790, h, 'center');
     vraagteken(ctx, 890, 380, q.on('herstellen', 1), 120); },

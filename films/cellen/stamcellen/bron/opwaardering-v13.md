@@ -36,3 +36,25 @@ Nieuwe objecten in `src/obj.js` (recept als commentaar erboven, C9); nog niet in
 - `infuus` — infuuszak aan standaard met slangetje en meestromende deeltjes.
 - `hlaCel` — ronde cel (celRond) met HLA-herkenningseiwitten loodrecht in het membraan; vorm en kleur per weefseltype.
 - In `src/scenes_v2.js`: `infarct` (afgestorven stuk linkerkamerwand dat littekenweefsel wordt, op `hartDoorsnede`), `beenmergVeld` (beenmerg met bloedcellen; leukemie, chemo, donorcellen), `bloedplaatje`.
+
+## Frisse beeldreview (30 okt 2026)
+
+Frisse beoordelaar (niet de maker), volgens prompt v13 C10 en `films/BEELDAFSPRAKEN.md`. Contactvellen van alle 17 alinea's (vwo, 5 stills per alinea op 3/25/50/75/97 %), extra stills op overgangen en bij t = 0, `?vragen=uit` op de antwoordmomenten (s08, s11, s17, s21) en een havo-steekproef.
+
+**In orde**: geen wijslijnen naar begrippen (alleen lijnen van zoomcirkels); geen korrel buiten cellen; membranen en cellen rond; niets steekt buiten een celmembraan; rode bloedcel zonder kern en met leeg chromosoom; zenuwcel, spiercel, hartspiercel (vertakt, tussenschijven) en huiddoorsnede (kiemlaag → hoornlaag) herkenbaar; DNA in palet B; paars alleen nog in kernen en de vwo-balk; personages zonder castnaam in beeld, gezicht heel (zoomcirkels naast het hoofd); bij Vragen uit geen 'antwoord a/b/c' in beeld; geen JS-fouten.
+
+**Hersteld** (in `src/scenes_v2.js`, scèneblok opnieuw gezet met `bouw/wissel_scenes.py`):
+- s04: bij de start van de alinea stond alleen de schaalmaat '± 0,1 mm' op een leeg vlak; de eicel faden nu in vanaf t = 0 en de schaalmaat volgt de eicel.
+- s10 en s15: beeld leeg tot het cue-woord ('Onderin', 'bloedstamcellen') terwijl de zin al liep; huiddoorsnede en bloedstamcel faden nu in vanaf t = 0.
+- s09 (vwo): het label 'methylgroep op de promotor' liep door de wegdrijvende transcriptiefactor; het label staat nu onder de DNA-ladder.
+- s13: dubbelbeeld bij 'kweken' (de vier celtypen faden uit terwijl de petrischaal al infadet; spiercel en hartspiercel lagen door de schaal en over 'kweek in het lab'); nu eerst het oude weg, dan het nieuwe.
+- s11: tag 'hartspiercellen: ± 1 % per jaar vernieuwd' → 'hooguit ± 1 % per jaar vernieuwd' (bronnenlogboek bewering 7, B16/B17).
+
+**Open (aanpakkeuzes of kleine zwaktes, niet veranderd)**:
+- s01: na 'later' is de knie in de zoomcirkel een egale roze vlek; 'hersteld' zou sterker lezen met gewone huid en hooguit een vaag lichter plekje.
+- s09 (vwo): de weggedrukte transcriptiefactor zweeft daarna nog een tijd als losse kralenketen boven de ladder; sneller laten verdwijnen is rustiger.
+- s20 (vwo): het label '4 transcriptiefactoren' is grijs en klein, en de vier kluwens liggen meteen op de huidcel; leesbaar, maar zwak.
+- s12: de darmvlok is klein en schematisch naast het rijke beenmerg (keuze van de maker).
+- Vraag 1 en 2 onder (c) blijven staan voor een volgende opname: 'hooguit één procent' en 'in principe niet afgestoten'.
+
+**Bronnen**: bewering 3 (meer dan 200 celtypen), 8 (geen hartstamcellen gevonden) en 16 (vier factoren, een jaar later bij de mens) nu ✓; bewering 7 blijft ≈, tag in beeld aangepast. Geen open `?` of `!` meer (zie `bronnen.md`, B14–B20).
