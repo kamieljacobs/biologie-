@@ -2,7 +2,7 @@
 
 v1 (30 okt 2026). Extra film, gemaakt van het diepgaande deel van de oude film *Onderzoek doen in de biologie* (H4 statistiek, de tweede helft van H6 roken, H7 wetenschap als systeem en de fraudecasus uit H8). Kamiel 30 okt 2026: "het moeilijke deel dat eigenlijk nog niet bij havo 4 en vwo 4 past kunnen we los halen en als extra video maken". Bouwt voort op de basisfilm (*Onderzoek doen in de biologie* 2.0): hypothese, variabelen, controlegroep, toevallige en systematische fouten, correlatie en causaliteit worden bekend verondersteld.
 
-Niveau: vwo 5–6 en profielwerkstuk (havo 5 kan meekijken). Verdieping: buiten de examenstof, op de site als extra film bij het thema van de basisfilm, duidelijk gemarkeerd. Type G (methode en redeneren), look Schema; de simulatie in H1 is echt (1000 trekkingen met toeval, de grafiek groeit mee). Stem Roos (eleven_v4). Lege regel = nieuwe alinea = nieuwe take.
+Niveau: vwo 5–6 en profielwerkstuk (havo 5 kan meekijken). Verdieping: buiten de examenstof, op de site als extra film bij het thema van de basisfilm, duidelijk gemarkeerd. Type G (methode en redeneren); de simulatie in H1 is echt (1000 trekkingen met toeval, de grafiek groeit mee). Looks: zie Beeldplan. Stem Roos (eleven_v4). Lege regel = nieuwe alinea = nieuwe take.
 
 Zelfde vaste vorm als de basisfilm: het begrip voorop, de casus kort als voorbeeld, daarna het begrip algemeen op een kaart, en een toepassing op een nieuw voorbeeld.
 
@@ -12,6 +12,10 @@ Leerdoelen (vwo 5–6, verdieping)
 3. uitleggen waarom resultaten die té mooi zijn ook verdacht zijn (onbewuste bias)
 4. patiënt-controleonderzoek en cohortonderzoek onderscheiden, en uitleggen welke argumenten van een correlatie een waarschijnlijke oorzaak maken (sterk en herhaald verband, oorzaak vóór gevolg, dosis-effectrelatie, mechanisme)
 5. uitleggen hoe wetenschap zichzelf verbetert (peer review, replicatie) en waar dat hapert (publicatiebias, p-hacking, fraude); preregistratie als oplossing noemen
+
+## Beeldplan (30 okt 2026)
+
+Zelfde aanpak als de basisfilm: Schema voor alles wat begrip, rekenwerk of opzet is (± 90 %: de simulatie met het histogram dat aangroeit, de chi-kwadraatformule, patiënt-controle tegenover cohort als tijdlijnen met groepen silhouetten, de vier argumenten van Bradford Hill, de la met 'niets gevonden', twintig dobbelstenen). **Macro-nacht** alleen voor de berkenspanners op lichte en zwarte stammen (H3): een populatie waarin de vlindervorm de betekeniskleur krijgt en opgegeten vlinders gedimd worden. Dezelfde CASUS- en BEGRIP-kaarten als in de basisfilm, en geen portretten van echte personen (Mendel, Fisher, Doll en Hill, Kettlewell, Majerus, de Zuid-Koreaanse onderzoeker: naam en jaar op de casuskaart).
 
 ---
 

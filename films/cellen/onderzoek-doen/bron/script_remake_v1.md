@@ -4,7 +4,7 @@ v1 (30 okt 2026), lichte remake op prompt v13 (B16). Kamiel 30 okt 2026: de oude
 
 Vaste vorm per hoofdstuk: (1) het begrip als kop en mini-vraag, (2) de historische casus kort, hooguit een derde van het hoofdstuk, (3) het begrip algemeen gemaakt op een kaart, (4) toegepast op de kiemproef, de doorlopende leerlingenproef van de film, (5) betrouwbaar? valide?
 
-Niveau: havo 4 + vwo 4 (één niveau, geen vwo-blokken). Type G (methode en redeneren), look Schema (Part C4: proefopstellingen als schema met variabelen en pijlen, lablibrary, labels ONAFHANKELIJK / AFHANKELIJK / CONTROLE). Doorlopend: één labjournaal-bord dat per hoofdstuk aangroeit met de kiemproef. Stem Roos (eleven_v4). Lege regel = nieuwe alinea = nieuwe take. Castpersonage: een leerling (havo 4) met de kiemproef, op het scherm, niet bij naam genoemd.
+Niveau: havo 4 + vwo 4 (één niveau, geen vwo-blokken). Type G (methode en redeneren). Looks: zie Beeldplan. Doorlopend: één labjournaal-bord dat per hoofdstuk aangroeit met de kiemproef. Stem Roos (eleven_v4). Lege regel = nieuwe alinea = nieuwe take. Castpersonage: een leerling (havo 4) met de kiemproef, op het scherm, niet bij naam genoemd.
 
 Leerdoelen (havo 4 + vwo 4)
 1. de stappen van de onderzoekscyclus noemen en in volgorde zetten
@@ -19,9 +19,21 @@ Leerdoelen (havo 4 + vwo 4)
 
 Uit de oude film naar de extra film: nulhypothese, p-waarde, simulatie, chi-kwadraattoets, Fisher en Mendel; patiënt-controle- en cohortonderzoek, Bradford Hill; inductie en deductie; peer review, Kettlewell en Majerus, replicatiecrisis, publicatiebias, p-hacking; Hwang.
 
+## Beeldplan (30 okt 2026, op verzoek van Kamiel nagelopen tegen Part C)
+
+Twee looks, zoals Part C voorschrijft (de look volgt het schaalniveau, niet het onderwerp):
+- **Schema (± 80 %)**: alle begrippen, proefopstellingen, variabelen, meetfouten, grafieken en de kiemproef (lablibrary: bakjes met kiemplantjes, weegschaal, meetlat). Semmelweis, roken en Henrietta Lacks via de mens-en-maatschappijlibrary (plaatsicoon, groep silhouetten, kaartjes).
+- **Macro-nacht (± 15 %)**: alleen waar een organisme of een populatie zelf het bewijs is. In de basis: het paard (cold open, H2) en de vinken op het eiland (H4: populatie, snavel in betekeniskleur, gestorven vinken gedimd tot 35 %). Overgang alleen via een snede naar een Schema-kaart (C6). Paard en grondvink staan al in de beeldbank (`bibliotheek/dieren/lib_dieren.js`).
+
+Kleine afwijkingen (ter keuring):
+1. **Twee kaartsoorten in de UI-laag.** Een kleine CASUS-kaart (oker rand, plaats en jaar, linksboven) bij het voorbeeld, en een grote BEGRIP-kaart (gouden annotatiehaak, het begrip met zijn betekenis) als het begrip algemeen wordt gemaakt. Zo ziet de leerling meteen wat voorbeeld is en wat stof. De begripkaart blijft het langst staan.
+2. **Eén doorlopend onderzoeksbord** (B3: persistent diagram dat aangroeit): de zeven stappen van de cyclus als vakjes, die per hoofdstuk vollopen met de kiemproef. In de recap staat het complete onderzoeksplan. Getekend in Schema; alleen een kleine knipoog naar het oude labjournaal (vakjes als schriftblaadjes), geen ruitjesachtergrond.
+3. **Echte personen zonder portret.** Semmelweis, Pasteur, Van Helmont, de Grants en Henrietta Lacks krijgen geen gezicht (geen castpersonage, geen nagetekend portret), alleen naam en jaar op de casuskaart en hun opstelling of object. Bij Henrietta Lacks alleen haar naam en een kweekfles met cellen.
+4. **Kiemproef met een castpersonage** (B4: niet bij naam genoemd): Yasmin (rol 'leeftijdgenoot', ROLLEN.md), korte warme momenten aan de vensterbank in Schema-decor; keuze voor Kamiel. Tuinkerskiemplantjes zijn een nieuw beeldbankobject (twijfelscène).
+
 ---
 
-## Cold open [Schema: zwart-wit beeld van een paard voor een bord met sommen, een man met hoed ernaast, publiek eromheen]
+## Cold open [Macro-nacht: paard voor een bord met sommen, vraagsteller ernaast, publiek eromheen (figuranten); casuskaart Berlijn 1904]
 Berlijn, in het jaar 1904. Een paard tikt het antwoord op een som met zijn hoef. Een commissie van deskundigen kijkt mee. Die vindt geen bedrog. Hoe kan een paard dat? Wat denk je?
 [VRAAG] (a) het paard kon echt een beetje tellen · (b) het paard las de lichaamstaal van de vraagsteller · (c) de eigenaar gaf stiekem tekens
 
@@ -81,6 +93,7 @@ Je hebt je metingen. Eerst een tabel, dan een grafiek. Welke grafiek, hangt af v
 
 Kijk niet alleen naar het gemiddelde, maar ook naar de spreiding: hoe ver de metingen uit elkaar liggen. Een klein verschil in gemiddelde, met een grote spreiding, zegt weinig.
 
+[Macro-nacht vanaf hier tot de vraag: kaal vulkaaneiland, populatie vinken, snavel in betekeniskleur, gestorven vinken gedimd; daarna snede naar de Schema-frequentieverdeling]
 Peter en Rosemary Grant maten jarenlang de snavels van bijna elke vink op een eilandje van de Galapagos. In het jaar 1977 viel er bijna geen regen. Er bleven vooral harde zaden over, en de meeste vinken stierven. Dit is een frequentieverdeling: hoe vaak elke snavelhoogte voorkomt. Bij de overlevers schuift de verdeling naar rechts.
 
 Waarom hebben de overlevers gemiddeld grotere snavels? Wat denk je?
