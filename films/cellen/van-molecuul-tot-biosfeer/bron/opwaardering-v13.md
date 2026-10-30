@@ -72,8 +72,9 @@ Door een andere helper dan de maker (C10). Film opnieuw gebouwd (`bouw_vmb.py --
 
 **Bronnenlogboek**: bewering 13 (vogelhart) ? → ✓ met B14 (Kroneman e.a. 2019, *J. Morphol.*, niveau A) en B15 (Lumeij & Ritchie, *Avian Medicine*); bewering 15 aangevuld met B17 (Britannica) en B16 (CvTE-syllabus); bewering 18 met B16, blijft ≈ (tweede onafhankelijke bron voor de definitie van emergentie niet kunnen openen). Nu 16 ✓ · 4 ≈ · 0 ! · 0 ?.
 
+6. **Hart in de koolmees** (organen op hun echte plek): stond rechtop. Nu 60° gedraaid (`MEES_HROT`): de basis met de boezems wijst naar kop en hals, de punt schuin naar achteren en omlaag, langs het borstbeen (B14, B15). In s08 draait het hart tijdens de zoom naar de koolmees mee, zodat het naadloos landt.
+7. **s16, koolmees op schaal** (realistische maten, 22 okt 2026): de koolmees was ± 5× te groot naast Noor. Nu ± 44 px (± 14 cm) tegen 520 px (± 1,65 m) op de grond naast haar, met een zoomcirkel 'koolmees · ± 14 cm · vergroot' ernaast.
+
 **Open (aanpakkeuzes, niet veranderd; voor Kamiel)**:
-- s08: het hart in de koolmees staat als rechtopstaande vooraanzicht-doorsnede; in een echte vogel ligt de lange as langs het borstbeen (B14). Plek en maat kloppen; draaien kan als Kamiel dat wil.
 - s08 (orgaanstelsel): de vaten liggen als lijnen óp de dekkende vogel en lopen tot in de poten en de staart; leesbaar, maar oogt wat druk rond de vleugel.
-- s16: Noor staat als 'organisme' naast de koolmees (± 1,65 m tegen ± 14 cm); de maten zijn niet op schaal (de koolmees is ± 5× te groot naast haar: ± 230 px lang tegen ± 520 px voor Noor). Bewust als vergelijking 'allebei een organisme', niet als schaalbeeld; eventueel 'niet op schaal' als meta erbij.
 - Twijfelscènes, herinspreeklijst en de vragen 2 en 3 hierboven blijven open.

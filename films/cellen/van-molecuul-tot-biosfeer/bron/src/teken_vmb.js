@@ -243,6 +243,11 @@ function zoomUit(ctx, u, P, Aa, k, binnen, buiten, o = {}) { const { uitBinnen =
 // Sturkie's Avian Physiology h. 10); bij zangvogels ± 1,5 % van het lichaamsgewicht. Grote vaten: halsslagaders naar de kop,
 // armslagaders naar de vleugels, aorta naar achter (poten, staart); aders lopen ernaast terug.
 const MEES_HART = [6, -56], MEES_HS = 0.032; // 1 cm ≈ 19 eenheden; hartDoorsnede is ± 600 hoog
+// Oriëntatie (frisse beeldreview 30 okt 2026; Kroneman e.a. 2019, J. Morphol.: lange as evenwijdig aan borstbeen en kiel, boezems
+// craniaal, punt van de kamers caudaal; Lumeij & Ritchie: punt ventraal tussen de leverkwabben): de rechtopstaande doorsnede
+// (basis boven, punt onder) wordt 60° met de klok gedraaid, zodat de basis naar kop en hals wijst en de punt schuin naar achter-onder,
+// langs het schuin lopende borstbeen van een zittende zangvogel (kijk = 1, kop rechts).
+const MEES_HROT = Math.PI / 3;
 const MEES_VAT = {
   slag: [[[8, -60], [16, -76], [22, -92], [26, -104]], [[4, -62], [-10, -74], [-30, -80]], [[2, -52], [-30, -48], [-70, -44], [-110, -40]], [[-30, -48], [-34, -30], [-40, -12]]],
   ader: [[[0, -60], [10, -78], [16, -96]], [[-2, -64], [-18, -78], [-36, -84]], [[-2, -56], [-34, -54], [-74, -50], [-112, -46]], [[-36, -54], [-42, -34], [-48, -14]]] };
@@ -252,7 +257,8 @@ function meesVaten(ctx, x, y, s, u = 1, t = 0, a = 1) { if (a <= 0.01) return; c
     ctx.strokeStyle = col; ctx.lineWidth = lw; ctx.beginPath(); Q.slice(0, n).forEach(([qx, qy], i) => i ? ctx.lineTo(qx, qy) : ctx.moveTo(qx, qy)); ctx.stroke(); });
   tek(MEES_VAT.ader, BIO.ader, Math.max(1.5, 1.5 * s)); tek(MEES_VAT.slag, BIO.bloed, Math.max(1.8, 1.8 * s));
   // hart: dezelfde doorsnede als in de zoom (hartDoorsnede), op ware grootte: ± 1 cm in een vogel van ± 14 cm (MEES_HS per eenheid)
-  hartDoorsnede(ctx, x + MEES_HART[0] * s, y + MEES_HART[1] * s, MEES_HS * s, { u: (t * 1.1) % 1, detail: 0.4 });
+  ctx.save(); ctx.translate(x + MEES_HART[0] * s, y + MEES_HART[1] * s); ctx.rotate(MEES_HROT);
+  hartDoorsnede(ctx, 0, 0, MEES_HS * s, { u: (t * 1.1) % 1, detail: 0.4 }); ctx.restore();
   if (u > 0.95) { const Q = bioDicht(MEES_VAT.slag[2].map(([px, py]) => [x + px * s, y + py * s]), 60); for (let i = 0; i < 3; i++) { const k = Math.floor(((t * 0.4 + i / 3) % 1) * (Q.length - 1)); circ(ctx, Q[k][0], Q[k][1], Math.max(2, 1.8 * s), BIO.bloedL); } }
   ctx.restore(); }
 

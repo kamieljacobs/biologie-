@@ -150,7 +150,9 @@ Object.assign(SCENES, {
     const cel = () => hartspierCel(ctx, X, Y, 700, { c: 0 });
     const weefsel = () => hartspierWeefsel(ctx, X, Y, 1300, 760, { cel: 260, t, c: t > tW + 1 ? c * 0.6 : 0 });
     const HS_ = 1.25, HX = X, HY = 470, wand = [HX + 190 * HS_, HY + 110 * HS_];
-    const hart = () => hartDoorsnede(ctx, HX, HY, HS_, { u, t, stroom: 0.6 });
+    // tijdens de zoom naar de koolmees draait het hart naar zijn ligging langs het borstbeen (MEES_HROT), zodat het naadloos landt
+    const hRot = MEES_HROT * ease(clamp((t - tH + 0.3) / 1.4, 0, 1));
+    const hart = () => { ctx.save(); ctx.translate(HX, HY); ctx.rotate(hRot); hartDoorsnede(ctx, 0, 0, HS_, { u, t, stroom: 0.6 }); ctx.restore(); };
     const BX = X + 20, BY = 790, BS = 2.8; const hartInMees = [BX + MEES_HART[0] * BS, BY + MEES_HART[1] * BS];
     const vogel = () => { koolmees(ctx, BX, BY, BS); meesVaten(ctx, BX, BY, BS, ramp(t, q.at('bloedvaten'), 1.6) * (1 - ramp(t, tA, 0.8)), t, 1); };
     const aBac = q.on('bacterie', 1, 0.7);
@@ -330,7 +332,12 @@ Object.assign(SCENES, {
         ctx.strokeStyle = C.goud; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(1200, 460, 330, 0, 6.283); ctx.stroke(); metaText(ctx, NIV[i].toUpperCase(), 1200, 840, C.grain, 'center', 26); }); });
       naamBij(ctx, 'differentiatie', 'zelfde DNA, andere genen aan', 1200, 92, q.on('differentiatie', 1) * (1 - ramp(t, q.at('weefsels'), 0.4)), 'center'); }
     // de koolmees en Noor op de ladder; het virus ernaast
-    const aO = ramp(t, tDe - 0.2, 0.5); if (aO > 0.01) A(ctx, aO, () => { koolmees(ctx, 980, 740, 1.4); persoon(ctx, 'noor', 1460, 800, 520, { uit: 'moe', a: q.on('net', 1, 0.6) });
+    const aO = ramp(t, tDe - 0.2, 0.5); if (aO > 0.01) A(ctx, aO, () => { persoon(ctx, 'noor', 1460, 800, 520, { uit: 'moe', a: q.on('net', 1, 0.6) });
+      // op schaal (frisse beeldreview 30 okt 2026): Noor ± 1,65 m = 520 px, dus een koolmees van ± 14 cm = ± 44 px (koolmees s = 1 ≈ 270 px lang);
+      // het vogeltje staat op de grond naast haar, groot in een zoomcirkel ernaast
+      koolmees(ctx, 1175, 800, 0.165);
+      zoomCircle(ctx, 920, 480, 170, 1175, 788, null, 1, () => { ctx.fillStyle = '#2A3E5C'; ctx.fillRect(740, 300, 360, 360); koolmees(ctx, 950, 560, 0.95); });
+      naamBij(ctx, 'koolmees', '± 14 cm · vergroot', 920, 272, 1, 'center');
       haak(ctx, 700, 1640, 822, 'allebei een organisme', C.groen, q.on('ladder', 1));
       naamBij(ctx, 'een pakketje moleculen', 'doet pas iets in een cel', 1250, 200, q.on('pakketje', 1), 'center'); }); },
 
