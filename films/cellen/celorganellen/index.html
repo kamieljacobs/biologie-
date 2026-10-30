@@ -3457,7 +3457,7 @@ s27(ctx, t, q, st) {
   bg(ctx, 'schema');
   const rr = ramp(t, q.at('route'), 0.6);
   const ab = ramp(t, q.at('bacterie'), 0.5) * (1 - rr); if (ab > 0.01) { bacterieEcht(ctx, 560, 400, 300, { t, a: ab }); celDier(ctx, 1300, 420, 0.42, { t, a: ab * ramp(t, q.at('jouw'), 0.5) });
-    nm(ctx, 'één ruimte', 'bacterie · vergroot', [560, 480], 0, 40, ab, 'center'); // 2.1: in s04 op schaal, hier vergroot nm(ctx, 'afdelingen', 'organellen', [1300, 600], 0, 40, ab * ramp(t, q.at('organellen'), 0.5), 'center');
+    nm(ctx, 'één ruimte', 'bacterie · vergroot', [560, 480], 0, 40, ab, 'center'); /* 2.1: in s04 op schaal, hier vergroot */ nm(ctx, 'afdelingen', 'organellen', [1300, 600], 0, 40, ab * ramp(t, q.at('organellen'), 0.5), 'center');
     pil(ctx, 'niet lekken · niet pompen', 960, 760, ramp(t, q.at('puzzel'), 0.5) * ab, C.goud); }
   const items = [['kern', 'bouwtekening', 'kern,', (x, y) => kernEnvelopPorie(ctx, x, y, 0.36, { r: 150, t, mrna: 0.6, mrnaPorie: 10 })], ['ribosomen', 'maken eiwit', 'ribosomen,', (x, y) => ribosoomEcht(ctx, x, y + 24, 0.32, { keten: 9, t })],
     ['ER', 'vouwen', q.at('golgisysteem') - 0.9, (x, y) => ruwER(ctx, x - 70, y + 60, 0.55, { r0: 90, a0: -1.45, a1: -0.25, lagen: 3, kern: true, glad: 0, t })], ['golgisysteem', 'sorteert, verpakt', 'golgisysteem,', (x, y) => golgiStapel(ctx, x, y + 6, 0.5, { t })],
