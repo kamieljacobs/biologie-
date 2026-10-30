@@ -6,7 +6,8 @@ function micro(ctx) { ctx.fillStyle = C.bgMicro; ctx.fillRect(0, 0, W, H); }
 const NIV = ['molecuul', 'organel', 'cel', 'weefsel', 'orgaan', 'orgaanstelsel', 'organisme', 'populatie', 'levensgemeenschap', 'ecosysteem', 'biosfeer'];
 const EXAMEN = [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1]; // hoofdniveaus van het examenprogramma (vetter)
 // maat per niveau (meta onder het huidige niveau); bronnen in bron/bronnen.md
-const NIV_MAAT = ['± 5 nm', '± 6 µm', '± 0,1 mm', '± 1 mm', '± 1 cm', '± 14 cm', '± 14 cm', 'een bos', 'een bos', 'een bos', '12 742 km'];
+// eenheden voluit (C10): metaText zet alles in hoofdletters en maakt van µ een Griekse Μ ('± 6 µm' werd '± 6 MM')
+const NIV_MAAT = ['± 5 nanometer', '± 6 micrometer','± 0,1 mm', '± 1 mm', '± 1 cm', '± 14 cm', '± 14 cm', 'een bos', 'een bos', 'een bos', '12 742 km'];
 const KENM = ['bestaat uit cellen', 'stofwisseling', 'groei en ontwikkeling', 'voortplanting', 'prikkels en beweging', 'homeostase'];
 const HS = { cyto: '#5A2E34', cytoL: '#7A4048', rand: '#D98A7E', streep: '#3E1E24', schijf: '#F0C8A8', kern: '#6E5A9E', kernR: '#A392D6' }; // hartspier
 const KEEL = { cyto: '#2C3A52', rand: '#9FB4CC' };
@@ -213,14 +214,14 @@ const BOS_MEZEN = [[520, 330, 1], [610, 380, -1], [800, 470, 1], [1110, 430, -1]
 const BOS_MERELS = [[660, 764, 1], [1500, 776, -1]];
 
 // ---------- ladderbalk: de elf niveaus links in beeld, huidig niveau goud met maat ----------
-function ladderBalk(ctx, cur, o = {}) { const { a = 1, x = 54, y0 = 836, dy = 66, aan = 1, virus = 0, t = 0, lit = null, breed = 330 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+function ladderBalk(ctx, cur, o = {}) { const { a = 1, x = 54, y0 = 836, dy = 66, aan = 1, virus = 0, t = 0, lit = null, breed = 330, maat = true } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
   roundRect(ctx, x - 24, y0 - 10 * dy - 50, breed + 24, 10 * dy + 92, 18); shape(ctx, rgba('#0D1420', 0.72), rgba(C.line, 0.35), 1.2);
   ctx.strokeStyle = rgba(C.line, 0.5); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x + 6, y0 + 10); ctx.lineTo(x + 6, y0 - 10 * dy - 10); ctx.stroke();
   NIV.forEach((n, i) => { const y = y0 - i * dy; const isC = i === cur; const al = lit ? lit[i] : (i <= cur ? 1 : 0.5) * aan;
     if (isC) { roundRect(ctx, x - 12, y - 32, breed - 6, 52, 26); shape(ctx, rgba(C.goud, 0.2), C.goud, 1.6); }
     circ(ctx, x + 6, y - 6, isC ? 7 : 5, isC ? C.goud : rgba(C.line, 0.8));
     ctx.save(); ctx.globalAlpha *= Math.max(0.35, al); text(ctx, n, x + 26, y + 2, fTekst(n.length > 15 ? 25 : 28, EXAMEN[i] ? 700 : 500), isC ? C.text : C.text2, 'left'); ctx.restore();
-    if (isC && NIV_MAAT[i]) metaText(ctx, NIV_MAAT[i].toUpperCase(), x + breed - 22, y + 2, C.grain, 'right', 18); });
+    if (isC && maat && NIV_MAAT[i]) metaText(ctx, NIV_MAAT[i].toUpperCase(), x + breed - 22, y + 2, C.grain, 'right', 18); });
   if (virus > 0.01) { const y = y0 - 2 * dy; ctx.save(); ctx.globalAlpha *= virus; griepVirus(ctx, x + breed + 46, y - 8, 22); ctx.setLineDash([6, 6]); ctx.strokeStyle = C.koraal; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x + breed + 18, y - 8); ctx.lineTo(x + breed - 8, y - 8); ctx.stroke(); ctx.setLineDash([]);
     naamBij(ctx, 'virus', 'geen cel', x + breed + 80, y - 18, 1, 'left', C.koraal); ctx.restore(); }
   ctx.restore(); }

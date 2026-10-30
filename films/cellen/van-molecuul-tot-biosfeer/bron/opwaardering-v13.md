@@ -24,7 +24,7 @@ Totaal ± 350 credits, 2 alinea's (deelzinnen). Knippen kan niet zonder dat de z
 
 ## (c) Vragen over inhoud
 
-1. Bewering 13 (vogelhart voorin, tegen het borstbeen) rust op één bron (IVIS); een tweede bron (bv. Proctor & Lynch) heb ik niet kunnen openen.
+1. ~~Bewering 13 (vogelhart) rust op één bron.~~ Afgemaakt in de frisse beeldreview: B14 (Kroneman e.a. 2019, niveau A) en B15 (Lumeij & Ritchie) bevestigen de plek; status ✓.
 2. Is 'spiercel → hartspiercel' in beeld goed, terwijl de stem 'spiercel' zegt? (zie twijfelscène 1)
 3. Mag de griepprik-zin blijven met alleen 'het virus verandert' als reden? Het RIVM noemt ook dat de bescherming na ± een half jaar afneemt. Voorstel: in het docentdeel één zin.
 
@@ -56,3 +56,24 @@ In `src/teken_vmb.js`, met recept als commentaar:
 - `meesVaten` (hart en grote vaten in de koolmees op de juiste plek; gebruikt `hartDoorsnede` op ± 1 cm).
 - `ladderBalk` en `zoomUit` (doorlopende zoom naar buiten: het kleine niveau krimpt in het grotere) — bruikbaar voor elke 'van klein naar groot'-film.
 - Kleintjes: `meesEi`, `nestje`, `paddenstoel`, `kamerplant` (buigt naar het licht), `thermometerGlas`, `klembord`, `deurKlink`, `bedScene`.
+
+## Frisse beeldreview (30 okt 2026)
+
+Door een andere helper dan de maker (C10). Film opnieuw gebouwd (`bouw_vmb.py --stills`, bouw reproduceerbaar: zelfde HTML), 73 stills (5 per alinea, kaarten, vragen, eindbeeld) getegeld bekeken, verdachte stills op ware grootte. Daarna speeltest via http: Vragen aan/uit, havo/vwo, `?review=1`, geen JS-fouten, knipplekken als in 1.2.
+
+**Gevonden en hersteld** (in `src/`, opnieuw gebouwd en opnieuw bekeken):
+1. **Eenheden fout in beeld** (vakinhoud): `metaText`/`naamBij` zetten de meta in hoofdletters en maakten van `µ` een Griekse `Μ`. Er stond '± 2 MM' bij de bacterie (s05, s14), '± 0,1 MM' bij het griepvirus (s14) en '± 6 MM' bij de celkern in de ladder (s06). Nu voluit: micrometer en nanometer (C10: 'units written in full in meta labels').
+2. **s08 bacterie**: de ladder toonde 'organisme ± 14 cm' naast de bacterie (maat van de koolmees). De maat staat uit zolang de bacterie in beeld is (`ladderBalk(..., {maat})`).
+3. **s13 (vwo)**: het label 'jongen per jaar' viel over een koolmees in het populatievak; nu links naast het nestje.
+4. **s16**: de meta 'zelfde DNA, andere genen aan' liep over de rand van het medaillon en bleef staan tot 'populatie' (dus ook bij orgaan en organisme). Nu boven de cirkel en weg bij 'weefsels'.
+5. **s11**: de regenwolk verdween al bij 'licht', terwijl het label 'water' bleef staan; nu gaan wolk en label samen weg (bij 'Levend').
+
+**Bekeken en in orde**: castpersonages met heel gezicht en zonder naam in beeld (Noor in s01/s16, Dr. Kim in s09); geen grijze poppetjes; geen korrel buiten cellen; virussen knoppen af aan de buitenkant van de keelcel en niets steekt onbedoeld buiten een membraan; labels zonder wijslijnen; koolmees en merel uit de dierenbibliotheek in rustige, anatomisch passende houding; vogelhart op de juiste plek (zie bronnen, bewering 13); hart ± 1 cm in een vogel van ± 14 cm; paars alleen voor kernen; de curve rupsen/jonge koolmezen volgt de stem.
+
+**Bronnenlogboek**: bewering 13 (vogelhart) ? → ✓ met B14 (Kroneman e.a. 2019, *J. Morphol.*, niveau A) en B15 (Lumeij & Ritchie, *Avian Medicine*); bewering 15 aangevuld met B17 (Britannica) en B16 (CvTE-syllabus); bewering 18 met B16, blijft ≈ (tweede onafhankelijke bron voor de definitie van emergentie niet kunnen openen). Nu 16 ✓ · 4 ≈ · 0 ! · 0 ?.
+
+**Open (aanpakkeuzes, niet veranderd; voor Kamiel)**:
+- s08: het hart in de koolmees staat als rechtopstaande vooraanzicht-doorsnede; in een echte vogel ligt de lange as langs het borstbeen (B14). Plek en maat kloppen; draaien kan als Kamiel dat wil.
+- s08 (orgaanstelsel): de vaten liggen als lijnen óp de dekkende vogel en lopen tot in de poten en de staart; leesbaar, maar oogt wat druk rond de vleugel.
+- s16: Noor staat als 'organisme' naast de koolmees (± 1,65 m tegen ± 14 cm); de maten zijn niet op schaal (de koolmees is ± 5× te groot naast haar: ± 230 px lang tegen ± 520 px voor Noor). Bewust als vergelijking 'allebei een organisme', niet als schaalbeeld; eventueel 'niet op schaal' als meta erbij.
+- Twijfelscènes, herinspreeklijst en de vragen 2 en 3 hierboven blijven open.

@@ -89,7 +89,7 @@ Object.assign(SCENES, {
       kruis(ctx, 850, 170, 26, q.on('niet', 1)); naamBij(ctx, 'leeft niet', null, 890, 182, q.on('niet', 1), 'left', C.koraal);
       tag(ctx, 'neemt geen stoffen op', 620, 760, C.koraal, q.on('stoffen', 1)); tag(ctx, 'plant zich niet voort', 620, 836, C.koraal, q.on('voort', 1)); });
     const aB = q.on('bacterie', 1, 0.6); bacterieEcht(ctx, 1400, 380, 500, { a: aB, t });
-    naamBij(ctx, 'bacterie', 'één cel · ± 2 µm, vergroot', 1400, 620, aB * q.on('cel', 1), 'center');
+    naamBij(ctx, 'bacterie', 'één cel · ± 2 micrometer · vergroot', 1400, 620, aB * q.on('cel', 1), 'center');
     for (let i = 0; i < 6; i++) vink(ctx, 1190 + i * 84, 730, 18, ramp(t, q.at('levenskenmerken') + i * 0.12, 0.3));
     naamBij(ctx, 'alle levenskenmerken', null, 1400, 810, q.on('levenskenmerken', 1), 'center', C.groen);
     const aK = q.on('kleinste', 1); if (aK > 0.01) A(ctx, aK, () => { ctx.strokeStyle = C.goud; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.ellipse(1400, 380, 330, 170, 0, 0, 6.283); ctx.stroke(); });
@@ -170,7 +170,7 @@ Object.assign(SCENES, {
     meesMedaillon(ctx, 1 - ramp(t, tH - 0.4, 0.5), t);
     if (aBac > 0.01) { bacterieEcht(ctx, X, 430, 600, { a: aBac, t }); naamBij(ctx, 'bacterie', 'vergroot', X, 690, aBac, 'center');
       tag(ctx, 'één cel = het hele organisme', X, 820, C.goud, q.on('organisme', 2)); }
-    ladderBalk(ctx, cur, { breed: 370, lit: aBac > 0.5 ? NIV.map((_, i) => i === 2 || i === 6 ? 1 : i < 6 ? 0.6 : 0.4) : null });
+    ladderBalk(ctx, cur, { breed: 370, maat: aBac < 0.5, lit: aBac > 0.5 ? NIV.map((_, i) => i === 2 || i === 6 ? 1 : i < 6 ? 0.6 : 0.4) : null });
     if (aBac > 0.5) A(ctx, aBac, () => { const y = 836 - 2 * 66; roundRect(ctx, 42, y - 32, 364, 52, 26); ctx.strokeStyle = C.goud; ctx.lineWidth = 1.6; ctx.stroke(); }); },
 
   // ---------- s09: populatie, levensgemeenschap; de onderzoeker telt en meet ----------
@@ -202,7 +202,7 @@ Object.assign(SCENES, {
   s11(ctx, t, q) { const tG = q.at('warm') - 0.2, tM = q.at('Misschien'), tB = q.at('biosfeer'), graf = ramp(t, tG - 0.1, 0.5) * (1 - ramp(t, tM - 0.3, 0.5));
     const aAb = q.on('abiotische', 1);
     const bos = () => { bosScene(ctx, t, { merels: 1, pad: 1, hlBodem: Math.max(q.on('bodem', 1) * (1 - ramp(t, q.at('water'), 0.5)), q.on('bodem', 2) * (1 - ramp(t, tB, 0.5))), nat: q.on('water', 1) });
-      regenWolk(ctx, 1260, 150, t, q.on('water', 1) * (1 - ramp(t, q.at('licht'), 0.5)) + 0.0);
+      regenWolk(ctx, 1260, 150, t, q.on('water', 1) * (1 - ramp(t, q.at('Levend'), 0.5)));
       zon(ctx, 1760, 160, 48, q.on('licht', 1), t);
       thermometerGlas(ctx, 1480, 860, 1.0, 0.45, q.on('temperatuur', 1));
       const hlT = q.on('temperatuur', 2) * (1 - ramp(t, tB, 0.5)); if (hlT > 0.01) A(ctx, hlT, () => { ctx.strokeStyle = C.goud; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.ellipse(1480, 760, 46, 150, 0, 0, 6.283); ctx.stroke(); }); };
@@ -255,7 +255,7 @@ Object.assign(SCENES, {
       const P = [[960, 300], [1120, 260], [1300, 320], [1480, 270], [1660, 330], [1030, 450], [1210, 480], [1400, 430], [1590, 470], [1730, 560], [980, 620], [1160, 640], [1360, 600], [1540, 650]];
       P.forEach(([x, y], i) => koolmees(ctx, x, y, 0.3 + 0.05 * hash(i * 3), { kijk: hash(i) > 0.5 ? 1 : -1, a: ramp(t, q.at('populatie') - 0.2 + i * 0.05, 0.3) }));
       metaText(ctx, 'AANTAL PER HECTARE', 1340, 205, rgba(C.teal, q.on('dichtheid', 1)), 'center', 22);
-      nestje(ctx, 1700, 690, 1.1, 6, q.on('geboortecijfer', 1)); naamBij(ctx, 'jongen per jaar', null, 1690, 640, q.on('geboortecijfer', 1), 'right', C.groen);
+      nestje(ctx, 1700, 690, 1.1, 6, q.on('geboortecijfer', 1)); naamBij(ctx, 'jongen per jaar', null, 1640, 702, q.on('geboortecijfer', 1), 'right', C.groen);
       naamBij(ctx, 'populatie', 'wel', 1340, 790, q.on('populatie', 1), 'center');
       tag(ctx, 'evolutie: alleen een populatie', 1340, 860, C.goud, q.on('evolueren', 1)); });
     if (aC > 0.01) A(ctx, aC, () => { [[300, 280], [560, 260], [270, 520], [560, 500], [420, 700]].forEach(([x, y], i) => eiwitVouw(ctx, x, y, 0.6, 1, Array(46).fill('a'), { kleur: 'eiwit', t: t + i, seed: 4 + i }));
@@ -276,7 +276,7 @@ Object.assign(SCENES, {
       naamBij(ctx, 'RNA', 'erfelijk materiaal', 1500, 300, q.on('erfelijk', 1) * aN, 'left');
       naamBij(ctx, 'eiwitmantel', null, 1500, 450, q.on('eiwitmantel', 1) * aN, 'left');
       naamBij(ctx, 'vetlaagje', 'uit de gastheercel', 1500, 570, q.on('vetlaagje', 1) * aN, 'left');
-      bacterieEcht(ctx, 1080, 470, 640, { a: k, t, flagel: false }); naamBij(ctx, 'bacterie', '± 2 µm', 1080, 720, k, 'center'); naamBij(ctx, 'griepvirus', '± 0,1 µm', 1640, 560, k, 'center');
+      bacterieEcht(ctx, 1080, 470, 640, { a: k, t, flagel: false }); naamBij(ctx, 'bacterie', '± 2 micrometer', 1080, 720, k, 'center'); naamBij(ctx, 'griepvirus', '± 0,1 micrometer', 1640, 560, k, 'center');
       metaText(ctx, 'OP SCHAAL · VERGROOT', 1360, 820, rgba(C.text2, k), 'center', 22);
       tag(ctx, 'bacterie: wél een cel', 1080, 200, C.groen, q.on('wél', 1));
       const aSt = q.on('stoffen', 1); if (aSt > 0.01) for (let i = 0; i < 8; i++) { const u = (t * 0.5 + i / 8) % 1; circ(ctx, lerp(700, 860, u), 470 + Math.sin(i * 2.3) * 90 * (1 - u), 6, rgba(C.oker, aSt * (1 - u))); } });
@@ -328,7 +328,7 @@ Object.assign(SCENES, {
     if (t >= tC - 0.4 && t < tDe) { const items = cues.map((c, i) => c ? [i, q.at(c[0], c[1])] : null).filter(Boolean);
       items.forEach(([i, ti], k) => { const tv = k + 1 < items.length ? items[k + 1][1] : tDe; const a = ramp(t, ti - 0.2, 0.4) * (1 - ramp(t, tv - 0.2, 0.4)); if (a > 0.01) A(ctx, a, () => { ctx.save(); ctx.beginPath(); ctx.arc(1200, 460, 330, 0, 6.283); ctx.fillStyle = i <= 4 ? '#121A26' : '#2A3E5C'; ctx.fill(); ctx.clip(); niveauIcoon(ctx, i, 1200, 460, 560, t); ctx.restore();
         ctx.strokeStyle = C.goud; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(1200, 460, 330, 0, 6.283); ctx.stroke(); metaText(ctx, NIV[i].toUpperCase(), 1200, 840, C.grain, 'center', 26); }); });
-      naamBij(ctx, 'differentiatie', 'zelfde DNA, andere genen aan', 1200, 120, q.on('differentiatie', 1) * (1 - ramp(t, q.at('populatie'), 0.4)), 'center'); }
+      naamBij(ctx, 'differentiatie', 'zelfde DNA, andere genen aan', 1200, 92, q.on('differentiatie', 1) * (1 - ramp(t, q.at('weefsels'), 0.4)), 'center'); }
     // de koolmees en Noor op de ladder; het virus ernaast
     const aO = ramp(t, tDe - 0.2, 0.5); if (aO > 0.01) A(ctx, aO, () => { koolmees(ctx, 980, 740, 1.4); persoon(ctx, 'noor', 1460, 800, 520, { uit: 'moe', a: q.on('net', 1, 0.6) });
       haak(ctx, 700, 1640, 822, 'allebei een organisme', C.groen, q.on('ladder', 1));

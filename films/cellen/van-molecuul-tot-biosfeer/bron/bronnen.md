@@ -2,7 +2,7 @@
 
 Gecontroleerd: versie 2.0 (beeld-remake, 30 okt 2026), door Claude (eerste ronde, volgens `films/BRONNEN.md`). Stem en script zijn ongewijzigd (takes van 14–15 okt 2026); dit logboek dekt de gesproken beweringen én wat het nieuwe beeld toont (maten, bouw). Alle bronnen hieronder zijn op 30 okt 2026 zelf geopend.
 
-Samenvatting: 20 beweringen · 15 ✓ · 4 ≈ · 0 ! · 1 ?. Geen aanpassing van stem of script nodig. Menselijke steekproef: nog niet gedaan.
+Samenvatting: 20 beweringen · 16 ✓ · 4 ≈ · 0 ! · 0 ?. Frisse beeldreview 30 okt 2026: bewering 13 afgemaakt, 15 en 18 met de syllabus aangevuld. Geen aanpassing van stem of script nodig. Menselijke steekproef: nog niet gedaan.
 
 ## Bronnen
 
@@ -21,6 +21,10 @@ Samenvatting: 20 beweringen · 15 ✓ · 4 ≈ · 0 ! · 1 ?. Geen aanpassing va
 | B11 | B | Encyclopaedia Britannica, Bacteria: diversity of structure (*E. coli* ± 2 µm lang, 0,5 µm dik) | https://www.britannica.com/science/bacteria/Diversity-of-structure-of-bacteria | 30 okt 2026 |
 | B12 | A | NASA NSSDC, Earth Fact Sheet (gemiddelde straal 6371 km, equatoriale straal 6378 km) | https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html | 30 okt 2026 |
 | B13 | B | IVIS, Clinical Avian Medicine, Evaluating and treating the cardiovascular system (vogelhart in het voorste deel van de lichaamsholte, tegen het borstbeen, punt omgeven door de leverkwabben) | https://www.ivis.org/library/clinical-avian-medicine/evaluating-and-treating-cardiovascular-system | 30 okt 2026 |
+| B14 | A | Kroneman J.G.H. e.a. (2019) Comparative analysis of avian hearts provides little evidence for variation among species with acquired endothermy. *Journal of Morphology* 280: 395–410 ('the heart was located dorsal to the sternum', lange as evenwijdig aan borstbeen en kiel, punt van de kamers caudaal, boezems craniaal) | https://pmc.ncbi.nlm.nih.gov/articles/PMC6590421 | 30 okt 2026 |
+| B15 | B | Lumeij J.T. & Ritchie B.W., Cardiology, h. 27 in Ritchie, Harrison & Harrison, *Avian Medicine: Principles and Application* ('located midway in the thoracic cavity in an indention in the sternum'; punt ventraal bedekt door de leverkwabben; vogels hebben naar verhouding een groter hart) | https://harrisonsbirdfoods.com/wp-content/uploads/2024/03/695-722-Ch27-Cardiology.pdf | 30 okt 2026 |
+| B16 | A | CvTE, Syllabus biologie vwo (examenblad.nl): organisatieniveaus van molecuul tot ecosysteem; 'Op het hogere organisatieniveau zijn nieuwe eigenschappen te zien. Het geheel is daarbij meer dan de som van de delen'; ecosysteem = 'complex samenhangend geheel van componenten en interacties' | https://examenblad.nl/2025/vwo/documenten/syllabus-biologie-vwo | 30 okt 2026 |
+| B17 | B | Encyclopaedia Britannica, Ecosystem ('the complex of living organisms, their physical environment, and all their interrelationships'; abiotische delen: 'minerals, climate, soil, water, sunlight') | https://www.britannica.com/science/ecosystem/Introduction | 30 okt 2026 |
 
 ## Beweringen
 
@@ -38,12 +42,12 @@ Samenvatting: 20 beweringen · 15 ✓ · 4 ≈ · 0 ! · 1 ?. Geen aanpassing va
 | 10 | s07 | Elke koolmees begint als één bevruchte eicel die zich deelt; alle cellen krijgen hetzelfde DNA; andere genen aan → differentiatie | B6, B2 | ≈ | Vereenvoudiging: 'hetzelfde DNA' (afgezien van mutaties); beeldbank `gedifferentieerdeCellen` met genstrookje (eigen recept met bronnen in `bibliotheek/lib_bio.js`). Vogelei: de eerste delingen gebeuren op de dooier (meroblastisch), niet als bol die in tweeën deelt; het beeld toont de schematische klievingsdeling (zie twijfelscène 2). |
 | 11 | s08 | Cellen met dezelfde bouw en functie vormen een weefsel; weefsels samen een orgaan; hart en bloedvaten = bloedvatenstelsel (orgaanstelsel); alle orgaanstelsels = organisme | B6, B7 | ✓ | |
 | 12 | s08 | Bij een bacterie is één cel meteen het hele organisme | B2, B6 | ✓ | |
-| 13 | s08 | Het vogelhart ligt voorin de lichaamsholte, tegen het borstbeen | B13 | ? | Eén bron (B13, niveau B); in het beeld schematisch op ± 1 cm. Tweede bron (bv. Proctor & Lynch, *Manual of Ornithology*) niet geopend. |
+| 13 | s08 (beeld) | Het vogelhart ligt voorin de romp, direct boven/achter het borstbeen, punt naar achteren tussen de leverkwabben | B14, B15, B13 | ✓ | Frisse beeldreview 30 okt 2026: B14 (niveau A, dissecties van 14 soorten) en B15 bevestigen de plek. Het beeld (`MEES_HART`) legt het hart vóór in de borst, boven de buik, op ± 1 cm in een vogel van ± 14 cm: klopt. De doorsnede staat rechtop (vooraanzicht) in plaats van met de lange as langs het borstbeen; dat is een schematische keuze, geen fout in de plek. |
 | 14 | s09 | Populatie = één soort in één gebied die zich onderling voortplant; levensgemeenschap = alle populaties | B6 | ✓ | 'Onderling voortplanten' staat in de BvJ-definitie; B6 zegt 'all of the individuals of a species living within a specific area'. |
-| 15 | s11 | Ecosysteem = levensgemeenschap + abiotische factoren (bodem, water, licht, temperatuur) | B6 | ✓ | Met de syllabusdefinitie (BvJ/Nectar) gelijk. |
+| 15 | s11 | Ecosysteem = levensgemeenschap + abiotische factoren (bodem, water, licht, temperatuur) | B6, B17, B16 | ✓ | B6 en B17 noemen allebei het levende deel plus de abiotische omgeving (bodem, water, zonlicht, klimaat); B16 geeft het ecosysteem als samenhangend geheel. |
 | 16 | s11 | Een warm voorjaar laat de rupsen eerder komen; komen de jonge koolmezen later, dan missen ze hun voedsel | B9, B10 | ✓ | B9 laat zien dat de mismatch na 2000 kleiner werd; de film geeft het mechanisme, geen trend. |
 | 17 | s11 | Biosfeer = alle ecosystemen op aarde; aarde ± 12 742 km doorsnede | B6, B12 | ✓ | 2 × 6371 km (B12). |
-| 18 | s12–s13 | Emergente eigenschap: één spiercel trekt samen, pas een hart pompt; leven zelf is een emergente eigenschap; alleen een populatie heeft dichtheid en geboortecijfer en kan evolueren | B6 | ≈ | Definitie emergentie staat niet op B6 (Key Terms); gangbaar in Campbell en OpenStax h. 1, hier niet zelf geopend. Inhoud ongewijzigd t.o.v. 1.x (reviews/expert.md). |
+| 18 | s12–s13 | Emergente eigenschap: één spiercel trekt samen, pas een hart pompt; leven zelf is een emergente eigenschap; alleen een populatie heeft dichtheid en geboortecijfer en kan evolueren | B16, B6 | ≈ | Emergentie: B16 (syllabus, niveau A) 'op het hogere organisatieniveau zijn nieuwe eigenschappen te zien; het geheel is meer dan de som van de delen'. Een tweede onafhankelijke bron voor de definitie (Campbell, OpenStax h. 1) kon ik op 30 okt niet openen; daarom ≈. 'Alleen een populatie evolueert' is gangbare leerstof (B6: populatie als eenheid), hier niet apart nagelezen. |
 | 19 | s14 | Griepvirus: erfelijk materiaal (RNA) in een eiwitmantel, met daaromheen een vetlaagje (uit de gastheercel) | B3, B4 | ✓ | Beeldbank `griepVirus` (recept: Harris 2006, Noda 2006). |
 | 20 | s14–s15 | Het virus laat de cel nieuwe virussen maken met de stoffen en energie van die cel; sommige biologen noemen een virus een grensgeval | B1, B2, B3 | ✓ | B1: 'netherworld'; B2: 'entirely dependent on their host cells'. |
 
@@ -52,7 +56,8 @@ Samenvatting: 20 beweringen · 15 ✓ · 4 ≈ · 0 ! · 1 ?. Geen aanpassing va
 Geen `!`. Wel in beeld (geen stem):
 - Titelkaart en vraag q02: de castnaam is uit de schermtekst gehaald (BEELDAFSPRAKEN: castnamen niet in beeld). Was 'Noor heeft griep. In haar neus …' → nu 'Wie griep heeft, maakt in neus en keel …'; q02 'In Noors neus …' → 'In neus en keel …'. Ook in `oefenen.json` (uitleg-virus) en het docentdeel.
 - De spiercel is in het beeld een hartspiercel (B7, B8), zodat de ladder zonder sprong naar het hart doorloopt.
+- Frisse beeldreview 30 okt 2026, maten in beeld (beweringen 7, 8, 9): 'µm' werd door de hoofdlettermeta een Griekse Μ, zodat er '± 2 MM' (bacterie), '± 0,1 MM' (griepvirus) en '± 6 MM' (celkern) stond, 1000× te groot. Was → nu: eenheden voluit ('± 2 micrometer', '± 0,1 micrometer', '± 6 micrometer', '± 5 nanometer'), zoals C10 vraagt. In s08 toonde de ladder bij de bacterie 'organisme ± 14 cm'; de maat staat daar nu uit.
 
 ## Menselijke controle
 
-Nog niet gedaan. Voor Kamiel: open B3 (griepvirus), B7 (hartspiercel) en B9 (koolmees en rupsenpiek), en bewering 13 (vogelhart, één bron).
+Nog niet gedaan. Voor Kamiel: open B3 (griepvirus), B7 (hartspiercel) en B9 (koolmees en rupsenpiek), en B14 (vogelhart).
