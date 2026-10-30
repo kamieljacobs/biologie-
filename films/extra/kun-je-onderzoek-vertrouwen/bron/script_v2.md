@@ -14,7 +14,7 @@ Leerdoelen (vwo 5–6, verdieping)
 ---
 
 ## Cold open [Schema: 53 kaartjes "kankerstudie" in een raster; ze draaien één voor één om: 6 groen, 47 grijs; casuskaart 2012]
-In het jaar 2012 probeerde een biotechbedrijf drieënvijftig spraakmakende kankerstudies te herhalen. Het lukte maar zes keer. Al die studies stonden in goede tijdschriften. Hoe kan dat? Wat denk je?
+In het jaar 2012 meldde een biotechbedrijf: we hebben drieënvijftig spraakmakende kankerstudies geprobeerd te herhalen. Het lukte maar zes keer. Al die studies stonden in goede tijdschriften. Hoe kan dat? Wat denk je?
 [VRAAG] (a) de meeste onderzoekers hadden gefraudeerd · (b) zwakke proefopzet, en vooral opvallende uitkomsten worden gepubliceerd · (c) het lukt nooit om een proef precies na te doen
 
 ## Titel
@@ -69,7 +69,7 @@ Bradford Hill noemde later negen gezichtspunten die een oorzaak waarschijnlijker
 ## Hoofdstuk 4 — Hoe wetenschap zichzelf verbetert [Schema: kaartje HYPOTHESE met een stapel bevestigingen die nooit 'bewezen' wordt; tijdschrift met twee vakgenoten (peer review); Macro-nacht: berkenspanners licht en donker op lichte en zwarte stammen; de 53 kaartjes van de cold open; een la met 'niets gevonden'; twintig dobbelstenen; tijdlijn van een fraudezaak]
 Een hypothese kun je nooit helemaal bewijzen. Elke nieuwe proef kan haar nog onderuit halen. Vertrouwen groeit pas als een resultaat keer op keer standhoudt. Daarvoor heeft de wetenschap twee vangnetten. Vóór publicatie beoordelen vakgenoten een artikel: peer review. En daarna proberen anderen het te herhalen.
 
-Zo ging het met de berkenspanner, een nachtvlinder met een lichte en een donkere vorm. In de jaren vijftig vond Bernard Kettlewell dat vogels op zwarte stammen vaker de lichte vlinders opaten. Er kwam kritiek op zijn opzet. Tussen het jaar 2001 en het jaar 2007 deed Michael Majerus een deel opnieuw, met bijna vijfduizend vlinders, beter opgezet. Ook hij zag dat vogels vaker de slecht gecamoufleerde vlinders aten. Kritiek leidde tot een betere proef.
+Zo ging het met de berkenspanner, een nachtvlinder met een lichte en een donkere vorm. In de jaren vijftig vond Bernard Kettlewell dat vogels op zwarte stammen vaker de lichte vlinders opaten. Er kwam kritiek op zijn opzet. Zes jaar lang, tot het jaar 2007, deed Michael Majerus een deel opnieuw, met bijna vijfduizend vlinders, beter opgezet. Ook hij zag dat vogels vaker de slecht gecamoufleerde vlinders aten. Kritiek leidde tot een betere proef.
 
 Maar soms hapert het systeem. Terug naar de drieënvijftig kankerstudies. Waarom lukte het zo vaak niet? Antwoord b. Veel studies hadden een zwakke opzet: weinig herhalingen, en niet blind gemeten. En tijdschriften publiceren liever opvallende uitkomsten. Onderzoek waarin niets gevonden werd, verdwijnt in de la. Dat heet publicatiebias. Misschien dacht je: dan waren het fraudeurs. Maar daarvoor was geen bewijs. Zwakke opzet, selectief publiceren en toeval samen zijn genoeg.
 
