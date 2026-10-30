@@ -42,7 +42,7 @@ function slaBlad(x,y,len,wid,a0,curl,seed,col,vit){
     for(const d of [-1,1]){ const va=a+d*0.9; ctx.beginPath(); ctx.moveTo(sx,sy); ctx.quadraticCurveTo(sx+Math.sin(a)*w*0.25+d*Math.cos(a)*w*0.5, sy-Math.cos(a)*w*0.25+d*Math.sin(a)*w*0.5, sx+Math.sin(va)*w*0.55*1+d*Math.cos(a)*w*0.35, sy-Math.cos(va)*w*0.55+d*Math.sin(a)*w*0.35); ctx.stroke(); } }
 }
 function pillLabel(name,meta,ax,ay,lx,ly,boxRight){
-  ctx.save(); ctx.font=fTekst(36,600); const w1=ctx.measureText(name).width; ctx.font=fMeta(24); const w2=meta?ctx.measureText(meta.toUpperCase()).width+meta.length*3:0;
+  ctx.save(); ctx.font=fTekst(36,600); const w1=ctx.measureText(name).width; ctx.font=fMeta(24); const w2=meta?ctx.measureText(meta.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():''))).width+meta.length*3:0;
   const w=Math.max(w1,w2)+36, h=meta?92:56, right=lx<ax&&!boxRight, x=right?lx-w:lx, y=ly-40;
   const ex=Math.min(Math.max(ax,x),x+w), ey=Math.min(Math.max(ay,y),y+h);
   ctx.strokeStyle='#1A2740'; ctx.lineWidth=1.5; ctx.beginPath(); ctx.moveTo(ax,ay); ctx.lineTo(ex,ey); ctx.stroke();

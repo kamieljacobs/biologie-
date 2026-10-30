@@ -63,7 +63,7 @@ function welNiet(ctx, rows, x, y, w, a = 1, o = {}) { if (a <= 0.01) return; ctx
       text(ctx, String(i + 1), x + 40, yy + h / 2 + 14, fTitel(40), C.goud, 'center');
       L.forEach((l, k) => text(ctx, l, x + 84, yy + h / 2 - (L.length - 1) * (px + 10) / 2 + 11 + k * (px + 10), fTekst(px, 500), C.text, 'left'));
       const s = r.s || 0; if (s > 0.01) { const col = r.v === 'wel' ? C.groen : C.koraal; ctx.save(); ctx.globalAlpha *= s; const sc = 1.25 - 0.25 * ease(s); ctx.translate(x + w - 110, yy + h / 2); ctx.scale(sc, sc); ctx.rotate(-0.08);
-        roundRect(ctx, -82, -34, 164, 68, 10); ctx.strokeStyle = col; ctx.lineWidth = 5; ctx.stroke(); text(ctx, r.v.toUpperCase(), 0, 14, fTekst(38, 800), col, 'center'); ctx.restore(); }
+        roundRect(ctx, -82, -34, 164, 68, 10); ctx.strokeStyle = col; ctx.lineWidth = 5; ctx.stroke(); text(ctx, r.v.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')), 0, 14, fTekst(38, 800), col, 'center'); ctx.restore(); }
       ctx.restore(); }
     yy += h + 14; });
   ctx.restore(); return yy; }

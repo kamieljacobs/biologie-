@@ -6,7 +6,7 @@ const _tvG = (ctx, hor = 600) => macroNacht(ctx, { horizon: hor });
 function _tvSil(ctx, naam, x, y, E, kijk = 1) { const S = _zREFSIL[naam]; if (!S) return; ctx.save(); ctx.translate(x, y); ctx.scale(E * kijk, E); ctx.beginPath(); S.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath();
   ctx.strokeStyle = '#FF4A3A'; ctx.lineWidth = 2 / E; ctx.stroke(); ctx.restore(); }
 // overlayvel: links de nieuwe tekening met de referentieomtrek (rode lijn) eroverheen, rechts dezelfde tekening los
-function _tvRef(ctx, naam, teken, E, titel) { _tvG(ctx, 560); metaText(ctx, (titel || naam).toUpperCase() + ' · ROOD = OMTREK VAN DE REFERENTIE (ZELFDE SCHAAL)', 80, 70, C.text2);
+function _tvRef(ctx, naam, teken, E, titel) { _tvG(ctx, 560); metaText(ctx, (titel || naam).toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')) + ' · ROOD = OMTREK VAN DE REFERENTIE (ZELFDE SCHAAL)', 80, 70, C.text2);
   teken(ctx, 520, 900, E); _tvSil(ctx, naam, 520, 900, E); teken(ctx, 1420, 900, E); }
 const TV_zoog = {
   r_wolf(ctx) { _tvRef(ctx, 'wolf', (c, x, y, E) => wolf(c, x, y, E / 0.8), 3.0); },

@@ -4701,7 +4701,7 @@ window.HAVO = {};
     if (ev.target.closest('input,textarea,select')) return;
     if (ev.key === ' ' && !ev.target.closest('button')) { togglePlay(); ev.preventDefault(); }
     const q = scene(ci).q;
-    if (q && t >= q.t0 && t < q.reveal && /^[abcABC123]$/.test(ev.key)) { const k = { 1: 'A', 2: 'B', 3: 'C' }[ev.key] || ev.key.toUpperCase(); choose(k); }
+    if (q && t >= q.t0 && t < q.reveal && /^[abcABC123]$/.test(ev.key)) { const k = { 1: 'A', 2: 'B', 3: 'C' }[ev.key] || ev.key.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')); choose(k); }
     if (ev.key === 'Enter' && waiting && S.mode === 'klas') verder();
     // pijltjes werken overal op de pagina: links/rechts 5 s (met Shift 30 s), omhoog/omlaag een hoofdstuk
     if (ev.key === 'ArrowRight' || ev.key === 'ArrowLeft') { if (!started) start(true); const step = (ev.shiftKey ? 30 : 5) * (ev.key === 'ArrowRight' ? 1 : -1); seekGlobal(Math.max(0, Math.min(TOTAL - 0.1, bkV2F(bkF2V(starts[ci] + t) + step)))); ev.preventDefault(); }

@@ -216,14 +216,14 @@ function blob(ctx, x, y, rx, ry, wob=0, seed=0, t=0){ // organic ellipse
 function roundRect(ctx,x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
 function text(ctx, s, x, y, font, color, align='left', base='alphabetic'){ ctx.font=font; ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline=base; ctx.fillText(s,x,y); }
 const fTitel=(px)=>`700 ${px}px ${F.titel}`, fTekst=(px,w=400)=>`${w} ${px}px ${F.tekst}`, fMeta=(px)=>`500 ${px}px ${F.meta}`;
-function metaText(ctx,s,x,y,color=C.grain,align='left',px=28){ ctx.save(); ctx.font=fMeta(px); ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline='alphabetic'; ctx.letterSpacing='3px'; ctx.fillText(s.toUpperCase(),x,y); ctx.restore(); }
+function metaText(ctx,s,x,y,color=C.grain,align='left',px=28){ ctx.save(); ctx.font=fMeta(px); ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline='alphabetic'; ctx.letterSpacing='3px'; ctx.fillText(s.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')),x,y); ctx.restore(); }
 
 // ===== UI layer =====
 // two-line label with leader line ending in dot; alpha for fade
 function naamBij(ctx, name, meta, x, y, alpha=1, align='left', color=C.text){
   // naam (+ korte toelichting) direct bij een onderdeel, met donkere rand voor leesbaarheid; geen wijslijn
   if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.textBaseline='alphabetic'; ctx.lineJoin='round';
-  const regels=[[name,fTekst(36,600),color,0,'0px']]; if(meta) regels.push([meta.toUpperCase(),fMeta(26),C.grain,28,'3px']);
+  const regels=[[name,fTekst(36,600),color,0,'0px']]; if(meta) regels.push([meta.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')),fMeta(26),C.grain,28,'3px']);
   const maat=regels.map(([s,f,,,ls])=>{ ctx.font=f; ctx.letterSpacing=ls; return ctx.measureText(s).width; }); const w=Math.max(...maat);
   let bx = align==='left'?x:(align==='right'?x-w:x-w/2); bx=Math.max(24,Math.min(W-24-w,bx));
   regels.forEach(([s,f,col,dy,ls],i)=>{ ctx.font=f; ctx.letterSpacing=ls; ctx.textAlign='left'; const lx = align==='left'?bx:(align==='right'?bx+w-maat[i]:bx+(w-maat[i])/2); ctx.strokeStyle=rgba(C.bgMicro,0.85); ctx.lineWidth=7; ctx.strokeText(s,lx,y+dy); ctx.fillStyle=col; ctx.fillText(s,lx,y+dy); });
@@ -2974,7 +2974,7 @@ function hpaKeten(ctx, x, y0, o = {}) { const { a = 1, show = [1, 1, 1, 1, 1], r
   ctx.restore(); return ys; }
 function curveAdr(m) { return m < 0 ? 0 : 100 * (1 - Math.exp(-m * 3)) * Math.exp(-m * 0.35); }
 function curveCort(m) { return m < 0 ? 0 : 75 * Math.pow(m / 25, 2) * Math.exp(2 * (1 - m / 25)); }
-function weekBalk(ctx, x, y, w, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ['ma', 'di', 'wo', 'do', 'vr'].forEach((d, i) => { const bx = x + i * (w / 5); roundRect(ctx, bx + 6, y, w / 5 - 12, 120, 12); shape(ctx, rgba(C.fill, 0.7), C.line, 1.5); metaText(ctx, d.toUpperCase(), bx + w / 10, y + 36, C.grain, 'center', 22); text(ctx, 'toets', bx + w / 10, y + 88, fTekst(30, 700), C.koraal, 'center'); }); ctx.restore(); }
+function weekBalk(ctx, x, y, w, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ['ma', 'di', 'wo', 'do', 'vr'].forEach((d, i) => { const bx = x + i * (w / 5); roundRect(ctx, bx + 6, y, w / 5 - 12, 120, 12); shape(ctx, rgba(C.fill, 0.7), C.line, 1.5); metaText(ctx, d.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')), bx + w / 10, y + 36, C.grain, 'center', 22); text(ctx, 'toets', bx + w / 10, y + 88, fTekst(30, 700), C.koraal, 'center'); }); ctx.restore(); }
 function boek(ctx, x, y, w, h, col) { roundRect(ctx, x, y, w, h, 4); shape(ctx, col, darken ? darken(col, 0.3) : col, 1.5); }
 function bedScene(ctx, x, y, a = 1, t = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
   roundRect(ctx, x - 380, y - 20, 760, 80, 14); shape(ctx, '#6B5338', '#4A3A2E', 2); roundRect(ctx, x - 400, y - 160, 40, 240, 10); shape(ctx, '#6B5338', '#4A3A2E', 2);
@@ -3152,7 +3152,7 @@ const SCENES = {
     const ph2 = q.on('terugkoppeling', 1), ph3 = q.on('korte', 2);
     const items = [['schrik', 'seconden', 0.15, q.on('schrik', 1)], ['toets', 'een uur', 0.3, q.on('toets', 1)], ['toetsweek', 'dagen', 0.55, q.on('toetsweek', 1)], ['weken stress', 'weken', 0.85, q.on('weken', 1)]];
     ctx.save(); ctx.globalAlpha *= 1 - ph2; ctx.strokeStyle = C.line; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(240, 640); ctx.lineTo(1700, 640); ctx.stroke();
-    items.forEach(([n, d, v, a], i) => { if (a <= 0.01) return; const x = 380 + i * 400; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 70, 640 - 380 * v, 140, 380 * v, 10); shape(ctx, rgba(C.text2, 0.25), C.text2, 2); text(ctx, n, x, 700, fTekst(34, 700), C.text, 'center'); metaText(ctx, d.toUpperCase(), x, 740, C.grain, 'center', 22); ctx.restore(); });
+    items.forEach(([n, d, v, a], i) => { if (a <= 0.01) return; const x = 380 + i * 400; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 70, 640 - 380 * v, 140, 380 * v, 10); shape(ctx, rgba(C.text2, 0.25), C.text2, 2); text(ctx, n, x, 700, fTekst(34, 700), C.text, 'center'); metaText(ctx, d.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')), x, 740, C.grain, 'center', 22); ctx.restore(); });
     metaText(ctx, 'HOE LANG DE STRESS DUURT', 240, 180, C.grain, 'left', 22); tag(ctx, 'korte stress hoort erbij', 580, 860, C.groen, q.on('gewoon', 1)); ctx.restore();
     if (ph2 > 0.01) { ctx.save(); ctx.globalAlpha *= ph2 * (1 - ph3);
       ketenBox(ctx, 960, 420, 400, 110, 'hypothalamus', '', HK.klierR, 1);
@@ -3262,7 +3262,7 @@ function drawTitle(ctx,t){ const f=DATA.film; bg(ctx,f.titleLook||'schema'); con
   if(SCENES.title){ ctx.save(); ctx.globalAlpha=ramp(t,0.6,1); SCENES.title(ctx,t); ctx.restore(); }
   ctx.save(); ctx.globalAlpha=a; text(ctx,f.title,120,360,fTitel(f.title.length>22?96:120),C.text); text(ctx,f.sub,120,440,fTekst(44),C.text2);
   ctx.font=fTekst(36); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,f.puzzle,120,540,820,48);
-  metaText(ctx,(state.niveau==='havo'?'HAVO':'HAVO · VWO')+' · '+f.meta.toUpperCase(),W-80,60,C.text2,'right',28); ctx.restore(); }
+  metaText(ctx,(state.niveau==='havo'?'HAVO':'HAVO · VWO')+' · '+f.meta.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')),W-80,60,C.text2,'right',28); ctx.restore(); }
 function drawChapterCard(ctx,it,t){ bg(ctx,'schema'); const a=ramp(t,0.05,0.3)*(1-ramp(t,it.dur-0.3,0.3)); ctx.save(); ctx.globalAlpha=a;
   const m=it.chapter.match(/^(Hoofdstuk [^—]+)—\s*(.*)$/); const num=m?m[1].trim():''; const title=m?m[2]:it.chapter;
   if(num) metaText(ctx,num,W/2,430,C.grain,'center',30); text(ctx,title,W/2,540,fTitel(72),C.text,'center');

@@ -41,7 +41,7 @@ function spreek(ctx, x, y, w, h, s2, a, mx, my, px = 32) { if (a <= 0.01) return
 // mond van een persoon (uit het ankerpunt hoofd)
 function mond(r) { return r && r.hoofd ? [r.hoofd.x, r.hoofd.y + r.hoofd.r * 0.55] : [960, 500]; }
 // naam met een donker plaatje erachter (tegen het lichte raam van het decor)
-function naamDonker(ctx, name, meta, x, y, a = 1, align = 'center') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fTekst(36, 600); let w = ctx.measureText(name).width; if (meta) { ctx.font = fMeta(26); ctx.letterSpacing = '3px'; w = Math.max(w, ctx.measureText(meta.toUpperCase()).width); ctx.letterSpacing = '0px'; }
+function naamDonker(ctx, name, meta, x, y, a = 1, align = 'center') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fTekst(36, 600); let w = ctx.measureText(name).width; if (meta) { ctx.font = fMeta(26); ctx.letterSpacing = '3px'; w = Math.max(w, ctx.measureText(meta.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():''))).width); ctx.letterSpacing = '0px'; }
   const x0 = align === 'center' ? x - w / 2 : align === 'right' ? x - w : x; roundRect(ctx, x0 - 18, y - 40, w + 36, meta ? 84 : 54, 12); shape(ctx, rgba('#0D1420', 0.78), null); ctx.restore(); naamBij(ctx, name, meta, x, y, a, align); }
 // Noor loopt mee: schrift tegen de borst (hand aan de kijkkant), pen in de andere hand; o.noorKnik = hoofd schuin (meekijken)
 function noorMee(ctx, x, t, o = {}) { const kijk = o.noorKijk || -1, hh = 440 * 0.97 / 6.1;

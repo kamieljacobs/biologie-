@@ -1004,7 +1004,7 @@ function roundRect(ctx,x,y,w,h,r){ if(w<0){x+=w;w=-w;} if(h<0){y+=h;h=-h;} r=Mat
 function text(ctx, s, x, y, font, color, align='left', base='alphabetic'){ ctx.font=font; ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline=base; ctx.fillText(s,x,y); }
 const fTitel=(px)=>`700 ${px}px ${F.titel}`, fTekst=(px,w=400)=>`${w} ${px}px ${F.tekst}`, fMeta=(px)=>`500 ${px}px ${F.meta}`;
 function metaText(ctx,s,x,y,color=C.grain,align='left',px=28){ ctx.save(); ctx.font=fMeta(px); ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline='alphabetic'; ctx.letterSpacing='3px'; ctx.fillText(metaCase(s),x,y); ctx.restore(); }
-function metaCase(s){ return s.replace(/[^\s·:→(),]+/g,w=>/^(nm|µm|mm|cm|m|km|s|min|°c|kda)$/i.test(w)? w.toLowerCase().replace('°c','°C') : w.toUpperCase().replace(/\u039C/g,'µ')); }
+function metaCase(s){ return s.replace(/[^\s·:→(),]+/g,w=>/^(nm|µm|mm|cm|m|km|s|min|°c|kda)$/i.test(w)? w.toLowerCase().replace('°c','°C') : w.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():''))); }
 
 // ===== UI layer =====
 // two-line label with leader line ending in dot; alpha for fade

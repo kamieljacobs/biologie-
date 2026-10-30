@@ -102,7 +102,7 @@ function dossier(ctx, x, y, id, naam, rol, o = {}) {
   ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 150 * s, y - 80 * s, 300 * s, 160 * s, 12); shape(ctx, PAPIER, '#B8B0A0', 2);
   gezichtIcoon(ctx, x - 90 * s, y, 1.25 * s, 1, id);
   text(ctx, naam, x - 20 * s, y - 14 * s, fTekst(36 * s, 700), INKT, 'left');
-  text(ctx, rol.toUpperCase(), x - 20 * s, y + 26 * s, fMeta(22 * s), INKT2, 'left');
+  text(ctx, rol.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')), x - 20 * s, y + 26 * s, fMeta(22 * s), INKT2, 'left');
   ctx.restore();
 }
 // getypte notitie (officier van justitie): papier, kop in meta, tekst in mono die verschijnt (typ 0..1)

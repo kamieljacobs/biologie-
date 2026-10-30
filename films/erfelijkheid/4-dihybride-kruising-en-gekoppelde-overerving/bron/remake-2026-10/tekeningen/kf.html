@@ -14,7 +14,7 @@ function kast(s) { ctx.save(); ctx.font = fTekst(44, 700); const lines = []; let
   const w = Math.min(1640, Math.max(...lines.map(l => ctx.measureText(l).width)) + 64), h = 40 + lines.length * 54; roundRect(ctx, W / 2 - w / 2, 1040 - h, w, h, 12); shape(ctx, rgba('#0D1420', 0.9), null);
   lines.forEach((l, i) => text(ctx, l, W / 2, 1040 - h + 66 + i * 54, fTekst(44, 700), C.text, 'center')); ctx.restore(); }
 function vwoBalk() { ctx.fillStyle = C.paars; ctx.fillRect(0, 0, 6, H); metaText(ctx, 'vwo', 40, 60, C.paars, 'left', 28); }
-function twijfelTag(s) { ctx.save(); ctx.font = fMeta(24); ctx.letterSpacing = '3px'; const w = ctx.measureText(s.toUpperCase()).width + 50; ctx.letterSpacing = '0px'; roundRect(ctx, W - w - 30, 24, w, 48, 8); shape(ctx, rgba(C.koraal, 0.18), C.koraal, 1.5); metaText(ctx, s, W - 50, 57, C.koraal, 'right', 24); ctx.restore(); }
+function twijfelTag(s) { ctx.save(); ctx.font = fMeta(24); ctx.letterSpacing = '3px'; const w = ctx.measureText(s.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():''))).width + 50; ctx.letterSpacing = '0px'; roundRect(ctx, W - w - 30, 24, w, 48, 8); shape(ctx, rgba(C.koraal, 0.18), C.koraal, 1.5); metaText(ctx, s, W - 50, 57, C.koraal, 'right', 24); ctx.restore(); }
 function meta(s, x = 70, y = 851, al = 'left') { metaText(ctx, s, x, y, C.text2, al, 28); }
 function titelLinks(s) { text(ctx, s, 70, 120, fTekst(48, 700), C.text, 'left'); }
 function pijl(x1, y1, x2, y2, col = C.line, lw = 2.5) { ctx.save(); ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();

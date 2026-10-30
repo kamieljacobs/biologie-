@@ -76,4 +76,4 @@ Object.assign(SCENES, {
 });
 
 // weken als blokjes
-function kalenderW(ctx, x, y, n, k, a = 1, col = C.groen, lab = 'weken') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; for (let i = 0; i < n; i++) { roundRect(ctx, x + (i % 5) * 64, y + Math.floor(i / 5) * 64, 52, 52, 8); shape(ctx, i < k ? col : '#3A4458', C.line, 1.5); } metaText(ctx, lab.toUpperCase(), x, y - 16, C.grain, 'left', 22); ctx.restore(); }
+function kalenderW(ctx, x, y, n, k, a = 1, col = C.groen, lab = 'weken') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; for (let i = 0; i < n; i++) { roundRect(ctx, x + (i % 5) * 64, y + Math.floor(i / 5) * 64, 52, 52, 8); shape(ctx, i < k ? col : '#3A4458', C.line, 1.5); } metaText(ctx, lab.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')), x, y - 16, C.grain, 'left', 22); ctx.restore(); }

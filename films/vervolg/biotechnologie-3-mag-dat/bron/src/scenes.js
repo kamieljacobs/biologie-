@@ -2718,7 +2718,7 @@ function knipDNA(ctx, x, y, w, u, a = 1, t = 0) { if (a <= 0.01) return; ctx.sav
 // ---------- beoordeling ----------
 function dossier(ctx, x, y, s = 1, a = 1, lab = 'dossier') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
   roundRect(ctx, -90, -60, 180, 130, 10); shape(ctx, '#C9A35C', '#8A6A2A', 2); roundRect(ctx, -90, -76, 70, 24, 6); shape(ctx, '#C9A35C', null);
-  for (let i = 0; i < 3; i++) { ctx.fillStyle = '#F2EEE2'; ctx.fillRect(-70, -40 + i * 30, 140 - i * 30, 10); } ctx.restore(); if (lab) metaA(ctx, lab.toUpperCase(), x, y + 110 * s, 1, C.grain, 'center', 28); }
+  for (let i = 0; i < 3; i++) { ctx.fillStyle = '#F2EEE2'; ctx.fillRect(-70, -40 + i * 30, 140 - i * 30, 10); } ctx.restore(); if (lab) metaA(ctx, lab.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')), x, y + 110 * s, 1, C.grain, 'center', 28); }
 function rapportStapel(ctx, x, y, a = 1, n = 6) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; for (let i = 0; i < n; i++) { roundRect(ctx, x - 90 + (i % 2) * 6, y - (i + 1) * 22, 180, 20, 4); shape(ctx, i % 2 ? '#E6E1D4' : '#F2EEE2', '#B8A57A', 1.5); } ctx.restore(); }
 function insect(ctx, x, y, s = 1, a = 1, col = '#8FA0B5', t = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
   ctx.strokeStyle = col; ctx.lineWidth = 3; for (let i = -1; i <= 1; i++) { ctx.beginPath(); ctx.moveTo(i * 12, 0); ctx.lineTo(i * 18, 22); ctx.moveTo(i * 12, 0); ctx.lineTo(i * 18, -22); ctx.stroke(); }
@@ -2818,7 +2818,7 @@ function koe(ctx, x, y, s = 1, o = {}) { const { a = 1, kijk = 1, t = 0, kauw = 
 
 // kaartje (overschrijft teken_bt1): breedte past op kop én Meta-regel, Meta 28 px
 function kaartje(ctx, x, y, w, h, kop, sub, o = {}) { const { a = 1, col = C.goud, hl = 0 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
-  ctx.font = fTekst(34, 700); let wk = ctx.measureText(kop).width; ctx.font = fMeta(28); ctx.letterSpacing = '3px'; const wm = sub ? ctx.measureText(sub.toUpperCase()).width : 0; ctx.letterSpacing = '0px';
+  ctx.font = fTekst(34, 700); let wk = ctx.measureText(kop).width; ctx.font = fMeta(28); ctx.letterSpacing = '3px'; const wm = sub ? ctx.measureText(sub.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():''))).width : 0; ctx.letterSpacing = '0px';
   w = Math.max(w, wk + 70, wm + 70); h = Math.max(h, sub ? 110 : 80); roundRect(ctx, x - w / 2, y - h / 2, w, h, 14); shape(ctx, '#22324E', hl > 0.5 ? col : rgba(C.line, 0.6), hl > 0.5 ? 3 : 2);
   ctx.fillStyle = col; ctx.fillRect(x - w / 2 + 14, y - h / 2 + 14, 6, h - 28); text(ctx, kop, x - w / 2 + 36, y - h / 2 + 50, fTekst(34, 700), C.text, 'left'); if (sub) metaA(ctx, sub, x - w / 2 + 36, y - h / 2 + 88, 1, C.grain, 'left', 28); ctx.restore(); }
 // Wat word jij? · Biotechnologie · Mag dat? — scènes per alinea (fase A, 25 okt 2026)

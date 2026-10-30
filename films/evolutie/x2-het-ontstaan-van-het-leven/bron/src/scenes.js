@@ -9181,7 +9181,7 @@ function e10Gloed(ctx, x, y, r, a, col = C.goud) { if (a <= 0.01) return; ctx.sa
 // naam en (later) toelichting: de toelichting komt er zacht bij
 function e10Naam(ctx, naam, meta, x, y, aN, aM, align = 'center', col = C.text) { if (aN <= 0.01) return; if (!meta || aM <= 0.01) { if (!meta) return naamBij(ctx, naam, null, x, y, aN, align, col); }
   // naam op precies dezelfde plek als in de versie met toelichting (naamBij verschuift het blok bij een lange toelichting)
-  ctx.save(); ctx.font = fTekst(36, 600); ctx.letterSpacing = '0px'; const wn = ctx.measureText(naam).width; ctx.font = fMeta(26); ctx.letterSpacing = '3px'; const wm = ctx.measureText(meta.toUpperCase()).width; ctx.restore();
+  ctx.save(); ctx.font = fTekst(36, 600); ctx.letterSpacing = '0px'; const wn = ctx.measureText(naam).width; ctx.font = fMeta(26); ctx.letterSpacing = '3px'; const wm = ctx.measureText(meta.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():''))).width; ctx.restore();
   const w = Math.max(wn, wm); let bx = align === 'left' ? x : (align === 'right' ? x - w : x - w / 2); bx = Math.max(24, Math.min(W - 24 - w, bx));
   const lx = align === 'left' ? bx : (align === 'right' ? bx + w - wn : bx + (w - wn) / 2);
   naamBij(ctx, naam, null, lx, y, aN * (1 - aM), 'left', col); if (aM > 0.01) naamBij(ctx, naam, meta, x, y, aN * aM, align, col); }

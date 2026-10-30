@@ -2601,7 +2601,7 @@ Object.assign(SCENES, {
     tag(ctx, '10 × zoveel = 10 × meer?', 1200, 175, C.goud, q.on('denk', 1), 'center', 32);
     const G = q.on('ochtend', 1, 0.6); if (G > 0.01) { ctx.save(); ctx.globalAlpha *= G; assen(ctx, 1480, 300, 360, 300, 'tijd', 'cellen'); const k = q.on('ochtend', 1, 2.4);
       const f1 = (u) => 1 / (1 + Math.exp(-10 * (u - 0.5))), f2 = (u) => 0.45 / (1 + Math.exp(-8 * (u - 0.55)));
-      [[f1, C.teal, 'kolf'], [f2, C.koraal, 'vat']].forEach(([f, col, nm], i) => { ctx.strokeStyle = col; ctx.lineWidth = 4; ctx.beginPath(); for (let j = 0; j <= 40 * k; j++) { const u = j / 40; const px = 1480 + u * 360, py = 600 - f(u) * 280; j ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke(); metaA(ctx, nm.toUpperCase(), 1830, 600 - f(1) * 280 - 16, k > 0.9 ? 1 : 0, col, 'right', 28); }); ctx.restore(); }
+      [[f1, C.teal, 'kolf'], [f2, C.koraal, 'vat']].forEach(([f, col, nm], i) => { ctx.strokeStyle = col; ctx.lineWidth = 4; ctx.beginPath(); for (let j = 0; j <= 40 * k; j++) { const u = j / 40; const px = 1480 + u * 360, py = 600 - f(u) * 280; j ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke(); metaA(ctx, nm.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')), 1830, 600 - f(1) * 280 - 16, k > 0.9 ? 1 : 0, col, 'right', 28); }); ctx.restore(); }
     chip(ctx, 'trager gegroeid', 1660, 250, C.koraal, q.on('trager', 1), 28);
     vraagteken(ctx, 960, 200, q.on('denk', 2), 100); },
 

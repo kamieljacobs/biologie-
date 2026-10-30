@@ -2326,7 +2326,7 @@ function kim3(ctx, x, t, o = {}) { return persoon(ctx, 'kim', x, FLOOR3, 420, Ob
 function mix3(a, b, k) { const p = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16)); const A = p(a), B = p(b); return '#' + A.map((v, i) => Math.round(v + (B[i] - v) * k).toString(16).padStart(2, '0')).join(''); }
 
 // ---------- kaartjes ----------
-function kaartje3(ctx, s, x, y, a = 1, col = C.grain) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fMeta(26); ctx.letterSpacing = '3px'; const w = ctx.measureText(s.toUpperCase()).width + 36; ctx.letterSpacing = '0px';
+function kaartje3(ctx, s, x, y, a = 1, col = C.grain) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fMeta(26); ctx.letterSpacing = '3px'; const w = ctx.measureText(s.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():''))).width + 36; ctx.letterSpacing = '0px';
   roundRect(ctx, x, y, w, 46, 10); shape(ctx, rgba('#121A26', 0.85), col, 1.5); metaText(ctx, s, x + 18, y + 32, col, 'left', 26); ctx.restore(); return w; }
 function bedacht3(ctx, a = 1, x = 60, y = 74) { return kaartje3(ctx, 'bedacht voorbeeld', x, y, a, C.grain); }
 

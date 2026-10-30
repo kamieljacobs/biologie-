@@ -130,7 +130,7 @@ function misvatting(ctx, fout, goed, x, y, w, a = 1, g = 1) { if (a <= 0.01) ret
 // ---------- v2.1 (frisse beeldreview 25 okt 2026) ----------
 const vragenUit = () => (typeof state !== 'undefined' && state && state.vragen === 'uit');
 // onderschrift (meta) op een donker plaatje, zodat het ook boven cellen leesbaar is
-function kapje(ctx, s, x, y, a = 1, kl = C.text2, px = 26) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fMeta(px); ctx.letterSpacing = '3px'; const w = ctx.measureText(s.toUpperCase()).width + 36; ctx.letterSpacing = '0px';
+function kapje(ctx, s, x, y, a = 1, kl = C.text2, px = 26) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fMeta(px); ctx.letterSpacing = '3px'; const w = ctx.measureText(s.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():''))).width + 36; ctx.letterSpacing = '0px';
   roundRect(ctx, x - w / 2, y - px - 8, w, px + 22, (px + 22) / 2); shape(ctx, rgba(C.bgMicro || '#121A26', 0.9), rgba(C.goud, 0.5), 1.5); metaText(ctx, s, x, y, kl, 'center', px); ctx.restore(); }
 // chromosoom dat zich kopieert: g = 0 één chromatide (één DNA-molecuul), g = 1 twee zusterchromatiden vast aan het centromeer
 function chromKopie(ctx, x, y, len, g, o = {}) { const { w = 84, cen = 0.38, coils = 9, kleur = C.kernR, a = 1 } = o; if (a <= 0.01) return; const donker = _dk(kleur);

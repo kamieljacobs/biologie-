@@ -220,14 +220,14 @@ function blob(ctx, x, y, rx, ry, wob=0, seed=0, t=0){ // organic ellipse
 function roundRect(ctx,x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
 function text(ctx, s, x, y, font, color, align='left', base='alphabetic'){ ctx.font=font; ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline=base; ctx.fillText(s,x,y); }
 const fTitel=(px)=>`700 ${px}px ${F.titel}`, fTekst=(px,w=400)=>`${w} ${px}px ${F.tekst}`, fMeta=(px)=>`500 ${px}px ${F.meta}`;
-function metaText(ctx,s,x,y,color=C.grain,align='left',px=28){ ctx.save(); ctx.font=fMeta(px); ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline='alphabetic'; ctx.letterSpacing='3px'; ctx.fillText(s.toUpperCase(),x,y); ctx.restore(); }
+function metaText(ctx,s,x,y,color=C.grain,align='left',px=28){ ctx.save(); ctx.font=fMeta(px); ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline='alphabetic'; ctx.letterSpacing='3px'; ctx.fillText(s.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')),x,y); ctx.restore(); }
 
 // ===== UI layer =====
 // naam bij een onderdeel, zonder wijslijn (15 okt 2026); alpha for fade
 function naamBij(ctx, name, meta, x, y, alpha=1, align='left', color=C.text){
   // naam (+ korte toelichting) direct bij een onderdeel, met donkere rand voor leesbaarheid; geen wijslijn
   if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.textBaseline='alphabetic'; ctx.lineJoin='round';
-  const regels=[[name,fTekst(36,600),color,0,'0px']]; if(meta) regels.push([meta.toUpperCase(),fMeta(26),C.grain,28,'3px']);
+  const regels=[[name,fTekst(36,600),color,0,'0px']]; if(meta) regels.push([meta.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')),fMeta(26),C.grain,28,'3px']);
   const maat=regels.map(([s,f,,,ls])=>{ ctx.font=f; ctx.letterSpacing=ls; return ctx.measureText(s).width; }); const w=Math.max(...maat);
   let bx = align==='left'?x:(align==='right'?x-w:x-w/2); bx=Math.max(24,Math.min(W-24-w,bx));
   regels.forEach(([s,f,col,dy,ls],i)=>{ ctx.font=f; ctx.letterSpacing=ls; ctx.textAlign='left'; const lx = align==='left'?bx:(align==='right'?bx+w-maat[i]:bx+(w-maat[i])/2); ctx.strokeStyle=rgba(C.bgMicro,0.85); ctx.lineWidth=7; ctx.strokeText(s,lx,y+dy); ctx.fillStyle=col; ctx.fillText(s,lx,y+dy); });
@@ -18785,7 +18785,7 @@ const SB8 = {
     ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.strokeRect(1060, 444, 136, 34); },
   e8s11(ctx) { _sch8(ctx, 'PIONIERS VERANDEREN DE PLEK'); e8Profiel(ctx, 200, 260, 260, 460, 60, {});
     const rij = [['vocht', 0.1, 0.4, C.teal], ['voedingsstoffen', 0.05, 0.3, C.groen], ['stuiven', 0.9, 0.3, E8.zand], ['hitte', 0.95, 0.6, C.koraal]];
-    rij.forEach(([n, a, b, kl], i) => { const y = 300 + i * 130; e8Meter(ctx, 700, y, 700, n.toUpperCase(), b, kl); ctx.strokeStyle = C.text2; ctx.lineWidth = 2; ctx.setLineDash([6, 6]); ctx.beginPath(); ctx.moveTo(700 + 700 * a, y - 6); ctx.lineTo(700 + 700 * a, y + 24); ctx.stroke(); ctx.setLineDash([]); text(ctx, b > a ? 'omhoog' : 'omlaag', 1440, y + 18, fTekst(36, 700), b > a ? C.groen : C.koraal, 'left'); });
+    rij.forEach(([n, a, b, kl], i) => { const y = 300 + i * 130; e8Meter(ctx, 700, y, 700, n.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')), b, kl); ctx.strokeStyle = C.text2; ctx.lineWidth = 2; ctx.setLineDash([6, 6]); ctx.beginPath(); ctx.moveTo(700 + 700 * a, y - 6); ctx.lineTo(700 + 700 * a, y + 24); ctx.stroke(); ctx.setLineDash([]); text(ctx, b > a ? 'omhoog' : 'omlaag', 1440, y + 18, fTekst(36, 700), b > a ? C.groen : C.koraal, 'left'); });
     haak(ctx, 700, 1400, 820, 'pioniers veranderen de abiotische factoren', C.groen); },
   e8s12(ctx) { e8Zandvlakte(ctx, { rand: false, wind: false }); ecoTag(ctx, _F8, 'PIONIERS VERANDEREN DE PLEK'); e8Vierkant(ctx, 960, 840, 1100, 3, { seed: 3 }); naamBij(ctx, 'struikheide', null, 600, 520, 1, 'center'); naamBij(ctx, 'jonge grove den', null, 1300, 520, 1, 'center'); },
   e8s13(ctx) { _sch8(ctx, 'PIONIERS VERANDEREN DE PLEK'); ctx.save(); ctx.translate(700, 170); ctx.scale(0.85, 0.85); e8Dossier(ctx, 0, 0, Object.assign({}, B8[4], { nadruk: 'korstmos' })); ctx.restore();
@@ -18944,7 +18944,7 @@ Object.assign(SCENES, {
   s12(ctx, t, q) {
     _sch8(ctx, 'PIONIERS VERANDEREN DE PLEK'); e8Profiel(ctx, 200, 260, 260, 460, 60, {});
     const rij = [['vocht', 0.1, 0.4, C.teal, 'water'], ['voedingsstoffen', 0.05, 0.3, C.groen, 'voedingsstoffen'], ['stuiven', 0.9, 0.3, E8.zand, 'stuift'], ['hitte', 0.95, 0.6, C.koraal, 'koeler']];
-    rij.forEach(([n, a, b, kl, cue], i) => { const y = 300 + i * 130, u = q.on(cue, 1, 1.4); e8Meter(ctx, 700, y, 700, n.toUpperCase(), lerp(a, b, u), kl); ctx.strokeStyle = C.text2; ctx.lineWidth = 2; ctx.setLineDash([6, 6]); ctx.beginPath(); ctx.moveTo(700 + 700 * a, y - 6); ctx.lineTo(700 + 700 * a, y + 24); ctx.stroke(); ctx.setLineDash([]); regel(ctx, b > a ? 'omhoog' : 'omlaag', 1440, y + 18, _8R(u, 0.7, 0.3), b > a ? C.groen : C.koraal, 36, 'left', 700); });
+    rij.forEach(([n, a, b, kl, cue], i) => { const y = 300 + i * 130, u = q.on(cue, 1, 1.4); e8Meter(ctx, 700, y, 700, n.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')), lerp(a, b, u), kl); ctx.strokeStyle = C.text2; ctx.lineWidth = 2; ctx.setLineDash([6, 6]); ctx.beginPath(); ctx.moveTo(700 + 700 * a, y - 6); ctx.lineTo(700 + 700 * a, y + 24); ctx.stroke(); ctx.setLineDash([]); regel(ctx, b > a ? 'omhoog' : 'omlaag', 1440, y + 18, _8R(u, 0.7, 0.3), b > a ? C.groen : C.koraal, 36, 'left', 700); });
     haak(ctx, 700, 1400, 820, 'pioniers veranderen de abiotische factoren', C.groen, q.on('abiotische'));
   },
   s13(ctx, t, q) {
@@ -19187,7 +19187,7 @@ function drawTitle(ctx,t){ const f=DATA.film; bg(ctx,f.titleLook||'schema'); con
   if(SCENES.title){ ctx.save(); ctx.globalAlpha=ramp(t,0.6,1); SCENES.title(ctx,t); ctx.restore(); }
   ctx.save(); ctx.globalAlpha=a; text(ctx,f.title,120,360,fTitel(f.title.length>22?96:120),C.text); text(ctx,f.sub,120,440,fTekst(44),C.text2);
   ctx.font=fTekst(36); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,f.puzzle,120,540,820,48);
-  metaText(ctx,(f.alleen?f.alleen.toUpperCase():(state.niveau==='havo'?'HAVO':'HAVO · VWO'))+' · '+f.meta.toUpperCase(),W-80,60,C.text2,'right',28); ctx.restore(); }
+  metaText(ctx,(f.alleen?f.alleen.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')):(state.niveau==='havo'?'HAVO':'HAVO · VWO'))+' · '+f.meta.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')),W-80,60,C.text2,'right',28); ctx.restore(); }
 function drawChapterCard(ctx,it,t){ bg(ctx,'schema'); const a=ramp(t,0.05,0.3)*(1-ramp(t,it.dur-0.3,0.3)); ctx.save(); ctx.globalAlpha=a;
   const m=it.chapter.match(/^(Hoofdstuk [^—]+)—\s*(.*)$/); const num=m?m[1].trim():''; const title=m?m[2]:it.chapter;
   if(num) metaText(ctx,num,W/2,430,C.grain,'center',30); text(ctx,title,W/2,540,fTitel(72),C.text,'center');

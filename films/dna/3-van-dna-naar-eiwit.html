@@ -203,7 +203,7 @@ function text(ctx, s, x, y, font, color, align='left', base='alphabetic'){ ctx.f
 const fTitel=(px)=>`700 ${px}px ${F.titel}`, fTekst=(px,w=400)=>`${w} ${px}px ${F.tekst}`, fMeta=(px)=>`500 ${px}px ${F.meta}`;
 function metaText(ctx,s,x,y,color=C.grain,align='left',px=28){ ctx.save(); ctx.font=fMeta(px); ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline='alphabetic'; ctx.letterSpacing='3px'; ctx.fillText(metaCase(s),x,y); ctx.restore(); }
 const META_KEEP={mrna:'mRNA',trna:'tRNA',rrna:'rRNA',dna:'DNA',rna:'RNA',"trna's":"tRNA's","mrna's":"mRNA's"};
-function metaCase(s){ return s.replace(/[^\s·:→(),]+/g,w=>{ if(/^(nm|µm|mm|cm|m|km|s|min|°c|kda)$/i.test(w)) return w.toLowerCase().replace('°c','°C'); const m=w.match(/^(pre-|vaccin-)?(mrna|trna|rrna|dna|rna|trna's|mrna's)(-[^\s]*)?$/i); if(m) return (m[1]||'').toUpperCase()+META_KEEP[m[2].toLowerCase()]+(m[3]||'').toUpperCase(); return w.toUpperCase().replace(/\u039C/g,'µ'); }); } // mRNA/tRNA/DNA houden hun schrijfwijze (16 okt 2026)
+function metaCase(s){ return s.replace(/[^\s·:→(),]+/g,w=>{ if(/^(nm|µm|mm|cm|m|km|s|min|°c|kda)$/i.test(w)) return w.toLowerCase().replace('°c','°C'); const m=w.match(/^(pre-|vaccin-)?(mrna|trna|rrna|dna|rna|trna's|mrna's)(-[^\s]*)?$/i); if(m) return (m[1]||'').toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():''))+META_KEEP[m[2].toLowerCase()]+(m[3]||'').toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')); return w.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')); }); } // mRNA/tRNA/DNA houden hun schrijfwijze (16 okt 2026)
 
 // ===== UI layer =====
 // two-line label with leader line ending in dot; alpha for fade

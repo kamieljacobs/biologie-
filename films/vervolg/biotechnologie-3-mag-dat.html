@@ -219,14 +219,14 @@ function blob(ctx, x, y, rx, ry, wob=0, seed=0, t=0){ // organic ellipse
 function roundRect(ctx,x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
 function text(ctx, s, x, y, font, color, align='left', base='alphabetic'){ ctx.font=font; ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline=base; ctx.fillText(s,x,y); }
 const fTitel=(px)=>`700 ${px}px ${F.titel}`, fTekst=(px,w=400)=>`${w} ${px}px ${F.tekst}`, fMeta=(px)=>`500 ${px}px ${F.meta}`;
-function metaText(ctx,s,x,y,color=C.grain,align='left',px=28){ ctx.save(); ctx.font=fMeta(px); ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline='alphabetic'; ctx.letterSpacing='3px'; ctx.fillText(s.toUpperCase(),x,y); ctx.restore(); }
+function metaText(ctx,s,x,y,color=C.grain,align='left',px=28){ ctx.save(); ctx.font=fMeta(px); ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline='alphabetic'; ctx.letterSpacing='3px'; ctx.fillText(s.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')),x,y); ctx.restore(); }
 
 // ===== UI layer =====
 // naam bij een onderdeel, zonder wijslijn (15 okt 2026); alpha for fade
 function naamBij(ctx, name, meta, x, y, alpha=1, align='left', color=C.text){
   // naam (+ korte toelichting) direct bij een onderdeel, met donkere rand voor leesbaarheid; geen wijslijn
   if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.textBaseline='alphabetic'; ctx.lineJoin='round';
-  const regels=[[name,fTekst(36,600),color,0,'0px']]; if(meta) regels.push([meta.toUpperCase(),fMeta(28),C.grain,30,'3px']);
+  const regels=[[name,fTekst(36,600),color,0,'0px']]; if(meta) regels.push([meta.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')),fMeta(28),C.grain,30,'3px']);
   const maat=regels.map(([s,f,,,ls])=>{ ctx.font=f; ctx.letterSpacing=ls; return ctx.measureText(s).width; }); const w=Math.max(...maat);
   let bx = align==='left'?x:(align==='right'?x-w:x-w/2); bx=Math.max(24,Math.min(W-24-w,bx));
   regels.forEach(([s,f,col,dy,ls],i)=>{ ctx.font=f; ctx.letterSpacing=ls; ctx.textAlign='left'; const lx = align==='left'?bx:(align==='right'?bx+w-maat[i]:bx+(w-maat[i])/2); ctx.strokeStyle=rgba(C.bgMicro,0.85); ctx.lineWidth=7; ctx.strokeText(s,lx,y+dy); ctx.fillStyle=col; ctx.fillText(s,lx,y+dy); });
@@ -4654,7 +4654,7 @@ function knipDNA(ctx, x, y, w, u, a = 1, t = 0) { if (a <= 0.01) return; ctx.sav
 // ---------- beoordeling ----------
 function dossier(ctx, x, y, s = 1, a = 1, lab = 'dossier') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
   roundRect(ctx, -90, -60, 180, 130, 10); shape(ctx, '#C9A35C', '#8A6A2A', 2); roundRect(ctx, -90, -76, 70, 24, 6); shape(ctx, '#C9A35C', null);
-  for (let i = 0; i < 3; i++) { ctx.fillStyle = '#F2EEE2'; ctx.fillRect(-70, -40 + i * 30, 140 - i * 30, 10); } ctx.restore(); if (lab) metaA(ctx, lab.toUpperCase(), x, y + 110 * s, 1, C.grain, 'center', 28); }
+  for (let i = 0; i < 3; i++) { ctx.fillStyle = '#F2EEE2'; ctx.fillRect(-70, -40 + i * 30, 140 - i * 30, 10); } ctx.restore(); if (lab) metaA(ctx, lab.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')), x, y + 110 * s, 1, C.grain, 'center', 28); }
 function rapportStapel(ctx, x, y, a = 1, n = 6) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; for (let i = 0; i < n; i++) { roundRect(ctx, x - 90 + (i % 2) * 6, y - (i + 1) * 22, 180, 20, 4); shape(ctx, i % 2 ? '#E6E1D4' : '#F2EEE2', '#B8A57A', 1.5); } ctx.restore(); }
 function insect(ctx, x, y, s = 1, a = 1, col = '#8FA0B5', t = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
   ctx.strokeStyle = col; ctx.lineWidth = 3; for (let i = -1; i <= 1; i++) { ctx.beginPath(); ctx.moveTo(i * 12, 0); ctx.lineTo(i * 18, 22); ctx.moveTo(i * 12, 0); ctx.lineTo(i * 18, -22); ctx.stroke(); }
@@ -4754,7 +4754,7 @@ function koe(ctx, x, y, s = 1, o = {}) { const { a = 1, kijk = 1, t = 0, kauw = 
 
 // kaartje (overschrijft teken_bt1): breedte past op kop én Meta-regel, Meta 28 px
 function kaartje(ctx, x, y, w, h, kop, sub, o = {}) { const { a = 1, col = C.goud, hl = 0 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
-  ctx.font = fTekst(34, 700); let wk = ctx.measureText(kop).width; ctx.font = fMeta(28); ctx.letterSpacing = '3px'; const wm = sub ? ctx.measureText(sub.toUpperCase()).width : 0; ctx.letterSpacing = '0px';
+  ctx.font = fTekst(34, 700); let wk = ctx.measureText(kop).width; ctx.font = fMeta(28); ctx.letterSpacing = '3px'; const wm = sub ? ctx.measureText(sub.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():''))).width : 0; ctx.letterSpacing = '0px';
   w = Math.max(w, wk + 70, wm + 70); h = Math.max(h, sub ? 110 : 80); roundRect(ctx, x - w / 2, y - h / 2, w, h, 14); shape(ctx, '#22324E', hl > 0.5 ? col : rgba(C.line, 0.6), hl > 0.5 ? 3 : 2);
   ctx.fillStyle = col; ctx.fillRect(x - w / 2 + 14, y - h / 2 + 14, 6, h - 28); text(ctx, kop, x - w / 2 + 36, y - h / 2 + 50, fTekst(34, 700), C.text, 'left'); if (sub) metaA(ctx, sub, x - w / 2 + 36, y - h / 2 + 88, 1, C.grain, 'left', 28); ctx.restore(); }
 // Wat word jij? · Biotechnologie · Mag dat? — scènes per alinea (fase A, 25 okt 2026)
@@ -5032,7 +5032,7 @@ function drawTitle(ctx,t){ const f=DATA.film; bg(ctx,f.titleLook||'schema'); con
   if(SCENES.title){ ctx.save(); ctx.globalAlpha=ramp(t,0.6,1); SCENES.title(ctx,t); ctx.restore(); }
   ctx.save(); ctx.globalAlpha=a; text(ctx,f.title,120,360,fTitel(f.title.length>22?96:120),C.text); text(ctx,f.sub,120,440,fTekst(44),C.text2);
   ctx.font=fTekst(36); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,f.puzzle,120,540,820,48);
-  metaText(ctx,(f.alleen?f.alleen.toUpperCase():(state.niveau==='havo'?'HAVO':'HAVO · VWO'))+' · '+f.meta.toUpperCase(),W-80,60,C.text2,'right',28); ctx.restore(); }
+  metaText(ctx,(f.alleen?f.alleen.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')):(state.niveau==='havo'?'HAVO':'HAVO · VWO'))+' · '+f.meta.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')),W-80,60,C.text2,'right',28); ctx.restore(); }
 function drawChapterCard(ctx,it,t){ bg(ctx,'schema'); const a=ramp(t,0.05,0.3)*(1-ramp(t,it.dur-0.3,0.3)); ctx.save(); ctx.globalAlpha=a;
   const m=it.chapter.match(/^(Hoofdstuk [^—]+)—\s*(.*)$/); const num=m?m[1].trim():''; const title=m?m[2]:it.chapter;
   if(num) metaText(ctx,num,W/2,430,C.grain,'center',30); text(ctx,title,W/2,540,fTitel(72),C.text,'center');

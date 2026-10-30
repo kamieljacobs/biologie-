@@ -123,17 +123,17 @@ const c_AA = { AUG: 'Met', GCA: 'Ala', UUC: 'Phe', GGA: 'Gly', CUC: 'Leu', AAG: 
 function c_leesrij(ctx, x0, y, seq, st, o = {}) { const a = o.a == null ? 1 : o.a; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const dx = o.dx || 34, t = o.t || 0; const N = seq.length, nC = Math.floor(N / 3);
   const lees = o.lees == null ? 1 : o.lees, ins = o.ins == null ? 1 : o.ins, rood = o.rood == null ? 1 : o.rood;
   if (o.label) text(ctx, o.label, x0 - 24, y + 14, fTekst(30, 700), o.labelCol || C.text2, 'right');
-  let pos = 0; const xs = []; for (let i = 0; i < N; i++) { const ch = seq[i], isIns = ch !== ch.toUpperCase(); xs.push(x0 + pos * dx + dx / 2); pos += isIns ? ease(ins) : 1; }
+  let pos = 0; const xs = []; for (let i = 0; i < N; i++) { const ch = seq[i], isIns = ch !== ch.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')); xs.push(x0 + pos * dx + dx / 2); pos += isIns ? ease(ins) : 1; }
   c_mrna(ctx, x0 - 14, x0 + pos * dx + 10, y + 20, 1, t, o.seed || 0, 3, '#E8D9A8', 2.4);
   const colOf = (s) => s === 'x' ? C.goud : s === 'a' ? (rood > 0.5 ? C.koraal : C.teal) : C.teal;
-  for (let c = 0; c < nC; c++) { const ca = clamp(lees * nC - c, 0, 1); if (ca <= 0.01) continue; const xa = xs[c * 3] - dx / 2 + 3, xb = xs[c * 3 + 2] + dx / 2 - 3; const aa = c_AA[seq.slice(c * 3, c * 3 + 3).toUpperCase()] || '?'; const col = colOf(st[c]);
+  for (let c = 0; c < nC; c++) { const ca = clamp(lees * nC - c, 0, 1); if (ca <= 0.01) continue; const xa = xs[c * 3] - dx / 2 + 3, xb = xs[c * 3 + 2] + dx / 2 - 3; const aa = c_AA[seq.slice(c * 3, c * 3 + 3).toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():''))] || '?'; const col = colOf(st[c]);
     ctx.save(); ctx.globalAlpha *= ca; ctx.strokeStyle = col; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(xa, y + 32); ctx.lineTo(xa, y + 42); ctx.lineTo(xb, y + 42); ctx.lineTo(xb, y + 32); ctx.stroke();
     const bx = (xa + xb) / 2, by = y + 84; if (c > 0) { const pb = (xs[(c - 1) * 3] + xs[(c - 1) * 3 + 2]) / 2; ctx.strokeStyle = '#8FA0B5'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(pb + 30, by); ctx.lineTo(bx - 30, by); ctx.stroke(); }
     roundRect(ctx, bx - 34, by - 20, 68, 40, 20); shape(ctx, rgba(col, 0.28), col, 2.5); text(ctx, aa, bx, by + 9, fTekst(24, 700), C.text, 'center'); ctx.restore(); }
   if ((o.rib || 0) > 0.01 && lees > 0.001 && lees < 1) { const c = clamp(lees * nC - 0.5, 0, nC - 1); const ci = Math.floor(c), f = c - ci, cj = Math.min(nC - 1, ci + 1); const mid = (k) => (xs[k * 3] + xs[k * 3 + 2]) / 2; const xr = lerp(mid(ci), mid(cj), ease(f));
     ctx.save(); ctx.globalAlpha *= 0.4 * o.rib; c_ribosoom(ctx, xr, y + 12, 0.9, 1); ctx.restore(); }
-  for (let i = 0; i < N; i++) { const ch = seq[i], isIns = ch !== ch.toUpperCase(); const la = isIns ? ins : 1; if (la <= 0.01) continue; const c = Math.floor(i / 3); const anders = c < nC && st[c] === 'a' && rood > 0.5 && lees * nC > c + 0.5;
-    ctx.save(); ctx.globalAlpha *= la; text(ctx, ch.toUpperCase(), xs[i], y + 10 - (isIns ? (1 - ins) * 40 : 0), fMeta(28), isIns ? C.goud : anders ? C.koraal : C.text, 'center'); ctx.restore(); }
+  for (let i = 0; i < N; i++) { const ch = seq[i], isIns = ch !== ch.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')); const la = isIns ? ins : 1; if (la <= 0.01) continue; const c = Math.floor(i / 3); const anders = c < nC && st[c] === 'a' && rood > 0.5 && lees * nC > c + 0.5;
+    ctx.save(); ctx.globalAlpha *= la; text(ctx, ch.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')), xs[i], y + 10 - (isIns ? (1 - ins) * 40 : 0), fMeta(28), isIns ? C.goud : anders ? C.koraal : C.text, 'center'); ctx.restore(); }
   ctx.restore(); }
 
 // ---------- afbeelding 1 ----------

@@ -202,14 +202,14 @@ function blob(ctx, x, y, rx, ry, wob=0, seed=0, t=0){ // organic ellipse
 function roundRect(ctx,x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
 function text(ctx, s, x, y, font, color, align='left', base='alphabetic'){ ctx.font=font; ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline=base; ctx.fillText(s,x,y); }
 const fTitel=(px)=>`700 ${px}px ${F.titel}`, fTekst=(px,w=400)=>`${w} ${px}px ${F.tekst}`, fMeta=(px)=>`500 ${px}px ${F.meta}`;
-function metaText(ctx,s,x,y,color=C.grain,align='left',px=28){ ctx.save(); ctx.font=fMeta(px); ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline='alphabetic'; ctx.letterSpacing='3px'; ctx.fillText(s.toUpperCase(),x,y); ctx.restore(); }
+function metaText(ctx,s,x,y,color=C.grain,align='left',px=28){ ctx.save(); ctx.font=fMeta(px); ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline='alphabetic'; ctx.letterSpacing='3px'; ctx.fillText(s.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')),x,y); ctx.restore(); }
 
 // ===== UI layer =====
 // naam bij een onderdeel, zonder wijslijn (15 okt 2026); alpha for fade
 function naamBij(ctx, name, meta, x, y, alpha=1, align='left', color=C.text){
   // naam (+ korte toelichting) direct bij een onderdeel, met donkere rand voor leesbaarheid; geen wijslijn
   if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.textBaseline='alphabetic'; ctx.lineJoin='round';
-  const regels=[[name,fTekst(36,600),color,0,'0px']]; if(meta) regels.push([meta.toUpperCase(),fMeta(26),C.grain,28,'3px']);
+  const regels=[[name,fTekst(36,600),color,0,'0px']]; if(meta) regels.push([meta.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')),fMeta(26),C.grain,28,'3px']);
   const maat=regels.map(([s,f,,,ls])=>{ ctx.font=f; ctx.letterSpacing=ls; return ctx.measureText(s).width; }); const w=Math.max(...maat);
   let bx = align==='left'?x:(align==='right'?x-w:x-w/2); bx=Math.max(24,Math.min(W-24-w,bx));
   regels.forEach(([s,f,col,dy,ls],i)=>{ ctx.font=f; ctx.letterSpacing=ls; ctx.textAlign='left'; const lx = align==='left'?bx:(align==='right'?bx+w-maat[i]:bx+(w-maat[i])/2); ctx.strokeStyle=rgba(C.bgMicro,0.85); ctx.lineWidth=7; ctx.strokeText(s,lx,y+dy); ctx.fillStyle=col; ctx.fillText(s,lx,y+dy); });
@@ -1710,7 +1710,7 @@ function welNiet(ctx, rows, x, y, w, a = 1, o = {}) { if (a <= 0.01) return; ctx
       text(ctx, String(i + 1), x + 40, yy + h / 2 + 14, fTitel(40), C.goud, 'center');
       L.forEach((l, k) => text(ctx, l, x + 84, yy + h / 2 - (L.length - 1) * (px + 10) / 2 + 11 + k * (px + 10), fTekst(px, 500), C.text, 'left'));
       const s = r.s || 0; if (s > 0.01) { const col = r.v === 'wel' ? C.groen : C.koraal; ctx.save(); ctx.globalAlpha *= s; const sc = 1.25 - 0.25 * ease(s); ctx.translate(x + w - 110, yy + h / 2); ctx.scale(sc, sc); ctx.rotate(-0.08);
-        roundRect(ctx, -82, -34, 164, 68, 10); ctx.strokeStyle = col; ctx.lineWidth = 5; ctx.stroke(); text(ctx, r.v.toUpperCase(), 0, 14, fTekst(38, 800), col, 'center'); ctx.restore(); }
+        roundRect(ctx, -82, -34, 164, 68, 10); ctx.strokeStyle = col; ctx.lineWidth = 5; ctx.stroke(); text(ctx, r.v.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')), 0, 14, fTekst(38, 800), col, 'center'); ctx.restore(); }
       ctx.restore(); }
     yy += h + 14; });
   ctx.restore(); return yy; }
@@ -2526,17 +2526,17 @@ const c_AA = { AUG: 'Met', GCA: 'Ala', UUC: 'Phe', GGA: 'Gly', CUC: 'Leu', AAG: 
 function c_leesrij(ctx, x0, y, seq, st, o = {}) { const a = o.a == null ? 1 : o.a; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const dx = o.dx || 34, t = o.t || 0; const N = seq.length, nC = Math.floor(N / 3);
   const lees = o.lees == null ? 1 : o.lees, ins = o.ins == null ? 1 : o.ins, rood = o.rood == null ? 1 : o.rood;
   if (o.label) text(ctx, o.label, x0 - 24, y + 14, fTekst(30, 700), o.labelCol || C.text2, 'right');
-  let pos = 0; const xs = []; for (let i = 0; i < N; i++) { const ch = seq[i], isIns = ch !== ch.toUpperCase(); xs.push(x0 + pos * dx + dx / 2); pos += isIns ? ease(ins) : 1; }
+  let pos = 0; const xs = []; for (let i = 0; i < N; i++) { const ch = seq[i], isIns = ch !== ch.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')); xs.push(x0 + pos * dx + dx / 2); pos += isIns ? ease(ins) : 1; }
   c_mrna(ctx, x0 - 14, x0 + pos * dx + 10, y + 20, 1, t, o.seed || 0, 3, '#E8D9A8', 2.4);
   const colOf = (s) => s === 'x' ? C.goud : s === 'a' ? (rood > 0.5 ? C.koraal : C.teal) : C.teal;
-  for (let c = 0; c < nC; c++) { const ca = clamp(lees * nC - c, 0, 1); if (ca <= 0.01) continue; const xa = xs[c * 3] - dx / 2 + 3, xb = xs[c * 3 + 2] + dx / 2 - 3; const aa = c_AA[seq.slice(c * 3, c * 3 + 3).toUpperCase()] || '?'; const col = colOf(st[c]);
+  for (let c = 0; c < nC; c++) { const ca = clamp(lees * nC - c, 0, 1); if (ca <= 0.01) continue; const xa = xs[c * 3] - dx / 2 + 3, xb = xs[c * 3 + 2] + dx / 2 - 3; const aa = c_AA[seq.slice(c * 3, c * 3 + 3).toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():''))] || '?'; const col = colOf(st[c]);
     ctx.save(); ctx.globalAlpha *= ca; ctx.strokeStyle = col; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(xa, y + 32); ctx.lineTo(xa, y + 42); ctx.lineTo(xb, y + 42); ctx.lineTo(xb, y + 32); ctx.stroke();
     const bx = (xa + xb) / 2, by = y + 84; if (c > 0) { const pb = (xs[(c - 1) * 3] + xs[(c - 1) * 3 + 2]) / 2; ctx.strokeStyle = '#8FA0B5'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(pb + 30, by); ctx.lineTo(bx - 30, by); ctx.stroke(); }
     roundRect(ctx, bx - 34, by - 20, 68, 40, 20); shape(ctx, rgba(col, 0.28), col, 2.5); text(ctx, aa, bx, by + 9, fTekst(24, 700), C.text, 'center'); ctx.restore(); }
   if ((o.rib || 0) > 0.01 && lees > 0.001 && lees < 1) { const c = clamp(lees * nC - 0.5, 0, nC - 1); const ci = Math.floor(c), f = c - ci, cj = Math.min(nC - 1, ci + 1); const mid = (k) => (xs[k * 3] + xs[k * 3 + 2]) / 2; const xr = lerp(mid(ci), mid(cj), ease(f));
     ctx.save(); ctx.globalAlpha *= 0.4 * o.rib; c_ribosoom(ctx, xr, y + 12, 0.9, 1); ctx.restore(); }
-  for (let i = 0; i < N; i++) { const ch = seq[i], isIns = ch !== ch.toUpperCase(); const la = isIns ? ins : 1; if (la <= 0.01) continue; const c = Math.floor(i / 3); const anders = c < nC && st[c] === 'a' && rood > 0.5 && lees * nC > c + 0.5;
-    ctx.save(); ctx.globalAlpha *= la; text(ctx, ch.toUpperCase(), xs[i], y + 10 - (isIns ? (1 - ins) * 40 : 0), fMeta(28), isIns ? C.goud : anders ? C.koraal : C.text, 'center'); ctx.restore(); }
+  for (let i = 0; i < N; i++) { const ch = seq[i], isIns = ch !== ch.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')); const la = isIns ? ins : 1; if (la <= 0.01) continue; const c = Math.floor(i / 3); const anders = c < nC && st[c] === 'a' && rood > 0.5 && lees * nC > c + 0.5;
+    ctx.save(); ctx.globalAlpha *= la; text(ctx, ch.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')), xs[i], y + 10 - (isIns ? (1 - ins) * 40 : 0), fMeta(28), isIns ? C.goud : anders ? C.koraal : C.text, 'center'); ctx.restore(); }
   ctx.restore(); }
 
 // ---------- afbeelding 1 ----------
@@ -4217,7 +4217,7 @@ function drawTitle(ctx,t){ const f=DATA.film; bg(ctx,f.titleLook||'schema'); con
   if(SCENES.title){ ctx.save(); ctx.globalAlpha=ramp(t,0.6,1); SCENES.title(ctx,t); ctx.restore(); }
   ctx.save(); ctx.globalAlpha=a; text(ctx,f.title,120,360,fTitel(f.title.length>22?96:120),C.text); text(ctx,f.sub,120,440,fTekst(44),C.text2);
   ctx.font=fTekst(36); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,f.puzzle,120,540,820,48);
-  metaText(ctx,(f.alleen?f.alleen.toUpperCase():(state.niveau==='havo'?'HAVO':'HAVO · VWO'))+' · '+f.meta.toUpperCase(),W-80,60,C.text2,'right',28); ctx.restore(); }
+  metaText(ctx,(f.alleen?f.alleen.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')):(state.niveau==='havo'?'HAVO':'HAVO · VWO'))+' · '+f.meta.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')),W-80,60,C.text2,'right',28); ctx.restore(); }
 function drawChapterCard(ctx,it,t){ bg(ctx,'schema'); const a=ramp(t,0.05,0.3)*(1-ramp(t,it.dur-0.3,0.3)); ctx.save(); ctx.globalAlpha=a;
   const m=it.chapter.match(/^(Hoofdstuk [^—]+)—\s*(.*)$/); const num=m?m[1].trim():''; const title=m?m[2]:it.chapter;
   if(num) metaText(ctx,num,W/2,430,C.grain,'center',30); text(ctx,title,W/2,540,fTitel(72),C.text,'center');

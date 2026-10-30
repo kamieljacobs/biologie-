@@ -658,7 +658,7 @@ function titleCard(ctx, a, t, t0) {
 /* ---------- algemene kop ---------- */
 function header(ctx, id, right, o = {}) {
   const C = TL.chapters.find(c => c.id === id);
-  const left = id === 'H0' ? 'OP LENGTE GESORTEERD' : C.card ? `${id.slice(1)} · ${C.title.toUpperCase()}` : C.title.toUpperCase();
+  const left = id === 'H0' ? 'OP LENGTE GESORTEERD' : C.card ? `${id.slice(1)} · ${C.title.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():''))}` : C.title.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():''));
   drawHeader(ctx, left, right, o);
 }
 
@@ -2315,7 +2315,7 @@ function omgMount(root, opts) {
     } else if (k === 'arrowleft' || k === 'arrowright') { if (ev.target === bar) return; ev.preventDefault(); seek(st.t + (k === 'arrowleft' ? -5 : 5)); }
     else if (k === 'c') { ccBtn.click(); }
     else if (k === 'f' && fsOK) { fsBtn.click(); }
-    else if (st.phase === 'ask' && /^[abc]$/.test(k)) { const b = qEl.querySelector(`.omg-opt[data-l="${k.toUpperCase()}"]`); if (b) b.click(); }
+    else if (st.phase === 'ask' && /^[abc]$/.test(k)) { const b = qEl.querySelector(`.omg-opt[data-l="${k.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():''))}"]`); if (b) b.click(); }
     else if (st.phase === 'ask' && k === 'enter' && !(ev.target && ev.target.tagName === 'BUTTON')) { resumeQ(); }
   });
   stage.addEventListener('click', ev => { if (ev.target === cv && st.started && st.phase !== 'ask') toggle(); });

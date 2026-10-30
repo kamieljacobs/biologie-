@@ -167,7 +167,7 @@ function kruisSchema(ctx, x0, y0, c, o = {}) { const { n = 4, hl = -1, feno = 0,
   for (let i = 0; i < 2; i++) for (let j = 0; j < 2; j++) { const k = i * 2 + j, f = clamp(n - k, 0, 1), vx = x0 + c * (j + 1), vy = y0 + c * i;
     const dimA = dimNiet >= 0 && k !== dimNiet ? 0.35 : 1; ctx.save(); ctx.globalAlpha *= dimA;
     roundRect(ctx, vx, vy, c - 12, c - 12, 14); shape(ctx, rgba(C.fill, 0.9), k === hl ? C.goud : C.line, k === hl ? 4 : 1.5);
-    if (f > 0.01) { ctx.save(); ctx.globalAlpha *= f; const g = [lt[i], bt[j]].sort((p, q) => (p === p.toUpperCase() ? 0 : 1) - (q === q.toUpperCase() ? 0 : 1)).join('');
+    if (f > 0.01) { ctx.save(); ctx.globalAlpha *= f; const g = [lt[i], bt[j]].sort((p, q) => (p === p.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')) ? 0 : 1) - (q === q.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')) ? 0 : 1)).join('');
       text(ctx, g, vx + (c - 12) / 2, vy + (feno > 0.01 ? c * 0.38 : c * 0.55), fTekst(54, 700), C.text, 'center');
       if (feno > 0.01) { const wit = g === g.toLowerCase(); ctx.save(); ctx.globalAlpha *= feno; bloemIcoon(ctx, vx + (c - 12) / 2, vy + c * 0.66, 64, wit ? 'wit' : 'paars'); ctx.restore(); }
       ctx.restore(); }

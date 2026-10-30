@@ -147,7 +147,7 @@ const SCENES = {
     if (lang > 0.01) tag(ctx, '≈ 1,5 m', 1300, 290, C.text2, lang);
     // wat komt binnen
     const items = [[w, 'water', () => waterMol(ctx, 420, 720, 14, 1)], [ve, 'vezels', () => fiber(ctx, 540, 720, 4, 12, 1, 0)], [ei, 'eiwitresten', () => { for (let k = 0; k < 3; k++) bead(ctx, 760 + k * 26, 720 + (k % 2) * 8, 10, k * 3); }], [sl, 'slijm', () => { ctx.fillStyle = rgba(SLIJM, 0.5); ctx.beginPath(); ctx.ellipse(960, 720, 36, 16, 0, 0, 6.283); ctx.fill(); }]];
-    items.forEach(([al, nm, fn], i) => { if (al > 0.01) { ctx.save(); ctx.globalAlpha *= al; fn(); metaText(ctx, nm.toUpperCase(), [420, 590, 790, 960][i], 780, C.grain, 'center', 22); ctx.restore(); } });
+    items.forEach(([al, nm, fn], i) => { if (al > 0.01) { ctx.save(); ctx.globalAlpha *= al; fn(); metaText(ctx, nm.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')), [420, 590, 790, 960][i], 780, C.grain, 'center', 22); ctx.restore(); } });
     if (w > 0.01) { ctx.save(); ctx.globalAlpha *= w; metaText(ctx, 'WAT OVERBLIJFT', 400, 660, C.grain, 'left', 24); ctx.restore(); }
     // water terug: pijltjes de wand uit
     if (wt > 0.01) { ctx.save(); ctx.globalAlpha *= wt * (1 - enz); for (let k = 0; k < 3; k++) arrow(ctx, 1265, 420 + k * 60, 1335, 420 + k * 60, C.teal, 1, 2); waterMol(ctx, 1300, 380, 8, 1); metaText(ctx, 'WATER TERUG', 1360, 490, lighten(C.teal, 0.3), 'left', 22); ctx.restore(); }

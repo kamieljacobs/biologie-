@@ -2415,7 +2415,7 @@ function gewoonteCurve(ctx, x, y, w, h, o = {}) { const a = o.a == null ? 1 : o.
   const lijnen = [[0.12, C.groen, '± 3 weken'], [0.33, C.goud, 'ruim 2 maanden'], [0.85, rgba(C.text2, 0.9), 'meer dan een half jaar · schatting']];
   lijnen.forEach(([k, col, lab], j) => { const al = o.lijnen ? (o.lijnen[j] || 0) : 1; if (al <= 0.01) return; ctx.save(); ctx.globalAlpha *= al; ctx.strokeStyle = col; ctx.lineWidth = j === 1 ? 4 : 3; ctx.beginPath();
     for (let p = 0; p <= 60 * u; p++) { const tx = p / 60, yy = 1 - Math.exp(-tx / (k * 0.45)); const px = x + tx * w, py = y + h - yy * h * 0.88; p ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke();
-    ctx.fillStyle = col; ctx.fillRect(x + w * 0.42, y + h - 150 + j * 44, 34, 6); metaText(ctx, lab.toUpperCase(), x + w * 0.42 + 48, y + h - 140 + j * 44, col, 'left', 24); ctx.restore(); });
+    ctx.fillStyle = col; ctx.fillRect(x + w * 0.42, y + h - 150 + j * 44, 34, 6); metaText(ctx, lab.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')), x + w * 0.42 + 48, y + h - 140 + j * 44, col, 'left', 24); ctx.restore(); });
   metaText(ctx, 'TIJD', x + w, y + h + 38, C.text2, 'right', 26); metaText(ctx, 'HOE VANZELF', x, y - 18, C.text2, 'left', 26); ctx.restore(); }
 
 // ---------- film 2: riem, energiebalans, BMI-balk, gewichtscurve, telpoppetjes ----------
@@ -2496,7 +2496,7 @@ function spreek(ctx, x, y, w, h, s2, a, mx, my, px = 32) { if (a <= 0.01) return
 // mond van een persoon (uit het ankerpunt hoofd)
 function mond(r) { return r && r.hoofd ? [r.hoofd.x, r.hoofd.y + r.hoofd.r * 0.55] : [960, 500]; }
 // naam met een donker plaatje erachter (tegen het lichte raam van het decor)
-function naamDonker(ctx, name, meta, x, y, a = 1, align = 'center') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fTekst(36, 600); let w = ctx.measureText(name).width; if (meta) { ctx.font = fMeta(26); ctx.letterSpacing = '3px'; w = Math.max(w, ctx.measureText(meta.toUpperCase()).width); ctx.letterSpacing = '0px'; }
+function naamDonker(ctx, name, meta, x, y, a = 1, align = 'center') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fTekst(36, 600); let w = ctx.measureText(name).width; if (meta) { ctx.font = fMeta(26); ctx.letterSpacing = '3px'; w = Math.max(w, ctx.measureText(meta.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():''))).width); ctx.letterSpacing = '0px'; }
   const x0 = align === 'center' ? x - w / 2 : align === 'right' ? x - w : x; roundRect(ctx, x0 - 18, y - 40, w + 36, meta ? 84 : 54, 12); shape(ctx, rgba('#0D1420', 0.78), null); ctx.restore(); naamBij(ctx, name, meta, x, y, a, align); }
 // Noor loopt mee: schrift tegen de borst (hand aan de kijkkant), pen in de andere hand; o.noorKnik = hoofd schuin (meekijken)
 function noorMee(ctx, x, t, o = {}) { const kijk = o.noorKijk || -1, hh = 440 * 0.97 / 6.1;

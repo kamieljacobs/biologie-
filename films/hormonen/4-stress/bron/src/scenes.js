@@ -50,7 +50,7 @@ function hpaKeten(ctx, x, y0, o = {}) { const { a = 1, show = [1, 1, 1, 1, 1], r
   ctx.restore(); return ys; }
 function curveAdr(m) { return m < 0 ? 0 : 100 * (1 - Math.exp(-m * 3)) * Math.exp(-m * 0.35); }
 function curveCort(m) { return m < 0 ? 0 : 75 * Math.pow(m / 25, 2) * Math.exp(2 * (1 - m / 25)); }
-function weekBalk(ctx, x, y, w, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ['ma', 'di', 'wo', 'do', 'vr'].forEach((d, i) => { const bx = x + i * (w / 5); roundRect(ctx, bx + 6, y, w / 5 - 12, 120, 12); shape(ctx, rgba(C.fill, 0.7), C.line, 1.5); metaText(ctx, d.toUpperCase(), bx + w / 10, y + 36, C.grain, 'center', 22); text(ctx, 'toets', bx + w / 10, y + 88, fTekst(30, 700), C.koraal, 'center'); }); ctx.restore(); }
+function weekBalk(ctx, x, y, w, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ['ma', 'di', 'wo', 'do', 'vr'].forEach((d, i) => { const bx = x + i * (w / 5); roundRect(ctx, bx + 6, y, w / 5 - 12, 120, 12); shape(ctx, rgba(C.fill, 0.7), C.line, 1.5); metaText(ctx, d.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')), bx + w / 10, y + 36, C.grain, 'center', 22); text(ctx, 'toets', bx + w / 10, y + 88, fTekst(30, 700), C.koraal, 'center'); }); ctx.restore(); }
 function boek(ctx, x, y, w, h, col) { roundRect(ctx, x, y, w, h, 4); shape(ctx, col, darken ? darken(col, 0.3) : col, 1.5); }
 function bedScene(ctx, x, y, a = 1, t = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
   roundRect(ctx, x - 380, y - 20, 760, 80, 14); shape(ctx, '#6B5338', '#4A3A2E', 2); roundRect(ctx, x - 400, y - 160, 40, 240, 10); shape(ctx, '#6B5338', '#4A3A2E', 2);
@@ -228,7 +228,7 @@ const SCENES = {
     const ph2 = q.on('terugkoppeling', 1), ph3 = q.on('korte', 2);
     const items = [['schrik', 'seconden', 0.15, q.on('schrik', 1)], ['toets', 'een uur', 0.3, q.on('toets', 1)], ['toetsweek', 'dagen', 0.55, q.on('toetsweek', 1)], ['weken stress', 'weken', 0.85, q.on('weken', 1)]];
     ctx.save(); ctx.globalAlpha *= 1 - ph2; ctx.strokeStyle = C.line; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(240, 640); ctx.lineTo(1700, 640); ctx.stroke();
-    items.forEach(([n, d, v, a], i) => { if (a <= 0.01) return; const x = 380 + i * 400; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 70, 640 - 380 * v, 140, 380 * v, 10); shape(ctx, rgba(C.text2, 0.25), C.text2, 2); text(ctx, n, x, 700, fTekst(34, 700), C.text, 'center'); metaText(ctx, d.toUpperCase(), x, 740, C.grain, 'center', 22); ctx.restore(); });
+    items.forEach(([n, d, v, a], i) => { if (a <= 0.01) return; const x = 380 + i * 400; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 70, 640 - 380 * v, 140, 380 * v, 10); shape(ctx, rgba(C.text2, 0.25), C.text2, 2); text(ctx, n, x, 700, fTekst(34, 700), C.text, 'center'); metaText(ctx, d.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')), x, 740, C.grain, 'center', 22); ctx.restore(); });
     metaText(ctx, 'HOE LANG DE STRESS DUURT', 240, 180, C.grain, 'left', 22); tag(ctx, 'korte stress hoort erbij', 580, 860, C.groen, q.on('gewoon', 1)); ctx.restore();
     if (ph2 > 0.01) { ctx.save(); ctx.globalAlpha *= ph2 * (1 - ph3);
       ketenBox(ctx, 960, 420, 400, 110, 'hypothalamus', '', HK.klierR, 1);

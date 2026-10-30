@@ -56,7 +56,7 @@ function _tvOverlay(ctx, key, fn, o = {}) { const m = _tvMeet(fn); ctx.drawImage
   ctx.save(); ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.setLineDash([10, 6]); ctx.beginPath(); R.pts.forEach(([px, py], i) => { const X = ox + px * sc, Y = oy + py * sc; i ? ctx.lineTo(X, Y) : ctx.moveTo(X, Y); }); ctx.closePath(); ctx.stroke(); ctx.restore();
   const hr = (R.box[3] - R.box[1]) / (R.xr[1] - R.xr[0]), hm = (m.y1 - m.y0) / (m.x1 - m.x0);
   metaText(ctx, `${key} · goud = referentie · hoogte/lengte ref ${hr.toFixed(2)} · tekening ${hm.toFixed(2)}`, 60, 1040, C.text2, 'left', 26); }
-const _tvOv = (key, fn, o) => function (ctx) { macroNacht(ctx, { horizon: 980, heuvel: false }); metaText(ctx, 'OVERLAY · ' + key.toUpperCase(), 60, 50, C.text2); _tvOverlay(ctx, key, fn, o); };
+const _tvOv = (key, fn, o) => function (ctx) { macroNacht(ctx, { horizon: 980, heuvel: false }); metaText(ctx, 'OVERLAY · ' + key.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')), 60, 50, C.text2); _tvOverlay(ctx, key, fn, o); };
 Object.assign(TV_overig, {
   ov_grondvink: _tvOv('grondvink', (g) => grondvink(g, 960, 760, 4.2, { houding: 'tak', takY: 760, takDik: 12 }), { grondY: 760 }),
   ov_merel: _tvOv('merel', (g) => merel(g, 960, 860, 3.6, { houding: 'staan' }), { grondY: 860 }),

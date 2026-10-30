@@ -17,7 +17,7 @@ function wissel(q, w, n = 1, d = 0.3) { const tw = q.at(w, n); return [1 - ramp(
 function ouders(ctx, t, o = {}) { const { a = 1, hand = 0, uit1 = 'neutraal', uit2 = 'neutraal', x1 = 470, x2 = 650, h = 430 } = o; if (a <= 0.01) return;
   const r2 = persoon(ctx, OUDER2, x2, 800, h, { t, a, uit: uit2, kijk: 1 });
   persoon(ctx, OUDER1, x1, 800, h, { t, a, uit: uit1, kijk: 1, pose: hand > 0.5 ? 'handdruk' : 'staan', hand: hand > 0.5 && r2.handL ? { x: r2.handL.x, y: r2.handL.y } : null }); }
-function tijdKaartje(ctx, s2, x, y, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fMeta(28); ctx.letterSpacing = '3px'; const w = ctx.measureText(s2.toUpperCase()).width + 50; ctx.letterSpacing = '0px';
+function tijdKaartje(ctx, s2, x, y, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fMeta(28); ctx.letterSpacing = '3px'; const w = ctx.measureText(s2.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():''))).width + 50; ctx.letterSpacing = '0px';
   roundRect(ctx, x - w / 2, y - 42, w, 60, 30); shape(ctx, rgba(C.goud, 0.14), C.goud, 1.5); metaText(ctx, s2, x, y - 2, C.goud, 'center', 28); ctx.restore(); }
 function teller(ctx, x, y, u, a = 1, px = 44) { if (a <= 0.01) return; const n = Math.round(4100000 * ease(u)); regel(ctx, n.toLocaleString('nl-NL').replace(/\./g, ' ') + (u >= 0.999 ? '+' : '') + ' varianten', x, y, a, C.goud, px, 'right', 700); }
 

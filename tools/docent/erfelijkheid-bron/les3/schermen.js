@@ -17,7 +17,7 @@ const L3_KROST = (() => { const a = []; [27, 9, 9, 3].forEach((n, k) => { for (l
 function L3_gameet(ctx, x, y, r, letters, kls, a = 1, o = {}) { if (a <= 0.01) return; gameet(ctx, x, y, r, '', { soort: 'cel', kl: o.kl || C.text2, a });
   const px = o.px || r * 0.62; ctx.save(); ctx.font = fTekst(px, 700); const ws = letters.map(l => ctx.measureText(l).width), tot = ws.reduce((s, w) => s + w, 0) + (letters.length - 1) * 4; ctx.restore();
   let xx = x - tot / 2; letters.forEach((l, i) => { regel(ctx, l, xx + ws[i] / 2, y + px * 0.36, a, kls[i] || C.text, px, 'center', 700); xx += ws[i] + 4; }); }
-const L3_kl = (l) => (l === l.toUpperCase() ? CH.vader : CH.moeder);
+const L3_kl = (l) => (l === l.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')) ? CH.vader : CH.moeder);
 
 // één chromatide als staafje met twee kleuren (boven/onder de breuk) en genbanden met letter erop
 function L3_chromatide(ctx, x, y0, len, w, klBoven, klOnder, breuk, banden, a = 1, dxOnder = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.lineCap = 'round';

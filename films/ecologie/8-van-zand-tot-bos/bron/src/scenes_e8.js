@@ -91,7 +91,7 @@ Object.assign(SCENES, {
   s12(ctx, t, q) {
     _sch8(ctx, 'PIONIERS VERANDEREN DE PLEK'); e8Profiel(ctx, 200, 260, 260, 460, 60, {});
     const rij = [['vocht', 0.1, 0.4, C.teal, 'water'], ['voedingsstoffen', 0.05, 0.3, C.groen, 'voedingsstoffen'], ['stuiven', 0.9, 0.3, E8.zand, 'stuift'], ['hitte', 0.95, 0.6, C.koraal, 'koeler']];
-    rij.forEach(([n, a, b, kl, cue], i) => { const y = 300 + i * 130, u = q.on(cue, 1, 1.4); e8Meter(ctx, 700, y, 700, n.toUpperCase(), lerp(a, b, u), kl); ctx.strokeStyle = C.text2; ctx.lineWidth = 2; ctx.setLineDash([6, 6]); ctx.beginPath(); ctx.moveTo(700 + 700 * a, y - 6); ctx.lineTo(700 + 700 * a, y + 24); ctx.stroke(); ctx.setLineDash([]); regel(ctx, b > a ? 'omhoog' : 'omlaag', 1440, y + 18, _8R(u, 0.7, 0.3), b > a ? C.groen : C.koraal, 36, 'left', 700); });
+    rij.forEach(([n, a, b, kl, cue], i) => { const y = 300 + i * 130, u = q.on(cue, 1, 1.4); e8Meter(ctx, 700, y, 700, n.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')), lerp(a, b, u), kl); ctx.strokeStyle = C.text2; ctx.lineWidth = 2; ctx.setLineDash([6, 6]); ctx.beginPath(); ctx.moveTo(700 + 700 * a, y - 6); ctx.lineTo(700 + 700 * a, y + 24); ctx.stroke(); ctx.setLineDash([]); regel(ctx, b > a ? 'omhoog' : 'omlaag', 1440, y + 18, _8R(u, 0.7, 0.3), b > a ? C.groen : C.koraal, 36, 'left', 700); });
     haak(ctx, 700, 1400, 820, 'pioniers veranderen de abiotische factoren', C.groen, q.on('abiotische'));
   },
   s13(ctx, t, q) {

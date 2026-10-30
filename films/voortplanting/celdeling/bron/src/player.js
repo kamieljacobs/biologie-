@@ -76,12 +76,12 @@ function drawTitle(ctx,t){ const f=DATA.film; bg(ctx,f.titleLook||'schema'); con
   if(SCENES.title){ ctx.save(); ctx.globalAlpha=ramp(t,0.6,1); SCENES.title(ctx,t); ctx.restore(); }
   ctx.save(); ctx.globalAlpha=a; text(ctx,f.title,120,360,fTitel(f.title.length>22?96:120),C.text); text(ctx,f.sub,120,440,fTekst(44),C.text2);
   ctx.font=fTekst(36); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,f.puzzle,120,540,820,48);
-  metaText(ctx,(f.alleen?f.alleen.toUpperCase():(state.niveau==='havo'?'HAVO':'HAVO · VWO'))+' · '+f.meta.toUpperCase(),W-80,60,C.text2,'right',28); ctx.restore(); }
+  metaText(ctx,(f.alleen?f.alleen.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')):(state.niveau==='havo'?'HAVO':'HAVO · VWO'))+' · '+f.meta.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')),W-80,60,C.text2,'right',28); ctx.restore(); }
 function drawChapterCard(ctx,it,t){ bg(ctx,'schema'); const a=ramp(t,0.05,0.3)*(1-ramp(t,it.dur-0.3,0.3)); ctx.save(); ctx.globalAlpha=a;
   const m=it.chapter.match(/^(Hoofdstuk [^—]+)—\s*(.*)$/); const num=m?m[1].trim():''; const title=m?m[2]:it.chapter;
   if(num) metaText(ctx,num,W/2,430,C.grain,'center',30); text(ctx,title,W/2,540,fTitel(72),C.text,'center');
   const mini=(DATA.film.minis||{})[num||it.chapter];
-  if(mini) text(ctx,mini,W/2,620,fTekst(36),C.text2,'center'); const deel=(DATA.film.delen||{})[it.chapter]; if(deel) metaText(ctx,deel.toUpperCase(),W/2,340,C.goud,'center',30); ctx.restore(); }
+  if(mini) text(ctx,mini,W/2,620,fTekst(36),C.text2,'center'); const deel=(DATA.film.delen||{})[it.chapter]; if(deel) metaText(ctx,deel.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')),W/2,340,C.goud,'center',30); ctx.restore(); }
 function drawEnd(ctx,it,t){ bg(ctx,'schema'); const lines=it.seg.lines; const y0=lines.length>3?300:380, st=lines.length>3?105:120; lines.forEach((l,i)=>{ const a=ramp(t,0.3+i*1.2,0.6); ctx.save(); ctx.globalAlpha=a; text(ctx,l,W/2,y0+i*st,fTekst(44,600),C.text,'center'); ctx.restore(); });
   haak(ctx,360,1560,lines.length>3?y0+(lines.length-1)*st+52:740,DATA.film.endHaak,C.groen,ramp(t,4.2,0.6)); metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie '+DATA.film.version,W/2,CAPTION_Y-20,C.text2,'center',28); }
 function drawQuestion(ctx,it,t){

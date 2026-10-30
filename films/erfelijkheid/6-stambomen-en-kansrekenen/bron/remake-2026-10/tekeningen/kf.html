@@ -7,7 +7,7 @@
 <script>
 const ctx = document.getElementById('c').getContext('2d');
 function kast(ctx, s) { ctx.save(); ctx.font = fTekst(44, 700); const w = Math.min(1700, ctx.measureText(s).width + 64); roundRect(ctx, W / 2 - w / 2, 930, w, 92, 12); shape(ctx, rgba('#0D1420', 0.9), null); text(ctx, s, W / 2, 990, fTekst(44, 700), C.text, 'center'); ctx.restore(); }
-function twijfelTag(ctx, s) { ctx.save(); ctx.font = fMeta(24); const w = ctx.measureText(s.toUpperCase()).width + 90; roundRect(ctx, W - w - 30, 24, w, 48, 8); shape(ctx, rgba(C.koraal, 0.18), C.koraal, 1.5); metaText(ctx, s, W - 50, 57, C.koraal, 'right', 24); ctx.restore(); }
+function twijfelTag(ctx, s) { ctx.save(); ctx.font = fMeta(24); const w = ctx.measureText(s.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():''))).width + 90; roundRect(ctx, W - w - 30, 24, w, 48, 8); shape(ctx, rgba(C.koraal, 0.18), C.koraal, 1.5); metaText(ctx, s, W - 50, 57, C.koraal, 'right', 24); ctx.restore(); }
 function chMeta(ctx, s) { metaText(ctx, s, 70, 851, C.text2, 'left', 28); }
 function termK(ctx, term, uitleg, x, y, w) { roundRect(ctx, x, y, w, 112, 14); shape(ctx, rgba(C.bgSchema, 0.96), C.goud, 2); text(ctx, term, x + 28, y + 56, fTekst(44, 700), C.goud, 'left'); text(ctx, uitleg, x + 28, y + 96, fTekst(30, 500), C.text, 'left'); }
 function annot(ctx, x1, x2, y, msg, kl) { haak(ctx, x1, x2, y, msg, kl, 1); }

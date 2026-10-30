@@ -3558,7 +3558,7 @@ Object.assign(SCENES, {
       ['jij let', 'op familie', 'familie', (x, y) => { ster(ctx, x - 50, y + 10, 20); ster(ctx, x, y + 10, 20, C.teal); ster(ctx, x + 50, y + 10, 20, C.koraal); }]];
     kaart.forEach(([a1, a2, cue, teken], i) => eindKaart(ctx, 1290 + (i % 2) * 290, 110 + Math.floor(i / 2) * 220, 270, 200, a1, a2, K * q.on(cue, 1), teken));
     const ik = [['kas', icoonKas, 'Kas'], ['bodem', icoonBodem, 'bodem'], ['stal', icoonStal, 'stal']];
-    ik.forEach(([lab, fn, cue], i) => { const x = 1360 + i * 200, a = q.on(cue, 1); fn(ctx, x, 640, 1, a); metaA(ctx, lab.toUpperCase(), x, 730, a, C.text, 'center', 20); });
+    ik.forEach(([lab, fn, cue], i) => { const x = 1360 + i * 200, a = q.on(cue, 1); fn(ctx, x, 640, 1, a); metaA(ctx, lab.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')), x, 730, a, C.text, 'center', 20); });
     tag(ctx, 'overal stuurt een mens wat er groeit', 1580, 800, C.goud, q.on('stuurt', 1), 'center', 28); },
 
   s31(ctx, t, q) { decor(ctx, 'stal', 0.6); roundRect(ctx, 120, 130, 640, 100, 16); shape(ctx, rgba('#0D1420', 0.85), null); regel(ctx, 'Waar leer je dit?', 150, 200, 1, C.text, 56, 'left', 700);

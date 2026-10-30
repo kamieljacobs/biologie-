@@ -171,7 +171,7 @@ function bloedSpiegel(ctx, x, y, w, h, a = 1, uGoed = 1, uSlecht = 0) { if (a <=
   lijn(4.5, C.groen, uGoed); lijn(1.0, ECOLI, uSlecht); ctx.restore(); }
 
 // tegel voor een beroep: icoon + naam
-function beroepTegel(ctx, x, y, naam, sub, col, a = 1, icoon = null) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 200, y - 150, 400, 300, 18); shape(ctx, rgba(col, 0.12), col, 2.5); if (icoon) icoon(x, y - 30); text(ctx, naam, x, y + 100, fTekst(34, 800), C.text, 'center'); if (sub) metaText(ctx, sub.toUpperCase(), x, y + 134, C.grain, 'center', 20); ctx.restore(); }
+function beroepTegel(ctx, x, y, naam, sub, col, a = 1, icoon = null) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 200, y - 150, 400, 300, 18); shape(ctx, rgba(col, 0.12), col, 2.5); if (icoon) icoon(x, y - 30); text(ctx, naam, x, y + 100, fTekst(34, 800), C.text, 'center'); if (sub) metaText(ctx, sub.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')), x, y + 134, C.grain, 'center', 20); ctx.restore(); }
 // apotheekicoon: vijzel met stamper
 function vijzel(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); ctx.strokeStyle = '#C9D0DA'; ctx.lineWidth = 14; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(10, -10); ctx.lineTo(60, -80); ctx.stroke();
   ctx.beginPath(); ctx.moveTo(-70, -20); ctx.lineTo(70, -20); ctx.quadraticCurveTo(66, 50, 0, 56); ctx.quadraticCurveTo(-66, 50, -70, -20); ctx.closePath(); shape(ctx, '#E8E2D4', '#B8B0A0', 3); ctx.fillStyle = '#B8B0A0'; ctx.fillRect(-36, 56, 72, 12); ctx.restore(); }
