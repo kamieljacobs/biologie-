@@ -1,7 +1,14 @@
 {
  "s01": {
-  "dur": 18.13,
-  "generation_id": "5DyI8pyXdjjp4ICEUcYW"
+  "dur": 17.13,
+  "generation_id": "5DyI8pyXdjjp4ICEUcYW",
+  "heropname_30okt": {
+   "generation_id": "G3Xav4Eyd2Am8S3pAcJX",
+   "node": "qggdNfpdYzCOOF0k3xeV",
+   "flow": "q7sKYLgnRym6q5WC5t8F",
+   "credits": 75,
+   "invoer": "Bij griep worden in je neus en keel miljoenen nieuwe griepvirussen gemaakt."
+  }
  },
  "s04": {
   "dur": 41.72,
@@ -51,8 +58,15 @@
   "generation_id": "OyKr6WYSyxIYSmCeHPv7"
  },
  "s16": {
-  "dur": 42.27,
+  "dur": 42.28,
   "generation_id": "jtspnKLVeFvz6thNV2n5",
-  "heropname": "na eindreview"
+  "heropname": "na eindreview",
+  "heropname_30okt": {
+   "generation_id": "1qLFHnuI76eP8SxbV9aG",
+   "node": "bUgl08wtlNgJOODpeZLT",
+   "flow": "q7sKYLgnRym6q5WC5t8F",
+   "credits": 128,
+   "invoer": "De koolmees staat op de ladder, net als jij. Een griepvirus staat ernaast: een pakketje moleculen, dat pas in een cel iets doet."
+  }
  }
 }

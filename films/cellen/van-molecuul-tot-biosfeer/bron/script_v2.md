@@ -16,8 +16,8 @@ Verwerkt na de drie reviews (14 okt 2026): langer (± 5,5 min); cold open in eve
 
 ---
 
-## Cold open [Macro: Noor in bed met griep; inzoomen op griepvirussen in haar neus; daarna een virus op een deurklink]
-Noor heeft griep. In haar neus en keel worden miljoenen nieuwe griepvirussen gemaakt. En ze veranderen steeds: daarom is er elk jaar een nieuwe griepprik.
+## Cold open [Macro: een meisje in bed met griep; inzoomen op griepvirussen in neus en keel; daarna een virus op een deurklink]
+Bij griep worden in je neus en keel miljoenen nieuwe griepvirussen gemaakt. En ze veranderen steeds: daarom is er elk jaar een nieuwe griepprik.
 Maar op een deurklink doet zo'n virus niets. Het eet niet, en het groeit niet.
 Leeft een griepvirus? Wat denk je?
 [VRAAG] (a) nee: het heeft geen eigen stofwisseling, het laat een cel werken · (b) ja: het plant zich voort, en het verandert door evolutie · (c) ja: het bevat erfelijk materiaal, net als elke levende cel
@@ -61,7 +61,7 @@ Misschien dacht je: er komen toch steeds meer virussen bij, en ze evolueren. Dat
 ## Recap [Schema: de hele ladder met het virus ernaast]
 Leeft een griepvirus? Meestal zeggen biologen: nee. Het antwoord was dus aa: het heeft geen eigen stofwisseling, het laat een cel werken.
 De cel is het kleinste niveau dat leeft. Door differentiatie worden cellen verschillend, en vormen ze weefsels, organen, orgaanstelsels en een organisme. Eén soort in één gebied: een populatie. Alle soorten samen: een levensgemeenschap. Plus de abiotische factoren: een ecosysteem. En alle ecosystemen samen: de biosfeer.
-De koolmees staat op de ladder, net als Noor. Haar griepvirus staat ernaast: een pakketje moleculen, dat pas in een cel iets doet.
+De koolmees staat op de ladder, net als jij. Een griepvirus staat ernaast: een pakketje moleculen, dat pas in een cel iets doet.
 
 ## Eindkaart
 Leven: cellen, stofwisseling, groei, voortplanting, prikkels, homeostase.

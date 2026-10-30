@@ -2,7 +2,7 @@
 
 Gecontroleerd: versie 2.0 (beeld-remake, 30 okt 2026), door Claude (eerste ronde, volgens `films/BRONNEN.md`). Stem en script zijn ongewijzigd (takes van 14–15 okt 2026); dit logboek dekt de gesproken beweringen én wat het nieuwe beeld toont (maten, bouw). Alle bronnen hieronder zijn op 30 okt 2026 zelf geopend.
 
-Samenvatting: 20 beweringen · 16 ✓ · 4 ≈ · 0 ! · 0 ?. Frisse beeldreview 30 okt 2026: bewering 13 afgemaakt, 15 en 18 met de syllabus aangevuld. Geen aanpassing van stem of script nodig. Menselijke steekproef: nog niet gedaan.
+Samenvatting: 20 beweringen · 17 ✓ · 3 ≈ · 0 ! · 0 ?. Versie 2.1 (30 okt 2026): bewering 2 met B18 afgemaakt (griepprik, docentdeel). Frisse beeldreview 30 okt 2026: bewering 13 afgemaakt, 15 en 18 met de syllabus aangevuld. Geen aanpassing van stem of script nodig. Menselijke steekproef: nog niet gedaan.
 
 ## Bronnen
 
@@ -25,13 +25,14 @@ Samenvatting: 20 beweringen · 16 ✓ · 4 ≈ · 0 ! · 0 ?. Frisse beeldreview
 | B15 | B | Lumeij J.T. & Ritchie B.W., Cardiology, h. 27 in Ritchie, Harrison & Harrison, *Avian Medicine: Principles and Application* ('located midway in the thoracic cavity in an indention in the sternum'; punt ventraal bedekt door de leverkwabben; vogels hebben naar verhouding een groter hart) | https://harrisonsbirdfoods.com/wp-content/uploads/2024/03/695-722-Ch27-Cardiology.pdf | 30 okt 2026 |
 | B16 | A | CvTE, Syllabus biologie vwo (examenblad.nl): organisatieniveaus van molecuul tot ecosysteem; 'Op het hogere organisatieniveau zijn nieuwe eigenschappen te zien. Het geheel is daarbij meer dan de som van de delen'; ecosysteem = 'complex samenhangend geheel van componenten en interacties' | https://examenblad.nl/2025/vwo/documenten/syllabus-biologie-vwo | 30 okt 2026 |
 | B17 | B | Encyclopaedia Britannica, Ecosystem ('the complex of living organisms, their physical environment, and all their interrelationships'; abiotische delen: 'minerals, climate, soil, water, sunlight') | https://www.britannica.com/science/ecosystem/Introduction | 30 okt 2026 |
+| B18 | A | Ferdinands J.M. e.a. (2017) Intraseason waning of influenza vaccine protection: evidence from the US Influenza Vaccine Effectiveness Network, 2011–12 through 2014–15. *Clinical Infectious Diseases* 64(5): 544–550 ('decreasing influenza vaccine protection with increasing time since vaccination') | https://pubmed.ncbi.nlm.nih.gov/28039340/ | 30 okt 2026 |
 
 ## Beweringen
 
 | Nr | Waar | Bewering in de film | Bronnen | Status | Toelichting |
 |---|---|---|---|---|---|
 | 1 | s01 | In neus en keel worden miljoenen nieuwe griepvirussen gemaakt; ze knoppen af uit keelcellen | B3, B4, B2 | ✓ | Beeld: virussen knoppen af aan de bovenkant (apicaal) van trilhaarcellen (B3). 'Miljoenen' is een orde van grootte, geen telling. |
-| 2 | s01 | Griepvirussen veranderen steeds; daarom elk jaar een nieuwe griepprik | B5, B3 | ≈ | B5 noemt ook een tweede reden (bescherming neemt na ± een half jaar af); de film noemt alleen de verandering. Beeld: drie virussen met iets andere uitsteeksels. |
+| 2 | s01 | Griepvirussen veranderen steeds; daarom elk jaar een nieuwe griepprik | B5, B3, B18 | ✓ | Klopt (B5, B3). B5 noemt een tweede reden: de bescherming neemt na ± een half jaar af; onafhankelijk bevestigd door B18 (bescherming daalt met de tijd sinds de prik). Die reden staat sinds 2.1 in het docentdeel; de stem noemt alleen de verandering. Beeld: drie virussen met iets andere uitsteeksels. |
 | 3 | s01, s14 | Een virus eet niet en groeit niet; geen eigen stofwisseling | B1, B2 | ✓ | B1: 'do not have a metabolism or grow'. |
 | 4 | s04 | Levenskenmerken: cellen, stofwisseling, groei en ontwikkeling, voortplanting, prikkels en beweging, homeostase; elke methode heeft een iets andere lijst | B6, B1 | ≈ | Lijsten verschillen per boek (de film zegt dat). Homeostase = binnenmilieu constant houden (B6). |
 | 5 | s04 | Een koolmees eet rupsen, legt eieren, blijft warm als het vriest | B10, B9 | ✓ | Lichaamstemperatuur van vogels (endotherm) is algemene kennis; rupsen en eieren B10. Beeld: koolmees ± 14 cm (B10), ei met roodbruine spikkels. |
@@ -57,6 +58,9 @@ Geen `!`. Wel in beeld (geen stem):
 - Titelkaart en vraag q02: de castnaam is uit de schermtekst gehaald (BEELDAFSPRAKEN: castnamen niet in beeld). Was 'Noor heeft griep. In haar neus …' → nu 'Wie griep heeft, maakt in neus en keel …'; q02 'In Noors neus …' → 'In neus en keel …'. Ook in `oefenen.json` (uitleg-virus) en het docentdeel.
 - De spiercel is in het beeld een hartspiercel (B7, B8), zodat de ladder zonder sprong naar het hart doorloopt.
 - Frisse beeldreview 30 okt 2026, maten in beeld (beweringen 7, 8, 9): 'µm' werd door de hoofdlettermeta een Griekse Μ, zodat er '± 2 MM' (bacterie), '± 0,1 MM' (griepvirus) en '± 6 MM' (celkern) stond, 1000× te groot. Was → nu: eenheden voluit ('± 2 micrometer', '± 0,1 micrometer', '± 6 micrometer', '± 5 nanometer'), zoals C10 vraagt. In s08 toonde de ladder bij de bacterie 'organisme ± 14 cm'; de maat staat daar nu uit.
+
+- Versie 2.1 (30 okt 2026), stem s01 en s16 zonder castnaam: was 'Noor heeft griep. In haar neus en keel worden …' → nu 'Bij griep worden in je neus en keel …'; was '… net als Noor. Haar griepvirus staat ernaast …' → nu '… net als jij. Een griepvirus staat ernaast …'. Inhoud gelijk (beweringen 1–3 en 20 blijven gelden).
+- Versie 2.1, docentdeel: zin over de tweede reden voor een jaarlijkse griepprik (bescherming neemt na ± een half jaar af), B5 + B18.
 
 ## Menselijke controle
 

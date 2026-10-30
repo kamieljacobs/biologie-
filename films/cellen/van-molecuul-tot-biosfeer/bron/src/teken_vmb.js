@@ -249,11 +249,13 @@ const MEES_HART = [6, -56], MEES_HS = 0.032; // 1 cm ≈ 19 eenheden; hartDoorsn
 // langs het schuin lopende borstbeen van een zittende zangvogel (kijk = 1, kop rechts).
 const MEES_HROT = Math.PI / 3;
 const MEES_VAT = {
-  slag: [[[8, -60], [16, -76], [22, -92], [26, -104]], [[4, -62], [-10, -74], [-30, -80]], [[2, -52], [-30, -48], [-70, -44], [-110, -40]], [[-30, -48], [-34, -30], [-40, -12]]],
-  ader: [[[0, -60], [10, -78], [16, -96]], [[-2, -64], [-18, -78], [-36, -84]], [[-2, -56], [-34, -54], [-74, -50], [-112, -46]], [[-36, -54], [-42, -34], [-48, -14]]] };
+  // Rustiger (30 okt 2026, open punt frisse beeldreview): de vaten stoppen in de romp (niet over vleugelpennen, staart en poten),
+  // de armslagader alleen tot de vleugelaanzet, en alleen de twee grote aders (hals, achterlijf) lopen ernaast terug.
+  slag: [[[8, -60], [16, -76], [22, -92], [26, -104]], [[4, -62], [-8, -71], [-18, -75]], [[2, -52], [-28, -48], [-52, -46], [-66, -45]], [[-30, -48], [-33, -36], [-36, -26]]],
+  ader: [[[0, -60], [10, -78], [16, -96]], [[-2, -56], [-30, -54], [-54, -52]]] };
 function meesVaten(ctx, x, y, s, u = 1, t = 0, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
   const tek = (lijst, col, lw) => lijst.forEach(P => { const Q = bioDicht(P.map(([px, py]) => [x + px * s, y + py * s]), 40); const n = Math.max(2, Math.round(Q.length * clamp(u, 0, 1)));
-    ctx.strokeStyle = rgba('#121A26', 0.6); ctx.lineWidth = lw + 2.5; ctx.beginPath(); Q.slice(0, n).forEach(([qx, qy], i) => i ? ctx.lineTo(qx, qy) : ctx.moveTo(qx, qy)); ctx.stroke();
+    ctx.strokeStyle = rgba('#121A26', 0.45); ctx.lineWidth = lw + 1.5; ctx.beginPath(); Q.slice(0, n).forEach(([qx, qy], i) => i ? ctx.lineTo(qx, qy) : ctx.moveTo(qx, qy)); ctx.stroke();
     ctx.strokeStyle = col; ctx.lineWidth = lw; ctx.beginPath(); Q.slice(0, n).forEach(([qx, qy], i) => i ? ctx.lineTo(qx, qy) : ctx.moveTo(qx, qy)); ctx.stroke(); });
   tek(MEES_VAT.ader, BIO.ader, Math.max(1.5, 1.5 * s)); tek(MEES_VAT.slag, BIO.bloed, Math.max(1.8, 1.8 * s));
   // hart: dezelfde doorsnede als in de zoom (hartDoorsnede), op ware grootte: ± 1 cm in een vogel van ± 14 cm (MEES_HS per eenheid)

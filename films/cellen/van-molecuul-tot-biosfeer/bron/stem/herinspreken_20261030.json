@@ -1,0 +1,27 @@
+{
+ "datum": "2026-10-30",
+ "flow": "q7sKYLgnRym6q5WC5t8F",
+ "model": "eleven_v4",
+ "voice_id": "7qdUFMklKPaaAVMsBTBt",
+ "werkwijze": "alleen de gewijzigde zinnen ingesproken (geen vervangregels uit uitspraak.json/uitspraak_film.json van toepassing), loudnorm naar het niveau van de oude take, ingeplakt in een stilte met crossfade 20 ms; woordtijden nieuw stuk met silalign, rest verschoven; oude takes in bron/oud/audio-2.0/",
+ "takes": {
+  "s01": {
+   "invoer": "Bij griep worden in je neus en keel miljoenen nieuwe griepvirussen gemaakt.",
+   "was": "Noor heeft griep. In haar neus en keel worden miljoenen nieuwe griepvirussen gemaakt.",
+   "node": "qggdNfpdYzCOOF0k3xeV",
+   "gen": "G3Xav4Eyd2Am8S3pAcJX",
+   "credits": 75,
+   "plak": "nieuw 0-4,50 s (+1,9 dB na loudnorm I=-17,5) + 0,12 s stilte + oud vanaf 5,55 s ('En ze veranderen ...'); s01 18,08 -> 17,13 s",
+   "luister": "van-molecuul-tot-biosfeer-s01-luister.mp3"
+  },
+  "s16": {
+   "invoer": "De koolmees staat op de ladder, net als jij. Een griepvirus staat ernaast: een pakketje moleculen, dat pas in een cel iets doet.",
+   "was": "De koolmees staat op de ladder, net als Noor. Haar griepvirus staat ernaast: een pakketje moleculen, dat pas in een cel iets doet.",
+   "node": "bUgl08wtlNgJOODpeZLT",
+   "gen": "1qLFHnuI76eP8SxbV9aG",
+   "credits": 128,
+   "plak": "oud 0-33,80 s (tot na 'de biosfeer.') + 0,10 s stilte + nieuw (loudnorm I=-16,3, +0,3 dB); s16 42,24 -> 42,28 s",
+   "luister": "van-molecuul-tot-biosfeer-s16-luister.mp3"
+  }
+ }
+}

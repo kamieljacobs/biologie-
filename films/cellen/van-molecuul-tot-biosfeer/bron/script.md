@@ -4,9 +4,9 @@ Cellen · organisatieniveaus · Roos (eleven_v4) · één take per alinea · aud
 
 ## Cold open
 
-**s01** · 18.5 s · `audio/s01.mp3`
+**s01** · 17.6 s · `audio/s01.mp3` (zin 1 opnieuw, 30 okt 2026)
 
-Noor heeft griep. In haar neus en keel worden miljoenen nieuwe griepvirussen gemaakt. En ze veranderen steeds: daarom is er elk jaar een nieuwe griepprik. Maar op een deurklink doet zo'n virus niets. Het eet niet, en het groeit niet. Leeft een griepvirus? Wat denk je?
+Bij griep worden in je neus en keel miljoenen nieuwe griepvirussen gemaakt. En ze veranderen steeds: daarom is er elk jaar een nieuwe griepprik. Maar op een deurklink doet zo'n virus niets. Het eet niet, en het groeit niet. Leeft een griepvirus? Wat denk je?
 
 **q02** (vraag): nee: het heeft geen eigen stofwisseling, het laat een cel werken · ja: het plant zich voort, en het verandert door evolutie · ja: het bevat erfelijk materiaal, net als elke levende cel
 
@@ -68,9 +68,9 @@ Antwoord aa. Een virus heeft geen eigen stofwisseling. Het laat een cel het werk
 
 ## Recap
 
-**s16** · 42.6 s · `audio/s16.mp3`
+**s16** · 42.6 s · `audio/s16.mp3` (laatste twee zinnen opnieuw, 30 okt 2026)
 
-Leeft een griepvirus? Meestal zeggen biologen: nee. Het antwoord was dus aa: het heeft geen eigen stofwisseling, het laat een cel werken. De cel is het kleinste niveau dat leeft. Door differentiatie worden cellen verschillend, en vormen ze weefsels, organen, orgaanstelsels en een organisme. Eén soort in één gebied: een populatie. Alle soorten samen: een levensgemeenschap. Plus de abiotische factoren: een ecosysteem. En alle ecosystemen samen: de biosfeer. De koolmees staat op de ladder, net als Noor. Haar griepvirus staat ernaast: een pakketje moleculen, dat pas in een cel iets doet.
+Leeft een griepvirus? Meestal zeggen biologen: nee. Het antwoord was dus aa: het heeft geen eigen stofwisseling, het laat een cel werken. De cel is het kleinste niveau dat leeft. Door differentiatie worden cellen verschillend, en vormen ze weefsels, organen, orgaanstelsels en een organisme. Eén soort in één gebied: een populatie. Alle soorten samen: een levensgemeenschap. Plus de abiotische factoren: een ecosysteem. En alle ecosystemen samen: de biosfeer. De koolmees staat op de ladder, net als jij. Een griepvirus staat ernaast: een pakketje moleculen, dat pas in een cel iets doet.
 
 ## Eindkaart
 

@@ -78,3 +78,10 @@ Door een andere helper dan de maker (C10). Film opnieuw gebouwd (`bouw_vmb.py --
 **Open (aanpakkeuzes, niet veranderd; voor Kamiel)**:
 - s08 (orgaanstelsel): de vaten liggen als lijnen óp de dekkende vogel en lopen tot in de poten en de staart; leesbaar, maar oogt wat druk rond de vleugel.
 - Twijfelscènes, herinspreeklijst en de vragen 2 en 3 hierboven blijven open.
+
+## Uitgevoerd 30 okt 2026 (versie 2.1, `films/UITVOEREN-CELLEN.md`)
+- Herinspreeklijst: s01 ('Bij griep worden in je neus en keel …', 75 credits) en s16 ('… net als jij. Een griepvirus staat ernaast …', 128 credits) ingeplakt; de stem noemt geen castnaam meer. Zie `info.md` → Wijzigingen.
+- Vraag 3 (griepprik): zin in het docentdeel met RIVM + Ferdinands e.a. 2017.
+- Open punt s08: vaten rustiger rond de vleugel.
+- Twijfelscènes: blijven zoals gebouwd (Kamiel 30 okt 2026).
+

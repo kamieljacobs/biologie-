@@ -2,13 +2,13 @@ import json
 film = {
  "slug": "van-molecuul-tot-biosfeer", "hoofdstuk": "cellen", "hoofdstukNaam": "Cellen",
  "title": "Van molecuul tot biosfeer", "sub": "Wat leeft er, en op welk niveau?",
- "puzzle": "Wie griep heeft, maakt in neus en keel miljoenen nieuwe griepvirussen. Maar op een deurklink doet zo'n virus niets. Leeft een griepvirus?",
- "meta": "cellen · organisatieniveaus", "version": "2.0 · oktober 2026", "titleLook": "schema",
+ "puzzle": "Bij griep worden in neus en keel miljoenen nieuwe griepvirussen gemaakt. Maar op een deurklink doet zo'n virus niets. Leeft een griepvirus?",
+ "meta": "cellen · organisatieniveaus", "version": "2.1 · oktober 2026", "titleLook": "schema",
  "seriesline": "Biologie bij Kamiel · Cellen · korte film",
  "lead": "Levende wezens bestaan uit cellen, hebben een stofwisseling, groeien, planten zich voort, reageren op prikkels en houden hun binnenkant constant. De cel is het kleinste niveau dat leeft. Door differentiatie worden cellen met hetzelfde DNA verschillend, en vormen ze weefsels, organen, orgaanstelsels en een organisme. Daarboven: populatie, levensgemeenschap, ecosysteem en biosfeer. Een virus is geen cel en heeft geen eigen stofwisseling: meestal rekenen biologen het niet tot de levende wezens.",
  "endHaak": "op welk niveau kijk je, en leeft het?",
  "minis": {"Hoofdstuk 1": "Hoe weet je of iets leeft?", "Hoofdstuk 2": "Van molecuul tot biosfeer: welke niveaus zijn er?", "Hoofdstuk 3": "Leeft een virus?", "Recap": "Leeft een griepvirus?"},
- "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 2.0 · oktober 2026.",
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 2.1 · oktober 2026.",
  "questions": {
   "q02": {"q": "In neus en keel worden miljoenen griepvirussen gemaakt, maar op een deurklink doet een virus niets. Leeft een griepvirus?", "correct": 0, "explain": "Onthoud je keuze. Het antwoord zie je in hoofdstuk 3."},
   "q10": {"q": "Een onderzoeker telt rupsen en eiken, en meet ook de temperatuur en hoe nat de bodem is. Welk niveau onderzoekt ze?", "correct": 1, "explain": "Levensgemeenschap plus abiotische factoren (bodem, water, licht, temperatuur) = ecosysteem."}
