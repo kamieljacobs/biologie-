@@ -75,3 +75,9 @@ Reviewer: Claude (niet de maker), op een eigen bouw uit `bron/src/` (bouwstraat 
 9. Bewering 16 (hemolyse en crenatie) heeft nog één zelf geopende niveau A-bron; graag in Kamiels steekproef.
 
 Gevonden fouten staan in `films/logboek/fouten.jsonl` (gevonden_door `review`, 30 okt 2026).
+
+## Uitgevoerd 30 okt 2026 (versie 2.1, `films/UITVOEREN-CELLEN.md`)
+- Vraag 1: label s28 → 'isotonisch: zelfde osmotische waarde als je bloed' (stem blijft).
+- Open punten 2, 5, 6, 7: s09 volle cellen, s29 rustiger bodem, s31 kruis naast ATP, s35 nier uit de beeldbank.
+- s11 (badmintonveld) niet opnieuw ingesproken: klopt binnen de bronnen (Kamiel 30 okt 2026). Twijfelscènes blijven zoals gebouwd. Geen opname.
+

@@ -5,7 +5,7 @@
 | Bestand | films/cellen/diffusie-osmose/index.html (audio in films/cellen/diffusie-osmose/audio/) |
 | Reeks / nummer | Cel, film 1 van 3 ("Biologie bij Kamiel · reeks Cel · film 1 van 3"); film 2 = Celorganellen |
 | Doelgroep / niveau | havo + vwo met gelabelde vwo-blokken (Havo/Vwo-schakelaar; standaard Vwo). Vwo-blokken: gefaciliteerde diffusie (H4) en natrium-kaliumpomp (H6). Iso-/hypo-/hypertonisch staat op verzoek van Kamiel in het havo-deel |
-| Versie / datum | Versie 2.0 · 29 oktober 2026 (beeld-remake op prompt v13, takes behouden; zie "Versie 2.0" onderaan). Eerder: 1.2 · 16 oktober 2026 (in `oud/index-1.2.html`), 1.1 · 12 oktober 2026 |
+| Versie / datum | Versie 2.1 · 30 oktober 2026 (open punten: label s28, beeldpunten s09, s29, s31, s35; zie 'Wijzigingen 2.1' onderaan; versie 2.0 in `oud/index-2.0.html`). Versie 2.0 · 29 oktober 2026 (beeld-remake op prompt v13, takes behouden; zie "Versie 2.0" onderaan). Eerder: 1.2 · 16 oktober 2026 (in `oud/index-1.2.html`), 1.1 · 12 oktober 2026 |
 | Voldoet aan | prompt v13 (29 okt 2026, beeld-remake, takes behouden) |
 | Prompt | v13 |
 | Stem / model | Roos (ElevenLabs, model eleven_v4, voice_id 7qdUFMklKPaaAVMsBTBt), één take per segment; woordtijden met Scribe (eleven_scribe_v1) |
@@ -204,3 +204,13 @@ Per scène:
 Frisse beeldreview (30 okt 2026, versie blijft 2.0): elf scènes bijgesteld (tekstbalken niet meer over elkaar in s04/s20/s21, labels vrij van tekening en rand in s06, s11, s12, s14, s15, s22, s25, beeld gevuld vanaf t = 0 in s28) en de wandmaat en het longoppervlak in s11 en in het docentdeel naar de bronnen (± 0,001 mm; ± 70–130 m²). Stem en script ongewijzigd. Details en open punten: `opwaardering-v13.md` § Frisse beeldreview; bronnen: `bronnen.md` (tweede ronde).
 
 Getest: contactvellen van alle 24 scènes (elke 4 s) zelf bekeken, daarna gericht s05, s11, s22, s23, s29 opnieuw; geen JS-fouten; `checkcues.js` 0 fout; speler (havo 701 s / vwo 761 s, vragen uit 584 s, zoeken, q19 beantwoorden), telefoon 390 px zonder horizontaal scrollen; elke vraag met `?vragen=uit` (5 s ervoor tot 3 s erna: geen vraag- of antwoordtekst in beeld); vaste scripts (spelerfix, antwoordtekst, kortantwoord, antwoordletter met --check), flipkaarten, licentie_noot, teller.
+
+## Wijzigingen 2.1 (30 okt 2026, brief `films/UITVOEREN-CELLEN.md`; geen opname, 0 credits)
+
+- **s28**: label → 'isotonisch: zelfde osmotische waarde als je bloed' (was 'ongeveer even zout als je bloed'); de stem blijft.
+- **s09**: de twee cellen ('cel', 'twee keer zo dik') zijn volle `celRond`-cellen met organellen in plaats van lege ringen.
+- **s29**: rustiger bodem rond de wortel: 32 korrels op 28 % in plaats van 70 op 50 % (nieuwe opties `korrels`/`korrelA` van `wortelHaren`, alleen in de filmkopie `src/lib_bio.js` en het uittreksel `src/lib_bio_deel.js`; standaard gelijk aan de bibliotheek).
+- **s31**: het kruis staat naast het ATP-molecuul in plaats van eroverheen.
+- **s35**: de nier is `nierBijnier` uit de beeldbank (met bijnier, vaten en urineleider; urine loopt bij 'kwijt') in plaats van een ovaal met een hap. Uittreksel opnieuw gemaakt met `bio_deel.py … -- <vaste lijst> nierBijnier`.
+- Ingebouwd door alleen het scèneblok in `index.html` te vervangen (zelfde blok als `bouw/splice.py`; splice.py zelf verwacht nog de 1.2-versieregels). Versie in voettekst en eindkaart 2.1. Getest: stills van s09, s28, s29, s31, s35; `?vragen=uit` en aan zonder JS-fouten; afrondscripts met `--check`.
+

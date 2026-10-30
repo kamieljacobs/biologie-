@@ -152,7 +152,7 @@ s09(ctx,t,q){
         const u=((t/(long?6:1.2))%1); kleurstof(ctx,ix+20+len*u,by+30+Math.sin(t*9+k)*10,1.1,t*3); metaText(ctx,long?'lang: traag':'kort: snel',ix+20+len,by+4,C.grain,'right',26); } }
     ctx.restore(); });
   if(cellQ>0){ ctx.save(); ctx.globalAlpha=cellQ;
-    const c1=[620,480], c2=[1300,480]; for(const [c,r,lab] of [[c1,120,'cel'],[c2,240,'twee keer zo dik']]){ celRond(ctx,c[0],c[1],r,{t,organellen:false,seed:r}); ctx.beginPath(); ctx.arc(c[0],c[1],8,0,6.283); ctx.strokeStyle=C.goud; ctx.lineWidth=2.5; ctx.stroke(); metaText(ctx,lab,c[0],c[1]+r+50,C.grain,'center',26); }
+    const c1=[620,480], c2=[1300,480]; for(const [c,r,lab] of [[c1,120,'cel'],[c2,240,'twee keer zo dik']]){ celRond(ctx,c[0],c[1],r,{t,seed:r}); /* 2.1: volle cel (met organellen) i.p.v. lege ring */ ctx.beginPath(); ctx.arc(c[0],c[1],8,0,6.283); ctx.strokeStyle=C.goud; ctx.lineWidth=2.5; ctx.stroke(); metaText(ctx,lab,c[0],c[1]+r+50,C.grain,'center',26); }
     const oz=ramp(t,q.at('zuurstof'),0.5); if(oz>0){ for(const [c,r] of [[c1,120],[c2,240]]){ arrow(ctx,c[0]-r-110,c[1]-40,c[0]-14,c[1]-6,C.teal,4,18,oz); o2(ctx,c[0]-r-140,c[1]-46,1.2,oz); } ctx.save(); ctx.globalAlpha=oz; metaText(ctx,'zuurstof naar het midden',960,170,C.teal,'center',28); ctx.restore(); }
     ctx.restore(); }
 },
@@ -468,7 +468,7 @@ s28(ctx,t,q){
     const bx=700, by=420; ctx.fillStyle=rgba(C.bgSchema,0.9); ctx.fillRect(0,90,W,800); roundRect(ctx,bx-150,by-220,300,380,40); shape(ctx,rgba(C.teal,0.2),C.line,3); ctx.strokeStyle=C.line; ctx.lineWidth=4; ctx.beginPath(); ctx.moveTo(bx,by+160); ctx.lineTo(bx,by+300); ctx.quadraticCurveTo(bx,by+380,bx+160,by+400); ctx.stroke();
     text(ctx,'infuus',bx,by-140,fTekst(40,600),C.text,'center');
     const ng=ramp(t,q.at('negen'),0.5); if(ng>0){ ctx.save(); ctx.globalAlpha*=ng; text(ctx,'9 g zout',bx,by-40,fTitel(56),C.goud,'center'); metaText(ctx,'per liter',bx,by+6,C.grain,'center',26); ctx.restore(); }
-    const eb=ramp(t,q.at('bloed'),0.5); if(eb>0) pill(ctx,1340,330,'isotonisch: ongeveer even zout als je bloed',C.groen,eb,28);
+    const eb=ramp(t,q.at('bloed'),0.5); if(eb>0) pill(ctx,1340,330,'isotonisch: zelfde osmotische waarde als je bloed',C.groen,eb,28);
     const zw=ramp(t,q.at('Zuiver'),0.5); if(zw>0){ pill(ctx,1340,470,'zuiver water (hypotonisch): bloedcellen barsten',C.koraal,zw,26); bloedcelOsmose(ctx,1340,650,56,ramp(t,q.at('Zuiver'),0.6),0,ramp(t,q.at('barsten'),0.8),zw); }
     ctx.restore(); }
 },
@@ -478,7 +478,7 @@ s29(ctx,t,q,state){
   const ps=fadeIO(t,q.at('passief'),q.at('wortelhaarcel')+0.8,0.5); if(ps>0){ ctx.save(); ctx.globalAlpha=ps; pill(ctx,960,300,'passief transport',C.groen,1,40); metaText(ctx,(state&&state.niveau==='havo')?'diffusie · osmose':'diffusie · gefaciliteerde diffusie · osmose',960,390,C.grain,'center',26); metaText(ctx,'vanzelf, zonder energie van de cel',960,440,C.grain,'center',26); ctx.restore(); }
   const pre=1-ramp(t,q.at('passief')-0.2,0.5); if(pre>0){ ctx.save(); ctx.globalAlpha=pre; for(let k=0;k<12;k++){ const w=wander(k+1100,t,30,1.4); kleurstof(ctx,500+k*80+w.x,500+w.y,1.2,t+k); } arrow(ctx,700,620,1220,620,C.goud,6,24); metaText(ctx,'vanzelf: van hoog naar laag',960,690,C.grain,'center',26); ctx.restore(); }
   if(root>0){ ctx.save(); ctx.globalAlpha=root;
-    const WX=600, WY=470, WS=1.3; const A=wortelHaren(ctx,WX,WY,WS,{t,zoom:1,water:0});
+    const WX=600, WY=470, WS=1.3; const A=wortelHaren(ctx,WX,WY,WS,{t,zoom:1,water:0,korrels:32,korrelA:0.28}); /* 2.1: rustiger bodem (open punt frisse review) */
     // mineralen in de zoomcirkel: veel in de wortelhaarcel, weinig in de bodem eromheen
     const ZX=WX+180*WS, ZY=WY+110*WS, ZR=150*WS; ctx.save(); ctx.beginPath(); ctx.arc(ZX,ZY,ZR-3,0,6.283); ctx.clip();
     const HAAR=[[-52,0],[-10,-6],[40,-18],[60,-30],[160,-40]].map(p=>[ZX+p[0]*WS,ZY+p[1]*WS]);
@@ -504,7 +504,7 @@ s31(ctx,t,q){
   const tg=ramp(t,q.at('tegen'),0.5)*(1-stop); if(tg>0){ ctx.save(); ctx.globalAlpha=tg; metaText(ctx,'van weinig (buiten) naar veel (binnen):',pX+170,250,C.oker,'left',26); metaText(ctx,'tegen het concentratieverschil in',pX+170,290,C.oker,'left',26); ctx.restore(); }
   pill(ctx,960,150,'actief transport: kost ATP',C.koraal,ramp(t,q.at('actief'),0.5)*(1-ramp(t,q.at('Zonder')-0.35,0.3)),30);
   naamBij(ctx,'pomp','eiwit in het membraan',pX-125,my-100,ramp(t,q.at('pomp'),0.5)*(1-stop),'right');
-  if(stop>0){ atp(ctx,pX+200,my+170,stop,1.5,0,''); crossOut(ctx,pX+200,my+170,60,stop); pill(ctx,960,150,'geen ATP: de pomp staat stil',C.koraal,stop,30);
+  if(stop>0){ atp(ctx,pX+200,my+170,stop,1.5,0,''); crossOut(ctx,pX+400,my+170,42,stop); /* 2.1: kruis naast het ATP, niet erover */ pill(ctx,960,150,'geen ATP: de pomp staat stil',C.koraal,stop,30);
     const lk=ramp(t,q.at('lekken'),0.5); if(lk>0){ for(let k=0;k<3;k++){ const u=((t*0.25+k/3)%1); mineraalIon(ctx,lkX,lerp(720,230,u),1.3,lk*Math.min(1,u*6,(1-u)*6)); } ctx.save(); ctx.globalAlpha=lk; metaText(ctx,'lekt langzaam terug via een kanaal',lkX+80,300,C.grain,'left',26); ctx.restore(); } }
   scaleBar(ctx);
 },
@@ -592,7 +592,7 @@ s35(ctx,t,q){
   const k1=1-cellPart; if(k1>0){ ctx.save(); ctx.globalAlpha=k1;
     const bars=[['zeewater',3.5,C.goud],['bloed',0.9,C.bloed]]; bars.forEach((b,i)=>{ const y=200+i*110; const w=b[1]/3.5*900; roundRect(ctx,420,y,w*ramp(t,0.2+i*0.3,0.8),70,10); ctx.fillStyle=rgba(b[2],0.75); ctx.fill(); text(ctx,b[0],390,y+48,fTekst(34,600),C.text,'right'); metaText(ctx,(b[1]+'').replace('.',',')+' % zout',440+w,y+46,C.grain,'left',26); });
     pill(ctx,700,440,'ongeveer 4 × zo zout',C.goud,ramp(t,q.at('vier'),0.5),28);
-    const kd=ramp(t,q.at('nieren'),0.5); if(kd>0){ ctx.save(); ctx.globalAlpha*=kd; ctx.beginPath(); ctx.ellipse(700,620,110,150,0,0,6.2832); shape(ctx,'#9A4A4A',lighten('#9A4A4A',0.3),2); ctx.beginPath(); ctx.ellipse(815,620,48,58,0,0,6.2832); ctx.fillStyle=C.bgSchema; ctx.fill(); metaText(ctx,'nier',700,815,C.grain,'center',26); ctx.restore();
+    const kd=ramp(t,q.at('nieren'),0.5); if(kd>0){ ctx.save(); ctx.globalAlpha*=kd; nierBijnier(ctx,690,690,0.85,{t,urine:ramp(t,q.at('kwijt'),0.6)}); metaText(ctx,'nier',614,702,C.grain,'right',26); ctx.restore(); /* 2.1: nier uit de beeldbank (nierBijnier) i.p.v. ovaal met hap */
       pill(ctx,1180,560,'een plas kan niet zo zout worden als zeewater',C.text,kd*(1-ramp(t,q.at('kwijt'),0.4)),26); }
     const kw=ramp(t,q.at('kwijt'),0.5); if(kw>0){ arrow(ctx,820,700,1060,760,C.teal,8,26,kw); pill(ctx,1320,640,'om het zout kwijt te raken: extra water nodig',C.teal,kw,26); const mm=ramp(t,q.at('meer'),0.5); if(mm>0) pill(ctx,1320,760,'je plast meer water uit dan je dronk',C.koraal,mm,26); }
     ctx.restore(); }

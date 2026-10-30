@@ -68,6 +68,8 @@ Tweede ronde (frisse beeldreview, 30 okt 2026), twee `!` zelf opgelost (≥ 2 on
 - Bewering 5, beeldlabel s11: was 'ongeveer 0,0005 mm' (alleen het dunste deel, uit één B-bron) → nu 'ongeveer 0,001 mm'; docentdeel: 'wand ≈ 0,5 µm' → 'wand ≈ 0,5–1 µm (gemiddeld ± 1 µm, op de dunste plekken ± 0,5 µm)' (B11, B12, B10).
 - Bewering 7, beeldlabel s11: was 'samen ongeveer 70 m²' (rustte op niets: Ochs noemt het oppervlak niet) → nu 'samen ± 70–130 m²'; docentdeel: '50–100 m² (badmintonveld ≈ 82 m²)' → '≈ 70 m² (leerboekwaarde) tot ≈ 130 m² (meting met de elektronenmicroscoop), dus een badmintonveld (≈ 82 m²) is eerder een ondergrens', bron Weibel 2009 toegevoegd (B11, B12, B13, B14). De stem ('ongeveer zo groot als een badmintonveld') blijft: binnen het bereik en met 'ongeveer'. Voorstel voor Kamiel bij een volgende opname: 'ongeveer zo groot als een tennisveld' (enkelspel ≈ 196 m², Weibel: ¾ daarvan) of 'minstens een badmintonveld'.
 
+- Versie 2.1 (30 okt 2026), beeldlabel s28: was 'isotonisch: ongeveer even zout als je bloed' → nu 'isotonisch: zelfde osmotische waarde als je bloed' (keuze Kamiel 30 okt 2026; sluit aan op de definitie die de stem net gaf; stem ongewijzigd). Geen nieuwe bewering.
+
 ## Menselijke controle
 
 Nog niet gedaan. Voorstel voor Kamiels steekproef: beweringen 13 en 14 (de `≈` met een mechanisme of getal) en 7 (B11, het getal 130 m² in tabel 1).

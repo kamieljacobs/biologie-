@@ -8086,7 +8086,7 @@ function synapsEcht(ctx, x, y, s = 1, o = {}) {
 // o: a, t, water (0..1 waterdeeltjes), zoom (0..1), groei (0..1 wortels groeien uit), hi ('haren','penwortel','zijwortel')
 // =====================================================================================
 function wortelHaren(ctx, x, y, s = 1, o = {}) {
-  const { a = 1, t = 0, water = 0, zoom = 1, groei = 1, hi = null } = o;
+  const { a = 1, t = 0, water = 0, zoom = 1, groei = 1, hi = null, korrels = 70, korrelA = 0.5 } = o; // korrels/korrelA: Diffusie en osmose 2.1 (rustiger bodem, s29)
   const W = (px, py) => [x + px * s, y + py * s];
   const ZX = 180, ZY = 110, ZR = 150;
   const anker = { stengel: W(-130, -285), bodem: W(-300, -230), penwortel: W(-130, 120), zijwortel: W(-240, 10), haren: W(-30, 30), zoom: W(ZX, ZY - ZR), haarcel: W(ZX - 70, ZY + 50) };
@@ -8096,7 +8096,7 @@ function wortelHaren(ctx, x, y, s = 1, o = {}) {
   const dimF = k => (hi && hi !== k) ? 0.35 : 1;
   // bodem
   ctx.fillStyle = rgba(BODEM, 0.75); ctx.beginPath(); ctx.moveTo(-320, -250); for (let i = 0; i <= 16; i++) ctx.lineTo(-320 + i * 40, -250 + Math.sin(i * 1.7) * 4); ctx.lineTo(320, 300); ctx.lineTo(-320, 300); ctx.closePath(); ctx.fill();
-  ctx.fillStyle = rgba(KORREL, 0.5); for (let i = 0; i < 70; i++) { const px = -310 + hash(i) * 620, py = -235 + hash(i + 99) * 530; if (Math.hypot(px - ZX, py - ZY) < ZR + 6) continue; ctx.beginPath(); ctx.arc(px, py, 1.5 + hash(i + 7) * 3, 0, 6.283); ctx.fill(); }
+  ctx.fillStyle = rgba(KORREL, korrelA); for (let i = 0; i < korrels; i++) { const px = -310 + hash(i) * 620, py = -235 + hash(i + 99) * 530; if (Math.hypot(px - ZX, py - ZY) < ZR + 6) continue; ctx.beginPath(); ctx.arc(px, py, 1.5 + hash(i + 7) * 3, 0, 6.283); ctx.fill(); }
   // stengel met blaadjes boven de grond
   ctx.strokeStyle = C.groen; ctx.lineWidth = 9; ctx.beginPath(); ctx.moveTo(-130, -250); ctx.quadraticCurveTo(-134, -280, -128, -310); ctx.stroke();
   ctx.fillStyle = '#5FA86E'; for (const sd of [-1, 1]) { ctx.beginPath(); ctx.ellipse(-128 + sd * 26, -300, 26, 10, sd * -0.5, 0, 6.283); ctx.fill(); }
