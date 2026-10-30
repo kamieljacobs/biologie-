@@ -123,13 +123,13 @@ function anMuscles(a){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a;
   ctx.restore(); }
 
 // ---------- spijsvertering ----------
-const AN_SLOK=[[0.0,0.92],[0.01,1.3],[0.02,1.9],[0.06,2.4],[0.12,2.62]];
-const AN_MAAG=[[0.1,2.63],[0.26,2.54],[0.46,2.57],[0.58,2.72],[0.59,2.96],[0.48,3.14],[0.27,3.21],[0.06,3.16],[-0.07,3.07],[-0.06,2.99],[0.08,3.02],[0.22,2.99],[0.31,2.88],[0.27,2.74],[0.16,2.7]];
-const AN_LEVER=[[-0.67,2.6],[-0.4,2.5],[-0.12,2.53],[0.08,2.57],[0.2,2.62],[0.06,2.72],[-0.1,2.82],[-0.34,2.97],[-0.58,3.0],[-0.69,2.85]];
-const AN_ALV=[[-0.16,3.02],[-0.06,2.98],[0.18,2.95],[0.38,2.89],[0.52,2.87],[0.54,2.93],[0.38,2.98],[0.16,3.05],[-0.04,3.1],[-0.14,3.14]];
-const AN_DIK=[[-0.44,3.72],[-0.5,3.45],[-0.51,3.12],[-0.44,3.02],[-0.2,3.08],[0.1,3.1],[0.38,3.04],[0.52,3.02],[0.55,3.25],[0.53,3.6],[0.42,3.8],[0.2,3.74],[0.07,3.82],[0.0,3.98]];
-function anDunPts(){ const P=[[-0.06,3.04],[-0.17,3.1],[-0.18,3.22],[0.02,3.22]]; const rows=5; for(let r=0;r<rows;r++){ const y=3.28+r*0.095, dir=r%2?-1:1; for(let k=0;k<=6;k++){ const u=k/6; P.push([dir*(-0.34+0.68*u),y+Math.sin(u*Math.PI*3)*0.025]); } } P.push([-0.38,3.72],[-0.44,3.7]); return P; }
-const AN_GUT=()=>{ const d=anDunPts(); return [[0,0.8],[0,0.95]].concat(AN_SLOK.slice(1)).concat([[0.25,2.72],[0.38,2.82],[0.36,3.0],[0.15,3.08]]).concat(d.slice(0)).concat(AN_DIK.slice(1)); };
+const AN_SLOK=[[0.0,0.92],[0.01,1.3],[0.02,1.9],[0.06,2.2],[0.12,2.37]];
+const AN_MAAG=[[0.1,2.38],[0.26,2.29],[0.46,2.32],[0.58,2.47],[0.59,2.71],[0.48,2.89],[0.27,2.96],[0.06,2.91],[-0.07,2.82],[-0.06,2.74],[0.08,2.77],[0.22,2.74],[0.31,2.63],[0.27,2.49],[0.16,2.45]];
+const AN_LEVER=[[-0.67,2.3],[-0.4,2.2],[-0.12,2.23],[0.08,2.27],[0.2,2.32],[0.06,2.42],[-0.1,2.52],[-0.34,2.67],[-0.58,2.7],[-0.69,2.55]];
+const AN_ALV=[[-0.16,2.79],[-0.06,2.75],[0.18,2.72],[0.38,2.66],[0.52,2.64],[0.54,2.7],[0.38,2.75],[0.16,2.82],[-0.04,2.87],[-0.14,2.91]];
+const AN_DIK=[[-0.44,3.72],[-0.5,3.42],[-0.52,3.05],[-0.46,2.84],[-0.22,2.98],[0.1,3.04],[0.38,2.92],[0.54,2.76],[0.57,3.05],[0.54,3.5],[0.42,3.8],[0.2,3.74],[0.07,3.82],[0.0,3.98]];
+function anDunPts(){ const P=[[-0.06,2.76],[-0.18,2.84],[-0.2,3.02],[0.02,3.1]]; const rows=5; for(let r=0;r<rows;r++){ const y=3.16+r*0.1, dir=r%2?-1:1; for(let k=0;k<=6;k++){ const u=k/6; P.push([dir*(-0.34+0.68*u),y+Math.sin(u*Math.PI*3)*0.025]); } } P.push([-0.38,3.66],[-0.44,3.7]); return P; }
+const AN_GUT=()=>{ const d=anDunPts(); return [[0,0.8],[0,0.95]].concat(AN_SLOK.slice(1)).concat([[0.25,2.47],[0.38,2.57],[0.36,2.75],[0.15,2.83]]).concat(d.slice(0)).concat(AN_DIK.slice(1)); };
 function anTube(pts,w,col,colS,t=0,amp=0){ const HH=AHH(); const P=anDense(pts,Math.max(60,pts.length*10)); ctx.save(); ctx.lineCap='round'; ctx.lineJoin='round';
   ctx.strokeStyle=colS; ctx.lineWidth=w*HH+3; ctx.beginPath(); P.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1])); ctx.stroke();
   if(amp>0){ for(let i=1;i<P.length;i++){ const k=1+amp*Math.sin(i*0.35-t*4); ctx.strokeStyle=col; ctx.lineWidth=w*HH*k; ctx.beginPath(); ctx.moveTo(P[i-1][0],P[i-1][1]); ctx.lineTo(P[i][0],P[i][1]); ctx.stroke(); } }
@@ -143,21 +143,21 @@ function anDigest(a,t=0){ if(a<=0.01) return; const HH=AHH(); ctx.save(); ctx.gl
   // dunne darm: kronkelende buis
   anTube(anDunPts(),0.065,ANA.darm,ANA.darmS,t,0.06);
   // maag met plooien
-  anShape(AN_MAAG,ANA.maag,ANA.maagS,2); ctx.save(); ctx.globalAlpha*=0.5; anLine([[0.2,2.62],[0.38,2.7],[0.45,2.9]],ANA.maagS,1.5); anLine([[0.12,3.06],[0.3,3.05],[0.42,2.98]],ANA.maagS,1.5); ctx.restore();
+  anShape(AN_MAAG,ANA.maag,ANA.maagS,2); ctx.save(); ctx.globalAlpha*=0.5; anLine([[0.2,2.37],[0.38,2.45],[0.45,2.65]],ANA.maagS,1.5); anLine([[0.12,2.81],[0.3,2.8],[0.42,2.73]],ANA.maagS,1.5); ctx.restore();
   ctx.restore(); }
-function liver(a,g=0){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; anShape(AN_LEVER,ANA.lever,ANA.leverL,2,true,g); ctx.globalAlpha*=0.6; anLine([[0.05,2.56],[-0.02,2.7],[-0.1,2.84]],ANA.leverL,1.5); anShape([[-0.3,2.9],[-0.22,2.92],[-0.2,3.02],[-0.28,3.02]],ANA.gal,null); ctx.restore(); }
-function pancreas(a,g=0){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; anShape(AN_ALV,ANA.alv,'#C99E58',1.5,true,g); ctx.globalAlpha*=0.5; for(let k=0;k<7;k++){ const [x,y]=AP(-0.08+k*0.08,3.02-k*0.017); dot(ctx,x,y,1.8,'#C99E58'); } ctx.restore(); }
-function spleen(a,g=0){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; anShape([[0.5,2.68],[0.6,2.62],[0.68,2.75],[0.66,2.98],[0.57,2.98],[0.55,2.84]],ANA.milt,'#9A5470',1.5,true,g); ctx.restore(); }
+function liver(a,g=0){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; anShape(AN_LEVER,ANA.lever,ANA.leverL,2,true,g); ctx.globalAlpha*=0.6; anLine([[0.05,2.26],[-0.02,2.4],[-0.1,2.54]],ANA.leverL,1.5); anShape([[-0.3,2.6],[-0.22,2.62],[-0.2,2.72],[-0.28,2.72]],ANA.gal,null); ctx.restore(); }
+function pancreas(a,g=0){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; anShape(AN_ALV,ANA.alv,'#C99E58',1.5,true,g); ctx.globalAlpha*=0.5; for(let k=0;k<7;k++){ const [x,y]=AP(-0.08+k*0.08,2.79-k*0.017); dot(ctx,x,y,1.8,'#C99E58'); } ctx.restore(); }
+function spleen(a,g=0){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; anShape([[0.5,2.46],[0.6,2.4],[0.68,2.53],[0.66,2.76],[0.57,2.76],[0.55,2.62]],ANA.milt,'#9A5470',1.5,true,g); ctx.restore(); }
 function mouth(a){ if(a<=0.01) return; const HH=AHH(); ctx.save(); ctx.globalAlpha*=a; anGlow(C.oker,a); const [x,y]=AP(0,0.82); ctx.beginPath(); ctx.ellipse(x,y,0.11*HH,0.045*HH,0,0,6.283); ctx.fillStyle='#7A2E30'; ctx.fill(); ctx.shadowBlur=0; ctx.beginPath(); ctx.ellipse(x,y+0.012*HH,0.06*HH,0.025*HH,0,0,6.283); ctx.fillStyle='#D9787A'; ctx.fill(); ctx.fillStyle='#F4EFE4'; ctx.fillRect(x-0.08*HH,y-0.045*HH,0.16*HH,0.022*HH); ctx.restore(); }
 
 // ---------- ademhaling ----------
-const AN_LONG_R=[[-0.24,1.48],[-0.42,1.6],[-0.6,1.9],[-0.69,2.28],[-0.7,2.62],[-0.55,2.68],[-0.34,2.62],[-0.14,2.55],[-0.1,2.2],[-0.11,1.8],[-0.16,1.56]];
-const AN_LONG_L=[[0.24,1.48],[0.42,1.6],[0.6,1.9],[0.69,2.28],[0.7,2.64],[0.55,2.7],[0.38,2.68],[0.3,2.5],[0.2,2.32],[0.12,2.02],[0.12,1.76],[0.17,1.56]];
+const AN_LONG_R=[[-0.24,1.48],[-0.42,1.6],[-0.6,1.9],[-0.69,2.24],[-0.7,2.5],[-0.55,2.5],[-0.34,2.42],[-0.14,2.36],[-0.1,2.15],[-0.11,1.8],[-0.16,1.56]];
+const AN_LONG_L=[[0.24,1.48],[0.42,1.6],[0.6,1.9],[0.69,2.24],[0.7,2.52],[0.55,2.52],[0.38,2.46],[0.3,2.36],[0.2,2.22],[0.12,2.02],[0.12,1.76],[0.17,1.56]];
 function anLungs(a,breath=0,g=0){ if(a<=0.01) return; const HH=AHH(); ctx.save(); ctx.globalAlpha*=a; const k=1+0.06*Math.sin(breath);
   for(const [L,s] of [[AN_LONG_R,-1],[AN_LONG_L,1]]){ const [ox,oy]=AP(s*0.4,1.75); ctx.save(); ctx.translate(ox,oy); ctx.scale(k,1+0.07*Math.sin(breath)); ctx.translate(-ox,-oy);
     anShape(L,ANA.long,ANA.longS,2,true,g);
-    ctx.save(); anPath(ctx,APs(L)); ctx.clip(); ctx.globalAlpha*=0.35; for(let i=0;i<40;i++){ const [x,y]=AP(s*(0.18+hash(i*3.1+s)*0.5),1.6+hash(i*5.7+s)*1.05); dot(ctx,x,y,1.6+hash(i)*2.2,ANA.longS); } ctx.restore();
-    ctx.save(); ctx.globalAlpha*=0.7; s<0?anLine([[-0.68,2.05],[-0.4,2.15],[-0.18,2.3]],ANA.longS,1.5):anLine([[0.66,1.95],[0.4,2.2],[0.24,2.45]],ANA.longS,1.5); if(s<0) anLine([[-0.65,2.42],[-0.4,2.5]],ANA.longS,1.5); ctx.restore();
+    ctx.save(); anPath(ctx,APs(L)); ctx.clip(); ctx.globalAlpha*=0.35; for(let i=0;i<40;i++){ const [x,y]=AP(s*(0.18+hash(i*3.1+s)*0.5),1.6+hash(i*5.7+s)*0.9); dot(ctx,x,y,1.6+hash(i)*2.2,ANA.longS); } ctx.restore();
+    ctx.save(); ctx.globalAlpha*=0.7; s<0?anLine([[-0.68,2.05],[-0.4,2.15],[-0.2,2.3]],ANA.longS,1.5):anLine([[0.66,1.95],[0.4,2.15],[0.27,2.3]],ANA.longS,1.5); if(s<0) anLine([[-0.67,1.86],[-0.4,1.92]],ANA.longS,1.5); ctx.restore();
     // vertakkende luchtwegen
     ctx.save(); ctx.globalAlpha*=0.8; const b0=[s*0.06,1.85]; const tree=(p,ang,len,d)=>{ if(d>3) return; const q=[p[0]+Math.cos(ang)*len*s,p[1]+Math.sin(ang)*len]; anLine([p,q],ANA.lucht,(0.035-d*0.007)*HH); tree(q,ang-0.45,len*0.66,d+1); tree(q,ang+0.45,len*0.66,d+1); }; tree(b0,0.75,0.24,0); ctx.restore();
     ctx.restore(); }
@@ -170,7 +170,7 @@ const AN_SLAG={ aorta:[[0.04,2.02],[0.02,1.84],[0.1,1.76],[0.17,1.84],[0.1,2.05]
   hals:s=>[[s*0.06,1.82],[s*0.09,1.4],[s*0.12,1.0],[s*0.2,0.78],[s*0.28,0.5],[s*0.24,0.28]],
   arm:s=>[[s*0.12,1.8],[s*0.42,1.58],[s*0.82,1.68],[s*0.92,2.2],[s*1.0,2.85],[s*1.08,3.42],[s*1.16,4.02],[s*1.26,4.48]],
   been:s=>[[s*0.04,3.38],[s*0.2,3.66],[s*0.34,3.96],[s*0.37,4.62],[s*0.34,5.22],[s*0.31,5.82],[s*0.3,6.52],[s*0.32,7.02],[s*0.4,7.22]],
-  nier:s=>[[s*0.05,3.06],[s*0.26,3.06]] };
+  nier:s=>[[s*0.05,2.86],[s*0.26,2.86]] };
 const AN_ADER={ hol:[[-0.09,2.06],[-0.09,1.74],[-0.12,1.4],[-0.16,0.98],[-0.24,0.7]], holO:[[-0.04,2.3],[-0.05,2.9],[-0.02,3.38]], hals2:[[0.12,1.74],[0.16,1.4],[0.18,0.98],[0.24,0.7]],
   arm:s=>[[s*0.1,1.74],[s*0.46,1.64],[s*0.86,1.76],[s*0.96,2.28],[s*1.05,2.88],[s*1.13,3.44],[s*1.21,4.02],[s*1.3,4.44]],
   been:s=>[[s*0.0,3.4],[s*0.15,3.72],[s*0.27,4.0],[s*0.3,4.62],[s*0.27,5.22],[s*0.25,5.82],[s*0.24,6.52],[s*0.26,7.02],[s*0.33,7.24]] };
@@ -208,7 +208,7 @@ function anImpulses(t,a){ if(a<=0.01) return; const HH=AHH(); ctx.save(); ctx.gl
 function eyes(a){ if(a<=0.01) return; const HH=AHH(); ctx.save(); ctx.globalAlpha*=a; for(const s of [-1,1]){ const [x,y]=AP(s*0.15,0.5); ctx.save(); anGlow(C.teal,1); ctx.strokeStyle=C.teal; ctx.lineWidth=3; ctx.beginPath(); ctx.ellipse(x,y,0.1*HH,0.065*HH,0,0,6.283); ctx.stroke(); ctx.restore(); } anLine([[-0.15,0.5],[-0.06,0.5],[0,0.52]],C.teal,1.5,false,[4,4]); anLine([[0.15,0.5],[0.06,0.5],[0,0.52]],C.teal,1.5,false,[4,4]); ctx.restore(); }
 
 // ---------- uitscheiding ----------
-function anKidney(s,a=1,g=0){ const cx=s*0.37, cy=s<0?3.1:3.04;
+function anKidney(s,a=1,g=0){ const cx=s*0.37, cy=s<0?2.9:2.84;
   // nier: bolle kant naar buiten, inham (hilus) naar het midden
   const P=[[0,-0.15],[0.09,-0.12],[0.12,0.0],[0.09,0.12],[0,0.15],[-0.06,0.1],[-0.035,0.0],[-0.06,-0.1]].map(p=>[cx+p[0]*s,cy+p[1]]);
   anShape(P,ANA.nier,ANA.nierL,1.8,true,g); ctx.save(); ctx.globalAlpha*=0.5; anShape([[cx+0.04*s,cy-0.09],[cx+0.07*s,cy],[cx+0.04*s,cy+0.09],[cx-0.0*s,cy]],ANA.nierL,null); ctx.restore(); }
@@ -217,8 +217,8 @@ function anUrinary(a,t=0,flow=0,g=0){ if(a<=0.01) return; const HH=AHH(); ctx.sa
   anShape([[0,3.72],[0.14,3.76],[0.17,3.88],[0.08,3.97],[0,3.98],[-0.08,3.97],[-0.17,3.88],[-0.14,3.76]],ANA.blaas,'#C9A84E',1.8,true,g);
   if(flow>0.01){ ctx.save(); ctx.globalAlpha*=flow; for(const s of [-1,1]){ const P=anDense(AN_URL(s),30); for(let i=0;i<3;i++){ const u=((t*0.45+i/3+(s>0?0.15:0))%1); const [x,y]=anAlong(P,u); dot(ctx,x,y,0.022*HH,ANA.urine); } } ctx.restore(); }
   ctx.restore(); }
-function AN_URL(s){ return [[s*0.31,3.08],[s*0.24,3.3],[s*0.2,3.6],[s*0.12,3.78]]; }
-function anAdrenal(a){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; for(const s of [-1,1]){ const cx=s*0.37, cy=(s<0?3.1:3.04)-0.17; anShape([[cx-0.07,cy+0.03],[cx,cy-0.05],[cx+0.07,cy+0.03]],ANA.klier,'#B88A2A',1.2); } ctx.restore(); }
+function AN_URL(s){ return [[s*0.31,2.88],[s*0.24,3.2],[s*0.2,3.55],[s*0.12,3.78]]; }
+function anAdrenal(a){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; for(const s of [-1,1]){ const cx=s*0.37, cy=(s<0?2.9:2.84)-0.17; anShape([[cx-0.07,cy+0.03],[cx,cy-0.05],[cx+0.07,cy+0.03]],ANA.klier,'#B88A2A',1.2); } ctx.restore(); }
 
 // ---------- afweer ----------
 const AN_LYMF=[[-0.15,1.12],[0.15,1.12],[-0.2,1.22],[0.2,1.22],[-0.72,1.86],[-0.66,1.92],[-0.74,1.95],[0.72,1.86],[0.66,1.92],[0.74,1.95],[-0.3,3.86],[-0.36,3.92],[0.3,3.86],[0.36,3.92],[0.12,3.4],[-0.1,3.46],[0.02,3.3]];
@@ -263,5 +263,6 @@ function bodyOrgans(o={}){ const A=k=>o[k]===undefined?0:o[k]; const t=o.t||0; c
   anLymph(A('afweer'),t);
   anGlands(A('hormoon'));
 }
+// mens = vaste personage uit het castboek in plaats van het oude poppetje (Kamiel 20 okt 2026)
 // hulpje uit film 2b (anatomie gebruikt dot)
 function dot(ctx,x,y,r,fill,stroke,lw=1.2){ ctx.beginPath(); ctx.arc(x,y,r,0,6.2832); ctx.fillStyle=fill; ctx.fill(); if(stroke){ ctx.strokeStyle=stroke; ctx.lineWidth=lw; ctx.stroke(); } }
