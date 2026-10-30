@@ -6,10 +6,10 @@
   "look": "Macro-dag: keuken; Noor haalt een vergeten broodtrommel uit haar schooltas en houdt hem een eindje van zich af, Teun (6) kijkt van een armlengte afstand; deksel open: groen en wit pluis op de boterham; label 'een week vergeten'",
   "level": "basis",
   "lines": [
-   "Noors broodtrommel, een week vergeten in haar tas. Op de boterham zit groen en wit pluis. Teun kijkt mee. 'Er groeit een plantje!' Wat groeit hier, en hoe kwam het in een dichte trommel? Wat denk je?"
+   "Een leerling vindt haar broodtrommel terug, een week vergeten in haar tas. Op de boterham zit groen en wit pluis. Haar broertje kijkt mee. 'Er groeit een plantje!' Wat groeit hier, en hoe kwam het in een dichte trommel? Wat denk je?"
   ],
-  "display": "Noors broodtrommel, een week vergeten in haar tas. Op de boterham zit groen en wit pluis. Teun kijkt mee. 'Er groeit een plantje!' Wat groeit hier, en hoe kwam het in een dichte trommel? Wat denk je?",
-  "voice": "Noors broodtrommel, een week vergeten in haar tas. Op de boterham zit groen en wit pluis. Teun kijkt mee. 'Er groeit een plantje!' Wat groeit hier, en hoe kwam het in een dichte trommel? Wat denk je?",
+  "display": "Een leerling vindt haar broodtrommel terug, een week vergeten in haar tas. Op de boterham zit groen en wit pluis. Haar broertje kijkt mee. 'Er groeit een plantje!' Wat groeit hier, en hoe kwam het in een dichte trommel? Wat denk je?",
+  "voice": "Een leerling vindt haar broodtrommel terug, een week vergeten in haar tas. Op de boterham zit groen en wit pluis. Haar broertje kijkt mee. 'Er groeit een plantje!' Wat groeit hier, en hoe kwam het in een dichte trommel? Wat denk je?",
   "vmap": [
    0,
    1,
@@ -47,7 +47,12 @@
    33,
    34,
    35,
-   36
+   36,
+   37,
+   38,
+   39,
+   40,
+   41
   ]
  },
  {
@@ -125,10 +130,10 @@
   "look": "Macro: practicumlokaal; Mevrouw Visser en Noor aan de labtafel; drie dichte zakjes op een rij met labels 'droog · kamertemperatuur', 'nat · kamertemperatuur', 'nat · koelkast'; plakband om elk zakje, icoon 'dicht laten'; tijdbalk zonder dagen ('later', 'nog later') waarop de plekken groeien, het natte zakje op kamertemperatuur het snelst; label 'in deze proef'; tot slot een terugblik: brood uit de oven, sporen (vergroot) die bij afkoelen en snijden neerdwarrelen",
   "level": "basis",
   "lines": [
-   "Mevrouw Visser, Noors biologiedocent, zet er een proef voor op. Drie sneetjes brood, elk in een dicht zakje. Eén droog, twee nat. Eén nat zakje gaat in de koelkast. 'En ze blijven dicht,' zegt mevrouw Visser. 'Je kijkt door het plastic.' Welk sneetje schimmelt het eerst? Wat denk je?"
+   "De biologiedocent zet er een proef voor op. Drie sneetjes brood, elk in een dicht zakje. Eén droog, twee nat. Eén nat zakje gaat in de koelkast. 'En ze blijven dicht,' zegt de docent. 'Je kijkt door het plastic.' Welk sneetje schimmelt het eerst? Wat denk je?"
   ],
-  "display": "Mevrouw Visser, Noors biologiedocent, zet er een proef voor op. Drie sneetjes brood, elk in een dicht zakje. Eén droog, twee nat. Eén nat zakje gaat in de koelkast. 'En ze blijven dicht,' zegt mevrouw Visser. 'Je kijkt door het plastic.' Welk sneetje schimmelt het eerst? Wat denk je?",
-  "voice": "Mevrouw Visser, Noors biologiedocent, zet er een proef voor op. Drie sneetjes brood, elk in een dicht zakje. Eén droog, twee nat. Eén nat zakje gaat in de koelkast. 'En ze blijven dicht,' zegt mevrouw Visser. 'Je kijkt door het plastic.' Welk sneetje schimmelt het eerst? Wat denk je?",
+  "display": "De biologiedocent zet er een proef voor op. Drie sneetjes brood, elk in een dicht zakje. Eén droog, twee nat. Eén nat zakje gaat in de koelkast. 'En ze blijven dicht,' zegt de docent. 'Je kijkt door het plastic.' Welk sneetje schimmelt het eerst? Wat denk je?",
+  "voice": "De biologiedocent zet er een proef voor op. Drie sneetjes brood, elk in een dicht zakje. Eén droog, twee nat. Eén nat zakje gaat in de koelkast. 'En ze blijven dicht,' zegt de docent. 'Je kijkt door het plastic.' Welk sneetje schimmelt het eerst? Wat denk je?",
   "vmap": [
    0,
    1,
@@ -176,9 +181,7 @@
    43,
    44,
    45,
-   46,
-   47,
-   48
+   46
   ]
  },
  {
@@ -395,10 +398,10 @@
   "look": "Macro → Micro: zoomcirkel door het plastic op de groene plek; het mycelium vertakt zich ook ónder het oppervlak, het brood in; een hyfe met kernen en een celwand (label 'chitine'), schaalbalk 10 µm; enzymen gaan de hyfe uit, kleine stoffen gaan erin; een steeltje met zwart sporenzakje naast een steeltje met sporen in kettinkjes; daarna een gistcel met een knop, schaalbalk 5 µm, en belletjes in deeg; dan Macro-dag: tuin met een paddenstoel, Teun ernaast met tekenblok, doorsnede van de grond met draden",
   "level": "basis",
   "lines": [
-   "Op Noors boterham zitten maar een paar plekken. Kan ze die eraf snijden? Wat denk je?"
+   "Op de boterham zitten maar een paar plekken. Kun je die eraf snijden? Wat denk je?"
   ],
-  "display": "Op Noors boterham zitten maar een paar plekken. Kan ze die eraf snijden? Wat denk je?",
-  "voice": "Op Noors boterham zitten maar een paar plekken. Kan ze die eraf snijden? Wat denk je?",
+  "display": "Op de boterham zitten maar een paar plekken. Kun je die eraf snijden? Wat denk je?",
+  "voice": "Op de boterham zitten maar een paar plekken. Kun je die eraf snijden? Wat denk je?",
   "vmap": [
    0,
    1,
@@ -425,7 +428,7 @@
   "level": "basis",
   "options": [
    "ja, de rest van het brood is nog schoon",
-   "ja, als ze er ruim omheen snijdt",
+   "ja, als je er ruim omheen snijdt",
    "nee, de draden zitten ook dieper in het brood"
   ]
  },
@@ -539,10 +542,10 @@
   "look": "Macro → Micro: zoomcirkel door het plastic op de groene plek; het mycelium vertakt zich ook ónder het oppervlak, het brood in; een hyfe met kernen en een celwand (label 'chitine'), schaalbalk 10 µm; enzymen gaan de hyfe uit, kleine stoffen gaan erin; een steeltje met zwart sporenzakje naast een steeltje met sporen in kettinkjes; daarna een gistcel met een knop, schaalbalk 5 µm, en belletjes in deeg; dan Macro-dag: tuin met een paddenstoel, Teun ernaast met tekenblok, doorsnede van de grond met draden",
   "level": "basis",
   "lines": [
-   "Teun dacht aan een plantje. In de tuin staat een paddenstoel, en Teun tekent hem. Wat is dat eigenlijk? Wat denk je?"
+   "Het broertje dacht aan een plantje. In de tuin staat een paddenstoel, en hij tekent hem. Wat is dat eigenlijk? Wat denk je?"
   ],
-  "display": "Teun dacht aan een plantje. In de tuin staat een paddenstoel, en Teun tekent hem. Wat is dat eigenlijk? Wat denk je?",
-  "voice": "Teun dacht aan een plantje. In de tuin staat een paddenstoel, en Teun tekent hem. Wat is dat eigenlijk? Wat denk je?",
+  "display": "Het broertje dacht aan een plantje. In de tuin staat een paddenstoel, en hij tekent hem. Wat is dat eigenlijk? Wat denk je?",
+  "voice": "Het broertje dacht aan een plantje. In de tuin staat een paddenstoel, en hij tekent hem. Wat is dat eigenlijk? Wat denk je?",
   "vmap": [
    0,
    1,
@@ -565,7 +568,8 @@
    18,
    19,
    20,
-   21
+   21,
+   22
   ]
  },
  {
@@ -640,10 +644,10 @@
   "look": "Schema: drie dichte petrischalen met labels 'dicht gebleven', 'vingers', 'lucht'; Noor drukt haar vingertoppen op schaaltje twee, Mevrouw Visser legt meteen het deksel erop; deksel met vier stukjes plakband, schaal ondersteboven, label 'kamertemperatuur'; daarna op het vingerschaaltje glanzende puntjes, het eerste bijna leeg; zoomcirkel in één puntje → een bacterie in doorsnede (DNA-ring, plasmiden, ribosomen, celmembraan, celwand, zweepdraad), labels 'model' en 'E. coli', schaalbalk 1 µm, naast de rand van een lichaamscel voor de maat; simulatie tweedeling met teller 1 → 2 → 4 → 8 en een grafiek die meetekent en afvlakt; labels 'als niets het tegenhoudt' en 'voedsel op, afval erbij'",
   "level": "basis",
   "lines": [
-   "Dan drie schaaltjes met een voedingsbodem: een laagje met voedingsstoffen. Het eerste blijft dicht. Op het tweede drukt Noor haar ongewassen vingers. Het derde staat tien minuten open in het lokaal."
+   "Dan drie schaaltjes met een voedingsbodem: een laagje met voedingsstoffen. Het eerste blijft dicht. Op het tweede drukt een leerling haar ongewassen vingers. Het derde staat tien minuten open in het lokaal."
   ],
-  "display": "Dan drie schaaltjes met een voedingsbodem: een laagje met voedingsstoffen. Het eerste blijft dicht. Op het tweede drukt Noor haar ongewassen vingers. Het derde staat tien minuten open in het lokaal.",
-  "voice": "Dan drie schaaltjes met een voedingsbodem: een laagje met voedingsstoffen. Het eerste blijft dicht. Op het tweede drukt Noor haar ongewassen vingers. Het derde staat tien minuten open in het lokaal.",
+  "display": "Dan drie schaaltjes met een voedingsbodem: een laagje met voedingsstoffen. Het eerste blijft dicht. Op het tweede drukt een leerling haar ongewassen vingers. Het derde staat tien minuten open in het lokaal.",
+  "voice": "Dan drie schaaltjes met een voedingsbodem: een laagje met voedingsstoffen. Het eerste blijft dicht. Op het tweede drukt een leerling haar ongewassen vingers. Het derde staat tien minuten open in het lokaal.",
   "vmap": [
    0,
    1,
@@ -675,7 +679,8 @@
    27,
    28,
    29,
-   30
+   30,
+   31
   ]
  },
  {
@@ -979,10 +984,10 @@
   "look": "Schema: Noor met een zakdoek, een leeg schaaltje met een rood kruis en label 'niet op school'; zoomcirkel: griepvirus (eiwitmantel, RNA, envelop) en een kleiner verkoudheidsvirus naast het uiteinde van een E. coli, op schaal; schaalladder lichaamscel 10–100 µm · gistcel 5 µm · hyfe 5–10 µm · E. coli 2 µm · griepvirus 100 nm · verkoudheidsvirus 30 nm, met de grens van de lichtmicroscoop bij 0,2 µm; tot slot een bacterie met celwand en ribosomen goud gemarkeerd, naast een virus zonder",
   "level": "basis",
   "lines": [
-   "Noor is verkouden, en verkoudheid komt door virussen. 'Niezen op een schaaltje doen we niet,' zegt mevrouw Visser. 'In een nies kunnen ziekteverwekkers zitten.' Stel dat ze het toch deed. Groeien haar virussen dan op de voedingsbodem? Wat denk je?"
+   "De leerling is verkouden, en verkoudheid komt door virussen. 'Niezen op een schaaltje doen we niet,' zegt de docent. 'In een nies kunnen ziekteverwekkers zitten.' Stel dat ze het toch deed. Groeien haar virussen dan op de voedingsbodem? Wat denk je?"
   ],
-  "display": "Noor is verkouden, en verkoudheid komt door virussen. 'Niezen op een schaaltje doen we niet,' zegt mevrouw Visser. 'In een nies kunnen ziekteverwekkers zitten.' Stel dat ze het toch deed. Groeien haar virussen dan op de voedingsbodem? Wat denk je?",
-  "voice": "Noor is verkouden, en verkoudheid komt door virussen. 'Niezen op een schaaltje doen we niet,' zegt mevrouw Visser. 'In een nies kunnen ziekteverwekkers zitten.' Stel dat ze het toch deed. Groeien haar virussen dan op de voedingsbodem? Wat denk je?",
+  "display": "De leerling is verkouden, en verkoudheid komt door virussen. 'Niezen op een schaaltje doen we niet,' zegt de docent. 'In een nies kunnen ziekteverwekkers zitten.' Stel dat ze het toch deed. Groeien haar virussen dan op de voedingsbodem? Wat denk je?",
+  "voice": "De leerling is verkouden, en verkoudheid komt door virussen. 'Niezen op een schaaltje doen we niet,' zegt de docent. 'In een nies kunnen ziekteverwekkers zitten.' Stel dat ze het toch deed. Groeien haar virussen dan op de voedingsbodem? Wat denk je?",
   "vmap": [
    0,
    1,
@@ -1023,7 +1028,8 @@
    36,
    37,
    38,
-   39
+   39,
+   40
   ]
  },
  {
@@ -1166,10 +1172,10 @@
   "look": "Schema: Noor met een zakdoek, een leeg schaaltje met een rood kruis en label 'niet op school'; zoomcirkel: griepvirus (eiwitmantel, RNA, envelop) en een kleiner verkoudheidsvirus naast het uiteinde van een E. coli, op schaal; schaalladder lichaamscel 10–100 µm · gistcel 5 µm · hyfe 5–10 µm · E. coli 2 µm · griepvirus 100 nm · verkoudheidsvirus 30 nm, met de grens van de lichtmicroscoop bij 0,2 µm; tot slot een bacterie met celwand en ribosomen goud gemarkeerd, naast een virus zonder",
   "level": "basis",
   "lines": [
-   "Noor wil een antibioticum tegen haar verkoudheid. Helpt dat? Wat denk je?"
+   "De leerling wil een antibioticum tegen haar verkoudheid. Helpt dat? Wat denk je?"
   ],
-  "display": "Noor wil een antibioticum tegen haar verkoudheid. Helpt dat? Wat denk je?",
-  "voice": "Noor wil een antibioticum tegen haar verkoudheid. Helpt dat? Wat denk je?",
+  "display": "De leerling wil een antibioticum tegen haar verkoudheid. Helpt dat? Wat denk je?",
+  "voice": "De leerling wil een antibioticum tegen haar verkoudheid. Helpt dat? Wat denk je?",
   "vmap": [
    0,
    1,
@@ -1182,7 +1188,8 @@
    8,
    9,
    10,
-   11
+   11,
+   12
   ]
  },
  {
@@ -1253,10 +1260,10 @@
   "look": "Macro-dag: keuken, Noor laat Teun op haar telefoon een foto van de schaaltjes zien, Teun trekt een vies gezicht; Schema: silhouet van Noor met kaartje 'bacteriën ≈ eigen cellen (schatting, het jaar 2016)'; het beschimmelde sneetje in een kringloop (dode resten → stoffen → plant); klaverwortel met knolletjes, stikstof uit de lucht de knol in, suikers (oker) terug; voet met schimmel tussen de tenen; oker kaartje yoghurt; het kweekbakje van Fleming met een schimmelplek en een lege kring eromheen, label 'het jaar 1928'; tot slot de indeling (alleen beeld, blijft staan tijdens de laatste zin): prokaryoten (bacteriën) en eukaryoten (schimmels, planten, dieren), het virus apart erbuiten",
   "level": "basis",
   "lines": [
-   "Thuis laat Noor Teun een foto van haar schaaltjes zien. 'Bah, bacteriën! Daar word je ziek van.' Volgens een schatting uit het jaar 2016 leven in en op je lichaam ongeveer evenveel bacteriën als je zelf cellen hebt. Wat zegt dat? Wat denk je?"
+   "Thuis laat de leerling haar broertje een foto van de schaaltjes zien. 'Bah, bacteriën! Daar word je ziek van.' Volgens een schatting uit het jaar 2016 leven in en op je lichaam ongeveer evenveel bacteriën als je zelf cellen hebt. Wat zegt dat? Wat denk je?"
   ],
-  "display": "Thuis laat Noor Teun een foto van haar schaaltjes zien. 'Bah, bacteriën! Daar word je ziek van.' Volgens een schatting uit het jaar 2016 leven in en op je lichaam ongeveer evenveel bacteriën als je zelf cellen hebt. Wat zegt dat? Wat denk je?",
-  "voice": "Thuis laat Noor Teun een foto van haar schaaltjes zien. 'Bah, bacteriën! Daar word je ziek van.' Volgens een schatting uit het jaar 2016 leven in en op je lichaam ongeveer evenveel bacteriën als je zelf cellen hebt. Wat zegt dat? Wat denk je?",
+  "display": "Thuis laat de leerling haar broertje een foto van de schaaltjes zien. 'Bah, bacteriën! Daar word je ziek van.' Volgens een schatting uit het jaar 2016 leven in en op je lichaam ongeveer evenveel bacteriën als je zelf cellen hebt. Wat zegt dat? Wat denk je?",
+  "voice": "Thuis laat de leerling haar broertje een foto van de schaaltjes zien. 'Bah, bacteriën! Daar word je ziek van.' Volgens een schatting uit het jaar 2016 leven in en op je lichaam ongeveer evenveel bacteriën als je zelf cellen hebt. Wat zegt dat? Wat denk je?",
   "vmap": [
    0,
    1,
@@ -1301,7 +1308,9 @@
    40,
    41,
    42,
-   43
+   43,
+   44,
+   45
   ]
  },
  {
@@ -1521,10 +1530,10 @@
   "look": "Macro-dag: terug naar de keuken en de open trommel; de lagen van het verhaal schuiven er als dunne overlays overheen: sporen die neerdwarrelen, hyfen het brood in, sporen bovenop in kleur; een paar bacteriekolonies erbij; een virusje dat er los naast blijft liggen; Noor gooit de boterham weg en spoelt de trommel om, Teun houdt zijn tekening omhoog van een paddenstoel met draden eronder; in het lokaal gaan de dichte broodzakjes in de afvalbak en de schaaltjes in een autoclaafzak",
   "level": "basis",
   "lines": [
-   "Terug naar Noors trommel. Wat groeide erop? Een schimmel. Uit sporen uit de lucht, die al op het brood zaten toen het deksel dichtging. In de vochtige trommel groeiden ze uit tot hyfen, diep het brood in. Misschien groeiden er ook bacteriën, door tweedeling. Virussen niet: die hebben een gastheercel nodig. Noor gooit de hele boterham weg. Teun tekent een paddenstoel, met draden eronder."
+   "Terug naar de broodtrommel. Wat groeide erop? Een schimmel. Uit sporen uit de lucht, die al op het brood zaten toen het deksel dichtging. In de vochtige trommel groeiden ze uit tot hyfen, diep het brood in. Misschien groeiden er ook bacteriën, door tweedeling. Virussen niet: die hebben een gastheercel nodig. De leerling gooit de hele boterham weg. Haar broertje tekent een paddenstoel, met draden eronder."
   ],
-  "display": "Terug naar Noors trommel. Wat groeide erop? Een schimmel. Uit sporen uit de lucht, die al op het brood zaten toen het deksel dichtging. In de vochtige trommel groeiden ze uit tot hyfen, diep het brood in. Misschien groeiden er ook bacteriën, door tweedeling. Virussen niet: die hebben een gastheercel nodig. Noor gooit de hele boterham weg. Teun tekent een paddenstoel, met draden eronder.",
-  "voice": "Terug naar Noors trommel. Wat groeide erop? Een schimmel. Uit sporen uit de lucht, die al op het brood zaten toen het deksel dichtging. In de vochtige trommel groeiden ze uit tot hyfen, diep het brood in. Misschien groeiden er ook bacteriën, door tweedeling. Virussen niet: die hebben een gastheercel nodig. Noor gooit de hele boterham weg. Teun tekent een paddenstoel, met draden eronder.",
+  "display": "Terug naar de broodtrommel. Wat groeide erop? Een schimmel. Uit sporen uit de lucht, die al op het brood zaten toen het deksel dichtging. In de vochtige trommel groeiden ze uit tot hyfen, diep het brood in. Misschien groeiden er ook bacteriën, door tweedeling. Virussen niet: die hebben een gastheercel nodig. De leerling gooit de hele boterham weg. Haar broertje tekent een paddenstoel, met draden eronder.",
+  "voice": "Terug naar de broodtrommel. Wat groeide erop? Een schimmel. Uit sporen uit de lucht, die al op het brood zaten toen het deksel dichtging. In de vochtige trommel groeiden ze uit tot hyfen, diep het brood in. Misschien groeiden er ook bacteriën, door tweedeling. Virussen niet: die hebben een gastheercel nodig. De leerling gooit de hele boterham weg. Haar broertje tekent een paddenstoel, met draden eronder.",
   "vmap": [
    0,
    1,
@@ -1589,7 +1598,9 @@
    60,
    61,
    62,
-   63
+   63,
+   64,
+   65
   ]
  },
  {

@@ -1,0 +1,162 @@
+{
+ "datum": "2026-10-30",
+ "reden": "castnamen uit stem en ondertitel (bovenbouw, Kamiel 27 okt 2026; films/UITVOEREN-CELLEN.md keuze 2)",
+ "flow": "kO7iyMMW8o3LRIcNr06S",
+ "voice": "7qdUFMklKPaaAVMsBTBt",
+ "model": "eleven_v4",
+ "generations_count": 1,
+ "uitspraakregels": "films/uitspraak.json: geen regel van toepassing",
+ "stukken": [
+  {
+   "id": "s01",
+   "alinea": "s01",
+   "stem_invoer": "Een leerling vindt haar broodtrommel terug, een week vergeten in haar tas. Op de boterham zit groen en wit pluis. Haar broertje kijkt mee.",
+   "was": "Noors broodtrommel, een week vergeten in haar tas. Op de boterham zit groen en wit pluis. Teun kijkt mee.",
+   "generation_id": "j8hf6CmEbn5VTUnQ9UPK",
+   "session_id": "4lDf7vlTo7IliZJ5ZGrt",
+   "credits": 138,
+   "in_take": [
+    0.0,
+    8.47
+   ],
+   "gain_db": -0.7,
+   "luister": "microben-s01-luister.mp3"
+  },
+  {
+   "id": "s05",
+   "alinea": "s05",
+   "stem_invoer": "De biologiedocent zet er een proef voor op. Drie sneetjes brood, elk in een dicht zakje. Eén droog, twee nat. Eén nat zakje gaat in de koelkast. 'En ze blijven dicht,' zegt de docent.",
+   "was": "Mevrouw Visser, Noors biologiedocent, zet er een proef voor op. Drie sneetjes brood, elk in een dicht zakje. Eén droog, twee nat. Eén nat zakje gaat in de koelkast. 'En ze blijven dicht,' zegt mevrouw Visser.",
+   "generation_id": "RtZV9ZfnrKSlPCV1Tv5Q",
+   "session_id": "9K5wWnyoLTnhvFCRf94J",
+   "credits": 183,
+   "in_take": [
+    0.0,
+    12.71
+   ],
+   "gain_db": -1.1,
+   "luister": "microben-s05-luister.mp3"
+  },
+  {
+   "id": "s11",
+   "alinea": "s11",
+   "stem_invoer": "Op de boterham zitten maar een paar plekken. Kun je die eraf snijden?",
+   "was": "Op Noors boterham zitten maar een paar plekken. Kan ze die eraf snijden?",
+   "generation_id": "UaZkMcjhQXIzq3KlPAiS",
+   "session_id": "a5BFsQbetAiSsrbw1xS9",
+   "credits": 69,
+   "in_take": [
+    0.0,
+    3.91
+   ],
+   "gain_db": -1.5,
+   "luister": "microben-s11-luister.mp3"
+  },
+  {
+   "id": "s15",
+   "alinea": "s15",
+   "stem_invoer": "Het broertje dacht aan een plantje. In de tuin staat een paddenstoel, en hij tekent hem.",
+   "was": "Teun dacht aan een plantje. In de tuin staat een paddenstoel, en Teun tekent hem.",
+   "generation_id": "XMUlYhNr6FSQsZ6xtL8G",
+   "session_id": "ZoeMqR4G4yvTuQV7Jq4x",
+   "credits": 88,
+   "in_take": [
+    0.0,
+    5.28
+   ],
+   "gain_db": -1.6,
+   "luister": "microben-s15-luister.mp3"
+  },
+  {
+   "id": "s18",
+   "alinea": "s18",
+   "stem_invoer": "Op het tweede drukt een leerling haar ongewassen vingers.",
+   "was": "Op het tweede drukt Noor haar ongewassen vingers.",
+   "generation_id": "NwfCeqHb7lSsOXd2EHWw",
+   "session_id": "xX9dpSnw6IdIUPB6Qw7B",
+   "credits": 57,
+   "in_take": [
+    6.41,
+    9.93
+   ],
+   "gain_db": -0.1,
+   "luister": "microben-s18-luister.mp3"
+  },
+  {
+   "id": "s26",
+   "alinea": "s26",
+   "stem_invoer": "De leerling is verkouden, en verkoudheid komt door virussen. 'Niezen op een schaaltje doen we niet,' zegt de docent.",
+   "was": "Noor is verkouden, en verkoudheid komt door virussen. 'Niezen op een schaaltje doen we niet,' zegt mevrouw Visser.",
+   "generation_id": "zT2hXtjtrxkcgdssdDtw",
+   "session_id": "Oxb2uxODleOEeraoISKz",
+   "credits": 116,
+   "in_take": [
+    0.0,
+    7.19
+   ],
+   "gain_db": -0.1,
+   "luister": "microben-s26-luister.mp3"
+  },
+  {
+   "id": "s30",
+   "alinea": "s30",
+   "stem_invoer": "De leerling wil een antibioticum tegen haar verkoudheid.",
+   "was": "Noor wil een antibioticum tegen haar verkoudheid.",
+   "generation_id": "WwfHRw7x1sB52ktNL87k",
+   "session_id": "oLnf5NoT2fKuRkFi4Rql",
+   "credits": 56,
+   "in_take": [
+    0.0,
+    3.33
+   ],
+   "gain_db": -2.2,
+   "luister": "microben-s30-luister.mp3"
+  },
+  {
+   "id": "s33",
+   "alinea": "s33",
+   "stem_invoer": "Thuis laat de leerling haar broertje een foto van de schaaltjes zien.",
+   "was": "Thuis laat Noor Teun een foto van haar schaaltjes zien.",
+   "generation_id": "wMSJZn4sCTpcv0xWNm3h",
+   "session_id": "qn4rjgQ8Z84EgQvhdHNr",
+   "credits": 69,
+   "in_take": [
+    0.0,
+    3.64
+   ],
+   "gain_db": -0.2,
+   "luister": "microben-s33-luister.mp3"
+  },
+  {
+   "id": "s39a",
+   "alinea": "s39",
+   "stem_invoer": "Terug naar de broodtrommel.",
+   "was": "Terug naar Noors trommel.",
+   "generation_id": "HUySt1vL9AldzCNXo3Yi",
+   "session_id": "vRK3TyN3VdIEm2MX5tji",
+   "credits": 27,
+   "in_take": [
+    0.0,
+    1.51
+   ],
+   "gain_db": -2.0,
+   "luister": "microben-s39a-luister.mp3"
+  },
+  {
+   "id": "s39b",
+   "alinea": "s39",
+   "stem_invoer": "De leerling gooit de hele boterham weg. Haar broertje tekent een paddenstoel, met draden eronder.",
+   "was": "Noor gooit de hele boterham weg. Teun tekent een paddenstoel, met draden eronder.",
+   "generation_id": "6VdxmBmoXHoCIvcu7YqE",
+   "session_id": "JqaMwIsdhdIfE7yd3gGj",
+   "credits": 97,
+   "in_take": [
+    19.36,
+    25.57
+   ],
+   "gain_db": -1.5,
+   "luister": "microben-s39b-luister.mp3"
+  }
+ ],
+ "credits_totaal": 900
+}

@@ -5,12 +5,12 @@
 | Bestand | `films/cellen/microben.html` (audio in `microben/audio/`) |
 | Reeks | Cellen · losse film bij Biologie voor jou havo 4 § 4.2 Bacteriën, virussen en schimmels |
 | Niveau | havo 4 (één niveau) |
-| Versie | 1.1 · oktober 2026 (1.0 = 26 oktober 2026, script v2; 1.1 = 29 oktober 2026, opwaardering naar prompt v13) |
+| Versie | 1.2 · oktober 2026 (1.0 = 26 oktober 2026, script v2; 1.1 = 29 oktober 2026, opwaardering naar prompt v13; 1.2 = 30 oktober 2026, castnamen uit stem en ondertitel) |
 | Prompt | v13 |
 | Voldoet aan | prompt v13 (29 okt 2026, zonder keuring; zie 'Versie 1.1' en `opwaardering-v13.md`) |
-| Stem | Roos (ElevenLabs eleven_v4), één take per alinea; generation-id's in `stem/gen.json`, sessies in `stem/sessions.json`; blinde uitspraakcheck in `stem/transcriptcheck.md` |
-| Duur | spraak 7:12 (432 s); met vragen en kaarten ± 9 min |
-| Beeldstijl | Schema (keuken, practicumlokaal) met cast (Noor, Teun, Mevrouw Visser); Micro in zoomcirkels (hyfen, bacterie, virus, schaalladder); Macro-dag alleen bij de paddenstoel. Schimmel teal-grijs (groen = plant); bacterie sinds 1.1 als beeldbankcel (oker wand, grijs DNA) |
+| Stem | Roos (ElevenLabs eleven_v4), één take per alinea; generation-id's in `stem/gen.json`, sessies in `stem/sessions.json`; sinds 1.2 negen takes met een geplakt stuk (stem-invoer en credits in `stem/herinspreek-2026-10-30.json`, luisterfragmenten `stem/microben-<alinea>-luister.mp3`) |
+| Duur | spraak 7:10 (430 s); met vragen en kaarten ± 9 min |
+| Beeldstijl | Schema (keuken, practicumlokaal) met cast (Noor, Teun, Mevrouw Visser; sinds 1.2 zonder naam in stem, ondertitel en tekst: 'een leerling', 'haar broertje', 'de docent'); Micro in zoomcirkels (hyfen, bacterie, virus, schaalladder); Macro-dag alleen bij de paddenstoel. Schimmel teal-grijs (groen = plant); bacterie sinds 1.1 als beeldbankcel (oker wand, grijs DNA) |
 | Bouwvorm | FILMDATA-straat (`bron/src` + `bron/bouw`), werkwijze in `films/vervolg/BOUWEN.md` |
 | Medaillon | `img/kunst/films/microben.webp` (los medaillon, ElevenLabs-flow JjEYm3AOoxNDs3o3VI8L) |
 | Herkomst | gemaakt door Claude, 26 okt 2026, spec `films/cellen/microben/BRIEF.md`, raadsel B (vergeten boterham). Werkwijze prompt v10: 4 scriptvarianten via dobbelsteen (werk/script_A–D) + blinde beoordelaar (werk/blind/, nipt → combinatie) → v1 → frisse bronnen- en scriptreview (reviews/review_v1.md) → v2 → storyboard; twijfelscènes gekeurd door Kamiel (artifact https://claude.ai/artifact/8BmLhCo7ufjEUFa1s8yhTK) → opname → frisse beeldreview (reviews/review_beeld.md), alle MOET-punten verwerkt |
@@ -66,6 +66,13 @@ Alleen wijzigingen die volgen uit regels die Kamiel al gaf; stem, script, takes,
 - s14 en schaalladder (s29): gistcel = `schimmelGist` (wand, vacuole, kern, knoplitteken); label 'knop' hoger.
 - s18, s19, s26, s28 en telefoon (s33): petrischaal = `petrischaal` (3/4-aanzicht, agar, kolonies als bultjes, deksel, plakband als aparte laag). s38 (Fleming, remmingszone) blijft bewust bovenaanzicht (`miSchaalBoven`).
 - Niet aangeraakt: personages (lib_cast alleen bijgewerkt), schimmel/hyfe/brood-tekeningen (geen betere beeldbankversie die dezelfde scène draagt), microscoop (niet in de film).
+
+## Versie 1.2 (30 okt 2026, castnamen eruit; Kamiel 27 okt 2026, `films/UITVOEREN-CELLEN.md` keuze 2)
+Oude versie: `bron/oud/microben-1.1.html`. 'Voldoet aan' blijft prompt v13; datum in index.html blijft.
+- Stem: in s01, s05, s11, s15, s18, s26, s30, s33 en s39 alleen de zinnen met een naam opnieuw ingesproken (Roos, eleven_v4, één generatie per stuk, flow kO7iyMMW8o3LRIcNr06S) en in de bestaande take geplakt op een stilte, met korte crossfade en luidheid gelijkgetrokken (stukken die >1 dB afweken). Credits: s01 138, s05 183, s11 69, s15 88, s18 57, s26 116, s30 56, s33 69, s39 27 + 97 = **900**. Woordtijden: oude tijden behouden, het nieuwe stuk met silalign.
+- Tekst: Noor → 'een leerling'/'de leerling', Teun → 'haar broertje'/'het broertje', mevrouw Visser → 'de biologiedocent'/'de docent'; s11 'Kan ze die eraf snijden?' → 'Kun je die eraf snijden?'. Ook `segments.json`, `script_v2.md`, `script.md`, q02, q12 (+ optie b 'als je er ruim omheen snijdt'), q27, q31, lead, docentdeel (opbouw) en footer ('Personages uit het castboek').
+- Beeld: cue in s01 van 'Teun' naar 'broertje' (wijsgebaar); personages blijven in beeld. Geen andere beeldwijziging. `bron/src/scenes.js` opnieuw samengesteld (bevatte nog een oudere lib_bio-kop).
+- Getest: cuecheck, Vragen uit per gewijzigde alinea (knip in stilte; s01 en s05 knippen zoals vóór 1.2 ook de geciteerde zin vóór de vraag mee, omdat de speler een zin na een citaat niet splitst), contactvel van de gewijzigde scènes.
 
 ## Aandachtspunten
 - Veiligheid: de film laat níét op een schaaltje niezen (gedachte-experiment); kweken alleen vingers/lucht bij kamertemperatuur, dicht met plakband, verhitten vóór afvoer (MISAC, Practical Biology).

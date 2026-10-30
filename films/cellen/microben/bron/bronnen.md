@@ -189,6 +189,7 @@ Nog geen script. Voor de scriptschrijvers alvast, t.o.v. de brief en de opdracht
 | 'Saprofyt' niet gebruiken, wel 'reducent' (B22) | begrippen | meegegeven |
 | Uitspraak: geen woordenboek kunnen openen; eigen voorstel op de wachtlijst | `bron/uitspraak.md` | open |
 | Tweede A-bron zoeken voor 1.5 (herbesmetting na bakken), 2.13 (vertering buiten de cel), 9.3 (gist in brood) | — | open, geen haast |
+| Versie 1.2 (30 okt 2026): castnamen (Noor, Teun, mevrouw Visser) uit stem, ondertitels, vraagkaarten en footer; vervangen door 'een leerling', 'haar broertje', 'de (biologie)docent'. Geen inhoudelijke bewering gewijzigd, statussen blijven | s01, s05, s11, s15, s18, s26, s30, s33, s39; q02, q12, q27, q31 | uitgevoerd |
 
 ## Menselijke controle
 

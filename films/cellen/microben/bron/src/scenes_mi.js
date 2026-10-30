@@ -67,7 +67,7 @@ Object.assign(SCENES, {
     zoomCircle(ctx, 960, 300, 210, 960, TAFEL - 30, '', q.on('pluis', 1, 0.8), () => { binnen(ctx, 960, 300, 210, 'schema'); trommelBrood(ctx, 960, 300, 330, 1, 1); });
     metaA(ctx, 'EEN WEEK VERGETEN', 960, 480, q.on('vergeten', 1) * (1 - q.on('pluis', 1)), C.goud, 'center'); metaA(ctx, 'VERGROOT', 1190, 310, q.on('pluis', 1), C.grain, 'left', 24);
     noor(ctx, 1420, t, { uit: q.on('pluis', 1) > 0.5 ? 'verbaasd' : 'neutraal' });
-    teun(ctx, 540, t, { uit: q.on('plantje', 1) > 0.5 ? 'blij' : 'neutraal', pose: q.on('Teun', 1) > 0.5 ? 'wijs' : 'staan' });
+    teun(ctx, 540, t, { uit: q.on('plantje', 1) > 0.5 ? 'blij' : 'neutraal', pose: q.on('broertje', 1) > 0.5 ? 'wijs' : 'staan' });
     bubbel(ctx, 380, 330, 'Er groeit een plantje!', C.text, q.on('plantje', 1));
     vraagteken(ctx, 1240, 500, q.on('dichte', 1), 80); },
   // ---------- H1 Drie zakjes ----------

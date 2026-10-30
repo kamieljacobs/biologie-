@@ -50,3 +50,12 @@ Zie `info.md` onder 'Versie 1.1'. Per scène:
 | s38 | bovenaanzicht blijft (eigen `miSchaalBoven`), verder ongewijzigd |
 
 Bewust niet gewijzigd: script, takes, woordtijden, vragen, timings, speler, REVIEW en datum in index.html. Alle 104 contactstills van de nieuwe en de oude versie zijn pixel voor pixel vergeleken: alleen de hierboven genoemde scènes veranderden (37 stills in 13 scènes); de rest is identiek.
+
+## Uitgevoerd 30 okt 2026 (versie 1.2)
+
+Kamiel (27 okt 2026, keuze 2 in `films/UITVOEREN-CELLEN.md`): namen eruit, personages blijven in beeld. Vraag 1 en 2 hierboven zijn daarmee beantwoord; vraag 3 (oker bacterie) blijft zo.
+- Stem: in de negen alinea's van lijst (a) alleen de zinnen met een naam opnieuw ingesproken en in de bestaande take geplakt (10 stukken, s39 in twee delen), 900 credits; zie `stem/herinspreek-2026-10-30.json`.
+- Vervangers: Noor → 'een leerling' / 'de leerling', Teun → 'haar broertje' / 'het broertje' / 'hij', mevrouw Visser → 'de biologiedocent' / 'de docent'; s11 'Kan ze die eraf snijden?' → 'Kun je die eraf snijden?' (ook q12 en optie b).
+- Vraagkaarten q02, q12, q27, q31, de inleiding (lead), het docentdeel (opbouw cold open en H1) en de footer zonder castnamen.
+- Beeld: alleen de cue van het broertje in s01 (`q.on('broertje')`); verder geen beeldwijziging.
+

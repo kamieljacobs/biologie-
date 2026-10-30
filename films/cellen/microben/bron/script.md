@@ -1,14 +1,16 @@
-# Wat groeit er op je boterham? — gesproken tekst (1.0 · oktober 2026)
+# Wat groeit er op je boterham? — gesproken tekst (1.2 · oktober 2026)
 
 Stem Roos (7qdUFMklKPaaAVMsBTBt), ElevenLabs eleven_v4, één take per alinea, flow 72BpB2IW9VtNVwssrRto. Audio: `../audio/<id>.mp3`; woordtijden: `stem/woordtijden/<id>.json` (silalign). Stem-invoer staat erbij waar die afwijkt van de ondertitel.
 
+Versie 1.2 (30 okt 2026): in s01, s05, s11, s15, s18, s26, s30, s33 en s39 zijn de zinnen met een castnaam opnieuw ingesproken (flow kO7iyMMW8o3LRIcNr06S, eleven_v4, één generatie per stuk) en in de bestaande take geplakt; stem-invoer, generation-id's en credits in `stem/herinspreek-2026-10-30.json`. De generation hieronder is die van de oorspronkelijke take.
+
 ## Cold open
 
-**s01** · audio `s01.mp3` · 13.7 s · generation `R5vWHEXpt6ATlXfiuAea`
+**s01** · audio `s01.mp3` · 14.5 s · generation `R5vWHEXpt6ATlXfiuAea` · geplakt 30 okt: `j8hf6CmEbn5VTUnQ9UPK` (0.0–8.5 s)
 
-Noors broodtrommel, een week vergeten in haar tas. Op de boterham zit groen en wit pluis. Teun kijkt mee. 'Er groeit een plantje!' Wat groeit hier, en hoe kwam het in een dichte trommel? Wat denk je?
+Een leerling vindt haar broodtrommel terug, een week vergeten in haar tas. Op de boterham zit groen en wit pluis. Haar broertje kijkt mee. 'Er groeit een plantje!' Wat groeit hier, en hoe kwam het in een dichte trommel? Wat denk je?
 
-**q02** · vraag: Op Noors boterham zit groen en wit pluis, en de trommel was dicht. Hoe kwam het daar?
+**q02** · vraag: Op de boterham zit groen en wit pluis, en de trommel was dicht. Hoe kwam het daar?
 - a) het ontstond vanzelf uit het oude brood
 - b) het landde als sporen uit de lucht  ✓
 - c) het kroop later door een kier naar binnen
@@ -25,9 +27,9 @@ Antwoord b. Het pluis is een schimmel. Hij groeide uit sporen: piepkleine cellen
 
 _Stem-invoer:_ Antwoord bé. Het pluis is een schimmel. Hij groeide uit sporen: piepkleine cellen waaruit een nieuwe schimmel groeit. Die sporen zweven overal in de lucht, binnen en buiten. Schimmel ontstaat dus niet vanzelf uit oud brood.
 
-**s05** · audio `s05.mp3` · 19.9 s · generation `1dyRjuBLn9pI78imYiC0`
+**s05** · audio `s05.mp3` · 18.0 s · generation `1dyRjuBLn9pI78imYiC0` · geplakt 30 okt: `RtZV9ZfnrKSlPCV1Tv5Q` (0.0–12.7 s)
 
-Mevrouw Visser, Noors biologiedocent, zet er een proef voor op. Drie sneetjes brood, elk in een dicht zakje. Eén droog, twee nat. Eén nat zakje gaat in de koelkast. 'En ze blijven dicht,' zegt mevrouw Visser. 'Je kijkt door het plastic.' Welk sneetje schimmelt het eerst? Wat denk je?
+De biologiedocent zet er een proef voor op. Drie sneetjes brood, elk in een dicht zakje. Eén droog, twee nat. Eén nat zakje gaat in de koelkast. 'En ze blijven dicht,' zegt de docent. 'Je kijkt door het plastic.' Welk sneetje schimmelt het eerst? Wat denk je?
 
 **q06** · vraag: Drie dichte zakjes: droog, nat, nat in de koelkast. Welk sneetje schimmelt het eerst?
 - a) het droge, op kamertemperatuur
@@ -54,13 +56,13 @@ Zoom door het plastic in op de groene plek. Je ziet schimmeldraden: hyfen, zo'n 
 
 In de hyfen zitten kernen: een schimmel is een eukaryoot, net als jij. In de celwand zit chitine, geen cellulose zoals bij planten. De hyfen scheiden enzymen uit. Zo verteert de schimmel het brood buiten zijn cellen. Daarna neemt hij de opgeloste stoffen op.
 
-**s11** · audio `s11.mp3` · 5.4 s · generation `hn74Z9DRRyTTi1O8hdpy`
+**s11** · audio `s11.mp3` · 4.9 s · generation `hn74Z9DRRyTTi1O8hdpy` · geplakt 30 okt: `UaZkMcjhQXIzq3KlPAiS` (0.0–3.9 s)
 
-Op Noors boterham zitten maar een paar plekken. Kan ze die eraf snijden? Wat denk je?
+Op de boterham zitten maar een paar plekken. Kun je die eraf snijden? Wat denk je?
 
-**q12** · vraag: Op de boterham zitten maar een paar plekken. Kan Noor die eraf snijden?
+**q12** · vraag: Op de boterham zitten maar een paar plekken. Kun je die eraf snijden?
 - a) ja, de rest van het brood is nog schoon
-- b) ja, als ze er ruim omheen snijdt
+- b) ja, als je er ruim omheen snijdt
 - c) nee, de draden zitten ook dieper in het brood  ✓
 
 **s13** · audio `s13.mp3` · 17.4 s · generation `AWKeHZwiEwKQDKF8qs4L`
@@ -75,9 +77,9 @@ Er zat ook een schimmel ín het brood: gist. Gist is eencellig en plant zich voo
 
 _Stem-invoer:_ Er zat ook een schimmel ín het brood: gist. Gist is eencellig en plant zich voort door knopvorming. In het deeg maakte gist belletjes koolstofdie-oxide. Zo rees het deeg.
 
-**s15** · audio `s15.mp3` · 7.8 s · generation `tpegYb7Gt0LvJb3LX7I1`
+**s15** · audio `s15.mp3` · 7.7 s · generation `tpegYb7Gt0LvJb3LX7I1` · geplakt 30 okt: `XMUlYhNr6FSQsZ6xtL8G` (0.0–5.3 s)
 
-Teun dacht aan een plantje. In de tuin staat een paddenstoel, en Teun tekent hem. Wat is dat eigenlijk? Wat denk je?
+Het broertje dacht aan een plantje. In de tuin staat een paddenstoel, en hij tekent hem. Wat is dat eigenlijk? Wat denk je?
 
 **q16** · vraag: In de tuin staat een paddenstoel. Wat is dat?
 - a) het vruchtlichaam van een schimmel in de grond  ✓
@@ -92,9 +94,9 @@ _Stem-invoer:_ Antwoord aa. Een paddenstoel is het vruchtlichaam van een schimme
 
 ## Hoofdstuk 3 — Puntjes op de voedingsbodem
 
-**s18** · audio `s18.mp3` · 12.5 s · generation `vr97UF1ru8gOQLTGmYbj`
+**s18** · audio `s18.mp3` · 12.8 s · generation `vr97UF1ru8gOQLTGmYbj` · geplakt 30 okt: `NwfCeqHb7lSsOXd2EHWw` (6.4–9.9 s)
 
-Dan drie schaaltjes met een voedingsbodem: een laagje met voedingsstoffen. Het eerste blijft dicht. Op het tweede drukt Noor haar ongewassen vingers. Het derde staat tien minuten open in het lokaal.
+Dan drie schaaltjes met een voedingsbodem: een laagje met voedingsstoffen. Het eerste blijft dicht. Op het tweede drukt een leerling haar ongewassen vingers. Het derde staat tien minuten open in het lokaal.
 
 **s19** · audio `s19.mp3` · 8.6 s · generation `fq52tst5L1cRWDvHhZ2g`
 
@@ -132,11 +134,11 @@ _Stem-invoer:_ Antwoord cee. Na twintig minuten twee, dan vier, dan acht. Na een
 
 ## Hoofdstuk 4 — Een nies? Liever niet
 
-**s26** · audio `s26.mp3` · 15.4 s · generation `bIQXtg6fCO2JqtzpCNH4`
+**s26** · audio `s26.mp3` · 15.4 s · generation `bIQXtg6fCO2JqtzpCNH4` · geplakt 30 okt: `zT2hXtjtrxkcgdssdDtw` (0.0–7.2 s)
 
-Noor is verkouden, en verkoudheid komt door virussen. 'Niezen op een schaaltje doen we niet,' zegt mevrouw Visser. 'In een nies kunnen ziekteverwekkers zitten.' Stel dat ze het toch deed. Groeien haar virussen dan op de voedingsbodem? Wat denk je?
+De leerling is verkouden, en verkoudheid komt door virussen. 'Niezen op een schaaltje doen we niet,' zegt de docent. 'In een nies kunnen ziekteverwekkers zitten.' Stel dat ze het toch deed. Groeien haar virussen dan op de voedingsbodem? Wat denk je?
 
-**q27** · vraag: Stel dat Noor op een schaaltje niest. Groeien haar verkoudheidsvirussen dan op de voedingsbodem?
+**q27** · vraag: Stel dat de leerling op een schaaltje niest. Groeien haar verkoudheidsvirussen dan op de voedingsbodem?
 - a) ja, een virus is gewoon een heel kleine bacterie
 - b) nee, er zijn daar geen menselijke cellen om in te groeien  ✓
 - c) nee, in een dichte schaal komt geen verse lucht
@@ -153,11 +155,11 @@ Een virus is geen cel. Het is dus ook geen kleine bacterie. Het heeft geen cytop
 
 _Stem-invoer:_ Een virus is geen cel. Het is dus ook geen kleine bacterie. Het heeft geen cytoplasma en geen ribosomen. Het is een eiwitmantel met DNA óf er-en-aa erin. Een griepvirus heeft daaromheen nog een vliesje: een envelop. Het is zo'n honderd nanometer, een verkoudheidsvirus zo'n dertig. Een E. coli is tientallen keren zo lang. Virussen zie je daarom bijna altijd alleen met een elektronenmicroscoop.
 
-**s30** · audio `s30.mp3` · 5.0 s · generation `Lz3TE8l9o2Req8Rt03uP`
+**s30** · audio `s30.mp3` · 5.3 s · generation `Lz3TE8l9o2Req8Rt03uP` · geplakt 30 okt: `WwfHRw7x1sB52ktNL87k` (0.0–3.3 s)
 
-Noor wil een antibioticum tegen haar verkoudheid. Helpt dat? Wat denk je?
+De leerling wil een antibioticum tegen haar verkoudheid. Helpt dat? Wat denk je?
 
-**q31** · vraag: Noor wil een antibioticum tegen haar verkoudheid. Helpt dat?
+**q31** · vraag: De leerling wil een antibioticum tegen haar verkoudheid. Helpt dat?
 - a) nee, een virus mist de onderdelen waar het middel op werkt  ✓
 - b) nee, een virus is te klein om geraakt te worden
 - c) ja, als ze de kuur helemaal afmaakt
@@ -170,9 +172,9 @@ _Stem-invoer:_ Antwoord aa. Antibiotica grijpen aan op onderdelen die bij bacter
 
 ## Hoofdstuk 5 — Wie leeft waarvan?
 
-**s33** · audio `s33.mp3` · 16.4 s · generation `Iy6U55dqr00vE87krLPB`
+**s33** · audio `s33.mp3` · 15.2 s · generation `Iy6U55dqr00vE87krLPB` · geplakt 30 okt: `wMSJZn4sCTpcv0xWNm3h` (0.0–3.6 s)
 
-Thuis laat Noor Teun een foto van haar schaaltjes zien. 'Bah, bacteriën! Daar word je ziek van.' Volgens een schatting uit het jaar 2016 leven in en op je lichaam ongeveer evenveel bacteriën als je zelf cellen hebt. Wat zegt dat? Wat denk je?
+Thuis laat de leerling haar broertje een foto van de schaaltjes zien. 'Bah, bacteriën! Daar word je ziek van.' Volgens een schatting uit het jaar 2016 leven in en op je lichaam ongeveer evenveel bacteriën als je zelf cellen hebt. Wat zegt dat? Wat denk je?
 
 **q34** · vraag: In en op je lichaam leven ongeveer evenveel bacteriën als je zelf cellen hebt (schatting 2016). Wat zegt dat?
 - a) je bent eigenlijk de hele tijd een beetje ziek
@@ -199,9 +201,9 @@ En we gebruiken ze: melkzuurbacteriën maken yoghurt. Ook een medicijn komt uit 
 
 ## Recap
 
-**s39** · audio `s39.mp3` · 25.0 s · generation `xF40fMWqtSILlxYUFwWd`
+**s39** · audio `s39.mp3` · 25.6 s · generation `xF40fMWqtSILlxYUFwWd` · geplakt 30 okt: `HUySt1vL9AldzCNXo3Yi` (0.0–1.5 s), `6VdxmBmoXHoCIvcu7YqE` (19.4–25.6 s)
 
-Terug naar Noors trommel. Wat groeide erop? Een schimmel. Uit sporen uit de lucht, die al op het brood zaten toen het deksel dichtging. In de vochtige trommel groeiden ze uit tot hyfen, diep het brood in. Misschien groeiden er ook bacteriën, door tweedeling. Virussen niet: die hebben een gastheercel nodig. Noor gooit de hele boterham weg. Teun tekent een paddenstoel, met draden eronder.
+Terug naar de broodtrommel. Wat groeide erop? Een schimmel. Uit sporen uit de lucht, die al op het brood zaten toen het deksel dichtging. In de vochtige trommel groeiden ze uit tot hyfen, diep het brood in. Misschien groeiden er ook bacteriën, door tweedeling. Virussen niet: die hebben een gastheercel nodig. De leerling gooit de hele boterham weg. Haar broertje tekent een paddenstoel, met draden eronder.
 
 ## Eindkaart
 
