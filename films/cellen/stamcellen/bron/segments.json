@@ -597,11 +597,11 @@
   "look": "Micro: stamcel die deelt in een stamcel en een cel die differentieert; opperhuid met kiemlaag, cellen die omhoog schuiven en afschilferen; beenmerg met voorlopercellen; darmvlok; embryo van vijf dagen met binnenste celmassa; kweekschaaltje",
   "level": "basis",
   "lines": [
-   "Terug naar de knie en het hart. Antwoord aa. In je huid zitten stamcellen die zich blijven delen. In je hartspier zijn zulke stamcellen niet gevonden. En de hartspiercellen zelf vernieuwen heel langzaam: ongeveer één procent per jaar.",
+   "Terug naar de knie en het hart. Antwoord aa. In je huid zitten stamcellen die zich blijven delen. In je hartspier zijn zulke stamcellen niet gevonden. En de hartspiercellen zelf vernieuwen heel langzaam: hooguit één procent per jaar.",
    "Misschien dacht je: hartspiercellen zijn te groot om te delen. Maar een bevruchte eicel is juist een heel grote cel. En die deelt zich wel. Het gaat om specialisatie, niet om grootte."
   ],
-  "display": "Terug naar de knie en het hart. Antwoord aa. In je huid zitten stamcellen die zich blijven delen. In je hartspier zijn zulke stamcellen niet gevonden. En de hartspiercellen zelf vernieuwen heel langzaam: ongeveer één procent per jaar. Misschien dacht je: hartspiercellen zijn te groot om te delen. Maar een bevruchte eicel is juist een heel grote cel. En die deelt zich wel. Het gaat om specialisatie, niet om grootte.",
-  "voice": "Terug naar de knie en het hart. Antwoord aa. In je huid zitten stamcellen die zich blijven delen. In je hartspier zijn zulke stamcellen niet gevonden. En de hartspiercellen zelf vernieuwen heel langzaam: ongeveer één procent per jaar. Misschien dacht je: hartspiercellen zijn te groot om te delen. Maar een bevruchte eicel is juist een heel grote cel. En die deelt zich wel. Het gaat om specialisatie, niet om grootte.",
+  "display": "Terug naar de knie en het hart. Antwoord aa. In je huid zitten stamcellen die zich blijven delen. In je hartspier zijn zulke stamcellen niet gevonden. En de hartspiercellen zelf vernieuwen heel langzaam: hooguit één procent per jaar. Misschien dacht je: hartspiercellen zijn te groot om te delen. Maar een bevruchte eicel is juist een heel grote cel. En die deelt zich wel. Het gaat om specialisatie, niet om grootte.",
+  "voice": "Terug naar de knie en het hart. Antwoord aa. In je huid zitten stamcellen die zich blijven delen. In je hartspier zijn zulke stamcellen niet gevonden. En de hartspiercellen zelf vernieuwen heel langzaam: hooguit één procent per jaar. Misschien dacht je: hartspiercellen zijn te groot om te delen. Maar een bevruchte eicel is juist een heel grote cel. En die deelt zich wel. Het gaat om specialisatie, niet om grootte.",
   "vmap": [
    0,
    1,
@@ -1156,10 +1156,10 @@
   "level": "basis",
   "lines": [
    "Embryonale stamcellen roepen vragen op. Om ze te kweken, gaat een embryo verloren. In Nederland gebruiken onderzoekers daarvoor restembryo's van ivf. Dat zijn embryo's die over zijn, en die ouders aan de wetenschap geven. De regels zijn streng.",
-   "Geïnduceerde stamcellen hebben dat probleem niet. En omdat het je eigen cellen zijn, worden ze niet afgestoten. Maar ze delen zich zo makkelijk, dat er soms tumoren uit ontstaan. Daarom worden ze nu vooral in het lab gebruikt, en nog maar in een paar proeven bij patiënten."
+   "Geïnduceerde stamcellen hebben dat probleem niet. En omdat het je eigen cellen zijn, worden ze in principe niet afgestoten. Maar ze delen zich zo makkelijk, dat er soms tumoren uit ontstaan. Daarom worden ze nu vooral in het lab gebruikt, en nog maar in een paar proeven bij patiënten."
   ],
-  "display": "Embryonale stamcellen roepen vragen op. Om ze te kweken, gaat een embryo verloren. In Nederland gebruiken onderzoekers daarvoor restembryo's van ivf. Dat zijn embryo's die over zijn, en die ouders aan de wetenschap geven. De regels zijn streng. Geïnduceerde stamcellen hebben dat probleem niet. En omdat het je eigen cellen zijn, worden ze niet afgestoten. Maar ze delen zich zo makkelijk, dat er soms tumoren uit ontstaan. Daarom worden ze nu vooral in het lab gebruikt, en nog maar in een paar proeven bij patiënten.",
-  "voice": "Embryonale stamcellen roepen vragen op. Om ze te kweken, gaat een embryo verloren. In Nederland gebruiken onderzoekers daarvoor restembryo's van I-V-F. Dat zijn embryo's die over zijn, en die ouders aan de wetenschap geven. De regels zijn streng. Geïnduceerde stamcellen hebben dat probleem niet. En omdat het je eigen cellen zijn, worden ze niet afgestoten. Maar ze delen zich zo makkelijk, dat er soms tumoren uit ontstaan. Daarom worden ze nu vooral in het lab gebruikt, en nog maar in een paar proeven bij patiënten.",
+  "display": "Embryonale stamcellen roepen vragen op. Om ze te kweken, gaat een embryo verloren. In Nederland gebruiken onderzoekers daarvoor restembryo's van ivf. Dat zijn embryo's die over zijn, en die ouders aan de wetenschap geven. De regels zijn streng. Geïnduceerde stamcellen hebben dat probleem niet. En omdat het je eigen cellen zijn, worden ze in principe niet afgestoten. Maar ze delen zich zo makkelijk, dat er soms tumoren uit ontstaan. Daarom worden ze nu vooral in het lab gebruikt, en nog maar in een paar proeven bij patiënten.",
+  "voice": "Embryonale stamcellen roepen vragen op. Om ze te kweken, gaat een embryo verloren. In Nederland gebruiken onderzoekers daarvoor restembryo's van I-V-F. Dat zijn embryo's die over zijn, en die ouders aan de wetenschap geven. De regels zijn streng. Geïnduceerde stamcellen hebben dat probleem niet. En omdat het je eigen cellen zijn, worden ze in principe niet afgestoten. Maar ze delen zich zo makkelijk, dat er soms tumoren uit ontstaan. Daarom worden ze nu vooral in het lab gebruikt, en nog maar in een paar proeven bij patiënten.",
   "vmap": [
    0,
    1,
@@ -1245,7 +1245,9 @@
    81,
    82,
    83,
-   84
+   84,
+   85,
+   86
   ]
  },
  {

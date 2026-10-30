@@ -58,3 +58,9 @@ Frisse beoordelaar (niet de maker), volgens prompt v13 C10 en `films/BEELDAFSPRA
 - Vraag 1 en 2 onder (c) blijven staan voor een volgende opname: 'hooguit één procent' en 'in principe niet afgestoten'.
 
 **Bronnen**: bewering 3 (meer dan 200 celtypen), 8 (geen hartstamcellen gevonden) en 16 (vier factoren, een jaar later bij de mens) nu ✓; bewering 7 blijft ≈, tag in beeld aangepast. Geen open `?` of `!` meer (zie `bronnen.md`, B14–B20).
+
+## Uitgevoerd 30 okt 2026 (versie 2.1, `films/UITVOEREN-CELLEN.md`)
+- s11 'hooguit één procent' (82 credits) en s19 'in principe niet afgestoten' (190 credits) ingesproken en ingeplakt; tags in beeld gelijkgetrokken.
+- Open beeldpunten s01 (genezen knie als gewone huid) en s09 (transcriptiefactor sneller weg) uitgevoerd.
+- Twijfelscènes blijven zoals gebouwd (Kamiel 30 okt 2026).
+

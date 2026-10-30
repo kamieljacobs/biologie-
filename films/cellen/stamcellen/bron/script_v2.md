@@ -43,7 +43,7 @@ Veel gedifferentieerde cellen delen zich niet meer, of bijna niet. Een zenuwcel 
 Hoe herstelt je huid zich dan? Onderin je opperhuid, in de kiemlaag, zitten stamcellen. Een stamcel is nog niet gespecialiseerd. Hij kan zich blijven delen.
 Bij een deling blijft er meestal één stamcel over. De andere cel schuift omhoog. Onderweg verhoornt hij, en bovenaan is hij dood en schilfert hij af. Zo blijft de voorraad stamcellen op peil. In ongeveer vier weken is je opperhuid helemaal nieuw.
 
-Terug naar de knie en het hart. Antwoord aa. In je huid zitten stamcellen die zich blijven delen. In je hartspier zijn zulke stamcellen niet gevonden. En de hartspiercellen zelf vernieuwen heel langzaam: ongeveer één procent per jaar.
+Terug naar de knie en het hart. Antwoord aa. In je huid zitten stamcellen die zich blijven delen. In je hartspier zijn zulke stamcellen niet gevonden. En de hartspiercellen zelf vernieuwen heel langzaam: hooguit één procent per jaar.
 Misschien dacht je: hartspiercellen zijn te groot om te delen. Maar een bevruchte eicel is juist een heel grote cel. En die deelt zich wel. Het gaat om specialisatie, niet om grootte.
 
 Stamcellen zitten op meer plekken. Ook in je rode beenmerg zitten stamcellen. Hun dochtercellen delen zich heel snel. Zo maak je elke seconde ongeveer twee miljoen nieuwe rode bloedcellen. Plus witte bloedcellen en bloedplaatjes.
@@ -67,7 +67,7 @@ In het lab kloppen zulke hartspiercellen echt. Eén losse cel klopt al, maar in 
 Een groep gelijke cellen met dezelfde taak is een weefsel. Zo'n nieuwe eigenschap van het geheel, die de losse delen niet hebben, heet een emergente eigenschap.
 
 Embryonale stamcellen roepen vragen op. Om ze te kweken, gaat een embryo verloren. In Nederland gebruiken onderzoekers daarvoor restembryo's van ivf. Dat zijn embryo's die over zijn, en die ouders aan de wetenschap geven. De regels zijn streng.
-Geïnduceerde stamcellen hebben dat probleem niet. En omdat het je eigen cellen zijn, worden ze niet afgestoten. Maar ze delen zich zo makkelijk, dat er soms tumoren uit ontstaan. Daarom worden ze nu vooral in het lab gebruikt, en nog maar in een paar proeven bij patiënten.
+Geïnduceerde stamcellen hebben dat probleem niet. En omdat het je eigen cellen zijn, worden ze in principe niet afgestoten. Maar ze delen zich zo makkelijk, dat er soms tumoren uit ontstaan. Daarom worden ze nu vooral in het lab gebruikt, en nog maar in een paar proeven bij patiënten.
 
 [VWO-START] Voor vwo gaan we hier nog een stap verder. Biologen geven aan hoeveel een cel nog kan worden. De bevruchte eicel, en de eerste cellen daarna, zijn totipotent: ze kunnen het hele lichaam maken, en ook de placenta. De cellen van de binnenste celmassa, en de embryonale stamcellen, zijn pluripotent: elke celsoort van het lichaam, maar geen placenta. Volwassen stamcellen zijn multipotent: een paar celsoorten van hun eigen weefsel. Een stamcel in de kiemlaag maakt zelfs maar één soort: die is unipotent. In het jaar 2006 zette de Japanse onderzoeker Yamanaka cellen van een muis terug tot stamcellen. Met maar vier transcriptiefactoren. Een jaar later lukte het met menselijke cellen. Zo'n teruggezette cel heet een iPS-cel: een geïnduceerde pluripotente stamcel. In het jaar 2012 kreeg Yamanaka daarvoor de Nobelprijs, samen met de Brit John Gurdon. Terug naar de basis. [VWO-END]
 

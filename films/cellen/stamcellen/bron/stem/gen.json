@@ -30,8 +30,14 @@
   "generation_id": "Q5DAWTNRcDVHbQUjhrOZ"
  },
  "s11": {
-  "dur": 27.56,
-  "generation_id": "zdcWy7pADG4lk6VjiqkM"
+  "dur": 27.67,
+  "generation_id": "zdcWy7pADG4lk6VjiqkM",
+  "heropname_30okt": {
+   "generation_id": "0Rv4NjDSCS4E2aFkpB45",
+   "node": "5c1kmN4l0PtmOGc5diXz",
+   "flow": "WS8JZUynuG1BxxK922R9",
+   "credits": 82
+  }
  },
  "s12": {
   "dur": 29.81,
@@ -60,10 +66,16 @@
   "credits": 402
  },
  "s19": {
-  "dur": 32.03,
+  "dur": 32.71,
   "generation_id": "B4bMHsISHdQyAp6NtUvh",
   "heropname": "uitspraaktest 19 okt 2026",
-  "credits": 520
+  "credits": 520,
+  "heropname_30okt": {
+   "generation_id": "puJlbONRTXr6N994PWze",
+   "node": "BkJ37CHdeDr2lZ55B6OF",
+   "flow": "WS8JZUynuG1BxxK922R9",
+   "credits": 190
+  }
  },
  "s20": {
   "dur": 61.31,

@@ -44,9 +44,9 @@ Voor vwo gaan we hier nog een stap verder. Wat zet een gen aan? Vlak voor elk ge
 
 Hoe herstelt je huid zich dan? Onderin je opperhuid, in de kiemlaag, zitten stamcellen. Een stamcel is nog niet gespecialiseerd. Hij kan zich blijven delen. Bij een deling blijft er meestal één stamcel over. De andere cel schuift omhoog. Onderweg verhoornt hij, en bovenaan is hij dood en schilfert hij af. Zo blijft de voorraad stamcellen op peil. In ongeveer vier weken is je opperhuid helemaal nieuw.
 
-**s11** · 28.1 s · `audio/s11.mp3`
+**s11** · 28.2 s · `audio/s11.mp3` (zin over de hartspiercellen opnieuw, 30 okt 2026)
 
-Terug naar de knie en het hart. Antwoord aa. In je huid zitten stamcellen die zich blijven delen. In je hartspier zijn zulke stamcellen niet gevonden. En de hartspiercellen zelf vernieuwen heel langzaam: ongeveer één procent per jaar. Misschien dacht je: hartspiercellen zijn te groot om te delen. Maar een bevruchte eicel is juist een heel grote cel. En die deelt zich wel. Het gaat om specialisatie, niet om grootte.
+Terug naar de knie en het hart. Antwoord aa. In je huid zitten stamcellen die zich blijven delen. In je hartspier zijn zulke stamcellen niet gevonden. En de hartspiercellen zelf vernieuwen heel langzaam: hooguit één procent per jaar. Misschien dacht je: hartspiercellen zijn te groot om te delen. Maar een bevruchte eicel is juist een heel grote cel. En die deelt zich wel. Het gaat om specialisatie, niet om grootte.
 
 **s12** · 30.3 s · `audio/s12.mp3`
 
@@ -78,9 +78,9 @@ Antwoord cee. Bloedstamcellen kunnen alleen bloedcellen maken. Ze hebben wel all
 
 In het lab kloppen zulke hartspiercellen echt. Eén losse cel klopt al, maar in zijn eigen tempo. Leg je veel cellen tegen elkaar, dan geven ze een signaal aan elkaar door. Dan kloppen ze allemaal tegelijk, in één ritme. Dat kan één cel niet. Een groep gelijke cellen met dezelfde taak is een weefsel. Zo'n nieuwe eigenschap van het geheel, die de losse delen niet hebben, heet een emergente eigenschap.
 
-**s19** · 32.5 s · `audio/s19.mp3`
+**s19** · 33.2 s · `audio/s19.mp3` (drie zinnen over geïnduceerde stamcellen opnieuw, 30 okt 2026)
 
-Embryonale stamcellen roepen vragen op. Om ze te kweken, gaat een embryo verloren. In Nederland gebruiken onderzoekers daarvoor restembryo's van ivf. Dat zijn embryo's die over zijn, en die ouders aan de wetenschap geven. De regels zijn streng. Geïnduceerde stamcellen hebben dat probleem niet. En omdat het je eigen cellen zijn, worden ze niet afgestoten. Maar ze delen zich zo makkelijk, dat er soms tumoren uit ontstaan. Daarom worden ze nu vooral in het lab gebruikt, en nog maar in een paar proeven bij patiënten.
+Embryonale stamcellen roepen vragen op. Om ze te kweken, gaat een embryo verloren. In Nederland gebruiken onderzoekers daarvoor restembryo's van ivf. Dat zijn embryo's die over zijn, en die ouders aan de wetenschap geven. De regels zijn streng. Geïnduceerde stamcellen hebben dat probleem niet. En omdat het je eigen cellen zijn, worden ze in principe niet afgestoten. Maar ze delen zich zo makkelijk, dat er soms tumoren uit ontstaan. Daarom worden ze nu vooral in het lab gebruikt, en nog maar in een paar proeven bij patiënten.
 
 [nieuw] Let in zo'n discussie op wat voor argument je geeft. Een biologisch argument gaat over feiten: embryonale stamcellen kunnen nog elke celsoort worden, volwassen stamcellen niet. Een ethisch argument gaat over normen en waarden: een embryo is het begin van een mens, dus dat mag je niet zomaar gebruiken.
 

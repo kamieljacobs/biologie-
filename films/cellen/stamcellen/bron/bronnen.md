@@ -9,7 +9,7 @@ Werkwijze en criteria: `films/BRONNEN.md`.
 | Steekproef | nog niet gedaan |
 | Vakexpert | geen |
 | Tweede ronde | Claude (frisse beoordelaar), 30 okt 2026: open punten 3, 7, 8 en 16 afgemaakt met zelf geopende bronnen B14–B20 |
-| Stand | 10 ✓ · 6 ≈ · 0 ! · 0 ? |
+| Stand | 11 ✓ · 5 ≈ · 0 ! · 0 ? (versie 2.1, 30 okt 2026: bewering 7 ✓ na de nieuwe opname) |
 
 ## Bronnen
 
@@ -48,7 +48,7 @@ Alle bronnen op 29 okt 2026 zelf geopend via WebFetch. Niet te openen (browserco
 | 4 | s05, s08, s21 | Lichaamscellen hebben hetzelfde DNA; ze verschillen in welke genen aan staan | B4, B6 | ≈ | standaardstof (genexpressie, differentiatie); B4 (stamcellen maken alle celtypen van het epitheel), uitzonderingen (rode bloedcel, geslachtscellen, B- en T-cellen) staan in het docentdeel |
 | 5 | s10 | Stamcellen in de kiemlaag; de andere cel schuift omhoog, verhoornt, is dood en schilfert af | B5, B6 | ✓ | B5: 'cuboidal-shaped stem cell', 'pushed superficially', dode cellen 'slough away' |
 | 6 | s10 | In ongeveer vier weken is de opperhuid nieuw | B5 | ≈ | B5: 'about 4 weeks'; één bron geopend (vaak genoemde waarde 4–6 weken) |
-| 7 | s11 | Hartspiercellen vernieuwen ongeveer één procent per jaar | B8, B16, B17 | ≈ | B16 (oorspronkelijk artikel): 1 % per jaar op 25, dalend naar 0,45 % op 75; B17: '<1% per year in adulthood'. 'Ongeveer één procent' klopt voor jongvolwassenen en is voor ouderen te hoog: de tag in beeld zegt nu 'hooguit ± 1 %' (zie Aanpassingen); de stem blijft (knippen breekt de zin), voorstel 'hooguit' bij een volgende opname (vraag 1 in opwaardering-v13.md). B8 en B16 zijn hetzelfde onderzoek en tellen als één |
+| 7 | s11 | Hartspiercellen vernieuwen hooguit één procent per jaar | B8, B16, B17 | ✓ | B16 (oorspronkelijk artikel): 1 % per jaar op 25, dalend naar 0,45 % op 75; B17: '<1% per year in adulthood'. Sinds 2.1 (30 okt 2026) zegt de stem 'hooguit één procent' (was 'ongeveer'), gelijk met de tag in beeld. B8 en B16 zijn hetzelfde onderzoek en tellen als één |
 | 8 | s11 | In de hartspier zijn zulke stamcellen niet gevonden | B20, B16, B17 | ✓ | B20 (muis, lineage tracing): c-kit+-cellen, de vermeende hartstamcellen, maken '≈ 0.03 % or less' van de hartspiercellen, functioneel verwaarloosbaar; B16/B17 (mens): vernieuwing laag en vooral in de kindertijd. De oude claims over c-kit-hartstamcellen zijn ingetrokken (expert-review, docentdeel); 'niet gevonden' is voorzichtig genoeg geformuleerd |
 | 9 | s11 (beeld) | Hartspiercel 50–100 µm lang; bevruchte eicel ± 0,1 mm | B12, B11 | ✓ | B11: 120 µm (eicel in Graafse follikel); B12: 50–100 µm; beeld in s11 op dezelfde schaal (3 px per µm) |
 | 10 | s08, s18 (beeld) | Hartspiercellen vertakt, één centrale kern, tussenschijven met gap junctions; samen trekken ze als één geheel samen | B6, B7 | ✓ | B6: 'extensively branched', gap junctions 'contract as a coordinated unit' |
@@ -65,6 +65,7 @@ Alle bronnen op 29 okt 2026 zelf geopend via WebFetch. Niet te openen (browserco
 - s13 (beeld): de schaalaanduiding '± 0,15 mm' bij de blastocyste is weggelaten (niet zelf in twee bronnen nagegaan).
 
 - s11 (beeld, 30 okt 2026, frisse beoordelaar): tag 'hartspiercellen: ± 1 % per jaar vernieuwd' → 'hartspiercellen: hooguit ± 1 % per jaar vernieuwd' (B16, B17: 1 % op 25 jaar, minder op hogere leeftijd, '<1% per year in adulthood'). Geen nieuwe audio.
+- Versie 2.1 (30 okt 2026), stem: s11 'ongeveer één procent per jaar' → 'hooguit één procent per jaar' (B16, B17); tag in beeld → 'hooguit 1 % per jaar vernieuwd'. s19 'worden ze niet afgestoten' → 'worden ze in principe niet afgestoten' (voorzichtiger: ook eigen iPS-cellen kunnen na het kweken een afweerreactie oproepen; inhoudelijk een keuze in formulering, geen nieuwe bewering), tag → 'eigen cellen: in principe geen afstoting'.
 
 ## Menselijke controle
 

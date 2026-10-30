@@ -1,0 +1,27 @@
+{
+ "datum": "2026-10-30",
+ "flow": "WS8JZUynuG1BxxK922R9",
+ "model": "eleven_v4",
+ "voice_id": "7qdUFMklKPaaAVMsBTBt",
+ "werkwijze": "alleen de gewijzigde zinnen ingesproken (geen vervangregels van toepassing), luidheid op het niveau van de omringende take (volume + limiter -1,5 dBFS), ingeplakt in stiltes met crossfade 20 ms; woordtijden nieuw stuk met silalign, rest verschoven; oude takes in bron/oud/audio-2.0/",
+ "takes": {
+  "s11": {
+   "invoer": "En de hartspiercellen zelf vernieuwen heel langzaam: hooguit één procent per jaar.",
+   "was": "... heel langzaam: ongeveer één procent per jaar.",
+   "node": "5c1kmN4l0PtmOGc5diXz",
+   "gen": "0Rv4NjDSCS4E2aFkpB45",
+   "credits": 82,
+   "plak": "oud 0-9,95 s + 0,10 s + nieuw 0-5,42 s + 0,12 s + oud vanaf 15,40 s ('Misschien ...'); nieuw stuk 10,03-15,45 s",
+   "luister": "stamcellen-s11-luister.mp3"
+  },
+  "s19": {
+   "invoer": "Geïnduceerde stamcellen hebben dat probleem niet. En omdat het je eigen cellen zijn, worden ze in principe niet afgestoten. Maar ze delen zich zo makkelijk, dat er soms tumoren uit ontstaan.",
+   "was": "... worden ze niet afgestoten. ...",
+   "node": "BkJ37CHdeDr2lZ55B6OF",
+   "gen": "puJlbONRTXr6N994PWze",
+   "credits": 190,
+   "plak": "oud 0-16,20 s + 0,10 s + nieuw 0-11,20 s + 0,10 s + oud vanaf 26,85 s ('Daarom ...'); nieuw stuk 16,28-27,48 s (zin ervoor en erna mee ingesproken: tussen 'niet.', 'afgestoten.' en 'Maar' zat geen bruikbare stilte)",
+   "luister": "stamcellen-s19-luister.mp3"
+  }
+ }
+}

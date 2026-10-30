@@ -21,7 +21,9 @@ function celRij(ctx, t, o) { const { X, types, y = 320, u = 50, ly = 470, cy = 6
 function knieHuid(ctx, x, y, r, heel) { ctx.fillStyle = CAST.noor.huid; ctx.fillRect(x - r, y - r, 2 * r, 2 * r);
   ctx.fillStyle = rgba('#000000', 0.06); ctx.beginPath(); ctx.ellipse(x, y - r * 0.05, r * 0.55, r * 0.62, 0, 0, 6.283); ctx.fill();
   ctx.fillStyle = rgba('#FFFFFF', 0.07); ctx.beginPath(); ctx.ellipse(x - r * 0.08, y - r * 0.18, r * 0.32, r * 0.3, 0, 0, 6.283); ctx.fill();
-  schaafwond(ctx, x, y + r * 0.05, r * 0.24, { heel, cx: 0, cyy: 0, rx: 2.4, ry: 1.5, kijk: 1 }); }
+  // 2.1 (open punt frisse review): na de korst geen egale roze vlek, maar gewone huid met hooguit een vaag lichter plekje
+  const plek = ease(clamp((heel - 0.5) / 0.2, 0, 1)); if (plek > 0.01) { ctx.fillStyle = rgba('#FFFFFF', 0.07 * plek); ctx.beginPath(); ctx.ellipse(x, y + r * 0.05, r * 0.5, r * 0.32, 0, 0, 6.283); ctx.fill(); }
+  schaafwond(ctx, x, y + r * 0.05, r * 0.24, { heel, cx: 0, cyy: 0, rx: 2.4, ry: 1.5, kijk: 1, a: 1 - ease(clamp((heel - 0.55) / 0.15, 0, 1)) }); }
 // infarct: stuk van de linkerkamerwand sterft af (donker) en wordt littekenweefsel (grijs-wit met bindweefselstreepjes)
 // Recept: OpenStax A&P 2e § 19.1 (myocardinfarct: afgestorven spier wordt vervangen door bindweefsel, dat niet samentrekt).
 function infarct(ctx, x, y, s, dood, litteken) { if (dood <= 0.01) return; ctx.save(); ctx.globalAlpha *= dood; ctx.translate(x + 168 * s, y + 175 * s); ctx.rotate(-0.55);
@@ -114,7 +116,7 @@ const SCENES = {
       tag(ctx, 'elke celsoort: eigen combinatie van transcriptiefactoren', 960, 840, C.text2, q.on('combinatie', 1)); });
     fade(ctx, inF(U), () => { const m = q.on('methylgroep', 1, 1.2), str = q.on('strak', 1, 1.5), tfB = ramp(t, q.at('wordt', 1), 2.2), dl = ramp(t, q.at('blijven', 1), 2.5);
       const mx = lerp(620, 960, D), my = lerp(470, 440, D);
-      const r = methylgroep(ctx, mx, my, 0.85, { m, tf: D > 0.5 ? 0 : tfB, deling: dl * D, t });
+      const r = methylgroep(ctx, mx, my, 0.85, { m, tf: D > 0.5 ? 0 : tfB, deling: dl * D, t, tfUit: true }); // 2.1: transcriptiefactor vervaagt tijdens het wegdrijven (open punt frisse review)
       if (r.sites && r.sites.length) naamBij(ctx, 'methylgroep op de promotor', null, mx, 690, m * (1 - D), 'center', '#8CCB5E'); // frisse review 30 okt: onder de DNA, niet over de transcriptiefactor die wegdrijft
       fade(ctx, 1 - D, () => { nucleosoomDraad(ctx, 1180, 470, 1820, 470, { n: 4, R: 52, compact: str, t }); naamBij(ctx, 'histonen', null, 1500, 330, q.on('histonen', 1), 'center');
         tag(ctx, 'strak gewonden', 1500, 640, C.text2, str); });
@@ -147,7 +149,7 @@ const SCENES = {
       naamBij(ctx, 'huid: stamcellen in de kiemlaag', null, 470, 770, q.on('huid', 1), 'center', C.groen);
       hartspierWeefsel(ctx, 1060, 230, 720, 440, { a: q.on('hartspier', 1), n: 4, m: 3, fase: i => beat(t, 0) });
       kruis(ctx, 1810, 200, 24, q.on('gevonden', 1)); naamBij(ctx, 'hartspier: geen stamcellen gevonden', null, 1420, 750, q.on('gevonden', 1), 'center', C.koraal);
-      tag(ctx, 'hartspiercellen: hooguit ± 1 % per jaar vernieuwd', 1420, 840, C.text2, q.on('procent', 1)); });
+      tag(ctx, 'hartspiercellen: hooguit 1 % per jaar vernieuwd', 1420, 840, C.text2, q.on('procent', 1)); });
     fade(ctx, inF(M), () => { const k = 3; // 3 px per µm
       hartspiercel(ctx, 240, 450, 100 * k, 18 * k, { c: beat(t), vertak: 0 }); naamBij(ctx, 'hartspiercel', '50–100 micrometer lang', 390, 360, 1, 'center');
       tag(ctx, '"te groot om te delen"?', 390, 600, C.text2, q.on('groot', 1) * (1 - q.on('eicel', 1)));
@@ -245,7 +247,7 @@ const SCENES = {
     ctx.save(); ctx.globalAlpha *= ips * 0.6; ctx.strokeStyle = C.line; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(960, 120); ctx.lineTo(960, 820); ctx.stroke(); ctx.restore();
     fade(ctx, ips, () => { naamBij(ctx, 'geïnduceerde stamcellen', null, 1440, 120, 1, 'center', C.goud); cel(ctx, 'huid', 1230, 300, 52, t); pijl(ctx, 1340, 300, 1500, 300, C.goud, 1, 3.5); stam(ctx, 1610, 300, 66, 1);
       const tu = q.on('tumoren', 1); if (tu > 0.01) tumorGroei(ctx, 1440, 470, 0.5, { a: tu, g: ramp(t, q.at('tumoren', 1), 3), t });
-      tag(ctx, 'eigen cellen: geen afstoting', 1440, 600, C.groen, q.on('afgestoten', 1)); tag(ctx, 'risico: tumoren', 1440, 690, C.koraal, tu); tag(ctx, 'nu: vooral in het lab, een paar proeven', 1440, 780, C.text2, q.on('proeven', 1)); }); },
+      tag(ctx, 'eigen cellen: in principe geen afstoting', 1440, 600, C.groen, q.on('afgestoten', 1)); tag(ctx, 'risico: tumoren', 1440, 690, C.koraal, tu); tag(ctx, 'nu: vooral in het lab, een paar proeven', 1440, 780, C.text2, q.on('proeven', 1)); }); },
 
   s20(ctx, t, q) { bg(ctx, 'schema'); const Y = q.on('2006', 1, 0.8);
     fade(ctx, uitF(Y), () => { const rows = [['totipotent', 'hele lichaam + placenta'], ['pluripotent', 'elke celsoort, geen placenta'], ['multipotent', 'een paar celsoorten van het eigen weefsel'], ['unipotent', 'maar één celsoort']];

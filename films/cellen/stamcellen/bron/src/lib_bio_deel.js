@@ -1498,7 +1498,7 @@ function _mgDuo(ctx, x0, y, dx, half, s, o) { // vier baseparen met puzzelrand; 
   ctx.save(); ctx.translate(x0 + 2 * dx, y + half + 2 * s); ctx.scale(1, -1); _mgCH3(ctx, 0, 0, r, mO * onderA); ctx.restore(); sites.push([x0 + 2 * dx, y + half]);
   return sites; }
 function methylgroep(ctx, x, y, s = 1, o = {}) {
-  const { a = 1, m = 1, tf = 0, deling = 0, t = 0 } = o; if (a <= 0.01) return {};
+  const { a = 1, m = 1, tf = 0, deling = 0, t = 0, tfUit = false } = o; if (a <= 0.01) return {}; // tfUit (Stamcellen 2.1): weggedrukte transcriptiefactor vervaagt tijdens het wegdrijven
   const dx = 140 * s, half = 104 * s, x0 = x - 1.5 * dx - 60 * s, uit = { sites: [] };
   const m1 = ease(clamp(m * 2, 0, 1)), m2 = ease(clamp(m * 2 - 1, 0, 1));
   ctx.save(); ctx.globalAlpha *= a;
@@ -1511,7 +1511,8 @@ function methylgroep(ctx, x, y, s = 1, o = {}) {
     if (tf > 0.01) { const blok = m > 0.5, aanv = ease(clamp(tf / 0.55, 0, 1)), weg = blok ? ease(clamp((tf - 0.6) / 0.4, 0, 1)) : 0;
       const doelY = blok ? y - half - 118 * s : y - half - 66 * s, tx = x0 + 1.5 * dx + weg * 260 * s, ty = lerp(y - 420 * s, doelY, aanv) - weg * 110 * s, rot = weg * 0.5;
       const vorm = (qx, qy) => { const ex = qx / 150, ey = (qy + 6) / 58; return ex * ex + ey * ey < 1 || (qy > 30 && qy < 70 && Math.abs(Math.abs(qx) - 70) < 26); };
-      _grKralen(ctx, tx, ty, vorm, { r: 15, sc: s, col: MG2.tf, seed: 6, rot, bbox: [-152, -66, 152, 72], key: 'mgB_tf' }); uit.tf = [tx, ty];
+      const tfA = tfUit && blok ? 1 - ease(clamp((tf - 0.7) / 0.25, 0, 1)) : 1; ctx.save(); ctx.globalAlpha *= tfA;
+      if (tfA > 0.01) _grKralen(ctx, tx, ty, vorm, { r: 15, sc: s, col: MG2.tf, seed: 6, rot, bbox: [-152, -66, 152, 72], key: 'mgB_tf' }); ctx.restore(); uit.tf = [tx, ty];
       if (blok && tf > 0.5 && tf < 0.8) { ctx.save(); ctx.globalAlpha *= Math.sin((tf - 0.5) / 0.3 * Math.PI); ctx.strokeStyle = C.koraal; ctx.lineWidth = Math.max(1.2, 4 * s);
         const cx = x0 + dx, cy = y - half - 54 * s; for (let j = -1; j <= 1; j++) { ctx.beginPath(); ctx.moveTo(cx + 40 * s + j * 14 * s, cy - 4 * s); ctx.lineTo(cx + 40 * s + j * 22 * s, cy - 22 * s); ctx.stroke(); } ctx.restore(); } }
   } else {
