@@ -17,7 +17,7 @@ Aansluiting op de examens (Examenatlas): betrouwbaarheid = toeval, aantal herhal
 5. Eén: meet je wat je wilt weten? Wil je weten of licht de groei van tuinkers helpt, dan zegt het tellen van gekiemde zaadjes weinig. Dan meet je de lengte of de massa van de plantjes. In een examen roken mensen aan wattenschijfjes die onder oksels hadden gezeten, niet aan de oksels zelf. Zo roken ze alleen de okselgeur, en niet iemands parfum, haar of gezicht.
 6. Twee: komt het verschil echt door jouw variabele? Stonden de bakjes in het licht ook warmer, op de vensterbank, dan weet je niet of licht of warmte het verschil maakte. Een controlegroep die alleen in licht verschilt, maakt je proef valide. Soms voeg je ook een groep toe waarvan je de uitkomst al weet, om te laten zien dat je meting werkt.
 7. Drie: geldt het ook buiten je proef? Je onderzocht tuinkers in een klaslokaal. Of het ook voor sla geldt, of voor planten buiten, weet je nog niet. En wat bij muizen werkt, werkt niet vanzelf bij mensen.
-8. Onthoud vooral dit verschil: vaker meten maakt een onderzoek betrouwbaarder, maar niet valider. Meet je het verkeerde, dan wordt je conclusie niet beter, hoe vaak je ook meet.
+8. Onthoud vooral dit verschil: vaker meten maakt een onderzoek betrouwbaarder, maar niet meer valide. Meet je het verkeerde, dan wordt je conclusie niet beter, hoe vaak je ook meet.
 9. Kijk met die twee vragen naar een beroemde proef.
 
 ## Beeld
@@ -28,3 +28,4 @@ Begripkaart BETROUWBAAR (toeval; meer, herhalen, vast werkplan, spreiding; herha
 - Docentdeel: examenvoorbeelden hierboven, met de koppeling betrouwbaarheid/validiteit.
 - Eindkaart s46 en recap s45 blijven (dekken het al).
 - Bronnenlogboek: beweringen naast de correctievoorschriften + ≥ 1 tweede onafhankelijke bron (niveau A).
+- Kamiel 31 okt 2026: in alinea 8 'niet valider' → 'niet meer valide'.
