@@ -1,0 +1,646 @@
+/* =====================================================================================
+   Cellen · les 4 · Diffusie en osmose (31 oktober 2026)
+   Eigen tekenhulpen met voorvoegsel L4_. Kleuren zoals de film (films/cellen/diffusie-osmose):
+   goud = kleurstof (focus), teal = water en zuurstof, grijs = CO₂, oker = glucose, mineralen en Na⁺,
+   grijsblauw = Cl⁻, groen = K⁺ en celwand, koraal = ATP/energie, paars = celkern.
+   Moleculen overgenomen uit bron/src/scenes_mol.js van de film (h2o, kleurstof, ionMol, glucoseMol, o2, co2).
+   ===================================================================================== */
+
+/* ---------- kleuren die niet in C staan ---------- */
+const L4_KOP = () => C.licht ? '#7E93AB' : '#AFC0D0';      // kop van een fosfolipide (film: C.er)
+const L4_STAART = () => C.licht ? '#A8822E' : '#9C7A3C';   // vetstaart (film: V.vt)
+const L4_EIWIT = () => C.licht ? '#5F7090' : '#8C9DBA';    // transporteiwit (film: C.enzym)
+const L4_CL = () => C.licht ? '#6F88A3' : '#9FB3C8';       // chloride-ion
+const L4_BLOED = '#C2453E';
+const L4_H = () => C.licht ? '#AEBBC8' : '#DCE6EE';        // H-atoom van water
+
+/* ---------- moleculen (recepten uit de film) ---------- */
+// water: O groter dan H, V-vorm van 104,5°
+const L4_HOEK = 104.5 / 2 * Math.PI / 180;
+function L4_h2o(ctx, x, y, r = 7, an = 0, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(an);
+  for (const k of [-1, 1]) { ctx.beginPath(); ctx.arc(Math.sin(k * L4_HOEK) * r * 1.05, Math.cos(k * L4_HOEK) * r * 1.05, r * 0.62, 0, 6.283); ctx.fillStyle = L4_H(); ctx.fill(); }
+  ctx.beginPath(); ctx.arc(0, 0, r, 0, 6.283); ctx.fillStyle = C.teal; ctx.fill(); ctx.restore(); }
+// kleurstof: twee gekoppelde zesringen in goud; foc = het gevolgde deeltje (licht met gouden rand)
+function L4_kleurstof(ctx, x, y, s = 1, an = 0, a = 1, foc = false) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(an); const r = 7 * s, dx = r * Math.cos(Math.PI / 6);
+  for (const k of [-1, 1]) { ctx.beginPath(); for (let i = 0; i < 6; i++) { const q = Math.PI / 6 + i * Math.PI / 3; const px = k * dx + Math.cos(q) * r, py = Math.sin(q) * r; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.closePath();
+    shape(ctx, foc ? (C.licht ? '#FFFFFF' : '#F2F2EE') : C.goud, foc ? dk(C.goud, 0.1) : lighten(C.goud, 0.4), foc ? 3 * s : 1.2); }
+  ctx.restore(); }
+// ion: Na⁺ klein oker, Cl⁻ groter grijsblauw, K⁺ groen; mantel = watermantel (O-kant naar Na⁺, H-kant naar Cl⁻)
+function L4_ion(ctx, x, y, soort = 'na', s = 1, a = 1, mantel = false, t = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  const r = (soort === 'cl' ? 12.5 : soort === 'k' ? 10.5 : 8) * s, col = soort === 'cl' ? L4_CL() : soort === 'k' ? C.groen : C.oker;
+  if (mantel) { const nm = soort === 'cl' ? 7 : 6, R = r + 8.5 * s; for (let k = 0; k < nm; k++) { const q = k / nm * 6.283 + 0.4 + Math.sin(t * 1.3 + k) * 0.08;
+      L4_h2o(ctx, x + Math.cos(q) * R, y + Math.sin(q) * R, 4.6 * s, soort === 'cl' ? q - Math.PI / 2 : q + Math.PI / 2, 0.95); } }
+  ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); shape(ctx, col, lighten(col, 0.4), 1.3);
+  text(ctx, soort === 'cl' ? '−' : '+', x, y + r * 0.42, fTekst(Math.round(r * 1.25), 700), C.licht ? '#FFFFFF' : '#121A26', 'center'); ctx.restore(); }
+// glucose: zesring met O (koraal) en zijtak, oker
+function L4_glucose(ctx, x, y, s = 1, a = 1, an = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(an); const r = 13 * s;
+  const P = []; for (let i = 0; i < 6; i++) { const q = Math.PI / 6 + i * Math.PI / 3; P.push([Math.cos(q) * r, Math.sin(q) * r]); }
+  ctx.strokeStyle = lighten(C.oker, 0.35); ctx.lineWidth = 2 * s; ctx.beginPath(); ctx.moveTo(P[4][0], P[4][1]); ctx.lineTo(P[4][0] - 2 * s, P[4][1] - 9 * s); ctx.stroke();
+  ctx.beginPath(); ctx.arc(P[4][0] - 2 * s, P[4][1] - 11 * s, 3 * s, 0, 6.283); ctx.fillStyle = lighten(C.oker, 0.35); ctx.fill();
+  ctx.beginPath(); P.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); shape(ctx, C.oker, lighten(C.oker, 0.4), 1.4 * s);
+  ctx.beginPath(); ctx.arc(P[5][0], P[5][1], 3.2 * s, 0, 6.283); ctx.fillStyle = C.koraal; ctx.fill(); ctx.restore(); }
+function L4_mineraal(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, 8 * s, C.oker, lighten(C.oker, 0.4), 1.3); ctx.restore(); }
+function L4_o2(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; for (const k of [-1, 1]) { ctx.beginPath(); ctx.arc(x + k * 5.5 * s, y, 7 * s, 0, 6.283); shape(ctx, C.teal, lighten(C.teal, 0.35), 1.2); } ctx.restore(); }
+function L4_co2(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; for (const k of [-1, 1]) { ctx.beginPath(); ctx.arc(x + k * 11 * s, y, 6.5 * s, 0, 6.283); shape(ctx, '#AEB6C2', lighten('#AEB6C2', 0.3), 1.1); }
+  ctx.beginPath(); ctx.arc(x, y, 7.5 * s, 0, 6.283); shape(ctx, '#5E6878', '#9AA3B3', 1.1); ctx.restore(); }
+// ATP: base + suiker + drie fosfaten (koraal); los = laatste fosfaat springt eraf (ADP + P)
+function L4_atp(ctx, x, y, s = 1, a = 1, los = 0, label = true) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
+  const ring = (cx, cy, r, n, rot, fill) => { ctx.beginPath(); for (let k = 0; k < n; k++) { const q = rot + k / n * 6.283; const px = cx + Math.cos(q) * r, py = cy + Math.sin(q) * r; k ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.closePath(); shape(ctx, fill, lighten(fill, 0.4), 1.5); };
+  ring(-62, -4, 15, 6, Math.PI / 6, '#B9604A'); ring(-38, -12, 12, 5, -0.3, '#B9604A'); ring(-14, 8, 13, 5, -Math.PI / 2, C.oker);
+  ctx.strokeStyle = lighten(C.koraal, 0.2); ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(-2, 8); ctx.lineTo(48, 8); ctx.stroke();
+  const P = (px, py) => { circ(ctx, px, py, 11, C.koraal, lighten(C.koraal, 0.4), 1.5); text(ctx, 'P', px, py + 5, fTekst(15, 700), C.licht ? '#FFFFFF' : '#121A26', 'center'); };
+  P(14, 8); P(38, 8); const u = clamp(los, 0, 1); P(62 + u * 46, 8 - Math.sin(u * Math.PI) * 34 + u * 28);
+  ctx.restore(); if (label) metaText(ctx, u > 0.5 ? 'ADP + P' : 'ATP', x + (u > 0.5 ? 20 : 0) * s, y + 52 * s, C.koraal, 'center', 22, a); }
+
+/* ---------- willekeurige beweging (zoals sim() in de film: vooraf berekend, vaste seed) ---------- */
+function L4_rng(seed) { let a = seed >>> 0; return () => { a = (a + 0x6D2B79F5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+function L4_gauss(r) { const u = Math.max(1e-9, r()), v = r(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(6.2832 * v); }
+const _L4sims = {};
+function L4_sim(key, o) {
+  if (_L4sims[key]) return _L4sims[key];
+  const n = o.n, [x0, y0, x1, y1] = o.box, fps = 20, dur = o.dur || 60, keep = 0.8, F = Math.ceil(dur * fps) + 2;
+  const P = new Float32Array(n * F * 2), r = L4_rng(o.seed || 7), vx = new Float32Array(n), vy = new Float32Array(n), px = new Float32Array(n), py = new Float32Array(n);
+  for (let i = 0; i < n; i++) { const p = o.init(i, r); px[i] = p[0]; py[i] = p[1]; }
+  const tel = o.mid ? new Uint16Array(F) : null;
+  for (let f = 0; f < F; f++) { let L = 0;
+    for (let i = 0; i < n; i++) { const k = (f * n + i) * 2; P[k] = px[i]; P[k + 1] = py[i]; if (tel && px[i] < o.mid) L++;
+      vx[i] = keep * vx[i] + o.sigma * L4_gauss(r); vy[i] = keep * vy[i] + o.sigma * L4_gauss(r);
+      let nx = px[i] + vx[i], ny = py[i] + vy[i];
+      if (nx < x0) { nx = 2 * x0 - nx; vx[i] = -vx[i]; } if (nx > x1) { nx = 2 * x1 - nx; vx[i] = -vx[i]; }
+      if (ny < y0) { ny = 2 * y0 - ny; vy[i] = -vy[i]; } if (ny > y1) { ny = 2 * y1 - ny; vy[i] = -vy[i]; }
+      px[i] = clamp(nx, x0, x1); py[i] = clamp(ny, y0, y1); }
+    if (tel) tel[f] = L; }
+  return _L4sims[key] = { n, F, fps, dur, tel,
+    pos(i, t) { const f = clamp(t * fps, 0, F - 1.001), f0 = Math.floor(f), u = f - f0, a = (f0 * n + i) * 2, b = a + n * 2; return [P[a] + (P[b] - P[a]) * u, P[a + 1] + (P[b + 1] - P[a + 1]) * u]; },
+    links(t) { return tel[Math.round(clamp(t * fps, 0, F - 1))]; } };
+}
+function L4_spoor(ctx, S, i, t, len, col, lw = 2.5, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = lw; ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+  const n = Math.max(2, Math.round(len * S.fps)); ctx.beginPath(); for (let k = 0; k <= n; k++) { const p = S.pos(i, Math.max(0, t - len + len * k / n)); k ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]); } ctx.stroke(); ctx.restore(); }
+// rustig dwalende watermoleculen in een rechthoek; mijd(x, y) = true → hier niet tekenen
+function L4_water(ctx, x0, y0, x1, y1, n, t, seed = 0, o = {}) { const a = o.a == null ? 0.55 : o.a, r = o.r || 6.5; if (a <= 0.01) return;
+  for (let i = 0; i < n; i++) { const bx = x0 + hash(i * 2 + seed) * (x1 - x0), by = y0 + hash(i * 2 + 1 + seed) * (y1 - y0), sp = 0.5 + hash(i + seed * 3);
+    const x = clamp(bx + Math.sin(t * 0.9 * sp + i) * 14 + Math.sin(t * 0.37 + i * 1.7) * 9, x0, x1), y = clamp(by + Math.cos(t * 0.8 * sp + i * 2.3) * 12 + Math.sin(t * 0.29 + i) * 8, y0, y1);
+    if (o.mijd && o.mijd(x, y)) continue; L4_h2o(ctx, x, y, r, hash(i * 5 + seed) * 6.283 + t * (hash(i + seed) - 0.5), a); } }
+const L4_draai = (i, t) => hash(i * 13 + 3) * 6.283 + t * (hash(i * 7 + 1) - 0.5) * 1.4;
+
+/* ---------- membraan, eiwitten ---------- */
+// horizontaal membraan (dubbele laag fosfolipiden) van x0 tot x1 rond y; gaten = [[xa, xb]] voor eiwitten
+function L4_mem(ctx, x0, x1, y, o = {}) { const { a = 1, s = 1, t = 0, gaten = [] } = o; if (a <= 0.01) return;
+  const r = 10 * s, stap = 24 * s, st = 32 * s, gap = 3 * s, n = Math.floor((x1 - x0) / stap);
+  ctx.save(); ctx.globalAlpha *= a; ctx.lineCap = 'round';
+  for (const kant of [-1, 1]) { for (let i = 0; i <= n; i++) { const x = x0 + i * stap + (kant > 0 ? stap / 2 : 0) + Math.sin(t * 1.2 + i * 2.3 + kant) * 1.5 * s; if (x > x1) continue;
+      if (gaten.some(g => x > g[0] - r && x < g[1] + r)) continue; const hy = y + kant * (gap + st + r);
+      ctx.strokeStyle = L4_STAART(); ctx.lineWidth = 2.6 * s; for (const sd of [-1, 1]) { const w = Math.sin(t * 2 + i + sd) * 1.5 * s; ctx.beginPath(); ctx.moveTo(x + sd * r * 0.4, hy - kant * r * 0.6); ctx.quadraticCurveTo(x + sd * r * 0.55 + w, hy - kant * (r + st * 0.5), x + sd * r * 0.35 - w, y + kant * gap); ctx.stroke(); }
+      circ(ctx, x, hy, r, L4_KOP(), lighten(L4_KOP(), 0.3), 1); } }
+  ctx.restore(); }
+// verticaal membraan van y0 tot y1 op x (gaten in schermhoogte)
+function L4_memV(ctx, x, y0, y1, o = {}) { ctx.save(); ctx.translate(x, y0); ctx.rotate(Math.PI / 2); L4_mem(ctx, 0, y1 - y0, 0, Object.assign({}, o, { gaten: (o.gaten || []).map(g => [g[0] - y0, g[1] - y0]) })); ctx.restore(); }
+// α-helix als kronkelende lijn met gloed (eiwit = gevouwen keten, geen bolletje)
+function L4_helix(ctx, xa, ya, xb, yb, w, col, a = 1, fase = 0) { if (a <= 0.01) return; const L = Math.hypot(xb - xa, yb - ya), an = Math.atan2(yb - ya, xb - xa);
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(xa, ya); ctx.rotate(an); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  const pad = () => { ctx.beginPath(); for (let u = 0; u <= L; u += 3) { const yy = Math.sin(u / 7 + fase) * w * 0.5; u ? ctx.lineTo(u, yy) : ctx.moveTo(u, yy); } };
+  pad(); ctx.strokeStyle = rgba(col, 0.25); ctx.lineWidth = w * 0.9; ctx.stroke(); pad(); ctx.strokeStyle = col; ctx.lineWidth = 4.5; ctx.stroke(); pad(); ctx.strokeStyle = lighten(col, 0.35); ctx.lineWidth = 1.6; ctx.stroke(); ctx.restore(); }
+// kanaaleiwit: twee kolommen helices rond een porie; lokaal verticaal (rot = 0: kanaal van boven naar onder)
+function L4_kanaal(ctx, x, y, rot = 0, s = 1, a = 1, o = {}) { if (a <= 0.01) return; const H = 120 * s, por = (o.por || 15) * s, col = o.col || L4_EIWIT();
+  ctx.save(); ctx.translate(x, y); ctx.rotate(rot);
+  for (const sd of [-1, 1]) { L4_helix(ctx, sd * (por + 8 * s), -H / 2, sd * (por + 8 * s), H / 2, 16 * s, col, a, sd); L4_helix(ctx, sd * (por + 26 * s), -H / 2 + 8 * s, sd * (por + 26 * s), H / 2 - 8 * s, 16 * s, col, a, 2 + sd);
+    ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = 4; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(sd * (por + 8 * s), H / 2); ctx.quadraticCurveTo(sd * (por + 17 * s), H / 2 + 16 * s, sd * (por + 26 * s), H / 2 - 8 * s); ctx.stroke(); ctx.restore(); }
+  ctx.restore(); }
+// drager- of pompeiwit: twee helften die omklappen. flip 0 = open naar boven, 1 = open naar onder. o.pomp = met ATP-domein onder
+function L4_drager(ctx, x, y, s = 1, flip = 0, a = 1, o = {}) { if (a <= 0.01) return; const H = 120 * s, th = lerp(0.22, -0.22, ease(flip)), col = o.col || L4_EIWIT(), nh = o.pomp ? 3 : 2;
+  ctx.save(); ctx.translate(x, y);
+  for (const sd of [-1, 1]) { ctx.save(); ctx.rotate(sd * th); for (let k = 0; k < nh; k++) { const xx = sd * (16 + k * 17) * s, h = H * (1 - 0.07 * k); L4_helix(ctx, xx, -h / 2, xx, h / 2, 15 * s, col, a, k * 1.7 + sd); } ctx.restore(); }
+  if (o.pomp) { ctx.save(); ctx.globalAlpha *= a; const pts = [[-0.9, 0.2], [-0.6, -0.5], [-0.1, -0.7], [0.3, -0.3], [0.8, -0.6], [1, 0.1], [0.5, 0.4], [0.8, 0.8], [0.1, 0.9], [-0.4, 0.5], [-0.85, 0.75]].map(p => [p[0] * 46 * s, H / 2 + 34 * s + p[1] * 26 * s]);
+    gloed(ctx, 0, H / 2 + 34 * s, 70 * s, col, 0.5); lijnPad(ctx, pts, col, 5, 1); lijnPad(ctx, pts, lighten(col, 0.35), 1.6, 1); ctx.restore(); }
+  ctx.restore(); }
+
+/* ---------- cellen en dingen ---------- */
+// rode bloedcel bij osmose: zwel 0..1 (bol), kart 0..1 (gekarteld, gekrompen), barst 0..1 (leeg membraan blijft over)
+function L4_bloedcel(ctx, x, y, r, zwel = 0, kart = 0, barst = 0, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  if (barst > 0.01) { const rr = r * 1.28;
+    for (let k = 0; k < 46; k++) { const q = hash(k * 5) * 6.283, d = rr * (0.3 + 1.4 * barst * Math.sqrt(hash(k * 5 + 1))); circ(ctx, x + Math.cos(q) * d, y + Math.sin(q) * d, 3.5, rgba(L4_BLOED, 0.75 * (1 - barst * 0.4))); }
+    circ(ctx, x, y, rr, rgba(L4_BLOED, 0.85 * (1 - barst))); ctx.strokeStyle = rgba(C.licht ? '#C98A80' : '#E8B8B0', 0.9); ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(x, y, rr, -0.9 + barst * 0.25, 4.9 - barst * 0.25); ctx.stroke(); ctx.restore(); return; }
+  const rr = r * (1 + 0.28 * zwel) * (1 - 0.2 * kart);
+  ctx.beginPath(); for (let i = 0; i <= 140; i++) { const q = i / 140 * 6.283, sp = 1 + kart * 0.13 * Math.pow(Math.max(0, Math.sin(q * 11)), 2); const px = x + Math.cos(q) * rr * sp, py = y + Math.sin(q) * rr * sp; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }
+  ctx.closePath(); shape(ctx, L4_BLOED, lighten(L4_BLOED, 0.25), 2);
+  circ(ctx, x, y, rr * 0.45 * (1 - zwel), rgba('#7A1E1E', 0.35 * (1 - zwel) * (1 - kart * 0.5)));
+  if (zwel > 0.3) circ(ctx, x - rr * 0.3, y - rr * 0.3, rr * 0.28, rgba('#F0A090', 0.2 * zwel));
+  ctx.restore(); }
+// plantencel: rechthoekige celwand (groen), protoplast met vacuole; st -1 = plasmolyse, 0 = normaal, +1 = turgor
+function L4_plantencel(ctx, cx, cy, w, h, st, a = 1, T = 0) { if (a <= 0.01) return; const pl = Math.max(0, -st), tg = Math.max(0, st), wand = 18;
+  const ow = w + tg * 14, oh = h + tg * 14, x0 = cx - ow / 2, y0 = cy - oh / 2;
+  ctx.save(); ctx.globalAlpha *= a;
+  roundRect(ctx, x0, y0, ow, oh, 34); shape(ctx, mix(C.groen, C.bg, 0.45), lighten(C.groen, 0.1), 2.5);
+  roundRect(ctx, x0 + wand, y0 + wand, ow - 2 * wand, oh - 2 * wand, 22); ctx.fillStyle = mix(C.teal, C.bg, C.licht ? 0.8 : 0.78); ctx.fill();
+  const m = wand + 2 + pl * 78, pr = 20 + pl * 110, px = x0 + m, py = y0 + m, pw = ow - 2 * m, ph = oh - 2 * m;
+  roundRect(ctx, px, py, pw, ph, Math.min(pr, ph / 2)); ctx.fillStyle = C.licht ? '#E4E9F0' : '#2C3A52'; ctx.fill();
+  const vi = 32 - tg * 6; roundRect(ctx, px + vi, py + vi, pw - 2 * vi, ph - 2 * vi, Math.max(10, Math.min(pr, ph / 2) - vi * 0.6)); shape(ctx, mix(C.teal, C.bg, C.licht ? 0.65 : 0.55), lighten(C.teal, 0.25), 2);
+  for (let k = 0; k < 12; k++) { const f = (k + 0.5) / 12 + T * 0.004, per = 2 * (pw + ph), d = (f % 1) * per; let qx, qy, an;
+    if (d < pw) { qx = px + d; qy = py + 16; an = 0; } else if (d < pw + ph) { qx = px + pw - 16; qy = py + d - pw; an = 1.57; } else if (d < 2 * pw + ph) { qx = px + pw - (d - pw - ph); qy = py + ph - 16; an = 0; } else { qx = px + 16; qy = py + ph - (d - 2 * pw - ph); an = 1.57; }
+    qx = clamp(qx, px + 22, px + pw - 22); qy = clamp(qy, py + 16, py + ph - 16); if (Math.hypot(qx - (px + 50), qy - (py + ph - 50)) < 50) continue;
+    ctx.save(); ctx.translate(qx, qy); ctx.rotate(an); ctx.beginPath(); ctx.ellipse(0, 0, 14, 7, 0, 0, 6.283); shape(ctx, C.groen, dk(C.groen, 0.2), 1.2); ctx.restore(); }
+  circ(ctx, px + 50, py + ph - 50, 28, mix(C.paars, C.bg, 0.6), C.paars, 2.5);
+  roundRect(ctx, px, py, pw, ph, Math.min(pr, ph / 2)); ctx.strokeStyle = C.teal; ctx.lineWidth = 3; ctx.stroke();
+  ctx.restore();
+  return { wand: [x0 + ow - 4, y0 + oh * 0.3], membraan: [px + pw, py + ph * 0.62], vacuole: [px + pw * 0.6, py + ph * 0.45], ruimte: [x0 + ow - wand - (m - wand) / 2, cy + oh * 0.15], kern: [px + 50, py + ph - 50] }; }
+// thermometer
+function L4_thermo(ctx, x, y, h, f, col, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 11, y - h, 22, h, 11); shape(ctx, rgba(C.fill, 0.8), C.line, 2);
+  roundRect(ctx, x - 5, y - 10 - (h - 24) * f, 10, (h - 24) * f + 10, 5); ctx.fillStyle = col; ctx.fill(); circ(ctx, x, y + 6, 18, col, C.line, 2); ctx.restore(); }
+// glas met water (rechte zijkanten, iets taps)
+function L4_glasPad(ctx, cx, yb, h, wo, wb) { ctx.beginPath(); ctx.moveTo(cx - wo / 2, yb - h); ctx.lineTo(cx - wb / 2, yb); ctx.lineTo(cx + wb / 2, yb); ctx.lineTo(cx + wo / 2, yb - h); }
+// bootje (zoals in de film, vereenvoudigd); fn tekent wat erin zit (wordt geknipt boven de rand)
+function L4_boot(ctx, cx, by, T, a, fn) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const hout = '#8C5A3A', houtD = dk(hout, 0.25), houtL = lighten(hout, 0.18);
+  const rot = Math.sin(T * 1.3 + 0.8) * 0.018; ctx.translate(cx, by); ctx.rotate(rot); ctx.translate(-cx, -by);
+  ctx.beginPath(); ctx.moveTo(cx - 220, by); ctx.quadraticCurveTo(cx, by - 22, cx + 212, by); ctx.lineTo(cx + 190, by + 30); ctx.lineTo(cx - 190, by + 30); ctx.closePath(); ctx.fillStyle = dk(hout, 0.45); ctx.fill();
+  ctx.save(); ctx.beginPath(); ctx.rect(cx - 360, 0, 720, by + 12); ctx.clip(); fn(); ctx.restore();
+  ctx.strokeStyle = houtL; ctx.lineWidth = 9; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(cx + 160, by - 40); ctx.lineTo(cx + 330, by + 70); ctx.stroke(); ctx.fillStyle = houtL; ctx.beginPath(); ctx.ellipse(cx + 340, by + 78, 30, 11, 0.58, 0, 6.283); ctx.fill();
+  ctx.beginPath(); ctx.moveTo(cx - 230, by); ctx.quadraticCurveTo(cx, by + 14, cx + 230, by); ctx.quadraticCurveTo(cx + 190, by + 92, cx + 120, by + 100); ctx.lineTo(cx - 120, by + 100); ctx.quadraticCurveTo(cx - 190, by + 92, cx - 230, by); ctx.closePath(); ctx.fillStyle = hout; ctx.fill();
+  ctx.save(); ctx.clip(); ctx.strokeStyle = houtD; ctx.lineWidth = 2.5; for (let k = 1; k < 4; k++) { const yy = by + k * 25; ctx.beginPath(); ctx.moveTo(cx - 260, yy); ctx.quadraticCurveTo(cx, yy + 10, cx + 260, yy); ctx.stroke(); } ctx.restore();
+  ctx.strokeStyle = houtL; ctx.lineWidth = 7; ctx.beginPath(); ctx.moveTo(cx - 230, by); ctx.quadraticCurveTo(cx, by + 14, cx + 230, by); ctx.stroke(); ctx.restore(); }
+
+/* ---------- icoontjes voor 'Volgende keer' (les 5 Onderzoek doen) ---------- */
+function L4_icoonVraag(ctx, x, y, a, T) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x - 20, y - 10, 62, rgba(C.teal, 0.1), C.teal, 6); ctx.strokeStyle = C.teal; ctx.lineWidth = 14; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x + 26, y + 36); ctx.lineTo(x + 78, y + 88); ctx.stroke();
+  ctx.restore(); text(ctx, '?', x - 20, y + 16 + Math.sin(T * 1.5) * 3, fTitel(74), C.goud, 'center'); }
+function L4_icoonProef(ctx, x, y, a, T) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; [[-60, 0.75], [60, 0.45]].forEach(([dx, f], i) => { const cx = x + dx, yb = y + 80, h = 150, w = 90;
+    ctx.save(); L4_glasPad(ctx, cx, yb, h, w, w * 0.86); ctx.closePath(); ctx.clip(); ctx.fillStyle = rgba(C.teal, 0.3); ctx.fillRect(cx - w, yb - h * f, w * 2, h); ctx.restore();
+    L4_glasPad(ctx, cx, yb, h, w, w * 0.86); ctx.strokeStyle = C.line; ctx.lineWidth = 4; ctx.stroke(); }); ctx.restore();
+  regel(ctx, 'A', x - 60, y + 130, a, C.text2, 28, 'center', 700); regel(ctx, 'B', x + 60, y + 130, a, C.text2, 28, 'center', 700); }
+function L4_icoonGrafiek(ctx, x, y, a, T) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.line; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x - 100, y - 80); ctx.lineTo(x - 100, y + 80); ctx.lineTo(x + 100, y + 80); ctx.stroke();
+  [[-80, 50], [-45, 25], [-10, 10], [25, -25], [60, -45]].forEach(([dx, dy], i) => circ(ctx, x + dx, y + dy + Math.sin(T * 1.2 + i) * 2, 9, C.goud)); ctx.strokeStyle = C.goud; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(x - 90, y + 58); ctx.lineTo(x + 80, y - 58); ctx.stroke(); ctx.restore();
+  vink(ctx, x + 70, y - 80, 18, a); }
+
+/* =====================================================================================
+   SCHERMEN
+   ===================================================================================== */
+
+// ---------- 0 · start ----------
+SCHERMEN.push({ titel: 'Start', deel: 'Opening', geenKop: true,
+  stappen: [{ t: '<b>Cellen</b> · les 4: diffusie, het celmembraan, osmose en actief transport', n: 'Kies eerst havo of vwo. Groot scherm (F) vult het hele scherm; T zet de tekst eronder uit. Deze les hoort bij de film Diffusie en osmose: havo BvJ thema 1 § 1.5 Transport door membranen, vwo Nectar H2 § 2.3 Celmembranen en transport.' }],
+  teken(ctx, S) {
+    const T = S.T; metaText(ctx, 'Cellen · les 4', 140, 330, C.meta, 'left', 30);
+    text(ctx, 'Diffusie', 140, 465, fTitel(98), C.text); text(ctx, 'en osmose', 140, 585, fTitel(98), C.goud);
+    regel(ctx, 'alles beweegt · van veel naar weinig · water door membranen', 144, 675, 1, C.text2, 32, 'left', 400);
+    const zx = 1440, zy = 540, zr = 270, sim = L4_sim('start', { n: 26, box: [zx - zr + 20, zy - zr + 20, zx + zr - 20, zy + zr - 20], dur: 120, sigma: 3.5, seed: 21, init: (i, r) => [zx - 200 + r() * 400, zy - 200 + r() * 400] });
+    zoom(ctx, zx, zy, zr, 1, null, () => { L4_water(ctx, zx - zr, zy - zr, zx + zr, zy + zr, 70, T, 3, { a: 0.5 }); const t = T % 120;
+      for (let i = 0; i < sim.n; i++) { const p = sim.pos(i, t); L4_kleurstof(ctx, p[0], p[1], 1.4, L4_draai(i, t), 1, i === 0); } });
+    metaText(ctx, 'ingezoomd: moleculen', zx, zy + zr + 50, C.text2, 'center', 22);
+  } });
+
+// ---------- 1 · een druppel kleurstof ----------
+SCHERMEN.push({ titel: 'Een druppel kleurstof', kop: 'Niemand heeft geroerd', deel: 'Opening',
+  stappen: [
+    { t: 'Een glas stil water.', n: 'Hetzelfde begin als de film (cold open). Laat het glas even staan voor je verder klikt.' },
+    { t: 'Eén druppel kleurstof erin.', n: '' },
+    { t: 'Na een uur zie je een gekleurde wolk.', n: 'In een echt glas helpen stromingen (temperatuurverschillen) mee; met alleen diffusie duurt het egaal kleuren veel langer. Een proef met kleurstof in agar (geen stroming) laat dat zien.' },
+    { t: 'Uiteindelijk is het hele glas egaal gekleurd.', n: '' },
+    { t: 'Niemand heeft geroerd. Toch komt de kleurstof overal.', n: 'Vraag uit de film: Niemand heeft geroerd. Hoe komt de kleurstof dan overal? (a) de deeltjes duwen elkaar weg, (b) ze gaan naar de plek waar nog geen kleurstof is, (c) alle deeltjes bewegen kriskras, en zo raken ze vanzelf verspreid. Goed: c. Antwoord op scherm 3.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 0.8), s1 = S.on(1, 1.1), s2 = S.on(2, 1.6), s3 = S.on(3, 1.6), s4 = S.on(4, 0.8);
+    const cx = 760, yb = 900, h = 560, wo = 440, wb = 370, wy = yb - h + 70;
+    ctx.save(); ctx.globalAlpha *= s0; L4_glasPad(ctx, cx, yb, h, wo, wb); ctx.closePath(); ctx.save(); ctx.clip();
+    ctx.fillStyle = rgba(C.teal, C.licht ? 0.14 : 0.16); ctx.fillRect(cx - 300, wy, 600, h); ctx.strokeStyle = rgba(C.teal, 0.5); ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(cx - 300, wy); ctx.lineTo(cx + 300, wy); ctx.stroke();
+    if (s2 > 0.01) { const r = lerp(30, 230, s2) * (1 - s3 * 0.2), my = wy + lerp(30, 170, s2); ctx.globalAlpha = s0 * (1 - s3); for (const [dx, dy, k] of [[0, 0, 1], [-60, 50, 0.7], [70, 80, 0.6], [-20, 140, 0.5]]) { const g = ctx.createRadialGradient(cx + dx * s2, my + dy * s2, 0, cx + dx * s2, my + dy * s2, r * k);
+        g.addColorStop(0, rgba(C.goud, 0.75)); g.addColorStop(1, rgba(C.goud, 0)); ctx.fillStyle = g; ctx.fillRect(cx - 300, wy, 600, h); } ctx.globalAlpha = s0; }
+    if (s3 > 0.01) { ctx.fillStyle = rgba(C.goud, 0.36 * s3); ctx.fillRect(cx - 300, wy, 600, h); }
+    if (s1 > 0.01 && s2 < 0.5) { const yy = lerp(wy - 260, wy + 30, Math.min(1, s1 * 1.3)); circ(ctx, cx, yy, 16 * (1 - s2 * 2), C.goud); }
+    ctx.restore(); L4_glasPad(ctx, cx, yb, h, wo, wb); ctx.strokeStyle = C.line; ctx.lineWidth = 5; ctx.lineJoin = 'round'; ctx.stroke(); ctx.restore();
+    if (s1 > 0.01 && s1 < 0.99) { const yy = lerp(wy - 260, wy + 30, Math.min(1, s1 * 1.3)); if (yy < wy) circ(ctx, cx, yy, 16, C.goud); }
+    naam(ctx, 'stil water', cx + 250, wy + 40, s0, 'left', C.teal, 32); naam(ctx, 'kleurstof', cx + 250, wy - 120, s1 * (1 - s3), 'left', C.goud, 32);
+    metaText(ctx, 'na een uur', cx + 250, wy + 210, C.meta, 'left', 24, s2 * (1 - s3)); metaText(ctx, 'uiteindelijk', cx + 250, wy + 210, C.meta, 'left', 24, s3);
+    // doorgestreepte lepel
+    if (s4 > 0.01) { const lx = 1500, ly = 540; ctx.save(); ctx.globalAlpha *= s4; ctx.translate(lx, ly); ctx.rotate(-0.6); ctx.strokeStyle = C.text2; ctx.lineWidth = 12; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(0, -40); ctx.lineTo(0, 230); ctx.stroke();
+      ctx.beginPath(); ctx.ellipse(0, -90, 42, 62, 0, 0, 6.283); shape(ctx, rgba(C.fill, 0.8), C.text2, 6); ctx.restore(); kruis(ctx, lx + 20, ly + 20, 120, s4); regel(ctx, 'niemand roerde', lx + 20, ly + 260, s4, C.text, 36, 'center', 700); }
+  } });
+
+// ---------- 2 · alles beweegt ----------
+SCHERMEN.push({ titel: 'Alles beweegt', kop: 'Deeltjes staan nooit stil', deel: 'Alles beweegt',
+  stappen: [
+    { t: 'Zoom in: het water zit vol deeltjes, en ze staan nooit stil.', n: 'Teal = watermolecuul (H₂O), goud = kleurstofmolecuul (twee zesringen), zoals in de film. In het echt botst een molecuul in water biljoenen keren per seconde; hier sterk vertraagd.' },
+    { t: 'Volg er één: hij schiet een stukje op, botst, en gaat een andere kant op. Zonder plan.', n: 'Het gevolgde deeltje is wit met een gouden rand, met zijn spoor erachter. Laat zien dat het spoor geen richting heeft.' },
+    { t: 'Kleurstofdeeltjes duwen elkaar niet weg: ze worden alle kanten op gestoten door watermoleculen.', n: 'Antwoord op de vraag van scherm 2: c. Misvatting: "de deeltjes willen naar de lege plek" of "ze duwen elkaar weg". Niemand stuurt ze; dat ze verspreid raken, volgt uit het willekeurige bewegen (scherm 4).' },
+    { t: 'Hoe warmer het water, hoe sneller de deeltjes bewegen. Links koud, rechts warm.', n: 'Temperatuur is een maat voor de bewegingsenergie van de deeltjes. Practicum: een theezakje of kleurstof in koud en in warm water.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 0.8), s1 = S.on(1, 0.8), s2 = S.on(2, 0.8), s3 = S.on(3, 1), A = s0 * (1 - s3);
+    const B = [140, 190, 1780, 900], sim = L4_sim('vrij', { n: 26, box: [B[0] + 20, B[1] + 20, B[2] - 20, B[3] - 20], dur: 120, sigma: 4.5, seed: 3, init: (i, r) => [300 + r() * 1320, 260 + r() * 560] }), t = T % 120;
+    if (A > 0.01) { paneel(ctx, B[0], B[1], B[2] - B[0], B[3] - B[1], A); ctx.save(); ctx.globalAlpha *= A; L4_water(ctx, B[0] + 14, B[1] + 14, B[2] - 14, B[3] - 14, 190, T, 1, { a: 0.6, r: 7 });
+      L4_spoor(ctx, sim, 0, t, 7, C.goud, 3, s1 * 0.9);
+      for (let i = 0; i < sim.n; i++) { const p = sim.pos(i, t); L4_kleurstof(ctx, p[0], p[1], 1.8, L4_draai(i, t), i === 0 ? 1 : 1 - s1 * 0.35, i === 0 && s1 > 0.01); }
+      const p0 = sim.pos(0, t);
+      if (s2 > 0.01) for (let k = 0; k < 5; k++) { const q = k / 5 * 6.283 + T * 0.7, d = 74 + Math.sin(T * 3 + k * 2) * 10, wx = p0[0] + Math.cos(q) * d, wy = p0[1] + Math.sin(q) * d; L4_h2o(ctx, wx, wy, 10, q + 1.6, s2); pijl(ctx, wx - Math.cos(q) * 16, wy - Math.sin(q) * 16, p0[0] + Math.cos(q) * 34, p0[1] + Math.sin(q) * 34, C.teal, 3, s2 * 0.9, 12); }
+      ctx.restore();
+      const lx = clamp(p0[0], 300, 1600), ly = p0[1] > 540 ? p0[1] - 70 : p0[1] + 100;
+      naam(ctx, 'kleurstofmolecuul', lx, ly, A * s1, 'center', C.goud, 30); naam(ctx, 'watermolecuul', 300, 870, A * s0, 'center', C.teal, 30); }
+    if (s3 > 0.01) { [['koud', 110, 940, C.teal, 1.6, 'koud', 0.25], ['warm', 990, 1810, C.koraal, 6, 'warm', 0.9]].forEach(([k, x0, x1, kl, sg, nm, f]) => {
+        const sm = L4_sim(k, { n: 18, box: [x0 + 30, 220, x1 - 90, 850], dur: 120, sigma: sg, seed: k === 'koud' ? 5 : 6, init: (i, r) => [x0 + 60 + r() * (x1 - x0 - 200), 260 + r() * 540] });
+        paneel(ctx, x0, 190, x1 - x0, 690, s3, rgba(kl, 0.6)); ctx.save(); ctx.globalAlpha *= s3; L4_water(ctx, x0 + 14, 204, x1 - 74, 866, 80, T * (k === 'koud' ? 0.35 : 1.6), k === 'koud' ? 7 : 8, { a: 0.5 });
+        L4_spoor(ctx, sm, 0, t, 5, kl, 3, 0.8); for (let i = 0; i < sm.n; i++) { const p = sm.pos(i, t); L4_kleurstof(ctx, p[0], p[1], 1.6, L4_draai(i, t), 1, i === 0); } ctx.restore();
+        L4_thermo(ctx, x1 - 44, 820, 220, f, kl, s3); regel(ctx, nm, x0 + 40, 255, s3, kl, 40, 'left', 700); }); }
+  } });
+
+// ---------- 3 · van veel naar weinig ----------
+const L4_DB = [190, 200, 1250, 730], L4_MID = (L4_DB[0] + L4_DB[2]) / 2;
+const L4_DSIM = () => L4_sim('diff', { n: 140, box: [L4_DB[0] + 14, L4_DB[1] + 14, L4_DB[2] - 14, L4_DB[3] - 14], dur: 60, sigma: 6, seed: 11, mid: L4_MID, init: (i, r) => [L4_DB[0] + 22 + r() * (L4_MID - L4_DB[0] - 44), L4_DB[1] + 22 + r() * (L4_DB[3] - L4_DB[1] - 44)] });
+SCHERMEN.push({ titel: 'Van veel naar weinig', kop: 'Van veel naar weinig', deel: 'Diffusie',
+  stappen: [
+    { t: 'Veel kleurstof links, geen rechts. In het midden een streep.', n: 'Er staat geen wand: de streep is alleen om te tellen. 140 kleurstofmoleculen, water niet getekend.' },
+    { t: 'Elk deeltje dwaalt willekeurig. Links zijn er veel, dus steken er links veel toevallig over.', n: 'Het gevolgde deeltje (witte rand) weet niet dat het rechts leger is: het gaat net zo vaak naar links als naar rechts. De grafiek rechts telt mee.' },
+    { t: 'Rechts zijn er weinig, dus gaan er weinig terug. Netto gaan er meer naar rechts: <b>diffusie</b>.', n: 'Diffusie = de netto verplaatsing van deeltjes van een hoge naar een lage concentratie. Het verschil heet het concentratieverschil, in het boek ook de concentratiegradiënt. De dikte van de pijlen hoort bij het aantal deeltjes aan die kant.' },
+    { t: 'Het verschil wordt kleiner, tot links en rechts evenveel hebben: <b>evenwicht</b>.', n: 'Vraag uit de film: Links en rechts hebben evenveel kleurstof. Wat doen de deeltjes dan? (a) ze staan stil, (b) ze bewegen door, maar er gaan evenveel heen als terug, (c) ze verzamelen zich in het midden. Goed: b. Netto nul; de deeltjes bewegen gewoon door (het gevolgde deeltje ook).' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 0.7), s1 = S.on(1, 7), s2 = S.on(2, 0.9), s3 = S.on(3, 7), sim = L4_DSIM();
+    const st = 9 * s1 + 42 * s3, D = L4_DB;
+    paneel(ctx, D[0], D[1], D[2] - D[0], D[3] - D[1], s0);
+    ctx.save(); ctx.globalAlpha *= s0; ctx.strokeStyle = rgba(C.line, 0.7); ctx.lineWidth = 3; ctx.setLineDash([12, 12]); ctx.beginPath(); ctx.moveTo(L4_MID, D[1] + 10); ctx.lineTo(L4_MID, D[3] - 10); ctx.stroke(); ctx.restore();
+    L4_spoor(ctx, sim, 0, st, Math.min(st, 6), C.goud, 3, s1 * 0.8);
+    for (let i = 0; i < sim.n; i++) { const p = sim.pos(i, st), j = s1 * (1 - s3) < 0.999 && s3 < 0.999 ? 0 : 1; const wx = Math.sin(T * 2.1 + i) * 2.5, wy = Math.cos(T * 1.7 + i * 1.3) * 2.5; L4_kleurstof(ctx, p[0] + wx, p[1] + wy, 1.15, L4_draai(i, st + T * 0.3), s0, i === 0 && s1 > 0.01); }
+    const L = sim.links(st), R = sim.n - L;
+    regel(ctx, 'links ' + L, (D[0] + L4_MID) / 2, D[3] + 52, s0, C.text, 34, 'center', 700); regel(ctx, 'rechts ' + R, (L4_MID + D[2]) / 2, D[3] + 52, s0, C.text, 34, 'center', 700);
+    if (s2 > 0.01) { const a1 = 4 + 16 * L / sim.n, a2 = 4 + 16 * R / sim.n; pijl(ctx, L4_MID - 150, D[3] + 102, L4_MID + 150, D[3] + 102, C.goud, a1, s2, a1 * 2 + 12); pijl(ctx, L4_MID + 150, D[3] + 150, L4_MID - 150, D[3] + 150, C.goud, a2, s2, a2 * 2 + 12); }
+    balk(ctx, 'diffusie: netto van hoog naar laag', 720, 960, 900, s2 * (1 - s3), C.goud, 38); balk(ctx, 'evenwicht: evenveel heen als terug', 720, 960, 900, s3, C.groen, 38);
+    // grafiek
+    const gx = 1360, gy = 700, gw = 430, gh = 460, ga = s1; if (ga > 0.01) { ctx.save(); ctx.globalAlpha *= ga; ctx.strokeStyle = rgba(C.line, 0.85); ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(gx, gy - gh); ctx.lineTo(gx, gy); ctx.lineTo(gx + gw, gy); ctx.stroke();
+      const tm = 51, X = (t) => gx + t / tm * gw, Y = (v) => gy - v / sim.n * gh;
+      ctx.strokeStyle = rgba(C.line, 0.35); ctx.setLineDash([6, 8]); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(gx, Y(sim.n / 2)); ctx.lineTo(gx + gw, Y(sim.n / 2)); ctx.stroke(); ctx.setLineDash([]);
+      for (const [f, kl, dash] of [[t => sim.links(t), C.goud, []], [t => sim.n - sim.links(t), C.text2, [10, 8]]]) { ctx.strokeStyle = kl; ctx.lineWidth = 4; ctx.setLineDash(dash); ctx.beginPath(); for (let t = 0; t <= st; t += 0.25) { t ? ctx.lineTo(X(t), Y(f(t))) : ctx.moveTo(X(t), Y(f(t))); } ctx.stroke(); }
+      ctx.restore(); metaText(ctx, 'tijd', gx + gw, gy + 36, C.text2, 'right', 22, ga); metaText(ctx, 'aantal', gx, gy - gh - 18, C.text2, 'left', 22, ga);
+      const ex = Math.min(X(st) + 12, gx + gw - 90); let yl = Y(L) - 14, yr = Y(R) + 34; if (yr - yl < 44) { const m = (yl + yr) / 2; yl = m - 22; yr = m + 22; } regel(ctx, 'links', ex, yl, ga, C.goud, 26, 'left', 700); regel(ctx, 'rechts', ex, yr, ga, C.text2, 26, 'left', 700); }
+  } });
+
+// ---------- 4 · vier factoren ----------
+SCHERMEN.push({ titel: 'Wat maakt het sneller?', kop: 'Wat maakt diffusie sneller?', deel: 'Diffusie',
+  stappen: [
+    { t: 'Een hogere <b>temperatuur</b>: de deeltjes bewegen sneller.', n: 'Vier factoren uit de film; ze staan ook zo in BvJ § 1.5 en Nectar § 2.3.' },
+    { t: 'Een groter <b>concentratieverschil</b>: dan steken er netto meer over.', n: '' },
+    { t: 'Een groter <b>oppervlak</b>: meer plek waar ze over kunnen steken.', n: 'Voorbeelden die later terugkomen: longblaasjes (scherm 7), darmvlokken, wortelharen.' },
+    { t: 'Een kortere <b>afstand</b>: diffusie is snel over korte en traag over lange afstanden.', n: 'Vraag uit de film: Een cel wordt twee keer zo dik. Hoe lang duurt het dan voor zuurstof het midden bereikt? (a) twee keer zo lang, (b) ongeveer vier keer zo lang, (c) even lang. Goed: b. Antwoord op het volgende scherm.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, w = 380, gap = 40, x0 = 960 - (4 * w + 3 * gap) / 2, y = 230, h = 700;
+    const tegels = [['temperatuur', 'hoger = sneller', C.koraal], ['concentratieverschil', 'groter = sneller', C.goud], ['oppervlak', 'groter = sneller', C.teal], ['afstand', 'korter = sneller', C.groen]];
+    tegels.forEach(([kop, sub, kl], i) => { const a = S.on(i, 0.8); if (a <= 0.01) return; const x = x0 + i * (w + gap), cx = x + w / 2, cy = y + 250;
+      paneel(ctx, x, y, w, h, a, rgba(kl, 0.6)); ctx.save(); ctx.globalAlpha *= a;
+      if (i === 0) { L4_thermo(ctx, cx - 120, cy + 120, 240, 0.85, C.koraal, 1); for (let k = 0; k < 6; k++) { const px = cx + 20 + (k % 2) * 90 + Math.sin(T * 5 + k) * 10, py = cy - 110 + Math.floor(k / 2) * 110 + Math.cos(T * 4 + k) * 10;
+          ctx.strokeStyle = rgba(C.koraal, 0.7); ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(px - 50, py); ctx.lineTo(px - 20, py); ctx.moveTo(px - 46, py - 10); ctx.lineTo(px - 24, py - 10); ctx.stroke(); L4_kleurstof(ctx, px, py, 1.6, k + T, 1); } }
+      if (i === 1) { roundRect(ctx, cx - 150, cy - 140, 300, 280, 14); shape(ctx, null, rgba(C.line, 0.6), 2); ctx.setLineDash([8, 8]); ctx.beginPath(); ctx.moveTo(cx, cy - 140); ctx.lineTo(cx, cy + 140); ctx.strokeStyle = rgba(C.line, 0.6); ctx.stroke(); ctx.setLineDash([]);
+        for (let k = 0; k < 24; k++) L4_kleurstof(ctx, cx - 130 + hash(k * 3) * 110 + Math.sin(T * 2 + k) * 3, cy - 120 + hash(k * 3 + 1) * 240, 1.2, k, 1); for (let k = 0; k < 3; k++) L4_kleurstof(ctx, cx + 30 + hash(k * 7) * 100, cy - 100 + hash(k * 7 + 2) * 200, 1.2, k, 1);
+        pijl(ctx, cx - 70, cy + 190, cx + 80, cy + 190, C.goud, 12, 1, 34); }
+      if (i === 2) { [[cx - 90, 60], [cx + 70, 210]].forEach(([mx, l], k) => { ctx.strokeStyle = L4_KOP(); ctx.lineWidth = 10; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(mx, cy - l / 2); ctx.lineTo(mx, cy + l / 2); ctx.stroke(); const n = k ? 5 : 1; for (let q = 0; q < n; q++) { const py = cy + (n > 1 ? (q - 2) * 42 : 0); pijl(ctx, mx - 50, py, mx + 50, py, C.teal, 5, 1, 16); } }); }
+      if (i === 3) { [[cy - 90, 120], [cy + 80, 280]].forEach(([py, l], k) => { ctx.strokeStyle = rgba(C.line, 0.7); ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(cx - 150, py - 30); ctx.lineTo(cx - 150, py + 30); ctx.moveTo(cx - 150 + l, py - 30); ctx.lineTo(cx - 150 + l, py + 30); ctx.stroke();
+          const f = (Math.sin(T * (k ? 0.8 : 1.6)) + 1) / 2; L4_o2(ctx, cx - 140 + f * (l - 20), py + Math.sin(T * 9 + k) * 8, 1.4, 1); }); }
+      ctx.restore(); regel(ctx, kop, cx, y + 560, a, kl, i === 1 ? 32 : 38, 'center', 700); regel(ctx, sub, cx, y + 620, a, C.text, 30, 'center', 500); });
+  } });
+
+// ---------- 5 · afstand telt ----------
+// een echte willekeurige wandeling (stap 34 px, terugkaatsen bij 0) tot de overkant L; het aantal stappen
+// groeit met L²: de seed is zo gekozen dat 1 × afstand ± 25 stappen kost en 2 × afstand ± 100
+function L4_wandel(seed, L) { const r = L4_rng(seed), pts = [0]; let x = 0; while (x < L && pts.length < 400) { x = Math.abs(x + (r() < 0.5 ? -34 : 34)); pts.push(Math.min(x, L)); } return pts; }
+const _L4pad = {};
+function L4_pad(id, L, doel) { if (_L4pad[id]) return _L4pad[id]; let best = null;
+  for (let sd = 1; sd < 3000; sd++) { const P = L4_wandel(sd * 7 + (id === 'kort' ? 1 : 2), L); const d = Math.abs(P.length - 1 - doel); if (!best || d < best.d) best = { d, P }; if (d <= 1) break; }
+  return _L4pad[id] = best.P; }
+SCHERMEN.push({ titel: 'Afstand telt', kop: 'Twee keer zo ver, vier keer zo lang', deel: 'Diffusie',
+  stappen: [
+    { t: 'Een deeltje dwaalt heen en weer. Over een korte afstand is het snel aan de overkant.', n: 'Antwoord op de vraag van het vorige scherm: b, ongeveer vier keer zo lang. Het spoor laat zien dat het deeltje ook vaak terug gaat.' },
+    { t: 'Twee keer zo ver kost ongeveer <b>vier keer zo lang</b>.', n: 'Achtergrond: bij een willekeurige wandeling groeit de afgelegde afstand met de wortel van de tijd (t ∼ x²/D). Dat hoeven leerlingen niet te kunnen; "dubbele afstand, ongeveer vier keer zo lang" is genoeg. Zie de briefing.' },
+    { t: 'Zuurstof komt in een paar honderdste seconde door een cel. Over een centimeter duurt het uren.', n: 'Getallen uit de film (orde van grootte). Daarom heeft een groot dier transport nodig: bloed brengt de stoffen dichtbij, het laatste stukje gaat met diffusie.' },
+    { t: 'Daarom zijn cellen klein.', n: 'Verband met les 1 (Van molecuul tot biosfeer): verhouding oppervlak en inhoud. Wie wil: het Schaallab op de site.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, rij = [[0, 'kort', 270, 1, 25, 80], [1, 'lang', 470, 4, 100, 320]];
+    metaText(ctx, 'het pad loopt omlaag met de tijd', 220, 225, C.meta, 'left', 22, S.on(0, 0.5)); metaText(ctx, 'tijd', 1380, 225, C.meta, 'left', 22, S.on(0, 0.5));
+    rij.forEach(([k, id, y, blok, doel, hh]) => { const a = S.on(k, 0.6), g = S.on(k, 2.4, 0.3); if (a <= 0.01) return; const x0 = 220, L = blok === 1 ? 340 : 680;
+      ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = rgba(C.line, 0.8); ctx.lineWidth = 4; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x0, y); ctx.lineTo(x0, y + hh); ctx.moveTo(x0 + L, y); ctx.lineTo(x0 + L, y + hh); ctx.stroke(); ctx.restore();
+      regel(ctx, blok === 1 ? '1 × afstand' : '2 × afstand', x0 + L + 24, y + 30, a, C.text2, 28, 'left', 600);
+      const P = L4_pad(id, L, doel), n = P.length - 1, m = Math.max(1, Math.round(g * n)), Y = (i) => y + 10 + (i / 100) * (320 - 20);
+      ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = rgba(C.teal, 0.7); ctx.lineWidth = 3; ctx.lineJoin = 'round'; ctx.beginPath(); for (let i = 0; i <= m; i++) { const px = x0 + P[i], py = Y(i); i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke(); ctx.restore();
+      L4_o2(ctx, x0 + P[m], Y(m), 1.8, a);
+      for (let q = 0; q < blok; q++) { const b = S.on(k, 0.4, 0.3 + q * 0.5); ctx.save(); ctx.globalAlpha *= b; roundRect(ctx, 1380 + q * 96, y + 10, 80, 80, 12); shape(ctx, rgba(C.goud, 0.35), C.goud, 3); ctx.restore(); }
+      regel(ctx, blok === 1 ? '1 ×' : '≈ 4 ×', 1380 + blok * 96 + 20, y + 64, S.on(k, 0.5, 0.3 + blok * 0.5), C.goud, 44, 'left', 700);
+      regel(ctx, n + ' botsingen', 1380, y + 140, g, C.text2, 26, 'left', 500); });
+    regel(ctx, 'door één cel: een paar honderdste seconde', 220, 880, S.on(2, 0.7), C.text, 34, 'left', 600); regel(ctx, 'over 1 cm: uren', 220, 930, S.on(2, 0.7, 0.3), C.text, 34, 'left', 600);
+    balk(ctx, 'daarom zijn cellen klein', 1440, 900, 640, S.on(3, 0.8), C.goud, 40);
+  } });
+
+// ---------- 6 · longblaasjes ----------
+SCHERMEN.push({ titel: 'Longblaasjes', kop: 'Korte afstand, groot oppervlak', deel: 'Diffusie',
+  stappen: [
+    { t: 'Een longblaasje met daaromheen een haarvat.', n: 'Schematisch: in het echt is een longblaasje ± 0,2 mm en ligt het in een net van haarvaten. De lucht zit in het blaasje, het bloed in het haarvat.' },
+    { t: 'Zuurstof gaat door diffusie het bloed in.', n: 'Van hoog (lucht) naar laag (bloed). Het bloed voert de zuurstof meteen af, dus het verschil blijft bestaan.' },
+    { t: 'Koolstofdioxide gaat door diffusie het bloed uit.', n: '' },
+    { t: 'Een flinterdunne wand: de afstand is heel kort.', n: 'Wand van longblaasje + haarvat samen ± 0,001 mm (gemiddeld ± 1 µm, op de dunste plekken ± 0,5 µm). Bronnen: zie de briefing en het bronnenlogboek van de film.' },
+    { t: 'Honderden miljoenen longblaasjes: samen ongeveer zo groot als een badmintonveld.', n: 'Gemiddeld ± 480 miljoen longblaasjes (spreiding 274–790 miljoen). Oppervlak: leerboekwaarde ± 70 m², metingen met de elektronenmicroscoop ± 130 m²; een badmintonveld (dubbel) is ± 82 m², dus eerder een ondergrens.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 0.8), s1 = S.on(1, 0.8), s2 = S.on(2, 0.8), s3 = S.on(3, 0.8), s4 = S.on(4, 0.8), cx = 640, cy = 520, R = 250;
+    // haarvat: boog onder en rechts langs het blaasje
+    ctx.save(); ctx.globalAlpha *= s0; ctx.lineCap = 'round'; ctx.strokeStyle = rgba(L4_BLOED, 0.45); ctx.lineWidth = 64; ctx.beginPath(); ctx.arc(cx, cy, R + 40, -0.6, 2.7); ctx.stroke(); ctx.strokeStyle = L4_BLOED; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(cx, cy, R + 8, -0.6, 2.7); ctx.stroke(); ctx.beginPath(); ctx.arc(cx, cy, R + 72, -0.6, 2.7); ctx.stroke();
+    for (let k = 0; k < 7; k++) { const q = -0.5 + ((k / 7 + T * 0.03) % 1) * 3.1; ctx.save(); ctx.translate(cx + Math.cos(q) * (R + 40), cy + Math.sin(q) * (R + 40)); ctx.rotate(q); ctx.beginPath(); ctx.ellipse(0, 0, 11, 22, 0, 0, 6.283); shape(ctx, L4_BLOED, lighten(L4_BLOED, 0.25), 1.5); ctx.restore(); }
+    circ(ctx, cx, cy, R, rgba(C.teal, C.licht ? 0.06 : 0.08), lighten(L4_KOP(), 0.1), 5); ctx.restore();
+    naam(ctx, 'longblaasje', cx, cy - R - 30, s0, 'center', C.text, 34); naam(ctx, 'lucht', cx - 60, cy - 60, s0, 'center', C.text2, 30); naam(ctx, 'haarvat (bloed)', cx + 140, cy + R + 130, s0, 'center', L4_BLOED, 30);
+    // gassen
+    for (let k = 0; k < 6; k++) { const q = 0.1 + k * 0.42, u = (T * 0.35 + k * 0.17) % 1, r1 = lerp(R - 140, R + 40, u); L4_o2(ctx, cx + Math.cos(q) * r1, cy + Math.sin(q) * r1, 1.5, s1 * Math.min(1, (1 - u) * 4)); }
+    pijl(ctx, cx + Math.cos(0.9) * (R - 120), cy + Math.sin(0.9) * (R - 120), cx + Math.cos(0.9) * (R + 30), cy + Math.sin(0.9) * (R + 30), C.teal, 6, s1, 22); naam(ctx, 'zuurstof', cx + 30, cy + 70, s1, 'center', C.teal, 30);
+    for (let k = 0; k < 5; k++) { const q = 0.3 + k * 0.48, u = (T * 0.3 + k * 0.21) % 1, r1 = lerp(R + 40, R - 150, u); L4_co2(ctx, cx + Math.cos(q) * r1, cy + Math.sin(q) * r1, 1.3, s2 * Math.min(1, (1 - u) * 4)); }
+    pijl(ctx, cx + Math.cos(2.1) * (R + 30), cy + Math.sin(2.1) * (R + 30), cx + Math.cos(2.1) * (R - 120), cy + Math.sin(2.1) * (R - 120), C.text2, 6, s2, 22); naam(ctx, 'koolstofdioxide', cx - R - 24, cy + 20, s2, 'right', C.text2, 30);
+    // zoom op de wand
+    const zx = 1420, zy = 400, zr = 200, vx = cx + Math.cos(0.2) * (R + 20), vy = cy + Math.sin(0.2) * (R + 20);
+    zoom(ctx, zx, zy, zr, s3, [vx, vy], () => { ctx.fillStyle = rgba(C.teal, 0.08); ctx.fillRect(zx - zr, zy - zr, zr, 2 * zr); ctx.fillStyle = rgba(L4_BLOED, 0.18); ctx.fillRect(zx + 20, zy - zr, zr, 2 * zr);
+      ctx.fillStyle = mix(L4_KOP(), C.bg, 0.3); ctx.fillRect(zx - 12, zy - zr, 14, 2 * zr); ctx.fillStyle = mix(L4_BLOED, C.bg, 0.4); ctx.fillRect(zx + 6, zy - zr, 12, 2 * zr);
+      L4_o2(ctx, zx - 90, zy - 60 + Math.sin(T) * 8, 1.6, 1); pijl(ctx, zx - 60, zy + 40, zx + 90, zy + 40, C.teal, 5, 1, 18); L4_bloedcel(ctx, zx + 120, zy - 90, 34, 0, 0, 0, 1); });
+    regel(ctx, 'wand ± 0,001 mm', zx, zy + zr + 50, s3, C.text, 32, 'center', 700);
+    regel(ctx, 'honderden miljoenen longblaasjes', 1110, 820, s4, C.text, 34, 'left', 700); regel(ctx, 'samen ± 70–130 m²: een badmintonveld', 1110, 875, s4, C.goud, 34, 'left', 700);
+  } });
+
+// ---------- 7 · het celmembraan ----------
+function L4_fosfolipide(ctx, x, y, s, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); ctx.strokeStyle = L4_STAART(); ctx.lineWidth = 8; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  ctx.beginPath(); ctx.moveTo(-12, 24); ctx.lineTo(-12, 140); ctx.stroke(); ctx.beginPath(); ctx.moveTo(12, 24); ctx.lineTo(12, 76); ctx.lineTo(24, 92); ctx.lineTo(24, 140); ctx.stroke();
+  circ(ctx, 0, 0, 30, L4_KOP(), lighten(L4_KOP(), 0.3), 2); ctx.restore(); }
+SCHERMEN.push({ titel: 'Het celmembraan', kop: 'Een dubbele laag fosfolipiden', deel: 'Het celmembraan',
+  stappen: [
+    { t: 'Eén fosfolipide: een kop die van water houdt en twee vetstaarten die water afstoten.', n: 'Kop = hydrofiel, staarten = hydrofoob (de film gebruikt beide woorden). De knik in één staart is een onverzadigd vetzuur. Kleuren zoals de film: kop grijsblauw, staarten donker oker.' },
+    { t: 'In water liggen de koppen naar het water, de staarten naar binnen, tegen elkaar.', n: 'Daardoor zit midden in het membraan een laag vet. In het echt zitten er ook eiwitten en (bij dieren) cholesterol in; die komen op het volgende scherm.' },
+    { t: 'Het membraan laat sommige stoffen door en andere niet: <b>selectief doorlatend</b>.', n: 'In het boek: selectief permeabel. Vraag uit de film: Welke stof komt het makkelijkst door het celmembraan? (a) zuurstof, (b) een natriumion, (c) glucose. Goed: a.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 0.8), s1 = S.on(1, 1), s2 = S.on(2, 0.8);
+    L4_fosfolipide(ctx, 330, 360, 1.3, s0);
+    naam(ctx, 'kop: hydrofiel', 390, 340, s0, 'left', C.text, 30); naam(ctx, 'staarten: hydrofoob', 390, 500, s0, 'left', L4_STAART(), 30);
+    if (s1 > 0.01) { const y = 540; L4_water(ctx, 780, 210, 1790, y - 90, 50, T, 4, { a: 0.55 * s1 }); L4_water(ctx, 780, y + 90, 1790, 860, 50, T, 9, { a: 0.55 * s1 });
+      L4_mem(ctx, lerp(1280, 780, s1), lerp(1300, 1790, s1), y, { a: s1, s: 1.15, t: T });
+      naam(ctx, 'water', 1840, 300, s1, 'right', C.teal, 30); naam(ctx, 'water', 1840, 820, s1, 'right', C.teal, 30); regel(ctx, 'vet', 760, y + 11, s1, L4_STAART(), 30, 'right', 700); }
+    balk(ctx, 'selectief doorlatend', 960, 960, 700, s2, C.goud, 40);
+  } });
+
+// ---------- 8 · wie mag erdoor? ----------
+SCHERMEN.push({ titel: 'Wie mag erdoor?', kop: 'Selectief doorlatend', deel: 'Het celmembraan',
+  stappen: [
+    { t: 'Zuurstof en koolstofdioxide zijn klein en lossen goed op in vet: ze glippen zo door het membraan.', n: 'Antwoord op de vraag van het vorige scherm: zuurstof. Boven = buiten de cel, onder = binnen.' },
+    { t: 'Een natriumion is kleiner dan glucose, maar heeft een lading: het komt niet door de vetlaag.', n: 'Een ion zit in water in een watermantel (de watermoleculen eromheen), daardoor is het opgelost veel groter. Het membraan is dus geen zeef die alleen naar grootte kijkt.' },
+    { t: 'Glucose lost slecht op in vet: ook dat kaatst terug.', n: '' },
+    { t: 'Water gaat een beetje door de vetlaag, en in veel cellen vooral door speciale kanaaltjes.', n: 'Die waterkanalen heten aquaporinen (vwo: kanaaleiwit, volgend scherm). Ontdekt door Peter Agre (Nobelprijs scheikunde 2003).' },
+    { t: 'Ook glucose heeft zo\'n eigen doorgang: een eiwit. Het gaat dan nog steeds vanzelf, van hoog naar laag.', n: 'Samengevat uit de film: stoffen die goed in vet oplossen, gaan zelf door het membraan; stoffen die goed in water oplossen, en ionen, hebben een eiwit in het membraan nodig.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, y = 560, top = y - 82, bot = y + 82, s = [0, 1, 2, 3, 4].map(k => S.on(k, 0.8));
+    const KX = 1390, DX = 1660;
+    const gat = []; if (s[3] > 0.01) gat.push([KX - 40, KX + 40]); if (s[4] > 0.01) gat.push([DX - 50, DX + 50]);
+    L4_mem(ctx, 120, 1800, y, { t: T, s: 1.15, gaten: gat });
+    L4_kanaal(ctx, KX, y, 0, 1.25, s[3]); L4_drager(ctx, DX, y, 1.3, (Math.sin(T * 1.6) + 1) / 2, s[4]);
+    metaText(ctx, 'buiten de cel', 1790, 330, C.meta, 'right', 22); metaText(ctx, 'in de cel', 1790, 800, C.meta, 'right', 22);
+    const door = (x, fase, fn, a) => { if (a <= 0.01) return; const u = (T * 0.32 + fase) % 1; fn(x + Math.sin(u * 12 + fase * 9) * 14, lerp(290, 850, u), a * Math.min(1, u * 6, (1 - u) * 6)); };
+    const terug = (x, fase, fn, a, r) => { if (a <= 0.01) return; const u = (T * 0.4 + fase) % 1, yy = lerp(290, top - r, Math.sin(u * Math.PI)); fn(x + Math.sin(u * 8 + fase * 7) * 10, yy, a); if (Math.sin(u * Math.PI) > 0.93) kruis(ctx, x + 50, top - 20, 12, a); };
+    door(270, 0, (x, yy, a) => L4_o2(ctx, x, yy, 1.8, a), s[0]); door(330, 0.5, (x, yy, a) => L4_o2(ctx, x, yy, 1.8, a), s[0]);
+    door(560, 0.25, (x, yy, a) => L4_co2(ctx, x, yy, 1.6, a), s[0]); door(620, 0.75, (x, yy, a) => L4_co2(ctx, x, yy, 1.6, a), s[0]);
+    terug(860, 0.1, (x, yy, a) => L4_ion(ctx, x, yy, 'na', 1.6, a, true, T), s[1], 40);
+    terug(1120, 0.6, (x, yy, a) => L4_glucose(ctx, x, yy, 1.6, a, T * 0.5), s[2], 30);
+    if (s[3] > 0.01) { for (let k = 0; k < 4; k++) { const u = (T * 0.3 + k * 0.25) % 1; L4_h2o(ctx, KX + Math.sin(u * 20) * (u > 0.35 && u < 0.65 ? 2 : 10), lerp(300, 840, u), 9, u * 9 + k, s[3] * Math.min(1, u * 6, (1 - u) * 6)); } }
+    if (s[4] > 0.01) { const u = (T * 0.22) % 1; L4_glucose(ctx, DX, lerp(300, 840, u), 1.5, s[4] * Math.min(1, u * 6, (1 - u) * 6), u * 3); }
+    naam(ctx, 'zuurstof', 300, 230, s[0], 'center', C.teal, 30); naam(ctx, 'CO₂', 590, 230, s[0], 'center', C.text2, 30); vink(ctx, 300, 920, 18, s[0]); vink(ctx, 590, 920, 18, s[0]);
+    naam(ctx, 'natriumion', 860, 230, s[1], 'center', C.oker, 30); naam(ctx, 'glucose', 1120, 230, s[2], 'center', C.oker, 30);
+    naam(ctx, 'waterkanaal', KX, 230, s[3], 'center', C.teal, 30); naam(ctx, 'eigen doorgang', DX, 230, s[4], 'center', C.oker, 30);
+  } });
+
+// ---------- 9 · eiwitten als doorgang (vwo) ----------
+SCHERMEN.push({ titel: 'Kanaal en drager', kop: 'Eiwitten als doorgang', deel: 'Het celmembraan',
+  stappen: [
+    { vwo: true, t: 'Een <b>kanaaleiwit</b> vormt een tunnel voor één soort deeltje, zoals een waterkanaal.', n: 'Er bestaan ook ionkanalen (die kom je tegen bij zenuwimpulsen). Een kanaal is een doorlopende tunnel; dat maakt het veel sneller dan een drager.' },
+    { vwo: true, t: 'Een <b>dragereiwit</b> pakt een deeltje vast, zoals glucose, klapt om en zet het aan de andere kant af.', n: 'Er is bij een drager nooit een doorlopende tunnel: hij is open naar buiten óf naar binnen.' },
+    { vwo: true, t: 'Via zo\'n eiwit van hoog naar laag heet <b>gefaciliteerde diffusie</b>. Het kost geen ATP.', n: 'Vraag uit de film: Kost gefaciliteerde diffusie ATP? (a) ja, het eiwit moet werken, (b) nee, het gaat vanzelf van hoog naar laag. Goed: b. Het eiwit is alleen een doorgang; de beweging komt nog steeds van het willekeurig rondschieten.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, y = 560, s0 = S.on(0, 0.8), s1 = S.on(1, 0.8), s2 = S.on(2, 0.8), KX = 620, DX = 1300;
+    L4_mem(ctx, 120, 1800, y, { t: T, s: 1.15, gaten: [[KX - 50, KX + 50], [DX - 60, DX + 60]] });
+    L4_kanaal(ctx, KX, y, 0, 1.5, 1, { col: s0 > 0.01 ? L4_EIWIT() : rgba(L4_EIWIT(), 0.4) });
+    for (let k = 0; k < 5; k++) { const u = (T * 0.3 + k * 0.2) % 1; L4_h2o(ctx, KX + Math.sin(u * 20) * (u > 0.38 && u < 0.62 ? 1.5 : 12), lerp(280, 840, u), 10, u * 9 + k, s0 * Math.min(1, u * 6, (1 - u) * 6)); }
+    const c = (T * 0.3) % 1, flip = c < 0.35 ? 0 : c < 0.55 ? (c - 0.35) / 0.2 : c < 0.8 ? 1 : 1 - (c - 0.8) / 0.2, gy = c < 0.35 ? lerp(290, y - 30, c / 0.35) : c < 0.55 ? lerp(y - 30, y + 30, (c - 0.35) / 0.2) : c < 0.8 ? lerp(y + 30, 830, (c - 0.55) / 0.25) : 830;
+    L4_drager(ctx, DX, y, 1.6, s1 > 0.01 ? flip : 0, 1, { col: s1 > 0.01 ? L4_EIWIT() : rgba(L4_EIWIT(), 0.4) }); if (s1 > 0.01 && c < 0.8) L4_glucose(ctx, DX, gy, 1.6, s1, c * 4);
+    for (let k = 0; k < 9; k++) L4_glucose(ctx, 1540 + (k % 3) * 80 + Math.sin(T + k) * 6, 290 + Math.floor(k / 3) * 60 + Math.cos(T * 0.8 + k) * 6, 1.2, s2, k);
+    for (let k = 0; k < 2; k++) L4_glucose(ctx, 1560 + k * 120 + Math.sin(T + k) * 6, 800 + Math.cos(T + k) * 6, 1.2, s2, k);
+    regel(ctx, 'hoog', 1780, 250, s2, C.text, 30, 'right', 700); regel(ctx, 'laag', 1780, 900, s2, C.text, 30, 'right', 700);
+    naam(ctx, 'kanaaleiwit', KX, 230, s0, 'center', C.teal, 32); naam(ctx, 'dragereiwit', DX, 230, s1, 'center', C.oker, 32);
+    balk(ctx, 'gefaciliteerde diffusie: geen ATP', 900, 960, 900, s2, C.goud, 38);
+  } });
+
+// ---------- 10 · osmose ----------
+const L4_BAK = [360, 230, 1560, 800];
+function L4_bak(ctx, S, lL, lR, a, o = {}) { const [x0, y0, x1, y1] = L4_BAK, mx = (x0 + x1) / 2, T = S.T; if (a <= 0.01) return;
+  ctx.save(); ctx.globalAlpha *= a;
+  for (const [xa, xb, lv] of [[x0, mx, lL], [mx, x1, lR]]) { ctx.fillStyle = rgba(C.teal, C.licht ? 0.12 : 0.14); ctx.fillRect(xa, lv, xb - xa, y1 - lv); ctx.strokeStyle = rgba(C.teal, 0.6); ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(xa, lv); ctx.lineTo(xb, lv); ctx.stroke(); }
+  L4_water(ctx, x0 + 14, lL + 16, mx - 30, y1 - 14, 46, T, 2, { a: 0.6 }); L4_water(ctx, mx + 30, lR + 16, x1 - 14, y1 - 14, 40, T, 6, { a: 0.6 });
+  for (let k = 0; k < 16; k++) { const bx = mx + 70 + hash(k * 3 + 1) * (x1 - mx - 110), by = lR + 50 + hash(k * 3 + 2) * (y1 - lR - 90); L4_ion(ctx, bx + Math.sin(T * 0.8 + k) * 10, by + Math.cos(T * 0.7 + k * 2) * 10, k % 2 ? 'cl' : 'na', 1.1, 1, false); }
+  ctx.strokeStyle = C.line; ctx.lineWidth = 5; ctx.lineJoin = 'round'; ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y1); ctx.lineTo(x1, y1); ctx.lineTo(x1, y0); ctx.stroke();
+  ctx.strokeStyle = L4_KOP(); ctx.lineWidth = 8; ctx.setLineDash([14, 8]); ctx.beginPath(); ctx.moveTo(mx, y0 + 20); ctx.lineTo(mx, y1); ctx.stroke(); ctx.restore(); }
+SCHERMEN.push({ titel: 'Osmose', kop: 'Water door een semipermeabel membraan', deel: 'Osmose',
+  stappen: [
+    { t: 'Een membraan dat water doorlaat, maar zout niet: <b>semipermeabel</b>. Links zuiver water, rechts zout water.', n: 'Zout getekend als losse ionen (Na⁺ oker, Cl⁻ grijsblauw), zoals in de film. Vraag uit de film: Links zuiver water, rechts zout water. Het zout kan niet door het membraan. Wat gebeurt er met het water? (a) naar links, (b) naar rechts, naar het zout, (c) niets, want het zout kan er niet door. Goed: b.' },
+    { t: 'Het water gaat naar rechts: rechts stijgt, links daalt.', n: 'Naar de kant met de hoogste concentratie opgeloste deeltjes die er niet door kunnen.' },
+    { t: 'Je hoort vaak: het zout trekt water aan. Maar zout trekt niet.', n: 'Ook vaak gehoord: "rechts is minder water, dus gaat water erheen". Dat kleine verschil in water hoort erbij, maar het water gaat niet molecuul voor molecuul naar rechts: het stroomt als één geheel door de gaatjes. Hoe dat komt: volgende scherm. Zie de briefing (Kramer & Myers 2013).' }
+  ],
+  teken(ctx, S) {
+    const s0 = S.on(0, 0.8), s1 = S.on(1, 2), s2 = S.on(2, 0.8), lL = lerp(380, 450, s1), lR = lerp(380, 310, s1);
+    L4_bak(ctx, S, lL, lR, s0);
+    naam(ctx, 'zuiver water', 610, 205, s0, 'center', C.teal, 32); naam(ctx, 'zout water', 1310, 205, s0, 'center', C.text, 32); naam(ctx, 'semipermeabel membraan', 960, 860, s0 * (1 - s2), 'center', C.text2, 30);
+    pijl(ctx, 880, 600, 1050, 600, C.teal, 10, s1, 32);
+    misvatting(ctx, 'het zout trekt water aan', 'water stroomt als geheel door de gaatjes', 960, 840, 1000, s2, S.on(2, 0.6, 0.6));
+  } });
+
+// ---------- 11 · waarom? de porie van dichtbij ----------
+SCHERMEN.push({ titel: 'Waarom?', kop: 'Zout kaatst terug, water stroomt', deel: 'Osmose',
+  stappen: [
+    { t: 'Kijk van dichtbij naar een gaatje in het membraan. Links zuiver water, rechts zout water.', n: 'Het gaatje is een waterkanaal. De ionen zitten in hun watermantel (oranje bij Na⁺: O-kant naar het ion; bij Cl⁻ wijzen de H-kanten naar het ion).' },
+    { t: 'Rechts botsen de zoutdeeltjes tegen het membraan. Ze kunnen er niet door en kaatsen terug.', n: '' },
+    { t: 'Bij dat terugkaatsen duwen ze het water weg van het gaatje: daar is de druk lager.', n: 'Dit is de uitleg uit de film (Kramer & Myers 2013): de opening geeft een terugkaatsend zoutdeeltje een duwtje van het membraan af, en via botsingen gaat die duw over op het water eromheen.' },
+    { t: 'Links duwt het water harder, dus stroomt het water door het gaatje naar rechts, als door een rietje: <b>osmose</b>.', n: 'Toetstaal: water gaat naar de kant met de hoogste osmotische waarde. In het boek staat ook vaak "osmose is diffusie van water": de richting klopt altijd, het mechanisme is eigenlijk een stroming.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 0.8), s1 = S.on(1, 0.8), s2 = S.on(2, 0.8), s3 = S.on(3, 0.8), mx = 960, py = 520;
+    const mijdM = (x, y) => Math.abs(x - mx) < 70 || y > 760 || (s2 > 0.3 && x > mx && x < mx + 150 && Math.abs(y - py) < 70);
+    L4_water(ctx, 140, 220, mx - 70, 740, 70, T, 5, { a: 0.65 * s0, r: 8, mijd: mijdM }); L4_water(ctx, mx + 70, 220, 1780, 740, 60, T, 8, { a: 0.65 * s0, r: 8, mijd: mijdM });
+    L4_memV(ctx, mx, 200, 760, { t: T, s: 1.2, a: s0, gaten: [[py - 50, py + 50]] }); L4_kanaal(ctx, mx, py, Math.PI / 2, 1.2, s0, { por: 18 });
+    [[1260, 320, 'na'], [1500, 650, 'cl'], [1620, 330, 'na'], [1360, 690, 'cl']].forEach(([x, y, sr], k) => L4_ion(ctx, x + Math.sin(T * 0.7 + k) * 20, y + Math.cos(T * 0.6 + k) * 16, sr, 1.5, s0, true, T));
+    // terugkaatsend ion bij de opening
+    if (s1 > 0.01) { const u = (T * 0.5) % 1, d = 40 + 170 * Math.abs(Math.cos(Math.PI * u)), ix = mx + 70 + d, iy = py + 70 + Math.sin(u * 6.283) * 10; L4_ion(ctx, ix, iy, 'na', 1.5, s1, true, T);
+      if (Math.abs(Math.cos(Math.PI * u)) < 0.2) kruis(ctx, mx + 90, py + 110, 12, s1 * 0.8); }
+    if (s2 > 0.01) { for (const [dx, dy] of [[100, -30], [130, 30], [90, 60]]) pijl(ctx, mx + dx, py + dy, mx + dx + 70, py + dy * 1.6, C.oker, 4, s2, 14);
+      [[mx - 300, 1, C.teal, 'druk'], [mx + 300, 0.55, C.goud, 'druk bij het gaatje']].forEach(([x, f, kl, nm]) => { ctx.save(); ctx.globalAlpha *= s2; roundRect(ctx, x - 110, 800, 220, 30, 15); shape(ctx, rgba(C.fill, 0.7), rgba(C.line, 0.6), 2); roundRect(ctx, x - 110, 800, 220 * f, 30, 15); ctx.fillStyle = kl; ctx.fill(); ctx.restore(); regel(ctx, nm, x, 870, s2, C.text, 28, 'center', 600); });
+      ctx.save(); ctx.globalAlpha *= s2 * 0.8; ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.setLineDash([6, 6]); ctx.beginPath(); ctx.ellipse(mx + 95, py, 50, 60, 0, 0, 6.283); ctx.stroke(); ctx.restore(); }
+    if (s3 > 0.01) { for (let k = 0; k < 5; k++) { const u = (T * 0.45 + k * 0.2) % 1; L4_h2o(ctx, lerp(mx - 150, mx + 150, u), py + Math.sin(u * 12 + k) * 4, 8, u * 5 + k, s3); } pijl(ctx, mx - 260, py - 120, mx + 260, py - 120, C.teal, 9, s3, 30); }
+    naam(ctx, 'zuiver water', 400, 190, s0, 'center', C.teal, 30); naam(ctx, 'zout water', 1500, 190, s0, 'center', C.text, 30); naam(ctx, 'gaatje', mx, 190, s0, 'center', C.text2, 30);
+    termKaart(ctx, 'osmose', 'water naar de hoogste osmotische waarde', 960, 900, s3, C.teal);
+  } });
+
+// ---------- 12 · U-buis ----------
+SCHERMEN.push({ titel: 'U-buis', kop: 'Hoe hoog wordt de kolom?', deel: 'Osmose',
+  stappen: [
+    { t: 'Zet het membraan onderin een U-buis. Links zuiver water, rechts zout water.', n: '' },
+    { t: 'Het water rechts stijgt. Maar hoe hoger de kolom, hoe harder die terugduwt.', n: '' },
+    { t: 'Op een bepaalde hoogte duwt de kolom even hard terug als het water dat naar rechts wil: netto stopt de stroom.', n: 'Hoe hoger de concentratie opgeloste deeltjes rechts, hoe hoger die kolom. Vwo-achtergrond: de druk die de stroom precies tegenhoudt, heet de osmotische druk.' },
+    { t: 'Tel deeltjes, geen moleculen: keukenzout valt in water uiteen in twee ionen.', n: 'NaCl → Na⁺ + Cl⁻. Eén mol zout per liter geeft dus twee mol deeltjes.' },
+    { t: 'Glucose blijft heel. Even veel mol zout geeft daardoor twee keer zo\'n hoge osmotische waarde.', n: 'In werkelijkheid iets minder dan twee keer (± 1,9), omdat een deel van de ionen paren vormt; voor de toets: twee keer. Fysiologisch zout (0,9 %) heeft een osmolariteit van 308 mOsm/L.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 0.8), s1 = S.on(1, 2.4), s2 = S.on(2, 0.8), s3 = S.on(3, 0.8), s4 = S.on(4, 0.8);
+    const xl = 540, xr = 940, bw = 120, yt = 220, yb = 820, lL = lerp(470, 560, s1), lR = lerp(470, 330, s1), xm = (xl + xr) / 2;
+    ctx.save(); ctx.globalAlpha *= s0;
+    const buis = () => { ctx.beginPath(); ctx.moveTo(xl - bw / 2, yt); ctx.lineTo(xl - bw / 2, yb - 60); ctx.quadraticCurveTo(xl - bw / 2, yb + bw / 2, xl + 60, yb + bw / 2); ctx.lineTo(xr - 60, yb + bw / 2); ctx.quadraticCurveTo(xr + bw / 2, yb + bw / 2, xr + bw / 2, yb - 60); ctx.lineTo(xr + bw / 2, yt);
+      ctx.lineTo(xr - bw / 2, yt); ctx.lineTo(xr - bw / 2, yb - 60); ctx.quadraticCurveTo(xr - bw / 2, yb - bw / 2, xr - 60, yb - bw / 2); ctx.lineTo(xl + 60, yb - bw / 2); ctx.quadraticCurveTo(xl + bw / 2, yb - bw / 2, xl + bw / 2, yb - 60); ctx.lineTo(xl + bw / 2, yt); ctx.closePath(); };
+    ctx.save(); buis(); ctx.clip(); ctx.fillStyle = rgba(C.teal, C.licht ? 0.16 : 0.2); ctx.fillRect(xl - bw, lL, xm - xl + bw, 800); ctx.fillRect(xm, lR, xr - xm + bw, 800);
+    ctx.fillStyle = rgba(C.goud, 0.12); ctx.fillRect(xm, lR, xr - xm + bw, 800);
+    for (let k = 0; k < 14; k++) { const yy = lR + 40 + hash(k * 7) * (yb - lR - 20), xx = xr - 45 + hash(k * 7 + 1) * 90; L4_ion(ctx, xx + Math.sin(T + k) * 4, Math.min(yy, yb + 20), k % 2 ? 'cl' : 'na', 0.9, 1); }
+    for (let k = 0; k < 3; k++) L4_ion(ctx, xm + 20 + k * 40, yb + Math.sin(T + k) * 10, k % 2 ? 'cl' : 'na', 0.9, 1);
+    ctx.restore(); buis(); ctx.strokeStyle = C.line; ctx.lineWidth = 5; ctx.stroke();
+    ctx.strokeStyle = L4_KOP(); ctx.lineWidth = 8; ctx.setLineDash([10, 6]); ctx.beginPath(); ctx.moveTo(xm, yb - bw / 2); ctx.lineTo(xm, yb + bw / 2); ctx.stroke(); ctx.setLineDash([]); ctx.restore();
+    naam(ctx, 'zuiver water', xl, yt - 24, s0, 'center', C.teal, 30); naam(ctx, 'zout water', xr, yt - 24, s0, 'center', C.text, 30); naam(ctx, 'membraan', xm, yb + bw / 2 + 50, s0, 'center', C.text2, 28);
+    if (s1 > 0.01) { ctx.save(); ctx.globalAlpha *= s1; ctx.strokeStyle = rgba(C.line, 0.7); ctx.lineWidth = 2; ctx.setLineDash([6, 6]); ctx.beginPath(); ctx.moveTo(xl - 90, 470); ctx.lineTo(xr + 90, 470); ctx.stroke(); ctx.restore();
+      pijl(ctx, xr + 110, 470, xr + 110, lR + 6, C.teal, 5, s1, 18); regel(ctx, 'kolom', xr + 130, (470 + lR) / 2 + 10, s1, C.text, 28, 'left', 600); }
+    pijl(ctx, xm - 70, yb - 4, xm + 70, yb - 4, C.teal, 7, s2, 22); pijl(ctx, xr, lR + 60, xr, lR + 200, C.goud, 7, s2, 22); regel(ctx, 'duwt terug', xr + 80, 580, s2, C.goud, 28, 'left', 600);
+    regel(ctx, 'netto geen stroom', xm, 990, s2, C.groen, 32, 'center', 700);
+    // deeltjes tellen
+    const px = 1260; if (s3 > 0.01) { paneel(ctx, px, 240, 540, 300, s3); regel(ctx, '1 NaCl', px + 40, 330, s3, C.text, 38, 'left', 700); pijl(ctx, px + 210, 318, px + 280, 318, C.text2, 4, s3, 14);
+      L4_ion(ctx, px + 330, 318, 'na', 1.8, s3, false); L4_ion(ctx, px + 400, 318, 'cl', 1.8, s3, false); regel(ctx, '= 2 deeltjes', px + 40, 460, s3, C.goud, 38, 'left', 700); }
+    if (s4 > 0.01) { paneel(ctx, px, 580, 540, 300, s4); regel(ctx, '1 glucose', px + 40, 670, s4, C.text, 38, 'left', 700); pijl(ctx, px + 250, 658, px + 320, 658, C.text2, 4, s4, 14); L4_glucose(ctx, px + 380, 660, 1.8, s4, 0);
+      regel(ctx, '= 1 deeltje', px + 40, 800, s4, C.text2, 38, 'left', 700); }
+  } });
+
+// ---------- 13 · plantencel ----------
+SCHERMEN.push({ titel: 'Plantencel', kop: 'Plasmolyse en turgor', deel: 'Osmose',
+  stappen: [
+    { t: 'Een plantencel: celwand, celmembraan en een grote vacuole.', n: 'De celwand (groen, van cellulose) laat water en zout door; het celmembraan is het semipermeabele membraan.' },
+    { t: 'In zout water gaat water de cel uit. De vacuole krimpt en het membraan laat los van de wand: <b>plasmolyse</b>.', n: 'De ruimte tussen wand en membraan vult zich met de zoute buitenoplossing (de wand laat die door). Practicum: rode ui in zout water onder de microscoop.' },
+    { t: 'In zuiver water gaat water de cel in. De cel drukt tegen de wand en de wand duwt terug: <b>turgor</b>.', n: 'Turgor maakt een plant stevig; zonder water verwelkt hij. Barsten doet een plantencel niet, dankzij de wand (vergelijk scherm 15).' },
+    { t: 'Zout op plakjes komkommer: na tien minuten liggen ze in een plasje.', n: 'Vraag uit de film: Waar komt dat water vandaan? (a) uit de cellen van de komkommer, (b) het zout trekt water uit de lucht, (c) het zout smelt tot water. Goed: a. Buiten de cellen is de osmotische waarde nu hoger dan in het celvocht; de plakjes worden slap.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 0.8), s1 = S.on(1, 2), s2 = S.on(2, 2), s3 = S.on(3, 0.8), st = -s1 + 2 * s2, cx = 620, cy = 540;
+    const zt = s1 * (1 - s2), zv = s2;
+    if (zt > 0.01) { for (let k = 0; k < 26; k++) { const q = 1.75 + hash(k * 3) * 2.85, d = 380 + hash(k * 3 + 1) * 120; L4_ion(ctx, cx + Math.cos(q) * d * 1.05, cy + Math.sin(q) * d * 0.62, k % 2 ? 'cl' : 'na', 1.1, zt); } regel(ctx, 'zout water', 160, 230, zt, C.text, 34, 'left', 700); }
+    regel(ctx, 'zuiver water', 160, 230, zv, C.teal, 34, 'left', 700);
+    const an = L4_plantencel(ctx, cx, cy, 620, 420, st, s0, T);
+    if (s1 > 0.01 && s2 < 0.99) for (let k = 0; k < 4; k++) { const q = k * 1.57 + 0.4; pijl(ctx, cx + Math.cos(q) * 130, cy + Math.sin(q) * 90, cx + Math.cos(q) * 290, cy + Math.sin(q) * 200, C.teal, 5, s1 * (1 - s2), 18); }
+    if (s2 > 0.01) for (let k = 0; k < 4; k++) { const q = k * 1.57 + 0.4; pijl(ctx, cx + Math.cos(q) * 420, cy + Math.sin(q) * 280, cx + Math.cos(q) * 250, cy + Math.sin(q) * 170, C.teal, 5, s2, 18); }
+    naam(ctx, 'celwand', an.wand[0] + 30, an.wand[1], s0, 'left', C.groen, 30); naam(ctx, 'vacuole', an.vacuole[0], an.vacuole[1] + 10, s0, 'center', C.text, 30);
+    naam(ctx, 'celmembraan', an.membraan[0] + 60, an.membraan[1] + 60, s0 * (1 - zt), 'left', C.teal, 30); wijs(ctx, 'celmembraan', 1010, 860, an.membraan[0], an.membraan[1] + 40, zt, C.teal, 30);
+    regel(ctx, 'plasmolyse', cx, 900, zt, C.goud, 40, 'center', 700); regel(ctx, 'turgor: barst niet', cx, 900, zv, C.goud, 40, 'center', 700);
+    if (s3 > 0.01) { const kx = 1480, ky = 450; ctx.save(); ctx.globalAlpha *= s3; ctx.beginPath(); ctx.ellipse(kx, ky + 220, 210 * s3, 46, 0, 0, 6.283); ctx.fillStyle = rgba(C.teal, 0.35); ctx.fill();
+      [[kx - 80, ky + 30], [kx + 70, ky + 80]].forEach(([x, y]) => { circ(ctx, x, y, 115, '#4E8A3E', '#2F5E28', 6); circ(ctx, x, y, 100, '#CFE3A8', null); for (let k = 0; k < 9; k++) { const q = k / 9 * 6.283; ctx.beginPath(); ctx.ellipse(x + Math.cos(q) * 42, y + Math.sin(q) * 42, 9, 4, q, 0, 6.283); ctx.fillStyle = '#F2F0DC'; ctx.fill(); } });
+      for (let k = 0; k < 30; k++) { const x = kx - 170 + hash(k * 5) * 320, y = ky - 60 + hash(k * 5 + 1) * 230; ctx.fillStyle = C.licht ? '#9AA3B2' : '#FFFFFF'; ctx.fillRect(x, y, 7, 7); } ctx.restore();
+      naam(ctx, 'plasje', kx + 220, ky + 280, s3, 'left', C.teal, 30); regel(ctx, 'na 10 minuten', kx, ky - 170, s3, C.text2, 30, 'center', 600); }
+  } });
+
+// ---------- 14 · rode bloedcel ----------
+SCHERMEN.push({ titel: 'Rode bloedcel', kop: 'Isotonisch, hypotonisch, hypertonisch', deel: 'Osmose',
+  stappen: [
+    { t: '<b>Isotonisch</b>: dezelfde osmotische waarde als de cel. Netto gaat er geen water in of uit.', n: 'Een rode bloedcel heeft geen celwand. Vraag uit de film: Een rode bloedcel heeft geen celwand. Wat gebeurt er in zuiver water? (a) hij krimpt, (b) hij zwelt en barst, (c) er gebeurt niets. Goed: b.' },
+    { t: '<b>Hypotonisch</b> (lager, zoals zuiver water): water gaat de cel in. Hij zwelt en barst: <b>hemolyse</b>.', n: 'Er is geen wand die terugduwt. Na het barsten blijft een leeg membraan over terwijl de inhoud (hemoglobine) wegstroomt; de cel spat niet in stukken.' },
+    { t: '<b>Hypertonisch</b> (hoger, zoals zout water): water gaat de cel uit. Hij krimpt en wordt gekarteld.', n: 'Ezelsbruggetje: hypo = onder (lager), hyper = boven (hoger). Let op: het woord zegt iets over de oplossing ten opzichte van de cel.' },
+    { t: 'Daarom krijg je in het ziekenhuis een infuus met 9 gram zout per liter: isotonisch met je bloed.', n: 'Fysiologisch zout = 0,9 % NaCl (308 mOsm/L). Zuiver water in je bloed zou je rode bloedcellen laten barsten.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s = [0, 1, 2, 3].map(k => S.on(k, 0.8)), zw = S.on(1, 1.6), br = S.on(1, 1, 1.4), kr = S.on(2, 1.6);
+    const kol = [[400, 'isotonisch', 'zelfde osmotische waarde', 0], [960, 'hypotonisch', 'lagere osmotische waarde', 1], [1520, 'hypertonisch', 'hogere osmotische waarde', 2]];
+    kol.forEach(([x, kop, sub, i]) => { const a = s[i]; if (a <= 0.01) return; const y = 440; paneel(ctx, x - 250, 200, 500, 470, a);
+      ctx.save(); ctx.globalAlpha *= a; for (let k = 0; k < (i === 2 ? 20 : i === 0 ? 8 : 0); k++) { const q = hash(k * 3 + i) * 6.283, d = 160 + hash(k * 3 + 1) * 50; L4_ion(ctx, x + Math.cos(q) * d * 1.25, y + Math.sin(q) * d * 1.05, k % 2 ? 'cl' : 'na', 1, 1); } ctx.restore();
+      if (i === 0) L4_bloedcel(ctx, x, y, 100, 0, 0, 0, a);
+      if (i === 1) { L4_bloedcel(ctx, x, y, 100, zw, 0, br, a); for (let k = 0; k < 4; k++) { const q = k * 1.57 + 0.78; pijl(ctx, x + Math.cos(q) * 225, y + Math.sin(q) * 200, x + Math.cos(q) * 150, y + Math.sin(q) * 130, C.teal, 5, a * (1 - br), 18); } }
+      if (i === 2) { L4_bloedcel(ctx, x, y, 100, 0, kr, 0, a); for (let k = 0; k < 4; k++) { const q = k * 1.57 + 0.78; pijl(ctx, x + Math.cos(q) * 110, y + Math.sin(q) * 100, x + Math.cos(q) * 200, y + Math.sin(q) * 180, C.teal, 5, a, 18); } }
+      regel(ctx, kop, x, 740, a, C.goud, 40, 'center', 700); regel(ctx, sub, x, 790, a, C.text, 28, 'center', 500); });
+    regel(ctx, 'hemolyse', 960, 640, s[1] * br, C.koraal, 32, 'center', 700); regel(ctx, 'gekarteld', 1520, 640, s[2] * kr, C.koraal, 32, 'center', 700);
+    if (s[3] > 0.01) { const bx = 400, by = 905; ctx.save(); ctx.globalAlpha *= s[3]; roundRect(ctx, bx - 220, by - 50, 64, 90, 14); shape(ctx, rgba(C.teal, 0.25), C.line, 3); ctx.strokeStyle = C.line; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(bx - 188, by + 40); ctx.lineTo(bx - 188, by + 70); ctx.stroke(); ctx.restore();
+      regel(ctx, 'infuus: 9 gram zout per liter', bx - 130, by + 12, s[3], C.text, 34, 'left', 700); }
+  } });
+
+// ---------- 15 · actief transport ----------
+SCHERMEN.push({ titel: 'Actief transport', kop: 'Bergop: actief transport', deel: 'Actief transport',
+  stappen: [
+    { t: 'Alles tot nu toe ging vanzelf, zonder energie van de cel: <b>passief transport</b>.', n: 'Diffusie, gefaciliteerde diffusie (vwo) en osmose zijn allemaal passief.' },
+    { t: 'Een wortelhaarcel neemt mineralen op uit de grond, terwijl er in de cel al meer zit dan erbuiten.', n: 'Vraag uit de film: Hoe kan dat? (a) door diffusie: buiten zit genoeg, (b) door osmose: het water neemt de mineralen mee, (c) een eiwit in het membraan pompt ze naar binnen. Goed: c.' },
+    { t: 'Een pomp in het membraan brengt ze tegen het concentratieverschil in naar binnen. Dat kost <b>ATP</b>.', n: 'Mineralen getekend als oker ionen. In het echt gebruikt een wortelcel vaak een H⁺-pomp en daarna een tweede eiwit; dat valt buiten de stof.' },
+    { t: 'Zonder ATP staat de pomp stil, en lekken de deeltjes langzaam weer naar buiten.', n: 'Balk: actief transport = tegen het concentratieverschil in, met energie (ATP). Bergaf gaat vanzelf, bergop kost energie.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 0.8), s1 = S.on(1, 0.8), s2 = S.on(2, 0.8), s3 = S.on(3, 0.8), mx = 960, PY = 430, LY = 720;
+    // stap 0: bergaf
+    if (s0 * (1 - s1) > 0.01) { const a = s0 * (1 - s1); ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = rgba(C.line, 0.8); ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(500, 330); ctx.quadraticCurveTo(960, 360, 1420, 780); ctx.stroke(); ctx.restore();
+      const u = (T * 0.25) % 1; L4_kleurstof(ctx, lerp(520, 1400, u), lerp(310, 750, u * u) - 20, 2.4, T * 3, a); regel(ctx, 'van hoog naar laag: vanzelf', 960, 900, a, C.text, 38, 'center', 700); metaText(ctx, 'hoog', 480, 290, C.meta, 'center', 24, a); metaText(ctx, 'laag', 1440, 840, C.meta, 'center', 24, a); }
+    if (s1 > 0.01) { ctx.save(); ctx.globalAlpha *= s1; ctx.fillStyle = rgba(C.grond || '#6B5A40', C.licht ? 0.25 : 0.3); ctx.fillRect(140, 200, mx - 140 - 80, 700); ctx.fillStyle = rgba(C.teal, 0.06); ctx.fillRect(mx + 80, 200, 1780 - mx - 80, 700); ctx.restore();
+      L4_memV(ctx, mx, 200, 900, { t: T, s: 1.15, a: s1, gaten: [[PY - 70, PY + 70], [LY - 50, LY + 50]] }); L4_drager(ctx, mx, PY, 1.3, (Math.sin(T * 1.5) + 1) / 2 * s2, s1, { pomp: true, col: s3 > 0.5 ? rgba(L4_EIWIT(), 0.5) : L4_EIWIT() });
+      L4_kanaal(ctx, mx, LY, Math.PI / 2, 1, s1 * Math.max(0.25, s3), { por: 13 });
+      for (let k = 0; k < 6; k++) { const bx = 240 + hash(k * 3) * 540, by = 260 + hash(k * 3 + 1) * 600; L4_mineraal(ctx, bx + Math.sin(T * 0.7 + k) * 10, by + Math.cos(T * 0.6 + k) * 10, 1.4, s1); }
+      for (let k = 0; k < 26; k++) { const bx = 1080 + hash(k * 5 + 2) * 660, by = 240 + hash(k * 5 + 3) * 620; L4_mineraal(ctx, bx + Math.sin(T * 0.7 + k) * 8, by + Math.cos(T * 0.6 + k) * 8, 1.4, s1); }
+      regel(ctx, 'grond: weinig', 460, 245, s1, C.text, 32, 'center', 700); regel(ctx, 'wortelhaarcel: veel', 1420, 245, s1, C.text, 32, 'center', 700); }
+    if (s2 > 0.01) { const c = (T * 0.35) % 1, on = s3 < 0.5; if (on) { const ix = c < 0.4 ? lerp(800, mx - 10, c / 0.4) : c < 0.6 ? mx : lerp(mx + 10, 1120, (c - 0.6) / 0.4), iy = c < 0.4 ? lerp(PY - 120, PY - 40, c / 0.4) : c < 0.6 ? lerp(PY - 40, PY + 40, (c - 0.4) / 0.2) : lerp(PY + 40, PY + 140, (c - 0.6) / 0.4); L4_mineraal(ctx, ix, iy, 1.6, s2); }
+      L4_atp(ctx, mx + 210, PY + 170, 1.1, s2, on ? clamp((c - 0.4) / 0.2, 0, 1) : 1); pijl(ctx, mx - 300, PY - 110, mx + 300, PY - 110, C.koraal, 7, s2, 24); regel(ctx, 'tegen het verschil in', mx + 110, PY - 140, s2, C.koraal, 30, 'left', 700); naam(ctx, 'pomp', mx - 110, PY + 14, s2, 'right', C.text, 30); }
+    if (s3 > 0.01) { const u = (T * 0.2) % 1; L4_mineraal(ctx, lerp(1060, 860, u), LY + Math.sin(u * 9) * 4, 1.6, s3 * Math.min(1, u * 5, (1 - u) * 5)); pijl(ctx, mx + 150, LY + 90, mx - 150, LY + 90, C.text2, 4, s3, 16); regel(ctx, 'lekt terug', mx - 170, LY + 100, s3, C.text2, 30, 'right', 600); kruis(ctx, mx + 120, PY - 60, 20, s3); }
+    balk(ctx, 'actief transport: bergop, kost ATP', 960, 975, 820, s3, C.koraal, 36);
+  } });
+
+// ---------- 16 · natrium-kaliumpomp (vwo) ----------
+SCHERMEN.push({ titel: 'Natrium-kaliumpomp', kop: 'De natrium-kaliumpomp', deel: 'Actief transport',
+  stappen: [
+    { vwo: true, t: 'In al je cellen pompt de <b>natrium-kaliumpomp</b> natrium naar buiten en kalium naar binnen.', n: 'Boven = buiten de cel (veel Na⁺), onder = binnen (veel K⁺). Kleuren zoals de film: Na⁺ oker, K⁺ groen.' },
+    { vwo: true, t: 'Drie Na⁺ binden aan de binnenkant; ATP wordt ADP + P. De pomp klapt om en laat ze buiten los.', n: 'Het fosfaat blijft eerst aan de pomp vast; daardoor verandert de vorm.' },
+    { vwo: true, t: 'Twee K⁺ binden buiten, de pomp klapt terug en laat ze binnen los. Je komt hem weer tegen bij zenuwimpulsen.', n: 'Per ATP: 3 Na⁺ eruit, 2 K⁺ erin. Zie de briefing voor hoeveel energie de pomp kost (een groot deel van je ruststofwisseling).' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, y = 560, s0 = S.on(0, 0.8), s1 = S.on(1, 2), s2 = S.on(2, 2), mx = 960;
+    const flip = 1 - Math.min(1, s1 * 2) + Math.max(0, s2 * 2 - 1) * 1;   // 1 = open naar binnen (onder), 0 = open naar buiten
+    L4_mem(ctx, 120, 1800, y, { t: T, s: 1.15, a: s0, gaten: [[mx - 80, mx + 80]] }); L4_drager(ctx, mx, y, 1.4, flip, s0, { pomp: true });
+    for (let k = 0; k < 14; k++) { const bx = 200 + hash(k * 3) * 1500, by = 230 + hash(k * 3 + 1) * 190; if (Math.abs(bx - mx) < 140) continue; L4_ion(ctx, bx + Math.sin(T * 0.7 + k) * 10, by + Math.cos(T * 0.6 + k) * 8, 'na', 1.6, s0); }
+    for (let k = 0; k < 14; k++) { const bx = 200 + hash(k * 5 + 7) * 1500, by = 700 + hash(k * 5 + 8) * 190; if (Math.abs(bx - mx) < 140) continue; L4_ion(ctx, bx + Math.sin(T * 0.7 + k) * 10, by + Math.cos(T * 0.6 + k) * 8, 'k', 1.6, s0); }
+    // de drie Na⁺: binnen gebonden → naar buiten
+    const nU = s1, nPos = (k) => { const b = [mx - 26 + k * 26, y + 30 - Math.abs(k - 1) * 8], e = [mx - 150 + k * 150, 330]; const m = [mx - 26 + k * 26, y - 40]; return nU < 0.5 ? [lerp(b[0], m[0], nU * 2), lerp(b[1], m[1], nU * 2)] : [lerp(m[0], e[0], nU * 2 - 1), lerp(m[1], e[1], nU * 2 - 1)]; };
+    for (let k = 0; k < 3; k++) { const p = nPos(k); L4_ion(ctx, p[0], p[1], 'na', 1.8, s0); }
+    const kU = s2, kPos = (k) => { const b = [mx - 260 + k * 520, 420], m = [mx - 18 + k * 36, y - 40], e = [mx - 150 + k * 300, 800]; return kU < 0.5 ? [lerp(b[0], m[0], kU * 2), lerp(b[1], m[1], kU * 2)] : [lerp(m[0], e[0], kU * 2 - 1), lerp(m[1], e[1], kU * 2 - 1)]; };
+    for (let k = 0; k < 2; k++) { const p = kPos(k); L4_ion(ctx, p[0], p[1], 'k', 1.8, s1 > 0.5 ? 1 : 0); }
+    L4_atp(ctx, mx + 230, y + 170, 1.1, s0, s1);
+    metaText(ctx, 'buiten de cel', 140, 200, C.meta, 'left', 22, s0); metaText(ctx, 'in de cel', 140, 940, C.meta, 'left', 22, s0);
+    naam(ctx, 'Na⁺', 1700, 290, s0, 'center', C.oker, 34); naam(ctx, 'K⁺', 1700, 920, s0, 'center', C.groen, 34);
+    regel(ctx, '3 Na⁺ eruit · 2 K⁺ erin · per ATP', 1380, 1000, s2, C.goud, 34, 'center', 700);
+  } });
+
+// ---------- 17 · zeewater ----------
+SCHERMEN.push({ titel: 'Zeewater', kop: 'Dorst op zee', deel: 'Afsluiting',
+  stappen: [
+    { t: 'Je zit in een bootje op zee en je hebt dorst. Overal water, maar zeewater mag je niet drinken.', n: 'Vraag uit de film: Waarom mag je geen zeewater drinken? (a) je cellen verliezen er water door, (b) je cellen nemen te veel water op, (c) zeewater bevat bacteriën. Goed: a. Noor zit in de boot, zoals in de film.' },
+    { t: 'Zeewater is ongeveer vier keer zo zout als je bloed.', n: 'Zeewater ± 3,5 % zout; bloed ongeveer even zout als fysiologisch zout (0,9 %).' },
+    { t: 'Je nieren kunnen geen plas maken die zo zout is. Om het zout kwijt te raken, plas je meer water uit dan je dronk.', n: '' },
+    { t: 'Je bloed wordt zouter, en je cellen verliezen water door osmose.', n: 'Het bloed wordt hypertonisch ten opzichte van je cellen (scherm 15): de cellen krimpen.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 0.8), s1 = S.on(1, 0.8), s2 = S.on(2, 0.8), s3 = S.on(3, 0.8), bx = 560, by = 600 + Math.sin(T * 1.3) * 6;
+    ctx.save(); ctx.globalAlpha *= s0; ctx.fillStyle = C.licht ? '#CFE1EE' : '#24456E'; ctx.fillRect(120, 590, 880, 360);
+    for (let k = 0; k < 7; k++) { ctx.strokeStyle = rgba(C.teal, 0.55); ctx.lineWidth = 3; ctx.beginPath(); for (let x = 120; x <= 1000; x += 20) { const yy = 620 + k * 46 + Math.sin(x / 90 + T * 1.5 + k) * 8; x > 120 ? ctx.lineTo(x, yy) : ctx.moveTo(x, yy); } ctx.stroke(); }
+    ctx.strokeStyle = '#F2C55E'; ctx.lineWidth = 5; ctx.lineCap = 'round'; for (let k = 0; k < 10; k++) { const q = k / 10 * 6.283 + T * 0.05; ctx.beginPath(); ctx.moveTo(880 + Math.cos(q) * 62, 280 + Math.sin(q) * 62); ctx.lineTo(880 + Math.cos(q) * 88, 280 + Math.sin(q) * 88); ctx.stroke(); } circ(ctx, 880, 280, 48, '#F2C55E'); ctx.restore();
+    L4_boot(ctx, bx, by, T, s0, () => pers(ctx, 'noor', bx, by + 160, 380, { outfit: 'zomer', uit: 'moe', t: T }));
+    // zoutmeter
+    if (s1 > 0.01) { [[1220, 0.9, 'bloed', '± 0,9 %', L4_BLOED], [1500, 3.5, 'zeewater', '± 3,5 %', C.teal]].forEach(([x, v, nm, g, kl]) => { const h = 120 * v * s1; ctx.save(); ctx.globalAlpha *= s1; roundRect(ctx, x - 70, 700 - h, 140, h, 10); shape(ctx, rgba(kl, 0.45), kl, 3); ctx.restore();
+        regel(ctx, nm, x, 750, s1, C.text, 32, 'center', 700); regel(ctx, g, x, 700 - h - 20, s1, C.text, 30, 'center', 600); }); metaText(ctx, 'zout', 1360, 230, C.meta, 'center', 22, s1); }
+    regel(ctx, 'plas is minder zout dan zeewater', 1360, 830, s2, C.text, 32, 'center', 600); regel(ctx, '→ meer water eruit dan erin', 1360, 880, s2, C.text, 32, 'center', 600);
+    balk(ctx, 'je cellen verliezen water door osmose', 1360, 975, 820, s3, C.koraal, 34);
+  } });
+
+// ---------- 18 · samenvatting ----------
+SCHERMEN.push({ titel: 'Samenvatting', kop: 'Alles beweegt, niemand stuurt', deel: 'Afsluiting',
+  stappen: [
+    { t: '<b>Diffusie</b>: deeltjes bewegen willekeurig, en netto gaan ze van veel naar weinig.', n: 'Sneller bij een hogere temperatuur, een groter concentratieverschil, een groter oppervlak en een kortere afstand (2 × afstand ≈ 4 × tijd).' },
+    { t: '<b>Osmose</b>: water gaat door een semipermeabel membraan naar de hoogste osmotische waarde.', n: 'Plantencel: plasmolyse of turgor. Rode bloedcel: hemolyse of gekarteld. Iso-, hypo- en hypertonisch.' },
+    { t: '<b>Actief transport</b>: bergop, tegen het concentratieverschil in, met een pomp en ATP.', n: 'Huiswerk: de film Diffusie en osmose en de opdrachten onder de film (Zelf aan de slag).' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s = [S.on(0, 0.9), S.on(1, 0.9), S.on(2, 0.9)];
+    const kol = [['diffusie', C.goud, ['deeltjes bewegen willekeurig', 'netto van veel naar weinig', 'sneller: warm, groot verschil,', 'groot oppervlak, korte afstand']], ['osmose', C.teal, ['water door een membraan', 'naar hoogste osmotische waarde', 'plasmolyse · turgor', 'hemolyse · iso/hypo/hyper']], ['actief transport', C.koraal, ['tegen het verschil in', 'pomp in het membraan', 'kost ATP', 'bergop']]];
+    kol.forEach(([kop, kl, regels], i) => { const a = s[i]; if (a <= 0.01) return; const x = 120 + i * 580, cx = x + 270; paneel(ctx, x, 190, 540, 800, a, rgba(kl, 0.6)); regel(ctx, kop, cx, 268, a, kl, 44, 'center', 700);
+      if (i === 0) { for (let k = 0; k < 14; k++) L4_kleurstof(ctx, cx - 160 + (k < 10 ? hash(k) * 150 : 180 + hash(k) * 120) + Math.sin(T * 2 + k) * 4, 360 + hash(k + 9) * 170 + Math.cos(T * 1.7 + k) * 4, 1.4, k + T * 0.4, a); pijl(ctx, cx - 40, 560, cx + 60, 560, C.goud, 6, a, 20); }
+      if (i === 1) { ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = L4_KOP(); ctx.lineWidth = 8; ctx.setLineDash([12, 6]); ctx.beginPath(); ctx.moveTo(cx, 340); ctx.lineTo(cx, 560); ctx.stroke(); ctx.restore();
+        for (let k = 0; k < 5; k++) L4_h2o(ctx, cx - 150 + hash(k) * 110, 370 + hash(k + 3) * 170, 9, k + T, a); for (let k = 0; k < 4; k++) L4_ion(ctx, cx + 50 + hash(k + 5) * 110, 380 + hash(k + 8) * 160, k % 2 ? 'cl' : 'na', 1.3, a); pijl(ctx, cx - 50, 590, cx + 50, 590, C.teal, 6, a, 20); }
+      if (i === 2) { ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = rgba(C.line, 0.8); ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(cx - 170, 560); ctx.quadraticCurveTo(cx, 540, cx + 150, 360); ctx.stroke(); ctx.restore(); L4_atp(ctx, cx - 40, 460, 0.9, a, 0, false); pijl(ctx, cx + 40, 540, cx + 140, 410, C.koraal, 6, a, 20); }
+      regels.forEach((r, k) => regel(ctx, r, x + 30, 680 + k * 66, a * S.on(i, 0.5, 0.2 + k * 0.12), C.text, 30, 'left', 500)); });
+  } });
+
+// ---------- 19 · volgende keer ----------
+SCHERMEN.push({ titel: 'Volgende keer', deel: 'Vooruitblik', geenKop: true,
+  stappen: [{ t: 'Volgende keer (les 5): <b>onderzoek doen</b>. Van een vraag naar een hypothese, een eerlijke proef en een conclusie.', n: 'Huiswerk: de film Diffusie en osmose nog eens kijken en de opdrachten eronder. Wie vooruit wil, kijkt de film Onderzoek doen.' }],
+  teken(ctx, S) { vooruitblik(ctx, S, 'Onderzoek doen', [['Vraag en hypothese', 'wat denk je, en waarom?', L4_icoonVraag], ['Een eerlijke proef', 'variabelen en controlegroep', L4_icoonProef], ['Conclusie', 'wat zeggen je resultaten?', L4_icoonGrafiek]]); } });
