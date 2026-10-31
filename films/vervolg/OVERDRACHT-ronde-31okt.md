@@ -12,3 +12,18 @@ Alles volgens voorstel, behalve **a1: geen personagenamen in de stem, volgens pr
 - PFAS: startvraag op de site → 'In de eieren van Joosts eigen kippen zit PFAS. Hoe weet je of dat te veel is?'; H2-titel → 'Bioaccumulatie: ophopen in vet of eiwit'; microplastic 'niet aangetoond', nooit 'veilig'; Iris bij de omgevingsdienst, Dordrecht niet noemen; rekenvoorbeeld met STEL houden.
 
 **Volgende stap (nieuwe chat):** namen uit de stem halen in de vier script_v2.md (script blijft verder gelijk), vervolg.html bijwerken (titels/startvragen hierboven), castvel en decors maken en laten keuren waar nodig, dan per film inspreken (Roos, eleven_v4, hooguit 2 takes tegelijk) → bouwen (brief zoals `/home/claude/hw/BRIEF-gz-productie.md`, opnieuw te maken in de nieuwe sessie) → frisse beeldreview → repo. Daarna nog de twee films die nog geen script hebben: Tuin *Natuur in de stad* en Milieukunde *Van wieg tot graf* (zelfde straat: varianten → blinde beoordelaar via de hoofdsessie, want helpers hebben geen Agent-tool → feitenreview → v2 → twijfelblad).
+
+## Stand (31 okt 2026, avond): vier films online
+| Film | Slug | Stem (flow · credits) | Review |
+|---|---|---|---|
+| Voeding 3 · Een burger zonder koe | `voedingsleer-3-een-burger-zonder-koe` | lBotTcinBcU647jcbWzi · 5323 | 8 MOET verwerkt |
+| Voeding 4 · Eten als behandeling (ziekenhuis) | `voedingsleer-4-de-dietist-in-het-ziekenhuis` | uJrvlk3VwYgk8tTlOxvK · 5187 | 11 MOET verwerkt |
+| Tuin 1 · Welke plant waar? | `tuin-1-welke-plant-waar` | w7yQ37qSxsHwEpomtFru · 4993 | 11 MOET verwerkt |
+| Milieukunde 1 · PFAS, DDT en microplastic | `milieukunde-1-pfas-ddt-en-microplastic` | ANfVc6v4RAKbfZBm3WQ8 · 5330 | 12 MOET verwerkt |
+
+- Namen uit de stem (script v2.1); castvel `personages/vellen/vel-nl-2.webp` goedgekeurd → `lars`, `jeroen`, `iris`, Thijs outfit `stage` in lib_cast/ROLLEN/LEVENSLOOP. Decors (flow RVqu1vLFRgY3QXwS4WcU, ± 2150 credits met castvel): ziekenhuis, proeffabriek, tuin, buurtuin (in `bron/src/decor_*.js`).
+- Oude bronmappen met de verkeerde slugnummers zijn verplaatst naar de definitieve slugs; B15-logregels in `mutaties.jsonl` wijzen naar de nieuwe hrefs.
+- Burger staat ook als extra film bij thema Voeding (`HOOFDSTUKKEN.extra.films`, `vervolg: 'voedingsleer'`).
+- Uitspraakwachtlijst (in `bron/uitspraak.md`): B-twaalf, ee-uu (EU), Dee-dee-tee/Dee-dee-ee, Pee-ef-oo-aa, Pee-fos, Er-ie-vee-em: Kamiel luistert in de reviewstand.
+
+**Nog open:** filmmedaillons (volgend vel), `jaarplanner-dekking.json` (Tuin 1: havo 4 § 2.1, Nectar 20.1/20.5; Burger: havo 4 § 7.7; als laatste stap na `git pull`), Kamiels review van de vier films, keuring van de nieuwe tekeningen (planten Tuin 1; zeearend, poelslak, voorn, snoek PFAS), kweekvleesstand nagaan (Burger), aeresmbo.nl nog openen (Tuin). Daarna de twee films zonder script: Tuin *Natuur in de stad* en Milieukunde *Van wieg tot graf*. Werkmap van deze ronde (`/home/claude/hw`, met `inrepo.sh`, `register.py`, `scripts_na.sh`, briefs) bestaat alleen in deze sessie.
