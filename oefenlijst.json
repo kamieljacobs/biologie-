@@ -618,12 +618,6 @@
     0
    ],
    [
-    "puzzel-gele-muizen",
-    "Chi-kwadraat: de gele muizen",
-    "puzzel",
-    0
-   ],
-   [
     "uitleg-van-helmont",
     "Nauwkeurig, maar niet valide",
     "uitleg",
@@ -1111,8 +1105,8 @@
  },
  "films/ecologie/3-een-aarde.html": {
   "titel": "Eén aarde",
-  "hoofdstuk": "ecologie",
-  "htitel": "Ecologie",
+  "hoofdstuk": "milieu",
+  "htitel": "Mens en milieu",
   "json": "films/ecologie/3-een-aarde/oefenen.json",
   "oef": [
    [
@@ -1155,8 +1149,8 @@
  },
  "films/ecologie/5-binnen-de-grenzen.html": {
   "titel": "Binnen de grenzen",
-  "hoofdstuk": "ecologie",
-  "htitel": "Ecologie",
+  "hoofdstuk": "milieu",
+  "htitel": "Mens en milieu",
   "json": "films/ecologie/5-binnen-de-grenzen/oefenen.json",
   "oef": [
    [
@@ -1182,7 +1176,7 @@
  "films/ecologie/alles-gaat-rond/index.html": {
   "titel": "Alles gaat rond",
   "hoofdstuk": "ecologie",
-  "htitel": "Ecologie",
+  "htitel": "Ecologie · oude reeks",
   "json": "films/ecologie/alles-gaat-rond/oefenen.json",
   "oef": [
    [
@@ -1226,7 +1220,7 @@
  "films/ecologie/plek-genoeg/index.html": {
   "titel": "Plek genoeg?",
   "hoofdstuk": "ecologie",
-  "htitel": "Ecologie",
+  "htitel": "Ecologie · oude reeks",
   "json": "films/ecologie/plek-genoeg/oefenen.json",
   "oef": [
    [
@@ -1553,6 +1547,20 @@
     "uitleg-kiembaan",
     "Een patiënt of een embryo",
     "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/extra/kun-je-onderzoek-vertrouwen.html": {
+  "titel": "Kun je onderzoek vertrouwen?",
+  "hoofdstuk": "extra",
+  "htitel": "Nieuwsgierig?",
+  "json": "films/extra/kun-je-onderzoek-vertrouwen/oefenen.json",
+  "oef": [
+   [
+    "puzzel-gele-muizen",
+    "Chi-kwadraat: de gele muizen",
+    "puzzel",
     0
    ]
   ]

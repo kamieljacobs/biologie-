@@ -85,9 +85,9 @@ Kun je onderzoek vertrouwen? Eén studie bewijst weinig. Een p-waarde zegt hoe v
 Dus bij elk nieuw onderzoek: is het herhaald? Was het vooraf vastgelegd? En wie betaalde het?
 
 ## Eindkaart
-Nulhypothese: alleen toeval · p-waarde: kans op zo'n grote of grotere afwijking als de nulhypothese klopt · p < 0,05: significant, niet bewezen, en niet per se een groot effect.
+p-waarde: hoe vaak toeval alleen (de nulhypothese) zo'n uitkomst geeft.
+p < 0,05: significant, maar niet bewezen en niet per se een groot effect.
 Chi-kwadraat: Σ (W − V)² / V; bij twee groepen en α = 0,05 grenswaarde 3,84.
-Te mooi is ook verdacht: bevestigingsbias.
-Patiënt-controle: terugkijken · cohort: eerst meten, dan volgen.
-Oorzaak waarschijnlijker: sterk en herhaald verband, oorzaak vóór gevolg, dosis-effect, mechanisme.
-Wetenschap als systeem: peer review, herhalen · hapert door zwakke opzet, publicatiebias, p-hacking, fraude · oplossing: preregistratie.
+Te mooi is ook verdacht · patiënt-controle: terugkijken · cohort: eerst meten, dan volgen.
+Oorzaak waarschijnlijker: herhaald verband, oorzaak eerst, dosis-effect, mechanisme.
+Vangnetten: peer review en herhalen · preregistratie tegen p-hacking en publicatiebias.

@@ -1,0 +1,55 @@
+import json
+film = {
+ "slug": "index", "audioPrefix": "audio/", "root": "../../../", "hoofdstuk": "cellen", "hoofdstukNaam": "Cellen",
+ "title": "Onderzoek doen in de biologie", "sub": "Hoe weet je of iets waar is?",
+ "puzzle": "Berlijn, 1904. Een paard tikt het antwoord op een som met zijn hoef, en een commissie van deskundigen vindt geen bedrog. Hoe weet je of iets waar is?",
+ "meta": "onderzoeksvaardigheden", "version": "2.0 · oktober 2026", "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Onderzoeksvaardigheden",
+ "lead": "De onderzoekscyclus in acht stappen, met één doorlopende kiemproef: een goede onderzoeksvraag, hypothese en verwachting, een eerlijke proef met variabelen, een controlegroep en blind meten, meetfouten, betrouwbaar en valide, de juiste grafiek, conclusie en discussie, correlatie en oorzaak, en eerlijk onderzoek met mensen en dieren. Elk begrip met een kort voorbeeld uit de geschiedenis van de biologie.",
+ "endHaak": "is het betrouwbaar, en is het valide?",
+ "minis": {"Hoofdstuk 1 — De onderzoekscyclus": "Hoe pak je een onderzoek aan?", "Hoofdstuk 2 — Van vraag naar verwachting": "Hoe maak je van een vraag iets wat je kunt testen?", "Hoofdstuk 3 — Een eerlijke proef": "Wanneer is een proef eerlijk?", "Hoofdstuk 4 — Meten en meetfouten": "Hoe goed is je meting?", "Hoofdstuk 5 — Van resultaat naar conclusie": "Wat mag je concluderen?", "Hoofdstuk 6 — Samen of oorzaak?": "Veroorzaakt het ene het andere?", "Hoofdstuk 7 — Eerlijk onderzoek": "Wat mag wel en niet?", "Recap": "Hoe weet je of iets waar is?"},
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 2.0 · 30 oktober 2026 (lichte remake op prompt v13; het diepgaande deel staat in de extra film Kun je onderzoek vertrouwen?).",
+ "questions": {
+  "q02": {"q": "Een paard tikt het antwoord op een som. Een commissie vindt geen bedrog. Hoe kan het paard dat?", "correct": 1, "explain": "Onthoud je keuze. Het antwoord zie je in hoofdstuk 2."},
+  "q09": {"q": "Welke zin is een verwachting, en geen hypothese?", "correct": 0, "explain": "Een verwachting zegt wat je in deze proef zult meten als de hypothese klopt (als … dan …)."},
+  "q15": {"q": "Je zet een bakje in het donker, verder precies hetzelfde. Wat is dat bakje?", "correct": 2, "explain": "De controlegroep: zonder de factor die je onderzoekt, verder gelijk. Constante variabelen zijn factoren die je gelijk houdt."},
+  "q21": {"q": "Je weegschaal geeft steeds twee gram te veel. Helpt het om vaker te wegen?", "correct": 1, "explain": "Een systematische fout middelt niet uit: herhalen helpt niet."},
+  "q29": {"q": "Licht: gemiddeld 41 van 50 gekiemd, donker: 38 van 50; per bakje van 30 tot 50. Wat concludeer je?", "correct": 2, "explain": "Het verschil is kleiner dan de spreiding: geen duidelijk verschil."},
+  "q35": {"q": "Leerlingen die ontbijten, halen gemiddeld hogere cijfers. Welke verklaring is een verstorende variabele?", "correct": 0, "explain": "Een derde factor (rust en regelmaat) kan allebei veroorzaken."},
+  "q42": {"q": "Een onderzoeker wil maar drie muizen per groep gebruiken, om dieren te sparen. Goed idee?", "correct": 1, "explain": "Met zo weinig dieren is een verschil al snel toeval: zo min mogelijk, maar wel genoeg."}
+ },
+ "glossary": [
+  {"t": "onderzoekscyclus", "d": "Vaste route: waarneming, onderzoeksvraag, hypothese, werkplan, uitvoering, resultaten, conclusie, discussie, en vaak een nieuwe vraag."},
+  {"t": "onderzoeksvraag", "d": "Vraag over één factor en iets wat je kunt meten."},
+  {"t": "hypothese", "d": "Een mogelijk antwoord op de onderzoeksvraag, dat je kunt toetsen."},
+  {"t": "verwachting", "d": "Wat je in deze proef zult meten als de hypothese klopt; vaak met als … dan …"},
+  {"t": "falsifieerbaar", "d": "Er is een uitkomst denkbaar die de hypothese weerlegt."},
+  {"t": "werkplan", "d": "Beschrijving van hoe je de proef uitvoert: materialen, variabelen, metingen."},
+  {"t": "onafhankelijke variabele", "d": "Wat je zelf verandert."},
+  {"t": "afhankelijke variabele", "d": "Wat je meet."},
+  {"t": "constante variabele", "d": "Een factor die je gelijk houdt, zodat alleen de onafhankelijke variabele verschilt (ook: controlevariabele)."},
+  {"t": "controlegroep", "d": "Een groep zonder de factor die je onderzoekt, verder precies gelijk; om mee te vergelijken."},
+  {"t": "randomiseren", "d": "Het toeval laten bepalen wat of wie in welke groep komt."},
+  {"t": "blind · dubbelblind", "d": "Blind: wie meet of meedoet, weet niet in welke groep iets hoort. Dubbelblind: proefpersoon en onderzoeker weten het allebei niet."},
+  {"t": "placebo", "d": "Nepbehandeling voor de controlegroep in medisch onderzoek."},
+  {"t": "toevallige fout", "d": "Meetfout die de ene keer te hoog en de andere keer te laag uitvalt; middelt uit bij herhalen."},
+  {"t": "systematische fout", "d": "Meetfout die steeds in dezelfde richting zit; middelt niet uit."},
+  {"t": "steekproef", "d": "Het deel dat je onderzoekt (bijvoorbeeld 50 zaadjes); hoe groter, hoe minder toeval de uitkomst bepaalt."},
+  {"t": "betrouwbaar", "d": "Bij herhalen vind je ongeveer hetzelfde."},
+  {"t": "nauwkeurig", "d": "Hoe fijn je meetinstrument meet, bijvoorbeeld op een tiende gram."},
+  {"t": "valide", "d": "Je meet echt wat je wilt weten, en je opzet kan de vraag beantwoorden."},
+  {"t": "spreiding", "d": "Hoe ver de metingen uit elkaar liggen."},
+  {"t": "histogram", "d": "Grafiek die laat zien hoe vaak elke waarde (of klasse van waarden) voorkomt."},
+  {"t": "conclusie · discussie", "d": "Conclusie: het antwoord op de onderzoeksvraag. Discussie: beperkingen, opvallende zaken en nieuwe vragen."},
+  {"t": "observationeel onderzoek", "d": "Onderzoek waarin je niets verandert, maar kijkt wat samengaat."},
+  {"t": "correlatie · causaliteit", "d": "Correlatie: twee dingen gaan samen. Causaliteit: het ene veroorzaakt het andere."},
+  {"t": "omgekeerde causaliteit", "d": "Het vermeende gevolg is eigenlijk de oorzaak."},
+  {"t": "verstorende variabele", "d": "Een derde factor die beide dingen veroorzaakt."},
+  {"t": "informed consent", "d": "Vooraf geïnformeerde toestemming van wie meedoet aan medisch-wetenschappelijk onderzoek."},
+  {"t": "de drie V's", "d": "Vervanging, vermindering en verfijning van dierproeven."},
+  {"t": "fraude", "d": "Gegevens verzinnen, gegevens vervalsen of werk van anderen overnemen; bewust misleiden, anders dan een eerlijke fout."}
+ ],
+ "sections": open('sections.html', encoding='utf-8').read()
+}
+json.dump(film, open('film.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+print('ok')

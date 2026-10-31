@@ -12,7 +12,7 @@
 
 **Linda** (44), **Rachid** (47), **Tante Petra** (41), **Opa Ahmed** / **Oma Malika**: vast: de familie van Noor (`CAST_FAMILIE`); Linda outfit `zwanger` = 16 jaar geleden. Grenzen: familieverhoudingen niet wijzigen. Gebeurd: Linda was 28 bij de geboorte van Noor; de eisprong van de eicel waaruit Noor groeide, was op haar 27e: die eicel stond ruim 27 jaar stil in meiose I, sinds oma Ria zwanger was van Linda (Celdeling 2.0, extra uitdaging x01/x02, Kamiel akkoord 25 okt 2026). Linda drinkt 's ochtends koffie (staand aan tafel, eerst moe, dan wakker) en zit 's avonds met een glas wijn op de bank, als 'je' in de cold open (Zenuwstelsel 4 Knoeien met de synaps 1.1, 28 okt 2026; zonder keuring).
 
-**Yasmin** (16) en **Bilal** (17) · vast: broer en zus; Yasmin wil arts worden. Gebeurd: Yasmin stagiair-analist in Laboratoriumtechniek; Yasmin snuffelstage landbouw met Opa Henk in zijn moestuin (Landbouw 2, Wat zit er in de bodem?, 25 okt 2026); Yasmin snuffelstage op het melkveebedrijf van Veehouder Gerrit, houdt een stierkalfje vast voor de DNA-test; Bilal kort in beeld naast Yasmin bij 'zelfde ouders, toch verschillend' (Landbouw 3 Fokken, 26 okt 2026); Bilal stagiair forensisch onderzoek (hbo) in alle drie de films van Forensisch onderzoek, outfit `plaatsdelict` op de plaats delict, `practicum` in het lab. Yasmin snuffelstage bij de GGD (afdeling infectieziektebestrijding) met Epidemioloog Farid; herinnering aan maart 2020: Yasmin en Bilal thuis aan de keukentafel, ouders thuiswerkend (Gezondheidswetenschappen 1, Hoe een epidemie groeit en stopt, 26 okt 2026). In Erfelijkheid 3 (2.0, 28 okt 2026) staan de zes castleerlingen op volgorde van lengte: Yasmin 1,63 · Noor 1,68 · Daan 1,72 · Lotte 1,75 · Sam 1,79 · Bilal 1,86 m. Grenzen: Bilal blijft hbo-stagiair in dat vak.
+**Yasmin** (16) en **Bilal** (17) · vast: broer en zus; Yasmin wil arts worden. Gebeurd: Yasmin stagiair-analist in Laboratoriumtechniek; Yasmin snuffelstage landbouw met Opa Henk in zijn moestuin (Landbouw 2, Wat zit er in de bodem?, 25 okt 2026); Yasmin snuffelstage op het melkveebedrijf van Veehouder Gerrit, houdt een stierkalfje vast voor de DNA-test; Bilal kort in beeld naast Yasmin bij 'zelfde ouders, toch verschillend' (Landbouw 3 Fokken, 26 okt 2026); Bilal stagiair forensisch onderzoek (hbo) in alle drie de films van Forensisch onderzoek, outfit `plaatsdelict` op de plaats delict, `practicum` in het lab. Yasmin snuffelstage bij de GGD (afdeling infectieziektebestrijding) met Epidemioloog Farid; herinnering aan maart 2020: Yasmin en Bilal thuis aan de keukentafel, ouders thuiswerkend (Gezondheidswetenschappen 1, Hoe een epidemie groeit en stopt, 26 okt 2026). In Erfelijkheid 3 (2.0, 28 okt 2026) staan de zes castleerlingen op volgorde van lengte: Yasmin 1,63 · Noor 1,68 · Daan 1,72 · Lotte 1,75 · Sam 1,79 · Bilal 1,86 m. Yasmin doet (zonder naam) de kiemproef met tuinkers op de vensterbank als rode draad door de onderzoekscyclus (Onderzoek doen in de biologie 2.0, 31 okt 2026). Grenzen: Bilal blijft hbo-stagiair in dat vak.
 
 **Dr. Kim** (42) · vast: arts en onderzoeker, klinisch geneticus. Gebeurd: in Forensisch onderzoek forensisch arts (film 3) en DNA-deskundige (film 2); in Erfelijkheid 6 Stambomen en kansrekenen 2.0 (28 okt 2026) als klinisch geneticus: tekent een stamboom op het bord en bespreekt een dragerschapstest met Sanne. Grenzen: geen dader of patiënt.
 
@@ -57,15 +57,15 @@
 Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `films/**/bron/**/*.js` en de naam in `bron/script.md`; films die een personage alleen via een variabele aanroepen ontbreken mogelijk).
 
 <!-- AUTO:start -->
-### Noor (`noor`) — 78 films
+### Noor (`noor`) — 85 films
 - `afweer`: 1-de-eerste-verdediging, 2-antistoffen-op-maat, 3-t-cellen-en-virussen, 4-vaccins-allergie-en-bloedgroepen
-- `cellen`: celorganellen, diffusie-osmose, microben, van-molecuul-tot-biosfeer
+- `cellen`: celorganellen, diffusie-osmose, microben, stamcellen, van-molecuul-tot-biosfeer
 - `dna`: 1-wat-is-dna, 2-dna-kopieren
-- `ecologie`: 3-een-aarde, 4-ingrijpen-of-laten-gaan
+- `ecologie`: 2-waar-past-een-soort, 3-een-aarde, 3-wie-eet-wie, 4-ingrijpen-of-laten-gaan, 4-waar-blijft-het-blad, 5-waarom-zo-weinig-roofdieren, 6-koolstof-gaat-rond
 - `erfelijkheid`: 1-chromosomen, 2-monohybride-kruisingen, 4-dihybride-kruising-en-gekoppelde-overerving, 5-overerving-via-x-chromosomen-en-mitochondrien, 6-stambomen-en-kansrekenen
 - `evolutie`: 4-de-mens-als-selectiefactor, 7-hoe-weten-we-dat, 8-stambomen-lezen, x2-het-ontstaan-van-het-leven, x3-van-eerste-cel-tot-nu, x4-hoe-werden-we-mens
 - `examens`: vwo-2018-2
-- `extra`: geschiedenis-van-de-biologie
+- `extra`: geschiedenis-van-de-biologie, hoe-weet-een-cel
 - `gaswisseling`: 3-uitscheiding-en-evenwicht
 - `gedrag`: 2-inprenting-en-de-sensitieve-periode, 6-attributie, 8-honingbij
 - `hormonen`: 1-post-voor-iedereen, 2-suiker-in-balans, 4-stress, 5-water-in-balans
@@ -104,15 +104,19 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `voortplanting`: 2-geslachtsorganen-puberteit
 - `zenuwstelsel`: 1-een-seconde, 3-de-spleet, 4-knoeien-met-de-spleet
 
-### Yasmin (`yasmin`) — 22 films
+### Yasmin (`yasmin`) — 24 films
+- `cellen`: onderzoek-doen
+- `ecologie`: 7-stikstof-gaat-rond
 - `evolutie`: 1-wat-is-evolutie
 - `gedrag`: 10-helpen, 12-psychologie-experimenten
 - `onderbouw/32b`: 2-geslachtelijk-en-ongeslachtelijk, 6-dna-en-overerving
 - `onderbouw/32c`: 2-slaap-natuur-en-hygiene
 - `vervolg`: farmacie-2-sleutel-slot-en-dosis, fysiotherapie-4-welke-oefening-helpt, gezondheidswetenschappen-1-hoe-een-epidemie-groeit, labtechniek-1-preparaat-en-microscoop, labtechniek-2-van-buisje-tot-uitslag, labtechniek-3-wat-staat-er-op-je-bloeduitslag, labtechniek-4-antibioticaresistentie, landbouw-1-meer-oogst, landbouw-2-wat-zit-er-in-de-bodem, landbouw-3-fokken, leraar-2-een-practicum-dat-werkt, neurowetenschappen-1-je-brein-vult-het-in, neurowetenschappen-3-als-hersencellen-uitvallen, psychologie-2-kijken-in-een-denkend-brein, psychologie-3-aanleg-of-opvoeding, psychologie-6-kun-je-je-geheugen-vertrouwen
 
-### Bilal (`bilal`) — 21 films
+### Bilal (`bilal`) — 23 films
 - `afweer`: 4-vaccins-allergie-en-bloedgroepen
+- `cellen`: onderzoek-doen
+- `ecologie`: 7-stikstof-gaat-rond
 - `evolutie`: 1-wat-is-evolutie
 - `examens`: vwo-2018-2
 - `gedrag`: 11-slimme-dieren, 5-emotieregulatie
@@ -121,8 +125,9 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `vervolg`: farmacie-2-sleutel-slot-en-dosis, forensisch-1-sporen, forensisch-2-hoe-zeker-is-een-match, forensisch-3-hoe-lang-al-dood, fysiotherapie-3-trainen, fysiotherapie-4-welke-oefening-helpt, geneeskunde-2-als-regelkringen-ontsporen, gezondheidswetenschappen-1-hoe-een-epidemie-groeit, landbouw-3-fokken, pedagogiek-1-een-brein-in-aanbouw, psychologie-3-aanleg-of-opvoeding, tandheelkunde-1-zuur-in-je-mond
 - `zenuwstelsel`: 7-slaap
 
-### Dr. Kim (`kim`) — 49 films
+### Dr. Kim (`kim`) — 50 films
 - `afweer`: 3-t-cellen-en-virussen, 4-vaccins-allergie-en-bloedgroepen
+- `cellen`: van-molecuul-tot-biosfeer
 - `ecologie`: 5-binnen-de-grenzen
 - `erfelijkheid`: 6-stambomen-en-kansrekenen
 - `evolutie`: 4-de-mens-als-selectiefactor, 7-hoe-weten-we-dat
@@ -145,9 +150,10 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `vervolg`: diergeneeskunde-2-bronst-dekken-kalven, diergeneeskunde-3-van-dier-naar-mens, diergeneeskunde-4-welzijn-meten, fysiotherapie-1-wat-is-er-met-die-knie, leraar-2-een-practicum-dat-werkt, mbrt-1-in-het-lichaam-kijken, neurowetenschappen-1-je-brein-vult-het-in, psychologie-1-welke-therapie-werkt, psychologie-4-meten-wat-je-niet-kunt-zien, tandheelkunde-2-van-glazuur-tot-zenuw, verpleegkunde-2-hoe-weefsel-herstelt
 - `voortplanting`: 3-anticonceptie-soa-voortplantingstechniek
 
-### Teun (`kind`) — 17 films
+### Teun (`kind`) — 18 films
 - `afweer`: 2-antistoffen-op-maat
 - `cellen`: microben
+- `ecologie`: 5-waarom-zo-weinig-roofdieren
 - `examens`: vwo-2018-2
 - `hormonen`: 1-post-voor-iedereen
 - `onderbouw/32b`: 1-levenscyclus-genen-en-milieu
@@ -203,14 +209,17 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `evolutie`: 3-vormen-van-selectie
 - `vervolg`: verloskunde-1-negen-maanden-bouwen, verloskunde-2-wat-meet-de-verloskundige, verloskunde-3-screenen-een-keuze, verloskunde-4-de-bevalling, verloskunde-5-de-kraamweek
 
-### Esra (`esra`) — 5 films
+### Esra (`esra`) — 6 films
+- `extra`: hoe-weet-een-cel
 - `vervolg`: verloskunde-1-negen-maanden-bouwen, verloskunde-2-wat-meet-de-verloskundige, verloskunde-3-screenen-een-keuze, verloskunde-4-de-bevalling, verloskunde-5-de-kraamweek
 
-### Dierenarts Mila (`mila`) — 5 films
+### Dierenarts Mila (`mila`) — 6 films
+- `ecologie`: 3-wie-eet-wie
 - `evolutie`: 4-de-mens-als-selectiefactor
 - `vervolg`: diergeneeskunde-1-hond-koe-paard, diergeneeskunde-2-bronst-dekken-kalven, diergeneeskunde-3-van-dier-naar-mens, diergeneeskunde-4-welzijn-meten
 
-### Veehouder Gerrit (`gerrit`) — 5 films
+### Veehouder Gerrit (`gerrit`) — 9 films
+- `ecologie`: 1-hoeveel-passen-er, 3-wie-eet-wie, 5-waarom-zo-weinig-roofdieren, 7-stikstof-gaat-rond
 - `evolutie`: 4-de-mens-als-selectiefactor, 6-hoe-een-soort-er-twee-wordt
 - `vervolg`: diergeneeskunde-3-van-dier-naar-mens, diergeneeskunde-4-welzijn-meten, landbouw-3-fokken
 
@@ -226,7 +235,8 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `voortplanting`: celdeling
 - `zenuwstelsel`: 4-knoeien-met-de-spleet, 8-zintuigen
 
-### Rachid (`rachid`) — 3 films
+### Rachid (`rachid`) — 4 films
+- `ecologie`: 5-waarom-zo-weinig-roofdieren
 - `evolutie`: x2-het-ontstaan-van-het-leven
 - `voortplanting`: celdeling
 - `zenuwstelsel`: 6-leren-en-onthouden
@@ -248,7 +258,9 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 ### Thijs (`thijs`) — 1 films
 - `evolutie`: 1-wat-is-evolutie
 
-### Erik (`erik`) — 5 films
+### Erik (`erik`) — 7 films
+- `cellen`: stamcellen
+- `ecologie`: 6-koolstof-gaat-rond
 - `evolutie`: 4-de-mens-als-selectiefactor
 - `hormonen`: 3-de-baas-van-de-klieren
 - `vervolg`: biomedisch-3-van-lab-tot-patient, forensisch-2-hoe-zeker-is-een-match
@@ -257,7 +269,8 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 ### Joost (`joost`) — 4 films
 - `vervolg`: biomedisch-3-van-lab-tot-patient, forensisch-2-hoe-zeker-is-een-match, voedingsleer-1-bij-de-dietist, voedingsleer-2-waarom-afvallen-zo-moeilijk-is
 
-### Mevrouw Jansen (`buurvrouw`) — 2 films
+### Mevrouw Jansen (`buurvrouw`) — 3 films
+- `ecologie`: 8-van-zand-tot-bos
 - `vervolg`: ecologie-1-tellen-in-het-veld, forensisch-3-hoe-lang-al-dood
 
 ### Lieke (`lieke`) — 1 films
@@ -266,7 +279,8 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 ### Procestechnoloog Merel (`merel`) — 3 films
 - `vervolg`: biotechnologie-1-bacterien-als-fabriek, biotechnologie-2-enzymen-op-maat, biotechnologie-3-mag-dat
 
-### Ecoloog Bas (`bas`) — 3 films
+### Ecoloog Bas (`bas`) — 5 films
+- `ecologie`: 4-waar-blijft-het-blad, 8-van-zand-tot-bos
 - `vervolg`: ecologie-1-tellen-in-het-veld, ecologie-2-stikstof, ecologie-3-een-plan-voor-de-natuur
 
 ### Diëtist Hanneke (`hanneke`) — 2 films
@@ -327,9 +341,8 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `hormonen`: 3-de-baas-van-de-klieren
 
 ### Gregor Mendel (`mendel`) — 3 films
-- `cellen`: onderzoek-doen
 - `erfelijkheid`: 2-monohybride-kruisingen
-- `extra`: geschiedenis-van-de-biologie
+- `extra`: geschiedenis-van-de-biologie, kun-je-onderzoek-vertrouwen
 
 ### Sanne (`sanne16`) — 1 films
 - `hormonen`: 2-suiker-in-balans

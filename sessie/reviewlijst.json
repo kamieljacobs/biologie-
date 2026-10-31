@@ -158,10 +158,17 @@
     {
      "href": "films/cellen/onderzoek-doen/index.html",
      "titel": "Onderzoek doen in de biologie",
-     "duur": 21,
+     "duur": 13,
      "vraag": "Hoe weet je eigenlijk of iets waar is?",
-     "prompt": "onbekend",
-     "repo": "ok"
+     "prompt": "v13"
+    },
+    {
+     "href": "films/extra/kun-je-onderzoek-vertrouwen.html",
+     "titel": "Kun je onderzoek vertrouwen?",
+     "duur": 10,
+     "vraag": "Van 53 spraakmakende kankerstudies konden er maar zes worden herhaald. Hoe kan dat?",
+     "prompt": "v13",
+     "extra": true
     },
     {
      "href": "films/extra/geschiedenis-van-de-biologie.html",

@@ -1,5 +1,25 @@
 [
  {
+  "href": "films/cellen/onderzoek-doen/index.html",
+  "titel": "Onderzoek doen in de biologie",
+  "thema": "cellen",
+  "themaTitel": "Cellen",
+  "duur": 13,
+  "vraag": "Hoe weet je eigenlijk of iets waar is?",
+  "extra": false,
+  "datum": "2026-10-31"
+ },
+ {
+  "href": "films/extra/kun-je-onderzoek-vertrouwen.html",
+  "titel": "Kun je onderzoek vertrouwen?",
+  "thema": "cellen",
+  "themaTitel": "Cellen",
+  "duur": 10,
+  "vraag": "Van 53 spraakmakende kankerstudies konden er maar zes worden herhaald. Hoe kan dat?",
+  "extra": true,
+  "datum": "2026-10-31"
+ },
+ {
   "href": "films/cellen/stamcellen.html",
   "titel": "Stamcellen",
   "thema": "cellen",
@@ -76,26 +96,6 @@
   "themaTitel": "Ecologie",
   "duur": 9,
   "vraag": "Waar blijven alle herfstbladeren?",
-  "extra": false,
-  "datum": "2026-10-29"
- },
- {
-  "href": "films/ecologie/5-waarom-zo-weinig-roofdieren.html",
-  "titel": "Waarom zo weinig roofdieren?",
-  "thema": "ecologie",
-  "themaTitel": "Ecologie",
-  "duur": 10,
-  "vraag": "Waarom zijn er zo weinig roofdieren?",
-  "extra": false,
-  "datum": "2026-10-29"
- },
- {
-  "href": "films/ecologie/6-koolstof-gaat-rond.html",
-  "titel": "Koolstof gaat rond",
-  "thema": "ecologie",
-  "themaTitel": "Ecologie",
-  "duur": 9,
-  "vraag": "Hoe komt koolstof van een varen van driehonderd miljoen jaar geleden in de lucht boven jouw straat?",
   "extra": false,
   "datum": "2026-10-29"
  }
