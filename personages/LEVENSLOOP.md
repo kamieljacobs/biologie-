@@ -30,6 +30,12 @@
 
 **Diëtist Hanneke** (± 41) · vast: diëtist (krullen, groen vest, geen labjas), goedgekeurd door Kamiel 26 okt 2026 (voorstel A). Gebeurd: Voeding en diëtetiek 1–2 (Joost is haar cliënt; Noor loopt een dag mee). Grenzen: alleen in haar eigen vak; geeft wél advies, maar vraagt eerst.
 
+**Levensmiddelentechnoloog Lars** (± 35) · vast: levensmiddelentechnoloog in een proeffabriek (rossig kort haar; outfit `fabriek`: labjas, haarnetje, veiligheidsbril; `gewoon`: lichtblauw overhemd), castvel goedgekeurd door Kamiel 31 okt 2026. Grenzen: alleen in zijn eigen vak.
+
+**Hovenier Jeroen** (± 50) · vast: hovenier en kweker (grijzend haar, groene fleece, werkbroek, snoeischaar in een holster), castvel goedgekeurd door Kamiel 31 okt 2026. Grenzen: alleen in zijn eigen vak.
+
+**Milieukundige Iris** (± 40) · vast: milieukundige bij een omgevingsdienst (halflang bruin haar, donkerblauwe softshell, veldtas met monsterpotjes, blauwe nitrilhandschoenen; outfit `kantoor` zonder tas en handschoenen), castvel goedgekeurd door Kamiel 31 okt 2026. Grenzen: alleen in haar eigen vak; geen echte gemeente of omgevingsdienst noemen.
+
 **Joost** (55) · vast: figurant (verre familie, buurman, iemand uit een onderzoek). Gebeurd: cliënt van Diëtist Hanneke in Voeding en diëtetiek 1–2 (outfit `spreekuur`: iets vollere romp, geen karikatuur); heeft een kleindochter, op een foto op zijn telefoon (castboek Fleur, Kamiel akkoord 26 okt 2026); Erik is zijn buurman (Voeding 2). Grenzen: geen diagnose of streefgewicht als vast kenmerk; zijn gewicht nooit als getal in beeld.
 
 **Esra** (29) · vast: zwanger van haar eerste kind, cliënte van Mirjam, los van Noors familie. Gebeurd: loopt door Verloskunde 1–5. Grenzen: geen familie van Noor.
