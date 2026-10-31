@@ -1,15 +1,5 @@
 [
  {
-  "href": "films/cellen/onderzoek-doen/index.html",
-  "titel": "Onderzoek doen in de biologie",
-  "thema": "cellen",
-  "themaTitel": "Cellen",
-  "duur": 13,
-  "vraag": "Hoe weet je eigenlijk of iets waar is?",
-  "extra": false,
-  "datum": "2026-10-31"
- },
- {
   "href": "films/extra/kun-je-onderzoek-vertrouwen.html",
   "titel": "Kun je onderzoek vertrouwen?",
   "thema": "cellen",
@@ -17,6 +7,56 @@
   "duur": 10,
   "vraag": "Van 53 spraakmakende kankerstudies konden er maar zes worden herhaald. Hoe kan dat?",
   "extra": true,
+  "datum": "2026-10-31"
+ },
+ {
+  "href": "films/dna/8-wat-heb-jij-aan-dna.html",
+  "titel": "Wat heb jij aan DNA?",
+  "thema": "dna",
+  "themaTitel": "DNA",
+  "duur": 12,
+  "vraag": "Een doosje van internet, de hielprik, een variant in de familie, een test vóór je medicijn: wil je het weten?",
+  "extra": false,
+  "datum": "2026-10-31"
+ },
+ {
+  "href": "films/dna/7-dna-lezen.html",
+  "titel": "DNA lezen",
+  "thema": "dna",
+  "themaTitel": "DNA",
+  "duur": 15,
+  "vraag": "Hoe lees je DNA uit een paar druppels bloed, en hoe vind je een dader die nergens geregistreerd staat?",
+  "extra": false,
+  "datum": "2026-10-31"
+ },
+ {
+  "href": "films/dna-technieken/1-op-maat-gekopieerd/index.html",
+  "titel": "Op maat gekopieerd · PCR",
+  "thema": "dna",
+  "themaTitel": "DNA",
+  "duur": 11,
+  "vraag": "Hoe maak je met alleen warm en koud van één stukje DNA er een miljard?",
+  "extra": false,
+  "datum": "2026-10-31"
+ },
+ {
+  "href": "films/dna-technieken/2-op-lengte-gesorteerd/index.html",
+  "titel": "Op lengte gesorteerd · gelelektroforese",
+  "thema": "dna",
+  "themaTitel": "DNA",
+  "duur": 4,
+  "vraag": "Alle banden van de verdachte passen bij het spoor. Is hij dan zeker de dader?",
+  "extra": false,
+  "datum": "2026-10-31"
+ },
+ {
+  "href": "films/cellen/onderzoek-doen/index.html",
+  "titel": "Onderzoek doen in de biologie",
+  "thema": "cellen",
+  "themaTitel": "Cellen",
+  "duur": 13,
+  "vraag": "Hoe weet je eigenlijk of iets waar is?",
+  "extra": false,
   "datum": "2026-10-31"
  },
  {
@@ -58,45 +98,5 @@
   "vraag": "Je alvleesklier maakt enzymen die buiten zijn cellen werken. Hoe komen ze de cel uit?",
   "extra": false,
   "datum": "2026-10-30"
- },
- {
-  "href": "films/ecologie/1-hoeveel-passen-er.html",
-  "titel": "Hoeveel passen er?",
-  "thema": "ecologie",
-  "themaTitel": "Ecologie",
-  "duur": 13,
-  "vraag": "Hoeveel bevers passen er in Nederland?",
-  "extra": false,
-  "datum": "2026-10-29"
- },
- {
-  "href": "films/ecologie/2-waar-past-een-soort.html",
-  "titel": "Waar past een soort?",
-  "thema": "ecologie",
-  "themaTitel": "Ecologie",
-  "duur": 11,
-  "vraag": "Waarom leven er in de ene beek wel steenvlieglarven en in de andere niet?",
-  "extra": false,
-  "datum": "2026-10-29"
- },
- {
-  "href": "films/ecologie/3-wie-eet-wie.html",
-  "titel": "Wie eet wie?",
-  "thema": "ecologie",
-  "themaTitel": "Ecologie",
-  "duur": 11,
-  "vraag": "Waarom eet een vos de konijnen nooit allemaal op?",
-  "extra": false,
-  "datum": "2026-10-29"
- },
- {
-  "href": "films/ecologie/4-waar-blijft-het-blad.html",
-  "titel": "Waar blijft het blad?",
-  "thema": "ecologie",
-  "themaTitel": "Ecologie",
-  "duur": 9,
-  "vraag": "Waar blijven alle herfstbladeren?",
-  "extra": false,
-  "datum": "2026-10-29"
  }
 ]
