@@ -6,7 +6,7 @@
 
 **Noor** (16) · vast: leerling, stelt de vragen, familie van Linda en Rachid, broertje Teun (`kind`). Gebeurd: Doet bij mevrouw Visser een EMG-practicum met plakkers op biceps en triceps (zomeroutfit): tilt een veertje, boeken en haar volle schooltas, probeert een tafel op te tillen; Sam laat onverwacht een boek in haar tas vallen terwijl ze haar ogen dicht heeft (Zenuwstelsel 9 Spieren en beweging, okt 2026). Haalt in een schoolpracticum haar eigen DNA uit wangcellen (zout spoelwater, afwasmiddel, alcohol: witte draadjes), labjas `practicum` (DNA 1 Wat is DNA? 3.0, okt 2026). Heeft een schaafwond op haar onderarm die in een week heelt (DNA 2 DNA kopiëren 2.0, okt 2026). Krijgt een mRNA-vaccin in haar bovenarm (DNA 3 Van DNA naar eiwit 1.2, 27 okt 2026). Staat op zaterdagochtend in de keuken bij de radio: herkent haar nummer na twee tonen, tikt met haar voet mee, zingt het refrein en krijgt kippenvel, zomeroutfit (Zenuwstelsel 5 Het hoofdkantoor 1.2, 28 okt 2026; zonder keuring). Verbrandt in de zon op het strand, met een plekje op haar onderarm (DNA 5 Mutaties 1.2, 27 okt 2026). Rent een rondje in het park (rood en bezweet) en staat op een koude dag bleek met kippenvel, sportoutfit (Uitscheiding en evenwicht 1.1, hoofdstuk De huid, 26 okt 2026). Grenzen: familie blijft heel; niet in een beroepsrol. Vindt een week vergeten broodtrommel met beschimmelde boterham terug; doet met mevrouw Visser de proef met drie zakjes brood en kweekschaaltjes (vingers, lucht); wil een antibioticum tegen haar verkoudheid (Wat groeit er op je boterham?, Cellen). Leert in de toetsweek elke avond tot laat aan de schoolbank en zit de dag na de laatste toets verkouden rechtop in bed met tissues (Hormonen 4 Stress 1.1, 28 okt 2026). Sport twee uur op een warme dag (sportoutfit, moe, zweet) en drinkt op een rustige dag binnen zittend een hele fles water (Hormonen 5 Water in balans 1.1, 28 okt 2026). Stoot 's nachts in de keuken haar blote teen tegen de tafelpoot (Zenuwstelsel 2 Het kabelnetwerk 2.0, 29 okt 2026; outfit `nacht` alleen in die film; ter keuring).
 
-**Opa Henk** (71) · vast: opa van Noor, man van Oma Ria, vader van Linda en Petra, tuiniert, af en toe patiënt. Gebeurd: patiënt (etiket H. de Vries) in Laboratoriumtechniek 2, 3 en 4. Spuit insuline met een pen in de opening van DNA 4 De genetische code lezen 1.2 (27 okt 2026; ter keuring). Opent erwtenpeulen in zijn moestuin en vindt gele gerimpelde en groene ronde erwten, zonder naam (Erfelijkheid 4 Dihybride kruising en gekoppelde overerving 2.0, 28 okt 2026). Doet met Yasmin vier bodemproefjes in zijn moestuin (Landbouw 2, 25 okt 2026). Kijkt over het hek mee op het melkveebedrijf; vroeger hield je zwartbonte koeien voor melk én vlees (Landbouw 3 Fokken, 26 okt 2026). Krijgt alleen de uitnodigingsenvelop van het bevolkingsonderzoek darmkanker, geen uitslag en geen ziekte (Gezondheidswetenschappen 2, Screenen of niet?, 31 okt 2026). Grenzen: Opa Henk en Oma Ria overlijden niet in een film; hij is geen arts of onderzoeker.
+**Opa Henk** (71) · vast: opa van Noor, man van Oma Ria, vader van Linda en Petra, tuiniert, af en toe patiënt. Gebeurd: klant van Hovenier Jeroen: zijn nieuwe rododendron naast het nieuwe terras krijgt geel blad (basische grond); de struik is gestekt van de moederplant in Jeroens kas (Tuin 1, Welke plant waar?, 31 okt 2026). patiënt (etiket H. de Vries) in Laboratoriumtechniek 2, 3 en 4. Spuit insuline met een pen in de opening van DNA 4 De genetische code lezen 1.2 (27 okt 2026; ter keuring). Opent erwtenpeulen in zijn moestuin en vindt gele gerimpelde en groene ronde erwten, zonder naam (Erfelijkheid 4 Dihybride kruising en gekoppelde overerving 2.0, 28 okt 2026). Doet met Yasmin vier bodemproefjes in zijn moestuin (Landbouw 2, 25 okt 2026). Kijkt over het hek mee op het melkveebedrijf; vroeger hield je zwartbonte koeien voor melk én vlees (Landbouw 3 Fokken, 26 okt 2026). Krijgt alleen de uitnodigingsenvelop van het bevolkingsonderzoek darmkanker, geen uitslag en geen ziekte (Gezondheidswetenschappen 2, Screenen of niet?, 31 okt 2026). Grenzen: Opa Henk en Oma Ria overlijden niet in een film; hij is geen arts of onderzoeker.
 
 **Oma Ria** (69) · vast: vrouw van Henk, moeder van Linda en Petra; outfit `vroeger` = jong, zwanger van Linda. Grenzen: overlijdt niet in een film.
 
@@ -32,7 +32,7 @@
 
 **Levensmiddelentechnoloog Lars** (± 35) · vast: levensmiddelentechnoloog in een proeffabriek (rossig kort haar; outfit `fabriek`: labjas, haarnetje, veiligheidsbril; `gewoon`: lichtblauw overhemd), castvel goedgekeurd door Kamiel 31 okt 2026. Gebeurd: ontwerpt met Noor een burger van erwteneiwit in de proeffabriek (Voeding en diëtetiek 3, Een burger zonder koe, 31 okt 2026). Grenzen: alleen in zijn eigen vak.
 
-**Hovenier Jeroen** (± 50) · vast: hovenier en kweker (grijzend haar, groene fleece, werkbroek, snoeischaar in een holster), castvel goedgekeurd door Kamiel 31 okt 2026. Grenzen: alleen in zijn eigen vak.
+**Hovenier Jeroen** (± 50) · vast: hovenier en kweker (grijzend haar, groene fleece, werkbroek, snoeischaar in een holster), castvel goedgekeurd door Kamiel 31 okt 2026. Gebeurd: begeleider van Lotte; determineert, stekt en zoekt de goede plek voor de rododendron van Opa Henk; heeft een kas met de moederplant (Tuin 1, Welke plant waar?, 31 okt 2026). Grenzen: alleen in zijn eigen vak.
 
 **Milieukundige Iris** (± 40) · vast: milieukundige bij een omgevingsdienst (halflang bruin haar, donkerblauwe softshell, veldtas met monsterpotjes, blauwe nitrilhandschoenen; outfit `kantoor` zonder tas en handschoenen), castvel goedgekeurd door Kamiel 31 okt 2026. Gebeurd: begeleider van Thijs bij de omgevingsdienst; onderzoekt PFAS in de eieren van Joosts kippen (Milieukunde 1, PFAS, DDT en microplastic, 31 okt 2026). Grenzen: alleen in haar eigen vak; geen echte gemeente of omgevingsdienst noemen.
 
@@ -146,7 +146,7 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `vervolg`: bioinformatica-1-zoeken-in-dna, bioinformatica-2-miljoenen-varianten, bioinformatica-3-een-uitbraak-volgen, bioinformatica-4-eiwitstructuur-voorspellen, biomedisch-1-signalen-in-de-cel, biomedisch-2-crispr-wat-doet-dit-gen, biomedisch-3-van-lab-tot-patient, biomedisch-4-toeval-of-echt, diergeneeskunde-3-van-dier-naar-mens, farmacie-3-achter-de-balie, forensisch-1-sporen, forensisch-2-hoe-zeker-is-een-match, forensisch-3-hoe-lang-al-dood, fysiotherapie-1-wat-is-er-met-die-knie, geneeskunde-1-van-klacht-naar-diagnose, geneeskunde-2-als-regelkringen-ontsporen, geneeskunde-3-welk-antibioticum, geneeskunde-4-wat-de-patholoog-ziet, labtechniek-2-van-buisje-tot-uitslag, labtechniek-3-wat-staat-er-op-je-bloeduitslag, labtechniek-4-antibioticaresistentie, mbrt-1-in-het-lichaam-kijken, mbrt-2-bestraling, neurowetenschappen-2-brein-en-computer, neurowetenschappen-3-als-hersencellen-uitvallen, pedagogiek-2-opgroeien-onder-druk, psychologie-1-welke-therapie-werkt, psychologie-2-kijken-in-een-denkend-brein, psychologie-3-aanleg-of-opvoeding, psychologie-4-meten-wat-je-niet-kunt-zien, psychologie-6-kun-je-je-geheugen-vertrouwen, psychologie-7-waarom-raakt-de-een-opgebrand, tandheelkunde-3-bloedend-tandvlees, verloskunde-2-wat-meet-de-verloskundige, verpleegkunde-1-bel-je-de-arts
 - `voortplanting`: 3-anticonceptie-soa-voortplantingstechniek, 4-sekse-gender-diversiteit
 
-### Lotte (`lotte`) — 30 films
+### Lotte (`lotte`) — 31 films
 - `afweer`: 3-t-cellen-en-virussen, 4-vaccins-allergie-en-bloedgroepen
 - `ecologie`: 5-binnen-de-grenzen
 - `examens`: vwo-2018-2
@@ -156,7 +156,7 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `onderbouw/32b`: 1-levenscyclus-genen-en-milieu, 4-door-de-mens-gekozen
 - `onderbouw/32c`: 1-voeding-en-beweging, 2-slaap-natuur-en-hygiene
 - `onderbouw/33c`: 2-wie-woont-waar, 5-wij-hebben-de-natuur-nodig
-- `vervolg`: diergeneeskunde-2-bronst-dekken-kalven, diergeneeskunde-3-van-dier-naar-mens, diergeneeskunde-4-welzijn-meten, fysiotherapie-1-wat-is-er-met-die-knie, leraar-2-een-practicum-dat-werkt, mbrt-1-in-het-lichaam-kijken, neurowetenschappen-1-je-brein-vult-het-in, psychologie-1-welke-therapie-werkt, psychologie-4-meten-wat-je-niet-kunt-zien, tandheelkunde-2-van-glazuur-tot-zenuw, verpleegkunde-2-hoe-weefsel-herstelt
+- `vervolg`: diergeneeskunde-2-bronst-dekken-kalven, diergeneeskunde-3-van-dier-naar-mens, diergeneeskunde-4-welzijn-meten, fysiotherapie-1-wat-is-er-met-die-knie, leraar-2-een-practicum-dat-werkt, mbrt-1-in-het-lichaam-kijken, neurowetenschappen-1-je-brein-vult-het-in, psychologie-1-welke-therapie-werkt, psychologie-4-meten-wat-je-niet-kunt-zien, tandheelkunde-2-van-glazuur-tot-zenuw, tuin-1-welke-plant-waar, verpleegkunde-2-hoe-weefsel-herstelt
 - `voortplanting`: 3-anticonceptie-soa-voortplantingstechniek
 
 ### Teun (`kind`) — 18 films
@@ -190,7 +190,7 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `vervolg`: geneeskunde-4-wat-de-patholoog-ziet, leraar-1-waar-blijft-je-vet, leraar-2-een-practicum-dat-werkt
 - `zenuwstelsel`: 5-het-hoofdkantoor, 9-spieren-en-beweging
 
-### Opa Henk (`henk`) — 45 films
+### Opa Henk (`henk`) — 46 films
 - `afweer`: 3-t-cellen-en-virussen
 - `dna`: 7-dna-lezen, 8-wat-heb-jij-aan-dna
 - `ecologie`: 4-ingrijpen-of-laten-gaan, 5-binnen-de-grenzen
@@ -202,7 +202,7 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `onderbouw/32b`: 1-levenscyclus-genen-en-milieu, 2-geslachtelijk-en-ongeslachtelijk
 - `onderbouw/32c`: 1-voeding-en-beweging
 - `onderbouw/33c`: 3-wie-eet-wie, 4-uit-balans
-- `vervolg`: biomedisch-1-signalen-in-de-cel, biomedisch-2-crispr-wat-doet-dit-gen, biomedisch-3-van-lab-tot-patient, biomedisch-4-toeval-of-echt, diergeneeskunde-3-van-dier-naar-mens, farmacie-1-van-pil-tot-plek, farmacie-3-achter-de-balie, fysiotherapie-2-opnieuw-leren-bewegen, geneeskunde-1-van-klacht-naar-diagnose, gezondheidswetenschappen-2-screenen-of-niet, labtechniek-2-van-buisje-tot-uitslag, labtechniek-3-wat-staat-er-op-je-bloeduitslag, labtechniek-4-antibioticaresistentie, landbouw-1-meer-oogst, landbouw-2-wat-zit-er-in-de-bodem, landbouw-3-fokken, mbrt-1-in-het-lichaam-kijken, mbrt-2-bestraling, neurowetenschappen-3-als-hersencellen-uitvallen, pedagogiek-1-een-brein-in-aanbouw, pedagogiek-2-opgroeien-onder-druk, psychologie-1-welke-therapie-werkt, psychologie-2-kijken-in-een-denkend-brein, psychologie-7-waarom-raakt-de-een-opgebrand, tandheelkunde-3-bloedend-tandvlees, verpleegkunde-1-bel-je-de-arts, verpleegkunde-2-hoe-weefsel-herstelt
+- `vervolg`: biomedisch-1-signalen-in-de-cel, biomedisch-2-crispr-wat-doet-dit-gen, biomedisch-3-van-lab-tot-patient, biomedisch-4-toeval-of-echt, diergeneeskunde-3-van-dier-naar-mens, farmacie-1-van-pil-tot-plek, farmacie-3-achter-de-balie, fysiotherapie-2-opnieuw-leren-bewegen, geneeskunde-1-van-klacht-naar-diagnose, gezondheidswetenschappen-2-screenen-of-niet, labtechniek-2-van-buisje-tot-uitslag, labtechniek-3-wat-staat-er-op-je-bloeduitslag, labtechniek-4-antibioticaresistentie, landbouw-1-meer-oogst, landbouw-2-wat-zit-er-in-de-bodem, landbouw-3-fokken, mbrt-1-in-het-lichaam-kijken, mbrt-2-bestraling, neurowetenschappen-3-als-hersencellen-uitvallen, pedagogiek-1-een-brein-in-aanbouw, pedagogiek-2-opgroeien-onder-druk, psychologie-1-welke-therapie-werkt, psychologie-2-kijken-in-een-denkend-brein, psychologie-7-waarom-raakt-de-een-opgebrand, tandheelkunde-3-bloedend-tandvlees, tuin-1-welke-plant-waar, verpleegkunde-1-bel-je-de-arts, verpleegkunde-2-hoe-weefsel-herstelt
 - `voeding`: 6-je-darmbewoners, 7-supplementen-en-superfoods
 
 ### Verpleegkundige Jesse (`jesse`) — 4 films
@@ -312,8 +312,8 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 ### Levensmiddelentechnoloog Lars (`lars`) — 1 films
 - `vervolg`: voedingsleer-3-een-burger-zonder-koe
 
-### Hovenier Jeroen (`jeroen`) — 0 films
-- (geen films gevonden)
+### Hovenier Jeroen (`jeroen`) — 1 films
+- `vervolg`: tuin-1-welke-plant-waar
 
 ### Milieukundige Iris (`iris`) — 1 films
 - `vervolg`: milieukunde-1-pfas-ddt-en-microplastic
