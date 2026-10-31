@@ -391,7 +391,7 @@ function L4_glucose(ctx, x, y, s = 1, a = 1, an = 0) { if (a <= 0.01) return; ct
   ctx.beginPath(); ctx.arc(P[5][0], P[5][1], 3.2 * s, 0, 6.283); ctx.fillStyle = C.koraal; ctx.fill(); ctx.restore(); }
 function L4_mineraal(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, 8 * s, C.oker, lighten(C.oker, 0.4), 1.3); ctx.restore(); }
 function L4_o2(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; for (const k of [-1, 1]) { ctx.beginPath(); ctx.arc(x + k * 5.5 * s, y, 7 * s, 0, 6.283); shape(ctx, C.teal, lighten(C.teal, 0.35), 1.2); } ctx.restore(); }
-function L4_co2(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; for (const k of [-1, 1]) { ctx.beginPath(); ctx.arc(x + k * 11 * s, y, 6.5 * s, 0, 6.283); shape(ctx, '#AEB6C2', lighten('#AEB6C2', 0.3), 1.1); }
+function L4_co2(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; for (const k of [-1, 1]) { ctx.beginPath(); ctx.arc(x + k * 11 * s, y, 6.5 * s, 0, 6.283); shape(ctx, C.licht ? '#8A93A3' : '#AEB6C2', C.licht ? '#5E6878' : '#C8CED8', 1.1); }
   ctx.beginPath(); ctx.arc(x, y, 7.5 * s, 0, 6.283); shape(ctx, '#5E6878', '#9AA3B3', 1.1); ctx.restore(); }
 // ATP: base + suiker + drie fosfaten (koraal); los = laatste fosfaat springt eraf (ADP + P)
 function L4_atp(ctx, x, y, s = 1, a = 1, los = 0, label = true) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
@@ -656,7 +656,7 @@ SCHERMEN.push({ titel: 'Afstand telt', kop: 'Twee keer zo ver, vier keer zo lang
     { t: 'Een deeltje dwaalt heen en weer. Over een korte afstand is het snel aan de overkant.', n: 'Antwoord op de vraag van het vorige scherm: b, ongeveer vier keer zo lang. Het spoor laat zien dat het deeltje ook vaak terug gaat.' },
     { t: 'Twee keer zo ver kost ongeveer <b>vier keer zo lang</b>.', n: 'Achtergrond: bij een willekeurige wandeling groeit de afgelegde afstand met de wortel van de tijd (t ∼ x²/D). Dat hoeven leerlingen niet te kunnen; "dubbele afstand, ongeveer vier keer zo lang" is genoeg. Zie de briefing.' },
     { t: 'Zuurstof komt in een paar honderdste seconde door een cel. Over een centimeter duurt het uren.', n: 'Getallen uit de film (orde van grootte). Daarom heeft een groot dier transport nodig: bloed brengt de stoffen dichtbij, het laatste stukje gaat met diffusie.' },
-    { t: 'Daarom zijn cellen klein.', n: 'Verband met les 1 (Van molecuul tot biosfeer): verhouding oppervlak en inhoud. Wie wil: het Schaallab op de site.' }
+    { t: 'Daarom zijn cellen klein.', n: 'Wie wil: het Schaallab op de site (verhouding oppervlak en inhoud).' }
   ],
   teken(ctx, S) {
     const T = S.T, rij = [[0, 'kort', 270, 1, 25, 80], [1, 'lang', 470, 4, 100, 320]];
@@ -800,7 +800,7 @@ SCHERMEN.push({ titel: 'Osmose', kop: 'Water door een semipermeabel membraan', d
 // ---------- 11 · waarom? de porie van dichtbij ----------
 SCHERMEN.push({ titel: 'Waarom?', kop: 'Zout kaatst terug, water stroomt', deel: 'Osmose',
   stappen: [
-    { t: 'Kijk van dichtbij naar een gaatje in het membraan. Links zuiver water, rechts zout water.', n: 'Het gaatje is een waterkanaal. De ionen zitten in hun watermantel (oranje bij Na⁺: O-kant naar het ion; bij Cl⁻ wijzen de H-kanten naar het ion).' },
+    { t: 'Kijk van dichtbij naar een gaatje in het membraan. Links zuiver water, rechts zout water.', n: 'Het gaatje is een waterkanaal. De ionen zitten in hun watermantel: bij Na⁺ wijst de O-kant van de watermoleculen naar het ion, bij Cl⁻ de H-kant.' },
     { t: 'Rechts botsen de zoutdeeltjes tegen het membraan. Ze kunnen er niet door en kaatsen terug.', n: '' },
     { t: 'Bij dat terugkaatsen duwen ze het water weg van het gaatje: daar is de druk lager.', n: 'Dit is de uitleg uit de film (Kramer & Myers 2013): de opening geeft een terugkaatsend zoutdeeltje een duwtje van het membraan af, en via botsingen gaat die duw over op het water eromheen.' },
     { t: 'Links duwt het water harder, dus stroomt het water door het gaatje naar rechts, als door een rietje: <b>osmose</b>.', n: 'Toetstaal: water gaat naar de kant met de hoogste osmotische waarde. In het boek staat ook vaak "osmose is diffusie van water": de richting klopt altijd, het mechanisme is eigenlijk een stroming.' }
