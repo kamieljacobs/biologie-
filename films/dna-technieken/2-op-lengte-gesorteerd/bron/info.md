@@ -45,6 +45,11 @@ Regelnummers in `../index.html` (2.0): r. 103 begrippen, r. 105 checkvragen, r. 
 ## Aandachtspunten
 - Woordtijden zijn geschat uit stiltes (silalign), niet getranscribeerd; de beeldmomenten hangen aan woorden, een afwijking van een paar tienden is mogelijk.
 - 'Een ander spoor' in s36 is een tweede, bedacht spoor (mengsel bij D3S1358); het spoor van de volle gel is geen mengsel.
+- `naamBij` klemt labels binnen 24 px van de rand: een label naast een brede gel komt dan óp de gel (s12); maak de gel smaller of kies een andere plek. Niets onder y = 900 (ondertitels).
+- Labels die een woord van de stem volgen, cue je op dat woord zelf (s23: X en Y op 'X' en 'Y', niet op 'man').
+- Bouwen: `build.py` zet het regeltje 'donker is standaard' er niet in; zet het na het kopiëren direct na `<meta charset>` (bij de frisse review van 31 okt 2026 handmatig gedaan).
+- Frisse beeldreview: `review_fris_2026-10-31.md`.
 
 ## Wijzigingen
+- 31 okt 2026 — Frisse beeldreview verwerkt (`review_fris_2026-10-31.md`): titelkaart, s09, s12, s23 en s24 hersteld; tekst en take ongewijzigd.
 - 31 okt 2026 — Versie 2.0: beeld-remake op prompt v13, take behouden (per regel geknipt). Van de eigen 'Labjournaal'-speler naar de FILMDATA-straat; alle scènes opnieuw getekend (zie `opwaardering-v13.md`, per scène één regel). Hoofdstukkaarten 1,3 s, titel en eindkaart nieuw; sitebalk '← Terug naar DNA' en 'donker is standaard' behouden.

@@ -16,7 +16,7 @@ function miniGel(ctx, x, y, w, h, banen, bpTop, bpBot, a = 1, key = 'mini') { if
 
 Object.assign(SCENES, {
   // ---------------- titel: de gelfoto van het practicum, klein rechts
-  title(ctx, t) { const G = gelGeo({ x: 1120, y: 300, w: 680, h: 520, lanes: FULL_LANES, bpTop: 310, bpBot: 44, wellY: 28, yTop: 56, yBotPad: 22, bandH: 6, padX: 16 }); gelFoto(ctx, G, { key: 'titel' }); },
+  title(ctx, t) { const G = gelGeo({ x: 1120, y: 430, w: 680, h: 440, lanes: FULL_LANES, bpTop: 310, bpBot: 44, wellY: 28, yTop: 56, yBotPad: 22, bandH: 6, padX: 16 }); gelFoto(ctx, G, { key: 'titel' }); },
 
   // ================= Opening =================
   s01(ctx, t, q) { schema(ctx);
@@ -98,7 +98,7 @@ Object.assign(SCENES, {
     const p = ease(clamp((t - 0.3) / 3.4, 0, 1)), L = [[400, 210], [160, 120], [60, 50]];
     L.forEach(([bp, len], i) => { const y = lerp(G.wellY + 14, G.Y(bp), p); gelBand(ctx, G.cx(0), y, G.bw, G.bandH, 1.0, 'allele');
       dnaStuk(ctx, 1040 + len / 2, y, len, { w: 12, min: false, a: ramp(t, 0.2 + i * 0.2, 0.4) });
-      metaText(ctx, bp + ' bp', 1060 + len + 24, y + 10, C.text2, 'left', 28); });
+      ctx.save(); ctx.globalAlpha *= clamp((p - 0.12) / 0.2, 0, 1); metaText(ctx, bp + ' bp', 1060 + len + 24, y + 10, C.text2, 'left', 28); ctx.restore(); });
     elektrode(ctx, 660, 940, 70, false, 0.9); elektrode(ctx, 660, 940, 900, true, 0.9);
     naamBij(ctx, 'lang', 'dicht bij het putje', 380, G.Y(400) + 12, R(t, q, 'korter', 0.5) * p, 'right');
     naamBij(ctx, 'kort', 'het verst', 380, G.Y(60) + 12, R(t, q, 'korter', 0.5, 1, -0.4) * p, 'right', C.goud);
@@ -129,12 +129,12 @@ Object.assign(SCENES, {
   s12(ctx, t, q) { schema(ctx);
     // eerst ongekleurd (alleen de blauwe kleurstof uit de laadbuffer), dan met kleurstof en blauw licht
     const k = R(t, q, 'kleurstof', 0.8), bl = R(t, q, 'blauw', 0.8);
-    const G = gelGeo({ x: 160, y: 150, w: 1180, h: 700, lanes: FULL_LANES, bpTop: 310, bpBot: 44, wellY: 34, yTop: 70, yBotPad: 28, bandH: 8 });
+    const G = gelGeo({ x: 140, y: 150, w: 1100, h: 700, lanes: FULL_LANES, bpTop: 310, bpBot: 44, wellY: 34, yTop: 70, yBotPad: 28, bandH: 8 });
     ctx.save(); ctx.globalAlpha *= 1 - bl; gelFoto(ctx, G, { key: 'wit', wit: true });
     G.lanes.forEach((id, i) => { ctx.fillStyle = rgba(GELK.kleurstof, 0.75); roundRect(ctx, G.cx(i) - G.bw / 2, G.Y(38) - 4, G.bw, 10, 4); ctx.fill(); }); ctx.restore();
     if (bl > 0.01) { ctx.save(); ctx.globalAlpha *= bl; gelFoto(ctx, G, { key: 'blauw', blauw: true }); ctx.restore(); }
     baanNamen(ctx, G);
-    naamBij(ctx, 'dna is kleurloos', 'alleen de laadkleur is te zien', 1400, 330, R(t, q, 'kleurloos') * (1 - k), 'left');
+    naamBij(ctx, 'DNA is kleurloos', 'alleen de laadkleur is te zien', 1390, 330, R(t, q, 'kleurloos') * (1 - k), 'left');
     naamBij(ctx, 'kleurstof', 'hecht aan dna', 1400, 450, k, 'left');
     naamBij(ctx, 'blauw licht', 'banden lichten op', 1400, 570, bl, 'left', C.goud); },
 
@@ -218,13 +218,13 @@ Object.assign(SCENES, {
     const G1 = miniGel(ctx, 300, 200, 380, 620, [['m', man, 'man']], 118, 100, 1, 'man');
     const G2 = miniGel(ctx, 1100, 200, 380, 620, [['v', vr, 'vrouw']], 118, 100, 1, 'vrouw');
     naamBij(ctx, 'amelogenine', 'x en y', 960, 140, ramp(t, 0.1, 0.5), 'center');
-    if (G1) { naamBij(ctx, 'Y', '112 bp', 710, G1.Y(112) + 10, R(t, q, 'man', 0.5), 'left'); naamBij(ctx, 'X', '106 bp', 710, G1.Y(106) + 10, R(t, q, 'man', 0.5), 'left'); }
+    if (G1) { naamBij(ctx, 'Y', '112 bp', 710, G1.Y(112) + 10, R(t, q, 'Y', 0.4), 'left'); naamBij(ctx, 'X', '106 bp', 710, G1.Y(106) + 10, R(t, q, 'X', 0.4), 'left'); }
     if (G2) naamBij(ctx, 'alleen X', '106 bp', 1510, G2.Y(106) + 10, R(t, q, 'vrouw', 0.5), 'left'); },
   s24(ctx, t, q) { schema(ctx); const G = volleGel(ctx, { hl: ['Sp'] }); dimBanen(ctx, G, ['Sp', 'Eig', 'A', 'B', 'C'], 1);
     const p = clamp((t - q.at('lijn') + 0.2) / 1.6, 0, 1);
     SP_ALLEL.forEach((b, i) => gidsLijn(ctx, G.Y(b.bp), G.lx('Eig') - G.bw / 2 - 10, G.lx('C') + G.bw / 2 + 10, ramp(p, i / 12, 0.2), C.goud, 1));
     const d = R(t, q, 'dezelfde', 0.5); PROFILES && LANE_BANDS.A.filter(b => b.kind === 'allele').forEach(b => bandRing(ctx, G, 'A', b.bp, d * 0.9, C.groen, 4));
-    naamBij(ctx, 'zelfde lijn', 'zelfde allel', G.lx('C') + G.bw / 2 + 20, G.Y(140) + 12, d, 'left', C.groen); },
+    naamBij(ctx, 'zelfde lijn', 'zelfde allel', G.lx('C') + G.bw / 2 + 20, G.Y(140) + 40, d, 'left', C.groen); },
   s25(ctx, t, q) { schema(ctx); const G = volleGel(ctx, { hl: ['Sp', 'B'] }); dimBanen(ctx, G, ['Sp', 'A', 'B'], 1);
     SP_ALLEL.forEach(b => gidsLijn(ctx, G.Y(b.bp), G.lx('Eig') - G.bw / 2 - 10, G.lx('C') + G.bw / 2 + 10, 1));
     ['A', 'B'].forEach(id => portret(ctx, VERDACHTE[id], G.lx(id), 70, 36, 1, id === 'B' ? C.koraal : C.line));
