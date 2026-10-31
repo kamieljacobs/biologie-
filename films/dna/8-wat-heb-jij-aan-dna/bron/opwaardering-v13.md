@@ -3,7 +3,7 @@
 Gebouwd zonder te wachten; bij twijfel de beste optie gekozen. Takes ongewijzigd, één knip (n7).
 
 ## (a) Twijfelscènes (gebouwd met mijn keuze)
-1. **n3 thuis** — Noor (16) doet de test zelf. Commerciële tests zijn officieel vanaf 18 jaar. Gekozen: Noor als 'jij', zoals in 1.4. Alternatief: een volwassen figurant.
+1. **n3 thuis** — ~~Noor (16) doet de test zelf~~ (frisse review 31 okt 2026: commerciële tests nemen pas klanten vanaf 18 jaar). Nu: moeder Linda doet de test aan tafel, Noor kijkt mee; portret bij de afkomstvergelijking en bij vraag 1 = Linda. Alternatief: Tante Petra of een volwassen figurant.
 2. **n5 nichtje** — gekozen: een baby in een reiswieg, met '± een achtste' gedeeld DNA (dochter van je tante = kind van een neef of nicht: ± 12,5 %). Alternatief: 'nichtje' als dochter van je broer. Teun is 6, dus dat kan niet.
 3. **n7 hielprik en NIPT** — gekozen: Esra en Mirjam. Esra heeft in Verloskunde 3 de NIPT gedaan en in Verloskunde 5 de hielprik bij haar baby. Ze is geen familie van Noor. Alternatief: anonieme figuranten.
 4. **n7 knip** — 'Iets meer dan de helft van de zwangere vrouwen kiest ervoor' is weggeknipt (zie Aanpassingen in `bronnen.md`). Alternatief: de zin opnieuw inspreken met 'Ongeveer drie op de vier …' (± 60 credits).

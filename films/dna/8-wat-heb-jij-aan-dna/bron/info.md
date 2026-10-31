@@ -60,7 +60,12 @@ Regelnummers in `../8-wat-heb-jij-aan-dna.html` (versie 2.0):
 - Alle tekst blijft boven y ≈ 880 (ondertitels daaronder). Getallen in beeld volgen de stem (10/13 van de 30, 1 op 30, 70 en 14 van de 100, 1 op 5, 1 op 20).
 - Castnamen staan nergens in beeld; labels zijn rollen ('jij', 'je tante', 'moeder · variant' alleen in de stamboom met symbolen).
 - Uitspraak: de wachtlijst van 1.5 staat in `oud/info-1.5.md`; geen nieuwe opnames, dus geen nieuwe risicowoorden.
+- De commerciële DNA-test (n3, q4v) doet een volwassene (moeder Linda); Noor (16) kijkt mee. Bedrijven nemen pas klanten vanaf 18 jaar. Laat Noor nooit zelf zo'n test doen.
+- Esra (zwanger, los van Noors familie) draagt `outfit: 'jas'`: in haar standaardkleding (gele trui, lang donker haar) lijkt ze op Noor.
+- Een personage dat in- of uitfadet: gebruik `d8pers()` (of `fam()`), niet `persoon()` met `a`; anders schijnen armen en romp door elkaar.
+- Frisse beeldreview 31 okt 2026: `review_fris_2026-10-31.md` (4 MOET hersteld, open punten en vragen voor Kamiel daar).
 
 ## Wijzigingen
 - 31 okt 2026 — Versie 2.0: beeld-remake op prompt v13, takes behouden. Omgezet naar de FILMDATA-straat (speler met snelheid, Vragen aan/uit, reviewstand; losse mp3's, film 10,4 → 1,6 MB). Alle scènes opnieuw getekend met castpersonages, gedeelde bibliotheek en eigen nieuwe objecten (zie `opwaardering-v13.md`). Knip in n7: de zin 'Iets meer dan de helft van de zwangere vrouwen kiest ervoor.' (verouderd; NIPT-deelname 2023 67,8 %, 2024 73,5 %, zie `bronnen.md`); docentdeel bijgewerkt. Bronnenlogboek `bronnen.md` nieuw.
+- 31 okt 2026 — 2.0, frisse beeldreview verwerkt: Linda doet de DNA-test (n3, q4v), afkomsttegels 67/92/75 % passend bij bedrijf A, Esra in jas bij de NIPT, denkwolkjes in n9b niet meer over de hoofden, fades van personages als één laag (`d8pers`).
 - Eerdere wijzigingen (1.0–1.5): zie `oud/info-1.5.md`.

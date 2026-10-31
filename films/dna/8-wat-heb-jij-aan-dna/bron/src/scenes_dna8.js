@@ -1,6 +1,6 @@
 // ===== DNA 8 · Wat heb jij aan DNA? — scènes (versie 2.0, beeld-remake prompt v13, 31 okt 2026) =====
 // Eén functie per segment-id: SCENES[id](ctx, t, q). Beeldwissels hangen aan gesproken woorden (q.at / q.on), dus aan de
-// bestaande takes. Rollen (personages/ROLLEN.md, LEVENSLOOP.md): jij = Noor; broer = Teun; moeder = Linda; vader = Rachid;
+// bestaande takes. Rollen (personages/ROLLEN.md, LEVENSLOOP.md): jij = Noor (de DNA-test van internet doet moeder Linda, Noor kijkt mee: vanaf 18 jaar); broer = Teun; moeder = Linda; vader = Rachid;
 // tante = Tante Petra; nichtje = de baby; verloskundige = Mirjam met Esra en haar baby (hielprik, NIPT: zoals in Verloskunde 3 en 5);
 // klinisch geneticus = Dr. Kim met Sanne (dragerschapstest, zoals in Erfelijkheid 6); patiënt = Opa Henk; boer = Veehouder Gerrit.
 // Castnamen nooit in beeld. Telpoppetjes alleen in tellingen. De stamboom in vraag 3 gebruikt symbolen (hypothetisch, geen castpersonage
@@ -14,7 +14,13 @@ const rij = (p, k, n) => clamp(p * n - k, 0, 1);
 
 // vaste maten (Noor 1,68 m = 520 px → 1 cm ≈ 3,1 px; vloer op y = 800)
 const VL = 800, MENS = 520;
-const fam = (ctx, id, x, h, o = {}) => persoon(ctx, id, x, VL, h, o);
+// d8pers: een personage dat in- of uitfadet wordt eerst ondoorzichtig op een eigen laag getekend en dan als geheel vervaagd
+// (anders schijnen armen en romp door elkaar heen; frisse review 31 okt 2026)
+function d8pers(ctx, id, x, y, h, o = {}) { const a = o.a == null ? 1 : o.a; if (a <= 0.01) return; if (a >= 0.99 || typeof document === 'undefined') return persoon(ctx, id, x, y, h, o);
+  const cv = ctx.canvas; let oc = d8pers._c; if (!oc || oc.width !== cv.width || oc.height !== cv.height) { oc = d8pers._c = document.createElement('canvas'); oc.width = cv.width; oc.height = cv.height; }
+  const c2 = oc.getContext('2d'); c2.setTransform(1, 0, 0, 1, 0, 0); c2.clearRect(0, 0, oc.width, oc.height); c2.setTransform(ctx.getTransform()); const r = persoon(c2, id, x, y, h, Object.assign({}, o, { a: 1 }));
+  ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha *= a; ctx.drawImage(oc, 0, 0); ctx.restore(); return r; }
+const fam = (ctx, id, x, h, o = {}) => d8pers(ctx, id, x, VL, h, o);
 
 SCENES.title = (ctx, t) => { d8weegschaal(ctx, 1440, 820, Math.sin(t * 0.8) * 0.25, [['wat de test leest', 1]], [['wat jij belangrijk vindt', 1]], { s: 0.8, labL: 'de feiten', labR: 'jouw waarden' }); };
 
@@ -45,7 +51,9 @@ SCENES.n3 = (ctx, t, q) => { q._id = 'n3';
   if (!genoom) { // thuis: spugen, postzegel, rapport op de telefoon
     d8kamer(ctx); d8tafel(ctx, 560, 1080, 610);
     const zegel = on(q, 'postzegel', 1, 0.6), rap = on(q, 'rapport', 1, 0.6), hl = na(q, 'diabetes') ? 2 : na(q, 'koriander') ? 1 : na(q, 'voorouders') ? 0 : -1;
-    fam(ctx, 'noor', 420, MENS, { t, uit: rap > 0.5 ? 'verbaasd' : 'neutraal', pose: 'vasthouden', hold: (c, hx, hy) => rap > 0.5 ? d8telKlein(c, hx, hy - 6, 0.5) : d8buisje(c, hx, hy - 10, 0.28, { vul: 0.4 }) });
+    // commerciële DNA-tests nemen pas klanten vanaf 18 jaar: de moeder (Linda) doet de test, Noor (16) kijkt mee (frisse review 31 okt 2026)
+    fam(ctx, 'noor', 175, MENS, { t, uit: rap > 0.5 ? 'verbaasd' : 'blij' });
+    fam(ctx, 'linda', 430, MENS * 1.0, { t, uit: rap > 0.5 ? 'verbaasd' : 'neutraal', pose: 'vasthouden', hold: (c, hx, hy) => rap > 0.5 ? d8telKlein(c, hx, hy - 6, 0.5) : d8buisje(c, hx, hy - 10, 0.28, { vul: 0.4 }) });
     d8doosje(ctx, 760, 588, 0.19, { open: 1 - zegel, zegel }); // klein naast Noor, zoals een echt doosje
     if (rap < 0.99) zoomCircle(ctx, 1020, 330, 210, 770, 585, 'het doosje', 1 - rap, () => { ctx.fillStyle = '#16203A'; ctx.fillRect(800, 100, 440, 460); d8doosje(ctx, 1000, 360, 1.15, { open: 1 - zegel, zegel }); d8buisje(ctx, 1150, 300, 0.9, { vul: 0.55 }); });
     if (rap > 0.01) { tag(ctx, 'zes weken later', 900, 140, C.text2, on(q, 'weken', 1, 0.5) * (1 - on(q, 'voorouders', 1, 0.4)), 'center', 28);
@@ -61,10 +69,10 @@ SCENES.n3 = (ctx, t, q) => { q._id = 'n3';
       d8a(ctx, vs, () => naamBij(ctx, 'één base verschilt', 'een snp', x0 + 11 * 64 + 20, 600, 1, 'left', C.goud)); metaText(ctx, 'vergroot · in werkelijkheid 2 nanometer breed', 1760, 870, C.text2, 'right', 28); }
     return; }
   if (!lac) { // afkomst = vergelijking met groepen in de databank
-    d8bg(ctx, 'schema'); const pat = 'ACGTTGCAGTCA', grp = [['groep 1', 'ACGTAGCTGACA', C.teal], ['groep 2', 'TCGATGCAGTCG', C.groen], ['groep 3', 'ACCTTGGAGACA', C.oker]];
+    d8bg(ctx, 'schema'); const pat = 'ACGTTGCAGTCA', grp = [['groep 1', 'ACGTAGCTGACC', C.teal], ['groep 2', 'ACGTTGCAGTCG', C.groen], ['groep 3', 'ACCTTGGAGACA', C.oker]] /* 67 · 92 · 75 % gelijk: volgorde past bij de balken van bedrijf A (23 · 41 · 36 %) */;
     const vg = on(q, 'vergelijking', 1, 0.6), lijk = on(q, 'lijken', 1, 0.8), sch = on(q, 'schatting', 1, 0.6), ander = on(q, 'ander', 1, 0.6), X0 = 560, DX = 76;
     const tegel = (x, y, b, kader, a) => { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 28, y - 28, 56, 56, 9); shape(ctx, DNA_BASE.base[b], kader ? C.goud : null, kader ? 4 : 1); text(ctx, b, x, y + 12, fTekst(32, 700), DNA_BASE.letter[b], 'center'); ctx.restore(); };
-    d8portret(ctx, 'noor', 300, 190, 70, { rand: C.goud, t }); metaText(ctx, 'jouw snp’s', 300, 300, C.goud, 'center', 28);
+    d8portret(ctx, 'linda', 300, 190, 70, { rand: C.goud, t }); metaText(ctx, 'snp’s uit de test', 300, 300, C.goud, 'center', 28);
     for (let i = 0; i < pat.length; i++) tegel(X0 + i * DX, 190, pat[i], false, 1);
     const top = 1 - sch;
     grp.forEach(([n, s2, kl], gi) => { const y = 400 + gi * 150, aa = vg * top; if (aa <= 0.01) return; d8raster(ctx, 255, y + 20, 3, 3, 3, kl, { s: 1, dx: 44, a: aa }); metaText(ctx, n, 300, y + 64, C.text2, 'center', 28);
@@ -93,7 +101,7 @@ SCENES.n3 = (ctx, t, q) => { q._id = 'n3';
 };
 SCENES.q4v = (ctx, t, q) => { q._id = 'q4v'; d8bg(ctx, 'schema');
   d8telefoon(ctx, 760, 470, 1, [['afkomst', 'schatting'], ['koriander', 'smaakt het naar zeep?'], ['diabetes type 2', '1,3 × zo groot als gemiddeld', C.koraal]], { hl: 2 });
-  d8portret(ctx, 'noor', 1300, 420, 120, { rand: C.goud, uit: 'denkt', t }); vraagteken(ctx, 1480, 360, on(q, 'betekent', 1, 0.5), 140); };
+  d8portret(ctx, 'linda', 1300, 420, 120, { rand: C.goud, uit: 'denkt', t }); vraagteken(ctx, 1480, 360, on(q, 'betekent', 1, 0.5), 140); };
 
 SCENES.n5 = (ctx, t, q) => { q._id = 'n5';
   const zeker = na(q, 'uitslag'), bedrijf = na(q, 'doosje'), fam_ = na(q, 'deelt'), bal = na(q, 'zet');
@@ -165,7 +173,7 @@ SCENES.n7 = (ctx, t, q) => { q._id = 'n7';
     return; }
   if (!chrom) { // NIPT: stukjes DNA van het kind in het bloed van de moeder
     d8kamer(ctx); const n = on(q, 'nipt', 1, 0.6), s = on(q, 'stukjes', 1, 0.8), k = on(q, 'kind', 1, 0.6);
-    fam(ctx, 'esra', 420, MENS, { t, uit: 'neutraal', zwanger: 0.85 }); fam(ctx, 'mirjam', 700, MENS, { t, uit: 'blij', pose: 'vasthouden', kijk: -1, hold: (c, hx, hy) => d8bloedbuis(c, hx, hy - 10, 0.3, { vul: 0.6 }) });
+    fam(ctx, 'esra', 420, MENS, { outfit: 'jas', t, uit: 'neutraal', zwanger: 0.85 }); fam(ctx, 'mirjam', 700, MENS, { t, uit: 'blij', pose: 'vasthouden', kijk: -1, hold: (c, hx, hy) => d8bloedbuis(c, hx, hy - 10, 0.3, { vul: 0.6 }) });
     naamBij(ctx, 'NIPT', 'bloed van de moeder', 180, 170, n);
     zoomCircle(ctx, 1320, 430, 300, 720, 520, 'bloed van de moeder · vergroot', s, () => d8plasma(ctx, 1320, 430, 300, t, { kind: k, n: 30 }));
     d8a(ctx, k * s, () => naamBij(ctx, 'stukjes DNA van het kind', 'via de placenta', 1320, 832, 1, 'center', C.goud));
@@ -234,8 +242,8 @@ SCENES.n9b = (ctx, t, q) => { q._id = 'n9b'; d8bg(ctx, 'schema');
   kaart(520, D8.feit, 'biologisch argument', 'steunt op een feit', b, () => { kruisingsSchema(ctx, 460, 330, { links: ['A', 'a'], boven: ['A', 'a'], vak: 66, hl: 3, a: bv1 }); d8a(ctx, bv1, () => text(ctx, '“de kans is 1 op 4”', 520, 495, fTekst(34, 600), C.text, 'center')); });
   kaart(1400, D8.waarde, 'ethisch argument', 'steunt op normen en waarden', e, () => { d8wolkje(ctx, 1400, 400, 'ik wil het liever niet van tevoren weten', { a: bv2, px: 32, kl: D8.waarde }); });
   d8a(ctx, na1, () => { vink_(ctx, 360, 640, 28, 1, C.groen); text(ctx, 'klopt het? na te gaan', 410, 652, fTekst(36, 700), C.groen, 'left'); });
-  if (on2 > 0.01) { metaText(ctx, 'dezelfde feiten, een ander oordeel', 1400, 580, C.text2, 'center', 28); persoon(ctx, 'linda', 1250, 880, 250, { a: on2, t, uit: 'denkt' }); persoon(ctx, 'rachid', 1560, 880, 262, { a: on2, t, uit: 'praat', kijk: -1 });
-    d8wolkje(ctx, 1130, 690, 'ik wil het weten', { a: on2, px: 28 }); d8wolkje(ctx, 1680, 690, 'ik liever niet', { a: on2, px: 28 }); }
+  if (on2 > 0.01) { metaText(ctx, 'dezelfde feiten, een ander oordeel', 1400, 556, C.text2, 'center', 28); d8pers(ctx, 'linda', 1250, 880, 220, { a: on2, t, uit: 'denkt' }); d8pers(ctx, 'rachid', 1580, 880, 230, { a: on2, t, uit: 'praat', kijk: -1 });
+    d8wolkje(ctx, 1290, 636, 'ik wil het weten', { a: on2, px: 28 }); d8wolkje(ctx, 1620, 626, 'ik liever niet', { a: on2, px: 28 }); }
 };
 
 // ---------------- Hoofdstuk 3 — Het zit in de familie ----------------
