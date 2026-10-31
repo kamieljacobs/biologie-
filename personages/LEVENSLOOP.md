@@ -22,7 +22,7 @@
 
 **Procestechnoloog Merel** (38) · vast: procestechnoloog, begeleider van Sam (goedgekeurd door Kamiel 25 okt 2026). Gebeurd: Biotechnologie 1, 2 (geeft Sam het startenzym, 'Je zoekt juist die paar') en 3 (legt regels uit zonder eigen oordeel over ggo's). Grenzen: alleen in haar eigen vak.
 
-**Daan** (15) en **Thijs** (15) · vast: eeneiige tweeling, zelfde DNA. Gebeurd: Daan loopt snuffelstage bij een natuurbeheerder in Ecologie 1–3 (outfit `veld`): merkt vlinders, vindt een wolvenkeutel maar ziet geen wolf (1), meet stikstof met buisjes op de heide (2), kijkt in de kuil op de maisakker die natuur wordt (3). Grenzen: blijft in dit vak de stagiair.
+**Daan** (15) en **Thijs** (15) · vast: eeneiige tweeling, zelfde DNA. Gebeurd: Thijs loopt snuffelstage bij de omgevingsdienst met Milieukundige Iris (Milieukunde 1, PFAS, DDT en microplastic, 31 okt 2026; outfit `stage`, zwarte hoodie; 'Mijn broer telt vlinders, ik tel stoffen'). Daan loopt snuffelstage bij een natuurbeheerder in Ecologie 1–3 (outfit `veld`): merkt vlinders, vindt een wolvenkeutel maar ziet geen wolf (1), meet stikstof met buisjes op de heide (2), kijkt in de kuil op de maisakker die natuur wordt (3). Grenzen: blijft in dit vak de stagiair.
 
 **Ecoloog Bas** (± 46) · vast: ecoloog, begeleider van Daan (goedgekeurd door Kamiel 25 okt 2026). Gebeurd: Ecologie 1–3. Grenzen: alleen in zijn eigen vak.
 
@@ -34,9 +34,9 @@
 
 **Hovenier Jeroen** (± 50) · vast: hovenier en kweker (grijzend haar, groene fleece, werkbroek, snoeischaar in een holster), castvel goedgekeurd door Kamiel 31 okt 2026. Grenzen: alleen in zijn eigen vak.
 
-**Milieukundige Iris** (± 40) · vast: milieukundige bij een omgevingsdienst (halflang bruin haar, donkerblauwe softshell, veldtas met monsterpotjes, blauwe nitrilhandschoenen; outfit `kantoor` zonder tas en handschoenen), castvel goedgekeurd door Kamiel 31 okt 2026. Grenzen: alleen in haar eigen vak; geen echte gemeente of omgevingsdienst noemen.
+**Milieukundige Iris** (± 40) · vast: milieukundige bij een omgevingsdienst (halflang bruin haar, donkerblauwe softshell, veldtas met monsterpotjes, blauwe nitrilhandschoenen; outfit `kantoor` zonder tas en handschoenen), castvel goedgekeurd door Kamiel 31 okt 2026. Gebeurd: begeleider van Thijs bij de omgevingsdienst; onderzoekt PFAS in de eieren van Joosts kippen (Milieukunde 1, PFAS, DDT en microplastic, 31 okt 2026). Grenzen: alleen in haar eigen vak; geen echte gemeente of omgevingsdienst noemen.
 
-**Joost** (55) · vast: figurant (verre familie, buurman, iemand uit een onderzoek). Gebeurd: cliënt van Diëtist Hanneke in Voeding en diëtetiek 1–2 (outfit `spreekuur`: iets vollere romp, geen karikatuur); heeft een kleindochter, op een foto op zijn telefoon (castboek Fleur, Kamiel akkoord 26 okt 2026); Erik is zijn buurman (Voeding 2). Grenzen: geen diagnose of streefgewicht als vast kenmerk; zijn gewicht nooit als getal in beeld.
+**Joost** (55) · vast: figurant (verre familie, buurman, iemand uit een onderzoek). Gebeurd: buurman met kippen in de tuin; in zijn eieren zit PFAS, onderzocht door Milieukundige Iris (Milieukunde 1, 31 okt 2026; geen schuld of ziekte); cliënt van Diëtist Hanneke in Voeding en diëtetiek 1–2 (outfit `spreekuur`: iets vollere romp, geen karikatuur); heeft een kleindochter, op een foto op zijn telefoon (castboek Fleur, Kamiel akkoord 26 okt 2026); Erik is zijn buurman (Voeding 2). Grenzen: geen diagnose of streefgewicht als vast kenmerk; zijn gewicht nooit als getal in beeld.
 
 **Esra** (29) · vast: zwanger van haar eerste kind, cliënte van Mirjam, los van Noors familie. Gebeurd: loopt door Verloskunde 1–5. Grenzen: geen familie van Noor.
 
@@ -97,7 +97,7 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `voortplanting`: 2-geslachtsorganen-puberteit, 3-anticonceptie-soa-voortplantingstechniek, 4-sekse-gender-diversiteit
 - `zenuwstelsel`: 5-het-hoofdkantoor, 7-slaap, 9-spieren-en-beweging
 
-### Daan (`daan`) — 31 films
+### Daan (`daan`) — 32 films
 - `dna`: 7-dna-lezen
 - `ecologie`: 3-een-aarde
 - `evolutie`: 1-wat-is-evolutie, 4-de-mens-als-selectiefactor
@@ -108,7 +108,7 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `onderbouw/32c`: 1-voeding-en-beweging, 2-slaap-natuur-en-hygiene
 - `onderbouw/33c`: 1-hoe-vindt-een-haai-zijn-prooi, 3-wie-eet-wie
 - `transport`: 7-hoe-een-plant-groeit
-- `vervolg`: biomedisch-4-toeval-of-echt, ecologie-1-tellen-in-het-veld, ecologie-2-stikstof, ecologie-3-een-plan-voor-de-natuur, leraar-1-waar-blijft-je-vet, leraar-2-een-practicum-dat-werkt, neurowetenschappen-1-je-brein-vult-het-in, neurowetenschappen-2-brein-en-computer, pedagogiek-1-een-brein-in-aanbouw, psychologie-6-kun-je-je-geheugen-vertrouwen, psychologie-7-waarom-raakt-de-een-opgebrand
+- `vervolg`: biomedisch-4-toeval-of-echt, ecologie-1-tellen-in-het-veld, ecologie-2-stikstof, ecologie-3-een-plan-voor-de-natuur, leraar-1-waar-blijft-je-vet, leraar-2-een-practicum-dat-werkt, milieukunde-1-pfas-ddt-en-microplastic, neurowetenschappen-1-je-brein-vult-het-in, neurowetenschappen-2-brein-en-computer, pedagogiek-1-een-brein-in-aanbouw, psychologie-6-kun-je-je-geheugen-vertrouwen, psychologie-7-waarom-raakt-de-een-opgebrand
 - `voortplanting`: 2-geslachtsorganen-puberteit
 - `zenuwstelsel`: 1-een-seconde, 3-de-spleet, 4-knoeien-met-de-spleet
 
@@ -271,9 +271,10 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `dna`: 8-wat-heb-jij-aan-dna
 - `voortplanting`: 4-sekse-gender-diversiteit
 
-### Thijs (`thijs`) — 2 films
+### Thijs (`thijs`) — 3 films
 - `dna`: 7-dna-lezen
 - `evolutie`: 1-wat-is-evolutie
+- `vervolg`: milieukunde-1-pfas-ddt-en-microplastic
 
 ### Erik (`erik`) — 8 films
 - `cellen`: stamcellen
@@ -284,9 +285,9 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `vervolg`: biomedisch-3-van-lab-tot-patient, forensisch-2-hoe-zeker-is-een-match
 - `voortplanting`: 3-anticonceptie-soa-voortplantingstechniek
 
-### Joost (`joost`) — 5 films
+### Joost (`joost`) — 6 films
 - `dna`: 7-dna-lezen
-- `vervolg`: biomedisch-3-van-lab-tot-patient, forensisch-2-hoe-zeker-is-een-match, voedingsleer-1-bij-de-dietist, voedingsleer-2-waarom-afvallen-zo-moeilijk-is
+- `vervolg`: biomedisch-3-van-lab-tot-patient, forensisch-2-hoe-zeker-is-een-match, milieukunde-1-pfas-ddt-en-microplastic, voedingsleer-1-bij-de-dietist, voedingsleer-2-waarom-afvallen-zo-moeilijk-is
 
 ### Mevrouw Jansen (`buurvrouw`) — 3 films
 - `ecologie`: 8-van-zand-tot-bos
@@ -314,8 +315,8 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 ### Hovenier Jeroen (`jeroen`) — 0 films
 - (geen films gevonden)
 
-### Milieukundige Iris (`iris`) — 0 films
-- (geen films gevonden)
+### Milieukundige Iris (`iris`) — 1 films
+- `vervolg`: milieukunde-1-pfas-ddt-en-microplastic
 
 ### Fleur (`fleur`) — 1 films
 - `voortplanting`: 3-anticonceptie-soa-voortplantingstechniek
