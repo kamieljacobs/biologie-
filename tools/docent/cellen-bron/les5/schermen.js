@@ -413,3 +413,536 @@ const L5_HOEF_PAARD_DEF = L5_hoefDef('paard', { H: 160, halsRecht: 1, kopVolg: 0
 const L5_HOEF = { paard: L5_HoefPop.maak(L5_HOEF_PAARD_DEF) };
 // paard: x, y = midden onder het dier op de grond, s = px per cm (schofthoogte 160 cm), o = { kijk, a, t }
 function L5_paard(ctx, x, y, s, o = {}) { if ((o.a ?? 1) <= 0.01) return; L5_HOEF.paard.teken(ctx, x, y, s, Object.assign({ houding: 'staan' }, o)); }
+
+// ---------- kleuren en kleine hulpen (zoals in de film: goud = onafhankelijke variabele / licht, teal = afhankelijke variabele / donker,
+// groen = constant / klopt, oker = casus (voorbeeld uit de geschiedenis), koraal = fout / misvatting) ----------
+const L5_STAP = ['waarneming', 'onderzoeksvraag', 'hypothese', 'werkplan', 'uitvoering', 'resultaten', 'conclusie', 'discussie'];
+const L5_KL = { get zaad() { return '#8C5A3A'; }, get stengel() { return C.licht ? '#5E9E62' : '#B9DDB0'; }, get blad() { return C.groen; }, get geel() { return C.licht ? '#B8962A' : '#E3D27A'; },
+  get watten() { return C.licht ? '#DCE2EA' : '#E8E4D8'; }, get kast() { return C.licht ? '#2E3A54' : '#0B111C'; } };
+function L5_wrap(ctx, s, maxW) { const ws = s.split(' '), out = []; let cur = ''; ws.forEach(w => { const t = cur ? cur + ' ' + w : w; if (ctx.measureText(t).width > maxW && cur) { out.push(cur); cur = w; } else cur = t; }); if (cur) out.push(cur); return out; }
+// kaartje met label (klein, in kleur) en een zin; geeft de hoogte terug
+function L5_kaart(ctx, label, zin, x, y, w, a = 1, col = C.teal, o = {}) { if (a <= 0.01) return 0; const px = o.px || 30; ctx.save(); ctx.font = fTekst(px, 500); const L = L5_wrap(ctx, zin, w - 56); const h = 78 + L.length * (px + 10); ctx.globalAlpha *= a;
+  roundRect(ctx, x, y, w, h, 14); shape(ctx, rgba(col, C.licht ? 0.08 : 0.12), col, o.dik ? 4 : 2); ctx.restore();
+  metaText(ctx, label, x + 28, y + 40, col, 'left', 22, a); L.forEach((l, i) => regel(ctx, l, x + 28, y + 80 + i * (px + 10), a, C.text, px, 'left', 500)); return h; }
+// label als pil
+function L5_tag(ctx, s, x, y, col, a = 1, px = 30, align = 'center') { if (a <= 0.01) return; ctx.save(); ctx.font = fTekst(px, 600); const w = ctx.measureText(s).width + 44; ctx.restore(); const x0 = align === 'center' ? x - w / 2 : align === 'right' ? x - w : x;
+  ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x0, y - px - 4, w, px + 22, (px + 22) / 2); shape(ctx, rgba(col, C.licht ? 0.12 : 0.18), col, 2); ctx.restore(); regel(ctx, s, x0 + w / 2, y + 2, a, C.text, px, 'center', 600); }
+// casuskaart (voorbeeld uit de geschiedenis), zoals in de film: oker, klein
+function L5_casus(ctx, plaats, jaar, a = 1, x = 80, y = 172) { if (a <= 0.01) return; ctx.save(); ctx.font = fTekst(30, 600); const s2 = plaats + (jaar ? ' · ' + jaar : ''); const w = Math.max(220, ctx.measureText(s2).width + 56); ctx.globalAlpha *= a;
+  roundRect(ctx, x, y, w, 96, 14); shape(ctx, rgba(C.oker, 0.12), C.oker, 2); ctx.restore(); metaText(ctx, 'casus', x + 26, y + 36, C.oker, 'left', 22, a); regel(ctx, s2, x + 26, y + 76, a, C.text, 30, 'left', 600); }
+// knoop in een pijlschema
+function L5_knoop(ctx, s, x, y, col, a = 1, w = 260, px = 30, isNaam = false) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - w / 2, y - 38, w, 76, 16); shape(ctx, rgba(col, C.licht ? 0.1 : 0.16), col, 2.5); ctx.restore();
+  if (isNaam) naam(ctx, s, x, y + 11, a, 'center', C.text, px); else regel(ctx, s, x, y + 11, a, C.text, px, 'center', 600); }
+function L5_zon(ctx, x, y, r, a = 1, T = 0, col = C.goud) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.fillStyle = rgba(col, 0.25); ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.fill(); ctx.stroke();
+  for (let i = 0; i < 8; i++) { const an = i * Math.PI / 4 + T * 0.15; ctx.beginPath(); ctx.moveTo(x + Math.cos(an) * r * 1.35, y + Math.sin(an) * r * 1.35); ctx.lineTo(x + Math.cos(an) * r * 1.8, y + Math.sin(an) * r * 1.8); ctx.stroke(); } ctx.restore(); }
+
+// ---------- kiemproef (naar onderzoek_lib.js van de film) ----------
+// één tuinkerskiemplantje: o: {groei 0..1, etio 0..1 (lang, dun, geel), buig}
+function L5_kiemplant(ctx, x, y, len, o = {}) { const { groei = 1, etio = 0, buig = 0, a = 1 } = o; if (groei <= 0.01 || a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  const L = len * groei * (1 + etio * 1.4), stg = mix(L5_KL.stengel, L5_KL.geel, etio * 0.8), bl = mix(L5_KL.blad, L5_KL.geel, etio);
+  const tx = x + buig * L * 0.25, ty = y - L; ctx.strokeStyle = stg; ctx.lineWidth = Math.max(1.8, len * 0.05 * (1 - etio * 0.4)); ctx.lineCap = 'round';
+  ctx.beginPath(); ctx.moveTo(x, y); ctx.quadraticCurveTo(x + buig * L * 0.35, y - L * 0.55, tx, ty); ctx.stroke();
+  if (groei > 0.35) { const s = len * 0.16 * clamp((groei - 0.35) / 0.65, 0, 1) * (1 - etio * 0.45); [-1, 1].forEach(k => { ctx.save(); ctx.translate(tx, ty); ctx.rotate(k * (0.55 + etio * 0.2));
+      ctx.beginPath(); ctx.moveTo(0, 0); ctx.bezierCurveTo(k * s * 0.4, -s * 0.9, k * s * 1.6, -s * 1.0, k * s * 1.7, -s * 0.2); ctx.bezierCurveTo(k * s * 1.75, s * 0.35, k * s * 0.7, s * 0.4, 0, 0); // zaadlobje
+      ctx.fillStyle = bl; ctx.fill(); ctx.strokeStyle = mix(bl, '#000000', 0.25); ctx.lineWidth = 1; ctx.stroke(); ctx.restore(); }); }
+  ctx.restore(); }
+// bakje met watten en zaadjes. o: {w, n, gekiemd 0..1, groei, etio, seed, label, kast 0..1 (staat in een donkere kast), ring 0..1 (gouden rand), a, len}
+function L5_bakje(ctx, x, y, o = {}) { const { w = 300, n = 18, gekiemd = 0, groei = 1, etio = 0, seed = 1, label = null, kast = 0, ring = 0, a = 1, len = 70, labelKl = C.text } = o; if (a <= 0.01) return;
+  const hgt = w * 0.2, kh = len * 2.9 + hgt;
+  if (kast > 0.01) { ctx.save(); ctx.globalAlpha *= a * kast; roundRect(ctx, x - w / 2 - 18, y - kh, w + 36, kh + 12, 12); shape(ctx, rgba(L5_KL.kast, 0.92), rgba(C.line, 0.7), 2); ctx.restore(); }
+  if (ring > 0.01) { ctx.save(); ctx.globalAlpha *= a * ring; roundRect(ctx, x - w / 2 - 30, y - kh - 12, w + 60, kh + 22, 16); shape(ctx, null, C.goud, 4); ctx.restore(); }
+  ctx.save(); ctx.globalAlpha *= a;
+  ctx.fillStyle = rgba(L5_KL.watten, 0.9); ctx.fillRect(x - w / 2 + 8, y - hgt * 0.42, w - 16, hgt * 0.36);
+  const kiem = Math.round(n * gekiemd);
+  for (let i = 0; i < n; i++) { const u = (i + 0.5) / n, sx = x - w / 2 + 18 + u * (w - 36) + (hash(i * 7 + seed) - 0.5) * 8, sy = y - hgt * 0.42 - 2;
+    if (i < kiem) L5_kiemplant(ctx, sx, sy, len * (0.8 + 0.4 * hash(i * 3 + seed)), { groei: clamp(groei * (1.15 - 0.3 * hash(i + seed)), 0, 1), etio, buig: (hash(i * 5 + seed) - 0.5) * 0.8 });
+    ctx.beginPath(); ctx.ellipse(sx, sy, 4.5, 3, 0.3, 0, 6.283); ctx.fillStyle = L5_KL.zaad; ctx.fill(); }
+  ctx.beginPath(); ctx.moveTo(x - w / 2, y - hgt); ctx.lineTo(x - w / 2 + 10, y); ctx.lineTo(x + w / 2 - 10, y); ctx.lineTo(x + w / 2, y - hgt); ctx.strokeStyle = C.line; ctx.lineWidth = 3; ctx.stroke();
+  ctx.restore(); if (label) regel(ctx, label, x, y + 46, a, labelKl, 30, 'center', 600); }
+
+// ---------- de onderzoekscyclus ----------
+function L5_cyclusPos(i, cx, cy, rx, ry) { const an = -Math.PI / 2 + i * Math.PI / 4; return [cx + Math.cos(an) * rx, cy + Math.sin(an) * ry]; }
+// grote cyclus: o.licht(i) 0..1, o.actief, o.noot(i) (tekst onder het vakje), o.terug 0..1 (pijl discussie → waarneming)
+function L5_cyclus(ctx, cx, cy, rx, ry, o = {}) { const bw = o.bw || 270, bh = 76, lit = o.licht || (() => 1);
+  const rand = (i, dx, dy) => { const t = Math.min((bw / 2 + 12) / (Math.abs(dx) || 1e-6), (bh / 2 + 12) / (Math.abs(dy) || 1e-6)); return t; };
+  const nh = o.noot ? 46 : 0, knip = (ux, uy, onder) => Math.min((bw / 2 + 10) / (Math.abs(ux) || 1e-6), ((uy > 0) === onder ? bh / 2 + nh + 8 : bh / 2 + 8) / (Math.abs(uy) || 1e-6));
+  for (let i = 0; i < 8; i++) { const j = (i + 1) % 8, a = j === 0 ? (o.terug || 0) : Math.min(lit(i), lit(j)); if (a <= 0.01) continue; const [x1, y1] = L5_cyclusPos(i, cx, cy, rx, ry), [x2, y2] = L5_cyclusPos(j, cx, cy, rx, ry);
+    const L = Math.hypot(x2 - x1, y2 - y1), ux = (x2 - x1) / L, uy = (y2 - y1) / L, t1 = knip(ux, uy, true), t2 = knip(-ux, -uy, true);
+    if (t1 + t2 < L - 20) pijl(ctx, x1 + ux * t1, y1 + uy * t1, x2 - ux * t2, y2 - uy * t2, j === 0 ? C.goud : C.line, 3, a, 14); }
+  for (let i = 0; i < 8; i++) { const a = lit(i); if (a <= 0.01) continue; const [x, y] = L5_cyclusPos(i, cx, cy, rx, ry), col = i === o.actief ? C.goud : C.teal;
+    ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - bw / 2, y - bh / 2, bw, bh, 16); shape(ctx, rgba(col, C.licht ? 0.1 : 0.16), col, i === o.actief ? 4 : 2.5); ctx.restore();
+    metaText(ctx, String(i + 1), x - bw / 2 + 16, y - bh / 2 + 26, col, 'left', 22, a); naam(ctx, L5_STAP[i], x + 8, y + 11, a, 'center', C.text, 30);
+    if (o.noot && o.noot(i)) regel(ctx, o.noot(i), x, y + bh / 2 + 34, a * (o.nootA ? o.nootA(i) : 1), C.text2, 24, 'center', 500); }
+}
+// kleine cyclus rechtsboven: waar in de cyclus zijn we?
+function L5_mini(ctx, actief, a = 1, terug = 0) { if (a <= 0.01) return; const cx = 1765, cy = 250, r = 70; ctx.save(); ctx.globalAlpha *= a;
+  ctx.strokeStyle = rgba(C.line, 0.5); ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(cx, cy, r, 0, 6.283); ctx.stroke(); ctx.restore();
+  for (let i = 0; i < 8; i++) { const an = -Math.PI / 2 + i * Math.PI / 4, x = cx + Math.cos(an) * r, y = cy + Math.sin(an) * r;
+    ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, i === actief ? 15 : 10, i < actief ? C.teal : i === actief ? C.goud : C.bg, i === actief ? C.goud : rgba(C.line, 0.8), 2.5); ctx.restore(); }
+  if (terug > 0.01) { ctx.save(); ctx.globalAlpha *= a * terug; ctx.strokeStyle = C.goud; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.beginPath(); ctx.arc(cx, cy, r, -Math.PI / 2 - Math.PI / 4, -Math.PI / 2 - 0.12); ctx.stroke(); ctx.restore(); }
+  metaText(ctx, L5_STAP[actief], cx, cy + r + 50, C.goud, 'center', 22, a); }
+
+// ---------- het paard en het bord (Macro-scène uit de film, hier als schema op de achtergrond) ----------
+function L5_bord(ctx, x, y, som, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = '#8C5A3A'; ctx.lineWidth = 8; ctx.lineCap = 'round';
+  ctx.beginPath(); ctx.moveTo(x - 110, y + 110); ctx.lineTo(x - 140, y + 340); ctx.moveTo(x + 110, y + 110); ctx.lineTo(x + 140, y + 340); ctx.stroke();
+  roundRect(ctx, x - 150, y - 110, 300, 220, 10); shape(ctx, '#1F2A26', '#8C5A3A', 6); ctx.restore(); if (som) { ctx.save(); ctx.globalAlpha *= a; text(ctx, som, x, y + 20, fTitel(56), '#EDE6D3', 'center'); ctx.restore(); } }
+// tikken van de hoef als streepjes (k = aantal zichtbaar, hl = laatste gouden streep)
+function L5_tikken(ctx, x, y, k, a = 1, max = 9, kl = C.goud) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; for (let i = 0; i < Math.min(max, Math.floor(k)); i++) { ctx.fillStyle = kl; roundRect(ctx, x + i * 34, y, 10, 52, 4); ctx.fill(); } ctx.restore(); }
+function L5_grond(ctx, y, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = rgba(C.line, 0.45); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(120, y); ctx.lineTo(1800, y); ctx.stroke(); ctx.restore(); }
+
+// ---------- grafieken ----------
+function L5_assen(ctx, x, y, w, h, o = {}) { const a = o.a ?? 1; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.line; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(x, y - h); ctx.lineTo(x, y); ctx.lineTo(x + w, y); ctx.stroke(); ctx.restore();
+  if (o.xl) metaText(ctx, o.xl, x + w, y + 84, C.text2, 'right', 22, a); if (o.yl) { ctx.save(); ctx.translate(x - (o.yd || 30), y - h); ctx.rotate(-Math.PI / 2); metaText(ctx, o.yl, 0, 0, C.text2, 'right', 22, a); ctx.restore(); } }
+// staven: [{v, col, label}]
+function L5_staven(ctx, x, y, w, h, vals, max, a = 1, groei = 1) { if (a <= 0.01) return; const n = vals.length, bw = w / n * 0.5;
+  vals.forEach((d, i) => { const ai = a * (d.a == null ? 1 : d.a); if (ai <= 0.01) return; const gi = d.g == null ? groei : d.g, cx = x + (i + 0.5) * w / n, bh = h * d.v / max * clamp(gi, 0, 1); ctx.save(); ctx.globalAlpha *= ai; roundRect(ctx, cx - bw / 2, y - bh, bw, Math.max(0.1, bh), 4); shape(ctx, rgba(d.col, 0.7), d.col, 2); ctx.restore();
+    if (d.label) regel(ctx, d.label, cx, y + 40, ai, C.text, 28, 'center', 600); if (d.waarde) regel(ctx, d.waarde, cx, y - bh - 16, ai * clamp(gi * 2 - 1, 0, 1), C.text, 30, 'center', 700); }); }
+// lijnen: [{pts: [[0..1, 0..1]], col}], tot 0..1
+function L5_lijnen(ctx, x, y, w, h, series, tot = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; series.forEach(s => { ctx.strokeStyle = s.col; ctx.lineWidth = 5; ctx.lineJoin = 'round'; ctx.lineCap = 'round'; ctx.beginPath(); const N = s.pts.length, m = Math.max(0, tot * (N - 1));
+    for (let i = 0; i <= Math.floor(m); i++) { const p = s.pts[i]; i ? ctx.lineTo(x + p[0] * w, y - p[1] * h) : ctx.moveTo(x + p[0] * w, y - p[1] * h); }
+    const f = m - Math.floor(m), i0 = Math.floor(m); if (f > 0 && i0 + 1 < N) { const p = s.pts[i0], q = s.pts[i0 + 1]; ctx.lineTo(x + lerp(p[0], q[0], f) * w, y - lerp(p[1], q[1], f) * h); } ctx.stroke();
+    if (s.stip) for (let i = 0; i <= Math.floor(m); i++) { const p = s.pts[i]; circ(ctx, x + p[0] * w, y - p[1] * h, 7, s.col); } }); ctx.restore(); }
+
+// ---------- meten (naar onderzoek_lib.js van de film) ----------
+function L5_weegschaal(ctx, x, y, s, waarde, a = 1, o = {}) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
+  roundRect(ctx, -150, -70, 300, 70, 14); shape(ctx, '#3A4A66', '#8FA0B5', 2); roundRect(ctx, -130, -96, 260, 22, 8); shape(ctx, '#55657F', '#8FA0B5', 1.5);
+  roundRect(ctx, -70, -56, 140, 42, 6); shape(ctx, '#0D1420', o.fout ? '#E07A5F' : '#5BA4C9', 1.5); text(ctx, waarde, 36, -24, fMeta(30), o.fout ? '#E07A5F' : '#9FD3F0', 'right'); text(ctx, 'g', 48, -24, fMeta(22), '#9AA3B2');
+  if (o.gewicht !== false) { roundRect(ctx, -40, -146, 80, 50, 8); shape(ctx, '#8C9AAE', '#C0CAD8', 1.5); text(ctx, '50 g', 0, -112, fMeta(22), '#1A2740', 'center'); } ctx.restore(); }
+// meetlat met de echte waarde en metingen als stippen; mode 'toeval' | 'systematisch'; n = aantal stippen
+function L5_lat(ctx, x, y, w, mode, n, a = 1, o = {}) { if (a <= 0.01) return; const sys = mode === 'systematisch', kl = sys ? C.koraal : C.teal; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + w, y); ctx.stroke();
+  for (let i = 0; i <= 10; i++) { ctx.beginPath(); ctx.moveTo(x + i * w / 10, y - 8); ctx.lineTo(x + i * w / 10, y + 8); ctx.stroke(); }
+  const xm = x + w / 2; ctx.strokeStyle = C.groen; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(xm, y - 96); ctx.lineTo(xm, y + 20); ctx.stroke(); ctx.restore();
+  metaText(ctx, 'echte waarde', xm, y + 56, C.groen, 'center', 22, a);
+  const off = sys ? w * 0.18 : 0, sd = sys ? w * 0.04 : w * 0.12; let som = 0, k = 0; ctx.save(); ctx.globalAlpha *= a;
+  for (let i = 0; i < Math.floor(n); i++) { const g = (hash(i * 9.1 + (sys ? 50 : 0)) + hash(i * 4.7 + 3) + hash(i * 2.3 + 8) - 1.5) * 1.4, px = xm + off + g * sd; som += px; k++; circ(ctx, px, y - 30 - (i % 3) * 18, 9, kl); } ctx.restore();
+  if (k > 3 && o.gem > 0.01) { const gm = som / k; ctx.save(); ctx.globalAlpha *= a * o.gem; ctx.strokeStyle = kl; ctx.lineWidth = 3; ctx.setLineDash([8, 6]); ctx.beginPath(); ctx.moveTo(gm, y - 104); ctx.lineTo(gm, y + 6); ctx.stroke(); ctx.restore(); metaText(ctx, 'gemiddelde', gm, y - 116, kl, 'center', 22, a * o.gem); } }
+
+// ---------- Van Helmonts wilg (naar de film) ----------
+function L5_wilg(ctx, x, y, g, a = 1, T = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.moveTo(x - 150, y - 200); ctx.lineTo(x - 120, y); ctx.lineTo(x + 120, y); ctx.lineTo(x + 150, y - 200); ctx.closePath(); shape(ctx, '#6E4A34', '#9A7458', 2);
+  ctx.fillStyle = '#5A4636'; ctx.fillRect(x - 140, y - 196, 280, 26); const H0 = 100 + 250 * g; ctx.strokeStyle = '#8C6A4E'; ctx.lineWidth = 10 + 18 * g; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x, y - 190); ctx.lineTo(x + 6, y - 190 - H0); ctx.stroke();
+  const N = Math.round(6 + 10 * g); for (let i = 0; i < N; i++) { const an = -Math.PI / 2 + (i / (N - 1) - 0.5) * 2.4, L = (80 + 160 * g) * (0.7 + 0.3 * hash(i)), sx = x + 6, sy = y - 190 - H0 * (0.85 + 0.15 * hash(i * 3)), zw = Math.sin(T * 0.7 + i) * 6 * g;
+    const ex = sx + Math.cos(an) * L, ey = sy + Math.sin(an) * L * 0.5; ctx.strokeStyle = '#7A9A62'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(sx, sy); ctx.quadraticCurveTo(ex, ey - 40, ex + Math.cos(an) * 20 + zw, ey + L * 0.7); ctx.stroke();
+    for (let k = 0; k < 5; k++) { const u = 0.4 + k * 0.13; ctx.fillStyle = '#7FC48F'; ctx.beginPath(); ctx.ellipse(lerp(sx, ex + Math.cos(an) * 20 + zw, u), lerp(sy, ey + L * 0.7, u * u), 4, 12, an, 0, 6.283); ctx.fill(); } }
+  ctx.restore(); }
+// afgevallen blad op de grond
+function L5_blad(ctx, x, y, rot, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(rot); ctx.beginPath(); ctx.ellipse(0, 0, 16, 5, 0, 0, 6.283); ctx.fillStyle = '#B8963E'; ctx.fill(); ctx.restore(); }
+
+// ---------- overige voorwerpen ----------
+function L5_ziekenhuis(ctx, x, y, s, a = 1, col = C.line) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = 3.5; ctx.lineJoin = 'round';
+  ctx.strokeRect(x - 70 * s, y - 40 * s, 140 * s, 110 * s); ctx.beginPath(); ctx.moveTo(x - 84 * s, y - 40 * s); ctx.lineTo(x, y - 90 * s); ctx.lineTo(x + 84 * s, y - 40 * s); ctx.stroke();
+  for (let i = 0; i < 3; i++) { ctx.strokeRect(x - 52 * s + i * 40 * s, y + 18 * s, 24 * s, 28 * s); }
+  ctx.fillStyle = C.koraal; ctx.fillRect(x - 6 * s, y - 32 * s, 12 * s, 40 * s); ctx.fillRect(x - 20 * s, y - 18 * s, 40 * s, 12 * s); ctx.restore(); }
+function L5_dobbelsteen(ctx, x, y, s, v, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - s / 2, y - s / 2, s, s, s * 0.18); shape(ctx, '#F2F2EE', C.line, 2);
+  const P = { 1: [[0, 0]], 2: [[-1, -1], [1, 1]], 3: [[-1, -1], [0, 0], [1, 1]], 4: [[-1, -1], [1, -1], [-1, 1], [1, 1]], 5: [[-1, -1], [1, -1], [0, 0], [-1, 1], [1, 1]], 6: [[-1, -1], [1, -1], [-1, 0], [1, 0], [-1, 1], [1, 1]] }[v];
+  ctx.fillStyle = '#1A2740'; P.forEach(([u, w]) => { ctx.beginPath(); ctx.arc(x + u * s * 0.27, y + w * s * 0.27, s * 0.08, 0, 6.283); ctx.fill(); }); ctx.restore(); }
+// pillenpotje; lbl = tekst op het etiket
+function L5_potje(ctx, x, y, s, a = 1, lbl = '?', capKl = C.teal) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
+  roundRect(ctx, -46, -120, 92, 120, 12); shape(ctx, C.licht ? '#F4F1EA' : '#E8E4D8', C.line, 2); roundRect(ctx, -52, -150, 104, 34, 8); shape(ctx, capKl, mix(capKl, '#000000', 0.3), 2);
+  roundRect(ctx, -38, -88, 76, 54, 6); shape(ctx, '#FFFFFF', '#C9C0A8', 1.5); ctx.restore(); regel(ctx, lbl, x, y - 50 * s, a, '#1A2740', 34 * s, 'center', 700); }
+function L5_envelop(ctx, x, y, w, h, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - w / 2, y - h / 2, w, h, 8); shape(ctx, C.licht ? '#F4F1EA' : '#E8E4D8', C.line, 2);
+  ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x - w / 2, y - h / 2); ctx.lineTo(x, y + h * 0.1); ctx.lineTo(x + w / 2, y - h / 2); ctx.stroke(); circ(ctx, x, y + h * 0.1, 12, C.koraal); ctx.restore(); }
+function L5_kweekfles(ctx, x, y, s, a = 1, T = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
+  ctx.beginPath(); ctx.moveTo(-90, 0); ctx.lineTo(70, 0); ctx.lineTo(70, -60); ctx.lineTo(110, -75); ctx.lineTo(130, -75); ctx.lineTo(130, -95); ctx.lineTo(105, -95); ctx.lineTo(65, -90); ctx.lineTo(-90, -90); ctx.closePath(); shape(ctx, rgba(C.teal, 0.08), C.teal, 3);
+  ctx.fillStyle = rgba('#E8A0A8', 0.45); ctx.fillRect(-86, -30, 154, 28); for (let i = 0; i < 30; i++) { ctx.beginPath(); ctx.ellipse(-80 + hash(i) * 142, -7 - hash(i * 3) * 6, 5, 3.2, hash(i * 5) * 3, 0, 6.283); ctx.fillStyle = rgba(C.koraal, 0.85); ctx.fill(); } ctx.restore(); }
+function L5_formulier(ctx, x, y, s, teken = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); roundRect(ctx, -110, -150, 220, 300, 8); shape(ctx, '#EDE6D3', '#C9C0A8', 1.5);
+  text(ctx, 'toestemming', 0, -105, fTekst(26, 700), '#24324D', 'center'); for (let i = 0; i < 6; i++) { ctx.fillStyle = '#B8B0A0'; ctx.fillRect(-80, -70 + i * 26, 160 - (i % 3) * 30, 6); }
+  ctx.strokeStyle = '#7A8BA8'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(-80, 110); ctx.lineTo(80, 110); ctx.stroke();
+  if (teken > 0.01) { ctx.strokeStyle = '#25729C'; ctx.lineWidth = 3; ctx.beginPath(); const N = 30; for (let i = 0; i <= N * teken; i++) { const u = i / N; ctx.lineTo(-70 + u * 140, 100 - Math.sin(u * 14) * 10 * (1 - u * 0.5)); } ctx.stroke(); } ctx.restore(); }
+// muis van opzij (kop naar rechts)
+function L5_muis(ctx, x, y, s, a = 1, T = 0, i = 0) { if (a <= 0.01) return; const b = Math.sin(T * 2 + i * 1.7) * 0.6; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
+  ctx.strokeStyle = '#9A8E86'; ctx.lineWidth = 2.5; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(-26, -6); ctx.bezierCurveTo(-46, -4, -50, -22, -62, -16); ctx.stroke(); // staart
+  ctx.beginPath(); ctx.ellipse(0, -14, 28, 15, 0, 0, 6.283); shape(ctx, '#C9C0B8', '#8A7E76', 1.5); ctx.beginPath(); ctx.ellipse(26, -18 + b, 14, 10, 0.3, 0, 6.283); shape(ctx, '#C9C0B8', '#8A7E76', 1.5);
+  ctx.beginPath(); ctx.arc(20, -30 + b, 7, 0, 6.283); shape(ctx, '#E8B8B8', '#8A7E76', 1.5); circ(ctx, 32, -21 + b, 2.2, '#1A1A1A'); circ(ctx, 40, -16 + b, 2, '#D08A8A'); ctx.restore(); }
+function L5_verrekijker(ctx, x, y, s, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); ctx.lineWidth = 3; [-1, 1].forEach(k => { roundRect(ctx, k * 22 - 16, -30, 32, 60, 10); shape(ctx, rgba(C.teal, 0.25), C.teal, 3); circ(ctx, k * 22, -34, 15, rgba(C.teal, 0.25), C.teal, 3); });
+  roundRect(ctx, -8, -14, 16, 20, 4); shape(ctx, C.teal, null); ctx.restore(); }
+// tabel van de kiemproef (verzonnen voorbeeld, zelfde getallen als in de film)
+const L5_TABEL = [['', 'bakje 1', 'bakje 2', 'bakje 3', 'gemiddeld'], ['licht', '44', '30', '49', '41'], ['donker', '36', '30', '48', '38']];
+function L5_tabel(ctx, x, y, a = 1, cw = 150, rh = 58) { if (a <= 0.01) return; L5_TABEL.forEach((r, i) => r.forEach((c, j) => { const cx = x + j * cw, cy = y + i * rh, kop = i === 0 || j === 0, gem = j === 4 && i > 0;
+    ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, cx + 3, cy + 3, cw - 6, rh - 6, 8); shape(ctx, kop ? rgba(C.fill, 0.9) : rgba(C.fill, 0.45), gem ? C.goud : rgba(C.line, 0.6), gem ? 2.5 : 1.2); ctx.restore();
+    if (c) regel(ctx, c, cx + cw / 2, cy + rh / 2 + 10, a, gem ? C.goud : (j === 0 ? (i === 1 ? C.goud : C.teal) : C.text), kop ? 26 : 28, 'center', gem || kop ? 700 : 500); })); }
+// CO₂ dat naar de boom drijft
+function L5_co2(ctx, x1, y1, x2, y2, a, T, n = 7) { if (a <= 0.01) return; for (let i = 0; i < n; i++) { const u = (T * 0.22 + i / n) % 1, x = lerp(x1, x2, u), y = lerp(y1 + i * 14, y2, u) + Math.sin(u * 6 + i) * 10;
+  ctx.save(); ctx.globalAlpha *= a * Math.sin(u * Math.PI); text(ctx, 'CO₂', x, y, fMeta(24), C.goud, 'center'); ctx.restore(); } }
+
+// ---------- icoontjes voor 'volgende keer' (voortplanting les 1) ----------
+function L5_icoonEen(ctx, x, y, a, T) { const u = (Math.sin(T * 0.8) + 1) / 2, d = 34 + u * 26; cel(ctx, x - d, y, 62 - u * 10, 62 - u * 6, a, { kl: C.teal, kr: 20, seed: 2 }); cel(ctx, x + d, y, 62 - u * 10, 62 - u * 6, a, { kl: C.teal, kr: 20, seed: 5 }); }
+function L5_icoonTwee(ctx, x, y, a, T) { ctx.save(); ctx.globalAlpha *= a; circ(ctx, x + 30, y, 66, rgba(C.oker, 0.18), C.oker, 3); circ(ctx, x + 30, y, 20, rgba(C.paars, 0.25), C.paars, 2);
+  for (let i = 0; i < 3; i++) { const yy = y - 44 + i * 44, xx = x - 70 - i * 6, w = Math.sin(T * 6 + i) * 6; ctx.fillStyle = C.teal; ctx.beginPath(); ctx.ellipse(xx, yy, 9, 6, 0, 0, 6.283); ctx.fill(); ctx.strokeStyle = C.teal; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(xx - 9, yy); ctx.quadraticCurveTo(xx - 24, yy + w, xx - 38, yy - w); ctx.stroke(); } ctx.restore(); }
+function L5_icoonRace(ctx, x, y, a, T) { ctx.save(); ctx.globalAlpha *= a; [[-60, C.teal, [1, 2, 4]], [60, C.oker, [1, 2, 4]]].forEach(([dx, kl, rij], k) => { rij.forEach((n, r) => { for (let i = 0; i < n; i++) circ(ctx, x + dx + (i - (n - 1) / 2) * 20, y + 60 - r * 46, 8, kl); }); });
+  ctx.strokeStyle = rgba(C.line, 0.6); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, y - 60); ctx.lineTo(x, y + 80); ctx.stroke(); ctx.restore(); }
+function L5_icoonStart(ctx, x, y, a, T) { ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.goud; ctx.lineWidth = 4; ctx.lineJoin = 'round'; ctx.beginPath(); for (let i = 0; i <= 60; i++) { const u = i / 60, xx = x - 110 + u * 220, piek = Math.max(0, Math.sin(u * 18 - T * 2)) ** 6 * 60 * u; i ? ctx.lineTo(xx, y + 30 - piek) : ctx.moveTo(xx, y + 30 - piek); } ctx.stroke();
+  ctx.strokeStyle = rgba(C.line, 0.6); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x - 110, y + 40); ctx.lineTo(x + 110, y + 40); ctx.stroke(); ctx.restore(); }
+
+/* =====================================================================================
+   SCHERMEN
+   ===================================================================================== */
+
+// ---------- 0 · start ----------
+SCHERMEN.push({ titel: 'Start', deel: 'Opening', geenKop: true,
+  stappen: [{ t: '<b>Cellen</b> · les 5: onderzoek doen, van vraag en hypothese tot een eerlijke proef, meetfouten en conclusie', n: 'Kies eerst havo of vwo. Groot scherm (F) vult het hele scherm; T zet de tekst eronder uit. Deze les hoort bij de film Onderzoek doen in de biologie (versie 2.0): havo BvJ thema 1 § 1.6, vwo Nectar H3 § 3.1–3.4. De rode draad is dezelfde kiemproef met tuinkers als in de film.' }],
+  teken(ctx, S) {
+    const T = S.T; metaText(ctx, 'Cellen · les 5', 140, 330, C.meta, 'left', 30);
+    text(ctx, 'Onderzoek', 140, 465, fTitel(98), C.text); text(ctx, 'doen', 140, 585, fTitel(98), C.goud);
+    regel(ctx, 'hoe weet je of iets waar is?', 144, 675, 1, C.text2, 32, 'left', 400);
+    // twee bakjes tuinkers die langzaam opkomen; links in het licht, rechts in de kast
+    const g = clamp(T / 6, 0, 1); L5_zon(ctx, 1330, 300, 38, 1, T);
+    L5_bakje(ctx, 1330, 760, { w: 300, n: 16, gekiemd: 0.85, groei: g, seed: 3, label: 'licht', labelKl: C.goud });
+    L5_bakje(ctx, 1690, 760, { w: 300, n: 16, gekiemd: 0.8, groei: g, etio: g, seed: 4, kast: 0.55, label: 'donker', labelKl: C.teal });
+  } });
+
+// ---------- 1 · het paard (cold open van de film) ----------
+SCHERMEN.push({ titel: 'Een paard dat rekent', kop: 'Een paard dat kan rekenen?', deel: 'Opening',
+  stappen: [
+    { t: 'Berlijn, 1904. Iemand stelt het paard Hans een som.', n: 'Zelfde opening als de film (cold open). Echte personen tekenen we niet; het paard wel.' },
+    { t: 'Hans tikt het antwoord met zijn hoef: één, twee, drie, vier, vijf.', n: 'Vraag uit de film: "Hoe kan een paard dat?" (a) het paard kon echt een beetje tellen · (b) het reageerde op de lichaamstaal van de vraagsteller · (c) de eigenaar gaf bewust stiekem tekens. Laat de klas kiezen; het antwoord komt op scherm 8.' },
+    { t: 'Een commissie van deskundigen kijkt mee. Die vindt <b>geen bedrog</b>.', n: 'Commissie van dertien mensen (september 1904, o.a. een dierenarts, een circusdirecteur en de directeur van de Berlijnse dierentuin). Ze sloot opzettelijke tekens uit, maar liet een onbekend soort onopzettelijke tekens nadrukkelijk open (Pfungst 1911). Zie de briefing.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 0.8), s1 = S.on(1, 3), s2 = S.on(2, 0.8);
+    L5_grond(ctx, 880, s0); L5_bord(ctx, 470, 470, '3 + 2 = ?', s0);
+    L5_paard(ctx, 1150, 880, 1.75, { kijk: -1, t: T * 0.2, a: s0 });
+    L5_tikken(ctx, 330, 860 - 40, s1 * 5 + (s1 > 0 ? 0.999 : 0), s1 > 0 ? 1 : 0); regel(ctx, String(Math.min(5, Math.floor(s1 * 5 + 0.999))), 560, 950, s1 > 0 ? 1 : 0, C.goud, 44, 'left', 700);
+    metaText(ctx, 'tikken', 330, 950, C.text2, 'left', 22, s1 > 0 ? 1 : 0);
+    L5_casus(ctx, 'Berlijn', '1904', s0, 1480, 172);
+    L5_tag(ctx, 'commissie: geen bedrog', 1560, 360, C.groen, s2, 32);
+  } });
+
+// ---------- 2 · de onderzoekscyclus ----------
+const L5_KV = ['tuinkers komt snel op', 'helpt licht het kiemen?', 'licht bevordert kiemen', 'licht en donker, 50 zaadjes', 'zaaien, tellen', '41 tegen 38', 'geen duidelijk verschil', 'lange gele plantjes?'];
+SCHERMEN.push({ titel: 'De onderzoekscyclus', kop: 'De onderzoekscyclus', deel: 'De onderzoekscyclus',
+  stappen: [
+    { t: 'Je ziet dat tuinkers op de vensterbank snel opkomt: een <b>waarneming</b>. Helpt licht het kiemen? Dat is je <b>onderzoeksvraag</b>.', n: 'Dezelfde kiemproef als in de film (Yasmin aan de vensterbank). De getallen die later komen zijn een verzonnen voorbeeld, net als in de film.' },
+    { t: 'Een mogelijk antwoord is je <b>hypothese</b>. Hoe je het test, schrijf je op in het <b>werkplan</b>.', n: 'Het werkplan is in de film een eigen stap (acht stappen). Sommige methodes noemen het de proefopzet.' },
+    { t: 'Je voert de proef uit (<b>uitvoering</b>) en verzamelt de <b>resultaten</b>.', n: '' },
+    { t: 'Dan volgt de <b>conclusie</b>. In de <b>discussie</b> kijk je kritisch terug, en vaak levert dat een nieuwe vraag op.', n: 'De pijl terug naar het begin: de cyclus is rond. Aan het eind van de les (scherm 15) zie je de nieuwe vraag van deze proef.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s = [0, 1, 2, 3].map(k => S.on(k, 0.9)), lit = (i) => s[Math.floor(i / 2)] * (i % 2 ? S.on(Math.floor(i / 2), 0.6, 0.4) : 1);
+    L5_cyclus(ctx, 960, 590, 600, 290, { licht: lit, actief: -1, noot: (i) => L5_KV[i], nootA: lit, terug: S.on(3, 0.8, 0.8) });
+    const g = clamp(s[0] * 0.4 + s[2] * 0.6, 0, 1); L5_zon(ctx, 1080, 470, 30, s[0], T);
+    L5_bakje(ctx, 960, 700, { w: 280, n: 14, gekiemd: 0.85, groei: Math.max(0.6, g), seed: 3, a: s[0] });
+    pers(ctx, 'yasmin', 150, 1010, 290, { outfit: 'school', t: T, uit: s[3] > 0.5 ? 'denkt' : s[0] > 0.5 ? 'verbaasd' : 'neutraal', kijk: 1, a: s[0] });
+  } });
+
+// ---------- 3 · de onderzoeksvraag ----------
+SCHERMEN.push({ titel: 'Onderzoeksvraag', kop: 'Een goede onderzoeksvraag', deel: 'Van vraag naar verwachting',
+  stappen: [
+    { t: '"Wat doet licht met tuinkers?" is te vaag: wat meet je dan precies?', n: '' },
+    { t: 'Een goede onderzoeksvraag gaat over <b>één factor</b>, en over iets wat je kunt <b>meten</b>.', n: 'Eén factor: licht of donker. Meetbaar: het aantal gekiemde zaadjes. Leerlingen formuleren vaak een vraag met twee factoren tegelijk (licht én water) of een vraag die met ja of nee eindigt zonder meting.' },
+    { t: 'Zo kun je het onderzoeken: twee bakjes, één in het licht en één in het donker.', n: '' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 0.8), s1 = S.on(1, 0.8), s2 = S.on(2, 0.9); L5_mini(ctx, 1, 1);
+    L5_kaart(ctx, 'te vaag', 'Wat doet licht met tuinkers?', 140, 200, 860, s0, C.koraal, { px: 36 }); kruis(ctx, 1050, 255, 20, s0);
+    L5_kaart(ctx, 'goede onderzoeksvraag', 'Kiemen er in het licht meer tuinkerszaadjes dan in het donker?', 140, 400, 860, s1, C.groen, { px: 36 }); vink(ctx, 1050, 470, 22, s1);
+    naam(ctx, 'één factor', 1110, 450, s1, 'left', C.goud, 30); naam(ctx, 'meetbaar', 1110, 500, s1, 'left', C.teal, 30);
+    L5_zon(ctx, 560, 680, 30, s2, T); L5_bakje(ctx, 560, 930, { w: 300, n: 14, gekiemd: 0.8, groei: 0.9, seed: 4, label: 'licht', labelKl: C.goud, a: s2 });
+    L5_bakje(ctx, 980, 930, { w: 300, n: 14, gekiemd: 0.8, groei: 0.9, seed: 5, kast: 1, label: 'donker', labelKl: C.teal, a: s2 * S.on(2, 0.6, 0.3) });
+  } });
+
+// ---------- 4 · hypothese en verwachting ----------
+SCHERMEN.push({ titel: 'Hypothese en verwachting', kop: 'Hypothese en verwachting', deel: 'Van vraag naar verwachting',
+  stappen: [
+    { t: 'Een <b>hypothese</b> is een mogelijk antwoord op je vraag: licht bevordert het kiemen van tuinkers.', n: '' },
+    { t: 'De <b>verwachting</b> zegt wat je in déze proef meet als de hypothese klopt. Vaak met <b>als … dan …</b>', n: 'Vraag uit de film: "Welke zin is een verwachting, en geen hypothese?" (a) als licht het kiemen bevordert, dan kiemen er in het licht meer zaadjes dan in het donker · (b) licht bevordert het kiemen van tuinkers · (c) licht is goed voor alle planten. Antwoord a. Misvatting: hypothese en verwachting zijn hetzelfde. Let op: Engelstalige bronnen zetten soms de hypothese zelf al in als-dan-vorm.' },
+    { t: 'Een goede hypothese is <b>falsifieerbaar</b>: er is een uitkomst denkbaar die haar weerlegt. Kiemen ze allebei even goed, dan verwerp je haar.', n: 'Een verworpen hypothese is geen mislukte proef: je weet dan iets nieuws. Dat gebeurt verderop in deze proef echt (scherm 14).' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 0.8), s1 = S.on(1, 0.8), s2 = S.on(2, 0.9); L5_mini(ctx, 2, 1);
+    L5_kaart(ctx, 'hypothese · het idee', 'Licht bevordert het kiemen van tuinkers.', 140, 200, 1000, s0, C.teal, { px: 34 });
+    L5_kaart(ctx, 'verwachting · wat je meet', 'Als licht het kiemen bevordert, dan kiemen er in het licht meer zaadjes dan in het donker.', 140, 370, 1000, s1, C.goud, { px: 34 });
+    const g1 = S.on(1, 1.4, 0.4); // verwachting: licht meer
+    const gelijk = s2; L5_zon(ctx, 1290, 640, 26, s1, T);
+    L5_bakje(ctx, 1290, 900, { w: 280, n: 14, gekiemd: lerp(0, lerp(0.9, 0.85, gelijk), g1), seed: 6, label: 'licht', labelKl: C.goud, a: s1 });
+    L5_bakje(ctx, 1640, 900, { w: 280, n: 14, gekiemd: lerp(0, lerp(0.35, 0.85, gelijk), g1), seed: 7, kast: 0.9, label: 'donker', labelKl: C.teal, a: s1 });
+    L5_kaart(ctx, 'falsifieerbaar', 'Er is een uitkomst denkbaar die de hypothese weerlegt.', 140, 640, 760, s2, C.koraal, { px: 32 });
+    regel(ctx, '=', 1465, 820, gelijk, C.text, 64, 'center', 700); L5_tag(ctx, 'hypothese verworpen', 1465, 560, C.koraal, S.on(2, 0.6, 0.8), 30);
+  } });
+
+// ---------- 5 · Semmelweis ----------
+SCHERMEN.push({ titel: 'Semmelweis', kop: 'Semmelweis: hypothese en verwachting', deel: 'Van vraag naar verwachting',
+  stappen: [
+    { t: 'Wenen, 1847. In de kliniek van de <b>artsen</b> sterven veel meer kraamvrouwen aan koorts dan in die van de <b>vroedvrouwen</b>.', n: '1840–1846: 98,4 tegen 36,2 sterfgevallen per 1000 bevallingen, dus ongeveer 10 % tegen 4 %. Vrouwen werden om de dag in de ene of de andere kliniek opgenomen. Semmelweis toetste eerst andere hypothesen (houding bij de bevalling, de priester met het belletje): geen verschil.' },
+    { t: 'De artsen komen vaak rechtstreeks uit de snijzaal. Zijn hypothese: iets van lijken, op de handen, veroorzaakt de koorts.', n: '' },
+    { t: 'Zijn collega Kolletschka sterft na een prik met een snijmes aan dezelfde ziekte. Van losse waarnemingen naar een algemeen idee: <b>inductie</b>.', n: 'Vwo (en de oude versie van de film): van losse waarnemingen naar een algemene regel is inductie; van een algemene hypothese naar een concrete verwachting is deductie (OpenStax Biology § 1.1).', vwo: true },
+    { t: 'Zijn verwachting: als artsen hun handen wassen met chloorkalk, dan daalt de sterfte. Dat gebeurt: van ± 18 % naar 1 à 2 %.', n: 'Vanaf mei 1847 verplicht wassen met chloorkalk. April 1847: 57 doden op 312 bevallingen (18 %), juni 2,4 %, juli 1,2 %, augustus 1,9 %. April was een uitschieter: het gemiddelde lag rond 10 %. Vwo: vergelijken vóór en ná is minder valide dan een gelijktijdige controlegroep (wat veranderde er nog meer?). Daarom wezen veel collega\'s zijn idee af; zie de briefing.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 0.9), s1 = S.on(1, 0.9), s2 = S.on(2, 0.9), s3 = S.on(3, 0.9);
+    L5_casus(ctx, 'Wenen', '1847', s0, 80, 172);
+    // twee klinieken met sterfte
+    L5_ziekenhuis(ctx, 280, 440, 1, s0, C.line); naam(ctx, 'artsen', 280, 560, s0, 'center', C.text, 30);
+    L5_ziekenhuis(ctx, 560, 440, 1, s0 * S.on(0, 0.6, 0.3), C.line); naam(ctx, 'vroedvrouwen', 560, 560, s0 * S.on(0, 0.6, 0.3), 'center', C.text, 30);
+    const g = S.on(0, 1, 0.6); L5_assen(ctx, 180, 900, 480, 260, { a: g, yl: 'sterfte %' });
+    L5_staven(ctx, 180, 900, 480, 260, [{ v: 10, col: C.koraal, waarde: '± 10 %' }, { v: 4, col: C.groen, waarde: '± 4 %' }], 12, g, g);
+    regel(ctx, 'vóór 1847', 420, 960, g, C.text2, 24, 'center', 500);
+    L5_kaart(ctx, 'hypothese', 'iets van lijken, op de handen, veroorzaakt de koorts', 800, 200, 980, s1, C.teal, { px: 32 });
+    if (s2 > 0.01) { regel(ctx, 'Kolletschka', 830, 390, s2, C.oker, 30, 'left', 700); regel(ctx, '→ inductie', 1030, 390, s2, C.text2, 30, 'left', 600); regel(ctx, 'idee → verwachting: deductie', 1780, 390, s2 * s3, C.text2, 28, 'right', 600); }
+    L5_kaart(ctx, 'verwachting', 'als artsen hun handen wassen met chloorkalk, dan daalt de sterfte', 800, 420, 980, s3, C.goud, { px: 32 });
+    const l = S.on(3, 2, 0.5); L5_assen(ctx, 900, 920, 820, 260, { a: s3, xl: 'maand (1847)', yl: 'sterfte %' });
+    ['apr', 'mei', 'jun', 'jul', 'aug'].forEach((m, i) => regel(ctx, m, 960 + i * 175, 958, s3, C.text2, 24, 'center', 500));
+    L5_lijnen(ctx, 900, 920, 820, 260, [{ col: C.koraal, stip: true, pts: [[0.073, 18.3 / 20], [0.287, 12.2 / 20], [0.5, 2.4 / 20], [0.713, 1.2 / 20], [0.927, 1.9 / 20]] }], l, s3);
+    regel(ctx, '± 18 %', 985, 668, s3, C.koraal, 30, 'left', 700); regel(ctx, '1 à 2 %', 1720, 860, S.on(3, 0.6, 2.2), C.groen, 30, 'right', 700);
+    L5_tag(ctx, 'handen wassen vanaf mei', 1450, 790, C.goud, S.on(3, 0.6, 0.9), 26);
+  } });
+
+// ---------- 6 · een eerlijke proef ----------
+SCHERMEN.push({ titel: 'Een eerlijke proef', kop: 'Een eerlijke proef: één ding verschilt', deel: 'Een eerlijke proef',
+  stappen: [
+    { t: 'Wat je zelf verandert, is de <b>onafhankelijke variabele</b>: licht of donker.', n: 'Op de x-as van je grafiek komt straks de onafhankelijke variabele.' },
+    { t: 'Wat je meet, is de <b>afhankelijke variabele</b>: hoeveel zaadjes er kiemen.', n: '' },
+    { t: 'Al het andere houd je gelijk: dezelfde zaadjes, evenveel water, dezelfde temperatuur. Dat zijn de <b>constante variabelen</b>.', n: 'Sommige methodes zeggen constante factoren of controlevariabelen.' },
+    { t: 'Het bakje in het donker is de <b>controlegroep</b>: zonder de factor die je onderzoekt, verder precies gelijk.', n: 'Vraag uit de film: "Je zet een bakje in het donker, verder precies hetzelfde. Wat is dat bakje?" (a) een constante variabele · (b) de afhankelijke variabele · (c) de controlegroep. Antwoord c. Misvatting: wat gelijk blijft, is de controlegroep. Constante variabelen zijn factoren (water, temperatuur), een controlegroep is een hele groep om mee te vergelijken. Verdeel de zaadjes willekeurig over de bakjes: randomiseren (dobbelsteen).' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 0.8), s1 = S.on(1, 0.8), s2 = S.on(2, 0.8), s3 = S.on(3, 0.9); L5_mini(ctx, 3, 1);
+    L5_zon(ctx, 780, 440, 30, 1, T, s0 > 0.5 ? C.goud : C.line);
+    L5_bakje(ctx, 780, 760, { w: 340, n: 18, gekiemd: 0.8, seed: 11, label: 'licht', labelKl: s0 > 0.5 ? C.goud : C.text });
+    L5_bakje(ctx, 1240, 760, { w: 340, n: 18, gekiemd: 0.75, seed: 12, kast: 1, label: 'donker', labelKl: s0 > 0.5 ? C.teal : C.text, ring: s3 });
+    L5_kaart(ctx, 'onafhankelijk · je verandert', 'licht of donker', 120, 200, 520, s0, C.goud);
+    L5_kaart(ctx, 'afhankelijk · je meet', 'aantal gekiemde zaadjes', 120, 380, 520, s1, C.teal);
+    if (s1 > 0.01) { for (let i = 0; i < 4; i++) { ctx.save(); ctx.globalAlpha *= s1 * S.on(1, 0.4, 0.3 + i * 0.15); circ(ctx, 700 + i * 40, 600 - Math.sin(T * 2 + i) * 4, 13, rgba(C.teal, 0.3), C.teal, 2.5); ctx.restore(); regel(ctx, String(i + 1), 700 + i * 40, 609, s1 * S.on(1, 0.4, 0.3 + i * 0.15), C.text, 22, 'center', 700); } }
+    L5_kaart(ctx, 'constant · gelijk', 'zelfde zaadjes · evenveel water · zelfde temperatuur', 1460, 420, 360, s2, C.groen, { px: 28 });
+    L5_tag(ctx, 'controlegroep', 1240, 950, C.goud, s3, 30);
+    const r = S.on(3, 1.2, 0.6); L5_dobbelsteen(ctx, 1640, 790, 90, r < 1 ? 1 + Math.floor((S.T * 7) % 6) : 5, r * s3); regel(ctx, 'randomiseren', 1640, 900, r * s3, C.text, 28, 'center', 600);
+  } });
+
+// ---------- 7 · het paard opgelost ----------
+SCHERMEN.push({ titel: 'Het paard opgelost', kop: 'Hoe kon het paard rekenen?', deel: 'Een eerlijke proef',
+  stappen: [
+    { t: 'De psycholoog Oskar Pfungst liet sommen stellen door iemand die het antwoord <b>zelf wist</b>: dan tikte Hans bijna altijd goed.', n: 'Pfungst (1907, Engelse vertaling 1911): met kennis van het antwoord 90 tot 100 % goed; zonder kennis hooguit 10 % (optellen: 29 van 31 tegen 3 van 31). In een tweede proef met oogkleppen: zag Hans de vraagsteller, dan 89 % goed (56 proeven), zag hij hem niet, dan 6 % (35 proeven).' },
+    { t: 'Wist de vraagsteller het antwoord <b>zelf niet</b>, dan tikte Hans bijna nooit goed.', n: 'Antwoord op de vraag uit de film (scherm 2): b, het paard reageerde op lichaamstaal.' },
+    { t: 'Bij het juiste aantal tikken bewoog de vraagsteller heel even, zonder het te merken, en Hans stopte. <b>Niemand bedroog.</b>', n: 'Het stopteken was vooral een heel kleine beweging van het hoofd omhoog. Misvatting uit de film: "de eigenaar speelde vals". Ook de eigenaar gaf die tekens zonder het te weten. Les: wie meet of vraagt, kan de uitkomst onbewust sturen. Daarom blind meten (volgend scherm).' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 0.9), s1 = S.on(1, 0.9), s2 = S.on(2, 0.9);
+    L5_casus(ctx, 'Berlijn', '1907 · Pfungst', 1, 80, 172);
+    L5_grond(ctx, 900, 1); L5_bord(ctx, 1060, 500, '5 + 3 = ?', 1); L5_paard(ctx, 1560, 900, 1.5, { kijk: -1, t: T * 0.2 });
+    // twee balken: weet het antwoord / weet het niet
+    const g0 = S.on(0, 1.2, 0.3), g1 = S.on(1, 1.2, 0.3);
+    L5_assen(ctx, 170, 900, 520, 480, { a: s0, yl: 'goed (%)' });
+    L5_staven(ctx, 170, 900, 520, 480, [{ v: 95, col: C.groen, waarde: '90–100 %', a: s0, g: g0 }, { v: 8, col: C.koraal, waarde: '≤ 10 %', a: s1, g: g1 }], 100, 1, 1);
+    regel(ctx, 'weet het', 300, 950, s0, C.text, 26, 'center', 600); regel(ctx, 'weet het niet', 560, 950, s1, C.text, 26, 'center', 600);
+    // tikken onder het bord
+    const k = s2 > 0 ? S.on(2, 2.4) * 8 : 0; L5_tikken(ctx, 920, 800, k + (s2 > 0 ? 0.999 : 0), s2, 8);
+    L5_tag(ctx, 'kleine hoofdbeweging, onbewust', 1060, 300, C.goud, S.on(2, 0.6, 2.4), 28);
+    L5_tag(ctx, 'niemand bedroog', 1560, 440, C.groen, S.on(2, 0.6, 2.9), 30);
+  } });
+
+// ---------- 8 · blind meten, placebo, dubbelblind ----------
+SCHERMEN.push({ titel: 'Blind', kop: 'Blind meten', deel: 'Een eerlijke proef',
+  stappen: [
+    { t: 'Daarom werken onderzoekers <b>blind</b>: wie telt, weet niet welk bakje in het licht stond.', n: 'Bij de kiemproef: laat iemand anders tellen, met bakjes die alleen een letter hebben (A en B). In de film is dat Bilal.' },
+    { t: 'In medisch onderzoek weten ook de proefpersonen niet in welke groep ze zitten. De controlegroep krijgt een <b>placebo</b>: een nepbehandeling.', n: 'Waarom een placebo? Alleen al verwachten dat iets helpt, kan klachten verminderen (placebo-effect). Met een placebo verschillen de groepen alleen nog in het werkzame middel.' },
+    { t: 'Weten proefpersoon én onderzoeker het allebei niet, dan heet het <b>dubbelblind</b>.', n: 'Zo kan de onderzoeker, net als de vraagsteller bij Hans, niets verraden. En het toeval (loten) bepaalt wie in welke groep komt: randomiseren.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 0.9), s1 = S.on(1, 0.9), s2 = S.on(2, 0.9), k0 = 1 - s1;
+    // kiemproef: bakjes A en B, Bilal telt
+    L5_bakje(ctx, 400, 700, { w: 280, n: 14, gekiemd: 0.8, seed: 13, label: 'bakje A', a: s0 * k0 }); L5_bakje(ctx, 760, 700, { w: 280, n: 14, gekiemd: 0.75, seed: 14, label: 'bakje B', a: s0 * k0 });
+    pers(ctx, 'bilal', 1120, 960, 400, { outfit: 'practicum', t: T, uit: 'denkt', kijk: -1, a: s0 * k0 });
+    L5_tag(ctx, 'weet niet welk bakje in het licht stond', 760, 330, C.goud, s0 * k0, 30);
+    // medisch onderzoek: twee groepen met potjes
+    const m = s1; const yy = 640;
+    ['noor', 'sam', 'daan'].forEach((id, i) => pers(ctx, id, 230 + i * 150, yy + 260, 300, { t: T + i, uit: 'neutraal', kijk: 1, a: m * S.on(1, 0.5, i * 0.1) }));
+    ['lotte', 'yasmin', 'bilal'].forEach((id, i) => pers(ctx, id, 1040 + i * 150, yy + 260, 300, { t: T + i + 3, uit: 'neutraal', kijk: -1, a: m * S.on(1, 0.5, 0.3 + i * 0.1) }));
+    L5_potje(ctx, 380, 470, 1, m, 'A', C.teal); L5_potje(ctx, 1190, 470, 1, m, 'B', C.teal);
+    regel(ctx, 'echt middel', 380, 290, m * s2, C.teal, 30, 'center', 700); regel(ctx, 'placebo', 1190, 290, m * s2, C.oker, 30, 'center', 700);
+    L5_tag(ctx, 'proefpersonen weten het niet', 785, 560, C.teal, m, 28);
+    // dubbelblind: ook de onderzoeker (Dr. Kim) met de gesloten envelop
+    pers(ctx, 'kim', 1640, 960, 430, { outfit: 'practicum', t: T, uit: 'neutraal', kijk: -1, a: s2 });
+    L5_envelop(ctx, 1640, 420, 150, 100, s2); regel(ctx, 'wie kreeg wat?', 1640, 340, s2, C.text2, 26, 'center', 600);
+    L5_tag(ctx, 'dubbelblind', 785, 230, C.goud, s2, 34);
+  } });
+
+// ---------- 9 · toevallige en systematische fouten ----------
+SCHERMEN.push({ titel: 'Meetfouten', kop: 'Twee soorten meetfouten', deel: 'Meten en meetfouten',
+  stappen: [
+    { t: 'Een <b>toevallige fout</b> valt de ene keer te hoog uit, de andere keer te laag. Die middelt uit als je vaker meet.', n: 'Elke stip is één meting; de stippellijn is het gemiddelde. Bij de toevallige fout komt het gemiddelde dicht bij de echte waarde.' },
+    { t: 'Een <b>systematische fout</b> zit er steeds in dezelfde richting naast. Die middelt niet uit, hoe vaak je ook meet.', n: '' },
+    { t: 'Je weegschaal geeft steeds <b>2 gram te veel</b>. Vaker wegen helpt niet: zet de weegschaal op nul.', n: 'Vraag uit de film: "Helpt het om vaker te wegen?" (a) ja: als je vaak genoeg weegt, middelt de fout uit · (b) nee: de fout zit er elke keer in dezelfde richting naast · (c) alleen als je ook meer bakjes neemt. Antwoord b. Misvatting: meer metingen lossen alles op. Een bekende systematische fout kun je corrigeren (nul stellen, ijken).' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 0.9), s1 = S.on(1, 0.9), s2 = S.on(2, 0.9); L5_mini(ctx, 4, 1);
+    regel(ctx, 'toevallige fout', 520, 250, s0, C.teal, 38, 'center', 700); L5_lat(ctx, 160, 520, 720, 'toeval', 4 + 12 * S.on(0, 2, 0.3), s0, { gem: S.on(0, 0.6, 2.2) });
+    L5_tag(ctx, 'middelt uit', 520, 680, C.groen, S.on(0, 0.6, 2.4), 30);
+    regel(ctx, 'systematische fout', 1400, 250, s1, C.koraal, 38, 'center', 700); L5_lat(ctx, 1040, 520, 720, 'systematisch', 4 + 12 * S.on(1, 2, 0.3), s1, { gem: S.on(1, 0.6, 2.2) });
+    L5_tag(ctx, 'middelt niet uit', 1400, 680, C.koraal, S.on(1, 0.6, 2.4), 30);
+    L5_weegschaal(ctx, 1400, 960, 0.9, '52,0', s2, { fout: true }); regel(ctx, 'echt: 50,0 g', 1050, 925, s2, C.groen, 32, 'left', 700); regel(ctx, '+ 2 g, elke keer', 1600, 925, s2, C.koraal, 32, 'left', 700);
+  } });
+
+// ---------- 10 · steekproef, betrouwbaar, nauwkeurig ----------
+SCHERMEN.push({ titel: 'Betrouwbaar', kop: 'Steekproef en betrouwbaarheid', deel: 'Meten en meetfouten',
+  stappen: [
+    { t: 'Met <b>drie zaadjes</b> per bakje kan één zaadje het hele verschil maken.', n: 'Eén zaadje meer of minder = 33 % verschil. Met 50 zaadjes is één zaadje 2 %.' },
+    { t: 'Met <b>vijftig zaadjes</b> per bakje, en de proef een paar keer herhaald, wordt je resultaat betrouwbaarder.', n: 'Tegen toeval helpen een grotere steekproef en herhalen. Tegen een systematische fout niet (vorig scherm).' },
+    { t: '<b>Betrouwbaar</b>: bij herhalen vind je ongeveer hetzelfde. <b>Nauwkeurig</b> is iets anders: hoe fijn je meetinstrument meet.', n: 'Ook een weegschaal die op een tiende gram meet, kan systematisch verkeerd staan. Let op: in de natuurkunde en het internationale meetvocabulaire heten deze begrippen anders (precisie en juistheid); volg de methode van je school. Zie de briefing.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 0.9), s1 = S.on(1, 0.9), s2 = S.on(2, 0.9); L5_mini(ctx, 5, 1);
+    L5_bakje(ctx, 380, 620, { w: 240, n: 3, gekiemd: 0.67, seed: 15, a: s0 }); regel(ctx, '3 zaadjes', 380, 680, s0, C.text, 30, 'center', 600);
+    regel(ctx, '2 van 3 = 67 %', 380, 740, s0, C.text2, 28, 'center', 500); regel(ctx, '1 van 3 = 33 %', 380, 790, S.on(0, 0.6, 0.6), C.koraal, 28, 'center', 600);
+    [0, 1, 2].forEach(i => L5_bakje(ctx, 790 + i * 160, 620 - i * 8, { w: 400, n: 50, gekiemd: 0.8, seed: 16 + i, len: 50, a: s1 * S.on(1, 0.5, i * 0.3) }));
+    regel(ctx, '50 zaadjes, 3× herhaald', 950, 690, s1, C.text, 30, 'center', 600); L5_tag(ctx, 'grotere steekproef', 950, 300, C.teal, s1, 30);
+    L5_kaart(ctx, 'betrouwbaar', 'bij herhalen vind je ongeveer hetzelfde', 1360, 400, 460, s2, C.teal, { px: 30 });
+    L5_kaart(ctx, 'nauwkeurig', 'hoe fijn je meetinstrument meet', 1360, 600, 460, s2 * S.on(2, 0.6, 0.6), C.oker, { px: 30 });
+    L5_weegschaal(ctx, 1590, 920, 0.8, '50,0', s2 * S.on(2, 0.6, 0.6), { gewicht: true }); regel(ctx, 'op 0,1 g', 1590, 965, s2 * S.on(2, 0.6, 0.6), C.text2, 26, 'center', 500);
+  } });
+
+// ---------- 11 · Van Helmont: valide? ----------
+SCHERMEN.push({ titel: 'Van Helmont', kop: 'Valide: meet je wat je wilt weten?', deel: 'Meten en meetfouten',
+  stappen: [
+    { t: '<b>Valide</b>: je meet echt wat je wilt weten. Van Helmont zette een wilg van 5 pond in een pot met gewogen aarde, en gaf vijf jaar alleen water.', n: '200 pond in de oven gedroogde aarde, een deksel met gaatjes tegen stof, regenwater of gedestilleerd water (Van Helmont, Ortus medicinae, 1648).' },
+    { t: 'De boom werd ruim dertig keer zo zwaar, de aarde niet. Zijn conclusie: de boom groeit van water.', n: 'Na vijf jaar 169 pond en ± 3 ons; de aarde was ± 2 ons lichter. Hij rekende: 164 pond hout, schors en wortels uit water alleen.' },
+    { t: 'Hij woog nauwkeurig. Maar met <b>één boom</b> is het resultaat weinig betrouwbaar, en de afgevallen <b>bladeren</b> woog hij niet: een systematische fout.', n: 'De bladeren van vier herfsten schrijft hij zelf dat hij niet woog. Daardoor viel de groei steeds te laag uit, nooit te hoog. Een pot aarde zonder boom als controle had laten zien of de aarde uit zichzelf van gewicht veranderde.' },
+    { t: 'En aan de <b>lucht</b> dacht hij niet. De droge stof van hout komt vooral uit koolstofdioxide. Precies gemeten, en toch de verkeerde conclusie.', n: 'Ongeveer 95 % van de droge massa van een boom komt uit CO₂ uit de lucht (via fotosynthese); water levert vooral waterstof, de bodem 1 à 5 % mineralen. Een levende boom bestaat wel voor een groot deel uit water: hij had dus deels gelijk.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 0.9), s1 = S.on(1, 0.9), s2 = S.on(2, 0.9), s3 = S.on(3, 0.9);
+    L5_casus(ctx, 'Zuidelijke Nederlanden', '17e eeuw', s0, 80, 172);
+    const g = lerp(0.2, 1, S.on(1, 2.5)); L5_wilg(ctx, 960, 900, s1 > 0 ? g : 0.2, s0, T);
+    regel(ctx, '5 pond', 1180, 700, s0 * (1 - s1), C.text, 32, 'left', 700); regel(ctx, '± 169 pond', 1200, 420, S.on(1, 0.6, 2.4), C.groen, 34, 'left', 700);
+    regel(ctx, 'aarde: 200 pond', 960, 960, s0, C.text2, 28, 'center', 500); regel(ctx, '− 2 ons', 1130, 960, S.on(1, 0.6, 2.4), C.text2, 28, 'left', 600);
+    // regenwater
+    if (s0 > 0.01 && s1 < 0.99) for (let i = 0; i < 6; i++) { const u = (T * 0.6 + i / 6) % 1; ctx.save(); ctx.globalAlpha *= s0 * (1 - s1) * Math.sin(u * Math.PI); ctx.fillStyle = C.water; ctx.beginPath(); ctx.ellipse(900 + i * 24, 360 + u * 300, 4, 9, 0, 0, 6.283); ctx.fill(); ctx.restore(); }
+    L5_kaart(ctx, 'conclusie van Van Helmont', 'de boom groeit van water', 120, 330, 560, s1, C.oker, { px: 32 });
+    L5_kaart(ctx, 'maar één boom', 'weinig betrouwbaar', 120, 520, 560, s2, C.teal, { px: 30 });
+    for (let i = 0; i < 9; i++) L5_blad(ctx, 790 + hash(i) * 380, 905 - hash(i * 3) * 4, hash(i * 7) * 3, s2 * S.on(2, 0.4, 0.4 + i * 0.06));
+    L5_kaart(ctx, 'bladeren niet gewogen', 'systematische fout: groei steeds te laag', 120, 690, 560, s2 * S.on(2, 0.6, 0.5), C.koraal, { px: 30 });
+    L5_kaart(ctx, 'de lucht vergeten', 'droge stof komt vooral uit CO₂', 1400, 330, 420, s3, C.goud, { px: 30 }); L5_co2(ctx, 1620, 560, 1010, 560, s3, T);
+    L5_tag(ctx, 'niet valide', 1580, 760, C.koraal, S.on(3, 0.6, 0.6), 34);
+  } });
+
+// ---------- 12 · welke grafiek? ----------
+SCHERMEN.push({ titel: 'Welke grafiek?', kop: 'Van tabel naar grafiek', deel: 'Van resultaat naar conclusie',
+  stappen: [
+    { t: 'Je hebt je metingen. Eerst een <b>tabel</b>.', n: 'Verzonnen voorbeeld, dezelfde getallen als in de film: per bakje 50 zaadjes, drie keer herhaald.' },
+    { t: 'Losse groepen, zoals licht en donker: een <b>staafdiagram</b>. Op de x-as de onafhankelijke variabele.', n: 'Grootheid en eenheid bij de assen; de y-as begint bij 0.' },
+    { t: 'Een getal dat geleidelijk verandert, zoals de tijd in dagen: een <b>lijngrafiek</b>.', n: 'Bijvoorbeeld: elke dag tellen hoeveel zaadjes gekiemd zijn. Dit is ook een checkvraag in de film (vraag 4).' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 0.9), s1 = S.on(1, 0.9), s2 = S.on(2, 0.9); L5_mini(ctx, 5, 1);
+    L5_tabel(ctx, 560, 200, s0 * (1 - s1 * 0.75), 160, 60);
+    L5_assen(ctx, 240, 900, 600, 400, { a: s1, xl: 'licht of donker', yl: 'gekiemd (aantal)' });
+    L5_staven(ctx, 240, 900, 600, 400, [{ v: 41, col: C.goud, label: 'licht', waarde: '41' }, { v: 38, col: C.teal, label: 'donker', waarde: '38' }], 50, s1, S.on(1, 1, 0.3));
+    L5_tag(ctx, 'staafdiagram', 540, 450, C.goud, s1, 30);
+    L5_assen(ctx, 1100, 900, 680, 400, { a: s2, xl: 'tijd (dagen)', yl: 'gekiemd (aantal)' });
+    L5_lijnen(ctx, 1100, 900, 680, 400, [{ col: C.goud, stip: true, pts: [[0, 0], [0.2, 0.1], [0.4, 0.5], [0.6, 0.75], [0.8, 0.8], [1, 0.82]] }, { col: C.teal, stip: true, pts: [[0, 0], [0.2, 0.08], [0.4, 0.45], [0.6, 0.7], [0.8, 0.75], [1, 0.76]] }], S.on(2, 2, 0.3), s2);
+    L5_tag(ctx, 'lijngrafiek', 1440, 450, C.teal, s2, 30); regel(ctx, 'licht', 1790, 560, s2 * S.on(2, 0.5, 2), C.goud, 26, 'right', 700); regel(ctx, 'donker', 1790, 640, s2 * S.on(2, 0.5, 2), C.teal, 26, 'right', 700);
+  } });
+
+// ---------- 13 · spreiding en resultaat ----------
+const L5_PUNT = [[44, 30, 49], [36, 30, 48]];
+SCHERMEN.push({ titel: 'Spreiding', kop: 'Gemiddelde en spreiding', deel: 'Van resultaat naar conclusie',
+  stappen: [
+    { t: 'Jouw resultaten: in het licht kiemen gemiddeld <b>41</b> van de 50 zaadjes, in het donker <b>38</b>.', n: '' },
+    { t: 'Maar per bakje liep het uiteen van 30 tot 50. Dat is de <b>spreiding</b>: hoe ver de metingen uit elkaar liggen.', n: 'Vraag uit de film: "Wat concludeer je?" (a) licht bevordert het kiemen: het gemiddelde is hoger · (b) donker bevordert het kiemen · (c) er is geen duidelijk verschil: de spreiding is groter dan het verschil. Antwoord c. Misvatting: een hoger gemiddelde is genoeg. Spreiding zie je ook goed in een histogram (de Grants maten zo honderden vinkensnavels).' },
+    { t: 'Het verschil van 3 zaadjes valt weg in de spreiding van wel 20. Tuinkers kiemt ook goed in het donker: je hypothese is <b>verworpen</b>.', n: 'Een verworpen hypothese is een echt resultaat. Vwo: of een verschil groot genoeg is, toets je met statistiek (nulhypothese, p-waarde); dat staat in de extra film Kun je onderzoek vertrouwen?' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 0.9), s1 = S.on(1, 0.9), s2 = S.on(2, 0.9); L5_mini(ctx, 5, 1);
+    const X = 300, Y = 920, Wd = 900, Hh = 600; L5_assen(ctx, X, Y, Wd, Hh, { a: 1, yl: 'gekiemd (van 50)', yd: 80 });
+    [0, 10, 20, 30, 40, 50].forEach(v => regel(ctx, String(v), X - 18, Y - Hh * v / 50 + 9, 1, C.text2, 24, 'right', 500));
+    L5_staven(ctx, X, Y, Wd, Hh, [{ v: 41, col: C.goud, label: 'licht', waarde: '41' }, { v: 38, col: C.teal, label: 'donker', waarde: '38' }], 50, s0, s0);
+    L5_PUNT.forEach((r, j) => { const cx = X + (j + 0.5) * Wd / 2; r.forEach((v, i) => { const y = Y - Hh * v / 50, a = s1 * S.on(1, 0.4, i * 0.2); ctx.save(); ctx.globalAlpha *= a; circ(ctx, cx + 150 + i * 4, y, 10, C.text, C.bg, 2); ctx.restore(); });
+      const a = S.on(1, 0.6, 0.8); if (a > 0.01) { const y1 = Y - Hh * 30 / 50, y2 = Y - Hh * Math.max(...r) / 50; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.text; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(cx + 190, y1); ctx.lineTo(cx + 190, y2); ctx.moveTo(cx + 176, y1); ctx.lineTo(cx + 204, y1); ctx.moveTo(cx + 176, y2); ctx.lineTo(cx + 204, y2); ctx.stroke(); ctx.restore(); } });
+    regel(ctx, 'per bakje: 30 tot 50', 1300, 420, s1, C.text, 32, 'left', 600);
+    L5_tag(ctx, 'verschil 3 · spreiding 20', 1520, 560, C.koraal, s2, 30);
+    L5_tag(ctx, 'hypothese verworpen', 1520, 680, C.goud, S.on(2, 0.6, 0.5), 30); L5_tag(ctx, 'ook een resultaat', 1520, 800, C.groen, S.on(2, 0.6, 0.9), 30);
+  } });
+
+// ---------- 14 · conclusie en discussie ----------
+SCHERMEN.push({ titel: 'Conclusie en discussie', kop: 'Conclusie en discussie', deel: 'Van resultaat naar conclusie',
+  stappen: [
+    { t: 'De <b>conclusie</b> beantwoordt je onderzoeksvraag, niet meer en niet minder: licht maakt voor het kiemen van tuinkers weinig uit.', n: 'Niet: "licht is niet nodig voor planten". Je onderzocht alleen het kiemen, en alleen bij tuinkers.' },
+    { t: 'In de <b>discussie</b> noem je de beperkingen: je onderzocht alleen tuinkers, 50 zaadjes per bakje, drie keer.', n: '' },
+    { t: 'En wat je opviel: in het donker werden de kiemplantjes lang, dun en geel. Waarom? Een <b>nieuwe onderzoeksvraag</b>.', n: 'Dit heet etiolatie: zonder licht steekt het plantje zijn energie in lengtegroei en maakt het geen bladgroen. Voor biologie later (fotosynthese, regeling); zie de briefing. De cyclus begint opnieuw.' },
+    { t: 'Uit veel hypothesen die steeds weer kloppen, ontstaat een <b>theorie</b>: een getoetste verklaring voor veel waarnemingen.', n: 'Vwo (Nectar H3). Een theorie is geen gok maar het sterkste wat de wetenschap heeft; ook een theorie kan later worden bijgesteld. Voorbeeld: de evolutietheorie, de celtheorie.', vwo: true }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 0.9), s1 = S.on(1, 0.9), s2 = S.on(2, 0.9), s3 = S.on(3, 0.9); L5_mini(ctx, s2 > 0.5 ? 7 : 6, 1, S.on(2, 0.8, 0.8));
+    L5_kaart(ctx, 'conclusie', 'licht maakt voor het kiemen van tuinkers weinig uit', 120, 200, 680, s0, C.groen, { px: 32 });
+    L5_kaart(ctx, 'discussie', 'alleen tuinkers · 50 zaadjes per bakje · 3 keer', 120, 400, 680, s1, C.oker, { px: 32 });
+    const g = S.on(2, 2.5, 0.2); L5_zon(ctx, 1000, 420, 28, s2, T);
+    L5_bakje(ctx, 1000, 860, { w: 300, n: 14, gekiemd: 0.8, groei: 1, seed: 21, label: 'licht', labelKl: C.goud, a: s2 });
+    L5_bakje(ctx, 1420, 860, { w: 300, n: 14, gekiemd: 0.78, groei: 1, etio: g, seed: 22, label: 'donker', labelKl: C.teal, a: s2 });
+    naam(ctx, 'lang, dun en geel', 1590, 560, s2 * S.on(2, 0.6, 2), 'left', L5_KL.geel, 30);
+    L5_tag(ctx, 'nieuwe onderzoeksvraag', 1210, 330, C.goud, S.on(2, 0.6, 2.4), 32);
+    pers(ctx, 'yasmin', 1760, 1000, 380, { outfit: 'school', t: T, uit: g > 0.6 ? 'verbaasd' : 'neutraal', kijk: -1, a: s2 });
+    if (s3 > 0.01) { L5_kaart(ctx, 'theorie', 'een getoetste verklaring voor veel waarnemingen', 120, 620, 680, s3, C.paars, { px: 32 }); }
+  } });
+
+// ---------- 15 · samen of oorzaak? ----------
+SCHERMEN.push({ titel: 'Samen of oorzaak?', kop: 'Correlatie of oorzaak?', deel: 'Samen of oorzaak?',
+  stappen: [
+    { t: 'In een <b>experiment</b> verander je zelf iets. Kan dat niet, dan doe je <b>observationeel onderzoek</b>: je kijkt wat samengaat.', n: 'De kiemproef was een experiment: je veranderde zelf het licht. Mensen laten roken voor een proef, dat mag niet: daar kun je alleen waarnemen (roken en longkanker, kort in de film, uitgebreid in de extra film Kun je onderzoek vertrouwen?).' },
+    { t: 'Twee dingen die samengaan, hebben een <b>correlatie</b>. Maar of het ene het andere veroorzaakt (<b>causaliteit</b>), weet je dan nog niet.', n: '' },
+    { t: 'Soms is het andersom: <b>omgekeerde causaliteit</b>. Soms veroorzaakt een derde factor allebei: een <b>verstorende variabele</b>.', n: 'Voorbeeld uit de film: in de zomer eten mensen meer ijsjes en verdrinken er meer mensen. IJsjes zijn niet gevaarlijk: warm weer zorgt voor allebei.' },
+    { t: 'Leerlingen die ontbijten, halen gemiddeld hogere cijfers. Rust en regelmaat thuis kunnen allebei veroorzaken.', n: 'Vraag uit de film: "Welke verklaring is een verstorende variabele?" (a) wie veel rust en regelmaat thuis heeft, ontbijt vaker én leert beter · (b) ontbijt geeft je hersenen energie, dus je leert beter · (c) wie goede cijfers haalt, heeft minder stress en meer zin in ontbijt. Antwoord a; c is omgekeerde causaliteit, b kan ook waar zijn. Uit deze correlatie alleen weet je niet welke verklaring klopt.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 0.9), s1 = S.on(1, 0.9), s2 = S.on(2, 0.9), s3 = S.on(3, 0.9), boven = 1 - s3;
+    // experiment tegenover observationeel
+    L5_kaart(ctx, 'experiment', 'jij verandert één ding', 140, 190, 520, s0 * boven, C.goud, { px: 30 }); L5_zon(ctx, 730, 228, 22, s0 * boven, T);
+    L5_kaart(ctx, 'observationeel', 'je kijkt wat samengaat', 140, 330, 520, s0 * boven, C.teal, { px: 30 }); L5_verrekijker(ctx, 730, 375, 1, s0 * boven);
+    // drie pijlschema's
+    const yk = 300, a1 = s1 * boven, a2 = s2 * boven;
+    L5_knoop(ctx, 'A', 830, yk, C.teal, a1, 110, 34); L5_knoop(ctx, 'B', 1080, yk, C.teal, a1, 110, 34); pijl(ctx, 890, yk, 1020, yk, C.line, 4, a1); regel(ctx, 'correlatie', 955, yk + 90, a1, C.text2, 28, 'center', 600);
+    L5_knoop(ctx, 'A', 1260, yk, C.koraal, a2, 110, 34); L5_knoop(ctx, 'B', 1510, yk, C.koraal, a2, 110, 34); pijl(ctx, 1450, yk, 1320, yk, C.koraal, 4, a2); naam(ctx, 'omgekeerd', 1385, yk + 90, a2, 'center', C.koraal, 28);
+    const a3 = S.on(2, 0.7, 0.5) * boven; L5_knoop(ctx, 'C', 1710, yk - 80, C.goud, a3, 100, 34); L5_knoop(ctx, 'A', 1640, yk + 80, C.teal, a3, 90, 30); L5_knoop(ctx, 'B', 1790, yk + 80, C.teal, a3, 90, 30);
+    pijl(ctx, 1690, yk - 40, 1655, yk + 40, C.goud, 3, a3); pijl(ctx, 1730, yk - 40, 1775, yk + 40, C.goud, 3, a3); naam(ctx, 'verstorend', 1715, yk + 168, a3, 'center', C.goud, 28);
+    // ijsjes en verdrinkingen
+    const ij = S.on(2, 0.8, 1); L5_zon(ctx, 1160, 620, 42, ij * boven, T); L5_knoop(ctx, 'meer ijsjes', 880, 820, C.teal, ij * boven, 300, 30); L5_knoop(ctx, 'meer verdrinkingen', 1440, 820, C.teal, ij * boven, 360, 30);
+    pijl(ctx, 1120, 680, 960, 770, C.goud, 4, ij * boven); pijl(ctx, 1200, 680, 1360, 770, C.goud, 4, ij * boven); naam(ctx, 'warm weer', 1160, 560, ij * boven, 'center', C.goud, 30);
+    pijl(ctx, 1040, 820, 1250, 820, C.koraal, 3, ij * boven * 0.8); kruis(ctx, 1145, 820, 20, ij * boven);
+    // ontbijt
+    L5_knoop(ctx, 'ontbijten', 600, 700, C.teal, s3, 320, 32); L5_knoop(ctx, 'hogere cijfers', 1320, 700, C.teal, s3, 360, 32); regel(ctx, 'gaan samen', 960, 712, s3, C.text2, 28, 'center', 500);
+    const v = S.on(3, 0.8, 0.6); L5_knoop(ctx, 'rust en regelmaat', 960, 380, C.goud, v, 420, 32); pijl(ctx, 870, 430, 660, 640, C.goud, 4, v); pijl(ctx, 1050, 430, 1260, 640, C.goud, 4, v);
+    naam(ctx, 'verstorende variabele', 960, 280, v, 'center', C.goud, 30);
+  } });
+
+// ---------- 16 · eerlijk onderzoek ----------
+SCHERMEN.push({ titel: 'Eerlijk onderzoek', kop: 'Eerlijk tegenover mensen en dieren', deel: 'Eerlijk onderzoek',
+  stappen: [
+    { t: 'In 1951 ging een stukje tumor van de Amerikaanse <b>Henrietta Lacks</b> naar het lab, zonder dat zij het wist. Haar cellen worden nog altijd gebruikt.', n: 'Baarmoederhalskanker, Johns Hopkins Hospital (Baltimore). Haar cellen (HeLa) waren de eerste menselijke cellen die eindeloos bleven delen in het lab. Haar familie hoorde het pas ruim twintig jaar later. Sinds 2013 beslissen familieleden mee over toegang tot het HeLa-genoom.' },
+    { t: 'Nu geef je vooraf <b>toestemming</b>, na uitleg over wat er gebeurt en wat de risico\'s zijn: <b>informed consent</b>. En je mag altijd stoppen.', n: 'In Nederland: mondelinge en schriftelijke uitleg vooraf, schriftelijke toestemming, en stoppen mag op elk moment zonder reden (IGJ). Bij kinderen tekenen ook de ouders.' },
+    { t: 'Voor een dierproef is een <b>vergunning</b> nodig, en onderzoekers volgen de <b>drie V\'s</b>. Vermindering: zo min mogelijk dieren, en toch genoeg.', n: 'Vraag uit de film: "Een onderzoeker wil maar drie muizen per groep gebruiken, om dieren te sparen. Is dat een goed idee?" Antwoord b: nee, met zo weinig dieren is het resultaat waarschijnlijk niet betrouwbaar, en zijn de dieren misschien voor niets gebruikt. Misvatting: minder dieren is altijd beter. Vergunning: Centrale Commissie Dierproeven, na advies van een dierexperimentencommissie.' },
+    { t: 'Fraude is gegevens <b>verzinnen</b>, <b>vervalsen</b> of werk van anderen <b>overnemen</b>. Een fout meld en verbeter je; fraude verberg je.', n: 'Een eerlijke fout is geen fraude. Zo staat het ook in de Nederlandse gedragscode wetenschappelijke integriteit (2018).' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 0.9), s1 = S.on(1, 0.9), s2 = S.on(2, 0.9), s3 = S.on(3, 0.9);
+    L5_casus(ctx, 'Baltimore', '1951', s0, 80, 172);
+    L5_kweekfles(ctx, 300, 520, 1.6, s0, T); naam(ctx, 'HeLa-cellen', 300, 580, s0, 'center', C.text, 30);
+    L5_formulier(ctx, 640, 520, 1.05, S.on(1, 1.6, 0.3), s1); L5_tag(ctx, 'informed consent', 640, 730, C.groen, S.on(1, 0.6, 1.6), 30);
+    // drie V's en muizen
+    ['vervanging', 'vermindering', 'verfijning'].forEach((v, i) => L5_tag(ctx, v, 1050 + i * 270, 240, i === 1 ? C.goud : C.teal, s2 * S.on(2, 0.5, i * 0.2), 28));
+    const m = S.on(2, 0.8, 0.8); for (let i = 0; i < 3; i++) L5_muis(ctx, 1040 + i * 70, 470, 1.1, m, T, i); regel(ctx, '3 per groep', 1110, 530, m, C.koraal, 30, 'center', 700); kruis(ctx, 1110, 590, 18, S.on(2, 0.5, 1.4));
+    for (let i = 0; i < 20; i++) L5_muis(ctx, 1380 + (i % 5) * 86, 390 + Math.floor(i / 5) * 46, 0.85, m * S.on(2, 0.3, 1 + i * 0.03), T, i + 4);
+    regel(ctx, 'genoeg om iets te concluderen', 1550, 620, S.on(2, 0.5, 1.6), C.groen, 28, 'center', 700);
+    // fraude
+    if (s3 > 0.01) { ['verzinnen', 'vervalsen', 'overnemen'].forEach((v, i) => L5_tag(ctx, v, 330 + i * 290, 900, C.koraal, s3 * S.on(3, 0.5, i * 0.2), 30)); regel(ctx, '= fraude', 1060, 902, s3, C.koraal, 34, 'left', 700);
+      L5_tag(ctx, 'een fout: melden en verbeteren', 1550, 900, C.groen, S.on(3, 0.6, 0.8), 30); }
+  } });
+
+// ---------- 17 · samenvatting ----------
+SCHERMEN.push({ titel: 'Samenvatting', kop: 'Hoe weet je of iets waar is?', deel: 'Afsluiting',
+  stappen: [
+    { t: 'De <b>onderzoekscyclus</b>: van waarneming en vraag via hypothese en verwachting naar conclusie en een nieuwe vraag.', n: 'Terug naar het paard: pas een eerlijke proef, met een vraagsteller die het antwoord zelf niet wist, liet zien wat er echt gebeurde.' },
+    { t: 'Een <b>eerlijke proef</b>: één onafhankelijke variabele, de rest constant, een controlegroep, en blind meten.', n: '' },
+    { t: 'Stel altijd twee vragen: is het <b>betrouwbaar</b>, en is het <b>valide</b>? En verwar correlatie niet met oorzaak.', n: 'Lees je ergens dat onderzoek iets bewijst? Stel dan deze twee vragen. Bij je eigen onderzoek (practicum, profielwerkstuk) stel je jezelf dezelfde vragen.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s = [S.on(0, 0.9), S.on(1, 0.9), S.on(2, 0.9)];
+    const kol = [['onderzoekscyclus', C.teal, ['vraag over één factor', 'hypothese → verwachting', 'verworpen = ook een resultaat']], ['eerlijke proef', C.goud, ['onafhankelijk · afhankelijk', 'constant + controlegroep', 'blind, placebo, randomiseren']], ['twee vragen', C.groen, ['betrouwbaar: herhaal je het?', 'valide: meet je het goede?', 'correlatie ≠ oorzaak']]];
+    kol.forEach(([kop, col, regels], i) => { const a = s[i]; if (a <= 0.01) return; const x = 120 + i * 580;
+      paneel(ctx, x, 190, 540, 790, a, rgba(col, 0.6)); regel(ctx, kop, x + 270, 268, a, col, 44, 'center', 700);
+      if (i === 0) { for (let k = 0; k < 8; k++) { const an = -Math.PI / 2 + k * Math.PI / 4; circ(ctx, x + 270 + Math.cos(an) * 120, 450 + Math.sin(an) * 120, 14, k === 7 ? C.goud : rgba(C.teal, 0.6), C.teal, 2.5); } ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = rgba(C.line, 0.5); ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(x + 270, 450, 120, 0, 6.283); ctx.stroke(); ctx.restore(); }
+      if (i === 1) { L5_bakje(ctx, x + 160, 540, { w: 200, n: 10, gekiemd: 0.8, seed: 31, a }); L5_bakje(ctx, x + 390, 540, { w: 200, n: 10, gekiemd: 0.75, seed: 32, kast: 1, ring: 1, a }); L5_zon(ctx, x + 160, 380, 20, a, T); }
+      if (i === 2) { L5_lat(ctx, x + 70, 520, 400, 'toeval', 12, a, { gem: 1 }); }
+      regels.forEach((r, k) => regel(ctx, r, x + 30, 690 + k * 70, a * S.on(i, 0.5, 0.2 + k * 0.12), C.text, 31, 'left', 500)); });
+  } });
+
+// ---------- 18 · volgende keer ----------
+SCHERMEN.push({ titel: 'Volgende keer', deel: 'Vooruitblik', geenKop: true,
+  stappen: [{ t: 'Volgende keer: <b>Voortplanting</b>, les 1 "Eén ouder of twee?": ongeslachtelijke en geslachtelijke voortplanting.', n: 'Huiswerk: de film Onderzoek doen in de biologie nog eens kijken en de opdrachten onder Zelf aan de slag. Wie meer wil: de extra film Kun je onderzoek vertrouwen? (statistiek, roken en longkanker, replicatie). Volgende les: tools/docent/voortplanting-1 (Eén ouder of twee?).' }],
+  teken(ctx, S) { vooruitblik(ctx, S, 'Eén ouder of twee?', [['Eén ouder', 'mitose: een kopie', L5_icoonEen], ['Twee ouders', 'meiose en bevruchting', L5_icoonTwee], ['De race', 'waarom seks loont', L5_icoonRace], ['Startsein', 'de puberteit', L5_icoonStart]]); } });
