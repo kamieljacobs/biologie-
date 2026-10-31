@@ -30,7 +30,7 @@
 
 **Diëtist Hanneke** (± 41) · vast: diëtist (krullen, groen vest, geen labjas), goedgekeurd door Kamiel 26 okt 2026 (voorstel A). Gebeurd: Voeding en diëtetiek 1–2 (Joost is haar cliënt; Noor loopt een dag mee). Grenzen: alleen in haar eigen vak; geeft wél advies, maar vraagt eerst.
 
-**Levensmiddelentechnoloog Lars** (± 35) · vast: levensmiddelentechnoloog in een proeffabriek (rossig kort haar; outfit `fabriek`: labjas, haarnetje, veiligheidsbril; `gewoon`: lichtblauw overhemd), castvel goedgekeurd door Kamiel 31 okt 2026. Grenzen: alleen in zijn eigen vak.
+**Levensmiddelentechnoloog Lars** (± 35) · vast: levensmiddelentechnoloog in een proeffabriek (rossig kort haar; outfit `fabriek`: labjas, haarnetje, veiligheidsbril; `gewoon`: lichtblauw overhemd), castvel goedgekeurd door Kamiel 31 okt 2026. Gebeurd: ontwerpt met Noor een burger van erwteneiwit in de proeffabriek (Voeding en diëtetiek 3, Een burger zonder koe, 31 okt 2026). Grenzen: alleen in zijn eigen vak.
 
 **Hovenier Jeroen** (± 50) · vast: hovenier en kweker (grijzend haar, groene fleece, werkbroek, snoeischaar in een holster), castvel goedgekeurd door Kamiel 31 okt 2026. Grenzen: alleen in zijn eigen vak.
 
@@ -63,7 +63,7 @@
 Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `films/**/bron/**/*.js` en de naam in `bron/script.md`; films die een personage alleen via een variabele aanroepen ontbreken mogelijk).
 
 <!-- AUTO:start -->
-### Noor (`noor`) — 87 films
+### Noor (`noor`) — 88 films
 - `afweer`: 1-de-eerste-verdediging, 2-antistoffen-op-maat, 3-t-cellen-en-virussen, 4-vaccins-allergie-en-bloedgroepen
 - `cellen`: celorganellen, diffusie-osmose, microben, stamcellen, van-molecuul-tot-biosfeer
 - `dna`: 1-wat-is-dna, 2-dna-kopieren, 7-dna-lezen
@@ -80,7 +80,7 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `onderbouw/32b`: 1-levenscyclus-genen-en-milieu
 - `onderbouw/32c`: 1-voeding-en-beweging, 2-slaap-natuur-en-hygiene, 3-microben-vriend-en-vijand, 4-ziek-worden-en-beter-worden
 - `onderbouw/33c`: 4-uit-balans, 5-wij-hebben-de-natuur-nodig
-- `vervolg`: biomedisch-1-signalen-in-de-cel, biomedisch-3-van-lab-tot-patient, biomedisch-4-toeval-of-echt, diergeneeskunde-1-hond-koe-paard, diergeneeskunde-3-van-dier-naar-mens, farmacie-1-van-pil-tot-plek, fysiotherapie-2-opnieuw-leren-bewegen, fysiotherapie-3-trainen, fysiotherapie-4-welke-oefening-helpt, geneeskunde-3-welk-antibioticum, leraar-1-waar-blijft-je-vet, leraar-2-een-practicum-dat-werkt, mbrt-1-in-het-lichaam-kijken, neurowetenschappen-3-als-hersencellen-uitvallen, psychologie-6-kun-je-je-geheugen-vertrouwen, psychologie-7-waarom-raakt-de-een-opgebrand, tandheelkunde-4-een-tand-door-bot, voedingsleer-1-bij-de-dietist, voedingsleer-2-waarom-afvallen-zo-moeilijk-is
+- `vervolg`: biomedisch-1-signalen-in-de-cel, biomedisch-3-van-lab-tot-patient, biomedisch-4-toeval-of-echt, diergeneeskunde-1-hond-koe-paard, diergeneeskunde-3-van-dier-naar-mens, farmacie-1-van-pil-tot-plek, fysiotherapie-2-opnieuw-leren-bewegen, fysiotherapie-3-trainen, fysiotherapie-4-welke-oefening-helpt, geneeskunde-3-welk-antibioticum, leraar-1-waar-blijft-je-vet, leraar-2-een-practicum-dat-werkt, mbrt-1-in-het-lichaam-kijken, neurowetenschappen-3-als-hersencellen-uitvallen, psychologie-6-kun-je-je-geheugen-vertrouwen, psychologie-7-waarom-raakt-de-een-opgebrand, tandheelkunde-4-een-tand-door-bot, voedingsleer-1-bij-de-dietist, voedingsleer-2-waarom-afvallen-zo-moeilijk-is, voedingsleer-3-een-burger-zonder-koe
 - `voeding`: 1-wat-zit-er-in-je-eten, 4-van-darm-naar-bloed, 5-de-lever-als-fabriek, 6-je-darmbewoners, 7-supplementen-en-superfoods
 - `voortplanting`: 2-geslachtsorganen-puberteit, 4-sekse-gender-diversiteit, celdeling
 - `zenuwstelsel`: 2-het-kabelnetwerk, 4-knoeien-met-de-spleet, 5-het-hoofdkantoor, 6-leren-en-onthouden, 7-slaap, 8-zintuigen, 9-spieren-en-beweging
@@ -307,6 +307,15 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 
 ### Epidemioloog Farid (`farid`) — 3 films
 - `vervolg`: gezondheidswetenschappen-1-hoe-een-epidemie-groeit, gezondheidswetenschappen-2-screenen-of-niet, gezondheidswetenschappen-3-roken-en-longkanker
+
+### Levensmiddelentechnoloog Lars (`lars`) — 1 films
+- `vervolg`: voedingsleer-3-een-burger-zonder-koe
+
+### Hovenier Jeroen (`jeroen`) — 0 films
+- (geen films gevonden)
+
+### Milieukundige Iris (`iris`) — 0 films
+- (geen films gevonden)
 
 ### Fleur (`fleur`) — 1 films
 - `voortplanting`: 3-anticonceptie-soa-voortplantingstechniek
