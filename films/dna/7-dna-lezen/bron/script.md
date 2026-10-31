@@ -1,5 +1,7 @@
 # DNA lezen — script
 
+> Versie 2.0 (31 okt 2026, beeld-remake): tekst en takes ongewijzigd. De vraagtakes q4, q10, q15 en q20 heten in de film nu v4, v10, v15 en v20 (gesproken vraagalinea, `audio/vN.mp3`); de vraagkaarten houden de naam qN. Audio: `../audio/<id>.mp3`, woordtijden: `stem/woordtijden/<id>.json`.
+
 Stem: Roos, eleven_v3 · stem-invoer: letterlijke stem-invoer van de opname (13 oktober 2026; n22 en n22v 16 oktober 2026: em-er-en-aa, cee-deeënaa, ligaase, krisper-kas-negen, kas-negen, gids-er-en-aa, hemoglobienuh); zonder uitspraaktest vooraf; respellings: deeënaa, er-en-aa, pee cee er (afspraak Kamiel), zjel (gel moet Engels klinken, niet als 'geld'), krisper, snip(s), es-tee-er, siekwensen/gesiekwenst (Engels /ˈsiːkwəns/), rivurs transcriptase, primer(s) zoals geschreven (Kamiels keuze 13 okt; de eerste opname met 'praimer' is vervangen in n3, n5, n6, n11, n25), nipt zoals geschreven; restrictie-enzym, plasmide, stamboomsite, bruinvissen, trisomie, referentiegenoom, placenta zoals geschreven. Tijden: begin in de speler (vwo / havo). Audio: `FILMDATA.segments[<id>].audio`.
 
 ## n0 · Opening · basis
