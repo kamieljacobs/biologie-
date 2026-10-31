@@ -1,0 +1,87 @@
+[
+ {
+  "t": "PCR",
+  "d": "Polymerasekettingreactie: een gekozen stuk DNA in een buisje in korte tijd meer dan een miljard keer kopiëren. Per cyclus: verhitten (≈95 °C, strengen los), afkoelen (≈55 °C, primers binden), opwarmen (≈72 °C, hittebestendige polymerase bouwt nieuwe strengen); elke cyclus verdubbelt het aantal.",
+  "vwo": false
+ },
+ {
+  "t": "primer",
+  "d": "Kort stukje DNA dat aan het begin van het te kopiëren stuk bindt; de polymerase begint daar. De primers bepalen welk stuk gekopieerd wordt.",
+  "vwo": false
+ },
+ {
+  "t": "gelelektroforese",
+  "d": "DNA-fragmenten sorteren op lengte: DNA is negatief geladen en loopt in een gel naar de pluspool; korte fragmenten lopen verder dan lange. Het resultaat is een bandenpatroon.",
+  "vwo": false
+ },
+ {
+  "t": "DNA-profiel",
+  "d": "De combinatie van lengtes van een vaste set herhaalde stukjes niet-coderend DNA; per mens vrijwel uniek, behalve bij eeneiige tweelingen.",
+  "vwo": false
+ },
+ {
+  "t": "sequencen",
+  "d": "De basenvolgorde van een stuk DNA bepalen, bijvoorbeeld met gekleurde stopnucleotiden en sorteren op lengte; moderne apparaten lezen miljoenen stukjes tegelijk.",
+  "vwo": false
+ },
+ {
+  "t": "NIPT",
+  "d": "Niet-invasieve prenatale test: DNA-fragmenten van de placenta in het bloed van de moeder worden gesequencet en per chromosoom geteld; te veel fragmenten van chromosoom 21 wijst op trisomie 21.",
+  "vwo": false
+ },
+ {
+  "t": "genetische modificatie",
+  "d": "Het DNA van een organisme gericht veranderen. Voorbeeld: menselijke insuline uit bacteriën. Stappen: mRNA van het insulinegen uit alvleeskliercellen halen → met reverse transcriptase cDNA maken (zonder introns, want een bacterie kan geen introns verwijderen) → plasmide en cDNA met hetzelfde restrictie-enzym knippen (plakkerige uiteinden) → ligase plakt: recombinant plasmide → plasmide in bacteriën → selectie met een antibioticum (resistentiegen op het plasmide) → de bacterie maakt insuline. Of een gen op een gekozen plek knippen en veranderen (CRISPR).",
+  "vwo": false
+ },
+ {
+  "t": "STR",
+  "d": "Short tandem repeat: een kort motief (bijv. GATA) dat een aantal keer achter elkaar herhaald wordt; het aantal herhalingen verschilt tussen mensen en tussen de twee allelen van één persoon.",
+  "vwo": true
+ },
+ {
+  "t": "reverse transcriptase",
+  "d": "Enzym dat RNA overschrijft naar DNA; nodig vóór een PCR op een RNA-virus (RT-PCR).",
+  "vwo": true
+ },
+ {
+  "t": "referentiegenoom en variant",
+  "d": "Eén standaardvolgorde van het menselijk genoom waarmee gesequencete stukjes worden vergeleken; een plek waar iemands DNA afwijkt heet een variant. SNP: een variant van één base.",
+  "vwo": true
+ },
+ {
+  "t": "cDNA",
+  "d": "Complementair DNA: DNA dat met reverse transcriptase van een mRNA is overgeschreven; het gen zonder introns. Nodig om een menselijk gen in een bacterie tot expressie te brengen.",
+  "vwo": false
+ },
+ {
+  "t": "plasmide en recombinant plasmide",
+  "d": "Plasmide: klein cirkelvormig DNA-molecuul in bacteriën, los van het bacteriechromosoom. Recombinant plasmide: plasmide waarin een stuk vreemd DNA (bv. cDNA van het insulinegen) is geplakt.",
+  "vwo": false
+ },
+ {
+  "t": "restrictie-enzym en ligase",
+  "d": "Een restrictie-enzym knipt DNA op een vaste basenvolgorde, vaak met plakkerige uiteinden (korte enkele strengen die op elkaar passen); knip je twee stukken DNA met hetzelfde enzym, dan passen ze op elkaar. Ligase plakt de ruggengraat van de stukken aan elkaar.",
+  "vwo": false
+ },
+ {
+  "t": "selectie met een antibioticum",
+  "d": "Niet elke bacterie neemt het plasmide op. Op het plasmide zit een resistentiegen; op een voedingsbodem met dat antibioticum groeien alleen bacteriën met het plasmide.",
+  "vwo": false
+ },
+ {
+  "t": "CRISPR-Cas9 en gids-RNA",
+  "d": "Cas9 is een enzym dat beide DNA-strengen knipt; het gids-RNA (zelf gekozen volgorde) past via baseparing op de doelvolgorde en leidt Cas9 daarheen. De cel repareert de knip: vaak met een foutje (gen uit), of met een meegegeven stuk DNA als voorbeeld (gewijzigde versie).",
+  "vwo": true
+ },
+ {
+  "t": "gentherapie",
+  "d": "Een werkend gen inbrengen in (of een gen veranderen in) lichaamscellen van een patiënt, vaak met een onschadelijk gemaakt virus als vector, of in cellen die buiten het lichaam worden aangepast en teruggezet (bv. beenmergstamcellen bij sikkelcelziekte).",
+  "vwo": true
+ },
+ {
+  "t": "somatisch en kiembaan",
+  "d": "Somatische gentherapie verandert lichaamscellen: niet erfelijk. Kiembaanmodificatie verandert eicellen, zaadcellen of embryo's: wel erfelijk; in Nederland verboden (Embryowet).",
+  "vwo": true
+ }
+]

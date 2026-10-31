@@ -12,7 +12,7 @@ Versie 2.0 is een beeld-remake op prompt v13 (brief `films/OPWAARDEREN-DNA-7-8-T
 | Voldoet aan | prompt v13 (31 okt 2026, beeld-remake, takes behouden) |
 | Stem / model | Roos (`7qdUFMklKPaaAVMsBTBt`), eleven_v3, één take per alinea of vraag; n19 laatste zin eleven_v4 (31 okt 2026, `stem/herinspreken_20261031.json`) |
 | Duur | spraak vwo 815 s (basis 608 s); speeltijd met kaarten en vragen vwo ± 14,7 min, havo ± 11,4 min; met Vragen uit vwo ± 12,9 min, havo ± 9,6 min. `duur` in HOOFDSTUKKEN: 15 (stond op 13; zet de hoofdsessie) |
-| Beeldstijl | Part C: Macro-nacht alleen in de opening (de ruit), Micro zonder korrel voor het bloed, verder Schema (#1A2740). Palet B voor DNA/RNA; kleurstoffen bij het sequencen zoals `sequencer()` (T rood, A groen, C blauw, G geel) |
+| Beeldstijl | Part C: Macro-nacht alleen in de opening (de ruit), Micro zonder korrel voor het bloed, verder Schema (#1A2740). Palet B voor DNA/RNA; kleurstoffen bij het sequencen A rood, T geel, C blauw, G groen (`DYE` in `scenes_dna7.js`, overschrijft `SEQ_KLEUR` van de bibliotheek-`sequencer`): drie van de vier gelijk aan palet B |
 | Audio-opslag | 23 mp3's (`../audio/<id>.mp3`), uit de base64 van versie 1.5 gehaald; woordtijden `stem/woordtijden/<id>.json` (n5, n11, n21 opnieuw uitgelijnd door `scripts/antwoordletter.py`) |
 
 ## Opbouw
@@ -38,7 +38,7 @@ Elke vraag is nu een gesproken vraagalinea (`vN`, `heleVraag`, dezelfde take als
 Vragen uit (getest met `qa_vragen.py`): v4/v10/v15/v20 en de kaarten vallen weg; 'Antwoord A./B./C.' aan het begin van n5, n11, n16, n21 wordt geknipt; 'Voor vwo gaan we hier nog een stap verder.' in n6, n12, n17, n23 altijd. Geen antwoordtekst in beeld.
 
 ## Begrippen en docentdeel
-Begrippen (17, waarvan 6 vwo) en checkvragen/docentdeel zijn overgenomen uit versie 1.5 (`film.py` → `oud/glossary.json` in de werkmap, `sections.html`). Eén regel in het docentdeel bijgewerkt (genetische modificatie: ligase en de knipplaatsen staan nu wél in de film). De kleurlegenda boven de begrippen (oude paarse basen) is weg.
+Begrippen (17, waarvan 6 vwo) en checkvragen/docentdeel zijn overgenomen uit versie 1.5 (`film.py` leest `bron/glossary.json`, sinds 31 okt 2026 in de bronmap; `sections.html`). Eén regel in het docentdeel bijgewerkt (genetische modificatie: ligase en de knipplaatsen staan nu wél in de film). De kleurlegenda boven de begrippen (oude paarse basen) is weg.
 
 ## Waar wat in de HTML zit
 Regelnummers in `../7-dna-lezen.html` (versie 2.0):
@@ -56,6 +56,13 @@ Werkmap buiten de repo: kopieer `bron/*` erheen, `src/*` naar `bouw/`, `../audio
 - Twijfelscènes, herinspreeklijst, vragen en de lijst per scène: `opwaardering-v13.md`. Storyboard: `storyboard-remake.md`. Bronnen: `bronnen.md`.
 - Uitspraak-wachtlijst blijft staan (zie `oud/info-1.5.md`), plus n22v 'hemoglobienuh' uit de brief.
 - `sbSymbool` met `hl` zet `globalAlpha` absoluut (bibliotheekfout): geef in een vervagende groep altijd `a` mee.
+- Een losse bloeddruppel = `druppelIcoon()` (punt boven); `bloedDruppel()` (bol boven, uitloop omlaag) alleen voor druppels die op de ruit lopen, los leest hij als een kaartspeld.
+- Sequencerkleuren: de stem noemt alleen 'rood, groen, blauw, geel'. Houd A rood, T geel, C blauw, G groen, zodat een kleurstof niet tegen palet B ingaat (een rode T las als een A).
+- Vwo-blokken n12, n17, n23 beginnen na de geknipte vwo-zin: het eerste beeld fadet in op `q.at('verder')`, zodat het beeld er staat zodra de speler verdergaat.
+- `thermocycler()` tekent zijn kopieënteller onder y 880 (ondertitels): in n3 geknipt op y < 880.
+- Zwangere vrouw (Esra) in `outfit: 'jas'`; in haar standaardkleding lijkt ze op Noor.
+- Frisse beeldreview 31 okt 2026: `review_fris_2026-10-31.md`.
 
 ## Wijzigingen
+- 31 okt 2026 — 2.0, frisse beeldreview verwerkt: losse druppels als echte druppel, sequencerkleuren naar palet B, bruinvis-rugvin vast en monsterplekken op de wonden, twee duidelijk gescheiden banden bij '8 en 11', geen teller meer in de ondertitelzone, stappenbalk niet over de kopregel, labels bij gel, sikkelcellen en wattenstaafje vrij, vwo-blokken gevuld na de knip, Esra in jas; glossary.json in de bronmap.
 - 31 okt 2026 — 2.0: beeld-remake op prompt v13, takes behouden. Alle scènes opnieuw getekend in de FILMDATA-straat (zie `opwaardering-v13.md`, één regel per scène); audio als losse mp3's (HTML 13,3 → 2,8 MB); vragen als gesproken vraagalinea + kaart; denktijd per vraag in de speler. Eén docentregel bijgewerkt. Oude versie in `oud/`.

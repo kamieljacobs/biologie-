@@ -30,7 +30,7 @@ film = {
   "q15": {"explain": "Elk stukje wordt gesequencet; de nucleotidenvolgorde laat zien op welk chromosoom het thuishoort."},
   "q20": {"explain": "Achterneven hebben dezelfde overgrootouders en delen zo'n drie procent van hun DNA: een klein deel, in een paar lange gelijke stukken."}
  },
- "glossary": json.load(open('oud/glossary.json', encoding='utf-8'))
+ "glossary": json.load(open('glossary.json', encoding='utf-8'))
 }
 film['sections'] = open('sections.html', encoding='utf-8').read()
 json.dump(film, open('film.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)

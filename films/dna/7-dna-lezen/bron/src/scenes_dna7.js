@@ -21,7 +21,7 @@ Object.assign(SCENES, {
   title(ctx, t) { ctx.save(); ctx.beginPath(); const P = [[1120, 170], [1690, 130], [1820, 470], [1600, 760], [1180, 700], [1060, 430]]; P.forEach((p, i) => i ? ctx.lineTo(...p) : ctx.moveTo(...p)); ctx.closePath();
     ctx.fillStyle = rgba('#2C4462', 0.9); ctx.fill(); ctx.strokeStyle = '#C9D6E2'; ctx.lineWidth = 1.5; ctx.stroke(); ctx.restore();
     ctx.strokeStyle = rgba('#C9D6E2', 0.5); ctx.lineWidth = 1.2; [[1300, 300, 1500, 520], [1500, 520, 1700, 620], [1500, 520, 1420, 700]].forEach(([a, b, c, d]) => { ctx.beginPath(); ctx.moveTo(a, b); ctx.lineTo(c, d); ctx.stroke(); });
-    bloedDruppel(ctx, 1420, 380, 26); bloedDruppel(ctx, 1500, 450, 18); bloedDruppel(ctx, 1370, 470, 14, 1, 0.6);
+    druppelIcoon(ctx, 1420, 360, 26); druppelIcoon(ctx, 1500, 440, 18); druppelIcoon(ctx, 1372, 470, 14);
     profielCode(ctx, 1180, 800, 560, 80, DADER_SEED, ramp(t, 1.0, 0.8)); },
 
   // ---------------- Opening: de ruit, de databank, het archief, de vraag
@@ -49,7 +49,7 @@ Object.assign(SCENES, {
       const d = ramp(t, q.at('dader', 2) - 0.6, 0.5); kaart(ctx, 1180, 230, 300, 330, d); titel(ctx, '?', 1330, 440, 160, C.text2, 'center', d);
       nb(ctx, 'niet van de dader zelf', null, 1330, 600, d, 'center'); kruisje(ctx, 1330, 395, 3, C.koraal, ramp(t, q.at('zelf'), 0.3)); return; }
     sch(ctx); const a1 = ramp(t, tHoe, 0.5), a2 = ramp(t, q.at('hoe', 2) - 0.2, 0.5);
-    ctx.save(); ctx.globalAlpha *= a1 * (1 - 0.6 * a2); bloedDruppel(ctx, 330, 360, 46); pijlA(ctx, 420, 380, 560, 380, C.line); dubbelStreng(ctx, 600, 330, 'GATACAGT', 30); ctx.restore();
+    ctx.save(); ctx.globalAlpha *= a1 * (1 - 0.6 * a2); druppelIcoon(ctx, 330, 330, 44); pijlA(ctx, 420, 380, 560, 380, C.line); dubbelStreng(ctx, 600, 330, 'GATACAGT', 30); ctx.restore();
     tx(ctx, 'DNA lezen uit een paar druppels bloed?', 480, 560, 44, C.goud, 'center', 700, a1 * (1 - 0.6 * a2));
     menigte(ctx, 1150, 300, 36, a2, 17); if (a2 > 0.01) { ctx.save(); ctx.globalAlpha *= a2; ctx.strokeStyle = C.goud; ctx.lineWidth = 6; ctx.beginPath(); ctx.arc(1440, 360, 70, 0, 6.283); ctx.stroke(); ctx.beginPath(); ctx.moveTo(1490, 410); ctx.lineTo(1560, 480); ctx.lineWidth = 12; ctx.stroke(); ctx.restore(); }
     tx(ctx, 'iemand vinden die nergens geregistreerd staat?', 1420, 560, 44, C.goud, 'center', 700, a2); },
@@ -77,7 +77,7 @@ Object.assign(SCENES, {
       return; }
     if (t < tEen) { sch(ctx); const tAf = q.at('Afkoelen'), tOp = q.at('opwarmen'); let f;
       if (t < tAf) f = 0.24 * clamp((t - tVerh) / 3.5, 0, 1); else if (t < tOp) f = lerp(0.25, 0.49, (t - tAf + 0.3) / 3.5); else f = lerp(0.5, 0.99, (t - tOp + 0.3) / 8.5);
-      thermocycler(ctx, 160, 860, 1.6, { fase: f });
+      ctx.save(); ctx.beginPath(); ctx.rect(0, 0, W, 880); ctx.clip(); thermocycler(ctx, 160, 860, 1.6, { fase: f }); ctx.restore(); // teller van de bibliotheek viel onder y 880 (ondertitels); de verdubbeling heeft een eigen beeld
       const st = [['≈ 95 °C', 'strengen los', tVerh, tAf], ['≈ 55 °C', 'primers binden', tAf, tOp], ['≈ 72 °C', 'polymerase bouwt', tOp, 1e9]];
       st.forEach(([tmp, w, a0, a1], k) => { const on = fade(t, a0, a1, 0.3); const x = 1640, y = 200 + k * 150; ctx.save(); ctx.globalAlpha *= 0.35 + 0.65 * on; roundRect(ctx, x - 160, y - 50, 320, 110, 12); shape(ctx, rgba(C.fill, 0.9), on > 0.5 ? C.goud : C.line, on > 0.5 ? 2.5 : 1.2);
         text(ctx, tmp, x, y, fTekst(40, 800), [C.koraal, C.teal, C.koraal][k], 'center'); text(ctx, w, x, y + 42, fTekst(30, 600), C.text, 'center'); ctx.restore(); });
@@ -136,7 +136,7 @@ Object.assign(SCENES, {
       meta(ctx, 'virus-DNA', 150, 260, 'left', C.teal); primerStuk(ctx, 520, 230, 0.9, { bind: ramp(t, q.at('passen') - 0.3, 1.2), t, seq: 'GACCTGAAGTCCATGG' }); vinkje(ctx, 1640, 280, 1.6, C.groen, ramp(t, q.at('virus-DNA') - 0.1, 0.4));
       ctx.save(); ctx.globalAlpha *= m; meta(ctx, 'DNA van de mens', 150, 580, 'left', C.text2); enkStreng(ctx, 420, 620, 'TACGGATTCAGGCTTAACCGTGA', 30.6, -1); enkStreng(ctx, 520, 490, 'GACCTGAAGTCCATGG', 30.6, 1, { kleur: C.goud }); kruisje(ctx, 1640, 580, 1.6, C.koraal); ctx.restore();
       tx(ctx, 'de primers bepalen wát je kopieert', 960, 820, 40, C.goud, 'center', 700, k); return; }
-    const u = ramp(t, tTerug, 0.5); bloedDruppel(ctx, 960, 400, 60, u); tx(ctx, 'terug naar het bloedspoor', 960, 640, 44, C.text, 'center', 700, u); },
+    const u = ramp(t, tTerug, 0.5); druppelIcoon(ctx, 960, 380, 60, u); tx(ctx, 'terug naar het bloedspoor', 960, 640, 44, C.text, 'center', 700, u); },
 });
 
 // ---------------- Hoofdstuk 2: herhalingen, gel, profiel
@@ -189,7 +189,7 @@ Object.assign(SCENES, {
   v10(ctx, t, q) { ctx.fillStyle = '#1E2E4A'; ctx.fillRect(0, 0, W, H); ctx.fillStyle = '#C9A86A'; ctx.fillRect(0, 640, W, 240); ctx.fillStyle = '#2A6E7E'; ctx.fillRect(0, 560, W, 80);
     const B = bruinvis(ctx, 760, 600, 1.9, { houding: 'recht', wonden: ramp(t, q.at('bijtwonden') - 0.3, 0.5) }); nb(ctx, 'bruinvis', 'aangespoeld', 760, 330, 1, 'center');
     zeehond(ctx, 1560, 650, 1.7, { kijk: -1, t, a: ramp(t, q.at('zeehond') - 0.5, 0.6) }); nb(ctx, 'grijze zeehond', null, 1520, 420, ramp(t, q.at('zeehond') - 0.3, 0.5), 'center');
-    const ms = [['dichte wond', q.at('dichte'), [600, 560]], ['open wond', q.at('open'), [700, 600]], ['gewone huid', q.at('gewone'), [940, 560]]];
+    const ms = [['dichte wond', q.at('dichte'), [869, 611]], ['open wond', q.at('open'), [943, 585]], ['gewone huid', q.at('gewone'), [640, 590]]]; // op de bijtwonden van bruinvis() (u 0,28–0,42), huid op de flank
     ms.forEach(([n, tt, p], k) => { const a = ramp(t, tt - 0.2, 0.4); ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.goud; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(p[0], p[1], 26, 0, 6.283); ctx.stroke(); ctx.restore(); tx(ctx, (k + 1) + '', p[0], p[1] - 34, 30, C.goud, 'center', 800, a); meta(ctx, (k + 1) + ' · ' + n, 160, 160 + k * 46, 'left', C.text, a); });
     titel(ctx, '?', 1200, 260, 120, C.goud, 'center', ramp(t, q.at('Waar') - 0.3, 0.4)); },
 
@@ -199,22 +199,22 @@ Object.assign(SCENES, {
         ctx.save(); ctx.globalAlpha *= a; tx(ctx, n, x, 270, 40); celRond(ctx, x, 470, 110, { t, organellen: true, a: ja ? 1 : 0.0 }); if (!ja) { ctx.strokeStyle = rgba(C.line, 0.6); ctx.setLineDash([8, 8]); ctx.beginPath(); ctx.arc(x, 470, 110, 0, 6.283); ctx.stroke(); ctx.setLineDash([]); }
         meta(ctx, m, x, 650, 'center', ja ? C.groen : C.text2); ctx.restore(); if (ja) nb(ctx, 'zeehondcel', null, x, 610, a, 'center'); }); return; }
     const lanes = [[282], [], [], []], hl = ramp(t, q.at('band') - 0.3, 0.4), ctrl = ramp(t, q.at('wattenstaafje') - 0.3, 0.5);
-    pcrBuisje(ctx, 250, 260, 11, { dna: 5, a: ramp(t, tGel, 0.4) * (1 - ramp(t, q.at('gel.') - 0.2, 0.5) * 0.6) }); nb(ctx, 'PCR', 'primers alleen voor zeehond-DNA', 250, 210, ramp(t, tGel, 0.4), 'center');
+    pcrBuisje(ctx, 250, 260, 11, { dna: 5, a: ramp(t, tGel, 0.4) * (1 - ramp(t, q.at('gel.') - 0.2, 0.5) * 0.6) }); nb(ctx, 'PCR', 'primers: alleen zeehond-DNA', 290, 150, ramp(t, tGel, 0.4), 'center');
     const g = ramp(t, q.at('gel.') - 0.3, 0.5); ctx.save(); ctx.globalAlpha *= g;
     const G = gelBoven(ctx, 640, 170, 900, 600, lanes.map((l, i) => i === 3 && ctrl < 0.5 ? [] : l), { namen: ['dichte wond', 'open wond', 'huid', 'controle'], hl: hl > 0.5 ? [[0, 282]] : [], laanHl: ctrl > 0.5 ? 3 : -1, bandW: 70 });
     meta(ctx, 'verwachte hoogte', 630, G.yb(282) - 14, 'right', C.goud, hl); ctx.setLineDash([6, 8]); ctx.strokeStyle = rgba(C.goud, 0.6 * hl); ctx.beginPath(); ctx.moveTo(640, G.yb(282)); ctx.lineTo(1560, G.yb(282)); ctx.stroke(); ctx.setLineDash([]);
     nb(ctx, 'zeehond-DNA zat erin', null, 752, 120, ramp(t, q.at('monster') - 0.4, 0.4), 'center', C.groen);
-    if (ctrl > 0.01) { wattenstaafje(ctx, 1600, 420, 200, -1.3, ctrl); nb(ctx, 'schoon wattenstaafje', 'controle: geen band', 1690, 470, ctrl, 'center'); vinkje(ctx, 1700, 560, 1.2, C.groen, ramp(t, q.at('band', 2) - 0.2, 0.4)); }
+    if (ctrl > 0.01) { wattenstaafje(ctx, 1600, 420, 200, -1.3, ctrl); nb(ctx, 'schoon wattenstaafje', 'geen band', 1735, 470, ctrl, 'center'); vinkje(ctx, 1700, 560, 1.2, C.groen, ramp(t, q.at('band', 2) - 0.2, 0.4)); }
     ctx.restore(); },
 
   n12(ctx, t, q) { sch(ctx); const tPer = q.at('Per') - 0.3, tTw = q.at('eeneiige') - 0.6, tTerug = q.at('Terug') - 0.2;
-    if (t < tPer) { titel(ctx, 'STR', 300, 220, 96, C.text, 'center', ramp(t, q.at('STR') - 0.3, 0.5)); meta(ctx, 'short tandem repeat', 300, 270, 'center', C.text2, ramp(t, q.at('STR'), 0.5));
+    if (t < tPer) { titel(ctx, 'STR', 300, 220, 96, C.text, 'center', ramp(t, q.at('verder'), 0.5)); meta(ctx, 'short tandem repeat', 300, 270, 'center', C.text2, ramp(t, q.at('verder'), 0.5)); // gevuld zodra de speler na de vwo-zin begint
       const a1 = ramp(t, q.at('acht') - 0.3, 0.5), a2 = ramp(t, q.at('elf') - 0.3, 0.5), g1 = ramp(t, q.at('banden') - 0.3, 0.5), h2 = ramp(t, q.at('allebei') - 0.3, 0.5);
       herhaalBalk(ctx, 150, 420, 8, VADER, a1 * (1 - h2), 40); herhaalBalk(ctx, 150, 500, 11, MOEDER, a2 * (1 - h2), 40);
       herhaalBalk(ctx, 150, 420, 11, VADER, h2, 40); herhaalBalk(ctx, 150, 500, 11, MOEDER, h2, 40);
-      const G = gelBoven(ctx, 1000, 170, 520, 640, [[300, 200, 100], [276, 288], [288]], { a: g1, namen: ['maat', '8 en 11', '11 en 11'], bandW: 52 });
+      const G = gelBoven(ctx, 1000, 170, 520, 640, [[300, 200, 100], [220, 288], [288]], { a: g1, namen: ['maat', '8 en 11', '11 en 11'], bandW: 52 }); // 8 en 11 herhalingen: twee duidelijk gescheiden banden (afstand vergroot)
       if (h2 > 0.01 && G.yb) { ctx.save(); ctx.globalAlpha *= h2 * g1; ctx.fillStyle = '#F4E3C8'; ctx.fillRect(1000 + 2.5 * 520 / 3 - 52, G.yb(288) - 6, 104, 12); ctx.restore(); }
-      nb(ctx, 'twee banden', null, 1560, G.yb ? G.yb(282) : 500, g1 * (1 - h2), 'left', C.goud); nb(ctx, 'één band', null, 1560, G.yb ? G.yb(288) : 500, h2, 'left', C.goud);
+      nb(ctx, 'twee banden', null, 1560, G.yb ? G.yb(250) : 500, g1 * (1 - h2), 'left', C.goud); nb(ctx, 'één band', null, 1560, G.yb ? G.yb(288) : 500, h2, 'left', C.goud);
       ctx.save(); ctx.globalAlpha *= h2; ctx.fillStyle = C.bgSchema; ctx.fillRect(1000 + 2.5 * 520 / 3 - 60, 160, 0, 0); ctx.restore(); return; }
     if (t < tTw) { const n20 = ramp(t, q.at('twintig') - 0.3, 0.6), kans = ramp(t, q.at('kans') - 0.2, 0.5);
       meta(ctx, 'op één plek: veel mensen hetzelfde', 960, 180, 'center', C.text2, ramp(t, tPer, 0.5) * (1 - n20)); menigte(ctx, 700, 300, 36, ramp(t, tPer, 0.5) * (1 - n20), -1);
@@ -223,11 +223,13 @@ Object.assign(SCENES, {
     if (t < tTerug) { const a = ramp(t, tTw, 0.6); persoon(ctx, 'daan', 700, 820, 420, { t, uit: 'blij', a }); persoon(ctx, 'thijs', 1220, 820, 420, { t, uit: 'blij', a, kijk: -1 });
       profielCode(ctx, 520, 160, 360, 110, 77, ramp(t, q.at('profiel') - 0.4, 0.5)); profielCode(ctx, 1040, 160, 360, 110, 77, ramp(t, q.at('profiel') - 0.4, 0.5)); text(ctx, '=', 960, 230, fTitel(64), C.goud, 'center');
       nb(ctx, 'eeneiige tweeling', 'hetzelfde profiel', 960, 860, a, 'center'); return; }
-    const u = ramp(t, tTerug, 0.5); bloedDruppel(ctx, 960, 400, 60, u); tx(ctx, 'terug naar het bloedspoor', 960, 640, 44, C.text, 'center', 700, u); },
+    const u = ramp(t, tTerug, 0.5); druppelIcoon(ctx, 960, 380, 60, u); tx(ctx, 'terug naar het bloedspoor', 960, 640, 44, C.text, 'center', 700, u); },
 });
 
 // ---------------- Hoofdstuk 3: sequencen, genoom, NIPT
-const DYE = { T: '#E0503E', A: '#6CC07A', C: '#4E8FD6', G: '#E8C547' }; // kleurstoffen zoals in sequencer() (Sanger, ABI): rood T, groen A, blauw C, geel G
+// kleurstoffen bij het sequencen (frisse review 31 okt 2026): de stem noemt 'rood, groen, blauw, geel' zonder letters; de toewijzing volgt palet B
+// zo veel mogelijk (A rood, T geel, C blauw; alleen G groen), anders leest een rode T als een A. SEQ_KLEUR (bibliotheek-sequencer) gaat mee.
+const DYE = { A: '#E0503E', G: '#6CC07A', C: '#4E8FD6', T: '#E8C547' }; Object.assign(SEQ_KLEUR, DYE);
 function leesStukjes(ctx, x0, y0, w, u, n, seed, a = 1, kl = '#AEB8C8') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; // losse stukjes → op hun plek in één lange volgorde
   for (let k = 0; k < n; k++) { const L = 70 + 50 * hash(seed + k), px = x0 + (k / n) * (w - L) , py = y0 + (k % 3) * 22; const sx = x0 + hash(seed + k * 3) * (w - L), sy = y0 - 260 + hash(seed + k * 5) * 200;
     const e = ease(clamp(u * 1.4 - (k % 7) * 0.06, 0, 1)); const x = lerp(sx, px, e), y = lerp(sy, py, e); ctx.fillStyle = kl; roundRect(ctx, x, y, L, 12, 4); ctx.fill();
@@ -263,7 +265,7 @@ Object.assign(SCENES, {
         nb(ctx, 'kopieën van alle lengtes', 'elk met één gekleurde base aan het eind', 1400, 560, 1, 'left'); ctx.restore(); }
       return; }
     if (t < tGen) { const f = 0.3 + 0.7 * clamp((t - tLeg) / (q.at('volgorde') - tLeg), 0, 1); sequencer(ctx, 150, 140, 1.05, { fase: f, seq: 'TACGGATC' });
-      ['rood', 'groen', 'blauw', 'geel'].forEach((w, k) => { const a = ramp(t, q.at(w) - 0.2, 0.3), x = 760 + k * 130; roundRect(ctx, x - 50, 700, 100, 100, 12); ctx.save(); ctx.globalAlpha *= a; shape(ctx, DYE['TACG'[k]], null); text(ctx, 'TACG'[k], x, 770, fTekst(56, 800), '#121A26', 'center'); ctx.restore(); });
+      ['rood', 'groen', 'blauw', 'geel'].forEach((w, k) => { const a = ramp(t, q.at(w) - 0.2, 0.3), x = 760 + k * 130; roundRect(ctx, x - 50, 700, 100, 100, 12); ctx.save(); ctx.globalAlpha *= a; shape(ctx, DYE['AGCT'[k]], null); text(ctx, 'AGCT'[k], x, 770, fTekst(56, 800), '#121A26', 'center'); ctx.restore(); });
       haak(ctx, 700, 1210, 830, C.groen, ramp(t, q.at('volgorde') - 0.2, 0.4), '', 30); tx(ctx, 'de volgorde', 1300, 770, 44, C.groen, 'left', 700, ramp(t, q.at('volgorde') - 0.2, 0.4)); return; }
     const toen = ramp(t, tGen, 0.5), nu = ramp(t, q.at('Nu') - 0.3, 0.5), pz = ramp(t, q.at('computer') - 0.4, 2.4);
     ctx.save(); ctx.globalAlpha *= toen * (1 - 0.5 * nu); kaart(ctx, 120, 170, 620, 560); tx(ctx, 'het eerste menselijke genoom', 430, 240, 34); titel(ctx, '13 jaar', 430, 420, 88, C.text, 'center', ramp(t, q.at('dertien') - 0.3, 0.4));
@@ -272,7 +274,7 @@ Object.assign(SCENES, {
       leesStukjes(ctx, 1180, 560, 560, pz, 21, 5, ramp(t, q.at('miljoenen') - 0.3, 0.5)); nb(ctx, 'puzzelstukjes', null, 1460, 330, ramp(t, q.at('puzzelstukjes') - 0.3, 0.4) * (1 - pz), 'center');
       titel(ctx, 'een genoom in een dag', 1310, 690, 52, C.goud, 'center', ramp(t, q.at('dag') - 0.4, 0.4)); ctx.restore(); },
 
-  v15(ctx, t, q) { sch(ctx); persoon(ctx, 'esra', 420, 840, 560, { t, uit: 'neutraal' }); nb(ctx, 'zwanger', null, 420, 220, 1, 'center');
+  v15(ctx, t, q) { sch(ctx); persoon(ctx, 'esra', 420, 840, 560, { outfit: 'jas', t, uit: 'neutraal' }); nb(ctx, 'zwanger', null, 420, 220, 1, 'center');
     const z = ramp(t, q.at('bloed') - 0.5, 0.6); zoomCircle(ctx, 1150, 420, 270, 470, 560, null, z, () => { ctx.fillStyle = '#3A2026'; ctx.fillRect(800, 100, 700, 700);
       for (let k = 0; k < 22; k++) { const dr = wander(k, t, 10, 0.3), x = 920 + hash(k * 3) * 460 + dr.x, y = 220 + hash(k * 5) * 400 + dr.y, kind = k % 9 === 0; ctx.save(); ctx.translate(x, y); ctx.rotate(hash(k) * 3);
         ctx.fillStyle = kind ? C.goud : '#AEB8C8'; ctx.fillRect(-26, -4, 52, 3); ctx.fillRect(-26, 2, 52, 3); ctx.restore(); } });
@@ -285,7 +287,7 @@ Object.assign(SCENES, {
       [[2, q.at('twee')], [7, q.at('zeven')], [21, q.at('twintig')]].forEach(([c, tc], k) => { const u = ramp(t, tc - 1.0, 1.0); const sx = 400 + k * 500, sy = 250, [ex, ey] = P[c - 1]; const x = lerp(sx, ex, u), y = lerp(sy, ey - 30, u);
         ctx.save(); ctx.globalAlpha *= ramp(t, q.at('gesequencet') - 0.4, 0.4); ctx.fillStyle = '#AEB8C8'; roundRect(ctx, x - 60, y - 6, 120, 12, 4); ctx.fill(); for (let j = 0; j < 6; j++) { ctx.fillStyle = DNA_BASE.base['ATCG'[Math.floor(hash(c * 9 + j) * 4)]]; ctx.fillRect(x - 54 + j * 18, y - 3, 14, 6); } ctx.restore(); });
       return; }
-    if (t < tTel) { persoon(ctx, 'esra', 360, 840, 560, { t }); const z = ramp(t, tPl, 0.6);
+    if (t < tTel) { persoon(ctx, 'esra', 360, 840, 560, { outfit: 'jas', t }); const z = ramp(t, tPl, 0.6);
       zoomCircle(ctx, 1100, 420, 280, 400, 560, null, z, () => { ctx.fillStyle = '#3A2026'; ctx.fillRect(800, 120, 700, 640); for (let k = 0; k < 20; k++) { const dr = wander(k, t, 10, 0.3), x = 880 + (k % 5) * 110 + dr.x, y = 250 + Math.floor(k / 5) * 100 + dr.y, kind = k === 7 || k === 16;
         const hl = ramp(t, q.at('tien') - 0.3, 0.4); ctx.save(); ctx.translate(x, y); ctx.rotate(hash(k) * 0.6 - 0.3); ctx.fillStyle = kind ? (hl > 0.5 ? C.goud : '#C9B896') : '#AEB8C8'; ctx.fillRect(-36, -5, 72, 4); ctx.fillRect(-36, 3, 72, 4); ctx.restore(); } });
       nb(ctx, 'uit de placenta', 'afgestorven cellen', 480, 380, ramp(t, q.at('placenta') - 0.3, 0.4), 'left', C.goud);
@@ -300,7 +302,7 @@ Object.assign(SCENES, {
 
   n17(ctx, t, q) { sch(ctx); const tMeeste = q.at('meeste') - 0.3, tLezen = q.at('Lezen') - 0.3, tTerug = q.at('Terug') - 0.2;
     const ref = 'GATTACAGCTTGACCA', mijn = 'GATTACAGTTTGACCA', bp = 70, x0 = 400;
-    if (t < tMeeste) { const r = ramp(t, q.at('computer') - 0.2, 0.6), m = ramp(t, q.at('jouw') - 0.4, 0.6), v = ramp(t, q.at('variant') - 0.3, 0.4);
+    if (t < tMeeste) { const r = ramp(t, q.at('verder'), 0.5), m = ramp(t, q.at('jouw') - 0.4, 0.6), v = ramp(t, q.at('variant') - 0.3, 0.4);
       meta(ctx, 'referentiegenoom', x0 - 40, 260, 'right', C.text2, r); enkStreng(ctx, x0, 230, ref, bp, 1, { a: r }); meta(ctx, 'jouw DNA', x0 - 40, 560, 'right', C.text2, m); enkStreng(ctx, x0, 560, mijn, bp, -1, { a: m });
       if (v > 0.01) { ctx.save(); ctx.globalAlpha *= v; ctx.strokeStyle = C.goud; ctx.lineWidth = 3; roundRect(ctx, x0 + 8 * bp - bp * 0.5, 200, bp, 400, 10); ctx.stroke(); ctx.restore(); } nb(ctx, 'variant', 'hier wijkt het af', x0 + 8 * bp, 680, v, 'center', C.goud); return; }
     if (t < tLezen) { const a = ramp(t, tMeeste, 0.5), z = ramp(t, q.at('paar') - 0.3, 0.5); ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, 200, 420, 1520, 40, 20); shape(ctx, '#AEB8C8', null);
@@ -309,7 +311,7 @@ Object.assign(SCENES, {
     if (t < tTerug) { const a = ramp(t, tLezen, 0.5), b = ramp(t, q.at('weten') - 0.3, 0.5); kaart(ctx, 200, 240, 700, 460, a); ctx.save(); ctx.globalAlpha *= a; tx(ctx, 'lezen', 550, 320, 48); sequencer(ctx, 400, 640, 3.2, { soort: 'ngs', fase: 0.6 }); vinkje(ctx, 800, 300, 1.4, C.groen); ctx.restore();
       kaart(ctx, 1020, 240, 700, 460, b); ctx.save(); ctx.globalAlpha *= b; tx(ctx, 'wat betekent een variant?', 1370, 320, 40); enkStreng(ctx, 1160, 470, 'GATTAC', 70, 1); ctx.strokeStyle = C.goud; ctx.lineWidth = 3; roundRect(ctx, 1160 + 3 * 70 - 35, 440, 70, 120, 8); ctx.stroke(); titel(ctx, '?', 1370, 660, 80, C.goud); ctx.restore();
       tx(ctx, 'het echte werk', 1370, 790, 40, C.goud, 'center', 700, ramp(t, q.at('werk') - 0.3, 0.4)); return; }
-    const u = ramp(t, tTerug, 0.5); bloedDruppel(ctx, 960, 400, 60, u); tx(ctx, 'terug naar het bloedspoor', 960, 640, 44, C.text, 'center', 700, u); },
+    const u = ramp(t, tTerug, 0.5); druppelIcoon(ctx, 960, 380, 60, u); tx(ctx, 'terug naar het bloedspoor', 960, 640, 44, C.text, 'center', 700, u); },
 });
 
 // ---------------- Hoofdstuk 4: zoeken via verre familie
@@ -335,7 +337,7 @@ Object.assign(SCENES, {
       nb(ctx, 'om familie te vinden', 'niet voor de politie', 1430, 760, ramp(t, q.at('familie') - 0.3, 0.4), 'center', C.goud); return; }
     if (t < tAm) { const c = ramp(t, tZo, 0.5), op = ramp(t, q.at('opnieuw') - 0.4, 0.5), ng = ramp(t, q.at('genoeg') - 0.3, 0.4);
       snpChip(ctx, 160, 200, 760, 380, c, t); nb(ctx, 'honderdduizenden plekken', 'waar mensen verschillen', 540, 650, ramp(t, q.at('honderdduizenden') - 0.3, 0.4), 'center');
-      ctx.save(); ctx.globalAlpha *= op; bloedDruppel(ctx, 1150, 330, 40); pijlA(ctx, 1210, 340, 1340, 340); sequencer(ctx, 1380, 420, 4, { soort: 'ngs', fase: 0.6 }); nb(ctx, 'bloedspoor opnieuw gelezen', null, 1450, 500, 1, 'center');
+      ctx.save(); ctx.globalAlpha *= op; druppelIcoon(ctx, 1150, 310, 38); pijlA(ctx, 1210, 340, 1340, 340); sequencer(ctx, 1380, 420, 4, { soort: 'ngs', fase: 0.6 }); nb(ctx, 'bloedspoor opnieuw gelezen', null, 1450, 500, 1, 'center');
         profielCode(ctx, 1150, 580, 520, 120, DADER_SEED, 1); kruisje(ctx, 1700, 640, 1.4, C.koraal, ng); meta(ctx, 'gewoon profiel: niet genoeg', 1410, 740, 'center', C.koraal, ng); ctx.restore(); return; }
     const am = ramp(t, tAm, 0.5), nl = ramp(t, q.at('Nederland') - 0.4, 0.5);
     landKaart(ctx, 260, 220, 640, 420, 'Amerika', [['politie mag zoeken', ramp(t, q.at('mag') - 0.3, 0.4), C.groen]], am);
@@ -382,7 +384,7 @@ Object.assign(SCENES, {
     if (m > 0.01) { ctx.save(); ctx.globalAlpha *= m; roundRect(ctx, 1030, 210, 780, 420, 16); ctx.strokeStyle = C.groen; ctx.lineWidth = 3; ctx.stroke(); ctx.restore(); titel(ctx, 'match', 1420, 740, 88, C.groen, 'center', m); } },
 
   n23(ctx, t, q) { sch(ctx); const tEl = q.at('Elke') - 0.3, tTerug = q.at('Terug') - 0.2;
-    if (t < tEl) { const s1 = ramp(t, q.at('stamboomsite') - 0.3, 0.5), snp = ramp(t, q.at('SNP') - 0.3, 0.5), lang = ramp(t, q.at('Lange') - 0.3, 0.6);
+    if (t < tEl) { const s1 = ramp(t, q.at('verder'), 0.5), snp = ramp(t, q.at('SNP') - 0.3, 0.5), lang = ramp(t, q.at('Lange') - 0.3, 0.6);
       tx(ctx, "STR's: lengte van een herhaling", 520, 200, 36, C.text2, 'center', 600, s1 * (1 - 0.6 * snp)); kruisje(ctx, 880, 190, 1, C.koraal, snp);
       ctx.save(); ctx.globalAlpha *= snp; tx(ctx, "SNP's: één base verschilt", 1340, 200, 40, C.goud, 'center'); enkStreng(ctx, 1080, 260, 'GATTACAG', 64, 1); enkStreng(ctx, 1080, 440, 'GATCACAG', 64, -1);
         ctx.strokeStyle = C.goud; ctx.lineWidth = 3; roundRect(ctx, 1080 + 3 * 64 - 32, 240, 64, 220, 8); ctx.stroke(); ctx.restore();
@@ -452,10 +454,10 @@ Object.assign(SCENES, {
       kaart(ctx, 1220, 240, 560, 520, uit); ctx.save(); ctx.globalAlpha *= uit; const k = clamp((t - q.at('halen')) / 3, 0, 1); for (let i = 0; i < 4; i++) celRond(ctx, 1340 + (i % 2) * 130, 400 + Math.floor(i / 2) * 120, 50, { t, organellen: false, seed: i });
       tx(ctx, 'cellen eruit, aanpassen, terug', 1500, 690, 30, C.text); pijlA(ctx, 1640, 420, 1700, 420, C.goud, ramp(t, q.at('passen') - 0.3, 0.4)); vinkje(ctx, 1730, 470, 1, C.groen, ramp(t, q.at('terug') - 0.3, 0.4)); ctx.restore(); return; }
     if (t < tSom) { const st = ramp(t, q.at('stamcellen') - 0.4, 0.5), kn = ramp(t, q.at('schakelaar') - 0.3, 0.5), hb = ramp(t, q.at('hemoglobine') - 0.6, 0.8), jr = ramp(t, q.at('2023') - 0.4, 0.5);
-      tx(ctx, 'sikkelcelziekte', 960, 150, 52, C.koraal); stamcelDeling(ctx, 360, 440, 120, { t, a: st }); nb(ctx, 'stamcellen uit het beenmerg', null, 360, 640, st, 'center');
-      ctx.save(); ctx.globalAlpha *= kn; kaart(ctx, 620, 280, 600, 340); tx(ctx, 'CRISPR knipt een schakelaar kapot', 920, 340, 32); genOpbouw(ctx, 700, 470, 440, { t, hl: 'promotor' }); kruisje(ctx, 730, 470, 1.4, C.koraal); ctx.restore();
+      tx(ctx, 'sikkelcelziekte', 960, 150, 52, C.koraal); stamcelDeling(ctx, 360, 440, 120, { t, a: st }); nb(ctx, 'stamcellen uit het beenmerg', null, 360, 262, st, 'center');
+      ctx.save(); ctx.globalAlpha *= kn; kaart(ctx, 620, 200, 600, 320); tx(ctx, 'CRISPR knipt een schakelaar kapot', 920, 260, 32); genOpbouw(ctx, 700, 390, 440, { t, hl: 'promotor' }); kruisje(ctx, 730, 390, 1.4, C.koraal); ctx.restore();
       for (let k = 0; k < 3; k++) sikkelCel(ctx, 1380 + k * 120, 360, 46, 0.3 * k, 1 - hb); ctx.save(); ctx.globalAlpha *= hb; for (let k = 0; k < 3; k++) rodeBloedcel(ctx, 1380 + k * 120, 360, 48, k, 0, hb);
-        nb(ctx, 'hemoglobine van vóór de geboorte', 'geen sikkels', 1500, 470, 1, 'center', C.groen); ctx.restore(); tx(ctx, 'goedgekeurd sinds 2023', 960, 760, 44, C.goud, 'center', 700, jr); return; }
+        nb(ctx, 'hemoglobine van vóór de geboorte', 'geen sikkels', 1500, 470, 1, 'center', C.groen); ctx.restore(); tx(ctx, 'goedgekeurd sinds 2023', 1320, 860, 40, C.goud, 'center', 700, jr); /* onder de cellenrij (stond over de rode bloedcellen) */ return; }
     const s = ramp(t, tSom, 0.5), k = ramp(t, q.at('Een', 2) - 0.3, 0.5), nl = ramp(t, q.at('Nederland') - 0.3, 0.4);
     kaart(ctx, 160, 200, 760, 560, s); ctx.save(); ctx.globalAlpha *= s; tx(ctx, 'somatisch', 540, 270, 48); persoon(ctx, 'henk', 540, 680, 340, { t }); tx(ctx, 'lichaamscellen: niet erfelijk', 540, 730, 32, C.groen); ctx.restore();
     kaart(ctx, 1000, 200, 760, 560, k); ctx.save(); ctx.globalAlpha *= k; tx(ctx, 'kiembaan', 1380, 270, 48); eicelEcht(ctx, 1180, 460, 80, { t }); zaadcelEcht(ctx, 1380, 460, 160, { t }); blastocyste(ctx, 1600, 460, 70, { t }); tx(ctx, 'eicel, zaadcel, embryo: wel erfelijk', 1380, 680, 32, C.koraal); ctx.restore();
@@ -466,11 +468,11 @@ Object.assign(SCENES, {
 
   // ---------------- Samenvatting
   n25(ctx, t, q) { sch(ctx); const it = [['kopiëren', q.at('Kopi')], ['sorteren', q.at('Sorteren')], ['lezen', q.at('Lezen')], ['vinden', q.at('vinden')]];
-    bloedDruppel(ctx, 960, 180, 30, ramp(t, 0.1, 0.4) * (1 - 0.6 * ramp(t, it[0][1], 0.5)));
+    druppelIcoon(ctx, 960, 160, 30, ramp(t, 0.1, 0.4) * (1 - 0.6 * ramp(t, it[0][1], 0.5)));
     it.forEach(([w, tt], k) => { const a = ramp(t, tt - 0.4, 0.5), x = 300 + k * 440, hl = fade(t, tt - 0.4, k < 3 ? it[k + 1][1] - 0.4 : 1e9, 0.3); kaart(ctx, x - 190, 280, 380, 440, a, hl > 0.5 ? C.goud : C.line); ctx.save(); ctx.globalAlpha *= a;
       tx(ctx, w, x, 340, 40, hl > 0.5 ? C.goud : C.text);
       if (k === 0) pcrBuisje(ctx, x, 380, 8, { dna: 5 }); if (k === 1) gelBoven(ctx, x - 110, 380, 220, 280, [[400, 200], [282, 270]], { polen: 0 });
-      if (k === 2) ['T', 'A', 'C', 'G'].forEach((b, j) => { roundRect(ctx, x - 150 + j * 76, 470, 64, 64, 8); shape(ctx, DYE[b], null); text(ctx, b, x - 118 + j * 76, 515, fTekst(36, 800), '#121A26', 'center'); });
+      if (k === 2) ['A', 'C', 'G', 'T'].forEach((b, j) => { roundRect(ctx, x - 150 + j * 76, 470, 64, 64, 8); shape(ctx, DYE[b], null); text(ctx, b, x - 118 + j * 76, 515, fTekst(36, 800), '#121A26', 'center'); });
       if (k === 3) { ctx.strokeStyle = C.line; ctx.lineWidth = 2; [[x - 30, 420, x + 30, 420], [x, 420, x, 470], [x - 80, 470, x + 80, 470], [x - 80, 470, x - 80, 510], [x + 80, 470, x + 80, 510], [x - 80, 550, x - 80, 600], [x + 80, 550, x + 80, 600]].forEach(([a1, b1, c1, d1]) => { ctx.beginPath(); ctx.moveTo(a1, b1); ctx.lineTo(c1, d1); ctx.stroke(); });
         sbSymbool(ctx, x - 30, 420, 18, 'm', false, { a }); sbSymbool(ctx, x + 30, 420, 18, 'v', false, { a }); sbSymbool(ctx, x - 80, 530, 18, 'v', false, { a }); sbSymbool(ctx, x + 80, 530, 18, 'm', false, { a }); sbSymbool(ctx, x - 80, 620, 20, 'm', false, { vraag: true, a }); sbSymbool(ctx, x + 80, 620, 20, 'm', false, { hl: 1, a }); }
       ctx.restore(); }); },

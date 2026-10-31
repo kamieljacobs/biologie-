@@ -45,6 +45,11 @@ function bloedDruppel(ctx, x, y, r, a = 1, uitloop = 1) { if (a <= 0.01) return;
   ctx.moveTo(x - r, y); ctx.bezierCurveTo(x - r, y - r * 1.3, x + r, y - r * 1.3, x + r, y); ctx.bezierCurveTo(x + r, y + r * 0.6, x + r * 0.35, y + r * 0.9, x + r * 0.18, y + r * (1 + 1.4 * uitloop));
   ctx.quadraticCurveTo(x, y + r * (1.25 + 1.5 * uitloop), x - r * 0.18, y + r * (1 + 1.4 * uitloop)); ctx.bezierCurveTo(x - r * 0.35, y + r * 0.9, x - r, y + r * 0.6, x - r, y); ctx.closePath();
   shape(ctx, BLOEDK, BLOEDKR, 1.5); ctx.fillStyle = rgba('#F2F2EE', 0.35); ctx.beginPath(); ctx.ellipse(x - r * 0.35, y - r * 0.35, r * 0.22, r * 0.14, -0.6, 0, 6.283); ctx.fill(); ctx.restore(); }
+// Druppel als los pictogram (frisse review 31 okt 2026): klassieke druppelvorm, punt boven, ronde onderkant; bloedDruppel
+// (bol boven, uitloop naar beneden) is alleen voor druppels die op de ruit naar beneden lopen, los leest hij als een kaartspeld.
+function druppelIcoon(ctx, x, y, r, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const cy = y + r, tip = cy - 2.3 * r; ctx.beginPath(); ctx.moveTo(x, tip);
+  ctx.bezierCurveTo(x + r * 0.3, cy - r * 1.5, x + r, cy - r * 0.7, x + r, cy); ctx.arc(x, cy, r, 0, Math.PI); ctx.bezierCurveTo(x - r, cy - r * 0.7, x - r * 0.3, cy - r * 1.5, x, tip); ctx.closePath();
+  shape(ctx, BLOEDK, BLOEDKR, 1.5); ctx.fillStyle = rgba('#F2F2EE', 0.35); ctx.beginPath(); ctx.ellipse(x - r * 0.4, cy - r * 0.25, r * 0.2, r * 0.13, -1.0, 0, 6.283); ctx.fill(); ctx.restore(); }
 // Wattenstaafje (± 15 cm, wattenkop ± 5 × 12 mm): steel wit-grijs, kop crème. (x,y) = greep, an = richting naar de kop, len in px.
 function wattenstaafje(ctx, x, y, len, an, a = 1, bloed = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(an);
   ctx.strokeStyle = '#DCE3EC'; ctx.lineWidth = Math.max(2, len * 0.03); ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(len * 0.9, 0); ctx.stroke();
@@ -120,7 +125,7 @@ function bruinvis(ctx, x, y, s = 1, o = {}) { const { a = 1, kijk = 1, t = 0, ro
   const Z = _zwemLijf(200, -170, top, ond, golf);
   const [px, py] = Z.pt(1, 0), pa = Z.hoek(1); ctx.save(); ctx.translate(px, py); ctx.rotate(pa + zw * Math.cos(fase - 3.2) * 0.3);
   vul(ctx, [[6, -6], [-24, -8], [-50, -15], [-62, -10], [-52, 0], [-62, 10], [-50, 15], [-24, 8], [6, 6]], mantel, rand, 2); ctx.restore();
-  _vin(ctx, Z, 0.46, 54, [[24, 2], [2, -30], [-24, 0]], mantel, rand);
+  _vin(ctx, Z, 0.46, 46, [[30, 14], [24, 6], [4, -36], [-22, 6], [-30, 14]], mantel, rand); // basis zakt in het lijf (dat erna getekend wordt): de vin zit vast (frisse review 31 okt 2026)
   vul(ctx, Z.O, flank, rand, 2);
   binnen(ctx, Z.O, () => { const T = [], B = []; for (let i = 0; i <= 24; i++) { const u = i / 24; T.push(Z.pt(u, _prof(top, u) * 0.3 - 6)); B.push(Z.pt(u, -_prof(ond, u) * 0.25)); }
     vul(ctx, T.concat([[-300, -120], [320, -120]]), mantel); vul(ctx, B.concat([[-300, 120], [320, 120]]), buik);
@@ -150,7 +155,7 @@ function chromStaaf(ctx, x, y, len, w, kl, segs = [], a = 1, segKl = C.goud, snp
   ctx.save(); roundRect(ctx, x - w / 2, y, w, len, w / 2); ctx.clip(); for (const [u0, u1] of segs) { ctx.fillStyle = segKl; ctx.fillRect(x - w / 2, y + u0 * len, w, (u1 - u0) * len); }
   if (snp > 0.01) { ctx.globalAlpha *= snp; for (let k = 0; k < 40; k++) { const u = (k + 0.5) / 40; ctx.fillStyle = '#121A26'; ctx.fillRect(x - w / 2, y + u * len - 1, w, 2); } } ctx.restore(); ctx.restore(); }
 // Stappenbalk voor genetische modificatie (vijf stappen); act = huidige stap (1..5), a = zichtbaarheid
-function stappenBalk(ctx, act, a = 1, namen = ['mRNA', 'cDNA', 'knippen', 'plakken', 'in bacteriën']) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const x0 = 420, w = 1400, sw = w / 5;
+function stappenBalk(ctx, act, a = 1, namen = ['mRNA', 'cDNA', 'knippen', 'plakken', 'in bacteriën']) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const x0 = 480, w = 1380, sw = w / 5; /* begint rechts van de kopregel 'havo · vwo · dna 7/8' */
   for (let k = 0; k < 5; k++) { const x = x0 + k * sw, on = k + 1 === Math.round(act), klaar = k + 1 < act - 0.3; roundRect(ctx, x + 6, 40, sw - 12, 64, 12); shape(ctx, on ? rgba(C.goud, 0.22) : rgba(C.fill, 0.8), on ? C.goud : C.line, on ? 2.5 : 1.2);
     text(ctx, (k + 1) + '', x + 34, 84, fTekst(30, 800), on ? C.goud : (klaar ? C.groen : C.text2), 'center'); text(ctx, namen[k], x + 60, 82, fTekst(28, on ? 700 : 600), on ? C.text : C.text2, 'left'); }
   ctx.restore(); }

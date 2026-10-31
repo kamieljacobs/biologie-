@@ -7,7 +7,7 @@ Beeld-remake, takes behouden (brief `films/OPWAARDEREN-DNA-7-8-TECHNIEKEN.md`). 
 |---|---|---|
 | n0 opening | Dr. Kim in plaatsdelict-overall neemt het bloed van de ruit af (castpersonage, geen naam in beeld) | een anonieme figurant van de forensische opsporing (bestaat nog niet in het castboek) |
 | n0 slot | de onbekende dader als lege kaart met '?' en een menigte-silhouet met vergrootglas (geen persoon getekend, de opening verraadt de achterneef niet) | Erik al in de opening laten zien |
-| n14 | kleurstoffen zoals de bibliotheek-`sequencer` (ABI: T rood, A groen, C blauw, G geel), zodat 'rood, groen, blauw, geel' uit de stem klopt; de basen zelf blijven in palet B. Kan verwarren: rood = T, terwijl de base A in palet B rood is | eigen kleurstofkleuren buiten palet B (dan klopt de stem niet meer) |
+| n14 | ~~kleurstoffen als ABI (T rood, A groen …)~~ frisse review 31 okt 2026: verwarde met palet B (rood = A). Nu A rood, T geel, C blauw, G groen; de stem ('rood, groen, blauw, geel') noemt geen letters en klopt nog | eigen kleurstofkleuren buiten palet B (dan klopt de stem niet meer) |
 | v10/n11 | nieuwe tekening bruinvis (zie Voor de bibliotheek) naast de goedgekeurde zeehond, op een strand (Macro-dag) | alleen schema met drie monsterbuisjes, zonder dieren |
 | n21 | rechercheurs niet getekend; Dr. Kim (lab) neemt het wattenstaafje af bij Erik | Bilal (stagiair forensisch onderzoek) of een nieuwe figurant-rechercheur |
 | n21 | achterneef = Joost, dader = Erik (zoals 1.4; LEVENSLOOP zegt ook dat Erik Joosts buurman is: beide kan) | Erik en Joost niet als familie gebruiken |
