@@ -1,0 +1,666 @@
+[
+ {
+  "id": "s01",
+  "kind": "speech",
+  "chapter": "Cold open",
+  "level": "basis",
+  "lines": [
+   "Dit is een gel uit het practicum."
+  ],
+  "display": "Dit is een gel uit het practicum.",
+  "voice": "Dit is een gel uit het practicum.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 0.32,
+   "tot": 2.875,
+   "regel": "H0 r1"
+  }
+ },
+ {
+  "id": "s02",
+  "kind": "speech",
+  "chapter": "Cold open",
+  "level": "basis",
+  "lines": [
+   "Elke baan is één monster, elke band een stuk DNA van één bepaalde lengte."
+  ],
+  "display": "Elke baan is één monster, elke band een stuk DNA van één bepaalde lengte.",
+  "voice": "Elke baan is één monster, elke band een stuk DNA van één bepaalde lengte.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 2.925,
+   "tot": 8.912,
+   "regel": "H0 r2"
+  }
+ },
+ {
+  "id": "s03",
+  "kind": "speech",
+  "chapter": "Cold open",
+  "level": "basis",
+  "lines": [
+   "Maar hoe lees je zo’n foto? En kun je hem vertrouwen?"
+  ],
+  "display": "Maar hoe lees je zo’n foto? En kun je hem vertrouwen?",
+  "voice": "Maar hoe lees je zo’n foto? En kun je hem vertrouwen?",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 8.962,
+   "tot": 13.339,
+   "regel": "H0 r3"
+  }
+ },
+ {
+  "id": "tt",
+  "kind": "title",
+  "chapter": "Titel",
+  "level": "basis",
+  "text": "Op lengte gesorteerd"
+ },
+ {
+  "id": "s04",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 1 — Hoe de gel werkt",
+  "level": "basis",
+  "lines": [
+   "Een gel is een netwerk van agarose, met overal kleine gaatjes."
+  ],
+  "display": "Een gel is een netwerk van agarose, met overal kleine gaatjes.",
+  "voice": "Een gel is een netwerk van agarose, met overal kleine gaatjes.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 17.609,
+   "tot": 22.374,
+   "regel": "H1 r1"
+  }
+ },
+ {
+  "id": "s05",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 1 — Hoe de gel werkt",
+  "level": "basis",
+  "lines": [
+   "Met zware laadbuffer zakt het PCR-product naar de bodem van het putje."
+  ],
+  "display": "Met zware laadbuffer zakt het PCR-product naar de bodem van het putje.",
+  "voice": "Met zware laadbuffer zakt het PCR-product naar de bodem van het putje.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 22.424,
+   "tot": 27.261,
+   "regel": "H1 r2"
+  }
+ },
+ {
+  "id": "s06",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 1 — Hoe de gel werkt",
+  "level": "basis",
+  "lines": [
+   "DNA is negatief geladen. Zet je spanning op de gel, dan beweegt het naar de pluspool."
+  ],
+  "display": "DNA is negatief geladen. Zet je spanning op de gel, dan beweegt het naar de pluspool.",
+  "voice": "DNA is negatief geladen. Zet je spanning op de gel, dan beweegt het naar de pluspool.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 27.311,
+   "tot": 33.429,
+   "regel": "H1 r3"
+  }
+ },
+ {
+  "id": "s07",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 1 — Hoe de gel werkt",
+  "level": "basis",
+  "lines": [
+   "De putjes liggen daarom bij de minpool: de zwarte elektrode."
+  ],
+  "display": "De putjes liggen daarom bij de minpool: de zwarte elektrode.",
+  "voice": "De putjes liggen daarom bij de minpool: de zwarte elektrode.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 33.508,
+   "tot": 37.606,
+   "regel": "H1 r4"
+  }
+ },
+ {
+  "id": "s08",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 1 — Hoe de gel werkt",
+  "level": "basis",
+  "lines": [
+   "Korte stukken glippen makkelijk door de gaatjes. Lange stukken blijven vaker haken."
+  ],
+  "display": "Korte stukken glippen makkelijk door de gaatjes. Lange stukken blijven vaker haken.",
+  "voice": "Korte stukken glippen makkelijk door de gaatjes. Lange stukken blijven vaker haken.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 37.685,
+   "tot": 42.932,
+   "regel": "H1 r5"
+  }
+ },
+ {
+  "id": "s09",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 1 — Hoe de gel werkt",
+  "level": "basis",
+  "lines": [
+   "Zo worden de stukken gesorteerd op lengte: hoe korter, hoe verder."
+  ],
+  "display": "Zo worden de stukken gesorteerd op lengte: hoe korter, hoe verder.",
+  "voice": "Zo worden de stukken gesorteerd op lengte: hoe korter, hoe verder.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 42.982,
+   "tot": 47.739,
+   "regel": "H1 r6"
+  }
+ },
+ {
+  "id": "s10",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 1 — Hoe de gel werkt",
+  "level": "basis",
+  "lines": [
+   "Alle kopieën met dezelfde lengte komen even ver. Samen vormen ze één band."
+  ],
+  "display": "Alle kopieën met dezelfde lengte komen even ver. Samen vormen ze één band.",
+  "voice": "Alle kopieën met dezelfde lengte komen even ver. Samen vormen ze één band.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 47.811,
+   "tot": 53.746,
+   "regel": "H1 r7"
+  }
+ },
+ {
+  "id": "s11",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 1 — Hoe de gel werkt",
+  "level": "basis",
+  "lines": [
+   "Hoe meer agarose, hoe kleiner de gaatjes. Voor korte STR-stukken neem je drie tot vier procent."
+  ],
+  "display": "Hoe meer agarose, hoe kleiner de gaatjes. Voor korte STR-stukken neem je drie tot vier procent.",
+  "voice": "Hoe meer agarose, hoe kleiner de gaatjes. Voor korte STR-stukken neem je drie tot vier procent.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 53.796,
+   "tot": 61.023,
+   "regel": "H1 r8"
+  }
+ },
+ {
+  "id": "s12",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 1 — Hoe de gel werkt",
+  "level": "basis",
+  "lines": [
+   "DNA is kleurloos. Pas met een kleurstof en blauw licht zie je de banden."
+  ],
+  "display": "DNA is kleurloos. Pas met een kleurstof en blauw licht zie je de banden.",
+  "voice": "DNA is kleurloos. Pas met een kleurstof en blauw licht zie je de banden.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 61.073,
+   "tot": 66.33,
+   "regel": "H1 r9"
+  }
+ },
+ {
+  "id": "s13",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 2 — Lengte aflezen",
+  "level": "basis",
+  "lines": [
+   "De lengte lees je af met de marker: stukken DNA van 50, 100, 150 basenparen, enzovoort."
+  ],
+  "display": "De lengte lees je af met de marker: stukken DNA van 50, 100, 150 basenparen, enzovoort.",
+  "voice": "De lengte lees je af met de marker: stukken DNA van vijftig, honderd, honderdvijftig basenparen, enzovoort.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 68.442,
+   "tot": 76.308,
+   "regel": "H2 r1"
+  }
+ },
+ {
+  "id": "s14",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 2 — Lengte aflezen",
+  "level": "basis",
+  "lines": [
+   "Kijk tussen welke twee markerbanden je band ligt."
+  ],
+  "display": "Kijk tussen welke twee markerbanden je band ligt.",
+  "voice": "Kijk tussen welke twee markerbanden je band ligt.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 76.387,
+   "tot": 79.325,
+   "regel": "H2 r2"
+  }
+ },
+ {
+  "id": "s15",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 2 — Lengte aflezen",
+  "level": "basis",
+  "lines": [
+   "Deze ligt tussen 100 en 150, dichter bij 150: ongeveer 140 basenparen."
+  ],
+  "display": "Deze ligt tussen 100 en 150, dichter bij 150: ongeveer 140 basenparen.",
+  "voice": "Deze ligt tussen honderd en honderdvijftig, dichter bij honderdvijftig: ongeveer honderdveertig basenparen.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 79.454,
+   "tot": 86.391,
+   "regel": "H2 r3"
+  }
+ },
+ {
+  "id": "s16",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 2 — Lengte aflezen",
+  "level": "basis",
+  "lines": [
+   "Hoger in de gel liggen de markerbanden dichter op elkaar."
+  ],
+  "display": "Hoger in de gel liggen de markerbanden dichter op elkaar.",
+  "voice": "Hoger in de gel liggen de markerbanden dichter op elkaar.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 86.441,
+   "tot": 90.238,
+   "regel": "H2 r4"
+  }
+ },
+ {
+  "id": "s17",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 2 — Lengte aflezen",
+  "level": "basis",
+  "lines": [
+   "De lengte vertelt ook welke STR het is: elke STR heeft zijn eigen lengtegebied."
+  ],
+  "display": "De lengte vertelt ook welke STR het is: elke STR heeft zijn eigen lengtegebied.",
+  "voice": "De lengte vertelt ook welke STR het is: elke STR heeft zijn eigen lengtegebied.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 90.288,
+   "tot": 96.805,
+   "regel": "H2 r5"
+  }
+ },
+ {
+  "id": "s18",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 2 — Lengte aflezen",
+  "level": "basis",
+  "lines": [
+   "140 past bij de STR op chromosoom 8. Daar is de lengte 88 plus 4 keer het aantal herhalingen."
+  ],
+  "display": "140 past bij de STR op chromosoom 8. Daar is de lengte 88 plus 4 keer het aantal herhalingen.",
+  "voice": "Honderdveertig past bij de STR op chromosoom acht. Daar is de lengte achtentachtig, plus vier keer het aantal herhalingen.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 96.855,
+   "tot": 105.173,
+   "regel": "H2 r6"
+  }
+ },
+ {
+  "id": "s19",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 2 — Lengte aflezen",
+  "level": "basis",
+  "lines": [
+   "140 min 88 is 52. Gedeeld door 4 is 13: allel 13."
+  ],
+  "display": "140 min 88 is 52. Gedeeld door 4 is 13: allel 13.",
+  "voice": "Honderdveertig min achtentachtig is tweeënvijftig. Gedeeld door vier is dertien: allel dertien.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 105.252,
+   "tot": 112.599,
+   "regel": "H2 r7"
+  }
+ },
+ {
+  "id": "s20",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 2 — Lengte aflezen",
+  "level": "basis",
+  "lines": [
+   "Sneller gaat het met een allelladder: ligt je band even hoog als een ladderband, dan is het hetzelfde allel."
+  ],
+  "display": "Sneller gaat het met een allelladder: ligt je band even hoog als een ladderband, dan is het hetzelfde allel.",
+  "voice": "Sneller gaat het met een allelladder: ligt je band even hoog als een ladderband, dan is het hetzelfde allel.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 112.649,
+   "tot": 119.676,
+   "regel": "H2 r8"
+  }
+ },
+ {
+  "id": "s21",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 3 — Profielen vergelijken",
+  "level": "basis",
+  "lines": [
+   "Van elke STR heb je twee allelen: één van je vader en één van je moeder."
+  ],
+  "display": "Van elke STR heb je twee allelen: één van je vader en één van je moeder.",
+  "voice": "Van elke STR heb je twee allelen: één van je vader en één van je moeder.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 121.786,
+   "tot": 127.887,
+   "regel": "H3 r1"
+  }
+ },
+ {
+  "id": "s22",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 3 — Profielen vergelijken",
+  "level": "basis",
+  "lines": [
+   "Verschillen ze, dan zie je twee banden. Zijn ze gelijk, dan zie je één band, extra fel."
+  ],
+  "display": "Verschillen ze, dan zie je twee banden. Zijn ze gelijk, dan zie je één band, extra fel.",
+  "voice": "Verschillen ze, dan zie je twee banden. Zijn ze gelijk, dan zie je één band, extra fel.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 127.951,
+   "tot": 134.548,
+   "regel": "H3 r2"
+  }
+ },
+ {
+  "id": "s23",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 3 — Profielen vergelijken",
+  "level": "basis",
+  "lines": [
+   "Amelogenine toont het geslacht: X en Y is een man, alleen X een vrouw."
+  ],
+  "display": "Amelogenine toont het geslacht: X en Y is een man, alleen X een vrouw.",
+  "voice": "Amelogenine toont het geslacht: iks en ei is een man, alleen iks een vrouw.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 134.598,
+   "tot": 140.741,
+   "regel": "H3 r3"
+  }
+ },
+ {
+  "id": "s24",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 3 — Profielen vergelijken",
+  "level": "basis",
+  "lines": [
+   "Om te vergelijken trek je een lijn door elke band van het spoor. Een band op dezelfde lijn is hetzelfde allel."
+  ],
+  "display": "Om te vergelijken trek je een lijn door elke band van het spoor. Een band op dezelfde lijn is hetzelfde allel.",
+  "voice": "Om te vergelijken trek je een lijn door elke band van het spoor. Een band op dezelfde lijn is hetzelfde allel.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 140.825,
+   "tot": 147.902,
+   "regel": "H3 r4"
+  }
+ },
+ {
+  "id": "s25",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 3 — Profielen vergelijken",
+  "level": "basis",
+  "lines": [
+   "Verdachte B heeft hier een band die niet in het spoor zit. Eén verschil is genoeg: het spoor is niet van B."
+  ],
+  "display": "Verdachte B heeft hier een band die niet in het spoor zit. Eén verschil is genoeg: het spoor is niet van B.",
+  "voice": "Verdachte B heeft hier een band die niet in het spoor zit. Eén verschil is genoeg: het spoor is niet van B.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 147.952,
+   "tot": 155.269,
+   "regel": "H3 r5"
+  }
+ },
+ {
+  "id": "s26",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 3 — Profielen vergelijken",
+  "level": "basis",
+  "lines": [
+   "Bij verdachte A passen alle banden, bij elke STR."
+  ],
+  "display": "Bij verdachte A passen alle banden, bij elke STR.",
+  "voice": "Bij verdachte A passen alle banden, bij elke STR.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 155.319,
+   "tot": 159.697,
+   "regel": "H3 r6"
+  }
+ },
+ {
+  "id": "s27",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 3 — Profielen vergelijken",
+  "level": "basis",
+  "lines": [
+   "Dat is sterk bewijs, maar geen absoluut bewijs: een ander kan toevallig hetzelfde profiel hebben."
+  ],
+  "display": "Dat is sterk bewijs, maar geen absoluut bewijs: een ander kan toevallig hetzelfde profiel hebben.",
+  "voice": "Dat is sterk bewijs, maar geen absoluut bewijs: een ander kan toevallig hetzelfde profiel hebben.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 159.826,
+   "tot": 166.224,
+   "regel": "H3 r7"
+  }
+ },
+ {
+  "id": "s28",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 3 — Profielen vergelijken",
+  "level": "basis",
+  "lines": [
+   "Hoe meer STR’s, hoe kleiner die kans. Forensische labs onderzoeken er meer dan twintig."
+  ],
+  "display": "Hoe meer STR’s, hoe kleiner die kans. Forensische labs onderzoeken er meer dan twintig.",
+  "voice": "Hoe meer STR’s, hoe kleiner die kans. Forensische labs onderzoeken er meer dan twintig.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 166.303,
+   "tot": 172.5,
+   "regel": "H3 r8"
+  }
+ },
+ {
+  "id": "s29",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 4 — Controles en rare banden",
+  "level": "basis",
+  "lines": [
+   "Kijk eerst naar de negatieve controle: water in plaats van DNA. Daar hoort geen band in."
+  ],
+  "display": "Kijk eerst naar de negatieve controle: water in plaats van DNA. Daar hoort geen band in.",
+  "voice": "Kijk eerst naar de negatieve controle: water in plaats van DNA. Daar hoort geen band in.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 174.582,
+   "tot": 181.358,
+   "regel": "H4 r1"
+  }
+ },
+ {
+  "id": "s30",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 4 — Controles en rare banden",
+  "level": "basis",
+  "lines": [
+   "Onderaan zie je vaak wel een vage vlek: primer-dimeren, primers die aan elkaar plakken."
+  ],
+  "display": "Onderaan zie je vaak wel een vage vlek: primer-dimeren, primers die aan elkaar plakken.",
+  "voice": "Onderaan zie je vaak wel een vage vlek: primer-dimeren, primers die aan elkaar plakken.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 181.447,
+   "tot": 187.655,
+   "regel": "H4 r2"
+  }
+ },
+ {
+  "id": "s31",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 4 — Controles en rare banden",
+  "level": "basis",
+  "lines": [
+   "Een echte band daarin betekent besmetting: dan kun je geen enkele band vertrouwen."
+  ],
+  "display": "Een echte band daarin betekent besmetting: dan kun je geen enkele band vertrouwen.",
+  "voice": "Een echte band daarin betekent besmetting: dan kun je geen enkele band vertrouwen.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 187.744,
+   "tot": 192.831,
+   "regel": "H4 r3"
+  }
+ },
+ {
+  "id": "s32",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 4 — Controles en rare banden",
+  "level": "basis",
+  "lines": [
+   "De positieve controle bevat DNA met een bekend profiel. Zie je die banden, dan werkten de PCR en de gel."
+  ],
+  "display": "De positieve controle bevat DNA met een bekend profiel. Zie je die banden, dan werkten de PCR en de gel.",
+  "voice": "De positieve controle bevat DNA met een bekend profiel. Zie je die banden, dan werkten de PCR en de gel.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 192.881,
+   "tot": 200.554,
+   "regel": "H4 r4"
+  }
+ },
+ {
+  "id": "s33",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 4 — Controles en rare banden",
+  "level": "basis",
+  "lines": [
+   "Blijft die baan leeg, dan zegt een lege baan bij een verdachte niets."
+  ],
+  "display": "Blijft die baan leeg, dan zegt een lege baan bij een verdachte niets.",
+  "voice": "Blijft die baan leeg, dan zegt een lege baan bij een verdachte niets.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 200.628,
+   "tot": 205.195,
+   "regel": "H4 r5"
+  }
+ },
+ {
+  "id": "s34",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 4 — Controles en rare banden",
+  "level": "basis",
+  "lines": [
+   "Een zwak bandje net onder een sterke band, vier basenparen korter, is een stotterband."
+  ],
+  "display": "Een zwak bandje net onder een sterke band, vier basenparen korter, is een stotterband.",
+  "voice": "Een zwak bandje net onder een sterke band, vier basenparen korter, is een stotterband.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 205.245,
+   "tot": 211.358,
+   "regel": "H4 r6"
+  }
+ },
+ {
+  "id": "s35",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 4 — Controles en rare banden",
+  "level": "basis",
+  "lines": [
+   "Het polymerase sloeg bij de PCR één herhaling over: het is geen extra allel."
+  ],
+  "display": "Het polymerase sloeg bij de PCR één herhaling over: het is geen extra allel.",
+  "voice": "Het polymerase sloeg bij de PCR één herhaling over: het is geen extra allel.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 211.492,
+   "tot": 217.149,
+   "regel": "H4 r7"
+  }
+ },
+ {
+  "id": "s36",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 4 — Controles en rare banden",
+  "level": "basis",
+  "lines": [
+   "Meer dan twee banden bij één STR? Dan zit er DNA van meer personen in, bijvoorbeeld van de eigenaar die de scherven opraapte."
+  ],
+  "display": "Meer dan twee banden bij één STR? Dan zit er DNA van meer personen in, bijvoorbeeld van de eigenaar die de scherven opraapte.",
+  "voice": "Meer dan twee banden bij één STR? Dan zit er DNA van meer personen in, bijvoorbeeld van de eigenaar die de scherven opraapte.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 217.199,
+   "tot": 225.766,
+   "regel": "H4 r8"
+  }
+ },
+ {
+  "id": "s37",
+  "kind": "speech",
+  "chapter": "Samenvatting — Kort gezegd",
+  "level": "basis",
+  "lines": [
+   "Kort gezegd: de gel sorteert op lengte, en de lengte geeft het allel."
+  ],
+  "display": "Kort gezegd: de gel sorteert op lengte, en de lengte geeft het allel.",
+  "voice": "Kort gezegd: de gel sorteert op lengte, en de lengte geeft het allel.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 226.148,
+   "tot": 231.583,
+   "regel": "H5 r1"
+  }
+ },
+ {
+  "id": "s38",
+  "kind": "speech",
+  "chapter": "Samenvatting — Kort gezegd",
+  "level": "basis",
+  "lines": [
+   "Kijk eerst naar je controles. Vergelijk daarna het spoor, band voor band."
+  ],
+  "display": "Kijk eerst naar je controles. Vergelijk daarna het spoor, band voor band.",
+  "voice": "Kijk eerst naar je controles. Vergelijk daarna het spoor, band voor band.",
+  "src": {
+   "take": "gelfilm.mp3",
+   "van": 231.633,
+   "tot": 236.99,
+   "regel": "H5 r2"
+  }
+ },
+ {
+  "id": "eind",
+  "kind": "card",
+  "chapter": "Eindkaart",
+  "level": "basis",
+  "lines": [
+   "De gel sorteert DNA op lengte: hoe korter, hoe verder.",
+   "Met de marker lees je de lengte af; de lengte geeft de STR en het allel.",
+   "Kijk eerst naar de controles, vergelijk dan het spoor band voor band."
+  ]
+ }
+]
