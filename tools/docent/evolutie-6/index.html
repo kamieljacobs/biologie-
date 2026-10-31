@@ -1,0 +1,898 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../../../js/teller.js" data-root="../../../"></script>
+<link rel="icon" href="../../../img/icoon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../../img/icoon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../../../img/icoon/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Les 6 · Hoe een soort er twee wordt · Evolutie · Biologie bij Kamiel</title>
+<meta name="description" content="Uitleg in stappen voor de docent bij evolutie les 6: wat is een soort, de muilezel als hybride, genenstroom en een barrière, divergente evolutie, reproductieve isolatie vóór en ná de bevruchting, en (vwo) allopatrische en sympatrische soortvorming bij cichliden.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../../huisstijl.css">
+<script src="../../huisstijl.js"></script>
+<style>
+/* Uitleg in stappen · Evolutie · les 6 · versie 1.0 · 31 oktober 2026
+   Docententool: per scherm korte animaties die de docent stap voor stap afspeelt (klik, → of de presenter).
+   Tekenruimte 1920x1080 op canvas; kleuren volgen licht/donker van de site. Inhoud en volgorde: zie SCHERMEN in het script. */
+.tool-kop{padding-bottom:10px}
+.tool-kop p a{color:var(--goud-text)}
+.bediening{display:flex;flex-wrap:wrap;gap:10px 12px;align-items:center;margin:4px 0 14px}
+.bediening .niv-label{font:600 12px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-right:6px}
+.bediening .sp{flex:1}
+.knop.stil[aria-pressed="true"]{background:var(--goud-soft);box-shadow:inset 0 0 0 1px var(--goud)}
+#speler{display:flex;flex-direction:column;gap:10px}
+.breed{width:min(100%, calc((100vh - 220px) * 16 / 9));min-width:min(100%,320px);margin-inline:auto}
+#stage{position:relative;aspect-ratio:16/9;background:var(--surface);border:1px solid var(--line2);border-radius:var(--radius);overflow:hidden;cursor:pointer}
+#stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.cap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;align-items:center;background:var(--surface);border:1px solid var(--line2);border-radius:12px;padding:12px 16px;min-height:66px}
+.cap .txt{font-size:21px;line-height:1.4;min-width:0}
+.cap .txt b{color:var(--goud-text)}
+.cap .vwo-tag{display:inline-block;font:600 11px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--paars);border:1px solid var(--paars);border-radius:999px;padding:4px 8px;margin-right:8px;vertical-align:3px}
+.cap .notitie{grid-column:1/-1;font-size:15px;color:var(--text2);border-top:1px dashed var(--line2);padding-top:6px}
+.cap .notitie:empty{display:none}
+.cap .notitie::before{content:"Docent · ";font:600 11px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3)}
+.dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;max-width:180px}
+.dots i{width:10px;height:10px;border-radius:50%;background:var(--line2);display:block}
+.dots i.done{background:var(--text3)}
+.dots i.cur{background:var(--goud)}
+.dots i.vwo{box-shadow:0 0 0 2px var(--paars)}
+.knoppen{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.knoppen .teller{font:600 13px/1 var(--meta);letter-spacing:.06em;color:var(--text2);margin-left:auto}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.chip{background:none;color:var(--text2);border:1px solid var(--line2);border-radius:999px;padding:4px 12px;font-size:14px;min-height:34px}
+.chip:hover{color:var(--text)}
+.chip.cur{background:var(--goud);color:var(--goud-ink);border-color:var(--goud)}
+.chip .n{font:600 12px var(--meta);margin-right:5px}
+.chip.deel{border:0;padding-left:0;font:600 12px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3);cursor:default}
+.hint{color:var(--text3);font-size:14px;margin-top:2px}
+kbd{font:600 12px var(--meta);border:1px solid var(--line2);border-radius:4px;padding:0 5px}
+.draai{display:none}
+@media (max-width:640px){
+  .draai{display:block;margin:0 0 10px;color:var(--text2)}
+  .cap .txt{font-size:17px}
+  .cap{grid-template-columns:1fr}
+  .dots{justify-content:flex-start;max-width:none}
+  .hint{display:none}
+}
+body.presenteer{overflow:hidden}
+body.presenteer .wrap{max-width:none;padding:10px 16px}
+body.presenteer .sitenav,body.presenteer .tool-kop,body.presenteer .bediening,body.presenteer .chips,body.presenteer .hint,body.presenteer .cap .notitie,body.presenteer details.docent,body.presenteer .tool-voet,body.presenteer .draai,body.presenteer footer{display:none!important}
+body.presenteer .cap .txt{font-size:24px}
+#stopPres{display:none}
+body.presenteer #stopPres{display:inline-flex}
+details.briefing{margin-top:18px}
+details.briefing>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;min-height:44px}
+details.briefing>summary::-webkit-details-marker{display:none}
+details.briefing>summary h2{font-size:24px}
+details.briefing>summary::after{content:"+";margin-left:auto;font:600 22px/1 var(--meta);color:var(--goud-text)}
+details.briefing[open]>summary::after{content:"–"}
+.briefing .intro{color:var(--text2);max-width:72ch}
+.briefing details.onderwerp{border-top:1px solid var(--line2);padding:4px 0}
+.briefing details.onderwerp>summary{cursor:pointer;font-weight:700;padding:10px 0;font-size:18px}
+.briefing details.onderwerp>div{max-width:76ch;padding-bottom:10px}
+.briefing details.onderwerp p{margin:8px 0;line-height:1.55}
+.briefing details.onderwerp ul,.briefing details.onderwerp ol{margin:6px 0 8px;padding-left:22px;line-height:1.5}
+.briefing details.onderwerp p:last-child{font-size:14px;color:var(--text2)}
+.briefing details.onderwerp a{color:var(--goud-text)}
+.briefing details.onderwerp em{color:var(--text2)}
+body.presenteer details.briefing{display:none!important}
+details.docent{margin-top:28px}
+details.docent>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;min-height:44px}
+details.docent>summary::-webkit-details-marker{display:none}
+details.docent>summary h2{font-size:24px}
+details.docent>summary::after{content:"+";margin-left:auto;font:600 22px/1 var(--meta);color:var(--goud-text)}
+details.docent[open]>summary::after{content:"–"}
+.docent .kolommen{display:grid;gap:8px 28px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:860px){.docent .kolommen{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.docent h3{margin:16px 0 6px}
+.docent p,.docent li{color:var(--text2)}
+.docent ul,.docent ol{margin:4px 0;padding-left:20px}
+.docent li{margin:3px 0}
+.docent li b{color:var(--text)}
+.tool-voet{margin:28px 0 40px;color:var(--text3);font-size:14px}
+/* Groot scherm (Kamiel 26 okt 2026): het beeld vult het scherm; één regel tekst eronder (T = tekst uit, dan alleen beeld);
+   knoppen zweven onderaan en verschijnen alleen als je de muis beweegt. Werkt ook zonder echte volledig-scherm-API (iPad). */
+body.presenteer{--capH:72px}
+body.presenteer.zondertekst{--capH:0px}
+body.presenteer .wrap{max-width:none;padding:0}
+body.presenteer #speler{position:fixed;inset:0;z-index:50;background:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0}
+body.presenteer .breed{width:min(100vw, calc((100vh - var(--capH)) * 16 / 9))}
+body.presenteer #stage{border:0;border-radius:0}
+body.presenteer .cap{border:0;border-radius:0;background:transparent;min-height:0;height:var(--capH);padding:6px 18px;overflow:hidden}
+body.presenteer .cap .txt{font-size:clamp(18px, 2.4vh, 28px)}
+body.presenteer.zondertekst .cap{display:none}
+body.presenteer .knoppen{position:fixed;right:14px;top:14px;max-width:calc(100vw - 28px);width:auto;z-index:60;background:var(--surface);border:1px solid var(--line2);border-radius:999px;padding:6px 10px;box-shadow:0 6px 24px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s}
+body.presenteer.muis .knoppen{opacity:1;pointer-events:auto}
+body.presenteer.muisweg,body.presenteer.muisweg #stage{cursor:none}
+body.presenteer .knoppen .teller{margin-left:6px}
+#tekstBtn{display:none}
+body.presenteer #tekstBtn{display:inline-flex}
+body.presenteer .bkfb-zweef,body.presenteer .bkfb-kop{display:none!important}
+.grootknop{position:absolute;top:10px;right:10px;z-index:2;display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 12px;border-radius:999px;border:1px solid var(--line2);background:var(--surface);color:var(--text2);font:600 13px/1 var(--meta);letter-spacing:.04em;opacity:.55;cursor:pointer;transition:opacity .15s}
+.grootknop:hover,.grootknop:focus-visible{opacity:1;color:var(--text);border-color:var(--goud)}
+.grootknop svg{width:16px;height:16px}
+body.presenteer .grootknop{display:none}
+</style>
+<body>
+<div class="wrap">
+<nav class="sitenav" aria-label="Site">
+  <a class="merk" href="../../../index.html#home">Biologie bij Kamiel</a>
+  <a class="terug" href="../../../index.html#lessen-evolutie">← Alle lessen</a>
+  <a class="terug" href="../../../index.html#evolutie">Evolutie</a>
+  <span class="rechts"><button type="button" class="icoon" data-thema-knop></button></span>
+</nav>
+
+<header class="tool-kop">
+  <div class="mono">Les 6 · Evolutie · voor de docent</div>
+  <h1>Hoe een soort er twee wordt</h1>
+  <p>Uitleg in stappen bij de zesde les evolutie, kort gehouden (± 25 minuten) zodat je hem met les 5 of les 7 kunt combineren. Is een muilezel een soort? Hond en wolf, paard en ezel en de 63 chromosomen van de muilezel, een rivier die de genenstroom stopt, twee potten die uit elkaar lopen, reproductieve isolatie vóór en ná de bevruchting met de kikkers van april en juni, en voor vwo de blauwe en rode cichliden in het Victoriameer. Hoort bij de film <a href="../../../films/evolutie/6-hoe-een-soort-er-twee-wordt.html">Hoe één soort er twee wordt</a> (havo Biologie voor jou H4, vwo Nectar H7); vwo heeft twee schermen extra.</p>
+</header>
+
+<p class="draai">Deze tool is gemaakt voor het digibord of de beamer. Op een telefoon: draai je scherm een kwartslag.</p>
+
+<div class="bediening">
+  <span><span class="niv-label" id="nivLabel">Niveau</span><span class="seg" role="group" aria-labelledby="nivLabel"><button type="button" id="lvHavo" aria-pressed="false">havo</button><button type="button" id="lvVwo" aria-pressed="true">vwo</button></span></span>
+  <span class="sp"></span>
+  <button type="button" class="knop stil klein" id="lblBtn" aria-pressed="false" title="Namen van de onderdelen verbergen of tonen (L)">Namen verbergen</button>
+  <button type="button" class="knop klein" id="presBtn" title="Groot scherm: het beeld vult het hele scherm (F)">Groot scherm</button>
+</div>
+
+<section id="speler" aria-label="Uitleg in stappen">
+  <div id="stage" class="breed" role="img" aria-label="Animatie bij de huidige stap"><canvas id="cv"></canvas><button type="button" class="grootknop" id="grootBtn" title="Groot scherm (F)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4"/></svg>Groot scherm</button></div>
+  <div class="cap breed" aria-live="polite"><div class="txt" id="capTxt"></div><div class="dots" id="dots"></div><div class="notitie" id="capNot"></div></div>
+  <div class="knoppen breed">
+    <button type="button" class="knop stil klein" id="terug" title="Vorige stap (←)">← Terug</button>
+    <button type="button" class="knop klein" id="verder" title="Volgende stap (→, spatie of klik op het beeld)">Verder →</button>
+    <button type="button" class="knop stil klein" id="opnieuw" title="Speel deze stap opnieuw af (R)">↻ Opnieuw</button>
+    <button type="button" class="knop stil klein" id="tekstBtn" title="Tekst onder het beeld aan of uit (T)">Tekst uit</button>
+    <button type="button" class="knop stil klein" id="stopPres" title="Terug naar het gewone scherm (Esc)">Klein scherm</button>
+    <span class="teller" id="teller"></span>
+  </div>
+  <div class="chips breed" id="chips"></div>
+  <p class="hint breed"><kbd>→</kbd> of <kbd>spatie</kbd> verder · <kbd>←</kbd> terug · <kbd>↑</kbd><kbd>↓</kbd> vorig/volgend scherm · <kbd>R</kbd> stap opnieuw · <kbd>L</kbd> namen · <kbd>F</kbd> groot scherm (daarin <kbd>T</kbd> tekst uit, <kbd>Esc</kbd> terug). Een presenter (pagina omhoog/omlaag) werkt ook.</p>
+</section>
+
+
+<details class="docent">
+  <summary><h2>Voor de docent</h2></summary>
+  <div class="kolommen">
+<div>
+      <h3>Zo gebruik je de tool</h3>
+      <ul>
+        <li><b>Stap voor stap.</b> Elke klik speelt één korte animatie af en blijft daarna staan, zodat je erbij kunt vertellen. Terug (←) toont de vorige stap meteen af; <kbd>R</kbd> speelt een stap opnieuw.</li>
+        <li><b>Weinig tekst.</b> Onder het beeld staat één korte zin; de grijze regel 'Docent' is alleen voor jou en verdwijnt in de presentatiemodus. De vragen uit de film staan in die regel, met het antwoord; stel ze zelf als het in het gesprek past.</li>
+        <li><b>Havo of vwo</b> bovenaan, of in de link <code>?niveau=havo</code>. In havo worden scherm 10 en 11 (allopatrisch en sympatrisch, cichliden) overgeslagen, zoals de vwo-blokken in de film.</li>
+        <li><b>Namen verbergen</b> (<kbd>L</kbd>): laat leerlingen zelf benoemen (paard, ezel, rivier, genenstroom …).</li>
+        <li><b>Direct naar een scherm</b> met de knoppen onder het beeld, of met <code>#7</code> achter de link (scherm 7, reproductieve isolatie).</li>
+        <li><b>Kort gehouden</b> (± 25 minuten): goed te combineren met les 5 of les 7 in hetzelfde lesuur.</li>
+      </ul>
+      <h3>Lesopbouw (± 25 minuten)</h3>
+      <ol>
+        <li><b>Opening</b> (2 min, scherm 1–2): de muilezel van de veehouder, de startvraag van de film.</li>
+        <li><b>Wat is een soort?</b> (6 min, scherm 3–4): chihuahua en wolf, de soortdefinitie, ras en ondersoort, paard × ezel, 64 + 62 → 63 chromosomen, het antwoord op de startvraag.</li>
+        <li><b>Eén pot wordt twee</b> (5 min, scherm 5–6): genenstroom, een barrière, geografische isolatie, divergente evolutie, hond en wolf.</li>
+        <li><b>Een tweede soort</b> (6 min, scherm 7–9): reproductieve isolatie vóór en ná de bevruchting, de kikkers van april en juni, de drie stappen van soortvorming.</li>
+        <li><b>Zonder barrière</b> (vwo, 4 min, scherm 10–11): allopatrisch en sympatrisch, het Victoriameer, blauw en rood, partnerkeuze.</li>
+        <li><b>Afsluiting</b> (1 min, scherm 12–13): samenvatting en vooruitblik op Hoe weten we dat?</li>
+        <li><b>Huiswerk</b>: de film <a href="../../../films/evolutie/6-hoe-een-soort-er-twee-wordt.html">Hoe één soort er twee wordt</a>. Wie vooruit wil: <a href="../../../films/evolutie/7-hoe-weten-we-dat.html">Hoe weten we dat?</a></li>
+      </ol>
+    </div>
+    <div>
+      <h3>Achtergrond en vereenvoudigingen</h3>
+      <ul>
+        <li><b>Kleuren</b> zoals in de reeks: genenstroom blauw, selectie groen, toeval goud, mutatie paars; in de pot blauw en geel = twee allelen. Chromosomen van het paard teal, van de ezel oker (zoals vader/moeder in de erfelijkheidslessen).</li>
+        <li><b>Soortbegrip</b>: de film en de les gebruiken het biologische soortbegrip (samen vruchtbare nakomelingen in de natuur). Biologen gebruiken ook andere soortbegrippen, bv. voor bacteriën of fossielen; zie de briefing.</li>
+        <li><b>Muilezel</b>: in de film vader paard, moeder ezel. Strikt genomen heet die kruising in het Nederlands een muilezel en de omgekeerde (vader ezel, moeder paard) een muildier; in de briefing staat het verschil. Heel zelden is een muilezelmerrie vruchtbaar.</li>
+        <li><b>Chromosoomrijen</b> zijn schematisch: streepjes in plaats van echte chromosomen; de meiose met één paar dat wel en twee die niet goed passen is een beeld, geen kariogram.</li>
+        <li><b>Potten en allelbalken</b>: twee allelen staan voor de hele genenpool; in werkelijkheid lopen duizenden genen tegelijk uiteen.</li>
+        <li><b>Victoriameer</b>: ± 500 soorten in ± 15.000 jaar zoals in de film; dat 'een deel' zonder barrière is ontstaan, is een vereenvoudiging (hybridisatie en microhabitats spelen mee, zie de briefing).</li>
+      </ul>
+      <h3>Bronnen</h3>
+      <ul>
+        <li>De film Hoe één soort er twee wordt (script v2, oktober 2026); Biologie voor jou (havo H4) en Nectar (vwo H7). Verdieping met bronnen in de briefing hieronder (Universiteit Bern, Eawag, Penn State Extension, Pierce Genetics).</li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+<footer class="tool-voet">Biologie bij Kamiel · Uitleg in stappen · Evolutie les 6 · versie 1.0 · 31 oktober 2026</footer>
+</div>
+
+<script src="../../../personages/lib_cast.js"></script>
+<script>
+'use strict';
+/* =====================================================================================
+   Basis: tekenruimte, kleuren (licht/donker), hulpfuncties
+   ===================================================================================== */
+const W = 1920, H = 1080;
+let C = {};
+function zetPalet() {
+  const licht = document.documentElement.getAttribute('data-theme') === 'light';
+  C = licht ? {
+    bg: '#FFFFFF', fill: '#E9EDF3', text: '#121C2E', text2: '#4E5A6C', line: '#6B7687', meta: '#8A650C',
+    goud: '#C9961F', koraal: '#C0583A', groen: '#2F8A47', teal: '#25729C', paars: '#6550AD', oker: '#A8822E',
+    mens: '#6B7687', holte: '#6A4A52', bloed: '#B5574A', grond: '#C9B896', water: '#25729C', licht: true
+  } : {
+    bg: '#1A2740', fill: '#2A3A58', text: '#F2F2EE', text2: '#9AA3B2', line: '#8FA0B5', meta: '#C9B896',
+    goud: '#E0B64A', koraal: '#E07A5F', groen: '#7FC48F', teal: '#5BA4C9', paars: '#8C7BBF', oker: '#C9A35C',
+    mens: '#9AA3B2', holte: '#1A1420', bloed: '#B5574A', grond: '#6B5A40', water: '#5BA4C9', licht: false
+  };
+  if (window.BB) BB.thema(C.licht);
+}
+zetPalet();
+
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const lerp = (a, b, u) => a + (b - a) * clamp(u, 0, 1);
+const ease = (u) => { u = clamp(u, 0, 1); return u * u * (3 - 2 * u); };
+function hash(n) { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); }
+function rgbVan(c) { // '#rrggbb' of 'rgb(r,g,b)' -> [r,g,b]
+  if (c[0] === '#') { const n = parseInt(c.slice(1), 16); return [n >> 16, (n >> 8) & 255, n & 255]; }
+  const m = c.match(/[\d.]+/g); return m ? m.slice(0, 3).map(Number) : [128, 128, 128];
+}
+function rgba(c, a) { if (typeof c === 'number') { return `rgba(${arguments[0]},${arguments[1]},${arguments[2]},${arguments[3]})`; } const [r, g, b] = rgbVan(c); return `rgba(${r},${g},${b},${a})`; }
+function mix(c1, c2, k) { const a = rgbVan(c1), b = rgbVan(c2); const m = a.map((v, i) => Math.round(v * (1 - k) + b[i] * k)); return '#' + m.map(v => v.toString(16).padStart(2, '0')).join(''); }
+const lighten = (c, k) => mix(c, '#FFFFFF', k);
+function shape(ctx, fill, stroke, lw = 1.5) { if (fill) { ctx.fillStyle = fill; ctx.fill(); } if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw; ctx.stroke(); } }
+function roundRect(ctx, x, y, w, h, r) { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
+function circ(ctx, x, y, r, fill, stroke, lw = 1.5) { ctx.beginPath(); ctx.arc(x, y, Math.max(0.1, r), 0, 6.283); if (fill) { ctx.fillStyle = fill; ctx.fill(); } if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw; ctx.stroke(); } }
+const F = { titel: '"Fraunces",Georgia,serif', tekst: '"Source Sans 3",system-ui,sans-serif', meta: '"IBM Plex Mono",ui-monospace,monospace' };
+const fTitel = (px) => `700 ${px}px ${F.titel}`, fTekst = (px, w = 400) => `${w} ${px}px ${F.tekst}`, fMeta = (px) => `500 ${px}px ${F.meta}`;
+function text(ctx, s, x, y, font, color, align = 'left', base = 'alphabetic') { ctx.font = font; ctx.fillStyle = color; ctx.textAlign = align; ctx.textBaseline = base; ctx.fillText(s, x, y); }
+function metaText(ctx, s, x, y, color = C.meta, align = 'left', px = 24, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fMeta(px); ctx.fillStyle = color; ctx.textAlign = align; ctx.textBaseline = 'alphabetic'; try { ctx.letterSpacing = '3px'; } catch (e) {} ctx.fillText(s.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')), x, y); ctx.restore(); }
+// gewone tekst op het beeld, met rand in de achtergrondkleur voor leesbaarheid
+function regel(ctx, s, x, y, a = 1, col = C.text, px = 34, align = 'left', w = 600) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fTekst(px, w); ctx.textAlign = align; ctx.textBaseline = 'alphabetic'; ctx.lineJoin = 'round'; ctx.strokeStyle = rgba(C.bg, 0.85); ctx.lineWidth = 7; ctx.strokeText(s, x, y); ctx.fillStyle = col; ctx.fillText(s, x, y); ctx.restore(); }
+// naam van een onderdeel, direct bij het onderdeel (geen wijslijn); verborgen met 'Namen verbergen'
+let toonNamen = true;
+function naam(ctx, s, x, y, a = 1, align = 'left', col = C.text, px = 34) { if (!toonNamen) return; regel(ctx, s, x, y, a, col, px, align, 600); }
+function pijl(ctx, x1, y1, x2, y2, col, lw = 4, a = 1, kop = 16) {
+  if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = lw; ctx.lineCap = 'round';
+  const an = Math.atan2(y2 - y1, x2 - x1); ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2 - Math.cos(an) * kop * 0.6, y2 - Math.sin(an) * kop * 0.6); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(x2, y2); ctx.lineTo(x2 - Math.cos(an - 0.45) * kop, y2 - Math.sin(an - 0.45) * kop); ctx.lineTo(x2 - Math.cos(an + 0.45) * kop, y2 - Math.sin(an + 0.45) * kop); ctx.closePath(); ctx.fill(); ctx.restore();
+}
+function paneel(ctx, x, y, w, h, a = 1, col = null) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, w, h, 18); shape(ctx, rgba(C.fill, C.licht ? 0.55 : 0.45), col || rgba(C.line, 0.45), 2); ctx.restore(); }
+// paden
+function gladPad(pts, step = 7) {
+  if (pts.length < 3) { const out = []; const [a, b] = pts; const L = Math.hypot(b[0] - a[0], b[1] - a[1]); const n = Math.max(2, Math.ceil(L / step)); for (let i = 0; i <= n; i++) out.push([lerp(a[0], b[0], i / n), lerp(a[1], b[1], i / n)]); return out; }
+  const P = [pts[0], ...pts, pts[pts.length - 1]], out = [];
+  for (let i = 1; i < P.length - 2; i++) { const [p0, p1, p2, p3] = [P[i - 1], P[i], P[i + 1], P[i + 2]]; const L = Math.hypot(p2[0] - p1[0], p2[1] - p1[1]); const n = Math.max(2, Math.ceil(L / step));
+    for (let k = 0; k < n; k++) { const u = k / n, u2 = u * u, u3 = u2 * u; out.push([0, 1].map(d => 0.5 * (2 * p1[d] + (-p0[d] + p2[d]) * u + (2 * p0[d] - 5 * p1[d] + 4 * p2[d] - p3[d]) * u2 + (-p0[d] + 3 * p1[d] - 3 * p2[d] + p3[d]) * u3))); } }
+  out.push(pts[pts.length - 1]); return out;
+}
+const _glad = new Map();
+function gladC(pts) { const k = JSON.stringify(pts); let v = _glad.get(k); if (!v) { v = gladPad(pts); _glad.set(k, v); } return v; }
+function padLengte(pts) { const L = [0]; for (let i = 1; i < pts.length; i++) L.push(L[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1])); return L; }
+function padPunt(pts, d) { const L = padLengte(pts); d = clamp(d, 0, L[L.length - 1]); let i = 1; while (i < pts.length - 1 && L[i] < d) i++; const u = (d - L[i - 1]) / ((L[i] - L[i - 1]) || 1); return [lerp(pts[i - 1][0], pts[i][0], u), lerp(pts[i - 1][1], pts[i][1], u), Math.atan2(pts[i][1] - pts[i - 1][1], pts[i][0] - pts[i - 1][0])]; }
+function lijnPad(ctx, pts, col, lw, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); gladC(pts).forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke(); ctx.restore(); }
+// tekent fn in een aparte laag en zet die met doorzichtigheid a op het beeld (geen doorschijnende overlap binnen één figuur)
+let _laagCv = null;
+function laag(ctx, a, fn) {
+  if (a <= 0.01) return; if (a >= 0.995) { fn(ctx); return; }
+  const c = ctx.canvas; if (!_laagCv) _laagCv = document.createElement('canvas'); const L = _laagCv; if (L.width !== c.width || L.height !== c.height) { L.width = c.width; L.height = c.height; }
+  const l = L.getContext('2d'); l.setTransform(1, 0, 0, 1, 0, 0); l.clearRect(0, 0, L.width, L.height); l.setTransform(ctx.getTransform()); fn(l);
+  ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha *= a; ctx.drawImage(L, 0, 0); ctx.restore();
+}
+function pers(ctx, id, x, y, h, o = {}) { const a = o.a == null ? 1 : o.a; laag(ctx, a, (l) => persoon(l, id, x, y, h, Object.assign({}, o, { a: 1 }))); }
+function gloed(ctx, x, y, r, col, k) { if (k <= 0.01) return; const g = ctx.createRadialGradient(x, y, 0, x, y, r); g.addColorStop(0, rgba(col, 0.45 * k)); g.addColorStop(1, rgba(col, 0)); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.fill(); }
+
+/* =====================================================================================
+   Cellen · gedeelde bouwstenen voor de lessen 1–6 (31 okt 2026)
+   Overgenomen uit de erfelijkheidslessen (algemene delen). Alles is 1920×1080; a = doorzichtigheid 0..1.
+   Eigen tekeningen per les staan in les<n>/schermen.js met voorvoegsel L<n>_.
+   ===================================================================================== */
+const CH = { get vader() { return C.teal; }, get moeder() { return C.oker; }, get neutraal() { return C.paars; } };
+const dk = (h, k = 0.35) => mix(h, '#000000', k);
+function kruis(ctx, x, y, r, a = 1, col = C.koraal) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = Math.max(4, r * 0.45); ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x - r, y - r); ctx.lineTo(x + r, y + r); ctx.moveTo(x + r, y - r); ctx.lineTo(x - r, y + r); ctx.stroke(); ctx.restore(); }
+function vink(ctx, x, y, r, a = 1, col = C.groen) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = Math.max(4, r * 0.45); ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); ctx.moveTo(x - r, y); ctx.lineTo(x - r * 0.3, y + r * 0.7); ctx.lineTo(x + r, y - r * 0.7); ctx.stroke(); ctx.restore(); }
+function zoomRand(ctx, x, y, r, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, r, null, rgba(C.line, 0.8), 4); ctx.restore(); }
+// zoomcirkel met inhoud; van = [x,y] waar de stippellijnen vandaan komen
+function zoom(ctx, zx, zy, zr, a, van, fn) { if (a <= 0.01) return; if (van) { ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = rgba(C.line, 0.7); ctx.lineWidth = 3; ctx.setLineDash([8, 10]); const an = Math.atan2(zy - van[1], zx - van[0]); ctx.beginPath(); ctx.moveTo(van[0], van[1]); ctx.lineTo(zx + Math.cos(an + 1.9) * zr, zy + Math.sin(an + 1.9) * zr); ctx.moveTo(van[0], van[1]); ctx.lineTo(zx + Math.cos(an - 1.9) * zr, zy + Math.sin(an - 1.9) * zr); ctx.stroke(); ctx.restore(); }
+  ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.arc(zx, zy, zr, 0, 6.283); ctx.clip(); ctx.fillStyle = C.bg; ctx.fill(); fn(); ctx.restore(); zoomRand(ctx, zx, zy, zr, a); }
+// aanwijslijn + naam (de knop Namen verbergen geldt ook hier)
+function wijs(ctx, s, x1, y1, x2, y2, a = 1, col = C.text, px = 30, align = 'center') { if (!toonNamen || a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = rgba(C.line, 0.8); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); circ(ctx, x2, y2, 4, C.line); ctx.restore(); naam(ctx, s, x1, y1 + (y1 < y2 ? -10 : 34), a, align, col, px); }
+// brede kernbalk onderaan (één kernzin of conclusie)
+function balk(ctx, s, x, y, w, a = 1, col = C.goud, px = 40) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - w / 2, y - 52, w, 104, 20); shape(ctx, rgba(col, 0.12), col, 3); ctx.restore(); regel(ctx, s, x, y + 14, a, C.text, px, 'center', 700); }
+// zachte, ronde celvorm: geen rechte randen
+function blob(ctx, x, y, rx, ry, seed = 1, wob = 0.06) { ctx.beginPath(); for (let i = 0; i <= 64; i++) { const an = i / 64 * 6.283, w = 1 + wob * Math.sin(an * 3 + seed) + wob * 0.6 * Math.sin(an * 5 + seed * 2.1); const px = x + Math.cos(an) * rx * w, py = y + Math.sin(an) * ry * w; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.closePath(); }
+// cel met kern; o.kl = membraankleur, o.kr = kernstraal, o.kdx/kdy = plek van de kern, o.geenKern
+function cel(ctx, x, y, rx, ry, a = 1, o = {}) { if (a <= 0.01) return; const kl = o.kl || C.teal; ctx.save(); ctx.globalAlpha *= a; blob(ctx, x, y, rx, ry, o.seed || 1, o.wob == null ? 0.05 : o.wob); shape(ctx, rgba(kl, C.licht ? 0.08 : 0.12), kl, o.lw || 4);
+  if (!o.geenKern) { const kx = x + (o.kdx || 0), ky = y + (o.kdy || 0), kr = o.kr || Math.min(rx, ry) * 0.34; circ(ctx, kx, ky, kr, rgba(C.paars, C.licht ? 0.14 : 0.24), C.paars, 2.5); }
+  ctx.restore(); }
+
+
+// vaste pseudo-toevalsreeks (zelfde beeld bij elke keer afspelen)
+function toeval(seed) { let s = seed >>> 0 || 1; return () => { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; }; }
+// stippenveld: n stippen in een raster binnen (x, y, w, h); kl(i) = kleur van stip i; zicht = aantal stippen dat al te zien is
+function stippen(ctx, x, y, w, h, n, kl, a = 1, o = {}) { if (a <= 0.01) return; const r = o.r || Math.max(3, Math.sqrt(w * h / n) * 0.36), kol = Math.max(1, Math.round(Math.sqrt(n * w / h))), rijen = Math.ceil(n / kol), dx = w / kol, dy = h / rijen, zicht = o.zicht == null ? n : o.zicht;
+  ctx.save(); ctx.globalAlpha *= a; for (let i = 0; i < Math.min(n, zicht); i++) { const c = i % kol, rr = Math.floor(i / kol); circ(ctx, x + c * dx + dx / 2, y + rr * dy + dy / 2, r, kl(i)); } ctx.restore(); }
+// staafdiagram: w = [hoogtes 0..1], o.kl, o.labels (onder de staven), o.as (naam onder de as)
+function histogram(ctx, x, y, w, h, waarden, a = 1, o = {}) { if (a <= 0.01) return; const n = waarden.length, bw = w / n; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = rgba(C.line, 0.8); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + w, y); ctx.stroke();
+  waarden.forEach((v, i) => { const bh = h * v * (o.groei == null ? 1 : o.groei); roundRect(ctx, x + i * bw + bw * 0.1, y - bh, bw * 0.8, Math.max(0.1, bh), Math.min(8, bw * 0.2)); shape(ctx, rgba(o.kl || C.teal, 0.55), o.kl || C.teal, 2); }); ctx.restore();
+  (o.labels || []).forEach((l, i) => regel(ctx, l, x + i * bw + bw / 2, y + 36, a, C.text2, o.px || 24, 'center', 500)); if (o.as) metaText(ctx, o.as, x + w / 2, y + 80, C.text2, 'center', 20, a); }
+// kansbalk: f = deel 0..1 gevuld met kl, tekst ernaast
+function kansBalk(ctx, x, y, w, h, f, kl, a = 1, tekst = '') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, w, h, h / 2); shape(ctx, rgba(C.fill, 0.6), rgba(C.line, 0.6), 2); if (f > 0.005) { roundRect(ctx, x, y, Math.max(h, w * f), h, h / 2); shape(ctx, rgba(kl, 0.75), kl, 2); } ctx.restore(); if (tekst) regel(ctx, tekst, x + w + 24, y + h / 2 + 12, a, C.text, 34, 'left', 700); }
+// breuk als tekst met streep: teller boven, noemer onder
+function breuk(ctx, t, n, x, y, px = 54, a = 1, kl = C.text) { if (a <= 0.01) return; ctx.save(); ctx.font = fTekst(px, 700); const w = Math.max(ctx.measureText(String(t)).width, ctx.measureText(String(n)).width) + 12; ctx.restore(); regel(ctx, String(t), x, y - px * 0.18, a, kl, px, 'center', 700); ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = kl; ctx.lineWidth = Math.max(3, px * 0.07); ctx.beginPath(); ctx.moveTo(x - w / 2, y); ctx.lineTo(x + w / 2, y); ctx.stroke(); ctx.restore(); regel(ctx, String(n), x, y + px * 0.92, a, kl, px, 'center', 700); }
+
+/* ---------- kaarten ---------- */
+function termKaart(ctx, term, uitleg, x, y, a = 1, kl = C.goud, w = 0) { if (a <= 0.01) return; ctx.save(); ctx.font = fTekst(42, 700); const w1 = ctx.measureText(term).width; ctx.font = fTekst(30, 500); const w2 = uitleg ? ctx.measureText(uitleg).width : 0; ctx.restore();
+  const bw = w || Math.max(w1, w2) + 64, bh = uitleg ? 124 : 84; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - bw / 2, y, bw, bh, 14); shape(ctx, rgba(C.bg, 0.94), kl, 2.5); ctx.restore();
+  regel(ctx, term, x, y + 54, a, kl, 42, 'center', 700); if (uitleg) regel(ctx, uitleg, x, y + 100, a, C.text, 30, 'center', 500); }
+function misvatting(ctx, fout, goed, x, y, w, a = 1, g = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - w / 2, y, w, 150, 14); shape(ctx, rgba(C.bg, 0.95), rgba(C.line, 0.7), 2); ctx.restore();
+  kruis(ctx, x - w / 2 + 50, y + 46, 15, a, C.koraal); regel(ctx, fout, x - w / 2 + 90, y + 58, a, C.text2, 34, 'left', 600);
+  ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = rgba(C.koraal, 0.8); ctx.lineWidth = 3; ctx.font = fTekst(34, 600); const fw = ctx.measureText(fout).width; ctx.beginPath(); ctx.moveTo(x - w / 2 + 88, y + 46); ctx.lineTo(x - w / 2 + 92 + fw, y + 46); ctx.stroke(); ctx.restore();
+  if (g > 0.01) { vink(ctx, x - w / 2 + 50, y + 108, 15, a * g, C.groen); regel(ctx, goed, x - w / 2 + 90, y + 120, a * g, C.text, 34, 'left', 600); } }
+
+/* ---------- vooruitblik (laatste scherm van elke les) ---------- */
+function vooruitblik(ctx, S, kop, tegels) {
+  const T = S.T, n = tegels.length, w = 380, gap = 40, x0 = 960 - (n * w + (n - 1) * gap) / 2;
+  metaText(ctx, 'volgende keer', 960, 250, C.meta, 'center', 24, S.on(0, 0.6));
+  text(ctx, kop, 960, 340, fTitel(76), C.goud, 'center');
+  tegels.forEach(([titel, sub, f], i) => { const a = S.on(0, 0.6, 0.4 + i * 0.25); if (a <= 0.01) return; const x = x0 + i * (w + gap) + w / 2, y = 640;
+    ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - w / 2, y - 210, w, 420, 24); shape(ctx, rgba(C.fill, C.licht ? 0.5 : 0.4), rgba(C.line, 0.4), 2); ctx.restore();
+    f(ctx, x, y - 60, a, T); regel(ctx, titel, x, y + 110, a, C.text, 34, 'center', 700); if (sub) regel(ctx, sub, x, y + 156, a, C.text2, 26, 'center', 400); });
+}
+
+/* =====================================================================================
+   Evolutie · gedeelde tekenhulpen voor de lessen (31 okt 2026)
+   Overgenomen uit de filmreeks Evolutie v2 (films/evolutie/1-wat-is-evolutie/bron/src/lib_evo.js en teken_e1.js),
+   aangepast aan de C-kleuren van de lessen (licht/donker).
+   Kleuren zoals in de films: allel voor zwart = blauw (EV().a1), allel voor oranje = geel (EV().a2),
+   krachten: selectie groen, toeval (drift) goud, uitwisseling (genenstroom) blauw, mutatie paars.
+   ===================================================================================== */
+const EV = () => ({ a1: C.teal, a2: C.oker, nieuw: C.paars,
+  kracht: { selectie: C.groen, drift: C.goud, stroom: C.teal, mutatie: C.paars } });
+
+// ---- knikker = één allel ----
+function knikker(ctx, x, y, r, kleur, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  circ(ctx, x, y, r, kleur, lighten(kleur, 0.35), 2); circ(ctx, x - r * 0.35, y - r * 0.35, r * 0.22, 'rgba(255,255,255,0.4)'); ctx.restore(); }
+
+// ---- glazen pot met knikkers (de genenpool) ----
+// anker (x, y) = midden van de bodem; s = schaal (s = 1 → 260 breed, 300 hoog); o.kleuren = lijst knikkerkleuren (wordt gemengd met o.seed),
+// of o.p + o.n (aandeel allel 1); o.vul = 0..1 hoeveel knikkers al in de pot liggen
+function pot(ctx, x, y, s = 1, o = {}) {
+  const { p = 0.5, n = 60, seed = 1, a = 1, vul = 1 } = o; if (a <= 0.01) return;
+  let kl = o.kleuren ? o.kleuren.slice() : Array.from({ length: n }, (_, i) => i < Math.round(n * p) ? EV().a1 : EV().a2);
+  if (!o.vast) for (let i = kl.length - 1; i > 0; i--) { const j = Math.floor(hash(seed * 31 + i * 7) * (i + 1)); [kl[i], kl[j]] = [kl[j], kl[i]]; }
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
+  const w = 260, h = 300, r = 34, kr = o.kr || 13, kol = Math.floor((w - 40) / (kr * 2.25));
+  ctx.save(); roundRect(ctx, -w / 2 + 6, -h + 40, w - 12, h - 46, r - 6); ctx.clip();
+  const zicht = Math.round(kl.length * vul);
+  for (let i = 0; i < zicht; i++) { const rij = Math.floor(i / kol), k = i % kol, vs = (rij % 2) * kr;
+    const kx = -w / 2 + 28 + k * (kr * 2.25) + vs + (hash(seed + i * 3.1) - 0.5) * 5, ky = -20 - rij * (kr * 1.95) + (hash(seed + i * 5.7) - 0.5) * 4;
+    if (ky < -h + 60) break; knikker(ctx, kx, ky, kr, kl[i]); }
+  ctx.restore();
+  const glas = C.licht ? '#7D8FA5' : '#AFC0D0';
+  ctx.strokeStyle = glas; ctx.lineWidth = 4; ctx.lineJoin = 'round'; ctx.beginPath();
+  ctx.moveTo(-w / 2 + 34, -h + 10); ctx.lineTo(-w / 2 + 34, -h + 34); ctx.quadraticCurveTo(-w / 2, -h + 44, -w / 2, -h + 80);
+  ctx.lineTo(-w / 2, -r); ctx.quadraticCurveTo(-w / 2, 0, -w / 2 + r, 0); ctx.lineTo(w / 2 - r, 0); ctx.quadraticCurveTo(w / 2, 0, w / 2, -r);
+  ctx.lineTo(w / 2, -h + 80); ctx.quadraticCurveTo(w / 2, -h + 44, w / 2 - 34, -h + 34); ctx.lineTo(w / 2 - 34, -h + 10); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(-w / 2 + 26, -h + 10); ctx.lineTo(w / 2 - 26, -h + 10); ctx.stroke();
+  ctx.strokeStyle = rgba(glas, 0.35); ctx.lineWidth = 6; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(-w / 2 + 22, -h + 100); ctx.lineTo(-w / 2 + 22, -70); ctx.stroke();
+  ctx.restore();
+}
+
+// ---- allelbalk: aandeel allel 1 (blauw) tegen allel 2 (geel), met percentages eronder ----
+function allelBalk(ctx, x, y, w, p, a = 1, o = {}) { if (a <= 0.01) return; const h = o.h || 34;
+  ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, w, h, h / 2); ctx.save(); ctx.clip();
+  ctx.fillStyle = EV().a1; ctx.fillRect(x, y, w * p, h); ctx.fillStyle = EV().a2; ctx.fillRect(x + w * p, y, w * (1 - p), h); ctx.restore();
+  roundRect(ctx, x, y, w, h, h / 2); ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.stroke();
+  if (o.procent !== false) { text(ctx, (o.namen ? o.namen[0] + ' ' : '') + Math.round(p * 100) + '%', x, y + h + 40, fTekst(32, 700), EV().a1, 'left');
+    text(ctx, (o.namen ? o.namen[1] + ' ' : '') + Math.round((1 - p) * 100) + '%', x + w, y + h + 40, fTekst(32, 700), EV().a2, 'right'); }
+  ctx.restore(); }
+
+// ---- Aziatisch lieveheersbeestje (Harmonia axyridis), bovenaanzicht; kop naar boven ----
+// o.vorm: 'oranje' (f. succinea, o.stippen 0–19), 'vier' (zwart met vier rode vlekken, f. spectabilis), 'twee' (zwart met twee, f. conspicua)
+// s = 1 → ± 150 px lang. o.loop = fase voor de poten (pootjes bewegen), o.open = dekschilden open (vliegen)
+function lhb(ctx, x, y, s = 1, o = {}) {
+  const { vorm = 'oranje', stippen = 12, rot = 0, a = 1, open = 0, loop = null } = o; if (a <= 0.01) return;
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(rot); ctx.scale(s, s);
+  const rug = vorm === 'oranje' ? '#D9792E' : '#1B1A1C', vlek = vorm === 'oranje' ? '#1B1A1C' : '#D2452C';
+  ctx.strokeStyle = '#2A2422'; ctx.lineWidth = 4; ctx.lineCap = 'round';
+  for (const k of [-1, 1]) [[-22, -0.5], [0, 0.05], [20, 0.55]].forEach(([py, hoek], i) => { const sw = loop == null ? 0 : Math.sin(loop * 9 + i * 2.1 + (k > 0 ? Math.PI : 0)) * 7;
+    ctx.beginPath(); ctx.moveTo(k * 30, py); ctx.lineTo(k * 62, py + hoek * 30 - 6 + sw); ctx.lineTo(k * 74, py + hoek * 50 + sw); ctx.stroke(); });
+  ctx.lineWidth = 2.5; for (const k of [-1, 1]) { ctx.beginPath(); ctx.moveTo(k * 8, -78); ctx.quadraticCurveTo(k * 20, -96, k * 26, -98); ctx.stroke(); circ(ctx, k * 27, -98, 3.5, '#2A2422'); }
+  ctx.beginPath(); ctx.ellipse(0, -70, 20, 13, 0, 0, 6.283); ctx.fillStyle = '#1B1A1C'; ctx.fill(); circ(ctx, -11, -72, 3.2, '#E9E2CC'); circ(ctx, 11, -72, 3.2, '#E9E2CC');
+  ctx.beginPath(); ctx.moveTo(-40, -44); ctx.quadraticCurveTo(-38, -66, 0, -68); ctx.quadraticCurveTo(38, -66, 40, -44); ctx.quadraticCurveTo(0, -38, -40, -44); ctx.fillStyle = '#EDE6D2'; ctx.fill(); ctx.strokeStyle = '#B8B0A0'; ctx.lineWidth = 1.5; ctx.stroke();
+  ctx.fillStyle = '#1B1A1C'; ctx.beginPath(); ctx.moveTo(-18, -44); ctx.lineTo(-12, -60); ctx.lineTo(-4, -52); ctx.lineTo(0, -60); ctx.lineTo(4, -52); ctx.lineTo(12, -60); ctx.lineTo(18, -44); ctx.quadraticCurveTo(0, -41, -18, -44); ctx.fill();
+  if (vorm !== 'oranje') { circ(ctx, -28, -52, 6, '#EDE6D2'); circ(ctx, 28, -52, 6, '#EDE6D2'); }
+  const dek = (k) => { ctx.beginPath(); ctx.moveTo(0, -42); ctx.quadraticCurveTo(k * 44, -44, k * 50, -6); ctx.quadraticCurveTo(k * 52, 42, k * 4, 62); ctx.lineTo(0, 62); ctx.closePath(); };
+  for (const k of [-1, 1]) { ctx.save(); ctx.translate(k * open * 18, 0); ctx.rotate(k * open * 0.35); dek(k); ctx.fillStyle = rug; ctx.fill(); ctx.strokeStyle = lighten(rug, 0.25); ctx.lineWidth = 1.5; ctx.stroke(); ctx.save(); dek(k); ctx.clip();
+    if (vorm === 'oranje') { const pos = [[18, -26], [34, -10], [14, -2], [30, 14], [12, 22], [26, 36], [40, 28], [20, 46], [36, -28], [8, 40]]; for (let i = 0; i < Math.min(Math.floor(stippen / 2), pos.length); i++) circ(ctx, k * pos[i][0], pos[i][1], 5.4, vlek); if (stippen % 2) circ(ctx, 0, -32, 5, vlek); }
+    else if (vorm === 'twee') { ctx.beginPath(); ctx.ellipse(k * 26, -14, 14, 12, 0, 0, 6.283); ctx.fillStyle = vlek; ctx.fill(); }
+    else { ctx.beginPath(); ctx.ellipse(k * 26, -18, 11, 9, 0, 0, 6.283); ctx.fillStyle = vlek; ctx.fill(); ctx.beginPath(); ctx.ellipse(k * 24, 28, 10, 8, 0, 0, 6.283); ctx.fill(); }
+    ctx.restore(); ctx.restore(); }
+  ctx.strokeStyle = 'rgba(0,0,0,0.5)'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(0, -42); ctx.lineTo(0, 62); ctx.stroke();
+  ctx.restore();
+}
+
+// ---- allelenpaar onder een beestje: twee knikkers naast elkaar ----
+function allelPaar(ctx, x, y, k1, k2, r = 16, a = 1) { knikker(ctx, x - r * 1.15, y, r, k1, a); knikker(ctx, x + r * 1.15, y, r, k2, a); }
+
+// ---- thermometer (meta) ----
+function thermo(ctx, x, y, h, f, kleur, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  roundRect(ctx, x - 12, y - h, 24, h, 12); shape(ctx, rgba(C.fill, 0.6), C.line, 2); circ(ctx, x, y + 6, 22, kleur, C.line, 2);
+  roundRect(ctx, x - 6, y - h * f, 12, h * f + 4, 6); ctx.fillStyle = kleur; ctx.fill(); ctx.restore(); }
+
+/* =====================================================================================
+   SCHERMEN — per scherm: titel (knop), kop (boven het beeld), deel, stappen (t = tekst onder het beeld,
+   th = havotekst, n = notitie voor de docent, vwo = alleen in vwo) en teken(ctx, S).
+   In teken: S.on(k, duur, vertraging) = voortgang 0..1 van stap k (1 als die stap al geweest is, 0 als hij nog moet komen),
+   S.T = tijd sinds het begin van het scherm (s), S.vwo = niveau.
+   ===================================================================================== */
+const SCHERMEN = [];
+/* =====================================================================================
+   Evolutie · les 6 · Hoe een soort er twee wordt (31 okt 2026)
+   Film 6 Hoe één soort er twee wordt (films/evolutie/6-hoe-een-soort-er-twee-wordt.html, script v2); havo + vwo.
+   Compact (± 25 min). Eigen hulpen hebben het voorvoegsel L6_. Kleuren zoals de reeks: allel 1 blauw, allel 2 geel,
+   nieuw allel paars; krachten: selectie groen, toeval goud, uitwisseling (genenstroom) blauw, mutatie paars.
+   Chromosomen: van de vader (paard) blauw, van de moeder (ezel) oker, zoals de erfelijkheidslessen.
+   Personage: de veehouder (alleen in de opening, zoals in de film), zonder naam in beeld.
+   vwo-blokken uit het script (allopatrisch/sympatrisch, cichliden in het Victoriameer) = scherm 10 en 11.
+   ===================================================================================== */
+
+// ---------- hulpen ----------
+// viervoeter van opzij, kijkt naar rechts (o.kijk = -1 naar links); anker = grond onder het midden van de romp; s = 1 → romp ± 300 lang
+// o: kl (vacht), bl/bh (romp), poot, nek (0..1.2), kop, snuit, oor, staart ('paard','ezel','pluim','krul'), manen, hoef, buik
+function L6_dier(ctx, x, y, s, a, T, o = {}) { if (a <= 0.01) return;
+  const { kl = '#8A6A4A', bl = 300, bh = 110, poot = 150, nek = 1, kop = 1, snuit = 1, oor = 30, staart = 'paard', kijk = 1 } = o;
+  const dkl = mix(kl, '#000000', 0.28), lkl = mix(kl, '#FFFFFF', 0.18), by = -poot - bh / 2, lw = bh * 0.2;
+  laag(ctx, a, (c) => { c.save(); c.translate(x, y); c.scale(s * kijk, s);
+    const been = (px, kleur, fase) => { const sw = Math.sin(T * 1.2 + fase) * 2; c.strokeStyle = kleur; c.lineWidth = lw; c.lineCap = 'round'; c.beginPath(); c.moveTo(px, by + bh * 0.15); c.lineTo(px + sw, -lw / 2); c.stroke();
+      if (o.hoef) { c.fillStyle = '#2A2422'; c.fillRect(px + sw - lw * 0.55, -lw * 0.6, lw * 1.1, lw * 0.6); } };
+    been(-bl / 2 + 40, dkl, 0); been(bl / 2 - 30, dkl, 1);
+    // staart
+    const sx = -bl / 2 + 8, sy = by - bh * 0.3; c.lineCap = 'round';
+    if (staart === 'paard') { c.strokeStyle = o.manen || dkl; c.lineWidth = 22; c.beginPath(); c.moveTo(sx, sy); c.quadraticCurveTo(sx - 50, sy + 30, sx - 40, sy + bh + 40); c.stroke(); }
+    else if (staart === 'ezel') { c.strokeStyle = dkl; c.lineWidth = 7; c.beginPath(); c.moveTo(sx, sy); c.quadraticCurveTo(sx - 30, sy + 20, sx - 26, sy + bh); c.stroke(); circ(c, sx - 26, sy + bh + 10, 12, '#2A2422'); }
+    else if (staart === 'pluim') { c.fillStyle = kl; c.beginPath(); c.moveTo(sx + 6, sy - 10); c.quadraticCurveTo(sx - 60, sy + 10, sx - 70, sy + bh * 0.9); c.quadraticCurveTo(sx - 30, sy + bh * 0.7, sx + 6, sy + 16); c.closePath(); c.fill(); circ(c, sx - 66, sy + bh * 0.86, 9, dkl); }
+    else { c.strokeStyle = kl; c.lineWidth = 9; c.beginPath(); c.moveTo(sx, sy); c.quadraticCurveTo(sx - 40, sy - 10, sx - 24, sy - 50); c.stroke(); }
+    // romp
+    c.beginPath(); c.ellipse(0, by, bl / 2, bh / 2, 0, 0, 6.283); c.fillStyle = kl; c.fill();
+    if (o.buik) { c.save(); c.beginPath(); c.ellipse(0, by, bl / 2, bh / 2, 0, 0, 6.283); c.clip(); c.fillStyle = o.buik; c.beginPath(); c.ellipse(0, by + bh * 0.42, bl * 0.42, bh * 0.22, 0, 0, 6.283); c.fill(); c.restore(); }
+    been(-bl / 2 + 64, kl, 2.4); been(bl / 2 - 56, kl, 3.6);
+    // nek en kop
+    const nx = bl / 2 - 30, ny = by - bh * 0.25, kx = bl / 2 + 20 + 30 * nek, ky = by - bh * 0.3 - 110 * nek;
+    c.strokeStyle = kl; c.lineWidth = bh * 0.62; c.lineCap = 'round'; c.beginPath(); c.moveTo(nx, ny); c.lineTo(kx - 6, ky + 8); c.stroke();
+    if (o.manen && nek > 0.4) { c.strokeStyle = o.manen; c.lineWidth = 16; c.beginPath(); c.moveTo(nx - 30, ny - bh * 0.32); c.lineTo(kx - 26, ky - 18); c.stroke(); }
+    // oren
+    const oorP = (dx, kk) => { c.beginPath(); c.moveTo(kx - 18 + dx, ky - 18 * kop); c.lineTo(kx - 30 + dx + oor * 0.25, ky - 18 * kop - oor); c.lineTo(kx - 2 + dx, ky - 22 * kop); c.closePath(); c.fillStyle = kk; c.fill(); };
+    oorP(-10, dkl); oorP(4, kl);
+    const rot = 0.25 + 0.35 * nek;
+    c.save(); c.translate(kx, ky); c.rotate(rot); c.beginPath(); c.ellipse(16 * snuit, 0, 44 * kop * snuit, 24 * kop, 0, 0, 6.283); c.fillStyle = kl; c.fill();
+    c.beginPath(); c.ellipse(50 * kop * snuit, 4 * kop, 16 * kop, 15 * kop, 0, 0, 6.283); c.fillStyle = o.neus || lkl; c.fill();
+    circ(c, 60 * kop * snuit, 0, 3.5 * kop, '#1A1416'); c.restore();
+    circ(c, kx + 8 * kop, ky - 8 * kop, 4.5 * kop, '#14100E');
+    c.restore(); }); }
+const L6_PAARD = () => ({ kl: '#8A5A36', manen: '#3A2A1E', staart: 'paard', hoef: true, oor: 30, nek: 1, kop: 1.05, snuit: 1.15, bl: 320, bh: 115, poot: 160 });
+const L6_EZEL = () => ({ kl: '#8E8A86', buik: '#D6D0C6', neus: '#D6D0C6', staart: 'ezel', hoef: true, oor: 78, nek: 0.75, kop: 1.05, snuit: 1, bl: 270, bh: 105, poot: 120 });
+const L6_MUIL = () => ({ kl: '#6E5440', manen: '#3A2A1E', neus: '#B8A08A', staart: 'ezel', hoef: true, oor: 56, nek: 0.85, kop: 1.05, snuit: 1.1, bl: 300, bh: 112, poot: 145 });
+const L6_WOLF = () => ({ kl: '#8E8478', buik: '#D2CCC0', neus: '#C8C0B4', staart: 'pluim', oor: 36, nek: 0.35, kop: 0.95, snuit: 0.9, bl: 260, bh: 92, poot: 120 });
+const L6_CHI = () => ({ kl: '#D2A46A', neus: '#E8C9A0', staart: 'krul', oor: 52, nek: 0.25, kop: 1.25, snuit: 0.55, bl: 200, bh: 90, poot: 90 });
+// veulen als stippellijn (geen jong)
+function L6_geenJong(ctx, x, y, s, a) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.setLineDash([10, 10]); ctx.strokeStyle = C.text2; ctx.lineWidth = 3;
+  ctx.beginPath(); ctx.ellipse(x, y - 100 * s, 80 * s, 34 * s, 0, 0, 6.283); ctx.stroke(); ctx.beginPath(); ctx.moveTo(x + 60 * s, y - 120 * s); ctx.lineTo(x + 90 * s, y - 170 * s); ctx.stroke();
+  ctx.beginPath(); ctx.ellipse(x + 104 * s, y - 180 * s, 28 * s, 16 * s, 0.5, 0, 6.283); ctx.stroke();
+  [-50, -30, 40, 60].forEach(dx => { ctx.beginPath(); ctx.moveTo(x + dx * s, y - 72 * s); ctx.lineTo(x + dx * s, y); ctx.stroke(); }); ctx.restore(); kruis(ctx, x + 10 * s, y - 100 * s, 30 * s, a); }
+// muis van opzij (kijk = 1 naar rechts)
+function L6_muis(ctx, x, y, s, a, kijk = 1, kl = '#9A8670') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s * kijk, s);
+  ctx.strokeStyle = mix(kl, '#E8B0A0', 0.5); ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(-26, 0); ctx.quadraticCurveTo(-56, 6, -64, -10); ctx.stroke();
+  ctx.beginPath(); ctx.ellipse(0, -12, 30, 16, 0, 0, 6.283); ctx.fillStyle = kl; ctx.fill(); ctx.beginPath(); ctx.moveTo(18, -22); ctx.lineTo(44, -8); ctx.lineTo(18, -2); ctx.closePath(); ctx.fill();
+  circ(ctx, 16, -26, 9, mix(kl, '#E8B0A0', 0.4)); circ(ctx, 30, -14, 2.4, '#111'); circ(ctx, 44, -8, 2.4, '#3A2A2A'); ctx.restore(); }
+// vogel in de vlucht
+function L6_vogel(ctx, x, y, s, a, T, kl = null) { if (a <= 0.01) return; const k = kl || (C.licht ? '#4A5A6E' : '#B8C4D2'), f = Math.sin(T * 6) * 0.5;
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); ctx.strokeStyle = k; ctx.lineWidth = 6; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  ctx.beginPath(); ctx.moveTo(-50, -20 * f - 10); ctx.quadraticCurveTo(-22, -24, 0, 0); ctx.quadraticCurveTo(22, -24, 50, -20 * f - 10); ctx.stroke(); circ(ctx, 0, 2, 8, k); ctx.restore(); }
+// slak (kijkt naar rechts)
+function L6_slak(ctx, x, y, s, a) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
+  ctx.beginPath(); ctx.moveTo(-40, 0); ctx.quadraticCurveTo(0, -8, 44, -4); ctx.quadraticCurveTo(54, -14, 46, -24); ctx.lineTo(30, -16); ctx.lineTo(-40, -6); ctx.closePath(); ctx.fillStyle = '#B8A07E'; ctx.fill();
+  ctx.strokeStyle = '#8A7458'; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(44, -20); ctx.lineTo(52, -42); ctx.moveTo(38, -18); ctx.lineTo(40, -38); ctx.stroke();
+  circ(ctx, -4, -30, 30, '#A0643A', '#6E4022', 2.5); ctx.strokeStyle = '#6E4022'; ctx.lineWidth = 3; ctx.beginPath(); for (let i = 0; i < 60; i++) { const an = i * 0.22, r = 26 - i * 0.4; const px = -4 + Math.cos(an) * r, py = -30 + Math.sin(an) * r; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke(); ctx.restore(); }
+// kikker, zittend van opzij (kijk = 1 naar rechts)
+function L6_kikker(ctx, x, y, s, a, kl, kijk = 1, T = 0) { if (a <= 0.01) return; const d = mix(kl, '#000000', 0.3), adem = 1 + Math.sin(T * 3) * 0.03;
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s * kijk, s);
+  ctx.beginPath(); ctx.ellipse(-34, -26, 40, 26, -0.2, 0, 6.283); ctx.fillStyle = d; ctx.fill();
+  ctx.beginPath(); ctx.moveTo(-60, 0); ctx.quadraticCurveTo(-70, -60, -10, -66); ctx.quadraticCurveTo(46, -64, 58, -30); ctx.quadraticCurveTo(50, -6, 20, 0); ctx.closePath(); ctx.fillStyle = kl; ctx.fill();
+  ctx.beginPath(); ctx.ellipse(10, -16 * adem, 30, 12 * adem, 0, 0, 6.283); ctx.fillStyle = mix(kl, '#FFFFFF', 0.4); ctx.fill();
+  circ(ctx, 24, -64, 13, kl); circ(ctx, 26, -66, 7, '#1A1A14'); circ(ctx, 28, -68, 2, '#FFFFFF');
+  ctx.strokeStyle = d; ctx.lineWidth = 7; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(30, -20); ctx.lineTo(38, 0); ctx.lineTo(50, 0); ctx.stroke(); ctx.restore(); }
+// cichlide (kijk = 1 naar rechts); kl = lijf, o.rug = rugkleur, o.streep = donkere banden
+function L6_vis(ctx, x, y, s, a, kl, o = {}) { if (a <= 0.01) return; const kijk = o.kijk || 1, T = o.T || 0, d = mix(kl, '#000000', 0.35);
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y + Math.sin(T * 1.5 + x * 0.01) * 4); ctx.scale(s * kijk, s);
+  const st = Math.sin(T * 5 + x) * 6;
+  ctx.beginPath(); ctx.moveTo(-50, 0); ctx.lineTo(-86, -24 + st); ctx.lineTo(-86, 24 + st); ctx.closePath(); ctx.fillStyle = o.vin || d; ctx.fill();
+  ctx.beginPath(); ctx.moveTo(-40, -20); ctx.quadraticCurveTo(0, -46, 34, -24); ctx.lineTo(-30, -18); ctx.closePath(); ctx.fillStyle = o.vin || d; ctx.fill();
+  ctx.beginPath(); ctx.ellipse(0, 0, 58, 26, 0, 0, 6.283); ctx.fillStyle = kl; ctx.fill();
+  if (o.rug) { ctx.save(); ctx.beginPath(); ctx.ellipse(0, 0, 58, 26, 0, 0, 6.283); ctx.clip(); ctx.fillStyle = o.rug; ctx.fillRect(-60, -30, 120, 22); ctx.restore(); }
+  if (o.streep) { ctx.save(); ctx.beginPath(); ctx.ellipse(0, 0, 58, 26, 0, 0, 6.283); ctx.clip(); ctx.fillStyle = 'rgba(20,20,30,0.35)'; [-30, -12, 6, 24].forEach(sx => ctx.fillRect(sx, -30, 7, 60)); ctx.restore(); }
+  circ(ctx, 38, -6, 6, '#F2EEE0'); circ(ctx, 39, -6, 3.2, '#111'); ctx.restore(); }
+const L6_BLAUW = () => ({ kl: '#6E8FB8', rug: '#4A6A98', streep: true, vin: '#3A5480' }), L6_ROOD = () => ({ kl: '#E8B23A', rug: '#D2452C', streep: true, vin: '#B8382A' }), L6_VROUW = () => ({ kl: '#B8A66A', streep: true, vin: '#8A7A4A' });
+// chromosoom (X-vorm), h = hoogte; o.lang = verschil in armlengte; o.rot
+function L6_chrom(ctx, x, y, h, kl, a = 1, o = {}) { if (a <= 0.01) return; const w = h * 0.2, b = o.band || 0;
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(o.rot || 0);
+  [-1, 1].forEach(k => { ctx.save(); ctx.rotate(k * 0.12); roundRect(ctx, -w / 2 + k * w * 0.55, -h / 2, w, h, w / 2); shape(ctx, rgba(kl, 0.85), dk(kl, 0.25), 2);
+    ctx.fillStyle = rgba('#000000', 0.25); [0.18 + b, 0.3, 0.68 - b, 0.82].forEach(f => ctx.fillRect(-w / 2 + k * w * 0.55 + 2, -h / 2 + h * f, w - 4, h * 0.05)); ctx.restore(); });
+  circ(ctx, 0, -h * 0.06, w * 0.45, dk(kl, 0.35)); ctx.restore(); }
+// rij chromosoomstreepjes: n in kleur k1, m in kleur k2
+function L6_rij(ctx, x, y, n, m, k1, k2, a = 1, dx = 8.5) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  for (let i = 0; i < n + m; i++) { const h = 46 - (i % 32) * 0.9; roundRect(ctx, x + i * dx, y - h, 5, h, 2.5); ctx.fillStyle = i < n ? k1 : k2; ctx.fill(); } ctx.restore(); }
+// rivier van boven naar beneden (golvend), breedte w
+function L6_rivier(ctx, x, y1, y2, w, a = 1, T = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath();
+  for (let yy = y1; yy <= y2; yy += 10) { const xx = x + Math.sin(yy * 0.012) * 30 - w / 2; yy === y1 ? ctx.moveTo(xx, yy) : ctx.lineTo(xx, yy); }
+  for (let yy = y2; yy >= y1; yy -= 10) ctx.lineTo(x + Math.sin(yy * 0.012) * 30 + w / 2, yy); ctx.closePath(); ctx.fillStyle = rgba(C.water, 0.45); ctx.fill();
+  ctx.strokeStyle = rgba(C.bg, 0.6); ctx.lineWidth = 3; for (let k = 0; k < 6; k++) { const yy = y1 + ((k * 70 + T * 40) % (y2 - y1 - 30)) + 10, xx = x + Math.sin(yy * 0.012) * 30; ctx.beginPath(); ctx.moveTo(xx - 12, yy); ctx.lineTo(xx + 12, yy + 10); ctx.stroke(); }
+  ctx.restore(); }
+// klein icoontje 'kracht': knikker + woord
+function L6_kracht(ctx, x, y, kl, woord, a) { if (a <= 0.01) return; knikker(ctx, x, y, 18, kl, a); regel(ctx, woord, x + 32, y + 11, a, kl, 30, 'left', 700); }
+// hartje
+function L6_hart(ctx, x, y, r, kl, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.beginPath(); ctx.moveTo(0, r * 0.9);
+  ctx.bezierCurveTo(-r * 1.4, -r * 0.1, -r * 0.7, -r * 1.2, 0, -r * 0.45); ctx.bezierCurveTo(r * 0.7, -r * 1.2, r * 1.4, -r * 0.1, 0, r * 0.9); ctx.fillStyle = kl; ctx.fill(); ctx.restore(); }
+
+// ---------- 1 · start ----------
+SCHERMEN.push({ titel: 'Start', deel: 'Opening', geenKop: true,
+  stappen: [{ t: '<b>Evolutie</b> · les 6: hoe een soort er twee wordt. Wat is een soort, een barrière, en reproductieve isolatie', n: 'Kies eerst havo of vwo: in vwo komen er twee schermen bij (allopatrische en sympatrische soortvorming, cichliden in het Victoriameer; scherm 10–11). Groot scherm (F) vult het hele scherm; T zet de tekst eronder uit. Hoort bij film 6 van de nieuwe reeks, Hoe één soort er twee wordt. Bewust kort (± 25 minuten), te combineren met les 5 of les 7 in één lesuur.' }],
+  teken(ctx, S) {
+    const T = S.T;
+    metaText(ctx, 'Evolutie · les 6', 140, 330, C.meta, 'left', 30);
+    text(ctx, 'Hoe een soort', 140, 465, fTitel(98), C.text); text(ctx, 'er twee wordt', 140, 585, fTitel(98), C.goud);
+    regel(ctx, 'soort · barrière · reproductieve isolatie', 144, 675, 1, C.text2, 32, 'left', 400);
+    L6_dier(ctx, 1240, 560, 0.75, 1, T, L6_PAARD()); L6_dier(ctx, 1620, 560, 0.75, 1, T + 1, Object.assign({ kijk: -1 }, L6_EZEL()));
+    regel(ctx, '×', 1430, 430, 1, C.text2, 60, 'center', 700);
+    L6_dier(ctx, 1430, 960, 0.85, 1, T + 2, L6_MUIL()); pijl(ctx, 1430, 590, 1430, 660, C.line, 4, 1);
+  } });
+
+// ---------- 2 · de muilezel ----------
+SCHERMEN.push({ titel: 'De muilezel', kop: 'Is een muilezel een soort?', deel: 'Opening',
+  stappen: [
+    { t: 'Veehouder Gerrit heeft een muilezel. Sterk, rustig en slim.', n: 'De opening van de film. Laat leerlingen eerst zeggen wat ze zien: een paard? een ezel?' },
+    { t: 'Zijn vader is een paard, zijn moeder een ezel. Maar een muilezel krijgt nooit jongen.', n: 'Startvraag van de film (kun je zelf stellen): Is een muilezel dan een soort? Laat leerlingen gokken; het antwoord komt in scherm 4. In het Nederlands: muilezel = vader paard, moeder ezel; muildier = vader ezel, moeder paard (zie briefing). Het verschil doet er voor de les niet toe.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 0.9), a1 = S.on(1, 1.0);
+    pers(ctx, 'gerrit', 330, 980, 640, { t: T, uit: a1 > 0.5 ? 'denkt' : 'blij', kijk: 1, outfit: 'stal', a: a0 });
+    L6_dier(ctx, 1000, 980, 1.25, a0, T, L6_MUIL()); naam(ctx, 'muilezel', 1000, 1040, a0, 'center');
+    if (a1 > 0.01) { L6_dier(ctx, 1000, 440, 0.6, a1, T, L6_PAARD()); naam(ctx, 'paard (vader)', 1000, 488, a1, 'center', C.text, 30);
+      L6_dier(ctx, 1600, 440, 0.6, a1, T + 1, Object.assign({ kijk: -1 }, L6_EZEL())); naam(ctx, 'ezel (moeder)', 1600, 488, a1, 'center', C.text, 30);
+      regel(ctx, '×', 1300, 360, a1, C.text2, 64, 'center', 700);
+      L6_geenJong(ctx, 1620, 980, 1.1, a1 * S.on(1, 0.6, 0.6)); regel(ctx, 'geen jongen', 1680, 1040, a1 * S.on(1, 0.6, 0.6), C.koraal, 32, 'center', 700); }
+  } });
+
+// ---------- 3 · wat is een soort? ----------
+SCHERMEN.push({ titel: 'Wat is een soort?', kop: 'Niet aan het uiterlijk', deel: 'Wat is een soort?',
+  stappen: [
+    { t: 'Een chihuahua en een wolf lijken nauwelijks op elkaar.', n: 'Een soort herken je niet aan het uiterlijk.' },
+    { t: 'Toch krijgen ze samen jongen, en die jongen ook weer. Een <b>soort</b>: individuen die in de natuur samen vruchtbare nakomelingen kunnen krijgen.', n: 'De soortdefinitie uit de film (biologisch soortbegrip). Hond en wolf zijn dus één soort (de hond geldt vaak als ondersoort van de wolf, zie briefing). \'In de natuur\' staat erin omdat in gevangenschap soms kruisingen lukken die in het wild niet voorkomen.' },
+    { t: 'Een hondenras is een groep binnen die soort, net als een <b>ondersoort</b> in de natuur.', n: 'Een ras is door de mens gefokt; een ondersoort is een groep die in de natuur apart leeft en wat afwijkt, maar nog wel met de rest kan paren.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 0.9), a1 = S.on(1, 1.0), a2 = S.on(2, 0.9);
+    L6_dier(ctx, 560, 640, 0.6, a0, T, L6_CHI()); naam(ctx, 'chihuahua', 560, 692, a0, 'center');
+    L6_dier(ctx, 1360, 640, 1.2, a0, T + 1, Object.assign({ kijk: -1 }, L6_WOLF())); naam(ctx, 'wolf', 1360, 692, a0, 'center');
+    if (a1 > 0.01) { L6_hart(ctx, 900, 400, 26, C.koraal, a1); [0, 1, 2].forEach(i => L6_dier(ctx, 860 + i * 70, 640, 0.32, a1 * S.on(1, 0.4, 0.3 + i * 0.15), T + i, Object.assign({}, L6_WOLF(), { kl: ['#A08A6A', '#7E7468', '#B89A72'][i] })));
+      vink(ctx, 1080, 560, 20, a1 * S.on(1, 0.5, 0.8));
+      termKaart(ctx, 'soort', 'samen vruchtbare nakomelingen, in de natuur', 960, 740, a1 * S.on(1, 0.6, 0.6), C.goud); }
+    if (a2 > 0.01) { termKaart(ctx, 'ras', 'groep binnen een soort, door de mens gefokt', 560, 900, a2, C.teal, 720); termKaart(ctx, 'ondersoort', 'groep binnen een soort, in de natuur', 1360, 900, a2 * S.on(2, 0.6, 0.3), C.teal, 720); }
+  } });
+
+// ---------- 4 · paard en ezel ----------
+SCHERMEN.push({ titel: 'Paard en ezel', kop: 'Een kruising tussen twee soorten', deel: 'Wat is een soort?',
+  stappen: [
+    { t: 'Paard en ezel krijgen wel een jong, maar dat is onvruchtbaar. Er stromen geen genen van paarden naar ezels: twee soorten. De muilezel is een <b>hybride</b>.', n: 'Vraag uit de film: Een paard en een ezel krijgen samen een muilezel. Die is gezond, maar onvruchtbaar. Zijn paard en ezel één soort? (a) Ja, want ze krijgen samen een jong, (b) Nee, want hun jong kan zelf geen jongen krijgen, (c) Ja, want ze lijken veel op elkaar. Antwoord b.' },
+    { t: 'Een paard heeft 64 chromosomen, een ezel 62. De muilezel krijgt van elk de helft: 63.', n: 'Paard 2n = 64, ezel 2n = 62; de geslachtscellen hebben 32 en 31 chromosomen.' },
+    { t: 'Bij de meiose moeten chromosomen in paren liggen. Die van paard en ezel passen niet goed op elkaar: bijna geen werkende geslachtscellen.', n: 'Meiose: zie erfelijkheid. Heel zelden is een muilezelmerrie toch vruchtbaar (een paar gevallen bekend, zie briefing).' },
+    { t: 'Is een muilezel een soort? Nee. Elke muilezel is opnieuw gemaakt door een paard en een ezel.', n: 'Het antwoord op de startvraag: een soort is een groep die zich voortplant, en dat doen muilezels niet.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 0.9), a1 = S.on(1, 1.0), a2 = S.on(2, 1.0), a3 = S.on(3, 0.8);
+    L6_dier(ctx, 280, 470, 0.58, a0, T, L6_PAARD()); naam(ctx, 'paard', 280, 516, a0, 'center', C.text, 30);
+    L6_dier(ctx, 760, 470, 0.58, a0, T + 1, Object.assign({ kijk: -1 }, L6_EZEL())); naam(ctx, 'ezel', 760, 516, a0, 'center', C.text, 30);
+    regel(ctx, '×', 520, 330, a0, C.text2, 56, 'center', 700); pijl(ctx, 520, 380, 520, 560, C.line, 4, a0);
+    L6_dier(ctx, 470, 890, 0.72, a0, T + 2, L6_MUIL()); L6_geenJong(ctx, 830, 890, 0.6, a0 * S.on(0, 0.5, 0.5));
+    termKaart(ctx, 'hybride', 'kruising tussen twee soorten', 1420, 190, a0 * S.on(0, 0.6, 0.6), C.goud, 760);
+    if (a1 > 0.01) { paneel(ctx, 1030, 350, 790, 300, a1);
+      [['paard', 64, 0, CH.vader, CH.vader], ['ezel', 62, 0, CH.moeder, CH.moeder], ['muilezel', 32, 31, CH.vader, CH.moeder]].forEach(([nm, n1, n2, k1, k2], i) => { const y = 430 + i * 82, a = a1 * S.on(1, 0.5, i * 0.3);
+        regel(ctx, nm, 1060, y, a, C.text, 30, 'left', 600); regel(ctx, String(n1 + n2), 1230, y, a, i === 2 ? C.goud : C.text, 34, 'right', 700);
+        L6_rij(ctx, 1250, y + 6, n1, n2 || (i === 1 ? 0 : 0), k1, k2, a); }); }
+    if (a2 > 0.01) { const y = 800; metaText(ctx, 'meiose: paren vormen', 1425, 700, C.text2, 'center', 22, a2);
+      [[1160, 0, 1], [1420, 0.12, 0], [1680, null, 0]].forEach(([x, band, goed], i) => { const a = a2 * S.on(2, 0.5, i * 0.3);
+        L6_chrom(ctx, x - 34, y, 110, CH.vader, a); if (band !== null) L6_chrom(ctx, x + 34, y + (goed ? 0 : 12), goed ? 110 : 86, CH.moeder, a, { band: band });
+        if (goed) vink(ctx, x, y + 96, 18, a); else kruis(ctx, x, y + 96, 16, a); }); }
+    if (a3 > 0.01) balk(ctx, 'een muilezel is geen soort, maar een hybride', 1425, 985, 790, a3, C.goud, 34);
+  } });
+
+// ---------- 5 · genenstroom en barrière ----------
+const L6_MUIZEN = Array.from({ length: 16 }, (_, i) => [hash(i * 3.3), hash(i * 7.1), hash(i * 1.9)]);
+SCHERMEN.push({ titel: 'Een barrière', kop: 'Eén populatie, dan een rivier', deel: 'Eén pot wordt twee',
+  stappen: [
+    { t: 'Eén populatie in een groot gebied. Dieren trekken heen en weer en paren overal: allelen gaan van groep naar groep, <b>genenstroom</b>.', n: 'Genenstroom = uitwisseling, zoals in de vorige film (les 5). Blauw in de reeks.' },
+    { t: 'Er komt een barrière: een rivier verlegt zijn loop. De dieren aan de ene kant komen de andere kant niet meer tegen: <b>geografische isolatie</b>.', n: 'Andere voorbeelden uit de film: een zee die stijgt, een bergrug of een woestijn die ontstaat.' },
+    { t: 'Wat een barrière is, hangt af van het dier. Een rivier houdt een muis tegen, geen vogel. Voor een slak is een weg al genoeg.', n: 'Laat leerlingen zelf voorbeelden bedenken (een snelweg voor egels, een akker voor een salamander).' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 0.9), a1 = S.on(1, 1.2), a2 = S.on(2, 0.9);
+    paneel(ctx, 160, 190, 1600, 520, a0, rgba(C.groen, 0.5));
+    L6_rivier(ctx, 960, 196, 704, 120, a1, T);
+    L6_MUIZEN.forEach(([u, v, w], i) => { const links = u < 0.5, bx = 220 + u * 1480, by = 290 + v * 380;
+      const vrij = bx + Math.sin(T * (0.25 + w * 0.2) + i) * 520, opKant = links ? clamp(bx + Math.sin(T * 0.3 + i) * 120, 220, 840) : clamp(bx + Math.sin(T * 0.3 + i) * 120, 1080, 1700);
+      const x = lerp(clamp(vrij, 220, 1700), opKant, a1), kijk = Math.cos(T * (0.25 + w * 0.2) + i) > 0 ? 1 : -1;
+      L6_muis(ctx, x, by, 1.1, a0, a1 > 0.5 ? (Math.cos(T * 0.3 + i) > 0 ? 1 : -1) : kijk); });
+    if (a0 > 0.01 && a1 < 0.99) { pijl(ctx, 760, 250, 1160, 250, C.teal, 5, a0 * (1 - a1)); pijl(ctx, 1160, 250, 760, 250, C.teal, 5, a0 * (1 - a1)); naam(ctx, 'genenstroom', 960, 236, a0 * (1 - a1), 'center', C.teal); }
+    if (a1 > 0.01) { kruis(ctx, 960, 250, 22, a1 * S.on(1, 0.5, 0.6)); naam(ctx, 'rivier', 960, 690, a1, 'center', C.text, 28); }
+    if (a2 > 0.01) { const P = [[400, 'muis', 0], [960, 'vogel', 1], [1520, 'slak', 0]];
+      P.forEach(([x, nm, kan], i) => { const a = a2 * S.on(2, 0.5, i * 0.3); paneel(ctx, x - 250, 750, 500, 270, a);
+        if (i < 2) L6_rivier(ctx, x, 756, 1014, 60, a, T); else { ctx.save(); ctx.globalAlpha *= a; ctx.fillStyle = rgba(C.line, 0.45); ctx.fillRect(x - 40, 756, 80, 258); ctx.strokeStyle = C.bg; ctx.lineWidth = 4; ctx.setLineDash([20, 18]); ctx.beginPath(); ctx.moveTo(x, 760); ctx.lineTo(x, 1010); ctx.stroke(); ctx.restore(); }
+        if (i === 0) L6_muis(ctx, x - 130, 900, 1.3, a); if (i === 1) L6_vogel(ctx, x + Math.sin(T * 0.8) * 150, 840, 1.1, a, T); if (i === 2) L6_slak(ctx, x - 140, 910, 1.1, a);
+        if (kan) vink(ctx, x + 170, 970, 18, a); else kruis(ctx, x + 170, 970, 16, a); naam(ctx, nm, x - 140, 1000, a, 'center', C.text, 28); }); }
+  } });
+
+// ---------- 6 · twee genenpools ----------
+SCHERMEN.push({ titel: 'Twee genenpools', kop: 'Eén pot wordt twee', deel: 'Eén pot wordt twee',
+  stappen: [
+    { t: 'De genenstroom stopt: één pot is twee potten. In elke pot andere mutaties, eigen selectiedruk en eigen toeval.', n: 'Vraag uit de film: De rivier blijft duizenden generaties liggen. Wat gebeurt er met de twee genenpools? (a) Ze blijven gelijk, want ze komen uit dezelfde pot, (b) Ze passen zich samen aan, want het is één soort, (c) Ze gaan steeds meer van elkaar verschillen. Antwoord c.' },
+    { t: 'Generatie na generatie lopen de allelfrequenties verder uit elkaar: <b>divergente evolutie</b>.', n: 'Eerst merk je het nauwelijks, na veel generaties zijn de verschillen groot. Misschien is het links kouder, of zijn er andere roofdieren.' },
+    { t: 'Hond en wolf gaan al minstens 15.000 jaar elk hun eigen weg. Waar ze elkaar tegenkomen, krijgen ze soms jongen: nog genenstroom, nog één soort.', n: 'Die genenstroom houdt de twee genenpools bij elkaar.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 0.9), a1 = S.on(1, 2.2), a2 = S.on(2, 0.9);
+    const pL = lerp(0.5, 0.82, a1), pR = lerp(0.5, 0.18, a1);
+    L6_rivier(ctx, 960, 190, 620, 110, a0, T);
+    pot(ctx, 600, 520, 0.95, { p: pL, n: 48, seed: 3, a: a0 }); pot(ctx, 1320, 520, 0.95, { p: pR, n: 48, seed: 7, a: a0 });
+    [[EV().kracht.mutatie, 'mutatie'], [EV().kracht.selectie, 'selectie'], [EV().kracht.drift, 'toeval']].forEach(([kl, w], i) => { const a = a0 * S.on(0, 0.5, 0.4 + i * 0.2);
+      L6_kracht(ctx, 190, 300 + i * 90, kl, w, a); L6_kracht(ctx, 1560, 300 + i * 90, kl, w, a); });
+    if (a1 > 0.01) { allelBalk(ctx, 450, 560, 300, pL, a1); allelBalk(ctx, 1170, 560, 300, pR, a1);
+      regel(ctx, 'generatie ' + Math.round(lerp(1, 2000, a1)), 960, 690, a1, C.text2, 30, 'center', 600);
+      termKaart(ctx, 'divergente evolutie', 'twee genenpools lopen uit elkaar', 960, 720, a1 * S.on(1, 0.5, 1.6), C.goud); }
+    if (a2 > 0.01) { const y = 1020; paneel(ctx, 460, 870, 1000, 180, a2);
+      L6_dier(ctx, 640, y, 0.5, a2, T, L6_WOLF()); L6_dier(ctx, 1280, y, 0.55, a2, T + 1, Object.assign({ kijk: -1 }, L6_WOLF(), { kl: '#C89A5E', neus: '#E8CCA0', staart: 'krul' }));
+      pijl(ctx, 870, 940, 1050, 940, C.teal, 5, a2); pijl(ctx, 1050, 940, 870, 940, C.teal, 5, a2); naam(ctx, 'nog genenstroom', 960, 1000, a2, 'center', C.teal, 30); }
+  } });
+
+// ---------- 7 · reproductieve isolatie ----------
+SCHERMEN.push({ titel: 'Reproductieve isolatie', kop: 'Zijn het nu twee soorten?', deel: 'Een tweede soort',
+  stappen: [
+    { t: 'De rivier verdwijnt en de groepen komen elkaar weer tegen. Krijgen ze nog samen vruchtbare jongen? Zo niet: <b>reproductieve isolatie</b>.', n: 'Dat is de toets van de soortdefinitie uit scherm 3.' },
+    { t: 'Soms komt het niet eens tot een bevruchting: ander moment, andere plek, ander lied, of de geslachtsorganen passen niet.', n: 'Isolatie vóór de bevruchting: in de tijd, in de plek (ander leefgebied in hetzelfde gebied), in gedrag (balts, lied) en mechanisch.' },
+    { t: 'Soms gaat het mis ná de bevruchting: het jong sterft jong of is onvruchtbaar, zoals de muilezel.', n: 'Ook dan stroomt er geen gen meer van de ene naar de andere groep.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 1.0), a1 = S.on(1, 1.0), a2 = S.on(2, 0.9);
+    L6_rivier(ctx, 960, 190, 500, 110, 1 - a0 * 0.85, T);
+    for (let i = 0; i < 5; i++) { L6_muis(ctx, 300 + i * 90 + a0 * 140, 300 + (i % 2) * 90, 1.1, 1, 1, '#9A8670'); L6_muis(ctx, 1260 + i * 90 - a0 * 140, 300 + (i % 2) * 90, 1.1, 1, -1, '#6E6052'); }
+    if (a0 > 0.01) { regel(ctx, '?', 960, 330, a0, C.goud, 80, 'center', 700); termKaart(ctx, 'reproductieve isolatie', 'samen geen vruchtbare jongen meer', 960, 400, a0 * S.on(0, 0.6, 0.6), C.goud); }
+    if (a1 > 0.01) { paneel(ctx, 120, 580, 1060, 440, a1); metaText(ctx, 'vóór de bevruchting', 650, 630, C.meta, 'center', 22, a1);
+      const ic = [['ander moment', (x, y, a) => { ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 60, y - 70, 120, 120, 12); shape(ctx, rgba(C.bg, 0.9), C.line, 3); ctx.fillStyle = C.koraal; ctx.fillRect(x - 60, y - 70, 120, 30); ctx.restore(); text(ctx, 'apr', x, y + 26, fTekst(40, 700), C.text, 'center'); }],
+        ['andere plek', (x, y, a) => { ctx.save(); ctx.globalAlpha *= a; ctx.fillStyle = rgba(C.groen, 0.5); ctx.beginPath(); ctx.moveTo(x - 80, y + 50); ctx.lineTo(x - 30, y - 60); ctx.lineTo(x + 10, y + 50); ctx.fill(); ctx.fillStyle = rgba(C.water, 0.5); ctx.fillRect(x + 10, y + 10, 76, 40); ctx.restore(); }],
+        ['ander lied', (x, y, a) => { ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.text; ctx.fillStyle = C.text; ctx.lineWidth = 5; [[-30, 0], [20, -16]].forEach(([dx, dy]) => { circ(ctx, x + dx, y + 30 + dy, 14, C.text); ctx.beginPath(); ctx.moveTo(x + dx + 12, y + 30 + dy); ctx.lineTo(x + dx + 12, y - 50 + dy); ctx.stroke(); }); ctx.beginPath(); ctx.moveTo(x - 18, y - 50); ctx.lineTo(x + 32, y - 66); ctx.stroke(); ctx.restore(); }],
+        ['past niet', (x, y, a) => { ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 80, y - 40, 70, 80, 8); shape(ctx, rgba(C.teal, 0.5), C.teal, 3); circ(ctx, x - 10, y, 18, rgba(C.teal, 0.5), C.teal, 3); roundRect(ctx, x + 20, y - 40, 70, 80, 8); shape(ctx, rgba(C.oker, 0.5), C.oker, 3); ctx.beginPath(); ctx.rect(x + 20, y - 12, 26, 24); ctx.fillStyle = C.bg; ctx.fill(); ctx.restore(); }]];
+      ic.forEach(([nm, f], i) => { const x = 250 + i * 265, a = a1 * S.on(1, 0.5, i * 0.25); f(x, 800, a); naam(ctx, nm, x, 930, a, 'center', C.text, 30); }); }
+    if (a2 > 0.01) { paneel(ctx, 1220, 580, 580, 440, a2); metaText(ctx, 'ná de bevruchting', 1510, 630, C.meta, 'center', 22, a2);
+      L6_dier(ctx, 1420, 920, 0.5, a2, T, L6_MUIL()); L6_geenJong(ctx, 1660, 920, 0.5, a2 * S.on(2, 0.5, 0.4)); naam(ctx, 'jong onvruchtbaar', 1510, 990, a2, 'center', C.text, 30); }
+  } });
+
+// ---------- 8 · kikkers in april en juni ----------
+const L6_MAAND = ['j', 'f', 'm', 'a', 'm', 'j', 'j', 'a', 's', 'o', 'n', 'd'];
+SCHERMEN.push({ titel: 'Kikkers', kop: 'Dezelfde vijver, een andere maand', deel: 'Een tweede soort',
+  stappen: [
+    { t: 'Twee kikkersoorten in dezelfde vijver. De ene paart in april, de andere in juni.', n: 'Vraag uit de film: Twee kikkersoorten leven in dezelfde vijver. De ene paart in april, de andere in juni. Wat voor isolatie is dit? (a) Isolatie vóór de bevruchting, (b) Geografische isolatie, (c) Isolatie ná de bevruchting. Antwoord a.' },
+    { t: 'De scheiding zit niet in de plek, maar in de tijd. Er komt niet eens een bevruchting: isolatie <b>vóór de bevruchting</b>.', n: 'De vrouwtjes van de ene soort zijn al klaar als de mannetjes van de andere gaan roepen. Geen geografische isolatie: ze leven in dezelfde vijver.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 0.9), a1 = S.on(1, 1.0);
+    const g = C.licht ? '#5E9A4C' : '#6FB05A', b = C.licht ? '#8A6A44' : '#A8865A';
+    ctx.save(); ctx.globalAlpha *= a0; ctx.beginPath(); ctx.ellipse(960, 440, 560, 170, 0, 0, 6.283); ctx.fillStyle = rgba(C.water, 0.35); ctx.fill(); ctx.strokeStyle = rgba(C.water, 0.7); ctx.lineWidth = 3; ctx.stroke(); ctx.restore();
+    [[640, 470, 0], [1240, 470, 1]].forEach(([x, y, k]) => { ctx.save(); ctx.globalAlpha *= a0; ctx.beginPath(); ctx.ellipse(x, y, 110, 30, 0, 0, 6.283); ctx.fillStyle = C.licht ? '#7FAE6A' : '#4F7A44'; ctx.fill(); ctx.restore(); L6_kikker(ctx, x, y - 6, 1.3, a0, k ? b : g, k ? -1 : 1, T + k); });
+    const x0 = 360, w = 1200, y = 780, mw = w / 12;
+    ctx.save(); ctx.globalAlpha *= a0; ctx.strokeStyle = C.line; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(x0, y); ctx.lineTo(x0 + w, y); ctx.stroke(); ctx.restore();
+    L6_MAAND.forEach((m, i) => regel(ctx, m, x0 + i * mw + mw / 2, y + 40, a0, i === 3 || i === 5 ? C.text : C.text2, 28, 'center', i === 3 || i === 5 ? 700 : 400));
+    [[3.5, g, 0], [5.5, b, 1]].forEach(([mc, kl, i]) => { const a = a0 * S.on(0, 0.6, 0.4 + i * 0.3); ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.moveTo(x0 + (mc - 0.9) * mw, y);
+      for (let k = 0; k <= 30; k++) { const u = mc - 0.9 + k / 30 * 1.8; ctx.lineTo(x0 + u * mw, y - 150 * Math.exp(-0.5 * ((u - mc) / 0.35) ** 2)); } ctx.closePath(); ctx.fillStyle = rgba(kl, 0.55); ctx.fill(); ctx.strokeStyle = kl; ctx.lineWidth = 3; ctx.stroke(); ctx.restore(); });
+    naam(ctx, 'paartijd', x0 - 20, y - 20, a0, 'right', C.text2, 28);
+    if (a1 > 0.01) { ctx.save(); ctx.globalAlpha *= a1; ctx.setLineDash([8, 8]); ctx.strokeStyle = C.koraal; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x0 + 4.5 * mw, y - 190); ctx.lineTo(x0 + 4.5 * mw, y + 10); ctx.stroke(); ctx.restore(); kruis(ctx, x0 + 4.5 * mw, y - 210, 16, a1);
+      termKaart(ctx, 'isolatie vóór de bevruchting', 'hier: in de tijd', 960, 880, a1 * S.on(1, 0.6, 0.4), C.goud); }
+  } });
+
+// ---------- 9 · van barrière tot soort ----------
+SCHERMEN.push({ titel: 'Van barrière tot soort', kop: 'Zo verloopt het meestal', deel: 'Een tweede soort',
+  stappen: [
+    { t: 'Eerst een barrière, dan verschillen die zich opstapelen, en ten slotte reproductieve isolatie. Eén soort is er twee geworden.', n: 'De drie stappen van soortvorming uit de film. Laat leerlingen de stappen terugvertellen met de muilezel of de kikkers erbij.' },
+    { t: 'Daar zijn meestal tienduizenden generaties of meer voor nodig.', n: 'Bij muizen (een paar generaties per jaar) is dat sneller dan bij olifanten. Hoe lang het echt duurt, verschilt sterk per groep (zie briefing).' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 1.6), a1 = S.on(1, 1.0);
+    const st = [['barrière', 0.5, 0.5, C.teal], ['verschillen stapelen', 0.72, 0.28, C.groen], ['reproductieve isolatie', 0.9, 0.1, C.goud]];
+    st.forEach(([nm, p1, p2, kl], i) => { const a = clamp(a0 * 3 - i, 0, 1), x = 360 + i * 600; if (a <= 0.01) return;
+      paneel(ctx, x - 260, 200, 520, 560, a, rgba(kl, 0.6)); regel(ctx, (i + 1) + '. ' + nm, x, 270, a, kl, 36, 'center', 700);
+      pot(ctx, x - 120, 640, 0.6, { p: p1, n: 30, seed: 2 + i, a }); pot(ctx, x + 120, 640, 0.6, { p: p2, n: 30, seed: 9 + i, a });
+      if (i === 0) L6_rivier(ctx, x, 360, 650, 40, a, T); if (i === 1) { L6_rivier(ctx, x, 360, 650, 40, a, T); }
+      if (i === 2) { kruis(ctx, x, 520, 20, a); L6_hart(ctx, x, 440, 20, C.koraal, a * 0.6); }
+      if (i < 2) pijl(ctx, x + 268, 480, x + 332, 480, C.line, 5, clamp(a0 * 3 - i - 1, 0, 1)); });
+    if (a1 > 0.01) { pijl(ctx, 140, 830, 1780, 830, C.text2, 5, a1, 22); regel(ctx, 'tienduizenden generaties of meer', 960, 810, a1, C.text, 34, 'center', 700);
+      balk(ctx, 'de genenstroom stopt, de genenpools lopen uit elkaar', 960, 960, 1400, a1 * S.on(1, 0.6, 0.5), C.goud, 38); }
+  } });
+
+// ---------- 10 · zonder barrière (vwo) ----------
+SCHERMEN.push({ titel: 'Zonder barrière', kop: 'Allopatrisch of sympatrisch', deel: 'Zonder barrière (vwo)',
+  stappen: [
+    { vwo: true, t: 'Wat je net zag, heet <b>allopatrische soortvorming</b>: op gescheiden plaatsen. Soms ontstaan soorten op dezelfde plek, zonder barrière: <b>sympatrische soortvorming</b>.', n: 'allo = anders, sym = samen, patria = vaderland. Alleen vwo (Nectar); havo slaat dit scherm over.' },
+    { vwo: true, t: 'Het Victoriameer liep rond 15.000 jaar geleden weer vol. Sindsdien zijn er ongeveer 500 soorten cichliden ontstaan, een deel zonder barrière in het water.', n: 'Getallen zoals in de film; ze kloppen met Meier et al. 2017 (Eawag/Bern, zie briefing). Cichliden = baarsachtige vissen.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 1.0), a1 = S.on(1, 1.0);
+    paneel(ctx, 120, 190, 820, 560, a0, rgba(C.teal, 0.6)); paneel(ctx, 980, 190, 820, 560, a0 * S.on(0, 0.6, 0.5), rgba(C.paars, 0.6));
+    L6_rivier(ctx, 530, 200, 600, 90, a0, T); pot(ctx, 330, 580, 0.7, { p: 0.82, n: 30, seed: 4, a: a0 }); pot(ctx, 730, 580, 0.7, { p: 0.18, n: 30, seed: 5, a: a0 });
+    termKaart(ctx, 'allopatrisch', 'gescheiden plaatsen', 530, 610, a0, C.teal, 600);
+    const a = a0 * S.on(0, 0.6, 0.5);
+    if (a > 0.01) { ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.ellipse(1390, 400, 340, 170, 0, 0, 6.283); ctx.fillStyle = rgba(C.water, 0.3); ctx.fill(); ctx.strokeStyle = rgba(C.water, 0.7); ctx.lineWidth = 3; ctx.stroke(); ctx.restore();
+      [[1200, 340, 1], [1300, 440, 1], [1180, 470, 1], [1500, 330, -1], [1580, 430, -1], [1460, 470, -1]].forEach(([x, y, k], i) => L6_vis(ctx, x + Math.sin(T * 0.4 + i) * 30, y, 0.7, a, (i < 3 ? L6_BLAUW() : L6_ROOD()).kl, Object.assign({}, i < 3 ? L6_BLAUW() : L6_ROOD(), { kijk: k, T: T + i })));
+      termKaart(ctx, 'sympatrisch', 'dezelfde plek, geen barrière', 1390, 610, a, C.paars, 600); }
+    if (a1 > 0.01) { for (let i = 0; i < 14; i++) { const x = 360 + (i % 7) * 200 + (i >= 7 ? 100 : 0), y = i < 7 ? 820 : 885;
+        const kl = ['#6E8FB8', '#E8B23A', '#C0583A', '#7FA86A', '#B8A66A', '#8C7BBF', '#D2452C'][i % 7]; L6_vis(ctx, x, y, 0.42, a1 * S.on(1, 0.3, i * 0.06), kl, { T: T + i, kijk: i < 7 ? -1 : 1 }); }
+      regel(ctx, '± 500 soorten in ± 15.000 jaar', 960, 985, a1, C.goud, 44, 'center', 700); naam(ctx, 'Victoriameer', 960, 1035, a1, 'center', C.text2, 28); }
+  } });
+
+// ---------- 11 · blauw en rood (vwo) ----------
+SCHERMEN.push({ titel: 'Blauw en rood', kop: 'Kiezen op kleur', deel: 'Zonder barrière (vwo)',
+  stappen: [
+    { vwo: true, t: 'Twee soorten in hetzelfde deel van het meer. Bij de ene zijn de mannetjes blauw, bij de andere rood. Ondiep is blauw licht goed te zien, dieper vooral rood licht.', n: 'Pundamilia pundamilia (blauw) en Pundamilia nyererei (rood). Vraag uit de film: Er is geen muur in het water. Hoe kunnen de blauwe en de rode vissen toch apart blijven? (a) Er moet een barrière zijn die we niet zien, (b) Vrouwtjes kiezen een mannetje met de kleur die zij het best zien, (c) Het zijn geen echte soorten, maar kleurvarianten. Antwoord b.' },
+    { vwo: true, t: 'De ogen van de vrouwtjes zijn afgestemd op hun licht. Ze kiezen vooral een mannetje van hun eigen kleur: <b>partnerkeuze</b> stopt de genenstroom.', n: 'Zonder rivier of berg. Het verschil zit in een gen voor een lichtgevoelig pigment in het oog (LWS-opsine, zie briefing).' },
+    { vwo: true, t: 'In troebel water zijn de kleuren niet te zien. Daar ontstaat geen scheiding.', n: 'Afsluitende zin van de film: allopatrisch of sympatrisch, in beide gevallen stopt de genenstroom en lopen twee genenpools uit elkaar. Het verschil is alleen wat de genenstroom stopt.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 1.0), a1 = S.on(1, 1.0), a2 = S.on(2, 1.0);
+    const x0 = 160, x1 = 1260, y0 = 200, y1 = 1000;
+    ctx.save(); ctx.globalAlpha *= a0; const g = ctx.createLinearGradient(0, y0, 0, y1); g.addColorStop(0, rgba(C.teal, 0.45)); g.addColorStop(0.5, rgba(C.teal, 0.12)); g.addColorStop(1, rgba(C.koraal, 0.4));
+    roundRect(ctx, x0, y0, x1 - x0, y1 - y0, 18); ctx.fillStyle = g; ctx.fill(); ctx.strokeStyle = rgba(C.line, 0.5); ctx.lineWidth = 2; ctx.stroke(); ctx.restore();
+    naam(ctx, 'ondiep · blauw licht', x0 + 24, y0 + 50, a0, 'left', C.teal, 30); naam(ctx, 'diep · rood licht', x0 + 24, y1 - 24, a0, 'left', C.koraal, 30);
+    [[420, 330], [760, 390], [1060, 320]].forEach(([x, y], i) => L6_vis(ctx, x, y, 0.95, a0, L6_BLAUW().kl, Object.assign({}, L6_BLAUW(), { T: T + i, kijk: i % 2 ? -1 : 1 })));
+    [[440, 820], [800, 760], [1080, 860]].forEach(([x, y], i) => L6_vis(ctx, x, y, 0.95, a0, L6_ROOD().kl, Object.assign({}, L6_ROOD(), { T: T + i + 3, kijk: i % 2 ? 1 : -1 })));
+    if (a1 > 0.01) { [[560, 470, 1], [940, 660, 0]].forEach(([x, y, ondiep], i) => { const a = a1 * S.on(1, 0.5, i * 0.4);
+        L6_vis(ctx, x, y, 0.8, a, L6_VROUW().kl, Object.assign({}, L6_VROUW(), { T: T + 7 + i, kijk: ondiep ? -1 : 1 }));
+        L6_hart(ctx, ondiep ? 470 : 1020, ondiep ? 400 : 590, 18, C.koraal, a); });
+      naam(ctx, 'vrouwtje', 560, 530, a1, 'center', C.text, 26); naam(ctx, 'vrouwtje', 940, 720, a1, 'center', C.text, 26);
+      termKaart(ctx, 'partnerkeuze', 'stopt de genenstroom', 1540, 220, a1 * S.on(1, 0.6, 0.6), C.goud, 480); }
+    if (a2 > 0.01) { const px = 1310, py = 420; ctx.save(); ctx.globalAlpha *= a2; roundRect(ctx, px, py, 480, 420, 18); ctx.fillStyle = C.licht ? 'rgba(150,130,90,0.45)' : 'rgba(120,100,70,0.5)'; ctx.fill(); ctx.strokeStyle = rgba(C.line, 0.5); ctx.lineWidth = 2; ctx.stroke(); ctx.restore();
+      regel(ctx, 'troebel water', px + 240, py + 56, a2, C.text, 32, 'center', 700);
+      [[1420, 560], [1660, 620], [1450, 720], [1640, 760]].forEach(([x, y], i) => L6_vis(ctx, x, y, 0.65, a2 * 0.8, '#B88A5A', { rug: i % 2 ? '#A0583A' : '#6A7A98', streep: true, vin: '#7A5A44', T: T + i, kijk: i % 2 ? -1 : 1 }));
+      regel(ctx, 'geen scheiding', px + 240, py + 470, a2, C.koraal, 32, 'center', 700); }
+  } });
+
+// ---------- 12 · samenvatting ----------
+SCHERMEN.push({ titel: 'Samenvatting', kop: 'Hoe een soort er twee wordt', deel: 'Afsluiting',
+  stappen: [
+    { t: 'Een <b>soort</b>: samen vruchtbare nakomelingen in de natuur. De muilezel is een onvruchtbare <b>hybride</b>, geen soort.', n: 'Terug naar de startvraag van de veehouder.' },
+    { t: 'Een barrière stopt de <b>genenstroom</b>: de genenpools lopen uit elkaar (divergente evolutie).', n: 'Mutatie, selectie en toeval werken in elke pot anders.', th: 'Een barrière stopt de <b>genenstroom</b>: de genenpools lopen uit elkaar (divergente evolutie).' },
+    { t: '<b>Reproductieve isolatie</b> maakt er twee soorten van: vóór of ná de bevruchting. Ook partnerkeuze kan de genenstroom stoppen.', th: '<b>Reproductieve isolatie</b> maakt er twee soorten van: vóór of ná de bevruchting.', n: 'vwo: allopatrisch (gescheiden plaatsen) of sympatrisch (dezelfde plek, bv. door partnerkeuze).' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s = [S.on(0, 0.9), S.on(1, 0.9), S.on(2, 0.9)];
+    const kol = [['soort', C.goud, ['samen vruchtbare', 'nakomelingen', 'muilezel: hybride']], ['genenstroom stopt', C.teal, ['barrière', 'geografische isolatie', 'genenpools divergeren']], ['reproductieve isolatie', C.groen, ['vóór de bevruchting', 'ná de bevruchting', 'twee soorten']]];
+    kol.forEach(([kop, col, regels], i) => { const a = s[i]; if (a <= 0.01) return; const x = 120 + i * 580;
+      paneel(ctx, x, 190, 540, 790, a, rgba(col, 0.6)); regel(ctx, kop, x + 270, 268, a, col, 40, 'center', 700);
+      if (i === 0) { L6_dier(ctx, x + 230, 580, 0.68, a, T, L6_MUIL()); L6_geenJong(ctx, x + 440, 580, 0.42, a); }
+      if (i === 1) { L6_rivier(ctx, x + 270, 320, 600, 50, a, T); pot(ctx, x + 140, 590, 0.55, { p: 0.8, n: 26, seed: 3, a }); pot(ctx, x + 400, 590, 0.55, { p: 0.2, n: 26, seed: 8, a }); }
+      if (i === 2) { L6_kikker(ctx, x + 150, 560, 1.0, a, C.licht ? '#5E9A4C' : '#6FB05A', 1, T); L6_kikker(ctx, x + 400, 560, 1.0, a, C.licht ? '#8A6A44' : '#A8865A', -1, T + 1); kruis(ctx, x + 275, 500, 18, a); }
+      regels.forEach((r, k) => regel(ctx, r, x + 40, 690 + k * 66, a * S.on(i, 0.5, 0.2 + k * 0.12), C.text, 31, 'left', 500)); });
+  } });
+
+// ---------- 13 · volgende keer ----------
+function L6_icoonLagen(ctx, x, y, a) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const kl = ['#C9B896', '#A88E6A', '#8A7458', '#B8A07E', '#6E5A44'];
+  kl.forEach((k, i) => { ctx.fillStyle = k; ctx.fillRect(x - 130, y - 90 + i * 36, 260, 36); });
+  ctx.strokeStyle = '#3A2E22'; ctx.lineWidth = 3; ctx.beginPath(); for (let i = 0; i < 40; i++) { const an = i * 0.3, r = 4 + i * 0.5; const px = x + 30 + Math.cos(an) * r, py = y + 40 + Math.sin(an) * r * 0.8; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke(); ctx.restore(); }
+function L6_icoonWalvis(ctx, x, y, a, T) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y + Math.sin(T) * 4); const kl = C.licht ? '#4A5A6E' : '#8FA0B5';
+  ctx.beginPath(); ctx.moveTo(-130, -10); ctx.quadraticCurveTo(-120, -50, -20, -46); ctx.quadraticCurveTo(80, -40, 110, -10); ctx.lineTo(150, -40); ctx.lineTo(140, 0); ctx.lineTo(150, 36); ctx.lineTo(108, 8); ctx.quadraticCurveTo(40, 40, -60, 30); ctx.quadraticCurveTo(-130, 24, -130, -10); ctx.fillStyle = kl; ctx.fill();
+  circ(ctx, -96, -14, 4, '#111'); ctx.strokeStyle = C.goud; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(30, 4); ctx.lineTo(50, 14); ctx.moveTo(34, 18); ctx.lineTo(54, 10); ctx.stroke(); ctx.restore(); }
+function L6_icoonSkelet(ctx, x, y, a) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.text; ctx.lineCap = 'round';
+  ctx.lineWidth = 14; ctx.beginPath(); ctx.moveTo(x - 110, y - 70); ctx.lineTo(x - 30, y - 10); ctx.stroke();
+  ctx.lineWidth = 8; ctx.beginPath(); ctx.moveTo(x - 30, y - 16); ctx.lineTo(x + 40, y - 30); ctx.moveTo(x - 28, y - 2); ctx.lineTo(x + 42, y - 6); ctx.stroke();
+  ctx.lineWidth = 5; for (let i = 0; i < 5; i++) { const an = -0.7 + i * 0.32; ctx.beginPath(); ctx.moveTo(x + 50, y - 18); ctx.lineTo(x + 50 + Math.cos(an) * 80, y - 18 + Math.sin(an) * 80); ctx.stroke(); } ctx.restore(); }
+function L6_icoonDNA(ctx, x, y, a, T) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; for (let i = 0; i < 18; i++) { const u = i / 17, xx = x - 130 + u * 260, f = u * 9 + T, y1 = y + Math.sin(f) * 50, y2 = y - Math.sin(f) * 50;
+  ctx.strokeStyle = rgba(C.line, 0.6); ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(xx, y1); ctx.lineTo(xx, y2); ctx.stroke(); circ(ctx, xx, y1, 7, C.teal); circ(ctx, xx, y2, 7, C.oker); } ctx.restore(); }
+SCHERMEN.push({ titel: 'Volgende keer', deel: 'Vooruitblik', geenKop: true,
+  stappen: [{ t: 'Volgende keer (les 7): <b>hoe weten we dat?</b> Lagen en fossielen, walvissen, hetzelfde skelet en het spoor in het DNA.', n: 'Huiswerk: de film Hoe één soort er twee wordt (nog eens) kijken. Wie vooruit wil: film 7 Hoe weten we dat? (startvraag: hoe weet je welke laag in de grond het oudst is?).' }],
+  teken(ctx, S) { vooruitblik(ctx, S, 'Hoe weten we dat?', [['Lagen en fossielen', 'welke laag is het oudst?', L6_icoonLagen], ['Walvissen', 'heupbotjes zonder poten', L6_icoonWalvis], ['Hetzelfde skelet', 'arm, poot en vin', L6_icoonSkelet], ['Het spoor in het DNA', 'verwantschap aflezen', L6_icoonDNA]]); } });
+
+/* =====================================================================================
+   Speler
+   ===================================================================================== */
+const cv = document.getElementById('cv'), ctx = cv.getContext('2d');
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let vwo = true, scr = 0, p = 0, tStap = performance.now(), tScherm = performance.now();
+const startTijden = {};
+try { const q = new URLSearchParams(location.search).get('niveau'); const sv = localStorage.getItem('niveau'); vwo = q === 'havo' ? false : q === 'vwo' ? true : sv !== 'havo'; } catch (e) {}
+const zichtbaar = (i) => SCHERMEN[i].stappen.map((s, k) => k).filter(k => vwo || !SCHERMEN[i].stappen[k].vwo);
+
+function maat() { const r = cv.getBoundingClientRect(); const d = Math.min(2, window.devicePixelRatio || 1); const w = Math.max(320, Math.round(r.width * d)), h = Math.round(w * 9 / 16); if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; } }
+function frame(now) {
+  maat(); const sc = SCHERMEN[scr], vis = zichtbaar(scr), b = vis[Math.min(p, vis.length - 1)];
+  const tb = reduce ? 99 : (now - tStap) / 1000, T = (now - tScherm) / 1000;
+  const S = { b, T, vwo,
+    on(k, d = 0.9, del = 0) { if (b == null) return 0; const st = sc.stappen[k]; if (!st || (st.vwo && !vwo)) return 0; if (b > k) return 1; if (b < k) return 0; return ease((tb - del) / d); },
+    start(k) { return (startTijden[scr + ':' + k] || now) / 1000 - tScherm / 1000; } };
+  ctx.setTransform(cv.width / W, 0, 0, cv.height / H, 0, 0); ctx.clearRect(0, 0, W, H); ctx.fillStyle = C.bg; ctx.fillRect(0, 0, W, H);
+  if (!sc.geenKop) { text(ctx, sc.titel === 'Start' ? '' : kopVan(sc), 80, 100, fTitel(54), C.text); metaText(ctx, sc.deel, 82, 140, C.meta, 'left', 20); }
+  try { sc.teken(ctx, S); } catch (e) { console.error(e); }
+  requestAnimationFrame(frame);
+}
+function kopVan(sc) { return sc.kop || sc.titel; }
+
+const capTxt = document.getElementById('capTxt'), capNot = document.getElementById('capNot'), dots = document.getElementById('dots'), teller = document.getElementById('teller'), chips = document.getElementById('chips');
+function tekstKaart() {
+  const vis = zichtbaar(scr), k = vis[p], st = SCHERMEN[scr].stappen[k];
+  capTxt.innerHTML = (st.vwo ? '<span class="vwo-tag">vwo</span>' : '') + ((!vwo && st.th) ? st.th : st.t);
+  capNot.textContent = st.n || '';
+  dots.innerHTML = vis.map((kk, i) => `<i class="${i < p ? 'done' : i === p ? 'cur' : ''}${SCHERMEN[scr].stappen[kk].vwo ? ' vwo' : ''}"></i>`).join('');
+  teller.textContent = `scherm ${scr + 1}/${SCHERMEN.length} · stap ${p + 1}/${vis.length}`;
+  chips.querySelectorAll('.chip[data-i]').forEach(c => c.classList.toggle('cur', +c.dataset.i === scr));
+  document.getElementById('terug').disabled = volgendVol(scr - 1, -1) < 0 && p === 0;
+  document.getElementById('verder').disabled = volgendVol(scr + 1, 1) < 0 && p === vis.length - 1;
+  chips.querySelectorAll('.chip[data-i]').forEach(c => { c.hidden = leeg(+c.dataset.i); });
+  try { history.replaceState(null, '', '#' + (scr + 1)); } catch (e) {}
+}
+function markeer() { startTijden[scr + ':' + zichtbaar(scr)[p]] = performance.now(); }
+// een scherm met alleen vwo-stappen telt in havo niet mee (wordt overgeslagen)
+const leeg = (i) => zichtbaar(i).length === 0;
+function volgendVol(i, d) { while (i >= 0 && i < SCHERMEN.length && leeg(i)) i += d; return (i >= 0 && i < SCHERMEN.length) ? i : -1; }
+function verder() { const vis = zichtbaar(scr); if (p < vis.length - 1) { p++; tStap = performance.now(); } else { const v = volgendVol(scr + 1, 1); if (v < 0) return; scr = v; p = 0; tStap = tScherm = performance.now(); } markeer(); tekstKaart(); }
+function terug() { if (p > 0) p--; else { const v = volgendVol(scr - 1, -1); if (v < 0) return; scr = v; p = zichtbaar(scr).length - 1; tScherm = performance.now() - 20000; } tStap = performance.now() - 20000; markeer(); tekstKaart(); }
+function naarScherm(i) { i = clamp(i, 0, SCHERMEN.length - 1); const d = i < scr ? -1 : 1; let v = volgendVol(i, d); if (v < 0) v = volgendVol(i, -d); if (v < 0) return; scr = v; p = 0; tStap = tScherm = performance.now(); markeer(); tekstKaart(); }
+function opnieuw() { tStap = performance.now(); markeer(); }
+
+// chips per scherm, gegroepeerd per deel
+(function () { let deel = ''; chips.innerHTML = SCHERMEN.map((s, i) => { let h = ''; if (s.deel !== deel) { deel = s.deel; h += `<span class="chip deel">${deel}</span>`; } return h + `<button type="button" class="chip" data-i="${i}"><span class="n">${i + 1}</span>${s.titel}</button>`; }).join('');
+  chips.addEventListener('click', e => { const c = e.target.closest('.chip[data-i]'); if (c) naarScherm(+c.dataset.i); }); })();
+
+function zetNiveau(v) { vwo = v; document.getElementById('lvVwo').setAttribute('aria-pressed', v); document.getElementById('lvHavo').setAttribute('aria-pressed', !v); try { localStorage.setItem('niveau', v ? 'vwo' : 'havo'); } catch (e) {} if (leeg(scr)) { let w = volgendVol(scr, 1); if (w < 0) w = volgendVol(scr, -1); scr = w; p = 0; } p = Math.min(p, zichtbaar(scr).length - 1); tekstKaart(); }
+document.getElementById('lvVwo').onclick = () => zetNiveau(true);
+document.getElementById('lvHavo').onclick = () => zetNiveau(false);
+const lblBtn = document.getElementById('lblBtn');
+function wisselNamen() { toonNamen = !toonNamen; lblBtn.setAttribute('aria-pressed', !toonNamen); lblBtn.textContent = toonNamen ? 'Namen verbergen' : 'Namen tonen'; }
+lblBtn.onclick = wisselNamen;
+function presenteer(aan) {
+  document.body.classList.toggle('presenteer', aan); document.body.classList.toggle('muis', false);
+  const el = document.documentElement, aanVS = el.requestFullscreen || el.webkitRequestFullscreen, uitVS = document.exitFullscreen || document.webkitExitFullscreen, vs = document.fullscreenElement || document.webkitFullscreenElement;
+  try { if (aan && !vs && aanVS) { const r = aanVS.call(el); if (r && r.catch) r.catch(() => {}); } if (!aan && vs && uitVS) { const r = uitVS.call(document); if (r && r.catch) r.catch(() => {}); } } catch (e) {}
+}
+// groot scherm: knoppen tonen bij muisbeweging, na 2,5 s stil weer verbergen (ook de muiswijzer)
+let _muisTimer = 0;
+document.addEventListener('mousemove', () => { if (!document.body.classList.contains('presenteer')) return; document.body.classList.add('muis'); document.body.classList.remove('muisweg'); clearTimeout(_muisTimer); _muisTimer = setTimeout(() => { if (!document.querySelector('.knoppen:hover')) { document.body.classList.remove('muis'); document.body.classList.add('muisweg'); } }, 2500); });
+function wisselTekst() { const z = document.body.classList.toggle('zondertekst'); const b = document.getElementById('tekstBtn'); if (b) b.textContent = z ? 'Tekst aan' : 'Tekst uit'; try { localStorage.setItem('les-zondertekst', z ? '1' : '0'); } catch (e) {} }
+try { if (localStorage.getItem('les-zondertekst') === '1') { document.body.classList.add('zondertekst'); } } catch (e) {}
+document.addEventListener('webkitfullscreenchange', () => { if (!document.webkitFullscreenElement) document.body.classList.remove('presenteer'); });
+document.getElementById('presBtn').onclick = () => presenteer(true);
+document.getElementById('grootBtn').addEventListener('click', e => { e.stopPropagation(); presenteer(true); });
+document.getElementById('tekstBtn').onclick = wisselTekst;
+document.getElementById('tekstBtn').textContent = document.body.classList.contains('zondertekst') ? 'Tekst aan' : 'Tekst uit';
+document.getElementById('stopPres').onclick = () => presenteer(false);
+document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement) document.body.classList.remove('presenteer'); });
+document.getElementById('verder').onclick = verder;
+document.getElementById('terug').onclick = terug;
+document.getElementById('opnieuw').onclick = opnieuw;
+document.getElementById('stage').addEventListener('click', verder);
+document.addEventListener('keydown', e => {
+  if (e.target.closest('input,textarea,select')) return; if (e.altKey || e.ctrlKey || e.metaKey) return;
+  const k = e.key;
+  if (k === 'ArrowRight' || k === ' ' || k === 'PageDown' || k === 'Enter') { if (k === 'Enter' && e.target.closest('button')) return; e.preventDefault(); verder(); }
+  else if (k === 'ArrowLeft' || k === 'PageUp' || k === 'Backspace') { e.preventDefault(); terug(); }
+  else if (k === 'ArrowDown') { e.preventDefault(); naarScherm(scr + 1); }
+  else if (k === 'ArrowUp') { e.preventDefault(); naarScherm(scr - 1); }
+  else if (k === 'Home') naarScherm(0);
+  else if (k === 'r' || k === 'R') opnieuw();
+  else if (k === 'l' || k === 'L') wisselNamen();
+  else if ((k === 't' || k === 'T') && document.body.classList.contains('presenteer')) wisselTekst();
+  else if (k === 'f' || k === 'F') presenteer(!document.body.classList.contains('presenteer'));
+  else if (k === 'Escape') presenteer(false);
+});
+document.addEventListener('themawissel', zetPalet);
+
+(function () { const m = (location.hash.match(/^#(\d+)/) || [])[1]; if (m) { scr = clamp(+m - 1, 0, SCHERMEN.length - 1); } })();
+zetNiveau(vwo); markeer(); tekstKaart();
+(document.fonts ? document.fonts.ready : Promise.resolve()).then(() => requestAnimationFrame(frame));
+// testhaak (alleen voor controle-screenshots): window.__les.naar(scherm, stap) toont die stap meteen in eindstand
+window.__les = { n: () => SCHERMEN.length, stappen: (i) => zichtbaar(i).length, naar(i, k) { scr = clamp(i, 0, SCHERMEN.length - 1); p = clamp(k, 0, zichtbaar(scr).length - 1); tStap = tScherm = performance.now() - 30000; markeer(); tekstKaart(); }, niveau(v) { zetNiveau(v); }, namen(v) { if (toonNamen !== v) wisselNamen(); } };
+
+</script>
+</body>
+</html>
