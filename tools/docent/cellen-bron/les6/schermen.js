@@ -301,7 +301,7 @@ SCHERMEN.push({ titel: 'Draden in het brood', kop: 'Draden in het brood', deel: 
     const T = S.T, s0 = S.on(0, 1.4), s1 = S.on(1, 0.8), s2 = S.on(2, 0.9), s3 = S.on(3, 1.2);
     L6_zakje(ctx, 330, 540, 300, { plekken: L6_plekken(1) });
     const px = 330 - 300 * 0.78 / 2 + 0.32 * 300 * 0.78, py = 540 + 300 * 0.05 - 300 * 0.78 * 0.46 + 0.4 * 300 * 0.78 * 0.92;
-    let R = {}; zoom(ctx, 1160, 560, 390, s0, [px, py], () => { R = L6_mycelium(ctx, 1160, 560, 780, 780, { k: s0, hl: s1, zak: s3, los: s3, T }); });
+    let R = {}; zoom(ctx, 1160, 560, 390, s0, [px, py], () => { R = L6_mycelium(ctx, 1160, 560, 780, 780, { k: s0, hl: s1, zak: s3, los: s3, T, opp: 0.46 }); });
     if (R.hyfe) wijs(ctx, 'hyfe', 1700, 620, R.hyfe[0], R.hyfe[1], s1, C.goud, 34, 'center');
     if (R.diep) wijs(ctx, 'mycelium', 1700, 860, R.diep[0], R.diep[1], s2, C.text, 34, 'center');
     if (R.zakje) wijs(ctx, 'sporen', 1700, 300, R.zakje[0] + 20, R.zakje[1], s3, C.text, 34, 'center');
@@ -330,15 +330,15 @@ SCHERMEN.push({ titel: 'Een hyfe van dichtbij', kop: 'Een hyfe van dichtbij', de
     ctx.restore();
     const kernen = [[250, 594], [560, 584], [900, 562], [1240, 532], [1010, 450], [1160, 320]];
     kernen.forEach(([x, y], i) => { gloed(ctx, x, y, 60, C.paars, 0.6 * s0 * (1 - s1)); ctx.beginPath(); ctx.ellipse(x, y, 24, 17, -0.15, 0, 6.283); shape(ctx, C.paars, lighten(C.paars, 0.3), 2); });
-    naam(ctx, 'kern', 560, 500, s0, 'center', C.paars, 32);
-    wijs(ctx, 'celwand (chitine)', 420, 820, 420, 590 + d / 2 - ww / 2, s1, C.goud, 32, 'center');
+    naam(ctx, 'kern', 560, 690, s0, 'center', C.paars, 32);
+    wijs(ctx, 'celwand (chitine)', 240, 420, 240, 597 - d / 2 + ww / 2, s1, C.goud, 32, 'center');
     const tip = [1500, 515];
     if (s2 > 0.01) { for (let i = 0; i < 7; i++) { const an = -1.2 + i * 0.45, u = ease(clamp(s2 * 1.4 - i * 0.06, 0, 1)), rr = 110 + u * 150 + (i % 2) * 40; L6_enzym(ctx, tip[0] + Math.cos(an) * rr * 0.9, tip[1] + Math.sin(an) * rr, 20, s2, T * 0.5 + i); } }
     naam(ctx, 'enzymen', 1700, 520, s2, 'left', C.text, 32); naam(ctx, 'zetmeel', 1780, 990, s2 > 0.01 ? s2 : S.on(0, 0.8), 'right', C.oker, 30);
     if (s3 > 0.01) { const q = toeval(5); for (let i = 0; i < 26; i++) { const sx = 1300 + q() * 460, sy = 380 + q() * 360, u = ((T * 0.22 + q()) % 1 + 1) % 1; const px = lerp(sx, 1450, u), py = lerp(sy, 525, u); circ(ctx, px, py, 5, rgba(C.oker, s3 * (1 - u * 0.8))); } }
-    if (s4 > 0.01) { paneel(ctx, 120, 720, 640, 250, s4, rgba(C.paars, 0.6)); metaText(ctx, 'andere schimmels', 150, 765, C.meta, 'left', 22, s4);
-      ctx.save(); ctx.globalAlpha *= s4; lijnPad(ctx, [[180, 870], [700, 860]], K.hyfe, 60, 1); lijnPad(ctx, [[180, 870], [700, 860]], K.hyfeB, 42, 1); ctx.strokeStyle = K.hyfe; ctx.lineWidth = 6; [300, 440, 580].forEach(x => { ctx.beginPath(); ctx.moveTo(x, 840); ctx.lineTo(x, 856); ctx.moveTo(x, 876); ctx.lineTo(x, 892); ctx.stroke(); }); [240, 370, 510, 640].forEach(x => circ(ctx, x, 866, 8, C.paars)); ctx.restore();
-      naam(ctx, 'tussenwanden', 440, 945, s4, 'center', C.text, 28); naam(ctx, 'broodschimmel: geen tussenwanden', 1000, 700, s4, 'center', C.paars, 30); }
+    if (s4 > 0.01) { paneel(ctx, 120, 760, 640, 240, s4, rgba(C.paars, 0.6)); metaText(ctx, 'andere schimmels', 150, 805, C.meta, 'left', 22, s4);
+      ctx.save(); ctx.globalAlpha *= s4; lijnPad(ctx, [[180, 890], [700, 880]], K.hyfe, 60, 1); lijnPad(ctx, [[180, 890], [700, 880]], K.hyfeB, 42, 1); ctx.strokeStyle = K.hyfe; ctx.lineWidth = 6; [300, 440, 580].forEach(x => { ctx.beginPath(); ctx.moveTo(x, 862); ctx.lineTo(x, 906); ctx.stroke(); }); [240, 370, 510, 640].forEach(x => circ(ctx, x, 886, 8, C.paars)); ctx.restore();
+      naam(ctx, 'tussenwanden', 440, 965, s4, 'center', C.text, 28); naam(ctx, 'broodschimmel: geen tussenwanden', 900, 730, s4, 'left', C.paars, 30); }
   } });
 
 // ---------- 5 · wegsnijden? ----------
@@ -376,7 +376,7 @@ SCHERMEN.push({ titel: 'Gist', kop: 'Gist: een schimmel van één cel', deel: 'S
     const T = S.T, s0 = S.on(0, 0.8), s1 = S.on(1, 2), s2 = S.on(2, 1.6);
     const R = L6_gist(ctx, 520, 520, 150, { a: s0, knop: s1 });
     if (R.kern) { naam(ctx, 'kern', R.kern[0], 340, s0, 'center', C.paars, 32); }
-    wijs(ctx, 'celwand', 300, 280, 430, 520 - 126 - 8, s0, C.text, 30, 'center'); naam(ctx, 'vacuole', 300, 800, s0, 'center', C.text2, 30);
+    wijs(ctx, 'celwand', 300, 280, 430, 520 - 126 - 8, s0, C.text, 30, 'center'); wijs(ctx, 'vacuole', 300, 790, 470, 580, s0, C.text2, 30, 'center');
     if (R.knop) naam(ctx, 'knop', R.knop[0] + 10, R.knop[1] - 24, s1, 'center', C.goud, 32);
     L6_schaalbalk(ctx, 160, 940, 60, '1 µm', s0);
     // deeg in een kom
@@ -403,7 +403,7 @@ SCHERMEN.push({ titel: 'Paddenstoel', kop: 'Een paddenstoel in de tuin', deel: '
     ctx.save(); ctx.globalAlpha *= s0; ctx.beginPath(); ctx.rect(80, gy, 1760, 400); ctx.clip(); L6_paddenstoel(ctx, 1000, gy, 1.7, { a: 1, draden: s2 }); ctx.restore();
     L6_paddenstoel(ctx, 1000, gy, 1.7, { a: s0, hl: s1 * (1 - s2 * 0.6) });
     if (s1 > 0.01) { const q = toeval(2); for (let i = 0; i < 14; i++) { const u = ((T * 0.18 + q()) % 1 + 1) % 1, sx = 1000 + (q() - 0.5) * 220, px = sx + u * 240 + Math.sin(T + i) * 10, py = gy - 170 + u * 40 - Math.sin(u * 3) * 60; circ(ctx, px, py, 4, rgba(C.text2, s1 * (1 - u))); } }
-    naam(ctx, 'vruchtlichaam', 1000, gy - 330, s1, 'center', C.goud, 34); naam(ctx, 'sporen', 1330, gy - 170, s1, 'left', C.text2, 30);
+    naam(ctx, 'vruchtlichaam', 1000, gy - 330, s1, 'center', C.goud, 34); naam(ctx, 'sporen', 1340, gy - 120, s1, 'right', C.text2, 30);
     naam(ctx, 'mycelium', 1000, 960, s2, 'center', C.text, 34);
     if (s3 > 0.01) { paneel(ctx, 1380, 170, 460, 330, s3); ctx.save(); ctx.globalAlpha *= s3; ctx.strokeStyle = C.line; ctx.lineWidth = 4; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(1610, 470); ctx.lineTo(1610, 430); ctx.lineTo(1470, 330); ctx.moveTo(1610, 430); ctx.lineTo(1720, 360); ctx.lineTo(1660, 300); ctx.moveTo(1720, 360); ctx.lineTo(1790, 300); ctx.stroke(); ctx.restore();
       L6_plantje(ctx, 1470, 280, 1, s3); L6_paddenstoel(ctx, 1660, 285, 0.3, { a: s3 }); ctx.save(); ctx.globalAlpha *= s3; ctx.beginPath(); ctx.ellipse(1790, 268, 26, 17, 0, 0, 6.283); shape(ctx, rgba(C.oker, 0.5), C.oker, 2.5); circ(ctx, 1808, 262, 3, C.text); ctx.restore();
@@ -422,9 +422,9 @@ SCHERMEN.push({ titel: 'Voedingsbodem', kop: 'Puntjes op de voedingsbodem', deel
     const T = S.T, s0 = S.on(0, 0.8), s1 = S.on(1, 1), s2 = S.on(2, 1.6), s3 = S.on(3, 1);
     const P = [[500, 'dicht', 'leeg'], [960, 'vingers', 'vinger'], [1420, 'lucht', 'lucht']]; let kol = null;
     P.forEach(([x, lab, soort], i) => { const a = s0 * S.on(0, 0.6, i * 0.15); const r = L6_schaal(ctx, x, 470, 200, { a, kol: s2, soort: s1 > 0.01 ? soort : 'leeg', vinger: i === 1 ? s1 : 0, dicht: i === 2 ? 1 - s1 * (1 - s2) : 1, seed: i + 1 }); if (i === 1) kol = r.kolonie;
-      metaText(ctx, lab, x, 320, C.text2, 'center', 26, a * (i === 0 ? 1 : Math.max(s1, 0.001) > 0.01 ? 1 : 0)); });
-    if (s1 > 0.01) { for (let i = 0; i < 3; i++) { const u = ((T * 0.3 + i / 3) % 1); pijl(ctx, 1380 + i * 40, 300 + u * 60, 1380 + i * 40, 340 + u * 60, rgba(C.text2, 0.8), 3, s1 * (1 - s2) * (1 - u), 12); } }
-    if (kol) { naam(ctx, 'kolonie', kol[0] - 40, kol[1] + 120, s2, 'center', C.goud, 32); ctx.save(); ctx.globalAlpha *= s2; circ(ctx, kol[0], kol[1], 18, null, C.goud, 3); ctx.restore(); }
+      metaText(ctx, lab, x, 280, C.text2, 'center', 26, a * (i === 0 ? 1 : Math.max(s1, 0.001) > 0.01 ? 1 : 0)); });
+    if (s1 > 0.01) { for (let i = 0; i < 3; i++) { const u = ((T * 0.3 + i / 3) % 1); pijl(ctx, 1380 + i * 40, 300 + u * 40, 1380 + i * 40, 330 + u * 40, rgba(C.text2, 0.8), 3, s1 * (1 - s2) * (1 - u), 12); } }
+    if (kol) { naam(ctx, 'kolonie', 960, 630, s2, 'center', C.goud, 32); ctx.save(); ctx.globalAlpha *= s2; circ(ctx, kol[0], kol[1], 18, null, C.goud, 3); ctx.restore(); }
     if (s3 > 0.01 && kol) zoom(ctx, 960, 830, 140, s3, [kol[0], kol[1] + 14], () => { const q = toeval(12); for (let i = 0; i < 46; i++) { const an = q() * 6.283, d = Math.sqrt(q()) * 120; L6_bacterie(ctx, 960 + Math.cos(an) * d, 830 + Math.sin(an) * d * 0.8, 46, { rot: q() * 3, fimbriae: false, plasmide: false }); } });
     naam(ctx, 'uit één cel', 1130, 860, s3, 'left', C.text, 30);
   } });
@@ -443,7 +443,7 @@ SCHERMEN.push({ titel: 'Bouw van een bacterie', kop: 'Bouw van een bacterie', de
   teken(ctx, S) {
     const T = S.T, s = [0, 1, 2, 3, 4, 5, 6].map(k => S.on(k, 0.9)), cx = 800, cy = 540, L = 900;
     if (s[5] > 0.01) { ctx.save(); ctx.globalAlpha *= s[5]; ctx.beginPath(); ctx.arc(1660 + 4500, cy, 4500, 0, 6.283); ctx.fillStyle = rgba(C.teal, C.licht ? 0.06 : 0.1); ctx.fill(); ctx.strokeStyle = C.teal; ctx.lineWidth = 4; ctx.stroke(); ctx.beginPath(); ctx.arc(1800 + 1100, cy, 1100, 0, 6.283); ctx.fillStyle = rgba(C.paars, C.licht ? 0.1 : 0.2); ctx.fill(); ctx.strokeStyle = C.paars; ctx.lineWidth = 3; ctx.stroke(); ctx.restore();
-      naam(ctx, 'lichaamscel', 1840, 220, s[5], 'right', C.teal, 30); naam(ctx, 'kern', 1840, 880, s[5], 'right', C.paars, 32); }
+      naam(ctx, 'lichaamscel', 1640, 250, s[5], 'right', C.teal, 30); naam(ctx, 'kern', 1840, 880, s[5], 'right', C.paars, 32); }
     ctx.save(); ctx.beginPath(); ctx.rect(80, 0, 1760, 1080); ctx.clip();
     const R = L6_bacterie(ctx, cx, cy, L, { a: s[0], t: T, flagel: s[4], hl: { dna: s[1] * (1 - s[2]), plasmide: s[2] * (1 - s[3]) + s[6], mem: s[3] * (1 - s[4]) * 0.8, wand: s[3] * (1 - s[4]) * 0.6, ribo: s[4] * (1 - s[5]) * 0.8, gen: s[6] } });
     ctx.restore();
@@ -452,7 +452,7 @@ SCHERMEN.push({ titel: 'Bouw van een bacterie', kop: 'Bouw van een bacterie', de
       wijs(ctx, 'celwand', 360, 300, R.wand[0] - 100, R.wand[1], s[3], C.text, 32, 'center'); wijs(ctx, 'celmembraan', 1290, 290, R.mem[0] + 120, R.mem[1] + 4, s[3], C.text, 32, 'center');
       wijs(ctx, 'ribosomen', 700, 870, R.ribo[0] - 100, R.ribo[1] - 20, s[4], C.text, 32, 'center'); naam(ctx, 'zweepdraad', 180, 450, s[4], 'center', C.text, 30); }
     regel(ctx, 'geen kern: prokaryoot', 940, 1000, s[5], C.goud, 36, 'center', 700);
-    naam(ctx, 'resistentiegen', 1120, 920, s[6], 'center', C.koraal, 30);
+    naam(ctx, 'resistentiegen', 1120, 944, s[6], 'center', C.koraal, 30);
   } });
 
 // ---------- 10 · tweedeling ----------
@@ -475,7 +475,7 @@ SCHERMEN.push({ titel: 'Tweedeling', kop: 'Van één cel naar een kolonie', deel
     // groeigrafiek
     const gx = 160, gy = 960, gw = 620, gh = 320, ga = S.on(3, 0.5); if (ga > 0.01) { ctx.save(); ctx.globalAlpha *= ga; ctx.strokeStyle = C.line; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(gx, gy - gh); ctx.lineTo(gx, gy); ctx.lineTo(gx + gw, gy); ctx.stroke(); ctx.restore();
       metaText(ctx, 'tijd', gx + gw, gy + 36, C.text2, 'right', 22, ga); metaText(ctx, 'aantal', gx + 14, gy - gh - 14, C.text2, 'left', 22, ga);
-      ctx.save(); ctx.globalAlpha *= ga; ctx.strokeStyle = C.teal; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.beginPath(); const N = 120; for (let i = 0; i <= N * s3; i++) { const u = i / N, L = 1 / (1 + Math.exp(-(u - 0.5) * 10)), ex = Math.min(1.05, Math.exp((u - 0.85) * 5.5)), v = lerp(ex, L, s4), px = gx + u * gw, py = gy - v * gh * 0.92; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke(); ctx.restore();
+      ctx.save(); ctx.globalAlpha *= ga; ctx.strokeStyle = C.teal; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.beginPath(); const N = 120; for (let i = 0; i <= N * s3; i++) { const u = i / N, L = 1 / (1 + Math.exp(-(u - 0.5) * 10)), ex = Math.exp((u - 1) * 5.5), v = lerp(ex, L, s4), px = gx + u * gw, py = gy - v * gh * 0.92; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke(); ctx.restore();
       regel(ctx, '16 miljoen', gx + gw - 10, gy - gh - 10, s3 * (1 - s4), C.goud, 32, 'right', 700); regel(ctx, 'voedsel op, afval', gx + gw - 10, gy - gh * 0.98 - 10, s4, C.koraal, 30, 'right', 700); }
   } });
 
@@ -532,7 +532,7 @@ SCHERMEN.push({ titel: 'Op schaal', kop: 'Op schaal', deel: 'Virussen',
     circ(ctx, 690, 640, 1.5, rgba(C.oker, s[2])); naam(ctx, 'griepvirus', 690, 680, s[2], 'center', C.oker, 24);
     if (s[3] > 0.01) { ctx.save(); ctx.globalAlpha *= s[3]; ctx.strokeStyle = C.goud; ctx.lineWidth = 2.5; ctx.strokeRect(648, 560, 156, 100); ctx.setLineDash([8, 8]); ctx.beginPath(); ctx.moveTo(804, 560); ctx.lineTo(980, 200); ctx.moveTo(804, 660); ctx.lineTo(980, 990); ctx.stroke(); ctx.restore();
       const z = 12 * sc; paneel(ctx, 980, 180, 860, 820, s[3], rgba(C.goud, 0.6)); metaText(ctx, '12 × zo groot · 300 px = 1 µm', 1010, 225, C.meta, 'left', 22, s[3]);
-      L6_bacterie(ctx, 1500, 450, 2 * z, { a: s[3], h: 0.8 * z, plasmide: true, t: T }); naam(ctx, 'bacterie · 2 µm', 1500, 330, s[3], 'center', C.text, 30);
+      L6_bacterie(ctx, 1500, 450, 2 * z, { a: s[3], h: 0.8 * z, plasmide: true, t: T }); naam(ctx, 'bacterie · 2 µm', 1500, 290, s[3], 'center', C.text, 30);
       L6_virus(ctx, 1220, 800, 0.05 * z, { a: s[3], envelop: 1 }); naam(ctx, 'griepvirus · 100 nm', 1220, 880, s[3], 'center', C.oker, 26);
       L6_virus(ctx, 1560, 800, 0.015 * z, { a: s[3] }); naam(ctx, 'verkoudheidsvirus · 30 nm', 1600, 880, s[3], 'center', C.text, 26);
       if (s[4] > 0.01) { ctx.save(); ctx.globalAlpha *= s[4]; ctx.strokeStyle = C.goud; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(1040, 960); ctx.lineTo(1040 + 0.2 * z, 960); ctx.moveTo(1040, 950); ctx.lineTo(1040, 970); ctx.moveTo(1040 + 0.2 * z, 950); ctx.lineTo(1040 + 0.2 * z, 970); ctx.stroke(); ctx.restore(); regel(ctx, 'grens lichtmicroscoop: 0,2 µm', 1120, 970, s[4], C.goud, 28, 'left', 700); } }
@@ -543,18 +543,20 @@ SCHERMEN.push({ titel: 'Antibiotica', kop: 'Helpt een antibioticum?', deel: 'Vir
   stappen: [
     { t: 'Antibiotica grijpen aan op onderdelen die bij bacteriën anders zijn dan bij jou, zoals de <b>celwand</b>…', n: 'Vraag uit de film: de leerling wil een antibioticum tegen haar verkoudheid. Helpt dat? (a) nee, een virus mist de onderdelen waar het middel op werkt ✓, (b) nee, een virus is te klein om geraakt te worden, (c) ja, als ze de kuur helemaal afmaakt. Penicilline verstoort de opbouw van de celwand: de bacterie scheurt open.' },
     { t: '…en de kleinere <b>ribosomen</b>.', n: 'Andere antibiotica remmen de ribosomen van bacteriën; die van jou zijn anders gebouwd. (Vwo: 70S tegen 80S.)' },
-    { t: 'Een virus heeft geen celwand en geen ribosomen. Tegen verkoudheid of griep helpt een antibioticum dus niet.', n: 'Misvatting (b): het gaat niet om de grootte, maar om de aangrijpingspunten.' },
-    { t: 'Wel helpt onnodig slikken bacteriën om <b>resistent</b> te worden.', n: 'Het lichaam wordt niet resistent, de bacteriën wel (ECDC). Dit komt terug bij evolutie: natuurlijke selectie in actie (volgende keer).' }
+    { t: 'Een virus heeft geen celwand en geen ribosomen. Tegen verkoudheid of griep helpt een antibioticum dus niet.', n: 'Misvatting (b) uit de filmvraag: het gaat niet om de grootte, maar om de aangrijpingspunten.' },
+    { t: 'Onnodig slikken helpt wel bacteriën om <b>resistent</b> te worden: alleen bacteriën die ertegen kunnen, blijven over.', n: 'Het lichaam wordt niet resistent, de bacteriën wel (ECDC). Rechts: drie bacteriën met een kapotte wand, één met een resistentiegen (koraal) op een plasmide. Dit komt terug bij evolutie: natuurlijke selectie in actie (volgende keer).' }
   ],
   teken(ctx, S) {
     const T = S.T, s0 = S.on(0, 1.2), s1 = S.on(1, 1), s2 = S.on(2, 1), s3 = S.on(3, 0.9);
     const R = L6_bacterie(ctx, 560, 500, 640, { t: T, ab: s0 * 0.8 * (1 - s1 * 0.4), hl: { wand: s0 * (1 - s1 * 0.5), ribo: s1 } });
-    naam(ctx, 'celwand', 560, 300, s0, 'center', C.goud, 32); naam(ctx, 'ribosomen', 560, 750, s1, 'center', C.goud, 32);
+    naam(ctx, 'celwand', 560, 250, s0, 'center', C.goud, 32); naam(ctx, 'ribosomen', 560, 790, s1, 'center', C.goud, 32);
     for (let i = 0; i < 8; i++) { const an = i / 8 * 6.283 + T * 0.2, d = 330 + Math.sin(T * 1.5 + i) * 10; ctx.save(); ctx.globalAlpha *= s0; ctx.beginPath(); for (let k = 0; k < 6; k++) { const a2 = k / 6 * 6.283; const px = 560 + Math.cos(an) * d + Math.cos(a2) * 12, py = 500 + Math.sin(an) * d * 0.7 + Math.sin(a2) * 12; k ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.closePath(); shape(ctx, rgba(C.goud, 0.3), C.goud, 2.5); ctx.restore(); }
     L6_virus(ctx, 1420, 480, 130, { a: s2, rot: Math.sin(T * 0.4) * 0.05 });
     for (let i = 0; i < 5; i++) { const an = i / 5 * 6.283 + T * 0.3, d = 230 + Math.sin(T * 2 + i) * 30; ctx.save(); ctx.globalAlpha *= s2; ctx.beginPath(); for (let k = 0; k < 6; k++) { const a2 = k / 6 * 6.283; const px = 1420 + Math.cos(an) * d + Math.cos(a2) * 12, py = 480 + Math.sin(an) * d + Math.sin(a2) * 12; k ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.closePath(); shape(ctx, rgba(C.goud, 0.3), C.goud, 2.5); ctx.restore(); }
     naam(ctx, 'virus', 1420, 280, s2, 'center', C.text, 32); kruis(ctx, 1640, 300, 22, s2, C.koraal);
-    misvatting(ctx, 'antibioticum tegen verkoudheid', 'alleen tegen bacteriën', 960, 820, 920, s3, S.on(3, 0.6, 0.4));
+    misvatting(ctx, 'antibioticum tegen verkoudheid', 'alleen tegen bacteriën', 620, 830, 860, s2, S.on(2, 0.6, 0.6));
+    if (s3 > 0.01) { [[1300, 860, -0.3], [1420, 940, 0.4], [1560, 870, 0.1]].forEach(([x, y, r]) => { L6_bacterie(ctx, x, y, 110, { a: s3 * 0.45, fimbriae: false, plasmide: false, ab: 0.9, rot: r }); kruis(ctx, x, y, 14, s3 * 0.8, C.koraal); });
+      L6_bacterie(ctx, 1700, 940, 130, { a: s3, fimbriae: false, plasmide: true, hl: { gen: 1 }, rot: -0.2 }); regel(ctx, 'resistent', 1700, 1020, s3, C.koraal, 30, 'center', 700); }
   } });
 
 // ---------- 15 · wie leeft waarvan? ----------
@@ -589,8 +591,8 @@ SCHERMEN.push({ titel: 'Nuttige microben', kop: 'We gebruiken ze', deel: 'Leefwi
     const T = S.T, s0 = S.on(0, 0.9), s1 = S.on(1, 1.2), s2 = S.on(2, 0.9);
     L6_yoghurt(ctx, 430, 760, 1.8, s0); naam(ctx, 'yoghurt', 430, 840, s0, 'center', C.text, 32);
     zoom(ctx, 430, 340, 150, s0, [430, 560], () => { const q = toeval(19); for (let i = 0; i < 22; i++) { const an = q() * 6.283, d = Math.sqrt(q()) * 120; L6_bacterie(ctx, 430 + Math.cos(an) * d, 340 + Math.sin(an) * d, 56, { rot: q() * 3, fimbriae: false, plasmide: false, h: 18 }); } for (let i = 0; i < 6; i++) { const x = 360 + i * 26, y = 300 + Math.sin(i) * 40; [0, 1, 2].forEach(k => circ(ctx, x + k * 12, y + k * 8, 7, L6_KL().wand)); } });
-    naam(ctx, 'melkzuurbacteriën', 430, 540, s0, 'center', C.text2, 28);
-    L6_flemingSchaal(ctx, 1200, 520, 280, { a: s1, zone: s1 }); naam(ctx, 'Penicillium', 1130, 300, s1, 'center', C.text, 30); naam(ctx, 'geen bacteriën', 1160, 870, s1, 'center', C.goud, 30); regel(ctx, '1928', 1460, 240, s1, C.text2, 34, 'center', 700);
+    naam(ctx, 'melkzuurbacteriën', 600, 350, s0, 'left', C.text2, 28);
+    L6_flemingSchaal(ctx, 1200, 520, 280, { a: s1, zone: s1 }); naam(ctx, 'Penicillium', 1130, 215, s1, 'center', C.text, 30); naam(ctx, 'geen bacteriën', 1160, 870, s1, 'center', C.goud, 30); regel(ctx, '1928', 1460, 240, s1, C.text2, 34, 'center', 700);
     if (s2 > 0.01) { ctx.save(); ctx.globalAlpha *= s2; ctx.translate(1660, 620); ctx.rotate(-0.5); roundRect(ctx, -90, -38, 180, 76, 38); shape(ctx, rgba(C.bg, 1), C.line, 2.5); ctx.beginPath(); ctx.moveTo(0, -38); ctx.lineTo(0, 38); ctx.stroke(); roundRect(ctx, -90, -38, 90, 76, 38); shape(ctx, C.goud, null); ctx.restore();
       regel(ctx, 'penicilline', 1660, 760, s2, C.goud, 34, 'center', 700); }
   } });
@@ -610,7 +612,7 @@ SCHERMEN.push({ titel: 'Terug naar de trommel', kop: 'Wat groeide er nou?', deel
     L6_boterham(ctx, bx, by, 560 * 0.9 * 0.64 * (1 - 0.45 * weg), { rot: -0.06 + weg * 0.6, plekken: L6_plekken(1), a: 1 - ease(clamp((weg - 0.75) / 0.25, 0, 1)) });
     L6_sporenLucht(ctx, T, 360, 840, 200, 520, 14, s0 * (1 - s3), 8);
     L6_prullenbak(ctx, 600, 980, 1.2, s3);
-    zoom(ctx, 1260, 330, 190, s1, [520, 470], () => { L6_mycelium(ctx, 1260, 330, 380, 380, { k: 1, zak: 1 }); });
+    zoom(ctx, 1260, 330, 190, s1 * (1 - 0.85 * s3), [520, 470], () => { L6_mycelium(ctx, 1260, 330, 380, 380, { k: 1, zak: 1 }); });
     if (s2 > 0.01) { L6_deling(ctx, 1130, 770, 120, ((T * 0.25) % 1), { a: s2, t: T }); naam(ctx, 'bacteriën?', 1130, 870, s2, 'center', C.text, 30);
       L6_virus(ctx, 1480, 760, 46, { a: s2 }); kruis(ctx, 1480, 760, 56, S.on(2, 0.6, 0.6), C.koraal); naam(ctx, 'virussen', 1480, 870, s2, 'center', C.text, 30); }
     if (s3 > 0.01) { ctx.save(); ctx.globalAlpha *= s3; ctx.translate(1720, 560); ctx.rotate(0.06); roundRect(ctx, -110, -150, 220, 300, 8); shape(ctx, '#F2F2EE', '#9AA3B2', 2); ctx.restore(); ctx.save(); ctx.beginPath(); ctx.rect(1615, 410, 210, 280); ctx.clip(); L6_paddenstoel(ctx, 1720, 560, 0.55, { a: s3, draden: 0.7 }); ctx.restore();
