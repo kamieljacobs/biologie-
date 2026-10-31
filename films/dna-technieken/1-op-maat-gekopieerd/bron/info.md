@@ -85,6 +85,10 @@ De HTML is gebouwd (niet met de hand bewerken): `bron/src/page.html` + `film.jso
 ## Aandachtspunten
 - Woordtijden zijn geschat (silalign binnen de regeltijden van 1.0); de cues vallen op het juiste woord, maar soms een tiende te vroeg of laat.
 - De vwo-markering geldt voor de verdieping; de stem zegt zelf nog 'Dit deel is verdieping.' en 'voor iedereen'.
+- Havo-route (frisse review 31 okt 2026): havo krijgt de hoofdstukkaart van H3 en daarna alleen s25 (basis, ongeknipt, ook bij Vragen uit). s25 introduceert 'lange producten' en 'op maat' met labels in beeld, zodat H4 ('Maar die lange producten…') ook voor havo aansluit. Verander je s17–s24, houd s25 dan zelfstandig te volgen.
+- `naamBij` klemt labels binnen 24 px van de rand: een label rechts verschuiven helpt dan niet, kies een andere plek (zo ging het mis bij '1 → 2' in s10).
+- Plateaugrafiek s31: de echte curve volgt het model en vlakt daarna af (echt = m / (1 + m/0,8)); hij mag nooit boven het model komen.
+- Frisse beeldreview: `review_fris_2026-10-31.md`.
 
 ## Versie 2.0 (31 oktober 2026): beeld-remake op prompt v13, take behouden
 Take en tekst ongewijzigd (alleen geknipt op de regelgrenzen); 0 credits. Engine van eigen speler naar de FILMDATA-straat; alle beelden nieuw op beeldbankniveau (zie Opbouw en per scène `opwaardering-v13.md` § 'Wat veranderde'). Begrippen, vragen, checkvragen en docentdeel blijven; docentdeel aangevuld. In `script.md` stond bij H4 regel 14 een tijd met 60 seconden: nu '[7:00.0]'.
@@ -93,4 +97,5 @@ Getest: contactvellen van alle scènes (vwo en havo) zelf bekeken en verbeterd, 
 
 ## Wijzigingen
 - 31 okt 2026 — Versie 2.0 (beeld-remake op prompt v13, take behouden).
+- 31 okt 2026 — Frisse beeldreview verwerkt (`review_fris_2026-10-31.md`): tien labels/beelden hersteld (o.a. plateaugrafiek s31, labels s09b, s10, s18, s19, s28–s30, s38, s40); tekst en take ongewijzigd.
 - Eerder (1.0): 15 okt 2026 speler Vragen aan/uit en geen wijslijnen; 16 okt 2026 begrippen als kaartjesraster (zie `oud/info-1.0.md`).

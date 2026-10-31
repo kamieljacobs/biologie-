@@ -138,7 +138,7 @@ Object.assign(SCENES, {
           polymeraseAchter(ctx, x0 + k * dx + 20, y + ladGap() / 2, 58, {}); polymeraseVoor(ctx, x0 + k * dx + 20, y + ladGap() / 2, 58, { sluit: 0.6 }); }
         else { const w = wander(3, t, 10, 0.6); polymeraseAchter(ctx, x0 + 300 + w.x, y - 90 + w.y, 58, {}); polymeraseVoor(ctx, x0 + 300 + w.x, y - 90 + w.y, 58, { sluit: 0 }); } };
       pan(160, false); pan(980, true); text(ctx, 'zonder primer', 200, 310, fTekst(36, 700), C.text, 'left'); text(ctx, 'met primer', 1020, 310, fTekst(36, 700), C.text, 'left');
-      kruisje(ctx, 820, 330, 22, t < -10 ? 0 : 1); vinkje(ctx, 1640, 330, 22, vl); nb(ctx, 'alleen verlengen', 'zelf beginnen kan het niet', 220, 760, zb, 'left'); nb(ctx, 'primer', 'het begin', 1050, 610, vl, 'left', C.goud); ctx.restore(); }
+      kruisje(ctx, 820, 330, 22, t < -10 ? 0 : 1); vinkje(ctx, 1640, 330, 22, vl); nb(ctx, 'alleen verlengen', 'zelf beginnen kan het niet', 220, 760, zb, 'left'); nb(ctx, 'primer', 'het begin', 1050, 720, vl, 'left', C.goud); ctx.restore(); }
     if (da > 0.01) { ctx.save(); ctx.globalAlpha *= da; const M = bordMap(160, 1760, 5.2, 300), yT = 420, yB = 640;
       bordGids(ctx, M, yT - 30, yB + 30, {}); bordStreng(ctx, M, { kind: 'orig', dir: 1, s5: -1e7, s3: 1e7 }, yT, {}); bordStreng(ctx, M, { kind: 'orig', dir: -1, s5: 1e7, s3: -1e7 }, yB, {});
       ctx.strokeStyle = C.goud; ctx.lineWidth = 12; ctx.beginPath(); ctx.moveTo(M.X(0), yB - 26); ctx.lineTo(M.X(20), yB - 26); ctx.moveTo(M.X(152), yT + 26); ctx.lineTo(M.X(172), yT + 26); ctx.stroke();
@@ -153,8 +153,8 @@ Object.assign(SCENES, {
     const y1 = lerp(LAD.y, LAD.y - 90 * tw * (1 - s1), 1), ladder = (y, a) => { streng(ctx, LAD.x0, y, LAD.dx, SEQ2, 1, { a }); streng(ctx, LAD.x0, y + ladGap(), LAD.dx, compl(SEQ2), -1, { a });
       for (let i = 0; i < 20; i++) brug(ctx, LAD.x0 + i * LAD.dx, y + ladGap() / 2, SEQ2[i], a); };
     ladder(LAD.y - 110 * tw * (1 - s1), 1); if (tw * (1 - s1) > 0.01) ladder(LAD.y + 150, tw * (1 - s1));
-    meta(ctx, '1 molecuul', 330, LAD.y + 50, 'right', C.text2, 1 - tw * (1 - s1), 26); nb(ctx, '1 → 2', 'met alleen warm en koud', 1545, LAD.y + 180, tw * (1 - s1), 'left', C.goud);
-    meta(ctx, 'vergroot · basen in palet b', 70, 860, 'left', C.text2, 1, 24); },
+    meta(ctx, '1 molecuul', 330, LAD.y + 50, 'right', C.text2, 1 - tw * (1 - s1), 26); nb(ctx, '1 → 2', 'met alleen warm en koud', 965, LAD.y + 300, tw * (1 - s1), 'center', C.goud);
+    meta(ctx, 'vergroot', 70, 860, 'left', C.text2, 1, 24); },
   s11(ctx, t, q) { mic(ctx); stappenBalk(ctx, 0, {}); thermo(ctx, 1700, 230, 95, 1);
     const br = q.at('breken'), ue = ramp(t, q.at('elkaar') - 0.5, 1.4), wd = ramp(t, q.at('denk') - 0.2, 0.5);
     const up = 120 * ue, jit = (i, k) => Math.sin(t * 7 + i * 1.7 + k) * 3 * ue;
@@ -249,16 +249,16 @@ Object.assign(SCENES, {
     if (g > 0.01 && g < 0.999) { const x2 = M.X(lerp(PCR.P, n2.s3, ease(g))), x1 = M.X(lerp(PCR.B - PCR.P, n1.s3, ease(g)));
       if (x2 < M.x1) { polymeraseAchter(ctx, x2 + 10, 633, 26, { klem: false }); polymeraseVoor(ctx, x2 + 10, 633, 26, { klem: false, sluit: 0.6 }); }
       if (x1 > M.x0) { polymeraseAchter(ctx, x1 - 10, 373, 26, { klem: false, dir: -1 }); polymeraseVoor(ctx, x1 - 10, 373, 26, { klem: false, dir: -1, sluit: 0.6 }); } }
-    nb(ctx, 'primer', '', M.X(10), 700, pr * (1 - g), 'center', C.goud); nb(ctx, 'primer', '', M.X(162), 300, pr * (1 - g), 'center', C.goud);
+    nb(ctx, 'primer', '', M.X(10), 700, pr * (1 - g), 'center', C.goud); nb(ctx, 'primer', '', M.X(162), 420, pr * (1 - g), 'center', C.goud);
     vraagT(ctx, 1700, 760, ramp(t, q.at('stopt') - 0.2, 0.4) * (1 - ramp(t, q.at('bijzonder'), 0.4)), 90);
     pil(ctx, '72 °C · verlengstap voorbij', 960, 800, C.koraal, vs, 32); },
   s19(ctx, t, q) { sch(ctx); const M = MB(); cyclusTeller(ctx, 1, 1);
     const du = ramp(t, q.at('duizend') - 0.2, 0.5), an = ramp(t, q.at('anders') - 0.2, 0.5), v5 = ramp(t, q.at('vijf-accent') - 0.3, 0.5), d3 = ramp(t, q.at('drie-accent') - 0.3, 0.5), lp = ramp(t, q.at('product') - 0.4, 0.5);
     bordGids(ctx, M, 330, 690, { namen: 0.4 });
     bordStreng(ctx, M, ORIGT, 360, {}); bordStreng(ctx, M, L1b, 386, { rand: an * 0.6 }); bordStreng(ctx, M, L1, 620, { rand: lp }); bordStreng(ctx, M, ORIGB, 646, {});
-    haakK(ctx, M.X(0), M.x1, 590, C.text, du, false); pijlK(ctx, M.x1 - 10, 560, M.x1 + 60, 560, C.text, du, 3); meta(ctx, '± 1000 nucleotiden · ingekort', M.X(150), 560, 'left', C.text, du, 26);
+    haakK(ctx, M.X(0), M.x1, 590, C.text, du, false); pijlK(ctx, M.x1 - 10, 560, M.x1 + 60, 560, C.text, du, 3); meta(ctx, '± 1000 nucleotiden · ingekort', M.x1 - 30, 560, 'right', C.text, du, 26);
     meta(ctx, 'elke keer een andere lengte', M.X(-150), 440, 'center', C.text2, an, 26);
-    if (v5 > 0.01) { ctx.save(); ctx.globalAlpha *= v5; text(ctx, "5′", M.X(0) - 34, 634, fTitel(46), C.goud, 'center'); ctx.restore(); nb(ctx, 'primer = begin', 'het 5′-uiteinde', M.X(0) - 10, 720, v5, 'center', C.goud); }
+    if (v5 > 0.01) { ctx.save(); ctx.globalAlpha *= v5; text(ctx, "5′", M.X(0) - 34, 634, fTitel(46), C.goud, 'center'); ctx.restore(); nb(ctx, 'primer = begin', 'het 5′-uiteinde', M.X(0) + 6, 720, v5, 'left', C.goud); }
     if (d3 > 0.01) { ctx.save(); ctx.globalAlpha *= d3; text(ctx, "3′ ?", M.x1 - 30, 680, fTitel(46), C.text, 'center'); ctx.restore(); }
     nb(ctx, 'lang product', 'begint bij de primer · loopt door', M.X(60), 790, lp, 'left', C.text); },
   s20(ctx, t, q) { sch(ctx); const M = MB(); cyclusTeller(ctx, 2, ramp(t, q.at('Cyclus'), 0.4));
@@ -331,7 +331,7 @@ Object.assign(SCENES, {
       [0, 10, 20, 30].forEach(c => meta(ctx, String(c), gx + c / 30 * gw, gy + 36, 'center', C.text2, 1, 26)); [0, 20, 40, 60].forEach(v => meta(ctx, String(v), gx - 14, gy - v / 60 * gh + 9, 'right', C.text2, 1, 26));
       meta(ctx, 'cycli', gx + gw, gy + 70, 'right', C.text2, 1, 26); meta(ctx, 'lange producten', gx, gy - gh - 20, 'left', C.text2, 1, 26);
       const u = ramp(t, q.at('lineaire') - 0.4, 1.4); ctx.strokeStyle = D2.nieuw; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(gx, gy); ctx.lineTo(gx + gw * u, gy - gh * u); ctx.stroke();
-      nb(ctx, 'lineaire groei', 'elke cyclus evenveel erbij', gx + gw * 0.45, gy - gh * 0.62, u, 'right'); ctx.restore(); }
+      nb(ctx, 'lineaire groei', 'elke cyclus evenveel erbij', gx + gw * 0.5, gy - gh * 0.26, u, 'left'); ctx.restore(); }
     if (kn > 0.01) { ctx.save(); ctx.globalAlpha *= kn; schaar(ctx, 1110, 840 - 10); kruisje(ctx, 1110, 830, 30, 1); zin(ctx, 'niets in het buisje knipt dna op maat', 1160, 846, 1, C.text, 34); ctx.restore(); } },
   s29(ctx, t, q) { sch(ctx); const ex = ramp(t, q.at('exponentiële') - 0.3, 0.5), kp = ramp(t, q.at('korte') - 0.3, 0.5), te = q.at('tien'), de = q.at('dertig');
     const cur = t < te ? lerp(0, 5, clamp(t / te, 0, 1)) : t < de ? lerp(5, 10, ramp(t, te, 1.2)) : lerp(10, 30, ramp(t, de - 0.3, 1.4));
@@ -349,21 +349,21 @@ Object.assign(SCENES, {
     [0, 10, 20, 30].forEach(c => meta(ctx, String(c), X(c), gy + 36, 'center', C.text2, 1, 24)); meta(ctx, 'cycli', gx + gw, gy + 66, 'right', C.text2, 1, 24); meta(ctx, 'logaritmische as', gx, gy - gh - 22, 'left', C.text2, 1, 24);
     const lijn = (f, kl) => { ctx.strokeStyle = kl; ctx.lineWidth = 5; ctx.beginPath(); for (let c = 1; c <= cur + 1e-6; c += 0.1) { const p = [X(c), Y(f(c))]; c === 1 ? ctx.moveTo(...p) : ctx.lineTo(...p); } ctx.stroke(); };
     lijn(c => 2 * c, D2.nieuw); lijn(c => Math.max(1, Math.pow(2, c) - 2 * c), C.groen);
-    nb(ctx, 'exponentiële groei', 'op maat = korte producten', X(13), Y(3e5), ex, 'right', C.groen); meta(ctx, 'op maat heet ook: kort product', X(13) - 20, Y(3e5) + 70, 'right', C.groen, kp * 0, 24);
-    nb(ctx, 'lineair', 'lange producten', X(22), Y(60) - 30, ex, 'left', C.text); },
+    nb(ctx, 'exponentiële groei', 'op maat = korte producten', X(1), Y(1e7), ex, 'left', C.groen); meta(ctx, 'op maat heet ook: kort product', X(13) - 20, Y(3e5) + 70, 'right', C.groen, kp * 0, 24);
+    nb(ctx, 'lineair', 'lange producten', X(22), Y(60) - 62, ex, 'left', C.text); },
   s30(ctx, t, q) { sch(ctx); const ve = ramp(t, q.at('verdwijnen') - 0.3, 0.6), zi = ramp(t, q.at('zien') - 0.5, 0.5);
     const x0 = 140, y0 = 250, nx = 80, ny = 50, st = 12.6;
     for (let i = 0; i < nx * ny; i++) { const a = ramp(t, (i / (nx * ny)) * 1.4, 0.3); if (a <= 0.01) continue; ctx.fillStyle = rgba(C.groen, 0.85 * a); ctx.fillRect(x0 + (i % nx) * st, y0 + Math.floor(i / nx) * st, 9, 9); }
     meta(ctx, '4000 stippen · elke stip = 250.000 moleculen op maat', x0, y0 - 24, 'left', C.text2, 1, 24);
     const fx = x0 + 61 * st + 4.5, fy = y0 + 27 * st + 4.5; ring(ctx, fx, fy, 12, ve);
     zoomCircle(ctx, 1560, 540, 260, fx, fy, 'één stip · vergroot', ve, () => { mic(ctx); const s0 = 1560 - 225, t0 = 540 - 225, d = 9; for (let i = 0; i < 2500; i++) { const xx = s0 + (i % 50) * d, yy = t0 + Math.floor(i / 50) * d; ctx.fillStyle = i === 1287 ? D2.nieuw : rgba(C.groen, 0.8); ctx.fillRect(xx, yy, d - 2, d - 2); } ring(ctx, s0 + 37 * d + 3.5, t0 + 25 * d + 3.5, 16, ramp(t, q.at('verdwijnen') + 1.2, 0.5)); });
-    nb(ctx, '60 lange producten', 'passen in één hokje · te weinig om te zien', 1560, 240, ramp(t, q.at('verdwijnen') + 1.2, 0.5), 'center', C.text); nb(ctx, 'zestig tegen een miljard', '', 140, 900 - 20, 0, 'left'); },
+    nb(ctx, '60 lange producten', 'in één hokje · te weinig om te zien', 1600, 240, ramp(t, q.at('verdwijnen') + 1.2, 0.5), 'center', C.text); nb(ctx, 'zestig tegen een miljard', '', 140, 900 - 20, 0, 'left'); },
   s31(ctx, t, q) { sch(ctx); const la = ramp(t, q.at('langzamer') - 0.3, 0.6), tp = ramp(t, q.at('templates') - 0.3, 0.5), pk = ramp(t, q.at('plakken') - 0.3, 0.5), pl = ramp(t, q.at('plateau') - 0.3, 0.5);
-    const gx = 200, gy = 800, gw = 1000, gh = 520, X = (c) => gx + c / 40 * gw, Ymod = (c) => gy - Math.min(1.25, Math.pow(2, c - 30)) * gh / 1.25 * 1.0, Yecht = (c) => gy - gh * 0.8 / (1 + Math.exp(-(c - 24) * 0.42));
+    const gx = 200, gy = 800, gw = 1000, gh = 520, X = (c) => gx + c / 40 * gw, mod = (c) => 0.8 * Math.pow(2, c - 27), Ymod = (c) => gy - Math.min(1, mod(c)) * gh, Yecht = (c) => gy - gh * mod(c) / (1 + mod(c) / 0.8); // echt = model zolang er weinig DNA is, daarna afvlakken (nooit boven het model)
     ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(gx, gy - gh); ctx.lineTo(gx, gy); ctx.lineTo(gx + gw, gy); ctx.stroke();
     [0, 10, 20, 30, 40].forEach(c => meta(ctx, String(c), X(c), gy + 36, 'center', C.text2, 1, 24)); meta(ctx, 'cycli', gx + gw, gy + 66, 'right', C.text2, 1, 24); meta(ctx, 'hoeveelheid dna', gx, gy - gh - 22, 'left', C.text2, 1, 24);
-    ctx.save(); ctx.setLineDash([10, 10]); ctx.strokeStyle = rgba(D2.nieuw, 0.7); ctx.lineWidth = 3; ctx.beginPath(); for (let c = 0; c <= 30.32; c += 0.1) { const p = [X(c), Ymod(c)]; c ? ctx.lineTo(...p) : ctx.moveTo(...p); } ctx.stroke(); ctx.restore();
-    meta(ctx, 'model', X(30) + 16, gy - gh + 10, 'left', C.text2, 1, 24);
+    ctx.save(); ctx.setLineDash([10, 10]); ctx.strokeStyle = rgba(D2.nieuw, 0.7); ctx.lineWidth = 3; ctx.beginPath(); for (let c = 0; c <= 27.33; c += 0.1) { const p = [X(c), Ymod(c)]; c ? ctx.lineTo(...p) : ctx.moveTo(...p); } ctx.stroke(); ctx.restore();
+    meta(ctx, 'model', X(27.3) + 16, gy - gh + 10, 'left', C.text2, 1, 24);
     const u = 40 * ramp(t, 0.2, Math.max(1, q.at('plateau') - 0.4)); ctx.strokeStyle = C.groen; ctx.lineWidth = 6; ctx.beginPath(); for (let c = 0; c <= u; c += 0.1) { const p = [X(c), Yecht(c)]; c ? ctx.lineTo(...p) : ctx.moveTo(...p); } ctx.stroke();
     nb(ctx, 'in het echt', 'steeds langzamer', X(29), Yecht(29) + 70, la, 'left', C.groen);
     pil(ctx, 'te veel templates per polymerase', 1560, 360, C.line, tp, 30);
@@ -388,14 +388,14 @@ Object.assign(SCENES, {
     if (wd < 0.99) { ctx.save(); ctx.globalAlpha *= 1 - wd; rek(ctx, 600, 400, 13, { hl: nc > 0.5 ? 6 : -1 });
       nb(ctx, 'kopieert alles met de juiste primerplekken', '', 960, 800, ri * (1 - nc), 'center');
       nb(ctx, 'negatieve controle', 'hetzelfde mengsel', 600 + 6 * 9.5 * 13 + 60, 520, nc, 'left', C.goud);
-      nb(ctx, 'water in plaats van dna', 'geen template', 600 + 6 * 9.5 * 13 + 60, 640, wa, 'left'); ctx.restore(); }
+      nb(ctx, 'water in plaats van DNA', 'geen template', 600 + 6 * 9.5 * 13 + 60, 640, wa, 'left'); ctx.restore(); }
     if (wd > 0.01) { ctx.save(); ctx.globalAlpha *= wd; const g = vwaGel(ctx, 560, 200, 800, 620, { nc: 1.1, hlNC: 1 }); vraagT(ctx, 1480, g.Y(172) + 40, 1, 110); ctx.restore(); } },
   s34(ctx, t, q) { sch(ctx); const pl = q.at('plekken'), hu = q.at('huidcellen'), dr = q.at('druppeltje'), mi = q.at('miljard');
     const fA = 1 - ramp(t, pl - 0.3, 0.5), fB = fade(t, pl - 0.3, hu - 0.4, 0.5), fC = ramp(t, hu - 0.4, 0.5);
     if (fA > 0.01) { ctx.save(); ctx.globalAlpha *= fA; vwaGel(ctx, 560, 200, 800, 620, { nc: 1.1, hlNC: 1 }); ctx.restore(); }
     if (fB > 0.01) { ctx.save(); ctx.globalAlpha *= fB; const P = []; for (let k = 0; k <= 16; k++) P.push([200 + k * 95, 520 + Math.sin(k * 0.8) * 50]);
       dnaDraad(ctx, P, { w: 10 }); const m = P[8]; ctx.strokeStyle = C.goud; ctx.lineWidth = 16; ctx.beginPath(); ctx.moveTo(m[0] - 60, m[1] - 4); ctx.lineTo(m[0] - 30, m[1] - 2); ctx.moveTo(m[0] + 30, m[1]); ctx.lineTo(m[0] + 60, m[1] + 2); ctx.stroke();
-      nb(ctx, 'elk stuk dna met deze plekken', 'wordt gekopieerd · van wie het ook is', m[0], m[1] + 110, 1, 'center', C.goud); ctx.restore(); }
+      nb(ctx, 'elk stuk DNA met deze plekken', 'wordt gekopieerd · van wie het ook is', m[0], m[1] + 110, 1, 'center', C.goud); ctx.restore(); }
     if (fC > 0.01) { ctx.save(); ctx.globalAlpha *= fC; const s = 6, x0 = 520, y = 600, pos = rek(ctx, x0, y, s, { hl: 6, open: 6 }), nx = pos[6][0];
       micropipet(ctx, nx + 2, y + 18, 1.9, { id: 'noor', knop: 1, vol: 0, in: 'buisje', rot: 0.32 });
       // huidschilfers dwarrelen van de hand in het open buisje
@@ -442,7 +442,7 @@ Object.assign(SCENES, {
       meta(ctx, '108 + 4 × 16 = 172', 720, 720, 'left', C.text2, 1, 26); ctx.restore(); } },
   s38(ctx, t, q) { sch(ctx); const ve = ramp(t, q.at('veertien') - 0.3, 0.6), wa = ramp(t, q.at('Waar') - 0.2, 0.5);
     const g = gelFoto(ctx, 200, 200, 380, 640, [{ l: 'M50', b: GEL.M50 }, { l: '16', b: [{ bp: 172, int: 1.2 }] }, { l: '14', b: [] }]);
-    product(ctx, 720, 400, 16, 5.6, { lab: '16 herhalingen' }); product(ctx, 720, 560, 14, 5.6, { a: ve, lab: '14 herhalingen' });
+    product(ctx, 720, 400, 16, 5.0, { lab: '16 herhalingen' }); product(ctx, 720, 560, 14, 5.0, { a: ve, lab: '14 herhalingen' });
     vraagT(ctx, g.X(2), 560, wa, 110); },
   s40(ctx, t, q) { sch(ctx); const ve = ramp(t, q.at('verder', 1) - 0.3, 0.6), ko = ramp(t, q.at('korter') - 0.3, 0.5), va = ramp(t, q.at('vader') - 0.3, 0.6), mo = ramp(t, q.at('moeder') - 0.3, 0.6), tb = ramp(t, q.at('banden') - 0.5, 0.5);
     const g = gelFoto(ctx, 200, 200, 460, 640, [{ l: 'M50', b: GEL.M50 }, { l: '16', b: [{ bp: 172, int: 1.2 }] }, { l: '14', b: [{ bp: 164, int: 1.2 * ve }] }, { l: 'jij', b: [{ bp: 172, int: 0.9 * tb }, { bp: 164, int: 0.9 * tb }], hl: tb }]);
@@ -450,7 +450,7 @@ Object.assign(SCENES, {
     nb(ctx, '164 bp · komt verder', 'korter product', 720, g.Y(164) + 12, ve * (1 - va), 'left', C.goud);
     if (va > 0.01) { ctx.save(); ctx.globalAlpha *= va; const xv = chrom12(ctx, 1240, 380, 520, { kl: CD.vader, hl: 1, w: 40 }); nb(ctx, 'van je vader', 'vwa · 16 herhalingen', 1000, 300, 1, 'left'); ctx.restore(); }
     if (mo > 0.01) { ctx.save(); ctx.globalAlpha *= mo; chrom12(ctx, 1240, 620, 520, { kl: CD.moeder, hl: 1, w: 40 }); nb(ctx, 'van je moeder', 'vwa · 14 herhalingen', 1000, 540, 1, 'left'); ctx.restore(); }
-    nb(ctx, 'twee banden', 'verschillende allelen', 720, g.Y(170) + 120, tb, 'left', C.goud); },
+    nb(ctx, 'twee banden', 'verschillende allelen', 1000, 760, tb, 'left', C.goud); },
   s41(ctx, t, q) { sch(ctx); const me = ramp(t, q.at('meerdere') - 0.3, 0.8), pr = ramp(t, q.at('profiel') - 0.4, 0.5), zo = ramp(t, q.at('scherpe') - 0.3, 0.5);
     // profielen uit het practicum: Sp en B, eerst alleen vWA, dan vijf STR's
     const P = { Sp: [68, 76, 106, 112, 140, 144, 172, 200, 204], B: [68, 80, 106, 112, 140, 144, 172, 200, 204] }, isV = (bp) => bp === 172;

@@ -135,7 +135,7 @@ function ingIcoon(ctx, k, x, y, t) {
   else if (k === 2) { polymeraseAchter(ctx, x + 4, y, 15, { klem: false }); polymeraseVoor(ctx, x + 4, y, 15, { klem: false, sluit: 0.6 }); }
   else if (k === 3) { vrijNucleotide(ctx, x - 30, y + 4, 'A', -0.2, 0.42, {}); vrijNucleotide(ctx, x + 2, y - 4, 'C', 0.1, 0.42, {}); vrijNucleotide(ctx, x + 34, y + 6, 'G', -0.1, 0.42, {}); }
   else { ctx.beginPath(); ctx.moveTo(x - 6, y - 26); ctx.bezierCurveTo(x - 30, y + 2, x - 22, y + 24, x - 6, y + 24); ctx.bezierCurveTo(x + 10, y + 24, x + 18, y + 2, x - 6, y - 26); shape(ctx, rgba(C.teal, 0.55), C.teal, 1.5);
-    text(ctx, 'Mg²⁺', x + 36, y + 10, fTekst(26, 700), C.text, 'center'); }
+  }
 }
 function ingRij(ctx, n, o = {}) { const { a = 1, hl = -1, leeg = -1, t = 0, y = 92 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
   const w = 330, gap = 16, x0 = W / 2 - (5 * w + 4 * gap) / 2;
