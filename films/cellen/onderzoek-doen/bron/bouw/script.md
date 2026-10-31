@@ -1,4 +1,6 @@
-# Onderzoek doen in de biologie — remake 2.0 — script v2
+# Onderzoek doen in de biologie — remake 2.0 — script v2 (+ 2.1)
+
+2.1 (31 okt 2026): nieuw hoofdstuk 5 Betrouwbaar en valide (Kamiel goedgekeurd, tekst uit `../hoofdstuk-betrouwbaar-valide.md`); de eerste zin van s24 is weg (geknipt, niet opnieuw ingesproken); oude H5–H7 → H6–H8. Let op: `make_segments.py` nummert opnieuw (s01…); in `segments.json` hebben de nieuwe alinea's de vaste ids b01–b09 en s24 de geknipte tekst. Draai make_segments dus niet opnieuw zonder de ids en de knip over te nemen.
 
 v2 (30 okt 2026): verwerkt `reviews/expert.md` (methodoloog, 22 punten) en `reviews/didactiek.md` (didactiek, taal, curriculum, 34 punten); zie `reviews/verwerking.md`. Belangrijkste wijzigingen: de kiemproef is nu realistisch (tuinkers kiemt ook in het donker: de hypothese wordt verworpen en de lange gele kiemplantjes leveren een nieuwe vraag op, zodat de cyclus rond is); één hypothese overal ("licht bevordert het kiemen"); werkplan als stap in de cyclus (acht stappen); H2 eigen vraag over controlegroep tegenover constante variabele; het paard nu als voorbeeld van blind meten (de vraagsteller beïnvloedt), daarna placebo en dubbelblind; Pasteur geschrapt; Semmelweis met de kliniek van de vroedvrouwen als vergelijking; Van Helmont met drie aparte soorten fouten; de vraag in H4 toetst nu spreiding (kiemproef), de Grants alleen kort als voorbeeld van een histogram; roken ingekort met verwijzing naar de extra film; geen zinnen meer die na een vraag op de optieletters leunen. Checkvragen, misvattingen, dekking en getallen staan in `docent_v2.md`.
 
@@ -65,11 +67,30 @@ Antwoord b. Dit is een systematische fout. Het gemiddelde blijft twee gram te ho
 
 Tegen toeval helpt wel een grotere steekproef. Met drie zaadjes per bakje kan één zaadje het hele verschil maken. Met vijftig zaadjes per bakje, en de proef een paar keer herhaald, wordt je resultaat betrouwbaarder. Betrouwbaar betekent: bij herhalen vind je ongeveer hetzelfde. Nauwkeurig is iets anders: hoe fijn je meetinstrument meet, bijvoorbeeld op een tiende gram. Ook een heel nauwkeurige weegschaal kan systematisch verkeerd staan.
 
-En valide betekent: je meet echt wat je wilt weten. In de zeventiende eeuw zette Jan Baptist van Helmont een wilg in een pot met gewogen aarde, en gaf vijf jaar alleen water. De boom werd ruim dertig keer zo zwaar, de aarde niet. Zijn conclusie: de boom groeit van water.
+## Hoofdstuk 5 — Betrouwbaar en valide [Schema: begripkaarten BETROUWBAAR en VALIDE, de drie validiteitsvragen één voor één, kiemproef als rode draad; Okselfris als examenvoorbeeld (wattenschijfjes in potjes, geen gezichten); positieve controle als extra bakje; tuinkers → sla/buiten, muis → mens; contrast: meer bakjes (betrouwbaar ↑) maar dezelfde verkeerde meting (valide =); Van Helmont als toepassing]
+Bij elk onderzoek stel je twee vragen. Is het betrouwbaar? En is het valide? Op het examen krijg je vaak een zwak punt of een verbetering van een onderzoek, en moet je zeggen bij welke van de twee het hoort.
+
+Betrouwbaarheid gaat over toeval. Je maakt een onderzoek betrouwbaarder door meer planten, proefpersonen of monsters te nemen. Door elke meting te herhalen en het gemiddelde te nemen. Door steeds op precies dezelfde manier te meten, volgens een vast werkplan: bijvoorbeeld pas tellen als het worteltje zichtbaar is, elke dag op hetzelfde tijdstip. En door naast het gemiddelde ook de spreiding te laten zien.
+
+Doe jij je proef opnieuw en vind je hetzelfde, dan is je resultaat herhaalbaar. Doet een ander lab de proef na, met eigen zaadjes en eigen bakjes, en vindt dat ook hetzelfde, dan is het reproduceerbaar. Pas dan vertrouwen onderzoekers een resultaat echt.
+
+Validiteit gaat over iets anders: klopt je conclusie? Daarvoor stel je drie vragen.
+
+Eén: meet je wat je wilt weten? Wil je weten of licht de groei van tuinkers helpt, dan zegt het tellen van gekiemde zaadjes weinig. Dan meet je de lengte of de massa van de plantjes. In een examen roken mensen aan wattenschijfjes die onder oksels hadden gezeten, niet aan de oksels zelf. Zo roken ze alleen de okselgeur, en niet iemands parfum, haar of gezicht.
+
+Twee: komt het verschil echt door jouw variabele? Stonden de bakjes in het licht ook warmer, op de vensterbank, dan weet je niet of licht of warmte het verschil maakte. Een controlegroep die alleen in licht verschilt, maakt je proef valide. Soms voeg je ook een groep toe waarvan je de uitkomst al weet, om te laten zien dat je meting werkt.
+
+Drie: geldt het ook buiten je proef? Je onderzocht tuinkers in een klaslokaal. Of het ook voor sla geldt, of voor planten buiten, weet je nog niet. En wat bij muizen werkt, werkt niet vanzelf bij mensen.
+
+Onthoud vooral dit verschil: vaker meten maakt een onderzoek betrouwbaarder, maar niet meer valide. Meet je het verkeerde, dan wordt je conclusie niet beter, hoe vaak je ook meet.
+
+Kijk met die twee vragen naar een beroemde proef.
+
+In de zeventiende eeuw zette Jan Baptist van Helmont een wilg in een pot met gewogen aarde, en gaf vijf jaar alleen water. De boom werd ruim dertig keer zo zwaar, de aarde niet. Zijn conclusie: de boom groeit van water.
 
 Hij woog nauwkeurig. Maar met maar één boom is het resultaat weinig betrouwbaar. De afgevallen bladeren woog hij niet: een systematische fout. En aan de lucht dacht hij niet. De droge stof van hout komt vooral uit koolstofdioxide uit de lucht. Je kunt dus heel precies meten, en toch de verkeerde conclusie trekken.
 
-## Hoofdstuk 5 — Van resultaat naar conclusie [Schema: tabel van de kiemproef die een staafdiagram wordt; lijngrafiek kiemen per dag; Macro-nacht kort: eiland met vinken, daarna Schema-histogram van snavelhoogtes; kaartjes CONCLUSIE en DISCUSSIE; onderzoeksbord vult zich met de uitkomst en de lange gele kiemplantjes]
+## Hoofdstuk 6 — Van resultaat naar conclusie [Schema: tabel van de kiemproef die een staafdiagram wordt; lijngrafiek kiemen per dag; Macro-nacht kort: eiland met vinken, daarna Schema-histogram van snavelhoogtes; kaartjes CONCLUSIE en DISCUSSIE; onderzoeksbord vult zich met de uitkomst en de lange gele kiemplantjes]
 Je hebt je metingen. Eerst een tabel, dan een grafiek. Op de x-as zet je de onafhankelijke variabele, met grootheid en eenheid. Losse groepen, zoals licht en donker: een staafdiagram. Een getal dat geleidelijk verandert, zoals de tijd in dagen: een lijngrafiek.
 
 Kijk niet alleen naar het gemiddelde, maar ook naar de spreiding: hoe ver de metingen uit elkaar liggen. Dat zie je goed in een histogram: hoe vaak elke waarde voorkomt. Zo maten Peter en Rosemary Grant de snavels van honderden vinken op de Galapagos.
@@ -81,7 +102,7 @@ Antwoord c. Het verschil van drie zaadjes valt weg in de spreiding van wel twint
 
 In je verslag scheid je conclusie en discussie. De conclusie beantwoordt je onderzoeksvraag, niet meer en niet minder: licht maakt voor het kiemen van tuinkers weinig uit. In de discussie noem je de beperkingen. Je onderzocht tuinkers, niet alle planten. En je noemt wat je opviel. In het donker werden de kiemplantjes lang, dun en geel. Waarom? Dat is een nieuwe onderzoeksvraag. De cyclus begint opnieuw.
 
-## Hoofdstuk 6 — Samen of oorzaak? [Schema: experiment (onderzoeker draait aan een knop) tegenover observationeel (onderzoeker met verrekijker); twee lijnen die samen stijgen; drie pijlschema's: A → B, B → A, C → A en B; ijsjes en verdrinkingen met de zon als C]
+## Hoofdstuk 7 — Samen of oorzaak? [Schema: experiment (onderzoeker draait aan een knop) tegenover observationeel (onderzoeker met verrekijker); twee lijnen die samen stijgen; drie pijlschema's: A → B, B → A, C → A en B; ijsjes en verdrinkingen met de zon als C]
 Jouw kiemproef was een experiment: je veranderde zelf het licht. Maar soms kan dat niet. Dan doe je observationeel onderzoek: je kijkt wat samengaat. Twee dingen die samengaan, hebben een correlatie. Maar veroorzaakt het ene ook het andere? Dat heet causaliteit.
 
 Soms is het andersom: het vermeende gevolg is de oorzaak. Dat heet omgekeerde causaliteit. En soms veroorzaakt een derde factor allebei: een verstorende variabele. In de zomer eten mensen meer ijsjes, en verdrinken er meer mensen. IJsjes zijn niet gevaarlijk. Warm weer zorgt voor allebei.
@@ -93,7 +114,7 @@ Antwoord a. Rust en regelmaat zijn een derde factor, die allebei kan veroorzaken
 
 Soms mag een experiment niet. Rond het jaar 1950 bleek dat longkankerpatiënten vaker en meer rookten dan andere mensen. Mensen laten roken voor een proef, dat mag niet. Hoe onderzoekers toch aantoonden dat roken een oorzaak is, zie je in de extra film.
 
-## Hoofdstuk 7 — Eerlijk onderzoek [Schema: casuskaart Baltimore 1951 met kweekfles met cellen; toestemmingsformulier met handtekening; kaartjes VERVANGING, VERMINDERING, VERFIJNING met een muissilhouet; twee groepjes muizen (3 tegen 20); kaartjes VERZINNEN, VERVALSEN, OVERNEMEN]
+## Hoofdstuk 8 — Eerlijk onderzoek [Schema: casuskaart Baltimore 1951 met kweekfles met cellen; toestemmingsformulier met handtekening; kaartjes VERVANGING, VERMINDERING, VERFIJNING met een muissilhouet; twee groepjes muizen (3 tegen 20); kaartjes VERZINNEN, VERVALSEN, OVERNEMEN]
 Onderzoek moet ook eerlijk zijn tegenover mensen en dieren. In het jaar 1951 ging een stukje tumor van de Amerikaanse Henrietta Lacks naar het lab, zonder dat zij het wist. Haar cellen worden nog altijd wereldwijd gebruikt. Haar familie hoorde het pas ruim twintig jaar later.
 
 Wie nu meedoet aan medisch-wetenschappelijk onderzoek, geeft vooraf toestemming, na uitleg over wat er gebeurt en wat de risico's zijn. Dat heet informed consent. En je mag altijd stoppen.

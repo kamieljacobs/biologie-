@@ -1,4 +1,4 @@
-// Onderzoek doen in de biologie 2.0 — scènes per alinea (prompt v13; beeldplan: Schema + Macro-nacht voor het paard;
+// Onderzoek doen in de biologie 2.1 (31 okt 2026: H5 Betrouwbaar en valide, scènes b01–b09) — scènes per alinea (prompt v13; beeldplan: Schema + Macro-nacht voor het paard;
 // CASUS-kaart = voorbeeld, BEGRIP-kaart = stof; doorlopend onderzoeksbord met de kiemproef; echte personen zonder portret).
 const KV = { 0: 'tuinkers komt snel op', 1: 'meer kieming in het licht?', 2: 'licht bevordert kiemen', 3: 'licht/donker, 50 zaadjes', 4: 'blind tellen', 5: '41 tegen 38, veel spreiding', 6: 'verworpen', 7: 'lange gele plantjes?' };
 function vulTot(i) { const v = {}; for (let k = 0; k <= i; k++) v[k] = KV[k]; return v; }
@@ -16,6 +16,65 @@ function paardScene(ctx, t, q, o = {}) { dagDecor(ctx, { stad: true });
   if (o.publiek) for (let i = 0; i < 9; i++) pict(ctx, 1460 + i * 48 + (i % 2) * 10, 900 - (i % 3) * 14, 150 + (i % 4) * 10, rgba('#56606F', 0.8), o.publiek);
   // tikken: streepjes onder het bord
   const n = Math.floor(o.tik || 0); for (let i = 0; i < Math.min(n, 9); i++) { ctx.fillStyle = C.goud; ctx.fillRect(320 + i * 34, 620, 8, 50); } }
+
+// ---------- Hoofdstuk 5 Betrouwbaar en valide (2.1, 31 okt 2026) ----------
+// kleuren als in de recap (s45): BETROUWBAAR teal, VALIDE goud.
+const BV = { b: C.teal, v: C.goud };
+// vraagkaart: 'VRAAG n' + korte vraag; st: 0 leeg vak, 1 gevuld; act = gouden rand
+function vraagVak(ctx, nr, tekst, x, y, w, a = 1, o = {}) { if (a <= 0.01) return; const { col = BV.v, vul = 1, act = 0, h = 120, px = 34, label = null } = o; ctx.save(); ctx.globalAlpha *= a;
+  roundRect(ctx, x, y, w, h, 16); ctx.save(); ctx.setLineDash(vul < 0.5 ? [10, 8] : []); shape(ctx, rgba(col, 0.06 + 0.1 * vul + 0.08 * act), rgba(col, 0.5 + 0.5 * Math.max(vul, act)), 2 + 2.5 * act); ctx.restore();
+  ctx.beginPath(); ctx.arc(x + 54, y + h / 2, 30, 0, 6.283); shape(ctx, rgba(col, 0.22), col, 2); text(ctx, nr + '', x + 54, y + h / 2 + 12, fTitel(34), C.text, 'center');
+  if (vul > 0.01) { ctx.save(); ctx.globalAlpha *= vul; if (label) text(ctx, label, x + 104, y + 40, fMeta(24), col); ctx.font = fTekst(px, 600); const L = wrapLines(ctx, tekst, w - 130); L.slice(0, 2).forEach((l, i) => text(ctx, l, x + 104, y + (label ? 84 : (L.length > 1 ? 52 : 72)) + i * (px + 6), fTekst(px, 600), C.text)); ctx.restore(); }
+  ctx.restore(); }
+// rij met de drie validiteitsvragen bovenaan (b04–b07); n = hoeveel gevuld, act = index actief
+const VALVR = ['meet je wat je wilt weten?', 'komt het verschil door jouw variabele?', 'geldt het ook buiten je proef?'];
+function valRij(ctx, vul, act, a = 1) { for (let i = 0; i < 3; i++) vraagVak(ctx, i + 1, VALVR[i], 90 + i * 590, 66, 560, a * (i === act || act < 0 ? 1 : 0.55), { vul: vul[i] || 0, act: i === act ? 1 : 0, px: 30, h: 108 }); }
+// klein vraagchipje 'betrouwbaar?' / 'valide?'
+function bvChips(ctx, x, y, a = 1, o = {}) { if (a <= 0.01) return; const { kb = 0, kv = 0, ab = 1, av = 1 } = o; tag(ctx, 'betrouwbaar?', x - 170, y, BV.b, a * ab, 'center', 32); tag(ctx, 'valide?', x + 170, y, BV.v, a * av, 'center', 32);
+  if (kb) kruis(ctx, x - 20, y - 12, 14, a * kb); if (kv) kruis(ctx, x + 265, y - 12, 14, a * kv); }
+// zaadje met worteltje (kiemwortel komt als eerste naar buiten); u = 0..1 lengte
+function zaadWortel(ctx, x, y, s, u, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
+  if (u > 0.01) { ctx.strokeStyle = '#F2EBD8'; ctx.lineWidth = 7; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(8, 10); ctx.quadraticCurveTo(20, 10 + 40 * u, 10, 14 + 80 * u); ctx.stroke();
+    for (let k = 1; k <= 4; k++) { const v = k / 5; if (v > u) break; const yy = 12 + 70 * v; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(13, yy); ctx.lineTo(24, yy + 4); ctx.moveTo(13, yy); ctx.lineTo(2, yy + 5); ctx.stroke(); } }
+  ctx.beginPath(); ctx.ellipse(0, 0, 26, 17, 0.35, 0, 6.283); shape(ctx, ON.zaad, '#B07A52', 2); ctx.restore(); }
+// klokje
+function klokje(ctx, x, y, r, a = 1, uur = 8) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); shape(ctx, '#22314E', C.line, 3);
+  for (let i = 0; i < 12; i++) { const an = i * Math.PI / 6; ctx.beginPath(); ctx.moveTo(x + Math.cos(an) * r * 0.82, y + Math.sin(an) * r * 0.82); ctx.lineTo(x + Math.cos(an) * r * 0.92, y + Math.sin(an) * r * 0.92); ctx.stroke(); }
+  ctx.strokeStyle = C.text; ctx.lineCap = 'round'; ctx.lineWidth = 5; const au = -Math.PI / 2 + (uur % 12) / 12 * 6.283; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + Math.cos(au) * r * 0.5, y + Math.sin(au) * r * 0.5); ctx.stroke();
+  ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x, y - r * 0.75); ctx.stroke(); ctx.restore(); }
+// thermometer (lab-bibliotheek: zijaanzicht, lijntekening, vloeistof koraal); val in °C (15–30 in beeld)
+function thermometer(ctx, x, y, h, val, a = 1, label = true) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const top = y - h, r = 16, u = clamp((val - 10) / 25, 0, 1);
+  roundRect(ctx, x - 10, top, 20, h - r, 10); shape(ctx, rgba('#F2F2EE', 0.06), '#AFC0D0', 2); ctx.beginPath(); ctx.arc(x, y - r * 0.4, r, 0, 6.283); shape(ctx, C.koraal, '#AFC0D0', 2);
+  ctx.fillStyle = C.koraal; const ly = y - r - (h - r * 2 - 10) * u; ctx.fillRect(x - 4, ly, 8, y - r - ly + 4);
+  if (label) text(ctx, Math.round(val) + ' °C', x + 26, ly + 10, fMeta(28), C.text, 'left'); ctx.restore(); }
+// potje met een wattenschijfje (examen havo 2022-I: geurproef zonder de persoon zelf)
+function wattenPotje(ctx, x, y, s, a = 1, dicht = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
+  ctx.beginPath(); ctx.moveTo(-60, -130); ctx.lineTo(-60, -10); ctx.quadraticCurveTo(-60, 0, -50, 0); ctx.lineTo(50, 0); ctx.quadraticCurveTo(60, 0, 60, -10); ctx.lineTo(60, -130); shape(ctx, rgba('#F2F2EE', 0.05), '#AFC0D0', 2.5);
+  ctx.beginPath(); ctx.ellipse(0, -18, 42, 9, 0, 0, 6.283); ctx.fillStyle = '#F2F2EE'; ctx.fill(); ctx.strokeStyle = '#D8D8D0'; ctx.lineWidth = 1.5; ctx.stroke();
+  ctx.save(); ctx.translate(0, -(1 - dicht) * 60); roundRect(ctx, -68, -152, 136, 26, 6); shape(ctx, '#4A5A78', '#8FA0B5', 1.5); ctx.restore(); ctx.restore(); }
+// krop sla (Schema: een paar ronde bladen met nerven, vlak groen)
+function kropSla(ctx, x, y, s, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
+  const B = [[-55, -30, 60, 46, -0.5, '#6FB37E'], [55, -30, 60, 46, 0.5, '#6FB37E'], [-30, -60, 52, 50, -0.2, '#86C98F'], [30, -60, 52, 50, 0.2, '#86C98F'], [0, -78, 46, 44, 0, '#A6DBA5']];
+  B.forEach(([bx, by, rx, ry, rot, c]) => { ctx.beginPath(); for (let k = 0; k <= 40; k++) { const an = k / 40 * 6.283, w = 1 + 0.06 * Math.sin(an * 9); const px = bx + Math.cos(an) * rx * w, py = by + Math.sin(an) * ry * w; k ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.closePath(); shape(ctx, c, '#3F7E50', 2);
+    ctx.strokeStyle = rgba('#E8F5E2', 0.6); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(bx, by + ry * 0.7); ctx.lineTo(bx + Math.sin(rot) * rx * 0.3, by - ry * 0.6); ctx.stroke(); });
+  ctx.fillStyle = ON.aarde; ctx.fillRect(-90, -4, 180, 10); ctx.restore(); }
+// klaslokaal-vak: raam en schoolbord als lijnicoon, met een bakje tuinkers erin
+function klasVak(ctx, x, y, w, h, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, w, h, 18); shape(ctx, '#22314E', '#5A6A88', 2);
+  ctx.strokeStyle = C.bergTop; ctx.lineWidth = 3; ctx.strokeRect(x + 30, y + 34, w * 0.36, h * 0.34); ctx.beginPath(); ctx.moveTo(x + 30 + w * 0.18, y + 34); ctx.lineTo(x + 30 + w * 0.18, y + 34 + h * 0.34); ctx.stroke();
+  roundRect(ctx, x + w * 0.5, y + 34, w * 0.42, h * 0.3, 4); shape(ctx, '#2F4A3A', C.bergTop, 2); ctx.restore();
+  bakje(ctx, x + w / 2, y + h - 40, { w: w * 0.55, n: 14, gekiemd: 0.9, groei: 1, seed: 41, len: 40, a }); }
+// buiten: grasrand, zon en een paar planten
+function buitenVak(ctx, x, y, w, h, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, w, h, 18); shape(ctx, '#22314E', '#5A6A88', 2);
+  zonIcoon(ctx, x + w - 70, y + 70, 28, 1); ctx.fillStyle = '#2F4A3A'; ctx.fillRect(x + 2, y + h - 60, w - 4, 58); ctx.restore();
+  for (let i = 0; i < 5; i++) kiemplant(ctx, x + 50 + i * (w - 100) / 4, y + h - 58, 70 + 20 * hash(i + 9), { groei: 1, buig: (hash(i * 4) - 0.5) * 0.6, a }); }
+// meter (verticale balk) voor b08: label, vulling 0..1
+function meterBalk(ctx, x, y, h, v, col, label, a = 1, teken = '') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 40, y - h, 80, h, 14); shape(ctx, '#22314E', C.line, 2);
+  const f = clamp(v, 0, 1) * (h - 12); roundRect(ctx, x - 32, y - 6 - f, 64, f, 10); ctx.fillStyle = rgba(col, 0.85); ctx.fill();
+  text(ctx, label, x, y + 50, fMeta(26), col, 'center'); if (teken) text(ctx, teken, x, y - h - 26, fTitel(64), col, 'center'); ctx.restore(); }
+// examenblaadje
+function examenBlad(ctx, x, y, s, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); ctx.rotate(-0.03);
+  roundRect(ctx, -110, -140, 220, 280, 10); shape(ctx, ON.papier, '#C9C0A8', 1.5); text(ctx, 'EXAMEN', 0, -96, fMeta(24), ON.inkt, 'center');
+  ctx.strokeStyle = '#8A8070'; ctx.lineWidth = 3; for (let i = 0; i < 6; i++) { ctx.beginPath(); ctx.moveTo(-80, -50 + i * 32); ctx.lineTo(i % 3 === 2 ? 30 : 80, -50 + i * 32); ctx.stroke(); } ctx.restore(); }
 
 const SCENES = {
   title(ctx, t) { vensterbank(ctx, 1200, 980, 560); bakje(ctx, 1480, 965, { w: 380, n: 20, gekiemd: 0.9, groei: clamp(t / 3, 0, 1), seed: 2 }); zonIcoon(ctx, 1680, 640, 36, 1); },
@@ -110,11 +169,99 @@ const SCENES = {
     begripKaart(ctx, 'nauwkeurig', 'hoe fijn je meetinstrument meet', 1200, 90, q.on('Nauwkeurig', 1), { w: 640, px: 42 }); weegschaal(ctx, 1520, 700, 1, '50,0', q.on('tiende', 1));
     tag(ctx, 'en toch systematisch verkeerd', 1520, 830, C.koraal, q.on('systematisch', 1), 'center', 28); },
 
-  s24(ctx, t, q) { bg(ctx, 'schema'); begripKaart(ctx, 'valide', 'je meet echt wat je wilt weten', 120, 70, q.on('valide', 1), { w: 640, px: 44 }); casusKaart(ctx, 'Zuidelijke Nederlanden', 'zeventiende eeuw', q.on('eeuw', 1), 1180, 54);
+  // ===== Hoofdstuk 5 — Betrouwbaar en valide (2.1) =====
+  b01(ctx, t, q) { bg(ctx, 'schema'); const a0 = ramp(t, 0, 0.4), ab = q.on('betrouwbaar', 1), av = q.on('valide', 1), ex = q.on('examen', 1);
+    regel(ctx, 'twee vragen bij elk onderzoek', 960, 150, a0, C.text2, 36);
+    vraagVak(ctx, 1, 'Is het betrouwbaar?', 150, 220, 760, a0, { col: BV.b, vul: ab, act: ab * (1 - ex), h: 150, px: 48 });
+    vraagVak(ctx, 2, 'Is het valide?', 1010, 220, 760, a0, { col: BV.v, vul: av, act: av * (1 - ex), h: 150, px: 48 });
+    examenBlad(ctx, 960, 650, 0.95, ex); const p = q.on('verbetering', 1);
+    zinKaart(ctx, 'OP HET EXAMEN', 'een zwak punt of een verbetering', 150, 560, 560, q.on('zwak', 1), C.oker);
+    const z = q.on('zeggen', 1); boogPijl(ctx, 1010, 500, 1390, 395, -0.15, BV.v, z, 3); boogPijl(ctx, 910, 500, 530, 395, 0.15, BV.b, z, 3);
+    tag(ctx, 'bij welke hoort het?', 1440, 700, C.goud, q.on('welke', 1), 'center', 36); },
+
+  b02(ctx, t, q) { bg(ctx, 'schema'); const a0 = ramp(t, 0, 0.4);
+    begripKaart(ctx, 'betrouwbaar', 'gaat over toeval', 120, 60, a0, { w: 720, px: 50 });
+    const I = [q.on('meer', 1), q.on('herhalen', 1), q.on('werkplan', 1), q.on('spreiding', 1)], T = ['meer planten, proefpersonen of monsters', 'elke meting herhalen, gemiddelde nemen', 'vast werkplan: steeds dezelfde manier', 'ook de spreiding laten zien'];
+    let act = -1; I.forEach((v, i) => { if (v > 0.5) act = i; });
+    T.forEach((s, i) => { vraagVak(ctx, i + 1, s, 960, 60 + i * 200, 840, I[i], { col: BV.b, vul: 1, act: i === act ? 1 : 0, h: 150, px: 34 }); });
+    // beeld links per punt (één tegelijk)
+    const vis = i => I[i] * (i < 3 ? 1 - I[i + 1] : 1);
+    { const a = vis(0); bakje(ctx, 280, 760, { w: 200, n: 3, gekiemd: 0.67, seed: 15, len: 46, label: '3 zaadjes', a }); bakje(ctx, 620, 760, { w: 380, n: 40, gekiemd: 0.8, seed: 16, len: 46, label: '50 zaadjes', a }); }
+    { const a = vis(1); for (let k = 0; k < 3; k++) bakje(ctx, 230 + k * 210, 690, { w: 180, n: 12, gekiemd: [0.85, 0.75, 0.8][k], seed: 20 + k, len: 40, label: 'keer ' + (k + 1), a }); tag(ctx, 'gemiddelde', 440, 840, BV.b, a * q.on('gemiddelde', 1)); }
+    { const a = vis(2), w = q.on('worteltje', 1, 1.5); zaadWortel(ctx, 300, 560, 2.4, 0.15 + 0.85 * w, a); regel(ctx, 'pas tellen als het', 420, 590, a * q.on('worteltje', 1), C.text, 32, 'left'); regel(ctx, 'worteltje zichtbaar is', 420, 632, a * q.on('worteltje', 1), C.text, 32, 'left');
+      klokje(ctx, 470, 790, 54, a * q.on('elke', 2), 8); regel(ctx, 'elke dag om 8 uur', 545, 802, a * q.on('tijdstip', 1), C.text, 32, 'left'); }
+    { const a = vis(3); assen(ctx, 220, 840, 560, 330, { a, yl: 'gekiemd' }); staven(ctx, 220, 840, 560, 330, [{ v: 41, col: C.goud, label: 'licht', lo: 30, hi: 50 }, { v: 38, col: C.teal, label: 'donker', lo: 30, hi: 48 }], 50, a, 1, { spreiding: a }); regel(ctx, '↕ spreiding', 830, 560, a, BV.b, 32, 'right'); } },
+
+  b03(ctx, t, q) { bg(ctx, 'schema'); const a0 = ramp(t, 0, 0.4), h1 = q.on('herhaalbaar', 1), lab = q.on('lab', 1), r = q.on('reproduceerbaar', 1), v = q.on('vertrouwen', 1);
+    // links: jij, opnieuw
+    roundRect(ctx, 120, 90, 780, 620, 22); shape(ctx, rgba('#22314E', 0.6), '#5A6A88', 2); text(ctx, 'JOUW PROEF', 160, 140, fMeta(26), C.text2);
+    persoon(ctx, 'yasmin', 250, 640, 400, { outfit: 'school', t, a: a0 });
+    bakje(ctx, 520, 470, { w: 230, n: 14, gekiemd: 0.8, seed: 3, len: 44, label: '1e keer', a: a0 }); bakje(ctx, 760, 470, { w: 230, n: 14, gekiemd: 0.78, seed: 31, len: 44, label: 'opnieuw', a: q.on('opnieuw', 1) });
+    boogPijl(ctx, 560, 300, 720, 300, -0.35, C.line, q.on('opnieuw', 1), 3);
+    tag(ctx, 'herhaalbaar', 640, 640, BV.b, h1, 'center', 38);
+    // rechts: een ander lab
+    ctx.save(); ctx.globalAlpha *= lab; roundRect(ctx, 1020, 90, 780, 620, 22); shape(ctx, rgba('#22314E', 0.6), '#5A6A88', 2); text(ctx, 'EEN ANDER LAB', 1060, 140, fMeta(26), C.text2); ctx.restore();
+    plaatsIcoon(ctx, 'lab', 1160, 330, 0.9, lab);
+    bakje(ctx, 1480, 470, { w: 300, n: 18, gekiemd: 0.8, seed: 57, len: 48, label: 'eigen zaadjes, eigen bakjes', a: q.on('eigen', 1) });
+    tag(ctx, 'reproduceerbaar', 1410, 640, BV.b, r, 'center', 38);
+    tag(ctx, 'pas dan echt vertrouwd', 960, 820, C.groen, v, 'center', 36); vink(ctx, 1210, 800, 18, v); },
+
+  b04(ctx, t, q) { bg(ctx, 'schema'); const a0 = ramp(t, 0, 0.4), d = q.on('drie', 1);
+    valRij(ctx, [0, 0, 0], -1, d);
+    begripKaart(ctx, 'valide', 'gaat over iets anders: klopt je conclusie?', 540, 260, a0, { w: 840, px: 56 });
+    tag(ctx, 'betrouwbaar: gaat over toeval', 960, 680, BV.b, a0 * 0.6 * (1 - q.on('conclusie', 1, 0.8) * 0.4), 'center', 32); regel(ctx, 'drie vragen', 960, 820, d, C.goud, 40); },
+
+  b05(ctx, t, q) { bg(ctx, 'schema'); valRij(ctx, [1, 0, 0], 0, 1); const ex = q.on('examen', 1);
+    // links: tuinkers, wat meet je?
+    const lA = 1 - ex * 0.65; ctx.save(); ctx.globalAlpha *= lA;
+    bakje(ctx, 420, 720, { w: 420, n: 16, gekiemd: 0.9, groei: 1, seed: 8, len: 80 });
+    tag(ctx, 'licht → groei?', 420, 260, C.goud, ramp(t, 0, 0.4) * q.on('Wil', 1));
+    tag(ctx, 'gekiemd: ja of nee', 420, 360, C.koraal, q.on('tellen', 1)); kruis(ctx, 640, 345, 16, q.on('weinig', 1));
+    const ln = q.on('lengte', 1); ctx.save(); ctx.globalAlpha *= ln; roundRect(ctx, 660, 470, 34, 230, 4); shape(ctx, '#D9C9A0', '#8C7A50', 1.5); for (let i = 0; i <= 10; i++) { ctx.strokeStyle = '#5A4A30'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(660, 690 - i * 21); ctx.lineTo(i % 5 ? 672 : 680, 690 - i * 21); ctx.stroke(); } ctx.restore();
+    regel(ctx, 'lengte (mm)', 760, 450, ln, C.groen, 32, 'left'); weegschaal(ctx, 800, 860, 0.7, '0,8', q.on('massa', 1), { gewicht: false }); regel(ctx, 'massa (g)', 900, 780, q.on('massa', 1), C.groen, 32, 'left'); vink(ctx, 1000, 440, 16, q.on('plantjes', 1)); ctx.restore();
+    // rechts: het examenvoorbeeld (havo 2022-I, Okselfris): geur op wattenschijfjes
+    zinKaart(ctx, 'UIT HET EXAMEN · HAVO 2022', 'ruiken aan wattenschijfjes', 1120, 240, 680, ex, C.oker);
+    const wp = q.on('wattenschijfjes', 1); for (let i = 0; i < 3; i++) wattenPotje(ctx, 1260 + i * 200, 620, 1, wp, 1 - q.on('roken', 2) * (i === 1 ? 1 : 0));
+    tag(ctx, 'niet aan de oksels zelf', 1460, 700, C.text2, q.on('oksels', 2), 'center', 30);
+    tag(ctx, 'alleen de okselgeur', 1460, 790, C.groen, q.on('okselgeur', 1), 'center', 34); vink(ctx, 1660, 772, 16, q.on('okselgeur', 1));
+    ['parfum', 'haar', 'gezicht'].forEach((s, i) => { const a = q.on(s, 1); regel(ctx, s, 1240 + i * 200, 870, a, C.text, 30); kruis(ctx, 1240 + i * 200 + [66, 54, 74][i], 860, 10, a); }); },
+
+  b06(ctx, t, q) { bg(ctx, 'schema'); valRij(ctx, [1, 1, 0], 1, 1); const w = q.on('warmer', 1), cg = q.on('controlegroep', 1), pos = q.on('Soms', 1);
+    const sx = 1 - pos * 0.45; ctx.save(); ctx.globalAlpha *= 1 - pos * 0.5;
+    vensterbank(ctx, 140, 760, 560, ramp(t, 0, 0.4)); zonIcoon(ctx, 560, 400, 34, ramp(t, 0, 0.4)); bakje(ctx, 420, 745, { w: 320, n: 16, gekiemd: 0.85, seed: 5, len: 60, label: 'licht' });
+    bakje(ctx, 980, 745, { w: 320, n: 16, gekiemd: 0.8, seed: 6, len: 60, donker: 0.85, label: 'donker' });
+    const tl = lerp(26, 20, cg); thermometer(ctx, 240, 700, 240, tl, w); thermometer(ctx, 1180, 700, 240, 20, w);
+    tag(ctx, 'licht of warmte?', 980, 300, C.koraal, q.on('warmte', 1) * (1 - cg));
+    tag(ctx, 'alleen licht verschilt', 980, 300, C.groen, q.on('verschilt', 1)); regel(ctx, 'controlegroep', 980, 860, cg, C.text, 32); tag(ctx, 'valide', 980, 470, BV.v, q.on('valide', 1)); ctx.restore();
+    // bekende uitkomst (positieve controle)
+    const pa = q.on('groep', 1); bakje(ctx, 1560, 745, { w: 320, n: 16, gekiemd: 0.95, seed: 61, len: 66, label: 'bekende uitkomst', a: pa });
+    ctx.save(); ctx.globalAlpha *= pa; text(ctx, 'POSITIEVE CONTROLE', 1560, 500, fMeta(26), C.groen, 'center'); ctx.restore(); regel(ctx, 'kiemt zeker', 1560, 550, q.on('uitkomst', 1), C.text, 32);
+    tag(ctx, 'je meting werkt', 1560, 860, C.groen, q.on('meting', 1), 'center', 32); },
+
+  b07(ctx, t, q) { bg(ctx, 'schema'); valRij(ctx, [1, 1, 1], 2, 1); const a0 = ramp(t, 0, 0.4), kl = q.on('klaslokaal', 1);
+    klasVak(ctx, 120, 210, 460, 330, a0); regel(ctx, 'tuinkers in de klas', 350, 590, kl, C.text, 32);
+    const s1 = q.on('sla', 1), b1 = q.on('planten', 1); pijl(ctx, 610, 380, 760, 380, C.line, s1, 3); roundRect(ctx, 790, 210, 400, 330, 18); ctx.save(); ctx.globalAlpha *= s1; shape(ctx, '#22314E', '#5A6A88', 2); ctx.restore(); kropSla(ctx, 990, 480, 1.4, s1); regel(ctx, 'sla?', 990, 590, s1, C.goud, 36);
+    pijl(ctx, 1220, 380, 1370, 380, C.line, b1, 3); buitenVak(ctx, 1400, 210, 400, 330, b1); regel(ctx, 'buiten?', 1600, 590, b1, C.goud, 36);
+    tag(ctx, 'weet je nog niet', 1300, 600, C.text2, q.on('niet', 1), 'center', 30);
+    const m = q.on('muizen', 1), me = q.on('mensen', 1); ctx.save(); ctx.globalAlpha *= m; roundRect(ctx, 520, 640, 380, 236, 18); shape(ctx, '#22314E', '#5A6A88', 2); ctx.restore(); muis(ctx, 710, 820, 12, { a: m, t, kijk: 1 }); regel(ctx, 'muis', 560, 690, m, C.text2, 30, 'left');
+    pijl(ctx, 920, 760, 1000, 760, C.line, me, 3); ctx.save(); ctx.globalAlpha *= me; roundRect(ctx, 1020, 640, 380, 236, 18); shape(ctx, '#22314E', '#5A6A88', 2); ctx.restore(); persoon(ctx, 'linda', 1210, 866, 210, { t, a: me }); regel(ctx, 'mens', 1060, 690, me, C.text2, 30, 'left');
+    tag(ctx, 'niet vanzelf', 1620, 780, C.koraal, q.on('vanzelf', 1), 'center', 34); },
+
+  b08(ctx, t, q) { bg(ctx, 'schema'); const a0 = ramp(t, 0, 0.4), n = q.on('vaker', 1, 2.2), mb = q.on('betrouwbaarder', 1, 1.2), vv = q.on('valide', 1), vk = q.on('verkeerde', 1);
+    regel(ctx, 'onthoud dit verschil', 960, 110, a0, C.text2, 36);
+    const N = 1 + Math.floor(n * 5.99); for (let i = 0; i < 6; i++) { const ai = i < N ? 1 : 0; const x = 220 + (i % 3) * 260, y = 470 + Math.floor(i / 3) * 280; bakje(ctx, x, y, { w: 220, n: 12, gekiemd: 0.8, seed: 70 + i, len: 40, a: ai * a0 }); regel(ctx, 'telt: gekiemd?', x, y + 50, ai * a0 * 0.9, C.text2, 26); }
+    tag(ctx, 'het verkeerde meten', 480, 860, C.koraal, vk, 'center', 32);
+    meterBalk(ctx, 1260, 760, 460, 0.3 + 0.6 * mb, BV.b, 'BETROUWBAAR', a0, mb > 0.5 ? '↑' : '');
+    meterBalk(ctx, 1600, 760, 460, 0.3, BV.v, 'VALIDE', a0, vv > 0.5 ? '=' : '');
+    tag(ctx, 'conclusie niet beter', 1430, 870, C.koraal, q.on('conclusie', 1), 'center', 32); },
+
+  b09(ctx, t, q) { bg(ctx, 'schema'); const a0 = ramp(t, 0, 0.4); bvChips(ctx, 960, 200, a0); wilgInPot(ctx, 960, 860, 1, q.on('beroemde', 1, 0.8) * 0.9); },
+
+  s24(ctx, t, q) { bg(ctx, 'schema'); bvChips(ctx, 1300, 120, 0.7 * ramp(t, 0, 0.4)); casusKaart(ctx, 'Zuidelijke Nederlanden', 'zeventiende eeuw', ramp(t, 0, 0.5)); // 2.1: eerste zin (definitie valide) geknipt, die staat nu in H5
     const g = q.on('jaar', 1, 3); wilgInPot(ctx, 1240, 860, lerp(0.25, 1, g), q.on('wilg', 1)); regel(ctx, '5 pond', 1440, 600, q.on('wilg', 1) * (1 - g), C.text, 32, 'left'); regel(ctx, '± 169 pond', 1500, 470, q.on('zwaar', 1), C.groen, 34, 'left');
     regel(ctx, 'aarde: bijna even zwaar', 1200, 880, q.on('aarde', 2), C.text2, 28); zinKaart(ctx, 'CONCLUSIE VAN VAN HELMONT', 'de boom groeit van water', 120, 500, 620, q.on('conclusie', 1), C.oker); },
 
-  s25(ctx, t, q) { bg(ctx, 'schema'); wilgInPot(ctx, 960, 860, 1, 1);
+  s25(ctx, t, q) { bg(ctx, 'schema'); wilgInPot(ctx, 960, 860, 1, 1); bvChips(ctx, 960, 100, ramp(t, 0, 0.4), { kb: q.on('betrouwbaar', 1), kv: q.on('lucht', 1), ab: 0.6 + 0.4 * q.on('betrouwbaar', 1), av: 0.6 + 0.4 * q.on('lucht', 1) });
     zinKaart(ctx, 'MAAR ÉÉN BOOM', 'minder betrouwbaar', 120, 160, 520, q.on('boom', 1), C.teal); zinKaart(ctx, 'BLADEREN NIET GEWOGEN', 'systematische fout: groei steeds te laag', 120, 400, 520, q.on('bladeren', 1), C.koraal);
     const l = q.on('lucht', 1); zinKaart(ctx, 'DE LUCHT VERGETEN', 'droge stof komt vooral uit koolstofdioxide', 1300, 160, 520, l, C.goud); for (let i = 0; i < 6; i++) { const u = (t * 0.25 + i / 6) % 1; ctx.save(); ctx.globalAlpha = l * Math.sin(u * Math.PI); text(ctx, 'CO₂', lerp(1500, 1040, u), lerp(420, 520 + i * 10, u), fMeta(26), C.goud, 'center'); ctx.restore(); }
     tag(ctx, 'precies gemeten, verkeerde conclusie', 960, 880, C.koraal, q.on('conclusie', 1), 'center', 30); },

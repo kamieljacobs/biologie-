@@ -8,7 +8,8 @@ Werkwijze en criteria: `films/BRONNEN.md`.
 | Eerste ronde | Claude, 30 okt 2026: 59 beweringen, 53 bronnen geopend |
 | Steekproef | nog niet gedaan (zie onderaan) |
 | Vakexpert | geen |
-| Stand | 42 ✓ · 15 ≈ · 1 ! · 1 ? |
+| Tweede ronde | Claude, 31 okt 2026: nieuw hoofdstuk 5 Betrouwbaar en valide (versie 2.1), beweringen 60–71, bronnen B54–B64 zelf geopend |
+| Stand | 42 ✓ · 15 ≈ · 1 ! · 1 ? (ronde 1) · ronde 2: 8 ✓ · 4 ≈ |
 
 ## Bronnen
 
@@ -69,6 +70,18 @@ Niveau volgens `films/BRONNEN.md` (A gezaghebbend, B betrouwbaar secundair, C al
 | B51 | B | Aberystwyth University, STEM outreach: *Graphs* | https://outreach-hub.aber.ac.uk/STEM/DataScience/Graphs/index.html |
 | B52 | B | Foster e.a., *An Introduction to Psychological Statistics* (open leerboek), 12.7 *Correlation versus causation* | https://stats.libretexts.org/Bookshelves/Applied_Statistics/An_Introduction_to_Psychological_Statistics_(Foster_et_al.)/12:_Correlations/12.07:_Correlation_versus_Causation |
 | B53 | B | Queens College, CUNY: collegeaantekeningen hfst. 33 (correlatie en causaliteit) | https://qcpages.qc.cuny.edu/~chanusa/courses/245/15/notes/245sp15ch33.pdf |
+| B54 | A | JCGM 200 / VIM (BIPM), 2.20 *repeatability condition of measurement*: zelfde procedure, operators, meetsysteem, plaats, korte tijd | https://jcgm.bipm.org/vim/en/2.20.html |
+| B55 | A | JCGM 200 / VIM (BIPM), 2.24 *reproducibility condition of measurement*: andere plaatsen, operators en meetsystemen | https://jcgm.bipm.org/vim/en/2.24.html |
+| B56 | A | IUPAC Gold Book: *repeatability condition of measurement* (PAC 2021, 93, 997) | https://goldbook.iupac.org/terms/view/08040 |
+| B57 | A | van der Worp, H.B. e.a. (2010). *Can animal models of disease reliably inform human studies?* PLoS Medicine 7(3): e1000245, Box 1 (interne en externe validiteit, bias, vertaling dier → mens) | https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2846855/ |
+| B58 | A | Patino, C.M. & Ferreira, J.C. (2018). *Critérios de inclusão e exclusão em estudos de pesquisa.* J Bras Pneumol 44(2): 84 (externe validiteit = generaliseerbaarheid naar een andere groep) | https://scielo.br/pdf/jbpneu/v44n2/pt_1806-3756-jbpneu-44-02-00084.pdf |
+| B59 | A | CvTE, centraal examen biologie havo 2022-I, vraag 18 (Okselfris) met correctievoorschrift: wattenschijfjes maken de geurtest 'meer valide'; 'andere variabelen spelen geen rol' (uitsneden `examenatlas/img/havo/2022-I/18a.webp`, `a18a.webp`) | examenatlas |
+| B60 | A | CvTE, centraal examen biologie havo 2018-II, vraag 28, correctievoorschrift: bij veel proefpersonen hebben individuele verschillen minder invloed, het onderzoek is betrouwbaarder (`examenatlas/img/havo/2018-II/a28a.webp`) | examenatlas |
+| B61 | A | CvTE, centraal examen biologie vwo 2026-I, vraag 35 met correctievoorschrift: de derde groep (bruine vetcellen, bekende uitkomst) draagt bij aan de validiteit (`examenatlas/img/vwo/2026-I/35a.webp`, `a35a.webp`) | examenatlas |
+| B62 | A | CvTE, centraal examen biologie havo 2021-II, vraag 30 (zwemmersjeuk, eDNA): meerdere watermonsters ↔ betrouwbaarheid, unieke DNA-volgorde ↔ validiteit; sleutel B (`examenatlas/img/havo/2021-II/30a.webp`, `a30a.webp`; de antwoordopties staan niet in de uitsnede) | examenatlas |
+| B63 | A | Wijayasinghe, M.M. e.a. (2024). *Radicle emergence could overestimate the prediction of seed longevity in wild plants.* Seed Science Research 34: 103–112 (kiemwortel van 1–2 mm als gangbaar kiemcriterium) | https://www.cambridge.org/core/services/aop-cambridge-core/content/view/A8B4B6AEDC788DE10A724D491E2AF084/S0960258524000175a.pdf/radicle-emergence-could-overestimate-the-prediction-of-seed-longevity-in-wild-plants.pdf |
+| B64 | B | RNGR (USDA Forest Service, Reforestation, Nurseries and Genetic Resources): *Anatomy and morphology of conifer tree seed — Seed germination* ('germination is recognized by the emergence of the radicle') | https://npn.rngr.net/publications/anatomy-and-morphology-of-conifer-tree-seed/seed-germination/at_download/file |
+| B65 | B | Pearson Channels, *Experimental design in biology: variables, controls*: positieve controle = groep waarvan een bekend effect verwacht wordt | https://www.pearson.com/channels/biology/study-guides/experimental-design-in-biology-variables-controls-and |
 
 ## Beweringen
 
@@ -133,6 +146,18 @@ Niveau volgens `films/BRONNEN.md` (A gezaghebbend, B betrouwbaar secundair, C al
 | 57 | H3 | Toevallige fouten maken een onderzoek minder betrouwbaar; een systematische fout of een verkeerde opzet maakt het minder valide. | B47, B50 | ≈ | B50 (C) noemt betrouwbaarheid = vrij van toevalsfouten en validiteit = ongevoelig voor systematische fouten (Swanborn). Gangbaar in de methodologie, maar nog een A- of B-bron openen. |
 | 58 | H4 | Losse groepen (licht/donker): staafdiagram; een geleidelijk veranderend getal (dagen): lijngrafiek. | B42, B51 | ≈ | B51: staaf voor categorieën, lijn voor tijd of een andere geordende onafhankelijke variabele. Alleen B; nog naast de methode leggen. |
 | 59 | H4, H5 | Kijk ook naar de spreiding; conclusie beantwoordt de vraag, discussie noemt beperkingen; correlatie is geen causaliteit (omgekeerde causaliteit, verstorende variabele, voorbeeld ijsjes en verdrinking); naast een experiment bestaat observationeel onderzoek. | B41, B49, B52, B53 | ≈ | Syllabus A5.8–A5.11 (conclusie, evalueren, andere onderzoeksaanpakken). Spreiding: B49. Correlatie, derde variabele en het ijsjesvoorbeeld met het weer als oorzaak: B52; omgekeerde causaliteit: B53. Inhoudelijk eenduidig, maar de definities zelf alleen in B-bronnen. |
+| 60 | H5 (2.1) | Op het examen krijg je vaak een zwak punt of een verbetering van een onderzoek en moet je zeggen of het bij betrouwbaarheid of validiteit hoort. | B59, B60, B61, B62, B42 | ✓ | Vier CvTE-examens 2018–2026 vragen precies dit; syllabus havo A5 noemt betrouwbaarheid en validiteit. |
+| 61 | H5 | Betrouwbaarheid gaat over toeval; meer planten, proefpersonen of monsters maken een onderzoek betrouwbaarder. | B60, B62, B47, B49 | ✓ | B60: individuele variatie heeft bij veel proefpersonen minder invloed. |
+| 62 | H5 | Elke meting herhalen en het gemiddelde nemen maakt betrouwbaarder. | B47, B49 | ✓ | Toevallige fouten middelen uit (zie ook bewering 55). |
+| 63 | H5 | Steeds op precies dezelfde manier meten, volgens een vast werkplan, maakt betrouwbaarder. | B54, B56 | ✓ | Herhaalbaarheidsvoorwaarde: zelfde procedure, operator, meetsysteem, omstandigheden. |
+| 64 | H5 | Voorbeeld van een vaste afspraak: pas tellen als het worteltje zichtbaar is (het worteltje komt als eerste uit het zaadje). | B63, B64 | ✓ | Kiemwortel (1–2 mm) is het gangbare kiemcriterium. |
+| 65 | H5 | Naast het gemiddelde ook de spreiding laten zien. | B49, B42 | ≈ | Gangbare eis in verslagen; geen getal of feit. |
+| 66 | H5 | Herhaalbaar: zelf opnieuw, zelfde uitkomst. Reproduceerbaar: een ander lab met eigen materiaal vindt hetzelfde. | B54, B55, B56 | ✓ | Let op: in de wetenschapsfilosofie (o.a. NASEM 2019) wordt 'reproducible/replicable' soms andersom gebruikt; de film volgt het meetvocabulaire en de schoolmethodes. 'Pas dan vertrouwen onderzoekers een resultaat echt' is een samenvatting, geen meetbare bewering. |
+| 67 | H5 | Validiteit: klopt je conclusie? Drie vragen: meet je wat je wilt weten, komt het verschil door jouw variabele, geldt het buiten je proef. | B57, B58, B59 | ≈ | Interne validiteit (geen bias, verschil door de behandeling) en externe validiteit (generaliseren) in B57/B58; 'meet je wat je wilt weten' in B59. De indeling in drie vragen is een didactische keuze. |
+| 68 | H5 | Okselfris (havo 2022): ruiken aan wattenschijfjes in plaats van aan de oksels zelf; zo ruik je alleen de okselgeur, niet parfum, haar of gezicht. | B59 | ≈ | Toegeschreven aan het examen ('In een examen …'); correctievoorschrift: alleen de okselgeur, het uiterlijk van de proefpersoon beïnvloedt het oordeel niet. Parfum: de proefpersonen gebruikten geen deodorant (tekst), dus 'parfum' is een voorbeeld van een andere variabele. |
+| 69 | H5 | Stonden de lichtbakjes ook warmer, dan weet je niet of licht of warmte het verschil maakte; een controlegroep die alleen in licht verschilt maakt de proef valide. | B57, B59 | ✓ | B57: interne validiteit = verschillen toe te schrijven aan de behandeling; B59: 'andere variabelen spelen geen rol'. |
+| 70 | H5 | Een groep met bekende uitkomst laat zien dat je meting werkt (positieve controle) en hoort bij validiteit. | B61, B65 | ✓ | |
+| 71 | H5 | Wat bij tuinkers in een klaslokaal geldt, geldt niet vanzelf voor sla of planten buiten; wat bij muizen werkt, werkt niet vanzelf bij mensen. Vaker meten maakt betrouwbaarder, maar niet meer valide. | B57, B58, B47 | ✓ | B57: vertaling dier → mens mislukt vaak (o.a. beroerte). B47: een systematische fout middelt niet uit door herhalen. |
 
 ## Aanpassingen
 
@@ -153,7 +178,7 @@ Voorstellen; het script is in deze ronde niet gewijzigd.
 
 ## Menselijke controle
 
-Steekproef door Kamiel: open de bron, zoek de bewering op de pagina, zet een vinkje en de datum. Voorgesteld: in elk geval bewering 5, 11, 30 en 40.
+Steekproef door Kamiel: open de bron, zoek de bewering op de pagina, zet een vinkje en de datum. Voorgesteld: in elk geval bewering 5, 11, 30 en 40, en uit hoofdstuk 5 bewering 66 en 68.
 
 | Bewering | Bron | Gecontroleerd door | Datum |
 |---|---|---|---|
@@ -162,6 +187,8 @@ Steekproef door Kamiel: open de bron, zoek de bewering op de pagina, zet een vin
 | 11 | B5 | | |
 | 30 | B16 | | |
 | 40 | B28 | | |
+| 66 | B55 | | |
+| 68 | B59 | | |
 
 ## Verwerkt in script v2 (30 okt 2026)
 - Bewering 5 (vreemden lieten het paard rekenen, !): de zin is weg; v2 zegt dat ook de eigenaar de tekens onbewust gaf, en gebruikt Pfungsts proef met een vraagsteller die het antwoord zelf niet wist (Pfungst 1911, Beran 2012) → ✓.

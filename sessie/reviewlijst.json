@@ -158,7 +158,7 @@
     {
      "href": "films/cellen/onderzoek-doen/index.html",
      "titel": "Onderzoek doen in de biologie",
-     "duur": 13,
+     "duur": 15,
      "vraag": "Hoe weet je eigenlijk of iets waar is?",
      "prompt": "v13"
     },
@@ -183,6 +183,7 @@
      "titel": "Hoe weet een cel wat hij moet worden?",
      "duur": 17,
      "vraag": "Eén eicel wordt honderden celsoorten, zonder bouwtekening: hoe weet een cel wat hij moet worden?",
+     "prompt": "v13",
      "extra": true
     }
    ]
