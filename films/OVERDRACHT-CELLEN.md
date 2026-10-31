@@ -3,7 +3,7 @@
 ## Stand 30 okt 2026 (middag): open punten uitgevoerd
 Kamiel: 'je mag herinspreken, doe bij de twijfelscènes wat jij denkt. 3. doe wat jij denkt. 4. je mag het fixen'. Keuzes in `films/UITVOEREN-CELLEN.md`. Alles online, `controle.py` ok.
 - **Herinspreken (1.375 credits):** boterhamfilm 1.2 zonder castnamen in stem, ondertitels, vraagkaarten en footer (900 cr); Van molecuul tot biosfeer 2.1 s01/s16 zonder Noor (203 cr); Stamcellen 2.1 s11 'hooguit één procent' en s19 'in principe niet afgestoten' (272 cr).
-- **Luisterpagina** (14 fragmenten, keuzes in collectie `keuzes`): https://claude.ai/artifact/QgtqRiWNK3skrGEyaESVBk. Beluisterd door Kamiel (30 okt 2026, avond): 13 van 14 goed; Van molecuul tot biosfeer s16 nog niet beoordeeld.
+- **Luisterpagina** (14 fragmenten, keuzes in collectie `keuzes`): https://claude.ai/artifact/QgtqRiWNK3skrGEyaESVBk. Beluisterd door Kamiel (30 okt 2026, avond): alle 14 goed (s16 op 31 okt).
 - **Twijfelscènes**: alle gebouwde keuzes blijven; kleine beeldpunten uit de frisse review verwerkt (Celorganellen 2.1, Diffusie 2.1, Stamcellen 2.1, Van molecuul tot biosfeer 2.1).
 - **Inhoudsvragen**: docentdeel Celorganellen (cisternale rijping) en Van molecuul tot biosfeer (griepprik na ± een half jaar minder bescherming); Diffusie-label 'zelfde osmotische waarde als je bloed'; bacteriekleur oker uit de beeldbank.
 - **µ in hoofdletters**: `scripts/microteken.py` in alle films (staat in CLAUDE.md bij de afrondscripts), behalve Onderzoek doen (Kamiel: nog niets aan doen; `--check --zonder films/cellen/onderzoek-doen`).

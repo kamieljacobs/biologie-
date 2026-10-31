@@ -168,3 +168,7 @@ Goedgekeurd met een eigen stem-invoer (film-eigen regels, mogen centraal gebruik
 - A_ (stem: grote A streepje)
 
 Goedgekeurd zoals ingesproken (gewone spelling of de stem-invoer in `bron/uitspraak.md` van de film): Gregor Mendel, Huntington, Latijnse, Mendel, P-generatie, Romeins, UV-licht, Victoria, Leopold, XᴬXᵃ, XᴬY, XᵃY, XᵃXᵃ, aardbeien, antigeen / antigenen, autosomen, autosoom, bloedgroep O, codominant, dragerschapstest, driehonderdvijftien, honderdeen, honderdacht, tweeëndertig, een half, een kwart, een zesde, een zestiende, embryo, fenotype, grote G / kleine g, hemofilie, heterozygoot, heterozygoot / homozygoten, homozygoot, inteelt, intermediair, karyogram, kegeltjes, netvlies, kiel, meeldraden, stamper, klinisch geneticus, leeuwenbek, letale factor, melanine, mitochondriaal DNA, mitochondriën, monohybride, multipele allelen, onvolledig dominant, polygene overerving, productregel, raszuiver, recombinant, rood-groen, stuifmeel, taaislijmziekte, terugkruising, homozygoot recessief, twee derde, tyrosinase, vierendertig, wél, zevenhonderdvijf, tweehonderdvierentwintig, zusterchromatiden, één staat tot twee staat tot één, óf.
+
+### Onderzoek doen 2.1, hoofdstuk Betrouwbaar en valide (31 okt 2026)
+
+Kamiel beluisterde de 9 nieuwe alinea's en de knip in s24 (luisterpagina https://claude.ai/artifact/DwdWT59c2kn42tkENsSBLi, collectie `keuzes`): alles goed. Goedgekeurd zoals ingesproken (gewone spelling): valide, validiteit, betrouwbaarheid, reproduceerbaar, herhaalbaar, okselgeur, parfum.

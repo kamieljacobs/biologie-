@@ -12,6 +12,8 @@ Centrale regels uit `films/uitspraak.json` gebruikt. Eigen vervangregels (in `bo
 - vee's (de drie V's)
 
 ## Wachtlijst 2.1 (hoofdstuk 5, 31 okt 2026; ingesproken zoals geschreven, geen vervangregel)
+**Goedgekeurd door Kamiel na luisteren (31 okt 2026): alle onderstaande woorden.**
+
 Opgezocht vóór het inspreken (gangbare Nederlandse uitspraak; Wiktionary gaf voor 'valide' alleen een geluidsbestand, geen IPA):
 - valide /vaːˈlidə/ (va-LIE-de; ook al in s45 en de oude s24) · b01, b06, b08
 - reproduceerbaar /ˌreːproːdyˈseːrbaːr/ (klemtoon op -seer-) · b03
