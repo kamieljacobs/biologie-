@@ -1,0 +1,19 @@
+{
+ "datum": "2026-10-31",
+ "flow": "fN9LrJIuAX3Wc61l6YcU",
+ "model": "eleven_v4",
+ "voice_id": "7qdUFMklKPaaAVMsBTBt",
+ "werkwijze": "alleen de gewijzigde zin ingesproken (één take), stilte eraf, luidheid gelijk aan de omringende take (volume + limiter), ingeplakt in de stiltes tussen de zinnen; woordtijden nieuw stuk met silalign (films/dna/1-wat-is-dna/bron/bouw/silalign.py), rest verschoven; oude takes (eleven_v3) in bron/oud/audio-1.4/; wacht op de luisterpagina 'Luistertest DNA 7 en 8' (https://claude.ai/artifact/3BAQPn4wVLZiKFxxdvjFWA, collectie keuzes)",
+ "takes": {
+  "n19": {
+   "invoer": "In Nederland mag het ook, maar alleen bij heel ernstige misdrijven, en alleen als een rechter toestemming geeft.",
+   "was": "In Nederland alleen in de eigen databank, ook naar verwanten.",
+   "node": "tXxhfXue5nptdwLfh4LI",
+   "gen": "iDtSZCgMTWTYUP1GadOf",
+   "credits": 112,
+   "plak": "oud 0-29,50 s + 0,15 s + nieuw 6,88 s + 0,25 s",
+   "luister": "dna7-n19-luister.mp3",
+   "reden": "wet bijgewerkt: OM-pilot genealogische DNA-databanken afgerond, OM 28 okt 2026"
+  }
+ }
+}

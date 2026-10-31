@@ -101,12 +101,13 @@ Voor vwo gaan we hier nog een stap verder. De computer vergelijkt elk stukje met
 
 > stem-invoer: Voor vwo gaan we hier nog een stap verder. De computer vergelijkt elk stukje met een referentiegenoom: één standaardvolgorde van de mens. Waar jouw deeënaa daarvan afwijkt, heet dat een variant. De meeste varianten doen niets. Een paar zijn de mutaties die een ziekte geven. Lezen is makkelijk geworden; weten wat een variant betekent, is het echte werk. Terug naar het bloedspoor.
 
-## n19 · Hoofdstuk 4 — Vinden · basis
+## n19 · Hoofdstuk 4 — Vinden · basis · laatste zin opnieuw ingesproken 31-10-2026
 *begin 8:14 / 6:45 · 34.2 s*
 
-Het bloedspoor is gekopieerd en gesorteerd: het profiel staat klaar. Maar het staat niet in de databank van de politie. Wel ergens anders, in een andere vorm. Miljoenen mensen hebben hun DNA naar een stamboomsite gestuurd. Niet voor de politie, maar om familie te vinden. Zo'n site kijkt naar honderdduizenden plekken waar mensen van elkaar verschillen. Daarvoor wordt het bloedspoor opnieuw gelezen; een gewoon profiel is niet genoeg. In Amerika mag de politie zo zoeken. In Nederland alleen in de eigen databank, ook naar verwanten.
+Het bloedspoor is gekopieerd en gesorteerd: het profiel staat klaar. Maar het staat niet in de databank van de politie. Wel ergens anders, in een andere vorm. Miljoenen mensen hebben hun DNA naar een stamboomsite gestuurd. Niet voor de politie, maar om familie te vinden. Zo'n site kijkt naar honderdduizenden plekken waar mensen van elkaar verschillen. Daarvoor wordt het bloedspoor opnieuw gelezen; een gewoon profiel is niet genoeg. In Amerika mag de politie zo zoeken. In Nederland mag het ook, maar alleen bij heel ernstige misdrijven, en alleen als een rechter toestemming geeft.
 
-> stem-invoer: Het bloedspoor is gekopieerd en gesorteerd: het profiel staat klaar. Maar het staat niet in de databank van de politie. Wel ergens anders, in een andere vorm. Miljoenen mensen hebben hun deeënaa naar een stamboomsite gestuurd. Niet voor de politie, maar om familie te vinden. Zo'n site kijkt naar honderdduizenden plekken waar mensen van elkaar verschillen. Daarvoor wordt het bloedspoor opnieuw gelezen; een gewoon profiel is niet genoeg. In Amerika mag de politie zo zoeken. In Nederland alleen in de eigen databank, ook naar verwanten.
+> stem-invoer: Het bloedspoor is gekopieerd en gesorteerd: het profiel staat klaar. Maar het staat niet in de databank van de politie. Wel ergens anders, in een andere vorm. Miljoenen mensen hebben hun deeënaa naar een stamboomsite gestuurd. Niet voor de politie, maar om familie te vinden. Zo'n site kijkt naar honderdduizenden plekken waar mensen van elkaar verschillen. Daarvoor wordt het bloedspoor opnieuw gelezen; een gewoon profiel is niet genoeg. In Amerika mag de politie zo zoeken. In Nederland mag het ook, maar alleen bij heel ernstige misdrijven, en alleen als een rechter toestemming geeft.
+> heropname 31-10-2026: laatste zin nieuw (wet bijgewerkt na de OM-pilot, OM 28 okt 2026). Roos, eleven_v4, 1 take van alleen die zin (112 credits), ingeplakt na 'zoeken.'; flow `fN9LrJIuAX3Wc61l6YcU`, generatie `iDtSZCgMTWTYUP1GadOf`. Duur 34,2 → 37,4 s. Oude take: `oud/audio-1.4/n19.mp3`; luisterfragment `stem/dna7-n19-luister.mp3`.
 
 ## q20 · Hoofdstuk 4 — Vinden · basis · vraag
 *begin 8:48 / 7:19 · 9.1 s*
