@@ -1,0 +1,937 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../../../js/teller.js" data-root="../../../"></script>
+<link rel="icon" href="../../../img/icoon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../../img/icoon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../../../img/icoon/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Les 7 · Hoe weten we dat? · Evolutie · Biologie bij Kamiel</title>
+<meta name="description" content="Uitleg in stappen voor de docent bij evolutie les 7: lagen en fossielen, relatieve en absolute datering, oerwalvissen, homologe en rudimentaire organen, DNA-verschillen en de moleculaire klok.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../../huisstijl.css">
+<script src="../../huisstijl.js"></script>
+<style>
+/* Uitleg in stappen · Evolutie · les 7 · versie 1.0 · 31 oktober 2026
+   Docententool: per scherm korte animaties die de docent stap voor stap afspeelt (klik, → of de presenter).
+   Tekenruimte 1920x1080 op canvas; kleuren volgen licht/donker van de site. Inhoud en volgorde: zie SCHERMEN in het script. */
+.tool-kop{padding-bottom:10px}
+.tool-kop p a{color:var(--goud-text)}
+.bediening{display:flex;flex-wrap:wrap;gap:10px 12px;align-items:center;margin:4px 0 14px}
+.bediening .niv-label{font:600 12px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-right:6px}
+.bediening .sp{flex:1}
+.knop.stil[aria-pressed="true"]{background:var(--goud-soft);box-shadow:inset 0 0 0 1px var(--goud)}
+#speler{display:flex;flex-direction:column;gap:10px}
+.breed{width:min(100%, calc((100vh - 220px) * 16 / 9));min-width:min(100%,320px);margin-inline:auto}
+#stage{position:relative;aspect-ratio:16/9;background:var(--surface);border:1px solid var(--line2);border-radius:var(--radius);overflow:hidden;cursor:pointer}
+#stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.cap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;align-items:center;background:var(--surface);border:1px solid var(--line2);border-radius:12px;padding:12px 16px;min-height:66px}
+.cap .txt{font-size:21px;line-height:1.4;min-width:0}
+.cap .txt b{color:var(--goud-text)}
+.cap .vwo-tag{display:inline-block;font:600 11px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--paars);border:1px solid var(--paars);border-radius:999px;padding:4px 8px;margin-right:8px;vertical-align:3px}
+.cap .notitie{grid-column:1/-1;font-size:15px;color:var(--text2);border-top:1px dashed var(--line2);padding-top:6px}
+.cap .notitie:empty{display:none}
+.cap .notitie::before{content:"Docent · ";font:600 11px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3)}
+.dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;max-width:180px}
+.dots i{width:10px;height:10px;border-radius:50%;background:var(--line2);display:block}
+.dots i.done{background:var(--text3)}
+.dots i.cur{background:var(--goud)}
+.dots i.vwo{box-shadow:0 0 0 2px var(--paars)}
+.knoppen{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.knoppen .teller{font:600 13px/1 var(--meta);letter-spacing:.06em;color:var(--text2);margin-left:auto}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.chip{background:none;color:var(--text2);border:1px solid var(--line2);border-radius:999px;padding:4px 12px;font-size:14px;min-height:34px}
+.chip:hover{color:var(--text)}
+.chip.cur{background:var(--goud);color:var(--goud-ink);border-color:var(--goud)}
+.chip .n{font:600 12px var(--meta);margin-right:5px}
+.chip.deel{border:0;padding-left:0;font:600 12px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3);cursor:default}
+.hint{color:var(--text3);font-size:14px;margin-top:2px}
+kbd{font:600 12px var(--meta);border:1px solid var(--line2);border-radius:4px;padding:0 5px}
+.draai{display:none}
+@media (max-width:640px){
+  .draai{display:block;margin:0 0 10px;color:var(--text2)}
+  .cap .txt{font-size:17px}
+  .cap{grid-template-columns:1fr}
+  .dots{justify-content:flex-start;max-width:none}
+  .hint{display:none}
+}
+body.presenteer{overflow:hidden}
+body.presenteer .wrap{max-width:none;padding:10px 16px}
+body.presenteer .sitenav,body.presenteer .tool-kop,body.presenteer .bediening,body.presenteer .chips,body.presenteer .hint,body.presenteer .cap .notitie,body.presenteer details.docent,body.presenteer .tool-voet,body.presenteer .draai,body.presenteer footer{display:none!important}
+body.presenteer .cap .txt{font-size:24px}
+#stopPres{display:none}
+body.presenteer #stopPres{display:inline-flex}
+details.briefing{margin-top:18px}
+details.briefing>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;min-height:44px}
+details.briefing>summary::-webkit-details-marker{display:none}
+details.briefing>summary h2{font-size:24px}
+details.briefing>summary::after{content:"+";margin-left:auto;font:600 22px/1 var(--meta);color:var(--goud-text)}
+details.briefing[open]>summary::after{content:"–"}
+.briefing .intro{color:var(--text2);max-width:72ch}
+.briefing details.onderwerp{border-top:1px solid var(--line2);padding:4px 0}
+.briefing details.onderwerp>summary{cursor:pointer;font-weight:700;padding:10px 0;font-size:18px}
+.briefing details.onderwerp>div{max-width:76ch;padding-bottom:10px}
+.briefing details.onderwerp p{margin:8px 0;line-height:1.55}
+.briefing details.onderwerp ul,.briefing details.onderwerp ol{margin:6px 0 8px;padding-left:22px;line-height:1.5}
+.briefing details.onderwerp p:last-child{font-size:14px;color:var(--text2)}
+.briefing details.onderwerp a{color:var(--goud-text)}
+.briefing details.onderwerp em{color:var(--text2)}
+body.presenteer details.briefing{display:none!important}
+details.docent{margin-top:28px}
+details.docent>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;min-height:44px}
+details.docent>summary::-webkit-details-marker{display:none}
+details.docent>summary h2{font-size:24px}
+details.docent>summary::after{content:"+";margin-left:auto;font:600 22px/1 var(--meta);color:var(--goud-text)}
+details.docent[open]>summary::after{content:"–"}
+.docent .kolommen{display:grid;gap:8px 28px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:860px){.docent .kolommen{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.docent h3{margin:16px 0 6px}
+.docent p,.docent li{color:var(--text2)}
+.docent ul,.docent ol{margin:4px 0;padding-left:20px}
+.docent li{margin:3px 0}
+.docent li b{color:var(--text)}
+.tool-voet{margin:28px 0 40px;color:var(--text3);font-size:14px}
+/* Groot scherm (Kamiel 26 okt 2026): het beeld vult het scherm; één regel tekst eronder (T = tekst uit, dan alleen beeld);
+   knoppen zweven onderaan en verschijnen alleen als je de muis beweegt. Werkt ook zonder echte volledig-scherm-API (iPad). */
+body.presenteer{--capH:72px}
+body.presenteer.zondertekst{--capH:0px}
+body.presenteer .wrap{max-width:none;padding:0}
+body.presenteer #speler{position:fixed;inset:0;z-index:50;background:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0}
+body.presenteer .breed{width:min(100vw, calc((100vh - var(--capH)) * 16 / 9))}
+body.presenteer #stage{border:0;border-radius:0}
+body.presenteer .cap{border:0;border-radius:0;background:transparent;min-height:0;height:var(--capH);padding:6px 18px;overflow:hidden}
+body.presenteer .cap .txt{font-size:clamp(18px, 2.4vh, 28px)}
+body.presenteer.zondertekst .cap{display:none}
+body.presenteer .knoppen{position:fixed;right:14px;top:14px;max-width:calc(100vw - 28px);width:auto;z-index:60;background:var(--surface);border:1px solid var(--line2);border-radius:999px;padding:6px 10px;box-shadow:0 6px 24px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s}
+body.presenteer.muis .knoppen{opacity:1;pointer-events:auto}
+body.presenteer.muisweg,body.presenteer.muisweg #stage{cursor:none}
+body.presenteer .knoppen .teller{margin-left:6px}
+#tekstBtn{display:none}
+body.presenteer #tekstBtn{display:inline-flex}
+body.presenteer .bkfb-zweef,body.presenteer .bkfb-kop{display:none!important}
+.grootknop{position:absolute;top:10px;right:10px;z-index:2;display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 12px;border-radius:999px;border:1px solid var(--line2);background:var(--surface);color:var(--text2);font:600 13px/1 var(--meta);letter-spacing:.04em;opacity:.55;cursor:pointer;transition:opacity .15s}
+.grootknop:hover,.grootknop:focus-visible{opacity:1;color:var(--text);border-color:var(--goud)}
+.grootknop svg{width:16px;height:16px}
+body.presenteer .grootknop{display:none}
+</style>
+<body>
+<div class="wrap">
+<nav class="sitenav" aria-label="Site">
+  <a class="merk" href="../../../index.html#home">Biologie bij Kamiel</a>
+  <a class="terug" href="../../../index.html#lessen-evolutie">← Alle lessen</a>
+  <a class="terug" href="../../../index.html#evolutie">Evolutie</a>
+  <span class="rechts"><button type="button" class="icoon" data-thema-knop></button></span>
+</nav>
+
+<header class="tool-kop">
+  <div class="mono">Les 7 · Evolutie · voor de docent</div>
+  <h1>Hoe weten we dat?</h1>
+  <p>Uitleg in stappen bij de zevende les evolutie, kort gehouden (± 25 minuten) zodat je hem met les 6 of les 8 kunt combineren. Hoe weet je welke laag het oudst is? Fossielen in lagen, omgeklapte lagen, halveringstijd, de oerwalvissen van Pakistan en India, hetzelfde skelet in arm, vleugel, vin en paardenbeen, de heupbotjes van de walvis en je eigen staartbeen, en het DNA van walvis, nijlpaard, koe en zeehond. Hoort bij de film <a href="../../../films/evolutie/7-hoe-weten-we-dat.html">Hoe weten we dat?</a> (havo Biologie voor jou H4, vwo Nectar H7); voor havo en vwo gelijk.</p>
+</header>
+
+<p class="draai">Deze tool is gemaakt voor het digibord of de beamer. Op een telefoon: draai je scherm een kwartslag.</p>
+
+<div class="bediening">
+  <span><span class="niv-label" id="nivLabel">Niveau</span><span class="seg" role="group" aria-labelledby="nivLabel"><button type="button" id="lvHavo" aria-pressed="false">havo</button><button type="button" id="lvVwo" aria-pressed="true">vwo</button></span></span>
+  <span class="sp"></span>
+  <button type="button" class="knop stil klein" id="lblBtn" aria-pressed="false" title="Namen van de onderdelen verbergen of tonen (L)">Namen verbergen</button>
+  <button type="button" class="knop klein" id="presBtn" title="Groot scherm: het beeld vult het hele scherm (F)">Groot scherm</button>
+</div>
+
+<section id="speler" aria-label="Uitleg in stappen">
+  <div id="stage" class="breed" role="img" aria-label="Animatie bij de huidige stap"><canvas id="cv"></canvas><button type="button" class="grootknop" id="grootBtn" title="Groot scherm (F)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4"/></svg>Groot scherm</button></div>
+  <div class="cap breed" aria-live="polite"><div class="txt" id="capTxt"></div><div class="dots" id="dots"></div><div class="notitie" id="capNot"></div></div>
+  <div class="knoppen breed">
+    <button type="button" class="knop stil klein" id="terug" title="Vorige stap (←)">← Terug</button>
+    <button type="button" class="knop klein" id="verder" title="Volgende stap (→, spatie of klik op het beeld)">Verder →</button>
+    <button type="button" class="knop stil klein" id="opnieuw" title="Speel deze stap opnieuw af (R)">↻ Opnieuw</button>
+    <button type="button" class="knop stil klein" id="tekstBtn" title="Tekst onder het beeld aan of uit (T)">Tekst uit</button>
+    <button type="button" class="knop stil klein" id="stopPres" title="Terug naar het gewone scherm (Esc)">Klein scherm</button>
+    <span class="teller" id="teller"></span>
+  </div>
+  <div class="chips breed" id="chips"></div>
+  <p class="hint breed"><kbd>→</kbd> of <kbd>spatie</kbd> verder · <kbd>←</kbd> terug · <kbd>↑</kbd><kbd>↓</kbd> vorig/volgend scherm · <kbd>R</kbd> stap opnieuw · <kbd>L</kbd> namen · <kbd>F</kbd> groot scherm (daarin <kbd>T</kbd> tekst uit, <kbd>Esc</kbd> terug). Een presenter (pagina omhoog/omlaag) werkt ook.</p>
+</section>
+
+
+<details class="docent">
+  <summary><h2>Voor de docent</h2></summary>
+  <div class="kolommen">
+<div>
+      <h3>Zo gebruik je de tool</h3>
+      <ul>
+        <li><b>Stap voor stap.</b> Elke klik speelt één korte animatie af en blijft daarna staan, zodat je erbij kunt vertellen. Terug (←) toont de vorige stap meteen af; <kbd>R</kbd> speelt een stap opnieuw.</li>
+        <li><b>Weinig tekst.</b> Onder het beeld staat één korte zin; de grijze regel 'Docent' is alleen voor jou en verdwijnt in de presentatiemodus. De vragen uit de film staan in die regel, met het antwoord; stel ze zelf als het in het gesprek past.</li>
+        <li><b>Havo of vwo</b> bovenaan, of in de link <code>?niveau=havo</code>. Deze les is voor beide niveaus gelijk (de film heeft geen vwo-blokken).</li>
+        <li><b>Namen verbergen</b> (<kbd>L</kbd>): laat leerlingen zelf benoemen (heupbotjes, opperarmbeen, staartbeen …).</li>
+        <li><b>Direct naar een scherm</b> met de knoppen onder het beeld, of met <code>#8</code> achter de link (scherm 8, homologe organen).</li>
+        <li><b>Kort gehouden</b> (± 25 minuten): goed te combineren met les 6 of les 8 in hetzelfde lesuur.</li>
+      </ul>
+      <h3>Lesopbouw (± 25 minuten)</h3>
+      <ol>
+        <li><b>Opening</b> (2 min, scherm 1–2): de bultrug met heupbotjes; startvraag: welke laag is het oudst?</li>
+        <li><b>Lagen en fossielen</b> (7 min, scherm 3–5): fossielvorming, relatieve datering, omgeklapte lagen (filmvraag), absolute datering en halveringstijd.</li>
+        <li><b>Walvissen in de lagen</b> (5 min, scherm 6–7): Pakicetus, Ambulocetus, Rodhocetus, Basilosaurus; verwanten op zijtakken, geen keten van voorouders.</li>
+        <li><b>Hetzelfde skelet</b> (5 min, scherm 8–9): homologe organen, haaienvin als contrast, rudimentaire organen (heupbotjes, staartbeen).</li>
+        <li><b>Het spoor in het DNA</b> (5 min, scherm 10–11): verschillen tellen, het gedeelde invoegsel van walvis en nijlpaard, de moleculaire klok.</li>
+        <li><b>Afsluiting</b> (1 min, scherm 12–13): samenvatting en vooruitblik op stambomen lezen.</li>
+        <li><b>Huiswerk</b>: de film <a href="../../../films/evolutie/7-hoe-weten-we-dat.html">Hoe weten we dat?</a>. Wie vooruit wil: <a href="../../../films/evolutie/8-stambomen-lezen.html">Stambomen lezen</a>.</li>
+      </ol>
+    </div>
+    <div>
+      <h3>Achtergrond en vereenvoudigingen</h3>
+      <ul>
+        <li><b>Kleuren</b>: lagen in aardetinten; botgroepen goud (opperarmbeen), blauw (spaakbeen en ellepijp) en koraal (pols en hand); DNA-verschillen paars, zoals mutaties in de hele reeks.</li>
+        <li><b>Oerwalvissen</b> zijn eenvoudige silhouetten en niet op schaal; leeftijden zoals in de film (± 50, 48, 47 en 40 miljoen jaar).</li>
+        <li><b>De DNA-reeksen</b> op scherm 10 zijn verzonnen om te tellen (1, 3 en 6 verschillen); de volgorde nijlpaard → koe → zeehond klopt met echte gegevens.</li>
+        <li><b>Moleculaire klok</b>: '2× zoveel verschil = 2× zo lang geleden' is een vereenvoudiging; het tempo verschilt per gen en per diergroep. De splitsing walvis–nijlpaard (± 55 miljoen jaar) is het getal uit de film.</li>
+        <li><b>Heupbotjes</b>: rudimentair betekent hier 'oorspronkelijke functie kwijt', niet 'nutteloos': er zitten spieren aan die bij het paren helpen.</li>
+        <li><b>Dr. Kim</b> staat in beeld zoals in de film, zonder naam.</li>
+      </ul>
+      <h3>Bronnen</h3>
+      <ul>
+        <li>De film Hoe weten we dat? (script v2, oktober 2026); Biologie voor jou (havo H4) en Nectar (vwo H7). Verdieping met bronnen in de briefing hieronder (Nikaido e.a. 1999, Gingerich/University of Michigan, Evolution: Education and Outreach, Dines e.a. 2014, LibreTexts).</li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+<footer class="tool-voet">Biologie bij Kamiel · Uitleg in stappen · Evolutie les 7 · versie 1.0 · 31 oktober 2026</footer>
+</div>
+
+<script src="../../../personages/lib_cast.js"></script>
+<script>
+'use strict';
+/* =====================================================================================
+   Basis: tekenruimte, kleuren (licht/donker), hulpfuncties
+   ===================================================================================== */
+const W = 1920, H = 1080;
+let C = {};
+function zetPalet() {
+  const licht = document.documentElement.getAttribute('data-theme') === 'light';
+  C = licht ? {
+    bg: '#FFFFFF', fill: '#E9EDF3', text: '#121C2E', text2: '#4E5A6C', line: '#6B7687', meta: '#8A650C',
+    goud: '#C9961F', koraal: '#C0583A', groen: '#2F8A47', teal: '#25729C', paars: '#6550AD', oker: '#A8822E',
+    mens: '#6B7687', holte: '#6A4A52', bloed: '#B5574A', grond: '#C9B896', water: '#25729C', licht: true
+  } : {
+    bg: '#1A2740', fill: '#2A3A58', text: '#F2F2EE', text2: '#9AA3B2', line: '#8FA0B5', meta: '#C9B896',
+    goud: '#E0B64A', koraal: '#E07A5F', groen: '#7FC48F', teal: '#5BA4C9', paars: '#8C7BBF', oker: '#C9A35C',
+    mens: '#9AA3B2', holte: '#1A1420', bloed: '#B5574A', grond: '#6B5A40', water: '#5BA4C9', licht: false
+  };
+  if (window.BB) BB.thema(C.licht);
+}
+zetPalet();
+
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const lerp = (a, b, u) => a + (b - a) * clamp(u, 0, 1);
+const ease = (u) => { u = clamp(u, 0, 1); return u * u * (3 - 2 * u); };
+function hash(n) { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); }
+function rgbVan(c) { // '#rrggbb' of 'rgb(r,g,b)' -> [r,g,b]
+  if (c[0] === '#') { const n = parseInt(c.slice(1), 16); return [n >> 16, (n >> 8) & 255, n & 255]; }
+  const m = c.match(/[\d.]+/g); return m ? m.slice(0, 3).map(Number) : [128, 128, 128];
+}
+function rgba(c, a) { if (typeof c === 'number') { return `rgba(${arguments[0]},${arguments[1]},${arguments[2]},${arguments[3]})`; } const [r, g, b] = rgbVan(c); return `rgba(${r},${g},${b},${a})`; }
+function mix(c1, c2, k) { const a = rgbVan(c1), b = rgbVan(c2); const m = a.map((v, i) => Math.round(v * (1 - k) + b[i] * k)); return '#' + m.map(v => v.toString(16).padStart(2, '0')).join(''); }
+const lighten = (c, k) => mix(c, '#FFFFFF', k);
+function shape(ctx, fill, stroke, lw = 1.5) { if (fill) { ctx.fillStyle = fill; ctx.fill(); } if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw; ctx.stroke(); } }
+function roundRect(ctx, x, y, w, h, r) { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
+function circ(ctx, x, y, r, fill, stroke, lw = 1.5) { ctx.beginPath(); ctx.arc(x, y, Math.max(0.1, r), 0, 6.283); if (fill) { ctx.fillStyle = fill; ctx.fill(); } if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw; ctx.stroke(); } }
+const F = { titel: '"Fraunces",Georgia,serif', tekst: '"Source Sans 3",system-ui,sans-serif', meta: '"IBM Plex Mono",ui-monospace,monospace' };
+const fTitel = (px) => `700 ${px}px ${F.titel}`, fTekst = (px, w = 400) => `${w} ${px}px ${F.tekst}`, fMeta = (px) => `500 ${px}px ${F.meta}`;
+function text(ctx, s, x, y, font, color, align = 'left', base = 'alphabetic') { ctx.font = font; ctx.fillStyle = color; ctx.textAlign = align; ctx.textBaseline = base; ctx.fillText(s, x, y); }
+function metaText(ctx, s, x, y, color = C.meta, align = 'left', px = 24, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fMeta(px); ctx.fillStyle = color; ctx.textAlign = align; ctx.textBaseline = 'alphabetic'; try { ctx.letterSpacing = '3px'; } catch (e) {} ctx.fillText(s.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')), x, y); ctx.restore(); }
+// gewone tekst op het beeld, met rand in de achtergrondkleur voor leesbaarheid
+function regel(ctx, s, x, y, a = 1, col = C.text, px = 34, align = 'left', w = 600) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fTekst(px, w); ctx.textAlign = align; ctx.textBaseline = 'alphabetic'; ctx.lineJoin = 'round'; ctx.strokeStyle = rgba(C.bg, 0.85); ctx.lineWidth = 7; ctx.strokeText(s, x, y); ctx.fillStyle = col; ctx.fillText(s, x, y); ctx.restore(); }
+// naam van een onderdeel, direct bij het onderdeel (geen wijslijn); verborgen met 'Namen verbergen'
+let toonNamen = true;
+function naam(ctx, s, x, y, a = 1, align = 'left', col = C.text, px = 34) { if (!toonNamen) return; regel(ctx, s, x, y, a, col, px, align, 600); }
+function pijl(ctx, x1, y1, x2, y2, col, lw = 4, a = 1, kop = 16) {
+  if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = lw; ctx.lineCap = 'round';
+  const an = Math.atan2(y2 - y1, x2 - x1); ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2 - Math.cos(an) * kop * 0.6, y2 - Math.sin(an) * kop * 0.6); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(x2, y2); ctx.lineTo(x2 - Math.cos(an - 0.45) * kop, y2 - Math.sin(an - 0.45) * kop); ctx.lineTo(x2 - Math.cos(an + 0.45) * kop, y2 - Math.sin(an + 0.45) * kop); ctx.closePath(); ctx.fill(); ctx.restore();
+}
+function paneel(ctx, x, y, w, h, a = 1, col = null) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, w, h, 18); shape(ctx, rgba(C.fill, C.licht ? 0.55 : 0.45), col || rgba(C.line, 0.45), 2); ctx.restore(); }
+// paden
+function gladPad(pts, step = 7) {
+  if (pts.length < 3) { const out = []; const [a, b] = pts; const L = Math.hypot(b[0] - a[0], b[1] - a[1]); const n = Math.max(2, Math.ceil(L / step)); for (let i = 0; i <= n; i++) out.push([lerp(a[0], b[0], i / n), lerp(a[1], b[1], i / n)]); return out; }
+  const P = [pts[0], ...pts, pts[pts.length - 1]], out = [];
+  for (let i = 1; i < P.length - 2; i++) { const [p0, p1, p2, p3] = [P[i - 1], P[i], P[i + 1], P[i + 2]]; const L = Math.hypot(p2[0] - p1[0], p2[1] - p1[1]); const n = Math.max(2, Math.ceil(L / step));
+    for (let k = 0; k < n; k++) { const u = k / n, u2 = u * u, u3 = u2 * u; out.push([0, 1].map(d => 0.5 * (2 * p1[d] + (-p0[d] + p2[d]) * u + (2 * p0[d] - 5 * p1[d] + 4 * p2[d] - p3[d]) * u2 + (-p0[d] + 3 * p1[d] - 3 * p2[d] + p3[d]) * u3))); } }
+  out.push(pts[pts.length - 1]); return out;
+}
+const _glad = new Map();
+function gladC(pts) { const k = JSON.stringify(pts); let v = _glad.get(k); if (!v) { v = gladPad(pts); _glad.set(k, v); } return v; }
+function padLengte(pts) { const L = [0]; for (let i = 1; i < pts.length; i++) L.push(L[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1])); return L; }
+function padPunt(pts, d) { const L = padLengte(pts); d = clamp(d, 0, L[L.length - 1]); let i = 1; while (i < pts.length - 1 && L[i] < d) i++; const u = (d - L[i - 1]) / ((L[i] - L[i - 1]) || 1); return [lerp(pts[i - 1][0], pts[i][0], u), lerp(pts[i - 1][1], pts[i][1], u), Math.atan2(pts[i][1] - pts[i - 1][1], pts[i][0] - pts[i - 1][0])]; }
+function lijnPad(ctx, pts, col, lw, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); gladC(pts).forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke(); ctx.restore(); }
+// tekent fn in een aparte laag en zet die met doorzichtigheid a op het beeld (geen doorschijnende overlap binnen één figuur)
+let _laagCv = null;
+function laag(ctx, a, fn) {
+  if (a <= 0.01) return; if (a >= 0.995) { fn(ctx); return; }
+  const c = ctx.canvas; if (!_laagCv) _laagCv = document.createElement('canvas'); const L = _laagCv; if (L.width !== c.width || L.height !== c.height) { L.width = c.width; L.height = c.height; }
+  const l = L.getContext('2d'); l.setTransform(1, 0, 0, 1, 0, 0); l.clearRect(0, 0, L.width, L.height); l.setTransform(ctx.getTransform()); fn(l);
+  ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha *= a; ctx.drawImage(L, 0, 0); ctx.restore();
+}
+function pers(ctx, id, x, y, h, o = {}) { const a = o.a == null ? 1 : o.a; laag(ctx, a, (l) => persoon(l, id, x, y, h, Object.assign({}, o, { a: 1 }))); }
+function gloed(ctx, x, y, r, col, k) { if (k <= 0.01) return; const g = ctx.createRadialGradient(x, y, 0, x, y, r); g.addColorStop(0, rgba(col, 0.45 * k)); g.addColorStop(1, rgba(col, 0)); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.fill(); }
+
+/* =====================================================================================
+   Cellen · gedeelde bouwstenen voor de lessen 1–6 (31 okt 2026)
+   Overgenomen uit de erfelijkheidslessen (algemene delen). Alles is 1920×1080; a = doorzichtigheid 0..1.
+   Eigen tekeningen per les staan in les<n>/schermen.js met voorvoegsel L<n>_.
+   ===================================================================================== */
+const CH = { get vader() { return C.teal; }, get moeder() { return C.oker; }, get neutraal() { return C.paars; } };
+const dk = (h, k = 0.35) => mix(h, '#000000', k);
+function kruis(ctx, x, y, r, a = 1, col = C.koraal) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = Math.max(4, r * 0.45); ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x - r, y - r); ctx.lineTo(x + r, y + r); ctx.moveTo(x + r, y - r); ctx.lineTo(x - r, y + r); ctx.stroke(); ctx.restore(); }
+function vink(ctx, x, y, r, a = 1, col = C.groen) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = Math.max(4, r * 0.45); ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); ctx.moveTo(x - r, y); ctx.lineTo(x - r * 0.3, y + r * 0.7); ctx.lineTo(x + r, y - r * 0.7); ctx.stroke(); ctx.restore(); }
+function zoomRand(ctx, x, y, r, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, r, null, rgba(C.line, 0.8), 4); ctx.restore(); }
+// zoomcirkel met inhoud; van = [x,y] waar de stippellijnen vandaan komen
+function zoom(ctx, zx, zy, zr, a, van, fn) { if (a <= 0.01) return; if (van) { ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = rgba(C.line, 0.7); ctx.lineWidth = 3; ctx.setLineDash([8, 10]); const an = Math.atan2(zy - van[1], zx - van[0]); ctx.beginPath(); ctx.moveTo(van[0], van[1]); ctx.lineTo(zx + Math.cos(an + 1.9) * zr, zy + Math.sin(an + 1.9) * zr); ctx.moveTo(van[0], van[1]); ctx.lineTo(zx + Math.cos(an - 1.9) * zr, zy + Math.sin(an - 1.9) * zr); ctx.stroke(); ctx.restore(); }
+  ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.arc(zx, zy, zr, 0, 6.283); ctx.clip(); ctx.fillStyle = C.bg; ctx.fill(); fn(); ctx.restore(); zoomRand(ctx, zx, zy, zr, a); }
+// aanwijslijn + naam (de knop Namen verbergen geldt ook hier)
+function wijs(ctx, s, x1, y1, x2, y2, a = 1, col = C.text, px = 30, align = 'center') { if (!toonNamen || a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = rgba(C.line, 0.8); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); circ(ctx, x2, y2, 4, C.line); ctx.restore(); naam(ctx, s, x1, y1 + (y1 < y2 ? -10 : 34), a, align, col, px); }
+// brede kernbalk onderaan (één kernzin of conclusie)
+function balk(ctx, s, x, y, w, a = 1, col = C.goud, px = 40) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - w / 2, y - 52, w, 104, 20); shape(ctx, rgba(col, 0.12), col, 3); ctx.restore(); regel(ctx, s, x, y + 14, a, C.text, px, 'center', 700); }
+// zachte, ronde celvorm: geen rechte randen
+function blob(ctx, x, y, rx, ry, seed = 1, wob = 0.06) { ctx.beginPath(); for (let i = 0; i <= 64; i++) { const an = i / 64 * 6.283, w = 1 + wob * Math.sin(an * 3 + seed) + wob * 0.6 * Math.sin(an * 5 + seed * 2.1); const px = x + Math.cos(an) * rx * w, py = y + Math.sin(an) * ry * w; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.closePath(); }
+// cel met kern; o.kl = membraankleur, o.kr = kernstraal, o.kdx/kdy = plek van de kern, o.geenKern
+function cel(ctx, x, y, rx, ry, a = 1, o = {}) { if (a <= 0.01) return; const kl = o.kl || C.teal; ctx.save(); ctx.globalAlpha *= a; blob(ctx, x, y, rx, ry, o.seed || 1, o.wob == null ? 0.05 : o.wob); shape(ctx, rgba(kl, C.licht ? 0.08 : 0.12), kl, o.lw || 4);
+  if (!o.geenKern) { const kx = x + (o.kdx || 0), ky = y + (o.kdy || 0), kr = o.kr || Math.min(rx, ry) * 0.34; circ(ctx, kx, ky, kr, rgba(C.paars, C.licht ? 0.14 : 0.24), C.paars, 2.5); }
+  ctx.restore(); }
+
+
+// vaste pseudo-toevalsreeks (zelfde beeld bij elke keer afspelen)
+function toeval(seed) { let s = seed >>> 0 || 1; return () => { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; }; }
+// stippenveld: n stippen in een raster binnen (x, y, w, h); kl(i) = kleur van stip i; zicht = aantal stippen dat al te zien is
+function stippen(ctx, x, y, w, h, n, kl, a = 1, o = {}) { if (a <= 0.01) return; const r = o.r || Math.max(3, Math.sqrt(w * h / n) * 0.36), kol = Math.max(1, Math.round(Math.sqrt(n * w / h))), rijen = Math.ceil(n / kol), dx = w / kol, dy = h / rijen, zicht = o.zicht == null ? n : o.zicht;
+  ctx.save(); ctx.globalAlpha *= a; for (let i = 0; i < Math.min(n, zicht); i++) { const c = i % kol, rr = Math.floor(i / kol); circ(ctx, x + c * dx + dx / 2, y + rr * dy + dy / 2, r, kl(i)); } ctx.restore(); }
+// staafdiagram: w = [hoogtes 0..1], o.kl, o.labels (onder de staven), o.as (naam onder de as)
+function histogram(ctx, x, y, w, h, waarden, a = 1, o = {}) { if (a <= 0.01) return; const n = waarden.length, bw = w / n; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = rgba(C.line, 0.8); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + w, y); ctx.stroke();
+  waarden.forEach((v, i) => { const bh = h * v * (o.groei == null ? 1 : o.groei); roundRect(ctx, x + i * bw + bw * 0.1, y - bh, bw * 0.8, Math.max(0.1, bh), Math.min(8, bw * 0.2)); shape(ctx, rgba(o.kl || C.teal, 0.55), o.kl || C.teal, 2); }); ctx.restore();
+  (o.labels || []).forEach((l, i) => regel(ctx, l, x + i * bw + bw / 2, y + 36, a, C.text2, o.px || 24, 'center', 500)); if (o.as) metaText(ctx, o.as, x + w / 2, y + 80, C.text2, 'center', 20, a); }
+// kansbalk: f = deel 0..1 gevuld met kl, tekst ernaast
+function kansBalk(ctx, x, y, w, h, f, kl, a = 1, tekst = '') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, w, h, h / 2); shape(ctx, rgba(C.fill, 0.6), rgba(C.line, 0.6), 2); if (f > 0.005) { roundRect(ctx, x, y, Math.max(h, w * f), h, h / 2); shape(ctx, rgba(kl, 0.75), kl, 2); } ctx.restore(); if (tekst) regel(ctx, tekst, x + w + 24, y + h / 2 + 12, a, C.text, 34, 'left', 700); }
+// breuk als tekst met streep: teller boven, noemer onder
+function breuk(ctx, t, n, x, y, px = 54, a = 1, kl = C.text) { if (a <= 0.01) return; ctx.save(); ctx.font = fTekst(px, 700); const w = Math.max(ctx.measureText(String(t)).width, ctx.measureText(String(n)).width) + 12; ctx.restore(); regel(ctx, String(t), x, y - px * 0.18, a, kl, px, 'center', 700); ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = kl; ctx.lineWidth = Math.max(3, px * 0.07); ctx.beginPath(); ctx.moveTo(x - w / 2, y); ctx.lineTo(x + w / 2, y); ctx.stroke(); ctx.restore(); regel(ctx, String(n), x, y + px * 0.92, a, kl, px, 'center', 700); }
+
+/* ---------- kaarten ---------- */
+function termKaart(ctx, term, uitleg, x, y, a = 1, kl = C.goud, w = 0) { if (a <= 0.01) return; ctx.save(); ctx.font = fTekst(42, 700); const w1 = ctx.measureText(term).width; ctx.font = fTekst(30, 500); const w2 = uitleg ? ctx.measureText(uitleg).width : 0; ctx.restore();
+  const bw = w || Math.max(w1, w2) + 64, bh = uitleg ? 124 : 84; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - bw / 2, y, bw, bh, 14); shape(ctx, rgba(C.bg, 0.94), kl, 2.5); ctx.restore();
+  regel(ctx, term, x, y + 54, a, kl, 42, 'center', 700); if (uitleg) regel(ctx, uitleg, x, y + 100, a, C.text, 30, 'center', 500); }
+function misvatting(ctx, fout, goed, x, y, w, a = 1, g = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - w / 2, y, w, 150, 14); shape(ctx, rgba(C.bg, 0.95), rgba(C.line, 0.7), 2); ctx.restore();
+  kruis(ctx, x - w / 2 + 50, y + 46, 15, a, C.koraal); regel(ctx, fout, x - w / 2 + 90, y + 58, a, C.text2, 34, 'left', 600);
+  ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = rgba(C.koraal, 0.8); ctx.lineWidth = 3; ctx.font = fTekst(34, 600); const fw = ctx.measureText(fout).width; ctx.beginPath(); ctx.moveTo(x - w / 2 + 88, y + 46); ctx.lineTo(x - w / 2 + 92 + fw, y + 46); ctx.stroke(); ctx.restore();
+  if (g > 0.01) { vink(ctx, x - w / 2 + 50, y + 108, 15, a * g, C.groen); regel(ctx, goed, x - w / 2 + 90, y + 120, a * g, C.text, 34, 'left', 600); } }
+
+/* ---------- vooruitblik (laatste scherm van elke les) ---------- */
+function vooruitblik(ctx, S, kop, tegels) {
+  const T = S.T, n = tegels.length, w = 380, gap = 40, x0 = 960 - (n * w + (n - 1) * gap) / 2;
+  metaText(ctx, 'volgende keer', 960, 250, C.meta, 'center', 24, S.on(0, 0.6));
+  text(ctx, kop, 960, 340, fTitel(76), C.goud, 'center');
+  tegels.forEach(([titel, sub, f], i) => { const a = S.on(0, 0.6, 0.4 + i * 0.25); if (a <= 0.01) return; const x = x0 + i * (w + gap) + w / 2, y = 640;
+    ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - w / 2, y - 210, w, 420, 24); shape(ctx, rgba(C.fill, C.licht ? 0.5 : 0.4), rgba(C.line, 0.4), 2); ctx.restore();
+    f(ctx, x, y - 60, a, T); regel(ctx, titel, x, y + 110, a, C.text, 34, 'center', 700); if (sub) regel(ctx, sub, x, y + 156, a, C.text2, 26, 'center', 400); });
+}
+
+/* =====================================================================================
+   Evolutie · gedeelde tekenhulpen voor de lessen (31 okt 2026)
+   Overgenomen uit de filmreeks Evolutie v2 (films/evolutie/1-wat-is-evolutie/bron/src/lib_evo.js en teken_e1.js),
+   aangepast aan de C-kleuren van de lessen (licht/donker).
+   Kleuren zoals in de films: allel voor zwart = blauw (EV().a1), allel voor oranje = geel (EV().a2),
+   krachten: selectie groen, toeval (drift) goud, uitwisseling (genenstroom) blauw, mutatie paars.
+   ===================================================================================== */
+const EV = () => ({ a1: C.teal, a2: C.oker, nieuw: C.paars,
+  kracht: { selectie: C.groen, drift: C.goud, stroom: C.teal, mutatie: C.paars } });
+
+// ---- knikker = één allel ----
+function knikker(ctx, x, y, r, kleur, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  circ(ctx, x, y, r, kleur, lighten(kleur, 0.35), 2); circ(ctx, x - r * 0.35, y - r * 0.35, r * 0.22, 'rgba(255,255,255,0.4)'); ctx.restore(); }
+
+// ---- glazen pot met knikkers (de genenpool) ----
+// anker (x, y) = midden van de bodem; s = schaal (s = 1 → 260 breed, 300 hoog); o.kleuren = lijst knikkerkleuren (wordt gemengd met o.seed),
+// of o.p + o.n (aandeel allel 1); o.vul = 0..1 hoeveel knikkers al in de pot liggen
+function pot(ctx, x, y, s = 1, o = {}) {
+  const { p = 0.5, n = 60, seed = 1, a = 1, vul = 1 } = o; if (a <= 0.01) return;
+  let kl = o.kleuren ? o.kleuren.slice() : Array.from({ length: n }, (_, i) => i < Math.round(n * p) ? EV().a1 : EV().a2);
+  if (!o.vast) for (let i = kl.length - 1; i > 0; i--) { const j = Math.floor(hash(seed * 31 + i * 7) * (i + 1)); [kl[i], kl[j]] = [kl[j], kl[i]]; }
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
+  const w = 260, h = 300, r = 34, kr = o.kr || 13, kol = Math.floor((w - 40) / (kr * 2.25));
+  ctx.save(); roundRect(ctx, -w / 2 + 6, -h + 40, w - 12, h - 46, r - 6); ctx.clip();
+  const zicht = Math.round(kl.length * vul);
+  for (let i = 0; i < zicht; i++) { const rij = Math.floor(i / kol), k = i % kol, vs = (rij % 2) * kr;
+    const kx = -w / 2 + 28 + k * (kr * 2.25) + vs + (hash(seed + i * 3.1) - 0.5) * 5, ky = -20 - rij * (kr * 1.95) + (hash(seed + i * 5.7) - 0.5) * 4;
+    if (ky < -h + 60) break; knikker(ctx, kx, ky, kr, kl[i]); }
+  ctx.restore();
+  const glas = C.licht ? '#7D8FA5' : '#AFC0D0';
+  ctx.strokeStyle = glas; ctx.lineWidth = 4; ctx.lineJoin = 'round'; ctx.beginPath();
+  ctx.moveTo(-w / 2 + 34, -h + 10); ctx.lineTo(-w / 2 + 34, -h + 34); ctx.quadraticCurveTo(-w / 2, -h + 44, -w / 2, -h + 80);
+  ctx.lineTo(-w / 2, -r); ctx.quadraticCurveTo(-w / 2, 0, -w / 2 + r, 0); ctx.lineTo(w / 2 - r, 0); ctx.quadraticCurveTo(w / 2, 0, w / 2, -r);
+  ctx.lineTo(w / 2, -h + 80); ctx.quadraticCurveTo(w / 2, -h + 44, w / 2 - 34, -h + 34); ctx.lineTo(w / 2 - 34, -h + 10); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(-w / 2 + 26, -h + 10); ctx.lineTo(w / 2 - 26, -h + 10); ctx.stroke();
+  ctx.strokeStyle = rgba(glas, 0.35); ctx.lineWidth = 6; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(-w / 2 + 22, -h + 100); ctx.lineTo(-w / 2 + 22, -70); ctx.stroke();
+  ctx.restore();
+}
+
+// ---- allelbalk: aandeel allel 1 (blauw) tegen allel 2 (geel), met percentages eronder ----
+function allelBalk(ctx, x, y, w, p, a = 1, o = {}) { if (a <= 0.01) return; const h = o.h || 34;
+  ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, w, h, h / 2); ctx.save(); ctx.clip();
+  ctx.fillStyle = EV().a1; ctx.fillRect(x, y, w * p, h); ctx.fillStyle = EV().a2; ctx.fillRect(x + w * p, y, w * (1 - p), h); ctx.restore();
+  roundRect(ctx, x, y, w, h, h / 2); ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.stroke();
+  if (o.procent !== false) { text(ctx, (o.namen ? o.namen[0] + ' ' : '') + Math.round(p * 100) + '%', x, y + h + 40, fTekst(32, 700), EV().a1, 'left');
+    text(ctx, (o.namen ? o.namen[1] + ' ' : '') + Math.round((1 - p) * 100) + '%', x + w, y + h + 40, fTekst(32, 700), EV().a2, 'right'); }
+  ctx.restore(); }
+
+// ---- Aziatisch lieveheersbeestje (Harmonia axyridis), bovenaanzicht; kop naar boven ----
+// o.vorm: 'oranje' (f. succinea, o.stippen 0–19), 'vier' (zwart met vier rode vlekken, f. spectabilis), 'twee' (zwart met twee, f. conspicua)
+// s = 1 → ± 150 px lang. o.loop = fase voor de poten (pootjes bewegen), o.open = dekschilden open (vliegen)
+function lhb(ctx, x, y, s = 1, o = {}) {
+  const { vorm = 'oranje', stippen = 12, rot = 0, a = 1, open = 0, loop = null } = o; if (a <= 0.01) return;
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(rot); ctx.scale(s, s);
+  const rug = vorm === 'oranje' ? '#D9792E' : '#1B1A1C', vlek = vorm === 'oranje' ? '#1B1A1C' : '#D2452C';
+  ctx.strokeStyle = '#2A2422'; ctx.lineWidth = 4; ctx.lineCap = 'round';
+  for (const k of [-1, 1]) [[-22, -0.5], [0, 0.05], [20, 0.55]].forEach(([py, hoek], i) => { const sw = loop == null ? 0 : Math.sin(loop * 9 + i * 2.1 + (k > 0 ? Math.PI : 0)) * 7;
+    ctx.beginPath(); ctx.moveTo(k * 30, py); ctx.lineTo(k * 62, py + hoek * 30 - 6 + sw); ctx.lineTo(k * 74, py + hoek * 50 + sw); ctx.stroke(); });
+  ctx.lineWidth = 2.5; for (const k of [-1, 1]) { ctx.beginPath(); ctx.moveTo(k * 8, -78); ctx.quadraticCurveTo(k * 20, -96, k * 26, -98); ctx.stroke(); circ(ctx, k * 27, -98, 3.5, '#2A2422'); }
+  ctx.beginPath(); ctx.ellipse(0, -70, 20, 13, 0, 0, 6.283); ctx.fillStyle = '#1B1A1C'; ctx.fill(); circ(ctx, -11, -72, 3.2, '#E9E2CC'); circ(ctx, 11, -72, 3.2, '#E9E2CC');
+  ctx.beginPath(); ctx.moveTo(-40, -44); ctx.quadraticCurveTo(-38, -66, 0, -68); ctx.quadraticCurveTo(38, -66, 40, -44); ctx.quadraticCurveTo(0, -38, -40, -44); ctx.fillStyle = '#EDE6D2'; ctx.fill(); ctx.strokeStyle = '#B8B0A0'; ctx.lineWidth = 1.5; ctx.stroke();
+  ctx.fillStyle = '#1B1A1C'; ctx.beginPath(); ctx.moveTo(-18, -44); ctx.lineTo(-12, -60); ctx.lineTo(-4, -52); ctx.lineTo(0, -60); ctx.lineTo(4, -52); ctx.lineTo(12, -60); ctx.lineTo(18, -44); ctx.quadraticCurveTo(0, -41, -18, -44); ctx.fill();
+  if (vorm !== 'oranje') { circ(ctx, -28, -52, 6, '#EDE6D2'); circ(ctx, 28, -52, 6, '#EDE6D2'); }
+  const dek = (k) => { ctx.beginPath(); ctx.moveTo(0, -42); ctx.quadraticCurveTo(k * 44, -44, k * 50, -6); ctx.quadraticCurveTo(k * 52, 42, k * 4, 62); ctx.lineTo(0, 62); ctx.closePath(); };
+  for (const k of [-1, 1]) { ctx.save(); ctx.translate(k * open * 18, 0); ctx.rotate(k * open * 0.35); dek(k); ctx.fillStyle = rug; ctx.fill(); ctx.strokeStyle = lighten(rug, 0.25); ctx.lineWidth = 1.5; ctx.stroke(); ctx.save(); dek(k); ctx.clip();
+    if (vorm === 'oranje') { const pos = [[18, -26], [34, -10], [14, -2], [30, 14], [12, 22], [26, 36], [40, 28], [20, 46], [36, -28], [8, 40]]; for (let i = 0; i < Math.min(Math.floor(stippen / 2), pos.length); i++) circ(ctx, k * pos[i][0], pos[i][1], 5.4, vlek); if (stippen % 2) circ(ctx, 0, -32, 5, vlek); }
+    else if (vorm === 'twee') { ctx.beginPath(); ctx.ellipse(k * 26, -14, 14, 12, 0, 0, 6.283); ctx.fillStyle = vlek; ctx.fill(); }
+    else { ctx.beginPath(); ctx.ellipse(k * 26, -18, 11, 9, 0, 0, 6.283); ctx.fillStyle = vlek; ctx.fill(); ctx.beginPath(); ctx.ellipse(k * 24, 28, 10, 8, 0, 0, 6.283); ctx.fill(); }
+    ctx.restore(); ctx.restore(); }
+  ctx.strokeStyle = 'rgba(0,0,0,0.5)'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(0, -42); ctx.lineTo(0, 62); ctx.stroke();
+  ctx.restore();
+}
+
+// ---- allelenpaar onder een beestje: twee knikkers naast elkaar ----
+function allelPaar(ctx, x, y, k1, k2, r = 16, a = 1) { knikker(ctx, x - r * 1.15, y, r, k1, a); knikker(ctx, x + r * 1.15, y, r, k2, a); }
+
+// ---- thermometer (meta) ----
+function thermo(ctx, x, y, h, f, kleur, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  roundRect(ctx, x - 12, y - h, 24, h, 12); shape(ctx, rgba(C.fill, 0.6), C.line, 2); circ(ctx, x, y + 6, 22, kleur, C.line, 2);
+  roundRect(ctx, x - 6, y - h * f, 12, h * f + 4, 6); ctx.fillStyle = kleur; ctx.fill(); ctx.restore(); }
+
+/* =====================================================================================
+   SCHERMEN — per scherm: titel (knop), kop (boven het beeld), deel, stappen (t = tekst onder het beeld,
+   th = havotekst, n = notitie voor de docent, vwo = alleen in vwo) en teken(ctx, S).
+   In teken: S.on(k, duur, vertraging) = voortgang 0..1 van stap k (1 als die stap al geweest is, 0 als hij nog moet komen),
+   S.T = tijd sinds het begin van het scherm (s), S.vwo = niveau.
+   ===================================================================================== */
+const SCHERMEN = [];
+/* =====================================================================================
+   Evolutie · les 7 · Hoe weten we dat? (31 okt 2026)
+   Film 7 Hoe weten we dat? (films/evolutie/7-hoe-weten-we-dat.html, script v2); havo BvJ H4, vwo Nectar H7.
+   Compact (± 25 min). Drie sporen: lagen en fossielen, homologe en rudimentaire organen, DNA en de moleculaire klok.
+   Eigen hulpen hebben het voorvoegsel L7_. Kleuren: lagen in aardetinten uit C.grond, botgroepen goud/teal/koraal,
+   verschillen in DNA paars (= mutaties, zoals in de reeks), kern van de zaak goud. Personage: Dr. Kim (zoals in de film), zonder naam in beeld.
+   ===================================================================================== */
+
+// ---------- hulpen ----------
+// aardetinten voor lagen (volgen licht/donker)
+const L7_LKL = () => [mix(C.grond, C.koraal, 0.28), mix(C.grond, C.bg, 0.3), mix(C.grond, C.oker, 0.45), mix(C.grond, C.text2, 0.35), mix(C.grond, C.bg, 0.1)];
+// één laag: rechthoek met golvende bovenrand en korrels
+function L7_laag(ctx, x, y, w, h, kl, a = 1, seed = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  ctx.beginPath(); ctx.moveTo(x, y + h); ctx.lineTo(x, y); for (let i = 1; i <= 24; i++) ctx.lineTo(x + w * i / 24, y + Math.sin(i * 1.3 + seed) * 4); ctx.lineTo(x + w, y + h); ctx.closePath();
+  ctx.fillStyle = kl; ctx.fill(); ctx.strokeStyle = mix(kl, '#000000', 0.25); ctx.lineWidth = 2; ctx.stroke();
+  ctx.fillStyle = rgba(mix(kl, '#000000', 0.35), 0.5); for (let i = 0; i < Math.floor(w * h / 1800); i++) { ctx.beginPath(); ctx.arc(x + 8 + hash(seed * 13 + i) * (w - 16), y + 10 + hash(seed * 7 + i * 3.1) * (h - 18), 2.2, 0, 6.283); ctx.fill(); }
+  ctx.restore(); }
+// schelpfossiel (ammoniet)
+function L7_schelp(ctx, x, y, r, a = 1, col = null) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col || mix(C.grond, '#000000', 0.45); ctx.lineWidth = Math.max(2, r * 0.12);
+  ctx.beginPath(); for (let i = 0; i <= 60; i++) { const an = i * 0.3, rr = r * (1 - i / 75); const px = x + Math.cos(an) * rr, py = y + Math.sin(an) * rr; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke(); ctx.restore(); }
+// vis van opzij (kop rechts); sk = 0..1 skelet (fossiel)
+function L7_vis(ctx, x, y, s, a = 1, sk = 0, rot = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(rot); ctx.scale(s, s);
+  const kl = C.licht ? '#6F8796' : '#8BA3B2';
+  if (sk < 0.99) { ctx.save(); ctx.globalAlpha *= 1 - sk; ctx.beginPath(); ctx.ellipse(0, 0, 70, 26, 0, 0, 6.283); ctx.fillStyle = kl; ctx.fill(); ctx.beginPath(); ctx.moveTo(-62, 0); ctx.lineTo(-104, -26); ctx.lineTo(-98, 0); ctx.lineTo(-104, 26); ctx.closePath(); ctx.fill(); circ(ctx, 46, -6, 4, '#111'); ctx.restore(); }
+  if (sk > 0.01) { ctx.save(); ctx.globalAlpha *= sk; ctx.strokeStyle = C.goud; ctx.lineWidth = 4; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(-96, 0); ctx.lineTo(58, 0); ctx.stroke();
+    ctx.lineWidth = 2.5; for (let i = 0; i < 9; i++) { const px = -50 + i * 12; ctx.beginPath(); ctx.moveTo(px, 0); ctx.quadraticCurveTo(px + 6, -12, px + 2, -22); ctx.moveTo(px, 0); ctx.quadraticCurveTo(px + 6, 12, px + 2, 22); ctx.stroke(); }
+    ctx.beginPath(); ctx.arc(64, 0, 13, 0, 6.283); ctx.stroke(); ctx.beginPath(); ctx.moveTo(-96, 0); ctx.lineTo(-110, -20); ctx.moveTo(-96, 0); ctx.lineTo(-110, 20); ctx.stroke(); ctx.restore(); }
+  ctx.restore(); }
+// bultrug van opzij (kop rechts), s = 1 → ± 740 breed; o.xray 0..1 = wervelkolom en heupbotjes zichtbaar, o.heup 0..1 = heupbotjes goud
+function L7_walvis(ctx, x, y, s, a = 1, o = {}) { if (a <= 0.01) return; const xr = o.xray || 0, heup = o.heup || 0;
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y + Math.sin((o.T || 0) * 0.9) * 4); ctx.scale(s, s);
+  const kl = C.licht ? '#3E4A5A' : '#4A5868', buik = C.licht ? '#9AA6B4' : '#A9B4C0';
+  const lijf = () => { ctx.beginPath(); ctx.moveTo(320, 10); ctx.quadraticCurveTo(300, -55, 180, -80); ctx.quadraticCurveTo(20, -100, -140, -70); ctx.quadraticCurveTo(-250, -40, -310, -8);
+    ctx.quadraticCurveTo(-350, -60, -410, -76); ctx.quadraticCurveTo(-390, -24, -362, 0); ctx.quadraticCurveTo(-390, 26, -410, 76); ctx.quadraticCurveTo(-350, 60, -310, 10);
+    ctx.quadraticCurveTo(-240, 40, -120, 70); ctx.quadraticCurveTo(60, 104, 200, 72); ctx.quadraticCurveTo(300, 50, 320, 10); ctx.closePath(); };
+  ctx.save(); ctx.globalAlpha *= lerp(1, 0.32, xr);
+  ctx.beginPath(); ctx.moveTo(-120, -72); ctx.lineTo(-160, -104); ctx.lineTo(-180, -64); ctx.closePath(); ctx.fillStyle = kl; ctx.fill();
+  lijf(); ctx.fillStyle = kl; ctx.fill();
+  ctx.save(); lijf(); ctx.clip(); ctx.strokeStyle = rgba(buik, 0.7); ctx.lineWidth = 2.5; for (let i = 0; i < 6; i++) { ctx.beginPath(); ctx.moveTo(300 - i * 4, 30 + i * 7); ctx.quadraticCurveTo(150, 60 + i * 8, 20, 82 + i * 6); ctx.stroke(); } ctx.restore();
+  ctx.strokeStyle = rgba(buik, 0.9); ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(318, 12); ctx.quadraticCurveTo(260, 34, 190, 30); ctx.stroke();
+  circ(ctx, 196, 8, 5, '#111');
+  ctx.beginPath(); ctx.moveTo(140, 50); ctx.quadraticCurveTo(110, 150, -40, 214); ctx.quadraticCurveTo(-10, 170, 90, 60); ctx.closePath(); ctx.fillStyle = buik; ctx.fill();
+  ctx.restore();
+  if (xr > 0.01) { ctx.save(); ctx.globalAlpha *= xr; ctx.strokeStyle = C.text2; ctx.lineCap = 'round';
+    for (let i = 0; i < 26; i++) { const u = i / 25, px = lerp(230, -340, u), py = -30 + Math.sin(u * 3.1) * -8 + u * 26; ctx.lineWidth = lerp(14, 6, u); ctx.beginPath(); ctx.moveTo(px - 6, py); ctx.lineTo(px + 6, py); ctx.stroke(); }
+    const hk = mix(C.text2, C.goud, heup); ctx.strokeStyle = hk; ctx.lineWidth = 9; ctx.beginPath(); ctx.moveTo(-150, 34); ctx.lineTo(-192, 46); ctx.moveTo(-158, 48); ctx.lineTo(-198, 58); ctx.stroke();
+    if (heup > 0.01) gloed(ctx, -175, 46, 70, C.goud, heup * (0.7 + 0.3 * Math.sin((o.T || 0) * 3)));
+    ctx.restore(); }
+  ctx.restore(); }
+// waar de heupbotjes zitten (voor wijs)
+const L7_heupPunt = (x, y, s) => [x - 175 * s, y + 46 * s];
+// oerwalvissen en verwanten van opzij (kop rechts); y = grond (of middenlijn bij Basilosaurus)
+const L7_DIER = {
+  paki: { kl: '#9A7A58', rx: 80, ry: 26, h: 72, poot: 58, dik: 9, vv: 8, av: 9, kop: 72, st: 110, sy: -12 },
+  ambulo: { kl: '#77705A', rx: 115, ry: 28, h: 42, poot: 30, dik: 12, vv: 12, av: 28, kop: 96, st: 150, sy: 4, boven: true },
+  rodho: { kl: '#66717E', rx: 145, ry: 30, h: 34, poot: 22, dik: 11, vv: 10, av: 20, kop: 92, st: 160, sy: 4, boven: true },
+  basilo: { kl: '#56667A', rx: 300, ry: 30, h: 0, poot: 0, kop: 92, st: 120, sy: 0, fluke: true, vin: true, mini: true },
+  nijl: { kl: '#8A7A86', rx: 120, ry: 56, h: 96, poot: 40, dik: 22, vv: 16, av: 16, kop: 70, st: 30, sy: -20, nijl: true }
+};
+function L7_dier(ctx, x, y, s, soort, a = 1) { if (a <= 0.01) return; const P = L7_DIER[soort], by = -P.h, kl = P.kl, dk = mix(kl, '#000000', 0.3);
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); ctx.lineCap = 'round';
+  if (P.poot > 0) [[P.rx * 0.6, 0], [-P.rx * 0.55, 1]].forEach(([lx, ach]) => { ctx.strokeStyle = dk; ctx.lineWidth = P.dik; ctx.beginPath(); ctx.moveTo(lx, by + P.ry * 0.4); ctx.lineTo(lx, by + P.ry * 0.4 + P.poot); ctx.stroke();
+    const fv = ach ? P.av : P.vv; ctx.beginPath(); ctx.ellipse(lx + fv * 0.5, by + P.ry * 0.4 + P.poot, fv, P.dik * 0.42, 0, 0, 6.283); ctx.fillStyle = dk; ctx.fill(); });
+  if (P.mini) { ctx.strokeStyle = dk; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(-P.rx * 0.62, by + P.ry * 0.7); ctx.lineTo(-P.rx * 0.66, by + P.ry * 0.7 + 16); ctx.lineTo(-P.rx * 0.6, by + P.ry * 0.7 + 22); ctx.stroke(); }
+  ctx.fillStyle = kl; ctx.beginPath(); ctx.moveTo(-P.rx * 0.8, by - P.ry * 0.5); ctx.quadraticCurveTo(-P.rx - P.st * 0.5, by - P.ry * 0.3 + P.sy, -P.rx - P.st, by + P.sy); ctx.quadraticCurveTo(-P.rx - P.st * 0.5, by + P.ry * 0.25 + P.sy, -P.rx * 0.8, by + P.ry * 0.5); ctx.closePath(); ctx.fill();
+  if (P.fluke) { const tx = -P.rx - P.st; ctx.beginPath(); ctx.moveTo(tx + 10, by); ctx.lineTo(tx - 30, by - 30); ctx.lineTo(tx - 18, by); ctx.lineTo(tx - 30, by + 30); ctx.closePath(); ctx.fill(); }
+  ctx.beginPath(); ctx.ellipse(0, by, P.rx, P.ry, 0, 0, 6.283); ctx.fill();
+  if (P.vin) { ctx.beginPath(); ctx.ellipse(P.rx * 0.62, by + P.ry * 0.9, 34, 11, 0.5, 0, 6.283); ctx.fillStyle = dk; ctx.fill(); ctx.fillStyle = kl; }
+  const hx = P.rx * 0.8, kk = P.kop; ctx.beginPath(); ctx.moveTo(hx, by - P.ry * 0.75); ctx.quadraticCurveTo(hx + kk * 0.45, by - P.ry * (P.nijl ? 1.0 : 0.85), hx + kk, by - P.ry * (P.nijl ? 0.3 : 0.08));
+  ctx.lineTo(hx + kk, by + P.ry * (P.nijl ? 0.4 : 0.14)); ctx.quadraticCurveTo(hx + kk * 0.45, by + P.ry * 0.55, hx, by + P.ry * 0.6); ctx.closePath(); ctx.fill();
+  circ(ctx, hx + kk * 0.32, by - P.ry * (P.boven ? 0.78 : 0.4), P.nijl ? 5 : 4, '#111');
+  if (!P.boven && !P.fluke) { ctx.beginPath(); ctx.ellipse(hx + kk * 0.05, by - P.ry * 0.7, 7, 10, -0.3, 0, 6.283); ctx.fillStyle = dk; ctx.fill(); }
+  ctx.restore(); }
+// punt op het dier in schermcoördinaten (dx = deel van rx, dy = deel van ry t.o.v. het lijfmidden)
+const L7_op = (x, y, s, soort, dx, dy) => { const P = L7_DIER[soort]; return [x + s * dx, y + s * (-P.h + dy)]; };
+
+// ledematen: botgroepen opper (goud), onder (teal), hand (koraal); schouder op (x, y), naar beneden
+const L7_BOT = { opper: () => C.goud, onder: () => C.teal, hand: () => C.koraal };
+const L7_LID = {
+  mens: { huid: '#C9A07E', b: [[0, 0, 0, 170, 22, 'opper'], [-9, 182, -15, 330, 12, 'onder'], [9, 182, 13, 330, 12, 'onder'], [-12, 344, 12, 344, 22, 'hand'],
+    [-26, 362, -46, 418, 9, 'hand'], [-12, 366, -16, 450, 8, 'hand'], [0, 366, 0, 462, 8, 'hand'], [12, 366, 16, 452, 8, 'hand'], [24, 362, 32, 432, 8, 'hand']] },
+  vleer: { huid: '#6A5648', vlies: [[0, 0], [190, 30], [330, -40], [360, 60], [300, 170], [210, 210], [40, 230], [-10, 200]],
+    b: [[0, 0, 40, 92, 15, 'opper'], [44, 98, 172, 40, 11, 'onder'], [48, 106, 150, 58, 6, 'onder'], [172, 40, 186, 34, 16, 'hand'],
+      [188, 34, 330, -40, 6, 'hand'], [188, 36, 360, 60, 6, 'hand'], [186, 40, 300, 170, 6, 'hand'], [184, 42, 210, 210, 6, 'hand'], [186, 32, 200, 8, 7, 'hand']] },
+  walvis: { huid: '#56667A', vin: true,
+    b: [[0, 0, 0, 62, 26, 'opper'], [-11, 72, -13, 142, 15, 'onder'], [11, 72, 13, 142, 15, 'onder'], [-16, 158, 16, 158, 18, 'hand'],
+      [-30, 178, -48, 300, 8, 'hand'], [-14, 180, -20, 336, 8, 'hand'], [0, 180, 4, 352, 8, 'hand'], [14, 180, 24, 330, 8, 'hand'], [28, 176, 44, 280, 8, 'hand']] },
+  paard: { huid: '#8A6242', b: [[0, 0, 10, 112, 24, 'opper'], [10, 122, 5, 272, 18, 'onder'], [17, 122, 15, 172, 8, 'onder'], [-6, 288, 16, 288, 18, 'hand'],
+    [5, 302, 5, 420, 14, 'hand'], [5, 428, 9, 478, 12, 'hand']], hoef: true }
+};
+function L7_lid(ctx, x, y, s, soort, a = 1, bot = 0) { if (a <= 0.01) return; const L = L7_LID[soort];
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  laag(ctx, lerp(1, 0.28, bot), (l) => { l.fillStyle = L.huid; l.strokeStyle = L.huid;
+    if (L.vlies) { l.beginPath(); L.vlies.forEach(([px, py], i) => i ? l.lineTo(px, py) : l.moveTo(px, py)); l.closePath(); l.fillStyle = mix(L.huid, C.bg, 0.25); l.fill(); }
+    if (L.vin) { l.beginPath(); l.moveTo(-34, -10); l.quadraticCurveTo(-80, 200, -46, 330); l.quadraticCurveTo(0, 400, 50, 320); l.quadraticCurveTo(80, 180, 34, -10); l.closePath(); l.fill(); }
+    L.b.forEach(([x1, y1, x2, y2, w]) => { l.lineWidth = w + 30; l.beginPath(); l.moveTo(x1, y1); l.lineTo(x2, y2); l.stroke(); });
+    if (L.hoef) { l.beginPath(); l.moveTo(-14, 476); l.lineTo(30, 476); l.lineTo(36, 512); l.lineTo(-20, 512); l.closePath(); l.fillStyle = mix(L.huid, '#000000', 0.45); l.fill(); } });
+  if (bot > 0.01) { ctx.globalAlpha *= bot; L.b.forEach(([x1, y1, x2, y2, w, g]) => { ctx.strokeStyle = L7_BOT[g](); ctx.lineWidth = w; ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); }); }
+  ctx.restore(); }
+// haaienvin: kraakbeenstralen, geen vingers
+function L7_haaienvin(ctx, x, y, s, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
+  ctx.beginPath(); ctx.moveTo(-40, 0); ctx.quadraticCurveTo(-30, 160, 30, 280); ctx.quadraticCurveTo(70, 160, 50, 0); ctx.closePath(); ctx.fillStyle = C.licht ? '#7C8A98' : '#8E9CAA'; ctx.fill();
+  ctx.strokeStyle = rgba(C.bg, 0.6); ctx.lineWidth = 2; for (let i = 0; i < 9; i++) { ctx.beginPath(); ctx.moveTo(-30 + i * 9, 10); ctx.lineTo(-10 + i * 7, 150 + i * 10); ctx.stroke(); } ctx.restore(); }
+// stukje wervelkolom; n wervels van (x1,y1) naar (x2,y2)
+function L7_wervels(ctx, x1, y1, x2, y2, n, a = 1, col = null, dik = 18) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const an = Math.atan2(y2 - y1, x2 - x1);
+  for (let i = 0; i < n; i++) { const u = (i + 0.5) / n, px = lerp(x1, x2, u), py = lerp(y1, y2, u), L = Math.hypot(x2 - x1, y2 - y1) / n * 0.78;
+    ctx.save(); ctx.translate(px, py); ctx.rotate(an); roundRect(ctx, -L / 2, -dik / 2, L, dik, 5); shape(ctx, rgba(col || C.text2, 0.35), col || C.text2, 2); ctx.restore(); }
+  ctx.restore(); }
+// rij DNA-letters (mono); dif = posities die verschillen (paars), o.ins = invoegsel 0..1, o.insTekst of null (= ontbreekt)
+const L7_REF = 'ATGACCAACATCCGAAAGTC', L7_INS = 'GGTA';
+function L7_dnaRij(ctx, x, y, seq, dif, a = 1, o = {}) { if (a <= 0.01) return; const w = 46, ins = o.ins || 0, split = 10, extra = 4 * w * ins;
+  ctx.save(); ctx.globalAlpha *= a;
+  seq.split('').forEach((ch, i) => { const xx = x + i * w + (i >= split ? extra : 0) + w / 2, d = dif.includes(i) ? (o.toon == null ? 1 : o.toon) : 0;
+    if (d > 0.01) { roundRect(ctx, xx - 20, y - 36, 40, 50, 8); shape(ctx, rgba(C.paars, 0.35 * d), rgba(C.paars, d), 2.5); }
+    text(ctx, ch, xx, y, fMeta(34), d > 0.5 ? C.text : C.text2, 'center'); });
+  if (ins > 0.01) { const gx = x + split * w; ctx.globalAlpha *= ins;
+    if (o.heeft) { roundRect(ctx, gx + 2, y - 38, 4 * w - 4, 54, 10); shape(ctx, rgba(C.goud, 0.25), C.goud, 3); L7_INS.split('').forEach((ch, k) => text(ctx, ch, gx + k * w + w / 2, y, fMeta(34), C.goud, 'center')); }
+    else for (let k = 0; k < 4; k++) text(ctx, '–', gx + k * w + w / 2, y, fMeta(34), C.text2, 'center'); }
+  ctx.restore(); }
+// klein raster van 100 hokjes, nd = aantal dat verschilt (paars)
+function L7_raster(ctx, x, y, cel, nd, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const plek = [23, 67, 41, 88];
+  for (let i = 0; i < 100; i++) { const c = i % 10, r = Math.floor(i / 10), d = plek.slice(0, nd).includes(i); roundRect(ctx, x + c * cel + 2, y + r * cel + 2, cel - 4, cel - 4, 4); shape(ctx, d ? rgba(C.paars, 0.85) : rgba(C.teal, 0.25), d ? C.paars : rgba(C.teal, 0.6), 1.5); }
+  ctx.restore(); }
+
+// ---------- 1 · start ----------
+SCHERMEN.push({ titel: 'Start', deel: 'Opening', geenKop: true,
+  stappen: [{ t: '<b>Evolutie</b> · les 7: hoe weten we dat? Lagen en fossielen, hetzelfde skelet, het spoor in het DNA', n: 'Kies eerst havo of vwo (deze les is voor beide gelijk; de film heeft geen vwo-blokken). Groot scherm (F) vult het hele scherm; T zet de tekst eronder uit. Hoort bij film 7 van de nieuwe reeks, Hoe weten we dat?: havo Biologie voor jou H4, vwo Nectar H7. Bewust kort (± 25 minuten), te combineren met les 6 of les 8.' }],
+  teken(ctx, S) {
+    const T = S.T, k = L7_LKL();
+    metaText(ctx, 'Evolutie · les 7', 140, 330, C.meta, 'left', 30);
+    text(ctx, 'Hoe weten', 140, 465, fTitel(98), C.text); text(ctx, 'we dat?', 140, 585, fTitel(98), C.goud);
+    regel(ctx, 'fossielen · homologe organen · DNA', 144, 675, 1, C.text2, 32, 'left', 400);
+    [0, 1, 2, 3].forEach(i => L7_laag(ctx, 1100, 900 - (i + 1) * 100, 680, 100, k[i], 1, i + 2));
+    L7_vis(ctx, 1300, 755, 1.1, 1, 1, 0.05); L7_schelp(ctx, 1640, 850, 26); L7_schelp(ctx, 1200, 650, 20);
+    L7_walvis(ctx, 1440, 360, 0.55, 1, { T });
+  } });
+
+// ---------- 2 · de bultrug ----------
+SCHERMEN.push({ titel: 'De bultrug', kop: 'Een zoogdier in zee', deel: 'Opening',
+  stappen: [
+    { t: 'Een bultrug: ± 15 meter lang. Ze ademt lucht en zoogt haar jong. Een zoogdier, net als jij.', n: 'De opening van de film. Vraag eventueel wat een walvis tot zoogdier maakt (longen, melk, haar bij de geboorte).' },
+    { t: 'In haar buik liggen twee kleine botjes, los van de wervelkolom: <b>heupbotjes</b>, zonder poten eraan.', n: 'Hier nog geen uitleg: de heupbotjes komen terug bij rudimentaire organen (scherm 9).' },
+    { t: 'Biologen zeggen: walvissen stammen af van landdieren. Maar niemand was erbij. Begin bij de grond: welke laag is het oudst?', n: 'Startvraag van de film: Hoe weet je welke laag in de grond het oudst is? Het antwoord volgt op scherm 3 en 4.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 0.9), a1 = S.on(1, 1.2), a2 = S.on(2, 0.9);
+    const wx = 880, wy = 560, ws = 1.15;
+    L7_walvis(ctx, wx, wy, ws, a0, { T, xray: a1, heup: a1 * S.on(1, 0.6, 0.6) });
+    if (a0 > 0.01) { const x1 = wx - 410 * ws, x2 = wx + 320 * ws, yy = 300; ctx.save(); ctx.globalAlpha *= a0 * S.on(0, 0.6, 0.5); ctx.strokeStyle = C.text2; ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.moveTo(x1, yy); ctx.lineTo(x2, yy); ctx.moveTo(x1, yy - 14); ctx.lineTo(x1, yy + 14); ctx.moveTo(x2, yy - 14); ctx.lineTo(x2, yy + 14); ctx.stroke(); ctx.restore();
+      regel(ctx, '± 15 m', (x1 + x2) / 2, yy - 18, a0 * S.on(0, 0.6, 0.5), C.text, 34, 'center', 700); }
+    if (a1 > 0.01) { const [hx, hy] = L7_heupPunt(wx, wy, ws); wijs(ctx, 'heupbotjes', hx - 40, hy + 200, hx, hy + 8, a1 * S.on(1, 0.6, 0.6), C.goud, 34); }
+    if (a2 > 0.01) { const k = L7_LKL(); [0, 1, 2, 3].forEach(i => L7_laag(ctx, 1480, 960 - (i + 1) * 110, 360, 110, k[i], a2 * S.on(2, 0.4, i * 0.15), i + 5));
+      L7_schelp(ctx, 1560, 900, 22, a2); L7_vis(ctx, 1700, 790, 0.6, a2, 1); regel(ctx, 'lagen in de grond', 1660, 480, a2, C.text2, 30, 'center', 600); }
+  } });
+
+// ---------- 3 · lagen en fossielen ----------
+SCHERMEN.push({ titel: 'Lagen', kop: 'Laag op laag', deel: 'Lagen en fossielen',
+  stappen: [
+    { t: 'Rivieren en zeeën laten zand en klei bezinken. Laag op laag, duizenden jaren lang.', n: 'Sedimentgesteente (zandsteen, kalksteen, klei) ontstaat zo. Fossielen vind je bijna alleen in zulke lagen.' },
+    { t: 'Raakt een dood dier snel bedolven, dan kan het een <b>fossiel</b> worden: een versteend overblijfsel van een organisme.', n: 'Snel bedolven = geen aaseters, weinig zuurstof. Daarom zijn fossielen zeldzaam en vind je vooral harde delen (botten, tanden, schelpen).' },
+    { t: 'Elke nieuwe laag komt bovenop de vorige: normaal is de onderste laag het oudst. Dat is <b>relatieve datering</b>.', n: 'Relatief: je weet de volgorde, nog niet het aantal jaren. Dat komt op scherm 5.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 2.0), a1 = S.on(1, 2.2), a2 = S.on(2, 0.9), k = L7_LKL();
+    const x0 = 200, w = 1020, lh = 120, yb = 1000;
+    ctx.save(); ctx.fillStyle = rgba(C.water, C.licht ? 0.1 : 0.14); ctx.fillRect(x0, 200, w, yb - 200); ctx.restore();
+    // lagen 0–2 in stap 0, lagen 3–4 in stap 1 (bedekken de vis)
+    const zicht = [a0 * 3, a0 * 3 - 1, a0 * 3 - 2, a1 * 2.2 - 0.6, a1 * 2.2 - 1.4].map(v => clamp(v, 0, 1));
+    zicht.forEach((v, i) => { if (v <= 0.01) return; const h = lh * ease(v); L7_laag(ctx, x0, yb - i * lh - h, w, h, k[i], 1, i + 1); });
+    if (a0 > 0.01 && a0 < 0.99) for (let i = 0; i < 40; i++) { const u = (T * 0.25 + hash(i)) % 1; circ(ctx, x0 + 20 + hash(i * 3.7) * (w - 40), lerp(220, yb - lh * 3 * a0, u), 3, rgba(C.grond, 0.8)); }
+    L7_schelp(ctx, 420, yb - 60, 24, zicht[0]); L7_schelp(ctx, 980, yb - lh - 55, 20, zicht[1]);
+    if (a1 > 0.01) { const zak = ease(clamp(a1 * 2.5, 0, 1)), vy = lerp(320, yb - lh * 3 - 22, zak), sk = clamp(a1 * 2 - 1, 0, 1);
+      L7_vis(ctx, 700, vy, 1.2, 1, sk, lerp(0.4, 0.04, zak)); termKaart(ctx, 'fossiel', 'versteend overblijfsel van een organisme', 1570, 230, a1 * S.on(1, 0.6, 1.4)); }
+    if (a2 > 0.01) { pijl(ctx, 1280, 470, 1280, 960, C.goud, 5, a2); regel(ctx, 'ouder', 1305, 970, a2, C.goud, 34, 'left', 700); regel(ctx, 'jonger', 1305, 480, a2, C.text2, 30, 'left', 600);
+      termKaart(ctx, 'relatieve datering', 'de volgorde, nog niet het aantal jaren', 1590, 640, a2 * S.on(2, 0.6, 0.5)); }
+  } });
+
+// ---------- 4 · op zijn kop ----------
+SCHERMEN.push({ titel: 'Omgeklapt', kop: 'Lagen op hun kop', deel: 'Lagen en fossielen',
+  stappen: [
+    { t: 'De aardkorst beweegt. Lagen kunnen later kantelen, plooien, breken of zelfs omklappen.', n: 'In de film vindt Dr. Kim lagen die zo ver gekanteld zijn dat ze op hun kop liggen. Laat de stapel omklappen en volg laag R met je vinger.' },
+    { t: 'Deze lagen zijn na het afzetten omgeklapt. Laag P ligt nu het diepst.', n: 'Vraag uit de film: Deze lagen zijn na het afzetten omgeklapt. Welke laag is het oudst? (a) Laag P: die ligt nu het diepst, (b) Laag R: die lag onderop toen de lagen nog plat lagen, (c) Dat kun je na het kantelen niet meer weten. Antwoord b.' },
+    { t: 'Draai de lagen terug tot ze plat liggen. De laag die toen onderop lag, is als eerste afgezet: die is het oudst, ook al ligt hij nu bovenop.', n: 'Geologen zien aan sporen in de lagen zelf (bv. ribbels, sorteren van korrels, fossielen in leefhouding) wat oorspronkelijk boven was. Zie de briefing.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 0.6), flip = S.on(0, 2.4, 0.6) * (1 - S.on(2, 2.2, 0.3)), a2 = S.on(2, 0.6, 2.4), k = L7_LKL();
+    const cx = 720, cy = 600, w = 680, lh = 130, rot = Math.PI * flip, nm = ['R', 'Q', 'P'], kl = [k[0], k[2], k[3]];
+    if (a0 <= 0.01) return;
+    ctx.save(); ctx.globalAlpha *= a0; ctx.translate(cx, cy); ctx.rotate(rot);
+    nm.forEach((n, i) => { const y = lh * 1.5 - (i + 1) * lh; L7_laag(ctx, -w / 2, y, w, lh, kl[i], 1, i + 9); L7_schelp(ctx, -w / 2 + 120 + i * 190, y + lh / 2, 22, 1); });
+    ctx.restore();
+    nm.forEach((n, i) => { const ly = lh * 1.5 - (i + 0.5) * lh, px = cx + Math.cos(rot) * 0 - Math.sin(rot) * ly, py = cy + Math.sin(rot) * 0 + Math.cos(rot) * ly;
+      const goud = i === 0 ? a2 : 0; if (goud > 0.01) gloed(ctx, px + 400, py, 90, C.goud, goud);
+      regel(ctx, n, px + 400, py + 18, a0, goud > 0.5 ? C.goud : C.text, 54, 'center', 700); });
+    if (a2 > 0.01) { const py = cy + lh; regel(ctx, 'als eerste afgezet: oudst', cx + w / 2 + 110, py + 14, a2, C.goud, 36, 'left', 700); }
+    metaText(ctx, flip > 0.5 ? 'nu: omgeklapt' : 'plat, zoals afgezet', cx, 300, C.text2, 'center', 22, a0);
+    pers(ctx, 'kim', 1760, 1010, 560, { t: T, uit: 'neutraal', kijk: -1, a: a0, outfit: 'lab' });
+  } });
+
+// ---------- 5 · absolute datering ----------
+SCHERMEN.push({ titel: 'Hoeveel jaar?', kop: 'Het aantal jaren meten', deel: 'Lagen en fossielen',
+  stappen: [
+    { t: 'Hoeveel jaar oud? Dat meet je met radioactieve stoffen in gesteente of botten: <b>absolute datering</b>.', n: 'Radioactieve atomen vervallen in een vast tempo, onafhankelijk van temperatuur of druk. Hoe dat werkt is natuurkunde; hier is het een gegeven.' },
+    { t: 'Van koolstof-14 is na ± 5700 jaar de helft vervallen: de <b>halveringstijd</b>. Na nog eens 5700 jaar de helft van de rest.', n: 'Rekenvoorbeeld: na 3 halveringstijden (± 17.100 jaar) is nog 1/8 over. De exacte waarde is 5730 jaar.' },
+    { t: 'Koolstof-14 werkt alleen voor resten van organismen, tot ± 50.000 jaar terug. Voor oudere lagen gebruiken geologen andere radioactieve stoffen.', n: 'Walvisfossielen van 50 miljoen jaar date je dus niet met koolstof-14, maar via vulkanische lagen erboven of eronder (bv. kalium-argon, uranium-lood; zie briefing).' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 0.9), a1 = S.on(1, 1.6), a2 = S.on(2, 1.0);
+    const lab = [['0 jaar', '100 %'], ['5700', '50 %'], ['11.400', '25 %'], ['17.100 jaar', '12,5 %']], over = [64, 32, 16, 8];
+    lab.forEach(([j, p], i) => { const a = i === 0 ? a0 : a1 * S.on(1, 0.5, (i - 1) * 0.4); if (a <= 0.01) return; const x = 170 + i * 420, y = 210;
+      paneel(ctx, x, y, 270, 270, a); stippen(ctx, x + 15, y + 15, 240, 240, 64, (q) => q < over[i] ? C.teal : rgba(C.line, 0.22), a, { r: 11 });
+      regel(ctx, j, x + 135, y + 320, a, C.text, 32, 'center', 700); regel(ctx, p, x + 135, y + 362, a, C.teal, 30, 'center', 700);
+      if (i > 0) { pijl(ctx, x - 140, y + 135, x - 14, y + 135, C.text2, 4, a); regel(ctx, '½', x - 77, y + 115, a, C.text2, 34, 'center', 700); } });
+    termKaart(ctx, 'absolute datering', 'het aantal jaren meten', 470, 640, a0 * S.on(0, 0.6, 0.4));
+    termKaart(ctx, 'halveringstijd', 'na deze tijd is de helft vervallen', 1300, 640, a1 * S.on(1, 0.6, 1.2));
+    if (a2 > 0.01) { const x = 200, y1 = 830, y2 = 920;
+      ctx.save(); ctx.globalAlpha *= a2; roundRect(ctx, x, y1 - 26, 120, 40, 20); shape(ctx, rgba(C.teal, 0.7), C.teal, 2); roundRect(ctx, x, y2 - 26, 1500 * a2, 40, 20); shape(ctx, rgba(C.oker, 0.6), C.oker, 2); ctx.restore();
+      regel(ctx, 'koolstof-14 · tot ± 50.000 jaar · alleen resten van organismen', x + 150, y1 + 6, a2, C.text, 30, 'left', 600);
+      regel(ctx, 'andere radioactieve stoffen · ook miljoenen jaren oud gesteente', x, y2 + 76, a2 * S.on(2, 0.5, 0.6), C.text, 30, 'left', 600); }
+  } });
+
+// ---------- 6 · walvissen in de lagen ----------
+const L7_RIJ = [['paki', 'Pakicetus', '± 50 mln jaar', 0.95], ['ambulo', 'Ambulocetus', '± 48 mln jaar', 0.95], ['rodho', 'Rodhocetus', '± 47 mln jaar', 0.9], ['basilo', 'Basilosaurus', '± 40 mln jaar', 0.85]];
+SCHERMEN.push({ titel: 'Oerwalvissen', kop: 'Walvissen in de lagen', deel: 'Walvissen in de lagen',
+  stappen: [
+    { t: 'In Pakistan en India: <b>Pakicetus</b>, ± 50 miljoen jaar oud. Een landdier op vier slanke poten, maar met een oor zoals je dat verder alleen bij walvissen vindt.', n: 'Lagen van ongeveer 50 tot 47 miljoen jaar oud. Het oor: een verdikt, dicht botje rond het middenoor (bulla met involucrum), alleen bij walvissen. Pakicetus was 1 à 2 m lang.' },
+    { t: '<b>Ambulocetus</b>, ± 48 miljoen jaar: korte poten, grote achtervoeten, de ogen bovenop de kop. Hij leefde in ondiep water, een beetje als een krokodil.', n: 'De dieren zijn niet op schaal getekend. Ambulocetus = \'wandelende walvis\'.' },
+    { t: '<b>Rodhocetus</b>, ± 47 miljoen jaar: een zwemmerslijf op korte poten. In zijn enkel zit een botje met een vorm die je verder alleen kent van evenhoevigen.', n: 'Het enkelbotje (sprongbeen, astragalus) met een dubbele katrol, zoals bij koeien, varkens en nijlpaarden.' },
+    { t: '<b>Basilosaurus</b>, ± 40 miljoen jaar: een echte walvis van 15 meter, alleen in zee. Toch had hij nog achterpootjes van ± 35 cm, los van de wervelkolom.', n: 'Basilosaurus werd volgens sommige bronnen tot 17–18 m. Zijn bekken zat niet meer vast aan de wervelkolom.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, k = L7_LKL(), lh = 190, yb = 1020, x0 = 140, lw = 400;
+    L7_RIJ.forEach(([sr, nm, jr, s], i) => { const a = S.on(i, 0.9); const y = yb - (i + 1) * lh;
+      L7_laag(ctx, x0, y, lw, lh, k[i], i <= S.b ? 1 : 0.35, i + 3);
+      if (a <= 0.01) return;
+      ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.lineCap = 'round'; const bx = x0 + 70, by = y + lh / 2 + 20; for (let q = 0; q < 5; q++) { ctx.beginPath(); ctx.moveTo(bx + q * 26, by - 10 + (q % 2) * 6); ctx.lineTo(bx + q * 26 + 20, by - 4 + (q % 2) * 6); ctx.stroke(); } ctx.restore();
+      regel(ctx, jr, x0 + lw / 2 + 60, y + lh / 2 + 12, a, C.text, 30, 'left', 700);
+      pijl(ctx, x0 + lw + 20, y + lh / 2, x0 + lw + 110, y + lh / 2, rgba(C.line, 0.8), 3, a);
+      const dx = sr === 'basilo' ? 1200 : 1050, dy = sr === 'basilo' ? y + lh / 2 : y + lh / 2 + 60;
+      L7_dier(ctx, dx, dy, s, sr, a);
+      naam(ctx, nm, 700, y + 46, a, 'left', C.text2, 30);
+      const b = a * S.on(i, 0.6, 0.6);
+      if (sr === 'paki') { const [px, py] = L7_op(dx, dy, s, 'paki', 70, -18); wijs(ctx, 'oor als bij walvissen', px + 330, py - 30, px, py, b, C.goud, 30); }
+      if (sr === 'ambulo') { const [px, py] = L7_op(dx, dy, s, 'ambulo', 140, -24); wijs(ctx, 'ogen bovenop', px + 290, py - 20, px, py, b, C.goud, 30);
+        const [qx, qy] = L7_op(dx, dy, s, 'ambulo', -50, 72); wijs(ctx, 'grote achtervoeten', qx - 250, qy + 20, qx, qy - 4, b, C.goud, 30); }
+      if (sr === 'rodho') { const [px, py] = L7_op(dx, dy, s, 'rodho', -80, 52); wijs(ctx, 'enkelbotje als bij evenhoevigen', px + 600, py - 90, px, py, b, C.goud, 30); }
+      if (sr === 'basilo') { const [px, py] = L7_op(dx, dy, s, 'basilo', -190, 46); wijs(ctx, 'achterpootjes ± 35 cm', px + 40, py + 56, px, py, b, C.goud, 30); }
+    });
+    metaText(ctx, 'jonger ↑', x0 + lw / 2, 200, C.text2, 'center', 20, 1);
+  } });
+
+// ---------- 7 · voorouder of verwant ----------
+const L7_KETEN = [[300, 640], [680, 640], [1060, 640], [1480, 640]];
+const L7_TAK = [[[760, 880], [500, 800]], [[760, 760], [1020, 680]], [[760, 640], [500, 560]], [[760, 500], [1020, 420]]];
+SCHERMEN.push({ titel: 'Voorouder?', kop: 'Een keten of een boom?', deel: 'Walvissen in de lagen',
+  stappen: [
+    { t: 'Van oud naar jong: Pakicetus, Ambulocetus, Rodhocetus, Basilosaurus. Het lijkt een keten waarin het ene dier in het andere veranderde.', n: 'Vraag uit de film: Is Pakicetus de voorouder van Ambulocetus? (a) Niet per se, (b) Ja, het ene dier veranderde in het andere, (c) Nee, ze zijn niet verwant. Antwoord a.' },
+    { t: 'Een fossiel is bijna nooit precies een voorouder. Je vindt verwanten, op zijtakken van dezelfde boom.', n: 'De kans dat je precies de voorouderpopulatie vindt, is klein. Fossielen zitten dicht bij de stam, op zijtakken.' },
+    { t: 'Samen laten ze zien hoe de boom vertakte: steeds kleinere achterpoten en steeds meer een zwemmerslijf. Over miljoenen jaren, in hele populaties.', n: 'Geen individu veranderde: in elke generatie verschoof wat vaak voorkwam (les 1 en 2).' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 0.9), m = S.on(1, 1.6), a2 = S.on(2, 1.0), soorten = ['paki', 'ambulo', 'rodho', 'basilo'], sc = [0.85, 0.75, 0.65, 0.42];
+    if (m > 0.01) { ctx.save(); ctx.globalAlpha *= m; ctx.strokeStyle = C.line; ctx.lineWidth = 8; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(760, 980); ctx.lineTo(760, 280); ctx.stroke();
+      ctx.lineWidth = 5; L7_TAK.forEach(([[sx, sy], [ex, ey]]) => { ctx.beginPath(); ctx.moveTo(sx, sy); ctx.quadraticCurveTo(ex, sy, ex, ey + 60); ctx.stroke(); }); ctx.restore();
+      L7_walvis(ctx, 760, 240, 0.28, m, { T }); naam(ctx, 'walvissen nu', 900, 250, m, 'left', C.text2, 28); }
+    soorten.forEach((sr, i) => { const [cx, cy] = L7_KETEN[i], [ex, ey] = L7_TAK[i][1], x = lerp(cx, ex, ease(m)), y = lerp(cy, ey + 40, ease(m)), s = lerp(sc[i], sc[i] * 0.72, m);
+      L7_dier(ctx, x, y, s, sr, a0); });
+    if (a0 > 0.01 && m < 0.99) { const ak = a0 * (1 - m); [0, 1, 2].forEach(i => pijl(ctx, L7_KETEN[i][0] + 120, 560, L7_KETEN[i + 1][0] - 140, 560, C.text2, 4, ak)); }
+    if (m > 0.01) { misvatting(ctx, 'het ene dier werd het andere', 'verwanten op zijtakken', 1500, 210, 660, m * S.on(1, 0.6, 0.8), S.on(1, 0.6, 1.4)); }
+    if (a2 > 0.01) { const hx = 1250, hy = 900; metaText(ctx, 'achterpoten', hx, 480, C.text2, 'left', 22, a2);
+      [1, 0.8, 0.55, 0.12].forEach((v, i) => { const a = a2 * S.on(2, 0.5, i * 0.2), x = hx + i * 150; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, hy - 340 * v, 60, 340 * v, 12); shape(ctx, rgba(C.goud, 0.5), C.goud, 2); ctx.restore(); });
+      pijl(ctx, hx, hy + 40, hx + 510, hy + 40, C.text2, 4, a2); regel(ctx, 'oud', hx, hy + 90, a2, C.text2, 28, 'left', 600); regel(ctx, 'jong', hx + 520, hy + 90, a2, C.text2, 28, 'right', 600);
+      regel(ctx, 'miljoenen jaren', hx + 255, 1030, a2 * S.on(2, 0.5, 0.8), C.goud, 32, 'center', 700); }
+  } });
+
+// ---------- 8 · homologe organen ----------
+const L7_LEDEN = [['mens', 240, 0.88, 'grijpen'], ['vleer', 500, 0.82, 'vliegen'], ['walvis', 960, 1.0, 'zwemmen'], ['paard', 1250, 0.86, 'rennen']];
+SCHERMEN.push({ titel: 'Zelfde skelet', kop: 'Van buiten anders, van binnen hetzelfde', deel: 'Hetzelfde skelet',
+  stappen: [
+    { t: 'Een mensenarm, een vleermuisvleugel, een walvisvin en het voorbeen van een paard. Van buiten lijken ze niets op elkaar.', n: 'Laat leerlingen eerst raden welke botten erin zitten.' },
+    { t: 'Van binnen wel: één opperarmbeen, dan spaakbeen en ellepijp, dan pols- en handbotjes.', n: 'Bij het paard is de ellepijp grotendeels vergroeid met het spaakbeen, en loopt het op één vinger (de middelste).' },
+    { t: 'Elke ledemaat heeft een andere vorm en functie. Organen met dezelfde bouw maar vaak een andere functie heten <b>homologe organen</b>.', n: 'Vraag uit de film: Waarom zitten er vingerbotjes in een walvisvin? (a) Een vin heeft vingers nodig om te kunnen sturen, (b) Walvissen erfden ze van een voorouder die poten met vingers had, (c) Dat is toeval. Antwoord b.' },
+    { t: 'Een vin werkt ook zonder vingers: een haaienvin heeft ze niet. Homologe organen wijzen op een <b>gemeenschappelijke voorouder</b>.', n: 'Contrast met de haai: zelfde functie (zwemmen), andere bouw. Dat heet analoog; dat komt in les 8 (dolfijn en haai).' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 0.9), b = S.on(1, 1.2), a2 = S.on(2, 0.9), a3 = S.on(3, 1.2);
+    L7_LEDEN.forEach(([sr, x, s, f], i) => { L7_lid(ctx, x, 230, s, sr, a0 * S.on(0, 0.5, i * 0.15), b); regel(ctx, f, x + (sr === 'vleer' ? 110 : 0), 760, a2 * S.on(2, 0.5, i * 0.15), C.text, 34, 'center', 700); });
+    if (b > 0.01) [['opperarmbeen', 'opper'], ['spaakbeen en ellepijp', 'onder'], ['pols- en handbotjes', 'hand']].forEach(([nm, g], i) => { const a = b * S.on(1, 0.5, 0.4 + i * 0.25), y = 240 + i * 62;
+      ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, 1450, y - 26, 44, 30, 8); ctx.fillStyle = L7_BOT[g](); ctx.fill(); ctx.restore(); naam(ctx, nm, 1512, y, a, 'left', C.text, 32); });
+    termKaart(ctx, 'homologe organen', 'zelfde bouw, vaak andere functie', 1640, 450, a2 * S.on(2, 0.6, 0.6));
+    if (a3 > 0.01) { L7_haaienvin(ctx, 1470, 630, 0.72, a3); kruis(ctx, 1480, 870, 14, a3); regel(ctx, 'haai: geen vingers', 1480, 925, a3, C.text2, 28, 'center', 600);
+      L7_lid(ctx, 1780, 630, 0.6, 'walvis', a3, 1); vink(ctx, 1780, 870, 14, a3); regel(ctx, 'walvis: vingers', 1780, 925, a3, C.text2, 28, 'center', 600);
+      const vx = 720, vy = 960; ctx.save(); ctx.globalAlpha *= a3 * S.on(3, 0.8, 0.6); ctx.strokeStyle = C.goud; ctx.lineWidth = 4; L7_LEDEN.forEach(([sr, x]) => { const xx = x + (sr === 'vleer' ? 110 : 0); ctx.beginPath(); ctx.moveTo(xx, 790); ctx.quadraticCurveTo(xx, vy, vx, vy); ctx.stroke(); }); ctx.restore();
+      circ(ctx, vx, vy, 12, C.goud); gloed(ctx, vx, vy, 60, C.goud, a3 * S.on(3, 0.8, 0.6)); regel(ctx, 'voorouder met poten', vx, vy + 60, a3 * S.on(3, 0.6, 1.0), C.goud, 32, 'left', 700); }
+  } });
+
+// ---------- 9 · rudimentaire organen ----------
+SCHERMEN.push({ titel: 'Rudimentair', kop: 'Botjes die niets meer dragen', deel: 'Hetzelfde skelet',
+  stappen: [
+    { t: 'Bij een landdier zit het bekken vast aan de wervelkolom en draagt het de achterpoten. Bij de walvis dragen de heupbotjes niets meer.', n: 'Terug naar de bultrug uit de opening (scherm 2).' },
+    { t: 'Zo\'n overblijfsel heet een <b>rudimentair orgaan</b>: het is zijn oorspronkelijke functie kwijt.', n: 'Wel zitten er nog spieren aan die helpen bij het paren (zie briefing). Maar dat het juist heupbotjes zijn, verklaar je alleen met voorouders die achterpoten hadden.' },
+    { t: 'Jij hebt er ook een: je <b>staartbeen</b>. Een paar vergroeide wervels aan het eind van je wervelkolom, het restant van de staart van verre voorouders.', n: 'Ook het staartbeen heeft nog een functie als aanhechting van spieren en banden; de oorspronkelijke functie (staart) is weg.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 1.0), a1 = S.on(1, 0.9), a2 = S.on(2, 1.0);
+    if (a0 > 0.01) { ctx.save(); ctx.globalAlpha *= a0; paneel(ctx, 100, 190, 760, 520, 1); ctx.restore();
+      metaText(ctx, 'landdier', 140, 240, C.text2, 'left', 22, a0);
+      ctx.save(); ctx.globalAlpha *= a0; ctx.beginPath(); ctx.ellipse(220, 380, 70, 44, -0.15, 0, 6.283); shape(ctx, rgba(C.text2, 0.25), C.text2, 2.5); ctx.restore();
+      L7_wervels(ctx, 290, 390, 780, 400, 14, a0);
+      ctx.save(); ctx.globalAlpha *= a0; ctx.lineCap = 'round'; ctx.strokeStyle = C.text2; ctx.lineWidth = 12; ctx.beginPath(); ctx.moveTo(340, 410); ctx.lineTo(330, 530); ctx.lineTo(340, 650); ctx.stroke();
+      ctx.strokeStyle = C.goud; ctx.lineWidth = 16; ctx.beginPath(); ctx.moveTo(620, 380); ctx.lineTo(690, 450); ctx.stroke(); ctx.strokeStyle = C.text2; ctx.lineWidth = 12; ctx.beginPath(); ctx.moveTo(680, 450); ctx.lineTo(720, 550); ctx.lineTo(690, 650); ctx.stroke(); ctx.restore();
+      wijs(ctx, 'bekken, vast', 560, 520, 650, 420, a0, C.goud, 30);
+      L7_walvis(ctx, 1420, 450, 0.95, a0, { T, xray: 1, heup: 1 });
+      const [hx, hy] = L7_heupPunt(1420, 450, 0.95); wijs(ctx, 'heupbotjes, los', hx + 60, hy + 210, hx, hy + 6, a0 * S.on(0, 0.6, 0.5), C.goud, 30); }
+    termKaart(ctx, 'rudimentair orgaan', 'oorspronkelijke functie kwijt', 1420, 760, a1);
+    if (a2 > 0.01) { const g = a2 * S.on(2, 0.6, 0.5); metaText(ctx, 'onderkant van jouw wervelkolom', 170, 790, C.text2, 'left', 22, a2);
+      L7_wervels(ctx, 400, 820, 400, 950, 4, a2, null, 40);
+      ctx.save(); ctx.globalAlpha *= a2; ctx.beginPath(); ctx.moveTo(350, 955); ctx.quadraticCurveTo(400, 975, 450, 955); ctx.lineTo(400, 1010); ctx.closePath(); shape(ctx, rgba(C.text2, 0.3), C.text2, 2); ctx.restore();
+      gloed(ctx, 400, 1030, 60, C.goud, g); [0, 1, 2].forEach(i => { ctx.save(); ctx.globalAlpha *= g; ctx.beginPath(); ctx.ellipse(400, 1018 + i * 14, 12 - i * 3, 6, 0, 0, 6.283); shape(ctx, rgba(C.goud, 0.6), C.goud, 2); ctx.restore(); });
+      wijs(ctx, 'staartbeen', 560, 1040, 416, 1030, g, C.goud, 32, 'left'); }
+  } });
+
+// ---------- 10 · DNA ----------
+const L7_RIJEN = [['walvis', L7_REF, [], true], ['nijlpaard', 'ATGACCAACGTCCGAAAGTC', [9], true], ['koe', 'ATGACTAACGTCCGGAAGTC', [5, 9, 14], false], ['zeehond', 'ATCACTAACGTGCGGAAATC', [2, 5, 9, 11, 14, 17], false]];
+SCHERMEN.push({ titel: 'DNA', kop: 'Het spoor in het DNA', deel: 'Het spoor in het DNA',
+  stappen: [
+    { t: 'Soorten met een gemeenschappelijke voorouder erfden allebei zijn DNA. Daarna stapelen zich in elke lijn eigen mutaties op.', n: 'Vraag uit de film: Welk dier is het nauwst verwant aan de walvis? (a) De zeehond, (b) De koe, (c) Het nijlpaard. Antwoord c. In de film legt Dr. Kim hetzelfde stukje gen van vier dieren naast elkaar. De reeks is een verzonnen voorbeeld.' },
+    { t: 'Tel de verschillen met de walvis. Hoe minder verschillen, hoe korter geleden de splitsing, en hoe nauwer verwant: het <b>nijlpaard</b>.', n: 'De zeehond lijkt van buiten meer op een walvis, maar zijn DNA wijkt verder af. Hij is een roofdier, verwant aan honden en beren.' },
+    { t: 'Walvis en nijlpaard delen zelfs een ingevoegd stukje DNA, op precies dezelfde plek. De koe heeft het niet. Zo\'n stukje erven ze van één gemeenschappelijke voorouder.', n: 'Zulke invoegsels (SINE\'s) ontstaan zelden en vrijwel nooit twee keer op dezelfde plek. Nikaido e.a. (1999) vonden er vier die alleen walvissen en nijlpaarden delen (briefing).' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 1.0), a1 = S.on(1, 1.2), a2 = S.on(2, 1.4), x = 600;
+    pers(ctx, 'kim', 230, 1010, 540, { t: T, uit: a1 > 0.5 ? 'blij' : 'denkt', kijk: 1, a: a0, outfit: 'lab' });
+    L7_RIJEN.forEach(([nm, seq, dif, heeft], i) => { const y = 300 + i * 150, a = a0 * S.on(0, 0.5, i * 0.2);
+      naam(ctx, nm, x - 30, y, a, 'right', i === 1 && a1 > 0.5 ? C.goud : C.text, 34);
+      L7_dnaRij(ctx, x, y, seq, dif, a, { toon: a1 * S.on(1, 0.5, i * 0.2), ins: a2, heeft });
+      if (i > 0) regel(ctx, String(dif.length), 1770, y, a1 * S.on(1, 0.5, 0.3 + i * 0.2), C.paars, 40, 'center', 700); });
+    metaText(ctx, 'verschillen', 1770, 230, C.text2, 'center', 20, a1);
+    if (a1 > 0.01) { ctx.save(); ctx.globalAlpha *= a1 * S.on(1, 0.5, 1.0); ctx.strokeStyle = C.goud; ctx.lineWidth = 4; roundRect(ctx, x - 230, 450 - 60, 1430, 90, 18); ctx.stroke(); ctx.restore(); }
+    if (a2 > 0.01) { naam(ctx, 'ingevoegd stukje', x + 10 * 46 + 92, 228, a2 * S.on(2, 0.6, 0.8), 'center', C.goud, 30); }
+    termKaart(ctx, 'minder verschillen', 'nauwer verwant', 1150, 880, a1 * S.on(1, 0.6, 1.2) * (1 - a2));
+    if (a2 > 0.01) balk(ctx, 'zelfde invoegsel = één gemeenschappelijke voorouder', 1150, 930, 1300, a2 * S.on(2, 0.6, 1.2), C.goud, 38);
+  } });
+
+// ---------- 11 · moleculaire klok ----------
+SCHERMEN.push({ titel: 'Moleculaire klok', kop: 'Verschillen als klok', deel: 'Het spoor in het DNA',
+  stappen: [
+    { t: 'Mutaties stapelen zich gemiddeld in een vrij vast tempo op. Dan kun je de verschillen gebruiken als klok: de <b>moleculaire klok</b>.', n: 'Vraag uit de film: Twee soorten verschillen in 2 procent van een gen, twee andere in 4 procent. Welke splitsing is het langst geleden? (a) De splitsing met 4 procent verschil, (b) De splitsing met 2 procent verschil, (c) Dat kun je uit procenten niet afleiden. Antwoord a.' },
+    { t: 'Twee keer zoveel verschil: ongeveer twee keer zo lang geleden gesplitst. Ongeveer, want de klok tikt niet precies gelijk.', n: 'Je stelt de klok af met fossielen waarvan de leeftijd gemeten is (ijken). Het tempo verschilt per gen en per diergroep.' },
+    { t: 'De klok zegt: walvis en nijlpaard splitsten ± 55 miljoen jaar geleden. De oudste walvisfossielen zijn ± 50 miljoen jaar oud: net ná die splitsing.', n: 'Getallen zoals in de film; schattingen van de splitsing lopen in de literatuur uiteen (briefing).' },
+    { t: 'Lagen, botten en DNA: drie methoden, hetzelfde verhaal.', n: 'Dat verhaal teken je als een stamboom: een cladogram. Dat is les 8.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 1.0), a1 = S.on(1, 1.4), a2 = S.on(2, 1.4), a3 = S.on(3, 1.0), cel = 24;
+    [[200, 2, '2 % verschil'], [560, 4, '4 % verschil']].forEach(([x, nd, lb], i) => { const a = a0 * S.on(0, 0.5, i * 0.3);
+      L7_raster(ctx, x, 210, cel, nd, a); regel(ctx, lb, x + 120, 500, a, C.paars, 34, 'center', 700);
+      if (a1 > 0.01) { const d = 130 * nd / 2, cx = x + 120, ty = 570, ab = a1 * S.on(1, 0.6, i * 0.3); ctx.save(); ctx.globalAlpha *= ab; ctx.strokeStyle = C.line; ctx.lineWidth = 6; ctx.lineCap = 'round';
+        ctx.beginPath(); ctx.moveTo(cx - 70, ty); ctx.lineTo(cx, ty + d); ctx.lineTo(cx + 70, ty); ctx.moveTo(cx, ty + d); ctx.lineTo(cx, ty + d + 30); ctx.stroke(); ctx.restore();
+        circ(ctx, cx, ty + d, 10, C.goud); } });
+    if (a1 > 0.01) { pijl(ctx, 140, 570, 140, 870, C.text2, 4, a1); regel(ctx, 'tijd geleden', 120, 930, a1, C.text2, 28, 'left', 600); regel(ctx, '± 2× zo lang geleden', 680, 960, a1 * S.on(1, 0.6, 0.8), C.goud, 34, 'center', 700); }
+    if (a2 > 0.01) { const x0 = 1040, x1 = 1820, y = 420, mx = (mj) => lerp(x0, x1, (60 - mj) / 20);
+      ctx.save(); ctx.globalAlpha *= a2; ctx.strokeStyle = C.line; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x0, y); ctx.lineTo(x1, y); ctx.stroke(); ctx.restore();
+      [60, 55, 50, 45, 40].forEach(v => { ctx.save(); ctx.globalAlpha *= a2; ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(mx(v), y - 10); ctx.lineTo(mx(v), y + 10); ctx.stroke(); ctx.restore(); regel(ctx, String(v), mx(v), y + 46, a2, C.text2, 26, 'center', 500); });
+      metaText(ctx, 'miljoen jaar geleden', (x0 + x1) / 2, y + 90, C.text2, 'center', 20, a2);
+      circ(ctx, mx(55), y, 14, C.paars); regel(ctx, 'DNA-klok: splitsing', mx(55), y - 40, a2, C.paars, 30, 'center', 700);
+      const b = a2 * S.on(2, 0.6, 0.8); circ(ctx, mx(50), y, 14 * b, C.goud); regel(ctx, 'oudste walvisfossielen', mx(50) + 20, y - 90, b, C.goud, 30, 'left', 700);
+      ctx.save(); ctx.globalAlpha *= b; ctx.strokeStyle = C.goud; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(mx(50), y - 18); ctx.lineTo(mx(50) + 10, y - 80); ctx.stroke(); ctx.restore(); }
+    if (a3 > 0.01) { const k = L7_LKL(), ix = [1180, 1430, 1680], iy = 680;
+      [0, 1, 2].forEach(i => L7_laag(ctx, ix[0] - 80, iy + 30 - (i + 1) * 40, 160, 40, k[i], a3, i + 2));
+      L7_lid(ctx, ix[1], iy - 110, 0.42, 'walvis', a3, 1);
+      L7_dnaRij(ctx, ix[2] - 115, iy, 'ACGTA', [2], a3);
+      [['lagen', 0], ['botten', 1], ['DNA', 2]].forEach(([s, i]) => regel(ctx, s, ix[i], iy + 120, a3, C.text, 32, 'center', 700));
+      balk(ctx, 'hetzelfde verhaal', 1430, 940, 640, a3 * S.on(3, 0.6, 0.5), C.goud, 42); }
+  } });
+
+// ---------- 12 · samenvatting ----------
+SCHERMEN.push({ titel: 'Samenvatting', kop: 'Hoe weten we dat?', deel: 'Afsluiting',
+  stappen: [
+    { t: '<b>Lagen</b>: de laag die als eerste werd afgezet is het oudst, ook als hij later kantelde. Radioactieve stoffen geven het aantal jaren.', n: 'Relatieve en absolute datering (scherm 3–5). Terug naar de startvraag: de onderste laag, tenzij de lagen zijn omgeklapt.' },
+    { t: '<b>Botten</b>: homologe organen en rudimentaire organen, zoals de heupbotjes van de walvis, wijzen op voorouders op vier poten.', n: 'Scherm 8–9.' },
+    { t: '<b>DNA</b>: minder verschillen = nauwer verwant. De moleculaire klok schat wanneer soorten splitsten. Drie sporen, hetzelfde verhaal.', n: 'Scherm 10–11.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s = [S.on(0, 0.9), S.on(1, 0.9), S.on(2, 0.9)], k = L7_LKL();
+    const kol = [['lagen', C.oker, ['onderste laag oudst', 'tenzij omgeklapt', 'radioactief: jaren']], ['botten', C.goud, ['homoloog: zelfde bouw', 'rudimentair: functie kwijt', 'voorouders met poten']], ['DNA', C.paars, ['minder verschillen', 'nauwer verwant', 'moleculaire klok']]];
+    kol.forEach(([kop, col, regels], i) => { const a = s[i]; if (a <= 0.01) return; const x = 120 + i * 580;
+      paneel(ctx, x, 190, 540, 790, a, rgba(col, 0.6)); regel(ctx, kop, x + 270, 268, a, col, 44, 'center', 700);
+      if (i === 0) { [0, 1, 2].forEach(q => L7_laag(ctx, x + 110, 600 - (q + 1) * 80, 320, 80, k[q], a, q + 4)); L7_schelp(ctx, x + 200, 560, 18, a); L7_vis(ctx, x + 330, 470, 0.55, a, 1); }
+      if (i === 1) { L7_lid(ctx, x + 170, 330, 0.62, 'mens', a, 1); L7_lid(ctx, x + 380, 330, 0.75, 'walvis', a, 1); }
+      if (i === 2) { L7_dnaRij(ctx, x + 40, 420, 'ATGACCAAC', [], a); L7_dnaRij(ctx, x + 40, 520, 'ATGACCGAC', [6], a); }
+      regels.forEach((r, q) => regel(ctx, r, x + 40, 700 + q * 66, a * S.on(i, 0.5, 0.2 + q * 0.12), C.text, 31, 'left', 500)); });
+  } });
+
+// ---------- 13 · volgende keer ----------
+function L7_icoonBoom(ctx, x, y, a, T, streep = false) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.line; ctx.lineWidth = 5; ctx.lineCap = 'round';
+  const tips = [x - 120, x - 40, x + 40, x + 120], top = y - 90, n1 = [x + 80, y - 20], n2 = [x + 20, y + 30], n3 = [x - 30, y + 90];
+  ctx.beginPath(); ctx.moveTo(tips[2], top); ctx.lineTo(n1[0], n1[1]); ctx.lineTo(tips[3], top); ctx.moveTo(n1[0], n1[1]); ctx.lineTo(n2[0], n2[1]); ctx.lineTo(tips[1], top); ctx.moveTo(n2[0], n2[1]); ctx.lineTo(n3[0], n3[1]); ctx.lineTo(tips[0], top); ctx.moveTo(n3[0], n3[1]); ctx.lineTo(n3[0], n3[1] + 30); ctx.stroke();
+  ctx.restore(); [n1, n2, n3].forEach(([px, py]) => circ(ctx, px, py, 8 * a, C.goud));
+  if (streep) [[x + 50, y - 55], [x - 10, y + 0], [x - 75, y + 40]].forEach(([px, py], i) => { ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.paars; ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(px - 14, py - 10); ctx.lineTo(px + 14, py + 10); ctx.stroke(); ctx.restore(); }); }
+function L7_icoonDolfijn(ctx, x, y, a, T) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  const romp = (yy, kl, haai) => { ctx.beginPath(); ctx.moveTo(x + 120, yy); ctx.quadraticCurveTo(x + 40, yy - 34, x - 80, yy - 10); ctx.lineTo(x - 130, yy - 34); ctx.lineTo(x - 116, yy); ctx.lineTo(x - 130, yy + 30); ctx.lineTo(x - 80, yy + 10); ctx.quadraticCurveTo(x + 40, yy + 30, x + 120, yy); ctx.closePath(); ctx.fillStyle = kl; ctx.fill();
+    ctx.beginPath(); ctx.moveTo(x - 10, yy - 26); ctx.lineTo(x - 30, yy - 62); ctx.lineTo(x - 46, yy - 20); ctx.closePath(); ctx.fill(); };
+  romp(y - 50 + Math.sin(T * 1.5) * 4, C.licht ? '#5C7A92' : '#7A98B0'); romp(y + 60 + Math.sin(T * 1.5 + 1) * 4, C.licht ? '#7C8A98' : '#8E9CAA'); ctx.restore(); }
+function L7_icoonGroepen(ctx, x, y, a) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; [[150, 110, C.teal], [105, 78, C.goud], [62, 48, C.koraal]].forEach(([rx, ry, kl]) => { ctx.beginPath(); ctx.ellipse(x, y + (110 - ry) * 0.4, rx, ry, 0, 0, 6.283); shape(ctx, rgba(kl, 0.14), kl, 3); }); ctx.restore(); circ(ctx, x - 14, y + 30, 9, C.text); circ(ctx, x + 18, y + 30, 9, C.text); }
+SCHERMEN.push({ titel: 'Volgende keer', deel: 'Vooruitblik', geenKop: true,
+  stappen: [{ t: 'Volgende keer (les 8): <b>stambomen lezen</b>. Knooppunten, kenmerken op de takken, dolfijn en haai, en de namen van groepen.', n: 'Huiswerk: de film Hoe weten we dat? (nog eens) kijken. Wie vooruit wil: film 8 Stambomen lezen (startvraag: Is een dolfijn familie van een haai?).' }],
+  teken(ctx, S) { vooruitblik(ctx, S, 'Stambomen lezen', [['Een stamboom lezen', 'knooppunt = voorouder', (c, x, y, a, T) => L7_icoonBoom(c, x, y, a, T)], ['Kenmerken op takken', 'elk kenmerk een streepje', (c, x, y, a, T) => L7_icoonBoom(c, x, y, a, T, true)], ['Zelfde vorm', 'dolfijn en haai', L7_icoonDolfijn], ['Namen en groepen', 'soort, geslacht, familie', L7_icoonGroepen]]); } });
+
+/* =====================================================================================
+   Speler
+   ===================================================================================== */
+const cv = document.getElementById('cv'), ctx = cv.getContext('2d');
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let vwo = true, scr = 0, p = 0, tStap = performance.now(), tScherm = performance.now();
+const startTijden = {};
+try { const q = new URLSearchParams(location.search).get('niveau'); const sv = localStorage.getItem('niveau'); vwo = q === 'havo' ? false : q === 'vwo' ? true : sv !== 'havo'; } catch (e) {}
+const zichtbaar = (i) => SCHERMEN[i].stappen.map((s, k) => k).filter(k => vwo || !SCHERMEN[i].stappen[k].vwo);
+
+function maat() { const r = cv.getBoundingClientRect(); const d = Math.min(2, window.devicePixelRatio || 1); const w = Math.max(320, Math.round(r.width * d)), h = Math.round(w * 9 / 16); if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; } }
+function frame(now) {
+  maat(); const sc = SCHERMEN[scr], vis = zichtbaar(scr), b = vis[Math.min(p, vis.length - 1)];
+  const tb = reduce ? 99 : (now - tStap) / 1000, T = (now - tScherm) / 1000;
+  const S = { b, T, vwo,
+    on(k, d = 0.9, del = 0) { if (b == null) return 0; const st = sc.stappen[k]; if (!st || (st.vwo && !vwo)) return 0; if (b > k) return 1; if (b < k) return 0; return ease((tb - del) / d); },
+    start(k) { return (startTijden[scr + ':' + k] || now) / 1000 - tScherm / 1000; } };
+  ctx.setTransform(cv.width / W, 0, 0, cv.height / H, 0, 0); ctx.clearRect(0, 0, W, H); ctx.fillStyle = C.bg; ctx.fillRect(0, 0, W, H);
+  if (!sc.geenKop) { text(ctx, sc.titel === 'Start' ? '' : kopVan(sc), 80, 100, fTitel(54), C.text); metaText(ctx, sc.deel, 82, 140, C.meta, 'left', 20); }
+  try { sc.teken(ctx, S); } catch (e) { console.error(e); }
+  requestAnimationFrame(frame);
+}
+function kopVan(sc) { return sc.kop || sc.titel; }
+
+const capTxt = document.getElementById('capTxt'), capNot = document.getElementById('capNot'), dots = document.getElementById('dots'), teller = document.getElementById('teller'), chips = document.getElementById('chips');
+function tekstKaart() {
+  const vis = zichtbaar(scr), k = vis[p], st = SCHERMEN[scr].stappen[k];
+  capTxt.innerHTML = (st.vwo ? '<span class="vwo-tag">vwo</span>' : '') + ((!vwo && st.th) ? st.th : st.t);
+  capNot.textContent = st.n || '';
+  dots.innerHTML = vis.map((kk, i) => `<i class="${i < p ? 'done' : i === p ? 'cur' : ''}${SCHERMEN[scr].stappen[kk].vwo ? ' vwo' : ''}"></i>`).join('');
+  teller.textContent = `scherm ${scr + 1}/${SCHERMEN.length} · stap ${p + 1}/${vis.length}`;
+  chips.querySelectorAll('.chip[data-i]').forEach(c => c.classList.toggle('cur', +c.dataset.i === scr));
+  document.getElementById('terug').disabled = volgendVol(scr - 1, -1) < 0 && p === 0;
+  document.getElementById('verder').disabled = volgendVol(scr + 1, 1) < 0 && p === vis.length - 1;
+  chips.querySelectorAll('.chip[data-i]').forEach(c => { c.hidden = leeg(+c.dataset.i); });
+  try { history.replaceState(null, '', '#' + (scr + 1)); } catch (e) {}
+}
+function markeer() { startTijden[scr + ':' + zichtbaar(scr)[p]] = performance.now(); }
+// een scherm met alleen vwo-stappen telt in havo niet mee (wordt overgeslagen)
+const leeg = (i) => zichtbaar(i).length === 0;
+function volgendVol(i, d) { while (i >= 0 && i < SCHERMEN.length && leeg(i)) i += d; return (i >= 0 && i < SCHERMEN.length) ? i : -1; }
+function verder() { const vis = zichtbaar(scr); if (p < vis.length - 1) { p++; tStap = performance.now(); } else { const v = volgendVol(scr + 1, 1); if (v < 0) return; scr = v; p = 0; tStap = tScherm = performance.now(); } markeer(); tekstKaart(); }
+function terug() { if (p > 0) p--; else { const v = volgendVol(scr - 1, -1); if (v < 0) return; scr = v; p = zichtbaar(scr).length - 1; tScherm = performance.now() - 20000; } tStap = performance.now() - 20000; markeer(); tekstKaart(); }
+function naarScherm(i) { i = clamp(i, 0, SCHERMEN.length - 1); const d = i < scr ? -1 : 1; let v = volgendVol(i, d); if (v < 0) v = volgendVol(i, -d); if (v < 0) return; scr = v; p = 0; tStap = tScherm = performance.now(); markeer(); tekstKaart(); }
+function opnieuw() { tStap = performance.now(); markeer(); }
+
+// chips per scherm, gegroepeerd per deel
+(function () { let deel = ''; chips.innerHTML = SCHERMEN.map((s, i) => { let h = ''; if (s.deel !== deel) { deel = s.deel; h += `<span class="chip deel">${deel}</span>`; } return h + `<button type="button" class="chip" data-i="${i}"><span class="n">${i + 1}</span>${s.titel}</button>`; }).join('');
+  chips.addEventListener('click', e => { const c = e.target.closest('.chip[data-i]'); if (c) naarScherm(+c.dataset.i); }); })();
+
+function zetNiveau(v) { vwo = v; document.getElementById('lvVwo').setAttribute('aria-pressed', v); document.getElementById('lvHavo').setAttribute('aria-pressed', !v); try { localStorage.setItem('niveau', v ? 'vwo' : 'havo'); } catch (e) {} if (leeg(scr)) { let w = volgendVol(scr, 1); if (w < 0) w = volgendVol(scr, -1); scr = w; p = 0; } p = Math.min(p, zichtbaar(scr).length - 1); tekstKaart(); }
+document.getElementById('lvVwo').onclick = () => zetNiveau(true);
+document.getElementById('lvHavo').onclick = () => zetNiveau(false);
+const lblBtn = document.getElementById('lblBtn');
+function wisselNamen() { toonNamen = !toonNamen; lblBtn.setAttribute('aria-pressed', !toonNamen); lblBtn.textContent = toonNamen ? 'Namen verbergen' : 'Namen tonen'; }
+lblBtn.onclick = wisselNamen;
+function presenteer(aan) {
+  document.body.classList.toggle('presenteer', aan); document.body.classList.toggle('muis', false);
+  const el = document.documentElement, aanVS = el.requestFullscreen || el.webkitRequestFullscreen, uitVS = document.exitFullscreen || document.webkitExitFullscreen, vs = document.fullscreenElement || document.webkitFullscreenElement;
+  try { if (aan && !vs && aanVS) { const r = aanVS.call(el); if (r && r.catch) r.catch(() => {}); } if (!aan && vs && uitVS) { const r = uitVS.call(document); if (r && r.catch) r.catch(() => {}); } } catch (e) {}
+}
+// groot scherm: knoppen tonen bij muisbeweging, na 2,5 s stil weer verbergen (ook de muiswijzer)
+let _muisTimer = 0;
+document.addEventListener('mousemove', () => { if (!document.body.classList.contains('presenteer')) return; document.body.classList.add('muis'); document.body.classList.remove('muisweg'); clearTimeout(_muisTimer); _muisTimer = setTimeout(() => { if (!document.querySelector('.knoppen:hover')) { document.body.classList.remove('muis'); document.body.classList.add('muisweg'); } }, 2500); });
+function wisselTekst() { const z = document.body.classList.toggle('zondertekst'); const b = document.getElementById('tekstBtn'); if (b) b.textContent = z ? 'Tekst aan' : 'Tekst uit'; try { localStorage.setItem('les-zondertekst', z ? '1' : '0'); } catch (e) {} }
+try { if (localStorage.getItem('les-zondertekst') === '1') { document.body.classList.add('zondertekst'); } } catch (e) {}
+document.addEventListener('webkitfullscreenchange', () => { if (!document.webkitFullscreenElement) document.body.classList.remove('presenteer'); });
+document.getElementById('presBtn').onclick = () => presenteer(true);
+document.getElementById('grootBtn').addEventListener('click', e => { e.stopPropagation(); presenteer(true); });
+document.getElementById('tekstBtn').onclick = wisselTekst;
+document.getElementById('tekstBtn').textContent = document.body.classList.contains('zondertekst') ? 'Tekst aan' : 'Tekst uit';
+document.getElementById('stopPres').onclick = () => presenteer(false);
+document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement) document.body.classList.remove('presenteer'); });
+document.getElementById('verder').onclick = verder;
+document.getElementById('terug').onclick = terug;
+document.getElementById('opnieuw').onclick = opnieuw;
+document.getElementById('stage').addEventListener('click', verder);
+document.addEventListener('keydown', e => {
+  if (e.target.closest('input,textarea,select')) return; if (e.altKey || e.ctrlKey || e.metaKey) return;
+  const k = e.key;
+  if (k === 'ArrowRight' || k === ' ' || k === 'PageDown' || k === 'Enter') { if (k === 'Enter' && e.target.closest('button')) return; e.preventDefault(); verder(); }
+  else if (k === 'ArrowLeft' || k === 'PageUp' || k === 'Backspace') { e.preventDefault(); terug(); }
+  else if (k === 'ArrowDown') { e.preventDefault(); naarScherm(scr + 1); }
+  else if (k === 'ArrowUp') { e.preventDefault(); naarScherm(scr - 1); }
+  else if (k === 'Home') naarScherm(0);
+  else if (k === 'r' || k === 'R') opnieuw();
+  else if (k === 'l' || k === 'L') wisselNamen();
+  else if ((k === 't' || k === 'T') && document.body.classList.contains('presenteer')) wisselTekst();
+  else if (k === 'f' || k === 'F') presenteer(!document.body.classList.contains('presenteer'));
+  else if (k === 'Escape') presenteer(false);
+});
+document.addEventListener('themawissel', zetPalet);
+
+(function () { const m = (location.hash.match(/^#(\d+)/) || [])[1]; if (m) { scr = clamp(+m - 1, 0, SCHERMEN.length - 1); } })();
+zetNiveau(vwo); markeer(); tekstKaart();
+(document.fonts ? document.fonts.ready : Promise.resolve()).then(() => requestAnimationFrame(frame));
+// testhaak (alleen voor controle-screenshots): window.__les.naar(scherm, stap) toont die stap meteen in eindstand
+window.__les = { n: () => SCHERMEN.length, stappen: (i) => zichtbaar(i).length, naar(i, k) { scr = clamp(i, 0, SCHERMEN.length - 1); p = clamp(k, 0, zichtbaar(scr).length - 1); tStap = tScherm = performance.now() - 30000; markeer(); tekstKaart(); }, niveau(v) { zetNiveau(v); }, namen(v) { if (toonNamen !== v) wisselNamen(); } };
+
+</script>
+</body>
+</html>
