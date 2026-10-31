@@ -42,3 +42,13 @@ Belangrijke vondsten: RIVM zei op 10 maart 2020 zelf nog R 1,5–2 (later 2,3–
 
 ## Daarna (film 1, oorspronkelijk plan)
 Keuring verwerken → Farid in `personages/lib_cast.js`, ROLLEN.md, LEVENSLOOP.md, castboek → decor (alleen na akkoord en credits) → script_opname.md + segments.json → inspreken (Roos, eleven_v4; uitspraak-wachtlijst: R-nul, epidemioloog, groepsimmuniteit, ic, RIVM, Enschede) → bouwen (FILMDATA-straat, de dossierlagen als eigen tekenfuncties) → frisse beeldreview → repo (vervolg.html: planobject → [titel, href]; films.json; FILMKUNST; medaillon) → als laatste, na `git pull`, `jaarplanner-dekking.json`.
+
+## Stand (31 okt 2026): scripts film 2 en 3 klaar, wacht op keuring
+| Film | Bronmap | Winnaar (blind, Claude Fable 5.1) | Review | Woorden · vragen |
+|---|---|---|---|---|
+| 2 Screenen of niet? (darmkanker) | `gezondheidswetenschappen-2-screenen-of-niet/bron/` | tijdlijn nipt 48–47–46 → combinatie 52, duidelijk beter | 3 MOET verwerkt (review_v2) | 894 · 6 (c b a c a b) |
+| 3 Roken en longkanker | `gezondheidswetenschappen-3-roken-en-longkanker/bron/` | klassiek duidelijk 50–45–39 → combinatie 52 | 5 MOET verwerkt (review_v2) | 891 · 6 (b c a b c a) |
+
+Let op: de schrijvende helpers hadden geen Agent-tool; hun eigen (niet-blinde) oordeel en eerste review staan in `werk/helper-oordeel/` en `reviews/review_v1_helper.md`. De echte blinde ronde en frisse feitenreview zijn daarna vanuit de hoofdsessie gedaan (`werk/blind/oordeel.md`, `reviews/review_v2.md`). Logregels staan in `films/logboek/mutaties.jsonl` en `fouten.jsonl`.
+
+**Keuringsblad** (ook voor de planning van Milieukunde, Tuin en Voeding): https://claude.ai/artifact/5upeA9QA6GVHgoqMV2zgrN (db-collectie `keuring`, doc-id = punt: gz1 Farid zonder badge, gz2 namen in de stem, gz3 overlap met *Kun je onderzoek vertrouwen?*, gz4 'vijftien keer', gz5 Opa Henk + decor, gz6 overdiagnose/kosten, gz7 H2 splitsen; velden `keuze` (0 = voorstel), `opm`, `algemeen`). Lees terug, verwerk, dan inspreken (Roos, eleven_v4) → bouwen → frisse beeldreview → repo. Twijfels per film in `bron/twijfels.md`.

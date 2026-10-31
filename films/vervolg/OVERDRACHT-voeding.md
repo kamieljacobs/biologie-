@@ -70,3 +70,6 @@ Praktijk van de diëtist: ElevenLabs flow `cMT4epIEjMJi0sraRQzk`, generatie `s0e
 - Frisse beeldreview 1 per film (`bron/reviews/beeldreview_1.md`), verwerkt door een bouwhelper; reviewpunten in `films/logboek/fouten.jsonl`. Eindkaart film 2 bewust zes regels gelaten (gelijk aan de reeks).
 - Bronnenlogboeken `bron/bronnen.md`: film 1 20 ✓ · 18 ≈ · 3 ?; film 2 25 ✓ · 16 ≈ · 0 ?. Open punten voor Kamiel staan onderaan elk logboek (o.a. 'uit de schijf haal je het meeste van wat je eet' is advies, geen feit).
 - Nog open voor Kamiel: Dennis in outfit `sporter` (korte broek, rugnummer 7) is in film 2 afgeleid van `sport`, nog niet in het castboek; uitspraakwachtlijsten; vervolg.html-voorstel 1–4 (pauze herindeling).
+
+## Kritische check herindeling (31 okt 2026)
+Opnieuw bekeken (`films/vervolg/PLANNING-milieu-tuin-voeding.md`, samen met Milieukunde en Tuin): Van akker tot verpakking → eiwittransitie (*Een burger zonder koe*), Eten als behandeling → diëtist in het ziekenhuis (ondervoeding, nierfalen; let op: vóór dialyse minder eiwit, tijdens dialyse juist meer), Waarom afvallen naar plek 2; voorstel 1 bleek al opgelost. Ligt bij Kamiel op het keuringsblad https://claude.ai/artifact/5upeA9QA6GVHgoqMV2zgrN (vd0–vd4, ook de vraag of de pauze voorbij is).
