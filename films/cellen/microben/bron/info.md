@@ -5,7 +5,7 @@
 | Bestand | `films/cellen/microben.html` (audio in `microben/audio/`) |
 | Reeks | Cellen · losse film bij Biologie voor jou havo 4 § 4.2 Bacteriën, virussen en schimmels |
 | Niveau | havo 4 (één niveau) |
-| Versie | 1.2 · oktober 2026 (1.0 = 26 oktober 2026, script v2; 1.1 = 29 oktober 2026, opwaardering naar prompt v13; 1.2 = 30 oktober 2026, castnamen uit stem en ondertitel) |
+| Versie | 1.2 · oktober 2026 (1.0 = 26 oktober 2026, script v2; 1.1 = 29 oktober 2026, opwaardering naar prompt v13; 1.2 = 30 oktober 2026, castnamen uit stem en ondertitel; 1.3 = 31 oktober 2026, citaat blijft bij Vragen uit, label s26) |
 | Prompt | v13 |
 | Voldoet aan | prompt v13 (29 okt 2026, zonder keuring; zie 'Versie 1.1' en `opwaardering-v13.md`) |
 | Stem | Roos (ElevenLabs eleven_v4), één take per alinea; generation-id's in `stem/gen.json`, sessies in `stem/sessions.json`; sinds 1.2 negen takes met een geplakt stuk (stem-invoer en credits in `stem/herinspreek-2026-10-30.json`, luisterfragmenten `stem/microben-<alinea>-luister.mp3`) |
@@ -73,6 +73,11 @@ Oude versie: `bron/oud/microben-1.1.html`. 'Voldoet aan' blijft prompt v13; datu
 - Tekst: Noor → 'een leerling'/'de leerling', Teun → 'haar broertje'/'het broertje', mevrouw Visser → 'de biologiedocent'/'de docent'; s11 'Kan ze die eraf snijden?' → 'Kun je die eraf snijden?'. Ook `segments.json`, `script_v2.md`, `script.md`, q02, q12 (+ optie b 'als je er ruim omheen snijdt'), q27, q31, lead, docentdeel (opbouw) en footer ('Personages uit het castboek').
 - Beeld: cue in s01 van 'Teun' naar 'broertje' (wijsgebaar); personages blijven in beeld. Geen andere beeldwijziging. `bron/src/scenes.js` opnieuw samengesteld (bevatte nog een oudere lib_bio-kop).
 - Getest: cuecheck, Vragen uit per gewijzigde alinea (knip in stilte; s01 en s05 knippen zoals vóór 1.2 ook de geciteerde zin vóór de vraag mee, omdat de speler een zin na een citaat niet splitst), contactvel van de gewijzigde scènes.
+
+## Versie 1.3 (31 okt 2026, twee herstelpunten; geen nieuwe opnames)
+- Wijzigingen: (1) Vragen uit knipte in s01 en s05 ook het citaat vóór de vraag ('Er groeit een plantje!', 'Je kijkt door het plastic.') weg. Oorzaak: een spelerfout in `vraagCuts`: een zin die eindigt op `!'` of `.'` (sluitend aanhalingsteken) telde niet als zinseinde, dus citaat en vraag werden één zin. Fix in de gedeelde speler via `scripts/spelerfix.py` (`fix_vraagcitaat`, marker `VRAAGCITAAT_MARK`), hier alleen op deze film toegepast (film-HTML en `bron/src/player.js`); nu knip s01 vanaf 'Wat groeit hier' en s05 vanaf 'Welk sneetje'. (2) s26: label 'zakdoek / verkouden' stond over het hoofd van de leerling; nu links van de zakdoek (x 1235, y 466 in `scenes_mi.js`, regel s26), vrij van gezicht en andere labels.
+- Getest: Playwright met `?vragen=uit`, 5 s ervoor tot erna: audio speelt door tot het citaat uit is (s01 tot 10,16 s, s05 tot 14,52 s), de knip valt in de stilte voor 'Wat' / 'Welk'; still van s26.
+- Andere films met een citaat vlak voor de vraag hebben dezelfde fout tot `spelerfix.py` ook op hen is toegepast.
 
 ## Aandachtspunten
 - Veiligheid: de film laat níét op een schaaltje niezen (gedachte-experiment); kweken alleen vingers/lucht bij kamertemperatuur, dicht met plakband, verhitten vóór afvoer (MISAC, Practical Biology).

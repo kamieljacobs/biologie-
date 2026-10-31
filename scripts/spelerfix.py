@@ -413,6 +413,19 @@ def fix_capletter(s):
     return s, ['ondertitel-antwoordletter']
 
 
+# Citaat vóór de vraag (31 okt 2026, Boterhamfilm): in vraagCuts eindigde een zin op [.?!] en miste dus een
+# sluitend aanhalingsteken ("plantje!'"); het citaat werd met de vraag samengevoegd en bij Vragen uit mee weggeknipt.
+# Fix: laat ook een aanhalingsteken achter het leesteken als zinseinde gelden, alleen in vraagCuts. Idempotent.
+VC_OUD = "function vraagCuts(seg){ const w=seg.words||[], z=[]; let cur=[]; for(const x of w){ cur.push(x); if(/[.?!]$/.test(x.t)){"
+VC_NIEUW = "function vraagCuts(seg){ const w=seg.words||[], z=[]; let cur=[]; for(const x of w){ cur.push(x); if(/[.?!]['\\u2019\\u201d\"]?$/.test(x.t)){/*VRAAGCITAAT_MARK*/"
+
+
+def fix_vraagcitaat(s):
+    if VC_OUD not in s:
+        return s, []
+    return s.replace(VC_OUD, VC_NIEUW, 1), ['citaat voor vraag blijft']
+
+
 def alle_bestanden():
     fs = [f for f in glob.glob(os.path.join(ROOT, 'films/**/*.html'), recursive=True)
           if '/bron/' not in f and not f.endswith('presentatie.html')]
@@ -436,6 +449,7 @@ def main(argv):
             s2 = s3; log += log2
         s2, log3 = fix_antwletter(s2); log += log3
         s2, log4 = fix_capletter(s2); log += log4
+        s2, log5 = fix_vraagcitaat(s2); log += log5
         if check:
             ok = MARK in s
             if not ok:

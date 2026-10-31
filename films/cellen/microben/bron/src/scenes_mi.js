@@ -190,7 +190,7 @@ Object.assign(SCENES, {
   // ---------- H4 Een nies? Liever niet ----------
   s26(ctx, t, q) { lokaal(ctx); tafel(ctx, 560, 1360, TAFEL);
     visser(ctx, 460, t, { kijk: 1, pose: q.on('Niezen', 1) > 0.5 ? 'wijs' : 'staan' }); noor(ctx, 1480, t, { outfit: 'practicum', uit: q.on('verkouden', 1) > 0.5 ? 'moe' : 'neutraal', pose: 'vasthouden', hold: (c, x, y) => { c.beginPath(); c.moveTo(x - 22, y - 14); c.lineTo(x + 18, y - 22); c.lineTo(x + 24, y + 16); c.lineTo(x - 16, y + 22); c.closePath(); shape(c, '#F2F2EE', '#C8CED6', 1.5); } });
-    naamBij(ctx, 'zakdoek', 'VERKOUDEN', 1480, 410, q.on('verkouden', 1) * (1 - q.on('Niezen', 1)), 'center');
+    naamBij(ctx, 'zakdoek', 'VERKOUDEN', 1235, 466, q.on('verkouden', 1) * (1 - q.on('Niezen', 1)), 'center');
     miSchaal(ctx, 960, TAFEL - 8, 16, { kol: 0, dicht: 0 });
     zoomCircle(ctx, 960, 300, 170, 960, TAFEL - 20, '', q.on('Niezen', 1), () => { binnen(ctx, 960, 300, 170, 'schema'); miSchaal(ctx, 960, 300, 90, { kol: 0, dicht: 0 }); kruis(ctx, 960, 300, 56, 1, C.koraal); });
     metaA(ctx, 'NIET OP SCHOOL', 960, 510, q.on('Niezen', 1), C.koraal, 'center', 26);
