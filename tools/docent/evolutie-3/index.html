@@ -1,0 +1,893 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../../../js/teller.js" data-root="../../../"></script>
+<link rel="icon" href="../../../img/icoon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../../img/icoon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../../../img/icoon/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Les 3 · Vormen van selectie · Evolutie · Biologie bij Kamiel</title>
+<meta name="description" content="Uitleg in stappen voor de docent bij evolutie les 3: gerichte selectie (berkenspanner), stabiliserende selectie (geboortegewicht), splitsende selectie (zaadkraker), seksuele selectie (pauw, edelhert) en co-evolutie (Darwins orchidee).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../../huisstijl.css">
+<script src="../../huisstijl.js"></script>
+<style>
+/* Uitleg in stappen · Evolutie · les 3 · versie 1.0 · 31 oktober 2026
+   Docententool: per scherm korte animaties die de docent stap voor stap afspeelt (klik, → of de presenter).
+   Tekenruimte 1920x1080 op canvas; kleuren volgen licht/donker van de site. Inhoud en volgorde: zie SCHERMEN in het script. */
+.tool-kop{padding-bottom:10px}
+.tool-kop p a{color:var(--goud-text)}
+.bediening{display:flex;flex-wrap:wrap;gap:10px 12px;align-items:center;margin:4px 0 14px}
+.bediening .niv-label{font:600 12px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-right:6px}
+.bediening .sp{flex:1}
+.knop.stil[aria-pressed="true"]{background:var(--goud-soft);box-shadow:inset 0 0 0 1px var(--goud)}
+#speler{display:flex;flex-direction:column;gap:10px}
+.breed{width:min(100%, calc((100vh - 220px) * 16 / 9));min-width:min(100%,320px);margin-inline:auto}
+#stage{position:relative;aspect-ratio:16/9;background:var(--surface);border:1px solid var(--line2);border-radius:var(--radius);overflow:hidden;cursor:pointer}
+#stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.cap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;align-items:center;background:var(--surface);border:1px solid var(--line2);border-radius:12px;padding:12px 16px;min-height:66px}
+.cap .txt{font-size:21px;line-height:1.4;min-width:0}
+.cap .txt b{color:var(--goud-text)}
+.cap .vwo-tag{display:inline-block;font:600 11px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--paars);border:1px solid var(--paars);border-radius:999px;padding:4px 8px;margin-right:8px;vertical-align:3px}
+.cap .notitie{grid-column:1/-1;font-size:15px;color:var(--text2);border-top:1px dashed var(--line2);padding-top:6px}
+.cap .notitie:empty{display:none}
+.cap .notitie::before{content:"Docent · ";font:600 11px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3)}
+.dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;max-width:180px}
+.dots i{width:10px;height:10px;border-radius:50%;background:var(--line2);display:block}
+.dots i.done{background:var(--text3)}
+.dots i.cur{background:var(--goud)}
+.dots i.vwo{box-shadow:0 0 0 2px var(--paars)}
+.knoppen{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.knoppen .teller{font:600 13px/1 var(--meta);letter-spacing:.06em;color:var(--text2);margin-left:auto}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.chip{background:none;color:var(--text2);border:1px solid var(--line2);border-radius:999px;padding:4px 12px;font-size:14px;min-height:34px}
+.chip:hover{color:var(--text)}
+.chip.cur{background:var(--goud);color:var(--goud-ink);border-color:var(--goud)}
+.chip .n{font:600 12px var(--meta);margin-right:5px}
+.chip.deel{border:0;padding-left:0;font:600 12px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3);cursor:default}
+.hint{color:var(--text3);font-size:14px;margin-top:2px}
+kbd{font:600 12px var(--meta);border:1px solid var(--line2);border-radius:4px;padding:0 5px}
+.draai{display:none}
+@media (max-width:640px){
+  .draai{display:block;margin:0 0 10px;color:var(--text2)}
+  .cap .txt{font-size:17px}
+  .cap{grid-template-columns:1fr}
+  .dots{justify-content:flex-start;max-width:none}
+  .hint{display:none}
+}
+body.presenteer{overflow:hidden}
+body.presenteer .wrap{max-width:none;padding:10px 16px}
+body.presenteer .sitenav,body.presenteer .tool-kop,body.presenteer .bediening,body.presenteer .chips,body.presenteer .hint,body.presenteer .cap .notitie,body.presenteer details.docent,body.presenteer .tool-voet,body.presenteer .draai,body.presenteer footer{display:none!important}
+body.presenteer .cap .txt{font-size:24px}
+#stopPres{display:none}
+body.presenteer #stopPres{display:inline-flex}
+details.briefing{margin-top:18px}
+details.briefing>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;min-height:44px}
+details.briefing>summary::-webkit-details-marker{display:none}
+details.briefing>summary h2{font-size:24px}
+details.briefing>summary::after{content:"+";margin-left:auto;font:600 22px/1 var(--meta);color:var(--goud-text)}
+details.briefing[open]>summary::after{content:"–"}
+.briefing .intro{color:var(--text2);max-width:72ch}
+.briefing details.onderwerp{border-top:1px solid var(--line2);padding:4px 0}
+.briefing details.onderwerp>summary{cursor:pointer;font-weight:700;padding:10px 0;font-size:18px}
+.briefing details.onderwerp>div{max-width:76ch;padding-bottom:10px}
+.briefing details.onderwerp p{margin:8px 0;line-height:1.55}
+.briefing details.onderwerp ul,.briefing details.onderwerp ol{margin:6px 0 8px;padding-left:22px;line-height:1.5}
+.briefing details.onderwerp p:last-child{font-size:14px;color:var(--text2)}
+.briefing details.onderwerp a{color:var(--goud-text)}
+.briefing details.onderwerp em{color:var(--text2)}
+body.presenteer details.briefing{display:none!important}
+details.docent{margin-top:28px}
+details.docent>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;min-height:44px}
+details.docent>summary::-webkit-details-marker{display:none}
+details.docent>summary h2{font-size:24px}
+details.docent>summary::after{content:"+";margin-left:auto;font:600 22px/1 var(--meta);color:var(--goud-text)}
+details.docent[open]>summary::after{content:"–"}
+.docent .kolommen{display:grid;gap:8px 28px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:860px){.docent .kolommen{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.docent h3{margin:16px 0 6px}
+.docent p,.docent li{color:var(--text2)}
+.docent ul,.docent ol{margin:4px 0;padding-left:20px}
+.docent li{margin:3px 0}
+.docent li b{color:var(--text)}
+.tool-voet{margin:28px 0 40px;color:var(--text3);font-size:14px}
+/* Groot scherm (Kamiel 26 okt 2026): het beeld vult het scherm; één regel tekst eronder (T = tekst uit, dan alleen beeld);
+   knoppen zweven onderaan en verschijnen alleen als je de muis beweegt. Werkt ook zonder echte volledig-scherm-API (iPad). */
+body.presenteer{--capH:72px}
+body.presenteer.zondertekst{--capH:0px}
+body.presenteer .wrap{max-width:none;padding:0}
+body.presenteer #speler{position:fixed;inset:0;z-index:50;background:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0}
+body.presenteer .breed{width:min(100vw, calc((100vh - var(--capH)) * 16 / 9))}
+body.presenteer #stage{border:0;border-radius:0}
+body.presenteer .cap{border:0;border-radius:0;background:transparent;min-height:0;height:var(--capH);padding:6px 18px;overflow:hidden}
+body.presenteer .cap .txt{font-size:clamp(18px, 2.4vh, 28px)}
+body.presenteer.zondertekst .cap{display:none}
+body.presenteer .knoppen{position:fixed;right:14px;top:14px;max-width:calc(100vw - 28px);width:auto;z-index:60;background:var(--surface);border:1px solid var(--line2);border-radius:999px;padding:6px 10px;box-shadow:0 6px 24px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s}
+body.presenteer.muis .knoppen{opacity:1;pointer-events:auto}
+body.presenteer.muisweg,body.presenteer.muisweg #stage{cursor:none}
+body.presenteer .knoppen .teller{margin-left:6px}
+#tekstBtn{display:none}
+body.presenteer #tekstBtn{display:inline-flex}
+body.presenteer .bkfb-zweef,body.presenteer .bkfb-kop{display:none!important}
+.grootknop{position:absolute;top:10px;right:10px;z-index:2;display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 12px;border-radius:999px;border:1px solid var(--line2);background:var(--surface);color:var(--text2);font:600 13px/1 var(--meta);letter-spacing:.04em;opacity:.55;cursor:pointer;transition:opacity .15s}
+.grootknop:hover,.grootknop:focus-visible{opacity:1;color:var(--text);border-color:var(--goud)}
+.grootknop svg{width:16px;height:16px}
+body.presenteer .grootknop{display:none}
+</style>
+<body>
+<div class="wrap">
+<nav class="sitenav" aria-label="Site">
+  <a class="merk" href="../../../index.html#home">Biologie bij Kamiel</a>
+  <a class="terug" href="../../../index.html#lessen-evolutie">← Alle lessen</a>
+  <a class="terug" href="../../../index.html#evolutie">Evolutie</a>
+  <span class="rechts"><button type="button" class="icoon" data-thema-knop></button></span>
+</nav>
+
+<header class="tool-kop">
+  <div class="mono">Les 3 · Evolutie · voor de docent</div>
+  <h1>Vormen van selectie</h1>
+  <p>Uitleg in stappen bij de derde les evolutie, kort gehouden (± 25 minuten) zodat je hem met les 2 of les 4 kunt combineren. Waarom worden baby's niet steeds zwaarder? De berkenspanner rond Manchester (gerichte selectie), het geboortegewicht in Londen (stabiliserende selectie), de zwartbuikzaadkraker (splitsende selectie), de pauw en het edelhert (seksuele selectie) en Darwins orchidee met de pijlstaartvlinder (co-evolutie). Hoort bij de film <a href="../../../films/evolutie/3-vormen-van-selectie.html">Vormen van selectie</a> (havo Biologie voor jou H4, vwo Nectar H7); voor havo en vwo gelijk.</p>
+</header>
+
+<p class="draai">Deze tool is gemaakt voor het digibord of de beamer. Op een telefoon: draai je scherm een kwartslag.</p>
+
+<div class="bediening">
+  <span><span class="niv-label" id="nivLabel">Niveau</span><span class="seg" role="group" aria-labelledby="nivLabel"><button type="button" id="lvHavo" aria-pressed="false">havo</button><button type="button" id="lvVwo" aria-pressed="true">vwo</button></span></span>
+  <span class="sp"></span>
+  <button type="button" class="knop stil klein" id="lblBtn" aria-pressed="false" title="Namen van de onderdelen verbergen of tonen (L)">Namen verbergen</button>
+  <button type="button" class="knop klein" id="presBtn" title="Groot scherm: het beeld vult het hele scherm (F)">Groot scherm</button>
+</div>
+
+<section id="speler" aria-label="Uitleg in stappen">
+  <div id="stage" class="breed" role="img" aria-label="Animatie bij de huidige stap"><canvas id="cv"></canvas><button type="button" class="grootknop" id="grootBtn" title="Groot scherm (F)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4"/></svg>Groot scherm</button></div>
+  <div class="cap breed" aria-live="polite"><div class="txt" id="capTxt"></div><div class="dots" id="dots"></div><div class="notitie" id="capNot"></div></div>
+  <div class="knoppen breed">
+    <button type="button" class="knop stil klein" id="terug" title="Vorige stap (←)">← Terug</button>
+    <button type="button" class="knop klein" id="verder" title="Volgende stap (→, spatie of klik op het beeld)">Verder →</button>
+    <button type="button" class="knop stil klein" id="opnieuw" title="Speel deze stap opnieuw af (R)">↻ Opnieuw</button>
+    <button type="button" class="knop stil klein" id="tekstBtn" title="Tekst onder het beeld aan of uit (T)">Tekst uit</button>
+    <button type="button" class="knop stil klein" id="stopPres" title="Terug naar het gewone scherm (Esc)">Klein scherm</button>
+    <span class="teller" id="teller"></span>
+  </div>
+  <div class="chips breed" id="chips"></div>
+  <p class="hint breed"><kbd>→</kbd> of <kbd>spatie</kbd> verder · <kbd>←</kbd> terug · <kbd>↑</kbd><kbd>↓</kbd> vorig/volgend scherm · <kbd>R</kbd> stap opnieuw · <kbd>L</kbd> namen · <kbd>F</kbd> groot scherm (daarin <kbd>T</kbd> tekst uit, <kbd>Esc</kbd> terug). Een presenter (pagina omhoog/omlaag) werkt ook.</p>
+</section>
+
+
+<details class="docent">
+  <summary><h2>Voor de docent</h2></summary>
+  <div class="kolommen">
+<div>
+      <h3>Zo gebruik je de tool</h3>
+      <ul>
+        <li><b>Stap voor stap.</b> Elke klik speelt één korte animatie af en blijft daarna staan, zodat je erbij kunt vertellen. Terug (←) toont de vorige stap meteen af; <kbd>R</kbd> speelt een stap opnieuw.</li>
+        <li><b>Weinig tekst.</b> Onder het beeld staat één korte zin; de grijze regel 'Docent' is alleen voor jou en verdwijnt in de presentatiemodus. De vragen uit de film staan in die regel, met het antwoord; stel ze zelf als het in het gesprek past.</li>
+        <li><b>Havo of vwo</b> bovenaan, of in de link <code>?niveau=havo</code>. Deze les is voor beide niveaus gelijk (de film heeft geen vwo-blokken).</li>
+        <li><b>Namen verbergen</b> (<kbd>L</kbd>): laat leerlingen zelf benoemen (allel zwart, pauwin, nectar …).</li>
+        <li><b>Direct naar een scherm</b> met de knoppen onder het beeld, of met <code>#7</code> achter de link (scherm 7, stabiliserende selectie).</li>
+        <li><b>Kort gehouden</b> (± 25 minuten): goed te combineren met les 2 of les 4 in hetzelfde lesuur.</li>
+      </ul>
+      <h3>Lesopbouw (± 25 minuten)</h3>
+      <ol>
+        <li><b>Opening</b> (2 min, scherm 1–2): de pauw met zijn sleep en de startvraag: waarom worden baby's niet steeds zwaarder?</li>
+        <li><b>Gerichte selectie</b> (6 min, scherm 3–5): de berkenspanner, roet rond Manchester, ± 98 % zwart in 1895 en weer zeldzaam na de schone-luchtwetten; het histogram schuift.</li>
+        <li><b>Stabiliserende selectie</b> (5 min, scherm 6–7): geboortegewicht in Londen 1935–1946, het midden overleeft het best, het antwoord op de startvraag, en wat goede zorg veranderde.</li>
+        <li><b>Splitsende selectie</b> (3 min, scherm 8): de zwartbuikzaadkraker, zacht en hard zaad, twee toppen.</li>
+        <li><b>Seksuele selectie</b> (5 min, scherm 9–10): de pauwin kiest, edelherten vechten; nadeel bij overleven, voordeel bij voortplanten.</li>
+        <li><b>Co-evolutie</b> (3 min, scherm 11): Darwins orchidee en de pijlstaartvlinder.</li>
+        <li><b>Afsluiting</b> (1 min, scherm 12–13): samenvatting en vooruitblik op de mens als selectiefactor.</li>
+        <li><b>Huiswerk</b>: de film <a href="../../../films/evolutie/3-vormen-van-selectie.html">Vormen van selectie</a>. Wie vooruit wil: <a href="../../../films/evolutie/4-de-mens-als-selectiefactor.html">De mens als selectiefactor</a>.</li>
+      </ol>
+    </div>
+    <div>
+      <h3>Achtergrond en vereenvoudigingen</h3>
+      <ul>
+        <li><b>Kleuren</b> zoals in de reeks: selectie groen; bij de berkenspanner blauw = allel zwart (carbonaria, dominant), geel = allel licht (typica).</li>
+        <li><b>De curve van Manchester</b> is schematisch: begin- en eindpunten zoals in de film (1848 eerste zwarte, 1895 ± 98 %, nu een paar procent); het verloop na 1956 is getekend naar metingen elders in Engeland (zie de briefing).</li>
+        <li><b>Histogrammen</b> zijn schematisch (normale verdelingen); bij gericht, stabiliserend en splitsend gaat het om de vorm, niet om echte aantallen.</li>
+        <li><b>Overlevingskromme van de baby's</b>: schematisch, naar Karn &amp; Penrose (1951); optimum ± 3,5 kg zoals in de film. De kromme 'met goede zorg' is een illustratie, geen meting.</li>
+        <li><b>Zaadkraker</b>: vooral één gen bepaalt klein of groot; het histogram met twee toppen is een vereenvoudiging.</li>
+        <li><b>Edelherten</b>: ± 1 op 4 gewond per jaar is het getal van de film; zes kalfjes bij de winnaar is een beeld, geen telling.</li>
+        <li><b>Personages</b>: verloskundige Mirjam en een baby, zoals in de film; geen namen in beeld.</li>
+      </ul>
+      <h3>Bronnen</h3>
+      <ul>
+        <li>De film Vormen van selectie (script v2, oktober 2026); Biologie voor jou (havo H4) en Nectar (vwo H7). Verdieping met bronnen in de briefing hieronder (Majerus 2009, Karn &amp; Penrose 1951, Smith 1993, Johnson &amp; Anderson 2010, PBS Evolution).</li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+<footer class="tool-voet">Biologie bij Kamiel · Uitleg in stappen · Evolutie les 3 · versie 1.0 · 31 oktober 2026</footer>
+</div>
+
+<script src="../../../personages/lib_cast.js"></script>
+<script>
+'use strict';
+/* =====================================================================================
+   Basis: tekenruimte, kleuren (licht/donker), hulpfuncties
+   ===================================================================================== */
+const W = 1920, H = 1080;
+let C = {};
+function zetPalet() {
+  const licht = document.documentElement.getAttribute('data-theme') === 'light';
+  C = licht ? {
+    bg: '#FFFFFF', fill: '#E9EDF3', text: '#121C2E', text2: '#4E5A6C', line: '#6B7687', meta: '#8A650C',
+    goud: '#C9961F', koraal: '#C0583A', groen: '#2F8A47', teal: '#25729C', paars: '#6550AD', oker: '#A8822E',
+    mens: '#6B7687', holte: '#6A4A52', bloed: '#B5574A', grond: '#C9B896', water: '#25729C', licht: true
+  } : {
+    bg: '#1A2740', fill: '#2A3A58', text: '#F2F2EE', text2: '#9AA3B2', line: '#8FA0B5', meta: '#C9B896',
+    goud: '#E0B64A', koraal: '#E07A5F', groen: '#7FC48F', teal: '#5BA4C9', paars: '#8C7BBF', oker: '#C9A35C',
+    mens: '#9AA3B2', holte: '#1A1420', bloed: '#B5574A', grond: '#6B5A40', water: '#5BA4C9', licht: false
+  };
+  if (window.BB) BB.thema(C.licht);
+}
+zetPalet();
+
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const lerp = (a, b, u) => a + (b - a) * clamp(u, 0, 1);
+const ease = (u) => { u = clamp(u, 0, 1); return u * u * (3 - 2 * u); };
+function hash(n) { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); }
+function rgbVan(c) { // '#rrggbb' of 'rgb(r,g,b)' -> [r,g,b]
+  if (c[0] === '#') { const n = parseInt(c.slice(1), 16); return [n >> 16, (n >> 8) & 255, n & 255]; }
+  const m = c.match(/[\d.]+/g); return m ? m.slice(0, 3).map(Number) : [128, 128, 128];
+}
+function rgba(c, a) { if (typeof c === 'number') { return `rgba(${arguments[0]},${arguments[1]},${arguments[2]},${arguments[3]})`; } const [r, g, b] = rgbVan(c); return `rgba(${r},${g},${b},${a})`; }
+function mix(c1, c2, k) { const a = rgbVan(c1), b = rgbVan(c2); const m = a.map((v, i) => Math.round(v * (1 - k) + b[i] * k)); return '#' + m.map(v => v.toString(16).padStart(2, '0')).join(''); }
+const lighten = (c, k) => mix(c, '#FFFFFF', k);
+function shape(ctx, fill, stroke, lw = 1.5) { if (fill) { ctx.fillStyle = fill; ctx.fill(); } if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw; ctx.stroke(); } }
+function roundRect(ctx, x, y, w, h, r) { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
+function circ(ctx, x, y, r, fill, stroke, lw = 1.5) { ctx.beginPath(); ctx.arc(x, y, Math.max(0.1, r), 0, 6.283); if (fill) { ctx.fillStyle = fill; ctx.fill(); } if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw; ctx.stroke(); } }
+const F = { titel: '"Fraunces",Georgia,serif', tekst: '"Source Sans 3",system-ui,sans-serif', meta: '"IBM Plex Mono",ui-monospace,monospace' };
+const fTitel = (px) => `700 ${px}px ${F.titel}`, fTekst = (px, w = 400) => `${w} ${px}px ${F.tekst}`, fMeta = (px) => `500 ${px}px ${F.meta}`;
+function text(ctx, s, x, y, font, color, align = 'left', base = 'alphabetic') { ctx.font = font; ctx.fillStyle = color; ctx.textAlign = align; ctx.textBaseline = base; ctx.fillText(s, x, y); }
+function metaText(ctx, s, x, y, color = C.meta, align = 'left', px = 24, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fMeta(px); ctx.fillStyle = color; ctx.textAlign = align; ctx.textBaseline = 'alphabetic'; try { ctx.letterSpacing = '3px'; } catch (e) {} ctx.fillText(s.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')), x, y); ctx.restore(); }
+// gewone tekst op het beeld, met rand in de achtergrondkleur voor leesbaarheid
+function regel(ctx, s, x, y, a = 1, col = C.text, px = 34, align = 'left', w = 600) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fTekst(px, w); ctx.textAlign = align; ctx.textBaseline = 'alphabetic'; ctx.lineJoin = 'round'; ctx.strokeStyle = rgba(C.bg, 0.85); ctx.lineWidth = 7; ctx.strokeText(s, x, y); ctx.fillStyle = col; ctx.fillText(s, x, y); ctx.restore(); }
+// naam van een onderdeel, direct bij het onderdeel (geen wijslijn); verborgen met 'Namen verbergen'
+let toonNamen = true;
+function naam(ctx, s, x, y, a = 1, align = 'left', col = C.text, px = 34) { if (!toonNamen) return; regel(ctx, s, x, y, a, col, px, align, 600); }
+function pijl(ctx, x1, y1, x2, y2, col, lw = 4, a = 1, kop = 16) {
+  if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = lw; ctx.lineCap = 'round';
+  const an = Math.atan2(y2 - y1, x2 - x1); ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2 - Math.cos(an) * kop * 0.6, y2 - Math.sin(an) * kop * 0.6); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(x2, y2); ctx.lineTo(x2 - Math.cos(an - 0.45) * kop, y2 - Math.sin(an - 0.45) * kop); ctx.lineTo(x2 - Math.cos(an + 0.45) * kop, y2 - Math.sin(an + 0.45) * kop); ctx.closePath(); ctx.fill(); ctx.restore();
+}
+function paneel(ctx, x, y, w, h, a = 1, col = null) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, w, h, 18); shape(ctx, rgba(C.fill, C.licht ? 0.55 : 0.45), col || rgba(C.line, 0.45), 2); ctx.restore(); }
+// paden
+function gladPad(pts, step = 7) {
+  if (pts.length < 3) { const out = []; const [a, b] = pts; const L = Math.hypot(b[0] - a[0], b[1] - a[1]); const n = Math.max(2, Math.ceil(L / step)); for (let i = 0; i <= n; i++) out.push([lerp(a[0], b[0], i / n), lerp(a[1], b[1], i / n)]); return out; }
+  const P = [pts[0], ...pts, pts[pts.length - 1]], out = [];
+  for (let i = 1; i < P.length - 2; i++) { const [p0, p1, p2, p3] = [P[i - 1], P[i], P[i + 1], P[i + 2]]; const L = Math.hypot(p2[0] - p1[0], p2[1] - p1[1]); const n = Math.max(2, Math.ceil(L / step));
+    for (let k = 0; k < n; k++) { const u = k / n, u2 = u * u, u3 = u2 * u; out.push([0, 1].map(d => 0.5 * (2 * p1[d] + (-p0[d] + p2[d]) * u + (2 * p0[d] - 5 * p1[d] + 4 * p2[d] - p3[d]) * u2 + (-p0[d] + 3 * p1[d] - 3 * p2[d] + p3[d]) * u3))); } }
+  out.push(pts[pts.length - 1]); return out;
+}
+const _glad = new Map();
+function gladC(pts) { const k = JSON.stringify(pts); let v = _glad.get(k); if (!v) { v = gladPad(pts); _glad.set(k, v); } return v; }
+function padLengte(pts) { const L = [0]; for (let i = 1; i < pts.length; i++) L.push(L[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1])); return L; }
+function padPunt(pts, d) { const L = padLengte(pts); d = clamp(d, 0, L[L.length - 1]); let i = 1; while (i < pts.length - 1 && L[i] < d) i++; const u = (d - L[i - 1]) / ((L[i] - L[i - 1]) || 1); return [lerp(pts[i - 1][0], pts[i][0], u), lerp(pts[i - 1][1], pts[i][1], u), Math.atan2(pts[i][1] - pts[i - 1][1], pts[i][0] - pts[i - 1][0])]; }
+function lijnPad(ctx, pts, col, lw, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); gladC(pts).forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke(); ctx.restore(); }
+// tekent fn in een aparte laag en zet die met doorzichtigheid a op het beeld (geen doorschijnende overlap binnen één figuur)
+let _laagCv = null;
+function laag(ctx, a, fn) {
+  if (a <= 0.01) return; if (a >= 0.995) { fn(ctx); return; }
+  const c = ctx.canvas; if (!_laagCv) _laagCv = document.createElement('canvas'); const L = _laagCv; if (L.width !== c.width || L.height !== c.height) { L.width = c.width; L.height = c.height; }
+  const l = L.getContext('2d'); l.setTransform(1, 0, 0, 1, 0, 0); l.clearRect(0, 0, L.width, L.height); l.setTransform(ctx.getTransform()); fn(l);
+  ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha *= a; ctx.drawImage(L, 0, 0); ctx.restore();
+}
+function pers(ctx, id, x, y, h, o = {}) { const a = o.a == null ? 1 : o.a; laag(ctx, a, (l) => persoon(l, id, x, y, h, Object.assign({}, o, { a: 1 }))); }
+function gloed(ctx, x, y, r, col, k) { if (k <= 0.01) return; const g = ctx.createRadialGradient(x, y, 0, x, y, r); g.addColorStop(0, rgba(col, 0.45 * k)); g.addColorStop(1, rgba(col, 0)); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.fill(); }
+
+/* =====================================================================================
+   Cellen · gedeelde bouwstenen voor de lessen 1–6 (31 okt 2026)
+   Overgenomen uit de erfelijkheidslessen (algemene delen). Alles is 1920×1080; a = doorzichtigheid 0..1.
+   Eigen tekeningen per les staan in les<n>/schermen.js met voorvoegsel L<n>_.
+   ===================================================================================== */
+const CH = { get vader() { return C.teal; }, get moeder() { return C.oker; }, get neutraal() { return C.paars; } };
+const dk = (h, k = 0.35) => mix(h, '#000000', k);
+function kruis(ctx, x, y, r, a = 1, col = C.koraal) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = Math.max(4, r * 0.45); ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x - r, y - r); ctx.lineTo(x + r, y + r); ctx.moveTo(x + r, y - r); ctx.lineTo(x - r, y + r); ctx.stroke(); ctx.restore(); }
+function vink(ctx, x, y, r, a = 1, col = C.groen) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = Math.max(4, r * 0.45); ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); ctx.moveTo(x - r, y); ctx.lineTo(x - r * 0.3, y + r * 0.7); ctx.lineTo(x + r, y - r * 0.7); ctx.stroke(); ctx.restore(); }
+function zoomRand(ctx, x, y, r, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, r, null, rgba(C.line, 0.8), 4); ctx.restore(); }
+// zoomcirkel met inhoud; van = [x,y] waar de stippellijnen vandaan komen
+function zoom(ctx, zx, zy, zr, a, van, fn) { if (a <= 0.01) return; if (van) { ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = rgba(C.line, 0.7); ctx.lineWidth = 3; ctx.setLineDash([8, 10]); const an = Math.atan2(zy - van[1], zx - van[0]); ctx.beginPath(); ctx.moveTo(van[0], van[1]); ctx.lineTo(zx + Math.cos(an + 1.9) * zr, zy + Math.sin(an + 1.9) * zr); ctx.moveTo(van[0], van[1]); ctx.lineTo(zx + Math.cos(an - 1.9) * zr, zy + Math.sin(an - 1.9) * zr); ctx.stroke(); ctx.restore(); }
+  ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.arc(zx, zy, zr, 0, 6.283); ctx.clip(); ctx.fillStyle = C.bg; ctx.fill(); fn(); ctx.restore(); zoomRand(ctx, zx, zy, zr, a); }
+// aanwijslijn + naam (de knop Namen verbergen geldt ook hier)
+function wijs(ctx, s, x1, y1, x2, y2, a = 1, col = C.text, px = 30, align = 'center') { if (!toonNamen || a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = rgba(C.line, 0.8); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); circ(ctx, x2, y2, 4, C.line); ctx.restore(); naam(ctx, s, x1, y1 + (y1 < y2 ? -10 : 34), a, align, col, px); }
+// brede kernbalk onderaan (één kernzin of conclusie)
+function balk(ctx, s, x, y, w, a = 1, col = C.goud, px = 40) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - w / 2, y - 52, w, 104, 20); shape(ctx, rgba(col, 0.12), col, 3); ctx.restore(); regel(ctx, s, x, y + 14, a, C.text, px, 'center', 700); }
+// zachte, ronde celvorm: geen rechte randen
+function blob(ctx, x, y, rx, ry, seed = 1, wob = 0.06) { ctx.beginPath(); for (let i = 0; i <= 64; i++) { const an = i / 64 * 6.283, w = 1 + wob * Math.sin(an * 3 + seed) + wob * 0.6 * Math.sin(an * 5 + seed * 2.1); const px = x + Math.cos(an) * rx * w, py = y + Math.sin(an) * ry * w; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.closePath(); }
+// cel met kern; o.kl = membraankleur, o.kr = kernstraal, o.kdx/kdy = plek van de kern, o.geenKern
+function cel(ctx, x, y, rx, ry, a = 1, o = {}) { if (a <= 0.01) return; const kl = o.kl || C.teal; ctx.save(); ctx.globalAlpha *= a; blob(ctx, x, y, rx, ry, o.seed || 1, o.wob == null ? 0.05 : o.wob); shape(ctx, rgba(kl, C.licht ? 0.08 : 0.12), kl, o.lw || 4);
+  if (!o.geenKern) { const kx = x + (o.kdx || 0), ky = y + (o.kdy || 0), kr = o.kr || Math.min(rx, ry) * 0.34; circ(ctx, kx, ky, kr, rgba(C.paars, C.licht ? 0.14 : 0.24), C.paars, 2.5); }
+  ctx.restore(); }
+
+
+// vaste pseudo-toevalsreeks (zelfde beeld bij elke keer afspelen)
+function toeval(seed) { let s = seed >>> 0 || 1; return () => { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; }; }
+// stippenveld: n stippen in een raster binnen (x, y, w, h); kl(i) = kleur van stip i; zicht = aantal stippen dat al te zien is
+function stippen(ctx, x, y, w, h, n, kl, a = 1, o = {}) { if (a <= 0.01) return; const r = o.r || Math.max(3, Math.sqrt(w * h / n) * 0.36), kol = Math.max(1, Math.round(Math.sqrt(n * w / h))), rijen = Math.ceil(n / kol), dx = w / kol, dy = h / rijen, zicht = o.zicht == null ? n : o.zicht;
+  ctx.save(); ctx.globalAlpha *= a; for (let i = 0; i < Math.min(n, zicht); i++) { const c = i % kol, rr = Math.floor(i / kol); circ(ctx, x + c * dx + dx / 2, y + rr * dy + dy / 2, r, kl(i)); } ctx.restore(); }
+// staafdiagram: w = [hoogtes 0..1], o.kl, o.labels (onder de staven), o.as (naam onder de as)
+function histogram(ctx, x, y, w, h, waarden, a = 1, o = {}) { if (a <= 0.01) return; const n = waarden.length, bw = w / n; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = rgba(C.line, 0.8); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + w, y); ctx.stroke();
+  waarden.forEach((v, i) => { const bh = h * v * (o.groei == null ? 1 : o.groei); roundRect(ctx, x + i * bw + bw * 0.1, y - bh, bw * 0.8, Math.max(0.1, bh), Math.min(8, bw * 0.2)); shape(ctx, rgba(o.kl || C.teal, 0.55), o.kl || C.teal, 2); }); ctx.restore();
+  (o.labels || []).forEach((l, i) => regel(ctx, l, x + i * bw + bw / 2, y + 36, a, C.text2, o.px || 24, 'center', 500)); if (o.as) metaText(ctx, o.as, x + w / 2, y + 80, C.text2, 'center', 20, a); }
+// kansbalk: f = deel 0..1 gevuld met kl, tekst ernaast
+function kansBalk(ctx, x, y, w, h, f, kl, a = 1, tekst = '') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, w, h, h / 2); shape(ctx, rgba(C.fill, 0.6), rgba(C.line, 0.6), 2); if (f > 0.005) { roundRect(ctx, x, y, Math.max(h, w * f), h, h / 2); shape(ctx, rgba(kl, 0.75), kl, 2); } ctx.restore(); if (tekst) regel(ctx, tekst, x + w + 24, y + h / 2 + 12, a, C.text, 34, 'left', 700); }
+// breuk als tekst met streep: teller boven, noemer onder
+function breuk(ctx, t, n, x, y, px = 54, a = 1, kl = C.text) { if (a <= 0.01) return; ctx.save(); ctx.font = fTekst(px, 700); const w = Math.max(ctx.measureText(String(t)).width, ctx.measureText(String(n)).width) + 12; ctx.restore(); regel(ctx, String(t), x, y - px * 0.18, a, kl, px, 'center', 700); ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = kl; ctx.lineWidth = Math.max(3, px * 0.07); ctx.beginPath(); ctx.moveTo(x - w / 2, y); ctx.lineTo(x + w / 2, y); ctx.stroke(); ctx.restore(); regel(ctx, String(n), x, y + px * 0.92, a, kl, px, 'center', 700); }
+
+/* ---------- kaarten ---------- */
+function termKaart(ctx, term, uitleg, x, y, a = 1, kl = C.goud, w = 0) { if (a <= 0.01) return; ctx.save(); ctx.font = fTekst(42, 700); const w1 = ctx.measureText(term).width; ctx.font = fTekst(30, 500); const w2 = uitleg ? ctx.measureText(uitleg).width : 0; ctx.restore();
+  const bw = w || Math.max(w1, w2) + 64, bh = uitleg ? 124 : 84; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - bw / 2, y, bw, bh, 14); shape(ctx, rgba(C.bg, 0.94), kl, 2.5); ctx.restore();
+  regel(ctx, term, x, y + 54, a, kl, 42, 'center', 700); if (uitleg) regel(ctx, uitleg, x, y + 100, a, C.text, 30, 'center', 500); }
+function misvatting(ctx, fout, goed, x, y, w, a = 1, g = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - w / 2, y, w, 150, 14); shape(ctx, rgba(C.bg, 0.95), rgba(C.line, 0.7), 2); ctx.restore();
+  kruis(ctx, x - w / 2 + 50, y + 46, 15, a, C.koraal); regel(ctx, fout, x - w / 2 + 90, y + 58, a, C.text2, 34, 'left', 600);
+  ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = rgba(C.koraal, 0.8); ctx.lineWidth = 3; ctx.font = fTekst(34, 600); const fw = ctx.measureText(fout).width; ctx.beginPath(); ctx.moveTo(x - w / 2 + 88, y + 46); ctx.lineTo(x - w / 2 + 92 + fw, y + 46); ctx.stroke(); ctx.restore();
+  if (g > 0.01) { vink(ctx, x - w / 2 + 50, y + 108, 15, a * g, C.groen); regel(ctx, goed, x - w / 2 + 90, y + 120, a * g, C.text, 34, 'left', 600); } }
+
+/* ---------- vooruitblik (laatste scherm van elke les) ---------- */
+function vooruitblik(ctx, S, kop, tegels) {
+  const T = S.T, n = tegels.length, w = 380, gap = 40, x0 = 960 - (n * w + (n - 1) * gap) / 2;
+  metaText(ctx, 'volgende keer', 960, 250, C.meta, 'center', 24, S.on(0, 0.6));
+  text(ctx, kop, 960, 340, fTitel(76), C.goud, 'center');
+  tegels.forEach(([titel, sub, f], i) => { const a = S.on(0, 0.6, 0.4 + i * 0.25); if (a <= 0.01) return; const x = x0 + i * (w + gap) + w / 2, y = 640;
+    ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - w / 2, y - 210, w, 420, 24); shape(ctx, rgba(C.fill, C.licht ? 0.5 : 0.4), rgba(C.line, 0.4), 2); ctx.restore();
+    f(ctx, x, y - 60, a, T); regel(ctx, titel, x, y + 110, a, C.text, 34, 'center', 700); if (sub) regel(ctx, sub, x, y + 156, a, C.text2, 26, 'center', 400); });
+}
+
+/* =====================================================================================
+   Evolutie · gedeelde tekenhulpen voor de lessen (31 okt 2026)
+   Overgenomen uit de filmreeks Evolutie v2 (films/evolutie/1-wat-is-evolutie/bron/src/lib_evo.js en teken_e1.js),
+   aangepast aan de C-kleuren van de lessen (licht/donker).
+   Kleuren zoals in de films: allel voor zwart = blauw (EV().a1), allel voor oranje = geel (EV().a2),
+   krachten: selectie groen, toeval (drift) goud, uitwisseling (genenstroom) blauw, mutatie paars.
+   ===================================================================================== */
+const EV = () => ({ a1: C.teal, a2: C.oker, nieuw: C.paars,
+  kracht: { selectie: C.groen, drift: C.goud, stroom: C.teal, mutatie: C.paars } });
+
+// ---- knikker = één allel ----
+function knikker(ctx, x, y, r, kleur, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  circ(ctx, x, y, r, kleur, lighten(kleur, 0.35), 2); circ(ctx, x - r * 0.35, y - r * 0.35, r * 0.22, 'rgba(255,255,255,0.4)'); ctx.restore(); }
+
+// ---- glazen pot met knikkers (de genenpool) ----
+// anker (x, y) = midden van de bodem; s = schaal (s = 1 → 260 breed, 300 hoog); o.kleuren = lijst knikkerkleuren (wordt gemengd met o.seed),
+// of o.p + o.n (aandeel allel 1); o.vul = 0..1 hoeveel knikkers al in de pot liggen
+function pot(ctx, x, y, s = 1, o = {}) {
+  const { p = 0.5, n = 60, seed = 1, a = 1, vul = 1 } = o; if (a <= 0.01) return;
+  let kl = o.kleuren ? o.kleuren.slice() : Array.from({ length: n }, (_, i) => i < Math.round(n * p) ? EV().a1 : EV().a2);
+  if (!o.vast) for (let i = kl.length - 1; i > 0; i--) { const j = Math.floor(hash(seed * 31 + i * 7) * (i + 1)); [kl[i], kl[j]] = [kl[j], kl[i]]; }
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
+  const w = 260, h = 300, r = 34, kr = o.kr || 13, kol = Math.floor((w - 40) / (kr * 2.25));
+  ctx.save(); roundRect(ctx, -w / 2 + 6, -h + 40, w - 12, h - 46, r - 6); ctx.clip();
+  const zicht = Math.round(kl.length * vul);
+  for (let i = 0; i < zicht; i++) { const rij = Math.floor(i / kol), k = i % kol, vs = (rij % 2) * kr;
+    const kx = -w / 2 + 28 + k * (kr * 2.25) + vs + (hash(seed + i * 3.1) - 0.5) * 5, ky = -20 - rij * (kr * 1.95) + (hash(seed + i * 5.7) - 0.5) * 4;
+    if (ky < -h + 60) break; knikker(ctx, kx, ky, kr, kl[i]); }
+  ctx.restore();
+  const glas = C.licht ? '#7D8FA5' : '#AFC0D0';
+  ctx.strokeStyle = glas; ctx.lineWidth = 4; ctx.lineJoin = 'round'; ctx.beginPath();
+  ctx.moveTo(-w / 2 + 34, -h + 10); ctx.lineTo(-w / 2 + 34, -h + 34); ctx.quadraticCurveTo(-w / 2, -h + 44, -w / 2, -h + 80);
+  ctx.lineTo(-w / 2, -r); ctx.quadraticCurveTo(-w / 2, 0, -w / 2 + r, 0); ctx.lineTo(w / 2 - r, 0); ctx.quadraticCurveTo(w / 2, 0, w / 2, -r);
+  ctx.lineTo(w / 2, -h + 80); ctx.quadraticCurveTo(w / 2, -h + 44, w / 2 - 34, -h + 34); ctx.lineTo(w / 2 - 34, -h + 10); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(-w / 2 + 26, -h + 10); ctx.lineTo(w / 2 - 26, -h + 10); ctx.stroke();
+  ctx.strokeStyle = rgba(glas, 0.35); ctx.lineWidth = 6; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(-w / 2 + 22, -h + 100); ctx.lineTo(-w / 2 + 22, -70); ctx.stroke();
+  ctx.restore();
+}
+
+// ---- allelbalk: aandeel allel 1 (blauw) tegen allel 2 (geel), met percentages eronder ----
+function allelBalk(ctx, x, y, w, p, a = 1, o = {}) { if (a <= 0.01) return; const h = o.h || 34;
+  ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, w, h, h / 2); ctx.save(); ctx.clip();
+  ctx.fillStyle = EV().a1; ctx.fillRect(x, y, w * p, h); ctx.fillStyle = EV().a2; ctx.fillRect(x + w * p, y, w * (1 - p), h); ctx.restore();
+  roundRect(ctx, x, y, w, h, h / 2); ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.stroke();
+  if (o.procent !== false) { text(ctx, (o.namen ? o.namen[0] + ' ' : '') + Math.round(p * 100) + '%', x, y + h + 40, fTekst(32, 700), EV().a1, 'left');
+    text(ctx, (o.namen ? o.namen[1] + ' ' : '') + Math.round((1 - p) * 100) + '%', x + w, y + h + 40, fTekst(32, 700), EV().a2, 'right'); }
+  ctx.restore(); }
+
+// ---- Aziatisch lieveheersbeestje (Harmonia axyridis), bovenaanzicht; kop naar boven ----
+// o.vorm: 'oranje' (f. succinea, o.stippen 0–19), 'vier' (zwart met vier rode vlekken, f. spectabilis), 'twee' (zwart met twee, f. conspicua)
+// s = 1 → ± 150 px lang. o.loop = fase voor de poten (pootjes bewegen), o.open = dekschilden open (vliegen)
+function lhb(ctx, x, y, s = 1, o = {}) {
+  const { vorm = 'oranje', stippen = 12, rot = 0, a = 1, open = 0, loop = null } = o; if (a <= 0.01) return;
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(rot); ctx.scale(s, s);
+  const rug = vorm === 'oranje' ? '#D9792E' : '#1B1A1C', vlek = vorm === 'oranje' ? '#1B1A1C' : '#D2452C';
+  ctx.strokeStyle = '#2A2422'; ctx.lineWidth = 4; ctx.lineCap = 'round';
+  for (const k of [-1, 1]) [[-22, -0.5], [0, 0.05], [20, 0.55]].forEach(([py, hoek], i) => { const sw = loop == null ? 0 : Math.sin(loop * 9 + i * 2.1 + (k > 0 ? Math.PI : 0)) * 7;
+    ctx.beginPath(); ctx.moveTo(k * 30, py); ctx.lineTo(k * 62, py + hoek * 30 - 6 + sw); ctx.lineTo(k * 74, py + hoek * 50 + sw); ctx.stroke(); });
+  ctx.lineWidth = 2.5; for (const k of [-1, 1]) { ctx.beginPath(); ctx.moveTo(k * 8, -78); ctx.quadraticCurveTo(k * 20, -96, k * 26, -98); ctx.stroke(); circ(ctx, k * 27, -98, 3.5, '#2A2422'); }
+  ctx.beginPath(); ctx.ellipse(0, -70, 20, 13, 0, 0, 6.283); ctx.fillStyle = '#1B1A1C'; ctx.fill(); circ(ctx, -11, -72, 3.2, '#E9E2CC'); circ(ctx, 11, -72, 3.2, '#E9E2CC');
+  ctx.beginPath(); ctx.moveTo(-40, -44); ctx.quadraticCurveTo(-38, -66, 0, -68); ctx.quadraticCurveTo(38, -66, 40, -44); ctx.quadraticCurveTo(0, -38, -40, -44); ctx.fillStyle = '#EDE6D2'; ctx.fill(); ctx.strokeStyle = '#B8B0A0'; ctx.lineWidth = 1.5; ctx.stroke();
+  ctx.fillStyle = '#1B1A1C'; ctx.beginPath(); ctx.moveTo(-18, -44); ctx.lineTo(-12, -60); ctx.lineTo(-4, -52); ctx.lineTo(0, -60); ctx.lineTo(4, -52); ctx.lineTo(12, -60); ctx.lineTo(18, -44); ctx.quadraticCurveTo(0, -41, -18, -44); ctx.fill();
+  if (vorm !== 'oranje') { circ(ctx, -28, -52, 6, '#EDE6D2'); circ(ctx, 28, -52, 6, '#EDE6D2'); }
+  const dek = (k) => { ctx.beginPath(); ctx.moveTo(0, -42); ctx.quadraticCurveTo(k * 44, -44, k * 50, -6); ctx.quadraticCurveTo(k * 52, 42, k * 4, 62); ctx.lineTo(0, 62); ctx.closePath(); };
+  for (const k of [-1, 1]) { ctx.save(); ctx.translate(k * open * 18, 0); ctx.rotate(k * open * 0.35); dek(k); ctx.fillStyle = rug; ctx.fill(); ctx.strokeStyle = lighten(rug, 0.25); ctx.lineWidth = 1.5; ctx.stroke(); ctx.save(); dek(k); ctx.clip();
+    if (vorm === 'oranje') { const pos = [[18, -26], [34, -10], [14, -2], [30, 14], [12, 22], [26, 36], [40, 28], [20, 46], [36, -28], [8, 40]]; for (let i = 0; i < Math.min(Math.floor(stippen / 2), pos.length); i++) circ(ctx, k * pos[i][0], pos[i][1], 5.4, vlek); if (stippen % 2) circ(ctx, 0, -32, 5, vlek); }
+    else if (vorm === 'twee') { ctx.beginPath(); ctx.ellipse(k * 26, -14, 14, 12, 0, 0, 6.283); ctx.fillStyle = vlek; ctx.fill(); }
+    else { ctx.beginPath(); ctx.ellipse(k * 26, -18, 11, 9, 0, 0, 6.283); ctx.fillStyle = vlek; ctx.fill(); ctx.beginPath(); ctx.ellipse(k * 24, 28, 10, 8, 0, 0, 6.283); ctx.fill(); }
+    ctx.restore(); ctx.restore(); }
+  ctx.strokeStyle = 'rgba(0,0,0,0.5)'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(0, -42); ctx.lineTo(0, 62); ctx.stroke();
+  ctx.restore();
+}
+
+// ---- allelenpaar onder een beestje: twee knikkers naast elkaar ----
+function allelPaar(ctx, x, y, k1, k2, r = 16, a = 1) { knikker(ctx, x - r * 1.15, y, r, k1, a); knikker(ctx, x + r * 1.15, y, r, k2, a); }
+
+// ---- thermometer (meta) ----
+function thermo(ctx, x, y, h, f, kleur, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  roundRect(ctx, x - 12, y - h, 24, h, 12); shape(ctx, rgba(C.fill, 0.6), C.line, 2); circ(ctx, x, y + 6, 22, kleur, C.line, 2);
+  roundRect(ctx, x - 6, y - h * f, 12, h * f + 4, 6); ctx.fillStyle = kleur; ctx.fill(); ctx.restore(); }
+
+/* =====================================================================================
+   SCHERMEN — per scherm: titel (knop), kop (boven het beeld), deel, stappen (t = tekst onder het beeld,
+   th = havotekst, n = notitie voor de docent, vwo = alleen in vwo) en teken(ctx, S).
+   In teken: S.on(k, duur, vertraging) = voortgang 0..1 van stap k (1 als die stap al geweest is, 0 als hij nog moet komen),
+   S.T = tijd sinds het begin van het scherm (s), S.vwo = niveau.
+   ===================================================================================== */
+const SCHERMEN = [];
+/* =====================================================================================
+   Evolutie · les 3 · Vormen van selectie (31 okt 2026)
+   Film 3 Vormen van selectie (films/evolutie/3-vormen-van-selectie.html, script v2); havo BvJ H4, vwo Nectar H7.
+   Compact (± 25 min), te combineren met les 2 of les 4 in één lesuur. Geen vwo-blokken in de film.
+   Eigen hulpen hebben het voorvoegsel L3_. Kleuren zoals de reeks: selectie groen, allel zwart blauw (EV().a1),
+   allel licht geel (EV().a2). Personages: alleen verloskundige Mirjam en een baby (zoals de film), zonder naam in beeld.
+   ===================================================================================== */
+
+// ---------- hulpen ----------
+const L3_g = (u, mu, sd) => Math.exp(-0.5 * ((u - mu) / sd) ** 2);
+// zangvogel van opzij (zelfde bouw als les 2); o.kl = romp, o.kop = kop, o.sn = snavel, o.bek = snavelgrootte, o.kijk = -1 naar links
+function L3_vogel(ctx, x, y, s, a, T, o = {}) { if (a <= 0.01) return; const { bek = 1, kijk = 1 } = o;
+  const kl = o.kl || (C.licht ? '#6E5A44' : '#8A7258'), kop = o.kop || (C.licht ? '#4A3C2E' : '#5C4B3A'), sn = o.sn || C.oker;
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y + Math.sin(T * 2) * 2); ctx.scale(s * kijk, s);
+  ctx.beginPath(); ctx.ellipse(0, 0, 46, 30, -0.15, 0, 6.283); ctx.fillStyle = kl; ctx.fill();
+  ctx.beginPath(); ctx.moveTo(-40, 4); ctx.lineTo(-84, -6); ctx.lineTo(-80, 14); ctx.closePath(); ctx.fillStyle = kl; ctx.fill();
+  circ(ctx, 38, -24, 22, kop); if (o.borst) { ctx.beginPath(); ctx.ellipse(30, -4, 22, 20, 0.3, 0, 6.283); ctx.fillStyle = kop; ctx.fill(); }
+  ctx.beginPath(); ctx.moveTo(54, -24 - 11 * bek); ctx.quadraticCurveTo(54 + 12 + 18 * bek, -24, 56, -24 + 11 * bek); ctx.closePath(); ctx.fillStyle = sn; ctx.fill();
+  circ(ctx, 44, -30, 3.5, '#111'); ctx.strokeStyle = C.text2; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(-6, 28); ctx.lineTo(-10, 52); ctx.moveTo(10, 28); ctx.lineTo(8, 52); ctx.stroke(); ctx.restore(); }
+const L3_ZAADKRAKER = () => ({ kl: '#1E1B1E', kop: '#B8322A', sn: '#5A6B82', borst: true });
+// berkenspanner van boven, vleugels gespreid; zwart = carbonaria, anders licht met spikkels; s = 1 → ± 150 px breed
+function L3_mot(ctx, x, y, s, zwart, a = 1, rot = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(rot); ctx.scale(s, s);
+  const vl = zwart ? '#262321' : '#E4DFCF', sp = zwart ? '#3A3632' : '#2A2622';
+  [-1, 1].forEach(k => { ctx.beginPath(); ctx.moveTo(0, -10); ctx.lineTo(k * 74, -22); ctx.quadraticCurveTo(k * 70, 8, k * 56, 16); ctx.lineTo(0, 8); ctx.closePath(); ctx.fillStyle = vl; ctx.fill();
+    ctx.beginPath(); ctx.moveTo(0, 4); ctx.lineTo(k * 50, 20); ctx.quadraticCurveTo(k * 40, 42, k * 6, 30); ctx.closePath(); ctx.fill();
+    for (let i = 0; i < 22; i++) { const u = hash(i * 3.1 + (k > 0 ? 7 : 0)), v = hash(i * 5.7 + (k > 0 ? 3 : 0)); circ(ctx, k * (8 + u * 58), -12 + v * 28 + u * 4, 1.6 + hash(i) * 1.6, sp); } });
+  ctx.beginPath(); ctx.ellipse(0, 4, 7, 28, 0, 0, 6.283); ctx.fillStyle = zwart ? '#1A1817' : '#4A423A'; ctx.fill();
+  ctx.strokeStyle = zwart ? '#1A1817' : '#4A423A'; ctx.lineWidth = 2; [-1, 1].forEach(k => { ctx.beginPath(); ctx.moveTo(k * 2, -22); ctx.quadraticCurveTo(k * 12, -36, k * 18, -40); ctx.stroke(); });
+  ctx.restore(); }
+// boomstam (x = links), roet 0..1: licht met korstmos → zwart
+function L3_stam(ctx, x, y, w, h, roet, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  const kl = mix('#CFC9B6', '#2B2723', roet); ctx.fillStyle = kl; ctx.fillRect(x, y, w, h);
+  ctx.strokeStyle = mix(kl, '#000000', 0.25); ctx.lineWidth = 3; for (let i = 0; i < 9; i++) { const bx = x + 20 + hash(i * 2.3) * (w - 40); ctx.beginPath(); ctx.moveTo(bx, y + hash(i) * 60); ctx.bezierCurveTo(bx + 12, y + h * 0.3, bx - 12, y + h * 0.6, bx + 6, y + h - hash(i * 4) * 60); ctx.stroke(); }
+  if (roet < 0.99) for (let i = 0; i < 16; i++) { ctx.beginPath(); ctx.ellipse(x + 20 + hash(i * 1.7) * (w - 40), y + 40 + hash(i * 6.1) * (h - 80), 18 + hash(i) * 20, 12 + hash(i * 2) * 10, hash(i * 3), 0, 6.283); ctx.fillStyle = rgba('#A9B694', 0.75 * (1 - roet)); ctx.fill(); }
+  ctx.restore(); }
+// fabrieksschoorsteen met rook
+function L3_fabriek(ctx, x, y, a, T) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.fillStyle = C.licht ? '#6B5A50' : '#7A6A5E'; ctx.fillRect(x - 22, y - 260, 44, 260); ctx.fillRect(x - 90, y - 90, 180, 90);
+  for (let i = 0; i < 6; i++) { const u = ((T * 0.25 + i / 6) % 1); circ(ctx, x + u * 160, y - 280 - u * 120, 24 + u * 40, rgba(C.licht ? '#555555' : '#9A9A9A', 0.5 * (1 - u))); } ctx.restore(); }
+// pauw (anker = voeten); o.open 0..1 (sleep → waaier), o.vlek = deel veren met oogvlek, o.vrouw = pauwin, o.kijk
+function L3_oog(ctx, x, y, r) { ctx.beginPath(); ctx.ellipse(x, y, r, r * 1.2, 0, 0, 6.283); ctx.fillStyle = '#3E8E5A'; ctx.fill(); ctx.beginPath(); ctx.ellipse(x, y + r * 0.06, r * 0.68, r * 0.82, 0, 0, 6.283); ctx.fillStyle = '#D9A93A'; ctx.fill();
+  ctx.beginPath(); ctx.ellipse(x, y + r * 0.1, r * 0.44, r * 0.54, 0, 0, 6.283); ctx.fillStyle = '#2A6A9A'; ctx.fill(); ctx.beginPath(); ctx.ellipse(x, y + r * 0.14, r * 0.22, r * 0.28, 0, 0, 6.283); ctx.fillStyle = '#16203A'; ctx.fill(); }
+function L3_pauw(ctx, x, y, s, o = {}) { const { open = 0, vlek = 1, vrouw = false, kijk = 1, T = 0 } = o, a = o.a == null ? 1 : o.a; if (a <= 0.01) return;
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s * kijk, s); ctx.lineCap = 'round';
+  const bx = -20, by = -120, tril = open > 0.5 ? Math.sin(T * 40) * 0.006 * open : 0;
+  if (!vrouw) { const mid = lerp(Math.PI - 0.22, 1.5 * Math.PI, ease(open)), sp = lerp(0.1, 0.92 * Math.PI / 2, ease(open)), R = lerp(330, 300, open), n = 38;
+    if (open > 0.05) { ctx.beginPath(); ctx.moveTo(bx, by); ctx.arc(bx, by, R * 0.98, mid - sp, mid + sp); ctx.closePath(); ctx.fillStyle = rgba('#2F6A3A', 0.55 * open); ctx.fill(); }
+    for (let i = 0; i < n; i++) { const an = mid - sp + (i + 0.5) / n * 2 * sp + tril * (i % 2 ? 1 : -1), rr = R * (0.9 + 0.1 * hash(i * 1.3)), tx = bx + Math.cos(an) * rr, ty = by + Math.sin(an) * rr;
+      ctx.strokeStyle = '#4C7A36'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(bx, by); ctx.lineTo(tx, ty); ctx.stroke();
+      if (hash(i * 2.7 + 0.3) < vlek) L3_oog(ctx, tx, ty, lerp(9, 17, open));
+      if (open > 0.5 && i % 2 === 0 && hash(i * 4.1 + 0.6) < vlek) L3_oog(ctx, bx + Math.cos(an) * rr * 0.66, by + Math.sin(an) * rr * 0.66, 12 * open); } }
+  const romp = vrouw ? '#8C7A62' : '#1E5AA8', nek = vrouw ? '#6E7A5A' : '#1E5AA8';
+  ctx.strokeStyle = '#7A7A7A'; ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(-6, -80); ctx.lineTo(-10, 0); ctx.moveTo(14, -80); ctx.lineTo(16, 0); ctx.stroke();
+  if (vrouw) { ctx.beginPath(); ctx.moveTo(-40, -120); ctx.lineTo(-110, -100); ctx.lineTo(-96, -82); ctx.closePath(); ctx.fillStyle = romp; ctx.fill(); }
+  ctx.beginPath(); ctx.ellipse(0, -112, 54, 38, -0.15, 0, 6.283); ctx.fillStyle = romp; ctx.fill();
+  ctx.beginPath(); ctx.ellipse(-8, -108, 32, 22, -0.2, 0, 6.283); ctx.fillStyle = vrouw ? '#7A6A52' : '#8A6A44'; ctx.fill();
+  ctx.strokeStyle = nek; ctx.lineWidth = 20; ctx.beginPath(); ctx.moveTo(32, -130); ctx.quadraticCurveTo(50, -170, 44, -208); ctx.stroke();
+  circ(ctx, 46, -214, 16, nek); ctx.beginPath(); ctx.moveTo(60, -218); ctx.lineTo(76, -212); ctx.lineTo(60, -206); ctx.closePath(); ctx.fillStyle = '#B8A88A'; ctx.fill();
+  circ(ctx, 50, -218, 3, '#111'); ctx.strokeStyle = nek; ctx.lineWidth = 2; for (let k = 0; k < 4; k++) { ctx.beginPath(); ctx.moveTo(44, -228); ctx.lineTo(36 + k * 5, -252); ctx.stroke(); circ(ctx, 36 + k * 5, -254, 3, nek); }
+  ctx.restore(); }
+// edelhert (anker = voeten); o.kop 0..1 = kop omlaag (vechten), o.gewei, o.kalf
+function L3_hert(ctx, x, y, s, o = {}) { const { kijk = 1, kop = 0, gewei = true, kalf = false } = o, a = o.a == null ? 1 : o.a; if (a <= 0.01) return;
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s * kijk, s); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  const kl = kalf ? '#B07A4A' : '#8A5A34', dk = mix(kl, '#000000', 0.3);
+  ctx.strokeStyle = dk; ctx.lineWidth = 12; [[-60, -100, -64], [-40, -100, -36], [50, -100, 46], [70, -100, 74]].forEach(([x1, y1, x2]) => { ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, 0); ctx.stroke(); });
+  ctx.beginPath(); ctx.ellipse(0, -128, 92, 44, 0, 0, 6.283); ctx.fillStyle = kl; ctx.fill();
+  if (kalf) for (let i = 0; i < 8; i++) circ(ctx, -60 + hash(i) * 110, -148 + hash(i * 3) * 30, 5, '#E8D8B8');
+  const hx = lerp(112, 150, kop), hy = lerp(-222, -128, kop), nx = lerp(92, 110, kop), ny = lerp(-200, -128, kop);
+  ctx.strokeStyle = kl; ctx.lineWidth = 34; ctx.beginPath(); ctx.moveTo(60, -140); ctx.quadraticCurveTo(nx, ny + 10, hx - 10, hy); ctx.stroke();
+  ctx.save(); ctx.translate(hx, hy); ctx.rotate(lerp(0.35, 1.0, kop)); ctx.beginPath(); ctx.ellipse(14, 0, 34, 17, 0, 0, 6.283); ctx.fillStyle = kl; ctx.fill(); circ(ctx, 44, 2, 5, '#2A1E16'); circ(ctx, 8, -6, 3.5, '#111');
+  ctx.beginPath(); ctx.ellipse(-12, -16, 12, 6, -0.8, 0, 6.283); ctx.fillStyle = dk; ctx.fill();
+  if (gewei && !kalf) { ctx.strokeStyle = '#C8B48E'; ctx.lineWidth = 7; ctx.beginPath(); ctx.moveTo(-4, -12); ctx.bezierCurveTo(-30, -60, -20, -110, -50, -150); ctx.stroke();
+    [[-14, -40, 12, -62], [-22, -80, 4, -104], [-34, -118, -14, -148], [-44, -138, -70, -164]].forEach(([x1, y1, x2, y2]) => { ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); }); }
+  ctx.restore(); ctx.restore(); }
+// sterorchidee met lange nectarbuis (spoor) naar beneden; L = lengte van de buis in px
+function L3_orchidee(ctx, x, y, s, a = 1, L = 500) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.lineCap = 'round';
+  ctx.strokeStyle = '#D6DDBE'; ctx.lineWidth = 10 * s; ctx.beginPath(); ctx.moveTo(0, 10 * s); ctx.bezierCurveTo(20 * s, L * 0.35, -20 * s, L * 0.7, 6 * s, L); ctx.stroke();
+  circ(ctx, 6 * s, L, 9 * s, C.goud);
+  for (let i = 0; i < 6; i++) { const an = -Math.PI / 2 + i * Math.PI / 3; ctx.save(); ctx.rotate(an); ctx.beginPath(); ctx.moveTo(0, -18 * s); ctx.quadraticCurveTo(46 * s, -20 * s, 120 * s, 0); ctx.quadraticCurveTo(46 * s, 20 * s, 0, 18 * s); ctx.closePath(); ctx.fillStyle = '#F3EFE2'; ctx.fill(); ctx.strokeStyle = '#CFC8B0'; ctx.lineWidth = 1.5; ctx.stroke(); ctx.restore(); }
+  circ(ctx, 0, 0, 22 * s, '#E9E2C8', '#BFB698', 2); ctx.restore(); }
+// pijlstaartvlinder (kop rechts); tong naar punt (tx, ty) in wereldcoördinaten
+function L3_pijlstaart(ctx, x, y, s, a, T, tong) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  if (tong) { ctx.strokeStyle = '#B08850'; ctx.lineWidth = 3.5; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x - 46 * s, y + 6 * s); ctx.quadraticCurveTo((x + tong[0]) / 2 - 30, y + 30, tong[0], tong[1]); ctx.stroke(); }
+  ctx.translate(x, y); ctx.scale(s, s); const fl = 0.55 + 0.45 * Math.abs(Math.sin(T * 14));
+  [-1, 1].forEach(k => { ctx.save(); ctx.scale(1, k * fl); ctx.beginPath(); ctx.moveTo(-6, 0); ctx.lineTo(30, -96); ctx.lineTo(56, -84); ctx.lineTo(20, 0); ctx.closePath(); ctx.fillStyle = '#857A68'; ctx.fill(); ctx.strokeStyle = '#5E5446'; ctx.lineWidth = 2; ctx.stroke(); ctx.restore(); });
+  ctx.beginPath(); ctx.ellipse(10, 0, 56, 14, 0, 0, 6.283); ctx.fillStyle = '#6E6252'; ctx.fill(); for (let i = 0; i < 4; i++) { ctx.fillStyle = '#E3C88A'; ctx.fillRect(28 + i * 8, -12, 3, 24); }
+  circ(ctx, -46, 2, 12, '#5E5446'); circ(ctx, -50, -2, 3, '#111'); ctx.restore(); }
+// histogram op een as 0..1: f(u) geeft hoogte 0..1; o.kl, o.rand, o.dim(u) = extra doorzichtigheid per staaf
+function L3_histo(ctx, x, y, w, h, f, a = 1, o = {}) { if (a <= 0.01) return; const n = o.n || 18, bw = w / n, kl = o.kl || C.teal;
+  ctx.save(); ctx.globalAlpha *= a;
+  for (let i = 0; i < n; i++) { const u = (i + 0.5) / n, bh = h * f(u); if (bh < 1) continue; const d = o.dim ? o.dim(u) : 1;
+    ctx.save(); ctx.globalAlpha *= d; roundRect(ctx, x + i * bw + bw * 0.08, y - bh, bw * 0.84, bh, Math.min(6, bw * 0.15)); shape(ctx, o.rand ? null : rgba(kl, 0.6), kl, o.rand ? 3 : 2); ctx.restore(); }
+  ctx.restore(); }
+function L3_as(ctx, x, y, w, a, labels = [], titel = '') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.line; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + w, y); ctx.stroke(); ctx.restore();
+  labels.forEach(([u, s]) => regel(ctx, s, x + u * w, y + 38, a, C.text2, 26, 'center', 500)); if (titel) metaText(ctx, titel, x + w / 2, y + 80, C.text2, 'center', 20, a); }
+// weegschaal voor baby's
+function L3_weegschaal(ctx, x, y, a) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 150, y, 300, 70, 14); shape(ctx, C.fill, C.line, 2.5);
+  roundRect(ctx, x - 60, y + 16, 120, 40, 8); shape(ctx, C.bg, C.line, 2); ctx.beginPath(); ctx.moveTo(x - 190, y - 6); ctx.quadraticCurveTo(x, y + 30, x + 190, y - 6); ctx.lineTo(x + 170, y - 18); ctx.quadraticCurveTo(x, y + 8, x - 170, y - 18); ctx.closePath(); shape(ctx, rgba(C.line, 0.4), C.line, 2); ctx.restore(); }
+
+// ---------- 1 · start ----------
+SCHERMEN.push({ titel: 'Start', deel: 'Opening', geenKop: true,
+  stappen: [{ t: '<b>Evolutie</b> · les 3: vormen van selectie. Gericht, stabiliserend, splitsend, seksuele selectie en co-evolutie', n: 'Kies eerst havo of vwo (deze les is voor beide gelijk; de film heeft geen vwo-blokken). Groot scherm (F) vult het hele scherm; T zet de tekst eronder uit. Hoort bij film 3 van de nieuwe reeks, Vormen van selectie: havo Biologie voor jou H4, vwo Nectar H7. Bewust kort (± 25 minuten), te combineren met les 2 of les 4 in één lesuur.' }],
+  teken(ctx, S) {
+    const T = S.T;
+    metaText(ctx, 'Evolutie · les 3', 140, 330, C.meta, 'left', 30);
+    text(ctx, 'Vormen van', 140, 465, fTitel(98), C.text); text(ctx, 'selectie', 140, 585, fTitel(98), C.goud);
+    regel(ctx, 'gericht · stabiliserend · splitsend · seksueel', 144, 675, 1, C.text2, 32, 'left', 400);
+    L3_pauw(ctx, 1450, 900, 1.25, { open: 1, T });
+  } });
+
+// ---------- 2 · de pauw en de baby's ----------
+SCHERMEN.push({ titel: 'Pauw en baby', kop: 'Waarom worden baby\'s niet steeds zwaarder?', deel: 'Opening',
+  stappen: [
+    { t: 'Een pauw sleept een sleep van ± 1,5 meter mee. Die kost energie en valt op voor roofdieren. Toch heeft elke volwassen pauwhaan er een.', n: 'De opening van de film. Laat het raadsel even hangen: waarom bestaat zoiets onhandigs? Het antwoord komt bij seksuele selectie (scherm 9).' },
+    { t: 'Heel kleine baby\'s hebben het moeilijker dan grotere. Waarom worden baby\'s dan niet elke generatie zwaarder?', n: 'Startvraag van de film (kun je zelf stellen): Waarom worden baby\'s niet steeds zwaarder? Het antwoord komt bij stabiliserende selectie (scherm 7).' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 0.9), a1 = S.on(1, 0.9);
+    L3_pauw(ctx, 720, 700, 1.4, { a: a0, T });
+    if (a0 > 0.01) { const x1 = 720 - 20 * 1.4 - 330 * 1.4, x2 = 720 - 20 * 1.4; ctx.save(); ctx.globalAlpha *= a0 * S.on(0, 0.5, 0.5); ctx.strokeStyle = C.goud; ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.moveTo(x1, 760); ctx.lineTo(x2, 760); ctx.moveTo(x1, 744); ctx.lineTo(x1, 776); ctx.moveTo(x2, 744); ctx.lineTo(x2, 776); ctx.stroke(); ctx.restore();
+      naam(ctx, '± 1,5 m', (x1 + x2) / 2, 816, a0 * S.on(0, 0.5, 0.5), 'center', C.goud, 34);
+      regel(ctx, 'kost energie', 640, 900, a0 * S.on(0, 0.5, 0.8), C.koraal, 32, 'center', 700); regel(ctx, 'valt op', 640, 950, a0 * S.on(0, 0.5, 0.8), C.koraal, 32, 'center', 700); }
+    if (a1 > 0.01) { [[1190, 150], [1440, 200], [1730, 250]].forEach(([x, h], i) => pers(ctx, 'baby', x, 640, h, { t: T + i, uit: 'blij', a: a1 * S.on(1, 0.5, i * 0.2) }));
+      regel(ctx, 'heel klein', 1190, 720, a1, C.koraal, 30, 'center', 700); regel(ctx, 'meer risico', 1190, 762, a1, C.koraal, 28, 'center', 500);
+      pijl(ctx, 1260, 860, 1760, 860, C.text2, 4, a1 * S.on(1, 0.5, 0.6)); regel(ctx, 'zwaarder', 1510, 920, a1 * S.on(1, 0.5, 0.6), C.text2, 30, 'center', 600); }
+  } });
+
+// ---------- 3 · berkenspanner ----------
+SCHERMEN.push({ titel: 'Berkenspanner', kop: 'Twee vormen, één gen', deel: 'Gerichte selectie',
+  stappen: [
+    { t: 'De <b>berkenspanner</b>, een nachtvlinder, zit overdag stil op een stam. Er is een lichte vorm met spikkels en een bijna zwarte. Het verschil komt door één gen met twee allelen.', n: 'Het allel voor zwart (carbonaria) is dominant over het allel voor licht (typica). Blauw = allel zwart, geel = allel licht, zoals in de reeks.' },
+    { t: 'Rond Manchester wordt in 1848 de eerste zwarte gevangen. Fabrieken stoken steenkool; roet maakt de stammen zwart en de lichte korstmossen sterven af.', n: 'Laat zien hoe de camouflage omdraait: op een lichte stam valt de zwarte op, op een zwarte stam de lichte.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 0.9), a1 = S.on(1, 1.6), roet = ease(a1);
+    L3_stam(ctx, 420, 180, 340, 860, roet, a0); L3_fabriek(ctx, 210, 1040, a1, T);
+    L3_mot(ctx, 560, 420, 0.9, false, a0, -0.2); L3_mot(ctx, 640, 760, 0.9, true, a0, 0.25);
+    if (a1 > 0.01) regel(ctx, '1848 · roet', 210, 560, a1, C.text2, 32, 'center', 700);
+    const sub = S.on(0, 0.6, 0.4);
+    [[1220, false, 'licht met spikkels', EV().a2, 'allel licht'], [1620, true, 'zwart', EV().a1, 'allel zwart']].forEach(([x, z, nm, kk, al]) => {
+      L3_mot(ctx, x, 440, 2.0, z, a0 * sub); naam(ctx, nm, x, 600, a0 * sub, 'center', C.text, 34);
+      knikker(ctx, x, 700, 26, kk, a0 * sub); naam(ctx, al, x, 770, a0 * sub, 'center', kk, 30); });
+    if (a0 > 0.01) regel(ctx, 'één gen, twee allelen', 1420, 880, a0 * S.on(0, 0.6, 0.8), C.goud, 36, 'center', 700);
+  } });
+
+// ---------- 4 · Manchester ----------
+const L3_ZWART = [[1848, 1], [1860, 8], [1870, 30], [1880, 70], [1895, 98], [1920, 97], [1955, 95], [1965, 90], [1975, 75], [1985, 50], [1995, 22], [2005, 6], [2015, 2]];
+SCHERMEN.push({ titel: 'Manchester', kop: 'Zwart wordt gewoon, en weer zeldzaam', deel: 'Gerichte selectie',
+  stappen: [
+    { t: 'Op een zwarte stam vindt een vogel de lichte vlinders het eerst. Zwarte vlinders worden minder vaak opgegeten en krijgen meer nakomelingen.', n: 'Vraag uit de film: Wat gebeurt er de jaren daarna met de berkenspanners rond Manchester? (a) de lichte vlinders worden donker van het roet, (b) vogels eten vaker lichte vlinders: zwart wordt vaker, (c) er verandert niets. Antwoord b.' },
+    { t: 'In 1895 is rond Manchester ± 98 % van de berkenspanners zwart.', n: 'Geen enkele vlinder verandert van kleur (antwoord a is de misvatting): de allelfrequentie van zwart stijgt.' },
+    { t: 'Dan komen wetten voor schone lucht, zoals in 1956. De stammen worden weer licht, en het zwarte allel wordt weer zeldzaam: nu nog maar een paar procent.', n: 'De richting van selectie draait om, net als bij de vinken in 1983 (les 2). De curve is schematisch; zie de briefing voor gemeten getallen.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 1.2), a1 = S.on(1, 1.4), a2 = S.on(2, 1.6), roet = 1 - ease(a2);
+    L3_stam(ctx, 140, 180, 300, 860, roet, 1);
+    const eet = clamp(a0 * 1.4 - 0.2, 0, 1);
+    L3_mot(ctx, 290, 360, 0.8, true, 1, 0.2); L3_mot(ctx, 250, 820, 0.8, true, 1, -0.3); L3_mot(ctx, 330, 600, 0.8, false, 1 - eet, 0.1);
+    L3_vogel(ctx, lerp(560, 440, ease(a0)), lerp(420, 580, ease(a0)), 1.3, a0 * (1 - S.on(1, 0.6)), T, { kijk: -1 });
+    if (eet > 0.2 && eet < 0.99) kruis(ctx, 330, 600, 18, Math.sin(eet * Math.PI), C.koraal);
+    const x0 = 680, y0 = 900, gw = 1060, gh = 600, X = (j) => x0 + (j - 1840) / (2020 - 1840) * gw, Y = (p) => y0 - p / 100 * gh;
+    if (a1 > 0.01) { ctx.save(); ctx.globalAlpha *= a1; ctx.strokeStyle = C.line; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(x0, y0 - gh); ctx.lineTo(x0, y0); ctx.lineTo(x0 + gw, y0); ctx.stroke(); ctx.restore();
+      [1850, 1900, 1950, 2000].forEach(j => regel(ctx, String(j), X(j), y0 + 40, a1, C.text2, 26, 'center', 500)); [0, 50, 100].forEach(p => regel(ctx, p + '%', x0 - 16, Y(p) + 9, a1, C.text2, 24, 'right', 500));
+      metaText(ctx, 'zwarte berkenspanners rond Manchester', x0 + 10, y0 - gh - 44, C.text2, 'left', 20, a1);
+      const tot = lerp(1848, 1895, a1) + (a2 > 0 ? (2015 - 1895) * a2 : 0); const pts = []; L3_ZWART.forEach(([j, p], i) => { if (j <= tot) pts.push([X(j), Y(p)]); else if (i && L3_ZWART[i - 1][0] < tot) { const [j0, p0] = L3_ZWART[i - 1], u = (tot - j0) / (j - j0); pts.push([X(tot), Y(lerp(p0, p, u))]); } });
+      ctx.save(); ctx.strokeStyle = EV().a1; ctx.lineWidth = 6; ctx.lineJoin = 'round'; ctx.beginPath(); pts.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke(); ctx.restore();
+      circ(ctx, X(1895), Y(98), 9, EV().a1); regel(ctx, '1895: ± 98 % zwart', X(1895) + 24, Y(98) + 54, a1 * S.on(1, 0.5, 1.0), C.text, 32, 'left', 700); }
+    if (a2 > 0.01) { ctx.save(); ctx.globalAlpha *= a2; ctx.setLineDash([8, 8]); ctx.strokeStyle = C.groen; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(X(1956), Y(100)); ctx.lineTo(X(1956), y0); ctx.stroke(); ctx.restore();
+      regel(ctx, '1956 · schone lucht', X(1956) - 14, Y(30), a2, C.groen, 30, 'right', 700);
+      regel(ctx, 'nu: paar procent', 1900, Y(14), a2 * S.on(2, 0.5, 1.1), C.text, 30, 'right', 700); }
+  } });
+
+// ---------- 5 · gerichte selectie ----------
+SCHERMEN.push({ titel: 'Gerichte selectie', kop: 'Eén kant heeft voordeel', deel: 'Gerichte selectie',
+  stappen: [
+    { t: 'Eén kant van de variatie heeft een voordeel; de andere kant een nadeel.', n: 'Bij de berkenspanner: donker heeft voordeel op zwarte stammen. Het histogram is algemeen (een kenmerk met veel tussenvormen, zoals snavelhoogte).' },
+    { t: 'Het gemiddelde schuift die kant op, generatie na generatie. Dat heet <b>gerichte selectie</b>.', n: 'De spreiding blijft ongeveer gelijk; de hele verdeling schuift.' },
+    { t: 'Je zag het ook bij de vinken van Daphne Major: in de droogte van 1977 schoof de snavelhoogte omhoog.', n: 'Brug naar les 2. Gerichte selectie stopt als de omgeving niet meer verandert, of draait om (berkenspanner na 1956, vinken na 1983).' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 0.9), a1 = S.on(1, 1.6), a2 = S.on(2, 0.9);
+    const hx = 160, hy = 780, hw = 1100, hh = 460;
+    L3_as(ctx, hx, hy, hw, 1, [[0.08, 'klein'], [0.92, 'groot']], 'kenmerk');
+    L3_histo(ctx, hx, hy, hw, hh, u => L3_g(u, 0.4, 0.13), 1, { kl: a1 > 0.01 ? C.line : C.teal, rand: a1 > 0.01, dim: u => a0 > 0.01 && a1 < 0.01 ? lerp(1, 0.35, ease(clamp((0.32 - u) * 6 * a0, 0, 1))) : 1 });
+    if (a0 > 0.01) { kruis(ctx, hx + 0.1 * hw, hy - 110, 18, a0, C.koraal); regel(ctx, 'nadeel', hx + 0.1 * hw, hy - 150, a0, C.koraal, 32, 'center', 700);
+      vink(ctx, hx + 0.94 * hw, hy - 110, 18, a0, C.groen); regel(ctx, 'voordeel', hx + 0.94 * hw, hy - 150, a0, C.groen, 32, 'center', 700); }
+    if (a1 > 0.01) { const mu = 0.4 + 0.22 * ease(a1); L3_histo(ctx, hx, hy, hw, hh, u => L3_g(u, mu, 0.13), a1, { kl: C.teal });
+      pijl(ctx, hx + 0.4 * hw, hy - hh - 40, hx + mu * hw + 10, hy - hh - 40, C.groen, 5, a1);
+      termKaart(ctx, 'gerichte selectie', 'het gemiddelde schuift één kant op', 1580, 300, a1 * S.on(1, 0.6, 0.8), C.groen); }
+    if (a2 > 0.01) { L3_mot(ctx, 1450, 640, 1.0, false, a2); pijl(ctx, 1530, 640, 1610, 640, C.groen, 4, a2); L3_mot(ctx, 1700, 640, 1.0, true, a2);
+      L3_vogel(ctx, 1440, 860, 0.9, a2, T, { bek: 0.9 }); pijl(ctx, 1530, 850, 1610, 850, C.groen, 4, a2); L3_vogel(ctx, 1700, 860, 0.9, a2, T + 1, { bek: 1.4 }); }
+  } });
+
+// ---------- 6 · geboortegewicht ----------
+const L3_KG = (kg) => (kg - 1) / 4.5; // as 1–5,5 kg
+SCHERMEN.push({ titel: 'Geboortegewicht', kop: 'Baby\'s verschillen in gewicht', deel: 'Stabiliserende selectie',
+  stappen: [
+    { t: 'Verloskundige Mirjam weegt een pasgeboren baby. Het gewicht hangt af van de voeding en gezondheid van de moeder, maar deels ook van erfelijke aanleg.', n: 'Mirjam is de verloskundige uit de reeks. Alleen het erfelijke deel van de variatie doet mee aan evolutie.' },
+    { t: 'In Londen noteerden artsen bij duizenden baby\'s, geboren tussen 1935 en 1946, het geboortegewicht en of de baby de eerste weken overleefde.', n: 'Vraag uit de film: Welke baby\'s hadden toen de grootste kans om te overleven? (a) de baby\'s met een gemiddeld gewicht, (b) de zwaarste baby\'s, (c) de lichtste baby\'s: die worden makkelijker geboren. Antwoord a (volgende scherm).' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 0.9), a1 = S.on(1, 1.3);
+    pers(ctx, 'mirjam', 380, 1000, 720, { t: T, uit: 'blij', kijk: 1, a: a0 });
+    L3_weegschaal(ctx, 760, 820, a0); pers(ctx, 'baby', 760, 812, 230, { t: T, uit: 'blij', a: a0 });
+    if (a0 > 0.01) regel(ctx, '3,4 kg', 760, 860, a0 * S.on(0, 0.5, 0.5), C.text, 28, 'center', 700);
+    const hx = 1040, hy = 860, hw = 780, hh = 480;
+    L3_as(ctx, hx, hy, hw, a1, [[L3_KG(1), '1'], [L3_KG(2), '2'], [L3_KG(3), '3'], [L3_KG(4), '4'], [L3_KG(5), '5']], 'geboortegewicht (kg)');
+    L3_histo(ctx, hx, hy, hw, hh * ease(a1), u => L3_g(u, L3_KG(3.3), 0.13), a1, { kl: C.teal });
+    if (a1 > 0.01) { regel(ctx, 'duizenden baby\'s', hx + hw / 2, 250, a1 * S.on(1, 0.5, 0.6), C.text, 34, 'center', 700); regel(ctx, 'Londen · 1935–1946', hx + hw / 2, 296, a1 * S.on(1, 0.5, 0.6), C.text2, 28, 'center', 500); }
+  } });
+
+// ---------- 7 · stabiliserende selectie ----------
+const L3_overleef = (kg, zorg) => { const oud = 0.12 + 0.86 * Math.exp(-0.5 * ((kg - 3.5) / 0.95) ** 4 * 0.9), nu = 0.97 - 0.5 * (clamp((2.5 - kg) / 1.4, 0, 1) ** 1.6) - 0.25 * clamp((kg - 4.6) / 1, 0, 1); return lerp(oud, nu, zorg); };
+SCHERMEN.push({ titel: 'Stabiliserend', kop: 'Het midden overleeft het best', deel: 'Stabiliserende selectie',
+  stappen: [
+    { t: 'Baby\'s van ± 3,5 kg overleefden het vaakst. Veel lichtere baby\'s hadden het moeilijk, maar heel zware ook: dan was de geboorte gevaarlijker.', n: 'Antwoord a op de vraag van het vorige scherm. Bovenste lijn = kans om de eerste weken te overleven (schematisch, naar Karn & Penrose 1951).' },
+    { t: 'Beide uitersten hebben een nadeel. Het gemiddelde blijft staan en de spreiding wordt kleiner: <b>stabiliserende selectie</b>.', n: 'Daarom werden baby\'s niet steeds zwaarder: ook zware baby\'s hadden een nadeel. Antwoord op de startvraag (scherm 2).' },
+    { t: 'Met goede zorg is dat veranderd: dankzij couveuses en keizersneden overleven bijna alle baby\'s van 2,5 tot 4,5 kg even goed.', n: 'Die selectiedruk is in landen met goede zorg grotendeels verdwenen. Mooi bruggetje naar les 4: de mens verandert de selectie.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 1.4), a1 = S.on(1, 1.4), a2 = S.on(2, 1.6), zorg = ease(a2);
+    const hx = 160, hw = 1080, X = (kg) => hx + L3_KG(kg) * hw, cy = 520, ch = 300;
+    L3_as(ctx, hx, 920, hw, 1, [[L3_KG(1), '1'], [L3_KG(2), '2'], [L3_KG(3), '3'], [L3_KG(4), '4'], [L3_KG(5), '5']], 'geboortegewicht (kg)');
+    if (a0 > 0.01) { metaText(ctx, 'kans om te overleven', hx, cy - ch - 20, C.text2, 'left', 20, a0); const pts = [];
+      for (let i = 0; i <= 80; i++) { const u = i / 80; if (u > a0) break; const kg = 1 + 4.5 * u; pts.push([hx + u * hw, cy - ch * L3_overleef(kg, zorg)]); }
+      ctx.save(); ctx.strokeStyle = C.groen; ctx.lineWidth = 6; ctx.lineJoin = 'round'; ctx.beginPath(); pts.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke(); ctx.restore();
+      const b = S.on(0, 0.5, 1.2) * (1 - zorg); vink(ctx, X(3.5), cy - ch - 40, 16, b, C.groen); regel(ctx, '± 3,5 kg', X(3.5) + 30, cy - ch - 28, b, C.groen, 30, 'left', 700);
+      kruis(ctx, X(1.4), cy - 60, 14, b, C.koraal); regel(ctx, 'te licht', X(1.4), cy - 10, b, C.koraal, 28, 'center', 700);
+      kruis(ctx, X(5.2), cy - 60, 14, b, C.koraal); regel(ctx, 'te zwaar', X(5.2), cy - 10, b, C.koraal, 28, 'center', 700); }
+    L3_histo(ctx, hx, 920, hw, 300, u => L3_g(u, L3_KG(3.3), 0.15), 1, { kl: a1 > 0.01 ? C.line : C.teal, rand: a1 > 0.01 });
+    if (a1 > 0.01) { const sd = lerp(0.15, 0.1, ease(a1)); L3_histo(ctx, hx, 920, hw, 300, u => L3_g(u, L3_KG(3.3), sd), a1, { kl: C.teal });
+      pijl(ctx, X(1.6), 760, X(2.4), 760, C.groen, 4, a1); pijl(ctx, X(5.0), 760, X(4.2), 760, C.groen, 4, a1);
+      termKaart(ctx, 'stabiliserende selectie', 'beide uitersten hebben een nadeel', 1580, 300, a1 * S.on(1, 0.6, 0.8), C.groen);
+      regel(ctx, 'smaller, gemiddelde blijft', 1580, 500, a1 * S.on(1, 0.6, 1.0), C.text, 32, 'center', 600); }
+    if (a2 > 0.01) { regel(ctx, 'nu, met goede zorg', 1580, 680, a2, C.goud, 36, 'center', 700); regel(ctx, '2,5–4,5 kg: bijna allemaal', 1580, 730, a2, C.text, 30, 'center', 600);
+      regel(ctx, 'selectiedruk grotendeels weg', 1580, 780, a2 * S.on(2, 0.5, 0.8), C.text2, 28, 'center', 500); }
+  } });
+
+// ---------- 8 · splitsende selectie ----------
+SCHERMEN.push({ titel: 'Splitsend', kop: 'Klein of groot, niet ertussenin', deel: 'Splitsende selectie',
+  stappen: [
+    { t: 'De <b>zwartbuikzaadkraker</b> in Kameroen: in één populatie hebben sommige vogels een kleine snavel, andere een grote.', n: 'Vraag uit de film: Wat gebeurt er met de snavels in deze populatie? (a) ze worden middelgroot: het beste van twee werelden, (b) alle snavels worden groot, (c) twee groepen, klein en groot, met weinig ertussen. Antwoord c.' },
+    { t: 'Een kleine snavel eet sneller de zachte zaden van de ene zegge; een grote kraakt de harde zaden van een andere. Een snavel ertussenin is in geen van beide goed.', n: 'Zegge = een grasachtige moerasplant (Scleria). De twee voedselbronnen zijn de selectiedruk.' },
+    { t: 'De vogels in het midden overleven het slechtst. Het histogram krijgt twee toppen: <b>splitsende selectie</b>.', n: 'Bij deze vogel bepaalt vooral één gen of de snavel klein of groot wordt. Splitsende selectie kan het makkelijkst tot nieuwe soorten leiden (les 6); de zaadkraker is nog één soort.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 0.9), a1 = S.on(1, 1.0), a2 = S.on(2, 1.4);
+    const vg = [[330, 0.55, 'kleine snavel', 0], [790, 1.15, 'ertussenin', 1], [1250, 1.9, 'grote snavel', 2]];
+    vg.forEach(([x, bek, nm, i]) => { const a = a0 * S.on(0, 0.5, i * 0.2); L3_vogel(ctx, x, 320, 1.6, a, T + i, Object.assign({ bek }, L3_ZAADKRAKER())); naam(ctx, nm, x, 460, a, 'center', C.text, 32); });
+    if (a1 > 0.01) { for (let k = 0; k < 7; k++) circ(ctx, 250 + k * 26, 540 + (k % 2) * 16, 8, C.licht ? '#C9B07A' : '#D8C190');
+      regel(ctx, 'zacht zaad', 330, 610, a1, C.text2, 28, 'center', 600); vink(ctx, 470, 540, 14, a1 * S.on(1, 0.5, 0.3), C.groen);
+      for (let k = 0; k < 4; k++) circ(ctx, 1180 + k * 46, 548, 18, C.licht ? '#6E5A3E' : '#8A7454', mix('#6E5A3E', '#000000', 0.3), 2);
+      regel(ctx, 'hard zaad', 1250, 610, a1, C.text2, 28, 'center', 600); vink(ctx, 1400, 540, 14, a1 * S.on(1, 0.5, 0.3), C.groen);
+      kruis(ctx, 790, 560, 18, a1 * S.on(1, 0.5, 0.6), C.koraal); }
+    const hx = 200, hy = 960, hw = 1180, hh = 260;
+    L3_as(ctx, hx, hy, hw, a2, [[0.08, 'klein'], [0.92, 'groot']], 'snavelgrootte');
+    if (a2 > 0.01) { const k = ease(a2); L3_histo(ctx, hx, hy, hw, hh, u => lerp(L3_g(u, 0.5, 0.22), Math.max(L3_g(u, 0.24, 0.08), L3_g(u, 0.76, 0.08)), k), a2, { kl: C.teal });
+      termKaart(ctx, 'splitsende selectie', 'beide uitersten hebben voordeel', 1640, 640, a2 * S.on(2, 0.6, 0.9), C.groen);
+      regel(ctx, 'twee toppen', 1640, 830, a2 * S.on(2, 0.6, 1.1), C.text, 34, 'center', 700); }
+  } });
+
+// ---------- 9 · seksuele selectie ----------
+SCHERMEN.push({ titel: 'Seksuele selectie', kop: 'Het vrouwtje kiest', deel: 'Seksuele selectie',
+  stappen: [
+    { t: 'Bij pauwen kiest het vrouwtje, de pauwin. De pauw zet zijn staart op als een waaier en laat de veren trillen.', n: 'Vraag uit de film: Waarom blijft zo\'n opvallende staart generatie na generatie bestaan? (a) hij schrikt roofdieren af, (b) pauwinnen kiezen vaker een pauw met een volle staart, (c) de pauw laat hem groeien omdat hij hem nodig heeft. Antwoord b.' },
+    { t: 'Een pauw met veel minder oogvlekken wordt minder vaak gekozen. Wie gekozen wordt, krijgt meer jongen, ook al kost de staart energie.', n: 'Welke delen van de staart het zwaarst wegen, onderzoeken biologen nog (zie briefing). Antwoord c is de doel-misvatting uit les 2.' },
+    { t: 'Dit heet <b>seksuele selectie</b>: selectie door het andere geslacht.', n: 'Antwoord op het raadsel van scherm 2: de staart is een nadeel bij het overleven, maar een voordeel bij het voortplanten.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 1.4), a1 = S.on(1, 1.0), a2 = S.on(2, 0.9);
+    L3_pauw(ctx, 500, 760, 1.0, { open: ease(a0), T, a: S.on(0, 0.4) });
+    L3_pauw(ctx, 1650, 760, 1.1, { vrouw: true, kijk: -1, T, a: S.on(0, 0.4) });
+    if (a0 > 0.01) naam(ctx, 'pauwin', 1650, 820, a0, 'center', C.text, 32);
+    if (a1 > 0.01) { L3_pauw(ctx, 1140, 760, 0.72, { open: 1, vlek: 0.35, T: T + 1, a: a1 });
+      vink(ctx, 380, 820, 18, a1 * S.on(1, 0.5, 0.4), C.groen); regel(ctx, 'vaker gekozen', 410, 832, a1 * S.on(1, 0.5, 0.4), C.groen, 32, 'left', 700);
+      regel(ctx, 'minder oogvlekken:', 1140, 820, a1, C.text2, 28, 'center', 600); regel(ctx, 'minder vaak gekozen', 1140, 858, a1, C.text2, 28, 'center', 600); }
+    termKaart(ctx, 'seksuele selectie', 'selectie door het andere geslacht', 960, 905, a2, C.groen);
+  } });
+
+// ---------- 10 · strijd ----------
+SCHERMEN.push({ titel: 'Strijd', kop: 'Nadeel bij overleven, voordeel bij voortplanten', deel: 'Seksuele selectie',
+  stappen: [
+    { t: 'Seksuele selectie kan ook via strijd gaan. Edelherten vechten in de bronst met hun gewei om de hinden. Ongeveer een op de vier volwassen herten raakt elk jaar gewond.', n: 'Hinde = vrouwtjeshert. Bronst = de paartijd in de herfst. Het getal (± 1 op 4) is dat van de film; zie de briefing (Clutton-Brock, Rum).' },
+    { t: 'Maar een hert dat wint, krijgt veel nakomelingen.', n: 'Op Rum (Schotland) krijgen een paar winnende herten het grootste deel van de kalveren; veel herten krijgen er nooit een.' },
+    { t: 'Een kenmerk kan dus een nadeel zijn om te overleven, en toch winnen bij het voortplanten. <b>Fitness</b> telt nakomelingen, geen levensjaren.', n: 'Brug naar fitness uit les 2. Dat geldt voor de pauwenstaart en het gewei.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 1.0), a1 = S.on(1, 1.2), a2 = S.on(2, 0.9), d = Math.sin(T * 3) * 6 * a0;
+    L3_hert(ctx, 560 - d, 640, 1.3, { kop: 1, a: a0 }); L3_hert(ctx, 1000 + d, 640, 1.3, { kop: 1, kijk: -1, a: a0 });
+    if (a0 > 0.01) { regel(ctx, 'bronst', 780, 230, a0, C.text2, 30, 'center', 600);
+      for (let k = 0; k < 4; k++) circ(ctx, 1320 + k * 70, 300, 24, k === 0 ? C.koraal : rgba(C.line, 0.5)); regel(ctx, '± 1 op 4 gewond per jaar', 1425, 370, a0 * S.on(0, 0.5, 0.5), C.text, 30, 'center', 700); }
+    if (a1 > 0.01) { for (let k = 0; k < 6; k++) L3_hert(ctx, 1260 + (k % 3) * 170, 560 + Math.floor(k / 3) * 150, 0.45, { kalf: true, kijk: -1, a: a1 * S.on(1, 0.4, 0.2 + k * 0.12) });
+      pijl(ctx, 1150, 520, 1220, 520, C.groen, 4, a1); regel(ctx, 'winnaar: veel nakomelingen', 1430, 790, a1 * S.on(1, 0.5, 0.9), C.groen, 30, 'center', 700); }
+    if (a2 > 0.01) { kansBalk(ctx, 340, 860, 420, 40, 0.35, C.koraal, a2, 'overleven'); kansBalk(ctx, 1000, 860, 420, 40, 0.9, C.groen, a2, 'voortplanten');
+      balk(ctx, 'fitness telt nakomelingen, geen levensjaren', 960, 990, 1100, a2 * S.on(2, 0.5, 0.5), C.goud, 36); }
+  } });
+
+// ---------- 11 · co-evolutie ----------
+SCHERMEN.push({ titel: 'Co-evolutie', kop: 'Elkaars selectiedruk', deel: 'Co-evolutie',
+  stappen: [
+    { t: 'Op Madagaskar groeit Darwins orchidee. De nectar zit onderin een buis van 20 tot 35 centimeter. Darwin voorspelde in 1862: er moet een insect zijn met een tong die bijna net zo lang is.', n: 'Angraecum sesquipedale (sterorchidee). Darwin beschreef de bloem in zijn orchideeënboek van 1862.' },
+    { t: 'In 1903 werd de pijlstaartvlinder beschreven die erbij past: zijn tong kan bijna 30 centimeter lang zijn.', n: 'Vraag uit de film: Waarom zijn de buis en de tong allebei zo lang geworden? (a) de bloem maakte haar buis langer voor deze vlinder, (b) toeval: ze passen toevallig bij elkaar, (c) ze waren generaties lang elkaars selectiedruk. Antwoord c.' },
+    { t: 'Een langere buis dwingt de vlinder diep te steken: zijn kop raakt het stuifmeel. Een langere tong haalt meer nectar. Zo zijn ze elkaars selectiedruk: <b>co-evolutie</b>.', n: 'Steun: Nilsson (1988) maakte bij een andere orchidee de buis korter; die bloemen werden minder goed bestoven. Er is ook een andere verklaring: misschien werd de tong eerst lang om afstand te houden van spinnen die bij bloemen loeren.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 1.0), a1 = S.on(1, 1.4), a2 = S.on(2, 1.2);
+    const fx = 420, fy = 300, L = 640;
+    L3_orchidee(ctx, fx, fy, 1.0, a0, L);
+    if (a0 > 0.01) { naam(ctx, 'nectar', fx + 40, fy + L + 10, a0 * S.on(0, 0.5, 0.4), 'left', C.goud, 30);
+      ctx.save(); ctx.globalAlpha *= a0 * S.on(0, 0.5, 0.6); ctx.strokeStyle = C.text2; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(fx - 120, fy + 20); ctx.lineTo(fx - 120, fy + L); ctx.moveTo(fx - 134, fy + 20); ctx.lineTo(fx - 106, fy + 20); ctx.moveTo(fx - 134, fy + L); ctx.lineTo(fx - 106, fy + L); ctx.stroke(); ctx.restore();
+      regel(ctx, '20–35 cm', fx - 140, fy + L / 2, a0 * S.on(0, 0.5, 0.6), C.text, 30, 'right', 700);
+      regel(ctx, '1862 · Darwin voorspelt', fx + 50, fy + L - 120, a0 * S.on(0, 0.5, 0.9), C.text2, 28, 'left', 600); }
+    if (a1 > 0.01) { const u = ease(clamp(a1 * 1.4, 0, 1)), mx = lerp(1100, fx + 150, u), my = lerp(240, fy - 30, u), d = clamp((a1 * 1.4 - 0.75) / 0.65, 0, 1);
+      if (d > 0) { ctx.save(); ctx.globalAlpha *= a1; ctx.strokeStyle = '#B08850'; ctx.lineWidth = 4; ctx.lineCap = 'round'; ctx.setLineDash([60 + d * (L + 20), 5000]);
+        ctx.beginPath(); ctx.moveTo(mx - 50, my + 2); ctx.lineTo(fx + 4, fy + 6); ctx.bezierCurveTo(fx + 20, fy + L * 0.35, fx - 20, fy + L * 0.7, fx + 6, fy + L - 8); ctx.stroke(); ctx.restore(); }
+      L3_pijlstaart(ctx, mx, my, 1.1, a1, T, null);
+      regel(ctx, '1903 · tong ± 30 cm', fx + 60, fy + 260, a1 * S.on(1, 0.5, 1.1), C.text, 30, 'left', 700); }
+    if (a2 > 0.01) { const cx = 1440, cy = 420; regel(ctx, 'langere buis', cx, cy - 130, a2, C.groen, 34, 'center', 700); regel(ctx, 'langere tong', cx, cy + 160, a2, C.oker, 34, 'center', 700);
+      ctx.save(); ctx.globalAlpha *= a2; ctx.strokeStyle = C.goud; ctx.lineWidth = 5; ctx.beginPath(); ctx.arc(cx, cy + 10, 110, -2.6, -0.5); ctx.stroke(); ctx.beginPath(); ctx.arc(cx, cy + 10, 110, 0.55, 2.6); ctx.stroke(); ctx.restore();
+      const t1 = [cx + Math.cos(-0.5) * 110, cy + 10 + Math.sin(-0.5) * 110], t2 = [cx + Math.cos(2.6) * 110, cy + 10 + Math.sin(2.6) * 110];
+      pijl(ctx, t1[0] - 8, t1[1] - 10, t1[0] + 2, t1[1] + 4, C.goud, 5, a2, 22); pijl(ctx, t2[0] + 8, t2[1] + 10, t2[0] - 2, t2[1] - 4, C.goud, 5, a2, 22);
+      regel(ctx, 'generatie na generatie', cx, cy + 22, a2, C.text2, 26, 'center', 500);
+      termKaart(ctx, 'co-evolutie', 'twee soorten zijn elkaars selectiedruk', 1440, 760, a2 * S.on(2, 0.6, 0.7), C.groen); }
+  } });
+
+// ---------- 12 · samenvatting ----------
+function L3_mini(ctx, x, y, w, a, f0, f1) { L3_histo(ctx, x, y, w, 90, f0, a, { kl: C.line, rand: true, n: 12 }); L3_histo(ctx, x, y, w, 90, f1, a, { kl: C.teal, n: 12 }); }
+SCHERMEN.push({ titel: 'Samenvatting', kop: 'Vormen van selectie', deel: 'Afsluiting',
+  stappen: [
+    { t: '<b>Gericht</b> schuift het histogram op, <b>stabiliserend</b> maakt het smaller, <b>splitsend</b> geeft twee toppen.', n: 'Daarom werden baby\'s niet steeds zwaarder: het midden had de hoogste fitness.' },
+    { t: '<b>Seksuele selectie</b>: het andere geslacht kiest, of de sterkste wint de strijd. Een nadeel bij overleven kan winnen bij voortplanten.', n: 'De pauw verliest misschien iets bij het overleven, maar wint bij het voortplanten.' },
+    { t: '<b>Co-evolutie</b>: twee soorten zijn generaties lang elkaars selectiedruk.', n: 'Darwins orchidee en de pijlstaartvlinder.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s = [S.on(0, 0.9), S.on(1, 0.9), S.on(2, 0.9)];
+    const kol = [['drie vormen', C.groen], ['seksuele selectie', C.goud], ['co-evolutie', C.teal]];
+    kol.forEach(([kop, col], i) => { const a = s[i]; if (a <= 0.01) return; const x = 120 + i * 580;
+      paneel(ctx, x, 190, 540, 790, a, rgba(col, 0.6)); regel(ctx, kop, x + 270, 268, a, col, 44, 'center', 700);
+      if (i === 0) [['gericht', u => L3_g(u, 0.4, 0.14), u => L3_g(u, 0.6, 0.14)], ['stabiliserend', u => L3_g(u, 0.5, 0.17), u => L3_g(u, 0.5, 0.09)], ['splitsend', u => L3_g(u, 0.5, 0.2), u => Math.max(L3_g(u, 0.25, 0.08), L3_g(u, 0.75, 0.08))]].forEach(([nm, f0, f1], k) => {
+        const yy = 430 + k * 190, b = a * S.on(0, 0.5, 0.2 + k * 0.2); L3_mini(ctx, x + 40, yy, 230, b, f0, f1); regel(ctx, nm, x + 290, yy - 30, b, C.text, 31, 'left', 700); });
+      if (i === 1) { L3_pauw(ctx, x + 270, 640, 0.75, { open: 1, T, a }); regel(ctx, 'het andere geslacht kiest', x + 270, 760, a, C.text, 30, 'center', 500); regel(ctx, 'of strijd', x + 270, 810, a, C.text, 30, 'center', 500); regel(ctx, 'telt: nakomelingen', x + 270, 900, a * S.on(1, 0.5, 0.4), C.goud, 32, 'center', 700); }
+      if (i === 2) { L3_orchidee(ctx, x + 180, 380, 0.6, a, 340); L3_pijlstaart(ctx, x + 360, 420, 0.7, a, T, [x + 190, 640]); regel(ctx, 'elkaars selectiedruk', x + 270, 810, a, C.text, 30, 'center', 500); regel(ctx, 'buis en tong', x + 270, 900, a, C.text2, 30, 'center', 500); } });
+  } });
+
+// ---------- 13 · volgende keer ----------
+function L3_icoonPil(ctx, x, y, a, T) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  for (let k = 0; k < 5; k++) { const bx = x - 90 + (k % 3) * 70, by = y - 20 + Math.floor(k / 3) * 60; ctx.save(); ctx.translate(bx, by); ctx.rotate(hash(k) * 2); roundRect(ctx, -26, -12, 52, 24, 12); shape(ctx, rgba(k === 4 ? C.koraal : C.teal, 0.6), k === 4 ? C.koraal : C.teal, 2); ctx.restore(); }
+  ctx.translate(x + 80, y - 70); ctx.rotate(-0.5); roundRect(ctx, -36, -16, 72, 32, 16); ctx.save(); ctx.clip(); ctx.fillStyle = C.goud; ctx.fillRect(-36, -16, 36, 32); ctx.fillStyle = C.bg; ctx.fillRect(0, -16, 36, 32); ctx.restore(); ctx.strokeStyle = C.line; ctx.lineWidth = 2; roundRect(ctx, -36, -16, 72, 32, 16); ctx.stroke(); ctx.restore(); }
+function L3_icoonPlasmide(ctx, x, y, a, T) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  [[-70, 0, C.teal], [70, 0, C.oker]].forEach(([dx, dy, k]) => { roundRect(ctx, x + dx - 60, y + dy - 34, 120, 68, 34); shape(ctx, rgba(k, 0.35), k, 2.5); });
+  ctx.strokeStyle = C.line; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(x - 10, y); ctx.lineTo(x + 10, y); ctx.stroke();
+  const u = (T * 0.4) % 1; circ(ctx, x - 70 + u * 140, y, 14, null, C.paars, 4); circ(ctx, x - 70, y, 14, null, C.paars, 4); ctx.restore(); }
+function L3_hond(ctx, x, y, s, kl) { ctx.save(); ctx.translate(x, y); ctx.scale(s, s); ctx.fillStyle = kl; ctx.strokeStyle = kl; ctx.lineCap = 'round';
+  ctx.beginPath(); ctx.ellipse(0, -60, 60, 26, 0, 0, 6.283); ctx.fill(); ctx.lineWidth = 12; [[-40, -36], [-25, -36], [30, -36], [45, -36]].forEach(([lx, ly]) => { ctx.beginPath(); ctx.moveTo(lx, ly - 10); ctx.lineTo(lx, 0); ctx.stroke(); });
+  ctx.beginPath(); ctx.moveTo(-56, -70); ctx.quadraticCurveTo(-90, -90, -96, -60); ctx.stroke(); ctx.beginPath(); ctx.ellipse(66, -92, 26, 20, 0.2, 0, 6.283); ctx.fill(); ctx.beginPath(); ctx.moveTo(84, -90); ctx.lineTo(112, -82); ctx.lineTo(86, -76); ctx.fill();
+  ctx.beginPath(); ctx.moveTo(56, -108); ctx.lineTo(60, -134); ctx.lineTo(74, -110); ctx.fill(); ctx.restore(); }
+function L3_icoonHond(ctx, x, y, a) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; L3_hond(ctx, x - 50, y + 60, 0.95, C.licht ? '#7A7068' : '#9A9088'); L3_hond(ctx, x + 110, y + 60, 0.35, C.licht ? '#C08A50' : '#D09A60'); ctx.restore(); pijl(ctx, x + 40, y - 70, x + 100, y - 70, C.goud, 4, a); }
+function L3_icoonZaad(ctx, x, y, a) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 70, y - 80, 140, 160, 18); shape(ctx, rgba(C.fill, 0.6), C.line, 3); ctx.fillStyle = C.line; ctx.fillRect(x - 76, y - 96, 152, 20);
+  const kl = ['#C9B07A', '#8A6A3A', '#D8C190', '#6E8A4A', '#B5574A']; for (let i = 0; i < 18; i++) { ctx.beginPath(); ctx.ellipse(x - 48 + (i % 5) * 24, y + 60 - Math.floor(i / 5) * 22, 9, 6, hash(i), 0, 6.283); ctx.fillStyle = kl[i % 5]; ctx.fill(); } ctx.restore(); }
+SCHERMEN.push({ titel: 'Volgende keer', deel: 'Vooruitblik', geenKop: true,
+  stappen: [{ t: 'Volgende keer (les 4): <b>de mens als selectiefactor</b>. Antibiotica en resistentie, kunstmatige selectie, inteelt en de genenbank.', n: 'Huiswerk: de film Vormen van selectie (nog eens) kijken. Wie vooruit wil: film 4 De mens als selectiefactor (startvraag: Waarom helpt een antibioticum niet tegen griep, maar maakt het wel resistentie?).' }],
+  teken(ctx, S) { vooruitblik(ctx, S, 'De mens als selectiefactor', [['Antibiotica', 'het middel kiest', L3_icoonPil], ['Resistentie springt over', 'via plasmiden', L3_icoonPlasmide], ['Kunstmatige selectie', 'van wolf tot chihuahua', L3_icoonHond], ['Inteelt en genenbank', 'variatie als verzekering', L3_icoonZaad]]); } });
+
+/* =====================================================================================
+   Speler
+   ===================================================================================== */
+const cv = document.getElementById('cv'), ctx = cv.getContext('2d');
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let vwo = true, scr = 0, p = 0, tStap = performance.now(), tScherm = performance.now();
+const startTijden = {};
+try { const q = new URLSearchParams(location.search).get('niveau'); const sv = localStorage.getItem('niveau'); vwo = q === 'havo' ? false : q === 'vwo' ? true : sv !== 'havo'; } catch (e) {}
+const zichtbaar = (i) => SCHERMEN[i].stappen.map((s, k) => k).filter(k => vwo || !SCHERMEN[i].stappen[k].vwo);
+
+function maat() { const r = cv.getBoundingClientRect(); const d = Math.min(2, window.devicePixelRatio || 1); const w = Math.max(320, Math.round(r.width * d)), h = Math.round(w * 9 / 16); if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; } }
+function frame(now) {
+  maat(); const sc = SCHERMEN[scr], vis = zichtbaar(scr), b = vis[Math.min(p, vis.length - 1)];
+  const tb = reduce ? 99 : (now - tStap) / 1000, T = (now - tScherm) / 1000;
+  const S = { b, T, vwo,
+    on(k, d = 0.9, del = 0) { if (b == null) return 0; const st = sc.stappen[k]; if (!st || (st.vwo && !vwo)) return 0; if (b > k) return 1; if (b < k) return 0; return ease((tb - del) / d); },
+    start(k) { return (startTijden[scr + ':' + k] || now) / 1000 - tScherm / 1000; } };
+  ctx.setTransform(cv.width / W, 0, 0, cv.height / H, 0, 0); ctx.clearRect(0, 0, W, H); ctx.fillStyle = C.bg; ctx.fillRect(0, 0, W, H);
+  if (!sc.geenKop) { text(ctx, sc.titel === 'Start' ? '' : kopVan(sc), 80, 100, fTitel(54), C.text); metaText(ctx, sc.deel, 82, 140, C.meta, 'left', 20); }
+  try { sc.teken(ctx, S); } catch (e) { console.error(e); }
+  requestAnimationFrame(frame);
+}
+function kopVan(sc) { return sc.kop || sc.titel; }
+
+const capTxt = document.getElementById('capTxt'), capNot = document.getElementById('capNot'), dots = document.getElementById('dots'), teller = document.getElementById('teller'), chips = document.getElementById('chips');
+function tekstKaart() {
+  const vis = zichtbaar(scr), k = vis[p], st = SCHERMEN[scr].stappen[k];
+  capTxt.innerHTML = (st.vwo ? '<span class="vwo-tag">vwo</span>' : '') + ((!vwo && st.th) ? st.th : st.t);
+  capNot.textContent = st.n || '';
+  dots.innerHTML = vis.map((kk, i) => `<i class="${i < p ? 'done' : i === p ? 'cur' : ''}${SCHERMEN[scr].stappen[kk].vwo ? ' vwo' : ''}"></i>`).join('');
+  teller.textContent = `scherm ${scr + 1}/${SCHERMEN.length} · stap ${p + 1}/${vis.length}`;
+  chips.querySelectorAll('.chip[data-i]').forEach(c => c.classList.toggle('cur', +c.dataset.i === scr));
+  document.getElementById('terug').disabled = volgendVol(scr - 1, -1) < 0 && p === 0;
+  document.getElementById('verder').disabled = volgendVol(scr + 1, 1) < 0 && p === vis.length - 1;
+  chips.querySelectorAll('.chip[data-i]').forEach(c => { c.hidden = leeg(+c.dataset.i); });
+  try { history.replaceState(null, '', '#' + (scr + 1)); } catch (e) {}
+}
+function markeer() { startTijden[scr + ':' + zichtbaar(scr)[p]] = performance.now(); }
+// een scherm met alleen vwo-stappen telt in havo niet mee (wordt overgeslagen)
+const leeg = (i) => zichtbaar(i).length === 0;
+function volgendVol(i, d) { while (i >= 0 && i < SCHERMEN.length && leeg(i)) i += d; return (i >= 0 && i < SCHERMEN.length) ? i : -1; }
+function verder() { const vis = zichtbaar(scr); if (p < vis.length - 1) { p++; tStap = performance.now(); } else { const v = volgendVol(scr + 1, 1); if (v < 0) return; scr = v; p = 0; tStap = tScherm = performance.now(); } markeer(); tekstKaart(); }
+function terug() { if (p > 0) p--; else { const v = volgendVol(scr - 1, -1); if (v < 0) return; scr = v; p = zichtbaar(scr).length - 1; tScherm = performance.now() - 20000; } tStap = performance.now() - 20000; markeer(); tekstKaart(); }
+function naarScherm(i) { i = clamp(i, 0, SCHERMEN.length - 1); const d = i < scr ? -1 : 1; let v = volgendVol(i, d); if (v < 0) v = volgendVol(i, -d); if (v < 0) return; scr = v; p = 0; tStap = tScherm = performance.now(); markeer(); tekstKaart(); }
+function opnieuw() { tStap = performance.now(); markeer(); }
+
+// chips per scherm, gegroepeerd per deel
+(function () { let deel = ''; chips.innerHTML = SCHERMEN.map((s, i) => { let h = ''; if (s.deel !== deel) { deel = s.deel; h += `<span class="chip deel">${deel}</span>`; } return h + `<button type="button" class="chip" data-i="${i}"><span class="n">${i + 1}</span>${s.titel}</button>`; }).join('');
+  chips.addEventListener('click', e => { const c = e.target.closest('.chip[data-i]'); if (c) naarScherm(+c.dataset.i); }); })();
+
+function zetNiveau(v) { vwo = v; document.getElementById('lvVwo').setAttribute('aria-pressed', v); document.getElementById('lvHavo').setAttribute('aria-pressed', !v); try { localStorage.setItem('niveau', v ? 'vwo' : 'havo'); } catch (e) {} if (leeg(scr)) { let w = volgendVol(scr, 1); if (w < 0) w = volgendVol(scr, -1); scr = w; p = 0; } p = Math.min(p, zichtbaar(scr).length - 1); tekstKaart(); }
+document.getElementById('lvVwo').onclick = () => zetNiveau(true);
+document.getElementById('lvHavo').onclick = () => zetNiveau(false);
+const lblBtn = document.getElementById('lblBtn');
+function wisselNamen() { toonNamen = !toonNamen; lblBtn.setAttribute('aria-pressed', !toonNamen); lblBtn.textContent = toonNamen ? 'Namen verbergen' : 'Namen tonen'; }
+lblBtn.onclick = wisselNamen;
+function presenteer(aan) {
+  document.body.classList.toggle('presenteer', aan); document.body.classList.toggle('muis', false);
+  const el = document.documentElement, aanVS = el.requestFullscreen || el.webkitRequestFullscreen, uitVS = document.exitFullscreen || document.webkitExitFullscreen, vs = document.fullscreenElement || document.webkitFullscreenElement;
+  try { if (aan && !vs && aanVS) { const r = aanVS.call(el); if (r && r.catch) r.catch(() => {}); } if (!aan && vs && uitVS) { const r = uitVS.call(document); if (r && r.catch) r.catch(() => {}); } } catch (e) {}
+}
+// groot scherm: knoppen tonen bij muisbeweging, na 2,5 s stil weer verbergen (ook de muiswijzer)
+let _muisTimer = 0;
+document.addEventListener('mousemove', () => { if (!document.body.classList.contains('presenteer')) return; document.body.classList.add('muis'); document.body.classList.remove('muisweg'); clearTimeout(_muisTimer); _muisTimer = setTimeout(() => { if (!document.querySelector('.knoppen:hover')) { document.body.classList.remove('muis'); document.body.classList.add('muisweg'); } }, 2500); });
+function wisselTekst() { const z = document.body.classList.toggle('zondertekst'); const b = document.getElementById('tekstBtn'); if (b) b.textContent = z ? 'Tekst aan' : 'Tekst uit'; try { localStorage.setItem('les-zondertekst', z ? '1' : '0'); } catch (e) {} }
+try { if (localStorage.getItem('les-zondertekst') === '1') { document.body.classList.add('zondertekst'); } } catch (e) {}
+document.addEventListener('webkitfullscreenchange', () => { if (!document.webkitFullscreenElement) document.body.classList.remove('presenteer'); });
+document.getElementById('presBtn').onclick = () => presenteer(true);
+document.getElementById('grootBtn').addEventListener('click', e => { e.stopPropagation(); presenteer(true); });
+document.getElementById('tekstBtn').onclick = wisselTekst;
+document.getElementById('tekstBtn').textContent = document.body.classList.contains('zondertekst') ? 'Tekst aan' : 'Tekst uit';
+document.getElementById('stopPres').onclick = () => presenteer(false);
+document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement) document.body.classList.remove('presenteer'); });
+document.getElementById('verder').onclick = verder;
+document.getElementById('terug').onclick = terug;
+document.getElementById('opnieuw').onclick = opnieuw;
+document.getElementById('stage').addEventListener('click', verder);
+document.addEventListener('keydown', e => {
+  if (e.target.closest('input,textarea,select')) return; if (e.altKey || e.ctrlKey || e.metaKey) return;
+  const k = e.key;
+  if (k === 'ArrowRight' || k === ' ' || k === 'PageDown' || k === 'Enter') { if (k === 'Enter' && e.target.closest('button')) return; e.preventDefault(); verder(); }
+  else if (k === 'ArrowLeft' || k === 'PageUp' || k === 'Backspace') { e.preventDefault(); terug(); }
+  else if (k === 'ArrowDown') { e.preventDefault(); naarScherm(scr + 1); }
+  else if (k === 'ArrowUp') { e.preventDefault(); naarScherm(scr - 1); }
+  else if (k === 'Home') naarScherm(0);
+  else if (k === 'r' || k === 'R') opnieuw();
+  else if (k === 'l' || k === 'L') wisselNamen();
+  else if ((k === 't' || k === 'T') && document.body.classList.contains('presenteer')) wisselTekst();
+  else if (k === 'f' || k === 'F') presenteer(!document.body.classList.contains('presenteer'));
+  else if (k === 'Escape') presenteer(false);
+});
+document.addEventListener('themawissel', zetPalet);
+
+(function () { const m = (location.hash.match(/^#(\d+)/) || [])[1]; if (m) { scr = clamp(+m - 1, 0, SCHERMEN.length - 1); } })();
+zetNiveau(vwo); markeer(); tekstKaart();
+(document.fonts ? document.fonts.ready : Promise.resolve()).then(() => requestAnimationFrame(frame));
+// testhaak (alleen voor controle-screenshots): window.__les.naar(scherm, stap) toont die stap meteen in eindstand
+window.__les = { n: () => SCHERMEN.length, stappen: (i) => zichtbaar(i).length, naar(i, k) { scr = clamp(i, 0, SCHERMEN.length - 1); p = clamp(k, 0, zichtbaar(scr).length - 1); tStap = tScherm = performance.now() - 30000; markeer(); tekstKaart(); }, niveau(v) { zetNiveau(v); }, namen(v) { if (toonNamen !== v) wisselNamen(); } };
+
+</script>
+</body>
+</html>
