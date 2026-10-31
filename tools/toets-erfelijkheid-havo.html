@@ -1,0 +1,1008 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../js/teller.js" data-root="../"></script>
+<link rel="icon" href="../img/icoon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../img/icoon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../img/icoon/apple-touch-icon.png">
+<script>(function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oefentoets Erfelijkheid havo · doorklikken · Biologie bij Kamiel</title>
+<meta name="description" content="Oefentoets Erfelijkheid voor havo: per vraag eerst hulpvragen, dan de toetsvraag, nakijken met het antwoordmodel en uitleg waarom.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="huisstijl.css">
+<script src="huisstijl.js"></script>
+<script src="examen-stof.js?v=b496a9e6"></script>
+<style>
+/* Oefentoets Erfelijkheid havo · zelfde bouwstenen als de oefenexamens (tools/OEFENEXAMEN_PROMPT.md). */
+:root{--rest:#2A3B57;--area:#5B6B84}
+:root[data-theme="light"]{--rest:#D5DEE9;--area:#B4BDCA}
+ .wrap{padding-inline:0}
+:root[data-theme="light"] .papier{box-shadow:0 0 0 1px rgba(20,32,52,.18),0 6px 18px rgba(20,32,52,.10)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--text);font:17px/1.55 var(--tekst);-webkit-font-smoothing:antialiased;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 40px}
+.wrap{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1,h2,h3{font-family:var(--titel);font-weight:700;letter-spacing:-.01em;text-wrap:balance;margin:0;line-height:1.1}
+h2{font-size:24px}
+.mono,.eyebrow{font:600 12px/1.2 var(--meta);letter-spacing:.1em;text-transform:uppercase}
+.eyebrow{color:var(--goud-text)}
+.muted{color:var(--text2)}
+a{color:var(--goud-text)}
+.sitenav{display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap;min-height:56px;padding:8px 0;border-bottom:1px solid var(--line);font:600 15px/1.3 var(--tekst)}
+.sitenav .merk{font:700 18px/1 var(--titel);color:var(--text);text-decoration:none}
+.sitenav .terug{color:var(--goud-text);text-decoration:none}
+.sitenav .rechts{margin-left:auto}
+.tool-kop{display:flex;flex-direction:column;gap:10px;padding:14px 0 0}
+.tool-kop h1{font-size:clamp(32px,5vw,48px)}
+.tool-kop p{margin:0;color:var(--text2);font-size:18px;max-width:62ch}
+button.toggle{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line2);background:none;color:var(--text2);border-radius:999px;padding:6px 14px 6px 8px;min-height:40px;font:600 14px var(--tekst);cursor:pointer}
+button.toggle .knopje{width:34px;height:20px;border-radius:999px;background:var(--line2);position:relative;flex:none}
+button.toggle .knopje::after{content:"";position:absolute;left:3px;top:3px;width:14px;height:14px;border-radius:50%;background:var(--text2);transition:left .15s}
+button.toggle[aria-pressed="true"]{color:var(--text);border-color:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje{background:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje::after{left:17px;background:var(--goud-ink)}
+.kopbalk{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.seg{display:inline-flex;flex-wrap:wrap;padding:3px;border-radius:999px;border:1px solid var(--line2);gap:2px}
+.seg button{border:0;background:none;padding:6px 14px;border-radius:999px;font:600 14px var(--tekst);color:var(--text2);min-height:36px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--goud);color:var(--goud-ink)}
+nav.tabs{display:flex;flex-wrap:wrap;gap:6px}
+nav.tabs button{min-width:44px;height:44px;border-radius:999px;border:1px solid var(--line2);background:none;color:var(--text2);font:600 15px var(--meta);cursor:pointer;position:relative}
+nav.tabs button:hover{color:var(--text)}
+nav.tabs button.cur{background:var(--goud);color:var(--goud-ink);border-color:var(--goud)}
+nav.tabs button.done::after{content:"";position:absolute;right:3px;top:3px;width:8px;height:8px;border-radius:50%;background:var(--groen);border:2px solid var(--bg)}
+nav.tabs button.lock{opacity:.35;cursor:not-allowed}
+nav.tabs .ov{padding:0 16px;font-family:var(--tekst)}
+.ctx{background:var(--surface);border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.ctx p{margin:0}
+details.ctxd summary{cursor:pointer;font-weight:600;color:var(--goud-text)}
+.tablewrap{overflow-x:auto}
+table.data{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+table.data th,table.data td{border-bottom:1px solid var(--line);padding:7px 10px;text-align:center}
+table.data th:first-child,table.data td:first-child{text-align:left}
+table.data th{font:600 11px var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--text3)}
+.q{display:flex;flex-direction:column;gap:14px}
+.qhead{display:flex;gap:12px;align-items:center}
+.qnum{font:700 40px/1 var(--titel);color:var(--goud-text)}
+.pts{font:600 12px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:3px 9px}
+.qtext{margin:0;font-size:18px}
+.phase{border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;background:var(--surface);display:flex;flex-direction:column;gap:12px}
+.phase>.label{display:flex;gap:8px;align-items:center;font:600 12px var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3)}
+.phase>.label .dot{width:8px;height:8px;border-radius:50%;background:var(--goud)}
+.phase.think{background:var(--surface2)}
+.phase.think>.label{color:var(--goud-text)}
+.step{display:flex;flex-direction:column;gap:8px}
+.step+.step{border-top:1px solid var(--line);padding-top:12px}
+.step p{margin:0}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button.opt,button.chip{border:1px solid var(--line2);background:var(--bg);color:var(--text);border-radius:12px;padding:9px 14px;font:inherit;font-size:16px;cursor:pointer;text-align:left}
+button.chip{border-radius:999px}
+button.opt:hover,button.chip:hover{border-color:var(--text3)}
+button.chip[aria-pressed="true"]{border-color:var(--goud);background:var(--goud-soft)}
+button.opt.right{border-color:var(--groen);background:var(--groen-soft)}
+button.opt.wrong{border-color:var(--koraal);background:var(--koraal-soft)}
+button.opt:disabled{cursor:default}
+button.go,button.ghost{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 18px;border-radius:999px;font:700 15px var(--tekst);cursor:pointer}
+button.go{border:0;background:var(--goud);color:var(--goud-ink)}
+button.go:hover{filter:brightness(1.06)}
+button.ghost{border:0;background:none;color:var(--text);box-shadow:inset 0 0 0 1px var(--line2)}
+button.ghost:hover{box-shadow:inset 0 0 0 1px var(--text3)}
+button:disabled.go,button:disabled.ghost{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:2px solid var(--goud);outline-offset:3px;border-radius:6px}
+input.num{width:96px;min-height:44px;font:600 16px var(--meta);padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text)}
+select{font:inherit;font-size:15px;min-height:44px;padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);max-width:100%;flex:1 1 260px}
+textarea{width:100%;min-height:88px;font:inherit;padding:10px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);resize:vertical}
+.fb{font-size:16px;border-radius:12px;padding:12px 14px;background:var(--surface2);border:1px solid var(--line2)}
+.fb.ok{border-color:var(--groen);background:var(--groen-soft)}
+.fb.no{border-color:var(--koraal);background:var(--koraal-soft)}
+.fb.hint{border-color:var(--teal);background:var(--teal-soft)}
+.graphs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.graphs{grid-template-columns:1fr}}
+.gopt{border:1px solid var(--line2);border-radius:var(--radius);background:var(--bg);padding:8px 8px 2px;cursor:pointer;color:var(--text);font:inherit;text-align:left}
+.gopt b{font:700 20px var(--titel);margin-left:6px;color:var(--goud-text)}
+.gopt:hover{border-color:var(--text3)}
+.gopt.right{border-color:var(--groen);box-shadow:0 0 0 2px var(--groen) inset}
+.gopt.wrong{border-color:var(--koraal);box-shadow:0 0 0 2px var(--koraal) inset}
+svg{display:block;max-width:100%;height:auto}
+.ax{stroke:var(--text3);stroke-width:1.2;fill:none}
+.grid{stroke:var(--line2);stroke-width:1;fill:none}
+.tick{fill:var(--text3);font:500 10px var(--meta)}
+.cv{stroke:var(--teal);stroke-width:2.4;fill:none;stroke-linejoin:round}
+.cvbad{stroke:var(--koraal);stroke-width:2;fill:none;stroke-dasharray:5 4}
+.restband{fill:var(--rest);opacity:.8}
+.lbl{fill:var(--text);font:600 12px var(--tekst)}
+.lblm{fill:var(--text2);font:12px var(--tekst)}
+.lblbad{fill:var(--koraal);font:700 12px var(--tekst)}
+.selfscore{display:flex;flex-direction:column;gap:10px}
+.selfscore label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.selfscore input{margin-top:4px;width:18px;height:18px;accent-color:var(--goud);flex:none}
+.model{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:16px}
+.anim{display:flex;flex-direction:column;gap:10px}
+.anim .stage{border-radius:var(--radius);background:var(--surface2);border:1px solid var(--line2);overflow:hidden}
+.anim .cap{min-height:3.2em;margin:0}
+.anim .nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pips{display:flex;gap:6px;margin-left:auto}
+.pips span{width:9px;height:9px;border-radius:50%;background:var(--line2)}
+.pips span.on{background:var(--goud)}
+.seq{display:flex;flex-direction:column;gap:6px}
+.seq button{display:flex;gap:10px;align-items:center}
+.seq .n{font:600 13px var(--meta);width:24px;height:24px;border-radius:50%;display:inline-grid;place-items:center;background:var(--line2);flex:none}
+.seq button.placed{border-color:var(--groen)} .seq button.placed .n{background:var(--groen);color:var(--goud-ink)}
+.score{font:600 16px var(--meta)}
+.ovtable td:last-child,.ovtable th:last-child{text-align:right}
+.pre{border-left:3px solid var(--goud);padding:2px 0 2px 14px;display:flex;flex-direction:column;gap:8px}
+.pre p{margin:0;color:var(--text2)}
+.figrow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.figrow{grid-template-columns:1fr}}
+.legenda{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--text2)}
+.legenda i{display:inline-block;vertical-align:middle;margin-right:6px}
+.legenda .lijn{width:22px;height:0;border-top:2.5px solid var(--text)}
+.legenda .vlak{width:16px;height:12px;background:var(--area)}
+.tick.dim{opacity:.35}
+p.klikbaar{line-height:2}
+button.mark{font:inherit;color:var(--text);background:none;border:0;border-bottom:2px dashed var(--goud);padding:0 3px;border-radius:4px;cursor:pointer}
+button.mark[aria-pressed="true"]{background:var(--goud-soft);border-bottom-style:solid}
+button.mark:disabled{cursor:default}
+.sellab{min-width:200px;font-weight:600}
+label.slider{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center}
+label.slider span{min-width:170px;font-weight:600;font-size:15px}
+label.slider input{flex:1 1 200px;accent-color:var(--goud)}
+.podium{background:var(--surface2);border:1px solid var(--line2);border-radius:var(--radius);overflow:hidden}
+p.regels{font-family:var(--tekst);line-height:1.9;margin:0}
+p.regels span{display:inline-block;width:2em;font:600 12px var(--meta);color:var(--text3)}
+sup{font-size:.7em}
+.papier{--bg:#FFFFFF;--surface:#FFFFFF;--surface2:#EEF1F5;--line:rgba(20,32,52,.10);--line2:rgba(20,32,52,.24);
+  --text:#121C2E;--text2:#3B4759;--text3:#667185;--goud:#C99A2E;--goud-text:#7E5C0B;--goud-soft:rgba(217,172,60,.18);
+  --groen:#2F8A47;--koraal:#B9502F;--teal:#25729C;--paars:#6550AD;--groen-soft:rgba(47,138,71,.10);--koraal-soft:rgba(185,80,47,.10);--teal-soft:rgba(37,114,156,.10);
+  --rest:#D5DEE9;--area:#B4BDCA;color-scheme:light;
+  background:#FCFCFA;color:var(--text);border:0;border-radius:6px;padding:16px 20px 12px;display:flex;flex-direction:column;gap:12px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.08),0 10px 28px rgba(0,0,0,.35)}
+.papier .pkop{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;border-bottom:2px solid var(--text);padding-bottom:6px}
+.papier .pkop .mono{color:var(--text2)}
+.papier .pnr{display:flex;align-items:baseline;gap:10px}
+.papier .nr{font:700 30px/1 var(--titel);color:var(--text)}
+.papier .pre{border-left:0;padding:0}
+.papier .pre p{color:var(--text)}
+.papier .qtext{color:var(--text)}
+.herhaal.papier{padding:10px 14px;gap:6px;box-shadow:none;border-radius:6px}
+.herhaal .hkop{color:var(--text3);font-size:11px}
+.herhaal .qtext{font-size:16px}
+.papier .pvoet{font:500 11px var(--meta);letter-spacing:.06em;color:var(--text3);text-align:right}
+.papier details.ctxd summary{color:var(--goud-text)}
+.papier .podium{background:var(--surface2)}
+.phase>.label .tag{margin-left:6px;font:600 10px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:2px 8px}
+.sleutel{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:14px;color:var(--text2)}
+.sleutel .sw{display:inline-block;width:16px;height:12px;border-radius:2px;vertical-align:-1px;margin-right:7px}
+.sleutel .papier-sw{background:#FCFCFA}
+.sleutel .donker-sw{background:var(--surface2);box-shadow:inset 0 0 0 1px var(--line2)}
+.exfoto{display:block;width:100%;height:auto;border-radius:2px}
+footer{color:var(--text3);font-size:14px;padding-top:24px;border-top:1px solid var(--line)}
+body.hulp .ans.locked{display:none}
+body.examen .think{display:none}
+body.examen .think.open{display:flex}
+.helpbtn{display:none!important}
+body.examen .helpbtn{display:inline-flex!important}
+body.examen .tonext{display:none!important}
+@media (max-width:600px){body{font-size:16px}.qtext{font-size:17px}.phase,.ctx{padding:14px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="sitenav" aria-label="Site">
+    <a class="merk" href="../index.html#home">Biologie bij Kamiel</a>
+    <a class="terug" href="../index.html#erfelijkheid">← Terug naar Erfelijkheid</a>
+    <span class="rechts"><button type="button" class="icoon" data-thema-knop></button></span>
+  </nav>
+  <header class="tool-kop">
+    <div class="eyebrow" id="eb">Oefentoets Erfelijkheid · havo</div>
+    <h1 id="h1">Oefentoets Erfelijkheid</h1>
+    <div class="seg" id="opgs" role="group" aria-label="Opgave"></div>
+    <div class="sleutel"><span><i class="sw papier-sw"></i>Wit vak = de toetsvraag</span><span><i class="sw donker-sw"></i>Donker vak = hulpvragen en uitleg (niet uit de toets)</span></div>
+    <p>Maak de toets stap voor stap. Bij elke vraag denk je eerst na met de hulpvragen, dan beantwoord je de toetsvraag, en daarna zie je waarom het antwoord klopt. Wil je oefenen zoals bij een echte toets? Kies de toetsstand.</p>
+    <div class="kopbalk">
+      <div class="seg" role="group" aria-label="Stand">
+        <button id="m-hulp" aria-pressed="true">Hulpstand</button>
+        <button id="m-examen" aria-pressed="false">Toetsstand</button>
+      </div>
+      <button id="vrij" class="toggle" aria-pressed="false"><span class="knopje"></span>Vrij doorklikken</button>
+      <span class="mono muted" id="sub"></span>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs" aria-label="Vragen"></nav>
+
+  <section class="ctx papier" id="ctx"></section>
+
+  <main id="main"></main>
+
+  <footer>Eigen vragen, met inspiratie uit de centrale examens (© CvTE), Biologie voor Jou en Nectar. Stambomen en schema's zijn eigen tekeningen.<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a> </span></footer>
+</div>
+
+<script>
+(function(){
+const $=(s,r=document)=>r.querySelector(s);
+const el=(tag,attrs={},html="")=>{const e=document.createElement(tag);for(const k in attrs){if(k==="class")e.className=attrs[k];else if(k.startsWith("on"))e.addEventListener(k.slice(2),attrs[k]);else e.setAttribute(k,attrs[k]);}if(html)e.innerHTML=html;return e;};
+const TOOL="erf-havo";
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- opslag (alleen gemak) ---------- */
+let store={scores:{},mode:"hulp"};
+try{const s=JSON.parse(localStorage.getItem("toets-erfelijkheid-havo")||"null");if(s)store=Object.assign(store,s);}catch(e){}
+const save=()=>{try{localStorage.setItem("toets-erfelijkheid-havo",JSON.stringify(store));}catch(e){}};
+
+/* ---------- algemene bouwstenen ---------- */
+function phase(cls,label){const p=el("section",{class:"phase "+cls});
+  if(cls==="think")p.append(el("div",{class:"label"},`<span class="dot"></span>Hulpvragen<span class="tag">niet uit de toets</span>`));
+  else p.append(el("div",{class:"label"},`<span class="dot"></span>${label==="Antwoord"?"Jouw antwoord op de toetsvraag":label}`));return p;}
+function choiceStep(container,{q,opts,right,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});const fb=el("div",{class:"fb",hidden:""});
+  opts.forEach((o,i)=>{const b=el("button",{class:"opt",onclick:()=>{
+    if(i===right){row.querySelectorAll("button").forEach(x=>x.disabled=true);b.classList.add("right");fb.className="fb ok";fb.innerHTML=ok;fb.hidden=false;onDone&&onDone();}
+    else{b.classList.add("wrong");fb.className="fb no";fb.innerHTML=no;fb.hidden=false;}
+  }},o);row.append(b);});
+  s.append(row,fb);container.append(s);return s;
+}
+function mc(container,{opts,right,pts,qid,graphs:isGraph,onChecked}){
+  const wrap=el("div",{class:isGraph?"graphs":"row",style:isGraph?"":"flex-direction:column;align-items:stretch"});
+  const fb=el("div",{class:"fb",hidden:""});
+  opts.forEach((o,i)=>{const L="ABCDEF"[i];
+    const b=isGraph?el("button",{class:"gopt"},`<b>${L}</b>${o}`):el("button",{class:"opt"},`<b style="font:700 18px var(--titel);color:var(--goud-text);margin-right:10px">${L}</b>${o}`);
+    b.addEventListener("click",()=>{
+      wrap.querySelectorAll("button").forEach(x=>x.disabled=true);
+      const good=i===right; b.classList.add(good?"right":"wrong");
+      if(!good)wrap.children[right].classList.add("right");
+      fb.className="fb "+(good?"ok":"no");
+      fb.innerHTML=good?`Goed: <b>${"ABCDEF"[right]}</b>. ${pts} ${pts>1?"punten":"punt"}.`:`Het goede antwoord is <b>${"ABCDEF"[right]}</b>. 0 punten.`;
+      fb.hidden=false; setScore(qid,good?pts:0); onChecked&&onChecked();
+    });wrap.append(b);});
+  container.append(wrap,fb);
+}
+function waaromBtn(container,build){
+  const b=el("button",{class:"ghost"},"Laat zien waarom ›");const box=el("div",{hidden:""});
+  b.onclick=()=>{b.remove();box.hidden=false;build(box);if(window.EXSTOF)EXSTOF.extraWaarom(TOOL,cur,box);};
+  container.append(b,box);
+}
+function lockAns(think,ans,label="Naar de vraag ›"){
+  ans.classList.add("locked");
+  const go=el("button",{class:"go tonext",hidden:""},label);
+  go.onclick=()=>{ans.classList.remove("locked");go.remove();ans.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});};
+  think.append(go);
+  return ()=>{think.append(go);go.hidden=false;};
+}
+function helpButton(q,think){
+  const b=el("button",{class:"ghost helpbtn"},"Hulp nodig? Toon de hulpvragen");
+  b.onclick=()=>{think.classList.add("open");b.remove();};
+  q.append(b);
+}
+function setScore(id,p){store.scores[id]=p;save();renderTabs();if(nextBtns[id])nextBtns[id].hidden=false;}
+
+/* ---------- vragen ---------- */
+const Q=[],OPG=[];
+const FOTO=(n,alt)=>`<img class="exfoto" src="examen-img/havo-2026-2/${n}.webp" alt="${alt}" loading="lazy">`;
+
+/* Vraag 5 en 6: eerst zonder opties */
+function noOptions(q,{id,pts,text,prompt,hint,opts,right,uitleg}){
+  q.append(el("p",{class:"qtext"},text));
+  const think=phase("think","Eerst zelf"),ans=phase("ans","Kies je antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Toon de keuzes ›");
+  const s=el("div",{class:"step"});s.append(el("p",{},prompt));
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:"Wat denk jij? Schrijf het kort op."});const hb=el("button",{class:"ghost"},"Tip");const hf=el("div",{class:"fb hint",hidden:""},hint);
+  hb.onclick=()=>{hf.hidden=false;hb.remove();};
+  ta.addEventListener("input",()=>{if(ta.value.trim().length>2)unlock();});
+  s.append(ta,hb,hf);think.append(s);
+  mc(ans,{qid:id,pts,right,opts,onChecked:()=>{
+    if(ta.value.trim())ans.append(el("div",{class:"model"},`<b>Jij dacht eerst:</b> ${ta.value.replace(/</g,"&lt;")}<br><span class="muted">Klopte dat met de keuze die je maakte?</span>`));
+    waaromBtn(ans,b=>b.append(el("div",{class:"model"},uitleg)));}});
+  q.append(think,ans);
+}
+/* ================= extra bouwstenen ================= */
+function pre(q,html){q.append(el("div",{class:"pre"},html));}
+function chipsStep(container,{q,items,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});
+  items.forEach(([t])=>{const b=el("button",{class:"chip","aria-pressed":"false"},t);b.onclick=()=>b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")==="true"?"false":"true");row.append(b);});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(row,ck,fb);container.append(s);
+  ck.onclick=()=>{const sel=[...row.children].map(b=>b.getAttribute("aria-pressed")==="true");
+    const teveel=sel.some((s,k)=>s&&!items[k][1]),mist=sel.some((s,k)=>!s&&items[k][1]);fb.hidden=false;
+    if(!teveel&&!mist){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;row.querySelectorAll("button").forEach(b=>b.disabled=true);onDone&&onDone();}
+    else if(teveel){fb.className="fb hint";fb.innerHTML=no;}
+    else{fb.className="fb hint";fb.innerHTML="Wat je gekozen hebt klopt, maar er hoort nog meer bij. Kies alles wat klopt.";}};
+  return s;
+}
+function selectsStep(container,{q,rows,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const id=uid+"s"+k;
+    r.append(el("label",{for:id,class:"sellab"},lab));const sel=el("select",{id});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);s.append(r);return sel;});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(ck,fb);container.append(s);
+  ck.onclick=()=>{const n=sels.filter((sel,k)=>sel.value!==""&&+sel.value===rows[k][2]).length;fb.hidden=false;
+    if(n===rows.length){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;sels.forEach(x=>x.disabled=true);onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=`${n} van de ${rows.length} goed. `+(no||"Probeer het nog eens.");}};
+}
+function numStep(container,{q,right,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const r=el("div",{class:"row"});const inp=el("input",{class:"num",id:uid,inputmode:"decimal","aria-label":"antwoord"});const ck=el("button",{class:"ghost"},"Controleer");const fb=el("div",{class:"fb",hidden:""});
+  r.append(inp,ck);s.append(r,fb);container.append(s);
+  ck.onclick=()=>{const v=parseFloat((inp.value||"").replace(",","."));fb.hidden=false;
+    if(v===right){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;inp.disabled=true;onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=no;}};
+}
+function openAnswer(ans,{id,pts,checks,model,valkuil,placeholder,after}){
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:placeholder||"Schrijf je antwoord…"});
+  const ck=el("button",{class:"go"},"Nakijken");const tf=el("div",{class:"fb hint",hidden:""},"Schrijf eerst je antwoord op. Daarna kijk je het na.");
+  ans.append(ta,ck,tf);
+  ck.onclick=()=>{if(ta.value.trim().length<8){tf.hidden=false;ta.focus();return;}tf.remove();ck.remove();ta.readOnly=true;
+    const ss=el("div",{class:"selfscore"});
+    ss.append(el("p",{style:"margin:0"},"<b>Kijk jezelf na met het antwoordmodel.</b> Vink aan wat er in jouw antwoord staat."));
+    const boxes=checks.map((c,k)=>{const lab=el("label",{},`<input type="checkbox" id="q${id}c${k}"><span>${c} <span class="pts">1p</span></span>`);ss.append(lab);return lab.querySelector("input");});
+    if(model)ss.append(el("div",{class:"model"},"<b>Voorbeeldantwoord:</b> "+model));
+    if(valkuil)ss.append(el("div",{class:"fb hint"},"<b>Valkuil:</b> "+valkuil));
+    const sc=el("div",{class:"score"});ss.append(sc);ans.append(ss);
+    const upd=()=>{const p=Math.min(pts,boxes.filter(b=>b.checked).length);sc.textContent=`Jouw score: ${p} / ${pts}`;setScore(id,p);};
+    boxes.forEach(b=>b.onchange=upd);upd();after&&after();};
+}
+function juistOnjuist(ans,{id,stm,key,uitleg}){
+  const pick=stm.map(()=>null);
+  stm.forEach((t,k)=>{const r=el("div",{class:"row"});r.append(el("span",{style:"flex:1 1 260px"},`<b style="font-family:var(--meta)">${k+1}</b>&nbsp; ${t}`));
+    ["juist","onjuist"].forEach((lab,v)=>{const b=el("button",{class:"chip","aria-pressed":"false"},lab);b.onclick=()=>{pick[k]=v===0;r.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c===b?"true":"false"));};r.append(b);});ans.append(r);});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(pick.includes(null)){fb.hidden=false;fb.className="fb hint";fb.textContent="Beoordeel eerst alle uitspraken.";return;}
+    const n=pick.filter((p,k)=>p===key[k]).length;const p=n===stm.length?2:n===stm.length-1?1:0;ck.disabled=true;
+    ans.querySelectorAll(".chip").forEach(c=>c.disabled=true);
+    fb.hidden=false;fb.className="fb "+(p===2?"ok":"no");
+    fb.innerHTML=`${n} van de ${stm.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+key.map((k,i)=>`${i+1} ${k?"juist":"onjuist"}`).join(" · ");setScore(id,p);
+    waaromBtn(ans,uitleg);};
+}
+function stepAnim(box,steps,render){
+  let i=0;const stage=el("div",{class:"stage"}),cap=el("p",{class:"cap"});
+  const prev=el("button",{class:"ghost"},"‹ Vorige"),next=el("button",{class:"go"},"Volgende ›");
+  const pips=el("div",{class:"pips"},steps.map(()=>"<span></span>").join(""));
+  const nav=el("div",{class:"nav"});nav.append(prev,next,pips);
+  const a=el("div",{class:"anim"});a.append(stage,cap,nav);box.append(a);
+  function show(){cap.innerHTML=steps[i].cap;prev.disabled=i===0;next.textContent=i===steps.length-1?"Opnieuw ›":"Volgende ›";
+    pips.querySelectorAll("span").forEach((p,j)=>p.classList.toggle("on",j===i));render(stage,steps[i],i);}
+  prev.onclick=()=>{if(i>0){i--;show();}};next.onclick=()=>{i=(i+1)%steps.length;show();};show();
+}
+/* ================= meer bouwstenen ================= */
+function seqStep(container,{q,items,shown,ok,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const seq=el("div",{class:"seq"});let at=0;const fb=el("div",{class:"fb",hidden:""});
+  shown.forEach(k=>{const b=el("button",{class:"opt"},`<span class="n">·</span>${items[k]}`);b.onclick=()=>{if(b.classList.contains("placed"))return;
+    if(k===at){b.classList.add("placed");b.querySelector(".n").textContent=at+1;at++;fb.hidden=true;if(at===items.length){fb.hidden=false;fb.className="fb ok";fb.innerHTML=ok;onDone&&onDone();}}
+    else{fb.hidden=false;fb.className="fb hint";fb.textContent="Dat is nog niet de volgende stap. Wat gebeurt er direct daarna?";}};seq.append(b);});
+  s.append(seq,fb);container.append(s);
+}
+function selectAnswer(ans,{id,rows,score,uid,after,intro}){
+  if(intro)ans.append(el("p",{style:"margin:0"},intro));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const sid=uid+"a"+k;
+    r.append(el("label",{for:sid,class:"sellab"},lab));const sel=el("select",{id:sid});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);ans.append(r);return sel;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(sels.some(x=>x.value==="")){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul eerst alles in.";return;}
+    const n=sels.filter((x,k)=>+x.value===rows[k][2]).length;const p=score(n);sels.forEach(x=>x.disabled=true);ck.remove();
+    fb.hidden=false;fb.className="fb "+(n===rows.length?"ok":"no");
+    fb.innerHTML=`${n} van de ${rows.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+rows.map(([lab,opts,r])=>`${lab}: ${opts[r]}`).join(" · ");
+    setScore(id,p);after&&after();};
+}
+function textBox(html){return b=>b.append(el("div",{class:"model"},html));}
+const svgWrap=(vb,inner,label)=>`<svg viewBox="${vb}" role="img" aria-label="${label}">${inner}</svg>`;
+function numAnswer(ans,{id,fields,after}){
+  const inps=fields.map(([lab,unit],k)=>{const r=el("div",{class:"row"});const fid="q"+id+"f"+k;
+    r.append(el("label",{for:fid,class:"sellab"},lab));const i=el("input",{class:"num",id:fid,inputmode:"decimal"});r.append(i,el("span",{class:"muted"},unit));ans.append(r);return i;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{const v=inps.map(i=>parseFloat((i.value||"").replace(",",".")));if(v.some(isNaN)){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul beide uitkomsten in.";return;}
+    inps.forEach(i=>i.disabled=true);ck.remove();const res=fields.map((f,k)=>f[2](v[k]));const p=res.filter(Boolean).length;
+    fb.hidden=false;fb.className="fb "+(p===fields.length?"ok":"no");
+    fb.innerHTML=`<b>${p} van de ${fields.length} punten.</b><br>`+fields.map((f,k)=>`${res[k]?"✓":"✗"} ${f[3]}`).join("<br>");setScore(id,p);after&&after();};
+}
+
+/* ===== Oefentoets Erfelijkheid: gedeelde hulpjes (havo en vwo uit één bron) ===== */
+const VWO=false;
+let QN=0,ON=0;
+/* vraag(punten, onderwerp, build(q,id), stof?) -> id; stof = {titel, html, anim?, films?} voor 'Uitleg van de stof' */
+function vraag(pts,t,build,stof){const id=++QN;Q.push({id,pts,t,build:q=>build(q,id)});
+  if(stof&&window.EXSTOF)EXSTOF.zet(TOOL,[id],stof);return id;}
+function opgave(kort,titel,html,ids){const nr=++ON;
+  OPG.push({nr,kort,titel,ids,ctx:`<div class="pkop"><span class="mono">Toetstekst · inleiding opgave ${nr}</span></div>`+html});}
+const F={
+  chrom:["Chromosomen, genen en allelen","films/erfelijkheid/1-chromosomen.html"],
+  mono:["Monohybride kruisingen","films/erfelijkheid/2-monohybride-kruisingen.html"],
+  voorbij:["Voorbij dominant en recessief","films/erfelijkheid/3-voorbij-dominant-en-recessief.html"],
+  di:["Dihybride kruising en gekoppelde overerving","films/erfelijkheid/4-dihybride-kruising-en-gekoppelde-overerving.html"],
+  x:["Overerving via X-chromosomen en mitochondriën","films/erfelijkheid/5-overerving-via-x-chromosomen-en-mitochondrien.html"],
+  stam:["Stambomen en kansrekenen","films/erfelijkheid/6-stambomen-en-kansrekenen.html"]};
+/* begin van een vraag: vraagzin, hulp- en antwoordvak */
+function start(q,html){q.append(el("p",{class:"qtext"},html));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  return {think,ans,unlock};}
+/* kruisingsschema als svg. top/left = gameten, cells[r][k] = genotype; kleur(cel,r,k) -> css-kleur of ''; toon: 0 gameten, 1 + vakjes */
+function PUN(top,left,cells,{kleur,toon=1,kopT="",kopL="",w=86,h=50}={}){
+  const X0=110,Y0=70,W=X0+top.length*w+20,H=Y0+left.length*h+20;let s="";
+  if(kopT)s+=`<text x="${X0+top.length*w/2}" y="20" text-anchor="middle" class="lblm">${kopT}</text>`;
+  if(kopL)s+=`<text x="16" y="${Y0+left.length*h/2}" class="lblm" transform="rotate(-90 16 ${Y0+left.length*h/2})" text-anchor="middle">${kopL}</text>`;
+  top.forEach((g,k)=>s+=`<rect x="${X0+k*w+8}" y="32" width="${w-16}" height="28" rx="14" fill="var(--teal-soft)" stroke="var(--teal)"/><text x="${X0+k*w+w/2}" y="51" text-anchor="middle" class="lbl">${g}</text>`);
+  left.forEach((g,r)=>s+=`<rect x="34" y="${Y0+r*h+10}" width="${X0-46}" height="28" rx="14" fill="var(--goud-soft)" stroke="var(--goud)"/><text x="${34+(X0-46)/2}" y="${Y0+r*h+29}" text-anchor="middle" class="lbl">${g}</text>`);
+  left.forEach((_,r)=>top.forEach((_,k)=>{const c=toon&&kleur?kleur(cells[r][k],r,k):"";
+    s+=`<rect x="${X0+k*w}" y="${Y0+r*h}" width="${w}" height="${h}" fill="${c||"none"}" stroke="var(--line2)"/>`;
+    if(toon)s+=`<text x="${X0+k*w+w/2}" y="${Y0+r*h+h/2+5}" text-anchor="middle" class="lbl" style="font-size:15px">${cells[r][k]}</text>`;}));
+  return `<div style="max-width:${Math.min(W*1.1,520)}px;margin:0 auto">`+svgWrap(`0 0 ${W} ${H}`,s,"Kruisingsschema")+`</div>`;}
+/* stamboom: personen {id,x,y,m,ziek,lab}; paren [[a,b]]; kinderen [[a,b,[ids]]] (a,b = ouders) */
+function STAM({personen,paren,kinderen,hl={},legenda,breed=720,hoog=300,ziekNaam="met de aandoening",gen=[]}){
+  const R=15,P={};personen.forEach(p=>P[p.id]=p);let s="";
+  paren.forEach(([a,b])=>{const A=P[a],B=P[b];s+=`<path d="M${Math.min(A.x,B.x)+R},${A.y} H${Math.max(A.x,B.x)-R}" stroke="var(--text)" stroke-width="1.6"/>`;});
+  kinderen.forEach(([a,b,ks])=>{const A=P[a],B=P[b],xm=(A.x+B.x)/2,yk=P[ks[0]].y,ym=(A.y+yk)/2;
+    const xs=ks.map(k=>P[k].x);s+=`<path d="M${xm},${A.y} V${ym} M${Math.min(...xs,xm)},${ym} H${Math.max(...xs,xm)}" stroke="var(--text)" stroke-width="1.6" fill="none"/>`;
+    xs.forEach(x=>s+=`<path d="M${x},${ym} V${yk-R}" stroke="var(--text)" stroke-width="1.6"/>`);});
+  personen.forEach(p=>{const f=p.ziek?"var(--text)":"var(--surface)",c=hl[p.id];
+    if(c)s+=p.m?`<rect x="${p.x-R-5}" y="${p.y-R-5}" width="${2*R+10}" height="${2*R+10}" rx="4" fill="none" stroke="${c}" stroke-width="3"/>`:`<circle cx="${p.x}" cy="${p.y}" r="${R+6}" fill="none" stroke="${c}" stroke-width="3"/>`;
+    s+=p.m?`<rect x="${p.x-R}" y="${p.y-R}" width="${2*R}" height="${2*R}" fill="${f}" stroke="var(--text)" stroke-width="1.6"/>`:`<circle cx="${p.x}" cy="${p.y}" r="${R}" fill="${f}" stroke="var(--text)" stroke-width="1.6"/>`;
+    s+=`<text x="${p.x}" y="${p.y+R+16}" text-anchor="middle" class="lblm">${p.lab}</text>`;});
+  if(legenda!==false){const lx=breed-175;[[1,0,"man"],[0,0,"vrouw"],[1,1,"man "+ziekNaam]].forEach(([m,z,t],k)=>{const y=40+k*34;
+    s+=m?`<rect x="${lx-9}" y="${y-9}" width="18" height="18" fill="${z?"var(--text)":"var(--surface)"}" stroke="var(--text)" stroke-width="1.4"/>`:`<circle cx="${lx}" cy="${y}" r="9" fill="var(--surface)" stroke="var(--text)" stroke-width="1.4"/>`;
+    s+=`<text x="${lx+16}" y="${y+4}" class="lblm">${t}</text>`;});}
+  gen.forEach(([y,t])=>s+=`<text x="20" y="${y+5}" class="lbl" style="font-size:15px">${t}</text>`);
+  return svgWrap(`0 0 ${breed} ${hoog}`,s,"Stamboom");}
+const B=t=>`<b>${t}</b>`;
+
+/* ===== Opgave: De Siamese kat (havo en vwo) ===== */
+{
+const STOF1={titel:"Chromosomen, genen en allelen",html:`
+<p>In de kern van een lichaamscel liggen de chromosomen in <b>paren</b>: van elk paar komt er één van de vader en één van de moeder. Zo'n paar heet een paar <b>homologe chromosomen</b>. Een cel met paren is <b>diploïd</b> (2n). Een geslachtscel krijgt van elk paar maar één chromosoom: hij is <b>haploïd</b> (n).</p>
+<p>Een <b>gen</b> is een stuk DNA met de informatie voor één eiwit. Het ligt op een vaste plek op een chromosoom, de <b>locus</b>. Een gen kan in verschillende varianten voorkomen: de <b>allelen</b>. Omdat chromosomen in paren liggen, heb je van elk gen (op de autosomen) twee allelen.</p>
+<p>Je <b>genotype</b> is de combinatie van allelen; je <b>fenotype</b> is wat je kunt waarnemen. Het fenotype hangt af van het genotype én van het <b>milieu</b> (de omstandigheden). Bij een <b>dominant</b> allel is één exemplaar genoeg voor het kenmerk; een <b>recessief</b> allel zie je alleen als er geen dominant allel naast ligt.</p>`,
+films:[F.chrom]};
+const q1=vraag(1,"chromosomen in een eicel",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Hoeveel chromosomen zitten er in een eicel van een kat?"));
+  choiceStep(think,{q:"Lichaamscellen zijn <b>diploïd</b>. Wat betekent dat?",
+    opts:["de chromosomen liggen in paren","de cel heeft twee kernen","elk chromosoom bestaat uit twee chromatiden"],right:0,
+    ok:"Ja: van elk chromosoom heeft de cel er twee, één van de vader en één van de moeder.",
+    no:"Het gaat niet om kernen of chromatiden, maar om hoe vaak elk soort chromosoom voorkomt.",
+    onDone:()=>choiceStep(think,{q:"Hoeveel chromosomen van elk paar krijgt een geslachtscel?",opts:["allebei","één van de twee","geen"],right:1,
+      ok:"Goed. Een geslachtscel is <b>haploïd</b>. Reken nu uit hoeveel dat er bij een kat zijn.",no:"Bij de bevruchting komen een eicel en een zaadcel samen. Hoeveel moet elk dan meebrengen om weer paren te krijgen?",onDone:unlock})});
+  mc(ans,{qid:id,pts:1,right:0,opts:["19","38","76"],onChecked:()=>waaromBtn(ans,textBox(
+    "Een lichaamscel van een kat heeft 38 chromosomen: 19 paren. Een eicel krijgt van elk paar één chromosoom, dus 19. Bij de bevruchting komen 19 + 19 weer samen tot 38. Het antwoord is <b>A</b>."))});
+  q.append(think,ans);
+},STOF1);
+
+const q2=vraag(2,"gen, allel en locus",(q,id)=>{
+  pre(q,"<p>Over de katten in deze opgave worden vier uitspraken gedaan.</p>");
+  q.append(el("p",{class:"qtext"},"1 In een huidcel van een Siamese kat liggen twee allelen voor tyrosinase, op twee homologe chromosomen.<br>2 Alle geslachtscellen van een Siamese kat bevatten het allel c<sup>s</sup>.<br>3 Een kat met het genotype Cc<sup>s</sup> heeft een Siamese tekening met wat minder donkere points.<br>4 De allelen C en c<sup>s</sup> liggen op dezelfde plaats (locus) van een chromosoom.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  selectsStep(think,{uid:"q"+id,q:"Koppel elk begrip aan de goede omschrijving.",rows:[
+    ["gen",["stuk DNA met de informatie voor één eiwit","een variant van een gen","de plek op een chromosoom waar een gen ligt"],0],
+    ["allel",["stuk DNA met de informatie voor één eiwit","een variant van een gen","de plek op een chromosoom waar een gen ligt"],1],
+    ["locus",["stuk DNA met de informatie voor één eiwit","een variant van een gen","de plek op een chromosoom waar een gen ligt"],2]],
+    ok:"Goed. Bedenk bij uitspraak 3 ook wat <b>dominant</b> betekent: is één allel C genoeg voor normaal werkend tyrosinase?",
+    no:"Een gen is het ‘onderwerp’ (bijvoorbeeld tyrosinase), een allel is een uitvoering ervan.",onDone:unlock});
+  juistOnjuist(ans,{id,stm:["twee allelen op homologe chromosomen","alle geslachtscellen bevatten c<sup>s</sup>","Cc<sup>s</sup> geeft een lichtere Siamese tekening","C en c<sup>s</sup> op dezelfde locus"],key:[true,true,false,true],
+    uitleg:textBox("1 <b>juist</b>: van elk chromosoompaar komt er één van de vader en één van de moeder, dus twee allelen.<br>2 <b>juist</b>: een Siamese kat is c<sup>s</sup>c<sup>s</sup>, dus elke geslachtscel krijgt een c<sup>s</sup>.<br>3 <b>onjuist</b>: C is dominant. Eén allel C maakt genoeg werkend tyrosinase, dus de kat heeft een normale, egale kleur .<br>4 <b>juist</b>: allelen zijn varianten van hetzelfde gen en liggen dus op dezelfde locus van homologe chromosomen.")});
+  q.append(think,ans);
+},STOF1);
+
+const q3=vraag(2,"genotype en milieu",(q,id)=>{
+  pre(q,"<p>Siamese kittens worden helemaal wit geboren. Pas na een paar weken worden de poten, de staart, de oren en de snuit donker.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit hoe het komt dat bij een volwassen Siamese kat alleen de poten, staart, oren en snuit donker zijn, terwijl alle huidcellen hetzelfde genotype hebben. Leg ook uit waarom pasgeboren kittens helemaal wit zijn."));
+  choiceStep(think,{q:"Hebben de huidcellen in de poot en in de rug van een Siamese kat hetzelfde genotype?",
+    opts:["ja: alle lichaamscellen komen uit één bevruchte eicel","nee: in de poten zitten meer allelen c<sup>s</sup>"],right:0,
+    ok:"Ja. Het verschil zit dus niet in de allelen, maar in de omstandigheden: het <b>milieu</b>.",no:"Bij elke celdeling wordt het DNA precies gekopieerd. Elke lichaamscel heeft dus dezelfde allelen.",
+    onDone:()=>choiceStep(think,{q:"Waar is het lichaam van een kat het koelst?",opts:["in de romp","in de poten, staart, oren en snuit","overal even warm"],right:1,
+      ok:"Juist: uitstekende delen geven veel warmte af en zijn verder van de warme romp. Wat betekent dat voor het tyrosinase van c<sup>s</sup>?",no:"Denk aan je eigen handen en oren als het koud is.",
+      onDone:()=>choiceStep(think,{q:"Hoe warm is het voor een kitten in de baarmoeder?",opts:["overal ongeveer even warm als de romp van de moeder","koeler dan buiten"],right:0,
+        ok:"Goed. Je hebt nu alles voor beide delen van de vraag.",no:"De baarmoeder ligt diep in de buik van de moeder.",onDone:unlock})})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "In de <b>koelere</b> lichaamsdelen (poten, staart, oren, snuit) werkt het tyrosinase van c<sup>s</sup> wel, dus daar wordt <b>melanine</b> gemaakt; in de warme rest van het lichaam niet.",
+    "In de <b>baarmoeder</b> is het overal warm (lichaamstemperatuur), dus werkt het tyrosinase nergens en wordt er geen pigment gemaakt: de kittens zijn wit."],
+    model:"Het tyrosinase van c<sup>s</sup> werkt alleen onder ongeveer 33 °C. Poten, staart, oren en snuit zijn koeler dan de romp, dus alleen daar maken de pigmentcellen melanine. In de baarmoeder is het overal even warm, dus daar werkt het enzym nergens en zijn de kittens wit. Het milieu (de temperatuur) bepaalt hier mee het fenotype.",
+    valkuil:"‘In de poten zitten andere allelen.’ Alle cellen hebben hetzelfde genotype; alleen de temperatuur verschilt.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Alle huidcellen: genotype c<sup>s</sup>c<sup>s</sup>. Overal ligt hetzelfde recept voor tyrosinase.",t:0},
+      {cap:"In de warme romp (± 38 °C) verliest het enzym zijn vorm: geen melanine, lichte vacht.",t:1},
+      {cap:"In de koele uiteinden (onder ± 33 °C) werkt het enzym wel: melanine, donkere points.",t:2},
+      {cap:"In de baarmoeder is alles warm: nergens melanine, dus een wit kitten. Genotype + milieu = fenotype.",t:3}],(st,s)=>{
+      const warm="var(--koraal)",koel="var(--teal)";const T=s.t;
+      const kleur=d=>T===2&&d?"var(--text)":"var(--surface)";
+      const lab=T===0?"":T===3?`<text x="320" y="200" text-anchor="middle" class="lbl" style="fill:${warm}">overal warm</text>`:
+        `<text x="300" y="70" text-anchor="middle" class="lbl" style="fill:${warm}">romp: warm</text><text x="120" y="190" class="lbl" style="fill:${koel}">uiteinden: koel</text>`;
+      st.innerHTML=svgWrap("0 0 560 220",`
+        <ellipse cx="300" cy="120" rx="130" ry="48" fill="${T===1||T===2?"var(--koraal-soft)":"var(--surface)"}" stroke="var(--text2)" stroke-width="1.5"/>
+        <circle cx="150" cy="95" r="34" fill="var(--surface)" stroke="var(--text2)" stroke-width="1.5"/>
+        <path d="M128,68 l6,-26 l14,22 M160,64 l12,-22 l4,26" fill="${kleur(1)}" stroke="var(--text2)" stroke-width="1.5"/>
+        <ellipse cx="128" cy="104" rx="14" ry="10" fill="${kleur(1)}" stroke="var(--text2)" stroke-width="1.2"/>
+        ${[210,250,350,390].map(x=>`<rect x="${x-9}" y="150" width="18" height="44" rx="8" fill="${kleur(1)}" stroke="var(--text2)" stroke-width="1.4"/>`).join("")}
+        <path d="M428,112 q70,-10 96,-70" fill="none" stroke="${T===2?"var(--text)":"var(--text2)"}" stroke-width="${T===2?12:3}" stroke-linecap="round"/>
+        ${lab}<text x="540" y="212" text-anchor="end" class="lblm">c<tspan baseline-shift="super" font-size="9">s</tspan>c<tspan baseline-shift="super" font-size="9">s</tspan> in elke cel</text>`,"Siamese kat: koele delen donker");}))});
+  q.append(think,ans);
+},STOF1);
+
+const q4=vraag(1,"genotype van de ouders",(q,id)=>{
+  pre(q,"<p>Twee katten met een normale, egale vachtkleur krijgen samen een Siamees kitten.</p>");
+  const {think,ans,unlock}=start(q,B("Wat is het genotype van deze twee ouders?"));
+  choiceStep(think,{q:"Welk genotype heeft het Siamese kitten?",opts:["CC","Cc<sup>s</sup>","c<sup>s</sup>c<sup>s</sup>"],right:2,
+    ok:"Ja. En van wie kreeg het kitten die twee allelen c<sup>s</sup>?",no:"Een Siamese tekening krijg je alleen als er geen dominant allel C is.",
+    onDone:()=>choiceStep(think,{q:"Van wie kreeg het kitten een allel c<sup>s</sup>?",opts:["allebei van één ouder","één van de vader en één van de moeder"],right:1,
+      ok:"Goed. Beide ouders hebben dus een c<sup>s</sup>. Maar ze hebben zelf een normale kleur…",no:"Elke ouder geeft van elk gen precies één allel door.",onDone:unlock})});
+  mc(ans,{qid:id,pts:1,right:1,opts:["beide CC","beide Cc<sup>s</sup>","de een CC, de ander Cc<sup>s</sup>","dat is hieruit niet af te leiden"],onChecked:()=>waaromBtn(ans,textBox(
+    "Het kitten is c<sup>s</sup>c<sup>s</sup> en kreeg van elke ouder één c<sup>s</sup>. De ouders hebben zelf een normale kleur, dus ook een dominant C. Beide ouders zijn dus <b>Cc<sup>s</sup></b>: het allel c<sup>s</sup> zat bij hen ‘verborgen’. Het antwoord is <b>B</b>."))});
+  q.append(think,ans);
+},STOF1);
+
+opgave("Siamese kat","De Siamese kat",`
+<p>Siamese katten hebben een lichte vacht met donkere poten, staart, oren en snuit: de ‘points’. De donkere kleur komt door het pigment melanine. Voor de aanmaak van melanine is het enzym <i>tyrosinase</i> nodig.</p>
+<p>Het gen voor tyrosinase heeft bij katten een allel C, dat zorgt voor normaal werkend tyrosinase, en een allel c<sup>s</sup>. Het tyrosinase van c<sup>s</sup> werkt alleen als het koeler is dan ongeveer 33 °C; bij een hogere temperatuur verliest het enzym zijn vorm. Het allel C is dominant over c<sup>s</sup>. Siamese katten hebben het genotype c<sup>s</sup>c<sup>s</sup>.</p>
+<p>Een lichaamscel van een kat bevat 38 chromosomen. Ga er in deze opgave van uit dat er van dit gen alleen de allelen C en c<sup>s</sup> voorkomen.</p>`,[q1,q2,q3,q4]);
+}
+
+/* ===== Opgave: Cavia's (havo monohybride, vwo dihybride) ===== */
+{
+const STOF2={titel:"Kruisen, kansen en de terugkruising",html:`
+<p>Bij een kruising geeft elke ouder via een geslachtscel <b>één allel</b> van elk gen door. Een heterozygote ouder (bijvoorbeeld Aa) maakt evenveel geslachtscellen met A als met a. In een <b>kruisingsschema</b> zet je de geslachtscellen van de ene ouder boven en die van de andere ouder links; elk vakje is een even grote kans.</p>
+<p>Een kruisingsschema geeft <b>kansen</b>, geen vaste aantallen: bij weinig nakomelingen kan de uitkomst flink afwijken van de verwachte verhouding.</p>
+<p>Van een dier met het dominante fenotype weet je niet direct of het homozygoot of heterozygoot is. Dat test je met een <b>terugkruising</b>: een kruising met een partner die zelf niets ‘verbergt’, zodat je aan de nakomelingen direct kunt zien welke allelen het geteste dier doorgeeft.</p>`+(VWO?`
+<p>Liggen twee genen op <b>verschillende chromosomen</b>, dan erven ze onafhankelijk van elkaar over. Je mag dan per gen een kans uitrekenen en die kansen vermenigvuldigen (<b>productregel</b>). Bij de vorming van geslachtscellen worden de allelen van het ene gen dan willekeurig gecombineerd met die van het andere gen.</p>`:""),
+films:VWO?[F.mono,F.di]:[F.mono,F.stam]};
+
+const ids=[];
+if(!VWO){
+ids.push(vraag(2,"monohybride kruising",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Ilse kruist haar twee kortharige cavia's met elkaar. Wat is het genotype van de ouders? En in welke verhouding verwacht je kortharige en langharige jongen?"));
+  choiceStep(think,{q:"Elke ouder heeft een langharige moeder. Welk allel kreeg elke ouder zeker van die moeder?",opts:["L","l","dat weet je niet"],right:1,
+    ok:"Ja: een langharige cavia is ll en kan alleen l doorgeven. De ouders zijn kortharig, dus hun andere allel is L.",no:"Welk genotype heeft een langharige cavia? Wat kan zij dan doorgeven?",
+    onDone:()=>chipsStep(think,{q:"Welke geslachtscellen maakt een cavia met het genotype Ll? Kies alles wat klopt.",items:[["L",1],["l",1],["Ll",0],["LL",0]],
+      ok:"Goed: de helft L, de helft l. Zet ze nu in een kruisingsschema.",no:"Een geslachtscel krijgt maar één allel van elk gen.",onDone:unlock})});
+  selectAnswer(ans,{id,uid:"q"+id,rows:[["genotype van de ouders",["LL × LL","LL × Ll","Ll × Ll","Ll × ll"],2],["verhouding kort : lang",["1 : 0","1 : 1","2 : 1","3 : 1"],3]],score:n=>n,
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[{cap:"Beide ouders zijn Ll: elk maakt geslachtscellen met L en met l.",t:0},{cap:"Vul de vakjes: 1 LL : 2 Ll : 1 ll.",t:1},{cap:"LL en Ll zijn kort (L is dominant), ll is lang: <b>3 kort : 1 lang</b>.",t:2}],
+      (st,s)=>st.innerHTML=PUN(["L","l"],["L","l"],[["LL","Ll"],["Ll","ll"]],{toon:s.t>0,kopT:"vader Ll",kopL:"moeder Ll",kleur:c=>s.t<2?"":c==="ll"?"var(--koraal-soft)":"var(--groen-soft)"})))});
+  q.append(think,ans);
+},STOF2));
+ids.push(vraag(1,"kans op homozygoot",(q,id)=>{
+  pre(q,"<p>Uit deze kruising houdt Ilse een kortharig mannetje.</p>");
+  const {think,ans,unlock}=start(q,B("Hoe groot is de kans dat dit kortharige mannetje homozygoot (LL) is?"));
+  choiceStep(think,{q:"Welke vakjes van het kruisingsschema Ll × Ll vallen af, nu je weet dat het mannetje kort haar heeft?",opts:["geen","het vakje LL","het vakje ll","de twee vakjes Ll"],right:2,
+    ok:"Ja: ll is langharig, dat kan niet. Er blijven drie even grote vakjes over.",no:"Welk genotype geeft lang haar?",onDone:()=>choiceStep(think,{q:"Hoeveel van die drie overgebleven vakjes zijn LL?",opts:["één","twee","drie"],right:0,ok:"Goed. Reken nu de kans uit.",no:"De andere twee zijn Ll.",onDone:unlock})});
+  mc(ans,{qid:id,pts:1,right:1,opts:["1/4","1/3","1/2","2/3"],onChecked:()=>waaromBtn(ans,textBox(
+    "Je weet al dat het mannetje kort haar heeft, dus het vakje ll valt weg. Van de drie overgebleven vakjes (LL, Ll, Ll) is er één LL: de kans is <b>1/3</b>. Wie 1/4 kiest, vergeet dat ll al is uitgesloten. Het antwoord is <b>B</b>."))});
+  q.append(think,ans);
+},STOF2));
+ids.push(vraag(2,"terugkruising",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Ilse wil weten of het kortharige mannetje homozygoot of heterozygoot is. Met welke cavia moet ze hem kruisen? Leg uit welke uitkomst laat zien dat hij heterozygoot is."));
+  choiceStep(think,{q:"Waarom is een langharige cavia (ll) de beste partner voor deze test?",opts:["die geeft alleen l door, dus je ziet wat het mannetje doorgeeft","langharige cavia's krijgen meer jongen","die is ook heterozygoot"],right:0,
+    ok:"Precies. Elk jong krijgt een l van de moeder; het allel van het mannetje bepaalt dus of een jong kort of lang haar krijgt.",no:"Denk aan wat de partner doorgeeft: verbergt dat iets, of juist niet?",
+    onDone:()=>choiceStep(think,{q:"Het mannetje is Ll. Welke jongen kan hij dan krijgen met een ll-vrouwtje?",opts:["alleen kortharige","kortharige én langharige","alleen langharige"],right:1,ok:"Goed: zodra er één langharig jong is, weet je het.",no:"Ll geeft de helft van de keren l door.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:["Kruisen met een <b>langharige</b> cavia (ll): een terugkruising.","Als er (minstens) één <b>langharig jong</b> geboren wordt, is het mannetje <b>heterozygoot</b> (Ll); bij LL zijn alle jongen kortharig."],
+    model:"Ze kruist hem met een langharige cavia (ll). Die geeft alleen l door. Krijgen ze een langharig jong (ll), dan moet het mannetje ook een l hebben doorgegeven: hij is Ll.",
+    valkuil:"‘Hij is heterozygoot als precies de helft lang haar heeft.’ Eén langharig jong is al genoeg. Andersom bewijzen een paar kortharige jongen nog niet zeker dat hij LL is.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[{cap:"Als het mannetje <b>LL</b> is: alle jongen Ll, allemaal kort.",t:0},{cap:"Als het mannetje <b>Ll</b> is: de helft Ll (kort), de helft ll (lang).",t:1}],
+      (st,s)=>st.innerHTML=s.t===0?PUN(["L","L"],["l"],[["Ll","Ll"]],{kopT:"mannetje LL",kopL:"ll",kleur:()=>"var(--groen-soft)"}):PUN(["L","l"],["l"],[["Ll","ll"]],{kopT:"mannetje Ll",kopL:"ll",kleur:c=>c==="ll"?"var(--koraal-soft)":"var(--groen-soft)"})))});
+  q.append(think,ans);
+},STOF2));
+opgave("Cavia's","Kort en lang haar bij cavia's",`
+<p>Bij cavia's is het allel voor kort haar (L) dominant over het allel voor lang haar (l).</p>
+<p>Fokster Ilse heeft twee kortharige cavia's, een mannetje en een vrouwtje. Ze hebben allebei een langharige moeder.</p>`,ids);
+}else{
+ids.push(vraag(2,"dihybride kruising: kans",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Hoe groot is de kans dat een jong uit deze kruising kort, bruin haar heeft?"));
+  choiceStep(think,{q:"Kijk eerst alleen naar de haarlengte: Ll × Ll. Hoe groot is de kans op kort haar?",opts:["1/4","1/2","3/4"],right:2,ok:"Ja: LL, Ll en Ll zijn kort.",no:"Maak het schema Ll × Ll. Hoeveel van de vier vakjes hebben minstens één L?",
+    onDone:()=>choiceStep(think,{q:"En alleen de kleur: Zz × Zz. Hoe groot is de kans op bruin haar?",opts:["1/4","1/2","3/4"],right:0,ok:"Goed: alleen zz is bruin. De genen liggen op verschillende chromosomen, dus mag je de kansen vermenigvuldigen.",no:"Bruin is recessief.",onDone:unlock})});
+  mc(ans,{qid:id,pts:2,right:1,opts:["1/16","3/16","1/4","9/16"],onChecked:()=>waaromBtn(ans,textBox(
+    "Kort (¾) en bruin (¼) erven onafhankelijk over, dus de kans op beide is ¾ × ¼ = <b>3/16</b>. In het 4 × 4-schema zijn dat de drie vakjes L_zz uit de verhouding 9 : 3 : 3 : 1. Het antwoord is <b>B</b>."))});
+  q.append(think,ans);
+},STOF2));
+ids.push(vraag(2,"dihybride terugkruising",(q,id)=>{
+  pre(q,"<p>Ilse kruist een kortharig, zwart mannetje met een langharig, bruin vrouwtje (llzz). Ongeveer een kwart van de jongen is kort-zwart, een kwart kort-bruin, een kwart lang-zwart en een kwart lang-bruin.</p>");
+  const {think,ans,unlock}=start(q,B("Wat is het genotype van het mannetje, en hoeveel soorten geslachtscellen maakt hij?"));
+  choiceStep(think,{q:"Welke geslachtscellen maakt het vrouwtje (llzz)?",opts:["alleen lz","lz en LZ","vier soorten"],right:0,ok:"Ja. Het fenotype van elk jong laat dus direct zien welke allelen het mannetje doorgaf.",no:"Ze is voor beide genen homozygoot recessief.",
+    onDone:()=>choiceStep(think,{q:"Er zijn langharige en bruine jongen. Wat zegt dat over het mannetje?",opts:["hij heeft een l en een z","hij heeft geen l en geen z","dat zegt niets"],right:0,ok:"Goed. Hij is kort en zwart, dus hij heeft ook L en Z.",no:"Een langharig jong is ll: één l kwam van het vrouwtje, waar kwam de andere vandaan?",onDone:unlock})});
+  selectAnswer(ans,{id,uid:"q"+id,rows:[["genotype van het mannetje",["LLZZ","LlZZ","LLZz","LlZz"],3],["aantal soorten geslachtscellen",["1","2","3","4"],3]],score:n=>n,
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[{cap:"Het mannetje LlZz maakt vier soorten geslachtscellen, elk met kans ¼: LZ, Lz, lZ en lz.",t:0},{cap:"Het vrouwtje geeft alleen lz. Elk vakje is een ander fenotype: <b>1 : 1 : 1 : 1</b>.",t:1}],
+      (st,s)=>st.innerHTML=PUN(["LZ","Lz","lZ","lz"],["lz"],[["LlZz","Llzz","llZz","llzz"]],{toon:s.t,kopT:"mannetje LlZz",kopL:"llzz",w:96,kleur:()=>"var(--groen-soft)"})))});
+  q.append(think,ans);
+},STOF2));
+opgave("Cavia's","Haarlengte en haarkleur bij cavia's",`
+<p>Bij cavia's is het allel voor kort haar (L) dominant over het allel voor lang haar (l), en het allel voor zwart haar (Z) dominant over het allel voor bruin haar (z). De twee genen liggen op verschillende chromosomen.</p>
+<p>Fokster Ilse kruist twee cavia's die voor beide genen heterozygoot zijn (LlZz).</p>`,ids);
+}
+}
+
+/* ===== Opgave: Palomino en cremello (eigen vragen A01–A04, toetsen-biologie) ===== */
+{
+const STOF3={titel:"Intermediair en codominant",html:`
+<p>Niet elk allel is dominant of recessief. Bij <b>intermediaire</b> overerving (onvolledig dominant) heeft een heterozygoot een fenotype dat <b>tussen</b> de twee homozygoten in ligt. Eén werkend allel maakt dan niet genoeg product voor het volle kenmerk. Voorbeeld: rode × witte leeuwenbekken geven roze bloemen.</p>
+<p>Bij <b>codominantie</b> komen beide allelen <b>naast elkaar</b> volledig tot uiting. Voorbeeld: bij sommige runderen (‘roan’) heeft een heterozygoot rode én witte haren door elkaar, niet een tussenkleur.</p>
+<p>De allelen mengen niet: een heterozygoot geeft gewoon het ene óf het andere allel door, net als bij dominant-recessieve overerving. Alleen het verband tussen genotype en fenotype is anders.</p>`,
+films:[F.voorbij,F.stam]};
+const PAL=c=>c==="CC"?"var(--goud-soft)":c==="cc"?"var(--koraal-soft)":"var(--teal-soft)";
+const a1=vraag(1,"intermediaire overerving",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Hoe heet de manier waarop het crème-allel en het normale allel samen het fenotype bepalen?"));
+  choiceStep(think,{q:"Hoe ziet een paard met één crème-allel eruit, vergeleken met de twee homozygoten?",opts:["precies als de vos","precies als de cremello","ertussenin: goudgeel","met vlekken van beide kleuren"],right:2,
+    ok:"Ja: een tussenvorm. Zoek nu de naam die daarbij hoort.",no:"Kijk in de tabel bij ‘één crème-allel’.",onDone:unlock});
+  mc(ans,{qid:id,pts:1,right:1,opts:["codominant","intermediair","dominant-recessief"],onChecked:()=>waaromBtn(ans,textBox(
+    "Een heterozygoot heeft een <b>tussenvorm</b> (goudgeel, tussen roodbruin en bijna wit): dat is intermediaire overerving. Bij codominantie zie je beide kenmerken náást elkaar, zoals A- én B-antigenen bij bloedgroep AB. Dominant-recessief is het niet, want één crème-allel verandert de kleur al. Het antwoord is <b>B</b>."))});
+  q.append(think,ans);
+},STOF3);
+const a2=vraag(2,"kruisingsschema palomino × palomino",(q,id)=>{
+  pre(q,"<p>Een fokker laat een palomino-hengst paren met een palomino-merrie.</p>");
+  const {think,ans,unlock}=start(q,B("Maak een kruisingsschema van deze kruising en noteer in welke verhouding de fenotypen bij de veulens te verwachten zijn."));
+  choiceStep(think,{q:"Welk genotype heeft een palomino?",opts:["CC","Cc","cc"],right:1,ok:"Ja: één crème-allel.",no:"Kijk in de tabel.",
+    onDone:()=>choiceStep(think,{q:"Hoeveel verschillende fenotypen kunnen bij de veulens voorkomen?",opts:["twee","drie","vier"],right:1,
+      ok:"Goed: bij intermediaire overerving heeft elk genotype zijn eigen fenotype.",no:"Hoeveel genotypen kunnen er uit Cc × Cc komen? En hoeveel fenotypen horen daarbij?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,placeholder:"Schrijf het schema op (bijvoorbeeld P: … × …, geslachtscellen, vakjes) en de verhouding.",checks:[
+    "Juist kruisingsschema met ouders <b>Cc × Cc</b> en de genotypen van de nakomelingen (CC, Cc, Cc, cc).",
+    "Fenotypen in de verhouding <b>1 cremello : 2 palomino : 1 vos</b>."],
+    model:"P: Cc × Cc. Geslachtscellen: C en c. Vakjes: CC, Cc, Cc, cc. Verhouding cremello (CC) : palomino (Cc) : vos (cc) = 1 : 2 : 1.",
+    valkuil:"De verhouding 3 : 1 (palomino : vos). Bij intermediaire overerving horen er drie fenotypen bij; 3 : 1 levert voor het tweede punt 0 punten op.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[{cap:"Beide palomino's zijn Cc en maken geslachtscellen met C en met c.",t:0},{cap:"De vakjes: CC, Cc, Cc en cc.",t:1},{cap:"Elk genotype zijn eigen kleur: <b>1 cremello : 2 palomino : 1 vos</b>.",t:2}],
+      (st,s)=>st.innerHTML=PUN(["C","c"],["C","c"],[["CC","Cc"],["Cc","cc"]],{toon:s.t>0,kopT:"hengst Cc",kopL:"merrie Cc",kleur:c=>s.t<2?"":PAL(c)})))});
+  q.append(think,ans);
+},STOF3);
+const a3=vraag(2,"palomino's fokken",(q,id)=>{
+  pre(q,"<p>Een andere fokker wil alleen palomino-veulens fokken. Hij heeft de beschikking over vossen, palomino's en cremello's.</p>");
+  const {think,ans,unlock}=start(q,B("Noteer welke kruising hij moet doen om er zeker van te zijn dat elk veulen palomino is, en leg met de genotypen uit waarom."));
+  choiceStep(think,{q:"Kun je met twee palomino's alleen palomino's fokken?",opts:["ja, dezelfde kleur geeft dezelfde kleur","nee, dan komen er ook cremello's en vossen"],right:1,
+    ok:"Juist: dat zag je in de vorige vraag. Welk genotype moet elk veulen dan hebben?",no:"Kijk naar je kruisingsschema van de vorige vraag.",
+    onDone:()=>choiceStep(think,{q:"Een veulen moet Cc zijn. Hoe weet je zéker dat het van de ene ouder C en van de andere ouder c krijgt?",opts:["de ene ouder heeft alleen C, de andere alleen c","beide ouders hebben C en c"],right:0,ok:"Goed. Welke paarden zijn dat?",no:"Een heterozygote ouder geeft de ene keer C, de andere keer c.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:["Een <b>cremello</b> kruisen met een <b>vos</b>.","Uitleg: <b>CC × cc</b>: de cremello geeft altijd C en de vos altijd c door, dus alle veulens zijn Cc (palomino)."],
+    model:"Hij kruist een cremello (CC) met een vos (cc). De cremello geeft altijd C door en de vos altijd c, dus elk veulen is Cc: palomino.",
+    valkuil:"‘Twee palomino's kruisen’ of ‘palomino × cremello’: dan is maar de helft of een kwart van de veulens palomino. Zo'n antwoord levert 0 punten op."});
+  q.append(think,ans);
+},STOF3);
+const a4=vraag(2,"kans op een cremello-merrieveulen",(q,id)=>{
+  pre(q,"<p>De palomino-hengst en de palomino-merrie uit vraag "+a2+" krijgen een eerste veulen. Dat is een palomino.</p>");
+  const {think,ans,unlock}=start(q,B("Hoe groot is de kans dat hun volgende veulen een cremello-merrieveulen (een vrouwelijk veulen) is?"));
+  choiceStep(think,{q:"Verandert het eerste veulen iets aan de kans voor het volgende veulen?",opts:["ja, de kans op palomino wordt kleiner","nee, elke bevruchting is een nieuwe trekking"],right:1,
+    ok:"Precies: toeval heeft geen geheugen. Je hebt het eerste veulen dus niet nodig.",no:"De geslachtscellen ‘weten’ niet wat er de vorige keer gebeurd is.",
+    onDone:()=>choiceStep(think,{q:"Je zoekt twee dingen tegelijk: cremello én merrie. Wat doe je met de twee kansen?",opts:["optellen","vermenigvuldigen"],right:1,ok:"Goed: de productregel. Wat zijn de twee kansen?",no:"Bij ‘en’ (allebei tegelijk) wordt de kans kleiner, niet groter.",onDone:unlock})});
+  mc(ans,{qid:id,pts:2,right:3,opts:["1/3","1/4","1/6","1/8"],onChecked:()=>waaromBtn(ans,textBox(
+    "Kans op cremello (CC) = ¼; kans op een merrieveulen = ½. Allebei tegelijk: ¼ × ½ = <b>1/8</b>. Het eerste veulen doet er niet toe: elke bevruchting staat op zichzelf. Wie 1/4 kiest, vergeet het geslacht; wie 1/3 kiest, denkt dat de drie kleuren even vaak voorkomen. Het antwoord is <b>D</b>."))});
+  q.append(think,ans);
+},STOF3);
+opgave("Palomino","Palomino en cremello",`
+<p>Paarden met de basiskleur vos hebben een roodbruine vacht. Bij deze paarden bepaalt het gen <i>SLC45A2</i> of de vachtkleur wordt verdund. Van dit gen bestaan twee allelen: een normaal allel en het crème-allel.</p>
+<div class="tablewrap"><table class="data"><tr><th>genotype</th><th>fenotype</th></tr>
+<tr><td>geen crème-allel</td><td>vos: roodbruine vacht</td></tr>
+<tr><td>één crème-allel</td><td>palomino: goudgele vacht met lichte manen</td></tr>
+<tr><td>twee crème-allelen</td><td>cremello: bijna witte, crèmekleurige vacht</td></tr></table></div>
+<p>Gebruik in deze opgave de letters C (crème-allel) en c (normaal allel). Ga ervan uit dat alle paarden in deze opgave de basiskleur vos hebben, zodat alleen het <i>SLC45A2</i>-gen de kleur bepaalt.</p>`,[a1,a2,a3,a4]);
+}
+
+/* ===== Opgave: bloedgroepen, letale factor, polygeen ===== */
+{
+const STOF4={titel:"Multipele allelen, codominant en letaal",html:`
+<p>Van het gen voor de bloedgroepen (AB0-systeem) bestaan in de bevolking <b>drie allelen</b>: I<sup>A</sup>, I<sup>B</sup> en i (<b>multipele allelen</b>). Eén persoon heeft er maar twee. I<sup>A</sup> zorgt voor A-antigenen op de rode bloedcellen, I<sup>B</sup> voor B-antigenen en i voor geen van beide. I<sup>A</sup> en I<sup>B</sup> zijn allebei dominant over i.</p>
+<div class="tablewrap"><table class="data"><tr><th>bloedgroep</th><th>mogelijke genotypen</th></tr><tr><td>A</td><td>I<sup>A</sup>I<sup>A</sup> of I<sup>A</sup>i</td></tr><tr><td>B</td><td>I<sup>B</sup>I<sup>B</sup> of I<sup>B</sup>i</td></tr><tr><td>AB</td><td>I<sup>A</sup>I<sup>B</sup></td></tr><tr><td>O</td><td>ii</td></tr></table></div>
+<p>Een <b>letale factor</b> is een allel dat in een bepaalde combinatie het organisme laat sterven, vaak al als embryo. Dat genotype ontbreekt dan bij de geboren nakomelingen, waardoor je een andere verhouding telt dan je zou verwachten.</p>
+<p>Bij <b>polygene</b> overerving bepalen veel genen samen één kenmerk.</p>`,
+films:[F.voorbij]};
+const b1=vraag(1,"codominantie",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Bloedgroep AB is een voorbeeld van:"));
+  choiceStep(think,{q:"Welke antigenen zitten er op de rode bloedcellen van iemand met bloedgroep AB?",opts:["alleen A","alleen B","A én B","een tussenvorm van A en B"],right:2,
+    ok:"Ja: beide allelen laten hun eigen antigeen maken.",no:"Kijk naar de tabel in de inleiding: welke allelen heeft iemand met AB, en wat maakt elk allel?",onDone:unlock});
+  mc(ans,{qid:id,pts:1,right:0,opts:["codominantie: beide allelen komen volledig tot uiting","intermediaire overerving: het fenotype ligt tussen A en B in","recessieve overerving: AB komt alleen voor bij twee recessieve allelen"],onChecked:()=>waaromBtn(ans,textBox(
+    "Iemand met I<sup>A</sup>I<sup>B</sup> heeft A-antigenen én B-antigenen op zijn rode bloedcellen: beide allelen komen volledig tot uiting. Dat is <b>codominantie</b>. Er is geen tussenvorm (zoals een roze leeuwenbek). Het antwoord is <b>A</b>."))});
+  q.append(think,ans);
+},STOF4);
+const b2=vraag(2,"verwisselde baby's",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Leg uit welke baby bij welk ouderpaar hoort. Gebruik in je uitleg de genotypen."));
+  selectsStep(think,{uid:"q"+id,q:"Welke allelen kan elke ouder doorgeven?",rows:[
+    ["moeder 1 (AB)",["alleen IA","IA of IB","IA, IB of i"],1],
+    ["vader 1 (O)",["alleen i","i of IA"],0],
+    ["moeder 2 (A)",["alleen IA","IA, of i als ze IAi is"],1],
+    ["vader 2 (B)",["alleen IB","IB, of i als hij IBi is"],1]],
+    ok:"Goed. Een baby met bloedgroep O moet van <b>beide</b> ouders een i krijgen. Bij welk paar kan dat?",no:"Iemand met AB heeft geen i; iemand met A of B kan wel een i ‘verbergen’.",onDone:unlock});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Ouderpaar 1 (I<sup>A</sup>I<sup>B</sup> × ii) krijgt alleen kinderen met I<sup>A</sup>i of I<sup>B</sup>i (bloedgroep A of B), nooit O: dus baby 2 (A) hoort bij ouderpaar 1.",
+    "Ouderpaar 2 (A × B) kan een kind met bloedgroep O (ii) krijgen als beide ouders heterozygoot zijn (I<sup>A</sup>i × I<sup>B</sup>i): dus baby 1 (O) hoort bij ouderpaar 2."],
+    model:"De moeder van ouderpaar 1 heeft AB (I<sup>A</sup>I<sup>B</sup>) en geeft dus altijd I<sup>A</sup> of I<sup>B</sup> door: haar kind kan geen O hebben. Baby 1 (ii) hoort dus bij ouderpaar 2; dat kan als die ouders I<sup>A</sup>i en I<sup>B</sup>i zijn. Baby 2 (A, I<sup>A</sup>i) hoort bij ouderpaar 1.",
+    valkuil:"‘Een kind met O moet een ouder met O hebben.’ Twee ouders met A en B kunnen allebei een i doorgeven."});
+  q.append(think,ans);
+},STOF4);
+const b3=vraag(1,"letale factor: verhouding",(q,id)=>{
+  pre(q,"<p>Manx-katten hebben (bijna) geen staart. Dat komt door een dominant allel M. Katten met het genotype mm hebben een normale staart. Embryo's met het genotype MM sterven al vroeg in de baarmoeder.</p>");
+  const {think,ans,unlock}=start(q,B("Twee Manx-katten krijgen samen veel kittens. In welke verhouding verwacht je kittens zonder staart en kittens met een staart?"));
+  choiceStep(think,{q:"Welk genotype heeft een levende Manx-kat?",opts:["MM","Mm","MM of Mm"],right:1,ok:"Ja: MM overleeft niet. Maak nu het schema Mm × Mm.",no:"Lees de laatste zin van de tekst nog eens.",
+    onDone:()=>choiceStep(think,{q:"Welk vakje van het schema Mm × Mm wordt nooit geboren?",opts:["MM","Mm","mm"],right:0,ok:"Goed. Tel nu de vakjes die overblijven.",no:"Welk genotype sterft als embryo?",onDone:unlock})});
+  mc(ans,{qid:id,pts:1,right:1,opts:["3 : 1","2 : 1","1 : 1","1 : 2"],onChecked:()=>waaromBtn(ans,b=>stepAnim(b,[
+    {cap:"Mm × Mm geeft 1 MM : 2 Mm : 1 mm.",t:0},{cap:"MM sterft als embryo: dat vakje valt weg.",t:1},{cap:"Over: 2 Mm (zonder staart) : 1 mm (met staart) = <b>2 : 1</b>. Het antwoord is <b>B</b>.",t:2}],
+    (st,s)=>st.innerHTML=PUN(["M","m"],["M","m"],[[s.t?"✕":"MM","Mm"],["Mm","mm"]],{kopT:"Manx Mm",kopL:"Manx Mm",kleur:c=>c==="✕"?"var(--koraal-soft)":s.t===2?(c==="mm"?"var(--teal-soft)":"var(--goud-soft)"):""})))});
+  q.append(think,ans);
+},STOF4);
+const b4=vraag(2,"geen raszuivere Manx",(q,id)=>{
+  pre(q,"<p>Een fokker wil een raszuivere lijn Manx-katten: katten die alleen kittens zonder staart krijgen.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit waarom dat niet kan."));
+  choiceStep(think,{q:"Welk genotype zou een raszuivere Manx-kat moeten hebben?",opts:["Mm","MM"],right:1,ok:"Ja: raszuiver = homozygoot. Kan een kat met dat genotype bestaan?",no:"Raszuiver betekent dat een dier van een gen twee dezelfde allelen heeft.",
+    onDone:()=>choiceStep(think,{q:"Een Manx (Mm) wordt gekruist met een Manx of met een kat met staart. Kunnen er dan kittens met staart (mm) komen?",opts:["bij beide kruisingen wel","alleen bij Manx × kat met staart","bij geen van beide"],right:0,ok:"Goed: Mm geeft de helft van de keren m door.",no:"Een Manx is Mm. Hoe vaak geeft die een m door?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:["Elke levende Manx-kat is <b>heterozygoot (Mm)</b>, want MM sterft als embryo; een homozygote (raszuivere) Manx bestaat dus niet.",
+    "Daardoor ontstaan bij elke kruising met een Manx ook kittens met een staart (mm): bij Mm × Mm een derde, bij Mm × mm de helft."],
+    model:"Een raszuivere Manx zou MM moeten zijn, maar MM-embryo's sterven. Alle Manx-katten zijn dus Mm en geven de helft van de keren een m door. Twee Manx-katten krijgen daardoor altijd ook kittens met staart (mm).",
+    valkuil:"‘Je moet maar lang genoeg doorfokken.’ Selectie helpt hier niet: het MM-genotype is letaal."});
+  q.append(think,ans);
+},STOF4);
+const b5=vraag(1,"polygene overerving",(q,id)=>{
+  pre(q,"<p>Als je de lichaamslengte van duizend volwassen mannen meet, vind je geen duidelijke groepen (zoals ‘lang’ en ‘kort’). De lengtes vormen een vloeiende verdeling met de meeste mensen in het midden.</p>");
+  const {think,ans,unlock}=start(q,B("Welke verklaring past het best bij deze verdeling?"));
+  choiceStep(think,{q:"Bij één gen met twee allelen (dominant-recessief) vind je hooguit twee groepen. Wat gebeurt er met het aantal groepen als er meer genen meedoen?",opts:["het aantal groepen neemt toe","het blijft twee","er komt één groep"],right:0,
+    ok:"Ja. En als ook voeding en gezondheid een beetje meetellen, vervagen de grenzen tussen de groepen.",no:"Denk aan twee genen die elk iets langer maken: hoeveel ‘stappen’ zijn er dan mogelijk?",onDone:unlock});
+  mc(ans,{qid:id,pts:1,right:1,opts:["Lengte wordt bepaald door één gen met intermediaire overerving.","Lengte wordt bepaald door veel genen samen, en daarnaast door het milieu.","Lengte is niet erfelijk, want er zijn geen groepen.","Bij lengte mengen de allelen van de ouders."],onChecked:()=>waaromBtn(ans,textBox(
+    "Eén gen (ook intermediair) geeft hooguit drie groepen. Veel genen die elk een klein beetje bijdragen, geven heel veel tussenstappen; voeding en gezondheid maken het verloop helemaal vloeiend. Dat is <b>polygene</b> overerving, en lengte is wel degelijk erfelijk. Allelen mengen niet. Het antwoord is <b>B</b>."))});
+  q.append(think,ans);
+},STOF4);
+opgave("Bloedgroepen","Verwisseld, staartloos en lang",`
+<p>Op een kraamafdeling twijfelt men of twee baby's die op dezelfde dag geboren zijn, verwisseld zijn. Het bloed van de baby's en de ouders wordt onderzocht.</p>
+<div class="tablewrap"><table class="data"><tr><th></th><th>moeder</th><th>vader</th></tr>
+<tr><td>ouderpaar 1</td><td>bloedgroep AB</td><td>bloedgroep O</td></tr>
+<tr><td>ouderpaar 2</td><td>bloedgroep A</td><td>bloedgroep B</td></tr></table></div>
+<p>Baby 1 heeft bloedgroep O, baby 2 heeft bloedgroep A.</p>
+<p>De bloedgroepen van het AB0-systeem worden bepaald door één gen met de allelen I<sup>A</sup>, I<sup>B</sup> en i.</p>`,[b1,b2,b3,b4,b5]);
+}
+
+/* ===== Opgave: Choroideremie (eigen vragen B05–B09) + vwo: LHON (mitochondriaal) ===== */
+{
+const X=x=>60+x*70,YG={I:50,II:150,III:250};
+const PERS=[["I-1",3.5,"I",1,1],["I-2",4.5,"I",0,0],
+  ["II-1",.5,"II",0,0],["II-2",1.5,"II",1,0],["II-3",3.5,"II",0,0],["II-4",4.5,"II",1,0],["II-5",6.5,"II",0,0],["II-6",7.5,"II",1,0],
+  ["III-1",.5,"III",0,0],["III-2",1.5,"III",1,0],["III-3",3,"III",1,1],["III-4",4,"III",0,0],["III-5",5,"III",1,0],["III-6",6.5,"III",0,0],["III-7",7.5,"III",1,0]]
+  .map(([id,x,g,m,z])=>({id,x:X(x),y:YG[g],m,ziek:z,lab:id}));
+const STAMB=(hl={})=>STAM({personen:PERS,paren:[["I-1","I-2"],["II-1","II-2"],["II-3","II-4"],["II-5","II-6"]],
+  kinderen:[["I-1","I-2",["II-2","II-3","II-5"]],["II-1","II-2",["III-1","III-2"]],["II-3","II-4",["III-3","III-4","III-5"]],["II-5","II-6",["III-6","III-7"]]],
+  hl,breed:830,hoog:295,ziekNaam:"met choroideremie",gen:[[50,"I"],[150,"II"],[250,"III"]]});
+const STOF5={titel:"Stambomen en X-chromosomale overerving",html:`
+<p><b>Dominant of recessief?</b> Zoek in een stamboom twee ouders met hetzelfde fenotype die een kind krijgen met een <b>ander</b> fenotype. Dat kind heeft een allel gekregen dat bij de ouders niet tot uiting kwam: dat allel is recessief.</p>
+<p><b>Autosomaal of X-chromosomaal?</b> Een vrouw heeft XX, een man XY. Een vader geeft zijn X aan al zijn dochters en nooit aan een zoon; een zoon krijgt zijn X altijd van zijn moeder. Op de Y liggen bijna geen genen. Je noteert X-chromosomale genotypen als X<sup>A</sup>X<sup>a</sup> of X<sup>a</sup>Y (geen letter bij de Y). Een vrouw met één recessief allel heet <b>draagster</b>.</p>
+<p><b>Past of bewijst?</b> Een stamboom kan bij meer erfgangen <i>passen</i>. Iets is pas <i>bewezen</i> als de andere mogelijkheden in die stamboom tot een tegenspraak leiden.</p>
+<p><b>Kansen:</b> de kans dat meerdere onafhankelijke dingen allemaal gebeuren, is het product van de afzonderlijke kansen (productregel).</p>`,
+films:[F.x,F.stam]};
+const STAMHTML=`<div class="eyebrow">afbeelding 1 (fictieve familie)</div>`;
+const c5=vraag(2,"dominant of recessief",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Is het allel voor choroideremie dominant of recessief? Leg je antwoord uit met behulp van de stamboom en noteer de nummers van de personen die je gebruikt."));
+  choiceStep(think,{q:"Wat zoek je in een stamboom om te bewijzen dat een allel recessief is?",opts:["een zieke ouder met gezonde kinderen","twee gezonde ouders met een ziek kind","dat er maar weinig zieken zijn"],right:1,
+    ok:"Ja. Zoek zo'n gezin in de stamboom.",no:"Een zieke ouder met gezonde kinderen past bij dominant én bij recessief. Wanneer kan alleen recessief?",
+    onDone:()=>chipsStep(think,{q:"Klik de personen aan die samen het bewijs vormen. Kies alles wat klopt.",items:[["I-1",0],["I-2",0],["II-3",1],["II-4",1],["III-3",1],["III-4",0]],
+      ok:"Goed: II-3 en II-4 zijn gezond en hun zoon III-3 is ziek.",no:"I-1 en I-2 bewijzen niets: een zieke en een gezonde ouder kan bij beide erfgangen.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:["<b>II-3 en II-4</b> hebben geen choroideremie, maar hun zoon <b>III-3</b> wel.","Dus het allel is <b>recessief</b>: III-3 heeft het allel gekregen van een ouder bij wie het niet tot uiting komt."],
+    model:"Recessief. II-3 en II-4 zijn allebei gezond, maar hun zoon III-3 heeft choroideremie. Hij moet het allel van (minstens) één van zijn ouders hebben, terwijl het bij die ouder niet tot uiting komt. Dat kan alleen als het allel recessief is.",
+    valkuil:"‘Recessief, want er zijn maar weinig zieken’ of een redenering met I-1 en I-2. Daaruit is dominant of recessief niet af te leiden: 0 punten.",
+    after:()=>waaromBtn(ans,b=>b.append(el("div",{},STAMB({"II-3":"var(--goud)","II-4":"var(--goud)","III-3":"var(--koraal)"}))))});
+  q.append(think,ans);
+},STOF5);
+const c6=vraag(2,"wat bewijst de stamboom?",(q,id)=>{
+  pre(q,"<p>Over de stamboom in afbeelding 1 worden drie uitspraken gedaan.</p>");
+  q.append(el("p",{class:"qtext"},"1 Uit de stamboom blijkt dat het gen voor choroideremie op het X-chromosoom ligt.<br>2 Uit het fenotype van II-2 blijkt dat het gen niet op het Y-chromosoom ligt.<br>3 Als het gen op een autosoom zou liggen, moet II-4 heterozygoot zijn.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Stel dat het allel autosomaal recessief is (a). Welk genotype heeft III-3 dan, en wat betekent dat voor zijn vader II-4?",opts:["III-3 is aa, dus II-4 gaf een a door en is (gezond) Aa","III-3 is aa, maar II-4 kan AA zijn","dat kan niet: dan klopt de stamboom niet"],right:0,
+    ok:"Ja. Een autosomale verklaring is dus mogelijk, als II-4 toevallig drager is. Wat betekent dat voor uitspraak 1?",no:"III-3 krijgt van elke ouder één allel. Hoe krijgt hij dan twee a's?",
+    onDone:()=>choiceStep(think,{q:"Als een gen op het Y-chromosoom ligt, wie krijgt het dan van een zieke vader?",opts:["al zijn zonen","al zijn dochters","de helft van zijn kinderen"],right:0,ok:"Goed. Kijk nu naar I-1 en zijn zoon II-2.",no:"Een vader geeft zijn Y alleen aan zonen, en dan aan elke zoon.",onDone:unlock})});
+  juistOnjuist(ans,{id,stm:["uit de stamboom blijkt: X-chromosoom","II-2: niet op het Y-chromosoom","autosomaal: II-4 heterozygoot"],key:[false,true,true],
+    uitleg:b=>{b.append(el("div",{class:"model"},"1 <b>onjuist</b>: de stamboom past bij X-chromosomaal recessief, maar ook bij autosomaal recessief (als II-4 toevallig drager is). Passen is geen bewijs.<br>2 <b>juist</b>: bij Y-chromosomale overerving geeft een zieke vader het aan al zijn zonen; II-2 is gezond.<br>3 <b>juist</b>: III-3 is dan aa en kreeg van beide ouders een a. II-4 is gezond, dus Aa."));
+      b.append(el("div",{},STAMB({"I-1":"var(--koraal)","II-2":"var(--goud)","II-4":"var(--teal)"})));}});
+  q.append(think,ans);
+},STOF5);
+const c7=vraag(2,"genotypen X-chromosomaal",(q,id)=>{
+  pre(q,"<p>Choroideremie erft X-chromosomaal recessief over. Gebruik X<sup>A</sup> voor het normale allel en X<sup>a</sup> voor het allel voor choroideremie.</p>");
+  const {think,ans,unlock}=start(q,B("Noteer de genotypen van I-1, II-3 en III-4. Noteer bij meer mogelijkheden alle mogelijke genotypen."));
+  choiceStep(think,{q:"Welke X geeft I-1 aan zijn dochter II-3?",opts:["zijn enige X, met X<sup>a</sup>","de helft van de keren X<sup>a</sup>","geen X, hij geeft een Y"],right:0,
+    ok:"Ja: een man heeft maar één X en geeft die aan elke dochter. II-3 is gezond, dus haar andere X is X<sup>A</sup>.",no:"Een dochter krijgt van haar vader altijd zijn X.",
+    onDone:()=>choiceStep(think,{q:"III-4 is gezond. Welke X kan ze van haar moeder II-3 (X<sup>A</sup>X<sup>a</sup>) gekregen hebben?",opts:["alleen X<sup>A</sup>, want ze is gezond","X<sup>A</sup> of X<sup>a</sup>"],right:1,
+      ok:"Goed: haar vader II-4 geeft haar X<sup>A</sup>, dus ook met X<sup>a</sup> van haar moeder is ze gezond.",no:"Van haar vader krijgt ze sowieso X<sup>A</sup>. Wordt ze ziek als ze daarnaast X<sup>a</sup> heeft?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:["I-1: <b>X<sup>a</sup>Y</b> en II-3: <b>X<sup>A</sup>X<sup>a</sup></b>.","III-4: <b>X<sup>A</sup>X<sup>A</sup> of X<sup>A</sup>X<sup>a</sup></b> (allebei genoemd)."],
+    model:"I-1: X<sup>a</sup>Y. II-3: X<sup>A</sup>X<sup>a</sup> (ze kreeg de X<sup>a</sup> van haar vader en is gezond). III-4: X<sup>A</sup>X<sup>A</sup> of X<sup>A</sup>X<sup>a</sup>.",
+    valkuil:"Voor III-4 maar één genotype noemen (dan geen tweede punt), of een notatie zonder Y, zoals ‘X<sup>a</sup>’ of ‘aa’ voor I-1: fout."});
+  q.append(think,ans);
+},STOF5);
+const c8=vraag(2,"kans op een zoon met choroideremie",(q,id)=>{
+  pre(q,"<p>III-4 en een man zonder choroideremie willen een kind.</p>");
+  const {think,ans,unlock}=start(q,B("Bereken hoe groot de kans is dat hun eerste kind een jongen met choroideremie is. Laat je berekening zien."));
+  choiceStep(think,{q:"Hoe groot is de kans dat III-4 draagster is?",opts:["1/4","1/2","2/3","1"],right:1,ok:"Ja: haar moeder is X<sup>A</sup>X<sup>a</sup>, haar vader geeft X<sup>A</sup>.",no:"Ze kreeg van haar moeder X<sup>A</sup> of X<sup>a</sup>, met even grote kans.",
+    onDone:()=>choiceStep(think,{q:"Als ze draagster is: hoe groot is de kans dat een kind een <b>jongen met choroideremie</b> (X<sup>a</sup>Y) is?",opts:["1/2","1/4","1/8"],right:1,
+      ok:"Goed: X<sup>a</sup> van moeder (½) én Y van vader (½). Vermenigvuldig nu met de kans dat ze draagster is.",no:"Er moeten twee dingen gebeuren: ze geeft X<sup>a</sup> door én het wordt een jongen.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:["Kans dat III-4 draagster is (X<sup>A</sup>X<sup>a</sup>) = <b>1/2</b>.","Als ze draagster is: kans op een jongen met X<sup>a</sup>Y = 1/2 × 1/2 = 1/4; totaal <b>1/2 × 1/4 = 1/8</b> (12,5%)."],
+    model:"Kans draagster: ½. Kans dat zij X<sup>a</sup> doorgeeft: ½. Kans op een jongen: ½. Totaal ½ × ½ × ½ = 1/8.",
+    valkuil:"III-4 als zeker draagster rekenen (1/4), of ‘een jongen met choroideremie’ lezen als ‘als het een jongen is, is hij dan ziek’ (1/2 × 1/2 = 1/4). In beide gevallen geen tweede punt.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[{cap:"Eerst: is III-4 draagster? Kans ½.",t:0},{cap:"Dan: geeft ze X<sup>a</sup> door? Kans ½.",t:1},{cap:"En: wordt het een jongen (Y van de vader)? Kans ½.",t:2},{cap:"Alles tegelijk: ½ × ½ × ½ = <b>1/8</b>.",t:3}],(st,s)=>{
+      const W=[0,1,2].map(k=>k<=s.t);const box=(x,t,on)=>`<rect x="${x}" y="40" width="150" height="70" rx="12" fill="${on?"var(--goud-soft)":"none"}" stroke="${on?"var(--goud)":"var(--line2)"}"/><text x="${x+75}" y="70" text-anchor="middle" class="lbl">${t}</text><text x="${x+75}" y="94" text-anchor="middle" class="lbl" style="font-size:16px">${on?"½":""}</text>`;
+      st.innerHTML=svgWrap("0 0 600 150",box(20,"III-4 draagster",W[0])+`<text x="185" y="80" class="lbl">×</text>`+box(205,"geeft Xᵃ door",W[1])+`<text x="370" y="80" class="lbl">×</text>`+box(390,"een jongen",W[2])+(s.t===3?`<text x="300" y="138" text-anchor="middle" class="lbl" style="fill:var(--goud-text);font-size:16px">= 1/8</text>`:""),"Kansketen");}))});
+  q.append(think,ans);
+},STOF5);
+const c9=vraag(2,"waarom vooral mannen",(q,id)=>{
+  pre(q,"<p>Choroideremie komt bijna alleen bij mannen voor.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit hoe dat komt. Noem in je uitleg zowel wat er bij een man als wat er bij een vrouw nodig is om de ziekte te krijgen."));
+  choiceStep(think,{q:"Hoeveel allelen voor dit gen heeft een man?",opts:["één","twee","geen"],right:0,ok:"Ja: hij heeft maar één X, en op de Y ligt dit gen niet.",no:"Het gen ligt op de X. Hoeveel X-chromosomen heeft een man?",
+    onDone:()=>choiceStep(think,{q:"Een vrouw met choroideremie is X<sup>a</sup>X<sup>a</sup>. Wat betekent dat voor haar vader?",opts:["hij moet zelf choroideremie hebben","hij kan gezond zijn"],right:0,ok:"Goed: zijn enige X is X<sup>a</sup>. En haar moeder moet ook een X<sup>a</sup> hebben. Hoe vaak komt die combinatie voor bij een zeldzaam allel?",no:"Van wie kreeg ze haar tweede X?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:["Een man heeft maar <b>één X-chromosoom</b>, dus <b>één X<sup>a</sup></b> is genoeg (er is geen tweede allel dat het normale eiwit kan laten maken).",
+    "Een vrouw moet <b>X<sup>a</sup>X<sup>a</sup></b> hebben: haar vader moet ziek zijn én haar moeder draagster (of ziek), en die combinatie is bij een zeldzaam allel heel onwaarschijnlijk."],
+    model:"Een man (X<sup>a</sup>Y) is al ziek met één X<sup>a</sup>, want hij heeft geen tweede X met een normaal allel. Een vrouw is alleen ziek als ze X<sup>a</sup>X<sup>a</sup> heeft. Dan moet haar vader ziek zijn en haar moeder het allel ook hebben. Omdat het allel zeldzaam is, gebeurt dat bijna nooit.",
+    valkuil:"Alleen ‘vrouwen hebben twee X-chromosomen’ is te weinig voor het tweede punt: zeg ook wat dat voor de ouders betekent. ‘Het gen ligt op de Y’ levert 0 punten op."});
+  q.append(think,ans);
+},STOF5);
+const ids=[c5,c6,c7,c8,c9];
+if(VWO){ids.push(vraag(2,"mitochondriaal DNA",(q,id)=>{
+  pre(q,"<p>Ook LHON (Leber hereditaire opticusneuropathie) is een erfelijke oogziekte: vooral jonge mannen gaan er in korte tijd veel slechter door zien. LHON wordt veroorzaakt door een mutatie in het DNA van de mitochondriën.</p><p>Een man met LHON en een vrouw zonder deze mutatie krijgen kinderen.</p>");
+  const {think,ans,unlock}=start(q,B("Kunnen deze kinderen de mutatie van hun vader erven? Leg je antwoord uit."));
+  choiceStep(think,{q:"Waar komen de mitochondriën van een bevruchte eicel vandaan?",opts:["uit de eicel","uit de zaadcel","de helft uit elk"],right:0,
+    ok:"Ja. De eicel bevat er heel veel; de paar mitochondriën van de zaadcel worden na de bevruchting afgebroken.",no:"Vergelijk de grootte van een eicel en een zaadcel. En wat gebeurt er met de mitochondriën uit de zaadcel?",onDone:unlock});
+  openAnswer(ans,{id,pts:2,checks:["Mitochondriën (en dus het mitochondriaal DNA) komen alleen via de <b>eicel</b>; de mitochondriën van de zaadcel worden na de bevruchting <b>afgebroken</b>.","Dus <b>geen enkel kind</b> erft de mutatie van de vader (ook zijn zonen niet)."],
+    model:"Nee. Het mitochondriaal DNA erft alleen via de moeder over: de eicel levert alle mitochondriën, die van de zaadcel worden afgebroken. De kinderen van deze man krijgen de mutatie dus niet.",
+    valkuil:"‘Alleen de zonen, want LHON komt vooral bij mannen voor.’ Dat de ziekte vaker bij mannen tot uiting komt, zegt niets over de manier van overerven."});
+  q.append(think,ans);
+},{titel:"Mitochondriaal DNA",html:"<p>Mitochondriën hebben hun eigen, kleine ringvormige DNA-molecuul (37 genen bij de mens). Een eicel bevat ongeveer honderdduizend mitochondriën, een zaadcel hooguit ongeveer honderd, in het middenstuk.</p>",films:[F.x]}));}
+opgave("Choroideremie","Choroideremie",`
+<p>Choroideremie is een zeldzame erfelijke oogziekte (ongeveer 1 op de 50 000 tot 100 000 mensen). Door een mutatie in het gen <i>CHM</i> gaan cellen van het netvlies en van het vaatvlies (de choroidea) geleidelijk dood. Het eerste verschijnsel is meestal nachtblindheid, al op jonge leeftijd. Later wordt het gezichtsveld steeds kleiner (kokerzien) en uiteindelijk worden patiënten blind.</p>
+<p>Afbeelding 1 is de stamboom van een familie waarin choroideremie voorkomt.</p>${STAMHTML}<div>${STAMB()}</div>`,ids);
+}
+
+/* ===== Opgave 6: havo kansen + gekoppelde genen; vwo reukerwt (eigen vragen C10–C14) ===== */
+{
+if(!VWO){
+const STOF6={titel:"Kansrekenen en gekoppelde genen",html:`
+<p><b>Productregel:</b> de kans dat twee onafhankelijke dingen allebei gebeuren, is het product van de twee kansen. <b>Somregel:</b> de kans dat het ene óf het andere gebeurt (en ze sluiten elkaar uit), is de som van de kansen.</p>
+<p>Genen die op <b>hetzelfde chromosoom</b> liggen, heten <b>gekoppeld</b>. Liggen twee genen op <b>verschillende chromosomen</b>, dan erven ze onafhankelijk van elkaar over.</p>`,films:[F.stam,F.di]};
+const d1=vraag(1,"kans op drager",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Hoe groot is de kans dat Eva drager is van PKU?"));
+  choiceStep(think,{q:"Welk genotype hebben Eva's ouders?",opts:["allebei AA","allebei Aa","de een Aa, de ander aa"],right:1,ok:"Ja: ze zijn gezond en hebben een zoon met PKU (aa).",no:"Hun zoon is aa. Van wie kreeg hij die a's? En de ouders zijn zelf gezond.",
+    onDone:()=>choiceStep(think,{q:"Eva is gezond. Welk vakje van het schema Aa × Aa valt voor haar af?",opts:["AA","Aa","aa"],right:2,ok:"Goed. Hoeveel van de drie overgebleven vakjes zijn Aa?",no:"Welk genotype geeft PKU?",onDone:unlock})});
+  mc(ans,{qid:id,pts:1,right:2,opts:["1/4","1/2","2/3","3/4"],onChecked:()=>waaromBtn(ans,b=>stepAnim(b,[{cap:"Haar ouders zijn Aa × Aa: 1 AA : 2 Aa : 1 aa.",t:0},{cap:"Eva is gezond: het vakje aa valt weg.",t:1},{cap:"Van de drie vakjes die overblijven, zijn er twee Aa: <b>2/3</b>. Het antwoord is <b>C</b>.",t:2}],
+    (st,s)=>st.innerHTML=PUN(["A","a"],["A","a"],[["AA","Aa"],["Aa",s.t?"✕":"aa"]],{kopT:"vader Aa",kopL:"moeder Aa",kleur:c=>c==="✕"?"var(--koraal-soft)":s.t===2&&c==="Aa"?"var(--goud-soft)":""})))});
+  q.append(think,ans);
+},STOF6);
+const d2=vraag(2,"kans op een kind met PKU",(q,id)=>{
+  pre(q,"<p>Eva en Daan willen een kind.</p>");
+  const {think,ans,unlock}=start(q,B("Hoe groot is de kans dat hun eerste kind PKU heeft?"));
+  choiceStep(think,{q:"Wat moet er allemaal gebeuren voordat hun kind PKU (aa) heeft?",opts:["Eva is drager én Eva geeft a door én Daan geeft a door","alleen: Daan geeft a door","Eva is drager óf Daan is drager"],right:0,
+    ok:"Ja: drie dingen tegelijk. Welke kansen horen daarbij?",no:"Het kind heeft van allebei de ouders een a nodig. En weten we zeker dat Eva een a heeft?",
+    onDone:()=>selectsStep(think,{uid:"q"+id,q:"Vul de kansen in.",rows:[["Eva is drager",["1/4","1/2","2/3"],2],["Eva geeft a door (als ze drager is)",["1/4","1/2","2/3"],1],["Daan geeft a door",["1/4","1/2","1"],1]],
+      ok:"Goed. Vermenigvuldig ze nu.",no:"Daan is zeker drager (Aa): hoe vaak geeft hij a door?",onDone:unlock})});
+  mc(ans,{qid:id,pts:2,right:1,opts:["1/4","1/6","1/8","1/12"],onChecked:()=>waaromBtn(ans,textBox(
+    "Kans dat Eva drager is: 2/3. Kans dat zij dan a doorgeeft: ½. Kans dat Daan a doorgeeft: ½. Samen: 2/3 × ½ × ½ = 2/12 = <b>1/6</b>. Wie 1/4 kiest, rekent Eva als zeker drager; wie 1/8 kiest, neemt ½ voor de kans dat Eva drager is. Het antwoord is <b>B</b>."))});
+  q.append(think,ans);
+},STOF6);
+const d3=vraag(2,"gekoppelde genen bij maïs",(q,id)=>{
+  pre(q,"<p>Bij maïs liggen het gen voor de kleur van de korrel (gekleurd C, kleurloos c) en het gen voor de vorm van de korrel (glad S, gerimpeld s) op hetzelfde chromosoom. Een maïsplant heeft het genotype CcSs. Daarbij liggen C en S samen op het ene chromosoom, en c en s samen op het homologe chromosoom. Ga ervan uit dat er geen crossing-over optreedt.</p>");
+  const {think,ans,unlock}=start(q,B("Welke geslachtscellen maakt deze plant? En hoeveel soorten geslachtscellen zou een plant met het genotype CcSs maken als de twee genen op verschillende chromosomen lagen?"));
+  choiceStep(think,{q:"Bij de vorming van geslachtscellen krijgt elke geslachtscel één chromosoom van elk paar. Wat gebeurt er met de allelen C en S, die samen op één chromosoom liggen?",opts:["ze gaan altijd samen naar dezelfde geslachtscel","ze worden over twee geslachtscellen verdeeld"],right:0,
+    ok:"Ja: het chromosoom gaat in zijn geheel mee.",no:"Een chromosoom wordt bij de vorming van geslachtscellen niet in stukken verdeeld (zonder crossing-over).",
+    onDone:()=>choiceStep(think,{q:"Bij genen op verschillende chromosomen: kan C dan samen met s in een geslachtscel komen?",opts:["ja, de chromosoomparen worden los van elkaar verdeeld","nee, nooit"],right:0,ok:"Goed. Hoeveel combinaties zijn er dan?",no:"De twee chromosoomparen liggen in meiose I los van elkaar in het evenaarsvlak.",onDone:unlock})});
+  selectAnswer(ans,{id,uid:"q"+id,rows:[["geslachtscellen van deze plant",["CS en cs","Cs en cS","CS, Cs, cS en cs","Cc en Ss"],0],["aantal soorten bij genen op verschillende chromosomen",["1","2","3","4"],3]],score:n=>n,
+    after:()=>waaromBtn(ans,textBox("Gekoppeld: het chromosoom met C en S gaat in zijn geheel naar een geslachtscel, net als het chromosoom met c en s. Er ontstaan dus alleen <b>CS</b> en <b>cs</b>. Op verschillende chromosomen worden de paren los van elkaar verdeeld: CS, Cs, cS en cs, dus <b>4</b> soorten, elk met kans ¼."))});
+  q.append(think,ans);
+},STOF6);
+opgave("Kansen","Fenylketonurie en maïs",`
+<p>Fenylketonurie (PKU) is een erfelijke stofwisselingsziekte. Mensen met PKU kunnen het aminozuur fenylalanine niet goed afbreken. PKU erft autosomaal recessief over (allel a).</p>
+<p>Eva heeft geen PKU, maar haar broer wel. Haar ouders hebben geen PKU. Eva's partner Daan heeft zich laten testen: hij is drager van PKU (Aa).</p>`,[d1,d2,d3]);
+}else{
+const STOF6={titel:"Gekoppelde genen en crossing-over",html:`
+<p>Genen die op <b>hetzelfde chromosoom</b> liggen, zijn <b>gekoppeld</b>: zonder crossing-over gaan hun allelen samen naar een geslachtscel.</p>
+<p>Bij <b>crossing-over</b> wisselen in meiose I twee chromatiden van homologe chromosomen een stuk uit. Daardoor ontstaan geslachtscellen met een <b>nieuwe combinatie</b> van allelen (<b>recombinant</b>), naast geslachtscellen met de oude combinaties. Recombinante geslachtscellen zijn bij gekoppelde genen in de minderheid.</p>
+<p>Bij genen op verschillende chromosomen verwacht je bij een dihybride F2 de verhouding 9 : 3 : 3 : 1.</p>`,films:[F.di]};
+const TAB=`<div class="eyebrow">tabel 1</div><div class="tablewrap"><table class="data"><tr><th>fenotype F2</th><th>aantal planten</th></tr><tr><td>paars, lang</td><td>284</td></tr><tr><td>paars, rond</td><td>21</td></tr><tr><td>rood, lang</td><td>21</td></tr><tr><td>rood, rond</td><td>55</td></tr><tr><td><b>totaal</b></td><td><b>381</b></td></tr></table></div>`;
+const e1=vraag(1,"verwachting 9 : 3 : 3 : 1",(q,id)=>{
+  pre(q,"<p>De onderzoekers verwachtten de verhouding 9 : 3 : 3 : 1, omdat ze ervan uitgingen dat de twee genen onafhankelijk van elkaar overerven.</p>");
+  const {think,ans,unlock}=start(q,B("Bereken hoeveel F2-planten met rode bloemen en rond stuifmeel ze dan verwachtten."));
+  choiceStep(think,{q:"Welk deel van de 9 : 3 : 3 : 1 is rood en rond (ppll)?",opts:["9/16","3/16","1/16"],right:2,ok:"Ja: alleen het ene vakje met twee keer recessief.",no:"Rood en rond zijn allebei recessief.",onDone:unlock});
+  numAnswer(ans,{id,fields:[["verwacht aantal rood, rond","planten",v=>v>=23&&v<=24.5,"1/16 × 381 = 23,8 (23 of 24 is ook goed)"]],
+    after:()=>waaromBtn(ans,textBox("Rood en rond is ppll: 1/16 van de F2. 1/16 × 381 = <b>23,8</b>, dus ongeveer 24 planten. Gevonden werden er 55: meer dan twee keer zoveel."))});
+  q.append(think,ans);
+},STOF6);
+const e2=vraag(2,"gekoppelde genen verklaren",(q,id)=>{
+  pre(q,"<p>Er werden veel meer planten met rode bloemen en rond stuifmeel gevonden dan verwacht.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit hoe dat komt. Gebruik in je uitleg de allelen op de chromosomen van de F1-planten."));
+  choiceStep(think,{q:"De F1 ontstond uit PPLL × ppll. Welke allelen liggen bij de F1 samen op één chromosoom, als de genen gekoppeld zijn?",opts:["P met L, en p met l","P met l, en p met L"],right:0,ok:"Ja: elke ouder gaf één chromosoom mee, met PL of met pl.",no:"Wat zat er in de geslachtscellen van de raszuivere ouders?",
+    onDone:()=>choiceStep(think,{q:"Welke geslachtscellen maakt de F1 dan vooral?",opts:["PL en pl","Pl en pL","alle vier even vaak"],right:0,ok:"Goed. Wat betekent dat voor de kans dat twee pl-geslachtscellen samensmelten?",no:"Zonder crossing-over gaat een chromosoom in zijn geheel mee.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:["De genen liggen <b>gekoppeld</b> op hetzelfde chromosoom: de F1 heeft P en L samen op het ene chromosoom en p en l samen op het homologe chromosoom.","Daardoor maakt de F1 vooral geslachtscellen met <b>PL en pl</b> (elk meer dan ¼); de kans dat twee pl-geslachtscellen samensmelten (ppll) is dan <b>groter dan 1/16</b>."],
+    model:"De genen liggen op hetzelfde chromosoom. De F1 heeft PL op het ene en pl op het andere chromosoom. Die gaan meestal in hun geheel naar een geslachtscel, dus ruim een kwart van de geslachtscellen is pl. De kans op ppll (pl × pl) is dan veel groter dan 1/16.",
+    valkuil:"Alleen ‘de genen zijn gekoppeld’ zonder het gevolg voor de geslachtscellen (alleen het eerste punt). ‘Er is crossing-over opgetreden’ als verklaring voor de grote groep levert 0 punten op: crossing-over maakt juist de kleine groepen."});
+  q.append(think,ans);
+},STOF6);
+const e3=vraag(2,"welke planten zijn recombinant?",(q,id)=>{
+  pre(q,"<p>Van sommige F2-planten weet je zeker dat ze zijn ontstaan uit minstens één geslachtscel waarin crossing-over tussen de twee genen heeft plaatsgevonden.</p>");
+  const {think,ans,unlock}=start(q,B("Welke F2-planten zijn dat?"));
+  chipsStep(think,{q:"Welke geslachtscellen van de F1 (PL/pl) zijn recombinant? Kies alles wat klopt.",items:[["PL",0],["pl",0],["Pl",1],["pL",1]],ok:"Goed. Welke fenotypen kunnen <b>alleen</b> ontstaan als er zo'n geslachtscel meedoet?",no:"Recombinant = een combinatie die in de F1 niet samen op één chromosoom lag.",
+    onDone:()=>choiceStep(think,{q:"Kan een plant met rode bloemen en rond stuifmeel (ppll) ontstaan zonder crossing-over?",opts:["ja, uit pl × pl","nee, daar is altijd een recombinante geslachtscel voor nodig"],right:0,ok:"Juist: ppll kan gewoon uit twee ouderlijke pl-geslachtscellen ontstaan.",no:"Welke twee geslachtscellen geven samen ppll?",onDone:unlock})});
+  mc(ans,{qid:id,pts:2,right:2,opts:["alleen de planten met rode bloemen en rond stuifmeel","alleen de planten met paarse bloemen en rond stuifmeel","de planten met paarse bloemen en rond stuifmeel en de planten met rode bloemen en lang stuifmeel","de planten met paarse bloemen en rond stuifmeel, de planten met rode bloemen en lang stuifmeel en de planten met rode bloemen en rond stuifmeel"],onChecked:()=>waaromBtn(ans,textBox(
+    "Paars-rond (P..ll) vraagt een geslachtscel met P én l: Pl. Rood-lang (ppL.) vraagt pL. Dat zijn recombinante combinaties. Rood-rond (ppll) ontstaat uit pl × pl, twee ouderlijke combinaties; paars-lang kan uit PL ontstaan. Het antwoord is <b>C</b>."))});
+  q.append(think,ans);
+},STOF6);
+const e4=vraag(2,"terugkruising en crossing-over",(q,id)=>{
+  pre(q,"<p>Uit een F2 kun je het percentage crossing-over moeilijk aflezen. Daarom kruist een onderzoeker F1-planten met planten met rode bloemen en rond stuifmeel (ppll). Hij vindt: paars-lang 380, paars-rond 120, rood-lang 116, rood-rond 384 (fictieve gegevens).</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit waarom je bij deze kruising het percentage crossing-over direct uit de nakomelingen kunt aflezen, en bereken het percentage recombinante nakomelingen."));
+  choiceStep(think,{q:"Welke geslachtscellen maakt de ppll-plant?",opts:["alleen pl","pl en PL","vier soorten"],right:0,ok:"Ja. Het fenotype van elke nakomeling verraadt dus welke geslachtscel de F1-plant leverde.",no:"De plant is voor beide genen homozygoot recessief.",
+    onDone:()=>chipsStep(think,{q:"Welke groepen nakomelingen zijn recombinant? Kies alles wat klopt.",items:[["paars-lang (380)",0],["paars-rond (120)",1],["rood-lang (116)",1],["rood-rond (384)",0]],ok:"Goed. Reken nu het percentage uit van het totaal.",no:"Recombinant zijn de nieuwe combinaties: Pl en pL.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:["De ppll-plant levert alleen geslachtscellen met <b>pl</b>, dus het fenotype van elke nakomeling laat zien welke allelencombinatie de geslachtscel van de F1-plant had.","(120 + 116) / 1000 × 100% = <b>23,6%</b>."],
+    model:"De ppll-plant geeft alleen pl door; die allelen verbergen niets. Elk fenotype toont dus direct de geslachtscel van de F1. Recombinant zijn paars-rond en rood-lang: (120 + 116) / 1000 = 23,6%.",
+    valkuil:"Alle ‘afwijkende’ of alle recessieve groepen meetellen (bijvoorbeeld met rood-rond erbij: 62,0%)."});
+  q.append(think,ans);
+},STOF6);
+const e5=vraag(2,"andere ligging, andere F2",(q,id)=>{
+  pre(q,"<p>Een andere onderzoeker kruist raszuivere reukerwten met paarse bloemen en rond stuifmeel (PPll) met raszuivere reukerwten met rode bloemen en lang stuifmeel (ppLL). De F1 plant zich voort door zelfbestuiving. Het percentage crossing-over is hetzelfde als in vraag "+e4+".</p>");
+  const {think,ans,unlock}=start(q,B("Welk fenotype of welke fenotypen komen in deze F2 het minst voor?"));
+  choiceStep(think,{q:"Welke allelen liggen nu bij de F1 samen op één chromosoom?",opts:["P met L, en p met l","P met l, en p met L"],right:1,ok:"Ja: de ouders gaven Pl en pL mee.",no:"Kijk naar de raszuivere ouders van deze F1.",
+    onDone:()=>choiceStep(think,{q:"Is een geslachtscel met pl nu ouderlijk of recombinant?",opts:["ouderlijk, dus vaak","recombinant, dus zeldzaam (ongeveer 12%)"],right:1,ok:"Goed. Welk fenotype heeft twee pl-geslachtscellen nodig?",no:"Recombinant is wat niet samen op een chromosoom van de F1 lag.",onDone:unlock})});
+  mc(ans,{qid:id,pts:2,right:0,opts:["rood, rond","paars, rond en rood, lang","paars, lang"],onChecked:()=>waaromBtn(ans,textBox(
+    "De F1 heeft nu Pl op het ene en pL op het andere chromosoom. Een pl-geslachtscel is dan recombinant: ongeveer 23,6% / 2 ≈ 12%. Rood-rond (ppll) vraagt twee pl-geslachtscellen: ongeveer 0,118 × 0,118 ≈ 1,4%, veel minder dan 1/16. Paars-rond en rood-lang komen elk op ongeveer 24%, paars-lang op ongeveer 51%. Het antwoord is <b>A</b>."))});
+  q.append(think,ans);
+},STOF6);
+opgave("Reukerwt","Paarse reukerwten met lang stuifmeel",`
+<p>Bij de reukerwt (<i>Lathyrus odoratus</i>) is het allel voor paarse bloemen (P) dominant over het allel voor rode bloemen (p). Het allel voor lange stuifmeelkorrels (L) is dominant over het allel voor ronde stuifmeelkorrels (l).</p>
+<p>Begin twintigste eeuw kruisten de Britse onderzoekers Bateson, Saunders en Punnett raszuivere reukerwten met paarse bloemen en lang stuifmeel met raszuivere reukerwten met rode bloemen en rond stuifmeel. Alle F1-planten hadden paarse bloemen en lang stuifmeel. De F1-planten werden door zelfbestuiving voortgeplant. Tabel 1 geeft de aantallen F2-planten per fenotype.</p>${TAB}`,[e1,e2,e3,e4,e5]);
+}
+}
+
+
+/* ================= opgaven en navigatie ================= */
+OPG.sort((a,b)=>a.nr-b.nr);
+/* cijfer als bij een schooltoets: 9 × score / maximum + 1 */
+const NORM="";
+const CIJFER=(()=>{const L=Q.reduce((s,q)=>s+q.pts,0);return Array.from({length:L+1},(_,S)=>Math.round((9*S/L+1)*10)/10);})();
+const main=$("#main"),tabs=$("#tabs");let cur=1;const built={},nextBtns={};
+let curOpg=OPG.some(o=>o.nr===store.opg)?store.opg:1;
+const opg=()=>OPG.find(o=>o.nr===curOpg);
+const pts=o=>o.ids.reduce((s,i)=>s+Q.find(q=>q.id===i).pts,0);
+function reach(){const ids=opg().ids;if(store.vrij)return ids[ids.length-1];let k=0;while(k<ids.length-1&&store.scores[ids[k]]!==undefined)k++;return ids[k];}
+function renderTabs(){
+  tabs.innerHTML="";const r=reach();
+  opg().ids.forEach(id=>{const q=Q.find(x=>x.id===id);const locked=id>r;
+    const b=el("button",{class:(id===cur?"cur ":"")+(store.scores[id]!==undefined?"done":"")+(locked?" lock":""),"aria-label":"Vraag "+id+(locked?" (eerst vraag "+(id-1)+" maken)":""),title:locked?"Maak eerst vraag "+(id-1):""},id);
+    if(locked)b.disabled=true;else b.onclick=()=>open(id);tabs.append(b);});
+  const o=el("button",{class:"ov"+(cur==="ov"?" cur":"")},"Score");o.onclick=()=>open("ov");tabs.append(o);
+}
+function open(id){
+  if(id!=="ov"&&id>reach())id=reach();
+  cur=id;renderTabs();main.innerHTML="";
+  if(id==="ov"){main.append(overview());return;}
+  if(!built[id]){const q=Q.find(x=>x.id===id);const sec=el("article",{class:"q"});
+    q.build(sec);
+    const pap=el("section",{class:"papier","aria-label":"Toetsvraag "+id});
+    pap.append(el("div",{class:"pkop"},`<span class="pnr"><span class="mono">Toetsvraag</span><span class="nr">${id}</span></span><span class="mono">${q.pts} ${q.pts===1?"punt":"punten"}</span>`));
+    for(const c of [...sec.children]){if(c.classList.contains("phase")||c.tagName==="BUTTON")break;pap.append(c);}
+    pap.append(el("div",{class:"pvoet"},"Oefentoets Erfelijkheid · havo"));
+    sec.prepend(pap);
+    const sb=window.EXSTOF&&EXSTOF.blok(TOOL,id);if(sb)pap.after(sb);
+    /* toetsvraag nog eens boven de antwoorden (Kamiel 25 okt 2026: niet terug hoeven scrollen) */
+    const qt=[...pap.querySelectorAll(".qtext")].pop(),ansP=sec.querySelector(".phase.ans");
+    if(qt&&ansP){const h=el("div",{class:"herhaal papier"});h.append(el("div",{class:"hkop mono"},`Toetsvraag ${id}`));
+      const c=qt.cloneNode(true);c.querySelectorAll("[id]").forEach(x=>x.removeAttribute("id"));h.append(c);
+      const lab=ansP.querySelector(":scope>.label");lab?lab.after(h):ansP.prepend(h);}
+    const ids=opg().ids,last=id===ids[ids.length-1];
+    const nx=el("div",{class:"row",style:"justify-content:flex-end"});const b=el("button",{class:"go"},last?"Naar je score ›":`Volgende vraag (${id+1}) ›`);
+    nextBtns[id]=b;b.hidden=!store.vrij&&store.scores[id]===undefined;
+    b.onclick=()=>{open(last?"ov":id+1);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};nx.append(b);sec.append(nx);built[id]=sec;}
+  main.append(built[id]);
+}
+function overview(){
+  const o=opg();const s=el("section",{class:"phase"});s.append(el("h2",{},`Jouw score op opgave ${o.nr}`));
+  let tot=0;const t=el("table",{class:"data ovtable"});t.innerHTML="<tr><th>vraag</th><th>onderwerp</th><th>score</th></tr>";
+  o.ids.forEach(id=>{const q=Q.find(x=>x.id===id);const p=store.scores[id];if(p!==undefined)tot+=p;t.innerHTML+=`<tr><td>${id}</td><td>${q.t}</td><td>${p===undefined?"–":p} / ${q.pts}</td></tr>`;});
+  const w=el("div",{class:"tablewrap"});w.append(t);s.append(w,el("div",{class:"score"},`Totaal opgave ${o.nr}: ${tot} / ${pts(o)}`));
+  let all=0,allMax=0;OPG.forEach(x=>{allMax+=pts(x);x.ids.forEach(id=>{if(store.scores[id]!==undefined)all+=store.scores[id];});});
+  const gemaakt=OPG.every(x=>x.ids.every(id=>store.scores[id]!==undefined));
+  const cf=CIJFER[Math.min(all,CIJFER.length-1)].toFixed(1).replace(".",",");
+  s.append(el("p",{style:"margin:0"},`Hele toets: <b>${all}</b> van ${allMax} punten · cijfer <b>${cf}</b>`+(gemaakt?"":` <span class="muted">(nog niet alles gemaakt: open vragen tellen als 0 punten)</span>`)));
+  s.append(el("p",{class:"muted",style:"margin:0;font-size:14px"},`Cijfer = 9 × score / maximum + 1. Open vragen kijk je zelf na met het antwoordmodel.`));
+  const nextO=OPG.find(x=>x.nr===o.nr+1);
+  const row=el("div",{class:"row"});
+  if(nextO){const nb=el("button",{class:"go"},`Naar opgave ${nextO.nr}: ${nextO.kort} ›`);nb.onclick=()=>{setOpg(nextO.nr);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};row.append(nb);}
+  const r=el("button",{class:"ghost"},`Opgave ${o.nr} opnieuw`);r.onclick=()=>{o.ids.forEach(id=>{delete store.scores[id];delete built[id];delete nextBtns[id];});save();open(o.ids[0]);};row.append(r);
+  s.append(row);return s;
+}
+function renderOpgs(){const box=$("#opgs");box.innerHTML="";
+  OPG.forEach(o=>{const b=el("button",{"aria-pressed":o.nr===curOpg?"true":"false"},`${o.nr} · ${o.kort}`);b.onclick=()=>setOpg(o.nr);box.append(b);});}
+function setOpg(n){curOpg=n;store.opg=n;save();const o=opg();
+  $("#eb").textContent=`Oefentoets Erfelijkheid · havo · opgave ${o.nr}`;$("#h1").textContent=o.titel;
+  $("#sub").textContent=`vraag ${o.ids[0]} t/m ${o.ids[o.ids.length-1]} · ${pts(o)} punten`;
+  $("#ctx").innerHTML=o.ctx;renderOpgs();open(reach());}
+function setMode(m){store.mode=m;save();document.body.classList.toggle("hulp",m==="hulp");document.body.classList.toggle("examen",m==="examen");
+  $("#m-hulp").setAttribute("aria-pressed",m==="hulp");$("#m-examen").setAttribute("aria-pressed",m==="examen");}
+function setVrij(v){store.vrij=v;save();$("#vrij").setAttribute("aria-pressed",v?"true":"false");
+  for(const k in nextBtns)nextBtns[k].hidden=!v&&store.scores[k]===undefined;renderTabs();}
+$("#vrij").onclick=()=>setVrij(!store.vrij);setVrij(!!store.vrij);
+$("#m-hulp").onclick=()=>setMode("hulp");$("#m-examen").onclick=()=>setMode("examen");
+setMode(store.mode==="examen"?"examen":"hulp");
+setOpg(curOpg);
+})();
+
+</script>
+</body>
+</html>

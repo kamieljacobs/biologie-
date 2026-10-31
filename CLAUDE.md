@@ -199,7 +199,7 @@ Tools tijdelijk verborgen (Kamiel 26 okt 2026): op de site en in de jaarplanner 
 
 ## Leerdoelen en toetsen (26 okt 2026)
 
-Kamiel wil leerdoelen (boek + films, gecontroleerd tegen de eindtermen) en toetsen per hoofdstuk, eerst als oefentoets op de site. Werkwijze, stappen en de prompt voor een nieuwe chat staan in `toetsen/WERKWIJZE.md`; nog niet begonnen (wacht op de leerdoelen uit het boek).
+Kamiel wil leerdoelen (boek + films, gecontroleerd tegen de eindtermen) en toetsen per hoofdstuk, eerst als oefentoets op de site. Werkwijze, stappen en de prompt voor een nieuwe chat staan in `toetsen/WERKWIJZE.md`; nog niet begonnen (wacht op de leerdoelen uit het boek). Wel al (Kamiel 31 okt 2026, los van de leerdoelen): Oefentoets Erfelijkheid havo en vwo als tool (`tools/toets-erfelijkheid-havo.html`, `-vwo.html`, in `HOOFDSTUKKEN.erfelijkheid.tools`, zichtbaar via `TOOL_ZICHTBAAR` `tools/toets-`), in de opzet van de oefenexamens, gebaseerd op films 1–6, lessen 1–3 en de eigen vragen uit `kamieljacobs/toetsen-biologie` (`eigen/erfelijkheid.json`); bron en werkwijze in `tools/toets-bron/erfelijkheid/README.md`.
 
 ## Nieuw op de site en filmdatums (Kamiel 28 okt 2026)
 

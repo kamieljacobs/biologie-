@@ -43,3 +43,7 @@ De pdf's van het examen (`…-o.pdf`), het correctievoorschrift (`…-c.pdf`) en
 ## Later aanpassen
 
 Een wijziging aan de gedeelde opbouw (bouwstenen, navigatie, opmaak) doe je in álle oefenexamens tegelijk, zodat ze gelijk blijven, en daarna komt de nieuwe versie vanzelf in het geraamte (dat wordt uit de nieuwste tool gemaakt). Leg de nieuwe regel hier vast.
+
+## Oefentoetsen per thema
+
+Dezelfde opzet werkt ook voor een oefentoets bij een thema (eigen vragen in plaats van een examen; label 'niet uit de toets', 'Toetsvraag', toetsstand, nakijken met het antwoordmodel, cijfer 9 × score / maximum + 1). Eerste: Oefentoets Erfelijkheid havo en vwo (31 okt 2026), bron en bouwscript in `tools/toets-bron/erfelijkheid/` (README daar). Eén bron voor beide niveaus, de bouwstenen komen uit het nieuwste oefenexamen; voor een volgend thema die map kopiëren.
