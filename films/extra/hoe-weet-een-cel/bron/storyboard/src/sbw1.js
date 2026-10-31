@@ -142,7 +142,7 @@ const SBW1 = {
     const ix = B.icm[0], iy = B.icm[1]; const cx = ix + 0.9 * r * 0.14, cy = iy + 0.3 * r * 0.14; // één cel van de binnenste celmassa
     onzeCel(ctx, cx, cy, r * 0.12);
     naamBij(ctx, 'onze cel', null, cx + 70, cy + 12, 1, 'left', C.goud);
-    metaText(ctx, 'RUIM 100 CELLEN · ± 0,15 MM', W / 2, 1010, C.text2, 'center', 26);
+    metaText(ctx, "ZO'N 100 CELLEN · ± 0,15 MM", W / 2, 1010, C.text2, 'center', 26);
   },
   w02(ctx) {
     _w1bg(ctx, 'micro'); difTag(ctx, 'OPENING'); metaText(ctx, 'WEEK 8', W - 80, 78, C.text2, 'right', 26);
@@ -249,7 +249,7 @@ const SBW1 = {
     const r = 340, x = 900, y = 520; const B = blastocyste(ctx, x, y, r, {});
     const ix = B.icm[0], iy = B.icm[1]; onzeCel(ctx, ix + 0.9 * r * 0.14, iy + 0.3 * r * 0.14, r * 0.12);
     naamBij(ctx, 'buitenlaag', 'wordt deel van de placenta', x + r * 1.18, y - 40, 1, 'left');
-    naamBij(ctx, 'binnenste celmassa', 'jij en de vliezen', x - r * 1.18, iy + 10, 1, 'right', C.goud);
+    naamBij(ctx, 'binnenste celmassa', 'jij, vruchtvlies, dooierzak', x - r * 1.18, iy + 10, 1, 'right', C.goud);
     naamBij(ctx, 'onze cel', null, ix + 70, iy - 70, 1, 'left', C.goud);
     naamBij(ctx, 'holte', null, x + r * 0.3, y + r * 0.45, 0.8, 'center', C.text2);
   },

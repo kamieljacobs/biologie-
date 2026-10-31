@@ -291,7 +291,7 @@ const SBW4 = {
     _w4Lbl(ctx, 'kraakbeen', x0 - 18, cy + 13, _W4.kraak, 'right'); _w4Lbl(ctx, 'lederhuid', x0 - 18, cy + 138, C.oker, 'right');
     _w4Lbl(ctx, 'oude poot', (x0 + xc) / 2, cy - 200, C.text, 'center'); _w4Lbl(ctx, 'nieuwe poot', (xc + x1) / 2, cy - 200, C.text, 'center');
     _w4Lbl(ctx, 'kleur = herkomst van de cel', (xc + x1) / 2, cy + 230, C.text2, 'center');
-    _w4Lbl(ctx, 'lederhuid en kraakbeen wisselen soms', 780, cy + 300, C.text, 'center');
+    _w4Lbl(ctx, 'lederhuid maakt ook kraakbeen en pezen', 780, cy + 300, C.text, 'center');
     metaText(ctx, 'AXOLOTL · 2009', 80, 870, C.text2, 'left', 26);
     // klein landschap: knikker een stukje omhoog
     roundRect(ctx, 1380, 190, 480, 500, 16); shape(ctx, rgba(C.bgSchema, 0.9), C.line, 1.5);

@@ -1,6 +1,6 @@
 # Script — Hoe weet een cel wat hij moet worden?
 
-Versie 0.2 · 30 okt 2026 · prompt v13 · B15-winnaar variant A (klassiek) met overnames uit B en C · expertreview verwerkt (review-expert.md, 25 punten) · nog vóór audio
+Versie 0.3 · 31 okt 2026 · bronnencontrole verwerkt (bronnen.md) · eerder: v0.2 30 okt 2026 · prompt v13 · B15-winnaar variant A (klassiek) met overnames uit B en C · expertreview verwerkt (review-expert.md, 25 punten) · nog vóór audio
 Niveau: vwo, één niveau · stem Roos · doel ca. 14 min
 
 Overnames uit de beoordeling: cold open ≤ 48 woorden; wat-denk-je-vragen vóór de uitkomst bij inductie en gradiënt (C); Spemann en Mangold kort na de chorda (C); de plattegrond-gedachte bij de Hox-genen (B); de lapjeskat als belofte (1), uitleg (8) en slot (B), alleen zwart en oranje als X-inactivatie.
@@ -13,7 +13,7 @@ Labels in beeld (Part C): **model** bij het landschap (1, 10), **vereenvoudigd**
 
 ## 0 · Cold open (≤ 20 s)
 
-Vijf dagen na de bevruchting ben je een holle bal van ruim honderd cellen. Acht weken na de bevruchting klopt er een hart, en heb je oogjes en tien vingers. Niemand deelde een bouwtekening uit. Hoe 'weet' één cel wat hij moet worden?
+Vijf dagen na de bevruchting ben je een holle bal van zo'n honderd cellen. Acht weken na de bevruchting klopt er een hart, en heb je oogjes en tien vingers. Niemand deelde een bouwtekening uit. Hoe 'weet' één cel wat hij moet worden?
 
 *(41 woorden)*
 
@@ -52,7 +52,7 @@ En aan het eind snap je ook waarom een lapjeskat vlekken heeft.
 
 Dag vijf. De bal van cellen heet nu een blastocyste. Er is een buitenste laag, en binnenin een klompje cellen.
 
-De buitenste laag wordt later een deel van de placenta. Uit het klompje binnenin ontstaan jij, en de vliezen om je heen.
+De buitenste laag wordt later een deel van de placenta. Uit het klompje binnenin ontstaan jij, het vruchtvlies om je heen en de dooierzak.
 
 **[VRAAG]** Wat denk je: wat bepaalt of een cel in de buitenlaag of in het klompje terechtkomt?
 - **A. Waar de cel ligt: aan de rand of middenin.**
@@ -106,9 +106,9 @@ Onze cel ligt niet in de plaat, maar ernaast, in het ectoderm dat huid en lens w
 
 Een groepje cellen dat het lot van zijn buren verandert: dat heet inductie.
 
-In het jaar 1924 beschreven Hans Spemann en Hilde Mangold een beroemd voorbeeld. Mangold plantte een stukje van de rand van de oermond van een jong salamanderembryo over naar de buikkant van een ander embryo. Het stukje had een andere kleur, zodat ze de cellen kon volgen. Er groeide een tweede lichaam aan vast, met een eigen neurale buis. Het grootste deel daarvan, ook de neurale buis, bestond uit cellen van het ontvangende embryo. Het overgeplante stukje had zijn buren een ander lot gegeven. Zo'n stukje heet een organisator.
+In het jaar 1924 beschreven Hans Spemann en Hilde Mangold een beroemd voorbeeld. Mangold plantte een stukje van de bovenrand van de oermond van een jong salamanderembryo over naar de buikkant van een ander embryo. Het stukje had een andere kleur, zodat ze de cellen kon volgen. Er groeide een tweede lichaam aan vast, met een eigen neurale buis. Het grootste deel daarvan, ook de neurale buis, bestond uit cellen van het ontvangende embryo. Het overgeplante stukje had zijn buren een ander lot gegeven. Zo'n stukje heet een organisator.
 
-Terug naar jou. Aan het eind van week vier moet de neurale buis helemaal dicht zijn. Gaat dat mis, dan blijft een stuk open. Onderaan geeft dat een open rug.
+Terug naar jou. Rond het eind van week vier sluit de neurale buis helemaal. Gaat dat mis, dan blijft een stuk open. Onderaan geeft dat een open rug.
 
 Foliumzuur, een B-vitamine, verkleint die kans. Maar de buis sluit vaak al voordat iemand weet dat ze zwanger is. Daarom is het advies: begin met foliumzuur al vóór je zwanger bent.
 
@@ -159,7 +159,7 @@ Nu een proef met muizen. Bij sommige muizen werkt het gen Pax zes niet, alleen i
 - **A. Nee, er ontstaat geen lens.**
 - B. Ja, want het oogblaasje geeft gewoon zijn signaal af. (m)
 
-Er ontstaat geen lens. Het signaal komt aan, maar de huid reageert niet.
+Er ontstaat geen lens. Het signaal komt aan, maar de huid kan er geen lens van maken.
 
 Het signaal bevat dus geen plan voor een lens. Hoe een cel reageert, hangt af van de cel zelf: heeft hij de juiste receptor, en zijn de juiste genen aanwezig? Dat heet competentie. En competentie duurt niet eeuwig: is het moment voorbij, dan reageert dezelfde huid niet meer.
 
@@ -227,7 +227,7 @@ Is de knikker eenmaal beneden, kan hij dan ooit nog terug?
 
 Een axolotl, een soort salamander, kan dat een beetje. Verliest hij een poot, dan groeit er een nieuwe. Bij de wond ontstaat een klompje cellen dat weer gaat delen.
 
-Een tijd werd gedacht dat die cellen helemaal terug naar de top rolden. Maar in het jaar 2009 kleurden onderzoekers cellen in zo'n poot. Spiercellen maakten alleen weer spier. De buitenste huidlaag maakte alleen weer buitenste huidlaag. Alleen de lederhuid en het kraakbeen bleken soms van baan te wisselen. De knikker rolt een stukje omhoog, en blijft in de buurt van zijn dal.
+Een tijd werd gedacht dat die cellen helemaal terug naar de top rolden. Maar in het jaar 2009 kleurden onderzoekers cellen in zo'n poot. Spiercellen maakten alleen weer spier. De buitenste huidlaag maakte alleen weer buitenste huidlaag. Alleen de lederhuid bleek echt van baan te wisselen: die maakte ook kraakbeen en pezen. De knikker rolt een stukje omhoog, en blijft in de buurt van zijn dal.
 
 Wij kunnen geen hele arm opnieuw laten groeien. Maar is het DNA in onze gespecialiseerde cellen nog compleet?
 
@@ -279,7 +279,7 @@ Totaal gesproken tekst: ±2280 woorden. Dat is ruim 16 min plus kaarten en vraag
 1. **Zelfde DNA.** Men haalt de kern uit een eicel van een kikker en vervangt die door de kern van een darmcel van een kikkervisje. Soms ontwikkelt zich een kikkervisje. (a) Leg uit wat deze proef zegt over het DNA in een gedifferentieerde cel. (b) Een leerling zegt: "Dan is differentiatie dus een verandering in de basenvolgorde." Leg uit waarom dat niet klopt.
    *Antwoord:* (a) De darmcel bevat nog alle genen die nodig zijn voor een heel organisme; bij differentiatie gaan (bij vrijwel alle cellen) geen genen verloren. (b) De basenvolgorde blijft gelijk; differentiatie berust op genexpressie: andere genen staan aan of uit (transcriptiefactoren, methylering).
 2. **Signaal en gevoeligheid.** Bij muizen waarbij het gen Pax6 alleen in de huid niet werkt, groeit het oogblaasje gewoon tegen de huid aan, maar er ontstaat geen lens. Leg met het begrip competentie uit hoe dat kan.
-   *Antwoord:* het signaal van het oogblaasje komt aan, maar de huidcellen kunnen niet reageren: zonder Pax6 gaan de genen voor de lens niet aan (de cellen zijn niet competent).
+   *Antwoord:* het signaal van het oogblaasje komt aan, maar de huidcellen kunnen er geen lens van maken: zonder Pax6 gaan de genen voor de lens niet aan (de cellen zijn niet competent voor lensvorming).
 3. **Gradiënt.** Bij een kippenembryo wordt aan de voorkant van de vleugelknop extra weefsel geplaatst dat Sonic hedgehog maakt. Leg uit waarom er dan vingers in spiegelbeeld ontstaan.
    *Antwoord:* er ontstaat aan beide kanten veel signaal dat naar het midden afneemt; welke vinger een cel vormt, hangt af van hoeveel (en hoe lang) signaal hij opvangt, dus aan beide kanten ontstaat dezelfde volgorde.
 4. **Lapjeskat.** Een kater is bijna nooit een lapjeskat (zwart én oranje). Leg dit uit met X-inactivatie.

@@ -3,7 +3,7 @@
  "titel": "Hoe weet een cel wat hij moet worden?",
  "slug": "hoe-weet-een-cel",
  "puzzel": "Hoe 'weet' één cel wat hij moet worden?",
- "haak": "Vijf dagen na de bevruchting ben je een bal van ruim honderd cellen met hetzelfde DNA; acht weken later klopt er een hart.",
+ "haak": "Vijf dagen na de bevruchting ben je een bal van zo'n honderd cellen met hetzelfde DNA; acht weken later klopt er een hart.",
  "duur": "± 17 min (16 min gesproken + kaarten en vraagpauzes)",
  "hoofdstukken": [
   {
@@ -83,7 +83,7 @@
    "hoofdstuk": "Opening",
    "laag": "basis",
    "look": "Micro",
-   "tekst": "Vijf dagen na de bevruchting ben je een holle bal van ruim honderd cellen.",
+   "tekst": "Vijf dagen na de bevruchting ben je een holle bal van zo'n honderd cellen.",
    "beweging": "Blastocyste van dag 5 (beeldbank `blastocyste`) draait langzaam; één cel in de binnenste celmassa licht goud op: 'onze cel'."
   },
   {
@@ -159,7 +159,7 @@
    "hoofdstuk": "2 Binnen of buiten",
    "laag": "basis",
    "look": "Micro",
-   "tekst": "Dag vijf. De bal van cellen heet nu een blastocyste. Er is een buitenste laag, en binnenin een klompje cellen. De buitenste laag wordt later een deel van de placenta. Uit het klompje binnenin ontstaan jij, en de vliezen om je heen.",
+   "tekst": "Dag vijf. De bal van cellen heet nu een blastocyste. Er is een buitenste laag, en binnenin een klompje cellen. De buitenste laag wordt later een deel van de placenta. Uit het klompje binnenin ontstaan jij, het vruchtvlies om je heen en de dooierzak.",
    "beweging": "Doorsnede blastocyste (beeldbank): buitenlaag (trofoblast) en binnenste celmassa krijgen hun naam direct op het onderdeel; dagteller DAG 5."
   },
   {
@@ -271,8 +271,8 @@
    "hoofdstuk": "4 De eerste buis",
    "laag": "basis",
    "look": "Schema",
-   "tekst": "In het jaar 1924 beschreven Hans Spemann en Hilde Mangold een beroemd voorbeeld. Mangold plantte een stukje van de rand van de oermond van een jong salamanderembryo over naar de buikkant van een ander embryo. Het stukje had een andere kleur, zodat ze de cellen kon volgen. Er groeide een tweede lichaam aan vast, met een eigen neurale buis. Het grootste deel daarvan, ook de neurale buis, bestond uit cellen van het ontvangende embryo. Het overgeplante stukje had zijn buren een ander lot gegeven. Zo'n stukje heet een organisator.",
-   "beweging": "Twee bolvormige salamanderembryo's: de donor zonder pigment (licht), de ontvanger gepigmenteerd (donker), zoals in de echte proef; het stukje van de donor gaat in de buikkant van de ontvanger; daarna een larfje met een tweede lichaamsas, vooral gekleurd als de ontvanger met een licht streepje (de chorda, vooral donorcellen). Meta: SALAMANDER · 1924.",
+   "tekst": "In het jaar 1924 beschreven Hans Spemann en Hilde Mangold een beroemd voorbeeld. Mangold plantte een stukje van de bovenrand van de oermond van een jong salamanderembryo over naar de buikkant van een ander embryo. Het stukje had een andere kleur, zodat ze de cellen kon volgen. Er groeide een tweede lichaam aan vast, met een eigen neurale buis. Het grootste deel daarvan, ook de neurale buis, bestond uit cellen van het ontvangende embryo. Het overgeplante stukje had zijn buren een ander lot gegeven. Zo'n stukje heet een organisator.",
+   "beweging": "Twee bolvormige salamanderembryo's: de donor zonder pigment (licht), de ontvanger gepigmenteerd (donker), zoals in de echte proef; het stukje (bovenrand van de oermond) van de donor gaat in de buikkant van de ontvanger; daarna een larfje met een tweede lichaamsas, vooral gekleurd als de ontvanger met een licht streepje (de chorda, vooral donorcellen). Meta: SALAMANDER · 1924.",
    "twijfel": "Nieuwe tekening: salamanderembryo en een larfje met een tweede lichaamsas. Het is een dubbel larfje: dat kan vreemd of eng ogen.",
    "waarom": "Nieuw object, en de toon (eng of fascinerend) is een keuze; inkorten van dit uitstapje is ook een kandidaat om de film korter te maken."
   },
@@ -281,7 +281,7 @@
    "hoofdstuk": "4 De eerste buis",
    "laag": "basis",
    "look": "Macro",
-   "tekst": "Terug naar jou. Aan het eind van week vier moet de neurale buis helemaal dicht zijn. Gaat dat mis, dan blijft een stuk open. Onderaan geeft dat een open rug.",
+   "tekst": "Terug naar jou. Rond het eind van week vier sluit de neurale buis helemaal. Gaat dat mis, dan blijft een stuk open. Onderaan geeft dat een open rug.",
    "beweging": "Schema van het embryo van ± 4 weken van achteren: de buis sluit als een rits van het midden naar beide uiteinden; een klein stukje onderaan blijft open (gestippeld omlijnd, geen naar beeld). Tijdbalk WEEK 4.",
    "twijfel": "Een aangeboren afwijking (open rug) in beeld.",
    "waarom": "Gevoelig onderwerp (regel V1): voorstel is alleen het schema van de buis die niet helemaal sluit, geen kind met een open rug."
@@ -399,7 +399,7 @@
    "hoofdstuk": "6 Een bericht voor onze cel",
    "laag": "basis",
    "look": "Micro",
-   "tekst": "Er ontstaat geen lens. Het signaal komt aan, maar de huid reageert niet. Het signaal bevat dus geen plan voor een lens. Hoe een cel reageert, hangt af van de cel zelf: heeft hij de juiste receptor, en zijn de juiste genen aanwezig? Dat heet competentie. En competentie duurt niet eeuwig: is het moment voorbij, dan reageert dezelfde huid niet meer.",
+   "tekst": "Er ontstaat geen lens. Het signaal komt aan, maar de huid kan er geen lens van maken. Het signaal bevat dus geen plan voor een lens. Hoe een cel reageert, hangt af van de cel zelf: heeft hij de juiste receptor, en zijn de juiste genen aanwezig? Dat heet competentie. En competentie duurt niet eeuwig: is het moment voorbij, dan reageert dezelfde huid niet meer.",
    "beweging": "Signaalstipjes komen aan bij de huidcellen maar er gebeurt niets; inzoom op één huidcel: receptor in het membraan, in de kern de lensgenen die niet aangaan; daarna een cel mét Pax6 waar de genen wel aangaan. Kaart 'competentie'; klein klokje dat afloopt."
   },
   {
@@ -547,8 +547,8 @@
    "hoofdstuk": "9 Kan de knikker terug?",
    "laag": "basis",
    "look": "Schema",
-   "tekst": "Een tijd werd gedacht dat die cellen helemaal terug naar de top rolden. Maar in het jaar 2009 kleurden onderzoekers cellen in zo'n poot. Spiercellen maakten alleen weer spier. De buitenste huidlaag maakte alleen weer buitenste huidlaag. Alleen de lederhuid en het kraakbeen bleken soms van baan te wisselen. De knikker rolt een stukje omhoog, en blijft in de buurt van zijn dal.",
-   "beweging": "Poot in doorsnede met gekleurde cellijnen (spier, opperhuid, lederhuid, kraakbeen); in de nieuwe poot blijft elke kleur in zijn eigen weefsel, behalve lederhuid en kraakbeen die deels wisselen; in het landschap rolt de knikker een stukje omhoog en blijft hangen. Meta: AXOLOTL · 2009."
+   "tekst": "Een tijd werd gedacht dat die cellen helemaal terug naar de top rolden. Maar in het jaar 2009 kleurden onderzoekers cellen in zo'n poot. Spiercellen maakten alleen weer spier. De buitenste huidlaag maakte alleen weer buitenste huidlaag. Alleen de lederhuid bleek echt van baan te wisselen: die maakte ook kraakbeen en pezen. De knikker rolt een stukje omhoog, en blijft in de buurt van zijn dal.",
+   "beweging": "Poot in doorsnede met gekleurde cellijnen (spier, opperhuid, lederhuid, kraakbeen); in de nieuwe poot blijft elke kleur in zijn eigen weefsel, behalve de lederhuid, die ook kraakbeen en pezen maakt; in het landschap rolt de knikker een stukje omhoog en blijft hangen. Meta: AXOLOTL · 2009."
   },
   {
    "id": "w55",
@@ -617,7 +617,7 @@
  "begrippen": "Zie ../script.md.",
  "getallen": [
   [
-   "dag 5: blastocyste, ruim honderd cellen",
+   "dag 5: blastocyste, zo'n honderd cellen (bronnen: gemiddeld 58 op dag 5 in kweek tot ± 100; zie bronnen.md)",
    "embryology.ch / vakkennis; nog te bevestigen in bronnen.md"
   ],
   [

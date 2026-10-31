@@ -281,7 +281,7 @@ const SBW2 = {
     // 1 donor (ongekleurd) met het stukje van de rand van de oermond
     const D = _w2gastrula(ctx, 330, 470, 150, { pigment: false, lip: 1.25 });
     ctx.save(); ctx.setLineDash([10, 8]); ctx.beginPath(); ctx.ellipse(D.lip[0] + 4, D.lip[1] - 30, 46, 30, 0.3, 0, 6.283); ctx.strokeStyle = C.goud; ctx.lineWidth = 4; ctx.stroke(); ctx.restore();
-    naamBij(ctx, 'rand van de oermond', null, 330, 690, 1, 'center', C.goud);
+    naamBij(ctx, 'bovenrand van de oermond', null, 330, 690, 1, 'center', C.goud);
     metaText(ctx, 'DONOR · ZONDER KLEUR', 330, 280, C.text2, 'center', 26);
     pijl(ctx, 520, 470, 640, 470, C.goud, 1, 5, 18);
     // 2 ontvanger (gekleurd): eigen oermond + stukje aan de buikkant
