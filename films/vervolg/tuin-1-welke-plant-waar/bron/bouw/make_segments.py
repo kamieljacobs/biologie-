@@ -27,7 +27,7 @@ for s in secs:
         continue
     if chapter == 'Eindkaart':
         segments.append({'id': nid('s'), 'kind': 'card', 'chapter': 'Eindkaart', 'level': 'basis',
-                         'lines': [l.strip() for l in rest.split('\n') if l.strip()]})
+                         'lines': [l.strip() for l in rest.split('\n') if l.strip() and l.strip() != '---']})
         continue
     level = 'basis'
     buf = []
@@ -38,6 +38,7 @@ for s in secs:
             buf.clear()
     for raw in rest.split('\n'):
         l = raw.strip()
+        if l == '---': l = ''  # scheidingslijn vóór Keuzes/Twijfels hoort niet in de film (31 okt 2026)
         if not l:
             flush(); continue
         if l.startswith('[VWO-START]'):
