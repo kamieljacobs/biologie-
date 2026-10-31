@@ -7,7 +7,7 @@ const ON = { geel: '#E3D27A', geelD: '#B9A44E', blad: '#7FC48F', bladD: '#4E9A62
 // ---------- kaarten ----------
 function casusKaart(ctx, plaats, jaar, a = 1, x = 60, y = 54) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
   ctx.font = fMeta(26); const s1 = 'CASUS', s2 = plaats + (jaar ? ' · ' + jaar : ''); ctx.font = fTekst(30, 600); const w = Math.max(220, ctx.measureText(s2).width + 56);
-  roundRect(ctx, x, y, w, 96, 14); shape(ctx, rgba(C.oker, 0.12), C.oker, 2);
+  if (window._dag) { roundRect(ctx, x, y, w, 96, 14); ctx.fillStyle = rgba(C.bgSchema, 0.9); ctx.fill(); } roundRect(ctx, x, y, w, 96, 14); shape(ctx, rgba(C.oker, 0.12), C.oker, 2);
   text(ctx, s1, x + 26, y + 36, fMeta(22), C.oker); text(ctx, s2, x + 26, y + 76, fTekst(30, 600), C.text); ctx.restore(); }
 // begripkaart: grote kaart met term, gouden haak en betekenis. o: {w, px}
 function begripKaart(ctx, term, def, x, y, a = 1, o = {}) { if (a <= 0.01) return; const w = o.w || 760, px = o.px || 50; ctx.save(); ctx.globalAlpha *= a;
@@ -128,6 +128,18 @@ function nachtDecor(ctx, o = {}) { bg(ctx, 'macro'); ctx.fillStyle = '#243553'; 
   ctx.fillStyle = C.bgMacroHill; ctx.beginPath(); ctx.moveTo(0, 690); ctx.bezierCurveTo(500, 640, 1300, 720, 1920, 660); ctx.lineTo(1920, 1080); ctx.lineTo(0, 1080); ctx.fill();
   ctx.fillStyle = C.bgMacroFront; ctx.beginPath(); ctx.moveTo(0, 800); ctx.bezierCurveTo(600, 770, 1300, 830, 1920, 790); ctx.lineTo(1920, 1080); ctx.lineTo(0, 1080); ctx.fill();
   if (o.stad) { ctx.fillStyle = '#2B3B5A'; [[120, 120, 200], [300, 90, 160], [1480, 140, 220], [1680, 110, 180]].forEach(([x0, w0, h0]) => ctx.fillRect(x0, 690 - h0, w0, h0)); } }
+// daglicht-decor (vaste kleuren, zelfde in licht en donker): lucht, heuvels, gras; o.stad = gebouwen (binnenplaats), o.bomen = rij loofbomen aan de horizon
+function dagDecor(ctx, o = {}) { window._dag = true; const g = ctx.createLinearGradient(0, 0, 0, 640); g.addColorStop(0, '#9FC2DC'); g.addColorStop(1, '#DDEAEF'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  ctx.fillStyle = '#AFC0C8'; ctx.beginPath(); ctx.moveTo(0, 600); [[260, 500], [520, 600], [780, 520], [1080, 600], [1400, 480], [1700, 600], [1920, 540], [1920, 640], [0, 640]].forEach(p => ctx.lineTo(p[0], p[1])); ctx.closePath(); ctx.fill();
+  if (o.stad) { [[100, 150, 230, '#C9B79A'], [270, 110, 180, '#B9A487'], [1470, 160, 250, '#C4B092'], [1650, 130, 200, '#B3A086']].forEach(([x0, w0, h0, c]) => { ctx.fillStyle = c; ctx.fillRect(x0, 690 - h0, w0, h0); ctx.fillStyle = '#8E7F68'; ctx.fillRect(x0 - 6, 690 - h0 - 10, w0 + 12, 12); ctx.fillStyle = '#6F7F8E'; for (let r = 0; r < 3; r++) for (let k = 0; k < 3; k++) if (690 - h0 + 30 + r * 60 < 660) ctx.fillRect(x0 + 18 + k * (w0 - 36) / 2.6, 690 - h0 + 30 + r * 60, 22, 34); }); }
+  if (o.bomen) { for (let i = 0; i < 26; i++) { const x = i * 78 + hash(i) * 30, r = 55 + hash(i * 3) * 35, y = 600 - hash(i * 7) * 40; ctx.fillStyle = '#5E4A3A'; ctx.fillRect(x - 5, y, 10, 70); ctx.fillStyle = i % 3 ? '#5F8A4E' : '#6E9A5A'; ctx.beginPath(); ctx.arc(x, y - r * 0.4, r, 0, 6.283); ctx.arc(x - r * 0.6, y, r * 0.7, 0, 6.283); ctx.arc(x + r * 0.6, y, r * 0.7, 0, 6.283); ctx.fill(); } }
+  ctx.fillStyle = '#86A863'; ctx.beginPath(); ctx.moveTo(0, 690); ctx.bezierCurveTo(500, 640, 1300, 720, 1920, 660); ctx.lineTo(1920, 1080); ctx.lineTo(0, 1080); ctx.fill();
+  ctx.fillStyle = '#759A55'; ctx.beginPath(); ctx.moveTo(0, 800); ctx.bezierCurveTo(600, 770, 1300, 830, 1920, 790); ctx.lineTo(1920, 1080); ctx.lineTo(0, 1080); ctx.fill();
+  dagKop(ctx); }
+function dagKop(ctx) { const t = ctx.createLinearGradient(0, 0, 0, 110); t.addColorStop(0, rgba(C.bgSchema, 0.85)); t.addColorStop(1, rgba(C.bgSchema, 0)); ctx.fillStyle = t; ctx.fillRect(0, 0, W, 110); }
+// loofblad-tak die zijwaarts uit een stam steekt (k = -1 links, 1 rechts)
+function loofTak(ctx, x, y, k, len = 220) { ctx.save(); ctx.strokeStyle = '#6B5A48'; ctx.lineWidth = 9; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x, y); ctx.quadraticCurveTo(x + k * len * 0.5, y - 30, x + k * len, y - 70); ctx.stroke();
+  for (let i = 0; i < 16; i++) { const u = 0.35 + 0.65 * hash(i * 5 + y), bx = x + k * len * u + (hash(i * 11) - 0.5) * 70, by = y - 70 * u - 20 + (hash(i * 13) - 0.5) * 70; ctx.save(); ctx.translate(bx, by); ctx.rotate(hash(i) * 6.28); ctx.fillStyle = i % 3 ? '#5E8C47' : '#79A55A'; ctx.beginPath(); ctx.ellipse(0, 0, 22, 11, 0, 0, 6.283); ctx.fill(); ctx.restore(); } ctx.restore(); }
 function eilandDecor(ctx) { bg(ctx, 'macro'); ctx.fillStyle = C.water; ctx.fillRect(0, 640, W, 440); ctx.fillStyle = '#5E5246'; ctx.beginPath(); ctx.moveTo(180, 820); ctx.bezierCurveTo(520, 520, 1300, 520, 1760, 820); ctx.lineTo(1760, 900); ctx.lineTo(180, 900); ctx.fill();
   ctx.fillStyle = '#6E6152'; ctx.beginPath(); ctx.moveTo(640, 640); ctx.bezierCurveTo(820, 560, 1080, 560, 1260, 640); ctx.fill(); }
 // berkenspanner (vereenvoudigd silhouet van boven): licht (gespikkeld) of donker

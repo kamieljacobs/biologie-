@@ -6,14 +6,14 @@ function miniBord(ctx, upto, actief, a = 1) { bord(ctx, { x: 120, y: 60, w: 1680
 const uit = (t, q, w, n = 1, d = 0.5) => 1 - q.on(w, n, d);
 function openVraag(ctx, s, a) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; text(ctx, s, 960, 470, fTitel(60), C.text, 'center'); ctx.restore(); }
 // paard met vraagsteller (Macro-nacht, Berlijn); o: {tik 0..n, pfungst}
-function paardScene(ctx, t, q, o = {}) { nachtDecor(ctx, { stad: true });
+function paardScene(ctx, t, q, o = {}) { dagDecor(ctx, { stad: true });
   // bord met de som op een ezel
   ctx.save(); roundRect(ctx, 260, 360, 300, 220, 10); shape(ctx, '#1F2A26', '#8C5A3A', 6); ctx.strokeStyle = '#8C5A3A'; ctx.lineWidth = 8; ctx.beginPath(); ctx.moveTo(300, 580); ctx.lineTo(270, 800); ctx.moveTo(520, 580); ctx.lineTo(550, 800); ctx.stroke();
   text(ctx, o.som || '3 + 2 = ?', 410, 490, fTitel(56), '#EDE6D3', 'center'); ctx.restore();
   paard(ctx, 1150, 820, 1.55, { houding: 'staan', kijk: -1, t });
   // vraagsteller: silhouet zonder gezicht (echte persoon, geen portret), met hoed
-  const kop = o.kop || 0; ctx.save(); pict(ctx, 760, 820, 300, '#141B28', 1); ctx.fillStyle = '#141B28'; ctx.fillRect(760 - 46, 820 - 300 * 0.82 - 40 - kop * 8, 92, 12); ctx.fillRect(760 - 26, 820 - 300 * 0.82 - 80 - kop * 8, 52, 42); ctx.restore();
-  if (o.publiek) for (let i = 0; i < 9; i++) pict(ctx, 1460 + i * 48 + (i % 2) * 10, 900 - (i % 3) * 14, 150 + (i % 4) * 10, rgba('#9AA3B2', 0.55), o.publiek);
+  const kop = o.kop || 0; ctx.save(); pict(ctx, 760, 820, 300, '#2A3344', 1); ctx.fillStyle = '#2A3344'; ctx.fillRect(760 - 46, 820 - 300 * 0.82 - 40 - kop * 8, 92, 12); ctx.fillRect(760 - 26, 820 - 300 * 0.82 - 80 - kop * 8, 52, 42); ctx.restore();
+  if (o.publiek) for (let i = 0; i < 9; i++) pict(ctx, 1460 + i * 48 + (i % 2) * 10, 900 - (i % 3) * 14, 150 + (i % 4) * 10, rgba('#56606F', 0.8), o.publiek);
   // tikken: streepjes onder het bord
   const n = Math.floor(o.tik || 0); for (let i = 0; i < Math.min(n, 9); i++) { ctx.fillStyle = C.goud; ctx.fillRect(320 + i * 34, 620, 8, 50); } }
 

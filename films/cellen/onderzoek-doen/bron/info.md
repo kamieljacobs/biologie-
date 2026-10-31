@@ -10,7 +10,7 @@
 | Voldoet aan | prompt v13 |
 | Stem / model | Roos (voice_id 7qdUFMklKPaaAVMsBTBt), eleven_v4, één take per alinea; flow https://elevenlabs.io/app/flows/Ca19d7HWSbKzrpYiWdsg (±9.989 credits). Opnamelijst in `stem/gen.json` en `stem/sessions.json` |
 | Duur | 13:17 (vwo-stand, met vraagkaarten); gesproken tekst 664,5 s |
-| Beeldstijl | Part C Schema-look (±80 %) + Macro-nacht voor het paard Hans; doorlopend onderzoeksbord met 8 schriftblaadjes; CASUS-kaart (klein, oker, linksboven) tegenover BEGRIP-kaart (groot, gouden haak): de casus is voorbeeld, het begrip is de les |
+| Beeldstijl | Part C Schema-look (±80 %) + een daglichtdecor (`dagDecor`, binnenplaats in Berlijn) voor het paard Hans (Kamiel 31 okt 2026: overdag in plaats van nacht); doorlopend onderzoeksbord met 8 schriftblaadjes; CASUS-kaart (klein, oker, linksboven) tegenover BEGRIP-kaart (groot, gouden haak): de casus is voorbeeld, het begrip is de les |
 | Audio-opslag | losse mp3 per segment in `audio/`; woordtijden lokaal met silalign |
 | Herkomst | Remake van versie 1 (Labjournaal-look, vwo 5–6, 21 min). Kamiel 30 okt 2026: het te diepgaande deel als extra film los, de casus mag niet boven de inhoud gaan, ethiek blijft in de basis, geen portretten van echte personen |
 
@@ -41,7 +41,7 @@ In `bouw/sections.html`: 5 checkvragen (zout en waterkers, betrouwbaar of valide
 
 ## Waar wat in de HTML zit (index.html)
 - r. 69 sitebalk · r. 98 begrippen · r. 100 checkvragen · r. 119 voor de docent · r. 152 bronnen
-- r. 9396 `casusKaart` (begin van `onderzoek_lib.js`) · r. 9548 `SCENES` (de scènes s01–s45, uit `bouw/scenes.js`) · r. 9740 `DATA` · r. 9803 `drawEnd` (eindkaart)
+- r. 9401 `casusKaart` (begin van `onderzoek_lib.js`) · r. 9565 `SCENES` (de scènes s01–s45, uit `bouw/scenes.js`) · r. 9757 `DATA` · r. 9838 `drawEnd` (eindkaart)
 
 ## Hoe je de film aanpast
 Werkmap buiten de repo, bv. `hw/onderzoek/`: kopieer `bron/bouw/engine/` naar `engine/` en `bron/bouw/*` naar `dev_basis/`, plus `audio/` naar `dev_basis/film/audio/` en de woordtijden (opnieuw met `engine/silalign.py` uit de mp3's als ze ontbreken).
@@ -53,6 +53,6 @@ Werkmap buiten de repo, bv. `hw/onderzoek/`: kopieer `bron/bouw/engine/` naar `e
 
 ## Aandachtspunten
 - Geen portretten van echte personen (Kamiel akkoord 30 okt 2026): casuskaart met plaats en jaar + opstelling of object.
-- Het paard is een Macro-nachtscène met silhouetten (vraagsteller met hoed), geen echte persoon.
+- Het paard staat overdag op een binnenplaats (keuzeblad twijfelscènes 31 okt 2026); de vraagsteller is een silhouet met hoed, geen echte persoon. Tags en casuskaart krijgen op daglicht een donkere ondergrond (`window._dag`).
 - Antwoordletters zijn gespreid; bij Vragen uit knipt de speler de vraagzin.
 - Bronnen en controle van de vakinhoud: `bronnen.md`; reviews: `reviews/`.

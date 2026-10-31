@@ -111,11 +111,12 @@ const SCENES = {
     plaatsIcoon(ctx, 'tijdschrift', 1100, 420, 1.2, q.on('review', 1), 'peer review'); pict(ctx, 960, 560, 120, C.mens, q.on('vakgenoten', 1)); pict(ctx, 1240, 560, 120, C.mens, q.on('vakgenoten', 1));
     plaatsIcoon(ctx, 'lab', 1580, 420, 1.2, q.on('herhalen', 1), 'herhalen'); },
 
-  s28(ctx, t, q) { nachtDecor(ctx); casusKaart(ctx, 'Engeland', 'jaren 1950 · 2001–2007', q.on('berkenspanner', 1));
-    stam(ctx, 560, 190, 790, 150, false, 1); stam(ctx, 1360, 190, 790, 150, true, 1); const e = q.on('vaker', 1);
-    [[540, 340, 0], [590, 520, 1], [550, 690, 0], [1340, 330, 1], [1390, 520, 0], [1350, 700, 1]].forEach(([x, y, d], i) => { const opv = (x < 960) === !!d; berkenspanner(ctx, x, y, 1.6, d, opv ? 1 - 0.65 * e : 1, (hash(i) - 0.5) * 0.4); });
-    tag(ctx, 'lichte stam', 560, 820, C.text, 1); tag(ctx, 'zwarte stam', 1360, 820, C.text, 1); tag(ctx, 'slecht gecamoufleerd: vaker opgegeten', 960, 120, C.koraal, q.on('gecamoufleerde', 1), 'center', 30);
-    tag(ctx, 'kritiek → betere proef', 960, 210, C.groen, q.on('Kritiek', 1)); },
+  s28(ctx, t, q) { dagDecor(ctx, { bomen: true });
+    loofTak(ctx, 600, 440, -1, 200); loofTak(ctx, 1320, 230, 1, 220); stam(ctx, 600, 0, 790, 150, false, 1); stam(ctx, 1320, 0, 790, 150, true, 1); loofTak(ctx, 1320, 300, -1, 150); dagKop(ctx); casusKaart(ctx, 'Engeland', 'jaren 1950 · 2001–2007', q.on('berkenspanner', 1)); const e = q.on('vaker', 1);
+    [[580, 340, 0], [630, 520, 1], [590, 690, 0], [1300, 330, 1], [1350, 520, 0], [1310, 700, 1]].forEach(([x, y, d], i) => { const opv = (x < 960) === !!d; berkenspanner(ctx, x, y, 1.6, d, opv ? 1 - 0.65 * e : 1, (hash(i) - 0.5) * 0.4); });
+    koolmees(ctx, 1460, 560, 0.95, { kijk: -1, houding: 'klampen', a: e });
+    tag(ctx, 'lichte stam', 600, 820, C.text, 1); tag(ctx, 'zwarte stam', 1320, 820, C.text, 1); tag(ctx, 'slecht gecamoufleerd: vaker opgegeten', 960, 120, C.koraal, q.on('gecamoufleerde', 1), 'center', 30);
+  tag(ctx, 'kritiek → betere proef', 960, 210, C.groen, q.on('Kritiek', 1)); },
 
   s29(ctx, t, q) { bg(ctx, 'schema'); studieRaster(ctx, 190, 150, -10, t, q.on('kankerstudies', 1) * uit(t, q, 'tijdschriften', 1, 0.6));
     tag(ctx, 'zwakke opzet', 960, 160, C.goud, q.on('opzet', 1) * uit(t, q, 'tijdschriften', 1)); tag(ctx, 'weinig herhalingen · niet blind gemeten', 960, 260, C.koraal, q.on('herhalingen', 1) * uit(t, q, 'tijdschriften', 1), 'center', 30);

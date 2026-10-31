@@ -38,7 +38,7 @@ function grain(ctx){
   }
   ctx.drawImage(grainCanvas,0,0);
 }
-function bg(ctx, look){
+function bg(ctx, look){ window._dag = false;
   ctx.fillStyle = look==='micro'?C.bgMicro: look==='macro'?C.bgMacroSky : C.bgSchema;
   ctx.fillRect(0,0,W,H);
   if(look==='micro') grain(ctx);
