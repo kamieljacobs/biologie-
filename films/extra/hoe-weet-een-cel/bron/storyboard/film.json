@@ -271,8 +271,8 @@
    "hoofdstuk": "4 De eerste buis",
    "laag": "basis",
    "look": "Schema",
-   "tekst": "In het jaar 1924 beschreven Hans Spemann en Hilde Mangold een beroemd voorbeeld. Mangold plantte een stukje van de rand van de oermond van een jong salamanderembryo over naar de buikkant van een ander embryo. Het stukje had een andere kleur, zodat ze de cellen kon volgen. Er groeide een tweede lichaam aan vast, met een eigen neurale buis. Het meeste daarvan bestond uit cellen van het ontvangende embryo. Het overgeplante stukje had zijn buren een ander lot gegeven. Zo'n stukje heet een organisator.",
-   "beweging": "Twee bolvormige salamanderembryo's (één licht, één donker gepigmenteerd); een stukje van de donkere wordt in de lichte gezet; daarna een larfje met een tweede lichaamsas aan de buikkant, die tweede as grotendeels licht met een smal donker streepje (de cellen van het stukje). Meta: SALAMANDER · 1924.",
+   "tekst": "In het jaar 1924 beschreven Hans Spemann en Hilde Mangold een beroemd voorbeeld. Mangold plantte een stukje van de rand van de oermond van een jong salamanderembryo over naar de buikkant van een ander embryo. Het stukje had een andere kleur, zodat ze de cellen kon volgen. Er groeide een tweede lichaam aan vast, met een eigen neurale buis. Het grootste deel daarvan, ook de neurale buis, bestond uit cellen van het ontvangende embryo. Het overgeplante stukje had zijn buren een ander lot gegeven. Zo'n stukje heet een organisator.",
+   "beweging": "Twee bolvormige salamanderembryo's: de donor zonder pigment (licht), de ontvanger gepigmenteerd (donker), zoals in de echte proef; het stukje van de donor gaat in de buikkant van de ontvanger; daarna een larfje met een tweede lichaamsas, vooral gekleurd als de ontvanger met een licht streepje (de chorda, vooral donorcellen). Meta: SALAMANDER · 1924.",
    "twijfel": "Nieuwe tekening: salamanderembryo en een larfje met een tweede lichaamsas. Het is een dubbel larfje: dat kan vreemd of eng ogen.",
    "waarom": "Nieuw object, en de toon (eng of fascinerend) is een keuze; inkorten van dit uitstapje is ook een kandidaat om de film korter te maken."
   },
@@ -329,7 +329,7 @@
    "look": "Schema",
    "tekst": "Onderzoekers deden een proef met kippenembryo's. Een kippenvleugel heeft drie vingers: een voorste, een middelste en een achterste. De bron van het signaal zit achter in de vleugelknop. Ze plantten een tweede bron in aan de voorkant.",
    "beweging": "Kippenembryo (schema) met vleugelknop, achter de bron; een pincet zet een tweede bron aan de voorkant. Daarnaast klein: een normale kippenvleugel met drie vingers (voor, midden, achter).",
-   "twijfel": "Nieuwe tekening: kippenembryo met vleugelknop en een vleugelskelet met drie vingers.",
+   "twijfel": "Nieuwe tekening: kippenembryo met vleugelknop en een vleugelskelet met drie vingers. Na de proef (w31) wordt het skelet met zes vingers nu een T-vorm: de pols wordt te lang.",
    "waarom": "Nieuw object voor de bibliotheek (de leghen `kipEcht` bestaat, het embryo nog niet)."
   },
   {
@@ -608,7 +608,9 @@
    "laag": "basis",
    "look": "Macro",
    "tekst": "Zo werd een bal van cellen met hetzelfde DNA een lichaam. En onze cel? Daar kijk je nu doorheen.",
-   "beweging": "Doorlopende zoom uit: van de lensvezel via de lens naar het oog van Noor (castboek, 'jij' in de bovenbouw volgens ROLLEN.md) die naar een scherm kijkt; de lapjeskat ligt op de bank naast haar; eindkaart."
+   "beweging": "Doorlopende zoom uit: van de lensvezel via de lens naar het oog van Noor (castboek, 'jij' in de bovenbouw volgens ROLLEN.md) die naar een scherm kijkt; de lapjeskat ligt op de bank naast haar; eindkaart.",
+   "twijfel": "Noor zit niet echt: het castboek heeft nog geen zittende pose, dus ze staat stijf voor de bank.",
+   "waarom": "Een nieuwe pose in het castboek (zitten) is een keuze die voor alle films geldt; alternatief: Noor staand bij het raam met de kat op de vensterbank."
   }
  ],
  "checkvragen": "Zie ../script.md (5 vragen in examenstijl).",

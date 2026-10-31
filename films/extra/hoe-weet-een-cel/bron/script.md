@@ -106,7 +106,7 @@ Onze cel ligt niet in de plaat, maar ernaast, in het ectoderm dat huid en lens w
 
 Een groepje cellen dat het lot van zijn buren verandert: dat heet inductie.
 
-In het jaar 1924 beschreven Hans Spemann en Hilde Mangold een beroemd voorbeeld. Mangold plantte een stukje van de rand van de oermond van een jong salamanderembryo over naar de buikkant van een ander embryo. Het stukje had een andere kleur, zodat ze de cellen kon volgen. Er groeide een tweede lichaam aan vast, met een eigen neurale buis. Het meeste daarvan bestond uit cellen van het ontvangende embryo. Het overgeplante stukje had zijn buren een ander lot gegeven. Zo'n stukje heet een organisator.
+In het jaar 1924 beschreven Hans Spemann en Hilde Mangold een beroemd voorbeeld. Mangold plantte een stukje van de rand van de oermond van een jong salamanderembryo over naar de buikkant van een ander embryo. Het stukje had een andere kleur, zodat ze de cellen kon volgen. Er groeide een tweede lichaam aan vast, met een eigen neurale buis. Het grootste deel daarvan, ook de neurale buis, bestond uit cellen van het ontvangende embryo. Het overgeplante stukje had zijn buren een ander lot gegeven. Zo'n stukje heet een organisator.
 
 Terug naar jou. Aan het eind van week vier moet de neurale buis helemaal dicht zijn. Gaat dat mis, dan blijft een stuk open. Onderaan geeft dat een open rug.
 
