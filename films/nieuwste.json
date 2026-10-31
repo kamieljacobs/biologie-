@@ -1,5 +1,15 @@
 [
  {
+  "href": "films/extra/hoe-weet-een-cel.html",
+  "titel": "Hoe weet een cel wat hij moet worden?",
+  "thema": "cellen",
+  "themaTitel": "Cellen",
+  "duur": 17,
+  "vraag": "Eén eicel wordt honderden celsoorten, zonder bouwtekening: hoe weet een cel wat hij moet worden?",
+  "extra": true,
+  "datum": "2026-10-31"
+ },
+ {
   "href": "films/extra/kun-je-onderzoek-vertrouwen.html",
   "titel": "Kun je onderzoek vertrouwen?",
   "thema": "cellen",
@@ -60,12 +70,12 @@
   "datum": "2026-10-31"
  },
  {
-  "href": "films/extra/hoe-weet-een-cel.html",
-  "titel": "Hoe weet een cel wat hij moet worden?",
-  "thema": "cellen",
-  "themaTitel": "Cellen",
-  "duur": 17,
-  "vraag": "Eén eicel wordt honderden celsoorten, zonder bouwtekening: hoe weet een cel wat hij moet worden?",
+  "href": "films/vervolg/gezondheidswetenschappen-3-roken-en-longkanker.html",
+  "titel": "Roken en longkanker: hoe onderzoek een risico vindt",
+  "thema": "vervolg",
+  "themaTitel": "Wat word jij?",
+  "duur": 8,
+  "vraag": "Je kunt mensen niet laten roken voor een experiment. Hoe weet je dan dat roken kanker geeft?",
   "extra": true,
   "datum": "2026-10-31"
  },
@@ -86,16 +96,6 @@
   "themaTitel": "Cellen",
   "duur": 7,
   "vraag": "Leeft een griepvirus eigenlijk?",
-  "extra": false,
-  "datum": "2026-10-30"
- },
- {
-  "href": "films/cellen/diffusie-osmose/index.html",
-  "titel": "Diffusie en osmose",
-  "thema": "cellen",
-  "themaTitel": "Cellen",
-  "duur": 10,
-  "vraag": "Niemand heeft geroerd. Hoe komt de kleurstof dan overal?",
   "extra": false,
   "datum": "2026-10-30"
  }
