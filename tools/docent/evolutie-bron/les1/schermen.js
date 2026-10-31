@@ -68,7 +68,6 @@ SCHERMEN.push({ titel: 'Broers en zussen', kop: 'Op elkaar lijken, maar nooit pr
   teken(ctx, S) {
     const T = S.T, a0 = S.on(0, 0.8), a1 = S.on(1, 0.8), a2 = S.on(2, 1.2);
     pers(ctx, 'yasmin', 660, 720, 470, { t: T, uit: 'blij', kijk: 1, a: a0 }); pers(ctx, 'bilal', 1260, 720, 500, { t: T + 1, uit: 'blij', kijk: -1, a: a0 });
-    naam(ctx, 'Yasmin', 660, 770, a0, 'center'); naam(ctx, 'Bilal', 1260, 770, a0, 'center');
     if (a1 > 0.01) { ctx.save(); ctx.globalAlpha *= a1; ctx.strokeStyle = rgba(C.line, 0.7); ctx.lineWidth = 3; ctx.setLineDash([8, 8]);
       ctx.beginPath(); ctx.moveTo(660, 245); ctx.lineTo(660, 215); ctx.lineTo(1260, 215); ctx.lineTo(1260, 245); ctx.stroke(); ctx.restore();
       regel(ctx, 'zelfde ouders', 960, 200, a1, C.text2, 30, 'center', 600); regel(ctx, 'niet hetzelfde', 960, 520, a1, C.goud, 38, 'center', 700); }
@@ -175,8 +174,8 @@ SCHERMEN.push({ titel: 'Recombinatie', kop: 'Elk kind een andere greep', deel: '
     const k1 = kind('v1', 'm1'), k2 = kind('v2', 'm2'), vers = k1.map((p, i) => (p[0] !== k2[i][0] || p[1] !== k2[i][1]) ? i : -1).filter(i => i >= 0);
     [[400, 1200, 700], [720, 1520, 1220]].forEach(([vx, mx, kx], j) => { const a = S.on(2, 0.6, j * 0.3); if (a <= 0.01) return;
       ctx.save(); ctx.setLineDash([8, 8]); pijl(ctx, vx, 580, kx - 40, 760, rgba(C.line, 0.7), 3, a); pijl(ctx, mx, 580, kx + 40, 760, rgba(C.line, 0.7), 3, a); ctx.restore(); });
-    L1_paren(ctx, 700, 830, k1, S.on(2, 0.6, 0.4), 15, { i: vers, a: S.on(2, 0.6, 1.0) }); naam(ctx, 'Yasmin', 700, 940, S.on(2, 0.6, 0.4), 'center');
-    L1_paren(ctx, 1220, 830, k2, S.on(2, 0.6, 0.7), 15, { i: vers, a: S.on(2, 0.6, 1.0) }); naam(ctx, 'Bilal', 1220, 940, S.on(2, 0.6, 0.7), 'center');
+    L1_paren(ctx, 700, 830, k1, S.on(2, 0.6, 0.4), 15, { i: vers, a: S.on(2, 0.6, 1.0) }); naam(ctx, 'kind 1', 700, 940, S.on(2, 0.6, 0.4), 'center');
+    L1_paren(ctx, 1220, 830, k2, S.on(2, 0.6, 0.7), 15, { i: vers, a: S.on(2, 0.6, 1.0) }); naam(ctx, 'kind 2', 1220, 940, S.on(2, 0.6, 0.7), 'center');
   } });
 
 // ---------- 8 · populatie ----------

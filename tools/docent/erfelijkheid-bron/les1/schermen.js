@@ -192,7 +192,7 @@ SCHERMEN.push({ titel: 'De familie De Wit', kop: 'Twee puzzels', deel: 'Opening'
       pers(ctx, id, x, VL, h, { t: T + i * 0.7, uit: 'blij', kijk: x < 960 ? 1 : -1, a: s0 * S.on(0, 0.6, i * 0.1) }); });
     naam(ctx, 'vader', 640, VL - 625, s1, 'center', CH.vader, 36); naam(ctx, 'moeder', 1280, VL - 590, s1, 'center', CH.moeder, 36);
     naam(ctx, 'albinisme', 960, VL - 505, s2, 'center', C.goud, 36);
-    ['Dennis', 'Sara', 'Levi', 'Jens', 'Marieke'].forEach((nm, i) => naam(ctx, nm, L1_GEZIN[i][1], VL + 44, s0, 'center', C.text2, 30));
+
     balk(ctx, 'geen gemiddelde   ·   albinisme bij Levi', 960, 958, 980, s4, C.goud, 40);
   } });
 
@@ -208,7 +208,7 @@ SCHERMEN.push({ titel: 'Inzoomen', kop: 'Van huid naar kern', deel: 'Chromosomen
     const T = S.T, s0 = S.on(0, 1.0), s1 = S.on(1, 1.0), s2 = S.on(2, 0.9), s3 = S.on(3, 1.8), VL = 950, h = 630;
     pers(ctx, 'marieke', 330, VL, h, { t: T, uit: 'blij' });
     const an = L1_anker('marieke', 330, VL, h, {}), hd = [an.handR, an.handL].filter(Boolean).sort((p, q) => q.x - p.x)[0] || { x: 400, y: 600 }, arm = [hd.x - 6, hd.y - 80];
-    naam(ctx, 'Marieke', 330, VL + 44, 1, 'center', C.text2, 30);
+
     const ax = 900, ay = 560, ar = 330; let H = {};
     zoom(ctx, ax, ay, ar, s0, arm, () => { H = L1_huid(ctx, ax - ar, ay - ar, ar * 2, ar * 2, { hl: 2, hlA: s1 }); });
     const bc = (H.bas || [])[2] || [ax - 160, ay + 280, 34];
@@ -500,7 +500,7 @@ SCHERMEN.push({ titel: 'Terug naar de familie', kop: 'Waar komt Levi\'s albinism
     const T = S.T, s0 = S.on(0, 0.9), s1 = S.on(1, 1.8), s2 = S.on(2, 1.0), s3 = S.on(3, 0.8), VL = 960, hD = 600, hM = 580;
     pers(ctx, 'dennis', 220, VL, hD, { t: T, uit: 'blij', kijk: 1, a: s0 }); pers(ctx, 'marieke', 1700, VL, hM, { t: T + 1, uit: 'blij', kijk: -1, a: s0 });
     allelChip(ctx, 'Aa', 220, VL - hD * 1.04 - 52, s0, { px: 46, kl: CH.vader }); allelChip(ctx, 'Aa', 1700, VL - hM * 0.97 - 52, s0, { px: 46, kl: CH.moeder });
-    naam(ctx, 'Dennis', 220, VL + 40, s0, 'center', C.text2, 30); naam(ctx, 'Marieke', 1700, VL + 40, s0, 'center', C.text2, 30);
+
     const cx = 960, cy = 440, cr = 175, kr = 118;
     cel(ctx, cx, cy, cr * 1.15, cr, s1, { kl: C.oker, geenKern: true }); L1_kern(ctx, cx, cy, kr, s1);
     naam(ctx, 'cel van Levi', cx, cy - cr - 22, s1 * (1 - s3), 'center', C.text, 32);
@@ -511,7 +511,7 @@ SCHERMEN.push({ titel: 'Terug naar de familie', kop: 'Waar komt Levi\'s albinism
     chr(1330, 670, CH.moeder, 'a', true, true); chr(1440, 670, CH.moeder, 'A', false, false);
     regel(ctx, '11', 535, 905, s0, C.text2, 30, 'center', 600); regel(ctx, '11', 1385, 905, s0, C.text2, 30, 'center', 600);
     allelChip(ctx, 'aa', cx - 160, VL - 300, s2, { px: 52, kl: C.koraal });
-    pers(ctx, 'levi', cx, VL, 360, { t: T + 2, uit: 'blij', a: s2 * S.on(2, 0.6, 0.3) }); naam(ctx, 'Levi', cx, VL + 40, s2, 'center', C.text2, 30);
+    pers(ctx, 'levi', cx, VL, 360, { t: T + 2, uit: 'blij', a: s2 * S.on(2, 0.6, 0.3) });
     L1_enzym(ctx, cx + 300, cy + 40, 36, { kapot: true, a: s2 }); kruis(ctx, cx + 345, cy - 10, 14, s2);
     balk(ctx, 'a zat verborgen, steeds naast een A', 960, 205, 900, s3, C.goud, 38);
   } });

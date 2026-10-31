@@ -745,7 +745,6 @@ SCHERMEN.push({ titel: 'Het strand', kop: 'Een middag in de zon', deel: 'Opening
     const T = S.T, s0 = S.on(0, 0.8), s1 = S.on(1, 2.5), s2 = S.on(2, 1.4), s3 = S.on(3, 0.8);
     strand(ctx, s0); zon(ctx, 1700, 280, 60, s0, T);
     noorZon(ctx, 560, 1000, 640, s1 * 0.95, { a: s0, t: T });
-    naam(ctx, 'Noor', 560, 330, s0 * (1 - s2), 'center', C.text, 32);
     // zoomcirkel naar een huidcel
     const zx = 1250, zy = 600, zr = 300;
     if (s2 > 0.01) uvStraal(ctx, 1640, 330, 1330, 480, ease(s2 / 0.5), 1, T);

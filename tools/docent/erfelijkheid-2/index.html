@@ -872,7 +872,7 @@ SCHERMEN.push({ titel: 'A × B', kop: 'Moeder A, vader B: kind met O?', deel: 'N
   ],
   teken(ctx, S) { const s0 = S.on(0, 0.9), s1 = S.on(1, 2.0), s2 = S.on(2, 0.9), s3 = S.on(3, 0.9);
     stamPersoon(ctx, 230, 480, 62, { a: s0, label: 'Iᴬi', labelKl: C.oker, labelPx: 40 }); stamPersoon(ctx, 530, 480, 62, { m: true, a: s0, label: 'Iᴮi', labelKl: C.teal, labelPx: 40 }); stamPaar(ctx, 230, 530, 480, 62, s0);
-    naam(ctx, 'Marieke · A', 230, 385, s0, 'center', C.oker, 34); naam(ctx, 'Dennis · B', 530, 385, s0, 'center', C.teal, 34);
+    naam(ctx, 'moeder · A', 230, 385, s0, 'center', C.oker, 34); naam(ctx, 'vader · B', 530, 385, s0, 'center', C.teal, 34);
     const bg = { 'IᴬIᴮ': 'AB', 'Iᴬi': 'A', 'Iᴮi': 'B', 'ii': 'O' }, gt = [['IᴬIᴮ', 'Iᴬi'], ['Iᴮi', 'ii']];
     const r = kruisSchema(ctx, 840, 330, { links: ['Iᴬ', 'i'], boven: ['Iᴮ', 'i'], vak: 215, prog: s1, a: s0, klLinks: CH.moeder, klBoven: CH.vader, kopLinks: 'moeder', kopBoven: 'vader', px: 44,
       cel: (i, j) => { const g = gt[i][j]; return { vul: g === 'ii' ? rgba(C.goud, 0.18 * (1 + s2)) : null, teken: (c, x, y, a) => { regel(c, g, x, y - 4, a, C.text, 50, 'center', 700); regel(c, bg[g], x, y + 60, a, C.text2, 38, 'center', 700); } }; } });

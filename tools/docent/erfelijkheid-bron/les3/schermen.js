@@ -46,7 +46,7 @@ function L3_witBoom(ctx, cx, top, s, o = {}) {
   stamPaar(ctx, P.dennis[0], P.marieke[0], P.dennis[1], r, gen[1]);
   stamKinderen(ctx, cx, P.dennis[1], [P.sara[0], P.levi[0], P.jens[0]], P.sara[1], r, gen[1] * gen[2]);
   Object.entries(L3_WIT).forEach(([id, [dx, g, m, nm]]) => { const a = gen[g] * (o.dim && o.dim[id] != null ? o.dim[id] : 1); if (a <= 0.01) return; const [x, y] = P[id];
-    const zij = g === 1 ? (id === 'dennis' ? 'links' : 'rechts') : g === 0 ? 'boven' : 'onder', nmA = o.namen == null ? 1 : o.namen;
+    const zij = g === 1 ? (id === 'dennis' ? 'links' : 'rechts') : g === 0 ? 'boven' : 'onder', nmA = 0; /* Kamiel 31 okt 2026: geen namen van personages in beeld */
     stamPersoon(ctx, x, y, r, { m: !!m, a, hl: o.hl && o.hl[id] ? o.hl[id] : 0 });
     if (id === 'levi' && o.ziek) stamPersoon(ctx, x, y, r, { m: true, ziek: true, a: a * o.ziek });
     if (o.vraag && o.vraag[id]) regel(ctx, '?', x, y + r * 0.42, a * o.vraag[id], C.goud, r * 1.2, 'center', 700);
@@ -418,7 +418,7 @@ SCHERMEN.push({ titel: 'Is Sara drager?', kop: 'Is Sara drager?', deel: 'Kansen'
   ],
   teken(ctx, S) {
     const T = S.T, s0 = S.on(0, 2.0), s1 = S.on(1, 1.4), s2 = S.on(2, 1.0), s3 = S.on(3, 1.0), KLG = [C.groen, C.goud, C.koraal];
-    pers(ctx, 'sara', 210, 880, 520, { t: T, uit: 'neutraal' }); naam(ctx, 'Sara', 210, 950, 1, 'center', C.text, 36);
+    pers(ctx, 'sara', 210, 880, 520, { t: T, uit: 'neutraal' });
     allelChip(ctx, 'Aa × Aa', 860, 210, s0, { px: 40 });
     if (s0 > 0.01) { const x0 = 440, y0 = 260, w = 860, h = 560, kol = 23, dx = w / kol, dy = h / 14, zicht = Math.floor(300 * s0);
       for (let i = 0; i < zicht; i++) { const g = L3_KIND300[i], c = i % kol, rr = Math.floor(i / kol); let x = x0 + c * dx + dx / 2, y = y0 + rr * dy + dy / 2, a = 1;
@@ -472,7 +472,7 @@ SCHERMEN.push({ titel: 'Sara krijgt een kind', kop: 'Sara krijgt later een kind'
     const dim = 1 - 0.5 * s4;
     laag(ctx, dim, (c) => {
       pers(c, 'sara', 175, 660, 440, { t: T, uit: 'neutraal', a: s0 });
-      stamPaar(c, 380, 630, 360, r, s0); stamPersoon(c, 380, 360, r, { a: s0, label: 'Sara', labelZij: 'onder', labelPx: 32 }); allelChip(c, 'A_', 380, 360 - r - 40, s0, { px: 32 });
+      stamPaar(c, 380, 630, 360, r, s0); stamPersoon(c, 380, 360, r, { a: s0, label: 'dochter', labelZij: 'onder', labelPx: 32 }); allelChip(c, 'A_', 380, 360 - r - 40, s0, { px: 32 });
       stamPersoon(c, 630, 360, r, { m: true, drager: true, a: s0, label: 'partner', labelZij: 'onder', labelPx: 32 }); allelChip(c, 'Aa', 630, 360 - r - 40, s0, { px: 32, kl: C.goud });
       stamKinderen(c, 505, 360, [505], 590, r, s0); L3_ruit(c, 505, 590, 42, s0);
       if (s1 > 0.01) { circ(c, 800, 440, 11, rgba(C.text2, s1)); pijl(c, 812, 430, 1000, 320, C.text2, 4, s1, 16); pijl(c, 812, 450, 1000, 570, C.text2, 4, s1, 16);

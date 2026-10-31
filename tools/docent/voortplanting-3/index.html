@@ -738,7 +738,7 @@ SCHERMEN.push({ titel: 'Lotte', deel: 'Anticonceptie',
   teken(ctx, S) {
     const T = S.T, a0 = S.on(0, 0.8), g = S.on(1, 1.6), z = S.on(2, 1.2), p = S.on(3, 1.0);
     pers(ctx, 'lotte', 330, 930, 560, { a: a0, t: T, kijk: 1 }); pers(ctx, 'kim', 650, 930, 600, { a: a0, t: T, kijk: -1, pose: g > 0.5 ? 'wijs' : 'staan' });
-    regel(ctx, 'Lotte', 330, 990, a0, C.text2, 28, 'center', 600); regel(ctx, 'dokter Kim', 650, 990, a0, C.text2, 28, 'center', 600);
+    regel(ctx, 'dokter', 650, 990, a0, C.text2, 28, 'center', 600);
     // 10 × 10 stippen
     const gx = 1000, gy = 230, d = 64, rood = [14, 27, 41, 58, 63, 79, 92];
     for (let i = 0; i < 100; i++) { const r = Math.floor(i / 10), c = i % 10, x = gx + c * d, y = gy + r * d, a = g * S.on(1, 0.2, 0.01 * i);
