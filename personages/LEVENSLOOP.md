@@ -6,13 +6,13 @@
 
 **Noor** (16) · vast: leerling, stelt de vragen, familie van Linda en Rachid, broertje Teun (`kind`). Gebeurd: Doet bij mevrouw Visser een EMG-practicum met plakkers op biceps en triceps (zomeroutfit): tilt een veertje, boeken en haar volle schooltas, probeert een tafel op te tillen; Sam laat onverwacht een boek in haar tas vallen terwijl ze haar ogen dicht heeft (Zenuwstelsel 9 Spieren en beweging, okt 2026). Haalt in een schoolpracticum haar eigen DNA uit wangcellen (zout spoelwater, afwasmiddel, alcohol: witte draadjes), labjas `practicum` (DNA 1 Wat is DNA? 3.0, okt 2026). Heeft een schaafwond op haar onderarm die in een week heelt (DNA 2 DNA kopiëren 2.0, okt 2026). Krijgt een mRNA-vaccin in haar bovenarm (DNA 3 Van DNA naar eiwit 1.2, 27 okt 2026). Staat op zaterdagochtend in de keuken bij de radio: herkent haar nummer na twee tonen, tikt met haar voet mee, zingt het refrein en krijgt kippenvel, zomeroutfit (Zenuwstelsel 5 Het hoofdkantoor 1.2, 28 okt 2026; zonder keuring). Verbrandt in de zon op het strand, met een plekje op haar onderarm (DNA 5 Mutaties 1.2, 27 okt 2026). Rent een rondje in het park (rood en bezweet) en staat op een koude dag bleek met kippenvel, sportoutfit (Uitscheiding en evenwicht 1.1, hoofdstuk De huid, 26 okt 2026). Grenzen: familie blijft heel; niet in een beroepsrol. Vindt een week vergeten broodtrommel met beschimmelde boterham terug; doet met mevrouw Visser de proef met drie zakjes brood en kweekschaaltjes (vingers, lucht); wil een antibioticum tegen haar verkoudheid (Wat groeit er op je boterham?, Cellen). Leert in de toetsweek elke avond tot laat aan de schoolbank en zit de dag na de laatste toets verkouden rechtop in bed met tissues (Hormonen 4 Stress 1.1, 28 okt 2026). Sport twee uur op een warme dag (sportoutfit, moe, zweet) en drinkt op een rustige dag binnen zittend een hele fles water (Hormonen 5 Water in balans 1.1, 28 okt 2026). Stoot 's nachts in de keuken haar blote teen tegen de tafelpoot (Zenuwstelsel 2 Het kabelnetwerk 2.0, 29 okt 2026; outfit `nacht` alleen in die film; ter keuring).
 
-**Opa Henk** (71) · vast: opa van Noor, man van Oma Ria, vader van Linda en Petra, tuiniert, af en toe patiënt. Gebeurd: patiënt (etiket H. de Vries) in Laboratoriumtechniek 2, 3 en 4. Spuit insuline met een pen in de opening van DNA 4 De genetische code lezen 1.2 (27 okt 2026; ter keuring). Opent erwtenpeulen in zijn moestuin en vindt gele gerimpelde en groene ronde erwten, zonder naam (Erfelijkheid 4 Dihybride kruising en gekoppelde overerving 2.0, 28 okt 2026). Doet met Yasmin vier bodemproefjes in zijn moestuin (Landbouw 2, 25 okt 2026). Kijkt over het hek mee op het melkveebedrijf; vroeger hield je zwartbonte koeien voor melk én vlees (Landbouw 3 Fokken, 26 okt 2026). Grenzen: Opa Henk en Oma Ria overlijden niet in een film; hij is geen arts of onderzoeker.
+**Opa Henk** (71) · vast: opa van Noor, man van Oma Ria, vader van Linda en Petra, tuiniert, af en toe patiënt. Gebeurd: patiënt (etiket H. de Vries) in Laboratoriumtechniek 2, 3 en 4. Spuit insuline met een pen in de opening van DNA 4 De genetische code lezen 1.2 (27 okt 2026; ter keuring). Opent erwtenpeulen in zijn moestuin en vindt gele gerimpelde en groene ronde erwten, zonder naam (Erfelijkheid 4 Dihybride kruising en gekoppelde overerving 2.0, 28 okt 2026). Doet met Yasmin vier bodemproefjes in zijn moestuin (Landbouw 2, 25 okt 2026). Kijkt over het hek mee op het melkveebedrijf; vroeger hield je zwartbonte koeien voor melk én vlees (Landbouw 3 Fokken, 26 okt 2026). Krijgt alleen de uitnodigingsenvelop van het bevolkingsonderzoek darmkanker, geen uitslag en geen ziekte (Gezondheidswetenschappen 2, Screenen of niet?, 31 okt 2026). Grenzen: Opa Henk en Oma Ria overlijden niet in een film; hij is geen arts of onderzoeker.
 
 **Oma Ria** (69) · vast: vrouw van Henk, moeder van Linda en Petra; outfit `vroeger` = jong, zwanger van Linda. Grenzen: overlijdt niet in een film.
 
 **Linda** (44), **Rachid** (47), **Tante Petra** (41), **Opa Ahmed** / **Oma Malika**: vast: de familie van Noor (`CAST_FAMILIE`); Linda outfit `zwanger` = 16 jaar geleden. Grenzen: familieverhoudingen niet wijzigen. Gebeurd: Linda was 28 bij de geboorte van Noor; de eisprong van de eicel waaruit Noor groeide, was op haar 27e: die eicel stond ruim 27 jaar stil in meiose I, sinds oma Ria zwanger was van Linda (Celdeling 2.0, extra uitdaging x01/x02, Kamiel akkoord 25 okt 2026). Linda drinkt 's ochtends koffie (staand aan tafel, eerst moe, dan wakker) en zit 's avonds met een glas wijn op de bank, als 'je' in de cold open (Zenuwstelsel 4 Knoeien met de synaps 1.1, 28 okt 2026; zonder keuring).
 
-**Yasmin** (16) en **Bilal** (17) · vast: broer en zus; Yasmin wil arts worden. Gebeurd: Yasmin stagiair-analist in Laboratoriumtechniek; Yasmin snuffelstage landbouw met Opa Henk in zijn moestuin (Landbouw 2, Wat zit er in de bodem?, 25 okt 2026); Yasmin snuffelstage op het melkveebedrijf van Veehouder Gerrit, houdt een stierkalfje vast voor de DNA-test; Bilal kort in beeld naast Yasmin bij 'zelfde ouders, toch verschillend' (Landbouw 3 Fokken, 26 okt 2026); Bilal stagiair forensisch onderzoek (hbo) in alle drie de films van Forensisch onderzoek, outfit `plaatsdelict` op de plaats delict, `practicum` in het lab. Yasmin snuffelstage bij de GGD (afdeling infectieziektebestrijding) met Epidemioloog Farid; herinnering aan maart 2020: Yasmin en Bilal thuis aan de keukentafel, ouders thuiswerkend (Gezondheidswetenschappen 1, Hoe een epidemie groeit en stopt, 26 okt 2026). Yasmin loopt verder stage bij de GGD en leert van Farid hoe je een risico vindt zonder experiment: cohort, patiënt-controle, relatief en absoluut risico, verstorende factoren (Gezondheidswetenschappen 3, Roken en longkanker, 31 okt 2026). In Erfelijkheid 3 (2.0, 28 okt 2026) staan de zes castleerlingen op volgorde van lengte: Yasmin 1,63 · Noor 1,68 · Daan 1,72 · Lotte 1,75 · Sam 1,79 · Bilal 1,86 m. Yasmin doet (zonder naam) de kiemproef met tuinkers op de vensterbank als rode draad door de onderzoekscyclus (Onderzoek doen in de biologie 2.0, 31 okt 2026). Grenzen: Bilal blijft hbo-stagiair in dat vak.
+**Yasmin** (16) en **Bilal** (17) · vast: broer en zus; Yasmin wil arts worden. Gebeurd: Yasmin stagiair-analist in Laboratoriumtechniek; Yasmin snuffelstage landbouw met Opa Henk in zijn moestuin (Landbouw 2, Wat zit er in de bodem?, 25 okt 2026); Yasmin snuffelstage op het melkveebedrijf van Veehouder Gerrit, houdt een stierkalfje vast voor de DNA-test; Bilal kort in beeld naast Yasmin bij 'zelfde ouders, toch verschillend' (Landbouw 3 Fokken, 26 okt 2026); Bilal stagiair forensisch onderzoek (hbo) in alle drie de films van Forensisch onderzoek, outfit `plaatsdelict` op de plaats delict, `practicum` in het lab. Yasmin snuffelstage bij de GGD (afdeling infectieziektebestrijding) met Epidemioloog Farid; herinnering aan maart 2020: Yasmin en Bilal thuis aan de keukentafel, ouders thuiswerkend (Gezondheidswetenschappen 1, Hoe een epidemie groeit en stopt, 26 okt 2026). Yasmin loopt verder stage bij de GGD en leert van Farid hoe je een risico vindt zonder experiment: cohort, patiënt-controle, relatief en absoluut risico, verstorende factoren (Gezondheidswetenschappen 3, Roken en longkanker, 31 okt 2026). Yasmin leert van Farid in Gezondheidswetenschappen 2 (Screenen of niet?, 31 okt 2026) hoe bevolkingsonderzoek darmkanker werkt. In Erfelijkheid 3 (2.0, 28 okt 2026) staan de zes castleerlingen op volgorde van lengte: Yasmin 1,63 · Noor 1,68 · Daan 1,72 · Lotte 1,75 · Sam 1,79 · Bilal 1,86 m. Yasmin doet (zonder naam) de kiemproef met tuinkers op de vensterbank als rode draad door de onderzoekscyclus (Onderzoek doen in de biologie 2.0, 31 okt 2026). Grenzen: Bilal blijft hbo-stagiair in dat vak.
 
 **Dr. Kim** (42) · vast: arts en onderzoeker, klinisch geneticus. Gebeurd: in Forensisch onderzoek forensisch arts (film 3) en DNA-deskundige (film 2); in Erfelijkheid 6 Stambomen en kansrekenen 2.0 (28 okt 2026) als klinisch geneticus: tekent een stamboom op het bord en bespreekt een dragerschapstest met Sanne. Grenzen: geen dader of patiënt.
 
@@ -26,7 +26,7 @@
 
 **Ecoloog Bas** (± 46) · vast: ecoloog, begeleider van Daan (goedgekeurd door Kamiel 25 okt 2026). Gebeurd: Ecologie 1–3. Grenzen: alleen in zijn eigen vak.
 
-**Epidemioloog Farid** (± 38) · vast: epidemioloog bij een GGD (bordeauxrode trui, baard), goedgekeurd door Kamiel 26 okt 2026 (voorstel B). Gebeurd: begeleider van Yasmin in Gezondheidswetenschappen 1 (bouwt een oefendossier van een uitbraak, rekent met een model); werkt in Gezondheidswetenschappen 3 (Roken en longkanker, 31 okt 2026) aan de cijfers van de gezondheidsmonitor en laat Yasmin zien hoe je een risico vindt zonder experiment, zonder afdeling te noemen. Grenzen: alleen in zijn eigen vak; geen echte GGD-regio.
+**Epidemioloog Farid** (± 38) · vast: epidemioloog bij een GGD (bordeauxrode trui, baard), goedgekeurd door Kamiel 26 okt 2026 (voorstel B). Gebeurd: begeleider van Yasmin in Gezondheidswetenschappen 1 (bouwt een oefendossier van een uitbraak, rekent met een model); werkt in Gezondheidswetenschappen 3 (Roken en longkanker, 31 okt 2026) aan de cijfers van de gezondheidsmonitor en laat Yasmin zien hoe je een risico vindt zonder experiment, zonder afdeling te noemen; legt in Gezondheidswetenschappen 2 (Screenen of niet?, 31 okt 2026) het bevolkingsonderzoek darmkanker uit. Grenzen: alleen in zijn eigen vak; geen echte GGD-regio.
 
 **Diëtist Hanneke** (± 41) · vast: diëtist (krullen, groen vest, geen labjas), goedgekeurd door Kamiel 26 okt 2026 (voorstel A). Gebeurd: Voeding en diëtetiek 1–2 (Joost is haar cliënt; Noor loopt een dag mee). Grenzen: alleen in haar eigen vak; geeft wél advies, maar vraagt eerst.
 
@@ -106,16 +106,16 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `voortplanting`: 2-geslachtsorganen-puberteit
 - `zenuwstelsel`: 1-een-seconde, 3-de-spleet, 4-knoeien-met-de-spleet
 
-### Yasmin (`yasmin`) — 25 films
+### Yasmin (`yasmin`) — 26 films
 - `cellen`: onderzoek-doen
 - `ecologie`: 7-stikstof-gaat-rond
 - `evolutie`: 1-wat-is-evolutie
 - `gedrag`: 10-helpen, 12-psychologie-experimenten
 - `onderbouw/32b`: 2-geslachtelijk-en-ongeslachtelijk, 6-dna-en-overerving
 - `onderbouw/32c`: 2-slaap-natuur-en-hygiene
-- `vervolg`: farmacie-2-sleutel-slot-en-dosis, fysiotherapie-4-welke-oefening-helpt, gezondheidswetenschappen-1-hoe-een-epidemie-groeit, gezondheidswetenschappen-3-roken-en-longkanker, labtechniek-1-preparaat-en-microscoop, labtechniek-2-van-buisje-tot-uitslag, labtechniek-3-wat-staat-er-op-je-bloeduitslag, labtechniek-4-antibioticaresistentie, landbouw-1-meer-oogst, landbouw-2-wat-zit-er-in-de-bodem, landbouw-3-fokken, leraar-2-een-practicum-dat-werkt, neurowetenschappen-1-je-brein-vult-het-in, neurowetenschappen-3-als-hersencellen-uitvallen, psychologie-2-kijken-in-een-denkend-brein, psychologie-3-aanleg-of-opvoeding, psychologie-6-kun-je-je-geheugen-vertrouwen
+- `vervolg`: farmacie-2-sleutel-slot-en-dosis, fysiotherapie-4-welke-oefening-helpt, gezondheidswetenschappen-1-hoe-een-epidemie-groeit, gezondheidswetenschappen-2-screenen-of-niet, gezondheidswetenschappen-3-roken-en-longkanker, labtechniek-1-preparaat-en-microscoop, labtechniek-2-van-buisje-tot-uitslag, labtechniek-3-wat-staat-er-op-je-bloeduitslag, labtechniek-4-antibioticaresistentie, landbouw-1-meer-oogst, landbouw-2-wat-zit-er-in-de-bodem, landbouw-3-fokken, leraar-2-een-practicum-dat-werkt, neurowetenschappen-1-je-brein-vult-het-in, neurowetenschappen-3-als-hersencellen-uitvallen, psychologie-2-kijken-in-een-denkend-brein, psychologie-3-aanleg-of-opvoeding, psychologie-6-kun-je-je-geheugen-vertrouwen
 
-### Bilal (`bilal`) — 23 films
+### Bilal (`bilal`) — 24 films
 - `afweer`: 4-vaccins-allergie-en-bloedgroepen
 - `cellen`: onderzoek-doen
 - `ecologie`: 7-stikstof-gaat-rond
@@ -124,7 +124,7 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `gedrag`: 11-slimme-dieren, 5-emotieregulatie
 - `onderbouw/32b`: 2-geslachtelijk-en-ongeslachtelijk
 - `onderbouw/32c`: 2-slaap-natuur-en-hygiene, 4-ziek-worden-en-beter-worden
-- `vervolg`: farmacie-2-sleutel-slot-en-dosis, forensisch-1-sporen, forensisch-2-hoe-zeker-is-een-match, forensisch-3-hoe-lang-al-dood, fysiotherapie-3-trainen, fysiotherapie-4-welke-oefening-helpt, geneeskunde-2-als-regelkringen-ontsporen, gezondheidswetenschappen-1-hoe-een-epidemie-groeit, landbouw-3-fokken, pedagogiek-1-een-brein-in-aanbouw, psychologie-3-aanleg-of-opvoeding, tandheelkunde-1-zuur-in-je-mond
+- `vervolg`: farmacie-2-sleutel-slot-en-dosis, forensisch-1-sporen, forensisch-2-hoe-zeker-is-een-match, forensisch-3-hoe-lang-al-dood, fysiotherapie-3-trainen, fysiotherapie-4-welke-oefening-helpt, geneeskunde-2-als-regelkringen-ontsporen, gezondheidswetenschappen-1-hoe-een-epidemie-groeit, gezondheidswetenschappen-2-screenen-of-niet, landbouw-3-fokken, pedagogiek-1-een-brein-in-aanbouw, psychologie-3-aanleg-of-opvoeding, tandheelkunde-1-zuur-in-je-mond
 - `zenuwstelsel`: 7-slaap
 
 ### Dr. Kim (`kim`) — 52 films
@@ -184,7 +184,7 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `vervolg`: geneeskunde-4-wat-de-patholoog-ziet, leraar-1-waar-blijft-je-vet, leraar-2-een-practicum-dat-werkt
 - `zenuwstelsel`: 5-het-hoofdkantoor, 9-spieren-en-beweging
 
-### Opa Henk (`henk`) — 44 films
+### Opa Henk (`henk`) — 45 films
 - `afweer`: 3-t-cellen-en-virussen
 - `dna`: 7-dna-lezen, 8-wat-heb-jij-aan-dna
 - `ecologie`: 4-ingrijpen-of-laten-gaan, 5-binnen-de-grenzen
@@ -196,7 +196,7 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `onderbouw/32b`: 1-levenscyclus-genen-en-milieu, 2-geslachtelijk-en-ongeslachtelijk
 - `onderbouw/32c`: 1-voeding-en-beweging
 - `onderbouw/33c`: 3-wie-eet-wie, 4-uit-balans
-- `vervolg`: biomedisch-1-signalen-in-de-cel, biomedisch-2-crispr-wat-doet-dit-gen, biomedisch-3-van-lab-tot-patient, biomedisch-4-toeval-of-echt, diergeneeskunde-3-van-dier-naar-mens, farmacie-1-van-pil-tot-plek, farmacie-3-achter-de-balie, fysiotherapie-2-opnieuw-leren-bewegen, geneeskunde-1-van-klacht-naar-diagnose, labtechniek-2-van-buisje-tot-uitslag, labtechniek-3-wat-staat-er-op-je-bloeduitslag, labtechniek-4-antibioticaresistentie, landbouw-1-meer-oogst, landbouw-2-wat-zit-er-in-de-bodem, landbouw-3-fokken, mbrt-1-in-het-lichaam-kijken, mbrt-2-bestraling, neurowetenschappen-3-als-hersencellen-uitvallen, pedagogiek-1-een-brein-in-aanbouw, pedagogiek-2-opgroeien-onder-druk, psychologie-1-welke-therapie-werkt, psychologie-2-kijken-in-een-denkend-brein, psychologie-7-waarom-raakt-de-een-opgebrand, tandheelkunde-3-bloedend-tandvlees, verpleegkunde-1-bel-je-de-arts, verpleegkunde-2-hoe-weefsel-herstelt
+- `vervolg`: biomedisch-1-signalen-in-de-cel, biomedisch-2-crispr-wat-doet-dit-gen, biomedisch-3-van-lab-tot-patient, biomedisch-4-toeval-of-echt, diergeneeskunde-3-van-dier-naar-mens, farmacie-1-van-pil-tot-plek, farmacie-3-achter-de-balie, fysiotherapie-2-opnieuw-leren-bewegen, geneeskunde-1-van-klacht-naar-diagnose, gezondheidswetenschappen-2-screenen-of-niet, labtechniek-2-van-buisje-tot-uitslag, labtechniek-3-wat-staat-er-op-je-bloeduitslag, labtechniek-4-antibioticaresistentie, landbouw-1-meer-oogst, landbouw-2-wat-zit-er-in-de-bodem, landbouw-3-fokken, mbrt-1-in-het-lichaam-kijken, mbrt-2-bestraling, neurowetenschappen-3-als-hersencellen-uitvallen, pedagogiek-1-een-brein-in-aanbouw, pedagogiek-2-opgroeien-onder-druk, psychologie-1-welke-therapie-werkt, psychologie-2-kijken-in-een-denkend-brein, psychologie-7-waarom-raakt-de-een-opgebrand, tandheelkunde-3-bloedend-tandvlees, verpleegkunde-1-bel-je-de-arts, verpleegkunde-2-hoe-weefsel-herstelt
 - `voeding`: 6-je-darmbewoners, 7-supplementen-en-superfoods
 
 ### Verpleegkundige Jesse (`jesse`) — 4 films
@@ -235,7 +235,8 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 ### Mondhygiënist Ilse (`ilse`) — 3 films
 - `vervolg`: tandheelkunde-1-zuur-in-je-mond, tandheelkunde-3-bloedend-tandvlees, tandheelkunde-4-een-tand-door-bot
 
-### Linda (`linda`) — 6 films
+### Linda (`linda`) — 7 films
+- `cellen`: onderzoek-doen
 - `dna`: 7-dna-lezen
 - `evolutie`: x2-het-ontstaan-van-het-leven
 - `vervolg`: biomedisch-2-crispr-wat-doet-dit-gen
@@ -298,8 +299,8 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 ### Diëtist Hanneke (`hanneke`) — 2 films
 - `vervolg`: voedingsleer-1-bij-de-dietist, voedingsleer-2-waarom-afvallen-zo-moeilijk-is
 
-### Epidemioloog Farid (`farid`) — 2 films
-- `vervolg`: gezondheidswetenschappen-1-hoe-een-epidemie-groeit, gezondheidswetenschappen-3-roken-en-longkanker
+### Epidemioloog Farid (`farid`) — 3 films
+- `vervolg`: gezondheidswetenschappen-1-hoe-een-epidemie-groeit, gezondheidswetenschappen-2-screenen-of-niet, gezondheidswetenschappen-3-roken-en-longkanker
 
 ### Fleur (`fleur`) — 1 films
 - `voortplanting`: 3-anticonceptie-soa-voortplantingstechniek
