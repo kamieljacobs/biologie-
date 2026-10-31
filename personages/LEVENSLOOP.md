@@ -28,7 +28,7 @@
 
 **Epidemioloog Farid** (± 38) · vast: epidemioloog bij een GGD (bordeauxrode trui, baard), goedgekeurd door Kamiel 26 okt 2026 (voorstel B). Gebeurd: begeleider van Yasmin in Gezondheidswetenschappen 1 (bouwt een oefendossier van een uitbraak, rekent met een model); werkt in Gezondheidswetenschappen 3 (Roken en longkanker, 31 okt 2026) aan de cijfers van de gezondheidsmonitor en laat Yasmin zien hoe je een risico vindt zonder experiment, zonder afdeling te noemen; legt in Gezondheidswetenschappen 2 (Screenen of niet?, 31 okt 2026) het bevolkingsonderzoek darmkanker uit. Grenzen: alleen in zijn eigen vak; geen echte GGD-regio.
 
-**Diëtist Hanneke** (± 41) · vast: diëtist (krullen, groen vest, geen labjas), goedgekeurd door Kamiel 26 okt 2026 (voorstel A). Gebeurd: Voeding en diëtetiek 1–2 (Joost is haar cliënt; Noor loopt een dag mee). Grenzen: alleen in haar eigen vak; geeft wél advies, maar vraagt eerst.
+**Diëtist Hanneke** (± 41) · vast: diëtist (krullen, groen vest, geen labjas), goedgekeurd door Kamiel 26 okt 2026 (voorstel A). Gebeurd: Voeding en diëtetiek 1–2 (Joost is haar cliënt; Noor loopt een dag mee); werkt in Voeding 4 (Eten als behandeling, 31 okt 2026) in het ziekenhuis: ondervoeding bij Mevrouw Jansen (heupbreuk) en eten bij nierfalen bij Erik, Noor loopt weer mee. Grenzen: alleen in haar eigen vak; geeft wél advies, maar vraagt eerst.
 
 **Levensmiddelentechnoloog Lars** (± 35) · vast: levensmiddelentechnoloog in een proeffabriek (rossig kort haar; outfit `fabriek`: labjas, haarnetje, veiligheidsbril; `gewoon`: lichtblauw overhemd), castvel goedgekeurd door Kamiel 31 okt 2026. Gebeurd: ontwerpt met Noor een burger van erwteneiwit in de proeffabriek (Voeding en diëtetiek 3, Een burger zonder koe, 31 okt 2026). Grenzen: alleen in zijn eigen vak.
 
@@ -42,7 +42,7 @@
 
 **Erik** (38) · vast: figurant, verdachte of voorbijganger. Gebeurd: verdachte in Forensisch onderzoek 2. Anonieme patiënt in het voorbeeld van de ziekte van Wilson (DNA 5 Mutaties 1.2, 27 okt 2026; ter keuring). Grenzen: blijft figurant (geen naam of rol met een verhaal).
 
-**Mevrouw Jansen** (`buurvrouw`, 72) · vast: buurvrouw. Gebeurd: Forensisch onderzoek 3; vrijwillige vlinderteller in Ecologie 1. Grenzen: staat los van Noors familie.
+**Mevrouw Jansen** (`buurvrouw`, 72) · vast: buurvrouw. Gebeurd: patiënt met een gebroken heup in het ziekenhuis, ondervoed, herstelt met drinkvoeding en tijdelijk een neussonde (Voeding 4, Eten als behandeling, 31 okt 2026; in de stem naamloos); Forensisch onderzoek 3; vrijwillige vlinderteller in Ecologie 1. Grenzen: staat los van Noors familie.
 
 **Lieke** (36), **Jesse**, **Femke**, **Ravi**, **Mirjam**, **Mila**, **Wouter**, **Ilse**, **Veehouder Gerrit** · vast: vakpersonen. Gebeurd (Gerrit): melkveehouder van Yasmins snuffelstage, neemt haren uit de staart van een stierkalf voor de DNA-test en kiest op zijn tablet een stier die geen familie is (Landbouw 3 Fokken, 26 okt 2026). Grenzen: alleen in hun eigen vak.
 
@@ -63,7 +63,7 @@
 Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `films/**/bron/**/*.js` en de naam in `bron/script.md`; films die een personage alleen via een variabele aanroepen ontbreken mogelijk).
 
 <!-- AUTO:start -->
-### Noor (`noor`) — 88 films
+### Noor (`noor`) — 89 films
 - `afweer`: 1-de-eerste-verdediging, 2-antistoffen-op-maat, 3-t-cellen-en-virussen, 4-vaccins-allergie-en-bloedgroepen
 - `cellen`: celorganellen, diffusie-osmose, microben, stamcellen, van-molecuul-tot-biosfeer
 - `dna`: 1-wat-is-dna, 2-dna-kopieren, 7-dna-lezen
@@ -80,7 +80,7 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `onderbouw/32b`: 1-levenscyclus-genen-en-milieu
 - `onderbouw/32c`: 1-voeding-en-beweging, 2-slaap-natuur-en-hygiene, 3-microben-vriend-en-vijand, 4-ziek-worden-en-beter-worden
 - `onderbouw/33c`: 4-uit-balans, 5-wij-hebben-de-natuur-nodig
-- `vervolg`: biomedisch-1-signalen-in-de-cel, biomedisch-3-van-lab-tot-patient, biomedisch-4-toeval-of-echt, diergeneeskunde-1-hond-koe-paard, diergeneeskunde-3-van-dier-naar-mens, farmacie-1-van-pil-tot-plek, fysiotherapie-2-opnieuw-leren-bewegen, fysiotherapie-3-trainen, fysiotherapie-4-welke-oefening-helpt, geneeskunde-3-welk-antibioticum, leraar-1-waar-blijft-je-vet, leraar-2-een-practicum-dat-werkt, mbrt-1-in-het-lichaam-kijken, neurowetenschappen-3-als-hersencellen-uitvallen, psychologie-6-kun-je-je-geheugen-vertrouwen, psychologie-7-waarom-raakt-de-een-opgebrand, tandheelkunde-4-een-tand-door-bot, voedingsleer-1-bij-de-dietist, voedingsleer-2-waarom-afvallen-zo-moeilijk-is, voedingsleer-3-een-burger-zonder-koe
+- `vervolg`: biomedisch-1-signalen-in-de-cel, biomedisch-3-van-lab-tot-patient, biomedisch-4-toeval-of-echt, diergeneeskunde-1-hond-koe-paard, diergeneeskunde-3-van-dier-naar-mens, farmacie-1-van-pil-tot-plek, fysiotherapie-2-opnieuw-leren-bewegen, fysiotherapie-3-trainen, fysiotherapie-4-welke-oefening-helpt, geneeskunde-3-welk-antibioticum, leraar-1-waar-blijft-je-vet, leraar-2-een-practicum-dat-werkt, mbrt-1-in-het-lichaam-kijken, neurowetenschappen-3-als-hersencellen-uitvallen, psychologie-6-kun-je-je-geheugen-vertrouwen, psychologie-7-waarom-raakt-de-een-opgebrand, tandheelkunde-4-een-tand-door-bot, voedingsleer-1-bij-de-dietist, voedingsleer-2-waarom-afvallen-zo-moeilijk-is, voedingsleer-3-een-burger-zonder-koe, voedingsleer-4-de-dietist-in-het-ziekenhuis
 - `voeding`: 1-wat-zit-er-in-je-eten, 4-van-darm-naar-bloed, 5-de-lever-als-fabriek, 6-je-darmbewoners, 7-supplementen-en-superfoods
 - `voortplanting`: 2-geslachtsorganen-puberteit, 4-sekse-gender-diversiteit, celdeling
 - `zenuwstelsel`: 2-het-kabelnetwerk, 4-knoeien-met-de-spleet, 5-het-hoofdkantoor, 6-leren-en-onthouden, 7-slaap, 8-zintuigen, 9-spieren-en-beweging
@@ -205,11 +205,11 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `vervolg`: biomedisch-1-signalen-in-de-cel, biomedisch-2-crispr-wat-doet-dit-gen, biomedisch-3-van-lab-tot-patient, biomedisch-4-toeval-of-echt, diergeneeskunde-3-van-dier-naar-mens, farmacie-1-van-pil-tot-plek, farmacie-3-achter-de-balie, fysiotherapie-2-opnieuw-leren-bewegen, geneeskunde-1-van-klacht-naar-diagnose, gezondheidswetenschappen-2-screenen-of-niet, labtechniek-2-van-buisje-tot-uitslag, labtechniek-3-wat-staat-er-op-je-bloeduitslag, labtechniek-4-antibioticaresistentie, landbouw-1-meer-oogst, landbouw-2-wat-zit-er-in-de-bodem, landbouw-3-fokken, mbrt-1-in-het-lichaam-kijken, mbrt-2-bestraling, neurowetenschappen-3-als-hersencellen-uitvallen, pedagogiek-1-een-brein-in-aanbouw, pedagogiek-2-opgroeien-onder-druk, psychologie-1-welke-therapie-werkt, psychologie-2-kijken-in-een-denkend-brein, psychologie-7-waarom-raakt-de-een-opgebrand, tandheelkunde-3-bloedend-tandvlees, tuin-1-welke-plant-waar, verpleegkunde-1-bel-je-de-arts, verpleegkunde-2-hoe-weefsel-herstelt
 - `voeding`: 6-je-darmbewoners, 7-supplementen-en-superfoods
 
-### Verpleegkundige Jesse (`jesse`) — 4 films
-- `vervolg`: diergeneeskunde-3-van-dier-naar-mens, fysiotherapie-4-welke-oefening-helpt, verpleegkunde-1-bel-je-de-arts, verpleegkunde-2-hoe-weefsel-herstelt
+### Verpleegkundige Jesse (`jesse`) — 5 films
+- `vervolg`: diergeneeskunde-3-van-dier-naar-mens, fysiotherapie-4-welke-oefening-helpt, verpleegkunde-1-bel-je-de-arts, verpleegkunde-2-hoe-weefsel-herstelt, voedingsleer-4-de-dietist-in-het-ziekenhuis
 
-### Fysiotherapeut Femke (`femke`) — 5 films
-- `vervolg`: fysiotherapie-1-wat-is-er-met-die-knie, fysiotherapie-2-opnieuw-leren-bewegen, fysiotherapie-3-trainen, fysiotherapie-4-welke-oefening-helpt, verpleegkunde-2-hoe-weefsel-herstelt
+### Fysiotherapeut Femke (`femke`) — 6 films
+- `vervolg`: fysiotherapie-1-wat-is-er-met-die-knie, fysiotherapie-2-opnieuw-leren-bewegen, fysiotherapie-3-trainen, fysiotherapie-4-welke-oefening-helpt, verpleegkunde-2-hoe-weefsel-herstelt, voedingsleer-4-de-dietist-in-het-ziekenhuis
 
 ### Apotheker Ravi (`ravi`) — 4 films
 - `ecologie`: 5-binnen-de-grenzen
@@ -276,22 +276,22 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `evolutie`: 1-wat-is-evolutie
 - `vervolg`: milieukunde-1-pfas-ddt-en-microplastic
 
-### Erik (`erik`) — 8 films
+### Erik (`erik`) — 9 films
 - `cellen`: stamcellen
 - `dna`: 7-dna-lezen
 - `ecologie`: 6-koolstof-gaat-rond
 - `evolutie`: 4-de-mens-als-selectiefactor
 - `hormonen`: 3-de-baas-van-de-klieren
-- `vervolg`: biomedisch-3-van-lab-tot-patient, forensisch-2-hoe-zeker-is-een-match
+- `vervolg`: biomedisch-3-van-lab-tot-patient, forensisch-2-hoe-zeker-is-een-match, voedingsleer-4-de-dietist-in-het-ziekenhuis
 - `voortplanting`: 3-anticonceptie-soa-voortplantingstechniek
 
 ### Joost (`joost`) — 6 films
 - `dna`: 7-dna-lezen
 - `vervolg`: biomedisch-3-van-lab-tot-patient, forensisch-2-hoe-zeker-is-een-match, milieukunde-1-pfas-ddt-en-microplastic, voedingsleer-1-bij-de-dietist, voedingsleer-2-waarom-afvallen-zo-moeilijk-is
 
-### Mevrouw Jansen (`buurvrouw`) — 3 films
+### Mevrouw Jansen (`buurvrouw`) — 4 films
 - `ecologie`: 8-van-zand-tot-bos
-- `vervolg`: ecologie-1-tellen-in-het-veld, forensisch-3-hoe-lang-al-dood
+- `vervolg`: ecologie-1-tellen-in-het-veld, forensisch-3-hoe-lang-al-dood, voedingsleer-4-de-dietist-in-het-ziekenhuis
 
 ### Lieke (`lieke`) — 1 films
 - `vervolg`: forensisch-3-hoe-lang-al-dood
@@ -303,8 +303,8 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `ecologie`: 4-waar-blijft-het-blad, 8-van-zand-tot-bos
 - `vervolg`: ecologie-1-tellen-in-het-veld, ecologie-2-stikstof, ecologie-3-een-plan-voor-de-natuur
 
-### Diëtist Hanneke (`hanneke`) — 2 films
-- `vervolg`: voedingsleer-1-bij-de-dietist, voedingsleer-2-waarom-afvallen-zo-moeilijk-is
+### Diëtist Hanneke (`hanneke`) — 3 films
+- `vervolg`: voedingsleer-1-bij-de-dietist, voedingsleer-2-waarom-afvallen-zo-moeilijk-is, voedingsleer-4-de-dietist-in-het-ziekenhuis
 
 ### Epidemioloog Farid (`farid`) — 3 films
 - `vervolg`: gezondheidswetenschappen-1-hoe-een-epidemie-groeit, gezondheidswetenschappen-2-screenen-of-niet, gezondheidswetenschappen-3-roken-en-longkanker
