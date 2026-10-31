@@ -2,8 +2,10 @@
 
 Alleen voorstellen; niets gegenereerd (regels.json V1). Elk punt met Twijfel en Waarom. Getallen verwijzen naar `getallen.md`.
 
+**Bijgewerkt voor script v1** (31 okt 2026): blind oordeel Z = variant B wint duidelijk (50 · 44 · 43). Daarmee valt t4 (variant C) af; t1, t8 en t6 zijn aangepast; t14 en t15 zijn nieuw.
+
 ## t1 Nieuw decor: een stenig schoolplein
-- **Twijfel:** één nieuwe ElevenLabs-still nodig: een kaal schoolplein van tegels en asfalt met één boom, putjes, een schoolgebouw met deur en een gymzaal met plat dak (voor het groene dak), een voetbaldoel met een stuk kunstgras (A en C). Variant B wil hetzelfde plein ook 's avonds (lantaarnpaal). Het nieuwe, groene plein komt als Schema-laag eroverheen, niet als tweede decor.
+- **Twijfel:** één nieuwe ElevenLabs-still nodig: een kaal schoolplein van tegels en asfalt met één boom, putjes, een schoolgebouw met deur en een gymzaal met plat dak (voor het groene dak), een voetbaldoel met een stuk kunstgras (A en C). v1 (variant B) wil hetzelfde plein ook 's avonds (lantaarnpaal, cold open en recap) en het veld achter de school met kunstgras naast echt gras. Het nieuwe, groene plein komt als Schema-laag eroverheen, niet als tweede decor.
 - **Waarom:** BEELDAFSPRAKEN: decor alleen waar de scène echt speelt; cold open, H1, H3-begin en recap spelen op het plein. Zonder decor wordt 'een plek die leerlingen kennen' (planning) een abstract vlak. ± 240 credits, één variant; een avondversie als edit van dezelfde still.
 
 ## t2 Hovenier Jeroen als ontwerper van een schoolplein
@@ -14,8 +16,8 @@ Alleen voorstellen; niets gegenereerd (regels.json V1). Elk punt met Twijfel en 
 - **Twijfel:** het plein is van 'een school', zonder naam. Is het Lottes eigen school (zij is 'jij' in de onderbouwreeks), of een basisschool?
 - **Waarom:** de stem zegt alleen 'het schoolplein'; geen echte naam of plaats (reeksbrief: geen echte bedrijfs- of schoolnaam). Een middelbare school past bij de doelgroep; de gymzaal en het voetbaldoel werken bij beide.
 
-## t4 Variant C: de kijker als ontwerper naast de stagiair
-- **Twijfel:** in C is 'jij' de ontwerper en Lotte de stagiair die meet en voorstellen doet; de hovenier kijkt het ontwerp na. Twee leerlingrollen tegelijk.
+## t4 Variant C: de kijker als ontwerper naast de stagiair (vervallen in v1)
+- **Twijfel (vervallen):** in C is 'jij' de ontwerper en Lotte de stagiair die meet en voorstellen doet; de hovenier kijkt het ontwerp na. Twee leerlingrollen tegelijk.
 - **Waarom:** de mutatie vraagt dat de kijker het werk van de vakpersoon doet (P1); de stagiair blijft nodig voor de misconcepties ('groter riool', 'bijenhotel'). In beeld is de kijker alleen een gouden cursor, geen personage.
 
 ## t5 Startvraag en het getal vijftig
@@ -24,14 +26,14 @@ Alleen voorstellen; niets gegenereerd (regels.json V1). Elk punt met Twijfel en 
 
 ## t6 'Tien tot vijftien graden koeler' onder een boom
 - **Twijfel:** het getal gaat over de gevoelstemperatuur (PET), niet over de lucht (lucht 1–5 °C, B13). Alle drie de bronnen (B17, B18, B19) komen uit de onderzoeksgroep van de HvA: niet onafhankelijk, dus niet ✓ volgens BRONNEN.md.
-- **Waarom:** het is het getal dat leerlingen voelen; de stem zegt 'voelt … koeler'. Alternatief zonder getal: 'voelt het een stuk koeler'. Voorstel: getal laten staan met meta 'GEVOELSTEMPERATUUR' als Kamiel een tweede, onafhankelijke bron niet nodig vindt; anders zonder getal.
+- **Waarom:** het is het getal dat leerlingen voelen; de stem zegt 'voelt … koeler'. v1 zegt het voorzichtiger, op advies van de beoordelaar: 'kan het … wel tien tot vijftien graden koeler voelen', met meta 'GEVOELSTEMPERATUUR'. Blijft twijfel zolang er geen onafhankelijke tweede bron is; anders zonder getal ('een stuk koeler').
 
 ## t7 Huidmondjes dicht bij droogte
 - **Twijfel:** de film zegt: bij te weinig water sluit een boom zijn huidmondjes en koelt hij minder (getallen 15). Een studie in Helsinki (B22) en de WSU-groep (B20) vonden dat stadsbomen bij matige droogte en hitte vaak gewoon bleven verdampen.
 - **Waarom:** de film zegt 'te weinig water', 'een lange, droge zomer' / 'na weken zonder regen', niet 'op elke hete dag'; dat klopt met B20 en B21 (ERL 2023). Docentdeel noemt de nuance. Het is ook examenstof (*Transport in planten*: huidmondjes dicht bij droogte).
 
-## t8 Kunstgras tegen echt gras (A en C)
-- **Twijfel:** 'kunstgras zestig graden, echt gras zo'n vijfendertig' komt uit één proef in Amsterdam (KWR, 25 juni 2020, B12); RIVM noemt 70 °C voor de rubberkorrels (B11). Het echte-grasgetal rust op één bron (getallen 8, ≈). In C wil 'de directie' kunstgras: een keuze in toon.
+## t8 Kunstgras tegen echt gras (v1: na het antwoord op vraag 2)
+- **Twijfel:** 'kunstgras zestig graden, echt gras zo'n vijfendertig' komt uit één proef in Amsterdam (KWR, 25 juni 2020, B12); RIVM noemt 70 °C voor de rubberkorrels (B11). Het echte-grasgetal rust op één bron (getallen 8, ≈). In v1 'wilde de directie kunstgras': een keuze in toon (de opdrachtgever als iemand met een wens; geen personage in beeld).
 - **Waarom:** kunstgras is herkenbaar op schoolpleinen en laat verdamping zien zonder boom (zelfde zon, ander materiaal). 'Zo'n' in de stem; geen merknaam of club.
 
 ## t9 Opleidingen (mbo)
@@ -47,9 +49,17 @@ Alleen voorstellen; niets gegenereerd (regels.json V1). Elk punt met Twijfel en 
 - **Waarom:** elk één zin met terugverwijskaartje; nieuw is wat een ontwerper doet (nestplek, vliegafstand, bloeikalender) en dat verdamping koelt (Transport 6 legt alleen het watertransport uit). Waarom bestuivers belangrijk zijn, wordt niet opnieuw uitgelegd (planning: 'kort').
 
 ## t12 Nieuwe tekeningen (testvel)
-- **Twijfel:** infraroodthermometer, meethut (KNMI-model), tegels in doorsnede met warmtepijltjes, warmtebeeld stad ↔ weiland, huidmondje met watermoleculen die warmte meenemen, boomkroon met schaduwvlek, rioolbuis, wadi in doorsnede, groen dak in doorsnede (vetplantjes, substraat, waterlaag), wilde bij in een grondnest, bijenhotel, bloeikalender maart–oktober. Variant B: hoogtemeter; variant C: ontwerpbord met drie meters.
+- **Twijfel:** infraroodthermometer, meethut (KNMI-model), tegels in doorsnede met warmtepijltjes, warmtebeeld stad ↔ weiland, huidmondje met watermoleculen die warmte meenemen, boomkroon met schaduwvlek, rioolbuis, wadi in doorsnede, groen dak in doorsnede (vetplantjes, substraat, waterlaag), wilde bij in een grondnest, bijenhotel, bloeikalender maart–oktober. v1: hoogtemeter; breed plantvak rond een boom in bovenaanzicht.
 - **Waarom:** geen bestaande bibliotheekobjecten (huidmondje mogelijk uit *Transport in planten*: eerst nagaan). De wilde bij moet geen honingbij zijn (geen strepen-en-korf-cliché); het huidmondje zit aan de onderkant van het blad.
 
 ## t13 Keuzes in toon
 - **Twijfel:** 'Een boom als airco' (hoofdstuktitel uit het plan) is een beeldspraak; een boom 'werkt' niet als airco (geen koelmiddel, hij koelt alleen als hij water heeft).
 - **Waarom:** titel volgens het plan laten staan; de film legt in hetzelfde hoofdstuk uit waarom en waar de vergelijking ophoudt (droogte). Geen teleologie: 'zo houdt hij water vast', niet 'hij wil'.
+
+## t14 Doorlopende verticale camera (v1)
+- **Twijfel:** v1 volgt één camera met hoogtemeter door vijf hoogtes (stad, plein, blad, bodem, dak) zonder harde sneden; dat is een productierisico.
+- **Waarom:** de camera maakt de schaal zichtbaar en hoort bij de winnende variant. Voorstel van de beoordelaar: eerst op H1 proberen (hand → stad → doorsnede); lukt het niet, dan blijft de hoogtemeter en snijdt de camera per hoofdstuk hooguit één keer.
+
+## t15 Breed plantvak als ontwerpkeuze (v1)
+- **Twijfel:** 'Daarom krijgt elke boom op het nieuwe plein een breed plantvak, geen smal gat tussen de tegels' (getallen 37) is een gevolgtrekking, geen gemeten bewering.
+- **Waarom:** volgt uit getallen 16 (koelt het best met water in de grond) en 19 (regen zakt alleen in onverharde grond); de zin 'krijgt bijna geen regen' uit variant C staat er bewust niet in, omdat daar geen bron voor is.
