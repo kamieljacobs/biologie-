@@ -579,7 +579,7 @@ function L5_icoonStart(ctx, x, y, a, T) { ctx.save(); ctx.globalAlpha *= a; ctx.
 
 // ---------- 0 · start ----------
 SCHERMEN.push({ titel: 'Start', deel: 'Opening', geenKop: true,
-  stappen: [{ t: '<b>Cellen</b> · les 5: onderzoek doen, van vraag en hypothese tot een eerlijke proef, meetfouten en conclusie', n: 'Kies eerst havo of vwo. Groot scherm (F) vult het hele scherm; T zet de tekst eronder uit. Deze les hoort bij de film Onderzoek doen in de biologie (versie 2.0): havo BvJ thema 1 § 1.6, vwo Nectar H3 § 3.1–3.4. De rode draad is dezelfde kiemproef met tuinkers als in de film.' }],
+  stappen: [{ t: '<b>Cellen</b> · les 5: onderzoek doen, van vraag en hypothese tot een eerlijke proef, meetfouten en conclusie', n: 'Kies eerst havo of vwo. Groot scherm (F) vult het hele scherm; T zet de tekst eronder uit. Deze les hoort bij de film Onderzoek doen in de biologie (versie 2.1, met hoofdstuk 5 Betrouwbaar en valide): havo BvJ thema 1 § 1.6, vwo Nectar H3 § 3.1–3.4. De rode draad is dezelfde kiemproef met tuinkers als in de film.' }],
   teken(ctx, S) {
     const T = S.T; metaText(ctx, 'Cellen · les 5', 140, 330, C.meta, 'left', 30);
     text(ctx, 'Onderzoek', 140, 465, fTitel(98), C.text); text(ctx, 'doen', 140, 585, fTitel(98), C.goud);
@@ -614,7 +614,7 @@ SCHERMEN.push({ titel: 'De onderzoekscyclus', kop: 'De onderzoekscyclus', deel: 
     { t: 'Je ziet dat tuinkers op de vensterbank snel opkomt: een <b>waarneming</b>. Helpt licht het kiemen? Dat is je <b>onderzoeksvraag</b>.', n: 'Dezelfde kiemproef als in de film (Yasmin aan de vensterbank). De getallen die later komen zijn een verzonnen voorbeeld, net als in de film.' },
     { t: 'Een mogelijk antwoord is je <b>hypothese</b>. Hoe je het test, schrijf je op in het <b>werkplan</b>.', n: 'Het werkplan is in de film een eigen stap (acht stappen). Sommige methodes noemen het de proefopzet.' },
     { t: 'Je voert de proef uit (<b>uitvoering</b>) en verzamelt de <b>resultaten</b>.', n: '' },
-    { t: 'Dan volgt de <b>conclusie</b>. In de <b>discussie</b> kijk je kritisch terug, en vaak levert dat een nieuwe vraag op.', n: 'De pijl terug naar het begin: de cyclus is rond. Aan het eind van de les (scherm 15) zie je de nieuwe vraag van deze proef.' }
+    { t: 'Dan volgt de <b>conclusie</b>. In de <b>discussie</b> kijk je kritisch terug, en vaak levert dat een nieuwe vraag op.', n: 'De pijl terug naar het begin: de cyclus is rond. Aan het eind van de les (scherm 17) zie je de nieuwe vraag van deze proef.' }
   ],
   teken(ctx, S) {
     const T = S.T, s = [0, 1, 2, 3].map(k => S.on(k, 0.9)), lit = (i) => s[Math.floor(i / 2)] * (i % 2 ? S.on(Math.floor(i / 2), 0.6, 0.4) : 1);
@@ -645,7 +645,7 @@ SCHERMEN.push({ titel: 'Hypothese en verwachting', kop: 'Hypothese en verwachtin
   stappen: [
     { t: 'Een <b>hypothese</b> is een mogelijk antwoord op je vraag: licht bevordert het kiemen van tuinkers.', n: '' },
     { t: 'De <b>verwachting</b> zegt wat je in déze proef meet als de hypothese klopt. Vaak met <b>als … dan …</b>', n: 'Vraag uit de film: "Welke zin is een verwachting, en geen hypothese?" (a) als licht het kiemen bevordert, dan kiemen er in het licht meer zaadjes dan in het donker · (b) licht bevordert het kiemen van tuinkers · (c) licht is goed voor alle planten. Antwoord a. Misvatting: hypothese en verwachting zijn hetzelfde. Let op: Engelstalige bronnen zetten soms de hypothese zelf al in als-dan-vorm.' },
-    { t: 'Een goede hypothese is <b>falsifieerbaar</b>: er is een uitkomst denkbaar die haar weerlegt. Kiemen ze allebei even goed, dan verwerp je haar.', n: 'Een verworpen hypothese is geen mislukte proef: je weet dan iets nieuws. Dat gebeurt verderop in deze proef echt (scherm 14).' }
+    { t: 'Een goede hypothese is <b>falsifieerbaar</b>: er is een uitkomst denkbaar die haar weerlegt. Kiemen ze allebei even goed, dan verwerp je haar.', n: 'Een verworpen hypothese is geen mislukte proef: je weet dan iets nieuws. Dat gebeurt verderop in deze proef echt (scherm 16).' }
   ],
   teken(ctx, S) {
     const T = S.T, s0 = S.on(0, 0.8), s1 = S.on(1, 0.8), s2 = S.on(2, 0.9); L5_mini(ctx, 2, 1);
@@ -772,10 +772,10 @@ SCHERMEN.push({ titel: 'Meetfouten', kop: 'Twee soorten meetfouten', deel: 'Mete
   } });
 
 // ---------- 10 · steekproef, betrouwbaar, nauwkeurig ----------
-SCHERMEN.push({ titel: 'Betrouwbaar', kop: 'Steekproef en betrouwbaarheid', deel: 'Meten en meetfouten',
+SCHERMEN.push({ titel: 'Steekproef', kop: 'Steekproef en betrouwbaarheid', deel: 'Meten en meetfouten',
   stappen: [
     { t: 'Met <b>drie zaadjes</b> per bakje kan één zaadje het hele verschil maken.', n: 'Eén zaadje meer of minder = 33 % verschil. Met 50 zaadjes is één zaadje 2 %.' },
-    { t: 'Met <b>vijftig zaadjes</b> per bakje, en de proef een paar keer herhaald, wordt je resultaat betrouwbaarder.', n: 'Tegen toeval helpen een grotere steekproef en herhalen. Tegen een systematische fout niet (vorig scherm).' },
+    { t: 'Met <b>vijftig zaadjes</b> per bakje, en de proef een paar keer herhaald, wordt je resultaat betrouwbaarder.', n: 'Tegen toeval helpen een grotere steekproef en herhalen. Tegen een systematische fout niet (vorig scherm). Wat betrouwbaarheid nog meer verhoogt, komt op het volgende scherm (film H5).' },
     { t: '<b>Betrouwbaar</b>: bij herhalen vind je ongeveer hetzelfde. <b>Nauwkeurig</b> is iets anders: hoe fijn je meetinstrument meet.', n: 'Ook een weegschaal die op een tiende gram meet, kan systematisch verkeerd staan. Let op: in de natuurkunde en het internationale meetvocabulaire heten deze begrippen anders (precisie en juistheid); volg de methode van je school. Zie de briefing.' }
   ],
   teken(ctx, S) {
@@ -789,10 +789,113 @@ SCHERMEN.push({ titel: 'Betrouwbaar', kop: 'Steekproef en betrouwbaarheid', deel
     L5_weegschaal(ctx, 1590, 920, 0.8, '50,0', s2 * S.on(2, 0.6, 0.6), { gewicht: true }); regel(ctx, 'op 0,1 g', 1590, 965, s2 * S.on(2, 0.6, 0.6), C.text2, 26, 'center', 500);
   } });
 
-// ---------- 11 · Van Helmont: valide? ----------
-SCHERMEN.push({ titel: 'Van Helmont', kop: 'Valide: meet je wat je wilt weten?', deel: 'Meten en meetfouten',
+// ---------- 10b · betrouwbaar: wat helpt tegen toeval (film H5, versie 2.1) ----------
+function L5_werkplan(ctx, x, y, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); roundRect(ctx, -95, -120, 190, 240, 8); shape(ctx, '#EDE6D3', '#C9C0A8', 1.5);
+  text(ctx, 'werkplan', 0, -80, fTekst(26, 700), '#24324D', 'center'); for (let i = 0; i < 5; i++) { circ(ctx, -66, -44 + i * 34, 5, '#7A8BA8'); ctx.fillStyle = '#B8B0A0'; ctx.fillRect(-52, -47 + i * 34, 120 - (i % 2) * 34, 6); } ctx.restore(); }
+function L5_klokje(ctx, x, y, r, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, r, rgba(C.fill, 0.9), C.line, 3); ctx.strokeStyle = C.text; ctx.lineWidth = 4; ctx.lineCap = 'round';
+  ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x, y - r * 0.7); ctx.moveTo(x, y); ctx.lineTo(x - r * 0.5, y + r * 0.1); ctx.stroke(); ctx.restore(); }
+// klein puntdiagram: metingen per bakje, gemiddelde en spreiding
+function L5_puntjes(ctx, x, y, h, a = 1, g = 1) { if (a <= 0.01) return; const v = [44, 30, 49], y0 = (w) => y - h * (w - 25) / 30; ctx.save(); ctx.globalAlpha *= a;
+  ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x - 90, y); ctx.lineTo(x + 90, y); ctx.moveTo(x - 90, y); ctx.lineTo(x - 90, y - h - 10); ctx.stroke();
+  v.forEach((w, i) => circ(ctx, x - 30 + i * 22, y0(w), 10, C.text, C.bg, 2));
+  ctx.strokeStyle = C.goud; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(x - 60, y0(41)); ctx.lineTo(x + 40, y0(41)); ctx.stroke();
+  if (g > 0.01) { ctx.globalAlpha *= g; ctx.strokeStyle = C.teal; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x + 62, y0(30)); ctx.lineTo(x + 62, y0(49)); ctx.moveTo(x + 50, y0(30)); ctx.lineTo(x + 74, y0(30)); ctx.moveTo(x + 50, y0(49)); ctx.lineTo(x + 74, y0(49)); ctx.stroke(); }
+  ctx.restore(); }
+SCHERMEN.push({ titel: 'Betrouwbaar', kop: 'Betrouwbaar: minder toeval', deel: 'Betrouwbaar en valide',
   stappen: [
-    { t: '<b>Valide</b>: je meet echt wat je wilt weten. Van Helmont zette een wilg van 5 pond in een pot met gewogen aarde, en gaf vijf jaar alleen water.', n: '200 pond in de oven gedroogde aarde, een deksel met gaatjes tegen stof, regenwater of gedestilleerd water (Van Helmont, Ortus medicinae, 1648).' },
+    { t: 'Bij elk onderzoek twee vragen: is het <b>betrouwbaar</b>? En is het <b>valide</b>?', n: 'Film H5 Betrouwbaar en valide (versie 2.1). Op het examen krijg je vaak een zwak punt of een verbetering van een onderzoek, en moet je zeggen bij welke van de twee het hoort. Vuistregel: gaat het om toeval (te weinig, niet herhaald, steeds anders gemeten), dan betrouwbaarheid; gaat het om wat je meet of om iets anders dat het verschil kan verklaren, dan validiteit.' },
+    { t: 'Betrouwbaarheid gaat over <b>toeval</b>. Neem <b>meer</b> planten, proefpersonen of monsters, en <b>herhaal</b> elke meting: neem het gemiddelde.', n: 'Examen havo 2021-II vraag 30 (zwemmersjeuk, eDNA): meerdere watermonsters verhogen de betrouwbaarheid; de unieke DNA-volgorde van de soort zorgt voor de validiteit. Havo 2022-II vraag 25 (zoenen): meer stelletjes onderzoeken gaat over de betrouwbaarheid. Havo 2018-II vraag 28: bij veel proefpersonen hebben individuele verschillen minder invloed.' },
+    { t: 'Meet steeds op <b>dezelfde manier</b>, volgens een vast werkplan. En laat naast het gemiddelde ook de <b>spreiding</b> zien.', n: 'Werkplan in de film: pas tellen als het worteltje zichtbaar is, elke dag op hetzelfde tijdstip. Spreiding: dezelfde bakjes als later in de les (44, 30 en 49; gemiddeld 41).' },
+    { t: 'Vind je zelf opnieuw hetzelfde, dan is je resultaat <b>herhaalbaar</b>. Vindt een ander lab met eigen materiaal hetzelfde, dan is het <b>reproduceerbaar</b>.', n: 'Herhaalbaar: zelfde werkwijze, zelfde mensen, zelfde apparaten, zelfde plek (meetvocabulaire VIM 2.20). Reproduceerbaar: andere plek, andere mensen, andere meetsystemen (VIM 2.24). In de wetenschapsfilosofie worden reproducible en replicable soms andersom gebruikt; de film volgt het meetvocabulaire. Zie de briefing.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 0.9), s1 = S.on(1, 0.9), s2 = S.on(2, 0.9), s3 = S.on(3, 0.9);
+    L5_kaart(ctx, 'betrouwbaar', 'gaat over toeval', 160, 180, 640, s0, C.teal, { px: 32, dik: s1 > 0.5 });
+    L5_kaart(ctx, 'valide', 'klopt je conclusie?', 1120, 180, 640, s0 * (1 - 0.7 * s1), C.goud, { px: 32 });
+    // meer
+    const m = s1 * S.on(1, 0.6, 0.2); [0, 1, 2].forEach(i => L5_bakje(ctx, 240 + i * 80, 610 - i * 10, { w: 200, n: 24, gekiemd: 0.8, seed: 30 + i, len: 34, a: m * S.on(1, 0.4, 0.2 + i * 0.25) }));
+    naam(ctx, 'meer', 320, 690, m, 'center', C.teal, 34); regel(ctx, 'planten, proefpersonen,', 320, 730, m, C.text2, 26, 'center', 500); regel(ctx, 'monsters', 320, 762, m, C.text2, 26, 'center', 500);
+    // herhalen
+    const h = s1 * S.on(1, 0.6, 0.9); L5_lat(ctx, 660, 590, 300, 'toeval', 3 + 9 * S.on(1, 1.6, 1.0), h, { gem: S.on(1, 0.6, 2.4) });
+    naam(ctx, 'herhalen', 810, 690, h, 'center', C.teal, 34); regel(ctx, '+ gemiddelde', 810, 730, h, C.text2, 26, 'center', 500);
+    // vast werkplan
+    const w = s2; L5_werkplan(ctx, 1150, 530, w); L5_klokje(ctx, 1275, 450, 34, w * S.on(2, 0.5, 0.4));
+    naam(ctx, 'vast werkplan', 1180, 700, w, 'center', C.teal, 34); regel(ctx, 'tellen als het worteltje te zien is', 1180, 736, w, C.text2, 24, 'center', 500); regel(ctx, 'elke dag op hetzelfde tijdstip', 1180, 766, w, C.text2, 24, 'center', 500);
+    // spreiding
+    const p = s2 * S.on(2, 0.6, 0.8); L5_puntjes(ctx, 1600, 630, 170, p, S.on(2, 0.6, 1.4));
+    naam(ctx, 'spreiding', 1600, 690, p, 'center', C.teal, 34); regel(ctx, 'naast het gemiddelde', 1600, 730, p, C.text2, 26, 'center', 500);
+    // herhaalbaar -> reproduceerbaar
+    if (s3 > 0.01) { ctx.save(); ctx.globalAlpha *= s3; ctx.strokeStyle = rgba(C.line, 0.4); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(160, 812); ctx.lineTo(1760, 812); ctx.stroke(); ctx.restore(); }
+    metaText(ctx, 'jij, opnieuw', 420, 856, C.meta, 'center', 22, s3);
+    [0, 1].forEach(i => L5_bakje(ctx, 350 + i * 140, 960, { w: 120, n: 10, gekiemd: 0.8, seed: 40 + i, len: 24, a: s3 }));
+    L5_tag(ctx, 'herhaalbaar', 760, 940, C.teal, s3, 32);
+    const r = S.on(3, 0.8, 0.9); pijl(ctx, 940, 925, 1180, 925, C.line, 4, r);
+    metaText(ctx, 'ander lab · eigen zaadjes en bakjes', 1480, 856, C.meta, 'center', 22, r);
+    [0, 1].forEach(i => L5_bakje(ctx, 1290 + i * 140, 960, { w: 120, n: 10, gekiemd: 0.8, seed: 52 + i, len: 24, a: r }));
+    L5_tag(ctx, 'reproduceerbaar', 1690, 940, C.goud, S.on(3, 0.6, 1.4), 32);
+  } });
+
+// ---------- 10c · valide: drie vragen (film H5, versie 2.1) ----------
+function L5_liniaal(ctx, x, y, h, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 16, y - h, 32, h, 4); shape(ctx, rgba(C.goud, 0.25), C.goud, 2);
+  ctx.strokeStyle = C.goud; ctx.lineWidth = 2; for (let i = 1; i < 10; i++) { const yy = y - i * h / 10, l = i % 5 === 0 ? 16 : 9; ctx.beginPath(); ctx.moveTo(x - 16, yy); ctx.lineTo(x - 16 + l, yy); ctx.stroke(); } ctx.restore(); }
+function L5_thermo(ctx, x, y, h, niveau, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 9, y - h, 18, h, 9); shape(ctx, rgba(C.fill, 0.9), C.line, 2); circ(ctx, x, y + 6, 15, C.koraal, C.line, 2);
+  ctx.fillStyle = C.koraal; ctx.fillRect(x - 4, y - h * niveau, 8, h * niveau); ctx.restore(); }
+function L5_sla(ctx, x, y, s, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const kl = C.licht ? '#5E9E4E' : '#8CC47A';
+  for (let i = 0; i < 7; i++) { const an = Math.PI + i * Math.PI / 6; ctx.beginPath(); ctx.ellipse(x + Math.cos(an) * 34 * s, y + Math.sin(an) * 22 * s - 18 * s, 30 * s, 20 * s, an + Math.PI / 2, 0, 6.283); shape(ctx, rgba(kl, 0.55), mix(kl, '#000000', 0.3), 2); }
+  ctx.beginPath(); ctx.ellipse(x, y - 30 * s, 26 * s, 24 * s, 0, 0, 6.283); shape(ctx, rgba(kl, 0.8), mix(kl, '#000000', 0.3), 2); ctx.restore(); }
+SCHERMEN.push({ titel: 'Valide', kop: 'Valide: klopt je conclusie?', deel: 'Betrouwbaar en valide',
+  stappen: [
+    { t: 'Eén: <b>meet je wat je wilt weten</b>? Gaat het om de groei, meet dan de lengte of massa van de plantjes, niet hoeveel zaadjes kiemen.', n: 'Examen havo 2022-I vraag 18 (Okselfris): proefpersonen roken aan wattenschijfjes die onder oksels hadden gezeten, niet aan de oksels zelf. Correctievoorschrift: zo ruik je alleen de okselgeur, en spelen andere variabelen (uiterlijk, parfum, haar) geen rol. Dat maakt de geurtest valide.' },
+    { t: 'Twee: <b>komt het verschil echt door jouw variabele</b>? Op de warme vensterbank weet je niet of licht of warmte het deed. Soms neem je een groep met een <b>bekende uitkomst</b> mee.', n: 'Een controlegroep die alleen in licht verschilt, maakt de proef valide (storende variabele uitsluiten). De groep met bekende uitkomst heet een positieve controle: die laat zien dat je meting werkt. Examen vwo 2026-I vraag 35: de derde groep (bruine vetcellen) draagt bij aan de validiteit, want daarmee bepaal je of het effect van de behandeling lijkt op dat van bruine vetcellen. Havo 2022-II vraag 25: bacteriën die nauwelijks in de mond voorkomen, gaan over de validiteit.' },
+    { t: 'Drie: <b>geldt het ook buiten je proef</b>? Tuinkers in een klaslokaal zegt nog niets over sla buiten. Wat bij muizen werkt, werkt niet vanzelf bij mensen.', n: 'Dit heet ook externe validiteit (generaliseren); vraag één en twee samen zijn de interne validiteit. Voorbeeld: bij beroertes werkten ongeveer 500 behandelingen in proefdieren; in patiënten bleken alleen aspirine en heel vroege trombolyse te werken (Van der Worp e.a. 2010). Zie de briefing.' },
+    { t: 'Vaker meten maakt een onderzoek <b>betrouwbaarder</b>, maar <b>niet meer valide</b>. Meet je het verkeerde, dan helpt vaker meten niet.', n: 'De kern van film H5. Koppel terug naar de weegschaal (scherm 10): ook een systematische fout verdwijnt niet door vaker te meten. Daarna in de film: Van Helmont, met de twee vragen (volgend scherm).' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, s0 = S.on(0, 0.9), s1 = S.on(1, 0.9), s2 = S.on(2, 0.9), s3 = S.on(3, 0.9), d = 1 - 0.82 * s3;
+    const X = [340, 960, 1580];
+    L5_kaart(ctx, 'één', 'meet je wat je wilt weten?', X[0] - 280, 180, 560, s0 * d, C.goud, { px: 28 });
+    L5_kaart(ctx, 'twee', 'komt het verschil door jouw variabele?', X[1] - 280, 180, 560, s1 * d, C.goud, { px: 28 });
+    L5_kaart(ctx, 'drie', 'geldt het buiten je proef?', X[2] - 280, 180, 560, s2 * d, C.goud, { px: 28 });
+    // 1 · meten wat je wilt weten
+    const a0 = s0 * d; L5_bakje(ctx, X[0] - 40, 560, { w: 260, n: 12, gekiemd: 0.9, seed: 61, len: 52, a: a0 }); L5_liniaal(ctx, X[0] + 150, 560, 190, a0 * S.on(0, 0.6, 0.8));
+    kruis(ctx, X[0] - 220, 618, 14, a0 * S.on(0, 0.5, 0.5)); regel(ctx, 'zaadjes tellen', X[0] - 196, 628, a0 * S.on(0, 0.5, 0.5), C.text2, 28, 'left', 500);
+    vink(ctx, X[0] - 220, 668, 14, a0 * S.on(0, 0.5, 1.0)); regel(ctx, 'lengte of massa', X[0] - 196, 678, a0 * S.on(0, 0.5, 1.0), C.text, 28, 'left', 600);
+    const ex = a0 * S.on(0, 0.6, 1.8); L5_tag(ctx, 'uit het examen · havo 2022', X[0], 790, C.oker, ex, 22);
+    [-1, 0, 1].forEach(i => L5_potje(ctx, X[0] + i * 100, 950, 0.62, ex, '', C.oker));
+    regel(ctx, 'ruiken aan wattenschijfjes', X[0], 1000, ex, C.text2, 24, 'center', 500); regel(ctx, 'niet aan de oksel zelf', X[0], 1030, ex, C.text2, 24, 'center', 500);
+    // 2 · door jouw variabele?
+    const a1 = s1 * d, x1 = X[1];
+    if (a1 > 0.01) { ctx.save(); ctx.globalAlpha *= a1; roundRect(ctx, x1 - 250, 410, 300, 200, 6); shape(ctx, rgba(C.water, 0.1), C.line, 3); ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x1 - 100, 410); ctx.lineTo(x1 - 100, 610); ctx.moveTo(x1 - 250, 510); ctx.lineTo(x1 + 50, 510); ctx.stroke();
+      ctx.fillStyle = rgba(C.line, 0.7); ctx.fillRect(x1 - 270, 610, 340, 12); ctx.restore(); }
+    L5_zon(ctx, x1 - 185, 455, 22, a1, T);
+    L5_bakje(ctx, x1 - 170, 608, { w: 150, n: 10, gekiemd: 0.8, seed: 71, len: 30, a: a1 }); L5_thermo(ctx, x1 - 40, 590, 90, 0.85, a1 * S.on(1, 0.5, 0.5));
+    L5_bakje(ctx, x1 + 180, 620, { w: 150, n: 10, gekiemd: 0.8, etio: 0.6, seed: 72, len: 30, kast: 1, a: a1 }); L5_thermo(ctx, x1 + 305, 600, 90, 0.45, a1 * S.on(1, 0.5, 0.5));
+    regel(ctx, 'warm', x1 - 40, 470, a1 * S.on(1, 0.5, 0.5), C.koraal, 24, 'center', 600); regel(ctx, 'koel', x1 + 305, 480, a1 * S.on(1, 0.5, 0.5), C.teal, 24, 'center', 600);
+    L5_tag(ctx, 'licht of warmte?', x1, 720, C.koraal, a1 * S.on(1, 0.6, 1.0), 30);
+    const pc = a1 * S.on(1, 0.6, 2.2); L5_bakje(ctx, x1, 930, { w: 170, n: 10, gekiemd: 1, seed: 73, len: 28, ring: 1, a: pc }); vink(ctx, x1 + 130, 860, 16, pc);
+    naam(ctx, 'positieve controle', x1, 1000, pc, 'center', C.goud, 30); regel(ctx, 'uitkomst al bekend', x1, 1036, pc, C.text2, 24, 'center', 500);
+    // 3 · buiten je proef
+    const a2 = s2 * d, x2 = X[2];
+    metaText(ctx, 'klaslokaal', x2 - 150, 450, C.meta, 'center', 20, a2); L5_bakje(ctx, x2 - 150, 590, { w: 170, n: 10, gekiemd: 0.9, seed: 81, len: 34, a: a2 }); naam(ctx, 'tuinkers', x2 - 150, 640, a2, 'center', C.text, 28);
+    const b2 = a2 * S.on(2, 0.6, 0.6); pijl(ctx, x2 - 40, 560, x2 + 50, 560, C.line, 4, b2); regel(ctx, '?', x2 + 5, 535, b2, C.goud, 40, 'center', 700);
+    metaText(ctx, 'buiten', x2 + 150, 450, C.meta, 'center', 20, b2); L5_sla(ctx, x2 + 150, 600, 1.1, b2); naam(ctx, 'sla', x2 + 150, 640, b2, 'center', C.text, 28);
+    const c2 = a2 * S.on(2, 0.6, 1.4); L5_muis(ctx, x2 - 150, 900, 2.2, c2, T); naam(ctx, 'muis', x2 - 150, 950, c2, 'center', C.text, 28);
+    pijl(ctx, x2 - 40, 860, x2 + 50, 860, C.line, 4, c2); regel(ctx, '?', x2 + 5, 835, c2, C.goud, 40, 'center', 700);
+    pers(ctx, 'kim', x2 + 160, 920, 230, { t: T, uit: 'neutraal', kijk: -1, a: c2 }); naam(ctx, 'mens', x2 + 160, 960, c2, 'center', C.text, 28);
+    // 4 · contrast: betrouwbaarder, niet meer valide
+    if (s3 > 0.01) { ctx.save(); ctx.globalAlpha *= s3; roundRect(ctx, 210, 380, 1500, 640, 18); ctx.fillStyle = C.bg; ctx.fill(); ctx.restore(); paneel(ctx, 210, 380, 1500, 640, s3);
+      metaText(ctx, 'steeds hetzelfde meten: zaadjes tellen', 640, 450, C.koraal, 'center', 22, s3);
+      for (let i = 0; i < 8; i++) { const r = Math.floor(i / 4), k = i % 4; L5_bakje(ctx, 370 + k * 180, 640 + r * 220, { w: 150, n: 10, gekiemd: 0.8, seed: 90 + i, len: 26, a: s3 * S.on(3, 0.4, 0.2 + i * 0.18) }); }
+      regel(ctx, 'meer bakjes, vaker meten', 640, 960, S.on(3, 0.6, 1.4), C.text, 30, 'center', 600);
+      const k1 = S.on(3, 0.6, 1.8); L5_knoop(ctx, 'betrouwbaar', 1300, 560, C.teal, s3 * k1, 340, 34, true); pijl(ctx, 1530, 600, 1530, 500, C.teal, 8, s3 * k1, 26);
+      const k2 = S.on(3, 0.6, 2.6); L5_knoop(ctx, 'valide', 1300, 780, C.goud, s3 * k2, 340, 34, true); regel(ctx, '=', 1530, 800, s3 * k2, C.koraal, 70, 'center', 700);
+      regel(ctx, 'het verkeerde blijft verkeerd', 1340, 900, s3 * S.on(3, 0.6, 3.2), C.koraal, 30, 'center', 600); }
+  } });
+
+// ---------- 11 · Van Helmont: betrouwbaar? valide? ----------
+SCHERMEN.push({ titel: 'Van Helmont', kop: 'Van Helmont: betrouwbaar? valide?', deel: 'Betrouwbaar en valide',
+  stappen: [
+    { t: 'Een beroemde proef. Van Helmont zette een wilg van 5 pond in een pot met gewogen aarde, en gaf vijf jaar alleen water.', n: 'Zo eindigt film H5: kijk met de twee vragen (betrouwbaar? valide?) naar deze proef. 200 pond in de oven gedroogde aarde, een deksel met gaatjes tegen stof, regenwater of gedestilleerd water (Van Helmont, Ortus medicinae, 1648).' },
     { t: 'De boom werd ruim dertig keer zo zwaar, de aarde niet. Zijn conclusie: de boom groeit van water.', n: 'Na vijf jaar 169 pond en ± 3 ons; de aarde was ± 2 ons lichter. Hij rekende: 164 pond hout, schors en wortels uit water alleen.' },
     { t: 'Hij woog nauwkeurig. Maar met <b>één boom</b> is het resultaat weinig betrouwbaar, en de afgevallen <b>bladeren</b> woog hij niet: een systematische fout.', n: 'De bladeren van vier herfsten schrijft hij zelf dat hij niet woog. Daardoor viel de groei steeds te laag uit, nooit te hoog. Een pot aarde zonder boom als controle had laten zien of de aarde uit zichzelf van gewicht veranderde.' },
     { t: 'En aan de <b>lucht</b> dacht hij niet. De droge stof van hout komt vooral uit koolstofdioxide. Precies gemeten, en toch de verkeerde conclusie.', n: 'Ongeveer 95 % van de droge massa van een boom komt uit CO₂ uit de lucht (via fotosynthese); water levert vooral waterstof, de bodem 1 à 5 % mineralen. Een levende boom bestaat wel voor een groot deel uit water: hij had dus deels gelijk.' }

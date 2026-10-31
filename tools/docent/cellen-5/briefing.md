@@ -90,6 +90,22 @@ Het internationale meetvocabulaire (VIM, BIPM) definieert:
 
 Bronnen: [JCGM/VIM 2.17 systematic measurement error](https://jcgm.bipm.org/vim/en/2.17.html) · [JCGM/VIM 2.19 random measurement error](https://jcgm.bipm.org/vim/en/2.19.html) · [JCGM/VIM 2.15 measurement precision](https://jcgm.bipm.org/vim/en/2.15.html) · [OpenStax Chemistry: Atoms First 2e, § 1.5 Accuracy and precision](https://openstax.org/books/chemistry-atoms-first-2e/pages/1-5-measurement-uncertainty-accuracy-and-precision)
 
+### Betrouwbaar en valide: zo komt het op het examen
+Sinds versie 2.1 heeft de film een eigen hoofdstuk 5 hierover (scherm 12–14 van deze les). De examens laten de leerling vaak een zwak punt of een verbetering koppelen aan een van de twee begrippen.
+
+- **Betrouwbaarheid gaat over toeval.** Wat helpt: meer planten, proefpersonen of monsters; elke meting herhalen en het gemiddelde nemen; steeds op dezelfde manier meten (vast werkplan); de spreiding laten zien. Correctievoorschriften: meerdere watermonsters verhogen de betrouwbaarheid (havo 2021-II vraag 30, sleutel B), meer stelletjes onderzoeken gaat over de betrouwbaarheid (havo 2022-II vraag 25, sleutel C).
+- **Herhaalbaar en reproduceerbaar.** Het meetvocabulaire (VIM 2.20, IUPAC) noemt metingen onder herhaalbaarheidsomstandigheden: zelfde procedure, zelfde mensen, zelfde meetsysteem, zelfde plek, korte tijd. Reproduceerbaarheid (VIM 2.24) = andere plaatsen, andere mensen, andere meetsystemen. In de wetenschapsfilosofie worden *reproducible* en *replicable* soms andersom gebruikt; de film volgt het meetvocabulaire.
+- **Validiteit als drie vragen.** (1) Meet je wat je wilt weten? Okselfris (havo 2022-I vraag 18): ruiken aan wattenschijfjes in plaats van aan de oksel, dus 'spelen andere variabelen geen rol' (correctievoorschrift). (2) Komt het verschil door jouw variabele? Storende variabelen uitsluiten met een controlegroep; een groep met bekende uitkomst (positieve controle) laat zien dat je meting werkt: vwo 2026-I vraag 35, de groep bruine vetcellen draagt bij aan de validiteit. Bij havo 2021-II vraag 30 zorgt de unieke DNA-volgorde van de soort voor de validiteit (je toont echt díe soort aan). (3) Geldt het buiten je proef? Van der Worp e.a. (2010) noemen dit externe validiteit: 'the extent to which the results of an animal experiment provide a correct basis for generalisations to the human condition'; interne validiteit is 'the extent to which the design and conduct of the trial eliminate the possibility of bias'. Hun voorbeeld: van ongeveer 500 middelen die bij proefdieren met een herseninfarct hielpen, bleken bij patiënten alleen aspirine en heel vroege trombolyse te werken.
+- **Vaker meten maakt betrouwbaarder, niet meer valide.** Dezelfde verkeerde meting honderd keer herhalen geeft een stabiel, maar verkeerd antwoord. Sluit aan bij de systematische fout (scherm 10).
+
+**Misvatting:** "een controlegroep maakt het betrouwbaar". Een controlegroep sluit een andere verklaring uit en hoort dus bij de validiteit; meer bakjes of herhalen hoort bij de betrouwbaarheid.
+
+**Als een leerling vraagt** "is de indeling in drie vragen officieel?": nee, het is een didactische keuze van de film (vraag 1 en 2 samen heten in de literatuur interne validiteit, vraag 3 externe validiteit). De examens vragen alleen of iets bij betrouwbaarheid of bij validiteit hoort.
+
+*Niet met een bron gecontroleerd: de antwoordopties van havo 2021-II vraag 30 en havo 2022-II vraag 25 (alleen de sleutels B en C gezien); de koppeling meer monsters/stelletjes ↔ betrouwbaarheid en DNA-volgorde/bacteriesoort ↔ validiteit volgt uit de vraagtekst en het bronnenlogboek van de film. De term 'positieve controle' komt in het correctievoorschrift van vwo 2026-I zelf niet voor.*
+
+Bronnen: [JCGM/VIM 2.20 repeatability condition of measurement](https://jcgm.bipm.org/vim/en/2.20.html) · [JCGM/VIM 2.24 reproducibility condition of measurement](https://jcgm.bipm.org/vim/en/2.24.html) · [IUPAC Gold Book: repeatability condition of measurement](https://goldbook.iupac.org/terms/view/08040) · [Van der Worp e.a. 2010, PLoS Medicine: Can animal models of disease reliably inform human studies?](https://journals.plos.org/plosmedicine/article/info:doi/10.1371/journal.pmed.1000245) · CvTE, centraal examen biologie havo 2021-II vraag 30, havo 2022-I vraag 18, havo 2022-II vraag 25 en vwo 2026-I vraag 35 met correctievoorschrift (Examenatlas op de site)
+
 ### Van Helmonts wilg: waar komt de massa vandaan?
 Van Helmont schreef het zelf op:
 
