@@ -903,6 +903,7 @@ const HOOFDSTUKKEN = {
   "films": [
    {
     "href": "films/cellen/van-molecuul-tot-biosfeer.html",
+    "uitleg": "tools/docent/cellen-1/index.html#2",
     "datum": "2026-10-30",
     "titel": "Van molecuul tot biosfeer",
     "vraag": "Leeft een griepvirus eigenlijk?",
@@ -912,6 +913,7 @@ const HOOFDSTUKKEN = {
    },
    {
     "href": "films/cellen/celorganellen/index.html",
+    "uitleg": "tools/docent/cellen-3/index.html#2",
     "datum": "2026-10-30",
     "pres": "films/cellen/celorganellen/presentatie.html",
     "titel": "Celorganellen",
@@ -922,6 +924,7 @@ const HOOFDSTUKKEN = {
    },
    {
     "href": "films/cellen/microben.html",
+    "uitleg": "tools/docent/cellen-6/index.html#2",
     "datum": "2026-10-26",
     "titel": "Wat groeit er op je boterham?",
     "vraag": "Een boterham ligt een week vergeten in je trommel. Wat groeit erop, en waar komt het vandaan?",
@@ -931,6 +934,7 @@ const HOOFDSTUKKEN = {
    },
    {
     "href": "films/cellen/diffusie-osmose/index.html",
+    "uitleg": "tools/docent/cellen-4/index.html#2",
     "datum": "2026-10-30",
     "titel": "Diffusie en osmose",
     "vraag": "Niemand heeft geroerd. Hoe komt de kleurstof dan overal?",
@@ -940,6 +944,7 @@ const HOOFDSTUKKEN = {
    },
    {
     "href": "films/cellen/stamcellen.html",
+    "uitleg": "tools/docent/cellen-2/index.html#2",
     "datum": "2026-10-30",
     "titel": "Stamcellen",
     "vraag": "Waarom herstelt je huid wel, en je hartspier bijna niet?",
@@ -949,12 +954,63 @@ const HOOFDSTUKKEN = {
    },
    {
     "href": "films/cellen/onderzoek-doen/index.html",
+    "uitleg": "tools/docent/cellen-5/index.html#2",
     "datum": "2026-10-31",
     "titel": "Onderzoek doen in de biologie",
     "vraag": "Hoe weet je eigenlijk of iets waar is?",
     "tekst": "De onderzoekscyclus met een kiemproef: hypothese en verwachting, variabelen en controlegroep, blind meten, toevallige en systematische fouten, betrouwbaar en valide, correlatie of oorzaak, en eerlijk onderzoek",
     "duur": 13,
     "bij": "Film · onderzoeksvaardigheden · havo 4 + vwo 4"
+   }
+  ],
+  "lessen": [
+   {
+    "href": "tools/docent/cellen-1/index.html",
+    "nr": 1,
+    "titel": "Wat is leven?",
+    "tekst": "levenskenmerken, de organisatieniveaus van molecuul tot biosfeer met de koolmees, differentiatie, emergente eigenschappen en de vraag of een griepvirus leeft",
+    "films": ["films/cellen/van-molecuul-tot-biosfeer.html"],
+    "niveau": "havo + vwo"
+   },
+   {
+    "href": "tools/docent/cellen-2/index.html",
+    "nr": 2,
+    "titel": "Zelfde DNA, andere cel",
+    "tekst": "differentiatie (zelfde DNA, andere genen aan), stamcellen in huid, beenmerg en darm, embryonale en geïnduceerde stamcellen en stamcellen als medicijn",
+    "films": ["films/cellen/stamcellen.html"],
+    "niveau": "havo + vwo"
+   },
+   {
+    "href": "tools/docent/cellen-3/index.html",
+    "nr": 3,
+    "titel": "Een fabriek die leeft",
+    "tekst": "celorganellen, de route van een enzym van kern tot buiten de cel, mitochondriën, lysosomen, vacuole, cytoskelet en het verschil tussen plantencel en dierlijke cel",
+    "films": ["films/cellen/celorganellen/index.html"],
+    "niveau": "havo + vwo"
+   },
+   {
+    "href": "tools/docent/cellen-4/index.html",
+    "nr": 4,
+    "titel": "Diffusie en osmose",
+    "tekst": "willekeurige beweging, diffusie en wat het sneller maakt, het celmembraan, osmose (plantencel, rode bloedcel, iso-, hypo- en hypertonisch) en actief transport",
+    "films": ["films/cellen/diffusie-osmose/index.html"],
+    "niveau": "havo + vwo"
+   },
+   {
+    "href": "tools/docent/cellen-5/index.html",
+    "nr": 5,
+    "titel": "Onderzoek doen",
+    "tekst": "de onderzoekscyclus met de kiemproef van tuinkers, hypothese en verwachting, een eerlijke proef met variabelen en controlegroep, blind meten, meetfouten, betrouwbaar en valide, grafiek en spreiding, correlatie en oorzaak, en ethiek, met het paard Hans, Semmelweis, Van Helmont en Henrietta Lacks",
+    "films": ["films/cellen/onderzoek-doen/index.html"],
+    "niveau": "havo + vwo"
+   },
+   {
+    "href": "tools/docent/cellen-6/index.html",
+    "nr": 6,
+    "titel": "Wat groeit er op je boterham?",
+    "tekst": "schimmels, bacteriën en virussen naast elkaar, met bouw, grootte op schaal, voortplanting en leefwijze, rond een vergeten broodtrommel",
+    "films": ["films/cellen/microben.html"],
+    "niveau": "havo + vwo"
    }
   ],
   "tools": [
@@ -3577,7 +3633,7 @@ function examKolommen(h,id){
 
 /* medaillons voor tools en lessen (Kamiel 22 okt 2026: oude lijntekeningen vervangen), img/kunst/tools/<id>.webp; niet in de lijst = lijntekening uit TOOLPLAAT */
 const TICOON={'Kruisingslab':'kruisingslab','Kruisingtrainer':'kruisingslab','Bloedgroepenlab':'bloedgroepenlab','Aardappellab':'aardappellab','Schaallab':'schaallab','De bouw van DNA':'dna-bouw','DNA-profielen vergelijken':'dna-profielen','Waarom U in RNA':'waarom-u-in-rna','De Eiwitfabriek':'eiwitfabriek','Regelkring':'regelkring','Celbouwer':'celbouwer','Virtuele microscoop':'virtuele-microscoop','Microscoop: echte preparaten':'microscoop-echt','Onderzoekskeuring':'onderzoekskeuring','Resistentielab':'resistentielab','Muizensimulatie':'muizensimulatie','Examen havo 2026-I doorklikken':'../iconen/examens'};
-const LICOON={'tools/dna-bouw/index.html':'tools/dna-bouw','tools/docent/dna-2/index.html':'films/3-van-dna-naar-eiwit','tools/docent/dna-3/index.html':'films/5-mutaties','tools/docent/voortplanting-1/index.html':'tools/les-voortplanting-1','tools/docent/voortplanting-2/index.html':'films/1-precies-op-tijd','tools/docent/voortplanting-3/index.html':'tools/les-voortplanting-3','tools/docent/erfelijkheid-1/index.html':'films/1-chromosomen','tools/docent/erfelijkheid-2/index.html':'films/2-monohybride-kruisingen','tools/docent/erfelijkheid-3/index.html':'films/6-stambomen-en-kansrekenen'};
+const LICOON={'tools/docent/cellen-6/index.html':'films/microben','tools/docent/cellen-5/index.html':'films/onderzoek-doen','tools/docent/cellen-4/index.html':'films/diffusie-osmose','tools/docent/cellen-3/index.html':'films/celorganellen','tools/docent/cellen-2/index.html':'films/stamcellen','tools/docent/cellen-1/index.html':'films/van-molecuul-tot-biosfeer','tools/dna-bouw/index.html':'tools/dna-bouw','tools/docent/dna-2/index.html':'films/3-van-dna-naar-eiwit','tools/docent/dna-3/index.html':'films/5-mutaties','tools/docent/voortplanting-1/index.html':'tools/les-voortplanting-1','tools/docent/voortplanting-2/index.html':'films/1-precies-op-tijd','tools/docent/voortplanting-3/index.html':'tools/les-voortplanting-3','tools/docent/erfelijkheid-1/index.html':'films/1-chromosomen','tools/docent/erfelijkheid-2/index.html':'films/2-monohybride-kruisingen','tools/docent/erfelijkheid-3/index.html':'films/6-stambomen-en-kansrekenen'};
 const tmed=pad=>`<img class="tmed" src="img/kunst/${pad}.webp?v=1" alt="" width="150" height="150" loading="lazy" decoding="async">`;
 function toolRij(t){
   const fig=toolFig(t.naam), nr=TOOLPLAAT.findIndex(([re])=>re.test(t.naam))+1, tm=TICOON[t.naam];
