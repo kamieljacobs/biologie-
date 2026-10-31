@@ -1,5 +1,7 @@
 # Op maat gekopieerd — script
 
+Versie 2.0 (31 okt 2026): tekst en take ongewijzigd. De take is op de regelgrenzen geknipt in 35 alinea's (`../audio/sNN.mp3`); welke regels in welk segment zitten en de knippunten staan in `info.md` § 'Segmenten en knippunten'. De tijden hieronder zijn tijden in `narration.mp3` (1.0). Een tijd met 60 seconden (H4 regel 14) is verbeterd tot '[7:00.0]'.
+
 Bron: gereconstrueerd uit `OMG_TL.lines` (= ondertitels en transcript op de pagina, woord voor woord gelijk) in de gepubliceerde HTML (2026-10-12). De stem-invoer met respellings staat niet in de HTML; de tekst hieronder is de ondertiteltekst.
 
 Audio: één doorlopende take `narration.mp3` naast `index.html` (9:34, 574,1 s), met stiltes waar de hoofdstukkaarten staan. Tijden hieronder zijn tijden in die mp3 (= filmtijd; de speler loopt op `audio.currentTime`). `[m:ss.s]` = begin van de regel (`t0`); de ondertitel blijft staan tot `t1` + 0,8 s of tot de volgende regel.
@@ -124,7 +126,7 @@ Audio: `narration.mp3` · 5:43–7:21 (97,9 s; eerste regel op 5:46.4, laatste e
 [6:42.9] Na tien cycli is het stuk tussen de primers er twee tot de macht tien keer: ongeveer duizend.
 [6:50.3] Na dertig cycli: ruim een miljard moleculen op maat.
 [6:55.2] Zestig tegen een miljard: de lange producten vallen in het niet.
-[6:60.0] Ze verdwijnen niet. Er zijn er alleen veel te weinig om te zien.
+[7:00.0] Ze verdwijnen niet. Er zijn er alleen veel te weinig om te zien.
 [7:04.3] In het echt gaat het steeds langzamer als er al veel DNA is gemaakt.
 [7:09.6] Het polymerase krijgt te veel templates tegelijk, en strengen op maat plakken weer aan elkaar.
 [7:15.9] De hoeveelheid DNA vlakt af. Dat heet het plateau.

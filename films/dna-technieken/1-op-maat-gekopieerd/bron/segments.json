@@ -1,0 +1,872 @@
+[
+ {
+  "id": "s01",
+  "kind": "speech",
+  "chapter": "Cold open",
+  "level": "basis",
+  "lines": [
+   "Dit is je gel uit het practicum.",
+   "In de baan van het bloedspoor zit een heldere band: honderdtweeënzeventig basenparen."
+  ],
+  "display": "Dit is je gel uit het practicum. In de baan van het bloedspoor zit een heldere band: honderdtweeënzeventig basenparen.",
+  "bron": {
+   "van": "H0 r1",
+   "tot": "H0 r2",
+   "t0": 1.08,
+   "t1": 8.232,
+   "knip": [
+    0.78,
+    8.748
+   ]
+  }
+ },
+ {
+  "id": "s02",
+  "kind": "speech",
+  "chapter": "Cold open",
+  "level": "basis",
+  "lines": [
+   "Maar in je buisje zat dat stuk DNA maar een paar honderd keer.",
+   "Vast aan chromosoom twaalf, dat honderdduizenden keren langer is.",
+   "Hoe kan dat?"
+  ],
+  "display": "Maar in je buisje zat dat stuk DNA maar een paar honderd keer. Vast aan chromosoom twaalf, dat honderdduizenden keren langer is. Hoe kan dat?",
+  "bron": {
+   "van": "H0 r3",
+   "tot": "H0 r5",
+   "t0": 9.264,
+   "t1": 19.463,
+   "knip": [
+    8.964,
+    20.063
+   ]
+  }
+ },
+ {
+  "id": "s03",
+  "kind": "title",
+  "chapter": "Titel",
+  "level": "basis"
+ },
+ {
+  "id": "s04",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 1 — Wat zit er in het buisje?",
+  "level": "basis",
+  "lines": [
+   "Een paar honderd moleculen is te weinig voor een gel.",
+   "Daarom maak je eerst kopieën, met PCR: de polymerase-kettingreactie.",
+   "Wat heb je daarvoor nodig?"
+  ],
+  "display": "Een paar honderd moleculen is te weinig voor een gel. Daarom maak je eerst kopieën, met PCR: de polymerase-kettingreactie. Wat heb je daarvoor nodig?",
+  "bron": {
+   "van": "H1 r1",
+   "tot": "H1 r3",
+   "t0": 26.083,
+   "t1": 36.412,
+   "knip": [
+    25.783,
+    37.012
+   ]
+  }
+ },
+ {
+  "id": "s05",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 1 — Wat zit er in het buisje?",
+  "level": "basis",
+  "lines": [
+   "Eerst het DNA uit het spoor: het template.",
+   "Ergens daarin ligt de STR die je onderzoekt.",
+   "Een STR is een stuk DNA waarin een kort stukje van vier basen steeds herhaald wordt.",
+   "Hoe vaak, verschilt per persoon. Hier zestien keer."
+  ],
+  "display": "Eerst het DNA uit het spoor: het template. Ergens daarin ligt de STR die je onderzoekt. Een STR is een stuk DNA waarin een kort stukje van vier basen steeds herhaald wordt. Hoe vaak, verschilt per persoon. Hier zestien keer.",
+  "bron": {
+   "van": "H1 r4",
+   "tot": "H1 r7",
+   "t0": 37.844,
+   "t1": 54.58,
+   "knip": [
+    37.544,
+    55.146
+   ]
+  }
+ },
+ {
+  "id": "s06",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 1 — Wat zit er in het buisje?",
+  "level": "basis",
+  "lines": [
+   "Dan twee soorten primers: korte stukjes enkelstrengs DNA, ongeveer twintig nucleotiden lang.",
+   "De ene primer past op de ene streng, een stukje vóór de STR.",
+   "De andere past op de andere streng, een stukje erachter.",
+   "Elke primer past in al het DNA maar op één plek."
+  ],
+  "display": "Dan twee soorten primers: korte stukjes enkelstrengs DNA, ongeveer twintig nucleotiden lang. De ene primer past op de ene streng, een stukje vóór de STR. De andere past op de andere streng, een stukje erachter. Elke primer past in al het DNA maar op één plek.",
+  "bron": {
+   "van": "H1 r8",
+   "tot": "H1 r11",
+   "t0": 55.712,
+   "t1": 74.258,
+   "knip": [
+    55.412,
+    74.858
+   ]
+  }
+ },
+ {
+  "id": "s07",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 1 — Wat zit er in het buisje?",
+  "level": "basis",
+  "lines": [
+   "Dan het DNA-polymerase: het enzym dat nieuwe strengen bouwt.",
+   "Dit polymerase heet Taq. Het komt uit een bacterie die in hete bronnen leeft.",
+   "En losse nucleotiden: de bouwstenen voor nieuwe strengen.",
+   "Alles zit in een buffer, die de zuurgraad goed houdt en magnesium levert.",
+   "Wat denk je: wat gebeurt er als je de primers vergeet?"
+  ],
+  "display": "Dan het DNA-polymerase: het enzym dat nieuwe strengen bouwt. Dit polymerase heet Taq. Het komt uit een bacterie die in hete bronnen leeft. En losse nucleotiden: de bouwstenen voor nieuwe strengen. Alles zit in een buffer, die de zuurgraad goed houdt en magnesium levert. Wat denk je: wat gebeurt er als je de primers vergeet?",
+  "bron": {
+   "van": "H1 r12",
+   "tot": "H1 r16",
+   "t0": 75.49,
+   "t1": 98.603,
+   "knip": [
+    75.19,
+    99.039
+   ]
+  }
+ },
+ {
+  "id": "q08",
+  "kind": "question",
+  "chapter": "Hoofdstuk 1 — Wat zit er in het buisje?",
+  "level": "basis",
+  "options": [
+   "Het polymerase kopieert dan gewoon al het DNA.",
+   "Er wordt niets gekopieerd.",
+   "Het begint op willekeurige plekken: je ziet een vage veeg."
+  ],
+  "answer": "B"
+ },
+ {
+  "id": "s09",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 1 — Wat zit er in het buisje?",
+  "level": "basis",
+  "lines": [
+   "Antwoord B: er wordt niets gekopieerd."
+  ],
+  "display": "Antwoord B: er wordt niets gekopieerd.",
+  "bron": {
+   "van": "H1 r17",
+   "tot": "H1 r17",
+   "t0": 99.475,
+   "t1": 101.69,
+   "knip": [
+    99.175,
+    102.29
+   ]
+  }
+ },
+ {
+  "id": "s09b",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 1 — Wat zit er in het buisje?",
+  "level": "basis",
+  "lines": [
+   "Een polymerase kan een streng alleen verlengen. Zelf beginnen kan het niet.",
+   "Daarom bepalen de primers waar het kopiëren begint.",
+   "Alleen het stuk tussen de twee primers wordt steeds opnieuw gekopieerd."
+  ],
+  "display": "Een polymerase kan een streng alleen verlengen. Zelf beginnen kan het niet. Daarom bepalen de primers waar het kopiëren begint. Alleen het stuk tussen de twee primers wordt steeds opnieuw gekopieerd.",
+  "bron": {
+   "van": "H1 r18",
+   "tot": "H1 r20",
+   "t0": 103.522,
+   "t1": 116.821,
+   "knip": [
+    103.222,
+    117.421
+   ]
+  }
+ },
+ {
+  "id": "s10",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 2 — Eén cyclus",
+  "level": "basis",
+  "lines": [
+   "Hoe maak je van één molecuul er twee, met alleen warm en koud?",
+   "Met cycli van drie stappen, bij drie temperaturen.",
+   "Stap één: denatureren, bij vijfennegentig graden."
+  ],
+  "display": "Hoe maak je van één molecuul er twee, met alleen warm en koud? Met cycli van drie stappen, bij drie temperaturen. Stap één: denatureren, bij vijfennegentig graden.",
+  "bron": {
+   "van": "H2 r1",
+   "tot": "H2 r3",
+   "t0": 121.263,
+   "t1": 133.572,
+   "knip": [
+    120.963,
+    133.933
+   ]
+  }
+ },
+ {
+  "id": "s11",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 2 — Eén cyclus",
+  "level": "basis",
+  "lines": [
+   "Door de hitte breken de waterstofbruggen tussen de twee strengen.",
+   "De strengen gaan uit elkaar.",
+   "Wat denk je: wat doet die hitte verder met het DNA?"
+  ],
+  "display": "Door de hitte breken de waterstofbruggen tussen de twee strengen. De strengen gaan uit elkaar. Wat denk je: wat doet die hitte verder met het DNA?",
+  "bron": {
+   "van": "H2 r4",
+   "tot": "H2 r6",
+   "t0": 134.294,
+   "t1": 143.963,
+   "knip": [
+    133.994,
+    144.404
+   ]
+  }
+ },
+ {
+  "id": "q12",
+  "kind": "question",
+  "chapter": "Hoofdstuk 2 — Eén cyclus",
+  "level": "basis",
+  "options": [
+   "Het valt in kleine stukjes.",
+   "Vrijwel niets: de strengen blijven heel.",
+   "Het is daarna onbruikbaar, net als een enzym na verhitten."
+  ],
+  "answer": "B"
+ },
+ {
+  "id": "s13",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 2 — Eén cyclus",
+  "level": "basis",
+  "lines": [
+   "Antwoord B: de strengen blijven heel.",
+   "De bindingen binnen een streng zijn veel sterker dan de waterstofbruggen ertussen.",
+   "Ook het polymerase overleeft de hitte. Een gewoon enzym verliest zijn vorm, Taq niet."
+  ],
+  "display": "Antwoord B: de strengen blijven heel. De bindingen binnen een streng zijn veel sterker dan de waterstofbruggen ertussen. Ook het polymerase overleeft de hitte. Een gewoon enzym verliest zijn vorm, Taq niet.",
+  "bron": {
+   "van": "H2 r7",
+   "tot": "H2 r9",
+   "t0": 144.845,
+   "t1": 158.744,
+   "knip": [
+    144.545,
+    159.27
+   ]
+  }
+ },
+ {
+  "id": "s14",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 2 — Eén cyclus",
+  "level": "basis",
+  "lines": [
+   "Stap twee: primers binden, tussen vijfenvijftig en zestig graden. Dit heet ook annealing.",
+   "Waar alle basen precies passen, blijft een primer zitten.",
+   "Past hij maar half, dan valt hij er bij deze temperatuur weer af."
+  ],
+  "display": "Stap twee: primers binden, tussen vijfenvijftig en zestig graden. Dit heet ook annealing. Waar alle basen precies passen, blijft een primer zitten. Past hij maar half, dan valt hij er bij deze temperatuur weer af.",
+  "bron": {
+   "van": "H2 r10",
+   "tot": "H2 r12",
+   "t0": 159.796,
+   "t1": 174.855,
+   "knip": [
+    159.496,
+    175.455
+   ]
+  }
+ },
+ {
+  "id": "s15",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 2 — Eén cyclus",
+  "level": "basis",
+  "lines": [
+   "Stap drie: verlengen, bij tweeënzeventig graden. Dit heet ook extensie.",
+   "Rond die temperatuur werkt Taq snel.",
+   "Het polymerase zet aan de primer telkens een passende nucleotide vast.",
+   "A tegenover T, C tegenover G."
+  ],
+  "display": "Stap drie: verlengen, bij tweeënzeventig graden. Dit heet ook extensie. Rond die temperatuur werkt Taq snel. Het polymerase zet aan de primer telkens een passende nucleotide vast. A tegenover T, C tegenover G.",
+  "bron": {
+   "van": "H2 r13",
+   "tot": "H2 r16",
+   "t0": 176.307,
+   "t1": 194.453,
+   "knip": [
+    176.007,
+    194.864
+   ]
+  }
+ },
+ {
+  "id": "s16",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 2 — Eén cyclus",
+  "level": "basis",
+  "lines": [
+   "Elke streng heeft twee verschillende uiteinden: vijf-accent en drie-accent.",
+   "Nieuwe nucleotiden komen er altijd bij aan het drie-accent-uiteinde.",
+   "De primers wijzen met hun drie-accent-uiteinde naar elkaar toe.",
+   "Na één cyclus is het stuk tussen de primers twee keer zo vaak aanwezig."
+  ],
+  "display": "Elke streng heeft twee verschillende uiteinden: vijf-accent en drie-accent. Nieuwe nucleotiden komen er altijd bij aan het drie-accent-uiteinde. De primers wijzen met hun drie-accent-uiteinde naar elkaar toe. Na één cyclus is het stuk tussen de primers twee keer zo vaak aanwezig.",
+  "bron": {
+   "van": "H2 r17",
+   "tot": "H2 r20",
+   "t0": 195.275,
+   "t1": 213.831,
+   "knip": [
+    194.975,
+    214.431
+   ]
+  }
+ },
+ {
+  "id": "s17",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 3 — Van te lang naar precies goed",
+  "level": "vwo",
+  "lines": [
+   "Dit deel is verdieping.",
+   "De eerste kopieën zijn veel te lang. Hoe kan dat?",
+   "Volg één molecuul door de eerste drie cycli."
+  ],
+  "display": "Dit deel is verdieping. De eerste kopieën zijn veel te lang. Hoe kan dat? Volg één molecuul door de eerste drie cycli.",
+  "bron": {
+   "van": "H3 r1",
+   "tot": "H3 r3",
+   "t0": 218.461,
+   "t1": 227.34,
+   "knip": [
+    218.161,
+    227.761
+   ]
+  },
+  "verdieping": true
+ },
+ {
+  "id": "s18",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 3 — Van te lang naar precies goed",
+  "level": "vwo",
+  "lines": [
+   "Cyclus één. Op elke streng bindt een primer, en het polymerase bouwt.",
+   "Waar stopt het? Nergens in het bijzonder.",
+   "Het bouwt door tot de verlengstap voorbij is, of tot het template ophoudt."
+  ],
+  "display": "Cyclus één. Op elke streng bindt een primer, en het polymerase bouwt. Waar stopt het? Nergens in het bijzonder. Het bouwt door tot de verlengstap voorbij is, of tot het template ophoudt.",
+  "bron": {
+   "van": "H3 r4",
+   "tot": "H3 r6",
+   "t0": 228.182,
+   "t1": 242.791,
+   "knip": [
+    227.882,
+    243.391
+   ]
+  },
+  "verdieping": true
+ },
+ {
+  "id": "s19",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 3 — Van te lang naar precies goed",
+  "level": "vwo",
+  "lines": [
+   "Vaak wel duizend nucleotiden ver, en elke keer anders.",
+   "De primer is zelf het begin van de nieuwe streng: zijn vijf-accent-uiteinde.",
+   "Maar het drie-accent-uiteinde ligt niet vast. Dit heet een lang product."
+  ],
+  "display": "Vaak wel duizend nucleotiden ver, en elke keer anders. De primer is zelf het begin van de nieuwe streng: zijn vijf-accent-uiteinde. Maar het drie-accent-uiteinde ligt niet vast. Dit heet een lang product.",
+  "bron": {
+   "van": "H3 r7",
+   "tot": "H3 r9",
+   "t0": 244.263,
+   "t1": 258.552,
+   "knip": [
+    243.963,
+    259.152
+   ]
+  },
+  "verdieping": true
+ },
+ {
+  "id": "s20",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 3 — Van te lang naar precies goed",
+  "level": "vwo",
+  "lines": [
+   "Cyclus twee. Volg één van de twee lange producten.",
+   "Het wordt nu zelf een template.",
+   "De andere primer bindt erop, en het polymerase bouwt terug.",
+   "Wat denk je: waar stopt het polymerase deze keer?"
+  ],
+  "display": "Cyclus twee. Volg één van de twee lange producten. Het wordt nu zelf een template. De andere primer bindt erop, en het polymerase bouwt terug. Wat denk je: waar stopt het polymerase deze keer?",
+  "bron": {
+   "van": "H3 r10",
+   "tot": "H3 r13",
+   "t0": 260.394,
+   "t1": 275.57,
+   "knip": [
+    260.094,
+    276.006
+   ]
+  },
+  "verdieping": true
+ },
+ {
+  "id": "q21",
+  "kind": "question",
+  "chapter": "Hoofdstuk 3 — Van te lang naar precies goed",
+  "level": "vwo",
+  "options": [
+   "Waar de STR ophoudt: het weet waar het stuk eindigt.",
+   "Aan het eind van de template-streng.",
+   "Het telt honderdtweeënzeventig nucleotiden en stopt dan."
+  ],
+  "answer": "B"
+ },
+ {
+  "id": "s22",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 3 — Van te lang naar precies goed",
+  "level": "vwo",
+  "lines": [
+   "Antwoord B: aan het eind van de template-streng.",
+   "In cyclus één liep het ook gewoon door. Het polymerase weet niets en telt niets.",
+   "Aan die kant eindigt het template precies bij de primer van cyclus één."
+  ],
+  "display": "Antwoord B: aan het eind van de template-streng. In cyclus één liep het ook gewoon door. Het polymerase weet niets en telt niets. Aan die kant eindigt het template precies bij de primer van cyclus één.",
+  "bron": {
+   "van": "H3 r14",
+   "tot": "H3 r16",
+   "t0": 276.442,
+   "t1": 290.831,
+   "knip": [
+    276.142,
+    291.302
+   ]
+  },
+  "verdieping": true
+ },
+ {
+  "id": "s23",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 3 — Van te lang naar precies goed",
+  "level": "vwo",
+  "lines": [
+   "De nieuwe streng loopt dus van primer tot primer: een streng op maat.",
+   "Hij wordt precies honderdtweeënzeventig nucleotiden lang, maar dat komt door het template.",
+   "Het andere lange product levert er ook één. Allebei zitten ze nog vast aan een lang product."
+  ],
+  "display": "De nieuwe streng loopt dus van primer tot primer: een streng op maat. Hij wordt precies honderdtweeënzeventig nucleotiden lang, maar dat komt door het template. Het andere lange product levert er ook één. Allebei zitten ze nog vast aan een lang product.",
+  "bron": {
+   "van": "H3 r17",
+   "tot": "H3 r19",
+   "t0": 291.773,
+   "t1": 309.492,
+   "knip": [
+    291.473,
+    310.023
+   ]
+  },
+  "verdieping": true
+ },
+ {
+  "id": "s24",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 3 — Van te lang naar precies goed",
+  "level": "vwo",
+  "lines": [
+   "Cyclus drie. Nu worden de strengen op maat zelf templates.",
+   "Een primer bindt erop, en het polymerase bouwt tot het eind van de streng op maat.",
+   "Zo ontstaan de eerste twee moleculen die aan beide kanten precies kloppen: twee van de acht."
+  ],
+  "display": "Cyclus drie. Nu worden de strengen op maat zelf templates. Een primer bindt erop, en het polymerase bouwt tot het eind van de streng op maat. Zo ontstaan de eerste twee moleculen die aan beide kanten precies kloppen: twee van de acht.",
+  "bron": {
+   "van": "H3 r20",
+   "tot": "H3 r22",
+   "t0": 310.554,
+   "t1": 328.243,
+   "knip": [
+    310.254,
+    328.843
+   ]
+  },
+  "verdieping": true
+ },
+ {
+  "id": "s25",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 3 — Van te lang naar precies goed",
+  "level": "basis",
+  "lines": [
+   "Kort samengevat, voor iedereen: de eerste kopieën lopen te ver door. Dat zijn lange producten.",
+   "Een kopie van zo’n lange kopie stopt precies bij de primer: op maat."
+  ],
+  "display": "Kort samengevat, voor iedereen: de eerste kopieën lopen te ver door. Dat zijn lange producten. Een kopie van zo’n lange kopie stopt precies bij de primer: op maat.",
+  "bron": {
+   "van": "H3 r23",
+   "tot": "H3 r24",
+   "t0": 330.285,
+   "t1": 341.827,
+   "knip": [
+    329.985,
+    342.427
+   ]
+  }
+ },
+ {
+  "id": "s26",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 4 — Tellen",
+  "level": "basis",
+  "lines": [
+   "Maar die lange producten zijn er nog steeds. Waar blijven die?",
+   "Tel mee. Dit is een model: elke cyclus een perfecte verdubbeling.",
+   "Na cyclus één: twee lange producten. Na cyclus twee: vier. Na cyclus drie: zes.",
+   "Wat denk je: hoeveel lange producten zijn er na dertig cycli, uit dat ene molecuul?"
+  ],
+  "display": "Maar die lange producten zijn er nog steeds. Waar blijven die? Tel mee. Dit is een model: elke cyclus een perfecte verdubbeling. Na cyclus één: twee lange producten. Na cyclus twee: vier. Na cyclus drie: zes. Wat denk je: hoeveel lange producten zijn er na dertig cycli, uit dat ene molecuul?",
+  "bron": {
+   "van": "H4 r1",
+   "tot": "H4 r4",
+   "t0": 346.449,
+   "t1": 369.635,
+   "knip": [
+    346.149,
+    370.071
+   ]
+  }
+ },
+ {
+  "id": "q27",
+  "kind": "question",
+  "chapter": "Hoofdstuk 4 — Tellen",
+  "level": "basis",
+  "options": [
+   "Zestig.",
+   "Nul: ze worden later op maat geknipt.",
+   "Ruim een miljard."
+  ],
+  "answer": "A"
+ },
+ {
+  "id": "s28",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 4 — Tellen",
+  "level": "basis",
+  "lines": [
+   "Antwoord A: zestig.",
+   "Lange producten ontstaan alleen op de twee originele strengen: elke cyclus twee erbij.",
+   "Elke cyclus evenveel erbij: dat heet lineaire groei.",
+   "In het buisje zit niets dat DNA op maat knipt."
+  ],
+  "display": "Antwoord A: zestig. Lange producten ontstaan alleen op de twee originele strengen: elke cyclus twee erbij. Elke cyclus evenveel erbij: dat heet lineaire groei. In het buisje zit niets dat DNA op maat knipt.",
+  "bron": {
+   "van": "H4 r5",
+   "tot": "H4 r8",
+   "t0": 370.507,
+   "t1": 387.803,
+   "knip": [
+    370.207,
+    388.214
+   ]
+  }
+ },
+ {
+  "id": "s29",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 4 — Tellen",
+  "level": "basis",
+  "lines": [
+   "Maar moleculen op maat maken zelf nieuwe moleculen op maat. Die verdubbelen elke cyclus.",
+   "Steeds verdubbelen heet exponentiële groei. Moleculen op maat heten ook korte producten.",
+   "Na tien cycli is het stuk tussen de primers er twee tot de macht tien keer: ongeveer duizend.",
+   "Na dertig cycli: ruim een miljard moleculen op maat."
+  ],
+  "display": "Maar moleculen op maat maken zelf nieuwe moleculen op maat. Die verdubbelen elke cyclus. Steeds verdubbelen heet exponentiële groei. Moleculen op maat heten ook korte producten. Na tien cycli is het stuk tussen de primers er twee tot de macht tien keer: ongeveer duizend. Na dertig cycli: ruim een miljard moleculen op maat.",
+  "bron": {
+   "van": "H4 r9",
+   "tot": "H4 r12",
+   "t0": 388.625,
+   "t1": 413.741,
+   "knip": [
+    388.325,
+    414.341
+   ]
+  }
+ },
+ {
+  "id": "s30",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 4 — Tellen",
+  "level": "basis",
+  "lines": [
+   "Zestig tegen een miljard: de lange producten vallen in het niet.",
+   "Ze verdwijnen niet. Er zijn er alleen veel te weinig om te zien."
+  ],
+  "display": "Zestig tegen een miljard: de lange producten vallen in het niet. Ze verdwijnen niet. Er zijn er alleen veel te weinig om te zien.",
+  "bron": {
+   "van": "H4 r13",
+   "tot": "H4 r14",
+   "t0": 415.203,
+   "t1": 423.325,
+   "knip": [
+    414.903,
+    423.836
+   ]
+  }
+ },
+ {
+  "id": "s31",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 4 — Tellen",
+  "level": "basis",
+  "lines": [
+   "In het echt gaat het steeds langzamer als er al veel DNA is gemaakt.",
+   "Het polymerase krijgt te veel templates tegelijk, en strengen op maat plakken weer aan elkaar.",
+   "De hoeveelheid DNA vlakt af. Dat heet het plateau."
+  ],
+  "display": "In het echt gaat het steeds langzamer als er al veel DNA is gemaakt. Het polymerase krijgt te veel templates tegelijk, en strengen op maat plakken weer aan elkaar. De hoeveelheid DNA vlakt af. Dat heet het plateau.",
+  "bron": {
+   "van": "H4 r15",
+   "tot": "H4 r17",
+   "t0": 424.347,
+   "t1": 439.486,
+   "knip": [
+    424.047,
+    440.086
+   ]
+  }
+ },
+ {
+  "id": "s32",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 5 — Gevoelig voor besmetting",
+  "level": "basis",
+  "lines": [
+   "Zo’n krachtige kopieermachine heeft ook een risico.",
+   "Daarom zet je altijd een negatieve controle mee: hetzelfde mengsel, maar water in plaats van DNA.",
+   "Wat denk je: wat betekent een band in de negatieve controle, op de hoogte van een allel?"
+  ],
+  "display": "Zo’n krachtige kopieermachine heeft ook een risico. Daarom zet je altijd een negatieve controle mee: hetzelfde mengsel, maar water in plaats van DNA. Wat denk je: wat betekent een band in de negatieve controle, op de hoogte van een allel?",
+  "bron": {
+   "van": "H5 r1",
+   "tot": "H5 r3",
+   "t0": 444.296,
+   "t1": 461.615,
+   "knip": [
+    443.996,
+    462.051
+   ]
+  }
+ },
+ {
+  "id": "q33",
+  "kind": "question",
+  "chapter": "Hoofdstuk 5 — Gevoelig voor besmetting",
+  "level": "basis",
+  "options": [
+   "Goed teken: de PCR werkt.",
+   "Er is DNA in de PCR gekomen dat daar niet hoort.",
+   "Primers en polymerase maken ook zonder template DNA."
+  ],
+  "answer": "B"
+ },
+ {
+  "id": "s34",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 5 — Gevoelig voor besmetting",
+  "level": "basis",
+  "lines": [
+   "Antwoord B: er is DNA in gekomen dat daar niet hoort.",
+   "Want elk stuk DNA met de juiste plekken voor de primers wordt gekopieerd.",
+   "Een paar huidcellen van de onderzoeker kunnen al genoeg zijn.",
+   "Of een onzichtbaar druppeltje uit een eerdere PCR, met miljoenen moleculen op maat.",
+   "Ook die paar moleculen worden tot een miljard keer gekopieerd."
+  ],
+  "display": "Antwoord B: er is DNA in gekomen dat daar niet hoort. Want elk stuk DNA met de juiste plekken voor de primers wordt gekopieerd. Een paar huidcellen van de onderzoeker kunnen al genoeg zijn. Of een onzichtbaar druppeltje uit een eerdere PCR, met miljoenen moleculen op maat. Ook die paar moleculen worden tot een miljard keer gekopieerd.",
+  "bron": {
+   "van": "H5 r4",
+   "tot": "H5 r8",
+   "t0": 462.487,
+   "t1": 485.3,
+   "knip": [
+    462.187,
+    485.816
+   ]
+  }
+ },
+ {
+  "id": "s35",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 5 — Gevoelig voor besmetting",
+  "level": "basis",
+  "lines": [
+   "Dan kun je ook de andere banden op die gel niet vertrouwen.",
+   "Geen band? Dan was je mengsel schoon.",
+   "Daarom werk je met een nieuwe pipetpunt voor elk buisje."
+  ],
+  "display": "Dan kun je ook de andere banden op die gel niet vertrouwen. Geen band? Dan was je mengsel schoon. Daarom werk je met een nieuwe pipetpunt voor elk buisje.",
+  "bron": {
+   "van": "H5 r9",
+   "tot": "H5 r11",
+   "t0": 486.332,
+   "t1": 495.831,
+   "knip": [
+    486.032,
+    496.431
+   ]
+  }
+ },
+ {
+  "id": "s36",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 6 — Terug naar de gel",
+  "level": "basis",
+  "lines": [
+   "Terug naar het bloedspoor.",
+   "Elk van die paar honderd kan in theorie ruim een miljard moleculen op maat opleveren.",
+   "Allemaal van primer tot primer, hoe lang het DNA eromheen ook was."
+  ],
+  "display": "Terug naar het bloedspoor. Elk van die paar honderd kan in theorie ruim een miljard moleculen op maat opleveren. Allemaal van primer tot primer, hoe lang het DNA eromheen ook was.",
+  "bron": {
+   "van": "H6 r1",
+   "tot": "H6 r3",
+   "t0": 500.263,
+   "t1": 512.272,
+   "knip": [
+    499.963,
+    512.733
+   ]
+  }
+ },
+ {
+  "id": "s37",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 6 — Terug naar de gel",
+  "level": "basis",
+  "lines": [
+   "Allemaal even lang, dus komen ze allemaal even ver in de gel: één scherpe band.",
+   "En de lange producten? Er komen er per cyclus maar twee bij, terwijl de korte verdubbelen.",
+   "Omdat de primers buiten de STR liggen, zit de hele STR in het product."
+  ],
+  "display": "Allemaal even lang, dus komen ze allemaal even ver in de gel: één scherpe band. En de lange producten? Er komen er per cyclus maar twee bij, terwijl de korte verdubbelen. Omdat de primers buiten de STR liggen, zit de hele STR in het product.",
+  "bron": {
+   "van": "H6 r4",
+   "tot": "H6 r6",
+   "t0": 513.194,
+   "t1": 531.473,
+   "knip": [
+    512.894,
+    531.994
+   ]
+  }
+ },
+ {
+  "id": "s38",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 6 — Terug naar de gel",
+  "level": "basis",
+  "lines": [
+   "Wat denk je: een ander allel heeft veertien herhalingen in plaats van zestien. Waar komt die band?"
+  ],
+  "display": "Wat denk je: een ander allel heeft veertien herhalingen in plaats van zestien.​ Waar komt die band?",
+  "bron": {
+   "van": "H6 r7",
+   "tot": "H6 r7",
+   "t0": 532.515,
+   "t1": 538.31,
+   "knip": [
+    532.215,
+    538.746
+   ]
+  }
+ },
+ {
+  "id": "q39",
+  "kind": "question",
+  "chapter": "Hoofdstuk 6 — Terug naar de gel",
+  "level": "basis",
+  "options": [
+   "Even ver: het zijn dezelfde primers.",
+   "Verder.",
+   "Minder ver."
+  ],
+  "answer": "B"
+ },
+ {
+  "id": "s40",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 6 — Terug naar de gel",
+  "level": "basis",
+  "lines": [
+   "Antwoord B: verder. Minder herhalingen geeft een korter product, en dat komt verder in de gel.",
+   "Je hebt elke STR twee keer: van je vader en van je moeder. Verschillen ze, dan zie je twee banden."
+  ],
+  "display": "Antwoord B: verder. Minder herhalingen geeft een korter product, en dat komt verder in de gel. Je hebt elke STR twee keer: van je vader en van je moeder. Verschillen ze, dan zie je twee banden.",
+  "bron": {
+   "van": "H6 r8",
+   "tot": "H6 r9",
+   "t0": 539.182,
+   "t1": 554.294,
+   "knip": [
+    538.882,
+    554.894
+   ]
+  }
+ },
+ {
+  "id": "s41",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 6 — Terug naar de gel",
+  "level": "basis",
+  "lines": [
+   "Veel mensen hebben hetzelfde allel. Daarom vergelijk je altijd meerdere STR’s tegelijk.",
+   "Zo worden een paar honderd moleculen één scherpe band, en maakt PCR een DNA-profiel mogelijk."
+  ],
+  "display": "Veel mensen hebben hetzelfde allel. Daarom vergelijk je altijd meerdere STR’s tegelijk. Zo worden een paar honderd moleculen één scherpe band, en maakt PCR een DNA-profiel mogelijk.",
+  "bron": {
+   "van": "H6 r10",
+   "tot": "H6 r11",
+   "t0": 555.566,
+   "t1": 569.048,
+   "knip": [
+    555.266,
+    569.648
+   ]
+  }
+ },
+ {
+  "id": "s42",
+  "kind": "card",
+  "chapter": "Eindkaart",
+  "level": "basis",
+  "lines": [
+   "Primers bepalen welk stuk DNA wordt gekopieerd.",
+   "Een kopie van een kopie is precies op maat: van primer tot primer.",
+   "Op maat verdubbelt elke cyclus; lange producten: maar 2 erbij per cyclus.",
+   "Zet altijd een negatieve controle mee."
+  ]
+ }
+]
