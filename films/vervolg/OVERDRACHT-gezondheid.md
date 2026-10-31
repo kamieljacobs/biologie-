@@ -52,3 +52,6 @@ Keuring verwerken → Farid in `personages/lib_cast.js`, ROLLEN.md, LEVENSLOOP.m
 Let op: de schrijvende helpers hadden geen Agent-tool; hun eigen (niet-blinde) oordeel en eerste review staan in `werk/helper-oordeel/` en `reviews/review_v1_helper.md`. De echte blinde ronde en frisse feitenreview zijn daarna vanuit de hoofdsessie gedaan (`werk/blind/oordeel.md`, `reviews/review_v2.md`). Logregels staan in `films/logboek/mutaties.jsonl` en `fouten.jsonl`.
 
 **Keuringsblad** (ook voor de planning van Milieukunde, Tuin en Voeding): https://claude.ai/artifact/5upeA9QA6GVHgoqMV2zgrN (db-collectie `keuring`, doc-id = punt: gz1 Farid zonder badge, gz2 namen in de stem, gz3 overlap met *Kun je onderzoek vertrouwen?*, gz4 'vijftien keer', gz5 Opa Henk + decor, gz6 overdiagnose/kosten, gz7 H2 splitsen; velden `keuze` (0 = voorstel), `opm`, `algemeen`). Lees terug, verwerk, dan inspreken (Roos, eleven_v4) → bouwen → frisse beeldreview → repo. Twijfels per film in `bron/twijfels.md`.
+
+## 31 okt 2026
+Film 2 en 3 staan online (gebouwd, frisse beeldreview verwerkt, status nog bekijken). Open: filmmedaillons, uitspraakwachtlijsten in bron/uitspraak.md, jaarplanner-dekking.json, Kamiels review. Vervolg van andere gebieden: `OVERDRACHT-ronde-31okt.md`.

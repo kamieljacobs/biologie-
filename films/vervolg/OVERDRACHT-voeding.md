@@ -73,3 +73,6 @@ Praktijk van de diëtist: ElevenLabs flow `cMT4epIEjMJi0sraRQzk`, generatie `s0e
 
 ## Kritische check herindeling (31 okt 2026)
 Opnieuw bekeken (`films/vervolg/PLANNING-milieu-tuin-voeding.md`, samen met Milieukunde en Tuin): Van akker tot verpakking → eiwittransitie (*Een burger zonder koe*), Eten als behandeling → diëtist in het ziekenhuis (ondervoeding, nierfalen; let op: vóór dialyse minder eiwit, tijdens dialyse juist meer), Waarom afvallen naar plek 2; voorstel 1 bleek al opgelost. Ligt bij Kamiel op het keuringsblad https://claude.ai/artifact/5upeA9QA6GVHgoqMV2zgrN (vd0–vd4, ook de vraag of de pauze voorbij is).
+
+## 31 okt 2026, ronde 2
+Scripts van de diëtist in het ziekenhuis en Een burger zonder koe zijn klaar en gekeurd; stand en volgende stappen in `OVERDRACHT-ronde-31okt.md`.
