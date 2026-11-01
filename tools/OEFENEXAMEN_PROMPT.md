@@ -1,6 +1,6 @@
 # Prompt: een oefenexamen (doorklik-examen) bouwen
 
-Versie 1 · 25 okt 2026 · leidend voor elk nieuw oefenexamen en voor aanpassingen aan de bestaande (`tools/examen-havo-2026-1.html`, `tools/examen-havo-2026-2.html`). Een wijziging aan de werkwijze gaat in dit bestand, in hetzelfde werk, met commit + push (beide Claude-accounts lezen hem hier).
+Versie 2 · 1 nov 2026 (v1: 25 okt 2026) · leidend voor elk nieuw oefenexamen en voor aanpassingen aan de bestaande (`tools/examen-havo-2026-1.html`, `tools/examen-havo-2026-2.html`). Een wijziging aan de werkwijze gaat in dit bestand, in hetzelfde werk, met commit + push (beide Claude-accounts lezen hem hier).
 
 ## Wat het is
 
@@ -14,7 +14,7 @@ Per vraag, van boven naar beneden:
 4. **Jouw antwoord op de examenvraag**: bovenaan **de examenvraag nog een keer** (klein wit vak met 'Examenvraag N' en de `.qtext`, automatisch door `open()`; Kamiel 25 okt 2026: niet terug hoeven scrollen), daaronder het antwoorden en nakijken precies volgens het correctievoorschrift.
 5. **Laat zien waarom**: korte uitleg en, waar het de redenering zichtbaar maakt, een klik-animatie die déze vraag stap voor stap oplost tot het antwoord van het correctievoorschrift.
 
-Verder: hulpstand / examenstand, schakelaar 'Vrij doorklikken' (anders pas door na nakijken), score per opgave en voor het hele examen met **het cijfer volgens de officiële omzettingstabel**, voortgang in localStorage `examen-<niveau><jj>-<tijdvak>` (bv. `examen-vwo26-1`).
+Verder: **vier hulpstanden** (Kamiel 1 nov 2026: 'een aantal standen waarin de leerling kan kiezen hoeveel hulp hij/zij wil'), gedeeld in `tools/examen-standen.js` en in elke tool gezet met `python3 scripts/oefenexamen/standen.py` (idempotent, houdt ook de `?v=` gelijk): **Stap voor stap** (uitleg van de stof staat al open, hulpvragen eerst), **Met hulpvragen** (de oude hulpstand), **Hulp als je vastzit** (de oude examenstand: meteen de examenvraag, hulpvragen en uitleg achter een knop) en **Echt examen** (geen hulpvragen, geen uitleg, geen 'Laat zien waarom', vrij doorklikken, examenklok van 3 uur met pauze). Gebruik voor 'Laat zien waarom' altijd `waaromBtn` (klasse `waarombtn`), anders verschijnt hij in 'Echt examen'. Ook: schakelaar 'Vrij doorklikken' (anders pas door na nakijken), score per opgave en voor het hele examen met **het cijfer volgens de officiële omzettingstabel**, voortgang in localStorage `examen-<niveau><jj>-<tijdvak>` (bv. `examen-vwo26-1`).
 
 ## Wat Kamiel aanlevert
 
@@ -36,9 +36,13 @@ De pdf's van het examen (`…-o.pdf`), het correctievoorschrift (`…-c.pdf`) en
 1. **Geraamte**: `python3 scripts/oefenexamen/geraamte.py <werkmap buiten de repo> <niveau> <jaar> <tijdvak> <N-term> <max-punten>`. Dat maakt `geraamte.html` uit de nieuwste tool (alle bouwstenen, navigatie, `FOTO`, cijfer, herhaling van de vraag, koppeling met de uitleg, zonder opgaven), plus `samenvoegen.py`, `test.py` en een lege `frag/`. Controleer de omzettingstabel van examenblad.nl tegen `CIJFER` (de formule 9·S/L + N met de grensregels geeft precies de officiële tabel).
 2. **Foto's** uit de pdf halen en in `tools/examen-img/…` zetten (zie Regels); noteer per foto bij welke opgave/vraag hij hoort.
 3. **Opgaven**: per opgave een helper (meer helpers tegelijk mag), elk met een fragment `frag/opg<N>.js`: eigen figuren en teksten met voorvoegsel `O<N>_`, `const CTX<N>=…`, per vraag `Q.push({id, pts, t:"kort onderwerp", build(q){…}})` en `OPG.push({nr, kort, titel, ids, ctx})`, plus `frag/opg<N>.md` met per vraag het antwoord volgens het CV en twijfels. Bouwstenen en voorbeelden: lees de vragen van `tools/examen-havo-2026-2.html` (zoek met grep op `Q.push({id:`), niet het hele bestand. Testen met `python3 <werkmap>/test.py <N>`.
-4. **Uitleg van de stof**: per opgave een blok in `tools/examen-stof.js` (zie de API bovenin dat bestand: `EXSTOF.zet(tool, [vragen], {titel, html, anim, films})` en `EXSTOF.waarom(tool, vraag, fn)` voor extra waarom-animaties). Daarna de `?v=` (md5, 8 tekens) in alle tools die het bestand laden bijwerken.
+4. **Uitleg van de stof**: sinds 1 nov 2026 per examen een eigen bestand `tools/examen-stof/<sleutel>.js` (in de werkmap `stof.js`; `samenvoegen.py` kopieert het en zet de `?v=`), geladen na de kern `tools/examen-stof.js`; de drie eerste examens staan nog in de kern. Per opgave een blok (zie de API bovenin dat bestand: `EXSTOF.zet(tool, [vragen], {titel, html, anim, films})` en `EXSTOF.waarom(tool, vraag, fn)` voor extra waarom-animaties). Wijzig je de kern, dan de `?v=` (md5, 8 tekens) in alle tools die hem laden bijwerken.
 5. **Controle** door frisse helpers die het werk niet maakten: (a) elke sleutel, deelscore en elk vinkje naast het correctievoorschrift; (b) vakinhoud en 'geeft het antwoord niet weg' in de uitleg; (c) nagetekende figuren naast de pdf. Herstel wat ze vinden.
 6. **Op de site**: `python3 <werkmap>/samenvoegen.py tools/examen-<niveau>-<jaar>-<tijdvak>.html`; kaart in `HOOFDSTUKKEN.examens.tools` in `index.html` (`href`, `naam`, `titel`, `opslag`, `punten`, `vragen`, `vraag`, `tekst`, `bij`); `python3 scripts/licentie_noot.py` en `python3 scripts/teller.py`; test in de browser (alle vragen open, geen fouten, telefoonbreedte zonder horizontaal scrollen, donker en licht); commit + push.
+
+## Veel examens tegelijk (1 nov 2026)
+
+Per examen één coördinerende helper met de brief in `scripts/oefenexamen/BRIEF.md` (werkmap `/home/claude/hw/<sleutel>/`, schrijft alleen zijn eigen tool, beelden en uitleg-bestand, geen commit). De hoofdchat zet daarna de kaarten in `index.html`, test en commit. Zo lopen 4 examens parallel zonder botsingen.
 
 ## Later aanpassen
 
