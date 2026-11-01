@@ -598,6 +598,10 @@ svg.kunst{transform-origin:50% 50%;transform-box:fill-box}
 /* telefoon: lege hoofdfiguur (thema met gravureplaat) geen lege band boven de titel */
 @media (max-width:700px){.kop .groot.held:has(svg[aria-label=""]){display:none}}
 @media (max-width:430px){.bar .merk.kort-merk .merk-tekst{display:none}}
+.exfilter{display:flex;gap:6px;margin:12px 0 0}
+.exfilter button{min-height:34px;padding:0 14px;border-radius:999px;border:1px solid var(--line2);background:none;color:var(--text2);font:inherit;font-weight:600;cursor:pointer}
+.exfilter button[aria-pressed="true"]{background:var(--goud);border-color:var(--goud);color:var(--goud-ink)}
+#exoef[data-niv="havo"] .exkaart[data-niv="vwo"],#exoef[data-niv="vwo"] .exkaart[data-niv="havo"]{display:none}
 </style>
 </head>
 <body>
@@ -1772,7 +1776,7 @@ const HOOFDSTUKKEN = {
     "punten": 71,
     "vragen": 43,
     "vraag": "Haal jij dit examen? Denk eerst na, dan antwoorden.",
-    "tekst": "Maak het hele examen (43 vragen, 71 punten) stap voor stap: eerst hulpvragen, dan de echte examenvraag, nakijken met het correctievoorschrift en uitleg met animaties · hulpstand en examenstand",
+    "tekst": "Maak het hele examen (43 vragen, 71 punten) stap voor stap: eerst hulpvragen, dan de echte examenvraag, nakijken met het correctievoorschrift, uitleg van de stof en animaties · vier hulpstanden",
     "bij": "havo · centraal examen 2026 tijdvak 1"
    },
    {
@@ -1783,7 +1787,7 @@ const HOOFDSTUKKEN = {
     "punten": 74,
     "vragen": 46,
     "vraag": "Haal jij dit examen? Denk eerst na, dan antwoorden.",
-    "tekst": "Maak het hele examen (46 vragen, 74 punten) stap voor stap: eerst hulpvragen, dan de echte examenvraag, nakijken met het correctievoorschrift en uitleg met animaties · hulpstand en examenstand",
+    "tekst": "Maak het hele examen (46 vragen, 74 punten) stap voor stap: eerst hulpvragen, dan de echte examenvraag, nakijken met het correctievoorschrift, uitleg van de stof en animaties · vier hulpstanden",
     "bij": "havo · centraal examen 2026 tijdvak 2"
    },
    {
@@ -1794,7 +1798,7 @@ const HOOFDSTUKKEN = {
     "punten": 65,
     "vragen": 41,
     "vraag": "Haal jij dit examen? Denk eerst na, dan antwoorden.",
-    "tekst": "Maak het hele examen (41 vragen, 65 punten) stap voor stap: eerst hulpvragen, dan de echte examenvraag, nakijken met het correctievoorschrift, uitleg van de stof en animaties · hulpstand en examenstand",
+    "tekst": "Maak het hele examen (41 vragen, 65 punten) stap voor stap: eerst hulpvragen, dan de echte examenvraag, nakijken met het correctievoorschrift, uitleg van de stof en animaties · vier hulpstanden",
     "bij": "vwo · centraal examen 2026 tijdvak 1"
    }
   ],
@@ -3710,16 +3714,23 @@ function hoofdstuk(id,kd){
 }
 
 /* thema Examen (Kamiel 23 okt 2026): twee kolommen naast elkaar, links de besprekingen (films), rechts de oefenexamens (doorklik-tools) */
+window.exFilter=function(k){try{localStorage.setItem('examniveau',k)}catch(e){}const l=document.getElementById('exoef');if(l)l.dataset.niv=k;document.querySelectorAll('.exfilter button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k===k));}
 function examKolommen(h,id){
   const vink='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>';
   const film=f=>{const g=gezien[f.href];return `<a class="exkaart${g?' is-gezien':''}" href="${BASE+esc(f.href)}"><span class="exbeeld">${filmKunst(f.href,id)}</span><span class="extekst"><span class="mono exbij">${esc(bijLabel(f.bij)||f.bij||'')}</span><b>${esc(f.titel)}</b><span class="exvraag">${esc(f.vraag||'')}</span><span class="mono exmeta">${f.duur?f.duur+' min':''}${g?` · <span class="exok">${vink} gezien</span>`:''}</span></span><span class="knop exknop">${play} Bekijk</span></a>`};
   const oef=t=>{let st=null;try{st=JSON.parse(localStorage.getItem(t.opslag)||'null')}catch(e){}
     const sc=st&&st.scores?Object.values(st.scores):[];const gemaakt=sc.length,pt=sc.reduce((a,b)=>a+(+b||0),0);
     const voort=gemaakt?`<span class="exvoort"><span class="balk"><i style="width:${Math.round(100*gemaakt/(t.vragen||1))}%"></i></span><span class="mono">${gemaakt} van ${t.vragen} vragen · ${pt} van ${t.punten} punten</span></span>`:`<span class="mono exmeta">${t.vragen} vragen · ${t.punten} punten</span>`;
-    return `<a class="exkaart" href="${BASE+esc(t.href)}"><span class="exbeeld">${TICOON[t.naam]?`<img class="med" src="img/kunst/${TICOON[t.naam].replace('../','')}.webp?v=4" alt="" width="64" height="64" decoding="async">`:medaille('examens',64)}</span><span class="extekst"><span class="mono exbij">${esc(bijLabel(t.bij)||t.bij||'')}</span><b>${esc(t.titel||t.naam)}</b><span class="exvraag">${esc(t.vraag||t.tekst.split(' · ')[0])}</span>${voort}</span><span class="knop exknop">${gemaakt?'Verder':'Maak het examen'}</span></a>`};
-  const films=h.films||[], tools=(h.tools||[]).filter(t=>t.href);
+    const niv=(t.href.match(/examen-(havo|vwo)-/)||[])[1]||'';
+    return `<a class="exkaart" data-niv="${niv}" href="${BASE+esc(t.href)}"><span class="exbeeld">${TICOON[t.naam]?`<img class="med" src="img/kunst/${TICOON[t.naam].replace('../','')}.webp?v=4" alt="" width="64" height="64" decoding="async">`:medaille('examens',64)}</span><span class="extekst"><span class="mono exbij">${esc(bijLabel(t.bij)||t.bij||'')}</span><b>${esc(t.titel||t.naam)}</b><span class="exvraag">${esc(t.vraag||t.tekst.split(' · ')[0])}</span>${voort}</span><span class="knop exknop">${gemaakt?'Verder':'Maak het examen'}</span></a>`};
+  const films=h.films||[], jt=t=>{const m=t.href.match(/-(\d{4})-(\d)\./);return m?+m[1]*10+ +m[2]:0};
+  const tools=(h.tools||[]).filter(t=>t.href).sort((x,y)=>jt(y)-jt(x));
+  /* filter havo/vwo bij de oefenexamens (1 nov 2026: veel examens), keuze in localStorage 'examniveau' */
+  let kies='';try{kies=localStorage.getItem('examniveau')||''}catch(e){}
+  const nivs=['havo','vwo'].filter(n=>tools.some(t=>t.href.includes('examen-'+n+'-')));
+  const filt=nivs.length>1?`<span class="exfilter" role="group" aria-label="Niveau">${[['','Alle'],['havo','havo'],['vwo','vwo']].map(([k,l])=>`<button type="button" data-k="${k}" aria-pressed="${kies===k}" onclick="exFilter('${k}')">${l}</button>`).join('')}</span>`:'';
   return `<p class="extip"><b>Tip:</b> maak eerst zelf een oefenexamen en bekijk daarna pas een bespreking. Dan weet je al waar je vastliep, en haal je veel meer uit de uitleg.</p><div class="exkol">
-    <section class="lijst exk" id="${id}-tools"><h2>Oefenexamens</h2><p class="exuitleg">Maak een heel examen zelf, stap voor stap: eerst hulpvragen, dan de echte examenvraag, nakijken en uitleg waarom.</p><div class="exlijst">${tools.map(oef).join('')||'<p class="exleeg">Er komt steeds een oefenexamen bij.</p>'}</div></section>
+    <section class="lijst exk" id="${id}-tools"><h2>Oefenexamens</h2><p class="exuitleg">Maak een heel examen zelf, stap voor stap: eerst hulpvragen, dan de echte examenvraag, nakijken en uitleg waarom.${filt}</p><div class="exlijst" id="exoef" data-niv="${kies}">${tools.map(oef).join('')||'<p class="exleeg">Er komt steeds een oefenexamen bij.</p>'}</div></section>
     <section class="lijst exk" id="${id}-films"><h2>Besprekingen</h2><p class="exuitleg">Kijk mee hoe een heel examen wordt besproken: per vraag de stof, de aanpak en het antwoord volgens het correctievoorschrift.</p><div class="exlijst">${films.map(film).join('')||'<p class="exleeg">Er komt steeds een bespreking bij.</p>'}</div></section>
   </div>`;
 }
