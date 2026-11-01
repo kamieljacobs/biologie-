@@ -27,3 +27,24 @@ Alles volgens voorstel, behalve **a1: geen personagenamen in de stem, volgens pr
 - Uitspraakwachtlijst (in `bron/uitspraak.md`): B-twaalf, ee-uu (EU), Dee-dee-tee/Dee-dee-ee, Pee-ef-oo-aa, Pee-fos, Er-ie-vee-em: Kamiel luistert in de reviewstand.
 
 **Nog open:** filmmedaillons (volgend vel), `jaarplanner-dekking.json` (Tuin 1: havo 4 § 2.1, Nectar 20.1/20.5; Burger: havo 4 § 7.7; als laatste stap na `git pull`), Kamiels review van de vier films, keuring van de nieuwe tekeningen (planten Tuin 1; zeearend, poelslak, voorn, snoek PFAS), kweekvleesstand nagaan (Burger), aeresmbo.nl nog openen (Tuin). Daarna de twee films zonder script: Tuin *Natuur in de stad* en Milieukunde *Van wieg tot graf*. Werkmap van deze ronde (`/home/claude/hw`, met `inrepo.sh`, `register.py`, `scripts_na.sh`, briefs) bestaat alleen in deze sessie.
+
+## Ronde 3 (31 okt – 1 nov 2026): de laatste drie scripts, wacht op keuring
+Scripts v2, blind beoordeeld (fable), feitenreview verwerkt en met bronnenlogboek. Twijfels per film staan in `bron/twijfels.md`, met bovenaan een keuzetabel.
+| Film | Bronmap | v2 | Bronnen | B15 |
+|---|---|---|---|---|
+| Forensisch 4 · Stille getuigen | `forensisch-4-stille-getuigen/bron/` | 899 w, 7 vragen | 26 ✓ · 10 ≈ | nipt → combinatie wint (52–47–46) |
+| Tuin 2 · Natuur in de stad | `tuin-2-natuur-in-de-stad/bron/` | 881 w, 6 vragen | 31 ✓ · 6 ≈ | B (camera) wint duidelijk (50–44–43) |
+| Milieukunde 2 · Van wieg tot graf | `milieukunde-2-van-wieg-tot-graf/bron/` | 898 w, 6 vragen | 17 ✓ · 16 ≈ | nipt → combinatie wint (55–49–44) |
+
+**Keuringsblad ronde 3:** https://claude.ai/artifact/17tUHUUULCEUXuXNNjF62s (db-collectie `keuring`, ids `r3-a*`, `fo4-*`, `tu2-*`, `mk2-*`; 35 punten). Het blad is per account: lees het met ArtifactData vanuit het account dat het publiceerde (ghallie880).
+
+**Na de keuring (nieuwe chat):** keuzes verwerken in script_v2 en `vervolg.html`. Daarna komen, voor zover goedgekeurd:
+- het castvel met de palynoloog;
+- de decors: achtertuin, plas en schoolplein met een avond-edit;
+- een testvel met de nieuwe tekeningen.
+Dan per film inspreken (Roos, hooguit 2 takes tegelijk), bouwen volgens `BOUWEN.md`, een frisse beeldreview en de repo.
+
+Nog na te gaan vóór de opname:
+- aeresmbo.nl, of je in Velp hovenier kunt leren (Tuin 2, t5);
+- het Spaanse zwerfafvalartikel (Milieukunde 2, t7);
+- eventueel de kiezelwierentest laten nalezen door een patholoog (Forensisch 4, t11).
