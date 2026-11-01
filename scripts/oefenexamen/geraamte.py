@@ -23,6 +23,8 @@ s=re.sub(r'const NORM="[^"]*";',f'const NORM="N-term {str(N).replace(".",",")}";
 s=re.sub(r'/\* omzettingstabel normering [^*]*\*/',f'/* omzettingstabel normering {niv} {jaar} tijdvak {tv}: N-term {N}, {L} punten (examenblad.nl); index = score */',s)
 s=s.replace('const TOOL="havo26-2";',f'const TOOL="{key}";').replace('"examen-havo26-2"',f'"examen-{key}"')
 s=s.replace('examen-img/havo-2026-2/',f'examen-img/{niv}-{jaar}-{tv}/')
+# eigen uitleg-bestand per examen (sinds 1 nov 2026): tools/examen-stof/<key>.js, geladen na de kern examen-stof.js
+s=re.sub(r'(<script src="examen-stof\.js\?v=[0-9a-f]*"></script>)',r'\1\n<script src="examen-stof/'+key+'.js?v=0"></script>',s,count=1)
 s=s.replace('havo 2026-II',f'{niv} {jaar}-{rom}').replace('Examen havo 2026 · tijdvak 2',f'Examen {niv} {jaar} · tijdvak {tv}').replace('havo 2026 tijdvak 2',f'{niv} {jaar} tijdvak {tv}')
 os.makedirs(os.path.join(wm,'frag'),exist_ok=True)
 open(os.path.join(wm,'geraamte.html'),'w').write(s)

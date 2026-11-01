@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="huisstijl.css">
 <script src="huisstijl.js"></script>
 <script src="examen-stof.js?v=b496a9e6"></script>
+<script src="examen-standen.js?v=558bd73d"></script>
 <style>
 /* Examen havo 2026-II · doorklik-examen. Kleuren en letters uit huisstijl.css; hier alleen de extra's. */
 :root{--rest:#2A3B57;--area:#5B6B84}
@@ -206,10 +207,7 @@ body.examen .tonext{display:none!important}
     <div class="sleutel"><span><i class="sw papier-sw"></i>Wit vak = de echte examenvraag</span><span><i class="sw donker-sw"></i>Donker vak = hulpvragen en uitleg van deze tool</span></div>
     <p>Maak het examen stap voor stap. Bij elke vraag denk je eerst na, dan antwoord je, en daarna zie je waarom het antwoord klopt.</p>
     <div class="kopbalk">
-      <div class="seg" role="group" aria-label="Stand">
-        <button id="m-hulp" aria-pressed="true">Hulpstand</button>
-        <button id="m-examen" aria-pressed="false">Examenstand</button>
-      </div>
+      <div class="seg" id="standen" role="group" aria-label="Hoeveel hulp wil je?"></div>
       <button id="vrij" class="toggle" aria-pressed="false"><span class="knopje"></span>Vrij doorklikken</button>
       <span class="mono muted" id="sub"></span>
     </div>
@@ -265,7 +263,7 @@ function mc(container,{opts,right,pts,qid,graphs:isGraph,onChecked}){
   container.append(wrap,fb);
 }
 function waaromBtn(container,build){
-  const b=el("button",{class:"ghost"},"Laat zien waarom ›");const box=el("div",{hidden:""});
+  const b=el("button",{class:"ghost waarombtn"},"Laat zien waarom ›");const box=el("div",{hidden:""});
   b.onclick=()=>{b.remove();box.hidden=false;build(box);if(window.EXSTOF)EXSTOF.extraWaarom(TOOL,cur,box);};
   container.append(b,box);
 }
@@ -1859,13 +1857,10 @@ function setOpg(n){curOpg=n;store.opg=n;save();const o=opg();
   $("#eb").textContent=`Examen havo 2026 · tijdvak 2 · opgave ${o.nr}`;$("#h1").textContent=o.titel;
   $("#sub").textContent=`vraag ${o.ids[0]} t/m ${o.ids[o.ids.length-1]} · ${pts(o)} punten`;
   $("#ctx").innerHTML=o.ctx;renderOpgs();open(reach());}
-function setMode(m){store.mode=m;save();document.body.classList.toggle("hulp",m==="hulp");document.body.classList.toggle("examen",m==="examen");
-  $("#m-hulp").setAttribute("aria-pressed",m==="hulp");$("#m-examen").setAttribute("aria-pressed",m==="examen");}
 function setVrij(v){store.vrij=v;save();$("#vrij").setAttribute("aria-pressed",v?"true":"false");
   for(const k in nextBtns)nextBtns[k].hidden=!v&&store.scores[k]===undefined;renderTabs();}
 $("#vrij").onclick=()=>setVrij(!store.vrij);setVrij(!!store.vrij);
-$("#m-hulp").onclick=()=>setMode("hulp");$("#m-examen").onclick=()=>setMode("examen");
-setMode(store.mode==="examen"?"examen":"hulp");
+EXSTAND.init({store,save,setVrij});
 setOpg(curOpg);
 })();
 
