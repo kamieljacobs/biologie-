@@ -38,6 +38,8 @@ Scripts v2, blind beoordeeld (fable), feitenreview verwerkt en met bronnenlogboe
 
 **Keuringsblad ronde 3:** https://claude.ai/artifact/17tUHUUULCEUXuXNNjF62s (db-collectie `keuring`, ids `r3-a*`, `fo4-*`, `tu2-*`, `mk2-*`; 35 punten). Het blad is per account: lees het met ArtifactData vanuit het account dat het publiceerde (ghallie880).
 
+**Keuring Kamiel ronde 3 (1 nov 2026, 19:31–19:33):** alle 35 punten akkoord met voorstel, geen opmerkingen, niets als 'geldt voor alle films' aangemerkt. Dus: H4 en stuifmeel eerst bij Forensisch 4 (planobject in vervolg.html aanpassen zoals t2), Kim als forensisch patholoog (NFI), palynoloog via castvel; Tuin 2 zonder mbo-plaats tot Velp nagegaan is; Milieukunde 2 cold open in het kantoor uit mk1, 2016-zin geschrapt; drie decors + avond-edit; testvel eerst.
+
 **Na de keuring (nieuwe chat):** keuzes verwerken in script_v2 en `vervolg.html`. Daarna komen, voor zover goedgekeurd:
 - het castvel met de palynoloog;
 - de decors: achtertuin, plas en schoolplein met een avond-edit;
