@@ -19,6 +19,7 @@ Je bouwt een compleet oefenexamen voor de site van Kamiel (docent biologie). Too
 4. **Raak geen gedeelde bestanden aan**: niet `index.html`, `CLAUDE.md`, de prompt, `examen-stof.js`, `examen-standen.js`, het geraamte-script of de andere tools. Je schrijft alleen: je werkmap, `tools/examen-<niveau>-<jaar>-<tijdvak>.html`, `tools/examen-img/<niveau>-<jaar>-<tijdvak>/` en `tools/examen-stof/<sleutel>.js`. **Geen git commit, geen push** (de coördinator doet dat). Er werken tegelijk andere helpers aan andere examens in dezelfde repo.
 
 ## Werkwijze
+- Grafieken, schema's, tabellen en stambomen altijd natekenen (inline SVG of `table.data`), nooit als pdf-uitsnede; alleen foto's en kaarten als afbeelding. Backups van fragmenten buiten `frag/` zetten (`samenvoegen.py` pakt elk `opg*.js`).
 - Werk zoals de prompt zegt: geraamte → foto's → per opgave een fragment `frag/opg<N>.js` + `frag/opg<N>.md` → `stof.js` → controle → samenvoegen.
 - Heb je een Agent-tool: zet per opgave een helper in (parallel), daarna minstens één frisse controleur die elke sleutel, deelscore en elk vinkje naast het correctievoorschrift legt en de uitleg op 'geeft het antwoord niet weg' controleert. Geef helpers een korte brief met verwijzingen naar deze brief en de prompt. Heb je geen Agent-tool, doe het zelf, opgave voor opgave, en controleer daarna zelf elke vraag opnieuw naast het correctievoorschrift.
 - Puntentotaal van de tool = maximum van het examen; aantal vragen = examen.

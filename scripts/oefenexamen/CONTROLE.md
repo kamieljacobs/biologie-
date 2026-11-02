@@ -8,7 +8,7 @@ Controleer per vraag:
 1. **Nakijken = correctievoorschrift**: punten, goede optie bij meerkeuze, juist/onjuist-sleutels en deelscores, rekenmarges, elk vinkje bij open vragen (trouw aan de beoordelingspunten, geen punt te veel of te weinig), opmerkingen in het CV (bv. 'alleen als…', 'per fout 1 punt aftrekken').
 2. **Examentekst** letterlijk en volledig (geen ontbrekende informatie die nodig is om de vraag te beantwoorden), afbeeldingsnummers kloppen.
 3. **Uitleg van de stof** (`stof.js`) verraadt het antwoord niet en klopt vakinhoudelijk; hulpvragen en 'Laat zien waarom' komen uit op het antwoord van het CV.
-4. Nagetekende grafieken/tabellen: aflezen geeft hetzelfde als in de pdf (steekproef bij elke figuur).
+4. Staat er een grafiek, schema, tabel of stamboom als pdf-uitsnede in de tool, teken hem dan na. Nagetekende grafieken/tabellen: aflezen geeft hetzelfde als in de pdf (steekproef bij elke figuur).
 
 Herstel wat fout is direct in de fragmenten/`stof.js`, draai `python3 <werkmap>/test.py` (geen consolefouten) en voeg samen: `cd /home/claude/biologie- && python3 <werkmap>/samenvoegen.py tools/examen-<niveau>-<jaar>-<tijdvak>.html`. Raak geen andere bestanden aan, geen git commit.
 

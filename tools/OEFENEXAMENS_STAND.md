@@ -24,12 +24,16 @@ Bijgewerkt: 2 nov 2026. Werkwijze: `tools/OEFENEXAMEN_PROMPT.md` (v2). Briefs vo
 | havo 2022-II | 44 | 74 | 1,4 |
 | vwo 2022-I | 39 | 67 | 1,0 |
 | vwo 2022-II | 43 | 71 | 1,3 (aanvulling CV vraag 22 verwerkt) |
+| havo 2023-I | 48 | 70 | 1,0 |
+| havo 2023-II | 46 | 70 | 1,0 |
+| vwo 2023-I | 39 | 64 | 1,0 |
+| vwo 2023-II | 39 | 70 | 1,3 |
 
 Kijk in `HOOFDSTUKKEN.examens.tools` in index.html welke er al staan.
 
 ## Nog te doen
 
-havo 2024-II, vwo 2024-II, 2023-I/II, 2019-I/II, 2018-I/II (vwo 2018-II heeft al een bespreekfilm, mag ook als oefenexamen). Kamiel 2 nov 2026: per jaar (of per paar examens) een nieuwe chat.
+havo 2024-II, vwo 2024-II, 2019-I/II, 2018-I/II (vwo 2018-II heeft al een bespreekfilm, mag ook als oefenexamen). Kamiel 2 nov 2026: per jaar (of per paar examens) een nieuwe chat.
 
 ## Prompt voor een nieuwe chat
 
@@ -43,4 +47,6 @@ havo 2024-II, vwo 2024-II, 2023-I/II, 2019-I/II, 2018-I/II (vwo 2018-II heeft al
 4. Daarna in de hoofdchat: `python3 scripts/oefenexamen/kaart.py tools/examen-<niveau>-<jaar>-<tv>.html`, `scripts/licentie_noot.py` en `scripts/teller.py` (wijzigingen in `bibliotheek/` en `films/` niet meecommitten: `git checkout -- bibliotheek films`), commit + push per examen.
 5. Onaf werk tussendoor veiligstellen op een eigen tak per chat, `wip-oefenexamens-<jaar>` (niet op main, en niet op de tak van een andere chat: die met `-f` overschrijven wist zijn werk; 2 nov 2026 gebeurd en hersteld), want de container kan herstarten; de werkmap `/home/claude/hw/` overleefde een herstart wel.
 6. Werk dit bestand bij.
+
+Lessen uit 2023 (2 nov 2026): twee bouwers zetten grafieken en schema's als pdf-uitsnede in de tool; de controleur moest ze natekenen. Vraag de controleur daar altijd naar. Een backup `frag/opg<N>.bak.js` breekt `samenvoegen.py` (pakt elk `opg*.js`): backups buiten `frag/`.
 7. Lessen 2021 (2 nov 2026): helpers delen de scratchpad en overschreven elkaars tussenbestanden (een helper dacht daardoor dat een pdf van het verkeerde tijdvak was). Zeg in elke brief: tussenbestanden alleen in de eigen werkmap. `vragen.md` in toetsen-biologie kan antwoordmodellen bij de verkeerde vraag hebben (havo 2021-I rond 5–6 en 35–36): nakijken altijd op de CV-pdf. Tussendoor veiligstellen zonder de werkboom te raken kan met een eigen index (`GIT_INDEX_FILE`, `read-tree origin/main`, `add`, `commit-tree`, `push … :refs/heads/wip-oefenexamens`).
