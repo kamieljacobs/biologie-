@@ -13,12 +13,15 @@ Bijgewerkt: 2 nov 2026. Werkwijze: `tools/OEFENEXAMEN_PROMPT.md` (v2). Briefs vo
 | havo 2025-I | 48 | 69 | 1,0 |
 | vwo 2025-I | 40 | 67 | 1,3 |
 | vwo 2025-II | 42 | 66 | 1,3 |
+| havo 2025-II | 44 | 70 | 1,8 |
+| havo 2024-I | 45 | 71 | 1,2 |
+| vwo 2024-I | 42 | 68 | 1,5 (aanvulling CV vraag 32 verwerkt) |
 
-In controle (2 nov 2026): havo 2025-II (N 1,8), vwo 2024-I (N 1,5, aanvulling vraag 32), havo 2024-I (N 1,2). Kijk in `HOOFDSTUKKEN.examens.tools` in index.html welke er al staan.
+Kijk in `HOOFDSTUKKEN.examens.tools` in index.html welke er al staan.
 
 ## Nog te doen
 
-havo en vwo 2024-II, 2023-I/II, 2022-I/II, 2021-I/II, 2019-I/II, 2018-I/II (vwo 2018-II heeft al een bespreekfilm, mag ook als oefenexamen). Kamiel 2 nov 2026: per jaar (of per paar examens) een nieuwe chat.
+havo 2024-II, vwo 2024-II, 2023-I/II, 2022-I/II, 2021-I/II, 2019-I/II, 2018-I/II (vwo 2018-II heeft al een bespreekfilm, mag ook als oefenexamen). Kamiel 2 nov 2026: per jaar (of per paar examens) een nieuwe chat.
 
 ## Prompt voor een nieuwe chat
 
