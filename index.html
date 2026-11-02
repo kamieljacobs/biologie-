@@ -375,6 +375,8 @@ body.op-thema .kop .wrap{grid-template-columns:minmax(0,1fr) 380px}
 .exvoort .balk{height:6px;border-radius:999px;background:var(--line2);overflow:hidden;max-width:240px}
 .exvoort .balk i{display:block;height:100%;background:var(--goud)}
 .exvoort .mono{color:var(--text3);font-size:12px}
+.bijthema{margin:22px 0 0;padding:12px 16px;border-left:3px solid var(--goud);border-radius:0 10px 10px 0;background:var(--surface);color:var(--text2);font-size:16px}
+.bijthema a{color:var(--goud-text);font-weight:600}
 .tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;padding-top:14px}
 .tool{display:flex;flex-direction:column;border:1px solid var(--line2);border-radius:16px;background:var(--surface);overflow:hidden;transition:border-color .18s,transform .18s}
 a.tool:hover{border-color:var(--text3);transform:translateY(-2px)}
@@ -601,7 +603,23 @@ svg.kunst{transform-origin:50% 50%;transform-box:fill-box}
 .exfilter{display:flex;gap:6px;margin:12px 0 0}
 .exfilter button{min-height:34px;padding:0 14px;border-radius:999px;border:1px solid var(--line2);background:none;color:var(--text2);font:inherit;font-weight:600;cursor:pointer}
 .exfilter button[aria-pressed="true"]{background:var(--goud);border-color:var(--goud);color:var(--goud-ink)}
-#exoef[data-niv="havo"] .exkaart[data-niv="vwo"],#exoef[data-niv="vwo"] .exkaart[data-niv="havo"]{display:none}
+#exoef[data-niv="havo"] .exrij[data-niv="vwo"],#exoef[data-niv="vwo"] .exrij[data-niv="havo"]{display:none}
+.exjaar{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;padding:14px 0;border-top:1px solid var(--line2)}
+.exjaar:first-child{border-top:0;padding-top:4px}
+.exjr{margin:0;font:700 24px/1 var(--titel);color:var(--goud-text);padding-top:10px}
+.exrijen{display:flex;flex-direction:column;gap:8px;min-width:0}
+.exrij{display:grid;grid-template-columns:44px repeat(2,minmax(0,1fr));gap:8px;align-items:stretch}
+.exniv{align-self:center;color:var(--text3);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.extegel{display:flex;flex-direction:column;gap:3px;min-height:76px;padding:10px 12px;border:1px solid var(--line2);border-radius:12px;background:var(--surface);color:var(--text);text-decoration:none;transition:border-color .18s,transform .18s}
+a.extegel:hover{border-color:var(--goud);transform:translateY(-1px)}
+.extegel.leeg{border-style:dashed;background:none;color:var(--text3)}
+.extegel.bezig{border-color:color-mix(in srgb,var(--goud) 45%,var(--line2))}
+.extv{font-size:12px;font-weight:700;display:inline-flex;align-items:center;gap:6px}
+.extegel .exmeta{margin:0}
+.extegel .balk{height:5px;border-radius:999px;background:var(--line2);overflow:hidden}
+.extegel .balk i{display:block;height:100%;background:var(--goud)}
+.exga{margin-top:auto;font-size:14px;font-weight:700;color:var(--goud-text)}
+@media (max-width:420px){.exjaar{grid-template-columns:1fr;gap:6px}.exjr{padding-top:0;font-size:20px}}
 </style>
 </head>
 <body>
@@ -3628,7 +3646,9 @@ let vervolgFilms=[];
 const aantalFilms=()=>new Set([...alleFilms,...vervolgFilms].map(f=>f.href)).size;
 const nFilms=(tpl='#')=>`<span class="n-films" data-tpl="${tpl}">${tpl.replace('#',aantalFilms())}</span>`;
 fetch('films/vervolg/films.json').then(r=>r.json()).then(vj=>{vervolgFilms=Array.isArray(vj)?vj:[];document.querySelectorAll('.n-films').forEach(e=>e.textContent=(e.dataset.tpl||'#').replace('#',aantalFilms()));document.querySelectorAll('.n-vervolg').forEach(e=>e.textContent=aantalFilms()-alleFilms.length)}).catch(()=>{});
-const alleTools=[];{const z=new Set();for(const h of Object.values(HOOFDSTUKKEN))for(const t of h.tools){if(!z.has(t.naam)){z.add(t.naam);alleTools.push(t)}}}
+/* Kamiel 2 nov 2026: 'Alle tools' alleen algemene tools; oefenexamens staan alleen bij thema Examen, oefentoetsen en lestools alleen bij hun eigen thema */
+const THEMATOOL=href=>/tools\/(examen-|toets-|docent\/)/.test(href||'');
+const alleTools=[];{const z=new Set();for(const h of Object.values(HOOFDSTUKKEN))for(const t of h.tools){if(!z.has(t.naam)&&!THEMATOOL(t.href)){z.add(t.naam);alleTools.push(t)}}}
 const hoofdstukVan=href=>(href||'').replace(/^#/,'').split('-')[0];
 const bijLabel=s=>String(s||'').replace(/^Film\s*·\s*/,'').replace(/\s*·\s*\d+([,½]\d*)?\s*min(uut|uten)?\b/g,'').replace(/\s*·\s*\d+:\d+\b/g,'');
 const ATLAS=new Set(['cellen','voortplanting','erfelijkheid','evolutie','regeling','ecologie','stofwisseling','dna','voeding','transport','gaswisseling','afweer','milieu']);
@@ -3952,19 +3972,24 @@ window.exFilter=function(k){try{localStorage.setItem('examniveau',k)}catch(e){}c
 function examKolommen(h,id){
   const vink='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>';
   const film=f=>{const g=gezien[f.href];return `<a class="exkaart${g?' is-gezien':''}" href="${BASE+esc(f.href)}"><span class="exbeeld">${filmKunst(f.href,id)}</span><span class="extekst"><span class="mono exbij">${esc(bijLabel(f.bij)||f.bij||'')}</span><b>${esc(f.titel)}</b><span class="exvraag">${esc(f.vraag||'')}</span><span class="mono exmeta">${f.duur?f.duur+' min':''}${g?` · <span class="exok">${vink} gezien</span>`:''}</span></span><span class="knop exknop">${play} Bekijk</span></a>`};
-  const oef=t=>{let st=null;try{st=JSON.parse(localStorage.getItem(t.opslag)||'null')}catch(e){}
-    const sc=st&&st.scores?Object.values(st.scores):[];const gemaakt=sc.length,pt=sc.reduce((a,b)=>a+(+b||0),0);
-    const voort=gemaakt?`<span class="exvoort"><span class="balk"><i style="width:${Math.round(100*gemaakt/(t.vragen||1))}%"></i></span><span class="mono">${gemaakt} van ${t.vragen} vragen · ${pt} van ${t.punten} punten</span></span>`:`<span class="mono exmeta">${t.vragen} vragen · ${t.punten} punten</span>`;
-    const niv=(t.href.match(/examen-(havo|vwo)-/)||[])[1]||'';
-    return `<a class="exkaart" data-niv="${niv}" href="${BASE+esc(t.href)}"><span class="exbeeld">${TICOON[t.naam]?`<img class="med" src="img/kunst/${TICOON[t.naam].replace('../','')}.webp?v=4" alt="" width="64" height="64" decoding="async">`:medaille('examens',64)}</span><span class="extekst"><span class="mono exbij">${esc(bijLabel(t.bij)||t.bij||'')}</span><b>${esc(t.titel||t.naam)}</b><span class="exvraag">${esc(t.vraag||t.tekst.split(' · ')[0])}</span>${voort}</span><span class="knop exknop">${gemaakt?'Verder':'Maak het examen'}</span></a>`};
-  const films=h.films||[], jt=t=>{const m=t.href.match(/-(\d{4})-(\d)\./);return m?+m[1]*10+ +m[2]:0};
-  const tools=(h.tools||[]).filter(t=>t.href).sort((x,y)=>jt(y)-jt(x));
+  const films=h.films||[];
+  const tools=(h.tools||[]).filter(t=>t.href&&/examen-(havo|vwo)-\d{4}-\d\./.test(t.href));
+  /* Kamiel 2 nov 2026: geen lange lijst meer, maar per jaar een blok met havo en vwo naast elkaar en tijdvak I/II als tegels */
+  const stand=t=>{let st=null;try{st=JSON.parse(localStorage.getItem(t.opslag)||'null')}catch(e){}const sc=st&&st.scores?Object.values(st.scores):[];return {gemaakt:sc.length,pt:sc.reduce((a,b)=>a+(+b||0),0)}};
+  const tegel=(t,niv,tv)=>{
+    if(!t) return `<span class="extegel leeg" data-niv="${niv}"><span class="mono">Tijdvak ${tv}</span><span class="exmeta">volgt</span></span>`;
+    const {gemaakt,pt}=stand(t), klaar=gemaakt&&gemaakt>=t.vragen, pct=Math.round(100*gemaakt/(t.vragen||1));
+    return `<a class="extegel${gemaakt?' bezig':''}${klaar?' klaar':''}" data-niv="${niv}" href="${BASE+esc(t.href)}" aria-label="Oefenexamen ${niv} ${t.href.match(/-(\d{4})-/)[1]} tijdvak ${tv}${gemaakt?`, ${gemaakt} van ${t.vragen} vragen gemaakt`:''}"><span class="mono extv">Tijdvak ${tv}${klaar?` <span class="exok">${vink}</span>`:''}</span><span class="exmeta">${gemaakt?`${pt} van ${t.punten} punten`:`${t.vragen} vragen · ${t.punten} p`}</span>${gemaakt?`<span class="balk"><i style="width:${pct}%"></i></span>`:''}<span class="exga">${klaar?'Bekijk':gemaakt?'Verder':'Maak'} →</span></a>`;
+  };
+  const zoek=(niv,jr,tv)=>tools.find(t=>t.href.includes(`examen-${niv}-${jr}-${tv}.`));
+  const jaren=[...new Set(tools.map(t=>+t.href.match(/-(\d{4})-\d\./)[1]))].sort((x,y)=>y-x);
+  const nivs=['havo','vwo'].filter(n=>tools.some(t=>t.href.includes('examen-'+n+'-')));
+  const jaarblok=jr=>`<div class="exjaar"><h3 class="exjr">${jr}</h3><div class="exrijen">${nivs.map(n=>`<div class="exrij" data-niv="${n}"><span class="mono exniv">${n}</span>${[1,2].map(tv=>tegel(zoek(n,jr,tv),n,tv===1?'I':'II')).join('')}</div>`).join('')}</div></div>`;
   /* filter havo/vwo bij de oefenexamens (1 nov 2026: veel examens), keuze in localStorage 'examniveau' */
   let kies='';try{kies=localStorage.getItem('examniveau')||''}catch(e){}
-  const nivs=['havo','vwo'].filter(n=>tools.some(t=>t.href.includes('examen-'+n+'-')));
   const filt=nivs.length>1?`<span class="exfilter" role="group" aria-label="Niveau">${[['','Alle'],['havo','havo'],['vwo','vwo']].map(([k,l])=>`<button type="button" data-k="${k}" aria-pressed="${kies===k}" onclick="exFilter('${k}')">${l}</button>`).join('')}</span>`:'';
   return `<p class="extip"><b>Tip:</b> maak eerst zelf een oefenexamen en bekijk daarna pas een bespreking. Dan weet je al waar je vastliep, en haal je veel meer uit de uitleg.</p><div class="exkol">
-    <section class="lijst exk" id="${id}-tools"><h2>Oefenexamens</h2><p class="exuitleg">Maak een heel examen zelf, stap voor stap: eerst hulpvragen, dan de echte examenvraag, nakijken en uitleg waarom.${filt}</p><div class="exlijst" id="exoef" data-niv="${kies}">${tools.map(oef).join('')||'<p class="exleeg">Er komt steeds een oefenexamen bij.</p>'}</div></section>
+    <section class="lijst exk" id="${id}-tools"><h2>Oefenexamens</h2><p class="exuitleg">Maak een heel examen zelf, stap voor stap: eerst hulpvragen, dan de echte examenvraag, nakijken en uitleg waarom.${filt}</p><div class="exlijst exraster" id="exoef" data-niv="${kies}">${jaren.map(jaarblok).join('')||'<p class="exleeg">Er komt steeds een oefenexamen bij.</p>'}</div></section>
     <section class="lijst exk" id="${id}-films"><h2>Besprekingen</h2><p class="exuitleg">Kijk mee hoe een heel examen wordt besproken: per vraag de stof, de aanpak en het antwoord volgens het correctievoorschrift.</p><div class="exlijst">${films.map(film).join('')||'<p class="exleeg">Er komt steeds een bespreking bij.</p>'}</div></section>
   </div>`;
 }
@@ -4063,8 +4088,14 @@ document.addEventListener('input',e=>{if(e.target&&e.target.id==='filmzoek') fil
 document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-open]'); if(!b) return;
   const z=document.getElementById('filmzoek'); if(z&&z.value){z.value='';filmZoek('')}
   const d=document.getElementById('reeks-'+b.dataset.open); if(d){d.open=true; d.scrollIntoView({behavior:'smooth',block:'start'})}});
+function toolsBijThema(){
+  const n=f=>Object.values(HOOFDSTUKKEN).reduce((a,h)=>a+(h.tools||[]).filter(t=>f(t.href)).length,0);
+  const ex=n(x=>/tools\/examen-/.test(x||''));
+  const toets=Object.entries(HOOFDSTUKKEN).filter(([id,h])=>(h.tools||[]).some(t=>/tools\/toets-/.test(t.href||''))).map(([id,h])=>`<a href="#${id}">oefentoetsen ${esc(h.titel)}</a>`);
+  return [ex?`<a href="#examens">${ex} oefenexamens bij Examen</a>`:'',...toets,`<a href="#lessen">lessen per thema</a>`].filter(Boolean).join(' · ');
+}
 function tools(){
-  return kopPagina('Alle tools','Tools en practica','Simulaties en virtuele practica om het zelf te proberen.','erfelijkheid')+`<div class="wrap smal lijst"><div class="tools">${alleTools.filter(t=>t.href).map(toolRij).join('')}</div>${alleTools.some(t=>!t.href)?`<h2>In de maak</h2><div class="tools">${alleTools.filter(t=>!t.href).map(toolRij).join('')}</div>`:''}</div>`;
+  return kopPagina('Alle tools','Tools en practica','Simulaties en virtuele practica om het zelf te proberen.','erfelijkheid')+`<div class="wrap smal lijst"><p class="bijthema">Oefenexamens, oefentoetsen en lessen staan bij hun eigen thema: ${toolsBijThema()}</p><div class="tools">${alleTools.filter(t=>t.href).map(toolRij).join('')}</div>${alleTools.some(t=>!t.href)?`<h2>In de maak</h2><div class="tools">${alleTools.filter(t=>!t.href).map(toolRij).join('')}</div>`:''}</div>`;
 }
 
 function render(){
