@@ -57,3 +57,5 @@ Nog na te gaan vóór de opname:
 - **Testvellen**: `bron/src/teken_<d>.js` + `testvel.html` per film (fo4 23 objecten, tu2 24, mk2 30).
 - **Keuringsblad ronde 4**: https://claude.ai/artifact/LhefMVVWUn3xN38zMoX4ut (db-collectie `keuring`, ids `r4-b*`, `fo4-v*`, `tu2-v*`, `mk2-v*`; account ghallie880).
 - **Daarna**: keuzes verwerken, palynoloog in lib_cast/ROLLEN/LEVENSLOOP, decors als `bron/src/decor_*.js` (zoals mk1), scènes schrijven en bouwen volgens BOUWEN.md (engine = bronmap van mk1), frisse beeldreview, repo.
+
+**Keuring ronde 4 (Kamiel 2 nov 2026, 07:43–07:44):** alle 19 punten akkoord met voorstel, geen opmerkingen, niets als algemeen aangemerkt. Palynoloog in lib_cast (`palynoloog`, outfit `lab`), ROLLEN, LEVENSLOOP; castvel `personages/vellen/vel-nl-3-palynoloog.webp`. Bouwen loopt (brief `/home/claude/hw/BRIEF-bouwen.md`, alleen in deze sessie).

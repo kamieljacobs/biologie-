@@ -36,6 +36,8 @@
 
 **Milieukundige Iris** (± 40) · vast: milieukundige bij een omgevingsdienst (halflang bruin haar, donkerblauwe softshell, veldtas met monsterpotjes, blauwe nitrilhandschoenen; outfit `kantoor` zonder tas en handschoenen), castvel goedgekeurd door Kamiel 31 okt 2026. Gebeurd: begeleider van Thijs bij de omgevingsdienst; onderzoekt PFAS in de eieren van Joosts kippen (Milieukunde 1, PFAS, DDT en microplastic, 31 okt 2026). Grenzen: alleen in haar eigen vak; geen echte gemeente of omgevingsdienst noemen.
 
+**Palynoloog** (± 50, zonder naam) · vast: palynoloog, stuifmeeldeskundige (grijsblond halflang haar, labjas over een groene kabeltrui, leesbril op het hoofd, preparaatdoosje), castvel goedgekeurd door Kamiel 2 nov 2026 (`personages/vellen/vel-nl-3-palynoloog.webp`). Gebeurd: herkent het stuifmeel op de schoen van de verdachte in de inbraakzaak (Forensisch onderzoek 4, Stille getuigen). Grenzen: alleen in haar eigen vak; in beeld en stem alleen 'de palynoloog', geen naam.
+
 **Joost** (55) · vast: figurant (verre familie, buurman, iemand uit een onderzoek). Gebeurd: buurman met kippen in de tuin; in zijn eieren zit PFAS, onderzocht door Milieukundige Iris (Milieukunde 1, 31 okt 2026; geen schuld of ziekte); cliënt van Diëtist Hanneke in Voeding en diëtetiek 1–2 (outfit `spreekuur`: iets vollere romp, geen karikatuur); heeft een kleindochter, op een foto op zijn telefoon (castboek Fleur, Kamiel akkoord 26 okt 2026); Erik is zijn buurman (Voeding 2). Grenzen: geen diagnose of streefgewicht als vast kenmerk; zijn gewicht nooit als getal in beeld.
 
 **Esra** (29) · vast: zwanger van haar eerste kind, cliënte van Mirjam, los van Noors familie. Gebeurd: loopt door Verloskunde 1–5. Grenzen: geen familie van Noor.
@@ -317,6 +319,9 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 
 ### Milieukundige Iris (`iris`) — 1 films
 - `vervolg`: milieukunde-1-pfas-ddt-en-microplastic
+
+### Palynoloog (`palynoloog`) — 0 films
+- (geen films gevonden)
 
 ### Fleur (`fleur`) — 1 films
 - `voortplanting`: 3-anticonceptie-soa-voortplantingstechniek

@@ -143,6 +143,9 @@ const CAST = {
   iris:   { naam: 'Milieukundige Iris', leeftijd: 40, rol: 'milieukundige bij een omgevingsdienst · meet stoffen, zoekt de bron en adviseert over maatregelen · alleen in haar eigen vak', huid: '#ECC4A2', haar: '#6A4228', kapsel: 'bob', wenkbrauw: '#4E3020', wimpers: true, lippen: '#B4605A',
             top: 'jas', topKleur: '#2E3E5E', topAccent: '#26344E', broek: '#3E5A8A', schoen: '#6A5440', schoenAccent: '#3A2E22', accessoire: ['veldtas', 'handschoenen'], lengte: 0.98,
             garderobe: { veld: {}, kantoor: { accessoire: [] } } }, // 31 okt 2026 (Milieukunde, begeleider van Thijs; castvel goedgekeurd door Kamiel 31 okt 2026): halflang bruin haar, donkerblauwe softshell, spijkerbroek, veldtas met monsterpotjes, blauwe nitrilhandschoenen
+  palynoloog: { naam: 'Palynoloog', leeftijd: 50, rol: 'palynoloog (stuifmeeldeskundige) · herkent stuifmeel onder de microscoop · alleen in haar eigen vak; in beeld alleen het vak, geen naam', huid: '#E8C0A0', haar: '#A8987C', kapsel: 'bob', wenkbrauw: '#7A6A54', wimpers: true, lippen: '#B06A5E',
+            top: 'labjas', topKleur: '#F2F2EE', topAccent: '#D4D8DE', binnen: '#4E7A46', broek: '#2A3142', schoen: '#3A3A3E', schoenAccent: '#26262A', accessoire: ['bril-dun'], lengte: 0.98,
+            garderobe: { lab: {} } }, // 2 nov 2026 (Forensisch onderzoek 4, Stille getuigen; castvel personages/vellen/vel-nl-3-palynoloog.webp goedgekeurd door Kamiel 2 nov 2026): grijsblond halflang haar, labjas over een groene kabeltrui, donkere broek, leesbril (in code dun brilletje), preparaatdoosje als attribuut in de film
   fleur:  { naam: 'Fleur', leeftijd: 10, rol: 'meisje van ± 10 jaar (groep 7) · voor scènes met een basisschoolkind, bv. de HPV-prik', huid: '#C99872', haar: '#3A2418', kapsel: 'vlecht', wenkbrauw: '#2A1A12',
             top: 'tshirt', strepen: null, topKleur: '#E07A8F', topAccent: '#C8667A', broek: '#4D6E9C', schoen: '#F2F2EE', schoenAccent: '#E07A8F', accessoire: [], lengte: 1,
             kop: 5.8, armK: 0.9, schouderK: 1.42, heupK: 1.24 }, // kinderverhoudingen (± 10 jaar, ± 140 cm): hoofd iets kleiner dan bij Teun
@@ -222,7 +225,7 @@ const CAST_FAMILIE = {
   anouk: { partner: 'milan' }
 };
 const CAST_EXTRA = ['linda', 'rachid', 'ria', 'ahmed', 'malika', 'petra', 'thijs', 'erik', 'joost', 'buurvrouw', 'sanne16']; // sanne16 (29 okt 2026): figurant met diabetes type 1, Hormonen 2
-const CAST_VOLGORDE = ['noor', 'sam', 'lotte', 'daan', 'yasmin', 'bilal', 'kim', 'henk', 'visser', 'ravi', 'jesse', 'femke', 'mirjam', 'esra', 'mila', 'gerrit', 'wouter', 'ilse', 'lieke', 'merel', 'bas', 'hanneke', 'farid', 'lars', 'jeroen', 'iris'];
+const CAST_VOLGORDE = ['noor', 'sam', 'lotte', 'daan', 'yasmin', 'bilal', 'kim', 'henk', 'visser', 'ravi', 'jesse', 'femke', 'mirjam', 'esra', 'mila', 'gerrit', 'wouter', 'ilse', 'lieke', 'merel', 'bas', 'hanneke', 'farid', 'lars', 'jeroen', 'iris', 'palynoloog'];
 const CAST_JONG = ['kind', 'fleur', 'ruben', 'baby']; // 22 okt 2026: Fleur en Ruben (± 10 jaar)
 const CAST_OUDERS_BI = ['anouk', 'milan']; // 25 okt 2026: ouders in het uitslaggesprek van Bio-informatica 2 (figuranten, ter keuring)
 const CAST_FIGURANTEN_BI3 = ['sanne', 'bram', 'wilma', 'passant']; // 25 okt 2026: Bio-informatica 3, bedacht uitbraakvoorbeeld (ter keuring)
