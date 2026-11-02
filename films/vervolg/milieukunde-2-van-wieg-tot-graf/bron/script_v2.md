@@ -10,7 +10,7 @@ Opbouw B: **voorbeeld** — de vergelijking loopt aan één herkenbaar voorbeeld
 
 ---
 
-## Cold open [Schema: kantine van de omgevingsdienst op navy; Thijs zet zijn lunch in een papieren tasje, Iris ernaast met een dun plastic tasje van de supermarkt; op haar tablet de brief 'GEMEENTE · VERZOEK OM ADVIES' met het posterontwerp 'KIES PAPIER · BETER VOOR HET MILIEU'; puzzelkaart]
+## Cold open [Schema: kantoor van de omgevingsdienst (decor uit Milieukunde 1, Kamiel 1 nov 2026), lunchtasje op het bureau; Thijs zet zijn lunch in een papieren tasje, Iris ernaast met een dun plastic tasje van de supermarkt; op haar tablet de brief 'GEMEENTE · VERZOEK OM ADVIES' met het posterontwerp 'KIES PAPIER · BETER VOOR HET MILIEU'; puzzelkaart]
 De stagiair neemt zijn lunch mee in een papieren tasje. Goed voor het milieu, denkt hij. De gemeente denkt dat ook, en wil er een poster over. Papieren tasje of plastic tas: welke is beter voor het milieu? Wat denk je?
 
 ## Titel

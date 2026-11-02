@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="nl"><head><meta charset="utf-8"><title>Testvel fo4 · Stille getuigen</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700&family=Source+Sans+3:wght@400;600;700;800&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#0D1420;color:#F2F2EE;font-family:'Source Sans 3',sans-serif}h2{font:500 14px 'IBM Plex Mono',monospace;letter-spacing:.12em;margin:18px 16px 6px;color:#C9B896}canvas{display:block;width:100%;max-width:1920px;height:auto;margin:0 auto 10px}</style>
+<!-- zelfde volgorde als build.py: LIB, LIBSERIES (lib_voeding, lib_hormonen, lib_cast), dan scenes_kop + brein + teken + extra + teken_<d> -->
+<script src="../engine/lib.js"></script>
+<script src="../engine/lib_voeding.js"></script>
+<script src="../engine/lib_hormonen.js"></script>
+<script src="../engine/lib_cast.js"></script>
+<script src="../engine/scenes_kop.js"></script>
+<script src="../engine/brein.js"></script>
+<script src="../engine/teken.js"></script>
+<script src="../engine/extra.js"></script>
+<script src="teken_fo4.js"></script>
+</head><body>
+<div id="vellen"></div>
+<script>
+const VELLEN = [];
+function vel(titel, fn) { VELLEN.push([titel, fn]); }
+function naam(ctx, s, x, y) { ctx.save(); ctx.font = '500 22px "IBM Plex Mono",monospace'; ctx.letterSpacing = '2px'; ctx.fillStyle = '#8A93A3'; ctx.textAlign = 'center'; ctx.fillText(s.toUpperCase(), x, y); ctx.restore(); }
+
+// ---------- vel 1: haar ----------
+vel('1 · Haar: lengte- en dwarsdoorsnede, wortel', (ctx) => { bg(ctx, 'micro');
+  fo4_haarLengte(ctx, 520, 150, 1, { soort: 'mens', len: 860 }); naam(ctx, 'fo4_haarLengte · mens (merg smal, onderbroken)', 520, 240);
+  fo4_haarLengte(ctx, 520, 330, 1, { soort: 'mens', len: 860, merg: 0, seed: 8 }); naam(ctx, 'mens · merg 0 (afwezig)', 520, 420);
+  fo4_haarLengte(ctx, 520, 520, 1.25, { soort: 'hond', len: 860 }); naam(ctx, 'fo4_haarLengte · hond (merg ± 1/2, cellen)', 520, 625);
+  fo4_haarDwars(ctx, 1220, 190, 70, { soort: 'mens' }); naam(ctx, 'fo4_haarDwars · mens', 1220, 300);
+  fo4_haarDwars(ctx, 1480, 190, 80, { soort: 'hond', ovaal: 0.85 }); naam(ctx, 'hond', 1480, 300);
+  fo4_haarDwars(ctx, 1730, 190, 66, { soort: 'mens', merg: 0, ovaal: 0.8 }); naam(ctx, 'mens zonder merg', 1730, 300);
+  fo4_schaal(ctx, 1240, 430, 180, '± 25 micrometer');
+  fo4_haarWortel(ctx, 1060, 720, 1, { soort: 'groeiend', len: 380 }); naam(ctx, 'fo4_haarWortel · groeiend (getrokken)', 1260, 830);
+  fo4_haarWortel(ctx, 1060, 940, 1, { soort: 'uitgevallen', len: 380 }); naam(ctx, 'uitgevallen (knotsje)', 1260, 1010);
+  fo4_haarWortel(ctx, 140, 760, 1, { soort: 'groeiend', len: 380, kernen: 0.3 }); naam(ctx, 'groeiend · kernen 0,3 (opbouw)', 340, 860);
+  fo4_haarWortel(ctx, 140, 960, 1, { soort: 'uitgevallen', len: 380, hl: 1 }); naam(ctx, 'uitgevallen · hl', 340, 1040);
+});
+// ---------- vel 2: stuifmeel, hommel, struik ----------
+vel('2 · Stuifmeel, hommel, struik', (ctx, t) => { bg(ctx, 'micro');
+  fo4_korrel(ctx, 150, 170, 90, 'gras'); naam(ctx, 'gras', 150, 300);
+  fo4_korrel(ctx, 420, 170, 80, 'berk'); naam(ctx, 'berk', 420, 300); naam(ctx, 'fo4_korrel', 540, 340);
+  fo4_korrel(ctx, 660, 170, 80, 'insect', { kleef: 0 }); naam(ctx, 'insect', 660, 300);
+  fo4_korrel(ctx, 900, 170, 80, 'insect', { kleef: 1 }); naam(ctx, 'kleverig', 900, 300);
+  fo4_klontje(ctx, 1140, 170, 44); naam(ctx, 'fo4_klontje', 1140, 300);
+  fo4_schaal(ctx, 60, 360, 200, '25 micrometer');
+  fo4_stuifwolk(ctx, 1320, 200, { u: 0.35, t: 1, ver: 520 }); fo4_stuifwolk(ctx, 1320, 330, { u: 1, t: 2, ver: 520 }); naam(ctx, 'fo4_stuifwolk · u 0,35 en 1', 1600, 440);
+  fo4_hommel(ctx, 190, 640, 1.2, { houding: 'staan' }); naam(ctx, 'fo4_hommel · staan', 190, 700);
+  fo4_hommel(ctx, 470, 560, 1.2, { houding: 'vliegen', t: 0 }); fo4_hommel(ctx, 720, 560, 1.2, { houding: 'vliegen', t: 0.08 }); naam(ctx, 'vliegen · twee standen', 595, 700);
+  fo4_hommel(ctx, 980, 560, 1.2, { houding: 'bestuiven', t: 0.03 }); naam(ctx, 'bestuiven', 980, 700);
+  fo4_struik(ctx, 1450, 1010, 0.9, { klontjes: 1 }); fo4_hommel(ctx, 1560, 740, 0.45, { houding: 'bestuiven', t: 0.05, kijk: -1 }); naam(ctx, 'fo4_struik · klontjes + hommel', 1450, 1050);
+  fo4_struik(ctx, 520, 1010, 0.7, { bloei: 0 }); naam(ctx, 'struik zonder bloei', 520, 1050);
+  fo4_struik(ctx, 960, 1010, 0.7, { bloei: 1 }); naam(ctx, 'bloei', 960, 1050);
+});
+// ---------- vel 3: schoen, zool, mengsel, potjes ----------
+vel('3 · Schoen, zool met laagjes, mengsel, vergelijkingspotjes', (ctx) => { bg(ctx, 'schema');
+  fo4_schoen(ctx, 210, 200, 1, { vies: 1 }); naam(ctx, 'fo4_schoen · vies', 210, 250);
+  fo4_schoen(ctx, 210, 360, 0.8, {}); naam(ctx, 'schoon', 210, 400);
+  fo4_zool(ctx, 760, 230, 620, { groei: 0.25 }); naam(ctx, 'fo4_zool · laatste laag groeit (0,25)', 760, 300);
+  fo4_zool(ctx, 1450, 230, 620, { groei: 1 }); naam(ctx, 'groei 1', 1450, 300);
+  fo4_zool(ctx, 760, 470, 620, { groei: 1, slijt: 1 }); naam(ctx, 'slijt 1 (oud boven de groef valt af)', 760, 540);
+  fo4_zool(ctx, 1450, 470, 620, { lagen: [{ kl: '#7A8494', d: 14 }, { kl: '#A88B5E', d: 16 }, { kl: '#C46A5A', d: 20 }, { kl: '#6E9A5A', d: 50 }] }); naam(ctx, 'vier lagen', 1450, 540);
+  fo4_mengsel(ctx, 80, 600, 820, 400, { hl: 0 }); naam(ctx, 'fo4_mengsel · hl schoen', 490, 1070);
+  fo4_grondpot(ctx, 1150, 960, 0.8, 'VOORTUIN'); fo4_grondpot(ctx, 1450, 960, 0.8, 'ACHTERTUIN', { bloem: 1, gl: 1 }); fo4_grondpot(ctx, 1750, 960, 0.8, 'STRAAT\nVERDACHTE');
+  naam(ctx, 'fo4_grondpot', 1450, 1070);
+});
+vel('3b · Mengsel in opbouw', (ctx) => { bg(ctx, 'schema');
+  fo4_mengsel(ctx, 80, 80, 820, 400, { groei: 0.4 }); naam(ctx, 'groei 0,4', 490, 520);
+  fo4_mengsel(ctx, 1000, 80, 820, 400, { dim: [2, 3], hl: 1, legenda: 0 }); naam(ctx, 'dim voortuin en straat · hl achtertuin', 1410, 520);
+});
+// ---------- vel 4: kiezelwier, druppel, longblaasje, bot ----------
+vel('4 · Kiezelwier, druppel, longblaasje, bot', (ctx, t) => { bg(ctx, 'micro');
+  fo4_kiezelwier(ctx, 170, 150, 1.6, { soort: 'boot', levend: 1 }); naam(ctx, 'boot · levend', 170, 230);
+  fo4_kiezelwier(ctx, 170, 320, 1.6, { soort: 'boot', levend: 0 }); naam(ctx, 'boot · leeg', 170, 390); naam(ctx, 'fo4_kiezelwier', 440, 440);
+  fo4_kiezelwier(ctx, 440, 150, 1.2, { soort: 'schijf', levend: 1 }); naam(ctx, 'schijf · levend', 440, 240);
+  fo4_kiezelwier(ctx, 440, 320, 1.2, { soort: 'schijf', levend: 0 }); naam(ctx, 'leeg', 440, 400);
+  fo4_kiezelwier(ctx, 700, 150, 1.4, { soort: 'staaf', levend: 1, rot: 0 }); naam(ctx, 'staaf · levend', 700, 230);
+  fo4_kiezelwier(ctx, 700, 320, 1.4, { soort: 'staaf', levend: 0, hl: 1 }); naam(ctx, 'leeg · hl', 700, 390);
+  fo4_schaal(ctx, 100, 500, 140, '50 micrometer');
+  fo4_druppel(ctx, 1030, 300, 170, { t: 0 }); naam(ctx, 'fo4_druppel (plaswater)', 1030, 520);
+  fo4_bot(ctx, 1700, 300, 14, { kiezel: 1 }); naam(ctx, 'fo4_bot · kiezel 1', 1700, 560);
+  fo4_bot(ctx, 1450, 300, 11, { kiezel: 0 }); naam(ctx, 'fo4_bot', 1450, 520);
+  [0, 0.4, 0.85].forEach((u, i) => { fo4_longblaasje(ctx, 270 + i * 540, 760, 0.62, { u, scheur: i === 0 ? 0.4 : 1, t: i }); naam(ctx, 'fo4_longblaasje · u ' + u, 300 + i * 540, 1000); });
+});
+// ---------- vel 5: lab ----------
+vel('5 · Monsterpotjes, zuurbuis, glaasjes, zakjes', (ctx, t) => { bg(ctx, 'schema');
+  fo4_monsterpot(ctx, 170, 420, 1, 'LONG', { inhoud: 'long', onder: 'VERDRONKEN' }); fo4_monsterpot(ctx, 440, 420, 1, 'LONG', { inhoud: 'long', kiezel: 5, onder: 'NA DE DOOD\nIN HET WATER' });
+  fo4_monsterpot(ctx, 710, 420, 1, 'BEENMERG', { inhoud: 'beenmerg', gl: 1 }); naam(ctx, 'fo4_monsterpot', 440, 560);
+  [0, 0.5, 1].forEach((u, i) => fo4_zuurbuis(ctx, 960 + i * 150, 420, 1, { u, t: 1 })); naam(ctx, 'fo4_zuurbuis · u 0 / 0,5 / 1', 1110, 560);
+  fo4_glaasje(ctx, 1600, 130, 1, { inhoud: 'kiezel', lab: 'BEENMERG' }); fo4_glaasje(ctx, 1600, 330, 1, { inhoud: 'leeg', lab: 'BEENMERG: 0', hl: 1 }); naam(ctx, 'fo4_glaasje', 1600, 470);
+  fo4_zakje(ctx, 300, 830, 0.8, 'SCHOEN', { inhoud: 'schoen' }); fo4_zakje(ctx, 560, 830, 0.8, 'HAAR', { inhoud: 'haar', hl: 1 }); fo4_zakje(ctx, 820, 830, 0.8, 'PREPARAAT\nANDERE ZAAK', { inhoud: 'preparaat' }); naam(ctx, 'fo4_zakje', 560, 1040);
+  fo4_glaasje(ctx, 1300, 760, 1, { inhoud: 'haar', lab: 'HAAR 2' }); fo4_glaasje(ctx, 1650, 760, 1, { inhoud: 'weefsel' }); naam(ctx, 'glaasje haar / weefsel', 1475, 900);
+});
+// ---------- vel 6: papier ----------
+vel('6 · Verklaringen en rapport', (ctx, t) => { bg(ctx, 'schema');
+  fo4_verklaring(ctx, 60, 60, 560, 1, { regels: ['Ik ben een stuifmeelkorrel.', 'Ik zat op een schoen.'], teken: 'korrel' });
+  fo4_verklaring(ctx, 60, 420, 560, 2, { regels: ['Wij zijn drie haren.', 'We bleven hangen aan het kapotte glas.'], teken: 'haar', typ: 0.6 });
+  fo4_verklaring(ctx, 660, 60, 460, 3, { regels: [], teken: 'kiezel' }); naam(ctx, 'fo4_verklaring 1 · 2 (typ 0,6) · 3 (zonder ik-tekst)', 600, 1040);
+  fo4_rapport(ctx, 1160, 60, 340, { vul: [0, 0, 0] }); fo4_rapport(ctx, 1540, 60, 340, { vul: [1, 1, 0.5], hl: 1 }); naam(ctx, 'fo4_rapport · leeg / ingevuld (smal 340)', 1520, 1040);
+});
+vel('6b · Rapport breed (recap)', (ctx) => { bg(ctx, 'schema');
+  fo4_rapport(ctx, 600, 80, 720, { vul: [1, 1, 1] }); naam(ctx, 'fo4_rapport · 720 breed, alles ingevuld', 960, 1040);
+});
+
+document.fonts.ready.then(() => { const box = document.getElementById('vellen');
+  VELLEN.forEach(([titel, fn], i) => { const h = document.createElement('h2'); h.textContent = titel; box.appendChild(h); const c = document.createElement('canvas'); c.width = 1920; c.height = 1080; c.id = 'vel' + (i + 1); box.appendChild(c);
+    const ctx = c.getContext('2d'); try { fn(ctx, 0); } catch (e) { console.error('vel ' + (i + 1) + ': ' + e.stack); ctx.fillStyle = '#E07A5F'; ctx.font = '30px monospace'; ctx.fillText('FOUT: ' + e.message, 40, 1040); } });
+  window.__klaar = true; });
+</script>
+</body></html>

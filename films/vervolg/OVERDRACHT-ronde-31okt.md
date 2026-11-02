@@ -49,3 +49,11 @@ Dan per film inspreken (Roos, hooguit 2 takes tegelijk), bouwen volgens `BOUWEN.
 Nog na te gaan vóór de opname:
 - het Spaanse zwerfafvalartikel (Milieukunde 2, t7);
 - eventueel de kiezelwierentest laten nalezen door een patholoog (Forensisch 4, t11).
+
+## Ronde 4 (1–2 nov 2026): ingesproken, beeld wacht op keuring
+- **Ingesproken** (Roos, eleven_v4, één take per alinea; gen-id's in `bron/stem/`, woordtijden in `bron/stem/woordtijden/`, stem-invoer = `bron/segments.json` uit `script_opname.md`): Forensisch 4 flow `9YjeBo7oofH9QffGueVc` (14 takes, 345,6 s, 5177 cr) · Tuin 2 flow `0bU3JIQ7H8hZokYDUBuG` (16, 330,9 s, 4967 cr) · Milieukunde 2 flow `JOJ5lUMoAu0wGPyJ4pG2` (16, 346,6 s, 5233 cr). Audio downloaden met de generation_id's als de werkmap weg is. Filmregels uitspraak fo4: NFI en-ef-ie, FBI ef-bee-ie, Biology Baiollodzjie.
+- **Keuzes verwerkt**: planobject Forensisch 4 in `vervolg.html` (stuifmeel eerst, vier hoofdstukken, film 2 bij `bouwt`; `later` gaat eraf als de film af is), hoofdstuktitels in fo4 script_v2 gelijk; Milieukunde 2 cold open in het kantoor (decor mk1).
+- **Beeld** (flow RVqu1vLFRgY3QXwS4WcU, ± 2150 cr): castvel palynoloog `rFxBbUvZglkBvJo6HNdI`, decors achtertuin `Df7UMc0bHVI140ygkk43`, plas `cO3rRZhtmGSYrlA4Tvi8`, schoolplein `MkovFz5zqYWZyrsRRIOn`, schoolplein avond `XB4C4lU9IM3Dc8gHv4Lp`; kopieën in `img/kunst/varianten/decors/`.
+- **Testvellen**: `bron/src/teken_<d>.js` + `testvel.html` per film (fo4 23 objecten, tu2 24, mk2 30).
+- **Keuringsblad ronde 4**: https://claude.ai/artifact/LhefMVVWUn3xN38zMoX4ut (db-collectie `keuring`, ids `r4-b*`, `fo4-v*`, `tu2-v*`, `mk2-v*`; account ghallie880).
+- **Daarna**: keuzes verwerken, palynoloog in lib_cast/ROLLEN/LEVENSLOOP, decors als `bron/src/decor_*.js` (zoals mk1), scènes schrijven en bouwen volgens BOUWEN.md (engine = bronmap van mk1), frisse beeldreview, repo.

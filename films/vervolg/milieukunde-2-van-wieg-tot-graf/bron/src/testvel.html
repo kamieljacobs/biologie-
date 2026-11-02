@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="nl"><head><meta charset="utf-8"><title>Testvel mk2 · Van wieg tot graf</title>
+<style>body{margin:0;background:#0D1420;color:#9AA3B2;font-family:system-ui} canvas{display:block;width:1920px;height:1080px;margin:0 0 12px}</style>
+</head><body>
+<canvas id="c1" width="1920" height="1080"></canvas>
+<canvas id="c2" width="1920" height="1080"></canvas>
+<canvas id="c3" width="1920" height="1080"></canvas>
+<canvas id="c4" width="1920" height="1080"></canvas>
+<canvas id="c5" width="1920" height="1080"></canvas>
+<script src="../engine/lib.js"></script>
+<script src="../engine/lib_voeding.js"></script>
+<script src="../engine/lib_hormonen.js"></script>
+<script src="../engine/lib_cast.js"></script>
+<script src="../engine/scenes_kop.js"></script>
+<script src="../engine/brein.js"></script>
+<script src="../engine/teken.js"></script>
+<script src="../engine/extra.js"></script>
+<script src="teken_mk2.js"></script>
+<script>
+const naam = (ctx, s, x, y) => { ctx.save(); ctx.font = '500 22px "IBM Plex Mono",monospace'; ctx.fillStyle = '#7F8AA0'; ctx.textAlign = 'center'; ctx.fillText(s, x, y); ctx.restore(); };
+const kop = (ctx, s) => { ctx.save(); ctx.font = '700 30px system-ui'; ctx.fillStyle = '#C9B896'; ctx.fillText(s, 40, 46); ctx.restore(); };
+const T = 1.3;
+
+// ---------- vel 1: de tassen op schaal ----------
+(() => { const ctx = c1.getContext('2d'); bg(ctx, 'schema'); kop(ctx, 'VEL 1 · TASSEN OP ÉÉN SCHAAL (1 cm = 6 px) · grondlijn = bodem');
+  const G = 560; ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(60, G); ctx.lineTo(1860, G); ctx.stroke();
+  for (let cm = 0; cm <= 80; cm += 10) { ctx.fillStyle = '#5A6478'; ctx.fillRect(58, G - cm * MK2_CM - 1, 14, 2); naam(ctx, cm + '', 40, G - cm * MK2_CM + 7); }
+  const L2 = (s1, s2, x) => { naam(ctx, s1, x, G + 36); naam(ctx, s2, x, G + 62); };
+  mk2_plasticTasje(ctx, 250, G, 1, {}); L2('dun plastic tasje', '8 g · 28 × 52 cm', 250);
+  mk2_plasticTas(ctx, 600, G, 1, {}); L2('stevige plastic tas', '30 g · 40 × 45 cm', 600);
+  mk2_papierTasje(ctx, 900, G, 1, {}); L2('papieren tasje', 'lunch · 15 × 26 cm', 900);
+  mk2_papierTas(ctx, 1180, G, 1, {}); L2('papieren tas', '55 g · 32 × 42 cm', 1180);
+  mk2_katoenTas(ctx, 1560, G, 1, {}); L2('katoenen tas', '38 × 42 cm', 1560);
+  // varianten onder
+  const G2 = 1010; ctx.beginPath(); ctx.moveTo(60, G2); ctx.lineTo(1860, G2); ctx.stroke();
+  mk2_plasticTasje(ctx, 130, G2, 0.62, { vol: 1 }); naam(ctx, 'tasje vol', 130, G2 + 34);
+  mk2_plasticTasje(ctx, 310, G2 - 330, 0.62, { hang: true, vol: 0.6 }); naam(ctx, 'hangend', 310, G2 + 34);
+  mk2_plasticTas(ctx, 490, G2, 0.62, { vol: 1 }); naam(ctx, 'tas vol', 490, G2 + 34);
+  mk2_papierTasje(ctx, 680, G2, 0.85, { open: 1, lunch: 1 }); naam(ctx, 'lunch open', 680, G2 + 34);
+  mk2_papierTasje(ctx, 850, G2, 0.85, { turf: 4 }); naam(ctx, 'turf 4', 850, G2 + 34);
+  mk2_papierTasje(ctx, 1020, G2, 0.85, { turf: 10, scheur: 1 }); naam(ctx, 'turf 10', 1000, G2 + 34); naam(ctx, '+ scheur', 1000, G2 + 58);
+  mk2_papierTas(ctx, 1210, G2 - 340, 0.62, { hang: true }); naam(ctx, 'papier hangend', 1210, G2 + 34);
+  mk2_katoenTas(ctx, 1400, G2 - 440, 0.62, { hang: true }); naam(ctx, 'katoen hangend', 1400, G2 + 34);
+  // schaal tegen een persoon (Thijs 430 px ≈ 1,65 m → 1 cm ≈ 2,6 px → s = 0,43)
+  const sc = 2.6 / MK2_CM; persoon(ctx, 'thijs', 1700, G2, 430, { t: T, kijk: -1, outfit: 'stage', pose: 'vasthouden', hold: (c, hx, hy) => mk2_papierTasje(c, hx, hy + 6, sc, { hang: true }) });
+  naam(ctx, 'Thijs + tasje op schaal', 1700, G2 + 34);
+})();
+
+// ---------- vel 2: strook van wieg tot graf ----------
+(() => { const ctx = c2.getContext('2d'); bg(ctx, 'schema'); kop(ctx, 'VEL 2 · STROOK WIEG → GRAF (vol, hl op kolom 0–2) en uitrollen');
+  mk2_strook(ctx, 60, 80, 1800, { t: T, hl: [0, 1, 2], s: 1, afval: ['stort', 'verbranden'] }); naam(ctx, 'strook, twee rijen, pijltjes erin (oker) / eruit (koraal), vraag 1: drie kolommen goud', 960, 680);
+  mk2_strook(ctx, 60, 730, 880, { t: T, u: 0.55, n: 2.5, s: 0.45 }); naam(ctx, 'uitrollen u 0,55 · n 2,5', 500, 1000);
+  mk2_strook(ctx, 980, 730, 880, { t: T, u: 1, rijen: 'plastic', n: 6, s: 0.45 }); naam(ctx, 'alleen plastic', 1420, 1000);
+})();
+
+// ---------- vel 3: pictogrammen van de strook groot ----------
+(() => { const ctx = c3.getContext('2d'); bg(ctx, 'schema'); kop(ctx, 'VEL 3 · STAPPEN VAN DE STROOK, GROOT (s = 2)');
+  const r1 = 380, r2 = 820, xs = [220, 520, 820, 1120, 1420, 1720];
+  [[mk2_oliebron, 'oliebron (ja-knikker)', { t: 0 }], [mk2_korrels, 'plastic korrels', {}], [mk2_fabriek, 'fabriek', { t: T }], [mk2_schip, 'containerschip', { t: T }], [mk2_winkel, 'winkel', {}], [mk2_afval, 'afval · stort', { soort: 'stort' }]]
+    .forEach(([fn, n, o], i) => { fn(ctx, xs[i] - (i === 5 ? -40 : 0), r1, 2, o); naam(ctx, n, xs[i], r1 + 50); });
+  [[mk2_bos, 'bos', {}], [mk2_pulp, 'pulp', { t: T }], [mk2_papierfabriek, 'papierfabriek + waterpijp', { t: T }], [mk2_vrachtwagen, 'vrachtwagen', {}], [mk2_bos, 'bos groeit terug (0,3)', { groei: 0.3 }], [mk2_afval, 'afval · verbranden', { soort: 'verbranden', t: T }]]
+    .forEach(([fn, n, o], i) => { fn(ctx, xs[i] - (i === 5 ? -30 : 0), r2, 2, o); naam(ctx, n, xs[i], r2 + 50); });
+  [0.2, 1, 2.2].forEach((tt, i) => mk2_oliebron(ctx, 700 + i * 200, 1000, 1.2, { t: tt })); naam(ctx, 'ja-knikker knikt: t 0,2 · 1 · 2,2', 900, 1040);
+})();
+
+// ---------- vel 4: vier vakken, methaan, weegschaal, schuifje ----------
+(() => { const ctx = c4.getContext('2d'); bg(ctx, 'schema'); kop(ctx, 'VEL 4 · VIER VAKKEN (TNO 2015) · METHAAN → CO₂ · WEEGSCHAAL · SCHUIFJE');
+  mk2_vierVakken(ctx, 40, 70, 1100, 560, { staaf: [1, 1, 1, 0.6], maal: 1, hl: 2 }); naam(ctx, 'vier vakken, land goud omrand, water staafje groeit (0,6)', 590, 660);
+  [0, 0.5, 1].forEach((u, i) => { mk2_methaanNaarCO2(ctx, 1290 + i * 220, 230, 0.75, u, { t: T, labels: i !== 1 }); naam(ctx, 'u ' + u, 1290 + i * 220, 360); });
+  mk2_weegschaal(ctx, 1500, 650, 0.8, { tilt: 0.12, links: (c, px, py) => mk2_eenheid(c, px, py, 'KG CO₂', C.koraal), rechts: (c, px, py) => mk2_eenheid(c, px, py, 'M² LAND', C.groen) }); naam(ctx, 'weegschaal KG CO₂ / M² LAND', 1500, 680);
+  [0.15, 0.5, 0.85].forEach((v, i) => { mk2_schuifje(ctx, 330 + i * 640, 790, 200, v, { kop: i === 1 ? 1 : 0, tassen: 1 }); naam(ctx, 'v ' + v, 330 + i * 640, 1060); });
+})();
+
+// ---------- vel 5: boodschappen, rapporten, emmer, berm, poster, brief ----------
+(() => { const ctx = c5.getContext('2d'); bg(ctx, 'schema'); kop(ctx, 'VEL 5 · MAAND BOODSCHAPPEN · RAPPORTEN · EMMER · BERM · POSTER · BRIEF');
+  mk2_boodschappen(ctx, 240, 400, 0.85, {}); naam(ctx, 'een maand boodschappen', 240, 440);
+  mk2_tasjesRaster(ctx, 520, 150, 82, 'plastic', { per: 10, gap: 30, h: 30 }); naam(ctx, '82 plastic', 650, 590);
+  mk2_tasjesRaster(ctx, 860, 150, 65, 'papier', { per: 10, gap: 30, h: 30 }); naam(ctx, '65 papier', 990, 590);
+  mk2_rapport(ctx, 1200, 70, 320, 'VK', '2011', ['AFVAL: STORTEN', 'TASJE 8 G', 'PAPIER 55 G'], { hl: 0, rot: -0.03 });
+  mk2_rapport(ctx, 1560, 70, 320, 'DENEMARKEN', '2018', ['AFVAL: VERBRANDEN', 'TASJE 24 G', 'PAPIER 45 G'], { n: 2.5, vraag: 1, rot: 0.03 }); naam(ctx, 'twee rapporten met aannames', 1540, 520);
+  mk2_pedaalemmer(ctx, 120, 1000, 0.85, {}); mk2_pedaalemmer(ctx, 300, 1000, 0.85, { deksel: 1 }); naam(ctx, 'pedaalemmer dicht · open', 210, 1040);
+  [0, 0.4, 1].forEach((u, i) => { mk2_berm(ctx, 420 + i * 320, 900, 300, { u, t: T }); naam(ctx, 'berm u ' + u, 570 + i * 320, 1060); });
+  mk2_tablet(ctx, 330, 660, 0.6, {}); naam(ctx, 'tablet: verzoek', 330, 780);
+  mk2_poster(ctx, 1460, 770, 200, { briefje: 1, rot: 0.02 }); naam(ctx, 'poster + briefje', 1460, 1060);
+  mk2_poster(ctx, 1180, 680, 110, {}); naam(ctx, 'poster', 1180, 800);
+  mk2_adviesbrief(ctx, 1760, 770, 220, { stempel: 1 }); naam(ctx, 'brief + stempel', 1760, 1060);
+})();
+document.title += ' · klaar';
+</script></body></html>
