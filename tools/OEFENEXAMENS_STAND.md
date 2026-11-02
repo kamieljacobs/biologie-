@@ -16,12 +16,16 @@ Bijgewerkt: 2 nov 2026. Werkwijze: `tools/OEFENEXAMEN_PROMPT.md` (v2). Briefs vo
 | havo 2025-II | 44 | 70 | 1,8 |
 | havo 2024-I | 45 | 71 | 1,2 |
 | vwo 2024-I | 42 | 68 | 1,5 (aanvulling CV vraag 32 verwerkt) |
+| havo 2021-I | 43 | 70 | 1,0 |
+| havo 2021-II | 42 | 69 | 1,0 |
+| vwo 2021-I | 39 | 66 | 1,2 (aanvulling CV vraag 22, 25, 29 verwerkt) |
+| vwo 2021-II | 39 | 71 | 1,1 (aanvulling CV vraag 30 verwerkt) |
 
 Kijk in `HOOFDSTUKKEN.examens.tools` in index.html welke er al staan.
 
 ## Nog te doen
 
-havo 2024-II, vwo 2024-II, 2023-I/II, 2022-I/II, 2021-I/II, 2019-I/II, 2018-I/II (vwo 2018-II heeft al een bespreekfilm, mag ook als oefenexamen). Kamiel 2 nov 2026: per jaar (of per paar examens) een nieuwe chat.
+havo 2024-II, vwo 2024-II, 2023-I/II, 2022-I/II, 2019-I/II, 2018-I/II (vwo 2018-II heeft al een bespreekfilm, mag ook als oefenexamen). Kamiel 2 nov 2026: per jaar (of per paar examens) een nieuwe chat.
 
 ## Prompt voor een nieuwe chat
 
@@ -35,3 +39,4 @@ havo 2024-II, vwo 2024-II, 2023-I/II, 2022-I/II, 2021-I/II, 2019-I/II, 2018-I/II
 4. Daarna in de hoofdchat: `python3 scripts/oefenexamen/kaart.py tools/examen-<niveau>-<jaar>-<tv>.html`, `scripts/licentie_noot.py` en `scripts/teller.py` (wijzigingen in `bibliotheek/` en `films/` niet meecommitten: `git checkout -- bibliotheek films`), commit + push per examen.
 5. Onaf werk tussendoor veiligstellen op de tak `wip-oefenexamens` (niet op main), want de container kan herstarten; de werkmap `/home/claude/hw/` overleefde een herstart wel.
 6. Werk dit bestand bij.
+7. Lessen 2021 (2 nov 2026): helpers delen de scratchpad en overschreven elkaars tussenbestanden (een helper dacht daardoor dat een pdf van het verkeerde tijdvak was). Zeg in elke brief: tussenbestanden alleen in de eigen werkmap. `vragen.md` in toetsen-biologie kan antwoordmodellen bij de verkeerde vraag hebben (havo 2021-I rond 5–6 en 35–36): nakijken altijd op de CV-pdf. Tussendoor veiligstellen zonder de werkboom te raken kan met een eigen index (`GIT_INDEX_FILE`, `read-tree origin/main`, `add`, `commit-tree`, `push … :refs/heads/wip-oefenexamens`).
