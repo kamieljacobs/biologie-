@@ -59,3 +59,17 @@ Nog na te gaan vóór de opname:
 - **Daarna**: keuzes verwerken, palynoloog in lib_cast/ROLLEN/LEVENSLOOP, decors als `bron/src/decor_*.js` (zoals mk1), scènes schrijven en bouwen volgens BOUWEN.md (engine = bronmap van mk1), frisse beeldreview, repo.
 
 **Keuring ronde 4 (Kamiel 2 nov 2026, 07:43–07:44):** alle 19 punten akkoord met voorstel, geen opmerkingen, niets als algemeen aangemerkt. Palynoloog in lib_cast (`palynoloog`, outfit `lab`), ROLLEN, LEVENSLOOP; castvel `personages/vellen/vel-nl-3-palynoloog.webp`. Bouwen loopt (brief `/home/claude/hw/BRIEF-bouwen.md`, alleen in deze sessie).
+
+## Stand (2 nov 2026): drie films online
+| Film | Slug | Stem (flow · credits) | Frisse beeldreview |
+|---|---|---|---|
+| Forensisch 4 · Stille getuigen | `forensisch-4-stille-getuigen` | 9YjeBo7oofH9QffGueVc · 5177 | 3 MOET + 9 KAN verwerkt |
+| Tuin 2 · Natuur in de stad | `tuin-2-natuur-in-de-stad` | 0bU3JIQ7H8hZokYDUBuG · 4967 | 2 MOET + 11 KAN verwerkt |
+| Milieukunde 2 · Van wieg tot graf | `milieukunde-2-van-wieg-tot-graf` | JOJ5lUMoAu0wGPyJ4pG2 · 5233 | 8 MOET (op 2 na, zie onder) + 4 KAN verwerkt |
+
+- Op de site: `vervolg.html` (planobject → `[titel, href]`), `films/vervolg/films.json` (datum 2026-11-02), `FILMKUNST` in index.html, vaste scripts gedraaid, controle ok. Reviews in `bron/reviews/review_beeld.md`, bouwscript in `bron/bouw/` (fo4: `bouw_fo4.sh`), decors in `bron/src/decor_<d>.js`.
+- Bewust niet veranderd na de review van mk2: namen van personages in beeld (Kamiel ronde 2: niet in de stem, wél in beeld); 'antwoord x:' bij Vragen uit haalt `antwoordtekst.py` weg.
+- LEVENSLOOP bijgewerkt (Kim forensisch patholoog, Jeroen schoolplein, Iris levenscyclusanalyse, Thijs lunchtasje); B15-rapport `films/logboek/rapporten/B15-2026-11-02.md` (voorstel: P1 en P2 naar vast).
+- Docentdelen zelf geschreven door de bouwers: in fo4 staat B35 als 'via de feitenreview' (niet zelf geopend, telt niet als bron); in tu2 is 'vroeg bladverlies bij droogte' als niet nagegaan gemarkeerd.
+
+**Nog open:** Kamiels review van de drie films (reviewpagina, status 'nog bekijken'); filmmedaillons (vel met fo4, tu2, mk2); `jaarplanner-dekking.json` (als laatste stap na `git pull`); vóór een eventuele herziening nog na te gaan: het Spaanse zwerfafvalartikel (mk2 t7) en de kiezelwierentest door een patholoog (fo4 t11). Daarmee zijn alle films uit de planning milieu-tuin-voeding gemaakt.

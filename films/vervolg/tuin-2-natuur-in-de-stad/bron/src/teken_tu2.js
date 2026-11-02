@@ -115,12 +115,15 @@ function tu2_stadNacht(ctx, x, yG, w, o = {}) { const a = o.a == null ? 1 : o.a;
   // weiland (koel, blauwgrijs) over de hele breedte, met heggen en een boerderijtje
   ctx.fillStyle = TU2.weiland; ctx.fillRect(x0, yG, w, 60); ctx.fillStyle = _tu2Dk(TU2.weiland, 0.25);
   for (const u of [0.05, 0.17, 0.82, 0.95]) { ctx.beginPath(); ctx.ellipse(x0 + w * u, yG - 8, 28, 14, 0, Math.PI, 0); ctx.fill(); }
-  // stad: zachte koraalvlek (warm) achter de silhouetten; vlak, geen verloop
-  const sw = w * 0.42; ctx.beginPath(); ctx.ellipse(x, yG - 40, sw * 0.62, 210, 0, Math.PI, 0); ctx.fillStyle = rgba(C.koraal, 0.13 + 0.06 * (o.verschil == null ? 1 : o.verschil)); ctx.fill();
+  // stad: silhouetten (keuring r4: geen koraal koepel meer; de twee luchtthermometers dragen het verschil)
+  const sw = w * 0.42;
   const B = [[-0.5, 70], [-0.42, 110], [-0.34, 90], [-0.27, 170], [-0.19, 120], [-0.11, 230], [-0.03, 150], [0.05, 260], [0.13, 140], [0.21, 190], [0.29, 100], [0.37, 130], [0.45, 80]];
-  B.forEach(([u, h], i) => { const bx = x + u * sw, bwid = sw * 0.075; ctx.fillStyle = _mixHex('#3A3E4E', C.koraal, 0.22 + 0.08 * hash(i)); ctx.fillRect(bx - bwid / 2, yG - h, bwid, h);
+  const wm = o.warm == null ? 1 : o.warm; // review K1: grond en gebouwen pas na het antwoord naar koraal
+  for (let i = 0; i < w / 9; i++) { const px = x0 + i * 9 + hash(i * 3) * 5; if (Math.abs(px - x) < sw / 2 + 20) continue; ctx.strokeStyle = i % 2 ? '#5E8A5A' : '#4E7A52'; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(px, yG + 2); ctx.lineTo(px + 2, yG - 9 - hash(i) * 8); ctx.stroke(); }
+  ctx.strokeStyle = '#8A8070'; ctx.lineWidth = 3; for (const [a0, a1] of [[x0 + 30, x - sw / 2 - 60], [x + sw / 2 + 60, x0 + w - 30]]) { ctx.beginPath(); ctx.moveTo(a0, yG - 18); ctx.lineTo(a1, yG - 18); ctx.moveTo(a0, yG - 30); ctx.lineTo(a1, yG - 30); ctx.stroke(); for (let px = a0; px <= a1; px += 46) { ctx.beginPath(); ctx.moveTo(px, yG); ctx.lineTo(px, yG - 36); ctx.stroke(); } }
+  B.forEach(([u, h], i) => { const bx = x + u * sw, bwid = sw * 0.075; ctx.fillStyle = _mixHex('#3A3E4E', C.koraal, (0.22 + 0.08 * hash(i)) * wm); ctx.fillRect(bx - bwid / 2, yG - h, bwid, h);
     ctx.fillStyle = rgba(C.goud, 0.55); for (let k = 0; k < Math.floor(h / 34); k++) for (let j = 0; j < 2; j++) if (hash(i * 31 + k * 7 + j) > 0.55) ctx.fillRect(bx - bwid / 2 + 6 + j * (bwid / 2), yG - h + 14 + k * 34, 7, 10); });
-  ctx.fillStyle = _mixHex(TU2.asfalt, C.koraal, 0.25); ctx.fillRect(x - sw / 2 - 20, yG, sw + 40, 60); // verharding
+  ctx.fillStyle = _mixHex('#55585F', C.koraal, 0.3 * wm); ctx.fillRect(x - sw / 2 - 20, yG, sw + 40, 60); // verharding (neutraal grijs tot het antwoord)
   // luchtthermometers boven stad en boven weiland
   const th = o.therm == null ? 1 : o.therm; if (th > 0.01) { const v = o.verschil == null ? 1 : o.verschil;
     tu2_luchtThermo(ctx, x, yG - 330, 170, 0.45 + 0.35 * v, C.koraal, { a: th, vraag: o.vraag });
@@ -181,13 +184,19 @@ function tu2_boom(ctx, x, yG, s = 1, o = {}) { const a = o.a == null ? 1 : o.a; 
   // kroon: lobben, donkere onderlaag en lichtere bovenkant
   _TU2_KROON.forEach(([u, v, rx, ry]) => { ctx.beginPath(); ctx.ellipse(x + u * H + wieg * 1.5, yG + v * H + ry * H * 0.12, rx * H, ry * H, 0, 0, 6.283); ctx.fillStyle = kd; ctx.fill(); });
   _TU2_KROON.forEach(([u, v, rx, ry]) => { ctx.beginPath(); ctx.ellipse(x + u * H + wieg * 1.5 - rx * H * 0.08, yG + v * H - ry * H * 0.1, rx * H * 0.88, ry * H * 0.82, 0, 0, 6.283); ctx.fillStyle = kc; ctx.fill(); });
+  if (droog > 0.01) { ctx.save(); ctx.globalAlpha *= clamp(droog * 1.4 - 0.2, 0, 1); // keuring r4: een paar slap hangende bladeren aan de onderrand van de kroon (droogte, geen herfst)
+    [[-0.27, -0.42], [-0.18, -0.4], [-0.06, -0.47], [0.08, -0.46], [0.19, -0.41], [0.29, -0.43], [-0.33, -0.5], [0.34, -0.51]].forEach(([u, v], i) => { const bx = x + u * H + wieg * 1.5, by = yG + v * H, L = H * 0.035;
+      ctx.strokeStyle = _tu2Dk(kd, 0.2); ctx.lineWidth = Math.max(1.5, H * 0.002); ctx.beginPath(); ctx.moveTo(bx, by - L * 0.4); ctx.quadraticCurveTo(bx + L * 0.25, by, bx + L * 0.1, by + L * 0.3); ctx.stroke();
+      ctx.save(); ctx.translate(bx + L * 0.1, by + L * 0.3); ctx.rotate(0.25 + (i % 3 - 1) * 0.2); ctx.beginPath(); ctx.moveTo(0, 0); ctx.quadraticCurveTo(L * 0.42, L * 0.5, 0, L * 1.25); ctx.quadraticCurveTo(-L * 0.42, L * 0.5, 0, 0); ctx.fillStyle = i % 2 ? '#8A8A46' : '#9A9050'; ctx.fill(); ctx.restore(); }); ctx.restore(); }
   ctx.fillStyle = rgba(_tu2Lt(kc, 0.25), 0.6); for (let i = 0; i < 26; i++) { const an = hash(i * 7) * 6.283, d = Math.sqrt(hash(i * 13)) * 0.3 * H; ctx.beginPath(); ctx.ellipse(x - H * 0.04 + Math.cos(an) * d * 0.9, yG - H * 0.7 + Math.sin(an) * d * 0.6, H * 0.018, H * 0.011, an, 0, 6.283); ctx.fill(); }
   // zonnestralen van linksboven, evenwijdig: de meeste stoppen op de kroon (stip), twee komen tussen de bladeren door (gestippeld)
   const zon = o.zon || 0; if (zon > 0.01) { ctx.save(); ctx.globalAlpha *= zon; const ph = ease(clamp((o.zonU == null ? 1 : o.zonU), 0, 1));
     const D = [0.45, 0.89], Ls = H * 0.3, kx = x - H * 0.02, ky = yG - H * 0.68, rx = H * 0.4, ry = H * 0.3;
-    const eind = [-2.75, -2.4, -2.05, -1.7, -1.35, -1.0].map(th => [kx + Math.cos(th) * rx, ky + Math.sin(th) * ry, false]).concat([[x - H * 0.12, yG - 2, true], [x + H * 0.16, yG - 2, true]]);
+    const eind = [-2.75, -2.4, -2.05, -1.7, -1.35, -1.0].map(th => [kx + Math.cos(th) * rx, ky + Math.sin(th) * ry, false]).concat([[x + H * 0.16, yG - 2, true]]);
     eind.forEach(([ex, ey, door]) => { const L = door ? Ls + (yG - (ky - ry * 0.4)) : Ls; const sx = ex - D[0] * L, sy = ey - D[1] * L; const px = lerp(sx, ex, ph), py = lerp(sy, ey, ph);
-      ctx.strokeStyle = C.goud; ctx.lineWidth = door ? 3 : 4; ctx.setLineDash(door ? [12, 10] : []); ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(px, py); ctx.stroke(); ctx.setLineDash([]);
+      ctx.strokeStyle = C.goud; ctx.lineWidth = door ? 2 : 4; ctx.setLineDash(door ? [10, 10] : []); ctx.beginPath();
+      if (door) { const yb = yG - H * 0.4, f0 = clamp((yb - sy) / (ey - sy), 0, 1), bx = lerp(sx, ex, f0), by = lerp(sy, ey, f0); if (py > by) { ctx.moveTo(bx, by); ctx.lineTo(px, py); } } // review K3: alleen onder de kroon zichtbaar
+      else { ctx.moveTo(sx, sy); ctx.lineTo(px, py); } ctx.stroke(); ctx.setLineDash([]);
       if (ph > 0.95) circ(ctx, ex, ey, door ? 5 : 7, C.goud); }); ctx.restore(); }
   ctx.restore(); return { kroon: [x, yG - H * 0.68], kroonR: H * 0.32, onder: [x + H * 0.06, yG] }; }
 
@@ -410,6 +419,7 @@ function tu2_bloeikalender(ctx, x, y, w, o = {}) { const a = o.a == null ? 1 : o
   const mw = w / 8, rh = 52, lab = ['VROEG', 'ZOMER', 'LAAT', 'UITHEEMS']; const balk = [[0, 3.2], [2.6, 6], [5.2, 7.5], [6.0, 8]]; // inheems laat tot half oktober; uitheemse late bloeier maakt oktober vol
   const kl = ['#8FCB8A', C.groen, '#5FA86E', C.oker];
   roundRect(ctx, x - 200, y - 70, w + 220, 70 + rh * 4 + 30, 14); shape(ctx, rgba('#0D1420', 0.85), rgba(C.line, 0.8), 1.5);
+  if (o.voorbeeld !== false) metaText(ctx, 'VOORBEELD', x - 196, y - 88, C.goud, 'left', 26); // keuring r4: de indeling is een voorbeeld, geen meting
   TU2_MAANDEN.forEach((m, i) => { metaText(ctx, m, x + mw * (i + 0.5), y - 26, C.text2, 'center', 26); ctx.strokeStyle = rgba(C.line, 0.25); ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(x + mw * i, y - 10); ctx.lineTo(x + mw * i, y + rh * 4); ctx.stroke(); });
   balk.forEach(([b0, b1], i) => { if ((R[i] || 0) <= 0.01) return; ctx.save(); ctx.globalAlpha *= R[i]; const yy = y + i * rh + 8, e = Math.min(b1, u * 8); if (e > b0) {
       const bx = x + b0 * mw, bwid = Math.min(w - b0 * mw, (e - b0) * mw); roundRect(ctx, bx, yy, Math.max(12, bwid), rh - 18, (rh - 18) / 2); if (i === 3) { ctx.fillStyle = rgba(C.oker, 0.35); ctx.fill(); ctx.setLineDash([8, 6]); ctx.strokeStyle = C.oker; ctx.lineWidth = 2.5; ctx.stroke(); ctx.setLineDash([]); } else { ctx.fillStyle = rgba(kl[i], 0.85); ctx.fill(); }
@@ -424,7 +434,8 @@ function tu2_hoogtemeter(ctx, x, y, o = {}) { const a = o.a == null ? 1 : o.a; i
   ctx.strokeStyle = rgba(C.line, 0.7); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x, y + st * (n - 1)); ctx.stroke();
   TU2_HOOGTES.forEach((nm, i) => { const yy = y + i * st, d = Math.abs(i - pos), on = d < 0.5; ctx.beginPath(); ctx.moveTo(x - 8, yy); ctx.lineTo(x + 8, yy); ctx.stroke();
     metaText(ctx, nm, x + 22, yy + 9, on ? C.goud : rgba(C.text2, 0.8), 'left', 26); });
-  const my = y + pos * st; ctx.beginPath(); ctx.moveTo(x - 6, my); ctx.lineTo(x - 26, my - 12); ctx.lineTo(x - 26, my + 12); ctx.closePath(); ctx.fillStyle = C.goud; ctx.fill();
+  // keuring r4: de meter staat in echte hoogte (stad boven, bodem onder); het lichtje loopt mee met de camera
+  const my = y + pos * st; circ(ctx, x, my, 16, rgba(C.goud, 0.22)); circ(ctx, x, my, 10, rgba(C.goud, 0.4)); circ(ctx, x, my, 6, '#F6DE8E');
   ctx.restore(); }
 
 // ---------- klok (wijzerplaat), bv. 23:00 ----------
@@ -455,3 +466,166 @@ function tu2_grasVeld(ctx, x, yG, w, o = {}) { const a = o.a == null ? 1 : o.a; 
   const damp = kunst ? 0 : (o.damp || 0); if (damp > 0.01) for (let k = 0; k < Math.round(w / 60); k++) { const ph = (t * 0.4 + hash(k * 3)) % 1; waterMol(ctx, x0 + 20 + hash(k * 7) * (w - 40), yG - 60 - ph * 120, 8, damp * Math.sin(ph * Math.PI)); }
   if (o.zon) for (let i = 0; i < 4; i++) { const px = x0 + w * (0.15 + i * 0.23); pijl(ctx, px - 60, yG - 220, px - 6, yG - 70, C.goud, o.zon, 4, 14); }
   ctx.restore(); }
+
+// =====================================================================================================
+// Toegevoegd bij het bouwen (2 nov 2026): algemene hulpjes (zoals mk1), camera, decor-overlays, bovenaanzicht van het ontwerp
+// =====================================================================================================
+const GROND = 860, HPX = 420; // grondlijn en basislengte personages (zoals tu1)
+function antwoord(ctx, s2, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fTekst(40, 700); const w = ctx.measureText(s2).width; roundRect(ctx, 96, 102, w + 48, 66, 14); shape(ctx, rgba('#0D1420', 0.82), null); ctx.restore(); regel(ctx, s2, 120, 150, a, C.groen, 40, 'left', 700); }
+function metaA(ctx, s2, x, y, a, col = C.grain, al = 'left', px = 28) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; metaText(ctx, s2, x, y, col, al, px); ctx.restore(); }
+function metaB(ctx, s2, x, y, a, col = C.grain, al = 'left', px = 28) { // meta met donkere achtergrond (over het decor)
+  if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fMeta(px); ctx.letterSpacing = '3px'; const w = ctx.measureText(s2.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():''))).width; ctx.letterSpacing = '0px';
+  const x0 = al === 'center' ? x - w / 2 : al === 'right' ? x - w : x; roundRect(ctx, x0 - 16, y - px - 6, w + 32, px + 22, 10); shape(ctx, rgba('#0D1420', 0.82), null); metaText(ctx, s2, x, y, col, al, px); ctx.restore(); }
+function fase(t, t0, t1, d = 0.5) { return ramp(t, t0, d) * (1 - ramp(t, t1 - d, d)); }
+function laag(ctx, a, fn) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; fn(); ctx.restore(); }
+function kaart(ctx, x, y, w, h, a = 1, rand = C.line) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, w, h, 16); shape(ctx, rgba('#0D1420', 0.9), rgba(rand, 0.85), 2); ctx.restore(); }
+function filmKaartje(ctx, x, y, s2, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fTekst(30, 700); const ww = ctx.measureText(s2).width + 100; roundRect(ctx, x, y, ww, 64, 12); shape(ctx, rgba('#0D1420', 0.85), rgba(C.line, 0.9), 1.5);
+  ctx.beginPath(); ctx.moveTo(x + 26, y + 18); ctx.lineTo(x + 52, y + 32); ctx.lineTo(x + 26, y + 46); ctx.closePath(); ctx.fillStyle = C.goud; ctx.fill(); text(ctx, s2, x + 66, y + 43, fTekst(30, 700), C.text, 'left'); ctx.restore(); }
+// meetwaarde als label op de gemeten plek (pil met koraal = heet, teal = koel)
+function meetLabel(ctx, s2, x, y, kl, a = 1, px = 34) { tag(ctx, s2, x, y, kl, a, 'center', px); }
+
+// ---------- camera ----------
+// cam = { x, y, z }: wereldpunt (x, y) staat midden in beeld, vergroot z. camPad: [[tijd, cam, duur], …] na elkaar, elke overgang eased.
+const CAM0 = { x: 960, y: 540, z: 1 };
+function camL(a, b, u) { return { x: lerp(a.x, b.x, u), y: lerp(a.y, b.y, u), z: Math.exp(lerp(Math.log(a.z), Math.log(b.z), u)) }; }
+function camPad(t, K) { let c = K[0][1]; for (let i = 1; i < K.length; i++) c = camL(c, K[i][1], ramp(t, K[i][0], K[i][2] || 1.2)); return c; }
+function metCam(ctx, c, fn) { ctx.save(); ctx.translate(W / 2, H / 2); ctx.scale(c.z, c.z); ctx.translate(-c.x, -c.y); fn(); ctx.restore(); }
+// een volledig beeld (fn tekent 0..W × 0..H) verkleind in rechthoek [x, y, w, h]; u = 0 volledig, 1 = in de rechthoek
+function krimp(ctx, u, dst, fn, a = 1) { if (a <= 0.01) return; const x = lerp(0, dst[0], u), y = lerp(0, dst[1], u), w = lerp(W, dst[2], u), h = lerp(H, dst[3], u);
+  ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.rect(x, y, w, h); ctx.clip(); ctx.translate(x, y); ctx.scale(w / W, h / H); fn(); ctx.restore(); }
+// hoogtemeter rechtsboven op een donker plaatje (pos: 0 STAD, 1 DAK, 2 BLAD, 3 PLEIN, 4 BODEM; kommagetal = onderweg)
+function hMeter(ctx, pos, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, 1694, 96, 200, 248, 14); shape(ctx, rgba('#0D1420', 0.78), null); ctx.restore(); tu2_hoogtemeter(ctx, 1736, 132, { pos, a }); }
+function hPos(t, K) { let p = K[0][1]; for (let i = 1; i < K.length; i++) p = lerp(p, K[i][1], ramp(t, K[i][0], K[i][2] || 1.2)); return p; }
+
+// ---------- decor schoolplein (zoals mk1: op 60 % over navy) ----------
+const DECOR_IMG = {};
+if (typeof DECOR_SRC !== 'undefined') for (const k in DECOR_SRC) { const im = new Image(); im.src = DECOR_SRC[k]; DECOR_IMG[k] = im; }
+function decorBeeld(ctx, naam, a = 0.6) { const im = DECOR_IMG[naam]; if (!im || !im.complete || a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.drawImage(im, 0, 0, W, H); ctx.restore(); }
+// plekken in het decor (1920 × 1080)
+const PL = { boom: [585, 690], kroon: [580, 320], schaduw: [440, 712], deur: [118, 440, 104, 240], putje: [1365, 671], putje2: [1510, 905], meethut: [1525, 628],
+  kunst: [345, 503, 640, 108], echt: [985, 522, 640, 90], gym: [1625, 300], lantaarn: [1356, 655] };
+const ASFALT = [[1060, 657], [1328, 657], [1800, 1080], [1110, 1080]];
+// donkere asfaltstrook over het plein (keuring r4: de stem zegt asfalt); o.rand = goud omrand
+function asfaltStrook(ctx, a = 1, o = {}) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ASFALT.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath();
+  ctx.fillStyle = rgba(o.avond ? '#18181E' : '#2C2C33', 0.82); ctx.fill(); ctx.strokeStyle = rgba('#8A8E96', 0.5); ctx.lineWidth = 3; ctx.stroke();
+  ctx.save(); ctx.clip(); ctx.fillStyle = rgba('#000000', 0.18); for (let i = 0; i < 160; i++) { const u = hash(i * 3.3), v = hash(i * 7.1); const y = lerp(660, 1078, v), xl = lerp(1060, 1110, (y - 657) / 423), xr = lerp(1328, 1800, (y - 657) / 423); circ(ctx, lerp(xl, xr, u), y, 1.5 + 2 * v, rgba('#000000', 0.2)); } ctx.restore();
+  const h = o.heet || 0; if (h > 0.01) { ctx.save(); ctx.globalAlpha *= h; ctx.beginPath(); ASFALT.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); ctx.fillStyle = rgba(C.koraal, 0.28); ctx.fill(); ctx.restore(); }
+  if (o.rand) { ctx.save(); ctx.globalAlpha *= o.rand; ctx.beginPath(); ASFALT.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); ctx.strokeStyle = C.goud; ctx.lineWidth = 5; ctx.stroke(); ctx.restore(); }
+  ctx.restore(); }
+// kunstgras en echt gras op het veld achter het hek: twee duidelijke kleurvlakken (keuring r4)
+function veldVlakken(ctx, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const [kx, ky, kw, kh] = PL.kunst, [ex, ey, ew, eh] = PL.echt;
+  ctx.fillStyle = '#2FAE58'; ctx.fillRect(kx, ky, kw, kh); for (let i = 0; i < 260; i++) circ(ctx, kx + hash(i * 1.7) * kw, ky + hash(i * 3.9) * kh, 1.6, '#1E2A22'); // egaal felgroen met rubberkorrels ctx.strokeStyle = rgba('#E8F6EA', 0.55); ctx.lineWidth = 2; for (let i = 1; i < 8; i++) { ctx.beginPath(); ctx.moveTo(kx + i * kw / 8, ky); ctx.lineTo(kx + i * kw / 8, ky + kh); ctx.stroke(); }
+  ctx.fillStyle = '#6A8E3E'; ctx.fillRect(ex, ey, ew, eh); ctx.strokeStyle = '#86A852'; ctx.lineWidth = 2; for (let i = 0; i < 220; i++) { const px = ex + hash(i * 2.9) * ew, py = ey + 6 + hash(i * 5.1) * (eh - 6); ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px + (hash(i) - 0.5) * 6, py - 6 - hash(i + 2) * 8); ctx.stroke(); } // ruig gras for (let i = 0; i < 90; i++) circ(ctx, ex + hash(i * 2.1) * ew, ey + hash(i * 4.7) * eh, 3 + 3 * hash(i), rgba(i % 2 ? '#5E8A3A' : '#9AAE52', 0.6));
+  ctx.restore(); }
+// zachte warmtegloed (koraal) rond een punt
+function gloed(ctx, x, y, r, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; for (let i = 0; i < 5; i++) { ctx.beginPath(); ctx.ellipse(x, y, r * (1 - i * 0.18), r * 0.38 * (1 - i * 0.18), 0, 0, 6.283); ctx.fillStyle = rgba(C.koraal, 0.12); ctx.fill(); } ctx.restore(); }
+// storm: donkere lucht over het decor
+function stormLucht(ctx, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.fillStyle = rgba('#0E1626', 0.42); ctx.fillRect(0, 0, W, H); ctx.fillStyle = rgba('#202A3A', 0.85);
+  [[200, 120, 340, 90], [620, 70, 420, 110], [1100, 110, 380, 95], [1560, 80, 420, 105], [880, 230, 300, 70], [1400, 250, 280, 60]].forEach(([x, y, rx, ry]) => { ctx.beginPath(); ctx.ellipse(x, y, rx, ry, 0, 0, 6.283); ctx.fill(); }); ctx.restore(); }
+
+// ---------- castpersonages ----------
+function lotte(ctx, x, t, o = {}) { return persoon(ctx, 'lotte', x, o.y || GROND, o.h || HPX, { t, kijk: o.kijk || 1, uit: o.uit || 'neutraal', pose: o.pose || 'staan', a: o.a == null ? 1 : o.a, hold: o.hold, outfit: o.outfit }); }
+function lotteHurk(ctx, x, t, o = {}) { return tu2_hurk(ctx, 'lotte', x, GROND, o.h || HPX, { t, uit: o.uit, a: o.a }); } // review M1: echte hurkhouding, hand plat op een tegel ± 120 px vóór x
+function jeroen(ctx, x, t, o = {}) { return persoon(ctx, 'jeroen', x, o.y || GROND, o.h || HPX, { t, kijk: o.kijk || -1, uit: o.uit || 'neutraal', pose: o.pose || 'staan', outfit: 'buiten', a: o.a == null ? 1 : o.a, hold: o.hold }); }
+// tablet met een mini-ontwerp
+function tu2_tablet(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); roundRect(ctx, -60, -84, 120, 90, 8); shape(ctx, '#2A3040', '#8FA0B5', 2);
+  roundRect(ctx, -52, -76, 104, 74, 4); ctx.fillStyle = '#C9B48A'; ctx.fill(); ctx.fillStyle = '#5E9A55'; ctx.fillRect(-46, -70, 40, 30); ctx.beginPath(); ctx.ellipse(22, -26, 22, 14, 0, 0, 6.283); ctx.fillStyle = '#5BA4C9'; ctx.fill();
+  [[-30, -26], [10, -60], [36, -60]].forEach(([px, py]) => circ(ctx, px, py, 9, '#3E7A48')); ctx.restore(); }
+const houdTablet = (c, hx, hy) => tu2_tablet(c, hx + 4, hy + 30, 0.95);
+const houdIR = (o = {}) => (c, hx, hy) => tu2_irThermometer(c, hx + 40, hy - 46, 0.5, Object.assign({ kijk: 1 }, o));
+
+// ---------- bovenaanzicht van het plein en het ontwerp ----------
+// vaste plek in beeld; o.bomen/gras/wadi/dak/bloem/zand 0..1 (intekenen), o.water 0..1 (wadi gevuld), o.zandRand, o.bloei 0..1 (borders kleuren in, van vroeg naar laat), o.t
+const PLAN = { x: 150, y: 130, w: 1450, h: 700, school: [150, 130, 250, 700], gym: [1240, 130, 360, 290], gras: [470, 470, 300, 300], wadi: [1120, 640, 175, 115], zand: [1428, 520, 120, 92],
+  bomen: [[600, 270], [920, 300], [640, 660], [1420, 735]], borders: [[430, 788, 760, 36], [430, 138, 780, 36]] };
+function tu2_plan(ctx, o = {}) { const a = o.a == null ? 1 : o.a; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const P = PLAN, t = o.t || 0;
+  // tegels
+  ctx.save(); roundRect(ctx, P.x, P.y, P.w, P.h, 14); ctx.clip(); ctx.fillStyle = TU2.voeg; ctx.fillRect(P.x, P.y, P.w, P.h);
+  for (let i = 0; i < P.w / 46 + 1; i++) for (let j = 0; j < P.h / 46 + 1; j++) { ctx.fillStyle = _mixHex(TU2.steen, '#9A8A70', hash(i * 13 + j * 7) * 0.35); ctx.fillRect(P.x + i * 46 + 2, P.y + j * 46 + 2, 42, 42); }
+  // school en gymzaal (daken)
+  const [sx, sy, sw, sh] = P.school; ctx.fillStyle = '#4A5468'; ctx.fillRect(sx, sy, sw, sh); ctx.strokeStyle = '#5A6478'; ctx.lineWidth = 3; ctx.strokeRect(sx + 10, sy + 10, sw - 20, sh - 20);
+  const [gx, gy, gw, gh] = P.gym; ctx.fillStyle = '#3A3E46'; ctx.fillRect(gx, gy, gw, gh);
+  const dk = o.dak || 0; if (dk > 0.01) { ctx.save(); ctx.globalAlpha *= dk; ctx.fillStyle = '#4E7A48'; ctx.fillRect(gx + 10, gy + 10, gw - 20, gh - 20); for (let i = 0; i < 120; i++) circ(ctx, gx + 16 + hash(i * 3.7) * (gw - 32), gy + 16 + hash(i * 5.3) * (gh - 32), 5 + 4 * hash(i), ['#5E9A55', '#6FA866', '#A86A52', '#7AAE5E'][i % 4]); ctx.restore(); }
+  ctx.restore();
+  // gras
+  const gr = o.gras || 0; if (gr > 0.01) { const [x, y, w, h] = P.gras; ctx.save(); ctx.globalAlpha *= gr; roundRect(ctx, x, y, w, h, 40); ctx.fillStyle = '#5E9A55'; ctx.fill(); ctx.strokeStyle = rgba('#8FCB8A', 0.5); ctx.lineWidth = 2; for (let i = 0; i < 80; i++) { const px = x + 14 + hash(i * 2.3) * (w - 28), py = y + 14 + hash(i * 4.1) * (h - 28); ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px + 4, py - 8); ctx.stroke(); } ctx.restore(); }
+  // wadi: verlaagd grasveld (donkerder groen, stippellijn = rand van de verlaging), teal als er water staat
+  const wd = o.wadi || 0; if (wd > 0.01) { const [x, y, rx, ry] = P.wadi; ctx.save(); ctx.globalAlpha *= wd; ctx.beginPath(); ctx.ellipse(x, y, rx, ry, 0, 0, 6.283); ctx.fillStyle = '#5E9A55'; ctx.fill();
+    ctx.beginPath(); ctx.ellipse(x, y, rx * 0.66, ry * 0.62, 0, 0, 6.283); ctx.fillStyle = '#4A7E48'; ctx.fill(); const wt = o.water || 0; if (wt > 0.01) { ctx.beginPath(); ctx.ellipse(x, y, rx * 0.6 * wt, ry * 0.55 * wt, 0, 0, 6.283); ctx.fillStyle = rgba(C.teal, 0.8); ctx.fill(); }
+    ctx.setLineDash([10, 8]); ctx.strokeStyle = rgba('#DDEFD8', 0.7); ctx.lineWidth = 2.5; ctx.beginPath(); ctx.ellipse(x, y, rx, ry, 0, 0, 6.283); ctx.stroke(); ctx.setLineDash([]); ctx.restore(); }
+  // kale zandgrond voor wilde bijen
+  const zd = o.zand || 0; if (zd > 0.01) { const [x, y, w, h] = P.zand; ctx.save(); ctx.globalAlpha *= zd; roundRect(ctx, x, y, w, h, 18); ctx.fillStyle = '#D8BE84'; ctx.fill(); for (let i = 0; i < 30; i++) circ(ctx, x + 8 + hash(i * 3.1) * (w - 16), y + 8 + hash(i * 6.7) * (h - 16), 2, rgba('#8A6E44', 0.6)); for (let k = 0; k < 4; k++) circ(ctx, x + 26 + k * 24, y + 30 + (k % 2) * 30, 4, '#5A4430'); ctx.restore(); }
+  if (o.zandRand) { const [x, y, w, h] = P.zand; ctx.save(); ctx.globalAlpha *= o.zandRand; roundRect(ctx, x - 8, y - 8, w + 16, h + 16, 22); ctx.strokeStyle = C.goud; ctx.lineWidth = 4; ctx.stroke(); ctx.restore(); }
+  // borders met bloemen; o.bloei kleurt van vroeg (geel/wit) via zomer (paars/roze) naar laat (blauw/oranje)
+  const bl = o.bloem || 0; if (bl > 0.01) { ctx.save(); ctx.globalAlpha *= bl; const KL = [['#F2E27A', '#F2EEE4'], ['#C98AC0', '#E8A0B4'], ['#86A8E0', '#E8A35C']];
+    P.borders.forEach(([x, y, w, h], b) => { roundRect(ctx, x, y, w, h, 14); ctx.fillStyle = '#4E7A48'; ctx.fill(); const n = Math.round(w / 22);
+      for (let i = 0; i < n; i++) { const px = x + 10 + i * (w - 20) / n + hash(i + b * 50) * 8, py = y + 8 + hash(i * 3 + b) * (h - 16); const f = o.bloei == null ? 0.4 : o.bloei; const fase = Math.min(2, Math.floor(f * 3 * (0.75 + 0.5 * hash(i * 7 + b)))); circ(ctx, px, py, 6, KL[fase][i % 2]); } }); ctx.restore(); }
+  // bomen: kroon van boven (lobben), met plantvak eronder
+  const bm = o.bomen || 0; if (bm > 0.01) P.bomen.forEach(([x, y], i) => { const g = clamp(bm * 1.6 - i * 0.2, 0, 1); if (g <= 0.01) return; ctx.save(); ctx.globalAlpha *= g; const r = 92 * (0.6 + 0.4 * g) * (o.groot || 1);
+    roundRect(ctx, x - 64, y - 48, 128, 96, 18); ctx.fillStyle = '#6E8A4E'; ctx.fill();
+    ctx.fillStyle = rgba('#0A0F18', 0.35); ctx.beginPath(); ctx.ellipse(x + 16, y + 14, r, r * 0.92, 0, 0, 6.283); ctx.fill();
+    for (let k = 0; k < 7; k++) { const an = k / 7 * 6.283 + i; ctx.beginPath(); ctx.ellipse(x + Math.cos(an) * r * 0.42, y + Math.sin(an) * r * 0.42, r * 0.55, r * 0.5, an, 0, 6.283); ctx.fillStyle = TU2.kroonD; ctx.fill(); }
+    ctx.beginPath(); ctx.ellipse(x - 8, y - 8, r * 0.7, r * 0.66, 0, 0, 6.283); ctx.fillStyle = TU2.kroon; ctx.fill(); ctx.beginPath(); ctx.ellipse(x - 22, y - 22, r * 0.32, r * 0.28, 0, 0, 6.283); ctx.fillStyle = _tu2Lt(TU2.kroon, 0.18); ctx.fill(); ctx.restore(); });
+  roundRect(ctx, P.x, P.y, P.w, P.h, 14); ctx.strokeStyle = rgba(C.line, 0.6); ctx.lineWidth = 2; ctx.stroke();
+  ctx.restore(); }
+// de wijk rond het plein (bovenaanzicht, in dezelfde wereldmaat als PLAN), voor de vliegafstand van wilde bijen
+function tu2_wijk(ctx, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const cx = PLAN.x + PLAN.w / 2, cy = PLAN.y + PLAN.h / 2, B = 1900, S = 520;
+  for (let i = -7; i <= 7; i++) for (let j = -7; j <= 7; j++) { if (Math.abs(i) <= 0 && Math.abs(j) <= 0) continue; const x = cx + i * (B + S) - B / 2, y = cy + j * (B * 0.62 + S) - B * 0.31; const h = hash(i * 31 + j * 17);
+    roundRect(ctx, x, y, B, B * 0.62, 60); ctx.fillStyle = h > 0.86 ? '#4E7A48' : '#3A4458'; ctx.fill(); if (h > 0.86) continue; ctx.fillStyle = '#2E3648'; for (let k = 0; k < 6; k++) ctx.fillRect(x + 80 + k * 300, y + 90, 220, B * 0.62 - 180); }
+  ctx.restore(); }
+
+// ---------- bloemen (zijaanzicht) voor de bijenproef ----------
+// soort 'klok' (klokjes), 'ster' (madeliefachtig), 'scherm' (schermbloem); (x, yG) = voet; s = 1 → ± 260 px hoog
+function tu2_bloem(ctx, x, yG, soort, s = 1, a = 1, o = {}) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, yG); ctx.scale(s, s);
+  ctx.strokeStyle = '#5E9A55'; ctx.lineWidth = 6; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(0, 0); ctx.quadraticCurveTo(-6, -120, 0, -230); ctx.stroke();
+  for (const sd of [-1, 1]) { ctx.save(); ctx.translate(0, -70 - (sd > 0 ? 30 : 0)); ctx.rotate(sd * 0.9); ctx.beginPath(); ctx.ellipse(0, -26, 10, 28, 0, 0, 6.283); ctx.fillStyle = '#5E9A55'; ctx.fill(); ctx.restore(); }
+  if (soort === 'klok') { [[0, -230, 0.15], [-34, -190, -0.5], [30, -160, 0.6]].forEach(([px, py, r]) => { ctx.strokeStyle = '#5E9A55'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(0, py + 20); ctx.quadraticCurveTo(px * 0.6, py - 10, px, py); ctx.stroke();
+      ctx.save(); ctx.translate(px, py); ctx.rotate(r); ctx.beginPath(); ctx.moveTo(-6, 0); ctx.quadraticCurveTo(-26, 26, -24, 50); ctx.lineTo(-14, 44); ctx.lineTo(-6, 52); ctx.lineTo(2, 44); ctx.lineTo(10, 52); ctx.lineTo(18, 44); ctx.lineTo(26, 50); ctx.quadraticCurveTo(26, 26, 6, 0); ctx.closePath(); ctx.fillStyle = '#8A7AD0'; ctx.fill(); ctx.restore(); }); }
+  else if (soort === 'ster') { ctx.translate(0, -236); for (let k = 0; k < 14; k++) { ctx.save(); ctx.rotate(k / 14 * 6.283); ctx.beginPath(); ctx.ellipse(0, -30, 8, 24, 0, 0, 6.283); ctx.fillStyle = '#F2EEE4'; ctx.fill(); ctx.restore(); } circ(ctx, 0, 0, 16, '#E8C23A'); }
+  else if (soort === 'pluim') { // uitheemse late bloeier (vlinderstruik-achtig): gebogen takken met lange paarse pluimen
+    for (const [dx, an] of [[0, 0], [-40, -0.35], [44, 0.4]]) { ctx.save(); ctx.translate(dx * 0.3, -170); ctx.rotate(an); ctx.strokeStyle = '#6E8A4E'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(0, 60); ctx.quadraticCurveTo(0, 0, dx * 0.4, -60); ctx.stroke();
+      ctx.translate(dx * 0.4, -60); ctx.rotate(dx * 0.004); for (let m = 0; m < 22; m++) { const yy = -m * 5.5, rr = 9 * (1 - m / 26); circ(ctx, (hash(m + dx) - 0.5) * rr * 1.6, yy, 5 + rr * 0.35, m % 3 ? '#9A6AC8' : '#B488DA'); } circ(ctx, 0, -6, 3, '#F2B04A'); ctx.restore(); } }
+  else { ctx.translate(0, -230); for (let k = 0; k < 9; k++) { const an = -Math.PI / 2 + (k - 4) * 0.28; ctx.strokeStyle = '#6FA866'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(0, 20); ctx.lineTo(Math.cos(an) * 60, 20 + Math.sin(an) * 50); ctx.stroke(); for (let m = 0; m < 5; m++) circ(ctx, Math.cos(an) * 60 + (m - 2) * 5, 20 + Math.sin(an) * 50 - 4 + (m % 2) * 4, 5, '#F2EEE4'); } }
+  if (o.rand) { ctx.save(); ctx.globalAlpha *= o.rand; ctx.beginPath(); ctx.arc(0, soort === 'ster' ? 0 : -190, 80, 0, 6.283); ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.stroke(); ctx.restore(); }
+  ctx.restore(); }
+// kalendertje met een aantal dagen
+function tu2_kalender(ctx, x, y, s2, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 70, y - 70, 140, 140, 14); shape(ctx, '#F2EEE4', null); roundRect(ctx, x - 70, y - 70, 140, 40, 14); ctx.fillStyle = C.koraal; ctx.fill(); ctx.fillRect(x - 70, y - 44, 140, 14);
+  circ(ctx, x - 36, y - 70, 7, '#5A6478'); circ(ctx, x + 36, y - 70, 7, '#5A6478'); text(ctx, s2, x, y + 46, fTekst(56, 800), '#1A2740', 'center'); ctx.restore(); }
+
+// ---------- Lotte hurkt (zijaanzicht), hand plat op een tegel vóór haar voeten (review: M1) ----------
+// Eigen houding op basis van de cast (kleuren, maten, hoofd en haar via _zijHoofd/_zijHaarAchter uit lib_cast.js; lib_cast zelf blijft ongewijzigd).
+// (x, yG) = enkel/voet op de grond; kijkt naar rechts; o.reik = afstand hand vóór de tenen (× kopmaat); geeft { hand:{x,y}, hoofd } terug.
+function tu2_hurk(ctx, id, x, yG, h, o = {}) { const a = o.a == null ? 1 : o.a; if (a <= 0.01) return {}; const P = CAST[id]; h *= P.lengte || 1; const hh = h / (P.kop || 6.1), t = o.t || 0;
+  ctx.save(); ctx.globalAlpha *= a; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  const L1 = (h - hh * 3.67) * 0.5, L2 = L1, d = hh * (P.schouderK ? P.schouderK * 0.68 : 1.25);
+  const VR = 0.3, VL = hh * (0.64 * Math.sin(VR) + 0.22 * Math.cos(VR)); const leg = (off, ver) => { const A = [x + off, yG - VL], K = [A[0] + hh * 0.42, A[1] - L2 * 0.9], Hp = [K[0] - L1 * 0.98, K[1] + L1 * 0.12];
+    const br = ver ? _donker(P.broek, 0.18) : P.broek; ctx.strokeStyle = br; ctx.lineWidth = hh * 0.58; ctx.beginPath(); ctx.moveTo(Hp[0], Hp[1]); ctx.lineTo(K[0], K[1]); ctx.lineTo(A[0], A[1]); ctx.stroke();
+    ctx.save(); ctx.translate(A[0], A[1]); ctx.rotate(VR); ctx.fillStyle = ver ? _donker(P.schoen, 0.15) : P.schoen; ctx.beginPath(); ctx.moveTo(-hh * 0.2, -hh * 0.12); // schoen, hiel iets van de grond
+    ctx.quadraticCurveTo(-hh * 0.3, hh * 0.18, -hh * 0.2, hh * 0.22); ctx.lineTo(hh * 0.56, hh * 0.22); ctx.quadraticCurveTo(hh * 0.68, hh * 0.18, hh * 0.64, hh * 0.08); ctx.quadraticCurveTo(hh * 0.5, -hh * 0.04, hh * 0.22, -hh * 0.06); ctx.quadraticCurveTo(hh * 0.05, -hh * 0.14, -hh * 0.2, -hh * 0.12); ctx.fill();
+    ctx.fillStyle = ver ? _donker(P.schoenAccent, 0.15) : P.schoenAccent; ctx.fillRect(-hh * 0.22, hh * 0.15, hh * 0.84, hh * 0.07); ctx.restore(); return { A, K, Hp }; };
+  // romp: kantelt voorover vanaf de heup
+  const lean = 0.5, Lr = hh * 2.0, ref = { Hp: [x + hh * 0.42 - L1 * 0.98, yG - VL - L2 * 0.9 + L1 * 0.12] };
+  const Hp = [ref.Hp[0] + hh * 0.05, ref.Hp[1] - hh * 0.05], S = [Hp[0] + Math.sin(lean) * Lr, Hp[1] - Math.cos(lean) * Lr];
+  const arm = (T, ver) => { const A1 = hh * 1.32 * (P.armK || 1), A2 = hh * 1.2 * (P.armK || 1), sx = S[0] - (ver ? hh * 0.1 : 0), sy = S[1] + hh * 0.2;
+    const [a1, a2] = _ik(T[0] - sx, T[1] - sy, A1, A2), ex = sx + Math.sin(a1) * A1, ey = sy + Math.cos(a1) * A1, hx = ex + Math.sin(a2) * A2, hy = ey + Math.cos(a2) * A2;
+    const mouw = ver ? _donker(P.topAccent || P.topKleur, 0.16) : _licht(P.topKleur, 0.1), hu = ver ? _donker(P.huid, 0.14) : P.huid;
+    if (!ver) { ctx.strokeStyle = rgba('#0B1020', 0.55); ctx.lineWidth = hh * 0.47; ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(ex, ey); ctx.lineTo(ex + (hx - ex) * 0.72, ey + (hy - ey) * 0.72); ctx.stroke(); }
+    ctx.strokeStyle = hu; ctx.lineWidth = hh * 0.27; ctx.beginPath(); ctx.moveTo(ex + (hx - ex) * 0.6, ey + (hy - ey) * 0.6); ctx.lineTo(hx, hy); ctx.stroke();
+    ctx.strokeStyle = mouw; ctx.lineWidth = hh * 0.4; ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(ex, ey); ctx.lineTo(ex + (hx - ex) * 0.72, ey + (hy - ey) * 0.72); ctx.stroke();
+    ctx.fillStyle = hu; ctx.beginPath(); ctx.ellipse(hx + hh * 0.12, hy + hh * 0.02, hh * 0.27, hh * 0.1, 0, 0, 6.283); ctx.fill(); // hand plat op de tegel
+    return { x: hx + hh * 0.14, y: hy + hh * 0.1 }; };
+  const far = leg(-hh * 0.12, true);
+  arm([far.K[0] + hh * 0.15, far.K[1] + hh * 0.1], true); // verre hand op de knie
+  // hoofd- en nekpositie
+  const nk = [S[0] + Math.sin(lean) * hh * 0.1, S[1] - Math.cos(lean) * hh * 0.1], hcx = nk[0] + hh * 0.3, hy = nk[1] - hh * 0.72;
+  if (P.kapsel === 'staart' || P.kapsel === 'vlecht' || P.kapsel === 'golf') _zijHaarAchter(ctx, P, (px, py) => [px, py], hcx - hh * 0.04, hy - hh * 0.04, S[1], hh, t, null, 0);
+  // romp (afgerond, met strepen zoals de cast)
+  ctx.save(); ctx.translate((Hp[0] + S[0]) / 2, (Hp[1] + S[1]) / 2); ctx.rotate(lean); const rw = d * 0.95, rl = Lr + hh * 0.55;
+  roundRect(ctx, -rw / 2, -rl / 2, rw, rl, rw * 0.42); ctx.fillStyle = P.topKleur; ctx.fill(); ctx.save(); roundRect(ctx, -rw / 2, -rl / 2, rw, rl, rw * 0.42); ctx.clip();
+  ctx.fillStyle = P.topAccent || _donker(P.topKleur, 0.1); ctx.beginPath(); ctx.ellipse(-rw * 0.55, 0, rw * 0.3, rl * 0.6, 0, 0, 6.283); ctx.fill();
+  if (P.strepen) { ctx.fillStyle = P.strepen; for (let yy = -rl / 2 + hh * 0.5; yy < rl / 2 - hh * 0.1; yy += hh * 0.36) ctx.fillRect(-rw, yy, rw * 2, hh * 0.15); } ctx.restore(); ctx.restore();
+  leg(0, false);
+  ctx.strokeStyle = _donker(P.huid, 0.12); ctx.lineWidth = hh * 0.32; ctx.beginPath(); ctx.moveTo(nk[0], nk[1] + hh * 0.15); ctx.lineTo(hcx - hh * 0.06, hy + hh * 0.35); ctx.stroke();
+  _zijHoofd(ctx, P, hcx, hy, hh, o.uit || 'neutraal', t, null, 0);
+  const T = [x + hh * (0.95 + (o.reik == null ? 0.55 : o.reik)), yG - hh * 0.12]; const hand = arm(T, false);
+  ctx.restore(); return { hand, hoofd: { x: hcx, y: hy, r: hh * 0.55 } }; }

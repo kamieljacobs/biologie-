@@ -244,24 +244,50 @@ function fo4_hommel(ctx, x, y, s = 1, o = {}) { const { a = 1, kijk = 1, t = 0, 
   ctx.restore(); return anker; }
 
 // =====================================================================================
-// BLOEIENDE STRUIK (insectenbestoven; de film noemt geen soort). Kopie van rhodoStruik + blad + tros uit Tuin 1
-// (films/vervolg/tuin-1-welke-plant-waar/bron/src/teken_tu1.js), met bloemkleur en kleverige stuifmeelklontjes (o.klontjes).
-// (x, yb) = voet op de grond, s = schaal (s = 1 → ± 340 px breed, 280 px hoog). Geen zichtbare wortels (BEELDAFSPRAKEN).
+// BLOEIENDE STRUIK (insectenbestoven; de film noemt geen soort). Keuring ronde 4 (Kamiel 2 nov 2026): rozenachtige struik
+// met losse bloemetjes, geen rododendron. Boogvormige takken met doorntjes, samengestelde bladeren (5 deelblaadjes),
+// losse open bloemen met vijf brede kroonbladen en een geel hart (meeldraden), een paar knoppen. Koraal/roze.
+// (x, yb) = voet op de grond, s = schaal (s = 1 → ± 360 px breed, 300 px hoog). Geen zichtbare wortels (BEELDAFSPRAKEN).
+// o.klontjes 0..1 = kleverige stuifmeelklontjes in de bloemharten. Geeft de bloemposities (voor de hommel).
 // =====================================================================================
-function _fo4bladPad(ctx, L) { ctx.beginPath(); const W = L * 0.21; ctx.moveTo(0, 0); ctx.bezierCurveTo(L * 0.2, -W * 1.25, L * 0.72, -W * 1.2, L, 0); ctx.bezierCurveTo(L * 0.72, W * 1.2, L * 0.2, W * 1.25, 0, 0); }
-function _fo4blad(ctx, x, y, L, ang, col = '#3F7A48') { if (L < 2) return; ctx.save(); ctx.translate(x, y); ctx.rotate(ang); _fo4bladPad(ctx, L); ctx.fillStyle = col; ctx.fill();
-  ctx.strokeStyle = _fo4lt(col, 0.18); ctx.lineWidth = Math.max(1.2, L * 0.02); ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(L * 0.94, 0); ctx.stroke(); ctx.restore(); }
 function _fo4bloem(ctx, x, y, r, col) { for (let i = 0; i < 5; i++) { const an = -Math.PI / 2 + i * 1.2566; ctx.beginPath(); ctx.ellipse(x + Math.cos(an) * r * 0.48, y + Math.sin(an) * r * 0.48, r * 0.56, r * 0.42, an, 0, 6.283); ctx.fillStyle = i === 0 ? _fo4lt(col, 0.12) : col; ctx.fill(); }
   ctx.fillStyle = _fo4dk(col, 0.35); for (let k = 0; k < 4; k++) { ctx.beginPath(); ctx.arc(x + (k - 1.5) * r * 0.16, y - r * 0.5 + Math.abs(k - 1.5) * r * 0.06, r * 0.06, 0, 6.283); ctx.fill(); } circ(ctx, x, y, r * 0.16, _fo4lt(col, 0.45)); }
-const _FO4ROZ = [[-150, -70, 0.85], [150, -75, 0.85], [-95, -130, 0.95], [95, -128, 0.95], [-170, -150, 0.8], [170, -150, 0.8], [0, -110, 0.9], [-60, -195, 1], [60, -200, 1], [-125, -215, 0.9], [125, -212, 0.9], [0, -250, 1]];
+// open rozenbloem van voren: vijf brede, licht hartvormige kroonbladen die overlappen, geel hart met een krans meeldraden
+function _fo4roos(ctx, x, y, r, col, rot = 0) { ctx.save(); ctx.translate(x, y); ctx.rotate(rot);
+  for (let i = 0; i < 5; i++) { const an = -Math.PI / 2 + i * 1.2566; ctx.save(); ctx.rotate(an); ctx.beginPath(); ctx.moveTo(0, 0);
+    ctx.bezierCurveTo(r * 0.25, -r * 0.55, r * 1.05, -r * 0.62, r * 1.02, -r * 0.05); ctx.quadraticCurveTo(r * 0.98, r * 0.08, r * 0.9, r * 0.12);
+    ctx.bezierCurveTo(r * 1.0, r * 0.62, r * 0.25, r * 0.55, 0, 0); ctx.fillStyle = i % 2 ? col : _fo4lt(col, 0.1); ctx.fill(); ctx.strokeStyle = _fo4dk(col, 0.18); ctx.lineWidth = Math.max(1, r * 0.04); ctx.stroke(); ctx.restore(); }
+  circ(ctx, 0, 0, r * 0.3, '#E8C04A'); ctx.fillStyle = '#C9962E'; for (let k = 0; k < 12; k++) { const an = k / 12 * 6.283; circ(ctx, Math.cos(an) * r * 0.24, Math.sin(an) * r * 0.24, r * 0.05, '#B8862A'); }
+  circ(ctx, 0, 0, r * 0.11, '#9AA84E'); ctx.restore(); }
+function _fo4knop(ctx, x, y, r, col, an) { ctx.save(); ctx.translate(x, y); ctx.rotate(an); ctx.beginPath(); ctx.ellipse(0, -r * 0.6, r * 0.42, r * 0.7, 0, 0, 6.283); ctx.fillStyle = _fo4dk(col, 0.1); ctx.fill();
+  ctx.fillStyle = '#5E8A4A'; for (const d of [-1, 1]) { ctx.beginPath(); ctx.moveTo(0, 0); ctx.quadraticCurveTo(d * r * 0.55, -r * 0.4, d * r * 0.2, -r * 0.95); ctx.quadraticCurveTo(d * r * 0.1, -r * 0.4, 0, 0); ctx.fill(); } ctx.restore(); }
+// samengesteld blad: steeltje met 5 gezaagde deelblaadjes (2 paar + topblaadje)
+function _fo4samBlad(ctx, x, y, L, an, col) { ctx.save(); ctx.translate(x, y); ctx.rotate(an); ctx.strokeStyle = _fo4dk(col, 0.15); ctx.lineWidth = Math.max(1.2, L * 0.03); ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(L * 0.82, 0); ctx.stroke();
+  const deel = (px, py, l, a2) => { ctx.save(); ctx.translate(px, py); ctx.rotate(a2); ctx.beginPath(); const w = l * 0.32; ctx.moveTo(0, 0);
+      for (let k = 0; k <= 6; k++) { const u = k / 6, yy = -Math.sin(u * Math.PI) * w - (k % 2 ? 0 : w * 0.12) * Math.sin(u * Math.PI); ctx.lineTo(u * l, yy); }
+      for (let k = 6; k >= 0; k--) { const u = k / 6, yy = Math.sin(u * Math.PI) * w + (k % 2 ? 0 : w * 0.12) * Math.sin(u * Math.PI); ctx.lineTo(u * l, yy); } ctx.closePath(); ctx.fillStyle = col; ctx.fill();
+      ctx.strokeStyle = _fo4lt(col, 0.2); ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(l * 0.05, 0); ctx.lineTo(l * 0.9, 0); ctx.stroke(); ctx.restore(); };
+  deel(L * 0.3, 0, L * 0.36, -1.05); deel(L * 0.3, 0, L * 0.36, 1.05); deel(L * 0.56, 0, L * 0.38, -0.95); deel(L * 0.56, 0, L * 0.38, 0.95); deel(L * 0.8, 0, L * 0.42, 0);
+  ctx.restore(); }
+// takken: [startdx, eind dx, eind dy, buiging] (boogvorm, rozen hangen over)
+const _FO4TAK = [[-10, -175, -150, -0.6], [-4, -120, -235, -0.35], [2, -40, -285, -0.15], [6, 45, -295, 0.15], [10, 125, -240, 0.35], [12, 180, -150, 0.6], [-6, -70, -190, -0.3], [8, 85, -200, 0.3]];
 function fo4_struik(ctx, x, yb, s = 1, o = {}) { const { a = 1, bloei = 1, klontjes = 0, kleur = FO4.bloem } = o; if (a <= 0.01) return []; ctx.save(); ctx.globalAlpha *= a; const tros = [];
-  ctx.strokeStyle = '#6A5240'; ctx.lineCap = 'round'; _FO4ROZ.forEach(([dx, dy], i) => { ctx.lineWidth = (7 - Math.min(4, i * 0.3)) * s; ctx.beginPath(); ctx.moveTo(x + dx * 0.15 * s, yb); ctx.quadraticCurveTo(x + dx * 0.35 * s, yb + dy * 0.4 * s, x + dx * s, yb + dy * s); ctx.stroke(); });
-  _FO4ROZ.forEach(([dx, dy, k], i) => { const cx = x + dx * s, cy = yb + dy * s, L = 66 * s * k;
-    for (let j = 0; j < 7; j++) { const an = -Math.PI / 2 + (j - 3) * 0.62 + (hash(i * 7 + j) - 0.5) * 0.25 + (dx > 0 ? 0.15 : dx < 0 ? -0.15 : 0); _fo4blad(ctx, cx, cy, L * (Math.abs(j - 3) <= 1 ? 0.85 : 1), an + (Math.abs(an + Math.PI / 2) > 1.2 ? 0.25 * Math.sign(an + Math.PI / 2) : 0)); }
-    if (bloei > 0.01 && dy < -60) { const r = 30 * s; ctx.save(); ctx.globalAlpha *= bloei; const P = [[0, -1.1], [-0.95, -0.55], [0.95, -0.55], [-1.1, 0.35], [1.1, 0.35], [-0.45, 0.2], [0.45, 0.2], [0, -0.3], [0, 0.75]];
-      P.forEach(([u, v]) => _fo4bloem(ctx, cx + u * r * 0.78, cy - 6 * s + v * r * 0.78, r * 0.55, kleur)); ctx.restore(); tros.push([cx, cy - 6 * s]);
-      if (klontjes > 0.01) { ctx.save(); ctx.globalAlpha *= klontjes; for (let q = 0; q < 3; q++) { const qx = cx + (hash(i * 3 + q) - 0.5) * r * 1.4, qy = cy - 6 * s + (hash(i * 3 + q + 1) - 0.5) * r * 1.2; circ(ctx, qx, qy, 4.5 * s, FO4.insect); circ(ctx, qx + 3 * s, qy + 2 * s, 3.5 * s, FO4.kleef); } ctx.restore(); } }
-    else { ctx.beginPath(); ctx.ellipse(cx, cy - 6 * s, 6 * s, 12 * s, 0, 0, 6.283); ctx.fillStyle = '#7FA05A'; ctx.fill(); } });
+  const BL = '#4F7E4A', BL2 = '#3F6E44';
+  const pt = (T, u) => { const [x0, ex, ey, b] = T; const cx = x + (x0 + ex * 0.2 + b * 120) * s, cy = yb + ey * 0.85 * s; const p0 = [x + x0 * s, yb], p2 = [x + ex * s, yb + ey * s];
+    return [(1 - u) * (1 - u) * p0[0] + 2 * (1 - u) * u * cx + u * u * p2[0], (1 - u) * (1 - u) * p0[1] + 2 * (1 - u) * u * cy + u * u * p2[1]]; };
+  // takken met doorntjes
+  _FO4TAK.forEach((T, i) => { ctx.strokeStyle = '#6E6A3E'; ctx.lineCap = 'round'; ctx.lineWidth = (6 - (i > 5 ? 1.5 : 0)) * s; ctx.beginPath(); for (let k = 0; k <= 16; k++) { const p = pt(T, k / 16); k ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]); } ctx.stroke();
+    ctx.fillStyle = '#8A6A44'; for (let k = 3; k < 15; k += 2) { const p = pt(T, k / 16), q = pt(T, (k + 1) / 16), an = Math.atan2(q[1] - p[1], q[0] - p[0]) + (k % 4 ? 1 : -1) * 1.2; ctx.beginPath(); ctx.moveTo(p[0] + Math.cos(an + 1.57) * 2.5 * s, p[1] + Math.sin(an + 1.57) * 2.5 * s); ctx.lineTo(p[0] + Math.cos(an) * 9 * s, p[1] + Math.sin(an) * 9 * s); ctx.lineTo(p[0] - Math.cos(an + 1.57) * 2.5 * s, p[1] - Math.sin(an + 1.57) * 2.5 * s); ctx.fill(); } });
+  // samengestelde bladeren langs de takken
+  _FO4TAK.forEach((T, i) => { for (let k = 4; k <= 15; k += 2) { const u = k / 16, p = pt(T, u), q = pt(T, u + 0.03), an = Math.atan2(q[1] - p[1], q[0] - p[0]); const kant = (k / 2) % 2 ? 1 : -1;
+      _fo4samBlad(ctx, p[0], p[1], (52 + 14 * hash(i * 9 + k)) * s, an + kant * (0.9 + 0.3 * hash(i + k)), (i + k) % 3 ? BL : BL2); } });
+  // losse bloemen en knoppen
+  if (bloei > 0.01) { ctx.save(); ctx.globalAlpha *= bloei;
+    _FO4TAK.forEach((T, i) => { const pos = i > 5 ? [0.7] : [0.55, 0.98]; pos.forEach((u, j) => { const p = pt(T, u); const r = (i > 5 ? 22 : 26 + 4 * hash(i + j)) * s;
+        if ((i + j) % 4 === 3) { _fo4knop(ctx, p[0], p[1], r * 0.9, kleur, (T[3]) * 1.2); return; }
+        _fo4roos(ctx, p[0], p[1], r, kleur, hash(i * 3 + j) * 1.2); tros.push([p[0], p[1]]);
+        if (klontjes > 0.01) { ctx.save(); ctx.globalAlpha *= klontjes; for (let q = 0; q < 3; q++) { const an = q * 2.1 + i; circ(ctx, p[0] + Math.cos(an) * r * 0.16, p[1] + Math.sin(an) * r * 0.16, 4 * s, FO4.insect); circ(ctx, p[0] + Math.cos(an) * r * 0.16 + 2.5 * s, p[1] + Math.sin(an) * r * 0.16 + 2 * s, 3 * s, FO4.kleef); } ctx.restore(); } }); });
+    ctx.restore(); }
   ctx.restore(); return tros; }
 
 // =====================================================================================
@@ -319,7 +345,8 @@ function fo4_zool(ctx, x, y, w = 900, o = {}) { const { a = 1, groei = 1, slijt 
 // getallen in beeld. (x, y) = linksboven, w × h = vlak. o.staven = [{naam, delen:[gras, berk, struik]}], o.groei 0..1,
 // o.hl = index met gouden rand, o.dim = lijst indexen op 35 %.
 // =====================================================================================
-const FO4_MENGSEL = [{ naam: 'SCHOEN', delen: [0.42, 0.4, 0.18] }, { naam: 'ACHTERTUIN', delen: [0.38, 0.38, 0.24] }, { naam: 'VOORTUIN', delen: [0.55, 0.45, 0] }, { naam: 'STRAAT\nVERDACHTE', delen: [0.6, 0.4, 0] }];
+// keuring ronde 4 + frisse review: schoen duidelijk dichter bij de achtertuin dan bij de straat, maar niet gelijk ('iets beter')
+const FO4_MENGSEL = [{ naam: 'SCHOEN', delen: [0.42, 0.36, 0.22] }, { naam: 'ACHTERTUIN', delen: [0.32, 0.36, 0.32] }, { naam: 'VOORTUIN', delen: [0.55, 0.45, 0] }, { naam: 'STRAAT\nVERDACHTE', delen: [0.64, 0.36, 0] }];
 function fo4_mengsel(ctx, x, y, w, h, o = {}) { const { a = 1, groei = 1, hl = -1, dim = [], legenda = 1 } = o; const st = o.staven || FO4_MENGSEL; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
   metaText(ctx, 'MENGSEL', x, y + 28, C.grain, 'left', 28);
   const base = y + h - 80, top = y + 70, bw = Math.min(120, w / st.length * 0.45), kl = [FO4.gras, FO4.berk, FO4.struik];
@@ -497,7 +524,7 @@ function fo4_verklaring(ctx, x, y, w, nr, o = {}) { const { a = 1, typ = 1, rege
   const h = 120 + lijnen.length * (px + 16) + 120;
   ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(o.rot == null ? -0.012 : o.rot);
   roundRect(ctx, 0, 0, w, h, 6); shape(ctx, FO4.papier, FO4.papierR, 2);
-  text(ctx, 'VERKLARING ' + nr, 34, 62, `700 ${px + 6}px ${F.meta}`, FO4.inkt, 'left'); ctx.fillStyle = FO4.inkt; ctx.fillRect(34, 76, Math.min(w - 68, (px + 6) * 0.62 * (11 + String(nr).length)), 3);
+  const kop = o.kop || ('VERKLARING ' + nr + (regels.length ? '' : ' · GEEN')); ctx.font = `700 ${px + 6}px ${F.meta}`; const kw = ctx.measureText(kop).width; text(ctx, kop, 34, 62, `700 ${px + 6}px ${F.meta}`, FO4.inkt, 'left'); ctx.fillStyle = FO4.inkt; ctx.fillRect(34, 76, Math.min(w - 68, kw), 3);
   const tot = lijnen.join('').length; let n = Math.floor(tot * typ);
   lijnen.forEach((r, i) => { const s2 = r.slice(0, Math.max(0, n)); n -= r.length; text(ctx, s2, 34, 132 + i * (px + 16), fMeta(px), FO4.inkt, 'left'); });
   const ly = h - 50; ctx.strokeStyle = FO4.inkt2; ctx.lineWidth = 2; ctx.setLineDash([6, 6]); ctx.beginPath(); ctx.moveTo(w * 0.42, ly); ctx.lineTo(w - 34, ly); ctx.stroke(); ctx.setLineDash([]);
@@ -530,10 +557,148 @@ function fo4_rapport(ctx, x, y, w = 700, o = {}) { const { a = 1, vul = [0, 0, 0
 function fo4_grondpot(ctx, x, y, s = 1, lab = '', o = {}) { const { a = 1, bloem = 0, gl = 0 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
   const w = 140, h = 160;
   if (bloem > 0.01) { ctx.save(); ctx.globalAlpha *= bloem; ctx.strokeStyle = '#6A5240'; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(10, -h * 0.5); ctx.quadraticCurveTo(20, -h - 30, 30, -h - 70); ctx.stroke();
-    _fo4blad(ctx, 22, -h - 20, 46, -2.4); _fo4blad(ctx, 26, -h - 40, 46, -0.5); [[30, -h - 84], [8, -h - 70], [50, -h - 66]].forEach(([bx, by]) => _fo4bloem(ctx, bx, by, 18, FO4.bloem)); ctx.restore(); }
+    _fo4samBlad(ctx, 20, -h - 20, 50, -2.6, '#4F7E4A'); _fo4samBlad(ctx, 26, -h - 40, 50, -0.5, '#3F6E44'); _fo4roos(ctx, 30, -h - 80, 20, FO4.bloem, 0.3); _fo4knop(ctx, 4, -h - 62, 14, FO4.bloem, -0.5); ctx.restore(); }
   roundRect(ctx, -w / 2, -h, w, h, 14); shape(ctx, rgba('#AFC0D0', 0.12), gl > 0.5 ? C.goud : '#AFC0D0', gl > 0.5 ? 4 : 2.5);
   ctx.save(); roundRect(ctx, -w / 2 + 6, -h * 0.55, w - 12, h * 0.55 - 6, 10); ctx.clip(); ctx.fillStyle = FO4.grond; ctx.fillRect(-w / 2, -h * 0.55, w, h); ctx.fillStyle = _fo4lt(FO4.grond, 0.15); ctx.fillRect(-w / 2, -h * 0.55, w, 12);
   for (let i = 0; i < 14; i++) circ(ctx, -w / 2 + 14 + hash(i * 3) * (w - 28), -h * 0.45 + hash(i * 3 + 1) * h * 0.4, 2 + hash(i) * 3, rgba(_fo4dk(FO4.grond, 0.3), 0.9)); ctx.restore();
   roundRect(ctx, -w / 2 - 6, -h - 22, w + 12, 26, 6); shape(ctx, '#5A6478', '#8FA0B5', 1.5);
   lab.split('\n').forEach((r, i) => text(ctx, r, 0, 46 + i * 38, fTekst(32, 700), gl > 0.5 ? C.goud : C.text, 'center'));
   ctx.restore(); }
+
+// =====================================================================================
+// FILMHULPJES (bouw 2 nov 2026). balans en opleiding: kopie uit Forensisch 2 (teken_fo2.js); hondenmand uit Forensisch 1.
+// =====================================================================================
+const KL_METAAL = '#AFC0D0';
+// BALANS (weegschaal met twee schalen). (x, y) = draaipunt boven op de paal. s = schaal.
+// o.tilt: 0 = in evenwicht, 1 = links (hypothese 1) helemaal omlaag. o.L / o.R = {naam, sub, kans, aN, aK}
+// Namen staan direct onder de schaal (naamBij), de kans eronder. Bekende fout: schalen die met de balk mee kantelen.
+function balans(ctx, x, y, s, o = {}) {
+  const a = o.a == null ? 1 : o.a; if (a <= 0.01) return; const tilt = clamp(o.tilt || 0, -1, 1);
+  const th = -tilt * 0.3, L = 340 * s, hang = 170 * s, pw = 210 * s;
+  ctx.save(); ctx.globalAlpha *= a; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  // voet en paal
+  ctx.fillStyle = '#2A3A58'; roundRect(ctx, x - 80 * s, y + 352 * s, 160 * s, 24 * s, 10 * s); shape(ctx, '#2A3A58', KL_METAAL, 2);
+  ctx.strokeStyle = KL_METAAL; ctx.lineWidth = 12 * s; ctx.beginPath(); ctx.moveTo(x, y + 352 * s); ctx.lineTo(x, y); ctx.stroke();
+  ctx.strokeStyle = '#2A3A58'; ctx.lineWidth = 5 * s; ctx.beginPath(); ctx.moveTo(x, y + 340 * s); ctx.lineTo(x, y + 20 * s); ctx.stroke();
+  // wijzer
+  ctx.strokeStyle = C.goud; ctx.lineWidth = 4 * s; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + Math.sin(th) * 90 * s, y - Math.cos(th) * 90 * s); ctx.stroke();
+  // balk
+  const ex = Math.cos(th) * L, ey = Math.sin(th) * L;
+  ctx.strokeStyle = KL_METAAL; ctx.lineWidth = 10 * s; ctx.beginPath(); ctx.moveTo(x - ex, y - ey); ctx.lineTo(x + ex, y + ey); ctx.stroke();
+  circ(ctx, x, y, 16 * s, '#2A3A58', KL_METAAL, 3);
+  const pan = (px, py, kant) => { // touwtjes + schaal, altijd recht naar beneden
+    ctx.strokeStyle = rgba(KL_METAAL, 0.9); ctx.lineWidth = 2.2;
+    const by = py + hang; ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px - pw * 0.48, by); ctx.moveTo(px, py); ctx.lineTo(px + pw * 0.48, by); ctx.moveTo(px, py); ctx.lineTo(px, by - 6 * s); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(px - pw * 0.52, by); ctx.quadraticCurveTo(px, by + 62 * s, px + pw * 0.52, by); ctx.closePath(); shape(ctx, '#2A3A58', KL_METAAL, 2.5);
+    circ(ctx, px, py, 6 * s, KL_METAAL);
+    const d = kant < 0 ? o.L : o.R; if (!d) return;
+    if (d.vul) d.vul(ctx, px, by, s);
+    naamBij(ctx, d.naam, d.sub || '', px, by + 78 * s, d.aN == null ? 1 : d.aN, 'center');
+    if (d.kans) { const ak = d.aK == null ? 1 : d.aK; if (ak > 0.01) regel(ctx, d.kans, px, by + 78 * s + (d.sub ? 76 : 50), ak, d.kansKl || C.goud, 34, 'center', 800); } };
+  pan(x - ex, y - ey, -1); pan(x + ex, y + ey, 1);
+  if (o.titel) metaA(ctx, o.titel, x, y - 110 * s, o.aT == null ? 1 : o.aT, C.grain, 'center', o.titelPx || 26);
+  ctx.restore();
+}
+function opleiding(ctx, x, y, w, niveau, naam, waar, a = 1, col = C.teal) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  roundRect(ctx, x, y, w, 150, 14); shape(ctx, rgba(col, 0.12), col, 2);
+  metaText(ctx, niveau, x + 26, y + 42, col, 'left', 24);
+  text(ctx, naam, x + 26, y + 90, fTekst(naam.length > 30 ? 30 : 36, 700), C.text, 'left');
+  text(ctx, waar, x + 26, y + 130, fTekst(26, 600), C.text2, 'left'); ctx.restore(); }
+
+function hondenmand(ctx, x, y, s, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
+  ctx.beginPath(); ctx.ellipse(0, -10, 110, 34, 0, 0, 6.283); shape(ctx, '#8C5A3A', '#B08A5C', 2);
+  ctx.beginPath(); ctx.ellipse(0, -18, 84, 20, 0, 0, 6.283); shape(ctx, '#C46A5A', '#D9907E', 1.5);
+  ctx.beginPath(); ctx.ellipse(0, -18, 50, 10, 0, 0, 6.283); ctx.fillStyle = '#B05A4A'; ctx.fill(); ctx.restore(); }
+
+// ---------- algemene hulpjes (zoals mk1) ----------
+const GROND = 860;
+function VU() { try { return typeof state !== 'undefined' && state && state.vragen === 'uit'; } catch (e) { return false; } }
+// antwoordlabel bovenaan; bij Vragen uit alleen de inhoud (zoals scripts/antwoordtekst.py)
+function antwoord(ctx, s2, a = 1) { if (VU()) return; // frisse review: zonder vraag zijn ingekorte koppen cryptisch of lezen als conclusie
+  regel(ctx, s2, 120, 150, a, C.groen, 40, 'left', 700); }
+function metaA(ctx, s2, x, y, a, col = C.grain, al = 'left', px = 28) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; metaText(ctx, s2, x, y, col, al, px); ctx.restore(); }
+function laag(ctx, a, fn) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; fn(); ctx.restore(); }
+function fase(t, t0, t1, d = 0.5) { return ramp(t, t0, d) * (1 - ramp(t, t1 - d, d)); }
+function kaart(ctx, x, y, w, h, a = 1, rand = C.line) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, w, h, 16); shape(ctx, rgba('#0D1420', 0.9), rgba(rand, 0.85), 2); ctx.restore(); }
+function filmKaartje(ctx, x, y, s2, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fTekst(30, 700); const ww = ctx.measureText(s2).width + 100; roundRect(ctx, x, y, ww, 64, 12); shape(ctx, rgba('#0D1420', 0.85), rgba(C.line, 0.9), 1.5);
+  ctx.beginPath(); ctx.moveTo(x + 26, y + 18); ctx.lineTo(x + 52, y + 32); ctx.lineTo(x + 26, y + 46); ctx.closePath(); ctx.fillStyle = C.goud; ctx.fill(); text(ctx, s2, x + 66, y + 43, fTekst(30, 700), C.text, 'left'); ctx.restore(); }
+// kaart met kop (meta) en regels; geeft de hoogte
+function infoKaart(ctx, x, y, w, kop, regels, a = 1, o = {}) { if (a <= 0.01) return 0; ctx.save(); ctx.globalAlpha *= a; const lh = o.lh || 54, h = 84 + regels.length * lh + (o.extraH || 0) + (o.bron ? 44 : 0);
+  roundRect(ctx, x, y, w, h, 16); shape(ctx, rgba('#0D1420', 0.9), rgba(o.rand || C.line, 0.9), 2); metaText(ctx, kop, x + 28, y + 48, o.kopKl || C.goud, 'left', 28);
+  regels.forEach((r, i) => { const [s2, ra, kl] = Array.isArray(r) ? r : [r, 1]; if (ra > 0.01) { ctx.save(); ctx.globalAlpha *= ra; text(ctx, s2, x + 28, y + 108 + i * lh, fTekst(o.px || 38, 700), kl || C.text, 'left'); ctx.restore(); } });
+  if (o.teken) o.teken(x, y + 84 + regels.length * lh, w);
+  if (o.bron) metaText(ctx, o.bron, x + 28, y + h - 20, C.text2, 'left', 26); ctx.restore(); return h; }
+// Micro-vlak zonder korrel (BEELDAFSPRAKEN): donkerder navy
+function micro(ctx, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.fillStyle = C.bgMicro; ctx.fillRect(0, 0, W, H); ctx.restore(); }
+// rond Micro-venster (voor een vergroting zonder bron): donkere cirkel met gouden rand en bijschrift
+function microVenster(ctx, x, y, r, cap, a, fn) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.save(); ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.clip(); ctx.fillStyle = C.bgMicro; ctx.fillRect(x - r, y - r, 2 * r, 2 * r); fn(); ctx.restore();
+  ctx.strokeStyle = C.goud; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.stroke(); if (cap) metaText(ctx, cap, x, y + r + 40, C.grain, 'center', 28); ctx.restore(); }
+// zoomcirkel met donkere binnenkant (lib.js zoomCircle tekent alleen de lijnen)
+function zoom(ctx, x, y, r, sx, sy, cap, a, fn) { zoomCircle(ctx, x, y, r, sx, sy, cap, a, () => { ctx.fillStyle = C.bgMicro; ctx.fillRect(x - r, y - r, 2 * r, 2 * r); fn(); }); }
+
+// ---------- decor (zoals mk1) ----------
+const DECOR_IMG = {};
+for (const k in DECOR_SRC) { const im = new Image(); im.src = DECOR_SRC[k]; DECOR_IMG[k] = im; }
+function decor(ctx, naam, a = 0.6) { bg(ctx, 'schema'); const im = DECOR_IMG[naam]; if (!im || !im.complete || a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.drawImage(im, 0, 0, W, H); ctx.restore(); ctx.fillStyle = rgba('#121A26', 0.7); ctx.fillRect(0, 0, W, 84); }
+
+// ---------- personages (Keuring ronde 4: palynoloog even lang als Milieukundige Iris, 445) ----------
+function bilal(ctx, x, t, o = {}) { return persoon(ctx, 'bilal', x, o.y || GROND, o.h || 455, { t, kijk: o.kijk || 1, uit: o.uit || 'neutraal', pose: o.pose || 'staan', outfit: o.outfit || 'practicum', a: o.a == null ? 1 : o.a, hold: o.hold }); }
+function kim(ctx, x, t, o = {}) { return persoon(ctx, 'kim', x, o.y || GROND, o.h || 430, { t, kijk: o.kijk || 1, uit: o.uit || 'neutraal', pose: o.pose || 'staan', outfit: 'lab', a: o.a == null ? 1 : o.a, hold: o.hold }); }
+function palyno(ctx, x, t, o = {}) { return persoon(ctx, 'palynoloog', x, o.y || GROND, 445, { t, kijk: o.kijk || 1, uit: o.uit || 'neutraal', pose: o.pose || 'vasthouden', outfit: 'lab', a: o.a == null ? 1 : o.a, hold: o.hold === undefined ? preparaatDoosInHand : o.hold }); }
+// preparaatdoosje: plat doosje met gleufjes en een paar glaasjes (attribuut van de palynoloog, castvel)
+function preparaatDoos(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
+  roundRect(ctx, -46, -30, 92, 60, 6); shape(ctx, '#5E6E84', '#2E3A4E', 2); roundRect(ctx, -40, -24, 80, 48, 4); shape(ctx, '#3A465A', null);
+  for (let i = 0; i < 7; i++) { ctx.fillStyle = i % 3 === 1 ? '#CFE8EE' : '#26303F'; ctx.fillRect(-34 + i * 10.5, -20, 5, 40); if (i % 3 === 1) { ctx.fillStyle = '#ECE6D8'; ctx.fillRect(-34 + i * 10.5, -20, 5, 10); } } ctx.restore(); }
+function preparaatDoosInHand(c, hx, hy) { preparaatDoos(c, hx + 6, hy - 18, 0.8); }
+// microscoop (naar microscoopje uit Geneeskunde 3), (x, y) = onderkant voet
+function microscoop(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
+  roundRect(ctx, -70, -22, 140, 22, 6); shape(ctx, '#C9D0DA', '#8A94A2', 2); ctx.strokeStyle = '#C9D0DA'; ctx.lineWidth = 16; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(40, -22); ctx.quadraticCurveTo(64, -110, 20, -160); ctx.stroke();
+  ctx.fillStyle = '#8A94A2'; ctx.fillRect(-54, -82, 92, 10); ctx.fillStyle = '#ECE6D8'; ctx.fillRect(-36, -88, 60, 6);
+  ctx.save(); ctx.translate(-6, -150); ctx.rotate(-0.42); roundRect(ctx, -16, -70, 32, 120, 7); shape(ctx, '#E8E2D4', '#B8B0A0', 2); roundRect(ctx, -11, -92, 22, 26, 4); shape(ctx, '#3A4458', null); ctx.fillStyle = '#5A6478'; ctx.fillRect(-12, 48, 24, 14); ctx.restore();
+  circ(ctx, 46, -60, 13, '#8A94A2', '#5A6478', 2); ctx.restore(); }
+// tafel van opzij (tafelblad op hoogte y)
+function tafel(ctx, x, y, w, a = 1, kl = '#5A4A3E') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - w / 2, y, w, 16, 5); shape(ctx, kl, _fo4lt(kl, 0.2), 1.5); ctx.fillStyle = _fo4dk(kl, 0.2); ctx.fillRect(x - w / 2 + 20, y + 16, 14, GROND - y - 16); ctx.fillRect(x + w / 2 - 34, y + 16, 14, GROND - y - 16); ctx.restore(); }
+// verhoorkamer (schema op navy): grijze wand, tafel, lamp
+function verhoorkamer(ctx, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.fillStyle = rgba('#2A3446', 0.7); ctx.fillRect(0, 84, W, GROND - 84); ctx.fillStyle = rgba('#3A4458', 0.6); ctx.fillRect(0, GROND, W, H - GROND);
+  ctx.strokeStyle = rgba('#AFC0D0', 0.5); ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(960, 84); ctx.lineTo(960, 210); ctx.stroke(); ctx.beginPath(); ctx.moveTo(900, 250); ctx.lineTo(1020, 250); ctx.lineTo(990, 210); ctx.lineTo(930, 210); ctx.closePath(); shape(ctx, '#5A6478', '#AFC0D0', 2);
+  ctx.fillStyle = rgba('#F2E6B0', 0.06); ctx.beginPath(); ctx.moveTo(910, 250); ctx.lineTo(1010, 250); ctx.lineTo(1250, 700); ctx.lineTo(670, 700); ctx.closePath(); ctx.fill(); ctx.restore(); }
+// rand van een kapot raam met drie haren (o.n zichtbaar)
+function raamRand(ctx, x, y, s = 1, o = {}) { const { a = 1, n = 3, hl = -1 } = o; if (a <= 0.01) return []; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
+  ctx.fillStyle = '#B4533E'; ctx.fillRect(-260, -200, 70, 420); ctx.fillStyle = '#E8E2D4'; ctx.fillRect(-195, -200, 34, 420); // muur + kozijn
+  ctx.beginPath(); ctx.moveTo(-161, -200); ctx.lineTo(120, -200); ctx.lineTo(60, -150); ctx.lineTo(110, -90); ctx.lineTo(10, -40); ctx.lineTo(70, 10); ctx.lineTo(-40, 70); ctx.lineTo(20, 140); ctx.lineTo(-90, 220); ctx.lineTo(-161, 220); ctx.closePath(); shape(ctx, rgba('#CFE8EE', 0.28), rgba('#E8F4F8', 0.8), 2.5);
+  ctx.strokeStyle = rgba('#FFFFFF', 0.35); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(-140, -170); ctx.lineTo(-60, -60); ctx.stroke();
+  const P = [[90, -120, [[140, -60], [128, 30], [150, 90]]], [40, -30, [[90, 30], [74, 110], [96, 180]]], [-10, 100, [[30, 160], [12, 230], [40, 290]]]], ank = [];
+  P.slice(0, n).forEach(([px, py, pts], i) => { ctx.strokeStyle = i === 0 ? '#9C7A56' : '#5A3E2A'; ctx.lineWidth = i === 0 ? 3 : 3.4; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(px, py); ctx.bezierCurveTo(pts[0][0], pts[0][1], pts[1][0], pts[1][1], pts[2][0], pts[2][1]); ctx.stroke();
+    if (hl === i) { ctx.strokeStyle = C.goud; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(pts[1][0], pts[1][1], 34, 0, 6.283); ctx.stroke(); } ank.push([x + pts[1][0] * s, y + pts[1][1] * s]); });
+  ctx.restore(); return ank; }
+// graspol met bloeiaren en een berk (windbestuivers), (x, yb) = voet
+function gras(ctx, x, yb, s = 1, a = 1, t = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, yb); ctx.scale(s, s); ctx.lineCap = 'round';
+  for (let i = 0; i < 16; i++) { const dx = (i - 7.5) * 9, h = 120 + 70 * hash(i * 3), b = (hash(i) - 0.5) * 60 + Math.sin(t * 1.4 + i) * 6; ctx.strokeStyle = i % 3 ? '#7FA05A' : '#6A8C4A'; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(dx * 0.4, 0); ctx.quadraticCurveTo(dx, -h * 0.5, dx + b, -h); ctx.stroke(); }
+  for (let i = 0; i < 4; i++) { const dx = (i - 1.5) * 26, h = 230 + 30 * hash(i + 9), sw = Math.sin(t * 1.2 + i) * 10; ctx.strokeStyle = '#9AAE62'; ctx.lineWidth = 3.5; ctx.beginPath(); ctx.moveTo(dx * 0.3, 0); ctx.quadraticCurveTo(dx, -h * 0.6, dx + sw, -h); ctx.stroke();
+    for (let k = 0; k < 6; k++) { ctx.fillStyle = '#C9B86A'; ctx.beginPath(); ctx.ellipse(dx + sw + (k % 2 ? 7 : -7), -h + 8 + k * 11, 6, 3.2, k % 2 ? 0.6 : -0.6, 0, 6.283); ctx.fill(); } }
+  ctx.restore(); }
+function berk(ctx, x, yb, s = 1, a = 1, t = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, yb); ctx.scale(s, s);
+  ctx.fillStyle = '#E8E4DA'; ctx.beginPath(); ctx.moveTo(-14, 0); ctx.lineTo(-8, -420); ctx.lineTo(8, -420); ctx.lineTo(14, 0); ctx.closePath(); ctx.fill();
+  ctx.fillStyle = '#2A2A2E'; for (let i = 0; i < 12; i++) { const yy = -30 - i * 32 - hash(i) * 10; ctx.fillRect(-12 + hash(i + 3) * 8, yy, 8 + hash(i + 5) * 10, 4); }
+  ctx.strokeStyle = '#E8E4DA'; ctx.lineWidth = 6; ctx.lineCap = 'round'; for (const [y0, dx, dy] of [[-260, -90, -90], [-300, 80, -80], [-350, -60, -70], [-380, 50, -60]]) { ctx.beginPath(); ctx.moveTo(0, y0); ctx.lineTo(dx, y0 + dy); ctx.stroke(); }
+  for (let i = 0; i < 70; i++) { const an = hash(i * 2) * 6.283, d = Math.sqrt(hash(i * 2 + 1)); const bx = Math.cos(an) * 150 * d, by = -390 + Math.sin(an) * 120 * d + Math.sin(t + i) * 2; ctx.fillStyle = i % 3 ? '#7FA05A' : '#9AB86A'; ctx.beginPath(); ctx.ellipse(bx, by, 11, 7, an, 0, 6.283); ctx.fill(); }
+  ctx.strokeStyle = '#B8A04A'; ctx.lineWidth = 4; for (let i = 0; i < 9; i++) { const bx = -120 + i * 30, by = -330 + hash(i + 2) * 70; ctx.beginPath(); ctx.moveTo(bx, by); ctx.quadraticCurveTo(bx + 4, by + 20, bx - 2, by + 38); ctx.stroke(); } // katjes
+  ctx.restore(); }
+// kalender: dag 1 (inbraak) en dag 4 (in beslag)
+function kalenderFo4(ctx, x, y, s = 1, o = {}) { const { a = 1, d1 = 1, d4 = 1, pijl: pA = 1 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
+  roundRect(ctx, 0, 0, 470, 230, 12); shape(ctx, '#F2EEE4', '#B8B0A0', 2); ctx.fillStyle = C.koraal; ctx.fillRect(0, 0, 470, 46); metaText(ctx, 'DAGEN', 235, 34, '#F2F2EE', 'center', 26);
+  for (let i = 0; i < 5; i++) { const cx = 55 + i * 90; text(ctx, String(i + 1), cx, 150, fTekst(46, 800), '#3A3A3A', 'center'); }
+  if (d1 > 0.01) { ctx.save(); ctx.globalAlpha *= d1; circ(ctx, 55, 134, 36, null, C.koraal, 4); text(ctx, 'inbraak', 55, 208, fTekst(22, 700), '#7A3A30', 'center'); ctx.restore(); }
+  if (pA > 0.01) { ctx.save(); ctx.globalAlpha *= pA; pijl(ctx, 100, 98, 380, 98, '#8A6A20', 1, 3, 12); ctx.restore(); }
+  if (d4 > 0.01) { ctx.save(); ctx.globalAlpha *= d4; circ(ctx, 415, 134, 36, null, '#B8862A', 4); text(ctx, 'in beslag', 415, 208, fTekst(22, 700), '#7A5A10', 'center'); ctx.restore(); }
+  ctx.restore(); }
+// dossier 'ANDERE ZAAK': map die in beeld schuift
+function dossierMap(ctx, x, y, a = 1, lab = 'ANDERE ZAAK') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.fillStyle = '#C9A35C'; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + 110, y); ctx.lineTo(x + 136, y + 26); ctx.lineTo(x + 440, y + 26); ctx.lineTo(x + 440, y + 300); ctx.lineTo(x, y + 300); ctx.closePath(); ctx.fill();
+  ctx.fillStyle = '#F2EAD8'; ctx.fillRect(x + 26, y + 60, 388, 210); text(ctx, lab, x + 220, y + 180, `700 40px ${F.meta}`, '#7A3A30', 'center'); ctx.restore(); }
+// weegschaal met één schaal en drie gewichtjes (wat de patholoog meeweegt). n = aantal zichtbare gewichtjes (0..3, mag fractie)
+function weegHoop(ctx, x, y, labels, n = 3, a = 1, hl = -1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  ctx.fillStyle = '#2A3A58'; roundRect(ctx, x - 200, y, 400, 26, 8); shape(ctx, '#2A3A58', KL_METAAL, 2); ctx.strokeStyle = KL_METAAL; ctx.lineWidth = 12; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x, y - 60); ctx.stroke(); roundRect(ctx, x - 230, y - 76, 460, 18, 6); shape(ctx, '#3A4A68', KL_METAAL, 2);
+  labels.forEach((l, i) => { const u = clamp(n - i, 0, 1); if (u <= 0.01) return; const by = y - 76 - (i + 1) * 92 + (1 - ease(u)) * -60; ctx.save(); ctx.globalAlpha *= ease(u); roundRect(ctx, x - 210 + i * 18, by, 420 - i * 36, 86, 10); shape(ctx, hl === i ? rgba(C.goud, 0.25) : rgba('#5A6478', 0.9), hl === i ? C.goud : '#8FA0B5', 2.5);
+    text(ctx, l, x + 0, by + 56, fTekst(i === 2 ? 30 : 32, 700), C.text, 'center'); ctx.restore(); });
+  ctx.restore(); }
+function stippel(ctx, x0, y0, x1, y1, col, a = 1, lw = 3) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.setLineDash([12, 9]); ctx.strokeStyle = col; ctx.lineWidth = lw; ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke(); ctx.restore(); }

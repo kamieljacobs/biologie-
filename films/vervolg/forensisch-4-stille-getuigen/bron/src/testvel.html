@@ -18,7 +18,7 @@
 <script>
 const VELLEN = [];
 function vel(titel, fn) { VELLEN.push([titel, fn]); }
-function naam(ctx, s, x, y) { ctx.save(); ctx.font = '500 22px "IBM Plex Mono",monospace'; ctx.letterSpacing = '2px'; ctx.fillStyle = '#8A93A3'; ctx.textAlign = 'center'; ctx.fillText(s.toUpperCase(), x, y); ctx.restore(); }
+function naam(ctx, s, x, y) { ctx.save(); ctx.font = '500 22px "IBM Plex Mono",monospace'; ctx.letterSpacing = '2px'; ctx.fillStyle = '#8A93A3'; ctx.textAlign = 'center'; ctx.fillText(s.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():'')), x, y); ctx.restore(); }
 
 // ---------- vel 1: haar ----------
 vel('1 · Haar: lengte- en dwarsdoorsnede, wortel', (ctx) => { bg(ctx, 'micro');

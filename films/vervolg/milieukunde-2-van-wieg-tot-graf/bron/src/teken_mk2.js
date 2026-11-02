@@ -13,7 +13,7 @@ const MK2 = {
   ldpe: '#B9C2CE', ldpeR: '#DCE2EA', ldpeD: '#8D98A8',               // stevige tas: dikker, dichter grijs
   kraft: '#B98A57', kraftR: '#D4AC7C', kraftD: '#8E643A',            // papier: kraftbruin
   katoen: '#E8DFCB', katoenR: '#F6F0E2', katoenD: '#BFB298',         // katoen: ecru
-  stikstof: '#5B7FD6',                                               // blauw = stikstof naar zee
+  stikstof: '#C9A35C',                                               // stikstof naar zee = oker (keuring ronde 4, 2 nov 2026; was blauw)
   papier: '#F2EEE4', papierD: '#C9C0AE', inkt: '#2E3A52', potlood: '#4A3E30'
 };
 
@@ -53,23 +53,23 @@ function mk2_plasticTasje(ctx, x, y, s = 1, o = {}) {
 
 // STEVIGE PLASTIC TAS (LDPE, 30 g, 'middelgrote tas' TNO): 40 × 45 cm, dikke folie met uitgestanst handvat (ovaal gat met
 // verstevigde rand), bodemvouw zichtbaar. Dichter grijs en dubbele rand, zodat hij duidelijk dikker leest dan het dunne tasje.
-function mk2_plasticTas(ctx, x, y, s = 1, o = {}) {
+function mk2_plasticTas(ctx, x, y, s = 1, o = {}) { // beeldreview 2 nov 2026: leest als tas (twee lushengsels, zachte zijkanten, kreukels), niet als bak
   const { a = 1, vol = 0 } = o; if (a <= 0.01) return; const c = MK2_CM; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
-  const B = 20 * c, H = 45 * c, bol = vol * 1.5 * c;
-  const Bt = B - 1.5 * c; // bovenkant iets smaller dan de bodem (zijvouw)
-  ctx.beginPath(); ctx.moveTo(-B, 0); ctx.lineTo(B, 0); ctx.quadraticCurveTo(B + 0.6 * c + bol, -H * 0.5, Bt, -H + 1 * c); ctx.quadraticCurveTo(Bt, -H, Bt - 1 * c, -H);
-  ctx.lineTo(-Bt + 1 * c, -H); ctx.quadraticCurveTo(-Bt, -H, -Bt, -H + 1 * c); ctx.quadraticCurveTo(-B - 0.6 * c - bol, -H * 0.5, -B, 0); ctx.closePath();
-  // handvatgat als gat in de vorm (evenodd)
-  ctx.moveTo(6 * c, -H + 5.5 * c); ctx.ellipse(0, -H + 5.5 * c, 6 * c, 2.2 * c, 0, Math.PI * 2, 0, true);
-  ctx.fillStyle = MK2.ldpe; ctx.fill('evenodd'); ctx.strokeStyle = MK2.ldpeR; ctx.lineWidth = 3; ctx.stroke();
-  // verstevigde rand rond het handvat + versterkte bovenband (dikker materiaal)
-  ctx.beginPath(); ctx.ellipse(0, -H + 5.5 * c, 7.6 * c, 3.6 * c, 0, 0, 6.283); ctx.strokeStyle = MK2.ldpeD; ctx.lineWidth = 3; ctx.stroke();
-  ctx.fillStyle = rgba(MK2.ldpeD, 0.35); ctx.fillRect(-Bt + 0.5 * c, -H + 10.5 * c, 2 * Bt - 1 * c, 1.2 * c);
-  // zijvouwen en dikke rand (dikte van de folie)
-  ctx.strokeStyle = rgba(MK2.ldpeD, 0.8); ctx.lineWidth = 2.5; [-1, 1].forEach(k => { ctx.beginPath(); ctx.moveTo(k * (B - 3.5 * c), -3.5 * c); ctx.lineTo(k * (Bt - 2.5 * c), -H + 12 * c); ctx.stroke(); });
-  ctx.strokeStyle = rgba(MK2.ldpeR, 0.7); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(-Bt + 1.2 * c, -H + 1.4 * c); ctx.lineTo(Bt - 1.2 * c, -H + 1.4 * c); ctx.stroke();
+  const B = 20 * c, H = 45 * c, bol = vol * 1.5 * c, Bt = B - 2 * c;
+  // achterste hengsel
+  const lus = (dx, kl) => { ctx.strokeStyle = kl; ctx.lineWidth = 2.2 * c; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(dx - 8 * c, -H + 2 * c); ctx.bezierCurveTo(dx - 9 * c, -H - 15 * c, dx + 9 * c, -H - 15 * c, dx + 8 * c, -H + 2 * c); ctx.stroke(); };
+  lus(1.5 * c, MK2.ldpeD);
+  ctx.beginPath(); ctx.moveTo(-B + 1 * c, 0); ctx.lineTo(B - 1 * c, 0); ctx.quadraticCurveTo(B + 1.4 * c + bol, -H * 0.45, Bt, -H); ctx.quadraticCurveTo(0, -H + 2.2 * c, -Bt, -H); ctx.quadraticCurveTo(-B - 1.4 * c - bol, -H * 0.45, -B + 1 * c, 0); ctx.closePath();
+  ctx.fillStyle = rgba(MK2.ldpe, 0.95); ctx.fill(); ctx.strokeStyle = MK2.ldpeR; ctx.lineWidth = 3; ctx.stroke();
+  // dubbel gelaste bovenrand (dikke folie) en zijvouwen
+  ctx.strokeStyle = MK2.ldpeD; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(-Bt + 0.6 * c, -H + 3 * c); ctx.quadraticCurveTo(0, -H + 5 * c, Bt - 0.6 * c, -H + 3 * c); ctx.stroke();
+  ctx.strokeStyle = rgba(MK2.ldpeD, 0.8); [-1, 1].forEach(k => { ctx.beginPath(); ctx.moveTo(k * (B - 4 * c), -2 * c); ctx.quadraticCurveTo(k * (B - 2.5 * c + bol * 0.6), -H * 0.45, k * (Bt - 3 * c), -H + 4 * c); ctx.stroke(); });
+  // kreukels
+  ctx.strokeStyle = rgba(MK2.ldpeD, 0.6); ctx.lineWidth = 1.8; [[-9, -8, -5, -20], [6, -10, 9, -24], [-3, -26, 2, -36], [-12, -30, -8, -38]].forEach(([x0, y0, x1, y1]) => { ctx.beginPath(); ctx.moveTo(x0 * c, y0 * c); ctx.quadraticCurveTo((x0 + x1) / 2 * c + 1.4 * c, (y0 + y1) / 2 * c, x1 * c, y1 * c); ctx.stroke(); });
   // bodemvouw
-  ctx.fillStyle = rgba(MK2.ldpeD, 0.5); ctx.beginPath(); ctx.moveTo(-B, 0); ctx.lineTo(B, 0); ctx.lineTo(B - 2 * c, -3.5 * c); ctx.lineTo(-B + 2 * c, -3.5 * c); ctx.closePath(); ctx.fill();
+  ctx.fillStyle = rgba(MK2.ldpeD, 0.45); ctx.beginPath(); ctx.moveTo(-B + 1 * c, 0); ctx.lineTo(B - 1 * c, 0); ctx.lineTo(B - 3 * c, -3 * c); ctx.lineTo(-B + 3 * c, -3 * c); ctx.closePath(); ctx.fill();
+  // voorste hengsel, vastgelast op de bovenrand
+  lus(0, MK2.ldpeR); ctx.fillStyle = MK2.ldpeD; [-8, 8].forEach(k => { roundRect(ctx, (k - 1.8) * c, -H + 1.4 * c, 3.6 * c, 3 * c, 3); ctx.fill(); });
   ctx.restore();
 }
 
@@ -255,7 +255,8 @@ function mk2_inUit(ctx, x, yLijn, soort, a = 1, s = 1) { if (a <= 0.01) return; 
 // o.hl = [kolommen] goud omrand, o.afval = [plastic, papier] 'stort'|'verbranden'|'bak', o.t. Geeft {kol: [x…], rij: [y plastic, y papier]} terug (lijnhoogtes, voor de scènes).
 const MK2_STAPPEN = ['GRONDSTOF', 'MATERIAAL', 'FABRIEK', 'VERVOER', 'WINKEL', 'AFVAL'];
 function mk2_strook(ctx, x, y, w, o = {}) {
-  const { a = 1, u = 1, rijen = 'beide', n = 6, pijlen = 1, hl = [], t = 0, s = 1, kop = 1, afval = ['stort', 'stort'] } = o; // afval: Brits onderzoek 86 % stort (getal 17) const H = 560 * s;
+  const { a = 1, u = 1, rijen = 'beide', n = 6, pijlen = 1, hl = [], t = 0, s = 1, kop = 1, afval = ['stort', 'stort'], pijlA = null } = o; // afval: Brits onderzoek 86 % stort (getal 17)
+  const H = 560 * s; // (fix 2 nov 2026: stond in het commentaar, strook werd 1080 hoog)
   const kol = MK2_STAPPEN.map((_, i) => x + 240 * s + i * (w - 370 * s) / 5), rij = [y + 230 * s, y + 470 * s];
   if (a <= 0.01) return { kol, rij }; ctx.save(); ctx.globalAlpha *= a;
   const wu = Math.max(40, w * u); ctx.save(); ctx.beginPath(); ctx.rect(x - 4, y - 10, wu + 4, H + 20); ctx.clip();
@@ -263,13 +264,13 @@ function mk2_strook(ctx, x, y, w, o = {}) {
   if (kop > 0.01) { mk2_laag(ctx, kop, () => { text(ctx, 'WIEG', x + 34 * s, y + 62 * s, fTekst(40 * s, 800), MK2.inkt, 'left'); text(ctx, 'GRAF', x + w - 34 * s, y + 62 * s, fTekst(40 * s, 800), MK2.inkt, 'right');
     ctx.strokeStyle = rgba(MK2.inkt, 0.5); ctx.lineWidth = 2; ctx.setLineDash([10, 8]); ctx.beginPath(); ctx.moveTo(x + 170 * s, y + 50 * s); ctx.lineTo(x + w - 170 * s, y + 50 * s); ctx.stroke(); ctx.setLineDash([]); pijl(ctx, x + w - 200 * s, y + 50 * s, x + w - 166 * s, y + 50 * s, rgba(MK2.inkt, 0.5), 1, 2, 12); }); }
   // goud omrande kolommen (vraag 1)
-  hl.forEach(k => { roundRect(ctx, kol[k] - 118 * s, y + 80 * s, 236 * s, H - 100 * s, 14); ctx.strokeStyle = C.goud; ctx.lineWidth = 5; ctx.stroke(); ctx.fillStyle = rgba(C.goud, 0.1); ctx.fill(); });
-  const rijTek = (r, soort) => { const yl = rij[r]; ctx.strokeStyle = rgba(MK2.inkt, 0.75); ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x + 40 * s, yl); ctx.lineTo(x + w - 40 * s, yl); ctx.stroke();
+  hl.forEach(k => { const [k0, k1] = Array.isArray(k) ? k : [k, k]; roundRect(ctx, kol[k0] - 118 * s, y + 80 * s, kol[k1] - kol[k0] + 236 * s, H - 100 * s, 14); ctx.strokeStyle = C.goud; ctx.lineWidth = 5; ctx.stroke(); ctx.fillStyle = rgba(C.goud, 0.1); ctx.fill(); });
+  const rijTek = (r, soort) => { const yl = rij[r], nn = o.nRij ? o.nRij[r] : n; ctx.strokeStyle = rgba(MK2.inkt, 0.75); ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x + 40 * s, yl); ctx.lineTo(x + w - 40 * s, yl); ctx.stroke();
     mk2_miniTas(ctx, x + 80 * s, yl - 8 * s, 110 * s, soort === 'plastic' ? 'plastic' : 'papier');
     const icons = soort === 'plastic'
       ? [(cx, cy, aa) => mk2_oliebron(ctx, cx, cy, s * 0.85, { a: aa, t }), (cx, cy, aa) => mk2_korrels(ctx, cx, cy, s, { a: aa }), (cx, cy, aa) => mk2_fabriek(ctx, cx, cy, s * 0.9, { a: aa, t }), (cx, cy, aa) => mk2_schip(ctx, cx, cy, s * 0.85, { a: aa, t }), (cx, cy, aa) => mk2_winkel(ctx, cx, cy, s * 0.8, { a: aa }), (cx, cy, aa) => mk2_afval(ctx, cx, cy, s * 0.85, { a: aa, soort: afval[0], t })]
       : [(cx, cy, aa) => mk2_bos(ctx, cx, cy, s * 0.85, { a: aa }), (cx, cy, aa) => mk2_pulp(ctx, cx, cy, s * 0.85, { a: aa, t }), (cx, cy, aa) => mk2_papierfabriek(ctx, cx, cy, s * 0.8, { a: aa, t }), (cx, cy, aa) => mk2_vrachtwagen(ctx, cx, cy, s, { a: aa }), (cx, cy, aa) => mk2_winkel(ctx, cx, cy, s * 0.8, { a: aa }), (cx, cy, aa) => mk2_afval(ctx, cx, cy, s * 0.85, { a: aa, soort: afval[1], t })];
-    icons.forEach((fn, i) => { const aa = clamp(n - i, 0, 1); if (aa <= 0.01) return; fn(kol[i], yl - 2 * s, aa); mk2_inUit(ctx, kol[i] - 40 * s, yl, 'in', aa * pijlen, s); mk2_inUit(ctx, kol[i] + 40 * s, yl, 'uit', aa * pijlen, s); }); };
+    icons.forEach((fn, i) => { const aa = clamp(nn - i, 0, 1); if (aa <= 0.01) return; fn(kol[i], yl - 2 * s, aa); }); for (let i = 0; i < 6; i++) { const aa = clamp(nn - i, 0, 1); mk2_inUit(ctx, kol[i] - 40 * s, yl, 'in', (pijlA ? pijlA(i, 'in', r) : aa) * pijlen, s); mk2_inUit(ctx, kol[i] + 40 * s, yl, 'uit', (pijlA ? pijlA(i, 'uit', r) : aa) * pijlen, s); } };
   if (rijen !== 'papier') rijTek(0, 'plastic'); if (rijen !== 'plastic') rijTek(1, 'papier');
   ctx.restore();
   if (u < 0.999) { const rx = x + wu; roundRect(ctx, rx - 14, y - 10, 34, H + 20, 16); ctx.fillStyle = '#DCD4C2'; ctx.fill(); ctx.fillStyle = '#C4BAA4'; ctx.fillRect(rx + 2, y - 4, 6, H + 8); } // de rol
@@ -283,7 +284,7 @@ function mk2_strook(ctx, x, y, w, o = {}) {
 // Klimaat: papier 1,3× beter · stikstof naar zee: papier 3,3× minder · land: papier 244× meer · water: papier 38× meer.
 const MK2_VAK = [
   { id: 'klimaat',  naam: 'KLIMAAT',           eenheid: 'KG CO₂',      kl: C.koraal,     p: 1,       q: 1 / 1.3, maal: '1,3×' },
-  { id: 'stikstof', naam: 'STIKSTOF NAAR ZEE', eenheid: 'KG N',        kl: MK2.stikstof, p: 1,       q: 1 / 3.3, maal: '3,3×' },
+  { id: 'stikstof', naam: 'STIKSTOF NAAR ZEE', eenheid: 'KG N',        kl: C.oker, p: 1,       q: 1 / 3.3, maal: '3,3×' },
   { id: 'land',     naam: 'LAND',              eenheid: 'M² PER JAAR', kl: C.groen,      p: 1 / 244, q: 1,       maal: '244×' },
   { id: 'water',    naam: 'WATER',             eenheid: 'LITER',       kl: C.teal,       p: 1 / 38,  q: 1,       maal: '38×' }];
 // één vak: titel + eenheid in de vakkleur, twee staafjes (plastic tas / papieren tas) op één grondlijn, mini-tas eronder.
@@ -321,7 +322,7 @@ function mk2_methaanNaarCO2(ctx, x, y, s = 1, u = 0, o = {}) { const { a = 1, t 
   ctx.restore(); }
 
 // eenheidsblokje voor op de weegschaal: kleine kaart met eenheid in de vakkleur
-function mk2_eenheid(ctx, x, y, s2, kl, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fTekst(30, 800); const w = ctx.measureText(s2).width + 36; roundRect(ctx, x - w / 2, y - 52, w, 52, 8); shape(ctx, rgba(kl, 0.25), kl, 2.5); text(ctx, s2, x, y - 16, fTekst(30, 800), C.text, 'center'); ctx.restore(); }
+function mk2_eenheid(ctx, x, y, s2, kl, a = 1, px = 38) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fTekst(px, 800); const w = ctx.measureText(s2).width + 36; roundRect(ctx, x - w / 2, y - px - 26, w, px + 26, 8); shape(ctx, rgba(kl, 0.25), kl, 2.5); text(ctx, s2, x, y - 14, fTekst(px, 800), C.text, 'center'); ctx.restore(); }
 
 // WEEGSCHAAL (balans, naar weegschaal() uit Biotechnologie 1, teken_bt1.js): o.tilt > 0 = links omlaag; o.links/o.rechts(ctx, px, py)
 // tekenen de inhoud op de schaal (py = bodem van de schaal); o.zoek 0..1 laat de balk heen en weer zoeken (vraag 3), o.t.
@@ -336,17 +337,18 @@ function mk2_weegschaal(ctx, x, y, s = 1, o = {}) { const { a = 1, zoek = 0, t =
 // SCHUIFJE 'HOE ZWAAR WEEGT LAND?' (illustratie, zonder getallen): balk met links KLIMAAT (koraal) en rechts LAND (groen),
 // gouden knop op v (0 = klimaat zwaar, 1 = land zwaar). Eronder de twee tassen: de winnaar komt omhoog met een gouden ring.
 // Richting (getallen 11, 12, t4): land zwaarder → plastic wint; klimaat zwaarder → papier wint.
-function mk2_schuifje(ctx, x, y, w, v, o = {}) { const { a = 1, tassen = 1, kop = 1 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+function mk2_schuifje(ctx, x, y, w, v, o = {}) { const { a = 1, tassen = 1, kop = 1, label = 1 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
   if (kop > 0.01) mk2_laag(ctx, kop, () => text(ctx, 'HOE ZWAAR WEEGT LAND?', x, y - 70, fTekst(40, 800), C.text, 'center'));
   roundRect(ctx, x - w / 2, y - 9, w, 18, 9); ctx.fillStyle = '#2A3A58'; ctx.fill();
   roundRect(ctx, x - w / 2, y - 9, w * v, 18, 9); ctx.fillStyle = rgba(C.groen, 0.7); ctx.fill();
   roundRect(ctx, x - w / 2 + w * v, y - 9, w * (1 - v), 18, 9); ctx.fillStyle = rgba(C.koraal, 0.7); ctx.fill();
   text(ctx, 'KLIMAAT', x - w / 2 - 24, y + 12, fTekst(36, 800), C.koraal, 'right'); text(ctx, 'LAND', x + w / 2 + 24, y + 12, fTekst(36, 800), C.groen, 'left');
-  mk2_bol(ctx, x - w / 2 + w * v, y, 26, C.goud, '#F2D88A', 3);
+  mk2_bol(ctx, x - w / 2 + w * v, y, 24, '#E8ECF2', '#8FA0B5', 3); // knop neutraal (keuring ronde 4: geen gouden cirkel)
   if (tassen > 0.01) mk2_laag(ctx, tassen, () => { const win = clamp((v - 0.5) * 6, -1, 1); // >0 plastic wint
-    [[x - 110, 'ldpe', win], [x + 110, 'papier', -win]].forEach(([tx, soort, ww]) => { const up = Math.max(0, ww) * 30, ty = y + 230 - up;
-      if (ww > 0.3) { ctx.beginPath(); ctx.arc(tx, ty - 72, 96, 0, 6.283); ctx.strokeStyle = rgba(C.goud, (ww - 0.3) / 0.7); ctx.lineWidth = 5; ctx.stroke(); }
-      mk2_miniTas(ctx, tx, ty, 120, soort, ww < -0.3 ? 0.55 : 1); }); });
+    // keuring ronde 4: de 'winnende' tas wordt alleen iets groter en helderder, de andere iets doffer
+    [[x - 130, 'ldpe', win], [x + 130, 'papier', -win]].forEach(([tx, soort, ww]) => { const g = 1 + Math.max(0, ww) * 0.22, ty = y + 240;
+      ctx.save(); if (ww > 0.05) ctx.filter = 'brightness(' + (1 + 0.22 * ww).toFixed(3) + ')'; mk2_miniTas(ctx, tx, ty, 120 * g, soort, ww < -0.3 ? 0.55 : 1); ctx.restore(); }); });
+  if (label > 0.01) mk2_meta(ctx, 'ILLUSTRATIE · RICHTING UIT DE STUDIES', x, y + 310, C.text2, 'center', 28, label);
   ctx.restore(); }
 
 // =====================================================================
@@ -376,14 +378,14 @@ function mk2_tasjesRaster(ctx, x, y, n, soort, o = {}) { const { a = 1, per = 10
 // RAPPORT met aannames (VK 2011 / Denemarken 2018): crème vel met kop, jaartal, grijze tekstregels en daaronder de aannames als
 // regels. o.n = aantal getoonde aannames (breuk), o.hl = index goud gemarkeerd, o.vraag 0..1 = groot vraagteken erop (vraag 5).
 function mk2_rapport(ctx, x, y, w, kop, jaar, rijen = [], o = {}) { const { a = 1, n = rijen.length, hl = -1, vraag = 0, rot = 0, kl = C.goud } = o; if (a <= 0.01) return 0;
-  const rh = 58, h = 250 + rijen.length * rh; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x + w / 2, y + h / 2); ctx.rotate(rot); ctx.translate(-w / 2, -h / 2);
+  const rh = 62, h = 250 + rijen.length * rh; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x + w / 2, y + h / 2); ctx.rotate(rot); ctx.translate(-w / 2, -h / 2);
   roundRect(ctx, 0, 0, w, h, 8); shape(ctx, MK2.papier, MK2.papierD, 2); ctx.fillStyle = kl; ctx.fillRect(0, 0, 14, h);
   { let px = 38; ctx.font = fTekst(px, 800); while (px > 24 && ctx.measureText(kop).width > w - (vraag > 0.01 ? 170 : 70)) { px -= 2; ctx.font = fTekst(px, 800); } text(ctx, kop, 40, 62, fTekst(px, 800), MK2.inkt, 'left'); } metaText(ctx, jaar, 40, 104, '#5A6478', 'left', 28);
   ctx.fillStyle = '#C9C0AE'; for (let i = 0; i < 4; i++) ctx.fillRect(40, 134 + i * 20, w - 90 - (i % 2) * 70, 7);
   metaText(ctx, 'AANNAMES', 40, 236, '#5A6478', 'left', 24);
   rijen.forEach((r, i) => { const f = clamp(n - i, 0, 1); if (f <= 0.01) return; const ry = 254 + i * rh; ctx.save(); ctx.globalAlpha *= f; if (i === hl) { roundRect(ctx, 26, ry - 6, w - 52, rh - 6, 6); ctx.fillStyle = rgba(C.goud, 0.35); ctx.fill(); }
-    let px = 30; ctx.font = fTekst(px, 700); while (px > 20 && ctx.measureText(r).width > w - 70) { px -= 1; ctx.font = fTekst(px, 700); } text(ctx, r, 40, ry + 36, fTekst(px, 700), MK2.inkt, 'left'); ctx.restore(); });
-  if (vraag > 0.01) mk2_laag(ctx, vraag, () => { mk2_bol(ctx, w - 70, 80, 46, C.goud); text(ctx, '?', w - 70, 104, fTitel(68), '#1A2740', 'center'); });
+    let px = 38; ctx.font = fTekst(px, 700); while (px > 30 && ctx.measureText(r).width > w - 70) { px -= 1; ctx.font = fTekst(px, 700); } text(ctx, r, 40, ry + 40, fTekst(px, 700), MK2.inkt, 'left'); ctx.restore(); });
+  if (vraag > 0.01) mk2_laag(ctx, vraag, () => { mk2_bol(ctx, w + 10, -14, 46, C.goud); text(ctx, '?', w + 10, 10, fTitel(68), '#1A2740', 'center'); });
   ctx.restore(); return h; }
 
 // =====================================================================
@@ -422,6 +424,7 @@ function mk2_berm(ctx, x, y, w, o = {}) { const { a = 1, u = 0, t = 0 } = o; if 
   if (u > 0.45) { const f = ease((u - 0.45) / 0.55); // snippers worden kleiner en verspreiden zich
     for (let i = 0; i < 46; i++) { const hx = (hash(i * 2.3) - 0.5), hy = hash(i * 5.1); const px = cx + hx * Math.min(w - 40, 180 + 420 * f), py = y - 10 - (1 - f) * 30 * hash(i) + f * hy * 60; const r = lerp(16, 3.2, f) * (0.6 + 0.6 * hash(i * 9));
       if (i > 14 && f < 0.3) continue; ctx.save(); ctx.translate(px, py); ctx.rotate(hash(i * 7) * 3); ctx.beginPath(); ctx.moveTo(-r, -r * 0.4); ctx.lineTo(r * 0.6, -r * 0.7); ctx.lineTo(r, r * 0.3); ctx.lineTo(-r * 0.4, r * 0.6); ctx.closePath(); ctx.fillStyle = rgba(MK2.plastic, 0.95); ctx.fill(); ctx.restore(); } }
+  if (o.label !== false && u > 0.75) mk2_meta(ctx, 'MICROPLASTIC', cx, y + 76, '#C9CED6', 'center', 28, ease((u - 0.75) / 0.2)); // keuring ronde 4
   for (let i = 0; i < Math.floor(w / 14); i++) { const gx = x + i * 14 + hash(i) * 8, gh = 18 + hash(i * 3) * 26, sw = Math.sin(t * 1.3 + i * 0.7) * 3; ctx.strokeStyle = i % 3 ? '#5FA86E' : '#7FC48F'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(gx, y - 4); ctx.quadraticCurveTo(gx + sw, y - gh * 0.6, gx + sw * 2 + 3, y - gh); ctx.stroke(); }
   ctx.restore(); }
 
@@ -439,17 +442,17 @@ function mk2_poster(ctx, x, y, w, o = {}) { const { a = 1, briefje = 0, rot = 0 
 
 // ADVIESBRIEF van de omgevingsdienst aan de gemeente: kop 'ADVIES', 'AAN: GEMEENTE', getypte regels (o.typ 0..1 = hoeveel er
 // staat; echte zinnen in o.regels, anders grijze balkjes), blok 'AANNAMES', en o.stempel 0..1 = gouden stempel 'BESLUIT: GEMEENTE'.
-function mk2_adviesbrief(ctx, x, y, w, o = {}) { const { a = 1, typ = 1, stempel: st = 0, regels = null, aannames = ['WELKE TASSEN', 'WELKE STUDIES', 'WELKE AFVALVERWERKING'], rot = 0 } = o; if (a <= 0.01) return;
-  const sc = w / 520; w = 520; const h = w * 1.3; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(rot); ctx.scale(sc, sc); ctx.translate(-w / 2, -h / 2);
+function mk2_adviesbrief(ctx, x, y, w, o = {}) { const { a = 1, typ = 1, stempel: st = 0, regels = null, aannames = ['welke tassen', 'welke studies', 'welke afvalverwerking'], rot = 0 } = o; if (a <= 0.01) return;
+  const sc = w / 520; w = 520; const h = w * 1.45; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(rot); ctx.scale(sc, sc); ctx.translate(-w / 2, -h / 2);
   roundRect(ctx, 0, 0, w, h, 6); shape(ctx, MK2.papier, MK2.papierD, 2);
   metaText(ctx, 'OMGEVINGSDIENST', 36, 52, '#5A6478', 'left', 24); metaText(ctx, 'AAN: GEMEENTE', w - 36, 84, '#5A6478', 'right', 24);
   text(ctx, 'ADVIES', 36, 116, fTekst(50, 800), MK2.inkt, 'left'); ctx.fillStyle = C.goud; ctx.fillRect(36, 132, 120, 6);
   const nRegel = 6, nTot = nRegel + aannames.length; let k = 0;
   for (let i = 0; i < nRegel; i++, k++) { const f = clamp(typ * nTot - k, 0, 1); if (f <= 0.01) break; if (regels && regels[i]) { ctx.save(); ctx.beginPath(); ctx.rect(36, 160 + i * 44, (w - 72) * f, 44); ctx.clip(); text(ctx, regels[i], 36, 192 + i * 44, fTekst(28, 600), MK2.inkt, 'left'); ctx.restore(); }
     else { ctx.fillStyle = '#B8B0A0'; ctx.fillRect(36, 178 + i * 44, (w - 72 - (i % 3) * 60) * f, 9); } }
-  const ay = 180 + nRegel * 44; if (typ * nTot > nRegel) { metaText(ctx, 'AANNAMES', 36, ay + 10, '#5A6478', 'left', 24);
-    aannames.forEach((s2, i) => { const f = clamp(typ * nTot - nRegel - i, 0, 1); if (f <= 0.01) return; ctx.save(); ctx.globalAlpha *= f; mk2_bol(ctx, 46, ay + 42 + i * 40, 5, MK2.inkt); text(ctx, s2, 62, ay + 52 + i * 40, fTekst(28, 700), MK2.inkt, 'left'); ctx.restore(); }); }
-  if (st > 0.01) { const zs = 1 + (1 - ease(st)) * 0.5; ctx.save(); ctx.translate(w * 0.62, h - 56); ctx.scale(zs * 0.85, zs * 0.85); stempel(ctx, 0, 0, 'BESLUIT: GEMEENTE', '#B08A2A', Math.min(1, st * 2), -0.12); ctx.restore(); }
+  const ay = 180 + nRegel * 44; if (typ * nTot > nRegel) { metaText(ctx, 'AANNAMES', 36, ay + 10, '#5A6478', 'left', 30);
+    aannames.forEach((s2, i) => { const f = clamp(typ * nTot - nRegel - i, 0, 1); if (f <= 0.01) return; ctx.save(); ctx.globalAlpha *= f; mk2_bol(ctx, 46, ay + 50 + i * 54, 6, MK2.inkt); text(ctx, s2, 64, ay + 64 + i * 54, fTekst(o.apx || 38, 700), MK2.inkt, 'left'); ctx.restore(); }); }
+  if (st > 0.01) { const zs = 1 + (1 - ease(st)) * 0.5; ctx.save(); ctx.translate(w * 0.5, h - 64); ctx.scale(zs * 0.8, zs * 0.8); stempel(ctx, 0, 0, 'BESLUIT: GEMEENTE', '#B08A2A', Math.min(1, st * 2), -0.12); ctx.restore(); }
   ctx.restore(); }
 
 // TABLET van Iris met het verzoek van de gemeente: 'GEMEENTE · VERZOEK OM ADVIES' + klein posterontwerp. o.scherm = eigen
@@ -461,3 +464,44 @@ function mk2_tablet(ctx, x, y, s = 1, o = {}) { const { a = 1, rot = 0 } = o; if
     ctx.fillStyle = '#B8B0A0'; for (let i = 0; i < 6; i++) ctx.fillRect(-196, -80 + i * 26, 210 - (i % 2) * 50, 8);
     mk2_poster(ctx, 128, 6, 120, {}); }
   ctx.restore(); }
+
+// =====================================================================
+// 6. ALGEMENE HULPJES (overgenomen uit Milieukunde 1, teken_mk1.js r. 7–27, 246–270, 361–365; 2 nov 2026)
+// =====================================================================
+const GROND = 860;
+function antwoord(ctx, s2, a = 1) { regel(ctx, s2, 120, 150, a, C.groen, 40, 'left', 700); }
+function metaA(ctx, s2, x, y, a, col = C.grain, al = 'left', px = 28) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; metaText(ctx, s2, x, y, col, al, px); ctx.restore(); }
+function fase(t, t0, t1, d = 0.5) { return ramp(t, t0, d) * (1 - ramp(t, t1 - d, d)); }
+function laag(ctx, a, fn) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; fn(); ctx.restore(); }
+function lijn(ctx, pts, col, lw = 3, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); pts.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke(); ctx.restore(); }
+function stippel(ctx, x0, y0, x1, y1, col, a = 1, lw = 3) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.setLineDash([12, 9]); ctx.strokeStyle = col; ctx.lineWidth = lw; ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke(); ctx.restore(); }
+function kaart(ctx, x, y, w, h, a = 1, rand = C.line) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, w, h, 16); shape(ctx, rgba('#0D1420', 0.9), rgba(rand, 0.85), 2); ctx.restore(); }
+function filmKaartje(ctx, x, y, s2, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fTekst(36, 700); const ww = ctx.measureText(s2).width + 100; roundRect(ctx, x, y, ww, 72, 12); shape(ctx, rgba('#0D1420', 0.85), rgba(C.line, 0.9), 1.5);
+  ctx.beginPath(); ctx.moveTo(x + 26, y + 22); ctx.lineTo(x + 52, y + 36); ctx.lineTo(x + 26, y + 50); ctx.closePath(); ctx.fillStyle = C.goud; ctx.fill(); text(ctx, s2, x + 66, y + 49, fTekst(36, 700), C.text, 'left'); ctx.restore(); }
+function echtKaart(ctx, x, y, w, kop, regels, bron, a = 1, o = {}) { if (a <= 0.01) return 0; ctx.save(); ctx.globalAlpha *= a; const lh = o.lh || 48, h = 80 + regels.length * lh + (bron ? 50 : 6) + (o.extraH || 0);
+  roundRect(ctx, x, y, w, h, 16); shape(ctx, rgba('#0D1420', 0.9), rgba(o.rand || C.line, 0.85), 2); metaText(ctx, kop, x + 28, y + 48, o.kopKl || C.goud, 'left', 28);
+  regels.forEach((r, i) => { const [s2, ra, kl] = Array.isArray(r) ? r : [r, 1]; if (ra > 0.01) { ctx.save(); ctx.globalAlpha *= ra; text(ctx, s2, x + 28, y + 104 + i * lh, fTekst(o.px || 36, 700), kl || C.text, 'left'); ctx.restore(); } });
+  if (o.teken) o.teken(x, y + 76 + regels.length * lh, w, o.extraH || 0);
+  if (bron) metaText(ctx, bron, x + 28, y + h - 22, C.text2, 'left', 28); ctx.restore(); return h; }
+function termKaart(ctx, x, y, w, term, uitleg, a = 1, kl = C.goud) { if (a <= 0.01) return; const r = Array.isArray(uitleg) ? uitleg : [uitleg]; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, w, 110 + r.length * 40, 16); shape(ctx, rgba('#0D1420', 0.9), kl, 2.5);
+  text(ctx, term, x + 30, y + 70, fTekst(52, 800), kl, 'left'); r.forEach((u, i) => metaText(ctx, u, x + 30, y + 120 + i * 40, C.text, 'left', 28)); ctx.restore(); }
+function somRegel(ctx, s2, x, y, a = 1, kl = C.text, px = 48, al = 'left') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; text(ctx, s2, x, y, fTekst(px, 800), kl, al); ctx.restore(); }
+
+function klembord(ctx, x, y, w, kop, regels, a = 1, o = {}) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const lh = o.lh || 64, h = 110 + regels.length * lh + 20;
+  roundRect(ctx, x, y, w, h, 12); shape(ctx, '#8A6A44', '#5A4430', 2); roundRect(ctx, x + 16, y + 26, w - 32, h - 40, 6); shape(ctx, '#F2EEE4', null);
+  roundRect(ctx, x + w / 2 - 60, y - 12, 120, 40, 8); shape(ctx, '#AFB6C0', '#6E7480', 2);
+  if (kop) text(ctx, kop, x + 40, y + 84, fTekst(30, 800), '#5A6478', 'left');
+  regels.forEach((r, i) => { const [s2, ra, vk] = Array.isArray(r) ? r : [r, 1, 0]; const yy = y + 84 + (kop ? 30 : -20) + (i + 0.7) * lh; ctx.strokeStyle = '#9AA3B2'; ctx.lineWidth = 2; ctx.strokeRect(x + 40, yy - 30, 32, 32);
+    if (ra > 0.01) { ctx.save(); ctx.globalAlpha *= ra; text(ctx, s2, x + 90, yy, fTekst(o.px || 36, 700), '#2A3446', 'left'); ctx.restore(); }
+    if (vk > 0.01) vink_(ctx, x + 56, yy - 16, 14, vk, '#3E8A58'); });
+  ctx.restore(); return h; }
+function badge(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = '#5BA4C9'; ctx.lineWidth = 3 * s; ctx.beginPath(); ctx.moveTo(x - 22 * s, y - 60 * s); ctx.lineTo(x, y - 18 * s); ctx.lineTo(x + 22 * s, y - 60 * s); ctx.stroke();
+  roundRect(ctx, x - 20 * s, y - 18 * s, 40 * s, 52 * s, 5 * s); shape(ctx, '#F2EEE4', '#9AA3B2', 1.5); ctx.fillStyle = '#5BA4C9'; ctx.fillRect(x - 20 * s, y - 18 * s, 40 * s, 12 * s); ctx.fillStyle = '#9AA3B2'; ctx.fillRect(x - 12 * s, y + 4 * s, 24 * s, 4 * s); ctx.fillRect(x - 12 * s, y + 14 * s, 18 * s, 4 * s); ctx.restore(); }
+// BUREAU van de omgevingsdienst op navy (naar bureau() uit mk1), o.scherm = monitor erop (standaard uit)
+function mk2_bureau(ctx, x, y, w, o = {}) { const { a = 1, scherm = false } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, w, 22, 6); shape(ctx, '#5A6478', '#8FA0B5', 1.5);
+  ctx.fillStyle = '#4A5468'; ctx.fillRect(x + 20, y + 22, 16, GROND - y - 22); ctx.fillRect(x + w - 36, y + 22, 16, GROND - y - 22);
+  if (scherm) { roundRect(ctx, x + w - 250, y - 180, 220, 140, 8); shape(ctx, '#1E232C', '#5A6070', 3); ctx.fillStyle = '#5A6070'; ctx.fillRect(x + w - 150, y - 40, 20, 40); roundRect(ctx, x + w - 236, y - 166, 192, 112, 4); shape(ctx, '#22304A', null); }
+  ctx.restore(); }
+// geometrie van vak i bij mk2_vierVakken(x, y, w, h)
+function mk2_vakGeo(x, y, w, h, i) { const gap = 28, vw = (w - 3 * gap) / 4, vx = x + i * (vw + gap), g0 = y + h - 110, Hm = h - 280; const V = MK2_VAK[i];
+  return { x: vx, w: vw, g0, Hm, bp: vx + vw * 0.32, bq: vx + vw * 0.68, hp: Hm * V.p, hq: Hm * V.q }; }

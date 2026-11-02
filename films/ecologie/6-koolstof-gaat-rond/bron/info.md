@@ -6,6 +6,7 @@
 | Reeks | Ecologie (v2), film 6 van 8 |
 | Niveau | havo + vwo (vwo-blokken gemarkeerd) |
 | Versie | 1.0 · oktober 2026 (script v2 = storyboard f6.json, goedgekeurd 29 okt 2026) |
+| Prompt | v13 |
 | Voldoet aan | prompt v13 (B15 variatie en selectie, C10 tekenkwaliteit) |
 | Stem | Roos (ElevenLabs eleven_v4). één take per alinea. 7.167 credits (flow jgPslE69gooj7UNKTzYW) |
 | Duur | spraak 8:00 (480 s, basis 416 s); met vragen en kaarten ± 9 min |

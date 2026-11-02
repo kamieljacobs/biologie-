@@ -14,7 +14,7 @@
 
 **Yasmin** (16) en **Bilal** (17) · vast: broer en zus; Yasmin wil arts worden. Gebeurd: Yasmin stagiair-analist in Laboratoriumtechniek; Yasmin snuffelstage landbouw met Opa Henk in zijn moestuin (Landbouw 2, Wat zit er in de bodem?, 25 okt 2026); Yasmin snuffelstage op het melkveebedrijf van Veehouder Gerrit, houdt een stierkalfje vast voor de DNA-test; Bilal kort in beeld naast Yasmin bij 'zelfde ouders, toch verschillend' (Landbouw 3 Fokken, 26 okt 2026); Bilal stagiair forensisch onderzoek (hbo) in alle drie de films van Forensisch onderzoek, outfit `plaatsdelict` op de plaats delict, `practicum` in het lab. Yasmin snuffelstage bij de GGD (afdeling infectieziektebestrijding) met Epidemioloog Farid; herinnering aan maart 2020: Yasmin en Bilal thuis aan de keukentafel, ouders thuiswerkend (Gezondheidswetenschappen 1, Hoe een epidemie groeit en stopt, 26 okt 2026). Yasmin loopt verder stage bij de GGD en leert van Farid hoe je een risico vindt zonder experiment: cohort, patiënt-controle, relatief en absoluut risico, verstorende factoren (Gezondheidswetenschappen 3, Roken en longkanker, 31 okt 2026). Yasmin leert van Farid in Gezondheidswetenschappen 2 (Screenen of niet?, 31 okt 2026) hoe bevolkingsonderzoek darmkanker werkt. In Erfelijkheid 3 (2.0, 28 okt 2026) staan de zes castleerlingen op volgorde van lengte: Yasmin 1,63 · Noor 1,68 · Daan 1,72 · Lotte 1,75 · Sam 1,79 · Bilal 1,86 m. Yasmin doet (zonder naam) de kiemproef met tuinkers op de vensterbank als rode draad door de onderzoekscyclus (Onderzoek doen in de biologie 2.0, 31 okt 2026). Grenzen: Bilal blijft hbo-stagiair in dat vak.
 
-**Dr. Kim** (42) · vast: arts en onderzoeker, klinisch geneticus. Gebeurd: in Forensisch onderzoek forensisch arts (film 3) en DNA-deskundige (film 2); in Erfelijkheid 6 Stambomen en kansrekenen 2.0 (28 okt 2026) als klinisch geneticus: tekent een stamboom op het bord en bespreekt een dragerschapstest met Sanne. Grenzen: geen dader of patiënt.
+**Dr. Kim** (42) · vast: arts en onderzoeker, klinisch geneticus. Gebeurd: in Forensisch onderzoek forensisch arts (film 3) en DNA-deskundige (film 2); in Erfelijkheid 6 Stambomen en kansrekenen 2.0 (28 okt 2026) als klinisch geneticus: tekent een stamboom op het bord en bespreekt een dragerschapstest met Sanne. Forensisch patholoog van het NFI in een verdrinkingszaak (kiezelwierentest) en rapporterend deskundige bij haar en stuifmeel (Forensisch 4, Stille getuigen, 2 nov 2026). Grenzen: geen dader of patiënt.
 
 **Mevrouw Visser** (38) · vast: docent biologie. Grenzen: alleen docent.
 
@@ -22,7 +22,7 @@
 
 **Procestechnoloog Merel** (38) · vast: procestechnoloog, begeleider van Sam (goedgekeurd door Kamiel 25 okt 2026). Gebeurd: Biotechnologie 1, 2 (geeft Sam het startenzym, 'Je zoekt juist die paar') en 3 (legt regels uit zonder eigen oordeel over ggo's). Grenzen: alleen in haar eigen vak.
 
-**Daan** (15) en **Thijs** (15) · vast: eeneiige tweeling, zelfde DNA. Gebeurd: Thijs loopt snuffelstage bij de omgevingsdienst met Milieukundige Iris (Milieukunde 1, PFAS, DDT en microplastic, 31 okt 2026; outfit `stage`, zwarte hoodie; 'Mijn broer telt vlinders, ik tel stoffen'). Daan loopt snuffelstage bij een natuurbeheerder in Ecologie 1–3 (outfit `veld`): merkt vlinders, vindt een wolvenkeutel maar ziet geen wolf (1), meet stikstof met buisjes op de heide (2), kijkt in de kuil op de maisakker die natuur wordt (3). Grenzen: blijft in dit vak de stagiair.
+**Daan** (15) en **Thijs** (15) · vast: eeneiige tweeling, zelfde DNA. Gebeurd: Thijs loopt snuffelstage bij de omgevingsdienst met Milieukundige Iris (Milieukunde 1, PFAS, DDT en microplastic, 31 okt 2026; outfit `stage`, zwarte hoodie; 'Mijn broer telt vlinders, ik tel stoffen'). Daan loopt snuffelstage bij een natuurbeheerder in Ecologie 1–3 (outfit `veld`): merkt vlinders, vindt een wolvenkeutel maar ziet geen wolf (1), meet stikstof met buisjes op de heide (2), kijkt in de kuil op de maisakker die natuur wordt (3). Thijs neemt zijn lunch mee in een papieren tasje dat hij steeds opnieuw gebruikt, tot het scheurt (Milieukunde 2, Van wieg tot graf, 2 nov 2026). Grenzen: blijft in dit vak de stagiair.
 
 **Ecoloog Bas** (± 46) · vast: ecoloog, begeleider van Daan (goedgekeurd door Kamiel 25 okt 2026). Gebeurd: Ecologie 1–3. Grenzen: alleen in zijn eigen vak.
 
@@ -32,9 +32,9 @@
 
 **Levensmiddelentechnoloog Lars** (± 35) · vast: levensmiddelentechnoloog in een proeffabriek (rossig kort haar; outfit `fabriek`: labjas, haarnetje, veiligheidsbril; `gewoon`: lichtblauw overhemd), castvel goedgekeurd door Kamiel 31 okt 2026. Gebeurd: ontwerpt met Noor een burger van erwteneiwit in de proeffabriek (Voeding en diëtetiek 3, Een burger zonder koe, 31 okt 2026). Grenzen: alleen in zijn eigen vak.
 
-**Hovenier Jeroen** (± 50) · vast: hovenier en kweker (grijzend haar, groene fleece, werkbroek, snoeischaar in een holster), castvel goedgekeurd door Kamiel 31 okt 2026. Gebeurd: begeleider van Lotte; determineert, stekt en zoekt de goede plek voor de rododendron van Opa Henk; heeft een kas met de moederplant (Tuin 1, Welke plant waar?, 31 okt 2026). Grenzen: alleen in zijn eigen vak.
+**Hovenier Jeroen** (± 50) · vast: hovenier en kweker (grijzend haar, groene fleece, werkbroek, snoeischaar in een holster), castvel goedgekeurd door Kamiel 31 okt 2026. Gebeurd: begeleider van Lotte; determineert, stekt en zoekt de goede plek voor de rododendron van Opa Henk; heeft een kas met de moederplant (Tuin 1, Welke plant waar?, 31 okt 2026). Ontwerpt een schoolplein tegen hitte en wateroverlast, met Lotte als stagiair (Tuin 2, Natuur in de stad, 2 nov 2026). Grenzen: alleen in zijn eigen vak.
 
-**Milieukundige Iris** (± 40) · vast: milieukundige bij een omgevingsdienst (halflang bruin haar, donkerblauwe softshell, veldtas met monsterpotjes, blauwe nitrilhandschoenen; outfit `kantoor` zonder tas en handschoenen), castvel goedgekeurd door Kamiel 31 okt 2026. Gebeurd: begeleider van Thijs bij de omgevingsdienst; onderzoekt PFAS in de eieren van Joosts kippen (Milieukunde 1, PFAS, DDT en microplastic, 31 okt 2026). Grenzen: alleen in haar eigen vak; geen echte gemeente of omgevingsdienst noemen.
+**Milieukundige Iris** (± 40) · vast: milieukundige bij een omgevingsdienst (halflang bruin haar, donkerblauwe softshell, veldtas met monsterpotjes, blauwe nitrilhandschoenen; outfit `kantoor` zonder tas en handschoenen), castvel goedgekeurd door Kamiel 31 okt 2026. Gebeurd: begeleider van Thijs bij de omgevingsdienst; onderzoekt PFAS in de eieren van Joosts kippen (Milieukunde 1, PFAS, DDT en microplastic, 31 okt 2026). Rekent met Thijs een poster 'Kies papier' van de gemeente na met een levenscyclusanalyse (Milieukunde 2, Van wieg tot graf, 2 nov 2026). Grenzen: alleen in haar eigen vak; geen echte gemeente of omgevingsdienst noemen.
 
 **Palynoloog** (± 50, zonder naam) · vast: palynoloog, stuifmeeldeskundige (grijsblond halflang haar, labjas over een groene kabeltrui, leesbril op het hoofd, preparaatdoosje), castvel goedgekeurd door Kamiel 2 nov 2026 (`personages/vellen/vel-nl-3-palynoloog.webp`). Gebeurd: herkent het stuifmeel op de schoen van de verdachte in de inbraakzaak (Forensisch onderzoek 4, Stille getuigen). Grenzen: alleen in haar eigen vak; in beeld en stem alleen 'de palynoloog', geen naam.
 
@@ -123,7 +123,7 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `onderbouw/32c`: 2-slaap-natuur-en-hygiene
 - `vervolg`: farmacie-2-sleutel-slot-en-dosis, fysiotherapie-4-welke-oefening-helpt, gezondheidswetenschappen-1-hoe-een-epidemie-groeit, gezondheidswetenschappen-2-screenen-of-niet, gezondheidswetenschappen-3-roken-en-longkanker, labtechniek-1-preparaat-en-microscoop, labtechniek-2-van-buisje-tot-uitslag, labtechniek-3-wat-staat-er-op-je-bloeduitslag, labtechniek-4-antibioticaresistentie, landbouw-1-meer-oogst, landbouw-2-wat-zit-er-in-de-bodem, landbouw-3-fokken, leraar-2-een-practicum-dat-werkt, neurowetenschappen-1-je-brein-vult-het-in, neurowetenschappen-3-als-hersencellen-uitvallen, psychologie-2-kijken-in-een-denkend-brein, psychologie-3-aanleg-of-opvoeding, psychologie-6-kun-je-je-geheugen-vertrouwen
 
-### Bilal (`bilal`) — 24 films
+### Bilal (`bilal`) — 25 films
 - `afweer`: 4-vaccins-allergie-en-bloedgroepen
 - `cellen`: onderzoek-doen
 - `ecologie`: 7-stikstof-gaat-rond
@@ -132,10 +132,10 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `gedrag`: 11-slimme-dieren, 5-emotieregulatie
 - `onderbouw/32b`: 2-geslachtelijk-en-ongeslachtelijk
 - `onderbouw/32c`: 2-slaap-natuur-en-hygiene, 4-ziek-worden-en-beter-worden
-- `vervolg`: farmacie-2-sleutel-slot-en-dosis, forensisch-1-sporen, forensisch-2-hoe-zeker-is-een-match, forensisch-3-hoe-lang-al-dood, fysiotherapie-3-trainen, fysiotherapie-4-welke-oefening-helpt, geneeskunde-2-als-regelkringen-ontsporen, gezondheidswetenschappen-1-hoe-een-epidemie-groeit, gezondheidswetenschappen-2-screenen-of-niet, landbouw-3-fokken, pedagogiek-1-een-brein-in-aanbouw, psychologie-3-aanleg-of-opvoeding, tandheelkunde-1-zuur-in-je-mond
+- `vervolg`: farmacie-2-sleutel-slot-en-dosis, forensisch-1-sporen, forensisch-2-hoe-zeker-is-een-match, forensisch-3-hoe-lang-al-dood, forensisch-4-stille-getuigen, fysiotherapie-3-trainen, fysiotherapie-4-welke-oefening-helpt, geneeskunde-2-als-regelkringen-ontsporen, gezondheidswetenschappen-1-hoe-een-epidemie-groeit, gezondheidswetenschappen-2-screenen-of-niet, landbouw-3-fokken, pedagogiek-1-een-brein-in-aanbouw, psychologie-3-aanleg-of-opvoeding, tandheelkunde-1-zuur-in-je-mond
 - `zenuwstelsel`: 7-slaap
 
-### Dr. Kim (`kim`) — 52 films
+### Dr. Kim (`kim`) — 53 films
 - `afweer`: 3-t-cellen-en-virussen, 4-vaccins-allergie-en-bloedgroepen
 - `cellen`: van-molecuul-tot-biosfeer
 - `dna`: 7-dna-lezen, 8-wat-heb-jij-aan-dna
@@ -145,10 +145,10 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `onderbouw/32b`: 1-levenscyclus-genen-en-milieu, 4-door-de-mens-gekozen
 - `onderbouw/32c`: 2-slaap-natuur-en-hygiene, 3-microben-vriend-en-vijand, 4-ziek-worden-en-beter-worden
 - `onderbouw/33c`: 5-wij-hebben-de-natuur-nodig
-- `vervolg`: bioinformatica-1-zoeken-in-dna, bioinformatica-2-miljoenen-varianten, bioinformatica-3-een-uitbraak-volgen, bioinformatica-4-eiwitstructuur-voorspellen, biomedisch-1-signalen-in-de-cel, biomedisch-2-crispr-wat-doet-dit-gen, biomedisch-3-van-lab-tot-patient, biomedisch-4-toeval-of-echt, diergeneeskunde-3-van-dier-naar-mens, farmacie-3-achter-de-balie, forensisch-1-sporen, forensisch-2-hoe-zeker-is-een-match, forensisch-3-hoe-lang-al-dood, fysiotherapie-1-wat-is-er-met-die-knie, geneeskunde-1-van-klacht-naar-diagnose, geneeskunde-2-als-regelkringen-ontsporen, geneeskunde-3-welk-antibioticum, geneeskunde-4-wat-de-patholoog-ziet, labtechniek-2-van-buisje-tot-uitslag, labtechniek-3-wat-staat-er-op-je-bloeduitslag, labtechniek-4-antibioticaresistentie, mbrt-1-in-het-lichaam-kijken, mbrt-2-bestraling, neurowetenschappen-2-brein-en-computer, neurowetenschappen-3-als-hersencellen-uitvallen, pedagogiek-2-opgroeien-onder-druk, psychologie-1-welke-therapie-werkt, psychologie-2-kijken-in-een-denkend-brein, psychologie-3-aanleg-of-opvoeding, psychologie-4-meten-wat-je-niet-kunt-zien, psychologie-6-kun-je-je-geheugen-vertrouwen, psychologie-7-waarom-raakt-de-een-opgebrand, tandheelkunde-3-bloedend-tandvlees, verloskunde-2-wat-meet-de-verloskundige, verpleegkunde-1-bel-je-de-arts
+- `vervolg`: bioinformatica-1-zoeken-in-dna, bioinformatica-2-miljoenen-varianten, bioinformatica-3-een-uitbraak-volgen, bioinformatica-4-eiwitstructuur-voorspellen, biomedisch-1-signalen-in-de-cel, biomedisch-2-crispr-wat-doet-dit-gen, biomedisch-3-van-lab-tot-patient, biomedisch-4-toeval-of-echt, diergeneeskunde-3-van-dier-naar-mens, farmacie-3-achter-de-balie, forensisch-1-sporen, forensisch-2-hoe-zeker-is-een-match, forensisch-3-hoe-lang-al-dood, forensisch-4-stille-getuigen, fysiotherapie-1-wat-is-er-met-die-knie, geneeskunde-1-van-klacht-naar-diagnose, geneeskunde-2-als-regelkringen-ontsporen, geneeskunde-3-welk-antibioticum, geneeskunde-4-wat-de-patholoog-ziet, labtechniek-2-van-buisje-tot-uitslag, labtechniek-3-wat-staat-er-op-je-bloeduitslag, labtechniek-4-antibioticaresistentie, mbrt-1-in-het-lichaam-kijken, mbrt-2-bestraling, neurowetenschappen-2-brein-en-computer, neurowetenschappen-3-als-hersencellen-uitvallen, pedagogiek-2-opgroeien-onder-druk, psychologie-1-welke-therapie-werkt, psychologie-2-kijken-in-een-denkend-brein, psychologie-3-aanleg-of-opvoeding, psychologie-4-meten-wat-je-niet-kunt-zien, psychologie-6-kun-je-je-geheugen-vertrouwen, psychologie-7-waarom-raakt-de-een-opgebrand, tandheelkunde-3-bloedend-tandvlees, verloskunde-2-wat-meet-de-verloskundige, verpleegkunde-1-bel-je-de-arts
 - `voortplanting`: 3-anticonceptie-soa-voortplantingstechniek, 4-sekse-gender-diversiteit
 
-### Lotte (`lotte`) — 31 films
+### Lotte (`lotte`) — 32 films
 - `afweer`: 3-t-cellen-en-virussen, 4-vaccins-allergie-en-bloedgroepen
 - `ecologie`: 5-binnen-de-grenzen
 - `examens`: vwo-2018-2
@@ -158,7 +158,7 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `onderbouw/32b`: 1-levenscyclus-genen-en-milieu, 4-door-de-mens-gekozen
 - `onderbouw/32c`: 1-voeding-en-beweging, 2-slaap-natuur-en-hygiene
 - `onderbouw/33c`: 2-wie-woont-waar, 5-wij-hebben-de-natuur-nodig
-- `vervolg`: diergeneeskunde-2-bronst-dekken-kalven, diergeneeskunde-3-van-dier-naar-mens, diergeneeskunde-4-welzijn-meten, fysiotherapie-1-wat-is-er-met-die-knie, leraar-2-een-practicum-dat-werkt, mbrt-1-in-het-lichaam-kijken, neurowetenschappen-1-je-brein-vult-het-in, psychologie-1-welke-therapie-werkt, psychologie-4-meten-wat-je-niet-kunt-zien, tandheelkunde-2-van-glazuur-tot-zenuw, tuin-1-welke-plant-waar, verpleegkunde-2-hoe-weefsel-herstelt
+- `vervolg`: diergeneeskunde-2-bronst-dekken-kalven, diergeneeskunde-3-van-dier-naar-mens, diergeneeskunde-4-welzijn-meten, fysiotherapie-1-wat-is-er-met-die-knie, leraar-2-een-practicum-dat-werkt, mbrt-1-in-het-lichaam-kijken, neurowetenschappen-1-je-brein-vult-het-in, psychologie-1-welke-therapie-werkt, psychologie-4-meten-wat-je-niet-kunt-zien, tandheelkunde-2-van-glazuur-tot-zenuw, tuin-1-welke-plant-waar, tuin-2-natuur-in-de-stad, verpleegkunde-2-hoe-weefsel-herstelt
 - `voortplanting`: 3-anticonceptie-soa-voortplantingstechniek
 
 ### Teun (`kind`) — 18 films
@@ -273,23 +273,23 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `dna`: 8-wat-heb-jij-aan-dna
 - `voortplanting`: 4-sekse-gender-diversiteit
 
-### Thijs (`thijs`) — 3 films
+### Thijs (`thijs`) — 4 films
 - `dna`: 7-dna-lezen
 - `evolutie`: 1-wat-is-evolutie
-- `vervolg`: milieukunde-1-pfas-ddt-en-microplastic
+- `vervolg`: milieukunde-1-pfas-ddt-en-microplastic, milieukunde-2-van-wieg-tot-graf
 
-### Erik (`erik`) — 9 films
+### Erik (`erik`) — 10 films
 - `cellen`: stamcellen
 - `dna`: 7-dna-lezen
 - `ecologie`: 6-koolstof-gaat-rond
 - `evolutie`: 4-de-mens-als-selectiefactor
 - `hormonen`: 3-de-baas-van-de-klieren
-- `vervolg`: biomedisch-3-van-lab-tot-patient, forensisch-2-hoe-zeker-is-een-match, voedingsleer-4-de-dietist-in-het-ziekenhuis
+- `vervolg`: biomedisch-3-van-lab-tot-patient, forensisch-2-hoe-zeker-is-een-match, forensisch-4-stille-getuigen, voedingsleer-4-de-dietist-in-het-ziekenhuis
 - `voortplanting`: 3-anticonceptie-soa-voortplantingstechniek
 
-### Joost (`joost`) — 6 films
+### Joost (`joost`) — 7 films
 - `dna`: 7-dna-lezen
-- `vervolg`: biomedisch-3-van-lab-tot-patient, forensisch-2-hoe-zeker-is-een-match, milieukunde-1-pfas-ddt-en-microplastic, voedingsleer-1-bij-de-dietist, voedingsleer-2-waarom-afvallen-zo-moeilijk-is
+- `vervolg`: biomedisch-3-van-lab-tot-patient, forensisch-2-hoe-zeker-is-een-match, forensisch-4-stille-getuigen, milieukunde-1-pfas-ddt-en-microplastic, voedingsleer-1-bij-de-dietist, voedingsleer-2-waarom-afvallen-zo-moeilijk-is
 
 ### Mevrouw Jansen (`buurvrouw`) — 4 films
 - `ecologie`: 8-van-zand-tot-bos
@@ -314,14 +314,14 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 ### Levensmiddelentechnoloog Lars (`lars`) — 1 films
 - `vervolg`: voedingsleer-3-een-burger-zonder-koe
 
-### Hovenier Jeroen (`jeroen`) — 1 films
-- `vervolg`: tuin-1-welke-plant-waar
+### Hovenier Jeroen (`jeroen`) — 2 films
+- `vervolg`: tuin-1-welke-plant-waar, tuin-2-natuur-in-de-stad
 
-### Milieukundige Iris (`iris`) — 1 films
-- `vervolg`: milieukunde-1-pfas-ddt-en-microplastic
+### Milieukundige Iris (`iris`) — 2 films
+- `vervolg`: milieukunde-1-pfas-ddt-en-microplastic, milieukunde-2-van-wieg-tot-graf
 
-### Palynoloog (`palynoloog`) — 0 films
-- (geen films gevonden)
+### Palynoloog (`palynoloog`) — 1 films
+- `vervolg`: forensisch-4-stille-getuigen
 
 ### Fleur (`fleur`) — 1 films
 - `voortplanting`: 3-anticonceptie-soa-voortplantingstechniek
