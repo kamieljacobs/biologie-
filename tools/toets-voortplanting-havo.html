@@ -1,0 +1,1217 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../js/teller.js" data-root="../"></script>
+<link rel="icon" href="../img/icoon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../img/icoon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../img/icoon/apple-touch-icon.png">
+<script>(function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oefentoets Voortplanting havo · doorklikken · Biologie bij Kamiel</title>
+<meta name="description" content="Oefentoets Voortplanting voor havo: per vraag eerst hulpvragen, dan de toetsvraag, nakijken met het antwoordmodel en uitleg waarom.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="huisstijl.css">
+<script src="huisstijl.js"></script>
+<script src="examen-stof.js?v=b496a9e6"></script>
+<script src="examen-standen.js?v=558bd73d"></script>
+<style>
+/* Oefentoets Voortplanting havo · zelfde bouwstenen als de oefenexamens (tools/OEFENEXAMEN_PROMPT.md). */
+body.echt .klok{display:none!important}
+:root{--rest:#2A3B57;--area:#5B6B84}
+:root[data-theme="light"]{--rest:#D5DEE9;--area:#B4BDCA}
+ .wrap{padding-inline:0}
+:root[data-theme="light"] .papier{box-shadow:0 0 0 1px rgba(20,32,52,.18),0 6px 18px rgba(20,32,52,.10)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--text);font:17px/1.55 var(--tekst);-webkit-font-smoothing:antialiased;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 40px}
+.wrap{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1,h2,h3{font-family:var(--titel);font-weight:700;letter-spacing:-.01em;text-wrap:balance;margin:0;line-height:1.1}
+h2{font-size:24px}
+.mono,.eyebrow{font:600 12px/1.2 var(--meta);letter-spacing:.1em;text-transform:uppercase}
+.eyebrow{color:var(--goud-text)}
+.muted{color:var(--text2)}
+a{color:var(--goud-text)}
+.sitenav{display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap;min-height:56px;padding:8px 0;border-bottom:1px solid var(--line);font:600 15px/1.3 var(--tekst)}
+.sitenav .merk{font:700 18px/1 var(--titel);color:var(--text);text-decoration:none}
+.sitenav .terug{color:var(--goud-text);text-decoration:none}
+.sitenav .rechts{margin-left:auto}
+.tool-kop{display:flex;flex-direction:column;gap:10px;padding:14px 0 0}
+.tool-kop h1{font-size:clamp(32px,5vw,48px)}
+.tool-kop p{margin:0;color:var(--text2);font-size:18px;max-width:62ch}
+button.toggle{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line2);background:none;color:var(--text2);border-radius:999px;padding:6px 14px 6px 8px;min-height:40px;font:600 14px var(--tekst);cursor:pointer}
+button.toggle .knopje{width:34px;height:20px;border-radius:999px;background:var(--line2);position:relative;flex:none}
+button.toggle .knopje::after{content:"";position:absolute;left:3px;top:3px;width:14px;height:14px;border-radius:50%;background:var(--text2);transition:left .15s}
+button.toggle[aria-pressed="true"]{color:var(--text);border-color:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje{background:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje::after{left:17px;background:var(--goud-ink)}
+.kopbalk{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.seg{display:inline-flex;flex-wrap:wrap;padding:3px;border-radius:999px;border:1px solid var(--line2);gap:2px}
+.seg button{border:0;background:none;padding:6px 14px;border-radius:999px;font:600 14px var(--tekst);color:var(--text2);min-height:36px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--goud);color:var(--goud-ink)}
+nav.tabs{display:flex;flex-wrap:wrap;gap:6px}
+nav.tabs button{min-width:44px;height:44px;border-radius:999px;border:1px solid var(--line2);background:none;color:var(--text2);font:600 15px var(--meta);cursor:pointer;position:relative}
+nav.tabs button:hover{color:var(--text)}
+nav.tabs button.cur{background:var(--goud);color:var(--goud-ink);border-color:var(--goud)}
+nav.tabs button.done::after{content:"";position:absolute;right:3px;top:3px;width:8px;height:8px;border-radius:50%;background:var(--groen);border:2px solid var(--bg)}
+nav.tabs button.lock{opacity:.35;cursor:not-allowed}
+nav.tabs .ov{padding:0 16px;font-family:var(--tekst)}
+.ctx{background:var(--surface);border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.ctx p{margin:0}
+details.ctxd summary{cursor:pointer;font-weight:600;color:var(--goud-text)}
+.tablewrap{overflow-x:auto}
+table.data{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+table.data th,table.data td{border-bottom:1px solid var(--line);padding:7px 10px;text-align:center}
+table.data th:first-child,table.data td:first-child{text-align:left}
+table.data th{font:600 11px var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--text3)}
+.q{display:flex;flex-direction:column;gap:14px}
+.qhead{display:flex;gap:12px;align-items:center}
+.qnum{font:700 40px/1 var(--titel);color:var(--goud-text)}
+.pts{font:600 12px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:3px 9px}
+.qtext{margin:0;font-size:18px}
+.phase{border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;background:var(--surface);display:flex;flex-direction:column;gap:12px}
+.phase>.label{display:flex;gap:8px;align-items:center;font:600 12px var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3)}
+.phase>.label .dot{width:8px;height:8px;border-radius:50%;background:var(--goud)}
+.phase.think{background:var(--surface2)}
+.phase.think>.label{color:var(--goud-text)}
+.step{display:flex;flex-direction:column;gap:8px}
+.step+.step{border-top:1px solid var(--line);padding-top:12px}
+.step p{margin:0}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button.opt,button.chip{border:1px solid var(--line2);background:var(--bg);color:var(--text);border-radius:12px;padding:9px 14px;font:inherit;font-size:16px;cursor:pointer;text-align:left}
+button.chip{border-radius:999px}
+button.opt:hover,button.chip:hover{border-color:var(--text3)}
+button.chip[aria-pressed="true"]{border-color:var(--goud);background:var(--goud-soft)}
+button.opt.right{border-color:var(--groen);background:var(--groen-soft)}
+button.opt.wrong{border-color:var(--koraal);background:var(--koraal-soft)}
+button.opt:disabled{cursor:default}
+button.go,button.ghost{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 18px;border-radius:999px;font:700 15px var(--tekst);cursor:pointer}
+button.go{border:0;background:var(--goud);color:var(--goud-ink)}
+button.go:hover{filter:brightness(1.06)}
+button.ghost{border:0;background:none;color:var(--text);box-shadow:inset 0 0 0 1px var(--line2)}
+button.ghost:hover{box-shadow:inset 0 0 0 1px var(--text3)}
+button:disabled.go,button:disabled.ghost{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:2px solid var(--goud);outline-offset:3px;border-radius:6px}
+input.num{width:96px;min-height:44px;font:600 16px var(--meta);padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text)}
+select{font:inherit;font-size:15px;min-height:44px;padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);max-width:100%;flex:1 1 260px}
+textarea{width:100%;min-height:88px;font:inherit;padding:10px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);resize:vertical}
+.fb{font-size:16px;border-radius:12px;padding:12px 14px;background:var(--surface2);border:1px solid var(--line2)}
+.fb.ok{border-color:var(--groen);background:var(--groen-soft)}
+.fb.no{border-color:var(--koraal);background:var(--koraal-soft)}
+.fb.hint{border-color:var(--teal);background:var(--teal-soft)}
+.graphs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.graphs{grid-template-columns:1fr}}
+.gopt{border:1px solid var(--line2);border-radius:var(--radius);background:var(--bg);padding:8px 8px 2px;cursor:pointer;color:var(--text);font:inherit;text-align:left}
+.gopt b{font:700 20px var(--titel);margin-left:6px;color:var(--goud-text)}
+.gopt:hover{border-color:var(--text3)}
+.gopt.right{border-color:var(--groen);box-shadow:0 0 0 2px var(--groen) inset}
+.gopt.wrong{border-color:var(--koraal);box-shadow:0 0 0 2px var(--koraal) inset}
+svg{display:block;max-width:100%;height:auto}
+.ax{stroke:var(--text3);stroke-width:1.2;fill:none}
+.grid{stroke:var(--line2);stroke-width:1;fill:none}
+.tick{fill:var(--text3);font:500 10px var(--meta)}
+.cv{stroke:var(--teal);stroke-width:2.4;fill:none;stroke-linejoin:round}
+.cvbad{stroke:var(--koraal);stroke-width:2;fill:none;stroke-dasharray:5 4}
+.restband{fill:var(--rest);opacity:.8}
+.lbl{fill:var(--text);font:600 12px var(--tekst)}
+.lblm{fill:var(--text2);font:12px var(--tekst)}
+.lblbad{fill:var(--koraal);font:700 12px var(--tekst)}
+.selfscore{display:flex;flex-direction:column;gap:10px}
+.selfscore label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.selfscore input{margin-top:4px;width:18px;height:18px;accent-color:var(--goud);flex:none}
+.model{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:16px}
+.anim{display:flex;flex-direction:column;gap:10px}
+.anim .stage{border-radius:var(--radius);background:var(--surface2);border:1px solid var(--line2);overflow:hidden}
+.anim .cap{min-height:3.2em;margin:0}
+.anim .nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pips{display:flex;gap:6px;margin-left:auto}
+.pips span{width:9px;height:9px;border-radius:50%;background:var(--line2)}
+.pips span.on{background:var(--goud)}
+.seq{display:flex;flex-direction:column;gap:6px}
+.seq button{display:flex;gap:10px;align-items:center}
+.seq .n{font:600 13px var(--meta);width:24px;height:24px;border-radius:50%;display:inline-grid;place-items:center;background:var(--line2);flex:none}
+.seq button.placed{border-color:var(--groen)} .seq button.placed .n{background:var(--groen);color:var(--goud-ink)}
+.score{font:600 16px var(--meta)}
+.ovtable td:last-child,.ovtable th:last-child{text-align:right}
+.pre{border-left:3px solid var(--goud);padding:2px 0 2px 14px;display:flex;flex-direction:column;gap:8px}
+.pre p{margin:0;color:var(--text2)}
+.figrow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.figrow{grid-template-columns:1fr}}
+.legenda{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--text2)}
+.legenda i{display:inline-block;vertical-align:middle;margin-right:6px}
+.legenda .lijn{width:22px;height:0;border-top:2.5px solid var(--text)}
+.legenda .vlak{width:16px;height:12px;background:var(--area)}
+.tick.dim{opacity:.35}
+p.klikbaar{line-height:2}
+button.mark{font:inherit;color:var(--text);background:none;border:0;border-bottom:2px dashed var(--goud);padding:0 3px;border-radius:4px;cursor:pointer}
+button.mark[aria-pressed="true"]{background:var(--goud-soft);border-bottom-style:solid}
+button.mark:disabled{cursor:default}
+.sellab{min-width:200px;font-weight:600}
+label.slider{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center}
+label.slider span{min-width:170px;font-weight:600;font-size:15px}
+label.slider input{flex:1 1 200px;accent-color:var(--goud)}
+.podium{background:var(--surface2);border:1px solid var(--line2);border-radius:var(--radius);overflow:hidden}
+p.regels{font-family:var(--tekst);line-height:1.9;margin:0}
+p.regels span{display:inline-block;width:2em;font:600 12px var(--meta);color:var(--text3)}
+sup{font-size:.7em}
+.papier{--bg:#FFFFFF;--surface:#FFFFFF;--surface2:#EEF1F5;--line:rgba(20,32,52,.10);--line2:rgba(20,32,52,.24);
+  --text:#121C2E;--text2:#3B4759;--text3:#667185;--goud:#C99A2E;--goud-text:#7E5C0B;--goud-soft:rgba(217,172,60,.18);
+  --groen:#2F8A47;--koraal:#B9502F;--teal:#25729C;--paars:#6550AD;--groen-soft:rgba(47,138,71,.10);--koraal-soft:rgba(185,80,47,.10);--teal-soft:rgba(37,114,156,.10);
+  --rest:#D5DEE9;--area:#B4BDCA;color-scheme:light;
+  background:#FCFCFA;color:var(--text);border:0;border-radius:6px;padding:16px 20px 12px;display:flex;flex-direction:column;gap:12px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.08),0 10px 28px rgba(0,0,0,.35)}
+.papier .pkop{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;border-bottom:2px solid var(--text);padding-bottom:6px}
+.papier .pkop .mono{color:var(--text2)}
+.papier .pnr{display:flex;align-items:baseline;gap:10px}
+.papier .nr{font:700 30px/1 var(--titel);color:var(--text)}
+.papier .pre{border-left:0;padding:0}
+.papier .pre p{color:var(--text)}
+.papier .qtext{color:var(--text)}
+.herhaal.papier{padding:10px 14px;gap:6px;box-shadow:none;border-radius:6px}
+.herhaal .hkop{color:var(--text3);font-size:11px}
+.herhaal .qtext{font-size:16px}
+.papier .pvoet{font:500 11px var(--meta);letter-spacing:.06em;color:var(--text3);text-align:right}
+.papier details.ctxd summary{color:var(--goud-text)}
+.papier .podium{background:var(--surface2)}
+.phase>.label .tag{margin-left:6px;font:600 10px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:2px 8px}
+.sleutel{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:14px;color:var(--text2)}
+.sleutel .sw{display:inline-block;width:16px;height:12px;border-radius:2px;vertical-align:-1px;margin-right:7px}
+.sleutel .papier-sw{background:#FCFCFA}
+.sleutel .donker-sw{background:var(--surface2);box-shadow:inset 0 0 0 1px var(--line2)}
+.exfoto{display:block;width:100%;height:auto;border-radius:2px}
+footer{color:var(--text3);font-size:14px;padding-top:24px;border-top:1px solid var(--line)}
+body.hulp .ans.locked{display:none}
+body.examen .think{display:none}
+body.examen .think.open{display:flex}
+.helpbtn{display:none!important}
+body.examen .helpbtn{display:inline-flex!important}
+body.examen .tonext{display:none!important}
+@media (max-width:600px){body{font-size:16px}.qtext{font-size:17px}.phase,.ctx{padding:14px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="sitenav" aria-label="Site">
+    <a class="merk" href="../index.html#home">Biologie bij Kamiel</a>
+    <a class="terug" href="../index.html#voortplanting">← Terug naar Voortplanting</a>
+    <span class="rechts"><button type="button" class="icoon" data-thema-knop></button></span>
+  </nav>
+  <header class="tool-kop">
+    <div class="eyebrow" id="eb">Oefentoets Voortplanting · havo</div>
+    <h1 id="h1">Oefentoets Voortplanting</h1>
+    <div class="seg" id="opgs" role="group" aria-label="Opgave"></div>
+    <div class="sleutel"><span><i class="sw papier-sw"></i>Wit vak = de toetsvraag</span><span><i class="sw donker-sw"></i>Donker vak = hulpvragen en uitleg (niet uit de toets)</span></div>
+    <p>Maak de toets stap voor stap. Bij elke vraag denk je eerst na met de hulpvragen, dan beantwoord je de toetsvraag, en daarna zie je waarom het antwoord klopt. Kies zelf hoeveel hulp je wilt; met ‘Echte toets’ oefen je zonder hulp.</p>
+    <div class="kopbalk">
+      <div class="seg" id="standen" role="group" aria-label="Hoeveel hulp wil je?"></div>
+      <button id="vrij" class="toggle" aria-pressed="false"><span class="knopje"></span>Vrij doorklikken</button>
+      <span class="mono muted" id="sub"></span>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs" aria-label="Vragen"></nav>
+
+  <section class="ctx papier" id="ctx"></section>
+
+  <main id="main"></main>
+
+  <footer>Eigen vragen, met inspiratie uit de centrale examens (© CvTE), Biologie voor Jou en Nectar. Grafieken en schema's zijn eigen tekeningen; bronnen van de gegevens staan bij de opgaven.<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a> </span></footer>
+</div>
+
+<script>
+(function(){
+const $=(s,r=document)=>r.querySelector(s);
+const el=(tag,attrs={},html="")=>{const e=document.createElement(tag);for(const k in attrs){if(k==="class")e.className=attrs[k];else if(k.startsWith("on"))e.addEventListener(k.slice(2),attrs[k]);else e.setAttribute(k,attrs[k]);}if(html)e.innerHTML=html;return e;};
+const TOOL="vp-havo";
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- opslag (alleen gemak) ---------- */
+let store={scores:{},mode:"hulp"};
+try{const s=JSON.parse(localStorage.getItem("toets-voortplanting-havo")||"null");if(s)store=Object.assign(store,s);}catch(e){}
+const save=()=>{try{localStorage.setItem("toets-voortplanting-havo",JSON.stringify(store));}catch(e){}};
+
+/* ---------- algemene bouwstenen ---------- */
+function phase(cls,label){const p=el("section",{class:"phase "+cls});
+  if(cls==="think")p.append(el("div",{class:"label"},`<span class="dot"></span>Hulpvragen<span class="tag">niet uit de toets</span>`));
+  else p.append(el("div",{class:"label"},`<span class="dot"></span>${label==="Antwoord"?"Jouw antwoord op de toetsvraag":label}`));return p;}
+function choiceStep(container,{q,opts,right,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});const fb=el("div",{class:"fb",hidden:""});
+  opts.forEach((o,i)=>{const b=el("button",{class:"opt",onclick:()=>{
+    if(i===right){row.querySelectorAll("button").forEach(x=>x.disabled=true);b.classList.add("right");fb.className="fb ok";fb.innerHTML=ok;fb.hidden=false;onDone&&onDone();}
+    else{b.classList.add("wrong");fb.className="fb no";fb.innerHTML=no;fb.hidden=false;}
+  }},o);row.append(b);});
+  s.append(row,fb);container.append(s);return s;
+}
+function mc(container,{opts,right,pts,qid,graphs:isGraph,onChecked}){
+  const wrap=el("div",{class:isGraph?"graphs":"row",style:isGraph?"":"flex-direction:column;align-items:stretch"});
+  const fb=el("div",{class:"fb",hidden:""});
+  opts.forEach((o,i)=>{const L="ABCDEF"[i];
+    const b=isGraph?el("button",{class:"gopt"},`<b>${L}</b>${o}`):el("button",{class:"opt"},`<b style="font:700 18px var(--titel);color:var(--goud-text);margin-right:10px">${L}</b>${o}`);
+    b.addEventListener("click",()=>{
+      wrap.querySelectorAll("button").forEach(x=>x.disabled=true);
+      const good=i===right; b.classList.add(good?"right":"wrong");
+      if(!good)wrap.children[right].classList.add("right");
+      fb.className="fb "+(good?"ok":"no");
+      fb.innerHTML=good?`Goed: <b>${"ABCDEF"[right]}</b>. ${pts} ${pts>1?"punten":"punt"}.`:`Het goede antwoord is <b>${"ABCDEF"[right]}</b>. 0 punten.`;
+      fb.hidden=false; setScore(qid,good?pts:0); onChecked&&onChecked();
+    });wrap.append(b);});
+  container.append(wrap,fb);
+}
+function waaromBtn(container,build){
+  const b=el("button",{class:"ghost waarombtn"},"Laat zien waarom ›");const box=el("div",{hidden:""});
+  b.onclick=()=>{b.remove();box.hidden=false;build(box);if(window.EXSTOF)EXSTOF.extraWaarom(TOOL,cur,box);};
+  container.append(b,box);
+}
+function lockAns(think,ans,label="Naar de vraag ›"){
+  ans.classList.add("locked");
+  const go=el("button",{class:"go tonext",hidden:""},label);
+  go.onclick=()=>{ans.classList.remove("locked");go.remove();ans.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});};
+  think.append(go);
+  return ()=>{think.append(go);go.hidden=false;};
+}
+function helpButton(q,think){
+  const b=el("button",{class:"ghost helpbtn"},"Hulp nodig? Toon de hulpvragen");
+  b.onclick=()=>{think.classList.add("open");b.remove();};
+  q.append(b);
+}
+function setScore(id,p){store.scores[id]=p;save();renderTabs();if(nextBtns[id])nextBtns[id].hidden=false;}
+
+/* ---------- vragen ---------- */
+const Q=[],OPG=[];
+
+/* Vraag 5 en 6: eerst zonder opties */
+function noOptions(q,{id,pts,text,prompt,hint,opts,right,uitleg}){
+  q.append(el("p",{class:"qtext"},text));
+  const think=phase("think","Eerst zelf"),ans=phase("ans","Kies je antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Toon de keuzes ›");
+  const s=el("div",{class:"step"});s.append(el("p",{},prompt));
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:"Wat denk jij? Schrijf het kort op."});const hb=el("button",{class:"ghost"},"Tip");const hf=el("div",{class:"fb hint",hidden:""},hint);
+  hb.onclick=()=>{hf.hidden=false;hb.remove();};
+  ta.addEventListener("input",()=>{if(ta.value.trim().length>2)unlock();});
+  s.append(ta,hb,hf);think.append(s);
+  mc(ans,{qid:id,pts,right,opts,onChecked:()=>{
+    if(ta.value.trim())ans.append(el("div",{class:"model"},`<b>Jij dacht eerst:</b> ${ta.value.replace(/</g,"&lt;")}<br><span class="muted">Klopte dat met de keuze die je maakte?</span>`));
+    waaromBtn(ans,b=>b.append(el("div",{class:"model"},uitleg)));}});
+  q.append(think,ans);
+}
+/* ================= extra bouwstenen ================= */
+function pre(q,html){q.append(el("div",{class:"pre"},html));}
+function chipsStep(container,{q,items,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});
+  items.forEach(([t])=>{const b=el("button",{class:"chip","aria-pressed":"false"},t);b.onclick=()=>b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")==="true"?"false":"true");row.append(b);});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(row,ck,fb);container.append(s);
+  ck.onclick=()=>{const sel=[...row.children].map(b=>b.getAttribute("aria-pressed")==="true");
+    const teveel=sel.some((s,k)=>s&&!items[k][1]),mist=sel.some((s,k)=>!s&&items[k][1]);fb.hidden=false;
+    if(!teveel&&!mist){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;row.querySelectorAll("button").forEach(b=>b.disabled=true);onDone&&onDone();}
+    else if(teveel){fb.className="fb hint";fb.innerHTML=no;}
+    else{fb.className="fb hint";fb.innerHTML="Wat je gekozen hebt klopt, maar er hoort nog meer bij. Kies alles wat klopt.";}};
+  return s;
+}
+function selectsStep(container,{q,rows,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const id=uid+"s"+k;
+    r.append(el("label",{for:id,class:"sellab"},lab));const sel=el("select",{id});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);s.append(r);return sel;});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(ck,fb);container.append(s);
+  ck.onclick=()=>{const n=sels.filter((sel,k)=>sel.value!==""&&+sel.value===rows[k][2]).length;fb.hidden=false;
+    if(n===rows.length){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;sels.forEach(x=>x.disabled=true);onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=`${n} van de ${rows.length} goed. `+(no||"Probeer het nog eens.");}};
+}
+function numStep(container,{q,right,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const r=el("div",{class:"row"});const inp=el("input",{class:"num",id:uid,inputmode:"decimal","aria-label":"antwoord"});const ck=el("button",{class:"ghost"},"Controleer");const fb=el("div",{class:"fb",hidden:""});
+  r.append(inp,ck);s.append(r,fb);container.append(s);
+  ck.onclick=()=>{const v=parseFloat((inp.value||"").replace(",","."));fb.hidden=false;
+    if(v===right){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;inp.disabled=true;onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=no;}};
+}
+function openAnswer(ans,{id,pts,checks,model,valkuil,placeholder,after}){
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:placeholder||"Schrijf je antwoord…"});
+  const ck=el("button",{class:"go"},"Nakijken");const tf=el("div",{class:"fb hint",hidden:""},"Schrijf eerst je antwoord op. Daarna kijk je het na.");
+  ans.append(ta,ck,tf);
+  ck.onclick=()=>{if(ta.value.trim().length<8){tf.hidden=false;ta.focus();return;}tf.remove();ck.remove();ta.readOnly=true;
+    const ss=el("div",{class:"selfscore"});
+    ss.append(el("p",{style:"margin:0"},"<b>Kijk jezelf na met het antwoordmodel.</b> Vink aan wat er in jouw antwoord staat."));
+    const boxes=checks.map((c,k)=>{const lab=el("label",{},`<input type="checkbox" id="q${id}c${k}"><span>${c} <span class="pts">1p</span></span>`);ss.append(lab);return lab.querySelector("input");});
+    if(model)ss.append(el("div",{class:"model"},"<b>Voorbeeldantwoord:</b> "+model));
+    if(valkuil)ss.append(el("div",{class:"fb hint"},"<b>Valkuil:</b> "+valkuil));
+    const sc=el("div",{class:"score"});ss.append(sc);ans.append(ss);
+    const upd=()=>{const p=Math.min(pts,boxes.filter(b=>b.checked).length);sc.textContent=`Jouw score: ${p} / ${pts}`;setScore(id,p);};
+    boxes.forEach(b=>b.onchange=upd);upd();after&&after();};
+}
+function juistOnjuist(ans,{id,stm,key,uitleg}){
+  const pick=stm.map(()=>null);
+  stm.forEach((t,k)=>{const r=el("div",{class:"row"});r.append(el("span",{style:"flex:1 1 260px"},`<b style="font-family:var(--meta)">${k+1}</b>&nbsp; ${t}`));
+    ["juist","onjuist"].forEach((lab,v)=>{const b=el("button",{class:"chip","aria-pressed":"false"},lab);b.onclick=()=>{pick[k]=v===0;r.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c===b?"true":"false"));};r.append(b);});ans.append(r);});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(pick.includes(null)){fb.hidden=false;fb.className="fb hint";fb.textContent="Beoordeel eerst alle uitspraken.";return;}
+    const n=pick.filter((p,k)=>p===key[k]).length;const p=n===stm.length?2:n===stm.length-1?1:0;ck.disabled=true;
+    ans.querySelectorAll(".chip").forEach(c=>c.disabled=true);
+    fb.hidden=false;fb.className="fb "+(p===2?"ok":"no");
+    fb.innerHTML=`${n} van de ${stm.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+key.map((k,i)=>`${i+1} ${k?"juist":"onjuist"}`).join(" · ");setScore(id,p);
+    waaromBtn(ans,uitleg);};
+}
+function stepAnim(box,steps,render){
+  let i=0;const stage=el("div",{class:"stage"}),cap=el("p",{class:"cap"});
+  const prev=el("button",{class:"ghost"},"‹ Vorige"),next=el("button",{class:"go"},"Volgende ›");
+  const pips=el("div",{class:"pips"},steps.map(()=>"<span></span>").join(""));
+  const nav=el("div",{class:"nav"});nav.append(prev,next,pips);
+  const a=el("div",{class:"anim"});a.append(stage,cap,nav);box.append(a);
+  function show(){cap.innerHTML=steps[i].cap;prev.disabled=i===0;next.textContent=i===steps.length-1?"Opnieuw ›":"Volgende ›";
+    pips.querySelectorAll("span").forEach((p,j)=>p.classList.toggle("on",j===i));render(stage,steps[i],i);}
+  prev.onclick=()=>{if(i>0){i--;show();}};next.onclick=()=>{i=(i+1)%steps.length;show();};show();
+}
+/* ================= meer bouwstenen ================= */
+function seqStep(container,{q,items,shown,ok,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const seq=el("div",{class:"seq"});let at=0;const fb=el("div",{class:"fb",hidden:""});
+  shown.forEach(k=>{const b=el("button",{class:"opt"},`<span class="n">·</span>${items[k]}`);b.onclick=()=>{if(b.classList.contains("placed"))return;
+    if(k===at){b.classList.add("placed");b.querySelector(".n").textContent=at+1;at++;fb.hidden=true;if(at===items.length){fb.hidden=false;fb.className="fb ok";fb.innerHTML=ok;onDone&&onDone();}}
+    else{fb.hidden=false;fb.className="fb hint";fb.textContent="Dat is nog niet de volgende stap. Wat gebeurt er direct daarna?";}};seq.append(b);});
+  s.append(seq,fb);container.append(s);
+}
+function selectAnswer(ans,{id,rows,score,uid,after,intro}){
+  if(intro)ans.append(el("p",{style:"margin:0"},intro));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const sid=uid+"a"+k;
+    r.append(el("label",{for:sid,class:"sellab"},lab));const sel=el("select",{id:sid});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);ans.append(r);return sel;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(sels.some(x=>x.value==="")){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul eerst alles in.";return;}
+    const n=sels.filter((x,k)=>+x.value===rows[k][2]).length;const p=score(n);sels.forEach(x=>x.disabled=true);ck.remove();
+    fb.hidden=false;fb.className="fb "+(n===rows.length?"ok":"no");
+    fb.innerHTML=`${n} van de ${rows.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+rows.map(([lab,opts,r])=>`${lab}: ${opts[r]}`).join(" · ");
+    setScore(id,p);after&&after();};
+}
+function textBox(html){return b=>b.append(el("div",{class:"model"},html));}
+const svgWrap=(vb,inner,label)=>`<svg viewBox="${vb}" role="img" aria-label="${label}">${inner}</svg>`;
+function numAnswer(ans,{id,fields,after}){
+  const inps=fields.map(([lab,unit],k)=>{const r=el("div",{class:"row"});const fid="q"+id+"f"+k;
+    r.append(el("label",{for:fid,class:"sellab"},lab));const i=el("input",{class:"num",id:fid,inputmode:"decimal"});r.append(i,el("span",{class:"muted"},unit));ans.append(r);return i;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{const v=inps.map(i=>parseFloat((i.value||"").replace(",",".")));if(v.some(isNaN)){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul beide uitkomsten in.";return;}
+    inps.forEach(i=>i.disabled=true);ck.remove();const res=fields.map((f,k)=>f[2](v[k]));const p=res.filter(Boolean).length;
+    fb.hidden=false;fb.className="fb "+(p===fields.length?"ok":"no");
+    fb.innerHTML=`<b>${p} van de ${fields.length} punten.</b><br>`+fields.map((f,k)=>`${res[k]?"✓":"✗"} ${f[3]}`).join("<br>");setScore(id,p);after&&after();};
+}
+
+/* ===== Oefentoets Voortplanting: gedeelde hulpjes (havo en vwo uit één bron) ===== */
+const VWO=false;
+let QN=0,ON=0;
+/* vraag(punten, onderwerp, build(q,id), stof?) -> id; stof = {titel, html, anim?, films?} voor 'Uitleg van de stof' */
+function vraag(pts,t,build,stof){const id=++QN;Q.push({id,pts,t,build:q=>build(q,id)});
+  if(stof&&window.EXSTOF)EXSTOF.zet(TOOL,[id],stof);return id;}
+function opgave(kort,titel,html,ids){const nr=++ON;
+  OPG.push({nr,kort,titel,ids,ctx:`<div class="pkop"><span class="mono">Toetstekst · inleiding opgave ${nr}</span></div>`+html});}
+/* films van het thema (hrefs als in HOOFDSTUKKEN.voortplanting.films); film 3 is alleen voor vwo */
+const F={
+  cel:["Celdeling","films/voortplanting/celdeling/index.html"],
+  org:["Geslachtsorganen en puberteit","films/voortplanting/2-geslachtsorganen-puberteit.html"],
+  baby:["Van bevruchting tot baby","films/voortplanting/1-precies-op-tijd.html"],
+  sekse:["Sekse, gender en diversiteit","films/voortplanting/4-sekse-gender-diversiteit.html"],
+  anti:["Anticonceptie, soa's en voortplantingstechniek","films/voortplanting/3-anticonceptie-soa-voortplantingstechniek.html"]};
+const FV=(...f)=>f.filter(x=>VWO||x!==F.baby);
+/* begin van een vraag: vraagzin, hulp- en antwoordvak */
+function start(q,html){q.append(el("p",{class:"qtext"},html));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  return {think,ans,unlock};}
+const B=t=>`<b>${t}</b>`;
+const TABEL=(nr,kop,rijen,noot)=>`<div class="eyebrow">tabel ${nr}</div><div class="tablewrap"><table class="data"><tr>${kop.map(k=>`<th>${k}</th>`).join("")}</tr>${rijen.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join("")}</tr>`).join("")}</table></div>`+(noot?`<p class="muted" style="font-size:14px;margin:4px 0 0">${noot}</p>`:"");
+
+/* Cyclusgrafiek (afbeelding 1 van opgave 2): zelfde vereenvoudigde krommen als eigen/figuren/voortplanting/maak.py
+   in kamieljacobs/toetsen-biologie (vorm naar het bekende verloop, geen meetgegevens). opties: hl = {dag: kleur} (verticale
+   band), toon = welke lijnen ('LH','FSH','oe','pr','t'); dim = lijnen die vaag worden. */
+const CYC=(()=>{
+  const g=(x,mu,s,h)=>h*Math.exp(-0.5*((x-mu)/s)**2);
+  const d=[...Array(28)].map((_,i)=>i+1);
+  const lh=d.map(x=>6+g(x,13,0.8,70)),fsh=d.map(x=>10+g(x,3,3,6)+g(x,13,0.9,14)-g(x,21,4,4)),
+    oe=d.map(x=>8+g(x,12.5,2,42)+g(x,21,3,18)),pr=d.map(x=>2+g(x,21,3.3,60));
+  const ruis=[0.03,-0.02,0.01,0,-0.03,0.02,0,0.01,-0.02,0.02,0,-0.01,0,0.01,0,0.02,-0.01,0,0.02,-0.02,0.01,0,0.02,-0.01,0,0.01,-0.02,0];
+  const t=d.map((x,i)=>(x<=14?36.45:36.85)+(x===13?-0.08:0)+(x===15?-0.2:0)+(x===28?-0.3:0)+ruis[i]);
+  return {d,lh,fsh,oe,pr,t};})();
+function CYCLUS({hl={},dim=[],toon=["LH","FSH","oe","pr","t"]}={}){
+  const X0=70,X1=620,xs=dag=>X0+(dag-1)*(X1-X0)/27;
+  const yA=c=>250-c*2.6, yT=v=>400-(v-36.1)*95;
+  const pad=a=>a.map((v,i)=>`${i?"L":"M"}${xs(i+1).toFixed(1)},${v.toFixed(1)}`).join(" ");
+  const L=[["LH",CYC.lh,"var(--goud)","",2.6],["FSH",CYC.fsh,"var(--groen)","2 5",2.6],["oe",CYC.oe,"var(--koraal)","9 5",2.4],["pr",CYC.pr,"var(--paars)","",4]];
+  const NAAM={LH:"LH",FSH:"FSH",oe:"oestrogeen",pr:"progesteron"};
+  let s="";
+  for(const dag in hl)s+=`<rect x="${xs(+dag)-9}" y="22" width="18" height="388" fill="${hl[dag]}" opacity=".22"/>`;
+  [1,4,7,10,13,16,19,22,25,28].forEach(k=>s+=`<path d="M${xs(k)},26 V410" stroke="var(--line)" stroke-width="1"/><text x="${xs(k)}" y="428" text-anchor="middle" class="lblm">${k}</text>`);
+  s+=`<path d="M${X0-8},26 V250 H${X1+8}" fill="none" stroke="var(--text2)" stroke-width="1.4"/>`;
+  [0,20,40,60,80].forEach(v=>s+=`<text x="${X0-14}" y="${yA(v)+4}" text-anchor="end" class="lblm">${v}</text>`);
+  s+=`<text x="16" y="140" class="lblm" text-anchor="middle" transform="rotate(-90 16 140)">concentratie (relatief)</text>`;
+  L.forEach(([k,a,c,da,w],i)=>{if(!toon.includes(k))return;const op=dim.includes(k)?.25:1;
+    s+=`<path d="${pad(a.map(yA))}" fill="none" stroke="${c}" stroke-width="${w}" stroke-dasharray="${da}" opacity="${op}" stroke-linejoin="round"/>`;
+    const lx=90+(i%2)*150,ly=40+Math.floor(i/2)*22;
+    s+=`<path d="M${lx},${ly} h34" stroke="${c}" stroke-width="${w}" stroke-dasharray="${da}" opacity="${op}"/><text x="${lx+42}" y="${ly+4}" class="lbl">${NAAM[k]}</text>`;});
+  s+=`<path d="M${X0-8},300 V410 H${X1+8}" fill="none" stroke="var(--text2)" stroke-width="1.4"/>`;
+  [36.2,36.6,37.0].forEach(v=>s+=`<text x="${X0-14}" y="${yT(v)+4}" text-anchor="end" class="lblm">${String(v.toFixed(1)).replace(".",",")}</text>`);
+  s+=`<text x="16" y="355" class="lblm" text-anchor="middle" transform="rotate(-90 16 355)">temp. (°C)</text>`;
+  if(toon.includes("t")){const op=dim.includes("t")?.25:1;s+=`<path d="${pad(CYC.t.map(yT))}" fill="none" stroke="var(--text)" stroke-width="1.6" opacity="${op}"/>`;
+    CYC.t.forEach((v,i)=>s+=`<circle cx="${xs(i+1)}" cy="${yT(v)}" r="3.2" fill="var(--text)" opacity="${op}"/>`);}
+  s+=`<text x="${(X0+X1)/2}" y="448" text-anchor="middle" class="lblm">dag van de cyclus (dag 1 = eerste dag van de menstruatie)</text>`;
+  return `<div style="max-width:640px;margin:0 auto;width:100%">`+svgWrap("0 0 640 456",s,"Hormoonconcentraties en basale lichaamstemperatuur tijdens een cyclus van 28 dagen")+`</div>`;}
+
+/* ===== Opgave 1: Alleen maar moeders: de marmerkreeft (eigen vragen A1–A4 uit toetsen-biologie; vwo + 1 nieuwe vraag) ===== */
+{
+const STOF_DELING={titel:"Mitose en meiose",html:`
+<p>Bij de <b>mitose</b> wordt eerst in de interfase het DNA gekopieerd. Daarna gaan de twee chromatiden van elk chromosoom uit elkaar, naar de twee polen. Elke dochtercel krijgt zo evenveel chromosomen als de moedercel, met precies hetzelfde DNA.</p>
+<p>Bij de <b>meiose</b> zijn er twee delingen na één keer kopiëren. In meiose I liggen de homologe chromosomen als paren tegen elkaar; ze wisselen stukken uit (<b>crossing-over</b>) en de paren gaan uit elkaar. In meiose II gaan de chromatiden uit elkaar. Zo ontstaan <b>haploïde</b> cellen (n), die bijna allemaal een andere combinatie van chromosomen hebben.</p>
+<p>Bij <b>ongeslachtelijke voortplanting</b> ontstaan nakomelingen uit één ouder, zonder bevruchting, door mitose: het zijn klonen. Bij <b>geslachtelijke voortplanting</b> versmelten twee haploïde geslachtscellen tot een diploïde zygote.</p>`,
+films:[F.cel]};
+const q1=vraag(1,"chromosomen in een eicel",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Hoeveel chromosomen bevat de kern van een eicel van een marmerkreeft?"));
+  choiceStep(think,{q:"Door welke deling ontstaan de eicellen van een marmerkreeft?",opts:["door meiose, zoals bij alle eicellen","door mitose"],right:1,
+    ok:"Ja, dat staat in de inleiding. Wat doet die deling met het aantal chromosomen?",no:"Lees de inleiding nog eens: hoe deelt de kern van de voorlopercel?",
+    onDone:()=>choiceStep(think,{q:"Wat gebeurt er bij een mitose met het aantal chromosomen?",opts:["het wordt gehalveerd","het blijft gelijk","het wordt verdubbeld"],right:1,
+      ok:"Goed. Hoeveel chromosomen had de voorlopercel ook alweer?",no:"Bij de mitose krijgt elke dochtercel van elk chromosoom één chromatide. Is dat er minder dan in de moedercel?",onDone:unlock})});
+  mc(ans,{qid:id,pts:1,right:3,opts:["92","138","184","276"],onChecked:()=>waaromBtn(ans,textBox(
+    "De eicel ontstaat door mitose uit een lichaamscel met 276 chromosomen, dus de eicel heeft er ook <b>276</b>. Wie 92 kiest, denkt dat een eicel altijd één set krijgt; wie 138 kiest, halveert omdat een eicel ‘de helft’ heeft. Dat geldt alleen na een meiose. 184 is het aantal van de verwante soort. Het antwoord is <b>D</b>."))});
+  q.append(think,ans);
+},STOF_DELING);
+
+const q2=vraag(2,"genetisch gelijk aan de moeder",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Leg uit dat de nakomelingen van een marmerkreeft genetisch gelijk zijn aan hun moeder."));
+  choiceStep(think,{q:"Bij welke deling kan een nieuwe combinatie van chromosomen ontstaan, bijvoorbeeld door crossing-over?",opts:["bij de mitose","bij de meiose"],right:1,
+    ok:"Ja. En welke deling maakt de eicel van de marmerkreeft?",no:"Bij welke deling liggen homologe chromosomen als paren tegen elkaar?",
+    onDone:()=>choiceStep(think,{q:"Komt er bij een jonge marmerkreeft DNA van een tweede ouder bij?",opts:["ja, bij de bevruchting","nee, er is geen bevruchting"],right:1,
+      ok:"Goed. Je hebt nu twee redenen: noem ze allebei.",no:"Er zijn geen mannetjes. Is er dan een zaadcel?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "De eicellen ontstaan door <b>mitose</b>: zonder crossing-over of nieuwe verdeling van chromosomen, dus met een precieze kopie van het DNA van de moeder.",
+    "Er is <b>geen bevruchting</b>, dus er komt geen DNA van een tweede ouder bij."],
+    model:"De eicel ontstaat door mitose. Daarbij wordt het DNA precies gekopieerd en er is geen crossing-over, dus de eicel heeft hetzelfde DNA als de moeder. De eicel wordt niet bevrucht, dus er komt ook geen DNA van een vader bij.",
+    valkuil:"Alleen ‘het is ongeslachtelijke voortplanting, dus het is een kloon’ is geen uitleg: 0 punten. Noem wát er gebeurt (mitose) en wat er níet gebeurt (bevruchting)."});
+  q.append(think,ans);
+},STOF_DELING);
+
+const q3=vraag(2,"juist of onjuist: kreeften en mutaties",(q,id)=>{
+  pre(q,"<p>Over de marmerkreeft worden drie uitspraken gedaan:</p>");
+  q.append(el("p",{class:"qtext"},"1 Bij de vorming van eicellen van de marmerkreeft vindt crossing-over plaats.<br>2 Verschillen in de DNA-volgorde tussen marmerkreeften kunnen alleen door mutaties ontstaan.<br>3 Een jonge marmerkreeft ontwikkelt zich uit een eicel door mitose en celdifferentiatie.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  chipsStep(think,{q:"Welke bronnen van genetische variatie horen bij <b>geslachtelijke</b> voortplanting? Kies alles wat klopt.",items:[["crossing-over in meiose I",1],["toevallige verdeling van de chromosoomparen",1],["bevruchting: DNA van twee ouders",1],["mutaties",0]],
+    ok:"Goed. Mutaties komen bij elke celdeling voor, ook bij mitose. Welke van deze bronnen heeft de marmerkreeft dan nog?",no:"Eén keuze hoort niet bij geslachtelijke voortplanting alleen: die kan bij elke celdeling gebeuren.",onDone:unlock});
+  juistOnjuist(ans,{id,stm:["crossing-over bij de vorming van eicellen","verschillen in DNA alleen door mutaties","ontwikkeling door mitose en celdifferentiatie"],key:[false,true,true],
+    uitleg:textBox("1 <b>onjuist</b>: crossing-over hoort bij meiose I, en de eicellen van de marmerkreeft ontstaan door mitose.<br>2 <b>juist</b>: zonder meiose en bevruchting blijft alleen een mutatie over als bron van nieuwe verschillen in het DNA.<br>3 <b>juist</b>: ook zonder bevruchting groeit het embryo door mitose, en de cellen specialiseren zich (differentiatie).")});
+  q.append(think,ans);
+},STOF_DELING);
+
+const STOF_POP={titel:"Ongeslachtelijk of geslachtelijk",html:`
+<p><b>Ongeslachtelijke voortplanting</b> gaat snel en er is geen partner nodig. Alle nakomelingen zijn gelijk aan de ouder. Komt er een nieuwe ziekte, dan kunnen ze allemaal tegelijk sterven.</p>
+<p><b>Geslachtelijke voortplanting</b> gaat trager. Maar de nakomelingen verschillen van elkaar, dus de kans is groter dat sommige overleven als de omgeving verandert. Bij soorten met mannetjes en vrouwtjes leggen alleen de vrouwtjes eieren of krijgen alleen zij jongen.</p>`,
+films:[F.cel]};
+const q4=vraag(2,"snelle groei van de populatie",(q,id)=>{
+  pre(q,"<p>Stel dat een vrouwtje van een rivierkreeftensoort die zich geslachtelijk voortplant evenveel eieren legt als een marmerkreeft, en dat bij beide soorten evenveel jongen overleven.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit dat een populatie marmerkreeften na een paar generaties toch veel groter is dan een populatie van de andere soort die met evenveel dieren begon."));
+  choiceStep(think,{q:"Welk deel van de jongen van een marmerkreeft legt later zelf eieren?",opts:["allemaal","ongeveer de helft","geen enkel"],right:0,
+    ok:"Ja: er zijn alleen vrouwtjes. En bij de andere soort?",no:"Van de marmerkreeft zijn alleen vrouwtjes bekend.",
+    onDone:()=>choiceStep(think,{q:"Welk deel van de jongen van de geslachtelijke soort legt later zelf eieren?",opts:["allemaal","ongeveer de helft: de vrouwtjes","alleen de mannetjes"],right:1,
+      ok:"Goed. Wat betekent dat voor het aantal eieren in de volgende generatie?",no:"Ongeveer de helft van de jongen is mannetje. Leggen mannetjes eieren?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Bij de marmerkreeft zijn <b>alle</b> nakomelingen vrouwtjes die zelf eieren leggen.",
+    "Bij de geslachtelijke soort is ongeveer de <b>helft mannetje</b> en legt zelf geen eieren, dus het aantal eierleggende dieren groeit per generatie minder snel."],
+    model:"Elke jonge marmerkreeft is een vrouwtje dat zelf weer eieren legt. Bij de andere soort is ongeveer de helft van de jongen mannetje; die leggen geen eieren. Bij de marmerkreeft komen er dus per generatie ongeveer twee keer zoveel eierleggers bij, en dat verschil wordt elke generatie groter.",
+    valkuil:"‘Marmerkreeften hoeven geen partner te zoeken’ levert 0 punten op: de aanname in de tekst sluit dat juist uit. Het gaat om de mannetjes die geen eieren leggen."});
+  q.append(think,ans);
+},STOF_POP);
+
+const ids=[q1,q2,q3,q4];
+if(VWO){
+const STOF_ND={titel:"Als de meiose misgaat",html:`
+<p>Soms gaan de twee chromosomen van een paar, of twee chromatiden, bij de meiose niet uit elkaar. Dat heet <b>non-disjunctie</b>. De ene geslachtscel krijgt dan een chromosoom te veel, de andere een te weinig.</p>
+<p>Bij de bevruchting tellen de chromosomen van de twee geslachtscellen op: n + n = 2n. Krijgt een geslachtscel een chromosoom te veel, dan heeft de zygote er ook één te veel (bijvoorbeeld trisomie 21).</p>`,
+films:[F.cel]};
+ids.push(vraag(2,"hoe ontstaat een triploïde kreeft?",(q,id)=>{
+  pre(q,"<p>De marmerkreeft is ontstaan uit <i>P. fallax</i> (2n = 184). Stel dat bij één bevruchting tussen twee <i>P. fallax</i>-kreeften bij één van de ouders de meiose misging.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit hoe zo een kreeft met 276 chromosomen kan ontstaan. Noem in je uitleg het aantal chromosomen in beide geslachtscellen."));
+  numStep(think,{uid:"q"+id+"n1",q:"Hoeveel chromosomen heeft een normale geslachtscel van <i>P. fallax</i>?",right:92,ok:"Ja: n = 92. Hoeveel moet de andere geslachtscel dan meebrengen om op 276 te komen?",no:"Een geslachtscel is haploïd: de helft van 2n = 184.",
+    onDone:()=>numStep(think,{uid:"q"+id+"n2",q:"Hoeveel chromosomen heeft de andere geslachtscel?",right:184,ok:"Goed: 92 + 184 = 276. Wat moet er in de meiose misgegaan zijn om 184 chromosomen in één geslachtscel te krijgen?",no:"276 − 92 = ?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "De ene geslachtscel is normaal (haploïd) en heeft <b>92</b> chromosomen.",
+    "De andere geslachtscel heeft <b>184</b> chromosomen, doordat bij de meiose de chromosomen (paren of chromatiden) niet uit elkaar gingen (non-disjunctie van alle chromosomen / geen halvering); 92 + 184 = 276."],
+    model:"Een normale geslachtscel van P. fallax heeft 92 chromosomen. Bij de andere ouder gingen bij de meiose de chromosomen niet uit elkaar, waardoor die geslachtscel alle 184 chromosomen kreeg. Bij de bevruchting komen 92 + 184 = 276 chromosomen samen: drie sets.",
+    valkuil:"‘De kreeft kreeg van elke ouder 138 chromosomen’: dan zijn beide geslachtscellen afwijkend én passen ze niet bij hele sets van 92. Of: ‘er is een chromosoom te veel’ (één chromosoom geeft 185, geen 276)."});
+  q.append(think,ans);
+},STOF_ND));
+}
+
+opgave("Marmerkreeft","Alleen maar moeders: de marmerkreeft",`
+<p>In 1995 dook in de Duitse aquariumhandel een onbekende rivierkreeft op: de marmerkreeft. Hij is ontstaan uit de Noord-Amerikaanse rivierkreeft <i>Procambarus fallax</i>, maar komt in de natuur in Amerika niet voor.</p>
+<p>Van de marmerkreeft zijn alleen vrouwtjes bekend; mannetjes zijn nooit gevonden. Een marmerkreeft legt eieren die zich zonder bevruchting ontwikkelen tot jonge kreeftjes. De eicellen ontstaan niet door meiose: de kern van de voorlopercel deelt door een gewone mitose.</p>
+<p>De marmerkreeft is triploïd: haar lichaamscellen bevatten drie sets van 92 chromosomen, samen 276 chromosomen. De verwante soort <i>P. fallax</i> is diploïd (2n = 184).</p>
+<p>Doordat aquariumhouders dieren loslieten, leven er nu populaties in verschillende Europese landen. In Nederland werd de marmerkreeft gevonden bij Dordrecht (2004) en Middelburg (2014–2015). Op Madagaskar werd het gebied waar de marmerkreeft voorkomt tussen 2007 en 2017 ongeveer honderd keer zo groot. DNA-onderzoek liet zien dat de marmerkreeften op Madagaskar genetisch vrijwel gelijk zijn aan de aquariumdieren uit 1995.</p>`,ids);
+}
+
+/* ===== Opgave 2: Zwanger worden met een app (eigen vragen B1–B5 uit toetsen-biologie) ===== */
+{
+const STOF_TIJD={titel:"Eisprong, eicel en zaadcel",html:`
+<p>FSH en LH uit de hypofyse laten in de eierstok een eicel rijpen in een <b>follikel</b>. Rond het midden van de cyclus komt de <b>eisprong</b> (ovulatie): de eicel komt vrij en gaat de eileider in. Daar kan hij bevrucht worden.</p>
+<p>Een eicel leeft na de eisprong ongeveer <b>een dag</b>. Een zaadcel kan in het lichaam van een vrouw <b>hooguit een dag of vijf</b> overleven. Een zwangerschap kan dus alleen als er zaadcellen zijn in de dagen vóór de eisprong of op de dag zelf.</p>
+<p>Een grafiek lees je van links naar rechts: wat eerst stijgt, gebeurt eerst. Kijk bij elke lijn op welke dag hij begint te stijgen of te dalen.</p>`,
+films:FV(F.org,F.baby)};
+const STOF_CYC={titel:"De menstruatiecyclus",html:`
+<p>Vanaf de eerste menstruatie werken hypofyse, eierstok en baarmoeder samen in een cyclus van ongeveer vier weken.</p>
+<ul style="margin:0;padding-left:20px"><li>De <b>hypofyse</b> maakt FSH en LH. Die werken op de <b>eierstok</b>: daar rijpt een follikel met een eicel, en de eierstok maakt zelf hormonen.</li>
+<li>De hormonen van de eierstok (<b>oestrogeen</b> en <b>progesteron</b>) werken op de <b>baarmoeder</b>: het slijmvlies wordt dikker en klaar voor een embryo.</li>
+<li>Wordt de eicel niet bevrucht, dan dalen de hormonen van de eierstok en laat het slijmvlies los: de <b>menstruatie</b>.</li></ul>
+<p>Let op: elk hormoon werkt alleen op cellen met de juiste receptor. Een hormoon uit de hypofyse werkt dus op een ander orgaan dan een hormoon uit de eierstok.</p>`,
+films:FV(F.org,F.baby)};
+
+const q1=vraag(2,"het advies van de vriendin",(q,id)=>{
+  pre(q,"<p>Een vriendin geeft Nora het advies: ‘Wacht tot je temperatuur omhoog is gegaan. Dan weet je zeker dat je eisprong is geweest, en dan moet je seks hebben.’</p>");
+  const {think,ans,unlock}=start(q,B("Leg met behulp van afbeelding 1 uit dat Nora met dit advies juist weinig kans heeft om zwanger te worden."));
+  choiceStep(think,{q:"Kijk in afbeelding 1. Wat gebeurt er eerst?",opts:["de temperatuur stijgt, daarna is de LH-piek","de LH-piek, daarna stijgt de temperatuur"],right:1,
+    ok:"Ja: de LH-piek is op dag 13, de eisprong op dag 14 en de temperatuur is pas op dag 15–16 omhoog.",no:"Zoek de dag van de LH-piek en de dag waarop de temperatuur omhoog is. Welke dag is eerder?",
+    onDone:()=>choiceStep(think,{q:"Hoe lang kan een eicel na de eisprong bevrucht worden?",opts:["ongeveer een dag","ongeveer vijf dagen","de hele tweede helft van de cyclus"],right:0,
+      ok:"Goed. Combineer die twee dingen in je uitleg.",no:"Lees de inleiding nog eens: de vijf dagen gelden voor zaadcellen.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "De temperatuur stijgt pas <b>na</b> de ovulatie (in afbeelding 1 pas op dag 15–16, na de LH-piek op dag 13 en de ovulatie op dag 14).",
+    "Een eicel kan maar ongeveer <b>een dag</b> bevrucht worden, dus als de temperatuur gestegen is, is de eicel meestal niet meer te bevruchten."],
+    model:"De temperatuur gaat pas omhoog als de ovulatie al geweest is: in afbeelding 1 op dag 15–16. Een eicel kan maar ongeveer 24 uur bevrucht worden. Als Nora wacht tot haar temperatuur gestegen is, is de eicel dus meestal al niet meer te bevruchten. De zaadcellen hadden er al vóór of op de dag van de ovulatie moeten zijn.",
+    valkuil:"‘De temperatuur stijgt bij de eisprong’ (zonder ‘erna’) laat niet zien waarom het advies niet werkt. Het gaat om de volgorde in de tijd plus de korte levensduur van de eicel.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Dag 13: de LH-piek. Ongeveer anderhalve dag later, op dag 14, is de ovulatie.",hl:{13:"var(--goud)"},dim:["FSH","oe","pr"]},
+      {cap:"Dag 14–15: alleen nu kan de eicel bevrucht worden, ongeveer een dag lang.",hl:{14:"var(--groen)",15:"var(--groen)"},dim:["FSH","oe","pr","LH"]},
+      {cap:"Dag 15–16: pas nu is de temperatuur omhoog. De eicel is dan al (bijna) niet meer te bevruchten. Het advies komt dus te laat.",hl:{16:"var(--koraal)"},dim:["FSH","oe","LH"]}],
+      (st,s)=>st.innerHTML=CYCLUS({hl:s.hl,dim:s.dim})))});
+  q.append(think,ans);
+},STOF_TIJD);
+
+const q2=vraag(2,"rekenen aan een cyclus van 32 dagen",(q,id)=>{
+  pre(q,"<p>Nora's cyclus duurt niet 28 maar 32 dagen. Bij een langere cyclus is alleen de periode vóór de ovulatie langer: de periode van de ovulatie tot het begin van de volgende menstruatie duurt bij vrijwel iedere vrouw even lang.</p>");
+  const {think,ans,unlock}=start(q,B("Bereken op welke dag van Nora's cyclus de ovulatie plaatsvindt. Geef ook de eerste dag van haar cyclus waarop geslachtsgemeenschap tot een zwangerschap kan leiden."));
+  numStep(think,{uid:"q"+id+"n",q:"Hoeveel dagen duurt in een cyclus van 28 dagen de periode van de ovulatie (dag 14) tot de volgende menstruatie?",right:14,
+    ok:"Ja, 14 dagen, en die periode is bij Nora net zo lang. Reken terug vanaf dag 32.",no:"28 − 14 = ?",
+    onDone:()=>choiceStep(think,{q:"Hoeveel dagen vóór de ovulatie kunnen zaadcellen al aanwezig zijn en toch nog een eicel bevruchten?",opts:["1 dag","5 dagen","14 dagen"],right:1,
+      ok:"Goed. Reken nu beide dagen uit.",no:"Kijk in de inleiding hoe lang zaadcellen een eicel kunnen bevruchten.",onDone:unlock})});
+  let ov=null;
+  numAnswer(ans,{id,fields:[
+    ["dag van de ovulatie","",v=>{ov=v;return v===18;},"ovulatie op dag 18 (32 − 14 = 18)"],
+    ["eerste dag met kans op zwangerschap","",v=>v===13||v===14||(ov!==18&&(v===ov-5||v===ov-4)),"dag 13 (18 − 5); dag 14 is ook goed als je de ovulatiedag als vijfde dag meetelt. Verkeerde ovulatiedag maar goed doorgerekend (− 5): dit punt telt wel."]],
+    after:()=>waaromBtn(ans,textBox("Na de ovulatie duurt het altijd ongeveer 14 dagen tot de menstruatie (28 − 14). Bij Nora: 32 − 14 = dag <b>18</b>. Zaadcellen kunnen tot vijf dagen een eicel bevruchten, dus seks vanaf dag 18 − 5 = dag <b>13</b> kan tot een zwangerschap leiden. Wie de ovulatie ‘in het midden’ legt (dag 16), vergeet dat alleen de eerste helft langer wordt."))});
+  q.append(think,ans);
+},STOF_TIJD);
+
+const q3=vraag(1,"wie maakt progesteron?",(q,id)=>{
+  pre(q,"<p>Na de ovulatie stijgt de progesteronconcentratie (afbeelding 1).</p>");
+  const {think,ans,unlock}=start(q,B("Noem de naam van het deel van de eierstok dat dan progesteron afgeeft."));
+  choiceStep(think,{q:"Waarin rijpt een eicel in de eierstok, vóór de eisprong?",opts:["in een follikel","in het baarmoederslijmvlies","in de eileider"],right:0,
+    ok:"Ja. Bij de eisprong scheurt de follikel open. Wat er overblijft, krijgt een nieuwe naam en een nieuwe taak.",no:"De eicel rijpt in de eierstok, in een blaasje van hulpcellen.",onDone:unlock});
+  openAnswer(ans,{id,pts:1,checks:["het <b>geel lichaam</b> (corpus luteum)"],
+    model:"het geel lichaam",valkuil:"Alleen ‘de eierstok’ of ‘de follikel’ is 0 punten: na de eisprong is de follikel veranderd in het geel lichaam.",
+    after:()=>waaromBtn(ans,textBox("Na de eisprong blijft van de follikel een groepje cellen over: het <b>geel lichaam</b>. Dat maakt vooral progesteron (en ook oestrogeen). Wordt er geen embryo ingenesteld, dan sterft het na ongeveer twaalf dagen af en daalt het progesteron weer."))});
+  q.append(think,ans);
+},STOF_CYC);
+
+const q4=vraag(2,"juist of onjuist: hormonen in de cyclus",(q,id)=>{
+  pre(q,"<p>Over de hormonen in afbeelding 1 worden drie uitspraken gedaan:</p>");
+  q.append(el("p",{class:"qtext"},"1 Het hormoon dat de groei van een follikel in de eierstok stimuleert, wordt gemaakt door de hypofyse.<br>2 De daling van de progesteronconcentratie aan het eind van de cyclus leidt tot de menstruatie.<br>3 Het baarmoederslijmvlies wordt in de eerste helft van de cyclus dikker onder invloed van FSH.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  selectsStep(think,{uid:"q"+id,q:"Welk orgaan maakt het hormoon?",rows:[
+    ["FSH",["hypofyse","eierstok","baarmoeder"],0],["LH",["hypofyse","eierstok","baarmoeder"],0],["oestrogeen",["hypofyse","eierstok","baarmoeder"],1],["progesteron",["hypofyse","eierstok","baarmoeder"],1]],
+    ok:"Goed. Bedenk nu bij uitspraak 3: op welk orgaan werkt FSH, en op welk orgaan werkt oestrogeen?",no:"De hypofyse stuurt de eierstok aan; de eierstok stuurt de baarmoeder aan.",onDone:unlock});
+  juistOnjuist(ans,{id,stm:["het hormoon voor de groei van een follikel komt uit de hypofyse","daling van progesteron leidt tot de menstruatie","het slijmvlies wordt dikker onder invloed van FSH"],key:[true,true,false],
+    uitleg:textBox("1 <b>juist</b>: FSH uit de hypofyse laat de follikels groeien.<br>2 <b>juist</b>: zonder progesteron blijft het slijmvlies niet zitten en wordt het afgestoten.<br>3 <b>onjuist</b>: FSH werkt op de eierstok. Het slijmvlies groeit onder invloed van <b>oestrogeen</b> uit de eierstok.")});
+  q.append(think,ans);
+},STOF_CYC);
+
+const STOF_PIL={titel:"Hormonen remmen de hypofyse",html:`
+<p>De hormonen van de eierstok werken terug op de hersenen: <b>veel oestrogeen (en progesteron) remt de hypofyse</b>, zodat die minder FSH en LH maakt.`+(VWO?` Dat heet <b>negatieve terugkoppeling</b>: een signaal remt zijn eigen oorzaak.`:``)+`</p>
+<p>Zonder genoeg FSH rijpt er geen follikel. Zonder een <b>LH-piek</b> komt er geen eisprong.</p>
+<p>Anticonceptie haalt één schakel uit de keten eisprong → zaadcel bij de eicel → innesteling. De pil, de prikpil, het staafje en de ring bevatten hormonen.</p>`,
+films:FV(F.anti,F.baby)};
+const q5=vraag(2,"hoe de pil een eisprong voorkomt",(q,id)=>{
+  pre(q,"<p>Nora's zus gebruikt de combinatiepil. Die bevat een oestrogeen en een progestageen (een stof die werkt als progesteron). Ze slikt 21 dagen lang elke dag een pil.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit hoe de hormonen uit de pil ervoor zorgen dat er geen ovulatie plaatsvindt."));
+  choiceStep(think,{q:"Op welk orgaan werken de hormonen uit de pil vooral?",opts:["rechtstreeks op de eicel: die gaat dood","op de hypofyse (en hypothalamus)","op de zaadcellen"],right:1,
+    ok:"Ja. Wat doet de hypofyse dan minder?",no:"De pil doodt geen cellen. Denk aan het hormoon dat de hypofyse remt als er veel van is.",
+    onDone:()=>choiceStep(think,{q:"Wat is er nodig voor een eisprong?",opts:["een rijpe follikel en een LH-piek","alleen veel oestrogeen","een dik baarmoederslijmvlies"],right:0,
+      ok:"Goed. Maak nu de keten af: pil → hypofyse → … → geen eisprong.",no:"Welk hormoon uit de hypofyse geeft midden in de cyclus een piek?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Het oestrogeen en progestageen uit de pil <b>remmen</b> (via de hypothalamus) de afgifte van <b>FSH en LH door de hypofyse</b>"+(VWO?" (negatieve terugkoppeling).":"."),
+    "Daardoor <b>rijpt er geen follikel</b> / blijft de <b>LH-piek uit</b>, zodat er geen ovulatie is."],
+    model:"De hormonen uit de pil houden de spiegels in het bloed hoog. Daardoor remmen ze de hypofyse, die dan te weinig FSH en LH maakt. Er rijpt geen follikel en de LH-piek blijft uit, dus er komt geen eisprong.",
+    valkuil:"‘De pil remt de eierstok’ zonder de rol van de hypofyse: hooguit 1 punt. ‘De pil doodt de eicellen of zaadcellen’ is fout."});
+  q.append(think,ans);
+},STOF_PIL);
+
+opgave("Cyclus-app","Zwanger worden met een app",`
+<p>Nora (31) wil zwanger worden. Ze gebruikt een app die haar vruchtbare dagen voorspelt. Elke ochtend vóór het opstaan meet ze haar lichaamstemperatuur (de basale lichaamstemperatuur) en voert die in de app in.</p>
+<p>In afbeelding 1 zijn de concentraties van vier hormonen in het bloed en de basale lichaamstemperatuur weergegeven tijdens een cyclus van 28 dagen. Bij een cyclus van 28 dagen vindt de ovulatie plaats op dag 14.</p>
+<p>Een eicel kan tot ongeveer 24 uur na de ovulatie worden bevrucht. Zaadcellen kunnen in het lichaam van de vrouw tot vijf dagen na de zaadlozing een eicel bevruchten.</p>
+<div class="eyebrow">afbeelding 1 (vereenvoudigd; geen meetgegevens van één persoon)</div>${CYCLUS()}`,[q1,q2,q3,q4,q5]);
+}
+
+/* ===== Opgave 3: havo 'Een knip in de zaadleider' (nieuw) · vwo 'Geen GnRH: het syndroom van Kallmann' (eigen vragen C1, C2, C4, C5) ===== */
+{
+/* route van een zaadcel als schema; knip = toon de knip in de zaadleider; hl = organen die oplichten */
+function ROUTE({knip=false,hl=[],stip=false}={}){
+  const O=[["zaadbal",60,150],["bijbal",170,150],["zaadleider",290,150],["zaadblaasjes",410,70],["prostaat",410,150],["urinebuis",530,150]];
+  let s="";
+  const pijl=(x1,y1,x2,y2)=>`<path d="M${x1},${y1} L${x2},${y2}" stroke="var(--text2)" stroke-width="2" marker-end="url(#vpPijl)"/>`;
+  s+=`<defs><marker id="vpPijl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--text2)"/></marker></defs>`;
+  s+=pijl(106,150,122,150)+pijl(216,150,242,150)+pijl(336,150,362,150)+pijl(410,92,410,126)+pijl(456,150,482,150);
+  O.forEach(([n,x,y])=>{const on=hl.includes(n);
+    s+=`<rect x="${x-46}" y="${y-22}" width="92" height="44" rx="12" fill="${on?"var(--goud-soft)":"var(--surface)"}" stroke="${on?"var(--goud)":"var(--line2)"}" stroke-width="${on?2.4:1.4}"/><text x="${x}" y="${y+5}" text-anchor="middle" class="lbl">${n}</text>`;});
+  if(knip)s+=`<path d="M236,124 L228,176 M248,124 L240,176" stroke="var(--koraal)" stroke-width="4" stroke-linecap="round"/><text x="238" y="196" text-anchor="middle" class="lbl" style="fill:var(--koraal)">knip</text>`;
+  if(stip)[300,312,324].forEach(x=>s+=`<circle cx="${x}" cy="164" r="3.5" fill="var(--teal)"/>`);
+  s+=`<text x="60" y="210" text-anchor="middle" class="lblm">maakt zaadcellen</text><text x="410" y="30" text-anchor="middle" class="lblm">vocht met suiker</text><text x="410" y="200" text-anchor="middle" class="lblm">vocht</text>`;
+  return `<div style="max-width:620px;margin:0 auto;width:100%">`+svgWrap("0 0 600 220",s,"Route van een zaadcel")+`</div>`;}
+
+if(!VWO){
+const STOF_ROUTE={titel:"De weg van een zaadcel",html:`
+<p>Zaadcellen ontstaan door meiose in de buisjes van de <b>zaadballen</b>, in de balzak. Ze rijpen ongeveer twee weken in de <b>bijbal</b> en worden daar bewaard.</p>
+<p>Bij een zaadlozing gaan ze door de <b>zaadleider</b>: die loopt vanaf de balzak omhoog, de buik in, naar de achterkant van de blaas. Daar komen de <b>zaadblaasjes</b> erbij; samen gaan ze door de <b>prostaat</b> en komen uit in de <b>urinebuis</b>.</p>
+<p>Sperma is meer dan zaadcellen: het meeste vocht komt uit de zaadblaasjes (ruim de helft) en de prostaat (een kwart tot een derde). Zaadcellen zijn maar een paar procent.</p>`,
+anim:b=>EXSTOF.stappen(b,[{cap:"Zaadcellen ontstaan in de zaadbal en rijpen in de bijbal."},{cap:"Bij een zaadlozing: door de zaadleider omhoog, achter de blaas langs."},{cap:"Vocht van de zaadblaasjes en de prostaat komt erbij; via de urinebuis naar buiten."}],
+  (st,s,i)=>st.innerHTML=ROUTE({hl:[["zaadbal","bijbal"],["zaadleider"],["zaadblaasjes","prostaat","urinebuis"]][i]})),
+films:[F.org,F.anti]};
+const STOF_HORM={titel:"Het startsein en testosteron",html:`
+<p>De <b>hypothalamus</b>, een deel van de hersenen, geeft stoten <b>GnRH</b> af. Daarop maakt de <b>hypofyse</b> meer FSH en LH. Die hormonen gaan met het bloed door het hele lichaam, maar alleen de zaadballen (of eierstokken) hebben er receptoren voor.</p>
+<p>De zaadballen maken dan <b>testosteron</b> en zaadcellen. Testosteron gaat met het <b>bloed</b> naar het hele lichaam en zorgt in de puberteit voor de secundaire geslachtskenmerken: baardgroei, bredere schouders, sterkere spieren, een lagere stem.</p>`,
+films:[F.org]};
+
+const h1=vraag(2,"het startsein voor testosteron",(q,id)=>{
+  pre(q,"<p>Bas vraagt zich af of hij na de sterilisatie nog wel testosteron maakt. De uroloog legt eerst uit hoe het maken van testosteron geregeld wordt.</p>");
+  q.append(el("p",{class:"qtext"},B("Geef bij elke stap aan welk orgaan dit doet.")));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  seqStep(think,{q:"Zet de stappen in de goede volgorde. Tik ze aan van eerst naar laatst.",items:["stoten GnRH","FSH en LH in het bloed","testosteron in het bloed"],shown:[2,0,1],
+    ok:"Goed: hersenen → klier onder de hersenen → zaadbal. Welk orgaan hoort bij elke stap?",onDone:unlock});
+  selectAnswer(ans,{id,uid:"q"+id,rows:[["geeft stoten GnRH af",["hypothalamus","hypofyse","zaadbal","bijbal"],0],["maakt FSH en LH",["hypothalamus","hypofyse","zaadbal","bijbal"],1],["maakt testosteron",["hypothalamus","hypofyse","zaadbal","bijbal"],2]],
+    score:n=>n===3?2:n===2?1:0,
+    after:()=>waaromBtn(ans,textBox("De <b>hypothalamus</b> geeft het startsein met GnRH, de <b>hypofyse</b> maakt dan FSH en LH, en de <b>zaadballen</b> maken testosteron. Drie goed: 2 punten, twee goed: 1 punt."))});
+  q.append(think,ans);
+},STOF_HORM);
+
+const h2=vraag(1,"waar wordt geknipt?",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Welke buis haalt de uroloog aan beide kanten door?"));
+  choiceStep(think,{q:"De buis loopt vanaf de balzak omhoog de buik in. Waar komen de zaadcellen vandaan als ze die buis in gaan?",opts:["uit de bijbal","uit de prostaat","uit de blaas"],right:0,
+    ok:"Ja: na de bijbal volgt de buis die de uroloog zoekt.",no:"Zaadcellen ontstaan in de zaadbal en worden bewaard in het orgaan dat er tegenaan ligt.",onDone:unlock});
+  mc(ans,{qid:id,pts:1,right:1,opts:["de bijbal","de zaadleider","de urinebuis"],onChecked:()=>waaromBtn(ans,b=>{b.append(el("div",{class:"model"},"De uroloog knipt de <b>zaadleider</b> door: de buis van bijbal naar blaas. De urinebuis kan niet: daar gaan ook urine en het vocht van zaadblaasjes en prostaat doorheen. Het antwoord is <b>B</b>."));b.insertAdjacentHTML("beforeend",ROUTE({knip:true}));})});
+  q.append(think,ans);
+},STOF_ROUTE);
+
+const h3=vraag(2,"evenveel sperma",(q,id)=>{
+  pre(q,"<p>In de folder van het ziekenhuis staat: ‘Bij een zaadlozing neemt de hoeveelheid zaadvloeistof niet af.’</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit dat de hoeveelheid sperma na de sterilisatie bijna gelijk blijft."));
+  choiceStep(think,{q:"Waar komt het meeste vocht van sperma vandaan?",opts:["uit de zaadballen","uit de zaadblaasjes en de prostaat","uit de bijbal"],right:1,
+    ok:"Ja. Liggen die vóór of achter de knip in de zaadleider?",no:"Zaadcellen zijn maar een paar procent van het sperma. Het vocht komt uit klieren verderop.",
+    onDone:()=>choiceStep(think,{q:"Waar komt het vocht van de zaadblaasjes en de prostaat in de route terecht?",opts:["vóór de knip, in de bijbal","ná de knip, achter de blaas en in de urinebuis"],right:1,
+      ok:"Goed. Maak nu je uitleg met twee stappen.",no:"De zaadblaasjes liggen achter de blaas, waar de zaadleider in de buik uitkomt.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Het meeste vocht van sperma komt uit de <b>zaadblaasjes en de prostaat</b>; zaadcellen zijn maar een paar procent van het sperma.",
+    "Zaadblaasjes en prostaat komen <b>ná de knip</b> in de zaadleider uit op de route, dus hun vocht komt nog gewoon in het sperma."],
+    model:"Het vocht van sperma komt vooral uit de zaadblaasjes en de prostaat. Die liggen verderop dan de plek waar de zaadleider is doorgeknipt, dus hun vocht komt nog steeds in de urinebuis. Alleen de zaadcellen, een paar procent van het sperma, ontbreken.",
+    valkuil:"‘De zaadballen blijven sperma maken’ klopt niet: de zaadballen maken zaadcellen, niet het vocht. En de zaadcellen kunnen de knip niet meer voorbij.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[{cap:"Na de sterilisatie: de zaadleider is aan beide kanten doorgeknipt.",t:0},{cap:"Het vocht van zaadblaasjes en prostaat komt ná de knip in de route: het meeste sperma blijft dus komen.",t:1}],
+      (st,s)=>st.innerHTML=ROUTE({knip:true,hl:s.t?["zaadblaasjes","prostaat","urinebuis"]:[]})))});
+  q.append(think,ans);
+},STOF_ROUTE);
+
+const h4=vraag(1,"nog weken zaadcellen",(q,id)=>{
+  pre(q,"<p>De uroloog zegt dat Bas pas na minstens drie maanden en 25 zaadlozingen zijn sperma moet laten controleren. Tot die tijd moet het stel nog een andere vorm van anticonceptie gebruiken.</p>");
+  const {think,ans,unlock}=start(q,B("Wat is daarvan de reden?"));
+  choiceStep(think,{q:"Blijven de zaadballen na de sterilisatie zaadcellen maken?",opts:["ja, die worden door het lichaam opgeruimd","nee, ze stoppen meteen","nee, maar pas na drie maanden"],right:0,
+    ok:"Ja, dat staat in de folder. Maar die zaadcellen komen de knip niet voorbij. Waar zitten dan de zaadcellen die nog wél naar buiten kunnen?",no:"In de inleiding staat wat er met de zaadcellen gebeurt die nog gemaakt worden.",onDone:unlock});
+  mc(ans,{qid:id,pts:1,right:1,opts:["De zaadballen hebben een paar maanden nodig om te stoppen met het maken van zaadcellen.","Er zitten nog zaadcellen in het deel van de route dat ná de knip ligt.","De prostaat maakt ook zaadcellen; die moeten eerst opgebruikt zijn.","Zaadcellen zwemmen in het begin nog langs de knip."],
+    onChecked:()=>waaromBtn(ans,b=>{b.append(el("div",{class:"model"},"In de zaadleider na de knip en bij de zaadblaasjes liggen nog zaadcellen die er al vóór de operatie waren. Die komen bij de volgende zaadlozingen naar buiten. A klopt niet: de zaadballen blijven zaadcellen maken, maar die komen de knip niet voorbij en worden opgeruimd. Verder: de prostaat maakt geen zaadcellen (C) en een knip met een weggehaald stukje kunnen ze niet passeren (D). Het antwoord is <b>B</b>."));b.insertAdjacentHTML("beforeend",ROUTE({knip:true,stip:true}));})});
+  q.append(think,ans);
+},STOF_ROUTE);
+
+const h5=vraag(2,"minder mannelijk?",(q,id)=>{
+  pre(q,"<p>Bas is bang dat hij na de sterilisatie minder mannelijk wordt: minder baardgroei en minder spierkracht.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit dat de sterilisatie geen invloed heeft op deze secundaire geslachtskenmerken."));
+  choiceStep(think,{q:"Welk hormoon zorgt voor baardgroei en spierkracht, en waar wordt het gemaakt?",opts:["testosteron, in de zaadballen","testosteron, in de prostaat","LH, in de zaadballen"],right:0,
+    ok:"Ja. Is er aan de zaadballen iets veranderd?",no:"Het hormoon dat de secundaire geslachtskenmerken van een man geeft, komt uit hetzelfde orgaan als de zaadcellen.",
+    onDone:()=>choiceStep(think,{q:"Hoe komt testosteron bij de huid van de kin en bij de spieren?",opts:["via de zaadleider","via het bloed"],right:1,
+      ok:"Goed. Gebruik beide dingen in je uitleg.",no:"Hormonen gaan niet door buizen naar buiten: ze worden aan het bloed afgegeven.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "<b>Testosteron</b> wordt gemaakt in de <b>zaadballen</b>, en die blijven gewoon werken (ze krijgen nog steeds LH van de hypofyse).",
+    "Testosteron gaat via het <b>bloed</b> naar de rest van het lichaam, niet via de zaadleider, dus het komt nog overal waar het werkt."],
+    model:"Testosteron wordt in de zaadballen gemaakt. Aan de zaadballen verandert niets, en de hypofyse blijft ze met LH aansturen. Het testosteron wordt aan het bloed afgegeven en bereikt zo de huid en de spieren. De knip in de zaadleider zit daar niet tussen.",
+    valkuil:"Een sterilisatie is geen castratie: de zaadballen blijven er en blijven hormonen maken. Een antwoord zonder de weg via het bloed mist het tweede punt."});
+  q.append(think,ans);
+},STOF_HORM);
+
+opgave("Sterilisatie","Een knip in de zaadleider",`
+<p>Bas (42) en zijn vrouw hebben drie kinderen en willen er geen meer. Bas laat zich steriliseren. Daarbij haalt een uroloog aan beide kanten een stukje uit een buis die vanuit de balzak omhoog loopt.</p>
+<p>In de patiëntenfolder van het ziekenhuis staat onder andere:</p>
+<ul style="margin:0;padding-left:20px"><li>‘Uw zaadballen blijven wel zaadcellen produceren, maar deze worden opgenomen door uw lichaam.’</li><li>‘Sterilisatie heeft geen invloed op de erecties en uw seksleven.’</li></ul>
+<p class="muted" style="font-size:14px">Citaten uit de folder ‘Sterilisatie bij de man’ van het Albert Schweitzer ziekenhuis; Bas is een fictieve patiënt.</p>`,[h1,h2,h3,h4,h5]);
+}else{
+const STOF_RK={titel:"De regelkring van hypothalamus, hypofyse en zaadbal",html:`
+<p>De <b>hypothalamus</b> geeft in korte stoten <b>GnRH</b> af aan de <b>hypofyse</b>. Die maakt <b>FSH</b> en <b>LH</b>. Bij de man zet LH de Leydigcellen tussen de zaadbuisjes aan tot het maken van <b>testosteron</b>. FSH en testosteron sturen samen de Sertolicellen aan, die de zaadcellen in de buisjes voeden en begeleiden.</p>
+<p><b>Negatieve terugkoppeling</b>: testosteron remt de hypothalamus en de hypofyse, en inhibine uit de Sertolicellen remt vooral de afgifte van FSH. Stijgt het testosteron, dan daalt de afgifte van GnRH en LH. Daalt het testosteron, dan valt die rem weg.</p>
+<p>Een storing zoek je schakel voor schakel: welke schakel werkt niet, en wat gebeurt er dan met de schakels erna?</p>`,
+films:[F.baby,F.org]};
+
+const c1=vraag(2,"bloedwaarden vergelijken",(q,id)=>{
+  pre(q,"<p>Het syndroom van Kallmann moet worden onderscheiden van een aandoening waarbij de zaadballen zelf niet werken, bijvoorbeeld na een ernstige ontsteking.</p>");
+  const {think,ans,unlock}=start(q,B("Welke bloedwaarden passen bij Sem, en welke bij een man bij wie de zaadballen niet werken?"));
+  choiceStep(think,{q:"Bij Sem komt er geen GnRH bij de hypofyse. Wat doet de hypofyse dan?",opts:["veel LH maken, om het lage testosteron te compenseren","weinig LH maken, want het signaal om LH te maken ontbreekt"],right:1,
+    ok:"Ja. Zonder GnRH maakt de hypofyse weinig LH, ook al is het testosteron laag. En bij de man met de kapotte zaadballen?",no:"De hypofyse kan alleen reageren op een laag testosteron als de hypothalamus GnRH kan geven.",
+    onDone:()=>choiceStep(think,{q:"De zaadballen maken geen testosteron, maar hypothalamus en hypofyse werken wel. Wat gebeurt er met LH?",opts:["LH stijgt: de rem van testosteron valt weg","LH daalt: er is geen testosteron om LH aan te zetten"],right:0,
+      ok:"Goed. Zoek nu het antwoord dat bij allebei past.",no:"Testosteron remt de hypothalamus en de hypofyse. Wat gebeurt er als die rem wegvalt?",onDone:unlock})});
+  mc(ans,{qid:id,pts:2,right:1,opts:["Sem: LH laag en testosteron laag. Zaadballen werken niet: LH laag en testosteron laag.","Sem: LH laag en testosteron laag. Zaadballen werken niet: LH hoog en testosteron laag.","Sem: LH hoog en testosteron laag. Zaadballen werken niet: LH hoog en testosteron laag.","Sem: LH hoog en testosteron laag. Zaadballen werken niet: LH laag en testosteron laag."],
+    onChecked:()=>waaromBtn(ans,textBox("Bij Sem ontbreekt de eerste schakel (GnRH). De hypofyse krijgt geen signaal, dus <b>LH laag</b>, en dan maken de zaadballen ook weinig <b>testosteron</b>. Bij kapotte zaadballen werken hypothalamus en hypofyse wel. Er is geen testosteron dat remt, dus de hypofyse maakt juist <b>veel LH</b> (negatieve terugkoppeling valt weg). Het antwoord is <b>B</b>. Wie C kiest, vergeet dat de hypofyse zonder GnRH niet kan reageren op het lage testosteron."))});
+  q.append(think,ans);
+},STOF_RK);
+
+const c2=vraag(2,"testosteron alleen is niet genoeg",(q,id)=>{
+  pre(q,"<p>Sem krijgt eerst elke drie weken een injectie met testosteron. Hij krijgt baardgroei en zijn stem zakt, maar zijn zaadballen blijven klein en hij maakt geen zaadcellen.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit waardoor de testosteroninjecties niet leiden tot de vorming van zaadcellen."));
+  chipsStep(think,{q:"Wat is er volgens de inleiding nodig voor de vorming van zaadcellen? Kies alles wat klopt.",items:[["FSH",1],["een hoge testosteronconcentratie in de zaadbal",1],["GnRH in de zaadbal",0],["oestrogeen",0]],
+    ok:"Goed. Welke van die twee krijgt Sem níet door de injecties?",no:"Lees de laatste alinea van de inleiding nog eens.",
+    onDone:()=>choiceStep(think,{q:"Wat doet het testosteron uit de injectie met de afgifte van FSH en LH?",opts:["het stimuleert de afgifte","het remt de afgifte (negatieve terugkoppeling)","geen effect"],right:1,
+      ok:"Ja: en bij Sem was die afgifte al laag, omdat GnRH ontbreekt. Gebruik dat in je uitleg.",no:"Testosteron remt de hypothalamus en de hypofyse.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "De <b>FSH</b>- (en LH-)concentratie blijft laag, doordat GnRH ontbreekt / doordat het toegediende testosteron de afgifte van FSH en LH bovendien remt (negatieve terugkoppeling).",
+    "Zonder FSH (en zonder door LH gestimuleerde testosteronproductie in de zaadbal zelf, zodat de testosteronconcentratie in de zaadbal te laag blijft) worden er <b>geen zaadcellen</b> gevormd."],
+    model:"Zonder GnRH maakt Sems hypofyse weinig FSH en LH, en het testosteron uit de injecties remt die afgifte nog verder. Zonder FSH, en zonder de hoge testosteronconcentratie die de Leydigcellen onder invloed van LH in de zaadbal zelf maken, komt de zaadcelvorming in de zaadbuisjes niet op gang. Voor baardgroei en stem is testosteron in het bloed wel genoeg.",
+    valkuil:"‘Testosteron = vruchtbaar’ is een misvatting. Alleen ‘er is te weinig FSH’ zonder oorzaak of gevolg levert hooguit 1 punt op."});
+  q.append(think,ans);
+},STOF_RK);
+
+const STOF_FOETUS={titel:"hCG werkt als LH",html:`
+<p>De trofoblast van het embryo, later de placenta, maakt <b>hCG</b>. Dat hormoon lijkt sterk op LH en bindt aan de <b>LH-receptoren</b>. Bij de moeder houdt hCG zo het geel lichaam in leven.</p>
+<p>Een hormoon werkt op elke cel met de juiste receptor, waar het ook vandaan komt. Wat de LH-receptor aanzet, maakt voor de cel niet uit: LH uit de eigen hypofyse of hCG uit de placenta.</p>
+<p>Bij een jongensembryo maken de Leydigcellen al vroeg testosteron. Testosteron houdt de buizen van Wolff in stand; dihydrotestosteron vormt de uitwendige geslachtsorganen.</p>`,
+films:[F.baby,F.sekse]};
+const c3=vraag(2,"aanleg normaal, groei te weinig",(q,id)=>{
+  pre(q,"<p>Bij jongens met het syndroom van Kallmann zijn de geslachtsorganen bij de geboorte normaal aangelegd, maar de penis is vaak klein. Voor de aanleg én de groei van de penis bij de foetus is testosteron nodig.</p><p>In het begin van de zwangerschap wordt de testosteronproductie in de zaadballen van een jongensfoetus gestimuleerd door hCG uit de placenta (hCG werkt als LH). Na ongeveer week 12 daalt de hCG-concentratie sterk.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit waardoor bij een jongen met het syndroom van Kallmann de geslachtsorganen wel normaal worden aangelegd, maar de penis later in de zwangerschap te weinig groeit."));
+  choiceStep(think,{q:"Waar komt het hCG vandaan dat in het begin de zaadballen van de foetus aanzet?",opts:["uit de hypofyse van de foetus","uit de placenta, dus niet afhankelijk van de GnRH van de foetus"],right:1,
+    ok:"Ja. Wat moet de testosteronproductie overnemen als het hCG na week 12 daalt?",no:"Lees de inleiding van deze vraag nog eens: welk orgaan maakt dit hCG?",
+    onDone:()=>choiceStep(think,{q:"Na week 12 moet de foetus zelf LH maken. Kan dat bij Kallmann?",opts:["ja, de hypofyse werkt gewoon","nee, zonder GnRH maakt de hypofyse te weinig LH"],right:1,
+      ok:"Goed. Zet beide perioden in je uitleg.",no:"Wat ontbreekt er bij Kallmann in de hypothalamus?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "In het begin stimuleert <b>hCG uit de placenta</b> de testosteronproductie; dat hangt niet af van de GnRH van de foetus, dus de aanleg is normaal.",
+    "Later moet <b>LH uit de hypofyse van de foetus</b> het overnemen; zonder GnRH maakt de hypofyse te weinig LH, dus te weinig testosteron voor de groei van de penis."],
+    model:"Vroeg in de zwangerschap zet hCG uit de placenta via de LH-receptoren de Leydigcellen van de foetus aan. Daarvoor is geen GnRH van de foetus nodig, dus er is genoeg testosteron voor de aanleg. Na week 12 daalt hCG en moet de eigen hypofyse LH maken. Zonder GnRH lukt dat niet, dus het testosteron daalt en de penis groeit te weinig.",
+    valkuil:"hCG ‘alleen als zwangerschapshormoon van de moeder’ zien. Hier werkt het op de zaadballen van de foetus, omdat die ook LH-receptoren hebben."});
+  q.append(think,ans);
+},STOF_FOETUS);
+
+const STOF_MEI={titel:"Meiose bij de man",html:`
+<p>Meiose bestaat uit twee delingen na één keer DNA kopiëren. In <b>meiose I</b> komen de homologe chromosomen als paren tegen elkaar te liggen, wisselen stukken uit en gaan uit elkaar. In <b>meiose II</b> gaan de chromatiden uit elkaar, net als bij de mitose.</p>
+<p>Tel chromosomen aan de centromeren: een X-vormig chromosoom met twee chromatiden is één chromosoom.</p>
+<p>Bij een man ontstaan zaadcellen vanaf de puberteit elke dag opnieuw, in de zaadbuisjes. Bij een vrouw verloopt de deling scheef.</p>`,
+films:[F.cel]};
+const c4=vraag(2,"juist of onjuist: zaadcellen maken",(q,id)=>{
+  pre(q,"<p>Daarna krijgt Sem een behandeling met injecties met hCG en FSH. Na ruim een jaar bevat zijn sperma zaadcellen. Over de vorming van zaadcellen in Sems zaadbuisjes worden drie uitspraken gedaan:</p>");
+  q.append(el("p",{class:"qtext"},"1 Tijdens meiose I worden de homologe chromosomen van elkaar gescheiden.<br>2 Na meiose I heeft elke cel 46 chromosomen, elk met één chromatide.<br>3 Uit één cel die aan de meiose begint, ontstaan bij een man vier zaadcellen.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  numStep(think,{uid:"q"+id+"n",q:"Een cel begint aan meiose I met 46 chromosomen, elk met twee chromatiden. In meiose I gaan de paren uit elkaar. Hoeveel chromosomen heeft elke cel daarna?",right:23,
+    ok:"Ja: 23 chromosomen, en elk heeft nog twee chromatiden. Het halveren gebeurt dus al in meiose I.",no:"Er zijn 23 paren. Van elk paar gaat één chromosoom naar elke kant.",onDone:unlock});
+  juistOnjuist(ans,{id,stm:["in meiose I gaan homologe chromosomen uit elkaar","na meiose I: 46 chromosomen met één chromatide","bij een man ontstaan vier zaadcellen"],key:[true,false,true],
+    uitleg:textBox("1 <b>juist</b>: in meiose I gaan de paren uit elkaar.<br>2 <b>onjuist</b>: na meiose I heeft elke cel 23 chromosomen, elk nog met twee chromatiden. De cel is dus al haploïd.<br>3 <b>juist</b>: bij een man ontstaan vier zaadcellen; bij een vrouw één grote eicel.")});
+  q.append(think,ans);
+},STOF_MEI);
+
+opgave("Kallmann","Geen GnRH: het syndroom van Kallmann",`
+<p>Sem is 17 jaar. Hij heeft nog geen baardgroei, zijn stem is niet gezakt en zijn zaadballen zijn klein. Ook ruikt hij vrijwel niets. De endocrinoloog stelt vast dat Sem het syndroom van Kallmann heeft. Dit komt voor bij ongeveer 1 op de 8000 mannen en 1 op de 40.000 vrouwen.</p>
+<p>Tijdens de embryonale ontwikkeling ontstaan de zenuwcellen die GnRH maken in het reukslijmvlies van de neus. Van daaruit trekken ze langs de reukzenuwen naar de hypothalamus. Bij het syndroom van Kallmann mislukt die tocht: in de hypothalamus komen geen GnRH-producerende cellen aan, en ook de reukkolven ontwikkelen zich niet goed.</p>
+<p>Bij mannen stimuleert LH de Leydigcellen tussen de zaadbuisjes tot de productie van testosteron. Voor de vorming van zaadcellen in de zaadbuisjes zijn FSH en een hoge testosteronconcentratie in de zaadbal nodig.</p>
+<p class="muted" style="font-size:14px">Sem is een fictieve patiënt.</p>`,[c1,c2,c3,c4]);
+}
+}
+
+/* ===== Opgave 4: Een wangslijmvliestest voor de vrouwencategorie (nieuw; film 4, vwo ook film 3) ===== */
+{
+/* de lagen van de sekse-ontwikkeling; hl = index van de laag die oplicht, x = lagen met een kruis */
+function LAGEN({hl=-1,x=[],ok=[]}={}){
+  const L=["chromosomen (XX of XY)","één gen: SRY","zaadbal of eierstok","hormonen en hun receptoren","geslachtsorganen","puberteit"];
+  let s="";
+  L.forEach((t,i)=>{const y=14+i*44,on=i===hl;
+    s+=`<rect x="20" y="${y}" width="420" height="34" rx="10" fill="${on?"var(--goud-soft)":"var(--surface)"}" stroke="${on?"var(--goud)":"var(--line2)"}" stroke-width="${on?2.4:1.3}"/>`+
+      `<text x="40" y="${y+22}" class="lbl">${i+1}</text><text x="66" y="${y+22}" class="lbl">${t}</text>`;
+    if(x.includes(i))s+=`<path d="M400,${y+8} l18,18 M418,${y+8} l-18,18" stroke="var(--koraal)" stroke-width="3.4" stroke-linecap="round"/>`;
+    if(ok.includes(i))s+=`<path d="M398,${y+18} l7,8 l14,-16" fill="none" stroke="var(--groen)" stroke-width="3.4" stroke-linecap="round"/>`;
+    if(i<L.length-1)s+=`<path d="M230,${y+34} v10" stroke="var(--text3)" stroke-width="1.6"/>`;});
+  return `<div style="max-width:460px;margin:0 auto;width:100%">`+svgWrap("0 0 460 280",s,"Sekse-ontwikkeling in lagen")+`</div>`;}
+const STOF_LAGEN={titel:"Sekse in lagen",html:`
+<p>Tot ongeveer week zes ziet de aanleg van de geslachtsorganen er bij elk embryo hetzelfde uit. Welke kant het op gaat, wordt in lagen bepaald, de een na de ander:</p>
+<ol style="margin:0;padding-left:22px"><li><b>Chromosomen</b>: van je moeder altijd een X, van je vader een X of een Y.</li>
+<li><b>Eén gen</b>: op het Y-chromosoom ligt het <b>SRY-gen</b>. Gaat dat rond week zeven aan, dan wordt de aanleg een zaadbal; zonder SRY wordt het een eierstok.</li>
+<li><b>Hormonen</b>: zaadballen maken testosteron en een hormoon waardoor de aanleg van baarmoeder en eileiders verdwijnt. Een hormoon werkt alleen op cellen met een werkende <b>receptor</b>.</li>
+<li><b>Geslachtsorganen</b> (primaire geslachtskenmerken).</li><li>Jaren later de <b>puberteit</b>: secundaire geslachtskenmerken.</li></ol>
+<p>Meestal passen alle lagen bij elkaar. Maar bij elke laag kan het ook anders lopen.</p>`,
+anim:b=>EXSTOF.stappen(b,[{cap:"Laag 1: XX of XY ligt vast bij de bevruchting."},{cap:"Laag 2: het SRY-gen op het Y-chromosoom zet de aanleg om tot zaadbal."},{cap:"Laag 4: hormonen werken alleen via een werkende receptor."}],(st,s,i)=>st.innerHTML=LAGEN({hl:[0,1,3][i]})),
+films:FV(F.sekse,F.baby)};
+const STOF_VAR={titel:"Als een laag anders loopt",html:`
+<ul style="margin:0;padding-left:20px"><li><b>Syndroom van Klinefelter</b>: XXY. Er is een Y-chromosoom met het SRY-gen, dus er ontstaan zaadballen.</li>
+<li><b>Syndroom van Turner</b>: één X en geen tweede geslachtschromosoom.</li>
+<li><b>Androgeen-ongevoeligheid</b>: XY met zaadballen die testosteron maken, maar de receptor voor testosteron werkt niet.</li>
+<li><b>Adrenogenitaal syndroom (AGS)</b>: de bijnieren maken te veel mannelijke hormonen; een meisje met XX en eierstokken kan geboren worden met geslachtsorganen die meer lijken op die van een jongen.</li></ul>
+<p>Past het lichaam niet in het standaardplaatje van man of vrouw, dan heet dat <b>intersekse</b> (artsen spreken van DSD).</p>`,
+films:[F.sekse]};
+
+const s1=vraag(1,"wat meet de test?",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Welke laag van de sekse-ontwikkeling onderzoekt de test van World Athletics?"));
+  choiceStep(think,{q:"Wat zoekt de test in de cellen van het wangslijmvlies?",opts:["of er testosteron in het bloed zit","of een bepaald stuk DNA aanwezig is","of er zaadballen zijn"],right:1,
+    ok:"Ja: de test zoekt het SRY-gen in het DNA. Over welke laag gaat dat precies?",no:"In wangslijmvliescellen zitten geen zaadballen en geen bloed. Wat zit er wel in elke cel?",onDone:unlock});
+  mc(ans,{qid:id,pts:1,right:1,opts:["de chromosomen: XX of XY","het gen: is het SRY-gen aanwezig","de hormonen: wordt er testosteron gemaakt","de geslachtsorganen: zijn er zaadballen"],
+    onChecked:()=>waaromBtn(ans,b=>{b.append(el("div",{class:"model"},"De test kijkt alleen of het <b>SRY-gen</b> aanwezig is: laag 2. Hij telt geen chromosomen (A) en meet geen hormonen of organen (C, D). Precies dat is het punt van Sinclair: of het gen werkt, en wat de lagen erna doen, laat de test niet zien. Het antwoord is <b>B</b>."));b.insertAdjacentHTML("beforeend",LAGEN({hl:1}));})});
+  q.append(think,ans);
+},STOF_LAGEN);
+
+const s2=vraag(2,"positief, maar geen effect van testosteron",(q,id)=>{
+  pre(q,"<p>Zeven van de acht atleten die in 1996 positief testten, hadden androgeen-ongevoeligheid.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit dat een atlete met volledige androgeen-ongevoeligheid positief test, terwijl haar lichaam toch geen effect heeft van testosteron."));
+  choiceStep(think,{q:"Welke geslachtschromosomen en welke geslachtsklieren heeft iemand met androgeen-ongevoeligheid?",opts:["XX en eierstokken","XY en zaadballen","XY en eierstokken"],right:1,
+    ok:"Ja. Dus het SRY-gen is aanwezig en heeft gewerkt. Wat gaat er dan mis in de laag van de hormonen?",no:"Bij androgeen-ongevoeligheid maken de geslachtsklieren gewoon testosteron.",
+    onDone:()=>choiceStep(think,{q:"Waarom heeft het testosteron geen effect op haar cellen?",opts:["er wordt geen testosteron gemaakt","de receptor voor testosteron werkt niet","het testosteron wordt meteen afgebroken in de lever"],right:1,
+      ok:"Goed. Gebruik beide lagen in je uitleg: wat de test ziet, en wat de cellen doen.",no:"Er wordt testosteron gemaakt. Wat is er nodig om op een hormoon te reageren?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Ze is <b>XY</b> en heeft het <b>SRY-gen</b> (dat ook werkte: er zijn zaadballen), dus de test is positief.",
+    "Haar <b>receptor voor testosteron werkt niet</b>, dus haar cellen reageren niet op het testosteron: haar lichaam heeft zich als dat van een vrouw ontwikkeld, zonder effect van testosteron op bijvoorbeeld de spieren."],
+    model:"Iemand met androgeen-ongevoeligheid is XY. Het SRY-gen is aanwezig, dus de test is positief, en er zijn zaadballen die testosteron maken. Maar de receptor voor testosteron werkt niet. Daardoor reageren de cellen niet op het hormoon, en heeft het lichaam zich uitwendig als dat van een vrouw ontwikkeld.",
+    valkuil:"‘Ze maakt geen testosteron’ is fout: de zaadballen maken het wel. Het gaat mis in de receptor.",
+    after:()=>waaromBtn(ans,b=>b.insertAdjacentHTML("beforeend",LAGEN({ok:[0,1,2],x:[3]})+`<p class="muted" style="font-size:14px;margin:4px 0 0">Laag 1–3 zoals bij een man (de test ziet laag 2), laag 4 stopt: de receptor werkt niet.</p>`))});
+  q.append(think,ans);
+},STOF_VAR);
+
+const s3=vraag(2,"juist of onjuist: wie test positief?",(q,id)=>{
+  pre(q,"<p>Over de uitslag van de SRY-test worden drie uitspraken gedaan:</p>");
+  q.append(el("p",{class:"qtext"},"1 Iemand met het syndroom van Turner test negatief.<br>2 Iemand met het syndroom van Klinefelter test positief.<br>3 Een vrouw met AGS test positief, omdat haar bijnieren veel mannelijke hormonen maken.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  selectsStep(think,{uid:"q"+id,q:"Welke geslachtschromosomen horen erbij?",rows:[["syndroom van Turner",["X","XX","XY","XXY"],0],["syndroom van Klinefelter",["X","XX","XY","XXY"],3],["AGS bij een meisje",["X","XX","XY","XXY"],1]],
+    ok:"Goed. Bij wie zit er dus een Y-chromosoom met het SRY-gen in de cellen?",no:"Turner: maar één geslachtschromosoom. Klinefelter: drie. Bij AGS gaat het mis in de bijnieren, niet in de chromosomen.",onDone:unlock});
+  juistOnjuist(ans,{id,stm:["Turner: negatief","Klinefelter: positief","AGS: positief door de mannelijke hormonen"],key:[true,true,false],
+    uitleg:textBox("1 <b>juist</b>: bij Turner is er één X en geen Y, dus geen SRY-gen.<br>2 <b>juist</b>: XXY heeft een Y met het SRY-gen.<br>3 <b>onjuist</b>: een vrouw met AGS is XX. De test zoekt een gen, geen hormonen, dus de uitslag is negatief.")});
+  q.append(think,ans);
+},STOF_VAR);
+
+const STOF_GENDER={titel:"Sekse, gender en oriëntatie",html:`
+<p>Vier begrippen die je goed uit elkaar houdt:</p>
+<ul style="margin:0;padding-left:20px"><li><b>Sekse</b>: je biologische geslacht, in lagen.</li>
+<li><b>Genderidentiteit</b>: hoe je jezelf ervaart: als man, als vrouw, of anders.</li>
+<li><b>Genderexpressie</b>: hoe je dat laat zien, bijvoorbeeld met kleding of je kapsel.</li>
+<li><b>Seksuele oriëntatie</b>: op wie je verliefd wordt en tot wie je je aangetrokken voelt.</li></ul>
+<p><b>Transgender</b>: je genderidentiteit past niet bij de sekse die bij je geboorte is vastgesteld. <b>Non-binair</b>: je voelt je niet alleen man of alleen vrouw. <b>Intersekse</b> gaat over het lichaam.</p>`,
+films:[F.sekse]};
+const s4=vraag(2,"juist of onjuist: sekse en gender",(q,id)=>{
+  pre(q,"<p>In een discussie over de test worden vier uitspraken gedaan:</p>");
+  q.append(el("p",{class:"qtext"},"1 Sekse gaat over het lichaam: chromosomen, geslachtsklieren, hormonen en geslachtsorganen.<br>2 Iemand die non-binair is, heeft een lichaam dat niet in het standaardplaatje van man of vrouw past.<br>3 Een SRY-test zegt niets over iemands genderidentiteit.<br>4 Seksuele oriëntatie en genderidentiteit zijn twee woorden voor hetzelfde.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  selectsStep(think,{uid:"q"+id,q:"Waar gaat elk begrip over?",rows:[["intersekse",["het lichaam","hoe je jezelf ervaart","op wie je verliefd wordt"],0],["non-binair",["het lichaam","hoe je jezelf ervaart","op wie je verliefd wordt"],1],["seksuele oriëntatie",["het lichaam","hoe je jezelf ervaart","op wie je verliefd wordt"],2]],
+    ok:"Goed. Bekijk nu elke uitspraak: over welk begrip gaat hij, en klopt de omschrijving?",no:"Intersekse gaat over het lichaam; gender over hoe je jezelf ervaart.",onDone:unlock});
+  juistOnjuist(ans,{id,stm:["sekse gaat over het lichaam","non-binair = lichaam past niet in het standaardplaatje","een SRY-test zegt niets over genderidentiteit","seksuele oriëntatie = genderidentiteit"],key:[true,false,true,false],
+    uitleg:textBox("1 <b>juist</b>.<br>2 <b>onjuist</b>: dat is intersekse. Non-binair gaat over hoe je jezelf ervaart.<br>3 <b>juist</b>: de test kijkt naar een gen, niet naar hoe iemand zichzelf ervaart.<br>4 <b>onjuist</b>: genderidentiteit is hoe je jezelf ervaart, seksuele oriëntatie op wie je verliefd wordt.<br>Vier goed: 2 punten, drie goed: 1 punt.")});
+  q.append(think,ans);
+},STOF_GENDER);
+
+const ids=[s1,s2,s3,s4];
+if(VWO){
+const STOF_SRY={titel:"SRY: één schakelaar, een hele cascade",html:`
+<p>Het SRY-gen codeert voor een eiwit dat andere genen aanzet, zoals <b>SOX9</b>. Die zetten weer andere genen aan: een <b>cascade</b>. Daardoor wordt de aanleg een zaadbal.</p>
+<p>Bij de vorming van zaadcellen (meiose) liggen het X- en het Y-chromosoom van een man tegen elkaar en wisselen ze aan de uiteinden een stukje uit, net als homologe chromosomen bij <b>crossing-over</b>. Het SRY-gen ligt vlak naast dat stukje.</p>
+<p>Voor het maken van zaadcellen zijn ook andere genen van het Y-chromosoom nodig dan SRY.</p>`,
+films:[F.sekse,F.cel]};
+ids.push(vraag(2,"een man met XX",(q,id)=>{
+  pre(q,"<p>Een SRY-test en een onderzoek van de chromosomen geven niet altijd dezelfde uitkomst. Bij ongeveer één op de twintigduizend mannen laat het chromosomenonderzoek XX zien. Ze hebben zaadballen en het SRY-gen ligt bij hen op een van de X-chromosomen.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit hoe het SRY-gen op een X-chromosoom terecht kan komen en waardoor zo'n kind met XX zaadballen krijgt."));
+  choiceStep(think,{q:"Bij wie zit het SRY-gen normaal?",opts:["bij de moeder, op een X","bij de vader, op het Y-chromosoom"],right:1,
+    ok:"Ja. In welke cellen van de vader kan het SRY-gen dan van plek wisselen?",no:"Het SRY-gen ligt op het Y-chromosoom. Wie heeft er een Y?",
+    onDone:()=>choiceStep(think,{q:"Wat gebeurt er bij de meiose in de zaadbal met het X- en het Y-chromosoom van de vader?",opts:["ze wisselen een stukje uit, zoals bij crossing-over","ze versmelten tot één chromosoom","niets: X en Y raken elkaar nooit"],right:0,
+      ok:"Goed. Gaat het SRY-gen mee naar de X, en bevrucht die zaadcel een eicel, wat krijg je dan? En wat doet SRY in het embryo?",no:"In meiose I liggen X en Y tegen elkaar, net als homologe chromosomen.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Bij de <b>meiose in de zaadbal van de vader</b> wisselen X en Y een stukje uit (crossing-over) en gaat het <b>SRY-gen mee naar het X-chromosoom</b>; een zaadcel met dat X bevrucht een eicel (X), zodat het kind XX is met SRY.",
+    "Het <b>SRY-eiwit zet andere genen aan</b> (zoals SOX9, een cascade), waardoor de aanleg een <b>zaadbal</b> wordt."],
+    model:"Bij de vorming van zaadcellen bij de vader wisselen het X- en het Y-chromosoom een stukje uit. Heel soms gaat het SRY-gen daarbij mee naar het X-chromosoom. Een zaadcel met dat X bevrucht een eicel met een X: het kind is XX, maar heeft het SRY-gen. Het SRY-eiwit zet genen als SOX9 aan, die weer andere genen aanzetten, en zo wordt de aanleg een zaadbal.",
+    valkuil:"‘Door een mutatie verandert een X in een Y’ is fout: het gaat om een stukje dat van de Y naar de X verhuist. Een antwoord dat alleen de verplaatsing noemt, zonder wat SRY in het embryo doet, levert 1 punt op."});
+  q.append(think,ans);
+},STOF_SRY));
+}
+
+opgave("SRY-test","Een wangslijmvliestest voor de vrouwencategorie",`
+<p>Sinds 1 september 2025 moet iedereen die bij wedstrijden van World Athletics, zoals het WK atletiek, in de vrouwencategorie wil uitkomen, eenmalig een test op het <b>SRY-gen</b> doen. Daarvoor wordt wangslijmvlies of bloed afgenomen. World Athletics noemt het SRY-gen ‘een betrouwbare aanwijzing voor biologische sekse’.</p>
+<p>De geneticus Andrew Sinclair, die het SRY-gen in 1990 ontdekte, is het daar niet mee eens. Volgens hem laat de test alleen zien óf het gen aanwezig is. Hij laat niet zien of het gen werkt, of er zaadballen zijn ontstaan, of er testosteron wordt gemaakt en of het lichaam daarop kan reageren.</p>
+<p>Een vergelijkbare test is al eens gebruikt. Bij de Olympische Spelen van 1996 in Atlanta testten 8 van de 3387 vrouwelijke atleten positief op een Y-chromosoom.</p>
+<p class="muted" style="font-size:14px">Bronnen: persbericht World Athletics, 30 juli 2025; A. Sinclair in The Conversation / Daily Maverick, 25 augustus 2025.</p>`,ids);
+}
+
+/* ===== Opgave 5: Hoe betrouwbaar? Anticonceptie en soa's (nieuw; film 5, vwo ook film 3) ===== */
+{
+const TAB1=TABEL(1,["methode","normaal gebruik","perfect gebruik"],[
+  ["staafje in de arm","&lt; 1","&lt; 1"],["spiraaltje (hormoon of koper)","&lt; 1","&lt; 1"],["sterilisatie (man of vrouw)","&lt; 1","&lt; 1"],
+  ["prikpil","4","&lt; 1"],["pil","7","&lt; 1"],["ring","7","&lt; 1"],["condoom","13","2"]],
+  "Percentage vrouwen dat in het eerste jaar van gebruik toch zwanger wordt. Bron: Guttmacher Institute (factsheet), naar Contraceptive Technology, 21e druk (2018).");
+const STOF_KETEN={titel:"Anticonceptie: een schakel uit de keten",html:`
+<p>Een zwangerschap is een keten: een <b>eicel komt vrij</b> → een <b>zaadcel bereikt en bevrucht</b> haar → het <b>embryo nestelt zich</b> in de baarmoeder. Anticonceptie haalt één schakel uit die keten.</p>
+<ul style="margin:0;padding-left:20px"><li>Hormonen (pil, prikpil, staafje, ring) remmen de eisprong.</li>
+<li>Een condoom of pessarium houdt zaadcellen tegen; het hormoonspiraaltje maakt de slijmprop in de baarmoederhals dik en taai; bij sterilisatie worden zaadleiders of eileiders afgesloten.</li>
+<li>Het koperspiraaltje: koper is giftig voor zaadcellen en het slijmvlies wordt ongeschikt voor innesteling.</li>
+<li>De morning-afterpil stelt de eisprong uit. Hij werkt dus alleen als de eisprong nog niet geweest is. Het is geen abortuspil.</li></ul>
+<p>De <b>Pearl-index</b> geeft aan hoeveel van de honderd vrouwen in een jaar toch zwanger worden. Perfect gebruik = precies volgens de regels; normaal gebruik = zoals mensen het echt doen, met fouten.</p>`,
+films:FV(F.anti,F.baby)};
+
+const a1=vraag(2,"prikpil of pil",(q,id)=>{
+  pre(q,"<p>De pil en de prikpil bevatten allebei hormonen die de eisprong remmen. De pil slik je elke dag; de prikpil is een injectie met een progestageen die je elke 12 weken krijgt.</p>");
+  const {think,ans,unlock}=start(q,B("Leg met tabel 1 uit waardoor de prikpil bij normaal gebruik betrouwbaarder is dan de pil, terwijl ze bij perfect gebruik even betrouwbaar zijn."));
+  choiceStep(think,{q:"Wat laat de kolom ‘perfect gebruik’ zien over de pil en de prikpil?",opts:["de hormonen van allebei remmen de eisprong even goed","de prikpil werkt veel sterker","de pil werkt alleen bij perfect gebruik"],right:0,
+    ok:"Ja: allebei minder dan 1. Het verschil ontstaat dus pas bij normaal gebruik. Waar gaat het dan mis?",no:"Kijk naar de getallen in de laatste kolom: verschillen ze?",
+    onDone:()=>choiceStep(think,{q:"Bij welke methode kun je het vaakst een fout maken?",opts:["bij de pil: elke dag een moment om hem te vergeten","bij de prikpil: elke 12 weken een moment"],right:0,
+      ok:"Goed. Zet die twee dingen in je uitleg.",no:"Tel hoe vaak je er per jaar zelf aan moet denken.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Bij perfect gebruik is het percentage bij allebei <b>kleiner dan 1</b>: de hormonen werken even goed.",
+    "De pil moet je <b>elke dag</b> nemen, de prikpil krijg je maar <b>eens per 12 weken</b>: er zijn veel minder momenten om iets te vergeten, dus minder fouten bij normaal gebruik (4 tegen 7)."],
+    model:"Bij perfect gebruik worden er bij allebei minder dan 1 op de 100 vrouwen zwanger, dus de hormonen werken even goed. Bij normaal gebruik gaat het mis door vergeten. De pil moet je elke dag nemen, de prikpil maar eens per 12 weken, dus bij de prikpil zijn er veel minder kansen op een fout: 4 in plaats van 7.",
+    valkuil:"‘De prikpil bevat meer hormoon en werkt daarom beter’: de kolom perfect gebruik laat zien dat dat niet de verklaring is."});
+  q.append(think,ans);
+},STOF_KETEN);
+
+const a2=vraag(2,"welke schakel?",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Geef bij elke methode aan welke schakel van de keten vooral wordt onderbroken."));
+  seqStep(think,{q:"Zet eerst de schakels van de keten in de goede volgorde.",items:["een eicel komt vrij","een zaadcel bereikt en bevrucht de eicel","het embryo nestelt zich"],shown:[1,2,0],
+    ok:"Goed. Bedenk nu bij elke methode wat hij precies tegenhoudt. Let op de morning-afterpil: wat doet die met de eisprong?",onDone:unlock});
+  const S=["geen eisprong","zaadcel bereikt de eicel niet","geen innesteling"];
+  selectAnswer(ans,{id,uid:"q"+id,rows:[["pil",S,0],["condoom",S,1],["hormoonspiraaltje",S,1],["morning-afterpil",S,0]],score:n=>n===4?2:n===3?1:0,
+    after:()=>waaromBtn(ans,textBox("Pil: remt de eisprong. Condoom: houdt zaadcellen tegen. Hormoonspiraaltje: maakt de slijmprop in de baarmoederhals taai, zodat zaadcellen er niet door komen. Morning-afterpil: <b>stelt de eisprong uit</b>; het is geen abortuspil en hij werkt niet meer als de eisprong al geweest is. Vier goed: 2 punten, drie goed: 1 punt."))});
+  q.append(think,ans);
+},STOF_KETEN);
+
+const STOF_SOA={titel:"Soa's: bacterie of virus",html:`
+<p>Gonorroe, chlamydia en syfilis worden veroorzaakt door een <b>bacterie</b>; die zijn te genezen met antibiotica. Antibiotica grijpen aan op onderdelen die bij bacteriën anders zijn dan bij ons, zoals hun celwand of hun ribosomen.</p>
+<p>Hiv, HPV, herpes en hepatitis B zijn <b>virussen</b>. Een virus vermenigvuldigt zich in je eigen cellen; antibiotica doen daar niets tegen. Tegen sommige virussen bestaat een <b>vaccin</b>, bijvoorbeeld tegen HPV en hepatitis B.</p>
+<p>Veel soa's geven geen klachten. Van al deze anticonceptiemethodes beschermt alleen het condoom ook tegen soa's.</p>`,
+films:FV(F.anti,F.baby)};
+const ids=[a1,a2];
+if(!VWO){
+ids.push(vraag(2,"de HPV-prik ook voor jongens",(q,id)=>{
+  pre(q,"<p>Sinds 2022 krijgen in Nederland niet alleen meisjes, maar ook jongens een uitnodiging voor de HPV-prik. Volgens het RIVM kan HPV kanker veroorzaken van de mond en keel, de penis, de anus, de vagina, de vulva en de baarmoederhals.</p>");
+  const {think,ans,unlock}=start(q,B("Geef twee redenen waarom het zinvol is om ook jongens tegen HPV te vaccineren."));
+  choiceStep(think,{q:"Kan HPV bij een man zelf ook kanker veroorzaken?",opts:["nee, alleen baarmoederhalskanker","ja, bijvoorbeeld van de penis, de anus of de keel"],right:1,
+    ok:"Ja, dat is één reden. HPV is een soa: wat betekent een gevaccineerde jongen voor zijn partners?",no:"Lees de opsomming van het RIVM nog eens.",
+    onDone:()=>choiceStep(think,{q:"Een gevaccineerde jongen raakt minder vaak besmet met HPV. Wat betekent dat voor anderen?",opts:["niets, hij kan het nog even vaak doorgeven","hij geeft HPV minder vaak door aan partners"],right:1,
+      ok:"Goed. Noem beide redenen.",no:"Wie niet besmet raakt, kan het virus ook niet doorgeven.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "HPV kan bij jongens en mannen <b>zelf kanker</b> veroorzaken (van penis, anus, mond of keel); de prik beschermt henzelf.",
+    "Gevaccineerde jongens raken minder vaak besmet en <b>geven HPV minder door</b> aan hun partners, dus ook minder baarmoederhalskanker bij vrouwen."],
+    model:"Ten eerste kan HPV ook bij mannen kanker veroorzaken, bijvoorbeeld van de penis, de anus of de keel; de prik beschermt de jongen zelf. Ten tweede is HPV een soa: een gevaccineerde jongen raakt minder vaak besmet en kan het virus dus ook minder vaak doorgeven aan een partner.",
+    valkuil:"‘Jongens kunnen baarmoederhalskanker krijgen’ is fout. ‘Met antibiotica is HPV niet te genezen’ is waar, maar geen reden om juist jongens te vaccineren."});
+  q.append(think,ans);
+},STOF_SOA));
+}
+const STOF_RES={titel:"Resistentie tegen antibiotica",html:`
+<p>In een groep bacteriën ontstaan door toeval steeds <b>mutaties</b>. Een mutatie kan een bacterie ongevoelig maken voor een antibioticum: <b>resistent</b>.</p>
+<p>Een kuur doodt de gevoelige bacteriën. De bacteriën die er door een toevallige mutatie tegen kunnen, overleven en vermenigvuldigen zich. Dat is <b>natuurlijke selectie</b>: het antibioticum maakt de mutatie niet, het kiest alleen wie overblijft.</p>`,
+films:[F.anti]};
+if(VWO)ids.push(vraag(2,"gonorroe wordt resistent",(q,id)=>{
+  pre(q,"<p>Bij gonorroe dreigt een probleem: er is bijna nog maar één soort antibioticum dat overal goed werkt. Artsen houden daarom goed in de gaten of de bacterie ook daar resistent tegen wordt.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit hoe een groep gonorroebacteriën resistent kan worden tegen een antibioticum."));
+  choiceStep(think,{q:"Waardoor is een enkele bacterie in het begin al resistent?",opts:["door een toevallige mutatie in zijn DNA","doordat hij went aan het antibioticum","doordat het antibioticum de mutatie veroorzaakt"],right:0,
+    ok:"Ja: de mutatie was er al vóór de kuur. Wat doet de kuur dan met de groep?",no:"Een bacterie kan niet ‘wennen’ of zich bewust aanpassen. Waar komen nieuwe eigenschappen van bacteriën vandaan?",
+    onDone:()=>choiceStep(think,{q:"Wat gebeurt er tijdens een kuur?",opts:["alle bacteriën sterven even snel","de gevoelige bacteriën sterven; de resistente overleven en vermenigvuldigen zich"],right:1,
+      ok:"Goed. Twee stappen: ontstaan door mutatie, toenemen door selectie.",no:"Het antibioticum werkt alleen op gevoelige bacteriën.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Door een toevallige <b>mutatie</b> zijn een paar bacteriën ongevoelig (resistent) voor het antibioticum.",
+    "Het antibioticum doodt de gevoelige bacteriën; de resistente <b>overleven en vermenigvuldigen zich</b> (selectie), zodat de groep steeds meer uit resistente bacteriën bestaat."],
+    model:"In de groep zitten door toevallige mutaties een paar bacteriën die ongevoelig zijn voor het antibioticum. De kuur doodt de gevoelige bacteriën. De resistente bacteriën blijven over en vermenigvuldigen zich, en geven de mutatie door. Zo ontstaat een groep die bijna helemaal resistent is.",
+    valkuil:"‘De bacteriën wennen aan het antibioticum’ of ‘het antibioticum zorgt voor de mutatie’ is fout: de mutatie ontstaat toevallig, het antibioticum selecteert alleen."});
+  q.append(think,ans);
+},STOF_RES));
+
+opgave("Anticonceptie","Hoe betrouwbaar? Anticonceptie en soa's",`
+<p>Een meisje wil voorlopig niet zwanger worden en gaat naar de huisarts. Die laat haar een tabel zien met hoeveel vrouwen in het eerste jaar toch zwanger worden met een bepaalde methode (tabel 1). Daarbij is er verschil tussen perfect gebruik (altijd precies volgens de regels) en normaal gebruik (zoals mensen het in het echt doen).</p>
+<p>De huisarts zegt er ook bij: ‘Geen van deze methodes beschermt je tegen soa's, behalve het condoom.’</p>
+${TAB1}`,ids);
+}
+
+/* ===== Opgave 6: Louise Brown, het eerste ivf-kind (nieuw; havo films 2 en 5, vwo film 3 en 5) ===== */
+{
+const STOF_IVF={titel:"Ivf stap voor stap",html:`
+<p>Normaal rijpt er per cyclus één follikel. Bij <b>ivf</b> (bevruchting buiten het lichaam) krijgt de vrouw eerst ongeveer tien dagen <b>hormooninjecties met FSH</b>. `+(VWO?`Tegelijk krijgt ze een middel dat haar eigen LH-piek onderdrukt. Zijn de follikels groot genoeg, dan krijgt ze één injectie met <b>hCG</b>, dat lijkt op LH en de LH-piek nadoet; zo'n anderhalve dag later worden de eicellen opgezogen. `:`Met een dunne naald haalt de arts daarna de eicellen uit de eierstokken. `)+`</p>
+<p>In een schaaltje komen eicellen en zaadcellen samen; bij weinig of slecht zwemmende zaadcellen spuit de arts één zaadcel in de eicel (<b>ICSI</b>). De embryo's groeien een paar dagen in het lab. Meestal gaat er één terug in de baarmoeder, om een tweeling te voorkomen; andere goede embryo's gaan de vriezer in.</p>`,
+films:FV(F.anti,F.baby)};
+const ids=[];
+if(!VWO){
+const STOF_EIL={titel:"Eileider en chlamydia",html:`
+<p>Bij een eisprong vangt de trechter van de <b>eileider</b> de eicel op. <b>In de eileider</b> kan een eicel bevrucht worden; daarna gaat het embryo naar de baarmoeder.</p>
+<p><b>Chlamydia</b> is een soa door een bacterie. Van de tien vrouwen met chlamydia merken er ongeveer zeven niets. Onbehandeld kan chlamydia de eileiders laten ontsteken. Er ontstaan littekens, die de eileider vernauwen of afsluiten.</p>`,
+films:[F.anti,F.org]};
+ids.push(vraag(2,"chlamydia en dichte eileiders",(q,id)=>{
+  pre(q,"<p>Dichte eileiders, zoals bij Lesley, zijn tegenwoordig vaak het gevolg van een chlamydia-infectie van jaren eerder.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit hoe een chlamydia-infectie die geen klachten gaf, kan leiden tot onvruchtbaarheid bij een vrouw."));
+  choiceStep(think,{q:"Waarom wordt chlamydia vaak niet behandeld?",opts:["omdat antibiotica er niet tegen werken","omdat veel vrouwen geen klachten hebben en zich dus niet laten testen"],right:1,
+    ok:"Ja: chlamydia is een bacterie en is met antibiotica te genezen, als je het weet. Wat doet de bacterie onbehandeld?",no:"Chlamydia is een bacterie. Antibiotica werken dus wel. Waarom krijgt iemand dan toch geen kuur?",
+    onDone:()=>choiceStep(think,{q:"Waar vindt de bevruchting plaats?",opts:["in de baarmoeder","in de eileider","in de eierstok"],right:1,
+      ok:"Goed. Wat betekent een afgesloten eileider dan voor zaadcel en eicel?",no:"De eicel wordt na de eisprong opgevangen door een buis met een trechter.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Zonder klachten laat ze zich niet testen en behandelen, zodat de bacterie de <b>eileiders kan ontsteken</b>; daarbij ontstaan <b>littekens</b> die de eileider afsluiten.",
+    "Daardoor kunnen <b>zaadcel en eicel elkaar niet bereiken</b> in de eileider, dus is er geen bevruchting."],
+    model:"Omdat ze geen klachten had, werd de chlamydia niet ontdekt en niet behandeld met antibiotica. De bacterie liet de eileiders ontsteken. Bij het genezen ontstonden littekens, die de eileiders afsloten. Zaadcellen kunnen de eicel dan niet meer bereiken, dus er kan geen bevruchting plaatsvinden.",
+    valkuil:"‘Chlamydia maakt de eicellen kapot’ of ‘ze heeft geen eisprong meer’ is fout: de eierstokken werken gewoon, alleen de weg is dicht."});
+  q.append(think,ans);
+},STOF_EIL));
+ids.push(vraag(2,"één eicel of tien",(q,id)=>{
+  pre(q,"<p>In 1978 hadden Steptoe en Edwards per poging maar één eicel. Tegenwoordig krijgt een vrouw bij ivf eerst ongeveer tien dagen hormooninjecties.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit waardoor de kans op een zwangerschap tegenwoordig groter is dan in 1978 dankzij die hormooninjecties."));
+  choiceStep(think,{q:"Welk hormoon zit in de injecties, en wat doet het?",opts:["FSH: meerdere follikels rijpen tegelijk","oestrogeen: de baarmoeder wordt groter","LH: de eicellen worden sneller bevrucht"],right:0,
+    ok:"Ja: zo heeft de arts een stuk of tien eicellen. Waarom helpt dat?",no:"Welk hormoon laat in de eierstok follikels rijpen?",
+    onDone:()=>choiceStep(think,{q:"Niet elke eicel wordt bevrucht en niet elk embryo groeit goed. Wat levert tien eicellen dus op?",opts:["meer kans op een of meer goede embryo's, en reserve-embryo's voor de vriezer","tien embryo's die allemaal terug in de baarmoeder gaan"],right:0,
+      ok:"Goed. Zet de twee stappen in je uitleg.",no:"Meestal gaat er maar één embryo terug in de baarmoeder.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Door de injecties met <b>FSH</b> rijpen <b>meerdere follikels</b> tegelijk, dus heeft de arts meer eicellen (ongeveer tien).",
+    "Met meer eicellen is de kans groter dat er een of meer <b>goede embryo's</b> ontstaan: de arts kan het beste kiezen en heeft embryo's in de vriezer voor een volgende poging."],
+    model:"Met injecties met FSH rijpen niet één maar ongeveer tien follikels. Niet elke eicel wordt bevrucht en niet elk embryo groeit goed. Met tien eicellen is de kans veel groter dat er minstens één goed embryo is. De arts plaatst het beste terug en kan de andere invriezen voor een volgende poging.",
+    valkuil:"‘Er worden dan meer embryo's teruggeplaatst’: meestal gaat er juist één terug, om een tweeling te voorkomen."});
+  q.append(think,ans);
+},STOF_IVF));
+const STOF_PLAC={titel:"De placenta",html:`
+<p>Een groeiend kind krijgt zuurstof en voedingsstoffen via de <b>placenta</b>. In de placenta liggen bloedvaatjes van het kind vlak naast bloed van de moeder. Het bloed van moeder en kind komt heel dicht bij elkaar, maar <b>mengt niet</b>: er zit altijd een dunne laag cellen tussen.</p>
+<p>Kleine moleculen, zoals zuurstof en koolstofdioxide, gaan door <b>diffusie</b> door die laag, van hoog naar laag.</p>`,
+films:[F.anti,F.cel]};
+ids.push(vraag(2,"alcohol en de placenta",(q,id)=>{
+  pre(q,"<p>Louise Brown groeide negen maanden in de baarmoeder van haar moeder, net als elk ander kind. Artsen raden zwangere vrouwen af om alcohol te drinken.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit dat alcohol uit het bloed van de moeder in het bloed van het kind kan komen, terwijl het bloed van moeder en kind in de placenta niet mengt."));
+  choiceStep(think,{q:"Wat zit er in de placenta tussen het bloed van de moeder en het bloed van het kind?",opts:["niets: het bloed stroomt door dezelfde vaten","een dunne laag cellen"],right:1,
+    ok:"Ja. Hoe komt zuurstof door die laag?",no:"Het bloed van moeder en kind mengt niet. Er moet dus iets tussen zitten.",
+    onDone:()=>choiceStep(think,{q:"Alcohol is een klein molecuul, net als zuurstof. Wat gebeurt er dan?",opts:["het gaat net als zuurstof door de dunne laag naar het bloed van het kind","het blijft in het bloed van de moeder, want het bloed mengt niet"],right:0,
+      ok:"Goed. Combineer de twee dingen.",no:"Ook zuurstof komt bij het kind, terwijl het bloed niet mengt. Hoe kan dat?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "In de placenta zit tussen het bloed van moeder en kind een <b>dunne laag cellen</b>: het bloed zelf mengt niet.",
+    "Alcohol is een <b>klein molecuul</b> dat (door diffusie) door die dunne laag gaat, net als zuurstof, en zo in het bloed van het kind komt."],
+    model:"Het bloed van moeder en kind wordt in de placenta gescheiden door een dunne laag cellen. Kleine moleculen zoals zuurstof gaan door diffusie door die laag. Alcohol is ook een klein molecuul en gaat er net zo makkelijk doorheen, dus het komt toch in het bloed van het kind.",
+    valkuil:"‘Het bloed van moeder en kind mengt in de placenta’ is fout. Alleen ‘alcohol gaat door de placenta’ zonder te zeggen hoe, is 1 punt."});
+  q.append(think,ans);
+},STOF_PLAC));
+}else{
+const STOF_PIEK={titel:"De LH-piek en de eisprong",html:`
+<p>De eicel staat jaren stil in profase I van de meiose. De dominante follikel maakt steeds meer oestrogeen; blijft de oestrogeenspiegel ongeveer twee dagen hoog, dan gaat oestrogeen de afgifte van LH juist stimuleren: <b>positieve terugkoppeling</b>. Het resultaat is de <b>LH-piek</b>.</p>
+<p>Die piek zet drie dingen in gang: de eicel hervat de meiose en maakt de eerste deling af; de wand van de follikel wordt afgebroken; en ongeveer <b>anderhalve dag</b> na het begin van de piek scheurt de follikel open: de eisprong. Daarna staat de eicel opnieuw stil, in metafase II.</p>`,
+films:[F.baby]};
+ids.push(vraag(2,"precies op tijd",(q,id)=>{
+  pre(q,"<p>Steptoe en Edwards haalden de eicel van Lesley met een kijkoperatie uit de follikel, 15 tot 35 uur nadat de LH-piek in de urine was gezien. De urine werd daarvoor elke drie uur verzameld.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit waarom ze de eicel niet veel eerder en ook niet veel later na het begin van de LH-piek konden ophalen."));
+  choiceStep(think,{q:"Wat doet de LH-piek met de eicel zelf?",opts:["die hervat de meiose en maakt de eerste deling af","die wordt direct bevrucht","niets: de LH-piek werkt alleen op de baarmoeder"],right:0,
+    ok:"Ja: vóór de piek is de eicel dus nog niet rijp. En wat gebeurt er ongeveer anderhalve dag na het begin van de piek?",no:"De eicel staat jaren stil in profase I. Wat zet de LH-piek in gang?",
+    onDone:()=>choiceStep(think,{q:"Ongeveer anderhalve dag (± 36 uur) na het begin van de LH-piek…",opts:["scheurt de follikel open en komt de eicel vrij","sterft het geel lichaam af"],right:0,
+      ok:"Goed. Waar is de eicel dan, en kunnen de artsen haar nog uit de follikel halen?",no:"Denk aan de eisprong.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "<b>Te vroeg</b>: de eicel is nog niet rijp; pas door de LH-piek hervat ze de meiose en maakt ze de eerste deling af.",
+    "<b>Te laat</b>: ongeveer anderhalve dag (± 36 uur) na het begin van de LH-piek scheurt de follikel open (eisprong); dan zit de eicel niet meer in de follikel en is ze niet meer op te halen."],
+    model:"De LH-piek laat de eicel de meiose hervatten en de eerste deling afmaken; vóór de piek is de eicel dus nog niet klaar om bevrucht te worden. Ongeveer 36 uur na het begin van de piek is de eisprong: de follikel scheurt open en de eicel verdwijnt uit de follikel. Daarom moest de eicel er tussen die twee momenten uit, en moest de piek zo precies (elke drie uur) gemeten worden.",
+    valkuil:"‘Na de LH-piek is de eicel dood’ klopt niet; het probleem is dat ze na de eisprong de follikel uit is. Bij Lesley kon de eicel bovendien niet verder: haar eileiders zaten dicht."});
+  q.append(think,ans);
+},STOF_PIEK));
+ids.push(vraag(1,"de eigen LH-piek onderdrukken",(q,id)=>{
+  pre(q,"<p>Tegenwoordig krijgt de vrouw bij ivf ongeveer tien dagen injecties met FSH. Tegelijk krijgt ze een middel dat haar eigen LH-piek onderdrukt.</p>");
+  const {think,ans,unlock}=start(q,B("Waarom krijgt ze dat middel?"));
+  choiceStep(think,{q:"Wat zou er gebeuren als haar eigen LH-piek op een onverwacht moment kwam?",opts:["de follikels scheuren open voordat de arts de eicellen kan opzuigen","er rijpen minder follikels","de baarmoeder wordt niet klaar"],right:0,
+    ok:"Ja. De arts wil zelf bepalen wanneer de eicellen hun rijping afmaken.",no:"Wat volgt er ongeveer anderhalve dag na een LH-piek?",onDone:unlock});
+  mc(ans,{qid:id,pts:1,right:1,opts:["Zodat er meer follikels tegelijk rijpen.","Zodat de eicellen niet vrijkomen voordat de arts ze kan opzuigen.","Zodat het baarmoederslijmvlies dikker wordt.","Zodat het geel lichaam langer blijft leven."],
+    onChecked:()=>waaromBtn(ans,textBox("Een eigen LH-piek zou een eisprong geven op een moment dat de arts niet kiest: de eicellen zouden dan al uit de follikels zijn. Daarom wordt de eigen piek onderdrukt en geeft de arts zelf het signaal, met hCG. Meer follikels (A) komt door het FSH. Het antwoord is <b>B</b>."))});
+  q.append(think,ans);
+},STOF_IVF));
+ids.push(vraag(1,"zwangerschapstest na de hCG-injectie",(q,id)=>{
+  pre(q,"<p>Als de follikels groot genoeg zijn, krijgt de vrouw één injectie met hCG. Zo'n anderhalve dag later worden de eicellen opgezogen. Een paar dagen later wordt een embryo teruggeplaatst. Een vrouw doet een week na de hCG-injectie al een zwangerschapstest. Die is positief.</p>");
+  const {think,ans,unlock}=start(q,B("Waarom zegt deze uitslag nog niets?"));
+  choiceStep(think,{q:"Welk hormoon meet een zwangerschapstest?",opts:["progesteron","hCG","oestrogeen"],right:1,
+    ok:"Ja. Waar kan dat hCG een week na de injectie vandaan komen?",no:"Normaal komt dit hormoon alleen van een ingenesteld embryo.",onDone:unlock});
+  mc(ans,{qid:id,pts:1,right:0,opts:["De test meet hCG, en dat kan nog van de injectie komen.","De test meet progesteron, en dat krijgt ze ook extra.","Een embryo maakt pas hCG als de placenta het progesteron overneemt.","Een test werkt niet bij embryo's die in het lab zijn gemaakt."],
+    onChecked:()=>waaromBtn(ans,textBox("Een zwangerschapstest bevat antistoffen die <b>hCG</b> binden. Vlak na een hCG-injectie meet de test dus de injectie zelf, niet een embryo. Pas na ongeveer twee weken zegt de uitslag iets. Het antwoord is <b>A</b>."))});
+  q.append(think,ans);
+},STOF_IVF));
+const STOF_PLAC={titel:"Dichtbij, maar gescheiden",html:`
+<p>In de <b>placenta</b> vormt de trofoblast vlokken vol bloedvaatjes van het kind. Die vlokken hangen in holtes met bloed van de moeder. Er zit altijd een dunne laag cellen tussen.</p>
+<p>Stoffen gaan op verschillende manieren door die laag: door <b>diffusie</b> (van hoog naar laag), met <b>transporteiwitten</b>, of door <b>actief transport</b>. Kleine, ongeladen moleculen gaan er makkelijk doorheen.</p>
+<p>In het begin houdt hCG van het embryo het geel lichaam in leven, zodat het progesteron blijft maken.</p>`,
+films:[F.baby]};
+ids.push(vraag(2,"juist of onjuist: de placenta",(q,id)=>{
+  pre(q,"<p>Na de terugplaatsing van een embryo krijgt de vrouw vaak een paar weken extra progesteron. Over de zwangerschap worden vier uitspraken gedaan:</p>");
+  q.append(el("p",{class:"qtext"},"1 In de placenta stroomt het bloed van de moeder door de vlokken met de bloedvaatjes van het kind.<br>2 Zuurstof gaat door diffusie van het bloed van de moeder naar het bloed van het kind.<br>3 Alcohol en nicotine gaan bijna net zo makkelijk door de placenta als zuurstof.<br>4 Rond week acht tot tien neemt de placenta de productie van progesteron over van het geel lichaam.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  chipsStep(think,{q:"Welke stoffen gaan door de placenta naar het kind? Kies alles wat klopt.",items:[["zuurstof",1],["glucose",1],["rode bloedcellen van de moeder",0],["alcohol",1]],
+    ok:"Goed: kleine moleculen gaan door de laag cellen, maar bloedcellen niet. Bedenk bij uitspraak 4: hoe lang leeft het geel lichaam, en wie neemt het daarna over?",no:"Het bloed van moeder en kind mengt niet. Kunnen hele cellen dan door de laag?",onDone:unlock});
+  juistOnjuist(ans,{id,stm:["het bloed van de moeder stroomt door de vlokken","zuurstof gaat door diffusie","alcohol en nicotine gaan er makkelijk door","rond week 8–10 neemt de placenta progesteron over"],key:[false,true,true,true],
+    uitleg:textBox("1 <b>onjuist</b>: de vlokken bevatten bloedvaatjes van het kind; ze hángen in holtes met bloed van de moeder. Het bloed mengt niet.<br>2 <b>juist</b>: van hoog naar laag.<br>3 <b>juist</b>: kleine, ongeladen moleculen gaan er bijna net zo makkelijk door als zuurstof.<br>4 <b>juist</b>: daarna is het geel lichaam niet meer nodig. Vier goed: 2 punten, drie goed: 1 punt.")});
+  q.append(think,ans);
+},STOF_PLAC));
+}
+
+opgave("Ivf","Louise Brown, het eerste ivf-kind",`
+<p>Op 25 juli 1978 werd in het ziekenhuis van Oldham, in Engeland, Louise Brown geboren: het eerste kind dat ontstond door in-vitrofertilisatie (ivf). Haar ouders probeerden al negen jaar een kind te krijgen, maar dat lukte niet doordat de eileiders van haar moeder Lesley dicht zaten.</p>
+<p>De artsen Patrick Steptoe en Robert Edwards gebruikten in die tijd geen hormooninjecties meer: ze volgden de natuurlijke cyclus van de vrouw. Zo hadden ze per poging maar één eicel. Die werd in een schaaltje bevrucht, en het embryo werd na ongeveer twee dagen in de baarmoeder teruggeplaatst.</p>
+<p class="muted" style="font-size:14px">Bronnen: Encyclopaedia Britannica, ‘Louise Brown’; K. Elder en M.H. Johnson, The Oldham Notebooks III, Reproductive BioMedicine and Society Online 2015.</p>`,ids);
+}
+
+
+/* ================= opgaven en navigatie ================= */
+OPG.sort((a,b)=>a.nr-b.nr);
+/* cijfer als bij een schooltoets: 9 × score / maximum + 1 */
+const NORM="";
+const CIJFER=(()=>{const L=Q.reduce((s,q)=>s+q.pts,0);return Array.from({length:L+1},(_,S)=>Math.round((9*S/L+1)*10)/10);})();
+const main=$("#main"),tabs=$("#tabs");let cur=1;const built={},nextBtns={};
+let curOpg=OPG.some(o=>o.nr===store.opg)?store.opg:1;
+const opg=()=>OPG.find(o=>o.nr===curOpg);
+const pts=o=>o.ids.reduce((s,i)=>s+Q.find(q=>q.id===i).pts,0);
+function reach(){const ids=opg().ids;if(store.vrij)return ids[ids.length-1];let k=0;while(k<ids.length-1&&store.scores[ids[k]]!==undefined)k++;return ids[k];}
+function renderTabs(){
+  tabs.innerHTML="";const r=reach();
+  opg().ids.forEach(id=>{const q=Q.find(x=>x.id===id);const locked=id>r;
+    const b=el("button",{class:(id===cur?"cur ":"")+(store.scores[id]!==undefined?"done":"")+(locked?" lock":""),"aria-label":"Vraag "+id+(locked?" (eerst vraag "+(id-1)+" maken)":""),title:locked?"Maak eerst vraag "+(id-1):""},id);
+    if(locked)b.disabled=true;else b.onclick=()=>open(id);tabs.append(b);});
+  const o=el("button",{class:"ov"+(cur==="ov"?" cur":"")},"Score");o.onclick=()=>open("ov");tabs.append(o);
+}
+function open(id){
+  if(id!=="ov"&&id>reach())id=reach();
+  cur=id;renderTabs();main.innerHTML="";
+  if(id==="ov"){main.append(overview());return;}
+  if(!built[id]){const q=Q.find(x=>x.id===id);const sec=el("article",{class:"q"});
+    q.build(sec);
+    const pap=el("section",{class:"papier","aria-label":"Toetsvraag "+id});
+    pap.append(el("div",{class:"pkop"},`<span class="pnr"><span class="mono">Toetsvraag</span><span class="nr">${id}</span></span><span class="mono">${q.pts} ${q.pts===1?"punt":"punten"}</span>`));
+    for(const c of [...sec.children]){if(c.classList.contains("phase")||c.tagName==="BUTTON")break;pap.append(c);}
+    pap.append(el("div",{class:"pvoet"},"Oefentoets Voortplanting · havo"));
+    sec.prepend(pap);
+    const sb=window.EXSTOF&&EXSTOF.blok(TOOL,id);if(sb)pap.after(sb);
+    /* toetsvraag nog eens boven de antwoorden (Kamiel 25 okt 2026: niet terug hoeven scrollen) */
+    const qt=[...pap.querySelectorAll(".qtext")].pop(),ansP=sec.querySelector(".phase.ans");
+    if(qt&&ansP){const h=el("div",{class:"herhaal papier"});h.append(el("div",{class:"hkop mono"},`Toetsvraag ${id}`));
+      const c=qt.cloneNode(true);c.querySelectorAll("[id]").forEach(x=>x.removeAttribute("id"));h.append(c);
+      const lab=ansP.querySelector(":scope>.label");lab?lab.after(h):ansP.prepend(h);}
+    const ids=opg().ids,last=id===ids[ids.length-1];
+    const nx=el("div",{class:"row",style:"justify-content:flex-end"});const b=el("button",{class:"go"},last?"Naar je score ›":`Volgende vraag (${id+1}) ›`);
+    nextBtns[id]=b;b.hidden=!store.vrij&&store.scores[id]===undefined;
+    b.onclick=()=>{open(last?"ov":id+1);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};nx.append(b);sec.append(nx);built[id]=sec;}
+  main.append(built[id]);
+}
+function overview(){
+  const o=opg();const s=el("section",{class:"phase"});s.append(el("h2",{},`Jouw score op opgave ${o.nr}`));
+  let tot=0;const t=el("table",{class:"data ovtable"});t.innerHTML="<tr><th>vraag</th><th>onderwerp</th><th>score</th></tr>";
+  o.ids.forEach(id=>{const q=Q.find(x=>x.id===id);const p=store.scores[id];if(p!==undefined)tot+=p;t.innerHTML+=`<tr><td>${id}</td><td>${q.t}</td><td>${p===undefined?"–":p} / ${q.pts}</td></tr>`;});
+  const w=el("div",{class:"tablewrap"});w.append(t);s.append(w,el("div",{class:"score"},`Totaal opgave ${o.nr}: ${tot} / ${pts(o)}`));
+  let all=0,allMax=0;OPG.forEach(x=>{allMax+=pts(x);x.ids.forEach(id=>{if(store.scores[id]!==undefined)all+=store.scores[id];});});
+  const gemaakt=OPG.every(x=>x.ids.every(id=>store.scores[id]!==undefined));
+  const cf=CIJFER[Math.min(all,CIJFER.length-1)].toFixed(1).replace(".",",");
+  s.append(el("p",{style:"margin:0"},`Hele toets: <b>${all}</b> van ${allMax} punten · cijfer <b>${cf}</b>`+(gemaakt?"":` <span class="muted">(nog niet alles gemaakt: open vragen tellen als 0 punten)</span>`)));
+  s.append(el("p",{class:"muted",style:"margin:0;font-size:14px"},`Cijfer = 9 × score / maximum + 1. Open vragen kijk je zelf na met het antwoordmodel.`));
+  const nextO=OPG.find(x=>x.nr===o.nr+1);
+  const row=el("div",{class:"row"});
+  if(nextO){const nb=el("button",{class:"go"},`Naar opgave ${nextO.nr}: ${nextO.kort} ›`);nb.onclick=()=>{setOpg(nextO.nr);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};row.append(nb);}
+  const r=el("button",{class:"ghost"},`Opgave ${o.nr} opnieuw`);r.onclick=()=>{o.ids.forEach(id=>{delete store.scores[id];delete built[id];delete nextBtns[id];});save();open(o.ids[0]);};row.append(r);
+  s.append(row);return s;
+}
+function renderOpgs(){const box=$("#opgs");box.innerHTML="";
+  OPG.forEach(o=>{const b=el("button",{"aria-pressed":o.nr===curOpg?"true":"false"},`${o.nr} · ${o.kort}`);b.onclick=()=>setOpg(o.nr);box.append(b);});}
+function setOpg(n){curOpg=n;store.opg=n;save();const o=opg();
+  $("#eb").textContent=`Oefentoets Voortplanting · havo · opgave ${o.nr}`;$("#h1").textContent=o.titel;
+  $("#sub").textContent=`vraag ${o.ids[0]} t/m ${o.ids[o.ids.length-1]} · ${pts(o)} punten`;
+  $("#ctx").innerHTML=o.ctx;renderOpgs();open(reach());}
+function setVrij(v){store.vrij=v;save();$("#vrij").setAttribute("aria-pressed",v?"true":"false");
+  for(const k in nextBtns)nextBtns[k].hidden=!v&&store.scores[k]===undefined;renderTabs();}
+$("#vrij").onclick=()=>setVrij(!store.vrij);setVrij(!!store.vrij);
+EXSTAND.STANDEN.forEach(s=>{s.uitleg=s.uitleg.replace(/examenvraag/g,"toetsvraag").replace("het echte examen","een echte toets").replace(" Zet de klok aan voor 3 uur examentijd.","");if(s.k==="echt")s.naam="Echte toets";});
+EXSTAND.init({store,save,setVrij});
+setOpg(curOpg);
+})();
+
+</script>
+</body>
+</html>

@@ -895,7 +895,18 @@ const HOOFDSTUKKEN = {
     "bij": "Film 5 · anticonceptie, soa's en ivf · havo + vwo"
    }
   ],
-  "tools": [],
+  "tools": [
+   {
+    "href": "tools/toets-voortplanting-havo.html",
+    "naam": "Oefentoets Voortplanting havo",
+    "tekst": "Oefentoets in zes opgaven (24 vragen, 43 punten): per vraag hulpvragen, dan de toetsvraag, nakijken met het antwoordmodel en ‘laat zien waarom’ · vier hulpstanden · bij film 1, 2, 4 en 5"
+   },
+   {
+    "href": "tools/toets-voortplanting-vwo.html",
+    "naam": "Oefentoets Voortplanting vwo",
+    "tekst": "Oefentoets in zes opgaven (26 vragen, 47 punten), met terugkoppeling, het syndroom van Kallmann, de XX-man en de timing van ivf: per vraag hulpvragen, dan de toetsvraag, nakijken en ‘laat zien waarom’ · vier hulpstanden · bij film 1 t/m 5"
+   }
+  ],
   "lessen": [
    {
     "href": "tools/docent/voortplanting-1/index.html",
@@ -4006,7 +4017,7 @@ function examKolommen(h,id){
 }
 
 /* medaillons voor tools en lessen (Kamiel 22 okt 2026: oude lijntekeningen vervangen), img/kunst/tools/<id>.webp; niet in de lijst = lijntekening uit TOOLPLAAT */
-const TICOON={'Kruisingslab':'kruisingslab','Kruisingtrainer':'kruisingslab','Bloedgroepenlab':'bloedgroepenlab','Aardappellab':'aardappellab','Schaallab':'schaallab','De bouw van DNA':'dna-bouw','DNA-profielen vergelijken':'dna-profielen','Waarom U in RNA':'waarom-u-in-rna','De Eiwitfabriek':'eiwitfabriek','Regelkring':'regelkring','Celbouwer':'celbouwer','Virtuele microscoop':'virtuele-microscoop','Microscoop: echte preparaten':'microscoop-echt','Onderzoekskeuring':'onderzoekskeuring','Resistentielab':'resistentielab','Muizensimulatie':'muizensimulatie','Examen havo 2026-I doorklikken':'../iconen/examens','Oefentoets Erfelijkheid havo':'../iconen/erfelijkheid','Oefentoets Erfelijkheid vwo':'../iconen/erfelijkheid'};
+const TICOON={'Kruisingslab':'kruisingslab','Kruisingtrainer':'kruisingslab','Bloedgroepenlab':'bloedgroepenlab','Aardappellab':'aardappellab','Schaallab':'schaallab','De bouw van DNA':'dna-bouw','DNA-profielen vergelijken':'dna-profielen','Waarom U in RNA':'waarom-u-in-rna','De Eiwitfabriek':'eiwitfabriek','Regelkring':'regelkring','Celbouwer':'celbouwer','Virtuele microscoop':'virtuele-microscoop','Microscoop: echte preparaten':'microscoop-echt','Onderzoekskeuring':'onderzoekskeuring','Resistentielab':'resistentielab','Muizensimulatie':'muizensimulatie','Examen havo 2026-I doorklikken':'../iconen/examens','Oefentoets Erfelijkheid havo':'../iconen/erfelijkheid','Oefentoets Erfelijkheid vwo':'../iconen/erfelijkheid','Oefentoets Voortplanting havo':'../iconen/voortplanting','Oefentoets Voortplanting vwo':'../iconen/voortplanting'};
 const LICOON={'tools/docent/evolutie-3/index.html':'films/3-vormen-van-selectie','tools/docent/evolutie-4/index.html':'films/4-de-mens-als-selectiefactor','tools/docent/evolutie-5/index.html':'films/5-toeval-en-uitwisseling','tools/docent/evolutie-6/index.html':'films/6-hoe-een-soort-er-twee-wordt','tools/docent/evolutie-7/index.html':'films/7-hoe-weten-we-dat','tools/docent/evolutie-8/index.html':'films/8-stambomen-lezen','tools/docent/evolutie-2/index.html':'films/2-natuurlijke-selectie','tools/docent/evolutie-1/index.html':'films/1-wat-is-evolutie','tools/docent/cellen-6/index.html':'films/microben','tools/docent/cellen-5/index.html':'films/onderzoek-doen','tools/docent/cellen-4/index.html':'films/diffusie-osmose','tools/docent/cellen-3/index.html':'films/celorganellen','tools/docent/cellen-2/index.html':'films/stamcellen','tools/docent/cellen-1/index.html':'films/van-molecuul-tot-biosfeer','tools/dna-bouw/index.html':'tools/dna-bouw','tools/docent/dna-2/index.html':'films/3-van-dna-naar-eiwit','tools/docent/dna-3/index.html':'films/5-mutaties','tools/docent/voortplanting-1/index.html':'tools/les-voortplanting-1','tools/docent/voortplanting-2/index.html':'films/1-precies-op-tijd','tools/docent/voortplanting-3/index.html':'tools/les-voortplanting-3','tools/docent/erfelijkheid-1/index.html':'films/1-chromosomen','tools/docent/erfelijkheid-2/index.html':'films/2-monohybride-kruisingen','tools/docent/erfelijkheid-3/index.html':'films/6-stambomen-en-kansrekenen'};
 const tmed=pad=>`<img class="tmed" src="img/kunst/${pad}.webp?v=1" alt="" width="150" height="150" loading="lazy" decoding="async">`;
 function toolRij(t){
