@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script>(function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<script src="../../../js/teller.js" data-root="../../../"></script>
+<link rel="icon" href="../../../img/icoon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../../img/icoon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../../../img/icoon/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Les 1 · De stikstofkringloop · Ecologie · Biologie bij Kamiel</title>
+<meta name="description" content="Uitleg in stappen voor de docent: de stikstofkringloop met binding, opname, voeding, ammonificatie, nitrificatie, denitrificatie en de invloed van de mens, plus een overzicht van alle stikstofverbindingen en bacteriën.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../../huisstijl.css">
+<script src="../../huisstijl.js"></script>
+<style>
+/* Uitleg in stappen · Ecologie · les 1 De stikstofkringloop · versie 1.0 · 3 november 2026
+   Schema (SVG) met per stap oplichtende pijlen + uitlegpaneel; onderaan overzicht van stoffen en bacteriën. Inhoud: NODES, ARROWS, STEPS in het script. */
+
+/* Layout: kringloopdiagram (lucht boven, bodem onder) links, uitlegpaneel rechts; stappen bovenaan */
+:root{
+  --fg:var(--text); --muted:var(--text2); --card:var(--surface);
+  --sky:color-mix(in srgb,var(--teal) 10%,var(--surface)); --soil:color-mix(in srgb,var(--oker) 13%,var(--surface)); --soil-line:var(--oker);
+  --arrow:var(--text3); --accent:var(--teal); --accent-2:var(--koraal);
+  --node:var(--surface2); --node-on:color-mix(in srgb,var(--teal) 24%,var(--surface));
+  --display:var(--titel); --body:var(--tekst);
+}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.5}
+.wrap{max-width:1400px;margin:0 auto;padding-block:20px 32px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:16px}
+header{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(1.6rem,3vw,2.4rem);margin:0;line-height:1.1;text-wrap:balance}
+.sub{color:var(--muted);margin:2px 0 0}
+.tools{display:flex;gap:8px;flex-wrap:wrap}
+button{font:inherit;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:8px;padding:8px 14px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+button[aria-pressed="true"]{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+.steps{display:flex;gap:6px;flex-wrap:wrap}
+.steps button{padding:6px 12px;font-size:.95rem}
+.steps button.on{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+main{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:900px){main{grid-template-columns:1fr}}
+.diagram{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+svg{display:block;width:100%;height:auto}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.eyebrow{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.panel h2{font-family:var(--display);font-weight:800;font-size:1.7rem;margin:0;line-height:1.15;text-wrap:balance}
+.panel p{margin:0}
+.panel ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:.95rem;border-top:1px solid var(--line);padding-top:12px}
+.facts dt{color:var(--muted);font-weight:600}
+.facts dd{margin:0}
+.chem{font-family:var(--display);font-weight:600}
+.vraag{border-left:4px solid var(--accent-2);padding:8px 12px;background:var(--bg);border-radius:0 8px 8px 0}
+.vraag b{color:var(--accent-2)}
+.nav{display:flex;justify-content:space-between;gap:8px;margin-top:4px}
+.hint{color:var(--muted);font-size:.85rem}
+
+/* SVG */
+.zone-sky{fill:var(--sky)} .zone-soil{fill:var(--soil)}
+.groundline{stroke:var(--soil-line);stroke-width:2;stroke-dasharray:6 5}
+.zonelabel{fill:var(--muted);font:600 13px var(--body);letter-spacing:.1em;text-transform:uppercase}
+.node rect{fill:var(--node);stroke:var(--line);stroke-width:1.5;transition:fill .25s,stroke .25s}
+.node .t1{fill:var(--fg);font:700 17px var(--display);text-anchor:middle}
+.node .t2{fill:var(--muted);font:500 13px var(--body);text-anchor:middle}
+.node.on rect{fill:var(--node-on);stroke:var(--accent);stroke-width:3}
+.arr{fill:none;stroke:var(--arrow);stroke-width:2.5;transition:stroke .25s,opacity .25s}
+.arr.on{stroke:var(--accent);stroke-width:4.5}
+.dim .arr:not(.on){opacity:.28}
+.dim .lab:not(.on){opacity:.3}
+.dim .node:not(.on){opacity:.55}
+.lab circle{fill:var(--card);stroke:var(--arrow);stroke-width:2}
+.lab .n{fill:var(--fg);font:700 13px var(--display);text-anchor:middle;dominant-baseline:central}
+.lab .txt{fill:var(--fg);font:600 13px var(--body);paint-order:stroke;stroke:var(--card);stroke-width:5px;stroke-linejoin:round}
+.lab.on circle{fill:var(--accent);stroke:var(--accent)}
+.lab.on .n{fill:var(--card)}
+.hide-names .lab .txt{display:none}
+.mark{fill:var(--arrow)} .mark-on{fill:var(--accent)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.ref{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;display:flex;flex-direction:column;gap:14px;min-width:0;scroll-margin-top:16px}
+.ref h2{font-family:var(--display);font-weight:800;font-size:1.6rem;margin:0}
+.ref h3{font-family:var(--display);font-weight:700;font-size:1.2rem;margin:8px 0 0}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.98rem}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--line)}
+th{font-size:.78rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600;background:var(--bg)}
+td.f{font-family:var(--display);font-weight:700;white-space:nowrap;color:var(--accent)}
+.tag{display:inline-block;font-size:.8rem;font-weight:600;padding:1px 8px;border-radius:99px;border:1px solid var(--line);white-space:nowrap}
+.tag.aer{color:var(--accent);border-color:var(--accent)}
+.tag.ana{color:var(--accent-2);border-color:var(--accent-2)}
+.ref .note{color:var(--muted);font-size:.9rem;margin:0}
+a.jump{font-weight:600;color:var(--accent);text-decoration:none;border:1px solid var(--line);border-radius:8px;padding:8px 14px;background:var(--card)}
+a.jump:hover{border-color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="sitenav" aria-label="Site">
+    <a class="merk" href="../../../index.html#home">Biologie bij Kamiel</a>
+    <a class="terug" href="../../../index.html#lessen-ecologie">← Alle lessen</a>
+    <a class="terug" href="../../../index.html#ecologie">Ecologie</a>
+    <span class="rechts"><button type="button" class="icoon" data-thema-knop></button></span>
+  </nav>
+  <header>
+    <div>
+      <h1>De stikstofkringloop</h1>
+      <p class="sub">Hoort bij de film <a href="../../../films/ecologie/7-stikstof-gaat-rond.html">Stikstof gaat rond</a>. Klik op een stap, of gebruik ← → op het toetsenbord.</p>
+    </div>
+    <div class="tools">
+      <button id="btnNames" aria-pressed="false">Procesnamen verbergen</button>
+      <a class="jump" href="#overzicht">Alle stoffen en bacteriën ↓</a>
+    </div>
+  </header>
+  <nav class="steps" id="steps" aria-label="Stappen"></nav>
+  <main>
+    <div class="diagram" id="diagramWrap">
+      <svg id="svg" viewBox="0 0 960 530" role="img" aria-label="Schema van de stikstofkringloop">
+        <defs>
+          <marker id="m" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="mark" d="M0,0 L10,5 L0,10 z"/></marker>
+          <marker id="mon" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path class="mark-on" d="M0,0 L10,5 L0,10 z"/></marker>
+        </defs>
+        <rect class="zone-sky" x="0" y="0" width="960" height="185"/>
+        <rect class="zone-soil" x="0" y="185" width="960" height="345"/>
+        <line class="groundline" x1="0" y1="185" x2="960" y2="185"/>
+        <text class="zonelabel" x="16" y="26">Lucht</text>
+        <text class="zonelabel" x="16" y="515">Bodem</text>
+        <g id="arrows"></g>
+        <g id="nodes"></g>
+        <g id="labels"></g>
+      </svg>
+    </div>
+    <section class="panel" id="panel" aria-live="polite"></section>
+  </main>
+
+  <section class="ref" id="overzicht">
+    <h2>Overzicht: stoffen en bacteriën</h2>
+
+    <h3>Stikstofverbindingen</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Formule</th><th>Naam</th><th>Soort</th><th>Waar</th><th>Bijzonderheden</th></tr></thead>
+      <tbody>
+        <tr><td class="f">N₂</td><td>stikstofgas</td><td>anorganisch</td><td>lucht (78%)</td><td>drievoudige binding, niet bruikbaar voor planten en dieren</td></tr>
+        <tr><td class="f">NH₃</td><td>ammoniak</td><td>anorganisch</td><td>lucht, mest</td><td>gas uit mest en urine (veeteelt); oorzaak van stikstofdepositie; afvalstof van vissen</td></tr>
+        <tr><td class="f">NH₄⁺</td><td>ammonium</td><td>anorganisch</td><td>bodem, water</td><td>ontstaat bij binding en ammonificatie; opneembaar door planten</td></tr>
+        <tr><td class="f">NO₂⁻</td><td>nitriet</td><td>anorganisch</td><td>bodem, water</td><td>tussenstof bij nitrificatie; giftig, wordt snel verder omgezet</td></tr>
+        <tr><td class="f">NO₃⁻</td><td>nitraat</td><td>anorganisch</td><td>bodem, water</td><td>belangrijkste N-bron voor planten; spoelt makkelijk uit → eutrofiëring</td></tr>
+        <tr><td class="f">N₂O</td><td>distikstofoxide (lachgas)</td><td>anorganisch</td><td>lucht</td><td>bijproduct van denitrificatie; sterk broeikasgas</td></tr>
+        <tr><td class="f">NOₓ</td><td>stikstofoxiden (NO, NO₂)</td><td>anorganisch</td><td>lucht</td><td>bij bliksem en verbranding (verkeer, industrie); geeft met regen nitraat</td></tr>
+        <tr><td class="f">–NH₂</td><td>aminozuren, eiwitten</td><td>organisch</td><td>organismen</td><td>gemaakt door planten (assimilatie), via voedsel naar dieren</td></tr>
+        <tr><td class="f">N-basen</td><td>DNA, RNA, ATP, chlorofyl</td><td>organisch</td><td>organismen</td><td>nucleotiden bevatten stikstofbasen; bladgroen bevat N</td></tr>
+        <tr><td class="f">CO(NH₂)₂</td><td>ureum</td><td>organisch</td><td>urine</td><td>afvalstof van zoogdieren, gemaakt in de lever</td></tr>
+        <tr><td class="f">urinezuur</td><td>urinezuur</td><td>organisch</td><td>uitwerpselen</td><td>afvalstof van vogels, reptielen en insecten; weinig water nodig</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>Bacteriën en hun omzettingen</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Groep</th><th>Voorbeelden</th><th>Omzetting</th><th>Proces</th><th>Zuurstof</th><th>Voeding</th></tr></thead>
+      <tbody>
+        <tr><td><b>Stikstofbindende bacteriën</b> (symbiotisch)</td><td><i>Rhizobium</i> in wortelknolletjes van vlinderbloemigen; <i>Frankia</i> bij de els</td><td class="f">N₂ → NH₄⁺</td><td>stikstofbinding</td><td><span class="tag ana">O₂-arm nodig</span></td><td>heterotroof (krijgt suikers van de plant)</td></tr>
+        <tr><td><b>Stikstofbindende bacteriën</b> (vrijlevend)</td><td><i>Azotobacter</i> (aeroob), <i>Clostridium</i> (anaeroob)</td><td class="f">N₂ → NH₄⁺</td><td>stikstofbinding</td><td><span class="tag">beide</span></td><td>heterotroof</td></tr>
+        <tr><td><b>Cyanobacteriën</b></td><td><i>Anabaena</i>, <i>Nostoc</i> (in water, rijstvelden)</td><td class="f">N₂ → NH₄⁺</td><td>stikstofbinding</td><td><span class="tag">in heterocysten zonder O₂</span></td><td>foto-autotroof</td></tr>
+        <tr><td><b>Reducenten</b> (rottingsbacteriën en schimmels)</td><td>veel soorten, bijv. <i>Bacillus</i></td><td class="f">eiwit, ureum → NH₄⁺</td><td>ammonificatie</td><td><span class="tag">beide</span></td><td>heterotroof</td></tr>
+        <tr><td><b>Nitrietbacteriën</b></td><td><i>Nitrosomonas</i></td><td class="f">NH₄⁺ → NO₂⁻</td><td>nitrificatie (stap 1)</td><td><span class="tag aer">aeroob</span></td><td>chemo-autotroof</td></tr>
+        <tr><td><b>Nitraatbacteriën</b></td><td><i>Nitrobacter</i></td><td class="f">NO₂⁻ → NO₃⁻</td><td>nitrificatie (stap 2)</td><td><span class="tag aer">aeroob</span></td><td>chemo-autotroof</td></tr>
+        <tr><td><b>Denitrificerende bacteriën</b></td><td><i>Pseudomonas</i>, <i>Paracoccus</i></td><td class="f">NO₃⁻ → N₂ (+ N₂O)</td><td>denitrificatie</td><td><span class="tag ana">anaeroob</span></td><td>heterotroof</td></tr>
+        <tr><td><b>Anammox-bacteriën</b> <span class="tag">extra</span></td><td><i>Brocadia</i></td><td class="f">NH₄⁺ + NO₂⁻ → N₂</td><td>anaerobe ammonium-oxidatie</td><td><span class="tag ana">anaeroob</span></td><td>chemo-autotroof</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">Chemo-autotroof: haalt energie uit het oxideren van een anorganische stof (chemosynthese) en legt daarmee CO₂ vast. Anammox staat meestal niet in de methode, maar wordt in Nederland gebruikt in rioolwaterzuiveringen.</p>
+  </section>
+</div>
+
+<script>
+const NODES = {
+  n2:   {x:480,y:60,  t:"N₂",          s:"stikstofgas (78%)"},
+  kunst:{x:860,y:110, t:"Kunstmest",   s:"Haber-Bosch"},
+  prod: {x:120,y:222, t:"Producenten", s:"planten: eiwitten, DNA"},
+  cons: {x:120,y:420, t:"Consumenten", s:"dieren: eiwitten, DNA"},
+  dood: {x:380,y:470, t:"Dood materiaal", s:"resten, uitwerpselen, urine"},
+  amm:  {x:620,y:470, t:"Ammonium",    s:"NH₄⁺"},
+  nitriet:{x:860,y:380,t:"Nitriet",    s:"NO₂⁻"},
+  nitraat:{x:640,y:232,t:"Nitraat",    s:"NO₃⁻"}
+};
+const ARROWS = {
+  bind1:{d:"M400,58 Q170,50 128,192", lab:"stikstofbinding (wortelknolletjes)", n:2, t:.42, dx:-6, dy:-14, anchor:"middle"},
+  bind2:{d:"M445,88 Q445,330 555,442", lab:"binding (vrijlevend)", n:2, t:.5, dx:-14, anchor:"end"},
+  blik: {d:"M522,88 Q575,150 600,202", lab:"bliksem", n:2, t:.45, dx:16},
+  denit:{d:"M655,202 Q650,95 562,66", lab:"denitrificatie", n:8, t:.45, dx:16},
+  kunst:{d:"M790,138 Q735,160 705,202", lab:"kunstmest", n:9, t:.5, dx:16, dy:10},
+  opn1: {d:"M560,226 L204,222", lab:"opname", n:3, t:.62, dy:-16, anchor:"middle"},
+  opn2: {d:"M540,456 Q310,330 190,252", lab:"opname", n:3, t:.42, dx:16, dy:-6},
+  eten: {d:"M120,250 L120,390", lab:"eten", n:4, t:.5, dx:16},
+  dood1:{d:"M175,250 Q320,340 345,440", lab:"afsterven", n:5, t:.6, dx:-16, anchor:"end", dy:6},
+  dood2:{d:"M200,432 Q255,470 298,470", lab:"sterven, poep, urine", n:5, t:.35, dy:30, anchor:"middle"},
+  amm:  {d:"M460,470 L538,470", lab:"ammonificatie", n:6, t:.5, dy:-36, anchor:"middle"},
+  nit1: {d:"M700,476 Q830,490 850,410", lab:"nitrificatie (1)", n:7, t:.5, dy:22, anchor:"middle"},
+  nit2: {d:"M845,350 Q815,262 722,240", lab:"nitrificatie (2)", n:7, t:.5, dx:16}
+};
+const STEPS = [
+ {k:"Overzicht", title:"Waarom een kringloop?", arrows:Object.keys(ARROWS), nodes:Object.keys(NODES),
+  html:`<p>Elk organisme heeft stikstof (N) nodig voor <b>aminozuren en eiwitten</b>, <b>DNA en RNA</b>, ATP en bladgroen. Toch kunnen planten en dieren het stikstofgas uit de lucht niet gebruiken.</p>
+  <p>Bacteriën zetten stikstof steeds om in een andere vorm. Zo gaan dezelfde stikstofatomen telkens rond tussen lucht, bodem en organismen.</p>`,
+  facts:[["Anorganisch","N₂, NH₄⁺, NO₂⁻, NO₃⁻"],["Organisch","eiwitten, DNA, ureum"]],
+  q:"In welke stoffen in jouw lichaam zit stikstof?"},
+ {k:"1 · N₂", title:"Stikstofgas in de lucht", arrows:[], nodes:["n2"],
+  html:`<p>Lucht bestaat voor ongeveer <b>78% uit N₂</b>. De twee N-atomen zitten vast met een drievoudige binding. Die is zo sterk dat planten en dieren N₂ niet kunnen omzetten.</p>
+  <p>Er is dus stikstof genoeg, maar in een vorm die bijna geen organisme kan gebruiken.</p>`,
+  facts:[["Vorm","N≡N, zeer stabiel"]],
+  q:"Je ademt elke keer N₂ in. Waarom heb je daar niets aan?"},
+ {k:"2 · Binding", title:"Stikstofbinding", arrows:["bind1","bind2","blik"], nodes:["n2","prod","amm","nitraat"],
+  html:`<p><b>Stikstofbindende bacteriën</b> zetten N₂ om in ammonium (NH₄⁺). Dit kost veel energie (ATP).</p>
+  <ul><li><b>Rhizobium</b> leeft in <b>wortelknolletjes</b> van vlinderbloemigen (klaver, erwt, boon, lupine). Dit is <b>mutualisme</b>: de plant geeft suikers, de bacterie geeft stikstofverbindingen.</li>
+  <li><b>Vrijlevende</b> bacteriën in de bodem en cyanobacteriën in water binden ook N₂.</li>
+  <li><b>Bliksem</b> laat N₂ met O₂ reageren tot stikstofoxiden; die komen met regen als nitraat in de bodem. Dat is een kleine bijdrage.</li></ul>`,
+  facts:[["Organismen","stikstofbindende bacteriën"],["Omzetting","N₂ → NH₄⁺"],["Let op","het enzym werkt alleen zonder O₂"]],
+  q:"Waarom zaaien boeren soms klaver op een akker die ze rust geven?"},
+ {k:"3 · Opname", title:"Opname door planten", arrows:["opn1","opn2"], nodes:["prod","nitraat","amm"],
+  html:`<p>Planten nemen <b>nitraat</b> (vooral) en <b>ammonium</b> op uit de bodem via hun wortels, door <b>actief transport</b>.</p>
+  <p>Met de stikstof en de glucose uit fotosynthese maakt de plant <b>aminozuren</b>, en daarmee eiwitten. Ook DNA, RNA en chlorofyl bevatten N. Dit heet <b>assimilatie</b>.</p>`,
+  facts:[["Opname als","NO₃⁻ en NH₄⁺"],["Wordt","aminozuren → eiwitten"]],
+  q:"Een plant met stikstoftekort krijgt gele bladeren. Hoe verklaar je dat?"},
+ {k:"4 · Voeding", title:"Via de voedselketen", arrows:["eten"], nodes:["prod","cons"],
+  html:`<p>Dieren kunnen stikstof alleen via hun <b>voedsel</b> binnenkrijgen, vooral als eiwitten. Ze verteren eiwitten tot aminozuren en bouwen daarmee hun eigen eiwitten.</p>
+  <p>Een teveel aan aminozuren wordt afgebroken (deaminering). De stikstof wordt uitgescheiden als <b>ureum</b> (zoogdieren), <b>urinezuur</b> (vogels) of <b>ammoniak</b> (vissen).</p>`,
+  facts:[["Vorm","organisch: eiwitten"],["Afval","ureum, urinezuur, NH₃"]],
+  q:"Waarom moeten zoogdieren hun teveel aan stikstof omzetten in ureum?"},
+ {k:"5 · Dood & afval", title:"Afsterven en uitscheiden", arrows:["dood1","dood2"], nodes:["prod","cons","dood"],
+  html:`<p>Bladeren vallen af, planten en dieren gaan dood, dieren poepen en plassen. Al dit <b>dode organische materiaal</b> bevat nog stikstof in eiwitten, DNA en ureum.</p>
+  <p>Planten kunnen deze organische stikstof niet direct opnemen. Eerst moeten reducenten aan het werk.</p>`,
+  facts:[["Vorm","organische N-verbindingen"]],
+  q:"Wat zou er gebeuren als er geen reducenten bestonden?"},
+ {k:"6 · Ammonificatie", title:"Ammonificatie (rotting)", arrows:["amm"], nodes:["dood","amm"],
+  html:`<p><b>Reducenten</b> (rottingsbacteriën en schimmels) breken eiwitten en ureum af. Daarbij komt <b>ammoniak / ammonium</b> vrij in de bodem.</p>
+  <p>De reducenten halen hier zelf energie en bouwstoffen uit. Het ammonium kan door planten worden opgenomen of verder worden omgezet.</p>`,
+  facts:[["Organismen","bacteriën en schimmels"],["Omzetting","organisch N → NH₄⁺"]],
+  q:"Waarom ruikt een mestvaalt of kattenbak naar ammoniak?"},
+ {k:"7 · Nitrificatie", title:"Nitrificatie", arrows:["nit1","nit2"], nodes:["amm","nitriet","nitraat"],
+  html:`<p>Twee groepen <b>nitrificerende bacteriën</b> zetten ammonium in twee stappen om in nitraat:</p>
+  <ul><li><b>Nitrietbacteriën</b> (Nitrosomonas): NH₄⁺ → NO₂⁻</li>
+  <li><b>Nitraatbacteriën</b> (Nitrobacter): NO₂⁻ → NO₃⁻</li></ul>
+  <p>Dit zijn <b>oxidaties</b>: er is <b>zuurstof</b> voor nodig. De bacteriën zijn <b>chemo-autotroof</b>: met de vrijgekomen energie leggen ze CO₂ vast (chemosynthese).</p>`,
+  facts:[["Voorwaarde","aeroob, goed doorluchte grond"],["Omzetting","NH₄⁺ → NO₂⁻ → NO₃⁻"]],
+  q:"Waarom is het goed voor de stikstofvoorziening van planten als een boer de grond omploegt?"},
+ {k:"8 · Denitrificatie", title:"Denitrificatie", arrows:["denit"], nodes:["nitraat","n2"],
+  html:`<p><b>Denitrificerende bacteriën</b> zetten nitraat om in <b>N₂</b> (en wat N₂O, lachgas). Zij gebruiken nitraat in plaats van zuurstof bij hun dissimilatie.</p>
+  <p>Dit gebeurt <b>anaeroob</b>: in natte, zuurstofarme grond en in slib. De stikstof verdwijnt terug naar de lucht en is weg voor planten. Zo is de kringloop rond.</p>`,
+  facts:[["Voorwaarde","anaeroob, natte grond"],["Omzetting","NO₃⁻ → N₂"],["Toepassing","rioolwaterzuivering"]],
+  q:"Waarom groeien gewassen slecht op een drassige, slecht gedraineerde akker?"},
+ {k:"9 · De mens", title:"Invloed van de mens", arrows:["kunst"], nodes:["kunst","nitraat","amm"],
+  html:`<p>Met het <b>Haber-Bosch-proces</b> maakt de industrie van N₂ ammoniak, voor <b>kunstmest</b>. Samen met dierlijke mest komt er zo veel meer stikstof in de kringloop dan er van nature in zou zitten.</p>
+  <ul><li><b>Uitspoeling</b> van nitraat naar sloten en meren geeft <b>eutrofiëring</b>: algengroei, zuurstoftekort, vissterfte.</li>
+  <li><b>Ammoniak</b> uit veeteelt komt via de lucht terecht in natuur (<b>stikstofdepositie</b>). Snelgroeiers als grassen en brandnetels verdringen heide en andere soorten van voedselarme grond: de biodiversiteit daalt.</li></ul>`,
+  facts:[["Bron","kunstmest, mest, verkeer, industrie"],["Gevolg","eutrofiëring, minder biodiversiteit"]],
+  q:"Leg met de kringloop uit waarom heide door stikstofdepositie verandert in grasland."}
+];
+
+const NS="http://www.w3.org/2000/svg";
+const el=(t,a={},p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e};
+const gA=document.getElementById("arrows"),gN=document.getElementById("nodes"),gL=document.getElementById("labels");
+const arrowEls={},labelEls={},nodeEls={};
+for(const id in ARROWS){
+  const a=ARROWS[id];
+  const p=el("path",{d:a.d,class:"arr","marker-end":"url(#m)"},gA);
+  arrowEls[id]=p;
+}
+for(const id in NODES){
+  const n=NODES[id];const g=el("g",{class:"node"},gN);
+  el("rect",{x:n.x-82,y:n.y-28,width:164,height:56,rx:10},g);
+  const t1=el("text",{x:n.x,y:n.y-3,class:"t1"},g);t1.textContent=n.t;
+  const t2=el("text",{x:n.x,y:n.y+16,class:"t2"},g);t2.textContent=n.s;
+  nodeEls[id]=g;
+}
+for(const id in ARROWS){
+  const a=ARROWS[id],p=arrowEls[id];const L=p.getTotalLength(),pt=p.getPointAtLength(L*a.t);
+  const g=el("g",{class:"lab"},gL);
+  el("circle",{cx:pt.x,cy:pt.y,r:11},g);
+  const n=el("text",{x:pt.x,y:pt.y+.5,class:"n"},g);n.textContent=a.n;
+  const anc=a.anchor||"start";
+  let tx=pt.x+(a.dx||0),ty=pt.y+(a.dy||0)+4;
+  if(anc==="middle"&&!a.dx){tx=pt.x}
+  const t=el("text",{x:tx,y:ty,class:"txt","text-anchor":anc},g);t.textContent=a.lab;
+  labelEls[id]=g;
+}
+
+const stepsNav=document.getElementById("steps"),panel=document.getElementById("panel"),svg=document.getElementById("svg");
+let cur=0;
+STEPS.forEach((s,i)=>{const b=document.createElement("button");b.textContent=s.k;b.id="step-"+i;b.onclick=()=>show(i);stepsNav.appendChild(b)});
+function show(i){
+  cur=Math.max(0,Math.min(STEPS.length-1,i));const s=STEPS[cur];
+  [...stepsNav.children].forEach((b,j)=>{b.classList.toggle("on",j===cur);b.setAttribute("aria-current",j===cur?"step":"false")});
+  svg.classList.toggle("dim",cur!==0);
+  for(const id in arrowEls){const on=cur!==0&&s.arrows.includes(id);arrowEls[id].classList.toggle("on",on);arrowEls[id].setAttribute("marker-end",on?"url(#mon)":"url(#m)");labelEls[id].classList.toggle("on",on)}
+  for(const id in nodeEls){nodeEls[id].classList.toggle("on",cur!==0&&s.nodes.includes(id))}
+  panel.innerHTML=`<div class="eyebrow">${cur===0?"Overzicht":"Stap "+cur+" van "+(STEPS.length-1)}</div>
+   <h2>${s.title}</h2>${s.html}
+   <dl class="facts">${s.facts.map(f=>`<dt>${f[0]}</dt><dd class="${/[₀-₉⁺⁻]/.test(f[1])?"chem":""}">${f[1]}</dd>`).join("")}</dl>
+   <div class="vraag"><b>Vraag aan de klas:</b> ${s.q}</div>
+   <div class="nav"><button id="prev" ${cur===0?"disabled":""}>← Vorige</button><button id="next" ${cur===STEPS.length-1?"disabled":""}>Volgende →</button></div>`;
+  document.getElementById("prev").onclick=()=>show(cur-1);
+  document.getElementById("next").onclick=()=>show(cur+1);
+}
+document.addEventListener("keydown",e=>{if(e.key==="ArrowRight"||e.key==="PageDown")show(cur+1);if(e.key==="ArrowLeft"||e.key==="PageUp")show(cur-1)});
+const bn=document.getElementById("btnNames");
+bn.onclick=()=>{const on=bn.getAttribute("aria-pressed")!=="true";bn.setAttribute("aria-pressed",on);svg.classList.toggle("hide-names",on);bn.textContent=on?"Procesnamen tonen":"Procesnamen verbergen"};
+show(0);
+</script>
+<p data-licentie style="max-width:1080px;margin:28px auto 22px;padding:0 24px;font:13px/1.5 system-ui,-apple-system,'Segoe UI',sans-serif;opacity:.6;text-align:center">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../../../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></p>
+</body>
+</html>
