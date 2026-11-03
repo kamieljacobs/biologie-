@@ -29,6 +29,7 @@ Vwo H9 Mens en milieu heeft sinds 20 okt 2026 een eigen hoofdstukpagina (`#milie
 ## Overige openstaande punten
 - In 27 films staan aanvullingen als `[nieuw]` in `bron/script.md` die nog niet zijn ingesproken (vergelijking met Gewoon Uitgelegd); alleen de nieuwe alinea's inspreken.
 - Onderbouwfilms (kerndoelen 32A–33C): 21 op 'komt nog'.
+- Aanvulling onderbouw (3 nov 2026): vier nieuwe films (stress, modellen/29B, biodiversiteit om de school, zintuigen), briefs in `films/onderbouw/AANVULLING-2026-11.md`; één film per sessie bouwen.
 - Nieuwsgierig?: 9 films op 'komt nog'.
 
 ## Uitspraak opnieuw inspreken (na uitspraaktest 18 okt 2026)
