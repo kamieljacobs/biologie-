@@ -4,16 +4,16 @@ Statische site (GitHub Pages, branch `main`, map `/`): `index.html` is de nieuwe
 
 ## Repo slank binnenhalen (Kamiel 3 nov 2026)
 
-De repo is groot (±2,5 GB aan bestanden, waarvan 1,3 GB mp3; boven GitHub's aanbevolen 1 GB). Een gewone clone duurt meer dan 10 minuten. Haal hem daarom slank binnen, zonder audio en beelden:
+De repo is groot (±2,5 GB aan bestanden, waarvan 1,3 GB mp3; boven GitHub's aanbevolen 1 GB). Een gewone clone duurt meer dan 10 minuten. Haal hem daarom slank binnen, zonder audio, beelden en de `bron/`-werkmappen van de films (±3 minuten in plaats van ruim 10):
 
 ```
 git clone --depth 1 --filter=blob:none --no-checkout https://github.com/kamieljacobs/biologie- biologie-
 cd biologie-
-git sparse-checkout set --no-cone '/*' '!*.mp3' '!*.mp4' '!*.wav' '!*.webm' '!*.webp' '!*.jpg' '!*.jpeg' '!*.png' '!*.pdf'
+git sparse-checkout set --no-cone '/*' '!*.mp3' '!*.mp4' '!*.wav' '!*.webm' '!*.webp' '!*.jpg' '!*.jpeg' '!*.png' '!*.pdf' '!bron/'
 git checkout
 ```
 
-- Werk je aan één film en heb je zijn audio of beelden nodig, haal dan alleen die map erbij: `git sparse-checkout add '/films/<hoofdstuk>/<film>/**'` (een latere regel wint van de uitsluitingen). Werk je aan beelden van de site: `git sparse-checkout add '/img/**'`.
+- Werk je aan één film (bronmap, audio, beelden), haal dan alleen die map erbij: `git sparse-checkout add '/films/<hoofdstuk>/<film>/**'` (een latere regel wint van de uitsluitingen). Werk je aan beelden van de site: `git sparse-checkout add '/img/**'`.
 - In zo'n clone: zoek met gewone `grep -r` in de werkmap, niet met `git grep`, `git ls-tree -l` of `git log -p`. Die halen anders bestand voor bestand alle blobs op (ook mp3) en duren uren.
 - Volledige geschiedenis nodig (bv. `scripts/nieuwste_films.py`)? `git fetch --filter=blob:none --unshallow origin main`: alleen commits en mappen, geen inhoud.
 - Verwijderen van bestanden buiten de sparse-set: `git rm -r --sparse <pad>`.
