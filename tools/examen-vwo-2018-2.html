@@ -1,0 +1,1494 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../js/teller.js" data-root="../"></script>
+<link rel="icon" href="../img/icoon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../img/icoon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../img/icoon/apple-touch-icon.png">
+<script>(function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Examen vwo 2018-II · doorklikken · Biologie bij Kamiel</title>
+<meta name="description" content="Maak het centraal examen biologie vwo 2018 tijdvak 2 stap voor stap: eerst hulpvragen, dan de examenvraag, nakijken met het correctievoorschrift en uitleg met animaties.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="huisstijl.css">
+<script src="huisstijl.js"></script>
+<script src="examen-stof.js?v=b496a9e6"></script>
+<script src="examen-stof/vwo18-2.js?v=425e915e"></script>
+<script src="examen-standen.js?v=558bd73d"></script>
+<style>
+/* Examen vwo 2018-II · doorklik-examen. Kleuren en letters uit huisstijl.css; hier alleen de extra's. */
+:root{--rest:#2A3B57;--area:#5B6B84}
+:root[data-theme="light"]{--rest:#D5DEE9;--area:#B4BDCA}
+ .wrap{padding-inline:0}
+:root[data-theme="light"] .papier{box-shadow:0 0 0 1px rgba(20,32,52,.18),0 6px 18px rgba(20,32,52,.10)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--text);font:17px/1.55 var(--tekst);-webkit-font-smoothing:antialiased;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 40px}
+.wrap{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1,h2,h3{font-family:var(--titel);font-weight:700;letter-spacing:-.01em;text-wrap:balance;margin:0;line-height:1.1}
+h2{font-size:24px}
+.mono,.eyebrow{font:600 12px/1.2 var(--meta);letter-spacing:.1em;text-transform:uppercase}
+.eyebrow{color:var(--goud-text)}
+.muted{color:var(--text2)}
+a{color:var(--goud-text)}
+.sitenav{display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap;min-height:56px;padding:8px 0;border-bottom:1px solid var(--line);font:600 15px/1.3 var(--tekst)}
+.sitenav .merk{font:700 18px/1 var(--titel);color:var(--text);text-decoration:none}
+.sitenav .terug{color:var(--goud-text);text-decoration:none}
+.sitenav .rechts{margin-left:auto}
+.tool-kop{display:flex;flex-direction:column;gap:10px;padding:14px 0 0}
+.tool-kop h1{font-size:clamp(32px,5vw,48px)}
+.tool-kop p{margin:0;color:var(--text2);font-size:18px;max-width:62ch}
+button.toggle{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line2);background:none;color:var(--text2);border-radius:999px;padding:6px 14px 6px 8px;min-height:40px;font:600 14px var(--tekst);cursor:pointer}
+button.toggle .knopje{width:34px;height:20px;border-radius:999px;background:var(--line2);position:relative;flex:none}
+button.toggle .knopje::after{content:"";position:absolute;left:3px;top:3px;width:14px;height:14px;border-radius:50%;background:var(--text2);transition:left .15s}
+button.toggle[aria-pressed="true"]{color:var(--text);border-color:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje{background:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje::after{left:17px;background:var(--goud-ink)}
+.kopbalk{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.seg{display:inline-flex;flex-wrap:wrap;padding:3px;border-radius:999px;border:1px solid var(--line2);gap:2px}
+.seg button{border:0;background:none;padding:6px 14px;border-radius:999px;font:600 14px var(--tekst);color:var(--text2);min-height:36px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--goud);color:var(--goud-ink)}
+nav.tabs{display:flex;flex-wrap:wrap;gap:6px}
+nav.tabs button{min-width:44px;height:44px;border-radius:999px;border:1px solid var(--line2);background:none;color:var(--text2);font:600 15px var(--meta);cursor:pointer;position:relative}
+nav.tabs button:hover{color:var(--text)}
+nav.tabs button.cur{background:var(--goud);color:var(--goud-ink);border-color:var(--goud)}
+nav.tabs button.done::after{content:"";position:absolute;right:3px;top:3px;width:8px;height:8px;border-radius:50%;background:var(--groen);border:2px solid var(--bg)}
+nav.tabs button.lock{opacity:.35;cursor:not-allowed}
+nav.tabs .ov{padding:0 16px;font-family:var(--tekst)}
+.ctx{background:var(--surface);border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.ctx p{margin:0}
+details.ctxd summary{cursor:pointer;font-weight:600;color:var(--goud-text)}
+.tablewrap{overflow-x:auto}
+table.data{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+table.data th,table.data td{border-bottom:1px solid var(--line);padding:7px 10px;text-align:center}
+table.data th:first-child,table.data td:first-child{text-align:left}
+table.data th{font:600 11px var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--text3)}
+.q{display:flex;flex-direction:column;gap:14px}
+.qhead{display:flex;gap:12px;align-items:center}
+.qnum{font:700 40px/1 var(--titel);color:var(--goud-text)}
+.pts{font:600 12px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:3px 9px}
+.qtext{margin:0;font-size:18px}
+.phase{border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;background:var(--surface);display:flex;flex-direction:column;gap:12px}
+.phase>.label{display:flex;gap:8px;align-items:center;font:600 12px var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3)}
+.phase>.label .dot{width:8px;height:8px;border-radius:50%;background:var(--goud)}
+.phase.think{background:var(--surface2)}
+.phase.think>.label{color:var(--goud-text)}
+.step{display:flex;flex-direction:column;gap:8px}
+.step+.step{border-top:1px solid var(--line);padding-top:12px}
+.step p{margin:0}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button.opt,button.chip{border:1px solid var(--line2);background:var(--bg);color:var(--text);border-radius:12px;padding:9px 14px;font:inherit;font-size:16px;cursor:pointer;text-align:left}
+button.chip{border-radius:999px}
+button.opt:hover,button.chip:hover{border-color:var(--text3)}
+button.chip[aria-pressed="true"]{border-color:var(--goud);background:var(--goud-soft)}
+button.opt.right{border-color:var(--groen);background:var(--groen-soft)}
+button.opt.wrong{border-color:var(--koraal);background:var(--koraal-soft)}
+button.opt:disabled{cursor:default}
+button.go,button.ghost{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 18px;border-radius:999px;font:700 15px var(--tekst);cursor:pointer}
+button.go{border:0;background:var(--goud);color:var(--goud-ink)}
+button.go:hover{filter:brightness(1.06)}
+button.ghost{border:0;background:none;color:var(--text);box-shadow:inset 0 0 0 1px var(--line2)}
+button.ghost:hover{box-shadow:inset 0 0 0 1px var(--text3)}
+button:disabled.go,button:disabled.ghost{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:2px solid var(--goud);outline-offset:3px;border-radius:6px}
+input.num{width:96px;min-height:44px;font:600 16px var(--meta);padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text)}
+select{font:inherit;font-size:15px;min-height:44px;padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);max-width:100%;flex:1 1 260px}
+textarea{width:100%;min-height:88px;font:inherit;padding:10px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);resize:vertical}
+.fb{font-size:16px;border-radius:12px;padding:12px 14px;background:var(--surface2);border:1px solid var(--line2)}
+.fb.ok{border-color:var(--groen);background:var(--groen-soft)}
+.fb.no{border-color:var(--koraal);background:var(--koraal-soft)}
+.fb.hint{border-color:var(--teal);background:var(--teal-soft)}
+.graphs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.graphs{grid-template-columns:1fr}}
+.gopt{border:1px solid var(--line2);border-radius:var(--radius);background:var(--bg);padding:8px 8px 2px;cursor:pointer;color:var(--text);font:inherit;text-align:left}
+.gopt b{font:700 20px var(--titel);margin-left:6px;color:var(--goud-text)}
+.gopt:hover{border-color:var(--text3)}
+.gopt.right{border-color:var(--groen);box-shadow:0 0 0 2px var(--groen) inset}
+.gopt.wrong{border-color:var(--koraal);box-shadow:0 0 0 2px var(--koraal) inset}
+svg{display:block;max-width:100%;height:auto}
+.ax{stroke:var(--text3);stroke-width:1.2;fill:none}
+.grid{stroke:var(--line2);stroke-width:1;fill:none}
+.tick{fill:var(--text3);font:500 10px var(--meta)}
+.cv{stroke:var(--teal);stroke-width:2.4;fill:none;stroke-linejoin:round}
+.cvbad{stroke:var(--koraal);stroke-width:2;fill:none;stroke-dasharray:5 4}
+.restband{fill:var(--rest);opacity:.8}
+.lbl{fill:var(--text);font:600 12px var(--tekst)}
+.lblm{fill:var(--text2);font:12px var(--tekst)}
+.lblbad{fill:var(--koraal);font:700 12px var(--tekst)}
+.selfscore{display:flex;flex-direction:column;gap:10px}
+.selfscore label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.selfscore input{margin-top:4px;width:18px;height:18px;accent-color:var(--goud);flex:none}
+.model{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:16px}
+.anim{display:flex;flex-direction:column;gap:10px}
+.anim .stage{border-radius:var(--radius);background:var(--surface2);border:1px solid var(--line2);overflow:hidden}
+.anim .cap{min-height:3.2em;margin:0}
+.anim .nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pips{display:flex;gap:6px;margin-left:auto}
+.pips span{width:9px;height:9px;border-radius:50%;background:var(--line2)}
+.pips span.on{background:var(--goud)}
+.seq{display:flex;flex-direction:column;gap:6px}
+.seq button{display:flex;gap:10px;align-items:center}
+.seq .n{font:600 13px var(--meta);width:24px;height:24px;border-radius:50%;display:inline-grid;place-items:center;background:var(--line2);flex:none}
+.seq button.placed{border-color:var(--groen)} .seq button.placed .n{background:var(--groen);color:var(--goud-ink)}
+.score{font:600 16px var(--meta)}
+.ovtable td:last-child,.ovtable th:last-child{text-align:right}
+.pre{border-left:3px solid var(--goud);padding:2px 0 2px 14px;display:flex;flex-direction:column;gap:8px}
+.pre p{margin:0;color:var(--text2)}
+.figrow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.figrow{grid-template-columns:1fr}}
+.legenda{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--text2)}
+.legenda i{display:inline-block;vertical-align:middle;margin-right:6px}
+.legenda .lijn{width:22px;height:0;border-top:2.5px solid var(--text)}
+.legenda .vlak{width:16px;height:12px;background:var(--area)}
+.tick.dim{opacity:.35}
+p.klikbaar{line-height:2}
+button.mark{font:inherit;color:var(--text);background:none;border:0;border-bottom:2px dashed var(--goud);padding:0 3px;border-radius:4px;cursor:pointer}
+button.mark[aria-pressed="true"]{background:var(--goud-soft);border-bottom-style:solid}
+button.mark:disabled{cursor:default}
+.sellab{min-width:200px;font-weight:600}
+label.slider{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center}
+label.slider span{min-width:170px;font-weight:600;font-size:15px}
+label.slider input{flex:1 1 200px;accent-color:var(--goud)}
+.podium{background:var(--surface2);border:1px solid var(--line2);border-radius:var(--radius);overflow:hidden}
+p.regels{font-family:var(--tekst);line-height:1.9;margin:0}
+p.regels span{display:inline-block;width:2em;font:600 12px var(--meta);color:var(--text3)}
+sup{font-size:.7em}
+.papier{--bg:#FFFFFF;--surface:#FFFFFF;--surface2:#EEF1F5;--line:rgba(20,32,52,.10);--line2:rgba(20,32,52,.24);
+  --text:#121C2E;--text2:#3B4759;--text3:#667185;--goud:#C99A2E;--goud-text:#7E5C0B;--goud-soft:rgba(217,172,60,.18);
+  --groen:#2F8A47;--koraal:#B9502F;--teal:#25729C;--paars:#6550AD;--groen-soft:rgba(47,138,71,.10);--koraal-soft:rgba(185,80,47,.10);--teal-soft:rgba(37,114,156,.10);
+  --rest:#D5DEE9;--area:#B4BDCA;color-scheme:light;
+  background:#FCFCFA;color:var(--text);border:0;border-radius:6px;padding:16px 20px 12px;display:flex;flex-direction:column;gap:12px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.08),0 10px 28px rgba(0,0,0,.35)}
+.papier .pkop{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;border-bottom:2px solid var(--text);padding-bottom:6px}
+.papier .pkop .mono{color:var(--text2)}
+.papier .pnr{display:flex;align-items:baseline;gap:10px}
+.papier .nr{font:700 30px/1 var(--titel);color:var(--text)}
+.papier .pre{border-left:0;padding:0}
+.papier .pre p{color:var(--text)}
+.papier .qtext{color:var(--text)}
+.herhaal.papier{padding:10px 14px;gap:6px;box-shadow:none;border-radius:6px}
+.herhaal .hkop{color:var(--text3);font-size:11px}
+.herhaal .qtext{font-size:16px}
+.papier .pvoet{font:500 11px var(--meta);letter-spacing:.06em;color:var(--text3);text-align:right}
+.papier details.ctxd summary{color:var(--goud-text)}
+.papier .podium{background:var(--surface2)}
+.phase>.label .tag{margin-left:6px;font:600 10px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:2px 8px}
+.sleutel{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:14px;color:var(--text2)}
+.sleutel .sw{display:inline-block;width:16px;height:12px;border-radius:2px;vertical-align:-1px;margin-right:7px}
+.sleutel .papier-sw{background:#FCFCFA}
+.sleutel .donker-sw{background:var(--surface2);box-shadow:inset 0 0 0 1px var(--line2)}
+.exfoto{display:block;width:100%;height:auto;border-radius:2px}
+footer{color:var(--text3);font-size:14px;padding-top:24px;border-top:1px solid var(--line)}
+body.hulp .ans.locked{display:none}
+body.examen .think{display:none}
+body.examen .think.open{display:flex}
+.helpbtn{display:none!important}
+body.examen .helpbtn{display:inline-flex!important}
+body.examen .tonext{display:none!important}
+@media (max-width:600px){body{font-size:16px}.qtext{font-size:17px}.phase,.ctx{padding:14px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="sitenav" aria-label="Site">
+    <a class="merk" href="../index.html#home">Biologie bij Kamiel</a>
+    <a class="terug" href="../index.html#examens">← Terug naar Examen</a>
+    <span class="rechts"><button type="button" class="icoon" data-thema-knop></button></span>
+  </nav>
+  <header class="tool-kop">
+    <div class="eyebrow" id="eb">Examen vwo 2018 · tijdvak 2</div>
+    <h1 id="h1">Examen havo 2026</h1>
+    <div class="seg" id="opgs" role="group" aria-label="Opgave"></div>
+    <div class="sleutel"><span><i class="sw papier-sw"></i>Wit vak = de echte examenvraag</span><span><i class="sw donker-sw"></i>Donker vak = hulpvragen en uitleg van deze tool</span></div>
+    <p>Maak het examen stap voor stap. Bij elke vraag denk je eerst na, dan antwoord je, en daarna zie je waarom het antwoord klopt.</p>
+    <div class="kopbalk">
+      <div class="seg" id="standen" role="group" aria-label="Hoeveel hulp wil je?"></div>
+      <button id="vrij" class="toggle" aria-pressed="false"><span class="knopje"></span>Vrij doorklikken</button>
+      <span class="mono muted" id="sub"></span>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs" aria-label="Vragen"></nav>
+
+  <section class="ctx papier" id="ctx"></section>
+
+  <main id="main"></main>
+
+  <footer>Examenvragen en correctievoorschrift: © College voor Toetsen en Examens (examenblad.nl). Foto's en kaart komen uit het examen; grafieken en tekeningen zijn nagetekend.<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a> · examenvragen © CvTE</span></footer>
+</div>
+
+<script>
+(function(){
+const $=(s,r=document)=>r.querySelector(s);
+const el=(tag,attrs={},html="")=>{const e=document.createElement(tag);for(const k in attrs){if(k==="class")e.className=attrs[k];else if(k.startsWith("on"))e.addEventListener(k.slice(2),attrs[k]);else e.setAttribute(k,attrs[k]);}if(html)e.innerHTML=html;return e;};
+const TOOL="vwo18-2";
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- opslag (alleen gemak) ---------- */
+let store={scores:{},mode:"hulp"};
+try{const s=JSON.parse(localStorage.getItem("examen-vwo18-2")||"null");if(s)store=Object.assign(store,s);}catch(e){}
+const save=()=>{try{localStorage.setItem("examen-vwo18-2",JSON.stringify(store));}catch(e){}};
+
+/* ---------- algemene bouwstenen ---------- */
+function phase(cls,label){const p=el("section",{class:"phase "+cls});
+  if(cls==="think")p.append(el("div",{class:"label"},`<span class="dot"></span>Hulpvragen<span class="tag">niet uit het examen</span>`));
+  else p.append(el("div",{class:"label"},`<span class="dot"></span>${label==="Antwoord"?"Jouw antwoord op de examenvraag":label}`));return p;}
+function choiceStep(container,{q,opts,right,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});const fb=el("div",{class:"fb",hidden:""});
+  opts.forEach((o,i)=>{const b=el("button",{class:"opt",onclick:()=>{
+    if(i===right){row.querySelectorAll("button").forEach(x=>x.disabled=true);b.classList.add("right");fb.className="fb ok";fb.innerHTML=ok;fb.hidden=false;onDone&&onDone();}
+    else{b.classList.add("wrong");fb.className="fb no";fb.innerHTML=no;fb.hidden=false;}
+  }},o);row.append(b);});
+  s.append(row,fb);container.append(s);return s;
+}
+function mc(container,{opts,right,pts,qid,graphs:isGraph,onChecked}){
+  const wrap=el("div",{class:isGraph?"graphs":"row",style:isGraph?"":"flex-direction:column;align-items:stretch"});
+  const fb=el("div",{class:"fb",hidden:""});
+  opts.forEach((o,i)=>{const L="ABCDEF"[i];
+    const b=isGraph?el("button",{class:"gopt"},`<b>${L}</b>${o}`):el("button",{class:"opt"},`<b style="font:700 18px var(--titel);color:var(--goud-text);margin-right:10px">${L}</b>${o}`);
+    b.addEventListener("click",()=>{
+      wrap.querySelectorAll("button").forEach(x=>x.disabled=true);
+      const good=i===right; b.classList.add(good?"right":"wrong");
+      if(!good)wrap.children[right].classList.add("right");
+      fb.className="fb "+(good?"ok":"no");
+      fb.innerHTML=good?`Goed: <b>${"ABCDEF"[right]}</b>. ${pts} ${pts>1?"punten":"punt"}.`:`Het goede antwoord is <b>${"ABCDEF"[right]}</b>. 0 punten.`;
+      fb.hidden=false; setScore(qid,good?pts:0); onChecked&&onChecked();
+    });wrap.append(b);});
+  container.append(wrap,fb);
+}
+function waaromBtn(container,build){
+  const b=el("button",{class:"ghost waarombtn"},"Laat zien waarom ›");const box=el("div",{hidden:""});
+  b.onclick=()=>{b.remove();box.hidden=false;build(box);if(window.EXSTOF)EXSTOF.extraWaarom(TOOL,cur,box);};
+  container.append(b,box);
+}
+function lockAns(think,ans,label="Naar de vraag ›"){
+  ans.classList.add("locked");
+  const go=el("button",{class:"go tonext",hidden:""},label);
+  go.onclick=()=>{ans.classList.remove("locked");go.remove();ans.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});};
+  think.append(go);
+  return ()=>{think.append(go);go.hidden=false;};
+}
+function helpButton(q,think){
+  const b=el("button",{class:"ghost helpbtn"},"Hulp nodig? Toon de hulpvragen");
+  b.onclick=()=>{think.classList.add("open");b.remove();};
+  q.append(b);
+}
+function setScore(id,p){store.scores[id]=p;save();renderTabs();if(nextBtns[id])nextBtns[id].hidden=false;}
+
+/* ---------- vragen ---------- */
+const Q=[],OPG=[];
+const FOTO=(n,alt)=>`<img class="exfoto" src="examen-img/vwo-2018-2/${n}.webp" alt="${alt}" loading="lazy">`;
+
+/* Vraag 5 en 6: eerst zonder opties */
+function noOptions(q,{id,pts,text,prompt,hint,opts,right,uitleg}){
+  q.append(el("p",{class:"qtext"},text));
+  const think=phase("think","Eerst zelf"),ans=phase("ans","Kies je antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Toon de keuzes ›");
+  const s=el("div",{class:"step"});s.append(el("p",{},prompt));
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:"Wat denk jij? Schrijf het kort op."});const hb=el("button",{class:"ghost"},"Tip");const hf=el("div",{class:"fb hint",hidden:""},hint);
+  hb.onclick=()=>{hf.hidden=false;hb.remove();};
+  ta.addEventListener("input",()=>{if(ta.value.trim().length>2)unlock();});
+  s.append(ta,hb,hf);think.append(s);
+  mc(ans,{qid:id,pts,right,opts,onChecked:()=>{
+    if(ta.value.trim())ans.append(el("div",{class:"model"},`<b>Jij dacht eerst:</b> ${ta.value.replace(/</g,"&lt;")}<br><span class="muted">Klopte dat met de keuze die je maakte?</span>`));
+    waaromBtn(ans,b=>b.append(el("div",{class:"model"},uitleg)));}});
+  q.append(think,ans);
+}
+/* ================= extra bouwstenen ================= */
+function pre(q,html){q.append(el("div",{class:"pre"},html));}
+function chipsStep(container,{q,items,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});
+  items.forEach(([t])=>{const b=el("button",{class:"chip","aria-pressed":"false"},t);b.onclick=()=>b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")==="true"?"false":"true");row.append(b);});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(row,ck,fb);container.append(s);
+  ck.onclick=()=>{const sel=[...row.children].map(b=>b.getAttribute("aria-pressed")==="true");
+    const teveel=sel.some((s,k)=>s&&!items[k][1]),mist=sel.some((s,k)=>!s&&items[k][1]);fb.hidden=false;
+    if(!teveel&&!mist){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;row.querySelectorAll("button").forEach(b=>b.disabled=true);onDone&&onDone();}
+    else if(teveel){fb.className="fb hint";fb.innerHTML=no;}
+    else{fb.className="fb hint";fb.innerHTML="Wat je gekozen hebt klopt, maar er hoort nog meer bij. Kies alles wat klopt.";}};
+  return s;
+}
+function selectsStep(container,{q,rows,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const id=uid+"s"+k;
+    r.append(el("label",{for:id,class:"sellab"},lab));const sel=el("select",{id});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);s.append(r);return sel;});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(ck,fb);container.append(s);
+  ck.onclick=()=>{const n=sels.filter((sel,k)=>sel.value!==""&&+sel.value===rows[k][2]).length;fb.hidden=false;
+    if(n===rows.length){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;sels.forEach(x=>x.disabled=true);onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=`${n} van de ${rows.length} goed. `+(no||"Probeer het nog eens.");}};
+}
+function numStep(container,{q,right,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const r=el("div",{class:"row"});const inp=el("input",{class:"num",id:uid,inputmode:"decimal","aria-label":"antwoord"});const ck=el("button",{class:"ghost"},"Controleer");const fb=el("div",{class:"fb",hidden:""});
+  r.append(inp,ck);s.append(r,fb);container.append(s);
+  ck.onclick=()=>{const v=parseFloat((inp.value||"").replace(",","."));fb.hidden=false;
+    if(v===right){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;inp.disabled=true;onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=no;}};
+}
+function openAnswer(ans,{id,pts,checks,model,valkuil,placeholder,after}){
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:placeholder||"Schrijf je antwoord…"});
+  const ck=el("button",{class:"go"},"Nakijken");const tf=el("div",{class:"fb hint",hidden:""},"Schrijf eerst je antwoord op. Daarna kijk je het na.");
+  ans.append(ta,ck,tf);
+  ck.onclick=()=>{if(ta.value.trim().length<8){tf.hidden=false;ta.focus();return;}tf.remove();ck.remove();ta.readOnly=true;
+    const ss=el("div",{class:"selfscore"});
+    ss.append(el("p",{style:"margin:0"},"<b>Kijk jezelf na met het correctievoorschrift.</b> Vink aan wat er in jouw antwoord staat."));
+    const boxes=checks.map((c,k)=>{const lab=el("label",{},`<input type="checkbox" id="q${id}c${k}"><span>${c} <span class="pts">1p</span></span>`);ss.append(lab);return lab.querySelector("input");});
+    if(model)ss.append(el("div",{class:"model"},"<b>Voorbeeldantwoord:</b> "+model));
+    if(valkuil)ss.append(el("div",{class:"fb hint"},"<b>Valkuil:</b> "+valkuil));
+    const sc=el("div",{class:"score"});ss.append(sc);ans.append(ss);
+    const upd=()=>{const p=Math.min(pts,boxes.filter(b=>b.checked).length);sc.textContent=`Jouw score: ${p} / ${pts}`;setScore(id,p);};
+    boxes.forEach(b=>b.onchange=upd);upd();after&&after();};
+}
+function juistOnjuist(ans,{id,stm,key,uitleg}){
+  const pick=stm.map(()=>null);
+  stm.forEach((t,k)=>{const r=el("div",{class:"row"});r.append(el("span",{style:"flex:1 1 260px"},`<b style="font-family:var(--meta)">${k+1}</b>&nbsp; ${t}`));
+    ["juist","onjuist"].forEach((lab,v)=>{const b=el("button",{class:"chip","aria-pressed":"false"},lab);b.onclick=()=>{pick[k]=v===0;r.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c===b?"true":"false"));};r.append(b);});ans.append(r);});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(pick.includes(null)){fb.hidden=false;fb.className="fb hint";fb.textContent="Beoordeel eerst alle uitspraken.";return;}
+    const n=pick.filter((p,k)=>p===key[k]).length;const p=n===stm.length?2:n===stm.length-1?1:0;ck.disabled=true;
+    ans.querySelectorAll(".chip").forEach(c=>c.disabled=true);
+    fb.hidden=false;fb.className="fb "+(p===2?"ok":"no");
+    fb.innerHTML=`${n} van de ${stm.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+key.map((k,i)=>`${i+1} ${k?"juist":"onjuist"}`).join(" · ");setScore(id,p);
+    waaromBtn(ans,uitleg);};
+}
+function stepAnim(box,steps,render){
+  let i=0;const stage=el("div",{class:"stage"}),cap=el("p",{class:"cap"});
+  const prev=el("button",{class:"ghost"},"‹ Vorige"),next=el("button",{class:"go"},"Volgende ›");
+  const pips=el("div",{class:"pips"},steps.map(()=>"<span></span>").join(""));
+  const nav=el("div",{class:"nav"});nav.append(prev,next,pips);
+  const a=el("div",{class:"anim"});a.append(stage,cap,nav);box.append(a);
+  function show(){cap.innerHTML=steps[i].cap;prev.disabled=i===0;next.textContent=i===steps.length-1?"Opnieuw ›":"Volgende ›";
+    pips.querySelectorAll("span").forEach((p,j)=>p.classList.toggle("on",j===i));render(stage,steps[i],i);}
+  prev.onclick=()=>{if(i>0){i--;show();}};next.onclick=()=>{i=(i+1)%steps.length;show();};show();
+}
+/* ================= meer bouwstenen ================= */
+function seqStep(container,{q,items,shown,ok,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const seq=el("div",{class:"seq"});let at=0;const fb=el("div",{class:"fb",hidden:""});
+  shown.forEach(k=>{const b=el("button",{class:"opt"},`<span class="n">·</span>${items[k]}`);b.onclick=()=>{if(b.classList.contains("placed"))return;
+    if(k===at){b.classList.add("placed");b.querySelector(".n").textContent=at+1;at++;fb.hidden=true;if(at===items.length){fb.hidden=false;fb.className="fb ok";fb.innerHTML=ok;onDone&&onDone();}}
+    else{fb.hidden=false;fb.className="fb hint";fb.textContent="Dat is nog niet de volgende stap. Wat gebeurt er direct daarna?";}};seq.append(b);});
+  s.append(seq,fb);container.append(s);
+}
+function selectAnswer(ans,{id,rows,score,uid,after,intro}){
+  if(intro)ans.append(el("p",{style:"margin:0"},intro));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const sid=uid+"a"+k;
+    r.append(el("label",{for:sid,class:"sellab"},lab));const sel=el("select",{id:sid});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);ans.append(r);return sel;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(sels.some(x=>x.value==="")){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul eerst alles in.";return;}
+    const n=sels.filter((x,k)=>+x.value===rows[k][2]).length;const p=score(n);sels.forEach(x=>x.disabled=true);ck.remove();
+    fb.hidden=false;fb.className="fb "+(n===rows.length?"ok":"no");
+    fb.innerHTML=`${n} van de ${rows.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+rows.map(([lab,opts,r])=>`${lab}: ${opts[r]}`).join(" · ");
+    setScore(id,p);after&&after();};
+}
+function textBox(html){return b=>b.append(el("div",{class:"model"},html));}
+const svgWrap=(vb,inner,label)=>`<svg viewBox="${vb}" role="img" aria-label="${label}">${inner}</svg>`;
+function numAnswer(ans,{id,fields,after}){
+  const inps=fields.map(([lab,unit],k)=>{const r=el("div",{class:"row"});const fid="q"+id+"f"+k;
+    r.append(el("label",{for:fid,class:"sellab"},lab));const i=el("input",{class:"num",id:fid,inputmode:"decimal"});r.append(i,el("span",{class:"muted"},unit));ans.append(r);return i;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{const v=inps.map(i=>parseFloat((i.value||"").replace(",",".")));if(v.some(isNaN)){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul beide uitkomsten in.";return;}
+    inps.forEach(i=>i.disabled=true);ck.remove();const res=fields.map((f,k)=>f[2](v[k]));const p=res.filter(Boolean).length;
+    fb.hidden=false;fb.className="fb "+(p===fields.length?"ok":"no");
+    fb.innerHTML=`<b>${p} van de ${fields.length} punten.</b><br>`+fields.map((f,k)=>`${res[k]?"✓":"✗"} ${f[3]}`).join("<br>");setScore(id,p);after&&after();};
+}
+
+/* ===== opg0.js ===== */
+/* ================= gedeelde hulpjes voor vwo 2018-II (alleen in dit examen) ================= */
+/* hulpvragen achter elkaar: steps = [{q,opts,right,ok,no} | {chips:true,q,items,ok,no}] */
+function O0_chain(think,steps,done){
+  const go=i=>{if(i>=steps.length){done();return;}const s=steps[i];
+    (s.chips?chipsStep:choiceStep)(think,Object.assign({},s,{onDone:()=>go(i+1)}));};
+  go(0);
+}
+/* standaardvraag: pre-tekst, vraagzin, hulpvragen; geeft het antwoordvak terug */
+function O0_vraag(q,{p,qtext,steps,lab}){
+  if(p)pre(q,p);
+  q.append(el("p",{class:"qtext"},qtext));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);
+  const unlock=lockAns(think,ans,lab||"Naar de vraag ›");O0_chain(think,steps,unlock);
+  q.append(think,ans);return ans;
+}
+/* 'wel of niet juist' per nummer; CV: drie goed 2p, twee goed 1p, minder 0p */
+function O0_welNiet(ans,{id,stm,key,uitleg}){
+  selectAnswer(ans,{id,uid:"q"+id,intro:"Kies per nummer wat jij zou noteren.",
+    rows:stm.map((s,k)=>[`${k+1}`,["wel juist","niet juist"],key[k]]),
+    score:n=>n===stm.length?2:n===stm.length-1?1:0,
+    after:()=>waaromBtn(ans,typeof uitleg==="function"?uitleg:textBox(uitleg+`<br><br><span class="muted">Correctievoorschrift: drie nummers juist 2p · twee juist 1p · minder 0p.</span>`))});
+}
+/* uitklapblok met een eerdere figuur */
+const O0_TERUG=(t,html)=>`<details class="ctxd"><summary>${t}</summary><div style="margin-top:10px;display:flex;flex-direction:column;gap:10px">${html}</div></details>`;
+const O0_AFB=(n,html)=>`<div class="eyebrow">${n}</div>${html}`;
+const O0_PIJL=`<defs><marker id="o0p" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--text2)"/></marker><marker id="o0g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--goud)"/></marker></defs>`;
+
+/* ===== opg1.js ===== */
+/* ================= opgave 1: De lauwbloedige koningsvis (vraag 1–8) ================= */
+const O1_TABEL1=`<div class="eyebrow">tabel 1</div><div class="tablewrap"><table class="data">
+<tr><th>lichaamsgebied</th><th>gem. temperatuur (°C) ± standaardafwijking</th><th>temperatuurverschil t.o.v. zeewater (°C) ± standaardafwijking</th><th>aantal onderzochte vissen</th></tr>
+<tr><td colspan="4"><i>aan dek gemeten koningsvissen</i></td></tr>
+<tr><td>borstvinspier</td><td>13,8 ± 1,5</td><td>3,8 ± 0,8</td><td>22</td></tr>
+<tr><td>hart</td><td>13,2 ± 1,7</td><td>3,2 ± 0,7</td><td>21</td></tr>
+<tr><td>schedel</td><td>16,1 ± 3,9</td><td>6,0 ± 3,0</td><td>22</td></tr>
+<tr><td>buikholte</td><td>13,5 ± 1,6</td><td>3,5 ± 1,0</td><td>19</td></tr>
+<tr><td colspan="4"><i>vrij zwemmende koningsvissen met datarecorder</i></td></tr>
+<tr><td>borstvinspier</td><td>14,4 ± 0,4</td><td>4,8 ± 1,2</td><td>4</td></tr></table></div>`;
+
+/* afbeelding 2: meetperiode van ruim drie uur (nagetekend; coördinaten in pixels van de examenpagina) */
+const O1_L1=[[252,272],[300,268],[330,262],[350,258],[380,257],[420,258],[460,262],[500,266],[540,270],[570,273],[610,276],[652,278]];
+const O1_L2=[[252,298],[258,302],[270,268],[276,258],[285,272],[290,290],[300,265],[305,262],[315,270],[325,272],[335,262],[345,258],[352,265],[360,290],[365,315],[372,322],[380,316],[390,322],[397,332],[410,330],[425,321],[440,322],[455,324],[470,322],[500,322],[520,322],[540,320],[560,322],[580,324],[600,322],[620,325],[640,326],[652,330]];
+const O1_L3=[[252,296],[258,300],[266,275],[274,260],[282,275],[289,292],[297,264],[303,256],[309,268],[316,253],[322,270],[330,268],[337,260],[345,258],[352,263],[356,285],[360,320],[364,345],[368,360],[372,352],[376,355],[380,350],[384,362],[388,350],[392,385],[395,427],[398,410],[403,400],[408,380],[413,376],[418,374],[428,345],[433,350],[438,364],[443,350],[448,365],[452,352],[456,352],[460,342],[462,370],[466,358],[472,354],[478,350],[485,348],[492,345],[498,347],[505,342],[510,365],[520,358],[530,356],[540,355],[545,360],[550,357],[560,365],[570,365],[580,373],[590,368],[600,358],[610,350],[620,354],[630,360],[640,368],[652,362]];
+function O1_afb2(hl){
+  const pts=a=>a.map(p=>p.join(",")).join(" ");
+  const y0=199,yT=t=>y0+(18-t)*16.25,yD=d=>y0+d*2.35;
+  let g=`<rect x="212" y="${y0}" width="440" height="260" fill="none"/>`;
+  g+=`<path class="ax" d="M212,${y0} V459 H652 M652,${y0} V459"/>`;
+  for(let t=2;t<=18;t+=2)g+=`<path class="ax" d="M208,${yT(t)} H212"/><text class="tick" x="204" y="${yT(t)+4}" text-anchor="end">${t}</text>`;
+  for(let d=0;d<=100;d+=20)g+=`<path class="ax" d="M652,${yD(d)} H656"/><text class="tick" x="660" y="${yD(d)+4}">${d}</text>`;
+  ["19:00","19:40","20:20","21:00","21:40","22:20"].forEach((s,k)=>{const x=212+k*88;g+=`<path class="ax" d="M${x},459 V463"/><text class="tick" x="${x}" y="475" text-anchor="middle">${s}</text>`;});
+  g+=`<text class="lblm" transform="translate(178,330) rotate(-90)" text-anchor="middle">→ temperatuur (°C)</text>`;
+  g+=`<text class="lblm" transform="translate(700,250) rotate(90)" text-anchor="middle">diepte (m) →</text>`;
+  g+=`<text class="lblm" x="652" y="495" text-anchor="end">→ tijd van de dag</text>`;
+  const st=k=>hl===undefined||hl===k?"var(--text)":"var(--text3)",sw=k=>hl===k?3:1.8,op=k=>hl===undefined||hl===k?1:.35;
+  g+=`<polyline points="${pts(O1_L1)}" fill="none" stroke="${st(1)}" stroke-width="${sw(1)}" stroke-dasharray="1.5 3" opacity="${op(1)}"/>`;
+  g+=`<polyline points="${pts(O1_L2)}" fill="none" stroke="${st(2)}" stroke-width="${sw(2)}" stroke-dasharray="6 4" opacity="${op(2)}"/>`;
+  g+=`<polyline points="${pts(O1_L3)}" fill="none" stroke="${st(3)}" stroke-width="${sw(3)}" opacity="${op(3)}"/>`;
+  [[1,537,256],[2,537,306],[3,537,342]].forEach(([n,x,y])=>{g+=`<circle cx="${x}" cy="${y}" r="9" fill="var(--surface)" stroke="var(--text)" stroke-width="1"/><text class="lbl" x="${x}" y="${y+4}" text-anchor="middle" style="font-size:11px">${n}</text>`;});
+  return svgWrap("150 185 580 320",g,"Diagram: temperatuur (links, 2 tot 18 °C) en diepte (rechts, 0 tot 100 m) van 19:00 tot 22:20 met drie genummerde lijnen");
+}
+
+/* afbeelding 4: cladogram (nagetekend) */
+function O1_clado(hl){
+  const w=(a)=>hl&&hl.includes(a)?"var(--goud)":"var(--text)";
+  const tips=(x0,ys,kl)=>ys.map(y=>`<path d="M${x0},${y} H${x0+14}" stroke="${kl}" stroke-width="1.2"/>`).join("")+`<path d="M${x0},${ys[0]} V${ys[ys.length-1]}" stroke="${kl}" stroke-width="1.2"/>`;
+  const rng=(a,b,n)=>Array.from({length:n},(_,k)=>a+(b-a)*k/(n-1));
+  let g="";
+  const L=(d,k)=>`<path d="${d}" fill="none" stroke="${k||"var(--text)"}" stroke-width="1.6"/>`;
+  /* wortel */
+  g+=L("M40,330 H80");g+=L("M80,248 V372");g+=L("M80,372 H420",w("imm"));
+  g+=L("M80,248 H150");g+=L("M150,140 V356");g+=L("M150,356 H395",w("1"));g+=tips(395,rng(350,362,3),w("1"));
+  g+=L("M150,140 H210");g+=L("M210,95 V250");
+  g+=L("M210,95 H260");g+=L("M260,60 V170");g+=L("M260,170 H360",w("4"));g+=tips(360,rng(162,178,4),w("4"));
+  g+=L("M260,60 H340",w("5"));g+=tips(340,rng(20,108,9),w("5"));
+  g+=L("M210,250 H235");g+=L("M235,240 V342");g+=L("M235,342 H400",w("2"));
+  g+=L("M235,240 H330",w("3"));g+=tips(330,rng(190,330,13),w("3"));
+  const br=(y1,y2,t,a)=>`<path d="M${404},${y1} q6,0 6,6 V${(y1+y2)/2-4} l5,4 l-5,4 V${y2-6} q0,6 -6,6" fill="none" stroke="var(--text2)" stroke-width="1.2"/><text class="lblm" x="422" y="${(y1+y2)/2+4}" style="fill:${w(a)}">${t}</text>`;
+  g+=br(18,110,"afstammingslijn 5","5")+br(160,180,"afstammingslijn 4","4")+br(188,332,"afstammingslijn 3","3");
+  g+=`<text class="lblm" x="422" y="345" style="fill:${w("2")}">afstammingslijn 2</text><text class="lblm" x="422" y="360" style="fill:${w("1")}">afstammingslijn 1</text><text class="lblm" x="432" y="376" style="font-style:italic;fill:${w("imm")}">Lampris immaculatus</text>`;
+  return svgWrap("30 10 560 375",g,"Cladogram met Lampris immaculatus en de afstammingslijnen 1 tot en met 5 van de koningsvis");
+}
+/* tegenstroom in het wondernet (eigen schema voor 'Laat zien waarom') */
+function O1_tegenstroom(s){
+  let g=O0_PIJL;
+    g+=`<text class="lbl" x="20" y="28">lichaam</text><text class="lbl" x="560" y="28" text-anchor="end">kieuwplaatjes</text>`;
+  g+=`<rect x="90" y="50" width="380" height="26" rx="13" fill="none" stroke="var(--text2)"/><rect x="90" y="96" width="380" height="26" rx="13" fill="none" stroke="var(--text2)"/>`;
+  if(s>=1){[[110,"var(--koraal)"],[210,"var(--koraal)"],[310,"color-mix(in srgb,var(--koraal) 60%,var(--teal))"],[410,"color-mix(in srgb,var(--koraal) 30%,var(--teal))"]].forEach(([x,c],k)=>g+=`<circle cx="${x+20}" cy="63" r="8" fill="${s>=2?c:"var(--koraal)"}"/>`);
+    g+=`<path d="M100,40 H460" stroke="var(--koraal)" stroke-width="2" marker-end="url(#o0p)"/><text class="lblm" x="280" y="36" text-anchor="middle">warm bloed naar de kieuwen</text>`;}
+  if(s>=1){[[110,"color-mix(in srgb,var(--koraal) 75%,var(--teal))"],[210,"color-mix(in srgb,var(--koraal) 45%,var(--teal))"],[310,"color-mix(in srgb,var(--koraal) 15%,var(--teal))"],[410,"var(--teal)"]].forEach(([x,c])=>g+=`<circle cx="${x+20}" cy="109" r="8" fill="${s>=2?c:"var(--teal)"}"/>`);
+    g+=`<path d="M460,140 H100" stroke="var(--teal)" stroke-width="2" marker-end="url(#o0p)"/><text class="lblm" x="280" y="156" text-anchor="middle">koud bloed terug naar het lichaam</text>`;}
+  if(s>=2)for(let x=130;x<=430;x+=100)g+=`<path d="M${x},72 V96" stroke="var(--goud)" stroke-width="2" marker-end="url(#o0g)"/>`;
+  if(s>=3)g+=`<rect x="80" y="44" width="400" height="86" rx="18" fill="none" stroke="var(--goud)" stroke-width="5" stroke-dasharray="2 5" opacity=".7"/><text class="lbl" x="280" y="182" text-anchor="middle">vetweefsel isoleert de kieuwboog</text>`;
+  return svgWrap("0 0 580 192",g,"Tegenstroom in het wondernet: warmte gaat over van het warme naar het koude bloed");
+}
+
+const CTX1=`<div class="pkop"><span class="mono">Examentekst · inleiding opgave 1</span></div>
+  <p><i>Tenzij anders vermeld, is er sprake van normale situaties en gezonde organismen.</i></p>
+  <p>Sommige vissen zijn ‘lauwbloedig’: ze produceren relatief veel warmte in hun lichaam, waardoor ze warmer zijn dan het koude water waarin ze leven. Welke aanpassingen hebben dergelijke vissen en hoe zijn die in de loop van de evolutie tot stand gekomen? Wetenschappers zoeken naar antwoorden.</p>
+  <div style="display:flex;flex-wrap:wrap;gap:12px 18px;align-items:flex-start"><p style="margin:0;flex:1 1 260px">De koningsvis (<i>Lampris guttatus</i>, afbeelding 1) is zo’n lauwbloedige (endotherme) vis. Amerikaanse visbiologen hebben ontdekt dat koningsvissen hun temperatuur in vrijwel het hele lichaam ongeveer vijf graden hoger kunnen houden dan hun omgeving.<br>De koningsvis komt voor in alle wereldzeeën. Hij wordt tot twee meter lang en 60 kilo zwaar. Hij heeft een afgeplatte vorm en beweegt zich voornamelijk voort door bewegingen van de borstvinnen. De koningsvis ziet er misschien niet echt uit als een predator, maar hij is wel degelijk een succesvol jager.</p>
+  <div style="flex:0 1 230px"><div class="eyebrow">afbeelding 1</div>${FOTO("o1-koningsvis","Een man op een schip houdt een grote, ronde, platte koningsvis met lichte stippen vast")}</div></div>`;
+
+/* Vraag 1 */
+Q.push({id:1,pts:2,t:"oppervlakte-inhoudverhouding",build(q){
+  const ans=O0_vraag(q,{p:"<p>Endothermie komt alleen bij grote vissoorten voor.</p>",
+    qtext:"<b>Leg uit dat het voor kleine vissoorten, door hun grotere oppervlakte-inhoud verhouding, ongunstig is om endotherm te zijn.</b>",lab:"Schrijf je antwoord ›",
+    steps:[{q:"Een kleine vis heeft een grotere oppervlakte-inhoudverhouding. Wat betekent dat voor zijn warmteverlies?",
+      opts:["per gram lichaam verliest hij relatief meer warmte aan het water","per gram lichaam verliest hij relatief minder warmte","het warmteverlies hangt niet af van de vorm"],right:0,
+      ok:"Ja. Warmte gaat via het oppervlak verloren, en een kleine vis heeft per kilo veel oppervlak.",no:"Warmte gaat via de huid (het oppervlak) naar het water. Wie heeft per gram het meeste oppervlak?"},
+     {q:"Een endotherme vis houdt zijn lichaam warmer dan het water. Waar komt die warmte vandaan?",
+      opts:["uit dissimilatie: daar is voedsel (energie) voor nodig","uit het zonlicht","uit het water"],right:0,
+      ok:"Klopt. Wat betekent veel warmteverlies dan voor de hoeveelheid voedsel die een kleine endotherme vis nodig heeft?",no:"Warmte ontstaat in de cellen. Bij welk proces?"}]});
+  openAnswer(ans,{id:1,pts:2,checks:["Kleine vissen hebben (door hun relatief grotere lichaamsoppervlak) <b>meer warmteverlies</b> (dan grote vissen).","Er is (naar verhouding) <b>meer voedsel/energie nodig</b> om endotherm te zijn."],
+    model:"Een kleine vis heeft per gram lichaam veel oppervlak, dus hij verliest relatief veel warmte aan het koude water. Om toch warm te blijven, moet hij naar verhouding veel meer voedsel dissimileren. Dat kost te veel energie.",
+    valkuil:"Alleen het warmteverlies noemen. Het tweede punt is het <b>gevolg</b>: er is naar verhouding meer voedsel/energie nodig.",
+    after:()=>waaromBtn(ans,textBox("Warmte gaat via het <b>oppervlak</b> naar het water, maar wordt geproduceerd in het <b>volume</b> (de cellen). Een kleine vis heeft per kubieke centimeter lichaam veel meer huid dan een grote vis. Hij verliest dus relatief veel warmte.<br><br>Om toch op temperatuur te blijven, moet hij die warmte steeds aanvullen met dissimilatie. Dat vraagt <b>naar verhouding veel meer voedsel (energie)</b>. Voor een kleine vis wordt endothermie daardoor te ‘duur’."))});
+}});
+
+/* Vraag 2 */
+Q.push({id:2,pts:2,t:"myoglobine",build(q){
+  const ans=O0_vraag(q,{p:"<p>De koningsvis is extreem gespierd en zijn spieren zijn opvallend donkerrood, door een grote hoeveelheid myoglobine.</p>",
+    qtext:"<b>Leg uit hoe de aanwezigheid van myoglobine in de spieren bijdraagt aan het jachtsucces van de koningsvis.</b>",lab:"Schrijf je antwoord ›",
+    steps:[{q:"Wat doet myoglobine in een spiercel?",
+      opts:["het bindt zuurstof en houdt het als voorraad vast","het breekt melkzuur af","het vervoert glucose"],right:0,
+      ok:"Ja. Myoglobine is een zuurstofvoorraad in de spier zelf. Het geeft O<sub>2</sub> af als de spier veel verbruikt en de pO<sub>2</sub> daalt.",no:"Myoglobine lijkt op hemoglobine. Wat bindt hemoglobine?"},
+     {q:"Waarvoor gebruikt een zwemspier die zuurstof?",
+      opts:["voor aerobe dissimilatie: daarmee komt veel energie (ATP) vrij","voor fotosynthese","om eiwitten te verteren"],right:0,
+      ok:"Klopt. Verbind nu: extra zuurstof → … → wat betekent dat voor het jagen?",no:"Bij welk proces in de mitochondriën is zuurstof nodig?"}]});
+  openAnswer(ans,{id:2,pts:2,checks:["Er is (extra) <b>O<sub>2</sub> opgeslagen in het myoglobine</b> / er komt vanuit het myoglobine (extra) O<sub>2</sub> beschikbaar (als de pO<sub>2</sub> te laag wordt).","De zwemspieren kunnen (daardoor) <b>meer energie vrijmaken / langer aeroob dissimileren</b> (en de vis kan sneller/langer jagen)."],
+    model:"Myoglobine slaat zuurstof op in de spieren. Als de vis hard zwemt en het bloed niet genoeg zuurstof aanvoert, geeft myoglobine zuurstof af. Zo kunnen de spieren langer aeroob dissimileren en veel energie vrijmaken, waardoor de koningsvis sneller en langer kan jagen.",
+    valkuil:"Schrijven dat myoglobine zuurstof <i>vervoert</i> door het bloed. Dat doet hemoglobine; myoglobine zit in de spier en is een <b>voorraad</b>.",
+    after:()=>waaromBtn(ans,textBox("Myoglobine is een zuurstofbindend eiwit in spiercellen, met een <b>hogere affiniteit voor O<sub>2</sub></b> dan hemoglobine. Het neemt zuurstof over van het bloed en houdt het vast. Bij een inspanning daalt de pO<sub>2</sub> in de spier; dan geeft myoglobine zijn zuurstof af.<br><br>Met die extra zuurstof kunnen de mitochondriën <b>langer aeroob dissimileren</b>: per glucose komt dan veel meer ATP vrij dan bij anaerobe dissimilatie. De spieren houden het langer vol, dus de vis kan sneller en langer achter een prooi aan."))});
+}});
+
+/* Vraag 3 */
+Q.push({id:3,pts:1,t:"warmte in de buikholte",build(q){
+  const ans=O0_vraag(q,{p:`<p>De onderzoekers vingen koningsvissen vanaf een visserij-onderzoeksschip.<br>Bij 22 vissen werd direct na de vangst de temperatuur gemeten van de borstvinspier en van een aantal andere lichaamsgebieden.<br>Vier andere gevangen vissen werden uitgerust met meetapparatuur (datarecorders) en daarna weer vrijgelaten. De datarecorders verzamelden gegevens over de temperatuur van de borstvinspier, de zwemdiepte en de watertemperatuur op die diepte.<br>Enkele resultaten van deze metingen staan in tabel 1.</p>${O1_TABEL1}<p>Volgens de onderzoekers is de samentrekking van de borstvinspieren de grootste bron van warmteproductie.<br>In de buikholte wordt veel minder warmte geproduceerd.</p>`,
+    qtext:"<b>Verklaar waardoor de buikholte toch vrijwel dezelfde temperatuur heeft als de borstvinspier.</b>",lab:"Schrijf je antwoord ›",
+    steps:[{q:"Hoe kan warmte uit de borstvinspier op een andere plek in het lichaam komen?",
+      opts:["het bloed neemt de warmte op en vervoert die door het lichaam","de warmte gaat via het zeewater naar de buikholte","via de zenuwen"],right:0,
+      ok:"Ja. Bloed stroomt door de warme spier en verderop door de organen in de buikholte.",no:"Wat stroomt er door alle lichaamsdelen en kan warmte meenemen?"}]});
+  openAnswer(ans,{id:3,pts:1,checks:["De (door de borstvinspieren) opgewekte <b>warmte wordt door de bloedsomloop vervoerd</b> (naar de buikholte) / de warmte die de organen in de buikholte opwekken, wordt (door het grote volume) goed vastgehouden."],
+    model:"Het bloed neemt in de borstvinspieren warmte op en vervoert die via de bloedsomloop naar de organen in de buikholte.",
+    after:()=>waaromBtn(ans,textBox("Bloed is een goed <b>transportmiddel voor warmte</b>. Het stroomt door de hard werkende borstvinspieren, warmt daar op en geeft de warmte verderop in het lichaam weer af, bijvoorbeeld aan de organen in de buikholte. Daarnaast ligt de buikholte diep in het lichaam: de warmte die daar ontstaat, gaat (door het grote volume eromheen) nauwelijks verloren. Beide verklaringen keurt het correctievoorschrift goed."))});
+}});
+
+/* Vraag 4 */
+Q.push({id:4,pts:2,t:"tabel 1 lezen",build(q){
+  const ans=O0_vraag(q,{p:`<p>Twee uitspraken over de gegevens in tabel 1 zijn:</p><p class="regels"><span>1</span>Naast de borstvinspier is er nog een ander gebied waar veel warmte wordt geproduceerd.<br><span>2</span>Uit de grote spreiding in de gemeten temperaturen van de schedel blijkt dat deze metingen niet valide zijn.</p>`+O0_TERUG("Tabel 1 nog eens bekijken",O1_TABEL1),
+    qtext:"<b>Welke van deze uitspraken wordt of worden ondersteund door de gegevens in tabel 1?</b>",
+    steps:[{q:"Welk lichaamsgebied is gemiddeld het warmst, nog warmer dan de borstvinspier?",
+      opts:["de schedel (16,1 °C)","het hart (13,2 °C)","de buikholte (13,5 °C)"],right:0,
+      ok:"Ja. Als een gebied warmer is dan de grootste warmtebron die je kent, moet daar zelf ook warmte ontstaan.",no:"Vergelijk de gemiddelde temperaturen in de tweede kolom."},
+     {q:"Een meting is <b>valide</b> als je meet wat je wilt meten. Wat zegt een grote spreiding (standaardafwijking)?",
+      opts:["dat de waarden tussen de vissen sterk verschillen; niet dat er iets anders gemeten is","dat er dus iets verkeerds gemeten is","dat de gemiddelde waarde fout is"],right:0,
+      ok:"Klopt. Spreiding gaat over hoe ver de metingen uiteen liggen (betrouwbaarheid/variatie), niet over validiteit.",no:"Spreiding is variatie tussen de metingen. Zegt dat iets over de vraag óf je het goede meet?"}]});
+  mc(ans,{qid:4,pts:2,right:1,opts:["geen van beide","alleen 1","alleen 2","zowel 1 als 2"],
+    onChecked:()=>waaromBtn(ans,textBox("<b>1 wordt ondersteund.</b> De schedel is met 16,1 °C gemiddeld warmer dan de borstvinspier (13,8 °C), terwijl de borstvinspier de grootste bekende warmtebron is. In de schedel moet dus zelf ook veel warmte ontstaan.<br><br><b>2 niet.</b> Een grote spreiding betekent dat de temperatuur van de schedel tussen vissen sterk verschilt. Dat zegt niets over de vraag of je wel de schedeltemperatuur hebt gemeten (validiteit). Het antwoord is <b>B</b>."))});
+}});
+
+/* Vraag 5 */
+Q.push({id:5,pts:1,t:"drie lijnen in het diagram",build(q){
+  const ans=O0_vraag(q,{p:`<p>In afbeelding 2 staan de resultaten van een meetperiode van ruim drie uur bij één van de vrij zwemmende koningsvissen, uitgerust met een datarecorder.</p><div class="eyebrow">afbeelding 2</div>${O1_afb2()}<p>De drie genummerde lijnen in het diagram hebben betrekking op metingen van de zwemdiepte, de watertemperatuur op die diepte en de temperatuur van de borstvinspier.</p>`,
+    qtext:"<b>Noteer de nummers 1, 2 en 3 onder elkaar op je antwoordblad en schrijf erachter welke gemeten grootheid (zwemdiepte, watertemperatuur of temperatuur van de borstvinspier) bij de betreffende lijn hoort.</b>",
+    steps:[{q:"De vis houdt zijn lichaam warm, ook als het water kouder wordt. Hoe ziet de lijn van de spiertemperatuur er dan uit?",
+      opts:["vrij vlak en glad: hij verandert weinig en langzaam","met grote, snelle sprongen","precies gelijk aan de watertemperatuur"],right:0,
+      ok:"Ja. Een groot, warm lichaam verandert maar langzaam van temperatuur.",no:"Een endotherme vis van 60 kilo koelt niet in een paar minuten af. Hoe gedraagt die lijn zich?"},
+     {q:"Als de vis dieper zwemt, wat gebeurt er dan met de watertemperatuur?",
+      opts:["die daalt: diep water is kouder","die stijgt","die blijft gelijk"],right:0,
+      ok:"Klopt. Twee lijnen bewegen dus samen: één op de temperatuur-as en één op de diepte-as (die loopt naar beneden). Welke springt het meest?",no:"Denk aan zwemmen in een diep meer: is het water onderin warmer of kouder?"}]});
+  const G=["zwemdiepte","watertemperatuur","temperatuur van de borstvinspier"];
+  selectAnswer(ans,{id:5,uid:"q5",intro:"Kies per lijn de gemeten grootheid.",rows:[["lijn 1",G,2],["lijn 2",G,1],["lijn 3",G,0]],
+    score:n=>n===3?1:0,
+    after:()=>waaromBtn(ans,b=>{stepAnim(b,[
+      {s:1,cap:"<b>Lijn 1</b> is vlak en verandert nauwelijks (rond 13 tot 14 °C), ook als de vis dieper gaat. Dat is de <b>temperatuur van de borstvinspier</b>: de vis is endotherm."},
+      {s:3,cap:"<b>Lijn 3</b> maakt de grootste sprongen. Lees hem af op de rechteras: van zo’n 40 m naar bijna 100 m diep. Dat is de <b>zwemdiepte</b>."},
+      {s:2,cap:"<b>Lijn 2</b> beweegt met lijn 3 mee: zodra de vis dieper zwemt, zakt de temperatuur van ruim 14 °C naar ongeveer 10 °C. Dat is de <b>watertemperatuur</b>.<br><span class=\"muted\">Correctievoorschrift: 1p alleen als alle drie goed zijn.</span>"}],
+      (stg,s)=>stg.innerHTML=O1_afb2(s.s));})});
+}});
+
+/* Vraag 6 */
+Q.push({id:6,pts:3,t:"wondernet en vetweefsel",build(q){
+  const ans=O0_vraag(q,{p:`<p>Net als zeehonden en pinguïns hebben ook koningsvissen een onderhuidse vetlaag om warmteverlies in koud water te reduceren. Vissen hebben echter een enorm ‘warmtelek’ in de kieuwen, waar het bloed door een haarvatennet in nauw contact komt met het koude water. Zonder aanpassingen zouden endotherme vissen hierdoor het overgrote deel van de geproduceerde warmte verliezen.<br>Afbeelding 3 toont schematisch de bouw van een kieuw. Achter het kieuwdeksel zitten honderden dunne kieuwplaatjes aan halfronde kieuwbogen van bot. Dwars op elk kieuwplaatje staan weer honderden kleine lamellen met haarvaatjes waarin zuurstof uit het passerende water wordt opgenomen en koolstofdioxide uit het bloed wordt afgegeven.</p><div class="eyebrow">afbeelding 3</div>${FOTO("o1-kieuw","Tekening van een koningsvis met een uitvergrote kieuwboog met kieuwplaatjes; in de kieuwboog liggen vetweefsel en het wondernet")}<p>De onderzoekers vonden bij koningsvissen twee aanpassingen die het warmteverlies in de kieuwen beperken.</p><p class="regels"><span>1</span>In de kieuwbogen ligt een ‘wondernet’: een kluwen van verstrengelde bloedvaatjes waarin het bloed dat naar de kieuwplaatjes gaat steeds vlak naast het bloed stroomt dat vanaf de kieuwplaatjes terug naar het lichaam gaat.<br><span>2</span>Rond de kieuwbogen zit een laagje vetweefsel.</p>`,
+    qtext:"<b>– Leg uit hoe de tegengestelde stromingsrichtingen van het bloed in de bloedvaatjes van het wondernet het warmteverlies bij de koningsvis beperkt.<br>– Wat is de toegevoegde waarde van het vetweefsel op die plaats?</b>",lab:"Schrijf je antwoord ›",
+    steps:[{q:"Het bloed dat terugkomt van de kieuwplaatjes is net langs het koude zeewater gestroomd. Hoe is de temperatuur van de twee bloedstromen in het wondernet?",
+      opts:["bloed naar de kieuwen is warm, bloed terug van de kieuwen is koud","allebei warm","allebei koud"],right:0,
+      ok:"Ja. Er stromen dus warm en koud bloed vlak naast elkaar.",no:"Waar komt het bloed vandaan dat naar de kieuwen gaat, en waar is het bloed langs gestroomd dat terugkomt?"},
+     {q:"Wat gebeurt er met warmte als warm en koud bloed vlak langs elkaar stromen?",
+      opts:["de warmte gaat over van het warme naar het koude bloed","de warmte gaat van koud naar warm","er gaat geen warmte over"],right:0,
+      ok:"Klopt. Waar gaat de warmte dan naartoe: naar de kieuwplaatjes of terug het lichaam in?",no:"Warmte stroomt altijd van warm naar koud."},
+     {q:"Vet om de kieuwboog. Wat is de functie van vetweefsel daar?",
+      opts:["isoleren: het beperkt warmteverlies naar het water","energie opslaan voor de winter","de kieuwboog stevig maken"],right:0,
+      ok:"Goed. Schrijf nu je uitleg: temperatuurverschil, warmtewisseling en isolatie.",no:"Denk aan de onderhuidse vetlaag van zeehonden in de tekst."}]});
+  openAnswer(ans,{id:6,pts:3,checks:["Een juiste beschrijving van het <b>temperatuurverschil</b>: het bloed dat naar de kieuwplaatjes stroomt is warm, het bloed dat terugstroomt is koud.","Het beschrijven van de <b>warmtewisseling</b> (in het wondernet): de warmte gaat over van het aangevoerde bloed naar het bloed dat terugstroomt naar het lichaam.","De <b>isolerende functie</b> van het vetweefsel / het beperken van warmteverlies door het vetweefsel."],
+    model:"Het bloed dat richting de kieuwen stroomt is warm en het bloed dat uit de kieuwplaatjes terugstroomt is koud. Doordat het warme en koude bloed in de kieuwboog tegengesteld en vlak naast elkaar stroomt, wordt de warmte uit het aangevoerde bloed afgegeven aan het bloed dat terugstroomt naar het lichaam. Doordat de kieuwboog waarin dit gebeurt geïsoleerd is met een vetlaagje gaat daar ook weinig warmte verloren.",
+    valkuil:"Alleen ‘tegenstroom’ noemen zonder te zeggen <b>welk bloed warm en welk koud is</b> en <b>waar de warmte heen gaat</b>.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {s:0,cap:"In het wondernet liggen twee soorten bloedvaatjes vlak naast elkaar."},
+      {s:1,cap:"Bloed uit het lichaam is <b>warm</b> en stroomt naar de kieuwplaatjes. Bloed van de kieuwplaatjes is langs het koude zeewater gegaan en is <b>koud</b>; het stroomt de andere kant op, terug naar het lichaam."},
+      {s:2,cap:"Overal langs het wondernet is het ene vaatje iets warmer dan het andere. De <b>warmte gaat over</b> naar het terugstromende bloed. Zo gaat de warmte terug het lichaam in, en komt er al afgekoeld bloed bij de kieuwplaatjes: daar gaat dan weinig warmte verloren."},
+      {s:3,cap:"Het <b>vetweefsel</b> om de kieuwboog <b>isoleert</b>: ook vanuit het wondernet zelf lekt nauwelijks warmte naar het koude water."}],
+      (stg,s)=>stg.innerHTML=O1_tegenstroom(s.s)))});
+}});
+
+/* Vraag 7 */
+Q.push({id:7,pts:2,t:"cladogram lezen",build(q){
+  const ans=O0_vraag(q,{p:`<p>Een werknemer van een visgroothandel in Hawaii merkte op dat sommige koningsvissen grotere ogen hadden dan andere. Dat leidde bij geraadpleegde visbiologen tot de hypothese dat de koningsvis niet één soort is. Om dat te onderzoeken sequensten de visbiologen het mtDNA van 480 koningsvissen uit alle wereldzeeën en van de verwante soort <i>Lampris immaculatus</i>.<br>Op grond van variaties in het CO1-gen (dat codeert voor cytochroom c oxidase1) van de verschillende individuen concludeerden de onderzoekers dat er vijf afstammingslijnen zijn van de koningsvis <i>Lampris guttatus</i>.<br>Dit is weergegeven in het cladogram van afbeelding 4.</p><div class="eyebrow">afbeelding 4</div>${O1_clado()}<p>Op basis van dit cladogram worden drie beweringen gedaan:</p><p class="regels"><span>1</span><i>Lampris immaculatus</i> is de gemeenschappelijke voorouder van alle koningsvissen.<br><span>2</span>Afstammingslijn 2 is meer verwant met 4 dan met 1.<br><span>3</span>Afstammingslijn 3 is meer verwant met 4 dan met 5.</p>`,
+    qtext:"<b>Noteer de nummers 1, 2 en 3 onder elkaar op je antwoordblad en schrijf erachter of de betreffende bewering <u>wel</u> of <u>niet</u> juist is.</b>",
+    steps:[{q:"Waar staan in een cladogram de soorten van nu, en waar de (uitgestorven) voorouders?",
+      opts:["soorten van nu aan de uiteinden; voorouders bij de splitsingen (knopen)","voorouders aan de uiteinden","alles staat aan de uiteinden"],right:0,
+      ok:"Ja. <i>Lampris immaculatus</i> staat aan een uiteinde: een soort van nu.",no:"Een cladogram is gemaakt met DNA van vissen die nu leven. Waar staan die?"},
+     {q:"Twee lijnen zijn ‘meer verwant’ als ze …",
+      opts:["een recentere gemeenschappelijke voorouder hebben (een splitsing dichter bij de uiteinden)","dichter bij elkaar op het papier staan","meer vissen bevatten"],right:0,
+      ok:"Klopt. Zoek bij elke bewering de splitsing waar de twee lijnen samenkomen.",no:"Verwantschap lees je af aan de knoop waar twee takken bij elkaar komen."}]});
+  O0_welNiet(ans,{id:7,stm:["Lampris immaculatus is de gemeenschappelijke voorouder.","Lijn 2 meer verwant met 4 dan met 1.","Lijn 3 meer verwant met 4 dan met 5."],key:[1,0,1],
+    uitleg:b=>{stepAnim(b,[
+      {h:["imm"],cap:"<b>1 niet juist.</b> <i>Lampris immaculatus</i> staat aan een uiteinde: het is een soort die nu leeft, een zustergroep van de koningsvissen. De gemeenschappelijke voorouder zit in de knoop helemaal links."},
+      {h:["2","4","1"],cap:"<b>2 wel juist.</b> Lijn 2 en lijn 4 komen samen in een knoop rechts van de knoop waar lijn 1 afsplitst. Lijn 2 en 4 hebben dus een recentere gemeenschappelijke voorouder dan lijn 2 en 1."},
+      {h:["3","4","5"],cap:"<b>3 niet juist.</b> Lijn 4 en 5 splitsen pas af ná de knoop waar ze samen van lijn 3 scheiden. Lijn 3 is dus <b>even</b> verwant met 4 als met 5.<br><span class=\"muted\">Correctievoorschrift: drie juist 2p · twee juist 1p · minder 0p.</span>"}],
+      (stg,s)=>stg.innerHTML=O1_clado(s.h));}});
+}});
+
+/* Vraag 8 */
+Q.push({id:8,pts:2,t:"reacties op Donald",build(q){
+  const ans=O0_vraag(q,{p:`<p>Op de website van het tijdschrift National Geographic staat een bericht over de warmbloedige koningsvis. Donald reageert daarop: “Ik geloof dit niet! Als deze vis warmbloedig is, is hij dan geëvolueerd uit een zoogdier?”<br>Op school bespreken leerlingen het idee van Donald.<br>Drie reacties zijn:</p><p class="regels"><span>1</span>Als lauwbloedige vissen, net zoals walvissen, uit zoogdieren zouden zijn geëvolueerd, dan zouden ze longen hebben en geen kieuwen.<br><span>2</span>Er heeft co-evolutie plaatsgevonden, waardoor zowel de koningsvissen als de zeezoogdieren endotherm werden en hierin op elkaar lijken.<br><span>3</span>Koningsvissen zijn de lauwbloedige evolutionaire schakel tussen de koudbloedige vissen en de warmbloedige zoogdieren.</p>`,
+    qtext:"<b>Noteer de nummers 1, 2 en 3 onder elkaar op je antwoordblad en schrijf erachter of de betreffende reactie <u>wel</u> of <u>niet</u> juist is.</b>",
+    steps:[{q:"Wat is <b>co-evolutie</b>?",
+      opts:["twee soorten die door hun wisselwerking elkaars evolutie beïnvloeden (bv. bloem en bestuiver)","twee soorten die los van elkaar dezelfde eigenschap krijgen","een soort die evolueert uit een andere soort"],right:0,
+      ok:"Ja. Is er een wisselwerking tussen koningsvissen en zeezoogdieren waardoor ze allebei endotherm werden? En hoe heet het als twee groepen los van elkaar op elkaar gaan lijken?",no:"‘Co’ betekent samen: de soorten beïnvloeden elkaar."},
+     {q:"Kan een soort die nu leeft (de koningsvis) de ‘schakel’ zijn tussen twee andere groepen die nu leven?",
+      opts:["nee: een soort van nu is geen voorouder van andere soorten van nu","ja"],right:0,
+      ok:"Klopt. Bovendien ontstonden de zoogdieren uit landdieren, niet uit lauwbloedige vissen.",no:"Een voorouder leefde eerder. De koningsvis leeft nu."}]});
+  O0_welNiet(ans,{id:8,stm:["longen in plaats van kieuwen","co-evolutie","evolutionaire schakel"],key:[0,1,1],
+    uitleg:"<b>1 wel juist.</b> Dieren die uit zoogdieren evolueerden, zoals walvissen, hebben de longen van hun voorouders gehouden. De koningsvis heeft kieuwen: een kenmerk van vissen.<br><br><b>2 niet juist.</b> Co-evolutie is dat twee soorten door hun wisselwerking elkaars evolutie sturen. Koningsvissen en zeezoogdieren werden los van elkaar endotherm: dat is <b>convergente evolutie</b>.<br><br><b>3 niet juist.</b> De koningsvis leeft nu en kan geen voorouder van de zoogdieren zijn. Zoogdieren ontstonden uit landdieren."});
+}});
+
+OPG.push({nr:1,kort:"Koningsvis",titel:"De lauwbloedige koningsvis",ids:[1,2,3,4,5,6,7,8],ctx:CTX1});
+
+/* ===== opg2.js ===== */
+/* ================= opgave 2: Nieuwe eilandjes voor de alvleesklier (vraag 9–15) ================= */
+/* afbeelding 1: activiteit van de insuline (nagetekend). x: 08:00=70, elk uur 13,75 px */
+const O2_X=h=>70+((h-8+24)%24)*13.75, O2_X2=h=>70+(h-8)*13.75;
+function O2_afb1(){
+  let g=O0_PIJL;const yb=150;
+  g+=`<path class="ax" d="M60,40 V${yb} H${O2_X2(32)+6}"/>`;
+  g+=`<text class="lblm" transform="translate(30,95) rotate(-90)" text-anchor="middle">→ insuline</text><text class="lblm" transform="translate(46,95) rotate(-90)" text-anchor="middle">activiteit</text>`;
+  [8,12,16,20,24,28,32].forEach(h=>{const x=O2_X2(h);g+=`<path class="ax" d="M${x},${yb} V${yb+4}"/><text class="tick" x="${x}" y="${yb+16}" text-anchor="middle">${String(h%24).padStart(2,"0")}:00</text>`;});
+  g+=`<text class="lblm" x="${O2_X2(32)}" y="${yb+32}" text-anchor="end">→ tijdstip</text>`;
+  const boog=(a,b,top)=>{const xa=O2_X2(a),xb=O2_X2(b);return `<path d="M${xa},${yb} Q${(xa+xb)/2},${yb-2*top} ${xb},${yb}" fill="none" stroke="var(--text)" stroke-width="2"/>`;};
+  g+=boog(8,12,92)+boog(12,18,68)+boog(18,22.3,96);
+  g+=`<path d="M${O2_X2(8)},${yb} Q${O2_X2(16.5)},${yb-2*55} ${O2_X2(25)},${yb}" fill="none" stroke="var(--text)" stroke-width="1.8" stroke-dasharray="7 5"/>`;
+  g+=`<path d="M${O2_X2(20)},${yb} Q${O2_X2(26.5)},${yb-2*42} ${O2_X2(33)},${yb}" fill="none" stroke="var(--text)" stroke-width="1.8" stroke-dasharray="7 5"/>`;
+  const pijl=(h,stip)=>`<path d="M${O2_X2(h)},${yb+42} V${yb+24}" stroke="var(--text)" stroke-width="1.5" ${stip?'stroke-dasharray="2 2"':""} marker-end="url(#o0p)"/>`;
+  g+=pijl(8,false)+pijl(8,true).replace(`${yb+42}`,`${yb+56}`)+pijl(12,false)+pijl(18,false)+pijl(20,true);
+  g+=`<text class="lblm" x="${O2_X2(8)}" y="${yb+72}" text-anchor="middle">ontbijt</text><text class="lblm" x="${O2_X2(12)}" y="${yb+72}" text-anchor="middle">lunch</text><text class="lblm" x="${O2_X2(17.5)}" y="${yb+72}" text-anchor="middle">avondeten</text>`;
+  g+=`<text class="lblm" x="70" y="${yb+94}">Legenda:</text><path d="M80,${yb+114} V${yb+102}" stroke="var(--text)" stroke-width="1.5" marker-end="url(#o0p)"/><text class="lblm" x="90" y="${yb+114}">injectie met snelwerkende insuline</text>`;
+  g+=`<path d="M80,${yb+134} V${yb+122}" stroke="var(--text)" stroke-width="1.5" stroke-dasharray="2 2" marker-end="url(#o0p)"/><text class="lblm" x="90" y="${yb+134}">injectie met langzaamwerkende insuline</text>`;
+  return svgWrap("10 30 450 262",g,"Diagram: activiteit van snelwerkende insuline (drie bogen na ontbijt, lunch en avondeten) en langzaamwerkende insuline (twee lage bogen gestippeld) van 08:00 tot 08:00");
+}
+/* afbeelding 2: insulinepompje (nagetekend). x: 08:00=60, uur = 17 px */
+const O2_P=h=>60+(h-8)*17;
+function O2_afb2(hl){
+  let g="";
+  /* bovenste diagram: insuline-afgifte */
+  const b=105,base=b-12;
+  g+=`<path class="ax" d="M40,20 V${b} "/><text class="lblm" transform="translate(16,62) rotate(-90)" text-anchor="middle">→ insuline</text><text class="lblm" transform="translate(30,62) rotate(-90)" text-anchor="middle">afgifte</text>`;
+  const pts=[[8,base],[8,b-90],[8.3,b-90],[8.3,base],[12,base],[12,b-70],[12.3,b-70],[12.3,base],[18.3,base],[18.3,b-34],[20.3,b-34],[20.3,base],[27.7,base],[27.7,b-26],[33.5,b-26]];
+  const hlk=k=>hl===k?"var(--goud)":"var(--text)";
+  g+=`<polyline points="${O2_P(7.2)},${base} ${pts.map(([h,y])=>O2_P(h)+","+y).join(" ")}" fill="none" stroke="var(--text)" stroke-width="2"/>`;
+  if(hl==="bolus"){g+=`<rect x="${O2_P(11.8)}" y="${b-74}" width="${O2_P(12.5)-O2_P(11.8)}" height="66" fill="none" stroke="var(--goud)" stroke-width="2"/><rect x="${O2_P(18.1)}" y="${b-38}" width="${O2_P(20.5)-O2_P(18.1)}" height="30" fill="none" stroke="var(--goud)" stroke-width="2"/>`;}
+  [8,12,16,20,24,28,32].forEach(h=>g+=`<path class="ax" d="M${O2_P(h)},${base} V${base+5}"/>`);
+  g+=`<text class="lblm" x="${O2_P(8.4)}" y="${b+16}" text-anchor="middle">ontbijt</text><text class="lblm" x="${O2_P(12.4)}" y="${b+16}" text-anchor="middle">lunch</text><text class="lblm" x="${O2_P(17.4)}" y="${b+16}" text-anchor="middle">avondeten</text>`;
+  /* onderste diagram: bloedglucose */
+  const y0=300,yy=v=>y0-v*8;
+  g+=`<path class="ax" d="M${O2_P(8)},${yy(20)} V${y0} H${O2_P(32)}"/>`;
+  [0,5,10,15,20].forEach(v=>g+=`<path class="ax" d="M${O2_P(8)-4},${yy(v)} H${O2_P(8)}"/><text class="tick" x="${O2_P(8)-8}" y="${yy(v)+4}" text-anchor="end">${v}</text>`);
+  [8,12,16,20,24,28,32].forEach(h=>g+=`<path class="ax" d="M${O2_P(h)},${y0} V${y0+4}"/><text class="tick" x="${O2_P(h)}" y="${y0+16}" text-anchor="middle">${String(h%24).padStart(2,"0")}:00</text>`);
+  g+=`<text class="lblm" transform="translate(16,${y0-80}) rotate(-90)" text-anchor="middle">→ bloedglucose-</text><text class="lblm" transform="translate(30,${y0-80}) rotate(-90)" text-anchor="middle">waarde (mmol L<tspan baseline-shift="super" font-size="9">-1</tspan>)</text>`;
+  g+=`<text class="lblm" x="${O2_P(32)}" y="${y0+32}" text-anchor="end">→ tijdstip</text>`;
+  g+=`<path d="M${O2_P(8)},${yy(7)} H${O2_P(32)}" stroke="var(--text)" stroke-width="1.6" stroke-dasharray="7 4"/>`;
+  const gl=[[8,5],[8.7,6],[9.5,8.2],[10.2,8.6],[11,7.6],[12,6.4],[13,6.7],[14.5,7.6],[16,7.6],[17,7.2],[18,6.7],[19,7.4],[20,8.4],[21,8.6],[22,8.1],[23.5,6.8],[25,6],[27,5.5],[29,5.2],[32,5.1]];
+  const d=gl.map(([h,v],k)=>(k?"L":"M")+O2_P(h)+","+yy(v)).join(" ");
+  g+=`<path d="${d}" fill="none" stroke="${hl==="glucose"||hl==="nacht"?"var(--goud)":"var(--text)"}" stroke-width="2.2" stroke-linejoin="round"/>`;
+  if(hl==="nacht")g+=`<rect x="${O2_P(26)}" y="${yy(9)}" width="${O2_P(32)-O2_P(26)}" height="${yy(3)-yy(9)}" fill="none" stroke="var(--goud)" stroke-width="2" rx="6"/>`;
+  return svgWrap("0 8 500 330",g,"Twee diagrammen: insuline-afgifte van het pompje met pieken bij ontbijt en lunch en een breder blok bij het avondeten; bloedglucosewaarde tussen ongeveer 5 en 9 mmol per liter van 08:00 tot 08:00, met een stippellijn bij 7");
+}
+
+const CTX2=`<div class="pkop"><span class="mono">Examentekst · inleiding opgave 2</span></div>
+  <p>Ruth is één van de ruim 10.000 Nederlandse diabetes type 1 patiënten jonger dan 25 jaar. Gelukkig voor Ruth is deze vorm van suikerziekte sinds de ontdekking van insuline niet meer levensbedreigend. In het verleden was het onderzoek gericht op het verbeteren van de kwaliteit van de insuline en de wijze van toediening; de uitdaging is nu om diabetes type 1 te genezen.</p>
+  <p>Toen Ruth vijf jaar was, kreeg zij de eerste symptomen van diabetes type 1: veel dorst en veel plassen. Meting van de bloedglucosewaarde door de huisarts wees uit dat deze was verhoogd. Ook werd glucose in haar urine aangetoond.<br>Diabetes type 1 is een auto-immuunziekte. Het immuunsysteem maakt antistoffen tegen de insulineproducerende β-cellen van de eilandjes van Langerhans.</p>`;
+
+/* Vraag 9 */
+Q.push({id:9,pts:2,t:"insuline in de thymus",build(q){
+  const ans=O0_vraag(q,{p:"<p>Tijdens de embryonale ontwikkeling wordt het insuline-gen ook in de thymus afgelezen. In de thymuscellen van kinderen met diabetes type 1 blijkt de expressie van het insuline-gen lager te zijn dan bij gezonde kinderen.</p>",
+    qtext:"<b>Leg uit dat een normale productie van insuline in de thymus nodig is om een auto-immuunrespons van T-cellen tegen β-cellen in de alvleesklier te voorkomen.</b>",lab:"Schrijf je antwoord ›",
+    steps:[{q:"Wat gebeurt er in de thymus met jonge T-cellen?",
+      opts:["ze ‘leren’ eigen en lichaamsvreemd onderscheiden: T-cellen die op lichaamseigen stoffen reageren, worden verwijderd","ze maken antistoffen","ze worden omgezet in B-cellen"],right:0,
+      ok:"Ja. Dat heet selectie: alleen T-cellen die niet op eigen stoffen reageren, rijpen uit.",no:"De thymus is de ‘school’ van de T-cellen. Wat moeten ze daar leren?"},
+     {q:"Er wordt in de thymus weinig insuline gemaakt. Wat is daarvan het gevolg?",
+      opts:["T-cellen die op insuline reageren worden niet weggeselecteerd en rijpen toch uit","alle T-cellen sterven","er ontstaan geen β-cellen meer"],right:0,
+      ok:"Klopt. En wat doen die T-cellen later in de alvleesklier?",no:"Een T-cel die insuline nooit ‘gezien’ heeft in de thymus, wordt ook niet geselecteerd op die stof."}]});
+  openAnswer(ans,{id:9,pts:2,checks:["In de thymus worden door blootstelling aan insuline <b>de juiste T-cellen geselecteerd</b> / leren T-cellen wat lichaamseigen is / <b>rijpen T-cellen die tegen insuline reageren niet uit</b>.","Zodat de (β-)cellen die insuline produceren in de alvleesklier <b>niet door het afweersysteem worden aangevallen/vernietigd</b>."],
+    model:"In de thymus leren T-cellen wat lichaamseigen is. Doordat er insuline in de thymus aanwezig is, worden T-cellen die tegen insuline reageren uitgeschakeld en rijpen ze niet uit. Daardoor vallen de T-cellen later de insulineproducerende β-cellen in de alvleesklier niet aan.",
+    valkuil:"Schrijven dat de thymus insuline levert aan het bloed. Het gaat om de <b>selectie van T-cellen</b>.",
+    after:()=>waaromBtn(ans,textBox("In de thymus rijpen T-cellen. Thymuscellen maken daar allerlei lichaamseigen eiwitten, ook insuline, en laten die aan de jonge T-cellen zien. <b>T-cellen die sterk reageren op een lichaamseigen eiwit worden opgeruimd</b> (negatieve selectie). Zo ontstaat tolerantie.<br><br>Wordt er in de thymus te weinig insuline gemaakt, dan ontsnappen T-cellen die op insuline reageren aan die selectie. Later komen ze in de alvleesklier β-cellen tegen die insuline maken, en vallen die aan: een auto-immuunreactie."))});
+}});
+
+/* Vraag 10 */
+Q.push({id:10,pts:2,t:"ADH en hogere bloedsuiker",build(q){
+  const ans=O0_vraag(q,{p:"<p>Bij gezonde personen veroorzaakt een tijdelijk hogere glucosewaarde in het bloed via regulatie van de ADH-afgifte een afname van de hoeveelheid geproduceerde urine.</p>",
+    qtext:"<b>Neemt de ADH-afgifte door een hogere bloedsuikerspiegel toe of af? Neemt de resorptie van water in de nieren dan toe of af?</b>",
+    steps:[{q:"Wat doet ADH in de nieren?",
+      opts:["het maakt de verzamelbuizen beter doorlaatbaar voor water: meer water wordt teruggeresorbeerd","het zorgt dat er meer water in de urine komt","het breekt glucose af"],right:0,
+      ok:"Ja. ADH = antidiuretisch hormoon: het remt de urineproductie.",no:"ADH staat voor antidiuretisch hormoon. ‘Diurese’ is urineproductie."},
+     {q:"De tekst zegt: er wordt <b>minder</b> urine geproduceerd. Wat gebeurt er dan met de waterresorptie?",
+      opts:["die neemt toe","die neemt af"],right:0,
+      ok:"Klopt. En welke verandering van de ADH-afgifte zorgt daarvoor?",no:"Als er meer water teruggaat naar het bloed, blijft er minder over voor de urine."}]});
+  ans.append(el("div",{class:"tablewrap"},`<table class="data"><tr><th></th><th>ADH-afgifte</th><th>Resorptie van water</th></tr><tr><td><b>A</b></td><td>neemt af</td><td>neemt af</td></tr><tr><td><b>B</b></td><td>neemt af</td><td>neemt toe</td></tr><tr><td><b>C</b></td><td>neemt toe</td><td>neemt af</td></tr><tr><td><b>D</b></td><td>neemt toe</td><td>neemt toe</td></tr></table>`));
+  mc(ans,{qid:10,pts:2,right:3,opts:["neemt af · neemt af","neemt af · neemt toe","neemt toe · neemt af","neemt toe · neemt toe"],
+    onChecked:()=>waaromBtn(ans,textBox("Een hogere glucoseconcentratie verhoogt de osmotische waarde van het bloed. Dat merken osmoreceptoren in de hypothalamus: de hypofyse geeft <b>meer ADH</b> af. ADH maakt de verzamelbuizen beter doorlaatbaar voor water, dus <b>meer water wordt geresorbeerd</b>. Er komt minder urine, zoals de tekst zegt. Het antwoord is <b>D</b>."))});
+}});
+
+/* Vraag 11 */
+Q.push({id:11,pts:2,t:"gewichtsverlies zonder insuline",build(q){
+  const ans=O0_vraag(q,{p:"<p>Als de diabetes van Ruth niet wordt behandeld zal zij, ondanks het hoge glucosegehalte in haar bloed, gewicht verliezen.</p>",
+    qtext:"<b>Leg uit waardoor Ruth gewicht zal verliezen als ze geen insuline gebruikt.</b>",lab:"Schrijf je antwoord ›",
+    steps:[{q:"Wat doet insuline met glucose in het bloed?",
+      opts:["het bevordert de opname van glucose door lichaamscellen (spier, vet, lever)","het maakt glucose aan in de lever","het zorgt dat glucose in de urine komt"],right:0,
+      ok:"Ja. Zonder insuline blijft de glucose in het bloed: de cellen nemen het nauwelijks op (en een deel verdwijnt met de urine).",no:"Insuline verlaagt de bloedsuikerspiegel. Waar gaat de glucose dan heen?"},
+     {q:"De cellen krijgen te weinig glucose binnen. Welke brandstof gaan ze dan gebruiken?",
+      opts:["vetten (en eiwitten) uit de reserves van het lichaam","nog meer glucose uit het bloed","niets: ze stoppen met dissimileren"],right:0,
+      ok:"Klopt. Wat gebeurt er met je gewicht als je vet en eiwit uit je lichaam verbrandt?",no:"Cellen moeten energie blijven vrijmaken. Welke andere reservestoffen heeft het lichaam?"}]});
+  openAnswer(ans,{id:11,pts:2,checks:["(Door het ontbreken van insuline) is het <b>transport van glucose vanuit het bloed naar de cellen verhinderd</b> / nemen de cellen minder glucose op / wordt (meer) glucose uitgescheiden.","Er moet <b>vetverbranding/eiwitverbranding</b> plaatsvinden (waardoor ze vermagert). <span class=\"muted\">Ook goed: er is onvoldoende energie/bouwstof voor de bouw van cellen, maar er worden wel steeds cellen afgebroken.</span>"],
+    model:"Zonder insuline nemen de lichaamscellen weinig glucose op uit het bloed, en een deel van de glucose verdwijnt met de urine. Om toch energie vrij te maken, gaat het lichaam vetten en eiwitten verbranden. Daardoor vermagert Ruth.",
+    after:()=>waaromBtn(ans,textBox("Insuline zorgt dat spier- en vetcellen glucose opnemen (en dat de lever glucose opslaat als glycogeen). <b>Zonder insuline blijft de glucose in het bloed</b>: de cellen ‘verhongeren’ ondanks de hoge bloedsuikerspiegel, en boven de nierdrempel gaat glucose verloren met de urine.<br><br>Om toch ATP te maken, <b>breken de cellen vet en eiwit af</b>. Vetweefsel en spieren worden kleiner: Ruth valt af."))});
+}});
+
+/* Vraag 12 */
+Q.push({id:12,pts:2,t:"dageraadfenomeen",build(q){
+  const ans=O0_vraag(q,{p:`<p>Een hoge glucosewaarde in het bloed (hyperglycemie) is ongezond doordat kleine bloedvaatjes beschadigd worden. Ruth leerde daarom al op jonge leeftijd om vlak voor elke maaltijd een hoeveelheid snelwerkende insuline te injecteren. Daarnaast diende zij zichzelf tweemaal per dag een langzamer werkende insuline toe (afbeelding 1).</p><div class="eyebrow">afbeelding 1</div><div class="figrow" style="align-items:center"><div>${O2_afb1()}</div><div>${FOTO("o2-insulinepen","Iemand injecteert met een insulinepen in de buik")}</div></div><p>Ook bij patiënten zoals Ruth die zich goed aan dit schema houden, komt het voor dat de bloedglucosewaarden ernstig schommelen. Zoals een lage bloedglucosewaarde (hypoglycemie) in de nacht en het ‘dageraadfenomeen’: een stijging van de bloedglucosewaarde in de vroege ochtend, vóór het ontbijt.</p>`,
+    qtext:"<b>Hoe is het ‘dageraadfenomeen’ bij diabetespatiënten het beste te verklaren?</b>",
+    steps:[{q:"Wat gebeurt er volgens de tekst in de nacht met de bloedglucosewaarde?",
+      opts:["die kan te laag worden (hypoglycemie)","die is altijd te hoog","die blijft precies normaal"],right:0,
+      ok:"Ja. En wat is de normale reactie van het lichaam op een te lage glucosewaarde?",no:"Lees de laatste alinea: wat komt er in de nacht voor?"},
+     {q:"Welk hormoon laat de bloedsuikerspiegel stijgen, en uit welk orgaan komt het?",
+      opts:["glucagon, uit de alvleesklier (α-cellen)","insuline, uit de alvleesklier","ADH, uit de hypofyse"],right:0,
+      ok:"Klopt. De α-cellen werken bij diabetes type 1 gewoon; alleen de β-cellen zijn aangevallen.",no:"Insuline verlaagt de bloedsuikerspiegel. Welk hormoon is zijn tegenspeler?"}]});
+  mc(ans,{qid:12,pts:2,right:2,opts:["Doordat er minder insuline in het bloed is, neemt de aerobe dissimilatie af.","Doordat er minder insuline in het bloed is, slaat de lever minder glucose op.","Doordat het glucosegehalte is gedaald, maakt de alvleesklier glucagon aan.","Tijdens de slaap wordt minder glucose verbruikt dan overdag."],
+    onChecked:()=>waaromBtn(ans,textBox("In de nacht kan de bloedglucose bij Ruth <b>te laag</b> worden (hypoglycemie). De α-cellen van de eilandjes van Langerhans werken gewoon: ze reageren met <b>glucagon</b>. Glucagon laat de lever glycogeen afbreken en glucose afgeven. Bij een gezond mens remt insuline dat weer af, maar bij Ruth gebeurt dat niet: de glucose schiet in de vroege ochtend door. Het antwoord is <b>C</b>.<br><br><span class=\"muted\">A en D verklaren geen stijging die juist in de vroege ochtend begint. B kan meespelen, maar verklaart niet waarom de waarde ’s ochtends stijgt na een daling.</span>"))});
+}});
+
+/* Vraag 13 */
+Q.push({id:13,pts:2,t:"insulinepompje",build(q){
+  const ans=O0_vraag(q,{p:`<p>Sinds haar 14e gebruikt Ruth een insulinepompje (afbeelding 2). Het pompje is geprogrammeerd om via een klein naaldje in de buik voortdurend insuline af te geven. Wanneer Ruth eet, berekent het pompje op basis van de koolhydraathoeveelheid die zij invoert, hoeveel insuline er dan extra nodig is (de maaltijdbolus).<br>De insulinetoediening door het pompje en het effect daarvan op bloedglucosewaarden gedurende een etmaal zijn vereenvoudigd weergegeven in de diagrammen van afbeelding 2.</p><div class="eyebrow">afbeelding 2</div><div class="figrow" style="align-items:center;grid-template-columns:minmax(0,3fr) minmax(0,2fr)"><div>${O2_afb2()}</div><div>${FOTO("o2-pompje","Iemand houdt een insulinepompje vast; een slangetje loopt naar een pleister met naaldje op de buik")}</div></div><p>Op basis van de gegevens over het gebruik van een insulinepompje worden de volgende beweringen gedaan:</p><p class="regels"><span>1</span>De bloedglucosewaarden kunnen bij gebruik van een insulinepompje nooit hoger worden dan 10 mmol per liter.<br><span>2</span>De hoeveelheid insuline die het pompje bij het avondeten afgeeft is ongeveer de helft van de hoeveelheid bij de lunch.<br><span>3</span>Gebruik van het insulinepompje voorkomt het dageraadfenomeen.</p>`,
+    qtext:"<b>Noteer de nummers 1, 2 en 3 onder elkaar op je antwoordblad en schrijf erachter of de betreffende bewering <u>wel</u> of <u>niet</u> juist is.</b>",
+    steps:[{q:"Het diagram laat één etmaal zien, ‘vereenvoudigd’. Kun je daaruit afleiden dat iets <b>nooit</b> gebeurt?",
+      opts:["nee: één voorbeeld bewijst niet dat het nooit anders kan (bv. bij een grote maaltijd)","ja"],right:0,
+      ok:"Ja. Let op woorden als ‘nooit’ en ‘altijd’.",no:"Wat als Ruth een verkeerde hoeveelheid koolhydraten invoert, of extra veel eet?"},
+     {q:"De hoeveelheid insuline bij een bolus lees je af als …",
+      opts:["de oppervlakte onder de piek (hoogte × breedte)","alleen de hoogte van de piek","alleen de breedte"],right:0,
+      ok:"Klopt. De piek bij het avondeten is lager maar veel breder dan die bij de lunch.",no:"Afgifte per tijd keer de tijd geeft de totale hoeveelheid."},
+     {q:"Wat doet het pompje rond 03:30 uur, en wat doet de bloedglucose in de vroege ochtend?",
+      opts:["het geeft meer insuline af; de glucose stijgt dan niet","het stopt; de glucose stijgt"],right:0,
+      ok:"Goed. Beoordeel nu de drie beweringen.",no:"Kijk naar de stap in het bovenste diagram na 24:00 en naar de lijn onderin tussen 04:00 en 08:00."}]});
+  O0_welNiet(ans,{id:13,stm:["nooit hoger dan 10 mmol/L","avondeten ongeveer de helft van lunch","voorkomt het dageraadfenomeen"],key:[1,1,0],
+    uitleg:b=>{stepAnim(b,[
+      {h:"glucose",cap:"<b>1 niet juist.</b> In dit vereenvoudigde voorbeeld blijft de waarde onder 10 mmol/L. Maar ‘nooit’ is niet af te leiden: bij een grote maaltijd of een verkeerde invoer kan het hoger worden."},
+      {h:"bolus",cap:"<b>2 niet juist.</b> De bolus bij het avondeten is lager, maar veel langer: het oppervlak (= de hoeveelheid insuline) is niet de helft van dat bij de lunch, eerder groter."},
+      {h:"nacht",cap:"<b>3 wel juist.</b> Rond 03:30 uur geeft het pompje meer insuline af. De bloedglucose stijgt in de vroege ochtend niet: het dageraadfenomeen blijft uit.<br><span class=\"muted\">Correctievoorschrift: drie juist 2p · twee juist 1p · minder 0p.</span>"}],
+      (stg,s)=>stg.innerHTML=O2_afb2(s.h));}});
+}});
+
+/* Vraag 14 */
+Q.push({id:14,pts:2,t:"poriën in de gelcapsule",build(q){
+  const ans=O0_vraag(q,{p:"<p>Er is goede hoop op een doorbraak waardoor Ruth genezen kan worden. Onderzoekers van de universiteiten van Leiden, Maastricht, Utrecht en Eindhoven werken samen aan een onder de huid implanteerbare capsule, een soort theezakje van een gelatineachtige stof, waarin zich insuline producerende β-cellen bevinden. De cellen komen niet van een donor, maar zijn gevormd uit lichaamseigen stamcellen van de patiënt. De capsule voorkomt het optreden van een auto-immuunrespons tegen deze β-cellen.</p><p>Voor het succes van deze behandeling is het noodzakelijk dat de capsule die de β-cellen omhult, aan bepaalde eisen voldoet. Zo mogen de poriën erin niet te groot, maar ook niet te klein zijn, zodat bepaalde stoffen wél naar buiten en bepaalde andere stoffen niét naar binnen kunnen.</p>",
+    qtext:"<b>– Welke stof is bepalend voor de minimale grootte van de poriën in de gelcapsule?<br>– En welk type stoffen bepaalt de maximale grootte van de poriën?</b>",lab:"Schrijf je antwoord ›",
+    steps:[{q:"Welke stof moet de capsule zeker <b>uit</b> kunnen (anders heeft de behandeling geen zin)?",
+      opts:["insuline","glucose","zuurstof"],right:0,
+      ok:"Ja. De poriën moeten dus minstens zo groot zijn als een insulinemolecuul.",no:"Wat maken de β-cellen, en waar moet dat heen?"},
+     {q:"Welke stoffen van het afweersysteem mogen <b>niet naar binnen</b>, omdat ze de β-cellen kunnen aanvallen? Let op: het gaat om <i>stoffen</i>, niet om cellen.",
+      opts:["antistoffen / cytokinen / complementeiwitten","T-cellen en macrofagen","glucose en zuurstof"],right:0,
+      ok:"Klopt. Cellen zijn veel groter; de kleinste schadelijke stoffen bepalen de maximale poriegrootte.",no:"Cellen zijn veel groter dan moleculen. Welke afweer<b>stoffen</b> zijn wel klein genoeg om in de buurt te komen?"}]});
+  openAnswer(ans,{id:14,pts:2,checks:["Minimale grootte: <b>insuline</b>.","Maximale grootte: <b>antistoffen / cytokinen / complementeiwitten</b>. <span class=\"muted\">Geen punt voor ‘immuuncellen’. Staan de twee juiste antwoorden omgedraaid, dan samen 1 punt.</span>"],
+    model:"De poriën moeten minstens zo groot zijn dat insuline naar buiten kan. Ze moeten kleiner zijn dan antistoffen, zodat die niet naar binnen kunnen.",
+    valkuil:"‘Witte bloedcellen’ of ‘immuuncellen’ noemen voor de maximale grootte. Die zijn veel groter; de vraag is welke <b>stoffen</b> de grens bepalen.",
+    after:()=>waaromBtn(ans,textBox("De β-cellen in de capsule maken <b>insuline</b>. Dat moet naar buiten, het bloed in: de poriën moeten dus minimaal zo groot zijn als een insulinemolecuul (ongeveer 6 kDa).<br><br>Tegelijk mag het afweersysteem de cellen niet bereiken. Witte bloedcellen zijn veel te groot om erdoor te gaan; de grens wordt bepaald door de kleinste schadelijke <b>stoffen</b>: <b>antistoffen</b> (ongeveer 150 kDa), cytokinen of complementeiwitten.<br><br><span class=\"muted\">Correctievoorschrift: omgedraaid 1p; immuuncellen 0p.</span>"))});
+}});
+
+/* Vraag 15 */
+Q.push({id:15,pts:2,t:"diffusie van glucose door de gel",build(q){
+  const ans=O0_vraag(q,{p:"<p>Ook mag de gellaag die de β-cellen omhult niet te dik zijn. De diffusieafstand mag het goed functioneren van de β-cellen niet hinderen.</p>",
+    qtext:"<b>Leg uit dat voor het goed functioneren van de β-cellen de diffusiesnelheid door de gellaag voor glucose zo hoog mogelijk moet zijn.</b>",lab:"Schrijf je antwoord ›",
+    steps:[{q:"Waarop reageren β-cellen als ze insuline afgeven?",
+      opts:["op een stijging van de glucoseconcentratie om hen heen","op het tijdstip van de dag","op een signaal van de hersenen alleen"],right:0,
+      ok:"Ja. β-cellen ‘meten’ de glucose. In de capsule meten ze de glucose die door de gel naar binnen is gekomen.",no:"Insuline verlaagt de bloedsuikerspiegel. Wat moeten β-cellen dus waarnemen?"},
+     {q:"Wat gebeurt er als glucose maar langzaam door de gel diffundeert?",
+      opts:["de β-cellen merken een stijging van de bloedsuiker te laat op en geven te laat insuline af","de β-cellen maken te veel insuline","er verandert niets"],right:0,
+      ok:"Klopt. Schrijf je uitleg: waarnemen en dan op tijd insuline afgeven.",no:"Als de glucose er later is, wanneer reageren de cellen dan?"}]});
+  openAnswer(ans,{id:15,pts:2,checks:["De β-cellen moeten <b>snel een verhoging/verandering van de glucoseconcentratie</b> (in het bloed) <b>opmerken</b>.","Om <b>tijdig insuline af te kunnen geven</b> / om de bloedsuikerspiegel te normaliseren."],
+    model:"De β-cellen moeten een stijging van de glucoseconcentratie in het bloed snel opmerken. Alleen dan kunnen ze op tijd insuline afgeven en wordt de bloedsuikerspiegel snel weer normaal.",
+    valkuil:"Schrijven dat de β-cellen glucose nodig hebben als voedsel. Het gaat om het <b>waarnemen</b> van de glucoseconcentratie.",
+    after:()=>waaromBtn(ans,textBox("β-cellen zijn sensor én producent: ze geven insuline af als de glucoseconcentratie om hen heen stijgt. In de capsule bereikt de glucose de cellen alleen door diffusie door de gel. Gaat die diffusie traag, dan ‘zien’ de β-cellen de stijging na een maaltijd <b>te laat</b>, komt de insuline te laat, en schiet de bloedsuikerspiegel toch omhoog. Daarom moet de glucose zo snel mogelijk door de gel kunnen."))});
+}});
+
+OPG.push({nr:2,kort:"Diabetes type 1",titel:"Nieuwe eilandjes voor de alvleesklier",ids:[9,10,11,12,13,14,15],ctx:CTX2});
+
+/* ===== opg3.js ===== */
+/* ================= opgave 3: Een bijzondere band tussen grootvader en kleinkind (vraag 16–26) ================= */
+/* afbeelding 1: FMR1-gen en de drie categorieën (nagetekend schema) */
+function O3_afb1(){
+  let g=O0_PIJL;
+  const T=(x,y,t,c="lbl",a="start")=>`<text class="${c}" x="${x}" y="${y}" text-anchor="${a}">${t}</text>`;
+  g+=T(10,46,"FMR1−")+T(10,62,"gen");
+  /* gen-balk met exons */
+  g+=`<path d="M100,40 H560" stroke="var(--text2)" stroke-width="1.4"/>`;
+  g+=`<rect x="100" y="31" width="50" height="18" rx="9" fill="var(--surface2)" stroke="var(--text)"/>`+T(104,44,"CGG","lblm")+T(144,44,"1","lblm","middle");
+  const ex=[[160,10],[176,8],[188,8],[200,16],[222,12],[240,10],[256,18],[282,18],[308,14],[330,22],[358,8],[372,10],[388,12],[406,14],[428,8],[442,30]];
+  ex.forEach(([x,w],k)=>{g+=`<rect x="${x}" y="31" width="${w}" height="18" rx="5" fill="var(--surface2)" stroke="var(--text)"/><text class="tick" x="${x+w/2}" y="44" text-anchor="middle" style="font-size:8px">${k+2}</text>`;});
+  g+=T(150,24,"ATG","lblm","middle")+`<path d="M150,27 V31" stroke="var(--text)"/>`+T(470,24,"TAA","lblm","middle")+`<path d="M470,27 V31" stroke="var(--text)"/>`+T(482,45,"3´ UTR","lblm");
+  /* drie categorieën */
+  const kol=[[150,"normaal","<55",9,"normaal"],[310,"premutatie","55-200",4,"soms FXTAS"],[480,"volledige mutatie",">200",0,"100% FXS"]];
+  g+=T(10,112,"CGG-")+T(10,128,"repeats")+T(10,210,"mRNA")+T(10,270,"FMRP")+T(10,286,"eiwit")+T(10,345,"fenotype");
+  g+=`<path d="M128,50 L${kol[0][0]},100" stroke="var(--text2)" marker-end="url(#o0p)"/><path d="M128,50 L${kol[1][0]},100" stroke="var(--text2)" marker-end="url(#o0p)"/><path d="M128,50 L${kol[2][0]-75},98" stroke="var(--text2)" marker-end="url(#o0p)"/>`;
+  kol.forEach(([x,n,a,eiwit,f],k)=>{
+    const w=k===2?150:110;
+    g+=`<rect x="${x-w/2}" y="104" width="${w}" height="20" rx="10" fill="var(--surface2)" stroke="var(--text)"/>`+T(x-w/2+(k===2?40:12),118,"CGG","lblm");
+    if(k===2)for(let i=0;i<7;i++){const xx=x-60+i*20;g+=`<path d="M${xx},104 V94" stroke="var(--text)"/><circle cx="${xx}" cy="92" r="3" fill="var(--surface)" stroke="var(--text)"/>`;}
+    if(k===2)g+=T(x+20,84,"methylering","lblm");
+    g+=T(x,146,n,"lblm","middle")+T(x,162,a,"lblm","middle");
+    g+=`<path d="M${x},170 V188" stroke="var(--text2)" stroke-width="1.5" marker-end="url(#o0p)"/>`;
+    const nm=[4,12,0][k];
+    for(let i=0;i<nm;i++){const xx=x-30+(i%4)*16,yy=196+Math.floor(i/4)*10;g+=`<path d="M${xx},${yy} q4,-4 8,0 t8,0" fill="none" stroke="var(--text)" stroke-width="1.2"/>`;}
+    if(k===2)g+=`<path d="M${x-14},196 L${x+14},224 M${x+14},196 L${x-14},224" stroke="var(--text)" stroke-width="1.6"/>`;
+    if(k<2)g+=`<path d="M${x},234 V252" stroke="var(--text2)" stroke-width="1.5" marker-end="url(#o0p)"/>`;
+    for(let i=0;i<eiwit;i++){const xx=x-22+(i%3)*22+(Math.floor(i/3)%2)*8,yy=262+Math.floor(i/3)*14;g+=`<circle cx="${xx}" cy="${yy}" r="5.5" fill="var(--text2)"/>`;}
+    g+=T(x,345,f,"lblm","middle");
+  });
+  return svgWrap("0 10 640 345",g,"Schema van het FMR1-gen met 17 exons; normaal minder dan 55 CGG-repeats: normaal mRNA en veel FMRP; premutatie 55 tot 200: veel mRNA, weinig FMRP, soms FXTAS; volledige mutatie meer dan 200 met methylering: geen mRNA, geen FMRP, 100% FXS");
+}
+
+/* afbeelding 2: stamboom (nagetekend). [id, x, gen, sekse, status 0 normaal 1 pre 2 vol, label] */
+const O3_P=[
+ ["I-1",330,0,"m",0,"25"],["I-2",440,0,"v",1,"30/70"],
+ ["II-1",270,1,"m",1,"120"],["II-2",330,1,"v",0,"23/32"],["II-3",385,1,"v",0,"25/30"],["II-4",440,1,"m",1,"85"],["II-5",500,1,"v",0,"17/30"],
+ ["III-1",220,2,"v",1,"28/132"],["III-2",280,2,"m",0,"30"],["III-3",335,2,"v",1,"32/126"],["III-4",445,2,"m",0,"30"],["III-5",475,2,"m",0,"17"],["III-6",505,2,"m",0,"32"],["III-7",560,2,"v",1,"17/85"],
+ ["IV-1",220,3,"m",0,"28"],["IV-2",280,3,"v",2,"30/252"],["IV-3",335,3,"m",0,"32"],["IV-4",418,3,"m",2,"272"],["IV-5",447,3,"m",0,"29"],["IV-6",503,3,"v",1,"37/100"],["IV-7",531,3,"m",0,"17"],["IV-8",560,3,"m",0,"30"],["IV-9",615,3,"v",2,"32/257"],
+ ["V-1",220,4,"v",0,"28/30"],["V-2",280,4,"m",2,"406"],["V-3",447,4,"v",0,"29/32"],["V-4",503,4,"m",0,"32"],["V-5",560,4,"v",0,"30/32"],["V-6",615,4,"m",2,"278"]];
+function O3_stamboom(hl){
+  hl=hl||[];const Y=k=>40+k*76;let g="";const P={};O3_P.forEach(p=>P[p[0]]=p);
+  const L=d=>`<path d="${d}" fill="none" stroke="var(--text)" stroke-width="1.3"/>`;
+  const paar=(a,b)=>L(`M${P[a][1]},${Y(P[a][2])} H${P[b][1]}`);
+  const kids=(mx,y,xs)=>L(`M${mx},${y} V${y+24} M${Math.min(...xs)},${y+24} H${Math.max(...xs)}`)+xs.map(x=>L(`M${x},${y+24} V${y+38}`)).join("");
+  g+=paar("I-1","I-2")+kids(385,Y(0),[270,385,440]);
+  g+=paar("II-1","II-2")+kids(300,Y(1),[220,335]);
+  g+=paar("II-4","II-5")+kids(470,Y(1),[445,475,505,560]);
+  g+=paar("III-2","III-3")+kids(307,Y(2),[220,280,335]);
+  g+=paar("III-6","III-7")+kids(532,Y(2),[418,447,503,531,560,615]);
+  g+=paar("IV-1","IV-2")+kids(250,Y(3),[220,280]);
+  g+=paar("IV-5","IV-6")+kids(475,Y(3),[447,503]);
+  g+=paar("IV-8","IV-9")+kids(588,Y(3),[560,615]);
+  O3_P.forEach(([id,x,k,s,st,lab])=>{const y=Y(k),h=hl.includes(id);const kl=h?"var(--goud)":"var(--text)";
+    const vul=st===2?kl:"var(--surface)";
+    g+=s==="m"?`<rect x="${x-7}" y="${y-7}" width="14" height="14" fill="${vul}" stroke="${kl}" stroke-width="${h?2.4:1.3}"/>`:`<circle cx="${x}" cy="${y}" r="7.5" fill="${vul}" stroke="${kl}" stroke-width="${h?2.4:1.3}"/>`;
+    if(st===1)g+=`<circle cx="${x}" cy="${y}" r="1.8" fill="${kl}"/>`;
+    g+=`<text class="tick" x="${x}" y="${y-12}" text-anchor="middle" style="font-size:10px">${id.split("-")[1]}</text><text class="lblm" x="${x}" y="${y+21}" text-anchor="middle" style="font-size:11px;${h?"fill:var(--goud-text);font-weight:700":""}">${lab}</text>`;});
+  ["I","II","III","IV","V"].forEach((r,k)=>g+=`<text class="lbl" x="150" y="${Y(k)+4}" style="font-family:serif">${r}</text>`);
+  const yl=Y(4)+40;
+  g+=`<text class="lblm" x="200" y="${yl}">Legenda:</text><circle cx="207" cy="${yl+14}" r="6" fill="var(--surface)" stroke="var(--text)"/><circle cx="207" cy="${yl+14}" r="1.6" fill="var(--text)"/><rect x="218" y="${yl+8}" width="12" height="12" fill="var(--surface)" stroke="var(--text)"/><circle cx="224" cy="${yl+14}" r="1.6" fill="var(--text)"/><text class="lblm" x="238" y="${yl+18}">pre-mutatie</text>`;
+  g+=`<circle cx="207" cy="${yl+32}" r="6" fill="var(--text)"/><rect x="218" y="${yl+26}" width="12" height="12" fill="var(--text)"/><text class="lblm" x="238" y="${yl+36}">volledige mutatie</text>`;
+  return svgWrap("140 18 500 420",g,"Stamboom van vijf generaties met het aantal CGG-repeats onder elk familielid");
+}
+const O3_STAM_TEKST=`<p>In afbeelding 2 is een stamboom weergegeven van een familie waarin de aandoeningen FXS en FXTAS voorkomen. De getallen onder de symbolen van de familieleden geven het aantal CGG-repeats in het FMR1-gen op de X-chromosomen aan.</p>`;
+const O3_STAM_NA=`<p>Als het aantal CGG-repeats groter is dan 55, is het aantal dat aan de volgende generatie wordt doorgegeven vaak niet stabiel. Er kan dan zowel afname als toename van het aantal repeats plaatsvinden.</p>`;
+const O3_STAM=()=>`${O3_STAM_TEKST}<div class="eyebrow">afbeelding 2</div>${O3_stamboom()}${O3_STAM_NA}`;
+
+/* afbeelding 3: X-chromosoom met loci (nagetekend ideogram) */
+function O3_afb3(){
+  const loc=["p22.33","p22.32","p22.31","p22.2","p22.13","p22.11","p21.2","p11.4","p11.3","p11.23","p11.22","p11.1","q11.2","q13.1","q13.2","q21.1","q21.2","q21.31","q21.33","q22.1","q22.2","q23","q24","q25","q26.1","q26.3","q27.1","q27.3","q28"];
+  const xs=[18,30,42,58,70,92,113,136,157,170,183,198,222,240,256,277,290,302,315,331,346,372,384,402,432,445,460,474,488];
+  let g=`<rect x="8" y="80" width="${206-8}" height="16" rx="8" fill="var(--surface)" stroke="var(--text)"/><rect x="212" y="80" width="${520-212}" height="16" rx="8" fill="var(--surface)" stroke="var(--text)"/>`;
+  const band=[[22,8,.25],[48,10,.5],[64,8,.25],[100,10,.8],[120,10,.9],[150,10,.7],[176,10,.3],[230,8,.3],[248,6,.15],[268,14,.9],[296,12,.8],[322,12,.6],[340,10,.5],[360,12,.9],[392,10,.6],[410,30,.95],[452,10,.4],[466,10,.6],[480,14,.95]];
+  band.forEach(([x,w,o])=>g+=`<rect x="${x}" y="81" width="${w}" height="14" fill="var(--text)" opacity="${o*.8}"/>`);
+  loc.forEach((t,k)=>{const x=xs[k];g+=`<path d="M${x},80 V68" stroke="var(--text)" stroke-width="1"/><circle cx="${x}" cy="68" r="1.6" fill="var(--text)"/><text class="tick" transform="translate(${x+3},64) rotate(-90)" style="font-size:9px;fill:var(--text)">${t}</text>`;});
+  return svgWrap("0 0 530 104",g,"Ideogram van het X-chromosoom met de loci van p22.33 links tot q28 rechts; q27.3 ligt vlak bij het eind van de lange arm");
+}
+/* afbeelding 4: vijf X-chromosomen (nagetekend). insnoering: 0 geen, 1 één chromatide onder, 2 beide onder, 3 één boven, 4 beide boven */
+function O3_chrom(x,type,hl){
+  const kl=hl?"var(--goud)":"var(--text)";let g="";
+  /* type: 0 geen insnoering, 1 één chromatide onder, 2 beide onder, 3 één boven, 4 beide boven */
+  const cut=[[0,0],[0,1],[1,1],[0,0],[0,0]][type],top=[[0,0],[0,0],[0,0],[1,0],[1,1]][type];
+  [-1,1].forEach((sx,k)=>{
+    const cx=x+sx*4,tx=x+sx*13,bx=x+sx*16;
+    const yT=top[k]?26:14,yB=cut[k]?100:116;
+    g+=`<path d="M${tx},${yT} Q${cx},44 ${cx},48 Q${cx},56 ${bx},${yB}" fill="none" stroke="${kl}" stroke-width="17" stroke-linecap="round"/>`;
+    if(top[k])g+=`<path d="M${tx},${yT-4} L${tx},${yT-12}" stroke="${kl}" stroke-width="3"/><ellipse cx="${tx}" cy="${yT-17}" rx="9" ry="7.5" fill="${kl}"/>`;
+    if(cut[k])g+=`<path d="M${bx},${yB+4} L${bx},${yB+12}" stroke="${kl}" stroke-width="3"/><ellipse cx="${bx}" cy="${yB+18}" rx="9" ry="7.5" fill="${kl}"/>`;
+  });
+  return g;
+}
+function O3_afb4(hl){
+  hl=hl||[];let g="";
+  for(let k=0;k<5;k++){const x=40+k*80;g+=O3_chrom(x,k,hl.includes(k+1))+`<text class="lbl" x="${x}" y="150" text-anchor="middle" style="font-size:15px">${k+1}</text>`;}
+  return svgWrap("0 -8 400 166",g,"Vijf X-chromosomen. 1: geen insnoering. 2: insnoering aan het eind van de lange arm van één chromatide. 3: insnoering aan het eind van de lange arm van beide chromatiden. 4: insnoering aan het eind van de korte arm van één chromatide. 5: insnoering aan het eind van de korte arm van beide chromatiden");
+}
+/* afbeelding 6: synaps normaal en FXS (nagetekend) */
+function O3_synaps(fx,ox,stap){
+  stap=stap===undefined?9:stap;let g="";
+  g+=`<path d="M${ox+40},10 Q${ox+30},90 ${ox+80},92 H${ox+180} Q${ox+230},90 ${ox+220},10" fill="var(--surface2)" stroke="var(--text2)" stroke-width="1.5"/>`;
+  [[90,40],[115,30],[140,45],[165,35],[100,65],[125,62],[150,68],[175,60],[135,82]].forEach(([x,y])=>g+=`<circle cx="${ox+x}" cy="${y}" r="5.5" fill="var(--text2)"/>`);
+  g+=`<text class="lblm" x="${ox+224}" y="28">glutamaat</text><circle cx="${ox+92}" cy="104" r="5" fill="var(--text2)"/>`;
+  g+=`<path d="M${ox+10},300 Q${ox+30},200 ${ox+40},160 Q${ox+50},118 ${ox+130},118 Q${ox+210},118 ${ox+220},160 Q${ox+230},200 ${ox+250},300" fill="var(--surface2)" stroke="var(--text2)" stroke-width="1.5"/>`;
+  g+=`<circle cx="${ox+70}" cy="128" r="12" fill="var(--surface)" stroke="var(--text)"/><circle cx="${ox+70}" cy="118" r="5" fill="var(--text2)"/><text class="lblm" x="${ox+8}" y="104">mGluR5</text><text class="lblm" x="${ox+8}" y="118">receptor</text>`;
+  const ampa=(x,y,kl)=>`<rect x="${x-9}" y="${y-10}" width="6" height="20" rx="3" fill="${kl||"var(--teal)"}"/><rect x="${x-2}" y="${y-10}" width="6" height="20" rx="3" fill="${kl||"var(--teal)"}" opacity=".7"/><rect x="${x+5}" y="${y-10}" width="6" height="20" rx="3" fill="${kl||"var(--teal)"}"/>`;
+  const inMem=fx?[[180,120]]:[[110,120],[145,120],[180,120]];
+  inMem.forEach(([x,y])=>g+=ampa(ox+x,y));
+  g+=`<text class="lblm" x="${ox+200}" y="112">AMPA-</text><text class="lblm" x="${ox+200}" y="126">receptor</text>`;
+  if(stap>=1)g+=`<path d="M${ox+70},142 V178" stroke="var(--text)" stroke-width="1.5" marker-end="url(#o0p)"/>`;
+  if(stap>=1){g+=`<path d="M${ox+40},188 H${ox+110}" stroke="var(--text3)" stroke-width="2"/>`;[52,70,88].forEach(x=>g+=`<ellipse cx="${ox+x}" cy="186" rx="7" ry="5" fill="var(--text)"/>`);g+=`<text class="lblm" x="${ox+(fx?45:42)}" y="212">eiwitsynthese</text>`;}
+  if(stap>=2){g+=`<path d="M${ox+112},188 H${ox+(fx?180:178)}" stroke="var(--text)" stroke-width="1.5" ${fx?'marker-end="url(#o0p)"':""}/>`;
+    if(!fx)g+=`<path d="M${ox+148},160 V184" stroke="var(--koraal)" stroke-width="1.5"/><text class="lbl" x="${ox+130}" y="154" style="fill:var(--koraal)">FMRP</text><text class="lbl" x="${ox+138}" y="176" style="fill:var(--koraal)">−</text>`;}
+  if(stap>=3){g+=`<path d="M${ox+182},132 V${fx?220:200}" stroke="var(--text)" stroke-width="1.5" marker-end="url(#o0p)"/>`;
+    (fx?[[170,240],[200,240],[185,272]]:[[182,222]]).forEach(([x,y])=>g+=ampa(ox+x,y,"var(--text3)"));}
+  g+=`<text class="lbl" x="${ox+130}" y="320" text-anchor="middle">${fx?"fragiele X syndroom":"normaal"}</text>`;
+  return g;
+}
+function O3_afb6(stap){return svgWrap("0 0 585 330",O0_PIJL+O3_synaps(false,0,stap)+O3_synaps(true,275,stap),"Twee synapsen. Links normaal: drie AMPA-receptoren in het membraan; mGluR5 zet eiwitsynthese aan; FMRP remt het effect van die eiwitten; één AMPA-receptor wordt naar binnen gehaald. Rechts fragiele X syndroom: geen FMRP, één AMPA-receptor in het membraan en drie naar binnen gehaald");}
+
+const CTX3=`<div class="pkop"><span class="mono">Examentekst · inleiding opgave 3</span></div>
+  <p>Duizenden grootvaders liepen rond met onbegrepen neurologische klachten totdat de Amerikaanse kinderarts Randi Hagerman een verband legde tussen de klachten van de grootvaders en de verstandelijke beperking van hun kleinkinderen.</p>
+  <p>De grootvaders waren tot middelbare leeftijd gezond, maar vanaf hun 50ste levensjaar kregen zij geleidelijk meer last van bevingen, motorische problemen en achteruitgang van verstandelijke vermogens. Deze aandoening heet nu het fragiele X-gerelateerde ataxie syndroom (FXTAS). De aandoening van hun zwakbegaafde kleinkinderen wordt het fragiele X-syndroom (FXS) genoemd.<br>De namen verwijzen naar de ‘fragiele’ plaats op het X-chromosoom die ontstaat door een mutatie in het FMR1-gen, namelijk de toename van het aantal CGG-herhalingen (repeats) aan het begin van het gen. Deze plaats is tijdens een mitose onder een gewone microscoop als een dun stukje van het chromosoom zichtbaar.</p>`;
+const O3_AFB1_TEKST=`<p>Direct achter de promotor van het FMR1-gen liggen bij gezonde personen 6 tot 54 CGG-repeats. De volledige mutatie, met meer dan 200 CGG-repeats, leidt tot methylering en heeft FXS tot gevolg. Bij de premutatie, die kan leiden tot symptomen van FXTAS, ligt het aantal repeats tussen de 55 en 200.<br>Opvallend is dat als gevolg van de premutatie ongewoon veel mRNA gevormd wordt, wat soms leidt tot ophoping van RNA-eiwitcomplexen, waardoor dit RNA nauwelijks getransleerd wordt.<br>In afbeelding 1 is een indeling van deze mutaties in het FMR1-gen en hun gevolgen in zenuwcellen weergegeven.</p>`;
+
+/* Vraag 16 */
+Q.push({id:16,pts:2,t:"dinucleotide-repeats",build(q){
+  const ans=O0_vraag(q,{p:"<p>Mutaties waarbij ergens in een gen een aantal extra repeats ontstaat, komen regelmatig voor. Mutaties waardoor het aantal trinucleotide-repeats (herhalingen van drie nucleotiden) verandert, zijn vaak minder ingrijpend dan die van het aantal dinucleotide-repeats (herhalingen van twee nucleotiden).</p>",
+    qtext:"<b>Leg uit waardoor een verandering van het aantal dinucleotide-repeats op moleculair niveau grote gevolgen kan hebben.</b>",lab:"Schrijf je antwoord ›",
+    steps:[{q:"Per hoeveel nucleotiden wordt mRNA afgelezen bij de translatie?",
+      opts:["per drie (een codon)","per twee","per één"],right:0,
+      ok:"Ja. Komen er drie nucleotiden bij, dan komt er één codon bij. Wat als er twee bij komen?",no:"Een codon voor één aminozuur bestaat uit … nucleotiden."},
+     {q:"Er komen twee nucleotiden bij in een coderend stuk. Wat gebeurt er met alle codons daarna?",
+      opts:["het leesraam verschuift: alle codons erna veranderen","alleen één codon verandert","er verandert niets"],right:0,
+      ok:"Klopt. En wat betekent dat voor het eiwit?",no:"Schrijf AUG-CCA-UUG op en zet er twee letters tussen. Lees opnieuw per drie."}]});
+  openAnswer(ans,{id:16,pts:2,checks:["Het <b>leesraam verandert</b> (in veel gevallen) / er ontstaan <b>andere codons/tripletten</b>.","(Waardoor) er <b>voor andere aminozuren gecodeerd</b> wordt / er een ander (mogelijk niet-functioneel) eiwit wordt gevormd."],
+    model:"Bij een extra of minder dinucleotide-repeat verschuift het leesraam, omdat twee geen veelvoud van drie is. Alle codons daarna veranderen, dus er worden andere aminozuren ingebouwd en er ontstaat een ander, mogelijk niet-functioneel eiwit.",
+    valkuil:"Alleen ‘er ontstaat een ander eiwit’ schrijven. Leg ook uit <b>waarom</b>: het leesraam verschuift.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {r:"AUG CAC ACU UGG …",cap:"Een stukje mRNA, gelezen per drie (codons)."},
+      {r:"AUG CAC <b>ACA</b> CAC UUG G…",cap:"Komt er één <b>trinucleotide</b>-repeat bij (CAC), dan komt er één codon bij. De rest blijft in het juiste leesraam: één aminozuur extra."},
+      {r:"AUG CAC <b>AC</b>A CUU GG…",cap:"Komt er één <b>dinucleotide</b>-repeat bij (AC), dan <b>verschuift het leesraam</b>: alle codons erna veranderen. Er worden andere aminozuren ingebouwd (of er ontstaat een stopcodon), en het eiwit werkt meestal niet meer."}],
+      (stg,s)=>stg.innerHTML=`<p style="font:600 20px var(--meta);letter-spacing:.06em;padding:22px 16px;margin:0;text-align:center">${s.r}</p>`))});
+}});
+
+/* Vraag 17 */
+Q.push({id:17,pts:1,t:"geen FMRP bij volledige mutatie",build(q){
+  const ans=O0_vraag(q,{p:`${O3_AFB1_TEKST}<div class="eyebrow">afbeelding 1</div>${O3_afb1()}`,
+    qtext:"<b>Waardoor wordt bij een volledige mutatie het eiwit FMRP niet gevormd?</b>",lab:"Schrijf je antwoord ›",
+    steps:[{q:"Wat zie je in afbeelding 1 bij de volledige mutatie in de rij ‘mRNA’?",
+      opts:["een kruis: er wordt geen mRNA gemaakt","heel veel mRNA","evenveel mRNA als normaal"],right:0,
+      ok:"Ja. Zonder mRNA geen translatie. Maar waaróm wordt er geen mRNA gemaakt?",no:"Kijk in de rechterkolom, onder de CGG-repeats."},
+     {q:"Wat doet methylering van het begin van een gen (de promotor)?",
+      opts:["het zet het gen uit: RNA-polymerase kan niet binden, dus geen transcriptie","het versnelt de transcriptie","het knipt het gen in stukken"],right:0,
+      ok:"Klopt. Schrijf het nu in één zin.",no:"Methylering is een epigenetische ‘uitknop’ voor genen."}]});
+  openAnswer(ans,{id:17,pts:1,checks:["Door <b>methylering</b> (van de promotor) vindt <b>geen transcriptie</b> plaats / zonder mRNA kan er <b>geen translatie</b> plaatsvinden."],
+    model:"Bij de volledige mutatie wordt het begin van het gen gemethyleerd. Daardoor vindt er geen transcriptie plaats; zonder mRNA kan FMRP niet worden gevormd.",
+    after:()=>waaromBtn(ans,textBox("Meer dan 200 CGG-repeats leidt tot <b>methylering</b> van het CGG-gebied en de promotor. Gemethyleerd DNA wordt strak opgevouwen en RNA-polymerase kan er niet binden: het gen wordt <b>niet getranscribeerd</b>. Zonder mRNA is er geen translatie, en dus geen FMRP. In afbeelding 1 zie je dat aan het kruis in de rij mRNA."))});
+}});
+
+/* Vraag 18 */
+Q.push({id:18,pts:1,t:"kleine hersenen",build(q){
+  const ans=O0_vraag(q,{p:"<p>De ophoping van RNA-eiwitcomplexen in zenuwcellen van iemand met de premutatie heeft een toxisch effect op deze cellen.</p>",
+    qtext:"<b>Verklaar dat de uitval van zenuwcellen in de kleine hersenen kan leiden tot een deel van de symptomen van FXTAS.</b>",lab:"Schrijf je antwoord ›",
+    steps:[{q:"Wat is de functie van de kleine hersenen?",
+      opts:["het coördineren van bewegingen en het evenwicht","het opslaan van herinneringen","het regelen van de hartslag"],right:0,
+      ok:"Ja. Welke symptomen van FXTAS passen daarbij? Kijk in de inleiding.",no:"Zoek de kleine hersenen (cerebellum) op in je informatieboek."}]});
+  openAnswer(ans,{id:18,pts:1,checks:["De kleine hersenen <b>coördineren spierbewegingen</b> (en bij uitval kunnen bevingen en motorische problemen ontstaan)."],
+    model:"De kleine hersenen coördineren de spierbewegingen. Vallen daar zenuwcellen uit, dan ontstaan bevingen en motorische problemen.",
+    after:()=>waaromBtn(ans,textBox("De <b>kleine hersenen</b> stemmen bewegingen op elkaar af en zorgen voor evenwicht en een vloeiende motoriek. In de inleiding staan de symptomen van FXTAS: <b>bevingen en motorische problemen</b> (en achteruitgang van verstandelijke vermogens). Die eerste twee passen bij uitval van de kleine hersenen. ‘Ataxie’ in de naam FXTAS betekent ook: verstoorde coördinatie van bewegingen."))});
+}});
+
+/* Vraag 19 */
+Q.push({id:19,pts:2,t:"X-inactivatie",build(q){
+  const ans=O0_vraag(q,{p:"<p>Hoewel de premutatie recessief is, kunnen vrouwen met een heterozygoot genotype toch symptomen van FXTAS krijgen. Dit hangt samen met het feit dat bij hen in elke cel willekeurig één van de twee X-chromosomen geïnactiveerd is.</p>",
+    qtext:"<b>Leg uit dat hierdoor de ernst van FXTAS bij vrouwen met één gemuteerd X-chromosoom onderling kan variëren.</b>",lab:"Schrijf je antwoord ›",
+    steps:[{q:"In een cel van zo’n vrouw is het X-chromosoom met de <b>normale</b> versie van het gen geïnactiveerd. Welk FMR1-gen wordt in die cel afgelezen?",
+      opts:["alleen het gemuteerde","alleen het normale","allebei"],right:0,
+      ok:"Ja. Die cel gedraagt zich dus als een cel met de premutatie.",no:"Een geïnactiveerd X-chromosoom wordt niet afgelezen. Welke blijft er over?"},
+     {q:"Welk X-chromosoom wordt geïnactiveerd: altijd hetzelfde, of per cel toevallig?",
+      opts:["per cel toevallig","altijd het gemuteerde","altijd het normale"],right:0,
+      ok:"Klopt. Wat betekent dat voor het aantal cellen met het ‘zieke’ actieve X bij verschillende vrouwen?",no:"Lees de tekst: ‘willekeurig’."}]});
+  openAnswer(ans,{id:19,pts:2,checks:["Door <b>toeval</b> wordt bepaald of in een (zenuw)cel het gemuteerde of het intacte X-chromosoom wel of niet is geïnactiveerd.","(En dus) <b>hoeveel cellen</b> het eiwit (van het intacte FMR1-gen) wel/niet kunnen produceren. <span class=\"muted\">2 punten voor: als toevallig in een overmaat van cellen van een orgaan het intacte X is geïnactiveerd, kunnen uitvalsverschijnselen van dat orgaan optreden. 0 punten voor: het aantal repeats verschilt.</span>"],
+    model:"Het is toeval welk X-chromosoom in een zenuwcel geïnactiveerd wordt. Bij de ene vrouw is in veel zenuwcellen het intacte X uitgeschakeld en werkt alleen het gemuteerde, bij een andere vrouw maar in weinig cellen. Het aantal cellen dat wel of niet normaal functioneert verschilt dus, en daarmee de ernst van FXTAS.",
+    valkuil:"Schrijven dat het aantal repeats tussen vrouwen verschilt. Dat levert volgens het correctievoorschrift <b>geen punten</b> op; het gaat om de <b>X-inactivatie</b>.",
+    after:()=>waaromBtn(ans,textBox("Vroeg in de ontwikkeling wordt in elke cel van een vrouw <b>willekeurig</b> één X-chromosoom uitgeschakeld (Barr-lichaampje). Alle dochtercellen houden dezelfde keuze. Een vrouw met één gemuteerd X is dus een <b>mozaïek</b>: in een deel van haar zenuwcellen werkt het gemuteerde X, in de rest het normale.<br><br>Welk deel dat is, verschilt per vrouw. Werkt het gemuteerde X toevallig in veel zenuwcellen (bijvoorbeeld in de kleine hersenen), dan heeft ze ernstige klachten; is dat maar in weinig cellen zo, dan weinig of geen."))});
+}});
+
+/* Vraag 20 */
+Q.push({id:20,pts:2,t:"premutatie wordt volledige mutatie",build(q){
+  const ans=O0_vraag(q,{p:`${O3_STAM()}<p>Uit de stamboom (afbeelding 2) is af te leiden dat de premutatie in één generatie kan leiden tot een volledige mutatie in de daaropvolgende generatie.</p>`,
+    qtext:"<b>Tijdens welk proces of welke processen heeft deze verandering van premutatie naar mutatie in deze familie plaatsgevonden?</b>",
+    steps:[{q:"Zoek in de stamboom de personen met een volledige mutatie (zwart). Wie is steeds de ouder met de premutatie van wie ze het X-chromosoom met de mutatie kregen?",
+      opts:["steeds de moeder","steeds de vader","soms de vader, soms de moeder"],right:0,
+      ok:"Ja. IV-2 van III-3, IV-4 en IV-9 van III-7, V-2 en V-6 hebben moeders met al een volledige mutatie.",no:"Kijk bij IV-2, IV-4 en IV-9: welke ouder heeft een getal tussen 55 en 200?"},
+     {q:"Geven de mannen met een premutatie (II-1 en II-4) aan hun dochters een volledige mutatie door?",
+      opts:["nee, de dochters hebben ook een premutatie (126 en 85)","ja"],right:0,
+      ok:"Klopt. Bij welk proces gebeurt de sprong dus?",no:"Kijk naar het getal van III-3 en III-7."}]});
+  mc(ans,{qid:20,pts:2,right:0,opts:["alleen tijdens de vorming van eicellen","alleen tijdens de vorming van zaadcellen","tijdens de vorming van eicellen en tijdens de vorming van zaadcellen"],
+    onChecked:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {h:["II-1","III-3","II-4","III-7"],cap:"Mannen met een premutatie (II-1: 120, II-4: 85) geven hun X aan hun dochters. Die hebben nog steeds een <b>premutatie</b> (126 en 85): bij de vorming van zaadcellen is er geen sprong naar >200."},
+      {h:["III-3","IV-2","III-7","IV-4","IV-9"],cap:"De dochters met een premutatie (III-3, III-7) krijgen kinderen met een <b>volledige mutatie</b> (252, 272, 257). Die sprong gebeurt dus bij de <b>vorming van eicellen</b>. Het antwoord is <b>A</b>."}],
+      (stg,s)=>stg.innerHTML=O3_stamboom(s.h)))});
+}});
+
+/* Vraag 21 */
+Q.push({id:21,pts:3,t:"van grootvader naar kleinkind",build(q){
+  const ans=O0_vraag(q,{p:"<p>De diagnose FXTAS bij grootvaders is aan het licht gekomen door de verstandelijke beperking van hun kleinkinderen met FXS.</p>"+O0_TERUG("De stamboom (afbeelding 2) nog eens bekijken",`<div class="eyebrow">afbeelding 2</div>${O3_stamboom()}${O3_STAM_NA}`),
+    qtext:"<b>Beschrijf aan de hand van gegevens in de stamboom (afbeelding 2) hoe de premutatie van een bepaalde grootvader stapsgewijs heeft geleid tot een volledige mutatie bij een bepaald kleinkind.</b>",lab:"Schrijf je antwoord ›",
+    steps:[{q:"Kies een grootvader met een premutatie in generatie II.",
+      opts:["II-1 (120 repeats) of II-4 (85 repeats)","I-1 (25 repeats)","III-2 (30 repeats)"],right:0,
+      ok:"Ja. Een man geeft zijn X-chromosoom aan al zijn dochters. Wie is zijn dochter met een premutatie?",no:"Zoek een man met een stip (premutatie) die kleinkinderen heeft."},
+     {q:"Grootvader II-1 → dochter III-3 (32/<b>126</b>) → kleinkind? Welk kleinkind heeft een volledige mutatie?",
+      opts:["IV-2 (30/252)","IV-1 (28)","IV-3 (32)"],right:0,
+      ok:"Klopt. Beschrijf nu de drie stappen: wat geeft de grootvader door, wat gebeurt er bij de dochter, wat heeft het kleinkind.",no:"Zoek het zwarte symbool onder III-3."}]});
+  openAnswer(ans,{id:21,pts:3,checks:["Grootvader <b>II-1 geeft de premutatie door aan zijn dochter (III-3)</b> / grootvader II-4 aan zijn dochter (III-7).","Bij het doorgeven naar haar kind <b>neemt het aantal repeats toe</b>.","Waardoor het aantal bij zijn <b>kleinkind (IV-2) tot boven de 200</b> is gestegen / gestegen is tot 252. <span class=\"muted\">Of bij II-4: kleinkind IV-4/IV-9, 272/257.</span>"],
+    model:"Grootvader II-1 heeft een premutatie (120 repeats) en geeft zijn X-chromosoom door aan zijn dochter III-3, die ook een premutatie heeft (126). Bij het doorgeven aan haar kind neemt het aantal repeats sterk toe: haar dochter IV-2 heeft 252 repeats, een volledige mutatie, en heeft FXS.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {h:["II-1"],cap:"Grootvader <b>II-1</b> heeft een premutatie: <b>120</b> repeats. Een man heeft één X en geeft dat aan al zijn dochters."},
+      {h:["II-1","III-3"],cap:"Zijn dochter <b>III-3</b> heeft dat X gekregen: <b>32/126</b>, nog steeds een premutatie."},
+      {h:["III-3","IV-2"],cap:"Bij de vorming van haar eicellen <b>neemt het aantal repeats toe</b>: kleinkind <b>IV-2</b> heeft <b>252</b> repeats, een volledige mutatie (FXS). Even goed: II-4 (85) → III-7 (85) → IV-4 (272) of IV-9 (257)."}],
+      (stg,s)=>stg.innerHTML=O3_stamboom(s.h)))});
+}});
+
+/* Vraag 22 */
+Q.push({id:22,pts:2,t:"karyogram van IV-9",build(q){
+  const ans=O0_vraag(q,{p:`<p>De locus van het FMR1-gen is Xq27.3 (q-arm van het X-chromosoom, positie 27.3). In afbeelding 3 is het X-chromosoom met verschillende loci afgebeeld.</p><div class="eyebrow">afbeelding 3</div>${O3_afb3()}<p>In afbeelding 4 zijn X-chromosomen getekend die onder een gewone lichtmicroscoop te zien kunnen zijn. De fragiele plek is in een chromosoom met een volledige FMR1-mutatie als een insnoering zichtbaar.</p><div class="eyebrow">afbeelding 4</div>${O3_afb4()}`+O0_TERUG("De stamboom (afbeelding 2) nog eens bekijken",`<div class="eyebrow">afbeelding 2</div>${O3_stamboom()}`),
+    qtext:"<b>Noteer de nummers van de X-chromosomen die te zien zijn in een karyogram van persoon IV-9 uit de familiestamboom in afbeelding 2.</b>",
+    steps:[{q:"Hoeveel repeats heeft IV-9 op haar twee X-chromosomen?",
+      opts:["32 en 257: één normaal X en één met een volledige mutatie","alleen 257","32 en 32"],right:0,
+      ok:"Ja. Eén X zonder insnoering, en één met een insnoering. Waar zit die?",no:"Lees het getal onder IV-9."},
+     {q:"Waar ligt Xq27.3 in afbeelding 3?",
+      opts:["vlak bij het eind van de lange arm (q)","vlak bij het eind van de korte arm (p)","bij het centromeer"],right:0,
+      ok:"Klopt. In afbeelding 4 staat de korte arm boven, de lange arm onder.",no:"Zoek q27.3 in afbeelding 3: links staan de p-loci, rechts de q-loci."},
+     {q:"Een karyogram wordt gemaakt van chromosomen in de mitose. Hoeveel chromatiden heeft zo’n chromosoom, en zijn ze gelijk?",
+      opts:["twee identieke chromatiden (na de DNA-replicatie)","twee verschillende chromatiden","één chromatide"],right:0,
+      ok:"Goed. Heeft dan één of hebben beide chromatiden de insnoering?",no:"Voor de mitose is het DNA gekopieerd. Wat betekent dat voor de twee helften?"}]});
+  ans.append(el("p",{style:"margin:0"},"Kies de nummers die jij zou noteren."));
+  const row=el("div",{class:"row"});[1,2,3,4,5].forEach(n=>{const b=el("button",{class:"chip","aria-pressed":"false"},"chromosoom "+n);b.onclick=()=>b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")==="true"?"false":"true");row.append(b);});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(row,ck,fb);
+  ck.onclick=()=>{const sel=[...row.children].map(b=>b.getAttribute("aria-pressed")==="true");
+    if(!sel.some(Boolean)){fb.hidden=false;fb.className="fb hint";fb.textContent="Kies eerst minstens één nummer.";return;}
+    const goed=[0,2],c=sel.filter((s,k)=>s&&goed.includes(k)).length,w=sel.filter((s,k)=>s&&!goed.includes(k)).length;const p=Math.max(0,c-w);
+    ck.remove();row.querySelectorAll("button").forEach(b=>b.disabled=true);fb.hidden=false;fb.className="fb "+(p===2?"ok":"no");
+    fb.innerHTML=`<b>${p} ${p===1?"punt":"punten"}.</b> Goed antwoord: <b>1 en 3</b>.<br><span class="muted">Correctievoorschrift: chromosoom 1 (1p), chromosoom 3 (1p). Een fout gekozen nummer kost hier een punt.</span>`;setScore(22,p);
+    waaromBtn(ans,b=>stepAnim(b,[
+      {h:[1],cap:"IV-9 heeft 32 repeats op het ene X: een <b>normaal X</b> zonder insnoering, <b>chromosoom 1</b>."},
+      {h:[2,3],cap:"Op het andere X heeft ze 257 repeats: een volledige mutatie. De fragiele plek ligt op <b>Xq27.3</b>, vlak bij het eind van de <b>lange arm</b> (in de tekening onderaan). Dat zijn 2 en 3."},
+      {h:[3],cap:"Voor de mitose is het DNA gerepliceerd: de twee chromatiden zijn <b>identiek</b>, dus beide hebben de insnoering. Dat is <b>chromosoom 3</b>. Antwoord: <b>1 en 3</b>."}],
+      (stg,s)=>stg.innerHTML=O3_afb4(s.h)));};
+}});
+
+/* Vraag 23 */
+Q.push({id:23,pts:2,t:"principe van PCR",build(q){
+  const ans=O0_vraag(q,{p:"<p>Ongeveer 30% van de mannen is drager van FXTAS. Om dit aan te tonen is het aantal CGG-repeats in het FMR1-gen bepaald.<br>Onderdeel van deze FXTAS-test is de PCR-techniek.</p>",
+    qtext:"<b>Waarop berust het principe van de PCR-techniek?</b>",
+    steps:[{q:"Wat is het doel van PCR?",
+      opts:["van een klein stukje DNA heel veel kopieën maken","DNA-fragmenten op lengte sorteren","mRNA aflezen"],right:0,
+      ok:"Ja. PCR = polymerase-kettingreactie. Welk natuurlijk proces bootst het na?",no:"PCR staat voor polymerase chain reaction. Wat maakt DNA-polymerase?"}]});
+  mc(ans,{qid:23,pts:2,right:3,opts:["bepalen van de genexpressie","hybridiseren van RNA","op grootte scheiden van DNA-fragmenten","repliceren van DNA-fragmenten"],
+    onChecked:()=>waaromBtn(ans,textBox("Bij PCR wordt een stuk DNA steeds opnieuw gekopieerd: denatureren (strengen los door verhitting), primers laten binden, en DNA-polymerase laten verlengen. Dat is <b>replicatie</b> van DNA-fragmenten, keer op keer. Het antwoord is <b>D</b>.<br><br><span class=\"muted\">Op grootte scheiden (C) is gelelektroforese: de stap ná de PCR in afbeelding 5.</span>"))});
+}});
+
+/* Vraag 24 */
+Q.push({id:24,pts:2,t:"gel: man met premutatie",build(q){
+  const ans=O0_vraag(q,{p:`<p>In afbeelding 5 is het resultaat van een FXTAS-test van twaalf mannen en vrouwen afgebeeld. Van elke persoon zijn stukjes DNA met het FMR1-gen gesorteerd op lengte. Bij een volledige methylering zijn geen bandjes zichtbaar, maar verschijnt er een diffuse streep.</p><div class="eyebrow">afbeelding 5</div>${FOTO("o3-gel","Gel met een marker en twaalf banen. Rechts staan de zones: 200 of meer herhalingen (volledige mutatie) bovenin, 50 tot 199 herhalingen (premutatie) in het midden, minder dan 50 herhalingen (normaal) onderin. Elke baan toont de bandjes of strepen van één persoon")}`,
+    qtext:"<b>Wie van deze personen is een man die FXTAS zou kunnen krijgen?</b>",
+    steps:[{q:"Een man heeft één X-chromosoom. Hoeveel bandjes van het FMR1-gen verwacht je bij een man?",
+      opts:["één","twee","geen"],right:0,
+      ok:"Ja. Twee bandjes betekent twee verschillende X-chromosomen: een vrouw.",no:"Elk X-chromosoom geeft één bandje (of een streep)."},
+     {q:"Wie kan FXTAS krijgen?",
+      opts:["wie een premutatie heeft (50–199 herhalingen)","wie een volledige mutatie heeft","wie een normaal aantal heeft"],right:0,
+      ok:"Klopt. Zoek een baan met één bandje in de middelste zone.",no:"Lees de inleiding van de opgave: FXTAS hoort bij de premutatie, FXS bij de volledige mutatie."}]});
+  mc(ans,{qid:24,pts:2,right:3,opts:["persoon 6","persoon 7","persoon 9","persoon 11"],
+    onChecked:()=>waaromBtn(ans,textBox("FXTAS krijgt iemand met een <b>premutatie</b>. Een <b>man</b> heeft één X-chromosoom en dus maar <b>één bandje</b>.<br><br>Persoon 6 en 9 hebben twee bandjes (een normaal en een premutatie): dat zijn vrouwen. Persoon 7 heeft één bandje in de normale zone. Persoon <b>11</b> heeft één bandje in de premutatiezone: een man met een premutatie. Het antwoord is <b>D</b>."))});
+}});
+
+/* Vraag 25 */
+Q.push({id:25,pts:2,t:"synaps bij FXS",build(q){
+  const ans=O0_vraag(q,{p:`<p>Uit onderzoek bleek dat bij knock-out-muizen die het eiwit FMRP niet maken, de ontwikkeling van de hersenschors in de embryonale fase wordt vertraagd. Na de geboorte leidt het ontbreken van FMRP tot veranderingen in synapsen in de hersenen waardoor leer- en geheugenproblemen ontstaan.</p><p>Normaliter worden tijdens het leren de contacten tussen zenuwcellen in de hersenen sterker door de vermeerdering van receptoren voor neurotransmitters in het celmembraan. Zo leidt stimulering van bepaalde glutamaatreceptoren (mGluR5) tot de synthese van eiwitten die de hoeveelheid van andere glutamaatreceptoren (AMPA) van zenuwcellen in het celmembraan beïnvloeden.<br>In afbeelding 6 is links een normaal functionerende synaps in de hersenen weergegeven, rechts een synaps van iemand met FXS.</p><div class="eyebrow">afbeelding 6</div>${O3_afb6()}`,
+    qtext:"<b>Leg uit aan de hand van de gegevens in afbeelding 6 waardoor bij personen met FXS de synaps verzwakt raakt.</b>",lab:"Schrijf je antwoord ›",
+    steps:[{q:"Wat doet FMRP in de normale synaps (links)?",
+      opts:["het remt (−) het effect van de eiwitten die na stimulering van mGluR5 gemaakt worden","het maakt AMPA-receptoren aan","het bindt glutamaat"],right:0,
+      ok:"Ja. Waar wijst de pijl van die eiwitten naartoe?",no:"Kijk naar het minteken bij FMRP en de pijl waarop het staat."},
+     {q:"Wat gebeurt er met de AMPA-receptoren als FMRP ontbreekt (rechts)?",
+      opts:["er worden meer AMPA-receptoren uit het membraan gehaald","er komen meer AMPA-receptoren in het membraan","er verandert niets"],right:0,
+      ok:"Klopt. Minder AMPA-receptoren in het postsynaptisch membraan: de synaps reageert zwakker op glutamaat.",no:"Tel de AMPA-receptoren in het membraan en die in de cel, links en rechts."}]});
+  openAnswer(ans,{id:25,pts:2,checks:["Bepaalde eiwitten die gevormd worden (na stimulering van de mGluR5-receptoren) worden <b>normaal door FMRP (in hun activiteit) geremd</b>.","Zonder FMRP worden (door de activiteit van die eiwitten) de <b>AMPA-receptoren uit het (postsynaptisch) membraan verwijderd</b> (waardoor de synaps verzwakt)."],
+    model:"Na stimulering van mGluR5 worden eiwitten gemaakt die AMPA-receptoren uit het membraan halen. Normaal remt FMRP de werking van die eiwitten. Bij FXS ontbreekt FMRP, dus worden veel AMPA-receptoren uit het postsynaptisch membraan verwijderd. Daardoor reageert de synaps minder sterk op glutamaat.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {s:0,cap:"Links normaal, rechts FXS. Tel de AMPA-receptoren in het membraan: links drie, rechts één."},
+      {s:1,cap:"Glutamaat bindt aan <b>mGluR5</b>. Dat zet de <b>eiwitsynthese</b> aan."},
+      {s:2,cap:"Die eiwitten werken op de AMPA-receptoren. Links remt <b>FMRP</b> (−) die werking. Rechts is er geen FMRP: de eiwitten werken ongeremd."},
+      {s:3,cap:"Het gevolg: rechts worden veel <b>AMPA-receptoren uit het membraan gehaald</b>. Met minder receptoren reageert de postsynaptische cel zwakker op glutamaat: de synaps <b>verzwakt</b>."}],
+      (stg,s)=>stg.innerHTML=O3_afb6(s.s)))});
+}});
+
+/* Vraag 26 */
+Q.push({id:26,pts:2,t:"knock-out-muizen",build(q){
+  const ans=O0_vraag(q,{p:"<p>Onderzoekers hopen een medicijn te vinden dat de symptomen van FXS kan verminderen.</p>",
+    qtext:"<b>Leg uit hoe gebruik van muizen met een knock-out-gen voor dit onderzoek nuttig kan zijn.</b>",lab:"Schrijf je antwoord ›",
+    steps:[{q:"Wat is een knock-out-muis in dit onderzoek?",
+      opts:["een muis waarbij het FMR1-gen is uitgeschakeld, zodat hij geen FMRP maakt","een muis die verdoofd is","een muis zonder hersenschors"],right:0,
+      ok:"Ja. Zo’n muis heeft dus kenmerken van FXS.",no:"Lees de tekst boven vraag 25: welk eiwit maken deze muizen niet?"},
+     {q:"Wat kun je met zo’n muis doen bij de zoektocht naar een medicijn?",
+      opts:["testen of een stof de FXS-symptomen vermindert","de oorzaak van diabetes onderzoeken","het FMR1-gen weer aanzetten bij mensen"],right:0,
+      ok:"Klopt. Schrijf beide stappen op.",no:"Het doel is een medicijn tegen FXS-symptomen. Waarop test je zo’n medicijn eerst?"}]});
+  openAnswer(ans,{id:26,pts:2,checks:["In deze muizen kan het <b>FMR1-gen worden uitgeschakeld</b> / deze muizen <b>maken geen FMRP</b>.","Zodat de <b>effectiviteit van stoffen</b> in het verminderen van FXS-symptomen <b>op deze muizen getest</b> kan worden."],
+    model:"Bij knock-out-muizen is het FMR1-gen uitgeschakeld, zodat ze geen FMRP maken en net als mensen met FXS veranderingen in hun synapsen krijgen. Op deze muizen kun je testen of een stof de symptomen van FXS vermindert.",
+    after:()=>waaromBtn(ans,textBox("Bij een knock-out-muis is één gen gericht uitgeschakeld, hier het <b>FMR1-gen</b>. De muis maakt geen FMRP en krijgt (net als mensen met FXS) zwakkere synapsen en leer- en geheugenproblemen: een <b>diermodel</b> van FXS. Daarop kun je kandidaat-medicijnen <b>testen</b>, bijvoorbeeld een stof die mGluR5 remt, en kijken of de symptomen verminderen, voordat je het bij mensen probeert."))});
+}});
+
+OPG.push({nr:3,kort:"Fragiele X",titel:"Een bijzondere band tussen grootvader en kleinkind",ids:[16,17,18,19,20,21,22,23,24,25,26],ctx:CTX3});
+
+/* ===== opg4.js ===== */
+/* ================= opgave 4: Biologische productie van waterstofgas (vraag 27–30) ================= */
+/* afbeelding 1: opstelling met twee reactoren (nagetekend schema) */
+function O4_afb1(){
+  let g=O0_PIJL;
+  const box=(x,y,w,h,t,vul)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${vul?"var(--area)":"var(--surface)"}" stroke="var(--text)" stroke-width="1.2"/>`+(t?`<text class="lblm" x="${x+w/2}" y="${y+h/2+4}" text-anchor="middle">${t}</text>`:"");
+  const pomp=(x,y,neer)=>`<circle cx="${x}" cy="${y}" r="9" fill="var(--surface)" stroke="var(--text)"/><path d="M${x-5},${y+(neer?-3:4)} L${x+5},${y+(neer?-3:4)} L${x},${y+(neer?5:-5)} Z" fill="none" stroke="var(--text)"/>`;
+  const L=d=>`<path d="${d}" fill="none" stroke="var(--text)" stroke-width="1.2"/>`;
+  g+=box(180,10,190,46,"GASOPVANG");
+  /* reactor 1 */
+  g+=`<path d="M150,140 L170,118 H230 L250,140 V270 H150 Z" fill="var(--surface)" stroke="var(--text)"/><rect x="150" y="146" width="100" height="124" fill="var(--area)" opacity=".55"/>`;
+  g+=`<path d="M150,236 H250" stroke="var(--text)" stroke-dasharray="4 3"/>`;
+  g+=`<text class="lblm" x="200" y="178" text-anchor="middle">organische</text><text class="lblm" x="200" y="192" text-anchor="middle">stoffen</text><text class="lblm" x="200" y="250" text-anchor="middle">organische</text><text class="lblm" x="200" y="264" text-anchor="middle">zuren</text>`;
+  g+=`<path d="M200,198 V226" stroke="var(--text)" marker-end="url(#o0p)"/><path d="M200,164 V138" stroke="var(--text)" marker-end="url(#o0p)"/>`;
+  g+=`<text class="lblm" x="200" y="136" text-anchor="middle" style="font-size:11px">H<tspan baseline-shift="sub" font-size="8">2</tspan> + CO<tspan baseline-shift="sub" font-size="8">2</tspan></text>`;
+  g+=`<text class="lbl" x="200" y="290" text-anchor="middle">Reactor 1</text>`;
+  /* reactor 2 */
+  g+=`<path d="M300,140 L320,118 H380 L400,140 V270 H300 Z" fill="var(--surface)" stroke="var(--text)"/><rect x="300" y="146" width="100" height="124" fill="var(--area)" opacity=".55"/>`;
+  g+=`<text class="lblm" x="350" y="200" text-anchor="middle">organische</text><text class="lblm" x="350" y="214" text-anchor="middle">zuren</text><path d="M350,186 V138" stroke="var(--text)" marker-end="url(#o0p)"/>`;
+  g+=`<text class="lblm" x="350" y="136" text-anchor="middle" style="font-size:11px">H<tspan baseline-shift="sub" font-size="8">2</tspan> + CO<tspan baseline-shift="sub" font-size="8">2</tspan></text>`;
+  g+=`<text class="lbl" x="350" y="290" text-anchor="middle">Reactor 2</text>`;
+  /* gasleidingen naar opvang */
+  g+=L("M188,118 L200,104 L212,118")+L("M200,104 V88")+pomp(200,79)+L("M200,70 V56");
+  g+=L("M338,118 L350,104 L362,118")+L("M350,104 V88")+pomp(350,79)+L("M350,70 V56");
+  /* biomassa */
+  g+=box(10,92,80,22,"biomassa",1)+L("M90,103 H175 V140");
+  /* zuren van 1 naar 2 */
+  g+=L("M250,256 H266 V214")+pomp(266,205)+L("M266,196 V100 H312 V140");
+  /* gasscheider */
+  g+=L("M370,33 H460")+pomp(460,42,1)+L("M460,51 V100");
+  g+=box(415,100,120,26,"GASSCHEIDER");
+  g+=`<path d="M535,113 H560" stroke="var(--text)" marker-end="url(#o0p)"/>`+box(562,102,36,22,"",1)+`<text class="lblm" x="580" y="118" text-anchor="middle">CO<tspan baseline-shift="sub" font-size="8">2</tspan></text>`;
+  g+=`<path d="M475,126 V146" stroke="var(--text)" marker-end="url(#o0p)"/>`+box(462,148,26,22,"",1)+`<text class="lblm" x="475" y="164" text-anchor="middle">H<tspan baseline-shift="sub" font-size="8">2</tspan></text>`;
+  /* licht */
+  g+=`<path d="M420,212 L436,204 L438,210 L456,202 L458,208 L470,204 L462,214 L460,208 L442,216 L440,210 Z" fill="var(--surface2)" stroke="var(--text2)"/><text class="lblm" x="478" y="214">licht</text>`;
+  return svgWrap("0 0 610 300",g,"Schema: biomassa gaat naar reactor 1, waar organische stoffen worden omgezet in organische zuren en H2 + CO2; de organische zuren worden naar reactor 2 gepompt, waar ze onder invloed van licht worden omgezet in H2 + CO2; het gas gaat naar de gasopvang en een gasscheider scheidt H2 en CO2");
+}
+const CTX4=`<div class="pkop"><span class="mono">Examentekst · inleiding opgave 4</span></div>
+  <p>Vanwege de opwarming van de aarde wordt naarstig gezocht naar alternatieven voor fossiele brandstoffen. Waterstofgas (H<sub>2</sub>) is zo’n alternatief, want bij de verbranding van H<sub>2</sub> komt uitsluitend water vrij. De industriële productie van dit gas is echter nog verre van CO<sub>2</sub>-neutraal.</p>
+  <p>Door de inzet van H<sub>2</sub>-producerende bacteriën is het in de toekomst misschien wel mogelijk om op een milieuvriendelijke wijze waterstofgas te produceren. Een opstelling hiervoor met twee reactoren wordt getest door procestechnologen.<br>In de eerste reactor zetten bacteriën organisch stoffen (bijvoorbeeld uit aardappelschillen) om in organische zuren, H<sub>2</sub> en CO<sub>2</sub>. In een tweede reactor worden de organische zuren onder invloed van licht door andere bacteriën omgezet in nog meer H<sub>2</sub> en CO<sub>2</sub>. Een schematische weergave van deze opstelling is te zien in afbeelding 1.</p>
+  <div class="eyebrow">afbeelding 1</div>${O4_afb1()}`;
+
+/* Vraag 27 */
+Q.push({id:27,pts:1,t:"polysachariden in aardappelschillen",build(q){
+  const ans=O0_vraag(q,{p:"<p>Doel van het testprogramma is het optimaliseren van het proces, onder andere door een geschikte vorm van biomassa te vinden. Zo is er geëxperimenteerd met aardappelschillen, een restproduct van de industriële verwerking van aardappelen tot frites.<br>Dit restproduct bevat verschillende typen polysachariden.</p>",
+    qtext:"<b>Noteer de namen van twee typen polysachariden in dit restproduct.</b>",lab:"Schrijf je antwoord ›",
+    steps:[{q:"Aardappelschillen bestaan uit plantencellen. Welke polysacharide zit in elke plantencelwand?",
+      opts:["cellulose","glycogeen","chitine"],right:0,
+      ok:"Ja. En welke reservestof slaat een aardappelknol op?",no:"Glycogeen is de reservestof van dieren en schimmels, chitine zit in insecten en schimmels."},
+     {q:"Welke reservestof zit in grote hoeveelheden in een aardappel?",
+      opts:["zetmeel","glycogeen","lignine"],right:0,
+      ok:"Klopt.",no:"Planten slaan glucose op als …"}]});
+  openAnswer(ans,{id:27,pts:1,checks:["<b>Twee juiste polysachariden</b>: cellulose én zetmeel (of amylose/amylopectine). <span class=\"muted\">Amylose en amylopectine samen is ook goed. Lignine, chitine of glycogeen: geen punt.</span>"],
+    model:"Cellulose en zetmeel.",valkuil:"Glycogeen noemen: dat is de reservestof van dieren, niet van planten.",
+    after:()=>waaromBtn(ans,textBox("Aardappelschillen zijn plantenweefsel met resten van de knol. De <b>celwanden</b> bevatten <b>cellulose</b> (en hemicellulose, pectine). In de cellen van de knol ligt <b>zetmeel</b> als reservestof, opgebouwd uit amylose en amylopectine. Lignine is geen polysacharide; glycogeen en chitine komen in planten niet voor."))});
+}});
+
+/* Vraag 28 */
+Q.push({id:28,pts:1,t:"belang van NAD⁺",build(q){
+  const ans=O0_vraag(q,{p:"<p>Een ander onderdeel van het testprogramma is het selecteren van geschikte micro-organismen. Voor reactor 1 lijkt de anaerobe thermofiele <i>Caldicellulosiruptor saccharolyticus</i> een geschikte kandidaat. Deze bacterie bevat het enzym hydrogenase dat in reactor 1 de onderstaande reactie versnelt:</p><p style=\"font-size:18px\">H<sup>+</sup> + NADH → H<sub>2</sub> + NAD<sup>+</sup></p>",
+    qtext:"<b>Wat is het belang van de vorming van NAD<sup>+</sup> voor <i>C. saccharolyticus</i>?</b>",lab:"Schrijf je antwoord ›",
+    steps:[{q:"Bij welke stap van de dissimilatie wordt NAD<sup>+</sup> omgezet in NADH?",
+      opts:["bij de glycolyse: NAD<sup>+</sup> neemt daar elektronen (en H) op","bij de vorming van ATP uit ADP","bij de opname van glucose"],right:0,
+      ok:"Ja. Zonder NAD<sup>+</sup> stopt de glycolyse.",no:"NAD<sup>+</sup> is een elektronenacceptor. In welke stap van de afbraak van glucose worden elektronen afgestaan?"},
+     {q:"De bacterie is anaeroob: er is geen zuurstof en dus geen elektronentransportketen. Hoe krijgt hij zijn NAD<sup>+</sup> terug?",
+      opts:["door NADH elders zijn elektronen te laten afgeven, hier aan H<sup>+</sup> (dan ontstaat H<sub>2</sub>)","door zuurstof","dat lukt niet"],right:0,
+      ok:"Klopt. Zo kan de glycolyse doorgaan, en blijft er ATP ontstaan.",no:"Lees de reactie: wat gebeurt er met NADH?"}]});
+  openAnswer(ans,{id:28,pts:1,checks:["Hierdoor kan de <b>glycolyse / de anaerobe dissimilatie blijven verlopen</b> / kan het NAD<sup>+</sup> weer elektronen opnemen."],
+    model:"Doordat NADH weer wordt omgezet in NAD<sup>+</sup>, kan de glycolyse (de anaerobe dissimilatie) blijven doorgaan en blijft de bacterie ATP maken.",
+    after:()=>waaromBtn(ans,textBox("Bij de glycolyse wordt glucose geoxideerd en nemen NAD<sup>+</sup>-moleculen de elektronen op: er ontstaat <b>NADH</b>. Een cel heeft maar weinig NAD<sup>+</sup>. Is alles omgezet in NADH, dan <b>stopt de glycolyse</b> en ook de ATP-productie.<br><br>Zonder zuurstof kan NADH zijn elektronen niet kwijt aan de elektronentransportketen. <i>C. saccharolyticus</i> geeft ze met hydrogenase aan H<sup>+</sup>: er ontstaat H<sub>2</sub> en het NAD<sup>+</sup> is weer beschikbaar. Vergelijk het met melkzuurgisting, waar pyruvaat de elektronen opneemt."))});
+}});
+
+/* Vraag 29 */
+Q.push({id:29,pts:2,t:"leefwijze purperbacteriën",build(q){
+  const ans=O0_vraag(q,{p:"<p>Bacteriën kunnen chemo-autotroof, chemo-heterotroof, foto-autotroof of foto-heterotroof zijn.<br>Door de aanwezigheid van organische zuren in reactor 2 wordt er in de daar aanwezige purperbacteriën geen CO<sub>2</sub> verbruikt.</p>",
+    qtext:"<b>Welke leefwijze hebben de purperbacteriën in reactor 2?</b>",
+    steps:[{q:"‘Foto-’ of ‘chemo-’ zegt waar de <b>energie</b> vandaan komt. Wat gebruiken de bacteriën in reactor 2 als energiebron?",
+      opts:["licht","energie uit chemische reacties met anorganische stoffen"],right:0,
+      ok:"Ja: ‘onder invloed van licht’. Dus foto-.",no:"Lees de inleiding: wat valt er op reactor 2?"},
+     {q:"‘Auto-’ of ‘hetero-’ zegt waar de <b>koolstof</b> vandaan komt. De bacteriën verbruiken geen CO<sub>2</sub> omdat er organische zuren zijn. Wat is hun koolstofbron?",
+      opts:["organische stoffen (de organische zuren)","CO<sub>2</sub>"],right:0,
+      ok:"Klopt. Combineer nu de twee.",no:"Autotroof = koolstof uit CO<sub>2</sub>. Gebruiken ze CO<sub>2</sub>?"}]});
+  mc(ans,{qid:29,pts:2,right:3,opts:["chemo-autotroof","chemo-heterotroof","foto-autotroof","foto-heterotroof"],
+    onChecked:()=>waaromBtn(ans,textBox("Energie uit <b>licht</b>: <b>foto</b>-. Koolstof uit <b>organische zuren</b> in plaats van CO<sub>2</sub>: <b>heterotroof</b>. Het antwoord is <b>D</b>, foto-heterotroof."))});
+}});
+
+/* Vraag 30 */
+Q.push({id:30,pts:1,t:"CO₂-neutraal",build(q){
+  const ans=O0_vraag(q,{p:"<p>In beide reactoren van de proefopstelling (afbeelding 1) komt CO<sub>2</sub> vrij.</p>",
+    qtext:"<b>Verklaar dat de processen die in reactor 1 en 2 plaatsvinden CO<sub>2</sub>-neutraal genoemd kunnen worden.</b>",lab:"Schrijf je antwoord ›",
+    steps:[{q:"Waar komt de koolstof in de aardappelschillen vandaan?",
+      opts:["uit CO<sub>2</sub> die de aardappelplant kort daarvoor bij de fotosynthese uit de lucht heeft opgenomen","uit de bodem","uit fossiele brandstoffen"],right:0,
+      ok:"Ja. Wat betekent dat voor de CO<sub>2</sub> die in de reactoren vrijkomt?",no:"Planten maken glucose (en daarna zetmeel en cellulose) met CO<sub>2</sub> uit …"}]});
+  openAnswer(ans,{id:30,pts:1,checks:["De CO<sub>2</sub> die vrijkomt was (kort daarvoor) <b>opgenomen bij de fotosynthese</b> / voor de assimilatie van biomassa / door aardappelplanten."],
+    model:"De koolstof in de aardappelschillen is kort daarvoor door de aardappelplanten bij de fotosynthese als CO<sub>2</sub> uit de lucht opgenomen. Er komt dus niet meer CO<sub>2</sub> vrij dan er eerst is vastgelegd.",
+    after:()=>waaromBtn(ans,textBox("CO<sub>2</sub>-neutraal betekent: er komt per saldo geen CO<sub>2</sub> bij in de atmosfeer. De aardappelplant heeft met fotosynthese <b>CO<sub>2</sub> uit de lucht vastgelegd</b> in zetmeel en cellulose. Als bacteriën die stoffen afbreken, komt <b>dezelfde</b> CO<sub>2</sub> weer vrij. Bij fossiele brandstoffen komt koolstof vrij die al miljoenen jaren uit de kringloop was: dat is wél extra."))});
+}});
+
+OPG.push({nr:4,kort:"Waterstofgas",titel:"Biologische productie van waterstofgas",ids:[27,28,29,30],ctx:CTX4});
+
+/* ===== opg5.js ===== */
+/* ================= opgave 5: Wat te doen aan de muizenplagen? (vraag 31–38) ================= */
+/* uitwerkbijlage vraag 32: assenstelsel april–nov, 0–7000. x: begin april = 80, per maand 50 px; y: 0 = 380, per 1000 = 50 px */
+const O5_X=m=>80+m*50, O5_Y=n=>380-n/20;
+function O5_assen(extra){
+  let g=O0_PIJL;
+  for(let n=0;n<=7000;n+=200)g+=`<path d="M80,${O5_Y(n)} H480" stroke="var(--line2)" stroke-width="${n%1000?0.5:1}"/>`;
+  for(let m=0;m<=8;m+=.2)g+=`<path d="M${O5_X(m)},30 V380" stroke="var(--line2)" stroke-width="${Math.abs(m-Math.round(m))<.01?1:0.5}"/>`;
+  g+=`<path class="ax" d="M80,30 V380 H480"/>`;
+  for(let n=0;n<=7000;n+=1000)g+=`<text class="tick" x="74" y="${O5_Y(n)+4}" text-anchor="end">${n}</text>`;
+  ["april","mei","juni","juli","aug","sep","okt","nov"].forEach((t,k)=>g+=`<text class="tick" x="${O5_X(k+.5)}" y="396" text-anchor="middle" style="font-size:11px">${t}</text>`);
+  g+=`<text class="lblm" x="-30" y="44" text-anchor="middle" style="font-size:11px">aantal veldmuizen</text><text class="lblm" x="-30" y="58" text-anchor="middle" style="font-size:11px">in een bepaald</text><text class="lblm" x="-30" y="72" text-anchor="middle" style="font-size:11px">gebied</text><path d="M-30,96 V80" stroke="var(--text2)" marker-end="url(#o0p)"/>`;
+  g+=`<text class="lblm" x="80" y="420">Legenda:</text><path d="M80,436 H112" stroke="var(--text)" stroke-width="2"/><text class="lblm" x="118" y="440">zonder ingreep</text><path d="M80,454 H112" stroke="var(--text)" stroke-width="2" stroke-dasharray="5 3"/><text class="lblm" x="118" y="458">met ingreep</text>`;
+  return svgWrap("-82 20 572 446",g+(extra||""),"Assenstelsel: aantal veldmuizen (0 tot 7000) tegen de maanden april tot en met november");
+}
+/* J-curve: N(t)=10·e^{rt}; begin mei (m=1) 10, begin nov (m=7) 6000 */
+const O5_r=Math.log(600)/6;
+function O5_curve(stap){
+  let p=[];for(let m=1;m<=7.001;m+=.05)p.push([O5_X(m),O5_Y(10*Math.exp(O5_r*(m-1)))]);
+  let g=stap>=1?`<polyline points="${p.map(a=>a.join(",")).join(" ")}" fill="none" stroke="var(--teal)" stroke-width="2.6"/>`:"";
+  if(stap>=2){let d=[];for(let m=3;m<=7.001;m+=.05)d.push([O5_X(m),O5_Y(5*Math.exp(O5_r*(m-1)))]);
+    g+=`<path d="M${O5_X(3)},${O5_Y(10*Math.exp(O5_r*2))} V${O5_Y(5*Math.exp(O5_r*2))}" stroke="var(--koraal)" stroke-width="2"/><polyline points="${d.map(a=>a.join(",")).join(" ")}" fill="none" stroke="var(--koraal)" stroke-width="2.6" stroke-dasharray="7 4"/>`;}
+  if(stap>=3)g+=`<circle cx="${O5_X(7)}" cy="${O5_Y(6000)}" r="5" fill="var(--teal)"/><text class="lbl" x="${O5_X(7)-8}" y="${O5_Y(6000)-6}" text-anchor="end">6000</text><circle cx="${O5_X(7)}" cy="${O5_Y(3000)}" r="5" fill="var(--koraal)"/><text class="lbl" x="${O5_X(7)-8}" y="${O5_Y(3000)-6}" text-anchor="end">3000</text>`;
+  return g;
+}
+/* tekenvak: de leerling schetst zelf twee lijnen */
+function O5_tekenvak(box){
+  const wrap=el("div",{class:"podium",style:"touch-action:none;background:var(--surface)"});wrap.innerHTML=O5_assen('<g id="o5teken"></g>');box.append(wrap);
+  const svg=wrap.querySelector("svg"),laag=svg.querySelector("#o5teken");let mode="vol",cur=null;
+  const pt=e=>{const r=svg.getBoundingClientRect(),vb=svg.viewBox.baseVal;return [vb.x+(e.clientX-r.left)*vb.width/r.width,vb.y+(e.clientY-r.top)*vb.height/r.height];};
+  svg.addEventListener("pointerdown",e=>{e.preventDefault();svg.setPointerCapture(e.pointerId);cur=document.createElementNS("http://www.w3.org/2000/svg","polyline");
+    cur.setAttribute("fill","none");cur.setAttribute("stroke","var(--goud)");cur.setAttribute("stroke-width","2.6");if(mode==="stip")cur.setAttribute("stroke-dasharray","7 4");
+    cur.setAttribute("points",pt(e).join(","));laag.append(cur);});
+  svg.addEventListener("pointermove",e=>{if(!cur)return;cur.setAttribute("points",cur.getAttribute("points")+" "+pt(e).join(","));});
+  const stop=()=>{cur=null;};svg.addEventListener("pointerup",stop);svg.addEventListener("pointercancel",stop);
+  const row=el("div",{class:"row"});
+  const bv=el("button",{class:"chip","aria-pressed":"true"},"— doorgetrokken (zonder ingreep)"),bs=el("button",{class:"chip","aria-pressed":"false"},"- - - stippel (met ingreep)"),bw=el("button",{class:"ghost"},"Wissen");
+  bv.onclick=()=>{mode="vol";bv.setAttribute("aria-pressed","true");bs.setAttribute("aria-pressed","false");};
+  bs.onclick=()=>{mode="stip";bs.setAttribute("aria-pressed","true");bv.setAttribute("aria-pressed","false");};
+  bw.onclick=()=>{laag.innerHTML="";};row.append(bv,bs,bw);box.append(row);
+}
+/* afbeelding 3: staafdiagram (nagetekend). waarden per drooglegging: [0-15 m, 15-30 m, 30-300 m, 300-900 m] */
+const O5_DATA=[["0-20 cm",[0,0,12,8.5]],["20-40 cm",[0,15,9,27.5]],["40-60 cm",[3.5,0,12,30]],["60-80 cm",[2.5,3.5,19.5,53.5]],["80-100 cm",[0,0,30,71.5]],["100-120 cm",[0,16.5,35.5,72.5]]];
+const O5_VUL=["var(--line2)","var(--text)","var(--surface2)","var(--text3)"];
+function O5_afb3(hl){
+  let g="";const y=v=>360-v*4,x0=90;
+  for(let v=0;v<=80;v+=10)g+=`<path d="M${x0},${y(v)} H560" stroke="var(--line2)" stroke-width="1"/><text class="tick" x="${x0-6}" y="${y(v)+4}" text-anchor="end">${v}</text>`;
+  g+=`<path class="ax" d="M${x0},${y(80)} V360 H560"/>`;
+  g+=`<text class="lblm" x="70" y="${y(77.5)}" text-anchor="end" style="font-size:11px">percentage</text><text class="lblm" x="70" y="${y(74.5)}" text-anchor="end" style="font-size:11px">schademeldingen</text>`;
+  O5_DATA.forEach(([lab,vs],k)=>{const gx=x0+k*78;
+    vs.forEach((v,j)=>{if(!v)return;const op=hl===undefined||hl===j||(Array.isArray(hl)&&hl.includes(j))?1:.25;
+      g+=`<rect x="${gx+14+j*13}" y="${y(v)}" width="12" height="${360-y(v)}" fill="${O5_VUL[j]}" stroke="var(--text)" stroke-width=".8" opacity="${op}"/>`;});
+    g+=`<text class="tick" x="${gx+39}" y="376" text-anchor="middle" style="font-size:10px">${lab}</text>`;});
+  g+=`<text class="lblm" x="560" y="396" text-anchor="end" style="font-size:11px">→ drooglegging in cm</text>`;
+  g+=`<text class="lblm" x="${x0}" y="414" style="font-size:11px">Legenda: openheid</text>`;
+  ["0-15 m","15-30 m","30-300 m","300-900 m"].forEach((t,j)=>{const lx=x0+(j%2)*160,ly=424+Math.floor(j/2)*20;g+=`<rect x="${lx}" y="${ly}" width="26" height="13" fill="${O5_VUL[j]}" stroke="var(--text)" stroke-width=".8"/><text class="lblm" x="${lx+32}" y="${ly+11}" style="font-size:11px">${t}</text>`;});
+  return svgWrap("-26 30 596 440",g,"Staafdiagram: percentage schademeldingen per droogleggingsklasse (0 tot 120 cm) voor vier klassen van openheid. Bij een openheid van 300 tot 900 m loopt het percentage op van ongeveer 8 tot 72 procent; bij 0 tot 15 m is het hooguit enkele procenten");
+}
+
+const CTX5=`<div class="pkop"><span class="mono">Examentekst · inleiding opgave 5</span></div>
+  <p>In 2014 en 2015 was er in Friesland veel schade door grote aantallen veldmuizen (afbeelding 1). Graslanden die er in augustus nog goed uitzagen, waren in maart kaal en vol met muizengangen (afbeelding 2).<br>In opdracht van verschillende organisaties, zoals het Wetterskip Fryslân, onderzochten ecologen hoe de veldmuizenpopulaties te beheersen zijn.</p>
+  <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:10px"><div><div class="eyebrow">afbeelding 1</div>${FOTO("o5-veldmuis","Een veldmuis in een hand, boven droog gras")}</div><div><div class="eyebrow">afbeelding 2</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">${FOTO("o5-grasland-aug","Grasland met dicht gras")}${FOTO("o5-grasland-maart","Kaal grasland vol gaten van muizengangen")}</div></div></div>
+  <p>Veldmuizen (<i>Microtus arvalis</i>) leven bij voorkeur in graslanden, wegbermen, slootkanten en dijken, waar ze eten van de grassen en kruiden. Ze graven meterslange gangenstelsels in de grond, met diepliggende nesten en voorraadkamers.<br>De populatiegrootte varieert gedurende het jaar.<br>Omdat de meeste veldmuizen de winter niet overleven zijn de aantallen in het voorjaar relatief klein. In de zomer, wanneer de omstandigheden gunstiger zijn en het gras hard groeit, neemt de populatie snel toe. Als dan in het najaar ook de nieuwe generaties veldmuizen aan de voortplanting deelnemen, kan de toename enorm zijn. Soms komen er zo veel veldmuizen dat ze zich ook vestigen in landbouwpercelen, waar ze eten van de gewassen die er groeien.</p>`;
+
+/* Vraag 31 */
+Q.push({id:31,pts:1,t:"vakterm",build(q){
+  const ans=O0_vraag(q,{p:"<p>Er is een grens aan het aantal individuen van een soort dat zich in een bepaald gebied langdurig kan handhaven.</p>",
+    qtext:"<b>Welke vakterm gebruiken ecologen hiervoor?</b>",lab:"Schrijf je antwoord ›",
+    steps:[{q:"Een populatie groeit in een gebied tot hij een plafond bereikt. Hoe heet de groeicurve die daarbij hoort?",
+      opts:["een S-curve (logistische groei)","een J-curve","een rechte lijn"],right:0,
+      ok:"Ja. Het plafond van die S-curve heeft een eigen naam. Welke?",no:"Een J-curve groeit door; welke curve vlakt af?"}]});
+  openAnswer(ans,{id:31,pts:1,checks:["<b>draagkracht</b> <span class=\"muted\">(ook goed: verzadigingspopulatie of draagvlak)</span>"],
+    model:"draagkracht",
+    after:()=>waaromBtn(ans,textBox("De <b>draagkracht</b> (K) is het maximale aantal individuen van een soort dat een gebied langdurig kan onderhouden, met de voedsel, ruimte en schuilplaatsen die er zijn. Een populatie die volgens een S-curve groeit, schommelt uiteindelijk rond die waarde. Het correctievoorschrift keurt ook ‘verzadigingspopulatie’ en ‘draagvlak’ goed."))});
+}});
+
+/* Vraag 32 */
+Q.push({id:32,pts:2,t:"schets: wel of niet ingrijpen",build(q){
+  pre(q,"<p>Tijdens het hoogtepunt van de plaag hebben boeren geprobeerd de veldmuizen te verdrijven door het land tijdelijk onder water te zetten. Het zou echter beter zijn om de veldmuizen te bestrijden voordat er overlast en schade is.</p><p>Veronderstel dat in een bepaald gebied begin mei 10 veldmuizen leven en dat dit aantal zal stijgen tot 6000 individuen begin november.<br>Zou in dit gebied al in een vroeg stadium worden ingegrepen, dan kan dit het aantal individuen in november aanzienlijk beperken. Een mogelijkheid is om al begin juli het land enkele dagen onder water te zetten, waardoor de populatie halveert.<br>In de uitwerkbijlage is een assenstelsel getekend. Om een beeld te geven van het verschil tussen wel en niet ingrijpen, kan in dit assenstelsel het verloop van de aantallen veldmuizen in de twee beschreven situaties vergeleken worden.</p>");
+  q.append(el("p",{class:"qtext"},"<b>– Schets in de uitwerkbijlage het verloop van het aantal veldmuizen wanneer er niet ingegrepen wordt,<br>– en schets het verloop als er wél ingegrepen wordt door het enkele dagen onder water zetten van het land begin juli.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Naar de uitwerkbijlage ›");
+  O0_chain(think,[{q:"Een populatie met veel voedsel en ruimte groeit … Welke vorm heeft de lijn?",
+      opts:["een J-curve: eerst nauwelijks zichtbaar, daarna steeds steiler","een rechte lijn","een S-curve die al in juli afvlakt"],right:0,
+      ok:"Ja. Van 10 naar 6000 in zes maanden is exponentiële groei. Op een as tot 7000 zie je 10 muizen als bijna 0.",no:"Elke maand komen er naar verhouding steeds meer jongen bij. Groeit het aantal dan steeds even hard?"},
+     {q:"Begin juli halveert de populatie. Groeit hij daarna even snel (per individu) door?",
+      opts:["ja: weer een J-curve, maar steeds ongeveer de helft van de lijn zonder ingreep","nee, de groei stopt","hij groeit juist sneller en haalt de andere lijn in"],right:0,
+      ok:"Klopt. Waar eindigt de stippellijn dan in november ongeveer?",no:"Na het onderlopen zijn er minder muizen, maar die planten zich even snel voort."}],unlock);
+  q.append(think,ans);
+  ans.append(el("p",{style:"margin:0"},"De uitwerkbijlage. Teken met je vinger of muis: kies eerst het soort lijn."));
+  O5_tekenvak(ans);
+  openAnswer(ans,{id:32,pts:2,placeholder:"Schreef je het liever op? Beschrijf je twee lijnen kort (begin, eind, vorm). Of typ ‘getekend’.",checks:["Een <b>doorgetrokken lijn</b> die begint bij <b>ongeveer 10 muizen (tussen 0 en 100) in mei</b> en eindigt bij <b>6000 in november</b>, met (min of meer) het verloop van een <b>J-curve</b>.","Een <b>stippellijn</b> (eventueel vanuit de doorgetrokken lijn) die <b>in juli</b> begint op <b>ongeveer de helft</b> van de doorgetrokken lijn en eindigt op <b>ongeveer 3000 (tussen 1500 en 4000) in november</b>, met (min of meer) het verloop van een <b>J-curve</b>."],
+    model:"Zie ‘Laat zien waarom’: de doorgetrokken lijn ligt tot juli vrijwel op 0 en schiet daarna omhoog naar 6000 begin november. De stippellijn begint begin juli op de helft en loopt als J-curve naar ongeveer 3000.",
+    valkuil:"De lijnen recht tekenen, of de stippellijn na de halvering laten afvlakken of de doorgetrokken lijn laten inhalen.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {s:0,cap:"Het assenstelsel uit de uitwerkbijlage. Begin mei: 10 muizen. Op een as tot 7000 is dat vrijwel 0."},
+      {s:1,cap:"<b>Zonder ingreep:</b> exponentiële groei, een <b>J-curve</b>. Tot juli zie je nauwelijks iets, daarna gaat de lijn steeds steiler omhoog naar <b>6000 begin november</b>."},
+      {s:2,cap:"<b>Met ingreep:</b> begin juli halveert de populatie. Daarna groeit hij net zo snel (per muis) verder: weer een J-curve, steeds ongeveer de helft van de doorgetrokken lijn."},
+      {s:3,cap:"In november eindigt de stippellijn rond <b>3000</b> (het CV accepteert 1500 tot 4000)."}],
+      (stg,s)=>stg.innerHTML=O5_assen(O5_curve(s.s))))});
+}});
+
+/* Vraag 33 */
+Q.push({id:33,pts:2,t:"afwachten of onder water zetten",build(q){
+  const ans=O0_vraag(q,{p:"<p>Het is de vraag of bestrijding door het onder water zetten van het land op het hoogtepunt van de plaag beter is dan de plaag op zijn beloop laten en de winter afwachten.</p>",
+    qtext:"<b>– Verklaar dat afwachten wel eens een goede oplossing zou kunnen zijn,<br>– en verklaar dat door het land onder water te zetten op het hoogtepunt van de plaag, de plaag het volgende jaar juist erger zou kunnen worden.</b>",lab:"Schrijf je antwoord ›",
+    steps:[{q:"Op het hoogtepunt zijn er enorm veel muizen. Wat gebeurt er met zo’n populatie als je niets doet, zeker in de winter?",
+      opts:["door voedselgebrek, ziekte en stress sterven er massaal muizen: de populatie stort vanzelf in","hij blijft gewoon groeien","er verandert niets"],right:0,
+      ok:"Ja. Een te grote populatie remt zichzelf: dichtheidsafhankelijke sterfte.",no:"Een kaal grasland vol gangen: is er nog genoeg voedsel voor al die muizen?"},
+     {q:"Na het onder water zetten zijn er nog maar een paar muizen over. Hoe vergaat het hen?",
+      opts:["goed: veel voedsel en ruimte per muis, betere kans om de winter te overleven en zich voort te planten","slecht: ze sterven allemaal","hetzelfde als zonder water"],right:0,
+      ok:"Klopt. Schrijf beide verklaringen op.",no:"Minder muizen betekent minder concurrentie om voedsel. Wat betekent dat voor de overlevers?"}]});
+  openAnswer(ans,{id:33,pts:2,checks:["Een <b>grote populatiedichtheid</b> kan <b>vanzelf leiden tot massale sterfte</b> (door voedselgebrek/overbevolking).","Een (door het water) <b>gereduceerde populatie</b> heeft <b>betere overlevings-/voortplantingskansen</b>."],
+    model:"Doe je niets, dan stort de populatie vanzelf in door voedselgebrek en overbevolking. Zet je het land onder water, dan blijven er maar enkele muizen over, maar die hebben daarna veel voedsel en ruimte. Zij overleven de winter beter en kunnen zich het volgende jaar snel voortplanten.",
+    after:()=>waaromBtn(ans,textBox("<b>Afwachten:</b> op het hoogtepunt zit de populatie ver boven de draagkracht. Voedsel raakt op, ziektes verspreiden zich makkelijk en in de winter sterft het grootste deel. De plaag lost zich vanzelf op.<br><br><b>Onder water zetten:</b> de muizen die het overleven (of die wegtrekken en terugkomen) hebben daarna minder concurrentie: <b>meer voedsel en ruimte per muis</b>. Ze komen sterker de winter door en beginnen het voorjaar met een gezonde populatie die snel kan groeien."))});
+}});
+
+/* Vraag 34 */
+Q.push({id:34,pts:2,t:"bromadiolon",build(q){
+  const ans=O0_vraag(q,{p:"<p>Boeren kunnen de veldmuizenpopulatie ook terugdringen met muizengif zoals bromadiolon, een vitamine-K-antagonist.<br>Vitamine K is nodig voor de vorming van trombine in het bloed.</p>",
+    qtext:"<b>Waaraan sterven muizen na het eten van bromadiolonkorrels?</b><br>Ze sterven aan",
+    steps:[{q:"Wat doet trombine bij de bloedstolling?",
+      opts:["het zet fibrinogeen om in fibrine","het zet fibrine om in fibrinogeen","het maakt protrombine"],right:0,
+      ok:"Ja. Minder trombine betekent dus minder omzetting van fibrinogeen.",no:"Zoek de stollingsreactie op in je informatieboek."},
+     {q:"Minder fibrine betekent …",
+      opts:["het bloed stolt slecht: inwendige bloedingen","het bloed stolt te veel: trombose"],right:0,
+      ok:"Klopt. Welke stof wordt er dus minder gevormd: fibrine of fibrinogeen?",no:"Fibrinedraden vormen het stolsel."}]});
+  mc(ans,{qid:34,pts:2,right:2,opts:["de gevolgen van trombose doordat er minder fibrine gevormd wordt.","de gevolgen van trombose doordat er minder fibrinogeen gevormd wordt.","inwendige bloedingen doordat er minder fibrine gevormd kan worden.","inwendige bloedingen doordat er minder fibrinogeen gevormd kan worden."],
+    onChecked:()=>waaromBtn(ans,textBox("Bromadiolon werkt vitamine K tegen, dus er wordt <b>minder trombine</b> gevormd. Trombine zet <b>fibrinogeen om in fibrine</b>. Er ontstaat dus minder fibrine (fibrinogeen is er genoeg; dat maakt de lever). Zonder fibrinedraden stolt het bloed niet goed en sterven de muizen aan <b>inwendige bloedingen</b>. Het antwoord is <b>C</b>."))});
+}});
+
+/* Vraag 35 */
+Q.push({id:35,pts:2,t:"stikstof in de sloten",build(q){
+  const ans=O0_vraag(q,{p:"<p>In een gebied met grote aantallen muizen komen meer stikstofverbindingen in het oppervlaktewater terecht. In sommige gebieden met muizenschade was de concentratie stikstof in de sloten met 70% toegenomen. Er worden drie uitspraken gedaan om dit te verklaren:</p><p class=\"regels\"><span>1</span>Veldmuizen bevorderen door hun gegraaf de ammonificatie en nitrificatie;<br><span>2</span>Veldmuizen verspreiden poep en urine met daarin stikstofverbindingen;<br><span>3</span>Veldmuizen tasten het gras aan waardoor het minder nitraat opneemt.</p>",
+    qtext:"<b>Welke van deze uitspraken geeft of geven een juiste verklaring? Noteer de nummers 1, 2 en 3 onder elkaar op je antwoordblad en schrijf erachter of de betreffende verklaring <u>wel</u> of <u>niet</u> juist kan zijn.</b>",
+    steps:[{q:"Nitrificerende bacteriën hebben zuurstof nodig. Wat doet gegraaf met de bodem?",
+      opts:["het brengt lucht (zuurstof) in de bodem","het haalt zuurstof uit de bodem","niets"],right:0,
+      ok:"Ja. Meer zuurstof bevordert de afbraak (ammonificatie) en nitrificatie: er ontstaat meer nitraat, dat makkelijk uitspoelt.",no:"Denk aan een omgeploegde akker: luchtig of juist dicht?"},
+     {q:"Gras neemt nitraat op met zijn wortels. Wat gebeurt er met nitraat dat <b>niet</b> wordt opgenomen?",
+      opts:["het blijft in de bodem en kan uitspoelen naar het grond- en slootwater","het verdwijnt vanzelf","het wordt weer stikstofgas"],right:0,
+      ok:"Klopt. Bekijk nu elke uitspraak: zorgt hij voor meer stikstof in de bodem, of voor minder opname?",no:"Nitraat lost goed op in water en bindt niet aan bodemdeeltjes."}]});
+  O0_welNiet(ans,{id:35,stm:["gegraaf bevordert ammonificatie en nitrificatie","poep en urine","gras neemt minder nitraat op"],key:[0,0,0],
+    uitleg:"<b>1 wel.</b> Door het gegraaf komt er meer zuurstof in de bodem. Daardoor verlopen ammonificatie en nitrificatie sneller: er komt meer nitraat in de bodem, en nitraat spoelt makkelijk uit naar de sloten.<br><br><b>2 wel.</b> Poep en urine bevatten ureum en andere stikstofverbindingen. Bij grote aantallen muizen is dat een flinke extra bron.<br><br><b>3 wel.</b> Aangevreten gras met kapotte wortels neemt minder nitraat op. Dat nitraat blijft in de bodem en spoelt uit."});
+}});
+
+/* Vraag 36 */
+Q.push({id:36,pts:2,t:"openheid en drooglegging",build(q){
+  const ans=O0_vraag(q,{p:`<p>In het onderzoek naar het ontstaan van veldmuizenplagen is bepaald wat de invloed is van de openheid van het landschap (hoe ver je kunt kijken zonder dat er struiken en bomen in het zicht staan) en de drooglegging (verlaging van het grondwaterpeil ten opzichte van het maaiveld).<br>Deze variabelen staan in een database met landschapsgegevens.<br>In deze database is heel Nederland opgedeeld in zeshoeken met een grootte van 1 km<sup>2</sup>. Van alle zeshoeken met dezelfde openheids- en droogleggingsklasse is bepaald in hoeveel procent hiervan melding was gemaakt van muizenschade.<br>Het resultaat is weergegeven in het diagram van afbeelding 3.</p><div class="eyebrow">afbeelding 3</div>${O5_afb3()}<p>Twee beweringen naar aanleiding van dit onderzoek zijn:</p><p class="regels"><span>1</span>De drooglegging is als factor belangrijker voor het ontstaan van schade door veldmuizen dan de openheid van het grasland.<br><span>2</span>Schade in een klein en door struiken en bomen beschut grasland wordt eerder opgemerkt dan schade in een weids grasland.</p>`,
+    qtext:"<b>Welke bewering wordt of welke beweringen worden ondersteund door de gegevens in het diagram van afbeelding 3?</b>",
+    steps:[{q:"Kijk naar de groep 80-100 cm. Hoe groot is het verschil tussen de openheidsklassen daar?",
+      opts:["groot: van 0% (0-15 m) tot ruim 70% (300-900 m)","klein: alle staven zijn even hoog"],right:0,
+      ok:"Ja. Openheid maakt dus ook heel veel uit. Hoe groot is het effect van de drooglegging bij een openheid van 0-15 m?",no:"Vergelijk de staven binnen één groep."},
+     {q:"Wat meet het diagram precies?",
+      opts:["het percentage zeshoeken met een melding van schade","hoe snel schade wordt opgemerkt","het aantal muizen per km²"],right:0,
+      ok:"Klopt. Kun je daaruit iets zeggen over <i>hoe snel</i> schade wordt opgemerkt?",no:"Lees de as: ‘percentage schademeldingen’."}]});
+  mc(ans,{qid:36,pts:2,right:0,opts:["geen van beide","alleen 1","alleen 2","zowel 1 als 2"],
+    onChecked:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {h:3,cap:"Bij een open landschap (300-900 m) stijgt het percentage sterk met de drooglegging: van ongeveer 8% naar ruim 70%."},
+      {h:[0,1],cap:"Maar bij een besloten landschap (0-15 m, 15-30 m) blijft het bij elke drooglegging laag of nul. De openheid bepaalt dus net zo goed of er schade is. Je kunt niet zeggen dat drooglegging <b>belangrijker</b> is: <b>1 wordt niet ondersteund</b>."},
+      {cap:"Het diagram laat zien <b>waar</b> schade gemeld is, niet <b>hoe snel</b> die opgemerkt wordt. Bovendien zijn er in besloten graslanden juist minder meldingen. <b>2 wordt niet ondersteund</b>. Het antwoord is <b>A</b>."}],
+      (stg,s)=>stg.innerHTML=O5_afb3(s.h)))});
+}});
+
+/* Vraag 37 */
+Q.push({id:37,pts:2,t:"specialisten of generalisten",build(q){
+  const ans=O0_vraag(q,{p:"<p>Ecologen onderscheiden twee typen predatoren:</p><p class=\"regels\"><span>1</span>Specialisten, zoals de wezel, die slechts op een of enkele prooisoorten prederen;<br><span>2</span>Generalisten, zoals de vos, die allerlei prooisoorten eten en makkelijk overschakelen.</p><p>Veldmuizen worden gegeten door zowel specialisten als generalisten.<br>In Nederland en Duitsland komen muizenplagen vooral voor in grote uitgestrekte graslanden. Een ingrijpende ecologische maatregel om deze plagen te voorkomen, is het omvormen van deze graslanden tot een heterogeen landschap bestaande uit kleinere graslanden afgewisseld met akkerbouwland, heggetjes en bosjes.</p>",
+    qtext:"<b>– Verklaar welk type predator hierdoor wordt aangetrokken.<br>– Waardoor is juist dit type predator in staat veldmuizenplagen te voorkomen?</b>",lab:"Schrijf je antwoord ›",
+    steps:[{q:"In een heterogeen landschap (grasland, akker, heggen, bosjes) leven …",
+      opts:["veel verschillende prooisoorten","vooral veel veldmuizen","geen prooidieren"],right:0,
+      ok:"Ja. Welk type predator heeft daar het meeste aan?",no:"Meer soorten leefgebied betekent meer soorten dieren."},
+     {q:"Er zijn even weinig veldmuizen. Wat doet een generalist dan, en wat doet een specialist?",
+      opts:["de generalist blijft (eet andere prooien), de specialist trekt weg","allebei trekken ze weg","allebei blijven ze"],right:0,
+      ok:"Klopt. Wat betekent het als er al een predator aanwezig is op het moment dat de muizenpopulatie begint te groeien?",no:"Een specialist is afhankelijk van één prooi. Wat als die er bijna niet is?"}]});
+  openAnswer(ans,{id:37,pts:2,checks:["(Door een heterogeen landschap) worden <b>generalisten aangetrokken omdat er veel verschillende prooisoorten</b> leven / specialisten kiezen voor een homogeen landschap waar hun prooi het meest voorkomt.","Generalisten <b>blijven aanwezig als er weinig veldmuizen zijn</b> / stappen makkelijk over op veldmuizen zodra die populatie groeit (en remmen zo de groei blijvend af) / specialisten trekken weg als er weinig veldmuizen zijn. <span class=\"muted\">Geen punten voor een antwoord over schuilplaatsen of nestgelegenheid, of bij een keuze voor specialisten.</span>"],
+    model:"Er worden generalisten aangetrokken, omdat er in een heterogeen landschap veel verschillende prooisoorten leven. Generalisten blijven er ook als er weinig veldmuizen zijn, doordat ze andere prooien eten. Begint de veldmuizenpopulatie te groeien, dan schakelen ze over op veldmuizen en remmen ze de groei al in een vroeg stadium af.",
+    valkuil:"Uitleggen dat heggen en bosjes schuilplaatsen of nestplaatsen bieden. Dat levert volgens het correctievoorschrift <b>geen punt</b> op.",
+    after:()=>waaromBtn(ans,textBox("Een heterogeen landschap heeft veel verschillende leefgebieden en dus <b>veel verschillende prooisoorten</b>: ideaal voor een <b>generalist</b> zoals de vos. Een specialist zoals de wezel volgt zijn prooi en zit vooral waar veel veldmuizen zijn.<br><br>Het voordeel van de generalist: hij <b>blijft</b> ook in jaren met weinig veldmuizen, want hij eet dan andere prooien. Zodra de veldmuizen talrijker worden, schakelt hij over. Zo wordt de groei al vroeg geremd en komt een plaag niet op gang. Een specialist trekt weg als er weinig muizen zijn, en is er pas weer als de plaag er al is."))});
+}});
+
+/* Vraag 38 */
+Q.push({id:38,pts:2,t:"preventief en curatief",build(q){
+  const ans=O0_vraag(q,{p:"<p>Een melkveehouder in Friesland wil zijn percelen grasland enkele keren maaien om het gras als hooi op te slaan voor de winter. Maatregelen die ecologen voorstellen tegen een veldmuizenplaag zijn onder andere:</p><p class=\"regels\"><span>1</span>Nestkasten plaatsen, zodat roofvogels aangetrokken worden;<br><span>2</span>Bodembewerking, zoals het machinaal omploegen van het grasland.</p>",
+    qtext:"<b>– Licht toe dat hij maatregel 1 alleen preventief (ter voorkoming van een veldmuizenplaag) kan toepassen.<br>– Licht toe dat hij maatregel 2 alleen curatief (ter bestrijding van een veldmuizenplaag) zal toepassen.</b>",lab:"Schrijf je antwoord ›",
+    steps:[{q:"Je hangt nestkasten op als de plaag al op zijn hoogtepunt is. Wat is het probleem?",
+      opts:["er komen niet meteen roofvogels, en een paar roofvogels kunnen duizenden muizen per hectare niet bijhouden","roofvogels eten geen muizen","nestkasten jagen muizen weg"],right:0,
+      ok:"Ja. Roofvogels kunnen alleen een <b>kleine</b> populatie in toom houden.",no:"Hoeveel muizen eet een uil per dag, vergeleken met een plaag van duizenden?"},
+     {q:"Wat verliest de melkveehouder als hij zijn grasland omploegt?",
+      opts:["het gras: geen hooi voor zijn koeien","niets","alleen de muizen"],right:0,
+      ok:"Klopt. Dat doet hij dus pas als het grasland al verloren is door de schade.",no:"Wat wil hij met het gras doen volgens de tekst?"}]});
+  openAnswer(ans,{id:38,pts:2,checks:["(Maatregel 1 preventief) omdat de <b>roofvogels alleen een kleine populatie</b> veldmuizen in toom kunnen houden / omdat er na het plaatsen van de nestkasten <b>niet direct roofvogels</b> zijn.","(Maatregel 2 curatief) omdat er door het omploegen <b>geen gras meer is voor de koeien / geen hooi geoogst</b> kan worden (en het pas wordt toegepast als het grasland door schade al opgegeven is). <span class=\"muted\">Geen punt voor: omploegen is alleen curatief als er veel (nesten van) veldmuizen zijn.</span>"],
+    model:"Roofvogels kunnen alleen een kleine veldmuizenpopulatie in toom houden, en na het plaatsen van nestkasten duurt het even voor ze er zijn; bij een plaag is het dus te laat. Omploegen vernietigt het grasland, zodat er geen hooi meer geoogst kan worden. Dat doet hij alleen als het gras door de muizenschade toch al verloren is.",
+    valkuil:"Bij maatregel 2 alleen schrijven dat omploegen pas zin heeft bij veel muizen. Het gaat om wat de boer <b>verliest</b>: zijn gras/hooi.",
+    after:()=>waaromBtn(ans,textBox("<b>Nestkasten:</b> een roofvogel eet maar een paar muizen per dag. Bij een kleine populatie in het voorjaar is dat genoeg om de groei te remmen; bij duizenden muizen per hectare niet meer. Bovendien moeten roofvogels de kasten eerst vinden en gaan bewonen. Dus: <b>preventief</b>.<br><br><b>Omploegen:</b> daarmee vernietig je de gangen en nesten, maar ook het grasland zelf. De melkveehouder heeft het gras nodig als hooi voor zijn koeien. Hij doet het dus alleen als het grasland door de plaag toch al verloren is: <b>curatief</b>."))});
+}});
+
+OPG.push({nr:5,kort:"Muizenplagen",titel:"Wat te doen aan de muizenplagen?",ids:[31,32,33,34,35,36,37,38],ctx:CTX5});
+
+
+/* ================= opgaven en navigatie ================= */
+OPG.sort((a,b)=>a.nr-b.nr);
+/* omzettingstabel normering vwo 2018 tijdvak 2: N-term 1.6, 70 punten (examenblad.nl); index = score */
+const NORM="N-term 1,6";
+const CIJFER=[1.0,1.3,1.5,1.8,2.0,2.2,2.4,2.5,2.6,2.8,2.9,3.0,3.1,3.3,3.4,3.5,3.7,3.8,3.9,4.0,4.2,4.3,4.4,4.6,4.7,4.8,4.9,5.1,5.2,5.3,5.5,5.6,5.7,5.8,6.0,6.1,6.2,6.4,6.5,6.6,6.7,6.9,7.0,7.1,7.3,7.4,7.5,7.6,7.8,7.9,8.0,8.2,8.3,8.4,8.5,8.7,8.8,8.9,9.1,9.2,9.3,9.4,9.5,9.6,9.6,9.7,9.7,9.8,9.9,9.9,10.0];
+const main=$("#main"),tabs=$("#tabs");let cur=1;const built={},nextBtns={};
+let curOpg=OPG.some(o=>o.nr===store.opg)?store.opg:1;
+const opg=()=>OPG.find(o=>o.nr===curOpg);
+const pts=o=>o.ids.reduce((s,i)=>s+Q.find(q=>q.id===i).pts,0);
+function reach(){const ids=opg().ids;if(store.vrij)return ids[ids.length-1];let k=0;while(k<ids.length-1&&store.scores[ids[k]]!==undefined)k++;return ids[k];}
+function renderTabs(){
+  tabs.innerHTML="";const r=reach();
+  opg().ids.forEach(id=>{const q=Q.find(x=>x.id===id);const locked=id>r;
+    const b=el("button",{class:(id===cur?"cur ":"")+(store.scores[id]!==undefined?"done":"")+(locked?" lock":""),"aria-label":"Vraag "+id+(locked?" (eerst vraag "+(id-1)+" maken)":""),title:locked?"Maak eerst vraag "+(id-1):""},id);
+    if(locked)b.disabled=true;else b.onclick=()=>open(id);tabs.append(b);});
+  const o=el("button",{class:"ov"+(cur==="ov"?" cur":"")},"Score");o.onclick=()=>open("ov");tabs.append(o);
+}
+function open(id){
+  if(id!=="ov"&&id>reach())id=reach();
+  cur=id;renderTabs();main.innerHTML="";
+  if(id==="ov"){main.append(overview());return;}
+  if(!built[id]){const q=Q.find(x=>x.id===id);const sec=el("article",{class:"q"});
+    q.build(sec);
+    const pap=el("section",{class:"papier","aria-label":"Officiële examenvraag "+id});
+    pap.append(el("div",{class:"pkop"},`<span class="pnr"><span class="mono">Examenvraag</span><span class="nr">${id}</span></span><span class="mono">${q.pts} ${q.pts===1?"punt":"punten"}</span>`));
+    for(const c of [...sec.children]){if(c.classList.contains("phase")||c.tagName==="BUTTON")break;pap.append(c);}
+    pap.append(el("div",{class:"pvoet"},"Officiële examentekst · © CvTE"));
+    sec.prepend(pap);
+    const sb=window.EXSTOF&&EXSTOF.blok(TOOL,id);if(sb)pap.after(sb);
+    /* examenvraag nog eens boven de antwoorden (Kamiel 25 okt 2026: niet terug hoeven scrollen) */
+    const qt=[...pap.querySelectorAll(".qtext")].pop(),ansP=sec.querySelector(".phase.ans");
+    if(qt&&ansP){const h=el("div",{class:"herhaal papier"});h.append(el("div",{class:"hkop mono"},`Examenvraag ${id}`));
+      const c=qt.cloneNode(true);c.querySelectorAll("[id]").forEach(x=>x.removeAttribute("id"));h.append(c);
+      const lab=ansP.querySelector(":scope>.label");lab?lab.after(h):ansP.prepend(h);}
+    const ids=opg().ids,last=id===ids[ids.length-1];
+    const nx=el("div",{class:"row",style:"justify-content:flex-end"});const b=el("button",{class:"go"},last?"Naar je score ›":`Volgende vraag (${id+1}) ›`);
+    nextBtns[id]=b;b.hidden=!store.vrij&&store.scores[id]===undefined;
+    b.onclick=()=>{open(last?"ov":id+1);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};nx.append(b);sec.append(nx);built[id]=sec;}
+  main.append(built[id]);
+}
+function overview(){
+  const o=opg();const s=el("section",{class:"phase"});s.append(el("h2",{},`Jouw score op opgave ${o.nr}`));
+  let tot=0;const t=el("table",{class:"data ovtable"});t.innerHTML="<tr><th>vraag</th><th>onderwerp</th><th>score</th></tr>";
+  o.ids.forEach(id=>{const q=Q.find(x=>x.id===id);const p=store.scores[id];if(p!==undefined)tot+=p;t.innerHTML+=`<tr><td>${id}</td><td>${q.t}</td><td>${p===undefined?"–":p} / ${q.pts}</td></tr>`;});
+  const w=el("div",{class:"tablewrap"});w.append(t);s.append(w,el("div",{class:"score"},`Totaal opgave ${o.nr}: ${tot} / ${pts(o)}`));
+  let all=0,allMax=0;OPG.forEach(x=>{allMax+=pts(x);x.ids.forEach(id=>{if(store.scores[id]!==undefined)all+=store.scores[id];});});
+  const gemaakt=OPG.every(x=>x.ids.every(id=>store.scores[id]!==undefined));
+  const cf=CIJFER[Math.min(all,CIJFER.length-1)].toFixed(1).replace(".",",");
+  s.append(el("p",{style:"margin:0"},`Hele examen: <b>${all}</b> van ${allMax} punten · cijfer <b>${cf}</b>`+(gemaakt?"":` <span class="muted">(nog niet alles gemaakt: open vragen tellen als 0 punten)</span>`)));
+  s.append(el("p",{class:"muted",style:"margin:0;font-size:14px"},`Cijfer volgens de officiële omzettingstabel van dit examen (${NORM}, examenblad.nl).`));
+  const nextO=OPG.find(x=>x.nr===o.nr+1);
+  const row=el("div",{class:"row"});
+  if(nextO){const nb=el("button",{class:"go"},`Naar opgave ${nextO.nr}: ${nextO.kort} ›`);nb.onclick=()=>{setOpg(nextO.nr);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};row.append(nb);}
+  const r=el("button",{class:"ghost"},`Opgave ${o.nr} opnieuw`);r.onclick=()=>{o.ids.forEach(id=>{delete store.scores[id];delete built[id];delete nextBtns[id];});save();open(o.ids[0]);};row.append(r);
+  s.append(row);return s;
+}
+function renderOpgs(){const box=$("#opgs");box.innerHTML="";
+  OPG.forEach(o=>{const b=el("button",{"aria-pressed":o.nr===curOpg?"true":"false"},`${o.nr} · ${o.kort}`);b.onclick=()=>setOpg(o.nr);box.append(b);});}
+function setOpg(n){curOpg=n;store.opg=n;save();const o=opg();
+  $("#eb").textContent=`Examen vwo 2018 · tijdvak 2 · opgave ${o.nr}`;$("#h1").textContent=o.titel;
+  $("#sub").textContent=`vraag ${o.ids[0]} t/m ${o.ids[o.ids.length-1]} · ${pts(o)} punten`;
+  $("#ctx").innerHTML=o.ctx;renderOpgs();open(reach());}
+function setVrij(v){store.vrij=v;save();$("#vrij").setAttribute("aria-pressed",v?"true":"false");
+  for(const k in nextBtns)nextBtns[k].hidden=!v&&store.scores[k]===undefined;renderTabs();}
+$("#vrij").onclick=()=>setVrij(!store.vrij);setVrij(!!store.vrij);
+EXSTAND.init({store,save,setVrij});
+setOpg(curOpg);
+})();
+
+</script>
+</body>
+</html>
