@@ -7,7 +7,7 @@ film = {
  "sub": "en de taal van erfelijkheid",
  "puzzle": "Waarom is geen kind precies het midden van zijn ouders? En hoe krijgen twee ouders zonder albinisme een kind mét albinisme?",
  "meta": "erfelijkheid 1/6",
- "version": "2.2 · oktober 2026",
+ "version": "2.3 · november 2026",
  "titleLook": "schema",
  "seriesline": "Biologie bij Kamiel · reeks Erfelijkheid · film 1 van 6 · volgende: <a href=\"2-monohybride-kruisingen.html\">Monohybride kruisingen</a>",
  "lead": "Een gezin: de kinderen lijken op hun vader en hun moeder, maar geen van hen is het midden. En één kind heeft albinisme, terwijl niemand in de familie het heeft. Om dat te begrijpen zoomen we in: van de huid naar de celkern, naar chromosomen, genen en allelen. Daarna zie je hoe één enzym, tyrosinase, het verschil maakt tussen pigment en geen pigment.",
@@ -21,7 +21,7 @@ film = {
   "Hoofdstuk 6": "Hoe krijgen ouders zonder albinisme een kind met albinisme?",
   "Recap": "Waarom is geen kind het midden van zijn ouders?"
  },
- "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: gezin De Wit uit het castboek. Tekeningen: gedeelde bibliotheek (huid, celkern, DNA rond eiwitten). Stijl: Part C van de filmprompt (v10). Versie 2.0 · oktober 2026.",
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: gezin De Wit uit het castboek. Tekeningen: gedeelde bibliotheek (huid, celkern, DNA rond eiwitten). Stijl: Part C van de filmprompt (v13, beeldbank en palet B). Versie 2.3 · november 2026.",
  "questions": {
   "q14": {"q": "Een eicel en een zaadcel smelten samen tot een cel met 46 chromosomen. Hoeveel chromosomen zitten er in één eicel?", "correct": 1,
           "explain": "Een eicel heeft 23 chromosomen: van elk paar precies één. Een zaadcel ook. Bij de bevruchting komen ze samen: 46. (De eicel maakt haar laatste deling pas af als de zaadcel is binnengedrongen.)"},

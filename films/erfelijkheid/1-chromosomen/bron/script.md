@@ -1,4 +1,4 @@
-# Chromosomen en de taal van erfelijkheid — gesproken tekst (versie 2.2 · oktober 2026)
+# Chromosomen en de taal van erfelijkheid — gesproken tekst (versie 2.3 · november 2026; tekst gelijk aan 2.2)
 
 Stem Roos (7qdUFMklKPaaAVMsBTBt), ElevenLabs eleven_v4, één take per alinea, flow oAnn8B6fDC6LBw9fFw28. Audio: `../audio/<id>.mp3`; woordtijden: `stem/woordtijden/<id>.json` (silalign, lokaal). Stem-invoer staat erbij waar die afwijkt van de ondertitel (A/a als 'grote A'/'kleine a', X/Y, n/2n). Oude versie: `oud/script-v1.md`.
 

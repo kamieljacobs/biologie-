@@ -4,7 +4,7 @@ Werkwijze en criteria: `films/BRONNEN.md`.
 
 | Veld | Waarde |
 |---|---|
-| Gecontroleerde versie | 2.1 (25 okt 2026; script `bron/script_v2.md`); versie 2.0 was de herbouw |
+| Gecontroleerde versie | 2.1 (25 okt 2026; script `bron/script_v2.md`); versie 2.0 was de herbouw; 2.2 (s26, s34 met B22, B23) en 2.3 (3 nov 2026, alleen beeld, geen nieuwe beweringen) |
 | Eerste ronde | Claude, 25 okt 2026: 30 beweringen, 19 bronnen geopend; versie 2.1: bewering 15 opnieuw getoetst na de frisse beeldreview (B20, B21 geopend) |
 | Steekproef | nog niet gedaan (zie onderaan) |
 | Vakexpert | geen |

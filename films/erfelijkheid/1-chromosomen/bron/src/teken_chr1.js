@@ -64,8 +64,8 @@ const kW = 22;
 function kSlot(nr, kopie) { const r = KROW.findIndex(R => R.includes(nr)), R = KROW[r], i = R.indexOf(nr), n = R.length;
   const span = (KX1 - KX0) / n, x = KX0 + span * (i + 0.5); return { x: x + (kopie ? 1 : -1) * 30, y: KY[r], rij: r }; }
 function kLabel(ctx, a = 1) { if (a <= 0.01) return; KROW.forEach((R, r) => R.forEach(nr => { const s = kSlot(nr, 0); text(ctx, nr === 23 ? 'X' : String(nr), s.x + 30, KY[r] + kLen(nr) * (1 - CEN[nr - 1]) + 40, fMeta(28), rgba(C.text2, a), 'center'); })); }
-// kleur per chromosoom: f = 0 neutraal (paars) → 1 vader/moeder
-function kKleur(kopie, fv, fm) { return kopie === 0 ? _mixHex(C.kernR, CH.vader, fv) : _mixHex(C.kernR, CH.moeder, fm); }
+// kleur per chromosoom: f = 0 neutraal (grijs, palet B) → 1 vader/moeder
+function kKleur(kopie, fv, fm) { return kopie === 0 ? _mixHex(CD.std, CH.vader, fv) : _mixHex(CD.std, CH.moeder, fm); }
 function chromX(ctx, x, y, len, rot, kl, a = 1, o = {}) { chromatideX(ctx, x, y, len, rot, Object.assign({ a, w: o.w || Math.max(10, Math.min(kW, len * 0.2)), kleur: kl, donker: _dk(kl), cen: o.cen ?? 0.38, coils: o.coils ?? 5 }, o)); }
 // één losse chromatide (na de meiose)
 function chromatide1(ctx, x, y, len, rot, kl, a = 1, w = 12) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(rot); ctx.lineCap = 'round';
@@ -133,7 +133,7 @@ const vragenUit = () => (typeof state !== 'undefined' && state && state.vragen =
 function kapje(ctx, s, x, y, a = 1, kl = C.text2, px = 26) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fMeta(px); ctx.letterSpacing = '3px'; const w = ctx.measureText(s.toUpperCase().replace(/\u039C(?:([MGS])(?![A-Z]))?/g,(a,u)=>'\u00B5'+(u?u.toLowerCase():''))).width + 36; ctx.letterSpacing = '0px';
   roundRect(ctx, x - w / 2, y - px - 8, w, px + 22, (px + 22) / 2); shape(ctx, rgba(C.bgMicro || '#121A26', 0.9), rgba(C.goud, 0.5), 1.5); metaText(ctx, s, x, y, kl, 'center', px); ctx.restore(); }
 // chromosoom dat zich kopieert: g = 0 één chromatide (één DNA-molecuul), g = 1 twee zusterchromatiden vast aan het centromeer
-function chromKopie(ctx, x, y, len, g, o = {}) { const { w = 84, cen = 0.38, coils = 9, kleur = C.kernR, a = 1 } = o; if (a <= 0.01) return; const donker = _dk(kleur);
+function chromKopie(ctx, x, y, len, g, o = {}) { const { w = 84, cen = 0.38, coils = 9, kleur = CD.std, a = 1 } = o; if (a <= 0.01) return; const donker = _dk(kleur);
   ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.lineCap = 'round'; ctx.lineJoin = 'round'; const e = ease(clamp(g, 0, 1));
   (e < 0.02 ? [0] : [-1, 1]).forEach(k => { const off = k * w * 0.55 * e, end = k * w * 0.5 * e;
     ctx.beginPath(); ctx.moveTo(off + end, -len * cen); ctx.quadraticCurveTo(off, -len * cen * 0.4, off * 0.75, 0); ctx.quadraticCurveTo(off, len * (1 - cen) * 0.4, off + end, len * (1 - cen));

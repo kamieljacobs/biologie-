@@ -1,18 +1,18 @@
 # Chromosomen en de taal van erfelijkheid — bronmap
 
-Versie 2.0 is een herbouw in de FILMDATA-straat (25 okt 2026); versie 2.1 verwerkt de frisse beeldreview (`review_fris_2026-10-25.md`). De oude versie (eigen engine, 12 okt 2026) staat in `oud/` (`1-chromosomen-v1.html`, `script-v1.md`, `info-v1.md`).
+Versie 2.0 is een herbouw in de FILMDATA-straat (25 okt 2026); versie 2.1 verwerkt de frisse beeldreview (`review_fris_2026-10-25.md`); versie 2.3 (3 nov 2026) is de opwaardering naar prompt v13 (alleen beeld, takes behouden; lijsten voor Kamiel in `opwaardering-v13.md`, versie 2.2 in `oud/1-chromosomen-v2.2.html` + `oud/info-v2.2.md`). De oude versie (eigen engine, 12 okt 2026) staat in `oud/` (`1-chromosomen-v1.html`, `script-v1.md`, `info-v1.md`).
 
 | Veld | Waarde |
 |---|---|
 | Bestand | films/erfelijkheid/1-chromosomen.html (audio in `1-chromosomen/audio/`) |
 | Reeks / nummer | Erfelijkheid · film 1 van 6 (§ 3.1 – 3.2) |
 | Doelgroep / niveau | havo en vwo bovenbouw, één niveau (geen vwo-blokken) |
-| Versie / datum | 2.2 · 28 okt 2026 (gerichte ronde 28 okt 2026) |
-| Prompt | v10 |
-| Voldoet aan | prompt v10 (25 okt 2026); bewust niet: één voorspelvraag per hoofdstuk (B4) in hoofdstuk 1, 3 en 5 (Kamiel 25 okt: geen extra vragen) |
+| Versie / datum | **2.3 · 3 november 2026** — opwaardering naar prompt v13 (zonder keuring, alleen beeld); 2.2 · 28 okt 2026 (gerichte ronde); 2.0 · 25 okt 2026 |
+| Prompt | v13 |
+| Voldoet aan | prompt v13 (3 nov 2026, zonder keuring, takes behouden). Bewust niet: herkomstkleuren vader teal / moeder oker blijven (gelijk aan Erfelijkheid 2–6 en de lessen; palet B zegt donkerblauw/zandgeel, zie `opwaardering-v13.md`); geen nieuwe caststijl met contourlijnen; één voorspelvraag per hoofdstuk (B4) in hoofdstuk 1, 3 en 5 (Kamiel 25 okt: geen extra vragen) |
 | Stem / model | Roos (`7qdUFMklKPaaAVMsBTBt`), ElevenLabs eleven_v4, één take per alinea (s30, s35, s15, s26, s34 en s20 later opnieuw); flow `oAnn8B6fDC6LBw9fFw28` |
 | Duur | ± 9:15 (± 555 s met hoofdstukkaarten en vragen; 489 s spraak); `duur: 9` in HOOFDSTUKKEN |
-| Beeldstijl | Part C: Macro (kamer met gezin De Wit), Micro zonder korrel (huid, kern, DNA), Schema (karyogram, gen/allel, simulatie); zoomcirkels bij elke stap in schaal |
+| Beeldstijl | Part C (palet B: chromatine en chromosomen grijs `CD.std`, beeldbank van 3 nov 2026): Macro (kamer met gezin De Wit), Micro zonder korrel (huid, kern, DNA), Schema (karyogram, gen/allel, simulatie); zoomcirkels bij elke stap in schaal |
 | Audio-opslag | 37 losse mp3's (`../audio/sNN.mp3`, loudnorm −16 LUFS / −1 dBTP), woordtijden `stem/woordtijden/` (silalign, lokaal) |
 | Herkomst | verbeterblad 24 okt 2026 (12 voorstellen chr-1 t/m chr-12, alle goedgekeurd), keuring fase 1 25 okt 2026 (`keuring-fase1/`), frisse beeldreview 25 okt 2026 (9 MOET, 16 KAN; `review_fris_2026-10-25.md`) |
 
@@ -61,6 +61,7 @@ Werkmap buiten de repo (bv. `hw/chr1`), met de bestanden uit deze bronmap: `segm
 - Klemtoon van DNA, allel en genotype staat op de wachtlijst voor Kamiels oor (`uitspraak.md`).
 
 ## Wijzigingen
+- 3 nov 2026 — Versie 2.3: opwaardering naar prompt v13 (B14, zonder keuring). Stem, script, vragen, cues en timing ongewijzigd. Actuele `bibliotheek/lib_bio.js` in `src/` (eicel, enzym, huid, kern en DNA nu de beeldbankversies); chromatine, chromosomen, DNA-draad en losse chromatiden van paars naar palet B-grijs (`CD.std`, `CD.draad`) in s06–s11, s15–s17 en s24; castnaam uit beeld: 'onderarm · Marieke' (s05) en 'Marieke · 1,67 m' (s06) worden 'moeder'; '2 m' in teksttint; aftiteling noemt v13. Contactvellen van alle scènes bekeken (`hw/chr1`, niet in de repo). Bronnen ongewijzigd (geen nieuwe beweringen).
 - 29 okt 2026 — s20 opnieuw ingesproken, take met afwijkende uitspraak van allelen (Kamiel na luisteren; geen nieuwe regel, gewone spelling 'allelen' blijft). Eén take, zelfde stem-invoer, generatie `90d3iETpba4WrZcd8QTG`, 291 credits; Scribe woord voor woord goed. Versie blijft 2.2.
 - 29 okt 2026 — Alle takes op −16 LUFS / −1 dBTP gezet (loudnorm in twee stappen, lineair, mono 44,1 kHz 128 kbit/s). De oorspronkelijke takes lagen rond −29 LUFS en waren nooit genormaliseerd, s20, s26 en s34 wel: die sprongen ± 12 dB uit. Nu liggen alle 37 alinea's tussen −16,3 en −17,0 LUFS (ebur128), true peak ≤ −1,0 dBTP. De duur is ongewijzigd, dus woordtijden en cues blijven staan. Takes van vóór het normaliseren staan in de werkmap (`hw/chr1/raw_oud/voor-lufs/`, niet in de repo).
 - 28 okt 2026 — Versie 2.2 (gerichte ronde na Kamiels review in de reviewstand): s26 opnieuw ingesproken ('allelen' klonk fout; uitspraaktest 28 okt: gewone spelling blijft), s34 opnieuw ingesproken met de nuance 'Dat geldt niet voor elk recessief allel: soms maakt het een eiwit dat alleen minder goed, of net anders werkt.' plus een label in beeld (cue 'geldt'); bronnen B22, B23, bewering 31. 205 + 357 credits.

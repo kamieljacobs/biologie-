@@ -47,7 +47,7 @@ Object.assign(SCENES, {
   s05(ctx, t, q) { const R = huidInfo(), F = huidFocus(); const groei = ramp(t, q.at('Bovenop') - 0.4, 1.6);
     // 1) de onderarm van Marieke met een zoomcirkel naar een millimeter huid
     if (groei < 0.999) { kamer(ctx); ctx.fillStyle = rgba(C.bgSchema, 0.8); ctx.fillRect(0, 0, W, H); const arm = onderarm(ctx, 110, 470, 15, { id: 'marieke', a: 1 - groei });
-      _vR(ctx, 'onderarm', 'marieke', 300, 380, (1 - groei) * ramp(t, 0.2, 0.6), 'left'); }
+      _vR(ctx, 'onderarm', 'moeder', 300, 380, (1 - groei) * ramp(t, 0.2, 0.6), 'left'); }
     const cx = lerp(1300, 960, groei), cy = lerp(450, 470, groei), r = lerp(340, 1300, groei), sx = 110 + 20 * 15, sy = 470 - 3.4 * 15;
     const z0 = 2 * 340 / HUID.w, z = lerp(z0 * 1.0, 2.2, groei) * (1 + 0.8 * ramp(t, q.at('Helemaal'), 2.5));
     const fx = lerp(960, F.cel[0], groei), fy = lerp(170, F.cel[1] - 30, groei);
@@ -73,8 +73,8 @@ Object.assign(SCENES, {
     kapje(ctx, 'celkern · vergroot', 1500, 790, dna); _vR(ctx, 'DNA', null, 1500, 440 - 320, dna, 'center');
     // DNA uitgerekt naast een mens
     if (uit > 0.01) { ctx.save(); ctx.globalAlpha *= uit; roundRect(ctx, 80, 300, 460, 520, 16); shape(ctx, rgba(C.bgSchema, 0.96), C.line, 1.5); const yb = 760, hm = 300, h2 = hm * 200 / 167;
-      persoon(ctx, 'marieke', 220, yb, hm, { uit: 'verbaasd' }); dnaDraad(ctx, [[400, yb], [404, yb - h2 * 0.5], [400, yb - h2]], { w: 5, kleur: C.kernR, donker: C.kern });
-      text(ctx, '2 m', 440, yb - h2 / 2, fTekst(40, 700), C.kernR, 'left'); text(ctx, 'DNA uit één cel, uitgerekt', 310, 350, fTekst(32, 600), C.text, 'center'); metaText(ctx, 'marieke · 1,67 m', 310, yb + 42, C.text2, 'center', 24); ctx.restore(); } },
+      persoon(ctx, 'marieke', 220, yb, hm, { uit: 'verbaasd' }); dnaDraad(ctx, [[400, yb], [404, yb - h2 * 0.5], [400, yb - h2]], { w: 5, kleur: CD.draad, donker: _dk(CD.draad) });
+      text(ctx, '2 m', 440, yb - h2 / 2, fTekst(40, 700), C.text, 'left'); text(ctx, 'DNA uit één cel, uitgerekt', 310, 350, fTekst(32, 600), C.text, 'center'); metaText(ctx, 'moeder · 1,67 m', 310, yb + 42, C.text2, 'center', 24); ctx.restore(); } },
   s07(ctx, t, q) { chMicro(ctx); const c = ramp(t, q.at('deelt') - 0.3, Math.max(1.5, q.at('staafjes') - q.at('deelt') + 0.6));
     kernChromatine(ctx, 960, 450, 380, { c, seed: 4, membraan: 1 - 0.5 * c });
     _vR(ctx, 'losse draden DNA', null, 960, 40 + 60, q.on('kluwen', 1, 0.4) * (1 - q.on('deelt', 1, 0.4)), 'center');
@@ -101,7 +101,7 @@ Object.assign(SCENES, {
   s10(ctx, t, q) { chSchema(ctx); tekenKaryo(ctx, 0, {}); text(ctx, '46', 1440, 330, fTitel(150), C.text, 'center'); metaText(ctx, 'chromosomen', 1440, 380, C.grain, 'center', 30);
     const x2 = q.on('zusterchromatiden', 1, 0.5), tot = q.on('tweeënnegentig', 1, 0.5);
     tag(ctx, '× 2 chromatiden', 1440, 470, C.text2, x2, 'center', 40); text(ctx, '= 92', 1440, 600, fTitel(110), rgba(C.goud, tot), 'center'); if (tot > 0.01) { ctx.save(); ctx.globalAlpha *= tot; metaText(ctx, 'chromatiden', 1440, 645, C.grain, 'center', 30); ctx.restore(); }
-    if (x2 > 0.01) { chromX(ctx, 1700, 760, 150, 0, C.kernR, x2, { w: 26 }); naamBij(ctx, '2 chromatiden', null, 1640, 760, x2, 'right'); } },
+    if (x2 > 0.01) { chromX(ctx, 1700, 760, 150, 0, CD.std, x2, { w: 26 }); naamBij(ctx, '2 chromatiden', null, 1640, 760, x2, 'right'); } },
   s11(ctx, t, q) { chSchema(ctx); const u = ramp(t, q.at('sorteert'), Math.max(1.5, q.at('paren') - q.at('sorteert')));
     tekenKaryo(ctx, u, {}); kLabel(ctx, ramp(t, q.at('paren'), 0.6));
     karyoKader(ctx, [1], q.on('één', 1, 0.3) * (1 - q.on('twee', 3, 0.3))); karyoKader(ctx, [2], q.on('twee', 3, 0.3) * (1 - q.on('Enzovoort', 1, 0.3)));
@@ -120,16 +120,16 @@ Object.assign(SCENES, {
     _vR(ctx, 'eicel', null, ex, ey - 300, 1 - ramp(t, q.at('smelten') + 0.4, 0.5), 'center'); _vR(ctx, 'zaadcel', null, 1500, 330, 1 - ramp(t, q.at('smelten'), 0.5), 'center');
     const b = ramp(t, q.at('zesenveertig') - 0.2, 0.5); _vR(ctx, 'bevruchte eicel', '46 chromosomen', ex, ey - 300, b, 'center', C.goud); if (b > 0.01) text(ctx, '46', ex, ey + 30, fTitel(90), rgba('#121A26', b), 'center'); },
   s15(ctx, t, q) { chSchema(ctx); const ex = 640, ey = 450; eicelEcht(ctx, ex, ey, 230, 1, false); ctx.beginPath(); ctx.arc(ex, ey, 170, 0, 6.283); shape(ctx, '#3A3058', C.kernR, 2); const P = _chromLayout(46, 170, 6);
-    for (let nr = 0; nr < 23; nr++) { const p = P[nr * 2]; chromX(ctx, ex + p.x * 0.9, ey + p.y * 0.9, p.ln * 0.9, p.rot, C.kernR, 1, { w: Math.max(7, p.ln * 0.13), coils: 0 }); }
+    for (let nr = 0; nr < 23; nr++) { const p = P[nr * 2]; chromX(ctx, ex + p.x * 0.9, ey + p.y * 0.9, p.ln * 0.9, p.rot, CD.std, 1, { w: Math.max(7, p.ln * 0.13), coils: 0 }); }
     _vR(ctx, '23 chromosomen', 'van elk paar één', ex, ey - 300, q.on('drieëntwintig', 1, 0.5), 'center', C.goud);
     const g = q.on('zaadcel', 1, 0.5), c1 = q.on('chromatide', 1, 0.4), ld = q.on('laatste', 1, 0.5); if (g > 0.01) { ctx.save(); ctx.globalAlpha *= g; roundRect(ctx, 1180, 230, 620, 470, 16); shape(ctx, rgba(C.bgSchema, 0.96), C.line, 1.5); ctx.restore();
-      chromatide1(ctx, 1490, 450, 220, 0, C.kernR, g * c1, 38);
+      chromatide1(ctx, 1490, 450, 220, 0, CD.std, g * c1, 38);
       text(ctx, 'zaadcel', 1490, 300, fTekst(32, 700), rgba(C.text, g), 'center'); text(ctx, 'niet gekopieerd · 1 chromatide', 1490, 640, fTekst(28, 500), rgba(C.text2, g * c1), 'center'); }
     _vR(ctx, 'nog 2 chromatiden', 'laatste deling volgt na het binnendringen van een zaadcel', ex, ey + 330, ld, 'center', C.goud); },
   s16(ctx, t, q) { chSchema(ctx); const h = q.on('haploïd', 1, 0.5), d = q.on('diploïd', 1, 0.5), m = q.on('mens', 1, 0.5);
-    eicelEcht(ctx, 520, 430, 200, 1, false); ctx.beginPath(); ctx.arc(520, 430, 150, 0, 6.283); shape(ctx, '#3A3058', C.kernR, 2); const P = _chromLayout(46, 150, 6); for (let nr = 0; nr < 23; nr++) { const p = P[nr * 2]; chromX(ctx, 520 + p.x * 0.9, 430 + p.y * 0.9, p.ln * 0.9, p.rot, C.kernR, 1, { w: Math.max(6, p.ln * 0.12), coils: 0 }); }
+    eicelEcht(ctx, 520, 430, 200, 1, false); ctx.beginPath(); ctx.arc(520, 430, 150, 0, 6.283); shape(ctx, '#3A3058', C.kernR, 2); const P = _chromLayout(46, 150, 6); for (let nr = 0; nr < 23; nr++) { const p = P[nr * 2]; chromX(ctx, 520 + p.x * 0.9, 430 + p.y * 0.9, p.ln * 0.9, p.rot, CD.std, 1, { w: Math.max(6, p.ln * 0.12), coils: 0 }); }
     ctx.save(); ctx.globalAlpha *= 0.35 + 0.65 * d; ctx.beginPath(); ctx.arc(1360, 430, 230, 0, 6.283); shape(ctx, rgba(C.fill, 0.9), C.line, 2); ctx.restore();
-    _chromLayout(46, 200, 4).forEach(p => chromX(ctx, 1360 + p.x, 430 + p.y, p.ln * 0.8, p.rot, C.kernR, 0.35 + 0.65 * d, { w: Math.max(6, p.ln * 0.13), coils: 0 }));
+    _chromLayout(46, 200, 4).forEach(p => chromX(ctx, 1360 + p.x, 430 + p.y, p.ln * 0.8, p.rot, CD.std, 0.35 + 0.65 * d, { w: Math.max(6, p.ln * 0.13), coils: 0 }));
     _vR(ctx, 'haploïd', 'één set · n', 520, 140, h, 'center', C.goud); _vR(ctx, 'diploïd', 'twee sets · 2n', 1360, 140, d, 'center', C.goud);
     text(ctx, 'n = 23', 520, 760, fTitel(64), rgba(C.text, m), 'center'); text(ctx, '2n = 46', 1360, 760, fTitel(64), rgba(C.text, m), 'center');
     metaText(ctx, 'eicel', 520, 690, C.text2, 'center', 28); metaText(ctx, 'huidcel', 1360, 690, C.text2, 'center', 28); },
@@ -138,9 +138,9 @@ Object.assign(SCENES, {
     if (au > 0.01 && ge < 0.99) { ctx.save(); ctx.globalAlpha *= au * (1 - ge); _vR(ctx, 'autosomen', 'paar 1 tot en met 22', 820, 150, 1, 'center', C.goud); ctx.restore(); }
     karyoKader(ctx, [23], ge); _vR(ctx, 'geslachtschromosomen', null, kSlot(23, 0).x + 30, 900 - 60 - 600 + 410, ge * (1 - vr), 'center', C.goud);
     const px = 1690; if (vr > 0.01) { ctx.save(); ctx.globalAlpha *= vr; roundRect(ctx, 1520, 200, 340, 300, 16); shape(ctx, rgba(C.bgSchema, 0.96), C.line, 1.5); ctx.restore();
-      text(ctx, 'vrouw · XX', px, 250, fTekst(34, 700), rgba(C.text, vr), 'center'); chromX(ctx, px - 50, 380, kLen(23), 0, C.kernR, vr, { cen: CEN[22] }); chromX(ctx, px + 50, 380, kLen(23), 0, C.kernR, vr, { cen: CEN[22] }); }
+      text(ctx, 'vrouw · XX', px, 250, fTekst(34, 700), rgba(C.text, vr), 'center'); chromX(ctx, px - 50, 380, kLen(23), 0, CD.std, vr, { cen: CEN[22] }); chromX(ctx, px + 50, 380, kLen(23), 0, CD.std, vr, { cen: CEN[22] }); }
     if (mn > 0.01) { ctx.save(); ctx.globalAlpha *= mn; roundRect(ctx, 1520, 520, 340, 300, 16); shape(ctx, rgba(C.bgSchema, 0.96), C.line, 1.5); ctx.restore();
-      text(ctx, 'man · XY', px, 570, fTekst(34, 700), rgba(C.text, mn), 'center'); chromX(ctx, px - 50, 700, kLen(23), 0, C.kernR, mn, { cen: CEN[22] }); chromX(ctx, px + 50, 700, kLen(24), 0, C.kernR, mn, { cen: CEN[23] });
+      text(ctx, 'man · XY', px, 570, fTekst(34, 700), rgba(C.text, mn), 'center'); chromX(ctx, px - 50, 700, kLen(23), 0, CD.std, mn, { cen: CEN[22] }); chromX(ctx, px + 50, 700, kLen(24), 0, CD.std, mn, { cen: CEN[23] });
       metaText(ctx, 'Y', px + 50, 790, C.text2, 'center', 28); }
     misvatting(ctx, 'Mannen hebben geen X-chromosoom.', 'Mannen hebben één X en één Y.', 760, 330, 900, lo, q.on('Alleen', 1, 0.5)); },
 
