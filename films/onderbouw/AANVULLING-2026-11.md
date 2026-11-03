@@ -13,7 +13,7 @@ Bouwen volgens `films/PROMPT_v13.md` met Part D, één film per sessie (CLAUDE.m
 
 | # | Film | Kerndoel | Map | Status |
 | --- | --- | --- | --- | --- |
-| 1 | Waarom bonkt je hart voor een spreekbeurt? | 32C kernzin (mentale gezondheid) + bullets 1 en 5 | `films/onderbouw/32c/5-…` | brief klaar |
+| 1 | Waarom bonkt je hart voor een spreekbeurt? | 32C kernzin (mentale gezondheid) + bullets 1 en 5 | `films/onderbouw/32c/5-stress-en-rust/` | gebouwd 3 nov · wacht op audio (download geweigerd) en daarna site |
 | 2 | Een model is geen werkelijkheid | 29B (systemen en modellen, schaal en hoeveelheid) + 29C | `films/onderbouw/29b/1-…` | brief klaar |
 | 3 | Wat leeft er om de school? | 29A + 29C, 33C bullet 1, 32B bullet 3 | `films/onderbouw/33c/6-…` | brief klaar |
 | 4 | Wat je ziet is niet wat er is | 32A bullets 2–3 (zintuigen in het zenuwstelsel) | `films/onderbouw/32a/10-…` | brief klaar |

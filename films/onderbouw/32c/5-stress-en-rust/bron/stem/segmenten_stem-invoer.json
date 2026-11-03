@@ -1,0 +1,222 @@
+[
+ {
+  "id": "s01",
+  "chapter": "Cold open",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Lotte staat voor de klas. Haar hart bonkt. Haar mond is droog. Er is geen leeuw in de klas. Waarom doet haar lichaam dan alsof er een leeuw is?"
+  ],
+  "display": "Lotte staat voor de klas. Haar hart bonkt. Haar mond is droog. Er is geen leeuw in de klas. Waarom doet haar lichaam dan alsof er een leeuw is?",
+  "voice": "Lotte staat voor de klas. Haar hart bonkt. Haar mond is droog. Er is geen leeuw in de klas. Waarom doet haar lichaam dan alsof er een leeuw is?"
+ },
+ {
+  "id": "s02",
+  "chapter": "Titel",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Waarom bonkt je hart voor een spreekbeurt?"
+  ],
+  "display": "Waarom bonkt je hart voor een spreekbeurt?",
+  "voice": "Waarom bonkt je hart voor een spreekbeurt?"
+ },
+ {
+  "id": "s03",
+  "chapter": "Hoofdstuk 1 — Het alarm gaat af",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Lottes hart bonkt. Wat gebeurt er in haar? Wat denk je?"
+  ],
+  "display": "Lottes hart bonkt. Wat gebeurt er in haar? Wat denk je?",
+  "voice": "Lottes hart bonkt. Wat gebeurt er in haar? Wat denk je?"
+ },
+ {
+  "id": "q04",
+  "chapter": "Hoofdstuk 1 — Het alarm gaat af",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "het is slecht voor haar: ze raakt in de war",
+   "het zit vooral in haar hoofd",
+   "haar lichaam maakt zich klaar om iets te doen"
+  ],
+  "q": "Lottes hart bonkt voor haar spreekbeurt. Wat gebeurt er in haar?",
+  "correct": 2,
+  "explain": "Haar lichaam maakt zich klaar om iets te doen: hart, ademhaling en spieren doen mee. Stress zit dus niet alleen in je hoofd, en kort is het niet slecht."
+ },
+ {
+  "id": "s05",
+  "chapter": "Hoofdstuk 1 — Het alarm gaat af",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Lottes lichaam maakt zich klaar om iets te doen. Dat heet stress. Stress is een reactie van je lichaam op iets spannends. Het begint in je hersenen. Die sturen seintjes naar je hart, je longen en je spieren.",
+   "Je hart klopt sneller en harder. Je ademt sneller. Je spieren spannen zich. Je maakt minder speeksel. Daarom wordt je mond droog. Stress zit dus niet alleen in je hoofd. Je hele lichaam doet mee.",
+   "Een stof in je bloed houdt het even vol: adrenaline. Daarover gaat ook de film over zenuwen en hormonen."
+  ],
+  "display": "Lottes lichaam maakt zich klaar om iets te doen. Dat heet stress. Stress is een reactie van je lichaam op iets spannends. Het begint in je hersenen. Die sturen seintjes naar je hart, je longen en je spieren. Je hart klopt sneller en harder. Je ademt sneller. Je spieren spannen zich. Je maakt minder speeksel. Daarom wordt je mond droog. Stress zit dus niet alleen in je hoofd. Je hele lichaam doet mee. Een stof in je bloed houdt het even vol: adrenaline. Daarover gaat ook de film over zenuwen en hormonen.",
+  "voice": "Lottes lichaam maakt zich klaar om iets te doen. Dat heet stress. Stress is een reactie van je lichaam op iets spannends. Het begint in je hersenen. Die sturen seintjes naar je hart, je longen en je spieren. Je hart klopt sneller en harder. Je ademt sneller. Je spieren spannen zich. Je maakt minder speeksel. Daarom wordt je mond droog. Stress zit dus niet alleen in je hoofd. Je hele lichaam doet mee. Een stof in je bloed houdt het even vol: adrenaline. Daarover gaat ook de film over zenuwen en hormonen."
+ },
+ {
+  "id": "s06",
+  "chapter": "Hoofdstuk 1 — Het alarm gaat af",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Je lichaam heeft een soort alarm. Maar het heeft er maar één. Het gaat aan bij gevaar, zoals een leeuw. Het gaat ook aan bij iets spannends, zoals een spreekbeurt. Het alarm is niet kapot. Korte stress kan je scherp maken. Vaak doe je het dan juist beter."
+  ],
+  "display": "Je lichaam heeft een soort alarm. Maar het heeft er maar één. Het gaat aan bij gevaar, zoals een leeuw. Het gaat ook aan bij iets spannends, zoals een spreekbeurt. Het alarm is niet kapot. Korte stress kan je scherp maken. Vaak doe je het dan juist beter.",
+  "voice": "Je lichaam heeft een soort alarm. Maar het heeft er maar één. Het gaat aan bij gevaar, zoals een leeuw. Het gaat ook aan bij iets spannends, zoals een spreekbeurt. Het alarm is niet kapot. Korte stress kan je scherp maken. Vaak doe je het dan juist beter."
+ },
+ {
+  "id": "s07",
+  "chapter": "Hoofdstuk 1 — Het alarm gaat af",
+  "level": "vwo",
+  "kind": "speech",
+  "lines": [
+   "Hoe loopt dat alarm? Je hersenen sturen via zenuwen een seintje naar je bijnieren. Die liggen boven op je nieren. Je bijnieren maken adrenaline. Je bloed brengt die naar je hart. Dan klopt je hart nog sneller.",
+   "Mensen en dieren hebben dit alarm al heel lang. Bij gevaar moet je snel vechten of vluchten. Met meer bloed in je spieren lukt dat beter. Daarom heet het de vecht-of-vluchtreactie."
+  ],
+  "display": "Hoe loopt dat alarm? Je hersenen sturen via zenuwen een seintje naar je bijnieren. Die liggen boven op je nieren. Je bijnieren maken adrenaline. Je bloed brengt die naar je hart. Dan klopt je hart nog sneller. Mensen en dieren hebben dit alarm al heel lang. Bij gevaar moet je snel vechten of vluchten. Met meer bloed in je spieren lukt dat beter. Daarom heet het de vecht-of-vluchtreactie.",
+  "voice": "Hoe loopt dat alarm? Je hersenen sturen via zenuwen een seintje naar je bijnieren. Die liggen boven op je nieren. Je bijnieren maken adrenaline. Je bloed brengt die naar je hart. Dan klopt je hart nog sneller. Mensen en dieren hebben dit alarm al heel lang. Bij gevaar moet je snel vechten of vluchten. Met meer bloed in je spieren lukt dat beter. Daarom heet het de vecht-of-vlucht-reactie."
+ },
+ {
+  "id": "s08",
+  "chapter": "Hoofdstuk 1 — Het alarm gaat af",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Lotte begint aan haar spreekbeurt. Na een paar minuten wordt haar hart rustiger. Het alarm gaat vanzelf weer uit.",
+   "Na de les zegt Yasmin: \"Ik was ook zó zenuwachtig.\" Wat zegt dat over haar? Wat denk je?"
+  ],
+  "display": "Lotte begint aan haar spreekbeurt. Na een paar minuten wordt haar hart rustiger. Het alarm gaat vanzelf weer uit. Na de les zegt Yasmin: \"Ik was ook zó zenuwachtig.\" Wat zegt dat over haar? Wat denk je?",
+  "voice": "Lotte begint aan haar spreekbeurt. Na een paar minuten wordt haar hart rustiger. Het alarm gaat vanzelf weer uit. Na de les zegt Yasmin: \"Ik was ook zó zenuwachtig.\" Wat zegt dat over haar? Wat denk je?"
+ },
+ {
+  "id": "q09",
+  "chapter": "Hoofdstuk 1 — Het alarm gaat af",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "dat ze zwak is",
+   "dat haar lichaam reageert op iets spannends",
+   "dat ze slecht heeft geoefend"
+  ],
+  "q": "Yasmin zegt na de les: 'Ik was ook zó zenuwachtig.' Wat zegt dat over haar?",
+  "correct": 1,
+  "explain": "Zenuwachtig zijn is een reactie van je lichaam op iets spannends. Bijna iedereen kent het; het is geen zwakte."
+ },
+ {
+  "id": "s10",
+  "chapter": "Hoofdstuk 1 — Het alarm gaat af",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Zenuwachtig zijn is geen zwakte. Bijna iedereen kent het. Mevrouw Visser vertelt: \"Voor mijn eerste les bonkte mijn hart ook.\""
+  ],
+  "display": "Zenuwachtig zijn is geen zwakte. Bijna iedereen kent het. Mevrouw Visser vertelt: \"Voor mijn eerste les bonkte mijn hart ook.\"",
+  "voice": "Zenuwachtig zijn is geen zwakte. Bijna iedereen kent het. Mevrouw Visser vertelt: \"Voor mijn eerste les bonkte mijn hart ook.\""
+ },
+ {
+  "id": "s11",
+  "chapter": "Hoofdstuk 2 — Als het alarm blijft hangen",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Stel dat Lotte weken achter elkaar een volle agenda heeft. Maandag een toets. Dinsdag training. Woensdag weer een toets. Donderdag oefenen voor een spreekbeurt. En elke avond nog laat op haar telefoon. Er is bijna geen leeg vakje.",
+   "Hoe voelt Lotte zich na een paar van zulke weken? Wat denk je?"
+  ],
+  "display": "Stel dat Lotte weken achter elkaar een volle agenda heeft. Maandag een toets. Dinsdag training. Woensdag weer een toets. Donderdag oefenen voor een spreekbeurt. En elke avond nog laat op haar telefoon. Er is bijna geen leeg vakje. Hoe voelt Lotte zich na een paar van zulke weken? Wat denk je?",
+  "voice": "Stel dat Lotte weken achter elkaar een volle agenda heeft. Maandag een toets. Dinsdag training. Woensdag weer een toets. Donderdag oefenen voor een spreekbeurt. En elke avond nog laat op haar telefoon. Er is bijna geen leeg vakje. Hoe voelt Lotte zich na een paar van zulke weken? Wat denk je?"
+ },
+ {
+  "id": "q12",
+  "chapter": "Hoofdstuk 2 — Als het alarm blijft hangen",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "prima, haar lichaam went eraan",
+   "moe, en ze slaapt slecht",
+   "extra fit, want ze oefent veel"
+  ],
+  "q": "Lotte heeft weken achter elkaar een volle agenda. Hoe voelt ze zich na een paar van zulke weken?",
+  "correct": 1,
+  "explain": "Het alarm gaat steeds opnieuw aan, zonder tijd om tot rust te komen. Daar went je lichaam niet aan: je wordt moe en slaapt slechter."
+ },
+ {
+  "id": "s13",
+  "chapter": "Hoofdstuk 2 — Als het alarm blijft hangen",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Het alarm gaat steeds opnieuw aan. Er is te weinig tijd om tot rust te komen. Daar went je lichaam niet aan. Dit heet lange stress.",
+   "Bij lange stress word je vaak moe. Je slaapt slechter. En je kunt sneller ziek worden. Je afweer werkt dan vaak minder goed. Ook je rooster en je telefoon bepalen hoeveel rust je krijgt."
+  ],
+  "display": "Het alarm gaat steeds opnieuw aan. Er is te weinig tijd om tot rust te komen. Daar went je lichaam niet aan. Dit heet lange stress. Bij lange stress word je vaak moe. Je slaapt slechter. En je kunt sneller ziek worden. Je afweer werkt dan vaak minder goed. Ook je rooster en je telefoon bepalen hoeveel rust je krijgt.",
+  "voice": "Het alarm gaat steeds opnieuw aan. Er is te weinig tijd om tot rust te komen. Daar went je lichaam niet aan. Dit heet lange stress. Bij lange stress word je vaak moe. Je slaapt slechter. En je kunt sneller ziek worden. Je afweer werkt dan vaak minder goed. Ook je rooster en je telefoon bepalen hoeveel rust je krijgt."
+ },
+ {
+  "id": "s14",
+  "chapter": "Hoofdstuk 3 — Terug naar rust",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Lotte is moe en gespannen. Ze pakt haar telefoon om even te rusten. Wat doet dat met haar alarm? Wat denk je?"
+  ],
+  "display": "Lotte is moe en gespannen. Ze pakt haar telefoon om even te rusten. Wat doet dat met haar alarm? Wat denk je?",
+  "voice": "Lotte is moe en gespannen. Ze pakt haar telefoon om even te rusten. Wat doet dat met haar alarm? Wat denk je?"
+ },
+ {
+  "id": "q15",
+  "chapter": "Hoofdstuk 3 — Terug naar rust",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "het gaat uit, want ze rust even",
+   "het blijft half aan, want ze ziet steeds iets nieuws",
+   "het gaat harder aan, want ze schrikt"
+  ],
+  "q": "Lotte is moe en gespannen. Ze pakt haar telefoon om even te rusten. Wat doet dat met haar alarm?",
+  "correct": 1,
+  "explain": "Scrollen voelt als rust, maar je hoofd ziet steeds iets nieuws. Bewegen, buiten zijn, slapen en praten zetten het alarm beter uit."
+ },
+ {
+  "id": "s16",
+  "chapter": "Hoofdstuk 3 — Terug naar rust",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Scrollen voelt als rust. Maar je hoofd ziet steeds iets nieuws. Zo gaat het alarm niet echt uit. En wie laat op de telefoon zit, gaat vaak later slapen.",
+   "Wat helpt dan wel? Bewegen, bijvoorbeeld fietsen. Na het bewegen worden je hart en je ademhaling weer rustig. Ook buiten zijn, in het groen, helpt vaak. Rustig en diep ademen kan ook helpen.",
+   "Genoeg slapen helpt: in je slaap herstelt je lichaam. En praten met iemand kan opluchten.",
+   "Zo komt je lichaam weer tot rust. Je ontspant. Lotte gaat na school fietsen. Yasmin praat liever met een vriendin. Wat helpt, verschilt per persoon. Je kunt zelf uitproberen wat bij jou past."
+  ],
+  "display": "Scrollen voelt als rust. Maar je hoofd ziet steeds iets nieuws. Zo gaat het alarm niet echt uit. En wie laat op de telefoon zit, gaat vaak later slapen. Wat helpt dan wel? Bewegen, bijvoorbeeld fietsen. Na het bewegen worden je hart en je ademhaling weer rustig. Ook buiten zijn, in het groen, helpt vaak. Rustig en diep ademen kan ook helpen. Genoeg slapen helpt: in je slaap herstelt je lichaam. En praten met iemand kan opluchten. Zo komt je lichaam weer tot rust. Je ontspant. Lotte gaat na school fietsen. Yasmin praat liever met een vriendin. Wat helpt, verschilt per persoon. Je kunt zelf uitproberen wat bij jou past.",
+  "voice": "Scrollen voelt als rust. Maar je hoofd ziet steeds iets nieuws. Zo gaat het alarm niet echt uit. En wie laat op de telefoon zit, gaat vaak later slapen. Wat helpt dan wel? Bewegen, bijvoorbeeld fietsen. Na het bewegen worden je hart en je ademhaling weer rustig. Ook buiten zijn, in het groen, helpt vaak. Rustig en diep ademen kan ook helpen. Genoeg slapen helpt: in je slaap herstelt je lichaam. En praten met iemand kan opluchten. Zo komt je lichaam weer tot rust. Je ontspant. Lotte gaat na school fietsen. Yasmin praat liever met een vriendin. Wat helpt, verschilt per persoon. Je kunt zelf uitproberen wat bij jou past."
+ },
+ {
+  "id": "s17",
+  "chapter": "Samenvatting",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Waarom doet je lichaam alsof er een leeuw is? Je lichaam heeft maar één alarm, voor gevaar én voor iets spannends. Kort maakt het je scherp. Daarna moet het alarm weer uit. Slaap, bewegen, buiten zijn en praten helpen daarbij.",
+   "Blijft stress lang? Praat erover met een volwassene die je vertrouwt. Bijvoorbeeld je mentor of de huisarts."
+  ],
+  "display": "Waarom doet je lichaam alsof er een leeuw is? Je lichaam heeft maar één alarm, voor gevaar én voor iets spannends. Kort maakt het je scherp. Daarna moet het alarm weer uit. Slaap, bewegen, buiten zijn en praten helpen daarbij. Blijft stress lang? Praat erover met een volwassene die je vertrouwt. Bijvoorbeeld je mentor of de huisarts.",
+  "voice": "Waarom doet je lichaam alsof er een leeuw is? Je lichaam heeft maar één alarm, voor gevaar én voor iets spannends. Kort maakt het je scherp. Daarna moet het alarm weer uit. Slaap, bewegen, buiten zijn en praten helpen daarbij. Blijft stress lang? Praat erover met een volwassene die je vertrouwt. Bijvoorbeeld je mentor of de huisarts."
+ },
+ {
+  "id": "s18",
+  "chapter": "Eindkaart",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Onthoud."
+  ],
+  "display": "Onthoud.",
+  "voice": "Onthoud."
+ }
+]

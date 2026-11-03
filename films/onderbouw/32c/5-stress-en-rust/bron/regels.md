@@ -1,0 +1,9 @@
+- checkvragen: regel 99
+- docentdeel: regel 113
+- FILMDATA: regel 144
+- hulpfuncties 32A film 7 (lib_a7): regel 1797
+- scènes van deze film: regel 1927
+- const SCENES: regel 1958
+- GLOSSARY: regel 2107
+- drawChapterCard: regel 2182
+- scènefuncties: `s01` 1960, `s02` 1968, `s03` 1972, `s05` 1976, `s06` 1996, `s07` 2006, `s08` 2025, `s10` 2033, `s11` 2040, `s13` 2052, `s14` 2066, `s16` 2071, `s17` 2087, `s18` 2099
