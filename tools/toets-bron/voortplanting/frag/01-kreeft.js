@@ -35,7 +35,7 @@ const q3=vraag(2,"juist of onjuist: kreeften en mutaties",(q,id)=>{
   q.append(el("p",{class:"qtext"},"1 Bij de vorming van eicellen van de marmerkreeft vindt crossing-over plaats.<br>2 Verschillen in de DNA-volgorde tussen marmerkreeften kunnen alleen door mutaties ontstaan.<br>3 Een jonge marmerkreeft ontwikkelt zich uit een eicel door mitose en celdifferentiatie.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
   const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
   chipsStep(think,{q:"Welke bronnen van genetische variatie horen bij <b>geslachtelijke</b> voortplanting? Kies alles wat klopt.",items:[["crossing-over in meiose I",1],["toevallige verdeling van de chromosoomparen",1],["bevruchting: DNA van twee ouders",1],["mutaties",0]],
-    ok:"Goed. Mutaties komen bij elke celdeling voor, ook bij mitose. Welke van deze bronnen heeft de marmerkreeft dan nog?",no:"Eén keuze hoort niet bij geslachtelijke voortplanting alleen: die kan bij elke celdeling gebeuren.",onDone:unlock});
+    ok:"Goed. Welke van deze bronnen kan bij de marmerkreeft nog voorkomen?",no:"Eén keuze hoort niet bij geslachtelijke voortplanting alleen: die kan bij elke celdeling gebeuren.",onDone:unlock});
   juistOnjuist(ans,{id,stm:["crossing-over bij de vorming van eicellen","verschillen in DNA alleen door mutaties","ontwikkeling door mitose en celdifferentiatie"],key:[false,true,true],
     uitleg:textBox("1 <b>onjuist</b>: crossing-over hoort bij meiose I, en de eicellen van de marmerkreeft ontstaan door mitose.<br>2 <b>juist</b>: zonder meiose en bevruchting blijft alleen een mutatie over als bron van nieuwe verschillen in het DNA.<br>3 <b>juist</b>: ook zonder bevruchting groeit het embryo door mitose, en de cellen specialiseren zich (differentiatie).")});
   q.append(think,ans);
@@ -43,7 +43,7 @@ const q3=vraag(2,"juist of onjuist: kreeften en mutaties",(q,id)=>{
 
 const STOF_POP={titel:"Ongeslachtelijk of geslachtelijk",html:`
 <p><b>Ongeslachtelijke voortplanting</b> gaat snel en er is geen partner nodig. Alle nakomelingen zijn gelijk aan de ouder. Komt er een nieuwe ziekte, dan kunnen ze allemaal tegelijk sterven.</p>
-<p><b>Geslachtelijke voortplanting</b> gaat trager. Maar de nakomelingen verschillen van elkaar, dus de kans is groter dat sommige overleven als de omgeving verandert. Bij soorten met mannetjes en vrouwtjes leggen alleen de vrouwtjes eieren of krijgen alleen zij jongen.</p>`,
+<p><b>Geslachtelijke voortplanting</b> gaat trager. Maar de nakomelingen verschillen van elkaar, dus de kans is groter dat sommige overleven als de omgeving verandert.</p>`,
 films:[F.cel]};
 const q4=vraag(2,"snelle groei van de populatie",(q,id)=>{
   pre(q,"<p>Stel dat een vrouwtje van een rivierkreeftensoort die zich geslachtelijk voortplant evenveel eieren legt als een marmerkreeft, en dat bij beide soorten evenveel jongen overleven.</p>");
@@ -68,7 +68,7 @@ const STOF_ND={titel:"Als de meiose misgaat",html:`
 films:[F.cel]};
 ids.push(vraag(2,"hoe ontstaat een triploïde kreeft?",(q,id)=>{
   pre(q,"<p>De marmerkreeft is ontstaan uit <i>P. fallax</i> (2n = 184). Stel dat bij één bevruchting tussen twee <i>P. fallax</i>-kreeften bij één van de ouders de meiose misging.</p>");
-  const {think,ans,unlock}=start(q,B("Leg uit hoe zo een kreeft met 276 chromosomen kan ontstaan. Noem in je uitleg het aantal chromosomen in beide geslachtscellen."));
+  const {think,ans,unlock}=start(q,B("Leg uit hoe zo'n kreeft met 276 chromosomen kan ontstaan. Noem in je uitleg het aantal chromosomen in beide geslachtscellen."));
   numStep(think,{uid:"q"+id+"n1",q:"Hoeveel chromosomen heeft een normale geslachtscel van <i>P. fallax</i>?",right:92,ok:"Ja: n = 92. Hoeveel moet de andere geslachtscel dan meebrengen om op 276 te komen?",no:"Een geslachtscel is haploïd: de helft van 2n = 184.",
     onDone:()=>numStep(think,{uid:"q"+id+"n2",q:"Hoeveel chromosomen heeft de andere geslachtscel?",right:184,ok:"Goed: 92 + 184 = 276. Wat moet er in de meiose misgegaan zijn om 184 chromosomen in één geslachtscel te krijgen?",no:"276 − 92 = ?",onDone:unlock})});
   openAnswer(ans,{id,pts:2,checks:[

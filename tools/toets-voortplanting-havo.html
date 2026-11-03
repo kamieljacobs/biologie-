@@ -20,6 +20,7 @@
 <style>
 /* Oefentoets Voortplanting havo · zelfde bouwstenen als de oefenexamens (tools/OEFENEXAMEN_PROMPT.md). */
 body.echt .klok{display:none!important}
+@media (max-width:600px){.vpfig{overflow-x:auto;-webkit-overflow-scrolling:touch}.vpfig>svg{min-width:var(--min)}}
 :root{--rest:#2A3B57;--area:#5B6B84}
 :root[data-theme="light"]{--rest:#D5DEE9;--area:#B4BDCA}
  .wrap{padding-inline:0}
@@ -456,7 +457,7 @@ function CYCLUS({hl={},dim=[],toon=["LH","FSH","oe","pr","t"]}={}){
   if(toon.includes("t")){const op=dim.includes("t")?.25:1;s+=`<path d="${pad(CYC.t.map(yT))}" fill="none" stroke="var(--text)" stroke-width="1.6" opacity="${op}"/>`;
     CYC.t.forEach((v,i)=>s+=`<circle cx="${xs(i+1)}" cy="${yT(v)}" r="3.2" fill="var(--text)" opacity="${op}"/>`);}
   s+=`<text x="${(X0+X1)/2}" y="448" text-anchor="middle" class="lblm">dag van de cyclus (dag 1 = eerste dag van de menstruatie)</text>`;
-  return `<div style="max-width:640px;margin:0 auto;width:100%">`+svgWrap("0 0 640 456",s,"Hormoonconcentraties en basale lichaamstemperatuur tijdens een cyclus van 28 dagen")+`</div>`;}
+  return `<div class="vpfig" style="max-width:640px;margin:0 auto;width:100%;--min:560px">`+svgWrap("0 0 640 456",s,"Hormoonconcentraties en basale lichaamstemperatuur tijdens een cyclus van 28 dagen")+`</div>`;}
 
 /* ===== Opgave 1: Alleen maar moeders: de marmerkreeft (eigen vragen A1–A4 uit toetsen-biologie; vwo + 1 nieuwe vraag) ===== */
 {
@@ -495,7 +496,7 @@ const q3=vraag(2,"juist of onjuist: kreeften en mutaties",(q,id)=>{
   q.append(el("p",{class:"qtext"},"1 Bij de vorming van eicellen van de marmerkreeft vindt crossing-over plaats.<br>2 Verschillen in de DNA-volgorde tussen marmerkreeften kunnen alleen door mutaties ontstaan.<br>3 Een jonge marmerkreeft ontwikkelt zich uit een eicel door mitose en celdifferentiatie.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
   const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
   chipsStep(think,{q:"Welke bronnen van genetische variatie horen bij <b>geslachtelijke</b> voortplanting? Kies alles wat klopt.",items:[["crossing-over in meiose I",1],["toevallige verdeling van de chromosoomparen",1],["bevruchting: DNA van twee ouders",1],["mutaties",0]],
-    ok:"Goed. Mutaties komen bij elke celdeling voor, ook bij mitose. Welke van deze bronnen heeft de marmerkreeft dan nog?",no:"Eén keuze hoort niet bij geslachtelijke voortplanting alleen: die kan bij elke celdeling gebeuren.",onDone:unlock});
+    ok:"Goed. Welke van deze bronnen kan bij de marmerkreeft nog voorkomen?",no:"Eén keuze hoort niet bij geslachtelijke voortplanting alleen: die kan bij elke celdeling gebeuren.",onDone:unlock});
   juistOnjuist(ans,{id,stm:["crossing-over bij de vorming van eicellen","verschillen in DNA alleen door mutaties","ontwikkeling door mitose en celdifferentiatie"],key:[false,true,true],
     uitleg:textBox("1 <b>onjuist</b>: crossing-over hoort bij meiose I, en de eicellen van de marmerkreeft ontstaan door mitose.<br>2 <b>juist</b>: zonder meiose en bevruchting blijft alleen een mutatie over als bron van nieuwe verschillen in het DNA.<br>3 <b>juist</b>: ook zonder bevruchting groeit het embryo door mitose, en de cellen specialiseren zich (differentiatie).")});
   q.append(think,ans);
@@ -503,7 +504,7 @@ const q3=vraag(2,"juist of onjuist: kreeften en mutaties",(q,id)=>{
 
 const STOF_POP={titel:"Ongeslachtelijk of geslachtelijk",html:`
 <p><b>Ongeslachtelijke voortplanting</b> gaat snel en er is geen partner nodig. Alle nakomelingen zijn gelijk aan de ouder. Komt er een nieuwe ziekte, dan kunnen ze allemaal tegelijk sterven.</p>
-<p><b>Geslachtelijke voortplanting</b> gaat trager. Maar de nakomelingen verschillen van elkaar, dus de kans is groter dat sommige overleven als de omgeving verandert. Bij soorten met mannetjes en vrouwtjes leggen alleen de vrouwtjes eieren of krijgen alleen zij jongen.</p>`,
+<p><b>Geslachtelijke voortplanting</b> gaat trager. Maar de nakomelingen verschillen van elkaar, dus de kans is groter dat sommige overleven als de omgeving verandert.</p>`,
 films:[F.cel]};
 const q4=vraag(2,"snelle groei van de populatie",(q,id)=>{
   pre(q,"<p>Stel dat een vrouwtje van een rivierkreeftensoort die zich geslachtelijk voortplant evenveel eieren legt als een marmerkreeft, en dat bij beide soorten evenveel jongen overleven.</p>");
@@ -528,7 +529,7 @@ const STOF_ND={titel:"Als de meiose misgaat",html:`
 films:[F.cel]};
 ids.push(vraag(2,"hoe ontstaat een triploïde kreeft?",(q,id)=>{
   pre(q,"<p>De marmerkreeft is ontstaan uit <i>P. fallax</i> (2n = 184). Stel dat bij één bevruchting tussen twee <i>P. fallax</i>-kreeften bij één van de ouders de meiose misging.</p>");
-  const {think,ans,unlock}=start(q,B("Leg uit hoe zo een kreeft met 276 chromosomen kan ontstaan. Noem in je uitleg het aantal chromosomen in beide geslachtscellen."));
+  const {think,ans,unlock}=start(q,B("Leg uit hoe zo'n kreeft met 276 chromosomen kan ontstaan. Noem in je uitleg het aantal chromosomen in beide geslachtscellen."));
   numStep(think,{uid:"q"+id+"n1",q:"Hoeveel chromosomen heeft een normale geslachtscel van <i>P. fallax</i>?",right:92,ok:"Ja: n = 92. Hoeveel moet de andere geslachtscel dan meebrengen om op 276 te komen?",no:"Een geslachtscel is haploïd: de helft van 2n = 184.",
     onDone:()=>numStep(think,{uid:"q"+id+"n2",q:"Hoeveel chromosomen heeft de andere geslachtscel?",right:184,ok:"Goed: 92 + 184 = 276. Wat moet er in de meiose misgegaan zijn om 184 chromosomen in één geslachtscel te krijgen?",no:"276 − 92 = ?",onDone:unlock})});
   openAnswer(ans,{id,pts:2,checks:[
@@ -550,15 +551,14 @@ opgave("Marmerkreeft","Alleen maar moeders: de marmerkreeft",`
 /* ===== Opgave 2: Zwanger worden met een app (eigen vragen B1–B5 uit toetsen-biologie) ===== */
 {
 const STOF_TIJD={titel:"Eisprong, eicel en zaadcel",html:`
-<p>FSH en LH uit de hypofyse laten in de eierstok een eicel rijpen in een <b>follikel</b>. Rond het midden van de cyclus komt de <b>eisprong</b> (ovulatie): de eicel komt vrij en gaat de eileider in. Daar kan hij bevrucht worden.</p>
+<p>FSH en LH uit de hypofyse laten in de eierstok een eicel rijpen in een <b>follikel</b>. Rond het midden van de cyclus komt de <b>eisprong</b> (ovulatie): de eicel komt vrij en gaat de eileider in. Daar kan zij bevrucht worden.</p>
 <p>Een eicel leeft na de eisprong ongeveer <b>een dag</b>. Een zaadcel kan in het lichaam van een vrouw <b>hooguit een dag of vijf</b> overleven. Een zwangerschap kan dus alleen als er zaadcellen zijn in de dagen vóór de eisprong of op de dag zelf.</p>
 <p>Een grafiek lees je van links naar rechts: wat eerst stijgt, gebeurt eerst. Kijk bij elke lijn op welke dag hij begint te stijgen of te dalen.</p>`,
 films:FV(F.org,F.baby)};
 const STOF_CYC={titel:"De menstruatiecyclus",html:`
 <p>Vanaf de eerste menstruatie werken hypofyse, eierstok en baarmoeder samen in een cyclus van ongeveer vier weken.</p>
 <ul style="margin:0;padding-left:20px"><li>De <b>hypofyse</b> maakt FSH en LH. Die werken op de <b>eierstok</b>: daar rijpt een follikel met een eicel, en de eierstok maakt zelf hormonen.</li>
-<li>De hormonen van de eierstok (<b>oestrogeen</b> en <b>progesteron</b>) werken op de <b>baarmoeder</b>: het slijmvlies wordt dikker en klaar voor een embryo.</li>
-<li>Wordt de eicel niet bevrucht, dan dalen de hormonen van de eierstok en laat het slijmvlies los: de <b>menstruatie</b>.</li></ul>
+</ul>
 <p>Let op: elk hormoon werkt alleen op cellen met de juiste receptor. Een hormoon uit de hypofyse werkt dus op een ander orgaan dan een hormoon uit de eierstok.</p>`,
 films:FV(F.org,F.baby)};
 
@@ -575,7 +575,7 @@ const q1=vraag(2,"het advies van de vriendin",(q,id)=>{
     model:"De temperatuur gaat pas omhoog als de ovulatie al geweest is: in afbeelding 1 op dag 15–16. Een eicel kan maar ongeveer 24 uur bevrucht worden. Als Nora wacht tot haar temperatuur gestegen is, is de eicel dus meestal al niet meer te bevruchten. De zaadcellen hadden er al vóór of op de dag van de ovulatie moeten zijn.",
     valkuil:"‘De temperatuur stijgt bij de eisprong’ (zonder ‘erna’) laat niet zien waarom het advies niet werkt. Het gaat om de volgorde in de tijd plus de korte levensduur van de eicel.",
     after:()=>waaromBtn(ans,b=>stepAnim(b,[
-      {cap:"Dag 13: de LH-piek. Ongeveer anderhalve dag later, op dag 14, is de ovulatie.",hl:{13:"var(--goud)"},dim:["FSH","oe","pr"]},
+      {cap:"Dag 13: de LH-piek. Ongeveer anderhalve dag na het begin van de piek, op dag 14, is de ovulatie.",hl:{13:"var(--goud)"},dim:["FSH","oe","pr"]},
       {cap:"Dag 14–15: alleen nu kan de eicel bevrucht worden, ongeveer een dag lang.",hl:{14:"var(--groen)",15:"var(--groen)"},dim:["FSH","oe","pr","LH"]},
       {cap:"Dag 15–16: pas nu is de temperatuur omhoog. De eicel is dan al (bijna) niet meer te bevruchten. Het advies komt dus te laat.",hl:{16:"var(--koraal)"},dim:["FSH","oe","LH"]}],
       (st,s)=>st.innerHTML=CYCLUS({hl:s.hl,dim:s.dim})))});
@@ -592,7 +592,7 @@ const q2=vraag(2,"rekenen aan een cyclus van 32 dagen",(q,id)=>{
   let ov=null;
   numAnswer(ans,{id,fields:[
     ["dag van de ovulatie","",v=>{ov=v;return v===18;},"ovulatie op dag 18 (32 − 14 = 18)"],
-    ["eerste dag met kans op zwangerschap","",v=>v===13||v===14||(ov!==18&&(v===ov-5||v===ov-4)),"dag 13 (18 − 5); dag 14 is ook goed als je de ovulatiedag als vijfde dag meetelt. Verkeerde ovulatiedag maar goed doorgerekend (− 5): dit punt telt wel."]],
+    ["eerste dag met kans op zwangerschap","",v=>ov===18?(v===13||v===14):(v===ov-5||v===ov-4),"dag 13 (18 − 5); dag 14 is ook goed als je de ovulatiedag als vijfde dag meetelt. Verkeerde ovulatiedag maar goed doorgerekend (− 5): dit punt telt wel."]],
     after:()=>waaromBtn(ans,textBox("Na de ovulatie duurt het altijd ongeveer 14 dagen tot de menstruatie (28 − 14). Bij Nora: 32 − 14 = dag <b>18</b>. Zaadcellen kunnen tot vijf dagen een eicel bevruchten, dus seks vanaf dag 18 − 5 = dag <b>13</b> kan tot een zwangerschap leiden. Wie de ovulatie ‘in het midden’ legt (dag 16), vergeet dat alleen de eerste helft langer wordt."))});
   q.append(think,ans);
 },STOF_TIJD);
@@ -610,19 +610,18 @@ const q3=vraag(1,"wie maakt progesteron?",(q,id)=>{
 
 const q4=vraag(2,"juist of onjuist: hormonen in de cyclus",(q,id)=>{
   pre(q,"<p>Over de hormonen in afbeelding 1 worden drie uitspraken gedaan:</p>");
-  q.append(el("p",{class:"qtext"},"1 Het hormoon dat de groei van een follikel in de eierstok stimuleert, wordt gemaakt door de hypofyse.<br>2 De daling van de progesteronconcentratie aan het eind van de cyclus leidt tot de menstruatie.<br>3 Het baarmoederslijmvlies wordt in de eerste helft van de cyclus dikker onder invloed van FSH.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
+  q.append(el("p",{class:"qtext"},"1 Het hormoon dat de groei van een follikel in de eierstok stimuleert, wordt gemaakt door de hypofyse.<br>"+(VWO?"2 De daling van de progesteronconcentratie aan het eind van de cyclus leidt tot de menstruatie.":"2 Veel oestrogeen remt de hypofyse.")+"<br>3 Het baarmoederslijmvlies wordt in de eerste helft van de cyclus dikker onder invloed van FSH.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
   const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
   selectsStep(think,{uid:"q"+id,q:"Welk orgaan maakt het hormoon?",rows:[
     ["FSH",["hypofyse","eierstok","baarmoeder"],0],["LH",["hypofyse","eierstok","baarmoeder"],0],["oestrogeen",["hypofyse","eierstok","baarmoeder"],1],["progesteron",["hypofyse","eierstok","baarmoeder"],1]],
     ok:"Goed. Bedenk nu bij uitspraak 3: op welk orgaan werkt FSH, en op welk orgaan werkt oestrogeen?",no:"De hypofyse stuurt de eierstok aan; de eierstok stuurt de baarmoeder aan.",onDone:unlock});
-  juistOnjuist(ans,{id,stm:["het hormoon voor de groei van een follikel komt uit de hypofyse","daling van progesteron leidt tot de menstruatie","het slijmvlies wordt dikker onder invloed van FSH"],key:[true,true,false],
-    uitleg:textBox("1 <b>juist</b>: FSH uit de hypofyse laat de follikels groeien.<br>2 <b>juist</b>: zonder progesteron blijft het slijmvlies niet zitten en wordt het afgestoten.<br>3 <b>onjuist</b>: FSH werkt op de eierstok. Het slijmvlies groeit onder invloed van <b>oestrogeen</b> uit de eierstok.")});
+  juistOnjuist(ans,{id,stm:["het hormoon voor de groei van een follikel komt uit de hypofyse",VWO?"daling van progesteron leidt tot de menstruatie":"veel oestrogeen remt de hypofyse","het slijmvlies wordt dikker onder invloed van FSH"],key:[true,true,false],
+    uitleg:textBox("1 <b>juist</b>: FSH uit de hypofyse laat de follikels groeien.<br>"+(VWO?"2 <b>juist</b>: zonder progesteron blijft het slijmvlies niet zitten en wordt het afgestoten.":"2 <b>juist</b>: de eierstok werkt zo terug op de hypofyse, die dan minder FSH en LH maakt.")+"<br>3 <b>onjuist</b>: FSH werkt op de eierstok. Het slijmvlies groeit onder invloed van <b>oestrogeen</b> uit de eierstok.")});
   q.append(think,ans);
 },STOF_CYC);
 
 const STOF_PIL={titel:"Hormonen remmen de hypofyse",html:`
 <p>De hormonen van de eierstok werken terug op de hersenen: <b>veel oestrogeen (en progesteron) remt de hypofyse</b>, zodat die minder FSH en LH maakt.`+(VWO?` Dat heet <b>negatieve terugkoppeling</b>: een signaal remt zijn eigen oorzaak.`:``)+`</p>
-<p>Zonder genoeg FSH rijpt er geen follikel. Zonder een <b>LH-piek</b> komt er geen eisprong.</p>
 <p>Anticonceptie haalt één schakel uit de keten eisprong → zaadcel bij de eicel → innesteling. De pil, de prikpil, het staafje en de ring bevatten hormonen.</p>`,
 films:FV(F.anti,F.baby)};
 const q5=vraag(2,"hoe de pil een eisprong voorkomt",(q,id)=>{
@@ -643,7 +642,7 @@ const q5=vraag(2,"hoe de pil een eisprong voorkomt",(q,id)=>{
 opgave("Cyclus-app","Zwanger worden met een app",`
 <p>Nora (31) wil zwanger worden. Ze gebruikt een app die haar vruchtbare dagen voorspelt. Elke ochtend vóór het opstaan meet ze haar lichaamstemperatuur (de basale lichaamstemperatuur) en voert die in de app in.</p>
 <p>In afbeelding 1 zijn de concentraties van vier hormonen in het bloed en de basale lichaamstemperatuur weergegeven tijdens een cyclus van 28 dagen. Bij een cyclus van 28 dagen vindt de ovulatie plaats op dag 14.</p>
-<p>Een eicel kan tot ongeveer 24 uur na de ovulatie worden bevrucht. Zaadcellen kunnen in het lichaam van de vrouw tot vijf dagen na de zaadlozing een eicel bevruchten.</p>
+<p>Een eicel kan tot ongeveer 24 uur na de ovulatie worden bevrucht. Zaadcellen kunnen in het lichaam van de vrouw tot vijf dagen na de zaadlozing een eicel bevruchten.</p>${VWO?"":"<p>Na de eisprong blijft van de follikel in de eierstok een groepje cellen over: het geel lichaam.</p>"}
 <div class="eyebrow">afbeelding 1 (vereenvoudigd; geen meetgegevens van één persoon)</div>${CYCLUS()}`,[q1,q2,q3,q4,q5]);
 }
 
@@ -661,19 +660,15 @@ function ROUTE({knip=false,hl=[],stip=false}={}){
   if(knip)s+=`<path d="M236,124 L228,176 M248,124 L240,176" stroke="var(--koraal)" stroke-width="4" stroke-linecap="round"/><text x="238" y="196" text-anchor="middle" class="lbl" style="fill:var(--koraal)">knip</text>`;
   if(stip)[300,312,324].forEach(x=>s+=`<circle cx="${x}" cy="164" r="3.5" fill="var(--teal)"/>`);
   s+=`<text x="60" y="210" text-anchor="middle" class="lblm">maakt zaadcellen</text><text x="410" y="30" text-anchor="middle" class="lblm">vocht met suiker</text><text x="410" y="200" text-anchor="middle" class="lblm">vocht</text>`;
-  return `<div style="max-width:620px;margin:0 auto;width:100%">`+svgWrap("0 0 600 220",s,"Route van een zaadcel")+`</div>`;}
+  return `<div class="vpfig" style="max-width:620px;margin:0 auto;width:100%;--min:520px">`+svgWrap("0 0 600 220",s,"Route van een zaadcel")+`</div>`;}
 
 if(!VWO){
 const STOF_ROUTE={titel:"De weg van een zaadcel",html:`
-<p>Zaadcellen ontstaan door meiose in de buisjes van de <b>zaadballen</b>, in de balzak. Ze rijpen ongeveer twee weken in de <b>bijbal</b> en worden daar bewaard.</p>
-<p>Bij een zaadlozing gaan ze door de <b>zaadleider</b>: die loopt vanaf de balzak omhoog, de buik in, naar de achterkant van de blaas. Daar komen de <b>zaadblaasjes</b> erbij; samen gaan ze door de <b>prostaat</b> en komen uit in de <b>urinebuis</b>.</p>
-<p>Sperma is meer dan zaadcellen: het meeste vocht komt uit de zaadblaasjes (ruim de helft) en de prostaat (een kwart tot een derde). Zaadcellen zijn maar een paar procent.</p>`,
-anim:b=>EXSTOF.stappen(b,[{cap:"Zaadcellen ontstaan in de zaadbal en rijpen in de bijbal."},{cap:"Bij een zaadlozing: door de zaadleider omhoog, achter de blaas langs."},{cap:"Vocht van de zaadblaasjes en de prostaat komt erbij; via de urinebuis naar buiten."}],
-  (st,s,i)=>st.innerHTML=ROUTE({hl:[["zaadbal","bijbal"],["zaadleider"],["zaadblaasjes","prostaat","urinebuis"]][i]})),
+<p>Zaadcellen ontstaan door meiose in de buisjes van de <b>zaadballen</b>, in de balzak. Bij een zaadlozing gaan ze door een reeks buizen naar buiten. Onderweg komen er klieren bij die vocht toevoegen: sperma bestaat uit zaadcellen én vocht.</p>
+<p>Bij de man gebruiken urine en sperma dezelfde buis naar buiten, maar niet tegelijk.</p>`,
 films:[F.org,F.anti]};
-const STOF_HORM={titel:"Het startsein en testosteron",html:`
-<p>De <b>hypothalamus</b>, een deel van de hersenen, geeft stoten <b>GnRH</b> af. Daarop maakt de <b>hypofyse</b> meer FSH en LH. Die hormonen gaan met het bloed door het hele lichaam, maar alleen de zaadballen (of eierstokken) hebben er receptoren voor.</p>
-<p>De zaadballen maken dan <b>testosteron</b> en zaadcellen. Testosteron gaat met het <b>bloed</b> naar het hele lichaam en zorgt in de puberteit voor de secundaire geslachtskenmerken: baardgroei, bredere schouders, sterkere spieren, een lagere stem.</p>`,
+const STOF_HORM={titel:"Hormonen",html:`
+<p>Hormonen worden door een klier aan het <b>bloed</b> afgegeven en gaan zo door het hele lichaam. Ze werken alleen op cellen die er een <b>receptor</b> voor hebben.</p>`,
 films:[F.org]};
 
 const h1=vraag(2,"het startsein voor testosteron",(q,id)=>{
@@ -681,7 +676,7 @@ const h1=vraag(2,"het startsein voor testosteron",(q,id)=>{
   q.append(el("p",{class:"qtext"},B("Geef bij elke stap aan welk orgaan dit doet.")));
   const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
   seqStep(think,{q:"Zet de stappen in de goede volgorde. Tik ze aan van eerst naar laatst.",items:["stoten GnRH","FSH en LH in het bloed","testosteron in het bloed"],shown:[2,0,1],
-    ok:"Goed: hersenen → klier onder de hersenen → zaadbal. Welk orgaan hoort bij elke stap?",onDone:unlock});
+    ok:"Goed. Welk orgaan hoort bij elke stap?",onDone:unlock});
   selectAnswer(ans,{id,uid:"q"+id,rows:[["geeft stoten GnRH af",["hypothalamus","hypofyse","zaadbal","bijbal"],0],["maakt FSH en LH",["hypothalamus","hypofyse","zaadbal","bijbal"],1],["maakt testosteron",["hypothalamus","hypofyse","zaadbal","bijbal"],2]],
     score:n=>n===3?2:n===2?1:0,
     after:()=>waaromBtn(ans,textBox("De <b>hypothalamus</b> geeft het startsein met GnRH, de <b>hypofyse</b> maakt dan FSH en LH, en de <b>zaadballen</b> maken testosteron. Drie goed: 2 punten, twee goed: 1 punt."))});
@@ -717,7 +712,7 @@ const h4=vraag(1,"nog weken zaadcellen",(q,id)=>{
   pre(q,"<p>De uroloog zegt dat Bas pas na minstens drie maanden en 25 zaadlozingen zijn sperma moet laten controleren. Tot die tijd moet het stel nog een andere vorm van anticonceptie gebruiken.</p>");
   const {think,ans,unlock}=start(q,B("Wat is daarvan de reden?"));
   choiceStep(think,{q:"Blijven de zaadballen na de sterilisatie zaadcellen maken?",opts:["ja, die worden door het lichaam opgeruimd","nee, ze stoppen meteen","nee, maar pas na drie maanden"],right:0,
-    ok:"Ja, dat staat in de folder. Maar die zaadcellen komen de knip niet voorbij. Waar zitten dan de zaadcellen die nog wél naar buiten kunnen?",no:"In de inleiding staat wat er met de zaadcellen gebeurt die nog gemaakt worden.",onDone:unlock});
+    ok:"Ja, dat staat in de folder. Kies nu het antwoord.",no:"In de inleiding staat wat er met de zaadcellen gebeurt die nog gemaakt worden.",onDone:unlock});
   mc(ans,{qid:id,pts:1,right:1,opts:["De zaadballen hebben een paar maanden nodig om te stoppen met het maken van zaadcellen.","Er zitten nog zaadcellen in het deel van de route dat ná de knip ligt.","De prostaat maakt ook zaadcellen; die moeten eerst opgebruikt zijn.","Zaadcellen zwemmen in het begin nog langs de knip."],
     onChecked:()=>waaromBtn(ans,b=>{b.append(el("div",{class:"model"},"In de zaadleider na de knip en bij de zaadblaasjes liggen nog zaadcellen die er al vóór de operatie waren. Die komen bij de volgende zaadlozingen naar buiten. A klopt niet: de zaadballen blijven zaadcellen maken, maar die komen de knip niet voorbij en worden opgeruimd. Verder: de prostaat maakt geen zaadcellen (C) en een knip met een weggehaald stukje kunnen ze niet passeren (D). Het antwoord is <b>B</b>."));b.insertAdjacentHTML("beforeend",ROUTE({knip:true,stip:true}));})});
   q.append(think,ans);
@@ -750,15 +745,15 @@ const STOF_RK={titel:"De regelkring van hypothalamus, hypofyse en zaadbal",html:
 <p>Een storing zoek je schakel voor schakel: welke schakel werkt niet, en wat gebeurt er dan met de schakels erna?</p>`,
 films:[F.baby,F.org]};
 
-const c1=vraag(2,"bloedwaarden vergelijken",(q,id)=>{
+const c1=vraag(1,"bloedwaarden vergelijken",(q,id)=>{
   pre(q,"<p>Het syndroom van Kallmann moet worden onderscheiden van een aandoening waarbij de zaadballen zelf niet werken, bijvoorbeeld na een ernstige ontsteking.</p>");
   const {think,ans,unlock}=start(q,B("Welke bloedwaarden passen bij Sem, en welke bij een man bij wie de zaadballen niet werken?"));
   choiceStep(think,{q:"Bij Sem komt er geen GnRH bij de hypofyse. Wat doet de hypofyse dan?",opts:["veel LH maken, om het lage testosteron te compenseren","weinig LH maken, want het signaal om LH te maken ontbreekt"],right:1,
     ok:"Ja. Zonder GnRH maakt de hypofyse weinig LH, ook al is het testosteron laag. En bij de man met de kapotte zaadballen?",no:"De hypofyse kan alleen reageren op een laag testosteron als de hypothalamus GnRH kan geven.",
     onDone:()=>choiceStep(think,{q:"De zaadballen maken geen testosteron, maar hypothalamus en hypofyse werken wel. Wat gebeurt er met LH?",opts:["LH stijgt: de rem van testosteron valt weg","LH daalt: er is geen testosteron om LH aan te zetten"],right:0,
       ok:"Goed. Zoek nu het antwoord dat bij allebei past.",no:"Testosteron remt de hypothalamus en de hypofyse. Wat gebeurt er als die rem wegvalt?",onDone:unlock})});
-  mc(ans,{qid:id,pts:2,right:1,opts:["Sem: LH laag en testosteron laag. Zaadballen werken niet: LH laag en testosteron laag.","Sem: LH laag en testosteron laag. Zaadballen werken niet: LH hoog en testosteron laag.","Sem: LH hoog en testosteron laag. Zaadballen werken niet: LH hoog en testosteron laag.","Sem: LH hoog en testosteron laag. Zaadballen werken niet: LH laag en testosteron laag."],
-    onChecked:()=>waaromBtn(ans,textBox("Bij Sem ontbreekt de eerste schakel (GnRH). De hypofyse krijgt geen signaal, dus <b>LH laag</b>, en dan maken de zaadballen ook weinig <b>testosteron</b>. Bij kapotte zaadballen werken hypothalamus en hypofyse wel. Er is geen testosteron dat remt, dus de hypofyse maakt juist <b>veel LH</b> (negatieve terugkoppeling valt weg). Het antwoord is <b>B</b>. Wie C kiest, vergeet dat de hypofyse zonder GnRH niet kan reageren op het lage testosteron."))});
+  mc(ans,{qid:id,pts:1,right:1,opts:["Sem: LH laag en testosteron laag. Zaadballen werken niet: LH laag en testosteron laag.","Sem: LH laag en testosteron laag. Zaadballen werken niet: LH hoog en testosteron laag.","Sem: LH hoog en testosteron laag. Zaadballen werken niet: LH hoog en testosteron laag.","Sem: LH hoog en testosteron laag. Zaadballen werken niet: LH laag en testosteron laag."],
+    onChecked:()=>waaromBtn(ans,textBox("Bij Sem ontbreekt de eerste schakel (GnRH). De hypofyse krijgt geen signaal, dus <b>LH laag</b>, en dan maken de zaadballen ook weinig <b>testosteron</b>. Bij zaadballen die niet werken, werken hypothalamus en hypofyse wel. Er is geen testosteron dat remt, dus de hypofyse maakt juist <b>veel LH</b> (negatieve terugkoppeling valt weg). Het antwoord is <b>B</b>. Wie C kiest, vergeet dat de hypofyse zonder GnRH niet kan reageren op het lage testosteron."))});
   q.append(think,ans);
 },STOF_RK);
 
@@ -798,23 +793,23 @@ const c3=vraag(2,"aanleg normaal, groei te weinig",(q,id)=>{
 },STOF_FOETUS);
 
 const STOF_MEI={titel:"Meiose bij de man",html:`
-<p>Meiose bestaat uit twee delingen na één keer DNA kopiëren. In <b>meiose I</b> komen de homologe chromosomen als paren tegen elkaar te liggen, wisselen stukken uit en gaan uit elkaar. In <b>meiose II</b> gaan de chromatiden uit elkaar, net als bij de mitose.</p>
+<p>Meiose bestaat uit twee delingen na één keer DNA kopiëren. Het resultaat zijn <b>haploïde</b> cellen (n).</p>
 <p>Tel chromosomen aan de centromeren: een X-vormig chromosoom met twee chromatiden is één chromosoom.</p>
-<p>Bij een man ontstaan zaadcellen vanaf de puberteit elke dag opnieuw, in de zaadbuisjes. Bij een vrouw verloopt de deling scheef.</p>`,
+<p>Bij een man ontstaan zaadcellen vanaf de puberteit elke dag opnieuw, in de zaadbuisjes.</p>`,
 films:[F.cel]};
 const c4=vraag(2,"juist of onjuist: zaadcellen maken",(q,id)=>{
   pre(q,"<p>Daarna krijgt Sem een behandeling met injecties met hCG en FSH. Na ruim een jaar bevat zijn sperma zaadcellen. Over de vorming van zaadcellen in Sems zaadbuisjes worden drie uitspraken gedaan:</p>");
   q.append(el("p",{class:"qtext"},"1 Tijdens meiose I worden de homologe chromosomen van elkaar gescheiden.<br>2 Na meiose I heeft elke cel 46 chromosomen, elk met één chromatide.<br>3 Uit één cel die aan de meiose begint, ontstaan bij een man vier zaadcellen.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
   const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
-  numStep(think,{uid:"q"+id+"n",q:"Een cel begint aan meiose I met 46 chromosomen, elk met twee chromatiden. In meiose I gaan de paren uit elkaar. Hoeveel chromosomen heeft elke cel daarna?",right:23,
-    ok:"Ja: 23 chromosomen, en elk heeft nog twee chromatiden. Het halveren gebeurt dus al in meiose I.",no:"Er zijn 23 paren. Van elk paar gaat één chromosoom naar elke kant.",onDone:unlock});
+  numStep(think,{uid:"q"+id+"n",q:"Een cel begint aan de meiose met 46 chromosomen, elk met twee chromatiden. Hoeveel chromosomen heeft elke cel na meiose I?",right:23,
+    ok:"Ja: 23. Bekijk nu uitspraak 2.",no:"Tel aan de centromeren. Denk aan wat haploïd betekent, en wanneer de cel dat wordt.",onDone:unlock});
   juistOnjuist(ans,{id,stm:["in meiose I gaan homologe chromosomen uit elkaar","na meiose I: 46 chromosomen met één chromatide","bij een man ontstaan vier zaadcellen"],key:[true,false,true],
     uitleg:textBox("1 <b>juist</b>: in meiose I gaan de paren uit elkaar.<br>2 <b>onjuist</b>: na meiose I heeft elke cel 23 chromosomen, elk nog met twee chromatiden. De cel is dus al haploïd.<br>3 <b>juist</b>: bij een man ontstaan vier zaadcellen; bij een vrouw één grote eicel.")});
   q.append(think,ans);
 },STOF_MEI);
 
 opgave("Kallmann","Geen GnRH: het syndroom van Kallmann",`
-<p>Sem is 17 jaar. Hij heeft nog geen baardgroei, zijn stem is niet gezakt en zijn zaadballen zijn klein. Ook ruikt hij vrijwel niets. De endocrinoloog stelt vast dat Sem het syndroom van Kallmann heeft. Dit komt voor bij ongeveer 1 op de 8000 mannen en 1 op de 40.000 vrouwen.</p>
+<p>Sem is 17 jaar. Hij heeft nog geen baardgroei, zijn stem is niet gezakt en zijn zaadballen zijn klein. Ook ruikt hij vrijwel niets. De endocrinoloog stelt vast dat Sem het syndroom van Kallmann heeft. Dit komt voor bij ongeveer 1 op de 30.000 mannen en 1 op de 120.000 vrouwen.</p>
 <p>Tijdens de embryonale ontwikkeling ontstaan de zenuwcellen die GnRH maken in het reukslijmvlies van de neus. Van daaruit trekken ze langs de reukzenuwen naar de hypothalamus. Bij het syndroom van Kallmann mislukt die tocht: in de hypothalamus komen geen GnRH-producerende cellen aan, en ook de reukkolven ontwikkelen zich niet goed.</p>
 <p>Bij mannen stimuleert LH de Leydigcellen tussen de zaadbuisjes tot de productie van testosteron. Voor de vorming van zaadcellen in de zaadbuisjes zijn FSH en een hoge testosteronconcentratie in de zaadbal nodig.</p>
 <p class="muted" style="font-size:14px">Sem is een fictieve patiënt.</p>`,[c1,c2,c3,c4]);
@@ -833,44 +828,42 @@ function LAGEN({hl=-1,x=[],ok=[]}={}){
     if(x.includes(i))s+=`<path d="M400,${y+8} l18,18 M418,${y+8} l-18,18" stroke="var(--koraal)" stroke-width="3.4" stroke-linecap="round"/>`;
     if(ok.includes(i))s+=`<path d="M398,${y+18} l7,8 l14,-16" fill="none" stroke="var(--groen)" stroke-width="3.4" stroke-linecap="round"/>`;
     if(i<L.length-1)s+=`<path d="M230,${y+34} v10" stroke="var(--text3)" stroke-width="1.6"/>`;});
-  return `<div style="max-width:460px;margin:0 auto;width:100%">`+svgWrap("0 0 460 280",s,"Sekse-ontwikkeling in lagen")+`</div>`;}
+  return `<div class="vpfig" style="max-width:460px;margin:0 auto;width:100%;--min:400px">`+svgWrap("0 0 460 280",s,"Sekse-ontwikkeling in lagen")+`</div>`;}
 const STOF_LAGEN={titel:"Sekse in lagen",html:`
 <p>Tot ongeveer week zes ziet de aanleg van de geslachtsorganen er bij elk embryo hetzelfde uit. Welke kant het op gaat, wordt in lagen bepaald, de een na de ander:</p>
 <ol style="margin:0;padding-left:22px"><li><b>Chromosomen</b>: van je moeder altijd een X, van je vader een X of een Y.</li>
 <li><b>Eén gen</b>: op het Y-chromosoom ligt het <b>SRY-gen</b>. Gaat dat rond week zeven aan, dan wordt de aanleg een zaadbal; zonder SRY wordt het een eierstok.</li>
+<li><b>Geslachtsklieren</b>: zaadbal of eierstok.</li>
 <li><b>Hormonen</b>: zaadballen maken testosteron en een hormoon waardoor de aanleg van baarmoeder en eileiders verdwijnt. Een hormoon werkt alleen op cellen met een werkende <b>receptor</b>.</li>
 <li><b>Geslachtsorganen</b> (primaire geslachtskenmerken).</li><li>Jaren later de <b>puberteit</b>: secundaire geslachtskenmerken.</li></ol>
 <p>Meestal passen alle lagen bij elkaar. Maar bij elke laag kan het ook anders lopen.</p>`,
 anim:b=>EXSTOF.stappen(b,[{cap:"Laag 1: XX of XY ligt vast bij de bevruchting."},{cap:"Laag 2: het SRY-gen op het Y-chromosoom zet de aanleg om tot zaadbal."},{cap:"Laag 4: hormonen werken alleen via een werkende receptor."}],(st,s,i)=>st.innerHTML=LAGEN({hl:[0,1,3][i]})),
 films:FV(F.sekse,F.baby)};
 const STOF_VAR={titel:"Als een laag anders loopt",html:`
-<ul style="margin:0;padding-left:20px"><li><b>Syndroom van Klinefelter</b>: XXY. Er is een Y-chromosoom met het SRY-gen, dus er ontstaan zaadballen.</li>
-<li><b>Syndroom van Turner</b>: één X en geen tweede geslachtschromosoom.</li>
-<li><b>Androgeen-ongevoeligheid</b>: XY met zaadballen die testosteron maken, maar de receptor voor testosteron werkt niet.</li>
-<li><b>Adrenogenitaal syndroom (AGS)</b>: de bijnieren maken te veel mannelijke hormonen; een meisje met XX en eierstokken kan geboren worden met geslachtsorganen die meer lijken op die van een jongen.</li></ul>
-<p>Past het lichaam niet in het standaardplaatje van man of vrouw, dan heet dat <b>intersekse</b> (artsen spreken van DSD).</p>`,
+<p>Sekse ontstaat in lagen: chromosomen → het SRY-gen → zaadbal of eierstok → hormonen en hun receptoren → geslachtsorganen → puberteit. Elke laag bouwt voort op de vorige.</p>
+<p>Bij elke laag kan het anders lopen. Wat een laag doet, hangt af van wat er in die laag aanwezig is én werkt: een gen dat er is maar niet werkt, of een hormoon zonder werkende receptor, heeft geen effect op de lagen erna.</p>`,
 films:[F.sekse]};
 
 const s1=vraag(1,"wat meet de test?",(q,id)=>{
-  const {think,ans,unlock}=start(q,B("Welke laag van de sekse-ontwikkeling onderzoekt de test van World Athletics?"));
-  choiceStep(think,{q:"Wat zoekt de test in de cellen van het wangslijmvlies?",opts:["of er testosteron in het bloed zit","of een bepaald stuk DNA aanwezig is","of er zaadballen zijn"],right:1,
-    ok:"Ja: de test zoekt het SRY-gen in het DNA. Over welke laag gaat dat precies?",no:"In wangslijmvliescellen zitten geen zaadballen en geen bloed. Wat zit er wel in elke cel?",onDone:unlock});
-  mc(ans,{qid:id,pts:1,right:1,opts:["de chromosomen: XX of XY","het gen: is het SRY-gen aanwezig","de hormonen: wordt er testosteron gemaakt","de geslachtsorganen: zijn er zaadballen"],
-    onChecked:()=>waaromBtn(ans,b=>{b.append(el("div",{class:"model"},"De test kijkt alleen of het <b>SRY-gen</b> aanwezig is: laag 2. Hij telt geen chromosomen (A) en meet geen hormonen of organen (C, D). Precies dat is het punt van Sinclair: of het gen werkt, en wat de lagen erna doen, laat de test niet zien. Het antwoord is <b>B</b>."));b.insertAdjacentHTML("beforeend",LAGEN({hl:1}));})});
+  const {think,ans,unlock}=start(q,B("Welk gen zoekt de test, en welke laag van de sekse-ontwikkeling onderzoekt hij dus?"));
+  choiceStep(think,{q:"Welk gen op het Y-chromosoom bepaalt of de aanleg van de geslachtsklieren een zaadbal wordt?",opts:["het gen voor de receptor van testosteron","het SRY-gen","het gen voor testosteron"],right:1,
+    ok:"Ja. Gaat de test dan over de chromosomen, één gen, de hormonen of de organen?",no:"Testosteron wordt pas gemaakt als er al een zaadbal is. Welk gen komt daarvóór?",onDone:unlock});
+  mc(ans,{qid:id,pts:1,right:1,opts:["het SRY-gen: de laag van de chromosomen (XX of XY)","het SRY-gen: de laag van één gen","het gen voor de testosteronreceptor: de laag van de hormonen","het gen voor testosteron: de laag van de geslachtsklieren"],
+    onChecked:()=>waaromBtn(ans,b=>{b.append(el("div",{class:"model"},"De test zoekt het <b>SRY-gen</b>: het gen op het Y-chromosoom dat de aanleg een zaadbal laat worden. Dat is laag 2, één gen. Hij telt geen chromosomen (A) en kijkt niet naar receptoren of hormonen (C, D). Precies dat is het punt van Sinclair: of het gen werkt, en wat de lagen erna doen, laat de test niet zien. Het antwoord is <b>B</b>."));b.insertAdjacentHTML("beforeend",LAGEN({hl:1}));})});
   q.append(think,ans);
 },STOF_LAGEN);
 
 const s2=vraag(2,"positief, maar geen effect van testosteron",(q,id)=>{
   pre(q,"<p>Zeven van de acht atleten die in 1996 positief testten, hadden androgeen-ongevoeligheid.</p>");
-  const {think,ans,unlock}=start(q,B("Leg uit dat een atlete met volledige androgeen-ongevoeligheid positief test, terwijl haar lichaam toch geen effect heeft van testosteron."));
+  const {think,ans,unlock}=start(q,B("Leg uit dat een atlete met volledige androgeen-ongevoeligheid positief test, terwijl haar lichaam toch geen effect ondervindt van testosteron."));
   choiceStep(think,{q:"Welke geslachtschromosomen en welke geslachtsklieren heeft iemand met androgeen-ongevoeligheid?",opts:["XX en eierstokken","XY en zaadballen","XY en eierstokken"],right:1,
     ok:"Ja. Dus het SRY-gen is aanwezig en heeft gewerkt. Wat gaat er dan mis in de laag van de hormonen?",no:"Bij androgeen-ongevoeligheid maken de geslachtsklieren gewoon testosteron.",
     onDone:()=>choiceStep(think,{q:"Waarom heeft het testosteron geen effect op haar cellen?",opts:["er wordt geen testosteron gemaakt","de receptor voor testosteron werkt niet","het testosteron wordt meteen afgebroken in de lever"],right:1,
       ok:"Goed. Gebruik beide lagen in je uitleg: wat de test ziet, en wat de cellen doen.",no:"Er wordt testosteron gemaakt. Wat is er nodig om op een hormoon te reageren?",onDone:unlock})});
   openAnswer(ans,{id,pts:2,checks:[
     "Ze is <b>XY</b> en heeft het <b>SRY-gen</b> (dat ook werkte: er zijn zaadballen), dus de test is positief.",
-    "Haar <b>receptor voor testosteron werkt niet</b>, dus haar cellen reageren niet op het testosteron: haar lichaam heeft zich als dat van een vrouw ontwikkeld, zonder effect van testosteron op bijvoorbeeld de spieren."],
-    model:"Iemand met androgeen-ongevoeligheid is XY. Het SRY-gen is aanwezig, dus de test is positief, en er zijn zaadballen die testosteron maken. Maar de receptor voor testosteron werkt niet. Daardoor reageren de cellen niet op het hormoon, en heeft het lichaam zich uitwendig als dat van een vrouw ontwikkeld.",
+    "Haar <b>receptor voor testosteron werkt niet</b>, dus haar cellen reageren niet op het testosteron: haar lichaam heeft zich uitwendig vrouwelijk ontwikkeld, zonder effect van testosteron op bijvoorbeeld de spieren."],
+    model:"Iemand met androgeen-ongevoeligheid is XY. Het SRY-gen is aanwezig, dus de test is positief, en er zijn zaadballen die testosteron maken. Maar de receptor voor testosteron werkt niet. Daardoor reageren de cellen niet op het hormoon, en heeft het lichaam zich uitwendig vrouwelijk ontwikkeld.",
     valkuil:"‘Ze maakt geen testosteron’ is fout: de zaadballen maken het wel. Het gaat mis in de receptor.",
     after:()=>waaromBtn(ans,b=>b.insertAdjacentHTML("beforeend",LAGEN({ok:[0,1,2],x:[3]})+`<p class="muted" style="font-size:14px;margin:4px 0 0">Laag 1–3 zoals bij een man (de test ziet laag 2), laag 4 stopt: de receptor werkt niet.</p>`))});
   q.append(think,ans);
@@ -878,7 +871,7 @@ const s2=vraag(2,"positief, maar geen effect van testosteron",(q,id)=>{
 
 const s3=vraag(2,"juist of onjuist: wie test positief?",(q,id)=>{
   pre(q,"<p>Over de uitslag van de SRY-test worden drie uitspraken gedaan:</p>");
-  q.append(el("p",{class:"qtext"},"1 Iemand met het syndroom van Turner test negatief.<br>2 Iemand met het syndroom van Klinefelter test positief.<br>3 Een vrouw met AGS test positief, omdat haar bijnieren veel mannelijke hormonen maken.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
+  q.append(el("p",{class:"qtext"},"1 Iemand met het syndroom van Turner, met één X-chromosoom en geen tweede geslachtschromosoom, test negatief.<br>2 Iemand met het syndroom van Klinefelter test positief.<br>3 Een vrouw met AGS test positief, omdat haar bijnieren veel mannelijke hormonen maken.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
   const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
   selectsStep(think,{uid:"q"+id,q:"Welke geslachtschromosomen horen erbij?",rows:[["syndroom van Turner",["X","XX","XY","XXY"],0],["syndroom van Klinefelter",["X","XX","XY","XXY"],3],["AGS bij een meisje",["X","XX","XY","XXY"],1]],
     ok:"Goed. Bij wie zit er dus een Y-chromosoom met het SRY-gen in de cellen?",no:"Turner: maar één geslachtschromosoom. Klinefelter: drie. Bij AGS gaat het mis in de bijnieren, niet in de chromosomen.",onDone:unlock});
@@ -889,11 +882,7 @@ const s3=vraag(2,"juist of onjuist: wie test positief?",(q,id)=>{
 
 const STOF_GENDER={titel:"Sekse, gender en oriëntatie",html:`
 <p>Vier begrippen die je goed uit elkaar houdt:</p>
-<ul style="margin:0;padding-left:20px"><li><b>Sekse</b>: je biologische geslacht, in lagen.</li>
-<li><b>Genderidentiteit</b>: hoe je jezelf ervaart: als man, als vrouw, of anders.</li>
-<li><b>Genderexpressie</b>: hoe je dat laat zien, bijvoorbeeld met kleding of je kapsel.</li>
-<li><b>Seksuele oriëntatie</b>: op wie je verliefd wordt en tot wie je je aangetrokken voelt.</li></ul>
-<p><b>Transgender</b>: je genderidentiteit past niet bij de sekse die bij je geboorte is vastgesteld. <b>Non-binair</b>: je voelt je niet alleen man of alleen vrouw. <b>Intersekse</b> gaat over het lichaam.</p>`,
+<p><b>Sekse</b>, <b>genderidentiteit</b>, <b>genderexpressie</b> en <b>seksuele oriëntatie</b> zijn vier verschillende begrippen. In de film worden ze naast elkaar uitgelegd, samen met transgender, non-binair en intersekse.</p>`,
 films:[F.sekse]};
 const s4=vraag(2,"juist of onjuist: sekse en gender",(q,id)=>{
   pre(q,"<p>In een discussie over de test worden vier uitspraken gedaan:</p>");
@@ -909,9 +898,7 @@ const s4=vraag(2,"juist of onjuist: sekse en gender",(q,id)=>{
 const ids=[s1,s2,s3,s4];
 if(VWO){
 const STOF_SRY={titel:"SRY: één schakelaar, een hele cascade",html:`
-<p>Het SRY-gen codeert voor een eiwit dat andere genen aanzet, zoals <b>SOX9</b>. Die zetten weer andere genen aan: een <b>cascade</b>. Daardoor wordt de aanleg een zaadbal.</p>
-<p>Bij de vorming van zaadcellen (meiose) liggen het X- en het Y-chromosoom van een man tegen elkaar en wisselen ze aan de uiteinden een stukje uit, net als homologe chromosomen bij <b>crossing-over</b>. Het SRY-gen ligt vlak naast dat stukje.</p>
-<p>Voor het maken van zaadcellen zijn ook andere genen van het Y-chromosoom nodig dan SRY.</p>`,
+<p>Het SRY-gen codeert voor een eiwit dat andere genen aanzet.</p>`,
 films:[F.sekse,F.cel]};
 ids.push(vraag(2,"een man met XX",(q,id)=>{
   pre(q,"<p>Een SRY-test en een onderzoek van de chromosomen geven niet altijd dezelfde uitkomst. Bij ongeveer één op de twintigduizend mannen laat het chromosomenonderzoek XX zien. Ze hebben zaadballen en het SRY-gen ligt bij hen op een van de X-chromosomen.</p>");
@@ -923,16 +910,16 @@ ids.push(vraag(2,"een man met XX",(q,id)=>{
   openAnswer(ans,{id,pts:2,checks:[
     "Bij de <b>meiose in de zaadbal van de vader</b> wisselen X en Y een stukje uit (crossing-over) en gaat het <b>SRY-gen mee naar het X-chromosoom</b>; een zaadcel met dat X bevrucht een eicel (X), zodat het kind XX is met SRY.",
     "Het <b>SRY-eiwit zet andere genen aan</b> (zoals SOX9, een cascade), waardoor de aanleg een <b>zaadbal</b> wordt."],
-    model:"Bij de vorming van zaadcellen bij de vader wisselen het X- en het Y-chromosoom een stukje uit. Heel soms gaat het SRY-gen daarbij mee naar het X-chromosoom. Een zaadcel met dat X bevrucht een eicel met een X: het kind is XX, maar heeft het SRY-gen. Het SRY-eiwit zet genen als SOX9 aan, die weer andere genen aanzetten, en zo wordt de aanleg een zaadbal.",
+    model:"Bij de vorming van zaadcellen bij de vader wisselen X en Y aan het uiteinde een stukje uit. Heel soms loopt die uitwisseling net te ver door, en gaat het SRY-gen, dat vlak naast dat stukje ligt, mee naar het X-chromosoom. Een zaadcel met dat X bevrucht een eicel met een X: het kind is XX, maar heeft het SRY-gen. Het SRY-eiwit zet genen als SOX9 aan, die weer andere genen aanzetten, en zo wordt de aanleg een zaadbal.",
     valkuil:"‘Door een mutatie verandert een X in een Y’ is fout: het gaat om een stukje dat van de Y naar de X verhuist. Een antwoord dat alleen de verplaatsing noemt, zonder wat SRY in het embryo doet, levert 1 punt op."});
   q.append(think,ans);
 },STOF_SRY));
 }
 
-opgave("SRY-test","Een wangslijmvliestest voor de vrouwencategorie",`
-<p>Sinds 1 september 2025 moet iedereen die bij wedstrijden van World Athletics, zoals het WK atletiek, in de vrouwencategorie wil uitkomen, eenmalig een test op het <b>SRY-gen</b> doen. Daarvoor wordt wangslijmvlies of bloed afgenomen. World Athletics noemt het SRY-gen ‘een betrouwbare aanwijzing voor biologische sekse’.</p>
-<p>De geneticus Andrew Sinclair, die het SRY-gen in 1990 ontdekte, is het daar niet mee eens. Volgens hem laat de test alleen zien óf het gen aanwezig is. Hij laat niet zien of het gen werkt, of er zaadballen zijn ontstaan, of er testosteron wordt gemaakt en of het lichaam daarop kan reageren.</p>
-<p>Een vergelijkbare test is al eens gebruikt. Bij de Olympische Spelen van 1996 in Atlanta testten 8 van de 3387 vrouwelijke atleten positief op een Y-chromosoom.</p>
+opgave("Sekse-test","Een wangslijmvliestest voor de vrouwencategorie",`
+<p>Sinds 1 september 2025 moet iedereen die bij wedstrijden van World Athletics, zoals het WK atletiek, in de vrouwencategorie wil uitkomen, eenmalig een DNA-test doen. Daarvoor wordt wangslijmvlies of bloed afgenomen. De test zoekt naar één gen op het Y-chromosoom: het gen dat ervoor zorgt dat de aanleg van de geslachtsklieren een zaadbal wordt. World Athletics noemt dat gen ‘een betrouwbare aanwijzing voor biologische sekse’.</p>
+<p>De geneticus Andrew Sinclair, die dit gen in 1990 ontdekte, is het daar niet mee eens. Volgens hem laat de test alleen zien óf het gen aanwezig is. Hij laat niet zien of het gen werkt, of er zaadballen zijn ontstaan, of er testosteron wordt gemaakt en of het lichaam daarop kan reageren.</p>
+<p>Een vergelijkbare test is al eens gebruikt. Bij de Olympische Spelen van 1996 in Atlanta testten 8 van de 3387 vrouwelijke atleten positief op het SRY-gen.</p>
 <p class="muted" style="font-size:14px">Bronnen: persbericht World Athletics, 30 juli 2025; A. Sinclair in The Conversation / Daily Maverick, 25 augustus 2025.</p>`,ids);
 }
 
@@ -944,10 +931,6 @@ const TAB1=TABEL(1,["methode","normaal gebruik","perfect gebruik"],[
   "Percentage vrouwen dat in het eerste jaar van gebruik toch zwanger wordt. Bron: Guttmacher Institute (factsheet), naar Contraceptive Technology, 21e druk (2018).");
 const STOF_KETEN={titel:"Anticonceptie: een schakel uit de keten",html:`
 <p>Een zwangerschap is een keten: een <b>eicel komt vrij</b> → een <b>zaadcel bereikt en bevrucht</b> haar → het <b>embryo nestelt zich</b> in de baarmoeder. Anticonceptie haalt één schakel uit die keten.</p>
-<ul style="margin:0;padding-left:20px"><li>Hormonen (pil, prikpil, staafje, ring) remmen de eisprong.</li>
-<li>Een condoom of pessarium houdt zaadcellen tegen; het hormoonspiraaltje maakt de slijmprop in de baarmoederhals dik en taai; bij sterilisatie worden zaadleiders of eileiders afgesloten.</li>
-<li>Het koperspiraaltje: koper is giftig voor zaadcellen en het slijmvlies wordt ongeschikt voor innesteling.</li>
-<li>De morning-afterpil stelt de eisprong uit. Hij werkt dus alleen als de eisprong nog niet geweest is. Het is geen abortuspil.</li></ul>
 <p>De <b>Pearl-index</b> geeft aan hoeveel van de honderd vrouwen in een jaar toch zwanger worden. Perfect gebruik = precies volgens de regels; normaal gebruik = zoals mensen het echt doen, met fouten.</p>`,
 films:FV(F.anti,F.baby)};
 
@@ -969,7 +952,7 @@ const a1=vraag(2,"prikpil of pil",(q,id)=>{
 const a2=vraag(2,"welke schakel?",(q,id)=>{
   const {think,ans,unlock}=start(q,B("Geef bij elke methode aan welke schakel van de keten vooral wordt onderbroken."));
   seqStep(think,{q:"Zet eerst de schakels van de keten in de goede volgorde.",items:["een eicel komt vrij","een zaadcel bereikt en bevrucht de eicel","het embryo nestelt zich"],shown:[1,2,0],
-    ok:"Goed. Bedenk nu bij elke methode wat hij precies tegenhoudt. Let op de morning-afterpil: wat doet die met de eisprong?",onDone:unlock});
+    ok:"Goed. Bedenk nu bij elke methode wat hij precies tegenhoudt.",onDone:unlock});
   const S=["geen eisprong","zaadcel bereikt de eicel niet","geen innesteling"];
   selectAnswer(ans,{id,uid:"q"+id,rows:[["pil",S,0],["condoom",S,1],["hormoonspiraaltje",S,1],["morning-afterpil",S,0]],score:n=>n===4?2:n===3?1:0,
     after:()=>waaromBtn(ans,textBox("Pil: remt de eisprong. Condoom: houdt zaadcellen tegen. Hormoonspiraaltje: maakt de slijmprop in de baarmoederhals taai, zodat zaadcellen er niet door komen. Morning-afterpil: <b>stelt de eisprong uit</b>; het is geen abortuspil en hij werkt niet meer als de eisprong al geweest is. Vier goed: 2 punten, drie goed: 1 punt."))});
@@ -992,15 +975,15 @@ ids.push(vraag(2,"de HPV-prik ook voor jongens",(q,id)=>{
       ok:"Goed. Noem beide redenen.",no:"Wie niet besmet raakt, kan het virus ook niet doorgeven.",onDone:unlock})});
   openAnswer(ans,{id,pts:2,checks:[
     "HPV kan bij jongens en mannen <b>zelf kanker</b> veroorzaken (van penis, anus, mond of keel); de prik beschermt henzelf.",
-    "Gevaccineerde jongens raken minder vaak besmet en <b>geven HPV minder door</b> aan hun partners, dus ook minder baarmoederhalskanker bij vrouwen."],
+    "Gevaccineerde jongens raken minder vaak besmet en <b>geven HPV minder door</b> aan hun partners (en zo bijvoorbeeld minder baarmoederhalskanker)."],
     model:"Ten eerste kan HPV ook bij mannen kanker veroorzaken, bijvoorbeeld van de penis, de anus of de keel; de prik beschermt de jongen zelf. Ten tweede is HPV een soa: een gevaccineerde jongen raakt minder vaak besmet en kan het virus dus ook minder vaak doorgeven aan een partner.",
     valkuil:"‘Jongens kunnen baarmoederhalskanker krijgen’ is fout. ‘Met antibiotica is HPV niet te genezen’ is waar, maar geen reden om juist jongens te vaccineren."});
   q.append(think,ans);
 },STOF_SOA));
 }
-const STOF_RES={titel:"Resistentie tegen antibiotica",html:`
-<p>In een groep bacteriën ontstaan door toeval steeds <b>mutaties</b>. Een mutatie kan een bacterie ongevoelig maken voor een antibioticum: <b>resistent</b>.</p>
-<p>Een kuur doodt de gevoelige bacteriën. De bacteriën die er door een toevallige mutatie tegen kunnen, overleven en vermenigvuldigen zich. Dat is <b>natuurlijke selectie</b>: het antibioticum maakt de mutatie niet, het kiest alleen wie overblijft.</p>`,
+const STOF_RES={titel:"Mutatie en selectie",html:`
+<p>In elke populatie ontstaan door toeval <b>mutaties</b>: veranderingen in het DNA, die worden doorgegeven aan de nakomelingen.</p>
+<p>Bij <b>natuurlijke selectie</b> overleven en vermenigvuldigen de individuen met een gunstige eigenschap zich meer dan de andere. Zo neemt die eigenschap in de populatie toe. Selectie maakt geen nieuwe eigenschappen: ze bepaalt welke overblijven.</p>`,
 films:[F.anti]};
 if(VWO)ids.push(vraag(2,"gonorroe wordt resistent",(q,id)=>{
   pre(q,"<p>Bij gonorroe dreigt een probleem: er is bijna nog maar één soort antibioticum dat overal goed werkt. Artsen houden daarom goed in de gaten of de bacterie ook daar resistent tegen wordt.</p>");
@@ -1031,9 +1014,9 @@ const STOF_IVF={titel:"Ivf stap voor stap",html:`
 films:FV(F.anti,F.baby)};
 const ids=[];
 if(!VWO){
-const STOF_EIL={titel:"Eileider en chlamydia",html:`
+const STOF_EIL={titel:"De eileider",html:`
 <p>Bij een eisprong vangt de trechter van de <b>eileider</b> de eicel op. <b>In de eileider</b> kan een eicel bevrucht worden; daarna gaat het embryo naar de baarmoeder.</p>
-<p><b>Chlamydia</b> is een soa door een bacterie. Van de tien vrouwen met chlamydia merken er ongeveer zeven niets. Onbehandeld kan chlamydia de eileiders laten ontsteken. Er ontstaan littekens, die de eileider vernauwen of afsluiten.</p>`,
+`,
 films:[F.anti,F.org]};
 ids.push(vraag(2,"chlamydia en dichte eileiders",(q,id)=>{
   pre(q,"<p>Dichte eileiders, zoals bij Lesley, zijn tegenwoordig vaak het gevolg van een chlamydia-infectie van jaren eerder.</p>");
@@ -1064,27 +1047,26 @@ ids.push(vraag(2,"één eicel of tien",(q,id)=>{
   q.append(think,ans);
 },STOF_IVF));
 const STOF_PLAC={titel:"De placenta",html:`
-<p>Een groeiend kind krijgt zuurstof en voedingsstoffen via de <b>placenta</b>. In de placenta liggen bloedvaatjes van het kind vlak naast bloed van de moeder. Het bloed van moeder en kind komt heel dicht bij elkaar, maar <b>mengt niet</b>: er zit altijd een dunne laag cellen tussen.</p>
-<p>Kleine moleculen, zoals zuurstof en koolstofdioxide, gaan door <b>diffusie</b> door die laag, van hoog naar laag.</p>`,
+<p>Een groeiend kind krijgt zuurstof en voedingsstoffen via de <b>placenta</b> en raakt daar koolstofdioxide en afvalstoffen kwijt.</p>
+<p>Bij <b>diffusie</b> gaan kleine moleculen vanzelf van een plek met een hoge concentratie naar een plek met een lage concentratie, ook door een dunne laag cellen.</p>`,
 films:[F.anti,F.cel]};
 ids.push(vraag(2,"alcohol en de placenta",(q,id)=>{
-  pre(q,"<p>Louise Brown groeide negen maanden in de baarmoeder van haar moeder, net als elk ander kind. Artsen raden zwangere vrouwen af om alcohol te drinken.</p>");
+  pre(q,"<p>Louise Brown groeide negen maanden in de baarmoeder van haar moeder, net als elk ander kind. Artsen raden zwangere vrouwen af om alcohol te drinken.</p><p>In de placenta liggen bloedvaatjes van het kind vlak bij bloed van de moeder; daartussen zit een dunne laag cellen.</p>");
   const {think,ans,unlock}=start(q,B("Leg uit dat alcohol uit het bloed van de moeder in het bloed van het kind kan komen, terwijl het bloed van moeder en kind in de placenta niet mengt."));
-  choiceStep(think,{q:"Wat zit er in de placenta tussen het bloed van de moeder en het bloed van het kind?",opts:["niets: het bloed stroomt door dezelfde vaten","een dunne laag cellen"],right:1,
-    ok:"Ja. Hoe komt zuurstof door die laag?",no:"Het bloed van moeder en kind mengt niet. Er moet dus iets tussen zitten.",
-    onDone:()=>choiceStep(think,{q:"Alcohol is een klein molecuul, net als zuurstof. Wat gebeurt er dan?",opts:["het gaat net als zuurstof door de dunne laag naar het bloed van het kind","het blijft in het bloed van de moeder, want het bloed mengt niet"],right:0,
-      ok:"Goed. Combineer de twee dingen.",no:"Ook zuurstof komt bij het kind, terwijl het bloed niet mengt. Hoe kan dat?",onDone:unlock})});
+  choiceStep(think,{q:"Hoe komt zuurstof uit het bloed van de moeder door de dunne laag cellen in het bloed van het kind?",opts:["door diffusie","met de rode bloedcellen van de moeder, die door de laag gaan"],right:0,
+    ok:"Ja. Alcohol is ook een klein molecuul. In welke richting gaat het dan?",no:"Bloedcellen gaan niet door de laag: het bloed mengt niet. Hoe gaan kleine moleculen vanzelf door een dunne laag?",
+    onDone:()=>choiceStep(think,{q:"De moeder heeft gedronken. Waar is de alcoholconcentratie dan het hoogst?",opts:["in het bloed van de moeder","in het bloed van het kind"],right:0,
+      ok:"Goed. Combineer de twee dingen.",no:"De alcohol komt binnen via de moeder.",onDone:unlock})});
   openAnswer(ans,{id,pts:2,checks:[
-    "In de placenta zit tussen het bloed van moeder en kind een <b>dunne laag cellen</b>: het bloed zelf mengt niet.",
-    "Alcohol is een <b>klein molecuul</b> dat (door diffusie) door die dunne laag gaat, net als zuurstof, en zo in het bloed van het kind komt."],
-    model:"Het bloed van moeder en kind wordt in de placenta gescheiden door een dunne laag cellen. Kleine moleculen zoals zuurstof gaan door diffusie door die laag. Alcohol is ook een klein molecuul en gaat er net zo makkelijk doorheen, dus het komt toch in het bloed van het kind.",
-    valkuil:"‘Het bloed van moeder en kind mengt in de placenta’ is fout. Alleen ‘alcohol gaat door de placenta’ zonder te zeggen hoe, is 1 punt."});
+    "Alcohol is een <b>klein molecuul</b> en gaat door <b>diffusie</b> door de dunne laag cellen.",
+    "Het gaat <b>van hoog (bloed van de moeder) naar laag (bloed van het kind)</b>."],
+    model:"Alcohol is een klein molecuul, net als zuurstof. Het gaat door diffusie door de dunne laag cellen tussen het bloed van moeder en kind. Na het drinken is de concentratie in het bloed van de moeder hoog en in dat van het kind laag, dus gaat de alcohol van de moeder naar het kind.",
+    valkuil:"‘Het bloed van moeder en kind mengt in de placenta’ is fout. Alleen ‘alcohol gaat door de placenta’, zonder diffusie en zonder richting, is 0 punten."});
   q.append(think,ans);
 },STOF_PLAC));
 }else{
 const STOF_PIEK={titel:"De LH-piek en de eisprong",html:`
-<p>De eicel staat jaren stil in profase I van de meiose. De dominante follikel maakt steeds meer oestrogeen; blijft de oestrogeenspiegel ongeveer twee dagen hoog, dan gaat oestrogeen de afgifte van LH juist stimuleren: <b>positieve terugkoppeling</b>. Het resultaat is de <b>LH-piek</b>.</p>
-<p>Die piek zet drie dingen in gang: de eicel hervat de meiose en maakt de eerste deling af; de wand van de follikel wordt afgebroken; en ongeveer <b>anderhalve dag</b> na het begin van de piek scheurt de follikel open: de eisprong. Daarna staat de eicel opnieuw stil, in metafase II.</p>`,
+<p>De dominante follikel maakt steeds meer oestrogeen. Blijft de oestrogeenspiegel ongeveer twee dagen hoog, dan gaat oestrogeen de afgifte van LH juist stimuleren. Meer LH stimuleert de follikel weer: <b>positieve terugkoppeling</b>, een signaal dat zichzelf versterkt. Het resultaat is de <b>LH-piek</b>, midden in de cyclus.</p>`,
 films:[F.baby]};
 ids.push(vraag(2,"precies op tijd",(q,id)=>{
   pre(q,"<p>Steptoe en Edwards haalden de eicel van Lesley met een kijkoperatie uit de follikel, 15 tot 35 uur nadat de LH-piek in de urine was gezien. De urine werd daarvoor elke drie uur verzameld.</p>");
@@ -1113,31 +1095,30 @@ ids.push(vraag(1,"zwangerschapstest na de hCG-injectie",(q,id)=>{
   pre(q,"<p>Als de follikels groot genoeg zijn, krijgt de vrouw één injectie met hCG. Zo'n anderhalve dag later worden de eicellen opgezogen. Een paar dagen later wordt een embryo teruggeplaatst. Een vrouw doet een week na de hCG-injectie al een zwangerschapstest. Die is positief.</p>");
   const {think,ans,unlock}=start(q,B("Waarom zegt deze uitslag nog niets?"));
   choiceStep(think,{q:"Welk hormoon meet een zwangerschapstest?",opts:["progesteron","hCG","oestrogeen"],right:1,
-    ok:"Ja. Waar kan dat hCG een week na de injectie vandaan komen?",no:"Normaal komt dit hormoon alleen van een ingenesteld embryo.",onDone:unlock});
+    ok:"Ja. Lees nog eens wat ze in die week kreeg.",no:"Normaal komt dit hormoon alleen van een ingenesteld embryo.",onDone:unlock});
   mc(ans,{qid:id,pts:1,right:0,opts:["De test meet hCG, en dat kan nog van de injectie komen.","De test meet progesteron, en dat krijgt ze ook extra.","Een embryo maakt pas hCG als de placenta het progesteron overneemt.","Een test werkt niet bij embryo's die in het lab zijn gemaakt."],
     onChecked:()=>waaromBtn(ans,textBox("Een zwangerschapstest bevat antistoffen die <b>hCG</b> binden. Vlak na een hCG-injectie meet de test dus de injectie zelf, niet een embryo. Pas na ongeveer twee weken zegt de uitslag iets. Het antwoord is <b>A</b>."))});
   q.append(think,ans);
 },STOF_IVF));
 const STOF_PLAC={titel:"Dichtbij, maar gescheiden",html:`
-<p>In de <b>placenta</b> vormt de trofoblast vlokken vol bloedvaatjes van het kind. Die vlokken hangen in holtes met bloed van de moeder. Er zit altijd een dunne laag cellen tussen.</p>
-<p>Stoffen gaan op verschillende manieren door die laag: door <b>diffusie</b> (van hoog naar laag), met <b>transporteiwitten</b>, of door <b>actief transport</b>. Kleine, ongeladen moleculen gaan er makkelijk doorheen.</p>
-<p>In het begin houdt hCG van het embryo het geel lichaam in leven, zodat het progesteron blijft maken.</p>`,
+<p>In de <b>placenta</b> wisselen moeder en kind stoffen uit: zuurstof en voedingsstoffen naar het kind, koolstofdioxide en afvalstoffen terug.</p>
+<p>Kleine moleculen gaan door <b>diffusie</b>, van hoog naar laag. Andere stoffen gaan met transporteiwitten of door actief transport.</p>`,
 films:[F.baby]};
 ids.push(vraag(2,"juist of onjuist: de placenta",(q,id)=>{
   pre(q,"<p>Na de terugplaatsing van een embryo krijgt de vrouw vaak een paar weken extra progesteron. Over de zwangerschap worden vier uitspraken gedaan:</p>");
-  q.append(el("p",{class:"qtext"},"1 In de placenta stroomt het bloed van de moeder door de vlokken met de bloedvaatjes van het kind.<br>2 Zuurstof gaat door diffusie van het bloed van de moeder naar het bloed van het kind.<br>3 Alcohol en nicotine gaan bijna net zo makkelijk door de placenta als zuurstof.<br>4 Rond week acht tot tien neemt de placenta de productie van progesteron over van het geel lichaam.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
+  q.append(el("p",{class:"qtext"},"1 In de vlokken van de placenta stroomt het bloed van de moeder door dezelfde bloedvaatjes als het bloed van het kind.<br>2 Zuurstof gaat door diffusie van het bloed van de moeder naar het bloed van het kind.<br>3 Alcohol en nicotine gaan bijna net zo makkelijk door de placenta als zuurstof.<br>4 Rond week acht tot tien neemt de placenta de productie van progesteron over van het geel lichaam.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
   const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
   chipsStep(think,{q:"Welke stoffen gaan door de placenta naar het kind? Kies alles wat klopt.",items:[["zuurstof",1],["glucose",1],["rode bloedcellen van de moeder",0],["alcohol",1]],
-    ok:"Goed: kleine moleculen gaan door de laag cellen, maar bloedcellen niet. Bedenk bij uitspraak 4: hoe lang leeft het geel lichaam, en wie neemt het daarna over?",no:"Het bloed van moeder en kind mengt niet. Kunnen hele cellen dan door de laag?",onDone:unlock});
-  juistOnjuist(ans,{id,stm:["het bloed van de moeder stroomt door de vlokken","zuurstof gaat door diffusie","alcohol en nicotine gaan er makkelijk door","rond week 8–10 neemt de placenta progesteron over"],key:[false,true,true,true],
-    uitleg:textBox("1 <b>onjuist</b>: de vlokken bevatten bloedvaatjes van het kind; ze hángen in holtes met bloed van de moeder. Het bloed mengt niet.<br>2 <b>juist</b>: van hoog naar laag.<br>3 <b>juist</b>: kleine, ongeladen moleculen gaan er bijna net zo makkelijk door als zuurstof.<br>4 <b>juist</b>: daarna is het geel lichaam niet meer nodig. Vier goed: 2 punten, drie goed: 1 punt.")});
+    ok:"Goed. Kijk bij uitspraak 1 goed wáár het bloed van de moeder stroomt.",no:"Het bloed van moeder en kind mengt niet. Kunnen hele cellen dan door de laag?",onDone:unlock});
+  juistOnjuist(ans,{id,stm:["bloed van moeder en kind in dezelfde vaatjes","zuurstof gaat door diffusie","alcohol en nicotine gaan er makkelijk door","rond week 8–10 neemt de placenta progesteron over"],key:[false,true,true,true],
+    uitleg:textBox("1 <b>onjuist</b>: de vlokken bevatten alleen bloedvaatjes van het kind; ze hangen in holtes met bloed van de moeder. Het bloed mengt niet.<br>2 <b>juist</b>: van hoog naar laag.<br>3 <b>juist</b>: kleine, ongeladen moleculen gaan er bijna net zo makkelijk door als zuurstof.<br>4 <b>juist</b>: daarna is het geel lichaam niet meer nodig. Vier goed: 2 punten, drie goed: 1 punt.")});
   q.append(think,ans);
 },STOF_PLAC));
 }
 
 opgave("Ivf","Louise Brown, het eerste ivf-kind",`
 <p>Op 25 juli 1978 werd in het ziekenhuis van Oldham, in Engeland, Louise Brown geboren: het eerste kind dat ontstond door in-vitrofertilisatie (ivf). Haar ouders probeerden al negen jaar een kind te krijgen, maar dat lukte niet doordat de eileiders van haar moeder Lesley dicht zaten.</p>
-<p>De artsen Patrick Steptoe en Robert Edwards gebruikten in die tijd geen hormooninjecties meer: ze volgden de natuurlijke cyclus van de vrouw. Zo hadden ze per poging maar één eicel. Die werd in een schaaltje bevrucht, en het embryo werd na ongeveer twee dagen in de baarmoeder teruggeplaatst.</p>
+<p>De gynaecoloog Patrick Steptoe en de fysioloog Robert Edwards gebruikten in die tijd geen hormooninjecties meer: ze volgden de natuurlijke cyclus van de vrouw. Zo hadden ze per poging maar één eicel. Die werd in een schaaltje bevrucht, en het embryo werd na ongeveer twee dagen in de baarmoeder teruggeplaatst.</p>
 <p class="muted" style="font-size:14px">Bronnen: Encyclopaedia Britannica, ‘Louise Brown’; K. Elder en M.H. Johnson, The Oldham Notebooks III, Reproductive BioMedicine and Society Online 2015.</p>`,ids);
 }
 

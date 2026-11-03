@@ -34,7 +34,7 @@ for niv in ('havo', 'vwo'):
     s = sub(r'"examen-havo26-2"', f'"toets-{ANKER}-{niv}"', s)
     s = sub(r'<title>.*?</title>', f'<title>Oefentoets {THEMA} {niv} · doorklikken · Biologie bij Kamiel</title>', s)
     s = sub(r'<meta name="description" content="[^"]*">', f'<meta name="description" content="Oefentoets {THEMA} voor {niv}: per vraag eerst hulpvragen, dan de toetsvraag, nakijken met het antwoordmodel en uitleg waarom.">', s)
-    s = sub(r'/\* Examen havo 2026-II[^*]*\*/', f'/* Oefentoets {THEMA} {niv} · zelfde bouwstenen als de oefenexamens (tools/OEFENEXAMEN_PROMPT.md). */\nbody.echt .klok{{display:none!important}}', s)
+    s = sub(r'/\* Examen havo 2026-II[^*]*\*/', f'/* Oefentoets {THEMA} {niv} · zelfde bouwstenen als de oefenexamens (tools/OEFENEXAMEN_PROMPT.md). */\nbody.echt .klok{{display:none!important}}\n@media (max-width:600px){{.vpfig{{overflow-x:auto;-webkit-overflow-scrolling:touch}}.vpfig>svg{{min-width:var(--min)}}}}', s)
     s = rep(s, '<a class="terug" href="../index.html#examens">← Terug naar Examen</a>', f'<a class="terug" href="../index.html#{ANKER}">← Terug naar {THEMA}</a>')
     s = sub(r'<div class="eyebrow" id="eb">[^<]*</div>', f'<div class="eyebrow" id="eb">Oefentoets {THEMA} · {niv}</div>', s)
     s = sub(r'<h1 id="h1">[^<]*</h1>', f'<h1 id="h1">Oefentoets {THEMA}</h1>', s)

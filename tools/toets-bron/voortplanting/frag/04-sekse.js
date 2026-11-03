@@ -10,44 +10,42 @@ function LAGEN({hl=-1,x=[],ok=[]}={}){
     if(x.includes(i))s+=`<path d="M400,${y+8} l18,18 M418,${y+8} l-18,18" stroke="var(--koraal)" stroke-width="3.4" stroke-linecap="round"/>`;
     if(ok.includes(i))s+=`<path d="M398,${y+18} l7,8 l14,-16" fill="none" stroke="var(--groen)" stroke-width="3.4" stroke-linecap="round"/>`;
     if(i<L.length-1)s+=`<path d="M230,${y+34} v10" stroke="var(--text3)" stroke-width="1.6"/>`;});
-  return `<div style="max-width:460px;margin:0 auto;width:100%">`+svgWrap("0 0 460 280",s,"Sekse-ontwikkeling in lagen")+`</div>`;}
+  return `<div class="vpfig" style="max-width:460px;margin:0 auto;width:100%;--min:400px">`+svgWrap("0 0 460 280",s,"Sekse-ontwikkeling in lagen")+`</div>`;}
 const STOF_LAGEN={titel:"Sekse in lagen",html:`
 <p>Tot ongeveer week zes ziet de aanleg van de geslachtsorganen er bij elk embryo hetzelfde uit. Welke kant het op gaat, wordt in lagen bepaald, de een na de ander:</p>
 <ol style="margin:0;padding-left:22px"><li><b>Chromosomen</b>: van je moeder altijd een X, van je vader een X of een Y.</li>
 <li><b>Eén gen</b>: op het Y-chromosoom ligt het <b>SRY-gen</b>. Gaat dat rond week zeven aan, dan wordt de aanleg een zaadbal; zonder SRY wordt het een eierstok.</li>
+<li><b>Geslachtsklieren</b>: zaadbal of eierstok.</li>
 <li><b>Hormonen</b>: zaadballen maken testosteron en een hormoon waardoor de aanleg van baarmoeder en eileiders verdwijnt. Een hormoon werkt alleen op cellen met een werkende <b>receptor</b>.</li>
 <li><b>Geslachtsorganen</b> (primaire geslachtskenmerken).</li><li>Jaren later de <b>puberteit</b>: secundaire geslachtskenmerken.</li></ol>
 <p>Meestal passen alle lagen bij elkaar. Maar bij elke laag kan het ook anders lopen.</p>`,
 anim:b=>EXSTOF.stappen(b,[{cap:"Laag 1: XX of XY ligt vast bij de bevruchting."},{cap:"Laag 2: het SRY-gen op het Y-chromosoom zet de aanleg om tot zaadbal."},{cap:"Laag 4: hormonen werken alleen via een werkende receptor."}],(st,s,i)=>st.innerHTML=LAGEN({hl:[0,1,3][i]})),
 films:FV(F.sekse,F.baby)};
 const STOF_VAR={titel:"Als een laag anders loopt",html:`
-<ul style="margin:0;padding-left:20px"><li><b>Syndroom van Klinefelter</b>: XXY. Er is een Y-chromosoom met het SRY-gen, dus er ontstaan zaadballen.</li>
-<li><b>Syndroom van Turner</b>: één X en geen tweede geslachtschromosoom.</li>
-<li><b>Androgeen-ongevoeligheid</b>: XY met zaadballen die testosteron maken, maar de receptor voor testosteron werkt niet.</li>
-<li><b>Adrenogenitaal syndroom (AGS)</b>: de bijnieren maken te veel mannelijke hormonen; een meisje met XX en eierstokken kan geboren worden met geslachtsorganen die meer lijken op die van een jongen.</li></ul>
-<p>Past het lichaam niet in het standaardplaatje van man of vrouw, dan heet dat <b>intersekse</b> (artsen spreken van DSD).</p>`,
+<p>Sekse ontstaat in lagen: chromosomen → het SRY-gen → zaadbal of eierstok → hormonen en hun receptoren → geslachtsorganen → puberteit. Elke laag bouwt voort op de vorige.</p>
+<p>Bij elke laag kan het anders lopen. Wat een laag doet, hangt af van wat er in die laag aanwezig is én werkt: een gen dat er is maar niet werkt, of een hormoon zonder werkende receptor, heeft geen effect op de lagen erna.</p>`,
 films:[F.sekse]};
 
 const s1=vraag(1,"wat meet de test?",(q,id)=>{
-  const {think,ans,unlock}=start(q,B("Welke laag van de sekse-ontwikkeling onderzoekt de test van World Athletics?"));
-  choiceStep(think,{q:"Wat zoekt de test in de cellen van het wangslijmvlies?",opts:["of er testosteron in het bloed zit","of een bepaald stuk DNA aanwezig is","of er zaadballen zijn"],right:1,
-    ok:"Ja: de test zoekt het SRY-gen in het DNA. Over welke laag gaat dat precies?",no:"In wangslijmvliescellen zitten geen zaadballen en geen bloed. Wat zit er wel in elke cel?",onDone:unlock});
-  mc(ans,{qid:id,pts:1,right:1,opts:["de chromosomen: XX of XY","het gen: is het SRY-gen aanwezig","de hormonen: wordt er testosteron gemaakt","de geslachtsorganen: zijn er zaadballen"],
-    onChecked:()=>waaromBtn(ans,b=>{b.append(el("div",{class:"model"},"De test kijkt alleen of het <b>SRY-gen</b> aanwezig is: laag 2. Hij telt geen chromosomen (A) en meet geen hormonen of organen (C, D). Precies dat is het punt van Sinclair: of het gen werkt, en wat de lagen erna doen, laat de test niet zien. Het antwoord is <b>B</b>."));b.insertAdjacentHTML("beforeend",LAGEN({hl:1}));})});
+  const {think,ans,unlock}=start(q,B("Welk gen zoekt de test, en welke laag van de sekse-ontwikkeling onderzoekt hij dus?"));
+  choiceStep(think,{q:"Welk gen op het Y-chromosoom bepaalt of de aanleg van de geslachtsklieren een zaadbal wordt?",opts:["het gen voor de receptor van testosteron","het SRY-gen","het gen voor testosteron"],right:1,
+    ok:"Ja. Gaat de test dan over de chromosomen, één gen, de hormonen of de organen?",no:"Testosteron wordt pas gemaakt als er al een zaadbal is. Welk gen komt daarvóór?",onDone:unlock});
+  mc(ans,{qid:id,pts:1,right:1,opts:["het SRY-gen: de laag van de chromosomen (XX of XY)","het SRY-gen: de laag van één gen","het gen voor de testosteronreceptor: de laag van de hormonen","het gen voor testosteron: de laag van de geslachtsklieren"],
+    onChecked:()=>waaromBtn(ans,b=>{b.append(el("div",{class:"model"},"De test zoekt het <b>SRY-gen</b>: het gen op het Y-chromosoom dat de aanleg een zaadbal laat worden. Dat is laag 2, één gen. Hij telt geen chromosomen (A) en kijkt niet naar receptoren of hormonen (C, D). Precies dat is het punt van Sinclair: of het gen werkt, en wat de lagen erna doen, laat de test niet zien. Het antwoord is <b>B</b>."));b.insertAdjacentHTML("beforeend",LAGEN({hl:1}));})});
   q.append(think,ans);
 },STOF_LAGEN);
 
 const s2=vraag(2,"positief, maar geen effect van testosteron",(q,id)=>{
   pre(q,"<p>Zeven van de acht atleten die in 1996 positief testten, hadden androgeen-ongevoeligheid.</p>");
-  const {think,ans,unlock}=start(q,B("Leg uit dat een atlete met volledige androgeen-ongevoeligheid positief test, terwijl haar lichaam toch geen effect heeft van testosteron."));
+  const {think,ans,unlock}=start(q,B("Leg uit dat een atlete met volledige androgeen-ongevoeligheid positief test, terwijl haar lichaam toch geen effect ondervindt van testosteron."));
   choiceStep(think,{q:"Welke geslachtschromosomen en welke geslachtsklieren heeft iemand met androgeen-ongevoeligheid?",opts:["XX en eierstokken","XY en zaadballen","XY en eierstokken"],right:1,
     ok:"Ja. Dus het SRY-gen is aanwezig en heeft gewerkt. Wat gaat er dan mis in de laag van de hormonen?",no:"Bij androgeen-ongevoeligheid maken de geslachtsklieren gewoon testosteron.",
     onDone:()=>choiceStep(think,{q:"Waarom heeft het testosteron geen effect op haar cellen?",opts:["er wordt geen testosteron gemaakt","de receptor voor testosteron werkt niet","het testosteron wordt meteen afgebroken in de lever"],right:1,
       ok:"Goed. Gebruik beide lagen in je uitleg: wat de test ziet, en wat de cellen doen.",no:"Er wordt testosteron gemaakt. Wat is er nodig om op een hormoon te reageren?",onDone:unlock})});
   openAnswer(ans,{id,pts:2,checks:[
     "Ze is <b>XY</b> en heeft het <b>SRY-gen</b> (dat ook werkte: er zijn zaadballen), dus de test is positief.",
-    "Haar <b>receptor voor testosteron werkt niet</b>, dus haar cellen reageren niet op het testosteron: haar lichaam heeft zich als dat van een vrouw ontwikkeld, zonder effect van testosteron op bijvoorbeeld de spieren."],
-    model:"Iemand met androgeen-ongevoeligheid is XY. Het SRY-gen is aanwezig, dus de test is positief, en er zijn zaadballen die testosteron maken. Maar de receptor voor testosteron werkt niet. Daardoor reageren de cellen niet op het hormoon, en heeft het lichaam zich uitwendig als dat van een vrouw ontwikkeld.",
+    "Haar <b>receptor voor testosteron werkt niet</b>, dus haar cellen reageren niet op het testosteron: haar lichaam heeft zich uitwendig vrouwelijk ontwikkeld, zonder effect van testosteron op bijvoorbeeld de spieren."],
+    model:"Iemand met androgeen-ongevoeligheid is XY. Het SRY-gen is aanwezig, dus de test is positief, en er zijn zaadballen die testosteron maken. Maar de receptor voor testosteron werkt niet. Daardoor reageren de cellen niet op het hormoon, en heeft het lichaam zich uitwendig vrouwelijk ontwikkeld.",
     valkuil:"‘Ze maakt geen testosteron’ is fout: de zaadballen maken het wel. Het gaat mis in de receptor.",
     after:()=>waaromBtn(ans,b=>b.insertAdjacentHTML("beforeend",LAGEN({ok:[0,1,2],x:[3]})+`<p class="muted" style="font-size:14px;margin:4px 0 0">Laag 1–3 zoals bij een man (de test ziet laag 2), laag 4 stopt: de receptor werkt niet.</p>`))});
   q.append(think,ans);
@@ -55,7 +53,7 @@ const s2=vraag(2,"positief, maar geen effect van testosteron",(q,id)=>{
 
 const s3=vraag(2,"juist of onjuist: wie test positief?",(q,id)=>{
   pre(q,"<p>Over de uitslag van de SRY-test worden drie uitspraken gedaan:</p>");
-  q.append(el("p",{class:"qtext"},"1 Iemand met het syndroom van Turner test negatief.<br>2 Iemand met het syndroom van Klinefelter test positief.<br>3 Een vrouw met AGS test positief, omdat haar bijnieren veel mannelijke hormonen maken.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
+  q.append(el("p",{class:"qtext"},"1 Iemand met het syndroom van Turner, met één X-chromosoom en geen tweede geslachtschromosoom, test negatief.<br>2 Iemand met het syndroom van Klinefelter test positief.<br>3 Een vrouw met AGS test positief, omdat haar bijnieren veel mannelijke hormonen maken.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
   const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
   selectsStep(think,{uid:"q"+id,q:"Welke geslachtschromosomen horen erbij?",rows:[["syndroom van Turner",["X","XX","XY","XXY"],0],["syndroom van Klinefelter",["X","XX","XY","XXY"],3],["AGS bij een meisje",["X","XX","XY","XXY"],1]],
     ok:"Goed. Bij wie zit er dus een Y-chromosoom met het SRY-gen in de cellen?",no:"Turner: maar één geslachtschromosoom. Klinefelter: drie. Bij AGS gaat het mis in de bijnieren, niet in de chromosomen.",onDone:unlock});
@@ -66,11 +64,7 @@ const s3=vraag(2,"juist of onjuist: wie test positief?",(q,id)=>{
 
 const STOF_GENDER={titel:"Sekse, gender en oriëntatie",html:`
 <p>Vier begrippen die je goed uit elkaar houdt:</p>
-<ul style="margin:0;padding-left:20px"><li><b>Sekse</b>: je biologische geslacht, in lagen.</li>
-<li><b>Genderidentiteit</b>: hoe je jezelf ervaart: als man, als vrouw, of anders.</li>
-<li><b>Genderexpressie</b>: hoe je dat laat zien, bijvoorbeeld met kleding of je kapsel.</li>
-<li><b>Seksuele oriëntatie</b>: op wie je verliefd wordt en tot wie je je aangetrokken voelt.</li></ul>
-<p><b>Transgender</b>: je genderidentiteit past niet bij de sekse die bij je geboorte is vastgesteld. <b>Non-binair</b>: je voelt je niet alleen man of alleen vrouw. <b>Intersekse</b> gaat over het lichaam.</p>`,
+<p><b>Sekse</b>, <b>genderidentiteit</b>, <b>genderexpressie</b> en <b>seksuele oriëntatie</b> zijn vier verschillende begrippen. In de film worden ze naast elkaar uitgelegd, samen met transgender, non-binair en intersekse.</p>`,
 films:[F.sekse]};
 const s4=vraag(2,"juist of onjuist: sekse en gender",(q,id)=>{
   pre(q,"<p>In een discussie over de test worden vier uitspraken gedaan:</p>");
@@ -86,9 +80,7 @@ const s4=vraag(2,"juist of onjuist: sekse en gender",(q,id)=>{
 const ids=[s1,s2,s3,s4];
 if(VWO){
 const STOF_SRY={titel:"SRY: één schakelaar, een hele cascade",html:`
-<p>Het SRY-gen codeert voor een eiwit dat andere genen aanzet, zoals <b>SOX9</b>. Die zetten weer andere genen aan: een <b>cascade</b>. Daardoor wordt de aanleg een zaadbal.</p>
-<p>Bij de vorming van zaadcellen (meiose) liggen het X- en het Y-chromosoom van een man tegen elkaar en wisselen ze aan de uiteinden een stukje uit, net als homologe chromosomen bij <b>crossing-over</b>. Het SRY-gen ligt vlak naast dat stukje.</p>
-<p>Voor het maken van zaadcellen zijn ook andere genen van het Y-chromosoom nodig dan SRY.</p>`,
+<p>Het SRY-gen codeert voor een eiwit dat andere genen aanzet.</p>`,
 films:[F.sekse,F.cel]};
 ids.push(vraag(2,"een man met XX",(q,id)=>{
   pre(q,"<p>Een SRY-test en een onderzoek van de chromosomen geven niet altijd dezelfde uitkomst. Bij ongeveer één op de twintigduizend mannen laat het chromosomenonderzoek XX zien. Ze hebben zaadballen en het SRY-gen ligt bij hen op een van de X-chromosomen.</p>");
@@ -100,15 +92,15 @@ ids.push(vraag(2,"een man met XX",(q,id)=>{
   openAnswer(ans,{id,pts:2,checks:[
     "Bij de <b>meiose in de zaadbal van de vader</b> wisselen X en Y een stukje uit (crossing-over) en gaat het <b>SRY-gen mee naar het X-chromosoom</b>; een zaadcel met dat X bevrucht een eicel (X), zodat het kind XX is met SRY.",
     "Het <b>SRY-eiwit zet andere genen aan</b> (zoals SOX9, een cascade), waardoor de aanleg een <b>zaadbal</b> wordt."],
-    model:"Bij de vorming van zaadcellen bij de vader wisselen het X- en het Y-chromosoom een stukje uit. Heel soms gaat het SRY-gen daarbij mee naar het X-chromosoom. Een zaadcel met dat X bevrucht een eicel met een X: het kind is XX, maar heeft het SRY-gen. Het SRY-eiwit zet genen als SOX9 aan, die weer andere genen aanzetten, en zo wordt de aanleg een zaadbal.",
+    model:"Bij de vorming van zaadcellen bij de vader wisselen X en Y aan het uiteinde een stukje uit. Heel soms loopt die uitwisseling net te ver door, en gaat het SRY-gen, dat vlak naast dat stukje ligt, mee naar het X-chromosoom. Een zaadcel met dat X bevrucht een eicel met een X: het kind is XX, maar heeft het SRY-gen. Het SRY-eiwit zet genen als SOX9 aan, die weer andere genen aanzetten, en zo wordt de aanleg een zaadbal.",
     valkuil:"‘Door een mutatie verandert een X in een Y’ is fout: het gaat om een stukje dat van de Y naar de X verhuist. Een antwoord dat alleen de verplaatsing noemt, zonder wat SRY in het embryo doet, levert 1 punt op."});
   q.append(think,ans);
 },STOF_SRY));
 }
 
-opgave("SRY-test","Een wangslijmvliestest voor de vrouwencategorie",`
-<p>Sinds 1 september 2025 moet iedereen die bij wedstrijden van World Athletics, zoals het WK atletiek, in de vrouwencategorie wil uitkomen, eenmalig een test op het <b>SRY-gen</b> doen. Daarvoor wordt wangslijmvlies of bloed afgenomen. World Athletics noemt het SRY-gen ‘een betrouwbare aanwijzing voor biologische sekse’.</p>
-<p>De geneticus Andrew Sinclair, die het SRY-gen in 1990 ontdekte, is het daar niet mee eens. Volgens hem laat de test alleen zien óf het gen aanwezig is. Hij laat niet zien of het gen werkt, of er zaadballen zijn ontstaan, of er testosteron wordt gemaakt en of het lichaam daarop kan reageren.</p>
-<p>Een vergelijkbare test is al eens gebruikt. Bij de Olympische Spelen van 1996 in Atlanta testten 8 van de 3387 vrouwelijke atleten positief op een Y-chromosoom.</p>
+opgave("Sekse-test","Een wangslijmvliestest voor de vrouwencategorie",`
+<p>Sinds 1 september 2025 moet iedereen die bij wedstrijden van World Athletics, zoals het WK atletiek, in de vrouwencategorie wil uitkomen, eenmalig een DNA-test doen. Daarvoor wordt wangslijmvlies of bloed afgenomen. De test zoekt naar één gen op het Y-chromosoom: het gen dat ervoor zorgt dat de aanleg van de geslachtsklieren een zaadbal wordt. World Athletics noemt dat gen ‘een betrouwbare aanwijzing voor biologische sekse’.</p>
+<p>De geneticus Andrew Sinclair, die dit gen in 1990 ontdekte, is het daar niet mee eens. Volgens hem laat de test alleen zien óf het gen aanwezig is. Hij laat niet zien of het gen werkt, of er zaadballen zijn ontstaan, of er testosteron wordt gemaakt en of het lichaam daarop kan reageren.</p>
+<p>Een vergelijkbare test is al eens gebruikt. Bij de Olympische Spelen van 1996 in Atlanta testten 8 van de 3387 vrouwelijke atleten positief op het SRY-gen.</p>
 <p class="muted" style="font-size:14px">Bronnen: persbericht World Athletics, 30 juli 2025; A. Sinclair in The Conversation / Daily Maverick, 25 augustus 2025.</p>`,ids);
 }

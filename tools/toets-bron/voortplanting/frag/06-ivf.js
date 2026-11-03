@@ -6,9 +6,9 @@ const STOF_IVF={titel:"Ivf stap voor stap",html:`
 films:FV(F.anti,F.baby)};
 const ids=[];
 if(!VWO){
-const STOF_EIL={titel:"Eileider en chlamydia",html:`
+const STOF_EIL={titel:"De eileider",html:`
 <p>Bij een eisprong vangt de trechter van de <b>eileider</b> de eicel op. <b>In de eileider</b> kan een eicel bevrucht worden; daarna gaat het embryo naar de baarmoeder.</p>
-<p><b>Chlamydia</b> is een soa door een bacterie. Van de tien vrouwen met chlamydia merken er ongeveer zeven niets. Onbehandeld kan chlamydia de eileiders laten ontsteken. Er ontstaan littekens, die de eileider vernauwen of afsluiten.</p>`,
+`,
 films:[F.anti,F.org]};
 ids.push(vraag(2,"chlamydia en dichte eileiders",(q,id)=>{
   pre(q,"<p>Dichte eileiders, zoals bij Lesley, zijn tegenwoordig vaak het gevolg van een chlamydia-infectie van jaren eerder.</p>");
@@ -39,27 +39,26 @@ ids.push(vraag(2,"één eicel of tien",(q,id)=>{
   q.append(think,ans);
 },STOF_IVF));
 const STOF_PLAC={titel:"De placenta",html:`
-<p>Een groeiend kind krijgt zuurstof en voedingsstoffen via de <b>placenta</b>. In de placenta liggen bloedvaatjes van het kind vlak naast bloed van de moeder. Het bloed van moeder en kind komt heel dicht bij elkaar, maar <b>mengt niet</b>: er zit altijd een dunne laag cellen tussen.</p>
-<p>Kleine moleculen, zoals zuurstof en koolstofdioxide, gaan door <b>diffusie</b> door die laag, van hoog naar laag.</p>`,
+<p>Een groeiend kind krijgt zuurstof en voedingsstoffen via de <b>placenta</b> en raakt daar koolstofdioxide en afvalstoffen kwijt.</p>
+<p>Bij <b>diffusie</b> gaan kleine moleculen vanzelf van een plek met een hoge concentratie naar een plek met een lage concentratie, ook door een dunne laag cellen.</p>`,
 films:[F.anti,F.cel]};
 ids.push(vraag(2,"alcohol en de placenta",(q,id)=>{
-  pre(q,"<p>Louise Brown groeide negen maanden in de baarmoeder van haar moeder, net als elk ander kind. Artsen raden zwangere vrouwen af om alcohol te drinken.</p>");
+  pre(q,"<p>Louise Brown groeide negen maanden in de baarmoeder van haar moeder, net als elk ander kind. Artsen raden zwangere vrouwen af om alcohol te drinken.</p><p>In de placenta liggen bloedvaatjes van het kind vlak bij bloed van de moeder; daartussen zit een dunne laag cellen.</p>");
   const {think,ans,unlock}=start(q,B("Leg uit dat alcohol uit het bloed van de moeder in het bloed van het kind kan komen, terwijl het bloed van moeder en kind in de placenta niet mengt."));
-  choiceStep(think,{q:"Wat zit er in de placenta tussen het bloed van de moeder en het bloed van het kind?",opts:["niets: het bloed stroomt door dezelfde vaten","een dunne laag cellen"],right:1,
-    ok:"Ja. Hoe komt zuurstof door die laag?",no:"Het bloed van moeder en kind mengt niet. Er moet dus iets tussen zitten.",
-    onDone:()=>choiceStep(think,{q:"Alcohol is een klein molecuul, net als zuurstof. Wat gebeurt er dan?",opts:["het gaat net als zuurstof door de dunne laag naar het bloed van het kind","het blijft in het bloed van de moeder, want het bloed mengt niet"],right:0,
-      ok:"Goed. Combineer de twee dingen.",no:"Ook zuurstof komt bij het kind, terwijl het bloed niet mengt. Hoe kan dat?",onDone:unlock})});
+  choiceStep(think,{q:"Hoe komt zuurstof uit het bloed van de moeder door de dunne laag cellen in het bloed van het kind?",opts:["door diffusie","met de rode bloedcellen van de moeder, die door de laag gaan"],right:0,
+    ok:"Ja. Alcohol is ook een klein molecuul. In welke richting gaat het dan?",no:"Bloedcellen gaan niet door de laag: het bloed mengt niet. Hoe gaan kleine moleculen vanzelf door een dunne laag?",
+    onDone:()=>choiceStep(think,{q:"De moeder heeft gedronken. Waar is de alcoholconcentratie dan het hoogst?",opts:["in het bloed van de moeder","in het bloed van het kind"],right:0,
+      ok:"Goed. Combineer de twee dingen.",no:"De alcohol komt binnen via de moeder.",onDone:unlock})});
   openAnswer(ans,{id,pts:2,checks:[
-    "In de placenta zit tussen het bloed van moeder en kind een <b>dunne laag cellen</b>: het bloed zelf mengt niet.",
-    "Alcohol is een <b>klein molecuul</b> dat (door diffusie) door die dunne laag gaat, net als zuurstof, en zo in het bloed van het kind komt."],
-    model:"Het bloed van moeder en kind wordt in de placenta gescheiden door een dunne laag cellen. Kleine moleculen zoals zuurstof gaan door diffusie door die laag. Alcohol is ook een klein molecuul en gaat er net zo makkelijk doorheen, dus het komt toch in het bloed van het kind.",
-    valkuil:"‘Het bloed van moeder en kind mengt in de placenta’ is fout. Alleen ‘alcohol gaat door de placenta’ zonder te zeggen hoe, is 1 punt."});
+    "Alcohol is een <b>klein molecuul</b> en gaat door <b>diffusie</b> door de dunne laag cellen.",
+    "Het gaat <b>van hoog (bloed van de moeder) naar laag (bloed van het kind)</b>."],
+    model:"Alcohol is een klein molecuul, net als zuurstof. Het gaat door diffusie door de dunne laag cellen tussen het bloed van moeder en kind. Na het drinken is de concentratie in het bloed van de moeder hoog en in dat van het kind laag, dus gaat de alcohol van de moeder naar het kind.",
+    valkuil:"‘Het bloed van moeder en kind mengt in de placenta’ is fout. Alleen ‘alcohol gaat door de placenta’, zonder diffusie en zonder richting, is 0 punten."});
   q.append(think,ans);
 },STOF_PLAC));
 }else{
 const STOF_PIEK={titel:"De LH-piek en de eisprong",html:`
-<p>De eicel staat jaren stil in profase I van de meiose. De dominante follikel maakt steeds meer oestrogeen; blijft de oestrogeenspiegel ongeveer twee dagen hoog, dan gaat oestrogeen de afgifte van LH juist stimuleren: <b>positieve terugkoppeling</b>. Het resultaat is de <b>LH-piek</b>.</p>
-<p>Die piek zet drie dingen in gang: de eicel hervat de meiose en maakt de eerste deling af; de wand van de follikel wordt afgebroken; en ongeveer <b>anderhalve dag</b> na het begin van de piek scheurt de follikel open: de eisprong. Daarna staat de eicel opnieuw stil, in metafase II.</p>`,
+<p>De dominante follikel maakt steeds meer oestrogeen. Blijft de oestrogeenspiegel ongeveer twee dagen hoog, dan gaat oestrogeen de afgifte van LH juist stimuleren. Meer LH stimuleert de follikel weer: <b>positieve terugkoppeling</b>, een signaal dat zichzelf versterkt. Het resultaat is de <b>LH-piek</b>, midden in de cyclus.</p>`,
 films:[F.baby]};
 ids.push(vraag(2,"precies op tijd",(q,id)=>{
   pre(q,"<p>Steptoe en Edwards haalden de eicel van Lesley met een kijkoperatie uit de follikel, 15 tot 35 uur nadat de LH-piek in de urine was gezien. De urine werd daarvoor elke drie uur verzameld.</p>");
@@ -88,30 +87,29 @@ ids.push(vraag(1,"zwangerschapstest na de hCG-injectie",(q,id)=>{
   pre(q,"<p>Als de follikels groot genoeg zijn, krijgt de vrouw één injectie met hCG. Zo'n anderhalve dag later worden de eicellen opgezogen. Een paar dagen later wordt een embryo teruggeplaatst. Een vrouw doet een week na de hCG-injectie al een zwangerschapstest. Die is positief.</p>");
   const {think,ans,unlock}=start(q,B("Waarom zegt deze uitslag nog niets?"));
   choiceStep(think,{q:"Welk hormoon meet een zwangerschapstest?",opts:["progesteron","hCG","oestrogeen"],right:1,
-    ok:"Ja. Waar kan dat hCG een week na de injectie vandaan komen?",no:"Normaal komt dit hormoon alleen van een ingenesteld embryo.",onDone:unlock});
+    ok:"Ja. Lees nog eens wat ze in die week kreeg.",no:"Normaal komt dit hormoon alleen van een ingenesteld embryo.",onDone:unlock});
   mc(ans,{qid:id,pts:1,right:0,opts:["De test meet hCG, en dat kan nog van de injectie komen.","De test meet progesteron, en dat krijgt ze ook extra.","Een embryo maakt pas hCG als de placenta het progesteron overneemt.","Een test werkt niet bij embryo's die in het lab zijn gemaakt."],
     onChecked:()=>waaromBtn(ans,textBox("Een zwangerschapstest bevat antistoffen die <b>hCG</b> binden. Vlak na een hCG-injectie meet de test dus de injectie zelf, niet een embryo. Pas na ongeveer twee weken zegt de uitslag iets. Het antwoord is <b>A</b>."))});
   q.append(think,ans);
 },STOF_IVF));
 const STOF_PLAC={titel:"Dichtbij, maar gescheiden",html:`
-<p>In de <b>placenta</b> vormt de trofoblast vlokken vol bloedvaatjes van het kind. Die vlokken hangen in holtes met bloed van de moeder. Er zit altijd een dunne laag cellen tussen.</p>
-<p>Stoffen gaan op verschillende manieren door die laag: door <b>diffusie</b> (van hoog naar laag), met <b>transporteiwitten</b>, of door <b>actief transport</b>. Kleine, ongeladen moleculen gaan er makkelijk doorheen.</p>
-<p>In het begin houdt hCG van het embryo het geel lichaam in leven, zodat het progesteron blijft maken.</p>`,
+<p>In de <b>placenta</b> wisselen moeder en kind stoffen uit: zuurstof en voedingsstoffen naar het kind, koolstofdioxide en afvalstoffen terug.</p>
+<p>Kleine moleculen gaan door <b>diffusie</b>, van hoog naar laag. Andere stoffen gaan met transporteiwitten of door actief transport.</p>`,
 films:[F.baby]};
 ids.push(vraag(2,"juist of onjuist: de placenta",(q,id)=>{
   pre(q,"<p>Na de terugplaatsing van een embryo krijgt de vrouw vaak een paar weken extra progesteron. Over de zwangerschap worden vier uitspraken gedaan:</p>");
-  q.append(el("p",{class:"qtext"},"1 In de placenta stroomt het bloed van de moeder door de vlokken met de bloedvaatjes van het kind.<br>2 Zuurstof gaat door diffusie van het bloed van de moeder naar het bloed van het kind.<br>3 Alcohol en nicotine gaan bijna net zo makkelijk door de placenta als zuurstof.<br>4 Rond week acht tot tien neemt de placenta de productie van progesteron over van het geel lichaam.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
+  q.append(el("p",{class:"qtext"},"1 In de vlokken van de placenta stroomt het bloed van de moeder door dezelfde bloedvaatjes als het bloed van het kind.<br>2 Zuurstof gaat door diffusie van het bloed van de moeder naar het bloed van het kind.<br>3 Alcohol en nicotine gaan bijna net zo makkelijk door de placenta als zuurstof.<br>4 Rond week acht tot tien neemt de placenta de productie van progesteron over van het geel lichaam.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
   const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
   chipsStep(think,{q:"Welke stoffen gaan door de placenta naar het kind? Kies alles wat klopt.",items:[["zuurstof",1],["glucose",1],["rode bloedcellen van de moeder",0],["alcohol",1]],
-    ok:"Goed: kleine moleculen gaan door de laag cellen, maar bloedcellen niet. Bedenk bij uitspraak 4: hoe lang leeft het geel lichaam, en wie neemt het daarna over?",no:"Het bloed van moeder en kind mengt niet. Kunnen hele cellen dan door de laag?",onDone:unlock});
-  juistOnjuist(ans,{id,stm:["het bloed van de moeder stroomt door de vlokken","zuurstof gaat door diffusie","alcohol en nicotine gaan er makkelijk door","rond week 8–10 neemt de placenta progesteron over"],key:[false,true,true,true],
-    uitleg:textBox("1 <b>onjuist</b>: de vlokken bevatten bloedvaatjes van het kind; ze hángen in holtes met bloed van de moeder. Het bloed mengt niet.<br>2 <b>juist</b>: van hoog naar laag.<br>3 <b>juist</b>: kleine, ongeladen moleculen gaan er bijna net zo makkelijk door als zuurstof.<br>4 <b>juist</b>: daarna is het geel lichaam niet meer nodig. Vier goed: 2 punten, drie goed: 1 punt.")});
+    ok:"Goed. Kijk bij uitspraak 1 goed wáár het bloed van de moeder stroomt.",no:"Het bloed van moeder en kind mengt niet. Kunnen hele cellen dan door de laag?",onDone:unlock});
+  juistOnjuist(ans,{id,stm:["bloed van moeder en kind in dezelfde vaatjes","zuurstof gaat door diffusie","alcohol en nicotine gaan er makkelijk door","rond week 8–10 neemt de placenta progesteron over"],key:[false,true,true,true],
+    uitleg:textBox("1 <b>onjuist</b>: de vlokken bevatten alleen bloedvaatjes van het kind; ze hangen in holtes met bloed van de moeder. Het bloed mengt niet.<br>2 <b>juist</b>: van hoog naar laag.<br>3 <b>juist</b>: kleine, ongeladen moleculen gaan er bijna net zo makkelijk door als zuurstof.<br>4 <b>juist</b>: daarna is het geel lichaam niet meer nodig. Vier goed: 2 punten, drie goed: 1 punt.")});
   q.append(think,ans);
 },STOF_PLAC));
 }
 
 opgave("Ivf","Louise Brown, het eerste ivf-kind",`
 <p>Op 25 juli 1978 werd in het ziekenhuis van Oldham, in Engeland, Louise Brown geboren: het eerste kind dat ontstond door in-vitrofertilisatie (ivf). Haar ouders probeerden al negen jaar een kind te krijgen, maar dat lukte niet doordat de eileiders van haar moeder Lesley dicht zaten.</p>
-<p>De artsen Patrick Steptoe en Robert Edwards gebruikten in die tijd geen hormooninjecties meer: ze volgden de natuurlijke cyclus van de vrouw. Zo hadden ze per poging maar één eicel. Die werd in een schaaltje bevrucht, en het embryo werd na ongeveer twee dagen in de baarmoeder teruggeplaatst.</p>
+<p>De gynaecoloog Patrick Steptoe en de fysioloog Robert Edwards gebruikten in die tijd geen hormooninjecties meer: ze volgden de natuurlijke cyclus van de vrouw. Zo hadden ze per poging maar één eicel. Die werd in een schaaltje bevrucht, en het embryo werd na ongeveer twee dagen in de baarmoeder teruggeplaatst.</p>
 <p class="muted" style="font-size:14px">Bronnen: Encyclopaedia Britannica, ‘Louise Brown’; K. Elder en M.H. Johnson, The Oldham Notebooks III, Reproductive BioMedicine and Society Online 2015.</p>`,ids);
 }

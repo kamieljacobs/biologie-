@@ -54,4 +54,4 @@ function CYCLUS({hl={},dim=[],toon=["LH","FSH","oe","pr","t"]}={}){
   if(toon.includes("t")){const op=dim.includes("t")?.25:1;s+=`<path d="${pad(CYC.t.map(yT))}" fill="none" stroke="var(--text)" stroke-width="1.6" opacity="${op}"/>`;
     CYC.t.forEach((v,i)=>s+=`<circle cx="${xs(i+1)}" cy="${yT(v)}" r="3.2" fill="var(--text)" opacity="${op}"/>`);}
   s+=`<text x="${(X0+X1)/2}" y="448" text-anchor="middle" class="lblm">dag van de cyclus (dag 1 = eerste dag van de menstruatie)</text>`;
-  return `<div style="max-width:640px;margin:0 auto;width:100%">`+svgWrap("0 0 640 456",s,"Hormoonconcentraties en basale lichaamstemperatuur tijdens een cyclus van 28 dagen")+`</div>`;}
+  return `<div class="vpfig" style="max-width:640px;margin:0 auto;width:100%;--min:560px">`+svgWrap("0 0 640 456",s,"Hormoonconcentraties en basale lichaamstemperatuur tijdens een cyclus van 28 dagen")+`</div>`;}

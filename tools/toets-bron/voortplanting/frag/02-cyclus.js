@@ -1,15 +1,14 @@
 /* ===== Opgave 2: Zwanger worden met een app (eigen vragen B1–B5 uit toetsen-biologie) ===== */
 {
 const STOF_TIJD={titel:"Eisprong, eicel en zaadcel",html:`
-<p>FSH en LH uit de hypofyse laten in de eierstok een eicel rijpen in een <b>follikel</b>. Rond het midden van de cyclus komt de <b>eisprong</b> (ovulatie): de eicel komt vrij en gaat de eileider in. Daar kan hij bevrucht worden.</p>
+<p>FSH en LH uit de hypofyse laten in de eierstok een eicel rijpen in een <b>follikel</b>. Rond het midden van de cyclus komt de <b>eisprong</b> (ovulatie): de eicel komt vrij en gaat de eileider in. Daar kan zij bevrucht worden.</p>
 <p>Een eicel leeft na de eisprong ongeveer <b>een dag</b>. Een zaadcel kan in het lichaam van een vrouw <b>hooguit een dag of vijf</b> overleven. Een zwangerschap kan dus alleen als er zaadcellen zijn in de dagen vóór de eisprong of op de dag zelf.</p>
 <p>Een grafiek lees je van links naar rechts: wat eerst stijgt, gebeurt eerst. Kijk bij elke lijn op welke dag hij begint te stijgen of te dalen.</p>`,
 films:FV(F.org,F.baby)};
 const STOF_CYC={titel:"De menstruatiecyclus",html:`
 <p>Vanaf de eerste menstruatie werken hypofyse, eierstok en baarmoeder samen in een cyclus van ongeveer vier weken.</p>
 <ul style="margin:0;padding-left:20px"><li>De <b>hypofyse</b> maakt FSH en LH. Die werken op de <b>eierstok</b>: daar rijpt een follikel met een eicel, en de eierstok maakt zelf hormonen.</li>
-<li>De hormonen van de eierstok (<b>oestrogeen</b> en <b>progesteron</b>) werken op de <b>baarmoeder</b>: het slijmvlies wordt dikker en klaar voor een embryo.</li>
-<li>Wordt de eicel niet bevrucht, dan dalen de hormonen van de eierstok en laat het slijmvlies los: de <b>menstruatie</b>.</li></ul>
+</ul>
 <p>Let op: elk hormoon werkt alleen op cellen met de juiste receptor. Een hormoon uit de hypofyse werkt dus op een ander orgaan dan een hormoon uit de eierstok.</p>`,
 films:FV(F.org,F.baby)};
 
@@ -26,7 +25,7 @@ const q1=vraag(2,"het advies van de vriendin",(q,id)=>{
     model:"De temperatuur gaat pas omhoog als de ovulatie al geweest is: in afbeelding 1 op dag 15–16. Een eicel kan maar ongeveer 24 uur bevrucht worden. Als Nora wacht tot haar temperatuur gestegen is, is de eicel dus meestal al niet meer te bevruchten. De zaadcellen hadden er al vóór of op de dag van de ovulatie moeten zijn.",
     valkuil:"‘De temperatuur stijgt bij de eisprong’ (zonder ‘erna’) laat niet zien waarom het advies niet werkt. Het gaat om de volgorde in de tijd plus de korte levensduur van de eicel.",
     after:()=>waaromBtn(ans,b=>stepAnim(b,[
-      {cap:"Dag 13: de LH-piek. Ongeveer anderhalve dag later, op dag 14, is de ovulatie.",hl:{13:"var(--goud)"},dim:["FSH","oe","pr"]},
+      {cap:"Dag 13: de LH-piek. Ongeveer anderhalve dag na het begin van de piek, op dag 14, is de ovulatie.",hl:{13:"var(--goud)"},dim:["FSH","oe","pr"]},
       {cap:"Dag 14–15: alleen nu kan de eicel bevrucht worden, ongeveer een dag lang.",hl:{14:"var(--groen)",15:"var(--groen)"},dim:["FSH","oe","pr","LH"]},
       {cap:"Dag 15–16: pas nu is de temperatuur omhoog. De eicel is dan al (bijna) niet meer te bevruchten. Het advies komt dus te laat.",hl:{16:"var(--koraal)"},dim:["FSH","oe","LH"]}],
       (st,s)=>st.innerHTML=CYCLUS({hl:s.hl,dim:s.dim})))});
@@ -43,7 +42,7 @@ const q2=vraag(2,"rekenen aan een cyclus van 32 dagen",(q,id)=>{
   let ov=null;
   numAnswer(ans,{id,fields:[
     ["dag van de ovulatie","",v=>{ov=v;return v===18;},"ovulatie op dag 18 (32 − 14 = 18)"],
-    ["eerste dag met kans op zwangerschap","",v=>v===13||v===14||(ov!==18&&(v===ov-5||v===ov-4)),"dag 13 (18 − 5); dag 14 is ook goed als je de ovulatiedag als vijfde dag meetelt. Verkeerde ovulatiedag maar goed doorgerekend (− 5): dit punt telt wel."]],
+    ["eerste dag met kans op zwangerschap","",v=>ov===18?(v===13||v===14):(v===ov-5||v===ov-4),"dag 13 (18 − 5); dag 14 is ook goed als je de ovulatiedag als vijfde dag meetelt. Verkeerde ovulatiedag maar goed doorgerekend (− 5): dit punt telt wel."]],
     after:()=>waaromBtn(ans,textBox("Na de ovulatie duurt het altijd ongeveer 14 dagen tot de menstruatie (28 − 14). Bij Nora: 32 − 14 = dag <b>18</b>. Zaadcellen kunnen tot vijf dagen een eicel bevruchten, dus seks vanaf dag 18 − 5 = dag <b>13</b> kan tot een zwangerschap leiden. Wie de ovulatie ‘in het midden’ legt (dag 16), vergeet dat alleen de eerste helft langer wordt."))});
   q.append(think,ans);
 },STOF_TIJD);
@@ -61,19 +60,18 @@ const q3=vraag(1,"wie maakt progesteron?",(q,id)=>{
 
 const q4=vraag(2,"juist of onjuist: hormonen in de cyclus",(q,id)=>{
   pre(q,"<p>Over de hormonen in afbeelding 1 worden drie uitspraken gedaan:</p>");
-  q.append(el("p",{class:"qtext"},"1 Het hormoon dat de groei van een follikel in de eierstok stimuleert, wordt gemaakt door de hypofyse.<br>2 De daling van de progesteronconcentratie aan het eind van de cyclus leidt tot de menstruatie.<br>3 Het baarmoederslijmvlies wordt in de eerste helft van de cyclus dikker onder invloed van FSH.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
+  q.append(el("p",{class:"qtext"},"1 Het hormoon dat de groei van een follikel in de eierstok stimuleert, wordt gemaakt door de hypofyse.<br>"+(VWO?"2 De daling van de progesteronconcentratie aan het eind van de cyclus leidt tot de menstruatie.":"2 Veel oestrogeen remt de hypofyse.")+"<br>3 Het baarmoederslijmvlies wordt in de eerste helft van de cyclus dikker onder invloed van FSH.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
   const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
   selectsStep(think,{uid:"q"+id,q:"Welk orgaan maakt het hormoon?",rows:[
     ["FSH",["hypofyse","eierstok","baarmoeder"],0],["LH",["hypofyse","eierstok","baarmoeder"],0],["oestrogeen",["hypofyse","eierstok","baarmoeder"],1],["progesteron",["hypofyse","eierstok","baarmoeder"],1]],
     ok:"Goed. Bedenk nu bij uitspraak 3: op welk orgaan werkt FSH, en op welk orgaan werkt oestrogeen?",no:"De hypofyse stuurt de eierstok aan; de eierstok stuurt de baarmoeder aan.",onDone:unlock});
-  juistOnjuist(ans,{id,stm:["het hormoon voor de groei van een follikel komt uit de hypofyse","daling van progesteron leidt tot de menstruatie","het slijmvlies wordt dikker onder invloed van FSH"],key:[true,true,false],
-    uitleg:textBox("1 <b>juist</b>: FSH uit de hypofyse laat de follikels groeien.<br>2 <b>juist</b>: zonder progesteron blijft het slijmvlies niet zitten en wordt het afgestoten.<br>3 <b>onjuist</b>: FSH werkt op de eierstok. Het slijmvlies groeit onder invloed van <b>oestrogeen</b> uit de eierstok.")});
+  juistOnjuist(ans,{id,stm:["het hormoon voor de groei van een follikel komt uit de hypofyse",VWO?"daling van progesteron leidt tot de menstruatie":"veel oestrogeen remt de hypofyse","het slijmvlies wordt dikker onder invloed van FSH"],key:[true,true,false],
+    uitleg:textBox("1 <b>juist</b>: FSH uit de hypofyse laat de follikels groeien.<br>"+(VWO?"2 <b>juist</b>: zonder progesteron blijft het slijmvlies niet zitten en wordt het afgestoten.":"2 <b>juist</b>: de eierstok werkt zo terug op de hypofyse, die dan minder FSH en LH maakt.")+"<br>3 <b>onjuist</b>: FSH werkt op de eierstok. Het slijmvlies groeit onder invloed van <b>oestrogeen</b> uit de eierstok.")});
   q.append(think,ans);
 },STOF_CYC);
 
 const STOF_PIL={titel:"Hormonen remmen de hypofyse",html:`
 <p>De hormonen van de eierstok werken terug op de hersenen: <b>veel oestrogeen (en progesteron) remt de hypofyse</b>, zodat die minder FSH en LH maakt.`+(VWO?` Dat heet <b>negatieve terugkoppeling</b>: een signaal remt zijn eigen oorzaak.`:``)+`</p>
-<p>Zonder genoeg FSH rijpt er geen follikel. Zonder een <b>LH-piek</b> komt er geen eisprong.</p>
 <p>Anticonceptie haalt één schakel uit de keten eisprong → zaadcel bij de eicel → innesteling. De pil, de prikpil, het staafje en de ring bevatten hormonen.</p>`,
 films:FV(F.anti,F.baby)};
 const q5=vraag(2,"hoe de pil een eisprong voorkomt",(q,id)=>{
@@ -94,6 +92,6 @@ const q5=vraag(2,"hoe de pil een eisprong voorkomt",(q,id)=>{
 opgave("Cyclus-app","Zwanger worden met een app",`
 <p>Nora (31) wil zwanger worden. Ze gebruikt een app die haar vruchtbare dagen voorspelt. Elke ochtend vóór het opstaan meet ze haar lichaamstemperatuur (de basale lichaamstemperatuur) en voert die in de app in.</p>
 <p>In afbeelding 1 zijn de concentraties van vier hormonen in het bloed en de basale lichaamstemperatuur weergegeven tijdens een cyclus van 28 dagen. Bij een cyclus van 28 dagen vindt de ovulatie plaats op dag 14.</p>
-<p>Een eicel kan tot ongeveer 24 uur na de ovulatie worden bevrucht. Zaadcellen kunnen in het lichaam van de vrouw tot vijf dagen na de zaadlozing een eicel bevruchten.</p>
+<p>Een eicel kan tot ongeveer 24 uur na de ovulatie worden bevrucht. Zaadcellen kunnen in het lichaam van de vrouw tot vijf dagen na de zaadlozing een eicel bevruchten.</p>${VWO?"":"<p>Na de eisprong blijft van de follikel in de eierstok een groepje cellen over: het geel lichaam.</p>"}
 <div class="eyebrow">afbeelding 1 (vereenvoudigd; geen meetgegevens van één persoon)</div>${CYCLUS()}`,[q1,q2,q3,q4,q5]);
 }

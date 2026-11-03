@@ -6,10 +6,6 @@ const TAB1=TABEL(1,["methode","normaal gebruik","perfect gebruik"],[
   "Percentage vrouwen dat in het eerste jaar van gebruik toch zwanger wordt. Bron: Guttmacher Institute (factsheet), naar Contraceptive Technology, 21e druk (2018).");
 const STOF_KETEN={titel:"Anticonceptie: een schakel uit de keten",html:`
 <p>Een zwangerschap is een keten: een <b>eicel komt vrij</b> → een <b>zaadcel bereikt en bevrucht</b> haar → het <b>embryo nestelt zich</b> in de baarmoeder. Anticonceptie haalt één schakel uit die keten.</p>
-<ul style="margin:0;padding-left:20px"><li>Hormonen (pil, prikpil, staafje, ring) remmen de eisprong.</li>
-<li>Een condoom of pessarium houdt zaadcellen tegen; het hormoonspiraaltje maakt de slijmprop in de baarmoederhals dik en taai; bij sterilisatie worden zaadleiders of eileiders afgesloten.</li>
-<li>Het koperspiraaltje: koper is giftig voor zaadcellen en het slijmvlies wordt ongeschikt voor innesteling.</li>
-<li>De morning-afterpil stelt de eisprong uit. Hij werkt dus alleen als de eisprong nog niet geweest is. Het is geen abortuspil.</li></ul>
 <p>De <b>Pearl-index</b> geeft aan hoeveel van de honderd vrouwen in een jaar toch zwanger worden. Perfect gebruik = precies volgens de regels; normaal gebruik = zoals mensen het echt doen, met fouten.</p>`,
 films:FV(F.anti,F.baby)};
 
@@ -31,7 +27,7 @@ const a1=vraag(2,"prikpil of pil",(q,id)=>{
 const a2=vraag(2,"welke schakel?",(q,id)=>{
   const {think,ans,unlock}=start(q,B("Geef bij elke methode aan welke schakel van de keten vooral wordt onderbroken."));
   seqStep(think,{q:"Zet eerst de schakels van de keten in de goede volgorde.",items:["een eicel komt vrij","een zaadcel bereikt en bevrucht de eicel","het embryo nestelt zich"],shown:[1,2,0],
-    ok:"Goed. Bedenk nu bij elke methode wat hij precies tegenhoudt. Let op de morning-afterpil: wat doet die met de eisprong?",onDone:unlock});
+    ok:"Goed. Bedenk nu bij elke methode wat hij precies tegenhoudt.",onDone:unlock});
   const S=["geen eisprong","zaadcel bereikt de eicel niet","geen innesteling"];
   selectAnswer(ans,{id,uid:"q"+id,rows:[["pil",S,0],["condoom",S,1],["hormoonspiraaltje",S,1],["morning-afterpil",S,0]],score:n=>n===4?2:n===3?1:0,
     after:()=>waaromBtn(ans,textBox("Pil: remt de eisprong. Condoom: houdt zaadcellen tegen. Hormoonspiraaltje: maakt de slijmprop in de baarmoederhals taai, zodat zaadcellen er niet door komen. Morning-afterpil: <b>stelt de eisprong uit</b>; het is geen abortuspil en hij werkt niet meer als de eisprong al geweest is. Vier goed: 2 punten, drie goed: 1 punt."))});
@@ -54,15 +50,15 @@ ids.push(vraag(2,"de HPV-prik ook voor jongens",(q,id)=>{
       ok:"Goed. Noem beide redenen.",no:"Wie niet besmet raakt, kan het virus ook niet doorgeven.",onDone:unlock})});
   openAnswer(ans,{id,pts:2,checks:[
     "HPV kan bij jongens en mannen <b>zelf kanker</b> veroorzaken (van penis, anus, mond of keel); de prik beschermt henzelf.",
-    "Gevaccineerde jongens raken minder vaak besmet en <b>geven HPV minder door</b> aan hun partners, dus ook minder baarmoederhalskanker bij vrouwen."],
+    "Gevaccineerde jongens raken minder vaak besmet en <b>geven HPV minder door</b> aan hun partners (en zo bijvoorbeeld minder baarmoederhalskanker)."],
     model:"Ten eerste kan HPV ook bij mannen kanker veroorzaken, bijvoorbeeld van de penis, de anus of de keel; de prik beschermt de jongen zelf. Ten tweede is HPV een soa: een gevaccineerde jongen raakt minder vaak besmet en kan het virus dus ook minder vaak doorgeven aan een partner.",
     valkuil:"‘Jongens kunnen baarmoederhalskanker krijgen’ is fout. ‘Met antibiotica is HPV niet te genezen’ is waar, maar geen reden om juist jongens te vaccineren."});
   q.append(think,ans);
 },STOF_SOA));
 }
-const STOF_RES={titel:"Resistentie tegen antibiotica",html:`
-<p>In een groep bacteriën ontstaan door toeval steeds <b>mutaties</b>. Een mutatie kan een bacterie ongevoelig maken voor een antibioticum: <b>resistent</b>.</p>
-<p>Een kuur doodt de gevoelige bacteriën. De bacteriën die er door een toevallige mutatie tegen kunnen, overleven en vermenigvuldigen zich. Dat is <b>natuurlijke selectie</b>: het antibioticum maakt de mutatie niet, het kiest alleen wie overblijft.</p>`,
+const STOF_RES={titel:"Mutatie en selectie",html:`
+<p>In elke populatie ontstaan door toeval <b>mutaties</b>: veranderingen in het DNA, die worden doorgegeven aan de nakomelingen.</p>
+<p>Bij <b>natuurlijke selectie</b> overleven en vermenigvuldigen de individuen met een gunstige eigenschap zich meer dan de andere. Zo neemt die eigenschap in de populatie toe. Selectie maakt geen nieuwe eigenschappen: ze bepaalt welke overblijven.</p>`,
 films:[F.anti]};
 if(VWO)ids.push(vraag(2,"gonorroe wordt resistent",(q,id)=>{
   pre(q,"<p>Bij gonorroe dreigt een probleem: er is bijna nog maar één soort antibioticum dat overal goed werkt. Artsen houden daarom goed in de gaten of de bacterie ook daar resistent tegen wordt.</p>");

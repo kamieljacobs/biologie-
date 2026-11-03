@@ -12,19 +12,15 @@ function ROUTE({knip=false,hl=[],stip=false}={}){
   if(knip)s+=`<path d="M236,124 L228,176 M248,124 L240,176" stroke="var(--koraal)" stroke-width="4" stroke-linecap="round"/><text x="238" y="196" text-anchor="middle" class="lbl" style="fill:var(--koraal)">knip</text>`;
   if(stip)[300,312,324].forEach(x=>s+=`<circle cx="${x}" cy="164" r="3.5" fill="var(--teal)"/>`);
   s+=`<text x="60" y="210" text-anchor="middle" class="lblm">maakt zaadcellen</text><text x="410" y="30" text-anchor="middle" class="lblm">vocht met suiker</text><text x="410" y="200" text-anchor="middle" class="lblm">vocht</text>`;
-  return `<div style="max-width:620px;margin:0 auto;width:100%">`+svgWrap("0 0 600 220",s,"Route van een zaadcel")+`</div>`;}
+  return `<div class="vpfig" style="max-width:620px;margin:0 auto;width:100%;--min:520px">`+svgWrap("0 0 600 220",s,"Route van een zaadcel")+`</div>`;}
 
 if(!VWO){
 const STOF_ROUTE={titel:"De weg van een zaadcel",html:`
-<p>Zaadcellen ontstaan door meiose in de buisjes van de <b>zaadballen</b>, in de balzak. Ze rijpen ongeveer twee weken in de <b>bijbal</b> en worden daar bewaard.</p>
-<p>Bij een zaadlozing gaan ze door de <b>zaadleider</b>: die loopt vanaf de balzak omhoog, de buik in, naar de achterkant van de blaas. Daar komen de <b>zaadblaasjes</b> erbij; samen gaan ze door de <b>prostaat</b> en komen uit in de <b>urinebuis</b>.</p>
-<p>Sperma is meer dan zaadcellen: het meeste vocht komt uit de zaadblaasjes (ruim de helft) en de prostaat (een kwart tot een derde). Zaadcellen zijn maar een paar procent.</p>`,
-anim:b=>EXSTOF.stappen(b,[{cap:"Zaadcellen ontstaan in de zaadbal en rijpen in de bijbal."},{cap:"Bij een zaadlozing: door de zaadleider omhoog, achter de blaas langs."},{cap:"Vocht van de zaadblaasjes en de prostaat komt erbij; via de urinebuis naar buiten."}],
-  (st,s,i)=>st.innerHTML=ROUTE({hl:[["zaadbal","bijbal"],["zaadleider"],["zaadblaasjes","prostaat","urinebuis"]][i]})),
+<p>Zaadcellen ontstaan door meiose in de buisjes van de <b>zaadballen</b>, in de balzak. Bij een zaadlozing gaan ze door een reeks buizen naar buiten. Onderweg komen er klieren bij die vocht toevoegen: sperma bestaat uit zaadcellen én vocht.</p>
+<p>Bij de man gebruiken urine en sperma dezelfde buis naar buiten, maar niet tegelijk.</p>`,
 films:[F.org,F.anti]};
-const STOF_HORM={titel:"Het startsein en testosteron",html:`
-<p>De <b>hypothalamus</b>, een deel van de hersenen, geeft stoten <b>GnRH</b> af. Daarop maakt de <b>hypofyse</b> meer FSH en LH. Die hormonen gaan met het bloed door het hele lichaam, maar alleen de zaadballen (of eierstokken) hebben er receptoren voor.</p>
-<p>De zaadballen maken dan <b>testosteron</b> en zaadcellen. Testosteron gaat met het <b>bloed</b> naar het hele lichaam en zorgt in de puberteit voor de secundaire geslachtskenmerken: baardgroei, bredere schouders, sterkere spieren, een lagere stem.</p>`,
+const STOF_HORM={titel:"Hormonen",html:`
+<p>Hormonen worden door een klier aan het <b>bloed</b> afgegeven en gaan zo door het hele lichaam. Ze werken alleen op cellen die er een <b>receptor</b> voor hebben.</p>`,
 films:[F.org]};
 
 const h1=vraag(2,"het startsein voor testosteron",(q,id)=>{
@@ -32,7 +28,7 @@ const h1=vraag(2,"het startsein voor testosteron",(q,id)=>{
   q.append(el("p",{class:"qtext"},B("Geef bij elke stap aan welk orgaan dit doet.")));
   const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
   seqStep(think,{q:"Zet de stappen in de goede volgorde. Tik ze aan van eerst naar laatst.",items:["stoten GnRH","FSH en LH in het bloed","testosteron in het bloed"],shown:[2,0,1],
-    ok:"Goed: hersenen → klier onder de hersenen → zaadbal. Welk orgaan hoort bij elke stap?",onDone:unlock});
+    ok:"Goed. Welk orgaan hoort bij elke stap?",onDone:unlock});
   selectAnswer(ans,{id,uid:"q"+id,rows:[["geeft stoten GnRH af",["hypothalamus","hypofyse","zaadbal","bijbal"],0],["maakt FSH en LH",["hypothalamus","hypofyse","zaadbal","bijbal"],1],["maakt testosteron",["hypothalamus","hypofyse","zaadbal","bijbal"],2]],
     score:n=>n===3?2:n===2?1:0,
     after:()=>waaromBtn(ans,textBox("De <b>hypothalamus</b> geeft het startsein met GnRH, de <b>hypofyse</b> maakt dan FSH en LH, en de <b>zaadballen</b> maken testosteron. Drie goed: 2 punten, twee goed: 1 punt."))});
@@ -68,7 +64,7 @@ const h4=vraag(1,"nog weken zaadcellen",(q,id)=>{
   pre(q,"<p>De uroloog zegt dat Bas pas na minstens drie maanden en 25 zaadlozingen zijn sperma moet laten controleren. Tot die tijd moet het stel nog een andere vorm van anticonceptie gebruiken.</p>");
   const {think,ans,unlock}=start(q,B("Wat is daarvan de reden?"));
   choiceStep(think,{q:"Blijven de zaadballen na de sterilisatie zaadcellen maken?",opts:["ja, die worden door het lichaam opgeruimd","nee, ze stoppen meteen","nee, maar pas na drie maanden"],right:0,
-    ok:"Ja, dat staat in de folder. Maar die zaadcellen komen de knip niet voorbij. Waar zitten dan de zaadcellen die nog wél naar buiten kunnen?",no:"In de inleiding staat wat er met de zaadcellen gebeurt die nog gemaakt worden.",onDone:unlock});
+    ok:"Ja, dat staat in de folder. Kies nu het antwoord.",no:"In de inleiding staat wat er met de zaadcellen gebeurt die nog gemaakt worden.",onDone:unlock});
   mc(ans,{qid:id,pts:1,right:1,opts:["De zaadballen hebben een paar maanden nodig om te stoppen met het maken van zaadcellen.","Er zitten nog zaadcellen in het deel van de route dat ná de knip ligt.","De prostaat maakt ook zaadcellen; die moeten eerst opgebruikt zijn.","Zaadcellen zwemmen in het begin nog langs de knip."],
     onChecked:()=>waaromBtn(ans,b=>{b.append(el("div",{class:"model"},"In de zaadleider na de knip en bij de zaadblaasjes liggen nog zaadcellen die er al vóór de operatie waren. Die komen bij de volgende zaadlozingen naar buiten. A klopt niet: de zaadballen blijven zaadcellen maken, maar die komen de knip niet voorbij en worden opgeruimd. Verder: de prostaat maakt geen zaadcellen (C) en een knip met een weggehaald stukje kunnen ze niet passeren (D). Het antwoord is <b>B</b>."));b.insertAdjacentHTML("beforeend",ROUTE({knip:true,stip:true}));})});
   q.append(think,ans);
@@ -101,15 +97,15 @@ const STOF_RK={titel:"De regelkring van hypothalamus, hypofyse en zaadbal",html:
 <p>Een storing zoek je schakel voor schakel: welke schakel werkt niet, en wat gebeurt er dan met de schakels erna?</p>`,
 films:[F.baby,F.org]};
 
-const c1=vraag(2,"bloedwaarden vergelijken",(q,id)=>{
+const c1=vraag(1,"bloedwaarden vergelijken",(q,id)=>{
   pre(q,"<p>Het syndroom van Kallmann moet worden onderscheiden van een aandoening waarbij de zaadballen zelf niet werken, bijvoorbeeld na een ernstige ontsteking.</p>");
   const {think,ans,unlock}=start(q,B("Welke bloedwaarden passen bij Sem, en welke bij een man bij wie de zaadballen niet werken?"));
   choiceStep(think,{q:"Bij Sem komt er geen GnRH bij de hypofyse. Wat doet de hypofyse dan?",opts:["veel LH maken, om het lage testosteron te compenseren","weinig LH maken, want het signaal om LH te maken ontbreekt"],right:1,
     ok:"Ja. Zonder GnRH maakt de hypofyse weinig LH, ook al is het testosteron laag. En bij de man met de kapotte zaadballen?",no:"De hypofyse kan alleen reageren op een laag testosteron als de hypothalamus GnRH kan geven.",
     onDone:()=>choiceStep(think,{q:"De zaadballen maken geen testosteron, maar hypothalamus en hypofyse werken wel. Wat gebeurt er met LH?",opts:["LH stijgt: de rem van testosteron valt weg","LH daalt: er is geen testosteron om LH aan te zetten"],right:0,
       ok:"Goed. Zoek nu het antwoord dat bij allebei past.",no:"Testosteron remt de hypothalamus en de hypofyse. Wat gebeurt er als die rem wegvalt?",onDone:unlock})});
-  mc(ans,{qid:id,pts:2,right:1,opts:["Sem: LH laag en testosteron laag. Zaadballen werken niet: LH laag en testosteron laag.","Sem: LH laag en testosteron laag. Zaadballen werken niet: LH hoog en testosteron laag.","Sem: LH hoog en testosteron laag. Zaadballen werken niet: LH hoog en testosteron laag.","Sem: LH hoog en testosteron laag. Zaadballen werken niet: LH laag en testosteron laag."],
-    onChecked:()=>waaromBtn(ans,textBox("Bij Sem ontbreekt de eerste schakel (GnRH). De hypofyse krijgt geen signaal, dus <b>LH laag</b>, en dan maken de zaadballen ook weinig <b>testosteron</b>. Bij kapotte zaadballen werken hypothalamus en hypofyse wel. Er is geen testosteron dat remt, dus de hypofyse maakt juist <b>veel LH</b> (negatieve terugkoppeling valt weg). Het antwoord is <b>B</b>. Wie C kiest, vergeet dat de hypofyse zonder GnRH niet kan reageren op het lage testosteron."))});
+  mc(ans,{qid:id,pts:1,right:1,opts:["Sem: LH laag en testosteron laag. Zaadballen werken niet: LH laag en testosteron laag.","Sem: LH laag en testosteron laag. Zaadballen werken niet: LH hoog en testosteron laag.","Sem: LH hoog en testosteron laag. Zaadballen werken niet: LH hoog en testosteron laag.","Sem: LH hoog en testosteron laag. Zaadballen werken niet: LH laag en testosteron laag."],
+    onChecked:()=>waaromBtn(ans,textBox("Bij Sem ontbreekt de eerste schakel (GnRH). De hypofyse krijgt geen signaal, dus <b>LH laag</b>, en dan maken de zaadballen ook weinig <b>testosteron</b>. Bij zaadballen die niet werken, werken hypothalamus en hypofyse wel. Er is geen testosteron dat remt, dus de hypofyse maakt juist <b>veel LH</b> (negatieve terugkoppeling valt weg). Het antwoord is <b>B</b>. Wie C kiest, vergeet dat de hypofyse zonder GnRH niet kan reageren op het lage testosteron."))});
   q.append(think,ans);
 },STOF_RK);
 
@@ -149,23 +145,23 @@ const c3=vraag(2,"aanleg normaal, groei te weinig",(q,id)=>{
 },STOF_FOETUS);
 
 const STOF_MEI={titel:"Meiose bij de man",html:`
-<p>Meiose bestaat uit twee delingen na één keer DNA kopiëren. In <b>meiose I</b> komen de homologe chromosomen als paren tegen elkaar te liggen, wisselen stukken uit en gaan uit elkaar. In <b>meiose II</b> gaan de chromatiden uit elkaar, net als bij de mitose.</p>
+<p>Meiose bestaat uit twee delingen na één keer DNA kopiëren. Het resultaat zijn <b>haploïde</b> cellen (n).</p>
 <p>Tel chromosomen aan de centromeren: een X-vormig chromosoom met twee chromatiden is één chromosoom.</p>
-<p>Bij een man ontstaan zaadcellen vanaf de puberteit elke dag opnieuw, in de zaadbuisjes. Bij een vrouw verloopt de deling scheef.</p>`,
+<p>Bij een man ontstaan zaadcellen vanaf de puberteit elke dag opnieuw, in de zaadbuisjes.</p>`,
 films:[F.cel]};
 const c4=vraag(2,"juist of onjuist: zaadcellen maken",(q,id)=>{
   pre(q,"<p>Daarna krijgt Sem een behandeling met injecties met hCG en FSH. Na ruim een jaar bevat zijn sperma zaadcellen. Over de vorming van zaadcellen in Sems zaadbuisjes worden drie uitspraken gedaan:</p>");
   q.append(el("p",{class:"qtext"},"1 Tijdens meiose I worden de homologe chromosomen van elkaar gescheiden.<br>2 Na meiose I heeft elke cel 46 chromosomen, elk met één chromatide.<br>3 Uit één cel die aan de meiose begint, ontstaan bij een man vier zaadcellen.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
   const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
-  numStep(think,{uid:"q"+id+"n",q:"Een cel begint aan meiose I met 46 chromosomen, elk met twee chromatiden. In meiose I gaan de paren uit elkaar. Hoeveel chromosomen heeft elke cel daarna?",right:23,
-    ok:"Ja: 23 chromosomen, en elk heeft nog twee chromatiden. Het halveren gebeurt dus al in meiose I.",no:"Er zijn 23 paren. Van elk paar gaat één chromosoom naar elke kant.",onDone:unlock});
+  numStep(think,{uid:"q"+id+"n",q:"Een cel begint aan de meiose met 46 chromosomen, elk met twee chromatiden. Hoeveel chromosomen heeft elke cel na meiose I?",right:23,
+    ok:"Ja: 23. Bekijk nu uitspraak 2.",no:"Tel aan de centromeren. Denk aan wat haploïd betekent, en wanneer de cel dat wordt.",onDone:unlock});
   juistOnjuist(ans,{id,stm:["in meiose I gaan homologe chromosomen uit elkaar","na meiose I: 46 chromosomen met één chromatide","bij een man ontstaan vier zaadcellen"],key:[true,false,true],
     uitleg:textBox("1 <b>juist</b>: in meiose I gaan de paren uit elkaar.<br>2 <b>onjuist</b>: na meiose I heeft elke cel 23 chromosomen, elk nog met twee chromatiden. De cel is dus al haploïd.<br>3 <b>juist</b>: bij een man ontstaan vier zaadcellen; bij een vrouw één grote eicel.")});
   q.append(think,ans);
 },STOF_MEI);
 
 opgave("Kallmann","Geen GnRH: het syndroom van Kallmann",`
-<p>Sem is 17 jaar. Hij heeft nog geen baardgroei, zijn stem is niet gezakt en zijn zaadballen zijn klein. Ook ruikt hij vrijwel niets. De endocrinoloog stelt vast dat Sem het syndroom van Kallmann heeft. Dit komt voor bij ongeveer 1 op de 8000 mannen en 1 op de 40.000 vrouwen.</p>
+<p>Sem is 17 jaar. Hij heeft nog geen baardgroei, zijn stem is niet gezakt en zijn zaadballen zijn klein. Ook ruikt hij vrijwel niets. De endocrinoloog stelt vast dat Sem het syndroom van Kallmann heeft. Dit komt voor bij ongeveer 1 op de 30.000 mannen en 1 op de 120.000 vrouwen.</p>
 <p>Tijdens de embryonale ontwikkeling ontstaan de zenuwcellen die GnRH maken in het reukslijmvlies van de neus. Van daaruit trekken ze langs de reukzenuwen naar de hypothalamus. Bij het syndroom van Kallmann mislukt die tocht: in de hypothalamus komen geen GnRH-producerende cellen aan, en ook de reukkolven ontwikkelen zich niet goed.</p>
 <p>Bij mannen stimuleert LH de Leydigcellen tussen de zaadbuisjes tot de productie van testosteron. Voor de vorming van zaadcellen in de zaadbuisjes zijn FSH en een hoge testosteronconcentratie in de zaadbal nodig.</p>
 <p class="muted" style="font-size:14px">Sem is een fictieve patiënt.</p>`,[c1,c2,c3,c4]);
