@@ -38,6 +38,8 @@
 
 **Palynoloog** (± 50, zonder naam) · vast: palynoloog, stuifmeeldeskundige (grijsblond halflang haar, labjas over een groene kabeltrui, leesbril op het hoofd, preparaatdoosje), castvel goedgekeurd door Kamiel 2 nov 2026 (`personages/vellen/vel-nl-3-palynoloog.webp`). Gebeurd: herkent het stuifmeel op de schoen van de verdachte in de inbraakzaak (Forensisch onderzoek 4, Stille getuigen). Grenzen: alleen in haar eigen vak; in beeld en stem alleen 'de palynoloog', geen naam.
 
+**Mariene bioloog** (± 40, zonder naam) · vast: mariene bioloog, begeleider van Sam in Wat word jij? · Mariene biologie (Indisch-Nederlands, zwarte lage paardenstaart, rood-oranje werkjas, tealkleurige trui, gele laarzen, navy muts; in het lab labjas), castvel goedgekeurd door Kamiel 3 nov 2026 (`personages/vellen/vel-nl-4-mariene-bioloog.webp`). Gebeurd: nog niets. Grenzen: alleen in haar eigen vak; in beeld en stem alleen het vak, geen naam.
+
 **Joost** (55) · vast: figurant (verre familie, buurman, iemand uit een onderzoek). Gebeurd: buurman met kippen in de tuin; in zijn eieren zit PFAS, onderzocht door Milieukundige Iris (Milieukunde 1, 31 okt 2026; geen schuld of ziekte); cliënt van Diëtist Hanneke in Voeding en diëtetiek 1–2 (outfit `spreekuur`: iets vollere romp, geen karikatuur); heeft een kleindochter, op een foto op zijn telefoon (castboek Fleur, Kamiel akkoord 26 okt 2026); Erik is zijn buurman (Voeding 2). Grenzen: geen diagnose of streefgewicht als vast kenmerk; zijn gewicht nooit als getal in beeld.
 
 **Esra** (29) · vast: zwanger van haar eerste kind, cliënte van Mirjam, los van Noors familie. Gebeurd: loopt door Verloskunde 1–5. Grenzen: geen familie van Noor.
