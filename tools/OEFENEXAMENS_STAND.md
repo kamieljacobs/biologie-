@@ -1,6 +1,6 @@
 # Oefenexamens: stand en vervolg
 
-Bijgewerkt: 2 nov 2026. Werkwijze: `tools/OEFENEXAMEN_PROMPT.md` (v2). Briefs voor helpers: `scripts/oefenexamen/BRIEF.md` (bouwen) en `scripts/oefenexamen/CONTROLE.md` (frisse controle).
+Bijgewerkt: 3 nov 2026. Werkwijze: `tools/OEFENEXAMEN_PROMPT.md` (v2). Briefs voor helpers: `scripts/oefenexamen/BRIEF.md` (bouwen) en `scripts/oefenexamen/CONTROLE.md` (frisse controle).
 
 ## Op de site (gecontroleerd)
 
@@ -30,12 +30,16 @@ Bijgewerkt: 2 nov 2026. Werkwijze: `tools/OEFENEXAMEN_PROMPT.md` (v2). Briefs vo
 | vwo 2023-II | 39 | 70 | 1,3 |
 | havo 2024-II | 48 | 73 | 1,2 |
 | vwo 2024-II | 41 | 70 | 1,5 |
+| havo 2019-I | 43 | 77 | 0,8 (aanvulling CV vraag 5 en 30 verwerkt) |
+| havo 2019-II | 47 | 80 | 1,0 |
+| vwo 2019-I | 39 | 71 | 0,9 (aanvulling CV vraag 6; vraag 22 vervalt, iedereen 2p) |
+| vwo 2019-II | 38 | 71 | 1,1 (aanvulling CV vraag 26 verwerkt) |
 
 Kijk in `HOOFDSTUKKEN.examens.tools` in index.html welke er al staan.
 
 ## Nog te doen
 
-2019-I/II, 2018-I/II (vwo 2018-II heeft al een bespreekfilm, mag ook als oefenexamen). Kamiel 2 nov 2026: per jaar (of per paar examens) een nieuwe chat.
+2018-I/II, havo en vwo (vwo 2018-II heeft al een bespreekfilm, mag ook als oefenexamen). Daarmee zijn alle examens 2018–2026 klaar. Kamiel 2 nov 2026: per jaar (of per paar examens) een nieuwe chat.
 
 ## Prompt voor een nieuwe chat
 
@@ -51,4 +55,8 @@ Kijk in `HOOFDSTUKKEN.examens.tools` in index.html welke er al staan.
 6. Werk dit bestand bij.
 
 Lessen uit 2023 (2 nov 2026): twee bouwers zetten grafieken en schema's als pdf-uitsnede in de tool; de controleur moest ze natekenen. Vraag de controleur daar altijd naar. Een backup `frag/opg<N>.bak.js` breekt `samenvoegen.py` (pakt elk `opg*.js`): backups buiten `frag/`.
+Twijfels voor Kamiel uit 2019 (3 nov 2026): havo 2019-II vraag 32 ('maximaal één fout in de volgorde' gelezen als: zes van de zeven op de goede plek); vwo 2019-I vraag 21 (alles wit = 0, eigen lezing) en afbeelding 2/3 van opgave 1 als afbeelding (anatomische tekeningen); vwo 2019-II vraag 12 afbeelding 3 als schema met vier cirkels nagetekend.
+
+Lessen 2019 (3 nov 2026): de site-repo is te groot voor een gewone clone binnen 10 min (afgebroken). Werkt wel: `git clone --depth 1 --filter=blob:none --sparse …` en `git sparse-checkout set --no-cone '/*' '!/films/' '!/bibliotheek/' '!/audio/' '!/video/'`. In zo'n clone `git write-tree --missing-ok` gebruiken (anders haalt hij alle ontbrekende bestanden op en lijkt hij te hangen); committen met een eigen index (`GIT_INDEX_FILE`, `read-tree origin/main`, `update-index --cacheinfo`, `commit-tree`) en `git push origin <commit>:refs/heads/main`. Schrijven via de GitHub-API (`gh api … git/blobs`) wordt door de proxy geweigerd. `licentie_noot.py`/`teller.py` falen op ontbrekende bestanden in de sparse clone, maar het geraamte zet licentie en teller al in de tool. Helpers hadden geen Agent-tool en bouwden en controleerden zelf; de frisse controleur vond toch nog in elk examen iets (uitleg die het antwoord weggaf, twee nakijkregels bij vwo 2019-I).
+
 7. Lessen 2021 (2 nov 2026): helpers delen de scratchpad en overschreven elkaars tussenbestanden (een helper dacht daardoor dat een pdf van het verkeerde tijdvak was). Zeg in elke brief: tussenbestanden alleen in de eigen werkmap. `vragen.md` in toetsen-biologie kan antwoordmodellen bij de verkeerde vraag hebben (havo 2021-I rond 5–6 en 35–36): nakijken altijd op de CV-pdf. Tussendoor veiligstellen zonder de werkboom te raken kan met een eigen index (`GIT_INDEX_FILE`, `read-tree origin/main`, `add`, `commit-tree`, `push … :refs/heads/wip-oefenexamens`).
