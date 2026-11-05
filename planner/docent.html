@@ -24,6 +24,7 @@
 .p-balk{height:6px;border-radius:3px;background:var(--line2);overflow:hidden;max-width:320px}
 .p-balk i{display:block;height:100%;background:var(--groen)}
 .p-knoppen{display:flex;flex-wrap:wrap;gap:8px}
+.p-link{width:100%;max-width:640px;font:500 14px/1.3 var(--meta);background:var(--bg);color:var(--text2);border:1px solid var(--line2);border-radius:10px;padding:8px 10px}
 .p-knoppen .knop.gevaar{border-color:var(--koraal);color:var(--koraal)}
 </style>
 </head>
@@ -113,6 +114,11 @@ function teken() {
     }
     kaart.appendChild(feiten);
     if (p && totaal) { const balk = document.createElement('div'); balk.className = 'p-balk'; const i = document.createElement('i'); i.style.width = Math.min(100, Math.round(100 * gezien / totaal)) + '%'; balk.appendChild(i); kaart.appendChild(balk); }
+    if (p) {
+      const veld = document.createElement('input'); veld.className = 'p-link'; veld.readOnly = true; veld.value = linkVoor(code);
+      veld.setAttribute('aria-label', 'Link van ' + id); veld.addEventListener('focus', () => veld.select());
+      kaart.appendChild(veld);
+    }
     const rij = document.createElement('div'); rij.className = 'p-knoppen';
     if (!p) {
       if (prof) rij.appendChild(knop('Maak link', async () => {

@@ -12,6 +12,8 @@
 import { FIREBASE, DOCENT_UID } from './config.js';
 
 const SDK = 'https://www.gstatic.com/firebasejs/13.0.0/';
+// Vlag voor het Docent-menu op de hoofdpagina (alleen een snelkoppeling; de beveiliging zit in de databaseregels).
+const docentVlag = (aan) => { try { aan ? localStorage.setItem('bk-docent', '1') : localStorage.removeItem('bk-docent'); } catch (e) { /* geen opslag */ } };
 
 export async function maakDb() {
   const demo = !FIREBASE || new URLSearchParams(location.search).has('demo');
@@ -30,12 +32,13 @@ async function firebaseDb() {
   let gebruiker = null;
   const klaar = new Promise((ok) => { const uit = authM.onAuthStateChanged(auth, (u) => { gebruiker = u; uit(); ok(); }); });
   await klaar;
+  if (gebruiker && gebruiker.uid === DOCENT_UID) docentVlag(true);
   return {
     modus: 'firebase',
     uid: () => auth.currentUser && auth.currentUser.uid,
     isDocent: () => !!auth.currentUser && auth.currentUser.uid === DOCENT_UID,
-    async docentLogin(email, wachtwoord) { await authM.signInWithEmailAndPassword(auth, email, wachtwoord); return auth.currentUser.uid === DOCENT_UID; },
-    async uitloggen() { await authM.signOut(auth); },
+    async docentLogin(email, wachtwoord) { await authM.signInWithEmailAndPassword(auth, email, wachtwoord); const ok = auth.currentUser.uid === DOCENT_UID; if (ok) docentVlag(true); return ok; },
+    async uitloggen() { docentVlag(false); await authM.signOut(auth); },
     async leerlingLogin() {
       if (!auth.currentUser) await authM.signInAnonymously(auth);
       return auth.currentUser.uid;

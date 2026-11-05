@@ -647,6 +647,16 @@ a.extegel:hover{border-color:var(--goud);transform:translateY(-1px)}
       </details>
       <a href="vervolg.html">Wat word jij?</a>
       <a href="sessie/" class="nav-sessie">Klas live</a>
+      <details class="menu" id="docentmenu" hidden>
+        <summary>Docent</summary>
+        <div class="menu-lijst">
+          <a href="planner/docent.html"><b>Planningen</b><span>de weekplanningen van je leerlingen</span></a>
+          <a href="sessie/docent.html"><b>Klas live starten</b><span>sessie klaarzetten voor de klas</span></a>
+          <a href="sessie/review.html"><b>Films reviewen</b><span>opmerkingen per film</span></a>
+          <a href="sessie/feedback.html"><b>Feedback</b><span>wat bezoekers insturen</span></a>
+        </div>
+      </details>
+      <script>try { if (localStorage.getItem('bk-docent')) document.getElementById('docentmenu').hidden = false; } catch (e) {}</script>
     </nav>
     <div class="rechts">
       <button class="icoon" id="kunstknop" type="button"></button>
