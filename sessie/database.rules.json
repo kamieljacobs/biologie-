@@ -176,6 +176,46 @@
           ".validate": false
         }
       }
+    },
+    "planning": {
+      ".read": "auth != null && auth.uid === 'wZevu7kFPFd7iSloWPXIzyqKQ7m2'",
+      ".write": "auth != null && auth.uid === 'wZevu7kFPFd7iSloWPXIzyqKQ7m2'",
+      "$code": {
+        ".read": "$code.length >= 20",
+        ".write": "$code.length >= 20 && data.exists() && newData.exists()",
+        ".validate": "newData.hasChild('leerling')",
+        "leerling": {
+          ".validate": "newData.isString() && newData.val().length <= 20 && (newData.val() === data.val() || (auth != null && auth.uid === 'wZevu7kFPFd7iSloWPXIzyqKQ7m2'))"
+        },
+        "bijnaam": {
+          ".validate": "newData.isString() && newData.val().length <= 30"
+        },
+        "gemaakt": {
+          ".validate": "newData.isNumber()"
+        },
+        "bijgewerkt": {
+          ".validate": "newData.isNumber()"
+        },
+        "items": {
+          "$id": {
+            ".validate": "$id.length <= 40 && newData.hasChild('kind')",
+            "title": {
+              ".validate": "newData.isString() && newData.val().length <= 80"
+            },
+            "note": {
+              ".validate": "newData.isString() && newData.val().length <= 200"
+            }
+          }
+        },
+        "gezien": {
+          "$k": {
+            ".validate": "newData.val() === true && $k.length <= 120"
+          }
+        },
+        "$anders": {
+          ".validate": false
+        }
+      }
     }
   }
 }

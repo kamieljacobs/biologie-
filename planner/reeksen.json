@@ -1,0 +1,616 @@
+{
+ "natuurkunde": {
+  "naam": "Natuurkunde",
+  "bron": "Gewoon Uitgelegd",
+  "films": [
+   {
+    "titel": "Bewegingsgrafieken",
+    "min": 12,
+    "vraag": "Wat weet een trajectcontrole?",
+    "onderwerp": "Beweging en kracht",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/bewegingsgrafieken/"
+   },
+   {
+    "titel": "Vallen",
+    "min": 21,
+    "vraag": "Waarom gaat vallen steeds sneller?",
+    "onderwerp": "Beweging en kracht",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/vallen/"
+   },
+   {
+    "titel": "Wetten van Newton",
+    "min": 12,
+    "vraag": "Waarom moet je blijven trappen?",
+    "onderwerp": "Beweging en kracht",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/wetten-van-newton/"
+   },
+   {
+    "titel": "Luchtweerstand",
+    "min": 18,
+    "vraag": "Waarom val je niet steeds sneller?",
+    "onderwerp": "Beweging en kracht",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/luchtweerstand/"
+   },
+   {
+    "titel": "Actie en reactie",
+    "min": 19,
+    "vraag": "Beide teams trekken even hard. Wie wint?",
+    "onderwerp": "Beweging en kracht",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/actie-en-reactie/"
+   },
+   {
+    "titel": "Krachten ontbinden",
+    "min": 21,
+    "vraag": "Waarom krijg je een waslijn nooit recht?",
+    "onderwerp": "Beweging en kracht",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/krachten-ontbinden/"
+   },
+   {
+    "titel": "Arbeid",
+    "min": 17,
+    "vraag": "Twee keer zo hard, vier keer de remweg. Hoe?",
+    "onderwerp": "Energie en warmte",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/arbeid/"
+   },
+   {
+    "titel": "Energiebehoud",
+    "min": 19,
+    "vraag": "Waarom is de eerste heuvel altijd de hoogste?",
+    "onderwerp": "Energie en warmte",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/energiebehoud/"
+   },
+   {
+    "titel": "Vermogen",
+    "min": 21,
+    "vraag": "Hoeveel boterhammen kost de Alpe d'Huez?",
+    "onderwerp": "Energie en warmte",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/vermogen/"
+   },
+   {
+    "titel": "Cirkelbeweging",
+    "min": 19,
+    "vraag": "Wie duwt je in de bocht tegen het portier?",
+    "onderwerp": "Zonnestelsel en heelal",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/cirkelbeweging/"
+   },
+   {
+    "titel": "Gravitatie",
+    "min": 24,
+    "vraag": "Waarom zweven astronauten?",
+    "onderwerp": "Zonnestelsel en heelal",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/gravitatie/"
+   },
+   {
+    "titel": "Ontsnappingssnelheid",
+    "min": 16,
+    "vraag": "Hoe hard gooi je een steen voorgoed weg?",
+    "onderwerp": "Zonnestelsel en heelal",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/ontsnappingssnelheid/"
+   },
+   {
+    "titel": "Wet van Wien",
+    "min": 19,
+    "vraag": "Rode ster, blauwe ster. Welke is het heetst?",
+    "onderwerp": "Zonnestelsel en heelal",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/wet-van-wien/"
+   },
+   {
+    "titel": "HR-diagram",
+    "min": 20,
+    "vraag": "Hoe meet je een ster die een stipje blijft?",
+    "onderwerp": "Zonnestelsel en heelal",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/hr-diagram/"
+   },
+   {
+    "titel": "Kernfusie in de zon",
+    "min": 29,
+    "vraag": "Waarom is de zon nog niet opgebrand?",
+    "onderwerp": "Zonnestelsel en heelal",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/kernfusie/"
+   },
+   {
+    "titel": "Trillingen",
+    "min": 15,
+    "vraag": "Hoeveel loopt je pols achter op je hart?",
+    "onderwerp": "Trillingen en golven",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/trillingen/"
+   },
+   {
+    "titel": "Massa-veersysteem",
+    "min": 25,
+    "vraag": "Drie keer zo ver, even lang. Hoe kan dat?",
+    "onderwerp": "Trillingen en golven",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/massa-veersysteem/"
+   },
+   {
+    "titel": "Golven",
+    "min": 19,
+    "vraag": "Niemand loopt mee. Wat gaat er dan rond?",
+    "onderwerp": "Trillingen en golven",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/golven/"
+   },
+   {
+    "titel": "Staande golven",
+    "min": 19,
+    "vraag": "Even lange buis, veel lagere toon. Hoe?",
+    "onderwerp": "Trillingen en golven",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/staande-golven/"
+   },
+   {
+    "titel": "Dopplereffect",
+    "min": 20,
+    "vraag": "De sirene zakt, maar niet voor de chauffeur",
+    "onderwerp": "Trillingen en golven",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/dopplereffect/"
+   },
+   {
+    "titel": "Interferentie",
+    "min": 23,
+    "vraag": "Hoe kan geluid plus geluid stil zijn?",
+    "onderwerp": "Trillingen en golven",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/interferentie/"
+   },
+   {
+    "titel": "Lenzen en het oog",
+    "min": 18,
+    "vraag": "Waarom zie je onscherp onder water?",
+    "onderwerp": "Trillingen en golven",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/lenzen-en-het-oog/"
+   },
+   {
+    "titel": "Radioactiviteit",
+    "min": 24,
+    "vraag": "Tegen te houden met papier, en toch dodelijk",
+    "onderwerp": "Straling en scans",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/radioactiviteit/"
+   },
+   {
+    "titel": "Halveringstijd",
+    "min": 22,
+    "vraag": "Hoe weet een kern wanneer hij aan de beurt is?",
+    "onderwerp": "Straling en scans",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/halveringstijd/"
+   },
+   {
+    "titel": "Stralingsdosis",
+    "min": 25,
+    "vraag": "CT-scan of vlucht: wat geeft meer straling?",
+    "onderwerp": "Straling en scans",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/stralingsdosis/"
+   },
+   {
+    "titel": "Halveringsdikte",
+    "min": 22,
+    "vraag": "Waarom is bot wit op een röntgenfoto?",
+    "onderwerp": "Straling en scans",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/halveringsdikte/"
+   },
+   {
+    "titel": "Echografie",
+    "min": 19,
+    "vraag": "Hoe maak je een beeld van geluid?",
+    "onderwerp": "Straling en scans",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/echografie/"
+   },
+   {
+    "titel": "Medische scans",
+    "min": 17,
+    "vraag": "Waarom krijgt niet iedereen de beste scan?",
+    "onderwerp": "Straling en scans",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/medische-scans/"
+   },
+   {
+    "titel": "Elektrische stroom",
+    "min": 18,
+    "vraag": "Elektronen kruipen. Waarom is er meteen licht?",
+    "onderwerp": "Elektriciteit en magnetisme",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/elektrische-stroom/"
+   },
+   {
+    "titel": "Weerstand",
+    "min": 19,
+    "vraag": "Waarom gloeit de toaster en het snoer niet?",
+    "onderwerp": "Elektriciteit en magnetisme",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/weerstand/"
+   },
+   {
+    "titel": "Schakelingen",
+    "min": 19,
+    "vraag": "Eén lampje los, en de hele slinger is uit",
+    "onderwerp": "Elektriciteit en magnetisme",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/schakelingen/"
+   },
+   {
+    "titel": "Sensorschakelingen",
+    "min": 18,
+    "vraag": "Hoe weet een lantaarnpaal dat het donker is?",
+    "onderwerp": "Elektriciteit en magnetisme",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/sensorschakelingen/"
+   },
+   {
+    "titel": "Elektrisch vermogen",
+    "min": 20,
+    "vraag": "Oven aan, licht uit. Waarom?",
+    "onderwerp": "Elektriciteit en magnetisme",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/elektrisch-vermogen/"
+   },
+   {
+    "titel": "Elektrisch veld",
+    "min": 21,
+    "vraag": "Waarom plakt een ballon aan de muur?",
+    "onderwerp": "Elektriciteit en magnetisme",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/elektrisch-veld/"
+   },
+   {
+    "titel": "Versnellen met spanning",
+    "min": 21,
+    "vraag": "Röntgenstraling uit het stopcontact. Hoe?",
+    "onderwerp": "Elektriciteit en magnetisme",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/versnellen-met-spanning/"
+   },
+   {
+    "titel": "Magnetisme",
+    "min": 25,
+    "vraag": "Hoe zet je een magneet uit?",
+    "onderwerp": "Elektriciteit en magnetisme",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/magnetisme/"
+   },
+   {
+    "titel": "Magnetische krachten",
+    "min": 22,
+    "vraag": "Waar zit de kracht van een magneet?",
+    "onderwerp": "Elektriciteit en magnetisme",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/magnetische-krachten/"
+   },
+   {
+    "titel": "Lorentzkracht",
+    "min": 22,
+    "vraag": "Waarom ligt het noorderlicht in een ring?",
+    "onderwerp": "Elektriciteit en magnetisme",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/lorentzkracht/"
+   },
+   {
+    "titel": "Inductie",
+    "min": 22,
+    "vraag": "Waarom valt een magneet traag door koper?",
+    "onderwerp": "Elektriciteit en magnetisme",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/inductie/"
+   },
+   {
+    "titel": "Richtingregels",
+    "min": 10,
+    "vraag": "Al die handregels: heb je ze echt nodig?",
+    "onderwerp": "Elektriciteit en magnetisme",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/richtingregels/"
+   },
+   {
+    "titel": "Licht als golf",
+    "min": 23,
+    "vraag": "Zilveren folie, alle kleuren. Hoe kan dat?",
+    "onderwerp": "Quantumwereld",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/licht-als-golf/"
+   },
+   {
+    "titel": "Fotonen",
+    "min": 18,
+    "vraag": "Waarom verbrandt uv je, en een kachel niet?",
+    "onderwerp": "Quantumwereld",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/fotonen/"
+   },
+   {
+    "titel": "Materiegolven",
+    "min": 21,
+    "vraag": "Waarom zie je een virus niet met licht?",
+    "onderwerp": "Quantumwereld",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/materiegolven/"
+   },
+   {
+    "titel": "Quantisatie",
+    "min": 24,
+    "vraag": "Waarom is een tomaat rood?",
+    "onderwerp": "Quantumwereld",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/quantisatie/"
+   },
+   {
+    "titel": "Tunnelen",
+    "min": 21,
+    "vraag": "Hoe fotografeer je één atoom?",
+    "onderwerp": "Quantumwereld",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/tunnelen/"
+   },
+   {
+    "titel": "Spectraallijnen",
+    "min": 23,
+    "vraag": "Waarom heeft elk gas zijn eigen kleuren?",
+    "onderwerp": "Quantumwereld",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/spectraallijnen/"
+   },
+   {
+    "titel": "Halfgeleiders",
+    "min": 25,
+    "vraag": "Waarom geleidt een warme NTC juist beter?",
+    "onderwerp": "Quantumwereld",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/halfgeleiders/"
+   },
+   {
+    "titel": "Ferromagnetisme",
+    "min": 28,
+    "vraag": "Waarom hangt het mes wel, en de lepel niet?",
+    "onderwerp": "Quantumwereld",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/ferromagnetisme/"
+   },
+   {
+    "titel": "Significante cijfers",
+    "min": 9,
+    "vraag": "Hoeveel cijfers van je antwoord zijn waar?",
+    "onderwerp": "Meten en rekenen",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/significante-cijfers/"
+   },
+   {
+    "titel": "Helling en oppervlakte",
+    "min": 9,
+    "vraag": "Hoe haal je een kracht uit een grafiek?",
+    "onderwerp": "Meten en rekenen",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/helling-en-oppervlakte/"
+   },
+   {
+    "titel": "Afleiden",
+    "min": 17,
+    "vraag": "Leid af, zonder één getal. Waar begin je?",
+    "onderwerp": "Meten en rekenen",
+    "url": "https://gewoonuitgelegd.nl/natuurkunde/afleiden/"
+   }
+  ]
+ },
+ "biologie-ecologie-evolutie": {
+  "naam": "Biologie",
+  "bron": "Biologie bij Kamiel",
+  "films": [
+   {
+    "titel": "Hoeveel passen er?",
+    "min": 13,
+    "vraag": "Hoeveel bevers passen er in Nederland?",
+    "onderwerp": "Ecologie",
+    "url": "https://kamieljacobs.github.io/biologie-/films/ecologie/1-hoeveel-passen-er.html"
+   },
+   {
+    "titel": "Waar past een soort?",
+    "min": 11,
+    "vraag": "Waarom leven er in de ene beek wel steenvlieglarven en in de andere niet?",
+    "onderwerp": "Ecologie",
+    "url": "https://kamieljacobs.github.io/biologie-/films/ecologie/2-waar-past-een-soort.html"
+   },
+   {
+    "titel": "Wie eet wie?",
+    "min": 11,
+    "vraag": "Waarom eet een vos de konijnen nooit allemaal op?",
+    "onderwerp": "Ecologie",
+    "url": "https://kamieljacobs.github.io/biologie-/films/ecologie/3-wie-eet-wie.html"
+   },
+   {
+    "titel": "Waar blijft het blad?",
+    "min": 9,
+    "vraag": "Waar blijven alle herfstbladeren?",
+    "onderwerp": "Ecologie",
+    "url": "https://kamieljacobs.github.io/biologie-/films/ecologie/4-waar-blijft-het-blad.html"
+   },
+   {
+    "titel": "Waarom zo weinig roofdieren?",
+    "min": 10,
+    "vraag": "Waarom zijn er zo weinig roofdieren?",
+    "onderwerp": "Ecologie",
+    "url": "https://kamieljacobs.github.io/biologie-/films/ecologie/5-waarom-zo-weinig-roofdieren.html"
+   },
+   {
+    "titel": "Koolstof gaat rond",
+    "min": 9,
+    "vraag": "Hoe komt koolstof van een varen van driehonderd miljoen jaar geleden in de lucht boven jouw straat?",
+    "onderwerp": "Ecologie",
+    "url": "https://kamieljacobs.github.io/biologie-/films/ecologie/6-koolstof-gaat-rond.html"
+   },
+   {
+    "titel": "Stikstof gaat rond",
+    "min": 12,
+    "vraag": "Waarom wordt een sloot naast een weiland groen?",
+    "onderwerp": "Ecologie",
+    "url": "https://kamieljacobs.github.io/biologie-/films/ecologie/7-stikstof-gaat-rond.html"
+   },
+   {
+    "titel": "Van zand tot bos",
+    "min": 8,
+    "vraag": "Hoe wordt kaal zand vanzelf een bos?",
+    "onderwerp": "Ecologie",
+    "url": "https://kamieljacobs.github.io/biologie-/films/ecologie/8-van-zand-tot-bos.html"
+   },
+   {
+    "titel": "Eén aarde",
+    "min": 11,
+    "vraag": "Hoeveel aardes heb jij nodig?",
+    "onderwerp": "Mens en milieu",
+    "url": "https://kamieljacobs.github.io/biologie-/films/ecologie/3-een-aarde.html"
+   },
+   {
+    "titel": "Ingrijpen of laten gaan?",
+    "min": 9,
+    "vraag": "Waarom maakt een biologische bestrijder het soms erger?",
+    "onderwerp": "Mens en milieu",
+    "url": "https://kamieljacobs.github.io/biologie-/films/ecologie/4-ingrijpen-of-laten-gaan.html"
+   },
+   {
+    "titel": "Binnen de grenzen",
+    "min": 10,
+    "vraag": "Wat als de bijen verdwijnen?",
+    "onderwerp": "Mens en milieu",
+    "url": "https://kamieljacobs.github.io/biologie-/films/ecologie/5-binnen-de-grenzen.html"
+   },
+   {
+    "titel": "Wat is evolutie eigenlijk?",
+    "min": 7,
+    "vraag": "Waarom lijken broers en zussen op elkaar, maar nooit precies?",
+    "onderwerp": "Evolutie",
+    "url": "https://kamieljacobs.github.io/biologie-/films/evolutie/1-wat-is-evolutie.html"
+   },
+   {
+    "titel": "Natuurlijke selectie",
+    "min": 7,
+    "vraag": "Waarom wint niet altijd het sterkste dier?",
+    "onderwerp": "Evolutie",
+    "url": "https://kamieljacobs.github.io/biologie-/films/evolutie/2-natuurlijke-selectie.html"
+   },
+   {
+    "titel": "Vormen van selectie",
+    "min": 7,
+    "vraag": "Waarom worden baby's niet steeds zwaarder?",
+    "onderwerp": "Evolutie",
+    "url": "https://kamieljacobs.github.io/biologie-/films/evolutie/3-vormen-van-selectie.html"
+   },
+   {
+    "titel": "De mens als selectiefactor",
+    "min": 8,
+    "vraag": "Waarom helpt een antibioticum niet tegen griep, maar maakt het wel resistentie?",
+    "onderwerp": "Evolutie",
+    "url": "https://kamieljacobs.github.io/biologie-/films/evolutie/4-de-mens-als-selectiefactor.html"
+   },
+   {
+    "titel": "Toeval en uitwisseling",
+    "min": 9,
+    "vraag": "Op één eilandje ziet een op de twintig mensen helemaal geen kleur. Hoe kan dat?",
+    "onderwerp": "Evolutie",
+    "url": "https://kamieljacobs.github.io/biologie-/films/evolutie/5-toeval-en-uitwisseling.html"
+   },
+   {
+    "titel": "Hoe één soort er twee wordt",
+    "min": 8,
+    "vraag": "Is een muilezel een soort?",
+    "onderwerp": "Evolutie",
+    "url": "https://kamieljacobs.github.io/biologie-/films/evolutie/6-hoe-een-soort-er-twee-wordt.html"
+   },
+   {
+    "titel": "Hoe weten we dat?",
+    "min": 8,
+    "vraag": "Een walvis heeft heupbotjes, maar geen poten. Waarom?",
+    "onderwerp": "Evolutie",
+    "url": "https://kamieljacobs.github.io/biologie-/films/evolutie/7-hoe-weten-we-dat.html"
+   },
+   {
+    "titel": "Stambomen lezen",
+    "min": 7,
+    "vraag": "Is een dolfijn familie van een haai?",
+    "onderwerp": "Evolutie",
+    "url": "https://kamieljacobs.github.io/biologie-/films/evolutie/8-stambomen-lezen.html"
+   },
+   {
+    "titel": "De reis van Darwin",
+    "min": 8,
+    "vraag": "Darwin had zijn idee al in 1838. Waarom verscheen zijn boek pas in 1859?",
+    "onderwerp": "Evolutie extra",
+    "url": "https://kamieljacobs.github.io/biologie-/films/evolutie/x1-de-reis-van-darwin.html"
+   },
+   {
+    "titel": "Het ontstaan van het leven",
+    "min": 8,
+    "vraag": "DNA heeft eiwitten nodig, en eiwitten hebben DNA nodig. Wat kwam er dan eerst?",
+    "onderwerp": "Evolutie extra",
+    "url": "https://kamieljacobs.github.io/biologie-/films/evolutie/x2-het-ontstaan-van-het-leven.html"
+   },
+   {
+    "titel": "Van eerste cel tot nu",
+    "min": 8,
+    "vraag": "Stel dat de hele geschiedenis van de aarde in één dag past. Hoe laat verschijnt de mens?",
+    "onderwerp": "Evolutie extra",
+    "url": "https://kamieljacobs.github.io/biologie-/films/evolutie/x3-van-eerste-cel-tot-nu.html"
+   },
+   {
+    "titel": "Hoe werden we mens?",
+    "min": 8,
+    "vraag": "Neanderthalers zijn uitgestorven. Waarom heb jij dan misschien toch een stukje van hun DNA?",
+    "onderwerp": "Evolutie extra",
+    "url": "https://kamieljacobs.github.io/biologie-/films/evolutie/x4-hoe-werden-we-mens.html"
+   },
+   {
+    "titel": "Hoe vindt een haai zijn prooi?",
+    "min": 6,
+    "vraag": "Ruikt een haai echt één druppel bloed van kilometers ver?",
+    "onderwerp": "Kerndoel: natuur",
+    "url": "https://kamieljacobs.github.io/biologie-/films/onderbouw/33c/1-hoe-vindt-een-haai-zijn-prooi/"
+   },
+   {
+    "titel": "Wie woont waar",
+    "min": 4,
+    "vraag": "Waarom leeft een ijsbeer niet in de woestijn?",
+    "onderwerp": "Kerndoel: natuur",
+    "url": "https://kamieljacobs.github.io/biologie-/films/onderbouw/33c/2-wie-woont-waar/"
+   },
+   {
+    "titel": "Wie eet wie",
+    "min": 4,
+    "vraag": "Wat gebeurt er als de wolf verdwijnt?",
+    "onderwerp": "Kerndoel: natuur",
+    "url": "https://kamieljacobs.github.io/biologie-/films/onderbouw/33c/3-wie-eet-wie/"
+   },
+   {
+    "titel": "Uit balans",
+    "min": 4,
+    "vraag": "Hoe herstelt een bos na een brand?",
+    "onderwerp": "Kerndoel: natuur",
+    "url": "https://kamieljacobs.github.io/biologie-/films/onderbouw/33c/4-uit-balans/"
+   },
+   {
+    "titel": "Wij hebben de natuur nodig",
+    "min": 4,
+    "vraag": "In een streek in China bestoven mensen appelbloesem met een kwastje. Waarom?",
+    "onderwerp": "Kerndoel: natuur",
+    "url": "https://kamieljacobs.github.io/biologie-/films/onderbouw/33c/5-wij-hebben-de-natuur-nodig/"
+   },
+   {
+    "titel": "Levenscyclus: genen en milieu",
+    "min": 4,
+    "vraag": "Lijk je op je ouders, of op je omgeving?",
+    "onderwerp": "Kerndoel: leven en erfelijkheid",
+    "url": "https://kamieljacobs.github.io/biologie-/films/onderbouw/32b/1-levenscyclus-genen-en-milieu/"
+   },
+   {
+    "titel": "Geslachtelijk en ongeslachtelijk",
+    "min": 4,
+    "vraag": "Waarom hebben de meeste dieren twee ouders?",
+    "onderwerp": "Kerndoel: leven en erfelijkheid",
+    "url": "https://kamieljacobs.github.io/biologie-/films/onderbouw/32b/2-geslachtelijk-en-ongeslachtelijk/"
+   },
+   {
+    "titel": "Waarom zoveel soorten?",
+    "min": 4,
+    "vraag": "Al het leven stamt af van een paar eenvoudige cellen. Hoe werden dat miljoenen soorten?",
+    "onderwerp": "Kerndoel: leven en erfelijkheid",
+    "url": "https://kamieljacobs.github.io/biologie-/films/onderbouw/32b/3-waarom-zoveel-soorten/"
+   },
+   {
+    "titel": "Door de mens gekozen",
+    "min": 4,
+    "vraag": "De wilde tomaat is zo klein als een erwt. Hoe werd hij zo groot?",
+    "onderwerp": "Kerndoel: leven en erfelijkheid",
+    "url": "https://kamieljacobs.github.io/biologie-/films/onderbouw/32b/4-door-de-mens-gekozen/"
+   },
+   {
+    "titel": "Celdeling",
+    "min": 4,
+    "vraag": "Je schaaft je knie. Een week later zit er gewoon nieuwe huid. Waar komt die vandaan?",
+    "onderwerp": "Kerndoel: leven en erfelijkheid",
+    "url": "https://kamieljacobs.github.io/biologie-/films/onderbouw/32b/5-celdeling/"
+   },
+   {
+    "titel": "DNA en overerving",
+    "min": 4,
+    "vraag": "Twee zwarte cavia's krijgen een wit jong. Hoe kan dat?",
+    "onderwerp": "Kerndoel: leven en erfelijkheid",
+    "url": "https://kamieljacobs.github.io/biologie-/films/onderbouw/32b/6-dna-en-overerving/"
+   },
+   {
+    "titel": "Stambomen en de grote stappen in de evolutie",
+    "min": 4,
+    "vraag": "Een vleermuis kan vliegen, net als een vogel. Is hij familie van de vogel of van de muis?",
+    "onderwerp": "Kerndoel: leven en erfelijkheid",
+    "url": "https://kamieljacobs.github.io/biologie-/films/onderbouw/32b/7-stambomen-en-de-grote-stappen/"
+   }
+  ]
+ }
+}

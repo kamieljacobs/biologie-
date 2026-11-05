@@ -13,7 +13,7 @@ files = sorted(set(files + nieuw))
 
 
 def overslaan(f):
-    return ('/bron/' in f or '/storyboards-' in f or '/_bouw/' in f or f.startswith('_') or f == 'oud.html'
+    return ('/bron/' in f or '/storyboards-' in f or '/_bouw/' in f or f.startswith('_') or f == 'oud.html' or f == 'planner/index.html'
             or f.startswith(('nieuw/', 'personages/', 'statistieken/', 'scripts/')))
 
 
