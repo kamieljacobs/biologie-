@@ -461,8 +461,7 @@ Object.assign(SCENES, {
   s07(ctx, t, q) { bg(ctx, 'schema'); const u = clamp((t - q.at('nestelt', 1)) / 4, 0, 1);
     vkA(ctx, 1); roundRect(ctx, 260, 560, 1400, 300, 40); shape(ctx, rgba(VK.spier, 0.35), rgba(VK.spier, 0.7), 2); ctx.restore(); naamBij(ctx, 'baarmoederslijmvlies', '', 300, 840, q.on('slijmvlies', 1));
     blastocyste(ctx, 960, 420 + 180 * u, 120, 1, u, t); tag(ctx, '1 week na de bevruchting', 960, 200, C.text2, q.on('week', 1), 'center', 28);
-    naamBij(ctx, 'buitenste cellen', 'worden de placenta', 1130, 420 + 180 * u, q.on('placenta', 1), 'left', C.paars); naamBij(ctx, 'groepje binnenin', 'wordt het kind', 790, 500 + 180 * u, q.on('kind', 1), 'right', C.goud);
-    tag(ctx, 'film: Van bevruchting tot baby', 1500, 200, C.teal, q.on('film', 1), 'center', 26); },
+    naamBij(ctx, 'buitenste cellen', 'worden de placenta', 1130, 420 + 180 * u, q.on('placenta', 1), 'left', C.paars); naamBij(ctx, 'groepje binnenin', 'wordt het kind', 790, 500 + 180 * u, q.on('kind', 1), 'right', C.goud); },
 
   s08(ctx, t, q) { bg(ctx, 'schema'); const d = q.on('medicijn', 1), up = q.on('herstelt', 1, 1), dn = q.on('overleeft', 1, 1);
     regel(ctx, 'de eerste twee weken', 960, 170, q.on('eerste', 1), C.text, 40, 'center', 700);

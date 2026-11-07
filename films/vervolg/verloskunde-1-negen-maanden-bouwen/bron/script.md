@@ -39,7 +39,7 @@ _Stem-invoer:_ Zo'n eerste afspraak heet de intake. Mirjam rekent de uitgerekend
 
 **s07** · audio `s07.mp3` · 16.5 s · generation `W7y75Xo8RcE89wiHpYId`
 
-Wat gebeurt er intussen in de buik? Een week na de bevruchting nestelt het blaasje van cellen zich in het baarmoederslijmvlies. Dat zag je al in de film Van bevruchting tot baby. Uit de buitenste cellen groeit de placenta. Uit een klein groepje binnenin groeit het kind.
+Wat gebeurt er intussen in de buik? Een week na de bevruchting nestelt het blaasje van cellen zich in het baarmoederslijmvlies. Uit de buitenste cellen groeit de placenta. Uit een klein groepje binnenin groeit het kind.
 
 **s08** · audio `s08.mp3` · 19.6 s · generation `xsqYlfqr9nbIjB7aOkkq`
 

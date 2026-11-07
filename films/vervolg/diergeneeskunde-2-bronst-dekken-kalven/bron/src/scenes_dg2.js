@@ -24,7 +24,7 @@ Object.assign(SCENES, {
     telefoon(ctx, 1680, 480, 1.3, q.on('melding', 1), 'koe 312 is tochtig', q.on('telefoon', 1));
     chip(ctx, 'eisprong ± een dag na het begin van de tocht', 1180, 700, C.koraal, E, 28); tag(ctx, 'op tijd insemineren', 1180, 800, C.goud, q.on('Precies', 1), 'center', 32); },
 
-  s06(ctx, t, q) { bg(ctx, 'schema'); tag(ctx, 'film: Van bevruchting tot baby', 960, 200, C.teal, Math.max(0.4, q.on('bevruchting', 1)), 'center', 28);
+  s06(ctx, t, q) { bg(ctx, 'schema');
     koeHormonen(ctx, 360, 330, 1000, 370, Math.max(0.3, q.on('FSH', 1)), clamp((t - q.at('FSH', 1)) / 4, 0, 1)); regel(ctx, 'koe · cyclus van 21 dagen', 960, 270, q.on('koe', 1), C.text, 34, 'center', 800);
     chip(ctx, 'slijmvlies wordt opgenomen, niet afgestoten', 960, 830, C.oker, q.on('opgenomen', 1), 28); },
 

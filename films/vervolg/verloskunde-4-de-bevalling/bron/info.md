@@ -50,3 +50,5 @@ Werkmap `hw/verloskunde4` opzetten volgens `films/vervolg/BOUWEN.md` (`src/` en 
 ## Aandachtspunten
 - Hartslaggrafiek schematisch
 - Draaiing van het hoofd vereenvoudigd tot één kwartslag
+
+7 nov 2026 (Kamiel: verwijzing naar 'Van bevruchting tot baby' eruit): in s06 de zin 'In de film Van bevruchting tot baby zag je wat dat doet.' uit de take geknipt (3,8 s, op de zinspauzes; woordtijden verschoven, geen herbouw).

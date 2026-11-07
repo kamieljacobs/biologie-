@@ -17,7 +17,7 @@
 | Hoofdstuk | Segmenten | Kernbeeld (uit het script) |
 |---|---|---|
 | Cold open | s01, q02 | melkveestal; Lotte en Mila; een koe die op een andere koe springt; sensor om de hals |
-| Hoofdstuk 1 — Elke drie weken een kans | s04, s05, s06 | cyclusklok van 21 dagen met een smal tochtvak; koe die blijft staan; staafjes stappen per dag met één piek; melding op een telefoon; hormoonlijnen zoals in Van bevruchting tot baby |
+| Hoofdstuk 1 — Elke drie weken een kans | s04, s05, s06 | cyclusklok van 21 dagen met een smal tochtvak; koe die blijft staan; staafjes stappen per dag met één piek; melding op een telefoon; hormoonlijnen van de cyclus |
 | Hoofdstuk 2 — Een andere klok | s07, s08, q09, s10, s11 | jaarkalender; schapen tochtig in de herfst, paarden in het voorjaar; lammeren en veulens allebei in het voorjaar; nacht met melatonine uit de pijnappelklier; merrie onder een lamp in een donkere stal; kat en kater |
 | Hoofdstuk 3 — Een rietje uit de stikstof | s12, s13 | één stier, duizenden rietjes; vat met vloeibare stikstof; inseminatie met een lange pipet; daarna een topkoe met meerdere eicellen, embryo's die worden uitgespoeld en in andere koeien geplaatst |
 | Hoofdstuk 4 — Drachtig en verlossen | s14, s15, q16, s17, s18 | echobeeld met een vruchtje en een kloppend hartje; negen maanden later, nacht; kalf in de juiste ligging met voorpoten en kop; twee pootjes met de zolen omhoog; daarna een gespierd dikbilrund en een keizersnede bij een staande koe |
@@ -49,3 +49,5 @@ Werkmap `hw/diergeneeskunde-2` opzetten volgens `films/vervolg/BOUWEN.md` (`src/
 ## Aandachtspunten
 - s04 opnieuw ingesproken (maar maar → en dan maar)
 - Liggingen van het kalf in kalfLigging() in teken_dg0.js
+
+7 nov 2026 (Kamiel: verwijzing naar 'Van bevruchting tot baby' eruit): s06 opnieuw ingesproken als 'De hormonen ken je al: FSH, LH, oestrogeen en progesteron. …' (Roos, eleven_v4, één take, 215 credits, flow VwU1oJoHOHN2Tsl44moA, generatie 71qzpb5gewcS4Xp6xnT2; woordtijden met silalign); ingezet zonder herbouw (audio, woordtijden en FILMDATA van die alinea). Het label 'film: Van bevruchting tot baby' is uit de scène gehaald. Nog niet door Kamiel beluisterd.

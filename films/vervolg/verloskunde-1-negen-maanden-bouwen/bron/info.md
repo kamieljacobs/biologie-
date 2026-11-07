@@ -49,3 +49,5 @@ Werkmap `hw/verloskunde1` opzetten volgens `films/vervolg/BOUWEN.md` (`src/` en 
 ## Aandachtspunten
 - Week 3–8 = na de bevruchting; zwangerschapsduur = vanaf laatste menstruatie
 - Esra zwanger via o.zwanger (castboek)
+
+7 nov 2026 (Kamiel: verwijzing naar 'Van bevruchting tot baby' eruit): in s07 de zin 'Dat zag je al in de film Van bevruchting tot baby.' uit de take geknipt (3,3 s, op de zinspauzes; woordtijden verschoven, geen herbouw) en het label 'film: Van bevruchting tot baby' uit de scène gehaald.

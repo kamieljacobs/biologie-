@@ -19,12 +19,12 @@ Lotte loopt stage bij Dierenarts Mila, op een melkveebedrijf. Een koe geeft alle
 ## Titel
 Bronst, dekken en kalven
 
-## Hoofdstuk 1 — Elke drie weken een kans [Schema: cyclusklok van 21 dagen met een smal tochtvak; koe die blijft staan; staafjes stappen per dag met één piek; melding op een telefoon; hormoonlijnen zoals in Van bevruchting tot baby]
+## Hoofdstuk 1 — Elke drie weken een kans [Schema: cyclusklok van 21 dagen met een smal tochtvak; koe die blijft staan; staafjes stappen per dag met één piek; melding op een telefoon; hormoonlijnen van de cyclus]
 Antwoord b. Een koe is ongeveer elke drie weken tochtig, en dan maar zo'n halve dag lang. Ze is onrustig, loeit veel en loopt tot drie keer zoveel rond. Het duidelijkste teken: ze blijft staan als een andere koe op haar springt. Dat heet staande tocht.
 
 Een veehouder kan niet de hele dag kijken. Daarom dragen veel koeien een sensor om de hals of een stappenteller aan een poot. Loopt een koe ineens veel meer, dan krijgt de veehouder een melding op zijn telefoon. De eisprong volgt ongeveer een dag na het begin van de tocht. Precies op tijd insemineren vergroot de kans op een kalf.
 
-De hormonen ken je uit de film Van bevruchting tot baby: FSH, LH, oestrogeen en progesteron. Bij de koe werkt die cyclus bijna net zo. Alleen wordt het baarmoederslijmvlies bij een koe niet afgestoten, zoals bij een menstruatie, maar weer opgenomen.
+De hormonen ken je al: FSH, LH, oestrogeen en progesteron. Bij de koe werkt die cyclus bijna net zo. Alleen wordt het baarmoederslijmvlies bij een koe niet afgestoten, zoals bij een menstruatie, maar weer opgenomen.
 
 ## Hoofdstuk 2 — Een andere klok [Schema: jaarkalender; schapen tochtig in de herfst, paarden in het voorjaar; lammeren en veulens allebei in het voorjaar; nacht met melatonine uit de pijnappelklier; merrie onder een lamp in een donkere stal; kat en kater]
 Niet elk dier heeft zo'n vaste cyclus. Schapen worden tochtig in de herfst, als de dagen korter worden. Paarden juist in het voorjaar, als de dagen langer worden. Een schaap is vijf maanden drachtig, een paard elf. Zo komen lammeren en veulens allebei in het voorjaar ter wereld, als er vers gras is. Het signaal is daglicht. In het donker maakt de pijnappelklier melatonine. Hoe langer de nacht, hoe meer melatonine, en zo weet het lichaam welk seizoen het is.

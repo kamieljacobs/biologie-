@@ -28,7 +28,7 @@ Hoe lang is dat bij Esra? Verloskundigen rekenen vanaf de eerste dag van de laat
 Zo'n eerste afspraak heet de intake. Mirjam rekent de uitgerekende datum uit: veertig weken na die eerste dag. En ze stelt veel vragen. Is Esra gezond? Slikt ze medicijnen? Rookt ze, drinkt ze alcohol? Komen er ziektes voor in de familie? Ze geeft ook adviezen over eten: geen rauw vlees, geen zachte kaas van rauwe melk, en niet de kattenbak verschonen. Daarin kunnen ziekteverwekkers zitten, zoals de parasiet die toxoplasmose geeft. En Esra krijgt een bloedtest, onder meer op hiv, hepatitis B en syfilis. Die kan een moeder tijdens de zwangerschap of bij de geboorte doorgeven, en als je het weet, kun je de baby beschermen.
 
 ## Hoofdstuk 2 — Drie lagen [Schema: blastocyste in het baarmoederslijmvlies; kiemschijf met drie lagen in drie kleuren; per laag organen eruit; alles-of-niets als twee paden]
-Wat gebeurt er intussen in de buik? Een week na de bevruchting nestelt het blaasje van cellen zich in het baarmoederslijmvlies. Dat zag je al in de film Van bevruchting tot baby. Uit de buitenste cellen groeit de placenta. Uit een klein groepje binnenin groeit het kind.
+Wat gebeurt er intussen in de buik? Een week na de bevruchting nestelt het blaasje van cellen zich in het baarmoederslijmvlies. Uit de buitenste cellen groeit de placenta. Uit een klein groepje binnenin groeit het kind.
 
 In de eerste twee weken kunnen die cellen elkaars werk nog overnemen. Gaat er dan iets mis, door een medicijn of door straling, dan zijn er twee mogelijkheden. Of het embryo herstelt helemaal, omdat andere cellen het werk overnemen. Of het embryo overleeft het niet. Dat heet het alles-of-niets-principe.
 

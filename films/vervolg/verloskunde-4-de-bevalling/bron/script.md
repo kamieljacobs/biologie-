@@ -33,7 +33,7 @@ En hoe wil ze met de pijn omgaan? Ademhalen, bewegen, een warm bad helpen veel v
 
 **s06** · audio `s06.mp3` · 24.5 s · generation `mkP1YndOUvZJFwXIX10t`
 
-Bij veertig weken begint het. De baarmoeder trekt samen, eerst om het half uur, later om de paar minuten. Elke wee duwt het hoofd van het kind tegen de baarmoederhals. In de film Van bevruchting tot baby zag je wat dat doet. Rekzintuigen in de hals sturen een signaal naar de hersenen, die maken meer oxytocine, en de weeën worden sterker. Een lus die zichzelf versterkt.
+Bij veertig weken begint het. De baarmoeder trekt samen, eerst om het half uur, later om de paar minuten. Elke wee duwt het hoofd van het kind tegen de baarmoederhals. Rekzintuigen in de hals sturen een signaal naar de hersenen, die maken meer oxytocine, en de weeën worden sterker. Een lus die zichzelf versterkt.
 
 **s07** · audio `s07.mp3` · 18.4 s · generation `oUvzwn8c5DiHdXHE2rhv`
 

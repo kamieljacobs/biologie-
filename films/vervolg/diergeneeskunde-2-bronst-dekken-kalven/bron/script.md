@@ -31,9 +31,9 @@ Een veehouder kan niet de hele dag kijken. Daarom dragen veel koeien een sensor 
 
 **s06** · audio `s06.mp3` · 17.1 s · generation `nTjsosgnLV4Ru9mHIg1G`
 
-De hormonen ken je uit de film Van bevruchting tot baby: FSH, LH, oestrogeen en progesteron. Bij de koe werkt die cyclus bijna net zo. Alleen wordt het baarmoederslijmvlies bij een koe niet afgestoten, zoals bij een menstruatie, maar weer opgenomen.
+De hormonen ken je al: FSH, LH, oestrogeen en progesteron. Bij de koe werkt die cyclus bijna net zo. Alleen wordt het baarmoederslijmvlies bij een koe niet afgestoten, zoals bij een menstruatie, maar weer opgenomen.
 
-_Stem-invoer:_ De hormonen ken je uit de film Van bevruchting tot baby: FSH, LH, eustrogeen en progesteron. Bij de koe werkt die cyclus bijna net zo. Alleen wordt het baarmoederslijmvlies bij een koe niet afgestoten, zoals bij een menstruatie, maar weer opgenomen.
+_Stem-invoer:_ De hormonen ken je al: FSH, LH, eustrogeen en progesteron. Bij de koe werkt die cyclus bijna net zo. Alleen wordt het baarmoederslijmvlies bij een koe niet afgestoten, zoals bij een menstruatie, maar weer opgenomen.
 
 ## Hoofdstuk 2 — Een andere klok
 

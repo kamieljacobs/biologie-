@@ -26,7 +26,7 @@ Antwoord b. Hoe dat precies gaat, zie je straks. Eerst de voorbereiding. Rond vi
 En hoe wil ze met de pijn omgaan? Ademhalen, bewegen, een warm bad helpen veel vrouwen. Wil ze een ruggenprik, dan moet ze naar het ziekenhuis. Een ruggenprik verdooft de zenuwen die de pijn van de baarmoeder naar het ruggenmerg brengen. Maar dan moeten moeder en kind ook continu gecontroleerd worden, en neemt de gynaecoloog de zorg over. Esra kiest voor thuis. Met het plan om naar het ziekenhuis te gaan als ze dat toch wil.
 
 ## Hoofdstuk 2 — Ontsluiting en uitdrijving [Schema: baarmoeder in doorsnede met hoofd op de baarmoederhals; hals wordt korter en gaat open tot tien centimeter; oxytocine-lus kort; bekken van boven en van voren; hoofd draait een kwartslag]
-Bij veertig weken begint het. De baarmoeder trekt samen, eerst om het half uur, later om de paar minuten. Elke wee duwt het hoofd van het kind tegen de baarmoederhals. In de film Van bevruchting tot baby zag je wat dat doet. Rekzintuigen in de hals sturen een signaal naar de hersenen, die maken meer oxytocine, en de weeën worden sterker. Een lus die zichzelf versterkt.
+Bij veertig weken begint het. De baarmoeder trekt samen, eerst om het half uur, later om de paar minuten. Elke wee duwt het hoofd van het kind tegen de baarmoederhals. Rekzintuigen in de hals sturen een signaal naar de hersenen, die maken meer oxytocine, en de weeën worden sterker. Een lus die zichzelf versterkt.
 
 Eerst wordt de baarmoederhals korter, en dan gaat hij langzaam open. Mirjam voelt met twee vingers hoe ver de opening is. Bij tien centimeter is de ontsluiting volledig. Bij een eerste kind duurt dat vaak meer dan tien uur. Pas daarna mag Esra persen. Dat heet de uitdrijving.
 
