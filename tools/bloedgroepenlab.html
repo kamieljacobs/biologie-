@@ -141,6 +141,33 @@ sup, sub { line-height: 0; }
 .key b { color: var(--ink); }
 .fact { font-size: .92rem; color: var(--ink-2); border-top: 1px dashed var(--line2); padding-top: 10px; margin-top: 18px; max-width: 66ch; }
 
+/* ---------- voorspel → kijk → verklaar ---------- */
+.poe { border: 1.5px solid color-mix(in srgb, var(--accent) 55%, var(--line2)); border-radius: var(--r-md); background: var(--surface); box-shadow: var(--shadow); padding: 14px 18px 16px; margin: 0 0 22px; max-width: 72ch; }
+.poe-na { margin-top: -6px; }
+.poe-h { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 10px; }
+.poe-stap { font: 600 .7rem/1 var(--f-mono); text-transform: uppercase; letter-spacing: .08em; padding: 5px 9px; border-radius: 999px; color: var(--muted); box-shadow: inset 0 0 0 1px var(--line2); }
+.poe-stap.nu { background: var(--accent); color: var(--on-accent); box-shadow: none; }
+.poe-stap.klaar { color: var(--good); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--good) 55%, transparent); }
+.poe-sit { margin: 0 0 6px; color: var(--ink-2); }
+.poe-q { font-weight: 700; margin: 0 0 12px; }
+.poe .opts { display: grid; gap: 8px; }
+.poe .opt.sel { border-color: var(--accent); background: var(--accent-soft); }
+.poe-slot { margin: 12px 0 0; font-size: .88rem; color: var(--muted); }
+.poe-mijn { margin: 0 0 10px; display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: baseline; font-weight: 600; }
+.poe-kijk { margin: 0 0 10px; }
+.poe .chip.gezien { border-color: var(--good); color: var(--good); }
+.poe-vgl { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 10px; margin: 0 0 10px; }
+.poe-vgl > div { background: var(--sunken); border-radius: var(--r-sm); padding: 10px 12px; }
+.poe-vgl p { margin: 6px 0 0; }
+.poe-oordeel { font-weight: 700; margin: 4px 0 10px; }
+.poe-oordeel.ok { color: var(--good); }
+.poe-oordeel.no { color: var(--bad); }
+.poe-eigen { display: grid; gap: 6px; font-size: .95rem; }
+.poe-eigen textarea { width: 100%; box-sizing: border-box; font: inherit; color: var(--ink); background: var(--sunken); border: 1.5px solid var(--line2); border-radius: var(--r-sm); padding: 8px 10px; resize: vertical; min-height: 64px; }
+.poe-eigen textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.poe .check { box-shadow: none; margin: 14px 0 0; padding: 12px 14px 14px; }
+.poe-wacht { filter: blur(5px); opacity: .45; pointer-events: none; user-select: none; }
+
 /* ---------- model (interactieve figuur) ---------- */
 .model { background: var(--surface); border: 1px solid var(--line2); border-radius: var(--r-md); box-shadow: var(--shadow); margin: 0 0 26px; overflow: hidden; }
 .model-head { display: flex; align-items: baseline; justify-content: space-between; gap: 6px 16px; flex-wrap: wrap; padding: 14px 18px 0; }
@@ -325,10 +352,10 @@ table.punnett { border-collapse: separate; border-spacing: 4px; margin: 0 auto; 
 .punnett select.ok, .punnett .cell.ok { border-color: var(--good); background: var(--good-soft); }
 .punnett select.no { border-color: var(--bad); background: var(--bad-soft); }
 .dist { display: grid; gap: 6px; padding: 4px 18px 14px; max-width: 520px; }
-.dist-row { display: grid; grid-template-columns: 72px 1fr 64px; gap: 10px; align-items: center; font-size: .92rem; }
+.dist-row { display: grid; grid-template-columns: 72px 1fr auto; gap: 10px; align-items: center; font-size: .92rem; }
 .dist-row .tr { height: 14px; background: var(--sunken); border-radius: 0 4px 4px 0; overflow: hidden; }
 .dist-row .tr span { display: block; height: 100%; background: var(--accent); border-radius: 0 4px 4px 0; transition: width .3s ease; }
-.dist-row .v { font-family: var(--f-mono); font-variant-numeric: tabular-nums; text-align: right; }
+.dist-row .v { font-family: var(--f-mono); font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
 .selrow { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; }
 .selrow select { min-height: 38px; border-radius: 8px; border: 1.5px solid var(--line2); background: var(--surface); padding: 4px 8px; }
 .selrow label { font-size: .86rem; font-weight: 700; color: var(--ink-2); display: inline-flex; gap: 6px; align-items: center; }
@@ -550,9 +577,14 @@ footer.tool-voet { margin-top: 26px; }
     body { font-size: 16.5px; }
   .labwrap, .caseswrap, .foot { padding-inline: 16px; }
 }
-@media (max-width: 520px) {
-  .tab { padding: 6px 11px; }
+@media (max-width: 600px) {
+  .top .brand { display: none; }
+  .top-in { flex-wrap: nowrap; justify-content: space-between; gap: 8px; padding: 6px 12px; }
+  .top .seg button { padding: 6px 10px; }
   .level-lbl { display: none; }
+}
+@media (max-width: 360px) {
+  .top .seg button { padding: 6px 8px; font-size: 13px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
@@ -624,10 +656,22 @@ footer.tool-voet { margin-top: 26px; }
       <div>
         <h3>Opbouw</h3>
         <ul>
-          <li><b>Route</b> (12 stappen in vijf hoofdstukken, plus een terugblik): antigenen en antistoffen, klontering, de bloedgroeptest, transfusie, erfelijkheid en resusantagonisme. Elke stap heeft een interactief model en vragen met directe, inhoudelijke feedback. Leerlingen kunnen vrij door de stappen bewegen; de voortgang staat in de zijbalk.</li>
+          <li><b>Route</b> (12 stappen in vijf hoofdstukken, plus een terugblik): antigenen en antistoffen, klontering, de bloedgroeptest, transfusie, erfelijkheid en resusantagonisme. Elke stap heeft een interactief model en vragen met directe, inhoudelijke feedback. In beeld staan geen namen: personen zijn rollen (de patiënt, de moeder, man 1, ouderpaar 1). Leerlingen kunnen vrij door de stappen bewegen; de voortgang staat in de zijbalk.</li>
           <li><b>Lab</b>: leerlingen bepalen zelf de bloedgroep van onbekende monsters. Ze kiezen zelf welke druppel waar komt, roeren, zwenken, bepalen wanneer ze aflezen en vullen waarnemingen en conclusie in. Daarna krijgen ze een terugblik op hun werkwijze. Per vakje kunnen ze inzoomen tot op de cellen.</li>
           <li><b>Casussen</b>: toepassen in vier verhalen (spoedeisende hulp met bloedbank, babyverwisseling, vaderschap, zwangerschap met resusantagonisme).</li>
           <li><b>Niveau</b>: met de knop havo/vwo rechtsboven verschijnt voor vwo extra verdieping: IgM en IgG, enzymen achter codominantie, serumbepaling (tegenbepaling), plasmatransfusie, de kruisproef en extra rekenvragen.</li>
+        </ul>
+        <h3>Voorspellen → kijken → verklaren</h3>
+        <ul>
+          <li>Bij stap 4, 6, 7, 9 en 11 legt de leerling eerst een voorspelling vast. Pas dan gaan het model en de uitleg eronder open (tot dan wazig). De leerling zet het model met één knop in de juiste situatie, kijkt, en verklaart daarna het verschil tussen voorspelling en waarneming: eerst in eigen woorden, dan door de passende verklaring te kiezen (met feedback per keuze).</li>
+          <li>De voorspellingen zijn gekozen op bekende misvattingen: bloed van O klontert met anti-A, de antistoffen van de donor tellen mee, anti-D heb je al, een kind krijgt de bloedgroep van een ouder, het eerste resuspositieve kind loopt gevaar.</li>
+        </ul>
+        <h3>Lesindeling (suggestie)</h3>
+        <ul>
+          <li><b>Afweer</b>, na film Afweer 4: <a href="#route-a1">hoofdstuk 1–3</a> (stap 1–7) en daarna het <a href="#lab">Lab</a>. Casus Spoed op de SEH als huiswerk of voor snelle leerlingen.</li>
+          <li><b>Erfelijkheid</b>, na film Erfelijkheid 3: <a href="#route-d1">hoofdstuk 4</a> (stap 8–10) met de casussen Drie baby’s en Kan hij de vader zijn?</li>
+          <li><b>Resusantagonisme</b>: <a href="#route-e1">hoofdstuk 5</a> (stap 11–12) met de casus Resusnegatief en zwanger.</li>
+          <li>Reken per blok op ongeveer een lesuur. Elke stap is direct te openen met een link (bijv. <code>bloedgroepenlab.html#route-d1</code>).</li>
         </ul>
         <h3>Keuzes met gevolgen in het lab</h3>
         <ul>
@@ -642,7 +686,7 @@ footer.tool-voet { margin-top: 26px; }
         <ul>
           <li>Notatie allelen: I<sup>A</sup>, I<sup>B</sup> en i; resus: D (dominant) en d.</li>
           <li>Transfusie gaat over rode bloedcellen: kijk naar de antigenen van de donor en de antistoffen van de ontvanger. Plasmatransfusie (andersom) is vwo-verdieping.</li>
-          <li>Percentages bloedgroepen in Nederland zijn afgerond (bron: Sanquin): O 47 %, A 42 %, B 8 %, AB 3 %; ongeveer 84 % is resuspositief.</li>
+          <li>Percentages bloedgroepen in Nederland zijn afgerond (bron: Sanquin): O+ 38 %, A+ 37 %, B+ 8 %, AB+ 2,5 %, O− 7 %, A− 6 %, B− 1 %, AB− 0,5 % (Sanquin: 38,2 / 36,6 / 7,7 / 2,5 / 6,8 / 6,4 / 1,3 / 0,5 %); ongeveer 85 % is resuspositief.</li>
           <li>Anti-D-beleid zoals in Nederland: foetale RhD-typering rond week 27, anti-D in week 30 als het kind resuspositief is en opnieuw binnen 48 uur na de bevalling (NVOG/PSIE).</li>
         </ul>
         <h3>Vereenvoudigingen</h3>
@@ -817,8 +861,8 @@ const Anim = (() => {
 const BG = (() => {
   const ABO = ['O', 'A', 'B', 'AB'];
   const ALL = ['O+', 'A+', 'B+', 'AB+', 'O-', 'A-', 'B-', 'AB-'];
-  // afgerond, Nederland (Sanquin): O 47, A 42, B 8, AB 3; ± 84 % resuspositief
-  const NL = { 'O+': 39, 'A+': 35, 'B+': 7, 'AB+': 2.5, 'O-': 8, 'A-': 7, 'B-': 1, 'AB-': 0.5 };
+  // afgerond, Nederland (Sanquin, sanquin.nl/en/donors/about-blood/blood-types, nov 2026: 38,2 · 36,6 · 7,7 · 2,5 · 6,8 · 6,4 · 1,3 · 0,5); ± 85 % resuspositief
+  const NL = { 'O+': 38, 'A+': 37, 'B+': 8, 'AB+': 2.5, 'O-': 7, 'A-': 6, 'B-': 1, 'AB-': 0.5 };
   const parse = k => ({ abo: k.slice(0, -1), rh: k.slice(-1) === '+' });
   const key = (abo, rh) => abo + (rh ? '+' : '-');
   const label = k => k.replace('-', '−');
@@ -1710,6 +1754,125 @@ const Route = (() => {
 })();
 
 /* ============================================================
+   VOORSPEL → KIJK → VERKLAAR
+   Bij een stap met een voorspelling blijft alles onder de voorspelkaart dicht
+   (wazig en inert) tot de leerling een voorspelling vastlegt. Daarna zet de
+   kaart het model in de juiste situatie ('Laat zien'), en pas als de leerling
+   heeft gekeken verschijnt onder het model de vergelijking met de vraag om
+   het verschil te verklaren. Opslag: Store 'poe'.
+   ============================================================ */
+const POE = (() => {
+  const DEFS = {};
+  const st = Store.obj('poe');
+  let actief = null; // { id, root, o }
+  function def(id, d) { DEFS[id] = d; }
+  const voor = id => `<section class="poe" id="poe-${id}" aria-label="Voorspel"></section>`;
+  const na = id => `<section class="poe poe-na" id="poena-${id}" aria-label="Verklaar" hidden></section>`;
+  const checkId = id => 'poe-' + id;
+  function rij(id) { return st[id] || (st[id] = {}); }
+  function dicht(root, id, aan) {
+    const kaart = $('#poe-' + id, root);
+    if (!kaart) return;
+    let el = kaart.nextElementSibling;
+    while (el) {
+      if (!el.classList.contains('pager')) {
+        el.classList.toggle('poe-wacht', aan);
+        if (aan) el.setAttribute('inert', ''); else el.removeAttribute('inert');
+      }
+      el = el.nextElementSibling;
+    }
+  }
+  function koppel(root, id, o = {}) {
+    const d = DEFS[id], s = rij(id);
+    actief = { id, root, o };
+    Route.onCleanup(() => { if (actief && actief.id === id) actief = null; });
+    const kaart = $('#poe-' + id, root);
+    const gezienScenes = new Set(s.scenes || []);
+    const scenes = o.scenes || [];
+    function tekenVoor() {
+      const vast = s.k != null;
+      let h = `<div class="poe-h"><span class="poe-stap${vast ? ' klaar' : ' nu'}">1 · Voorspel</span><span class="poe-stap${vast && !s.gezien ? ' nu' : s.gezien ? ' klaar' : ''}">2 · Kijk</span><span class="poe-stap${s.gezien ? ' nu' : ''}">3 · Verklaar</span></div>`;
+      h += `<p class="poe-sit">${d.situatie}</p><p class="poe-q">${d.vraag}</p>`;
+      if (!vast) {
+        h += `<div class="opts" role="radiogroup" aria-label="Jouw voorspelling">${d.keuzes.map((k, i) => `<button type="button" class="opt" role="radio" aria-checked="false" data-k="${i}"><span class="ltr" aria-hidden="true">${'ABCDEF'[i]}</span><span>${k.t}</span></button>`).join('')}</div>
+          <div class="check-actions"><button type="button" class="btn btn-primary btn-sm" data-vast disabled>Leg mijn voorspelling vast</button><span class="muted" style="font-size:.86rem">Daarna kun je hem niet meer veranderen.</span></div>
+          <p class="poe-slot" aria-hidden="true">🔒 Het model en de uitleg hieronder gaan open zodra je voorspelling vastligt.</p>`;
+      } else {
+        h += `<p class="poe-mijn"><span class="tag">Jouw voorspelling</span> ${d.keuzes[s.k].t}</p>`;
+        if (!s.gezien) {
+          h += `<p class="poe-kijk">${o.kijk || d.kijk || 'Kijk nu in het model hieronder wat er gebeurt.'}</p>`;
+          if (scenes.length) h += `<div class="chips">${scenes.map((sc, i) => `<button type="button" class="chip${gezienScenes.has(i) ? ' gezien' : ''}" data-sc="${i}">${gezienScenes.has(i) ? '✓ ' : '▶ '}${sc.label}</button>`).join('')}</div>`;
+        } else {
+          h += `<p class="poe-kijk muted">Je hebt gekeken. Verklaar het onder het model.</p>`;
+        }
+      }
+      kaart.innerHTML = h;
+      if (!vast) {
+        let keuze = null;
+        const knop = $('[data-vast]', kaart);
+        $$('.opt', kaart).forEach(b => b.addEventListener('click', () => {
+          keuze = +b.dataset.k;
+          $$('.opt', kaart).forEach(x => { const on = x === b; x.classList.toggle('sel', on); x.setAttribute('aria-checked', on ? 'true' : 'false'); });
+          knop.disabled = false;
+        }));
+        knop.addEventListener('click', () => {
+          if (keuze == null) return;
+          s.k = keuze; Store.save();
+          dicht(root, id, false);
+          tekenVoor();
+          if (!scenes.length && !o.handmatig) gezien(id);
+          else if (scenes.length === 1) speel(0);
+        });
+      } else {
+        $$('[data-sc]', kaart).forEach(b => b.addEventListener('click', () => speel(+b.dataset.sc)));
+      }
+    }
+    let wachter = 0;
+    function speel(i) {
+      const sc = scenes[i];
+      try { sc.apply(); } catch (e) { console.error(e); }
+      const model = $('.model', root);
+      if (model && model.scrollIntoView) model.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      gezienScenes.add(i); s.scenes = [...gezienScenes]; Store.save();
+      if (!s.gezien) tekenVoor();
+      clearTimeout(wachter);
+      if (!o.handmatig && gezienScenes.size >= scenes.length) wachter = setTimeout(() => gezien(id), o.wacht != null ? o.wacht : 2600);
+    }
+    Route.onCleanup(() => clearTimeout(wachter));
+    actief.teken = tekenVoor;
+    tekenVoor();
+    if (s.k == null) dicht(root, id, true);
+    if (s.gezien) tekenNa(root, id);
+  }
+  function gezien(id) {
+    if (!actief || actief.id !== id) return;
+    const s = rij(id);
+    if (s.k == null) return;
+    if (!s.gezien) { s.gezien = true; Store.save(); actief.teken(); }
+    tekenNa(actief.root, id);
+  }
+  function tekenNa(root, id) {
+    const d = DEFS[id], s = rij(id), el = $('#poena-' + id, root);
+    if (!el || !el.hidden) return;
+    const goed = !!d.keuzes[s.k].ok;
+    el.hidden = false;
+    el.innerHTML = `<div class="poe-h"><span class="poe-stap klaar">1 · Voorspel</span><span class="poe-stap klaar">2 · Kijk</span><span class="poe-stap nu">3 · Verklaar</span></div>
+      <div class="poe-vgl">
+        <div><span class="tag">Jouw voorspelling</span><p>${d.keuzes[s.k].t}</p></div>
+        <div><span class="tag">Wat je zag</span><p>${d.uitkomst}</p></div>
+      </div>
+      <p class="poe-oordeel ${goed ? 'ok' : 'no'}">${goed ? '✓ Je voorspelling klopte. Kun je ook uitleggen waaróm?' : '✗ Je voorspelling klopte niet. Dat is juist interessant: waar zit het verschil?'}</p>
+      <label class="poe-eigen"><span>${goed ? 'Leg in je eigen woorden uit waarom het zo gaat.' : 'Leg in je eigen woorden uit waarom het anders ging dan je dacht.'}</span>
+        <textarea rows="3" maxlength="600" placeholder="Gebruik de woorden ${d.woorden || 'antigeen en antistof'}.">${esc(s.tekst || '')}</textarea></label>
+      <div data-check="${checkId(id)}"></div>`;
+    const ta = $('textarea', el);
+    ta.addEventListener('input', () => { s.tekst = ta.value; Store.save(); });
+    Route.renderCheck($('[data-check]', el), { id: checkId(id), type: 'mc', tag: 'Verklaar', q: goed ? d.verklaar.q : (d.verklaar.qFout || d.verklaar.q), opts: d.verklaar.opts });
+  }
+  return { def, voor, na, koppel, gezien, checkId };
+})();
+
+/* ============================================================
    ROUTE-INHOUD · hoofdstuk A t/m C
    ============================================================ */
 (() => {
@@ -1730,6 +1893,9 @@ const Route = (() => {
       $$('.chip', g).forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
       cb(b.dataset.v, b);
     });
+  }
+  function zetChip(root, name, v) {
+    $$(`[data-name="${name}"] .chip`, root).forEach(x => x.setAttribute('aria-pressed', x.dataset.v === v ? 'true' : 'false'));
   }
   const ABO_CHIPS = [['A', 'A'], ['B', 'B'], ['AB', 'AB'], ['O', 'O']];
   const RH_CHIPS = [['+', 'Rh+'], ['-', 'Rh−']];
@@ -1858,17 +2024,17 @@ const Route = (() => {
     checks: [
       {
         id: 'a1q1', type: 'mc', chips: true,
-        q: 'Op de rode bloedcellen van Mila zit alleen antigeen B. Welke bloedgroep heeft Mila?',
+        q: 'Op iemands rode bloedcellen zit alleen antigeen B. Welke bloedgroep is dat?',
         opts: [
           { t: 'A', fb: 'Bij bloedgroep A zit antigeen A op de cellen, niet antigeen B.' },
           { t: 'B', ok: true, fb: 'Alleen antigeen B betekent bloedgroep B.' },
-          { t: 'AB', fb: 'Bij AB zitten antigeen A én antigeen B op de cellen. Mila heeft alleen B.' },
+          { t: 'AB', fb: 'Bij AB zitten antigeen A én antigeen B op de cellen. Hier zit alleen B op.' },
           { t: 'O', fb: 'Bij O zit er geen antigeen A en geen antigeen B op de cellen.' }
         ]
       },
       {
         id: 'a1q2', type: 'mc',
-        q: 'Thijs heeft bloedgroep O. Wat zit er op zijn rode bloedcellen?',
+        q: 'Iemand heeft bloedgroep O. Wat zit er op de rode bloedcellen?',
         opts: [
           { t: 'Antigeen O', fb: 'Een antigeen O bestaat niet. De letter O staat voor ‘nul’: geen A en geen B.' },
           { t: 'Antigeen A en antigeen B', fb: 'Dat is bloedgroep AB.' },
@@ -2026,7 +2192,7 @@ const Route = (() => {
           <div class="chart-sum" id="a3-sum"></div>`
       })}
       <div class="prose">
-        <p>Heb je antigeen D op je rode bloedcellen, dan ben je <b>resuspositief</b> (Rh+). Heb je het niet, dan ben je <b>resusnegatief</b> (Rh−). Samen met het ABO-systeem geeft dat acht bloedgroepen, zoals A+ en O−. In Nederland zijn ongeveer 84 van de 100 mensen resuspositief.</p>
+        <p>Heb je antigeen D op je rode bloedcellen, dan ben je <b>resuspositief</b> (Rh+). Heb je het niet, dan ben je <b>resusnegatief</b> (Rh−). Samen met het ABO-systeem geeft dat acht bloedgroepen, zoals A+ en O−. In Nederland zijn ongeveer 85 van de 100 mensen resuspositief.</p>
         <h3>Een belangrijk verschil met A en B</h3>
         <p>Van nature heeft niemand anti-D in het plasma. Iemand die resusnegatief is, maakt pas anti-D als er resuspositief bloed in zijn of haar bloedbaan komt. Dat kan gebeuren bij een bloedtransfusie, of tijdens een zwangerschap of bevalling van een resuspositief kind. Dat verschil komt terug bij transfusies en bij zwangerschap.</p>
       </div>
@@ -2036,10 +2202,10 @@ const Route = (() => {
     checks: [
       {
         id: 'a3q1', type: 'mc',
-        q: 'Ruben heeft bloedgroep O− en heeft nooit een bloedtransfusie gehad. Welke antistoffen heeft hij in zijn plasma?',
+        q: 'Een man met bloedgroep O− heeft nooit een bloedtransfusie gehad. Welke antistoffen heeft hij in zijn plasma?',
         opts: [
-          { t: 'Anti-A en anti-B', ok: true, fb: 'Anti-A en anti-B zijn natuurlijke antistoffen. Anti-D maakt Ruben pas als hij in contact komt met resuspositief bloed.' },
-          { t: 'Anti-A, anti-B en anti-D', fb: 'Anti-D heb je niet van nature. Ruben heeft nooit resuspositief bloed in zijn bloedbaan gehad.' },
+          { t: 'Anti-A en anti-B', ok: true, fb: 'Anti-A en anti-B zijn natuurlijke antistoffen. Anti-D maakt hij pas als hij in contact komt met resuspositief bloed.' },
+          { t: 'Anti-A, anti-B en anti-D', fb: 'Anti-D heb je niet van nature. Hij heeft nooit resuspositief bloed in zijn bloedbaan gehad.' },
           { t: 'Alleen anti-D', fb: 'Hij heeft bloedgroep O, dus wel anti-A en anti-B. En anti-D heeft hij niet van nature.' },
           { t: 'Geen antistoffen', fb: 'Iemand met bloedgroep O heeft wel natuurlijke anti-A en anti-B.' }
         ]
@@ -2048,9 +2214,9 @@ const Route = (() => {
         id: 'a3q2', type: 'mc', chips: true,
         q: 'Welke bloedgroep komt in Nederland het meest voor? Gebruik het diagram.',
         opts: [
-          { t: 'A+', fb: 'A+ komt veel voor (± 35 %), maar er is een bloedgroep die nog vaker voorkomt.' },
-          { t: 'O+', ok: true, fb: 'Ongeveer 39 van de 100 Nederlanders hebben O+.' },
-          { t: 'O−', fb: 'Maar ongeveer 8 van de 100 Nederlanders hebben O−.' },
+          { t: 'A+', fb: 'A+ komt veel voor (± 37 %), maar er is een bloedgroep die net iets vaker voorkomt.' },
+          { t: 'O+', ok: true, fb: 'Ongeveer 38 van de 100 Nederlanders hebben O+.' },
+          { t: 'O−', fb: 'Maar ongeveer 7 van de 100 Nederlanders hebben O−.' },
           { t: 'AB+', fb: 'AB+ is juist zeldzaam: ongeveer 2,5 van de 100.' }
         ]
       }
@@ -2071,6 +2237,76 @@ const Route = (() => {
     }
   });
 
+
+  /* ---------- voorspellingen (voorspel → kijk → verklaar) ---------- */
+  POE.def('b1', {
+    situatie: 'Bloed van bloedgroep <b>O+</b>. In het plasma van iemand met O zitten anti-A en anti-B. Je druppelt <b>anti-A</b> bij dit bloed.',
+    vraag: 'Wat zie je na een paar minuten?',
+    keuzes: [
+      { t: 'De rode bloedcellen klonteren samen.' },
+      { t: 'De rode bloedcellen blijven los: het mengsel blijft egaal rood.', ok: true },
+      { t: 'Het bloed stolt: er ontstaat een stolsel.' }
+    ],
+    kijk: 'Klik op de knop. Het model krijgt bloed O+ en anti-A. Kijk een paar seconden.',
+    uitkomst: 'Geen klontering. De anti-A vindt op deze cellen niets om aan vast te hechten; de cellen blijven los.',
+    woorden: 'antigeen, antistof en klonteren',
+    verklaar: {
+      q: 'Welke verklaring past bij wat je zag?',
+      qFout: 'Waarom klonterde het niet, terwijl je dat wel verwachtte?',
+      opts: [
+        { t: 'Op de cellen van O zit geen antigeen A. Anti-A kan dus nergens aan hechten. Welke antistoffen in het plasma zitten, doet er bij deze test niet toe.', ok: true, fb: 'Precies. Bij de test kijk je naar de antigenen op de cellen. Klontering met anti-A betekent: antigeen A aanwezig.' },
+        { t: 'De anti-A die je toevoegt en de anti-A uit het plasma heffen elkaar op.', fb: 'Antistoffen heffen elkaar niet op. Kijk naar de cellen: zit daar iets op waar anti-A op past?' },
+        { t: 'Bloed van O klontert nooit, met geen enkele antistof.', fb: 'Dit bloed is O+: het heeft antigeen D. Met anti-D klontert het wél. Probeer het maar in het model.' },
+        { t: 'Je hebt te weinig anti-A toegevoegd.', fb: 'Ook met veel meer anti-A klontert het niet. Het gaat om de vraag of de antistof ergens op past.' }
+      ]
+    }
+  });
+  POE.def('c1', {
+    situatie: 'Twee patiënten krijgen een zak rode bloedcellen. <b>Patiënt 1</b> heeft O+ en krijgt bloed van AB+. <b>Patiënt 2</b> heeft AB+ en krijgt bloed van O+.',
+    vraag: 'Bij wie gaat het mis?',
+    keuzes: [
+      { t: 'Alleen bij patiënt 1 (O+ krijgt AB+).', ok: true },
+      { t: 'Alleen bij patiënt 2 (AB+ krijgt O+).' },
+      { t: 'Bij allebei.' },
+      { t: 'Bij geen van beiden.' }
+    ],
+    kijk: 'Bekijk beide patiënten in het model. Let op welke antistoffen er in het plasma zitten en waar ze aan hechten.',
+    uitkomst: 'Bij patiënt 1 hechten anti-A en anti-B aan de donorcellen: die klonteren. Bij patiënt 2 gebeurt niets.',
+    woorden: 'antigeen, antistof, donor en ontvanger',
+    verklaar: {
+      q: 'Welke verklaring past bij wat je zag?',
+      qFout: 'Waarom ging het anders dan je verwachtte?',
+      opts: [
+        { t: 'Het gaat om de antistoffen van de ontvanger. Patiënt 1 (O) heeft anti-A en anti-B, en die passen op de AB-cellen van de donor. Patiënt 2 (AB) heeft geen anti-A en anti-B.', ok: true, fb: 'Ja. Kijk naar de antigenen van de donor en de antistoffen van de ontvanger. De antistoffen in een zak rode bloedcellen tellen bijna niet mee.' },
+        { t: 'Het gaat om de antistoffen van de donor. Bloed van O bevat anti-A en anti-B, en die vallen de AB-cellen van patiënt 2 aan.', fb: 'Een zak rode bloedcellen bevat weinig plasma, en dat wordt in het bloed van de ontvanger sterk verdund. Het model liet bij patiënt 2 dan ook geen klontering zien.' },
+        { t: 'O is de universele ontvanger: die kan van iedereen bloed krijgen.', fb: 'Het is andersom. Iemand met O heeft anti-A én anti-B en kan alleen bloed van O krijgen.' },
+        { t: 'De resusfactor maakt het verschil.', fb: 'Allebei de patiënten en donoren zijn resuspositief. Het verschil zit in A en B.' }
+      ]
+    }
+  });
+  POE.def('c2', {
+    situatie: 'Een <b>resusnegatieve</b> man krijgt een zak resuspositief bloed; zijn ABO-bloedgroep past. Maanden later krijgt hij opnieuw resuspositief bloed.',
+    vraag: 'Wanneer klonteren de donorcellen?',
+    keuzes: [
+      { t: 'Al bij de eerste transfusie.' },
+      { t: 'Pas bij de tweede transfusie.', ok: true },
+      { t: 'Bij allebei.' },
+      { t: 'Nooit: de resusfactor doet er bij een transfusie niet toe.' }
+    ],
+    kijk: 'Bekijk de drie plaatjes in het model hieronder, van links naar rechts.',
+    uitkomst: 'Eerste transfusie: geen reactie. Daarna maakt hij anti-D en geheugencellen. Tweede transfusie: de donorcellen klonteren.',
+    woorden: 'anti-D, geheugencel en antigeen D',
+    verklaar: {
+      q: 'Welke verklaring past bij wat je zag?',
+      qFout: 'Waarom ging het anders dan je verwachtte?',
+      opts: [
+        { t: 'Anti-D heb je niet van nature. Pas na contact met antigeen D maakt hij anti-D en geheugencellen; die werken bij de tweede transfusie.', ok: true, fb: 'Precies: dat is het verschil met anti-A en anti-B, die je al vanaf je eerste levensjaar hebt.' },
+        { t: 'Bij de eerste transfusie waren er te weinig donorcellen om te klonteren.', fb: 'Het aantal donorcellen was gelijk. Wat was er bij de eerste transfusie nog niet in zijn plasma?' },
+        { t: 'Resusnegatief bloed bevat altijd anti-D, maar die wordt pas na een tijdje actief.', fb: 'Iemand die resusnegatief is, heeft van nature géén anti-D. Die ontstaat pas na contact met antigeen D.' },
+        { t: 'De tweede zak bloed was van een andere bloedgroep.', fb: 'Allebei waren het zakken resuspositief bloed met een passende ABO-groep.' }
+      ]
+    }
+  });
   /* ======================================================
      B1 · Waarom klontert bloed?
      ====================================================== */
@@ -2079,6 +2315,7 @@ const Route = (() => {
     nav: 'Waarom klontert bloed?',
     lead: 'Als een antistof zijn antigeen tegenkomt, hecht hij zich eraan vast. Met twee bindingsplaatsen kan één antistof twee rode bloedcellen aan elkaar koppelen.',
     html: () => `
+      ${POE.voor('b1')}
       ${model({
         title: 'Antistoffen bij rode bloedcellen', hint: 'Kies bloed, voeg een antistof toe en kijk wat er gebeurt.',
         body: `<div class="stage"><canvas id="b1-cv" role="img" aria-label="Rode bloedcellen met antigenen en antistoffen die er al dan niet aan hechten"></canvas></div>
@@ -2093,6 +2330,7 @@ const Route = (() => {
           </div>
           <div class="statusline" id="b1-tasks"></div>`
       })}
+      ${POE.na('b1')}
       <div class="prose">
         <p>Een antistof is een Y-vormig eiwit met twee <b>bindingsplaatsen</b>, aan de uiteinden van de armen. Elke bindingsplaats past op één soort antigeen.</p>
         <p>Voeg je anti-A toe aan bloed met antigeen A, dan hecht een antistof met de ene arm aan de ene cel en met de andere arm aan een tweede cel. Zo ontstaat een netwerk van cellen: de cellen <b>klonteren</b> samen. Dit heet <b>agglutinatie</b>. Met het blote oog zie je dan rode korreltjes in een heldere vloeistof.</p>
@@ -2101,7 +2339,7 @@ const Route = (() => {
       ${key('Klontering met anti-A betekent: op deze cellen zit <b>antigeen A</b>. Zo kun je een bloedgroep bepalen.')}
       ${deep('IgM en IgG: twee soorten antistoffen', `<p>De natuurlijke anti-A en anti-B zijn vooral <b>IgM</b>: vijf Y-vormen die aan elkaar vastzitten, met samen tien bindingsplaatsen. Daardoor laten ze rode bloedcellen snel en sterk klonteren.</p><p>Anti-D die je lichaam maakt na contact met resuspositief bloed, is vooral <b>IgG</b>: één Y met twee bindingsplaatsen. IgG wordt door de placenta actief naar het kind doorgegeven, IgM niet. Dat verschil is belangrijk bij resusantagonisme.</p><p>In het model zijn alle antistoffen als één Y getekend.</p>`)}
       ${CK('b1q1')}${CK('b1q2')}`,
-    widgets: [{ id: 'b1sim' }],
+    widgets: [{ id: 'b1sim' }, { id: POE.checkId('b1') }],
     checks: [
       {
         id: 'b1q1', type: 'mc',
@@ -2170,6 +2408,10 @@ const Route = (() => {
       }));
       $('#b1-reset', root).addEventListener('click', reset);
       reset(); updTasks();
+      POE.koppel(root, 'b1', {
+        wacht: 4200,
+        scenes: [{ label: 'Laat zien: bloed O+ met anti-A', apply() { abo = 'O'; rh = true; zetChip(root, 'b1abo', 'O'); zetChip(root, 'b1rh', '+'); reset(); $('[data-add="A"]', root).click(); } }]
+      });
     }
   });
 
@@ -2302,8 +2544,9 @@ const Route = (() => {
   Route.def('c1', {
     title: 'Wie mag aan wie geven?',
     nav: 'Wie mag aan wie geven?',
-    lead: 'Bij een bloedtransfusie krijgt iemand rode bloedcellen van een donor. Het gaat mis als de antistoffen van de ontvanger de cellen van de donor herkennen.',
+    lead: 'Bij een bloedtransfusie krijgt iemand rode bloedcellen van een donor. Wanneer gaat dat goed, en wanneer gaat het mis?',
     html: () => `
+      ${POE.voor('c1')}
       ${model({
         title: 'Transfusie op celniveau', hint: 'Kies een donor en een ontvanger. Je ziet het plasma van de ontvanger met de eigen cellen en de donorcellen.',
         body: `<div class="stage"><canvas id="c1-cv" role="img" aria-label="Plasma van de ontvanger met eigen cellen, donorcellen en antistoffen"></canvas></div>
@@ -2315,6 +2558,7 @@ const Route = (() => {
             <div class="ctl"><span class="lbl">Ontvanger resusnegatief?</span><label class="switch" id="c1-sw"><input type="checkbox" id="c1-sens"> heeft al anti-D (eerder contact met Rh+)</label></div>
           </div>`
       })}
+      ${POE.na('c1')}
       <div class="prose">
         <p>Komen er donorcellen binnen met een antigeen waartegen de ontvanger antistoffen heeft, dan hechten die antistoffen aan de donorcellen. De donorcellen klonteren en worden afgebroken. Daarbij komt veel hemoglobine vrij in het bloed. Dit heet een <b>transfusiereactie</b>. De ontvanger kan koorts en een lage bloeddruk krijgen, en de nieren kunnen beschadigd raken. Zo’n reactie kan levensgevaarlijk zijn.</p>
         <p>Let daarom op twee dingen: de <b>antigenen van de donor</b> en de <b>antistoffen van de ontvanger</b>. De antistoffen in het donorbloed tellen bij een transfusie van rode bloedcellen bijna niet mee: een zak rode bloedcellen bevat weinig plasma, en dat wordt in het bloed van de ontvanger sterk verdund.</p>
@@ -2325,7 +2569,7 @@ const Route = (() => {
         body: `<div style="overflow-x:auto;padding:8px 12px"><table class="compat" id="c1-tab"></table></div><div class="controls"><button type="button" class="btn btn-primary" id="c1-tcheck">Controleer</button><span id="c1-tfb" aria-live="polite" style="align-self:center"></span></div>`
       })}
       ${CK('c1q1')}${CK('c1q2')}`,
-    widgets: [{ id: 'c1tab' }],
+    widgets: [{ id: 'c1tab' }, { id: POE.checkId('c1') }],
     checks: [
       {
         id: 'c1q1', type: 'mc',
@@ -2377,6 +2621,14 @@ const Route = (() => {
       bindChips(root, 'c1r', v => { r = v; run(); });
       sw.addEventListener('change', () => { sens = sw.checked; run(); });
       run();
+      const zet = (dd, rr) => { d = dd; r = rr; sens = false; sw.checked = false; zetChip(root, 'c1d', dd); zetChip(root, 'c1r', rr); run(); };
+      POE.koppel(root, 'c1', {
+        wacht: 1800,
+        scenes: [
+          { label: 'Patiënt 1: O+ krijgt AB+', apply() { zet('AB+', 'O+'); } },
+          { label: 'Patiënt 2: AB+ krijgt O+', apply() { zet('O+', 'AB+'); } }
+        ]
+      });
 
       // tabel
       const tab = $('#c1-tab', root);
@@ -2463,16 +2715,18 @@ const Route = (() => {
     nav: 'Resus en universele donor',
     lead: 'Bij een transfusie telt ook de resusfactor mee, maar op een andere manier dan A en B: niemand heeft van nature anti-D.',
     html: () => `
+      ${POE.voor('c2')}
       ${model({
         title: 'Twee keer resuspositief bloed voor een resusnegatieve ontvanger',
         body: `<div class="stage" id="c2-fig"></div>${Draw.legend([['rbc', 'cel van de ontvanger (Rh−)'], ['donor', 'donorcel (Rh+)'], ['agD', 'antigeen D'], ['abD', 'anti-D'], ['mem', 'geheugencel']])}<div style="height:10px"></div>`
       })}
+      ${POE.na('c2')}
       <div class="prose">
         <p>Een resusnegatieve ontvanger die voor het eerst resuspositief bloed krijgt, heeft nog geen anti-D. Er volgt dus geen directe reactie. Maar het afweersysteem kan antigeen D als lichaamsvreemd herkennen en in de weken daarna <b>anti-D</b> en <b>geheugencellen</b> maken. Dan klonteren bij een volgende transfusie met resuspositief bloed de donorcellen wél.</p>
         <p>Daarom krijgen resusnegatieve patiënten zo veel mogelijk resusnegatief bloed. Bij meisjes en vrouwen die later nog zwanger kunnen worden is dat extra belangrijk. Waarom, zie je bij resusantagonisme.</p>
         <h3>Universele donor en universele ontvanger</h3>
         <p>Rode bloedcellen van <b>O−</b> hebben geen antigeen A, B of D. Die kun je in principe aan iedereen geven: O− is de <b>universele donor</b>. Iemand met <b>AB+</b> heeft geen anti-A en geen anti-B, en kan geen anti-D maken omdat hij zelf antigeen D heeft. AB+ is de <b>universele ontvanger</b>.</p>
-        <p>Ziekenhuizen gebruiken O− als noodbloed als er geen tijd is om eerst de bloedgroep te bepalen. Maar slechts ongeveer 8 van de 100 Nederlanders hebben O−. Daarom is bloed van O− vaak schaars. Als het kan, krijgt iemand bloed van precies dezelfde bloedgroep.</p>
+        <p>Ziekenhuizen gebruiken O− als noodbloed als er geen tijd is om eerst de bloedgroep te bepalen. Maar slechts ongeveer 7 van de 100 Nederlanders hebben O−. Daarom is bloed van O− vaak schaars. Als het kan, krijgt iemand bloed van precies dezelfde bloedgroep.</p>
       </div>
       ${model({
         title: 'Hoeveel mensen kun je helpen?', hint: 'Kies een bloedgroep. De rode staven tonen wie past.',
@@ -2481,17 +2735,9 @@ const Route = (() => {
       })}
       ${key('Universele donor: <b>O−</b>. Universele ontvanger: <b>AB+</b>. In de praktijk geven ziekenhuizen zo veel mogelijk precies dezelfde bloedgroep.')}
       ${deep('Plasma geven gaat andersom', `<p>Soms krijgt een patiënt geen rode bloedcellen, maar plasma, bijvoorbeeld voor de stollingsfactoren. In plasma zitten de antistoffen van de donor. Bij een plasmatransfusie gaat het dus om de <b>antistoffen van de donor</b> en de <b>antigenen van de ontvanger</b>.</p><p>Plasma van bloedgroep AB bevat geen anti-A en geen anti-B: dat kan iedereen krijgen. Voor plasma is AB dus de universele donor, en O de universele ontvanger.</p>`)}
-      ${CK('c2q1')}${CK('c2q2')}${CK('c2q3')}${CK('c2q4')}`,
+      ${CK('c2q2')}${CK('c2q3')}${CK('c2q4')}`,
+    widgets: [{ id: POE.checkId('c2') }],
     checks: [
-      {
-        id: 'c2q1', type: 'mc',
-        q: 'Een resusnegatieve man krijgt voor het eerst resuspositief bloed (zijn ABO-groep past). Wat gebeurt er?',
-        opts: [
-          { t: 'Een directe transfusiereactie, want hij heeft anti-D.', fb: 'Hij heeft nog nooit resuspositief bloed gehad, dus heeft hij nog geen anti-D.' },
-          { t: 'Geen directe reactie, maar hij kan anti-D en geheugencellen gaan maken.', ok: true, fb: 'Dan klonteren bij een volgende transfusie met resuspositief bloed de donorcellen wel.' },
-          { t: 'Er gebeurt nooit iets, want de resusfactor doet er bij transfusies niet toe.', fb: 'De resusfactor doet er wel toe: na de eerste keer maakt hij anti-D.' }
-        ]
-      },
       {
         id: 'c2q2', type: 'mc',
         q: 'Waarom is O− de universele donor en niet O+?',
@@ -2505,9 +2751,9 @@ const Route = (() => {
         id: 'c2q3', type: 'mc', chips: true,
         q: 'Aan hoeveel procent van de Nederlanders kan iemand met A+ zonder bezwaar rode bloedcellen geven? Gebruik het diagram (ik ben donor, A+).',
         opts: [
-          { t: '35 %', fb: 'A+ kan aan A+ geven, maar ook aan nog een bloedgroep. Welke?' },
-          { t: '37,5 %', ok: true, fb: 'A+-cellen passen bij A+ (35 %) en AB+ (2,5 %): samen 37,5 %.' },
-          { t: '42 %', fb: 'Dat is A+ en A− samen. Maar een resusnegatieve ontvanger krijgt liever geen resuspositief bloed.' },
+          { t: '37 %', fb: 'A+ kan aan A+ geven, maar ook aan nog een bloedgroep. Welke?' },
+          { t: '39,5 %', ok: true, fb: 'A+-cellen passen bij A+ (37 %) en AB+ (2,5 %): samen 39,5 %.' },
+          { t: '43 %', fb: 'Dat is A+ en A− samen. Maar een resusnegatieve ontvanger krijgt liever geen resuspositief bloed.' },
           { t: '100 %', fb: 'Dat geldt alleen voor O−.' }
         ]
       },
@@ -2528,6 +2774,7 @@ const Route = (() => {
       let narrow = null;
       const drawFig = () => { const n = fig.clientWidth < 600; if (n !== narrow) { narrow = n; fig.innerHTML = twoTransfusionsSVG(n); } };
       drawFig();
+      POE.koppel(root, 'c2');
       try { const ro = new ResizeObserver(drawFig); ro.observe(fig); Route.onCleanup(() => ro.disconnect()); } catch (e) { }
       let role = 'd', g = 'O-';
       const draw = () => {
@@ -2694,6 +2941,54 @@ const Route = (() => {
     }
   });
 
+  /* ---------- voorspellingen (voorspel → kijk → verklaar) ---------- */
+  POE.def('d2', {
+    situatie: 'Een moeder met bloedgroep A (genotype I<sup>A</sup>i) en een vader met bloedgroep B (I<sup>B</sup>i) krijgen kinderen.',
+    vraag: 'Welk deel van hun kinderen krijgt naar verwachting een bloedgroep die géén van beide ouders heeft?',
+    keuzes: [
+      { t: 'Geen enkel kind: een kind krijgt de bloedgroep van een van de ouders.' },
+      { t: '¼ van de kinderen' },
+      { t: '½ van de kinderen', ok: true },
+      { t: '¾ van de kinderen' }
+    ],
+    kijk: 'Klik op de knop: het schema krijgt deze ouders en wordt ingevuld. Kijk naar de kansen eronder.',
+    uitkomst: 'A ¼, B ¼, AB ¼ en O ¼. AB en O hebben geen van beide ouders: samen ½.',
+    woorden: 'allel, codominant en recessief',
+    verklaar: {
+      q: 'Welke verklaring past bij het schema?',
+      qFout: 'Waar zat het verschil tussen je voorspelling en het schema?',
+      opts: [
+        { t: 'Een kind kan I<sup>A</sup> van de moeder en I<sup>B</sup> van de vader krijgen (AB, codominant: ¼), of van allebei i (O: ¼). Samen ½.', ok: true, fb: 'Ja. Allebei de ouders dragen een verborgen i, en I<sup>A</sup> en I<sup>B</sup> komen samen allebei tot uiting.' },
+        { t: 'Alleen O is nieuw. AB is gewoon A en B samen, dus geen nieuwe bloedgroep: ¼.', fb: 'AB is wel een eigen bloedgroep: de cellen dragen antigeen A én B. Geen van de ouders heeft dat.' },
+        { t: 'Allel i is recessief, dus het verdwijnt en kan niet meer bij een kind tot uiting komen.', fb: 'Een recessief allel verdwijnt niet. Krijgt een kind van allebei de ouders i, dan is het ii: bloedgroep O.' },
+        { t: 'Bloedgroepen mengen: A en B samen geven bij elk kind een tussenvorm.', fb: 'Allelen mengen nooit. Elk kind krijgt één allel van de moeder en één van de vader; dat geeft vier even grote mogelijkheden.' }
+      ]
+    }
+  });
+  POE.def('e1', {
+    situatie: 'Een <b>resusnegatieve</b> moeder krijgt twee kinderen na elkaar. Allebei zijn ze <b>resuspositief</b>. Ze krijgt geen anti-D-prik.',
+    vraag: 'Welk kind loopt gevaar?',
+    keuzes: [
+      { t: 'Het eerste kind.' },
+      { t: 'Het tweede kind.', ok: true },
+      { t: 'Allebei evenveel.' },
+      { t: 'Geen van beiden: het bloed van moeder en kind komt nooit bij elkaar.' }
+    ],
+    kijk: 'Klik in het model de vier momenten door, van 1 tot en met 4.',
+    uitkomst: 'Het eerste kind heeft er geen last van. Na de bevalling maakt de moeder anti-D en geheugencellen. Bij het tweede kind gaat haar anti-D door de placenta en worden de rode bloedcellen van het kind afgebroken.',
+    woorden: 'anti-D, placenta en geheugencel',
+    verklaar: {
+      q: 'Welke verklaring past bij wat je zag?',
+      qFout: 'Waarom ging het anders dan je verwachtte?',
+      opts: [
+        { t: 'De moeder maakt pas anti-D en geheugencellen nadat bloed van het eerste kind in haar bloed is gekomen, meestal bij de bevalling. Bij het tweede kind is de anti-D er al en gaat die door de placenta.', ok: true, fb: 'Precies. De volgorde is: contact, dan afweerreactie met geheugencellen, dan pas schade bij een volgend resuspositief kind.' },
+        { t: 'Het eerste kind heeft nog geen antigeen D; dat ontstaat pas bij het tweede kind.', fb: 'Allebei de kinderen hebben antigeen D op hun rode bloedcellen. Het verschil zit bij de moeder.' },
+        { t: 'Bij een eerste zwangerschap laat de placenta geen antistoffen door.', fb: 'Antistoffen van het type IgG gaan altijd door de placenta. Bij het eerste kind had de moeder nog geen anti-D.' },
+        { t: 'Het tweede kind krijgt de anti-D van de vader.', fb: 'De vader is resuspositief en maakt geen anti-D. De anti-D komt van de moeder.' }
+      ]
+    }
+  });
+
   /* ======================================================
      D2 · Kruisingsschema's
      ====================================================== */
@@ -2709,6 +3004,7 @@ const Route = (() => {
           <li>Combineer in het schema elke eicel met elke zaadcel. Elk vakje heeft dezelfde kans.</li>
         </ol>
       </div>
+      ${POE.voor('d2')}
       ${model({
         title: 'Kruisingsschema', hint: 'Kies de genotypen van de ouders en vul het schema in. Of laat het invullen.',
         body: `<div class="controls" style="border-top:0;border-bottom:1px solid var(--line)" id="d2-ctl"></div>
@@ -2716,10 +3012,12 @@ const Route = (() => {
           <div class="controls" style="border-top:1px solid var(--line)"><button type="button" class="btn btn-primary btn-sm" id="d2-check">Controleer</button><button type="button" class="btn btn-sm" id="d2-auto">Vul automatisch in</button><span id="d2-fb" aria-live="polite" style="align-self:center;font-size:.92rem"></span></div>
           <div id="d2-dist"></div>`
       })}
+      ${POE.na('d2')}
       <div class="prose">
         <p>Het ABO-gen en het RHD-gen liggen op verschillende chromosomen (9 en 1). Ze erven <b>onafhankelijk</b> over. Je kunt de kansen daarom ook apart uitrekenen en vermenigvuldigen. Voorbeeld: is de kans op AB gelijk aan ¼ en de kans op resuspositief ¾, dan is de kans op AB+ gelijk aan ¼ × ¾ = 3/16.</p>
       </div>
       ${CK('d2q1')}${CK('d2q2')}${CK('d2q3')}${CK('d2q4')}`,
+    widgets: [{ id: POE.checkId('d2') }],
     checks: [
       {
         id: 'd2q1', type: 'mc',
@@ -2844,6 +3142,14 @@ const Route = (() => {
         else fb.innerHTML = `<b style="color:var(--bad)">${good} van de ${n} goed${empty ? `, ${empty} leeg` : ''}.</b> Combineer het allel links met het allel boven.`;
       });
       draw();
+      POE.koppel(root, 'd2', {
+        wacht: 2400,
+        scenes: [{ label: 'Laat zien: Iᴬi × Iᴮi', apply() {
+          Object.assign(S, { mode: 'abo', mA: 'IAi', fA: 'IBi' });
+          $('#d2-mA', root).value = S.mA; $('#d2-fA', root).value = S.fA;
+          entries = {}; revealed = true; fb.textContent = ''; save(); draw();
+        } }]
+      });
     }
   });
 
@@ -3058,8 +3364,9 @@ const Route = (() => {
   Route.def('e1', {
     title: 'Resusantagonisme',
     nav: 'Resusnegatieve moeder',
-    lead: 'Is een moeder resusnegatief en haar kind resuspositief, dan kan de moeder anti-D gaan maken. Bij een volgende zwangerschap kan dat het kind schaden. Dit heet resusantagonisme.',
+    lead: 'Een resusnegatieve moeder kan een resuspositief kind krijgen. Wat betekent dat voor haar kinderen?',
     html: () => `
+      ${POE.voor('e1')}
       ${model({
         title: 'Twee zwangerschappen', hint: 'Loop de stappen door. Zet daarna de anti-D-prik aan en vergelijk.',
         body: `<div class="controls" style="border-top:0;border-bottom:1px solid var(--line)"><div class="scene-nav" id="e1-nav">${SCENES.map((sc, i) => `<button type="button" class="chip" data-i="${i}">${i + 1} · ${sc.t}</button>`).join('')}</div><label class="switch"><input type="checkbox" id="e1-prik"> met anti-D-prik</label></div>
@@ -3067,12 +3374,14 @@ const Route = (() => {
           ${Draw.legend([['rbc', 'cel van de moeder (Rh−)'], ['agD', 'antigeen D op cel van het kind'], ['abD', 'anti-D'], ['mem', 'geheugencel']])}
           <p class="scene-cap" id="e1-cap" aria-live="polite"></p>`
       })}
+      ${POE.na('e1')}
       <div class="prose">
         <p>Alleen deze combinatie geeft problemen: een <b>resusnegatieve moeder</b> met een <b>resuspositief kind</b>. Het kind kan alleen resuspositief zijn als de vader resuspositief is.</p>
         <p>Het eerste kind heeft er meestal geen last van, want de moeder maakt pas anti-D na de bevalling. Heeft de moeder anti-D gemaakt (zonder anti-D-prik gebeurt dat bij ongeveer 1 op de 6 vrouwen), dan kan het bij een volgend resuspositief kind misgaan: de anti-D van de moeder breekt de rode bloedcellen van het kind af. Het kind krijgt bloedarmoede. Bij de afbraak van hemoglobine ontstaat bilirubine. Vóór de geboorte voert de placenta dat af; na de geboorte wordt het kind geel (geelzucht). Ernstige bloedarmoede kan levensgevaarlijk zijn. Soms krijgt het kind al in de baarmoeder een bloedtransfusie.</p>
       </div>
       ${key('Resusantagonisme: moeder Rh−, kind Rh+, en de moeder heeft al anti-D gemaakt, meestal bij een eerdere bevalling.')}
       ${CK('e1q1')}${CK('e1q2')}${CK('e1q3')}`,
+    widgets: [{ id: POE.checkId('e1') }],
     checks: [
       {
         id: 'e1q1', type: 'mc',
@@ -3120,9 +3429,10 @@ const Route = (() => {
         const sc = SCENES[i];
         $('#e1-cap', root).innerHTML = `<b>${i + 1} · ${sc.t}${prik ? ' (met anti-D-prik)' : ''}.</b> ${prik && sc.capP ? sc.capP : sc.cap}`;
       };
-      $('#e1-nav', root).addEventListener('click', e => { const b = e.target.closest('.chip'); if (b) { i = +b.dataset.i; draw(); } });
+      $('#e1-nav', root).addEventListener('click', e => { const b = e.target.closest('.chip'); if (b) { i = +b.dataset.i; draw(); if (i === SCENES.length - 1 && !prik) setTimeout(() => POE.gezien('e1'), 1500); } });
       $('#e1-prik', root).addEventListener('change', e => { prik = e.target.checked; draw(); });
       draw();
+      POE.koppel(root, 'e1', { handmatig: true });
     }
   });
 
@@ -3441,7 +3751,7 @@ const Lab = (() => {
       g += `<rect x="${f(cx - 20)}" y="62" width="40" height="112" rx="9" style="fill:var(--glass);stroke:var(--bench-muted);stroke-width:1.4"/>`;
       g += `<rect x="${f(cx - 17)}" y="96" width="34" height="75" rx="7" style="fill:${liq};opacity:${R.cells ? 0.9 : 0.85}"/>`;
       g += `<rect x="${f(cx - 25)}" y="112" width="50" height="40" rx="3" style="fill:var(--tape)"/>`;
-      g += `<text x="${f(cx)}" y="129" text-anchor="middle" style="fill:var(--tile-ink);font-family:var(--f-marker);font-weight:700;font-size:12px">${b.label}</text>`;
+      g += `<text x="${f(cx)}" y="129" text-anchor="middle" style="fill:var(--tile-ink);font-family:var(--f-marker);font-weight:700;font-size:${b.label.length > 7 ? 10.5 : 12}px">${b.label}</text>`;
       g += `<text x="${f(cx)}" y="145" text-anchor="middle" style="fill:var(--tile-ink);font-family:var(--f-body);font-size:10px">${b.sub}</text>`;
       if (sel) g += `<rect x="${f(cx - 26)}" y="6" width="52" height="184" rx="8" style="fill:none;stroke:var(--doel);stroke-width:2.5"/>`;
       s += hit(`data-bottle="${b.id}"`, `Flesje ${R.name} (${R.desc}): klik om het druppelflesje te pakken`, g);
@@ -4115,7 +4425,7 @@ const Cases = (() => {
     id: 'seh', title: 'Spoed op de SEH', tags: ['transfusie', 'bloedgroep bepalen'],
     short: 'Een vrouw verliest veel bloed na een ongeluk. Welk bloed geef je, en wanneer?',
     art: () => `<svg viewBox="0 0 260 118" aria-hidden="true"><rect x="0" y="0" width="260" height="118" style="fill:var(--surface-2)"/><path d="M14,70 h50 l10,-26 l14,52 l12,-40 l8,14 h140" style="fill:none;stroke:var(--accent);stroke-width:3;stroke-linejoin:round;stroke-linecap:round"/><g transform="translate(180,22)">${Draw.bag('O-', 46, 62).replace('<svg ', '<svg x="0" y="0" ')}</g><rect x="118" y="20" width="34" height="34" rx="6" style="fill:var(--accent)"/><path d="M135,27 v20 M125,37 h20" style="stroke:var(--on-accent);stroke-width:5;stroke-linecap:round"/></svg>`,
-    story: () => `${Draw.person('adult', 4)}<div><p>Een ambulance brengt <b>Fatima (31)</b> binnen op de spoedeisende hulp (SEH). Ze heeft een verkeersongeluk gehad en verliest veel bloed. Haar bloedgroep is onbekend en er is geen tijd om te wachten.</p><p>Jij helpt het team: eerst noodbloed, dan de bloedgroep bepalen, dan passend bloed uit de bloedbank.</p></div>`,
+    story: () => `${Draw.person('adult', 4)}<div><p>Een ambulance brengt <b>een vrouw van 31</b> binnen op de spoedeisende hulp (SEH). Ze heeft een verkeersongeluk gehad en verliest veel bloed. Haar bloedgroep is onbekend en er is geen tijd om te wachten.</p><p>Jij helpt het team: eerst noodbloed, dan de bloedgroep bepalen, dan passend bloed uit de bloedbank.</p></div>`,
     steps: [
       {
         title: 'Noodbloed',
@@ -4124,10 +4434,10 @@ const Cases = (() => {
           check($('[data-q]', el), {
             id: 'seh1', type: 'mc', chips: true, q: 'Welke bloedgroep geef je als noodbloed?',
             opts: [
-              { t: 'O+', fb: 'O+ heeft antigeen D. Is Fatima resusnegatief, dan kan ze anti-D gaan maken. Bij een vrouw die nog zwanger kan worden, wil je dat voorkomen.' },
-              { t: 'O−', ok: true, fb: 'O−-cellen hebben geen antigeen A, B of D. Welke bloedgroep Fatima ook heeft: haar antistoffen kunnen deze cellen niet aanvallen.' },
+              { t: 'O+', fb: 'O+ heeft antigeen D. Is de patiënt resusnegatief, dan kan ze anti-D gaan maken. Bij een vrouw die nog zwanger kan worden, wil je dat voorkomen.' },
+              { t: 'O−', ok: true, fb: 'O−-cellen hebben geen antigeen A, B of D. Welke bloedgroep de patiënt ook heeft: haar antistoffen kunnen deze cellen niet aanvallen.' },
               { t: 'AB+', fb: 'AB+ heeft antigeen A, B én D. Dat past alleen bij AB+. Voor bijna iedereen is dit gevaarlijk.' },
-              { t: 'A+', fb: 'Heeft Fatima bloedgroep B of O, dan heeft ze anti-A. Dan volgt een transfusiereactie.' }
+              { t: 'A+', fb: 'Heeft de patiënt bloedgroep B of O, dan heeft ze anti-A. Dan volgt een transfusiereactie.' }
             ]
           }, ctx.complete);
         }
@@ -4135,19 +4445,19 @@ const Cases = (() => {
       {
         title: 'Bloedgroep bepalen',
         render(el, ctx) {
-          el.innerHTML = `<div class="case-panel"><h3>Het lab test Fatima’s bloed</h3><p>Voer de test uit en lees het plaatje af.</p><div class="mini" style="max-width:520px"><h4>Bloed van Fatima</h4><div data-t></div></div></div>`;
-          testTask($('[data-t]', el), { id: 'seh-fatima', key: 'A-', label: 'Fatima', seed: 11, onOk: ctx.complete });
+          el.innerHTML = `<div class="case-panel"><h3>Het lab test het bloed van de patiënt</h3><p>Voer de test uit en lees het plaatje af.</p><div class="mini" style="max-width:520px"><h4>Bloed van de patiënt</h4><div data-t></div></div></div>`;
+          testTask($('[data-t]', el), { id: 'seh-fatima', key: 'A-', label: 'de patiënt', seed: 11, onOk: ctx.complete });
           if (Route.isDone('tt-seh-fatima')) ctx.complete(true);
         }
       },
       {
         title: 'Bloedbank',
         render(el, ctx) {
-          el.innerHTML = `<div class="case-panel"><h3>Passend bloed uit de bloedbank</h3><p>Fatima heeft bloedgroep <b>A−</b>. De twee zakken noodbloed (O−) zijn al toegediend; ze heeft nog <b>4 zakken</b> nodig. Kies uit de koelkast.</p><div data-bank></div></div>`;
+          el.innerHTML = `<div class="case-panel"><h3>Passend bloed uit de bloedbank</h3><p>De patiënt heeft bloedgroep <b>A−</b>. De twee zakken noodbloed (O−) zijn al toegediend; ze heeft nog <b>4 zakken</b> nodig. Kies uit de koelkast.</p><div data-bank></div></div>`;
           const done = Route.isDone('seh3');
           bloodBank($('[data-bank]', el), {
             need: 4, stock: { 'O+': 14, 'A+': 12, 'B+': 4, 'AB+': 2, 'O-': 3, 'A-': 2, 'B-': 1, 'AB-': 0 },
-            patient: { name: 'Fatima, 31 jaar', key: 'A-', desc: 'vrouw', young: true, hue: 4 },
+            patient: { name: 'Patiënt, 31 jaar', key: 'A-', desc: 'vrouw', young: true, hue: 4 },
             onOk: () => { Route.mark('seh3'); ctx.complete(); }
           });
           if (done) ctx.complete(true);
@@ -4158,7 +4468,7 @@ const Cases = (() => {
         render(el, ctx) {
           const bags = ['A-', 'O-', 'A+', 'B-'];
           const st = ctx.data.kp || (ctx.data.kp = {});
-          el.innerHTML = `<div class="case-panel"><h3>Kruisproef <span class="tag vwo">vwo</span></h3><p>Vlak voor een transfusie doet het lab een <b>kruisproef</b>: het plasma van de patiënt wordt gemengd met cellen uit de donorzak. Klontert het, dan mag die zak niet. Fatima (A−) had vóór vandaag nooit bloed gehad; het noodbloed (O−) heeft geen antigeen D. Het lab test vier zakken uit de koelkast.</p><p><b>Voorspel</b> voor elke zak of het plasma van Fatima de donorcellen laat klonteren.</p>
+          el.innerHTML = `<div class="case-panel"><h3>Kruisproef <span class="tag vwo">vwo</span></h3><p>Vlak voor een transfusie doet het lab een <b>kruisproef</b>: het plasma van de patiënt wordt gemengd met cellen uit de donorzak. Klontert het, dan mag die zak niet. De patiënt (A−) had vóór vandaag nooit bloed gehad; het noodbloed (O−) heeft geen antigeen D. Het lab test vier zakken uit de koelkast.</p><p><b>Voorspel</b> voor elke zak of het plasma van de patiënt de donorcellen laat klonteren.</p>
             <div class="cards-row" data-kp></div><div class="check-actions"><button type="button" class="btn btn-primary btn-sm" data-kpc>Controleer voorspelling</button></div><div class="fb" data-kpfb aria-live="polite"></div><div data-q2></div></div>`;
           const box = $('[data-kp]', el);
           const C = () => Colors.get();
@@ -4173,11 +4483,11 @@ const Cases = (() => {
           box.addEventListener('click', e => { const b = e.target.closest('.chip'); if (!b || b.disabled) return; st[b.dataset.k] = +b.dataset.v; ctx.save(); draw(false); });
           const fb = $('[data-kpfb]', el);
           const q2 = () => check($('[data-q2]', el), {
-            id: 'seh4b', type: 'mc', q: 'De kruisproef met zak A+ klontert niet. Mag Fatima deze zak toch krijgen?',
+            id: 'seh4b', type: 'mc', q: 'De kruisproef met zak A+ klontert niet. Mag de patiënt deze zak toch krijgen?',
             opts: [
               { t: 'Ja, de kruisproef is negatief, dus het is veilig.', fb: 'Nu nog wel: ze heeft nog geen anti-D. Maar wat gebeurt er daarna?' },
-              { t: 'Liever niet: ze heeft nu nog geen anti-D, maar zou het na deze transfusie wel gaan maken.', ok: true, fb: 'Een kruisproef laat alleen zien welke antistoffen er nú zijn. Dat Fatima anti-D kan gaan maken, zie je er niet aan.' },
-              { t: 'Nee, want A+ klontert altijd met A−.', fb: 'De proef klonterde juist niet: Fatima heeft (nog) geen anti-D.' }
+              { t: 'Liever niet: ze heeft nu nog geen anti-D, maar zou het na deze transfusie wel gaan maken.', ok: true, fb: 'Een kruisproef laat alleen zien welke antistoffen er nú zijn. Dat de patiënt anti-D kan gaan maken, zie je er niet aan.' },
+              { t: 'Nee, want A+ klontert altijd met A−.', fb: 'De proef klonterde juist niet: de patiënt heeft (nog) geen anti-D.' }
             ]
           }, ctx.complete);
           if (solved) { fb.className = 'fb ok'; fb.innerHTML = '<strong>Voorspelling gecontroleerd.</strong>'; $('[data-kpc]', el).disabled = true; q2(); }
@@ -4185,8 +4495,8 @@ const Cases = (() => {
             if (bags.some(k => st[k] == null)) { fb.className = 'fb info'; fb.innerHTML = '<strong>Voorspel eerst alle vier de zakken.</strong>'; return; }
             const wrong = bags.filter(k => st[k] !== (truth(k) ? 1 : 0));
             draw(true);
-            if (!wrong.length) { fb.className = 'fb ok'; fb.innerHTML = '<strong>Alles goed voorspeld.</strong><p>Alleen zak B− klontert: Fatima heeft anti-B. Zak A+ klontert niet, want ze heeft (nog) geen anti-D.</p>'; }
-            else { fb.className = 'fb no'; fb.innerHTML = `<strong>${wrong.length} van de 4 niet goed voorspeld.</strong><p>Fatima (A−) heeft anti-B in haar plasma, en nog geen anti-D. Daarom klontert alleen zak B−.</p>`; }
+            if (!wrong.length) { fb.className = 'fb ok'; fb.innerHTML = '<strong>Alles goed voorspeld.</strong><p>Alleen zak B− klontert: de patiënt heeft anti-B. Zak A+ klontert niet, want ze heeft (nog) geen anti-D.</p>'; }
+            else { fb.className = 'fb no'; fb.innerHTML = `<strong>${wrong.length} van de 4 niet goed voorspeld.</strong><p>De patiënt (A−) heeft anti-B in haar plasma, en nog geen anti-D. Daarom klontert alleen zak B−.</p>`; }
             $('[data-kpc]', el).disabled = true;
             Route.mark('seh4a');
             q2();
@@ -4196,9 +4506,9 @@ const Cases = (() => {
       {
         title: 'Terugblik',
         render(el, ctx) {
-          el.innerHTML = `<div class="case-panel"><h3>Na een week</h3><p>Fatima herstelt goed en mag naar huis.</p><div data-q></div></div>`;
+          el.innerHTML = `<div class="case-panel"><h3>Na een week</h3><p>De patiënt herstelt goed en mag naar huis.</p><div data-q></div></div>`;
           check($('[data-q]', el), {
-            id: 'seh5', type: 'mc', q: 'Waarom was het belangrijk dat Fatima resusnegatief bloed kreeg?',
+            id: 'seh5', type: 'mc', q: 'Waarom was het belangrijk dat de patiënt resusnegatief bloed kreeg?',
             opts: [
               { t: 'Omdat ze anders anti-D kan gaan maken. Bij een latere zwangerschap van een resuspositief kind is dat gevaarlijk voor het kind.', ok: true, fb: 'Precies: dat is resusantagonisme.' },
               { t: 'Omdat resuspositief bloed meteen een transfusiereactie had gegeven.', fb: 'Bij een eerste keer volgt geen directe reactie: ze had nog geen anti-D.' },
@@ -4212,13 +4522,13 @@ const Cases = (() => {
         render(el, ctx) {
           const sc = ctx.data.shift || (ctx.data.shift = { n: 0, seed: 1 + Math.floor(Math.random() * 1e5) });
           el.innerHTML = `<div class="case-panel"><h3>Dienst op de bloedbank</h3><p>Steeds een nieuwe patiënt. Kies telkens 2 zakken. Geholpen: <b data-n>${sc.n}</b> patiënten.</p><div data-bank></div><div class="check-actions"><button type="button" class="btn" data-newpat>Volgende patiënt →</button></div></div>`;
-          const names = [['Noah', 'man'], ['Sara', 'vrouw'], ['Mehmet', 'man'], ['Iris', 'vrouw'], ['Daan', 'man'], ['Lina', 'vrouw'], ['Jan', 'man'], ['Emma', 'vrouw'], ['Yusuf', 'man'], ['Anouk', 'vrouw']];
+          const names = [['man'], ['vrouw'], ['man'], ['vrouw'], ['man'], ['vrouw'], ['man'], ['vrouw'], ['man'], ['vrouw']];
           function patient() {
             const r = rng(sc.seed + sc.n * 977);
             const x = r() * 100; let acc = 0, key = 'O+';
             for (const k of G8) { acc += BG.NL[k]; if (x < acc) { key = k; break; } }
             if (r() < 0.35) key = ['O-', 'A-', 'B-', 'AB+', 'AB-', 'B+'][Math.floor(r() * 6)];
-            const [nm, sex] = names[Math.floor(r() * names.length)];
+            const [sex] = names[Math.floor(r() * names.length)];
             const age = sex === 'vrouw' ? (r() < 0.5 ? 18 + Math.floor(r() * 25) : 55 + Math.floor(r() * 30)) : 20 + Math.floor(r() * 65);
             const stock = {};
             G8.forEach(k => { stock[k] = Math.floor(r() * (BG.NL[k] > 5 ? 9 : 3)); });
@@ -4231,7 +4541,7 @@ const Cases = (() => {
             }
             const totalOk = G8.reduce((t, k) => t + (BG.rbc(k, key, false).safeNow ? stock[k] : 0), 0);
             if (totalOk < 2) stock['O-'] = Math.max(stock['O-'], 2);
-            return { name: `${nm}, ${age} jaar`, key, desc: sex, young: sex === 'vrouw' && age < 50, hue: Math.floor(r() * 5), stock };
+            return { name: `Patiënt ${sc.n + 1}, ${age} jaar`, key, desc: sex, young: sex === 'vrouw' && age < 50, hue: Math.floor(r() * 5), stock };
           }
           function load() {
             const p = patient();
@@ -4250,9 +4560,9 @@ const Cases = (() => {
 
   /* 2 · Drie baby's, één nacht */
   const COUPLES = [
-    { id: 'boer', name: 'De Boer', m: 'A-', f: 'O-' },
-    { id: 'yilmaz', name: 'Yilmaz', m: 'A+', f: 'B-' },
-    { id: 'visser', name: 'Visser', m: 'O+', f: 'AB+' }
+    { id: 'boer', name: 'Ouderpaar 1', m: 'A-', f: 'O-' },
+    { id: 'yilmaz', name: 'Ouderpaar 2', m: 'A+', f: 'B-' },
+    { id: 'visser', name: 'Ouderpaar 3', m: 'O+', f: 'AB+' }
   ];
   const BABIES = [{ n: 1, key: 'A+', to: 'visser' }, { n: 2, key: 'A-', to: 'boer' }, { n: 3, key: 'O+', to: 'yilmaz' }];
   function whyNot(baby, couple) {
@@ -4263,9 +4573,9 @@ const Cases = (() => {
     if (!aboKids.has(b.abo)) {
       const mAbo = BG.parse(couple.m).abo, fAbo = BG.parse(couple.f).abo;
       if (b.abo === 'O' && (mAbo === 'AB' || fAbo === 'AB')) return `Baby ${baby.n} heeft bloedgroep O (${H.gt('i', 'i')}). Een ouder met AB geeft altijd ${IA} of ${IB} door.`;
-      return `Ouders ${couple.name} (${mAbo} × ${fAbo}) kunnen geen kind met bloedgroep ${b.abo} krijgen.`;
+      return `${couple.name} (${mAbo} × ${fAbo}) kan geen kind met bloedgroep ${b.abo} krijgen.`;
     }
-    return `Baby ${baby.n} is resuspositief, maar beide ouders ${couple.name} zijn resusnegatief (dd). Hun kinderen zijn altijd dd.`;
+    return `Baby ${baby.n} is resuspositief, maar beide ouders van ${couple.name.toLowerCase()} zijn resusnegatief (dd). Hun kinderen zijn altijd dd.`;
   }
   CASES.push({
     id: 'babys', title: 'Drie baby’s, één nacht', tags: ['erfelijkheid'],
@@ -4314,7 +4624,7 @@ const Cases = (() => {
             ctx.save(); draw();
           });
           function explain() {
-            return `<strong>Goed.</strong><p>De Boer: A × O. De moeder kan ${H.gt('IA', 'i')} zijn, dus kinderen A of O. Allebei dd: kinderen altijd Rh−.</p><p>Yilmaz: A × B. Als beide ouders ${ia} dragen, kan elk ABO-fenotype. De vader is dd; is de moeder Dd, dan kunnen de kinderen Rh+ of Rh− zijn.</p><p>Visser: O × AB. De kinderen krijgen ${ia} van de moeder en ${IA} of ${IB} van de vader: A of B. Als beide ouders Dd zijn: Rh+ of Rh−.</p>`;
+            return `<strong>Goed.</strong><p>Ouderpaar 1: A × O. De moeder kan ${H.gt('IA', 'i')} zijn, dus kinderen A of O. Allebei dd: kinderen altijd Rh−.</p><p>Ouderpaar 2: A × B. Als beide ouders ${ia} dragen, kan elk ABO-fenotype. De vader is dd; is de moeder Dd, dan kunnen de kinderen Rh+ of Rh− zijn.</p><p>Ouderpaar 3: O × AB. De kinderen krijgen ${ia} van de moeder en ${IA} of ${IB} van de vader: A of B. Als beide ouders Dd zijn: Rh+ of Rh−.</p>`;
           }
           $('[data-chk]', el).addEventListener('click', () => {
             const marks = {}; let wrong = [];
@@ -4338,18 +4648,18 @@ const Cases = (() => {
           const q = () => check($('[data-q]', el), {
             id: 'babys3q', type: 'mc', q: 'Had je dit ook kunnen oplossen met alleen de ABO-bloedgroepen (zonder resus)?',
             opts: [
-              { t: 'Ja, ABO is genoeg.', fb: 'Probeer het: baby 3 (O) kan dan ook bij De Boer horen, en baby 1 en 2 (allebei A) kunnen bij elk ouderpaar.' },
-              { t: 'Nee: met alleen ABO zijn er meerdere oplossingen. De resusfactor geeft de doorslag.', ok: true, fb: 'Zonder resus kan baby 3 (O) bij De Boer of bij Yilmaz horen, en zijn baby 1 en 2 niet uit elkaar te houden.' }
+              { t: 'Ja, ABO is genoeg.', fb: 'Probeer het: baby 3 (O) kan dan ook bij ouderpaar 1 horen, en baby 1 en 2 (allebei A) kunnen bij elk ouderpaar.' },
+              { t: 'Nee: met alleen ABO zijn er meerdere oplossingen. De resusfactor geeft de doorslag.', ok: true, fb: 'Zonder resus kan baby 3 (O) bij ouderpaar 1 of bij ouderpaar 2 horen, en zijn baby 1 en 2 niet uit elkaar te houden.' }
             ]
           }, ctx.complete);
-          if (solved) { fb.className = 'fb ok'; fb.innerHTML = '<strong>Goed: baby 1 hoort bij Visser, baby 2 bij De Boer en baby 3 bij Yilmaz.</strong>'; $('[data-chk]', el).disabled = true; q(); }
+          if (solved) { fb.className = 'fb ok'; fb.innerHTML = '<strong>Goed: baby 1 hoort bij ouderpaar 3, baby 2 bij ouderpaar 1 en baby 3 bij ouderpaar 2.</strong>'; $('[data-chk]', el).disabled = true; q(); }
           $('[data-chk]', el).addEventListener('click', () => {
             const vals = BABIES.map(b => st[b.n]);
             if (vals.some(v => !v)) { fb.className = 'fb info'; fb.innerHTML = '<strong>Kies bij elke baby een ouderpaar.</strong>'; return; }
             if (new Set(vals).size < 3) { fb.className = 'fb no'; fb.innerHTML = '<strong>Elk ouderpaar heeft precies één baby.</strong><p>Je hebt een ouderpaar twee keer gekozen.</p>'; return; }
             const reasons = BABIES.map(b => whyNot(b, COUPLES.find(c => c.id === st[b.n]))).filter(Boolean);
             if (!reasons.length) {
-              fb.className = 'fb ok'; fb.innerHTML = `<strong>Goed!</strong><p>Baby 3 (O+) kan alleen bij Yilmaz: De Boer krijgt alleen resusnegatieve kinderen en Visser (O × AB) kan geen O krijgen. Baby 1 (A+) kan niet bij De Boer (Rh−), dus bij Visser. Dan blijft baby 2 (A−) over voor De Boer.</p>`;
+              fb.className = 'fb ok'; fb.innerHTML = `<strong>Goed!</strong><p>Baby 3 (O+) kan alleen bij ouderpaar 2: ouderpaar 1 krijgt alleen resusnegatieve kinderen en ouderpaar 3 (O × AB) kan geen O krijgen. Baby 1 (A+) kan niet bij ouderpaar 1 (Rh−), dus bij ouderpaar 3. Dan blijft baby 2 (A−) over voor ouderpaar 1.</p>`;
               $$('select', rows).forEach(s => { s.disabled = true; });
               $('[data-chk]', el).disabled = true;
               Route.mark('babys3');
@@ -4363,11 +4673,11 @@ const Cases = (() => {
         render(el, ctx) {
           el.innerHTML = `<div class="case-panel"><h3>Hoe zeker is het?</h3><div data-q></div></div>`;
           check($('[data-q]', el), {
-            id: 'babys4', type: 'mc', q: 'Is hiermee bewezen dat baby 2 het kind is van De Boer?',
+            id: 'babys4', type: 'mc', q: 'Is hiermee bewezen dat baby 2 het kind is van ouderpaar 1?',
             opts: [
               { t: 'Ja, de bloedgroepen passen precies.', fb: 'Dat de bloedgroepen passen, sluit andere ouders niet uit. Heel veel ouderparen kunnen een kind met A− krijgen.' },
               { t: 'Nee. Het is alleen de enige mogelijkheid als het zeker een van deze drie paren is. Zekerheid geeft een DNA-test.', ok: true, fb: 'Bloedgroepen kunnen ouderschap uitsluiten, maar niet bewijzen.' },
-              { t: 'Ja, want resusnegatief komt weinig voor.', fb: 'Ongeveer 16 van de 100 Nederlanders is resusnegatief. Dat is veel te vaak om iets te bewijzen.' }
+              { t: 'Ja, want resusnegatief komt weinig voor.', fb: 'Ongeveer 15 van de 100 Nederlanders is resusnegatief. Dat is veel te vaak om iets te bewijzen.' }
             ]
           }, ctx.complete);
         }
@@ -4377,15 +4687,15 @@ const Cases = (() => {
 
   /* 3 · Kan hij de vader zijn? */
   const MEN = [
-    { id: 'karim', name: 'Karim', key: 'B+', ex: ['abo'] },
-    { id: 'jeroen', name: 'Jeroen', key: 'AB-', ex: ['rh'] },
-    { id: 'mark', name: 'Mark', key: 'A+', ex: [] }
+    { id: 'karim', name: 'Man 1', key: 'B+', ex: ['abo'] },
+    { id: 'jeroen', name: 'Man 2', key: 'AB-', ex: ['rh'] },
+    { id: 'mark', name: 'Man 3', key: 'A+', ex: [] }
   ];
   CASES.push({
     id: 'vader', title: 'Kan hij de vader zijn?', tags: ['erfelijkheid'],
     short: 'Drie mannen komen in aanmerking. Wie kun je uitsluiten met bloedgroepen?',
     art: () => `<svg viewBox="0 0 260 118" aria-hidden="true"><rect x="0" y="0" width="260" height="118" style="fill:var(--surface-2)"/>${[30, 100, 170].map((x, i) => `<g transform="translate(${x},16) scale(1.5)">${Draw.person('adult', i).replace(/<\/?svg[^>]*>/g, '')}</g>`).join('')}<text x="232" y="62" style="fill:var(--accent);font-family:var(--f-display);font-weight:800;font-size:42px">?</text></svg>`,
-    story: () => `${Draw.person('adult', 3)}<div><p><b>Lotte</b> heeft bloedgroep <b>O−</b>. Haar zoon <b>Sem</b> heeft bloedgroep <b>A+</b>. Drie mannen komen in aanmerking als vader: Karim (B+), Jeroen (AB−) en Mark (A+).</p></div>`,
+    story: () => `${Draw.person('adult', 3)}<div><p><b>De moeder</b> heeft bloedgroep <b>O−</b>. Haar zoon heeft bloedgroep <b>A+</b>. Drie mannen komen in aanmerking als vader: man 1 (B+), man 2 (AB−) en man 3 (A+).</p></div>`,
     steps: [
       {
         title: 'Uitsluiten',
@@ -4410,7 +4720,7 @@ const Cases = (() => {
             if (b.dataset.r) { const i = s.r.indexOf(b.dataset.r); if (i >= 0) s.r.splice(i, 1); else s.r.push(b.dataset.r); }
             ctx.save(); draw();
           });
-          const expl = `<p>Sem is ${H.gt('IA', 'i')} Dd. Van Lotte (${H.gt('i', 'i')} dd) kreeg hij ${ia} en d. Dus van zijn vader kreeg hij ${IA} en D.</p><p><b>Karim</b> (B+) heeft geen ${IA}: uitgesloten door ABO. <b>Jeroen</b> (AB−) heeft wel ${IA}, maar is dd en kan geen D doorgeven: uitgesloten door resus. <b>Mark</b> (A+) kan ${IA} en D doorgeven: mogelijk.</p>`;
+          const expl = `<p>De zoon is ${H.gt('IA', 'i')} Dd. Van de moeder (${H.gt('i', 'i')} dd) kreeg hij ${ia} en d. Dus van zijn vader kreeg hij ${IA} en D.</p><p><b>Man 1</b> (B+) heeft geen ${IA}: uitgesloten door ABO. <b>Man 2</b> (AB−) heeft wel ${IA}, maar is dd en kan geen D doorgeven: uitgesloten door resus. <b>Man 3</b> (A+) kan ${IA} en D doorgeven: mogelijk.</p>`;
           if (solved) { fb.className = 'fb ok'; fb.innerHTML = '<strong>Goed.</strong>' + expl; $('[data-chk]', el).disabled = true; ctx.complete(true); }
           $('[data-chk]', el).addEventListener('click', () => {
             const marks = {}; const bad = [];
@@ -4426,25 +4736,25 @@ const Cases = (() => {
               const m = bad[0], s = st[m.id];
               let hint;
               if (s.v == null) hint = `Je hebt bij ${m.name} nog niets gekozen.`;
-              else if (m.id === 'mark') hint = `Kan Mark (A+) allel ${IA} en allel D doorgeven?`;
-              else if (s.v === 'ok') hint = `Welke allelen moet Sem van zijn vader hebben gekregen? Heeft ${m.name} die allebei?`;
-              else hint = `${m.name} is terecht uitgesloten, maar waardoor? ${m.id === 'karim' ? 'Kijk naar de ABO-allelen.' : 'Jeroen heeft wel ' + IA + '. Kijk naar de resusfactor.'}`;
+              else if (m.id === 'mark') hint = `Kan man 3 (A+) allel ${IA} en allel D doorgeven?`;
+              else if (s.v === 'ok') hint = `Welke allelen moet de zoon van zijn vader hebben gekregen? Heeft ${m.name} die allebei?`;
+              else hint = `${m.name} is terecht uitgesloten, maar waardoor? ${m.id === 'karim' ? 'Kijk naar de ABO-allelen.' : 'Man 2 heeft wel ' + IA + '. Kijk naar de resusfactor.'}`;
               fb.className = 'fb no'; fb.innerHTML = `<strong>Nog niet helemaal goed.</strong><p>${hint}</p>`;
             }
           });
         }
       },
       {
-        title: 'Genotype van Sem',
+        title: 'Genotype van de zoon',
         render(el, ctx) {
-          el.innerHTML = `<div class="case-panel"><h3>Het genotype van Sem</h3><div data-q></div></div>`;
+          el.innerHTML = `<div class="case-panel"><h3>Het genotype van de zoon</h3><div data-q></div></div>`;
           check($('[data-q]', el), {
-            id: 'vader2', type: 'mc', q: 'Welk genotype heeft Sem (A+), met moeder Lotte (O−)?',
+            id: 'vader2', type: 'mc', q: 'Welk genotype heeft de zoon (A+)? Zijn moeder heeft O−.',
             opts: [
-              { t: `${H.gt('IA', 'IA')} DD`, fb: `Lotte heeft alleen ${ia} en d. Die moet Sem van haar gekregen hebben.` },
-              { t: `${H.gt('IA', 'i')} Dd`, ok: true, fb: `Van Lotte kreeg Sem ${ia} en d; van zijn vader ${IA} en D.` },
-              { t: `${H.gt('IA', 'i')} DD`, fb: 'Lotte is dd en kan alleen d doorgeven.' },
-              { t: `${H.gt('IA', 'IA')} Dd`, fb: `Lotte is ${H.gt('i', 'i')} en kan alleen ${ia} doorgeven.` }
+              { t: `${H.gt('IA', 'IA')} DD`, fb: `De moeder heeft alleen ${ia} en d. Die moet de zoon van haar gekregen hebben.` },
+              { t: `${H.gt('IA', 'i')} Dd`, ok: true, fb: `Van de moeder kreeg de zoon ${ia} en d; van zijn vader ${IA} en D.` },
+              { t: `${H.gt('IA', 'i')} DD`, fb: 'De moeder is dd en kan alleen d doorgeven.' },
+              { t: `${H.gt('IA', 'IA')} Dd`, fb: `De moeder is ${H.gt('i', 'i')} en kan alleen ${ia} doorgeven.` }
             ]
           }, ctx.complete);
         }
@@ -4452,13 +4762,13 @@ const Cases = (() => {
       {
         title: 'Bewezen?',
         render(el, ctx) {
-          el.innerHTML = `<div class="case-panel"><h3>Is Mark de vader?</h3><div data-q></div></div>`;
+          el.innerHTML = `<div class="case-panel"><h3>Is man 3 de vader?</h3><div data-q></div></div>`;
           check($('[data-q]', el), {
-            id: 'vader3', type: 'mc', q: 'Bewijzen de bloedgroepen dat Mark de vader is?',
+            id: 'vader3', type: 'mc', q: 'Bewijzen de bloedgroepen dat man 3 de vader is?',
             opts: [
               { t: 'Ja, want hij is de enige die overblijft.', fb: 'Hij is de enige van deze drie. Maar heel veel mannen hebben bloedgroep A+ of AB+.' },
-              { t: 'Nee, Mark kán de vader zijn. Zekerheid geeft alleen een DNA-test.', ok: true, fb: 'Bloedgroepen sluiten uit, maar bewijzen niet.' },
-              { t: 'Ja, want Sem en Mark hebben dezelfde bloedgroep.', fb: 'Dezelfde bloedgroep zegt weinig: ongeveer 35 van de 100 Nederlanders heeft A+.' }
+              { t: 'Nee, man 3 kán de vader zijn. Zekerheid geeft alleen een DNA-test.', ok: true, fb: 'Bloedgroepen sluiten uit, maar bewijzen niet.' },
+              { t: 'Ja, want de zoon en man 3 hebben dezelfde bloedgroep.', fb: 'Dezelfde bloedgroep zegt weinig: ongeveer 37 van de 100 Nederlanders heeft A+.' }
             ]
           }, ctx.complete);
         }
@@ -4466,35 +4776,35 @@ const Cases = (() => {
       {
         title: 'Rekenen', vwo: true,
         render(el, ctx) {
-          el.innerHTML = `<div class="case-panel"><h3>Kansen <span class="tag vwo">vwo</span></h3><p>Mark is inderdaad de vader. De moeder van Mark heeft bloedgroep O−.</p><div data-q></div></div>`;
+          el.innerHTML = `<div class="case-panel"><h3>Kansen <span class="tag vwo">vwo</span></h3><p>Man 3 is inderdaad de vader. De moeder van man 3 heeft bloedgroep O−.</p><div data-q></div></div>`;
           check($('[data-q]', el), {
-            id: 'vader4', type: 'num', q: 'Lotte en Mark willen nog een kind. Hoe groot is de kans dat dat kind bloedgroep A+ heeft?',
+            id: 'vader4', type: 'num', q: 'De moeder en man 3 willen nog een kind. Hoe groot is de kans dat dat kind bloedgroep A+ heeft?',
             answer: 0.25, answerText: '1/4',
-            explain: `Mark kreeg van zijn moeder (${H.gt('i', 'i')} dd) een ${ia} en een d: hij is ${H.gt('IA', 'i')} Dd. Kans op ${IA} van Mark = ½, kans op D = ½. Lotte geeft altijd ${ia} en d. Kans op A+ = ½ × ½ = ¼.`,
-            common: [{ v: 0.5, fb: 'Dat is de kans op bloedgroep A (of op Rh+). Je moet beide kansen vermenigvuldigen.' }, { v: 1, fb: `Mark is heterozygoot: zijn moeder gaf hem ${ia} en d.` }],
-            wrongFb: 'Bepaal eerst het genotype van Mark met behulp van zijn moeder.'
+            explain: `Man 3 kreeg van zijn moeder (${H.gt('i', 'i')} dd) een ${ia} en een d: hij is ${H.gt('IA', 'i')} Dd. Kans op ${IA} van man 3 = ½, kans op D = ½. De moeder geeft altijd ${ia} en d. Kans op A+ = ½ × ½ = ¼.`,
+            common: [{ v: 0.5, fb: 'Dat is de kans op bloedgroep A (of op Rh+). Je moet beide kansen vermenigvuldigen.' }, { v: 1, fb: `Man 3 is heterozygoot: zijn moeder gaf hem ${ia} en d.` }],
+            wrongFb: 'Bepaal eerst het genotype van man 3 met behulp van zijn moeder.'
           }, ctx.complete);
         }
       }
     ]
   });
 
-  /* 4 · Sanne is zwanger */
+  /* 4 · Resusnegatief en zwanger */
   CASES.push({
-    id: 'sanne', title: 'Sanne is zwanger', tags: ['resusantagonisme', 'erfelijkheid'],
-    short: 'Sanne is resusnegatief en zwanger van haar eerste kind. Wat moet er gebeuren?',
+    id: 'sanne', title: 'Resusnegatief en zwanger', tags: ['resusantagonisme', 'erfelijkheid'],
+    short: 'Een vrouw is resusnegatief en zwanger van haar eerste kind. Wat moet er gebeuren?',
     art: () => `<svg viewBox="0 0 260 118" aria-hidden="true"><rect x="0" y="0" width="260" height="118" style="fill:var(--surface-2)"/><g transform="translate(60,10) scale(2.4)">${Draw.person('pregnant', 1).replace(/<\/?svg[^>]*>/g, '')}</g><g transform="translate(176,58)">${Draw.ag('D', -14, 0, 0, 14, 'var(--surface-2)')}</g><text x="200" y="104" text-anchor="middle" class="svg-sm">antigeen D</text></svg>`,
-    story: () => `${Draw.person('pregnant', 1)}<div><p><b>Sanne</b> is 12 weken zwanger van haar eerste kind. Ze heeft bloedgroep <b>O−</b>. Haar partner <b>Daan</b> heeft <b>A+</b>. De moeder van Daan heeft <b>A−</b>.</p></div>`,
+    story: () => `${Draw.person('pregnant', 1)}<div><p><b>Een vrouw</b> is 12 weken zwanger van haar eerste kind. Ze heeft bloedgroep <b>O−</b>. Haar partner heeft <b>A+</b>. Zijn moeder heeft <b>A−</b>.</p></div>`,
     steps: [
       {
         title: 'Eerste controle',
         render(el, ctx) {
-          el.innerHTML = `<div class="case-panel"><h3>Bloedonderzoek rond week 12</h3><p>Bij de eerste controle wordt het bloed van Sanne onderzocht. Ze blijkt resusnegatief.</p><div data-q></div></div>`;
+          el.innerHTML = `<div class="case-panel"><h3>Bloedonderzoek rond week 12</h3><p>Bij de eerste controle wordt het bloed van de moeder onderzocht. Ze blijkt resusnegatief.</p><div data-q></div></div>`;
           check($('[data-q]', el), {
-            id: 'sanne1', type: 'mc', q: 'Waarom is het belangrijk om te weten dat Sanne resusnegatief is?',
+            id: 'sanne1', type: 'mc', q: 'Waarom is het belangrijk om te weten dat de moeder resusnegatief is?',
             opts: [
               { t: 'Omdat zij anti-D kan gaan maken als haar kind resuspositief is.', ok: true, fb: 'Dan kan een volgend resuspositief kind in gevaar komen. Dat is te voorkomen.' },
-              { t: 'Omdat haar kind dan zeker resusnegatief wordt.', fb: 'Het kind kan van Daan een D krijgen.' },
+              { t: 'Omdat haar kind dan zeker resusnegatief wordt.', fb: 'Het kind kan van de vader een D krijgen.' },
               { t: 'Omdat resusnegatieve vrouwen geen bloed mogen krijgen.', fb: 'Ze mogen wel bloed krijgen, maar bij voorkeur resusnegatief bloed.' }
             ]
           }, ctx.complete);
@@ -4507,31 +4817,31 @@ const Cases = (() => {
           let a = false, b = false;
           const fin = () => { if (a && b) ctx.complete(); };
           check($('[data-q1]', el), {
-            id: 'sanne2a', type: 'mc', chips: true, q: 'Welk genotype heeft Daan (A+) voor de resusfactor? Zijn moeder is A−.',
+            id: 'sanne2a', type: 'mc', chips: true, q: 'Welk genotype heeft de vader (A+) voor de resusfactor? Zijn moeder is A−.',
             opts: [
               { t: 'DD', fb: 'Zijn moeder is dd en heeft hem dus een d gegeven.' },
               { t: 'Dd', ok: true, fb: 'Van zijn moeder (dd) kreeg hij d; omdat hij resuspositief is, heeft hij ook een D.' },
-              { t: 'dd', fb: 'Dan zou Daan resusnegatief zijn.' }
+              { t: 'dd', fb: 'Dan zou de vader resusnegatief zijn.' }
             ]
           }, () => { a = true; fin(); });
           check($('[data-q2]', el), {
-            id: 'sanne2b', type: 'num', q: 'Hoe groot is de kans dat het kind van Sanne en Daan resuspositief is?',
+            id: 'sanne2b', type: 'num', q: 'Hoe groot is de kans dat hun kind resuspositief is?',
             answer: 0.5, answerText: '1/2',
-            explain: 'Sanne (dd) geeft altijd d. Daan (Dd) geeft D of d, elk met kans ½. Kans op Dd (Rh+) = ½.',
-            common: [{ v: 0.75, fb: 'Dat zou gelden bij Dd × Dd. Sanne is dd.' }, { v: 0.25, fb: 'Sanne geeft altijd d. Het hangt alleen af van wat Daan doorgeeft.' }]
+            explain: 'De moeder (dd) geeft altijd d. De vader (Dd) geeft D of d, elk met kans ½. Kans op Dd (Rh+) = ½.',
+            common: [{ v: 0.75, fb: 'Dat zou gelden bij Dd × Dd. De moeder is dd.' }, { v: 0.25, fb: 'De moeder geeft altijd d. Het hangt alleen af van wat de vader doorgeeft.' }]
           }, () => { b = true; fin(); });
         }
       },
       {
         title: 'Week 27',
         render(el, ctx) {
-          el.innerHTML = `<div class="case-panel"><h3>Is het kind resuspositief?</h3><p>In week 27 wordt opnieuw bloed van Sanne afgenomen. Uitslag: het kind is <b>resuspositief</b>.</p><div data-q></div></div>`;
+          el.innerHTML = `<div class="case-panel"><h3>Is het kind resuspositief?</h3><p>In week 27 wordt opnieuw bloed van de moeder afgenomen. Uitslag: het kind is <b>resuspositief</b>.</p><div data-q></div></div>`;
           check($('[data-q]', el), {
-            id: 'sanne3', type: 'mc', q: 'Hoe kan het lab in het bloed van Sanne zien of het kind resuspositief is?',
+            id: 'sanne3', type: 'mc', q: 'Hoe kan het lab in het bloed van de moeder zien of het kind resuspositief is?',
             opts: [
-              { t: 'In het bloed van de moeder zit een beetje DNA van het kind. Het lab zoekt daarin naar allel D.', ok: true, fb: 'Dit DNA komt uit de placenta. Sanne is dd en heeft zelf geen allel D. Vindt het lab allel D, dan komt dat van het kind.' },
-              { t: 'Het lab zoekt naar anti-D in het bloed van Sanne.', fb: 'Sanne heeft (als het goed is) nog geen anti-D. En anti-D zegt niets over het kind.' },
-              { t: 'Het lab test de bloedgroep van Sanne nog een keer.', fb: 'Sanne blijft resusnegatief. Het gaat om het kind.' }
+              { t: 'In het bloed van de moeder zit een beetje DNA van het kind. Het lab zoekt daarin naar allel D.', ok: true, fb: 'Dit DNA komt uit de placenta. De moeder is dd en heeft zelf geen allel D. Vindt het lab allel D, dan komt dat van het kind.' },
+              { t: 'Het lab zoekt naar anti-D in het bloed van de moeder.', fb: 'De moeder heeft (als het goed is) nog geen anti-D. En anti-D zegt niets over het kind.' },
+              { t: 'Het lab test de bloedgroep van de moeder nog een keer.', fb: 'De moeder blijft resusnegatief. Het gaat om het kind.' }
             ]
           }, ctx.complete);
         }
@@ -4539,14 +4849,14 @@ const Cases = (() => {
       {
         title: 'Anti-D',
         render(el, ctx) {
-          el.innerHTML = `<div class="case-panel"><h3>Wanneer krijgt Sanne anti-D?</h3><div data-q></div></div>`;
+          el.innerHTML = `<div class="case-panel"><h3>Wanneer krijgt de moeder anti-D?</h3><div data-q></div></div>`;
           check($('[data-q]', el), {
-            id: 'sanne4', type: 'mc', q: 'Wanneer krijgt Sanne anti-D toegediend?',
+            id: 'sanne4', type: 'mc', q: 'Wanneer krijgt de moeder anti-D toegediend?',
             opts: [
               { t: 'Alleen als ze al anti-D heeft gemaakt.', fb: 'Dan is het te laat: de prik moet juist voorkomen dat ze anti-D en geheugencellen maakt.' },
               { t: 'In week 30, en opnieuw binnen 48 uur na de bevalling.', ok: true, fb: 'Zo worden cellen van het kind die in haar bloed komen opgeruimd voordat haar afweersysteem reageert.' },
               { t: 'Pas bij de tweede zwangerschap.', fb: 'De prik is juist nodig bij elke zwangerschap van een resuspositief kind, vanaf de eerste.' },
-              { t: 'Nooit: het eerste kind heeft er geen last van.', fb: 'Het eerste kind niet, maar zonder prik kan Sanne anti-D maken. Dan loopt een volgend kind gevaar.' }
+              { t: 'Nooit: het eerste kind heeft er geen last van.', fb: 'Het eerste kind niet, maar zonder prik kan de moeder anti-D maken. Dan loopt een volgend kind gevaar.' }
             ]
           }, ctx.complete);
         }
@@ -4554,14 +4864,14 @@ const Cases = (() => {
       {
         title: 'Wat als…',
         render(el, ctx) {
-          el.innerHTML = `<div class="case-panel"><h3>Stel dat Sanne geen anti-D had gekregen</h3><p>Ze heeft na haar eerste bevalling anti-D en geheugencellen gemaakt. Nu is ze zwanger van een tweede resuspositief kind.</p><div data-fig></div><div data-q></div></div>`;
+          el.innerHTML = `<div class="case-panel"><h3>Stel dat de moeder geen anti-D had gekregen</h3><p>Ze heeft na haar eerste bevalling anti-D en geheugencellen gemaakt. Nu is ze zwanger van een tweede resuspositief kind.</p><div data-fig></div><div data-q></div></div>`;
           const fg = $('[data-fig]', el), nar = fg.clientWidth < 620;
           fg.className = nar ? '' : 'svg-wide';
           fg.innerHTML = window.ResusScene(3, false, nar);
           check($('[data-q]', el), {
             id: 'sanne5', type: 'mc', q: 'Wat kan er met het tweede kind gebeuren?',
             opts: [
-              { t: 'Anti-D van Sanne gaat door de placenta en breekt rode bloedcellen van het kind af: bloedarmoede, en na de geboorte geelzucht.', ok: true, fb: 'Daarom wordt zo’n zwangerschap heel goed gecontroleerd. Soms krijgt het kind al in de baarmoeder een bloedtransfusie.' },
+              { t: 'Anti-D van de moeder gaat door de placenta en breekt rode bloedcellen van het kind af: bloedarmoede, en na de geboorte geelzucht.', ok: true, fb: 'Daarom wordt zo’n zwangerschap heel goed gecontroleerd. Soms krijgt het kind al in de baarmoeder een bloedtransfusie.' },
               { t: 'Niets: het kind maakt zelf anti-D en is beschermd.', fb: 'Het kind is resuspositief en maakt geen anti-D. Het gaat om de anti-D van de moeder.' },
               { t: 'Het kind wordt resusnegatief.', fb: 'De bloedgroep van het kind ligt vast in de genen. Antistoffen veranderen dat niet.' }
             ]
@@ -4571,7 +4881,7 @@ const Cases = (() => {
       {
         title: 'ABO en zwangerschap', vwo: true,
         render(el, ctx) {
-          el.innerHTML = `<div class="case-panel"><h3>En anti-A dan? <span class="tag vwo">vwo</span></h3><p>Het kind van Sanne blijkt bloedgroep A te hebben. Sanne (O) heeft anti-A in haar plasma.</p><div data-q></div></div>`;
+          el.innerHTML = `<div class="case-panel"><h3>En anti-A dan? <span class="tag vwo">vwo</span></h3><p>Het kind blijkt bloedgroep A te hebben. De moeder (O) heeft anti-A in haar plasma.</p><div data-q></div></div>`;
           check($('[data-q]', el), {
             id: 'sanne6', type: 'mc', q: 'Waarom is dat meestal geen groot probleem voor het kind?',
             opts: [
