@@ -113,9 +113,9 @@ De grens van een populatie ligt niet vast. De onderzoeker kiest hem, passend bij
 
 Lieveheersbeestjes vliegen van tuin naar tuin. Een scherpe grens is er dus niet. Het blijft een keuze.
 
-**s26** (e1s23) · audio `s26.mp3` · 11.4 s · generation `VKruIMXJ0Nezspl9y9QS` (heropname 7 nov 2026)
+**s26** (e1s23) · audio `s26.mp3` · 11.2 s · generation `4W6ZRxQMRiRAzzd1PcrU` (heropname 7 nov 2026, 2e keer)
 
-Stop nu in gedachten alle allelen van de hele populatie in één pot. Elk allel is een knikker: blauw voor zwart, geel voor oranje. Die pot is de genenpool.
+Stop nu in gedachten de allelen van de hele populatie in één pot. Elk allel is een knikker: blauw voor zwart, geel voor oranje. Die pot is de genenpool.
 
 **s27** (e1s24) · audio `s27.mp3` · 11.2 s · generation `Z0Cb7mHXKUnxAp6XDkBI`
 

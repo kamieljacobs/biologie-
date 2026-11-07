@@ -59,7 +59,7 @@ Opmerkingen uit Firebase `review` (ids -P5qFEUT1nSwX6tyyC1p, -P5qFISCzPyx2iPhD4Y
 |---|---|---|
 | s13 | 'DNA' als *deeënaa* (klemtoon fout) + 'zie je in de DNA-reeks', label 'zie de DNA-reeks' | heropname met gewone spelling DNA; verwijzing en label weg (75 credits) |
 | s17 | zaadcellen schuin onder elkaar | zaadcellen op één lijn (y 720), gespiegeld aan de eicellen; pijlen mee |
-| s26 | 'allelen' fout uitgesproken (losse misser) | heropname, gewone spelling (154 credits) |
+| s26 | 'allelen' fout uitgesproken (losse misser) | heropname, gewone spelling (154 credits); in de luistertest nog steeds fout, dus 2e heropname zonder 'alle allelen' (nu 'de allelen van de hele populatie', 152 credits) |
 | s36 | 'Dat zie je in de volgende films.' + labels 'film 2–4', 'film 5' | zin weggeknipt uit de take (13,78 s); labels nu 'meer jongen', 'kans', 'andere populaties' |
 | s37 | recap zonder het punt erfelijk | + 'Alleen de erfelijke variatie telt voor evolutie.' (heropname, 259 credits); kaart variatie wisselt naar 'alleen het erfelijke deel telt' |
 | s39 | definitie | ongewijzigd (klopt met syllabus); docentdeel: frequentie 0–1 dekt ook nieuwe en verdwenen allelen |
@@ -67,7 +67,7 @@ Opmerkingen uit Firebase `review` (ids -P5qFEUT1nSwX6tyyC1p, -P5qFISCzPyx2iPhD4Y
 | eindkaart | 'volgende film: Natuurlijke selectie' | 'evolutie = verandering van allelfrequenties' (geen verwijzing; de site heeft de knop Volgende film) |
 | speler | — | VRAAGKOP-fix (spelerfix.py) |
 
-Delta v10–v13: C10 (uitknippoppen al in gebruik; dieren bewegen); B15 niet bij opwaardering; v13 castnamen weg (gedaan). Totaal 705 credits. Versie 1.1.
+Delta v10–v13: C10 (uitknippoppen al in gebruik; dieren bewegen); B15 niet bij opwaardering; v13 castnamen weg (gedaan). Totaal 857 credits. Versie 1.1.
 
 ## Aandachtspunten
 

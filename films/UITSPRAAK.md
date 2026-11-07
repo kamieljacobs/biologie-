@@ -149,7 +149,7 @@ Luisterpagina https://claude.ai/artifact/K3YNurbu7mGVzPFfqt33Ra (collectie `keuz
 | gameet / gameten | ga-MEET / ga-MEE-ten | gameet/gameten (klonk Engels), gaméét/gaméten |
 | Iᴬ, Iᴮ, i (bloedgroep) | I-A, I-B, i (dus IᴬIᴮ = 'I-A I-B', Iᴬi = 'I-A i', ii = 'i i') | ie-aa ie-bee / kleine ie; grote I A / kleine i |
 
-Les: bij eleven_v4 is 'allel' met de gewone spelling goed; een losse misser in één take = die alinea opnieuw (één take), geen respelling. 7 nov 2026: opnieuw één losse misser ('allelen', Evolutie 1 s26), alinea opnieuw ingesproken met de gewone spelling.
+Les: bij eleven_v4 is 'allel' met de gewone spelling goed; een losse misser in één take = die alinea opnieuw (één take), geen respelling. 7 nov 2026: 'allelen' in Evolutie 1 s26 ging twee takes achter elkaar mis in de zin 'alle allelen'; de botsing *alle allelen* lijkt de oorzaak. Zin herschreven naar 'de allelen' (luistertest Kamiel 7 nov). Vermijd 'alle allelen' in een stem-invoer. Uitspraaktest 7 nov (66 fragmenten): alle andere allel-fragmenten in Evolutie 1 en 2 goed.
 
 ## Beluisterd in de films Erfelijkheid 1–6 (29 okt 2026)
 

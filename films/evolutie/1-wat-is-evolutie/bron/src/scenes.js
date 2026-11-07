@@ -7623,7 +7623,7 @@ Object.assign(SCENES, {
   },
   s26(ctx, t, q) {
     f1Bg(ctx);
-    // de kaart krimpt weg naar de pot ('alle allelen van de hele populatie in één pot')
+    // de kaart krimpt weg naar de pot ('de allelen van de hele populatie in één pot')
     const k = ease(t / 1.6); if (k < 1) kaartNL(ctx, 960, lerp(520, 640, k), lerp(4.4, 0.6, k), { a: 1 - k });
     const ap = q.on('allelen', 1, 0.6), N = 81, L = potKleuren(N, 0.15, 7), t0 = q.at('allelen'), dt = (q.at('genenpool') - 0.6 - t0) / N;
     const n = clamp(Math.floor((t - t0 - 0.6) / dt) + 1, 0, N);
