@@ -3676,7 +3676,7 @@ E.zet(T,[7],{titel:"Bouw en werking van de placenta",
     "De foetus is via de navelstreng verbonden met de <b>placentavlokken</b>. Die steken uit in een ruimte met bloed van de moeder.",
     "In elke vlok lopen <b>haarvaten van de foetus</b>.",
     "Stoffen worden uitgewisseld <b>door de wand van de vlok</b> heen."]),placentaSvg),
-  films:[["Van bevruchting tot baby","films/voortplanting/1-precies-op-tijd.html"]]});
+  films:[["Zwanger","films/voortplanting/zwanger/index.html"]]});
 
 /* --- vraag 8: activering van de specifieke afweer --- */
 E.zet(T,[8],{titel:"Hoe de specifieke afweer op gang komt",

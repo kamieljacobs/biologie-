@@ -9,7 +9,7 @@ const F={eco1:["Hoeveel passen er?","films/ecologie/1-hoeveel-passen-er.html"],e
   adem2:["Alles op adem","films/stofwisseling/2-alles-op-adem.html"],groen:["Alles in het groen","films/stofwisseling/3-alles-in-het-groen.html"],
   plant6:["Transport in planten","films/transport/6-transport-in-planten.html"],pomp:["Eén pomp, twee rondjes","films/transport/1-een-pomp-twee-rondjes.html"],buizen:["Buizen onder druk","films/transport/2-buizen-onder-druk.html"],bloed:["Wat er in je bloed zit","films/transport/3-wat-er-in-je-bloed-zit.html"],
   gas1:["Adem in, adem uit","films/gaswisseling/1-adem-in-adem-uit.html"],gas2:["Gas op reis","films/gaswisseling/2-gas-op-reis.html"],gas3:["Uitscheiding en evenwicht","films/gaswisseling/3-uitscheiding-en-evenwicht.html"],
-  baby:["Van bevruchting tot baby","films/voortplanting/1-precies-op-tijd.html"],zen2:["Het kabelnetwerk","films/zenuwstelsel/2-het-kabelnetwerk.html"],zen8:["Zintuigen","films/zenuwstelsel/8-zintuigen.html"],
+  zw:["Zwanger","films/voortplanting/zwanger/index.html"],zen2:["Het kabelnetwerk","films/zenuwstelsel/2-het-kabelnetwerk.html"],zen8:["Zintuigen","films/zenuwstelsel/8-zintuigen.html"],
   stam:["Stamcellen","films/cellen/stamcellen.html"],afw3:["T-cellen en virussen","films/afweer/3-t-cellen-en-virussen.html"],afw4:["Vaccins, allergie en bloedgroepen","films/afweer/4-vaccins-allergie-en-bloedgroepen.html"],
   erf1:["Chromosomen","films/erfelijkheid/1-chromosomen.html"],erf2:["Monohybride kruisingen","films/erfelijkheid/2-monohybride-kruisingen.html"],erf6:["Stambomen en kansrekenen","films/erfelijkheid/6-stambomen-en-kansrekenen.html"],
   evo1:["Wat is evolutie eigenlijk?","films/evolutie/1-wat-is-evolutie.html"],evo4:["De mens als selectiefactor","films/evolutie/4-de-mens-als-selectiefactor.html"],evo5:["Toeval en uitwisseling","films/evolutie/5-toeval-en-uitwisseling.html"],evo7:["Hoe weten we dat?","films/evolutie/7-hoe-weten-we-dat.html"],evo8:["Stambomen lezen","films/evolutie/8-stambomen-lezen.html"],
@@ -75,19 +75,19 @@ E.zet(T,[16],{titel:"Borst- en buikademhaling",
   films:[F.gas1]});
 E.zet(T,[17,18],{titel:"Een CTG lezen en het autonome zenuwstelsel",
   html:`<p>Een <b>cardiotocogram</b> registreert tegelijk de hartslag van de baby (bovenste lijn) en de druk op de buikwand door weeën (onderste lijn). Lees altijd eerst de assen en de tijdschaal af: hoeveel tijd is één hokje?</p><p>Het <b>autonome zenuwstelsel</b> regelt de hartslag:</p><ul><li><b>orthosympathisch</b> zenuwstelsel (noradrenaline): actie, hartslag omhoog;</li><li><b>parasympathisch</b> zenuwstelsel: rust, hartslag omlaag.</li></ul><p>Een normale hartslag bij een ongeboren baby ligt tussen 110 en 150 slagen per minuut. Let bij een afwijking op de richting én op hoe lang die duurt.</p>`,
-  films:[F.zen2,F.baby]});
+  films:[F.zen2,F.zw]});
 E.zet(T,[19],{titel:"Gaswisseling in de placenta",
   html:`<p>Een foetus ademt nog niet. Zijn bloed wisselt stoffen uit met het bloed van de moeder in de <b>placenta</b>, via de navelstreng: O<sub>2</sub> en voedingsstoffen gaan naar de baby, CO<sub>2</sub> en afvalstoffen terug naar de moeder.</p><p>CO<sub>2</sub> reageert in bloed met water tot koolzuur; meer CO<sub>2</sub> maakt het bloed dus zuurder (lagere pH).</p>`,
-  films:[F.baby,F.gas2]});
+  films:[F.zw,F.gas2]});
 E.zet(T,[20],{titel:"Soorten zenuwcellen",
   html:`<ul><li><b>Gevoelszenuwcellen</b> (sensorische neuronen): van zintuigcellen naar het centraal zenuwstelsel.</li><li><b>Schakelcellen</b>: binnen het centraal zenuwstelsel (hersenen en ruggenmerg).</li><li><b>Bewegingszenuwcellen</b> (motorische neuronen): van het centraal zenuwstelsel naar spieren en klieren.</li></ul><p>Het <b>perifeer zenuwstelsel</b> bestaat uit alle zenuwen buiten hersenen en ruggenmerg. Waarneming (zoals pijn voelen) ontstaat pas in de hersenen.</p>`,
   films:[F.zen2]});
 E.zet(T,[21],{titel:"De buikwand van buiten naar binnen",
   html:`<p>De buikwand bestaat uit lagen. Van buiten naar binnen: de opperhuid en lederhuid, dan het <b>onderhuidse bindweefsel</b> met vetcellen, dan de spieren van de buikwand, en pas daarachter het buikvlies en de buikholte met de organen.</p><p>Bij een operatie ga je dus laag voor laag naar binnen. In de buikholte liggen organen voor en achter elkaar; bekijk in afbeelding 4 wat er vlak achter het schaambeen ligt.</p>`,
-  films:[F.baby]});
+  films:[F.zw]});
 E.zet(T,[22],{titel:"Hormonen bij de bevalling",
   html:`<p>Rond de bevalling spelen meerdere hormonen een rol. De <b>hypofyse</b> geeft er twee af die je moet kennen:</p><ul><li>een hormoon dat <b>gladde spieren laat samentrekken</b>: de baarmoederwand (weeën) en de spiertjes rond de melkklieren (toeschietreflex);</li><li><b>prolactine</b>, dat de <b>melkproductie</b> stimuleert.</li></ul><p>Na de geboorte voorkomt samentrekken van de baarmoeder dat de vaten op de plek van de placenta blijven bloeden.</p>`,
-  films:[F.baby,F.hor3]});
+  films:[F.zw,F.hor3]});
 E.zet(T,[23],{titel:"Het oog en zijn reflexen",
   html:`<p>De <b>iris</b> regelt de grootte van de pupil met twee soorten gladde spieren:</p><ul><li><b>kringspieren</b>, in een ring rond de pupil;</li><li><b>straalsgewijs lopende spieren</b>, als spaken van een wiel.</li></ul><p>Bedenk wat er met de opening gebeurt als elk type samentrekt. De <b>pupilreflex</b> beschermt het netvlies; andere oogreflexen, zoals de knipperreflex, reageren op heel andere prikkels.</p>`,
   films:[F.zen8]});

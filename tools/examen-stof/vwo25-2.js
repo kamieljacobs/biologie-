@@ -158,7 +158,7 @@ E.zet(T,[14],{titel:"Meiose en de vorming van eicellen",
   <p>Bij vrouwen verloopt dit bijzonder: de deling is ongelijk. Bij elke deling krijgt één cel bijna al het cytoplasma, de andere wordt een klein <b>poollichaampje</b>. Het oögonium wordt al vóór de geboorte een primaire oöcyt, die tot de puberteit (of veel later) in meiose I blijft wachten. Meiose II wordt pas afgemaakt bij de bevruchting.</p>
   <p>Bij de <b>bevruchting</b> komen de chromosomen van de zaadcel erbij: de zygote is weer diploïd.</p>`,
   anim:anim(caps(["Een diploïde cel heeft homologe paren; vóór de meiose zijn alle chromosomen verdubbeld (twee chromatiden).","<b>Meiose I</b>: de paren gaan uit elkaar. Elke dochtercel krijgt van elk paar één chromosoom.","<b>Meiose II</b>: de chromatiden gaan uit elkaar."]),meioseSvg),
-  films:[["Celdeling","films/voortplanting/celdeling/index.html"],["Van bevruchting tot baby","films/voortplanting/1-precies-op-tijd.html"]]});
+  films:[["Celdeling","films/voortplanting/celdeling/index.html"],["Bevruchting","films/voortplanting/bevruchting/index.html"]]});
 
 E.zet(T,[15],{titel:"Crossing-over en chromosoommutaties",
   html:`<p>In de profase van meiose I gaan homologe chromosomen precies naast elkaar liggen. Dan kunnen chromatiden van de twee homologen <b>stukken uitwisselen</b>: <b>crossing-over</b>. Daardoor ontstaan nieuwe combinaties van allelen op één chromosoom (<b>recombinatie</b>). Dat zorgt voor genetische variatie.</p>
@@ -182,7 +182,7 @@ E.zet(T,[16,17,22],{titel:"Follikel, ovulatie en de hormonen van de cyclus",
   <li>Wat van de follikel overblijft wordt het <b>gele lichaam</b>. Dat maakt <b>progesteron</b> (en oestrogeen). Progesteron houdt het baarmoederslijmvlies in stand en <b>remt via negatieve terugkoppeling de afgifte van FSH en LH</b>.</li></ul>
   <p>Let op het verschil tussen drie stappen die vaak door elkaar worden gehaald: <b>ovulatie</b> (de eicel komt vrij uit de eierstok), <b>bevruchting</b> (zaadcel en eicel versmelten, meestal in de eileider) en <b>innesteling</b> (het embryo nestelt zich in het baarmoederslijmvlies).</p>`,
   anim:anim(caps(["<b>FSH</b> laat follikels groeien.","Een <b>LH-piek</b> veroorzaakt de ovulatie.","Het gele lichaam maakt <b>progesteron</b>, dat FSH en LH remt."]),cyclusSvg),
-  films:[["Van bevruchting tot baby","films/voortplanting/1-precies-op-tijd.html"],["Anticonceptie, soa's en voortplantingstechniek","films/voortplanting/3-anticonceptie-soa-voortplantingstechniek.html"]]});
+  films:[["De cyclus","films/voortplanting/cyclus/index.html"],["Anticonceptie, soa's en voortplantingstechniek","films/voortplanting/3-anticonceptie-soa-voortplantingstechniek.html"]]});
 
 function leesraamSvg(i){
   const s1="AUG GCA UUC GAC UGG AAA UAG".split(" ");
@@ -261,7 +261,7 @@ E.zet(T,[29],{titel:"Wat gaat er door de placenta?",
   <ul><li>Door de placenta gaan onder andere O<sub>2</sub>, CO<sub>2</sub>, glucose, aminozuren, water, zouten en afvalstoffen, maar ook veel medicijnen, alcohol en nicotine.</li>
   <li>Bloedcellen gaan er normaal niet door.</li>
   <li>Van de antistoffen worden alleen <b>IgG</b>-antistoffen actief door de placenta naar de foetus gebracht. Zo krijgt een baby bij de geboorte de afweer van de moeder mee (<b>passieve immuniteit</b>). Andere klassen (IgM, IgA, IgE) gaan er niet door.</li></ul>`,
-  films:[["Van bevruchting tot baby","films/voortplanting/1-precies-op-tijd.html"],["Antistoffen op maat","films/afweer/2-antistoffen-op-maat.html"]]});
+  films:[["Zwanger","films/voortplanting/zwanger/index.html"],["Antistoffen op maat","films/afweer/2-antistoffen-op-maat.html"]]});
 
 E.zet(T,[30],{titel:"Longvolumes en warmteafgifte",
   html:`<p><b>Vitale capaciteit</b> is de grootste hoeveelheid lucht die je na een maximale inademing kunt uitademen. Die hangt af van hoe ver je borstkas en je <b>middenrif</b> kunnen bewegen.</p>

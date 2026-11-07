@@ -1,4 +1,4 @@
-/* ===== Opgave 4: Een wangslijmvliestest voor de vrouwencategorie (nieuw; film 4, vwo ook film 3) ===== */
+/* ===== Opgave 4: Een wangslijmvliestest voor de vrouwencategorie (nieuw; film 7 Sekse, gender en diversiteit) ===== */
 {
 /* de lagen van de sekse-ontwikkeling; hl = index van de laag die oplicht, x = lagen met een kruis */
 function LAGEN({hl=-1,x=[],ok=[]}={}){
@@ -20,7 +20,7 @@ const STOF_LAGEN={titel:"Sekse in lagen",html:`
 <li><b>Geslachtsorganen</b> (primaire geslachtskenmerken).</li><li>Jaren later de <b>puberteit</b>: secundaire geslachtskenmerken.</li></ol>
 <p>Meestal passen alle lagen bij elkaar. Maar bij elke laag kan het ook anders lopen.</p>`,
 anim:b=>EXSTOF.stappen(b,[{cap:"Laag 1: XX of XY ligt vast bij de bevruchting."},{cap:"Laag 2: het SRY-gen op het Y-chromosoom zet de aanleg om tot zaadbal."},{cap:"Laag 4: hormonen werken alleen via een werkende receptor."}],(st,s,i)=>st.innerHTML=LAGEN({hl:[0,1,3][i]})),
-films:FV(F.sekse,F.baby)};
+films:[F.sekse]};
 const STOF_VAR={titel:"Als een laag anders loopt",html:`
 <p>Sekse ontstaat in lagen: chromosomen → het SRY-gen → zaadbal of eierstok → hormonen en hun receptoren → geslachtsorganen → puberteit. Elke laag bouwt voort op de vorige.</p>
 <p>Bij elke laag kan het anders lopen. Wat een laag doet, hangt af van wat er in die laag aanwezig is én werkt: een gen dat er is maar niet werkt, of een hormoon zonder werkende receptor, heeft geen effect op de lagen erna.</p>`,

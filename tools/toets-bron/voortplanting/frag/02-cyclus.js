@@ -4,13 +4,13 @@ const STOF_TIJD={titel:"Eisprong, eicel en zaadcel",html:`
 <p>FSH en LH uit de hypofyse laten in de eierstok een eicel rijpen in een <b>follikel</b>. Rond het midden van de cyclus komt de <b>eisprong</b> (ovulatie): de eicel komt vrij en gaat de eileider in. Daar kan zij bevrucht worden.</p>
 <p>Een eicel leeft na de eisprong ongeveer <b>een dag</b>. Een zaadcel kan in het lichaam van een vrouw <b>hooguit een dag of vijf</b> overleven. Een zwangerschap kan dus alleen als er zaadcellen zijn in de dagen vóór de eisprong of op de dag zelf.</p>
 <p>Een grafiek lees je van links naar rechts: wat eerst stijgt, gebeurt eerst. Kijk bij elke lijn op welke dag hij begint te stijgen of te dalen.</p>`,
-films:FV(F.org,F.baby)};
+films:[F.org,F.bev]};
 const STOF_CYC={titel:"De menstruatiecyclus",html:`
 <p>Vanaf de eerste menstruatie werken hypofyse, eierstok en baarmoeder samen in een cyclus van ongeveer vier weken.</p>
 <ul style="margin:0;padding-left:20px"><li>De <b>hypofyse</b> maakt FSH en LH. Die werken op de <b>eierstok</b>: daar rijpt een follikel met een eicel, en de eierstok maakt zelf hormonen.</li>
 </ul>
 <p>Let op: elk hormoon werkt alleen op cellen met de juiste receptor. Een hormoon uit de hypofyse werkt dus op een ander orgaan dan een hormoon uit de eierstok.</p>`,
-films:FV(F.org,F.baby)};
+films:[F.org,F.cyc]};
 
 const q1=vraag(2,"het advies van de vriendin",(q,id)=>{
   pre(q,"<p>Een vriendin geeft Nora het advies: ‘Wacht tot je temperatuur omhoog is gegaan. Dan weet je zeker dat je eisprong is geweest, en dan moet je seks hebben.’</p>");
@@ -73,7 +73,7 @@ const q4=vraag(2,"juist of onjuist: hormonen in de cyclus",(q,id)=>{
 const STOF_PIL={titel:"Hormonen remmen de hypofyse",html:`
 <p>De hormonen van de eierstok werken terug op de hersenen: <b>veel oestrogeen (en progesteron) remt de hypofyse</b>, zodat die minder FSH en LH maakt.`+(VWO?` Dat heet <b>negatieve terugkoppeling</b>: een signaal remt zijn eigen oorzaak.`:``)+`</p>
 <p>Anticonceptie haalt één schakel uit de keten eisprong → zaadcel bij de eicel → innesteling. De pil, de prikpil, het staafje en de ring bevatten hormonen.</p>`,
-films:FV(F.anti,F.baby)};
+films:[F.anti,F.cyc]};
 const q5=vraag(2,"hoe de pil een eisprong voorkomt",(q,id)=>{
   pre(q,"<p>Nora's zus gebruikt de combinatiepil. Die bevat een oestrogeen en een progestageen (een stof die werkt als progesteron). Ze slikt 21 dagen lang elke dag een pil.</p>");
   const {think,ans,unlock}=start(q,B("Leg uit hoe de hormonen uit de pil ervoor zorgen dat er geen ovulatie plaatsvindt."));

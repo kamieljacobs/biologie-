@@ -409,14 +409,15 @@ function vraag(pts,t,build,stof){const id=++QN;Q.push({id,pts,t,build:q=>build(q
   if(stof&&window.EXSTOF)EXSTOF.zet(TOOL,[id],stof);return id;}
 function opgave(kort,titel,html,ids){const nr=++ON;
   OPG.push({nr,kort,titel,ids,ctx:`<div class="pkop"><span class="mono">Toetstekst · inleiding opgave ${nr}</span></div>`+html});}
-/* films van het thema (hrefs als in HOOFDSTUKKEN.voortplanting.films); film 3 is alleen voor vwo */
+/* films van het thema (hrefs als in HOOFDSTUKKEN.voortplanting.films); sinds 7 nov 2026 alle zeven havo + vwo */
 const F={
   cel:["Celdeling","films/voortplanting/celdeling/index.html"],
   org:["Geslachtsorganen en puberteit","films/voortplanting/2-geslachtsorganen-puberteit.html"],
-  baby:["Van bevruchting tot baby","films/voortplanting/1-precies-op-tijd.html"],
+  cyc:["De cyclus","films/voortplanting/cyclus/index.html"],
+  bev:["Bevruchting","films/voortplanting/bevruchting/index.html"],
+  zw:["Zwanger","films/voortplanting/zwanger/index.html"],
   sekse:["Sekse, gender en diversiteit","films/voortplanting/4-sekse-gender-diversiteit.html"],
   anti:["Anticonceptie, soa's en voortplantingstechniek","films/voortplanting/3-anticonceptie-soa-voortplantingstechniek.html"]};
-const FV=(...f)=>f.filter(x=>VWO||x!==F.baby);
 /* begin van een vraag: vraagzin, hulp- en antwoordvak */
 function start(q,html){q.append(el("p",{class:"qtext"},html));
   const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
@@ -554,13 +555,13 @@ const STOF_TIJD={titel:"Eisprong, eicel en zaadcel",html:`
 <p>FSH en LH uit de hypofyse laten in de eierstok een eicel rijpen in een <b>follikel</b>. Rond het midden van de cyclus komt de <b>eisprong</b> (ovulatie): de eicel komt vrij en gaat de eileider in. Daar kan zij bevrucht worden.</p>
 <p>Een eicel leeft na de eisprong ongeveer <b>een dag</b>. Een zaadcel kan in het lichaam van een vrouw <b>hooguit een dag of vijf</b> overleven. Een zwangerschap kan dus alleen als er zaadcellen zijn in de dagen vóór de eisprong of op de dag zelf.</p>
 <p>Een grafiek lees je van links naar rechts: wat eerst stijgt, gebeurt eerst. Kijk bij elke lijn op welke dag hij begint te stijgen of te dalen.</p>`,
-films:FV(F.org,F.baby)};
+films:[F.org,F.bev]};
 const STOF_CYC={titel:"De menstruatiecyclus",html:`
 <p>Vanaf de eerste menstruatie werken hypofyse, eierstok en baarmoeder samen in een cyclus van ongeveer vier weken.</p>
 <ul style="margin:0;padding-left:20px"><li>De <b>hypofyse</b> maakt FSH en LH. Die werken op de <b>eierstok</b>: daar rijpt een follikel met een eicel, en de eierstok maakt zelf hormonen.</li>
 </ul>
 <p>Let op: elk hormoon werkt alleen op cellen met de juiste receptor. Een hormoon uit de hypofyse werkt dus op een ander orgaan dan een hormoon uit de eierstok.</p>`,
-films:FV(F.org,F.baby)};
+films:[F.org,F.cyc]};
 
 const q1=vraag(2,"het advies van de vriendin",(q,id)=>{
   pre(q,"<p>Een vriendin geeft Nora het advies: ‘Wacht tot je temperatuur omhoog is gegaan. Dan weet je zeker dat je eisprong is geweest, en dan moet je seks hebben.’</p>");
@@ -623,7 +624,7 @@ const q4=vraag(2,"juist of onjuist: hormonen in de cyclus",(q,id)=>{
 const STOF_PIL={titel:"Hormonen remmen de hypofyse",html:`
 <p>De hormonen van de eierstok werken terug op de hersenen: <b>veel oestrogeen (en progesteron) remt de hypofyse</b>, zodat die minder FSH en LH maakt.`+(VWO?` Dat heet <b>negatieve terugkoppeling</b>: een signaal remt zijn eigen oorzaak.`:``)+`</p>
 <p>Anticonceptie haalt één schakel uit de keten eisprong → zaadcel bij de eicel → innesteling. De pil, de prikpil, het staafje en de ring bevatten hormonen.</p>`,
-films:FV(F.anti,F.baby)};
+films:[F.anti,F.cyc]};
 const q5=vraag(2,"hoe de pil een eisprong voorkomt",(q,id)=>{
   pre(q,"<p>Nora's zus gebruikt de combinatiepil. Die bevat een oestrogeen en een progestageen (een stof die werkt als progesteron). Ze slikt 21 dagen lang elke dag een pil.</p>");
   const {think,ans,unlock}=start(q,B("Leg uit hoe de hormonen uit de pil ervoor zorgen dat er geen ovulatie plaatsvindt."));
@@ -743,7 +744,7 @@ const STOF_RK={titel:"De regelkring van hypothalamus, hypofyse en zaadbal",html:
 <p>De <b>hypothalamus</b> geeft in korte stoten <b>GnRH</b> af aan de <b>hypofyse</b>. Die maakt <b>FSH</b> en <b>LH</b>. Bij de man zet LH de Leydigcellen tussen de zaadbuisjes aan tot het maken van <b>testosteron</b>. FSH en testosteron sturen samen de Sertolicellen aan, die de zaadcellen in de buisjes voeden en begeleiden.</p>
 <p><b>Negatieve terugkoppeling</b>: testosteron remt de hypothalamus en de hypofyse, en inhibine uit de Sertolicellen remt vooral de afgifte van FSH. Stijgt het testosteron, dan daalt de afgifte van GnRH en LH. Daalt het testosteron, dan valt die rem weg.</p>
 <p>Een storing zoek je schakel voor schakel: welke schakel werkt niet, en wat gebeurt er dan met de schakels erna?</p>`,
-films:[F.baby,F.org]};
+films:[F.cyc,F.org]};
 
 const c1=vraag(1,"bloedwaarden vergelijken",(q,id)=>{
   pre(q,"<p>Het syndroom van Kallmann moet worden onderscheiden van een aandoening waarbij de zaadballen zelf niet werken, bijvoorbeeld na een ernstige ontsteking.</p>");
@@ -776,7 +777,7 @@ const STOF_FOETUS={titel:"hCG werkt als LH",html:`
 <p>De trofoblast van het embryo, later de placenta, maakt <b>hCG</b>. Dat hormoon lijkt sterk op LH en bindt aan de <b>LH-receptoren</b>. Bij de moeder houdt hCG zo het geel lichaam in leven.</p>
 <p>Een hormoon werkt op elke cel met de juiste receptor, waar het ook vandaan komt. Wat de LH-receptor aanzet, maakt voor de cel niet uit: LH uit de eigen hypofyse of hCG uit de placenta.</p>
 <p>Bij een jongensembryo maken de Leydigcellen al vroeg testosteron. Testosteron houdt de buizen van Wolff in stand; dihydrotestosteron vormt de uitwendige geslachtsorganen.</p>`,
-films:[F.baby,F.sekse]};
+films:[F.zw,F.sekse]};
 const c3=vraag(2,"aanleg normaal, groei te weinig",(q,id)=>{
   pre(q,"<p>Bij jongens met het syndroom van Kallmann zijn de geslachtsorganen bij de geboorte normaal aangelegd, maar de penis is vaak klein. Voor de aanleg én de groei van de penis bij de foetus is testosteron nodig.</p><p>In het begin van de zwangerschap wordt de testosteronproductie in de zaadballen van een jongensfoetus gestimuleerd door hCG uit de placenta (hCG werkt als LH). Na ongeveer week 12 daalt de hCG-concentratie sterk.</p>");
   const {think,ans,unlock}=start(q,B("Leg uit waardoor bij een jongen met het syndroom van Kallmann de geslachtsorganen wel normaal worden aangelegd, maar de penis later in de zwangerschap te weinig groeit."));
@@ -816,7 +817,7 @@ opgave("Kallmann","Geen GnRH: het syndroom van Kallmann",`
 }
 }
 
-/* ===== Opgave 4: Een wangslijmvliestest voor de vrouwencategorie (nieuw; film 4, vwo ook film 3) ===== */
+/* ===== Opgave 4: Een wangslijmvliestest voor de vrouwencategorie (nieuw; film 7 Sekse, gender en diversiteit) ===== */
 {
 /* de lagen van de sekse-ontwikkeling; hl = index van de laag die oplicht, x = lagen met een kruis */
 function LAGEN({hl=-1,x=[],ok=[]}={}){
@@ -838,7 +839,7 @@ const STOF_LAGEN={titel:"Sekse in lagen",html:`
 <li><b>Geslachtsorganen</b> (primaire geslachtskenmerken).</li><li>Jaren later de <b>puberteit</b>: secundaire geslachtskenmerken.</li></ol>
 <p>Meestal passen alle lagen bij elkaar. Maar bij elke laag kan het ook anders lopen.</p>`,
 anim:b=>EXSTOF.stappen(b,[{cap:"Laag 1: XX of XY ligt vast bij de bevruchting."},{cap:"Laag 2: het SRY-gen op het Y-chromosoom zet de aanleg om tot zaadbal."},{cap:"Laag 4: hormonen werken alleen via een werkende receptor."}],(st,s,i)=>st.innerHTML=LAGEN({hl:[0,1,3][i]})),
-films:FV(F.sekse,F.baby)};
+films:[F.sekse]};
 const STOF_VAR={titel:"Als een laag anders loopt",html:`
 <p>Sekse ontstaat in lagen: chromosomen → het SRY-gen → zaadbal of eierstok → hormonen en hun receptoren → geslachtsorganen → puberteit. Elke laag bouwt voort op de vorige.</p>
 <p>Bij elke laag kan het anders lopen. Wat een laag doet, hangt af van wat er in die laag aanwezig is én werkt: een gen dat er is maar niet werkt, of een hormoon zonder werkende receptor, heeft geen effect op de lagen erna.</p>`,
@@ -923,7 +924,7 @@ opgave("Sekse-test","Een wangslijmvliestest voor de vrouwencategorie",`
 <p class="muted" style="font-size:14px">Bronnen: persbericht World Athletics, 30 juli 2025; A. Sinclair in The Conversation / Daily Maverick, 25 augustus 2025.</p>`,ids);
 }
 
-/* ===== Opgave 5: Hoe betrouwbaar? Anticonceptie en soa's (nieuw; film 5, vwo ook film 3) ===== */
+/* ===== Opgave 5: Hoe betrouwbaar? Anticonceptie en soa's (nieuw; film 6 Anticonceptie, en film 3 De cyclus) ===== */
 {
 const TAB1=TABEL(1,["methode","normaal gebruik","perfect gebruik"],[
   ["staafje in de arm","&lt; 1","&lt; 1"],["spiraaltje (hormoon of koper)","&lt; 1","&lt; 1"],["sterilisatie (man of vrouw)","&lt; 1","&lt; 1"],
@@ -932,7 +933,7 @@ const TAB1=TABEL(1,["methode","normaal gebruik","perfect gebruik"],[
 const STOF_KETEN={titel:"Anticonceptie: een schakel uit de keten",html:`
 <p>Een zwangerschap is een keten: een <b>eicel komt vrij</b> → een <b>zaadcel bereikt en bevrucht</b> haar → het <b>embryo nestelt zich</b> in de baarmoeder. Anticonceptie haalt één schakel uit die keten.</p>
 <p>De <b>Pearl-index</b> geeft aan hoeveel van de honderd vrouwen in een jaar toch zwanger worden. Perfect gebruik = precies volgens de regels; normaal gebruik = zoals mensen het echt doen, met fouten.</p>`,
-films:FV(F.anti,F.baby)};
+films:[F.anti,F.cyc]};
 
 const a1=vraag(2,"prikpil of pil",(q,id)=>{
   pre(q,"<p>De pil en de prikpil bevatten allebei hormonen die de eisprong remmen. De pil slik je elke dag; de prikpil is een injectie met een progestageen die je elke 12 weken krijgt.</p>");
@@ -963,7 +964,7 @@ const STOF_SOA={titel:"Soa's: bacterie of virus",html:`
 <p>Gonorroe, chlamydia en syfilis worden veroorzaakt door een <b>bacterie</b>; die zijn te genezen met antibiotica. Antibiotica grijpen aan op onderdelen die bij bacteriën anders zijn dan bij ons, zoals hun celwand of hun ribosomen.</p>
 <p>Hiv, HPV, herpes en hepatitis B zijn <b>virussen</b>. Een virus vermenigvuldigt zich in je eigen cellen; antibiotica doen daar niets tegen. Tegen sommige virussen bestaat een <b>vaccin</b>, bijvoorbeeld tegen HPV en hepatitis B.</p>
 <p>Veel soa's geven geen klachten. Van al deze anticonceptiemethodes beschermt alleen het condoom ook tegen soa's.</p>`,
-films:FV(F.anti,F.baby)};
+films:[F.anti]};
 const ids=[a1,a2];
 if(!VWO){
 ids.push(vraag(2,"de HPV-prik ook voor jongens",(q,id)=>{
@@ -1006,12 +1007,12 @@ opgave("Anticonceptie","Hoe betrouwbaar? Anticonceptie en soa's",`
 ${TAB1}`,ids);
 }
 
-/* ===== Opgave 6: Louise Brown, het eerste ivf-kind (nieuw; havo films 2 en 5, vwo film 3 en 5) ===== */
+/* ===== Opgave 6: Louise Brown, het eerste ivf-kind (nieuw; films 3 De cyclus, 5 Zwanger en 6 Anticonceptie) ===== */
 {
 const STOF_IVF={titel:"Ivf stap voor stap",html:`
 <p>Normaal rijpt er per cyclus één follikel. Bij <b>ivf</b> (bevruchting buiten het lichaam) krijgt de vrouw eerst ongeveer tien dagen <b>hormooninjecties met FSH</b>. `+(VWO?`Tegelijk krijgt ze een middel dat haar eigen LH-piek onderdrukt. Zijn de follikels groot genoeg, dan krijgt ze één injectie met <b>hCG</b>, dat lijkt op LH en de LH-piek nadoet; zo'n anderhalve dag later worden de eicellen opgezogen. `:`Met een dunne naald haalt de arts daarna de eicellen uit de eierstokken. `)+`</p>
 <p>In een schaaltje komen eicellen en zaadcellen samen; bij weinig of slecht zwemmende zaadcellen spuit de arts één zaadcel in de eicel (<b>ICSI</b>). De embryo's groeien een paar dagen in het lab. Meestal gaat er één terug in de baarmoeder, om een tweeling te voorkomen; andere goede embryo's gaan de vriezer in.</p>`,
-films:FV(F.anti,F.baby)};
+films:[F.anti,F.cyc]};
 const ids=[];
 if(!VWO){
 const STOF_EIL={titel:"De eileider",html:`
@@ -1067,7 +1068,7 @@ ids.push(vraag(2,"alcohol en de placenta",(q,id)=>{
 }else{
 const STOF_PIEK={titel:"De LH-piek en de eisprong",html:`
 <p>De dominante follikel maakt steeds meer oestrogeen. Blijft de oestrogeenspiegel ongeveer twee dagen hoog, dan gaat oestrogeen de afgifte van LH juist stimuleren. Meer LH stimuleert de follikel weer: <b>positieve terugkoppeling</b>, een signaal dat zichzelf versterkt. Het resultaat is de <b>LH-piek</b>, midden in de cyclus.</p>`,
-films:[F.baby]};
+films:[F.cyc]};
 ids.push(vraag(2,"precies op tijd",(q,id)=>{
   pre(q,"<p>Steptoe en Edwards haalden de eicel van Lesley met een kijkoperatie uit de follikel, 15 tot 35 uur nadat de LH-piek in de urine was gezien. De urine werd daarvoor elke drie uur verzameld.</p>");
   const {think,ans,unlock}=start(q,B("Leg uit waarom ze de eicel niet veel eerder en ook niet veel later na het begin van de LH-piek konden ophalen."));
@@ -1103,7 +1104,7 @@ ids.push(vraag(1,"zwangerschapstest na de hCG-injectie",(q,id)=>{
 const STOF_PLAC={titel:"Dichtbij, maar gescheiden",html:`
 <p>In de <b>placenta</b> wisselen moeder en kind stoffen uit: zuurstof en voedingsstoffen naar het kind, koolstofdioxide en afvalstoffen terug.</p>
 <p>Kleine moleculen gaan door <b>diffusie</b>, van hoog naar laag. Andere stoffen gaan met transporteiwitten of door actief transport.</p>`,
-films:[F.baby]};
+films:[F.zw]};
 ids.push(vraag(2,"juist of onjuist: de placenta",(q,id)=>{
   pre(q,"<p>Na de terugplaatsing van een embryo krijgt de vrouw vaak een paar weken extra progesteron. Over de zwangerschap worden vier uitspraken gedaan:</p>");
   q.append(el("p",{class:"qtext"},"1 In de vlokken van de placenta stroomt het bloed van de moeder door dezelfde bloedvaatjes als het bloed van het kind.<br>2 Zuurstof gaat door diffusie van het bloed van de moeder naar het bloed van het kind.<br>3 Alcohol en nicotine gaan bijna net zo makkelijk door de placenta als zuurstof.<br>4 Rond week acht tot tien neemt de placenta de productie van progesteron over van het geel lichaam.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));

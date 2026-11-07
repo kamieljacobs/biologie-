@@ -29,7 +29,7 @@ const F={
   selectie:["Natuurlijke selectie","films/evolutie/2-natuurlijke-selectie.html"],
   toeval:["Toeval en uitwisseling","films/evolutie/5-toeval-en-uitwisseling.html"],
   stamb:["Stambomen lezen","films/evolutie/8-stambomen-lezen.html"],
-  tijd:["Van bevruchting tot baby","films/voortplanting/1-precies-op-tijd.html"],
+  cyc:["De cyclus","films/voortplanting/cyclus/index.html"],
   post:["Post voor iedereen","films/hormonen/1-post-voor-iedereen.html"],
   suiker:["Suiker in balans","films/hormonen/2-suiker-in-balans.html"],
   spleet:["De spleet","films/zenuwstelsel/3-de-spleet.html"],
@@ -128,7 +128,7 @@ E.zet(T,[21,23],{titel:"Een fylogenetische stamboom lezen",
     ${["A","B","C","D"].map((t,k)=>`<text class="lbl" x="470" y="${[54,84,24,164][k]}">${t}</text>`).join("")}
     ${i===1?`<circle cx="280" cy="65" r="9" fill="none" stroke="var(--goud)" stroke-width="3"/>`:""}${i===2?`<circle cx="120" cy="100" r="9" fill="none" stroke="var(--teal)" stroke-width="3"/>`:""}`,"Voorbeeldstamboom")),films:[F.stamb]});
 E.zet(T,[22],{titel:"Hormonen van de menstruatiecyclus",
-  html:`<ul><li><b>FSH</b> en <b>LH</b> uit de hypofyse sturen de rijping van de follikel en de eisprong (LH-piek).</li><li>Na de eisprong wordt de follikel het <b>geel lichaam</b>. LH houdt het geel lichaam in stand.</li><li>Het geel lichaam maakt <b>progesteron</b> (en oestrogeen); progesteron houdt het baarmoederslijmvlies in stand.</li><li>Bij een zwangerschap maakt het embryo (later de placenta) <b>hCG</b>, dat dezelfde werking heeft als LH.</li></ul>`,films:[F.tijd,F.baas]});
+  html:`<ul><li><b>FSH</b> en <b>LH</b> uit de hypofyse sturen de rijping van de follikel en de eisprong (LH-piek).</li><li>Na de eisprong wordt de follikel het <b>geel lichaam</b>. LH houdt het geel lichaam in stand.</li><li>Het geel lichaam maakt <b>progesteron</b> (en oestrogeen); progesteron houdt het baarmoederslijmvlies in stand.</li><li>Bij een zwangerschap maakt het embryo (later de placenta) <b>hCG</b>, dat dezelfde werking heeft als LH.</li></ul>`,films:[F.cyc,F.baas]});
 E.zet(T,[24],{titel:"Bloedvaten en bloedglucose",
   html:`<p>De wand van een slagader bevat <b>glad spierweefsel</b>. Als die spieren samentrekken, wordt het vat nauwer (vasoconstrictie) en stroomt er minder bloed door; ontspannen ze, dan wordt het vat wijder.</p>
   <p><b>Insuline</b> laat lichaamscellen (spieren, lever, vetweefsel) glucose uit het bloed opnemen en verlaagt zo de bloedglucoseconcentratie.</p>`,films:[F.suiker,F.pomp]});
@@ -140,7 +140,7 @@ E.zet(T,[26,27],{titel:"Signaaloverdracht in de cel",
   <p>Lipofiele hormonen (zoals <b>steroïden</b>, bv. progesteron en oestrogeen) gaan wel door het membraan en binden aan een receptor ín de cel. Dat complex bindt aan het DNA en verandert de genexpressie: welke eiwitten gemaakt worden.</p>`,films:[F.post,F.aanuit]});
 E.zet(T,[28],{titel:"De hormoonas hypothalamus – hypofyse – eierstok",
   html:`<p>De <b>hypothalamus</b> geeft <b>GnRH</b> af. GnRH zet de hypofyse aan tot de afgifte van <b>FSH en LH</b>. Die sturen de eierstokken aan.</p>
-  <p>Zenuwprikkels en andere hormonen kunnen de afgifte van GnRH beïnvloeden. Zo werken ook de hormonen in de pil: ze remmen via terugkoppeling de afgifte van GnRH en daardoor van FSH en LH.</p>`,films:[F.tijd,F.baas]});
+  <p>Zenuwprikkels en andere hormonen kunnen de afgifte van GnRH beïnvloeden. Zo werken ook de hormonen in de pil: ze remmen via terugkoppeling de afgifte van GnRH en daardoor van FSH en LH.</p>`,films:[F.cyc,F.baas]});
 
 /* ===================== opgave 5: Lachgas ===================== */
 E.zet(T,[29],{titel:"De synaps",

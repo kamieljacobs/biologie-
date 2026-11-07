@@ -12,7 +12,7 @@ E.zet(T,[1,7],{titel:"De placenta en de ligging van de baarmoeder",
   html:`<p>De <b>placenta</b> is een orgaan van twee kanten. Vanuit de vruchtvliezen van het embryo groeien <b>placentavlokken</b> met haarvaten die via de navelstreng met de foetus verbonden zijn. Die vlokken steken in het <b>baarmoederslijmvlies van de moeder</b>, waar bloed van de moeder uit open vaatjes stroomt en de vlokken omspoelt.</p>
   <p>Het bloed van moeder en foetus mengt dus niet: stoffen gaan door de dunne wand van de vlokken. Wel komen kleine stukjes DNA uit afgestorven placentacellen in het bloed van de moeder.</p>
   <p>De <b>baarmoeder</b> ligt in het kleine bekken, achter de blaas. Vóór de blaas en de baarmoeder ligt het <b>schaambeen</b>.</p>`,
-  films:[["Van bevruchting tot baby","films/voortplanting/1-precies-op-tijd.html"],["Geslachtsorganen en puberteit","films/voortplanting/2-geslachtsorganen-puberteit.html"]]});
+  films:[["Zwanger","films/voortplanting/zwanger/index.html"],["Geslachtsorganen en puberteit","films/voortplanting/2-geslachtsorganen-puberteit.html"]]});
 
 E.zet(T,[2],{titel:"DNA vermeerderen in het lab",
   html:`<p>Voor veel DNA-onderzoek heb je meer DNA nodig dan je uit een monster haalt. Met een techniek in een apparaat met temperatuurcycli maak je er miljoenen kopieën van:</p>

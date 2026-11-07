@@ -95,7 +95,7 @@ const STOF_RK={titel:"De regelkring van hypothalamus, hypofyse en zaadbal",html:
 <p>De <b>hypothalamus</b> geeft in korte stoten <b>GnRH</b> af aan de <b>hypofyse</b>. Die maakt <b>FSH</b> en <b>LH</b>. Bij de man zet LH de Leydigcellen tussen de zaadbuisjes aan tot het maken van <b>testosteron</b>. FSH en testosteron sturen samen de Sertolicellen aan, die de zaadcellen in de buisjes voeden en begeleiden.</p>
 <p><b>Negatieve terugkoppeling</b>: testosteron remt de hypothalamus en de hypofyse, en inhibine uit de Sertolicellen remt vooral de afgifte van FSH. Stijgt het testosteron, dan daalt de afgifte van GnRH en LH. Daalt het testosteron, dan valt die rem weg.</p>
 <p>Een storing zoek je schakel voor schakel: welke schakel werkt niet, en wat gebeurt er dan met de schakels erna?</p>`,
-films:[F.baby,F.org]};
+films:[F.cyc,F.org]};
 
 const c1=vraag(1,"bloedwaarden vergelijken",(q,id)=>{
   pre(q,"<p>Het syndroom van Kallmann moet worden onderscheiden van een aandoening waarbij de zaadballen zelf niet werken, bijvoorbeeld na een ernstige ontsteking.</p>");
@@ -128,7 +128,7 @@ const STOF_FOETUS={titel:"hCG werkt als LH",html:`
 <p>De trofoblast van het embryo, later de placenta, maakt <b>hCG</b>. Dat hormoon lijkt sterk op LH en bindt aan de <b>LH-receptoren</b>. Bij de moeder houdt hCG zo het geel lichaam in leven.</p>
 <p>Een hormoon werkt op elke cel met de juiste receptor, waar het ook vandaan komt. Wat de LH-receptor aanzet, maakt voor de cel niet uit: LH uit de eigen hypofyse of hCG uit de placenta.</p>
 <p>Bij een jongensembryo maken de Leydigcellen al vroeg testosteron. Testosteron houdt de buizen van Wolff in stand; dihydrotestosteron vormt de uitwendige geslachtsorganen.</p>`,
-films:[F.baby,F.sekse]};
+films:[F.zw,F.sekse]};
 const c3=vraag(2,"aanleg normaal, groei te weinig",(q,id)=>{
   pre(q,"<p>Bij jongens met het syndroom van Kallmann zijn de geslachtsorganen bij de geboorte normaal aangelegd, maar de penis is vaak klein. Voor de aanleg én de groei van de penis bij de foetus is testosteron nodig.</p><p>In het begin van de zwangerschap wordt de testosteronproductie in de zaadballen van een jongensfoetus gestimuleerd door hCG uit de placenta (hCG werkt als LH). Na ongeveer week 12 daalt de hCG-concentratie sterk.</p>");
   const {think,ans,unlock}=start(q,B("Leg uit waardoor bij een jongen met het syndroom van Kallmann de geslachtsorganen wel normaal worden aangelegd, maar de penis later in de zwangerschap te weinig groeit."));

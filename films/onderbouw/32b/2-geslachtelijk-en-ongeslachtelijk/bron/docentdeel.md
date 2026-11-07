@@ -35,7 +35,7 @@ Twee voorspelvragen met 8 s denktijd. Pauzeer bij de kaart met drie manieren (kn
 - "Stuifmeel": de stuifmeelkorrel bevat de mannelijke geslachtscel; de film zegt "wat de zaadcel is bij een plant".
 - Bij de aardbei zijn de "zaadjes" op de vrucht eigenlijk nootjes met elk een zaad.
 - Kopieën hebben dezelfde genen, op een enkele mutatie na.
-- Meiose (waarom geslachtscellen de helft van de genen hebben): film 5 *Celdeling*. De mens: bovenbouwfilm *Van bevruchting tot baby*.
+- Meiose (waarom geslachtscellen de helft van de genen hebben): film 5 *Celdeling*. De mens: bovenbouwfilms *Bevruchting* en *Zwanger*.
 
 ## Dekking
 | Kerndoel / leerdoel | Niveau | Deel | Vraag |

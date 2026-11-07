@@ -1,9 +1,9 @@
-/* ===== Opgave 6: Louise Brown, het eerste ivf-kind (nieuw; havo films 2 en 5, vwo film 3 en 5) ===== */
+/* ===== Opgave 6: Louise Brown, het eerste ivf-kind (nieuw; films 3 De cyclus, 5 Zwanger en 6 Anticonceptie) ===== */
 {
 const STOF_IVF={titel:"Ivf stap voor stap",html:`
 <p>Normaal rijpt er per cyclus één follikel. Bij <b>ivf</b> (bevruchting buiten het lichaam) krijgt de vrouw eerst ongeveer tien dagen <b>hormooninjecties met FSH</b>. `+(VWO?`Tegelijk krijgt ze een middel dat haar eigen LH-piek onderdrukt. Zijn de follikels groot genoeg, dan krijgt ze één injectie met <b>hCG</b>, dat lijkt op LH en de LH-piek nadoet; zo'n anderhalve dag later worden de eicellen opgezogen. `:`Met een dunne naald haalt de arts daarna de eicellen uit de eierstokken. `)+`</p>
 <p>In een schaaltje komen eicellen en zaadcellen samen; bij weinig of slecht zwemmende zaadcellen spuit de arts één zaadcel in de eicel (<b>ICSI</b>). De embryo's groeien een paar dagen in het lab. Meestal gaat er één terug in de baarmoeder, om een tweeling te voorkomen; andere goede embryo's gaan de vriezer in.</p>`,
-films:FV(F.anti,F.baby)};
+films:[F.anti,F.cyc]};
 const ids=[];
 if(!VWO){
 const STOF_EIL={titel:"De eileider",html:`
@@ -59,7 +59,7 @@ ids.push(vraag(2,"alcohol en de placenta",(q,id)=>{
 }else{
 const STOF_PIEK={titel:"De LH-piek en de eisprong",html:`
 <p>De dominante follikel maakt steeds meer oestrogeen. Blijft de oestrogeenspiegel ongeveer twee dagen hoog, dan gaat oestrogeen de afgifte van LH juist stimuleren. Meer LH stimuleert de follikel weer: <b>positieve terugkoppeling</b>, een signaal dat zichzelf versterkt. Het resultaat is de <b>LH-piek</b>, midden in de cyclus.</p>`,
-films:[F.baby]};
+films:[F.cyc]};
 ids.push(vraag(2,"precies op tijd",(q,id)=>{
   pre(q,"<p>Steptoe en Edwards haalden de eicel van Lesley met een kijkoperatie uit de follikel, 15 tot 35 uur nadat de LH-piek in de urine was gezien. De urine werd daarvoor elke drie uur verzameld.</p>");
   const {think,ans,unlock}=start(q,B("Leg uit waarom ze de eicel niet veel eerder en ook niet veel later na het begin van de LH-piek konden ophalen."));
@@ -95,7 +95,7 @@ ids.push(vraag(1,"zwangerschapstest na de hCG-injectie",(q,id)=>{
 const STOF_PLAC={titel:"Dichtbij, maar gescheiden",html:`
 <p>In de <b>placenta</b> wisselen moeder en kind stoffen uit: zuurstof en voedingsstoffen naar het kind, koolstofdioxide en afvalstoffen terug.</p>
 <p>Kleine moleculen gaan door <b>diffusie</b>, van hoog naar laag. Andere stoffen gaan met transporteiwitten of door actief transport.</p>`,
-films:[F.baby]};
+films:[F.zw]};
 ids.push(vraag(2,"juist of onjuist: de placenta",(q,id)=>{
   pre(q,"<p>Na de terugplaatsing van een embryo krijgt de vrouw vaak een paar weken extra progesteron. Over de zwangerschap worden vier uitspraken gedaan:</p>");
   q.append(el("p",{class:"qtext"},"1 In de vlokken van de placenta stroomt het bloed van de moeder door dezelfde bloedvaatjes als het bloed van het kind.<br>2 Zuurstof gaat door diffusie van het bloed van de moeder naar het bloed van het kind.<br>3 Alcohol en nicotine gaan bijna net zo makkelijk door de placenta als zuurstof.<br>4 Rond week acht tot tien neemt de placenta de productie van progesteron over van het geel lichaam.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));

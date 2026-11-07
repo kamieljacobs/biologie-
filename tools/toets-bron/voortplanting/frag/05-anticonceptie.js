@@ -1,4 +1,4 @@
-/* ===== Opgave 5: Hoe betrouwbaar? Anticonceptie en soa's (nieuw; film 5, vwo ook film 3) ===== */
+/* ===== Opgave 5: Hoe betrouwbaar? Anticonceptie en soa's (nieuw; film 6 Anticonceptie, en film 3 De cyclus) ===== */
 {
 const TAB1=TABEL(1,["methode","normaal gebruik","perfect gebruik"],[
   ["staafje in de arm","&lt; 1","&lt; 1"],["spiraaltje (hormoon of koper)","&lt; 1","&lt; 1"],["sterilisatie (man of vrouw)","&lt; 1","&lt; 1"],
@@ -7,7 +7,7 @@ const TAB1=TABEL(1,["methode","normaal gebruik","perfect gebruik"],[
 const STOF_KETEN={titel:"Anticonceptie: een schakel uit de keten",html:`
 <p>Een zwangerschap is een keten: een <b>eicel komt vrij</b> → een <b>zaadcel bereikt en bevrucht</b> haar → het <b>embryo nestelt zich</b> in de baarmoeder. Anticonceptie haalt één schakel uit die keten.</p>
 <p>De <b>Pearl-index</b> geeft aan hoeveel van de honderd vrouwen in een jaar toch zwanger worden. Perfect gebruik = precies volgens de regels; normaal gebruik = zoals mensen het echt doen, met fouten.</p>`,
-films:FV(F.anti,F.baby)};
+films:[F.anti,F.cyc]};
 
 const a1=vraag(2,"prikpil of pil",(q,id)=>{
   pre(q,"<p>De pil en de prikpil bevatten allebei hormonen die de eisprong remmen. De pil slik je elke dag; de prikpil is een injectie met een progestageen die je elke 12 weken krijgt.</p>");
@@ -38,7 +38,7 @@ const STOF_SOA={titel:"Soa's: bacterie of virus",html:`
 <p>Gonorroe, chlamydia en syfilis worden veroorzaakt door een <b>bacterie</b>; die zijn te genezen met antibiotica. Antibiotica grijpen aan op onderdelen die bij bacteriën anders zijn dan bij ons, zoals hun celwand of hun ribosomen.</p>
 <p>Hiv, HPV, herpes en hepatitis B zijn <b>virussen</b>. Een virus vermenigvuldigt zich in je eigen cellen; antibiotica doen daar niets tegen. Tegen sommige virussen bestaat een <b>vaccin</b>, bijvoorbeeld tegen HPV en hepatitis B.</p>
 <p>Veel soa's geven geen klachten. Van al deze anticonceptiemethodes beschermt alleen het condoom ook tegen soa's.</p>`,
-films:FV(F.anti,F.baby)};
+films:[F.anti]};
 const ids=[a1,a2];
 if(!VWO){
 ids.push(vraag(2,"de HPV-prik ook voor jongens",(q,id)=>{

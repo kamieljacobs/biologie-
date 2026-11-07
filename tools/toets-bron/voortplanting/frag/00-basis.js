@@ -6,14 +6,15 @@ function vraag(pts,t,build,stof){const id=++QN;Q.push({id,pts,t,build:q=>build(q
   if(stof&&window.EXSTOF)EXSTOF.zet(TOOL,[id],stof);return id;}
 function opgave(kort,titel,html,ids){const nr=++ON;
   OPG.push({nr,kort,titel,ids,ctx:`<div class="pkop"><span class="mono">Toetstekst · inleiding opgave ${nr}</span></div>`+html});}
-/* films van het thema (hrefs als in HOOFDSTUKKEN.voortplanting.films); film 3 is alleen voor vwo */
+/* films van het thema (hrefs als in HOOFDSTUKKEN.voortplanting.films); sinds 7 nov 2026 alle zeven havo + vwo */
 const F={
   cel:["Celdeling","films/voortplanting/celdeling/index.html"],
   org:["Geslachtsorganen en puberteit","films/voortplanting/2-geslachtsorganen-puberteit.html"],
-  baby:["Van bevruchting tot baby","films/voortplanting/1-precies-op-tijd.html"],
+  cyc:["De cyclus","films/voortplanting/cyclus/index.html"],
+  bev:["Bevruchting","films/voortplanting/bevruchting/index.html"],
+  zw:["Zwanger","films/voortplanting/zwanger/index.html"],
   sekse:["Sekse, gender en diversiteit","films/voortplanting/4-sekse-gender-diversiteit.html"],
   anti:["Anticonceptie, soa's en voortplantingstechniek","films/voortplanting/3-anticonceptie-soa-voortplantingstechniek.html"]};
-const FV=(...f)=>f.filter(x=>VWO||x!==F.baby);
 /* begin van een vraag: vraagzin, hulp- en antwoordvak */
 function start(q,html){q.append(el("p",{class:"qtext"},html));
   const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
