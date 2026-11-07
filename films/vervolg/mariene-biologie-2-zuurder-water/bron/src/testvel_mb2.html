@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="nl"><head><meta charset="utf-8"><title>Testvel mb2 · Zuurder water</title>
+<style>body{margin:0;background:#0D1420;color:#9AA3B2;font-family:system-ui} canvas{display:block;width:1920px;height:1080px;margin:0 0 12px}</style>
+</head><body>
+<canvas id="c1" width="1920" height="1080"></canvas>
+<canvas id="c2" width="1920" height="1080"></canvas>
+<canvas id="c3" width="1920" height="1080"></canvas>
+<script src="../engine/lib.js"></script>
+<script src="../engine/lib_voeding.js"></script>
+<script src="../engine/lib_hormonen.js"></script>
+<script src="../engine/lib_cast.js"></script>
+<script src="kop_mb2.js"></script>
+<script src="../decor/decor_marien.js"></script>
+<script src="teken_mb2.js"></script>
+<script>
+const naam = (ctx, s, x, y) => { ctx.save(); ctx.font = '500 22px "IBM Plex Mono",monospace'; ctx.fillStyle = '#7F8AA0'; ctx.textAlign = 'center'; ctx.fillText(s, x, y); ctx.restore(); };
+const kop = (ctx, s) => { ctx.save(); ctx.font = '700 30px system-ui'; ctx.fillStyle = '#C9B896'; ctx.fillText(s, 40, 46); ctx.restore(); };
+const T = 1.3;
+function teken() {
+// ---------- vel 1: moleculen en schelpdieren ----------
+(() => { const ctx = c1.getContext('2d'); bg(ctx, 'schema'); kop(ctx, 'VEL 1 · MOLECULEN (Micro, alleen in zoomcirkel/blad) · SCHELPDIEREN · LARVE');
+  mb2_co2(ctx, 120, 160, 18); naam(ctx, 'CO₂ (O=C=O)', 120, 220);
+  mb2_h2o(ctx, 280, 160, 18); naam(ctx, 'H₂O', 280, 220);
+  mb2_koolzuur(ctx, 440, 160, 16); naam(ctx, 'koolzuur', 440, 240);
+  mb2_koolzuur(ctx, 600, 160, 16, { los: 1 }); naam(ctx, 'koolzuur: H⁺ los', 620, 240);
+  mb2_hplus(ctx, 780, 160, 16); naam(ctx, 'H⁺', 780, 220);
+  mb2_carbonaat(ctx, 920, 160, 18); naam(ctx, 'carbonaat', 920, 230);
+  mb2_carbonaat(ctx, 1080, 160, 18, { h: 1 }); naam(ctx, 'bicarbonaat', 1080, 240);
+  mb2_calcium(ctx, 1230, 160, 22); naam(ctx, 'calcium', 1230, 220);
+  mb2_kalkrand(ctx, 1340, 220, 300, 22); naam(ctx, 'kalkrand (22 blokjes)', 1500, 250);
+  // oester op persoonsschaal en groot
+  mb2_oester(ctx, 200, 520, 1.6); naam(ctx, 'Japanse oester · bolle klep', 200, 700);
+  mb2_oester(ctx, 480, 520, 1.6, { rand: 1 }); naam(ctx, 'groeirand goud', 480, 700);
+  mb2_mossel(ctx, 780, 520, 1.6); naam(ctx, 'gewone mossel', 780, 700);
+  mb2_koraal(ctx, 1080, 560, 1.4); naam(ctx, 'koraal (klein, ver)', 1080, 700);
+  mb2_krab(ctx, 1340, 540, 1.3); naam(ctx, 'strandkrab', 1340, 700);
+  mb2_kreeft(ctx, 1680, 540, 1.3); naam(ctx, 'kreeft', 1660, 700);
+  // larven in zoomcirkels
+  const L = [[0, 0, 0, 'trochofoor (uur 10)'], [0.5, 0, 0, 'eerste schelp'], [1, 0, 0, 'D-larve (48 uur)'], [1, 1, 0, 'misvormd'], [1, 0.5, 1, 'niet ontwikkeld']];
+  L.forEach(([u, mis, gr, n], i) => { const x = 200 + i * 330; zoomCircle(ctx, x, 900, 110, x, 900, '', 1, () => { ctx.fillStyle = MB2.waterD; ctx.fillRect(x - 120, 790, 240, 240); mb2_larve(ctx, x, 920, 70, { u, mis, grijs: gr, t: T }); }); naam(ctx, n + ' · ± 0,1 mm', x, 1050); });
+  mb2_schelpje(ctx, 1820, 900, 1.2); mb2_zeeEgel(ctx, 1820, 1010, 1);
+})();
+// ---------- vel 2: dossier, lab, mensen op schaal ----------
+(() => { const ctx = c2.getContext('2d'); decor(ctx, 'lab', 0.6); kop(ctx, 'VEL 2 · DECOR LAB 60 % · PERSONEN 430 PX · TAFEL · DOSSIER · STEMPEL · BAKKEN · MICROSCOOP');
+  sam(ctx, 300, T, { kijk: 1, uit: 'blij' }); bioloog(ctx, 560, T, { pose: 'vasthouden', hold: (c, hx, hy) => mb2_oester(c, hx + 6, hy - 18, 0.32, { rot: -0.5 }) });
+  mb2_tafel(ctx, 700, 640, 520); mb2_dossierDicht(ctx, 900, 640, 260); mb2_stempelDing(ctx, 1100, 640, 0.6);
+  naam(ctx, 'Sam practicum · bioloog lab met oester (± 12 cm)', 450, 900);
+  mb2_microscoop(ctx, 1400, 640, 0.42); mb2_tafel(ctx, 1300, 640, 300); naam(ctx, 'microscoop', 1450, 900);
+  mb2_bak(ctx, 1640, 520, 120, 110, { n: 10, t: T, lab: 'pH 8,2' }); mb2_bak(ctx, 1780, 520, 120, 110, { n: 10, dood: 8, co2: 0.8, t: T, lab: 'pH 7,4' });
+  mb2_blad(ctx, 60, 120, 520, 280, { nr: 'blad 1', titel: 'MELDING' }); mb2_geeltje(ctx, 640, 140, 380, ['pH −1 = 10 × H⁺']); mb2_stempelPlek(ctx, 1080, 140, 380, 120); mb2_afdruk(ctx, 1270, 330, 'OORZAAK: CO₂ IN HET WATER', 1, { s: 0.8 });
+  mb2_klok(ctx, 1600, 220, 50, 0.6, '48 UUR');
+})();
+// ---------- vel 3: schema's ----------
+(() => { const ctx = c3.getContext('2d'); bg(ctx, 'schema'); kop(ctx, 'VEL 3 · OPWELLING · CO₂-METER · pH-LINIAAL · H⁺-RASTER · ENERGIE · BALANS · AARDE · TEGELS');
+  mb2_opwelling(ctx, 40, 90, 900, 420, { u: 1, t: T }); naam(ctx, 'opwelling bij de kust (u = 1)', 490, 540);
+  mb2_co2Meter(ctx, 1000, 120, 120, 380, { nat: 0.82, extra: 0.12, grens: 0.9 }); naam(ctx, 'CO₂-meter', 1060, 540);
+  mb2_phLiniaal(ctx, 1200, 140, 660, { wijzer: 8.1 }); mb2_phZoom(ctx, 1200, 410, 660, 7.9, 8.3, { punten: [[8.2, '8,2', '± 1750', C.text, 1], [8.1, '8,1', '± 2010', C.goud, 1], [8.04, '', '', C.koraal, 1]], wijzer: 8.1 });
+  mb2_hRaster(ctx, 80, 620, 100, 26, { per: 14 }); naam(ctx, '100 + 26 H⁺', 300, 1040);
+  mb2_energie(ctx, 640, 680, 560, [[0.8, C.oker, 'SCHELP'], [0.2, C.groen, 'ZWEMMEN · ETEN']]);
+  mb2_balans(ctx, 1380, 1000, 0.9, { tilt: 0.1, links: (c, x, y) => mb2_oester(c, x, y - 30, 0.4), rechts: (c, x, y) => mb2_co2(c, x, y - 20, 14) });
+  aardeVast(ctx, 1760, 820, 140, 1, -40, 30); naam(ctx, 'aarde (bibliotheek)', 1760, 1000);
+  mb2_tegel(ctx, 640, 880, 130, (c, x, y) => mb2_oester(c, x, y, 0.4), 'neer'); mb2_tegel(ctx, 790, 880, 130, (c, x, y) => mb2_krab(c, x, y, 0.55), 'op'); mb2_tegel(ctx, 940, 880, 130, (c, x, y) => mb2_zeeEgel(c, x, y, 1), 'gelijk', { hl: 1 });
+})();
+}
+document.fonts.ready.then(() => { const im = Object.values(DECOR_IMG); Promise.all(im.map(i => i.complete ? 1 : new Promise(r => i.onload = r))).then(teken); });
+</script></body></html>

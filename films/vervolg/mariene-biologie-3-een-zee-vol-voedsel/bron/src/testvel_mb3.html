@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="nl"><head><meta charset="utf-8"><title>Testvel mb3 · Een zee vol voedsel</title>
+<style>body{margin:0;background:#0D1420;color:#9AA3B2;font-family:system-ui} canvas{display:block;width:1920px;height:1080px;margin:0 0 12px}</style>
+</head><body>
+<canvas id="c1" width="1920" height="1080"></canvas>
+<canvas id="c2" width="1920" height="1080"></canvas>
+<canvas id="c3" width="1920" height="1080"></canvas>
+<canvas id="c4" width="1920" height="1080"></canvas>
+<script src="../engine/lib.js"></script>
+<script src="../engine/lib_voeding.js"></script>
+<script src="../engine/lib_hormonen.js"></script>
+<script src="../engine/lib_cast.js"></script>
+<script src="_kop.js"></script>
+<script src="../engine/brein.js"></script>
+<script src="../engine/teken.js"></script>
+<script src="../engine/extra.js"></script>
+<script src="teken_mb3.js"></script>
+<script>
+const naam = (ctx, s, x, y) => { ctx.save(); ctx.font = '500 22px "IBM Plex Mono",monospace'; ctx.fillStyle = '#9AA3B2'; ctx.textAlign = 'center'; ctx.fillText(s, x, y); ctx.restore(); };
+const kop = (ctx, s) => { ctx.save(); ctx.font = '700 30px system-ui'; ctx.fillStyle = '#C9B896'; ctx.fillText(s, 40, 46); ctx.restore(); };
+const T = 1.3;
+// ---------- vel 1: dieren van het wad op één schaal ----------
+(() => { const ctx = c1.getContext('2d'); bg(ctx, 'schema'); kop(ctx, 'VEL 1 · DIEREN OP ÉÉN SCHAAL (1 cm = 14 px) · Sam 1,75 m ter vergelijking (rechts, 1 cm = 2,6 px)');
+  const S = 14, G = 520; ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(60, G); ctx.lineTo(1560, G); ctx.stroke();
+  for (let cm = 0; cm <= 30; cm += 5) { ctx.fillStyle = '#5A6478'; ctx.fillRect(58, G - cm * S - 1, 14, 2); naam(ctx, cm + '', 40, G - cm * S + 7); }
+  mb3_vogel(ctx, 'kanoet', 260, G, S, {}); naam(ctx, 'kanoet · ± 25 cm', 260, G + 36);
+  mb3_vogel(ctx, 'scholekster', 640, G, S, {}); naam(ctx, 'scholekster · ± 42 cm', 640, G + 36);
+  mb3_kokkel(ctx, 920, G - 1.9 * S, S, { L: 4 }); naam(ctx, 'kokkel 4 cm', 920, G + 36);
+  mb3_kokkel(ctx, 1040, G - 1.2 * S, S, { L: 2.5, open: 1 }); naam(ctx, 'kokkel open', 1040, G + 36);
+  mb3_nonnetje(ctx, 1140, G - 0.9 * S, S, { L: 2 }); naam(ctx, 'nonnetje 2 cm', 1140, G + 36);
+  mb3_mossel(ctx, 1290, G - 1.5 * S, S, { L: 5, byssus: 1 }); naam(ctx, 'mossel 5 cm', 1290, G + 36);
+  mb3_mossel(ctx, 1450, G - 1.5 * S, S, { L: 5, open: 1 }); naam(ctx, 'mossel open', 1450, G + 36);
+  persoon(ctx, 'sam', 1700, G, 455, { outfit: 'buiten', kijk: -1, t: T }); mb3_vogel(ctx, 'kanoet', 1810, G, 2.6, {}); naam(ctx, 'Sam + kanoet', 1740, G + 36);
+  // rij 2: kanoet houdingen en vlucht
+  const G2 = 900; ctx.beginPath(); ctx.moveTo(60, G2); ctx.lineTo(1860, G2); ctx.stroke();
+  mb3_vogel(ctx, 'kanoet', 180, G2, 10, { pik: 0.9 }); naam(ctx, 'pikt', 180, G2 + 34);
+  mb3_vogel(ctx, 'kanoet', 420, G2, 10, { kokkel: 1 }); naam(ctx, 'kokkel voor snavel', 420, G2 + 34);
+  mb3_vogel(ctx, 'kanoet', 660, G2, 10, { kokkel: 1, slik: 0.5 }); naam(ctx, 'slikt', 660, G2 + 34);
+  [0, 0.15, 0.3, 0.45, 0.6, 0.8].forEach((f, i) => { mb3_kanoetVlieg(ctx, 860 + i * 175, 760, 6.5, f); naam(ctx, 'fase ' + f, 860 + i * 175, 880); });
+  naam(ctx, '6 tussenstanden: neerslag 0–0,55 · opslag gevouwen', 1300, 600);
+})();
+// ---------- vel 2: wad in doorsnede, zoomcirkels ----------
+(() => { const ctx = c2.getContext('2d'); bg(ctx, 'schema'); kop(ctx, 'VEL 2 · WAD IN DOORSNEDE (1 cm = 9 px) · ZOOMCIRKELS');
+  const S = 9, Y = 420; mb3_bodem(ctx, 60, Y, 1000, 380, { bruin: 1 });
+  mb3_wadpier(ctx, 300, Y, S, { eet: 1, t: T }); naam(ctx, 'wadpier U-gang · 20 cm diep', 300, Y + 360);
+  mb3_kokkel(ctx, 600, Y + 2.2 * S, S, { L: 3.5, open: 1 }); naam(ctx, 'kokkel vlak onder', 600, Y + 120);
+  mb3_nonnetje(ctx, 800, Y + 9 * S, S, { L: 2, sifon: 1 }); naam(ctx, 'nonnetje dieper, lange sifon', 830, Y + 160);
+  mb3_mosselbank(ctx, 960, Y, 160, 6, { open: 1 }); naam(ctx, 'mosselbank', 960, Y - 80);
+  mb3_bodem(ctx, 60, 900, 1000, 60, { water: 140, groen: 1, t: T, golf: 6 }); naam(ctx, 'water op de plaat met zwevende algen', 560, 1000);
+  zoomCircle(ctx, 1260, 260, 170, 900, Y, 'ALGEN OP DE PLAAT', 1, () => mb3_kiezelwieren(ctx, 1260, 260, 170, T));
+  zoomCircle(ctx, 1640, 260, 170, 1460, 400, 'ALGEN IN HET WATER', 1, () => mb3_plankton(ctx, 1640, 260, 170, T));
+  zoomCircle(ctx, 1300, 720, 150, 1300, 720, 'SPIERMAAG', 1, () => mb3_spiermaag(ctx, 1300, 720, 150, { kraak: 1 }));
+  zoomCircle(ctx, 1660, 720, 150, 1660, 720, 'SPIERMAAG GROTER', 1, () => mb3_spiermaag(ctx, 1660, 720, 150, { groot: 1 }));
+})();
+// ---------- vel 3: emmerproef, kweek, meters ----------
+(() => { const ctx = c3.getContext('2d'); bg(ctx, 'schema'); kop(ctx, 'VEL 3 · EMMERPROEF, KWEEK, METERS');
+  mb3_emmer(ctx, 160, 400, 200, { groen: 1, t: T }); naam(ctx, 'emmer A groen', 160, 440);
+  mb3_emmer(ctx, 420, 400, 200, { groen: 0.15, n: 6, t: T }); naam(ctx, 'emmer B helder', 420, 440);
+  mb3_emmer(ctx, 680, 400, 200, { groen: 0, n: 30, t: T }); naam(ctx, 'veel mosselen', 680, 440);
+  mb3_stopwatch(ctx, 880, 300, 60, T); naam(ctx, 'stopwatch', 880, 440);
+  mb3_maatbeker(ctx, 1020, 400, 90, 220, 0.83, { label: '5 L' }); naam(ctx, 'maatbeker', 1020, 440);
+  mb3_vogelWeeg(ctx, 1220, 400, 5); naam(ctx, 'weegschaal', 1220, 440);
+  mb3_balans(ctx, 1560, 160, 420, 0, (x, y) => mb3_kokkelVlees(ctx, x, y - 30, 22, 1, { L: 3 }), (x, y) => mb3_kokkelVlees(ctx, x, y - 30, 22, 0.25, { L: 3 })); naam(ctx, 'balans vlees', 1560, 440);
+  mb3_kotter(ctx, 300, 640, 9, { zaai: 1, t: T, figuur: (fx, fy) => persoon(ctx, 'joost', fx, fy, 150, { outfit: 'buiten', t: T }) }); naam(ctx, 'mosselkotter (40 m) met Joost', 300, 720);
+  mb3_mzi(ctx, 640, 520, 480, { zaad: 0.8, t: T, diep: 220 }); naam(ctx, 'invanginstallatie: drijvers, draaglijn, touwen met zaad', 960, 900);
+  zoomCircle(ctx, 1420, 700, 120, 1180, 650, 'MOSSELZAAD · 1–2 CM', 1, () => { ctx.fillStyle = '#1F4E66'; ctx.fillRect(1300, 580, 240, 240); ctx.strokeStyle = '#C8B48A'; ctx.lineWidth = 14; ctx.beginPath(); ctx.moveTo(1420, 580); ctx.lineTo(1420, 820); ctx.stroke(); for (let k = 0; k < 6; k++) mb3_mossel(ctx, 1395 + (k % 2) * 50, 620 + k * 34, 30, { L: 1.5, rot: 1.3 + (k % 2) }); });
+  mb3_zak(ctx, 1640, 840, 1); naam(ctx, 'zak voer', 1640, 880);
+  mb3_meter(ctx, 1800, 760, 90, 0.4, {}); naam(ctx, 'meter', 1800, 880);
+})();
+(() => { const ctx = c4.getContext('2d'); bg(ctx, 'schema'); kop(ctx, 'VEL 4 · PIRAMIDE VAN ENERGIE, VOGEL IN ZOOM');
+  mb3_piramide(ctx, 760, 800, { kj: ['10.000 kJ', '1.000 kJ', '100 kJ'], kjA: [1, 1, 1] });
+  mb3_vogel(ctx, 'kanoet', 1500, 700, 14, { pik: 0.3 }); mb3_vogel(ctx, 'scholekster', 1750, 700, 8, { kijk: -1 }); naam(ctx, 'kanoet en scholekster', 1600, 740); })();
+</script></body></html>

@@ -1,13 +1,33 @@
 [
  {
-  "href": "films/vervolg/milieukunde-2-van-wieg-tot-graf.html",
-  "titel": "Van wieg tot graf: de levenscyclusanalyse",
+  "href": "films/vervolg/mariene-biologie-1-hoeveel-vis-mag-eruit.html",
+  "titel": "Hoeveel vis mag eruit?",
+  "thema": "vervolg",
+  "themaTitel": "Wat word jij?",
+  "duur": 7,
+  "vraag": "Vissers willen elk jaar zoveel mogelijk vangen. Waarom levert minder vangen op den duur méér vis op?",
+  "extra": true,
+  "datum": "2026-11-07"
+ },
+ {
+  "href": "films/vervolg/mariene-biologie-2-zuurder-water.html",
+  "titel": "Zuurder water",
   "thema": "vervolg",
   "themaTitel": "Wat word jij?",
   "duur": 8,
-  "vraag": "Papieren tasje of plastic tas: welke is beter voor het milieu?",
+  "vraag": "De zee neemt ruim een kwart van onze CO₂ op. Waarom is dat slecht nieuws voor een oester?",
   "extra": true,
-  "datum": "2026-11-02"
+  "datum": "2026-11-07"
+ },
+ {
+  "href": "films/vervolg/mariene-biologie-3-een-zee-vol-voedsel.html",
+  "titel": "Een zee vol voedsel: de Waddenzee",
+  "thema": "vervolg",
+  "themaTitel": "Wat word jij?",
+  "duur": 8,
+  "vraag": "Een mosselkweker wil meer mosselen in de Waddenzee. Waarom maken vogelonderzoekers zich daar zorgen over?",
+  "extra": true,
+  "datum": "2026-11-07"
  },
  {
   "href": "films/vervolg/forensisch-4-stille-getuigen.html",
@@ -16,6 +36,16 @@
   "themaTitel": "Wat word jij?",
   "duur": 8,
   "vraag": "Hoe kan stuifmeel op een schoen verraden waar iemand is geweest?",
+  "extra": true,
+  "datum": "2026-11-02"
+ },
+ {
+  "href": "films/vervolg/milieukunde-2-van-wieg-tot-graf.html",
+  "titel": "Van wieg tot graf: de levenscyclusanalyse",
+  "thema": "vervolg",
+  "themaTitel": "Wat word jij?",
+  "duur": 8,
+  "vraag": "Papieren tasje of plastic tas: welke is beter voor het milieu?",
   "extra": true,
   "datum": "2026-11-02"
  },
@@ -66,36 +96,6 @@
   "themaTitel": "Voeding",
   "duur": 7,
   "vraag": "Stel: een erwtenburger heeft evenveel eiwit als een hamburger. Is hij dan net zo goed?",
-  "extra": true,
-  "datum": "2026-10-31"
- },
- {
-  "href": "films/vervolg/gezondheidswetenschappen-2-screenen-of-niet.html",
-  "titel": "Screenen of niet? Het bevolkingsonderzoek darmkanker",
-  "thema": "vervolg",
-  "themaTitel": "Wat word jij?",
-  "duur": 8,
-  "vraag": "Waarom krijg je op je 55e een ontlastingstest thuis, maar geen hersenscan?",
-  "extra": true,
-  "datum": "2026-10-31"
- },
- {
-  "href": "films/vervolg/gezondheidswetenschappen-3-roken-en-longkanker.html",
-  "titel": "Roken en longkanker: hoe onderzoek een risico vindt",
-  "thema": "vervolg",
-  "themaTitel": "Wat word jij?",
-  "duur": 8,
-  "vraag": "Je kunt mensen niet laten roken voor een experiment. Hoe weet je dan dat roken kanker geeft?",
-  "extra": true,
-  "datum": "2026-10-31"
- },
- {
-  "href": "films/extra/hoe-weet-een-cel.html",
-  "titel": "Hoe weet een cel wat hij moet worden?",
-  "thema": "cellen",
-  "themaTitel": "Cellen",
-  "duur": 17,
-  "vraag": "Eén eicel wordt honderden celsoorten, zonder bouwtekening: hoe weet een cel wat hij moet worden?",
   "extra": true,
   "datum": "2026-10-31"
  }

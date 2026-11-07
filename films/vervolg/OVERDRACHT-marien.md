@@ -40,3 +40,15 @@ Stand 3 nov 2026 (avond). Lees ook `films/vervolg/BOUWEN.md`, `films/PROMPT_v13.
 **Volgende stap:** keuring teruglezen → keuzes verwerken in script_v2 (film 2 eventueel variant A met de MOET-punten), Sams outfit in lib_cast/ROLLEN → testvel nieuwe tekeningen (als gekozen) → decors downloaden → `script_opname.md` + segments.json → inspreken (Roos, eleven_v4, hooguit 2 takes tegelijk; uitspraakrisico's in de twijfelbestanden: otoliet, kanoet, Yerseke, Oregon, Newfoundland, Marine Sciences/Biology) → bouwen (engine = bronmap van milieukunde-2) → frisse beeldreview → repo → medaillons → LEVENSLOOP.
 
 **Keuring (7 nov 2026):** op het blad koos Kamiel `mb-r1` = B (Sam buiten: zijn winterjas + groene laarzen) en `mb-r2` = decors zo gebruiken. Daarna in de chat: 'oke is goed' → de overige 22 punten volgens voorstel (dus film 2 = combinatie, `kamiel_keuze: combi` loggen). Lees het blad bij de start nog één keer na: een later gezette keuze gaat voor.
+
+## Stand (7 nov 2026): alle drie de films online
+
+- **Keuring verwerkt**: `mb-r1` = B → Sam outfit `buiten` in `personages/lib_cast.js` (winterjas, groene sjaal, groene laarzen) + ROLLEN, castboek; film 2 = combinatie (`kamiel_keuze: combi` in mutaties.jsonl); overige punten volgens voorstel.
+- **Inspreken**: Roos, eleven_v4, één take per alinea, niets herhaald. Flows: mb1 `21K7ToebpVHlv4svJzcY` (14 takes), mb2 `jcCNildAhLvLskbVZ6uR` (17), mb3 `5GC78qOufSfEYd6rDDQY` (19). Film-eigen uitspraak mb2: H⁺ → H-plus, Yerseke → Ierseke. Wachtlijsten in `bron/uitspraak.md` (otolieten, Newfoundland, Skagerrak, Oregon, Yerseke, kanoet, nonnetje, scholekster, Marine Sciences/Biology): nog niet beluisterd.
+- **Bouwen**: engine = bronmap milieukunde-2; decors als `bron/src/decor_marien.js`; bouwen met `bron/bouw/bouw.sh`. Testvellen in `werk-marien/beeld/testvel-mb1..3.png` (door de makers nagekeken, daarna frisse beeldreview).
+- **Frisse beeldreview** (`bron/reviews/review_beeld.md`): mb1 4 MOET + 11 KAN, mb2 8 + 11, mb3 8 + 10; allemaal verwerkt behalve een werkoutfit voor Joost (nieuw castdeel, niet gemaakt). Punten in `films/logboek/fouten.jsonl`; kandidaatles 'beeld tijdens een vraag' in WERKWIJZE-LESSEN.
+- **mb2**: hoofdstukkaart H3 heet alleen 'Een proef met oesterlarven' (met de hand in `segments.json`; na `make_segments.py` opnieuw doen).
+- **Site**: `vervolg.html` (planobjecten → `[titel, href]`), `films/vervolg/films.json` (datum 2026-11-07; duur 7/8/8 min), `FILMKUNST` in index.html, medaillons (vel-12, flow S5e92x6xvW5fppIoNujF; ook 15 andere Wat word jij?-films zonder medaillon), vaste scripts, `nieuwste_films.py`, `reviewlijst.py`, controle ok. REVIEW: nog bekijken.
+- **LEVENSLOOP** bijgewerkt voor Sam en de mariene bioloog.
+
+**Nog open:** Kamiels review (reviewpagina), uitspraak-wachtlijsten beluisteren, eventueel `jaarplanner-dekking.json` (extra film bij Ecologie; als laatste stap na `git pull`), werkoutfit Joost als castvoorstel (nu draagt hij zijn gewone kleding aan boord), Forensisch 4 en Tuin 2 hebben nog geen medaillon.
