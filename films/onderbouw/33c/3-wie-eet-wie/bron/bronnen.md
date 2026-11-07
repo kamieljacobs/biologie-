@@ -30,7 +30,7 @@ Alle bronnen op 7 nov 2026 zelf geopend.
 | 2 | s13 | Zonder wolf kunnen er meer vossen komen. | B2, B3, B5 | ≈ | B2: minder vossen binnen wolventerritoria (lokaal), niet op landschapsschaal; B3 (Alaska): vossen juist vaker bij wolven (kadavers); B5 verwacht weinig effect. 'Kunnen' is daarom terecht voorzichtig; nuance in het docentdeel (7 nov 2026). |
 | 3 | s13 | Vossen eten eieren en jongen van vogels die op de grond broeden. | B4 | ≈ | B4: vos is de belangrijkste nachtelijke nestrover van weidevogels en eet 's nachts ook kuikens. Eén bron (niveau A); tweede bron nog toevoegen. Niet omstreden; bij de steekproef nalopen. |
 | 4 | s13 | Jaagt de wolf de vossen weg, dan hebben die vogels minder vijanden. | B2, B4 | ≈ | Logische stap uit 1–3; het effect op vogels zelf is in Nederland niet gemeten. Beeld en docentdeel zeggen 'de wolf *kan* de vogels helpen'. |
-| 5 | s13 | Zo helpt de wolf vogels die hij zelf nooit eet. | B2, B3 | ≈ | Stelliger dan de oude zin ('Zo kan de wolf ook vogels helpen'); beeldlabel en docentdeel houden 'kan'. Voorgelegd aan Kamiel als twijfelpunt. |
+| 5 | s13 | Zo helpt de wolf vogels die hij zelf nooit eet. | B2, B3 | ≈ | Stelliger dan de oude zin ('Zo kan de wolf ook vogels helpen'); beeldlabel en docentdeel houden 'kan'. Voorgelegd aan Kamiel; besluit 7 nov 2026: 'goed' (keuze in toon, zin blijft). |
 | 6 | s12, s01 | Ruim honderdvijftig jaar geleden waren de wolven uit Nederland verdwenen; ze zijn nu terug. | B5 | ? | B5: laatste wolf eind 19e eeuw gezien (geen jaartal). 'Ruim 150 jaar' past daarbij als de laatste waarneming vóór ± 1875 valt; tweede bron met jaartal nog zoeken. |
 
 ## Aanpassingen
