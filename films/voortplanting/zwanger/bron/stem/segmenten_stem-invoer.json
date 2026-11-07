@@ -1,0 +1,214 @@
+{
+ "stem": "Roos 7qdUFMklKPaaAVMsBTBt",
+ "model": "eleven_v4",
+ "datum": "2026-11-07",
+ "flow": "https://elevenlabs.io/app/flows/nswLNdlrbsVWBMWnc5Hn",
+ "uitspraak": "films/uitspraak.json (centraal: receptor → reseptor, koolstofdioxide → koolstofdie-oxide) + stem/uitspraak_film.json (hCG → ha-cee-gee, LH-piek → el-haa-piek)",
+ "segmenten": [
+  {
+   "id": "s01",
+   "level": "basis",
+   "voice": "Vandaag had deze vrouw ongesteld moeten worden. Het slijmvlies in haar baarmoeder had moeten loslaten. Dat gebeurt niet. Iets houdt het tegen: een piepklein klompje cellen. Hoe kan iets zo kleins het lichaam van een volwassen vrouw sturen?"
+  },
+  {
+   "id": "s03",
+   "level": "basis",
+   "voice": "Na ongeveer vijf dagen is het embryo een holle bal van zo'n honderd cellen. Hij komt aan in de baarmoeder."
+  },
+  {
+   "id": "s04",
+   "level": "basis",
+   "voice": "Vanaf ongeveer dag zes zakt hij in het slijmvlies van de baarmoeder. Dat heet innesteling. De buitenste cellen groeien het slijmvlies in, tot het embryo er helemaal in ligt."
+  },
+  {
+   "id": "s05",
+   "level": "basis",
+   "voice": "Maar het slijmvlies blijft alleen zitten zolang er progesteron is. Dat komt van het gele lichaam in de eierstok. Zonder signaal sterft het gele lichaam na ongeveer twaalf dagen af. Het progesteron daalt, en het slijmvlies laat los, met het embryo erin."
+  },
+  {
+   "id": "s06",
+   "level": "basis",
+   "voice": "Toch gebeurt dat niet. De buitenste cellen van het embryo maken een hormoon: ha-cee-gee. Via het bloed van de moeder komt het bij de eierstok. Ha-cee-gee lijkt op LH, en past op dezelfde reseptoren van het gele lichaam."
+  },
+  {
+   "id": "s07",
+   "level": "basis",
+   "voice": "Het gele lichaam blijft leven, en blijft progesteron maken. Het slijmvlies blijft zitten. De menstruatie blijft weg."
+  },
+  {
+   "id": "s08",
+   "level": "basis",
+   "voice": "Ha-cee-gee komt normaal alleen van een embryo. Daarom meet een zwangerschapstest ha-cee-gee in de urine. Antistoffen in de test binden ha-cee-gee, en dan kleurt er een streepje."
+  },
+  {
+   "id": "s09",
+   "level": "basis",
+   "voice": "Een vrouw doet vier dagen na de bevruchting een zwangerschapstest. Die is negatief. Is ze dan zeker niet zwanger? Wat denk je?"
+  },
+  {
+   "id": "s11",
+   "level": "basis",
+   "voice": "Nee. Pas als het embryo zich innestelt, rond dag zes, komt er ha-cee-gee in het bloed van de moeder. Daarna duurt het nog een paar dagen voor er genoeg in de urine zit. Betrouwbaar testen kan vanaf ongeveer de dag dat ze ongesteld had moeten worden."
+  },
+  {
+   "id": "s12",
+   "level": "basis",
+   "voice": "Een paar weken later is er een nieuw orgaan: de placenta. Moeder en kind maken hem samen. Het kind is ermee verbonden met een lange streng: de navelstreng."
+  },
+  {
+   "id": "s13",
+   "level": "basis",
+   "voice": "Door de navelstreng stroomt bloed van het kind. Twee bloedvaten brengen bloed met weinig zuurstof naar de placenta. Eén bloedvat brengt bloed met veel zuurstof terug."
+  },
+  {
+   "id": "s14",
+   "level": "basis",
+   "voice": "In de placenta vertakken die vaten in vlokken. De vlokken hangen in holtes vol bloed van de moeder. Het bloed van moeder en kind komt heel dicht bij elkaar, maar het mengt niet. Er zit altijd een dun laagje cellen tussen."
+  },
+  {
+   "id": "s15",
+   "level": "basis",
+   "voice": "Door dat laagje gaan zuurstof en voedingsstoffen naar het kind. Koolstofdie-oxide en afvalstoffen gaan naar de moeder. Ook antistoffen van de moeder gaan erdoorheen. Zo heeft een baby de eerste maanden na de geboorte al wat afweer."
+  },
+  {
+   "id": "s16",
+   "level": "vwo",
+   "voice": "Hoe komen die stoffen erdoor? Zuurstof en koolstofdie-oxide diffunderen, van hoog naar laag. Glucose gaat mee met transporteiwitten. Aminozuren worden actief opgenomen, en dat kost energie. Antistoffen zijn grote eiwitten. Het laagje neemt ze op in blaasjes, en geeft ze door aan het bloed van het kind."
+  },
+  {
+   "id": "s17",
+   "level": "basis",
+   "voice": "Het bloed van moeder en kind mengt niet. Kan alcohol dan toch bij het kind komen? Wat denk je?"
+  },
+  {
+   "id": "s19",
+   "level": "basis",
+   "voice": "Ja. Het laagje kiest niet. Alcohol en nicotine zijn kleine moleculen, en gaan er bijna net zo makkelijk doorheen als zuurstof. Sommige virussen en medicijnen ook."
+  },
+  {
+   "id": "s20",
+   "level": "basis",
+   "voice": "Dat het bloed gescheiden blijft, is ook om een andere reden belangrijk. Voor de afweer van de moeder is het kind voor de helft vreemd. Door de scheiding komen haar afweercellen bijna niet bij het kind."
+  },
+  {
+   "id": "s21",
+   "level": "basis",
+   "voice": "Na zo'n twee maanden maakt de placenta zelf genoeg progesteron. Het gele lichaam is dan niet meer nodig."
+  },
+  {
+   "id": "s22",
+   "level": "vwo",
+   "voice": "Antistoffen van de moeder komen in het bloed van het kind. Hoe gaat dat, terwijl het bloed niet mengt? Wat denk je?"
+  },
+  {
+   "id": "s24",
+   "level": "vwo",
+   "voice": "Antistoffen zijn te groot om zomaar te diffunderen. De cellen van het laagje nemen ze op in blaasjes en geven ze door. Dat kost energie."
+  },
+  {
+   "id": "s25",
+   "level": "basis",
+   "voice": "Terug naar het kind zelf. Het groeit in een zak met vocht. De wand van die zak bestaat uit vruchtvliezen. Het vocht erin is het vruchtwater."
+  },
+  {
+   "id": "s26",
+   "level": "basis",
+   "voice": "Het vruchtwater vangt stoten op, en houdt de temperatuur gelijk. Het kind kan erin bewegen. Het slikt er zelfs van, en plast erin."
+  },
+  {
+   "id": "s27",
+   "level": "basis",
+   "voice": "Kijk naar de tijdlijn. Een zwangerschap duurt ongeveer veertig weken. Je telt vanaf de eerste dag van de laatste menstruatie, dus ongeveer twee weken vóór de bevruchting."
+  },
+  {
+   "id": "s28",
+   "level": "basis",
+   "voice": "In de eerste weken worden alle organen aangelegd. Rond week zes klopt er al een hartje. Zolang de organen worden aangelegd, heet het kind een embryo."
+  },
+  {
+   "id": "s29",
+   "level": "basis",
+   "voice": "Rond week tien is alles aangelegd. Het kind is dan ongeveer drie centimeter. Vanaf nu heet het een foetus. Er komen bijna geen nieuwe organen meer bij: de foetus groeit, en de organen rijpen."
+  },
+  {
+   "id": "s30",
+   "level": "basis",
+   "voice": "Rond week twintig voelt de moeder het kind bewegen. De longen rijpen pas in de laatste weken. Daarom heeft een kind dat veel te vroeg komt vaak hulp nodig bij het ademen."
+  },
+  {
+   "id": "s31",
+   "level": "basis",
+   "voice": "Na ongeveer veertig weken is het kind zo'n vijftig centimeter lang, en weegt het ruim drie kilo."
+  },
+  {
+   "id": "s32",
+   "level": "basis",
+   "voice": "Ook de geboorte begint met een signaal. Het kind ligt meestal met het hoofd naar beneden. Het hoofd drukt op de baarmoederhals. Zintuigcellen die rek meten, sturen impulsen naar de hersenen."
+  },
+  {
+   "id": "s33",
+   "level": "basis",
+   "voice": "De hypofyse geeft dan het hormoon oxytocine af. Oxytocine laat de spieren in de wand van de baarmoeder samentrekken. Dat is een wee."
+  },
+  {
+   "id": "s34",
+   "level": "basis",
+   "voice": "Die wee duwt het hoofd nog harder tegen de baarmoederhals. Meer rek geeft meer oxytocine. Meer oxytocine geeft sterkere weeën. Dat is positieve terugkoppeling, net als bij de el-haa-piek."
+  },
+  {
+   "id": "s35",
+   "level": "basis",
+   "voice": "De weeën trekken de baarmoederhals langzaam open, tot een opening van ongeveer tien centimeter. Dat is de ontsluiting. Ergens in deze fase scheuren meestal de vruchtvliezen, en loopt het vruchtwater weg."
+  },
+  {
+   "id": "s36",
+   "level": "basis",
+   "voice": "Dan volgt de uitdrijving. De moeder perst mee met de weeën, en het kind wordt geboren."
+  },
+  {
+   "id": "s37",
+   "level": "basis",
+   "voice": "Daarna trekt de baarmoeder nog een paar keer samen. Zo laat de placenta los. Hij komt met de vruchtvliezen naar buiten: de nageboorte."
+  },
+  {
+   "id": "s38",
+   "level": "basis",
+   "voice": "Een wee maakt de volgende wee sterker. Hoe komt deze lus tot een einde? Wat denk je?"
+  },
+  {
+   "id": "s40",
+   "level": "basis",
+   "voice": "Na de geboorte drukt er niets meer op de baarmoederhals. Het signaal valt weg, en daarmee de lus. Een positieve terugkoppeling stopt niet vanzelf: er moet iets gebeuren dat de lus doorbreekt."
+  },
+  {
+   "id": "s41",
+   "level": "basis",
+   "voice": "Na de geboorte is de placenta weg, en daarmee het meeste progesteron. Tijdens de zwangerschap remde progesteron de melkproductie. Nu kan de borst melk gaan maken."
+  },
+  {
+   "id": "s42",
+   "level": "vwo",
+   "voice": "De borst maakt melk onder invloed van het hormoon prolactine, uit de hypofyse. Hoe vaker de baby drinkt, hoe meer prolactine, en hoe meer melk."
+  },
+  {
+   "id": "s43",
+   "level": "basis",
+   "voice": "Om te drinken zuigt de baby aan de tepel. Dat stuurt impulsen naar de hersenen. De hypofyse geeft weer oxytocine af. Nu laat oxytocine spiertjes rond de melkklieren samentrekken, en de melk schiet toe."
+  },
+  {
+   "id": "s44",
+   "level": "basis",
+   "voice": "De eerste melk zit vol antistoffen. Zo krijgt de baby na de placenta nog een tweede voorraad afweer."
+  },
+  {
+   "id": "s45",
+   "level": "basis",
+   "voice": "Terug naar de vraag van het begin. Hoe stuurt een kind het lichaam van zijn moeder? Steeds met een signaal. Eerst ha-cee-gee, dat het gele lichaam in leven houdt. Dan de druk op de baarmoederhals, die de weeën start. En daarna het zuigen, dat de melk laat toeschieten."
+  },
+  {
+   "id": "s46",
+   "level": "basis",
+   "voice": "En nog dit. In de eierstokjes van dit meisje liggen al eicellen klaar. Die werden aangelegd toen zij zelf nog in de baarmoeder lag. Zo begint het weer opnieuw."
+  }
+ ]
+}

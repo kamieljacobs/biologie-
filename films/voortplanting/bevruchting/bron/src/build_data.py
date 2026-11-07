@@ -13,7 +13,7 @@ for s in segs:
         disp = [d + '\u200b' if re.fullmatch(r'(Dr|E|Mr|Mevr|St|bv|vs)\.', d) else d for d in s['display'].split()]  # afkorting: geen nieuwe ondertitel na 'Dr.' of 'E.'
         assert len(w) == len(disp), (s['id'], len(w), len(disp), [x['text'] for x in w][:8])
         o['words'] = [{'t': d, 's': round(x['start'], 3), 'e': round(x['end'], 3)} for d, x in zip(disp, w)]
-        o['audio'] = f"{film['slug']}/audio/{s['id']}.mp3"
+        o['audio'] = f"audio/{s['id']}.mp3"
         o['dur'] = round(w[-1]['end'] + 0.45, 2)
     elif s['kind'] == 'question':
         qd = film['questions'][s['id']]
