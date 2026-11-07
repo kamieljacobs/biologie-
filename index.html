@@ -604,12 +604,16 @@ svg.kunst{transform-origin:50% 50%;transform-box:fill-box}
 .exfilter{display:flex;gap:6px;margin:12px 0 0}
 .exfilter button{min-height:34px;padding:0 14px;border-radius:999px;border:1px solid var(--line2);background:none;color:var(--text2);font:inherit;font-weight:600;cursor:pointer}
 .exfilter button[aria-pressed="true"]{background:var(--goud);border-color:var(--goud);color:var(--goud-ink)}
-#exoef[data-niv="havo"] .exrij[data-niv="vwo"],#exoef[data-niv="vwo"] .exrij[data-niv="havo"]{display:none}
 .exjaar{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;padding:14px 0;border-top:1px solid var(--line2)}
 .exjaar:first-child{border-top:0;padding-top:4px}
 .exjr{margin:0;font:700 24px/1 var(--titel);color:var(--goud-text);padding-top:10px}
-.exrijen{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:8px 28px;min-width:0}
-.exrij{display:grid;grid-template-columns:44px repeat(2,minmax(0,1fr));gap:8px;align-items:stretch}
+/* Kamiel 7 nov 2026: altijd havo links en vwo rechts, elk met tijdvak I en II; kopjes boven de kolommen */
+.exrijen{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 28px;min-width:0}
+.exrij{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;align-items:stretch}
+.exrij .exniv{display:none}
+.exkop{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;padding:0 0 6px;margin-top:14px}
+.exkop .exrijen>span{font:700 15px/1 var(--mono,monospace);text-transform:uppercase;letter-spacing:.12em;color:var(--goud-text);padding-bottom:8px;border-bottom:2px solid color-mix(in srgb,var(--goud) 55%,transparent)}
+@media (max-width:820px){.exrijen{grid-template-columns:1fr}.exkop{display:none}.exrij{grid-template-columns:44px repeat(2,minmax(0,1fr))}.exrij .exniv{display:block}}
 .exniv{align-self:center;color:var(--text3);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
 .extegel{display:flex;flex-direction:column;gap:3px;min-height:76px;padding:10px 12px;border:1px solid var(--line2);border-radius:12px;background:var(--surface);color:var(--text);text-decoration:none;transition:border-color .18s,transform .18s}
 a.extegel:hover{border-color:var(--goud);transform:translateY(-1px)}
@@ -4151,7 +4155,7 @@ function examKolommen(h,id){
   let kies='';try{kies=localStorage.getItem('examniveau')||''}catch(e){}
   const filt=nivs.length>1?`<span class="exfilter" role="group" aria-label="Niveau">${[['','Alle'],['havo','havo'],['vwo','vwo']].map(([k,l])=>`<button type="button" data-k="${k}" aria-pressed="${kies===k}" onclick="exFilter('${k}')">${l}</button>`).join('')}</span>`:'';
   return `<p class="extip"><b>Tip:</b> maak eerst zelf een oefenexamen en bekijk daarna pas een bespreking. Dan weet je al waar je vastliep, en haal je veel meer uit de uitleg.</p><div class="exkol">
-    <section class="lijst exk" id="${id}-tools"><h2>Oefenexamens</h2><p class="exuitleg">Maak een heel examen zelf, stap voor stap: eerst hulpvragen, dan de echte examenvraag, nakijken en uitleg waarom.${filt}</p><div class="exlijst exraster" id="exoef" data-niv="${kies}">${jaren.map(jaarblok).join('')||'<p class="exleeg">Er komt steeds een oefenexamen bij.</p>'}</div></section>
+    <section class="lijst exk" id="${id}-tools"><h2>Oefenexamens</h2><p class="exuitleg">Maak een heel examen zelf, stap voor stap: eerst hulpvragen, dan de echte examenvraag, nakijken en uitleg waarom.</p><div class="exlijst exraster" id="exoef">${jaren.length&&nivs.length>1?`<div class="exkop" aria-hidden="true"><span></span><div class="exrijen">${nivs.map(n=>`<span>${n}</span>`).join('')}</div></div>`:''}${jaren.map(jaarblok).join('')||'<p class="exleeg">Er komt steeds een oefenexamen bij.</p>'}</div></section>
     <section class="lijst exk exbesp" id="${id}-films"><h2>Besprekingen</h2><p class="exuitleg">Kijk mee hoe een heel examen wordt besproken: per vraag de stof, de aanpak en het antwoord volgens het correctievoorschrift.</p><div class="exlijst">${films.map(film).join('')||'<p class="exleeg">Er komt steeds een bespreking bij.</p>'}</div></section>
   </div>`;
 }
