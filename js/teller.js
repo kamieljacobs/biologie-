@@ -65,7 +65,7 @@
   try {
     if (/^films\//.test(PAD) && !/presentatie\.html$/.test(PAD) && window.top === window.self) {
       var vf = document.createElement('script');
-      vf.src = new URL('js/volgende.js?v=1', new URL(me.getAttribute('data-root') || './', location.href)).href;
+      vf.src = new URL('js/volgende.js?v=2', new URL(me.getAttribute('data-root') || './', location.href)).href;
       vf.setAttribute('data-root', me.getAttribute('data-root') || './');
       (document.head || document.documentElement).appendChild(vf);
     }

@@ -61,14 +61,16 @@
   // af = gestopt op het laatste stuk, aan het eind daarvan. Andere spelers: het meeste is
   // beluisterd en er speelt al een paar seconden geen geluid meer.
   function filmState() { try { return (typeof state === 'object' && state && state.items) ? state : null; } catch (e) { return null; } } // eslint-disable-line no-undef
-  var stil = 0;
+  var stil = 0, gespeeld = false;
   function isAf(duur) {
-    if (geluisterd < 20) return false;
     var st = filmState();
     if (st) {
+      // ook als je naar het eind doorspoelt (bv. in de reviewstand): de film moet wel een keer gespeeld hebben
+      if (st.playing) gespeeld = true;
       var it = st.items[st.idx];
-      return !st.playing && st.idx >= st.items.length - 1 && it && st.local >= (it.dur || 0) - 0.1;
+      return gespeeld && !st.playing && st.idx >= st.items.length - 1 && it && st.local >= (it.dur || 0) - 0.1;
     }
+    if (geluisterd < 20) return false;
     var speelt = alle.some(function (el) { return !el.paused && !el.ended; });
     stil = speelt ? 0 : stil + 1;
     return stil >= 4 && (duur > 0 ? geluisterd >= duur * 0.8 : geluisterd >= 120);
