@@ -26,6 +26,14 @@ Open keuzes (standaard tenzij Kamiel anders zegt):
 - Pil: kort in De cyclus (één alinea, als toepassing van terugkoppeling); de methodes blijven in film 6.
 - Zwanger: inhoud volgens het boek (Nectar § 4.1 Nieuw leven, BvJ havo § 2.4 Zwanger); vraag Kamiel aan het begin van die chat welke onderdelen het boek heeft (vruchtvliezen, weken-tijdlijn, fasen van de bevalling, borstvoeding).
 
+## Niveau: minder detail, minder termen (Kamiel 7 nov 2026)
+Kamiel: de oude film was soms té moeilijk, door veel biologie op detailniveau en veel nieuwe termen. Dat moet minder. Per film:
+- **Termenlijst eerst**: zet vóór het script alle vakbegrippen op een rij en geef per begrip aan of het in het boek staat (Nectar H4 / BvJ havo H2) of in de syllabus. Alleen die begrippen krijgen hun naam in de stem. Een begrip daarbuiten leg je uit zonder de naam te noemen, of het gaat naar een vwo-blok of naar het docentdeel. Mik op hooguit ± 8–10 nieuwe begrippen per film. Leg de lijst samen met de twijfelscènes aan Kamiel voor.
+- **Eén nieuw begrip tegelijk**: niet twee nieuwe namen in één zin, en elk begrip eerst in beeld en in gewone woorden voordat de naam valt.
+- **Mechanisme boven moleculair detail**: houd het verhaal (signaal → reactie → terugkoppeling) en laat moleculaire tussenstappen weg of zet ze in een vwo-blok. Kandidaten uit de oude film: de tweecellen-oestrogeensynthese met aromatase, inhibine, het membraanreceptor-signaal met kettingreactie en transporteiwitten, cholesterol bij capacitatie, corticale korrels en de calciumgolf, anti-Müllerhormoon en DHT, mifepriston. Controleer per kandidaat in het boek of het erin staat voordat je het schrapt.
+- **Getallen spaarzaam**: alleen getallen die het verhaal dragen (bijv. ± 400 eisprongen in een leven), niet elke tussenstap.
+- Bij twijfel kiest de eenvoudigere versie; wat afvalt kan in het docentdeel of in Les 2.
+
 ## Werkwijze per nieuwe film
 - Soort: lichte remake (CLAUDE.md 'Gericht of remake'): het oude script (`films/voortplanting/1-precies-op-tijd/bron/script.md`) is het geraamte, kritisch nagelopen; nieuw beeld en nieuwe stem op de nieuwste prompt (`films/PROMPT_v13.md` of nieuwer), havo-basis + vwo-blokken, bronnenlogboek, frisse beeldreview. B15: uitzonderingsregel `lichte-remake` in `films/logboek/b15_uitzonderingen.jsonl` (reden: splitsing van Van bevruchting tot baby).
 - Bouwvorm: FILMDATA-straat met de speler van `films/gedrag/5-emotieregulatie/bron/src/player.js`; voorbeeld lichte remake: `films/voortplanting/celdeling/bron/` en `2-geslachtsorganen-puberteit/bron/`.
