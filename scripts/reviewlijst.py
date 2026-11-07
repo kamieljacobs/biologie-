@@ -35,6 +35,8 @@ def main():
             return None
         gezien.add(href)
         d = {'href': href, 'titel': f.get('titel', href), 'duur': f.get('duur'), 'vraag': f.get('vraag', '')}
+        if f.get('datum'):
+            d['datum'] = f['datum']
         pv = promptversie.versie(href)
         if pv:
             d['prompt'] = pv

@@ -42,6 +42,10 @@
 .rv-prompt{font:500 12px var(--meta);color:var(--text3)}
 .rv-cl{font:600 12px var(--meta);color:var(--oker)}
 .rv-leeg{color:var(--text2);padding:20px 0}
+.rv-stap{display:inline-flex;align-items:center;gap:4px;font:600 12px var(--meta);border-radius:999px;padding:3px 9px;border:1px solid var(--line2);color:var(--text3)}
+.rv-stap.klaar{border-color:transparent;background:var(--groen-soft);color:var(--groen)}
+.rv-stap.wacht{border-style:dashed;color:var(--oker)}
+.rv-stap.nieuw{border-color:transparent;background:var(--teal-soft);color:var(--teal)}
 @media (max-width:560px){.rv-film{grid-template-columns:minmax(0,1fr)}.rv-acties{grid-row:auto;grid-column:1;justify-content:flex-start}.rv-volgende{margin-left:0}}
 </style>
 </head>
@@ -64,11 +68,13 @@
   </section>
 
   <section id="v-lijst" hidden>
-    <header class="tool-kop"><div class="mono">Films reviewen</div><h1>Welke film is aan de beurt?</h1><p>Open een film, klik op het beeld waar iets anders moet en typ je opmerking. Claude haalt de opmerkingen zelf op.</p></header>
+    <header class="tool-kop"><div class="mono">Films reviewen</div><h1>Welke film is aan de beurt?</h1><p>Open een film, klik op het beeld waar iets anders moet en typ je opmerking. Claude haalt de opmerkingen zelf op. Een film die je al bekeken hebt, houdt zijn vinkje en datum; je kunt hem altijd opnieuw reviewen.</p></header>
     <div class="rv-stand" id="stand"></div>
     <div class="rv-balk">
       <button class="rv-chip" type="button" data-f="nog" aria-pressed="true">Nog bekijken</button>
       <button class="rv-chip" type="button" data-f="open" aria-pressed="false">Opmerkingen open</button>
+      <button class="rv-chip" type="button" data-f="ophalen" aria-pressed="false">Nog niet opgehaald</button>
+      <button class="rv-chip" type="button" data-f="verbeteren" aria-pressed="false">Nog te verbeteren</button>
       <button class="rv-chip" type="button" data-f="bekeken" aria-pressed="false">Bekeken</button>
       <button class="rv-chip" type="button" data-f="ok" aria-pressed="false">Goed</button>
       <button class="rv-chip" type="button" data-f="alles" aria-pressed="false">Alles</button>
@@ -86,7 +92,7 @@
   var DB = 'https://edutool-4b00b-default-rtdb.europe-west1.firebasedatabase.app';
   var KEY = 'AIzaSyDpV3bCs7TKrUY9GY36Zt2UYBvKpuRJ3sU';
   var $ = function (id) { return document.getElementById(id); };
-  var AUTH = null, LIJST = [], GROEPEN = [], NOTES = [], STATUS = {}, CLAUDE = {}, VERWERKT = {}, filter = 'nog';
+  var AUTH = null, LIJST = [], GROEPEN = [], NOTES = [], STATUS = {}, CLAUDE = {}, VERWERKT = {}, OPGEHAALD = {}, VERBETERD = {}, filter = 'nog';
   try { AUTH = JSON.parse(localStorage.getItem('bk-review-auth') || 'null'); } catch (e) {}
 
   function bewaar(a) { AUTH = a; try { a ? localStorage.setItem('bk-review-auth', JSON.stringify(a)) : localStorage.removeItem('bk-review-auth'); } catch (e) {} }
@@ -128,6 +134,8 @@
       LIJST = []; GROEPEN.forEach(function (g) { g.films.forEach(function (f) { f.groep = g.naam; LIJST.push(f); }); });
       VERWERKT = {}; ((r[3] && r[3].verwerkt) || []).forEach(function (id) { VERWERKT[id] = 1; });
       CLAUDE = (r[3] && r[3].claude) || {};
+      OPGEHAALD = (r[3] && r[3].opgehaald) || {};
+      VERBETERD = (r[3] && r[3].verbeterd) || {};
       NOTES = Object.keys(r[1] || {}).map(function (k) { var n = r[1][k]; n.id = k; return n; });
       STATUS = r[2] || {};
       teken();
@@ -144,10 +152,29 @@
   }
   function open(f) { return NOTES.filter(function (n) { return n.film === f.href && n.status !== 'verwerkt' && !VERWERKT[n.id]; }).length; }
   function vanClaude(f) { return (CLAUDE[f.href] || []).length; }
+  /* Alle opmerkingen van Kamiel bij deze film, en hoe ver Claude ermee is (Kamiel 7 nov 2026). */
+  function notities(f) { return NOTES.filter(function (n) { return n.film === f.href; }); }
+  function isVerwerkt(n) { return n.status === 'verwerkt' || !!VERWERKT[n.id]; }
+  function nietOpgehaald(f) { return notities(f).filter(function (n) { return !isVerwerkt(n) && !OPGEHAALD[n.id]; }).length; }
+  function teVerbeteren(f) { return notities(f).filter(function (n) { return !isVerwerkt(n) && OPGEHAALD[n.id]; }).length; }
+  function reviewTijd(f) { var s = STATUS[sleutel(f.href)]; return s && s.status !== 'open' && s.tijd ? s.tijd : null; }
+  var MAAND = ['jan', 'feb', 'mrt', 'apr', 'mei', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'];
+  function datum(x) {
+    if (!x) return '';
+    var d = typeof x === 'number' ? new Date(x) : new Date(String(x) + 'T12:00:00');
+    if (isNaN(d)) return '';
+    return d.getDate() + ' ' + MAAND[d.getMonth()] + (d.getFullYear() !== new Date().getFullYear() ? ' ' + d.getFullYear() : '');
+  }
+  function laatste(lijst) { return lijst.filter(Boolean).sort().pop() || ''; }
+  function stap(tekst, soort, titel) {
+    var e = document.createElement('span'); e.className = 'rv-stap ' + (soort || ''); e.textContent = tekst; if (titel) e.title = titel; return e;
+  }
   function past(f) {
     var s = status(f);
     if (filter === 'nog') return s === 'nog';
     if (filter === 'open') return open(f) > 0;
+    if (filter === 'ophalen') return nietOpgehaald(f) > 0;
+    if (filter === 'verbeteren') return teVerbeteren(f) > 0;
     if (filter === 'bekeken') return s === 'bekeken';
     if (filter === 'ok') return s === 'ok';
     return true;
@@ -170,7 +197,9 @@
     var opmerkingen = LIJST.reduce(function (a, f) { return a + open(f); }, 0);
     var tel = { nog: nog.length, open: LIJST.filter(function (f) { return open(f) > 0; }).length,
       bekeken: LIJST.filter(function (f) { return status(f) === 'bekeken'; }).length,
-      ok: LIJST.filter(function (f) { return status(f) === 'ok'; }).length, alles: LIJST.length };
+      ok: LIJST.filter(function (f) { return status(f) === 'ok'; }).length, alles: LIJST.length,
+      ophalen: LIJST.filter(function (f) { return nietOpgehaald(f) > 0; }).length,
+      verbeteren: LIJST.filter(function (f) { return teVerbeteren(f) > 0; }).length };
     document.querySelectorAll('.rv-chip').forEach(function (b) {
       var n = b.querySelector('.n') || b.appendChild(document.createElement('span'));
       n.className = 'n'; n.textContent = tel[b.dataset.f];
@@ -197,18 +226,31 @@
         var t = document.createElement('a'); t.className = 'rv-titel'; t.href = filmLink(f); t.textContent = f.titel;
         var sub = document.createElement('div'); sub.className = 'rv-sub';
         var s = status(f), chip = document.createElement('span'); chip.className = 'rv-st ' + s;
-        chip.textContent = s === 'nog' ? 'Nog bekijken' : s === 'ok' ? 'Goed' : 'Bekeken';
+        var rt = reviewTijd(f);
+        chip.textContent = s === 'nog' ? 'Nog bekijken' : (s === 'ok' ? '✓ Goed' : '✓ Bekeken') + (rt ? ' · ' + datum(rt) : '');
+        if (rt) chip.title = 'Laatste review: ' + new Date(rt).toLocaleString('nl-NL');
         sub.appendChild(chip);
+        if (s !== 'nog' && rt && f.datum && f.datum > new Date(rt).toISOString().slice(0, 10)) {
+          sub.appendChild(stap('nieuwe versie sinds review', 'nieuw', 'Deze film is na je review vernieuwd (' + datum(f.datum) + ')'));
+        }
+        /* Stand bij Claude: opgehaald en verbeterd (alleen als er opmerkingen zijn). */
+        var al = notities(f);
+        if (al.length) {
+          var no = nietOpgehaald(f), tv = teVerbeteren(f), ids = al.map(function (n) { return n.id; });
+          if (no) sub.appendChild(stap('○ ' + no + ' nog niet opgehaald door Claude', 'wacht'));
+          else sub.appendChild(stap('✓ Opgehaald' + (function (d) { return d ? ' · ' + datum(d) : ''; })(laatste(ids.map(function (i) { return OPGEHAALD[i]; }))), 'klaar', 'Claude heeft de opmerkingen gelezen'));
+          if (tv) sub.appendChild(stap('○ ' + tv + ' nog te verbeteren', 'wacht', 'Opgehaald, maar nog niet verwerkt in de film'));
+          else if (!no) sub.appendChild(stap('✓ Verbeterd' + (VERBETERD[f.href] ? ' · ' + datum(VERBETERD[f.href]) : ''), 'klaar', 'Alle opmerkingen zijn verwerkt'));
+        }
         if (f.duur) { var d = document.createElement('span'); d.textContent = f.duur + ' min'; sub.appendChild(d); }
         if (f.prompt) { var pv = document.createElement('span'); pv.className = 'rv-prompt'; pv.title = 'Gemaakt met promptversie'; pv.textContent = 'prompt ' + f.prompt; sub.appendChild(pv); }
         if (f.extra) { var x = document.createElement('span'); x.textContent = 'extra'; sub.appendChild(x); }
-        var n = open(f); if (n) { var op = document.createElement('span'); op.className = 'rv-op'; op.textContent = n + ' open'; sub.appendChild(op); }
         var c = vanClaude(f); if (c) { var cl = document.createElement('span'); cl.className = 'rv-cl'; cl.textContent = c + ' van Claude'; sub.appendChild(cl); }
         var acties = document.createElement('div'); acties.className = 'rv-acties';
-        var rk = document.createElement('a'); rk.className = 'knop klein'; rk.href = filmLink(f); rk.textContent = 'Reviewen';
+        var rk = document.createElement('a'); rk.className = 'knop klein'; rk.href = filmLink(f); rk.textContent = s === 'nog' ? 'Reviewen' : 'Opnieuw reviewen';
         acties.appendChild(rk);
         if (s !== 'ok') { var g1 = document.createElement('button'); g1.type = 'button'; g1.className = 'knop stil klein'; g1.textContent = 'Goed'; g1.onclick = function () { zet(f, 'ok'); }; acties.appendChild(g1); }
-        if (s !== 'nog') { var g2 = document.createElement('button'); g2.type = 'button'; g2.className = 'knop stil klein'; g2.textContent = 'Opnieuw bekijken'; g2.onclick = function () { zet(f, 'open'); }; acties.appendChild(g2); }
+        if (s !== 'nog') { var g2 = document.createElement('button'); g2.type = 'button'; g2.className = 'knop stil klein'; g2.textContent = 'Terug naar nog bekijken'; g2.title = 'Vinkje weghalen en de film weer in de lijst Nog bekijken zetten'; g2.onclick = function () { zet(f, 'open'); }; acties.appendChild(g2); }
         li.append(t, acties, sub); ul.appendChild(li);
       });
       sec.append(h, ul); wrap.appendChild(sec);
