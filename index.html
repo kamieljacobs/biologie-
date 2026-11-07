@@ -3561,6 +3561,18 @@ const OEF_ICOON={volgorde:'<svg viewBox="0 0 24 24" fill="none" stroke="currentC
 const oefEsc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const oefRij=href=>{const o=OEFENEN[href];if(!o||!o.oef.length)return '';const u=BASE+'oefenen.html?film='+encodeURIComponent(href);return `<div class="oefrij"><span class="mono">Oefenen</span>${o.oef.map(([id,t,soort,vwo])=>`<a class="oefchip" href="${u}#${encodeURIComponent(id)}">${OEF_ICOON[soort]||''}${oefEsc(t)}${vwo?'<span class="vw">vwo</span>':''}</a>`).join('')}</div>`;};
 const REVIEW = {
+  // 7 nov: reviewstatus opgehaald; opmerkingen nog te verwerken
+  "films/evolutie/1-wat-is-evolutie.html": "feedback",
+  "films/evolutie/2-natuurlijke-selectie.html": "feedback",
+  "films/onderbouw/33c/3-wie-eet-wie/index.html": "feedback",
+  "films/onderbouw/33c/4-uit-balans/index.html": "feedback",
+  "films/stofwisseling/1-alles-versneld.html": "feedback",
+  "films/voortplanting/3-anticonceptie-soa-voortplantingstechniek.html": "feedback", // wacht op Zwanger-chat
+  "films/voortplanting/4-sekse-gender-diversiteit.html": "feedback", // wacht op Zwanger-chat
+  "films/onderbouw/33c/2-wie-woont-waar/index.html": "ok", // 7 nov: door Kamiel goed
+  "films/onderbouw/33c/5-wij-hebben-de-natuur-nodig/index.html": "ok", // 7 nov: door Kamiel goed
+  "films/voortplanting/2-geslachtsorganen-puberteit.html": "ok", // 7 nov: door Kamiel goed
+  "films/voortplanting/celdeling/index.html": "ok", // 7 nov: door Kamiel goed
   "films/vervolg/fysiotherapie-1-wat-is-er-met-die-knie.html": "ok", // 25 okt: door Kamiel bekeken, goed
   "films/vervolg/fysiotherapie-2-opnieuw-leren-bewegen.html": "ok", // 25 okt: feedback verwerkt (bed en benen Henk in verhouding, letter na Antwoord geknipt)
   "films/vervolg/fysiotherapie-3-trainen.html": "ok", // 25 okt: feedback verwerkt (letter na Antwoord bleef hoorbaar bij Vragen uit)
