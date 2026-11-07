@@ -78,6 +78,8 @@ Kamiel 7 nov 2026: de drie nieuwe films bestaan nog niet; daarom nu alleen films
 3. Verwijzing in film 6 nu al naar 'De cyclus' (die film bestaat nog niet) of pas bij Inpassen deel 2?
 4. q42 in film 7 als vwo-vraag, of alleen als oefening?
 
+**Extra film 'Wie ben je? Gender en oriëntatie'** (Kamiel 7 nov 2026: 'ja lijkt me goed'): niet in film 7 zelf (die blijft klein), maar als extra film buiten het PTA (`HOOFDSTUKKEN.extra.komt`, thema voortplanting). Opzet: wanneer genderidentiteit ontstaat (± 2–3 jaar); hoe onderzoekers het bestuderen en wat wel/niet bekend is (tweelingonderzoek, meisjes met AGS, hersenonderzoek); seksuele oriëntatie als apart spoor; begrippen die leerlingen verwarren (intersekse, transgender, non-binair). Zakelijk en beschrijvend; geen standpunt over beleids- en behandelvragen (puberteitsremmers e.d.), hooguit feitelijk dat er verschillende standpunten zijn, in het docentdeel. Film 7 krijgt later één verwijszin. Eigen chat; nog niet begonnen.
+
 Kosten: ± 2.700 credits TTS (s04 van film 7 helemaal, twee nieuwe alinea's, drie stukjes inplakken), woordtijden met silalign.
 
 ## Stand
