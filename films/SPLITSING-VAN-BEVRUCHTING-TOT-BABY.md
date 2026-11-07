@@ -52,10 +52,39 @@ Kamiel: de oude film was soms té moeilijk, door veel biologie op detailniveau e
 - Les 2 Voortplanting (`tools/docent/voortplanting-2/`, hoort nu bij de oude film): `uitleg`-knoppen per nieuwe film naar het passende scherm; filmlinks in de les bijwerken.
 - Oefentoets Voortplanting (`tools/toets-bron/voortplanting/`), jaarplanner (`jaarplanner.html`, Nijmegen én Groesbeek), `jaarplanner-dekking.json`, `planner/reeksen.json`, medaillons (`img/kunst/films/`), `scripts/reviewlijst.py`, `scripts/nieuwste_films.py`, `scripts/oefenen.py`, `scripts/controle.py`.
 
+## Inpassen deel 1: films 6 en 7 aanvullen (voorstel 7 nov 2026, wacht op Kamiel)
+Kamiel 7 nov 2026: de drie nieuwe films bestaan nog niet; daarom nu alleen films 6 en 7 gericht aanvullen. De rest van 'Inpassen' (lijn, Les 2, toets, planner, dekking, oude film eruit) wacht op de drie films. Soort: **gericht** (B15-uitzondering `gericht`), alleen de genoemde alinea's opnieuw inspreken of inplakken.
+
+**Wat er al in staat:** film 6 heeft de morning-afterpil (stelt de eisprong uit, geen abortuspil) en chlamydia → littekens → eileider dicht → onvruchtbaar. Film 7 noemt testosteron en 'een hormoon waardoor de aanleg van baarmoeder en eileiders verdwijnt', zonder namen, en verwijst voor de rest naar de oude film.
+
+**Film 6 · Anticonceptie, soa's en voortplantingstechniek**
+- s05: alleen de verwijzing 'In de film Van bevruchting tot baby' → 'In de film De cyclus' (inplakken; chip in beeld idem). Zie vraag 3.
+- nieuw s05b (havo + vwo, na s05): *De morning-afterpil voorkomt dus een zwangerschap. Een abortuspil beëindigt een zwangerschap die er al is, in de eerste weken. Het middel blokkeert het hormoon progesteron. Progesteron houdt het slijmvlies van de baarmoeder in stand. Zonder werkend progesteron laat het slijmvlies los, met het embryo erin. Een tweede middel laat de baarmoeder daarna samentrekken.* (naam mifepriston alleen in het docentdeel)
+- s09, inplakken na 'kan onvruchtbaar worden.': *Of er komt nog net een zaadcel door, maar het veel grotere embryo blijft steken in de eileider. Dat heet een buitenbaarmoederlijke zwangerschap. Die is gevaarlijk en moet altijd behandeld worden.*
+- s13, inplakken na 'en dus heb je meer eicellen.': *Zijn de follikels groot genoeg, dan krijgt de vrouw één prik met hCG. Dat hormoon lijkt op LH, en doet de LH-piek na: de eicellen rijpen af, maar komen nog niet vrij.*
+- oefenen.json: q56 deel 2 uit de oude film (waarom is een zwangerschapstest vlak na de hCG-prik niet betrouwbaar?) als oefening.
+- Nieuwe namen in de stem: abortuspil, buitenbaarmoederlijke zwangerschap (hCG, LH-piek en progesteron kennen ze dan uit De cyclus en Zwanger).
+
+**Film 7 · Sekse, gender en diversiteit** (verwerkt ook Kamiels 4 reviewopmerkingen: waar gaat het over, lagen beïnvloeden elkaar, chromosomen twee keer slordig getekend)
+- s04 helemaal opnieuw (havo + vwo), laag drie uitgebreid, begin en slot duidelijker:
+  *Antwoord cee. Tot ongeveer week zes ziet de aanleg van de geslachtsorganen er bij elk embryo hetzelfde uit. Hoe groeit die aanleg uit tot het lichaam van een jongen of van een meisje? Dat gaat in lagen, en elke laag zet de volgende in gang. Laag een: de chromosomen. Van je moeder krijg je altijd een X-chromosoom. Van je vader een X of een Y: dat hangt af van de zaadcel die de eicel bevrucht. Zo ben je XX of XY. Laag twee: één gen. Op het Y-chromosoom ligt het SRY-gen. Rond week zeven gaat dat gen aan, en dan wordt de aanleg een zaadbal. Is er geen Y, en dus geen SRY, dan gaan andere genen aan en wordt de aanleg een eierstok. Laag drie: hormonen. Elk embryo heeft twee stelsels buisjes: één dat zaadleiders kan worden, en één dat eileiders en een baarmoeder kan worden. De jonge zaadballen maken testosteron. Daardoor groeien de zaadleiders uit. En ze maken een tweede hormoon, waardoor de aanleg van baarmoeder en eileiders verdwijnt. Zijn er geen zaadballen, dan ontbreken die hormonen. Dan verdwijnt de aanleg van de zaadleiders, en groeien eileiders en baarmoeder uit. Voor de buisjes van een jongen zijn dus twee signalen nodig. Voor die van een meisje is het ontbreken ervan genoeg. Laag vier: de geslachtsorganen, de primaire geslachtskenmerken. Van buiten: een penis en balzak, of een clitoris en schaamlippen. Ze groeien uit dezelfde aanleg. Daarom lijken ze bij een jong embryo zo op elkaar. Laag vijf komt pas jaren later: de puberteit. De hypothalamus en de hypofyse geven het startsein. De zaadballen maken dan meer testosteron, de eierstokken meer oestrogeen. Zo ontstaan de secundaire geslachtskenmerken, zoals borsten en bredere heupen, of een lage stem en baardgroei. Chromosoom, gen, klier, hormoon, geslachtsorgaan: elke laag hangt af van de laag ervoor.*
+- nieuw s05b (vwo, na s05): *Die twee stelsels buisjes hebben een naam: de buizen van Wolff, en de buizen van Müller. Het tweede hormoon uit de zaadbal heet daarom anti-Müllerhormoon: het laat de buizen van Müller verdwijnen. Testosteron houdt de buizen van Wolff in stand. Die worden bijbal, zaadleider en zaadblaasjes. Voor de penis en de balzak is nog één stap nodig. In de aanleg wordt testosteron omgezet in een sterkere vorm: dihydrotestosteron, kortweg DHT. Zonder DHT blijven de uitwendige geslachtsorganen meer op die van een meisje lijken.* (Sertoli- en Leydigcellen niet bij naam.)
+- beeld: twee stelsels buisjes uit `lib_bio` (aanleg geslachtsorganen, uit de oude film); chromosomen bij t ± 49 en ± 138 netjes (zusterchromatiden gelijk dik); docentdeel regel 135 (verwijzing naar de oude film) herschrijven.
+- vraag q42 uit de oude film (XY, testosteronreceptor werkt niet: zaadballen? baarmoeder? zaadleiders?) als vwo-vraag na s05b of als oefening, zie vraag 4.
+
+**Vragen aan Kamiel**
+1. Staan de buizen van Wolff en Müller in het boek? Voorstel: havo zonder namen (s04), vwo met namen (s05b).
+2. Abortuspil in film 6 voor iedereen (havo + vwo), zakelijk, zonder de naam mifepriston?
+3. Verwijzing in film 6 nu al naar 'De cyclus' (die film bestaat nog niet) of pas bij Inpassen deel 2?
+4. q42 in film 7 als vwo-vraag, of alleen als oefening?
+
+Kosten: ± 2.700 credits TTS (s04 van film 7 helemaal, twee nieuwe alinea's, drie stukjes inplakken), woordtijden met silalign.
+
 ## Stand
 | Film | Stand |
 |---|---|
 | De cyclus | nog niet begonnen |
 | Bevruchting | nog niet begonnen |
 | Zwanger | nog niet begonnen |
-| Inpassen | wacht op de drie films |
+| Inpassen deel 1 (films 6 en 7) | voorstel 7 nov 2026, wacht op Kamiels antwoorden |
+| Inpassen deel 2 (lijn, Les 2, toets, planner, oude film eruit) | wacht op de drie films |
