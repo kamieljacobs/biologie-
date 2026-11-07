@@ -1,5 +1,15 @@
 [
  {
+  "href": "films/voortplanting/zwanger/index.html",
+  "titel": "Zwanger",
+  "thema": "voortplanting",
+  "themaTitel": "Voortplanting",
+  "duur": 9,
+  "vraag": "Hoe kan een piepklein klompje cellen het lichaam van een volwassen vrouw sturen?",
+  "extra": false,
+  "datum": "2026-11-07"
+ },
+ {
   "href": "films/vervolg/mariene-biologie-1-hoeveel-vis-mag-eruit.html",
   "titel": "Hoeveel vis mag eruit?",
   "thema": "vervolg",
@@ -86,16 +96,6 @@
   "themaTitel": "Cellen",
   "duur": 15,
   "vraag": "Hoe weet je eigenlijk of iets waar is?",
-  "extra": false,
-  "datum": "2026-10-31"
- },
- {
-  "href": "films/dna-technieken/1-op-maat-gekopieerd/index.html",
-  "titel": "Op maat gekopieerd · PCR",
-  "thema": "dna",
-  "themaTitel": "DNA",
-  "duur": 11,
-  "vraag": "Hoe maak je met alleen warm en koud van één stukje DNA er een miljard?",
   "extra": false,
   "datum": "2026-10-31"
  }
