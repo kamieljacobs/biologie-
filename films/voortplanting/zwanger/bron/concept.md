@@ -2,7 +2,7 @@
 
 Deel 3 van de splitsing van Van bevruchting tot baby (`films/SPLITSING-VAN-BEVRUCHTING-TOT-BABY.md`). Soort: lichte remake; geraamte = oud script s30–s33, H7, H9 (`../../1-precies-op-tijd/bron/script.md`), aangevuld met wat het boek behandelt.
 
-Stand: concept, **wacht op Kamiels keuring van de twijfelscènes** (onderaan). Nog geen audio, geen beeld.
+Stand: concept, twijfelscènes gekeurd door Kamiel (7 nov 2026, zie 'Keuzes van Kamiel' onderaan). Nog geen audio, geen beeld.
 
 ## Vastgesteld met Kamiel (7 nov 2026)
 - Het boek (Nectar § 4.1 Nieuw leven, BvJ havo § 2.4 Zwanger) behandelt alle vier: vruchtvliezen + vruchtwater, weken-tijdlijn, fasen van de bevalling, borstvoeding. Alle vier krijgen een eigen stuk.
@@ -132,3 +132,10 @@ innesteling vanaf ± dag 6; geel lichaam ± 12 dagen; placenta-omslag progestero
 3. **s26–s28 bevalling — hoe zichtbaar?** Twijfel: ik toon de geboorte alleen in de doorsnede (buikKijkje): hoofd tegen de baarmoederhals, de hals als ring die met een cm-schaal opengaat, de placenta die loslaat. Geen uitwendige geboorte; daarna Linda in bed met de baby in een doek. Waarom: gevoelig onderwerp, en de leerstof (fasen) zit volledig in de doorsnede.
 4. **s29–s31 borstvoeding — beeld en prolactine.** Twijfel (a) beeld: Linda gekleed, baby tegen de borst onder een doek; zoomcirkel naast de borst naar een Schema-doorsnede van melkklier + spiertjes (nieuwe tekening). Twijfel (b): staat prolactine in het boek? Zo ja basis, zo nee vwo-blok of alleen docentdeel. Waarom: gevoelig beeld; en prolactine is een extra nieuw begrip waarvan ik niet weet of het in het boek staat.
 5. **Termental: 12 nieuwe namen (richtlijn 8–10).** Twijfel: drie fasenamen + vruchtvliezen/vruchtwater + navelstreng komen bovenop de oude stof. Waarom: het boek heeft ze allemaal, dus schrappen kan niet zonder jouw keuze. Voorstel: alles houden, maar ontsluiting/uitdrijving/nageboorte elk in een eigen scène met de naam pas als het in beeld gebeurt; navelstreng en wee zijn half alledaags.
+
+## Keuzes van Kamiel (7 nov 2026)
+1. Tijdlijn: **40 zwangerschapsweken vanaf de laatste menstruatie**, met label 'bevruchting ≈ week 2'. Kamiel: 'beide is ok, misschien die 40 weken, aangezien dat lijkt op wat ze verteld krijgen als leerlingen later zelf kinderen krijgen'.
+2. Groei: **4 stadia** (embryo week 6, foetus week 10, 20, 40) op ware grootte naast een liniaal, in de buikdoorsnede; centimeters, geen fruit. Nieuwe tekening voor `lib_bio.js`.
+3. Bevalling: **alleen in de doorsnede** (ontsluiting met cm-schaal, uitdrijving, placenta laat los); geen geboorte van buitenaf; slot moeder in bed met baby in een doek.
+4. Borstvoeding: (a) **beeld zoals voorgesteld** (gekleed, baby onder een doek, zoomcirkel naast de borst naar schema melkklier + spiertjes); (b) **prolactine als vwo-blok** (havo alleen oxytocine).
+5. Termen: **alle 12 houden**; ontsluiting, uitdrijving en nageboorte elk een eigen scène, naam pas als het in beeld gebeurt.
