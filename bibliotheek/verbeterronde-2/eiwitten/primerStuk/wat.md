@@ -1,1 +1,0 @@
-De polymerase is hier een eigen kralenversie van dezelfde rechterhand (palm achter het DNA, duim, vingers, onderkaak, schuifklem als boog van kralen), zelfde plaats en maat; polymeraseAchter/-Voor zelf zijn niet aangeraakt. Zodra die opnieuw ontworpen zijn, kan primerStuk ze weer aanroepen.

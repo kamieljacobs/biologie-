@@ -1,1 +1,0 @@
-- Basis: variant C (vat + vergrootcirkel met bacterie, plasmide, mRNA, ribosoom en vouwende keten; Bilal ernaast). Geen fouten gemeld, geen opmerking: ongewijzigd overgenomen.

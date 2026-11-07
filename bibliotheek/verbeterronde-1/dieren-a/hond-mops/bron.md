@@ -1,1 +1,0 @@
-- Geen nieuwe bron geopend; buiging is een visuele keuze op de bestaande stapcurven. Verschil met de oude versie is klein (de pop klemt de pootstanden).

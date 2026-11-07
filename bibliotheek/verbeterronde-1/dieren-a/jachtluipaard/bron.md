@@ -1,1 +1,0 @@
-- Geen nieuwe bron; galop uit lessen_pop_katten.md (ronde 5, ongewijzigd).

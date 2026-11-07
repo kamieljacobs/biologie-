@@ -1,1 +1,0 @@
-- Geen nieuwe bron; gangen uit lessen_pop.md (WolfPop).

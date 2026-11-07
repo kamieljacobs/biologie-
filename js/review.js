@@ -6,7 +6,8 @@
      als docent (eenmalig inloggen, zelfde account als Klas live), lezen openbaar zodat Claude het kan ophalen.
      Regels: sessie/database.rules.json, blok "review".
    - strook onder het beeld met alle opmerkingen bij deze film (goud = Kamiel, oranje = Claude uit films/review-claude.json, veld claude; ids in veld verwerkt tellen als verwerkt);
-     klik = naar dat moment. */
+     klik = naar dat moment.
+   - Goed ✓ / Klaar → slaat de status op en opent een keuzevak: eerstvolgende film, zoeken in alle nog-te-bekijken films, of blijven (7 nov 2026). */
 (function () {
   'use strict';
   if (window.__bkReview) return;
@@ -146,6 +147,11 @@
     '.bkrv-vak .rij span{margin-right:auto;font-size:13px;color:var(--text2,#9AA3B2)}.bkrv-vak .rij span.fout{color:var(--koraal,#F08C7A)}' +
     '.bkrv-vak button{border-radius:999px;padding:8px 14px;font:600 14px/1 "Source Sans 3",system-ui,sans-serif;cursor:pointer;border:1px solid var(--line2,rgba(255,255,255,.18));background:none;color:var(--text,#E8ECF3)}' +
     '.bkrv-vak button.ja{background:var(--goud,#E0B64A);border-color:var(--goud,#E0B64A);color:var(--goud-ink,#1a1406)}' +
+    '.bkrv-kies a{color:inherit}.bkrv-kies .rij a{text-decoration:none;padding:8px 14px;border-radius:999px;border:1px solid var(--line2,rgba(255,255,255,.18));font:600 14px/1.2 "Source Sans 3",system-ui,sans-serif}' +
+    '.bkrv-kies .rij a.ja{background:var(--goud,#E0B64A);border-color:var(--goud,#E0B64A);color:var(--goud-ink,#1a1406)}' +
+    '.bkrv-kies .lijst{max-height:min(46vh,380px);overflow:auto;border:1px solid var(--line2,rgba(255,255,255,.18));border-radius:10px}' +
+    '.bkrv-kies .lijst a{display:block;padding:7px 11px;text-decoration:none;border-top:1px solid var(--line,rgba(255,255,255,.08))}.bkrv-kies .lijst a:hover{background:var(--line,rgba(255,255,255,.08))}' +
+    '.bkrv-kies .groep{padding:8px 11px 3px;font:600 12px "IBM Plex Mono",ui-monospace,monospace;color:var(--text3,#7A8496)}' +
     '.bkrv-strook{position:relative;height:18px;margin:6px 0 2px;border-radius:4px;background:var(--line,rgba(255,255,255,.08))}' +
     '.bkrv-strook button{position:absolute;top:2px;width:10px;height:14px;margin-left:-5px;border:0;border-radius:3px;padding:0;cursor:pointer;background:var(--goud,#E0B64A)}' +
     '.bkrv-strook button.claude{background:#E8853A}.bkrv-strook button.klaar{opacity:.3}' +
@@ -163,8 +169,8 @@
     balk.innerHTML = '<span>Reviewstand · ' + n + ' open</span>' +
       '<button type="button" data-a="klik" title="Toets R">' + (klikAan ? 'Klik = opmerking' : 'Klik = gewoon') + '</button>' +
       (AUTH ? '' : '<button type="button" data-a="in">Inloggen</button>') +
-      '<button type="button" data-a="ok" title="Film is goed; door naar de volgende">Goed ✓</button>' +
-      '<button type="button" data-a="bekeken" title="Opmerkingen gemaakt; door naar de volgende">Klaar →</button>' +
+      '<button type="button" data-a="ok" title="Film is goed; daarna kies je de volgende">Goed ✓</button>' +
+      '<button type="button" data-a="bekeken" title="Opmerkingen gemaakt; daarna kies je de volgende">Klaar →</button>' +
       '<a href="' + new URL('sessie/review.html', ROOT).href + '" style="color:inherit;text-decoration:none;padding:2px 4px" title="Alle films">Overzicht</a>' +
       '<button type="button" data-a="uit" class="uit" title="Reviewstand uitzetten">Uit</button>';
   }
@@ -177,7 +183,7 @@
       fetch(DB + '/reviewstatus.json').then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; })
     ]).then(function (r) {
       var lijst = [], st = r[1] || {};
-      ((r[0] && r[0].groepen) || []).forEach(function (g) { g.films.forEach(function (f) { lijst.push(f); }); });
+      ((r[0] && r[0].groepen) || []).forEach(function (g) { g.films.forEach(function (f) { f.groep = g.naam; lijst.push(f); }); });
       function nog(f) {
         var s = st[sleutel(f.href)];
         if (f.href === PAD) return false;
@@ -186,8 +192,43 @@
       }
       var i = lijst.findIndex(function (f) { return f.href === PAD; });
       var na = lijst.slice(i + 1).concat(lijst.slice(0, Math.max(0, i)));
-      return na.find(nog) || null;
+      return { eerst: na.find(nog) || null, nog: lijst.filter(nog) };
     });
+  }
+  function filmUrl(f) { return new URL(f.href, ROOT).href + '?review=1'; }
+  /* Na Goed/Klaar: zelf kiezen welke film nu (Kamiel 7 nov 2026), in plaats van automatisch door. */
+  function kiesVak(st, k) {
+    if (vak) vak.remove();
+    vak = mk('div', 'bkrv-vak bkrv-kies',
+      '<div class="kop"><span>Opgeslagen als <b></b>. Welke film nu?</span><span>Esc = blijven</span></div>' +
+      '<div class="rij" style="justify-content:flex-start"></div>' +
+      '<input type="search" placeholder="Zoek een film" aria-label="Zoek een film">' +
+      '<div class="lijst"></div>' +
+      '<div class="rij"><span>' + k.nog.length + ' films nog te bekijken</span><button type="button" class="nee">Blijven</button></div>');
+    vak.querySelector('b').textContent = st === 'ok' ? 'Goed' : 'Bekeken';
+    var bovenaan = vak.querySelector('.rij');
+    if (k.eerst) {
+      var v = mk('a', 'ja'); v.href = filmUrl(k.eerst); v.textContent = 'Volgende: ' + k.eerst.titel + ' →'; bovenaan.appendChild(v);
+    }
+    var ov = mk('a'); ov.href = new URL('sessie/review.html', ROOT).href; ov.textContent = 'Overzicht'; bovenaan.appendChild(ov);
+    var zoek = vak.querySelector('input'), lijst = vak.querySelector('.lijst');
+    function teken() {
+      var q = zoek.value.trim().toLowerCase(), groep = null; lijst.innerHTML = '';
+      k.nog.forEach(function (f) {
+        if (q && (f.titel + ' ' + (f.groep || '')).toLowerCase().indexOf(q) < 0) return;
+        if (f.groep !== groep) { groep = f.groep; var h = mk('div', 'groep'); h.textContent = groep || ''; lijst.appendChild(h); }
+        var a = mk('a'); a.href = filmUrl(f); a.textContent = f.titel + (f.duur ? ' · ' + f.duur + ' min' : ''); lijst.appendChild(a);
+      });
+      if (!lijst.children.length) lijst.innerHTML = '<div class="groep">' + (k.nog.length ? 'Niets gevonden.' : 'Alle films zijn bekeken.') + '</div>';
+    }
+    zoek.addEventListener('input', teken);
+    zoek.addEventListener('keydown', function (e) {
+      e.stopPropagation();
+      if (e.key === 'Escape') { e.preventDefault(); sluit(false); }
+      if (e.key === 'Enter') { var eerste = lijst.querySelector('a'); if (eerste) location.href = eerste.href; }
+    });
+    vak.querySelector('.nee').onclick = function () { sluit(false); };
+    teken(); host().appendChild(vak); zoek.focus();
   }
   function rond(st) {
     var knopTekst = balk.querySelector('[data-a="' + st + '"]'); if (knopTekst) knopTekst.textContent = 'Bezig…';
@@ -198,8 +239,9 @@
     }).then(function (r) {
       if (!r.ok) throw new Error('opslaan');
       return volgende();
-    }).then(function (f) {
-      location.href = f ? new URL(f.href, ROOT).href + '?review=1' : new URL('sessie/review.html', ROOT).href;
+    }).then(function (k) {
+      if (document.fullscreenElement) { try { document.exitFullscreen(); } catch (e) {} }
+      balkTekst(); kiesVak(st, k);
     }).catch(function (err) {
       if (err && err.message === 'login') loginVak(function () { rond(st); });
       else { balkTekst(); alertBalk('Status niet opgeslagen. Controleer je verbinding.'); }
@@ -352,6 +394,7 @@
       if ((e.key === 'r' || e.key === 'R') && !e.ctrlKey && !e.metaKey) { klikAan = !klikAan; balkTekst(); }
       if ((e.key === 'n' || e.key === 'N') && !e.ctrlKey && !e.metaKey) { e.preventDefault(); opmerkingVak(null, null); }
     }, true);
+    document.addEventListener('fullscreenchange', function () { host().appendChild(balk); if (vak) host().appendChild(vak); });
     window.addEventListener('scroll', function () { if (pin && !vak) { pin.remove(); pin = null; } }, { passive: true });
     balkTekst(); laad();
     var tries = 0, wacht = setInterval(function () { if (totaal() || ++tries > 40) { clearInterval(wacht); strook(); } }, 250);

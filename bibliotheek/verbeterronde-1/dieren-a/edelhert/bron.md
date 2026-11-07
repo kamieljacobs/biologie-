@@ -1,1 +1,0 @@
-- Geen nieuwe bron geopend; burlhouding uit algemene kennis (hals gestrekt, snuit omhoog), te checken tegen een foto/bron.

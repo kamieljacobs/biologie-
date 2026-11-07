@@ -1,1 +1,0 @@
-- Basis: variant C (zijaanzicht, Greiner-maten, dop klapt). De gemelde fout uit ronde 1 (mix halfvol) is in C al hersteld: mix alleen in de punt in alle standen. Ongewijzigd overgenomen.

@@ -1,1 +1,0 @@
-SCENE = { s0: 6, f: (c,x,y,s,o)=>muis(c,x,y,s,o), groot: {"houding":"rechtop","t":0.04}, ijkOok: ["A"], standen: [{"houding":"rechtop","t":0}, {"houding":"rechtop","t":0.08}, {"houding":"rechtop","t":0.17}], klein: {"houding":"rechtop","t":0.04} };

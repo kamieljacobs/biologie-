@@ -1,1 +1,0 @@
-De acht histonen (vier voor, vier donkerder achter) zijn elk een kleine kralenketen in plaats van een vlak rondje; de schijf is donkerder gemaakt zodat de kralen afsteken. Staarten, ladingen, acetylgroepen en TF ongewijzigd (de TF is enzymKluwen en dus ook kralen).
