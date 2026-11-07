@@ -61,6 +61,16 @@
     }
   } catch (e) {}
 
+  // Volgende film van de reeks (js/volgende.js): knop in de sitebalk en een kaart aan het eind.
+  try {
+    if (/^films\//.test(PAD) && !/presentatie\.html$/.test(PAD) && window.top === window.self) {
+      var vf = document.createElement('script');
+      vf.src = new URL('js/volgende.js?v=1', new URL(me.getAttribute('data-root') || './', location.href)).href;
+      vf.setAttribute('data-root', me.getAttribute('data-root') || './');
+      (document.head || document.documentElement).appendChild(vf);
+    }
+  } catch (e) {}
+
   var DUUR = parseFloat(me.getAttribute('data-duur') || '0') * 60; // seconden
 
   function uitgezet() {

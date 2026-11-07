@@ -33,7 +33,7 @@ Kamiel wil films later makkelijk kunnen aanpassen. Daarom geldt bij **elke** fil
 4. Voeg de film toe aan de tabel/bouwvormen in `films/BRONMAPPEN.md` als het een nieuwe bouwvorm is.
 5. Zet in de film de sitebalk (`<nav class="sitenav">`) met "← Terug naar <hoofdstuk>" naar `index.html#<hoofdstuk>`. Voeg de film toe aan `HOOFDSTUKKEN.<hoofdstuk>.films` in `index.html` (href, **datum**, titel, vraag, tekst, duur, bij) en geef hem een lijntekening in `FILMKUNST` (sleutel = bestandsnaam zonder .html). Een nieuw hoofdstuk krijgt een eigen `HOOFDSTUKKEN`-blok, een kleur in `KLEUR` en een verwijzing (`#<id>`) in `NIVEAUS`.
 
-6. Geef de film een `"datum": "JJJJ-MM-DD"` (de dag dat hij op de site komt; ook in `films/vervolg/films.json` voor Wat word jij?-films; bij een remake de datum van de remake), draai `python3 scripts/nieuwste_films.py` en commit `index.html`, `films/vervolg/films.json` en `films/nieuwste.json` mee (zie 'Nieuw op de site').
+6. Geef de film een `"datum": "JJJJ-MM-DD"` (de dag dat hij op de site komt; ook in `films/vervolg/films.json` voor Wat word jij?-films; bij een remake de datum van de remake), draai `python3 scripts/nieuwste_films.py` en `python3 scripts/volgende.py` en commit `index.html`, `films/vervolg/films.json`, `films/nieuwste.json` en `films/volgende.json` mee (zie 'Nieuw op de site' en 'Volgende film').
 
 Controle vóór elke push: `find films -name '*.html' -not -path '*/bron/*'` mag geen film opleveren zonder bronmap. Draai daarnaast altijd `python3 scripts/controle.py` (B15-kringloop: regelcheck, B15-poort, B15-rapport); faalt hij, eerst oplossen, dan pushen. Dezelfde controle draait op GitHub na elke push (`.github/workflows/controle.yml`).
 
@@ -206,6 +206,10 @@ Kamiel werkt afwisselend vanuit twee Claude-accounts (Max 20x). Die delen geen g
 ## Terug naar waar je was (Kamiel 25 okt 2026)
 
 Klik je terug (browserknop of een '←'-link, bv. '← Terug naar Voeding' in een film), dan kom je op dezelfde hoogte terug als waar je was. `js/terug.js`, meegeladen door `js/teller.js`, dus op elke pagina: bewaart de scrollpositie per stap in de geschiedenis (`history.state.bkId`, sessionStorage `bk-scroll`) en zet hem terug na terug/vooruit, ook bij de hash-pagina's (index.html, vervolg.html) die zichzelf bij het opbouwen bovenaan zetten. Een '←'-link doet `history.back()` als je net van die pagina kwam, anders opent hij de pagina op de laatst bekende hoogte. Pagina's die zelf `history.replaceState` gebruiken: geef het bestaande state-object door, dan blijft `bkId` staan.
+
+## Volgende film (Kamiel 7 nov 2026: 'als je een film hebt gezien kun je doorklikken naar de volgende van dat thema')
+
+`js/volgende.js`, meegeladen door `js/teller.js` in elke film: in de sitebalk een knop 'Volgende film →' naast '← Terug naar …' (niet bij de laatste film, verborgen onder 600 px), en aan het eind van de film een kaart rechtsonder (telefoon: onderaan over de volle breedte) met de volgende film van de reeks, of bij de laatste film 'Terug naar <thema>'. De film telt dan als gezien (localStorage `gezien`, ✓ in de filmlijsten). 'Af' = de speler (globale `state`) staat stil op het laatste stuk; andere spelers: ≥ 80% beluisterd en 4 s stil. Testen: `?volgende=toon`. De reeksen staan in `films/volgende.json`, gemaakt met `python3 scripts/volgende.py` (idempotent): per thema de volgorde van `HOOFDSTUKKEN` (extra films als aparte reeks `<thema>+`, onderbouw per kerndoelmap `kd:<kd>`, Wat word jij? per gebied `v:<id>` in de volgorde van `basis` in `GEBIEDEN`). Staat een film in twee reeksen, dan wint de reeks van de pagina waar je vandaan kwam (index.html of vervolg.html), daarna die van de '←'-link. **Draai `scripts/volgende.py` na elke nieuwe, verplaatste of anders geordende film** en commit `films/volgende.json` mee.
 
 ## Telefoon (Kamiel 25 okt 2026: 'op de telefoon is de site niet zo handig, dan zie je delen maar half')
 
