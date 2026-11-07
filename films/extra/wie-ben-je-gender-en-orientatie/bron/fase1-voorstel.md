@@ -1,6 +1,8 @@
 # Fase 1 — voorstel aan Kamiel (7 nov 2026)
 
-Wacht op Kamiels akkoord. Nog niets ingesproken.
+**Besloten (Kamiel 7 nov 2026: 'maak jij de keuzes maar'):** dossier als geraamte met de overnames hieronder; twijfels 1–6 zoals voorgesteld; LHBTI; verwijszin film 4 zoals voorgesteld. Script: `script_v1.md` (± 910 woorden, ± 6,5 min; vragen a/c/b). Bronnen aangevuld uit `werk/tweede-chat/`. Nog niets ingesproken.
+
+**Open (Kamiel 7 nov 2026, 10:34):** overnemen uit de tweede chat: de hersenscanvraag (q02 in `werk/tweede-chat/varianten/variant-d.md`) en twijfelscènes T1, T3, T5 en T6 uit `werk/tweede-chat/twijfel.md`, aan Kamiel voorleggen. Die twee bestanden zijn nooit gepusht; wachten tot de tweede chat ze pusht.
 
 ## B15
 - Trekking: A klassiek · B volgorde + voorbeeld · C grote mutatie dossier (P1: bewijs verzamelen en wegen = 'hoe weet je dat?').
@@ -41,7 +43,12 @@ Vragen (opties in het script geschud):
 3. Iemand is geboren met eierstokken en een baarmoeder, maar met uitwendige geslachtsorganen die meer op die van een jongen lijken. Welk woord gaat over haar lichaam? · transgender · non-binair · intersekse.
 
 ## Twijfelscènes
-Zie het bericht in de chat (7 nov 2026); antwoorden van Kamiel hieronder noteren.
+1. Cast alleen in neutrale rollen, zonder namen: Teun (`kind`) als peuter; Daan en Thijs alleen bij de uitleg van eeneiig; Dr. Kim als naamloze onderzoeker die kaartjes ophangt; onderzoeksdeelnemers als anonieme stippen. Geen personage krijgt een label. — besloten
+2. Daan en Thijs niet bij oriëntatie (alleen een tweelingicoon). — besloten
+3. Zekerheidsmeter met drie standen; hersenen 'nog niet zeker'. 'Blijft' nu 'vastgesteld' (5–7 jaar, B17 + B1). — besloten
+4. AGS in de stem 'ongeveer negentien van de twintig'; de ± 5 % alleen in het docentdeel. — besloten
+5. 'Op wie je verliefd wordt, kies je niet' in de stem; nuance (kan verschuiven) in het docentdeel. — besloten
+6. LHBTI, met 'soms komen er nog letters bij'. — besloten
 
 ## Verwijszin film 4 (s11, na 'iets anders dan genderidentiteit.')
 'Hoe onderzoekers dat uitzoeken, zie je in de film Wie ben je? Gender en oriëntatie.'

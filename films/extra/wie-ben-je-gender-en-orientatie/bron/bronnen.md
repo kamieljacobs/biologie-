@@ -5,7 +5,7 @@
 | Gecontroleerde versie | opzet (fase 1, 7 nov 2026); script volgt na Kamiels akkoord |
 | Gecontroleerd door | Claude (eerste ronde), 7 nov 2026 |
 | Menselijke steekproef | nog niet gedaan |
-| Samenvatting | 17 beweringen uit de opzet: 10 ✓, 6 ≈, 0 !, 1 ?. Bewust geen blogs of belangengroepen als bron. Beleids- en behandelvragen (puberteitsremmers) alleen in het docentdeel; bronnen daarvoor volgen bij het docentdeel. |
+| Samenvatting | 17 beweringen uit opzet en script v1: 11 ✓, 6 ≈, 0 !, 0 ?. Aangevuld met 12 bronnen die de tweede chat opende (B16–B27, zo gemarkeerd); die moet Kamiel bij de steekproef als eerste aanklikken. Bewust geen blogs of belangengroepen als bron. Beleids- en behandelvragen (puberteitsremmers) alleen in het docentdeel (B26, B27). |
 
 ## Bronnen
 
@@ -27,6 +27,19 @@
 | B14 | A | LOI-SG (vastgesteld 13 jan 2026). *Draaiboek Consult seksuele gezondheid*, deeldraaiboek 13 Seksuele oriëntatie en genderidentiteit (gepubliceerd op lci.rivm.nl) | https://lci.rivm.nl/sites/default/files/2026-02/13-seksuele-orientatie-en-genderidentiteit.pdf | 7 nov 2026 |
 | B15 | A | Kuyper L, Wijsen C (2014). Gender identities and gender dysphoria in the Netherlands. *Archives of Sexual Behavior* 43: 377–385 | https://link.springer.com/doi/10.1007/s10508-013-0140-y | 7 nov 2026 |
 
+| B16 | A | Zosuls KM e.a. (2009). The acquisition of gender labels in infancy. *Developmental Psychology* 45: 688–701 — geopend door de tweede chat | https://www.ovid.com/journals/depsy/pdf/10.1037/a0014053~the-acquisition-of-gender-labels-in-infancy-implications-for | 7 nov 2026 |
+| B17 | A | Ruble DN e.a. (2007). The role of gender constancy in early gender development. *Child Development* 78: 1121–1136 — geopend door de tweede chat | https://core.ac.uk/download/357376376.pdf | 7 nov 2026 |
+| B18 | A | Heylens G e.a. (2012). Gender identity disorder in twins: a review of the case report literature. *J Sex Med* 9: 751–757 (samenvatting) — geopend door de tweede chat | https://api-pubmed-ncbi.laibokeji.com/22146048 | 7 nov 2026 |
+| B19 | A | Hines M (2011). Prenatal endocrine influences on sexual orientation and on sexually differentiated childhood behavior. *Frontiers in Neuroendocrinology* 32: 170–182 — geopend door de tweede chat | https://r.jordan.im/download/sex/hines2011.pdf | 7 nov 2026 |
+| B20 | A | Pasterski V e.a. (2015). Increased cross-gender identification independent of gender role behavior in girls with CAH. *Archives of Sexual Behavior* 44 (samenvatting) — geopend door de tweede chat | https://www.repository.cam.ac.uk/handle/1810/245845 | 7 nov 2026 |
+| B21 | A | Daae E e.a. (2020). Sexual orientation in individuals with congenital adrenal hyperplasia: a systematic review. *Frontiers in Behavioral Neuroscience* 14 — geopend door de tweede chat | https://www.frontiersin.org/articles/10.3389/fnbeh.2020.00038/full | 7 nov 2026 |
+| B22 | A | Vlaamse overheid, Dienst Diversiteitsbeleid. *Begrippen rond gender- en seksuele diversiteit* — geopend door de tweede chat | https://www.vlaanderen.be/dienst-diversiteitsbeleid/begrippen-rond-gender-en-seksuele-diversiteit | 7 nov 2026 |
+| B23 | A | Van der Gaag N, Van Nimwegen N (NIDI, 2017). Hij en/of zij: transgenders en intersekse in Nederland. *Demos* 33(10) — geopend door de tweede chat | https://publ.nidi.nl/demos/2017/demos-33-10-vandergaag.pdf | 7 nov 2026 |
+| B24 | A | Blanchard R e.a. (2019). Older brothers and male homosexuality: antibodies as an explanation (meta-analyse) — geopend door de tweede chat; alleen docentdeel | https://journals.sagepub.com/doi/10.1177/2631831819855199 | 7 nov 2026 |
+| B25 | A | Reiner WG, Gearhart JP (2004). Discordant sexual identity in some genetic males with cloacal exstrophy assigned to female sex at birth. *NEJM* 350: 333–341 (samenvatting) — geopend door de tweede chat; alleen docentdeel | https://pesquisa.bvsalud.org/bvsespana/resource/es/mdl-14736925 | 7 nov 2026 |
+| B26 | A | BMJ Group (10 apr 2024). Systematische reviews van de Universiteit van York voor de Cass Review (*Archives of Disease in Childhood*) — geopend door de tweede chat; alleen docentdeel | https://bmjgroup.com/?p=2191 | 7 nov 2026 |
+| B27 | B | Radboud Universiteit (18 feb 2025). Gezondheidsraadcommissie over transgenderzorg voor jongeren — geopend door de tweede chat; alleen docentdeel | https://www.ru.nl/over-ons/nieuws/enny-das-benoemd-tot-lid-van-gezondheidsraad-commissie-over-transgenderzorg-voor-jongeren | 7 nov 2026 |
+
 Eerder geopend voor film 4 (Sekse, gender en diversiteit), hier hergebruikt waar nodig: RIVM-pns factsheet AGS en hielprik (film 4, B6/B9).
 
 ## Beweringen (opzet)
@@ -34,25 +47,29 @@ Eerder geopend voor film 4 (Sekse, gender en diversiteit), hier hergebruikt waar
 | Nr | Waar | Bewering in de film | Bronnen | Status | Toelichting |
 |---|---|---|---|---|---|
 | 1 | H1 | Rond twee jaar zien kinderen het verschil tussen jongens en meisjes; voor hun derde noemen de meeste zichzelf jongen of meisje | B1, B2 | ✓ | B1: labels bij de meeste kinderen tussen 18 en 24 maanden (Zosuls 2009: 68 % bij 21 maanden); B2: 'before age three' |
-| 2 | H1 | Rond vier jaar is het gevoel bij de meeste kinderen stabiel | B2, B1 | ≈ | B2 letterlijk ('by age four'); B1 noemt genderconstantie tussen 5 en 7 jaar. Film zegt 'rond vier tot zes jaar weten de meeste kinderen dat het blijft' of houdt het bij 'stabiel'; zie twijfel 2 |
-| 3 | H2 | Tweelingonderzoek: eeneiige tweelingen lijken in genderidentiteit meer op elkaar dan twee-eiige; genderidentiteit is deels erfelijk | B3, B4 | ✓ | B3: erfelijkheid 0,00–0,84, bijna alle studies > 0; B4: 'multifactorial complex trait with a heritable polygenic component' |
+| 2 | H1 | Dat het zo blijft, snappen de meeste kinderen tussen vijf en zeven jaar | B17, B1, B2 | ✓ | B17: stabiliteit stijgt van 3 tot 5 jaar, constantie vooral 5–7 jaar; B1: omslag 5–7 jaar; B2: 'by age four' stabiel gevoel. Script v1 aangepast (was 'tussen vier en zes') |
+| 3 | H2 | Tweelingonderzoek: eeneiige tweelingen lijken in genderidentiteit meer op elkaar dan twee-eiige; genderidentiteit is deels erfelijk | B3, B4, B18 | ✓ | B3: erfelijkheid 0,00–0,84, bijna alle studies > 0; B4: 'multifactorial complex trait with a heritable polygenic component' |
 | 4 | H2 | De omgeving die per persoon verschilt telt ook; gedeelde opvoeding lijkt weinig uit te maken | B3 | ≈ | B3: niet-gedeelde omgeving in alle studies, gedeelde vaak 0 (4 van 5 tussen 0,00 en 0,09). Eén bron; B3 is wel een systematische review. 'Niet-gedeeld' kan ook vóór de geboorte zijn (B3) — film zegt dat |
 | 5 | H2 | Hoe groot het erfelijke deel is, weten we niet goed: kleine groepen, grote onzekerheid | B3, B4 | ✓ | B3: geen meta-analyse mogelijk, kleine steekproeven, brede betrouwbaarheidsintervallen |
 | 6 | H2 | Er is geen 'gen voor' genderidentiteit; als genen meespelen, zijn het er veel | B4, B3 | ≈ | B4: polygeen (als hypothese); B3: resultaten zijn populatiegemiddelden, geen biologisch determinisme |
 | 7 | H2 | Meisjes met AGS kregen vóór de geboorte veel mannelijke hormonen en spelen vaker met 'jongensspeelgoed' | B6, B7 | ✓ | B6: meer jongensspeelgoed, 3–8 jaar; B7: prenatale androgenen vermannelijken activiteiten en interesses ('good evidence') |
-| 8 | H2 | Toch voelt de grote meerderheid van hen zich meisje/vrouw (± 95 %) | B5, B7 | ✓ | B5: 237 van 250 (94,8 %) vrouwelijke genderidentiteit; B7: prenatale androgenen hebben 'a smaller effect on gender identity'. Film: 'bijna allemaal' of 'ongeveer negentien van de twintig' |
-| 9 | H2 | Bij AGS komt een andere genderidentiteit wel vaker voor dan gemiddeld | B5 | ≈ | B5: 5,2 % ernstige genderproblemen, hoger dan in de algemene bevolking; één bron, daarom alleen in het docentdeel of voorzichtig ('iets vaker') |
-| 10 | H2 | Hersenonderzoek bij transgender personen: kleine groepen, wisselende uitkomsten; hersenen niet 'omgedraaid' maar een mengsel; oorzaak of gevolg is onduidelijk | B8, B9 | ≈ | Beide reviews met Guillamon als (co)auteur: niet volledig onafhankelijk. Derde, onafhankelijke review zoeken bij het script (bv. een recente ENIGMA- of meta-analyse) |
+| 8 | H2 | Toch voelt de grote meerderheid van hen zich meisje/vrouw (± 95 %) | B5, B7, B19, B20 | ✓ | B5: 237 van 250 (94,8 %) vrouwelijke genderidentiteit; B7: prenatale androgenen hebben 'a smaller effect on gender identity'. Film: 'bijna allemaal' of 'ongeveer negentien van de twintig' |
+| 9 | docent | Bij AGS komt een andere genderidentiteit wel vaker voor dan gemiddeld | B5, B20 | ✓ | B5: 5,2 % ernstige genderproblemen; B20: meer cross-gender-identificatie dan zussen/nichten. Alleen in het docentdeel (twijfel 4) |
+| 10 | H2 | Hersenonderzoek bij transgender personen: kleine groepen, wisselende uitkomsten; hersenen niet 'omgedraaid' maar een mengsel; oorzaak of gevolg is onduidelijk | B8, B9 | ≈ | Beide reviews met Guillamon als (co)auteur: niet volledig onafhankelijk. Ook de tweede chat vond geen review zonder Guillamon. Derde, onafhankelijke review zoeken vóór het inspreken (bv. een recente ENIGMA- of meta-analyse) |
 | 11 | H2 | Hormonen (bij behandeling) veranderen de hersenen, daarom is onderzoek vóór behandeling nodig | B8, B9 | ✓ | B8: 'hormone treatment can change brain measures'; B9: 'marked treatment effects' |
 | 12 | H3 | Seksuele oriëntatie is deels erfelijk (tweelingen), de omgeving die per persoon verschilt telt zwaarder | B11, B10 | ✓ | B11: mannen genetisch 0,34–0,39, unieke omgeving 0,61–0,66; vrouwen 0,18–0,19 genetisch. B10 bevestigt genetische invloed |
 | 13 | H3 | Er is geen 'homogen': grootste DNA-onderzoek (± 477 000 mensen) vond vijf plekken met kleine effecten; je kunt iemands oriëntatie niet uit DNA voorspellen | B10, B12 | ✓ | B10: 5 loci, alle gangbare varianten samen 8–25 %, 'do not allow meaningful prediction'; B12: genetica en hormonen dragen bij, niet als enige oorzaak |
 | 14 | H3 | Je kiest je oriëntatie niet; geen bewijs dat je het aanleert van anderen | B12, B14 | ✓ | B12: geen steun voor sociaal aanleren, 'we do not choose our desires'; B14: aanleg wordt als aangeboren beschouwd. Nuance B14: oriëntatie kan in de loop van het leven veranderen (docentdeel) |
 | 15 | H3 | De eerste verliefdheid/aantrekking komt meestal rond (of net voor) de puberteit | B13, B14 | ≈ | B13: ± 10 jaar (hypothese, na adrenarche); B14: meestal vanaf 12–15 jaar. Film: 'meestal tussen tien en vijftien, de een eerder dan de ander' |
-| 16 | H4 | Intersekse gaat over het lichaam, transgender over genderidentiteit, non-binair over je niet thuis voelen in man of vrouw; cisgender = genderidentiteit past bij het geboortegeslacht | B14, film 4 | ✓ | B14 geeft alle definities (tabel); de definities van film 4 komen overeen |
-| 17 | H4 | Zo'n 4 % van de Nederlanders voelt zich niet helemaal het geslacht van de geboorte; ± 1 % transgender | B14, B15 | ? | B14: 3,9 % en ± 1 %; B15: ambivalent 4,6 %/3,2 %, incongruent 1,1 %/0,8 %. Definities verschillen; getal waarschijnlijk niet in de stem (docentdeel) |
+| 16 | H4 | Intersekse gaat over het lichaam, transgender over genderidentiteit, non-binair over je niet thuis voelen in man of vrouw; cisgender = genderidentiteit past bij het geboortegeslacht | B14, B22, B23 | ✓ | Drie onafhankelijke overheids- en onderzoeksbronnen, dezelfde definities |
+| 17 | docent | Zo'n 4 % van de Nederlanders voelt zich niet helemaal het geslacht van de geboorte; ± 1 % transgender | B14, B15, B23 | ≈ | B14: 3,9 % en ± 1 %; B15: ambivalent 4,6 %/3,2 %, incongruent 1,1 %/0,8 %. Definities verschillen; getal waarschijnlijk niet in de stem (docentdeel) |
 
 ## Aanpassingen
-Nog geen (opzet).
+- Bewering 2: script v1 'meestal tussen vier en zes jaar … Daarin verschillen de onderzoeken iets. Op de meter: waarschijnlijk' → 'tussen vijf en zeven jaar … Op de meter: vastgesteld' (B17, B1).
+
+## Docentdeel (geen bewering in de stem)
+- Behandelvragen (B26, B27): in 2024 concludeerden systematische reviews voor de Engelse Cass Review dat het bewijs over puberteitsremmers zwak is; in Nederland onderzoekt een commissie van de Gezondheidsraad sinds 2025 de effecten. Er zijn verschillende standpunten; de film neemt er geen in. (Overgenomen uit de tweede chat.)
+- Broerseffect (B24), Reiner & Gearhart (B25), AGS en oriëntatie (B21, B19): alleen als achtergrond.
 
 ## Menselijke controle
 Nog niet gedaan.
