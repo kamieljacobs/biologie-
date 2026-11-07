@@ -6,8 +6,8 @@
 | Titel / ondertitel | Alles versneld · eiwitten en enzymen |
 | Reeks / nummer | Stofwisseling (vwo), film 1 van 4; serie: 1 Alles versneld · 2 Alles op adem · 3 Alles in het groen · 4 De lever (volgt) |
 | Doelgroep / niveau | havo + vwo sinds 18 okt 2026 (Havo/Vwo-knop, zie onder): vwo = 6 vwo, Nectar 4.1, 18.2–18.3 (+ 18.1 denatureren); havo = Biologie voor jou thema 8 (enzymen). De vroegere *verdieping*-zinnen (H5 V-max, H7 vitamines) zijn nu vwo-blokken |
-| Versie / datum | versie 1.0 · 3 oktober 2026 (voettekst en "Bronnen en versie") |
-| Prompt | onbekend · gemaakt 3 okt |
+| Versie / datum | versie 1.1 · 7 november 2026 (voettekst en "Bronnen en versie"); eerste versie 1.0 · 3 oktober 2026 |
+| Prompt | v13 (opgewaardeerd 7 nov 2026; gemaakt 3 okt 2026 vóór prompt v4) |
 | Stem / model | Roos (ElevenLabs, model eleven_multilingual_v2), volgens de pagina |
 | Duur | vwo 11:34, havo 9:01 (kop van de pagina; som van `dur` min de overgeslagen stukken, zonder het ingekorte midden van de hoofdstukkaarten). Speler: vwo 11:28, havo 8:56 (hoofdstukkaarten 2,2 s). Som van `dur` 698,8 s inclusief de havo-alinea van 4,09 s |
 | Beeldstijl | Eigen canvasontwerp (1920×1080) dat zich in de code "stijlkaart biologiefilms, look Micro" noemt: donkere achtergrond (#121A26 met fijne beige korrel), gedempte vullingen met lichte randen, Fraunces/Source Sans 3/IBM Plex Mono. Eén look voor alle scènes, geen Macro/Schema-onderscheid zoals in Part C (v4, 11 okt) |
@@ -231,6 +231,20 @@ Aanvulling 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als [
   - quaternaire — geen IPA-bron gevonden (Wiktionary niet bereikbaar); verwacht [kʋaːtərˈnɛːr], klemtoon op -nai-. Voorstel stem-invoer "kwaternaire".
   - cysteïnes — "cysteïne" zoals geschreven was al goedgekeurd (DNA afl. 4); meervoud zoals geschreven, wel beluisteren of de -s goed aansluit.
   - waterstofbruggen, zwavelbruggen — gewone samenstellingen; zoals geschreven.
+
+## Wijziging 7 nov 2026: reviewronde Kamiel + opwaardering naar prompt v13 (versie 1.1)
+
+**Voldoet aan: prompt v13 (7 nov 2026, opwaardering zonder keuring, takes behouden).** Bewust niet gevolgd:
+- **Moleculekleuren** (C1/C2): enzym nog blauw (Part C: grijsblauw `#7A8BA8` met het actieve centrum in goud), product groen (water en zuurstof zijn teal), remstof en inhibitor paars (paars is voor kern, erfelijkheid, hormonen en de vwo-balk), activator turquoise. Omkleuren raakt alle simulaties en legenda's en vraagt een nieuwe kleur voor de remstof: **voorgelegd aan Kamiel** (twijfelpunt), daarna in één keer in `sim.js` (`drawParticle`, regel ≈ 713–722) en de legenda's.
+- Grafiekpanelen in H4–H6 staan op de Micro-achtergrond, omdat ze in dezelfde scène naast de deeltjessimulatie staan (Part C: een scène wisselt niet van look).
+- De wachtlijst 'opnieuw inspreken' (H4, eiwitstructuur) blijft openstaan; geen nieuwe opname in deze ronde.
+
+Verwerkt (opmerkingen Kamiel in de reviewstand, ids `-P538L0Y0fo_yNaeTg6t`, `-P538P-70Scf7R4uIqU6`, `-P538TEPdKHwk9aCY_7q`, `-P538uuBRMLsuKPTLJ6X`):
+- **Achtergrond volgens de huisstijl** (Part C, BEELDAFSPRAKEN 'geen korrel'): de beige korrel over het hele beeld is weg (`paper()` in engine.js tekent geen korrel meer). Opening (proefopstelling) en hoofdstukkaarten staan nu op Schema-navy `#1A2740` (`C.schema`, `g.paper({ look: 'schema' })`); de molecuulscènes H1–H8 houden Micro `#121A26`, vlak. Meta-tekst 'HOOFDSTUK n VAN 8' en '6 VWO · STOFWISSELING 1/4' in goud (Part C: goud = meta); vwo-label 28 px.
+- **Geen toontjes meer:** elk hoofdstuk-mp3 begon met een synthetisch belletje (sinustonen 587 en 880 Hz, 0–1 s, onder de hoofdstukkaart) en de opening had een toon onder de titelkaart (12,3–13,8 s). Die stukken zijn stil gemaakt in blob 007–015 (ffmpeg `volume=0`, 0–2,9 s per hoofdstuk, 11,25–17,2 s in de opening); duur en bitrate gelijk, geen stem geraakt. Kamiels 'piepje' op 1:11 was het belletje van H2 (met Vragen uit).
+- **Vragen uit (H4):** 'Antwoord B, en dat zie je nu gebeuren.' liep zonder pauze door in 'Net als in de gekookte aardappel.', en de woordtijden van 'nu gebeuren' waren te vroeg (28,38–28,52 s, echt ± 28,2–28,66 s). Daardoor bleef '-ren' hoorbaar. Woordtijden in `FILM.chapters[4]` (zin 5 en 6, frasen) gezet op de echte stilte: zin 5 eindigt 28,66 s, 'Net' begint 28,735 s; de speler knipt nu tot 28,69 s. Alle andere vragen nagelopen op stilte aan de knipgrens (havo en vwo): in orde.
+- Motoreiwit (H1) ongewijzigd: Kamiel vond die animatie goed.
+- Versie 1.1, `bron/bronnen.md` aangemaakt (eerste ronde), REVIEW weer 'nog bekijken'.
 
 ## Wijzigingen
 - 15 okt 2026 — Speler: de knop Vragen aan/uit (onthouden in `bk-vragen`, ook `?vragen=uit`) werkt nu altijd, ook na spoelen, in pauze en als je hem halverwege omzet. Bij Vragen uit vallen weg: de vraag zelf, de gesproken vraagzin(nen) ervoor (zinnen op '?', 'Wat denk je?', 'Denk even na.', 'Eerst een voorspelling.') en een los antwoord direct erna ('Antwoord B.', 'Ja.', 'Nee.', 'Precies.'); gewone uitlegzinnen blijven staan. De tijdbalk, tijd en hoofdstuktijden tonen de ingekorte duur. Code: `bkBouw()` maakt `BK.k` (stukken die de speler overslaat); regelnummers in de spelercode zijn daardoor een paar regels verschoven. Hoofdstukkaart 2,2 s in plaats van 3,0 s: de speler slaat het stille midden van de kaart over (mp3 ongewijzigd). De oude `vraagVensters`/`slaVraagOver` zijn vervangen.

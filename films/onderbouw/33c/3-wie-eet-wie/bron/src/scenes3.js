@@ -3,7 +3,7 @@
 // Kleuren: planten = groen, dieren = oker/bruin/grijs (wolf, raaf grijs), reducenten = teal, focus = goud, mineralen = oker stipjes.
 
 function bacterie(x,y,s=1,soort='staaf',a=1,rot=0,kleur=C.teal){ if(a<=0.01) return; alpha(ctx,a,()=>{ ctx.save(); ctx.translate(x,y); ctx.rotate(rot); if(soort==='staaf'){ roundRect(ctx,-26*s,-10*s,52*s,20*s,10*s); } else { ctx.beginPath(); ctx.arc(-11*s,0,11*s,0,6.283); ctx.arc(11*s,0,11*s,0,6.283); } shape(ctx,rgba(kleur,0.45),lighten(kleur,0.35),1.8); ctx.restore(); }); }
-function meta3(){ metaText(ctx,'schematisch · niet op schaal',W-40,CAPTION_Y-14,C.text2,'right',22); }
+function meta3(){ metaText(ctx,'schematisch · niet op schaal',W-40,CAPTION_Y-14,C.text2,'right',28); }
 // ---- bos ----
 function bos(t=0,o={}){ ctx.fillStyle=C.bgMacroSky; ctx.fillRect(0,0,W,H);
   for(let i=0;i<25;i++) dot(ctx,hash(i*3.1)*W,30+hash(i*5.3)*200,1.2+hash(i)*1.2,rgba('#F2F2EE',0.35));
@@ -77,7 +77,7 @@ s01(ctx,t,q){ const tB=q.at('bord'), tT=q.at('terug'), tS=q.at('Stel'), tWa=q.at
 // ---- titel ----
 s02(ctx,t,q){ bg(ctx,'schema'); alpha(ctx,ramp(t,0.1,0.7),()=>{ text(ctx,'Wie eet wie?',120,330,fTitel(96),C.text); text(ctx,'Wat gebeurt er als de wolf verdwijnt?',120,410,fTekst(44),C.text2); });
   wolf(1500,760,1.4,t,{a:ramp(t,0.5,0.6),dir:-1}); ree(1180,760,1.0,t,{a:ramp(t,0.9,0.6)}); kruid(980,760,1.6);
-  metaText(ctx,'onderbouw · kerndoelen · ecosystemen 3',W-80,60,C.text2,'right',24); },
+  metaText(ctx,'onderbouw · kerndoelen · ecosystemen 3',W-80,60,C.text2,'right',28); },
 // ---- H1: wolf eet ree eet kruiden ----
 s03(ctx,t,q){ const tR=q.at('ree.'), tK=q.at('kruiden'), tP=q.at('plant?'), tN=q.at('niets'), tWa=q.at('Waar');
   bos(t,{}); for(let i=0;i<6;i++) kruid(840+i*40,800,1.2);
@@ -98,9 +98,9 @@ s05(ctx,t,q){ const tPl=q.at('plant',1), tZ=q.at('zonlicht.'), tPr=q.at('produce
   naamBij(ctx,'producent','maakt zelf voedsel',X[0],660,ramp(t,tPr,0.4),'center',C.groen);
   naamBij(ctx,'consumenten','eten iets anders op',(X[1]+X[2])/2,660,ramp(t,tC,0.4),'center',C.oker);
   const pa=ramp(t,tPi,0.8); pijl(X[0]+110,Y,X[1]-110,Y,pa,C.text,4); pijl(X[1]+110,Y,X[2]-110,Y,ramp(t,tPi+0.4,0.8),C.text,4);
-  alpha(ctx,fadeIO(t,tWi,tB,0.4),()=>{ metaText(ctx,'van voedsel',X[0]+240,Y-30,C.grain,'center',22); metaText(ctx,'naar eter',X[1]+240,Y-30,C.grain,'center',22); });
+  alpha(ctx,fadeIO(t,tWi,tB,0.4),()=>{ metaText(ctx,'van voedsel',X[0]+240,Y-30,C.grain,'center',28); metaText(ctx,'naar eter',X[1]+240,Y-30,C.grain,'center',28); });
   naamBij(ctx,'voedselketen','',W/2,280,ramp(t,tV,0.4),'center',C.goud);
-  alpha(ctx,focusE,()=>{ roundRect(ctx,1420,90,440,200,16); shape(ctx,rgba(C.bgSchema,0.95),C.line,1); hert(1530,270,0.42,0,{}); wolf(1760,270,0.55,0,{dir:-1}); metaText(ctx,'edelhert is groter',1640,125,C.text2,'center',22); });
+  alpha(ctx,focusE,()=>{ roundRect(ctx,1420,90,440,200,16); shape(ctx,rgba(C.bgSchema,0.95),C.line,1); hert(1530,270,0.42,0,{}); wolf(1760,270,0.55,0,{dir:-1}); metaText(ctx,'edelhert is groter',1640,125,C.text2,'center',28); });
   haak(ctx,X[2]-110,X[2]+110,Y+90,'niemand eet de wolf',C.goud,ramp(t,tN,0.4)*(1-focusE*0)); },
 // ---- H2: het voedselweb ----
 s06(ctx,t,q){ const tEd=q.at('edelherten'), tZw=q.at('zwijnen.'), tEi=q.at('eikels,'), tMu=q.at('muizen.'), tVo=q.at('vos'), tUi=q.at('uil.'), tT=q.at('Teken'), tVw=q.at('voedselweb.'), tDr=q.at('draden.'), tWeg=q.at('weg,');
@@ -135,8 +135,8 @@ s09(ctx,t,q){ const tP=q.at('Pissebedden'), tS=q.at('Schimmels'), tR=q.at('reduc
   const K=[['dode resten','dood',-90,tBr-0.3],['reducenten','reducent',-18,tBr],['mineralen in de bodem','bodem',54,tM],['plant','plant',126,tPl],['ree','ree',198,tRe]];
   K.forEach(([nm,ic,ang,tt],i)=>{ const a=ang*Math.PI/180; const x=cx+Math.cos(a)*R*1.35, y=cy+Math.sin(a)*R; const kl=ic==='reducent'?C.teal:(ic==='plant'?C.groen:(ic==='bodem'?C.oker:C.line)); knoop(x,y,nm,ic,ramp(t,tt,0.4),kl);
     const b=K[(i+1)%5]; const a2=b[2]*Math.PI/180; const x2=cx+Math.cos(a2)*R*1.35, y2=cy+Math.sin(a2)*R; const ang2=Math.atan2(y2-y,x2-x); pijl(x+Math.cos(ang2)*120,y+Math.sin(ang2)*80,x2-Math.cos(ang2)*120,y2-Math.sin(ang2)*80,ramp(t,i===4?tRo:K[(i+1)%5][3],0.6),t>tK?C.goud:C.line,3); });
-  alpha(ctx,ramp(t,tK,0.4),()=>{ text(ctx,'kringloop',cx,cy+10,fTitel(64),C.goud,'center'); metaText(ctx,'stoffen gaan rond',cx,cy+60,C.grain,'center',24); });
-  alpha(ctx,ramp(t,tG,0.4)*(1-ramp(t,tK,0.4)),()=>metaText(ctx,'opgenomen met de wortels',cx,cy+10,C.groen,'center',24)); meta3(); },
+  alpha(ctx,ramp(t,tK,0.4),()=>{ text(ctx,'kringloop',cx,cy+10,fTitel(64),C.goud,'center'); metaText(ctx,'stoffen gaan rond',cx,cy+60,C.grain,'center',28); });
+  alpha(ctx,ramp(t,tG,0.4)*(1-ramp(t,tK,0.4)),()=>metaText(ctx,'opgenomen met de wortels',cx,cy+10,C.groen,'center',28)); meta3(); },
 // ---- H3: de startvraag ----
 s10(ctx,t,q){ const tW=q.at('wolf'), tJ=q.at('jonge'), tWa=q.at('Wat');
   bos(t,{}); wolf(1500,800,1.1,t,{a:1-ramp(t,tW+0.3,1),dir:-1}); ree(900,800,1.0,t,{dir:1});
@@ -161,15 +161,21 @@ s12(ctx,t,q){ const tM=q.at('meer'), tO=q.at('overal'), tMi=q.at('minder'), tE=q
   crossOut(ctx,960,250,50,ramp(t,tEe,0.4));
   haak(ctx,460,1460,820,'het hele web verandert mee',C.groen,ramp(t,tOo,0.5)); },
 // ---- H3 uitdaging: wolf, vos en grondbroeders ----
-s13(ctx,t,q){ const tV=q.at('vossen',1), tM=q.at('meer',2), tE=q.at('eieren'), tH=q.at('helpen');
-  bg(ctx,'schema'); const X=[400,960,1520], Y=470;
-  knoop(X[0],Y,'wolf','wolf',ramp(t,0.2,0.4),C.goud,1-0.65*ramp(t,tM-0.6,0.5));
+s13(ctx,t,q){ const tV=q.at('vossen',1), tM=q.at('meer',2), tE=q.at('eieren'), tJ=q.at('Jaagt',2), tVij=q.at('vijanden.'), tH=q.at('helpt');
+  /* 7 nov 2026 (Kamiel): eerst zonder wolf (meer vossen), dan met wolf: vossen weggejaagd → minder vijanden voor de grondbroeders */
+  bg(ctx,'schema'); const X=[400,960,1520], Y=470; const terug=ramp(t,tJ-0.2,0.5);
+  knoop(X[0],Y,'wolf','wolf',ramp(t,0.2,0.4),C.goud,1-0.65*ramp(t,tM-0.6,0.5)*(1-terug));
   knoop(X[1],Y,'vos','vos',ramp(t,tV,0.4),C.koraal);
-  alpha(ctx,ramp(t,tE-0.3,0.4),()=>{ roundRect(ctx,X[2]-100,Y-70,200,140,16); shape(ctx,rgba(C.bgSchema,0.95),C.line,1); ctx.beginPath(); ctx.ellipse(X[2],Y-10,70,20,0,0,Math.PI); shape(ctx,'#6E5238','#8C6A4A',1.2); [-24,0,24].forEach(dx=>{ ctx.beginPath(); ctx.ellipse(X[2]+dx,Y-16,12,15,0,0,6.283); shape(ctx,'#E8E2D4','#F2F2EE',1); }); text(ctx,'grondbroeders',X[2],Y+56,fTekst(28,600),C.text,'center'); });
-  pijl(X[0]+110,Y,X[1]-110,Y,ramp(t,tV+0.3,0.6),C.koraal,3); alpha(ctx,ramp(t,tV+0.3,0.4)*(1-ramp(t,tM-0.6,0.4)),()=>metaText(ctx,'jaagt weg',(X[0]+X[1])/2,Y-30,C.koraal,'center',22));
-  alpha(ctx,ramp(t,tM,0.4),()=>{ for(let k=0;k<3;k++) vos3(X[1]-80+k*80,Y+250,0.55,t,{}); pill(ctx,X[1],Y-150,'meer vossen',C.koraal,1,30); });
-  pijl(X[2]-110,Y,X[1]+110,Y,ramp(t,tE,0.6),C.line,3);
-  alpha(ctx,ramp(t,tH,0.4),()=>{ ctx.save(); ctx.setLineDash([10,8]); ctx.strokeStyle=C.groen; ctx.lineWidth=2.5; ctx.beginPath(); ctx.moveTo(X[0],Y-80); ctx.quadraticCurveTo(960,140,X[2],Y-80); ctx.stroke(); ctx.restore(); naamBij(ctx,'de wolf helpt de vogels','zonder ze te eten',960,210,1,'center',C.groen); }); meta3(); },
+  alpha(ctx,ramp(t,tE-0.3,0.4),()=>{ roundRect(ctx,X[2]-100,Y-70,200,140,16); shape(ctx,rgba(C.bgSchema,0.95),ramp(t,tVij,0.4)>0.5?C.groen:C.line,ramp(t,tVij,0.4)>0.5?2:1); ctx.beginPath(); ctx.ellipse(X[2],Y-10,70,20,0,0,Math.PI); shape(ctx,'#6E5238','#8C6A4A',1.2); [-24,0,24].forEach(dx=>{ ctx.beginPath(); ctx.ellipse(X[2]+dx,Y-16,12,15,0,0,6.283); shape(ctx,'#E8E2D4','#F2F2EE',1); }); text(ctx,'grondbroeders',X[2],Y+56,fTekst(28,600),C.text,'center'); });
+  pijl(X[0]+110,Y,X[1]-110,Y,Math.max(ramp(t,tV+0.3,0.6)*(1-ramp(t,tM-0.6,0.4)),terug),C.koraal,3);
+  alpha(ctx,Math.max(ramp(t,tV+0.3,0.4)*(1-ramp(t,tM-0.6,0.4)),ramp(t,tJ+0.2,0.4)),()=>metaText(ctx,'jaagt weg',(X[0]+X[1])/2,Y-30,C.koraal,'center',28));
+  const weg=ramp(t,tJ+0.6,0.8);
+  for(let k=0;k<3;k++){ const a=ramp(t,tM,0.4)*(k===1?1:1-weg); if(a>0.01) alpha(ctx,a,()=>vos3(X[1]-80+k*80+(k===1?0:(k-1)*260*weg),Y+250,0.55,t,{})); }
+  alpha(ctx,ramp(t,tM,0.4)*(1-ramp(t,tJ+0.6,0.3)),()=>pill(ctx,X[1],Y-150,'meer vossen',C.koraal,1,30));
+  alpha(ctx,ramp(t,tJ+0.8,0.4),()=>pill(ctx,X[1],Y-150,'minder vossen',C.koraal,1,30));
+  pijl(X[2]-110,Y,X[1]+110,Y,ramp(t,tE,0.6)*(1-0.6*ramp(t,tVij-0.3,0.4)),C.line,3);
+  alpha(ctx,ramp(t,tVij-0.2,0.4),()=>pill(ctx,X[2],Y-150,'minder vijanden',C.groen,1,30));
+  alpha(ctx,ramp(t,tH,0.4),()=>{ ctx.save(); ctx.setLineDash([10,8]); ctx.strokeStyle=C.groen; ctx.lineWidth=2.5; ctx.beginPath(); ctx.moveTo(X[0],Y-80); ctx.quadraticCurveTo(960,170,X[2],Y-200); ctx.stroke(); ctx.restore(); naamBij(ctx,'de wolf kan de vogels helpen','zonder ze te eten',960,130,1,'center',C.groen); }); meta3(); },
 // ---- samenvatting ----
 s14(ctx,t,q){ const tM=q.at('meer'), tE=q.at('Elke'), tA=q.at('Alle'), tR=q.at('Reducenten'), tH=q.at('Haal');
   if(t<tE-0.2){ bos(t,{jong:0.2}); for(let i=0;i<6;i++){ const x=300+i*260; if(i%2) hert(x,820,0.7,t,{dir:i%4?1:-1}); else ree(x,820,0.85,t,{dir:-1}); } pill(ctx,520,220,'meer reeën en herten',C.oker,ramp(t,tM,0.4),32); pill(ctx,1400,220,'minder jonge bomen',C.groen,ramp(t,tM+1.5,0.4),32); return; }
@@ -182,5 +188,5 @@ s14(ctx,t,q){ const tM=q.at('meer'), tE=q.at('Elke'), tA=q.at('Alle'), tR=q.at('
 s15(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Onthoud',120,200,fTitel(80),C.text);
   const K=['Elke voedselketen begint bij een plant.','Alle ketens samen vormen een voedselweb.','Reducenten maken van dode resten weer voedsel voor planten.'];
   K.forEach((s,i)=>alpha(ctx,ramp(t,0.4+i*0.8,0.6),()=>{ const y=300+i*170; roundRect(ctx,120,y,1680,140,14); shape(ctx,rgba(C.bgSchema,0.95),i===0?C.goud:C.line,i===0?1.5:1); text(ctx,String(i+1),185,y+90,fTitel(60),C.goud,'center'); ctx.font=fTekst(38); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,s,260,y+84,1500,46); }));
-  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.1 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
+  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.2 · november 2026',W/2,CAPTION_Y-10,C.text2,'center',28); },
 };

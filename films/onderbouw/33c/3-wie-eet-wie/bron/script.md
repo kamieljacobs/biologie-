@@ -68,9 +68,9 @@ Het antwoord is b. Zonder wolf komen er meer reeën en herten. Ze eten overal jo
 
 voice: Het antwoord is bee. Zonder wolf komen er meer reeën en herten. Ze eten overal jonge boompjes op. Dan groeien er minder nieuwe bomen. Dat is echt gebeurd. Ruim honderdvijftig jaar geleden waren de wolven uit Nederland verdwenen. Sindsdien houden mensen het aantal herten en reeën klein door te jagen. Eén soort verdwijnt, en het hele web verandert mee. Ook planten en dieren die de wolf nooit eet.
 
-**s13** · 3:20.4 · `audio/s13.mp3` · 16.0 s · uitdaging
+**s13** · 3:20.4 · `audio/s13.mp3` · 19.6 s · uitdaging (tweede helft opnieuw ingesproken 7 nov 2026)
 
-Er gebeurt nog meer. Een wolf jaagt ook vossen weg, en doodt ze soms. Zonder wolf kunnen er meer vossen komen. Vossen eten eieren en jongen van vogels die op de grond broeden. Zo kan de wolf ook vogels helpen die hij zelf nooit eet.
+Er gebeurt nog meer. Een wolf jaagt ook vossen weg, en doodt ze soms. Zonder wolf kunnen er meer vossen komen. Vossen eten eieren en jongen van vogels die op de grond broeden. Jaagt de wolf de vossen weg, dan hebben die vogels minder vijanden. Zo helpt de wolf vogels die hij zelf nooit eet.
 
 
 ## Samenvatting

@@ -5,8 +5,8 @@
 | Bestand | `films/onderbouw/33c/3-wie-eet-wie/index.html` (audio in `audio/`: 12 mp3's, niet ingebed) |
 | Reeks / nummer | Kerndoelen onderbouw, kerndoel 33C (ecosystemen), film 3. Bullet 2: *verbanden leggen tussen kringlopen, voedselketens, voedselwebben en hun onderlinge samenhang in een ecosysteem* (SLO, definitieve conceptkerndoelen mens en natuur, nov. 2025) |
 | Doelgroep / niveau | onderbouw leerjaar 1–3, gemengde groepen. Basislijn eenvoudig; één blok **uitdaging** (s13: wolf → vos → grondbroeders). Schakelaar **Basis / Uitdaging** (`?niveau=basis`). Nergens havo/vwo/vmbo genoemd |
-| Versie / datum | 1.0 · 20 oktober 2026 |
-| Prompt | v6 |
+| Versie / datum | 1.2 · 7 november 2026 (1.0 · 20 oktober 2026; 1.1 · 25 oktober 2026, eindkaart) |
+| Prompt | v13 (opgewaardeerd 7 nov 2026; gemaakt met v6) |
 | Stem / model | Roos (ElevenLabs, voice_id `7qdUFMklKPaaAVMsBTBt`), model `eleven_v4`, één take per alinea, flow `nPnwM77hjwKV70hsIPTQ` (`stem/tts.json`, `stem/generaties.json`) |
 | Woordtijden | ElevenLabs Scribe (`eleven_scribe_v1`), één transcriptie per take; alle 12 takes woord voor woord gelijk aan de stem-invoer |
 | Duur | audio 186 s; speeltijd Uitdaging ± 4:10, Basis ± 3:55 (met vragen); zonder vragen ± 3:10 |
@@ -76,3 +76,16 @@ Zoals in film 2: tekst in `script_v2.md` → `maak_segmenten.py` → alleen die 
 ## Wijziging 25 okt 2026
 
 - Eindkaart 'Probeer het zelf' (gesproken zin + kaart met opdracht) vervangen door de kaart 'Onthoud' met drie kernzinnen; het eindfragment is nu stilte (woorden leeg). Reden: prompt v10 aanvulling, geen verwijzingen naar tools of opdrachten in de film, vooral niet uitgesproken (Kamiel 25 okt 2026). De bron (scenes, filmdata, script.md) is op dezelfde manier aangepast.
+
+## Wijziging 7 nov 2026: reviewronde Kamiel + opwaardering naar prompt v13 (versie 1.2)
+
+**Voldoet aan: prompt v13 (7 nov 2026, opwaardering zonder keuring).** Nagelopen op de wijzigingen v7–v13: geen korrel buiten cellen (alleen de Micro-look heeft korrel, die gebruikt deze film niet), geen wijslijnen (`naamBij` zet namen direct bij), Vragen uit (scripts antwoordtekst, kortantwoord, antwoordletter, spelerfix: in orde), Part C-kleuren, minimale tekstgrootte: alle meta-teksten van 22/24 px naar 28 px (C1). Bewust niet gevolgd:
+- Dieren via één generieke `viervoeter` (zijaanzicht, eenvoudig oog): C9 (v8) vraagt redelijk realistische dieren met een echt oog, niet alleen van opzij, volgens het uitknippop-recept (C10). Dat is nieuw tekenwerk voor de hele reeks 33C: kandidaat voor een reeksbrede ronde, niet per film.
+- Castpersonages worden in de stem bij naam genoemd: mag in de onderbouw (B4, uitzondering Part D).
+- Eén take per alinea met eleven_v4 bleef; geen andere wijzigingen aan stem of vragen.
+
+Verwerkt (opmerking Kamiel `-P5pct4o95N8pMX-jnu3`, s13 op 2:34: 'leg hier duidelijker uit dat de wolf door het wegjagen van vossen er indirect voor zorgt dat de vogels minder vijanden hebben'):
+- **s13 tweede helft opnieuw ingesproken** (Roos, eleven_v4, flow `nPnwM77hjwKV70hsIPTQ`, node `nhJma2wT8cf7Frw0xdTj`, 1 take, 180 credits; woordtijden Scribe node `5GTwgqtIsue8p50ATVxK`). Nieuw na 'komen.': 'Vossen eten eieren en jongen van vogels die op de grond broeden. Jaagt de wolf de vossen weg, dan hebben die vogels minder vijanden. Zo helpt de wolf vogels die hij zelf nooit eet.' Geplakt op de echte stilte na 'komen.' (7,82 s) met de oude opname ervoor; take op −16,5 LUFS. s13 duurt nu 19,6 s (was 16,0). `stem/woordtijden/s13.json`, `stem/segmenten_stem-invoer.json`, `filmdata.json`, `script.md`, `script_v2.md` en `FILMDATA` in index.html bijgewerkt.
+- **Beeld s13 in twee stappen:** eerst zonder wolf (wolf gedimd, drie vossen, 'meer vossen'), dan bij 'Jaagt' de wolf terug met 'jaagt weg', twee vossen lopen weg, 'minder vossen'; bij 'vijanden' de pil 'minder vijanden' bij de grondbroeders (groene rand) en de pijl vos → grondbroeders zwakker; bij 'helpt' de stippelboog met 'de wolf kan de vogels helpen'. Cue `q.at('Jaagt',2)` (de eerste 'jaagt' staat in zin 2).
+- **Vakinhoud:** het effect wolf → minder vossen is alleen lokaal aangetoond (bronnen.md); docentdeel kreeg een regel bij Vereenvoudigingen, beeldlabel zegt 'kan'. De gesproken zin 'Zo helpt de wolf …' is stelliger dan de oude ('Zo kan de wolf …'): twijfelpunt voorgelegd aan Kamiel.
+- Versie op de eindkaart 1.2 · november 2026; `bron/bronnen.md` aangemaakt; REVIEW weer 'nog bekijken'.

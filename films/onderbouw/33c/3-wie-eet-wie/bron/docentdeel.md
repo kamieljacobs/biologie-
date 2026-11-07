@@ -44,6 +44,7 @@ Drie voorspelvragen met 8 s denktijd. Pauzeer bij het voedselweb (H2) en laat le
 
 ## Vereenvoudigingen
 - Of de wolf in Nederland echt zorgt voor meer jonge bomen, wordt nog onderzocht; in andere gebieden (Białowieża, Yellowstone) is een effect gemeten, maar het is kleiner en ingewikkelder dan in de film. Herten mijden ook plekken waar wolven jagen. In Nederland houden mensen het aantal herten en reeën nu klein door jacht en beheer.
+- Wolf → vos → grondbroeders: wolven doden soms vossen, en in Zweedse wolventerritoria zijn minder vossen geteld; op grotere schaal en in Alaska is dat effect niet gevonden (wolven laten ook kadavers achter, waar vossen op afkomen). Dat vogels er echt van profiteren, is in Nederland niet gemeten. De film zegt daarom: de wolf *kan* de vogels helpen.
 - "Niemand eet een wolf": volwassen wolven hebben geen natuurlijke vijanden in Nederland; jonge wolven kunnen wel gedood worden.
 - Pissebedden en wormen zijn afvaleters (detrituseters); de film noemt alleen schimmels en bacteriën reducent. Trofische niveaus, energiestroom en piramides komen in de bovenbouwfilm *Alles gaat rond*.
 - De kringloop in de film is de kringloop van stoffen in het algemeen; koolstof en stikstof apart komen in de bovenbouw.

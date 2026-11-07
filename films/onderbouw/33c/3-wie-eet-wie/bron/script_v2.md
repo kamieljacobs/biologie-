@@ -37,7 +37,7 @@ Dat is echt gebeurd. Ruim honderdvijftig jaar geleden waren de wolven uit Nederl
 Eén soort verdwijnt, en het hele web verandert mee. Ook planten en dieren die de wolf nooit eet.
 
 [VWO-START] Er gebeurt nog meer. Een wolf jaagt ook vossen weg, en doodt ze soms. Zonder wolf kunnen er meer vossen komen.
-Vossen eten eieren en jongen van vogels die op de grond broeden. Zo kan de wolf ook vogels helpen die hij zelf nooit eet. [VWO-END]
+Vossen eten eieren en jongen van vogels die op de grond broeden. Jaagt de wolf de vossen weg, dan hebben die vogels minder vijanden. Zo helpt de wolf vogels die hij zelf nooit eet. [VWO-END]
 
 ## Samenvatting [Schema]
 Wat gebeurt er als de wolf verdwijnt? Er komen meer reeën en herten, en minder jonge bomen.

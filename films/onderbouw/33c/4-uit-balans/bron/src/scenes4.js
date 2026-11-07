@@ -3,7 +3,7 @@
 // Schema: grafiek muizen/uilen (dynamisch evenwicht), kringloop, verstoringen, tijdlijn van de successie, samenvatting.
 // Kleuren: planten groen, brand en warmte koraal, as grijs, mineralen oker, water teal, focus goud.
 
-function meta4(){ metaText(ctx,'schematisch · niet op schaal',W-40,CAPTION_Y-14,C.text2,'right',22); }
+function meta4(){ metaText(ctx,'schematisch · niet op schaal',W-40,CAPTION_Y-14,C.text2,'right',28); }
 const GROND=760;
 function lucht(){ ctx.fillStyle=C.bgMacroSky; ctx.fillRect(0,0,W,H); for(let i=0;i<25;i++) dot(ctx,hash(i*3.1)*W,30+hash(i*5.3)*220,1.2+hash(i)*1.2,rgba('#F2F2EE',0.35)); }
 function heuvels(){ ctx.fillStyle=C.berg; ctx.beginPath(); ctx.moveTo(0,520); [[220,430],[480,500],[760,410],[1100,500],[1400,430],[1700,500],[1920,450],[1920,600],[0,600]].forEach(([x,y])=>ctx.lineTo(x,y)); ctx.closePath(); ctx.fill(); ctx.fillStyle=C.bgMacroHill; leafPath(treeLine(0,W,600,60,50,80,4)); ctx.fill(); }
@@ -51,7 +51,7 @@ s01(ctx,t,q){ const tZ=q.at('zwart.'), tN=q.at('Noor'), tK=q.at('Komt');
 // ---- titel ----
 s03(ctx,t,q){ bg(ctx,'schema'); alpha(ctx,ramp(t,0.1,0.7),()=>{ text(ctx,'Uit balans',120,330,fTitel(96),C.text); text(ctx,'Hoe herstelt een bos na een brand?',120,410,fTekst(44),C.text2); });
   ctx.save(); ctx.beginPath(); roundRect(ctx,1080,480,720,330,18); ctx.clip(); ctx.translate(1080,480); ctx.scale(0.375,0.375); ctx.translate(0,-200); stukBos(t,{stad:ramp(t,0.4,3.2)*6}); ctx.restore(); roundRect(ctx,1080,480,720,330,18); ctx.strokeStyle=C.line; ctx.lineWidth=1.5; ctx.stroke();
-  metaText(ctx,'onderbouw · kerndoelen · ecosystemen 4',W-80,60,C.text2,'right',24); },
+  metaText(ctx,'onderbouw · kerndoelen · ecosystemen 4',W-80,60,C.text2,'right',28); },
 // ---- H1: bos in evenwicht, mastjaar ----
 s04(ctx,t,q){ const tM=q.at('Maar'), tE=q.at('eikels'), tMu=q.at('muizen.'), tU=q.at('uilen'), tWa=q.at('Wat');
   stukBos(t,{stad:6}); jaarTeller(1640,120,'vóór de brand',ramp(t,tM,0.4));
@@ -65,10 +65,10 @@ s06(ctx,t,q){ const tU=q.at('uilen'), tMi=q.at('minder',2), tO=q.at('neer,'), tD
   bg(ctx,'schema');
   if(t<tS-0.3){ // grafiek: muizen en uilen over 12 jaar
     const gx=240, gy=760, gw=1440, gh=440; ctx.strokeStyle=C.line; ctx.lineWidth=1.5; ctx.beginPath(); ctx.moveTo(gx,gy-gh); ctx.lineTo(gx,gy); ctx.lineTo(gx+gw,gy); ctx.stroke();
-    metaText(ctx,'jaren',gx+gw,gy+44,C.text2,'right',24); metaText(ctx,'aantal',gx,gy-gh-20,C.text2,'left',24);
+    metaText(ctx,'jaren',gx+gw,gy+44,C.text2,'right',28); metaText(ctx,'aantal',gx,gy-gh-20,C.text2,'left',28);
     const M=[0.45,0.8,0.4,0.5,0.6,0.85,0.42,0.5,0.55,0.78,0.4,0.52], U=[0.25,0.3,0.42,0.28,0.27,0.33,0.44,0.3,0.28,0.32,0.43,0.3];
-    const prog=ramp(t,0.2,Math.max(1,tO-0.2)); const lijn=(arr,kl,lw)=>{ ctx.strokeStyle=kl; ctx.lineWidth=lw; ctx.beginPath(); const n=Math.max(2,Math.floor(prog*arr.length)); for(let i=0;i<n;i++){ const x=gx+40+i*(gw-80)/(arr.length-1), y=gy-arr[i]*gh; i?ctx.lineTo(x,y):ctx.moveTo(x,y);} ctx.stroke(); };
-    alpha(ctx,ramp(t,tD-0.2,0.5),()=>{ ctx.fillStyle=rgba(C.goud,0.12); ctx.fillRect(gx+10,gy-0.7*gh,gw-20,0.32*gh); metaText(ctx,'evenwicht',gx+30,gy-0.72*gh-12,C.goud,'left',24); });
+    const prog=ramp(t,0.2,Math.max(1,tO-0.2)); const lijn=(arr,kl,lw)=>{ /* vloeiend (Kamiel 7 nov 2026): Catmull-Rom door de jaarpunten, doorlopend getekend tot prog */ const N=arr.length, P=k=>arr[Math.max(0,Math.min(N-1,k))], X=u=>gx+40+u*(gw-80)/(N-1); const val=u=>{ const i=Math.min(N-2,Math.floor(u)), f=u-i, p0=P(i-1),p1=P(i),p2=P(i+1),p3=P(i+2); return 0.5*((2*p1)+(-p0+p2)*f+(2*p0-5*p1+4*p2-p3)*f*f+(-p0+3*p1-3*p2+p3)*f*f*f); }; const uE=Math.max(0.02,prog)*(N-1); ctx.strokeStyle=kl; ctx.lineWidth=lw; ctx.lineJoin='round'; ctx.lineCap='round'; ctx.beginPath(); for(let u=0;u<=uE+1e-6;u=Math.min(uE,u+0.04)){ const y=gy-val(u)*gh; u?ctx.lineTo(X(u),y):ctx.moveTo(X(u),y); if(u>=uE) break; } ctx.stroke(); };
+    alpha(ctx,ramp(t,tD-0.2,0.5),()=>{ ctx.fillStyle=rgba(C.goud,0.12); ctx.fillRect(gx+10,gy-0.7*gh,gw-20,0.32*gh); metaText(ctx,'evenwicht',gx+30,gy-0.72*gh-12,C.goud,'left',28); });
     lijn(M,C.oker,4); alpha(ctx,ramp(t,tU,0.4),()=>lijn(U,C.text2,3));
     naamBij(ctx,'muizen','',gx+gw+10,gy-0.6*gh,1,'left',C.oker); naamBij(ctx,'uilen','',gx+gw+10,gy-0.3*gh,ramp(t,tU,0.4),'left',C.text2);
     alpha(ctx,ramp(t,tMi,0.4)*(1-ramp(t,tO,0.4)),()=>{ ctx.strokeStyle=C.goud; ctx.lineWidth=3; ctx.beginPath(); ctx.arc(gx+40+2*(gw-80)/11,gy-0.4*gh,30,0,6.283); ctx.stroke(); });
@@ -77,7 +77,7 @@ s06(ctx,t,q){ const tU=q.at('uilen'), tMi=q.at('minder',2), tO=q.at('neer,'), tD
   const P=[['bladeren vallen',C.groen,-90],['reducenten',C.teal,30],['mineralen → bomen',C.oker,150]]; const cx=W/2, cy=470, R=230;
   P.forEach(([nm,kl,ang],i)=>{ const a=ang*Math.PI/180; const x=cx+Math.cos(a)*R*1.5, y=cy+Math.sin(a)*R; alpha(ctx,ramp(t,tS+i*0.6,0.4),()=>{ roundRect(ctx,x-170,y-44,340,88,16); shape(ctx,rgba(C.bgSchema,0.95),kl,2); text(ctx,nm,x,y+12,fTekst(34,600),C.text,'center'); });
     const b=P[(i+1)%3][2]*Math.PI/180; const x2=cx+Math.cos(b)*R*1.5, y2=cy+Math.sin(b)*R; const an=Math.atan2(y2-y,x2-x); arrow(ctx,x+Math.cos(an)*190,y+Math.sin(an)*60,x2-Math.cos(an)*190,y2-Math.sin(an)*60,C.line,3,14,ramp(t,tS+i*0.6+0.4,0.5)); });
-  alpha(ctx,ramp(t,tK,0.4),()=>{ text(ctx,'kringloop',cx,cy+14,fTitel(60),C.goud,'center'); metaText(ctx,'zie: wie eet wie',cx,cy+60,C.grain,'center',22); }); meta4(); },
+  alpha(ctx,ramp(t,tK,0.4),()=>{ text(ctx,'kringloop',cx,cy+14,fTitel(60),C.goud,'center'); metaText(ctx,'zie: wie eet wie',cx,cy+60,C.grain,'center',28); }); meta4(); },
 // ---- H2: de brand, verstoring, as en regen ----
 s07(ctx,t,q){ const tBr=q.at('brand.'), tV=q.at('verstoring.'), tD=q.at('Dieren'), tAs=q.at('as.'), tK=q.at('kringloop'), tMi=q.at('mineralen.'), tW=q.at('wortels'), tR=q.at('regenbui'), tVs=q.at('Verstoringen');
   if(t<tVs-0.3){ const br=ramp(t,tBr-0.3,1.5)*(1-ramp(t,tAs,1.2));
@@ -128,7 +128,7 @@ s11(ctx,t,q){ const tC=q.at('Canada'), tH=q.at('hitte'), tO=q.at('open'), tZ=q.a
 s12(ctx,t,q){ const tV=q.at('Vanzelf,'), tSu=q.at('successie.'), tN=q.at('nooit'), tE=q.at('evenwicht.',1), tVe=q.at('verstoring,'), tNi=q.at('nieuw');
   if(t<tN-0.3){ const st=lerp(0.2,6,ramp(t,tV,Math.max(1,tSu-tV))); stukBos(t,{stad:st,stammen:st<1}); jaarTeller(1640,120,st<1.6?'na de brand':(st<3?'pioniers':(st<5?'struiken en berken':'weer bos')),1); return; }
   bg(ctx,'schema');
-  const gx=200, gy=720, gw=1520, gh=420; ctx.strokeStyle=C.line; ctx.lineWidth=1.5; ctx.beginPath(); ctx.moveTo(gx,gy-gh); ctx.lineTo(gx,gy); ctx.lineTo(gx+gw,gy); ctx.stroke(); metaText(ctx,'tijd',gx+gw,gy+44,C.text2,'right',24); metaText(ctx,'hoeveel bos',gx,gy-gh-20,C.text2,'left',24);
+  const gx=200, gy=720, gw=1520, gh=420; ctx.strokeStyle=C.line; ctx.lineWidth=1.5; ctx.beginPath(); ctx.moveTo(gx,gy-gh); ctx.lineTo(gx,gy); ctx.lineTo(gx+gw,gy); ctx.stroke(); metaText(ctx,'tijd',gx+gw,gy+44,C.text2,'right',28); metaText(ctx,'hoeveel bos',gx,gy-gh-20,C.text2,'left',28);
   const f=(u)=>{ if(u<0.35) return 0.8+0.06*Math.sin(u*60); if(u<0.4) return lerp(0.8,0.05,(u-0.35)/0.05); return 0.05+0.75*(1-Math.exp(-(u-0.4)*5))+0.06*Math.sin(u*60)*clamp((u-0.7)*4,0,1); };
   const prog=ramp(t,tN-0.2,Math.max(1,tNi-tN+1)); ctx.strokeStyle=C.groen; ctx.lineWidth=4; ctx.beginPath(); for(let i=0;i<=200*prog;i++){ const u=i/200, x=gx+u*gw, y=gy-f(u)*gh; i?ctx.lineTo(x,y):ctx.moveTo(x,y); } ctx.stroke();
   alpha(ctx,ramp(t,tE-0.4,0.4),()=>naamBij(ctx,'evenwicht','schommelt',gx+0.17*gw,gy-0.92*gh,1,'center',C.goud));
@@ -138,5 +138,5 @@ s12(ctx,t,q){ const tV=q.at('Vanzelf,'), tSu=q.at('successie.'), tN=q.at('nooit'
 s13(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Onthoud',120,200,fTitel(80),C.text);
   const K=['Na een verstoring herstelt de natuur stap voor stap: successie.','Eerst pioniers, dan struiken, dan bomen.','Aantallen dieren gaan op en neer rond een evenwicht.'];
   K.forEach((s,i)=>alpha(ctx,ramp(t,0.4+i*0.8,0.6),()=>{ const y=300+i*170; roundRect(ctx,120,y,1680,140,14); shape(ctx,rgba(C.bgSchema,0.95),i===0?C.goud:C.line,i===0?1.5:1); text(ctx,String(i+1),185,y+90,fTitel(60),C.goud,'center'); ctx.font=fTekst(38); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,s,260,y+84,1500,46); }));
-  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.1 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
+  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.2 · november 2026',W/2,CAPTION_Y-10,C.text2,'center',28); },
 };
