@@ -1,0 +1,54 @@
+{
+ "oud": {
+  "detail": "weinig",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "accent",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "los",
+  "beweging": "idle",
+  "opbouw": "in-een-keer",
+  "vondst": "fosfolipiden ook bij kleine cel: membraan wordt stekelrand"
+ },
+ "A": {
+  "detail": "veel",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "los",
+  "beweging": "idle",
+  "opbouw": "in-een-keer",
+  "vondst": "membraandikte en detailniveau schalen mee met de celgrootte"
+ },
+ "B": {
+  "detail": "midden",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "los",
+  "beweging": "proces",
+  "opbouw": "in-stappen",
+  "vondst": "blaasje versmelt echt met membraan; focus-onderdeel krijgt detail"
+ },
+ "C": {
+  "detail": "veel",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "los",
+  "beweging": "proces",
+  "opbouw": "in-stappen",
+  "vondst": "blaasje wordt een kuiltje ín het membraan dat vlak trekt"
+ }
+}

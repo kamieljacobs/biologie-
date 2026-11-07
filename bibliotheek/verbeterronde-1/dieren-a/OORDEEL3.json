@@ -1,0 +1,332 @@
+[
+ {
+  "obj": "ezel",
+  "scores": {
+   "P": {
+    "klopt": 2,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 17
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 19
+   }
+  },
+  "winnaar": "Q",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Staart vol en zwart over de hele lengte, als bij een paard of een lint",
+   "Q": "Poten rechte buizen zonder knie/hak in stap en draf"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "Poten in alle versies stijf: geen hak- of kniebuiging in de stap"
+ },
+ {
+  "obj": "grutto",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 19
+   },
+   "Q": {
+    "klopt": 3,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 15
+   }
+  },
+  "winnaar": "P",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Poten als dunne donkere strepen achter de staart, nauwelijks herkenbaar op klein formaat",
+   "Q": "Snavel afgebroken: dik roze stuk plus los donker gebogen lijntje; geen tweekleurige snavel"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "hond-mops",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 19
+   }
+  },
+  "winnaar": "P",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "P": "Opgetilde voorpoot: pols plooit, maar voetblokjes zijn wat hoekig",
+   "Q": "Opgetilde voorpoot als hoekig L-vormig blok, de pols plooit niet natuurlijk"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "hond-teckel",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 19
+   }
+  },
+  "winnaar": "P",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "P": "Voeten als klompjes met vierkante hoeken; voorpoot omhoog wat gekreukeld",
+   "Q": "Achterbil en dij minder leesbaar (geen schaduw), voorpoot omhoog met extra uitstulping"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "insecten",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 18
+   },
+   "Q": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 16
+   }
+  },
+  "winnaar": "P",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Poten als dunne lijnen met stippen, bijenpoot en mier kriebelig; vlinder zonder poten",
+   "Q": "Zes poten symmetrisch uitgespreid als ster, geen driepootgang; bij zonder stuifmeelkorfje; vlinder alleen bovenaanzicht zonder donkere onderkant"
+  },
+  "overnemen": "Niets essentieels; hoogstens de schonere pootlijnen van Q",
+  "combineren": true,
+  "fout": "Dagpauwoog heeft in alle versies geen poten (recept: vier volwaardige); poten zijn dunne lijnen zonder echte leden"
+ },
+ {
+  "obj": "koe",
+  "scores": {
+   "P": {
+    "klopt": 2,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 18
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "Q",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Geen hoornstompjes; snuit en kop lopen wit door zonder duidelijke neusspiegel",
+   "Q": "Poten recht, achterpoot zonder hakgewricht"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "Achterpoot is in alle versies een rechte zuil zonder hak, staart is een bruine strook die aan de bil lijkt te plakken"
+ },
+ {
+  "obj": "krokodilecht",
+  "scores": {
+   "P": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 17
+   },
+   "Q": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 19
+   }
+  },
+  "winnaar": "Q",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Lijf zweeft hoog boven de poten, poten als buizen uit de buik: geen laag lang lijf",
+   "Q": "Kop en snuit nog steeds te lang; staart niet zichtbaar zijdelings plat"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "Kop+snuit is ca. 27% van de lengte in plaats van ca. 1/7, in alle versies te groot/lang"
+ },
+ {
+  "obj": "leeuw-galop",
+  "scores": {
+   "P": {
+    "klopt": 2,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 2,
+    "bruikbaar": 4,
+    "totaal": 15
+   },
+   "Q": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 18
+   }
+  },
+  "winnaar": "Q",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Geen galop maar stap met opgetilde voorpoot, staart zonder kwast, achterbeen met donkere blok",
+   "Q": "In gestrekte fase zijn de achterpoten samengeklonterd tot bijna onleesbare blokken"
+  },
+  "overnemen": "Duidelijk gescheiden achterpoot met hak en voet zoals in P",
+  "combineren": true,
+  "fout": "Gestrekte galopfase: achterpoten nauwelijks als poten te herkennen, romp lijkt te zweven"
+ },
+ {
+  "obj": "muis",
+  "scores": {
+   "P": {
+    "klopt": 2,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 17
+   },
+   "Q": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 18
+   }
+  },
+  "winnaar": "Q",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "P": "Geen voorpootjes: zaadje zweeft los voor de bek",
+   "Q": "Wel voorpootjes, maar geen zaadje tussen de pootjes"
+  },
+  "overnemen": "Zaadje van P, nu tussen de voorpootjes van Q",
+  "combineren": true,
+  "fout": "Zittende muis zonder zichtbare achterpoot: alleen een roze stompje onder de romp"
+ },
+ {
+  "obj": "tijger",
+  "scores": {
+   "P": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 17
+   },
+   "Q": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 2,
+    "bruikbaar": 3,
+    "totaal": 15
+   }
+  },
+  "winnaar": "P",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Poten rommelig en hoekig, achterpoten als grijze klompen; romp en poten overlappen gek",
+   "Q": "Geen galop maar stap; staart hangt door de poten heen en maakt het beeld onrustig"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "Overlappende poten bestaan uit platte hoekige vlakken zonder duidelijke gewrichten"
+ },
+ {
+  "obj": "zeehond",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 19
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "Q",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "P": "Flippers veel donkerder dan de vacht, ogen als erop geplakt",
+   "Q": "Onderkant van de buik is recht afgeknipt"
+  },
+  "overnemen": "Flipperkleur van Q (zelfde grijs als lichaam)",
+  "combineren": false,
+  "fout": "De buik is in alle versies recht afgesneden (vlakke onderlijn), ook in de kleine versies"
+ }
+]

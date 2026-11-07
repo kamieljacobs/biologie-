@@ -1,0 +1,307 @@
+{
+ "versie": 1,
+ "film": "films/transport/2-buizen-onder-druk.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "schema-vaten",
+   "soort": "schema",
+   "titel": "Drie soorten buizen",
+   "opdracht": "Bovenaan zie je drie bloedvaten in doorsnede (niet op schaal), onderaan een ader in de lengte. Sleep de namen naar de goede vakjes.",
+   "alt": "Lijntekening: doorsneden van een slagader met dikke spierwand, een ader met dunne wand en een haarvat met een rode bloedcel; daaronder een ader in de lengte met een klep.",
+   "breed": 680,
+   "hoog": 400,
+   "vakbreed": 150,
+   "svg": "<circle cx=\"235\" cy=\"140\" r=\"64\" stroke-width=\"2.4\"/><circle cx=\"235\" cy=\"140\" r=\"56\" stroke-width=\"1.6\" class=\"acc\"/><circle cx=\"235\" cy=\"140\" r=\"38\" stroke-width=\"1.6\" class=\"acc\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M276.0 140.0 L287.6 146.3\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M275.4 147.1 L285.7 155.4\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M273.5 154.0 L282.3 164.0\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M270.5 160.5 L277.4 171.8\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M266.4 166.4 L271.2 178.7\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M261.4 171.4 L264.0 184.4\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M255.5 175.5 L255.8 188.7\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M249.0 178.5 L247.0 191.6\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M242.1 180.4 L237.9 192.9\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M235.0 181.0 L228.7 192.6\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M227.9 180.4 L219.6 190.7\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M221.0 178.5 L211.0 187.3\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M214.5 175.5 L203.2 182.4\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M208.6 171.4 L196.3 176.2\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M203.6 166.4 L190.6 169.0\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M199.5 160.5 L186.3 160.8\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M196.5 154.0 L183.4 152.0\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M194.6 147.1 L182.1 142.9\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M194.0 140.0 L182.4 133.7\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M194.6 132.9 L184.3 124.6\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M196.5 126.0 L187.7 116.0\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M199.5 119.5 L192.6 108.2\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M203.6 113.6 L198.8 101.3\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M208.6 108.6 L206.0 95.6\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M214.5 104.5 L214.2 91.3\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M221.0 101.5 L223.0 88.4\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M227.9 99.6 L232.1 87.1\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M235.0 99.0 L241.3 87.4\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M242.1 99.6 L250.4 89.3\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M249.0 101.5 L259.0 92.7\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M255.5 104.5 L266.8 97.6\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M261.4 108.6 L273.7 103.8\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M266.4 113.6 L279.4 111.0\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M270.5 119.5 L283.7 119.2\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M273.5 126.0 L286.6 128.0\"/><path class=\"acc zacht\" stroke-width=\"1\" d=\"M275.4 132.9 L287.9 137.1\"/><path stroke-width=\"1.4\" d=\"M269.0 140.0 L270.5 143.1 L268.5 145.9 L266.3 148.4 L266.9 151.6 L267.3 155.0 L264.4 157.0 L261.5 158.6 L261.0 161.9 L260.2 165.2 L256.9 166.0 L253.6 166.5 L252.0 169.4 L250.0 172.3 L246.6 171.9 L243.4 171.3 L240.9 173.5 L238.1 175.5 L235.0 174.0 L232.2 172.3 L229.1 173.5 L225.8 174.4 L223.4 171.9 L221.3 169.4 L218.0 169.4 L214.6 169.2 L213.1 166.0 L212.1 162.9 L209.0 161.9 L205.8 160.4 L205.6 157.0 L205.6 153.7 L203.1 151.6 L200.6 149.2 L201.5 145.9 L202.7 142.8 L201.0 140.0 L199.5 136.9 L201.5 134.1 L203.7 131.6 L203.1 128.4 L202.7 125.0 L205.6 123.0 L208.5 121.4 L209.0 118.1 L209.8 114.8 L213.1 114.0 L216.4 113.5 L218.0 110.6 L220.0 107.7 L223.4 108.1 L226.6 108.7 L229.1 106.5 L231.9 104.5 L235.0 106.0 L237.8 107.7 L240.9 106.5 L244.2 105.6 L246.6 108.1 L248.7 110.6 L252.0 110.6 L255.4 110.8 L256.9 114.0 L257.9 117.1 L261.0 118.1 L264.2 119.6 L264.4 123.0 L264.4 126.3 L266.9 128.4 L269.4 130.8 L268.5 134.1 L267.3 137.2 L269.0 140.0 Z\"/><circle cx=\"235\" cy=\"140\" r=\"29\" stroke-width=\"2\"/><g transform=\"translate(12 0)\"><path stroke-width=\"2.4\" d=\"M300 140 C300 108 330 96 362 100 C396 104 418 116 420 140 C422 166 398 178 362 178 C326 178 300 170 300 140 Z\"/><path stroke-width=\"1.6\" d=\"M307 140 C307 113 333 103 362 107 C392 111 412 121 413 140 C414 162 393 171 362 171 C330 171 307 164 307 140 Z\"/></g><circle cx=\"492\" cy=\"140\" r=\"31\" stroke-width=\"2.2\"/><circle cx=\"492\" cy=\"140\" r=\"24\" stroke-width=\"1.4\"/><path stroke-width=\"1.6\" d=\"M465 125 L471 128 M519 125 L513 128 M492 171 L492 164\"/><ellipse cx=\"506\" cy=\"116\" rx=\"7\" ry=\"3\" class=\"vul zacht\" transform=\"rotate(30 506 116)\"/><circle cx=\"492\" cy=\"140\" r=\"18\" stroke-width=\"2\" class=\"acc\"/><circle cx=\"492\" cy=\"140\" r=\"8\" stroke-width=\"1.2\" class=\"acc zacht\"/><text x=\"370\" y=\"226\" text-anchor=\"middle\" font-size=\"12\">doorsneden (niet op schaal)</text><path stroke-width=\"2.4\" d=\"M190 292 L500 292 M190 348 L500 348\"/><path stroke-width=\"2.2\" class=\"acc\" d=\"M330 294 C340 300 352 310 364 318 M330 346 C340 340 352 330 364 322\"/><path stroke-width=\"1.2\" class=\"acc zacht\" d=\"M330 294 C332 306 346 316 364 318 M330 346 C332 334 346 324 364 322\"/><path stroke-width=\"1.6\" d=\"M410 320 L460 320 M450 312 L460 320 L450 328\"/><text x=\"345\" y=\"378\" text-anchor=\"middle\" font-size=\"12\">in de lengte · naar het hart →</text>",
+   "vakjes": [
+    {
+     "naam": "slagader",
+     "x": 82,
+     "y": 50,
+     "punt": [
+      195,
+      90
+     ],
+     "uitleg": "dikke, stevige wand met elastische vezels en een spierlaag; vangt de hoge druk van elke hartslag op."
+    },
+    {
+     "naam": "spierlaag",
+     "x": 82,
+     "y": 190,
+     "punt": [
+      190,
+      152
+     ],
+     "uitleg": "kan een kleine slagader nauwer of wijder maken; zo verandert de hoeveelheid bloed die een orgaan krijgt."
+    },
+    {
+     "naam": "klep",
+     "x": 82,
+     "y": 300,
+     "punt": [
+      336,
+      304
+     ],
+     "uitleg": "laat het bloed maar één kant op: naar het hart. Zakt het bloed terug, dan klapt hij dicht."
+    },
+    {
+     "naam": "ader",
+     "x": 380,
+     "y": 38,
+     "punt": [
+      380,
+      104
+     ],
+     "uitleg": "dunne, slappe wand en een lage druk; voert bloed naar het hart."
+    },
+    {
+     "naam": "haarvat",
+     "x": 598,
+     "y": 80,
+     "punt": [
+      516,
+      120
+     ],
+     "uitleg": "wand van één laag dunne cellen; hier vindt de uitwisseling plaats."
+    },
+    {
+     "naam": "rode bloedcel",
+     "x": 598,
+     "y": 210,
+     "punt": [
+      500,
+      150
+     ],
+     "uitleg": "schuift één voor één door het haarvat."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-druk",
+   "soort": "volgorde",
+   "titel": "De druk langs de route",
+   "opdracht": "Volg het bloed van de linkerkamer tot terug bij het hart. Zet de vaten in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Aorta: de druk is hoog, ongeveer 120 over 80.",
+     "uitleg": "Hier spuit de linkerkamer het bloed in. Bovendruk tijdens de systole, onderdruk tijdens de diastole."
+    },
+    {
+     "tekst": "Kleinste slagaders: hier zit de grootste drukdaling.",
+     "uitleg": "De smalle slagaders geven veel weerstand."
+    },
+    {
+     "tekst": "Haarvaten: de druk zakt verder en het bloed stroomt het langzaamst.",
+     "uitleg": "De totale doorsnede is hier ongeveer duizend keer zo groot als die van de aorta. Er is tijd om stoffen uit te wisselen."
+    },
+    {
+     "tekst": "Aders: de druk is laag; kleppen en de spierpomp helpen.",
+     "uitleg": "Dunne, slappe wand. In de benen zitten veel kleppen."
+    },
+    {
+     "tekst": "Holle aders bij het hart: de druk is bijna nul.",
+     "uitleg": "Het bloed stroomt van hoge druk bij de linkerkamer naar lage druk bij de rechterboezem."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-flauwvallen",
+   "soort": "volgorde",
+   "titel": "Flauwvallen op het schoolplein",
+   "opdracht": "Je klasgenoot staat een half uur stil in de warmte en valt flauw. Zet de oorzaken en gevolgen in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Ze staat stil: haar kuitspieren knijpen de aders niet samen.",
+     "uitleg": "De spierpomp ligt stil."
+    },
+    {
+     "tekst": "De slappe aders in haar benen rekken uit en er blijft bloed in hangen; door de warmte ook in de wijde vaten van de huid.",
+     "uitleg": "Aders hebben een dunne, slappe wand. In de warmte staan de bloedvaten in de huid wijd open."
+    },
+    {
+     "tekst": "Er komt minder bloed terug naar haar hart.",
+     "uitleg": "Wat niet terugkomt, kan het hart ook niet wegpompen."
+    },
+    {
+     "tekst": "Haar hart pompt per slag minder bloed weg.",
+     "uitleg": "Het hart doet het gewoon; het krijgt alleen te weinig aangevoerd."
+    },
+    {
+     "tekst": "De druk in de slagaders naar haar hoofd zakt.",
+     "uitleg": "Minder bloed per slag geeft een lagere druk."
+    },
+    {
+     "tekst": "Haar hersenen krijgen te weinig bloed en zuurstof: ze valt flauw.",
+     "uitleg": "Liggend is haar hoofd op hartshoogte, zodat er weer genoeg bloed in haar hersenen komt."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-haarvaten",
+   "soort": "uitleg",
+   "titel": "Langzaam door de smalste vaten",
+   "opdracht": "Haarvaten zijn de smalste bloedvaten. Toch stroomt het bloed daar het langzaamst. Leg aan een klasgenoot uit hoe dat kan, en waarom dat handig is.",
+   "begrippen": [
+    {
+     "naam": "totale doorsnede",
+     "varianten": [
+      "doorsnede",
+      "samen breder",
+      "samen groter",
+      "duizend keer"
+     ]
+    },
+    {
+     "naam": "miljarden haarvaten",
+     "varianten": [
+      "heel veel haarvaten",
+      "veel haarvaten",
+      "miljarden",
+      "verdeelt",
+      "verdelen"
+     ]
+    },
+    {
+     "naam": "aorta",
+     "varianten": []
+    },
+    {
+     "naam": "uitwisseling",
+     "varianten": [
+      "uitwisselen",
+      "stoffen afgeven",
+      "zuurstof",
+      "tijd"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat het bloed zich verdeelt over heel veel haarvaten tegelijk.",
+    "Ik noem dat die samen een veel grotere doorsnede hebben dan de aorta (ongeveer duizend keer).",
+    "Ik leg uit dat hetzelfde bloed over meer ruimte verdeeld langzamer stroomt (zoals een rivier die in een meer uitkomt).",
+    "Ik leg uit dat er daardoor tijd is om stoffen uit te wisselen met de cellen."
+   ],
+   "model": [
+    "Eén haarvat is heel smal, maar het bloed gaat niet door één haarvat. Het verdeelt zich over miljarden haarvaten tegelijk. Samen hebben die een totale doorsnede die ongeveer duizend keer zo groot is als die van de aorta.",
+    "Hetzelfde bloed verdeelt zich dus over veel meer ruimte, en stroomt daar langzaam. Net als een snelle rivier die uitkomt in een breed meer.",
+    "Dat is handig: doordat het bloed langzaam stroomt, is er tijd om zuurstof, glucose en afvalstoffen uit te wisselen door de dunne wand van de haarvaten."
+   ]
+  },
+  {
+   "id": "uitleg-spierpomp",
+   "soort": "uitleg",
+   "titel": "Bergop terug uit je voeten",
+   "opdracht": "Na de haarvaten is er bijna geen druk meer over. Leg aan een klasgenoot uit hoe het bloed uit je voeten toch terugkomt bij je hart.",
+   "begrippen": [
+    {
+     "naam": "spierpomp",
+     "varianten": [
+      "spieren",
+      "kuitspieren",
+      "kuitspier"
+     ]
+    },
+    {
+     "naam": "kleppen",
+     "varianten": [
+      "klep"
+     ]
+    },
+    {
+     "naam": "ader",
+     "varianten": [
+      "aders"
+     ]
+    },
+    {
+     "naam": "één kant op",
+     "varianten": [
+      "1 kant op",
+      "een kant op",
+      "naar het hart",
+      "niet terug",
+      "terugzakken"
+     ]
+    },
+    {
+     "naam": "lage druk",
+     "varianten": [
+      "weinig druk",
+      "druk"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik noem dat de druk na de haarvaten te laag is om het bloed omhoog te duwen.",
+    "Ik leg uit dat de aders in je benen tussen je spieren liggen en dat de kuitspieren ze samenknijpen als je loopt.",
+    "Ik leg uit dat kleppen in de aders het bloed maar één kant op laten: naar het hart.",
+    "Ik noem dat spieren en kleppen samen de spierpomp vormen."
+   ],
+   "model": [
+    "Na de haarvaten is de druk laag: te laag om het bloed uit je voeten omhoog te duwen.",
+    "De aders in je benen liggen tussen je spieren. Als je loopt, knijpen je kuitspieren de aders steeds even samen. Dat duwt het bloed weg.",
+    "In de aders zitten kleppen. Die laten het bloed maar één kant op: naar het hart. Zakt het bloed terug, dan klappen ze dicht. Spieren en kleppen werken zo samen als een pomp: de spierpomp."
+   ]
+  },
+  {
+   "id": "uitleg-windketel",
+   "soort": "uitleg",
+   "vwo": true,
+   "titel": "Een gelijkmatige stroom uit een stotende pomp",
+   "opdracht": "Het hart pompt met stoten, maar in de haarvaten stroomt het bloed bijna gelijkmatig. En de druk in de aorta zakt nooit tot nul. Leg uit hoe dat komt.",
+   "begrippen": [
+    {
+     "naam": "elastische wand",
+     "varianten": [
+      "elastisch",
+      "elastische vezels",
+      "rekbaar",
+      "rekt uit",
+      "uitrekken"
+     ]
+    },
+    {
+     "naam": "systole",
+     "varianten": []
+    },
+    {
+     "naam": "diastole",
+     "varianten": [
+      "hartpauze"
+     ]
+    },
+    {
+     "naam": "terugveren",
+     "varianten": [
+      "veert",
+      "veren",
+      "terugvering",
+      "duwt na",
+      "duwt verder"
+     ]
+    },
+    {
+     "naam": "windketelwerking",
+     "varianten": [
+      "windketel"
+     ]
+    },
+    {
+     "naam": "onderdruk",
+     "varianten": []
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat de elastische wand van de aorta uitrekt tijdens de systole en zo een deel van het bloed opslaat.",
+    "Ik leg uit dat de wand tijdens de diastole terugveert en dat bloed verder duwt.",
+    "Ik noem dat de druk daardoor niet tot nul zakt: de onderdruk.",
+    "Ik noem de naam: windketelwerking."
+   ],
+   "model": [
+    "Bij elke systole spuit de linkerkamer bloed de aorta in. De elastische wand van de aorta rekt dan uit en slaat zo een deel van het bloed op.",
+    "Tijdens de diastole is de kamer ontspannen. Dan veert de wand van de aorta terug en duwt het opgeslagen bloed verder. Daardoor zakt de druk niet tot nul: dat is de onderdruk.",
+    "Dit heet de windketelwerking van de elastische slagaders. Zo wordt de stotende stroom uit het hart een bijna gelijkmatige stroom in de haarvaten."
+   ]
+  }
+ ]
+}

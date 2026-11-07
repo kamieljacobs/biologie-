@@ -1,0 +1,100 @@
+{
+ "slug": "neurowetenschappen-3-als-hersencellen-uitvallen",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Als hersencellen uitvallen",
+ "sub": "Parkinson, Alzheimer en epilepsie",
+ "puzzle": "Waarom helpt een medicijn tegen Parkinson eerst goed, en na jaren steeds korter?",
+ "meta": "neurowetenschappen · neurologie",
+ "alleen": "vwo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Neurowetenschappen",
+ "lead": "Bij Parkinson sterven de dopaminecellen in de zwarte stof af. Levodopa helpt, maar als er te weinig cellen over zijn om dopamine op te slaan, gaat de dopamine op en neer met elke pil. Bij Alzheimer klonteren eiwitten (amyloïd en tau) en verdwijnen synapsen, eerst rond de hippocampus. Bij epilepsie raakt het evenwicht tussen prikkelen en remmen zoek. Medicijnen voor de hersenen zijn moeilijk te maken: de bloed-hersenbarrière houdt de meeste stoffen tegen, muizen krijgen de ziekten niet vanzelf, en dode hersencellen komen meestal niet terug. Diepe hersenstimulatie is een behandeling zonder pil.",
+ "endHaak": "welke van deze drie ziekten zou jij willen onderzoeken, en waarom?",
+ "minis": {
+  "Hoofdstuk 1": "Waarom werkt de pil steeds korter?",
+  "Hoofdstuk 2": "Waarom verdwijnen nieuwe herinneringen het eerst?",
+  "Hoofdstuk 3": "Wat gebeurt er bij een aanval?",
+  "Hoofdstuk 4": "Waarom stoppen zo weinig medicijnen een hersenziekte?",
+  "Recap": "Is Opa Henk gewend geraakt aan zijn pillen?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Opa Henk, Noor en Dr. Kim (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Opa Henks pil tegen Parkinson werkt na een paar jaar steeds korter. Hoe komt dat?",
+   "correct": 1,
+   "explain": "Er zijn steeds minder dopaminecellen over die de dopamine kunnen opslaan en rustig afgeven. Gewenning is niet de hoofdoorzaak."
+  },
+  "q07": {
+   "q": "Een vrouw met beginnende Alzheimer weet haar trouwdag nog, maar niet wat ze vanochtend at. Hoe kan dat?",
+   "correct": 1,
+   "explain": "De schade begint meestal rond de hippocampus, die nodig is om nieuwe herinneringen vast te leggen. Oude herinneringen liggen al verspreid in de schors."
+  },
+  "q10": {
+   "q": "Wat moet een medicijn tegen epilepsie doen?",
+   "correct": 0,
+   "explain": "Het prikkelen afremmen (moeilijker snel achter elkaar vuren) of de remming versterken."
+  },
+  "q14": {
+   "q": "Een middel werkt bij muizen tegen Alzheimer, maar niet bij mensen. Wat is de meest waarschijnlijke reden?",
+   "correct": 1,
+   "explain": "Muizen krijgen vanzelf geen Alzheimer. Met menselijke genen krijgen ze klonten, maar dat is maar een deel van de ziekte."
+  }
+ },
+ "glossary": [
+  {
+   "t": "ziekte van Parkinson",
+   "d": "Ziekte waarbij de dopaminecellen in de zwarte stof langzaam afsterven; bewegen wordt trager en stijver, met trillen in rust."
+  },
+  {
+   "t": "zwarte stof",
+   "d": "Klein gebied diep in de hersenen met cellen die dopamine maken (substantia nigra)."
+  },
+  {
+   "t": "basale kernen",
+   "d": "Groep kernen diep in de hersenen die helpt bewegingen te starten en soepel te laten verlopen."
+  },
+  {
+   "t": "levodopa",
+   "d": "Medicijn tegen Parkinson; komt via een transporteiwit in de hersenen, waar cellen er dopamine van maken."
+  },
+  {
+   "t": "halfwaardetijd",
+   "d": "Tijd waarin de helft van een stof uit het bloed verdwenen is; voor levodopa ongeveer anderhalf uur."
+  },
+  {
+   "t": "ziekte van Alzheimer",
+   "d": "Meest voorkomende vorm van dementie; eiwitten klonteren, synapsen en later hele cellen verdwijnen."
+  },
+  {
+   "t": "amyloïd",
+   "d": "Eiwit dat bij Alzheimer plakkaten vormt tussen de hersencellen."
+  },
+  {
+   "t": "tau",
+   "d": "Eiwit dat bij Alzheimer in de hersencellen in de knoop raakt (kluwens)."
+  },
+  {
+   "t": "hippocampus",
+   "d": "Hersengebied dat nodig is om nieuwe herinneringen vast te leggen."
+  },
+  {
+   "t": "epileptische aanval",
+   "d": "Een groep hersencellen vuurt tegelijk doordat het evenwicht tussen prikkelen en remmen zoekraakt."
+  },
+  {
+   "t": "glutamaat en GABA",
+   "d": "Glutamaat is de belangrijkste prikkelende, GABA de belangrijkste remmende neurotransmitter in de hersenen."
+  },
+  {
+   "t": "bloed-hersenbarrière",
+   "d": "Strak aansluitende cellen in de wand van de haarvaten in de hersenen, waardoor de meeste stoffen uit het bloed er niet in komen."
+  },
+  {
+   "t": "diepe hersenstimulatie",
+   "d": "Behandeling met een elektrode diep in de hersenen en een kastje onder de huid dat stroompjes geeft; vermindert trillen en stijfheid bij Parkinson."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Bij iemand met Parkinson werkt een pil met levodopa na een paar jaar steeds korter. Leg uit hoe dat komt. Gebruik in je antwoord de opslag van dopamine. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Levodopa is snel weg uit het bloed (halfwaardetijd ± 1,5 uur) (1p). In het begin zijn er genoeg dopaminecellen die de gemaakte dopamine in blaasjes opslaan en geleidelijk afgeven, zodat het effect lang aanhoudt (1p). Later zijn er te weinig cellen over om op te slaan, dus volgt de dopamine de pieken en dalen van de pil: te veel beweging na de pil, stijfheid ervoor (1p). Het is dus vooral geen gewenning.</p></details></div>\n<div class=\"q\"><p><b>2.</b> Iemand met beginnende Alzheimer weet nog veel van vroeger, maar niet wat er vanochtend gebeurde. Verklaar dit. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>De schade (synapsverlies, klonten) begint meestal in en rond de hippocampus, die nodig is om nieuwe herinneringen vast te leggen (1p). Oude herinneringen zijn al verspreid in de schors opgeslagen en blijven langer intact (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Leg uit wat er in de hersenen gebeurt bij een epileptische aanval, en noem twee manieren waarop medicijnen een aanval kunnen voorkomen. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Het evenwicht tussen prikkelende (glutamaat) en remmende (GABA) signalen raakt in een groep cellen zoek, waardoor ze allemaal tegelijk gaan vuren (1p). Medicijnen maken het moeilijker om snel achter elkaar te vuren (1p) of versterken de remming (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Noem drie redenen waarom het moeilijk is medicijnen te maken die hersenziekten stoppen. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>De bloed-hersenbarrière houdt de meeste stoffen uit het bloed tegen (1p). Proefdieren zoals muizen krijgen de ziekte niet vanzelf; een nagebootste ziekte is maar een deel van de echte ziekte (1p). Afgestorven hersencellen worden meestal niet vervangen (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Extra film buiten het PTA op <i>Wat word jij?</i> → Neurowetenschappen. Bouwt voort op <i>De spleet</i>, <i>Knoeien met de synaps</i> (levodopa, gewenning), <i>Leren en onthouden</i> (hippocampus, operatie bij epilepsie) en <i>Kijken in een denkend brein</i> (EEG). Opa Henk is de patiënt met Parkinson, Noor zijn kleindochter, Dr. Kim zijn neuroloog.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul>\n<li><b>H1</b> zwarte stof en basale kernen, afsterven van dopaminecellen, levodopa en het verlies van opslag ('wearing-off'), piek en dal; de grafiek komt uit een eenvoudig model (halfwaardetijd 1,5 uur, drie pillen) en is kwalitatief.</li>\n<li><b>H2</b> amyloïd en tau, synapsverlies vóór celdood, begin rond de hippocampus, nieuwe antistofmedicijnen.</li>\n<li><b>H3</b> evenwicht glutamaat/GABA, focale en gegeneraliseerde aanvallen, EEG, medicijnen, chirurgie.</li>\n<li><b>H4</b> drie redenen: bloed-hersenbarrière, muismodellen (Cummings 2014), cellen die niet terugkomen; diepe hersenstimulatie.</li>\n</ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Dopaminecellen weg bij de eerste klachten</td><td>± de helft (klassiek 50–70%, recent eerder 30–50%)</td><td>Fearnley &amp; Lees 1991; Cheng e.a. 2010 (review)</td></tr>\n<tr><td>Halfwaardetijd levodopa (met carbidopa)</td><td>± 1,5 uur</td><td>farmacotherapeutisch kompas; Nyholm 2006</td></tr>\n<tr><td>Antistoffen tegen amyloïd</td><td>achteruitgang ± een kwart langzamer (lecanemab 27%, donanemab 35%)</td><td>van Dyck e.a. 2023 (NEJM); Sims e.a. 2023 (JAMA)</td></tr>\n<tr><td>Aanvalsvrij met medicijnen</td><td>± 2 op 3</td><td>Kwan &amp; Brodie 2000; Chen e.a. 2018</td></tr>\n<tr><td>Alzheimermiddelen 2002–2012</td><td>244 middelen, 413 onderzoeken, één goedgekeurd (99,6% gefaald)</td><td>Cummings e.a. 2014, Alzheimer's Research &amp; Therapy</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul><li>Bij gevorderde Parkinson spelen ook andere factoren mee (veranderingen achter de synaps, maaglediging); de film noemt alleen de hoofdoorzaak.</li><li>De oorzaak van Alzheimer is niet volledig bekend; de film laat de twijfel over de amyloïdhypothese zien.</li><li>Bij ongeveer de helft van de mensen met epilepsie is geen oorzaak te vinden; een structurele oorzaak (litteken, afwijking) is er soms. De film zegt 'soms een litteken, vaak niet'.</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Laat leerlingen de grafiek 'veel cellen' en 'weinig cellen' zelf schetsen bij drie pillen per dag, met en zonder opslag.</li><li>Bespreek: waarom testen we eerst in muizen, en wat zou een betere proef zijn? Koppel aan de film over medicijnen testen (Biomedische wetenschappen, komt nog).</li></ul>\n</section>\n"
+}

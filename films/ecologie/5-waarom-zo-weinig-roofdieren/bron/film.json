@@ -1,0 +1,119 @@
+{
+ "slug": "5-waarom-zo-weinig-roofdieren",
+ "hoofdstuk": "ecologie",
+ "hoofdstukNaam": "Ecologie",
+ "title": "Waarom zo weinig roofdieren?",
+ "sub": "energiestroom, piramides en tien procent",
+ "puzzle": "Waarom zijn er zo weinig roofdieren?",
+ "meta": "ecologie 5/8",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · reeks Ecologie · film 5 van 8",
+ "lead": "Energie stroomt één kant op: van de zon via het gras naar de dieren, en ze verlaat het ecosysteem als warmte. Stoffen gaan rond. Bij elke stap gaat het meeste op aan dissimilatie, en komt er gemiddeld maar ongeveer tien procent in het volgende niveau terecht. Daarom zijn er zo weinig roofdieren: hoog in de piramide is er te weinig energie over.",
+ "endHaak": "volgende film: Koolstof gaat rond",
+ "minis": {
+  "Hoofdstuk 1": "Hoeveel van het zonlicht wordt gras?",
+  "Hoofdstuk 2": "Hoeveel van het gras wordt koe?",
+  "Hoofdstuk 3": "Gaat energie rond, net als stoffen?",
+  "Hoofdstuk 4": "Hoeveel komt er bij het volgende niveau aan?",
+  "Hoofdstuk 5": "Waarom moet een spitsmuis bijna steeds eten?",
+  "Recap": "Waarom zijn er zo weinig roofdieren?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Dieren: uitknippoppen uit de dierenbibliotheek en de ecologiepoppen; personages uit het castboek. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q08": {
+   "q": "Wanneer breekt het gras zelf glucose af, met dissimilatie?",
+   "correct": 1,
+   "explain": "Een grasplant leeft, en elke levende cel heeft energie nodig. Dus dissimileert het gras dag en nacht. Overdag doet het daarnaast fotosynthese, en die is dan groter."
+  },
+  "q20": {
+   "q": "Opname 200 MJ per dag. Feces 60 MJ. Dissimilatie 135 MJ. Hoeveel procent van de opname wordt productie?",
+   "correct": 0,
+   "explain": "Het rund neemt op een dag ongeveer tweehonderd megajoule op. Ongeveer zestig gaat naar de feces, en honderdvijfendertig naar dissimilatie. Dan blijft er vijf megajoule over voor productie."
+  },
+  "q25": {
+   "q": "De energie in de mest. Komt die terug in het gras?",
+   "correct": 2,
+   "explain": "De reducenten breken de mest af tot koolstofdioxide, water en mineralen. Die stoffen gaan terug naar het gras. Stoffen gaan rond."
+  },
+  "q34": {
+   "q": "Welke piramide staat nooit op zijn kop?",
+   "correct": 0,
+   "explain": "Elk niveau krijgt zijn energie alleen van het niveau eronder, en raakt er onderweg het meeste van kwijt. Daarom is in de piramide van energie elk niveau smaller dan het niveau eronder. Altijd."
+  },
+  "q40": {
+   "q": "Welk dier eet per gram lichaam het meest?",
+   "correct": 1,
+   "explain": "De spitsmuis eet per gram vele keren zo veel als de hagedis. Ze is endotherm, warmbloedig. Ze houdt haar lichaam warm met warmte uit haar eigen dissimilatie."
+  }
+ },
+ "glossary": [
+  {
+   "t": "energiestroom",
+   "d": "Doorgifte van energie door een ecosysteem in één richting: van zonlicht via producenten naar consumenten en reducenten; bij elke stap gaat het grootste deel verloren als warmte door dissimilatie."
+  },
+  {
+   "t": "bruto primaire productie (BPP)",
+   "d": "Alle organische stof (of energie) die producenten per oppervlakte en per tijd met fotosynthese vastleggen."
+  },
+  {
+   "t": "netto primaire productie (NPP)",
+   "d": "BPP min de dissimilatie van de producenten zelf: de aangroei die beschikbaar is voor consumenten en reducenten (NPP = BPP − R)."
+  },
+  {
+   "t": "biomassa",
+   "d": "Massa van de organische stof van (een groep) organismen in een gebied, meestal als drooggewicht per oppervlakte."
+  },
+  {
+   "t": "drooggewicht (droge stof)",
+   "d": "Massa van biologisch materiaal nadat al het water is verdampt (gedroogd tot constant gewicht)."
+  },
+  {
+   "t": "energiestroomschema",
+   "d": "Schema dat laat zien hoe de opgenomen energie van een organisme of trofisch niveau verdeeld wordt over feces, dissimilatie en productie."
+  },
+  {
+   "t": "feces",
+   "d": "Onverteerd voedsel dat het lichaam verlaat (ontlasting); de energie erin is niet opgenomen en gaat naar detrituseters en reducenten."
+  },
+  {
+   "t": "productie (van een consument)",
+   "d": "Opname min feces min dissimilatie: wat wordt ingebouwd in groei en voortplanting (en melk)."
+  },
+  {
+   "t": "secundaire productie",
+   "d": "Toename van biomassa van consumenten per oppervlakte en per tijd: opname min feces min dissimilatie.",
+   "vwo": true
+  },
+  {
+   "t": "trofisch niveau",
+   "d": "Plaats in de voedselketen: producenten zijn het eerste niveau, consumenten van de eerste orde het tweede, consumenten van de tweede orde het derde, enzovoort."
+  },
+  {
+   "t": "voedselketen (pijlrichting)",
+   "d": "Reeks organismen waarin elk het volgende tot voedsel dient; de pijl wijst van wat gegeten wordt naar wie eet, in de richting van de energiestroom."
+  },
+  {
+   "t": "piramide van aantallen, biomassa en energie",
+   "d": "Diagram met per trofisch niveau het aantal individuen, de biomassa op één moment of de energie per jaar; de piramide van energie wordt naar boven toe altijd smaller."
+  },
+  {
+   "t": "endotherm (warmbloedig)",
+   "d": "Houdt de lichaamstemperatuur vrijwel constant met warmte uit de eigen dissimilatie, zoals zoogdieren en vogels."
+  },
+  {
+   "t": "ectotherm (koudbloedig)",
+   "d": "Lichaamstemperatuur volgt de omgeving; warmt op met warmte van buiten (zon), zoals reptielen en insecten."
+  },
+  {
+   "t": "voedselconversie",
+   "d": "Mate waarin een dier voer omzet in lichaamsmassa; de voedselconversiefactor is het aantal kg voer voor 1 kg groei (hoe lager, hoe efficiënter)."
+  },
+  {
+   "t": "productiviteit per ecosysteem",
+   "d": "NPP per vierkante meter per jaar verschilt per ecosysteem door abiotische factoren als licht, temperatuur, water en mineralen.",
+   "vwo": true
+  }
+ ],
+ "sections": "<section><h2>Checkvragen</h2>\n  <p class=\"meta\">antwoorden ingeklapt</p>\n  <div class=\"q\"><p><b>1.</b> Leg uit waarom energie in een ecosysteem niet rondgaat, terwijl koolstof en stikstof dat wel doen.</p><details><summary>Antwoord</summary><p>Organismen maken bij dissimilatie energie vrij; die wordt uiteindelijk warmte, en warmte kan geen organisme gebruiken om stoffen te maken. Stoffen als CO₂, water en mineralen komen na afbraak door reducenten wel weer beschikbaar voor producenten.</p></details></div>\n  <div class=\"q\"><p><b>2.</b> Een rups eet blad met 200 kJ energie. 120 kJ verlaat de rups als feces en 64 kJ gebruikt ze bij dissimilatie. Bereken de productie in kJ en als percentage van de opname.</p><details><summary>Antwoord</summary><p>200 − 120 − 64 = 16 kJ; 16/200 × 100 % = 8 %.</p></details></div>\n  <div class=\"q\"><p><b>3.</b> Leg met de energiestroom uit waarom voor 1 kg rundvlees meer landbouwgrond nodig is dan voor 1 kg graan.</p><details><summary>Antwoord</summary><p>Bij elke stap in de voedselketen gaat het grootste deel van de energie verloren (feces, dissimilatie, warmte); het rund staat een trofisch niveau hoger, dus er is veel meer plantaardige productie en grond nodig voor dezelfde hoeveelheid voedsel.</p></details></div>\n  <div class=\"q\"><p><b>4.</b> Runderen zetten hun voer veel minder efficiënt om in lichaamsmassa dan insecten. Wat is de belangrijkste oorzaak?</p><details><summary>Antwoord</summary><p>Runderen zijn endotherm: ze gebruiken veel energie bij dissimilatie om hun lichaamstemperatuur constant te houden; insecten zijn ectotherm en houden meer over voor groei.</p></details></div>\n  <div class=\"q\"><p><b>5.</b> Waarom bepaal je biomassa als drooggewicht, en waarom droog je tot het gewicht niet meer verandert?</p><details><summary>Antwoord</summary><p>Het watergehalte wisselt sterk en is geen organische stof; pas als al het water weg is (constant gewicht) meet je alleen de droge stof.</p></details></div>\n  <div class=\"q vwo-only\"><p><b>6.</b> In een kas worden tomaten geteeld. Noem twee verschillen tussen de &quot;productie&quot; van de teler (kg tomaten) en de NPP van de kas. <span class=\"vwo-badge\">vwo</span></p><details><summary>Antwoord</summary><p>NPP is de toename van alle organische stof (droog) van de hele plant, dus ook stengels, bladeren en wortels; de teler telt alleen vruchten en meet versgewicht (met water).</p></details></div>\n  <div class=\"q vwo-only\"><p><b>7.</b> Leg uit waarom de netto primaire productie per vierkante meter in de open oceaan laag is, terwijl daar genoeg licht en water is. <span class=\"vwo-badge\">vwo</span></p><details><summary>Antwoord</summary><p>Er zijn in het open water te weinig mineralen (zoals nitraat en fosfaat); die zijn daar de beperkende factor voor de groei van algen.</p></details></div>\n</section>\n<section><h2>Voor de docent</h2>\n  <h3>Hoe de film het uitlegt</h3>\n  <table><tr><th>Hoofdstuk</th><th>Type · look</th><th>Minivraag</th></tr>\n  <tr><td>1. Het gras (basis (+ vwo-blok NPP per ecosysteem))</td><td>F · Macro → Schema</td><td>Hoeveel van het zonlicht wordt gras?</td></tr>\n  <tr><td>2. De koe (basis (+ vwo-blok secundaire productie))</td><td>F · Macro → Schema</td><td>Hoeveel van het gras wordt koe?</td></tr>\n  <tr><td>3. Waar blijft de energie?</td><td>F · Macro → Schema</td><td>Gaat energie rond, net als stoffen?</td></tr>\n  <tr><td>4. Van niveau naar niveau</td><td>F · Schema + Macro</td><td>Hoeveel komt er bij het volgende niveau aan?</td></tr>\n  <tr><td>5. Warm of koud</td><td>G · Macro → Schema</td><td>Waarom moet een spitsmuis bijna steeds eten?</td></tr>\n  </table>\n  <h3>Getallen en bronnen</h3>\n  <table><tr><th>Wat</th><th>Bron</th></tr>\n  <tr><td>Rendement fotosynthese: gewassen ±1–2 % van het opvallende zonlicht in biomassa; planten algemeen ±0,2–2 %</td><td>Wikipedia (en) Photosynthetic efficiency, tabel &quot;sunlight-to-biomass efficiency&quot;, geraadpleegd 29 okt 2026</td></tr>\n  <tr><td>NPP ≈ de helft van BPP: NPP/GPP gemiddeld 0,46 (spreiding 0,22–0,79) over &gt;200 studies (bossen); Waring: 0,47</td><td>Collalti &amp; Prentice 2019, Is NPP proportional to GPP? Waring&#x27;s hypothesis 20 years on (Tree Physiology), samenvatting op researchers.mq.edu.au; in de film &quot;vaak ongeveer de helft&quot;</td></tr>\n  <tr><td>Grasland Nederland: maximaal haalbare opbrengst zonder beregenen gemiddeld 14,3 t droge stof/ha/jaar</td><td>Melkvee.nl, &quot;Jaarlijks 1,5 ton grasopbrengst minder door verminderd stikstofgebruik&quot; (WUR-berekening); film: &quot;tot ongeveer veertien ton&quot;</td></tr>\n  <tr><td>NPP (g droge stof/m²/jaar): moeras 2500, tropisch regenwoud 2000, gematigd loofbos 1200, akker 650, gematigd grasland 500, open oceaan 125, woestijnstruweel 70</td><td>Ricklefs, The Economy of Nature 7e, hfdst. 20 (naar Whittaker &amp; Likens), digfir-published.macmillanusa.com; controle: batrachos.com tabel III-7.1 (regenwoud 2200, open oceaan 125, akker 650)</td></tr>\n  <tr><td>Rekenvoorbeeld koe: opname 200 MJ/dag, feces 60, dissimilatie 135, productie 5 MJ (±2,5 % van de opname, ±3,6 % van het opgenomene). Constructie, afgerond.</td><td>Geijkt aan Life (Sadava e.a.) tabel 57.1: productie-efficiëntie grote zoogdieren 3,1 %, kleine zoogdieren 1,5 %, vogels 1,3 %, niet-sociale insecten 40,7 % (digfir-published.macmillanusa.com/life11e/life11e_ch57_12.html); NVON-les 7.2.0: Pn/A volwassen warmbloedige gewervelden ±0,02</td></tr>\n  <tr><td>Gemiddeld ±10 % van de energie van een trofisch niveau komt in het volgende</td><td>Pauly &amp; Christensen 1995 (Nature 374: 255) via fishbase.se/Ecopath/PPRnatur.htm: gemiddelde transferefficiëntie 10 %; NVON 7.2.0 (Binas 93A): gemiddeld 10 %</td></tr>\n  <tr><td>Meetstal (klimaatrespiratiecel) meet CO₂, CH₄, NH₃ en energiemetabolisme (indirecte calorimetrie) bij koeien</td><td>WUR, Climate Respiration Chambers (wur.nl/web/show/id=1971485)</td></tr>\n  <tr><td>Vos: leefgebied 100–400 hectare</td><td>Zoogdier 1995 6(3) (natuurtijdschriften.nl/pub/589727)</td></tr>\n  <tr><td>Veldmuis: dichtheden van ±100 tot &gt;500 per hectare, in piekjaren tot 2000</td><td>Wikipedia (en) Common vole, geraadpleegd 29 okt 2026; film: &quot;honderden muizen en spitsmuizen&quot;</td></tr>\n  <tr><td>Bosspitsmuis (Sorex araneus), veldmeting met dubbel gelabeld water, NO-Polen, zomer: ± 8,2 g, veldmetabolisme 58,1 ± 8,0 kJ per dag = 216–258 % van de verwachting voor een standaardzoogdier van die massa; hoogste massaspecifieke veldmetabolisme bij zoogdieren; &quot;operates close to its physiological limits&quot;</td><td>Ochocińska &amp; Taylor 2005, Physiological and Biochemical Zoology 78(5): 808–818, doi 10.1086/431190 (abstract geopend via bib-bvb.de, JSTOR 30161319)</td></tr>\n  <tr><td>Berekening (niet in de vertelling): 58,1 kJ / 8,2 g ≈ 7,1 kJ per gram per dag; voor 60 kg zou dat ± 425.000 kJ per dag zijn. Niet gebruikt, omdat ik voor het verbruik van een mens geen A-bron kon openen.</td><td>eigen berekening uit Ochocińska &amp; Taylor 2005</td></tr>\n  <tr><td>Zandhagedis: ±15 g, tot ±20 cm met staart</td><td>Better Planet Education factsheet Sand lizard; a-z-animals.com Sand lizard</td></tr>\n  <tr><td>Ectothermen: dagelijkse energiebehoefte per gram &lt; 1/10 van vogels en zoogdieren van gelijke grootte; in het veld verbruiken endothermen ±17× zo veel als een reptiel van gelijke grootte</td><td>NAU Bio 300, Temperature regulation in tetrapod vertebrates (www2.nau.edu/~gaud/bio300/tempreg.htm); CNS, Energy and nutrient requirements (cnsweb.org)</td></tr>\n  <tr><td>Insecten gemiddeld 2 kg voer per kg lichaamsmassa; rund 8 kg voer per kg gewichtstoename</td><td>FAO, Insects for food and feed (fao.org/edible-insects), naar Van Huis e.a. 2013</td></tr>\n  <tr><td>Rundvlees: ±3 % van de voercalorieën komt in het vlees (energie én eiwit)</td><td>Shepon e.a. 2016, PNAS, samenvatting op cris.iucc.ac.il; ook Lappé 2015 (smallplanet.org) naar Eshel e.a.</td></tr>\n  </table>\n  <h3>Keuzes en vereenvoudigingen</h3>\n  <ul>\n  <li>B15: winnaar is de combinatie B + C (ronde 2: 34–31 van B); ronde 1 was nipt (B 33, C 32, A 27). Overgenomen: veehouder als meter met zijn boek (B), meetstations met voorspellen vóór de meting, meetstal en controleproef (C), één vraag in de cold open (A), pijlvraag (advies beoordelaar).</li>\n  <li>De jaarmeting van één hectare is een gedachteproef (&quot;meet hij in gedachten&quot;); de spitsmuis-hagedisproef idem (&quot;Stel, je doet een proef&quot;). De getallen zijn echte meetwaarden, afgerond.</li>\n  <li>Rekenvoorbeeld is een jong vleesrund, geen melkkoe: een melkkoe legt veel meer energie vast in melk (productie veel hoger dan 2,5 %). Zelf gevonden bij de controle als bioloog en hersteld (eerst stond er groei, kalf, melk).</li>\n  <li>Energiestroomschema vereenvoudigd tot opname, feces, dissimilatie en productie (zoals Binas 93A); energie in urine en methaan bij de koe is weggelaten. Rekenvoorbeeld koe (200/60/135/5 MJ) is een constructie die past bij de productie-efficiëntie van grote zoogdieren (±3 %).</li>\n  <li>Twee percentages kunnen botsen: productie van één koe (±2,5 % van de opname) en ±10 % per trofisch niveau. De film zegt expliciet dat de 10 % een gemiddelde over een heel niveau is en dat het bij warmbloedige dieren vaak minder is.</li>\n  <li>NPP ≈ de helft van BPP: de bron (Collalti &amp; Prentice) gaat over bossen; voor grasland &quot;vaak ongeveer de helft&quot; gelaten.</li>\n  <li>Grasopbrengst 14 t ds/ha is de oogstbare bovengrondse opbrengst van bemest grasland (maximaal haalbaar), geen volledige NPP; daarom &quot;kan oplopen tot&quot;. Het staafdiagram (vwo) gebruikt natuurlijke ecosystemen (Ricklefs).</li>\n  <li>Kamiel: Mammal Society geen A-bron → Ochocińska &amp; Taylor 2005. e5s33 zegt nu het gemeten energieverbruik (± 58 kJ per dag bij ± 8 g, 2–2,5× de verwachting) in plaats van &quot;bijna haar eigen gewicht&quot;; &quot;om de twee à drie uur&quot; (Mammal Society/Wikipedia) is vervangen door &quot;dicht bij haar grens … bijna aan één stuk eten&quot;. Twijfel weg.</li>\n  <li>Familie aan tafel bij de biefstuk: familie van Noor (Noor, Linda, Rachid, Teun) als menselijk moment dat de voedselconversie draagt; niet bij naam genoemd. Veehouder = Veehouder Gerrit (vaste rol), niet bij naam genoemd.</li>\n  <li>Omgekeerde piramide van aantallen: één knotwilg aan de slootkant met bladluizen en lieveheersbeestjes (lhb uit lib_evo, Aziatisch lieveheersbeestje); eik/rups/pimpelmees hoort bij film 2 (besluit coördinator).</li>\n  <li>HERSTEL review (MOET 1): e5s36 noemde 20 °C en gewicht &quot;controle&quot;; nu &quot;constant gehouden&quot;, plus een derde bakje met alleen voer als echte controle (in tekst en beeld).</li>\n  <li>HERSTEL review (MOET 2): het bord met de biefstuk was ± 75 cm en het gezin stond; nu zit het gezin aan tafel (pose zit) en is het bord ± 25 cm.</li>\n  <li>HERSTEL review (MOET 3): in e5s02 lag het label &quot;één vos&quot; over een koe; verplaatst.</li>\n  <li>HERSTEL review (MOET 4): de pijlrichtingsvraag (oude e5q26) geschrapt, die hoort in film 3; de uitleg is teruggebracht tot één zin over de pijl plus de trofische niveaus (nodig voor H4). H3 houdt de vraag over energie in de mest.</li>\n  <li>HERSTEL review (MOET 5): eik met rupsen en pimpelmezen vervangen door een wilg met bladluizen en lieveheersbeestjes.</li>\n  <li>HERSTEL review (KAN): &quot;meet hij in gedachten&quot; → &quot;Stel dat hij een jaar lang één hectare bijhoudt&quot;; e5s21 (herhaling) samengevoegd met de scène over secundaire productie; koeienvlaai zonder draden en met mestkevers; bij de vos een label &quot;± 1 % van de NPP&quot; (10 % × 10 %; de opmerking &quot;&lt; 0,1 %&quot; van de review geldt pas voor het vierde niveau). De scènes zijn daarna doorgenummerd.</li>\n  <li>Niet gedaan (review KAN): de vos is het roofdier gebleven (de coördinator noemt dat acceptabel); de vraag &quot;dissimileert een plant dag en nacht&quot; blijft in film 5 en is in film 6 anders gesteld (stolp-vraag).</li>\n  <li>Niet in deze film (andere films): accumulatie (Eén aarde), predator-prooicycli (film 3), reducenten in detail (film 4), koolstofkringloop (film 6).</li>\n  </ul>\n  <h3>Plaats in de reeks</h3>\n  <p>Film 5 van 8 in de reeks Ecologie (havo en vwo; elke film staat op zichzelf). Havo: Biologie voor Jou, thema 7, paragraaf 7.3. Vwo: Nectar, paragraaf 8.2. Vorige: Waar blijft het blad?. Volgende: Koolstof gaat rond.</p>\n</section>\n"
+}

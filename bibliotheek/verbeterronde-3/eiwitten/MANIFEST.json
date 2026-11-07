@@ -1,0 +1,44 @@
+[
+ {
+  "obj": "rnaPolymerase",
+  "functies": [
+   "rnaPolymerase"
+  ],
+  "bestand": "rnaPolymerase/DEF.js",
+  "vereist": "verbeterronde-2/eiwitten/_hulp.js (_kkKluwen, _kkPad, _kkHelix) en _grKralen, _lintVorm, _ellips uit lib_bio.js"
+ },
+ {
+  "obj": "kopStand",
+  "functies": [
+   "kopStand"
+  ],
+  "bestand": "kopStand/DEF.js",
+  "let": "nieuwe consts _MYO_KOP, _MYO_BUUR",
+  "vereist": "verbeterronde-2/eiwitten/_hulp.js (_kkKluwen, _kkPad, _kkHelix) en _grKralen, _lintVorm, _ellips uit lib_bio.js"
+ },
+ {
+  "obj": "kernEnvelopPorie",
+  "functies": [
+   "kernEnvelopPorie"
+  ],
+  "bestand": "kernEnvelopPorie/DEF.js",
+  "let": "nieuwe const _POR",
+  "vereist": "verbeterronde-2/eiwitten/_hulp.js (_kkKluwen, _kkPad, _kkHelix) en _grKralen, _lintVorm, _ellips uit lib_bio.js"
+ },
+ {
+  "obj": "tHelperCel",
+  "functies": [
+   "tHelperCel"
+  ],
+  "bestand": "tHelperCel/DEF.js",
+  "vereist": "verbeterronde-2/eiwitten/_hulp.js (_kkKluwen, _kkPad, _kkHelix) en _grKralen, _lintVorm, _ellips uit lib_bio.js"
+ },
+ {
+  "obj": "hivVirus",
+  "functies": [
+   "hivVirus"
+  ],
+  "bestand": "hivVirus/DEF.js",
+  "vereist": "verbeterronde-2/eiwitten/_hulp.js (_kkKluwen, _kkPad, _kkHelix) en _grKralen, _lintVorm, _ellips uit lib_bio.js"
+ }
+]

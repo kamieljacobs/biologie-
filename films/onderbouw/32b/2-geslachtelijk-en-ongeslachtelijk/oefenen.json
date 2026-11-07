@@ -1,0 +1,186 @@
+{
+ "versie": 1,
+ "film": "films/onderbouw/32b/2-geslachtelijk-en-ongeslachtelijk/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "indelen-voortplanting",
+   "soort": "indelen",
+   "titel": "Eén ouder of twee?",
+   "opdracht": "Is dit geslachtelijke of ongeslachtelijke voortplanting?",
+   "bakken": [
+    {
+     "naam": "Ongeslachtelijk",
+     "uitleg": "één ouder"
+    },
+    {
+     "naam": "Geslachtelijk",
+     "uitleg": "twee ouders"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Een aardbei maakt uitlopers met nieuwe plantjes.",
+     "bak": 0,
+     "uitleg": "Eén ouder, zonder bloemen of zaad."
+    },
+    {
+     "tekst": "Een aardappel die je laat liggen, maakt nieuwe plantjes.",
+     "bak": 0,
+     "uitleg": "Het nieuwe plantje is een kopie."
+    },
+    {
+     "tekst": "Een stekje groeit uit tot een nieuwe plant.",
+     "bak": 0,
+     "uitleg": "Dezelfde genen als de moederplant."
+    },
+    {
+     "tekst": "Een bacterie deelt zich in tweeën.",
+     "bak": 0,
+     "uitleg": "Twintig minuten later delen ze allebei weer."
+    },
+    {
+     "tekst": "Een kikkermannetje laat zaadcellen los over de eitjes.",
+     "bak": 1,
+     "uitleg": "Bevruchting in het water."
+    },
+    {
+     "tekst": "Een bij brengt stuifmeel naar een andere bloem.",
+     "bak": 1,
+     "uitleg": "Daarin zit wat de zaadcel is bij een plant."
+    },
+    {
+     "tekst": "Een aardbei vol zaadjes groeit uit een bloem.",
+     "bak": 1,
+     "uitleg": "Ook de aardbei kan zich geslachtelijk voortplanten."
+    }
+   ]
+  },
+  {
+   "id": "indelen-kenmerken",
+   "soort": "indelen",
+   "titel": "Kopie of nieuwe mix?",
+   "opdracht": "Past dit kenmerk bij ongeslachtelijke of bij geslachtelijke voortplanting?",
+   "bakken": [
+    {
+     "naam": "Ongeslachtelijk"
+    },
+    {
+     "naam": "Geslachtelijk"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "De nakomelingen zijn kopieën: een kloon.",
+     "bak": 0,
+     "uitleg": "Ze hebben dezelfde genen als de ouder."
+    },
+    {
+     "tekst": "Snel en makkelijk.",
+     "bak": 0,
+     "uitleg": "Zo worden het er snel heel veel."
+    },
+    {
+     "tekst": "Je hebt geen partner nodig.",
+     "bak": 0,
+     "uitleg": "Eén ouder is genoeg."
+    },
+    {
+     "tekst": "Komt een ziekte, dan zijn alle nakomelingen even zwak.",
+     "bak": 0,
+     "uitleg": "Valt de ziekte één aan, dan vaak allemaal."
+    },
+    {
+     "tekst": "Een eicel en een zaadcel smelten samen.",
+     "bak": 1,
+     "uitleg": "Dat heet bevruchting."
+    },
+    {
+     "tekst": "Elk jong is een nieuwe mix van genen.",
+     "bak": 1,
+     "uitleg": "Daarom zijn broers en zussen niet hetzelfde."
+    },
+    {
+     "tekst": "Er is variatie: de jongen verschillen van elkaar.",
+     "bak": 1,
+     "uitleg": "Dat helpt als er iets verandert."
+    },
+    {
+     "tekst": "Bij een nieuwe ziekte overleven er vaker een paar.",
+     "bak": 1,
+     "uitleg": "Grote kans dat er een paar tegen de ziekte kunnen."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-zaadje",
+   "soort": "volgorde",
+   "titel": "Van bloem tot zaadje",
+   "opdracht": "Zet in de goede volgorde hoe een plant zich geslachtelijk voortplant.",
+   "stappen": [
+    {
+     "tekst": "Een bij zoekt eten in een bloem. Er blijft stuifmeel aan haar plakken.",
+     "uitleg": "Stuifmeel komt uit de bloem."
+    },
+    {
+     "tekst": "De bij brengt het stuifmeel naar een andere bloem.",
+     "uitleg": "Zo komen twee ouders samen."
+    },
+    {
+     "tekst": "Wat in het stuifmeel zit, smelt samen met een eicel in de bloem.",
+     "uitleg": "Dat is de bevruchting."
+    },
+    {
+     "tekst": "Zo ontstaat een zaadje.",
+     "uitleg": "Het zaadje heeft een nieuwe mix van genen."
+    },
+    {
+     "tekst": "Uit het zaadje groeit een nieuwe plant.",
+     "uitleg": "Die lijkt op de ouders, maar is niet hetzelfde."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-aardbeienveld",
+   "soort": "uitleg",
+   "titel": "Een veld vol kopieën",
+   "opdracht": "Een boer heeft een veld met aardbeienplanten. Ze komen allemaal uit uitlopers van één plant. Er komt een nieuwe ziekte. Leg uit waarom het hele veld gevaar loopt.",
+   "begrippen": [
+    {
+     "naam": "ongeslachtelijk",
+     "varianten": [
+      "ongeslachtelijke"
+     ]
+    },
+    {
+     "naam": "kopie",
+     "varianten": [
+      "kopieën",
+      "kloon"
+     ]
+    },
+    {
+     "naam": "genen",
+     "varianten": [
+      "gen"
+     ]
+    },
+    {
+     "naam": "variatie",
+     "varianten": [
+      "verschillen"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat uitlopers ongeslachtelijke voortplanting zijn: alle planten zijn kopieën.",
+    "Ik leg uit dat ze dus allemaal dezelfde genen hebben.",
+    "Ik leg uit dat er geen variatie is: kan één plant niet tegen de ziekte, dan kunnen ze het allemaal niet."
+   ],
+   "model": [
+    "Uitlopers zijn ongeslachtelijke voortplanting. Alle planten op het veld zijn kopieën van één plant: ze hebben dezelfde genen.",
+    "Er is dus geen variatie. Kan één plant niet tegen de nieuwe ziekte, dan kunnen ze het allemaal niet. Bij planten uit zaadjes zou elk plantje een andere mix zijn, en zouden er vaker een paar overleven."
+   ]
+  }
+ ]
+}

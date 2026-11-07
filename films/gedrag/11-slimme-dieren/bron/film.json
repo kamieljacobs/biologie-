@@ -1,0 +1,69 @@
+{
+ "slug": "11-slimme-dieren",
+ "hoofdstuk": "gedrag",
+ "hoofdstukNaam": "Gedrag",
+ "title": "Slimme dieren",
+ "sub": "Cognitie, inzichtelijk leren en de spiegeltest",
+ "puzzle": "Rond 1904 leek het paard Hans te kunnen rekenen. Een commissie vond geen bedrog. Hoe wist Hans het antwoord?",
+ "meta": "gedrag · cognitie",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Gedrag · film 11 van 12",
+ "lead": "Cognitie is hoe een dier informatie opneemt, onthoudt en gebruikt om problemen op te lossen. De slimme Hans las onbewuste signalen van de vraagsteller: test daarom eerlijk, met controles, en kies geen slimmere verklaring dan nodig (regel van Morgan). Chimpansees en kraaien lossen problemen op, soms met inzicht. De spiegeltest onderzoekt zelfherkenning, maar past niet bij elk dier.",
+ "endHaak": "hoe zou jij testen of een dier jou herkent, zonder dat het jou kan aflezen?",
+ "minis": {
+  "Hoofdstuk 1": "Hoe test je eerlijk of een dier slim is?",
+  "Hoofdstuk 2": "Wat is inzichtelijk leren?",
+  "Hoofdstuk 3": "Herkennen dieren zichzelf?",
+  "Recap": "Wat betekent slim bij dieren?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personage: Bilal (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Hoe wist Hans het antwoord?",
+   "correct": 1,
+   "explain": "Hij las kleine, onbewuste signalen van de vraagsteller."
+  },
+  "q06": {
+   "q": "Welke voorwerpen gooiden de kraaien vooral in de buis?",
+   "correct": 1,
+   "explain": "De zinkende: daarmee stijgt het water."
+  },
+  "q09": {
+   "q": "Wat deden sommige eksters met een stickertje op de keel voor de spiegel?",
+   "correct": 1,
+   "explain": "Twee van de vijf probeerden het van hun eigen keel te krijgen."
+  }
+ },
+ "glossary": [
+  {
+   "t": "cognitie",
+   "d": "Hoe een dier informatie opneemt, onthoudt en gebruikt om problemen op te lossen."
+  },
+  {
+   "t": "Clever Hans-effect",
+   "d": "Een dier (of mens) reageert op onbewuste signalen van de onderzoeker; daarom test je blind en met controles."
+  },
+  {
+   "t": "regel van Morgan",
+   "d": "Verklaar gedrag niet met een slimmer vermogen als een eenvoudiger vermogen het ook verklaart."
+  },
+  {
+   "t": "proefondervindelijk leren",
+   "d": "Leren door proberen: wat werkt, doet het dier vaker (trial-and-error)."
+  },
+  {
+   "t": "inzichtelijk leren",
+   "d": "Een plotselinge oplossing voor een nieuw probleem, zonder alles uit te proberen; bouwt voort op eerdere ervaring."
+  },
+  {
+   "t": "spiegeltest",
+   "d": "Merkteken dat het dier alleen in de spiegel ziet; zit het dier er dan aan, dan lijkt het zichzelf te herkennen."
+  },
+  {
+   "t": "poetsvis",
+   "d": "vwo · Vis die parasieten van andere vissen eet; slaagde in 2019 voor de spiegeltest, wat de betekenis van de test ter discussie stelt."
+  }
+ ],
+ "sections": "  <section><h2>Checkvragen</h2>\n    <p class=\"meta\">examenstijl · antwoorden ingeklapt</p>\n    <div class=\"q\"><b>1. De slimme Hans</b> <span class=\"pts\">2 punten</span><p>Pfungst liet Hans rekensommen oplossen in twee situaties: (1) de vraagsteller kende het antwoord en stond zichtbaar naast Hans; (2) de vraagsteller kende het antwoord niet.</p>\n      <p>a. Welke uitkomst verwachtte Pfungst als Hans echt kon rekenen? (1p)<br>b. Waarom is situatie 2 een goede controle? (1p)</p>\n      <details><summary>Antwoord</summary><p>a. Hans scoort in beide situaties even goed (1). b. Alleen de mogelijke hulp van de vraagsteller (onbewuste signalen) verschilt; als Hans dan faalt, gebruikte hij die signalen (1).</p></details></div>\n    <div class=\"q\"><b>2. Proefondervindelijk of inzichtelijk?</b> <span class=\"pts\">2 punten</span><p>Een kat leert na veel pogingen een deurklink naar beneden te springen. Een chimpansee kijkt een tijdje naar een banaan buiten het hok en pakt dan ineens een stok om de banaan naar zich toe te halen.</p>\n      <p>Welke vorm van leren hoort bij elk voorbeeld? Leg uit. (2p)</p>\n      <details><summary>Antwoord</summary><p>Kat: proefondervindelijk leren / trial-and-error, want veel pogingen, geleidelijk (1). Chimpansee: inzichtelijk leren, want een plotselinge oplossing zonder alles uit te proberen (1).</p></details></div>\n    <div class=\"q\"><b>3. Spiegeltest</b> <span class=\"pts\">3 punten</span><p>Een onderzoeker wil weten of olifanten zichzelf herkennen.</p>\n      <p>a. Beschrijf hoe hij de spiegeltest uitvoert. (1p)<br>b. Noem een controle die nodig is. (1p)<br>c. Een dier zakt voor de test. Geef een reden waarom je dan niet zeker weet dat het zichzelf niet herkent. (1p)</p>\n      <details><summary>Antwoord</summary><p>a. Ongemerkt een merkteken aanbrengen op een plek die het dier alleen in de spiegel kan zien en kijken of het dier voor de spiegel aan dat merkteken zit (1). b. Bijvoorbeeld: zonder spiegel kijken of het dier aan de plek zit; of een onzichtbaar/nepmerkteken gebruiken (1). c. Bijvoorbeeld: het dier gebruikt vooral andere zintuigen (geur), of het merkteken interesseert het dier niet (1).</p></details></div>\n    <div class=\"q vwo-only\"><b>4. De poetsvis</b> <span class=\"vwo-badge\">vwo</span> <span class=\"pts\">2 punten</span><p>Poetsvissen met een bruin vlekje op de keel schraapten hun keel over de bodem nadat ze in een spiegel hadden gekeken.</p>\n      <p>Geef een argument vóór en een argument tegen de conclusie dat poetsvissen zichzelf herkennen. (2p)</p>\n      <details><summary>Antwoord</summary><p>Vóór: ze deden het alleen met spiegel en niet bij een doorzichtig vlekje, zoals bij dieren die voor de spiegeltest slagen (1). Tegen: poetsvissen letten van nature op parasietachtige vlekjes; de test meet misschien iets anders dan zelfbewustzijn (1).</p></details></div>\n  </section>\n  <section><h2>Voor de docent</h2>\n    <h3>Hoe de film het uitlegt</h3>\n    <table><tr><th>Hoofdstuk</th><th>Kernbeeld</th></tr>\n      <tr><td>Cold open</td><td>Bilal (castboek) en een sepia 'foto' van de slimme Hans die tot vijf tikt; commissie: geen bedrog. Openingsvraag (antwoord in H1)</td></tr>\n      <tr><td>1 Slim of niet?</td><td>Pfungst: twee situaties (vraagsteller weet het / weet het niet); de vraagsteller richt zich bij 5 onbewust iets op; cognitie (opnemen → onthouden → gebruiken); controles; regel van Morgan (signalen lezen vs rekenen)</td></tr>\n      <tr><td>2 Problemen oplossen</td><td>Proberen → werkt → vaker; Köhler: chimpansee springt, denkt na, schuift een kist onder de banaan, later stapelen; Nieuw-Caledonische kraai met haakje; waterbuis met drijvend hapje, stenen en kurkjes; lastige versie met verborgen verbinding</td></tr>\n      <tr><td>3 Ken jezelf</td><td>Chimpansee met rode vlek voor spiegel (met/zonder); ekster met geel stickertje; 2 van de 5, herhaling niet gelukt; hond, plas met en zonder extra geur. Vwo: poetsvis met vlekje, schrapen, discussie</td></tr>\n    </table>\n    <h3>Achtergrond en vereenvoudigingen</h3>\n    <ul>\n      <li>Clever Hans: commissie september 1904; Pfungst (1907): de vraagsteller boog licht voorover tijdens het tikken en richtte zich bij het juiste aantal (onbewust) iets op. Basis van het begrip 'Clever Hans-effect' en van blind testen.</li>\n      <li>Morgan's canon (1894): verklaar gedrag niet met een hoger psychisch vermogen als een lager het ook verklaart (niet hetzelfde als 'de eenvoudigste verklaring', Ockham).</li>\n      <li>Köhler, Tenerife 1913–1920: plotselinge oplossing bij het eronder schuiven van een kist; stapelen kostte veel oefening; Sultan en de in elkaar geschoven stokken. Birch (1945): zonder eerdere ervaring met stokken geen 'inzicht'.</li>\n      <li>Nieuw-Caledonische kraaien: haakgereedschap in het wild (Hunt 1996). Aesop-paradigma: Bird &amp; Emery 2009 (roeken); Jelbert e.a. 2014: na training met stenen kozen kraaien in ± 88% zinkende voorwerpen (geleerd binnen de eerste pogingen), maar faalden bij de U-buis.</li>\n      <li>Spiegeltest: Gallup 1970. Geslaagd: veel mensapen, dolfijnen, één Aziatische olifant; niet-mensapen niet. Eksters: Prior, Schwarz &amp; Güntürkün 2008 (2 van 5), niet gerepliceerd door Soler e.a. 2020. Honden: Horowitz 2017 ('olfactorische spiegel').</li>\n      <li>Poetsvis: Kohda e.a. 2019 (<i>PNAS</i>), kleurstof onder de huid, 3 van 4 volledig geteste vissen schraapten; kritiek o.a. van Gallup: vlekjes lijken op parasieten.</li>\n    </ul>\n    <h3>Leerdoelen</h3>\n    <table><tr><th>Leerdoel</th><th>Niveau</th><th>Waar</th></tr>\n      <tr><td>Cognitie</td><td>basis</td><td>H1</td></tr>\n      <tr><td>Eerlijk testen en regel van Morgan</td><td>basis</td><td>H1, checkvraag 1</td></tr>\n      <tr><td>Proefondervindelijk vs inzichtelijk leren; gereedschap bij kraaien</td><td>basis</td><td>H2, checkvraag 2</td></tr>\n      <tr><td>Spiegeltest en de grenzen ervan</td><td>basis</td><td>H3, checkvraag 3</td></tr>\n      <tr><td>Poetsvis: wat meet de spiegeltest?</td><td>vwo</td><td>H3 (vwo), checkvraag 4</td></tr>\n    </table>\n    <h3>Suggesties voor de les</h3>\n    <ul><li>Doe een 'Clever Hans'-spel: een leerling 'raadt' getallen door alleen naar de lichaamstaal van de klas te kijken. Ontwerp daarna samen een blinde proef.</li><li>Laat leerlingen een eerlijke test bedenken voor zelfherkenning bij een dier dat vooral op geur of geluid vertrouwt.</li></ul>\n  </section>\n"
+}

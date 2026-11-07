@@ -1,0 +1,3 @@
+- Embryo van ± 6 weken in zijaanzicht (C-vorm): groot hoofd, oog, kieuwbogen onder het hoofd, hartbult, arm- en beenknop, somieten langs de rug, staartje.
+- Het hart ligt binnen de hartbult en klopt.
+- Optie: groei van week 4 naar 8 (ledematen groeien, staartje en kieuwbogen verdwijnen).

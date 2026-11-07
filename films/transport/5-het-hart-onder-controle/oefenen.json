@@ -1,0 +1,230 @@
+{
+ "intro": "Oefen met hartminuutvolume, de regeling van je hart en wat er misgaat bij een infarct of hartstilstand. Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "pijlen-sprint",
+   "soort": "pijlen",
+   "titel": "Een sprint",
+   "opdracht": "Je sprint over het basketbalveld. Voorspel wat er gebeurt.",
+   "situatie": "Je spieren werken hard; het orthosympathische zenuwstelsel is actief en je bijnieren maken adrenaline.",
+   "rijen": [
+    {
+     "naam": "Hartfrequentie",
+     "antwoord": "+",
+     "uitleg": "Orthosympathisch zenuwstelsel en adrenaline zetten de sinusknoop sneller."
+    },
+    {
+     "naam": "Slagvolume",
+     "antwoord": "+",
+     "uitleg": "Het hart trekt krachtiger samen, en werkende spieren duwen meer bloed terug naar het hart."
+    },
+    {
+     "naam": "Hartminuutvolume",
+     "antwoord": "+",
+     "uitleg": "Hartfrequentie maal slagvolume: tot vier à vijf keer zoveel."
+    },
+    {
+     "naam": "Bloeddruk in de slagaders",
+     "antwoord": "+",
+     "uitleg": "Er stroomt per slag meer bloed de slagaders in, en die rekken maar een beetje mee."
+    },
+    {
+     "naam": "Doorbloeding van je beenspieren",
+     "antwoord": "+",
+     "uitleg": "Weinig zuurstof, veel CO₂ en zuur laten de kleine slagaders daar verwijden."
+    },
+    {
+     "naam": "Doorbloeding van je darmen",
+     "antwoord": "-",
+     "uitleg": "Daar vernauwen de kleine slagaders."
+    },
+    {
+     "naam": "Doorbloeding van je hersenen",
+     "antwoord": "=",
+     "uitleg": "Je hersenvaten houden hun doorbloeding zelf ongeveer gelijk."
+    }
+   ]
+  },
+  {
+   "id": "puzzel-hartminuutvolume",
+   "soort": "puzzel",
+   "titel": "Rekenen aan je hart",
+   "opdracht": "Het hartminuutvolume is de hartfrequentie maal het slagvolume.",
+   "stappen": [
+    {
+     "vraag": "In rust klopt je hart 70 keer per minuut, met een slagvolume van 70 ml. Wat is je hartminuutvolume?",
+     "velden": [
+      {
+       "label": "hartminuutvolume (liter per minuut):",
+       "antwoord": 4.9,
+       "marge": 0.1
+      }
+     ],
+     "uitleg": "70 × 70 = 4900 ml, ongeveer vijf liter per minuut: al je bloed één keer rond.",
+     "tip": "Reken in milliliter en zet het daarna om naar liter."
+    },
+    {
+     "vraag": "Bij een sprint klopt je hart 190 keer per minuut. Hoeveel keer zo snel is dat als in rust?",
+     "velden": [
+      {
+       "label": "keer zo snel:",
+       "antwoord": 2.7,
+       "marge": 0.05
+      }
+     ],
+     "uitleg": "190 / 70 ≈ 2,7. Nog geen drie keer zoveel."
+    },
+    {
+     "vraag": "Je hartminuutvolume is bij de sprint 20 liter per minuut. Hoe groot is je slagvolume dan?",
+     "velden": [
+      {
+       "label": "slagvolume (ml):",
+       "antwoord": 105,
+       "marge": 2
+      }
+     ],
+     "uitleg": "20 000 ml / 190 ≈ 105 ml per slag. Er moet dus ook per slag meer uit: het hart trekt krachtiger samen en de kamers vullen zich beter.",
+     "tip": "Deel het hartminuutvolume in milliliter door de hartfrequentie."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-infarct",
+   "soort": "volgorde",
+   "titel": "Van aderverkalking tot hartinfarct",
+   "opdracht": "Zet de stappen in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "In de wand van een kransslagader hoopt zich over jaren vet en cholesterol op.",
+     "uitleg": "Roken, hoge bloeddruk, diabetes en weinig bewegen vergroten de kans."
+    },
+    {
+     "tekst": "Er komen ontstekingscellen omheen: een plaque. Het vat wordt nauwer en stugger.",
+     "uitleg": "Dit heet atherosclerose, of aderverkalking, al gaat het om slagaders."
+    },
+    {
+     "tekst": "De plaque scheurt open, en er ontstaat een bloedstolsel op de scheur.",
+     "uitleg": "Dat kan in één keer gebeuren."
+    },
+    {
+     "tekst": "Het stolsel sluit de kransslagader af.",
+     "uitleg": "De hartspier krijgt zijn zuurstof bijna helemaal via de kransslagaders."
+    },
+    {
+     "tekst": "Een stuk hartspier krijgt geen zuurstof meer en sterft af: een hartinfarct.",
+     "uitleg": "Na twintig minuten tot een paar uur."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-reanimeren",
+   "soort": "volgorde",
+   "titel": "Iemand valt neer in de sporthal",
+   "opdracht": "Iemand zakt in elkaar. Hij reageert niet en ademt niet normaal. Zet in de goede volgorde wat je doet.",
+   "stappen": [
+    {
+     "tekst": "Bel 112 en laat iemand de AED halen.",
+     "uitleg": "Dat kan tegelijk: de een belt, de ander haalt de AED."
+    },
+    {
+     "tekst": "Begin meteen met reanimeren: druk hard en snel op het midden van de borst.",
+     "uitleg": "Honderd tot honderdtwintig keer per minuut. Zo pomp jij het bloed rond."
+    },
+    {
+     "tekst": "Sluit de AED aan; die meet zelf het ritme.",
+     "uitleg": "Hij geeft alleen een schok als die kan helpen."
+    },
+    {
+     "tekst": "Raak niemand aan tijdens de schok.",
+     "uitleg": "De schok prikkelt alle hartspiercellen tegelijk."
+    },
+    {
+     "tekst": "Druk meteen verder, tot de AED iets anders zegt.",
+     "uitleg": "De sinusknoop moet het ritme weer opbouwen."
+    }
+   ]
+  },
+  {
+   "id": "pijlen-opstaan",
+   "soort": "pijlen",
+   "vwo": true,
+   "titel": "Snel opstaan",
+   "opdracht": "Je staat snel op uit bed. Voorspel hoe je bloeddruk wordt geregeld.",
+   "situatie": "Er zakt bloed naar je benen; de druk naar je hoofd daalt.",
+   "rijen": [
+    {
+     "naam": "Uitrekking van de drukreceptoren in aortaboog en halsslagaders",
+     "antwoord": "-",
+     "uitleg": "Bij een lagere druk rekt de wand minder uit."
+    },
+    {
+     "naam": "Impulsen naar het verlengde merg",
+     "antwoord": "-",
+     "uitleg": "De drukreceptoren sturen minder impulsen."
+    },
+    {
+     "naam": "Hartfrequentie",
+     "antwoord": "+",
+     "uitleg": "Het regelcentrum zet je hart sneller."
+    },
+    {
+     "naam": "Diameter van de vaten in je benen en buik",
+     "antwoord": "-",
+     "uitleg": "Die vaten worden vernauwd."
+    },
+    {
+     "naam": "Bloeddruk",
+     "antwoord": "+",
+     "uitleg": "De druk stijgt weer: negatieve terugkoppeling."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-aed",
+   "soort": "uitleg",
+   "titel": "Waarom helpt een AED?",
+   "opdracht": "Bij kamerfibrilleren trilt het hart in plaats van te pompen. Leg uit waarom een stroomstoot van een AED kan helpen.",
+   "begrippen": [
+    {
+     "naam": "kamerfibrilleren",
+     "varianten": [
+      "trillen",
+      "trilt"
+     ]
+    },
+    {
+     "naam": "hartspiercellen",
+     "varianten": [
+      "spiercellen",
+      "hartcellen"
+     ]
+    },
+    {
+     "naam": "tegelijk",
+     "varianten": [
+      "allemaal",
+      "stil"
+     ]
+    },
+    {
+     "naam": "sinusknoop",
+     "varianten": [
+      "startsein",
+      "ritme"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat bij kamerfibrilleren de spiercellen van de kamers door elkaar samentrekken, zodat het hart niet pompt.",
+    "Ik leg uit dat de stroomstoot alle hartspiercellen tegelijk prikkelt.",
+    "Ik leg uit dat ze daarna allemaal even stil zijn, zodat het chaotische trillen weg is.",
+    "Ik leg uit dat de sinusknoop dan weer het startsein kan geven voor een gewoon ritme."
+   ],
+   "model": [
+    "Bij kamerfibrilleren trekken de spiercellen van de kamers allemaal door elkaar samen. Het hart trilt, maar pompt geen bloed rond.",
+    "De stroomstoot van de AED prikkelt alle hartspiercellen tegelijk. Daarna zijn ze allemaal even stil, en is het chaotische trillen weg.",
+    "Dan kan de sinusknoop het startsein weer geven, en kan het hart weer in zijn eigen ritme kloppen. De schok geeft het hart dus geen zet, maar legt het even stil."
+   ]
+  }
+ ]
+}

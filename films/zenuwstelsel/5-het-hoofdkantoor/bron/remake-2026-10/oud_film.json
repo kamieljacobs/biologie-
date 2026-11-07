@@ -1,0 +1,6938 @@
+{
+ "plan": {
+  "title": "Het hoofdkantoor",
+  "subtitle": "wat je hersenen doen als je een nummer hoort",
+  "series": "Het zenuwstelsel · film 5 van 7",
+  "next": "Volgende film: Leren en onthouden",
+  "chapters": [
+   {
+    "n": 1,
+    "title": "Drie delen",
+    "verdieping": false
+   },
+   {
+    "n": 2,
+    "title": "Horen en herkennen",
+    "verdieping": false
+   },
+   {
+    "n": 3,
+    "title": "Kruislings",
+    "verdieping": false
+   },
+   {
+    "n": 4,
+    "title": "De maat houden",
+    "verdieping": false
+   },
+   {
+    "n": 5,
+    "title": "Vanzelf",
+    "verdieping": false
+   },
+   {
+    "n": 6,
+    "title": "Samenvatting",
+    "verdieping": false
+   }
+  ],
+  "timeline": [
+   {
+    "kind": "narration",
+    "id": "s00",
+    "scene": "world",
+    "chapter": 0
+   },
+   {
+    "kind": "title",
+    "id": "title",
+    "dur": 5,
+    "chapter": 0
+   },
+   {
+    "kind": "card",
+    "id": "card1",
+    "dur": 3,
+    "chapter": 1
+   },
+   {
+    "kind": "narration",
+    "id": "q1",
+    "scene": "question",
+    "chapter": 1,
+    "question": 1
+   },
+   {
+    "kind": "countdown",
+    "id": "cd1",
+    "dur": 8,
+    "chapter": 1,
+    "question": 1
+   },
+   {
+    "kind": "narration",
+    "id": "a1",
+    "scene": "micro",
+    "chapter": 1,
+    "reveal": 1
+   },
+   {
+    "kind": "card",
+    "id": "card2",
+    "dur": 3,
+    "chapter": 2
+   },
+   {
+    "kind": "narration",
+    "id": "s21",
+    "scene": "micro",
+    "chapter": 2
+   },
+   {
+    "kind": "narration",
+    "id": "q2",
+    "scene": "question",
+    "chapter": 2,
+    "question": 2
+   },
+   {
+    "kind": "countdown",
+    "id": "cd2",
+    "dur": 8,
+    "chapter": 2,
+    "question": 2
+   },
+   {
+    "kind": "narration",
+    "id": "a2",
+    "scene": "micro",
+    "chapter": 2,
+    "reveal": 2
+   },
+   {
+    "kind": "card",
+    "id": "card3",
+    "dur": 3,
+    "chapter": 3
+   },
+   {
+    "kind": "narration",
+    "id": "q3",
+    "scene": "question",
+    "chapter": 3,
+    "question": 3
+   },
+   {
+    "kind": "countdown",
+    "id": "cd3",
+    "dur": 8,
+    "chapter": 3,
+    "question": 3
+   },
+   {
+    "kind": "narration",
+    "id": "a3",
+    "scene": "micro",
+    "chapter": 3,
+    "reveal": 3
+   },
+   {
+    "kind": "card",
+    "id": "card4",
+    "dur": 3,
+    "chapter": 4
+   },
+   {
+    "kind": "narration",
+    "id": "q4",
+    "scene": "question",
+    "chapter": 4,
+    "question": 4
+   },
+   {
+    "kind": "countdown",
+    "id": "cd4",
+    "dur": 8,
+    "chapter": 4,
+    "question": 4
+   },
+   {
+    "kind": "narration",
+    "id": "a4",
+    "scene": "micro",
+    "chapter": 4,
+    "reveal": 4
+   },
+   {
+    "kind": "card",
+    "id": "card5",
+    "dur": 3,
+    "chapter": 5
+   },
+   {
+    "kind": "narration",
+    "id": "q5",
+    "scene": "question",
+    "chapter": 5,
+    "question": 5
+   },
+   {
+    "kind": "countdown",
+    "id": "cd5",
+    "dur": 8,
+    "chapter": 5,
+    "question": 5
+   },
+   {
+    "kind": "narration",
+    "id": "a5",
+    "scene": "micro",
+    "chapter": 5,
+    "reveal": 5
+   },
+   {
+    "kind": "card",
+    "id": "card6",
+    "dur": 3,
+    "chapter": 6
+   },
+   {
+    "kind": "narration",
+    "id": "s70",
+    "scene": "recap",
+    "chapter": 6
+   },
+   {
+    "kind": "end",
+    "id": "end",
+    "dur": 8,
+    "chapter": 6
+   }
+  ],
+  "questions": {
+   "1": {
+    "q": "Je luistert naar een nummer dat je kent. Hoeveel van je hersenen doet mee?",
+    "opts": [
+     "Ongeveer tien procent",
+     "Eén hersenhelft",
+     "Gebieden verspreid door je hele hersenen"
+    ],
+    "correct": 2,
+    "misconception": 0
+   },
+   "2": {
+    "q": "Gezonde oren en primaire gehoorschors, maar de associatieve schors eromheen is aan beide kanten beschadigd. Wat merkt hij bij zijn lievelingsnummer?",
+    "opts": [
+     "Hij hoort niets",
+     "Hij hoort tonen, maar herkent het nummer niet",
+     "Hij hoort en herkent het gewoon"
+    ],
+    "correct": 1,
+    "misconception": 0
+   },
+   "3": {
+    "q": "Je tikt de maat met je rechterhand. Welke hersenhelft stuurt die hand?",
+    "opts": [
+     "De rechterhelft",
+     "De linkerhelft",
+     "Allebei evenveel"
+    ],
+    "correct": 1,
+    "misconception": 0
+   },
+   "4": {
+    "q": "Schade aan de kleine hersenen, maar de arm kan nog bewegen. Wat gaat er mis?",
+    "opts": [
+     "Niets, de kleine hersenen doen weinig",
+     "Bewegingen worden onhandig en slecht getimed",
+     "Hij raakt toch verlamd"
+    ],
+    "correct": 1,
+    "misconception": 0
+   },
+   "5": {
+    "q": "Je slaapt en denkt nergens aan. Wat houdt je ademhaling gaande?",
+    "opts": [
+     "Je grote hersenen",
+     "Je hersenstam",
+     "Niets: je longen ademen vanzelf"
+    ],
+    "correct": 1,
+    "misconception": 2
+   }
+  },
+  "cues": {
+   "s00": [
+    [
+     "radio",
+     1,
+     "beat",
+     "radio"
+    ],
+    [
+     "Twee",
+     1,
+     "beat",
+     "twee tonen"
+    ],
+    [
+     "tikt",
+     1,
+     "beat",
+     "tikt"
+    ],
+    [
+     "refrein",
+     1,
+     "beat",
+     "refrein"
+    ],
+    [
+     "kippenvel",
+     1,
+     "beat",
+     "kippenvel"
+    ],
+    [
+     "Wie",
+     1,
+     "beat",
+     "lens"
+    ],
+    [
+     "baas",
+     1,
+     "beat",
+     "baas"
+    ]
+   ],
+   "a1": [
+    [
+     "fabel",
+     1,
+     "beat",
+     "fabel"
+    ],
+    [
+     "grote",
+     1,
+     "term",
+     "grote hersenen"
+    ],
+    [
+     "hersenbalk",
+     1,
+     "term",
+     "hersenbalk"
+    ],
+    [
+     "kwabben",
+     1,
+     "beat",
+     "kwabben"
+    ],
+    [
+     "voorhoofdskwab",
+     1,
+     "term",
+     "voorhoofdskwab"
+    ],
+    [
+     "wandbeenkwab",
+     1,
+     "term",
+     "wandbeenkwab"
+    ],
+    [
+     "slaapkwab",
+     1,
+     "term",
+     "slaapkwab"
+    ],
+    [
+     "achterhoofdskwab",
+     1,
+     "term",
+     "achterhoofdskwab"
+    ],
+    [
+     "kleine",
+     1,
+     "term",
+     "kleine hersenen"
+    ],
+    [
+     "hersenstam",
+     1,
+     "term",
+     "hersenstam"
+    ],
+    [
+     "doorsnede",
+     1,
+     "beat",
+     "doorsnede"
+    ],
+    [
+     "grijze",
+     1,
+     "term",
+     "grijze stof"
+    ],
+    [
+     "witte",
+     1,
+     "term",
+     "witte stof"
+    ],
+    [
+     "myeline",
+     1,
+     "term",
+     "myeline"
+    ],
+    [
+     "hersenbalk",
+     2,
+     "beat",
+     "balk"
+    ],
+    [
+     "verbindt",
+     1,
+     "beat",
+     "grijs rekent, wit verbindt"
+    ]
+   ],
+   "s21": [
+    [
+     "slakkenhuis",
+     1,
+     "term",
+     "slakkenhuis"
+    ],
+    [
+     "basilair",
+     1,
+     "term",
+     "basilair membraan"
+    ],
+    [
+     "hoge",
+     1,
+     "beat",
+     "hoog"
+    ],
+    [
+     "lage",
+     1,
+     "beat",
+     "laag"
+    ],
+    [
+     "oor",
+     1,
+     "beat",
+     "oor"
+    ],
+    [
+     "gehoorzenuw",
+     1,
+     "term",
+     "gehoorzenuw"
+    ],
+    [
+     "thalamus",
+     1,
+     "term",
+     "thalamus (schakelstation)"
+    ],
+    [
+     "slaapkwab",
+     1,
+     "beat",
+     "slaapkwab"
+    ],
+    [
+     "gehoorschors",
+     1,
+     "term",
+     "primaire gehoorschors"
+    ],
+    [
+     "associatieve",
+     1,
+     "term",
+     "associatieve schors"
+    ],
+    [
+     "achterhoofdskwab",
+     1,
+     "beat",
+     "zien"
+    ],
+    [
+     "groeve",
+     1,
+     "term",
+     "groeve"
+    ],
+    [
+     "voorhoofdskwab",
+     1,
+     "term",
+     "bewegen (motorische schors)"
+    ],
+    [
+     "wandbeenkwab",
+     1,
+     "term",
+     "voelen (gevoelsschors)"
+    ],
+    [
+     "betekenis",
+     1,
+     "beat",
+     "betekenis"
+    ],
+    [
+     "voorhoofdskwab",
+     2,
+     "beat",
+     "plannen"
+    ],
+    [
+     "volgorde",
+     1,
+     "beat",
+     "zelfde volgorde"
+    ]
+   ],
+   "a2": [
+    [
+     "losse",
+     1,
+     "beat",
+     "losse geluiden"
+    ],
+    [
+     "herkennen",
+     1,
+     "term",
+     "horen ≠ herkennen"
+    ],
+    [
+     "geleerd",
+     1,
+     "beat",
+     "geleerd"
+    ]
+   ],
+   "a3": [
+    [
+     "rechterhand",
+     1,
+     "beat",
+     "links stuurt rechts"
+    ],
+    [
+     "kruisen",
+     1,
+     "term",
+     "kruising"
+    ],
+    [
+     "kruislings",
+     1,
+     "beat",
+     "voelen kruislings"
+    ],
+    [
+     "strook",
+     1,
+     "beat",
+     "strook"
+    ],
+    [
+     "homunculus",
+     1,
+     "term",
+     "homunculus"
+    ],
+    [
+     "handen",
+     1,
+     "beat",
+     "handen"
+    ],
+    [
+     "lippen",
+     1,
+     "beat",
+     "lippen"
+    ],
+    [
+     "tong",
+     1,
+     "beat",
+     "tong"
+    ],
+    [
+     "rug",
+     1,
+     "beat",
+     "rug"
+    ],
+    [
+     "groot",
+     1,
+     "term",
+     "precisie telt, niet grootte"
+    ]
+   ],
+   "a4": [
+    [
+     "tik",
+     1,
+     "beat",
+     "bevel"
+    ],
+    [
+     "kopie",
+     1,
+     "term",
+     "kopie van het bevel"
+    ],
+    [
+     "spieren",
+     1,
+     "beat",
+     "terugmelding"
+    ],
+    [
+     "bij",
+     1,
+     "beat",
+     "bijsturen"
+    ],
+    [
+     "tel",
+     1,
+     "beat",
+     "op de tel"
+    ],
+    [
+     "schokkerig",
+     1,
+     "beat",
+     "schokkerig"
+    ],
+    [
+     "evenwicht",
+     1,
+     "beat",
+     "evenwicht"
+    ],
+    [
+     "tiende",
+     1,
+     "number",
+     "10 % van het volume"
+    ],
+    [
+     "vijfde",
+     1,
+     "number",
+     "80 % van de zenuwcellen"
+    ]
+   ],
+   "a5": [
+    [
+     "verlengde",
+     1,
+     "term",
+     "verlengde merg"
+    ],
+    [
+     "middenrif",
+     1,
+     "beat",
+     "middenrif"
+    ],
+    [
+     "hypothalamus",
+     1,
+     "term",
+     "hypothalamus"
+    ],
+    [
+     "temperatuur",
+     1,
+     "beat",
+     "op peil"
+    ],
+    [
+     "autonome",
+     1,
+     "term",
+     "autonoom zenuwstelsel"
+    ],
+    [
+     "hypofyse",
+     1,
+     "term",
+     "hypofyse"
+    ],
+    [
+     "refrein",
+     1,
+     "beat",
+     "refrein"
+    ],
+    [
+     "Kippenvel",
+     1,
+     "beat",
+     "kippenvel"
+    ]
+   ],
+   "s70": [
+    [
+     "gehoorschors",
+     1,
+     "recap",
+     "gehoor"
+    ],
+    [
+     "associatieve",
+     1,
+     "recap",
+     "herkennen"
+    ],
+    [
+     "Links",
+     1,
+     "recap",
+     "motorisch"
+    ],
+    [
+     "kleine",
+     1,
+     "recap",
+     "kleine hersenen"
+    ],
+    [
+     "Lippen",
+     1,
+     "recap",
+     "lippen"
+    ],
+    [
+     "hersenstam",
+     1,
+     "recap",
+     "hersenstam"
+    ],
+    [
+     "kippenvel",
+     1,
+     "recap",
+     "kippenvel"
+    ],
+    [
+     "witte",
+     1,
+     "recap",
+     "witte stof"
+    ],
+    [
+     "baas",
+     1,
+     "recap",
+     "geen baas"
+    ],
+    [
+     "geleerd",
+     1,
+     "recap",
+     "film 6"
+    ]
+   ]
+  }
+ },
+ "timing": {
+  "s00": {
+   "duration": 15.929,
+   "speech": [
+    0.0,
+    15.78
+   ],
+   "phrases": [
+    {
+     "text": "Zaterdagochtend.",
+     "t0": 0,
+     "t1": 1.189
+    },
+    {
+     "text": "De radio staat aan.",
+     "t0": 1.219,
+     "t1": 2.501
+    },
+    {
+     "text": "Twee tonen.",
+     "t0": 2.531,
+     "t1": 3.302
+    },
+    {
+     "text": "Meer heb je niet nodig:",
+     "t0": 3.332,
+     "t1": 4.475
+    },
+    {
+     "text": "dit is jouw nummer.",
+     "t0": 4.505,
+     "t1": 5.415
+    },
+    {
+     "text": "Je voet tikt mee.",
+     "t0": 5.445,
+     "t1": 6.576
+    },
+    {
+     "text": "Je zingt het refrein.",
+     "t0": 6.606,
+     "t1": 7.691
+    },
+    {
+     "text": "En op je arm staat kippenvel.",
+     "t0": 7.721,
+     "t1": 9.281
+    },
+    {
+     "text": "Dat gebeurt allemaal binnen een paar seconden,",
+     "t0": 9.311,
+     "t1": 11.615
+    },
+    {
+     "text": "zonder dat je erover nadenkt.",
+     "t0": 11.645,
+     "t1": 13.252
+    },
+    {
+     "text": "Wie regelt dat?",
+     "t0": 13.282,
+     "t1": 14.215
+    },
+    {
+     "text": "Waar in je hoofd zit de baas?",
+     "t0": 14.245,
+     "t1": 15.929
+    }
+   ],
+   "words": [
+    {
+     "w": "Zaterdagochtend",
+     "t0": 0,
+     "t1": 1.189
+    },
+    {
+     "w": "De",
+     "t0": 1.219,
+     "t1": 1.363
+    },
+    {
+     "w": "radio",
+     "t0": 1.393,
+     "t1": 1.793
+    },
+    {
+     "w": "staat",
+     "t0": 1.823,
+     "t1": 2.095
+    },
+    {
+     "w": "aan",
+     "t0": 2.125,
+     "t1": 2.501
+    },
+    {
+     "w": "Twee",
+     "t0": 2.531,
+     "t1": 2.826
+    },
+    {
+     "w": "tonen",
+     "t0": 2.856,
+     "t1": 3.302
+    },
+    {
+     "w": "Meer",
+     "t0": 3.332,
+     "t1": 3.523
+    },
+    {
+     "w": "heb",
+     "t0": 3.553,
+     "t1": 3.685
+    },
+    {
+     "w": "je",
+     "t0": 3.715,
+     "t1": 3.766
+    },
+    {
+     "w": "niet",
+     "t0": 3.796,
+     "t1": 3.964
+    },
+    {
+     "w": "nodig",
+     "t0": 3.994,
+     "t1": 4.475
+    },
+    {
+     "w": "dit",
+     "t0": 4.505,
+     "t1": 4.718
+    },
+    {
+     "w": "is",
+     "t0": 4.748,
+     "t1": 4.835
+    },
+    {
+     "w": "jouw",
+     "t0": 4.865,
+     "t1": 5.032
+    },
+    {
+     "w": "nummer",
+     "t0": 5.062,
+     "t1": 5.415
+    },
+    {
+     "w": "Je",
+     "t0": 5.445,
+     "t1": 5.566
+    },
+    {
+     "w": "voet",
+     "t0": 5.596,
+     "t1": 5.868
+    },
+    {
+     "w": "tikt",
+     "t0": 5.898,
+     "t1": 6.181
+    },
+    {
+     "w": "mee",
+     "t0": 6.211,
+     "t1": 6.576
+    },
+    {
+     "w": "Je",
+     "t0": 6.606,
+     "t1": 6.739
+    },
+    {
+     "w": "zingt",
+     "t0": 6.769,
+     "t1": 7.006
+    },
+    {
+     "w": "het",
+     "t0": 7.036,
+     "t1": 7.157
+    },
+    {
+     "w": "refrein",
+     "t0": 7.187,
+     "t1": 7.691
+    },
+    {
+     "w": "En",
+     "t0": 7.721,
+     "t1": 7.853
+    },
+    {
+     "w": "op",
+     "t0": 7.883,
+     "t1": 7.992
+    },
+    {
+     "w": "je",
+     "t0": 8.022,
+     "t1": 8.109
+    },
+    {
+     "w": "arm",
+     "t0": 8.139,
+     "t1": 8.352
+    },
+    {
+     "w": "staat",
+     "t0": 8.382,
+     "t1": 8.643
+    },
+    {
+     "w": "kippenvel",
+     "t0": 8.673,
+     "t1": 9.281
+    },
+    {
+     "w": "Dat",
+     "t0": 9.311,
+     "t1": 9.467
+    },
+    {
+     "w": "gebeurt",
+     "t0": 9.497,
+     "t1": 9.838
+    },
+    {
+     "w": "allemaal",
+     "t0": 9.868,
+     "t1": 10.361
+    },
+    {
+     "w": "binnen",
+     "t0": 10.391,
+     "t1": 10.674
+    },
+    {
+     "w": "een",
+     "t0": 10.704,
+     "t1": 10.802
+    },
+    {
+     "w": "paar",
+     "t0": 10.832,
+     "t1": 11.046
+    },
+    {
+     "w": "seconden",
+     "t0": 11.076,
+     "t1": 11.615
+    },
+    {
+     "w": "zonder",
+     "t0": 11.645,
+     "t1": 11.951
+    },
+    {
+     "w": "dat",
+     "t0": 11.981,
+     "t1": 12.102
+    },
+    {
+     "w": "je",
+     "t0": 12.132,
+     "t1": 12.219
+    },
+    {
+     "w": "erover",
+     "t0": 12.249,
+     "t1": 12.613
+    },
+    {
+     "w": "nadenkt",
+     "t0": 12.643,
+     "t1": 13.252
+    },
+    {
+     "w": "Wie",
+     "t0": 13.282,
+     "t1": 13.484
+    },
+    {
+     "w": "regelt",
+     "t0": 13.514,
+     "t1": 13.89
+    },
+    {
+     "w": "dat",
+     "t0": 13.92,
+     "t1": 14.215
+    },
+    {
+     "w": "Waar",
+     "t0": 14.245,
+     "t1": 14.517
+    },
+    {
+     "w": "in",
+     "t0": 14.547,
+     "t1": 14.645
+    },
+    {
+     "w": "je",
+     "t0": 14.675,
+     "t1": 14.761
+    },
+    {
+     "w": "hoofd",
+     "t0": 14.791,
+     "t1": 15.04
+    },
+    {
+     "w": "zit",
+     "t0": 15.07,
+     "t1": 15.237
+    },
+    {
+     "w": "de",
+     "t0": 15.267,
+     "t1": 15.353
+    },
+    {
+     "w": "baas",
+     "t0": 15.383,
+     "t1": 15.929
+    }
+   ],
+   "source": "transcript"
+  },
+  "q1": {
+   "duration": 9.009,
+   "speech": [
+    0.0,
+    8.92
+   ],
+   "phrases": [
+    {
+     "text": "Wat denk je?",
+     "t0": 0.0,
+     "t1": 0.71
+    },
+    {
+     "text": "Je luistert naar een nummer dat je kent.",
+     "t0": 0.83,
+     "t1": 2.44
+    },
+    {
+     "text": "Hoeveel van je hersenen doet mee?",
+     "t0": 2.66,
+     "t1": 4.24
+    },
+    {
+     "text": "Ongeveer tien procent?",
+     "t0": 4.35,
+     "t1": 5.61
+    },
+    {
+     "text": "Eén hersenhelft?",
+     "t0": 5.76,
+     "t1": 6.69
+    },
+    {
+     "text": "Of gebieden verspreid door je hele hersenen?",
+     "t0": 6.86,
+     "t1": 8.92
+    }
+   ],
+   "words": [
+    {
+     "w": "Wat",
+     "t0": 0.0,
+     "t1": 0.237
+    },
+    {
+     "w": "denk",
+     "t0": 0.237,
+     "t1": 0.532
+    },
+    {
+     "w": "je",
+     "t0": 0.532,
+     "t1": 0.71
+    },
+    {
+     "w": "Je",
+     "t0": 0.83,
+     "t1": 0.951
+    },
+    {
+     "w": "luistert",
+     "t0": 0.951,
+     "t1": 1.313
+    },
+    {
+     "w": "naar",
+     "t0": 1.313,
+     "t1": 1.514
+    },
+    {
+     "w": "een",
+     "t0": 1.514,
+     "t1": 1.675
+    },
+    {
+     "w": "nummer",
+     "t0": 1.675,
+     "t1": 1.957
+    },
+    {
+     "w": "dat",
+     "t0": 1.957,
+     "t1": 2.118
+    },
+    {
+     "w": "je",
+     "t0": 2.118,
+     "t1": 2.239
+    },
+    {
+     "w": "kent",
+     "t0": 2.239,
+     "t1": 2.44
+    },
+    {
+     "w": "Hoeveel",
+     "t0": 2.66,
+     "t1": 3.043
+    },
+    {
+     "w": "van",
+     "t0": 3.043,
+     "t1": 3.235
+    },
+    {
+     "w": "je",
+     "t0": 3.235,
+     "t1": 3.378
+    },
+    {
+     "w": "hersenen",
+     "t0": 3.378,
+     "t1": 3.809
+    },
+    {
+     "w": "doet",
+     "t0": 3.809,
+     "t1": 4.048
+    },
+    {
+     "w": "mee",
+     "t0": 4.048,
+     "t1": 4.24
+    },
+    {
+     "w": "Ongeveer",
+     "t0": 4.35,
+     "t1": 4.865
+    },
+    {
+     "w": "tien",
+     "t0": 4.865,
+     "t1": 5.152
+    },
+    {
+     "w": "procent",
+     "t0": 5.152,
+     "t1": 5.61
+    },
+    {
+     "w": "Eén",
+     "t0": 5.76,
+     "t1": 5.992
+    },
+    {
+     "w": "hersenhelft",
+     "t0": 5.992,
+     "t1": 6.69
+    },
+    {
+     "w": "Of",
+     "t0": 6.86,
+     "t1": 7.0
+    },
+    {
+     "w": "gebieden",
+     "t0": 7.0,
+     "t1": 7.422
+    },
+    {
+     "w": "verspreid",
+     "t0": 7.422,
+     "t1": 7.89
+    },
+    {
+     "w": "door",
+     "t0": 7.89,
+     "t1": 8.124
+    },
+    {
+     "w": "je",
+     "t0": 8.124,
+     "t1": 8.265
+    },
+    {
+     "w": "hele",
+     "t0": 8.265,
+     "t1": 8.499
+    },
+    {
+     "w": "hersenen",
+     "t0": 8.499,
+     "t1": 8.92
+    }
+   ]
+  },
+  "a1": {
+   "duration": 44.489,
+   "speech": [
+    0.05,
+    44.37
+   ],
+   "phrases": [
+    {
+     "text": "Het goede antwoord is C.",
+     "t0": 0,
+     "t1": 1.625
+    },
+    {
+     "text": "Dat je maar tien procent gebruikt,",
+     "t0": 1.741,
+     "t1": 3.495
+    },
+    {
+     "text": "is een fabel.",
+     "t0": 3.553,
+     "t1": 4.505
+    },
+    {
+     "text": "Er is bijna geen plek in je hersenen die je kunt missen zonder iets kwijt te raken.",
+     "t0": 4.528,
+     "t1": 8.51
+    },
+    {
+     "text": "Eerst de bouw.",
+     "t0": 8.58,
+     "t1": 9.276
+    },
+    {
+     "text": "Bovenop liggen de grote hersenen:",
+     "t0": 9.334,
+     "t1": 11.006
+    },
+    {
+     "text": "twee helften,",
+     "t0": 11.088,
+     "t1": 11.842
+    },
+    {
+     "text": "verbonden door de hersenbalk.",
+     "t0": 11.912,
+     "t1": 13.224
+    },
+    {
+     "text": "Elke helft heeft vier kwabben:",
+     "t0": 13.258,
+     "t1": 14.872
+    },
+    {
+     "text": "vooraan de voorhoofdskwab,",
+     "t0": 14.93,
+     "t1": 16.231
+    },
+    {
+     "text": "bovenop de wandbeenkwab,",
+     "t0": 16.265,
+     "t1": 17.601
+    },
+    {
+     "text": "opzij de slaapkwab en achteraan de achterhoofdskwab.",
+     "t0": 17.659,
+     "t1": 20.584
+    },
+    {
+     "text": "Achteronder zitten de kleine hersenen.",
+     "t0": 20.619,
+     "t1": 22.477
+    },
+    {
+     "text": "En in het midden daaronder de hersenstam,",
+     "t0": 22.512,
+     "t1": 24.566
+    },
+    {
+     "text": "die overgaat in het ruggenmerg.",
+     "t0": 24.613,
+     "t1": 26.25
+    },
+    {
+     "text": "Maak je een doorsnede,",
+     "t0": 26.401,
+     "t1": 27.585
+    },
+    {
+     "text": "dan zie je twee kleuren.",
+     "t0": 27.62,
+     "t1": 28.746
+    },
+    {
+     "text": "Buiten een dunne laag grijze stof:",
+     "t0": 28.862,
+     "t1": 30.778
+    },
+    {
+     "text": "de hersenschors.",
+     "t0": 30.847,
+     "t1": 31.73
+    },
+    {
+     "text": "Daar zitten vooral de cellichamen.",
+     "t0": 31.776,
+     "t1": 33.309
+    },
+    {
+     "text": "Binnen witte stof:",
+     "t0": 33.344,
+     "t1": 34.261
+    },
+    {
+     "text": "axonen met een laagje myeline,",
+     "t0": 34.284,
+     "t1": 36.176
+    },
+    {
+     "text": "de kabels uit film 2.",
+     "t0": 36.223,
+     "t1": 37.593
+    },
+    {
+     "text": "Ook de hersenbalk is witte stof:",
+     "t0": 37.628,
+     "t1": 39.346
+    },
+    {
+     "text": "zo'n tweehonderd miljoen axonen van de ene helft naar de andere.",
+     "t0": 39.392,
+     "t1": 42.62
+    },
+    {
+     "text": "Grijs rekent,",
+     "t0": 42.666,
+     "t1": 43.63
+    },
+    {
+     "text": "wit verbindt.",
+     "t0": 43.688,
+     "t1": 44.489
+    }
+   ],
+   "words": [
+    {
+     "w": "Het",
+     "t0": 0,
+     "t1": 0.174
+    },
+    {
+     "w": "goede",
+     "t0": 0.232,
+     "t1": 0.476
+    },
+    {
+     "w": "antwoord",
+     "t0": 0.546,
+     "t1": 1.01
+    },
+    {
+     "w": "is",
+     "t0": 1.091,
+     "t1": 1.219
+    },
+    {
+     "w": "C",
+     "t0": 1.265,
+     "t1": 1.625
+    },
+    {
+     "w": "Dat",
+     "t0": 1.741,
+     "t1": 1.892
+    },
+    {
+     "w": "je",
+     "t0": 1.939,
+     "t1": 1.997
+    },
+    {
+     "w": "maar",
+     "t0": 2.043,
+     "t1": 2.159
+    },
+    {
+     "w": "tien",
+     "t0": 2.241,
+     "t1": 2.438
+    },
+    {
+     "w": "procent",
+     "t0": 2.508,
+     "t1": 2.879
+    },
+    {
+     "w": "gebruikt",
+     "t0": 2.914,
+     "t1": 3.495
+    },
+    {
+     "w": "is",
+     "t0": 3.553,
+     "t1": 3.704
+    },
+    {
+     "w": "een",
+     "t0": 3.762,
+     "t1": 3.831
+    },
+    {
+     "w": "fabel",
+     "t0": 3.947,
+     "t1": 4.505
+    },
+    {
+     "w": "Er",
+     "t0": 4.528,
+     "t1": 4.656
+    },
+    {
+     "w": "is",
+     "t0": 4.714,
+     "t1": 4.772
+    },
+    {
+     "w": "bijna",
+     "t0": 4.853,
+     "t1": 5.143
+    },
+    {
+     "w": "geen",
+     "t0": 5.19,
+     "t1": 5.329
+    },
+    {
+     "w": "plek",
+     "t0": 5.387,
+     "t1": 5.619
+    },
+    {
+     "w": "in",
+     "t0": 5.689,
+     "t1": 5.77
+    },
+    {
+     "w": "je",
+     "t0": 5.817,
+     "t1": 5.863
+    },
+    {
+     "w": "hersenen",
+     "t0": 5.921,
+     "t1": 6.316
+    },
+    {
+     "w": "die",
+     "t0": 6.397,
+     "t1": 6.548
+    },
+    {
+     "w": "je",
+     "t0": 6.571,
+     "t1": 6.618
+    },
+    {
+     "w": "kunt",
+     "t0": 6.676,
+     "t1": 6.827
+    },
+    {
+     "w": "missen",
+     "t0": 6.885,
+     "t1": 7.152
+    },
+    {
+     "w": "zonder",
+     "t0": 7.187,
+     "t1": 7.5
+    },
+    {
+     "w": "iets",
+     "t0": 7.558,
+     "t1": 7.697
+    },
+    {
+     "w": "kwijt",
+     "t0": 7.732,
+     "t1": 7.976
+    },
+    {
+     "w": "te",
+     "t0": 7.999,
+     "t1": 8.069
+    },
+    {
+     "w": "raken",
+     "t0": 8.115,
+     "t1": 8.51
+    },
+    {
+     "w": "Eerst",
+     "t0": 8.58,
+     "t1": 8.87
+    },
+    {
+     "w": "de",
+     "t0": 8.893,
+     "t1": 8.94
+    },
+    {
+     "w": "bouw",
+     "t0": 8.998,
+     "t1": 9.276
+    },
+    {
+     "w": "Bovenop",
+     "t0": 9.334,
+     "t1": 9.857
+    },
+    {
+     "w": "liggen",
+     "t0": 9.927,
+     "t1": 10.136
+    },
+    {
+     "w": "de",
+     "t0": 10.159,
+     "t1": 10.205
+    },
+    {
+     "w": "grote",
+     "t0": 10.252,
+     "t1": 10.53
+    },
+    {
+     "w": "hersenen",
+     "t0": 10.577,
+     "t1": 11.006
+    },
+    {
+     "w": "twee",
+     "t0": 11.088,
+     "t1": 11.32
+    },
+    {
+     "w": "helften",
+     "t0": 11.378,
+     "t1": 11.842
+    },
+    {
+     "w": "verbonden",
+     "t0": 11.912,
+     "t1": 12.353
+    },
+    {
+     "w": "door",
+     "t0": 12.376,
+     "t1": 12.504
+    },
+    {
+     "w": "de",
+     "t0": 12.55,
+     "t1": 12.597
+    },
+    {
+     "w": "hersenbalk",
+     "t0": 12.643,
+     "t1": 13.224
+    },
+    {
+     "w": "Elke",
+     "t0": 13.258,
+     "t1": 13.595
+    },
+    {
+     "w": "helft",
+     "t0": 13.653,
+     "t1": 13.932
+    },
+    {
+     "w": "heeft",
+     "t0": 13.967,
+     "t1": 14.152
+    },
+    {
+     "w": "vier",
+     "t0": 14.21,
+     "t1": 14.396
+    },
+    {
+     "w": "kwabben",
+     "t0": 14.466,
+     "t1": 14.872
+    },
+    {
+     "w": "vooraan",
+     "t0": 14.93,
+     "t1": 15.279
+    },
+    {
+     "w": "de",
+     "t0": 15.325,
+     "t1": 15.383
+    },
+    {
+     "w": "voorhoofdskwab",
+     "t0": 15.441,
+     "t1": 16.231
+    },
+    {
+     "w": "bovenop",
+     "t0": 16.265,
+     "t1": 16.741
+    },
+    {
+     "w": "de",
+     "t0": 16.788,
+     "t1": 16.834
+    },
+    {
+     "w": "wandbeenkwab",
+     "t0": 16.881,
+     "t1": 17.601
+    },
+    {
+     "w": "opzij",
+     "t0": 17.659,
+     "t1": 17.949
+    },
+    {
+     "w": "de",
+     "t0": 18.007,
+     "t1": 18.065
+    },
+    {
+     "w": "slaapkwab",
+     "t0": 18.1,
+     "t1": 18.634
+    },
+    {
+     "w": "en",
+     "t0": 18.727,
+     "t1": 18.878
+    },
+    {
+     "w": "achteraan",
+     "t0": 18.994,
+     "t1": 19.493
+    },
+    {
+     "w": "de",
+     "t0": 19.551,
+     "t1": 19.609
+    },
+    {
+     "w": "achterhoofdskwab",
+     "t0": 19.679,
+     "t1": 20.584
+    },
+    {
+     "w": "Achteronder",
+     "t0": 20.619,
+     "t1": 21.246
+    },
+    {
+     "w": "zitten",
+     "t0": 21.293,
+     "t1": 21.525
+    },
+    {
+     "w": "de",
+     "t0": 21.548,
+     "t1": 21.618
+    },
+    {
+     "w": "kleine",
+     "t0": 21.664,
+     "t1": 21.978
+    },
+    {
+     "w": "hersenen",
+     "t0": 22.024,
+     "t1": 22.477
+    },
+    {
+     "w": "En",
+     "t0": 22.512,
+     "t1": 22.628
+    },
+    {
+     "w": "in",
+     "t0": 22.686,
+     "t1": 22.732
+    },
+    {
+     "w": "het",
+     "t0": 22.767,
+     "t1": 22.848
+    },
+    {
+     "w": "midden",
+     "t0": 22.918,
+     "t1": 23.208
+    },
+    {
+     "w": "daaronder",
+     "t0": 23.243,
+     "t1": 23.73
+    },
+    {
+     "w": "de",
+     "t0": 23.789,
+     "t1": 23.858
+    },
+    {
+     "w": "hersenstam",
+     "t0": 23.916,
+     "t1": 24.566
+    },
+    {
+     "w": "die",
+     "t0": 24.613,
+     "t1": 24.729
+    },
+    {
+     "w": "overgaat",
+     "t0": 24.799,
+     "t1": 25.333
+    },
+    {
+     "w": "in",
+     "t0": 25.391,
+     "t1": 25.437
+    },
+    {
+     "w": "het",
+     "t0": 25.46,
+     "t1": 25.542
+    },
+    {
+     "w": "ruggenmerg",
+     "t0": 25.623,
+     "t1": 26.25
+    },
+    {
+     "w": "Maak",
+     "t0": 26.401,
+     "t1": 26.633
+    },
+    {
+     "w": "je",
+     "t0": 26.703,
+     "t1": 26.761
+    },
+    {
+     "w": "een",
+     "t0": 26.807,
+     "t1": 26.877
+    },
+    {
+     "w": "doorsnede",
+     "t0": 26.935,
+     "t1": 27.585
+    },
+    {
+     "w": "dan",
+     "t0": 27.62,
+     "t1": 27.724
+    },
+    {
+     "w": "zie",
+     "t0": 27.771,
+     "t1": 27.875
+    },
+    {
+     "w": "je",
+     "t0": 27.91,
+     "t1": 27.98
+    },
+    {
+     "w": "twee",
+     "t0": 28.038,
+     "t1": 28.293
+    },
+    {
+     "w": "kleuren",
+     "t0": 28.328,
+     "t1": 28.746
+    },
+    {
+     "w": "Buiten",
+     "t0": 28.862,
+     "t1": 29.234
+    },
+    {
+     "w": "een",
+     "t0": 29.268,
+     "t1": 29.361
+    },
+    {
+     "w": "dunne",
+     "t0": 29.431,
+     "t1": 29.675
+    },
+    {
+     "w": "laag",
+     "t0": 29.721,
+     "t1": 29.93
+    },
+    {
+     "w": "grijze",
+     "t0": 29.953,
+     "t1": 30.313
+    },
+    {
+     "w": "stof",
+     "t0": 30.348,
+     "t1": 30.778
+    },
+    {
+     "w": "de",
+     "t0": 30.847,
+     "t1": 30.929
+    },
+    {
+     "w": "hersenschors",
+     "t0": 30.987,
+     "t1": 31.73
+    },
+    {
+     "w": "Daar",
+     "t0": 31.776,
+     "t1": 31.916
+    },
+    {
+     "w": "zitten",
+     "t0": 31.939,
+     "t1": 32.171
+    },
+    {
+     "w": "vooral",
+     "t0": 32.194,
+     "t1": 32.473
+    },
+    {
+     "w": "de",
+     "t0": 32.519,
+     "t1": 32.577
+    },
+    {
+     "w": "cellichamen",
+     "t0": 32.624,
+     "t1": 33.309
+    },
+    {
+     "w": "Binnen",
+     "t0": 33.344,
+     "t1": 33.599
+    },
+    {
+     "w": "witte",
+     "t0": 33.622,
+     "t1": 33.854
+    },
+    {
+     "w": "stof",
+     "t0": 33.901,
+     "t1": 34.261
+    },
+    {
+     "w": "axonen",
+     "t0": 34.284,
+     "t1": 34.876
+    },
+    {
+     "w": "met",
+     "t0": 34.911,
+     "t1": 35.039
+    },
+    {
+     "w": "een",
+     "t0": 35.097,
+     "t1": 35.166
+    },
+    {
+     "w": "laagje",
+     "t0": 35.224,
+     "t1": 35.561
+    },
+    {
+     "w": "myeline",
+     "t0": 35.619,
+     "t1": 36.176
+    },
+    {
+     "w": "de",
+     "t0": 36.223,
+     "t1": 36.304
+    },
+    {
+     "w": "kabels",
+     "t0": 36.362,
+     "t1": 36.745
+    },
+    {
+     "w": "uit",
+     "t0": 36.803,
+     "t1": 36.931
+    },
+    {
+     "w": "film",
+     "t0": 36.989,
+     "t1": 37.198
+    },
+    {
+     "w": "2",
+     "t0": 37.268,
+     "t1": 37.593
+    },
+    {
+     "w": "Ook",
+     "t0": 37.628,
+     "t1": 37.802
+    },
+    {
+     "w": "de",
+     "t0": 37.86,
+     "t1": 37.918
+    },
+    {
+     "w": "hersenbalk",
+     "t0": 37.976,
+     "t1": 38.533
+    },
+    {
+     "w": "is",
+     "t0": 38.603,
+     "t1": 38.696
+    },
+    {
+     "w": "witte",
+     "t0": 38.754,
+     "t1": 38.986
+    },
+    {
+     "w": "stof",
+     "t0": 39.021,
+     "t1": 39.346
+    },
+    {
+     "w": "zo'n",
+     "t0": 39.392,
+     "t1": 39.578
+    },
+    {
+     "w": "tweehonderd",
+     "t0": 39.671,
+     "t1": 40.24
+    },
+    {
+     "w": "miljoen",
+     "t0": 40.286,
+     "t1": 40.588
+    },
+    {
+     "w": "axonen",
+     "t0": 40.646,
+     "t1": 41.099
+    },
+    {
+     "w": "van",
+     "t0": 41.134,
+     "t1": 41.261
+    },
+    {
+     "w": "de",
+     "t0": 41.296,
+     "t1": 41.354
+    },
+    {
+     "w": "ene",
+     "t0": 41.436,
+     "t1": 41.668
+    },
+    {
+     "w": "helft",
+     "t0": 41.714,
+     "t1": 41.935
+    },
+    {
+     "w": "naar",
+     "t0": 41.97,
+     "t1": 42.074
+    },
+    {
+     "w": "de",
+     "t0": 42.097,
+     "t1": 42.155
+    },
+    {
+     "w": "andere",
+     "t0": 42.202,
+     "t1": 42.62
+    },
+    {
+     "w": "Grijs",
+     "t0": 42.666,
+     "t1": 43.003
+    },
+    {
+     "w": "rekent",
+     "t0": 43.084,
+     "t1": 43.63
+    },
+    {
+     "w": "wit",
+     "t0": 43.688,
+     "t1": 43.885
+    },
+    {
+     "w": "verbindt",
+     "t0": 43.943,
+     "t1": 44.489
+    }
+   ],
+   "source": "transcript"
+  },
+  "s21": {
+   "duration": 66.92,
+   "speech": [
+    0.04,
+    66.85
+   ],
+   "phrases": [
+    {
+     "text": "Je oor zet geluid om in impulsen.",
+     "t0": 0,
+     "t1": 2.055
+    },
+    {
+     "text": "Dat gebeurt in het slakkenhuis,",
+     "t0": 2.136,
+     "t1": 3.611
+    },
+    {
+     "text": "op het basilair membraan.",
+     "t0": 3.68,
+     "t1": 5.085
+    },
+    {
+     "text": "Aan het begin is dat smal en stijf:",
+     "t0": 5.155,
+     "t1": 7.233
+    },
+    {
+     "text": "het trilt mee met hoge tonen.",
+     "t0": 7.291,
+     "t1": 8.998
+    },
+    {
+     "text": "Bij de top is het breed en slap:",
+     "t0": 9.033,
+     "t1": 10.774
+    },
+    {
+     "text": "het trilt mee met lage tonen.",
+     "t0": 10.832,
+     "t1": 12.608
+    },
+    {
+     "text": "Zo prikkelt elke toon zijn eigen zintuigcellen.",
+     "t0": 12.69,
+     "t1": 15.534
+    },
+    {
+     "text": "De impulsen gaan via de gehoorzenuw naar de hersenstam.",
+     "t0": 15.592,
+     "t1": 18.75
+    },
+    {
+     "text": "Daarna langs de thalamus,",
+     "t0": 18.797,
+     "t1": 20.387
+    },
+    {
+     "text": "een schakelstation voor bijna alle zintuigen.",
+     "t0": 20.41,
+     "t1": 22.86
+    },
+    {
+     "text": "En dan naar de schors van de slaapkwab,",
+     "t0": 22.895,
+     "t1": 24.961
+    },
+    {
+     "text": "opzij in je hoofd:",
+     "t0": 24.985,
+     "t1": 26.134
+    },
+    {
+     "text": "de primaire gehoorschors.",
+     "t0": 26.25,
+     "t1": 27.655
+    },
+    {
+     "text": "Hier komen toonhoogte en luidheid binnen.",
+     "t0": 27.713,
+     "t1": 29.954
+    },
+    {
+     "text": "Ook hier heeft elke toon zijn eigen plek,",
+     "t0": 30.012,
+     "t1": 32.392
+    },
+    {
+     "text": "van laag naar hoog,",
+     "t0": 32.45,
+     "t1": 33.611
+    },
+    {
+     "text": "in dezelfde volgorde als in het slakkenhuis.",
+     "t0": 33.657,
+     "t1": 35.898
+    },
+    {
+     "text": "Maar dat dit jouw nummer is,",
+     "t0": 35.944,
+     "t1": 37.291
+    },
+    {
+     "text": "weet de primaire schors niet.",
+     "t0": 37.349,
+     "t1": 39.055
+    },
+    {
+     "text": "Dat zoekt het gebied eromheen uit:",
+     "t0": 39.125,
+     "t1": 40.994
+    },
+    {
+     "text": "de associatieve schors.",
+     "t0": 41.087,
+     "t1": 42.469
+    },
+    {
+     "text": "Die legt verbanden met wat je al kent.",
+     "t0": 42.55,
+     "t1": 44.617
+    },
+    {
+     "text": "Zo werkt het overal.",
+     "t0": 44.675,
+     "t1": 45.812
+    },
+    {
+     "text": "In de achterhoofdskwab ligt de primaire schors voor zien.",
+     "t0": 45.859,
+     "t1": 48.773
+    },
+    {
+     "text": "Over je kruin loopt een diepe groeve.",
+     "t0": 48.854,
+     "t1": 51.153
+    },
+    {
+     "text": "Ervoor,",
+     "t0": 51.211,
+     "t1": 51.861
+    },
+    {
+     "text": "in de voorhoofdskwab,",
+     "t0": 51.896,
+     "t1": 52.987
+    },
+    {
+     "text": "ligt de strook voor bewegen.",
+     "t0": 53.057,
+     "t1": 54.555
+    },
+    {
+     "text": "Erachter,",
+     "t0": 54.636,
+     "t1": 55.332
+    },
+    {
+     "text": "in de wandbeenkwab,",
+     "t0": 55.367,
+     "t1": 56.447
+    },
+    {
+     "text": "de strook voor voelen.",
+     "t0": 56.493,
+     "t1": 57.596
+    },
+    {
+     "text": "En rond elk primair gebied ligt associatieve schors die er betekenis aan geeft.",
+     "t0": 57.643,
+     "t1": 62.089
+    },
+    {
+     "text": "De voorhoofdskwab heeft daar het meeste van:",
+     "t0": 62.171,
+     "t1": 64.562
+    },
+    {
+     "text": "plannen,",
+     "t0": 64.678,
+     "t1": 65.154
+    },
+    {
+     "text": "kiezen,",
+     "t0": 65.282,
+     "t1": 65.747
+    },
+    {
+     "text": "en je inhouden.",
+     "t0": 65.863,
+     "t1": 66.919
+    }
+   ],
+   "words": [
+    {
+     "w": "Je",
+     "t0": 0,
+     "t1": 0.163
+    },
+    {
+     "w": "oor",
+     "t0": 0.244,
+     "t1": 0.441
+    },
+    {
+     "w": "zet",
+     "t0": 0.511,
+     "t1": 0.662
+    },
+    {
+     "w": "geluid",
+     "t0": 0.708,
+     "t1": 1.126
+    },
+    {
+     "w": "om",
+     "t0": 1.277,
+     "t1": 1.405
+    },
+    {
+     "w": "in",
+     "t0": 1.474,
+     "t1": 1.521
+    },
+    {
+     "w": "impulsen",
+     "t0": 1.567,
+     "t1": 2.055
+    },
+    {
+     "w": "Dat",
+     "t0": 2.136,
+     "t1": 2.299
+    },
+    {
+     "w": "gebeurt",
+     "t0": 2.345,
+     "t1": 2.67
+    },
+    {
+     "w": "in",
+     "t0": 2.728,
+     "t1": 2.786
+    },
+    {
+     "w": "het",
+     "t0": 2.821,
+     "t1": 2.891
+    },
+    {
+     "w": "slakkenhuis",
+     "t0": 2.926,
+     "t1": 3.611
+    },
+    {
+     "w": "op",
+     "t0": 3.68,
+     "t1": 3.831
+    },
+    {
+     "w": "het",
+     "t0": 3.878,
+     "t1": 3.947
+    },
+    {
+     "w": "basilair",
+     "t0": 3.994,
+     "t1": 4.505
+    },
+    {
+     "w": "membraan",
+     "t0": 4.563,
+     "t1": 5.085
+    },
+    {
+     "w": "Aan",
+     "t0": 5.155,
+     "t1": 5.283
+    },
+    {
+     "w": "het",
+     "t0": 5.317,
+     "t1": 5.387
+    },
+    {
+     "w": "begin",
+     "t0": 5.422,
+     "t1": 5.782
+    },
+    {
+     "w": "is",
+     "t0": 5.863,
+     "t1": 6.014
+    },
+    {
+     "w": "dat",
+     "t0": 6.06,
+     "t1": 6.188
+    },
+    {
+     "w": "smal",
+     "t0": 6.235,
+     "t1": 6.536
+    },
+    {
+     "w": "en",
+     "t0": 6.618,
+     "t1": 6.699
+    },
+    {
+     "w": "stijf",
+     "t0": 6.769,
+     "t1": 7.233
+    },
+    {
+     "w": "het",
+     "t0": 7.291,
+     "t1": 7.396
+    },
+    {
+     "w": "trilt",
+     "t0": 7.442,
+     "t1": 7.767
+    },
+    {
+     "w": "mee",
+     "t0": 7.837,
+     "t1": 8.046
+    },
+    {
+     "w": "met",
+     "t0": 8.092,
+     "t1": 8.22
+    },
+    {
+     "w": "hoge",
+     "t0": 8.278,
+     "t1": 8.545
+    },
+    {
+     "w": "tonen",
+     "t0": 8.603,
+     "t1": 8.998
+    },
+    {
+     "w": "Bij",
+     "t0": 9.033,
+     "t1": 9.149
+    },
+    {
+     "w": "de",
+     "t0": 9.195,
+     "t1": 9.253
+    },
+    {
+     "w": "top",
+     "t0": 9.334,
+     "t1": 9.555
+    },
+    {
+     "w": "is",
+     "t0": 9.636,
+     "t1": 9.741
+    },
+    {
+     "w": "het",
+     "t0": 9.787,
+     "t1": 9.857
+    },
+    {
+     "w": "breed",
+     "t0": 9.892,
+     "t1": 10.205
+    },
+    {
+     "w": "en",
+     "t0": 10.263,
+     "t1": 10.356
+    },
+    {
+     "w": "slap",
+     "t0": 10.426,
+     "t1": 10.774
+    },
+    {
+     "w": "het",
+     "t0": 10.832,
+     "t1": 10.96
+    },
+    {
+     "w": "trilt",
+     "t0": 10.995,
+     "t1": 11.331
+    },
+    {
+     "w": "mee",
+     "t0": 11.389,
+     "t1": 11.622
+    },
+    {
+     "w": "met",
+     "t0": 11.668,
+     "t1": 11.819
+    },
+    {
+     "w": "lage",
+     "t0": 11.877,
+     "t1": 12.179
+    },
+    {
+     "w": "tonen",
+     "t0": 12.225,
+     "t1": 12.608
+    },
+    {
+     "w": "Zo",
+     "t0": 12.69,
+     "t1": 12.945
+    },
+    {
+     "w": "prikkelt",
+     "t0": 13.015,
+     "t1": 13.421
+    },
+    {
+     "w": "elke",
+     "t0": 13.514,
+     "t1": 13.839
+    },
+    {
+     "w": "toon",
+     "t0": 13.897,
+     "t1": 14.129
+    },
+    {
+     "w": "zijn",
+     "t0": 14.187,
+     "t1": 14.338
+    },
+    {
+     "w": "eigen",
+     "t0": 14.431,
+     "t1": 14.721
+    },
+    {
+     "w": "zintuigcellen",
+     "t0": 14.745,
+     "t1": 15.534
+    },
+    {
+     "w": "De",
+     "t0": 15.592,
+     "t1": 15.697
+    },
+    {
+     "w": "impulsen",
+     "t0": 15.755,
+     "t1": 16.266
+    },
+    {
+     "w": "gaan",
+     "t0": 16.3,
+     "t1": 16.475
+    },
+    {
+     "w": "via",
+     "t0": 16.556,
+     "t1": 16.788
+    },
+    {
+     "w": "de",
+     "t0": 16.834,
+     "t1": 16.893
+    },
+    {
+     "w": "gehoorzenuw",
+     "t0": 16.939,
+     "t1": 17.717
+    },
+    {
+     "w": "naar",
+     "t0": 17.81,
+     "t1": 17.972
+    },
+    {
+     "w": "de",
+     "t0": 17.995,
+     "t1": 18.042
+    },
+    {
+     "w": "hersenstam",
+     "t0": 18.1,
+     "t1": 18.75
+    },
+    {
+     "w": "Daarna",
+     "t0": 18.797,
+     "t1": 19.238
+    },
+    {
+     "w": "langs",
+     "t0": 19.354,
+     "t1": 19.609
+    },
+    {
+     "w": "de",
+     "t0": 19.644,
+     "t1": 19.702
+    },
+    {
+     "w": "thalamus",
+     "t0": 19.772,
+     "t1": 20.387
+    },
+    {
+     "w": "een",
+     "t0": 20.41,
+     "t1": 20.503
+    },
+    {
+     "w": "schakelstation",
+     "t0": 20.561,
+     "t1": 21.42
+    },
+    {
+     "w": "voor",
+     "t0": 21.49,
+     "t1": 21.618
+    },
+    {
+     "w": "bijna",
+     "t0": 21.676,
+     "t1": 21.966
+    },
+    {
+     "w": "alle",
+     "t0": 22.036,
+     "t1": 22.233
+    },
+    {
+     "w": "zintuigen",
+     "t0": 22.268,
+     "t1": 22.86
+    },
+    {
+     "w": "En",
+     "t0": 22.895,
+     "t1": 23.034
+    },
+    {
+     "w": "dan",
+     "t0": 23.092,
+     "t1": 23.29
+    },
+    {
+     "w": "naar",
+     "t0": 23.336,
+     "t1": 23.464
+    },
+    {
+     "w": "de",
+     "t0": 23.499,
+     "t1": 23.557
+    },
+    {
+     "w": "schors",
+     "t0": 23.603,
+     "t1": 23.975
+    },
+    {
+     "w": "van",
+     "t0": 24.067,
+     "t1": 24.207
+    },
+    {
+     "w": "de",
+     "t0": 24.242,
+     "t1": 24.288
+    },
+    {
+     "w": "slaapkwab",
+     "t0": 24.323,
+     "t1": 24.961
+    },
+    {
+     "w": "opzij",
+     "t0": 24.985,
+     "t1": 25.321
+    },
+    {
+     "w": "in",
+     "t0": 25.403,
+     "t1": 25.484
+    },
+    {
+     "w": "je",
+     "t0": 25.542,
+     "t1": 25.6
+    },
+    {
+     "w": "hoofd",
+     "t0": 25.658,
+     "t1": 26.134
+    },
+    {
+     "w": "de",
+     "t0": 26.25,
+     "t1": 26.331
+    },
+    {
+     "w": "primaire",
+     "t0": 26.389,
+     "t1": 26.842
+    },
+    {
+     "w": "gehoorschors",
+     "t0": 26.889,
+     "t1": 27.655
+    },
+    {
+     "w": "Hier",
+     "t0": 27.713,
+     "t1": 27.922
+    },
+    {
+     "w": "komen",
+     "t0": 27.98,
+     "t1": 28.224
+    },
+    {
+     "w": "toonhoogte",
+     "t0": 28.27,
+     "t1": 28.92
+    },
+    {
+     "w": "en",
+     "t0": 28.978,
+     "t1": 29.048
+    },
+    {
+     "w": "luidheid",
+     "t0": 29.164,
+     "t1": 29.582
+    },
+    {
+     "w": "binnen",
+     "t0": 29.64,
+     "t1": 29.954
+    },
+    {
+     "w": "Ook",
+     "t0": 30.012,
+     "t1": 30.232
+    },
+    {
+     "w": "hier",
+     "t0": 30.313,
+     "t1": 30.546
+    },
+    {
+     "w": "heeft",
+     "t0": 30.615,
+     "t1": 30.789
+    },
+    {
+     "w": "elke",
+     "t0": 30.906,
+     "t1": 31.196
+    },
+    {
+     "w": "toon",
+     "t0": 31.254,
+     "t1": 31.451
+    },
+    {
+     "w": "zijn",
+     "t0": 31.498,
+     "t1": 31.625
+    },
+    {
+     "w": "eigen",
+     "t0": 31.718,
+     "t1": 32.055
+    },
+    {
+     "w": "plek",
+     "t0": 32.078,
+     "t1": 32.392
+    },
+    {
+     "w": "van",
+     "t0": 32.45,
+     "t1": 32.612
+    },
+    {
+     "w": "laag",
+     "t0": 32.705,
+     "t1": 32.995
+    },
+    {
+     "w": "naar",
+     "t0": 33.077,
+     "t1": 33.204
+    },
+    {
+     "w": "hoog",
+     "t0": 33.262,
+     "t1": 33.611
+    },
+    {
+     "w": "in",
+     "t0": 33.657,
+     "t1": 33.762
+    },
+    {
+     "w": "dezelfde",
+     "t0": 33.796,
+     "t1": 34.272
+    },
+    {
+     "w": "volgorde",
+     "t0": 34.331,
+     "t1": 34.807
+    },
+    {
+     "w": "als",
+     "t0": 34.853,
+     "t1": 34.957
+    },
+    {
+     "w": "in",
+     "t0": 35.016,
+     "t1": 35.074
+    },
+    {
+     "w": "het",
+     "t0": 35.108,
+     "t1": 35.178
+    },
+    {
+     "w": "slakkenhuis",
+     "t0": 35.213,
+     "t1": 35.898
+    },
+    {
+     "w": "Maar",
+     "t0": 35.944,
+     "t1": 36.072
+    },
+    {
+     "w": "dat",
+     "t0": 36.13,
+     "t1": 36.293
+    },
+    {
+     "w": "dit",
+     "t0": 36.339,
+     "t1": 36.49
+    },
+    {
+     "w": "jouw",
+     "t0": 36.571,
+     "t1": 36.687
+    },
+    {
+     "w": "nummer",
+     "t0": 36.757,
+     "t1": 37.001
+    },
+    {
+     "w": "is",
+     "t0": 37.082,
+     "t1": 37.291
+    },
+    {
+     "w": "weet",
+     "t0": 37.349,
+     "t1": 37.581
+    },
+    {
+     "w": "de",
+     "t0": 37.605,
+     "t1": 37.663
+    },
+    {
+     "w": "primaire",
+     "t0": 37.709,
+     "t1": 38.161
+    },
+    {
+     "w": "schors",
+     "t0": 38.208,
+     "t1": 38.591
+    },
+    {
+     "w": "niet",
+     "t0": 38.742,
+     "t1": 39.055
+    },
+    {
+     "w": "Dat",
+     "t0": 39.125,
+     "t1": 39.299
+    },
+    {
+     "w": "zoekt",
+     "t0": 39.346,
+     "t1": 39.578
+    },
+    {
+     "w": "het",
+     "t0": 39.601,
+     "t1": 39.682
+    },
+    {
+     "w": "gebied",
+     "t0": 39.729,
+     "t1": 40.031
+    },
+    {
+     "w": "eromheen",
+     "t0": 40.1,
+     "t1": 40.565
+    },
+    {
+     "w": "uit",
+     "t0": 40.646,
+     "t1": 40.994
+    },
+    {
+     "w": "de",
+     "t0": 41.087,
+     "t1": 41.18
+    },
+    {
+     "w": "associatieve",
+     "t0": 41.25,
+     "t1": 41.993
+    },
+    {
+     "w": "schors",
+     "t0": 42.039,
+     "t1": 42.469
+    },
+    {
+     "w": "Die",
+     "t0": 42.55,
+     "t1": 42.678
+    },
+    {
+     "w": "legt",
+     "t0": 42.747,
+     "t1": 42.98
+    },
+    {
+     "w": "verbanden",
+     "t0": 43.038,
+     "t1": 43.56
+    },
+    {
+     "w": "met",
+     "t0": 43.583,
+     "t1": 43.711
+    },
+    {
+     "w": "wat",
+     "t0": 43.769,
+     "t1": 43.874
+    },
+    {
+     "w": "je",
+     "t0": 43.943,
+     "t1": 43.99
+    },
+    {
+     "w": "al",
+     "t0": 44.048,
+     "t1": 44.141
+    },
+    {
+     "w": "kent",
+     "t0": 44.222,
+     "t1": 44.617
+    },
+    {
+     "w": "Zo",
+     "t0": 44.675,
+     "t1": 44.814
+    },
+    {
+     "w": "werkt",
+     "t0": 44.872,
+     "t1": 45.127
+    },
+    {
+     "w": "het",
+     "t0": 45.151,
+     "t1": 45.232
+    },
+    {
+     "w": "overal",
+     "t0": 45.302,
+     "t1": 45.812
+    },
+    {
+     "w": "In",
+     "t0": 45.859,
+     "t1": 45.987
+    },
+    {
+     "w": "de",
+     "t0": 46.021,
+     "t1": 46.079
+    },
+    {
+     "w": "achterhoofdskwab",
+     "t0": 46.149,
+     "t1": 46.962
+    },
+    {
+     "w": "ligt",
+     "t0": 47.055,
+     "t1": 47.252
+    },
+    {
+     "w": "de",
+     "t0": 47.287,
+     "t1": 47.333
+    },
+    {
+     "w": "primaire",
+     "t0": 47.391,
+     "t1": 47.879
+    },
+    {
+     "w": "schors",
+     "t0": 47.937,
+     "t1": 48.239
+    },
+    {
+     "w": "voor",
+     "t0": 48.297,
+     "t1": 48.436
+    },
+    {
+     "w": "zien",
+     "t0": 48.494,
+     "t1": 48.773
+    },
+    {
+     "w": "Over",
+     "t0": 48.854,
+     "t1": 49.156
+    },
+    {
+     "w": "je",
+     "t0": 49.214,
+     "t1": 49.284
+    },
+    {
+     "w": "kruin",
+     "t0": 49.342,
+     "t1": 49.713
+    },
+    {
+     "w": "loopt",
+     "t0": 49.829,
+     "t1": 50.096
+    },
+    {
+     "w": "een",
+     "t0": 50.143,
+     "t1": 50.224
+    },
+    {
+     "w": "diepe",
+     "t0": 50.305,
+     "t1": 50.596
+    },
+    {
+     "w": "groeve",
+     "t0": 50.654,
+     "t1": 51.153
+    },
+    {
+     "w": "Ervoor",
+     "t0": 51.211,
+     "t1": 51.861
+    },
+    {
+     "w": "in",
+     "t0": 51.896,
+     "t1": 52.012
+    },
+    {
+     "w": "de",
+     "t0": 52.047,
+     "t1": 52.105
+    },
+    {
+     "w": "voorhoofdskwab",
+     "t0": 52.163,
+     "t1": 52.987
+    },
+    {
+     "w": "ligt",
+     "t0": 53.057,
+     "t1": 53.301
+    },
+    {
+     "w": "de",
+     "t0": 53.324,
+     "t1": 53.382
+    },
+    {
+     "w": "strook",
+     "t0": 53.428,
+     "t1": 53.765
+    },
+    {
+     "w": "voor",
+     "t0": 53.823,
+     "t1": 53.962
+    },
+    {
+     "w": "bewegen",
+     "t0": 54.009,
+     "t1": 54.555
+    },
+    {
+     "w": "Erachter",
+     "t0": 54.636,
+     "t1": 55.332
+    },
+    {
+     "w": "in",
+     "t0": 55.367,
+     "t1": 55.483
+    },
+    {
+     "w": "de",
+     "t0": 55.53,
+     "t1": 55.588
+    },
+    {
+     "w": "wandbeenkwab",
+     "t0": 55.634,
+     "t1": 56.447
+    },
+    {
+     "w": "de",
+     "t0": 56.493,
+     "t1": 56.586
+    },
+    {
+     "w": "strook",
+     "t0": 56.644,
+     "t1": 56.981
+    },
+    {
+     "w": "voor",
+     "t0": 57.039,
+     "t1": 57.167
+    },
+    {
+     "w": "voelen",
+     "t0": 57.236,
+     "t1": 57.596
+    },
+    {
+     "w": "En",
+     "t0": 57.643,
+     "t1": 57.724
+    },
+    {
+     "w": "rond",
+     "t0": 57.782,
+     "t1": 57.979
+    },
+    {
+     "w": "elk",
+     "t0": 58.072,
+     "t1": 58.316
+    },
+    {
+     "w": "primair",
+     "t0": 58.363,
+     "t1": 58.699
+    },
+    {
+     "w": "gebied",
+     "t0": 58.769,
+     "t1": 59.152
+    },
+    {
+     "w": "ligt",
+     "t0": 59.245,
+     "t1": 59.477
+    },
+    {
+     "w": "associatieve",
+     "t0": 59.547,
+     "t1": 60.209
+    },
+    {
+     "w": "schors",
+     "t0": 60.243,
+     "t1": 60.592
+    },
+    {
+     "w": "die",
+     "t0": 60.673,
+     "t1": 60.812
+    },
+    {
+     "w": "er",
+     "t0": 60.836,
+     "t1": 60.905
+    },
+    {
+     "w": "betekenis",
+     "t0": 60.94,
+     "t1": 61.474
+    },
+    {
+     "w": "aan",
+     "t0": 61.532,
+     "t1": 61.613
+    },
+    {
+     "w": "geeft",
+     "t0": 61.671,
+     "t1": 62.089
+    },
+    {
+     "w": "De",
+     "t0": 62.171,
+     "t1": 62.275
+    },
+    {
+     "w": "voorhoofdskwab",
+     "t0": 62.333,
+     "t1": 63.065
+    },
+    {
+     "w": "heeft",
+     "t0": 63.146,
+     "t1": 63.332
+    },
+    {
+     "w": "daar",
+     "t0": 63.355,
+     "t1": 63.506
+    },
+    {
+     "w": "het",
+     "t0": 63.529,
+     "t1": 63.61
+    },
+    {
+     "w": "meeste",
+     "t0": 63.703,
+     "t1": 64.144
+    },
+    {
+     "w": "van",
+     "t0": 64.202,
+     "t1": 64.562
+    },
+    {
+     "w": "plannen",
+     "t0": 64.678,
+     "t1": 65.154
+    },
+    {
+     "w": "kiezen",
+     "t0": 65.282,
+     "t1": 65.747
+    },
+    {
+     "w": "en",
+     "t0": 65.863,
+     "t1": 66.002
+    },
+    {
+     "w": "je",
+     "t0": 66.072,
+     "t1": 66.165
+    },
+    {
+     "w": "inhouden",
+     "t0": 66.234,
+     "t1": 66.919
+    }
+   ],
+   "source": "transcript"
+  },
+  "q2": {
+   "duration": 15.418,
+   "speech": [
+    0.0,
+    15.29
+   ],
+   "phrases": [
+    {
+     "text": "Wat denk je?",
+     "t0": 0.0,
+     "t1": 0.78
+    },
+    {
+     "text": "Iemand heeft gezonde oren en een gezonde primaire gehoorschors.",
+     "t0": 0.9,
+     "t1": 4.2
+    },
+    {
+     "text": "Maar de associatieve schors eromheen is aan beide kanten beschadigd.",
+     "t0": 4.2,
+     "t1": 7.02
+    },
+    {
+     "text": "Zijn lievelingsnummer komt op.",
+     "t0": 7.07,
+     "t1": 8.77
+    },
+    {
+     "text": "Wat merkt hij?",
+     "t0": 8.79,
+     "t1": 9.53
+    },
+    {
+     "text": "Hij hoort niets?",
+     "t0": 9.6,
+     "t1": 10.44
+    },
+    {
+     "text": "Hij hoort tonen,",
+     "t0": 10.56,
+     "t1": 11.67
+    },
+    {
+     "text": "maar herkent het nummer niet?",
+     "t0": 11.77,
+     "t1": 13.46
+    },
+    {
+     "text": "Of hij hoort en herkent het gewoon?",
+     "t0": 13.56,
+     "t1": 15.29
+    }
+   ],
+   "words": [
+    {
+     "w": "Wat",
+     "t0": 0.0,
+     "t1": 0.26
+    },
+    {
+     "w": "denk",
+     "t0": 0.26,
+     "t1": 0.585
+    },
+    {
+     "w": "je",
+     "t0": 0.585,
+     "t1": 0.78
+    },
+    {
+     "w": "Iemand",
+     "t0": 0.9,
+     "t1": 1.267
+    },
+    {
+     "w": "heeft",
+     "t0": 1.267,
+     "t1": 1.581
+    },
+    {
+     "w": "gezonde",
+     "t0": 1.581,
+     "t1": 2.0
+    },
+    {
+     "w": "oren",
+     "t0": 2.0,
+     "t1": 2.262
+    },
+    {
+     "w": "en",
+     "t0": 2.262,
+     "t1": 2.419
+    },
+    {
+     "w": "een",
+     "t0": 2.419,
+     "t1": 2.629
+    },
+    {
+     "w": "gezonde",
+     "t0": 2.629,
+     "t1": 3.048
+    },
+    {
+     "w": "primaire",
+     "t0": 3.048,
+     "t1": 3.519
+    },
+    {
+     "w": "gehoorschors",
+     "t0": 3.519,
+     "t1": 4.2
+    },
+    {
+     "w": "Maar",
+     "t0": 4.2,
+     "t1": 4.407
+    },
+    {
+     "w": "de",
+     "t0": 4.407,
+     "t1": 4.532
+    },
+    {
+     "w": "associatieve",
+     "t0": 4.532,
+     "t1": 5.071
+    },
+    {
+     "w": "schors",
+     "t0": 5.071,
+     "t1": 5.361
+    },
+    {
+     "w": "eromheen",
+     "t0": 5.361,
+     "t1": 5.734
+    },
+    {
+     "w": "is",
+     "t0": 5.734,
+     "t1": 5.859
+    },
+    {
+     "w": "aan",
+     "t0": 5.859,
+     "t1": 6.025
+    },
+    {
+     "w": "beide",
+     "t0": 6.025,
+     "t1": 6.274
+    },
+    {
+     "w": "kanten",
+     "t0": 6.274,
+     "t1": 6.564
+    },
+    {
+     "w": "beschadigd",
+     "t0": 6.564,
+     "t1": 7.02
+    },
+    {
+     "w": "Zijn",
+     "t0": 7.07,
+     "t1": 7.353
+    },
+    {
+     "w": "lievelingsnummer",
+     "t0": 7.353,
+     "t1": 8.317
+    },
+    {
+     "w": "komt",
+     "t0": 8.317,
+     "t1": 8.6
+    },
+    {
+     "w": "op",
+     "t0": 8.6,
+     "t1": 8.77
+    },
+    {
+     "w": "Wat",
+     "t0": 8.79,
+     "t1": 9.001
+    },
+    {
+     "w": "merkt",
+     "t0": 9.001,
+     "t1": 9.319
+    },
+    {
+     "w": "hij",
+     "t0": 9.319,
+     "t1": 9.53
+    },
+    {
+     "w": "Hij",
+     "t0": 9.6,
+     "t1": 9.81
+    },
+    {
+     "w": "hoort",
+     "t0": 9.81,
+     "t1": 10.125
+    },
+    {
+     "w": "niets",
+     "t0": 10.125,
+     "t1": 10.44
+    },
+    {
+     "w": "Hij",
+     "t0": 10.56,
+     "t1": 10.838
+    },
+    {
+     "w": "hoort",
+     "t0": 10.838,
+     "t1": 11.254
+    },
+    {
+     "w": "tonen",
+     "t0": 11.254,
+     "t1": 11.67
+    },
+    {
+     "w": "maar",
+     "t0": 11.77,
+     "t1": 12.061
+    },
+    {
+     "w": "herkent",
+     "t0": 12.061,
+     "t1": 12.528
+    },
+    {
+     "w": "het",
+     "t0": 12.528,
+     "t1": 12.761
+    },
+    {
+     "w": "nummer",
+     "t0": 12.761,
+     "t1": 13.169
+    },
+    {
+     "w": "niet",
+     "t0": 13.169,
+     "t1": 13.46
+    },
+    {
+     "w": "Of",
+     "t0": 13.56,
+     "t1": 13.708
+    },
+    {
+     "w": "hij",
+     "t0": 13.708,
+     "t1": 13.906
+    },
+    {
+     "w": "hoort",
+     "t0": 13.906,
+     "t1": 14.203
+    },
+    {
+     "w": "en",
+     "t0": 14.203,
+     "t1": 14.351
+    },
+    {
+     "w": "herkent",
+     "t0": 14.351,
+     "t1": 14.746
+    },
+    {
+     "w": "het",
+     "t0": 14.746,
+     "t1": 14.944
+    },
+    {
+     "w": "gewoon",
+     "t0": 14.944,
+     "t1": 15.29
+    }
+   ]
+  },
+  "a2": {
+   "duration": 14.118,
+   "speech": [
+    0.04,
+    13.99
+   ],
+   "phrases": [
+    {
+     "text": "Het goede antwoord is B.",
+     "t0": 0,
+     "t1": 1.184
+    },
+    {
+     "text": "De tonen komen binnen in de primaire schors.",
+     "t0": 1.254,
+     "t1": 3.495
+    },
+    {
+     "text": "Maar zonder de associatieve schors blijven het losse geluiden.",
+     "t0": 3.541,
+     "t1": 6.606
+    },
+    {
+     "text": "Horen is iets anders dan herkennen.",
+     "t0": 6.653,
+     "t1": 8.464
+    },
+    {
+     "text": "Hoe de associatieve schors weet wat jouw nummer is?",
+     "t0": 8.499,
+     "t1": 10.89
+    },
+    {
+     "text": "Dat heb je ooit geleerd.",
+     "t0": 10.937,
+     "t1": 12.237
+    },
+    {
+     "text": "Daarover gaat de volgende film.",
+     "t0": 12.283,
+     "t1": 14.118
+    }
+   ],
+   "words": [
+    {
+     "w": "Het",
+     "t0": 0,
+     "t1": 0.139
+    },
+    {
+     "w": "goede",
+     "t0": 0.197,
+     "t1": 0.383
+    },
+    {
+     "w": "antwoord",
+     "t0": 0.43,
+     "t1": 0.743
+    },
+    {
+     "w": "is",
+     "t0": 0.789,
+     "t1": 0.848
+    },
+    {
+     "w": "B",
+     "t0": 0.906,
+     "t1": 1.184
+    },
+    {
+     "w": "De",
+     "t0": 1.254,
+     "t1": 1.347
+    },
+    {
+     "w": "tonen",
+     "t0": 1.405,
+     "t1": 1.695
+    },
+    {
+     "w": "komen",
+     "t0": 1.73,
+     "t1": 1.974
+    },
+    {
+     "w": "binnen",
+     "t0": 2.009,
+     "t1": 2.299
+    },
+    {
+     "w": "in",
+     "t0": 2.368,
+     "t1": 2.461
+    },
+    {
+     "w": "de",
+     "t0": 2.496,
+     "t1": 2.543
+    },
+    {
+     "w": "primaire",
+     "t0": 2.589,
+     "t1": 3.007
+    },
+    {
+     "w": "schors",
+     "t0": 3.042,
+     "t1": 3.495
+    },
+    {
+     "w": "Maar",
+     "t0": 3.541,
+     "t1": 3.692
+    },
+    {
+     "w": "zonder",
+     "t0": 3.75,
+     "t1": 4.063
+    },
+    {
+     "w": "de",
+     "t0": 4.098,
+     "t1": 4.156
+    },
+    {
+     "w": "associatieve",
+     "t0": 4.203,
+     "t1": 4.818
+    },
+    {
+     "w": "schors",
+     "t0": 4.853,
+     "t1": 5.224
+    },
+    {
+     "w": "blijven",
+     "t0": 5.306,
+     "t1": 5.677
+    },
+    {
+     "w": "het",
+     "t0": 5.712,
+     "t1": 5.782
+    },
+    {
+     "w": "losse",
+     "t0": 5.828,
+     "t1": 6.06
+    },
+    {
+     "w": "geluiden",
+     "t0": 6.095,
+     "t1": 6.606
+    },
+    {
+     "w": "Horen",
+     "t0": 6.653,
+     "t1": 7.001
+    },
+    {
+     "w": "is",
+     "t0": 7.036,
+     "t1": 7.152
+    },
+    {
+     "w": "iets",
+     "t0": 7.21,
+     "t1": 7.361
+    },
+    {
+     "w": "anders",
+     "t0": 7.419,
+     "t1": 7.79
+    },
+    {
+     "w": "dan",
+     "t0": 7.837,
+     "t1": 7.953
+    },
+    {
+     "w": "herkennen",
+     "t0": 7.999,
+     "t1": 8.464
+    },
+    {
+     "w": "Hoe",
+     "t0": 8.499,
+     "t1": 8.626
+    },
+    {
+     "w": "de",
+     "t0": 8.649,
+     "t1": 8.707
+    },
+    {
+     "w": "associatieve",
+     "t0": 8.754,
+     "t1": 9.369
+    },
+    {
+     "w": "schors",
+     "t0": 9.404,
+     "t1": 9.671
+    },
+    {
+     "w": "weet",
+     "t0": 9.729,
+     "t1": 9.938
+    },
+    {
+     "w": "wat",
+     "t0": 9.985,
+     "t1": 10.077
+    },
+    {
+     "w": "jouw",
+     "t0": 10.136,
+     "t1": 10.263
+    },
+    {
+     "w": "nummer",
+     "t0": 10.321,
+     "t1": 10.588
+    },
+    {
+     "w": "is",
+     "t0": 10.658,
+     "t1": 10.89
+    },
+    {
+     "w": "Dat",
+     "t0": 10.937,
+     "t1": 11.076
+    },
+    {
+     "w": "heb",
+     "t0": 11.134,
+     "t1": 11.25
+    },
+    {
+     "w": "je",
+     "t0": 11.331,
+     "t1": 11.389
+    },
+    {
+     "w": "ooit",
+     "t0": 11.471,
+     "t1": 11.703
+    },
+    {
+     "w": "geleerd",
+     "t0": 11.749,
+     "t1": 12.237
+    },
+    {
+     "w": "Daarover",
+     "t0": 12.283,
+     "t1": 12.817
+    },
+    {
+     "w": "gaat",
+     "t0": 12.875,
+     "t1": 13.026
+    },
+    {
+     "w": "de",
+     "t0": 13.05,
+     "t1": 13.108
+    },
+    {
+     "w": "volgende",
+     "t0": 13.166,
+     "t1": 13.595
+    },
+    {
+     "w": "film",
+     "t0": 13.653,
+     "t1": 14.118
+    }
+   ],
+   "source": "transcript"
+  },
+  "q3": {
+   "duration": 8.127,
+   "speech": [
+    0.0,
+    8.01
+   ],
+   "phrases": [
+    {
+     "text": "Wat denk je?",
+     "t0": 0.0,
+     "t1": 0.71
+    },
+    {
+     "text": "Je tikt de maat met je rechterhand.",
+     "t0": 0.86,
+     "t1": 2.66
+    },
+    {
+     "text": "Welke hersenhelft stuurt die hand?",
+     "t0": 2.83,
+     "t1": 4.52
+    },
+    {
+     "text": "De rechterhelft?",
+     "t0": 4.67,
+     "t1": 5.57
+    },
+    {
+     "text": "De linkerhelft?",
+     "t0": 5.73,
+     "t1": 6.42
+    },
+    {
+     "text": "Of allebei evenveel?",
+     "t0": 6.58,
+     "t1": 8.01
+    }
+   ],
+   "words": [
+    {
+     "w": "Wat",
+     "t0": 0.0,
+     "t1": 0.237
+    },
+    {
+     "w": "denk",
+     "t0": 0.237,
+     "t1": 0.532
+    },
+    {
+     "w": "je",
+     "t0": 0.532,
+     "t1": 0.71
+    },
+    {
+     "w": "Je",
+     "t0": 0.86,
+     "t1": 1.014
+    },
+    {
+     "w": "tikt",
+     "t0": 1.014,
+     "t1": 1.271
+    },
+    {
+     "w": "de",
+     "t0": 1.271,
+     "t1": 1.426
+    },
+    {
+     "w": "maat",
+     "t0": 1.426,
+     "t1": 1.683
+    },
+    {
+     "w": "met",
+     "t0": 1.683,
+     "t1": 1.889
+    },
+    {
+     "w": "je",
+     "t0": 1.889,
+     "t1": 2.043
+    },
+    {
+     "w": "rechterhand",
+     "t0": 2.043,
+     "t1": 2.66
+    },
+    {
+     "w": "Welke",
+     "t0": 2.83,
+     "t1": 3.128
+    },
+    {
+     "w": "hersenhelft",
+     "t0": 3.128,
+     "t1": 3.725
+    },
+    {
+     "w": "stuurt",
+     "t0": 3.725,
+     "t1": 4.073
+    },
+    {
+     "w": "die",
+     "t0": 4.073,
+     "t1": 4.271
+    },
+    {
+     "w": "hand",
+     "t0": 4.271,
+     "t1": 4.52
+    },
+    {
+     "w": "De",
+     "t0": 4.67,
+     "t1": 4.839
+    },
+    {
+     "w": "rechterhelft",
+     "t0": 4.839,
+     "t1": 5.57
+    },
+    {
+     "w": "De",
+     "t0": 5.73,
+     "t1": 5.868
+    },
+    {
+     "w": "linkerhelft",
+     "t0": 5.868,
+     "t1": 6.42
+    },
+    {
+     "w": "Of",
+     "t0": 6.58,
+     "t1": 6.794
+    },
+    {
+     "w": "allebei",
+     "t0": 6.794,
+     "t1": 7.366
+    },
+    {
+     "w": "evenveel",
+     "t0": 7.366,
+     "t1": 8.01
+    }
+   ]
+  },
+  "a3": {
+   "duration": 32.601,
+   "speech": [
+    0.07,
+    32.52
+   ],
+   "phrases": [
+    {
+     "text": "Het goede antwoord is B.",
+     "t0": 0,
+     "t1": 1.567
+    },
+    {
+     "text": "De motorische schors links stuurt je rechterhand.",
+     "t0": 1.683,
+     "t1": 4.365
+    },
+    {
+     "text": "De banen kruisen in de hersenstam naar de andere kant.",
+     "t0": 4.435,
+     "t1": 7.082
+    },
+    {
+     "text": "Voelen gaat ook kruislings:",
+     "t0": 7.198,
+     "t1": 8.951
+    },
+    {
+     "text": "wat je rechterhand voelt,",
+     "t0": 9.009,
+     "t1": 10.205
+    },
+    {
+     "text": "komt links aan.",
+     "t0": 10.24,
+     "t1": 11.122
+    },
+    {
+     "text": "Kijk nu naar die strook motorische schors.",
+     "t0": 11.238,
+     "t1": 13.526
+    },
+    {
+     "text": "Elk stukje stuurt een ander deel van je lichaam.",
+     "t0": 13.596,
+     "t1": 15.906
+    },
+    {
+     "text": "Teken je dat als een mannetje,",
+     "t0": 15.941,
+     "t1": 17.473
+    },
+    {
+     "text": "dan krijg je dit:",
+     "t0": 17.52,
+     "t1": 18.379
+    },
+    {
+     "text": "de homunculus.",
+     "t0": 18.449,
+     "t1": 19.389
+    },
+    {
+     "text": "Enorme handen.",
+     "t0": 19.505,
+     "t1": 20.538
+    },
+    {
+     "text": "Grote lippen en een grote tong.",
+     "t0": 20.596,
+     "t1": 22.419
+    },
+    {
+     "text": "Een smalle rug.",
+     "t0": 22.535,
+     "t1": 23.418
+    },
+    {
+     "text": "Hoe groot een stuk schors is,",
+     "t0": 23.487,
+     "t1": 25.043
+    },
+    {
+     "text": "hangt niet af van de grootte van het lichaamsdeel.",
+     "t0": 25.089,
+     "t1": 27.318
+    },
+    {
+     "text": "Het hangt af van hoe fijn je het beweegt.",
+     "t0": 27.376,
+     "t1": 29.478
+    },
+    {
+     "text": "Tikken en zingen:",
+     "t0": 29.559,
+     "t1": 30.418
+    },
+    {
+     "text": "precies de delen met de meeste schors.",
+     "t0": 30.453,
+     "t1": 32.601
+    }
+   ],
+   "words": [
+    {
+     "w": "Het",
+     "t0": 0,
+     "t1": 0.151
+    },
+    {
+     "w": "goede",
+     "t0": 0.197,
+     "t1": 0.406
+    },
+    {
+     "w": "antwoord",
+     "t0": 0.464,
+     "t1": 0.882
+    },
+    {
+     "w": "is",
+     "t0": 0.952,
+     "t1": 1.068
+    },
+    {
+     "w": "B",
+     "t0": 1.149,
+     "t1": 1.567
+    },
+    {
+     "w": "De",
+     "t0": 1.683,
+     "t1": 1.776
+    },
+    {
+     "w": "motorische",
+     "t0": 1.823,
+     "t1": 2.45
+    },
+    {
+     "w": "schors",
+     "t0": 2.508,
+     "t1": 2.798
+    },
+    {
+     "w": "links",
+     "t0": 2.868,
+     "t1": 3.146
+    },
+    {
+     "w": "stuurt",
+     "t0": 3.239,
+     "t1": 3.518
+    },
+    {
+     "w": "je",
+     "t0": 3.576,
+     "t1": 3.622
+    },
+    {
+     "w": "rechterhand",
+     "t0": 3.68,
+     "t1": 4.365
+    },
+    {
+     "w": "De",
+     "t0": 4.435,
+     "t1": 4.528
+    },
+    {
+     "w": "banen",
+     "t0": 4.598,
+     "t1": 4.888
+    },
+    {
+     "w": "kruisen",
+     "t0": 4.923,
+     "t1": 5.306
+    },
+    {
+     "w": "in",
+     "t0": 5.341,
+     "t1": 5.41
+    },
+    {
+     "w": "de",
+     "t0": 5.445,
+     "t1": 5.492
+    },
+    {
+     "w": "hersenstam",
+     "t0": 5.55,
+     "t1": 6.049
+    },
+    {
+     "w": "naar",
+     "t0": 6.107,
+     "t1": 6.2
+    },
+    {
+     "w": "de",
+     "t0": 6.235,
+     "t1": 6.293
+    },
+    {
+     "w": "andere",
+     "t0": 6.351,
+     "t1": 6.618
+    },
+    {
+     "w": "kant",
+     "t0": 6.676,
+     "t1": 7.082
+    },
+    {
+     "w": "Voelen",
+     "t0": 7.198,
+     "t1": 7.639
+    },
+    {
+     "w": "gaat",
+     "t0": 7.709,
+     "t1": 7.918
+    },
+    {
+     "w": "ook",
+     "t0": 7.999,
+     "t1": 8.197
+    },
+    {
+     "w": "kruislings",
+     "t0": 8.29,
+     "t1": 8.951
+    },
+    {
+     "w": "wat",
+     "t0": 9.009,
+     "t1": 9.125
+    },
+    {
+     "w": "je",
+     "t0": 9.172,
+     "t1": 9.23
+    },
+    {
+     "w": "rechterhand",
+     "t0": 9.276,
+     "t1": 9.741
+    },
+    {
+     "w": "voelt",
+     "t0": 9.81,
+     "t1": 10.205
+    },
+    {
+     "w": "komt",
+     "t0": 10.24,
+     "t1": 10.484
+    },
+    {
+     "w": "links",
+     "t0": 10.519,
+     "t1": 10.762
+    },
+    {
+     "w": "aan",
+     "t0": 10.82,
+     "t1": 11.122
+    },
+    {
+     "w": "Kijk",
+     "t0": 11.238,
+     "t1": 11.471
+    },
+    {
+     "w": "nu",
+     "t0": 11.552,
+     "t1": 11.703
+    },
+    {
+     "w": "naar",
+     "t0": 11.761,
+     "t1": 11.877
+    },
+    {
+     "w": "die",
+     "t0": 11.9,
+     "t1": 11.981
+    },
+    {
+     "w": "strook",
+     "t0": 12.005,
+     "t1": 12.33
+    },
+    {
+     "w": "motorische",
+     "t0": 12.4,
+     "t1": 12.957
+    },
+    {
+     "w": "schors",
+     "t0": 13.003,
+     "t1": 13.526
+    },
+    {
+     "w": "Elk",
+     "t0": 13.596,
+     "t1": 13.805
+    },
+    {
+     "w": "stukje",
+     "t0": 13.851,
+     "t1": 14.211
+    },
+    {
+     "w": "stuurt",
+     "t0": 14.257,
+     "t1": 14.524
+    },
+    {
+     "w": "een",
+     "t0": 14.559,
+     "t1": 14.629
+    },
+    {
+     "w": "ander",
+     "t0": 14.71,
+     "t1": 14.989
+    },
+    {
+     "w": "deel",
+     "t0": 15.035,
+     "t1": 15.174
+    },
+    {
+     "w": "van",
+     "t0": 15.221,
+     "t1": 15.325
+    },
+    {
+     "w": "je",
+     "t0": 15.372,
+     "t1": 15.418
+    },
+    {
+     "w": "lichaam",
+     "t0": 15.476,
+     "t1": 15.906
+    },
+    {
+     "w": "Teken",
+     "t0": 15.941,
+     "t1": 16.312
+    },
+    {
+     "w": "je",
+     "t0": 16.382,
+     "t1": 16.44
+    },
+    {
+     "w": "dat",
+     "t0": 16.475,
+     "t1": 16.591
+    },
+    {
+     "w": "als",
+     "t0": 16.637,
+     "t1": 16.719
+    },
+    {
+     "w": "een",
+     "t0": 16.765,
+     "t1": 16.835
+    },
+    {
+     "w": "mannetje",
+     "t0": 16.916,
+     "t1": 17.473
+    },
+    {
+     "w": "dan",
+     "t0": 17.52,
+     "t1": 17.671
+    },
+    {
+     "w": "krijg",
+     "t0": 17.729,
+     "t1": 17.926
+    },
+    {
+     "w": "je",
+     "t0": 17.972,
+     "t1": 18.031
+    },
+    {
+     "w": "dit",
+     "t0": 18.077,
+     "t1": 18.379
+    },
+    {
+     "w": "de",
+     "t0": 18.449,
+     "t1": 18.518
+    },
+    {
+     "w": "homunculus",
+     "t0": 18.565,
+     "t1": 19.389
+    },
+    {
+     "w": "Enorme",
+     "t0": 19.505,
+     "t1": 20.074
+    },
+    {
+     "w": "handen",
+     "t0": 20.12,
+     "t1": 20.538
+    },
+    {
+     "w": "Grote",
+     "t0": 20.596,
+     "t1": 21.003
+    },
+    {
+     "w": "lippen",
+     "t0": 21.061,
+     "t1": 21.351
+    },
+    {
+     "w": "en",
+     "t0": 21.409,
+     "t1": 21.525
+    },
+    {
+     "w": "een",
+     "t0": 21.572,
+     "t1": 21.641
+    },
+    {
+     "w": "grote",
+     "t0": 21.699,
+     "t1": 22.024
+    },
+    {
+     "w": "tong",
+     "t0": 22.071,
+     "t1": 22.419
+    },
+    {
+     "w": "Een",
+     "t0": 22.535,
+     "t1": 22.651
+    },
+    {
+     "w": "smalle",
+     "t0": 22.709,
+     "t1": 23.023
+    },
+    {
+     "w": "rug",
+     "t0": 23.069,
+     "t1": 23.418
+    },
+    {
+     "w": "Hoe",
+     "t0": 23.487,
+     "t1": 23.696
+    },
+    {
+     "w": "groot",
+     "t0": 23.719,
+     "t1": 23.975
+    },
+    {
+     "w": "een",
+     "t0": 24.021,
+     "t1": 24.091
+    },
+    {
+     "w": "stuk",
+     "t0": 24.137,
+     "t1": 24.335
+    },
+    {
+     "w": "schors",
+     "t0": 24.381,
+     "t1": 24.66
+    },
+    {
+     "w": "is",
+     "t0": 24.741,
+     "t1": 25.043
+    },
+    {
+     "w": "hangt",
+     "t0": 25.089,
+     "t1": 25.31
+    },
+    {
+     "w": "niet",
+     "t0": 25.368,
+     "t1": 25.588
+    },
+    {
+     "w": "af",
+     "t0": 25.67,
+     "t1": 25.762
+    },
+    {
+     "w": "van",
+     "t0": 25.821,
+     "t1": 25.925
+    },
+    {
+     "w": "de",
+     "t0": 25.96,
+     "t1": 26.018
+    },
+    {
+     "w": "grootte",
+     "t0": 26.064,
+     "t1": 26.355
+    },
+    {
+     "w": "van",
+     "t0": 26.401,
+     "t1": 26.517
+    },
+    {
+     "w": "het",
+     "t0": 26.552,
+     "t1": 26.622
+    },
+    {
+     "w": "lichaamsdeel",
+     "t0": 26.668,
+     "t1": 27.318
+    },
+    {
+     "w": "Het",
+     "t0": 27.376,
+     "t1": 27.504
+    },
+    {
+     "w": "hangt",
+     "t0": 27.574,
+     "t1": 27.783
+    },
+    {
+     "w": "af",
+     "t0": 27.852,
+     "t1": 27.98
+    },
+    {
+     "w": "van",
+     "t0": 28.05,
+     "t1": 28.166
+    },
+    {
+     "w": "hoe",
+     "t0": 28.212,
+     "t1": 28.328
+    },
+    {
+     "w": "fijn",
+     "t0": 28.398,
+     "t1": 28.688
+    },
+    {
+     "w": "je",
+     "t0": 28.723,
+     "t1": 28.781
+    },
+    {
+     "w": "het",
+     "t0": 28.804,
+     "t1": 28.874
+    },
+    {
+     "w": "beweegt",
+     "t0": 28.92,
+     "t1": 29.478
+    },
+    {
+     "w": "Tikken",
+     "t0": 29.559,
+     "t1": 29.896
+    },
+    {
+     "w": "en",
+     "t0": 29.965,
+     "t1": 30.023
+    },
+    {
+     "w": "zingen",
+     "t0": 30.081,
+     "t1": 30.418
+    },
+    {
+     "w": "precies",
+     "t0": 30.453,
+     "t1": 30.859
+    },
+    {
+     "w": "de",
+     "t0": 30.906,
+     "t1": 30.964
+    },
+    {
+     "w": "delen",
+     "t0": 31.022,
+     "t1": 31.324
+    },
+    {
+     "w": "met",
+     "t0": 31.37,
+     "t1": 31.509
+    },
+    {
+     "w": "de",
+     "t0": 31.544,
+     "t1": 31.602
+    },
+    {
+     "w": "meeste",
+     "t0": 31.684,
+     "t1": 32.043
+    },
+    {
+     "w": "schors",
+     "t0": 32.09,
+     "t1": 32.601
+    }
+   ],
+   "source": "transcript"
+  },
+  "q4": {
+   "duration": 12.307,
+   "speech": [
+    0.0,
+    12.14
+   ],
+   "phrases": [
+    {
+     "text": "Wat denk je?",
+     "t0": 0.0,
+     "t1": 0.66
+    },
+    {
+     "text": "Iemand heeft schade aan zijn kleine hersenen.",
+     "t0": 0.82,
+     "t1": 2.86
+    },
+    {
+     "text": "Hij kan zijn arm nog gewoon bewegen.",
+     "t0": 2.99,
+     "t1": 4.78
+    },
+    {
+     "text": "Wat gaat er dan mis?",
+     "t0": 4.91,
+     "t1": 6.01
+    },
+    {
+     "text": "Niets,",
+     "t0": 6.12,
+     "t1": 6.55
+    },
+    {
+     "text": "de kleine hersenen doen weinig?",
+     "t0": 6.64,
+     "t1": 8.01
+    },
+    {
+     "text": "Zijn bewegingen worden onhandig en slecht getimed?",
+     "t0": 8.18,
+     "t1": 10.72
+    },
+    {
+     "text": "Of hij raakt toch verlamd?",
+     "t0": 10.8,
+     "t1": 12.14
+    }
+   ],
+   "words": [
+    {
+     "w": "Wat",
+     "t0": 0.0,
+     "t1": 0.22
+    },
+    {
+     "w": "denk",
+     "t0": 0.22,
+     "t1": 0.495
+    },
+    {
+     "w": "je",
+     "t0": 0.495,
+     "t1": 0.66
+    },
+    {
+     "w": "Iemand",
+     "t0": 0.82,
+     "t1": 1.137
+    },
+    {
+     "w": "heeft",
+     "t0": 1.137,
+     "t1": 1.409
+    },
+    {
+     "w": "schade",
+     "t0": 1.409,
+     "t1": 1.727
+    },
+    {
+     "w": "aan",
+     "t0": 1.727,
+     "t1": 1.908
+    },
+    {
+     "w": "zijn",
+     "t0": 1.908,
+     "t1": 2.135
+    },
+    {
+     "w": "kleine",
+     "t0": 2.135,
+     "t1": 2.452
+    },
+    {
+     "w": "hersenen",
+     "t0": 2.452,
+     "t1": 2.86
+    },
+    {
+     "w": "Hij",
+     "t0": 2.99,
+     "t1": 3.189
+    },
+    {
+     "w": "kan",
+     "t0": 3.189,
+     "t1": 3.388
+    },
+    {
+     "w": "zijn",
+     "t0": 3.388,
+     "t1": 3.636
+    },
+    {
+     "w": "arm",
+     "t0": 3.636,
+     "t1": 3.835
+    },
+    {
+     "w": "nog",
+     "t0": 3.835,
+     "t1": 4.034
+    },
+    {
+     "w": "gewoon",
+     "t0": 4.034,
+     "t1": 4.382
+    },
+    {
+     "w": "bewegen",
+     "t0": 4.382,
+     "t1": 4.78
+    },
+    {
+     "w": "Wat",
+     "t0": 4.91,
+     "t1": 5.13
+    },
+    {
+     "w": "gaat",
+     "t0": 5.13,
+     "t1": 5.405
+    },
+    {
+     "w": "er",
+     "t0": 5.405,
+     "t1": 5.57
+    },
+    {
+     "w": "dan",
+     "t0": 5.57,
+     "t1": 5.79
+    },
+    {
+     "w": "mis",
+     "t0": 5.79,
+     "t1": 6.01
+    },
+    {
+     "w": "Niets",
+     "t0": 6.12,
+     "t1": 6.55
+    },
+    {
+     "w": "de",
+     "t0": 6.64,
+     "t1": 6.773
+    },
+    {
+     "w": "kleine",
+     "t0": 6.773,
+     "t1": 7.082
+    },
+    {
+     "w": "hersenen",
+     "t0": 7.082,
+     "t1": 7.48
+    },
+    {
+     "w": "doen",
+     "t0": 7.48,
+     "t1": 7.701
+    },
+    {
+     "w": "weinig",
+     "t0": 7.701,
+     "t1": 8.01
+    },
+    {
+     "w": "Zijn",
+     "t0": 8.18,
+     "t1": 8.434
+    },
+    {
+     "w": "bewegingen",
+     "t0": 8.434,
+     "t1": 8.993
+    },
+    {
+     "w": "worden",
+     "t0": 8.993,
+     "t1": 9.348
+    },
+    {
+     "w": "onhandig",
+     "t0": 9.348,
+     "t1": 9.806
+    },
+    {
+     "w": "en",
+     "t0": 9.806,
+     "t1": 9.958
+    },
+    {
+     "w": "slecht",
+     "t0": 9.958,
+     "t1": 10.314
+    },
+    {
+     "w": "getimed",
+     "t0": 10.314,
+     "t1": 10.72
+    },
+    {
+     "w": "Of",
+     "t0": 10.8,
+     "t1": 10.955
+    },
+    {
+     "w": "hij",
+     "t0": 10.955,
+     "t1": 11.161
+    },
+    {
+     "w": "raakt",
+     "t0": 11.161,
+     "t1": 11.47
+    },
+    {
+     "w": "toch",
+     "t0": 11.47,
+     "t1": 11.728
+    },
+    {
+     "w": "verlamd",
+     "t0": 11.728,
+     "t1": 12.14
+    }
+   ]
+  },
+  "a4": {
+   "duration": 28.903,
+   "speech": [
+    0.05,
+    25.3
+   ],
+   "phrases": [
+    {
+     "text": "Het goede antwoord is B.",
+     "t0": 0,
+     "t1": 1.591
+    },
+    {
+     "text": "De motorische schors geeft het bevel:",
+     "t0": 1.707,
+     "t1": 3.959
+    },
+    {
+     "text": "tik.",
+     "t0": 4.075,
+     "t1": 4.493
+    },
+    {
+     "text": "De kleine hersenen krijgen een kopie van dat bevel.",
+     "t0": 4.563,
+     "t1": 7.094
+    },
+    {
+     "text": "En ze horen van je spieren en gewrichten wat er echt gebeurt.",
+     "t0": 7.14,
+     "t1": 10.286
+    },
+    {
+     "text": "Klopt het niet,",
+     "t0": 10.344,
+     "t1": 11.064
+    },
+    {
+     "text": "dan sturen ze bij.",
+     "t0": 11.111,
+     "t1": 12.121
+    },
+    {
+     "text": "Daardoor valt je tik precies op de tel.",
+     "t0": 12.19,
+     "t1": 14.245
+    },
+    {
+     "text": "Zonder kleine hersenen beweeg je nog wel,",
+     "t0": 14.327,
+     "t1": 16.289
+    },
+    {
+     "text": "maar schokkerig en net te laat.",
+     "t0": 16.323,
+     "t1": 18.019
+    },
+    {
+     "text": "Ook je evenwicht wordt slechter.",
+     "t0": 18.053,
+     "t1": 19.621
+    },
+    {
+     "text": "De kleine hersenen zijn maar een tiende van je hersenen.",
+     "t0": 19.667,
+     "t1": 22.221
+    },
+    {
+     "text": "Toch zit er ongeveer vier vijfde van al je zenuwcellen in.",
+     "t0": 22.268,
+     "t1": 25.402
+    }
+   ],
+   "words": [
+    {
+     "w": "Het",
+     "t0": 0,
+     "t1": 0.139
+    },
+    {
+     "w": "goede",
+     "t0": 0.197,
+     "t1": 0.418
+    },
+    {
+     "w": "antwoord",
+     "t0": 0.476,
+     "t1": 0.848
+    },
+    {
+     "w": "is",
+     "t0": 0.917,
+     "t1": 1.057
+    },
+    {
+     "w": "B",
+     "t0": 1.173,
+     "t1": 1.591
+    },
+    {
+     "w": "De",
+     "t0": 1.707,
+     "t1": 1.8
+    },
+    {
+     "w": "motorische",
+     "t0": 1.858,
+     "t1": 2.577
+    },
+    {
+     "w": "schors",
+     "t0": 2.624,
+     "t1": 2.972
+    },
+    {
+     "w": "geeft",
+     "t0": 3.088,
+     "t1": 3.344
+    },
+    {
+     "w": "het",
+     "t0": 3.367,
+     "t1": 3.448
+    },
+    {
+     "w": "bevel",
+     "t0": 3.495,
+     "t1": 3.959
+    },
+    {
+     "w": "tik",
+     "t0": 4.075,
+     "t1": 4.493
+    },
+    {
+     "w": "De",
+     "t0": 4.563,
+     "t1": 4.667
+    },
+    {
+     "w": "kleine",
+     "t0": 4.714,
+     "t1": 5.016
+    },
+    {
+     "w": "hersenen",
+     "t0": 5.062,
+     "t1": 5.422
+    },
+    {
+     "w": "krijgen",
+     "t0": 5.48,
+     "t1": 5.817
+    },
+    {
+     "w": "een",
+     "t0": 5.851,
+     "t1": 5.921
+    },
+    {
+     "w": "kopie",
+     "t0": 5.968,
+     "t1": 6.304
+    },
+    {
+     "w": "van",
+     "t0": 6.339,
+     "t1": 6.455
+    },
+    {
+     "w": "dat",
+     "t0": 6.49,
+     "t1": 6.594
+    },
+    {
+     "w": "bevel",
+     "t0": 6.641,
+     "t1": 7.094
+    },
+    {
+     "w": "En",
+     "t0": 7.14,
+     "t1": 7.268
+    },
+    {
+     "w": "ze",
+     "t0": 7.314,
+     "t1": 7.384
+    },
+    {
+     "w": "horen",
+     "t0": 7.43,
+     "t1": 7.697
+    },
+    {
+     "w": "van",
+     "t0": 7.721,
+     "t1": 7.837
+    },
+    {
+     "w": "je",
+     "t0": 7.895,
+     "t1": 7.953
+    },
+    {
+     "w": "spieren",
+     "t0": 7.999,
+     "t1": 8.499
+    },
+    {
+     "w": "en",
+     "t0": 8.533,
+     "t1": 8.649
+    },
+    {
+     "w": "gewrichten",
+     "t0": 8.707,
+     "t1": 9.207
+    },
+    {
+     "w": "wat",
+     "t0": 9.23,
+     "t1": 9.358
+    },
+    {
+     "w": "er",
+     "t0": 9.404,
+     "t1": 9.451
+    },
+    {
+     "w": "echt",
+     "t0": 9.543,
+     "t1": 9.776
+    },
+    {
+     "w": "gebeurt",
+     "t0": 9.822,
+     "t1": 10.286
+    },
+    {
+     "w": "Klopt",
+     "t0": 10.344,
+     "t1": 10.635
+    },
+    {
+     "w": "het",
+     "t0": 10.658,
+     "t1": 10.739
+    },
+    {
+     "w": "niet",
+     "t0": 10.797,
+     "t1": 11.064
+    },
+    {
+     "w": "dan",
+     "t0": 11.111,
+     "t1": 11.25
+    },
+    {
+     "w": "sturen",
+     "t0": 11.296,
+     "t1": 11.61
+    },
+    {
+     "w": "ze",
+     "t0": 11.633,
+     "t1": 11.703
+    },
+    {
+     "w": "bij",
+     "t0": 11.761,
+     "t1": 12.121
+    },
+    {
+     "w": "Daardoor",
+     "t0": 12.19,
+     "t1": 12.55
+    },
+    {
+     "w": "valt",
+     "t0": 12.608,
+     "t1": 12.782
+    },
+    {
+     "w": "je",
+     "t0": 12.829,
+     "t1": 12.887
+    },
+    {
+     "w": "tik",
+     "t0": 12.945,
+     "t1": 13.131
+    },
+    {
+     "w": "precies",
+     "t0": 13.189,
+     "t1": 13.595
+    },
+    {
+     "w": "op",
+     "t0": 13.665,
+     "t1": 13.734
+    },
+    {
+     "w": "de",
+     "t0": 13.792,
+     "t1": 13.851
+    },
+    {
+     "w": "tel",
+     "t0": 13.897,
+     "t1": 14.245
+    },
+    {
+     "w": "Zonder",
+     "t0": 14.327,
+     "t1": 14.663
+    },
+    {
+     "w": "kleine",
+     "t0": 14.686,
+     "t1": 14.965
+    },
+    {
+     "w": "hersenen",
+     "t0": 15.012,
+     "t1": 15.371
+    },
+    {
+     "w": "beweeg",
+     "t0": 15.406,
+     "t1": 15.697
+    },
+    {
+     "w": "je",
+     "t0": 15.743,
+     "t1": 15.789
+    },
+    {
+     "w": "nog",
+     "t0": 15.824,
+     "t1": 15.94
+    },
+    {
+     "w": "wel",
+     "t0": 15.987,
+     "t1": 16.289
+    },
+    {
+     "w": "maar",
+     "t0": 16.323,
+     "t1": 16.44
+    },
+    {
+     "w": "schokkerig",
+     "t0": 16.498,
+     "t1": 17.008
+    },
+    {
+     "w": "en",
+     "t0": 17.09,
+     "t1": 17.206
+    },
+    {
+     "w": "net",
+     "t0": 17.322,
+     "t1": 17.531
+    },
+    {
+     "w": "te",
+     "t0": 17.554,
+     "t1": 17.624
+    },
+    {
+     "w": "laat",
+     "t0": 17.682,
+     "t1": 18.019
+    },
+    {
+     "w": "Ook",
+     "t0": 18.053,
+     "t1": 18.216
+    },
+    {
+     "w": "je",
+     "t0": 18.286,
+     "t1": 18.344
+    },
+    {
+     "w": "evenwicht",
+     "t0": 18.413,
+     "t1": 18.936
+    },
+    {
+     "w": "wordt",
+     "t0": 18.971,
+     "t1": 19.098
+    },
+    {
+     "w": "slechter",
+     "t0": 19.121,
+     "t1": 19.621
+    },
+    {
+     "w": "De",
+     "t0": 19.667,
+     "t1": 19.76
+    },
+    {
+     "w": "kleine",
+     "t0": 19.806,
+     "t1": 20.143
+    },
+    {
+     "w": "hersenen",
+     "t0": 20.201,
+     "t1": 20.584
+    },
+    {
+     "w": "zijn",
+     "t0": 20.666,
+     "t1": 20.828
+    },
+    {
+     "w": "maar",
+     "t0": 20.851,
+     "t1": 20.967
+    },
+    {
+     "w": "een",
+     "t0": 21.002,
+     "t1": 21.072
+    },
+    {
+     "w": "tiende",
+     "t0": 21.153,
+     "t1": 21.455
+    },
+    {
+     "w": "van",
+     "t0": 21.502,
+     "t1": 21.618
+    },
+    {
+     "w": "je",
+     "t0": 21.676,
+     "t1": 21.734
+    },
+    {
+     "w": "hersenen",
+     "t0": 21.78,
+     "t1": 22.221
+    },
+    {
+     "w": "Toch",
+     "t0": 22.268,
+     "t1": 22.488
+    },
+    {
+     "w": "zit",
+     "t0": 22.535,
+     "t1": 22.651
+    },
+    {
+     "w": "er",
+     "t0": 22.697,
+     "t1": 22.744
+    },
+    {
+     "w": "ongeveer",
+     "t0": 22.802,
+     "t1": 23.185
+    },
+    {
+     "w": "vier",
+     "t0": 23.266,
+     "t1": 23.533
+    },
+    {
+     "w": "vijfde",
+     "t0": 23.603,
+     "t1": 23.94
+    },
+    {
+     "w": "van",
+     "t0": 23.986,
+     "t1": 24.102
+    },
+    {
+     "w": "al",
+     "t0": 24.172,
+     "t1": 24.288
+    },
+    {
+     "w": "je",
+     "t0": 24.358,
+     "t1": 24.416
+    },
+    {
+     "w": "zenuwcellen",
+     "t0": 24.462,
+     "t1": 25.054
+    },
+    {
+     "w": "in",
+     "t0": 25.101,
+     "t1": 25.402
+    }
+   ],
+   "source": "transcript"
+  },
+  "q5": {
+   "duration": 8.406,
+   "speech": [
+    0.05,
+    8.34
+   ],
+   "phrases": [
+    {
+     "text": "Wat denk je?",
+     "t0": 0.05,
+     "t1": 0.26
+    },
+    {
+     "text": "Je slaapt.",
+     "t0": 0.28,
+     "t1": 0.72
+    },
+    {
+     "text": "Je denkt nergens aan.",
+     "t0": 0.88,
+     "t1": 1.44
+    },
+    {
+     "text": "Wat houdt je ademhaling dan gaande?",
+     "t0": 1.6,
+     "t1": 3.03
+    },
+    {
+     "text": "Je grote hersenen?",
+     "t0": 3.06,
+     "t1": 4.32
+    },
+    {
+     "text": "Je hersenstam?",
+     "t0": 4.4,
+     "t1": 5.34
+    },
+    {
+     "text": "Of niets:",
+     "t0": 5.48,
+     "t1": 6.17
+    },
+    {
+     "text": "je longen ademen vanzelf?",
+     "t0": 6.35,
+     "t1": 8.34
+    }
+   ],
+   "words": [
+    {
+     "w": "Wat",
+     "t0": 0.05,
+     "t1": 0.12
+    },
+    {
+     "w": "denk",
+     "t0": 0.12,
+     "t1": 0.208
+    },
+    {
+     "w": "je",
+     "t0": 0.208,
+     "t1": 0.26
+    },
+    {
+     "w": "Je",
+     "t0": 0.28,
+     "t1": 0.412
+    },
+    {
+     "w": "slaapt",
+     "t0": 0.412,
+     "t1": 0.72
+    },
+    {
+     "w": "Je",
+     "t0": 0.88,
+     "t1": 0.96
+    },
+    {
+     "w": "denkt",
+     "t0": 0.96,
+     "t1": 1.12
+    },
+    {
+     "w": "nergens",
+     "t0": 1.12,
+     "t1": 1.333
+    },
+    {
+     "w": "aan",
+     "t0": 1.333,
+     "t1": 1.44
+    },
+    {
+     "w": "Wat",
+     "t0": 1.6,
+     "t1": 1.763
+    },
+    {
+     "w": "houdt",
+     "t0": 1.763,
+     "t1": 2.009
+    },
+    {
+     "w": "je",
+     "t0": 2.009,
+     "t1": 2.131
+    },
+    {
+     "w": "ademhaling",
+     "t0": 2.131,
+     "t1": 2.581
+    },
+    {
+     "w": "dan",
+     "t0": 2.581,
+     "t1": 2.744
+    },
+    {
+     "w": "gaande",
+     "t0": 2.744,
+     "t1": 3.03
+    },
+    {
+     "w": "Je",
+     "t0": 3.06,
+     "t1": 3.27
+    },
+    {
+     "w": "grote",
+     "t0": 3.27,
+     "t1": 3.69
+    },
+    {
+     "w": "hersenen",
+     "t0": 3.69,
+     "t1": 4.32
+    },
+    {
+     "w": "Je",
+     "t0": 4.4,
+     "t1": 4.601
+    },
+    {
+     "w": "hersenstam",
+     "t0": 4.601,
+     "t1": 5.34
+    },
+    {
+     "w": "Of",
+     "t0": 5.48,
+     "t1": 5.71
+    },
+    {
+     "w": "niets",
+     "t0": 5.71,
+     "t1": 6.17
+    },
+    {
+     "w": "je",
+     "t0": 6.35,
+     "t1": 6.589
+    },
+    {
+     "w": "longen",
+     "t0": 6.589,
+     "t1": 7.146
+    },
+    {
+     "w": "ademen",
+     "t0": 7.146,
+     "t1": 7.703
+    },
+    {
+     "w": "vanzelf",
+     "t0": 7.703,
+     "t1": 8.34
+    }
+   ]
+  },
+  "a5": {
+   "duration": 35.109,
+   "speech": [
+    0.03,
+    35.07
+   ],
+   "phrases": [
+    {
+     "text": "Het goede antwoord is B.",
+     "t0": 0,
+     "t1": 1.347
+    },
+    {
+     "text": "In het onderste deel van de hersenstam,",
+     "t0": 1.463,
+     "t1": 3.239
+    },
+    {
+     "text": "het verlengde merg,",
+     "t0": 3.297,
+     "t1": 4.342
+    },
+    {
+     "text": "zitten centra voor je ademhaling en het tempo van je hart.",
+     "t0": 4.458,
+     "t1": 7.512
+    },
+    {
+     "text": "Die werken dag en nacht,",
+     "t0": 7.546,
+     "t1": 8.858
+    },
+    {
+     "text": "ook als jij slaapt.",
+     "t0": 8.928,
+     "t1": 10.089
+    },
+    {
+     "text": "Je longen kunnen dat niet zelf.",
+     "t0": 10.17,
+     "t1": 11.738
+    },
+    {
+     "text": "Je middenrif beweegt pas als de hersenstam een signaal stuurt.",
+     "t0": 11.796,
+     "t1": 14.698
+    },
+    {
+     "text": "Net boven de hersenstam ligt de hypothalamus.",
+     "t0": 14.791,
+     "t1": 17.206
+    },
+    {
+     "text": "Klein,",
+     "t0": 17.275,
+     "t1": 17.705
+    },
+    {
+     "text": "maar hij houdt je lichaam op peil:",
+     "t0": 17.786,
+     "t1": 19.249
+    },
+    {
+     "text": "temperatuur,",
+     "t0": 19.296,
+     "t1": 20.027
+    },
+    {
+     "text": "honger,",
+     "t0": 20.085,
+     "t1": 20.503
+    },
+    {
+     "text": "dorst.",
+     "t0": 20.584,
+     "t1": 21.025
+    },
+    {
+     "text": "Hij stuurt het autonome zenuwstelsel uit film 1.",
+     "t0": 21.072,
+     "t1": 23.672
+    },
+    {
+     "text": "En via de hypofyse ook veel van je hormonen.",
+     "t0": 23.707,
+     "t1": 26.041
+    },
+    {
+     "text": "Dan komt het refrein.",
+     "t0": 26.122,
+     "t1": 27.179
+    },
+    {
+     "text": "Je hart klopt sneller,",
+     "t0": 27.237,
+     "t1": 28.293
+    },
+    {
+     "text": "je haartjes gaan overeind.",
+     "t0": 28.351,
+     "t1": 29.605
+    },
+    {
+     "text": "Kippenvel kies je niet.",
+     "t0": 29.686,
+     "t1": 30.859
+    },
+    {
+     "text": "Dat regelt het autonome zenuwstelsel,",
+     "t0": 30.905,
+     "t1": 32.972
+    },
+    {
+     "text": "vanuit deze automatische afdelingen.",
+     "t0": 33.042,
+     "t1": 35.108
+    }
+   ],
+   "words": [
+    {
+     "w": "Het",
+     "t0": 0,
+     "t1": 0.139
+    },
+    {
+     "w": "goede",
+     "t0": 0.197,
+     "t1": 0.395
+    },
+    {
+     "w": "antwoord",
+     "t0": 0.453,
+     "t1": 0.813
+    },
+    {
+     "w": "is",
+     "t0": 0.871,
+     "t1": 0.975
+    },
+    {
+     "w": "B",
+     "t0": 1.045,
+     "t1": 1.347
+    },
+    {
+     "w": "In",
+     "t0": 1.463,
+     "t1": 1.602
+    },
+    {
+     "w": "het",
+     "t0": 1.625,
+     "t1": 1.707
+    },
+    {
+     "w": "onderste",
+     "t0": 1.788,
+     "t1": 2.136
+    },
+    {
+     "w": "deel",
+     "t0": 2.183,
+     "t1": 2.345
+    },
+    {
+     "w": "van",
+     "t0": 2.392,
+     "t1": 2.496
+    },
+    {
+     "w": "de",
+     "t0": 2.531,
+     "t1": 2.577
+    },
+    {
+     "w": "hersenstam",
+     "t0": 2.624,
+     "t1": 3.239
+    },
+    {
+     "w": "het",
+     "t0": 3.297,
+     "t1": 3.402
+    },
+    {
+     "w": "verlengde",
+     "t0": 3.448,
+     "t1": 3.831
+    },
+    {
+     "w": "merg",
+     "t0": 3.924,
+     "t1": 4.342
+    },
+    {
+     "w": "zitten",
+     "t0": 4.458,
+     "t1": 4.714
+    },
+    {
+     "w": "centra",
+     "t0": 4.737,
+     "t1": 5.143
+    },
+    {
+     "w": "voor",
+     "t0": 5.201,
+     "t1": 5.341
+    },
+    {
+     "w": "je",
+     "t0": 5.375,
+     "t1": 5.445
+    },
+    {
+     "w": "ademhaling",
+     "t0": 5.526,
+     "t1": 6.188
+    },
+    {
+     "w": "en",
+     "t0": 6.246,
+     "t1": 6.362
+    },
+    {
+     "w": "het",
+     "t0": 6.409,
+     "t1": 6.49
+    },
+    {
+     "w": "tempo",
+     "t0": 6.525,
+     "t1": 6.838
+    },
+    {
+     "w": "van",
+     "t0": 6.896,
+     "t1": 7.036
+    },
+    {
+     "w": "je",
+     "t0": 7.094,
+     "t1": 7.152
+    },
+    {
+     "w": "hart",
+     "t0": 7.21,
+     "t1": 7.512
+    },
+    {
+     "w": "Die",
+     "t0": 7.546,
+     "t1": 7.686
+    },
+    {
+     "w": "werken",
+     "t0": 7.721,
+     "t1": 8.034
+    },
+    {
+     "w": "dag",
+     "t0": 8.092,
+     "t1": 8.336
+    },
+    {
+     "w": "en",
+     "t0": 8.394,
+     "t1": 8.452
+    },
+    {
+     "w": "nacht",
+     "t0": 8.522,
+     "t1": 8.858
+    },
+    {
+     "w": "ook",
+     "t0": 8.928,
+     "t1": 9.114
+    },
+    {
+     "w": "als",
+     "t0": 9.172,
+     "t1": 9.253
+    },
+    {
+     "w": "jij",
+     "t0": 9.311,
+     "t1": 9.52
+    },
+    {
+     "w": "slaapt",
+     "t0": 9.601,
+     "t1": 10.089
+    },
+    {
+     "w": "Je",
+     "t0": 10.17,
+     "t1": 10.286
+    },
+    {
+     "w": "longen",
+     "t0": 10.379,
+     "t1": 10.681
+    },
+    {
+     "w": "kunnen",
+     "t0": 10.728,
+     "t1": 10.96
+    },
+    {
+     "w": "dat",
+     "t0": 10.983,
+     "t1": 11.122
+    },
+    {
+     "w": "niet",
+     "t0": 11.169,
+     "t1": 11.296
+    },
+    {
+     "w": "zelf",
+     "t0": 11.355,
+     "t1": 11.738
+    },
+    {
+     "w": "Je",
+     "t0": 11.796,
+     "t1": 11.912
+    },
+    {
+     "w": "middenrif",
+     "t0": 11.981,
+     "t1": 12.341
+    },
+    {
+     "w": "beweegt",
+     "t0": 12.388,
+     "t1": 12.69
+    },
+    {
+     "w": "pas",
+     "t0": 12.724,
+     "t1": 12.933
+    },
+    {
+     "w": "als",
+     "t0": 13.049,
+     "t1": 13.166
+    },
+    {
+     "w": "de",
+     "t0": 13.212,
+     "t1": 13.258
+    },
+    {
+     "w": "hersenstam",
+     "t0": 13.316,
+     "t1": 13.734
+    },
+    {
+     "w": "een",
+     "t0": 13.769,
+     "t1": 13.839
+    },
+    {
+     "w": "signaal",
+     "t0": 13.885,
+     "t1": 14.234
+    },
+    {
+     "w": "stuurt",
+     "t0": 14.28,
+     "t1": 14.698
+    },
+    {
+     "w": "Net",
+     "t0": 14.791,
+     "t1": 15.012
+    },
+    {
+     "w": "boven",
+     "t0": 15.058,
+     "t1": 15.302
+    },
+    {
+     "w": "de",
+     "t0": 15.325,
+     "t1": 15.371
+    },
+    {
+     "w": "hersenstam",
+     "t0": 15.418,
+     "t1": 15.929
+    },
+    {
+     "w": "ligt",
+     "t0": 16.01,
+     "t1": 16.219
+    },
+    {
+     "w": "de",
+     "t0": 16.242,
+     "t1": 16.289
+    },
+    {
+     "w": "hypothalamus",
+     "t0": 16.335,
+     "t1": 17.206
+    },
+    {
+     "w": "Klein",
+     "t0": 17.275,
+     "t1": 17.705
+    },
+    {
+     "w": "maar",
+     "t0": 17.786,
+     "t1": 17.902
+    },
+    {
+     "w": "hij",
+     "t0": 17.937,
+     "t1": 18.03
+    },
+    {
+     "w": "houdt",
+     "t0": 18.088,
+     "t1": 18.251
+    },
+    {
+     "w": "je",
+     "t0": 18.297,
+     "t1": 18.344
+    },
+    {
+     "w": "lichaam",
+     "t0": 18.39,
+     "t1": 18.692
+    },
+    {
+     "w": "op",
+     "t0": 18.762,
+     "t1": 18.843
+    },
+    {
+     "w": "peil",
+     "t0": 18.889,
+     "t1": 19.249
+    },
+    {
+     "w": "temperatuur",
+     "t0": 19.296,
+     "t1": 20.027
+    },
+    {
+     "w": "honger",
+     "t0": 20.085,
+     "t1": 20.503
+    },
+    {
+     "w": "dorst",
+     "t0": 20.584,
+     "t1": 21.025
+    },
+    {
+     "w": "Hij",
+     "t0": 21.072,
+     "t1": 21.2
+    },
+    {
+     "w": "stuurt",
+     "t0": 21.258,
+     "t1": 21.513
+    },
+    {
+     "w": "het",
+     "t0": 21.536,
+     "t1": 21.629
+    },
+    {
+     "w": "autonome",
+     "t0": 21.699,
+     "t1": 22.221
+    },
+    {
+     "w": "zenuwstelsel",
+     "t0": 22.256,
+     "t1": 22.895
+    },
+    {
+     "w": "uit",
+     "t0": 22.953,
+     "t1": 23.069
+    },
+    {
+     "w": "film",
+     "t0": 23.127,
+     "t1": 23.336
+    },
+    {
+     "w": "1",
+     "t0": 23.406,
+     "t1": 23.672
+    },
+    {
+     "w": "En",
+     "t0": 23.707,
+     "t1": 23.823
+    },
+    {
+     "w": "via",
+     "t0": 23.881,
+     "t1": 24.044
+    },
+    {
+     "w": "de",
+     "t0": 24.079,
+     "t1": 24.125
+    },
+    {
+     "w": "hypofyse",
+     "t0": 24.16,
+     "t1": 24.729
+    },
+    {
+     "w": "ook",
+     "t0": 24.845,
+     "t1": 25.008
+    },
+    {
+     "w": "veel",
+     "t0": 25.066,
+     "t1": 25.205
+    },
+    {
+     "w": "van",
+     "t0": 25.263,
+     "t1": 25.356
+    },
+    {
+     "w": "je",
+     "t0": 25.402,
+     "t1": 25.449
+    },
+    {
+     "w": "hormonen",
+     "t0": 25.495,
+     "t1": 26.041
+    },
+    {
+     "w": "Dan",
+     "t0": 26.122,
+     "t1": 26.261
+    },
+    {
+     "w": "komt",
+     "t0": 26.32,
+     "t1": 26.517
+    },
+    {
+     "w": "het",
+     "t0": 26.54,
+     "t1": 26.61
+    },
+    {
+     "w": "refrein",
+     "t0": 26.668,
+     "t1": 27.179
+    },
+    {
+     "w": "Je",
+     "t0": 27.237,
+     "t1": 27.33
+    },
+    {
+     "w": "hart",
+     "t0": 27.376,
+     "t1": 27.539
+    },
+    {
+     "w": "klopt",
+     "t0": 27.585,
+     "t1": 27.806
+    },
+    {
+     "w": "sneller",
+     "t0": 27.829,
+     "t1": 28.293
+    },
+    {
+     "w": "je",
+     "t0": 28.351,
+     "t1": 28.433
+    },
+    {
+     "w": "haartjes",
+     "t0": 28.502,
+     "t1": 28.839
+    },
+    {
+     "w": "gaan",
+     "t0": 28.885,
+     "t1": 29.013
+    },
+    {
+     "w": "overeind",
+     "t0": 29.083,
+     "t1": 29.605
+    },
+    {
+     "w": "Kippenvel",
+     "t0": 29.686,
+     "t1": 30.128
+    },
+    {
+     "w": "kies",
+     "t0": 30.186,
+     "t1": 30.337
+    },
+    {
+     "w": "je",
+     "t0": 30.406,
+     "t1": 30.464
+    },
+    {
+     "w": "niet",
+     "t0": 30.522,
+     "t1": 30.859
+    },
+    {
+     "w": "Dat",
+     "t0": 30.905,
+     "t1": 31.045
+    },
+    {
+     "w": "regelt",
+     "t0": 31.126,
+     "t1": 31.451
+    },
+    {
+     "w": "het",
+     "t0": 31.474,
+     "t1": 31.556
+    },
+    {
+     "w": "autonome",
+     "t0": 31.625,
+     "t1": 32.078
+    },
+    {
+     "w": "zenuwstelsel",
+     "t0": 32.113,
+     "t1": 32.972
+    },
+    {
+     "w": "vanuit",
+     "t0": 33.042,
+     "t1": 33.332
+    },
+    {
+     "w": "deze",
+     "t0": 33.367,
+     "t1": 33.645
+    },
+    {
+     "w": "automatische",
+     "t0": 33.692,
+     "t1": 34.354
+    },
+    {
+     "w": "afdelingen",
+     "t0": 34.4,
+     "t1": 35.108
+    }
+   ],
+   "source": "transcript"
+  },
+  "s70": {
+   "duration": 29.582,
+   "speech": [
+    0.08,
+    29.53
+   ],
+   "phrases": [
+    {
+     "text": "Terug naar het nummer.",
+     "t0": 0,
+     "t1": 1.057
+    },
+    {
+     "text": "De gehoorschors hoort de tonen.",
+     "t0": 1.115,
+     "t1": 2.728
+    },
+    {
+     "text": "De associatieve schors herkent ze.",
+     "t0": 2.786,
+     "t1": 4.505
+    },
+    {
+     "text": "Links in je motorische schors begint de tik van je rechterhand,",
+     "t0": 4.574,
+     "t1": 7.651
+    },
+    {
+     "text": "en de kleine hersenen houden hem op de maat.",
+     "t0": 7.674,
+     "t1": 9.729
+    },
+    {
+     "text": "Lippen en tong zingen mee,",
+     "t0": 9.776,
+     "t1": 11.134
+    },
+    {
+     "text": "met een groot stuk schors.",
+     "t0": 11.204,
+     "t1": 12.516
+    },
+    {
+     "text": "De hersenstam houdt je adem gaande,",
+     "t0": 12.609,
+     "t1": 14.42
+    },
+    {
+     "text": "en het kippenvel komt vanzelf.",
+     "t0": 14.443,
+     "t1": 15.976
+    },
+    {
+     "text": "Allemaal tegelijk,",
+     "t0": 16.092,
+     "t1": 17.044
+    },
+    {
+     "text": "verbonden door witte stof.",
+     "t0": 17.079,
+     "t1": 18.414
+    },
+    {
+     "text": "Er is geen baas.",
+     "t0": 18.449,
+     "t1": 19.586
+    },
+    {
+     "text": "Het hoofdkantoor heeft geen directeur:",
+     "t0": 19.61,
+     "t1": 21.456
+    },
+    {
+     "text": "de afdelingen maken samen jouw ervaring.",
+     "t0": 21.49,
+     "t1": 23.998
+    },
+    {
+     "text": "Maar hoe wist je na twee tonen dat het jouw nummer was?",
+     "t0": 24.045,
+     "t1": 26.912
+    },
+    {
+     "text": "Dat heb je geleerd.",
+     "t0": 26.947,
+     "t1": 27.864
+    },
+    {
+     "text": "Daarover gaat de volgende film.",
+     "t0": 27.911,
+     "t1": 29.583
+    }
+   ],
+   "words": [
+    {
+     "w": "Terug",
+     "t0": 0,
+     "t1": 0.337
+    },
+    {
+     "w": "naar",
+     "t0": 0.406,
+     "t1": 0.522
+    },
+    {
+     "w": "het",
+     "t0": 0.557,
+     "t1": 0.639
+    },
+    {
+     "w": "nummer",
+     "t0": 0.697,
+     "t1": 1.057
+    },
+    {
+     "w": "De",
+     "t0": 1.115,
+     "t1": 1.219
+    },
+    {
+     "w": "gehoorschors",
+     "t0": 1.265,
+     "t1": 1.892
+    },
+    {
+     "w": "hoort",
+     "t0": 1.95,
+     "t1": 2.136
+    },
+    {
+     "w": "de",
+     "t0": 2.159,
+     "t1": 2.218
+    },
+    {
+     "w": "tonen",
+     "t0": 2.276,
+     "t1": 2.728
+    },
+    {
+     "w": "De",
+     "t0": 2.786,
+     "t1": 2.879
+    },
+    {
+     "w": "associatieve",
+     "t0": 2.926,
+     "t1": 3.541
+    },
+    {
+     "w": "schors",
+     "t0": 3.576,
+     "t1": 3.843
+    },
+    {
+     "w": "herkent",
+     "t0": 3.889,
+     "t1": 4.261
+    },
+    {
+     "w": "ze",
+     "t0": 4.284,
+     "t1": 4.505
+    },
+    {
+     "w": "Links",
+     "t0": 4.574,
+     "t1": 4.865
+    },
+    {
+     "w": "in",
+     "t0": 4.911,
+     "t1": 4.957
+    },
+    {
+     "w": "je",
+     "t0": 5.016,
+     "t1": 5.062
+    },
+    {
+     "w": "motorische",
+     "t0": 5.108,
+     "t1": 5.654
+    },
+    {
+     "w": "schors",
+     "t0": 5.689,
+     "t1": 6.002
+    },
+    {
+     "w": "begint",
+     "t0": 6.084,
+     "t1": 6.385
+    },
+    {
+     "w": "de",
+     "t0": 6.409,
+     "t1": 6.467
+    },
+    {
+     "w": "tik",
+     "t0": 6.536,
+     "t1": 6.722
+    },
+    {
+     "w": "van",
+     "t0": 6.78,
+     "t1": 6.885
+    },
+    {
+     "w": "je",
+     "t0": 6.931,
+     "t1": 6.978
+    },
+    {
+     "w": "rechterhand",
+     "t0": 7.024,
+     "t1": 7.651
+    },
+    {
+     "w": "en",
+     "t0": 7.674,
+     "t1": 7.755
+    },
+    {
+     "w": "de",
+     "t0": 7.802,
+     "t1": 7.86
+    },
+    {
+     "w": "kleine",
+     "t0": 7.895,
+     "t1": 8.185
+    },
+    {
+     "w": "hersenen",
+     "t0": 8.22,
+     "t1": 8.615
+    },
+    {
+     "w": "houden",
+     "t0": 8.649,
+     "t1": 8.928
+    },
+    {
+     "w": "hem",
+     "t0": 8.951,
+     "t1": 9.056
+    },
+    {
+     "w": "op",
+     "t0": 9.114,
+     "t1": 9.172
+    },
+    {
+     "w": "de",
+     "t0": 9.23,
+     "t1": 9.288
+    },
+    {
+     "w": "maat",
+     "t0": 9.334,
+     "t1": 9.729
+    },
+    {
+     "w": "Lippen",
+     "t0": 9.776,
+     "t1": 10.066
+    },
+    {
+     "w": "en",
+     "t0": 10.101,
+     "t1": 10.182
+    },
+    {
+     "w": "tong",
+     "t0": 10.252,
+     "t1": 10.472
+    },
+    {
+     "w": "zingen",
+     "t0": 10.542,
+     "t1": 10.786
+    },
+    {
+     "w": "mee",
+     "t0": 10.82,
+     "t1": 11.134
+    },
+    {
+     "w": "met",
+     "t0": 11.204,
+     "t1": 11.343
+    },
+    {
+     "w": "een",
+     "t0": 11.39,
+     "t1": 11.459
+    },
+    {
+     "w": "groot",
+     "t0": 11.517,
+     "t1": 11.808
+    },
+    {
+     "w": "stuk",
+     "t0": 11.831,
+     "t1": 12.052
+    },
+    {
+     "w": "schors",
+     "t0": 12.098,
+     "t1": 12.516
+    },
+    {
+     "w": "De",
+     "t0": 12.609,
+     "t1": 12.702
+    },
+    {
+     "w": "hersenstam",
+     "t0": 12.748,
+     "t1": 13.271
+    },
+    {
+     "w": "houdt",
+     "t0": 13.34,
+     "t1": 13.503
+    },
+    {
+     "w": "je",
+     "t0": 13.561,
+     "t1": 13.619
+    },
+    {
+     "w": "adem",
+     "t0": 13.712,
+     "t1": 14.002
+    },
+    {
+     "w": "gaande",
+     "t0": 14.072,
+     "t1": 14.42
+    },
+    {
+     "w": "en",
+     "t0": 14.443,
+     "t1": 14.524
+    },
+    {
+     "w": "het",
+     "t0": 14.559,
+     "t1": 14.641
+    },
+    {
+     "w": "kippenvel",
+     "t0": 14.722,
+     "t1": 15.163
+    },
+    {
+     "w": "komt",
+     "t0": 15.233,
+     "t1": 15.418
+    },
+    {
+     "w": "vanzelf",
+     "t0": 15.442,
+     "t1": 15.976
+    },
+    {
+     "w": "Allemaal",
+     "t0": 16.092,
+     "t1": 16.487
+    },
+    {
+     "w": "tegelijk",
+     "t0": 16.521,
+     "t1": 17.044
+    },
+    {
+     "w": "verbonden",
+     "t0": 17.079,
+     "t1": 17.589
+    },
+    {
+     "w": "door",
+     "t0": 17.613,
+     "t1": 17.74
+    },
+    {
+     "w": "witte",
+     "t0": 17.798,
+     "t1": 18.019
+    },
+    {
+     "w": "stof",
+     "t0": 18.054,
+     "t1": 18.414
+    },
+    {
+     "w": "Er",
+     "t0": 18.449,
+     "t1": 18.576
+    },
+    {
+     "w": "is",
+     "t0": 18.623,
+     "t1": 18.692
+    },
+    {
+     "w": "geen",
+     "t0": 18.774,
+     "t1": 19.029
+    },
+    {
+     "w": "baas",
+     "t0": 19.145,
+     "t1": 19.586
+    },
+    {
+     "w": "Het",
+     "t0": 19.61,
+     "t1": 19.737
+    },
+    {
+     "w": "hoofdkantoor",
+     "t0": 19.795,
+     "t1": 20.364
+    },
+    {
+     "w": "heeft",
+     "t0": 20.387,
+     "t1": 20.573
+    },
+    {
+     "w": "geen",
+     "t0": 20.643,
+     "t1": 20.875
+    },
+    {
+     "w": "directeur",
+     "t0": 20.91,
+     "t1": 21.456
+    },
+    {
+     "w": "de",
+     "t0": 21.49,
+     "t1": 21.572
+    },
+    {
+     "w": "afdelingen",
+     "t0": 21.63,
+     "t1": 22.187
+    },
+    {
+     "w": "maken",
+     "t0": 22.222,
+     "t1": 22.5
+    },
+    {
+     "w": "samen",
+     "t0": 22.535,
+     "t1": 22.93
+    },
+    {
+     "w": "jouw",
+     "t0": 23.023,
+     "t1": 23.278
+    },
+    {
+     "w": "ervaring",
+     "t0": 23.36,
+     "t1": 23.998
+    },
+    {
+     "w": "Maar",
+     "t0": 24.045,
+     "t1": 24.172
+    },
+    {
+     "w": "hoe",
+     "t0": 24.219,
+     "t1": 24.381
+    },
+    {
+     "w": "wist",
+     "t0": 24.416,
+     "t1": 24.648
+    },
+    {
+     "w": "je",
+     "t0": 24.695,
+     "t1": 24.753
+    },
+    {
+     "w": "na",
+     "t0": 24.799,
+     "t1": 24.881
+    },
+    {
+     "w": "twee",
+     "t0": 24.962,
+     "t1": 25.241
+    },
+    {
+     "w": "tonen",
+     "t0": 25.299,
+     "t1": 25.658
+    },
+    {
+     "w": "dat",
+     "t0": 25.717,
+     "t1": 25.867
+    },
+    {
+     "w": "het",
+     "t0": 25.891,
+     "t1": 25.972
+    },
+    {
+     "w": "jouw",
+     "t0": 26.053,
+     "t1": 26.262
+    },
+    {
+     "w": "nummer",
+     "t0": 26.332,
+     "t1": 26.564
+    },
+    {
+     "w": "was",
+     "t0": 26.599,
+     "t1": 26.912
+    },
+    {
+     "w": "Dat",
+     "t0": 26.947,
+     "t1": 27.098
+    },
+    {
+     "w": "heb",
+     "t0": 27.156,
+     "t1": 27.284
+    },
+    {
+     "w": "je",
+     "t0": 27.342,
+     "t1": 27.388
+    },
+    {
+     "w": "geleerd",
+     "t0": 27.446,
+     "t1": 27.864
+    },
+    {
+     "w": "Daarover",
+     "t0": 27.911,
+     "t1": 28.468
+    },
+    {
+     "w": "gaat",
+     "t0": 28.538,
+     "t1": 28.712
+    },
+    {
+     "w": "de",
+     "t0": 28.747,
+     "t1": 28.805
+    },
+    {
+     "w": "volgende",
+     "t0": 28.851,
+     "t1": 29.234
+    },
+    {
+     "w": "film",
+     "t0": 29.281,
+     "t1": 29.583
+    }
+   ],
+   "source": "transcript"
+  }
+ },
+ "segments": [
+  {
+   "id": "s00",
+   "chapter": 0,
+   "text": "Zaterdagochtend. De radio staat aan. Twee tonen. Meer heb je niet nodig: dit is jouw nummer. Je voet tikt mee. Je zingt het refrein. En op je arm staat kippenvel. Dat gebeurt allemaal binnen een paar seconden, zonder dat je erover nadenkt. Wie regelt dat? Waar in je hoofd zit de baas?"
+  },
+  {
+   "id": "q1",
+   "chapter": 1,
+   "text": "Wat denk je? Je luistert naar een nummer dat je kent. Hoeveel van je hersenen doet mee? Ongeveer tien procent? Eén hersenhelft? Of gebieden verspreid door je hele hersenen?"
+  },
+  {
+   "id": "a1",
+   "chapter": 1,
+   "text": "Het goede antwoord is C. Dat je maar tien procent gebruikt, is een fabel. Er is bijna geen plek in je hersenen die je kunt missen zonder iets kwijt te raken. Eerst de bouw. Bovenop liggen de grote hersenen: twee helften, verbonden door de hersenbalk. Elke helft heeft vier kwabben: vooraan de voorhoofdskwab, bovenop de wandbeenkwab, opzij de slaapkwab en achteraan de achterhoofdskwab. Achteronder zitten de kleine hersenen. En in het midden daaronder de hersenstam, die overgaat in het ruggenmerg. Maak je een doorsnede, dan zie je twee kleuren. Buiten een dunne laag grijze stof: de hersenschors. Daar zitten vooral de cellichamen. Binnen witte stof: axonen met een laagje myeline, de kabels uit film 2. Ook de hersenbalk is witte stof: zo'n tweehonderd miljoen axonen van de ene helft naar de andere. Grijs rekent, wit verbindt."
+  },
+  {
+   "id": "s21",
+   "chapter": 2,
+   "text": "Je oor zet geluid om in impulsen. Dat gebeurt in het slakkenhuis, op het basilair membraan. Aan het begin is dat smal en stijf: het trilt mee met hoge tonen. Bij de top is het breed en slap: het trilt mee met lage tonen. Zo prikkelt elke toon zijn eigen zintuigcellen. De impulsen gaan via de gehoorzenuw naar de hersenstam. Daarna langs de thalamus, een schakelstation voor bijna alle zintuigen. En dan naar de schors van de slaapkwab, opzij in je hoofd: de primaire gehoorschors. Hier komen toonhoogte en luidheid binnen. Ook hier heeft elke toon zijn eigen plek, van laag naar hoog, in dezelfde volgorde als in het slakkenhuis. Maar dat dit jouw nummer is, weet de primaire schors niet. Dat zoekt het gebied eromheen uit: de associatieve schors. Die legt verbanden met wat je al kent. Zo werkt het overal. In de achterhoofdskwab ligt de primaire schors voor zien. Over je kruin loopt een diepe groeve. Ervoor, in de voorhoofdskwab, ligt de strook voor bewegen. Erachter, in de wandbeenkwab, de strook voor voelen. En rond elk primair gebied ligt associatieve schors die er betekenis aan geeft. De voorhoofdskwab heeft daar het meeste van: plannen, kiezen, en je inhouden."
+  },
+  {
+   "id": "q2",
+   "chapter": 2,
+   "text": "Wat denk je? Iemand heeft gezonde oren en een gezonde primaire gehoorschors. Maar de associatieve schors eromheen is aan beide kanten beschadigd. Zijn lievelingsnummer komt op. Wat merkt hij? Hij hoort niets? Hij hoort tonen, maar herkent het nummer niet? Of hij hoort en herkent het gewoon?"
+  },
+  {
+   "id": "a2",
+   "chapter": 2,
+   "text": "Het goede antwoord is B. De tonen komen binnen in de primaire schors. Maar zonder de associatieve schors blijven het losse geluiden. Horen is iets anders dan herkennen. Hoe de associatieve schors weet wat jouw nummer is? Dat heb je ooit geleerd. Daarover gaat de volgende film."
+  },
+  {
+   "id": "q3",
+   "chapter": 3,
+   "text": "Wat denk je? Je tikt de maat met je rechterhand. Welke hersenhelft stuurt die hand? De rechterhelft? De linkerhelft? Of allebei evenveel?"
+  },
+  {
+   "id": "a3",
+   "chapter": 3,
+   "text": "Het goede antwoord is B. De motorische schors links stuurt je rechterhand. De banen kruisen in de hersenstam naar de andere kant. Voelen gaat ook kruislings: wat je rechterhand voelt, komt links aan. Kijk nu naar die strook motorische schors. Elk stukje stuurt een ander deel van je lichaam. Teken je dat als een mannetje, dan krijg je dit: de homunculus. Enorme handen. Grote lippen en een grote tong. Een smalle rug. Hoe groot een stuk schors is, hangt niet af van de grootte van het lichaamsdeel. Het hangt af van hoe fijn je het beweegt. Tikken en zingen: precies de delen met de meeste schors."
+  },
+  {
+   "id": "q4",
+   "chapter": 4,
+   "text": "Wat denk je? Iemand heeft schade aan zijn kleine hersenen. Hij kan zijn arm nog gewoon bewegen. Wat gaat er dan mis? Niets, de kleine hersenen doen weinig? Zijn bewegingen worden onhandig en slecht getimed? Of hij raakt toch verlamd?"
+  },
+  {
+   "id": "a4",
+   "chapter": 4,
+   "text": "Het goede antwoord is B. De motorische schors geeft het bevel: tik. De kleine hersenen krijgen een kopie van dat bevel. En ze horen van je spieren en gewrichten wat er echt gebeurt. Klopt het niet, dan sturen ze bij. Daardoor valt je tik precies op de tel. Zonder kleine hersenen beweeg je nog wel, maar schokkerig en net te laat. Ook je evenwicht wordt slechter. De kleine hersenen zijn maar een tiende van je hersenen. Toch zit er ongeveer vier vijfde van al je zenuwcellen in."
+  },
+  {
+   "id": "q5",
+   "chapter": 5,
+   "text": "Wat denk je? Je slaapt. Je denkt nergens aan. Wat houdt je ademhaling dan gaande? Je grote hersenen? Je hersenstam? Of niets: je longen ademen vanzelf?"
+  },
+  {
+   "id": "a5",
+   "chapter": 5,
+   "text": "Het goede antwoord is B. In het onderste deel van de hersenstam, het verlengde merg, zitten centra voor je ademhaling en het tempo van je hart. Die werken dag en nacht, ook als jij slaapt. Je longen kunnen dat niet zelf. Je middenrif beweegt pas als de hersenstam een signaal stuurt. Net boven de hersenstam ligt de hypothalamus. Klein, maar hij houdt je lichaam op peil: temperatuur, honger, dorst. Hij stuurt het autonome zenuwstelsel uit film 1. En via de hypofyse ook veel van je hormonen. Dan komt het refrein. Je hart klopt sneller, je haartjes gaan overeind. Kippenvel kies je niet. Dat regelt het autonome zenuwstelsel, vanuit deze automatische afdelingen."
+  },
+  {
+   "id": "s70",
+   "chapter": 6,
+   "text": "Terug naar het nummer. De gehoorschors hoort de tonen. De associatieve schors herkent ze. Links in je motorische schors begint de tik van je rechterhand, en de kleine hersenen houden hem op de maat. Lippen en tong zingen mee, met een groot stuk schors. De hersenstam houdt je adem gaande, en het kippenvel komt vanzelf. Allemaal tegelijk, verbonden door witte stof. Er is geen baas. Het hoofdkantoor heeft geen directeur: de afdelingen maken samen jouw ervaring. Maar hoe wist je na twee tonen dat het jouw nummer was? Dat heb je geleerd. Daarover gaat de volgende film."
+  }
+ ]
+}

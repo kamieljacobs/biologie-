@@ -1,0 +1,340 @@
+{
+ "versie": 1,
+ "film": "films/stofwisseling/1-alles-versneld.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-enzymcyclus",
+   "soort": "volgorde",
+   "titel": "Eén ronde van katalase",
+   "opdracht": "Een katalasemolecuul zet één molecuul waterstofperoxide om. Zet de stappen in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Een molecuul waterstofperoxide botst toevallig tegen het enzym, precies bij het actieve centrum.",
+     "uitleg": "Het enzym zoekt zijn substraat niet op: alles beweegt willekeurig, botsingen zijn toeval."
+    },
+    {
+     "tekst": "Het substraat past in het actieve centrum en blijft even plakken: het enzym-substraatcomplex.",
+     "uitleg": "Alleen een molecuul met de goede vorm past, en wordt op de juiste plek vastgehouden."
+    },
+    {
+     "tekst": "In het complex verloopt de reactie over een lagere drempel: het substraat verandert in product.",
+     "uitleg": "Het enzym verlaagt de activeringsenergie. Het levert zelf geen energie."
+    },
+    {
+     "tekst": "Het product (water en zuurstof) laat los van het enzym.",
+     "uitleg": "Het actieve centrum is daarna weer vrij."
+    },
+    {
+     "tekst": "Het enzym is weer precies als eerst; het volgende substraatmolecuul kan binden.",
+     "uitleg": "Een enzym wordt niet verbruikt. Eén katalasemolecuul doet dit miljoenen keren per seconde."
+    }
+   ]
+  },
+  {
+   "id": "schema-enzym",
+   "soort": "schema",
+   "titel": "Een enzym aan het werk",
+   "opdracht": "Je ziet een enzym in drie stappen (1, 2, 3). Sleep de namen naar de goede vakjes. Eén naam blijft over.",
+   "alt": "Lijntekening in drie stappen: een substraatmolecuul nadert de holte van een enzym, zit erin vast, en het enzym laat twee stukjes product los.",
+   "breed": 760,
+   "hoog": 400,
+   "vakbreed": 176,
+   "svg": "<path stroke-width=\"2.6\" d=\"M112 190 C80 186 48 210 50 250 C52 295 100 312 140 312 C185 312 230 290 230 250 C232 210 200 186 168 190 L154 224 L126 224 Z\"/><path class=\"zacht\" stroke-width=\"1.3\" d=\"M78 254 c10 -22 30 -14 26 4 c-4 18 18 26 26 8 c8 -18 26 -10 22 8 c-4 16 14 22 24 6 M90 280 c14 10 30 -6 44 4 c14 10 30 -4 44 6\"/><path class=\"acc\" stroke-width=\"2.4\" d=\"M114 108 L127 140 L153 140 L166 108 C160 90 120 90 114 108 Z\"/><path class=\"zacht\" stroke-width=\"1.4\" d=\"M118 82 l-10 -14 M140 76 l0 -16 M162 82 l10 -14\"/><path stroke-width=\"2\" d=\"M248 250 L278 250 M270 244 L278 250 L270 256\"/><path stroke-width=\"2.6\" d=\"M352 190 C320 186 288 210 290 250 C292 295 340 312 380 312 C425 312 470 290 470 250 C472 210 440 186 408 190 L394 224 L366 224 Z\"/><path class=\"zacht\" stroke-width=\"1.3\" d=\"M318 254 c10 -22 30 -14 26 4 c-4 18 18 26 26 8 c8 -18 26 -10 22 8 c-4 16 14 22 24 6 M330 280 c14 10 30 -6 44 4 c14 10 30 -4 44 6\"/><path class=\"acc\" stroke-width=\"2.4\" d=\"M354 190 L367 222 L393 222 L406 190 C400 172 360 172 354 190 Z\"/><path stroke-width=\"2\" d=\"M488 250 L518 250 M510 244 L518 250 L510 256\"/><path stroke-width=\"2.6\" d=\"M592 190 C560 186 528 210 530 250 C532 295 580 312 620 312 C665 312 710 290 710 250 C712 210 680 186 648 190 L634 224 L606 224 Z\"/><path class=\"zacht\" stroke-width=\"1.3\" d=\"M558 254 c10 -22 30 -14 26 4 c-4 18 18 26 26 8 c8 -18 26 -10 22 8 c-4 16 14 22 24 6 M570 280 c14 10 30 -6 44 4 c14 10 30 -4 44 6\"/><path class=\"acc\" stroke-width=\"2.4\" d=\"M584 122 L597 154 L610 154 L610 109 C600 109 588 114 584 122 Z\"/><path class=\"acc\" stroke-width=\"2.4\" d=\"M676 104 L663 136 L650 136 L650 91 C660 91 672 96 676 104 Z\"/><text x=\"42\" y=\"170\" text-anchor=\"middle\">1</text><text x=\"282\" y=\"170\" text-anchor=\"middle\">2</text><text x=\"522\" y=\"170\" text-anchor=\"middle\">3</text>",
+   "vakjes": [
+    {
+     "naam": "substraat",
+     "x": 110,
+     "y": 34,
+     "punt": [
+      140,
+      96
+     ],
+     "uitleg": "het molecuul waar het enzym op inwerkt; hier waterstofperoxide."
+    },
+    {
+     "naam": "actief centrum",
+     "x": 140,
+     "y": 376,
+     "punt": [
+      140,
+      214
+     ],
+     "uitleg": "de holte met precies de goede vorm, waarin het substraat past."
+    },
+    {
+     "naam": "enzym-substraatcomplex",
+     "x": 380,
+     "y": 34,
+     "punt": [
+      380,
+      176
+     ],
+     "uitleg": "enzym en substraat even aan elkaar gebonden; hierin verandert het substraat in product."
+    },
+    {
+     "naam": "product",
+     "x": 650,
+     "y": 34,
+     "punt": [
+      598,
+      134
+     ],
+     "uitleg": "wat er na de reactie loslaat; bij katalase water en zuurstof."
+    },
+    {
+     "naam": "enzym",
+     "x": 620,
+     "y": 376,
+     "punt": [
+      620,
+      286
+     ],
+     "uitleg": "na de reactie weer precies als eerst: het wordt niet verbruikt."
+    }
+   ],
+   "afleiders": [
+    "competitieve remstof"
+   ]
+  },
+  {
+   "id": "schema-energie",
+   "soort": "schema",
+   "titel": "Het energieprofiel van een reactie",
+   "opdracht": "Twee keer dezelfde reactie: één keer met en één keer zonder enzym. Sleep de namen naar de goede vakjes.",
+   "alt": "Energiediagram met twee bergjes tussen het begin- en het eindniveau van een reactie: een hoog bergje en een lager bergje.",
+   "breed": 760,
+   "hoog": 420,
+   "vakbreed": 186,
+   "svg": "<path stroke-width=\"2\" d=\"M200 40 L200 380 L640 380 M194 50 L200 40 L206 50 M630 374 L640 380 L630 386\"/><text x=\"214\" y=\"46\">energie</text><text x=\"420\" y=\"408\" text-anchor=\"middle\">verloop van de reactie</text><path stroke-width=\"2.6\" d=\"M210 250 L290 250 C340 250 360 90 400 90 C440 90 460 320 510 320 L600 320\"/><path class=\"acc\" stroke-width=\"2.8\" d=\"M290 250 C330 250 360 180 400 180 C440 180 460 320 510 320\"/><path class=\"zacht\" stroke-width=\"1.4\" stroke-dasharray=\"6 6\" d=\"M290 250 L590 250\"/><path stroke-width=\"1.8\" d=\"M386 248 L386 96 M380 106 L386 96 L392 106 M380 238 L386 248 L392 238\"/><path class=\"acc\" stroke-width=\"1.8\" d=\"M414 248 L414 186 M408 196 L414 186 L420 196 M408 238 L414 248 L420 238\"/><path stroke-width=\"1.8\" d=\"M550 252 L550 316 M544 306 L550 316 L556 306\"/>",
+   "vakjes": [
+    {
+     "naam": "substraat",
+     "x": 100,
+     "y": 250,
+     "punt": [
+      240,
+      250
+     ],
+     "uitleg": "het beginniveau: de energie van het substraat vóór de reactie."
+    },
+    {
+     "naam": "product",
+     "x": 664,
+     "y": 352,
+     "punt": [
+      586,
+      320
+     ],
+     "uitleg": "het eindniveau: de energie van het product na de reactie."
+    },
+    {
+     "naam": "activeringsenergie zonder enzym",
+     "x": 664,
+     "y": 60,
+     "punt": [
+      386,
+      150
+     ],
+     "uitleg": "de hoge drempel: zonder enzym halen maar weinig botsingen die."
+    },
+    {
+     "naam": "activeringsenergie met enzym",
+     "x": 664,
+     "y": 170,
+     "punt": [
+      414,
+      214
+     ],
+     "uitleg": "de lagere drempel via het enzym; daardoor gaat de reactie veel sneller."
+    },
+    {
+     "naam": "energie die vrijkomt",
+     "x": 664,
+     "y": 262,
+     "punt": [
+      550,
+      284
+     ],
+     "uitleg": "het verschil tussen begin en eind; dat is met en zonder enzym precies even groot."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-denatureren",
+   "soort": "volgorde",
+   "titel": "Katalase wordt te heet",
+   "opdracht": "Je verwarmt katalase tot tachtig graden en laat het daarna afkoelen. Zet in de goede volgorde wat er gebeurt.",
+   "stappen": [
+    {
+     "tekst": "Het eiwit trilt steeds harder.",
+     "uitleg": "Bij een hogere temperatuur bewegen alle moleculen sneller, ook de delen van het enzym zelf."
+    },
+    {
+     "tekst": "De zwakke bindingen die de vouwing bij elkaar houden, breken. De keten zelf blijft heel.",
+     "uitleg": "Er ontstaan dus geen losse aminozuren: alleen de vouwing gaat los."
+    },
+    {
+     "tekst": "Het actieve centrum verliest zijn vorm: het enzym is gedenatureerd.",
+     "uitleg": "Denatureren is het verlies van de ruimtelijke structuur, en daarmee van de werking."
+    },
+    {
+     "tekst": "Het substraat past nergens meer: de reactiesnelheid zakt tot bijna nul.",
+     "uitleg": "Het substraat botst nog wel, maar er is geen actief centrum meer om in te passen."
+    },
+    {
+     "tekst": "Bij afkoelen klonteren de losse ketens aan elkaar en vouwen ze niet meer terug.",
+     "uitleg": "Daarom is het denatureren van katalase na koken in de praktijk onomkeerbaar."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-terugkoppeling",
+   "soort": "volgorde",
+   "vwo": true,
+   "titel": "Een enzymketen remt zichzelf",
+   "opdracht": "Drie enzymen maken samen één eindproduct. Er ontstaat veel eindproduct. Zet in de goede volgorde wat er daarna gebeurt.",
+   "stappen": [
+    {
+     "tekst": "Het eindproduct bindt aan de allosterische zijde van het eerste enzym.",
+     "uitleg": "Dat gebeurt vaker naarmate er meer eindproduct is: het is toeval, en hangt af van de concentratie."
+    },
+    {
+     "tekst": "Het actieve centrum van het eerste enzym vervormt; dat enzym werkt veel minder.",
+     "uitleg": "Het eindproduct werkt hier als inhibitormolecuul."
+    },
+    {
+     "tekst": "De hele keten vertraagt: er komt minder nieuw eindproduct bij.",
+     "uitleg": "Zonder product van het eerste enzym hebben ook enzym 2 en 3 weinig te doen."
+    },
+    {
+     "tekst": "Het eindproduct wordt verbruikt, dus er bindt steeds minder aan het eerste enzym.",
+     "uitleg": "Het eindproduct laat ook weer los; bij een lage concentratie bindt er zelden een nieuw molecuul."
+    },
+    {
+     "tekst": "De keten komt weer op gang.",
+     "uitleg": "Het eindproduct remt zijn eigen aanmaak: negatieve terugkoppeling. Geen cel die iets wil, alleen een molecuul dat ergens past."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-aardappel",
+   "soort": "uitleg",
+   "titel": "De gekookte aardappel",
+   "opdracht": "Een blokje rauwe aardappel in waterstofperoxide schuimt hard. Een gekookt en weer afgekoeld blokje doet niets. Leg uit hoe dat komt.",
+   "begrippen": [
+    {
+     "naam": "katalase",
+     "varianten": [
+      "catalase",
+      "enzym"
+     ]
+    },
+    {
+     "naam": "actief centrum",
+     "varianten": [
+      "actieve centrum",
+      "holte"
+     ]
+    },
+    {
+     "naam": "substraat",
+     "varianten": [
+      "waterstofperoxide",
+      "H2O2"
+     ]
+    },
+    {
+     "naam": "denatureren",
+     "varianten": [
+      "gedenatureerd",
+      "denaturatie",
+      "denatureert"
+     ]
+    },
+    {
+     "naam": "vorm",
+     "varianten": [
+      "vouwing",
+      "ruimtelijke structuur",
+      "gevouwen"
+     ]
+    },
+    {
+     "naam": "zuurstof",
+     "varianten": [
+      "O2",
+      "schuim",
+      "gas"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat katalase in de rauwe aardappel waterstofperoxide omzet in water en zuurstof (het schuim).",
+    "Ik leg uit dat het substraat in het actieve centrum moet passen, en dat die vorm van de vouwing van het eiwit afhangt.",
+    "Ik leg uit dat bij koken de zwakke bindingen breken: het enzym denatureert en het actieve centrum is weg.",
+    "Ik leg uit waarom afkoelen niet helpt: de losse ketens klonteren en vouwen niet terug."
+   ],
+   "model": [
+    "In de rauwe aardappel zit het enzym katalase. Waterstofperoxide (het substraat) past in het actieve centrum en wordt omgezet in water en zuurstof. Die zuurstof geeft het schuim.",
+    "Bij het koken trilt het eiwit zo hard dat de zwakke bindingen breken die de vouwing bij elkaar houden. Het enzym denatureert: het actieve centrum verliest zijn vorm. De keten van aminozuren blijft heel.",
+    "Het substraat botst nog wel, maar past nergens meer, dus er komt geen zuurstof vrij. Afkoelen helpt niet: de losse ketens klonteren aan elkaar en vouwen niet meer terug."
+   ]
+  },
+  {
+   "id": "uitleg-verzadiging",
+   "soort": "uitleg",
+   "titel": "Meer substraat, toch niet sneller",
+   "opdracht": "Bij een vaste hoeveelheid enzym geef je steeds meer substraat. Eerst gaat de reactie sneller, daarna bijna niet meer. Leg uit waarom, en wat je dan wél kunt doen om de reactie te versnellen.",
+   "begrippen": [
+    {
+     "naam": "botsingen",
+     "varianten": [
+      "botsen",
+      "botsing",
+      "botst"
+     ]
+    },
+    {
+     "naam": "actief centrum",
+     "varianten": [
+      "actieve centra",
+      "actieve centrum"
+     ]
+    },
+    {
+     "naam": "bezet",
+     "varianten": [
+      "vol",
+      "bezette"
+     ]
+    },
+    {
+     "naam": "verzadiging",
+     "varianten": [
+      "verzadigd"
+     ]
+    },
+    {
+     "naam": "meer enzym",
+     "varianten": [
+      "enzym toevoegen",
+      "extra enzym",
+      "meer enzymen"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat meer substraat eerst meer botsingen met een vrij actief centrum geeft.",
+    "Ik leg uit dat bij veel substraat bijna elk actief centrum vrijwel steeds bezet is.",
+    "Ik noem dat dit verzadiging heet: een nieuw substraatmolecuul botst op een bezet centrum en kaatst weg.",
+    "Ik leg uit dat meer enzym dan wel helpt, omdat er meer actieve centra bijkomen."
+   ],
+   "model": [
+    "Bij weinig substraat zijn veel actieve centra vrij. Meer substraat geeft dan meer botsingen met een vrij actief centrum, dus meer omzettingen per seconde.",
+    "Bij veel substraat is bijna elk actief centrum vrijwel steeds bezet. Een nieuw substraatmolecuul botst dan op een bezet centrum en kaatst weg. Dat heet verzadiging: meer substraat helpt niet meer.",
+    "Meer enzym helpt wel: elk enzymmolecuul werkt los van de andere, dus twee keer zoveel enzym geeft twee keer zoveel omzettingen per seconde."
+   ]
+  }
+ ]
+}

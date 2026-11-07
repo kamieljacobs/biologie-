@@ -1,0 +1,79 @@
+{
+ "slug": "verloskunde-3-screenen-een-keuze",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Screenen: een keuze",
+ "sub": "NIPT, 20-wekenecho en een uitslag goed uitleggen",
+ "puzzle": "De NIPT wijst op Patau. Is het kind dan ziek?",
+ "meta": "verloskunde · prenatale screening",
+ "alleen": "vwo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Verloskunde",
+ "lead": "Een afwijkende NIPT-uitslag klinkt als zekerheid, maar dat is hij niet. Hoe voert Verloskundige Mirjam het gesprek over screening zonder advies te geven, wat zoeken de NIPT en de 20-wekenecho, en waarom is een uitslag bij Patau maar in de helft van de gevallen terecht?",
+ "endHaak": "zou jij het willen weten, en waarom wel of niet?",
+ "minis": {
+  "Hoofdstuk 1": "Wat betekent neutraal informeren?",
+  "Hoofdstuk 2": "Waar zoeken de NIPT en de 20-wekenecho naar?",
+  "Hoofdstuk 3": "Waarom is een afwijkende NIPT geen zekerheid?",
+  "Hoofdstuk 4": "Welke test zegt iets over het kind zelf?",
+  "Recap": "Wat is de moeilijkste taak in dit gesprek?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Verloskundige Mirjam en Esra (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "De NIPT wijst op Patau. Hoe groot is de kans dat het kind het echt heeft?",
+   "correct": 1,
+   "explain": "Ongeveer de helft: van de ongeveer tien afwijkende uitslagen per tienduizend zwangeren is er ongeveer de helft terecht."
+  },
+  "q12": {
+   "q": "Waar komt een vals alarm bij de NIPT vaak vandaan?",
+   "correct": 2,
+   "explain": "Het DNA komt uit de placenta. Soms hebben alleen placentacellen het extra chromosoom en heeft het kind zelf gewone chromosomen."
+  },
+  "q16": {
+   "q": "Welke test zegt het meest over het kind zelf?",
+   "correct": 1,
+   "explain": "De vruchtwaterpunctie: in het vruchtwater drijven cellen van het kind zelf. De vlokkentest kijkt naar de placenta."
+  }
+ },
+ "glossary": [
+  {
+   "t": "screening",
+   "d": "Een onderzoek dat aan alle zwangeren wordt aangeboden zonder dat er klachten zijn; meedoen is een eigen keuze."
+  },
+  {
+   "t": "neutraal informeren",
+   "d": "Uitleggen wat een test kan en wat een uitslag betekent, zonder advies te geven; de zwangere beslist zelf."
+  },
+  {
+   "t": "NIPT",
+   "d": "Niet-invasieve prenatale test: bloedtest vanaf tien weken die de vrije DNA-stukjes in het bloed van de moeder onderzoekt; ongeveer een tiende komt uit de placenta op trisomie 21, 18 en 13."
+  },
+  {
+   "t": "trisomie",
+   "d": "Een chromosoom drie keer in plaats van twee keer: 21 (Down), 18 (Edwards), 13 (Patau)."
+  },
+  {
+   "t": "20-wekenecho",
+   "d": "Structureel echoscopisch onderzoek rond twintig weken naar afwijkingen in de bouw, zoals van hart, ruggetje, lip en buikwand."
+  },
+  {
+   "t": "voorspellende waarde",
+   "d": "De kans dat een afwijkende uitslag terecht is; lager bij een zeldzame aandoening, omdat vals alarm dan zwaarder meeweegt."
+  },
+  {
+   "t": "placentamozaïek",
+   "d": "Een afwijking in het aantal chromosomen die alleen in (een deel van) de placenta zit, niet bij het kind."
+  },
+  {
+   "t": "vlokkentest",
+   "d": "Wegnemen van een klein stukje placenta, vanaf ongeveer elf weken; kleine kans op een miskraam."
+  },
+  {
+   "t": "vruchtwaterpunctie",
+   "d": "Opzuigen van wat vruchtwater met losse cellen van het kind, vanaf ongeveer vijftien weken; kleine kans op een miskraam."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Wat betekent neutraal informeren, en waarom doet een verloskundige dat bij screening? <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Uitleggen wat een test kan en wat een uitslag betekent, zonder advies te geven (1p); het is de keuze van de zwangere zelf, op basis van wat zij belangrijk vindt (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Van 10.000 zwangeren krijgen er ± 10 een NIPT-uitslag die op Patau wijst; bij ± 5 heeft het kind het echt. Bereken de kans dat een afwijkende uitslag terecht is en leg uit waarom die bij Down veel hoger is. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>± 50 % (1p). Down komt veel vaker voor (1p), zodat de paar valse uitslagen minder zwaar meewegen tegenover het aantal echte gevallen (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Leg uit hoe een NIPT een verhoogde kans kan aangeven terwijl het kind gewone chromosomen heeft. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Een deel van het vrije DNA komt uit de placenta (1p); soms zit een extra chromosoom alleen in (een deel van) de placenta (placentamozaïek) (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Waarom geeft een vruchtwaterpunctie meer zekerheid over het kind dan een vlokkentest? <span class=\"pts\">(1p)</span></p>\n<details><summary>Antwoord</summary><p>Het vruchtwater bevat losse cellen van het kind zelf; een vlokkentest onderzoekt de placenta.</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Extra film buiten het PTA op <i>Wat word jij?</i> → Verloskunde, deel 3 van vijf. De reeks volgt één cliënte, Esra (nieuw in het castboek), van intake tot kraamweek, met Verloskundige Mirjam (nieuw). Bouwt voort op <i>DNA lezen</i> (techniek van de NIPT), <i>Wat heb jij aan DNA?</i> en <i>Chromosomen</i>. Het onderwerp afbreken van de zwangerschap wordt feitelijk en neutraal benoemd.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>H1</b> het gesprek: eerste keuze, neutraal informeren. <b>H2</b> NIPT en 20-wekenecho. <b>H3</b> rekenen met 10.000 zwangeren: voorspellende waarde, placentamozaïek. <b>H4</b> vlokkentest en vruchtwaterpunctie.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>NIPT terecht positief</td><td>Down ± 96 %, Patau ± 53 %</td><td>TRIDENT-2; Monitor prenatale screening 2023 (pns.nl)</td></tr>\n<tr><td>NIPT voor iedereen</td><td>sinds 1 april 2023</td><td>rivm.nl</td></tr>\n<tr><td>Placenta-DNA</td><td>± 10 % van het vrije DNA</td><td>pns.nl/nipt</td></tr>\n<tr><td>Miskraamrisico</td><td>± 1–2 op 1000</td><td>pns.nl/vervolgonderzoek</td></tr>\n<tr><td>Afbreken</td><td>tot 24 weken</td><td>NVOG-modelprotocol zwangerschapsafbreking tot 24 weken</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul><li>De aantallen per 10.000 zijn afgerond.</li><li>Nevenbevindingen van de NIPT blijven buiten de film.</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Laat leerlingen de rekensom met 10.000 zwangeren zelf maken voor een andere aandoening met een andere frequentie.</li></ul>\n</section>\n"
+}

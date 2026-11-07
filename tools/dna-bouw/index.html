@@ -1,0 +1,889 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../../js/teller.js" data-root="../../"></script>
+<link rel="icon" href="../../img/icoon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../img/icoon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../../img/icoon/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>De bouw van DNA · Biologie bij Kamiel</title>
+<meta name="description" content="Presentatietool voor de docent bij de films Wat is DNA? en DNA kopiëren: van nucleotide en streng tot dubbele helix, DNA-polymerase, gen en RNA. Havo en vwo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../huisstijl.css">
+<script src="../huisstijl.js"></script>
+<style>
+/* De bouw van DNA · versie 2.0 · oktober 2026
+   Doorkliktool voor de docent: elke klik legt een laag bij. Tekenruimte 960x540 (SVG; helix op canvas).
+   Kleuren zoals in de DNA-reeks (films/dna/_bouw/src/dnalib.js) en de Eiwitfabriek:
+   DNA-basen vier tinten paars met een paarrand (A punt / T inkeping, C nok / G sleuf), ruggengraat paars,
+   RNA teal, enzym grijsblauw met actief centrum in goud. */
+:root{
+  --dA:#C9BEEB; --dT:#9F90D4; --dC:#6C5BA8; --dG:#4F3F86;
+  --rA:#BFE0EF; --rU:#8CC6E1; --rC:#4E93B9; --rG:#356F91;
+  --ink-donker:#121A26; --ink-licht:#F2F2EE;
+  --bb:#8C7BBF; --suiker:#5E4E96; --suiker-rand:#A99BDA; --fos:#8C7BBF;
+  --rna:#6DB3D6; --enz:#7A8BA8; --enz-rand:#A9B6CB;
+  --cel:rgba(109,179,214,.10); --cel-rand:#6DB3D6; --kern:rgba(168,151,219,.16); --kern-rand:#A897DB;
+  --oh:var(--groen); --vijf:var(--goud-text); --drie:var(--groen);
+}
+:root[data-theme="light"]{
+  --bb:#5A4896; --suiker:#6C5BA8; --suiker-rand:#3E3366; --fos:#8C7BBF;
+  --rna:#25729C; --enz:#8E9DB8; --enz-rand:#4F5E78;
+  --cel:rgba(37,114,156,.07); --cel-rand:#25729C; --kern:rgba(101,80,173,.10); --kern-rand:#6550AD;
+}
+
+/* ---------- kop en bediening ---------- */
+.tool-kop{padding-bottom:10px}
+.tool-kop p a{color:var(--goud-text)}
+.bediening{display:flex;flex-wrap:wrap;gap:10px 12px;align-items:center;margin:4px 0 14px}
+.bediening .niv-label{font:600 12px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-right:6px}
+.bediening .sp{flex:1}
+.knop.stil[aria-pressed="true"]{background:var(--goud-soft);box-shadow:inset 0 0 0 1px var(--goud)}
+
+/* ---------- speler ---------- */
+#speler{display:flex;flex-direction:column;gap:10px}
+#stage{position:relative;overflow:hidden;aspect-ratio:16/9;margin-inline:auto;width:min(100%, calc((100vh - 210px) * 16 / 9));min-width:min(100%,320px);background:var(--surface);border:1px solid var(--line2);border-radius:var(--radius);cursor:pointer}
+#stage svg,#stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+#stage svg{font-family:var(--tekst)}
+#stage .badge{position:absolute;top:10px;right:12px;z-index:2}
+#stage.nolabels .lbl,#stage.nolabels .kader{visibility:hidden}
+.cap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;align-items:center;background:var(--surface);border:1px solid var(--line2);border-radius:12px;padding:12px 16px;min-height:72px;width:min(100%, calc((100vh - 210px) * 16 / 9));min-width:min(100%,320px);margin-inline:auto}
+.cap .txt{font-size:20px;line-height:1.4;min-width:0}
+.cap .txt b{color:var(--goud-text)}
+.cap .vraag{display:block;margin-top:6px;color:var(--goud-text);font-weight:600}
+.cap .vraag::before{content:"Wat denk je? ";font-weight:700}
+.cap .notitie{grid-column:1/-1;font-size:15px;color:var(--text2);border-top:1px dashed var(--line2);padding-top:6px}
+.cap .notitie::before{content:"Docent · ";font:600 11px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3)}
+body.zonder-vragen .cap .vraag{display:none}
+.dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;max-width:160px}
+.dots i{width:10px;height:10px;border-radius:50%;background:var(--line2);display:block}
+.dots i.done{background:var(--text3)}
+.dots i.cur{background:var(--goud)}
+.knoppen{display:flex;gap:8px;align-items:center;flex-wrap:wrap;width:min(100%, calc((100vh - 210px) * 16 / 9));min-width:min(100%,320px);margin-inline:auto}
+.knoppen .teller{font:600 13px/1 var(--meta);letter-spacing:.06em;color:var(--text2);margin-left:auto}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:4px auto 0;width:min(100%, calc((100vh - 210px) * 16 / 9));min-width:min(100%,320px)}
+.chip{background:none;color:var(--text2);border:1px solid var(--line2);border-radius:999px;padding:4px 12px;font-size:14px;min-height:34px}
+.chip:hover{color:var(--text)}
+.chip.cur{background:var(--goud);color:var(--goud-ink);border-color:var(--goud)}
+.chip.vwo{border-color:var(--paars);border-style:dashed}
+.chip.vwo.cur{border-style:solid}
+.chip .n{font:600 12px var(--meta);margin-right:5px}
+.hint{color:var(--text3);font-size:14px;width:min(100%, calc((100vh - 210px) * 16 / 9));margin:2px auto 0}
+kbd{font:600 12px var(--meta);border:1px solid var(--line2);border-radius:4px;padding:0 5px}
+.draai{display:none}
+@media (max-width:640px){
+  .draai{display:block;margin:0 0 10px}
+  .cap .txt{font-size:17px}
+  .cap{grid-template-columns:1fr}
+  .dots{justify-content:flex-start;max-width:none}
+  .hint{display:none}
+}
+
+/* ---------- presentatiemodus (beamer) ---------- */
+body.presenteer{overflow:hidden}
+body.presenteer .wrap{max-width:none;padding:10px 16px}
+body.presenteer .sitenav,body.presenteer .tool-kop,body.presenteer .bediening,body.presenteer .chips,body.presenteer .hint,body.presenteer .cap .notitie,body.presenteer details.docent,body.presenteer .tool-voet,body.presenteer .draai{display:none!important}
+body.presenteer #stage,body.presenteer .cap,body.presenteer .knoppen{width:min(100%, calc((100vh - 150px) * 16 / 9))}
+body.presenteer .cap{min-height:64px;padding:10px 16px}
+body.presenteer .cap .txt{font-size:22px}
+body.presenteer .knoppen .knop{min-height:32px}
+#stopPres{display:none}
+body.presenteer #stopPres{display:inline-flex}
+
+/* ---------- svg ---------- */
+.step{transition:opacity .45s ease}
+.step.off{opacity:0;pointer-events:none}
+@media (prefers-reduced-motion:reduce){.step{transition:none}}
+
+/* ---------- docentdeel ---------- */
+details.docent{margin-top:28px}
+details.docent>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;min-height:44px}
+details.docent>summary::-webkit-details-marker{display:none}
+details.docent>summary h2{font-size:24px}
+details.docent>summary::after{content:"+";margin-left:auto;font:600 22px/1 var(--meta);color:var(--goud-text)}
+details.docent[open]>summary::after{content:"–"}
+.docent .kolommen{display:grid;gap:8px 28px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:860px){.docent .kolommen{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.docent h3{margin:16px 0 6px}
+.docent p,.docent li{color:var(--text2)}
+.docent ul,.docent ol{margin:4px 0;padding-left:20px}
+.docent li{margin:3px 0}
+.docent .antw{color:var(--text)}
+@media print{
+  #speler,.bediening,.draai{display:none!important}
+  details.docent{display:block}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="sitenav" aria-label="Site">
+  <a class="merk" href="../../index.html#home">Biologie bij Kamiel</a>
+  <a class="terug" href="../../index.html#dna">← Terug naar DNA</a>
+  <span class="rechts"><button type="button" class="icoon" data-thema-knop></button></span>
+</nav>
+
+<header class="tool-kop">
+  <div class="mono">Tool · DNA · presentatietool voor de docent · bij aflevering 1 en 2</div>
+  <h1>De bouw van DNA</h1>
+  <p>Doorklikken op het digibord: elke klik legt een laag bij, van nucleotide en streng tot dubbele helix, DNA-polymerase, gen en RNA. Past bij de films <a href="../../films/dna/1-wat-is-dna.html">Wat is DNA?</a> en <a href="../../films/dna/2-dna-kopieren.html">DNA kopiëren</a>.</p>
+</header>
+
+<p class="draai feedback tip">Deze tool is gemaakt voor een groot scherm of de beamer. Op een telefoon: draai je scherm een kwartslag.</p>
+
+<div class="bediening">
+  <span><span class="niv-label" id="nivLabel">Niveau</span><span class="seg" role="group" aria-labelledby="nivLabel"><button type="button" id="lvHavo" aria-pressed="false">havo</button><button type="button" id="lvVwo" aria-pressed="true">vwo</button></span></span>
+  <span class="sp"></span>
+  <button type="button" class="knop stil klein" id="lblBtn" aria-pressed="false" title="Labels verbergen of tonen (L)">Labels verbergen</button>
+  <button type="button" class="knop stil klein" id="vrBtn" aria-pressed="true" title="Denkvragen tonen of verbergen (V)">Vragen tonen</button>
+  <button type="button" class="knop klein" id="presBtn" title="Presentatiemodus, volledig scherm (F)">Presenteren</button>
+</div>
+
+<section id="speler" aria-label="Doorkliktool">
+  <div id="stage" role="img" aria-label="Tekening bij de huidige stap">
+    <span class="vwo-label badge" id="badge" hidden>vwo</span>
+  </div>
+  <div class="cap" aria-live="polite">
+    <div class="txt" id="captxt"></div>
+    <div class="dots" id="dots" aria-hidden="true"></div>
+    <div class="notitie" id="notitie" hidden></div>
+  </div>
+  <div class="knoppen">
+    <button type="button" class="knop stil klein" id="prevScr" title="Vorig scherm (↑)" aria-label="Vorig scherm">◀◀</button>
+    <button type="button" class="knop stil klein" id="prevStep" title="Vorige stap (←)" aria-label="Vorige stap">◀</button>
+    <button type="button" class="knop klein" id="nextStep" title="Volgende stap (→ of spatie)">Volgende ▶</button>
+    <button type="button" class="knop stil klein" id="nextScr" title="Volgend scherm (↓)" aria-label="Volgend scherm">▶▶</button>
+    <button type="button" class="knop stil klein" id="stopPres" title="Presentatie stoppen (Esc)">Stoppen</button>
+    <span class="teller" id="scrname"></span>
+  </div>
+  <div class="chips" id="chips" role="group" aria-label="Schermen"></div>
+  <div class="hint"><kbd>→</kbd> of <kbd>spatie</kbd> volgende stap · <kbd>←</kbd> terug · <kbd>↑</kbd> <kbd>↓</kbd> scherm · <kbd>1</kbd>–<kbd>9</kbd> scherm · <kbd>L</kbd> labels · <kbd>V</kbd> vragen · <kbd>F</kbd> presenteren</div>
+</section>
+<noscript><p class="paneel">Deze tool heeft JavaScript nodig.</p></noscript>
+
+<details class="paneel docent" id="docent">
+  <summary><h2>Voor de docent</h2></summary>
+  <div class="kolommen">
+    <div>
+      <h3>Doel</h3>
+      <p>Een presentatietool voor de eerste DNA-les. De leerling kan na afloop …</p>
+      <ul>
+        <li>de drie delen van een nucleotide noemen (fosfaatgroep, suiker desoxyribose, stikstofbase) en de vier basen A, T, C en G;</li>
+        <li>uitleggen hoe nucleotiden een streng vormen en dat de informatie in de volgorde van de basen zit;</li>
+        <li>bij een streng de complementaire streng geven (A–T, C–G) en de dubbele helix beschrijven;</li>
+        <li>uitleggen dat DNA-polymerase passende nucleotiden aan elkaar koppelt bij het kopiëren;</li>
+        <li>uitleggen wat een gen is, en het verschil tussen gen, chromosoom en genoom;</li>
+        <li><span class="vwo-label">vwo</span> de C-atomen 1' tot en met 5' aanwijzen, het 5'- en 3'-uiteinde benoemen, uitleggen wat antiparallel betekent, en waarom DNA-polymerase alleen 5'→3' bouwt;</li>
+        <li><span class="vwo-label">vwo</span> waterstofbruggen tellen (A–T twee, C–G drie) en het verschil met de sterke bindingen in de ruggengraat uitleggen.</li>
+      </ul>
+      <h3>Gebruik in de les</h3>
+      <ul>
+        <li><b>Voor of na de film</b>: gebruik de schermen 1 tot en met 6 en 9 bij <a href="../../films/dna/1-wat-is-dna.html">Wat is DNA?</a>, scherm 7 (en voor vwo 8) bij <a href="../../films/dna/2-dna-kopieren.html">DNA kopiëren</a>. Scherm 10 en 11 (DNA en RNA, splicing) zijn een opstap naar aflevering 3, <a href="../../films/dna/3-van-dna-naar-eiwit.html">Van DNA naar eiwit</a>.</li>
+        <li><b>Beamer</b>: klik op <b>Presenteren</b> (of druk op F) voor volledig scherm zonder knoppenbalk en notities. Doorklikken met spatie, pijltjes of een presenter; Esc stopt.</li>
+        <li><b>Vragen</b>: bij sommige stappen staat een geel "Wat denk je?". Het antwoord komt bij de volgende klik. Stel de vragen liever zelf? Zet ze uit met <b>Vragen tonen</b> (of V).</li>
+        <li><b>Overhoren</b>: <b>Labels verbergen</b> (of L) haalt alle namen en kaders weg; de basen A, T, C en G en de P van de fosfaatgroep blijven staan. Laat leerlingen de onderdelen benoemen.</li>
+        <li><b>Niveau</b>: havo of vwo bovenaan, of in de link <code>?niveau=havo</code>. De indeling volgt de films: 5'/3', antiparallel, waterstofbruggen en de richting van DNA-polymerase zijn vwo-stof (paars gemarkeerd, zoals de vwo-balk in de films).</li>
+        <li>Onder de ondertitel staat bij sommige stappen een docentnotitie; die verdwijnt in de presentatiemodus.</li>
+      </ul>
+      <h3>Lestijd</h3>
+      <ul>
+        <li>Havo: ongeveer 20 minuten voor alle schermen; vwo: 30 tot 35 minuten.</li>
+        <li>Alleen de bouw (scherm 1 tot en met 6): 15 minuten havo, 20 minuten vwo.</li>
+      </ul>
+      <h3>Aansluiting op de films</h3>
+      <ul>
+        <li>Aflevering 1 (basis): nucleotide, basen, basenparing, dubbelstrengs, helix, gen, genoom, 2 % coderend, 46 chromosomen, 2 meter DNA, 3,2 miljard basenparen per set van 23 chromosomen. Vwo-blok: 5'/3', antiparallel, waterstofbruggen (2 en 3).</li>
+        <li>Aflevering 2 (basis): DNA-polymerase koppelt passende nucleotiden; de basenparing bepaalt wat past. Vwo-blok: bouwen alleen 5'→3', primer, drie polymerasen naast elkaar.</li>
+        <li>Zelfde beeldtaal: basen in vier tinten paars met een paarrand die laat zien wat past (A punt, T inkeping, C nok, G sleuf), RNA teal, enzym grijsblauw met een goud actief centrum.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Mogelijke vragen met antwoord</h3>
+      <ol>
+        <li>Een stukje DNA bevat 30 % adenine. Hoeveel procent guanine? <span class="antw">20 %. Ook 30 % T, samen 60 %; de rest (40 %) is C en G, die paren, dus 20 % G.</span></li>
+        <li>Zet in volgorde van klein naar groot: chromosoom, gen, genoom, nucleotide. <span class="antw">nucleotide → gen → chromosoom → genoom.</span></li>
+        <li>Is een X-vormig chromosoom één of twee DNA-moleculen? <span class="antw">Twee: vlak voor de deling is het DNA gekopieerd; de twee chromatiden zitten vast bij het centromeer. Buiten de deling is een chromosoom één lang DNA-molecuul.</span></li>
+        <li>Waar zit de informatie: in de ruggengraat of in de basen? <span class="antw">In de volgorde van de basen; de ruggengraat is overal hetzelfde.</span></li>
+        <li>Een plant neemt fosfaat en nitraat op. Waarvoor heeft hij welke stof nodig in DNA? <span class="antw">Fosfaat voor de fosfaatgroep, nitraat (stikstof) voor de stikstofbasen.</span></li>
+        <li>Kiest DNA-polymerase zelf welke nucleotide het inbouwt? <span class="antw">Nee. De basenparing bepaalt wat past; het enzym maakt alleen de binding.</span></li>
+        <li><span class="vwo-label">vwo</span> Geef de complementaire streng van 5'-ATGCCA-3'. <span class="antw">3'-TACGGT-5', van 5' naar 3' geschreven: 5'-TGGCAT-3'.</span></li>
+        <li><span class="vwo-label">vwo</span> Twee stukjes DNA, even lang: veel C en G, of veel A en T. Welk laat bij verwarmen het eerst los? <span class="antw">Het stuk met veel A en T: twee waterstofbruggen per paar in plaats van drie.</span></li>
+        <li><span class="vwo-label">vwo</span> Waarom kan DNA-polymerase niet aan het 5'-uiteinde bouwen? <span class="antw">Een nieuwe nucleotide brengt zijn energie mee in drie fosfaatgroepen; die kunnen alleen reageren met een vrije 3'-OH. Aan het 5'-uiteinde zit geen vrije OH.</span></li>
+      </ol>
+      <h3>Vereenvoudigingen</h3>
+      <ul>
+        <li>De nucleotiden zijn schematisch: suiker als vijfhoek, fosfaatgroep als bolletje, base als blokje. De paarrand van de basen is een geheugensteun, geen echte vorm.</li>
+        <li>De helix heeft 10 basenparen per winding; groeven (groot en klein) zijn niet getekend.</li>
+        <li>Scherm 8 (de ratel) is een vergelijking, geen mechanisme. Het echte antwoord staat in de laatste stappen: koppelen kan alleen aan een vrije 3'-OH, met de energie van de drie fosfaatgroepen van de nieuwe nucleotide.</li>
+        <li>Helicase, primase, ligase, de replicatievork en Okazaki-fragmenten staan niet in deze tool; die zitten in film 2.</li>
+      </ul>
+      <h3>Bekende misverstanden</h3>
+      <ul>
+        <li>Chromosoom = X-vorm. De X is een gekopieerd chromosoom (twee DNA-moleculen), alleen vlak voor de deling.</li>
+        <li>Een gen is een chromosoom. Een gen is een stuk van het DNA van een chromosoom; er liggen honderden tot duizenden genen op één chromosoom.</li>
+        <li><span class="vwo-label">vwo</span> 5' en 3' zijn links en rechts. Het zijn de uiteinden van de streng zelf: draai je de streng om, dan draaien de namen mee.</li>
+        <li>De ene streng is "de fosfaatstreng", de andere "de suikerstreng". Elke streng heeft een eigen ruggengraat van suiker en fosfaat.</li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+<footer class="tool-voet">Biologie bij Kamiel · De bouw van DNA · versie 2.0 · oktober 2026 · past bij de films <a href="../../films/dna/1-wat-is-dna.html">Wat is DNA?</a> en <a href="../../films/dna/2-dna-kopieren.html">DNA kopiëren</a><span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></footer>
+</div>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s);
+const stage=$('#stage');
+const W=960,H=540;
+
+/* ---------- kleuren: alleen CSS-variabelen (licht en donker) ---------- */
+const V={fg:'var(--text)',mu:'var(--text2)',zw:'var(--text3)',goud:'var(--goud-text)',goudvlak:'var(--goud)',oh:'var(--oh)',vijf:'var(--vijf)',drie:'var(--drie)',
+  bb:'var(--bb)',suiker:'var(--suiker)',suikerR:'var(--suiker-rand)',fos:'var(--fos)',rna:'var(--rna)',enz:'var(--enz)',enzR:'var(--enz-rand)',
+  koraal:'var(--koraal)',paars:'var(--paars)',lijn:'var(--line2)',vlak:'var(--surface2)',bg:'var(--surface)',inkD:'var(--ink-donker)',inkL:'var(--ink-licht)',
+  cel:'var(--cel)',celR:'var(--cel-rand)',kern:'var(--kern)',kernR:'var(--kern-rand)'};
+const BASEV={A:'var(--dA)',T:'var(--dT)',C:'var(--dC)',G:'var(--dG)',U:'var(--rU)'};
+const RNAV={A:'var(--rA)',U:'var(--rU)',C:'var(--rC)',G:'var(--rG)'};
+const INK={A:V.inkD,T:V.inkD,U:V.inkD,C:V.inkL,G:V.inkL};
+const BASENAAM={A:'adenine',T:'thymine',G:'guanine',C:'cytosine',U:'uracil'};
+const PAIR={A:'T',T:'A',G:'C',C:'G'};
+const f=n=>Math.round(n*10)/10;
+
+/* tekst: T() is een label (verdwijnt bij Labels verbergen), R() blijft altijd staan */
+const txt=(x,y,t,o={})=>`<text${o.lbl===false?'':' class="lbl"'} x="${f(x)}" y="${f(y)}"${o.a?` text-anchor="${o.a}"`:''}${o.ls?` letter-spacing="${o.ls}"`:''} style="font-size:${o.s||20}px;font-weight:${o.b?700:(o.w||400)};fill:${o.c||V.fg}${o.fam?`;font-family:${o.fam}`:''}">${t}</text>`;
+const T=(x,y,t,o={})=>txt(x,y,t,o);
+const R=(x,y,t,o={})=>txt(x,y,t,Object.assign({lbl:false},o));
+const arrow=(x1,y1,x2,y2,c=V.mu,w=3)=>`<line x1="${f(x1)}" y1="${f(y1)}" x2="${f(x2)}" y2="${f(y2)}" style="stroke:${c};stroke-width:${w}" marker-end="url(#ah)"/>`;
+const DEFS=`<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" style="fill:context-stroke"/></marker></defs>`;
+const svgWrap=inner=>`<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">${DEFS}${inner}</svg>`;
+const kader=(x,y,w,h,inner,attrs='')=>`<g class="kader"${attrs}><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="12" style="fill:${V.vlak};stroke:${V.lijn}"/>${inner}</g>`;
+
+/* base met paarrand: van (x,y) in richting (ux,uy), lengte L, halve dikte hw; de vorm van het verre uiteinde laat zien wat past */
+function basePts(x,y,ux,uy,L,hw,b){
+  const d=Math.min(10,L*.18), tw=hw*.48; let p;
+  if(b==='A') p=[[0,-hw],[L-d,-hw],[L,0],[L-d,hw],[0,hw]];
+  else if(b==='T'||b==='U') p=[[0,-hw],[L,-hw],[L-d,0],[L,hw],[0,hw]];
+  else if(b==='C') p=[[0,-hw],[L-d,-hw],[L-d,-tw],[L,-tw],[L,tw],[L-d,tw],[L-d,hw],[0,hw]];
+  else p=[[0,-hw],[L,-hw],[L,-tw],[L-d,-tw],[L-d,tw],[L,tw],[L,hw],[0,hw]];
+  return p.map(([u,v])=>[x+u*ux-v*uy, y+u*uy+v*ux]);
+}
+function baseTile(x,y,ux,uy,L,hw,b,o={}){
+  const pts=basePts(x,y,ux,uy,L,hw,b), fill=o.fill||(o.rna?RNAV[b]:BASEV[b]);
+  const d=Math.min(10,L*.18), cx=x+ux*(L-d)/2, cy=y+uy*(L-d)/2;
+  let s=`<polygon points="${pts.map(p=>p.map(f).join(',')).join(' ')}" style="fill:${fill};stroke:${V.bg};stroke-width:1.5"/>`;
+  if(o.letter!==false) s+=`<text x="${f(cx)}" y="${f(cy+(o.fs||19)*.36)}" text-anchor="middle" style="font-size:${o.fs||19}px;font-weight:700;fill:${o.ink||INK[b]}">${o.tekst||b}</text>`;
+  return s;
+}
+function pent(cx,cy,r,sx,sy){ // hoekpunten: O(top), C1'(rechts), C2', C3', C4'
+  return [-90,-18,54,126,198].map(a=>{const t=a*Math.PI/180;return [cx+sx*r*Math.cos(t),cy+sy*r*Math.sin(t)];});
+}
+/* Een nucleotide, verticaal: 5' (fosfaat) boven bij sy=1; gespiegeld (sx=-1, sy=-1) voor de tweede streng */
+function nucGeom(cx,cy,o={}){
+  const sx=o.sx||1, sy=o.sy||1, r=o.r||24;
+  if(sy<0) cy-=2*0.309*r; // base-rij op dezelfde hoogte als een niet-gespiegelde nucleotide
+  const P=pent(cx,cy,r,sx,sy), [O,C1,C2,C3,C4]=P;
+  const C5=[C4[0]-sx*.82*r,C4[1]-sy*r], F=[C5[0]-sx*.36*r,C5[1]-sy*r];
+  return {sx,sy,r,cx,cy,P,O,C1,C2,C3,C4,C5,F};
+}
+function nuc(cx,cy,base,o={}){
+  const g=nucGeom(cx,cy,o), {sx,sy,r,P,O,C1,C2,C3,C4,C5,F}=g;
+  const step=o.step!=null?` data-step="${o.step}"`:'';
+  const fr=Math.max(12,.5*r);
+  let s=`<g${step}>`;
+  if(o.link){ // binding 3' van deze suiker naar de fosfaatgroep van de volgende nucleotide
+    const Fn=[F[0],F[1]+sy*(o.d||90)];
+    s+=`<line${o.linkStep!=null?` data-step="${o.linkStep}"`:''} x1="${f(C3[0])}" y1="${f(C3[1])}" x2="${f(Fn[0])}" y2="${f(Fn[1])}" style="stroke:${V.bb};stroke-width:3.5"/>`;
+  }
+  s+=`<polygon points="${P.map(p=>p.map(f).join(',')).join(' ')}" style="fill:${V.suiker};stroke:${V.suikerR};stroke-width:2"/>`;
+  if(o.stub!==false) s+=`<line x1="${f(C4[0])}" y1="${f(C4[1])}" x2="${f(C5[0])}" y2="${f(C5[1])}" style="stroke:${V.bb};stroke-width:3.5"/>`;
+  if(o.fos!==false){
+    s+=`<line x1="${f(C5[0])}" y1="${f(C5[1])}" x2="${f(F[0])}" y2="${f(F[1])}" style="stroke:${V.bb};stroke-width:3.5"/>`;
+    s+=`<circle cx="${f(F[0])}" cy="${f(F[1])}" r="${fr}" style="fill:${V.fos}"/>`;
+    s+=`<text x="${f(F[0])}" y="${f(F[1]+fr*.48)}" text-anchor="middle" style="font-size:${f(Math.max(16,fr*1.25))}px;font-weight:700;fill:${V.inkD}">P</text>`;
+  }
+  if(o.base!==false){
+    const bx=C1[0]+sx*6;
+    s+=`<line x1="${f(C1[0])}" y1="${f(C1[1])}" x2="${f(bx)}" y2="${f(C1[1])}" style="stroke:${V.bb};stroke-width:3"/>`;
+    s+=baseTile(bx,C1[1],sx,0,o.bw||3.2*r,o.hw||.62*r,base,{fs:Math.max(18,.8*r),tekst:o.basetekst,fill:o.basefill,ink:o.baseink,rna:o.rna});
+  }
+  if(o.oh){
+    const ox=C3[0]-sx*.25*r, oy=C3[1]+sy*.8*r;
+    s+=`<line x1="${f(C3[0])}" y1="${f(C3[1])}" x2="${f(ox)}" y2="${f(oy)}" style="stroke:${V.oh};stroke-width:3"/>`;
+    s+=T(ox,oy+(sy>0?19:-7),'OH',{a:'middle',s:18,b:1,c:V.oh});
+  }
+  if(o.num){
+    const fs=18, k=r/24;
+    const lab=(p,t,dx,dy)=>T(p[0]+dx*k,p[1]+dy*k,t,{a:'middle',s:fs,b:1,c:V.goud});
+    s+=`<g${o.num.step!=null?` data-step="${o.num.step}"`:''}${o.num.vwo?' data-vwo':''}>`;
+    s+=lab(O,'O',0,-10)+lab(C1,"1'",10,-14)+lab(C2,"2'",16,14)+lab(C3,"3'",-18,14)+lab(C4,"4'",-20,6)+lab(C5,"5'",-16,6);
+    s+='</g>';
+  }
+  return s+'</g>';
+}
+
+/* zacht kronkelende draad (chromatine), vast patroon */
+function draad(cx,cy,rad,seed,lengte=26){
+  let s=seed>>>0||1; const rnd=()=>{s^=s<<13;s^=s>>>17;s^=s<<5;return ((s>>>0)%10000)/10000;};
+  let a=rnd()*6.28, rr=rad*(.2+rnd()*.5), d='';
+  for(let t=0;t<lengte;t++){a+=(rnd()-.5)*.9; rr+=(rnd()-.5)*rad*.16; rr=Math.max(rad*.08,Math.min(rad*.86,rr)); const X=cx+rr*Math.cos(a),Y=cy+rr*Math.sin(a); d+=(t?' L':'M')+f(X)+' '+f(Y);}
+  return d;
+}
+function enzym(x,y,s=1){ // grijsblauw lichaam met actief centrum in goud (links)
+  return `<path d="M${f(x-62*s)} ${f(y)} Q${f(x-58*s)} ${f(y-70*s)} ${f(x+5*s)} ${f(y-66*s)} Q${f(x+70*s)} ${f(y-60*s)} ${f(x+66*s)} ${f(y+4*s)} Q${f(x+64*s)} ${f(y+68*s)} ${f(x)} ${f(y+70*s)} Q${f(x-64*s)} ${f(y+66*s)} ${f(x-62*s)} ${f(y)}Z" style="fill:${V.enz};fill-opacity:.55;stroke:${V.enzR};stroke-width:2"/>
+  <path d="M${f(x-52*s)} ${f(y-30*s)} Q${f(x-66*s)} ${f(y)} ${f(x-52*s)} ${f(y+30*s)}" style="fill:none;stroke:${V.goudvlak};stroke-width:6;stroke-linecap:round"/>`;
+}
+
+/* ---------- schermen ---------- */
+/* Stap: t = tekst (vwo of beide), th = havotekst, v = denkvraag (bij deze stap; antwoord bij de volgende klik), vh = havovraag,
+   vv = vraag alleen vwo, n = docentnotitie (niet in presentatiemodus), vwo = stap alleen vwo.
+   SVG: data-step = vanaf (ruwe) stap, data-until = tot, data-vwo = alleen vwo, data-havo = alleen havo. */
+const TRAP=['cel','celkern','chromosoom','gen','DNA','nucleotide'];
+const screens=[];
+
+/* 1 Start */
+screens.push({
+  naam:'Start', trap:null,
+  svg:()=>svgWrap(`
+    ${R(480,190,'De bouw van DNA',{a:'middle',s:62,b:1,fam:'var(--titel)'})}
+    ${R(480,240,'van nucleotide tot gen',{a:'middle',s:26,c:V.mu})}
+    ${R(480,276,'bij de films Wat is DNA? en DNA kopiëren',{a:'middle',s:19,c:V.zw})}
+    <g data-step="1">
+      ${nuc(370,420,'A',{oh:true})}
+      ${nuc(590,420,'T',{sx:-1,sy:-1,oh:true})}
+    </g>
+    <g data-step="0" data-until="1">${R(480,440,'Klik of druk op → om te beginnen',{a:'middle',s:20,c:V.mu})}</g>
+  `),
+  steps:[
+    {t:'De bouw van DNA. Klik of druk op → : elke klik legt een laag bij.', n:'Kies eerst havo of vwo. Presenteren (F) geeft volledig scherm.'},
+    {t:'Aan het eind kun je dit plaatje uitleggen: twee bouwstenen, tegenover elkaar.'}
+  ]
+});
+
+/* 2 Inzoomen */
+screens.push({
+  naam:'Inzoomen', trap:0, trapSteps:[0,1,2,2,4,5,null],
+  svg:()=>{
+    const cx=[100,290,480,670,860], y=190;
+    let s='';
+    s+=`<g data-step="0"><ellipse cx="${cx[0]}" cy="${y}" rx="78" ry="62" style="fill:${V.cel};stroke:${V.celR};stroke-width:2.5"/><circle cx="${cx[0]+10}" cy="${y-4}" r="27" style="fill:${V.kern};stroke:${V.kernR};stroke-width:2"/><ellipse cx="${cx[0]-42}" cy="${y+26}" rx="9" ry="5" style="fill:none;stroke:${V.celR}"/><ellipse cx="${cx[0]+48}" cy="${y+30}" rx="7" ry="4" style="fill:none;stroke:${V.celR}"/>${T(cx[0],y+108,'cel',{a:'middle',s:22,b:1})}${T(cx[0],y+134,'± 20 µm',{a:'middle',s:18,c:V.mu})}</g>`;
+    s+=`<g data-step="1">${arrow(cx[0]+86,y,cx[1]-72,y)}<circle cx="${cx[1]}" cy="${y}" r="64" style="fill:${V.kern};stroke:${V.kernR};stroke-width:2.5"/>`;
+    for(let i=0;i<9;i++) s+=`<path d="${draad(cx[1],y,60,7+i*13,22)}" style="fill:none;stroke:${V.bb};stroke-width:2;stroke-linejoin:round;stroke-linecap:round;opacity:.85"/>`;
+    s+=`${T(cx[1],y+108,'celkern',{a:'middle',s:22,b:1})}${T(cx[1],y+134,'46 chromosomen',{a:'middle',s:18,c:V.mu})}</g>`;
+    // één chromosoom: één lange draad
+    s+=`<g data-step="2">${arrow(cx[1]+72,y,cx[2]-66,y)}<path d="M${cx[2]-40} ${y-60} C ${cx[2]+60} ${y-70}, ${cx[2]-70} ${y-25}, ${cx[2]+30} ${y-12} S ${cx[2]-60} ${y+30}, ${cx[2]+10} ${y+40} S ${cx[2]+50} ${y+70}, ${cx[2]-30} ${y+62}" style="fill:none;stroke:${V.bb};stroke-width:4;stroke-linecap:round"/>${T(cx[2],y+108,'chromosoom',{a:'middle',s:22,b:1})}${T(cx[2],y+134,'één DNA-molecuul',{a:'middle',s:18,c:V.mu})}</g>`;
+    // DNA ladder
+    s+=`<g data-step="4">${arrow(cx[2]+60,y,cx[3]-56,y)}`;
+    for(let i=0;i<10;i++){const yy=y-66+i*14.5, ph=i*.62; const x1=cx[3]+28*Math.cos(ph+Math.PI), x2=cx[3]+28*Math.cos(ph); s+=`<line x1="${f(x1)}" y1="${f(yy)}" x2="${f(x2)}" y2="${f(yy)}" style="stroke:${['var(--dA)','var(--dC)','var(--dT)','var(--dG)'][i%4]};stroke-width:4"/>`;}
+    const hp=(off)=>'M'+Array.from({length:21},(_,i)=>`${f(cx[3]+28*Math.cos(i*.31+off))} ${f(y-70+i*7)}`).join(' L');
+    s+=`<path d="${hp(Math.PI)}" style="fill:none;stroke:${V.bb};stroke-width:5"/><path d="${hp(0)}" style="fill:none;stroke:${V.bb};stroke-width:5"/>`;
+    s+=`${T(cx[3],y+108,'DNA',{a:'middle',s:22,b:1})}${T(cx[3],y+134,'2 nm breed',{a:'middle',s:18,c:V.mu})}</g>`;
+    s+=`<g data-step="5">${arrow(cx[3]+48,y,cx[4]-74,y)}${nuc(cx[4]-6,y+12,'A',{r:18})}${T(cx[4],y+108,'nucleotide',{a:'middle',s:22,b:1})}${T(cx[4],y+134,'de bouwsteen',{a:'middle',s:18,c:V.mu})}</g>`;
+    // X-vorm: gekopieerd chromosoom = twee DNA-moleculen
+    const xx=330, xy=420;
+    s+=kader(230,362,500,118,`<path d="M${xx-24} ${xy-44} Q ${xx} ${xy-8} ${xx-4} ${xy} Q ${xx} ${xy+8} ${xx-24} ${xy+44} M${xx+24} ${xy-44} Q ${xx} ${xy-8} ${xx+4} ${xy} Q ${xx} ${xy+8} ${xx+24} ${xy+44}" style="fill:none;stroke:${V.bb};stroke-width:12;stroke-linecap:round"/><circle cx="${xx}" cy="${xy}" r="7" style="fill:${V.goudvlak}"/>${T(380,398,'vlak voor een celdeling:',{s:20,b:1})}${T(380,425,'gekopieerd en strak opgerold',{s:18,c:V.mu})}${T(380,450,'X = twee DNA-moleculen (chromatiden),',{s:18,c:V.mu})}${T(380,472,'vast bij het centromeer',{s:18,c:V.mu})}`,' data-step="3" data-until="6"');
+    s+=kader(60,392,840,64,T(480,432,'cel › celkern › chromosoom › DNA › nucleotide',{a:'middle',s:24,b:1}),' data-step="6"');
+    return svgWrap(s);
+  },
+  steps:[
+    {t:'We beginnen groot: een <b>cel</b>, ongeveer 20 micrometer. Veel te klein voor het blote oog.', v:'waar in de cel zit het DNA?'},
+    {t:'In de <b>celkern</b>. Daar liggen 46 lange DNA-moleculen, uitgerold door elkaar.', v:'wat is dan één chromosoom?'},
+    {t:'Eén <b>chromosoom</b> is één heel lang DNA-molecuul. Meestal ligt het uitgerold, als een dunne draad.', n:'Zoals film 1: "In de kern zie je ze meestal niet als losse staafjes."'},
+    {t:'Vlak voor een celdeling is elk chromosoom gekopieerd en strak opgerold. De X-vorm is dus <b>twee</b> DNA-moleculen.', n:'Voorkomt de misvatting "chromosoom = X". Het kopiëren is aflevering 2.'},
+    {t:'Zoom in op de draad: een gedraaide ladder van 2 nanometer breed. Per cel samen ongeveer 2 meter.', v:'waar is die ladder van gemaakt?'},
+    {t:'Van <b>nucleotiden</b>: de bouwsteen van DNA.'},
+    {t:'Onthoud de trap. Linksboven zie je steeds op welke trede we staan.'}
+  ]
+});
+
+/* 3 De nucleotide */
+screens.push({
+  naam:'De nucleotide', trap:5,
+  svg:()=>{
+    const cx=330,cy=290,r=62;
+    const g=nucGeom(cx,cy,{r}), {C1,C3,C4,C5,F}=g;
+    let s='';
+    s+=`<g data-step="0">${nuc(cx,cy,'',{fos:false,base:false,stub:false,r,num:{step:1,vwo:1}})}${T(cx,cy+2,'suiker',{a:'middle',s:22,b:1,c:V.inkL})}${T(cx,cy+26,'desoxyribose',{a:'middle',s:16,c:V.inkL})}</g>`;
+    s+=`<g data-step="0"><line x1="${f(C4[0])}" y1="${f(C4[1])}" x2="${f(C5[0])}" y2="${f(C5[1])}" style="stroke:${V.bb};stroke-width:4"/></g>`;
+    s+=`<g data-step="2"><line x1="${f(C5[0])}" y1="${f(C5[1])}" x2="${f(F[0])}" y2="${f(F[1])}" style="stroke:${V.bb};stroke-width:4"/><circle cx="${f(F[0])}" cy="${f(F[1])}" r="30" style="fill:${V.fos}"/>${R(F[0],F[1]+9,'P',{a:'middle',s:26,b:1,c:V.inkD})}${T(F[0]-44,F[1]+2,'fosfaatgroep',{a:'end',s:22,b:1})}<g data-vwo>${T(F[0]-44,F[1]+28,"aan koolstof 5'",{a:'end',s:18,c:V.mu})}</g></g>`;
+    s+=`<g data-step="3" data-vwo><line x1="${f(C3[0])}" y1="${f(C3[1])}" x2="${f(C3[0]-22)}" y2="${f(C3[1]+42)}" style="stroke:${V.oh};stroke-width:4"/>${T(C3[0]-26,C3[1]+68,'OH',{a:'middle',s:24,b:1,c:V.oh})}${T(C3[0]-26,C3[1]+94,"vrije OH aan koolstof 3'",{a:'middle',s:18,c:V.mu})}</g>`;
+    s+=`<g data-step="4"><line x1="${f(C1[0])}" y1="${f(C1[1])}" x2="${f(C1[0]+12)}" y2="${f(C1[1])}" style="stroke:${V.bb};stroke-width:4"/>${baseTile(C1[0]+12,C1[1],1,0,190,34,'A',{letter:false})}${T(C1[0]+100,C1[1]+8,'stikstofbase',{a:'middle',s:22,b:1,c:V.inkD})}<g data-vwo>${T(C1[0]+100,C1[1]+60,"aan koolstof 1'",{a:'middle',s:18,c:V.mu})}</g></g>`;
+    const bx=650, by=112;
+    s+=`<g data-step="4">${T(bx,by-34,'vier basen',{s:22,b:1})}`;
+    ['A','T','C','G'].forEach((b,i)=>{s+=baseTile(bx,by+i*56,1,0,58,19,b,{fs:21})+T(bx+74,by+i*56+7,BASENAAM[b],{s:20});});
+    s+='</g>';
+    s+=`<g data-step="6" data-vwo>${T(bx+170,by+7,'purine',{s:18,c:V.mu})}${T(bx+170,by+63,'pyrimidine',{s:18,c:V.mu})}${T(bx+170,by+119,'pyrimidine',{s:18,c:V.mu})}${T(bx+170,by+175,'purine',{s:18,c:V.mu})}</g>`;
+    s+=kader(60,452,840,64,T(480,492,'nucleotide = fosfaatgroep + suiker + stikstofbase',{a:'middle',s:24,b:1}),' data-step="5"');
+    return svgWrap(s);
+  },
+  steps:[
+    {t:'In het midden van een nucleotide zit een <b>suiker</b>: desoxyribose. Vier C-atomen en een O vormen een ring.'},
+    {t:'De koolstofatomen van de suiker hebben een nummer: <b>1\' tot en met 5\'</b> (zeg: één-accent).', vwo:true, n:'Het accent onderscheidt de suiker van de base, die ook genummerde atomen heeft. Deze nummers verklaren straks 5\' en 3\'.'},
+    {t:'Aan de suiker zit een <b>fosfaatgroep</b>.', th:'Aan de suiker zit een <b>fosfaatgroep</b>.', n:'De fosfaatgroep staat H⁺ af en is daardoor negatief geladen: daarom heet DNA een zuur (desoxyribonucleïnezuur). Fosfaat bevat fosfor; de basen bevatten stikstof (film 1).'},
+    {t:'Aan koolstof 3\' zit een vrije <b>OH-groep</b>. Daar komt straks de volgende nucleotide aan vast.', vwo:true},
+    {t:'En een <b>stikstofbase</b>: adenine, thymine, cytosine of guanine. A, T, C en G.', v:'in welk deel verschillen nucleotiden van elkaar?'},
+    {t:'Alleen in de base. Dus: nucleotide = fosfaatgroep + suiker + base.'},
+    {t:'A en G zijn groter (purines, twee ringen), T en C kleiner (pyrimidines, één ring).', vwo:true, n:'Daarom past in de dubbele streng altijd een grote base tegenover een kleine.'}
+  ]
+});
+
+/* 4 Ketenvorming */
+screens.push({
+  naam:'Een streng', trap:4,
+  svg:()=>{
+    const x=300, y0=136, d=96, r=24;
+    const bases=['A','C','G','T'];
+    let s='';
+    bases.forEach((b,i)=>{
+      s+=nuc(x,y0+i*d,b,{step:i,r,oh:i===bases.length-1,link:i<bases.length-1,linkStep:i+1,d});
+      if(i<bases.length-1){const g=nucGeom(x,y0+i*d,{r}); const ox=g.C3[0]-6, oy=g.C3[1]+19; s+=`<g data-step="${i}" data-until="${i+1}"><line x1="${f(g.C3[0])}" y1="${f(g.C3[1])}" x2="${f(ox)}" y2="${f(oy)}" style="stroke:${V.oh};stroke-width:3"/>${T(ox,oy+19,'OH',{a:'middle',s:18,b:1,c:V.oh})}</g>`;}
+    });
+    const g0=nucGeom(x,y0,{r}), g1=nucGeom(x,y0+d,{r});
+    const mx=(g0.C3[0]+g1.F[0])/2, my=(g0.C3[1]+g1.F[1])/2;
+    s+=`<g data-step="1" data-until="4"><circle cx="${f(mx)}" cy="${f(my)}" r="30" style="fill:none;stroke:${V.goudvlak};stroke-width:3;stroke-dasharray:6 5"/>${T(430,my-22,'fosfaatgroep van de nieuwe',{s:20})}<g data-havo>${T(430,my+4,'aan de suiker van de vorige',{s:20})}</g><g data-vwo>${T(430,my+4,"aan de 3'-OH van de vorige",{s:20})}</g>${T(430,my+30,'stevige binding',{s:20,b:1,c:V.goud})}</g>`;
+    // ruggengraat-kader om fosfaat- en suikerkolom
+    const bxL=g0.F[0]-20, bxR=x+28;
+    s+=`<g data-step="4" class="kader"><rect x="${f(bxL)}" y="${f(g0.F[1]-22)}" width="${f(bxR-bxL)}" height="${f(3*d+92)}" rx="14" style="fill:none;stroke:${V.goud};stroke-width:2.5;stroke-dasharray:7 6"/>${T(bxL-14,y0+1.5*d-4,'ruggengraat',{a:'end',s:20,b:1,c:V.goud})}${T(bxL-14,y0+1.5*d+20,'suiker + fosfaat',{a:'end',s:18,c:V.mu})}</g>`;
+    s+=kader(600,150,320,220,`${T(620,186,'lees de basen:',{s:20})}<g data-vwo>${T(760,186,"(van 5' naar 3')",{s:18,c:V.mu})}</g>${R(760,262,'ACGT',{a:'middle',s:52,b:1,ls:8})}${T(620,310,'Die volgorde is de informatie.',{s:20,b:1})}${T(620,340,'± 3 miljard basenparen',{s:18,c:V.mu})}${T(620,362,'per set van 23 chromosomen',{s:18,c:V.mu})}`,' data-step="5"');
+    // vwo: uiteinden en richting
+    s+=`<g data-step="6" data-vwo>${T(bxL-14,g0.F[1]+8,"5'",{a:'end',s:28,b:1,c:V.vijf})}${T(bxL-14,g0.F[1]+32,'vrije',{a:'end',s:18,c:V.mu})}${T(bxL-14,g0.F[1]+52,'fosfaatgroep',{a:'end',s:18,c:V.mu})}
+      ${T(bxL-14,y0+3*d+40,"3'",{a:'end',s:28,b:1,c:V.drie})}${T(bxL-14,y0+3*d+64,'vrije OH',{a:'end',s:18,c:V.mu})}
+      ${arrow(48,g0.F[1]+80,48,y0+3*d+4,V.goud,4)}</g>`;
+    return svgWrap(s);
+  },
+  steps:[
+    {t:'Eén nucleotide, met de fosfaatgroep bovenaan.', v:'waar kan een tweede nucleotide aan vastzitten?'},
+    {t:'De fosfaatgroep van de nieuwe zit vast aan de <b>3\'-OH</b> van de suiker van de vorige. Een stevige binding.', th:'De fosfaatgroep van de nieuwe zit vast aan de <b>suiker</b> van de vorige. Een stevige binding.', n:'Covalente binding. Bij het koppelen verliest de OH zijn H; de O blijft als brug tussen suiker en fosfaat.'},
+    {t:'Nog een.'},
+    {t:'En nog een. Zo ontstaat een keten: een <b>streng</b>.', n:'Vwo: alleen de onderste nucleotide heeft nog een vrije 3\'-OH. Bij de andere zit die O al vast aan de volgende fosfaatgroep.'},
+    {t:'Suiker en fosfaat vormen samen de <b>ruggengraat</b>. Elke base zit alleen aan zijn eigen suiker en steekt opzij uit.', v:'waar zit de informatie: in de ruggengraat of in de basen?'},
+    {t:'In de <b>volgorde van de basen</b>. De ruggengraat is overal hetzelfde; alleen de letters verschillen.'},
+    {t:'Een streng heeft twee verschillende uiteinden: boven het <b>5\'-uiteinde</b>, onder het <b>3\'-uiteinde</b>. Je schrijft een volgorde altijd van 5\' naar 3\'.', vwo:true}
+  ]
+});
+
+/* 5 Tweede streng */
+screens.push({
+  naam:'Twee strengen', trap:4,
+  svg:()=>{
+    const x1=280,x2=680,y0=124,d=92,r=24;
+    const b1=['A','C','G','T'];
+    let s='';
+    b1.forEach((b,i)=>{s+=nuc(x1,y0+i*d,b,{step:0,r,oh:i===3,link:i<3,d});});
+    b1.forEach((b,i)=>{s+=nuc(x2,y0+i*d,PAIR[b],{step:1,r,sx:-1,sy:-1,oh:i===0,link:i>0,d});});
+    const rowY=i=>nucGeom(x1,y0+i*d,{r}).C1[1];
+    const bL=nucGeom(x1,y0,{r}).C1[0]+6+3.2*r, bR=nucGeom(x2,y0,{r,sx:-1,sy:-1}).C1[0]-6-3.2*r;
+    // waterstofbruggen (vwo)
+    b1.forEach((b,i)=>{const yy=rowY(i), n=(b==='A'||b==='T')?2:3; let g=`<g data-step="3" data-vwo>`; for(let k=0;k<n;k++){const off=(k-(n-1)/2)*8; g+=`<line x1="${f(bL+2)}" y1="${f(yy+off)}" x2="${f(bR-2)}" y2="${f(yy+off)}" style="stroke:${V.fg};stroke-width:2.5;stroke-dasharray:4 5"/>`;} g+=T(480,yy-22,String(n),{a:'middle',s:20,b:1,c:V.goud})+'</g>'; s+=g;});
+    s+=`<g data-step="3" data-until="4" data-vwo>${T(480,486,'waterstofbruggen: A–T twee, C–G drie',{a:'middle',s:22,b:1})}</g>`;
+    // twee soorten bindingen (vwo)
+    const gL=nucGeom(x1,y0,{r});
+    s+=`<g data-step="4" data-until="5" data-vwo class="kader"><rect x="${f(gL.F[0]-20)}" y="${f(gL.F[1]-20)}" width="${f(x1+28-gL.F[0]+20)}" height="${f(3*d+88)}" rx="14" style="fill:none;stroke:${V.goud};stroke-width:2.5;stroke-dasharray:7 6"/><rect x="${f(bL-4)}" y="${f(y0-36)}" width="${f(bR-bL+8)}" height="${f(3*d+56)}" rx="14" style="fill:none;stroke:${V.oh};stroke-width:2.5;stroke-dasharray:7 6"/>${T(gL.F[0]+20,488,'in de streng: sterk',{a:'middle',s:20,b:1,c:V.goud})}${T(480,488,'tussen de strengen: zwak',{a:'middle',s:20,b:1,c:V.oh})}${T(480,516,'daarom kan DNA open als een rits; elke streng blijft heel',{a:'middle',s:18,c:V.mu})}</g>`;
+    // antiparallel (vwo)
+    s+=`<g data-step="5" data-vwo>${T(150,92,"5'",{a:'middle',s:28,b:1,c:V.vijf})}${T(150,420,"3'",{a:'middle',s:28,b:1,c:V.drie})}${T(812,92,"3'",{a:'middle',s:28,b:1,c:V.drie})}${T(812,420,"5'",{a:'middle',s:28,b:1,c:V.vijf})}${arrow(150,108,150,390,V.goud,4)}${arrow(812,390,812,108,V.goud,4)}</g>`;
+    s+=`<g data-step="5" data-until="6" data-vwo>${T(480,488,"antiparallel: de ene streng loopt 5'→3' omlaag, de andere omhoog",{a:'middle',s:20,b:1})}</g>`;
+    s+=kader(60,460,840,64,`<g data-havo>${T(480,500,'basenparing: A met T, C met G · ken je één streng, dan ken je de andere',{a:'middle',s:21,b:1})}</g><g data-vwo>${T(480,500,'complementair: A met T, C met G · ken je één streng, dan ken je de andere',{a:'middle',s:21,b:1})}</g>`,' data-step="6"');
+    return svgWrap(s);
+  },
+  steps:[
+    {t:'De streng van net. DNA heeft twee strengen.', v:'welke basen komen tegenover A, C, G en T?'},
+    {t:'Tegenover A staat altijd T, tegenover C altijd G: <b>basenparing</b>. Kijk naar de randen: alleen die passen op elkaar.', n:'De paarrand (punt/inkeping, nok/sleuf) komt uit de film. Let op: de tweede streng ligt omgekeerd.'},
+    {t:'De twee strengen houden elkaar losjes vast, via de basen. Zo kan DNA opengaan als een rits (aflevering 2).'},
+    {t:'Die zwakke bindingen heten <b>waterstofbruggen</b>: A–T twee, C–G drie.', vwo:true, v:'welke binding is sterker: in de streng, of tussen de strengen?'},
+    {t:'In de streng: sterk. Tussen de strengen: zwak. Daarom gaat DNA open zonder dat een streng breekt.', vwo:true, n:'Ook: bij ±95 °C laten de strengen los; een stuk met veel C en G laat later los dan een stuk met veel A en T (film 1, q18).'},
+    {t:'De strengen zijn <b>antiparallel</b>: tegenover een 5\'-uiteinde ligt een 3\'-uiteinde. Alleen zo passen de basenparen precies tussen de twee ruggengraten.', vwo:true},
+    {t:'Ken je één streng, dan ken je de andere. Daar draait het kopiëren om.', n:'Havo: het woord complementair hoort bij het vwo-blok van film 1; havo zegt "basenparing".'}
+  ]
+});
+
+/* 6 Dubbele helix (canvas + svg-labels) */
+screens.push({
+  naam:'Dubbele helix', trap:4, canvas:true,
+  svg:()=>svgWrap(`
+    <g data-step="1">${T(580,118,'rechtsdraaiend',{s:24,b:1})}${T(580,146,'zoals een gewone schroef',{s:18,c:V.mu})}</g>
+    <g data-step="2">${T(580,206,'2 nm breed',{s:22,b:1})}${T(580,238,'10 basenparen per winding',{s:22,b:1})}${T(580,266,'één winding: 3,4 nm',{s:18,c:V.mu})}
+      ${T(580,318,'buiten: twee ruggengraten',{s:20,b:1,c:V.bb})}${T(580,344,'suiker + fosfaat, in het water',{s:18,c:V.mu})}${T(580,390,'binnen: de basenparen',{s:20,b:1})}${T(580,416,'als treden van een trap',{s:18,c:V.mu})}</g>
+    <g data-step="3">${T(580,470,'Watson en Crick, 1953,',{s:19})}${T(580,496,'met röntgenfoto\'s van Rosalind Franklin',{s:18,c:V.mu})}${T(580,518,'en Maurice Wilkins',{s:18,c:V.mu})}</g>
+  `),
+  steps:[
+    {t:'Zo tekenen we het vaak: een <b>ladder</b>. Ruggengraten als bomen, basenparen als treden.'},
+    {t:'In werkelijkheid draait de ladder: de <b>dubbele helix</b>. Hij draait rechtsom, net als een gewone schroef.', n:'Rechtsdraaiend: de strengen aan de voorkant lopen van linksonder naar rechtsboven.'},
+    {t:'Een paar getallen: 2 nanometer breed, 10 basenparen per winding. De basen zitten beschermd binnenin.'},
+    {t:'Deze vorm werd in 1953 beschreven door Watson en Crick, met röntgenfoto\'s van Rosalind Franklin.'}
+  ]
+});
+
+/* 7 DNA-polymerase */
+screens.push({
+  naam:'DNA-polymerase', trap:4,
+  svg:()=>{
+    const x0=150, dx=72, yT=150, yN=286, n=10;
+    const templ=['T','G','A','C','C','T','G','A','T','C'];
+    const comp=templ.map(b=>PAIR[b]);
+    const L=52, hw=12;
+    // mini-nucleotide op een horizontale ruggengraat; dir=+1: base omlaag (matrijs boven), -1: base omhoog (nieuwe streng)
+    const hn=(x,y,b,dir,fosRechts,o={})=>{
+      const px=x+(fosRechts?30:-30);
+      let g=`<g${o.step!=null?` data-step="${o.step}"`:''}>`;
+      g+=`<line x1="${x-36}" y1="${y}" x2="${x+36}" y2="${y}" style="stroke:${V.bb};stroke-width:4"/>`;
+      g+=`<circle cx="${px}" cy="${y}" r="11" style="fill:${V.fos}"/>`;
+      g+=`<polygon points="${pent(x,y,14,1,dir).map(p=>p.map(f).join(',')).join(' ')}" style="fill:${V.suiker};stroke:${V.suikerR};stroke-width:1.5"/>`;
+      g+=baseTile(x,y+dir*12,0,dir,L,hw,b,{fs:19});
+      return g+'</g>';
+    };
+    let s='';
+    s+=`<g data-step="0">`;
+    templ.forEach((b,i)=>{s+=hn(x0+i*dx,yT,b,1,true);});
+    s+=`${T(480,yT-36,'oude streng (matrijs)',{a:'middle',s:22,b:1})}<g data-vwo>${T(x0-60,yT+8,"3'",{a:'middle',s:26,b:1,c:V.drie})}${T(x0+(n-1)*dx+62,yT+8,"5'",{a:'middle',s:26,b:1,c:V.vijf})}</g></g>`;
+    for(let i=0;i<3;i++) s+=hn(x0+i*dx,yN,comp[i],-1,false,{step:1});
+    s+=`<g data-step="1" data-vwo>${T(x0-60,yN+8,"5'",{a:'middle',s:26,b:1,c:V.vijf})}</g>`;
+    s+=`<g data-step="2" data-until="3" data-vwo class="kader"><rect x="${x0-42}" y="${yN-74}" width="${3*dx+12}" height="104" rx="12" style="fill:none;stroke:${V.rna};stroke-width:2.5;stroke-dasharray:7 6"/>${T(x0+dx-40,yN+60,'primer (startstukje)',{a:'middle',s:20,b:1,c:V.rna})}</g>`;
+    for(let k=4;k<=7;k++) s+=hn(x0+(k-1)*dx,yN,comp[k-1],-1,false,{step:k-1});
+    // vrije 3'-OH aan het groeiende uiteinde (vwo), schuift mee
+    const ohAt=[[3,2,3],[4,3,4],[5,4,5],[6,5,6],[7,6,99]]; // [aantal nucleotiden, vanaf stap, tot stap]
+    ohAt.forEach(([k,from,until])=>{const x=x0+(k-1)*dx; s+=`<g data-step="${from}" data-until="${until}" data-vwo><line x1="${x+12}" y1="${yN+8}" x2="${x+20}" y2="${yN+28}" style="stroke:${V.oh};stroke-width:3"/>${T(x+24,yN+50,"3'-OH",{a:'middle',s:18,b:1,c:V.oh})}</g>`;});
+    // enzym bij het groeiende uiteinde
+    [[4,3,4],[5,4,5],[6,5,6],[7,6,8]].forEach(([k,from,until])=>{const x=x0+(k-1)*dx+40; s+=`<g data-step="${from}" data-until="${until}">${enzym(x,yN-36,.9)}${T(x+6,yN+70,'DNA-polymerase',{a:'middle',s:20,b:1})}</g>`;});
+    s+=`<g data-step="3" data-until="8">${T(x0+5*dx,yN+112,'de nieuwe streng groeit →',{a:'middle',s:20,c:V.mu})}</g>`;
+    s+=`<g data-step="7" data-until="8" data-vwo>${R(x0-64,yN-34,'✕',{a:'middle',s:44,b:1,c:V.koraal})}${T(x0-90,yN+112,"5'-uiteinde: geen vrije OH",{s:20,b:1,c:V.koraal})}</g>`;
+    // tabel (vwo)
+    {const rows=[['DNA-polymerase','DNA','DNA','kopiëren (replicatie)'],['RNA-polymerase','DNA','RNA','overschrijven (transcriptie)'],['reverse transcriptase','RNA','DNA','bij sommige virussen']];
+     const ty=404, rh=32, cx=[80,330,450,560];
+     let g=T(cx[0],ty,'enzym',{s:18,b:1,c:V.mu})+T(cx[1],ty,'leest',{s:18,b:1,c:V.mu})+T(cx[2],ty,'maakt',{s:18,b:1,c:V.mu})+T(cx[3],ty,'wanneer · alle drie bouwen 5\'→3\'',{s:18,b:1,c:V.mu})+`<line x1="76" y1="${ty+9}" x2="884" y2="${ty+9}" style="stroke:${V.lijn}"/>`;
+     rows.forEach((r,i)=>{const y=ty+34+i*rh; g+=T(cx[0],y,r[0],{s:20,b:1})+T(cx[1],y,r[1],{s:20})+T(cx[2],y,r[2],{s:20})+T(cx[3],y,r[3],{s:20,c:V.mu});});
+     s+=kader(60,376,840,150,g,' data-step="8" data-until="9" data-vwo');}
+    s+=kader(60,452,840,70,`${T(480,484,'elke oude streng krijgt een nieuwe partner:',{a:'middle',s:21,b:1})}${T(480,510,'twee DNA-moleculen, precies gelijk aan het origineel',{a:'middle',s:19,c:V.mu})}`,' data-step="9"');
+    return svgWrap(s);
+  },
+  steps:[
+    {t:'Bij het kopiëren dient een bestaande streng als voorbeeld: de <b>matrijs</b>.', n:'Hoe de strengen opengaan (helicase) staat in film 2.'},
+    {t:'Tegenover de matrijs ligt al een stukje nieuwe streng.'},
+    {t:'DNA-polymerase kan niet zelf beginnen: het heeft een startstukje nodig, een <b>primer</b>. Aan het eind zit een vrije 3\'-OH.', vwo:true, v:'aan welke kant komt de volgende nucleotide erbij?', n:'De primer wordt gemaakt door primase (film 2). RNA-polymerase kan wel zelf beginnen.'},
+    {t:'Het enzym <b>DNA-polymerase</b> koppelt een passende nucleotide vast aan de vorige.', n:'Het enzym zoekt niets uit: de basenparing bepaalt wat past; het enzym maakt alleen de binding (film 2).'},
+    {t:'Weer een nucleotide erbij. Tegenover A komt T, tegenover C komt G.', th:'Weer een nucleotide erbij. Tegenover A komt T, tegenover C komt G.'},
+    {t:'En nog een. De nieuwe streng groeit steeds aan het 3\'-uiteinde.', th:'En nog een. Zo groeit de nieuwe streng langs de oude.'},
+    {t:'De regel: <b>DNA-polymerase bouwt alleen van 5\' naar 3\'</b>.', vwo:true, v:'kan de streng ook aan het 5\'-uiteinde groeien?'},
+    {t:'Nee. Een nieuwe nucleotide brengt zijn energie mee in drie fosfaatgroepen. Die kunnen alleen reageren met een vrije 3\'-OH, en aan het 5\'-uiteinde zit die niet.', vwo:true, n:'Dit verklaart in film 2 waarom één streng in stukjes (Okazaki-fragmenten) wordt gebouwd.'},
+    {t:'Drie polymerasen om uit elkaar te houden. Ze bouwen allemaal 5\'→3\' en lezen de matrijs dus 3\'→5\'.', vwo:true, n:'Zoals film 2 (n18). RNA-polymerase en transcriptie: aflevering 3.'},
+    {t:'Klaar: twee DNA-moleculen, elk met één oude en één nieuwe streng.', th:'Klaar: twee DNA-moleculen, precies gelijk aan het origineel.', n:'Vwo: half oud, half nieuw heet semiconservatief (Meselson en Stahl, film 2).'}
+  ]
+});
+
+/* 8 Een vergelijking: de ratel (vwo) */
+screens.push({
+  naam:'Waarom één kant op?', trap:4, vwo:true,
+  svg:()=>{
+    const x0=120, tw=72, n=10, yA=262, yB=410, h=50;
+    const saw=(y,flip)=>{let d=`M${x0} ${y}`; for(let i=0;i<n;i++){const x=x0+i*tw; d+=flip?` L${x+18} ${y-h} L${x+tw} ${y}`:` L${x+54} ${y-h} L${x+tw} ${y}`;} return d;};
+    let s='';
+    s+=R(28,74,'EEN VERGELIJKING',{s:17,b:1,c:V.goud,fam:'var(--meta)',ls:'2'});
+    s+=`<g data-step="0"><path d="${saw(yA,false)}" style="fill:${V.suiker};fill-opacity:.45;stroke:${V.bb};stroke-width:3;stroke-linejoin:round"/>${T(x0-32,yA-6,"5'",{a:'middle',s:26,b:1,c:V.vijf})}${T(x0+n*tw+32,yA-6,"3'",{a:'middle',s:26,b:1,c:V.drie})}</g>`;
+    s+=`<g data-step="0" data-until="2">${T(x0+n*tw/2,yA+34,'de ruggengraat als scheve tanden',{a:'middle',s:20,c:V.mu})}</g>`;
+    s+=`<g data-step="1" data-until="2"><path d="${saw(yB,true)}" style="fill:${V.suiker};fill-opacity:.45;stroke:${V.bb};stroke-width:3;stroke-linejoin:round"/>${T(x0-32,yB-6,"3'",{a:'middle',s:26,b:1,c:V.drie})}${T(x0+n*tw+32,yB-6,"5'",{a:'middle',s:26,b:1,c:V.vijf})}${T(x0+n*tw/2,yB+34,'dezelfde streng, omgedraaid: de tanden staan andersom',{a:'middle',s:20,c:V.mu})}</g>`;
+    const hand=(id,extra='')=>`<g id="${id}" ${extra}><path d="M-40 -104 q 0 -42 52 -42 q 52 0 52 42 v 54 q 0 12 -12 12 h -80 q -12 0 -12 -12 z" style="fill:${V.enz};fill-opacity:.55;stroke:${V.enzR};stroke-width:2.5"/><path d="M0 -38 L0 0 L36 -38 Z" style="fill:${V.goudvlak}"/>${R(12,-82,'hand',{a:'middle',s:18,b:1,c:V.fg})}</g>`;
+    const mp=(()=>{let d=`M${x0+tw+1} ${yA-1}`;for(let i=1;i<=6;i++){const x=x0+i*tw;d+=` L${x+54} ${yA-h} L${x+tw+1} ${yA-1}`;}return d;})();
+    s+=`<g data-step="2" data-until="4">${hand('handA',`transform="translate(${x0+tw+1},${yA-1})"`)}<animateMotion id="amA" href="#handA" dur="4s" begin="indefinite" fill="freeze" calcMode="linear" path="${mp}"/></g>`;
+    s+=`<g data-step="3" data-until="4">${T(x0+n*tw/2,yA+40,"naar 3' toe: omhoog over de flauwe kant, klik, klik, klik",{a:'middle',s:21,b:1})}</g>`;
+    const hx=x0+8*tw+1;
+    s+=`<g data-step="4" data-until="5">${hand('handB',`transform="translate(${hx},${yA-2})"`)}<path d="M${hx-52} ${yA-80} l -70 0" style="stroke:${V.koraal};stroke-width:4" marker-end="url(#ah)"/>${R(hx-150,yA-70,'✕',{a:'middle',s:40,b:1,c:V.koraal})}${T(x0+n*tw/2,yA+40,"naar 5' toe: de pal blokkeert meteen",{a:'middle',s:21,b:1})}</g>`;
+    // echte reden
+    const ex=x0+n*tw;
+    s+=`<g data-step="5"><line x1="${ex-18}" y1="${yA-h}" x2="${ex-18}" y2="${yA-h-26}" style="stroke:${V.oh};stroke-width:3"/>${T(ex-10,yA-h-34,'OH',{s:20,b:1,c:V.oh})}
+      <g transform="translate(${ex-160},${yA-150})"><circle cx="-50" cy="0" r="11" style="fill:${V.fos}"/><circle cx="-26" cy="0" r="11" style="fill:${V.fos}"/><circle cx="-2" cy="0" r="11" style="fill:${V.fos}"/><polygon points="${pent(26,0,14,1,1).map(p=>p.map(f).join(',')).join(' ')}" style="fill:${V.suiker};stroke:${V.suikerR};stroke-width:1.5"/>${baseTile(44,-4,1,0,50,13,'G',{fs:18})}</g>
+      ${arrow(ex-110,yA-138,ex-30,yA-h-30,V.goud,3)}${T(ex-430,yA-186,'nieuwe nucleotide met drie fosfaatgroepen',{s:19,c:V.mu})}</g>`;
+    s+=`<g data-step="5" data-until="6">${T(x0+n*tw/2,yA+40,"In werkelijkheid: koppelen kan alleen aan een vrije 3'-OH,",{a:'middle',s:21,b:1})}${T(x0+n*tw/2,yA+68,'met de energie van de drie fosfaatgroepen van de nieuwkomer',{a:'middle',s:20})}</g>`;
+    s+=kader(60,350,840,170,`${T(90,390,'vergelijking: een ratel die maar één kant op klikt',{s:21})}${T(90,425,"echt: een nieuwe nucleotide koppelt alleen aan een vrije 3'-OH",{s:21,b:1})}${T(90,460,'de energie zit in zijn drie fosfaatgroepen (twee vallen eraf)',{s:21})}${T(90,495,"dus bouwt elke polymerase van 5' naar 3'",{s:21,b:1,c:V.goud})}`,' data-step="6"');
+    return svgWrap(s);
+  },
+  onStep:(raw)=>{ if(raw===3){ const a=stage.querySelector('#amA'); if(a&&a.beginElement) a.beginElement(); } },
+  steps:[
+    {t:'Een <b>vergelijking</b>: stel je de ruggengraat voor als scheve tanden. Elke suiker zit scheef in de keten, van 5\' naar 3\'.', v:'hoe ziet dezelfde streng eruit van de andere kant?', n:'Dit is een denkmodel, geen mechanisme. Het echte antwoord komt in stap 6.'},
+    {t:'Dan staan de tanden andersom. Een streng van 5\'→3\' is niet hetzelfde als een streng van 3\'→5\'.'},
+    {t:'Stel je het enzym voor als een hand met een pal die in de tanden past.', v:'welke kant op kan deze hand bewegen?'},
+    {t:'Naar 3\' toe: per nucleotide één klik verder, zoals een kabelbinder.'},
+    {t:'Naar 5\' toe blokkeert de pal.'},
+    {t:'Nu de echte reden: de nieuwe nucleotide brengt drie fosfaatgroepen mee. Hij kan alleen koppelen aan een vrije <b>3\'-OH</b>; twee fosfaatgroepen vallen eraf en leveren de energie.', n:'Vergelijk ATP → ADP + P. Daarna heeft de nieuwkomer zelf weer een vrije 3\'-OH.'},
+    {t:'Samengevat: de ratel is een vergelijking. Echt is: koppelen alleen aan een vrije 3\'-OH. Daarom bouwen alle polymerasen 5\'→3\'.'}
+  ]
+});
+
+/* 9 Wat is een gen? */
+screens.push({
+  naam:'Wat is een gen?', trap:3,
+  svg:()=>{
+    let s='';
+    s+=`<g data-step="0"><path d="${draad(120,220,90,23,30)}" style="fill:none;stroke:${V.bb};stroke-width:3.5;stroke-linejoin:round;stroke-linecap:round"/>${T(120,340,'één chromosoom',{a:'middle',s:22,b:1})}${T(120,366,'één lang DNA-molecuul',{a:'middle',s:18,c:V.mu})}</g>`;
+    // uitgerold DNA: dubbele streng met treden
+    let rungs=''; for(let x=232;x<=912;x+=12) rungs+=`<line x1="${x}" y1="203" x2="${x}" y2="221" style="stroke:${['var(--dA)','var(--dC)','var(--dT)','var(--dG)'][((x-232)/12)%4]};stroke-width:3"/>`;
+    s+=`<g data-step="0">${rungs}<line x1="226" y1="200" x2="918" y2="200" style="stroke:${V.bb};stroke-width:5"/><line x1="226" y1="224" x2="918" y2="224" style="stroke:${V.bb};stroke-width:5"/></g><g data-step="0" data-until="4">${T(570,128,'uitgerold: heel lang DNA',{a:'middle',s:18,c:V.mu})}</g>`;
+    s+=`<g data-step="1"><rect x="430" y="186" width="210" height="52" rx="8" style="fill:${V.goudvlak};fill-opacity:.22;stroke:${V.goudvlak};stroke-width:3"/>${T(535,272,'gen',{a:'middle',s:24,b:1,c:V.goud})}${T(535,298,'informatie voor één eiwit',{a:'middle',s:18,c:V.mu})}</g>`;
+    s+=`<g data-step="2"><line x1="430" y1="174" x2="430" y2="250" style="stroke:${V.fg};stroke-width:3"/>${T(430,166,'begin',{a:'middle',s:18,b:1})}<line x1="640" y1="174" x2="640" y2="250" style="stroke:${V.fg};stroke-width:3"/>${T(640,166,'eind',{a:'middle',s:18,b:1})}</g>`;
+    s+=`<g data-step="3"><rect x="236" y="190" width="64" height="44" rx="8" style="fill:none;stroke:${V.goudvlak};stroke-width:2;stroke-dasharray:5 4"/><rect x="700" y="190" width="150" height="44" rx="8" style="fill:none;stroke:${V.goudvlak};stroke-width:2;stroke-dasharray:5 4"/>${T(268,272,'gen',{a:'middle',s:18})}${T(775,272,'ander gen',{a:'middle',s:18})}${T(365,272,'niet-coderend',{a:'middle',s:18,c:V.mu})}</g>`;
+    s+=`<g data-step="4">${arrow(440,140,630,140,V.mu,3)}${T(535,110,'maar één streng wordt afgelezen',{a:'middle',s:18,c:V.mu})}</g>`;
+    s+=kader(60,388,840,136,`${R(220,442,'± 20.000',{a:'middle',s:40,b:1})}${T(220,470,'genen per mens',{a:'middle',s:18,c:V.mu})}${R(480,442,'46',{a:'middle',s:40,b:1})}${T(480,470,'chromosomen',{a:'middle',s:18,c:V.mu})}${R(750,442,'± 2 %',{a:'middle',s:40,b:1})}${T(750,470,'van je DNA codeert voor eiwit',{a:'middle',s:18,c:V.mu})}${T(480,508,'een gen is níet hetzelfde als een chromosoom',{a:'middle',s:21,b:1,c:V.goud})}`,' data-step="5"');
+    return svgWrap(s);
+  },
+  steps:[
+    {t:'Terug een trede omhoog. Een chromosoom is één DNA-molecuul van tientallen tot honderden miljoenen basenparen.', v:'wat is een gen dan?'},
+    {t:'Een <b>gen</b> is een <b>stuk</b> van dat DNA: de informatie voor één eiwit.', n:'Menselijke genen zijn duizenden tot honderdduizenden basenparen lang (met introns).'},
+    {t:'Een gen heeft een begin en een eind in de basenvolgorde.', n:'Op DNA-niveau: promotor en terminator. Startcodon en stopcodon horen bij het mRNA (aflevering 3).'},
+    {t:'Op één chromosoom liggen honderden tot duizenden genen, met niet-coderend DNA ertussen.'},
+    {t:'Bij het aflezen van een gen gebruikt de cel maar één van de twee strengen (aflevering 3).', v:'welk deel van je DNA bestaat uit genen die voor eiwitten coderen?'},
+    {t:'Ongeveer <b>2 procent</b>: coderend DNA. En onthoud: gen ≠ chromosoom. Alles samen is je <b>genoom</b>.', n:'Film 1 q13. Niet-coderend DNA is niet nutteloos: een deel regelt genen (aflevering 6).'}
+  ]
+});
+
+/* 10 DNA en RNA */
+screens.push({
+  naam:'DNA en RNA', trap:5,
+  svg:()=>{
+    let s='';
+    const r=34, ya=176;
+    s+=`<g data-step="0">${nuc(260,ya,'T',{r,oh:true})}${T(250,64,'DNA-nucleotide',{a:'middle',s:22,b:1})}</g>`;
+    const g=nucGeom(640,ya,{r});
+    s+=`<g data-step="1">${nuc(640,ya,'U',{r,oh:true,rna:true})}<line x1="${f(g.C2[0])}" y1="${f(g.C2[1])}" x2="${f(g.C2[0]+16)}" y2="${f(g.C2[1]+26)}" style="stroke:${V.oh};stroke-width:3"/>${T(g.C2[0]+22,g.C2[1]+48,"OH op 2'",{a:'middle',s:18,b:1,c:V.oh})}${T(630,64,'RNA-nucleotide',{a:'middle',s:22,b:1,c:V.rna})}</g>`;
+    const rows=[
+      ['suiker','desoxyribose','ribose (extra OH)'],
+      ['basen','A, T, C, G','A, U, C, G (U in plaats van T)'],
+      ['strengen','dubbelstrengs','enkelstrengs'],
+      ['lengte','miljoenen basenparen','honderden tot duizenden basen'],
+      ['plaats','blijft in de celkern','gaat de kern uit'],
+      ['taak','archief: alle informatie','werkkopie van één gen']
+    ];
+    const y0=318, rh=34;
+    s+=`<g data-step="2">${R(200,y0-20,'DNA',{s:20,b:1})}${R(520,y0-20,'RNA',{s:20,b:1,c:V.rna})}<line x1="60" y1="${y0-10}" x2="900" y2="${y0-10}" style="stroke:${V.lijn}"/></g>`;
+    rows.forEach((rw,i)=>{const y=y0+i*rh+16; s+=`<g data-step="${i+2}">${R(64,y,rw[0],{s:18,b:1,c:V.mu})}${T(200,y,rw[1],{s:20})}${T(520,y,rw[2],{s:20})}<line x1="60" y1="${y+11}" x2="900" y2="${y+11}" style="stroke:${V.lijn};opacity:.6"/></g>`;});
+    return svgWrap(s);
+  },
+  steps:[
+    {t:'Een opstap naar aflevering 3. Links de DNA-nucleotide die je kent.'},
+    {t:'Rechts een <b>RNA</b>-nucleotide. De suiker heeft een extra OH, en in plaats van T komt <b>U</b> (uracil) voor.', th:'Rechts een <b>RNA</b>-nucleotide. De suiker is anders (ribose), en in plaats van T komt <b>U</b> (uracil) voor.'},
+    {t:'Op een rij. Suiker: desoxyribose bij DNA, ribose bij RNA.'},
+    {t:'Basen: bij RNA vervangt uracil de thymine. U paart met A.'},
+    {t:'RNA is meestal <b>enkelstrengs</b>: één streng, geen ladder.'},
+    {t:'RNA is kort: zo lang als één gen, niet als een heel chromosoom.'},
+    {t:'DNA blijft in de kern; RNA gaat de kern uit, naar de ribosomen.'},
+    {t:'DNA is het archief, RNA de werkkopie. De kopie van een gen heet <b>mRNA</b> (messenger-RNA).'},
+    {t:'Zo\'n kopie wordt eerst nog bewerkt voordat hij de kern uit mag: splicing.', vwo:true}
+  ]
+});
+
+/* 11 Exons, introns, splicing (vwo) */
+screens.push({
+  naam:'Exons en introns', trap:3, vwo:true,
+  svg:()=>{
+    const x0=130, segs=[['e',90],['i',120],['e',140],['i',90],['e',110]];
+    let s='';
+    const dnaBar=(y,step,labels)=>{let g=`<g data-step="${step}">`, x=x0; segs.forEach(sg=>{const ex=sg[0]==='e'; g+=`<rect x="${x}" y="${y}" width="${sg[1]}" height="34" rx="5" style="fill:${ex?'var(--dA)':V.vlak};stroke:${ex?'var(--dC)':V.lijn};stroke-width:1.5${ex?'':';stroke-dasharray:5 4'}"/>`; if(labels) g+=T(x+sg[1]/2,y+24,ex?'exon':'intron',{a:'middle',s:18,b:1,c:ex?V.inkD:V.mu}); x+=sg[1];}); return g+'</g>';};
+    s+=dnaBar(100,0,false);
+    s+=`<g data-step="0">${R(x0-14,124,'DNA',{a:'end',s:20,b:1,c:V.bb})}${T(x0+275,84,'één gen op het DNA',{a:'middle',s:18,c:V.mu})}</g>`;
+    s+=dnaBar(100,1,true);
+    s+=`<g data-step="1">${T(x0+570,116,'exon: komt in het mRNA',{s:18})}${T(x0+570,140,'intron: wordt eruit geknipt',{s:18})}</g>`;
+    // pre-mRNA: dunne teal draad, introns grijs
+    const draadPad=(x1,x2,y,amp=4)=>{let d=`M${x1} ${y}`; for(let x=x1+10;x<=x2;x+=10) d+=` L${x} ${f(y+amp*Math.sin((x-x1)/14))}`; return d;};
+    s+=`<g data-step="2">${arrow(x0+275,144,x0+275,196,V.rna)}${T(x0+300,176,'transcriptie: het hele gen wordt overgeschreven',{s:18,c:V.mu})}`;
+    {let x=x0; segs.forEach(sg=>{const ex=sg[0]==='e'; s+=`<path d="${draadPad(x,x+sg[1],226)}" style="fill:none;stroke:${ex?V.rna:V.zw};stroke-width:${ex?6:3};stroke-linecap:round"/>`; x+=sg[1];});}
+    s+=`${R(x0-14,232,'pre-mRNA',{a:'end',s:20,b:1,c:V.rna})}</g>`;
+    s+=`<g data-step="3">${arrow(x0+275,248,x0+275,300,V.rna)}${T(x0+300,282,'splicing: de introns eruit',{s:18,c:V.mu})}`;
+    {let x=x0; segs.forEach(sg=>{if(sg[0]==='i') s+=`<path d="M${x+6} 340 q ${sg[1]/2-6} -56 ${sg[1]-12} 0" style="fill:none;stroke:${V.zw};stroke-width:3;stroke-dasharray:5 4"/>`; x+=sg[1];});}
+    s+='</g>';
+    s+=`<g data-step="4">`;
+    {let x=x0; segs.forEach(sg=>{if(sg[0]==='e'){s+=`<path d="${draadPad(x,x+sg[1],356)}" style="fill:none;stroke:${V.rna};stroke-width:6;stroke-linecap:round"/>`; x+=sg[1];}});}
+    s+=`${R(x0-14,362,'mRNA',{a:'end',s:20,b:1,c:V.rna})}${T(x0+370,362,'exons aan elkaar: het mRNA',{s:18,c:V.mu})}</g>`;
+    s+=`<g data-step="5">${arrow(x0+170,378,x0+170,420,V.rna)}${T(x0+192,408,'de kern uit, naar de ribosomen',{s:18,c:V.mu})}</g>`;
+    s+=kader(60,436,840,88,`${T(480,472,'alleen de exons komen in het mRNA',{a:'middle',s:22,b:1})}${T(480,504,'bij eukaryoten komen introns veel voor; bacteriën hebben ze vrijwel niet',{a:'middle',s:18,c:V.mu})}`,' data-step="5"');
+    return svgWrap(s);
+  },
+  steps:[
+    {t:'Een gen op het DNA. Bij de mens is zo\'n gen meestal niet één aaneengesloten code.'},
+    {t:'Het bestaat uit <b>exons</b>, die in het mRNA komen, en <b>introns</b>, tussenstukken die eruit gaan.'},
+    {t:'RNA-polymerase schrijft het hele gen over, introns en al: het <b>pre-mRNA</b>.', v:'wat moet er met die kopie gebeuren voor hij bruikbaar is?', n:'Overschrijven = transcriptie; niet verwarren met kopiëren (replicatie).'},
+    {t:'<b>Splicing</b>: de introns worden eruit geknipt, nog in de celkern.'},
+    {t:'De exons worden aan elkaar gezet: nu is het <b>mRNA</b> klaar.'},
+    {t:'Het mRNA gaat de kern uit. Hoe het een eiwit wordt: aflevering 3.'}
+  ]
+});
+
+/* 12 Samenvatting: elke klik beantwoordt de vorige vraag en stelt de volgende */
+screens.push({
+  naam:'Samenvatting', trap:null,
+  svg:()=>{
+    const items=[
+      ['nucleotide','fosfaatgroep + suiker + base',"fosfaatgroep (5') + suiker + base (1'), vrije OH aan 3'"],
+      ['streng','nucleotiden aan elkaar: ruggengraat van suiker en fosfaat',"ruggengraat van suiker en fosfaat, richting 5' → 3'"],
+      ['DNA','twee strengen, basenparing A–T en C–G, dubbele helix','antiparallel, complementair (A–T, C–G), dubbele helix'],
+      ['polymerase','koppelt passende nucleotiden aan elkaar',"bouwt alleen 5'→3': koppelt aan een vrije 3'-OH"],
+      ['gen','een stuk DNA met de informatie voor één eiwit','een stuk DNA met de informatie voor één eiwit'],
+      ['RNA','ribose, U in plaats van T, enkelstrengs','ribose, U in plaats van T, enkelstrengs'],
+      ['splicing',null,'introns eruit, exons aan elkaar: pre-mRNA → mRNA']
+    ];
+    let s='';
+    items.forEach((it,i)=>{const y=74+i*56; s+=`<g data-step="${i+1}"${it[1]==null?' data-vwo':''}><circle cx="80" cy="${y-7}" r="7" style="fill:${V.goudvlak}"/>${R(102,y,it[0],{s:21,b:1,c:V.goud})}${it[1]!=null?`<g data-havo>${T(250,y,it[1],{s:20})}</g>`:''}<g data-vwo>${T(250,y,it[2],{s:20})}</g></g>`;});
+    s+=kader(60,452,840,64,`<g data-vwo>${T(480,492,"check: 5' en 3' zijn géén links en rechts. Draai de streng om, de namen draaien mee.",{a:'middle',s:20,b:1,c:V.goud})}</g><g data-havo>${T(480,492,'check: ken je één streng, dan ken je de andere',{a:'middle',s:21,b:1,c:V.goud})}</g>`,' data-step="8"');
+    return svgWrap(s);
+  },
+  steps:[
+    {t:'De samenvatting. Elke klik geeft het antwoord.', v:'wat zijn de drie delen van een nucleotide?'},
+    {t:'Fosfaatgroep, suiker en base.', v:'hoe ziet een streng eruit, en welke uiteinden heeft hij?', vh:'hoe zitten nucleotiden aan elkaar in een streng?'},
+    {t:'Een ruggengraat van suiker en fosfaat, met een 5\'- en een 3\'-uiteinde.', th:'Een ruggengraat van suiker en fosfaat; de basen steken opzij uit.', v:'wat betekent antiparallel?', vh:'welke base staat tegenover A, en welke tegenover C?'},
+    {t:'De strengen lopen tegengesteld: tegenover 5\' ligt 3\'.', th:'Tegenover A staat T, tegenover C staat G.', v:'waarom kan DNA-polymerase niet andersom bouwen?', vh:'wat doet DNA-polymerase?'},
+    {t:'Het kan alleen koppelen aan een vrije 3\'-OH.', th:'Het koppelt passende nucleotiden aan elkaar.', v:'is een gen hetzelfde als een chromosoom?'},
+    {t:'Nee: een gen is een stuk van het DNA van een chromosoom.', v:'noem twee verschillen tussen RNA en DNA.'},
+    {t:'Ribose in plaats van desoxyribose, U in plaats van T, en meestal één streng.', v:'wat gebeurt er met de introns?', vv:true},
+    {t:'Die worden eruit geknipt: splicing.', vwo:true},
+    {t:'Laatste check. Hoe een cel twee meter DNA foutloos kopieert: aflevering 2.'}
+  ]
+});
+
+/* ---------- helix (canvas): rechtsdraaiend, achterkant eerst getekend ---------- */
+let helixRAF=null; const helixState={twist:0,target:0,phase:0};
+function cssVar(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim();}
+function helixStart(step){
+  let c=stage.querySelector('canvas');
+  if(!c){ c=document.createElement('canvas'); stage.insertBefore(c,stage.querySelector('svg')); }
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  helixState.target=step>=1?1:0; if(reduce) helixState.twist=helixState.target;
+  const col={bb:cssVar('--bb'),rand:cssVar('--suiker'),A:cssVar('--dA'),T:cssVar('--dT'),C:cssVar('--dC'),G:cssVar('--dG'),bg:cssVar('--surface')};
+  const seq='ATGCCGTAACGTTAGCATGC';
+  function draw(){
+    const r=stage.getBoundingClientRect(), dpr=devicePixelRatio||1;
+    c.width=Math.round(r.width*dpr); c.height=Math.round(r.height*dpr);
+    const ctx=c.getContext('2d'); ctx.setTransform(c.width/W,0,0,c.height/H,0,0); ctx.clearRect(0,0,W,H);
+    helixState.twist+=(helixState.target-helixState.twist)*0.06;
+    if(Math.abs(helixState.target-helixState.twist)<0.002) helixState.twist=helixState.target;
+    const tw=helixState.twist; if(!reduce) helixState.phase+=0.012*tw;
+    const cx=300, top=70, bot=510, amp=82, turns=2, N=160, nbp=turns*10;
+    const k=turns*2*Math.PI/(bot-top);
+    // hoek a: x = cx + amp*cos(a), naar de kijker toe = -sin(a). a neemt toe naar boven: voorkant loopt '/' (rechtsdraaiend)
+    const ang=(y,off)=>Math.PI+off+tw*(k*(bot-y)+helixState.phase);
+    const items=[];
+    for(let s=0;s<2;s++){ const off=s?Math.PI:0;
+      for(let i=0;i<N;i++){ const ya=top+(bot-top)*i/N, yb=top+(bot-top)*(i+1)/N, a1=ang(ya,off), a2=ang(yb,off);
+        items.push({z:-(Math.sin(a1)+Math.sin(a2))/2*tw, kind:'s', x1:cx+amp*Math.cos(a1), y1:ya, x2:cx+amp*Math.cos(a2), y2:yb}); } }
+    for(let j=0;j<nbp;j++){ const y=top+(bot-top)*(j+.5)/nbp, a=ang(y,0), b=seq[j%seq.length];
+      const xA=cx+amp*Math.cos(a), xB=cx+amp*Math.cos(a+Math.PI), xm=(xA+xB)/2, zA=-Math.sin(a)*tw;
+      items.push({z:zA/2-0.001,kind:'r',x1:xA,x2:xm,y,c:col[b]}); items.push({z:-zA/2-0.001,kind:'r',x1:xm,x2:xB,y,c:col[PAIR[b]]}); }
+    items.sort((p,q)=>p.z-q.z);
+    ctx.lineCap='round';
+    for(const it of items){
+      const voor=tw<0.05||it.z>=0;
+      if(it.kind==='r'){ ctx.globalAlpha=voor?1:0.55; ctx.strokeStyle=it.c; ctx.lineWidth=7; ctx.beginPath(); ctx.moveTo(it.x1,it.y); ctx.lineTo(it.x2,it.y); ctx.stroke(); }
+      else { ctx.globalAlpha=1; ctx.lineCap='butt';
+             if(voor){ ctx.strokeStyle=col.bg; ctx.lineWidth=20; ctx.beginPath(); ctx.moveTo(it.x1,it.y1); ctx.lineTo(it.x2,it.y2); ctx.stroke(); }
+             ctx.strokeStyle=voor?col.bb:col.rand; ctx.lineWidth=voor?14:11; ctx.beginPath(); ctx.moveTo(it.x1,it.y1); ctx.lineTo(it.x2,it.y2); ctx.stroke(); ctx.lineCap='round'; }
+    }
+    ctx.globalAlpha=1;
+    if(!reduce || helixState.twist!==helixState.target) helixRAF=requestAnimationFrame(draw);
+  }
+  if(helixRAF) cancelAnimationFrame(helixRAF);
+  draw();
+}
+function helixStop(){ if(helixRAF) cancelAnimationFrame(helixRAF); helixRAF=null; const c=stage.querySelector('canvas'); if(c) c.remove(); }
+
+/* ---------- toestand en tekenen ---------- */
+let scr=0, step=0, vwo=true, nolabels=false;
+try{ const q=new URLSearchParams(location.search).get('niveau'); const sv=localStorage.getItem('niveau'); vwo = q==='havo'?false:q==='vwo'?true:sv!=='havo'; }catch(e){}
+
+function visibleScreens(){ return screens.map((s,i)=>i).filter(i=>vwo||!screens[i].vwo); }
+function stepsOf(i){ return screens[i].steps.filter(s=>vwo||!s.vwo); }
+
+function drawTrap(svg,S,idx){
+  if(S.trap==null) return;
+  const old=svg.querySelector('g.trap'); if(old) old.remove();
+  const NS='http://www.w3.org/2000/svg', g=document.createElementNS(NS,'g'); g.setAttribute('class','trap'); svg.appendChild(g);
+  let x=28;
+  TRAP.forEach((t,i)=>{
+    const on=idx===i, el=document.createElementNS(NS,'text');
+    el.setAttribute('x',x); el.setAttribute('y',36); el.textContent=t;
+    el.setAttribute('style',`font-size:18px;font-weight:${on?700:400};fill:${on?V.goud:V.zw}`); g.appendChild(el);
+    const w=el.getComputedTextLength()||t.length*9;
+    if(on){ const rc=document.createElementNS(NS,'rect'); rc.setAttribute('x',x-8); rc.setAttribute('y',14); rc.setAttribute('width',w+16); rc.setAttribute('height',30); rc.setAttribute('rx',6); rc.setAttribute('style',`fill:none;stroke:${V.goudvlak};stroke-width:2`); g.insertBefore(rc,el); }
+    x+=w+14;
+    if(i<TRAP.length-1){ const sp=document.createElementNS(NS,'text'); sp.setAttribute('x',x); sp.setAttribute('y',36); sp.textContent='›'; sp.setAttribute('style',`font-size:18px;fill:${V.zw}`); g.appendChild(sp); x+=22; }
+  });
+}
+function renderScreen(){
+  const S=screens[scr];
+  helixStop();
+  const old=stage.querySelector('svg'); if(old) old.remove();
+  stage.insertAdjacentHTML('beforeend',S.svg());
+  $('#badge').hidden=!S.vwo;
+  const vs=visibleScreens();
+  $('#scrname').textContent=`scherm ${vs.indexOf(scr)+1} van ${vs.length} · ${S.naam}`;
+  $('#chips').innerHTML=vs.map((i,k)=>`<button type="button" class="chip ${i===scr?'cur':''} ${screens[i].vwo?'vwo':''}" data-i="${i}"${i===scr?' aria-current="step"':''}><span class="n">${k+1}</span>${screens[i].naam}</button>`).join('');
+  renderStep();
+}
+function renderStep(){
+  const S=screens[scr], st=stepsOf(scr), cur=st[step];
+  const raw=S.steps.indexOf(cur);
+  drawTrap(stage.querySelector('svg'),S,S.trapSteps?S.trapSteps[raw]:S.trap);
+  stage.querySelectorAll('[data-step],[data-vwo],[data-havo]').forEach(el=>{
+    let on=true;
+    if(el.dataset.step!=null){ const from=+el.dataset.step, until=el.dataset.until!=null?+el.dataset.until:Infinity; on=raw>=from&&raw<until; }
+    if(el.dataset.vwo!=null&&!vwo) on=false;
+    if(el.dataset.havo!=null&&vwo) on=false;
+    el.classList.add('step'); el.classList.toggle('off',!on);
+  });
+  const t=(!vwo&&cur.th)?cur.th:cur.t;
+  const v=(!vwo&&cur.vh)?cur.vh:((cur.vv&&!vwo)?null:cur.v);
+  $('#captxt').innerHTML=t+(v?`<span class="vraag">${v}</span>`:'');
+  const nt=$('#notitie'); nt.hidden=!cur.n; nt.innerHTML=cur.n||'';
+  $('#dots').innerHTML=st.map((s,i)=>`<i class="${i<step?'done':i===step?'cur':''}"></i>`).join('');
+  if(S.canvas) helixStart(raw);
+  if(S.onStep) S.onStep(raw);
+  const vs=visibleScreens();
+  $('#nextStep').textContent= step<st.length-1?'Volgende ▶':(vs.indexOf(scr)<vs.length-1?'Volgend scherm ▶':'Einde');
+  $('#nextStep').disabled= step>=st.length-1 && vs.indexOf(scr)===vs.length-1;
+  $('#prevStep').disabled= step===0 && vs.indexOf(scr)===0;
+}
+function go(i,s=0){ scr=i; step=s; renderScreen(); }
+function nextStep(){ const st=stepsOf(scr); if(step<st.length-1){step++;renderStep();} else nextScr(); }
+function prevStep(){ if(step>0){step--;renderStep();} else { const vs=visibleScreens(), k=vs.indexOf(scr); if(k>0) go(vs[k-1], stepsOf(vs[k-1]).length-1); } }
+function nextScr(){ const vs=visibleScreens(), k=vs.indexOf(scr); if(k<vs.length-1) go(vs[k+1]); }
+function prevScr(){ const vs=visibleScreens(), k=vs.indexOf(scr); if(k>0) go(vs[k-1]); }
+
+$('#nextStep').onclick=nextStep; $('#prevStep').onclick=prevStep; $('#nextScr').onclick=nextScr; $('#prevScr').onclick=prevScr;
+$('#chips').addEventListener('click',e=>{const b=e.target.closest('.chip'); if(b) go(+b.dataset.i);});
+stage.addEventListener('click',nextStep);
+function setLevel(v){
+  vwo=v; $('#lvVwo').setAttribute('aria-pressed',v); $('#lvHavo').setAttribute('aria-pressed',!v);
+  try{localStorage.setItem('niveau',v?'vwo':'havo');}catch(e){}
+  if(!vwo&&screens[scr].vwo){ let i=scr; while(i<screens.length&&screens[i].vwo) i++; scr=i<screens.length?i:visibleScreens().slice(-1)[0]; step=0; }
+  step=Math.max(0,Math.min(step,stepsOf(scr).length-1)); renderScreen();
+}
+$('#lvHavo').onclick=()=>setLevel(false); $('#lvVwo').onclick=()=>setLevel(true);
+function toggleLabels(){ nolabels=!nolabels; stage.classList.toggle('nolabels',nolabels); $('#lblBtn').setAttribute('aria-pressed',nolabels); $('#lblBtn').textContent=nolabels?'Labels tonen':'Labels verbergen'; }
+$('#lblBtn').onclick=toggleLabels;
+function toggleVragen(){ const uit=document.body.classList.toggle('zonder-vragen'); $('#vrBtn').setAttribute('aria-pressed',!uit); $('#vrBtn').textContent=uit?'Vragen verborgen':'Vragen tonen'; }
+$('#vrBtn').onclick=toggleVragen;
+function presenteer(aan){
+  document.body.classList.toggle('presenteer',aan);
+  if(aan){ const el=document.documentElement; if(el.requestFullscreen&&!document.fullscreenElement) el.requestFullscreen().catch(()=>{}); }
+  else if(document.fullscreenElement&&document.exitFullscreen) document.exitFullscreen().catch(()=>{});
+  setTimeout(()=>{ if(screens[scr].canvas) renderStep(); },60);
+}
+$('#presBtn').onclick=()=>presenteer(true); $('#stopPres').onclick=()=>presenteer(false);
+document.addEventListener('fullscreenchange',()=>{ if(!document.fullscreenElement&&document.body.classList.contains('presenteer')) presenteer(false); });
+document.addEventListener('keydown',e=>{
+  if(/INPUT|TEXTAREA|SELECT/.test(e.target.tagName)||e.ctrlKey||e.metaKey||e.altKey) return;
+  const inKnop=e.target.tagName==='BUTTON'||e.target.tagName==='SUMMARY';
+  if(e.key==='ArrowRight'||e.key==='PageDown'||(e.key===' '&&!inKnop)){e.preventDefault();nextStep();}
+  else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();prevStep();}
+  else if(e.key==='ArrowDown'){e.preventDefault();nextScr();}
+  else if(e.key==='ArrowUp'){e.preventDefault();prevScr();}
+  else if(e.key==='Home'){go(visibleScreens()[0]);} else if(e.key==='End'){go(visibleScreens().slice(-1)[0]);}
+  else if(e.key.toLowerCase()==='l'){toggleLabels();}
+  else if(e.key.toLowerCase()==='v'){toggleVragen();}
+  else if(e.key.toLowerCase()==='f'){presenteer(!document.body.classList.contains('presenteer'));}
+  else if(e.key==='Escape'&&document.body.classList.contains('presenteer')){presenteer(false);}
+  else if(/^[1-9]$/.test(e.key)){const vs=visibleScreens(), i=+e.key-1; if(i<vs.length) go(vs[i]);}
+});
+document.addEventListener('themawissel',()=>{ if(screens[scr].canvas) renderStep(); });
+setLevel(vwo);
+addEventListener('resize',()=>{ if(screens[scr].canvas) renderStep(); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+Basis: huidige (oude) vork. Aangepast: alleen de plek van de helicase. Die zat als losse tros naast de vork en staat nu als ring óp de bovenste matrijsstreng, 1,8 bp vóór het splitspunt (st.hOff). Fout bevestigd: de replicatieve helicase is een ring van zes eiwitten om één streng (Meagher e.a. 2019 Nat Commun; DnaB-artikel: 'the lagging strand binds in the central channel').
+Het uiterlijk van de helicase komt uit helicasering-primase-ligase DEF (C): die moet mee ingebouwd zijn. Polymerase, primase, ligase en het DNA-tekenwerk zijn ongewijzigd (oude versie).
+Eiwitten in lintstijl: de helicase (via helicaseRing C). Gaat later om naar de kralenketen.

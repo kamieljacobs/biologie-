@@ -1,0 +1,106 @@
+<!doctype html><html><head><meta charset="utf-8"><style>body{margin:0;background:#000}</style>
+<link rel="stylesheet" href="fonts.css">
+<script src="lib.js"></script><script src="lib_voeding.js"></script><script src="lib_cast.js"></script><script src="lib_anatomie.js"></script>
+<script src="lib_micro_evo.js"></script><script src="lib_bio.js"></script><script src="teken_celdeling.js"></script>
+</head><body><canvas id="c" width="1920" height="1080"></canvas>
+<script>
+const ctx=document.getElementById('c').getContext('2d');
+function kast(s){ ctx.save(); ctx.font=fTekst(44,700); const lines=[]; let l=''; s.split(' ').forEach(w=>{ const t=l?l+' '+w:w; if(ctx.measureText(t).width>1500){lines.push(l);l=w;} else l=t; }); lines.push(l);
+  const w=Math.max(...lines.map(x=>ctx.measureText(x).width))+64, h=lines.length*56+28; roundRect(ctx,960-w/2,1040-h,w,h,12); ctx.fillStyle=rgba(C.kast,0.9); ctx.fill();
+  lines.forEach((x,i)=>text(ctx,x,960,1040-h+60+i*56,fTekst(44,700),C.text,'center')); ctx.restore(); }
+function hoek(s){ metaText(ctx,s,60,46,C.text2,'left',22); }
+function micro(){ ctx.fillStyle=C.bgMicro; ctx.fillRect(0,0,W,H); }
+function schema(){ ctx.fillStyle=C.bgSchema; ctx.fillRect(0,0,W,H); }
+const SC={};
+
+// K1 · s13 'rolt elk chromosoom zich heel strak op' — dezelfde draden condenseren; het gevolgde paar in teal/oker
+SC.k1=()=>{ micro(); hoek('havo · vwo · cel 3/3');
+  const kl=i=> i===0?CD.vader: i===1?CD.moeder: '#7E6FB0';
+  ctx.fillStyle=C.bgMicro; kernChromatine(ctx,700,470,330,{c:0.62,seed:4,kleuren:kl,membraan:0.55});
+  naamBij(ctx,'chromosoom van vaderskant',null,1080,250,1,'left',CD.vader); naamBij(ctx,'chromosoom van moederskant',null,1080,310,1,'left',CD.moeder);
+  // strip: zelfde paar, vier standen (morph in de film)
+  const xs=[1150,1330,1510,1690], lab=['interfase','S-fase','profase','metafase'];
+  xs.forEach((x,i)=>{ ctx.save(); ctx.beginPath(); ctx.arc(x,560,74,0,6.283); ctx.fillStyle='#18202E'; ctx.fill(); ctx.strokeStyle=rgba(C.goud,i===2?0.9:0.35); ctx.lineWidth=1.5; ctx.stroke(); ctx.clip();
+    if(i<2){ const P=[]; for(let k=0;k<26;k++){ const u=k/25; P.push([x-46+u*92+Math.sin(u*9)*8, 560+Math.sin(u*13+1)*26]); } dnaDraad(ctx,P,{w:3.2,kleur:CD.vader,donker:_cdk(CD.vader)}); if(i===1) dnaDraad(ctx,P.map(p=>[p[0]+5,p[1]+6]),{w:3.2,kleur:CD.vader,donker:_cdk(CD.vader)}); }
+    else cdChromosoom(ctx,x,560-(i===2?6:10),i===2?96:112,{w:i===2?9:14,kl:CD.vader,cen:0.38});
+    ctx.restore(); metaText(ctx,lab[i],x,668,C.text2,'center',22); });
+  metaText(ctx,'één chromosoom volgen · morph, geen wissel',1430,720,C.goud,'center',22);
+  kast('Aan het begin van de deling rolt elk chromosoom zich heel strak op.'); metaText(ctx,'schematisch · niet op schaal',W-40,H-14,C.text2,'right',22); };
+
+// K2 · s16 metafase: modelcel 2n = 4, gevolgd paar met gouden rand, trekdraden van beide polen aan elk centromeer
+function metafaseMitose(cx,cy,s,o={}){ const L=150*s, ys=[cy-250*s,cy-80*s,cy+70*s,cy+190*s]; const plx=cx-470*s, prx=cx+470*s;
+  cdCel(ctx,cx,cy,560*s,360*s,{t:1}); cdPool(ctx,plx,cy,1); cdPool(ctx,prx,cy,1);
+  ctx.save(); ctx.setLineDash([6,8]); ctx.strokeStyle=rgba(C.goud,0.5); ctx.lineWidth=1.5; ctx.beginPath(); ctx.moveTo(cx,cy-330*s); ctx.lineTo(cx,cy+330*s); ctx.stroke(); ctx.restore();
+  MODEL4.forEach((m,i)=>{ const len=cdLen(m.p,L), cen=cdCen(m.p), y=ys[i]+len*cen*0.3; const w=16*s;
+    cdDraad(ctx,plx,cy,cx-w*1.25,y); cdDraad(ctx,prx,cy,cx+w*1.25,y);
+    cdChromosoom(ctx,cx,y,len,{w,cen,kl:CD[m.k],kin:true,hl:(o.hl&&m.p==='L')?1:0}); }); return {plx,prx}; }
+SC.k2=()=>{ micro(); hoek('havo · vwo · cel 3/3'); metafaseMitose(960,450,1,{hl:1});
+  naamBij(ctx,'metafase',null,960,74,1,'center',C.goud); naamBij(ctx,'equatorvlak',null,1000,830,1,'left'); naamBij(ctx,'pool',null,490,410,1,'center');
+  naamBij(ctx,'ons paar',null,1130,240,1,'left',C.goud);
+  kast('Daar liggen ze elk voor zich op één lijn: het equatorvlak.'); metaText(ctx,'model · 2n = 4',W-40,H-14,C.text2,'right',22); };
+
+// K3 · s17 anafase: centromeer vóórop, armen slepen (V-vorm); van elk chromosoom één chromatide naar elke pool
+SC.k3=()=>{ micro(); hoek('havo · vwo · cel 3/3'); const cx=960,cy=450,L=230,ys=[160,355,510,640]; const plx=490,prx=1430, d=300;
+  cdCel(ctx,cx,cy,600,360,{t:2,insnoer:0.06}); cdPool(ctx,plx,cy); cdPool(ctx,prx,cy);
+  MODEL4.forEach((m,i)=>{ const len=cdLen(m.p,L), cen=cdCen(m.p), y=lerp(ys[i],cy,0.35); const w=16;
+    const xl=cx-d+i*6, xr=cx+d-i*6; cdDraad(ctx,plx,cy,xl-w*0.9,y,1,CD.draad,1.6); cdDraad(ctx,prx,cy,xr+w*0.9,y,1,CD.draad,1.6);
+    cdChromosoom(ctx,cx,y,len,{w,cen,kl:CD[m.k],uiteen:1,dxL:-(d-w*0.6)+i*6,dxR:(d-w*0.6)-i*6,zwaai:0.85,kin:true,hl:m.p==='L'&&m.k==='vader'?0.9:0}); });
+  // interpolaire draden tussen de polen
+  for(let k=-2;k<=2;k++) cdDraad(ctx,plx,cy,prx,cy+k*24,0.35);
+  naamBij(ctx,'anafase',null,960,74,1,'center',C.goud);
+  naamBij(ctx,'chromatide van vaderskant',null,560,860-40,1,'left',CD.vader);
+  kast('Kijk naar ons paar: van het chromosoom van vaderskant gaat één chromatide naar links en één naar rechts.'); metaText(ctx,'model · 2n = 4',W-40,H-14,C.text2,'right',22); };
+
+// K4 · s23 crossing-over in meiose I: homologen tegen elkaar, chiasma tussen de binnenste (niet-zuster)chromatiden
+SC.k4=()=>{ micro(); hoek('havo · vwo · cel 3/3'); const cx=760, y=430, L=520, w=30, cen=0.38, g=w*1.02;
+  const xs=[cx-3*g/2-6, cx-g/2-2, cx+g/2+2, cx+3*g/2+6]; // vader buiten, vader binnen, moeder binnen, moeder buiten
+  const pad=(x0,x1,uc)=>{ const P=[]; for(let i=0;i<=40;i++){ const u=i/40, yy=y-L*cen+u*L; const s=ease((u-uc+0.06)/0.12); P.push([lerp(x0,x1,s)+Math.sin(u*3)*3, yy]); } return P; };
+  cdChromatide(ctx,pad(xs[0],xs[0],2),w,[[0,1,CD.vader]]); cdChromatide(ctx,pad(xs[3],xs[3],2),w,[[0,1,CD.moeder]]);
+  cdChromatide(ctx,pad(xs[2],xs[1],0.7),w,[[0,1,CD.moeder]]); cdChromatide(ctx,pad(xs[1],xs[2],0.7),w,[[0,1,CD.vader]]);
+  [[xs[0],xs[1]],[xs[2],xs[3]]].forEach(([a,b])=>{ ctx.beginPath(); ctx.arc((a+b)/2,y,w*0.5,0,6.283); ctx.fillStyle='#2A3346'; ctx.fill(); });
+  ctx.save(); ctx.strokeStyle=C.goud; ctx.lineWidth=2.5; ctx.beginPath(); ctx.arc(cx,y-L*cen+0.7*L,w*1.5,0,6.283); ctx.stroke(); ctx.restore();
+  naamBij(ctx,'crossing-over','stukken uitwisselen',cx+120,y-L*cen+0.7*L+10,1,'left',C.goud);
+  naamBij(ctx,'van vaderskant',null,xs[0]-30,y-L*cen-20,1,'right',CD.vader); naamBij(ctx,'van moederskant',null,xs[3]+30,y-L*cen-20,1,'left',CD.moeder);
+  // eindstand van de morph (klein)
+  const ex=1500, ey=360, eL=300, ew=18; ctx.save(); ctx.beginPath(); roundRect(ctx,1300,120,420,580,16); ctx.fillStyle='#18202E'; ctx.fill(); ctx.strokeStyle=rgba(C.line,0.5); ctx.stroke(); ctx.restore();
+  cdChromosoom(ctx,ex-60,ey+40,eL,{w:ew,cen,segsL:[[0,1,CD.vader]],segsR:[[0,0.7,CD.vader],[0.7,1,CD.moeder]]});
+  cdChromosoom(ctx,ex+60,ey+40,eL,{w:ew,cen,segsL:[[0,0.7,CD.moeder],[0.7,1,CD.vader]],segsR:[[0,1,CD.moeder]]});
+  metaText(ctx,'daarna',1510,160,C.text2,'center',22); text(ctx,'elk chromosoom: één gemengde chromatide',1510,660,fTekst(26,600),C.text,'center');
+  kast('Kijk: het chromosoom van vaderskant heeft nu een stuk van moederskant, en andersom.'); metaText(ctx,'model · één paar vergroot',W-40,H-14,C.text2,'right',22); };
+
+// K5 · s27/s29 drie metafasen naast elkaar, met hetzelfde lange paar
+SC.k5=()=>{ schema(); const pan=[[340,'mitose','elk voor zich'],[960,'meiose I','als paren'],[1580,'meiose II','elk voor zich, n']];
+  pan.forEach(([x,t,s],k)=>{ roundRect(ctx,x-290,120,580,640,18); shape(ctx,'#202E48',rgba(C.line,0.6),1.2);
+    text(ctx,t,x,190,fTitel(48),k===1?C.goud:C.text,'center'); metaText(ctx,s,x,230,C.text2,'center',22);
+    ctx.save(); ctx.setLineDash([5,7]); ctx.strokeStyle=rgba(C.goud,0.5); ctx.beginPath(); ctx.moveTo(x,270); ctx.lineTo(x,720); ctx.stroke(); ctx.restore();
+    cdPool(ctx,x-240,500,0.9); cdPool(ctx,x+240,500,0.9); const w=13, L=190;
+    if(k===0){ [['vader',360],['moeder',560]].forEach(([kk,y])=>{ cdDraad(ctx,x-240,500,x-16,y); cdDraad(ctx,x+240,500,x+16,y); cdChromosoom(ctx,x,y,L*0.62,{w,kl:CD[kk],kin:true}); }); }
+    if(k===1){ const y=470; cdDraad(ctx,x-240,500,x-58,y); cdDraad(ctx,x+240,500,x+58,y);
+      cdChromosoom(ctx,x-34,y,L,{w,segsL:[[0,1,CD.vader]],segsR:[[0,0.7,CD.vader],[0.7,1,CD.moeder]]}); cdChromosoom(ctx,x+34,y,L,{w,segsL:[[0,0.7,CD.moeder],[0.7,1,CD.vader]],segsR:[[0,1,CD.moeder]]}); }
+    if(k===2){ const y=470; cdDraad(ctx,x-240,500,x-16,y-110); cdDraad(ctx,x+240,500,x+16,y-110); cdDraad(ctx,x-240,500,x-16,640); cdDraad(ctx,x+240,500,x+16,640); cdChromosoom(ctx,x,y-110,L,{w,segsL:[[0,1,CD.vader]],segsR:[[0,0.7,CD.vader],[0.7,1,CD.moeder]],kin:true}); cdChromosoom(ctx,x,640,L*0.62,{w,kl:CD.moeder,kin:true}); }
+  });
+  text(ctx,'zelfde paar · mitose: 2n · meiose I: paren uit elkaar · meiose II: chromatiden uit elkaar',960,820,fTekst(32,600),C.text2,'center');
+  kast('Zet de mitose en de twee delingen van de meiose naast elkaar.'); };
+
+// T1 · hoofdstukkaart 'Deel 2 · Meiose' (indeling in twee delen)
+SC.t1=()=>{ schema(); metaText(ctx,'deel 2 · hoofdstuk 5',160,380,C.goud,'left',28); text(ctx,'Meiose',160,480,fTitel(96),C.text,'left');
+  text(ctx,'Hoe maak je een cel met de helft van de chromosomen?',160,560,fTekst(48,500),C.text2,'left');
+  metaText(ctx,'deel 1 · celcyclus en mitose  ✓',160,700,C.text2,'left',24); metaText(ctx,'havo · vwo · cel 3/3',W-80,60,C.text2,'right',24);
+  // klein beeld: één cel → vier
+  const x0=1560,y0=760; cdCel(ctx,x0,y0,90,90,{}); [[1730,690],[1730,830],[1830,690],[1830,830]].forEach(([x,y])=>cdCel(ctx,x,y,46,46,{seed:x+y}));
+  ctx.strokeStyle=C.line; ctx.lineWidth=1.5; ctx.beginPath(); ctx.moveTo(1660,760); ctx.lineTo(1690,760); ctx.stroke(); };
+
+// T2 · x01/x02 tijdlijn met Noors familie: Ria zwanger van Linda → Linda 27, eicel → Noor (16)
+SC.t2=()=>{ schema(); ctx.fillStyle=C.oker; ctx.fillRect(0,0,6,H); metaText(ctx,'extra uitdaging',60,46,C.oker,'left',24);
+  const yb=640; ctx.strokeStyle=C.line; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(180,yb+40); ctx.lineTo(1760,yb+40); ctx.stroke();
+  persoon(ctx,'ria',330,yb,330,{outfit:'vroeger',zwanger:0.85,uit:'blij',t:1}); persoon(ctx,'linda',1080,yb,340,{outfit:'zwanger',zwanger:0,uit:'blij',t:2,kijk:1}); persoon(ctx,'noor',1600,yb,330,{uit:'blij',t:3,kijk:-1});
+  [[330,'± 45 jaar geleden','oma Ria zwanger van Linda'],[1080,'± 17 jaar geleden','Linda 27: eisprong'],[1600,'nu','Noor 16']].forEach(([x,a,b])=>{ metaText(ctx,a,x,yb+82,C.text2,'center',22); text(ctx,b,x,yb+122,fTekst(32,600),C.text,'center'); });
+  // balk: meiose staat stil
+  const y=150; roundRect(ctx,420,y-18,640,36,18); shape(ctx,rgba(C.paars,0.35),C.paars,1.5); text(ctx,'meiose I staat stil · ± 27 jaar',740,y+10,fTekst(30,700),C.text,'center');
+  // oöcyt-icoontjes
+  eicelEcht(ctx,420,y,22,1,false); eicelEcht(ctx,1080,y,30,1,true);
+  naamBij(ctx,'oöcyt',null,420,y+68,1,'center'); naamBij(ctx,'eicel bij de eisprong','stil in meiose II',1300,y+12,1,'left');
+  kast('Linda was zevenentwintig toen er een eicel vrijkwam waaruit Noor zou groeien.'); metaText(ctx,'niet op schaal',W-40,H-14,C.text2,'right',22); };
+
+window.teken=(id)=>{ SC[id](); return true; };
+</script></body></html>

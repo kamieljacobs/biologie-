@@ -1,0 +1,160 @@
+[
+ {
+  "obj": "armanatomie",
+  "keuze": "A",
+  "functies": [
+   "armAnatomie"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Optie o.romp (dunne romplijnen) weghalen zoals in C, of laten staan?"
+ },
+ {
+  "obj": "armmodel",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Huidige armModel roept pijl() aan die niet in lib_bio.js staat (ReferenceError bij trekV/trekA zonder lib_dieren.js). Eigen _armPijl uit A erin?"
+ },
+ {
+  "obj": "bloedvat-rodebloedcel",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "darmwand",
+  "keuze": "A",
+  "functies": [
+   "darmwand"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "gewrichtdoorsnede-botdoorsnede-botweefsel",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "hoofdhersenen",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "huiddoorsnede",
+  "keuze": "gelijk",
+  "functies": [
+   "huidDoorsnede"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": "Ook de haarvatlus met losse rode bloedcellen uit C overnemen?"
+ },
+ {
+  "obj": "hypofysepoort",
+  "keuze": "A",
+  "functies": [
+   "hypofysePoort"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "levervoor",
+  "keuze": "oud",
+  "functies": [],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "nierbijnier",
+  "keuze": "A",
+  "functies": [
+   "nierBijnier"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "sarcomeer-myofibril",
+  "keuze": "oud",
+  "functies": [],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "spierdwars-eenheidzenuw-spierspoeltje",
+  "keuze": "C",
+  "functies": [
+   "spierDwars",
+   "spierspoeltje"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "spiervezel-spierbundel",
+  "keuze": "oud",
+  "functies": [
+   "spierVezel",
+   "spierBundel"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": "Moet de vezel bij samentrekken ook zichtbaar dikker worden (maar één indirecte bron gevonden)?"
+ },
+ {
+  "obj": "vetcel-vetweefsel",
+  "keuze": "oud",
+  "functies": [
+   "vetweefsel"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": ""
+ }
+]

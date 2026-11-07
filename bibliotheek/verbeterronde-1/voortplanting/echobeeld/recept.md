@@ -1,0 +1,3 @@
+- Echo van ± 20 weken in de waaiervorm: schedel als heldere ring, profiel, wervelkolom, kloppend hart, armpje met handje bij het gezicht.
+- Alles in echokorrel (grijs/wit op zwart), niet getekend met lijnen.
+- Het handje is een klein vuistje met vingertjes; het lijf loopt zacht uit in de korrel.

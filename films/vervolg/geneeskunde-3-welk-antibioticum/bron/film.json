@@ -1,0 +1,79 @@
+{
+ "slug": "geneeskunde-3-welk-antibioticum",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Welk antibioticum?",
+ "sub": "kweek, antibiogram en de keuze van de arts",
+ "puzzle": "Waarom kiest een arts liever een smal antibioticum dan een middel dat bijna alles doodt?",
+ "meta": "geneeskunde · farmacie",
+ "alleen": "vwo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Geneeskunde en Farmacie",
+ "lead": "Noor heeft een blaasontsteking, door een bacterie. Een antibioticum grijpt aan op iets wat alleen de bacterie heeft: de celwand, de ribosomen of het kopiëren van het DNA. Daarom spaart het jouw cellen, en helpt het niet tegen een virus. Werkt het eerste middel niet, dan kweekt het lab de bacterie en maakt een antibiogram: rond een schijfje zonder heldere ring is de bacterie resistent. De arts kiest zo smal en zo kort als het kan, want een breed middel selecteert resistente bacteriën in je darm. In het ziekenhuis werken arts, microbioloog en apotheker samen om resistente bacteriën zoals MRSA buiten de deur te houden.",
+ "endHaak": "zou jij liever in de spreekkamer, in het lab of in de apotheek werken?",
+ "minis": {
+  "Hoofdstuk 1": "Waarom spaart een antibioticum jouw cellen?",
+  "Hoofdstuk 2": "Wat betekent een schijfje zonder heldere ring?",
+  "Hoofdstuk 3": "Waarom niet meteen het breedste middel?",
+  "Hoofdstuk 4": "Waarom wordt iemand uit een buitenlands ziekenhuis eerst apart verpleegd?",
+  "Recap": "Hoe werd Noor toch beter?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Noor (patiënt) en Dr. Kim (huisarts) (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Noor heeft een blaasontsteking door een bacterie. Welk middel kiest Dr. Kim het liefst?",
+   "correct": 1,
+   "explain": "Een smal middel tegen de bacteriën die blaasontsteking geven. Zo raak je zo min mogelijk andere bacteriën, en krijgen resistente bacteriën minder kans."
+  },
+  "q06": {
+   "q": "Rond één schijfje op de voedingsbodem is geen heldere ring te zien. Wat betekent dat?",
+   "correct": 2,
+   "explain": "De bacteriën groeien tot tegen het schijfje aan: het middel remt ze niet. De bacterie is resistent tegen dat middel."
+  },
+  "q10": {
+   "q": "Een patiënt uit een buitenlands ziekenhuis wordt eerst apart verpleegd en getest op MRSA. Wat is daarvan het belangrijkste doel?",
+   "correct": 0,
+   "explain": "Voorkomen dat de bacterie naar andere patiënten gaat. Wie MRSA bij zich draagt is vaak niet ziek, maar kan anderen via handen en materialen besmetten."
+  }
+ },
+ "glossary": [
+  {
+   "t": "antibioticum",
+   "d": "Middel dat bacteriën doodt of hun groei remt door aan te grijpen op iets wat alleen bacteriën hebben, zoals de celwand, de bacteriële ribosomen of het kopiëren van het DNA. Werkt niet tegen virussen."
+  },
+  {
+   "t": "celwand (bacterie)",
+   "d": "Stevige laag om het celmembraan van een bacterie. Penicilline verstoort de bouw ervan, waardoor de bacterie knapt. Menselijke cellen hebben geen celwand."
+  },
+  {
+   "t": "breed en smal antibioticum",
+   "d": "Een breed middel werkt tegen veel soorten bacteriën, ook nuttige in je darm; een smal middel tegen een beperkt aantal soorten. Artsen kiezen zo smal en zo kort als het kan."
+  },
+  {
+   "t": "kweek",
+   "d": "Bacteriën uit bijvoorbeeld urine laten groeien op een voedingsbodem, zodat het lab kan zien welke bacterie het is en waartegen die gevoelig is."
+  },
+  {
+   "t": "kolonie",
+   "d": "Zichtbaar hoopje bacteriën op een voedingsbodem, gegroeid uit één of een paar bacteriën."
+  },
+  {
+   "t": "antibiogram",
+   "d": "Overzicht van de middelen waartegen een gekweekte bacterie gevoelig of resistent is, bijvoorbeeld gemaakt met schijfjes met antibiotica en de heldere ringen eromheen."
+  },
+  {
+   "t": "resistentie",
+   "d": "Een bacterie is resistent als een antibioticum haar niet meer remt. De bacterie wordt resistent, niet de mens; een antibioticum selecteert resistente bacteriën die er toevallig al waren."
+  },
+  {
+   "t": "MRSA",
+   "d": "Staphylococcus aureus die resistent is tegen de gewone middelen uit de penicillinegroep. Dragers zijn vaak niet ziek, maar kunnen anderen besmetten; in Nederland wordt hij actief opgespoord."
+  },
+  {
+   "t": "apotheker",
+   "d": "Zorgverlener die controleert of een middel en de dosis passen bij de patiënt, bijvoorbeeld bij andere medicijnen en bij hoe goed de nieren werken."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Penicilline doodt veel bacteriën, maar laat jouw eigen cellen met rust. Leg dit uit. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Penicilline verstoort de bouw van de celwand, waardoor de bacterie knapt (1p). Menselijke cellen hebben geen celwand, dus daar is niets om aan te grijpen (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Een vriend met griep vraagt de huisarts om een antibioticum. Leg uit waarom de huisarts dat niet geeft. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Griep wordt veroorzaakt door een virus (1p). Een virus heeft geen celwand en geen eigen ribosomen, dus een antibioticum heeft niets om aan te grijpen (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Op een voedingsbodem liggen drie schijfjes. Rond schijfje A is een ring van 25 mm zonder bacteriën, rond B een ring van 8 mm, rond C geen ring. De grens voor 'gevoelig' is bij A en B 15 mm. Welk middel kies je, en waarom niet de andere twee? <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Middel A: de ring is groter dan de grens, dus de bacterie is gevoelig (1p). Bij B is de ring kleiner dan de grens: de bacterie wordt wel wat geremd, maar telt als niet gevoelig (1p). Bij C groeien de bacteriën tot tegen het schijfje: resistent (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Iemand zegt: 'Ik slik niet te vaak antibiotica, anders word ik er resistent tegen.' Wat klopt hier niet, en wat is wél het risico van vaak een breed antibioticum slikken? <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Niet de mens wordt resistent, maar de bacteriën (1p). Een breed middel doodt ook de gevoelige bacteriën in je darm (1p); bacteriën die toevallig resistent zijn blijven over, krijgen de ruimte en vermenigvuldigen zich (selectie) (1p).</p></details></div>\n<div class=\"q\"><p><b>5.</b> Een oudere patiënt met slecht werkende nieren krijgt een antibioticum voorgeschreven. De apotheker belt de arts over de dosis. Leg uit waarom. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Veel antibiotica worden via de nieren uitgescheiden (1p). Werken de nieren slecht, dan blijft het middel langer en in hogere concentratie in het bloed, met meer kans op bijwerkingen; de dosis moet dan omlaag of er moet een ander middel komen (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Extra film buiten het PTA op <i>Wat word jij?</i>, gedeeld door Geneeskunde en Farmacie. Bouwt voort op <i>Selectie van dichtbij</i> (resistentie als natuurlijke selectie), <i>Je darmbewoners</i> (darmflora), <i>Van DNA naar eiwit</i> (ribosomen) en <i>T-cellen en virussen</i> (virus zonder eigen stofwisseling). Rode draad: Noor (patiënt) met een blaasontsteking bij Dr. Kim (huisarts). Het lab en de apotheek staan zonder personen in beeld: je ziet het werk aan de voorwerpen (voedingsbodem, schijfjes, doosjes, controle op medicijnen en nierfunctie).</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>Cold open</b> Noor bij de huisarts, drie doosjes (breed, smal, nieuwste): misconceptie 'breed is beter'.</li>\n<li><b>H1</b> drie aangrijpingspunten in één bacterie (celwand, ribosoom, DNA) tegenover een ronde mensencel zonder celwand en met grotere ribosomen; het virus heeft geen van beide.</li>\n<li><b>H2</b> eerst blind kiezen (E. coli), na drie dagen geen verbetering: kweek op een voedingsbodem, schijfjes, heldere ringen; een ring onder de grens of geen ring = resistent; samen het antibiogram.</li>\n<li><b>H3</b> breed tegenover smal in de darm: selectie van een toevallig resistente bacterie; 'niet jij wordt resistent'; Nederland schrijft weinig voor.</li>\n<li><b>H4</b> MRSA: apart verplegen, kweek uit neus en keel, handen ontsmetten; de apotheker controleert wisselwerkingen en nierfunctie.</li>\n<li><b>Recap</b> tweede smalle kuur op basis van het antibiogram; opleidingen.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Onderwerp</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Blaasontsteking: verwekker en eerste keus</td><td>meestal E. coli uit de eigen darm; huisarts kiest zonder kweek een smal middel dat vooral in de blaas terechtkomt, zo kort als het kan; kweek als de klachten aanhouden</td><td>NHG-standaard Urineweginfecties (M05): nitrofurantoïne 5 dagen eerste keus, fosfomycine eenmalig tweede keus; urinekweek bij falen van de behandeling</td></tr>\n<tr><td>Antibiogram</td><td>per middel een grens voor de diameter van de heldere ring</td><td>EUCAST-breekpunten (klinische breekpunten en zonediameters per middel en bacteriesoort; in Nederland gebruikt door de medisch-microbiologische labs)</td></tr>\n<tr><td>Laag gebruik, weinig resistentie</td><td>Nederland schrijft weinig antibiotica voor; resistentie zeldzamer dan in de meeste landen</td><td>NethMap (SWAB en RIVM, jaarlijks): 8,8 tegen 18,3 DDD per 1000 inwoners per dag buiten het ziekenhuis, het laagste van Europa (ESAC-Net 2023)</td></tr>\n<tr><td>MRSA-beleid</td><td>patiënt uit buitenlands ziekenhuis apart verplegen en screenen (neus, keel)</td><td>WIP/SRI-richtlijn MRSA (RIVM): 'search and destroy', screening van risicopatiënten in isolatie tot de uitslag bekend is; MRSA bij ongeveer 2–4 % van de S. aureus-isolaten (2 % in bloedkweken; NethMap 2025, cijfers 2024, <a href=\"https://www.rivm.nl/bibliotheek/rapporten/2025-0122.pdf\">RIVM-rapport 2025-0122</a>)</td></tr>\n<tr><td>Opleidingen</td><td>geneeskunde (6 jaar) en farmacie (bachelor + master, 6 jaar); analist mbo of hbo</td><td>studiekeuze123.nl; bv. Radboud (geneeskunde), Utrecht of Groningen (farmacie), HAN (Biologie en Medisch Laboratoriumonderzoek)</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul><li>Penicilline remt de enzymen die de peptidoglycaanlaag dwars verbinden; de bacterie knapt vooral als ze groeit en deelt. De film zegt 'verstoort de bouw'.</li>\n<li>Ribosomen van bacteriën (70S) en mensen (80S) verschillen; mitochondriën hebben bacterie-achtige ribosomen, wat sommige bijwerkingen verklaart. Niet in de film.</li>\n<li>Middelen tegen het kopiëren van DNA (zoals fluorochinolonen) remmen bacteriële enzymen als DNA-gyrase; nitrofurantoïne zelf grijpt op meerdere plekken aan. De film koppelt geen middel aan een aangrijpingspunt behalve penicilline.</li>\n<li>Veel labs bepalen de gevoeligheid tegenwoordig ook geautomatiseerd (MIC-bepaling); de schijfjesmethode is de klassieke, zichtbare variant.</li>\n<li>Bij MRSA-screening worden naast neus en keel ook perineum en wondjes bemonsterd.</li>\n<li>Voor het oog verschilt een smal en een breed middel in de film alleen in wat ze raken; in werkelijkheid spelen ook de plek waar het middel komt (urine), bijwerkingen en zwangerschap mee.</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Stel de cold-openvraag vóór de film en laat leerlingen hun keuze beargumenteren; kom er na H3 op terug.</li>\n<li>Laat leerlingen een (getekende of echte) antibiogramschaal 'aflezen' met een liniaal en een tabel met grenzen: gevoelig of resistent?</li>\n<li>Rollenspel: één leerling is huisarts, één analist, één apotheker; ieder legt in twee zinnen uit wat hij bij Noor doet.</li></ul>\n</section>\n"
+}

@@ -1,0 +1,4 @@
+Basis: variant A.
+Kamiels vraag 'klopt dit wel?': ja, op hoofdlijnen. Rechte, onvertakte ketens van glucose met β-1,4-bindingen, elke tweede glucose 180° gedraaid, evenwijdige ketens die met waterstofbruggen samen een microfibril vormen (biotopics.co.uk; Pearson Biochemistry; WOU, zie bron.md). Een echte microfibril heeft wel veel meer ketens naast elkaar; dit is een doorsnede van 2–3.
+Aangepast (Kamiels wens): (1) het groene vak om de vezel is weg; in het echt zit er geen omhulsel om. (2) Het omdraaien van elke tweede glucose is nu te zien aan de CH2OH-zijtak (kort steeltje met bolletje in dezelfde oker), die afwisselend boven en onder de keten steekt, naast het teal zuurstofbruggetje dat al wisselde. Het stipje in de ring is weg. (3) De waterstofbruggen zijn kort en recht, van een zijtak naar de buurketen; daardoor rustiger.
+Optie `col` (kleur van de vezelrand) doet niets meer; oude aanroepen blijven werken.

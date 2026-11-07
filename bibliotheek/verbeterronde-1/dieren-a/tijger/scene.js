@@ -1,0 +1,1 @@
+SCENE = { s0: 1, f: (c,x,y,s,o)=>tijger(c,x,y,s,o), groot: {"houding":"galop","t":0.1}, ijkOok: ["A"], standen: [{"houding":"galop","t":0.05}, {"houding":"galop","t":0.3}, {"houding":"galop","t":0.7}], klein: {"houding":"galop","t":0.45} };

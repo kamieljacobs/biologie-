@@ -1,0 +1,15 @@
+{
+ "s16": {
+  "node": "AfewTdzTU2okXeR6bR0G",
+  "sess": "aqbNPGHutAuwzgQIPNP2",
+  "cr": 528,
+  "gen": "Z5JYWbM9zpxEqbyJqeGw",
+  "url": "https://storage.googleapis.com/xi-backend/database/workspace/cadc1984391b4492ae7f5bb174230348/content_generation/aqbNPGHutAuwzgQIPNP2/Z5JYWbM9zpxEqbyJqeGw/content.mp3?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=xi-backend-prod%40xi-labs.iam.gserviceaccount.com%2F20261019%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20261019T111744Z&X-Goog-Expires=7200&X-Goog-SignedHeaders=host&X-Goog-Signature=4a06dbdfaa9e8b466b9396d86110d01c4d1525fb69660f6ed14a0c1598a3935e42c019a3c01da46c8df041a18b44880f4ec23f6c3f3200711ecd39ca8d6eadc30450827e60f1d26cdbb20f20442ea8fcd9f594878877f7c27b5ba31646992a9f4684f0391626ecfbb5d1514039e9749df969b468318b088634573b6b0180a385c28705858f6843271c9f5c8a9f1e56a2a9ea1a4de44ab4d5e7ce2dc9054cf4ceb59e8e59550fa41053f5573c5393f9c3f05dbc3f42ba27476cfb4716cf75b8129157f98951f25d9cca29ddfce534afd01aef37c92fd204842d6a602ffc1fd894691abb9436fe873f4610c27ce8a13b8bea9ae7002eff94a6588ad0dbbd3d0799",
+  "tts_dur": 38.64,
+  "stt_gen": "qOMmJsDywIibb2AAsMwG",
+  "voice": "Voor vwo: de regelkring heeft eigenlijk twee verdiepingen. De hiepo-taalamus geeft TRH af, een releasing hormoon. TRH zet de hypofyse aan om TSH af te geven. TSH zet de schildklier aan om thyroxine te maken. Thyroxine remt zowel de hypofyse als de hiepo-taalamus. Zo is er terugkoppeling op twee niveaus. Een voorbeeld. Bij de ziekte van Graves maakt het afweersysteem antistoffen die precies op de TSH-receptor van de schildklier passen. Ze zetten die receptor aan, net als TSH. Wat meet een arts dan in het bloed? Wat denk je?",
+  "flow": "urmsa8zcNa5TFq8SVeBI",
+  "model": "eleven_v4",
+  "datum": "2026-10-19"
+ }
+}

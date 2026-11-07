@@ -1,0 +1,84 @@
+{
+ "slug": "bioinformatica-2-miljoenen-varianten",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Miljoenen varianten",
+ "sub": "welke maakt ziek?",
+ "puzzle": "Een meisje van vier leerde laat lopen en praat nog bijna niet. In haar DNA zitten miljoenen verschillen. Hoe vind je de ene die verklaart waarom?",
+ "meta": "bio-informatica · hbo en wo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Bio-informatica",
+ "lead": "Sam loopt een dag mee met Dr. Kim, klinisch geneticus. Het DNA van een meisje van vier en haar ouders is gelezen; een computer legt de stukjes tegen het referentiegenoom en vindt ruim vier miljoen varianten. Dat is normaal: de meeste doen niets. Een algoritme filtert: verandert de variant het eiwit, is hij zeldzaam in een databank, past hij bij de familie? Zo blijft er één nieuwe variant over, de novo. Maar het gen is weinig onderzocht: een variant met onbekende betekenis, geen diagnose. Bij veelvoorkomende ziekten zoek je met een GWAS naar heel veel kleine effecten, met een veel strengere grens, en tel je ze op tot een polygene risicoscore: een kans, geen diagnose.",
+ "endHaak": "hoe volg je een virus van mens tot mens?",
+ "minis": {
+  "Hoofdstuk 1": "Is iemand met miljoenen varianten ziek?",
+  "Hoofdstuk 2": "Hoe maak je van ruim vier miljoen varianten er een paar?",
+  "Hoofdstuk 3": "Wat zeg je als de laatste variant een onbekende betekenis heeft?",
+  "Hoofdstuk 4": "Wat gebeurt er als je een miljoen keer test?",
+  "Recap": "Hoe vind je de ene variant?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Sam en Dr. Kim (castboek); de ouders zijn figuranten zonder naam. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q05": {
+   "q": "De lijst van het meisje is ruim vier miljoen regels lang. 'Is ze daarom ziek?' vraagt Sam. Wat denk je?",
+   "correct": 1,
+   "explain": "Ieder mens verschilt op vier tot vijf miljoen plekken van het referentiegenoom, en de meeste varianten doen niets. Een variant is een verschil, geen fout."
+  },
+  "q10": {
+   "q": "Vader en moeder zijn gezond. Hoeveel eiwitvarianten heeft het meisje die geen van haar ouders heeft?",
+   "correct": 2,
+   "explain": "Elk kind heeft tientallen nieuwe veranderingen die ontstonden in de zaadcel of de eicel. In de eiwitcode zijn het er meestal één of twee: de-novovarianten."
+  },
+  "q15": {
+   "q": "De laatste variant heeft een onbekende betekenis. 'Is dit het nu?' vraagt de vader. Wat vertelt Dr. Kim?",
+   "correct": 1,
+   "explain": "Overblijven is geen bewijs: een variant met onbekende betekenis is geen diagnose. Je kiest er geen behandeling op. Maar het is ook niet 'er is niets': we weten het nog niet."
+  },
+  "q20": {
+   "q": "Je test een miljoen plekken, maar geen enkele plek doet iets. Hoeveel treffers krijg je met de grens 0,05 door toeval?",
+   "correct": 2,
+   "explain": "0,05 × 1 000 000 = 50 000. Daarom gebruikt een GWAS een veel strengere grens: 0,05 gedeeld door een miljoen."
+  },
+  "q23": {
+   "q": "Hoe goed werkt een polygene risicoscore bij iemand met Afrikaanse voorouders?",
+   "correct": 0,
+   "explain": "De meeste deelnemers aan GWAS hebben Europese voorouders. De gemeten plek is vaak de buurman van de oorzaak, en welke buren samen overerven verschilt per afkomst. Daardoor voorspelt de score minder goed."
+  }
+ },
+ "glossary": [
+  {
+   "t": "variant",
+   "d": "Een plek waar iemands DNA afwijkt van het referentiegenoom. Ieder mens heeft er vier tot vijf miljoen; de meeste doen niets. Een variant is een verschil, geen fout."
+  },
+  {
+   "t": "referentiegenoom",
+   "d": "Een afgesproken voorbeeldgenoom waarmee je iemands DNA vergelijkt."
+  },
+  {
+   "t": "algoritme",
+   "d": "Een vast stappenplan dat een computer uitvoert, zoals de filters die van miljoenen varianten er een paar overhouden."
+  },
+  {
+   "t": "databank",
+   "d": "Een openbare verzameling van sequenties met wat erover bekend is, waarin iedereen kan zoeken. Hier: het DNA van honderdduizenden mensen, om te zien hoe vaak een variant voorkomt."
+  },
+  {
+   "t": "de novo",
+   "d": "Een nieuwe variant die bij geen van de ouders voorkomt. Hij ontstond in de zaadcel of de eicel en zit daardoor in elke cel van het kind."
+  },
+  {
+   "t": "variant met onbekende betekenis",
+   "d": "Een variant waarvan het lab nog niet weet of hij onschuldig of ziekmakend is (het middelste van vijf klassen). Ouders horen dan: een onduidelijke uitslag. Het is geen diagnose."
+  },
+  {
+   "t": "GWAS (genoombrede associatiestudie)",
+   "d": "Onderzoek waarin je bij duizenden mensen met en zonder een ziekte ongeveer een miljoen plekken in het DNA tegelijk vergelijkt. Omdat je zo vaak test, geldt een veel strengere grens dan 0,05."
+  },
+  {
+   "t": "polygene risicoscore",
+   "d": "Optelsom van heel veel kleine effecten van varianten. Vergelijkt iemands aanleg met die van anderen: een kans, geen diagnose. Werkt minder goed bij mensen met andere voorouders dan de onderzochte groep."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Een klasgenoot zegt: 'Als je DNA op vier miljoen plekken van het referentiegenoom afwijkt, ben je vast ziek.' Leg uit waarom dat niet klopt. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Ieder mens verschilt op vier tot vijf miljoen plekken van het referentiegenoom; het referentiegenoom is een afgesproken voorbeeld, geen 'gezond' DNA (1p). De meeste varianten doen niets (bijvoorbeeld tussen genen, of zonder verandering van het aminozuur): een variant is een verschil, geen fout (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Noem de drie filters waarmee de computer de variantenlijst van het meisje verkleint, en leg bij elk filter uit waarom een variant afvalt. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Verandert de variant het eiwit (ander aminozuur of stopcodon)? Zo niet, dan valt hij af (1p). Is hij zeldzaam in een databank? Komt hij bij bijvoorbeeld één op de tien mensen voor, dan is hij te gewoon voor een zeldzame ziekte (1p). Past hij bij de familie? Heeft een gezonde ouder dezelfde variant, dan valt hij meestal af; bij een recessieve ziekte zoek je juist twee varianten in één gen, één van elke ouder (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Het meisje heeft een variant die geen van haar ouders heeft. Leg uit hoe zo'n de-novovariant ontstaat en waarom hij in elke cel van het meisje zit. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Hij ontstond als nieuwe verandering in de zaadcel of de eicel waaruit zij is ontstaan (meestal in de zaadcel) (1p). Hij zat dus al in de bevruchte eicel, en bij elke celdeling wordt het DNA gekopieerd, zodat alle cellen van het kind hem hebben (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Na het filteren blijft één variant over, maar het lab deelt hem in als 'variant met onbekende betekenis'. De vader vraagt of zijn zus zich nu ook moet laten testen. Leg uit wat Dr. Kim antwoordt, en hoe de betekenis van de variant later toch duidelijk kan worden. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Een variant met onbekende betekenis is geen diagnose; je kiest er geen behandeling op en test familie er niet op voor hun eigen gezondheid (1p). Overblijven na het filteren is geen bewijs dat hij de oorzaak is (1p). Duidelijkheid kan komen als artsen elders kinderen met hetzelfde gen en dezelfde klachten vinden (internationale koppelsite), of door nieuwe kennis en een nieuwe analyse over een paar jaar; veel van zulke varianten blijken later onschuldig (1p).</p></details></div>\n<div class=\"q\"><p><b>5.</b> In een GWAS test je ongeveer een miljoen plekken. Bereken hoeveel treffers je met de grens 0,05 door toeval verwacht als geen enkele plek iets doet, en leg uit welke grens een GWAS daarom gebruikt. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>0,05 × 1 000 000 = 50 000 toevalstreffers (1p). Daarom geldt een veel strengere grens: 0,05 gedeeld door een miljoen (5 × 10⁻⁸), zodat er gemiddeld minder dan één toevalstreffer overblijft (1p).</p></details></div>\n<div class=\"q\"><p><b>6.</b> Iemand krijgt een hoge polygene risicoscore voor hartziekte. Hij zegt: 'Dus ik krijg een hartziekte.' Geef twee redenen waarom dat niet zo is. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Twee van: een risicoscore is een kans vergeleken met anderen, geen diagnose (1p); leefstijl telt ook mee (1p); de score werkt minder goed bij mensen met andere voorouders dan de (meest Europese) deelnemers van de studies, omdat de gemeten plek vaak de buurman van de oorzaak is en die koppeling per afkomst verschilt (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Film 2 van <i>Wat word jij?</i> → Bio-informatica. Bouwt voort op <i>Mutaties</i> (eiwitverandering, mutatie in een geslachtscel komt in elke cel), <i>DNA lezen</i> (sequencen in korte stukjes), <i>Stambomen en kansrekenen</i> (recessief), <i>Wat heb jij aan DNA?</i> (veel varianten met kleine effecten, leefstijl) en <i>Toeval of echt?</i> (p-waarde, heel vaak testen). Sam (16) loopt in de hele reeks een meeloopweek; in deze film is hij een dag bij Dr. Kim, klinisch geneticus. Het meisje met een ontwikkelingsachterstand is een fictieve casus en komt niet in beeld (dossiermap, stamboomschema, kindertekening). Sam zit niet bij het uitslaggesprek: dat is privé.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>Cold open en H1</b> trio-onderzoek: bloed van kind, vader en moeder; korte stukjes DNA op hun plek tegen het referentiegenoom; een variantenlijst van ruim vier miljoen regels. De vraag 'is ze daarom ziek?' maakt duidelijk dat dat normaal is: een variant is een verschil, geen fout.</li>\n<li><b>H2</b> een trechter met drie filters: verandert het eiwit (ander aminozuur, stopcodon) → zo'n tienduizend; zeldzaam in een databank → een paar honderd; past bij de familie (de novo, recessief) → één. De-novovarianten ontstaan in zaadcel of eicel en zitten daardoor in elke cel. De film noemt eerlijk dat zo'n zoektocht bij ongeveer één op de drie kinderen de oorzaak vindt.</li>\n<li><b>H3</b> de vijf klassen; de laatste variant valt in het midden. Het uitslaggesprek (een paar weken later, zonder Sam): Dr. Kim zegt 'we weten het nog niet', niet 'er is niets'. Hoe het later duidelijk kan worden: koppelsite voor artsen, heranalyse (Radboudumc), en dat veel varianten met onbekende betekenis later onschuldig blijken.</li>\n<li><b>H4</b> van één kind naar een bevolking: GWAS met duizenden mensen, een miljoen tests, de som 0,05 × 1 000 000 = 50 000 en daarom een veel strengere grens; de treffer is vaak de buurman van de oorzaak. Polygene risicoscore als balk van kleine blokjes: een kans, geen diagnose, minder goed bij andere afkomst.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Varianten per genoom</td><td>vier tot vijf miljoen plekken; bij het meisje ruim vier miljoen</td><td>1000 Genomes Project Consortium, <i>Nature</i> 526 (2015) ('4,1 tot 5,0 miljoen plekken'); NHGRI, fact sheet <i>Human Genomic Variation</i>; Gilissen e.a., <i>Nature</i> 511 (2014)</td></tr>\n<tr><td>Varianten die het eiwit veranderen</td><td>zo'n tienduizend</td><td>1000 Genomes 2015 (10 000–12 000 per genoom); Biesecker (NHGRI), <i>Exome sequencing 101</i></td></tr>\n<tr><td>Na de zeldzaamheidsfilter</td><td>een paar honderd (orde van grootte)</td><td>Biesecker (voorbeeld 1376 → 301 → 134); Dove Medical Press, <i>Exome sequencing: what clinicians need to know</i> (400–700)</td></tr>\n<tr><td>Databank</td><td>DNA van honderdduizenden mensen</td><td>gnomAD v4.0 (Broad Institute, 2023): 807 162 personen</td></tr>\n<tr><td>Frequentiegrens</td><td>'één op de tien' is te gewoon voor een zeldzame ziekte (voorbeeldgetal)</td><td>Biesecker (recessief voorbeeld met grens 10 %)</td></tr>\n<tr><td>De-novovarianten</td><td>tientallen per kind, meest uit de zaadcel; één of twee in de eiwitcode</td><td><i>Genome Biology</i> 17 (2016), review de-novomutaties (44–82 per genoom, ± 80 % vaderlijk, één à twee coderend); Gilissen e.a. 2014</td></tr>\n<tr><td>Diagnose na trio-onderzoek</td><td>ongeveer één op de drie kinderen</td><td>Srivastava e.a., <i>Genet Med</i> 2019 (meta-analyse 36 %); Schobers e.a., <i>Genome Medicine</i> 14 (2022), Radboudumc (31 %); <i>Frontiers in Genetics</i> 2025 (1000 trio's, 39 %)</td></tr>\n<tr><td>Vijf klassen</td><td>onschuldig · waarschijnlijk onschuldig · onbekende betekenis · waarschijnlijk ziekmakend · ziekmakend</td><td>Richards e.a. (ACMG/AMP), <i>Genet Med</i> 17 (2015); NHS Genomics Education Programme, <i>VUS</i>; Erfocentrum (2025): 'onduidelijke uitslag'</td></tr>\n<tr><td>Geen behandeling, geen familietest voor de eigen gezondheid</td><td>op een variant met onbekende betekenis</td><td>NHS GEP, <i>VUS</i> ('cascade testing should not be offered'); The Jackson Laboratory, <i>Variants of uncertain significance</i></td></tr>\n<tr><td>Koppelsite</td><td>artsen met hetzelfde gen krijgen bericht</td><td>GeneMatcher, FAQ (Baylor-Hopkins Center for Mendelian Genomics); de film noemt geen naam</td></tr>\n<tr><td>Heranalyse Radboudumc</td><td>bijna een derde van de kinderen zonder diagnose kreeg er binnen vijf jaar alsnog een</td><td>Schobers e.a. 2022 (32 van 103 = 31 %); Radboudumc, nieuwsbericht 2022</td></tr>\n<tr><td>Later onschuldig</td><td>veel varianten met onbekende betekenis</td><td>Mersch e.a., <i>JAMA</i> 2018 (91 % van de herclassificaties naar (waarschijnlijk) onschuldig, bij erfelijke kanker); JAX</td></tr>\n<tr><td>GWAS</td><td>ongeveer een miljoen tests; grens 0,05 / 1 000 000</td><td>Uffelmann e.a., <i>Nat Rev Methods Primers</i> 1 (2021); Dudbridge &amp; Gusnanto, <i>Genet Epidemiol</i> 32 (2008)</td></tr>\n<tr><td>Buurman van de oorzaak</td><td>treffer ligt vaak naast de echte oorzaak</td><td>Schaid, Chen &amp; Larson, <i>Nat Rev Genet</i> 19 (2018)</td></tr>\n<tr><td>Deelnemers</td><td>de meeste met Europese voorouders; score minder goed bij andere afkomst</td><td>Abdellaoui e.a., <i>AJHG</i> 110 (2023) (86 % in 2021); Duncan e.a., <i>Nat Commun</i> 10 (2019); Wang e.a., <i>Nat Commun</i> 11 (2020)</td></tr>\n<tr><td>Opleidingen (oktober 2026)</td><td>hbo Bio-informatica HAN Nijmegen (vier jaar); bachelor Biologie of Moleculaire Levenswetenschappen Radboud → master Bioinformatics Wageningen; klinisch geneticus: geneeskunde + vervolgopleiding van vier jaar</td><td>Studiekeuze123 (HAN, Radboud MLS); WUR, MSc Bioinformatics and Systems Biology; KNMG, Landelijk opleidingsplan klinische genetica (48 maanden)</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul>\n<li><b>Aantallen per filter.</b> 'Zo'n tienduizend' en 'een paar honderd' zijn ordes van grootte; de echte aantallen hangen af van de pijplijn van het lab. In beeld staat 'ongeveer'.</li>\n<li><b>Mozaïek.</b> Een de-novovariant die pas na de bevruchting ontstaat, zit maar in een deel van de cellen. De film zegt 'in elke cel' alleen voor een variant die al in de bevruchte eicel zat.</li>\n<li><b>Valt meestal af.</b> Een variant van een gezonde ouder kán toch meedoen (verminderde penetrantie); daarom 'meestal'.</li>\n<li><b>Een miljoen tests.</b> Strikt gaat het om ongeveer een miljoen onafhankelijke tests; er worden vaak meer plekken gemeten. De som rekent met onafhankelijke tests.</li>\n<li><b>Buurman.</b> 'Welke buren samen overerven' is een vereenvoudiging van verschillen in koppelingsonevenwicht (LD) tussen populaties.</li>\n<li><b>Titel.</b> 'Een miljoen varianten' is de plantitel; de film zegt het echte aantal (vier tot vijf miljoen) en gebruikt 'een miljoen' alleen voor het aantal GWAS-tests.</li>\n</ul>\n<h3>Lessuggesties</h3>\n<ul>\n<li>Geef een lijst van tien varianten van een kind en zijn ouders (met 'eiwit verandert ja/nee', frequentie, wie hem heeft) en laat leerlingen de drie filters toepassen. Welke blijven over bij een dominant en welke bij een recessief model?</li>\n<li>Rollenspel: hoe vertel je een onduidelijke uitslag? Laat leerlingen drie zinnen schrijven die eerlijk zijn zonder 'er is niets' of 'dit is het'.</li>\n<li>Reken door: hoeveel toevalstreffers geeft 0,05 bij 20 000 genen, bij 1 miljoen plekken en bij 10 miljoen? Welke grens hoort daar telkens bij?</li>\n<li>Vooruitblik op film 3: hoe kun je met DNA-verschillen nagaan van wie een bacterie in een ziekenhuis kwam?</li>\n</ul>\n</section>\n"
+}

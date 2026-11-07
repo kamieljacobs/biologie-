@@ -1,0 +1,17 @@
+{
+ "titel": "Wij hebben de natuur nodig",
+ "ondertitel": "Wat levert de natuur ons gratis? Bestuiving, schoon water, bescherming en koelte: ecosysteemdiensten.",
+ "meta": "ecosystemen 5",
+ "kerndoel": "33C",
+ "versie": "1.0", "datum": "20 oktober 2026",
+ "titelseg": "s03",
+ "scenes": "scenes5.js",
+ "hold": {"s13": 12.0},
+ "mini": {"Hoofdstuk 1": "Bestuiving", "Hoofdstuk 2": "Duinen, bomen en lucht", "Hoofdstuk 3": "Diensten kun je kwijtraken", "Samenvatting": "Ecosysteemdiensten"},
+ "checkvragen": [
+  {"titel": "Bestuiving", "pts": "1 punt", "vraag": "Waarom komen er in een boomgaard zonder bijen veel minder appels? A. bijen geven de boom water · B. alleen een bestoven bloem wordt een appel · C. bijen eten de luizen op", "antwoord": "B (1): een bij brengt stuifmeel van bloem naar bloem; alleen een bestoven bloem groeit uit tot een appel."},
+  {"titel": "Duinwater", "pts": "1 punt", "vraag": "Hoe maakt een duin rivierwater schoner? A. het zand filtert en bacteriën ruimen vuil op · B. de zon kookt het water · C. de zee spoelt het vuil weg", "antwoord": "A (1): het water zakt langzaam door het zand; zand werkt als filter en bacteriën ruimen vuil op."},
+  {"titel": "Gif op de akker", "pts": "2 punten", "vraag": "Een boer spuit veel gif tegen luizen. Leg uit waardoor hij daarna minder oogst kan krijgen.", "antwoord": "Het gif doodt ook bijen en andere bestuivers (1); zonder bestuiving vormen minder bloemen vruchten, dus minder oogst (1)."},
+  {"titel": "Veel soorten", "pts": "2 punten", "vraag": "In een boomgaard vliegen twintig soorten bestuivers. Leg uit waarom dat beter is dan alleen honingbijen.", "antwoord": "Valt één soort weg (kou, ziekte), dan doen andere soorten het werk nog (1); met meer soorten (biodiversiteit) valt de bestuiving minder snel helemaal weg (1).", "uitdaging": true}
+ ]
+}

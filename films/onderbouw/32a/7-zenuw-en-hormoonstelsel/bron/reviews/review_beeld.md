@@ -1,0 +1,15 @@
+# Review film en beeld — Zenuw- en hormoonstelsel, script v1
+
+Reviewer-rol: animatiestudio, getoetst aan Part C, Part D5 en BEELDAFSPRAKEN.
+
+1. **Betekeniskleuren: zenuwsignalen teal, hormonen paars (Part C).** Het lichaamsschema uit film 2 (`bodyOrgans`) tekent het zenuwstelsel paars en de hormoonklieren goud. In deze film draaien die twee om de hoofdrol, dus Part C gaat voor: zenuwen als dunne lijnen in neutraal (#8FA0B5), het **signaal** als teal puls die over de lijn loopt; hormoonklieren en adrenalinedeeltjes **paars**. Goud alleen voor focus. Dat wijkt af van de bibliotheektekening van film 2; meld dat in info.md. Eigen overlay `zenuwnet()` en `klieren()` over het silhouet (`human` + `bodyOrgans` alleen voor hart/longen).
+2. **Cold open in Macro**: klaslokaal (bord, raam, tafels), personages Sam en Noor (`persoon`, garderobe school) aan een tafel; alarm als bel aan de muur met teal geluidsringen (geluid = informatie). Bij "springt op": pose staan. Plein: buitenlook (lucht, schoolgebouw als blok, tegels), Lotte met hand op borst, hartslag-pil.
+3. **H1: één route tegelijk** (max 5 elementen): oor → zenuw → hersenen. Het signaal als teal stip die de lijn volgt, getimed op de woorden. Vraagkaart met drie routes als tekst. Antwoord: route hersenen → ruggenmerg → beenzenuw → beenspier (koraal = spier), spier wordt korter.
+4. **Snelheid**: Meta-label "± 100 m per seconde" met een voetbalveld als lijnicoon onderaan, buiten de ondertitelzone.
+5. **Uitdaging (reflex)**: inzet arm + pan (pan koraal = warmte), korte lus huid → ruggenmerg → armspier, signaal teal; daarna een tweede, latere stip omhoog naar de hersenen met het woord "au!" pas als de hand weg is. Paarse balk links + 'uitdaging' (speler doet dit).
+6. **H2**: bijnieren als paarse kapjes op de nieren; adrenalinedeeltjes (paarse stipjes) gaan het bloedvat in en verspreiden zich met de stroom over het hele lichaam (ook armen, tenen). Bij "omroep": inzet schoolgang met luidspreker en drie groepjes leerlingen; alleen één groep licht op. Dan in het lichaam: hart, longen, lever lichten op (organen met een "ontvanger"), de rest blijft gedimd. Concentratiebalkje dat langzaam zakt ("een paar minuten").
+7. **Kliertake**: klieren één voor één paars oplichtend met `naamBij` en een korte taak in Meta; max 5 tegelijk — vijf klieren, dus het silhouet zelf dim (35%).
+8. **H3 vergelijking**: twee kolommen op één grondlijn (Schema C4): links telefoon met appje (één pijl naar één spier, teal), rechts luidspreker (paarse golven naar het hele lichaam). Drie Meta-rijen: SNELHEID, WAAR NAARTOE, HOE LANG. Annotatiehaak groen onder beide: "twee manieren, één team".
+9. **Terugkoppeling plein**: zelfde plein als cold open; tijdlijn met twee balken (zenuw: piek van < 1 s; adrenaline: heuvel van minuten). Mooi schema voor de samenvatting.
+10. **Labels**: `naamBij`, geen wijslijnen; niet over de route heen. Ondertitelzone vrij houden (niets onder y = 900).
+11. **Geen Micro nodig**: de bouw van de zenuwcel is bovenbouw. Eén keer een zoomcirkel op "bundel draden" (doorsnede zenuw: kabel met draadjes) mag, in Schema.

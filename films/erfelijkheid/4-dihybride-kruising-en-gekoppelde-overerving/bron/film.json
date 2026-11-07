@@ -1,0 +1,81 @@
+{
+ "slug": "4-dihybride-kruising-en-gekoppelde-overerving",
+ "hoofdstuk": "erfelijkheid",
+ "hoofdstukNaam": "Erfelijkheid",
+ "title": "Dihybride kruising",
+ "sub": "en gekoppelde overerving",
+ "puzzle": "In de peulen van één erwtenplant zitten ook gele, gerimpelde en groene, ronde erwten, terwijl de grootouders alleen geel-rond en groen-gerimpeld hadden. Hoe kan dat?",
+ "meta": "erfelijkheid 4/6",
+ "version": "2.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · reeks Erfelijkheid · film 4 van 6 · volgende: <a href=\"5-overerving-via-x-chromosomen-en-mitochondrien.html\">Overerving via X-chromosomen en mitochondriën</a>",
+ "lead": "Twee genen tegelijk. Liggen ze op verschillende chromosomen, dan worden ze bij de meiose los van elkaar verdeeld en ontstaan nieuwe combinaties, zoals bij Mendels erwten. Liggen ze op hetzelfde chromosoom, dan gaan ze meestal samen mee: gekoppelde genen, zoals bij het fruitvliegje. Vwo ziet daarnaast de kruisingsschema's met twee genen en hoe crossing-over de koppeling af en toe verbreekt.",
+ "endHaak": "Wat gebeurt er als een gen op het X-chromosoom ligt?",
+ "minis": {
+  "Hoofdstuk 1": "Hoe ontstaan nieuwe combinaties van eigenschappen?",
+  "Hoofdstuk 2": "Hoe ziet een kruisingsschema met twee genen eruit?",
+  "Hoofdstuk 3": "Waarom zie je bij het fruitvliegje minder nieuwe combinaties?",
+  "Hoofdstuk 4": "Hoe herken je gekoppelde genen in een kruisingsschema?",
+  "Hoofdstuk 5": "Hoe ontstaan toch nieuwe combinaties van gekoppelde genen?",
+  "Recap": "Hoe kan een erwt geel én gerimpeld zijn?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personage: Opa Henk uit het castboek (zonder naam in de film). Decor moestuin: hergebruikt uit Landbouw 2. Stijl: Part C van de filmprompt (v13). Versie 2.0 · oktober 2026.",
+ "questions": {
+  "q08": {
+   "q": "Een erwtenplant is heterozygoot voor kleur (Gg) en voor vorm (Rr); de genen liggen op verschillende chromosomen. Hoeveel soorten gameten kan hij maken?",
+   "correct": 1,
+   "explain": "Vier: GR, Gr, gR en gr, elk ongeveer een kwart. Hoe elk chromosoompaar in de meiose ligt, is toeval, los van het andere paar."
+  },
+  "q13": {
+   "q": "Beide ouders maken vier soorten gameten. Hoeveel vakjes krijgt het kruisingsschema?",
+   "correct": 2,
+   "explain": "Vier soorten gameten keer vier soorten: zestien vakjes, elk met dezelfde kans."
+  },
+  "q21": {
+   "q": "Twee genen liggen op hetzelfde chromosoom (G naast V, g naast v) en elk chromosoom gaat in zijn geheel naar een gameet. Hoeveel soorten gameten?",
+   "correct": 2,
+   "explain": "Twee: GV en gv, elk de helft. De allelen op één chromosoom gaan samen mee: gekoppelde genen."
+  },
+  "q29": {
+   "q": "Een vliegje met G naast v en g naast V (Gv/gV) wordt gekruist met gv/gv. Welke nakomelingen krijg je (zonder crossing-over)?",
+   "correct": 1,
+   "explain": "Het vliegje maakt alleen Gv- en gV-gameten. De nakomelingen zijn dus grijs met stompe vleugels en zwart met normale vleugels."
+  }
+ },
+ "glossary": [
+  {
+   "t": "dihybride kruising",
+   "d": "Kruising waarbij je twee genen tegelijk volgt.",
+   "vwo": true
+  },
+  {
+   "t": "onafhankelijke overerving",
+   "d": "Genen op verschillende chromosomen worden bij de meiose los van elkaar over de gameten verdeeld. Een plant die voor twee genen heterozygoot is (GgRr), maakt vier soorten gameten, elk een kwart."
+  },
+  {
+   "t": "gekoppelde genen",
+   "d": "Genen die op hetzelfde chromosoom liggen. Ze gaan meestal samen naar dezelfde gameet. Welke allelen samen liggen, lees je af aan de ouders (notatie GV/gv of Gv/gV)."
+  },
+  {
+   "t": "9 : 3 : 3 : 1",
+   "d": "Fenotypeverhouding bij de kruising van twee dubbel heterozygoten met onafhankelijke genen.",
+   "vwo": true
+  },
+  {
+   "t": "productregel",
+   "d": "Kansen die allebei moeten gebeuren, vermenigvuldig je. Per gen mag dat alleen als de genen onafhankelijk zijn.",
+   "vwo": true
+  },
+  {
+   "t": "crossing-over",
+   "d": "Uitwisseling van een stuk tussen chromatiden van twee homologe chromosomen tijdens meiose I.",
+   "vwo": true
+  },
+  {
+   "t": "recombinant",
+   "d": "Gameet of nakomeling met een nieuwe combinatie van allelen, ontstaan door crossing-over.",
+   "vwo": true
+  }
+ ],
+ "sections": "<section><h2>Checkvragen</h2>\n  <p class=\"meta\">antwoorden ingeklapt · vwo-vragen gemarkeerd</p>\n  <div class=\"q\"><p><b>1.</b> Een plant is AaBb; de genen liggen op verschillende chromosomen. Welke gameten maakt hij, en in welke verhouding?</p><details><summary>Antwoord</summary><p>AB, Ab, aB en ab, elk een kwart. Elk chromosoompaar ligt in de meiose toevallig de ene of de andere kant op, los van het andere paar.</p></details></div>\n  <div class=\"q\"><p><b>2.</b> Bij een ander dier liggen A en B op hetzelfde chromosoom: A naast B, en a naast b. Welke gameten maakt het meestal?</p><details><summary>Antwoord</summary><p>AB en ab, elk ongeveer de helft. De allelen op één chromosoom gaan samen naar een gameet.</p></details></div>\n  <div class=\"q\"><p><b>3.</b> Leg uit hoe een erwtenplant uit geel-rond × groen-gerimpeld nakomelingen kan krijgen die geel en gerimpeld zijn.</p><details><summary>Antwoord</summary><p>De F1-plant is GgRr. Omdat de genen op verschillende chromosomen liggen, maakt hij ook gameten met G en r. Twee gameten met r, waarvan minstens één met G, geven een gele, gerimpelde erwt.</p></details></div>\n  <div class=\"q vwo\"><p><b>4.</b> <i>vwo</i> AaBb × aabb, genen onafhankelijk. Welke fenotypeverhouding verwacht je? En als A en B gekoppeld zijn (AB/ab), zonder crossing-over?</p><details><summary>Antwoord</summary><p>Onafhankelijk 1 : 1 : 1 : 1; gekoppeld 1 : 1 (alleen AB en ab).</p></details></div>\n  <div class=\"q vwo\"><p><b>5.</b> <i>vwo</i> Een vrouwtjesvlieg Gv/gV wordt gekruist met gv/gv. Er komen ook een paar grijze vliegen met normale vleugels. Leg uit hoe die ontstaan.</p><details><summary>Antwoord</summary><p>Door crossing-over tussen de twee genen in meiose I bij het vrouwtje ontstaat een chromatide met G naast V. Een gameet met die chromatide en een gv-gameet van de vader geven een grijze vlieg met normale vleugels.</p></details></div>\n  <div class=\"q vwo\"><p><b>6.</b> <i>vwo</i> Waarom mag je bij gekoppelde genen de kans niet per gen uitrekenen en vermenigvuldigen?</p><details><summary>Antwoord</summary><p>De productregel geldt alleen voor onafhankelijke gebeurtenissen. Gekoppelde allelen gaan samen naar een gameet, dus je rekent met de kans per chromosoom.</p></details></div>\n</section>\n<section><h2>Voor de docent</h2>\n  <h3>Hoe de film het uitlegt</h3>\n  <table><tr><th>Hoofdstuk</th><th>Niveau · look</th><th>Kernbeeld</th></tr>\n  <tr><td>Opening</td><td>basis · Macro</td><td>Opa Henk (zonder naam) opent erwtenpeulen in zijn moestuin; in een zoomcirkel gele ronde, groene gerimpelde én de nieuwe combinaties</td></tr>\n  <tr><td>1. Twee genen, twee chromosoomparen</td><td>basis · Schema/Micro</td><td>letters G/g, R/r; P GGRR × ggrr → F1 GgRr; twee paren in de kern (teal = van de ene ouder, oker = van de andere); meiose I met twee liggingen; simulatie van 400 cellen: vier gameten elk ± ¼; antwoord op de puzzel</td></tr>\n  <tr><td>2. Het kruisingsschema met twee genen</td><td>vwo · Schema</td><td>4 × 4-schema, 9 : 3 : 3 : 1, Mendels tellingen 315/101/108/32, productregel ¾ × ¾, terugkruising 1 : 1 : 1 : 1</td></tr>\n  <tr><td>3. Gekoppelde genen</td><td>basis · Schema</td><td>fruitvlieg grijs/zwart (G/g) en normale/stompe vleugels (V/v) op één chromosoom; twee soorten gameten; ligging afleiden uit de ouders (GV/gv tegenover Gv/gV); vergelijking met de erwt</td></tr>\n  <tr><td>4. Kruisingsschema's met gekoppelde genen</td><td>vwo · Schema</td><td>terugkruising 1 : 1 naast 1 : 1 : 1 : 1; F2 3 : 1 (2 × 2) in plaats van 9 : 3 : 3 : 1; productregel per gen werkt niet; Gv/gV × gv/gv</td></tr>\n  <tr><td>5. Crossing-over</td><td>vwo · Micro/Schema</td><td>echte terugkruising: veel oud, weinig recombinant (zonder getallen); crossing-over tussen chromatiden van homologe chromosomen; één cel geeft twee oude en twee nieuwe gameten; gametenkolom met grote en kleine kans</td></tr>\n  <tr><td>Recap</td><td>basis + vwo-zin</td><td>terug naar de peul; vier gameten tegenover twee</td></tr></table>\n  <h3>Misvattingen</h3>\n  <ul><li>'Twee genen geven altijd 9 : 3 : 3 : 1': alleen bij onafhankelijke genen en een kruising van twee dubbel heterozygoten.</li>\n  <li>'Wat je van één ouder kreeg, blijft samen': geldt (meestal) alleen voor allelen op hetzelfde chromosoom (vraag 1, optie a).</li>\n  <li>'Gekoppelde genen gaan altijd samen': crossing-over verbreekt de koppeling af en toe.</li>\n  <li>'Crossing-over gebeurt tussen zusterchromatiden of bij de mitose': het gaat om chromatiden van de twee homologe chromosomen, in meiose I.</li>\n  <li>'Bij gekoppelde genen mag je per gen vermenigvuldigen' (valkuil CE vwo 2023-II vraag 4).</li></ul>\n  <h3>Getallen en bronnen</h3>\n  <table><tr><th>Wat</th><th>Waarde</th><th>Bron</th></tr>\n  <tr><td>Mendel, dihybride F2</td><td>315 geel-rond, 101 geel-gerimpeld, 108 groen-rond, 32 groen-gerimpeld (556 zaden van 15 planten)</td><td>Mendel 1866 § 8; Pierce, Genetics Essentials</td></tr>\n  <tr><td>Morgan, terugkruising grijs/normaal-vrouwtjes</td><td>965 / 944 / 206 / 185 (de film toont alleen veel/weinig)</td><td>OpenStax Biology 2e § 13.1</td></tr></table>\n  <p>Volledig bronnenlogboek: <code>bron/bronnen.md</code>.</p>\n  <h3>Keuzes en vereenvoudigingen</h3>\n  <ul><li>Niveaus volgens de syllabi 2026: havo kent geen dihybride kruising en geen crossing-over (wel 'gekoppelde genen' bij recombinatie), daarom zijn alle schema's met twee genen en crossing-over vwo-blokken. Havo-leerlingen zien: vier gameten bij onafhankelijke genen, twee bij gekoppelde, en 'meestal samen'.</li>\n  <li>Het recombinatiepercentage, de genkaart en de afstand tussen genen zitten bewust niet in de film (Kamiel: te diepgaand).</li>\n  <li>Hoofdstuk 4 rekent met een model zonder crossing-over (staat in beeld). Bij fruitvliegmannetjes treedt echt geen crossing-over op; bij vrouwtjes wel. Daarom is in hoofdstuk 5 de F1-ouder een vrouwtje.</li>\n  <li>Een crossing-over is getekend als één uitwisseling tussen twee van de vier chromatiden; dubbele crossing-overs laat de film weg.</li>\n  <li>Letters zoals de Kruisingtrainer: erwt G/g (geel/groen) en R/r (rond/gerimpeld), fruitvlieg G/g (grijs/zwart) en V/v (normaal/stomp). 'Stompe vleugels' = vestigial.</li></ul>\n  <h3>Plaats in de reeks</h3>\n  <p>Na Chromosomen (allel, homologe chromosomen, heterozygoot), Monohybride kruisingen (kruisingsschema, terugkruising, productregel) en Voorbij dominant en recessief. Hierna: Overerving via X-chromosomen en mitochondriën. Oefenen: de Kruisingtrainer (dihybride en gekoppeld, vwo).</p>\n  <h3>Lessuggesties</h3>\n  <ul><li>Havo: stop na hoofdstuk 1 en 3 en laat leerlingen gameten bepalen voor AaBb (los) en AB/ab (gekoppeld).</li>\n  <li>Vwo: laat na hoofdstuk 4 de kansvraag uit CE vwo 2023-II (kleine monarchvlinder, vraag 4) maken.</li></ul>\n</section>\n"
+}

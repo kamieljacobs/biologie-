@@ -1,0 +1,98 @@
+[
+ {
+  "obj": "bladDoorsnede",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Nieuw object zonder huidige versie: niets ingebouwd. Welke variant (A, B of C)? Voorstel C (laatste blinde winnaar; daarin is de gemelde fout over sluitcellen/spleet en CO2/O2 al opgelost)."
+ },
+ {
+  "obj": "bloemDoorsnede",
+  "keuze": "A",
+  "functies": [
+   "bloemDoorsnede"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": "Kelkbladen lopen in A over de onderkant van kroon/vruchtbeginsel; dat stukje uit C overnemen?"
+ },
+ {
+  "obj": "hartDoorsnede",
+  "keuze": "A",
+  "functies": [
+   "hartDoorsnedeFase",
+   "hartDoorsnede"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "longblaasje",
+  "keuze": "A",
+  "functies": [
+   "longblaasje"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Haarvatennet wat rustiger (minder lijnen), of zo laten?"
+ },
+ {
+  "obj": "nefron",
+  "keuze": "C",
+  "functies": [
+   "nefron"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": "Miniatuurniertje hoeft niet; het is nu een los oriëntatie-icoontje linksonder (o.nier = 0 laat het weg). Houden of standaard uit?"
+ },
+ {
+  "obj": "stamboomSymbolen",
+  "keuze": "B",
+  "functies": [
+   "stamboomSymbolen",
+   "STAMBOOM_NOOR"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Generatienummers (I, II, III) erbij, of een stand zonder portretten voor examenvragen? Vereist persoon() (lib_cast.js) en circ()."
+ },
+ {
+  "obj": "synapsEcht",
+  "keuze": "A",
+  "functies": [
+   "synapsEcht"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "wortelHaren",
+  "keuze": "A",
+  "functies": [
+   "wortelHaren"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ }
+]

@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../js/teller.js" data-root="../"></script>
+<link rel="icon" href="../img/icoon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../img/icoon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../img/icoon/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Planningen (docent) · Biologie bij Kamiel</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../tools/huisstijl.css">
+<link rel="stylesheet" href="../sessie/sessie.css">
+<script src="../tools/huisstijl.js"></script>
+<style>
+.p-lijst{display:grid;gap:12px}
+.p-kaart{display:grid;gap:8px}
+.p-kop{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+.p-kop h2{margin:0;font:700 20px/1.2 var(--titel)}
+.p-naam{font-weight:700}
+.p-naam.leeg{font-weight:400;color:var(--text3);font-style:italic}
+.p-feiten{display:flex;flex-wrap:wrap;gap:4px 16px;color:var(--text2);font-size:15px}
+.p-balk{height:6px;border-radius:3px;background:var(--line2);overflow:hidden;max-width:320px}
+.p-balk i{display:block;height:100%;background:var(--groen)}
+.p-knoppen{display:flex;flex-wrap:wrap;gap:8px}
+.p-link{width:100%;max-width:640px;font:500 14px/1.3 var(--meta);background:var(--bg);color:var(--text2);border:1px solid var(--line2);border-radius:10px;padding:8px 10px}
+.p-knoppen .knop.gevaar{border-color:var(--koraal);color:var(--koraal)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="sitenav">
+    <a class="merk" href="../index.html">Biologie bij Kamiel</a>
+    <span class="s-chip">Docent</span>
+    <span class="rechts"><a class="knop stil klein" href="../sessie/docent.html">Klas live</a><button class="knop stil klein" id="b-uit" type="button" hidden>Uitloggen</button><button class="icoon" type="button" data-thema-knop></button></span>
+  </nav>
+  <div id="demoband" hidden class="s-band teal">Demomodus: alles blijft in deze browser. Een link die je hier maakt, werkt alleen in deze browser (met ?demo=1).</div>
+
+  <section id="v-login" hidden>
+    <header class="tool-kop"><div class="mono">Planningen</div><h1>Inloggen</h1><p>Alleen voor de docent. Zelfde account als Klas live.</p></header>
+    <form class="paneel" id="f-login" style="max-width:460px">
+      <label class="veld"><span>E-mail</span><input type="text" id="i-mail" autocomplete="username" required></label>
+      <label class="veld"><span>Wachtwoord</span><input type="password" id="i-ww" autocomplete="current-password" required style="background:var(--bg);border:1px solid var(--line2);border-radius:10px;padding:8px 12px;min-height:44px;width:100%"></label>
+      <button class="knop" type="submit">Inloggen</button>
+      <p class="s-melding fout" id="m-login" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <section id="v-lijst" hidden>
+    <header class="tool-kop"><div class="mono">Planningen</div><h1>Leerlingplanningen</h1>
+      <p>Elke leerling heeft een eigen geheime link en ziet alleen zijn eigen planning. Jij ziet ze hier allemaal. Vaste blokken en filmreeksen pas je aan via Claude (<code>planner/instellingen.json</code>); een nieuwe leerling ook.</p></header>
+    <p class="s-melding" id="m-lijst" aria-live="polite"></p>
+    <div class="p-lijst" id="lijst"></div>
+  </section>
+</div>
+
+<script type="module">
+import { maakDb } from '../sessie/db.js';
+const $ = (id) => document.getElementById(id);
+const db = await maakDb();
+if (db.modus === 'demo') $('demoband').hidden = false;
+
+let INST = null, REEKSEN = null, PLANNING = {}, gewapend = null;
+
+function nieuweCode() {
+  const b = new Uint8Array(18); crypto.getRandomValues(b);
+  return btoa(String.fromCharCode(...b)).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+const linkVoor = (code) => new URL('./' + (db.modus === 'demo' ? '?demo=1' : '') + '#' + code, location.href).href;
+function wanneer(ms) {
+  if (!ms) return 'nog niet gebruikt';
+  const d = new Date(ms), nu = new Date();
+  const dagen = Math.floor((new Date(nu.toDateString()) - new Date(d.toDateString())) / 864e5);
+  const tijd = d.toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit' });
+  if (dagen === 0) return 'vandaag ' + tijd;
+  if (dagen === 1) return 'gisteren ' + tijd;
+  return d.toLocaleDateString('nl-NL', { day: 'numeric', month: 'short' });
+}
+function melding(t) { $('m-lijst').textContent = t; if (t) setTimeout(() => { if ($('m-lijst').textContent === t) $('m-lijst').textContent = ''; }, 5000); }
+function knop(tekst, fn, extra) { const b = document.createElement('button'); b.type = 'button'; b.className = 'knop stil klein' + (extra ? ' ' + extra : ''); b.textContent = tekst; b.addEventListener('click', fn); return b; }
+// Twee keer klikken voor iets dat niet terug kan.
+function bevestig(b, sleutel, vraag, fn) {
+  if (gewapend === sleutel) { gewapend = null; fn(); return; }
+  gewapend = sleutel; const oud = b.textContent; b.textContent = vraag;
+  setTimeout(() => { if (gewapend === sleutel) gewapend = null; b.textContent = oud; }, 4000);
+}
+
+function teken() {
+  const lijst = $('lijst'); lijst.innerHTML = '';
+  const perLeerling = {};
+  for (const [code, p] of Object.entries(PLANNING || {})) if (p && p.leerling) (perLeerling[p.leerling] = perLeerling[p.leerling] || []).push([code, p]);
+  const ids = [...new Set([...Object.keys(INST.leerlingen), ...Object.keys(perLeerling)])].sort();
+  for (const id of ids) {
+    const prof = INST.leerlingen[id];
+    const reeks = prof && REEKSEN[prof.reeks];
+    const [code, p] = (perLeerling[id] || [])[0] || [];
+    const kaart = document.createElement('article'); kaart.className = 'paneel p-kaart';
+    const kop = document.createElement('div'); kop.className = 'p-kop';
+    const h = document.createElement('h2'); h.textContent = id; kop.appendChild(h);
+    const naam = document.createElement('span'); naam.className = 'p-naam' + (p && p.bijnaam ? '' : ' leeg');
+    naam.textContent = p ? (p.bijnaam || 'nog geen bijnaam') : 'nog geen link'; kop.appendChild(naam);
+    kaart.appendChild(kop);
+    const feiten = document.createElement('div'); feiten.className = 'p-feiten';
+    const feit = (t) => { const s = document.createElement('span'); s.textContent = t; feiten.appendChild(s); };
+    if (prof) feit((reeks ? reeks.naam + ' (' + reeks.bron + ')' : 'reeks ' + prof.reeks + ' ontbreekt') + ' · rooster ' + prof.rooster + ' · ' + (prof.perWeek || 3) + ' per week');
+    else feit('Staat niet (meer) in instellingen.json');
+    let gezien = 0, totaal = reeks ? reeks.films.length : 0;
+    if (p) {
+      gezien = Object.keys(p.gezien || {}).length;
+      feit(gezien + ' van ' + totaal + ' filmpjes gezien');
+      feit(Object.values(p.items || {}).filter(x => x.kind !== 'mod').length + ' zelf ingepland');
+      feit('laatst bijgewerkt: ' + wanneer(p.bijgewerkt));
+    }
+    kaart.appendChild(feiten);
+    if (p && totaal) { const balk = document.createElement('div'); balk.className = 'p-balk'; const i = document.createElement('i'); i.style.width = Math.min(100, Math.round(100 * gezien / totaal)) + '%'; balk.appendChild(i); kaart.appendChild(balk); }
+    if (p) {
+      const veld = document.createElement('input'); veld.className = 'p-link'; veld.readOnly = true; veld.value = linkVoor(code);
+      veld.setAttribute('aria-label', 'Link van ' + id); veld.addEventListener('focus', () => veld.select());
+      kaart.appendChild(veld);
+    }
+    const rij = document.createElement('div'); rij.className = 'p-knoppen';
+    if (!p) {
+      if (prof) rij.appendChild(knop('Maak link', async () => {
+        const c = nieuweCode();
+        try { await db.zet('planning/' + c, { leerling: id, gemaakt: Date.now() }); melding('Link gemaakt voor ' + id + '.'); } catch (e) { melding('Maken mislukt. Staan de databaseregels erin?'); }
+      }));
+    } else {
+      rij.appendChild(knop('Kopieer link', async (ev) => {
+        try { await navigator.clipboard.writeText(linkVoor(code)); ev.target.textContent = 'Gekopieerd ✓'; setTimeout(() => { ev.target.textContent = 'Kopieer link'; }, 2000); }
+        catch (e) { prompt('Kopieer deze link:', linkVoor(code)); }
+      }));
+      const open = document.createElement('a'); open.className = 'knop stil klein'; open.href = linkVoor(code); open.target = '_blank'; open.rel = 'noopener noreferrer'; open.textContent = 'Open planning'; rij.appendChild(open);
+      rij.appendChild(knop('Nieuwe link', (ev) => bevestig(ev.target, 'nieuw-' + code, 'Klik nog eens: de oude link stopt', async () => {
+        const c = nieuweCode();
+        try { await db.zet('planning/' + c, Object.assign({}, p, { gemaakt: Date.now() })); await db.weg('planning/' + code); melding('Nieuwe link voor ' + id + '. De oude werkt niet meer; kopieer en deel de nieuwe.'); }
+        catch (e) { melding('Vervangen mislukt.'); }
+      })));
+      rij.appendChild(knop('Wissen', (ev) => bevestig(ev.target, 'weg-' + code, 'Klik nog eens: alles van ' + id + ' weg', async () => {
+        try { await db.weg('planning/' + code); melding('Planning van ' + id + ' gewist.'); } catch (e) { melding('Wissen mislukt.'); }
+      }), 'gevaar'));
+    }
+    kaart.appendChild(rij);
+    lijst.appendChild(kaart);
+  }
+}
+
+async function start() {
+  $('v-login').hidden = true; $('v-lijst').hidden = false; $('b-uit').hidden = db.modus === 'demo';
+  try {
+    [INST, REEKSEN] = await Promise.all(['instellingen.json', 'reeksen.json'].map((f) => fetch(f, { cache: 'no-cache' }).then((r) => r.json())));
+  } catch (e) { melding('instellingen.json of reeksen.json kan niet geladen worden.'); return; }
+  db.luister('planning', (v) => { PLANNING = v || {}; teken(); });
+  teken();
+}
+
+$('f-login').addEventListener('submit', async (ev) => {
+  ev.preventDefault(); $('m-login').textContent = '';
+  try {
+    const ok = await db.docentLogin($('i-mail').value.trim(), $('i-ww').value);
+    if (ok) start(); else { $('m-login').textContent = 'Dit account is niet het docentaccount.'; await db.uitloggen(); }
+  } catch (e) { $('m-login').textContent = 'Inloggen mislukt: controleer e-mail en wachtwoord.'; }
+});
+$('b-uit').addEventListener('click', async () => { await db.uitloggen(); location.reload(); });
+
+if (db.isDocent()) start(); else $('v-login').hidden = false;
+</script>
+</body>
+</html>

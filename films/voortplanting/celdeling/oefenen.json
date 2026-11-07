@@ -1,0 +1,333 @@
+{
+ "versie": 1,
+ "film": "films/voortplanting/celdeling/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-celcyclus",
+   "soort": "volgorde",
+   "titel": "Eén rondje celcyclus",
+   "opdracht": "Een cel gaat één keer door de celcyclus. Zet de stappen in de goede volgorde, te beginnen na de vorige deling.",
+   "stappen": [
+    {
+     "tekst": "G1-fase: de cel groeit en maakt eiwitten en organellen bij.",
+     "uitleg": "De interfase is geen rustfase. In de G1-fase groeit de cel."
+    },
+    {
+     "tekst": "S-fase: het DNA wordt gekopieerd.",
+     "uitleg": "S staat voor synthese. Na de S-fase bestaat elk chromosoom uit twee gelijke chromatiden."
+    },
+    {
+     "tekst": "G2-fase: de cel maakt zich klaar voor de deling.",
+     "uitleg": "Daarmee is de interfase klaar. Als de mitose begint, is het DNA al dubbel."
+    },
+    {
+     "tekst": "Profase: de chromosomen rollen zich op, de spoelfiguur groeit en het kernmembraan valt uit elkaar.",
+     "uitleg": "Pas nu zijn de chromosomen onder de microscoop te zien."
+    },
+    {
+     "tekst": "Metafase: de chromosomen liggen op één lijn in het equatorvlak.",
+     "uitleg": "Aan elk centromeer zitten trekdraden van beide polen."
+    },
+    {
+     "tekst": "Anafase: de centromeren splitsen en de chromatiden worden naar de polen getrokken.",
+     "uitleg": "Vanaf nu heet elke chromatide een chromosoom. Even zitten er 92 chromosomen in één cel."
+    },
+    {
+     "tekst": "Telofase en cytokinese: nieuwe kernmembranen, en de cel snoert in tot twee dochtercellen.",
+     "uitleg": "Telofase en cytokinese gebeuren tegelijk. Een plantencel bouwt een celplaat."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-meiose",
+   "soort": "volgorde",
+   "titel": "Van één cel naar geslachtscellen",
+   "opdracht": "Een cel in een teelbal maakt zaadcellen door meiose. Zet de stappen in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Het DNA wordt één keer gekopieerd: elk chromosoom heeft twee chromatiden.",
+     "uitleg": "Daarna volgen twee delingen, zonder dat het DNA opnieuw wordt gekopieerd."
+    },
+    {
+     "tekst": "In meiose I zoeken de homologe chromosomen elkaar op en wisselen ze stukken uit: crossing-over.",
+     "uitleg": "De twee chromosomen van een paar liggen dicht tegen elkaar. Zo ontstaan nieuwe mengelingen."
+    },
+    {
+     "tekst": "De homologe chromosomen liggen als paren in het equatorvlak.",
+     "uitleg": "Dat gebeurt alleen in meiose I. Bij mitose en meiose II liggen de chromosomen los."
+    },
+    {
+     "tekst": "De paren gaan uit elkaar: twee cellen met elk 23 chromosomen, nog met twee chromatiden.",
+     "uitleg": "Het halveren gebeurt al in meiose I. Welk chromosoom van een paar welke kant op gaat, is toeval."
+    },
+    {
+     "tekst": "In meiose II gaan de chromatiden uit elkaar, net als bij de mitose.",
+     "uitleg": "Tussen meiose I en meiose II wordt het DNA niet gekopieerd."
+    },
+    {
+     "tekst": "Er zijn vier haploïde zaadcellen ontstaan, met elk 23 chromosomen.",
+     "uitleg": "n = 23. Bij een vrouw verloopt de deling scheef: er ontstaat maar één eicel."
+    }
+   ]
+  },
+  {
+   "id": "schema-metafase",
+   "soort": "schema",
+   "titel": "Een cel in de metafase",
+   "opdracht": "Deze cel zit midden in de mitose: de metafase. Sleep de namen naar de goede vakjes. Pas op: twee namen horen er niet bij.",
+   "alt": "Lijntekening van een ronde cel in de metafase: vier chromosomen in X-vorm op één lijn in het midden, met trekdraden vanuit twee polen.",
+   "breed": 760,
+   "hoog": 430,
+   "vakbreed": 170,
+   "svg": "<ellipse cx=\"380\" cy=\"215\" rx=\"175\" ry=\"168\" stroke-width=\"2.6\"/><path class=\"zacht\" stroke-width=\"1.4\" d=\"M380 58 V372\" stroke-dasharray=\"6 6\"/><path stroke-width=\"1.1\" d=\"M238 215 L377 125\"/><path stroke-width=\"1.1\" d=\"M522 215 L383 125\"/><path stroke-width=\"1.1\" d=\"M238 215 L377 185\"/><path stroke-width=\"1.1\" d=\"M522 215 L383 185\"/><path stroke-width=\"1.1\" d=\"M238 215 L377 250\"/><path stroke-width=\"1.1\" d=\"M522 215 L383 250\"/><path stroke-width=\"1.1\" d=\"M238 215 L377 310\"/><path stroke-width=\"1.1\" d=\"M522 215 L383 310\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M238 215 Q380 101.0 522 215\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M238 215 Q380 329.0 522 215\"/><circle cx=\"238\" cy=\"215\" r=\"6\" stroke-width=\"1.8\"/><circle class=\"vul\" cx=\"238\" cy=\"215\" r=\"2.4\" stroke-width=\"0\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M247 215 L253 215\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M244.4 221.4 L248.6 225.6\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M238 224 L238 230\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M231.6 221.4 L227.4 225.6\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M229 215 L223 215\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M231.6 208.6 L227.4 204.4\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M238 206 L238 200\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M244.4 208.6 L248.6 204.4\"/><circle cx=\"522\" cy=\"215\" r=\"6\" stroke-width=\"1.8\"/><circle class=\"vul\" cx=\"522\" cy=\"215\" r=\"2.4\" stroke-width=\"0\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M531 215 L537 215\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M528.4 221.4 L532.6 225.6\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M522 224 L522 230\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M515.6 221.4 L511.4 225.6\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M513 215 L507 215\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M515.6 208.6 L511.4 204.4\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M522 206 L522 200\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M528.4 208.6 L532.6 204.4\"/><path class=\"acc\" stroke-width=\"8\" d=\"M371 95 Q381 125 371 155\"/><path class=\"acc\" stroke-width=\"8\" d=\"M389 95 Q379 125 389 155\"/><circle class=\"vul\" cx=\"380\" cy=\"125\" r=\"3.2\" stroke-width=\"0\"/><path stroke-width=\"8\" d=\"M373 165 Q381 185 373 205\"/><path stroke-width=\"8\" d=\"M387 165 Q379 185 387 205\"/><circle class=\"vul\" cx=\"380\" cy=\"185\" r=\"3.2\" stroke-width=\"0\"/><path stroke-width=\"8\" d=\"M371 220 Q381 250 371 280\"/><path stroke-width=\"8\" d=\"M389 220 Q379 250 389 280\"/><circle class=\"vul\" cx=\"380\" cy=\"250\" r=\"3.2\" stroke-width=\"0\"/><path stroke-width=\"8\" d=\"M373 290 Q381 310 373 330\"/><path stroke-width=\"8\" d=\"M387 290 Q379 310 387 330\"/><circle class=\"vul\" cx=\"380\" cy=\"310\" r=\"3.2\" stroke-width=\"0\"/><text x=\"380\" y=\"422\" text-anchor=\"middle\">cel in de metafase</text>",
+   "vakjes": [
+    {
+     "naam": "chromatide",
+     "x": 100,
+     "y": 70,
+     "punt": [
+      371,
+      98
+     ],
+     "uitleg": "één van de twee gelijke kopieën van een gekopieerd chromosoom."
+    },
+    {
+     "naam": "pool",
+     "x": 100,
+     "y": 215,
+     "punt": [
+      232,
+      215
+     ],
+     "uitleg": "aan de twee polen van de cel beginnen de trekdraden; daarheen worden de chromatiden straks getrokken."
+    },
+    {
+     "naam": "spoelfiguur",
+     "x": 100,
+     "y": 355,
+     "punt": [
+      300,
+      256
+     ],
+     "uitleg": "alle trekdraden van eiwit samen, vanuit de twee polen."
+    },
+    {
+     "naam": "centromeer",
+     "x": 660,
+     "y": 110,
+     "punt": [
+      383,
+      185
+     ],
+     "uitleg": "hier zitten de twee chromatiden aan elkaar vast; aan elk centromeer zitten trekdraden van beide polen."
+    },
+    {
+     "naam": "equatorvlak",
+     "x": 660,
+     "y": 360,
+     "punt": [
+      380,
+      366
+     ],
+     "uitleg": "het vlak in het midden van de cel waar de chromosomen in de metafase op één lijn liggen."
+    }
+   ],
+   "afleiders": [
+    "kernmembraan",
+    "celplaat"
+   ]
+  },
+  {
+   "id": "uitleg-eerst-kopieren",
+   "soort": "uitleg",
+   "titel": "Eerst kopiëren, dan verdelen",
+   "opdracht": "Een huidcel deelt door mitose. Leg uit waarom de twee dochtercellen precies hetzelfde DNA hebben als de moedercel, en ook evenveel.",
+   "begrippen": [
+    {
+     "naam": "interfase",
+     "varianten": [
+      "S-fase"
+     ]
+    },
+    {
+     "naam": "kopiëren",
+     "varianten": [
+      "gekopieerd",
+      "kopie",
+      "verdubbelt",
+      "verdubbeld",
+      "dubbel"
+     ]
+    },
+    {
+     "naam": "chromatide",
+     "varianten": [
+      "chromatiden"
+     ]
+    },
+    {
+     "naam": "centromeer",
+     "varianten": [
+      "centromeren"
+     ]
+    },
+    {
+     "naam": "mitose",
+     "varianten": []
+    },
+    {
+     "naam": "46",
+     "varianten": [
+      "zesenveertig"
+     ]
+    },
+    {
+     "naam": "genetisch gelijk",
+     "varianten": [
+      "hetzelfde DNA",
+      "precies gelijk",
+      "precies hetzelfde",
+      "identiek"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat het DNA in de interfase (S-fase) wordt gekopieerd, zodat elk chromosoom twee gelijke chromatiden heeft.",
+    "Ik leg uit dat bij de mitose de chromatiden van elk chromosoom uit elkaar gaan, naar de twee polen.",
+    "Ik concludeer dat elke dochtercel van elk chromosoom één chromatide krijgt: 46 chromosomen, genetisch gelijk.",
+    "Ik noem dat de hoeveelheid DNA eerst verdubbelt (2p) en daarna eerlijk wordt verdeeld (p)."
+   ],
+   "model": [
+    "Voordat de cel deelt, wordt in de interfase (de S-fase) al het DNA gekopieerd. Elk chromosoom bestaat daarna uit twee gelijke chromatiden, die vastzitten bij het centromeer. De hoeveelheid DNA is verdubbeld: van p naar 2p.",
+    "In de anafase van de mitose splitsen de centromeren en worden de chromatiden van elk chromosoom naar de twee polen getrokken. Elke dochtercel krijgt zo van elk chromosoom één chromatide.",
+    "Daardoor heeft elke dochtercel weer 46 chromosomen en weer p DNA, precies hetzelfde als de moedercel: de dochtercellen zijn genetisch gelijk. Het DNA is niet gehalveerd, maar eerst verdubbeld en daarna eerlijk verdeeld."
+   ]
+  },
+  {
+   "id": "uitleg-variatie",
+   "soort": "uitleg",
+   "titel": "Waarom broers en zussen verschillen",
+   "opdracht": "Twee broers hebben dezelfde ouders, maar lijken niet precies op elkaar. Bij een aardbeiplant met uitlopers zijn alle nieuwe plantjes wél gelijk. Leg uit hoe dat komt.",
+   "begrippen": [
+    {
+     "naam": "meiose",
+     "varianten": [
+      "reductiedeling"
+     ]
+    },
+    {
+     "naam": "crossing-over",
+     "varianten": [
+      "crossing over",
+      "stukken uitwisselen",
+      "wisselen stukken"
+     ]
+    },
+    {
+     "naam": "toeval",
+     "varianten": [
+      "toevallig",
+      "willekeurig"
+     ]
+    },
+    {
+     "naam": "homologe chromosomen",
+     "varianten": [
+      "homoloog",
+      "paren",
+      "paar"
+     ]
+    },
+    {
+     "naam": "bevruchting",
+     "varianten": [
+      "bevrucht"
+     ]
+    },
+    {
+     "naam": "mitose",
+     "varianten": []
+    },
+    {
+     "naam": "kloon",
+     "varianten": [
+      "klonen",
+      "genetisch gelijk"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat bij de aardbeiplant de nieuwe cellen door mitose ontstaan, zodat de plantjes genetisch gelijk zijn: klonen.",
+    "Ik leg uit dat bij de meiose toeval bepaalt welk chromosoom van elk paar in een geslachtscel komt.",
+    "Ik noem crossing-over: homologe chromosomen wisselen stukken uit, wat nog meer variatie geeft.",
+    "Ik noem dat ook toeval bepaalt welke zaadcel en welke eicel samenkomen bij de bevruchting."
+   ],
+   "model": [
+    "Uitlopers van een aardbeiplant zijn ongeslachtelijke voortplanting: de nieuwe cellen ontstaan door mitose. Daardoor zijn de nieuwe plantjes genetisch gelijk aan de ouder: het zijn klonen.",
+    "Broers ontstaan door geslachtelijke voortplanting. Elke ouder maakt geslachtscellen door meiose. Welk chromosoom van elk paar homologe chromosomen in een geslachtscel komt, is toeval: met 23 paren geeft dat zo'n acht miljoen combinaties. Door crossing-over wisselen homologe chromosomen ook nog stukken uit.",
+    "Bijna elke zaadcel en eicel is dus anders. Welke zaadcel welke eicel bevrucht, is ook toeval. Daarom verschillen broers genetisch van elkaar."
+   ]
+  },
+  {
+   "id": "uitleg-non-disjunctie",
+   "soort": "uitleg",
+   "vwo": true,
+   "titel": "Een chromosoom te veel",
+   "opdracht": "Een kind heeft 47 chromosomen, met drie keer chromosoom 21. Leg uit hoe dat kan ontstaan bij de vorming van de eicel.",
+   "begrippen": [
+    {
+     "naam": "meiose",
+     "varianten": [
+      "reductiedeling"
+     ]
+    },
+    {
+     "naam": "non-disjunctie",
+     "varianten": [
+      "non disjunctie",
+      "niet uit elkaar"
+     ]
+    },
+    {
+     "naam": "homologe chromosomen",
+     "varianten": [
+      "paar",
+      "chromatiden"
+     ]
+    },
+    {
+     "naam": "24",
+     "varianten": [
+      "vierentwintig"
+     ]
+    },
+    {
+     "naam": "bevruchting",
+     "varianten": [
+      "zaadcel"
+     ]
+    },
+    {
+     "naam": "trisomie 21",
+     "varianten": [
+      "trisomie",
+      "syndroom van Down",
+      "down"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat bij de meiose de twee chromosomen van paar 21 (of twee chromatiden) niet uit elkaar gaan: non-disjunctie.",
+    "Ik leg uit dat de eicel daardoor 24 chromosomen krijgt, met twee keer chromosoom 21.",
+    "Ik reken: een normale zaadcel brengt 23 chromosomen mee, dus 24 + 23 = 47.",
+    "Ik noem dat drie keer chromosoom 21 trisomie 21 heet: het syndroom van Down."
+   ],
+   "model": [
+    "Normaal gaan bij de meiose eerst de homologe chromosomen van elk paar uit elkaar en daarna de chromatiden. Soms gaat dat mis: de twee chromosomen van een paar, of twee chromatiden, gaan niet uit elkaar. Dat heet non-disjunctie.",
+    "Gebeurt dat bij chromosoom 21, dan krijgt de eicel twee keer chromosoom 21: 24 chromosomen in plaats van 23. Een andere cel krijgt er juist een te weinig.",
+    "Een normale zaadcel brengt 23 chromosomen mee. Het kind heeft dan 24 + 23 = 47 chromosomen, met drie keer chromosoom 21. Dat heet trisomie 21; het kind heeft het syndroom van Down."
+   ]
+  }
+ ]
+}

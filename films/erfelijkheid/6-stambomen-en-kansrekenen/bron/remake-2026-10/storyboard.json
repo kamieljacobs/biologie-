@@ -1,0 +1,551 @@
+{
+ "film": "films/erfelijkheid/6-stambomen-en-kansrekenen.html",
+ "versie": "remake 2.0 · fase 1 · 28 okt 2026",
+ "prompt": "v13 (B16 lichte remake; C8–C10)",
+ "straat": "FILMDATA zoals Chromosomen 2.1: segments.json + scenes_erf6.js (één functie per alinea, cue via q.on/q.at; nooit cuen op 'aa') + teken_erf6.js (= tekeningen/nieuw_erf6.js na keuring); libs: lib.js, lib_cast.js (actuele versie met pose 'zit'), lib_bio.js, teken_chr1.js-hulpjes (allelChip, termKaart, chromX)",
+ "kleuren": "Schema-look navy; stamboomsymbolen neutraal (open #22314D met lichte rand, ingekleurd #D5DAE2), goud = focus (de vrouw, de tak waar het allel verdwijnt, dragers in de simulatie), groen = regel/conclusie (annotatiehaak), allelen van vader teal en van moeder oker (zoals Chromosomen 2.1), koraal alleen 'let op'. Geen paars als vulling (BEELDAFSPRAKEN 28 okt: minder paars).",
+ "bibliotheek": {
+  "hergebruik": [
+   "persoon('sanne', {outfit:'gewoon', pose:'zit', stoel, tafel}) en persoon('kim', {zij, pose:'zit'}) uit lib_cast",
+   "spreekkamer uit Wat word jij? · Bio-informatica 2 (scenes.js r. 2491) als spreekkamerE6",
+   "allelChip, termKaart, chromX/chromatideX uit Chromosomen 2.1",
+   "naamBij, haak, card, zoomCircle (lib.js)"
+  ],
+  "nieuw (kandidaat lib_bio, code in tekeningen/nieuw_erf6.js)": [
+   "stamboom (vaste generatiehoogtes, partnerlijn op middenhoogte, afstammingslijn uit het midden, broer-zuslijn op één hoogte, rechte kindlijnen; recept + bekende fouten bovenin het bestand)",
+   "miniStamboom",
+   "simRaster + simLegenda (300 echte trekkingen, seed 11: 81 AA · 162 Aa · 57 aa)",
+   "oppModel (productregel)",
+   "kansBalk (somregel)",
+   "kansBoom",
+   "wandbord"
+  ],
+  "afstemmen met films 2–5": "symbolen en notatie gelijk aan de oefeningen van deze film; als films 2–5 ook stambomen tekenen: dezelfde functie stamboom() gebruiken (één tekening voor de reeks)"
+ },
+ "scenes": [
+  {
+   "id": "title",
+   "cue": [],
+   "look": "Schema",
+   "ziet": "titelkaart 'Stambomen en kansrekenen', puzzelvraag eronder; rechts de stamboom van de familie (stamboom, SB_CF) met het kind als gestippelde ruit met vraagteken",
+   "beweging": "de stamboom bouwt rustig op per generatie",
+   "bieb": [
+    "stamboom (nieuw)"
+   ],
+   "nieuw": []
+  },
+  {
+   "id": "s01",
+   "alinea": "Een vrouw van vierendertig wil graag een kind. Haar broer heeft taaisl…",
+   "woorden": 41,
+   "cue": [
+    "broer",
+    "ouders",
+    "zelf",
+    "Draagt",
+    "kans"
+   ],
+   "look": "Macro (spreekkamer)",
+   "ziet": "de vrouw (castpersonage Sanne, outfit gewoon, zittend) aan tafel tegenover de klinisch geneticus (Dr. Kim, zijaanzicht, outfit gewoon); op het wandbord tekent Kim de stamboom: ouders, broers, de vrouw (goud omlijnd); geen namen in beeld; meta 'spreekkamer · klinische genetica'",
+   "beweging": "op 'broer' verschijnt het ingekleurde vierkant op het bord, op 'ouders' de twee symbolen erboven, op 'zelf' de goudrand; Kim knikt/praat (uit 'praat'), rustig ademen",
+   "bieb": [
+    "persoon sanne (zit, stoel, tafel)",
+    "persoon kim (zij, zit)",
+    "spreekkamer (Bio-informatica 2, als spreekkamerE6)"
+   ],
+   "nieuw": [
+    "wandbord"
+   ],
+   "twijfel": "T1",
+   "keyframe": "keyframes/t1-opening-spreekkamer.webp"
+  },
+  {
+   "id": "c1",
+   "cue": [],
+   "look": "Schema (hoofdstukkaart)",
+   "ziet": "Hoofdstuk 1 · De taal van een stamboom · 'Hoe lees je een familie op papier?'",
+   "beweging": "—",
+   "bieb": [],
+   "nieuw": []
+  },
+  {
+   "id": "s02",
+   "alinea": "Eerst de taal van een stamboom. Een vierkant is een man, een rondje ee…",
+   "woorden": 53,
+   "cue": [
+    "vierkant",
+    "rondje",
+    "ingekleurd",
+    "lijn",
+    "Daaronder",
+    "oud",
+    "generatie"
+   ],
+   "look": "Schema",
+   "ziet": "snede van het wandbord naar een groot voorbeeldgezin (k1): man, vrouw, partnerlijn, drie kinderen aan één broer-zuslijn; elk onderdeel licht op het woord op; 'oudste' links, 'jongste' rechts; Romeinse cijfers I en II links op de hoogte van de generaties",
+   "beweging": "stamboom lijn voor lijn (C8, 'schema lijn voor lijn'): eerst symbolen, dan partnerlijn, dan afstammingslijn en broer-zuslijn, dan kindlijnen; bij 'op één hoogte' schuift een dunne gouden hulplijn langs elke generatie",
+   "bieb": [
+    "stamboom"
+   ],
+   "nieuw": [],
+   "twijfel": "T5",
+   "keyframe": "keyframes/k1-taal-van-een-stamboom.webp",
+   "kamiel": "-P535j8XWq3hvI0iuuVC (uitlijning)"
+  },
+  {
+   "id": "s03",
+   "alinea": "Dit is de stamboom van de vrouw. Bovenaan, generatie één: haar ouders.…",
+   "woorden": 36,
+   "cue": [
+    "stamboom van de vrouw",
+    "Bovenaan",
+    "Daaronder",
+    "jongste broer",
+    "Onderaan"
+   ],
+   "look": "Schema",
+   "ziet": "de familie van de vrouw (SB_CF) bouwt per generatie op; namen als rol (haar ouders, haar broer · taaislijmziekte, zij, haar partner, hun kind?)",
+   "beweging": "generaties verschijnen van boven naar onder op de cuewoorden; de vrouw goud omlijnd",
+   "bieb": [
+    "stamboom"
+   ],
+   "nieuw": [],
+   "twijfel": "T2",
+   "keyframe": "keyframes/t2-stamboom-van-de-vrouw.webp"
+  },
+  {
+   "id": "c2",
+   "cue": [],
+   "look": "Schema (hoofdstukkaart)",
+   "ziet": "Hoofdstuk 2 · Stap 1: dominant of recessief? · 'Kan een eigenschap een generatie overslaan?'",
+   "beweging": "—",
+   "bieb": [],
+   "nieuw": []
+  },
+  {
+   "id": "s04",
+   "alinea": "Stap één: dominant of recessief. Zoek twee ouders zonder de eigenschap…",
+   "woorden": 53,
+   "cue": [
+    "Zoek",
+    "verborgen",
+    "recessief",
+    "taaislijmziekte",
+    "Zie je juist",
+    "dominant"
+   ],
+   "look": "Schema",
+   "ziet": "links mini-stamboom gezond × gezond → ziek kind met 'Aa × Aa' en annotatiehaak groen 'recessief'; daarna rechts ziek × ziek → gezond kind, haak 'dominant'; bij 'taaislijmziekte' licht in de familie van de vrouw het trio ouders–broer op (klein, rechtsonder)",
+   "beweging": "mini-stambomen bouwen lijn voor lijn; allelchips schuiven bij 'verborgen' uit de ouders (vader teal, moeder oker) naar het kind",
+   "bieb": [
+    "miniStamboom (nieuw)",
+    "allelChip (Chromosomen 2.1)"
+   ],
+   "nieuw": []
+  },
+  {
+   "id": "s05",
+   "alinea": "Een dominante ziekte, zoals de ziekte van Huntington, ziet er in een s…",
+   "woorden": 48,
+   "cue": [
+    "Huntington",
+    "hoofdletter",
+    "Eén A",
+    "bijna altijd"
+   ],
+   "look": "Schema",
+   "ziet": "de stamboom van een familie met de ziekte van Huntington (SB_HD) bouwt op; meta 'A = allel voor de ziekte'; bij 'bijna altijd' lichten de zieke personen met hun zieke ouder op (goud, één voor één)",
+   "beweging": "opbouw per generatie; geen genotypen nog",
+   "bieb": [
+    "stamboom"
+   ],
+   "nieuw": [],
+   "twijfel": "T3"
+  },
+  {
+   "id": "q06",
+   "alinea": "Deze man heeft de ziekte van Huntington niet, maar zijn vader wel. Kan…",
+   "woorden": 21,
+   "cue": [],
+   "look": "Schema (vraagkaart)",
+   "ziet": "vraagkaart 'Wat denk je?' met de man (gezonde zoon, gen II) klein links als mini-stamboom vader ziek → zoon gezond → kind ?; drie opties",
+   "beweging": "countdown-lijn",
+   "bieb": [],
+   "nieuw": [],
+   "keyframe": "keyframes/k5-vraagkaart-q06.webp",
+   "kamiel": "-P535x4l4J6IH2vOvugo"
+  },
+  {
+   "id": "s07",
+   "alinea": "Een dominante eigenschap slaat geen generatie over. Wie de ziekte niet…",
+   "woorden": 64,
+   "cue": [
+    "slaat geen",
+    "is aa",
+    "geen A",
+    "toevallig",
+    "geen enkel kind",
+    "kleinkinderen"
+   ],
+   "look": "Schema",
+   "ziet": "KERNSCÈNE · terug in SB_HD; genotypen verschijnen: grootvader Aa; bij 'toevallig' reist uit de grootvader één allelchip a (teal) naar de zoon, de A blijft liggen; zoon aa goud; bij 'geen enkel kind' dimt de rest van de stamboom en lichten in de tak van de zoon alle aa's goud op; annotatiehaak groen 'geen A meer: komt niet terug' onder de kleinkinderen; het linkerdeel (zieke dochter → ziek kleinkind) blijft gedimd zichtbaar als tegenvoorbeeld",
+   "beweging": "allelchip in een boog met lichte anticipatie (C8); dimmen 0,5 s",
+   "bieb": [
+    "stamboom",
+    "allelChip"
+   ],
+   "nieuw": [],
+   "twijfel": "T3",
+   "keyframe": "keyframes/t3-dominant-tak-verdwijnt.webp",
+   "kamiel": "-P535x4l4J6IH2vOvugo"
+  },
+  {
+   "id": "s08",
+   "alinea": "Bij een recessieve eigenschap kan dat wél: twee dragers kunnen een kin…",
+   "woorden": 26,
+   "cue": [
+    "recessieve",
+    "dragers",
+    "overslaat"
+   ],
+   "look": "Schema",
+   "ziet": "naast elkaar: links de Huntington-tak (dominant, ingekleurd in elke generatie), rechts de familie van de vrouw (recessief: ziek kind van twee gezonde ouders) met een gouden boog over gen I → II: 'lijkt over te slaan'; haak groen 'overslaan → recessief'",
+   "beweging": "beide klein, op één basislijn (vergelijking)",
+   "bieb": [
+    "stamboom"
+   ],
+   "nieuw": []
+  },
+  {
+   "id": "c3",
+   "cue": [],
+   "look": "Schema (hoofdstukkaart)",
+   "ziet": "Hoofdstuk 3 · Stap 2 en 3 · 'Welk genotype heeft iedereen in de stamboom?'",
+   "beweging": "—",
+   "bieb": [],
+   "nieuw": []
+  },
+  {
+   "id": "s09",
+   "alinea": "Stap twee: autosoom of X-chromosoom. Bij een recessieve eigenschap op …",
+   "woorden": 49,
+   "cue": [
+    "Stap twee",
+    "dochter",
+    "enige",
+    "autosoom"
+   ],
+   "look": "Schema",
+   "ziet": "links bovenaan mini-stamboom X-recessief: vader XᵃY (ingekleurd), moeder XᴬXᵃ, dochter XᵃXᵃ; bij 'enige' gaat een X-chip van de vader naar de dochter; daaronder: zieke dochter, gezonde vader → 'dus autosomaal' (groen)",
+   "beweging": "X-chip in een boog",
+   "bieb": [
+    "miniStamboom"
+   ],
+   "nieuw": [],
+   "twijfel": "T4",
+   "keyframe": "keyframes/t4-stap2-niet-te-bepalen.webp"
+  },
+  {
+   "id": "s10",
+   "alinea": "In de familie van de vrouw is alleen een zoon ziek. Dan kun je het uit…",
+   "woorden": 33,
+   "cue": [
+    "alleen een zoon",
+    "niet zeker",
+    "chromosoom zeven"
+   ],
+   "look": "Schema",
+   "ziet": "rechts de familie van de vrouw, zieke broer goud; label 'uit de stamboom niet te bepalen'; bij 'chromosoom zeven' een klein chromosoom 7 (chromatideX uit Chromosomen 2.1) met gouden band en label 'bekend: het gen ligt op chromosoom 7 · een autosoom'",
+   "beweging": "chromosoom morpht uit een punt naast de broer (kort)",
+   "bieb": [
+    "chromatideX (Chromosomen 2.1)"
+   ],
+   "nieuw": [],
+   "twijfel": "T4",
+   "keyframe": "keyframes/t4-stap2-niet-te-bepalen.webp"
+  },
+  {
+   "id": "s11",
+   "alinea": "Stap drie: vul de genotypen in. Begin bij wie de eigenschap heeft. Bij…",
+   "woorden": 55,
+   "cue": [
+    "Stap drie",
+    "aa",
+    "Werk",
+    "kreeg",
+    "allebei Aa",
+    "drager"
+   ],
+   "look": "Schema",
+   "ziet": "familie van de vrouw; aa onder de broer (goud), dan twee a-chips die van de broer omhoog naar de ouders schuiven ('werk terug'), Aa onder beide ouders; termkaart 'drager · Aa: gezond, draagt a bij zich'",
+   "beweging": "genotypen verschijnen op het woord; termkaart blijft ≥ 5 s",
+   "bieb": [
+    "stamboom",
+    "termKaart (Chromosomen 2.1)"
+   ],
+   "nieuw": [],
+   "twijfel": "T5",
+   "keyframe": "keyframes/t5-stap3-genotypen.webp"
+  },
+  {
+   "id": "s12",
+   "alinea": "Van een gezond persoon weet je vaak alleen dat er minstens één A is. D…",
+   "woorden": 32,
+   "cue": [
+    "minstens",
+    "A_",
+    "oudste broer"
+   ],
+   "look": "Schema",
+   "ziet": "A_ verschijnt onder de vrouw en haar oudste broer; termkaart 'A_ · AA óf Aa: minstens één A'; partner nog '?'",
+   "beweging": "—",
+   "bieb": [
+    "stamboom"
+   ],
+   "nieuw": [],
+   "twijfel": "T5",
+   "keyframe": "keyframes/t5-stap3-genotypen.webp"
+  },
+  {
+   "id": "c4",
+   "cue": [],
+   "look": "Schema (hoofdstukkaart)",
+   "ziet": "Hoofdstuk 4 · Twee derde, niet een half · 'Hoe groot is de kans dat zij drager is?'",
+   "beweging": "—",
+   "bieb": [],
+   "nieuw": []
+  },
+  {
+   "id": "q13",
+   "alinea": "Haar ouders zijn allebei Aa. De vrouw zelf is gezond. Hoe groot is de …",
+   "woorden": 22,
+   "cue": [],
+   "look": "Schema (vraagkaart)",
+   "ziet": "vraagkaart, ouders Aa × Aa klein bovenaan; opties een derde · een half · twee derde",
+   "beweging": "countdown-lijn",
+   "bieb": [],
+   "nieuw": []
+  },
+  {
+   "id": "s14",
+   "alinea": "We simuleren driehonderd kinderen van twee dragers. Elk kind krijgt va…",
+   "woorden": 66,
+   "cue": [
+    "driehonderd",
+    "elke ouder",
+    "kwart",
+    "helft",
+    "gezond",
+    "weg",
+    "overblijven",
+    "twee derde"
+   ],
+   "look": "Schema (simulatie)",
+   "ziet": "KERNSCÈNE · 300 kinderen als stippen in een raster (simRaster): elk kind ontstaat uit twee getrokken allelen (teal van vader, oker van moeder, kort zichtbaar bij de eerste tien, daarna sneller); AA open, Aa open met gouden rand, aa ingekleurd; tellers lopen mee; bij 'weg' vervagen de 57 aa; bij 'overblijven' schuiven de gezonde kinderen in twee groepen: AA 81 · Aa 162; kaart '162 van 243 ≈ ⅔'",
+   "beweging": "echte trekkingen met vaste seed 11 (deterministisch, B9); trekken versnelt (eerste 10 traag, rest in ± 4 s); sorteren als vloeiende beweging (C8)",
+   "bieb": [],
+   "nieuw": [
+    "simRaster",
+    "simLegenda"
+   ],
+   "keyframe": "keyframes/k2-simulatie-300-kinderen.webp"
+  },
+  {
+   "id": "c5",
+   "cue": [],
+   "look": "Schema (hoofdstukkaart)",
+   "ziet": "Hoofdstuk 5 · Twee rekenregels · 'Wanneer vermenigvuldig je, en wanneer tel je op?'",
+   "beweging": "—",
+   "bieb": [],
+   "nieuw": []
+  },
+  {
+   "id": "s16",
+   "alinea": "De productregel: moeten twee dingen allebei gebeuren, en hangen ze nie…",
+   "woorden": 41,
+   "cue": [
+    "productregel",
+    "allebei",
+    "vermenigvuldig",
+    "eerst",
+    "daarna",
+    "zestiende"
+   ],
+   "look": "Schema",
+   "ziet": "oppervlaktemodel 4 × 4 (oppModel): kolom 1 teal = eerste kind ziek ¼, rij 1 oker = tweede kind ziek ¼, het ene gouden vak = beide: 1/16",
+   "beweging": "kolom en rij kleuren op 'eerst' en 'daarna'; het gouden vak licht op op 'zestiende'",
+   "bieb": [],
+   "nieuw": [
+    "oppModel"
+   ],
+   "keyframe": "keyframes/k3-twee-rekenregels.webp"
+  },
+  {
+   "id": "s17",
+   "alinea": "De somregel: mag het ene óf het andere gebeuren, en kunnen ze niet teg…",
+   "woorden": 41,
+   "cue": [
+    "somregel",
+    "óf",
+    "optellen",
+    "AA",
+    "drie kwart"
+   ],
+   "look": "Schema",
+   "ziet": "rechts naast het oppervlaktemodel de kansbalk AA ¼ · Aa ½ · aa ¼ (kansBalk); AA en Aa kleuren groen; haak 'gezond: ¼ + ½ = ¾'",
+   "beweging": "de twee groene stukken schuiven tegen elkaar (optellen)",
+   "bieb": [],
+   "nieuw": [
+    "kansBalk"
+   ],
+   "keyframe": "keyframes/k3-twee-rekenregels.webp"
+  },
+  {
+   "id": "q18",
+   "alinea": "Twee dragers hebben al een kind met taaislijmziekte. Hoe groot is de k…",
+   "woorden": 23,
+   "cue": [],
+   "look": "Schema (vraagkaart)",
+   "ziet": "vraagkaart; opties kleiner dan een kwart · een kwart · groter dan een kwart",
+   "beweging": "countdown-lijn",
+   "bieb": [],
+   "nieuw": []
+  },
+  {
+   "id": "s19",
+   "alinea": "Elk kind is een nieuwe trekking. Ook na een ziek kind is de kans voor …",
+   "woorden": 24,
+   "cue": [
+    "nieuwe trekking",
+    "kwart",
+    "geheugen"
+   ],
+   "look": "Schema",
+   "ziet": "drie rijen met telkens één nieuwe trekking (twee allelchips uit Aa × Aa, teal en oker); boven elke trekking 'kans ¼'; kaart 'Toeval heeft geen geheugen'",
+   "beweging": "drie trekkingen na elkaar, de vorige dimt naar 35 %",
+   "bieb": [
+    "allelChip"
+   ],
+   "nieuw": []
+  },
+  {
+   "id": "c6",
+   "cue": [],
+   "look": "Schema (hoofdstukkaart)",
+   "ziet": "Hoofdstuk 6 · Terug naar de spreekkamer · 'Hoe groot is de kans dat haar kind de ziekte krijgt?'",
+   "beweging": "—",
+   "bieb": [],
+   "nieuw": []
+  },
+  {
+   "id": "s20",
+   "alinea": "Terug naar de vrouw. Haar partner heeft zich laten testen. Hij is drag…",
+   "woorden": 14,
+   "cue": [
+    "partner",
+    "testen",
+    "drager"
+   ],
+   "look": "Schema",
+   "ziet": "familie van de vrouw; onder de partner verschijnt een klein buisje en dan 'Aa · getest'",
+   "beweging": "—",
+   "bieb": [
+    "stamboom"
+   ],
+   "nieuw": [],
+   "twijfel": "T2",
+   "keyframe": "keyframes/t2-stamboom-van-de-vrouw.webp"
+  },
+  {
+   "id": "q21",
+   "alinea": "Hoe groot is de kans dat hun kind taaislijmziekte krijgt? Wat denk je?",
+   "woorden": 13,
+   "cue": [],
+   "look": "Schema (vraagkaart)",
+   "ziet": "vraagkaart; opties een zesde · een achtste · een kwart",
+   "beweging": "countdown-lijn",
+   "bieb": [],
+   "nieuw": []
+  },
+  {
+   "id": "s22",
+   "alinea": "Drie dingen moeten allemaal gebeuren. De vrouw moet drager zijn: twee …",
+   "woorden": 40,
+   "cue": [
+    "Drie dingen",
+    "drager",
+    "doorgeven",
+    "partner",
+    "vermenigvuldig",
+    "zesde"
+   ],
+   "look": "Schema",
+   "ziet": "kansboom (kansBoom): zij is gezond → drager ⅔ (goud) / geen drager ⅓ (gedimd); → zij geeft a ½ → partner geeft a ½ → kind aa; som '⅔ × ½ × ½ = ⅙'",
+   "beweging": "takken groeien op de cuewoorden; som verschijnt factor voor factor",
+   "bieb": [],
+   "nieuw": [
+    "kansBoom"
+   ],
+   "keyframe": "keyframes/k4-kansboom.webp"
+  },
+  {
+   "id": "s23",
+   "alinea": "Met zulke berekeningen werkt een klinisch geneticus. Met een dragersch…",
+   "woorden": 43,
+   "cue": [
+    "klinisch geneticus",
+    "dragerschapstest",
+    "kwart",
+    "niet"
+   ],
+   "look": "Macro (spreekkamer)",
+   "ziet": "zoomcirkel terug naar de spreekkamer (snede naar Macro); Kim schuift een formulier 'dragerschapstest' naar de vrouw; op het wandbord twee kaarten: 'drager (Aa): ¼' en 'geen drager (AA): 0'",
+   "beweging": "kaarten verschijnen op 'kwart' en 'niet'; warme, kleine handeling (formulier), geen dramatiek",
+   "bieb": [
+    "persoon sanne",
+    "persoon kim",
+    "spreekkamerE6"
+   ],
+   "nieuw": [
+    "formulier (vlak, oker)"
+   ],
+   "twijfel": "T1"
+  },
+  {
+   "id": "s24",
+   "alinea": "Samengevat. Stap één: dominant of recessief. Een dominante eigenschap …",
+   "woorden": 77,
+   "cue": [
+    "Stap één",
+    "generatie",
+    "Stap twee",
+    "Stap drie",
+    "Stap vier",
+    "twee derde",
+    "zesde"
+   ],
+   "look": "Schema → Macro",
+   "ziet": "stappenplan als vier kaarten op een rij (één persistent schema dat groeit); bij 'twee derde' en 'zesde' terug naar het wandbord met ⅔ onder de vrouw en ⅙ bij het kind",
+   "beweging": "kaarten verschijnen per stap; laatste beeld = spreekkamer",
+   "bieb": [
+    "card"
+   ],
+   "nieuw": []
+  },
+  {
+   "id": "eind",
+   "cue": [],
+   "look": "Schema (eindkaart)",
+   "ziet": "drie kernzinnen met annotatiehaak, geen beeld",
+   "beweging": "—",
+   "bieb": [],
+   "nieuw": []
+  }
+ ],
+ "telling": {
+  "gesproken woorden": 915,
+  "spreektijd_s": 381,
+  "vragen": 4,
+  "hoofdstukkaarten": 6
+ }
+}

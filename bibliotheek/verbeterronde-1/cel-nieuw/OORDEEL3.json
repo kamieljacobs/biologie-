@@ -1,0 +1,122 @@
+[
+ {
+  "obj": "blaasjeVersmelt",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 18
+   },
+   "Q": {
+    "klopt": 2,
+    "herkenbaar": 4,
+    "stijl": 2,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 16
+   }
+  },
+  "winnaar": "P",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Rare schuine rand rechts in het cytoplasmavlak; onderpanelen weinig gebogen",
+   "Q": "Celmembraan bijna recht: cel als trapezium, niet als stuk van een ronde cel"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "celDier",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": null,
+    "bruikbaar": 5,
+    "totaal": 18
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": null,
+    "bruikbaar": 4,
+    "totaal": 17
+   }
+  },
+  "winnaar": "P",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "P": "Cel is eivormig (aspect ±0,7) in plaats van rond",
+   "Q": "Cel raakt bijna de boven- en onderrand van het beeld; kleine panelen rakend aan de onderrand: geen ruimte voor namen"
+  },
+  "overnemen": "Ronder omtrek en iets grotere blaasjes uit Q",
+  "combineren": true,
+  "fout": ""
+ },
+ {
+  "obj": "plantencel",
+  "scores": {
+   "P": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 19
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 2,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 17
+   }
+  },
+  "winnaar": "P",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "P": "Kern met stekelkrans (poriën als spijkers) en plasmodesmata slechts als streepjes door de wand",
+   "Q": "Doorzichtige halo's en wandstompjes rondom de cel lijken op gloed/vlekken en strijden met 'geen gloed'; druk"
+  },
+  "overnemen": "Kernporiën als stippen met nucleolus en plasmodesmata als kanaaltjes door de wand uit Q",
+  "combineren": true,
+  "fout": "De dikke celwand leest in beide als dunne groene rand; dikte t.o.v. de cel te klein voor 'dikke celwand'"
+ },
+ {
+  "obj": "ruwER",
+  "scores": {
+   "P": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 14
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "Q",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Ribosomen zweven als losse stippen tussen de zakken (niet aan het membraan); geen kern; zakken losse stukken",
+   "Q": "Ribosomen aan beide zijden langs de zakken; groeiende keten alleen bovenaan"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ }
+]

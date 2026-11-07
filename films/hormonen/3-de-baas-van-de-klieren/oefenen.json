@@ -1,0 +1,227 @@
+{
+ "versie": 1,
+ "film": "films/hormonen/3-de-baas-van-de-klieren.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "schema-schildklierkring",
+   "soort": "schema",
+   "titel": "De regelkring van de schildklier",
+   "opdracht": "Vul de regelkring in: wie stuurt wie aan, en wat remt? Sleep de namen naar de goede vakjes. Eén naam blijft over.",
+   "alt": "Schema: van boven naar beneden drie lege vakjes met pijlen ertussen, dan een pijl naar rechts naar een vakje en verder naar 'bijna alle cellen'. Een gestippelde pijl 'remt' loopt van dat vakje terug naar het tweede vakje.",
+   "breed": 760,
+   "hoog": 400,
+   "vakbreed": 160,
+   "svg": "<path stroke-width=\"2\" d=\"M200 70 L200 118 M194 110 L200 118 L206 110 M200 166 L200 206 M194 198 L200 206 L206 198 M200 256 L200 296 M194 288 L200 296 L206 288 M280 320 L386 320 M378 314 L386 320 L378 326 M552 320 L614 320 M606 314 L614 320 L606 326\"/><rect class=\"acc\" x=\"618\" y=\"292\" width=\"134\" height=\"56\" rx=\"10\" stroke-width=\"2\"/><text x=\"685\" y=\"315\" text-anchor=\"middle\">bijna</text><text x=\"685\" y=\"337\" text-anchor=\"middle\">alle cellen</text><path class=\"acc\" stroke-width=\"2\" stroke-dasharray=\"7 6\" d=\"M470 296 L470 142 L284 142\"/><path class=\"acc\" stroke-width=\"2\" d=\"M292 136 L282 142 L292 148\"/><text x=\"482\" y=\"225\">remt (–)</text><text class=\"zacht\" x=\"752\" y=\"378\" text-anchor=\"end\">meer verbranding</text>",
+   "vakjes": [
+    {
+     "naam": "hypothalamus",
+     "x": 200,
+     "y": 45,
+     "punt": [
+      200,
+      45
+     ],
+     "uitleg": "een stuk hersenen; stuurt met hormonen de hypofyse aan."
+    },
+    {
+     "naam": "hypofyse",
+     "x": 200,
+     "y": 142,
+     "punt": [
+      200,
+      142
+     ],
+     "uitleg": "geeft TSH af; wordt geremd door thyroxine."
+    },
+    {
+     "naam": "TSH",
+     "x": 200,
+     "y": 231,
+     "punt": [
+      200,
+      231
+     ],
+     "uitleg": "de opdracht van de hypofyse: zet de schildklier aan (en laat hem groeien)."
+    },
+    {
+     "naam": "schildklier",
+     "x": 200,
+     "y": 320,
+     "punt": [
+      200,
+      320
+     ],
+     "uitleg": "vlindervormige klier in de hals; maakt thyroxine, met jodium."
+    },
+    {
+     "naam": "thyroxine",
+     "x": 470,
+     "y": 320,
+     "punt": [
+      470,
+      320
+     ],
+     "uitleg": "verhoogt de stofwisseling van bijna alle cellen, en remt de hypofyse: negatieve terugkoppeling."
+    }
+   ],
+   "afleiders": [
+    "ACTH"
+   ]
+  },
+  {
+   "id": "volgorde-struma",
+   "soort": "volgorde",
+   "titel": "Van jodiumtekort tot struma",
+   "opdracht": "Iemand krijgt te weinig jodium binnen. Zet in de goede volgorde wat er gebeurt.",
+   "stappen": [
+    {
+     "tekst": "De schildklier kan te weinig thyroxine maken: de thyroxine in het bloed daalt.",
+     "uitleg": "In elk molecuul thyroxine zitten vier jodiumatomen."
+    },
+    {
+     "tekst": "De rem op de hypofyse wordt zwakker.",
+     "uitleg": "Normaal remt thyroxine de hypofyse: negatieve terugkoppeling."
+    },
+    {
+     "tekst": "De hypofyse geeft steeds meer TSH af.",
+     "uitleg": "TSH zet aan, thyroxine remt. Valt de rem weg, dan stijgt de TSH."
+    },
+    {
+     "tekst": "TSH laat de schildklier harder werken, en ook groeien.",
+     "uitleg": "Een grotere schildklier vangt wat meer van het schaarse jodium."
+    },
+    {
+     "tekst": "De thyroxine blijft vaak te laag en de TSH hoog: de schildklier groeit door tot een struma.",
+     "uitleg": "Let op: deze grote schildklier maakt juist te weinig thyroxine. Groter betekent niet meer."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-twee-verdiepingen",
+   "soort": "volgorde",
+   "vwo": true,
+   "titel": "Twee verdiepingen",
+   "opdracht": "Zet de stappen van de regelkring van de schildklier in de goede volgorde, vanaf de hypothalamus.",
+   "stappen": [
+    {
+     "tekst": "De hypothalamus geeft TRH af, een releasing hormoon.",
+     "uitleg": "De hypothalamus is de bovenste verdieping van de kring."
+    },
+    {
+     "tekst": "TRH zet de hypofyse aan om TSH af te geven.",
+     "uitleg": "TRH en TSH lijken op elkaar: let op de letters."
+    },
+    {
+     "tekst": "TSH zet de schildklier aan om thyroxine te maken.",
+     "uitleg": "Daarvoor is jodium nodig."
+    },
+    {
+     "tekst": "Thyroxine remt zowel de hypofyse als de hypothalamus.",
+     "uitleg": "Zo is er terugkoppeling op twee niveaus."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-arts",
+   "soort": "uitleg",
+   "titel": "Waar zit het probleem?",
+   "opdracht": "Een arts meet het bloed van twee patiënten. Bij patiënt 1 is de thyroxine laag en de TSH hoog. Bij patiënt 2 zijn de thyroxine en de TSH allebei laag. Leg voor allebei uit waar het probleem zit.",
+   "begrippen": [
+    {
+     "naam": "TSH",
+     "varianten": []
+    },
+    {
+     "naam": "thyroxine",
+     "varianten": []
+    },
+    {
+     "naam": "hypofyse",
+     "varianten": []
+    },
+    {
+     "naam": "schildklier",
+     "varianten": []
+    },
+    {
+     "naam": "remt",
+     "varianten": [
+      "rem",
+      "remming",
+      "negatieve terugkoppeling"
+     ]
+    },
+    {
+     "naam": "hypothalamus",
+     "varianten": []
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat thyroxine normaal de hypofyse remt, zodat er weinig thyroxine samengaat met veel TSH.",
+    "Ik concludeer dat bij patiënt 1 de hypofyse goed werkt, maar de schildklier niet.",
+    "Ik leg uit dat bij patiënt 2 de schildklier te weinig opdracht (TSH) krijgt.",
+    "Ik concludeer dat het probleem bij patiënt 2 hoger zit: in de hypofyse, of soms in de hypothalamus."
+   ],
+   "model": [
+    "Thyroxine remt de hypofyse. Is er weinig thyroxine, dan wordt de hypofyse nauwelijks geremd en geeft ze veel TSH af.",
+    "Bij patiënt 1 is dat precies zo: weinig thyroxine en veel TSH. De hypofyse werkt dus goed en geeft opdracht, maar de schildklier maakt te weinig thyroxine. Het probleem zit in de schildklier.",
+    "Bij patiënt 2 is er weinig thyroxine, maar toch weinig TSH. De schildklier krijgt dus te weinig opdracht. Het probleem zit hoger: in de hypofyse, of soms nog hoger, in de hypothalamus."
+   ]
+  },
+  {
+   "id": "uitleg-graves",
+   "soort": "uitleg",
+   "vwo": true,
+   "titel": "De ziekte van Graves",
+   "opdracht": "Bij de ziekte van Graves meet een arts veel thyroxine en weinig TSH. Toch blijft de schildklier hard werken. Leg uit hoe dat kan.",
+   "begrippen": [
+    {
+     "naam": "antistoffen",
+     "varianten": [
+      "antistof",
+      "afweersysteem"
+     ]
+    },
+    {
+     "naam": "TSH-receptor",
+     "varianten": [
+      "receptor",
+      "TSH receptor"
+     ]
+    },
+    {
+     "naam": "thyroxine",
+     "varianten": []
+    },
+    {
+     "naam": "hypofyse",
+     "varianten": []
+    },
+    {
+     "naam": "TSH",
+     "varianten": []
+    },
+    {
+     "naam": "terugkoppeling",
+     "varianten": [
+      "remt",
+      "rem",
+      "omzeild"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat het afweersysteem antistoffen maakt die op de TSH-receptor van de schildklier passen en die aanzetten.",
+    "Ik leg uit dat de schildklier daardoor veel thyroxine maakt.",
+    "Ik leg uit dat die thyroxine de hypofyse remt, zodat er weinig TSH is.",
+    "Ik leg uit dat de rem via de TSH werkt en geen invloed heeft op de antistoffen: de terugkoppeling wordt omzeild."
+   ],
+   "model": [
+    "Bij de ziekte van Graves maakt het afweersysteem antistoffen die precies op de TSH-receptor van de schildklier passen. Ze zetten die receptor aan, net als TSH. De schildklier werkt daardoor hard en maakt veel thyroxine.",
+    "Die thyroxine remt de hypofyse (en de hypothalamus), dus er is weinig TSH in het bloed.",
+    "Maar de rem werkt alleen via de TSH. Op de antistoffen heeft hij geen invloed: die blijven de TSH-receptor aanzetten. De negatieve terugkoppeling wordt zo omzeild."
+   ]
+  }
+ ]
+}

@@ -1,0 +1,440 @@
+[
+ {
+  "obj": "armanatomie",
+  "scores": {
+   "X": {
+    "klopt": 2,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 18
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 19
+   }
+  },
+  "winnaar": "Y",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "schouderblad als brede zijaanzicht-schaal (niet van opzij) en hand veel te klein (±0,4 van onderarm i.p.v. ±0,8)",
+   "Y": "losse, open romplijnen zweven in de lucht; verder rustig"
+  },
+  "overnemen": "van X: geen losse romplijnen (of sluit de romp netjes af)",
+  "combineren": true,
+  "fout": ""
+ },
+ {
+  "obj": "armmodel",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 19
+   },
+   "Z": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 2,
+    "bruikbaar": 4,
+    "totaal": 18
+   }
+  },
+  "winnaar": "X",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "alleen een pijl; het getrokken touwtje zelf valt niet op",
+   "Y": "'||'-streepjes bij de ring zijn onduidelijk (pauze?), kleur van touwtje wel goed",
+   "Z": "geen enkele aanduiding welk touwtje getrokken wordt; stand 1 en 3 zijn niet te onderscheiden van rust"
+  },
+  "overnemen": "van Y: het getrokken touwtje in de kleur van zijn ring (goud/blauw) en gespannen recht; de '||'-streepjes niet",
+  "combineren": true,
+  "fout": ""
+ },
+ {
+  "obj": "bloedvat-rodebloedcel",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   },
+   "Y": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 2,
+    "beweging": 2,
+    "bruikbaar": 3,
+    "totaal": 12
+   }
+  },
+  "winnaar": "X",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "ader en slagader hebben hetzelfde lumen-gevoel; haarvatwand is een dun lijntje",
+   "Y": "geen wanden (slagader/ader niet te onderscheiden), dikke zwarte en blauwe contourlijnen, haarvat zonder vervorming van rode bloedcellen"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "darmwand",
+  "scores": {
+   "X": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 15
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "dunne darm zonder vlokken: de kern van het object ontbreekt, ziet eruit als dikke darm",
+   "Y": "wandlagen onderling vrij fijn; klierbuisjes tussen de vlokken zijn niet te zien"
+  },
+  "overnemen": "van X: niets",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "gewrichtdoorsnede-botdoorsnede-botweefsel",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": null,
+    "bruikbaar": 4,
+    "totaal": 16
+   },
+   "Y": {
+    "klopt": 3,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": null,
+    "bruikbaar": 4,
+    "totaal": 13
+   }
+  },
+  "winnaar": "X",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "kapsel en banden zijn dunne boogjes, weinig herkenbaar",
+   "Y": "schouderblad is een kale trapezium zonder kom-vorm of acromion; pijpbeen-uiteinden te smal"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "hoofdhersenen",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   },
+   "Y": {
+    "klopt": 2,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 17
+   }
+  },
+  "winnaar": "X",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "hypofyse en Turks zadel klein en niet apart te zien",
+   "Y": "oog in een mediane doorsnede (hoort daar niet), weinig en rechte groeven, geen mond/tong, hoofd te donker en vlak"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "huiddoorsnede",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": null,
+    "bruikbaar": 4,
+    "totaal": 16
+   },
+   "Y": {
+    "klopt": 3,
+    "herkenbaar": 3,
+    "stijl": 4,
+    "beweging": null,
+    "bruikbaar": 3,
+    "totaal": 13
+   }
+  },
+  "winnaar": "X",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "haarvatlussen zitten dichtgepakt vol rode bloedcellen (als rolletjes), epidermislagen in de zoom niet goed te onderscheiden",
+   "Y": "overzicht toont de epidermis als één beige band zonder lagen; haarvatlus wel mooi met losse rode bloedcellen"
+  },
+  "overnemen": "van Y: haarvatlussen met losse rode bloedcellen i.p.v. gestapeld",
+  "combineren": true,
+  "fout": "In de zoom zijn korrellaag (platte cellen), stekelcellaag en basale laag (kolomvormig) nauwelijks te onderscheiden; alle cellen lijken op elkaar"
+ },
+ {
+  "obj": "hypofysepoort",
+  "scores": {
+   "X": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 15
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Z": {
+    "klopt": 4,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 17
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "geen wiggenbeen/Turks zadel en geen luchtholte; hypofyse zweeft in lucht",
+   "Y": "geen echte zwakte; hypothalamus-contour blokkerig",
+   "Z": "zoomcirkel knipt de tekening af, harde donkere vlakken in het gat, beeld rommeliger"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "levervoor",
+  "scores": {
+   "X": {
+    "klopt": 2,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 18
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "geen inkeping met ronde leverband, vlakke vorm zonder bolle bovenkant",
+   "Y": "galblaas wat bol en groot"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "nierbijnier",
+  "scores": {
+   "X": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 2,
+    "bruikbaar": 3,
+    "totaal": 13
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 19
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "geen piramides of kelkjes, alleen een donker waaiertje; bijnier-stand nauwelijks anders",
+   "Y": "urine door de urineleider ontbreekt als stand; schors/merg van bijnier lichten niet apart op"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "De stand 'urine die door de urineleider loopt' ontbreekt in alle versies"
+ },
+ {
+  "obj": "sarcomeer-myofibril",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Y": {
+    "klopt": 3,
+    "herkenbaar": 3,
+    "stijl": 2,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 15
+   }
+  },
+  "winnaar": "X",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "myosinekoppen zijn een drukke bos blaadjes",
+   "Y": "myosinekoppen als lolly-bolletjes (bolletjes-eiwit), myofibril dof met te weinig contrast tussen A- en I-band"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "spierdwars-eenheidzenuw-spierspoeltje",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Y": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 14
+   }
+  },
+  "winnaar": "X",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "vezelgroepjes (bundels met perimysium) niet te zien, alle vezels los",
+   "Y": "vezels steken buiten de cirkel/het vlies uit, spoeltje zweeft zonder omringende spiervezels"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "Perimysium (bindweefselvlies om bundels van vezels) ontbreekt in beide versies; vezels liggen allemaal los in één vlies"
+ },
+ {
+  "obj": "spiervezel-spierbundel",
+  "scores": {
+   "X": {
+    "klopt": 2,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 2,
+    "bruikbaar": 4,
+    "totaal": 16
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 2,
+    "bruikbaar": 4,
+    "totaal": 17
+   }
+  },
+  "winnaar": "Y",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "geen bundel: geen bindweefselvlies, geen haarvat, vezels met gaten ertussen",
+   "Y": "dichte arcering is druk, onderrand van de vezel rafelig"
+  },
+  "overnemen": "van X: de rustige, schone strepen en de grote zoomvezel met brede A/I-banden",
+  "combineren": true,
+  "fout": "De stand samentrekken ontbreekt in alle versies: de lichte banden worden niet smaller, de vezel niet korter of dikker"
+ },
+ {
+  "obj": "vetcel-vetweefsel",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   },
+   "Y": {
+    "klopt": 2,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 1,
+    "bruikbaar": 3,
+    "totaal": 14
+   }
+  },
+  "winnaar": "X",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "haarvat loopt dwars over vetcellen heen",
+   "Y": "gevuld en geslonken stand zijn identiek; kernen nauwelijks zichtbaar"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "Het haarvat loopt dwars door/over vetcellen heen in plaats van tussen de cellen in het bindweefsel (beide versies)"
+ }
+]

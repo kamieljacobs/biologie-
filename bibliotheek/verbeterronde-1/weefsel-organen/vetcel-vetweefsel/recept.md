@@ -1,0 +1,3 @@
+- Wit vetweefsel: vetcellen dicht tegen elkaar, onregelmatige veelhoeken met afgeronde hoeken (geen honingraat), dun bindweefsel en een haarvat ertussen.
+- Elke vetcel: één grote vetdruppel, een dun randje cytoplasma, de kern plat tegen de rand.
+- Stand: gevuld en geslonken (na vasten): druppel en cel kleiner, meer bindweefsel ertussen.

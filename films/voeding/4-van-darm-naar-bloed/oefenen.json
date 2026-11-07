@@ -1,0 +1,317 @@
+{
+ "versie": 1,
+ "film": "films/voeding/4-van-darm-naar-bloed.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-zoom",
+   "soort": "volgorde",
+   "titel": "Inzoomen op de darmwand",
+   "opdracht": "Zoom in op de binnenwand van de dunne darm. Zet de onderdelen in volgorde van groot naar klein.",
+   "stappen": [
+    {
+     "tekst": "De dunne darm: een buis van ongeveer drie meter.",
+     "uitleg": "Als gladde buis zou de binnenkant maar een kwart vierkante meter zijn: vier A4'tjes."
+    },
+    {
+     "tekst": "Kringvormige plooien in de binnenwand.",
+     "uitleg": "Die maken het oppervlak ongeveer anderhalf keer zo groot."
+    },
+    {
+     "tekst": "Darmvlokken op de plooien.",
+     "uitleg": "Miljoenen vingertjes van een halve tot een hele millimeter."
+    },
+    {
+     "tekst": "Darmepitheelcellen: één laag dekweefsel over elke vlok.",
+     "uitleg": "Voedingsstoffen gaan dwars door deze cellen heen."
+    },
+    {
+     "tekst": "Microvilli op elke epitheelcel.",
+     "uitleg": "Duizenden per cel, aan de kant van het voedsel. Samen kom je zo op ongeveer dertig vierkante meter."
+    }
+   ]
+  },
+  {
+   "id": "schema-darmvlok",
+   "soort": "schema",
+   "titel": "Eén darmvlok van binnen",
+   "opdracht": "Je ziet een darmvlok in de lengte doorgesneden (niet op schaal). Sleep de namen naar de goede vakjes.",
+   "alt": "Lijntekening van een darmvlok in lengtedoorsnede: een laag epitheelcellen met microvilli aan de buitenkant, daarbinnen een netwerk van haarvaten en in het midden een lymfevat met vetbolletjes.",
+   "breed": 680,
+   "hoog": 440,
+   "vakbreed": 150,
+   "svg": "<path class=\"acc\" stroke-width=\"2.2\" d=\"M296 404 L296 160 C296 96 384 96 384 160 L384 404 M296 190 C320 204 360 182 384 206 M296 250 C320 264 360 242 384 266 M296 312 C320 326 360 304 384 328\"/><path stroke-width=\"2.2\" style=\"fill:var(--oe-veld)\" d=\"M326 404 L326 150 C326 128 354 128 354 150 L354 404\"/><circle cx=\"340\" cy=\"176\" r=\"5\" stroke-width=\"1.4\"/><circle cx=\"334\" cy=\"214\" r=\"5\" stroke-width=\"1.4\"/><circle cx=\"346\" cy=\"246\" r=\"5\" stroke-width=\"1.4\"/><circle cx=\"338\" cy=\"284\" r=\"5\" stroke-width=\"1.4\"/><circle cx=\"344\" cy=\"322\" r=\"5\" stroke-width=\"1.4\"/><circle cx=\"334\" cy=\"356\" r=\"5\" stroke-width=\"1.4\"/><path stroke-width=\"2.4\" d=\"M245 404 L245 140 A95 95 0 0 1 435 140 L435 404\"/><path stroke-width=\"1.6\" d=\"M271 404 L271 140 A69 69 0 0 1 409 140 L409 404\"/><path stroke-width=\"1.2\" d=\"M245 166 L271 166 M409 166 L435 166 M245 192 L271 192 M409 192 L435 192 M245 218 L271 218 M409 218 L435 218 M245 244 L271 244 M409 244 L435 244 M245 270 L271 270 M409 270 L435 270 M245 296 L271 296 M409 296 L435 296 M245 322 L271 322 M409 322 L435 322 M245 348 L271 348 M409 348 L435 348 M245 374 L271 374 M409 374 L435 374 M245 400 L271 400 M409 400 L435 400 M271.0 140.0 L245.0 140.0 M277.8 110.1 L254.4 98.8 M297.0 86.1 L280.8 65.7 M324.6 72.7 L318.9 47.4 M355.4 72.7 L361.1 47.4 M383.0 86.1 L399.2 65.7 M402.2 110.1 L425.6 98.8 M409.0 140.0 L435.0 140.0 \"/><ellipse cx=\"260\" cy=\"153\" rx=\"4\" ry=\"6\" class=\"vul zacht\"/><ellipse cx=\"420\" cy=\"153\" rx=\"4\" ry=\"6\" class=\"vul zacht\"/><ellipse cx=\"260\" cy=\"179\" rx=\"4\" ry=\"6\" class=\"vul zacht\"/><ellipse cx=\"420\" cy=\"179\" rx=\"4\" ry=\"6\" class=\"vul zacht\"/><ellipse cx=\"260\" cy=\"205\" rx=\"4\" ry=\"6\" class=\"vul zacht\"/><ellipse cx=\"420\" cy=\"205\" rx=\"4\" ry=\"6\" class=\"vul zacht\"/><ellipse cx=\"260\" cy=\"231\" rx=\"4\" ry=\"6\" class=\"vul zacht\"/><ellipse cx=\"420\" cy=\"231\" rx=\"4\" ry=\"6\" class=\"vul zacht\"/><ellipse cx=\"260\" cy=\"257\" rx=\"4\" ry=\"6\" class=\"vul zacht\"/><ellipse cx=\"420\" cy=\"257\" rx=\"4\" ry=\"6\" class=\"vul zacht\"/><ellipse cx=\"260\" cy=\"283\" rx=\"4\" ry=\"6\" class=\"vul zacht\"/><ellipse cx=\"420\" cy=\"283\" rx=\"4\" ry=\"6\" class=\"vul zacht\"/><ellipse cx=\"260\" cy=\"309\" rx=\"4\" ry=\"6\" class=\"vul zacht\"/><ellipse cx=\"420\" cy=\"309\" rx=\"4\" ry=\"6\" class=\"vul zacht\"/><ellipse cx=\"260\" cy=\"335\" rx=\"4\" ry=\"6\" class=\"vul zacht\"/><ellipse cx=\"420\" cy=\"335\" rx=\"4\" ry=\"6\" class=\"vul zacht\"/><ellipse cx=\"260\" cy=\"361\" rx=\"4\" ry=\"6\" class=\"vul zacht\"/><ellipse cx=\"420\" cy=\"361\" rx=\"4\" ry=\"6\" class=\"vul zacht\"/><ellipse cx=\"260\" cy=\"387\" rx=\"4\" ry=\"6\" class=\"vul zacht\"/><ellipse cx=\"420\" cy=\"387\" rx=\"4\" ry=\"6\" class=\"vul zacht\"/><circle cx=\"260.1\" cy=\"121.8\" r=\"4.5\" class=\"vul zacht\"/><circle cx=\"275.9\" cy=\"88.9\" r=\"4.5\" class=\"vul zacht\"/><circle cx=\"304.4\" cy=\"66.1\" r=\"4.5\" class=\"vul zacht\"/><circle cx=\"340.0\" cy=\"58.0\" r=\"4.5\" class=\"vul zacht\"/><circle cx=\"375.6\" cy=\"66.1\" r=\"4.5\" class=\"vul zacht\"/><circle cx=\"404.1\" cy=\"88.9\" r=\"4.5\" class=\"vul zacht\"/><circle cx=\"419.9\" cy=\"121.8\" r=\"4.5\" class=\"vul zacht\"/><path stroke-width=\"1\" d=\"M245 140 L238 140 M435 140 L442 140 M245 145 L238 145 M435 145 L442 145 M245 150 L238 150 M435 150 L442 150 M245 155 L238 155 M435 155 L442 155 M245 160 L238 160 M435 160 L442 160 M245 165 L238 165 M435 165 L442 165 M245 170 L238 170 M435 170 L442 170 M245 175 L238 175 M435 175 L442 175 M245 180 L238 180 M435 180 L442 180 M245 185 L238 185 M435 185 L442 185 M245 190 L238 190 M435 190 L442 190 M245 195 L238 195 M435 195 L442 195 M245 200 L238 200 M435 200 L442 200 M245 205 L238 205 M435 205 L442 205 M245 210 L238 210 M435 210 L442 210 M245 215 L238 215 M435 215 L442 215 M245 220 L238 220 M435 220 L442 220 M245 225 L238 225 M435 225 L442 225 M245 230 L238 230 M435 230 L442 230 M245 235 L238 235 M435 235 L442 235 M245 240 L238 240 M435 240 L442 240 M245 245 L238 245 M435 245 L442 245 M245 250 L238 250 M435 250 L442 250 M245 255 L238 255 M435 255 L442 255 M245 260 L238 260 M435 260 L442 260 M245 265 L238 265 M435 265 L442 265 M245 270 L238 270 M435 270 L442 270 M245 275 L238 275 M435 275 L442 275 M245 280 L238 280 M435 280 L442 280 M245 285 L238 285 M435 285 L442 285 M245 290 L238 290 M435 290 L442 290 M245 295 L238 295 M435 295 L442 295 M245 300 L238 300 M435 300 L442 300 M245 305 L238 305 M435 305 L442 305 M245 310 L238 310 M435 310 L442 310 M245 315 L238 315 M435 315 L442 315 M245 320 L238 320 M435 320 L442 320 M245 325 L238 325 M435 325 L442 325 M245 330 L238 330 M435 330 L442 330 M245 335 L238 335 M435 335 L442 335 M245 340 L238 340 M435 340 L442 340 M245 345 L238 345 M435 345 L442 345 M245 350 L238 350 M435 350 L442 350 M245 355 L238 355 M435 355 L442 355 M245 360 L238 360 M435 360 L442 360 M245 365 L238 365 M435 365 L442 365 M245 370 L238 370 M435 370 L442 370 M245 375 L238 375 M435 375 L442 375 M245 380 L238 380 M435 380 L442 380 M245 385 L238 385 M435 385 L442 385 M245 390 L238 390 M435 390 L442 390 M245 395 L238 395 M435 395 L442 395 M245 400 L238 400 M435 400 L442 400 M245.0 140.0 L238.0 140.0 M245.1 135.0 L238.1 134.7 M245.5 130.1 L238.6 129.3 M246.2 125.1 L239.3 124.0 M247.1 120.2 L240.2 118.8 M248.2 115.4 L241.5 113.6 M249.6 110.6 L243.0 108.5 M251.3 106.0 L244.8 103.4 M253.2 101.4 L246.8 98.5 M255.4 96.9 L249.1 93.7 M257.7 92.5 L251.7 89.0 M260.3 88.3 L254.5 84.4 M263.1 84.2 L257.5 80.0 M266.2 80.2 L260.7 75.8 M269.4 76.4 L264.2 71.7 M272.8 72.8 L267.9 67.9 M276.4 69.4 L271.7 64.2 M280.2 66.2 L275.8 60.7 M284.2 63.1 L280.0 57.5 M288.3 60.3 L284.4 54.5 M292.5 57.7 L289.0 51.7 M296.9 55.4 L293.7 49.1 M301.4 53.2 L298.5 46.8 M306.0 51.3 L303.4 44.8 M310.6 49.6 L308.5 43.0 M315.4 48.2 L313.6 41.5 M320.2 47.1 L318.8 40.2 M325.1 46.2 L324.0 39.3 M330.1 45.5 L329.3 38.6 M335.0 45.1 L334.7 38.1 M340.0 45.0 L340.0 38.0 M345.0 45.1 L345.3 38.1 M349.9 45.5 L350.7 38.6 M354.9 46.2 L356.0 39.3 M359.8 47.1 L361.2 40.2 M364.6 48.2 L366.4 41.5 M369.4 49.6 L371.5 43.0 M374.0 51.3 L376.6 44.8 M378.6 53.2 L381.5 46.8 M383.1 55.4 L386.3 49.1 M387.5 57.7 L391.0 51.7 M391.7 60.3 L395.6 54.5 M395.8 63.1 L400.0 57.5 M399.8 66.2 L404.2 60.7 M403.6 69.4 L408.3 64.2 M407.2 72.8 L412.1 67.9 M410.6 76.4 L415.8 71.7 M413.8 80.2 L419.3 75.8 M416.9 84.2 L422.5 80.0 M419.7 88.3 L425.5 84.4 M422.3 92.5 L428.3 89.0 M424.6 96.9 L430.9 93.7 M426.8 101.4 L433.2 98.5 M428.7 106.0 L435.2 103.4 M430.4 110.6 L437.0 108.5 M431.8 115.4 L438.5 113.6 M432.9 120.2 L439.8 118.8 M433.8 125.1 L440.7 124.0 M434.5 130.1 L441.4 129.3 M434.9 135.0 L441.9 134.7 M435.0 140.0 L442.0 140.0 \"/><path stroke-width=\"2\" d=\"M150 404 L245 404 M435 404 L530 404\"/><path stroke-width=\"1.4\" d=\"M296 418 L296 434 M290 424 L296 418 L302 424 M384 418 L384 434 M378 428 L384 434 L390 428 M340 418 L340 434 M334 428 L340 434 L346 428\"/><text x=\"160\" y=\"80\" font-size=\"12\">darmholte</text>",
+   "vakjes": [
+    {
+     "naam": "microvilli",
+     "x": 82,
+     "y": 150,
+     "punt": [
+      240,
+      196
+     ],
+     "uitleg": "piepkleine uitstulpingen van het celmembraan aan de kant van het voedsel; maken het oppervlak nog veel groter."
+    },
+    {
+     "naam": "darmepitheelcel",
+     "x": 82,
+     "y": 290,
+     "punt": [
+      258,
+      300
+     ],
+     "uitleg": "één laag dekweefsel over de vlok; voedingsstoffen gaan hier dwars doorheen."
+    },
+    {
+     "naam": "lymfevat",
+     "x": 598,
+     "y": 110,
+     "punt": [
+      354,
+      172
+     ],
+     "uitleg": "in het midden van de vlok, met een wand met grotere openingen; voert het vet af."
+    },
+    {
+     "naam": "haarvat",
+     "x": 598,
+     "y": 230,
+     "punt": [
+      384,
+      262
+     ],
+     "uitleg": "ligt vlak onder het epitheel; neemt glucose en aminozuren op en voert ze via de poortader naar de lever."
+    },
+    {
+     "naam": "vetbolletje",
+     "x": 598,
+     "y": 350,
+     "punt": [
+      344,
+      322
+     ],
+     "uitleg": "door de epitheelcel opnieuw gemaakt vet; te groot voor een haarvat, maar past in het lymfevat."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-glucose",
+   "soort": "volgorde",
+   "titel": "De reis van een glucosemolecuul",
+   "opdracht": "Volg een glucosemolecuul uit het broodje. Zet de stappen in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "De glucose ligt in de darm, tussen de microvilli.",
+     "uitleg": "Enzymen hebben het zetmeel in glucose geknipt."
+    },
+    {
+     "tekst": "Via een transporteiwit in het celmembraan gaat de glucose de epitheelcel in.",
+     "uitleg": "Eerst deels door diffusie, maar grotendeels door actief transport, ook tegen het verschil in."
+    },
+    {
+     "tekst": "Aan de onderkant gaat de glucose de epitheelcel weer uit.",
+     "uitleg": "Nu is hij binnen in de vlok."
+    },
+    {
+     "tekst": "De glucose komt in een haarvat in de vlok.",
+     "uitleg": "De haarvaten liggen vlak onder de epitheelcellen, een paar micrometer verder."
+    },
+    {
+     "tekst": "Via de poortader gaat het bloed met glucose naar de lever.",
+     "uitleg": "De poortader gaat niet naar het hart, maar eerst naar de lever."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-vet",
+   "soort": "volgorde",
+   "titel": "De omweg van het vet",
+   "opdracht": "Volg het vet uit de kaas. Zet de stappen in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Glycerol en vetzuren gaan de epitheelcel in.",
+     "uitleg": "Enzymen hebben het vet in deze kleine moleculen geknipt."
+    },
+    {
+     "tekst": "In de epitheelcel maakt de cel er weer vet van, in kleine bolletjes.",
+     "uitleg": "Vwo: deze vetbolletjes heten chylomicronen."
+    },
+    {
+     "tekst": "De vetbolletjes gaan het lymfevat in de vlok in.",
+     "uitleg": "Ze zijn te groot voor de wand van een haarvat; de wand van het lymfevat heeft grotere openingen."
+    },
+    {
+     "tekst": "Het lymfevat komt uit in een ader onder je linker sleutelbeen.",
+     "uitleg": "Een lange omweg. Na een vette maaltijd is deze lymfe melkwit."
+    },
+    {
+     "tekst": "Via de bovenste holle ader gaat het vet naar je hart.",
+     "uitleg": "Het vet komt dus eerst in het hart, en pas later in de lever."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-coeliakie",
+   "soort": "uitleg",
+   "titel": "Coeliakie en afvallen",
+   "opdracht": "Iemand met onbehandelde coeliakie eet genoeg, maar valt toch af en krijgt tekorten. Leg aan een klasgenoot uit hoe dat komt.",
+   "begrippen": [
+    {
+     "naam": "darmvlokken",
+     "varianten": [
+      "vlokken",
+      "darmvlok"
+     ]
+    },
+    {
+     "naam": "oppervlak",
+     "varianten": [
+      "oppervlakte"
+     ]
+    },
+    {
+     "naam": "opname",
+     "varianten": [
+      "resorptie",
+      "opgenomen",
+      "opnemen"
+     ]
+    },
+    {
+     "naam": "gluten",
+     "varianten": []
+    },
+    {
+     "naam": "afweersysteem",
+     "varianten": [
+      "afweer"
+     ]
+    },
+    {
+     "naam": "minder moleculen tegelijk",
+     "varianten": [
+      "minder moleculen",
+      "tegelijk",
+      "langzamer",
+      "minder snel"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik noem dat het afweersysteem in de darmwand reageert op gluten.",
+    "Ik leg uit dat de darmvlokken daardoor korter worden, soms bijna plat.",
+    "Ik leg uit dat het oppervlak dan veel kleiner is, zodat er minder moleculen tegelijk door de wand gaan.",
+    "Ik leg uit dat er daardoor minder voedingsstoffen worden opgenomen, ook al eet iemand genoeg."
+   ],
+   "model": [
+    "Bij coeliakie reageert het afweersysteem in de darmwand op gluten uit tarwe, rogge en gerst. Daardoor worden de darmvlokken korter, soms bijna plat.",
+    "Zonder vlokken is het oppervlak van de darmwand veel kleiner. Er gaan dan minder moleculen tegelijk door de wand: de opname gaat langzamer.",
+    "Een deel van de voedingsstoffen wordt dus niet opgenomen voordat het voedsel de dunne darm uit is. Daardoor kan iemand tekorten krijgen en afvallen, ook als hij genoeg eet."
+   ]
+  },
+  {
+   "id": "uitleg-actief",
+   "soort": "uitleg",
+   "titel": "Ook de laatste glucose eruit",
+   "opdracht": "Na een tijdje zit er minder glucose in de darm dan in de epitheelcel. Toch blijft er bijna geen glucose in de darm achter. Leg uit hoe dat kan.",
+   "begrippen": [
+    {
+     "naam": "diffusie",
+     "varianten": [
+      "van veel naar weinig"
+     ]
+    },
+    {
+     "naam": "actief transport",
+     "varianten": [
+      "actief",
+      "tegen het verschil in",
+      "tegen het concentratieverschil in"
+     ]
+    },
+    {
+     "naam": "energie",
+     "varianten": [
+      "ATP"
+     ]
+    },
+    {
+     "naam": "transporteiwit",
+     "varianten": [
+      "transporteiwitten",
+      "eiwit in het membraan"
+     ]
+    },
+    {
+     "naam": "concentratieverschil",
+     "varianten": [
+      "verschil",
+      "concentratie"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat glucose door transporteiwitten in het membraan de cel in gaat.",
+    "Ik leg uit dat dit eerst deels door diffusie gaat, zolang er in de darm meer glucose is dan in de cel.",
+    "Ik leg uit dat de cel de rest opneemt tegen het concentratieverschil in: actief transport.",
+    "Ik noem dat actief transport de cel energie kost."
+   ],
+   "model": [
+    "Glucose gaat niet zomaar door het celmembraan, maar door transporteiwitten. Na een maaltijd zit er veel glucose in de darm en weinig in de cel. Dan gaat een deel door diffusie naar binnen: van veel naar weinig.",
+    "Na een tijdje is er minder glucose in de darm dan in de cel. Diffusie zou dan juist de verkeerde kant op gaan. De cel neemt de glucose toch op, tegen het concentratieverschil in: actief transport. Dat kost de cel energie.",
+    "Zo blijft er bijna niets bruikbaars in de darm achter."
+   ]
+  },
+  {
+   "id": "uitleg-baby",
+   "soort": "uitleg",
+   "vwo": true,
+   "titel": "Een baby die geen melk verdraagt",
+   "opdracht": "Bij een zeldzame erfelijke ziekte werkt het transporteiwit voor glucose en galactose niet. Leg uit waarom zo'n baby diarree krijgt van melk, en waarom voeding met fructose wel helpt.",
+   "begrippen": [
+    {
+     "naam": "transporteiwit",
+     "varianten": [
+      "transporteiwitten"
+     ]
+    },
+    {
+     "naam": "lactose",
+     "varianten": [
+      "melksuiker"
+     ]
+    },
+    {
+     "naam": "glucose",
+     "varianten": []
+    },
+    {
+     "naam": "galactose",
+     "varianten": []
+    },
+    {
+     "naam": "water",
+     "varianten": [
+      "osmose",
+      "houden water vast"
+     ]
+    },
+    {
+     "naam": "fructose",
+     "varianten": []
+    }
+   ],
+   "checklist": [
+    "Ik noem dat lactose (melksuiker) bestaat uit glucose en galactose, die één transporteiwit delen.",
+    "Ik leg uit dat deze suikers in de darm blijven en daar water vasthouden.",
+    "Ik leg uit dat dat water in de dikke darm terechtkomt en diarree geeft.",
+    "Ik leg uit dat fructose door een ander transporteiwit gaat en dus wel wordt opgenomen."
+   ],
+   "model": [
+    "Een transporteiwit past alleen op moleculen met de juiste vorm. Glucose en galactose lijken op elkaar en delen één transporteiwit. Lactose, de suiker uit melk, bestaat uit glucose en galactose.",
+    "Werkt dat transporteiwit niet, dan blijven glucose en galactose in de darm. Ze houden daar water vast. Dat water komt in de dikke darm terecht, en dat geeft diarree.",
+    "Fructose gaat door een ander transporteiwit. Voeding met fructose wordt dus wel opgenomen."
+   ]
+  }
+ ]
+}

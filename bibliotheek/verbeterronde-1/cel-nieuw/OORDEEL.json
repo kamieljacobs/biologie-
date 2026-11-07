@@ -1,0 +1,314 @@
+[
+ {
+  "obj": "ruwER",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 18
+   },
+   "Y": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 14
+   },
+   "Z": {
+    "klopt": 1,
+    "herkenbaar": 2,
+    "stijl": 2,
+    "beweging": 1,
+    "bruikbaar": 2,
+    "totaal": 8
+   }
+  },
+  "winnaar": "X",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "ribosomen zweven los in het cytoplasma tussen de zakken in plaats van aan het membraan vast; dwarsverbindingen tussen zakken ogen als balkjes",
+   "Y": "ribosomen liggen in het lumen (de grijze zakken) en niet aan de buitenkant; vreemde uitstekende flapjes; zakken lijken losse plakken",
+   "Z": "alleen golflijnen met stippen, geen lumen, geen kern, geen glad ER, geen eiwitketen"
+  },
+  "overnemen": "uit Y de platte, strak gebogen zakken met nette lagen en de ribosomenrij met mRNA en keten; ribosomen in X vastzetten op de cytoplasmakant van het membraan (en op het buitenste kernmembraan)",
+  "combineren": true,
+  "fout": "in geen enkele versie is het kernmembraan zelf te zien waar het lumen van het ruw ER in overgaat; ribosomen zijn in alle versies losse stippen/bolletjes"
+ },
+ {
+  "obj": "kernEnvelopPorie",
+  "scores": {
+   "X": {
+    "klopt": 5,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   },
+   "Y": {
+    "klopt": 1,
+    "herkenbaar": 1,
+    "stijl": 3,
+    "beweging": 1,
+    "bruikbaar": 2,
+    "totaal": 8
+   },
+   "Z": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 19
+   }
+  },
+  "winnaar": "X",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "kern ligt als doorsnede wat plat; ribosomen buiten als gouden stippen; poriën klein bij kleine formaat",
+   "Y": "alleen een paarse bol zonder membranen, poriën, nucleolus of mRNA",
+   "Z": "mRNA zweeft buiten de kern zonder duidelijke porie; poriecomplex en de twee membranen niet zichtbaar in de doorsnede; nucleolus als lege ring"
+  },
+  "overnemen": "uit Z het rustige 3D-beeld met poriën over het oppervlak als tweede stap naast de doorsnede van X",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "celDier",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 5,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 17
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Z": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 2,
+    "bruikbaar": 3,
+    "totaal": 13
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "Golgi als dikke 3D-schijven, ruw ER als stijve dikke platen met stippen op het oppervlak, losstaand van de kern; veel drukke stippen en lijnen; kern 3D-uitsnede valt uit stijl",
+   "Y": "ruw ER loopt maar op één plek aan het kernmembraan; mitochondriën rijkelijk groot ten opzichte van de kern; exocytoseblaasje klein",
+   "Z": "kern ± 1/4,5 celdiameter, ER als losse lijnen zonder ruimte, geen verbinding met de kern, Golgi als vlakke heuvel, korrelige stippen"
+  },
+  "overnemen": "uit X de groene lysosomen; kleuren van de mitochondriën zijn al goed",
+  "combineren": false,
+  "fout": "het ruw ER hoort breed door te lopen in het buitenste kernmembraan; in X en Z is er geen verbinding, in Y maar op één plek. Alles blijft wel binnen het celmembraan (alleen het exocytoseblaasje, zoals bedoeld). Mitochondriën zijn in X en Y een beetje te groot vergeleken met de kern"
+ },
+ {
+  "obj": "blaasjeVersmelt",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 19
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Z": {
+    "klopt": 2,
+    "herkenbaar": 2,
+    "stijl": 2,
+    "beweging": 3,
+    "bruikbaar": 2,
+    "totaal": 11
+   }
+  },
+  "winnaar": "Y",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "lipidenbolletjes met staartjes zijn klein en druk, werkt slecht in het kleine formaat; membraan bijna recht",
+   "Y": "dubbele lijn in plaats van duidelijke bilaag; membraan bijna recht, niet echt rond",
+   "Z": "alleen een gele schaal, geen membraaneiwit, geen suikerketen, rechte lijnen"
+  },
+  "overnemen": "uit X de zichtbare lipidebilaag (koppen en staartjes) als groot formaat of tweede laag, en het blaasjesmembraan dat zichtbaar in het celmembraan overgaat",
+  "combineren": false,
+  "fout": "het celmembraan is in alle versies vrijwel recht; het moet een stuk van een cirkel zijn, duidelijk gebogen"
+ },
+ {
+  "obj": "mitochondrionEcht",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 17
+   },
+   "Y": {
+    "klopt": 5,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 22
+   },
+   "Z": {
+    "klopt": 2,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 2,
+    "bruikbaar": 4,
+    "totaal": 15
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "buitenmembraan als dikke 3D-rand, cristae als dikke buizen die op de bodem staan en niet duidelijk uit het binnenmembraan plooien",
+   "Y": "cristae donker en wat los van het binnenmembraan; DNA-ringetjes klein",
+   "Z": "cristae als blokvormige M-vormen, deling splitst in twee losse pilletjes zonder insnoering, matrix vlak"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "golgiStapel",
+  "scores": {
+   "X": {
+    "klopt": 2,
+    "herkenbaar": 2,
+    "stijl": 3,
+    "beweging": 1,
+    "bruikbaar": 3,
+    "totaal": 11
+   },
+   "Y": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 17
+   },
+   "Z": {
+    "klopt": 5,
+    "herkenbaar": 5,
+    "stijl": 5,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 23
+   }
+  },
+  "winnaar": "Z",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "vaste goudkoepel zonder blaasjes, geen richting, geen animatie",
+   "Y": "zakken als dikke pannenkoeken met gaten (3D), niet gebogen; trans-kant niet duidelijk onderscheiden",
+   "Z": "cis/trans niet gelabeld in beeld; blaasjes klein"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "plantencel",
+  "scores": {
+   "X": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 14
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Z": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 19
+   }
+  },
+  "winnaar": "Y",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "afgeronde rechthoek, geen plasmodesmata, vacuole een blob in het midden in plaats van de cel te vullen, geen mitochondriën, cytoplasma geen dunne rand",
+   "Y": "kern met uitstekende poriën als een bloem en wat groot; plasmodesmata maar als streepjes",
+   "Z": "troebele buurcel-halo en dikke balken als plasmodesmata; kern in het midden met dikke cytoplasmastrengen (juist, maar afwijkend van het recept)"
+  },
+  "overnemen": "uit Z de kern als rustig 3D-bolletje met uitsnede (in plaats van de poriënbloem) en de buurcel met plasmodesmata die door de wand lopen; chloroplasten met grana uit Z zijn iets duidelijker",
+  "combineren": true,
+  "fout": "plasmodesmata zijn in alle versies te klein of niet te herkennen als kanaaltjes door de wand; de protoplast losgemaakt van de wand is wel in alle behalve X te zien"
+ },
+ {
+  "obj": "chloroplastEcht",
+  "scores": {
+   "X": {
+    "klopt": 1,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 2,
+    "totaal": 12
+   },
+   "Y": {
+    "klopt": 5,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 21
+   },
+   "Z": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 16
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "geen membranen, geen stroma-inhoud, losse blokstapels in een groene ellips",
+   "Y": "grana als vlakke balkjes, thylakoïdverbindingen dun",
+   "Z": "dikke 3D-rand lijkt een plaat, ribosomen en DNA nauwelijks zichtbaar, verbindingen tussen grana vaag"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ }
+]

@@ -1,0 +1,81 @@
+{
+ "slug": "5-overerving-via-x-chromosomen-en-mitochondrien",
+ "hoofdstuk": "erfelijkheid",
+ "hoofdstukNaam": "Erfelijkheid",
+ "title": "Overerving via het X-chromosoom",
+ "sub": "kleurenblind, draagster en (vwo) de moederlijn",
+ "puzzle": "Waarom zijn vooral mannen kleurenblind? En hoe kan een eigenschap een generatie overslaan?",
+ "meta": "erfelijkheid 5/6",
+ "version": "2.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · reeks Erfelijkheid · film 5 van 6 · vorige: <a href=\"4-dihybride-kruising-en-gekoppelde-overerving.html\">Dihybride kruising en gekoppelde overerving</a> · volgende: <a href=\"6-stambomen-en-kansrekenen.html\">Stambomen en kansrekenen</a>",
+ "lead": "Een opa sorteert aardbeien en ziet rood en groen bijna hetzelfde. Zijn dochter ziet gewoon, maar haar zoons kunnen kleurenblind zijn, net als hij. Je ziet waarom: een jongen krijgt zijn X-chromosoom altijd van zijn moeder, en een man heeft van de meeste genen op zijn X maar één allel. Met de notatie Xᴬ en Xᵃ en een kruisingsschema reken je het na. In het vwo-blok: mitochondriaal DNA, dat je alleen van je moeder krijgt.",
+ "endHaak": "Hoe groot is de kans dat een zoon van de dochter van opa kleurenblind is?",
+ "minis": {
+  "Hoofdstuk 1": "Van wie krijgt een jongen zijn X-chromosoom?",
+  "Hoofdstuk 2": "Waarom maakt één allel bij een man het verschil?",
+  "Hoofdstuk 3": "Hoe groot is de kans dat een zoon van een draagster kleurenblind is?",
+  "Hoofdstuk 4": "Hoe slaat kleurenblindheid een generatie over?",
+  "Hoofdstuk 5": "Waarom krijg je je mitochondriën alleen van je moeder?",
+  "Recap": "Terug naar opa en zijn aardbeien."
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: gezin De Wit uit het castboek. Kleurmodel: Viénot, Brettel & Mollon (1999). Stijl: Part C van de filmprompt (v13). Versie 2.0 · oktober 2026.",
+ "questions": {
+  "q07": {
+   "q": "Van wie krijgt een jongen zijn X-chromosoom?",
+   "correct": 1,
+   "explain": "Van zijn moeder. Van zijn vader krijgt een jongen het Y-chromosoom."
+  },
+  "q17": {
+   "q": "Een draagster (XᴬXᵃ) en een man die normaal ziet (XᴬY) krijgen een zoon. Hoe groot is de kans dat hij kleurenblind is?",
+   "correct": 1,
+   "explain": "Een zoon krijgt de Y van zijn vader en een X van zijn moeder: Xᴬ of Xᵃ, elk met een kans van ½. Een kwart is de kans dat een willekeurig kind een kleurenblinde zoon is."
+  },
+  "q24": {
+   "q": "Opa is kleurenblind (XᵃY). Oma heeft geen allel a. Is hun dochter draagster?",
+   "correct": 2,
+   "explain": "Ja, zeker. Een vader geeft zijn enige X aan elke dochter, en bij opa is dat Xᵃ. Van oma krijgt ze Xᴬ: ze is XᴬXᵃ."
+  },
+  "q31": {
+   "q": "Een man heeft een aandoening door een fout in zijn mitochondriaal DNA. Wie van zijn kinderen krijgt die aandoening?",
+   "correct": 0,
+   "explain": "Geen van zijn kinderen. Mitochondriën komen via de eicel; de mitochondriën van een zaadcel worden na de bevruchting afgebroken."
+  }
+ },
+ "glossary": [
+  {
+   "t": "geslachtschromosomen",
+   "d": "X en Y. Een vrouw heeft XX, een man XY. Welk geslachtschromosoom de zaadcel meebrengt, bepaalt meestal het geslacht."
+  },
+  {
+   "t": "X-chromosomaal",
+   "d": "Een gen dat op het X-chromosoom ligt. Je schrijft het allel als letter bij de X, bijvoorbeeld Xᴬ en Xᵃ; bij de Y staat geen letter."
+  },
+  {
+   "t": "draagster",
+   "d": "Een vrouw met één recessief allel op een X (XᴬXᵃ). Ze heeft het kenmerk zelf niet, maar kan het allel doorgeven."
+  },
+  {
+   "t": "kegeltjes",
+   "d": "Zintuigcellen in het netvlies voor kleur zien, met een lichtgevoelig eiwit voor blauw, groen of rood licht. De genen voor het groene en het rode eiwit liggen op de X."
+  },
+  {
+   "t": "rood-groenkleurenblindheid",
+   "d": "X-chromosomaal recessief: het gen voor het rode of het groene eiwit werkt niet goed, waardoor rood en groen op elkaar lijken. Bij ± 8 % van de mannen, ± 0,5 % van de vrouwen."
+  },
+  {
+   "t": "hemofilie",
+   "d": "X-chromosomaal recessieve stoornis in de bloedstolling."
+  },
+  {
+   "t": "X-chromosomaal dominant",
+   "d": "Het afwijkende allel op de X is dominant. Een aangedane vader geeft het aan al zijn dochters en aan geen van zijn zonen."
+  },
+  {
+   "t": "mitochondriaal DNA",
+   "d": "Klein, ringvormig DNA in de mitochondriën (37 genen). Wordt alleen via de eicel doorgegeven, dus van moeder op kind.",
+   "vwo": true
+  }
+ ],
+ "sections": "<section><h2>Checkvragen</h2>\n  <p class=\"meta\">antwoorden ingeklapt</p>\n  <div class=\"q\"><p><b>1.</b> Een jongen is kleurenblind. Zijn vader en zijn moeder zien allebei normaal. Van wie heeft hij het allel a, en wat is het genotype van zijn moeder?</p><details><summary>Antwoord</summary><p>Van zijn moeder: van zijn vader kreeg hij de Y. Zijn moeder is XᴬXᵃ (draagster).</p></details></div>\n  <div class=\"q\"><p><b>2.</b> Een kleurenblinde vrouw (XᵃXᵃ) krijgt kinderen met een man die normaal ziet (XᴬY). Hoeveel van de zonen zijn kleurenblind, en hoeveel van de dochters?</p><details><summary>Antwoord</summary><p>Alle zonen zijn kleurenblind (XᵃY), geen van de dochters. Alle dochters zijn draagster (XᴬXᵃ).</p></details></div>\n  <div class=\"q\"><p><b>3.</b> Een draagster en een man die normaal ziet krijgen een kind. Hoe groot is de kans dat het een kleurenblinde zoon is? En als je al weet dat het een zoon is?</p><details><summary>Antwoord</summary><p>Kans op een kleurenblinde zoon onder alle kinderen: ½ (zoon) × ½ (Xᵃ) = ¼. Weet je al dat het een zoon is, dan is de kans ½.</p></details></div>\n  <div class=\"q\"><p><b>4.</b> Een vader heeft een X-chromosomaal dominante aandoening, de moeder niet. Welke kinderen krijgen de aandoening?</p><details><summary>Antwoord</summary><p>Alle dochters (zij krijgen zijn X), geen van de zonen (zij krijgen zijn Y).</p></details></div>\n  <div class=\"q vwo-only\"><p><b>5.</b> <i>vwo</i> Een vrouw heeft een aandoening door een fout in haar mitochondriaal DNA. Haar broer ook. Krijgen de kinderen van haar broer de fout? En haar eigen kinderen? Leg uit.</p><details><summary>Antwoord</summary><p>Kinderen van haar broer niet: een man geeft geen mitochondriën door. Haar eigen kinderen krijgen haar mitochondriën wel, allemaal; hoe ziek ze worden, kan per kind verschillen, omdat niet elk kind evenveel mitochondriën met de fout krijgt.</p></details></div>\n</section>\n<section><h2>Voor de docent</h2>\n  <h3>Hoe de film het uitlegt</h3>\n  <table><tr><th>Hoofdstuk</th><th>Type · look</th><th>Kernbeeld</th></tr>\n  <tr><td>Opening</td><td>haak · Macro</td><td>opa (moederskant) van gezin De Wit sorteert aardbeien; rechts van een stippellijn hoe hij het ziet (kleurmodel); 1 op 12 mannen tegenover 1 op 200 vrouwen</td></tr>\n  <tr><td>1 Jongen of meisje?</td><td>mechanisme · Schema</td><td>XX en XY, eicel altijd X, zaadcel X of Y; vraag: van wie krijgt een jongen zijn X?</td></tr>\n  <tr><td>2 De X en kleurzien</td><td>bouw en functie · Micro (zoomcirkel) en Schema</td><td>X groot (± 1000 genen), Y klein; netvlies met kegeltjes; rood- en groen-gen naast elkaar op de X; gevoeligheidskrommen waarvan de rode naar de groene schuift</td></tr>\n  <tr><td>3 Notatie en kruisingsschema</td><td>erfelijkheid en kans · Schema</td><td>Xᴬ/Xᵃ, vijf genotypen, draagster × normale man, kruisingsschema (vader boven, moeder links), simulatie van 200 kinderen: ½ van de zonen tegenover ¼ van alle kinderen</td></tr>\n  <tr><td>4 Waarom vooral mannen?</td><td>erfelijkheid en kans · Schema</td><td>één allel tegenover twee; vader geeft zijn X aan elke dochter; stamboom De Wit (opa → Marieke draagster → zonen ½); hemofilie bij Victoria; X-chromosomaal dominant</td></tr>\n  <tr><td>5 Mitochondriaal DNA (vwo)</td><td>mechanisme · Micro en Schema</td><td>mitochondrion met DNA-ringetjes; eicel ± 100 000 mitochondriën, zaadcel hooguit ± 100 die worden afgebroken; vader → geen kind, moeder → alle kinderen, ernst verschilt; moederlijn in de fotolijstjes</td></tr>\n  </table>\n  <h3>Kleurcode</h3>\n  <p>Een chromosoom heeft de kleur van de ouder van wie het komt: moeder oker, vader teal (zoals in Chromosomen). Allel A goud, allel a en 'aangedaan' paars; een draagster heeft een paars stipje (stamboomsymbolen zoals in Stambomen).</p>\n  <h3>Misvattingen</h3>\n  <ul><li>Een zoon kan een X-chromosomale aandoening van zijn vader krijgen (q07, q24).</li><li>'Kans dat een zoon kleurenblind is' en 'kans op een kleurenblinde zoon' zijn hetzelfde (½ tegenover ¼, q17 en de simulatie).</li><li>Wie het kenmerk zelf niet heeft, geeft het niet door (draagster, q24).</li><li>Vrouwen kunnen geen X-chromosomaal recessieve aandoening krijgen.</li><li>Mitochondriaal DNA erft zoals een gen in de kern (vwo, q31).</li></ul>\n  <h3>Vereenvoudigd</h3>\n  <ul><li>Rood-groenkleurenblindheid heeft meerdere vormen (rood-gen of groen-gen; volledig of gedeeltelijk). De film laat één mechanisme zien: de kromme van het afwijkende eiwit schuift naar de andere. Daarom is 8 % × 8 % ≈ 0,6 % hoger dan de gemeten ± 0,4–0,5 % bij vrouwen: een vrouw met een rood-allel op de ene X en een groen-allel op de andere ziet meestal normaal.</li>\n  <li>Het kleurmodel (Viénot, Brettel &amp; Mollon 1999) laat zien wat een dichromaat ziet. De meeste kleurenblinden zijn afwijkende trichromaten en zien het verschil iets beter dan het model.</li>\n  <li>'Van de meeste genen op zijn X één allel': genen in de pseudoautosomale stukken liggen op X én Y.</li>\n  <li>X-inactivatie (in elke lichaamscel van een vrouw staat één X uit) blijft buiten de film.</li>\n  <li>De stamboom van Victoria is ingekort. Victoria's ouders hadden geen hemofilie: vermoedelijk een nieuwe mutatie. Het was hemofilie B (DNA-onderzoek aan de Romanovs, 2009).</li>\n  <li>'Al je mitochondriën komen van je moeder': een enkele melding van vaderlijk mtDNA (2018) is omstreden.</li>\n  <li>Hemizygoot is geen begrip in de syllabi en staat niet meer in de film.</li></ul>\n  <h3>Niveaus</h3>\n  <p>Havo en vwo: X-chromosomale overerving (syllabus M7.1: 'X-chromosomaal'). Alleen vwo: mitochondriale overerving (vwo-syllabus M7.1 spec. 5). In de havo-stand vallen hoofdstuk 5 en checkvraag 5 weg.</p>\n  <h3>Bronnen</h3>\n  <p>Alle beweringen staan met bronnen in het bronnenlogboek van de film (o.a. MedlinePlus Genetics, Birch 2012, Nathans e.a. 1986, Ross e.a. 2005, Rogaev e.a. 2009, Zhang e.a. 2017, Sutovsky e.a. 1999, Rebolledo-Jaramillo e.a. 2014, CvTE-syllabi 2026).</p>\n</section>\n"
+}

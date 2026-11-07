@@ -1,0 +1,1 @@
+const TV6B = { klein(ctx) { macroNacht(ctx, { horizon: 500 }); muis(ctx, 300, 800, 14); zwaluw(ctx, 800, 500, 14); slak(ctx, 1200, 800, 30); kikker(ctx, 1600, 800, 30); kikker(ctx, 1600, 500, 30, { kleur: '#8C6A3E' }); } };

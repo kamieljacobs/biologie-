@@ -1,0 +1,12 @@
+{
+ "datum": "2026-10-29",
+ "model": "eleven_v4",
+ "voice_id": "7qdUFMklKPaaAVMsBTBt",
+ "flow": "UaHCv2azK4E5fdqZAdJ1",
+ "regels": "films/uitspraak.json + uitspraak_film.json",
+ "stem_invoer": {
+  "s01": "Twee vrienden halen een nacht door met gamen. Om vier uur 's nachts zijn ze kapot. De een gaapt, de ander valt bijna in slaap met de controller in zijn hand. Ze houden vol. Om acht uur komt de zon op, en ineens voelen ze zich wat wakkerder. Terwijl ze nu nog langer wakker zijn dan om vier uur. Hoe kan dat? Wat denk je?",
+  "s12": "Antwoord cee. Terug naar de twee vrienden. Hun slaapdruk liep de hele nacht door op. Om vier uur 's nachts staat hun klok bovendien op het diepste punt. Dubbel slaperig. Maar rond acht uur geeft de klok een wekker-signaal, en dat duwt tegen de slaapdruk in. Het daglicht helpt mee, maar niet als energie: licht is een signaal voor de klok. Misschien dacht je: de adenosine is vanzelf weg. Die wordt vooral opgeruimd als je slaapt. Daarom storten ze 's middags alsnog in.",
+  "s19": "Te weinig slaap heeft meer gevolgen. Je concentratie en je humeur worden slechter, en je wordt sneller ziek. Na ongeveer achttien uur wakker reageer je zo traag als met een half promille alcohol in je bloed. De twee vrienden zaten 's ochtends op vierentwintig uur: ongeveer één promille. In het verkeer is dat gevaarlijk: je kunt zelfs een paar seconden in slaap vallen, zonder dat je het merkt: een mikroslaap."
+ }
+}

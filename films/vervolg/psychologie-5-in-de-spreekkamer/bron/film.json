@@ -1,0 +1,97 @@
+{
+ "slug": "psychologie-5-in-de-spreekkamer",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "In de spreekkamer",
+ "sub": "gesprekstechniek, beroepsgeheim en classificeren",
+ "puzzle": "Sam (16) vraagt zijn psycholoog om alles geheim te houden. Wat zeg je dan?",
+ "meta": "psychologie · klinisch",
+ "alleen": "vwo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Psychologie",
+ "lead": "Het eerste werk van een psycholoog is luisteren: open vragen stellen, samenvatten en doorvragen. In de intake maak je van een klacht een hulpvraag en maak je samen een plan; vanaf zestien beslist een jongere zelf. Het beroepsgeheim staat in de wet en de beroepscode, maar heeft grenzen: bij ernstig gevaar mag je het doorbreken, en bij een vermoeden van geweld thuis volg je de meldcode (overleggen, afwegen, zo nodig melden bij Veilig Thuis; bij direct gevaar 112). Met de DSM classificeer je klachten volgens afgesproken criteria, met grenzen die een afspraak zijn.",
+ "endHaak": "welke vraag zou jij Sam als eerste stellen, en waarom?",
+ "minis": {
+  "Hoofdstuk 1": "Welke vraag helpt iemand verder te vertellen?",
+  "Hoofdstuk 2": "Wat is het verschil tussen een klacht en een hulpvraag?",
+  "Hoofdstuk 3": "Wanneer mag een psycholoog het geheim doorbreken?",
+  "Hoofdstuk 4": "Wat doe je bij een vermoeden van geweld thuis?",
+  "Hoofdstuk 5": "Hoe werkt een diagnose met de DSM?",
+  "Recap": "Wat zeg je tegen Sam?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personage: Sam (castboek); jij als psycholoog in ik-perspectief. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Sam vraagt: beloof je dat je het aan niemand doorvertelt? Wat zeg je?",
+   "correct": 1,
+   "explain": "Je vertelt eerlijk wat je wel en niet geheim kunt houden. Bijna alles blijft binnen de spreekkamer, behalve als iemand in ernstig gevaar is."
+  },
+  "q05": {
+   "q": "Sam zegt: het gaat gewoon slecht op school. Welke vraag helpt hem het best om verder te vertellen?",
+   "correct": 2,
+   "explain": "Een open vraag zonder verwijt. 'Waarom…' is ook open, maar klinkt al snel als een verwijt; 'Komt dat door thuis?' is sturend."
+  },
+  "q10": {
+   "q": "Sam vertelt dat zijn vader zijn jongere zusje soms slaat. Wat doe je eerst?",
+   "correct": 1,
+   "explain": "Je volgt de meldcode: met Sam praten en advies vragen bij een collega of Veilig Thuis, dan afwegen. Alleen bij direct gevaar bel je meteen 112."
+  },
+  "q13": {
+   "q": "Sam heeft vier van de negen kenmerken van een depressie. Wat betekent dat?",
+   "correct": 1,
+   "explain": "Volgens deze criteria net geen depressieve stoornis, maar hij kan wel veel last hebben. De grens van vijf is een afspraak."
+  }
+ },
+ "glossary": [
+  {
+   "t": "open vraag",
+   "d": "Vraag waarop iemand in eigen woorden kan antwoorden, bijvoorbeeld 'Hoe ziet zo'n dag eruit?'."
+  },
+  {
+   "t": "gesloten vraag",
+   "d": "Vraag waarop je ja of nee zegt; handig om iets te checken."
+  },
+  {
+   "t": "sturende vraag",
+   "d": "Vraag waarin de vrager al een antwoord of oorzaak invult."
+  },
+  {
+   "t": "samenvatten",
+   "d": "In eigen woorden teruggeven wat de cliënt zei, zodat die kan bevestigen of verbeteren."
+  },
+  {
+   "t": "intake",
+   "d": "Het eerste gesprek: klachten in kaart brengen, de hulpvraag vinden en samen een plan maken."
+  },
+  {
+   "t": "hulpvraag",
+   "d": "Wat de cliënt anders wil, bijvoorbeeld 'weer naar school gaan'; anders dan een klacht."
+  },
+  {
+   "t": "beroepsgeheim",
+   "d": "Plicht om te zwijgen over wat een cliënt vertelt; staat in de wet en in de beroepscode."
+  },
+  {
+   "t": "conflict van plichten",
+   "d": "Zwijgen en beschermen botsen; dan mag je het geheim doorbreken als er geen andere weg is."
+  },
+  {
+   "t": "meldcode",
+   "d": "Stappenplan bij een vermoeden van huiselijk geweld of kindermishandeling (sinds 2013): signalen, advies, gesprek, afwegen, beslissen."
+  },
+  {
+   "t": "Veilig Thuis",
+   "d": "Advies- en meldpunt voor huiselijk geweld en kindermishandeling (0800-2000)."
+  },
+  {
+   "t": "DSM",
+   "d": "Handboek dat psychische stoornissen beschrijft met criteria; de huidige versie is de DSM-5-TR."
+  },
+  {
+   "t": "kernsymptoom",
+   "d": "Kenmerk dat er bij een diagnose minstens moet zijn; bij depressie somberheid of geen interesse/plezier."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Een cliënt zegt: \"Mijn moeder snapt er niks van.\" Geef een open, een gesloten en een sturende vervolgvraag. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Bijvoorbeeld open: \"Wat merk je daarvan?\" (1p); gesloten: \"Praten jullie er weleens over?\" (1p); sturend: \"Is ze vaak boos op je?\" (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Leg het verschil uit tussen een klacht en een hulpvraag, met een voorbeeld. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Een klacht beschrijft wat er mis is (\"ik slaap slecht\") (1p); een hulpvraag zegt wat iemand anders wil (\"ik wil weer uitgerust naar school\") (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Waarom belooft een psycholoog een cliënt niet dat alles geheim blijft? <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Het beroepsgeheim heeft grenzen: bij ernstig gevaar mag (en soms moet) de psycholoog het doorbreken, of bij een vermoeden van geweld thuis de meldcode volgen (1p). Een belofte die je misschien moet breken, beschadigt het vertrouwen; eerlijk zijn maakt het juist veilig om te praten (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Iemand heeft vijf kenmerken van een depressie, al drie weken, maar somberheid en verlies van interesse horen er niet bij. Is er volgens de DSM sprake van een depressieve stoornis? Leg uit. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Nee (1p): minstens één van de kenmerken moet een kernsymptoom zijn, sombere stemming of verlies van interesse of plezier (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Let op vooraf</h3>\n<p>De film gaat ook over geweld thuis (Sam vertelt dat zijn vader zijn zusje slaat; niet in beeld, alleen in een tekstballon) en noemt 'denken aan de dood' als kenmerk van depressie. Kondig dat aan. De recap toont een hulpkaart (Kindertelefoon 0800-0432, Veilig Thuis 0800-2000, 113 / 0800-0113, 112). Blijft een leerling na de les hangen: luister, beloof geen geheimhouding die je niet kunt houden, en volg de meldcode van de school.</p>\n<h3>Plaats</h3>\n<p>Extra film buiten het PTA op <i>Wat word jij?</i> → Psychologie. Gaat over het vak (methode en regels); 'een dag uit het werk' volgt in stap 2. Bouwt voort op <i>Welke therapie werkt?</i> (werkrelatie, ik-perspectief, dezelfde spreekkamer) en <i>Meten wat je niet kunt zien</i> (vragenlijsten).</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul>\n<li><b>Rode draad:</b> het eerste gesprek met Sam (16), die om geheimhouding vraagt.</li>\n<li><b>H1</b> open, gesloten en sturende vragen; waaromvraag als verwijt; samenvatten en doorvragen. <b>H2</b> intake, klacht en hulpvraag, veiligheid, toestemming per leeftijd (WGBO). <b>H3</b> beroepsgeheim (wet en NIP-code), conflict van plichten. <b>H4</b> meldcode in vijf stappen, afwegingskader, meldrecht, 112. <b>H5</b> DSM-criteria depressie (5 van 9, 2 weken, kernsymptoom, last), grens als afspraak, betrouwbaarheid van classificaties (kappa), nut.</li>\n</ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Toestemming</td><td>&lt; 12 ouders; 12–16 jongere én ouders; 16+ jongere zelf</td><td>WGBO art. 7:450 BW; NIP-beroepscode 2024, art. 6</td></tr>\n<tr><td>Beroepsgeheim</td><td>wet en beroepscode; doorbreken bij conflict van plichten</td><td>WGBO art. 7:457; Wet BIG art. 88; NIP-code art. 74–76</td></tr>\n<tr><td>Meldcode</td><td>verplicht sinds 2013; vijf stappen, afwegingskader 2019</td><td>Wet verplichte meldcode (1 juli 2013); NJi, 'Het afwegingskader in de meldcode'</td></tr>\n<tr><td>Depressie (DSM-5)</td><td>5 van 9, ≥ 2 weken, minstens één kernsymptoom, lijden/beperking</td><td>APA, DSM-5(-TR)</td></tr>\n<tr><td>Overeenstemming</td><td>kappa ≈ 0,28 (depressie), ≈ 0,20 (gegeneraliseerde angst)</td><td>Regier e.a. 2013, Am J Psychiatry 170:59–70</td></tr>\n<tr><td>GZ-opleiding</td><td>na de master, twee jaar</td><td>BIG-register; opleidingsinstellingen (RINO)</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul><li>In de veldproeven spraken de clinici de patiënt los van elkaar en op verschillende momenten; dat strenge ontwerp verklaart deels de lage kappa's, die de onderzoekers zelf 'acceptabel' noemden.</li><li>Stap 3 van de meldcode (gesprek met betrokkenen) gaat niet door als dat iemand in gevaar brengt.</li><li>De film zegt 'diagnose' en 'classificatie' door elkaar; strikt is de DSM een classificatiesysteem.</li><li>Er wordt gewerkt aan een nieuwe beroepenstructuur voor psychologen; in oktober 2026 was die nog niet ingevoerd.</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Laat leerlingen in drietallen (cliënt, psycholoog, observator) vijf minuten een gesprek voeren over een gewone tegenvaller, met alleen open vragen en één samenvatting; de observator turft open, gesloten en sturende vragen.</li><li>Bespreek de vraag van Sam klassikaal: wat zou je zeggen, en wat zegt de meldcode van onze school?</li></ul>\n</section>\n"
+}

@@ -1,0 +1,66 @@
+# Oordeel (blind) — gz1 Hoe een epidemie groeit en stopt, varianten X, Y, Z
+
+Model: Claude Fable 5.1
+
+Werkwijze: filmbrief (opbouw, leerdoelen, misconcepties), de drie varianten, de reeksbrief en het forensisch-oordeel gelezen; scriptcheck gedraaid als signaal. `getallen.md` heb ik geopend nadat de scores in grote lijnen vaststonden maar vóór het uitschrijven van de tabel; het is alleen gebruikt bij het criterium 'vakinhoud klopt' (feiten wegen), niet bij de andere criteria.
+
+Woordentelling gesproken tekst (scriptcheck; zonder kopjes, bracketregels, vraagopties en eindkaart): **X 967 · Y 986 · Z 895**. Eigen telling (met 'Antwoord x.'): X 973, Y 992, Z 943. De filmbrief zegt ± 850–1000, scriptcheck legt de grens bij ± 900: X en Y krijgen een lengtemelding, Z niet. Cold open: X 39 woorden (± 16 s), Y 43 (± 18 s), Z 33 (± 14 s) plus in Z nog 40 woorden antwoord ná de titelkaart. Alle drie binnen de 48.
+
+## Scores (1–5)
+
+| Criterium | X | Y | Z |
+|---|---|---|---|
+| Eén leerdoel per scène, helder | 4 | 4 | 3 |
+| Misconcepties aangepakt (met een vraag) | 5 | 5 | 5 |
+| Vakinhoud klopt, niet te stellig | 4 | 4 | 3 |
+| Cast, geen grijze poppetjes, begeleider eigen beurt | 4 | 4 | 5 |
+| Uitspraakrisico's | 4 | 4 | 3 |
+| Vragen uit werkt | 3 | 4 | 4 |
+| Menselijke momenten dragen het concept | 4 | 5 | 4 |
+| Lengte (cold open ≤ 20 s, ± 850–1000 woorden) | 3 | 3 | 4 |
+| Vraagopties niet te raden | 3 | 4 | 3 |
+| Geen verwijzing naar tools of site | 5 | 5 | 5 |
+| Grenzen met andere films (reeksbrief) | 5 | 5 | 5 |
+| Toon corona en maatregelen (zakelijk, neutraal) | 5 | 5 | 5 |
+| **Totaal** | **49** | **52** | **49** |
+
+## Toelichting waar het verschil maakt
+
+- **Eén leerdoel per scène.** X en Y volgen de vier hoofdstukken strak. Z haalt leerdoel 2 (verdubbeltijd, exponentieel) al volledig naar de cold open (RIVM-schatting, 100 → ruim 3000) en legt het in H2 opnieuw uit met de keten; daarna moet H2 nog de ic-lijn, afvlakken én het terugrekenen van R dragen. Z verplaatst 'de epidemie stopt zonder maatregelen' naar H4 (het model laat het zien): op zich verdedigbaar en zelfs mooi, maar H4 krijgt daardoor drie leerdoelen (stop/doorschieten, knop, grenzen van een model) en twee vragen in 180 woorden. Y voegt per hoofdstuk één laag aan het dossier toe (pijlen → tijdas → immuunbalk → model ernaast); dat is de helderste opbouw van de drie. Kleine smet bij Y: de cold open noemt tegelijk 'oefendossier, ronde getallen' en 'maart 2020 nagebouwd'; dat moet één label worden (zie reparaties).
+- **Misconcepties.** Alle drie dekken alle zes met een vraag. De kwaliteit verschilt: Y's 'dag twintig'-vraag (M1) laat de kijker zelf rekenen in plaats van een beschrijving te kiezen; X's cold-openvraag en Z's cold-openvraag doen hetzelfde, maar bij X is optie (c) 'eerst snel, daarna vanzelf trager' eigenlijk waar voor een hele epidemie (dubbelzinnig). Y's H4-afleider (c) 'hoeveel meldingen er nu al binnen zijn' toetst precies het verschil dossier (wat er gebeurd is) tegenover model (wat als). Z's H4-afleider (c) 'zodra twee derde in het bakje hersteld zit' is de scherpste afleider van de drie: hij toetst dat de drempel het moment van de piek is, niet het einde.
+- **Vakinhoud.** Getallen zijn in alle drie veilig en voorzichtig geformuleerd (R₀ 'zo'n twee à drie', mazelen 'vaak twaalf tot achttien genoemd', 1150/1424/2400, verdubbeltijd 'volgens het RIVM', doorschieten 'in het model'). Verschillen: (1) Z's recap zegt 'Een epidemie stopt als zieken te weinig vatbare mensen vinden, net als een filmpje dat iedereen al gezien heeft' — dat 'iedereen' haalt misconceptie 3 (pas als iedereen het gehad heeft) terug na een hele film die hem bestrijdt; de beeldregel zegt 'bijna iedereen', de tekst niet. Dat is een echte inhoudelijke slip op de belangrijkste plek. (2) X H4: 'Hoe snel de eerste stroom gaat, hangt af van de knoppen uit hoofdstuk één' — de knop 'dagen besmettelijk' bepaalt de tweede stroom (besmettelijk → hersteld), niet de eerste; klein, maar het is precies de plek waar een vwo-leerling het model moet begrijpen. (3) Y H1: 'Tel je de pijlen, dan krijg je het reproductiegetal R' is te kort door de bocht (het gaat om het gemiddelde per zieke, en bron- en contactonderzoek zoekt vooral terug naar de bron); Y zegt verderop zelf dat het RIVM R terugrekent uit ziektegevallen, dus de twee beelden moeten in één zin verbonden worden.
+- **Cast.** Z geeft beiden echte beurten (Yasmin stuurt het filmpje door en rekent na, Farid tekent, draait de knop, 'zegt hij'). X laat Yasmin haar dag tellen en de knop halveren: twee goede beurten. Y's Farid is de meest actieve begeleider van de drie, maar Yasmin is in Y bijna passief: ze komt alleen voor in de cold open, als tienjarige in het terugblikbeeld en wijzend in de recap (alleen beeld). Het terugblikbeeld vraagt bovendien een jongere versie van Yasmin uit het castboek; check of dat bestaat, anders een foto op het bureau.
+- **Uitspraak.** Gedeeld: 'R-nul', de losse letter R, 'ic', 'GGD', 'RIVM', 'Epidemiology' (Engels), 'één komma vijfentwintig', 'elfhonderdvijftig', 'tweeduizendtwintig', 'één min één gedeeld door R-nul'. Z spreekt daarnaast 'Kermack en McKendrick, negentien zevenentwintig' uit; X en Y houden de namen op het scherm ('bijna honderd jaar oud'). Z heeft ook 'groepsapp'. Alles op de wachtlijst `bron/uitspraak.md`.
+- **Vragen uit.** X H3, eerste antwoord: 'Antwoord b. Ongeveer twee op de drie. Een zieke zou er drie aansteken …' — 'Ongeveer twee op de drie.' is vier woorden, dus `kortantwoord.py` knipt hem niet, en zonder de vraag is het een los antwoord op niets. Lek. Y's cold open eindigt op 'Wat denk je?' zonder vraagkaart: scriptcheck telt zes vragen, dus dit is geen kaart; bij Vragen uit blijft dan ofwel een hangend 'Wat denk je?' staan, ofwel knipt de speler verkeerd. Moet weg of een echte kaart worden. Y's H3-antwoorden herhalen netjes de voorwaarde ('ook als niemand iets doet'); Z's antwoord na de cold open leunt licht op 'In een maand' uit de vraagzin, maar de stel-zin ('vandaag honderd zieken') blijft staan, dus dat gaat net.
+- **Menselijke momenten.** Y's beste vondst: Yasmin was tien in maart 2020 en zat ineens thuis met haar ouders achter een laptop. Dat is de eigen herinnering van elke leerling in de doelgroep (geboren ± 2010) en draagt direct misconceptie 2 (R hangt van gedrag af). Y's slotbeeld (model over het dossier leggen, 'waar lopen ze uit elkaar? daar zit een aanname die niet past') draagt leerdoel 6 beter dan welke zin in X of Z. X's Yasmin die haar dag telt draagt 'contacten' goed. Z's filmpje-analogie is sterk en loopt consequent door, maar hij is ook de bron van de recap-slip (een filmpje dooft pas uit als iedereen het gezien heeft, een epidemie eerder).
+- **Vraagopties.** Z H1: optie (a) 'R halveert mee: het hangt ook van gedrag af' bevat de uitleg; wie de uitleg leest, hoeft niet te denken. Z H4, tweede vraag: (b) is de enige 'nee' en (c) 'als de computer maar groot genoeg is' is flauw. X cold open: (b) is de langste en de enige met een getal ('keer twee'); X H4: (a) is de enige wetenschappelijk klinkende optie. Y's opties zijn evenwichtiger: bij 'dag twintig' hangt elke optie aan een eigen redenering (tien erbij / vlakt af / keer twee), en de H4-afleider (c) past bij het dossier.
+- **Toon.** Alle drie zakelijk: maatregelen als feit met datum, ic-cijfers zonder beelden, geen sterfte, geen oordeel. Y's 'Ineens zat ze thuis, haar ouders ook' is persoonlijk zonder angst. Z's cold open wil dat de kijker 'het tempo voelt' (zoom versnelt mee); dat blijft een rekenvoorbeeld, maar houd het beeld rustig. X's 'in allerijl bij' mag, maar is de enige dramatische formulering.
+
+## Zwakste plek per variant
+
+- **X:** het lek 'Ongeveer twee op de drie.' bij Vragen uit, plus raadbare opties in cold open en H4. De H1-vraag ('eind maart zat R rond de één, hoe kan dat?') is historisch redeneren waarbij iedereen 'maatregelen' al weet; de rekenvraag van Y en Z (helft contacten) toetst hetzelfde begrip actiever. Met 967 woorden ook te lang voor de scriptcheck-grens; de stroom-zin in H4 is onnauwkeurig.
+- **Y:** te lang (986), Yasmin heeft geen eigen beurt behalve de terugblik, de cold open heeft een 'Wat denk je?' zonder kaart, en het dossier wordt tegelijk 'oefendossier' en 'maart 2020 nagebouwd' genoemd (eerlijke assen: kies). De productielast is het hoogst: één object dat in elk hoofdstuk een laag krijgt, een jongere Yasmin, en een overlay van model op dossier.
+- **Z:** de recap-zin die misconceptie 3 terughaalt ('een filmpje dat iedereen al gezien heeft'), de dubbele uitleg van exponentieel (cold open en H2), een H4 met drie leerdoelen, en de H1-optie die zichzelf verklapt. De cold open zonder cast (alleen navy en één poppetje terwijl 'Yasmin rekent het na' klinkt) is een gemiste kans.
+
+## Winnaar: Y, duidelijk (52 tegen 49 en 49), met vier overnames
+
+Y wint op opbouw (één object, één laag per hoofdstuk), op de beste twee vragen (dag twintig; dossier tegenover model) en op het sterkste menselijke moment (Yasmin, tien jaar, thuis in maart 2020). Drie punten is geen nipte winst, maar X is een degelijke tweede en zou ook te verdedigen zijn als Kamiel de productielast van het dossier te hoog vindt: X vraagt alleen losse grafieken en ketens. Z verliest op de recap-slip en de drukke H4, maar levert de scherpste afleider en twee goede zinnen.
+
+### Over te nemen in Y
+1. **Uit Z, H4 eerste vraag → Y H3 tweede vraag.** Vervang Y's afleider (c) 'als het virus na een tijd zwakker wordt' door Z's 'zodra twee derde van de mensen immuun is'. Farid heeft net de gouden drempellijn getekend; de levende verwarring is nu 'drempel = einde'. Het antwoord van Y legt al uit dat de drempel het moment van de piek is en dat de epidemie daarna doorschiet, dus de afleider wordt in het antwoord weerlegd.
+2. **Uit X, H1 → Y H1, vóór het rekenvoorbeeld.** 'Yasmin telt haar dag: bus, klas, training. Al gauw tientallen mensen.' (± 12 woorden; in beeld lichten telpoppetjes om haar heen op en het schuifje CONTACTEN draait mee). Dit geeft Yasmin een eigen beurt in het heden en maakt 'contacten per dag 10' concreet voordat het schuifje verschijnt; de terugblik naar 2020 blijft als tegenhanger (toen de helft).
+3. **Uit Z, H1 → Y H1-antwoord.** De zin 'Een virus kiest niets: het gaat mee met wat mensen doen.' na 'R is dus niet alleen een eigenschap van het virus …'. Eén zin, geen beeld nodig, en hij maakt misconceptie 2 onthoudbaar.
+4. **Uit Z, H3 → Y H3 eerste antwoord.** Na 'dan blijft er gemiddeld één over' de zin 'Is het iets meer, dan zakt R onder de één.' Zo staat erbij dat de drempel precies R = 1 is en dat het uitdoven pas daarboven begint; dat sluit aan op de gouden lijn in beeld.
+
+### Eerst repareren in Y
+- Cold open: schrap 'Wat denk je?' (er is geen kaart) of maak er een kaart van met X's opties (a/b/c over hoe het aantal groeide). Omdat M1 al in H2 met 'dag twintig' zit, is schrappen de zuinigste keuze; de twee puzzelvragen blijven dan retorisch, zoals de puzzelkaart in beeld.
+- Kies één label voor het dossier. Voorstel: 'Hij oefent met een uitbraak zoals in maart tweeduizendtwintig' en in beeld alleen 'OEFENDOSSIER · RONDE GETALLEN · GEEN ECHTE DATA'; de echte getallen (verdubbeltijd RIVM, ic-cijfers) krijgen apart bron en jaar, zoals de reeksbrief vraagt.
+- H1: 'Tel je de pijlen, dan krijg je het reproductiegetal R' → 'Tel je per zieke de pijlen en neem je het gemiddelde, dan heb je het reproductiegetal R.' Het woord 'gemiddeld' is de kern (reeksbrief, gedeelde definitie).
+- Terugblik: controleer of het castboek een tienjarige Yasmin kent en of `personages/LEVENSLOOP.md` niets zegt dat met 'thuis met ouders in maart 2020' botst; anders een foto op Farids bureau of een kinderstem van Yasmin in een schrift.
+- Lengte: Y moet ± 80–100 woorden kwijt om onder de 900 te komen, en de overnames voegen ± 40 toe. Kandidaten: H2 laatste alinea (grijze blokjes, 43 woorden) inkorten tot 'Wie vandaag besmet raakt, wordt pas later gemeld. Daarom weet het RIVM pas na een week of twee hoe hoog R vandaag is.' (± −18); H3 eerste antwoord 'Dan groeit de uitbraak niet meer.' weg (−6, staat al in de vraag en in het beeld 'R = 1'); H1 'Bij elk blokje zoekt de GGD uit …' tot één zin met bron- en contactonderzoek (± −10); H4 'Het RIVM rekende in tweeduizendtwintig zulke scenario's door' samenvoegen met de RIVM-zin in het antwoord (± −10); recap opleidingen: 'bijvoorbeeld' maar één keer per zin (± −6); eindkaart telt niet mee.
+- Y's H4-vraag: optie (c) 'hoeveel meldingen er nu al binnen zijn' is goed als dossier-afleider, maar maak (b) en (c) even lang als (a).
+
+### Ook voor X en Z (als een van beide toch het geraamte wordt)
+- X H3: 'Ongeveer twee op de drie.' schrappen of samenvoegen met de volgende zin ('Een zieke zou er drie aansteken; zijn twee van de drie immuun …'), anders lekt het antwoord bij Vragen uit.
+- X H4: 'Hoe snel de eerste stroom gaat, hangt af van de knoppen contacten en kans per contact; de knop dagen besmettelijk bepaalt hoe snel mensen naar hersteld gaan.'
+- Z recap: 'net als een filmpje dat iedereen al gezien heeft' → 'net als een filmpje dat bijna iedereen in de groep al gezien heeft: de laatsten krijgen het niet meer'. En Z H1 optie (a) zonder de uitleg: 'R wordt ook ongeveer de helft'.

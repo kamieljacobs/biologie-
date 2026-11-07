@@ -1,0 +1,242 @@
+[
+ {
+  "obj": "codonTabel",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 3,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 17
+   },
+   "Y": {
+    "klopt": 5,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 20
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "Cirkel: letters in buitenring piepklein, onleesbaar klein; stopcodons staan buiten het wiel; leespad niet scherp",
+   "Y": "Klein is de tekst onleesbaar; leespad alleen als rij/kolom-highlight"
+  },
+  "overnemen": "Uit X: de gouden doorlopende leespad-lijn en de duidelijke Met-start/stop-labels buiten het schema; in Y de 3 stappen (1e, 2e, 3e base) als genummerde pijl of stapteller.",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "genOpbouw",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 3,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 18
+   }
+  },
+  "winnaar": "X",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "Poly-A en kapje alleen als puntje/wit staartje; geen duidelijke naam bij promotor/terminator",
+   "Y": "DNA als twee rechte lijnen i.p.v. helix: minder herkenbaar als DNA; splicing slecht leesbaar (kruisjes, losse stukjes)"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "lacOperon",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 19
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 16
+   }
+  },
+  "winnaar": "X",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "Repressor als bolletjescluster; operator en lacZ/Y/A niet apart herkenbaar; geen duidelijke naam",
+   "Y": "DNA-lus met zichtbaar gat in het DNA leest als gebroken DNA; repressor bolletjes; druk"
+  },
+  "overnemen": "Uit Y alleen eventueel de lus (echt voor lac-repressor) als aparte vwo-stand, niet in de basisversie.",
+  "combineren": false,
+  "fout": "Eiwit(ten) als bolletjescluster (kralen), geen gevouwen keten; botst met beeldafspraak en recept."
+ },
+ {
+  "obj": "methylgroep",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 3,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 16
+   },
+   "Y": {
+    "klopt": 5,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 20
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "Methylgroepen zonder zichtbare C-G; staan op willekeurige plekken op de helix; weinig herkenbaar als CG-paar",
+   "Y": "Promotor niet gemarkeerd (geen gouden promotorvak); transcriptiefactor alleen in eerste stand"
+  },
+  "overnemen": "Uit X: het gouden promotorvak en het naast elkaar zetten van TF-landing; in Y de TF ook bij de gemethyleerde stand laten wegblijven/afketsen.",
+  "combineren": true,
+  "fout": ""
+ },
+ {
+  "obj": "nucleosoomAcetyl",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 17
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "Y",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "DNA rond de kern als rommelige losse strengen; slordig en druk",
+   "Y": "Histonkern als vier gelijke cirkels (acht histonen niet te zien); open stand verschil nog klein bij de 3e still"
+  },
+  "overnemen": "Uit X: de schijfvorm (zijaanzicht) van het histonoctameer met zichtbaar tweede laag, als zijaanzicht naast Y.",
+  "combineren": true,
+  "fout": ""
+ },
+ {
+  "obj": "rnaInterferentie",
+  "scores": {
+   "X": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 2,
+    "bruikbaar": 3,
+    "totaal": 13
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 17
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "Alleen Dicer-knippen als twee grote bolletjeswolken; RISC, mRNA-knip en afbraak ontbreken",
+   "Y": "Dicer en RISC als bolletjescluster; kleine stukjes dsRNA als hokjesladder is klein; geen naam bij de gidsstreng"
+  },
+  "overnemen": "Uit X: de baseletters in puzzelvorm op het dsRNA (A-U, G-C) in de stukjes van Y; knipplekken gemarkeerd.",
+  "combineren": true,
+  "fout": "Eiwit(ten) als bolletjescluster (kralen), geen gevouwen keten; botst met beeldafspraak en recept."
+ },
+ {
+  "obj": "transcriptiefactor",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 18
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 17
+   }
+  },
+  "winnaar": "X",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "Eiwit als bolletjescluster; RNA-polymerase raakt eiwit en overlapt; herkenningshelix als gele bolletjes",
+   "Y": "Twee clusters + polymerase plakken tegen elkaar: druk; bolletjes; dimeer-contact met streepjes onduidelijk"
+  },
+  "overnemen": "Uit Y: de dimeer (twee TF's naast elkaar) als vwo-stand; los en gebonden duidelijk uit elkaar halen.",
+  "combineren": false,
+  "fout": "Eiwit(ten) als bolletjescluster (kralen), geen gevouwen keten; botst met beeldafspraak en recept."
+ },
+ {
+  "obj": "uvSchade",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 15
+   },
+   "Y": {
+    "klopt": 5,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 5,
+    "bruikbaar": 4,
+    "totaal": 22
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "Herstel (knippen, gat, polymerase, ligase) onvolledig of onleesbaar; dimeer als oranje staafje in een bocht; enzym bolletjes",
+   "Y": "Enzymcomplex als bolletjeswolk; knipplekken alleen als kruisjes"
+  },
+  "overnemen": "Uit X: de UV-bocht en de oranje dimerbinding op de helixversie kan als zoom naast Y.",
+  "combineren": false,
+  "fout": "Eiwit(ten) als bolletjescluster (kralen), geen gevouwen keten; botst met beeldafspraak en recept."
+ }
+]

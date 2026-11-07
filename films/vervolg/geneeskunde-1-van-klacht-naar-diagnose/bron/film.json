@@ -1,0 +1,75 @@
+{
+ "slug": "geneeskunde-1-van-klacht-naar-diagnose",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Van klacht naar diagnose",
+ "sub": "hoe een arts redeneert",
+ "puzzle": "Iemand is kortademig. Ligt het aan het hart, de longen of het bloed?",
+ "meta": "geneeskunde · diagnostiek",
+ "alleen": "vwo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Geneeskunde",
+ "lead": "Kortademigheid kan uit het hart, de longen of het bloed komen: zuurstof gaat door een keten, en elke schakel kan haperen. Een arts redeneert van klacht naar oorzaak. Eerst vragen (anamnese) en onderzoeken, dan een lijst met mogelijke oorzaken (differentiaaldiagnose) die ze met gericht onderzoek toetst. Bij Opa Henk blijkt het hartfalen: het hart pompt zwak, vocht hoopt zich op in de longen en de enkels. Daarna kiezen arts en patiënt samen een behandeling.",
+ "endHaak": "welke vraag zou jij als arts als eerste stellen bij hoofdpijn?",
+ "minis": {
+  "Hoofdstuk 1": "Waarom kan kortademigheid uit drie systemen komen?",
+  "Hoofdstuk 2": "Wat vraagt en meet de arts?",
+  "Hoofdstuk 3": "Hoe toetst een arts haar hypotheses?",
+  "Hoofdstuk 4": "Wie kiest de behandeling?",
+  "Recap": "Wat had Opa Henk?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Opa Henk en Dr. Kim (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Welke vraag helpt Dr. Kim het meest om te kiezen tussen hart, longen en bloed?",
+   "correct": 1,
+   "explain": "Erger bij plat liggen en dikke enkels wijzen op vocht dat zich ophoopt: een hart dat slecht pompt."
+  },
+  "q06": {
+   "q": "Benauwd wakker, geknisper onderin de longen, een putje in de enkel. Waar wijst dat op?",
+   "correct": 2,
+   "explain": "Op een hart dat het bloed niet goed rondpompt: vocht in de longen en in de enkels."
+  },
+  "q09": {
+   "q": "Hoe komen Dr. Kim en Henk tot een keuze die bij Henk past?",
+   "correct": 0,
+   "explain": "Samen beslissen: de arts brengt de kennis over wat werkt, de patiënt wat voor hem telt."
+  }
+ },
+ "glossary": [
+  {
+   "t": "anamnese",
+   "d": "Het gesprek waarin de arts vraagt naar de klacht: sinds wanneer, wanneer erger, wat nog meer."
+  },
+  {
+   "t": "lichamelijk onderzoek",
+   "d": "Kijken, luisteren (stethoscoop), voelen en meten, zoals bloeddruk en zuurstof in het bloed."
+  },
+  {
+   "t": "differentiaaldiagnose",
+   "d": "Lijst met mogelijke oorzaken van een klacht, van waarschijnlijk naar minder waarschijnlijk, die de arts met onderzoek toetst."
+  },
+  {
+   "t": "hartfalen",
+   "d": "Het hart pompt te zwak; bloed hoopt zich op in de longvaten en de nieren houden water vast, met vocht in longen en enkels."
+  },
+  {
+   "t": "oedeem",
+   "d": "Vocht in het weefsel; bij indrukken blijft een putje staan, bijvoorbeeld in de enkels."
+  },
+  {
+   "t": "echo van het hart",
+   "d": "Onderzoek met geluidsgolven dat laat zien hoe goed de hartkamers knijpen."
+  },
+  {
+   "t": "samen beslissen",
+   "d": "Arts en patiënt kiezen samen een behandeling: de arts brengt kennis over wat werkt, de patiënt wat voor hem telt."
+  },
+  {
+   "t": "plastabletten",
+   "d": "Medicijnen die de nieren meer water laten uitscheiden, zodat vocht wordt afgevoerd."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Leg met de keten longen – bloed – hart uit waarom kortademigheid uit drie verschillende orgaanstelsels kan komen. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>De longen nemen zuurstof op, het bloed vervoert het en het hart pompt het rond (1p). Hapert één schakel, dan krijgen de weefsels te weinig zuurstof, of (bij hartfalen) hoopt vocht zich op in de longen, en voel je je kortademig (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Wat is een differentiaaldiagnose, en waarom doet een arts niet gewoon alle onderzoeken? <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Een lijst met mogelijke oorzaken, op volgorde van waarschijnlijkheid (1p). De arts kiest onderzoek dat het verschil maakt tussen die oorzaken; onnodig onderzoek kost tijd en geld en geeft soms misleidende uitslagen (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Verklaar waarom iemand met hartfalen geknisper in de longen en dikke enkels kan hebben. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>De linkerkamer pompt zwak, waardoor bloed zich ophoopt in de longvaten (1p); de druk stijgt en vocht lekt het longweefsel in: geknisper (1p). Doordat het hart zwak pompt, houden de nieren water vast; dat vocht zakt naar de enkels (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Henk neemt zijn plastabletten 's ochtends. Leg uit waarom dat een voorbeeld is van samen beslissen. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>De arts weet welk middel werkt (1p); Henk weet wat voor hem telt (tuinieren zonder steeds naar de wc te moeten), en samen kiezen ze het moment (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Extra film buiten het PTA op <i>Wat word jij?</i> → Geneeskunde. Bouwt voort op <i>Een pomp, twee rondjes</i>, <i>Het hart onder controle</i>, <i>Adem in, adem uit</i>, <i>Gas op reis</i> en <i>Wat er in je bloed zit</i>. Opa Henk is de patiënt, Dr. Kim de huisarts.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>Cold open en H1</b> één klacht, drie schakels. <b>H2</b> anamnese en lichamelijk onderzoek. <b>H3</b> differentiaaldiagnose en gericht onderzoek (NT-proBNP, Hb, echo). <b>H4</b> slecht nieuws en samen beslissen.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Diagnostiek hartfalen</td><td>NT-proBNP (stof die het overbelaste hart afgeeft) en ECG door de huisarts, bij afwijking een echo</td><td>NHG-standaard Hartfalen</td></tr>\n<tr><td>Gewichtstoename</td><td>meer dan 2 kg in enkele dagen = vocht, contact opnemen</td><td>NHG-standaard Hartfalen; Thuisarts.nl</td></tr>\n<tr><td>Opleiding</td><td>geneeskunde 6 jaar; huisarts 3 jaar; specialist 4–6 jaar</td><td>KNMG, huisartsopleiding.nl</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul><li>De film noemt NT-proBNP 'een stof die het hart afgeeft als het overbelast is' en laat het ECG weg.</li><li>Oedeem bij hartfalen ontstaat door een combinatie van hogere veneuze druk en water- en zoutretentie door de nieren; de film noemt alleen de nieren.</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Geef groepjes een andere klacht (buikpijn, hoofdpijn, moeheid) en laat ze een differentiaaldiagnose maken: welke orgaanstelsels, en welke vraag maakt het verschil?</li></ul>\n</section>\n"
+}

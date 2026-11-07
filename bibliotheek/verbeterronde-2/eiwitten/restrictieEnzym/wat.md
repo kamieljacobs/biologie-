@@ -1,0 +1,1 @@
+Elk domein van de twee EcoRI-helften is een compacte kralenkluwen in hetzelfde doorschijnende oppervlak (het oude lint was een lus die zichzelf telkens kruiste), en de klemarmen zijn een rijtje kralen vóór het DNA langs.

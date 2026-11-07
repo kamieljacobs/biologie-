@@ -1,0 +1,89 @@
+{
+ "slug": "psychologie-4-meten-wat-je-niet-kunt-zien",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Meten wat je niet kunt zien",
+ "sub": "operationaliseren, vragenlijsten, betrouwbaar en valide",
+ "puzzle": "Lottes hartslag schiet omhoog als er een spin op tafel staat. Is dat het bewijs dat ze bang is?",
+ "meta": "psychologie · meten",
+ "alleen": "vwo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Psychologie",
+ "lead": "Angst kun je niet direct zien of wegen. Psychologen maken zo'n begrip meetbaar (operationaliseren) via drie wegen: wat iemand zegt, wat iemand doet en wat het lichaam doet. Een goede vragenlijst heeft heldere vragen, een vaste schaal en veel vragen. Een meting moet betrouwbaar zijn (opnieuw meten geeft ongeveer hetzelfde) én valide (je meet wat je wilt meten), en wat goed werkt voor een groep kan te wankel zijn voor één persoon.",
+ "endHaak": "welk begrip uit je eigen leven zou je willen meten, en via welke van de drie wegen?",
+ "minis": {
+  "Hoofdstuk 1": "Hoe maak je angst meetbaar?",
+  "Hoofdstuk 2": "Wat maakt een vraag goed?",
+  "Hoofdstuk 3": "Wat is het verschil tussen betrouwbaar en valide?",
+  "Hoofdstuk 4": "Waarom werkt een test wel voor een groep, maar niet voor jou?",
+  "Hoofdstuk 5": "Wat meet je met gedrag en tijd?",
+  "Recap": "Bewijst Lottes hartslag haar angst?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Lotte en Dr. Kim (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Lottes hartslag schiet omhoog als er een spin op tafel staat. Is dat het bewijs dat ze bang is?",
+   "correct": 1,
+   "explain": "Nee: een hartslag stijgt ook door schrik, opwinding of inspanning. Hij laat zien dat er iets gebeurt, niet wat."
+  },
+  "q07": {
+   "q": "Welke vraag is het best om spinnenangst te meten?",
+   "correct": 2,
+   "explain": "Vraag c gaat over één ding en over concreet gedrag in een vaste periode. Vraag a is dubbel, vraag b vaag."
+  },
+  "q10": {
+   "q": "Een weegschaal geeft elke keer precies twee kilo te veel aan. Is die betrouwbaar, valide, of allebei?",
+   "correct": 0,
+   "explain": "Betrouwbaar (steeds hetzelfde), maar niet valide (het getal klopt niet)."
+  },
+  "q14": {
+   "q": "Een test geeft jou vandaag 70 en over twee weken 45. Waar is zo'n test nog bruikbaar voor?",
+   "correct": 1,
+   "explain": "Voor het gemiddelde van een grote groep: daar vallen de toevallige fouten tegen elkaar weg. Voor één persoon is hij te wankel, ook als je hem twee keer doet."
+  }
+ },
+ "glossary": [
+  {
+   "t": "operationaliseren",
+   "d": "Een begrip (zoals angst) omzetten in iets wat je kunt meten of tellen."
+  },
+  {
+   "t": "zelfrapportage",
+   "d": "Meten wat iemand zelf zegt, bijvoorbeeld met een vragenlijst."
+  },
+  {
+   "t": "gedragstest",
+   "d": "Meten wat iemand doet, bijvoorbeeld hoe dicht iemand bij een spin durft te komen."
+  },
+  {
+   "t": "huidgeleiding",
+   "d": "Lichaamsmaat: meer zweet aan de vingers geleidt beter; stijgt bij spanning, maar ook bij andere opwinding."
+  },
+  {
+   "t": "dubbele vraag",
+   "d": "Vraag die over twee dingen tegelijk gaat, zodat je niet goed kunt antwoorden."
+  },
+  {
+   "t": "sturende vraag",
+   "d": "Vraag die al laat merken welk antwoord verwacht wordt."
+  },
+  {
+   "t": "sociaal wenselijk antwoorden",
+   "d": "Een antwoord geven dat netjes overkomt in plaats van het eerlijke antwoord."
+  },
+  {
+   "t": "betrouwbaar",
+   "d": "Opnieuw meten geeft ongeveer dezelfde uitkomst (test-hertest; antwoorden op de vragen hangen samen)."
+  },
+  {
+   "t": "valide",
+   "d": "De meting meet echt wat je wilt meten."
+  },
+  {
+   "t": "Stroop-effect",
+   "d": "Vertraging bij het noemen van de inktkleur van een kleurwoord in een andere kleur, omdat lezen vanzelf gaat."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Een onderzoeker wil 'eenzaamheid' bij ouderen meten. Operationaliseer dit begrip op twee verschillende manieren. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Bijvoorbeeld zeggen: een vragenlijst met vragen als \"Hoe vaak voelde je je de afgelopen week alleen?\" (1p); doen: het aantal contacten met anderen per week tellen (1p). Ook goed: een lichaamsmaat met uitleg waarom die bruikbaar is.</p></details></div>\n<div class=\"q\"><p><b>2.</b> Wat is er mis met de vraag \"Vind je school en je huiswerk leuk?\" Herschrijf de vraag. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Het is een dubbele vraag: wie school leuk vindt maar huiswerk niet, kan niet antwoorden (1p). Splits hem in twee vragen, liefst concreet, bijvoorbeeld \"Hoeveel dagen keek je de afgelopen week uit naar school?\" (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Een nieuwe concentratietest geeft bij dezelfde leerlingen na twee weken bijna dezelfde scores. De scores hangen niet samen met hoe goed leerlingen zich in de klas concentreren. Is de test betrouwbaar? Valide? Leg uit. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Betrouwbaar: herhaald meten geeft ongeveer hetzelfde (1p). Niet valide: de scores hangen niet samen met wat de test zou moeten meten (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Leg uit waarom een test met een matige test-hertestbetrouwbaarheid wel bruikbaar kan zijn om groepen te vergelijken, maar niet om een uitspraak over één persoon te doen. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Bij veel mensen vallen de toevallige fouten tegen elkaar weg, zodat het gemiddelde stabiel is (1p); bij één persoon blijft de fout in de score zitten, waardoor die bij herhaling sterk kan verschillen (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Extra film buiten het PTA op <i>Wat word jij?</i> → Psychologie. Bouwt voort op <i>Onderzoek doen</i> (experiment, statistiek, correlatie) en <i>Welke therapie werkt?</i> (placebo, blinderen); deze film gaat alleen over meten. Lotte (bang voor spinnen) komt uit de therapiefilm. Past bij een praktijkopdracht 'zelf een vragenlijst afnemen en scoren' (Wat word jij?, stap 3).</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul>\n<li><b>Rode draad:</b> het meetbord ZEGGEN · DOEN · LICHAAM (drie-systemenmodel van angst, Lang 1968).</li>\n<li><b>H1</b> operationaliseren; desynchronie van de drie wegen. <b>H2</b> vragen bouwen (dubbel, vaag, sturend), schaal, meerdere vragen, sociale wenselijkheid. <b>H3</b> betrouwbaar en valide (weegschaal, schietschijf), test-hertest en interne consistentie, validiteit via de gedragstest. <b>H4</b> groep tegenover individu (IAT). <b>H5</b> Stroop en emotionele Stroop; voor- en nadelen per maat.</li>\n</ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Stroop-effect</td><td>1935; ± driekwart langer (± 110 s vs ± 63 s per kaart, 74 %)</td><td>Stroop 1935; Simply Psychology, 'Stroop effect'</td></tr>\n<tr><td>Emotionele Stroop bij spinnenangst</td><td>trager bij spinnenwoorden</td><td>Watts e.a. 1986; Williams, Mathews &amp; MacLeod 1996</td></tr>\n<tr><td>IAT test-hertest</td><td>'vaak een behoorlijk andere score' (± 0,4–0,5)</td><td>Greenwald in APS Observer, 'The IAT: how and when it works'</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul><li>Validiteit wordt alleen getoond als samenhang met een gedragstest (criteriumvaliditeit); andere vormen (inhoud, begrip) staan er niet in.</li><li>De weegschaal is het schoolvoorbeeld van een systematische fout; in de psychometrie zou zo'n meting mensen nog wel goed rangschikken.</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Laat leerlingen in tweetallen vijf vragen voor een 'schoolstress'-lijst maken, elkaars vragen op dubbel, vaag en sturend controleren en de lijst twee keer afnemen (test-hertest).</li><li>Doe de Stroop-taak klassikaal met een stopwatch: congruent, incongruent, en een zelfgemaakte 'toetsweek'-versie.</li></ul>\n</section>\n"
+}

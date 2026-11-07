@@ -1,0 +1,79 @@
+[
+ {
+  "id": "cel-afweer__antistofY",
+  "obj": "antistofY",
+  "nieuw": true,
+  "keuze": "geen",
+  "actie": "OVERSLAAN (komt in een nieuwe ronde)",
+  "opmerking": "het mag simpeler, nu is het erg druk. Kijk eens of je materialen van andere lesmethoden kunt pakken?",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "cel-afweer__gedifferentieerdeCellen",
+  "obj": "gedifferentieerdeCellen",
+  "nieuw": true,
+  "keuze": "B",
+  "actie": "variant B inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "Rode bloedcel leest als bol met staartje; ingedeukte schijf niet duidelijk (controleer vergroot)",
+  "zwak_gekozen": "Genenbalken in eigen kolom rechts: goed leesbaar"
+ },
+ {
+  "id": "cel-afweer__lipideNanodeeltje",
+  "obj": "lipideNanodeeltje",
+  "nieuw": true,
+  "keuze": "B",
+  "actie": "variant B inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "het bolletje van variant B en de ribosomen van variant A",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "Binnenkant druk en onleesbaar, mRNA verdwijnt in rommel; geen opname of ribosomen, alleen fusie; membraan als plat balkje"
+ },
+ {
+  "id": "cel-afweer__membraanReceptor",
+  "obj": "membraanReceptor",
+  "nieuw": true,
+  "keuze": "C",
+  "actie": "variant C inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "er moet een balans tussen details en helderheid/simpelheid. het is nu wel erg druk.",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "Receptor zit in een opening van het membraan, maar de eiwitten binnen zijn vormeloze blobs en de receptor is erg druk"
+ },
+ {
+  "id": "cel-afweer__stamcelDeling",
+  "obj": "stamcelDeling",
+  "nieuw": true,
+  "keuze": "B",
+  "actie": "variant B inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "Eindstadium rode bloedcel is een bol met donkere kern, niet duidelijk een ingedeukte schijf"
+ },
+ {
+  "id": "cel-afweer__tumorGroei",
+  "obj": "tumorGroei",
+  "nieuw": true,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "het ronde ontwerp van variant B is mmoi, maar de bloedvaten en simpelheid cellen van de zijkant is bij variant A fijn.",
+  "fout_ronde1": "Basaalmembraan wordt in geen van beide echt zichtbaar doorbroken",
+  "fout_laatste": "",
+  "zwak_gekozen": "Losse cellen die over de gewone cellen heen liggen: rommelig, maar invasie onder het basaalmembraan wel zichtbaar"
+ },
+ {
+  "id": "cel-afweer__witteBloedcellen",
+  "obj": "witteBloedcellen",
+  "nieuw": true,
+  "keuze": "B",
+  "actie": "variant B inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "ik vind het golisysteem niet altijd goed geplaatst.",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "Neutrofiel en mestcelkorrels zijn nog wat stippelachtig; Y-antistoffen als simpele pictogrammen"
+ }
+]

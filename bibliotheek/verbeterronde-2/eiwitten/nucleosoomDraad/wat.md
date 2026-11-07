@@ -1,0 +1,1 @@
+De vier histonen op de schijf zijn kralenketens (iets grotere kralen dan het lint, rustiger) en de staarten zijn een rijtje kleine kralen; bij een kleine schijf (R < 34) nu ook kralen in plaats van vlakke ellipsjes.

@@ -1,0 +1,92 @@
+[
+ {
+  "scene": "s00",
+  "still": "s00.png",
+  "tekst": "Je loopt langs de bakker. Vers brood. Nog voor je het ziet, weet je het al. Die geur is een bericht: van je neus, via een paar zenuwcellen, naar je hersenen. Maar hier zit een probleem. Een impuls is elektrisch. En tussen twee zenuwcellen zit een spleet. Hoe komt het bericht daaroverheen?",
+  "noot": "Macro: straat met bakker, castpersonage loopt (zijaanzicht) en blijft staan; zoomcirkel náást het hoofd: neus → drie zenuwcellen → hersenen, impuls teal, spleet in goud."
+ },
+ {
+  "scene": "tt",
+  "still": "tt.png",
+  "tekst": "De spleet.",
+  "noot": "Titelkaart: synaps (afgeleid van synapsEcht) rechts, fasen lopen rustig rond."
+ },
+ {
+  "scene": "q1",
+  "still": "q1.png",
+  "tekst": "Wat denk je? Twee zenuwcellen geven een bericht aan elkaar door. Hoe zitten ze aan elkaar? Ze zijn aan elkaar vastgegroeid, als één lange draad? Ze raken elkaar aan, membraan tegen membraan? Of er zit een smalle spleet tussen?",
+  "noot": "Gesproken vraag: tekst links, opties verschijnen op het woord; rechts twee zenuwcellen met vraagteken bij de aansluiting."
+ },
+ {
+  "scene": "a1",
+  "still": "a1.png",
+  "tekst": "Het goede antwoord is C. We zoomen in op het eindknopje van een zenuwcel. Daar tegenover ligt een dendriet van de volgende cel. Ze raken elkaar niet. Ertussen zit een spleet, zo smal dat er wel vijftigduizend naast elkaar in een millimeter passen. Dit geheel heet een synaps. Het eindknopje is de kant vóór de spleet. In het eindknopje liggen blaasjes. Elk blaasje zit vol met een stof: de neurotransmitter. Aan de andere kant, in het membraan van de volgende cel, zitten receptoren. Eiwitten met precies de vorm waar die stof in past. Onthoud deze drie: blaasjes, spleet, receptoren. Daar draait de hele film om.",
+  "noot": "Inzoomen op het eindknopje; synaps in doorsnede met labels op ankerwoorden; maatlijn ± 20 nm, 50.000 per mm; zoomcirkel receptor waarin de stof past; drie kernwoorden."
+ },
+ {
+  "scene": "s21",
+  "still": "s21.png",
+  "tekst": "Daar komt de impuls. Hij rolt over het axon tot in het eindknopje. En dan stopt hij. Verder kan hij niet. Maar de aankomst doet iets: er gaan kanaaltjes open voor calcium. Calcium stroomt het eindknopje in. Dat is het sein voor de blaasjes. Ze bewegen naar het membraan, versmelten ermee, en gooien hun inhoud in de spleet. Duizenden moleculen neurotransmitter steken over. Dat duurt minder dan een duizendste seconde. Aan de overkant passen ze in de receptoren. Zodra zo'n receptor bezet is, gaat er een kanaaltje open. Ionen stromen de volgende cel in. Het membraan verandert. En als dat genoeg is, ontstaat daar een nieuwe impuls. Het bericht is overgestoken. Niet als stroom. Als stof.",
+  "noot": "Overdracht als één tijdlijn: impuls (teal bandje) → Ca²⁺ → blaasjes versmelten (Ω) → neurotransmitter (licht teal) → receptoren → ionen → nieuwe impuls; tijdbalk 0–1 ms; niet als stroom, als stof."
+ },
+ {
+  "scene": "q2",
+  "still": "q2.png",
+  "tekst": "Wat denk je? Wat gaat er precies door de spleet? De impuls zelf, als een vonkje? Natriumionen uit de eerste cel? Of moleculen neurotransmitter?",
+  "noot": "Gesproken vraag; rechts synaps met vraagteken in de spleet."
+ },
+ {
+  "scene": "a2",
+  "still": "a2.png",
+  "tekst": "Het goede antwoord is C. De impuls stopt bij het eindknopje. Wat oversteekt, is de stof uit de blaasjes. Pas aan de overkant ontstaat er weer een impuls. Elektrisch, dan chemisch, dan weer elektrisch.",
+  "noot": "Synaps op zijn kant (bericht van links naar rechts) met drie haken: elektrisch · chemisch · elektrisch."
+ },
+ {
+  "scene": "q3",
+  "still": "q3.png",
+  "tekst": "Wat denk je? Kan een synaps een zenuwcel ook stíller maken? Nee, een synaps geeft altijd een bericht door? Ja, het hangt af van de neurotransmitter en de receptor? Of alleen als er heel veel stof tegelijk komt?",
+  "noot": "Gesproken vraag; rechts zenuwcel met een knopje met vraagteken."
+ },
+ {
+  "scene": "a3",
+  "still": "a3.png",
+  "tekst": "Het goede antwoord is B. Kijk naar deze zenuwcel. Er komen twee synapsen op uit. Bij de eerste gaan er na binding natriumkanalen open. Natrium stroomt naar binnen, het membraan wordt minder negatief. Dichter bij de drempel. Deze synaps is exciterend: hij zet aan. Bij de tweede gaan er chloridekanalen open. Chloride is negatief, en stroomt naar binnen. Het membraan wordt juist negatiever. Verder van de drempel. Deze synaps is remmend. Of een cel exciterend of remmend reageert, hangt af van de neurotransmitter én van de receptor. Een zenuwcel krijgt vaak duizenden van zulke aansluitingen. Al die plusjes en minnetjes worden bij elkaar opgeteld. Haalt de som de drempel bij het begin van het axon? Dan vertrekt er een impuls. Zo niet, dan blijft het stil. Daarom is er een spleet. Een vaste draad geeft alleen door. Een synaps kan versterken, remmen en optellen.",
+  "noot": "Zenuwcel met een exciterende (+, Na⁺) en een remmende (−, Cl⁻) synaps; membraanpotentiaal-meter met drempel −55 mV; duizenden knopjes; optellen aan het begin van het axon; impuls vertrekt; slot: vaste draad vs synaps."
+ },
+ {
+  "scene": "q4",
+  "still": "q4.png",
+  "tekst": "Wat denk je? De neurotransmitter blijft in de spleet hangen, aan de receptoren. Wat gebeurt er dan met de volgende cel? Die blijft impulsen afvuren? Die reageert één keer en dan is het klaar? Of die raakt beschadigd?",
+  "noot": "Gesproken vraag; rechts synaps met bezette receptoren."
+ },
+ {
+  "scene": "a4",
+  "still": "a4.png",
+  "tekst": "Het goede antwoord is A. Zolang de receptoren bezet zijn, blijven de kanalen open. De cel blijft vuren. Een bericht moet dus ook weer uit kunnen. Daar zijn drie manieren voor. Eén: een enzym in de spleet knipt de stof kapot. Bij acetylcholine, de stof waarmee je spieren worden aangestuurd, is dat acetylcholinesterase. Twee: het eindknopje zuigt de stof weer terug naar binnen, om hem opnieuw te gebruiken. Dat heet heropname. Drie: de stof drijft gewoon weg uit de spleet. Zo is de synaps binnen een paar duizendste seconde weer schoon. Klaar voor het volgende bericht. Opruimen hoort bij het bericht. Precies op deze stappen grijpen medicijnen en drugs in. Daarover gaat de volgende film.",
+  "noot": "Receptoren blijven bezet → cel blijft vuren; drie manieren als kaartjes: enzym (acetylcholinesterase, kralenketen) knipt, heropname via transporter, wegdrijven; spleet schoon; medicijnen en drugs → volgende film."
+ },
+ {
+  "scene": "q5",
+  "still": "q5.png",
+  "tekst": "Wat denk je? Kan een bericht via een synaps ook terug, van de tweede cel naar de eerste? Ja, een synaps werkt in twee richtingen? Nee, alleen als de spleet heel smal is? Of nee, nooit?",
+  "noot": "Gesproken vraag; rechts synaps met pijl heen en pijl terug."
+ },
+ {
+  "scene": "a5",
+  "still": "a5.png",
+  "tekst": "Het goede antwoord is C. Kijk nog eens naar de twee kanten. Blaasjes met neurotransmitter zitten alleen in het eindknopje. Receptoren zitten alleen in het membraan van de volgende cel. De stof kan dus maar één kant op werken. Daarom loopt een bericht altijd van eindknopje naar dendriet. Nooit terug. Dit werkt niet alleen tussen zenuwcellen. Bij je spieren eindigt een motorisch neuron ook in een synaps. De neurotransmitter is daar acetylcholine, en de ontvanger is een spiervezel. Bezet genoeg receptoren, en de spier trekt samen. Zelfde principe, andere ontvanger.",
+  "noot": "Blaasjes alleen vóór, receptoren alleen ná; pijl één kant op, nooit terug; daarna eindplaat: motorisch neuron op spiervezel, acetylcholine, vezel trekt samen."
+ },
+ {
+  "scene": "s70",
+  "still": "s70.png",
+  "tekst": "Terug naar het brood. De geurstof past in een receptor in je neus. Daar ontstaat een impuls, over het axon naar het eindknopje. Calcium erin, blaasjes leeg, neurotransmitter steekt de spleet over. Receptoren bezet, kanalen open, de volgende cel vuurt, of juist niet. Enzym, heropname, wegdrijven: de spleet is weer schoon. Een paar synapsen verder weten je hersenen het: brood. Elektrisch, chemisch, elektrisch. En altijd één kant op.",
+  "noot": "Samenvatting: synaps volgt de stappen, tien regels lichten op ankerwoorden op; aan het eind keten neus → hersenen."
+ },
+ {
+  "scene": "end",
+  "still": "end.png",
+  "tekst": "Blaasjes, spleet, receptoren. / Elektrisch, chemisch, elektrisch: één kant op. / Volgende film: Knoeien met de spleet.",
+  "noot": "Eindkaart met drie kernzinnen en vooruitblik op film 4."
+ }
+]

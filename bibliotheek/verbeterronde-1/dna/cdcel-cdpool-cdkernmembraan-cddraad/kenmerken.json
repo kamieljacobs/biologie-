@@ -1,0 +1,44 @@
+{
+ "oud": {
+  "detail": "midden",
+  "vorm": "schematisch",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "in-omgeving",
+  "beweging": "proces",
+  "opbouw": "in-stappen",
+  "referentie": "geen",
+  "vondst": "lege cel, trekdraden als enkele lijnen"
+ },
+ "A": {
+  "detail": "midden",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "in-omgeving",
+  "beweging": "proces",
+  "opbouw": "in-stappen",
+  "referentie": "geen",
+  "vondst": "dubbele membraanlijn, organellen op 35 % langs de rand, draadbundels"
+ },
+ "C": {
+  "detail": "midden",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "in-omgeving",
+  "beweging": "proces",
+  "opbouw": "in-stappen",
+  "referentie": "bron",
+  "vondst": "echte anafase: chromatiden centromeer-vóór naar de polen getrokken"
+ }
+}

@@ -1,0 +1,74 @@
+[
+ {
+  "id": "s15",
+  "titel": "Meningen over hoe precies het kan: Adviescollege en UvA-onderzoek",
+  "zin": "Over hoe precies het kan, verschillen de meningen. Een adviescollege vond in 2020 het rekenen voor heel Nederland goed genoeg. Heel kleine extra bijdragen per hectare gaven volgens het college schijnzekerheid. Het adviseerde meer te meten. Onderzoekers van de Universiteit van Amsterdam maten bij twee melkveebedrijven. De ammoniak in de lucht klopte goed met het model. Hoeveel er neerkwam, konden ze niet goed meten. Critici en verdedigers van de methode zagen er allebei steun in. Eens zijn ze het hierover: hoe kleiner de plek, hoe groter de onzekerheid.",
+  "img": "blad/img/s15.webp",
+  "twijfel": "Redactionele keuze: de UvA-alinea met 'Critici en verdedigers van de methode zagen er allebei steun in'.",
+  "waarom": "Evenwicht is een toonkeuze (brief.md); de bronnen zijn er wel (B16, B17, B45, B46, B50).",
+  "voorstel": "Zo laten (beide kaartjes met bron en jaartal, geen namen of partijen). Alternatief: UvA-kaartje en de vier UvA-zinnen weg, alleen RIVM-marges en Adviescollege; dan moet die alinea opnieuw ingesproken worden."
+ },
+ {
+  "id": "s01",
+  "titel": "Cold open: stal en snelweg aan de rand van de heide",
+  "zin": "Daan loopt stage bij een natuurbeheerder. Met ecoloog Bas staat hij op de heide, bij een stal en een snelweg. Planten hebben stikstof nodig. Toch verdwijnen hier soorten door stikstof. Hoe kan dat? Wat denk je?",
+  "img": "blad/img/s01.webp",
+  "twijfel": "Veehouderij in beeld als bron van stikstof (stal met silo, geen persoon); Daan in outfit veld.",
+  "waarom": "Gevoelig dossier: geen boer, geen naam; de stal staat naast de snelweg en later naast fabrieken.",
+  "voorstel": "Zo laten; de stal is alleen een gebouw en licht even op op 'stal', net als de snelweg op 'snelweg'."
+ },
+ {
+  "id": "s09",
+  "titel": "5 % binnen 500 meter, en stikstof van ver",
+  "zin": "Antwoord c. Volgens het RIVM komt zo'n vijf procent van de ammoniak binnen vijfhonderd meter neer. Dat valt op een klein stuk grond, dus per hectare is het toch veel. De rest waait verder. Andersom valt hier ook stikstof van verre stallen, wegen en fabrieken, tot uit het buitenland.",
+  "img": "blad/img/s09.webp",
+  "twijfel": "Kaart met de stal en een cirkel van 500 m naast 'onze heide', daarna pijlen van verre stal, weg, fabriek en buitenland.",
+  "waarom": "Gevoelig: het beeld mag de stal niet als 'de schuldige' neerzetten en ook niet vrijpleiten.",
+  "voorstel": "Zo laten: beide kanten in één beeld, zoals de stem zegt ('per hectare toch veel' en 'andersom')."
+ },
+ {
+  "id": "s23",
+  "titel": "Het project: stal of fabriek als grijs schetsje",
+  "zin": "Stel, iemand wil vlak bij een Natura 2000-gebied een nieuwe stal of fabriek bouwen. Kan dat de natuur schaden? Dan komt er een passende beoordeling. Daarin schrijft een ecoloog welke natuurtypen er liggen, met hun grens. Hoeveel stikstof er al valt, en wat het project erbij doet. En hoe het met de natuur zelf gaat.",
+  "img": "blad/img/s23.webp",
+  "twijfel": "Project als grijs gestippelde stal én fabriek naast een Natura 2000-gebied; geen weg.",
+  "waarom": "Gevoelig en een keuze uit de brief: geen echt geval, geen sector als 'de aanvrager'.",
+  "voorstel": "Zo laten."
+ },
+ {
+  "id": "s27",
+  "titel": "Herkomst van de depositie in Nederland",
+  "zin": "Waar komt de stikstof in Nederland vandaan? In 2024 kwam ongeveer de helft van alle depositie uit de Nederlandse landbouw. Ongeveer een derde kwam uit het buitenland. Verkeer was in 2021 ruim een tiende, industrie een paar procent. Per gebied verschilt het. Wat je daarmee doet, is aan het bestuur.",
+  "img": "blad/img/s27.webp",
+  "twijfel": "Cirkeldiagram 2024 (landbouw ± de helft, buitenland ± een derde) en balkjes 2021 (verkeer, industrie) in neutrale tinten.",
+  "waarom": "Gevoelig: kleur of nadruk kan een standpunt suggereren; jaartallen verschillen (2024 en 2021, zoals het script zegt).",
+  "voorstel": "Zo laten: geen koraal voor één sector, 'per gebied verschilt het' en 'aan het bestuur' in beeld."
+ },
+ {
+  "id": "s19",
+  "titel": "Vergrassing: tormentil, pijpenstrootje, bochtige smele en braam",
+  "zin": "Heide groeit op arme zandgrond. Struikhei en kruiden zoals tormentil kunnen met weinig voedsel toe. Komt er jaar na jaar stikstof bij, dan winnen snelle groeiers: pijpenstrootje, bochtige smele en braam. Ze worden hoog en dicht en nemen licht weg. Meer groei, minder soorten.",
+  "img": "blad/img/s19.webp",
+  "twijfel": "Nieuwe bibliotheektekeningen tormentil (vier kroonbladen) en braam (bogen); grassen met de bestaande grasPol.",
+  "waarom": "Nieuwe tekeningen voor ec_reeks.js; recept uit tekst (Heukels-beschrijving), geen ElevenLabs-referentieplaat gemaakt.",
+  "voorstel": "Goedkeuren als schematische Schema-planten; pijpenstrootje en smele verschillen alleen in tint en dichtheid."
+ },
+ {
+  "id": "s20",
+  "titel": "Nestkast met een koolmees-ei met dunne schaal",
+  "zin": "Aan de bosrand hangt een nestkast. Daan ziet er een ei van een koolmees, met een heel dun schaaltje. Wat schrijft Daan erbij als oorzaak? Wat denk je?",
+  "img": "blad/img/s20.webp",
+  "twijfel": "Nieuwe tekeningen nestkast, ei (normaal en dun) en slakkenhuis; de koolmees zelf staat niet in beeld.",
+  "waarom": "Nieuwe bibliotheekobjecten en het menselijke moment van de film; geen dood jong, gebroken pootje alleen als tekst.",
+  "voorstel": "Zo laten; een koolmees in beeld vraagt eerst een dierrecept volgens C10."
+ },
+ {
+  "id": "s06",
+  "titel": "Micro: ammoniak wordt ammonium in een waterdruppel",
+  "zin": "Ammoniak lost makkelijk op in water en wordt dan ammonium. Daardoor komt het gemiddeld dichterbij neer. Stikstofoxiden worden in de lucht eerst omgezet. Ze reizen dus verder.",
+  "img": "blad/img/s06.webp",
+  "twijfel": "Nieuwe moleculetekening NH₃ → NH₄⁺ (N oker, H wit) en een stikstofoxide dat onderweg een deeltje wordt.",
+  "waarom": "Nieuwe moleculen voor de gedeelde kleurtabel (ammoniak/ammonium oker, stikstofoxiden grijs); 'vereenvoudigd' staat in beeld.",
+  "voorstel": "Kleuren vastleggen voor de bibliotheek: ammoniak/ammonium oker, stikstofoxiden neutraal grijs."
+ }
+]

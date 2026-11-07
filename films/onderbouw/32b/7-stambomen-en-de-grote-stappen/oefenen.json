@@ -1,0 +1,222 @@
+{
+ "versie": 1,
+ "film": "films/onderbouw/32b/7-stambomen-en-de-grote-stappen/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "puzzel-stamboom",
+   "soort": "puzzel",
+   "titel": "Lees de stamboom",
+   "opdracht": "Dit is een stamboom van vier soorten. Onderaan is lang geleden, bovenaan is nu. A, B en C zijn splitsingen. Beantwoord de vragen.",
+   "alt": "Stamboom met bovenaan kip, muis, chimpansee en mens. De kip splitst onderaan bij A af, de muis bij B, en chimpansee en mens splitsen bovenaan bij C.",
+   "breed": 640,
+   "hoog": 330,
+   "svg": "<path stroke-width=\"2.6\" d=\"M90 70 L90 290 L347 290 M218 290 L218 312 M347 290 L347 210 M240 70 L240 210 L455 210 M455 210 L455 130 M390 70 L390 130 L520 130 M520 70 L520 130\"/><circle class=\"vulacc\" cx=\"218\" cy=\"290\" r=\"7\"/><circle class=\"vulacc\" cx=\"347\" cy=\"210\" r=\"7\"/><circle class=\"vulacc\" cx=\"455\" cy=\"130\" r=\"7\"/><text x=\"230\" y=\"280\">A</text><text x=\"359\" y=\"200\">B</text><text x=\"467\" y=\"120\">C</text><text x=\"90\" y=\"52\" text-anchor=\"middle\">kip</text><text x=\"240\" y=\"52\" text-anchor=\"middle\">muis</text><text x=\"390\" y=\"52\" text-anchor=\"middle\">chimpansee</text><text x=\"520\" y=\"52\" text-anchor=\"middle\">mens</text><path class=\"zacht\" stroke-width=\"2\" d=\"M605 300 L605 80\"/><path class=\"zacht\" stroke-width=\"2\" d=\"M610.2 90.8 L605 80 L599.8 90.8\"/><text x=\"605\" y=\"60\" text-anchor=\"middle\">nu</text><text x=\"592\" y=\"318\" text-anchor=\"end\" style=\"font-size:13px\">lang geleden</text>",
+   "stappen": [
+    {
+     "vraag": "Welke soort is het nauwst verwant aan de mens?",
+     "velden": [
+      {
+       "label": "soort:",
+       "antwoord": "chimpansee",
+       "opties": [
+        "kip",
+        "muis",
+        "chimpansee"
+       ]
+      }
+     ],
+     "uitleg": "Mens en chimpansee splitsen pas heel laat."
+    },
+    {
+     "vraag": "Welke splitsing is de gezamenlijke voorouder van mens en chimpansee?",
+     "velden": [
+      {
+       "label": "splitsing:",
+       "antwoord": "C",
+       "opties": [
+        "A",
+        "B",
+        "C"
+       ]
+      }
+     ],
+     "uitleg": "Volg de lijnen van mens en chimpansee naar beneden. Ze komen samen bij C."
+    },
+    {
+     "vraag": "Welke splitsing is de gezamenlijke voorouder van mens en muis?",
+     "velden": [
+      {
+       "label": "splitsing:",
+       "antwoord": "B",
+       "opties": [
+        "A",
+        "B",
+        "C"
+       ]
+      }
+     ],
+     "uitleg": "De lijnen van mens en muis komen pas samen bij B.",
+     "tip": "Volg vanaf de muis de lijn naar beneden tot hij de lijn van de mens raakt."
+    },
+    {
+     "vraag": "Is de muis nauwer verwant aan de kip of aan de mens?",
+     "velden": [
+      {
+       "label": "nauwer aan:",
+       "antwoord": "mens",
+       "opties": [
+        "kip",
+        "mens"
+       ]
+      }
+     ],
+     "uitleg": "Muis en mens komen samen bij B. Muis en kip pas bij A, nog verder terug."
+    },
+    {
+     "vraag": "Stamt de mens af van de chimpansee?",
+     "velden": [
+      {
+       "label": "antwoord:",
+       "antwoord": "nee",
+       "opties": [
+        "ja",
+        "nee"
+       ]
+      }
+     ],
+     "uitleg": "Nee. Ze hebben samen een voorouder (C), die er anders uitzag."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-grote-stappen",
+   "soort": "volgorde",
+   "titel": "De grote stappen",
+   "opdracht": "Zet de grote stappen in de evolutie in de goede volgorde. Begin bij de eerste cellen.",
+   "stappen": [
+    {
+     "tekst": "De eerste cellen gebruiken waarschijnlijk RNA voor hun erfelijke informatie.",
+     "uitleg": "Bijna vier miljard jaar geleden."
+    },
+    {
+     "tekst": "DNA wordt de bouwtekening.",
+     "uitleg": "DNA is steviger en minder snel kapot."
+    },
+    {
+     "tekst": "Er ontstaan cellen met een kern: eukaryoten.",
+     "uitleg": "Lang waren er alleen bacterie-achtige cellen zonder kern."
+    },
+    {
+     "tekst": "Er komt geslachtelijke voortplanting, met twee ouders.",
+     "uitleg": "De eerste cellen plantten zich ongeslachtelijk voort."
+    },
+    {
+     "tekst": "Cellen gaan samenwerken: de eerste meercellige organismen.",
+     "uitleg": "Planten, schimmels en dieren. Dieren bestaan pas het laatste zesde deel van de tijd."
+    }
+   ]
+  },
+  {
+   "id": "indelen-geerfd-of-apart",
+   "soort": "indelen",
+   "titel": "Geërfd of apart ontstaan?",
+   "opdracht": "Twee soorten hebben hetzelfde kenmerk. Hebben ze het allebei geërfd van een gezamenlijke voorouder? Of is het bij elk apart ontstaan?",
+   "bakken": [
+    {
+     "naam": "Geërfd van een gezamenlijke voorouder",
+     "uitleg": "het kenmerk zegt iets over verwantschap"
+    },
+    {
+     "naam": "Apart ontstaan",
+     "uitleg": "zelfde taak, maar geen bewijs van verwantschap"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Haren bij de muis en de vleermuis",
+     "bak": 0,
+     "uitleg": "Alle zoogdieren hebben haren. Muis en vleermuis erfden ze van hun gezamenlijke voorouder."
+    },
+    {
+     "tekst": "Melk voor de jongen bij de walvis en het nijlpaard",
+     "bak": 0,
+     "uitleg": "Allebei zoogdieren. Ook hun DNA lijkt op elkaar: ze zijn nauw verwant."
+    },
+    {
+     "tekst": "Een ruggengraat bij de kip en de mens",
+     "bak": 0,
+     "uitleg": "De kip splitst vroeg af, maar heel vroeg hadden ze samen een voorouder met een ruggengraat."
+    },
+    {
+     "tekst": "Cellen met een kern bij de mens en een paddenstoel",
+     "bak": 0,
+     "uitleg": "Planten, schimmels en dieren zijn allemaal eukaryoten. De celkern ontstond één keer, heel lang geleden."
+    },
+    {
+     "tekst": "Vleugels bij de vleermuis en de vogel",
+     "bak": 1,
+     "uitleg": "De vleermuis is een zoogdier, nauwer verwant aan de muis. Vleugels zijn bij allebei apart ontstaan."
+    },
+    {
+     "tekst": "Vleugels bij een vlinder en een merel",
+     "bak": 1,
+     "uitleg": "Een vlinder is een insect, een merel een vogel. Hun vleugels zijn heel anders gebouwd."
+    },
+    {
+     "tekst": "Een gestroomlijnd lijf met vinnen bij de walvis en de haai",
+     "bak": 1,
+     "uitleg": "De walvis is een zoogdier, de haai een vis. In het water is zo'n lijf handig, dus het ontstond bij allebei."
+    },
+    {
+     "tekst": "Graafpoten bij de mol en de molkrekel",
+     "bak": 1,
+     "uitleg": "De mol is een zoogdier, de molkrekel een insect. Wie onder de grond leeft, heeft baat bij graafpoten."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-vleermuis",
+   "soort": "uitleg",
+   "titel": "Vleermuis, vogel of muis?",
+   "opdracht": "Een vleermuis kan vliegen, net als een vogel. Toch staat hij in de stamboom dichter bij de muis. Leg uit waarom.",
+   "begrippen": [
+    {
+     "naam": "kenmerken",
+     "varianten": [
+      "kenmerk"
+     ]
+    },
+    {
+     "naam": "haren",
+     "varianten": [
+      "haar"
+     ]
+    },
+    {
+     "naam": "melk",
+     "varianten": []
+    },
+    {
+     "naam": "DNA",
+     "varianten": []
+    },
+    {
+     "naam": "zoogdier",
+     "varianten": [
+      "zoogdieren"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat biologen kenmerken en DNA vergelijken om verwantschap te bepalen.",
+    "Ik noem dat de vleermuis haren heeft en melk geeft, net als de muis: een zoogdier.",
+    "Ik leg uit dat zijn DNA meer op dat van de muis lijkt, en dat vleugels apart zijn ontstaan."
+   ],
+   "model": [
+    "Biologen kijken naar veel kenmerken, en tegenwoordig ook naar het DNA. Hoe meer soorten delen, hoe nauwer ze verwant zijn.",
+    "De vleermuis heeft haren en geeft melk, net als de muis. Hij is een zoogdier. Ook zijn DNA lijkt meer op dat van de muis. Vleugels zijn bij vleermuis en vogel apart ontstaan. Daarom staat de vleermuis dichter bij de muis."
+   ]
+  }
+ ]
+}

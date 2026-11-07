@@ -1,0 +1,242 @@
+[
+ {
+  "obj": "baarmoederwand",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 19
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "Q",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "P": "Menstruatiefase: een loskomend stuk is grijs/donker en lijkt een dood blok, weinig bloed; verder vrijwel identiek aan Q",
+   "Q": "Los te komen stukken nog rechthoekige blokken; klieren kronkelen nauwelijks in de latere fase"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "eileiderdoorsnede",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 18
+   },
+   "Q": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 17
+   }
+  },
+  "winnaar": "P",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "P": "Litteken als losse beige klodders in het lumen (losse blokjes)",
+   "Q": "Franjes als dunne losse slierten/haren die niet bij de trechter lijken te horen"
+  },
+  "overnemen": "Litteken uit Q: symmetrisch, het lumen wordt van beide wanden af nauwer (geen losse klodders)",
+  "combineren": true,
+  "fout": ""
+ },
+ {
+  "obj": "eileiderlangs",
+  "scores": {
+   "P": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 18
+   },
+   "Q": {
+    "klopt": 3,
+    "herkenbaar": 3,
+    "stijl": 2,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 14
+   }
+  },
+  "winnaar": "P",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Plooien te weinig en als losse worstjes/vingers; voelt niet als veel hoge slijmvliesplooien",
+   "Q": "Plooien dicht op elkaar, vertakt en over elkaar heen: een kluwen, onleesbaar klein"
+  },
+  "overnemen": "Meer plooien (dichter) dan in P, maar elk apart en niet vertakt",
+  "combineren": true,
+  "fout": ""
+ },
+ {
+  "obj": "embryoecht",
+  "scores": {
+   "P": {
+    "klopt": 3,
+    "herkenbaar": 3,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 17
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 19
+   }
+  },
+  "winnaar": "Q",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Hartbult heeft een glimlachlijn en leest als mond/gezicht",
+   "Q": "Weinig onderscheid tussen arm- en beenknop en somieten; kieuwbogen klein"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "mandoorsnede-penisdoorsnede",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": null,
+    "bruikbaar": 4,
+    "totaal": 16
+   },
+   "Q": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": null,
+    "bruikbaar": 4,
+    "totaal": 14
+   }
+  },
+  "winnaar": "P",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "P": "Zijaanzicht: penis en urinebuis nauwelijks te volgen; zwellichamen zijn vooral donkere streepjes",
+   "Q": "Penisdoorsnede: barstpatroon/mozaïek in plaats van sponsachtig weefsel met holten; erectie alleen een kleurwissel"
+  },
+  "overnemen": "Niets, eventueel de vlakke witte trabekels van Q als dunne aanvulling in P",
+  "combineren": false,
+  "fout": "Zijdoorsnede: penis is een klein rood staafje op te kleine schaal en de urineleider/zaadleider-lussen zijn moeilijk te volgen in alle versies"
+ },
+ {
+  "obj": "placentadoorsnede-vlokvergroot",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": null,
+    "bruikbaar": 4,
+    "totaal": 16
+   },
+   "Q": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": null,
+    "bruikbaar": 4,
+    "totaal": 15
+   }
+  },
+  "winnaar": "P",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "P": "Septa als dikke stompen met ronde top, nog wat stalagmietachtig",
+   "Q": "Septa als dunne scherpe spitsen: precies de stalagmieten uit het recept"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "zaadbaldoorsnede",
+  "scores": {
+   "P": {
+    "klopt": 2,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": null,
+    "bruikbaar": 4,
+    "totaal": 13
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": null,
+    "bruikbaar": 4,
+    "totaal": 16
+   }
+  },
+  "winnaar": "Q",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Alle buisjes identieke ronde wielen, geen Leydigcellen zichtbaar",
+   "Q": "Buisjes nog erg uniform van binnenstructuur; Leydigcellen als kleine goudkleurige klompjes zijn op klein formaat nauwelijks te zien"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "zaadcelecht",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Q": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 19
+   }
+  },
+  "winnaar": "P",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "P": "Op klein formaat is de lichte kop minder opvallend dan de blauwe kop van Q",
+   "Q": "Acrosoomkap (licht) zit aan de achterkant van de kop; nucleus vooraan: omgekeerd"
+  },
+  "overnemen": "Blauwere, contrastrijkere kop van Q voor klein formaat (kleur nucleus), acrosoom wel vooraan houden",
+  "combineren": true,
+  "fout": ""
+ }
+]

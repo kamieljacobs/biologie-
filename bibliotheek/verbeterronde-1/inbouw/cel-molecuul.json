@@ -1,0 +1,156 @@
+[
+ {
+  "id": "cel-molecuul__bacteriecel",
+  "obj": "bacteriecel",
+  "nieuw": false,
+  "keuze": "B",
+  "actie": "variant B inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "DNA-kluwen erg dicht; pili/haartjes niet gevraagd; ribosomen in klein formaat bijna weg"
+ },
+ {
+  "id": "cel-molecuul__cellulosebundel",
+  "obj": "cellulosebundel",
+  "nieuw": false,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "is dit wel een kloppende weergave van cellulose? en waarom is er een soort vak waar het instaat en bij de huidige versie los?",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "omkering van elke tweede glucose alleen als stipje zichtbaar; enzym klein en vaag"
+ },
+ {
+  "id": "cel-molecuul__celrond",
+  "obj": "celrond",
+  "nieuw": false,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "De cel is niet 'vol': weinig organellen, blaasjes en textuur, en ER omringt de kern slechts aan één kant",
+  "zwak_gekozen": "Geen exocytose: het blaasje dat met het celmembraan versmelt (recept) ontbreekt"
+ },
+ {
+  "id": "cel-molecuul__eiwitvouw",
+  "obj": "eiwitvouw",
+  "nieuw": false,
+  "keuze": "B",
+  "actie": "variant B inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "eindvorm is een bolletjestros in een blob met goud lijntje (trosje bolletjes, geen keten)"
+ },
+ {
+  "id": "cel-molecuul__enzymkluwen",
+  "obj": "enzymkluwen",
+  "nieuw": false,
+  "keuze": "C",
+  "actie": "variant C inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "Geen enkele versie laat de holte zichtbaar sluiten rond twee glucoseringen (induced fit) overtuigend zien.",
+  "fout_laatste": "",
+  "zwak_gekozen": "Kralen en schijfjes vormen op klein formaat ruis; de holte blijft wel leesbaar"
+ },
+ {
+  "id": "cel-molecuul__gonokok-chlamydiacel-spirocheet",
+  "obj": "gonokok-chlamydiacel-spirocheet",
+  "nieuw": false,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "schroef met voor/achterkant ok, maar klein formaat wordt dun; gonokok identiek aan X"
+ },
+ {
+  "id": "cel-molecuul__hormdeeltje",
+  "obj": "hormdeeltje",
+  "nieuw": false,
+  "keuze": "C",
+  "actie": "variant C inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "FSH en LH zijn in elke versie een trosje bolletjes of cartoon, geen gevouwen eiwitketen met suikertakken.",
+  "fout_laatste": "FSH en LH zijn in beide versies zonder kleur nauwelijks van elkaar te onderscheiden (zelfde opbouw); GnRH als gelijke kralen",
+  "zwak_gekozen": "FSH en LH zijn open kettingen die op klein formaat tot krabbel worden; groot en rommelig"
+ },
+ {
+  "id": "cel-molecuul__kopstand-actinedetail-reticulum",
+  "obj": "kopstand-actinedetail-reticulum",
+  "nieuw": false,
+  "keuze": "B",
+  "actie": "variant B inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "ik vind de kralen van versie A wel mooi. maar daar vind ik de ringen om de vezel heen bovenaan niet mooi.",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "rechterdeel myofibril heeft rare donkere rechthoek/schaduw; T-buisjes met rare kapjes"
+ },
+ {
+  "id": "cel-molecuul__membraanboog",
+  "obj": "membraanboog",
+  "nieuw": false,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "transmembraaneiwit en kanaal zijn hetzelfde type bundel; porie klein bij klein formaat"
+ },
+ {
+  "id": "cel-molecuul__rodebloedcel",
+  "obj": "rodebloedcel",
+  "nieuw": false,
+  "keuze": "oud",
+  "actie": "huidige versie houden + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "zijaanzicht is een gewone ellips: geen dikke randen en smalle taille"
+ },
+ {
+  "id": "cel-molecuul__thelpercel-hivvirus",
+  "obj": "thelpercel-hivvirus",
+  "nieuw": false,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "Het T-celmembraan is een enkele lijn, geen dubbellaag",
+  "zwak_gekozen": "Receptoren grijsblauw: op filmgrootte minder opvallend dan groen"
+ },
+ {
+  "id": "cel-molecuul__vetcel",
+  "obj": "vetcel",
+  "nieuw": false,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "cytoplasma bij de kern iets dik, rest dun: ok; geen membraanlijn/vetdruppeltextuur"
+ },
+ {
+  "id": "cel-molecuul__zenuwcel",
+  "obj": "zenuwcel",
+  "nieuw": false,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "impuls als vlak blokje op de knoop is wat abstract"
+ },
+ {
+  "id": "cel-molecuul__zetmeelspiraal",
+  "obj": "zetmeelspiraal",
+  "nieuw": false,
+  "keuze": "geen",
+  "actie": "OVERSLAAN (komt in een nieuwe ronde)",
+  "opmerking": "het moet eerst écht kloppen met een A bron en dan vormen we vanuit daar een goede animatie.",
+  "fout_ronde1": "Beide lezen als zigzag, niet als schroef met voor- en achterkant; glucose zijn vlakke zeshoeken zonder ringzuurstof.",
+  "fout_laatste": "De keten leest in beide als golf/zigzag in plaats van een schroef met duidelijke voor- en achterkant",
+  "zwak_gekozen": ""
+ }
+]

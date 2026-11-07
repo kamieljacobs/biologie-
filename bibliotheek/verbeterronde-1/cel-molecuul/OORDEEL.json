@@ -1,0 +1,476 @@
+[
+ {
+  "obj": "bacteriecel",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 2,
+    "bruikbaar": 4,
+    "totaal": 16
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   },
+   "Z": {
+    "klopt": 3,
+    "herkenbaar": 3,
+    "stijl": 2,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 15
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "Membraan scheurt niet/puilt niet uit; ribosomen goud (focuskleur) en groot; plasmide blauw ipv paars; celwand groen/koraal",
+   "Y": "DNA-kluwen erg dicht; pili/haartjes niet gevraagd; ribosomen in klein formaat bijna weg",
+   "Z": "DNA als lint-kronkel leest niet als lus/kluwen; ribosomen te talrijk en ruisachtig (lijkt korrel)"
+  },
+  "overnemen": "Niets essentieels; evt. grotere ribosomen uit X op rechtsonder",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "cellulosebundel",
+  "scores": {
+   "X": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 1,
+    "bruikbaar": 2,
+    "totaal": 11
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 19
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "zevenhoekige vormen ipv zeshoeken, geen waterstofbruggen, geen omgekeerde glucose, geen enzym",
+   "Y": "omkering van elke tweede glucose alleen als stipje zichtbaar; enzym klein en vaag"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "celrond",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 2,
+    "bruikbaar": 4,
+    "totaal": 19
+   },
+   "Y": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 16
+   },
+   "Z": {
+    "klopt": 2,
+    "herkenbaar": 2,
+    "stijl": 2,
+    "beweging": 2,
+    "bruikbaar": 3,
+    "totaal": 11
+   }
+  },
+  "winnaar": "X",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "geen exocytose (blaasje versmelt niet); membraan als kralenrand is wat zwaar/druk bij 80 px",
+   "Y": "cel niet rond (hoekig/golvend), eiwitten steken over membraan uit, ER/golgi te klein, uitgesproken cytoskelet kruist cel",
+   "Z": "fosfolipidenrand veel te dik en uitsteeksels; ER en golgi ontbreken; cel verdwijnt klein"
+  },
+  "overnemen": "Exocytose-blaasje bij het membraan uit Y",
+  "combineren": true,
+  "fout": ""
+ },
+ {
+  "obj": "eiwitvouw",
+  "scores": {
+   "X": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 14
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Z": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 14
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "kralen als driehoeken/ruiten/cirkels: geen keten die vouwt, geen helix/streng herkenbaar",
+   "Y": "gevouwen eindvorm is nog een open 2D-lus, niet compact; halverwege = nauwelijks gevouwen",
+   "Z": "eindvorm is een bolletjestros in een blob met goud lijntje (trosje bolletjes, geen keten)"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "enzymkluwen",
+  "scores": {
+   "X": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 2,
+    "bruikbaar": 3,
+    "totaal": 13
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Z": {
+    "klopt": 3,
+    "herkenbaar": 3,
+    "stijl": 2,
+    "beweging": 2,
+    "bruikbaar": 3,
+    "totaal": 13
+   }
+  },
+  "winnaar": "Y",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "bolletjestros in blob; geen keten zichtbaar",
+   "Y": "keten van kralen met sprieten oogt wat druk; helix/streng niet benoemd",
+   "Z": "helices/strengen als plaatje in vlakke blob; actieve plek is losse gouden boog, induced fit nauwelijks te zien"
+  },
+  "overnemen": "Helices en strengen als ruimtelijke vouwing uit Z als accent in Y",
+  "combineren": true,
+  "fout": "Geen enkele versie laat de holte zichtbaar sluiten rond twee glucoseringen (induced fit) overtuigend zien."
+ },
+ {
+  "obj": "gonokok-chlamydiacel-spirocheet",
+  "scores": {
+   "X": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 2,
+    "bruikbaar": 3,
+    "totaal": 13
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 19
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "spirocheet is vlakke golf (expliciet fout); insluitsel is alleen vlak met stippen",
+   "Y": "schroef met voor/achterkant ok, maar klein formaat wordt dun; gonokok identiek aan X"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "hormdeeltje",
+  "scores": {
+   "X": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 2,
+    "bruikbaar": 4,
+    "totaal": 14
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 19
+   },
+   "Z": {
+    "klopt": 1,
+    "herkenbaar": 1,
+    "stijl": 3,
+    "beweging": 1,
+    "bruikbaar": 3,
+    "totaal": 9
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "FSH/LH als cartoonslakjes met voelsprieten, geen eiwitkarakter",
+   "Y": "FSH/LH als bolletjesclusters ipv gevouwen keten met suikertakjes; onderscheid FSH/LH alleen kleur",
+   "Z": "capsules en cirkels: geen moleculen"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "FSH en LH zijn in elke versie een trosje bolletjes of cartoon, geen gevouwen eiwitketen met suikertakken."
+ },
+ {
+  "obj": "kopstand-actinedetail-reticulum",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 17
+   },
+   "Y": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 15
+   },
+   "Z": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "Z",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "actine als losse bolletjesrijen; T-buisje en cisternae ok maar druk",
+   "Y": "SR alleen als golfjes, geen T-buisje of terminale cisternae; actine kralenrij",
+   "Z": "rechterdeel myofibril heeft rare donkere rechthoek/schaduw; T-buisjes met rare kapjes"
+  },
+  "overnemen": "Rustige actine-uitvoering; geen veel; evt. cisternae-vorm uit X",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "membraanboog",
+  "scores": {
+   "X": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 4,
+    "beweging": 2,
+    "bruikbaar": 3,
+    "totaal": 14
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "alleen 1 eiwit, geen kanaaleiwit open/dicht; artefact linksboven",
+   "Y": "transmembraaneiwit en kanaal zijn hetzelfde type bundel; porie klein bij klein formaat"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "rodebloedcel",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 3,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 16
+   },
+   "Y": {
+    "klopt": 5,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 22
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "zijaanzicht is een gewone ellips: geen dikke randen en smalle taille",
+   "Y": "bloedplaatjes of stukjes in vat onduidelijk; haarvat niet extra gekenmerkt"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "thelpercel-hivvirus",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 18
+   },
+   "Y": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 2,
+    "bruikbaar": 4,
+    "totaal": 17
+   }
+  },
+  "winnaar": "X",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "receptoren grijs-blauw lijken op hiv; virus overlapt cel in fusiebeeld; dode cel vaag",
+   "Y": "onderste rij toont geen uitknoppende hiv en geen stervende cel (ontbreekt); alleen twee gelijke cellen"
+  },
+  "overnemen": "Groene CD4-receptoren (duidelijk verschil met hiv-spikes) uit Y",
+  "combineren": true,
+  "fout": ""
+ },
+ {
+  "obj": "vetcel",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 19
+   },
+   "Y": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 2,
+    "bruikbaar": 3,
+    "totaal": 13
+   }
+  },
+  "winnaar": "X",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "cytoplasma bij de kern iets dik, rest dun: ok; geen membraanlijn/vetdruppeltextuur",
+   "Y": "druppel concentrisch en rand te dik; verbruikte cel nauwelijks anders; kern niet duidelijk platgedrukt"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "zenuwcel",
+  "scores": {
+   "X": {
+    "klopt": 5,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 22
+   },
+   "Y": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 18
+   }
+  },
+  "winnaar": "X",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "impuls als vlak blokje op de knoop is wat abstract",
+   "Y": "geen myeline en knopen van Ranvier; impuls als gloed (gloed verboden in Part C)"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "zetmeelspiraal",
+  "scores": {
+   "X": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 14
+   },
+   "Y": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 14
+   }
+  },
+  "winnaar": "X",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "leest als zigzag/dubbelrijig lint, niet als schroef",
+   "Y": "rechte verbindingslijnen over zeshoeken, rommelig; geen schroef"
+  },
+  "overnemen": "Niets",
+  "combineren": false,
+  "fout": "Beide lezen als zigzag, niet als schroef met voor- en achterkant; glucose zijn vlakke zeshoeken zonder ringzuurstof."
+ }
+]

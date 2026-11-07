@@ -1,0 +1,113 @@
+[
+ {
+  "obj": "antistofY",
+  "keuze": "geen",
+  "functies": [],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Komt in een nieuwe ronde (Kamiel: simpeler, materialen van andere lesmethoden bekijken)."
+ },
+ {
+  "obj": "gedifferentieerdeCellen",
+  "keuze": "B",
+  "functies": [
+   "gedifferentieerdeCellen",
+   "_gdbRond",
+   "_GD",
+   "_GD_GEN",
+   "_gdKern",
+   "_gdPoly",
+   "_gdCel",
+   "_gdStrip"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "lipideNanodeeltje",
+  "keuze": "B",
+  "functies": [
+   "lipideNanodeeltje",
+   "_LN",
+   "_lnDeeltje",
+   "_lnMRNA"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": "De route (endocytose, zuur endosoom, vertaling in het cytoplasma) rust nog op één geopende bron (Du e.a. 2025)."
+ },
+ {
+  "obj": "membraanReceptor",
+  "keuze": "C",
+  "functies": [
+   "membraanReceptor",
+   "_mrbKralen",
+   "_mrbLigand",
+   "_mrSteroid",
+   "_mrIntern"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": "G-α en de intracellulaire receptor zijn nog enzymKluwen-blobs (geen kralenketen)."
+ },
+ {
+  "obj": "stamcelDeling",
+  "keuze": "B",
+  "functies": [
+   "stamcelDeling",
+   "_SCB",
+   "_scbCel",
+   "_scbPijl"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "De rode bloedcel aan het eind (rodeBloedcel() van boven) leest volgens de beoordelaar nog als bol met donkere kern; zij-aanzicht ernaast zoals in gedifferentieerdeCellen?"
+ },
+ {
+  "obj": "tumorGroei",
+  "keuze": "A",
+  "functies": [
+   "tumorGroei",
+   "_TG",
+   "_tgBlob",
+   "_tgDeling",
+   "_tgApoptose",
+   "_tgbVoronoi",
+   "_tgbVorm"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "witteBloedcellen",
+  "keuze": "B",
+  "functies": [
+   "witteBloedcellen",
+   "_WBB_O",
+   "_WB",
+   "_WB_MAAT",
+   "_wbContour",
+   "_wbKernLobben",
+   "_wbGolgi"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": ""
+ }
+]

@@ -1,0 +1,88 @@
+{
+ "slug": "ecologie-1-tellen-in-het-veld",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Tellen in het veld",
+ "sub": "hoe ecologen populaties meten",
+ "puzzle": "Hoeveel wolven leven er op de Veluwe, als je ze bijna nooit ziet?",
+ "meta": "ecologie en natuurbeheer · mbo, hbo en wo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Ecologie en natuurbeheer",
+ "lead": "Daan loopt snuffelstage bij een natuurbeheerder. Hij wil een wolf zien, maar ecoloog Bas laat hem eerst tellen. Met vangen, merken en terugvangen schat je hoe groot een populatie is: aantal ≈ gemerkt × gevangen ÷ teruggevangen, zolang gemerkte dieren even makkelijk te vangen zijn en er niemand bij komt of weggaat. Vrijwilligers lopen elke week dezelfde telroute (een transect): dat geeft geen totaal, maar een index waarmee je de jaren vergelijkt. Wolven tel je aan wat ze achterlaten: elk nieuw DNA-profiel uit een keutel is een wolf, dus het aantal is een minimum. Omgevings-DNA uit water zegt óf een soort er was, niet hoeveel. En meer gevonden is niet vanzelf meer dieren: een trend heeft een marge.",
+ "endHaak": "hoe kan een voedingsstof soorten van de heide laten verdwijnen?",
+ "minis": {
+  "Hoofdstuk 1": "Hoe tel je vlinders die je niet allemaal kunt vangen?",
+  "Hoofdstuk 2": "Waarom loopt een vrijwilliger elk jaar precies dezelfde route?",
+  "Hoofdstuk 3": "Hoe tel je wolven die je bijna nooit ziet?",
+  "Hoofdstuk 4": "Betekent meer gevonden ook meer dieren?",
+  "Recap": "Hoeveel wolven leven er op de Veluwe?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Daan en Ecoloog Bas (castboek; Bas is een voorstel). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Wolven zie je bijna nooit. Hoe tellen ecologen hoeveel wolven er in een gebied leven?",
+   "correct": 2,
+   "explain": "Ecologen lezen sporen: vooral het DNA uit keutels. Elk verschillend DNA-profiel is een andere wolf. Een camera ziet hoeveel wolven er tegelijk langskomen, maar zelden wélke wolf het is; en hoe vaak mensen een wolf zien, zegt weinig over het aantal."
+  },
+  "q07": {
+   "q": "Gemerkte vlinders worden na het merken schuw. Wat doet dat met de schatting van het aantal vlinders?",
+   "correct": 1,
+   "explain": "Je vangt dan minder gemerkte vlinders terug, dus lijkt een kleiner deel van de populatie gemerkt. Met 3 in plaats van 6 geeft de som 40 × 30 ÷ 3 = 400: twee keer te veel."
+  },
+  "q12": {
+   "q": "De vrijwilliger wil volgend jaar een mooiere route lopen, langs de bloemen. Is dat een goed idee?",
+   "correct": 0,
+   "explain": "Langs de bloemen zie je meer vlinders, ook als er niet meer zijn. Dan kun je dit jaar niet meer vergelijken met vorige jaren. Monitoring werkt alleen als je steeds op dezelfde manier meet."
+  },
+  "q16": {
+   "q": "In acht keutels vindt het lab drie verschillende DNA-profielen. Hoeveel wolven leven er in het gebied?",
+   "correct": 2,
+   "explain": "Eén wolf laat veel keutels achter, dus acht keutels kunnen van drie wolven zijn. Een wolf van wie je niets vindt, telt niet mee. Drie is daarom een minimum: er kunnen er meer zijn."
+  },
+  "q20": {
+   "q": "In 2025 vond het lab 131 verschillende wolven in Nederland, in 2024 waren het er 101. Wat mag je daaruit concluderen?",
+   "correct": 1,
+   "explain": "131 is het aantal verschillende profielen in één jaar: een minimum. Wordt er harder gezocht of komen er meer monsters binnen, dan vind je meer wolven, ook als het aantal gelijk blijft. Of dertig verschil 'genoeg' is, hangt af van de marge, niet van het getal alleen."
+  }
+ },
+ "glossary": [
+  {
+   "t": "populatie",
+   "d": "Alle individuen van één soort in één gebied."
+  },
+  {
+   "t": "vangen, merken en terugvangen",
+   "d": "Je vangt een aantal dieren, merkt ze en laat ze vrij; later vang je opnieuw. Het aandeel gemerkte dieren in de tweede vangst is ongeveer het aandeel in de hele populatie: aantal ≈ gemerkt × gevangen ÷ teruggevangen. Werkt alleen als gemerkte dieren even makkelijk te vangen zijn en er niemand bij komt of weggaat."
+  },
+  {
+   "t": "transect",
+   "d": "Een vaste telroute die je steeds op dezelfde manier loopt; je telt alleen wat in een vaste strook (bij vlinders een denkbeeldige doos van vijf meter breed en vijf meter vooruit) te zien is."
+  },
+  {
+   "t": "proefvlak",
+   "d": "Een vast vierkant (bijvoorbeeld tien bij tien meter) waarin je alles telt."
+  },
+  {
+   "t": "index",
+   "d": "Een getal waarmee je jaren met elkaar vergelijkt, bijvoorbeeld 1992 = 100. Het is geen totaal aantal dieren."
+  },
+  {
+   "t": "monitoring",
+   "d": "Steeds op dezelfde manier herhaald meten, zodat je een verandering kunt zien."
+  },
+  {
+   "t": "DNA-profiel",
+   "d": "Het patroon van herhalingen op een aantal plekken in het DNA; bij elk individu anders (zie de film DNA lezen). Bij wolven gemaakt uit DNA in keutels, haren of speeksel."
+  },
+  {
+   "t": "omgevings-DNA (eDNA)",
+   "d": "DNA dat dieren in water of bodem achterlaten (huidcellen, slijm, poep). Het laat zien óf een soort er de afgelopen weken was, niet hoeveel dieren."
+  },
+  {
+   "t": "trend",
+   "d": "De richting waarin een aantal over meerdere jaren gaat, met een marge van onzekerheid."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Op een heide vangen onderzoekers 50 vlinders, merken ze en laten ze vrij. Drie dagen later vangen ze er 40, waarvan 8 gemerkt. Schat hoeveel vlinders er op de heide leven, en leg uit waarom de som werkt. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Aantal ≈ 50 × 40 ÷ 8 = 250 (1p). In de tweede vangst is 8 van de 40 gemerkt, een vijfde (1p). Als de gemerkte vlinders zich goed gemengd hebben, is ook een vijfde van alle vlinders gemerkt; 50 is een vijfde, dus zijn er ongeveer 250 (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Tussen de twee vangsten komen er veel nieuwe vlinders uit de pop. Wordt de schatting te hoog of te laag? Leg uit. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Te hoog voor het aantal vlinders van de eerste dag (1p): de nieuwe vlinders hebben geen nummer, dus is een kleiner deel van de tweede vangst gemerkt; dan lijkt de populatie groter. De methode vraagt een 'dichte' populatie: niemand erbij, niemand weg (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Een vrijwilliger telt op haar transect dit jaar 120 vlinders. Een klasgenoot zegt: 'Dan leven er in het gebied 120 vlinders.' Leg uit wat er niet klopt, en waarvoor de telling wél dient. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Een transect telt alleen de vlinders in een vaste strook langs de route, niet alle vlinders van het gebied (1p). Omdat de route elk jaar op dezelfde manier wordt gelopen, geeft de telling een index waarmee je de jaren vergelijkt (monitoring) (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Het lab heeft uit tien keutels deze profielen gemaakt: A, B, A, C, geen profiel, B, A, D, geen profiel, A. Hoeveel wolven zijn er minstens? Noem twee redenen waarom het er meer kunnen zijn. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Minstens vier wolven (A, B, C, D) (1p). Een wolf van wie geen keutel is gevonden telt niet mee (1p); de twee keutels zonder profiel kunnen van andere wolven zijn (oud of nat, DNA uit elkaar gevallen) (1p).</p></details></div>\n<div class=\"q\"><p><b>5.</b> In een ven wordt DNA van de kamsalamander gevonden. Wat kun je daaruit concluderen en wat niet? <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Wel: er was de afgelopen weken een kamsalamander in of bij het ven, want vrij DNA breekt in water binnen enkele weken af (1p). Niet: hoeveel kamsalamanders er leven (1p).</p></details></div>\n<div class=\"q\"><p><b>6.</b> Een krant kopt: '30 wolven erbij in één jaar.' Leg uit waarom dat niet uit de cijfers (101 in 2024, 131 in 2025) volgt, en wat je wel nodig hebt om iets over groei te zeggen. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Beide getallen zijn het aantal verschillende profielen dat dat jaar is gevonden: een minimum, geen totaal (1p). Wordt er meer gezocht of komen er meer monsters binnen, dan vind je meer wolven, ook als het aantal gelijk blijft (1p). Voor groei heb je een trend nodig: meerdere jaren, steeds op dezelfde manier gemeten, met een marge van onzekerheid (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Film 1 van <i>Wat word jij?</i> → Ecologie en natuurbeheer. Daan (15) loopt snuffelstage bij een fictieve natuurbeheerder in een Veluwe-achtig gebied; Ecoloog Bas is zijn begeleider. Bouwt voort op <i>Plek genoeg?</i> (de wolf komt terug, populatie en groei: niet opnieuw uitgelegd), <i>DNA lezen</i> (DNA-profiel uit herhalingen), <i>Onderzoek doen</i> (betrouwbaarheid, meetfouten) en <i>Toeval of echt?</i> (spreiding en marge: alleen 'een trend heeft een marge'). Film 2 (<i>Stikstof</i>) meet op dezelfde heide, film 3 (<i>Een plan voor de natuur</i>) maakt het plan voor de akker. De wolf staat in beeld zoals in <i>Plek genoeg?</i>; geen prooi, geen bloed; een keutel als nette tekening.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>Cold open</b> Daan wil een wolf zien; Bas: 'Die zie je maar zelden.' Vraag: hoe tellen ecologen dan?</li>\n<li><b>H1</b> veertig heideblauwtjes krijgen een nummer op de vleugel; twee dagen later zes gemerkt van de dertig. Eerst de verhouding (een vijfde), dan de som 40 × 30 ÷ 6 = 200 op het scherm. De vraag over schuwe vlinders laat de som met 3 zien: 400. Daarna dezelfde fout door nieuwe vlinders: de populatie moet 'dicht' zijn.</li>\n<li><b>H2</b> een vrijwilliger loopt een transect in stukken van vijftig meter en telt in een denkbeeldige doos; het Netwerk Ecologische Monitoring en het CBS; een transect geeft een index, een proefvlak telt alles in een vast vierkant. De vraag over een 'mooiere route' leidt naar de definitie van monitoring.</li>\n<li><b>H3</b> wat een wildcamera wel en niet zegt; DNA uit een keutel (zoom in paars), een lab in Wageningen maakt het profiel, BIJ12 regelt het. Acht keutels, drie profielen: minstens drie wolven. Een DNA-profiel als merkteken dat de wolf zelf achterlaat (genetische vangst-terugvangst, voorbeeld Roemenië). Omgevings-DNA uit het ven: wel of niet, niet hoeveel.</li>\n<li><b>H4</b> 101 → 131 wolven: meer gevonden, misschien meer gezocht. BIJ12: het precieze aantal is niet te zeggen; veertien roedels, zeven op de Veluwe. De vlinderindex: 2024 laagste jaar, maar een trend gaat over meerdere jaren en heeft een marge.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Wolven in Nederland 2025</td><td>131 verschillende wolven met DNA aangetoond (minimum); 2024: 101</td><td>BIJ12, <i>Jaarrapportage Wolven 2025</i>, hoofdstuk 'Verspreiding wolven' (publicaties.bij12.nl, 9 april 2026: 'minimumaantal'); Landelijk Informatiepunt Wolven, 9 april 2026; NOS en BNNVARA, 9 april 2026. 2024: BNNVARA, NL Times 11 april 2026</td></tr>\n<tr><td>Totaal niet te zeggen</td><td>BIJ12 geeft geen totaal en geen Veluwe-getal</td><td>NOS 9 april 2026; NL Times / ANP 7 okt 2026 ('we do not estimate the total number')</td></tr>\n<tr><td>Roedels</td><td>van één (2019) naar naar schatting veertien; zeven op de Veluwe</td><td>Landelijk Informatiepunt Wolven 9 april 2026 ('naar schatting veertien'); verdeling per gebied: NOS 9 april 2026 (citeert het rapport)</td></tr>\n<tr><td>Wie doet wat</td><td>BIJ12 coördineert voor de provincies; Wageningen Environmental Research maakt de DNA-profielen</td><td>BIJ12, voortgangsrapportages wolf feb en jun 2025; WENR-rapport 3350 (Biersteker e.a. 2024); Kamerbrief LVVN 24 mrt 2026</td></tr>\n<tr><td>Camera en DNA</td><td>camera: hoeveel tegelijk, welpen; DNA: welke wolf</td><td>BIJ12, voortgangsrapportage feb 2025; DBBW 'Genetic investigations'; Senckenberg, CEwolf-consortium (13 microsatellieten + geslachtsmarkers)</td></tr>\n<tr><td>Niet elke keutel een profiel</td><td>oud of nat: DNA valt uit elkaar (geen percentage)</td><td>Waits &amp; Paetkau 2005, <i>J. Wildl. Manage.</i> 69; Frantz e.a. 2003, <i>Mol. Ecol.</i> 12; Sittenthaler e.a. 2021</td></tr>\n<tr><td>Genetische vangst-terugvangst</td><td>in beeld: ≈ 70 wolven (49–89), één studiegebied van ± 1400 km²</td><td>Iosif e.a. 2025, <i>Ecology and Evolution</i> (samenvatting via DOAJ); Foundation Conservation Carpathia 2023 (zelfde team)</td></tr>\n<tr><td>Lincoln-Petersen</td><td>aantal ≈ gemerkt × gevangen ÷ teruggevangen; 40 × 30 ÷ 6 = 200; met 3: 400</td><td>University of Idaho WLF 448 'Capture-recapture'; McCrea 2014 (University of Kent); eigen som</td></tr>\n<tr><td>Vlinders merken</td><td>nummer met een stift op de vleugel</td><td>Ehrlich &amp; Davidson 1960, <i>J. Lepid. Soc.</i> 14</td></tr>\n<tr><td>Transect vlinders</td><td>stukken van 50 m; doos 5 m breed, 5 m vooruit; alleen bij mooi weer, overdag; wekelijks</td><td>CBS, onderzoeksomschrijving Vlindersstatistiek; CBS 2017 'Vlinderstand belangrijke graadmeter'; Van Swaay e.a. 2012, <i>Manual for Butterfly Monitoring</i></td></tr>\n<tr><td>Netwerk Ecologische Monitoring</td><td>vrijwilligers tellen, het CBS rekent indexen en trends uit</td><td>CBS, onderzoeksomschrijving Netwerk Ecologische Monitoring</td></tr>\n<tr><td>Vlinderindex</td><td>1992 = 100; 2024 = 43,85 (band 41,35–46,48), laagste jaar; ruim de helft minder</td><td>CBS, 'Steeds minder vlinders', 23 april 2025; CLO indicator 1386 (jun 2026: −57 % 1992–2025)</td></tr>\n<tr><td>Omgevings-DNA</td><td>DNA in water verraadt of een soort de afgelopen weken in het ven was, niet hoeveel</td><td>Ficetola e.a. 2008, <i>Biology Letters</i>; Herder e.a. 2012, <i>RAVON</i> 14(2); eDNA-manual sectie 4</td></tr>\n<tr><td>Opleidingen (oktober 2026)</td><td>hbo Bos- en natuurbeheer, Velp (vier jaar); bachelor biologie, Nijmegen; bos- en natuurbeheer, Wageningen; mbo bij een groene school</td><td>Studiekeuze123 (Van Hall Larenstein, WUR, Radboud); WUR; SBB kwalificatiedossier Groene ruimte</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul>\n<li><b>Vlinders.</b> Het voorbeeld met veertig heideblauwtjes is verzonnen. Bij kleine aantallen is de Lincoln-Petersen-schatting vertekend; ecologen gebruiken dan een correctie (Chapman) of modellen met meer vangrondes. Niet in de film.</li>\n<li><b>Proefvlak.</b> Alleen in één zin; het voorbeeld van tien bij tien meter staat alleen in beeld.</li>\n<li><b>DNA-profiel.</b> Bij wolven gaat het om microsatellieten (korte herhalingen) op een vaste set plekken; de film zegt 'net als in DNA lezen'.</li>\n<li><b>In Nederland</b> wordt het aantal wolven niet met een vangst-terugvangstmodel geschat, maar als minimum geteld (aantal verschillende profielen). Het Roemeense voorbeeld laat zien hoe het wél kan.</li>\n<li><b>Marge.</b> Het CBS berekent de onzekerheid met het programma TRIM; de film zegt alleen dat een trend een marge heeft.</li>\n<li><b>Gebied.</b> Het stagegebied en de natuurbeheerder zijn verzonnen.</li>\n</ul>\n<h3>Lessuggesties</h3>\n<ul>\n<li>Vangen en terugvangen in de klas: een zak met witte bonen, merk er 40 met stift, schud, trek 30 en tel de gemerkte. Herhaal een paar keer: hoeveel verschillen de schattingen?</li>\n<li>Laat leerlingen bedenken wat er gebeurt als gemerkte bonen 'plakkerig' worden (vaker getrokken): te hoog of te laag?</li>\n<li>Geef een lijst met profielen uit keutels (zoals checkvraag 4) en laat leerlingen het minimumaantal en de verhouding mannetje/vrouwtje bepalen.</li>\n<li>Zoek de vlinderindex van het CBS op en laat leerlingen beschrijven: wat is de trend, en is één slecht jaar genoeg om te spreken van achteruitgang?</li>\n<li>Vooruitblik op film 2: welke metingen zou je doen om te weten waarom de vlinders achteruitgaan?</li>\n</ul>\n</section>\n"
+}

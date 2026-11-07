@@ -1,0 +1,197 @@
+{
+ "versie": 1,
+ "film": "films/onderbouw/32b/5-celdeling/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-mitose",
+   "soort": "volgorde",
+   "titel": "Eén cel wordt twee",
+   "opdracht": "Zet de stappen van de mitose in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "De cel kopieert al zijn chromosomen. Elk chromosoom wordt dubbel, als een X.",
+     "uitleg": "Elke nieuwe cel heeft straks een volledige bouwtekening nodig."
+    },
+    {
+     "tekst": "De kern gaat open.",
+     "uitleg": "Nu kunnen de chromosomen bewegen."
+    },
+    {
+     "tekst": "De chromosomen gaan in een rij in het midden liggen.",
+     "uitleg": "Klaar om verdeeld te worden."
+    },
+    {
+     "tekst": "Elk chromosoom wordt uit elkaar getrokken: één helft naar links, één helft naar rechts.",
+     "uitleg": "Zo krijgt elke kant een volledige set."
+    },
+    {
+     "tekst": "Om elke helft komt een nieuwe kern.",
+     "uitleg": "Twee kernen met precies dezelfde bouwtekening."
+    },
+    {
+     "tekst": "De cel snoert in het midden in: nu zijn er twee cellen.",
+     "uitleg": "Zo groei je, en zo gaan wonden dicht."
+    }
+   ]
+  },
+  {
+   "id": "indelen-mitose-meiose",
+   "soort": "indelen",
+   "titel": "Mitose of meiose?",
+   "opdracht": "Past dit bij mitose of bij meiose?",
+   "bakken": [
+    {
+     "naam": "Mitose"
+    },
+    {
+     "naam": "Meiose"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "De wond op Sams knie gaat dicht.",
+     "bak": 0,
+     "uitleg": "Huidcellen rond de wond delen zich in tweeën."
+    },
+    {
+     "tekst": "Een plant groeit een nieuw blad.",
+     "bak": 0,
+     "uitleg": "Groei gaat met gewone celdeling."
+    },
+    {
+     "tekst": "Uit één cel komen twee gelijke cellen met elk 46 chromosomen.",
+     "bak": 0,
+     "uitleg": "Precies dezelfde bouwtekening."
+    },
+    {
+     "tekst": "Elke dag miljarden nieuwe huid- en darmcellen.",
+     "bak": 0,
+     "uitleg": "Die cellen slijten snel."
+    },
+    {
+     "tekst": "Gebeurt in de eierstokken en de zaadballen.",
+     "bak": 1,
+     "uitleg": "Daar ontstaan geslachtscellen."
+    },
+    {
+     "tekst": "Uit één cel komen vier geslachtscellen.",
+     "bak": 1,
+     "uitleg": "Elk met de helft van de chromosomen."
+    },
+    {
+     "tekst": "Het aantal chromosomen wordt gehalveerd.",
+     "bak": 1,
+     "uitleg": "Van 46 naar 23."
+    },
+    {
+     "tekst": "Bij een plant gebeurt dit in de bloem.",
+     "bak": 1,
+     "uitleg": "Meiose is alleen voor geslachtscellen."
+    }
+   ]
+  },
+  {
+   "id": "puzzel-chromosomen",
+   "soort": "puzzel",
+   "titel": "Hoeveel chromosomen?",
+   "opdracht": "Reken het aantal chromosomen uit, stap voor stap.",
+   "stappen": [
+    {
+     "vraag": "Hoeveel chromosomen heeft een huidcel van een mens?",
+     "velden": [
+      {
+       "label": "aantal:",
+       "antwoord": 46
+      }
+     ],
+     "uitleg": "Een cel van een mens heeft 46 chromosomen."
+    },
+    {
+     "vraag": "De huidcel deelt zich door mitose. Hoeveel chromosomen heeft elke nieuwe cel?",
+     "velden": [
+      {
+       "label": "aantal:",
+       "antwoord": 46
+      }
+     ],
+     "uitleg": "Bij mitose kopieert de cel eerst alles. Elke nieuwe cel heeft er ook 46."
+    },
+    {
+     "vraag": "Hoeveel chromosomen heeft een eicel of een zaadcel?",
+     "velden": [
+      {
+       "label": "aantal:",
+       "antwoord": 23
+      }
+     ],
+     "uitleg": "Bij meiose wordt het aantal gehalveerd: 23.",
+     "tip": "Geslachtscellen hebben de helft."
+    },
+    {
+     "vraag": "Een zaadcel en een eicel smelten samen. Hoeveel chromosomen heeft die eerste cel van het kind?",
+     "velden": [
+      {
+       "label": "aantal:",
+       "antwoord": 46
+      }
+     ],
+     "uitleg": "Twee keer 23 is weer 46."
+    },
+    {
+     "vraag": "Stel dat geslachtscellen er gewoon 46 hadden. Hoeveel zou het kind er dan hebben?",
+     "velden": [
+      {
+       "label": "aantal:",
+       "antwoord": 92
+      }
+     ],
+     "uitleg": "46 + 46 = 92, en elke generatie het dubbele. Daarom is meiose nodig."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-sams-knie",
+   "soort": "uitleg",
+   "titel": "Sams knie gaat dicht",
+   "opdracht": "Sam viel en schaafde zijn knie. Een week later zit er weer nieuwe huid. Leg uit hoe die nieuwe huid ontstaat.",
+   "begrippen": [
+    {
+     "naam": "mitose",
+     "varianten": [
+      "celdeling"
+     ]
+    },
+    {
+     "naam": "chromosomen",
+     "varianten": [
+      "chromosoom"
+     ]
+    },
+    {
+     "naam": "kopiëren",
+     "varianten": [
+      "kopieert",
+      "kopie"
+     ]
+    },
+    {
+     "naam": "huidcellen",
+     "varianten": [
+      "huidcel",
+      "cellen"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat nieuwe cellen altijd uit andere cellen komen: de huidcellen rond de wond delen zich.",
+    "Ik leg uit dat de cel eerst al zijn chromosomen kopieert.",
+    "Ik leg uit dat er twee gelijke cellen ontstaan, met dezelfde bouwtekening: mitose."
+   ],
+   "model": [
+    "Nieuwe cellen komen altijd uit andere cellen. De huidcellen rond de wond delen zich.",
+    "Elke cel kopieert eerst al zijn chromosomen. Daarna gaat elke helft naar een kant, en snoert de cel in. Zo ontstaan twee gelijke cellen met allebei 46 chromosomen. Dat heet mitose. Miljoenen keren achter elkaar, en de wond is dicht."
+   ]
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "A": {
+  "detail": "veel",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "doorsnede-3d",
+  "textuur": "rustig",
+  "context": "met-schaal",
+  "beweging": "proces",
+  "opbouw": "in-een-keer",
+  "referentie": "bron",
+  "vondst": "opengewerkte tank met draaiende Rushton-bladen en meewervelende bellen"
+ },
+ "B": {
+  "detail": "midden",
+  "vorm": "schematisch",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "accent",
+  "diepte": "plat",
+  "textuur": "geen",
+  "context": "in-omgeving",
+  "beweging": "proces",
+  "opbouw": "in-stappen",
+  "referentie": "bron",
+  "vondst": "keten tank → zoom bacterie → kolom → flesje in één beeld"
+ },
+ "C": {
+  "detail": "veel",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "accent",
+  "diepte": "doorsnede-3d",
+  "textuur": "rustig",
+  "context": "met-schaal",
+  "beweging": "proces",
+  "opbouw": "in-stappen",
+  "referentie": "bron",
+  "vondst": "opengewerkte tank met vergrootcirkel vanuit het medium en zuiveringsketen"
+ }
+}

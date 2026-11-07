@@ -1,0 +1,17 @@
+{
+ "titel": "Levenscyclus: genen en milieu",
+ "ondertitel": "Lijk je op je ouders, of op je omgeving?",
+ "meta": "32B · film 1",
+ "kerndoel": "32B",
+ "versie": "1.0", "datum": "20 oktober 2026",
+ "titelseg": "s03",
+ "scenes": ["lib32b.js", "scenes1.js"],
+ "hold": {"s14": 12.0},
+ "mini": {"Hoofdstuk 1": "Van zaad tot zaad", "Hoofdstuk 2": "Genen en milieu", "Hoofdstuk 3": "Het milieu doet mee", "Samenvatting": "Ouders én omgeving"},
+ "checkvragen": [
+  {"titel": "Levenscyclus", "pts": "1 punt", "vraag": "Wat is de goede volgorde in de levenscyclus van een kikker? A. kikkervisje → eitje → kikker · B. eitje → kikkervisje → kikker · C. kikker → kikkervisje → eitje", "antwoord": "B (1): uit het eitje komt een kikkervisje; dat krijgt pootjes en verliest zijn staart, en wordt een kikker die zelf weer eitjes legt."},
+  {"titel": "Genen of milieu?", "pts": "1 punt", "vraag": "Welke eigenschap komt alleen door het milieu? A. de kleur van je ogen · B. een litteken op je knie · C. de vorm van je oren", "antwoord": "B (1): een litteken krijg je door wat er gebeurt (milieu); oogkleur en oorvorm komen vooral uit je genen."},
+  {"titel": "Twee boontjes", "pts": "2 punten", "vraag": "Twee boontjes van dezelfde plant groeien in de zon en in de schaduw. Leg uit waarom ze er na drie weken anders uitzien.", "antwoord": "Ze hebben bijna dezelfde genen, maar een ander milieu (1). In de schaduw krijgt de plant te weinig licht: hij groeit lang en dun en maakt weinig bladgroen, dus hij wordt bleek (1)."},
+  {"titel": "Siamese kat", "pts": "2 punten", "vraag": "Een Siamese kat heeft donkere oren en poten, maar een licht lijf. Leg uit hoe dat komt.", "antwoord": "Hij heeft een gen voor donkere haren (1), maar dat werkt alleen waar het lichaam koel is: oren, poten, staart en snuit (1).", "uitdaging": true}
+ ]
+}

@@ -1,0 +1,95 @@
+{
+ "slug": "8-stambomen-lezen",
+ "hoofdstuk": "evolutie",
+ "hoofdstukNaam": "Evolutie",
+ "title": "Stambomen lezen",
+ "sub": "verwantschap, kenmerken en namen",
+ "puzzle": "Is een dolfijn familie van een haai?",
+ "meta": "evolutie 8/8",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · reeks Evolutie · film 8 van 8",
+ "lead": "Is een dolfijn familie van een haai? Alleen heel ver. Hun stroomlijn en rugvin zijn analoog: dezelfde selectiedruk in water, niet dezelfde voorouder. De dolfijn is een tandwalvis: een zoogdier, en dus verwant aan het nijlpaard uit de vorige film. Lees een stamboom aan de vertakkingen. En gedeelde nieuwe kenmerken, botten en DNA vertellen wie bij wie hoort.",
+ "endHaak": "welke dieren bij jou in de buurt delen een recente voorouder?",
+ "minis": {
+  "Hoofdstuk 1": "Wie is het nauwst verwant, en hoe zie je dat?",
+  "Hoofdstuk 2": "Wie is nauwer verwant aan een krokodil: een hagedis of een vogel?",
+  "Hoofdstuk 3": "Waarom lijken haai, dolfijn en ichthyosaurus zo op elkaar?",
+  "Hoofdstuk 4": "Waarom heet de mens Homo sapiens?",
+  "Recap": "Is een dolfijn familie van een haai?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Dieren: uitknippoppen uit de dierenbibliotheek; personages uit het castboek. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q08": {
+   "q": "In deze boom staat de walvis naast de koe. Wie is het nauwst verwant aan de walvis?",
+   "correct": 0,
+   "explain": "Een knooppunt is een scharnier. Draai je de takken om, dan verandert alleen de volgorde van de namen. De boom blijft dezelfde."
+  },
+  "q17": {
+   "q": "Wie is nauwer verwant aan de krokodil?",
+   "correct": 2,
+   "explain": "Krokodil en vogel delen kenmerken die de hagedis mist. Een hart met vier kamers. Een spiermaag, waarin steentjes het voedsel vermalen."
+  },
+  "q23": {
+   "q": "Waarom hebben haai, dolfijn en ichthyosaurus bijna dezelfde vorm?",
+   "correct": 1,
+   "explain": "Zet ze in de boom. De dolfijn staat bij de zoogdieren, de ichthyosaurus bij de reptielen, de haai helemaal apart. De voorouders van dolfijn en ichthyosaurus liepen op vier poten over het land."
+  },
+  "q32": {
+   "q": "De leeuw heet Panthera leo, de tijger Panthera tigris. Wat zegt het eerste woord?",
+   "correct": 2,
+   "explain": "Elke soort heeft een wetenschappelijke naam van twee woorden: eerst de geslachtsnaam, met een hoofdletter, dan de soortaanduiding. Samen zijn ze de naam van de soort. Dat heet binomiale naamgeving."
+  }
+ },
+ "glossary": [
+  {
+   "t": "cladogram",
+   "d": "Stamboom die laat zien welke soorten de meest recente gemeenschappelijke voorouder delen. Je leest hem aan de vertakkingen, niet aan de volgorde van de namen."
+  },
+  {
+   "t": "gemeenschappelijke voorouder",
+   "d": "Populatie waarvan twee of meer soorten afstammen; in een cladogram een knooppunt."
+  },
+  {
+   "t": "afstammingslijn",
+   "d": "De lijn van een soort via al zijn voorouders terug naar de wortel van de stamboom."
+  },
+  {
+   "t": "verwantschap",
+   "d": "Hoe kort geleden twee soorten hun laatste gemeenschappelijke voorouder hadden: hoe jonger die voorouder, hoe nauwer verwant."
+  },
+  {
+   "t": "buitengroep",
+   "d": "Soort buiten de onderzochte groep, waarmee je ziet welke kenmerken oud en welke nieuw zijn."
+  },
+  {
+   "t": "homologe organen",
+   "d": "Zelfde bouw, vaak andere functie; wijzen op een gemeenschappelijke voorouder (film 7)."
+  },
+  {
+   "t": "analoge organen",
+   "d": "Zelfde functie, andere bouw; zeggen niets over verwantschap."
+  },
+  {
+   "t": "convergente evolutie",
+   "d": "Niet nauw verwante groepen krijgen door dezelfde selectiedruk los van elkaar dezelfde vorm of eigenschap."
+  },
+  {
+   "t": "classificatie",
+   "d": "Indelen van organismen in groepen: rijk, stam, klasse, orde, familie, geslacht, soort."
+  },
+  {
+   "t": "soort",
+   "d": "Groep individuen die in de natuur samen vruchtbare nakomelingen kunnen krijgen (film 6)."
+  },
+  {
+   "t": "geslacht",
+   "d": "Groep nauw verwante soorten, zoals Panthera (leeuw, tijger, luipaard, jaguar)."
+  },
+  {
+   "t": "binomiale naamgeving",
+   "d": "Wetenschappelijke naam van twee woorden: geslachtsnaam (met hoofdletter) plus soortaanduiding, samen de naam van de soort, bijvoorbeeld Homo sapiens."
+  }
+ ],
+ "sections": "<section><h2>Checkvragen</h2>\n  <p class=\"meta\">antwoorden ingeklapt</p>\n  <div class=\"q\"><p><b>1.</b> In een cladogram komen soort P en Q samen in het jongste knooppunt; R takt eerder af. Welke twee soorten zijn het nauwst verwant? Leg uit.</p><details><summary>Antwoord</summary><p>P en Q: zij delen de meest recente gemeenschappelijke voorouder.</p></details></div>\n  <div class=\"q\"><p><b>2.</b> Een leerling zegt: &#x27;In dit cladogram staat de koe naast de walvis, dus zijn ze het nauwst verwant.&#x27; Wat is er fout?</p><details><summary>Antwoord</summary><p>Je leest een cladogram aan de vertakkingen, niet aan de volgorde van de namen; takken kun je om een knooppunt draaien zonder dat de boom verandert.</p></details></div>\n  <div class=\"q\"><p><b>3.</b> Stamt de mens af van de chimpansee? Leg uit.</p><details><summary>Antwoord</summary><p>Nee. Een nu levende soort is geen voorouder van een andere nu levende soort; mens en chimpansee delen een gemeenschappelijke voorouder die geen van beide was.</p></details></div>\n  <div class=\"q\"><p><b>4.</b> Wat is een buitengroep en waarvoor gebruik je hem?</p><details><summary>Antwoord</summary><p>Een soort die buiten de onderzochte groep valt. Hij laat zien welke kenmerken oud zijn (ook bij de buitengroep) en welke nieuw zijn binnen de groep.</p></details></div>\n  <div class=\"q\"><p><b>5.</b> De vleugel van een vogel en de vleugel van een vlinder hebben dezelfde functie. Zijn ze homoloog of analoog? Leg uit.</p><details><summary>Antwoord</summary><p>Analoog: dezelfde functie, maar een totaal andere bouw (botten tegenover een vlies van chitine); ze zijn onafhankelijk ontstaan door vergelijkbare selectiedruk (convergente evolutie).</p></details></div>\n  <div class=\"q\"><p><b>6.</b> Waarom zegt een gedeeld kenmerk als &#x27;schubben&#x27; niets over de vraag of een krokodil nauwer verwant is aan een hagedis of aan een vogel?</p><details><summary>Antwoord</summary><p>Schubben zijn een oud kenmerk dat de voorouder van alle drie al had; alleen gedeelde nieuwe kenmerken laten zien wie een jongere gemeenschappelijke voorouder deelt.</p></details></div>\n  <div class=\"q\"><p><b>7.</b> Gegeven: Felis catus, Felis silvestris, Panthera leo, Panthera pardus. Hoeveel geslachten en hoeveel soorten zijn dit?</p><details><summary>Antwoord</summary><p>Twee geslachten (Felis en Panthera) en vier soorten.</p></details></div>\n  <div class=\"q\"><p><b>8.</b> Zet in volgorde van groot naar klein: familie, rijk, soort, klasse, geslacht, orde, stam.</p><details><summary>Antwoord</summary><p>Rijk, stam, klasse, orde, familie, geslacht, soort.</p></details></div>\n</section>\n<section><h2>Voor de docent</h2>\n  <h3>Hoe de film het uitlegt</h3>\n  <table><tr><th>Hoofdstuk</th><th>Type · look</th><th>Minivraag</th></tr>\n  <tr><td>1. Een stamboom lezen</td><td>G · Schema</td><td>Wie is het nauwst verwant, en hoe zie je dat?</td></tr>\n  <tr><td>2. Kenmerken op de takken</td><td>G · Schema</td><td>Wie is nauwer verwant aan een krokodil: een hagedis of een vogel?</td></tr>\n  <tr><td>3. Dezelfde vorm, andere tak</td><td>F · Schema</td><td>Waarom lijken haai, dolfijn en ichthyosaurus zo op elkaar?</td></tr>\n  <tr><td>4. Namen en groepen</td><td>B · Schema</td><td>Waarom heet de mens Homo sapiens?</td></tr>\n  </table>\n  <h3>Getallen en bronnen</h3>\n  <table><tr><th>Wat</th><th>Bron</th></tr>\n  <tr><td>laatste gemeenschappelijke voorouder mens–chimpansee ongeveer 6 tot 8 miljoen jaar geleden (schattingen 13–5 Mj, recent 5,5–8)</td><td>Wikipedia Chimpanzee–human last common ancestor (overzicht 1998–2026)</td></tr>\n  <tr><td>ichthyosauriërs (de groep): reptielen (geen dinosauriërs), van ongeveer 250 tot ongeveer 90 miljoen jaar geleden; het geslacht Ichthyosaurus leefde rond 200 miljoen jaar geleden (vroeg Jura); de vroegste vormen hadden nog geen dolfijnvorm. Film zegt alleen &#x27;uit de tijd van de dinosauriërs&#x27;.</td><td>ZME Science (ichthyosaurus); Scientias.nl (&#x27;ongeveer 94 miljoen jaar geleden uitgestorven&#x27;)</td></tr>\n  <tr><td>krokodilachtigen zijn nauwer verwant aan vogels dan aan hagedissen (archosauriërs)</td><td>Yale News 2014 (&#x27;Birds are most closely related to crocodilians among living reptiles&#x27;); St. Augustine Alligator Farm</td></tr>\n  <tr><td>hart met vier kamers bij krokodilachtigen (en vogels), één kamer (ventrikel) bij hagedissen</td><td>The Physiological Society (evolution of the vertebrate heart)</td></tr>\n  <tr><td>spiermaag (met maagstenen) bij vogels en krokodilachtigen</td><td>Wikipedia Gizzard; UCMP Berkeley gastroliths</td></tr>\n  <tr><td>indelingsniveaus rijk, stam, klasse, orde, familie, geslacht, soort</td><td>Biologie voor Jou samenvatting thema 4 (wikiwijs, BvJ 3k th4); BvJ bovenbouw havo (uitwerkingen, 5e druk): &#x27;Een tijger behoort tot de stam van de gewervelden&#x27; (wikiwijs)</td></tr>\n  <tr><td>binomiale naam = geslachtsnaam + soortaanduiding (Homo sapiens)</td><td>encyclo.nl (soortaanduiding)</td></tr>\n  <tr><td>Linnaeus: tweedelige namen voor planten in Species Plantarum (1753), voor dieren in Systema Naturae 10e druk (1758); Homo sapiens = &#x27;wijze mens&#x27;</td><td>Wikipedia 10th edition of Systema Naturae; Names for the human species</td></tr>\n  </table>\n  <h3>Keuzes en vereenvoudigingen</h3>\n  <ul>\n  <li>Puzzel A (dolfijn en haai) als rode draad, B (krokodil) als vraag in H2, C (Homo sapiens) als minivraag H4; seriebrief gevolgd.</li>\n  <li>cladogram() uit lib_evo.js gebruikt; de &#x27;gedraaide boom&#x27; tekent hij goed omdat de functie de boom als genest array leest. Kenmerken op de takken en het draaien teken ik zelf over de lib-boom heen (lib_evo niet aangepast).</li>\n  <li>Kenmerken krokodil–vogel: hart met vier kamers en spiermaag (beide gecontroleerd). Antorbitale opening bewust niet genoemd: krokodillen hebben hem dichtgegroeid.</li>\n  <li>Mens–chimpansee &#x27;ongeveer 6 tot 8 miljoen jaar&#x27;: schattingen lopen uiteen (5–13 Mj; meta-analyse 2026 ~8 Mj). Alternatief: alleen &#x27;miljoenen jaren&#x27;.</li>\n  <li>&#x27;Haar en melk&#x27; als kenmerk van de zoogdieren; &#x27;longen en vier poten&#x27; vereenvoudigd tot één streepje (formeel: vier poten = viervoeters; longen al ouder). Daarom staat op de tak alleen &#x27;vier poten&#x27;.</li>\n  <li>Indeling: BvJ noemt &#x27;stam&#x27;; voor planten &#x27;afdeling&#x27; — niet genoemd om één nieuw begrip tegelijk te houden.</li>\n  <li>Ichthyosaurus: de vertelling noemt geen jaartallen meer (&#x27;uit de tijd van de dinosauriërs&#x27;); 250–90 Mj geldt voor de groep ichthyosauriërs, het geslacht Ichthyosaurus leefde ±200 Mj geleden. Geen tijdlijn van miljarden jaren (seriebrief).</li>\n  <li>Convergentie-uitleg in termen van selectie (individuen met gladdere vorm meer nakomelingen), geen &#x27;pasten zich aan&#x27; (misvatting als optie C in vraag 3).</li>\n  <li>De dolfijn als zoogdier verbindt met film 7 (walvis); de walvis zelf komt niet opnieuw als casus terug, alleen als naam in de boom.</li>\n  <li>Stam (review punt 45): BvJ gebruikt &#x27;de stam van de gewervelden&#x27; (BvJ havo bovenbouw, uitwerkingen; BvJ onderbouw thema 4). Formeel is de stam &#x27;chordadieren&#x27; met de gewervelden als onderstam, maar de film volgt de methode: &#x27;de stam gewervelde dieren&#x27; blijft. Nectar zelf kon ik online niet inzien; controleer in Nectar H7 of daar &#x27;chordadieren&#x27; staat.</li>\n  <li>Analogie (punt 8): de borstvinnen van haai en dolfijn zijn homoloog (voorste paar ledematen), dus alleen stroomlijn, rugvin en staart heten analoog; e8s01 noemt de borstvinnen niet meer.</li>\n  <li>Review 22 okt: 12 punten verwerkt (2 soort &#x27;in de natuur&#x27;, 5 dolfijn is een tandwalvis, 6 voorouders liepen op het land, 7 kenmerk kan weer verdwijnen, 8 analogie alleen stroomlijn/rugvin, 24 en 25 opties e8q07/e8q20 niet te raden, 44 Linnaeus 1758 voor dieren, 45 stam volgens BvJ, 46 ichthyosaurus zonder groepsjaartallen, 60 Linnaeus op wachtlijst).</li>\n  </ul>\n  <h3>Plaats in de reeks</h3>\n  <p>Film 8 van 8 in de reeks Evolutie (havo en vwo; mechanisme eerst: binnen één populatie → één populatie wordt twee → tussen soorten). Vorige: Hoe weten we dat?. Laatste film van de reeks.</p>\n</section>\n"
+}

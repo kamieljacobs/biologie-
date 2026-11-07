@@ -1,0 +1,3 @@
+Basis: variant B (reticulum als kous om de myofibril, T-buisje van boven, stuk zonder kous).
+Aangepast (Kamiels combinatie): de actine is nu de dubbele bolletjesstreng van A (`_spA_actine` uit A: twee strengen G-actine die om elkaar draaien, achterste bolletjes donkerder), zowel in actineDetail als in kopStand. De ringen om de vezel bovenaan (het buisnet en de cisternen van A) zijn niet meegenomen; het reticulum blijft de kous van B.
+Ook weg: de donkere schaduwstrook over de onderkant van de myofibril (de 'rare donkere rechthoek' uit de keuring; Part C: geen schaduw). Geen inhoudelijke fouten gemeld.

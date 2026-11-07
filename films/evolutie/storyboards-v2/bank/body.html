@@ -1,0 +1,73 @@
+<style>
+.vel{display:flex;flex-direction:column;gap:12px;background:var(--vlak);border:1px solid var(--lijn);border-radius:14px;padding:16px}
+.vel img{width:100%;max-width:100%;aspect-ratio:16/9;border-radius:8px;display:block;background:#121A26;cursor:zoom-in}
+.vel img.groot{cursor:zoom-out}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.duo figure{margin:0;display:flex;flex-direction:column;gap:4px}.duo figcaption{font:500 11px var(--meta);letter-spacing:.12em;text-transform:uppercase;color:var(--fg2)}
+.el{display:grid;grid-template-columns:minmax(120px,200px) minmax(0,1fr);gap:8px 14px;align-items:start;padding:10px 0;border-top:1px solid var(--lijn)}
+.el.ok .naam{color:var(--groen)}.el.opm .naam{color:var(--goud)}
+.naam{font-weight:700}.naam small{display:block;font:500 11px var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--fg2);margin-top:2px}
+.elk{display:flex;flex-direction:column;gap:6px;min-width:0}
+.rijtje{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+@media (max-width:760px){.duo{grid-template-columns:1fr}.el{grid-template-columns:1fr}}
+</style>
+<div class="wrap">
+  <header style="display:flex;flex-direction:column;gap:8px">
+    <span class="meta">Beeldbank · dieren, planten en micro-objecten · keuring</span>
+    <h1>Beeldbank biologiefilms</h1>
+    <p class="intro">De verbeterde tekeningen voor alle films, per groep op een testvel, steeds in meerdere houdingen. Klik op een beeld om het groot te zien. Keur per element: ✓ als hij zo de bank in mag, of typ wat er anders moet (wordt meteen bewaard). Vink <b>geldt voor alle films</b> aan als je opmerking een les is voor alle tekeningen. Een goedgekeurd element wordt in elke film hergebruikt; een houding die een scène nodig heeft maar hier nog niet staat, wordt eerst gemaakt en gekeurd.</p>
+  </header>
+  <div class="balk" role="region" aria-label="Groepen en voortgang">
+    <div class="tabs" id="tabs" role="tablist"></div>
+    <div class="rij">
+      <span class="tel"><b style="color:var(--groen)">✓</b> <span id="nOk">0</span></span>
+      <span class="tel"><b style="color:var(--goud)">opmerking</b> <span id="nOpm">0</span></span>
+      <span class="tel"><b style="color:var(--fg2)">open</b> <span id="nOpen">0</span></span>
+      <span class="meta" id="totaal"></span>
+    </div>
+  </div>
+  <div id="lijst" style="display:flex;flex-direction:column;gap:16px"></div>
+  <p class="status" id="opslag"></p>
+</div>
+<script>
+const GROEPEN = /*GROEPEN*/[];
+let keur = {}, db = null, groep = GROEPEN[0] ? GROEPEN[0].id : ''; const wacht = {}, timers = {};
+const $ = (s, el = document) => el.querySelector(s);
+const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
+try { const h = (location.hash || '').slice(1); if (GROEPEN.some(g => g.id === h)) groep = h; } catch (e) {}
+const alleEl = () => GROEPEN.flatMap(g => g.vellen.flatMap(v => v.elementen.map(e => e.id)));
+function telling(ids) { const v = ids.map(i => (keur[i] || {}).status || ''); return { ok: v.filter(x => x === 'ok').length, opm: v.filter(x => x === 'opm').length, open: v.filter(x => !x).length, n: ids.length }; }
+function tellen() { const t = telling([...new Set(alleEl())]); $('#nOk').textContent = t.ok; $('#nOpm').textContent = t.opm; $('#nOpen').textContent = t.open; $('#totaal').textContent = 'van ' + t.n + ' elementen'; }
+function tabs() { const T = $('#tabs'); T.textContent = ''; for (const g of GROEPEN) { const b = el('button'); b.id = 'tab-' + g.id; b.setAttribute('role', 'tab'); b.setAttribute('aria-selected', g.id === groep);
+  const t = telling([...new Set(g.vellen.flatMap(v => v.elementen.map(e => e.id)))]); b.append(el('span', null, g.titel), el('small', null, t.ok + '/' + t.n + ' ✓' + (t.opm ? ' · ' + t.opm + ' opm.' : '')));
+  b.onclick = () => { groep = g.id; try { history.replaceState(null, '', '#' + g.id); } catch (e) {} render(); window.scrollTo({ top: 0 }); }; T.append(b); } }
+function algVak(id) { const k = keur[id] || {}; const l = el('label', 'alg'); const c = el('input'); c.type = 'checkbox'; c.id = 'alg-' + id; c.checked = !!k.algemeen;
+  c.onchange = async () => { const w = { ...(keur[id] || { status: '', tekst: '' }), algemeen: c.checked }; delete w.t; keur[id] = w; await opslaan(id, w); };
+  l.append(c, document.createTextNode('geldt voor alle films')); return l; }
+function beeld(src, alt) { const i = el('img'); i.src = src; i.alt = alt; i.loading = 'lazy'; i.onclick = () => { if (i.classList.toggle('groot')) i.style.cssText = 'position:fixed;inset:0;margin:auto;width:min(96vw,1600px);height:auto;z-index:20;box-shadow:0 0 0 100vmax rgba(0,0,0,.85)'; else i.style.cssText = ''; }; return i; }
+function render() { tabs(); const g = GROEPEN.find(x => x.id === groep) || GROEPEN[0]; const L = $('#lijst'); L.textContent = '';
+  for (const v of g.vellen) { const box = el('section', 'vel'); box.append(el('h3', 'hst', v.titel)); if (v.uitleg) box.append(el('p', 'intro', v.uitleg));
+    if (v.oud) { const d = el('div', 'duo'); const f1 = el('figure'); f1.append(beeld('img/' + v.oud, 'Oud: ' + v.titel), el('figcaption', null, 'oud')); const f2 = el('figure'); f2.append(beeld('img/' + v.img, 'Nieuw: ' + v.titel), el('figcaption', null, 'nieuw')); d.append(f1, f2); box.append(d); }
+    else box.append(beeld('img/' + v.img, v.titel));
+    for (const e of v.elementen) { const k = keur[e.id] || {}; const st = k.status || ''; const r = el('div', 'el' + (st === 'ok' ? ' ok' : st === 'opm' ? ' opm' : ''));
+      const n = el('div', 'naam', e.naam); if (e.houdingen) n.append(el('small', null, e.houdingen)); r.append(n);
+      const kol = el('div', 'elk'); const ta = el('textarea'); ta.id = 'opm-' + e.id + '-' + v.id; ta.placeholder = 'Opmerking over ' + e.naam.toLowerCase(); ta.setAttribute('aria-label', 'Opmerking bij ' + e.naam); ta.value = (e.id in wacht) ? wacht[e.id] : (k.tekst || '');
+      const sb = el('span', 'bewaard', k.tekst ? 'bewaard' : ''); ta.oninput = () => typ(e.id, ta.value, sb);
+      const ja = el('button', 'knop ja', st === 'ok' ? '✓ Goedgekeurd' : '✓ Goed zo'); ja.setAttribute('aria-pressed', st === 'ok'); ja.onclick = () => bewaar(e.id, st === 'ok' ? { status: '', tekst: '' } : { status: 'ok', tekst: '' });
+      const rij = el('div', 'rijtje'); rij.append(ja, algVak(e.id), sb); kol.append(ta, rij); r.append(kol); box.append(r); }
+    L.append(box); }
+  tellen(); }
+function typ(id, waarde, sb) { wacht[id] = waarde; sb.textContent = 'typen…'; clearTimeout(timers[id]);
+  timers[id] = setTimeout(async () => { const t = waarde.trim(); const vorige = keur[id] || {}; const w = t ? { status: 'opm', tekst: t } : { status: vorige.status === 'ok' ? 'ok' : '', tekst: '' }; w.algemeen = !!vorige.algemeen;
+    keur[id] = w; const ok = await opslaan(id, w); if (ok) delete wacht[id]; sb.textContent = ok ? (t ? 'bewaard' : '') : 'niet bewaard'; tabs(); tellen(); }, 700); }
+async function opslaan(id, w) { if (!db) { $('#opslag').textContent = 'Opslaan lukt hier niet: open de pagina in claude.ai terwijl je bent ingelogd.'; return false; }
+  try { await db.doc('bank/' + id).set({ ...w, t: Date.now() }); $('#opslag').textContent = ''; return true; }
+  catch (e) { $('#opslag').textContent = 'Niet bewaard: ' + (e && e.message ? e.message : 'onbekende fout') + '. Typ nog iets om het opnieuw te proberen.'; return false; } }
+async function bewaar(id, w) { w.algemeen = !!(keur[id] || {}).algemeen; keur[id] = w; delete wacht[id]; render(); await opslaan(id, w); }
+render();
+(async () => { try { db = await claude.use('db'); } catch (e) { db = null; }
+  if (!db) { $('#opslag').textContent = 'Keuringen worden niet bewaard in deze weergave.'; return; }
+  db.collection('bank').onSnapshot(snap => { const n = {}; for (const d of snap.docs) n[d.id] = d.data(); const ae = document.activeElement && document.activeElement.id; keur = n;
+    if (ae && ae.startsWith('opm-')) { tabs(); tellen(); return; } render(); }, () => { $('#opslag').textContent = 'Kon de keuringen niet laden.'; });
+})();
+</script>

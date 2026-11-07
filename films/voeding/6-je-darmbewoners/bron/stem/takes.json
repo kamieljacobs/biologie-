@@ -1,0 +1,161 @@
+{
+ "flow": "tf9JO2aShKlk9GTxgiVk",
+ "model": "eleven_v4",
+ "voice": "Roos 7qdUFMklKPaaAVMsBTBt",
+ "date": "2026-10-14",
+ "opmerking": "Nodes van de film-5-flow hergebruikt (node-aanmaak gaf een protocolfout); prompts overschreven, 1 variant per take.",
+ "nodes": {
+  "s01": {
+   "tts": "ylTB3EBw0fhVu7OK1xHT",
+   "stt": "lRZaOcIrlFUijQRP7Mmh",
+   "f5_take": "s01",
+   "session": "Fyg4uPfUGsWvFdPiSdEE",
+   "timing_session": "VaoNwlSAs0QIdwL2NnHv",
+   "generation": "t7ZcxizQlZ5lkB4tlSjQ"
+  },
+  "s04": {
+   "tts": "r8gvEXpusfPpAzrw92D9",
+   "stt": "Iu2N1muV6Alg1HRb5OO4",
+   "f5_take": "s04",
+   "session": "I5eBVL4bsyS7pVMhy5Kq",
+   "timing_session": "vc9uRf2rMGya77Tmp6ef",
+   "generation": "XEePTohyqsf8aILqbJyd"
+  },
+  "s05": {
+   "tts": "QPOIMAjGy83sxeqnSrH1",
+   "stt": "IijwlmyPeJaqJbtwBw8t",
+   "f5_take": "s05",
+   "session": "2qhTmGCZfWDEmd3uYqCu",
+   "timing_session": "uu0bIQhlUM4QH2w2hsLU",
+   "generation": "7hQkzbYfIJQ027ob7POf"
+  },
+  "s07": {
+   "tts": "WYBoG7UJDG3FxPJfht6i",
+   "stt": "QejJFDX4hc9GtY1l9hBn",
+   "f5_take": "s06",
+   "session": "oxSaws4dB3NPOpxnTZAI",
+   "timing_session": "988xrZtsb4g3lOXbE41q",
+   "generation": "LUE6wmKjyCPtpxcf9SDd"
+  },
+  "s08": {
+   "tts": "d7nLhpr7vZsW9WKKCnyR",
+   "stt": "N4D8Ha5PwEKLtVzXmnND",
+   "f5_take": "s08",
+   "session": "AybxILUOFekjTJJkln9B",
+   "timing_session": "tjAYmPsk4hi3MkdDLTe6",
+   "generation": "nIloir4YuIinln0iOUA6"
+  },
+  "s09": {
+   "tts": "QtROYMfK7XCOsJ81zBjz",
+   "stt": "CYTBxlDkcDFHZWZJVoMd",
+   "f5_take": "s09",
+   "session": "YcunNSyi0kxtvbWfCAPQ",
+   "timing_session": "BpGosFQjZdIHXL8zMrH2",
+   "generation": "MVLPflu6AqleGB2IGfS3"
+  },
+  "s11": {
+   "tts": "BF0blepPlaUYA3QGUyKN",
+   "stt": "9iMNZVOIk6N4sPs7whyC",
+   "f5_take": "s11",
+   "session": "LQIxDMq1rNLu2txwANc4",
+   "timing_session": "zfJHypseve7vpxfn3Aye",
+   "generation": "6ut7lE8ZTiqbABYds510"
+  },
+  "s12": {
+   "tts": "H0rOAC8sfmRZsD61O2Do",
+   "stt": "LXPf6Bblw1a9LeQm61eR",
+   "f5_take": "s12",
+   "session": "4a94AbQfgj3DTEP3g6mA",
+   "timing_session": "HaNVZJ61fBw1rRv9CxNM",
+   "generation": "IIqazsLFDhhpIuI1vKxb"
+  },
+  "s13": {
+   "tts": "Duj8J7n6fdE3B6OYOAHI",
+   "stt": "4UU2FAtn22IY5awmJdF2",
+   "f5_take": "s13",
+   "session": "Y6Y0o6vJzwsbpuEF9rOe",
+   "timing_session": "nEKrneM6tTIyZCdnBhxn",
+   "generation": "SWuA9QGIICoi6OjtzDHz"
+  },
+  "s14": {
+   "tts": "thxR5dPzPyV6psfOt1lg",
+   "stt": "OH4HprNJplZh3tW08nRv",
+   "f5_take": "s14",
+   "session": "2FcHlrHS4bF4ganGxIOd",
+   "timing_session": "ajgxQ8iSLkXJJ8EDqawK",
+   "generation": "39vbn9TGduAleZ20Sz6N"
+  },
+  "s15": {
+   "tts": "dXXbLLG4rQij7WcL9714",
+   "stt": "HDUUf9KmDHtwiTerz9lc",
+   "f5_take": "s16",
+   "session": "7JlpL441yspi3ssqO4kO",
+   "timing_session": "qf3MVarUReuHUSneu1vi",
+   "generation": "HyrpIXSB9GBbdw1yVZmO"
+  },
+  "s17": {
+   "tts": "u6dWQOrnuc0yZ1nWZx2P",
+   "stt": "yI0Jd3MBL5bgBytOO5vW",
+   "f5_take": "s17",
+   "session": "vEXTBeeodapouIJGv7Xf",
+   "timing_session": "TsK43phN5upcNc8PqiYO",
+   "generation": "ufOw8OqHN8Rt1EI5SiP2"
+  },
+  "s18": {
+   "tts": "9WNawXPkR29fWFNGBT60",
+   "stt": "2XM1MHiAzz91a5TQMHO5",
+   "f5_take": "s18",
+   "session": "bMgT8cftWZeBG37XvPqH",
+   "timing_session": "sgz2tL2U2Lc1Z6Mqr0Rw",
+   "generation": "pEqnZuNSgl890bAIWMOU"
+  },
+  "s19": {
+   "tts": "Fkzu3w7LCBZo8zDZQxNq",
+   "stt": "73isI1KqoAHdRVFBRUTQ",
+   "f5_take": "s20",
+   "session": "YKZ2hcUldJDnyQEcg4AV",
+   "timing_session": "WaC4nppGJ0Dl94Pf5Xn0",
+   "generation": "CwYDmG3w8GNCUzUtQrBf"
+  },
+  "s21": {
+   "tts": "cCQgsZkKiltNwEe2GKIz",
+   "stt": "ewczp7wsW8pefksm0qDT",
+   "f5_take": "s21",
+   "session": "e4iREYBTfjw0b7RoXIvW",
+   "timing_session": "E2718gfkFS0gkpLJu87c",
+   "generation": "4zSxtjXw0dJaWc6JNc3W"
+  },
+  "s22": {
+   "tts": "HLGxLEXJVI1tSV1etlWi",
+   "stt": "jWDV7a4rzKg3hNtuwuss",
+   "f5_take": "s22",
+   "session": "55QWTeH7jfX4iCzINDuj",
+   "timing_session": "igp99RFSnfuTSdla6IGI",
+   "generation": "39zKqrO0g4KlLw2JV50c"
+  },
+  "s24": {
+   "tts": "JzSK8TVnqoekW2YlH8Lk",
+   "stt": "F2bJOTBcssOiNgUYIgCC",
+   "f5_take": "s23",
+   "session": "Jz6sganvtcjRBiSTkJo9",
+   "timing_session": "vMXjA7L0VCNQSHVHXotL",
+   "generation": "11DuVM6e9AVtVwz9eCxF"
+  },
+  "s25": {
+   "tts": "3jvaE4Bz7hknZNPmy78T",
+   "stt": "CZEE8IbDvHxf17JqXb7F",
+   "f5_take": "s24",
+   "session": "N22OejEjKEEwDHZ9Cryk",
+   "timing_session": "hsMeY2UKO0SZbgLtxQxO",
+   "generation": "pA0TrUAcRH9dG9SfhODg"
+  },
+  "s26": {
+   "tts": "PbzACx7jAhZxz15tuFKa",
+   "stt": "9zNOCsAIySC7KKVoN5xU",
+   "f5_take": "s26",
+   "session": "Nm5lWfFRqtreIkHKBX2C",
+   "timing_session": "GXCPcPGXtJB0wS3DSaU1",
+   "generation": "ZnFMyIx522q4kNqmzz8M"
+  }
+ }
+}

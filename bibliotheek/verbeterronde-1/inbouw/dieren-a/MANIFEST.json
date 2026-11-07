@@ -1,0 +1,236 @@
+[
+ {
+  "obj": "edelhert",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "dieren/lib_dieren.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Niet aangepast: dunne, stijve poten en weinig manen zijn niet als fout bevestigd."
+ },
+ {
+  "obj": "ezel",
+  "keuze": "gelijk",
+  "functies": [
+   "_hoefEzelStaartC",
+   "HOEF_EZEL_C",
+   "ezel"
+  ],
+  "bestand": "dieren/lib_dieren.js",
+  "nieuw": false,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": "Stijve poten (geen hakbuiging) niet aangepast: niet bevestigd."
+ },
+ {
+  "obj": "grutto",
+  "keuze": "C",
+  "functies": [
+   "grutto"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "hond-chihuahua",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "dieren/lib_dieren.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "hond-mops",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "dieren/lib_dieren.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "hond-teckel",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "dieren/lib_dieren.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "insecten",
+  "keuze": "C",
+  "functies": [
+   "_insPoot",
+   "_insGang",
+   "_insVoet",
+   "_insPad",
+   "INSECT_ZIJ",
+   "insectZij",
+   "INSECT_BOVEN",
+   "_insPootB",
+   "insectBoven",
+   "insect"
+  ],
+  "bestand": "dieren/lib_dieren.js (nieuw blok)",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Vlinder in bovenaanzicht zonder poten: goed zo?"
+ },
+ {
+  "obj": "jachtluipaard",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "dieren/lib_dieren.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Geen echte zweeffase met gestrekte rug: niet bevestigd, galop (ronde 5) gelaten."
+ },
+ {
+  "obj": "kipecht",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "koe",
+  "keuze": "C",
+  "functies": [
+   "_hoefKopSchaalC",
+   "HOEF_KOE_C",
+   "koe7"
+  ],
+  "bestand": "dieren/lib_dieren.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Hak zichtbaarder maken? In de pop zit een hak van 147° (net als paard/ezel); niet als fout bevestigd."
+ },
+ {
+  "obj": "krokodilecht",
+  "keuze": "gelijk",
+  "functies": [
+   "krokodilEcht"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": "Poten onder het lijf en een niet-platte staart: niet aangepast (de pop krokodil() heeft dat wel goed)."
+ },
+ {
+  "obj": "leeuw",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "dieren/lib_dieren.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "leeuw-galop",
+  "keuze": "A",
+  "functies": [
+   "_katGalopVan",
+   "KAT_LEEUW_GALOP_A",
+   "leeuw"
+  ],
+  "bestand": "dieren/lib_dieren.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Achterpoten klonteren in de gestrekte fase: niet aangepast (niet bevestigd)."
+ },
+ {
+  "obj": "muilezel",
+  "keuze": "gelijk",
+  "functies": [
+   "_hoefMuilStaart",
+   "HOEF_MUIL_STAART",
+   "muilezel"
+  ],
+  "bestand": "dieren/lib_dieren.js",
+  "nieuw": false,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "muis",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "dieren/lib_dieren.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Zittende muis zonder zichtbare achterpoot: niet bevestigd, niet aangepast."
+ },
+ {
+  "obj": "paard",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "dieren/lib_dieren.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "tijger",
+  "keuze": "oud",
+  "functies": [],
+  "bestand": "dieren/lib_dieren.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Geen werk (huidige versie). Zwak volgens de beoordelaar: oud toont stap in plaats van galop, en de staart hangt door de poten."
+ },
+ {
+  "obj": "wolf-huilen",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "dieren/lib_dieren.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Galop valt in de huidige versie stil terug op staan (wrapper zonder galop-alias). Wil je de alias galop → draven uit variant A toch?"
+ },
+ {
+  "obj": "zeehond",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "dieren/lib_dieren.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Recht afgesneden buik: niet aangepast (niet met bronnen bevestigd)."
+ },
+ {
+  "obj": "zeeschildpad-schildpadnest",
+  "keuze": "A",
+  "functies": [
+   "zeeschildpad",
+   "schildpadNest"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Nestdoorsnede losser maken?"
+ }
+]

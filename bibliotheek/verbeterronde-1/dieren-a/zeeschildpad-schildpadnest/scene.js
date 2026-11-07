@@ -1,0 +1,1 @@
+SCENE = { s0: 1, f: (c,x,y,s,o)=>{ if(o.nest2){zeeschildpad(c,x,y,s,o); schildpadNest(c,x+330*s,y+40*s,s*0.9,{});} else if(o.nest){schildpadNest(c,x,y,s,{});} else zeeschildpad(c,x,y,s,o); }, groot: {"vin": 0.4, "nest2": 1}, standen: [{"vin": 0}, {"vin": 1}, {"nest": 1}], ijkOok: ["A"], klein: {"vin": 0.4}  };

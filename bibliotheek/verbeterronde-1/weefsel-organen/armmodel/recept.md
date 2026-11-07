@@ -1,0 +1,3 @@
+- Practicummodel van de arm: twee houten latjes (opperarm vast aan een statief, onderarm scharniert), een stompje achter het scharnier als olecranon.
+- Twee touwtjes als spieren: voor (biceps) vóór het scharnier vast, achter (triceps) aan het stompje; elk door een oogje met een ringetje.
+- Standen: touwtje voor trekken (onderarm gaat omhoog), touwtje geduwd (knikt: een spier kan niet duwen), touwtje achter trekken, één touwtje gemarkeerd/andere gedimd.

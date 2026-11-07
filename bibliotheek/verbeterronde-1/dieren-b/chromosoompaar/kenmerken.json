@@ -1,0 +1,44 @@
+{
+ "oud": {
+  "detail": "midden",
+  "vorm": "schematisch",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "accent",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "los",
+  "beweging": "geen",
+  "opbouw": "in-een-keer",
+  "referentie": "geen",
+  "vondst": "insnoering nauwelijks zichtbaar"
+ },
+ "A": {
+  "detail": "midden",
+  "vorm": "schematisch",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "accent",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "los",
+  "beweging": "standen",
+  "opbouw": "in-een-keer",
+  "referentie": "geen",
+  "vondst": "diepe centromeer-insnoering en X-vorm door knik per arm"
+ },
+ "C": {
+  "detail": "midden",
+  "vorm": "schematisch",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "accent",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "los",
+  "beweging": "standen",
+  "opbouw": "in-een-keer",
+  "referentie": "bron",
+  "vondst": "chromatiden overlappen in één gedeelde centromeerknoop: echte X"
+ }
+}

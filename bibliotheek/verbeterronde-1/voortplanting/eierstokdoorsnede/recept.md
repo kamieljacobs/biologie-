@@ -1,0 +1,5 @@
+- Eierstok in doorsnede: schors met follikels, merg met bloedvaten vanaf de hilus.
+- Eén follikel rijpt tot een grote Graafse follikel die aan het oppervlak uitpuilt.
+- Eisprong: de wand scheurt aan het oppervlak, de eicel met stralenkrans komt met vocht naar buiten.
+- Daarna wordt op dezelfde plek het gele lichaam gevormd.
+- Niet: honderden gelijke kraaltjes; een eicel die los naast de eierstok zweeft.

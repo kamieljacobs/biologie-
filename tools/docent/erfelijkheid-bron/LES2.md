@@ -1,0 +1,31 @@
+# Les 2 · Erfelijkheid — "Kruisen en tellen"
+
+Map `tools/docent/erfelijkheid-2`, eigen functies met prefix `L2_`, serverpoort **8772**.
+Films (lees de scripts in `films/erfelijkheid/<film>/bron/script.md`): **2 Monohybride kruisingen**, **3 Voorbij dominant en recessief**, **5 Overerving via X-chromosomen en mitochondriën**. Havo 4 BvJ § 3.3–3.4, vwo Nectar H5 § 5.3. Les van ± 50 min met drie films: houd de schermen strak (± 18 schermen, 2–4 stappen), en zet in de lesopbouw welke blokken Kamiel naar huiswerk kan schuiven.
+Havo/vwo: bijna alles is voor beide. Vwo-only: X-chromosomaal dominant (stap op het X-scherm). Letale factor en polygeen zijn voor beide.
+Personages: geen castpersonen nodig; als je mensen in beeld wilt (bijv. bij kleurenblindheid of mitochondriën), gebruik stamboomsymbolen of anonieme silhouetten in een schema — geef geen castpersonage een aandoening (zie LEVENSLOOP). Mendel mag als naam in tekst; geen tekening van een echte persoon.
+
+Schermen (richtlijn):
+0. **Start** — 'Erfelijkheid · les 2', titel 'Kruisen en tellen', ondertitel 'kruisingsschema · intermediair en bloedgroepen · X-chromosoom en mitochondriën'; rechts erwtenplant die wiegt.
+1. **Twee paarse planten, witte kinderen** (Opening) — twee paarse erwtenplanten × → rij nakomelingen waarvan een paar wit worden; Mendel en zijn erwten; de twee puzzels uit film 2 in `n`.
+2. **Mendels proef** — P: raszuiver paars × raszuiver wit → F1 allemaal paars → F1 × F1 → F2: veld van stippen dat zich vult, teller 705 paars : 224 wit ≈ 3 : 1 ('wit kwam terug'). Genotypechips AA, aa, Aa erbij.
+3. **Gameten** — een Aa-cel (meeldraad) in meiose: het paar gaat uit elkaar, daarna de chromatiden → 4 gameten, 2 met A en 2 met a → elk ½ (gebruik `paar`/`chromosoom` met `uiteen`). Eicellen van de andere plant hetzelfde (kort).
+4. **Het kruisingsschema** — 2×2 opbouwen (gameten links en boven, vakje voor vakje); elk vakje = één mogelijke bevruchting; tel: genotypen 1 AA : 2 Aa : 1 aa, fenotypen 3 paars : 1 wit (`verhouding`).
+5. **Kansen, geen aantallen** — kans op aa = ½ × ½ = ¼ (productregel, termKaart); simulatie: 4 nakomelingen → kan 2 : 2 zijn; 400 → dicht bij 3 : 1 (stippen die in twee kolommen vallen, lopende verhouding; deterministisch met `toeval(seed)`). Misvatting 'de 4 vakjes zijn 4 kinderen'.
+6. **Stappenplan** — vier stappen (genotypen ouders · gameten · schema · verhoudingen aflezen) als vier kaartjes die verschijnen, met een mini-voorbeeld ernaast.
+7. **De terugkruising** — paarse plant 'A?' × witte aa; twee mogelijkheden naast elkaar: als AA → alles paars; als Aa → 1 paars : 1 wit; 'één witte nakomeling = bewijs'. (Term: terugkruising of testkruising, noem allebei in n.)
+8. **Intermediair** — leeuwenbek: R = enzym voor rood pigment, W = niet-werkend; RR rood, RW roze (half pigment, níet genoeg voor rood), WW wit (pigmentmeters); termKaart 'intermediair (onvolledig dominant)'.
+9. **Roze × roze** — schema RW × RW → 1 rood : 2 roze : 1 wit; misvatting 'allelen mengen' → 'ze worden los doorgegeven'; bij intermediair zie je het genotype aan het fenotype.
+10. **Bloedgroepen: drie allelen** — rode bloedcel met antigenen (suikerketens); Iᴬ bouwt antigeen A, Iᴮ antigeen B, i niets; multipele allelen (drie in de bevolking, twee per persoon).
+11. **Codominant** — genotypen → bloedgroep: IᴬIᴬ/Iᴬi = A, IᴮIᴮ/Iᴮi = B, IᴬIᴮ = AB (beide zichtbaar: codominant), ii = O (geen A en geen B); 'Iᴬ en Iᴮ dominant over i'.
+12. **A × B: kind met O?** — schema Iᴬi × Iᴮi → ¼ O (en ¼ A, ¼ B, ¼ AB); misvatting 'O is een eigen stof' → 'O = geen antigeen A en B'.
+13. **Letale factor** — gele muizen × gele muizen: verwacht 3 geel : 1 grijs, geteld 2 : 1; het gele allel (Y) is dominant voor kleur maar YY-embryo's ontwikkelen zich niet → vakje valt weg (doorstrepen/vervagen) → 2 : 1.
+14. **Polygeen** — lengte: 1 gen → 3 groepen, 2 genen → 5, 3 genen → 7, veel genen + milieu → klokvorm (`histogram`, staven die van vorm veranderen); 'elk gen erft volgens Mendel, de effecten tellen op'.
+15. **Jongen of meisje** — vrouw XX (eicellen altijd X), man XY (zaadcellen ½ X, ½ Y) → schema → ½ jongen; de zaadcel bepaalt het geslacht.
+16. **Kleurenblind: het X-chromosoom** — X groot (± 800 genen, o.a. rood- en groengevoelig eiwit in de kegeltjes), Y klein zonder die genen; notatie Xᴺ / Xⁿ; draagster XᴺXⁿ × XᴺY → schema: dochters zien allemaal normaal (½ draagster), zonen ½ kleurenblind. Man: één allel genoeg (± 8 %), vrouw: twee nodig (± 0,5 %; 8 % × 8 % ≈ 0,6 %). Een vader geeft zijn X nooit aan zijn zoon. Hemofilie erft net zo (Victoria in n). **vwo-stap**: X-chromosomaal dominant (vader met de aandoening → alle dochters, geen zonen; vaker bij vrouwen).
+17. **Mitochondriaal DNA** — mitochondrion met eigen rond DNA (37 genen); eicel > 100.000 mitochondriën, zaadcel paar tientallen, afgebroken na bevruchting → al je mitochondriën van je moeder; man met mitochondriale aandoening → geen kind; vrouw → alle kinderen; verschil met X: kern-DNA vs DNA buiten de kern.
+18. **Samenvatting** — vier kolommen of rijen: kruisingsschema (3 : 1, 1 : 1 terugkruising) · intermediair 1 : 2 : 1 / codominant / multipele allelen / letaal 2 : 1 / polygeen · X-chromosomaal (vaker bij mannen, zoon via moeder) · mitochondriaal (alleen via moeder). 'Allelen mengen nooit.'
+19. **Volgende keer** — 'Twee genen en een stamboom': tegels dihybride (erwten geel/groen rond/gerimpeld, 9 : 3 : 3 : 1) · gekoppelde genen (fruitvlieg) · stambomen lezen · kansen (⅔).
+
+Docentnotities: alle voorspelvragen uit film 2, 3, 5 als 'Vraag uit film N: …' in `n`.
+Briefing-onderwerpen (voorstel): Mendels proeven (wat hij precies kruiste, 7 eigenschappen, 705 : 224; latere statistiekdiscussie Fisher kort en neutraal); meiose en de wet van de segregatie; kans en steekproefgrootte (binomiaal: kans op precies 3 : 1 bij 4 nakomelingen ≈ 42 %, reken het na); intermediair vs codominant (leeuwenbek; vacht roan bij runderen als codominantie-voorbeeld); ABO-systeem (antigenen = suikers, glycosyltransferases; frequenties in NL kort; resusfactor apart gen); letale factor (gele muis, Ay-allel, Cuénot 1905); polygene kenmerken (lengte, erfelijkheidsgraad ± 80 % mag, met bron); kleurenblindheid (OPN1LW/OPN1MW op Xq28, frequenties) en hemofilie (Victoria); mitochondriaal DNA (16.569 bp, 37 genen; LHON als voorbeeld; mitochondriale Eva in vraag).

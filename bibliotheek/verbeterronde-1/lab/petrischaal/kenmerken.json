@@ -1,0 +1,44 @@
+{
+ "A": {
+  "detail": "midden",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "met-schaal",
+  "beweging": "standen",
+  "opbouw": "in-een-keer",
+  "referentie": "bron",
+  "vondst": "zones als echte gaten in het gazon, resistent schijfje zonder zone"
+ },
+ "B": {
+  "detail": "midden",
+  "vorm": "realistisch",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "doorsnede-3d",
+  "textuur": "rustig",
+  "context": "met-schaal",
+  "beweging": "standen",
+  "opbouw": "in-een-keer",
+  "referentie": "bron",
+  "vondst": "agardikte zichtbaar aan de rand, deksel kantelt open"
+ },
+ "C": {
+  "detail": "midden",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "doorsnede-3d",
+  "textuur": "rustig",
+  "context": "met-schaal",
+  "beweging": "standen",
+  "opbouw": "in-een-keer",
+  "referentie": "bron",
+  "vondst": "bovenaanzicht plus schuin aanzicht met agarlaag en opgetild deksel"
+ }
+}

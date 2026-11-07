@@ -1,0 +1,1 @@
+De achterkant van de RNA-polymerase (achter het DNA) is nu één gevouwen kralenketen binnen dezelfde omtrek, gedempt zodat de bel en het hybride ervoor leesbaar blijven; de onderkaak vóór het DNA is één rij kralen. DNA, bel, mRNA, actief centrum, standen en ankerpunten zijn ongewijzigd.

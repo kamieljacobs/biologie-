@@ -1,0 +1,27 @@
+== Verdunningsreeks 1 op 10 ==
+10 µl in 90 µl water: totaal 100 µl, verdunningsfactor 10.0
+ stap 1 : totaal 10 keer verdund
+ stap 2 : totaal 100 keer verdund
+ stap 3 : totaal 1000 keer verdund
+ stap 4 : totaal 10000 keer verdund
+== Druppel van 10 µl (bol) ==
+ diameter 2.67 mm
+== Pipetfout ISO 8655 (P20 bij 10 µl): systematisch ±0,2 µl = ±2 %, toevallig CV ≤ 1 % ==
+ na stap 1 relatief 0.980
+ na stap 2 relatief 0.980
+ na stap 3 relatief 0.980
+ na stap 4 relatief 0.980
+== Verdubbelen en tien keer ==
+ log2(10) = 3.322 cycli; 2^3 = 8; 2^3,32 = 9.99
+== Ijklijn (100 % efficiëntie, helling −3,32) ==
+ standaard 1:  1000000 kopieën  Ct 17.0
+ standaard 2:   100000 kopieën  Ct 20.3
+ standaard 3:    10000 kopieën  Ct 23.6
+ standaard 4:     1000 kopieën  Ct 27.0
+ standaard 5:      100 kopieën  Ct 30.3
+ Opa Henk Ct 25 -> 3906 kopieën per putje (≈ vierduizend)
+ efficiëntie bij helling −3,32: 100.0 %
+== Doorvoer cobas 8800 (Roche): 1056 tests per 8 uur ==
+ per uur 132
+== Ct-verschil door 3 % minder kopieën ==
+ 0.044 cycli (te klein om op een controlekaart te zien)

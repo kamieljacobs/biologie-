@@ -1,0 +1,527 @@
+{
+ "film": "films/erfelijkheid/3-voorbij-dominant-en-recessief.html",
+ "versie": "remake 2.0 · fase 1 · 28 okt 2026",
+ "prompt": "v13 (B16 lichte remake; C1–C10)",
+ "straat": "FILMDATA zoals Chromosomen 2.1: segments.json + scenes_erf3.js (één functie per alinea, cue via q.on/q.at) + teken_erf3.js; libs: lib.js, lib_cast.js, lib_bio.js, lib_dieren.js (muizenpop)",
+ "niveau": "één niveau voor havo en vwo (geen vwo-blok; alle syllabusbegrippen gelden voor beide)",
+ "kleuren": "bloemkleur = het kenmerk zelf (rood #C8414B, roze #E79AB0, wit #EEEAE0); kleurstof rood; antigeen A groen (zeshoek), B teal (vijfhoek), basisketen neutraal grijs; enzym grijsblauw zoals film 1; allelchips neutraal; vader teal / moeder oker alleen op chromosomen (s10, s18); muis geel #D9B356 / grijs #8A8478; histogram teal, klokkromme goud. Weinig paars (alleen het chromosoom in s10/s18).",
+ "bibliotheek": {
+  "hergebruik": [
+   "enzym/enzymKluwen, allelChip, termKaart, misvatting, melMeter, chromKopie, kamer + gezin De Wit (Chromosomen 2.1)",
+   "rodeBloedcel, blastocyste (lib_bio)",
+   "muis-pop MUIS_DEF (lib_dieren)",
+   "persoon (lib_cast)",
+   "kruisingsschema-opbouw van film 2"
+  ],
+  "nieuw (kandidaat lib_bio, code in tekeningen/nieuw_erf3.js)": [
+   "leeuwenbek (Antirrhinum majus, tros met tweelippige bloemen)",
+   "suikerKeten + bloedcelAntigeen (basisketen, eindsuiker A/B, O = kale keten)",
+   "muisKleur (paletvariant geel/grijs van de goedgekeurde muizenpop)",
+   "kruisSchema (2×2 met gameten links/boven, vakje weg, goud kader)",
+   "kleurstofMeter, histModel"
+  ]
+ },
+ "scenes": [
+  {
+   "id": "title",
+   "look": "Schema",
+   "ziet": "titelkaart; rechts een rode en een witte leeuwenbek met een roze ertussen (leeuwenbek)",
+   "beweging": "bloemen wiegen heel licht",
+   "nieuw": [
+    "leeuwenbek"
+   ]
+  },
+  {
+   "id": "s01",
+   "alinea": "Een kweker kruist een rode leeuwenbek met een witte …",
+   "cue": [
+    "rode",
+    "witte",
+    "roze",
+    "gemengd",
+    "vier",
+    "nooit"
+   ],
+   "look": "Macro (nacht, bloembed)",
+   "ziet": "rode en witte leeuwenbek naast elkaar, '×'; bij 'roze' groeien vier roze nakomelingen op (morph van kiemplantje tot bloeiende plant); bij 'gemengd' een klein kaartje 'rood + wit = roze?' met twee verfklodders die vloeien; bij 'nooit' het kaartje met een koraal kruisje",
+   "beweging": "planten groeien in ± 2 s, tros gaat van onder naar boven open (C8 morph); verf vloeit als morph",
+   "bieb": [],
+   "nieuw": [
+    "leeuwenbek"
+   ],
+   "twijfel": "T2",
+   "keyframe": "keyframes/t4-opening-leeuwenbek.webp",
+   "woorden": 43
+  },
+  {
+   "id": "card1",
+   "look": "Schema",
+   "ziet": "hoofdstukkaart 1 · Intermediair · 'Hoe kan rood × wit roze geven?'",
+   "nieuw": []
+  },
+  {
+   "id": "s03",
+   "alinea": "In de eerste film zag je …",
+   "cue": [
+    "eerste film",
+    "één werkend",
+    "dominant",
+    "leeuwenbek"
+   ],
+   "look": "Schema",
+   "ziet": "het bekende beeld uit Chromosomen 2.1: AA en Aa met elk een volle melaninemeter (melMeter, drie() in klein); dan schuift het opzij en komt de leeuwenbek in beeld",
+   "beweging": "terugblik als kleine kaart, wisselt via één tekstbalk (BEELDAFSPRAKEN)",
+   "bieb": [
+    "melMeter, allelChip, enzym (Chromosomen 2.1)"
+   ],
+   "nieuw": [],
+   "woorden": 30
+  },
+  {
+   "id": "s04",
+   "alinea": "Het allel R levert een enzym …",
+   "cue": [
+    "R",
+    "W",
+    "RR",
+    "WW",
+    "RW",
+    "niet genoeg",
+    "minder"
+   ],
+   "look": "Schema",
+   "ziet": "drie panelen RR · RW · WW; per allel een enzym (werkend = enzymKluwen, niet werkend = grijs met kruis); kleurstofmeter vult zich (vol · ± half met label MODEL · leeg) en de bloem kleurt mee",
+   "beweging": "rode kleurstof-korrels komen uit het werkende enzym en vullen de meter (zelfde simulatie als de melanine in film 1, nu rood); de bloem krijgt als morph haar kleur",
+   "bieb": [
+    "enzym, allelChip (Chromosomen 2.1)"
+   ],
+   "nieuw": [
+    "kleurstofMeter",
+    "leeuwenbek"
+   ],
+   "keyframe": "keyframes/k1-intermediair-kleurstof.webp",
+   "woorden": 62
+  },
+  {
+   "id": "s05",
+   "alinea": "Het fenotype van de heterozygoot ligt tussen …",
+   "cue": [
+    "tussen",
+    "intermediair",
+    "onvolledig dominant",
+    "Geen van beide",
+    "R en W"
+   ],
+   "look": "Schema",
+   "ziet": "de drie bloemen op één basislijn met annotatiehaak onder RW 'ertussenin'; termkaart 'intermediair (onvolledig dominant)'; bij 'R en W' de twee chips met een hoofdletter, naast een vergeleken 'A a' (doorgestreept niet: alleen 'dominant · recessief' grijs)",
+   "beweging": "haak trekt zichzelf",
+   "bieb": [
+    "termKaart"
+   ],
+   "nieuw": [],
+   "woorden": 37
+  },
+  {
+   "id": "q06",
+   "look": "Schema (vraagkaart)",
+   "ziet": "vraagkaart 'Wat denk je?' met drie opties; boven de kaart twee roze bloemen",
+   "nieuw": [],
+   "woorden": 8
+  },
+  {
+   "id": "s07",
+   "alinea": "Twee roze planten zijn allebei RW …",
+   "cue": [
+    "RW",
+    "gameten",
+    "half",
+    "kruisingsschema",
+    "RR",
+    "WW",
+    "één staat tot twee"
+   ],
+   "look": "Schema",
+   "ziet": "kruisingsschema als in film 2: gameten R en W links en boven; de vier vakjes vullen zich één voor één (bevruchting = twee chips schuiven samen), in elk vakje groeit een kleine leeuwenbek; rechts de telling 1 rood : 2 roze : 1 wit",
+   "beweging": "schema lijn voor lijn (C8), vakjes op het woord",
+   "bieb": [
+    "kruisingsschema (film 2)"
+   ],
+   "nieuw": [
+    "kruisSchema"
+   ],
+   "keyframe": "keyframes/k2-schema-roze-x-roze.webp",
+   "woorden": 53
+  },
+  {
+   "id": "s08",
+   "alinea": "Waren rood en wit gemengd …",
+   "cue": [
+    "gemengd",
+    "los",
+    "Mendel",
+    "ertussenin",
+    "direct"
+   ],
+   "look": "Schema",
+   "ziet": "misvattingkaart 'Allelen mengen → Ze worden los doorgegeven'; de twee allelchips R en W in de roze plant blijven twee aparte chips en gaan in de gameten weer uit elkaar; bij 'direct' genotype ↔ fenotype naast elkaar",
+   "beweging": "chips splitsen in een boog",
+   "bieb": [
+    "misvatting (Chromosomen 2.1)"
+   ],
+   "nieuw": [],
+   "woorden": 45
+  },
+  {
+   "id": "card2",
+   "look": "Schema",
+   "ziet": "hoofdstukkaart 2 · Bloedgroepen · 'Kan een kind een bloedgroep hebben die geen van de ouders heeft?'",
+   "nieuw": []
+  },
+  {
+   "id": "s09",
+   "alinea": "Nu je bloed. Op je rode bloedcellen …",
+   "cue": [
+    "bloed",
+    "ketens",
+    "Iᴬ",
+    "één suiker",
+    "antigeen A",
+    "Iᴮ",
+    "antigeen B",
+    "i",
+    "geen A"
+   ],
+   "look": "Micro (via zoomcirkel vanaf een hand met een prikje)",
+   "ziet": "zoomcirkel van een vingertop naar rode bloedcellen; één cel groot (bloedcelAntigeen) met de kale ketens; per allel komt een enzym aan dat de laatste suiker aanzet: groen zeshoekje (A), teal vijfhoekje (B); bij i komt een grijs enzym met kruisje en blijft de keten kaal",
+   "beweging": "enzym schuift in een boog naar een keten, klikt de suiker vast (anticipatie, C8); daarna verschijnen de andere eindsuikers rondom",
+   "bieb": [
+    "rodeBloedcel (lib_bio)",
+    "enzym (film 1)",
+    "zoomCircle"
+   ],
+   "nieuw": [
+    "suikerKeten",
+    "bloedcelAntigeen"
+   ],
+   "twijfel": "T1",
+   "woorden": 67
+  },
+  {
+   "id": "s10",
+   "alinea": "Dit gen heeft dus drie allelen …",
+   "cue": [
+    "drie allelen",
+    "multipele",
+    "twee",
+    "vader",
+    "moeder"
+   ],
+   "look": "Schema",
+   "ziet": "drie allelchips Iᴬ, Iᴮ, i in een rij (bevolking); daaronder één persoon met twee chips: één teal chromosoom (vader) en één oker (moeder) met het allel erop (chromKopie uit film 1); termkaart 'multipele allelen'",
+   "beweging": "twee van de drie chips schuiven naar de persoon",
+   "bieb": [
+    "chromKopie, allelChip (Chromosomen 2.1)"
+   ],
+   "nieuw": [],
+   "woorden": 29
+  },
+  {
+   "id": "s11",
+   "alinea": "Iᴬ en Iᴮ zijn allebei dominant over i …",
+   "cue": [
+    "dominant",
+    "IᴬIᴬ",
+    "IᴮIᴮ",
+    "ii",
+    "bloedgroep O"
+   ],
+   "look": "Micro",
+   "ziet": "vier rode bloedcellen naast elkaar (A, B, ·, O); de AB-plek blijft nog leeg; bij 'bloedgroep O' de cel met alleen de kale keten, label 'alleen de keten · geen A · geen B'",
+   "beweging": "cellen schuiven één voor één in",
+   "bieb": [],
+   "nieuw": [
+    "bloedcelAntigeen"
+   ],
+   "twijfel": "T1",
+   "keyframe": "keyframes/t1-bloedgroepen-o-zonder-antigenen.webp",
+   "woorden": 35
+  },
+  {
+   "id": "s12",
+   "alinea": "Heb je Iᴬ én Iᴮ …",
+   "cue": [
+    "beide enzymen",
+    "AB",
+    "ertussenin",
+    "volledig",
+    "codominant"
+   ],
+   "look": "Schema met Micro-inzet",
+   "ziet": "KERNSCÈNE (k7) · links de roze leeuwenbek met 'ertussenin' en de kaart 'intermediair', rechts de AB-cel met groene én teal eindsuikers en 'A én B'; bij 'codominant' groot de termkaart 'codominant · beide allelen komen volledig tot uiting' in goud",
+   "beweging": "de twee enzymen zetten afwisselend hun suiker op de ketens; daarna verschijnt de termkaart",
+   "bieb": [
+    "termKaart"
+   ],
+   "nieuw": [],
+   "keyframe": "keyframes/k5-codominant.webp",
+   "woorden": 39
+  },
+  {
+   "id": "q13",
+   "look": "Macro (kamer) → vraagkaart",
+   "ziet": "het gezin uit film 1 in de woonkamer: vader 'bloedgroep B', moeder 'bloedgroep A', boven de kinderen een vraagteken; dan de vraagkaart",
+   "beweging": "labels verschijnen op de woorden 'moeder' en 'vader'",
+   "bieb": [
+    "gezin De Wit (lib_cast), kamer (film 1)"
+   ],
+   "nieuw": [],
+   "twijfel": "T3",
+   "keyframe": "keyframes/t3-gezin-bloedgroepen.webp",
+   "woorden": 18
+  },
+  {
+   "id": "s14",
+   "alinea": "Een moeder met bloedgroep A kan Iᴬi zijn …",
+   "cue": [
+    "Iᴬi",
+    "Iᴮi",
+    "zonder dat je het ziet",
+    "ii",
+    "kwart",
+    "andere vakjes"
+   ],
+   "look": "Schema",
+   "ziet": "kruisingsschema Iᴬi × Iᴮi; in elk vakje een kleine bloedcel met de juiste ketens; vakje ii goud omrand; rechts 'kans op O ¼'; bij 'andere vakjes' lichten AB, A en B op",
+   "beweging": "vakjes vullen op het woord",
+   "bieb": [
+    "kruisSchema"
+   ],
+   "nieuw": [],
+   "keyframe": "keyframes/k3-schema-a-x-b.webp",
+   "woorden": 64
+  },
+  {
+   "id": "s15",
+   "alinea": "Bloedgroep O is dus geen eigen stof …",
+   "cue": [
+    "geen eigen stof",
+    "ontbreken",
+    "afweer"
+   ],
+   "look": "Micro",
+   "ziet": "misvattingkaart 'Bloedgroep O is een eigen stof → O = geen antigeen A en B' naast de O-cel met de kale keten; bij 'afweer' een klein filmmedaillon van Afweer 4",
+   "beweging": "geen",
+   "bieb": [
+    "misvatting"
+   ],
+   "nieuw": [],
+   "twijfel": "T1",
+   "woorden": 31
+  },
+  {
+   "id": "card3",
+   "look": "Schema",
+   "ziet": "hoofdstukkaart 3 · Een letale factor · 'Waar blijven de ontbrekende muizen?'",
+   "nieuw": []
+  },
+  {
+   "id": "s16",
+   "alinea": "Bij muizen bestaat een allel …",
+   "cue": [
+    "geel",
+    "grijze",
+    "G en g",
+    "verwacht",
+    "telt",
+    "twee gele"
+   ],
+   "look": "Schema",
+   "ziet": "gele en grijze muis (muizenpop, palet geel/grijs); twee gele muizen '×'; kaart VERWACHT 3 geel : 1 grijs; kaart GETELD 2 geel : 1 grijs (koraal)",
+   "beweging": "muizen lopen kort het beeld in (muizenpop 'lopen'); jongen verschijnen één voor één als stippen die tot muisjes worden",
+   "bieb": [
+    "muis (lib_dieren, MUIS_DEF)"
+   ],
+   "nieuw": [
+    "muisKleur (paletvariant)"
+   ],
+   "twijfel": "T4",
+   "keyframe": "keyframes/k4-muizen-kleurvariant.webp",
+   "woorden": 52
+  },
+  {
+   "id": "q17",
+   "look": "Schema (vraagkaart)",
+   "ziet": "vraagkaart 'Wat denk je?', drie opties",
+   "nieuw": [],
+   "woorden": 8
+  },
+  {
+   "id": "s18",
+   "alinea": "De gele muizen zijn allemaal Gg …",
+   "cue": [
+    "Gg",
+    "stuk DNA",
+    "naast het kleurgen",
+    "embryo",
+    "één geel allel",
+    "twee gele"
+   ],
+   "look": "Schema → zoomcirkel Micro",
+   "ziet": "een chromosoom (chromKopie) met het kleurgen en ernaast een tweede gen; een stuk DNA verdwijnt en neemt het buurgen mee (deletie als morph); bij 'embryo' zoomcirkel naar een embryo van een paar dagen (blastocyste) dat stopt met groeien en dooft",
+   "beweging": "blastocyste groeit even (deelt) en stopt dan; dimt naar 35 %",
+   "bieb": [
+    "chromKopie (film 1)",
+    "blastocyste (lib_bio)"
+   ],
+   "nieuw": [],
+   "twijfel": "T4",
+   "woorden": 61
+  },
+  {
+   "id": "s19",
+   "alinea": "In het kruisingsschema valt het vakje GG dus weg …",
+   "cue": [
+    "GG",
+    "weg",
+    "twee geel",
+    "letale factor",
+    "dominant",
+    "recessief"
+   ],
+   "look": "Schema",
+   "ziet": "kruisingsschema Gg × Gg met muizen; vakje GG krijgt een koraal kruis en dimt; telling 2 geel : 1 grijs; termkaart 'letale factor'; bij 'dominant/recessief' twee kleine labels: 'vachtkleur: dominant' · 'overleven: recessief'",
+   "beweging": "kruis trekt zichzelf; drie overgebleven muizen schuiven samen",
+   "bieb": [
+    "kruisSchema"
+   ],
+   "nieuw": [],
+   "keyframe": "keyframes/t5-letaal-gele-muis.webp",
+   "woorden": 50
+  },
+  {
+   "id": "card4",
+   "look": "Schema",
+   "ziet": "hoofdstukkaart 4 · Polygene overerving · 'Waarom is lengte geen kwestie van lang of kort?' (meta: zie T5)",
+   "nieuw": []
+  },
+  {
+   "id": "s20",
+   "alinea": "Tot slot lengte. Zet een klas op volgorde …",
+   "cue": [
+    "lengte",
+    "volgorde",
+    "vloeiende reeks",
+    "heel veel genen",
+    "duizenden"
+   ],
+   "look": "Schema",
+   "ziet": "een klas schuift op volgorde van lengte (zes castleerlingen + neutrale silhouetten); de koppen vormen een vloeiende lijn; schaal 1,60–1,90 m",
+   "beweging": "leerlingen lopen in zijaanzicht naar hun plek (castboek-gang 'loop')",
+   "bieb": [
+    "persoon (lib_cast): noor, sam, lotte, daan, yasmin, bilal"
+   ],
+   "nieuw": [],
+   "twijfel": "T6",
+   "keyframe": "keyframes/t6-polygeen-klas.webp",
+   "woorden": 42
+  },
+  {
+   "id": "s21",
+   "alinea": "Kijk naar een model …",
+   "cue": [
+    "model",
+    "stukje lengte",
+    "één gen",
+    "twee genen",
+    "drie",
+    "heel veel genen",
+    "klokvorm",
+    "polygene"
+   ],
+   "look": "Schema",
+   "ziet": "één histogram dat groeit: 3 → 5 → 7 staven, dan heel veel smalle staven met een gouden klokkromme; label MODEL; termkaarten 'normale verdeling' en 'polygene overerving'",
+   "beweging": "staven delen zich als morph (persistent schema, geen nieuwe dia)",
+   "bieb": [],
+   "nieuw": [
+    "histModel"
+   ],
+   "woorden": 50
+  },
+  {
+   "id": "q22",
+   "look": "Schema (vraagkaart)",
+   "ziet": "vraagkaart 'Wat denk je?', drie opties",
+   "nieuw": [],
+   "woorden": 15
+  },
+  {
+   "id": "s23",
+   "alinea": "Lengte is voor een groot deel erfelijk …",
+   "cue": [
+    "erfelijk",
+    "Mendel",
+    "optellen",
+    "milieu",
+    "lange ouders"
+   ],
+   "look": "Schema",
+   "ziet": "drie genen als drie kleine kruisingsschema's die elk een stapje toevoegen aan één lengtebalk; milieu als een oker stapje erbij; dan een ouderpaar en een kind (castpersonages) naast een meetlat",
+   "beweging": "stapjes stapelen",
+   "bieb": [
+    "persoon"
+   ],
+   "nieuw": [],
+   "woorden": 40
+  },
+  {
+   "id": "s24",
+   "alinea": "Terug naar de roze leeuwenbek …",
+   "cue": [
+    "roze",
+    "mengsel",
+    "rood en wit",
+    "nooit",
+    "los"
+   ],
+   "look": "Macro",
+   "ziet": "het bloembed uit de opening; twee roze planten kruisen, en tussen de nakomelingen staan weer rode en witte (spiegel van de opening, B3)",
+   "beweging": "nakomelingen groeien op",
+   "bieb": [
+    "leeuwenbek"
+   ],
+   "nieuw": [],
+   "woorden": 50
+  },
+  {
+   "id": "s25",
+   "alinea": "Kort samengevat …",
+   "cue": [
+    "Intermediair",
+    "Codominant",
+    "Multipele",
+    "Letale",
+    "Polygeen",
+    "volgende film"
+   ],
+   "look": "Schema",
+   "ziet": "vijf rijen met elk een klein icoon (roze bloem · AB-cel · drie chips · muis met kruis · histogram), die op het woord oplichten",
+   "beweging": "rij voor rij",
+   "bieb": [],
+   "nieuw": [],
+   "woorden": 52
+  },
+  {
+   "id": "end",
+   "look": "Schema",
+   "ziet": "eindkaart: drie kernzinnen met annotatiehaak",
+   "nieuw": []
+  }
+ ],
+ "telling": {
+  "gesproken alinea's": 20,
+  "vragen": 4,
+  "scènes totaal": 30,
+  "woorden": 981,
+  "gesproken duur": "± 6.8 min spraak (2,4 woord/s); speeltijd met kaarten en stiltes ± 8 min (oud 4:43)"
+ }
+}

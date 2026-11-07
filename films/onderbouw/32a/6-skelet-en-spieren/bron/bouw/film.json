@@ -1,0 +1,73 @@
+{
+ "title": "Skelet en spieren",
+ "nr": "6",
+ "sub": "Sam springt en scoort. Hoe beweeg je eigenlijk? Over botten, gewrichten, pezen en spieren die alleen kunnen trekken.",
+ "duur": 5,
+ "meta": "onderbouw · kerndoelen · film 6",
+ "mini": {
+  "Hoofdstuk 1": "Stevigheid, bescherming, gewrichten",
+  "Hoofdstuk 2": "Pezen, trekken en tegenwerkers",
+  "Hoofdstuk 3": "Hersenen, bloed en training",
+  "Samenvatting": "Zo beweeg je"
+ },
+ "subs": [],
+ "hold": {
+  "s14": 12.0
+ },
+ "scene_files": [
+  "helpers.js",
+  "lib_cast.js",
+  "scenes6.js"
+ ],
+ "questions": {
+  "q04": {
+   "q": "Een baby heeft meer botten dan jij. Hoe kan dat?",
+   "correct": 1,
+   "explain": "Tijdens het groeien groeien sommige botten aan elkaar vast, zoals drie botten in je heup tot één heupbot."
+  },
+  "q07": {
+   "q": "Je biceps buigt je arm. Hoe strek je je arm weer?",
+   "correct": 0,
+   "explain": "Een spier aan de achterkant van je bovenarm, de triceps, trekt hem recht. Een spier kan alleen trekken, nooit duwen."
+  },
+  "q11": {
+   "q": "Na zes weken gips is Sams armspier dunner en zwakker. Hoe kan dat?",
+   "correct": 2,
+   "explain": "Een spier die je niet gebruikt, wordt kleiner. Gebruik en training maken hem weer groter en sterker."
+  }
+ },
+ "glossary": [
+  [
+   "skelet",
+   "Alle botten samen (ongeveer tweehonderd). Geeft vorm en stevigheid, beschermt (schedel, ribben) en maakt bewegen mogelijk."
+  ],
+  [
+   "beenmerg",
+   "Zacht weefsel binnenin sommige botten. Daar worden je bloedcellen gemaakt."
+  ],
+  [
+   "gewricht",
+   "De plek waar twee botten elkaar raken en kunnen bewegen, bijvoorbeeld een scharnier (elleboog, knie) of een kogel in een kom (schouder, heup)."
+  ],
+  [
+   "kraakbeen",
+   "Glad, stevig laagje op de uiteinden van de botten in een gewricht, zodat ze soepel langs elkaar glijden."
+  ],
+  [
+   "pees",
+   "Stevige band, als een touw, waarmee een spier aan een bot vastzit."
+  ],
+  [
+   "tegenwerkers",
+   "Twee spieren die elkaar tegenwerken: de een buigt, de ander strekt (biceps en triceps). Nodig omdat een spier alleen kan trekken."
+  ],
+  [
+   "hefboom",
+   "Je onderarm draait om de elleboog; de biceps zit er vlak bij vast. Een klein stukje korter geeft een grote beweging van je hand, maar kost veel kracht.",
+   true
+  ]
+ ],
+ "check": "check.html",
+ "docent": "docent.html",
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personage Sam uit het castboek. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · 20 oktober 2026."
+}

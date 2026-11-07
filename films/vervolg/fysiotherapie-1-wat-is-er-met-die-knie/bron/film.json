@@ -1,0 +1,84 @@
+{
+ "slug": "fysiotherapie-1-wat-is-er-met-die-knie",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Wat is er met die knie?",
+ "sub": "hoe een fysiotherapeut onderzoekt",
+ "puzzle": "Hoe weet een fysiotherapeut wat er kapot is, zonder in de knie te kijken?",
+ "meta": "fysiotherapie · onderzoek",
+ "alleen": "vwo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Fysiotherapie",
+ "lead": "Lotte draait bij het voetbal weg terwijl haar voet blijft staan. Een plop, en binnen een uur is haar knie dik. Fysiotherapeut Femke onderzoekt haar zonder scan: eerst het verhaal en de alarmsignalen, dan meten en testen, en steeds vergelijken met de gezonde knie. Een röntgenfoto laat alleen botten zien, en een gescheurde kruisband vraagt niet altijd een operatie.",
+ "endHaak": "welke blessure ken jij uit je eigen sport, en hoe zou een fysiotherapeut die onderzoeken?",
+ "minis": {
+  "Hoofdstuk 1": "Waarom begint Femke met praten?",
+  "Hoofdstuk 2": "Wat doet de voorste kruisband?",
+  "Hoofdstuk 3": "Waarom test ze ook de gezonde knie?",
+  "Hoofdstuk 4": "Wanneer is een foto zinvol?",
+  "Recap": "Welke vier stappen zette Femke?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Fysiotherapeut Femke, Lotte en Dr. Kim als huisarts (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Lotte komt zonder verwijzing. Wat doet Femke als eerste?",
+   "correct": 0,
+   "explain": "Ze laat Lotte vertellen wat er gebeurde (anamnese) en vraagt naar alarmsignalen: hoort deze klacht bij de fysiotherapeut of bij een arts?"
+  },
+  "q05": {
+   "q": "Wat zit er waarschijnlijk in een knie die binnen een uur opzwelt?",
+   "correct": 2,
+   "explain": "Bloed: er is iets gescheurd met bloedvaatjes erin. Een ontsteking komt pas na uren tot een dag op gang."
+  },
+  "q09": {
+   "q": "Waarom test Femke ook Lottes gezonde knie?",
+   "correct": 2,
+   "explain": "Sommige mensen hebben van nature soepele banden; pas het verschil met de gezonde kant zegt iets."
+  },
+  "q12": {
+   "q": "Moet Lotte met een gescheurde voorste kruisband geopereerd worden?",
+   "correct": 1,
+   "explain": "Niet per se. Met sterke spieren rond de knie kan het ook zonder; wie instabiel blijft of veel draaiende sport wil doen, kiest vaak alsnog voor een operatie."
+  }
+ },
+ "glossary": [
+  {
+   "t": "anamnese",
+   "d": "Het gesprek waarin een zorgverlener vraagt wat er gebeurde en welke klachten er zijn; vaak het belangrijkste deel van het onderzoek."
+  },
+  {
+   "t": "alarmsignalen",
+   "d": "Klachten die wijzen op iets ernstigs (zoals een infectie of breuk), waarvoor iemand naar een arts moet."
+  },
+  {
+   "t": "directe toegankelijkheid",
+   "d": "Je mag zonder verwijzing van de huisarts naar een fysiotherapeut; die screent dan eerst of de klacht bij hem of haar hoort."
+  },
+  {
+   "t": "kruisbanden",
+   "d": "Twee banden middenin de knie die schuin over elkaar lopen; de voorste voorkomt dat het scheenbeen naar voren schuift onder het dijbeen."
+  },
+  {
+   "t": "meniscus",
+   "d": "Halve maan van kraakbeen tussen dijbeen en scheenbeen; vangt schokken op. Alleen de buitenrand heeft bloedvaten, dus een scheur binnenin geneest slecht."
+  },
+  {
+   "t": "zijbanden",
+   "d": "Banden aan de binnen- en buitenkant van de knie die het gewricht opzij stevig houden."
+  },
+  {
+   "t": "hoekmeter",
+   "d": "Meetlat met twee armen waarmee je de bewegingsuitslag van een gewricht in graden meet."
+  },
+  {
+   "t": "kruisbandtest",
+   "d": "Test waarbij de fysiotherapeut het scheenbeen naar voren trekt bij een licht gebogen knie; een zachte stop wijst op een scheur (Lachmantest)."
+  },
+  {
+   "t": "röntgenfoto",
+   "d": "Foto met röntgenstraling waarop botten goed zichtbaar zijn, maar banden en kraakbeen niet."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Een fysiotherapeut ziet een patiënt zonder verwijzing. Waarom vraagt hij eerst naar alarmsignalen? Noem er twee voor een knie. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Hij moet eerst nagaan of de klacht bij hem hoort of dat iemand naar een arts moet (1p). Bijvoorbeeld koorts met een rode, warme knie (infectie), een knie die scheef staat of er helemaal niet op kunnen staan (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> De ene knie is binnen een uur dik, een andere pas de volgende dag. Wat zit er waarschijnlijk in elk van beide? Leg uit. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Binnen een uur: bloed, omdat er iets met bloedvaatjes is gescheurd, zoals de voorste kruisband (1p). Pas de volgende dag: vocht door een ontsteking, die pas na uren op gang komt (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Bij de kruisbandtest schuift het scheenbeen bij Lotte ver naar voren. Waarom is dat alleen geen bewijs voor een scheur, en wat doet de fysiotherapeut daarom? <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Sommige mensen hebben van nature soepele banden, en geen test is perfect (1p). Ze vergelijkt met de gezonde knie en combineert de test met het verhaal, de zwelling en andere testen (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Een scheur in de binnenkant van een meniscus geneest slechter dan een scheur aan de buitenrand. Verklaar dit. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Alleen de buitenrand heeft bloedvaten (1p). Zonder bloed komen er geen cellen, zuurstof en bouwstoffen voor de ontstekings- en opbouwfase van het herstel (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Extra film buiten het PTA op <i>Wat word jij?</i> → Fysiotherapie en bewegingswetenschappen. Bouwt voort op <i>Skelet en spieren</i> (onderbouw: gewricht, kraakbeen, banden), <i>Hoe weefsel herstelt</i> (kraakbeen en pees herstellen traag) en <i>Wat er in je bloed zit</i>. Fysiotherapeut Femke komt ook voor in <i>Hoe weefsel herstelt</i>, <i>Opnieuw leren bewegen</i>, <i>Trainen</i> en <i>Welke oefening helpt?</i>.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>Cold open en H1</b> het gesprek (anamnese) en alarmsignalen bij directe toegankelijkheid; snelle zwelling = bloed. <b>H2</b> de bouw van de knie, alleen wat nodig is voor de testen. <b>H3</b> bewegingsuitslag meten en de kruisbandtest; vergelijken met de gezonde kant, geen test is perfect. <b>H4</b> wanneer een röntgenfoto zinvol is (Ottawa-knieregels) en de keuze tussen trainen en opereren.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Zwelling</td><td>bloed binnen een uur tot enkele uren; ontstekingsvocht na uren tot een dag</td><td>KNGF-richtlijn Voorste kruisbandletsel; NHG-Standaard Traumatische knieklachten</td></tr>\n<tr><td>Kruisbandtest (Lachman)</td><td>vindt ± 85 van de 100 scheuren</td><td>Benjaminse e.a. 2006, J Orthop Sports Phys Ther 36(5)</td></tr>\n<tr><td>Buiging knie</td><td>gezond ± 140°</td><td>gangbare normwaarde (135–150°)</td></tr>\n<tr><td>Foto-regels</td><td>≥ 55 jaar, geen 4 stappen, niet tot 90° buigen, drukpijn kop kuitbeen of knieschijf</td><td>Ottawa knee rules (Stiell e.a. 1996), opgenomen in de NHG-Standaard</td></tr>\n<tr><td>Meisjes en kruisband</td><td>bij voetbal vaker dan bij jongens</td><td>o.a. Montalvo e.a. 2019, Br J Sports Med</td></tr>\n<tr><td>Trainen of opereren</td><td>lang niet iedereen heeft een operatie nodig; een deel kiest later alsnog</td><td>Frobell e.a. 2010, NEJM (KANON); Reijman e.a. 2021, BMJ (COMPARE)</td></tr>\n<tr><td>Opleiding</td><td>fysiotherapie hbo 4 jaar (o.a. HAN); bewegingswetenschappen wo</td><td>han.nl; studiekeuze123.nl</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul><li>De film noemt één kruisbandtest (Lachmantest); in de praktijk combineert een fysiotherapeut meer testen, ook voor meniscus en zijbanden.</li><li>De Ottawa-regels gelden voor een acuut letsel; in beeld vereenvoudigd tot 'een bepaald plekje bot'.</li><li>Bij een vermoeden van een kruisbandscheur verwijst de fysiotherapeut vaak naar huisarts of orthopeed; de keuze voor een operatie maakt de patiënt samen met de orthopeed.</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Laat leerlingen in tweetallen een anamnese oefenen bij een verzonnen blessure: welke vijf vragen stel je eerst?</li><li>Meet met een (zelfgemaakte) hoekmeter de buiging van elkaars knie en elleboog en vergelijk links en rechts.</li></ul>\n</section>\n"
+}

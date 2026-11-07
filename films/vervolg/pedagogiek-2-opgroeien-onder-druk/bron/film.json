@@ -1,0 +1,89 @@
+{
+ "slug": "pedagogiek-2-opgroeien-onder-druk",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Opgroeien onder druk",
+ "sub": "tegenslag, veerkracht en wat een pedagoog doet",
+ "puzzle": "Waarom groeien sommige kinderen uit een moeilijke thuissituatie toch goed op?",
+ "meta": "pedagogiek · jeugdzorg",
+ "alleen": "vwo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Pedagogiek",
+ "lead": "Op het eiland Kauai volgden onderzoekers bijna zevenhonderd kinderen tot hun veertigste. Een op de drie groeide op met veel tegenslag, en ook van hen werd een op de drie een stabiele, zorgzame volwassene. Ingrijpende jeugdervaringen vergroten het risico op problemen, maar bepalen de toekomst van één persoon niet. Veerkracht ontstaat vooral door minstens één vaste volwassene. Wie op school, in de zorg of in de jeugdhulp werkt, volgt bij zorgen de meldcode. En met videofeedback helpt een pedagoog ouders hun kind beter aan te voelen.",
+ "endHaak": "wie kan voor jou zo iemand zijn, en voor wie ben jij dat?",
+ "minis": {
+  "Hoofdstuk 1": "Wat doet tegenslag in je jeugd?",
+  "Hoofdstuk 2": "Wat beschermt een kind?",
+  "Hoofdstuk 3": "Wat doe je als je je zorgen maakt?",
+  "Hoofdstuk 4": "Hoe helpt een pedagoog ouders?",
+  "Recap": "Wat maakte op Kauai het verschil?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Dr. Kim en de baby (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Kauai: een op de drie kinderen groeide op met veel tegenslag. Hoe ging het later met hen?",
+   "correct": 1,
+   "explain": "Twee op de drie kregen al jong problemen, maar een op de drie werd een stabiele, zorgzame volwassene, en met veel anderen ging het later alsnog beter."
+  },
+  "q06": {
+   "q": "Iemand had als kind vier of meer ingrijpende ervaringen. Wat zegt dat over haar toekomst?",
+   "correct": 2,
+   "explain": "Haar kans op problemen is groter, maar niet zeker: het onderzoek gaat over groepen, en veel mensen met zo'n verleden doen het goed."
+  },
+  "q09": {
+   "q": "Wat beschermde de kinderen op Kauai die het goed deden het vaakst?",
+   "correct": 1,
+   "explain": "Minstens één vaste volwassene die om ze gaf; dat hoefde geen ouder te zijn."
+  },
+  "q12": {
+   "q": "Een leraar ziet blauwe plekken en een leerling die bang is om naar huis te gaan. Wat doet hij volgens de meldcode eerst?",
+   "correct": 2,
+   "explain": "Eerst vastleggen wat hij ziet. Daarna overleggen, een gesprek, afwegen en beslissen."
+  },
+  "q16": {
+   "q": "Waarom laat de pedagoog bij videofeedback vooral de goede momenten zien?",
+   "correct": 0,
+   "explain": "Zodat de ouder ziet wat al werkt en dat vaker gaat doen; dat werkt beter dan een lijst met fouten."
+  }
+ },
+ "glossary": [
+  {
+   "t": "Kauai-onderzoek",
+   "d": "Onderzoek dat bijna 700 kinderen op het eiland Kauai (geboren in 1955) tot hun 40e volgde; ook veel kinderen met veel tegenslag groeiden goed op."
+  },
+  {
+   "t": "ingrijpende jeugdervaringen",
+   "d": "Ervaringen zoals mishandeling, verwaarlozing, geweld of verslaving in huis (ACE's); hoe meer, hoe groter in een groep de kans op problemen later."
+  },
+  {
+   "t": "risicofactor",
+   "d": "Iets wat de kans op problemen in een groep groter maakt, maar niets zeker voorspelt voor één persoon."
+  },
+  {
+   "t": "veerkracht",
+   "d": "Goed opgroeien ondanks tegenslag; ontstaat vooral in relaties, zoals met een vaste volwassene."
+  },
+  {
+   "t": "beschermende factor",
+   "d": "Iets wat helpt om ondanks tegenslag goed op te groeien, zoals een vaste volwassene of iets waar je goed in bent."
+  },
+  {
+   "t": "meldcode",
+   "d": "Stappenplan bij zorgen over huiselijk geweld of kindermishandeling: vastleggen, overleggen, gesprek, afwegen, beslissen over melden en hulp."
+  },
+  {
+   "t": "Veilig Thuis",
+   "d": "Advies- en meldpunt voor huiselijk geweld en kindermishandeling (0800-2000)."
+  },
+  {
+   "t": "videofeedback",
+   "d": "Methode waarbij een pedagoog ouder en kind filmt en samen met de ouder vooral de goede momenten terugkijkt."
+  },
+  {
+   "t": "pedagoog",
+   "d": "Deskundige in opvoeden en opgroeien; werkt bijvoorbeeld in de jeugdhulp, op scholen, bij Veilig Thuis of in onderzoek."
+  }
+ ],
+ "sections": "<section id=\"hulp\"><h2>Zit je zelf in zo'n situatie?</h2>\n<p>Mishandeling of verwaarlozing is nooit de schuld van een kind. Praat met iemand die je vertrouwt, zoals een leraar, mentor of de vertrouwenspersoon op school. Je kunt ook gratis en anoniem bellen of chatten met de <a href=\"https://www.kindertelefoon.nl\" rel=\"noopener\">Kindertelefoon</a> (0800-0432, 8 tot 18 jaar). Voor advies of een melding: <a href=\"https://veiligthuis.nl\" rel=\"noopener\">Veilig Thuis</a> (0800-2000). Bij direct gevaar: bel 112.</p>\n</section>\n<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> In het Kauai-onderzoek groeide een op de drie kinderen met veel tegenslag toch goed op. Noem twee dingen die deze kinderen beschermden. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Bijvoorbeeld: minstens één vaste, zorgzame volwassene (hoeft geen ouder te zijn: oma, leraar, buurman); iets waar het kind goed in was; het gevoel zelf invloed te hebben; een makkelijk temperament of goede gezondheid (per factor 1p, max 2).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Iemand had als kind vier of meer ingrijpende ervaringen. Een klasgenoot zegt: 'Dan krijgt hij later zeker problemen.' Leg uit wat er niet klopt. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Het ACE-onderzoek gaat over groepen: in de groep met vier of meer ervaringen komen problemen vaker voor (1p). Voor één persoon zegt het niets zeker; veel mensen met zo'n verleden hebben een goed leven, bijvoorbeeld door beschermende factoren (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Een leraar maakt zich zorgen over een leerling. Beschrijf de stappen van de meldcode in de juiste volgorde. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>1 signalen vastleggen; 2 overleggen met een collega en zo nodig advies vragen aan Veilig Thuis; 3 gesprek met ouders en (als het kan) het kind; 4 afwegen hoe ernstig het is (afwegingskader); 5 beslissen: is melden bij Veilig Thuis nodig, en is hulp (ook) mogelijk (alle vijf goed 3p; vier 2p; drie 1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Leg uit waarom een pedagoog bij videofeedback vooral de goede momenten laat zien, en wat dat te maken heeft met veerkracht. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>De ouder ziet wat al werkt (een signaal van het kind oppikken en hoe het kind reageert) en gaat dat vaker doen; dat werkt beter dan fouten opsommen (1p). Zo wordt de ouder een betere vaste, sensitieve volwassene, en dat is precies wat veerkracht beschermt (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Extra film buiten het PTA op <i>Wat word jij?</i> → Pedagogiek. Bouwt voort op <i>Stress</i> (HPA-as), <i>Hechting</i> en <i>Emotieregulatie</i>. Geen castkind als slachtoffer: tegenslag en mishandeling alleen in groepen en schema's. Dr. Kim is hier pedagoog.</p>\n<h3>Let op bij gebruik in de klas</h3>\n<p>Dit onderwerp kan dichtbij komen voor leerlingen die het zelf meemaken. Kondig de film aan, wijs op de hulpnummers bovenaan deze pagina en op de vertrouwenspersoon of aandachtsfunctionaris van de school, en volg zelf de meldcode van je school als een leerling iets vertelt.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>Cold open en H1</b> Kauai (Werner &amp; Smith), het ACE-onderzoek (groep versus individu). <b>H2</b> veerkracht: de vaste volwassene, andere beschermende factoren. <b>H3</b> prevalentie, de meldcode met afwegingskader. <b>H4</b> videofeedback (VIPP, Leiden).</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Kauai</td><td>698 kinderen, geboren 1955; ± 1/3 hoog risico (201); daarvan ± 1/3 (72) competente volwassene; later herstel bij velen</td><td>Werner 1993, Development and Psychopathology 5; Werner &amp; Smith 2001</td></tr>\n<tr><td>ACE-onderzoek</td><td>ruim 17.000 volwassenen (twee rondes; artikel 1998: 9.508); bij ≥ 4 ervaringen depressie en verslaving 4–7 × zo vaak</td><td>Felitti e.a. 1998, Am J Prev Med 14</td></tr>\n<tr><td>Kindermishandeling NL</td><td>± 3 op 100 kinderen per jaar (26–37 per 1000)</td><td>NPM-2017, Universiteit Leiden (2019)</td></tr>\n<tr><td>Meldcode</td><td>vijf stappen, sinds 2019 met afwegingskader; verplicht voor organisaties in onderwijs, zorg, kinderopvang, jeugdhulp, maatschappelijke ondersteuning, sport en justitie</td><td>Wet verplichte meldcode; basismodel meldcode 2019</td></tr>\n<tr><td>VIPP</td><td>12 RCT's; gemiddeld effect op sensitiviteit (d ≈ 0,47)</td><td>Juffer, Bakermans-Kranenburg &amp; Van IJzendoorn 2017</td></tr>\n</table>\n<h3>Lessuggesties</h3>\n<ul><li>Laat leerlingen per beschermende factor uit Kauai een voorbeeld bedenken van wat een school of buurt kan doen.</li><li>Bespreek met de casus uit H3 waarom de meldcode eerst vastleggen en overleggen vraagt, en niet meteen ingrijpen.</li></ul>\n</section>\n"
+}

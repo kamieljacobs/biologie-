@@ -1,0 +1,80 @@
+[
+ {
+  "obj": "lacOperon",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 2,
+    "stijl": 2,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 14
+   },
+   "Z": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 19
+   }
+  },
+  "winnaar": "X",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "lacI-balk heeft hetzelfde grijsblauw als de RNA-polymerase; in stand 1 overlappen polymerase en repressor zodat je even moet zoeken wie waar zit",
+   "Y": "lintmodel-eiwitten (Kamiel koos kralenketen), alles paars, genvakken in dezelfde tint: niet in twee seconden te lezen",
+   "Z": "ladder met sporten over de hele lengte is drukker; klein worden de genvakken één grijsgroene streep"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "methylgroep",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 2,
+    "stijl": 2,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 15
+   },
+   "Y": {
+    "klopt": 5,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   },
+   "Z": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 5,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 22
+   }
+  },
+  "winnaar": "Z",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "alles paars in vergelijkbare tinten, veel basen; de CH3 is een klein bolletje tussen de letters, geen gen-aan/uit te zien",
+   "Y": "veel herhaalde CG-paren en lege sporten; drukker dan nodig om het ene punt te maken",
+   "Z": "maar één CG-paar en geen markering dat dit stuk de promotor is"
+  },
+  "overnemen": "de gouden promotorhaak onder het DNA uit Y, zodat zichtbaar is dat de CH3 in de promotor zit",
+  "combineren": true,
+  "fout": ""
+ }
+]

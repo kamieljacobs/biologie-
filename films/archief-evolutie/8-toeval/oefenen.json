@@ -1,0 +1,129 @@
+{
+ "intro": "Oefen met toeval in populaties en met Hardy-Weinberg. Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "indelen-drift-selectie",
+   "soort": "indelen",
+   "titel": "Drift of selectie?",
+   "opdracht": "Verandert de allelfrequentie door toeval (genetische drift) of doordat een variant beter past (selectie)?",
+   "bakken": [
+    {"naam": "Genetische drift", "uitleg": "toeval bij het doorgeven"},
+    {"naam": "Selectie", "uitleg": "wie beter past, krijgt meer nakomelingen"}
+   ],
+   "kaartjes": [
+    {"tekst": "Op Pingelap ziet één op de twintig mensen geen kleuren, na een tyfoon met twintig overlevenden.", "bak": 0, "uitleg": "Het allel geeft geen voordeel. Een flessenhals en toeval deden het werk."},
+    {"tekst": "In een populatie van twintig verdwijnt allel a na 60 generaties, terwijl A en a even goed zijn.", "bak": 0, "uitleg": "Zonder selectie eindigt p in kleine populaties vaak op 0 of 1."},
+    {"tekst": "Na de droogte op Daphne Major hebben de overlevers diepere snavels.", "bak": 1, "uitleg": "Alleen een diepe snavel kraakt de harde zaden."},
+    {"tekst": "Een paar dieren stichten een populatie op een leeg eiland, met toevallig veel van één allel.", "bak": 0, "uitleg": "Het stichtereffect: de stichters zijn een toevallige steekproef."},
+    {"tekst": "Een antibioticum maakt resistente bacteriën steeds algemener.", "bak": 1, "uitleg": "Resistentie geeft een voordeel in deze omgeving."},
+    {"tekst": "Jachtluipaarden hebben bijna geen genetische variatie meer.", "bak": 0, "uitleg": "Door een flessenhals gingen zeldzame allelen verloren."},
+    {"tekst": "Pauwen met een langere staart krijgen meer partners.", "bak": 1, "uitleg": "Seksuele selectie: de staart levert meer nakomelingen op."},
+    {"tekst": "In een populatie van 2000 dieren beweegt p nauwelijks, zonder voordeel voor A of a.", "bak": 0, "uitleg": "Drift werkt altijd, maar in een grote populatie middelt het toeval uit."}
+   ]
+  },
+  {
+   "id": "pijlen-flessenhals",
+   "soort": "pijlen",
+   "titel": "Door de flessenhals",
+   "opdracht": "Voorspel wat er verandert door de flessenhals.",
+   "situatie": "Een populatie van 2000 dieren krimpt door een storm ineens tot 20 dieren. Daarna groeit ze weer aan.",
+   "rijen": [
+    {"naam": "Aantal verschillende allelen van een gen", "antwoord": "-", "uitleg": "Zeldzame allelen komen de flessenhals vaak niet door. In de simulatie bleven er van tien maar vier over."},
+    {"naam": "Invloed van toeval op p in de volgende generaties", "antwoord": "+", "uitleg": "Hoe kleiner de populatie, hoe harder de drift."},
+    {"naam": "Kans dat een zeldzaam allel uit een overlevende drager algemeen wordt", "antwoord": "+", "uitleg": "Eén drager op twintig is al 1 op 40 allelen. Op Pingelap werd zo'n allel heel algemeen."},
+    {"naam": "Mogelijkheden voor selectie als de omgeving later verandert", "antwoord": "-", "uitleg": "Weinig variatie betekent weinig om op te selecteren."}
+   ]
+  },
+  {
+   "id": "puzzel-rood-haar",
+   "soort": "puzzel",
+   "vwo": true,
+   "titel": "Puzzel: hoeveel dragers?",
+   "opdracht": "Rood haar is recessief (aa). In een bevolking heeft 4% rood haar. Neem aan dat de populatie in Hardy-Weinberg-evenwicht is.",
+   "stappen": [
+    {
+     "vraag": "Wat is q²?",
+     "velden": [{"label": "q² =", "antwoord": 0.04, "marge": 0.001}],
+     "uitleg": "Mensen met rood haar zijn aa. Hun aandeel is q²: 4% = 0,04."
+    },
+    {
+     "vraag": "Wat is q?",
+     "velden": [{"label": "q =", "antwoord": 0.2, "marge": 0.001}],
+     "uitleg": "q is de wortel van 0,04: 0,2.",
+     "tip": "Neem de wortel."
+    },
+    {
+     "vraag": "Wat is p?",
+     "velden": [{"label": "p =", "antwoord": 0.8, "marge": 0.001}],
+     "uitleg": "p + q = 1, dus p = 1 − 0,2 = 0,8."
+    },
+    {
+     "vraag": "Welk deel van de bevolking is drager (Aa)?",
+     "velden": [{"label": "2pq =", "antwoord": 0.32, "marge": 0.005}],
+     "uitleg": "2 × 0,8 × 0,2 = 0,32. Een derde van de bevolking draagt een allel dat je bij maar 4% ziet."
+    },
+    {
+     "vraag": "Welk deel van de mensen zónder rood haar is drager?",
+     "velden": [{"label": "deel:", "antwoord": 0.333, "marge": 0.005}],
+     "uitleg": "Nu tellen de aa-mensen niet mee. Deel 2pq door p² + 2pq: 0,32 / 0,96 = 0,33. Hier gaat het op het examen vaak mis.",
+     "tip": "Mensen zonder rood haar zijn AA of Aa: p² + 2pq."
+    }
+   ]
+  },
+  {
+   "id": "puzzel-pingelap",
+   "soort": "puzzel",
+   "vwo": true,
+   "titel": "Puzzel: kleurenblind op Pingelap",
+   "opdracht": "Op Pingelap ziet één op de twintig mensen geen kleuren. Dat komt door een recessief allel: wie er twee van heeft (aa), ziet geen kleuren. Neem aan dat de populatie nu in Hardy-Weinberg-evenwicht is.",
+   "stappen": [
+    {
+     "vraag": "Wat is q²?",
+     "velden": [{"label": "q² =", "antwoord": 0.05, "marge": 0.001}],
+     "uitleg": "Eén op de twintig is 1/20 = 0,05."
+    },
+    {
+     "vraag": "Wat is q? Rond af op twee decimalen.",
+     "velden": [{"label": "q =", "antwoord": 0.22, "marge": 0.01}],
+     "uitleg": "De wortel van 0,05 is ongeveer 0,22."
+    },
+    {
+     "vraag": "Welk deel van de bevolking is drager (Aa)? Rond af op twee decimalen.",
+     "velden": [{"label": "2pq =", "antwoord": 0.35, "marge": 0.01}],
+     "uitleg": "p = 1 − 0,22 = 0,78. 2 × 0,78 × 0,22 ≈ 0,34 à 0,35: ruim een derde.",
+     "tip": "Bereken eerst p."
+    },
+    {
+     "vraag": "Na de tyfoon droeg één van de twintig overlevenden één allel a. Hoe groot was q op dat moment?",
+     "velden": [{"label": "q =", "antwoord": 0.025, "marge": 0.001}],
+     "uitleg": "Twintig mensen hebben 40 allelen. Eén daarvan is a: 1/40 = 0,025, ofwel 2,5%."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-meetlat",
+   "soort": "uitleg",
+   "vwo": true,
+   "titel": "Hardy-Weinberg als meetlat",
+   "opdracht": "Hardy-Weinberg zegt: als er niets gebeurt, verandert er niets. Toch is het nuttig. Leg uit hoe je Hardy-Weinberg gebruikt om te zien of er in een populatie iets werkt.",
+   "begrippen": [
+    {"naam": "Hardy-Weinberg", "varianten": ["evenwicht"]},
+    {"naam": "p²", "varianten": ["p-kwadraat", "p kwadraat", "2pq", "q²"]},
+    {"naam": "verwacht", "varianten": ["verwachte", "voorspelt"]},
+    {"naam": "selectie", "varianten": []},
+    {"naam": "drift", "varianten": ["genetische drift", "migratie", "inteelt"]}
+   ],
+   "checklist": [
+    "Ik noem de voorwaarden: geen selectie, drift, migratie of mutatie, en willekeurig paren.",
+    "Ik leg uit dat je dan de genotypen p², 2pq en q² verwacht.",
+    "Ik leg uit dat je getelde aantallen naast de verwachte zet: wijken ze sterk af, dan is aan een voorwaarde niet voldaan.",
+    "Ik geef een voorbeeld, zoals inteelt: meer homozygoten en minder heterozygoten, terwijl p en q gelijk blijven."
+   ],
+   "model": [
+    "Hardy-Weinberg beschrijft wat je verwacht als er niets gebeurt: geen selectie, geen drift, geen migratie, geen mutatie, en iedereen paart willekeurig. Dan zijn de genotypen AA : Aa : aa = p² : 2pq : q², en blijft p gelijk.",
+    "In de natuur gebeurt er altijd iets. Daarom gebruik je het als meetlat. Je telt de genotypen in een echte populatie en zet ze naast de verwachte aantallen. Wijkt het sterk af, dan werkt er iets: selectie, drift, migratie of niet-willekeurig paren.",
+    "Bij inteelt paren verwanten met elkaar. Dan tel je meer homozygoten en minder heterozygoten dan Hardy-Weinberg voorspelt, terwijl p en q gelijk blijven."
+   ]
+  }
+ ]
+}

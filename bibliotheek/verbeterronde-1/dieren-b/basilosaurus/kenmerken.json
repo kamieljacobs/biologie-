@@ -1,0 +1,44 @@
+{
+ "A": {
+  "detail": "midden",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "in-omgeving",
+  "beweging": "standen",
+  "opbouw": "in-een-keer",
+  "referentie": "elevenlabs",
+  "vondst": "ingebouwde gouden vergrotingscirkel naar het pootje"
+ },
+ "oud": {
+  "detail": "midden",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "los",
+  "beweging": "standen",
+  "opbouw": "in-een-keer",
+  "referentie": "elevenlabs",
+  "vondst": "pootje alleen zichtbaar bij inzoomen"
+ },
+ "C": {
+  "detail": "midden",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "in-omgeving",
+  "beweging": "standen",
+  "opbouw": "in-een-keer",
+  "referentie": "bron",
+  "vondst": "echt pootje met knie en teentjes in de zoomcirkel"
+ }
+}

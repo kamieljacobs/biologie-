@@ -1,0 +1,29 @@
+{
+ "datum": "2026-10-31",
+ "flow": "fN9LrJIuAX3Wc61l6YcU",
+ "model": "eleven_v4",
+ "voice_id": "7qdUFMklKPaaAVMsBTBt",
+ "werkwijze": "alleen de gewijzigde zin ingesproken (één take), stilte eraf, luidheid gelijk aan de omringende take (volume + limiter), ingeplakt in de stiltes tussen de zinnen; woordtijden nieuw stuk met silalign (films/dna/1-wat-is-dna/bron/bouw/silalign.py), rest verschoven; oude takes (eleven_v3) in bron/oud/audio-1.4/; wacht op de luisterpagina 'Luistertest DNA 7 en 8' (https://claude.ai/artifact/3BAQPn4wVLZiKFxxdvjFWA, collectie keuzes)",
+ "takes": {
+  "n3": {
+   "invoer": "Niet je hele genoom, maar een paar honderdduizend plekken waar één base kan verschillen tussen mensen.",
+   "was": "Niet je hele genoom, maar een paar honderdduizend plekken waar mensen verschillen: de SNP's uit aflevering zeven.",
+   "node": "CaYWR8jTLtc3z27uypaj",
+   "gen": "ReN03Z2bpedL4YmyjWQ3",
+   "credits": 102,
+   "plak": "oud 0-16,55 s + 0,15 s + nieuw 5,72 s + 0,15 s + oud vanaf 23,95 s ('Afkomst ...')",
+   "luister": "dna8-n3-luister.mp3",
+   "reden": "SNP's staan in DNA 7 alleen in een vwo-blok"
+  },
+  "n5": {
+   "invoer": "Dat kan het delen met onderzoekers, of failliet gaan en zijn databank verkopen; dat gebeurde in het jaar 2025.",
+   "was": "... dat gebeurde in tweeduizend vijfentwintig.",
+   "node": "zvWf0DSAJQcIRpsaFytR",
+   "gen": "WJaBGDUTDq5N413zOGpm",
+   "credits": 110,
+   "plak": "oud 0-34,75 s + 0,10 s + nieuw 7,60 s + 0,12 s + oud vanaf 42,80 s ('En in sommige landen ...')",
+   "luister": "dna8-n5-luister.mp3",
+   "reden": "afspraak jaartallen: cijfers met 'het jaar' ervoor"
+  }
+ }
+}

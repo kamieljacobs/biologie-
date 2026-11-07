@@ -1,0 +1,1 @@
+- Geen nieuwe bron geopend; pasmaat en buiging zijn een visuele keuze op de bestaande stapcurven (lessen_pop_honden.md). Verschil met de oude versie is klein.

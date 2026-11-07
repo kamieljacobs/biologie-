@@ -1,0 +1,44 @@
+{
+ "oud": {
+  "detail": "midden",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "los",
+  "beweging": "idle",
+  "opbouw": "in-een-keer",
+  "referentie": "geen",
+  "vondst": "staart zwiept, poten als klodders"
+ },
+ "A": {
+  "detail": "midden",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "los",
+  "beweging": "standen",
+  "opbouw": "in-een-keer",
+  "referentie": "geen",
+  "vondst": "bovenkaak als eigen vlak, poten met knie en tenen"
+ },
+ "C": {
+  "detail": "midden",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "geen",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "los",
+  "beweging": "standen",
+  "opbouw": "in-een-keer",
+  "referentie": "bron",
+  "vondst": "gespreide poten met elleboog op buikhoogte bij liggen; high walk meer onder het lijf"
+ }
+}

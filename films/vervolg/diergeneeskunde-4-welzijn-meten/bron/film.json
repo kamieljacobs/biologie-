@@ -1,0 +1,74 @@
+{
+ "slug": "diergeneeskunde-4-welzijn-meten",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Welzijn meten",
+ "sub": "hoe gaat het met dit dier?",
+ "puzzle": "Een varken bijt in de staart van een ander. Wat zegt dat over hoe het met hem gaat?",
+ "meta": "diergeneeskunde · dierhouderij · dierenwelzijn",
+ "alleen": "vwo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Diergeneeskunde",
+ "lead": "Een varken bijt in de staart van een ander. Dat is geen agressief varken, maar een alarmsignaal: varkens willen wroeten en kauwen, en vinden ze daarvoor niets, dan richten ze het op elkaar. Welzijn ging lang over de vijf vrijheden; nu kijken onderzoekers ook naar hoe een dier zich voelt. Je meet het met stereotiep gedrag, cortisol en metingen aan het dier zelf, zoals kreupelheid en vluchtafstand. En dierenarts en veehouder verbeteren het samen, met een gezondheidsplan.",
+ "endHaak": "aan welk signaal zou jij zien dat het met je eigen huisdier niet goed gaat?",
+ "minis": {
+  "Hoofdstuk 1": "Wat is welzijn?",
+  "Hoofdstuk 2": "Welke signalen kun je meten?",
+  "Hoofdstuk 3": "Kijk je naar de stal of naar het dier?",
+  "Hoofdstuk 4": "Wat doen dierenarts en veehouder samen?",
+  "Recap": "Wat was het bijtende varken?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Dierenarts Mila en Lotte (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Een varken bijt in de staart van een ander. Wat zegt staartbijten vooral?",
+   "correct": 2,
+   "explain": "Dat er iets mis is in hoe de varkens worden gehouden: zonder iets om op te wroeten en kauwen richten ze dat gedrag op elkaar."
+  },
+  "q09": {
+   "q": "Mila vergelijkt een nieuwe en een oude stal. Waar kijkt ze vooral naar?",
+   "correct": 1,
+   "explain": "Naar de dieren zelf: kreupelheid, huid en hakken, lichaamsconditie en hoe ze op een mens reageren. Een mooie stal zegt nog niet hoe het dier zich voelt."
+  }
+ },
+ "glossary": [
+  {
+   "t": "dierenwelzijn",
+   "d": "Hoe het met een dier gaat, lichamelijk en in hoe het zich voelt; niet alleen de afwezigheid van honger, pijn en angst."
+  },
+  {
+   "t": "vijf vrijheden",
+   "d": "Vrij van honger en dorst, van ongemak, van pijn en ziekte, van angst en stress, en vrij om natuurlijk gedrag te vertonen."
+  },
+  {
+   "t": "vijf domeinen",
+   "d": "Model waarin voeding, omgeving, gezondheid en gedrag samen de mentale toestand van een dier bepalen, met ook positieve ervaringen."
+  },
+  {
+   "t": "staartbijten",
+   "d": "Varkens die in elkaars staart bijten; een signaal van een tekort in de omgeving, zoals niets om op te wroeten, weinig ruimte of slechte lucht."
+  },
+  {
+   "t": "stereotiep gedrag",
+   "d": "Steeds precies hetzelfde gedrag zonder duidelijk doel, zoals kribbebijten bij paarden of tongrollen bij kalveren; vaak een teken van een langdurig tekort."
+  },
+  {
+   "t": "cortisol",
+   "d": "Stresshormoon dat je bij dieren kunt meten in speeksel, mest en haar; stijgt ook bij opwinding en inspanning, dus nooit het enige signaal."
+  },
+  {
+   "t": "diergerichte meting",
+   "d": "Meting aan het dier zelf, zoals kreupelheid, wonden, lichaamsconditie en vluchtafstand, in plaats van aan de stal."
+  },
+  {
+   "t": "couperen",
+   "d": "Een stuk van de staart van biggen verwijderen om staartbijten te voorkomen; volgens EU-regels niet als vaste gewoonte toegestaan."
+  },
+  {
+   "t": "bedrijfsgezondheidsplan",
+   "d": "Plan dat dierenarts en veehouder samen maken en geregeld bijwerken, met afspraken over gezondheid en welzijn op het bedrijf."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Een veehouder zegt: 'Dat bijtende varken haal ik eruit, dan is het probleem weg.' Reageer als dierenarts. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Staartbijten is een signaal dat de omgeving tekortschiet, niet een eigenschap van één varken (1p). Zolang er niets om op te wroeten en kauwen is (of te weinig ruimte, slechte lucht), begint een ander varken (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Wat is het verschil tussen de vijf vrijheden en de manier waarop onderzoekers nu naar welzijn kijken? <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>De vijf vrijheden zeggen vooral wat een dier níet moet hebben (honger, pijn, angst …) (1p). Nu kijkt men ook naar positieve ervaringen en naar hoe het dier zich voelt (mentale toestand, vijf domeinen) (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Een onderzoeker meet bij een groep paarden een hoge cortisolwaarde en concludeert: deze paarden hebben het slecht. Geef kritiek. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Cortisol stijgt ook bij opwinding en inspanning, zoals paren of werk (1p). Je moet het combineren met andere signalen, zoals stereotiep gedrag of diergerichte metingen (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Waarom geven metingen aan het dier zelf een beter beeld van welzijn dan metingen aan de stal? Noem ook twee voorbeelden. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Een stal zegt alleen wat het dier krijgt, niet hoe het daarop reageert; ook management en omgang tellen mee (1p). Voorbeelden: kreupelheidsscore, wonden of kale plekken op de hakken, lichaamsconditie, vluchtafstand (2p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Extra film buiten het PTA op <i>Wat word jij?</i>, gedeeld door Diergeneeskunde en Landbouw en dierhouderij. Bouwt voort op <i>Waarom doet een dier wat het doet?</i>, <i>Stress</i> (cortisol) en <i>Slimme dieren</i>. Dierenarts Mila (castboek) en stagiaire Lotte zijn de rode draad.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>Cold open en H1</b> staartbijten als signaal; de vijf vrijheden en het bredere idee van de vijf domeinen. <b>H2</b> stereotiep gedrag en cortisol, met de beperking van cortisol. <b>H3</b> diergerichte metingen zoals in het Welfare Quality-protocol voor melkvee. <b>H4</b> bedrijfsbezoek en gezondheidsplan; couperen als voorbeeld van een dilemma.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Vijf vrijheden</td><td>vrij van honger en dorst, ongemak, pijn en ziekte, angst en stress; vrij om natuurlijk gedrag te vertonen</td><td>Farm Animal Welfare Council (1979), Brambell-rapport (1965)</td></tr>\n<tr><td>Vijf domeinen</td><td>voeding, omgeving, gezondheid, gedrag → mentale toestand</td><td>Mellor e.a. 2020, Animals 10</td></tr>\n<tr><td>Diergerichte metingen</td><td>kreupelheid, hakletsels, lichaamsconditie, vermijdingsafstand</td><td>Welfare Quality assessment protocol for cattle (2009)</td></tr>\n<tr><td>Couperen</td><td>bij ± 99 % van de Nederlandse biggen, meestal met een hete tang; routinematig couperen niet toegestaan</td><td>EU-richtlijn 2008/120/EG; Kamerstukken 28286; Varkens in Nood 2025</td></tr>\n<tr><td>Cortisol</td><td>meetbaar in speeksel, mest en haar; stijgt ook bij opwinding en inspanning</td><td>Physiological Society, 'Cortisol often not the best indicator of stress'</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul><li>Het model van de vijf domeinen wordt in de film niet bij naam genoemd; alleen het idee dat voeding, omgeving, gezondheid en gedrag samen bepalen hoe een dier zich voelt.</li><li>De meetmethoden in H3 zijn vereenvoudigd uit het Welfare Quality-protocol; daar horen per diersoort nog meer metingen bij.</li><li>Het Nederlandse beleid rond couperen verandert; zoek voor de les de actuele stand op.</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Laat leerlingen een eigen 'welzijnsmeting' ontwerpen voor een huisdier of een dier op een kinderboerderij: welke signalen kijk je naar, en welke bij het dier zelf?</li><li>Debat: moet couperen meteen worden verboden? Laat leerlingen de rol nemen van dierenarts, varkenshouder, consument en overheid.</li></ul>\n</section>\n"
+}

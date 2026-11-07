@@ -1,0 +1,1 @@
+Keuzeblad 'Regeling: jouw keuzes' (29 okt 2026): https://claude.ai/artifact/1AwKuLaFUeSsEF2xypEnQG, db-collectie keuze (doc-id = item-id, velden antwoord, opmerking). Lees die na Kamiels invullen en voer zijn keuzes uit (zie OVERDRACHT-REGELING.md).

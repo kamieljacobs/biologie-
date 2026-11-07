@@ -1,0 +1,84 @@
+{
+ "slug": "mbrt-1-in-het-lichaam-kijken",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "In het lichaam kijken",
+ "sub": "röntgen, MRI, echo en CT",
+ "puzzle": "Waarom zie je een botbreuk op een röntgenfoto, en een gescheurde kruisband niet?",
+ "meta": "medische beeldvorming · hbo",
+ "alleen": "vwo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Medische beeldvorming (MBRT)",
+ "lead": "Opa Henk valt van een ladder; Lotte scheurt haar kruisband. Op een röntgenfoto zie je wat straling tegenhoudt: bot wel, een band niet. Een MRI gebruikt geen röntgenstraling maar een sterke magneet, en meet het signaal van waterstof: zo zie je banden en vocht. Een echo meet teruggekaatst geluid: vocht is zwart, en achter lucht en bot zie je niets. Een CT maakt met röntgenstraling plakjes van je lichaam. Die lees je als een radioloog: vanaf de voeten, dus rechts van de patiënt staat links in beeld.",
+ "endHaak": "welk apparaat zou jij kiezen voor een hersenschudding, een zwangerschap of een longontsteking?",
+ "minis": {
+  "Hoofdstuk 1 — Röntgen: wat houdt de straling tegen?": "Waarom is bot wit op een röntgenfoto?",
+  "Hoofdstuk 2 — MRI: luisteren naar waterstof": "Wat meet een MRI eigenlijk?",
+  "Hoofdstuk 3 — Echo: geluid dat terugkaatst": "Waarom is vocht zwart op een echo?",
+  "Hoofdstuk 4 — CT: het lichaam in plakjes": "Waarom staat de lever links op het scherm?",
+  "Recap": "Welk apparaat kies je waarvoor?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Dr. Kim, Opa Henk, Noor en Lotte (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Waarom zie je een botbreuk wel op een röntgenfoto, en een gescheurde kruisband niet?",
+   "correct": 0,
+   "explain": "Bot zit vol kalk en houdt veel straling tegen: het wordt wit. Een band houdt ongeveer even veel tegen als de spieren eromheen, dus hij valt weg in hetzelfde grijs."
+  },
+  "q06": {
+   "q": "Op de MRI van Lottes knie zit een lichte vlek in de onderbroken kruisband. Waardoor is die licht?",
+   "correct": 2,
+   "explain": "Na een scheur loopt er vocht en bloed in het weefsel. Daarin zit veel vrij water met veel waterstof, en dat geeft veel signaal."
+  },
+  "q09": {
+   "q": "Als er bloed in Henks buik zit, hoe ziet Dr. Kim dat op de echo?",
+   "correct": 1,
+   "explain": "Bloed is vocht. In vocht zitten bijna geen grenzen, dus er kaatst weinig geluid terug: vocht is zwart, ook tussen de grijze lever en de milt."
+  },
+  "q12": {
+   "q": "De lever ligt rechts in je buik, maar staat links op het CT-scherm. Hoe kan dat?",
+   "correct": 1,
+   "explain": "Een plak bekijk je alsof je bij de voeten van de patiënt staat, met de buik boven. Zijn rechterkant staat dan links in beeld."
+  }
+ },
+ "glossary": [
+  {
+   "t": "röntgenstraling",
+   "d": "Straling die door je lichaam gaat; bot houdt veel tegen (wit), lucht bijna niets (zwart), spier, vet en banden zitten ertussen (grijs)."
+  },
+  {
+   "t": "röntgenfoto",
+   "d": "Eén opname waarop alles wat achter elkaar ligt over elkaar heen valt; goed voor bot en longen, niet voor banden."
+  },
+  {
+   "t": "CT-scan",
+   "d": "Röntgenbuis die rond de patiënt draait; een computer rekent uit duizenden metingen plakjes (doorsneden) uit. Meer straling dan een foto."
+  },
+  {
+   "t": "MRI",
+   "d": "Beeld uit het radiosignaal van waterstofkernen in een sterk magneetveld, na een korte radiogolf; zonder röntgenstraling. Goed voor banden, kraakbeen, hersenen en vocht."
+  },
+  {
+   "t": "echo (echografie)",
+   "d": "Hoog geluid dat bij grenzen tussen weefsels terugkaatst; de tijd tot de echo bepaalt de diepte. Vocht is zwart; achter lucht en bot zie je niets."
+  },
+  {
+   "t": "stralingsdosis",
+   "d": "Hoeveel straling je lichaam opneemt (in millisievert); een longfoto is ongeveer een week van de straling die altijd om je heen is."
+  },
+  {
+   "t": "doorsnede (plak)",
+   "d": "Beeld van één dun plakje van het lichaam; je kijkt vanaf de voeten, dus rechts van de patiënt staat links in beeld."
+  },
+  {
+   "t": "radioloog",
+   "d": "Medisch specialist die beelden beoordeelt en sommige ingrepen onder beeld doet; na geneeskunde vijf jaar opleiding."
+  },
+  {
+   "t": "MBRT",
+   "d": "Hbo-opleiding Medisch Beeldvormende en Radiotherapeutische Technieken (vier jaar): je maakt beelden en geeft bestralingen."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Leg uit waarom de longen op een röntgenfoto bijna zwart zijn en de ribben wit. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Lucht in de longen houdt bijna geen straling tegen, dus daar komt veel straling op de plaat en wordt het beeld donker (1p). Bot bevat veel kalk en houdt veel straling tegen, dus daar blijft het beeld licht (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Iemand zegt: 'Een MRI is gewoon een CT met meer straling.' Geef twee verschillen. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Een MRI gebruikt geen röntgenstraling maar een sterk magneetveld en radiogolven (1p). Een MRI meet het signaal van waterstof (vooral water en vet) en laat daardoor banden, kraakbeen en vocht goed zien; een CT meet hoeveel röntgenstraling weefsel tegenhoudt (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Bij een zwangere vrouw wil de verloskundige naar het kind kijken. Waarom kiest zij een echo en geen CT? Noem ook waarom ze eerst gel op de buik smeert. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Een echo gebruikt geluid en geen ioniserende straling, zoals röntgenstraling bij een CT (1p). De gel zorgt dat er geen lucht tussen de echokop en de huid zit; lucht laat bijna geen geluid door (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Op een CT-plak van de borstkas zie je het hart rechts in beeld. Ligt het hart bij deze patiënt links of rechts in zijn lichaam? Leg uit. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Links in zijn lichaam (1p): een plak bekijk je vanaf de voeten, dus de linkerkant van de patiënt staat rechts in beeld (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Extra film buiten het PTA op <i>Wat word jij?</i> → Medische beeldvorming (MBRT), eerste film van die richting. Bouwt voort op <i>Van molecuul tot biosfeer</i> (weefsel, orgaan), <i>Eén pomp, twee rondjes</i> (aorta) en <i>Wat is er met die knie?</i> (kruisband; op een röntgenfoto zie je botten, geen banden). De tweede MBRT-film, <i>Bestraling</i>, gaat over straling als behandeling; deze film noemt dat alleen als vooruitblik. Rode draad: één dag van Dr. Kim (radioloog) met Opa Henk (val van een ladder: pols en zij) en Lotte (kruisband); Noor zit bij haar opa bij de echo.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>Cold open en H1</b> röntgen: weefsel houdt meer of minder straling tegen (lucht, vet, spier, bot); een band valt weg in het grijs. Dosis van een longfoto vergeleken met de straling uit de omgeving. <b>H2</b> MRI zonder formules: waterstofkernen als kompasnaaldjes, magneetveld, radiogolf, terugzwaaien en signaal; vocht is licht. <b>H3</b> echo: teruggekaatst geluid, tijd = diepte, gel, vocht zwart, schaduw achter bot. <b>H4</b> CT: draaiende buis, plakjes, dosis; een plak lezen vanaf de voeten (lever, maag, milt, wervel, aorta, ribben).</li>\n<li>Opbouw t.o.v. het plan: CT staat niet bij röntgen (H1) maar in H4, zodat het verhaal van Henk doorloopt (echo → CT) en de uitleg van CT direct leidt naar het lezen van een plak.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Röntgen: bot wit, lucht zwart, weke delen grijs</td><td>bot houdt veel straling tegen (kalk), lucht bijna niets</td><td>standaard radiologie; zie patiëntfolders radiologie (bv. Maasstad Ziekenhuis, 'Informatie over straling')</td></tr>\n<tr><td>Banden niet zichtbaar op een röntgenfoto</td><td>op een röntgenfoto zie je botten, geen banden</td><td>idem; ook <i>Wat is er met die knie?</i> (fysiotherapie-1)</td></tr>\n<tr><td>Dosis longfoto</td><td>± 0,04 mSv ≈ een week natuurlijke en overige straling</td><td>RIVM, Effecten van straling op de gezondheid: longfoto ± 0,04 mSv. Totaal ± 2,8 mSv per jaar per inwoner, waarvan ± een derde medisch; natuurlijke achtergrond (radon in huis, bodem, kosmische straling ± 0,3, kalium-40 in je lichaam ± 0,16) ± 1,9 mSv per jaar ≈ 0,035–0,04 mSv per week</td></tr>\n<tr><td>Dosis CT van de buik</td><td>'al gauw honderd keer zo veel als een longfoto, of meer'</td><td>Maasstad Ziekenhuis, folder 05160 (bron RIVM): CT-buik ± 10 mSv, longfoto 0,04 mSv (= 250×); de film rondt voorzichtig af</td></tr>\n<tr><td>Straling uit de omgeving</td><td>uit de grond en uit de ruimte</td><td>RIVM: o.a. radon uit de bodem en in huis, kosmische straling, kalium-40 in je eigen lichaam (de film noemt alleen grond en ruimte)</td></tr>\n<tr><td>MRI zonder röntgenstraling; sterke magneet en radiogolven</td><td>geen röntgenstraling, sterke magneet, korte radiogolf</td><td>Anna Ziekenhuis, folder RAD026 MRI-onderzoek</td></tr>\n<tr><td>MRI-duur, geluid, metaal</td><td>al gauw een half uur; hard kloppend geluid; geen metaal (sleutels, pasjes)</td><td>Anna Ziekenhuis RAD026: 'een half uur tot een uur', 'hard kloppend, doordringend geluid', geen metalen voorwerpen en pasjes met magneetstrip</td></tr>\n<tr><td>Veldsterkte</td><td>tienduizenden keren sterker dan het aardmagnetisch veld</td><td>1,5–3 tesla tegenover ± 50 microtesla aardveld (30 000–60 000×); Philips Healthcare, MRI patiëntveiligheid</td></tr>\n<tr><td>Waterstof en signaal</td><td>waterstofkernen als kompasnaaldjes; iets meer mee dan tegen het veld; radiogolf, terugzwaaien, signaal; water, vet en stevig weefsel geven een ander signaal</td><td>standaard MRI-natuurkunde (vereenvoudigd), o.a. Physics of magnetic resonance imaging</td></tr>\n<tr><td>Kruisband op MRI</td><td>gezonde kruisband = donkere streep; scheur = onderbroken met hoog signaal (vocht/oedeem)</td><td>standaard musculoskeletale radiologie; MRI-sensitiviteit voor een voorste-kruisbandscheur ± 95 % (Zhao e.a. 2020, Ann Transl Med 8:1657)</td></tr>\n<tr><td>Echo: geluid boven de gehoorgrens, terugkaatsing, gel, bot</td><td>te hoog om te horen; gel tegen lucht; achter bot zie je niets; geen straling</td><td>AZ Sint-Andries Tielt, brochure echografie bewegingsapparaat; ASz, folder echografie</td></tr>\n<tr><td>Vocht zwart op echo; vrij vocht bij buiktrauma</td><td>bloed in de buik = zwarte plek</td><td>Richtlijn Initiële radiodiagnostiek bij traumapatiënten (e-FAST), richtlijnendatabase.nl</td></tr>\n<tr><td>CT: draaiende buis, duizenden metingen, plakjes</td><td>buis draait rond, computer rekent plakjes uit</td><td>Physics Today, 'Computed tomography turns 50' (2021)</td></tr>\n<tr><td>Kijkrichting CT-plak</td><td>vanaf de voeten, rechts van de patiënt links in beeld</td><td>radiologische conventie; nibabel, 'Radiological vs neurological conventions'</td></tr>\n<tr><td>Opleiding MBRT</td><td>hbo, vier jaar; Groningen (Hanze), Haarlem (Inholland), Eindhoven (Fontys); radiologie, nucleaire geneeskunde, radiotherapie</td><td>studiekeuze123 (240 EC); NVAO-beoordelingsrapport MBRT Hanzehogeschool 2024 (drie hogescholen, drie werkvelden)</td></tr>\n<tr><td>Radioloog</td><td>zes jaar geneeskunde, daarna vijf jaar specialisatie</td><td>Radiopaedia, Radiology training in the Netherlands</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul><li>Röntgen: 'straling naar een plaat' vereenvoudigt de detector; stralen lopen in de tekening evenwijdig. Wit/zwart volgens de gewone weergave.</li>\n<li>MRI: de 'kompasnaaldjes' (spins van protonen) staan in werkelijkheid niet stil maar draaien (precessie); het verschil tussen mee en tegen het veld is in werkelijkheid heel klein. Signaal per weefsel (T1/T2, protondichtheid) is samengevat als 'water, vet en stevig weefsel geven een ander signaal'; 'vocht is licht' geldt voor een T2-gewogen of vochtgevoelig beeld.</li>\n<li>Echo: 'bijna geen grenzen in vocht' vat samen dat homogeen vocht nauwelijks reflecteert (anechogeen). Het geluid wordt in pulsen uitgezonden; de diepte volgt uit de looptijd.</li>\n<li>CT: dosis afhankelijk van protocol en lichaamsbouw; 'al gauw honderd keer, of meer' is een voorzichtige afronding.</li>\n<li>MRI 'zonder röntgenstraling': de radiogolven zijn ook straling, maar niet-ioniserend; de film zegt daarom 'geen röntgenstraling'.</li>\n<li>De CT-plak is getekend, niet nagetekend van een echte scan; verhoudingen zijn benaderd.</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Laat leerlingen vóór de film raden welk apparaat ze zouden kiezen bij een gebroken pols, een knieblessure, een zwangerschap en een val op de buik, en kom er na de film op terug.</li>\n<li>Combineer met <i>Wat is er met die knie?</i>: waarom vraagt een fysiotherapeut niet meteen een foto aan?</li>\n<li>Laat leerlingen op een echte CT-plak (bv. Radiopaedia) lever, maag, milt, aorta en wervel aanwijzen.</li></ul>\n</section>\n"
+}

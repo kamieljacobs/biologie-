@@ -1,0 +1,305 @@
+{
+ "versie": 1,
+ "film": "films/ecologie/plek-genoeg/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-eutrofiering",
+   "soort": "volgorde",
+   "titel": "Een beek langs bemeste weilanden",
+   "opdracht": "Een beek stroomt langs bemeste weilanden. Zet in de goede volgorde wat er in de beek gebeurt.",
+   "stappen": [
+    {
+     "tekst": "Voedingsstoffen zoals nitraat en fosfaat spoelen de beek in.",
+     "uitleg": "Die verrijking van het water heet eutrofiëring."
+    },
+    {
+     "tekst": "Algen groeien veel harder, en het water kleurt groen.",
+     "uitleg": "Meer voedingsstoffen: meer algengroei."
+    },
+    {
+     "tekst": "De algen sterven massaal af en zakken naar de bodem.",
+     "uitleg": "Algen leven kort."
+    },
+    {
+     "tekst": "Bacteriën breken de dode algen af en verbruiken daarbij zuurstof.",
+     "uitleg": "Hoe meer dode algen, hoe meer bacteriën, en hoe meer zuurstof ze verbruiken."
+    },
+    {
+     "tekst": "De zuurstof in het water raakt op.",
+     "uitleg": "In water zit maar weinig zuurstof: ongeveer tien milligram per liter, in lucht bijna driehonderd."
+    },
+    {
+     "tekst": "Vissen en steenvlieglarven krijgen te weinig zuurstof en verdwijnen.",
+     "uitleg": "Vooral in warme zomers, want warm water bevat nog minder zuurstof."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-yellowstone",
+   "soort": "volgorde",
+   "titel": "Wolven terug in Yellowstone",
+   "opdracht": "Zet de gebeurtenissen in Yellowstone in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Rond 1925 zijn alle wolven in Yellowstone uitgeroeid.",
+     "uitleg": "Het begin van het verhaal."
+    },
+    {
+     "tekst": "Het aantal wapiti's groeit, tot hun voedsel de beperkende factor wordt.",
+     "uitleg": "Zonder roofdier groeit de populatie prooidieren door."
+    },
+    {
+     "tekst": "Langs de rivieren eten de wapiti's de jonge wilgen kaal.",
+     "uitleg": "Veel grazers: weinig jonge bomen langs het water."
+    },
+    {
+     "tekst": "In 1995 worden er weer wolven uitgezet.",
+     "uitleg": "Het terugzetten van een soort heet herintroductie: een vorm van natuurbeheer."
+    },
+    {
+     "tekst": "Het aantal wapiti's daalt, en ze blijven minder lang op open plekken langs het water.",
+     "uitleg": "Let op: dat de wolven de daling veroorzaakten, volgt niet uit de grafiek alleen. Er speelden ook jacht, strenge winters, beren en poema's."
+    },
+    {
+     "tekst": "Op sommige plekken groeien de wilgen weer terug.",
+     "uitleg": "Zo werkt een roofdier door: minder prooidieren, en daardoor meer planten."
+    }
+   ]
+  },
+  {
+   "id": "schema-tolerantie",
+   "soort": "schema",
+   "titel": "Tolerantiegrenzen",
+   "opdracht": "De grafiek laat zien hoe goed een soort groeit en zich voortplant bij verschillende waarden van één factor. Sleep de namen naar de goede vakjes. Eén naam hoort er niet bij.",
+   "alt": "Klokvormige grafiek van groei en voortplanting tegen de waarde van een factor, met twee gestippelde grenzen en een gearceerd middengebied.",
+   "breed": 760,
+   "hoog": 400,
+   "vakbreed": 180,
+   "svg": "<rect x=\"320\" y=\"40\" width=\"140\" height=\"310\" class=\"vul zacht\" style=\"opacity:.14\"/><path stroke-width=\"2\" d=\"M80 40 L80 350 L724 350\"/><path stroke-width=\"2\" d=\"M74 50 L80 38 L86 50 M714 344 L726 350 L714 356\"/><text x=\"92\" y=\"32\">groei en voortplanting</text><text x=\"720\" y=\"382\" text-anchor=\"end\">waarde van één factor, bv. temperatuur</text><path class=\"zacht\" stroke-width=\"1.6\" stroke-dasharray=\"6 6\" d=\"M220 60 L220 350 M560 60 L560 350\"/><path class=\"acc\" stroke-width=\"3\" d=\"M220 350.0 L223 349.9 L227 349.4 L230 348.5 L234 347.2 L237 345.4 L240 343.2 L244 340.5 L247 337.4 L251 333.7 L254 329.6 L257 325.1 L261 320.0 L264 314.6 L268 308.7 L271 302.5 L274 295.9 L278 288.9 L281 281.6 L285 274.0 L288 266.1 L291 258.0 L295 249.7 L298 241.3 L302 232.7 L305 224.0 L308 215.3 L312 206.6 L315 197.8 L319 189.2 L322 180.6 L325 172.2 L329 163.9 L332 155.9 L336 148.1 L339 140.5 L342 133.3 L346 126.5 L349 120.0 L353 113.9 L356 108.2 L359 103.0 L363 98.3 L366 94.1 L370 90.4 L373 87.3 L376 84.7 L380 82.6 L383 81.2 L387 80.3 L390 80.0 L393 80.3 L397 81.2 L400 82.6 L404 84.7 L407 87.3 L410 90.4 L414 94.1 L417 98.3 L421 103.0 L424 108.2 L427 113.9 L431 120.0 L434 126.5 L438 133.3 L441 140.5 L444 148.1 L448 155.9 L451 163.9 L455 172.2 L458 180.6 L461 189.2 L465 197.8 L468 206.6 L472 215.3 L475 224.0 L478 232.7 L482 241.3 L485 249.7 L489 258.0 L492 266.1 L495 274.0 L499 281.6 L502 288.9 L506 295.9 L509 302.5 L512 308.7 L516 314.6 L519 320.0 L523 325.1 L526 329.6 L529 333.7 L533 337.4 L536 340.5 L540 343.2 L543 345.4 L546 347.2 L550 348.5 L553 349.4 L557 349.9 L560 350.0\"/>",
+   "vakjes": [
+    {
+     "naam": "tolerantiegrens",
+     "x": 220,
+     "y": 120,
+     "punt": [
+      220,
+      300
+     ],
+     "uitleg": "de laagste waarde waarbij de soort nog kan leven."
+    },
+    {
+     "naam": "optimumgebied",
+     "x": 390,
+     "y": 260,
+     "punt": [
+      390,
+      110
+     ],
+     "uitleg": "hier groeit de soort het best en plant hij zich het best voort."
+    },
+    {
+     "naam": "tolerantiegrens",
+     "x": 560,
+     "y": 120,
+     "punt": [
+      560,
+      300
+     ],
+     "uitleg": "de hoogste waarde waarbij de soort nog kan leven."
+    },
+    {
+     "naam": "soort kan hier niet leven",
+     "x": 660,
+     "y": 236,
+     "punt": [
+      650,
+      335
+     ],
+     "uitleg": "buiten de tolerantiegrenzen kan de soort niet leven, ook als alle andere factoren gunstig zijn."
+    }
+   ],
+   "afleiders": [
+    "draagkracht"
+   ]
+  },
+  {
+   "id": "uitleg-soort",
+   "soort": "uitleg",
+   "titel": "Wolf, hond, paard en ezel",
+   "opdracht": "Een husky lijkt meer op een wolf dan op een tekkel. Toch zijn wolf en hond volgens biologen één soort, en paard en ezel twee soorten. Leg uit hoe dat zit.",
+   "begrippen": [
+    {
+     "naam": "biologisch soortbegrip",
+     "varianten": [
+      "soortbegrip"
+     ]
+    },
+    {
+     "naam": "vruchtbare nakomelingen",
+     "varianten": [
+      "vruchtbare",
+      "vruchtbaar"
+     ]
+    },
+    {
+     "naam": "natuurlijke omstandigheden",
+     "varianten": [
+      "in het wild",
+      "natuurlijk"
+     ]
+    },
+    {
+     "naam": "hybride",
+     "varianten": [
+      "kruising"
+     ]
+    },
+    {
+     "naam": "onvruchtbaar",
+     "varianten": [
+      "niet vruchtbaar"
+     ]
+    },
+    {
+     "naam": "uiterlijk",
+     "varianten": []
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat je een soort niet aan het uiterlijk herkent.",
+    "Ik geef het biologisch soortbegrip: organismen die onder natuurlijke omstandigheden samen vruchtbare nakomelingen kunnen krijgen.",
+    "Ik leg uit dat paard en ezel wel een jong (een hybride, het muildier) krijgen, maar dat dat onvruchtbaar is: twee soorten.",
+    "Ik leg uit dat wolf en hond vruchtbare jongen krijgen, ook in het wild: één soort."
+   ],
+   "model": [
+    "Aan het uiterlijk zie je niet of dieren tot dezelfde soort horen. Biologen gebruiken het biologisch soortbegrip: een soort is een groep organismen die onder natuurlijke omstandigheden samen vruchtbare nakomelingen kunnen krijgen.",
+    "Een paard en een ezel kunnen samen een jong krijgen: een muildier. Zo'n nakomeling van twee soorten heet een hybride. Maar een muildier is onvruchtbaar, dus paard en ezel zijn twee soorten.",
+    "Een wolf en een hond krijgen wél vruchtbare jongen, en in Europa gebeurt dat soms ook in het wild. Volgens het soortbegrip zijn ze dus één soort, hoe verschillend een husky en een tekkel er ook uitzien."
+   ]
+  },
+  {
+   "id": "uitleg-zonnedauw",
+   "soort": "uitleg",
+   "titel": "Zonnedauw verliest",
+   "opdracht": "Op natte, zure heide verdwijnt de zonnedauw als er veel stikstof uit de lucht neervalt. Toch is stikstof niet giftig voor de zonnedauw. Leg uit hoe dat kan.",
+   "begrippen": [
+    {
+     "naam": "stikstof",
+     "varianten": [
+      "ammoniak",
+      "stikstofoxiden"
+     ]
+    },
+    {
+     "naam": "arm",
+     "varianten": [
+      "arme bodem",
+      "stikstofarm",
+      "voedselarm"
+     ]
+    },
+    {
+     "naam": "adaptatie",
+     "varianten": [
+      "insecten",
+      "kleverige"
+     ]
+    },
+    {
+     "naam": "concurrentie",
+     "varianten": [
+      "concurrenten",
+      "competitie",
+      "concurreren"
+     ]
+    },
+    {
+     "naam": "licht",
+     "varianten": [
+      "schaduw",
+      "overschaduwen"
+     ]
+    },
+    {
+     "naam": "soortendiversiteit",
+     "varianten": [
+      "minder soorten"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat zonnedauw op een stikstofarme bodem groeit en stikstof uit gevangen insecten haalt (een adaptatie).",
+    "Ik leg uit dat hij daardoor weinig concurrenten heeft, en dus veel licht.",
+    "Ik leg uit dat neerslag van stikstof de bodem rijker maakt, zodat grassen als pijpenstrootje hoger en sneller groeien en de zonnedauw overschaduwen.",
+    "Ik leg uit dat de zonnedauw dus verdwijnt doordat hij de concurrentie verliest, en dat de soortendiversiteit daalt."
+   ],
+   "model": [
+    "De bodem van natte, zure heide is arm aan stikstof. Zonnedauw heeft daar een adaptatie voor: met kleverige druppels vangt hij insecten, en zo haalt hij stikstof uit dieren in plaats van uit de bodem. Op zo'n arme bodem heeft hij weinig concurrenten, en dus veel licht.",
+    "Valt er stikstof uit de lucht, zoals ammoniak uit de veehouderij, dan wordt de bodem rijker. Grassen als pijpenstrootje groeien dan hoger en sneller, en overschaduwen de zonnedauw.",
+    "De zonnedauw verdwijnt dus niet omdat stikstof giftig is, maar omdat hij de concurrentie om licht verliest. Met hem verdwijnen andere soorten van arme grond, en daalt de soortendiversiteit."
+   ]
+  },
+  {
+   "id": "uitleg-pcb",
+   "soort": "uitleg",
+   "titel": "Pcb's in de zeehond",
+   "opdracht": "In de jaren zeventig waren er nog maar 480 gewone zeehonden in de Waddenzee, mede door pcb's. Leg uit waarom de concentratie pcb's juist bovenin een voedselketen zo hoog wordt. Gebruik de begrippen persistentie en accumulatie.",
+   "begrippen": [
+    {
+     "naam": "persistent",
+     "varianten": [
+      "persistentie",
+      "breken niet af",
+      "nauwelijks afgebroken"
+     ]
+    },
+    {
+     "naam": "accumulatie",
+     "varianten": [
+      "ophopen",
+      "hoopt op",
+      "stapelen"
+     ]
+    },
+    {
+     "naam": "vet",
+     "varianten": [
+      "vetweefsel",
+      "oplossen in vet"
+     ]
+    },
+    {
+     "naam": "uitgescheiden",
+     "varianten": [
+      "uitscheiden",
+      "uitscheiding"
+     ]
+    },
+    {
+     "naam": "voedselketen",
+     "varianten": [
+      "keten"
+     ]
+    },
+    {
+     "naam": "prooien",
+     "varianten": [
+      "prooi",
+      "veel eten"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat pcb's persistent zijn: ze breken nauwelijks af (een eigenschap van de stof).",
+    "Ik leg uit dat pcb's oplossen in vet, nauwelijks worden uitgescheiden en zich ophopen in het vetweefsel: accumulatie (gaat over het organisme).",
+    "Ik leg uit dat elk dier heel veel prooien eet, zodat de concentratie bij elke stap in de voedselketen stijgt."
+   ],
+   "model": [
+    "Pcb's zijn persistent: ze breken nauwelijks af en blijven lang in het milieu. Dat is een eigenschap van de stof.",
+    "Pcb's lossen op in vet en worden nauwelijks uitgescheiden. Ze hopen zich op in het vetweefsel van een dier: accumulatie. Dat gaat over het organisme.",
+    "Elk dier eet heel veel prooien, en houdt de pcb's uit al die prooien vast. Zo stijgt de concentratie bij elke stap in de voedselketen. Een zeehond bovenin de keten krijgt daardoor de hoogste concentratie, en dat verstoorde hun voortplanting."
+   ]
+  }
+ ]
+}

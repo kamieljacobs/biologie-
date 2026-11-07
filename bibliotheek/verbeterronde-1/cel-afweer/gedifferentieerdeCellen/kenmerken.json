@@ -1,0 +1,44 @@
+{
+ "A": {
+  "detail": "midden",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "accent",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "los",
+  "beweging": "standen",
+  "opbouw": "in-stappen",
+  "referentie": "bron",
+  "vondst": "kring rond de eicel met hetzelfde genstrookje per cel"
+ },
+ "B": {
+  "detail": "midden",
+  "vorm": "schematisch",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "accent",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "los",
+  "beweging": "proces",
+  "opbouw": "in-stappen",
+  "referentie": "bron",
+  "vondst": "stamboom; gelijke ronde cellen vloeien over in hun celtype"
+ },
+ "C": {
+  "detail": "midden",
+  "vorm": "schematisch",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "accent",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "los",
+  "beweging": "proces",
+  "opbouw": "in-stappen",
+  "referentie": "bron",
+  "vondst": "stamboom met genstrookje direct onder elke eindcel"
+ }
+}

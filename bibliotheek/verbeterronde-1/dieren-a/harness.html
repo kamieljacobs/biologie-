@@ -1,0 +1,47 @@
+<!doctype html><html><head><meta charset="utf-8"><style>body{margin:0;background:#000}canvas{display:block}</style></head><body>
+<canvas id="c" width="1280" height="720"></canvas>
+<script src="/home/claude/biologie-/bibliotheek/dieren/lib.js"></script>
+<script src="/home/claude/biologie-/bibliotheek/dieren/lib_cast.js"></script>
+<script src="/home/claude/biologie-/bibliotheek/lib_bio.js"></script>
+<script src="/home/claude/biologie-/bibliotheek/dieren/lib_evo.js"></script>
+<script src="/home/claude/biologie-/bibliotheek/dieren/lib_dieren.js"></script>
+<script src="/home/claude/biologie-/bibliotheek/dieren/lib_micro_evo.js"></script>
+<script>
+window.FOUTEN = []; window.addEventListener('error', e => FOUTEN.push(e.message));
+const Q = new URLSearchParams(location.search), OBJ = Q.get('obj'), VER = Q.get('v') || 'oud';
+const BASE = location.pathname.replace(/harness\.html$/, '') + OBJ + '/';
+function laad(src) { return new Promise((ok, nee) => { const s = document.createElement('script'); s.src = src + '?r=' + Math.random(); s.onload = ok; s.onerror = () => nee(new Error('laad ' + src)); document.body.append(s); }); }
+// bbox van f(ctx,0,0,s0) in px bij s0
+function bbox(f, s0) { const cv = document.createElement('canvas'); cv.width = 3000; cv.height = 2000; const c = cv.getContext('2d'); f(c, 1500, 1200, s0);
+  const d = c.getImageData(0, 0, 3000, 2000).data; let x0 = 1e9, y0 = 1e9, x1 = -1, y1 = -1;
+  for (let y = 0; y < 2000; y += 2) for (let x = 0; x < 3000; x += 2) if (d[(y * 3000 + x) * 4 + 3] > 20) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+  return { x0: x0 - 1500, y0: y0 - 1200, x1: x1 - 1500, y1: y1 - 1200 }; }
+// plaatsing: f in vak {x,y,w,h} passend (hoogte of breedte), met schaal uit de oude versie
+function plaats(b, s0, vak) { const bw = b.x1 - b.x0, bh = b.y1 - b.y0; const k = Math.min(vak.h / bh, vak.w / bw); const s = s0 * k;
+  return { s, x: vak.x + vak.w / 2 - (b.x0 + bw / 2) * k, y: vak.y + vak.h / 2 - (b.y0 + bh / 2) * k }; }
+(async () => {
+  try {
+    await laad(BASE + 'scene.js'); // definieert SCENE = {f(ctx,x,y,s,o), s0, groot:o, standen:[o..], klein:o}
+    const S = SCENE; const s0 = S.s0 || 1;
+    const alles = [S.groot, ...(S.standen || []), S.klein].filter(Boolean);
+    // ijk op de huidige (oude) bibliotheek, of op A bij een nieuw object
+    if (S.nieuw) await laad(BASE + 'A.js');
+    const ijk = o => bbox((c, x, y, s) => S.f(c, x, y, s, o), s0);
+    let bG = ijk(S.groot); let bS = (S.standen || []).map(ijk); let bK = ijk(S.klein || S.groot);
+    const U = (p, q) => ({ x0: Math.min(p.x0, q.x0), y0: Math.min(p.y0, q.y0), x1: Math.max(p.x1, q.x1), y1: Math.max(p.y1, q.y1) });
+    const snap = {}; for (const k of Object.getOwnPropertyNames(window)) { try { snap[k] = window[k]; } catch (e) {} }
+    const herstel = () => { for (const k in snap) { try { if (window[k] !== snap[k]) window[k] = snap[k]; } catch (e) {} } };
+    for (const w of (S.ijkOok || [])) { await laad(BASE + w + '.js'); bG = U(bG, ijk(S.groot)); bS = bS.map((b, i) => U(b, ijk(S.standen[i]))); bK = U(bK, ijk(S.klein || S.groot)); }
+    herstel(); if (VER !== 'oud' && !(S.nieuw && VER === 'A')) await laad(BASE + VER + '.js');
+    const ctx = document.getElementById('c').getContext('2d'); ctx.fillStyle = C.bgSchema; ctx.fillRect(0, 0, 1280, 720);
+    const gv = S.grootVak || { x: 140, y: 30, w: 1000, h: 432 };
+    let p = plaats(bG, s0, gv); S.f(ctx, p.x, p.y, p.s, S.groot);
+    if (bS.length) { // standen naast elkaar, zelfde schaal
+      const n = bS.length, vw = 960 / n; const k = Math.min(...bS.map(b => Math.min(150 / (b.y1 - b.y0), (vw - 30) / (b.x1 - b.x0))));
+      bS.forEach((b, i) => { const bw = (b.x1 - b.x0) * k, bh = (b.y1 - b.y0) * k; const x = 40 + i * vw + vw / 2 - (b.x0 * k + bw / 2), y = 545 + 75 - (b.y0 * k + bh / 2); S.f(ctx, x, y, s0 * k, S.standen[i]); });
+    }
+    p = plaats(bK, s0, { x: 1080, y: 615, w: 170, h: 80 }); S.f(ctx, p.x, p.y, p.s, S.klein || S.groot);
+  } catch (e) { FOUTEN.push(String(e && e.stack || e)); }
+  window.KLAAR = true;
+})();
+</script></body></html>

@@ -1,0 +1,101 @@
+{
+ "versie": 1,
+ "film": "films/onderbouw/32a/2b-rondleiding-door-je-lichaam/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "indelen-stelsel-aan-het-werk",
+   "soort": "indelen",
+   "titel": "Welk stelsel werkt hier?",
+   "opdracht": "Je lichaam doet iets. Welk stelsel is hier vooral aan het werk?",
+   "bakken": [
+    {
+     "naam": "Zenuwstelsel",
+     "uitleg": "aansturen"
+    },
+    {
+     "naam": "Ademhalingsstelsel",
+     "uitleg": "lucht in en uit"
+    },
+    {
+     "naam": "Bloedvatenstelsel",
+     "uitleg": "rondbrengen"
+    },
+    {
+     "naam": "Uitscheidingsstelsel",
+     "uitleg": "afval eruit"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Je raakt een hete pan en trekt meteen je hand terug.",
+     "bak": 0,
+     "uitleg": "Je huid voelt de hitte. Via je zenuwen gaat een signaal heen en terug, en je spieren trekken je hand weg."
+    },
+    {
+     "tekst": "Je ziet een bal aankomen en vangt hem.",
+     "bak": 0,
+     "uitleg": "Je ogen zien de bal. Je hersenen sturen je armen en handen aan."
+    },
+    {
+     "tekst": "Na een sprint hijg je en adem je veel dieper.",
+     "bak": 1,
+     "uitleg": "Je spieren hebben meer zuurstof nodig. Je longen halen meer lucht binnen en meer koolstofdioxide eruit."
+    },
+    {
+     "tekst": "In je longen komt zuurstof in je bloed.",
+     "bak": 1,
+     "uitleg": "Dat gebeurt in je longen, dus bij je ademhalingsstelsel. Het rondbrengen komt daarna."
+    },
+    {
+     "tekst": "Je fietst hard en je hart klopt sneller.",
+     "bak": 2,
+     "uitleg": "Je hart pompt dan meer bloed rond. Zo krijgen je beenspieren meer zuurstof."
+    },
+    {
+     "tekst": "Zuurstof uit je longen komt in je tenen terecht.",
+     "bak": 2,
+     "uitleg": "Je bloed brengt de zuurstof rond, door je bloedvaten, tot in je tenen."
+    },
+    {
+     "tekst": "Na een grote fles water moet je steeds plassen.",
+     "bak": 3,
+     "uitleg": "Je nieren halen het water dat je te veel hebt uit je bloed. Dat wordt urine."
+    },
+    {
+     "tekst": "Op een warme dag zonder drinken is je urine donkergeel.",
+     "bak": 3,
+     "uitleg": "Je nieren houden dan zoveel mogelijk water vast. Er gaat weinig water mee met de afvalstoffen."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-boterham",
+   "soort": "volgorde",
+   "titel": "De reis van je boterham",
+   "opdracht": "Zet de organen in de volgorde waarin je boterham erdoor gaat.",
+   "stappen": [
+    {
+     "tekst": "Mond: tanden maken het eten klein, speeksel maakt het nat.",
+     "uitleg": "Hier begint je spijsverteringsstelsel."
+    },
+    {
+     "tekst": "Slokdarm: duwt het eten naar je maag.",
+     "uitleg": "Een buis van je mond naar je maag."
+    },
+    {
+     "tekst": "Maag: mengt het eten met zuur, tot een papje.",
+     "uitleg": "Daarna gaat het papje verder."
+    },
+    {
+     "tekst": "Dunne darm: haalt de voedingsstoffen eruit. Die gaan je bloed in.",
+     "uitleg": "Je alvleesklier en lever helpen hier met hun sappen."
+    },
+    {
+     "tekst": "Dikke darm: haalt het water eruit.",
+     "uitleg": "Wat overblijft, gaat de wc in."
+    }
+   ]
+  }
+ ]
+}

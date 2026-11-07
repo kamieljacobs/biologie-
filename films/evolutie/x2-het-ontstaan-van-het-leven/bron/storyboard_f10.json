@@ -1,0 +1,703 @@
+{
+ "film": 10,
+ "titel": "Het ontstaan van het leven",
+ "slug": "x2-het-ontstaan-van-het-leven",
+ "sleutel": "e10",
+ "puzzel": "Hoe word je van losse moleculen een cel die zichzelf kopieert?",
+ "haak": "Jij begon als één cel, en elke cel komt uit een cel. Volg die ketting terug: ergens moet hij beginnen.",
+ "hoofdstukken": [
+  {
+   "nr": 1,
+   "titel": "Bouwstenen",
+   "minivraag": "Kunnen de stoffen van het leven ontstaan zonder leven?",
+   "type": "G",
+   "look": "Schema"
+  },
+  {
+   "nr": 2,
+   "titel": "Informatie en gereedschap",
+   "minivraag": "Wat kwam eerst: de bouwtekening of het gereedschap?",
+   "type": "H",
+   "look": "Micro"
+  },
+  {
+   "nr": 3,
+   "titel": "Een omhulsel",
+   "minivraag": "Hoe krijgt een kopieerder een binnen en een buiten?",
+   "type": "A",
+   "look": "Micro"
+  },
+  {
+   "nr": 4,
+   "titel": "Eén voorouder",
+   "minivraag": "Wat vertelt het leven van nu over de eerste cellen?",
+   "type": "F",
+   "look": "Schema"
+  }
+ ],
+ "scenes": [
+  {
+   "id": "e10s01",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Jij begon als één cel: een bevruchte eicel, uit cellen van je ouders. En die kwamen uit cellen van hún ouders.",
+   "beweging": "Noor staat rechts; van haar loopt een lijn terug naar een eicel, dan naar Linda en Rachid, dan naar Opa Henk en Oma Ria; bij elke stap licht een bevruchte eicel op."
+  },
+  {
+   "id": "e10s02",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Elke cel van nu komt uit een andere cel. Volg die ketting terug, miljarden jaren lang.",
+   "beweging": "De ketting zoomt uit: de familie wordt een stip, de lijn loopt verder naar links langs dier- en celpictogrammen; een tijdas telt terug."
+  },
+  {
+   "id": "e10s03",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Maar ooit was de aarde jong en zonder één cel. Dus ergens begint de ketting. Hoe word je van losse moleculen een cel die zichzelf kopieert?",
+   "beweging": "De lijn eindigt aan de rand van een jonge aarde: vulkanen, onweer, een kale oceaan; de vraag verschijnt in de lucht."
+  },
+  {
+   "id": "e10s04",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "",
+   "beweging": "Titelkaart: titel en puzzel links, rechts één blaasje met een RNA-streng erin."
+  },
+  {
+   "id": "e10s05",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Eerlijk vooraf: niemand was erbij. Wel zijn er proeven. Elke cel heeft minstens drie dingen: bouwstenen, informatie die gekopieerd wordt, en een omhulsel. Kunnen die zonder leven ontstaan?",
+   "beweging": "Drie lege vakjes verschijnen een voor een (bouwstenen, kopieerder, omhulsel), elk met een klein pictogram; daaronder de vraag 'kan dit zonder leven?'."
+  },
+  {
+   "id": "e10s06",
+   "hoofdstuk": "1 Bouwstenen",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "De aarde is ongeveer 4,5 miljard jaar oud. Al snel was er vloeibaar water. Zuurstof zat er nog vrijwel niet in, energie wel: bliksem, vulkanen en uv-straling.",
+   "beweging": "Bliksem slaat in boven de oceaan, een vulkaan rookt; in de lucht verschijnen kleine moleculen (water, koolstofdioxide, stikstof); een doorgestreept O₂."
+  },
+  {
+   "id": "e10s07",
+   "hoofdstuk": "1 Bouwstenen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "In het jaar 1953 bouwde Stanley Miller die jonge aarde na in glas. Verwarmd water: de oceaan. Daarboven methaan, ammoniak en waterstof. En een week lang vonken: de bliksem.",
+   "beweging": "De opstelling tekent zich lijn voor lijn; damp stijgt, de vonk knettert tussen de elektroden, een klokje draait zeven dagen rond; Miller staat ernaast."
+  },
+  {
+   "id": "e10q08",
+   "hoofdstuk": "1 Bouwstenen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Na een week vonken: wat zat er in Millers kolf?",
+   "beweging": "Vraagkaart; rechts de kolf met troebel water.",
+   "opties": "A Niets nieuws: alleen water en gassen · B Aminozuren, maar geen eiwitten of cellen · C Eiwitten en zelfs eenvoudige cellen",
+   "juist": "B"
+  },
+  {
+   "id": "e10s09",
+   "hoofdstuk": "1 Bouwstenen",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Het water werd dieprood. Miller vond er aminozuren in, zoals glycine en alanine: bouwstenen van eiwitten. Gemaakt zonder één levende cel. In het jaar 2008 vonden anderen in zijn bewaarde flesjes veertien soorten. En in een proef met stoom, zoals bij een vulkaan, zelfs tweeëntwintig.",
+   "beweging": "Zoomcirkel van de rode vloeistof in de U-buis naar losse aminozuren tussen watermoleculen; glycine en alanine lichten op; een teller toont: 1953 vijf soorten gevonden · heranalyse 2008: veertien in de proef van 1953, tweeëntwintig in de stoomproef."
+  },
+  {
+   "id": "e10s10",
+   "hoofdstuk": "1 Bouwstenen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Klopt Millers lucht wel? Waarschijnlijk niet: nu denken geologen aan vooral koolstofdioxide en stikstof. Daarin ontstaan minder aminozuren, maar nog steeds wel.",
+   "beweging": "Millers gassen schuiven opzij en dimmen; koolstofdioxide en stikstof schuiven in de kolf; de opbrengstbalk wordt kleiner maar blijft; label 'nog onzeker'."
+  },
+  {
+   "id": "e10s11",
+   "hoofdstuk": "1 Bouwstenen",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Ook in de ruimte ontstaan ze. In de meteoriet van Murchison, in het jaar 1969 gevallen in Australië, zitten meer dan zeventig soorten aminozuren. En ook de basen van DNA en RNA.",
+   "beweging": "Een vuurbal trekt door de nacht en slaat in; een brok meteoriet opent als doorsnede; zoomcirkel naar aminozuren en losse basen."
+  },
+  {
+   "id": "e10s12",
+   "hoofdstuk": "1 Bouwstenen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Bouwstenen kunnen dus vanzelf ontstaan. Maar een zak losse letters is nog geen boek.",
+   "beweging": "Het eerste vakje (bouwstenen) vinkt groen af; ernaast schudden losse letters in een zak en vormen géén woord."
+  },
+  {
+   "id": "e10s13",
+   "hoofdstuk": "2 Informatie en gereedschap",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "In je cellen staat de bouwtekening van eiwitten in het DNA. Maar om DNA te kopiëren, heb je eiwitten nodig. En die staan weer in het DNA.",
+   "beweging": "In de kern licht DNA op, een pijl naar een eiwitketen die vouwt; van het eiwit loopt een pijl terug naar het DNA: een kringetje dat sluit."
+  },
+  {
+   "id": "e10q14",
+   "hoofdstuk": "2 Informatie en gereedschap",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? DNA heeft eiwitten nodig, en eiwitten hebben DNA nodig. Wat zou dat kringetje kunnen doorbreken?",
+   "beweging": "Vraagkaart met het kringetje DNA ⇄ eiwit.",
+   "opties": "A Een molecuul dat informatie draagt én werk doet · B Meer DNA, want dat is de bouwtekening · C Grotere eiwitten, want die doen het werk",
+   "juist": "A"
+  },
+  {
+   "id": "e10s15",
+   "hoofdstuk": "2 Informatie en gereedschap",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Veel onderzoekers kijken naar RNA. RNA draagt informatie, net als DNA. Maar het is meestal één losse streng, en die kan op zichzelf terugvouwen.",
+   "beweging": "Een slappe RNA-streng met vier soorten basen zweeft in beeld en vouwt: stukken die bij elkaar passen, paren tot drie stengels."
+  },
+  {
+   "id": "e10s16",
+   "hoofdstuk": "2 Informatie en gereedschap",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Sommig gevouwen RNA versnelt een reactie, net als een enzym. Dat heet een ribozym. Je hebt ze zelf: in je ribosomen zet RNA de aminozuren aan elkaar.",
+   "beweging": "Het gevouwen RNA krijgt een gouden actieve plek; harde snede naar een ribosoom in doorsnede: het RNA-deel in het midden licht goud op terwijl een keten aminozuren naar buiten groeit."
+  },
+  {
+   "id": "e10s17",
+   "hoofdstuk": "2 Informatie en gereedschap",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "RNA is dus bouwtekening en gereedschap in één. Daarom denken veel onderzoekers aan een RNA-wereld, vóór DNA en eiwitten. Dat is een hypothese: gesteund door proeven, niet bewezen.",
+   "beweging": "Links een RNA-streng (informatie), rechts het gevouwen ribozym (gereedschap); een haakje om beide; rechtsboven het label 'hypothese'."
+  },
+  {
+   "id": "e10s18",
+   "hoofdstuk": "2 Informatie en gereedschap",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "In het jaar 2026 beschreven onderzoekers een RNA van 45 letters dat, uit stukjes van drie letters, een kopie van zichzelf kan maken. Heel langzaam en heel weinig. Een RNA dat zichzelf steeds opnieuw kopieert, is nog niet gevonden.",
+   "beweging": "Het kleine ribozym legt stukjes van drie letters (tripletten) tegen een sjabloon en zet ze aan elkaar; een klokje loopt traag; tekst 'na 72 dagen: 0,2 % kopie · in half bevroren water' in Meta."
+  },
+  {
+   "id": "e10s19",
+   "hoofdstuk": "2 Informatie en gereedschap",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Stel dat zulke kopieerders bestaan, in een plasje met losse letters. Soms gaat er een letter fout. En de letters raken op.",
+   "beweging": "Simulatie: gekleurde strengen in een plasje maken kopieën; af en toe een gouden foutletter; de voorraad losse letters linksonder slinkt."
+  },
+  {
+   "id": "e10q20",
+   "hoofdstuk": "2 Informatie en gereedschap",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Wat gebeurt er na veel rondes kopiëren met de strengen in het plasje?",
+   "beweging": "Vraagkaart met het plasje strengen.",
+   "opties": "A Niets: de fouten zijn toeval, dus alles blijft gelijk · B Ze worden slechter: fouten maken de strengen stuk · C Strengen die sneller kopiëren, worden steeds talrijker",
+   "juist": "C"
+  },
+  {
+   "id": "e10s21",
+   "hoofdstuk": "2 Informatie en gereedschap",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "De meeste fouten maken een streng trager, een enkele sneller. Die maakt meer kopieën, en die erven de fout. Zo raken snelle strengen in de meerderheid. Niemand stuurt dit.",
+   "beweging": "De grafiek 'gemiddelde kopieersnelheid' stijgt per ronde en vlakt af; in het plasje kleuren steeds meer strengen in de kleur van de snelle variant."
+  },
+  {
+   "id": "e10s22",
+   "hoofdstuk": "2 Informatie en gereedschap",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Erfelijke variatie, meer kopieën dan er letters zijn, selectie: het mechanisme uit de film Natuurlijke selectie. Alleen is er hier nog geen cel.",
+   "beweging": "Drie voorwaarden uit film 2 lichten op naast het plasje; het tweede vakje (kopieerder) krijgt een half vinkje met 'hypothese'."
+  },
+  {
+   "id": "e10s23",
+   "hoofdstuk": "3 Een omhulsel",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Maar in open water drijven kopieën weg, naar de buren. Er is geen binnen en buiten.",
+   "beweging": "Rond een snelle streng drijven zijn kopieën uit elkaar en worden meegenomen door de buren."
+  },
+  {
+   "id": "e10s24",
+   "hoofdstuk": "3 Een omhulsel",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Hier komen vetzuren in beeld. Ook die ontstaan zonder leven, en ze zitten in meteorieten. Een vetzuur heeft een kop die oplost in water, en een staart die dat niet doet.",
+   "beweging": "Eén vetzuur draait in beeld; de kop krijgt het label 'lost op in water', de staart 'lost niet op'."
+  },
+  {
+   "id": "e10q25",
+   "hoofdstuk": "3 Een omhulsel",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Je doet heel veel vetzuren in water. Wat gebeurt er?",
+   "beweging": "Vraagkaart met een bekerglas vol losse vetzuren.",
+   "opties": "A Ze lossen op en verdwijnen, net als suiker in thee · B Ze klonteren samen tot holle bolletjes · C Ze drijven als een laagje olie op het water",
+   "juist": "B"
+  },
+  {
+   "id": "e10s26",
+   "hoofdstuk": "3 Een omhulsel",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "In water met de juiste zuurgraad vormen vetzuren vanzelf blaasjes. De staarten gaan bij elkaar zitten, weg van het water. De koppen zitten buiten en binnen. Een dubbele laag, die lijkt op het membraan om je cellen.",
+   "beweging": "Losse vetzuren schuiven samen tot een gebogen dubbele laag die zich sluit tot een blaasje; zoomcirkel op de rand toont kop-staart-staart-kop."
+  },
+  {
+   "id": "e10s27",
+   "hoofdstuk": "3 Een omhulsel",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Losse RNA-letters kunnen door de wand naar binnen, lange strengen niet naar buiten. In het lab groeien zulke blaasjes met extra vetzuren, en bij lichte stroming splitsen ze, met inhoud en al.",
+   "beweging": "Losse letters glippen door de wand naar binnen; de RNA-streng binnen blijft binnen; het blaasje rekt uit, snoert in en wordt twee blaasjes, elk met RNA."
+  },
+  {
+   "id": "e10s28",
+   "hoofdstuk": "3 Een omhulsel",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Zit er een kopieerder in, dan blijven zijn kopieën binnen. Zo'n blaasje met een kopieerder heet een protocel: nog geen cel, wel een model van hoe het kan zijn begonnen.",
+   "beweging": "Een blaasje met een kopieerder erin; de kopieën blijven binnen de wand; label 'model'; het derde vakje (omhulsel) vinkt af."
+  },
+  {
+   "id": "e10s29",
+   "hoofdstuk": "4 Eén voorouder",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Hoe het verder ging, tot een echte cel, weten we nog niet. Maar kijk naar wat nu leeft: een bacterie, een paddenstoel, een eik, jij.",
+   "beweging": "Vier pictogrammen schuiven op een rij: bacterie, paddenstoel, eik, Noor."
+  },
+  {
+   "id": "e10s30",
+   "hoofdstuk": "4 Eén voorouder",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Allemaal gebruiken ze DNA met dezelfde vier letters, en bijna dezelfde code: drie letters voor één aminozuur.",
+   "beweging": "Onder elk pictogram verschijnt hetzelfde codon G-C-U met een pijl naar hetzelfde aminozuur (alanine)."
+  },
+  {
+   "id": "e10q31",
+   "hoofdstuk": "4 Eén voorouder",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Waarom gebruiken een bacterie, een eik en jij dezelfde code?",
+   "beweging": "Vraagkaart met de vier pictogrammen en het codon.",
+   "opties": "A Ze stammen af van één gemeenschappelijke voorouder · B Het is de enige code die scheikundig kan werken · C De code ontstond bij elke groep apart, toevallig gelijk",
+   "juist": "A"
+  },
+  {
+   "id": "e10s32",
+   "hoofdstuk": "4 Eén voorouder",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Een andere code kan ook: in je mitochondriën betekenen een paar codes iets anders. Dat alles toch vrijwel dezelfde code heeft, wijst op een erfenis: LUCA, de laatste gemeenschappelijke voorouder van alles wat nu leeft.",
+   "beweging": "Een mitochondrion met een afwijkend codon (UGA = tryptofaan); daarna lopen vier takken van de pictogrammen omlaag naar één punt dat goud wordt: LUCA."
+  },
+  {
+   "id": "e10s33",
+   "hoofdstuk": "4 Eén voorouder",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "LUCA was niet de eerste cel, maar de laatste waarin alle takken samenkomen. Naast LUCA leefden waarschijnlijk andere cellen, maar daarvan is geen tak over.",
+   "beweging": "Cladogram: bacteriën en archaea met cellen-met-kern komen samen in LUCA (goud); onder LUCA een stippellijn naar oudere cellen, zijtakjes die afbreken."
+  },
+  {
+   "id": "e10s34",
+   "hoofdstuk": "4 Eén voorouder",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Uit genen die alle takken delen, schatten onderzoekers hoe LUCA was: een cel zonder kern, met DNA en ribosomen, die leefde zonder zuurstof. Ongeveer 4,2 miljard jaar geleden, maar die schatting is onzeker.",
+   "beweging": "Model van LUCA: ovale cel met DNA (vorm onbekend), ribosomen en eiwitten; waterstof en koolstofdioxide schuiven door het membraan; label 'model · schatting'."
+  },
+  {
+   "id": "e10s35",
+   "hoofdstuk": "4 Eén voorouder",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Het oudste spoor van leven dat de meeste geologen aanvaarden: stromatolieten in West-Australië, ongeveer 3,5 miljard jaar oud. Steen, laagje voor laagje opgebouwd door microben.",
+   "beweging": "Ondiep water met koepels van stromatolieten; één koepel wordt doorgezaagd en toont de laagjes."
+  },
+  {
+   "id": "e10s36",
+   "hoofdstuk": "4 Eén voorouder",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "En waar begon het? Dat weten we niet. Sommigen denken aan hete bronnen op de oceaanbodem: daar is energie, uit waterstof. Anderen aan ondiepe poelen op land die opdrogen en weer vollopen: zo hopen bouwstenen zich op. Darwin dacht al aan een warm poeltje.",
+   "beweging": "Beeld in twee helften: links een witte schoorsteen op de oceaanbodem met warm water, rechts een poel die opdroogt en weer volloopt; boven allebei 'hypothese'."
+  },
+  {
+   "id": "e10s37",
+   "hoofdstuk": "4 Eén voorouder",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "En wanneer? Klopt de schatting voor LUCA, dan was er al leven binnen een paar honderd miljoen jaar na het ontstaan van de aarde.",
+   "beweging": "Een korte tijdas van 4,6 tot 3,4 miljard jaar geleden: aarde, eerste water, LUCA (schatting, balkje), stromatolieten."
+  },
+  {
+   "id": "e10s38",
+   "hoofdstuk": "Samenvatting",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Van losse moleculen naar een cel die zichzelf kopieert? Bouwstenen kunnen vanzelf ontstaan. RNA draagt informatie én doet werk, en kopiëren met fouten geeft selectie. Vetzuren vormen een omhulsel. Hoe het precies ging, en waar, weten we nog niet.",
+   "beweging": "De drie vakjes van het begin vullen zich; het middelste houdt het label 'hypothese'."
+  },
+  {
+   "id": "e10s39",
+   "hoofdstuk": "Samenvatting",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wel weten we waar de ketting van cellen samenkomt: bij LUCA. Wat daaruit groeide, zie je in de film Van eerste cel tot nu.",
+   "beweging": "Eindkaart: kernzinnen met een groene haak; de familieketting van de opening loopt als dunne lijn naar LUCA."
+  }
+ ],
+ "duur": {
+  "basis_min": 8.3,
+  "met_vwo_min": 8.3,
+  "woorden": 996
+ },
+ "checkvragen": [
+  {
+   "niveau": "basis",
+   "vraag": "Miller deed in 1953 water, methaan, ammoniak en waterstof in een gesloten opstelling met vonken. Welke stoffen vond hij na een week, en waarom was dat belangrijk?",
+   "antwoord": "Aminozuren (o.a. glycine en alanine), de bouwstenen van eiwitten. Ze ontstonden zonder levende cel: bouwstenen van het leven kunnen dus vanzelf ontstaan uit simpele stoffen en energie."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Geologen denken nu dat de jonge lucht vooral uit koolstofdioxide en stikstof bestond. Betekent dat dat Millers proef niets bewijst? Leg uit.",
+   "antwoord": "Nee. In zo'n lucht ontstaan minder aminozuren, maar wel nog steeds (Cleaves e.a. 2008), en aminozuren zitten ook in meteorieten. De proef laat zien dát bouwstenen zonder leven kunnen ontstaan; hoeveel er op de echte jonge aarde ontstonden, is onzeker."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Waarom is RNA een goede kandidaat voor het eerste molecuul dat zichzelf kopieerde, en DNA niet?",
+   "antwoord": "RNA draagt informatie (volgorde van letters) en kan door te vouwen ook reacties versnellen (ribozym). DNA draagt alleen informatie en heeft eiwitten nodig om gekopieerd te worden."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "In een plasje kopiëren RNA-strengen zichzelf, met af en toe een fout, en de losse letters raken op. Leg uit waarom de strengen na veel rondes gemiddeld sneller kopiëren, zonder dat iemand dat stuurt.",
+   "antwoord": "Er is erfelijke variatie (fouten worden meegekopieerd), niet iedereen kan kopiëren (schaarste) en snellere strengen maken meer kopieën. Daardoor neemt hun aandeel toe: natuurlijke selectie, al zonder cel."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Leg uit hoe een vetzuur vanzelf een blaasje met een dubbele laag kan vormen.",
+   "antwoord": "De kop lost op in water, de staart niet. In water gaan de staarten bij elkaar zitten, weg van het water; de koppen liggen aan de buitenkant en aan de binnenkant. Zo sluit de dubbele laag zich tot een blaasje."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Een leerling zegt: 'LUCA was het eerste levende wezen.' Klopt dat? Leg uit.",
+   "antwoord": "Nee. LUCA is de laatste gemeenschappelijke voorouder van alles wat nu leeft: de cel waarin alle takken samenkomen. Er leefden waarschijnlijk al eerder cellen, en naast LUCA ook andere, maar daarvan stamt niets af dat nu nog leeft."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Welke waarneming aan het leven van nu wijst op één gemeenschappelijke voorouder van alle organismen?",
+   "antwoord": "Alle organismen gebruiken DNA met dezelfde vier letters en vrijwel dezelfde genetische code (drie letters per aminozuur), terwijl andere codes ook kunnen werken (mitochondriën)."
+  }
+ ],
+ "begrippen": [
+  {
+   "begrip": "experiment van Miller",
+   "uitleg": "Proef uit 1953: water, methaan, ammoniak en waterstof, warmte en een week vonken in een gesloten glazen opstelling. Er ontstonden aminozuren, zonder levende cel.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "aminozuur",
+   "uitleg": "Bouwsteen van eiwitten. Kan zonder leven ontstaan uit simpele stoffen en energie, en zit ook in meteorieten.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "ribozym",
+   "uitleg": "RNA-molecuul dat door zijn vouwing een reactie versnelt, zoals een enzym. In ribosomen zet RNA de aminozuren aan elkaar.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "RNA-wereld",
+   "uitleg": "Hypothese dat er vóór DNA en eiwitten leven was met RNA als bouwtekening én gereedschap. Gesteund door proeven, niet bewezen.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "vetzuur",
+   "uitleg": "Molecuul met een kop die oplost in water en een staart die dat niet doet. In water vormen vetzuren vanzelf blaasjes met een dubbele laag.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "protocel",
+   "uitleg": "Model van een voorloper van de cel: een blaasje van vetzuren met daarin RNA dat zichzelf kopieert. Nog geen cel.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "genetische code",
+   "uitleg": "De regel waarmee een cel DNA afleest: drie letters staan voor één aminozuur. Vrijwel gelijk in alle organismen.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "LUCA",
+   "uitleg": "De laatste gemeenschappelijke voorouder van alles wat nu leeft (last universal common ancestor): de cel waarin alle takken van de stamboom samenkomen. Niet de eerste cel.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "stromatoliet",
+   "uitleg": "Gesteente met fijne laagjes, opgebouwd door matten van microben. De oudste breed aanvaarde zijn ongeveer 3,5 miljard jaar oud.",
+   "niveau": "basis"
+  }
+ ],
+ "getallen": [
+  {
+   "waarde": "leeftijd van de aarde ongeveer 4,5 miljard jaar (4,54 ± 0,05)",
+   "bron": "Dalrymple 2001 (Geol. Soc. London Spec. Publ. 190); Wikipedia 'Age of Earth'"
+  },
+  {
+   "waarde": "vloeibaar water al ± 4,4 miljard jaar geleden ('al snel')",
+   "bron": "Wilde e.a. 2001, Nature 409:175 (zirkonen Jack Hills); archief A4 info.md"
+  },
+  {
+   "waarde": "vrijwel geen zuurstof in de oerlucht (O₂ pas vanaf de 'grote oxidatie' ± 2,4 miljard jaar geleden)",
+   "bron": "Lyons e.a. 2014, Nature 506:307; komt in film 11"
+  },
+  {
+   "waarde": "Miller 1953: methaan, ammoniak, waterstof (2:2:1) + water, vonken, ± een week; kolf 5 l, waterkolf 500 ml, koeler en U-val; vloeistof na een dag roze, na een week dieprood; glycine en α-/β-alanine zeker, nog twee onzeker (5 in totaal)",
+   "bron": "Miller 1953, Science 117:528; Wikipedia 'Miller–Urey experiment' en 'Stanley Miller'"
+  },
+  {
+   "waarde": "heranalyse 2008 van Millers bewaarde flesjes: klassieke proef van 1953: 14 aminozuren en 5 aminen; ongepubliceerde stoomproef ('vulkaan', aspirator): 22 aminozuren",
+   "bron": "Johnson e.a. 2008, Science 322:404; ScienceDaily 16 okt 2008 (zelf gecontroleerd)"
+  },
+  {
+   "waarde": "oerlucht nu ingeschat als zwak reducerend, vooral CO₂ en N₂; in zo'n mengsel met buffer (kalk) en antioxidant toch aminozuren",
+   "bron": "Cleaves e.a. 2008, Orig. Life Evol. Biosph. 38:105; Scientific American 'Primordial soup's on' (2008); Kasting 1993"
+  },
+  {
+   "waarde": "Murchison: gevallen 28 sept 1969, Victoria (Australië), ± 100 kg verzameld; meer dan 70 aminozuren (19 ook op aarde)",
+   "bron": "Museums Victoria, 'The Murchison meteorite'"
+  },
+  {
+   "waarde": "alle vijf de basen van DNA en RNA (A, G, C, T, U) in de meteorieten Murchison, Murray en Tagish Lake",
+   "bron": "Oba e.a. 2022, Nature Communications 13:2008; Live Science 26 apr 2022"
+  },
+  {
+   "waarde": "ribozymen ontdekt door Cech en Altman (Nobelprijs scheikunde 1989); in het ribosoom maakt rRNA de peptidebinding",
+   "bron": "nobelprize.org; Ban, Nissen e.a. 2000, Science 289:905; Nissen e.a. 2000, Science 289:920; Cech 2000 'The ribosome is a ribozyme'"
+  },
+  {
+   "waarde": "RNA-wereld als hypothese (term: Gilbert 1986)",
+   "bron": "Gilbert 1986, Nature 319:618; Wikipedia 'Ribozyme'"
+  },
+  {
+   "waarde": "QT45: polymerase-ribozym van 45 nucleotiden, maakt een kopie van zichzelf en van zijn complementaire streng (in twee aparte reacties), ± 0,2 % opbrengst na 72 dagen, in licht basisch half bevroren water (eutectisch ijs); nog geen volledige zelfreplicatie",
+   "bron": "Gianni e.a. (lab Holliger, MRC LMB Cambridge), Science 2026, doi 10.1126/science.adt2760; bouwt met tripletten (stukjes van drie letters) (astrobiology.com 16 feb 2026; Chemistry World; MRC LMB nieuws); preprint bioRxiv 2024.10.11.617851"
+  },
+  {
+   "waarde": "vetzuren in meteorieten vormen blaasjes",
+   "bron": "Deamer 1985, Nature 317:792 (Murchison-extract vormt membraanblaasjes)"
+  },
+  {
+   "waarde": "vetzuurblaasjes laten nucleotiden door, geen lange strengen; kopiëren binnen een blaasje",
+   "bron": "Mansy e.a. 2008, Nature 454:122; ScienceDaily 4 juni 2008"
+  },
+  {
+   "waarde": "blaasjes groeien met extra vetzuren en delen (door poriën geperst / bij lichte stroming), inhoud blijft grotendeels binnen; klei versnelt vorming ± 100×",
+   "bron": "Hanczyc e.a. 2003, Science 302:618 (Harvard Gazette 6 nov 2003); Zhu & Szostak 2009, JACS 131:5705 (abstract niet zelf geopend, zie twijfels)"
+  },
+  {
+   "waarde": "blaasje met veel RNA groeit ten koste van buren (niet gesproken; achtergrond bij e10s28)",
+   "bron": "Chen, Roberts & Szostak 2004, Science 305:1474; ScienceDaily 3 sept 2004"
+  },
+  {
+   "waarde": "genetische code vrijwel universeel; in mitochondriën van de mens betekent UGA tryptofaan i.p.v. stop",
+   "bron": "NCBI genetic code table 2 (vertebrate mitochondrial code); archief A4 info.md (Lajoie 2013, Fredens 2019 voor herschreven codes)"
+  },
+  {
+   "waarde": "LUCA ± 4,2 miljard jaar geleden (4,09–4,33), prokaryoot, genoom ≥ 2,5 Mb, ± 2600 eiwitten, anaerobe acetogeen (H₂ en CO₂), vroeg afweersysteem, deel van een ecosysteem",
+   "bron": "Moody e.a. 2024, Nature Ecology & Evolution 8:1654 (abstract via UCL Discovery); sci.news 2024"
+  },
+  {
+   "waarde": "'LUCA was niet de eerste cel' en 'naast LUCA leefden andere cellen'",
+   "bron": "Moody e.a. 2024 (ecosysteem); Weiss e.a. 2016, Nature Microbiology 1:16116"
+  },
+  {
+   "waarde": "vetzuren vormen blaasjes alleen in een pH-venster rond de pKa van het vetzuur; bij hogere pH micellen, bij lagere pH oliedruppels",
+   "bron": "Lee, Danino & Raghavan 2009, Langmuir 25:1566 (zelf gecontroleerd; citeert Apel, Deamer & Mautner 2002, BBA 1559:1)"
+  },
+  {
+   "waarde": "celfossielen van ± 3,46 miljard jaar (Apex chert) zijn omstreden; afspraak met film 11: in beide films stromatolieten als oudste sporen, ± 3,5 miljard jaar",
+   "bron": "Brasier e.a. 2002, Nature 416:76 (gevonden via Nature News & Views 416:28)"
+  },
+  {
+   "waarde": "oudste breed aanvaarde sporen van leven: stromatolieten Dresser-formatie, Pilbara, West-Australië, ± 3,48 miljard jaar; claim Isua (Groenland) 3,7 miljard jaar betwist",
+   "bron": "Van Kranendonk e.a. 2008; Allwood e.a. 2018, Nature 563:241 (Cosmos Magazine 2018)"
+  },
+  {
+   "waarde": "twee hypothesen voor de plek: hete (alkalische) bronnen op de oceaanbodem (waterstof, mineralen; Lane, Barge) tegenover ondiepe poelen op vulkanisch land met opdrogen en vollopen (Deamer, Damer); niet beslist",
+   "bron": "Knowable Magazine 2020 'Searching high and low for the origins of life'; Jordan e.a. 2019 Nat Ecol Evol; Damer & Deamer 2020 Astrobiology; Darwin aan Hooker 1 feb 1871 ('warm little pond')"
+  },
+  {
+   "waarde": "Lost City-schoorstenen: carbonaat, tot ± 60 m, water 40–90 °C (beeld e10s36)",
+   "bron": "Kelley e.a. 2001, Nature 412:145"
+  },
+  {
+   "waarde": "indeling: alle leven in drie domeinen (bacteriën, archaea, eukaryoten); LUCA aan de wortel (beeld e10s33)",
+   "bron": "Woese e.a. 1990, PNAS 87:4576; Moody e.a. 2024"
+  }
+ ],
+ "uitspraak": [
+  {
+   "woord": "Stanley Miller",
+   "invoer": "Stanley Miller",
+   "ipa": "/ˈstænli ˈmɪlər/ (Engels)",
+   "bron": "Engelse naam; wachtlijst (mag Engels klinken)"
+  },
+  {
+   "woord": "in het jaar 1953 / 1969 / 2026",
+   "invoer": "in het jaar 1953",
+   "ipa": "—",
+   "bron": "UITSPRAAK.md (jaartallen als cijfers na 'het jaar')"
+  },
+  {
+   "woord": "methaan",
+   "invoer": "methaan",
+   "ipa": "/meːˈtaːn/",
+   "bron": "Van Dale (klemtoon laatste lettergreep); nl.wiktionary niet bereikbaar — wachtlijst"
+  },
+  {
+   "woord": "ammoniak",
+   "invoer": "ammoniak",
+   "ipa": "/ˈɑ.moː.nijɑk/ of /ɑ.moːˈnijɑk/",
+   "bron": "beide gangbaar in het Nederlands; wachtlijst"
+  },
+  {
+   "woord": "glycine",
+   "invoer": "glycine",
+   "ipa": "/ɣliˈsi.nə/",
+   "bron": "UITSPRAAK.md: -ine gewoon schrijven bij eleven_v4; wachtlijst"
+  },
+  {
+   "woord": "alanine",
+   "invoer": "alanine",
+   "ipa": "/ɑ.laːˈni.nə/",
+   "bron": "UITSPRAAK.md (aminozuren op -ine voluit); wachtlijst"
+  },
+  {
+   "woord": "Murchison",
+   "invoer": "Murtsjison",
+   "ipa": "/ˈmɜːtʃɪsən/",
+   "bron": "archief A4 RISK-tabel (Murtsjison); wachtlijst"
+  },
+  {
+   "woord": "DNA",
+   "invoer": "deeënaa",
+   "ipa": "—",
+   "bron": "UITSPRAAK.md (goedgekeurd 12 okt)"
+  },
+  {
+   "woord": "RNA",
+   "invoer": "er-en-aa",
+   "ipa": "—",
+   "bron": "UITSPRAAK.md (los woord: er-en-aa; in één film steeds hetzelfde)"
+  },
+  {
+   "woord": "RNA-wereld",
+   "invoer": "er-en-aa-wereld",
+   "ipa": "—",
+   "bron": "afgeleid van RNA (los woord); wachtlijst"
+  },
+  {
+   "woord": "ribozym",
+   "invoer": "ribozym",
+   "ipa": "/ˌri.boːˈzim/",
+   "bron": "naar enzym /ɛnˈzim/ (klemtoon laatste lettergreep); wachtlijst"
+  },
+  {
+   "woord": "ribosomen",
+   "invoer": "ribosomen",
+   "ipa": "/ˌri.boːˈzoː.mə(n)/",
+   "bron": "Van Dale; wachtlijst"
+  },
+  {
+   "woord": "protocel",
+   "invoer": "protocel",
+   "ipa": "/ˈproː.toː.sɛl/",
+   "bron": "samenstelling proto + cel; wachtlijst"
+  },
+  {
+   "woord": "mitochondriën",
+   "invoer": "mitochondriën",
+   "ipa": "/ˌmi.toːˈxɔn.dri.jə(n)/",
+   "bron": "Van Dale; al in eerdere films zonder opmerking"
+  },
+  {
+   "woord": "LUCA",
+   "invoer": "Loeka",
+   "ipa": "/ˈlu.kaː/",
+   "bron": "archief A4 RISK-tabel (Loeka); Engelse uitspraak /ˈluːkə/; wachtlijst"
+  },
+  {
+   "woord": "stromatolieten",
+   "invoer": "stromatolieten",
+   "ipa": "/ˌstroː.maː.toːˈli.tə(n)/",
+   "bron": "naar -liet (zoals oöliet); wachtlijst"
+  },
+  {
+   "woord": "uv-straling",
+   "invoer": "uu-vee-straling",
+   "ipa": "/yˈveː ˈstraː.lɪŋ/",
+   "bron": "Nederlandse letternamen u en v, klemtoon op v (Van Dale: uv /yˈve/); wachtlijst"
+  },
+  {
+   "woord": "koolstofdioxide",
+   "invoer": "koolstofdie-oxide",
+   "ipa": "—",
+   "bron": "UITSPRAAK.md (goedgekeurd)"
+  },
+  {
+   "woord": "West-Australië",
+   "invoer": "West-Australië",
+   "ipa": "/ʋɛst ʌu̯sˈtraː.li.jə/",
+   "bron": "gewoon Nederlands"
+  }
+ ],
+ "nieuw_in_bibliotheek": [
+  "olMolecuul — kleine moleculen als ruimtevullende bolletjes (H₂O, CH₄, NH₃, H₂, N₂, CO₂) met echte hoeken; O teal, H licht, C grijs, N grijsblauw",
+  "olAminozuur — aminozuur in structuurvorm (aminogroep, α-C, zuurgroep, H, zijketen); glycine en alanine; oker",
+  "olBase / olNucleotide / olRnaStreng / olSlap — RNA-basen in de vormen en teal tinten van de DNA-reeks (dnalib basePath/RC), dunne slappe streng met pootjes",
+  "olRibozym — één RNA-streng die vouwt tot drie stengels met baseparen (hamerkop-vorm), actieve plek goud; fold 0..1 morph",
+  "olEiwit — eiwitketen in grijsblauw (enzym) op de vouwvorm van lib_bio _eiwitVorm",
+  "olVetzuur / olBilaag / olBlaasje — vetzuur met één staart; dubbele laag langs een gebogen contour; blaasje met inhoud (geclipt binnen het binnenste blad) en deling (insnoering)",
+  "olMiller — Millers opstelling (5 l-kolf met elektroden, 500 ml-waterkolf met vlam, koeler, U-val met kraantje), kleur helder→roze→dieprood; CAST.miller (Stanley Miller, 23 jaar, castboekstijl, alleen in deze film)",
+  "olJongeAarde / olVulkaan / olBliksem — Macro-nacht met vulkanen, onweer en kale oceaan",
+  "olMeteorietBrok / olVuurbal — koolstofhoudende chondriet met chondrulen; vuurbal",
+  "olDiepzee + olSchoorsteen (alkalische bron, Lost City-type) / olPoelLand (poel met droogteringen op vulkanisch land)",
+  "olStromatoliet — koepel met laagjes, ook in doorsnede",
+  "olLuca — modelcel zonder kern: nucleoïde, ribosomen, eiwitten, membraan",
+  "olCelIcoon (bacterie, archaeon, eukaryoot), olRibosoom (twee subeenheden, rRNA-lussen, tunnel met keten), olPaddenstoel (met mycelium), olEik, olCodon"
+ ],
+ "keuzes_en_twijfels": [
+  "Puzzel: de startvraag van de site ('Hoe word je van losse moleculen een cel die zichzelf kopieert?'). Haak: 'jij begon als één cel; elke cel komt uit een cel' met de familie van Noor (Noor, Linda, Rachid, Opa Henk, Oma Ria): een warm menselijk moment dat het concept draagt (de ketting van cellen); de film eindigt bij dezelfde ketting die samenkomt in LUCA.",
+  "Opbouw volgt de drie onderdelen van een cel (bouwstenen, kopieerder, omhulsel) als drie vakjes die zich vullen; het middelste houdt het label 'hypothese'. Bewijsniveau rechtsboven in beeld (VASTGESTELD / HYPOTHESE / NOG ONZEKER / MODEL) zoals type H voorschrijft.",
+  "Millers atmosfeer: eerlijk benoemd (e10s10) met Cleaves 2008: in CO₂/N₂ minder, maar wel aminozuren. 'Waarschijnlijk niet' is iets stelliger dan 'niet helemaal': de meeste modellen geven een zwak reducerende lucht; kortstondig sterk reducerend na grote inslagen is mogelijk (Wikipedia Miller–Urey). Kamiel: liever 'waarschijnlijk niet helemaal'?",
+  "QT45 (2026) is heel recent (Science, feb 2026). Gesproken: 'een kopie van zichzelf kan maken, heel langzaam' en 'een RNA dat zichzelf steeds opnieuw kopieert, is nog niet gevonden'. De exacte publicatiedatum in Science heb ik niet zelf in het tijdschrift gezien (wel MRC LMB, Chemistry World, astrobiology.com 16 feb 2026). Zo niet gewenst: alleen de tweede zin houden en Lincoln & Joyce 2009 (twee RNA's die elkaar kopiëren) noemen.",
+  "Simulatie RNA-kopieerders (e10s19–21): zoals in archieffilm 4 (40 strengen, 4 % fout per letter, schaarste; gemiddelde snelheid stijgt en vlakt af). Labelen als MODEL. Geen nieuwe vakterm (mutatie-selectiebalans niet genoemd).",
+  "Herhaling van film 2 vermeden: alleen één zin met verwijzing ('het mechanisme uit de film Natuurlijke selectie'); de drie voorwaarden lichten op zonder ze opnieuw uit te leggen.",
+  "'Een blaasje met veel RNA groeit ten koste van zijn buren' (Chen 2004) uit de tekst geschrapt voor de lengte; het staat in de getallentabel als achtergrond. 'Klei versnelt de vorming' ook niet gesproken.",
+  "Zhu & Szostak 2009 (groei en deling bij lichte stroming): PMC-pagina gaf een captcha; de bewering steunt daarnaast op Hanczyc 2003 (delen door poriën) via de Harvard Gazette. Beeld toont insnoeren tot twee blaasjes; in het lab worden ze eerst draadvormig en breken dan. Vereenvoudiging, label 'model'.",
+  "Vetzuurblaasje getekend met vetzuren met één staart (geen fosfolipiden met twee staarten): dat is het verschil met het celmembraan (e10s26 zegt 'lijkt op').",
+  "De plek: hete bronnen (alkalisch, Lost City-type, witte carbonaatschoorstenen) tegenover poelen op land. Ik teken bewust geen zwarte roker (± 350 °C, zuur): de hypothese van Lane/Russell gaat over alkalische bronnen. Darwin's 'warm little pond' (1871) niet gesproken (hoort bij film 9?), wel in de getallen.",
+  "Mitochondriale code als bewijs dat 'een andere code ook kan': in mens-mitochondriën UGA = tryptofaan. Synthetische E. coli met herschreven code (Fredens 2019) niet gesproken.",
+  "LUCA-leeftijd 4,2 miljard jaar (Moody 2024) gesproken met 'maar die schatting is onzeker'; e10s37 voorwaardelijk ('klopt de schatting, dan ...'). Het oudste harde spoor (3,5 miljard jaar) apart. Isua (3,7) en Jack Hills-koolstof (4,1) bewust niet genoemd: betwist.",
+  "Stromatolieten: 'die de meeste geologen aanvaarden' (Dresser-formatie 3,48); niet 'de oudste ooit'.",
+  "Stanley Miller is een historische persoon, getekend als eigen figuur via de castmotor (CAST.miller: kort donker haar, wit overhemd, 23 jaar). Wordt alleen in deze film toegevoegd (geen wijziging in lib_cast.js); als Kamiel hem goedkeurt, hoort hij in de castbibliotheek bij 'historisch'.",
+  "Geen ElevenLabs-referentieplaten gemaakt (0 credits): geen dieren in beeld. Moleculen, opstelling en stromatolieten naar tekst- en tekeningbronnen (Miller 1953-schema, hamerkop-ribozym Scott e.a. 1995).",
+  "Aarde: de echte wereldbol (aarde() uit Van molecuul tot biosfeer) is niet gebruikt; de jonge aarde staat als landschap in beeld (Macro), niet als bol. Bij de bouw kan e10s06 een korte uitzoom naar de bol krijgen.",
+  "Uitspraak 'uv-straling': invoer nog onzeker (wachtlijst); alternatief 'ultraviolette straling' voluit zeggen.",
+  "Review 24 okt (review_extra.md) verwerkt: e10s09 (14 in de klassieke proef, 22 in de stoomproef), vetzuurvraag en 'juiste zuurgraad', label e10s24, QT45 met tripletten, vraag over het kringetje DNA ⇄ eiwit herschreven (C 'eerst eiwitten' was zelf een onderzochte hypothese), 'minstens drie dingen' + energie bij de hete bronnen (metabolisme-eerst blijft impliciet), 'bijna dezelfde code' en codon als RNA-codon gelabeld, familie e10s01 (lijn van Henk en Ria naar Linda), 'ringvormig' bij LUCA weg, Darwins warme poeltje genoemd (bruggetje naar film 9), woorden van film 2 in e10s22, label EXTRA 2/4.",
+  "Niet overgenomen: Spiegelman 1967 (RNA-kopiëren in de reageerbuis, met een eiwit) als extra zin in e10s21: de film zit al op ruim 8 minuten en het enzym erbij vergt uitleg. Goed voor de klas; staat niet in getallen omdat ik de bron niet zelf heb geopend.",
+  "Vetzuurvraag: optie C (olie op water) is bij lage pH echt wat er gebeurt; daarom zegt e10s26 'in water met de juiste zuurgraad'. De vraag zelf noemt geen pH, zodat ze niet te raden is.",
+  "Duur 8,3 min na de review (basis = vwo; geen vwo-blokken) bij 996 woorden: net boven 6–8 min. Kandidaten om te schrappen: e10s22 (verwijzing film 2) of e10s37 (wanneer)."
+ ]
+}

@@ -1,0 +1,582 @@
+{
+ "film": 7,
+ "titel": "Hoe weten we dat?",
+ "slug": "7-hoe-weten-we-dat",
+ "puzzel": "Hoe weet je welke laag in de grond het oudst is?",
+ "haak": "Een walvis met heupbotjes: botjes van een bekken, maar zonder poten eraan.",
+ "duur": {
+  "basis_min": 8.2,
+  "met_vwo_min": 8.2,
+  "woorden": 976
+ },
+ "hoofdstukken": [
+  {
+   "nr": 1,
+   "titel": "Lagen en fossielen",
+   "minivraag": "Welke laag is het oudst, en hoe oud precies?",
+   "type": "G",
+   "look": "Macro"
+  },
+  {
+   "nr": 2,
+   "titel": "Walvissen in de lagen",
+   "minivraag": "Wat vind je in de lagen van 50 tot 40 miljoen jaar oud?",
+   "type": "F",
+   "look": "Macro"
+  },
+  {
+   "nr": 3,
+   "titel": "Hetzelfde skelet",
+   "minivraag": "Waarom zitten er vingerbotjes in een walvisvin?",
+   "type": "B",
+   "look": "Schema"
+  },
+  {
+   "nr": 4,
+   "titel": "Het spoor in het DNA",
+   "minivraag": "Wie is het naaste familielid van de walvis?",
+   "type": "G",
+   "look": "Schema"
+  }
+ ],
+ "scenes": [
+  {
+   "id": "e7s01",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Een bultrug. Ongeveer vijftien meter lang. Ze ademt lucht en zoogt haar jong. Ze is een zoogdier, net als jij.",
+   "beweging": "De bultrug zwemt langzaam door het beeld, de borstvinnen slaan één keer."
+  },
+  {
+   "id": "e7s02",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Kijk eens in haar buik. Daar liggen twee kleine botjes, los van de wervelkolom. Heupbotjes, zonder poten eraan.",
+   "beweging": "Het lijf wordt doorschijnend; het skelet verschijnt en de heupbotjes lichten goud op."
+  },
+  {
+   "id": "e7s03",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Biologen zeggen: walvissen stammen af van dieren op het land. Maar niemand was erbij. Dus begin je bij een simpele vraag: hoe weet je welke laag in de grond het oudst is?",
+   "beweging": "De camera zakt van de zee naar een rotswand met lagen; de vraag verschijnt in de lucht."
+  },
+  {
+   "id": "e7s04",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "",
+   "beweging": "Titelkaart: titel en puzzel links, de bultrug met heupbotjes rechts."
+  },
+  {
+   "id": "e7s05",
+   "hoofdstuk": "1 Lagen en fossielen",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Rivieren en zeeën laten zand en klei bezinken. Laag op laag, duizenden jaren lang. Raakt een dood dier snel bedolven, dan kan het een fossiel worden: een versteend overblijfsel van een organisme.",
+   "beweging": "Laag na laag zakt neer; een dood dier wordt bedekt en verandert in een fossiel."
+  },
+  {
+   "id": "e7s06",
+   "hoofdstuk": "1 Lagen en fossielen",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Elke nieuwe laag komt bovenop de vorige. Dus normaal is de onderste laag het oudst. Dat heet relatieve datering: je weet de volgorde, nog niet het aantal jaren.",
+   "beweging": "Een pijl 'ouder' loopt van boven naar onder langs de lagen."
+  },
+  {
+   "id": "e7s07",
+   "hoofdstuk": "1 Lagen en fossielen",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Maar de aardkorst beweegt. Lagen kunnen later kantelen, plooien, breken of zelfs omklappen. Dr. Kim vindt lagen die zo ver zijn gekanteld dat ze op hun kop liggen.",
+   "beweging": "De stapel kantelt langzaam tot hij op zijn kop ligt; Dr. Kim loopt naar de rotswand."
+  },
+  {
+   "id": "e7q08",
+   "hoofdstuk": "1 Lagen en fossielen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Deze lagen zijn na het afzetten omgeklapt. Welke laag is het oudst?",
+   "beweging": "Vraagkaart met de omgeklapte lagen, gelabeld P (nu onderop) tot R (nu bovenop); de gouden aftellijn krimpt.",
+   "opties": "A Laag P: die ligt nu het diepst · B Laag R: die lag onderop toen de lagen nog plat lagen · C Dat kun je na het kantelen niet meer weten",
+   "juist": "B"
+  },
+  {
+   "id": "e7s09",
+   "hoofdstuk": "1 Lagen en fossielen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Draai de lagen in gedachten terug, tot ze weer plat liggen. De laag die toen onderop lag, is als eerste afgezet. Die is het oudst, ook al ligt hij nu bovenop.",
+   "beweging": "De omgeklapte lagen draaien terug tot ze plat liggen; de onderste laag (R) krijgt een gouden rand."
+  },
+  {
+   "id": "e7s10",
+   "hoofdstuk": "1 Lagen en fossielen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Hoeveel jaar oud? Dat meet je met radioactieve stoffen in gesteente of botten. Dat heet absolute datering. Van koolstof-14 is na ongeveer 5700 jaar de helft vervallen: de halveringstijd.",
+   "beweging": "De curve tekent zich; bij elke halveringstijd springt een punt op 50, 25 en 12,5 procent."
+  },
+  {
+   "id": "e7s11",
+   "hoofdstuk": "1 Lagen en fossielen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Koolstof-14 werkt alleen voor resten van organismen, en tot ongeveer 50.000 jaar terug. Voor oudere lagen gebruiken geologen andere radioactieve stoffen. Hoe dat werkt, is natuurkunde. Hier is het een gegeven: het is gemeten.",
+   "beweging": "Naast de curve verschijnt de grens '±50.000 jaar'; daarachter een gesteentelaag met het label 'andere stoffen'."
+  },
+  {
+   "id": "e7s12",
+   "hoofdstuk": "1 Lagen en fossielen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Zo krijgt elke laag een leeftijd. Zet je die op een tijdas, dan kun je ook elk fossiel in de tijd plaatsen.",
+   "beweging": "De lagen klappen open tot een tijdas van 60 miljoen jaar tot nu."
+  },
+  {
+   "id": "e7s13",
+   "hoofdstuk": "2 Walvissen in de lagen",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "In Pakistan en India vonden onderzoekers fossielen in lagen van ongeveer 50 tot 47 miljoen jaar oud. Pakicetus is het oudst. Een landdier van één tot twee meter, op vier slanke poten. Maar zijn oor heeft een bouw die je verder alleen bij walvissen vindt.",
+   "beweging": "Pakicetus stapt uit zijn laag naar voren; zijn oor licht goud op."
+  },
+  {
+   "id": "e7s14",
+   "hoofdstuk": "2 Walvissen in de lagen",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Ambulocetus, ongeveer 48 miljoen jaar oud. Korte poten, grote achtervoeten, de ogen bovenop de kop. Hij leefde in ondiep water, een beetje zoals een krokodil.",
+   "beweging": "Ambulocetus schuift het water in tot alleen de ogen boven water zijn."
+  },
+  {
+   "id": "e7s15",
+   "hoofdstuk": "2 Walvissen in de lagen",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Rodhocetus, ongeveer 47 miljoen jaar oud. Een langgerekt zwemmerslijf op korte poten. In zijn enkel zit een botje met een bijzondere vorm. Die vorm ken je verder alleen van evenhoevigen: koeien, varkens en nijlpaarden.",
+   "beweging": "Rodhocetus zwemt met zijn achtervoeten; een zoomcirkel toont het enkelbotje."
+  },
+  {
+   "id": "e7s16",
+   "hoofdstuk": "2 Walvissen in de lagen",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Basilosaurus, ongeveer 40 miljoen jaar oud. Een echte walvis van vijftien meter, die alleen in zee leefde. Toch had hij nog achterpootjes: ongeveer 35 centimeter, los van de wervelkolom.",
+   "beweging": "Basilosaurus golft door het water; zijn achterpootje wordt goud."
+  },
+  {
+   "id": "e7q17",
+   "hoofdstuk": "2 Walvissen in de lagen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Is Pakicetus de voorouder van Ambulocetus?",
+   "beweging": "Vraagkaart met de twee fossielen naast elkaar.",
+   "opties": "A Niet per se · B Ja, het ene dier veranderde in het andere · C Nee, ze zijn niet verwant",
+   "juist": "A"
+  },
+  {
+   "id": "e7s18",
+   "hoofdstuk": "2 Walvissen in de lagen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Een fossiel is bijna nooit precies een voorouder. Je vindt verwanten, op zijtakken van dezelfde boom. Samen laten ze zien hoe die boom zich vertakte. Van oud naar jong: steeds kleinere achterpoten en steeds meer een zwemmerslijf. Dat ging over miljoenen jaren, generatie na generatie, in hele populaties.",
+   "beweging": "Op de tijdas groeit een boom; elk fossiel krijgt een eigen zijtakje, de hoofdlijn loopt door naar 'nu'."
+  },
+  {
+   "id": "e7s19",
+   "hoofdstuk": "3 Hetzelfde skelet",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Leg vier ledematen naast elkaar: een mensenarm, een vleermuisvleugel, een walvisvin en het voorbeen van een paard. Van buiten lijken ze niets op elkaar. Van binnen wel: één opperarmbeen, dan spaakbeen en ellepijp, dan pols- en handbotjes.",
+   "beweging": "De vier ledematen worden doorschijnend; per botgroep lichten ze tegelijk op: teal, oker, paars."
+  },
+  {
+   "id": "e7s20",
+   "hoofdstuk": "3 Hetzelfde skelet",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Elke ledemaat heeft een andere vorm en een andere functie: grijpen, vliegen, zwemmen, rennen. Organen met dezelfde bouw maar vaak een andere functie heten homologe organen.",
+   "beweging": "De silhouetten komen terug om de botten; onder elk lidmaat verschijnt zijn functie."
+  },
+  {
+   "id": "e7q21",
+   "hoofdstuk": "3 Hetzelfde skelet",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Waarom zitten er vingerbotjes in een walvisvin?",
+   "beweging": "Vraagkaart met de walvisvin in röntgenbeeld.",
+   "opties": "A Een vin heeft vingers nodig om te kunnen sturen · B Walvissen erfden ze van een voorouder die poten met vingers had · C Dat is toeval",
+   "juist": "B"
+  },
+  {
+   "id": "e7s22",
+   "hoofdstuk": "3 Hetzelfde skelet",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Een vin werkt ook zonder vingers: een haaienvin heeft ze niet. De botjes zitten er, omdat walvissen afstammen van een voorouder met poten. Homologe organen wijzen op een gemeenschappelijke voorouder.",
+   "beweging": "Vanuit één voorouderpoot onderaan waaieren vier lijnen uit naar de vier ledematen."
+  },
+  {
+   "id": "e7s23",
+   "hoofdstuk": "3 Hetzelfde skelet",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Terug naar de heupbotjes van de bultrug. Bij een landdier zit het bekken vast aan de wervelkolom en draagt het de achterpoten. Bij de walvis dragen de botjes niets meer.",
+   "beweging": "Röntgenbeeld van de bultrug; ernaast het bekken van Pakicetus dat aan de wervelkolom vastzit."
+  },
+  {
+   "id": "e7s24",
+   "hoofdstuk": "3 Hetzelfde skelet",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Zo'n overblijfsel heet een rudimentair orgaan: het is zijn oorspronkelijke functie kwijt. Wel zitten er nog spieren aan die helpen bij het paren. Maar dat het juist heupbotjes zijn, verklaar je alleen met voorouders die achterpoten hadden.",
+   "beweging": "De heupbotjes blijven goud; de rest van het skelet dimt."
+  },
+  {
+   "id": "e7s25",
+   "hoofdstuk": "3 Hetzelfde skelet",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Jij hebt er ook een: je staartbeen. Een paar vergroeide wervels aan het eind van je wervelkolom. Geen staart, wel het restant van de staart van verre voorouders.",
+   "beweging": "Zoomcirkel van de onderrug van Noor naar het staartbeen, dat goud oplicht."
+  },
+  {
+   "id": "e7s26",
+   "hoofdstuk": "4 Het spoor in het DNA",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Het derde spoor zit in het DNA. Soorten met een gemeenschappelijke voorouder erfden allebei zijn DNA. Daarna stapelen zich in elke lijn eigen mutaties op. Hoe een mutatie ontstaat, zie je in de DNA-reeks.",
+   "beweging": "Eén rij DNA-letters splitst in twee rijen; in elke rij verschijnt af en toe een gouden letter."
+  },
+  {
+   "id": "e7s27",
+   "hoofdstuk": "4 Het spoor in het DNA",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Dr. Kim legt een stuk van hetzelfde gen van vier dieren naast elkaar. Hoe minder verschillen, hoe korter geleden de splitsing. En hoe nauwer verwant.",
+   "beweging": "Vier rijen letters schuiven onder elkaar; de verschillen met de walvis worden goud."
+  },
+  {
+   "id": "e7q28",
+   "hoofdstuk": "4 Het spoor in het DNA",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Welk dier is het nauwst verwant aan de walvis?",
+   "beweging": "Vraagkaart met zeehond, koe en nijlpaard naast elkaar.",
+   "opties": "A De zeehond · B De koe · C Het nijlpaard",
+   "juist": "C"
+  },
+  {
+   "id": "e7s29",
+   "hoofdstuk": "4 Het spoor in het DNA",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Walvis en nijlpaard hebben de minste verschillen. De zeehond lijkt van buiten meer op een walvis, maar zijn DNA wijkt verder af. Hij is een roofdier, verwant aan honden en beren.",
+   "beweging": "De rij van het nijlpaard licht op; de zeehond dimt."
+  },
+  {
+   "id": "e7s30",
+   "hoofdstuk": "4 Het spoor in het DNA",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Walvis en nijlpaard delen zelfs een ingevoegd stukje DNA, op precies dezelfde plek. De koe heeft het niet. Zo'n stukje erven ze van één gemeenschappelijke voorouder.",
+   "beweging": "In de rijen van walvis en nijlpaard schuift een paars blokje op dezelfde plek in; bij de koe blijft een gat."
+  },
+  {
+   "id": "e7s31",
+   "hoofdstuk": "4 Het spoor in het DNA",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Mutaties stapelen zich gemiddeld in een vrij vast tempo op. Dan kun je de verschillen gebruiken als klok: de moleculaire klok. Je stelt hem af met fossielen waarvan de leeftijd gemeten is.",
+   "beweging": "Een klok tikt; bij elke tik komt er een gouden letter bij in de rijen."
+  },
+  {
+   "id": "e7q32",
+   "hoofdstuk": "4 Het spoor in het DNA",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Twee soorten verschillen in 2 procent van een gen. Twee andere soorten in 4 procent. Welke splitsing is het langst geleden?",
+   "beweging": "Vraagkaart met twee balkjes, 2 en 4 procent.",
+   "opties": "A De splitsing met 4 procent verschil · B De splitsing met 2 procent verschil · C Dat kun je uit procenten niet afleiden",
+   "juist": "A"
+  },
+  {
+   "id": "e7s33",
+   "hoofdstuk": "4 Het spoor in het DNA",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Verschillen twee soorten twee keer zoveel in een gen, dan splitsten ze ongeveer twee keer zo lang geleden. Ongeveer, want de klok tikt niet precies gelijk.",
+   "beweging": "Het 4-procentbalkje wordt twee keer zo lang op de tijdas getekend."
+  },
+  {
+   "id": "e7s34",
+   "hoofdstuk": "4 Het spoor in het DNA",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "De klok zegt: walvis en nijlpaard splitsten ongeveer 55 miljoen jaar geleden. De oudste walvisfossielen zijn ongeveer 50 miljoen jaar oud: net ná die splitsing. Lagen, botten en DNA: drie methoden, hetzelfde verhaal.",
+   "beweging": "Op de tijdas valt het knooppunt van de klok net vóór Pakicetus; een groene haak omvat beide."
+  },
+  {
+   "id": "e7s35",
+   "hoofdstuk": "4 Het spoor in het DNA",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Dat verhaal teken je als een stamboom: een cladogram. In de volgende film leer je hem lezen.",
+   "beweging": "De boom groeit: zeehond, koe, nijlpaard, walvis; de walvistak krijgt zijn fossielen."
+  },
+  {
+   "id": "e7s36",
+   "hoofdstuk": "Samenvatting",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Welke laag is het oudst? De laag die als eerste werd afgezet, ook als hij later kantelde. Radioactieve stoffen geven het aantal jaren. En de heupbotjes van de walvis? Een restant van voorouders op vier poten. Fossielen, botten en DNA wijzen dezelfde kant op.",
+   "beweging": "Eindkaart: drie kernzinnen met een groene haak; geen beeld."
+  }
+ ],
+ "checkvragen": [
+  {
+   "niveau": "basis",
+   "vraag": "In een rotswand liggen vier lagen plat op elkaar. In laag 1 (onderaan) en laag 4 (bovenaan) zit een fossiel. Welk fossiel is het oudst? Leg uit.",
+   "antwoord": "Het fossiel in laag 1: lagen worden op elkaar afgezet, dus de onderste laag is het eerst ontstaan (relatieve datering)."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Een onderzoeker wil een walvisfossiel van 45 miljoen jaar oud dateren met koolstof-14. Waarom lukt dat niet?",
+   "antwoord": "Koolstof-14 is na ongeveer 5700 jaar voor de helft vervallen; na ongeveer 50.000 jaar is er te weinig over om te meten. Voor zulke oude lagen gebruik je andere radioactieve stoffen."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Noem het verschil tussen relatieve en absolute datering.",
+   "antwoord": "Relatief: alleen de volgorde (ouder/jonger) uit de ligging van de lagen. Absoluut: de leeftijd in jaren, gemeten met radioactief verval."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "De arm van een mens en de vin van een walvis zijn homologe organen. Wat betekent dat, en waar wijst het op?",
+   "antwoord": "Ze hebben dezelfde bouw (één opperarmbeen, spaakbeen en ellepijp, pols- en handbotjes) maar een andere functie. Het wijst op een gemeenschappelijke voorouder."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Waarom noem je de heupbotjes van een walvis een rudimentair orgaan?",
+   "antwoord": "Het is een overblijfsel van het bekken van voorouders met achterpoten; het draagt geen poten meer en is zijn oorspronkelijke functie kwijt."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Van een gen verschilt soort A in 3 letters van soort B en in 12 letters van soort C. Welke soort is het nauwst verwant aan A? Leg uit met de moleculaire klok.",
+   "antwoord": "Soort B: minder verschillen betekent dat de splitsing korter geleden is, omdat mutaties zich gemiddeld in een vrij vast tempo opstapelen."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Is Basilosaurus de voorouder van de bultrug? Leg uit.",
+   "antwoord": "Niet per se. Een fossiel is meestal een verwant op een zijtak; je kunt niet aantonen dat juist deze populatie de voorouder was."
+  }
+ ],
+ "begrippen": [
+  {
+   "begrip": "fossiel",
+   "uitleg": "Versteend overblijfsel of spoor van een organisme in een aardlaag.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "relatieve datering",
+   "uitleg": "Ouderdom bepalen aan de volgorde van de lagen: wat eerder is afgezet, is ouder. Je weet de volgorde, niet het aantal jaren.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "absolute datering",
+   "uitleg": "De leeftijd in jaren meten met radioactief verval, bijvoorbeeld van koolstof-14 (tot ongeveer 50.000 jaar) of van andere stoffen in gesteente.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "halveringstijd",
+   "uitleg": "De tijd waarin de helft van een radioactieve stof vervalt; voor koolstof-14 ongeveer 5730 jaar.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "homologe organen",
+   "uitleg": "Organen met dezelfde bouw, vaak met een andere functie, zoals mensenarm, vleermuisvleugel, walvisvin en paardenbeen. Ze wijzen op een gemeenschappelijke voorouder.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "rudimentair orgaan",
+   "uitleg": "Overblijfsel van een orgaan dat zijn oorspronkelijke functie kwijt is, zoals de heupbotjes van een walvis en het staartbeen van de mens.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "gemeenschappelijke voorouder",
+   "uitleg": "Een populatie waarvan twee of meer soorten afstammen.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "moleculaire klok",
+   "uitleg": "Mutaties stapelen zich gemiddeld in een vrij vast tempo op; uit het aantal verschillen in het DNA schat je hoe lang geleden twee soorten splitsten. De klok wordt afgesteld met gedateerde fossielen.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "cladogram",
+   "uitleg": "Stamboom die laat zien welke soorten de meest recente gemeenschappelijke voorouder delen (verder in film 8).",
+   "niveau": "basis"
+  }
+ ],
+ "getallen": [
+  {
+   "waarde": "bultrug ongeveer 15 m; borstvin tot ongeveer 1/3 van de lichaamslengte (tot ±5 m)",
+   "bron": "gentlegiants.is (Húsavík, 2025); in beeld als verhouding gebruikt"
+  },
+  {
+   "waarde": "koolstof-14: halveringstijd 5730 jaar (gezegd: 'ongeveer 5700'), bruikbaar tot ongeveer 50.000 jaar, alleen koolstofhoudend materiaal",
+   "bron": "Centrum voor Isotopen Onderzoek, Rijksuniversiteit Groningen (rug.nl, isotoopdatering)"
+  },
+  {
+   "waarde": "Pakicetus ongeveer 50 miljoen jaar, 1–2 m, Pakistan/NW-India; gehoorbeen met walvisbouw",
+   "bron": "Wikipedia Pakicetus en Evolution of cetaceans; Thewissen e.a. 2001 (via archief A3)"
+  },
+  {
+   "waarde": "Ambulocetus ongeveer 48 miljoen jaar (48–47; elders ~49), ±3 m, Pakistan, ogen bovenop, leefwijze als krokodil",
+   "bron": "Wikipedia Ambulocetus; Thewissen e.a. 1994"
+  },
+  {
+   "waarde": "Rodhocetus ongeveer 47 miljoen jaar, 2–3 m; enkelbot (astragalus) met dubbele katrol van evenhoevigen",
+   "bron": "Wikipedia Rodhocetus; Gingerich e.a. 2001 (Science)"
+  },
+  {
+   "waarde": "Basilosaurus ongeveer 41–34 miljoen jaar (gezegd 'ongeveer 40'), 15–18 m; achterpoot ongeveer 35 cm, niet verbonden met de wervelkolom",
+   "bron": "Wikipedia Basilosaurus; U-M Record (Gingerich, Wadi Hitan); Gingerich e.a. 1990"
+  },
+  {
+   "waarde": "walvis–nijlpaard splitsing ongeveer 55 miljoen jaar (moleculair); walvissen splitsen rond 50 Mj van andere evenhoevigen",
+   "bron": "Wikipedia Evolution of cetaceans; Theodor 2004 (J. Paleontology) als controle"
+  },
+  {
+   "waarde": "gedeelde SINE/LINE-inserties bij walvis en nijlpaard, niet bij herkauwers",
+   "bron": "Nikaido e.a. 1999 PNAS (PMC17876); Penn State nieuwsbericht"
+  },
+  {
+   "waarde": "heupbotjes walvis niet verbonden met wervelkolom; spieren voor de penis, groter bij promiscue soorten",
+   "bron": "Dines e.a. 2014 (Evolution), Smithsonian Magazine 2014"
+  },
+  {
+   "waarde": "moleculaire klok: tempo niet precies constant, afgesteld met fossielen",
+   "bron": "Wikipedia Molecular clock (Zuckerkandl & Pauling 1962)"
+  },
+  {
+   "waarde": "zeehond: roofdier (Caniformia), naaste verwanten marterachtigen/beren-groep",
+   "bron": "Wikipedia Pinniped"
+  }
+ ],
+ "uitspraak": [
+  {
+   "woord": "Pakicetus",
+   "invoer": "Pakicetus",
+   "ipa": "/ˌpaː.kiˈseː.tʏs/ (afgeleid)",
+   "bron": "afgeleid uit Latijnse klemtoonregel; nl.wiktionary niet bereikbaar — wachtlijst"
+  },
+  {
+   "woord": "Ambulocetus",
+   "invoer": "Ambulocetus",
+   "ipa": "/ˌɑm.by.loːˈseː.tʏs/ (afgeleid)",
+   "bron": "afgeleid; wachtlijst"
+  },
+  {
+   "woord": "Rodhocetus",
+   "invoer": "Rodhocetus",
+   "ipa": "/ˌrɔ.doːˈseː.tʏs/ (afgeleid)",
+   "bron": "afgeleid; wachtlijst"
+  },
+  {
+   "woord": "Basilosaurus",
+   "invoer": "Basilosaurus",
+   "ipa": "/ˌbaː.zi.loːˈzɑu̯.rʏs/ (afgeleid)",
+   "bron": "afgeleid; wachtlijst"
+  },
+  {
+   "woord": "koolstof-14",
+   "invoer": "koolstof veertien",
+   "ipa": "/ˈkoːl.stɔf ˈfeːr.tin/",
+   "bron": "archief A3 wachtlijst (anders 'min veertien')"
+  },
+  {
+   "woord": "50.000 jaar",
+   "invoer": "tot ongeveer vijftigduizend jaar terug",
+   "ipa": "",
+   "bron": "review 22 okt (punt 60): cijfers met punt kunnen als 'vijftig punt nul nul nul' gelezen worden; wachtlijst"
+  },
+  {
+   "woord": "5700 jaar",
+   "invoer": "ongeveer vijfduizend zevenhonderd jaar",
+   "ipa": "",
+   "bron": "review 22 okt (punt 60): '5700' kan als jaartal gelezen worden; wachtlijst"
+  },
+  {
+   "woord": "halveringstijd",
+   "invoer": "halveringstijd",
+   "ipa": "/ɦɑlˈveː.rɪŋs.tɛi̯t/",
+   "bron": "archief A3"
+  },
+  {
+   "woord": "homologe",
+   "invoer": "homologe",
+   "ipa": "/ˌɦoː.moːˈloː.ɣə/ (afgeleid)",
+   "bron": "woorden.org (betekenis); klemtoon afgeleid; wachtlijst"
+  },
+  {
+   "woord": "rudimentair",
+   "invoer": "rudimentair",
+   "ipa": "/ˌry.di.mɛnˈtɛːr/ (afgeleid)",
+   "bron": "Frans leenwoord, klemtoon op laatste lettergreep; wachtlijst"
+  },
+  {
+   "woord": "cladogram",
+   "invoer": "cladogram",
+   "ipa": "/ˌklaː.doːˈɣrɑm/ (afgeleid)",
+   "bron": "naar 'diagram'; wachtlijst (risico: Engelse 'klee-')"
+  },
+  {
+   "woord": "DNA",
+   "invoer": "deeënaa",
+   "ipa": "",
+   "bron": "UITSPRAAK.md (goedgekeurd)"
+  },
+  {
+   "woord": "Dr. Kim",
+   "invoer": "dokter Kim",
+   "ipa": "",
+   "bron": "afkorting voluit"
+  },
+  {
+   "woord": "één tot twee meter",
+   "invoer": "een landdier van één tot twee meter",
+   "ipa": "",
+   "bron": "review 22 okt (punt 60): 'à' vervangen door 'tot' (losse 'a' in de TTS)"
+  }
+ ],
+ "nieuw_in_bibliotheek": [
+  "bultrug — Megaptera, 15 m, borstvin 1/3, knobbels, keelgroeven, horizontale staartvin; o.rontgen toont skelet met losse heupbotjes (o.heup = goud) en vinbotten in vaste kleuren",
+  "pakicetus, ambulocetus, rodhocetus, basilosaurus — reconstructies op echte verhoudingen; basilosaurus met piepklein achterpootje (o.poot = goud)",
+  "nijlpaard, koe7, zeehond — vergelijkingsdieren voor de DNA-vraag (koe7 om botsing met koe() uit Bestaat dit echt? te voorkomen)",
+  "armSkelet(soort) — homologe voorpoten mens, vleermuis, walvis, paard; vaste botkleuren BOT: opperarmbeen teal, spaakbeen+ellepijp oker, pols/hand paars; botten geteld",
+  "bot(), ledemaat() — hulpjes voor skeletbotten en poten met gewrichten",
+  "gesteente(lagen, {rot, fossielen, nadruk}) + fossiel(soort) — gesteentelagen met fossielen, kantelbaar",
+  "dnaRijen(rijen, {ins, insIn}) — DNA als letterrijen, verschillen goud, ingevoegd stuk paars",
+  "halveringsGrafiek, tijdAs (miljoen jaar), staartbeen"
+ ],
+ "keuzes_en_twijfels": [
+  "Puzzel A (welke laag is het oudst?) zoals in het reeksontwerp; hij wordt in H1 al beantwoord. De haak (heupbotjes) draagt de boog naar H3 en de samenvatting beantwoordt beide.",
+  "Heupbotjes: Dines e.a. 2014 laten zien dat ze een functie hebben (spieraanhechting voor de penis). Daarom: 'oorspronkelijke functie kwijt' + 'wel spieren die helpen bij het paren'. Dit volgt de methodedefinitie van rudimentair en blijft correct.",
+  "Staartbeen mens als tweede rudimentair orgaan (heeft ook spieraanhechting); geformuleerd als 'restant van de staart'.",
+  "Embryo met achterpootknoppen (archief) weggelaten: niet in de seriebrief en de film wordt anders te lang.",
+  "Walvis–nijlpaard: '55 miljoen jaar' komt uit Wikipedia (Evolution of cetaceans); schattingen lopen uiteen (ongeveer 60–50). Daarom 'ongeveer'.",
+  "Fossielen worden expliciet géén voorouders genoemd (vraag 2) om film 8 voor te bereiden; geen tijdlijn van miljarden jaren (seriebrief).",
+  "Absolute datering alleen als gegeven ('het is gemeten'); koolstof-14 genoemd omdat het havo-examen (2023-1 v40) ernaar vraagt.",
+  "Zeehond 'verwant aan honden en beren': breed juist (hondachtige roofdieren); de naaste verwanten zijn marterachtigen. Eventueel 'honden en marters'.",
+  "Vleermuis- en paardenskelet: botaantallen vereenvoudigd tot de herkenbare groepen; ellepijp bij paard en vleermuis gereduceerd getekend.",
+  "Nederlandse uitspraak van de fossielnamen niet in een woordenboek gevonden (nl.wiktionary niet bereikbaar): op de uitspraakwachtlijst.",
+  "Vraag e7q08: lagen in de vraagkaart nu omgeklapt (meer dan 90° gekanteld) en gelabeld P–R. Bij een schuine kanteling ligt de oudste laag ook nog het diepst, dan was optie A ook goed. e7s07 noemt daarom 'zelfs omklappen' en e7s09 'ook al ligt hij nu bovenop'.",
+  "Review 22 okt: 8 punten verwerkt (14 heupbotjes niet tegenstrijdig, 17 Vragen uit e7s33, 23 opties e7q08 met lagen P/R, 29 opties e7q17 even lang, 47 'zoogdier, net als jij', 48 'elke ledemaat', 60 stem-invoer 5700/50.000 en 'één tot twee meter')."
+ ]
+}

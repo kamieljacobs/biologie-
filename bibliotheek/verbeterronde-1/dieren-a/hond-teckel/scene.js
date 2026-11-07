@@ -1,0 +1,1 @@
+SCENE = { s0: 3, f: (c,x,y,s,o)=>hond(c,'teckel',x,y,s,o), groot: {"houding":"lopen","t":0.15}, ijkOok: ["A"], standen: [{"houding":"lopen","t":0}, {"houding":"lopen","t":0.25}, {"houding":"lopen","t":0.5}, {"houding":"lopen","t":0.75}], klein: {"houding":"staan"} };

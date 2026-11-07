@@ -1,0 +1,121 @@
+[
+ {
+  "obj": "helicaseRing",
+  "functies": [
+   "helicaseRing"
+  ],
+  "bestand": "helicaseRing/DEF.js"
+ },
+ {
+  "obj": "primase",
+  "functies": [
+   "primase"
+  ],
+  "bestand": "primase/DEF.js"
+ },
+ {
+  "obj": "ligase",
+  "functies": [
+   "ligase"
+  ],
+  "bestand": "ligase/DEF.js"
+ },
+ {
+  "obj": "vork",
+  "functies": [],
+  "bestand": "vork/DEF.js"
+ },
+ {
+  "obj": "enzymKluwen",
+  "functies": [
+   "enzymKluwen"
+  ],
+  "bestand": "enzymKluwen/DEF.js"
+ },
+ {
+  "obj": "membraanBoog",
+  "functies": [
+   "membraanBoog"
+  ],
+  "bestand": "membraanBoog/DEF.js"
+ },
+ {
+  "obj": "nucleosoomDraad",
+  "functies": [
+   "nucleosoomDraad"
+  ],
+  "bestand": "nucleosoomDraad/DEF.js"
+ },
+ {
+  "obj": "nucleosoomAcetyl",
+  "functies": [
+   "nucleosoomAcetyl"
+  ],
+  "bestand": "nucleosoomAcetyl/DEF.js"
+ },
+ {
+  "obj": "crisprCas9",
+  "functies": [
+   "crisprCas9"
+  ],
+  "bestand": "crisprCas9/DEF.js"
+ },
+ {
+  "obj": "plasmideKnipPlak",
+  "functies": [
+   "plasmideKnipPlak"
+  ],
+  "bestand": "plasmideKnipPlak/DEF.js"
+ },
+ {
+  "obj": "restrictieEnzym",
+  "functies": [
+   "restrictieEnzym"
+  ],
+  "bestand": "restrictieEnzym/DEF.js"
+ },
+ {
+  "obj": "rnaInterferentie",
+  "functies": [
+   "rnaInterferentie"
+  ],
+  "bestand": "rnaInterferentie/DEF.js"
+ },
+ {
+  "obj": "uvSchade",
+  "functies": [
+   "uvSchade"
+  ],
+  "bestand": "uvSchade/DEF.js"
+ },
+ {
+  "obj": "membraanReceptor",
+  "functies": [
+   "membraanReceptor",
+   "_mrIntern"
+  ],
+  "bestand": "membraanReceptor/DEF.js"
+ },
+ {
+  "obj": "primerStuk",
+  "functies": [
+   "primerStuk",
+   "_psPolAchter",
+   "_psPolVoor",
+   "_psDeel",
+   "_psKlem"
+  ],
+  "bestand": "primerStuk/DEF.js"
+ },
+ {
+  "obj": "_hulp",
+  "functies": [
+   "KK_R",
+   "_kkKluwen",
+   "_kkHex",
+   "_kkPad",
+   "_kkHelix"
+  ],
+  "bestand": "_hulp.js"
+ }
+]

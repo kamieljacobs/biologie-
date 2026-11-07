@@ -1,0 +1,152 @@
+[
+ {
+  "obj": "celrond",
+  "scores": {
+   "P": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 18
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "Q",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Geen exocytose: het blaasje dat met het celmembraan versmelt (recept) ontbreekt",
+   "Q": "Exocytose zit linksboven in plaats van rechtsboven; ER slechts aan één kant van de kern"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "De cel is niet 'vol': weinig organellen, blaasjes en textuur, en ER omringt de kern slechts aan één kant"
+ },
+ {
+  "obj": "enzymkluwen",
+  "scores": {
+   "P": {
+    "klopt": 2,
+    "herkenbaar": 4,
+    "stijl": 1,
+    "beweging": 2,
+    "bruikbaar": 4,
+    "totaal": 13
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 3,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 18
+   }
+  },
+  "winnaar": "Q",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Gladde bol met een krabbel: geen keten/vouwing; induced fit niet zichtbaar",
+   "Q": "Kralen en schijfjes vormen op klein formaat ruis; de holte blijft wel leesbaar"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "hormdeeltje",
+  "scores": {
+   "P": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 2,
+    "beweging": null,
+    "bruikbaar": 4,
+    "totaal": 13
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 3,
+    "stijl": 4,
+    "beweging": null,
+    "bruikbaar": 3,
+    "totaal": 14
+   }
+  },
+  "winnaar": "Q",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "P": "FSH en LH zijn compacte bolletjesklompen (trosje bolletjes)",
+   "Q": "FSH en LH zijn open kettingen die op klein formaat tot krabbel worden; groot en rommelig"
+  },
+  "overnemen": "Q's twee gevouwen ketens met suikertakjes, maar compacter en met verschillende vorm per hormoon (zoals P)",
+  "combineren": true,
+  "fout": "FSH en LH zijn in beide versies zonder kleur nauwelijks van elkaar te onderscheiden (zelfde opbouw); GnRH als gelijke kralen"
+ },
+ {
+  "obj": "thelpercel-hivvirus",
+  "scores": {
+   "P": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 19
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "Q",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "P": "Stervende cel krijgt grijs cytoplasma maar behoudt levendig groene receptoren: toestand wisselt niet consequent",
+   "Q": "Receptoren grijsblauw: op filmgrootte minder opvallend dan groen"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "Het T-celmembraan is een enkele lijn, geen dubbellaag"
+ },
+ {
+  "obj": "zetmeelspiraal",
+  "scores": {
+   "P": {
+    "klopt": 3,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 15
+   },
+   "Q": {
+    "klopt": 2,
+    "herkenbaar": 2,
+    "stijl": 3,
+    "beweging": 2,
+    "bruikbaar": 3,
+    "totaal": 12
+   }
+  },
+  "winnaar": "P",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Spiraal leest als reeks lussen/golf; slechts ±2 windingen en voor-/achterkant alleen via tint",
+   "Q": "Zeshoeken overlappen en de bindingen verdwijnen: leest als zigzag met dubbele rij, niet als schroef"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "De keten leest in beide als golf/zigzag in plaats van een schroef met duidelijke voor- en achterkant"
+ }
+]

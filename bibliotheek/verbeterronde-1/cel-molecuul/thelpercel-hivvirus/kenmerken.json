@@ -1,0 +1,41 @@
+{
+ "oud": {
+  "detail": "midden",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "verzadigd",
+  "diepte": "plat",
+  "textuur": "geen",
+  "context": "los",
+  "beweging": "standen",
+  "opbouw": "in-een-keer",
+  "vondst": "teal cel met groene receptoren"
+ },
+ "A": {
+  "detail": "midden",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "accent",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "in-omgeving",
+  "beweging": "proces",
+  "opbouw": "in-stappen",
+  "vondst": "virus versmelt op een stuk membraan; infectie en sterven als standen"
+ },
+ "C": {
+  "detail": "midden",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "accent",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "in-omgeving",
+  "beweging": "proces",
+  "opbouw": "in-stappen",
+  "vondst": "groene CD4 tegen koraal spikes: receptor en virus meteen uit elkaar"
+ }
+}

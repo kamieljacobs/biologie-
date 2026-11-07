@@ -1,0 +1,85 @@
+{
+ "intro": "Oefen met attributies: waar leg jij of een ander de oorzaak? Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "indelen-intern-extern",
+   "soort": "indelen",
+   "titel": "Lag het aan jou of aan de situatie?",
+   "opdracht": "Noor, Sam en Daan zoeken een oorzaak voor wat er gebeurde. Leggen ze de oorzaak bij de persoon zelf (intern) of in de situatie (extern)?",
+   "bakken": [
+    {"naam": "Intern", "uitleg": "bij de persoon: aanleg, inzet, karakter"},
+    {"naam": "Extern", "uitleg": "in de situatie: toets, omstandigheden, pech"}
+   ],
+   "kaartjes": [
+    {"tekst": "Ik ben gewoon slecht in biologie.", "bak": 0, "uitleg": "Aanleg zit in de persoon zelf."},
+    {"tekst": "De toets was veel te lang.", "bak": 1, "uitleg": "De toets hoort bij de situatie."},
+    {"tekst": "Ik heb te weinig geoefend.", "bak": 0, "uitleg": "Inzet is iets van de persoon."},
+    {"tekst": "Naast me zat iemand de hele tijd te tikken.", "bak": 1, "uitleg": "Lawaai in de klas is een omstandigheid."},
+    {"tekst": "Sam groet niet terug, want hij is arrogant.", "bak": 0, "uitleg": "Een karaktertrek: de oorzaak ligt bij Sam zelf."},
+    {"tekst": "Sam groet niet terug, want hij zag me niet.", "bak": 1, "uitleg": "Of Sam je ziet, hangt af van de situatie."},
+    {"tekst": "Ik won omdat de scheidsrechter ons hielp.", "bak": 1, "uitleg": "De scheidsrechter is buiten de persoon."},
+    {"tekst": "Ik won omdat ik slim speelde.", "bak": 0, "uitleg": "Je eigen inzicht en inzet: intern."}
+   ]
+  },
+  {
+   "id": "indelen-blijvend-tijdelijk",
+   "soort": "indelen",
+   "titel": "Blijft het zo, of kan het anders?",
+   "opdracht": "Na een 4 voor biologie heeft Noor allerlei gedachten. Is de oorzaak in elke gedachte blijvend, of kan het de volgende keer anders zijn?",
+   "bakken": [
+    {"naam": "Blijvend", "uitleg": "de oorzaak verandert niet"},
+    {"naam": "Tijdelijk", "uitleg": "volgende keer kan het anders zijn"}
+   ],
+   "kaartjes": [
+    {"tekst": "Ik ben niet slim genoeg.", "bak": 0, "uitleg": "Intelligentie zie je als iets vasts: blijvend en niet beheersbaar. Die gedachte maakt machteloos."},
+    {"tekst": "Ik heb op de verkeerde manier geleerd.", "bak": 1, "uitleg": "Een aanpak kun je veranderen: tijdelijk en beheersbaar. Daarom helpt deze gedachte."},
+    {"tekst": "Ik was die dag ziek.", "bak": 1, "uitleg": "Ziek zijn gaat over."},
+    {"tekst": "Biologie ligt me gewoon niet.", "bak": 0, "uitleg": "'Ligt me niet' klinkt als een vaste eigenschap."},
+    {"tekst": "Ik begon pas de avond ervoor.", "bak": 1, "uitleg": "Volgende keer kun je eerder beginnen."},
+    {"tekst": "Die docent geeft altijd te moeilijke toetsen.", "bak": 0, "uitleg": "'Altijd' maakt de oorzaak blijvend (en extern)."}
+   ]
+  },
+  {
+   "id": "indelen-vertekening",
+   "soort": "indelen",
+   "titel": "Welke denkfout zie je?",
+   "opdracht": "In elk voorbeeld legt iemand een oorzaak. Zie je de zelfdienende vertekening, de fundamentele attributiefout, of is het een redelijke verklaring?",
+   "bakken": [
+    {"naam": "Zelfdienende vertekening", "uitleg": "succes door mij, falen door de situatie"},
+    {"naam": "Fundamentele attributiefout", "uitleg": "bij een ander de situatie vergeten"},
+    {"naam": "Redelijke verklaring"}
+   ],
+   "kaartjes": [
+    {"tekst": "Een 9? Ik ben goed in dit vak. Een 4? Die toets was oneerlijk.", "bak": 0, "uitleg": "Het succes gaat naar jezelf, het falen naar de toets."},
+    {"tekst": "Die nieuwe jongen zegt niks in de les. Wat een saaie gast.", "bak": 1, "uitleg": "Je denkt aan karakter, en vergeet dat hij nieuw is en niemand kent."},
+    {"tekst": "Een schrijver die een opgelegd pro-Castro-stuk schrijft, is vast zelf voor Castro.", "bak": 1, "uitleg": "Dit is de proef van Jones en Harris: mensen lieten de opgelegde opdracht te weinig meewegen."},
+    {"tekst": "We wonnen door mijn doelpunt. We verloren door de scheids.", "bak": 0, "uitleg": "Winst door jezelf, verlies door de situatie."},
+    {"tekst": "Ik had een 4, en ik weet dat ik maar een uur heb geleerd.", "bak": 2, "uitleg": "Een verklaring die bij de feiten past en die je zelf kunt veranderen."},
+    {"tekst": "De bus was te laat, dus Sam kwam te laat. Dat zag ik zelf.", "bak": 2, "uitleg": "De situatie is hier echt gezien, dus de verklaring klopt."}
+   ]
+  },
+  {
+   "id": "uitleg-noor",
+   "soort": "uitleg",
+   "titel": "De gedachte die Noor helpt",
+   "opdracht": "Noor kan na haar 4 denken 'ik ben slecht in biologie' of 'ik heb op de verkeerde manier geleerd'. Leg uit waarom de tweede gedachte haar meer helpt. Gebruik de drie vragen uit de film.",
+   "begrippen": [
+    {"naam": "intern", "varianten": ["bij mezelf", "bij haarzelf", "bij de persoon"]},
+    {"naam": "tijdelijk", "varianten": ["kan veranderen", "anders zijn"]},
+    {"naam": "beheersbaar", "varianten": ["zelf iets aan doen", "invloed"]},
+    {"naam": "blijvend", "varianten": ["vast", "altijd"]}
+   ],
+   "checklist": [
+    "Ik noem dat beide gedachten intern zijn.",
+    "Ik leg uit dat 'slecht in biologie' blijvend en niet beheersbaar voelt.",
+    "Ik leg uit dat 'verkeerde manier' tijdelijk en beheersbaar is.",
+    "Ik beschrijf wat Noor daardoor anders gaat doen."
+   ],
+   "model": [
+    "Beide gedachten zijn intern: Noor zoekt de oorzaak bij zichzelf. Het verschil zit in de andere twee vragen.",
+    "'Ik ben slecht in biologie' voelt blijvend en niet beheersbaar. Dan heeft moeite doen geen zin, en Noor gaat minder doen.",
+    "'Ik heb op de verkeerde manier geleerd' is tijdelijk en beheersbaar. Een andere aanpak kan volgende keer wel werken, dus Noor probeert iets nieuws. Die gedachte geeft hoop."
+   ]
+  }
+ ]
+}

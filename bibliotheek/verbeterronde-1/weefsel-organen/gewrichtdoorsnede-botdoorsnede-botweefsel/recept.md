@@ -1,0 +1,3 @@
+- Schoudergewricht van voren in doorsnede: kop van het opperarmbeen in de ondiepe kom van het schouderblad; beide bekleed met kraakbeen, ertussen een dun laagje gewrichtssmeer.
+- De kom is een holle schaal aan het schouderblad, met een kraakbeenring (labrum) op de rand; kapsel van bot naar bot, banden als verdikkingen die aan het bot vastzitten.
+- Pijpbeen in lengtedoorsnede: compacte wand, sponsachtig bot met rood merg in de uiteinden, geel merg in de schacht; botweefsel met osteonen.

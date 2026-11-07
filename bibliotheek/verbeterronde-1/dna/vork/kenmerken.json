@@ -1,0 +1,44 @@
+{
+ "oud": {
+  "detail": "veel",
+  "vorm": "schematisch",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "accent",
+  "diepte": "plat",
+  "textuur": "geen",
+  "context": "los",
+  "beweging": "proces",
+  "opbouw": "in-stappen",
+  "referentie": "geen",
+  "vondst": "één simulatie; enzymen op één plek bij de vork"
+ },
+ "A": {
+  "detail": "veel",
+  "vorm": "schematisch",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "accent",
+  "diepte": "plat",
+  "textuur": "geen",
+  "context": "los",
+  "beweging": "proces",
+  "opbouw": "in-stappen",
+  "referentie": "bron",
+  "vondst": "helicase op de helix vóór de vork, los van de polymerase"
+ },
+ "C": {
+  "detail": "veel",
+  "vorm": "schematisch",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "accent",
+  "diepte": "doorsnede-3d",
+  "textuur": "geen",
+  "context": "los",
+  "beweging": "proces",
+  "opbouw": "in-stappen",
+  "referentie": "bron",
+  "vondst": "enzymen als gevouwen lint: helicasering en handvormige polymerase"
+ }
+}

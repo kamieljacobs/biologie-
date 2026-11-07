@@ -1,0 +1,4 @@
+- Placenta in doorsnede: chorionplaat met navelstreng (2 slagaders om 1 ader), vlokbomen die vertakken, ruimte vol moederbloed, basale plaat met spiraalslagaders en septa.
+- Moederbloed spuit omhoog uit de spiraalslagaders en stroomt langs de vlokken; moeder- en kindbloed mengen niet.
+- Vergroting van één eindvlokje: dunne laag tussen moederbloed en het haarvat van het kind; het moet duidelijk zijn uit welk deel van de placenta die vergroting komt.
+- Niet: vijf identieke bomen; septa als stalagmieten.

@@ -1,0 +1,79 @@
+{
+ "slug": "biomedisch-4-toeval-of-echt",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Toeval of echt?",
+ "sub": "statistiek in de biologie",
+ "puzzle": "De nieuwe meststof gaf gemiddeld 3 cm langere planten. Is dat echt, of toeval?",
+ "meta": "biomedische wetenschappen · bio-informatica",
+ "alleen": "vwo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Biomedische wetenschappen en Bio-informatica",
+ "lead": "Opa Henk zweert bij zijn nieuwe meststof, en Noor test het met twintig tomatenplantjes: gemiddeld 3 centimeter langer. Echt, of toeval? Een gemiddelde zegt pas iets samen met de spreiding. Hoe meer plantjes, hoe minder het gemiddelde wiebelt, maar elk extra plantje helpt minder. De p-waarde vertelt hoe vaak je een minstens zo groot verschil krijgt als de meststof niets doet; het is niet de kans dat de meststof niets doet. Tot slot reken je het zelf na, in een spreadsheet of met een paar regels Python.",
+ "endHaak": "welke bewering uit de reclame of het nieuws zou jij zo willen narekenen?",
+ "minis": {
+  "Hoofdstuk 1 — Spreiding": "Wanneer is 3 cm verschil veel?",
+  "Hoofdstuk 2 — Hoeveel plantjes?": "Hoeveel plantjes maken de wiebel half zo groot?",
+  "Hoofdstuk 3 — Wat de p-waarde zegt": "Wat betekent p = 0,04 precies?",
+  "Hoofdstuk 4 — Zelf rekenen": "Hoe doe je een t-toets in een spreadsheet?",
+  "Recap": "Wat weet Noor nu wel en niet?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Opa Henk, Noor, Daan en Dr. Kim (castboek). Getallen nagerekend met Python (scipy). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Met meststof gemiddeld 43 cm, zonder 40 cm. Weet je nu genoeg?",
+   "correct": 1,
+   "explain": "Nee: of 3 cm veel is, hangt af van hoeveel de plantjes binnen een groep van elkaar verschillen (de spreiding)."
+  },
+  "q06": {
+   "q": "Hoeveel plantjes per groep maken de standaardfout half zo groot (nu tien)?",
+   "correct": 0,
+   "explain": "Veertig: de standaardfout is de standaardafwijking gedeeld door √n, en √4 = 2. Vier keer zoveel metingen geeft een half zo grote wiebel."
+  },
+  "q09": {
+   "q": "Husselen van de stickers geeft p ≈ 0,04. Wat betekent dat?",
+   "correct": 2,
+   "explain": "Als de meststof niets doet, krijg je maar in ongeveer 4 van de 100 verdelingen een verschil van 3 cm of meer. Het is geen kans dat de meststof wel of niet werkt."
+  }
+ },
+ "glossary": [
+  {
+   "t": "gemiddelde",
+   "d": "De som van de metingen gedeeld door het aantal; zegt alleen iets samen met de spreiding."
+  },
+  {
+   "t": "spreiding",
+   "d": "Hoe ver de metingen uit elkaar en van hun gemiddelde liggen."
+  },
+  {
+   "t": "standaardafwijking",
+   "d": "Maat voor de spreiding: een soort gemiddelde afstand van de metingen tot hun gemiddelde (iets groter dan de gewone gemiddelde afstand). Bij Noor ± 3 cm."
+  },
+  {
+   "t": "standaardfout",
+   "d": "Hoeveel een gemiddelde wiebelt als je de proef herhaalt: standaardafwijking gedeeld door √n."
+  },
+  {
+   "t": "nulhypothese",
+   "d": "De aanname dat er geen effect is (de meststof doet niets); de p-waarde wordt uitgerekend alsof die klopt."
+  },
+  {
+   "t": "p-waarde",
+   "d": "De kans op een verschil dat minstens zo groot is als gemeten, als de nulhypothese klopt. Niet de kans dat de nulhypothese waar is, en geen maat voor de grootte van het effect."
+  },
+  {
+   "t": "significant",
+   "d": "p kleiner dan een vooraf gekozen grens, in de biologie meestal 0,05; zegt niets over hoe groot of belangrijk een effect is."
+  },
+  {
+   "t": "betrouwbaarheidsinterval",
+   "d": "Bereik van waarden voor het echte gemiddelde of verschil dat bij de metingen past; bij 95 % vangt de methode bij herhaling in 95 van de 100 proeven de echte waarde."
+  },
+  {
+   "t": "t-toets",
+   "d": "Toets die het verschil tussen twee gemiddelden vergelijkt met de standaardfout van dat verschil; in een spreadsheet met T.TEST, in Python met scipy.stats.ttest_ind."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Twee klassen hebben voor een toets allebei gemiddeld een 6,5. Leg uit waarom je daaruit niet kunt afleiden dat de klassen even goed zijn in het vak. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Een gemiddelde zegt niets over de spreiding (1p): in de ene klas kunnen alle cijfers rond de 6,5 liggen, in de andere tussen 3 en 10 (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Een onderzoeker meet de bloeddruk van 25 muizen; de standaardafwijking is 10 mmHg. Bereken de standaardfout van het gemiddelde, en hoeveel muizen nodig zijn om die te halveren. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>10 / √25 = 2 mmHg (1p). Halveren vraagt vier keer zoveel muizen: 100 (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Een krant schrijft: 'p = 0,01, dus er is maar 1 % kans dat het medicijn niet werkt.' Leg uit wat hier fout is en geef een juiste omschrijving. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>De p-waarde is uitgerekend alsof het medicijn niet werkt; het is dus geen kans dat het medicijn (niet) werkt (1p). Juist: als het medicijn niets doet, krijg je in ongeveer 1 op de 100 keer een verschil dat minstens zo groot is als gemeten (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> In een artikel overlappen de foutbalken van twee groepen. Iemand concludeert: 'dus geen significant verschil'. Noem twee redenen waarom dat niet zomaar klopt. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Je moet eerst weten wat de balken voorstellen (standaardafwijking, standaardfout of betrouwbaarheidsinterval) (1p). Ook 95%-betrouwbaarheidsintervallen mogen wat overlappen terwijl p kleiner is dan 0,05, zoals bij Noor (p = 0,036) (1p).</p></details></div>\n<div class=\"q\"><p><b>5.</b> Een bio-informaticus toetst 20 000 genen op een verschil tussen zieke en gezonde mensen, met de grens 0,05. Hoeveel 'significante' genen verwacht je als geen enkel gen echt verschilt? Wat doet hij daaraan? <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>0,05 × 20 000 = 1000 genen (1p). Hij gebruikt een strengere grens (correctie voor meervoudig toetsen, bijvoorbeeld Bonferroni of de false discovery rate) (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Extra film buiten het PTA op <i>Wat word jij?</i> → Biomedische wetenschappen, en ook bij Bio-informatica (gedeelde film, id 'statistiek'). Bouwt voort op <i>Onderzoek doen in de biologie</i> (onderzoekscyclus, nulhypothese en p-waarde bij Mendel met simulatie, 0,05, chi-kwadraattoets, p-hacking, te weinig proefdieren) en <i>Beroemde psychologie-experimenten</i> (herhalen). Placebo, blinderen en fasen van geneesmiddelonderzoek horen bij de film over medicijnen testen; deze film begint waar de metingen binnen zijn. Opa Henk en Noor zijn de rode draad, Daan rekent mee, Dr. Kim staat bij de opleidingen.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>Cold open</b>: Noor test de meststof van Opa Henk met 20 plantjes, gerandomiseerd: 43 tegen 40 cm.</li>\n<li><b>H1</b> spreiding en standaardafwijking: hetzelfde verschil van 3 cm bij kleine en grote spreiding; Noors echte metingen overlappen (39 tot 44 cm).</li>\n<li><b>H2</b> standaardfout = sd/√n; vier keer zoveel metingen halveert de wiebel; onderscheidend vermogen (power): met 10 per groep vind je een echt verschil van 3 cm maar in ± 56 % van de proeven, met 17 in ± 81 %.</li>\n<li><b>H3</b> p-waarde via een permutatietoets (stickers husselen, net als de simulatie bij Mendel in Onderzoek doen), wat p niet is, en foutbalken (sd, se, 95%-BI); overlappende 95%-BI's met p &lt; 0,05; BI van het verschil.</li>\n<li><b>H4</b> dezelfde toets als t-toets in een spreadsheet (T.TEST) en in Python (scipy).</li>\n<li><b>Recap</b> opleidingen; meervoudig toetsen bij 20 000 genen.</li></ul>\n<h3>Het rekenvoorbeeld (zelf narekenen)</h3>\n<p>Met meststof (cm): 39, 41, 41, 41, 42, 43, 44, 44, 46, 49. Zonder: 35, 36, 38, 39, 40, 41, 41, 43, 43, 44. Verzonnen maar realistische getallen.</p>\n<table><tr><th>Grootheid</th><th>Met</th><th>Zonder</th></tr>\n<tr><td>gemiddelde</td><td>43,0</td><td>40,0</td></tr><tr><td>standaardafwijking (n − 1)</td><td>2,91</td><td>3,02</td></tr><tr><td>standaardfout</td><td>0,92</td><td>0,95</td></tr><tr><td>95%-BI gemiddelde</td><td>40,9 – 45,1</td><td>37,8 – 42,2</td></tr></table>\n<p>Student-t-toets (tweezijdig, gelijke varianties): t = 2,26, df = 18, p = 0,036 (Welch: p = 0,036). 95%-BI van het verschil: 0,22 – 5,78 cm. Exacte permutatietoets over alle 184 756 verdelingen: p = 0,043 (|verschil| ≥ 3 cm). Spreadsheet: <code>=T.TEST(A2:A11;B2:B11;2;2)</code> → 0,036. Python: <code>round(stats.ttest_ind(met, zonder).pvalue, 3)</code> → 0,036 (zonder afronden 0,0361…).</p>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Rekenvoorbeeld</td><td>gemiddelden 43 en 40 cm, sd ± 3 cm, se ± 1 cm, p = 0,036 (t-toets), ± 0,04 (husselen), 95%-BI verschil 0,2 – 5,8 cm</td><td>eigen berekening, Python 3 + scipy 1.18 (<code>reken/bereken.py</code> in de bronmap)</td></tr>\n<tr><td>Standaardfout</td><td>sd/√n; vier keer zoveel metingen = half zo grote standaardfout</td><td>Cumming, Fidler &amp; Vaux 2007, J Cell Biol 177:7–11</td></tr>\n<tr><td>Onderscheidend vermogen</td><td>echt verschil 3 cm, sd 3, α = 0,05 tweezijdig: n = 10 → 0,56; n = 17 → 0,81</td><td>eigen berekening (niet-centrale t-verdeling, gecontroleerd met 20 000 simulaties)</td></tr>\n<tr><td>Wat p wel en niet is</td><td>kans op minstens zo'n verschil als de nulhypothese klopt; niet de kans dat de hypothese waar is; geen maat voor effectgrootte</td><td>Wasserstein &amp; Lazar 2016, ASA Statement on p-values, Am Stat 70:129–133 (principes 2 en 5)</td></tr>\n<tr><td>Foutbalken</td><td>altijd vermelden wat de balken zijn; overlappende 95%-BI's sluiten p &lt; 0,05 niet uit</td><td>Cumming, Fidler &amp; Vaux 2007, J Cell Biol 177:7–11 (regel 1; figuur 6: bij n ≥ 10 hoort p ≈ 0,05 bij een overlap van een halve arm van de 95%-BI's; bij Noor ± 0,6 arm met p = 0,036, de regel is benaderend)</td></tr>\n<tr><td>Grens 0,05</td><td>'significant'</td><td>conventie, zie Onderzoek doen; ASA 2016 principe 3</td></tr>\n<tr><td>Spreadsheetfunctie</td><td>T.TEST(matrix1;matrix2;zijden;type), zijden 2 = tweezijdig, type 2 = twee steekproeven, gelijke varianties</td><td>Microsoft Support, T.TEST, functie (nl-nl)</td></tr>\n<tr><td>Meervoudig toetsen</td><td>20 000 genen × 0,05 = 1000 vals-positieve verwacht</td><td>rekenregel; ± 20 000 eiwitcoderende genen bij de mens (GENCODE/Ensembl)</td></tr>\n<tr><td>Biomedische wetenschappen</td><td>wo-bachelor, 3 jaar, daarna meestal een master</td><td>uu.nl, universiteitleiden.nl (studieprogramma, o.a. biomedische data-analyse)</td></tr>\n<tr><td>Bio-informatica</td><td>hbo-bachelor, 240 EC (4 jaar), o.a. HAN, Hanze, Hogeschool Leiden; masters aan de universiteit (o.a. Bioinformatics and Systems Biology, VU/UvA; WUR); op de universiteit kan het ook al in de bachelor, bv. de specialisatie Bioinformatics in de BSc Biologie (Leiden)</td><td>studiekeuze123.nl; wur.nl; uva.nl; universiteitleiden.nl</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul><li>De film zegt 'p ≈ 0,04' bij husselen en 'p = 0,036' bij de t-toets; exact geeft het husselen 0,043. Beide toetsen hebben net iets andere aannames; de film noemt dat 'bijna hetzelfde'.</li>\n<li>'Wiebel' is de standaardfout; in H4 is de wiebel van het verschil de standaardfout van het verschil (1,33 cm), niet die van één gemiddelde.</li>\n<li>Het 95%-betrouwbaarheidsinterval wordt in de film omschreven als 'alle effecten daartussen passen bij haar metingen'; strikt: de methode vangt bij herhaling in 95 % van de proeven het echte verschil.</li>\n<li>Het voorbeeld met 'plantjes van 25 tot 55 cm' en de power-berekening gaan uit van een normale verdeling en gelijke spreiding.</li>\n<li>Correctie voor meervoudig toetsen wordt alleen genoemd ('strengere grens'), niet uitgewerkt (Bonferroni, false discovery rate).</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Laat leerlingen de twintig lengtes uit de tabel in een spreadsheet zetten en T.TEST zelf uitvoeren; verander daarna één meting (bijvoorbeeld 49 → 59) en laat ze voorspellen wat er met p gebeurt.</li>\n<li>Gebruik de checkvraag over de krantenkop om de definitie van p te oefenen.</li></ul>\n</section>\n"
+}

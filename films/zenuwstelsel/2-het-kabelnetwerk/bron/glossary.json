@@ -1,0 +1,94 @@
+[
+ {
+  "t": "neuron",
+  "d": "een zenuwcel: dendrieten, cellichaam, axon en eindknopjes."
+ },
+ {
+  "t": "dendriet",
+  "d": "korte uitloper van een neuron waar informatie binnenkomt."
+ },
+ {
+  "t": "cellichaam",
+  "d": "deel van het neuron met de kern."
+ },
+ {
+  "t": "axon",
+  "d": "lange uitloper die de impuls van het cellichaam naar de eindknopjes geleidt."
+ },
+ {
+  "t": "eindknopjes",
+  "d": "uiteinden van het axon; hier gaat het bericht naar de volgende cel (film 3)."
+ },
+ {
+  "t": "myelineschede",
+  "d": "vettige isolatielaag om het axon, gemaakt door cellen van Schwann."
+ },
+ {
+  "t": "insnoering",
+  "d": "smalle plek tussen twee cellen van Schwann waar het axon bloot ligt."
+ },
+ {
+  "t": "membraanpotentiaal",
+  "d": "het elektrische verschil tussen binnen- en buitenkant van het membraan."
+ },
+ {
+  "t": "rustpotentiaal",
+  "d": "het membraanpotentiaal van een neuron in rust: binnen ongeveer −70 mV ten opzichte van buiten."
+ },
+ {
+  "t": "natrium-kaliumpomp",
+  "d": "eiwit dat met energie uit ATP per slag drie Na⁺ naar buiten en twee K⁺ naar binnen pompt."
+ },
+ {
+  "t": "kaliumlekkanaal",
+  "d": "kanaal dat altijd openstaat voor K⁺, waardoor kalium naar buiten lekt."
+ },
+ {
+  "t": "drempelwaarde",
+  "d": "de waarde (ongeveer −55 mV) waarbij natriumkanalen openschieten en een actiepotentiaal start."
+ },
+ {
+  "t": "depolarisatie",
+  "d": "het membraan wordt minder negatief en zelfs positief: Na⁺ stroomt naar binnen."
+ },
+ {
+  "t": "repolarisatie",
+  "d": "het membraan wordt weer negatief: K⁺ stroomt naar buiten."
+ },
+ {
+  "t": "hyperpolarisatie",
+  "d": "kort doorschieten tot onder het rustpotentiaal."
+ },
+ {
+  "t": "actiepotentiaal",
+  "d": "de snelle omkering van het membraanpotentiaal die als impuls over het axon loopt."
+ },
+ {
+  "t": "impuls",
+  "d": "een actiepotentiaal die over het axon loopt."
+ },
+ {
+  "t": "refractaire periode",
+  "d": "korte tijd na een actiepotentiaal waarin een stukje membraan niet opnieuw prikkelbaar is."
+ },
+ {
+  "t": "alles-of-niets",
+  "d": "een actiepotentiaal komt helemaal of niet; hij heeft altijd dezelfde grootte."
+ },
+ {
+  "t": "frequentie",
+  "d": "aantal impulsen per seconde; hierin zit de sterkte van de prikkel."
+ },
+ {
+  "t": "sprongsgewijze geleiding",
+  "d": "de impuls springt van insnoering naar insnoering; veel sneller dan stap voor stap."
+ },
+ {
+  "t": "receptor",
+  "d": "cel die een prikkel vertaalt naar impulsen."
+ },
+ {
+  "t": "adequate prikkel",
+  "d": "de soort prikkel waar een receptor het makkelijkst op reageert (druk voor de huid, licht voor het oog)."
+ }
+]

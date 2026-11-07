@@ -1,0 +1,2 @@
+- Basis: variant B (gebonden primer + polymerase die nucleotiden toevoegt). Geen fouten gemeld, geen opmerking: ongewijzigd overgenomen.
+- Let op: B gebruikt polymeraseAchter/polymeraseVoor uit lib_bio.js (een vlak blob-eiwit, geen keten). Dat is een eiwit voor de omzet naar de kralenketen (zie manifest).

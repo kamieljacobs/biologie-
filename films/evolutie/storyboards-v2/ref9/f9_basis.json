@@ -1,0 +1,346 @@
+{
+ "film": 9,
+ "titel": "De reis van Darwin",
+ "slug": "x1-de-reis-van-darwin",
+ "puzzel": "Wat zag Darwin onderweg, en waarom duurde het twintig jaar voor hij het opschreef?",
+ "haak": "Een jongen van tweeëntwintig gaat aan boord van een marineschip en komt na bijna vijf jaar terug met twijfels die de biologie veranderen; zijn boek verschijnt pas 28 jaar na vertrek.",
+ "hoofdstukken": [
+  {
+   "nr": 1,
+   "titel": "Aan boord van de Beagle",
+   "minivraag": "Wat dacht Darwin over soorten toen hij vertrok?",
+   "type": "G",
+   "look": "Schema"
+  },
+  {
+   "nr": 2,
+   "titel": "Reuzen en nandoes",
+   "minivraag": "Waarom liggen de reuzen precies waar nu hun kleine familie leeft?",
+   "type": "G",
+   "look": "Macro"
+  },
+  {
+   "nr": 3,
+   "titel": "De eilanden",
+   "minivraag": "Op wie lijken de dieren van de Galápagos?",
+   "type": "G",
+   "look": "Macro"
+  },
+  {
+   "nr": 4,
+   "titel": "I think",
+   "minivraag": "Waarom publiceerde Darwin twintig jaar lang niets?",
+   "type": "G",
+   "look": "Schema"
+  },
+  {
+   "nr": 5,
+   "titel": "Wallace",
+   "minivraag": "Wie kwam op hetzelfde idee, en hoe liep dat af?",
+   "type": "G",
+   "look": "Schema"
+  }
+ ],
+ "scenes": [
+  {
+   "id": "e9s01",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "December, het jaar 1831. Het marineschip de Beagle vaart uit. Aan boord: Charles Darwin, tweeëntwintig jaar.",
+   "beweging": "De Beagle vaart van links het beeld in; de zeilen bollen; Darwin staat bij de reling."
+  },
+  {
+   "id": "e9s02",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "De meeste mensen denken dan: soorten veranderen nooit. Darwin komt terug met twijfels. Maar zijn boek verschijnt pas in het jaar 1859. Wat zag hij onderweg? En waarom duurde het twintig jaar?",
+   "beweging": "Een tijdlijn van 1831 tot 1859 tekent zich; tussen 1838 en 1858 verschijnt een lege, gestippelde strook met een vraagteken."
+  },
+  {
+   "id": "e9s03",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "",
+   "beweging": "Titelkaart: titel en startvraag links, de Beagle rechts."
+  },
+  {
+   "id": "e9s04",
+   "hoofdstuk": "1 Aan boord van de Beagle",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "De Beagle moet de kust van Zuid-Amerika in kaart brengen. Kapitein Robert FitzRoy wil een natuuronderzoeker mee. Dat wordt Darwin.",
+   "beweging": "De wereldkaart zoomt in op Zuid-Amerika; langs de kust lichten meetpunten op; FitzRoy en Darwin naast elkaar."
+  },
+  {
+   "id": "e9s05",
+   "hoofdstuk": "1 Aan boord van de Beagle",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "De reis duurt bijna vijf jaar, de wereld rond. Ruim drie jaar is Darwin aan land. Hij verzamelt dieren, planten en fossielen, en schrijft alles op.",
+   "beweging": "De route tekent zich als gouden stippellijn van Plymouth rond de wereld terug naar Falmouth; een teller loopt van 1831 naar 1836."
+  },
+  {
+   "id": "e9q06",
+   "hoofdstuk": "1 Aan boord van de Beagle",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Wat dacht Darwin over soorten toen hij vertrok?",
+   "beweging": "Vraagkaart; rechts Darwin met zijn notitieboek; de gouden aftellijn krimpt.",
+   "opties": "A Dat soorten langzaam veranderen, zoals zijn opa al schreef · B Dat soorten niet veranderen, net als de meeste natuuronderzoekers · C Dat dieren veranderen door wat ze oefenen",
+   "juist": "B"
+  },
+  {
+   "id": "e9s07",
+   "hoofdstuk": "1 Aan boord van de Beagle",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Darwin ging niet op reis om iets te bewijzen. Net als de meeste onderzoekers dacht hij dat soorten vastliggen. Zijn opa had al over veranderende soorten geschreven, maar zonder overtuigend bewijs.",
+   "beweging": "Darwin met boek; naast hem verschijnt een vaag portretkader 'Erasmus Darwin, 1794' en een weegschaal 'bewijs' die leeg blijft."
+  },
+  {
+   "id": "e9s08",
+   "hoofdstuk": "2 Reuzen en nandoes",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Argentinië, het jaar 1832. Bij Punta Alta graaft Darwin botten uit een oever. Een schedel van een Megatherium: een uitgestorven luiaard, zo zwaar als een olifant.",
+   "beweging": "Darwin hakt in de oever; een schedel komt vrij en licht goud op; daarboven verschijnt het silhouet van het hele dier."
+  },
+  {
+   "id": "e9s09",
+   "hoofdstuk": "2 Reuzen en nandoes",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Hij vindt ook stukken pantser van botplaatjes. Die zijn van een Glyptodon: een uitgestorven gordeldier van ongeveer drie meter.",
+   "beweging": "De losse plaatjes schuiven samen tot het pantser van een Glyptodon; de schaal (Darwin, 1,8 m) staat ernaast."
+  },
+  {
+   "id": "e9s10",
+   "hoofdstuk": "2 Reuzen en nandoes",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Op hetzelfde continent leven nu gordeldieren met zo'n pantser, van nog geen halve meter. En luiaards van een paar kilo.",
+   "beweging": "Naast de Glyptodon loopt een gordeldier in beeld; naast de Megatherium hangt een luiaard aan een tak; alles op dezelfde schaal, de kleine dieren met een vergrootcirkel."
+  },
+  {
+   "id": "e9q11",
+   "hoofdstuk": "2 Reuzen en nandoes",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Darwin vindt de reuzen precies waar nu hun kleine familie leeft. Wat past daar het best bij?",
+   "beweging": "Vraagkaart met de Megatherium en de Glyptodon als silhouet.",
+   "opties": "A Toeval: fossielen kunnen overal liggen · B De reuzen zijn gekrompen tot de kleine soorten · C De reuzen en de kleine soorten zijn verwant",
+   "juist": "C"
+  },
+  {
+   "id": "e9s12",
+   "hoofdstuk": "2 Reuzen en nandoes",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Als elke soort los gemaakt is, zegt de plek niets. Een reuzenluiaard kan dan overal liggen. Maar Darwin vindt de reuzen juist waar nu hun kleine familie leeft. Geen voorouders, wel familie. Hij noteert het.",
+   "beweging": "Een wereldkaart: links de mogelijke vindplaatsen 'overal' in grijs; dan blijven alleen de stippen in Zuid-Amerika over; een groene lijn verbindt reus en klein dier."
+  },
+  {
+   "id": "e9s13",
+   "hoofdstuk": "2 Reuzen en nandoes",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Dan de nandoes: loopvogels van ongeveer anderhalve meter hoog. Gaucho's vertellen Darwin over een tweede, kleinere nandoe, verder naar het zuiden.",
+   "beweging": "Een grote nandoe stapt door de steppe; aan de horizon twee gaucho's te paard als kleine silhouetten."
+  },
+  {
+   "id": "e9s14",
+   "hoofdstuk": "2 Reuzen en nandoes",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Begin het jaar 1834 schiet de scheepsschilder een nandoe. Darwin denkt: een jonge grote. Hij wordt opgegeten. Dan pas ziet Darwin het. Gelukkig zijn kop, nek, poten en huid bewaard.",
+   "beweging": "De kleine nandoe met witte veerpunten; daarna liggen alleen kop, nek, poten en een stuk huid op een kist."
+  },
+  {
+   "id": "e9s15",
+   "hoofdstuk": "2 Reuzen en nandoes",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Het is echt een tweede soort. De grote nandoe leeft vooral in het noorden, de kleine in het zuiden. Rond de Río Negro lossen ze elkaar af.",
+   "beweging": "Kaart van Argentinië: het noorden kleurt teal met de grote nandoe, het zuiden oker met de kleine; de Río Negro als lijn ertussen."
+  },
+  {
+   "id": "e9s16",
+   "hoofdstuk": "3 De eilanden",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "September, het jaar 1835: de Galápagos, vulkanische eilanden ver uit de kust. Darwin kent zulke eilanden al: op de Kaapverdische eilanden bij Afrika ging hij voor het eerst aan land.",
+   "beweging": "De kaart schuift van Zuid-Amerika naar het westen; een gouden maatlijn 'ongeveer 1000 km' trekt zich naar de eilanden."
+  },
+  {
+   "id": "e9s17",
+   "hoofdstuk": "3 De eilanden",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Darwin vangt spotlijsters en noteert van welk eiland ze komen. Die van het ene eiland zien er anders uit dan die van het andere.",
+   "beweging": "Twee spotlijsters op lavarotsen, elk met een eilandlabel; een detail (borstvlekken, kleur) licht per vogel op."
+  },
+  {
+   "id": "e9s18",
+   "hoofdstuk": "3 De eilanden",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "De vicegouverneur zegt: aan het schild van een reuzenschildpad zie ik van welk eiland hij komt. Hier een koepelschild, daar een zadelschild.",
+   "beweging": "Een schildpad met koepelschild en een met zadelschild staan naast elkaar; het zadelschild tilt zijn nek omhoog."
+  },
+  {
+   "id": "e9q19",
+   "hoofdstuk": "3 De eilanden",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? De Galápagos en de Kaapverdische eilanden zijn allebei vulkanisch, droog en ongeveer even hoog. Op welke dieren lijken de Galápagos-dieren het meest?",
+   "beweging": "Vraagkaart met de twee eilandgroepen naast elkaar op de wereldkaart.",
+   "opties": "A Op de dieren van Zuid-Amerika · B Op geen enkele soort ergens anders · C Op de dieren van de Kaapverdische eilanden",
+   "juist": "A"
+  },
+  {
+   "id": "e9s20",
+   "hoofdstuk": "3 De eilanden",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "De eilanden lijken op elkaar, de dieren niet. De Galápagos-dieren lijken op die van Zuid-Amerika, de Kaapverdische op die van Afrika. Bijna alles draagt het stempel van het vasteland ernaast.",
+   "beweging": "Op de wereldkaart groeit een teal pijl van Zuid-Amerika naar de Galápagos en een oker pijl van Afrika naar Kaapverdië."
+  },
+  {
+   "id": "e9q21",
+   "hoofdstuk": "3 De eilanden",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Wanneer begreep Darwin dat de vinken van de Galápagos bijzonder waren?",
+   "beweging": "Vraagkaart met drie vinken met verschillende snavels.",
+   "opties": "A Meteen op de eilanden, toen hij hun snavels vergeleek · B Pas in Londen, toen een vogelkenner ze onderzocht · C Nooit: dat ontdekten pas onderzoekers na zijn dood",
+   "juist": "B"
+  },
+  {
+   "id": "e9s22",
+   "hoofdstuk": "3 De eilanden",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "En de beroemde vinken? Darwin nam ze mee, maar lette er weinig op. Hij hield ze bijna niet per eiland apart. Sommige hield hij niet eens voor vinken.",
+   "beweging": "Vinken in een kist met verzamelde vogels (grondvinken met dikke kegelsnavel, een zangervink met dunne snavel); de labels zijn leeg of hebben een vraagteken."
+  },
+  {
+   "id": "e9s23",
+   "hoofdstuk": "3 De eilanden",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "In januari, het jaar 1837, onderzoekt de vogelkenner John Gould ze in Londen. Het zijn allemaal vinken: nauw verwante, nieuwe soorten. Later blijken ook de spotlijsters van verschillende eilanden verschillende soorten.",
+   "beweging": "Gould aan een tafel met vogelhuiden; grote grondvink, middelste grondvink en zangervink op een rij, snavels van dik tot dun; eronder spotlijsters van Charles, Chatham en James, elk een eigen soort."
+  },
+  {
+   "id": "e9s24",
+   "hoofdstuk": "4 I think",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "In juli, het jaar 1837, begint Darwin een notitieboek over soorten. Hij tekent een boom: één stam die zich steeds vertakt. Erboven schrijft hij: I think.",
+   "beweging": "Het notitieboek opent; de boom groeit lijn voor lijn vanaf de '1'; 'I think' verschijnt erboven."
+  },
+  {
+   "id": "e9s25",
+   "hoofdstuk": "4 I think",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Zijn idee: soorten veranderen en splitsen. Verwante soorten, zoals de twee nandoes, stammen af van een gemeenschappelijke voorouder. Dat verklaart de nandoes, de eilandvogels en de reuzen.",
+   "beweging": "Naast de takken verschijnen kleine iconen: twee nandoes op twee takjes uit één knoop; spotlijster; gordeldier en Glyptodon op naburige takken."
+  },
+  {
+   "id": "e9s26",
+   "hoofdstuk": "4 I think",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Maar hoe veranderen soorten? In het jaar 1838 leest Darwin Thomas Malthus: een bevolking groeit sneller dan haar voedsel. Er worden dus meer jongen geboren dan er kunnen overleven. Zo komt Darwin op natuurlijke selectie.",
+   "beweging": "Twee lijnen: 'bevolking' (koraal) buigt steil omhoog, 'voedsel' (oker) stijgt recht; de ruimte ertussen kleurt; rechts verschijnt 'natuurlijke selectie'."
+  },
+  {
+   "id": "e9s27",
+   "hoofdstuk": "4 I think",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Daarna publiceert hij er twintig jaar niets over. In het jaar 1844 schrijft hij wel ruim tweehonderd bladzijden, voor als hij sterft. Aan een vriend schrijft hij: het voelt alsof ik een moord beken.",
+   "beweging": "Op de tijdlijn 1838–1858 verschijnen mijlpalen; bij 1844 een stapel papier met een brief 'aan Emma'."
+  },
+  {
+   "id": "e9q28",
+   "hoofdstuk": "4 I think",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Waarom wachtte Darwin zo lang met publiceren?",
+   "beweging": "Vraagkaart met de lege tijdlijn 1838–1858.",
+   "opties": "A Hij had ander werk en wilde eerst veel bewijs · B Hij durfde het niet, uit angst voor de kerk · C Hij vond geen uitgever die het wilde drukken",
+   "juist": "A"
+  },
+  {
+   "id": "e9s29",
+   "hoofdstuk": "4 I think",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Lang heette het: Darwin durfde niet. Historici zijn het daar niet over eens. Vast staat: eerst werkte hij zijn reis uit in boeken. Daarna bestudeerde hij acht jaar zeepokken. Hij was vaak ziek. En hij wilde een berg bewijs.",
+   "beweging": "De tijdlijn vult zich: 'reisverslagen' (1838–1846), 'zeepokken' (1846–1854), 'het grote boek' (vanaf 1856); een zeepok als icoon."
+  },
+  {
+   "id": "e9s30",
+   "hoofdstuk": "5 Wallace",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Ondertussen verzamelt Alfred Russel Wallace dieren om te verkopen. Op de terugreis uit de Amazone vliegt zijn schip in brand. Bijna zijn hele verzameling gaat verloren.",
+   "beweging": "Een zeilschip op zee bij nacht; vlammen en rook stijgen op; een sloep ligt ernaast."
+  },
+  {
+   "id": "e9s31",
+   "hoofdstuk": "5 Wallace",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Hij begint opnieuw, op de eilanden tussen Azië en Australië. In februari, het jaar 1858, ligt hij daar met koorts. Ook hij denkt aan Malthus en komt op natuurlijke selectie. Vanaf Ternate stuurt hij zijn stuk naar Darwin, met de vraag het door te geven aan Charles Lyell.",
+   "beweging": "Kaart van de eilanden tussen Azië en Australië; Halmahera en Ternate lichten op; een brief vertrekt met een gouden lijn naar Engeland."
+  },
+  {
+   "id": "e9q32",
+   "hoofdstuk": "5 Wallace",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Darwin leest in de brief van Wallace zijn eigen idee. Wat gebeurde er daarna?",
+   "beweging": "Vraagkaart; rechts Darwin met de brief in zijn hand.",
+   "opties": "A Darwin hield de brief geheim en bracht het idee als het zijne · B Darwin trok zich terug en liet de eer aan Wallace · C Darwins vrienden lieten beide teksten samen voorlezen",
+   "juist": "C"
+  },
+  {
+   "id": "e9s33",
+   "hoofdstuk": "5 Wallace",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "In juni, het jaar 1858, krijgt Darwin het stuk van Wallace. Hij stuurt het door naar Lyell en schrijft erbij: al mijn originaliteit wordt verpletterd. Lyell en Joseph Hooker regelen dat het stuk van Wallace en twee teksten van Darwin samen worden voorgelezen.",
+   "beweging": "Darwin met de brief; daarnaast drie papieren die samen één stapel vormen: 'Darwin 1844', 'Darwin 1857', 'Wallace 1858'."
+  },
+  {
+   "id": "e9s34",
+   "hoofdstuk": "5 Wallace",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Londen, 1 juli, het jaar 1858. Geen van beiden is erbij. Wallace is nog op reis. Darwin is op de begrafenis van zijn jongste zoontje. De secretaris leest voor. Er komt geen discussie.",
+   "beweging": "Zaal met rijen stoelen en een lessenaar; de secretaris leest voor; twee lege stoelen met de naamkaartjes 'Darwin' en 'Wallace'."
+  },
+  {
+   "id": "e9s35",
+   "hoofdstuk": "5 Wallace",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Op 24 november, het jaar 1859, verschijnt Darwins boek: On the Origin of Species. De eerste druk is al vóór die dag uitverkocht aan de boekhandels.",
+   "beweging": "Het groene boek staat rechtop; erachter een stapel exemplaren met het etiket 'uitverkocht'."
+  },
+  {
+   "id": "e9s36",
+   "hoofdstuk": "Samenvatting",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat zag Darwin? Reuzen naast hun kleine familie, nandoes die elkaar aflossen, eilanddieren die lijken op het vasteland. Waarom twintig jaar? Hij werkte zijn reis uit, bestudeerde zeepokken en verzamelde bewijs. Toen kwam Wallace. Hoe natuurlijke selectie werkt, zie je in de film Natuurlijke selectie.",
+   "beweging": "Eindkaart: drie kernzinnen met een groene haak; onderaan de volgende film."
+  }
+ ]
+}

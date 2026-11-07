@@ -1,0 +1,3 @@
+- Dunne huid in doorsnede: hoornlaag (platte dode cellen), korrellaag, stekelcellaag, basale laag op een golvend basaalmembraan, lederhuid met haarvatlussen in de papillen.
+- Bij grote vergroting: losse cellen met kern, pigmentcellen met uitlopers en melaninekapjes.
+- In een overzicht (± 1 mm breed): de lagen als rustige banden, haarvatlussen als buisjes met losse rode bloedcellen.

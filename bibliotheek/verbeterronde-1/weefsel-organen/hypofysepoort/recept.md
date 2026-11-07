@@ -1,0 +1,5 @@
+- Mediane doorsnede (voorkant rechts): hypothalamus als onderkant van de hersenen (wand en bodem van de derde hersenkamer), met daarboven de thalamus.
+- Het steeltje loopt van de hypothalamus naar de hypofyse; achter het steeltje een bolletje (corpus mamillare), ervoor de oogzenuwkruising.
+- Hypofyse ± erwt/boon, in het Turkse zadel van het wiggenbeen (bot met dikte), eronder de luchtholte van het wiggenbeen.
+- GnRH-cellen in de hypothalamus geven af aan haarvaten bovenaan het steeltje; poortaders brengen het naar de voorkwab, die FSH/LH via een ader afgeeft. De achterkwab is zenuwweefsel.
+- Standen: GnRH-stoot onderweg, voorkwab actief, FSH/LH in de uitgaande ader.

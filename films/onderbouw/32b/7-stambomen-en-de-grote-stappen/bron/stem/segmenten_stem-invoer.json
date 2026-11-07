@@ -1,0 +1,199 @@
+[
+ {
+  "id": "s01",
+  "chapter": "Cold open",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Daan staat in het museum bij een grote boom van dieren. Een mens, een chimpansee, een muis en een kip. Allemaal op de takken.",
+   "Wie is het nauwst verwant aan de mens? Wat denk je?"
+  ],
+  "display": "Daan staat in het museum bij een grote boom van dieren. Een mens, een chimpansee, een muis en een kip. Allemaal op de takken. Wie is het nauwst verwant aan de mens? Wat denk je?",
+  "voice": "Daan staat in het museum bij een grote boom van dieren. Een mens, een chimpansee, een muis en een kip. Allemaal op de takken. Wie is het nauwst verwant aan de mens? Wat denk je?"
+ },
+ {
+  "id": "q02",
+  "chapter": "Cold open",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "de chimpansee",
+   "de muis",
+   "de kip"
+  ],
+  "q": "Mens, chimpansee, muis en kip. Wie is het nauwst verwant aan de mens?",
+  "correct": 0,
+  "explain": "De chimpansee: mens en chimpansee splitsen in de stamboom pas heel laat. De kip splitst al heel vroeg af."
+ },
+ {
+  "id": "s03",
+  "chapter": "Titel",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Stambomen en de grote stappen in de evolutie. Hoe lees je een stamboom?"
+  ],
+  "display": "Stambomen en de grote stappen in de evolutie. Hoe lees je een stamboom?",
+  "voice": "Stambomen en de grote stappen in de evolutie. Hoe lees je een stamboom?"
+ },
+ {
+  "id": "s04",
+  "chapter": "Hoofdstuk 1 — Een stamboom lezen",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Dit is een stamboom van soorten. Onderaan is lang geleden. Bovenaan zijn de soorten van nu.",
+   "Elke splitsing is een voorouder. Een soort die zich splitste in twee groepen.",
+   "Hoe dichter twee soorten bij een gemeenschappelijke splitsing zitten, hoe nauwer verwant ze zijn.",
+   "Mens en chimpansee splitsen pas heel laat. Ze hebben een recente gezamenlijke voorouder. De kip splitst al heel vroeg af."
+  ],
+  "display": "Dit is een stamboom van soorten. Onderaan is lang geleden. Bovenaan zijn de soorten van nu. Elke splitsing is een voorouder. Een soort die zich splitste in twee groepen. Hoe dichter twee soorten bij een gemeenschappelijke splitsing zitten, hoe nauwer verwant ze zijn. Mens en chimpansee splitsen pas heel laat. Ze hebben een recente gezamenlijke voorouder. De kip splitst al heel vroeg af.",
+  "voice": "Dit is een stamboom van soorten. Onderaan is lang geleden. Bovenaan zijn de soorten van nu. Elke splitsing is een voorouder. Een soort die zich splitste in twee groepen. Hoe dichter twee soorten bij een gemeenschappelijke splitsing zitten, hoe nauwer verwant ze zijn. Mens en chimpansee splitsen pas heel laat. Ze hebben een recente gezamenlijke voorouder. De kip splitst al heel vroeg af."
+ },
+ {
+  "id": "s05",
+  "chapter": "Hoofdstuk 1 — Een stamboom lezen",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Let op: de mens stamt niet af van de chimpansee. Ze hebben samen een voorouder, die er anders uitzag."
+  ],
+  "display": "Let op: de mens stamt niet af van de chimpansee. Ze hebben samen een voorouder, die er anders uitzag.",
+  "voice": "Let op: de mens stamt niet af van de chimpansee. Ze hebben samen een voorouder, die er anders uitzag."
+ },
+ {
+  "id": "s06",
+  "chapter": "Hoofdstuk 2 — Hoe maak je een stamboom?",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Biologen kijken naar kenmerken. Heeft het dier haren? Een ruggengraat? Melk voor de jongen?",
+   "Hoe meer kenmerken soorten delen, hoe nauwer ze verwant zijn.",
+   "Tegenwoordig vergelijken ze ook het DNA. Hoe meer letters gelijk zijn, hoe nauwer verwant.",
+   "Een vleermuis kan vliegen, net als een vogel. Is de vleermuis dan nauwer verwant aan de vogel dan aan de muis? Wat denk je?"
+  ],
+  "display": "Biologen kijken naar kenmerken. Heeft het dier haren? Een ruggengraat? Melk voor de jongen? Hoe meer kenmerken soorten delen, hoe nauwer ze verwant zijn. Tegenwoordig vergelijken ze ook het DNA. Hoe meer letters gelijk zijn, hoe nauwer verwant. Een vleermuis kan vliegen, net als een vogel. Is de vleermuis dan nauwer verwant aan de vogel dan aan de muis? Wat denk je?",
+  "voice": "Biologen kijken naar kenmerken. Heeft het dier haren? Een ruggengraat? Melk voor de jongen? Hoe meer kenmerken soorten delen, hoe nauwer ze verwant zijn. Tegenwoordig vergelijken ze ook het deeënaa. Hoe meer letters gelijk zijn, hoe nauwer verwant. Een vleermuis kan vliegen, net als een vogel. Is de vleermuis dan nauwer verwant aan de vogel dan aan de muis? Wat denk je?"
+ },
+ {
+  "id": "q07",
+  "chapter": "Hoofdstuk 2 — Hoe maak je een stamboom?",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "ja, want ze kunnen allebei vliegen",
+   "nee, de vleermuis is een zoogdier, net als de muis",
+   "dat kun je niet weten"
+  ],
+  "q": "Een vleermuis kan vliegen, net als een vogel. Is de vleermuis dan nauwer verwant aan de vogel dan aan de muis?",
+  "correct": 1,
+  "explain": "Nee. De vleermuis heeft haren en geeft melk: het is een zoogdier, net als de muis. Ook het DNA lijkt meer op dat van de muis. Vleugels zijn apart ontstaan."
+ },
+ {
+  "id": "s08",
+  "chapter": "Hoofdstuk 2 — Hoe maak je een stamboom?",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Nee. De vleermuis heeft haren en geeft melk, net als de muis. Ook het DNA lijkt meer op dat van de muis. Vleugels zijn bij vleermuis en vogel apart ontstaan."
+  ],
+  "display": "Nee. De vleermuis heeft haren en geeft melk, net als de muis. Ook het DNA lijkt meer op dat van de muis. Vleugels zijn bij vleermuis en vogel apart ontstaan.",
+  "voice": "Nee. De vleermuis heeft haren en geeft melk, net als de muis. Ook het deeënaa lijkt meer op dat van de muis. Vleugels zijn bij vleermuis en vogel apart ontstaan."
+ },
+ {
+  "id": "s09",
+  "chapter": "Hoofdstuk 2 — Hoe maak je een stamboom?",
+  "level": "vwo",
+  "kind": "speech",
+  "lines": [
+   "Soms geven uiterlijk en DNA een ander antwoord. Een walvis lijkt op een vis. Maar hij ademt lucht en geeft melk. En zijn DNA lijkt op dat van het nijlpaard. Daarom staat de walvis in de stamboom naast het nijlpaard. Niet bij de vissen."
+  ],
+  "display": "Soms geven uiterlijk en DNA een ander antwoord. Een walvis lijkt op een vis. Maar hij ademt lucht en geeft melk. En zijn DNA lijkt op dat van het nijlpaard. Daarom staat de walvis in de stamboom naast het nijlpaard. Niet bij de vissen.",
+  "voice": "Soms geven uiterlijk en deeënaa een ander antwoord. Een walvis lijkt op een vis. Maar hij ademt lucht en geeft melk. En zijn deeënaa lijkt op dat van het nijlpaard. Daarom staat de walvis in de stamboom naast het nijlpaard. Niet bij de vissen."
+ },
+ {
+  "id": "s10",
+  "chapter": "Hoofdstuk 3 — De grote stappen",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Als je de stamboom van alle leven heel ver terug volgt, kom je bij de eerste cellen. Bijna vier miljard jaar geleden.",
+   "De eerste levensvormen gebruikten waarschijnlijk RNA voor hun erfelijke informatie. Later werd DNA de bouwtekening. DNA is steviger en minder snel kapot.",
+   "Lang waren er alleen bacterie-achtige cellen, zonder celkern. Toen ontstonden cellen met een kern: eukaryoten. Onze cellen zijn ook zo."
+  ],
+  "display": "Als je de stamboom van alle leven heel ver terug volgt, kom je bij de eerste cellen. Bijna vier miljard jaar geleden. De eerste levensvormen gebruikten waarschijnlijk RNA voor hun erfelijke informatie. Later werd DNA de bouwtekening. DNA is steviger en minder snel kapot. Lang waren er alleen bacterie-achtige cellen, zonder celkern. Toen ontstonden cellen met een kern: eukaryoten. Onze cellen zijn ook zo.",
+  "voice": "Als je de stamboom van alle leven heel ver terug volgt, kom je bij de eerste cellen. Bijna vier miljard jaar geleden. De eerste levensvormen gebruikten waarschijnlijk er-en-aa voor hun erfelijke informatie. Later werd deeënaa de bouwtekening. deeënaa is steviger en minder snel kapot. Lang waren er alleen bacterie-achtige cellen, zonder celkern. Toen ontstonden cellen met een kern: eukaryoten. Onze cellen zijn ook zo."
+ },
+ {
+  "id": "s11",
+  "chapter": "Hoofdstuk 3 — De grote stappen",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "De eerste cellen plantten zich ongeslachtelijk voort. Later kwam geslachtelijke voortplanting. Met twee ouders, en meer variatie.",
+   "En lang leefde alles als één cel, zoals pantoffeldiertjes. Pas later gingen cellen samenwerken. Zo ontstonden de eerste meercellige organismen. Planten, schimmels en dieren."
+  ],
+  "display": "De eerste cellen plantten zich ongeslachtelijk voort. Later kwam geslachtelijke voortplanting. Met twee ouders, en meer variatie. En lang leefde alles als één cel, zoals pantoffeldiertjes. Pas later gingen cellen samenwerken. Zo ontstonden de eerste meercellige organismen. Planten, schimmels en dieren.",
+  "voice": "De eerste cellen plantten zich ongeslachtelijk voort. Later kwam geslachtelijke voortplanting. Met twee ouders, en meer variatie. En lang leefde alles als één cel, zoals pantoffeldiertjes. Pas later gingen cellen samenwerken. Zo ontstonden de eerste meercellige organismen. Planten, schimmels en dieren."
+ },
+ {
+  "id": "s12",
+  "chapter": "Hoofdstuk 3 — De grote stappen",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Welke stap kwam als laatste? Wat denk je?"
+  ],
+  "display": "Welke stap kwam als laatste? Wat denk je?",
+  "voice": "Welke stap kwam als laatste? Wat denk je?"
+ },
+ {
+  "id": "q13",
+  "chapter": "Hoofdstuk 3 — De grote stappen",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "cellen met een kern",
+   "DNA als bouwtekening",
+   "organismen van heel veel cellen"
+  ],
+  "q": "Welke van deze grote stappen kwam als laatste?",
+  "correct": 2,
+  "explain": "Organismen van heel veel cellen. Eerst kwam DNA als bouwtekening, toen cellen met een kern, en pas daarna meercellig leven."
+ },
+ {
+  "id": "s14",
+  "chapter": "Hoofdstuk 3 — De grote stappen",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Organismen van heel veel cellen. Eerst kwam DNA, toen de celkern, en pas daarna meercellig leven. Dieren bestaan pas het laatste zesde deel van de tijd."
+  ],
+  "display": "Organismen van heel veel cellen. Eerst kwam DNA, toen de celkern, en pas daarna meercellig leven. Dieren bestaan pas het laatste zesde deel van de tijd.",
+  "voice": "Organismen van heel veel cellen. Eerst kwam deeënaa, toen de celkern, en pas daarna meercellig leven. Dieren bestaan pas het laatste zesde deel van de tijd."
+ },
+ {
+  "id": "s15",
+  "chapter": "Samenvatting",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Een stamboom laat zien wie met wie verwant is. Elke splitsing is een gezamenlijke voorouder.",
+   "Biologen bouwen stambomen met kenmerken en met DNA.",
+   "En de grote stappen: van RNA naar DNA, cellen met een kern, twee ouders, en meer cellen samen. Zo kwam het leven van één cel tot Daan."
+  ],
+  "display": "Een stamboom laat zien wie met wie verwant is. Elke splitsing is een gezamenlijke voorouder. Biologen bouwen stambomen met kenmerken en met DNA. En de grote stappen: van RNA naar DNA, cellen met een kern, twee ouders, en meer cellen samen. Zo kwam het leven van één cel tot Daan.",
+  "voice": "Een stamboom laat zien wie met wie verwant is. Elke splitsing is een gezamenlijke voorouder. Biologen bouwen stambomen met kenmerken en met deeënaa. En de grote stappen: van er-en-aa naar deeënaa, cellen met een kern, twee ouders, en meer cellen samen. Zo kwam het leven van één cel tot Daan."
+ },
+ {
+  "id": "s16",
+  "chapter": "Eindkaart",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Probeer het zelf."
+  ],
+  "display": "Probeer het zelf.",
+  "voice": "Probeer het zelf."
+ }
+]

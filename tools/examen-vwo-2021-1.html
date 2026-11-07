@@ -1,0 +1,1272 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../js/teller.js" data-root="../"></script>
+<link rel="icon" href="../img/icoon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../img/icoon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../img/icoon/apple-touch-icon.png">
+<script>(function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Examen vwo 2021-I · doorklikken · Biologie bij Kamiel</title>
+<meta name="description" content="Maak het centraal examen biologie vwo 2021 tijdvak 1 stap voor stap: eerst hulpvragen, dan de examenvraag, nakijken met het correctievoorschrift en uitleg met animaties.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="huisstijl.css">
+<script src="huisstijl.js"></script>
+<script src="examen-stof.js?v=b496a9e6"></script>
+<script src="examen-stof/vwo21-1.js?v=15ce3230"></script>
+<script src="examen-standen.js?v=558bd73d"></script>
+<style>
+/* Examen vwo 2021-I · doorklik-examen. Kleuren en letters uit huisstijl.css; hier alleen de extra's. */
+:root{--rest:#2A3B57;--area:#5B6B84}
+:root[data-theme="light"]{--rest:#D5DEE9;--area:#B4BDCA}
+ .wrap{padding-inline:0}
+:root[data-theme="light"] .papier{box-shadow:0 0 0 1px rgba(20,32,52,.18),0 6px 18px rgba(20,32,52,.10)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--text);font:17px/1.55 var(--tekst);-webkit-font-smoothing:antialiased;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 40px}
+.wrap{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1,h2,h3{font-family:var(--titel);font-weight:700;letter-spacing:-.01em;text-wrap:balance;margin:0;line-height:1.1}
+h2{font-size:24px}
+.mono,.eyebrow{font:600 12px/1.2 var(--meta);letter-spacing:.1em;text-transform:uppercase}
+.eyebrow{color:var(--goud-text)}
+.muted{color:var(--text2)}
+a{color:var(--goud-text)}
+.sitenav{display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap;min-height:56px;padding:8px 0;border-bottom:1px solid var(--line);font:600 15px/1.3 var(--tekst)}
+.sitenav .merk{font:700 18px/1 var(--titel);color:var(--text);text-decoration:none}
+.sitenav .terug{color:var(--goud-text);text-decoration:none}
+.sitenav .rechts{margin-left:auto}
+.tool-kop{display:flex;flex-direction:column;gap:10px;padding:14px 0 0}
+.tool-kop h1{font-size:clamp(32px,5vw,48px)}
+.tool-kop p{margin:0;color:var(--text2);font-size:18px;max-width:62ch}
+button.toggle{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line2);background:none;color:var(--text2);border-radius:999px;padding:6px 14px 6px 8px;min-height:40px;font:600 14px var(--tekst);cursor:pointer}
+button.toggle .knopje{width:34px;height:20px;border-radius:999px;background:var(--line2);position:relative;flex:none}
+button.toggle .knopje::after{content:"";position:absolute;left:3px;top:3px;width:14px;height:14px;border-radius:50%;background:var(--text2);transition:left .15s}
+button.toggle[aria-pressed="true"]{color:var(--text);border-color:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje{background:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje::after{left:17px;background:var(--goud-ink)}
+.kopbalk{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.seg{display:inline-flex;flex-wrap:wrap;padding:3px;border-radius:999px;border:1px solid var(--line2);gap:2px}
+.seg button{border:0;background:none;padding:6px 14px;border-radius:999px;font:600 14px var(--tekst);color:var(--text2);min-height:36px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--goud);color:var(--goud-ink)}
+nav.tabs{display:flex;flex-wrap:wrap;gap:6px}
+nav.tabs button{min-width:44px;height:44px;border-radius:999px;border:1px solid var(--line2);background:none;color:var(--text2);font:600 15px var(--meta);cursor:pointer;position:relative}
+nav.tabs button:hover{color:var(--text)}
+nav.tabs button.cur{background:var(--goud);color:var(--goud-ink);border-color:var(--goud)}
+nav.tabs button.done::after{content:"";position:absolute;right:3px;top:3px;width:8px;height:8px;border-radius:50%;background:var(--groen);border:2px solid var(--bg)}
+nav.tabs button.lock{opacity:.35;cursor:not-allowed}
+nav.tabs .ov{padding:0 16px;font-family:var(--tekst)}
+.ctx{background:var(--surface);border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.ctx p{margin:0}
+details.ctxd summary{cursor:pointer;font-weight:600;color:var(--goud-text)}
+.tablewrap{overflow-x:auto}
+table.data{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+table.data th,table.data td{border-bottom:1px solid var(--line);padding:7px 10px;text-align:center}
+table.data th:first-child,table.data td:first-child{text-align:left}
+table.data th{font:600 11px var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--text3)}
+.q{display:flex;flex-direction:column;gap:14px}
+.qhead{display:flex;gap:12px;align-items:center}
+.qnum{font:700 40px/1 var(--titel);color:var(--goud-text)}
+.pts{font:600 12px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:3px 9px}
+.qtext{margin:0;font-size:18px}
+.phase{border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;background:var(--surface);display:flex;flex-direction:column;gap:12px}
+.phase>.label{display:flex;gap:8px;align-items:center;font:600 12px var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3)}
+.phase>.label .dot{width:8px;height:8px;border-radius:50%;background:var(--goud)}
+.phase.think{background:var(--surface2)}
+.phase.think>.label{color:var(--goud-text)}
+.step{display:flex;flex-direction:column;gap:8px}
+.step+.step{border-top:1px solid var(--line);padding-top:12px}
+.step p{margin:0}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button.opt,button.chip{border:1px solid var(--line2);background:var(--bg);color:var(--text);border-radius:12px;padding:9px 14px;font:inherit;font-size:16px;cursor:pointer;text-align:left}
+button.chip{border-radius:999px}
+button.opt:hover,button.chip:hover{border-color:var(--text3)}
+button.chip[aria-pressed="true"]{border-color:var(--goud);background:var(--goud-soft)}
+button.opt.right{border-color:var(--groen);background:var(--groen-soft)}
+button.opt.wrong{border-color:var(--koraal);background:var(--koraal-soft)}
+button.opt:disabled{cursor:default}
+button.go,button.ghost{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 18px;border-radius:999px;font:700 15px var(--tekst);cursor:pointer}
+button.go{border:0;background:var(--goud);color:var(--goud-ink)}
+button.go:hover{filter:brightness(1.06)}
+button.ghost{border:0;background:none;color:var(--text);box-shadow:inset 0 0 0 1px var(--line2)}
+button.ghost:hover{box-shadow:inset 0 0 0 1px var(--text3)}
+button:disabled.go,button:disabled.ghost{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:2px solid var(--goud);outline-offset:3px;border-radius:6px}
+input.num{width:96px;min-height:44px;font:600 16px var(--meta);padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text)}
+select{font:inherit;font-size:15px;min-height:44px;padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);max-width:100%;flex:1 1 260px}
+textarea{width:100%;min-height:88px;font:inherit;padding:10px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);resize:vertical}
+.fb{font-size:16px;border-radius:12px;padding:12px 14px;background:var(--surface2);border:1px solid var(--line2)}
+.fb.ok{border-color:var(--groen);background:var(--groen-soft)}
+.fb.no{border-color:var(--koraal);background:var(--koraal-soft)}
+.fb.hint{border-color:var(--teal);background:var(--teal-soft)}
+.graphs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.graphs{grid-template-columns:1fr}}
+.gopt{border:1px solid var(--line2);border-radius:var(--radius);background:var(--bg);padding:8px 8px 2px;cursor:pointer;color:var(--text);font:inherit;text-align:left}
+.gopt b{font:700 20px var(--titel);margin-left:6px;color:var(--goud-text)}
+.gopt:hover{border-color:var(--text3)}
+.gopt.right{border-color:var(--groen);box-shadow:0 0 0 2px var(--groen) inset}
+.gopt.wrong{border-color:var(--koraal);box-shadow:0 0 0 2px var(--koraal) inset}
+svg{display:block;max-width:100%;height:auto}
+.ax{stroke:var(--text3);stroke-width:1.2;fill:none}
+.grid{stroke:var(--line2);stroke-width:1;fill:none}
+.tick{fill:var(--text3);font:500 10px var(--meta)}
+.cv{stroke:var(--teal);stroke-width:2.4;fill:none;stroke-linejoin:round}
+.cvbad{stroke:var(--koraal);stroke-width:2;fill:none;stroke-dasharray:5 4}
+.restband{fill:var(--rest);opacity:.8}
+.lbl{fill:var(--text);font:600 12px var(--tekst)}
+.lblm{fill:var(--text2);font:12px var(--tekst)}
+.lblbad{fill:var(--koraal);font:700 12px var(--tekst)}
+.selfscore{display:flex;flex-direction:column;gap:10px}
+.selfscore label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.selfscore input{margin-top:4px;width:18px;height:18px;accent-color:var(--goud);flex:none}
+.model{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:16px}
+.anim{display:flex;flex-direction:column;gap:10px}
+.anim .stage{border-radius:var(--radius);background:var(--surface2);border:1px solid var(--line2);overflow:hidden}
+.anim .cap{min-height:3.2em;margin:0}
+.anim .nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pips{display:flex;gap:6px;margin-left:auto}
+.pips span{width:9px;height:9px;border-radius:50%;background:var(--line2)}
+.pips span.on{background:var(--goud)}
+.seq{display:flex;flex-direction:column;gap:6px}
+.seq button{display:flex;gap:10px;align-items:center}
+.seq .n{font:600 13px var(--meta);width:24px;height:24px;border-radius:50%;display:inline-grid;place-items:center;background:var(--line2);flex:none}
+.seq button.placed{border-color:var(--groen)} .seq button.placed .n{background:var(--groen);color:var(--goud-ink)}
+.score{font:600 16px var(--meta)}
+.ovtable td:last-child,.ovtable th:last-child{text-align:right}
+.pre{border-left:3px solid var(--goud);padding:2px 0 2px 14px;display:flex;flex-direction:column;gap:8px}
+.pre p{margin:0;color:var(--text2)}
+.figrow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.figrow{grid-template-columns:1fr}}
+.legenda{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--text2)}
+.legenda i{display:inline-block;vertical-align:middle;margin-right:6px}
+.legenda .lijn{width:22px;height:0;border-top:2.5px solid var(--text)}
+.legenda .vlak{width:16px;height:12px;background:var(--area)}
+.tick.dim{opacity:.35}
+p.klikbaar{line-height:2}
+button.mark{font:inherit;color:var(--text);background:none;border:0;border-bottom:2px dashed var(--goud);padding:0 3px;border-radius:4px;cursor:pointer}
+button.mark[aria-pressed="true"]{background:var(--goud-soft);border-bottom-style:solid}
+button.mark:disabled{cursor:default}
+.sellab{min-width:200px;font-weight:600}
+label.slider{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center}
+label.slider span{min-width:170px;font-weight:600;font-size:15px}
+label.slider input{flex:1 1 200px;accent-color:var(--goud)}
+.podium{background:var(--surface2);border:1px solid var(--line2);border-radius:var(--radius);overflow:hidden}
+p.regels{font-family:var(--tekst);line-height:1.9;margin:0}
+p.regels span{display:inline-block;width:2em;font:600 12px var(--meta);color:var(--text3)}
+sup{font-size:.7em}
+.papier{--bg:#FFFFFF;--surface:#FFFFFF;--surface2:#EEF1F5;--line:rgba(20,32,52,.10);--line2:rgba(20,32,52,.24);
+  --text:#121C2E;--text2:#3B4759;--text3:#667185;--goud:#C99A2E;--goud-text:#7E5C0B;--goud-soft:rgba(217,172,60,.18);
+  --groen:#2F8A47;--koraal:#B9502F;--teal:#25729C;--paars:#6550AD;--groen-soft:rgba(47,138,71,.10);--koraal-soft:rgba(185,80,47,.10);--teal-soft:rgba(37,114,156,.10);
+  --rest:#D5DEE9;--area:#B4BDCA;color-scheme:light;
+  background:#FCFCFA;color:var(--text);border:0;border-radius:6px;padding:16px 20px 12px;display:flex;flex-direction:column;gap:12px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.08),0 10px 28px rgba(0,0,0,.35)}
+.papier .pkop{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;border-bottom:2px solid var(--text);padding-bottom:6px}
+.papier .pkop .mono{color:var(--text2)}
+.papier .pnr{display:flex;align-items:baseline;gap:10px}
+.papier .nr{font:700 30px/1 var(--titel);color:var(--text)}
+.papier .pre{border-left:0;padding:0}
+.papier .pre p{color:var(--text)}
+.papier .qtext{color:var(--text)}
+.herhaal.papier{padding:10px 14px;gap:6px;box-shadow:none;border-radius:6px}
+.herhaal .hkop{color:var(--text3);font-size:11px}
+.herhaal .qtext{font-size:16px}
+.papier .pvoet{font:500 11px var(--meta);letter-spacing:.06em;color:var(--text3);text-align:right}
+.papier details.ctxd summary{color:var(--goud-text)}
+.papier .podium{background:var(--surface2)}
+.phase>.label .tag{margin-left:6px;font:600 10px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:2px 8px}
+.sleutel{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:14px;color:var(--text2)}
+.sleutel .sw{display:inline-block;width:16px;height:12px;border-radius:2px;vertical-align:-1px;margin-right:7px}
+.sleutel .papier-sw{background:#FCFCFA}
+.sleutel .donker-sw{background:var(--surface2);box-shadow:inset 0 0 0 1px var(--line2)}
+.exfoto{display:block;width:100%;height:auto;border-radius:2px}
+footer{color:var(--text3);font-size:14px;padding-top:24px;border-top:1px solid var(--line)}
+body.hulp .ans.locked{display:none}
+body.examen .think{display:none}
+body.examen .think.open{display:flex}
+.helpbtn{display:none!important}
+body.examen .helpbtn{display:inline-flex!important}
+body.examen .tonext{display:none!important}
+@media (max-width:600px){body{font-size:16px}.qtext{font-size:17px}.phase,.ctx{padding:14px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="sitenav" aria-label="Site">
+    <a class="merk" href="../index.html#home">Biologie bij Kamiel</a>
+    <a class="terug" href="../index.html#examens">← Terug naar Examen</a>
+    <span class="rechts"><button type="button" class="icoon" data-thema-knop></button></span>
+  </nav>
+  <header class="tool-kop">
+    <div class="eyebrow" id="eb">Examen vwo 2021 · tijdvak 1</div>
+    <h1 id="h1">Examen havo 2026</h1>
+    <div class="seg" id="opgs" role="group" aria-label="Opgave"></div>
+    <div class="sleutel"><span><i class="sw papier-sw"></i>Wit vak = de echte examenvraag</span><span><i class="sw donker-sw"></i>Donker vak = hulpvragen en uitleg van deze tool</span></div>
+    <p>Maak het examen stap voor stap. Bij elke vraag denk je eerst na, dan antwoord je, en daarna zie je waarom het antwoord klopt.</p>
+    <div class="kopbalk">
+      <div class="seg" id="standen" role="group" aria-label="Hoeveel hulp wil je?"></div>
+      <button id="vrij" class="toggle" aria-pressed="false"><span class="knopje"></span>Vrij doorklikken</button>
+      <span class="mono muted" id="sub"></span>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs" aria-label="Vragen"></nav>
+
+  <section class="ctx papier" id="ctx"></section>
+
+  <main id="main"></main>
+
+  <footer>Examenvragen en correctievoorschrift: © College voor Toetsen en Examens (examenblad.nl). Foto's en kaart komen uit het examen; grafieken en tekeningen zijn nagetekend.<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a> · examenvragen © CvTE</span></footer>
+</div>
+
+<script>
+(function(){
+const $=(s,r=document)=>r.querySelector(s);
+const el=(tag,attrs={},html="")=>{const e=document.createElement(tag);for(const k in attrs){if(k==="class")e.className=attrs[k];else if(k.startsWith("on"))e.addEventListener(k.slice(2),attrs[k]);else e.setAttribute(k,attrs[k]);}if(html)e.innerHTML=html;return e;};
+const TOOL="vwo21-1";
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- opslag (alleen gemak) ---------- */
+let store={scores:{},mode:"hulp"};
+try{const s=JSON.parse(localStorage.getItem("examen-vwo21-1")||"null");if(s)store=Object.assign(store,s);}catch(e){}
+const save=()=>{try{localStorage.setItem("examen-vwo21-1",JSON.stringify(store));}catch(e){}};
+
+/* ---------- algemene bouwstenen ---------- */
+function phase(cls,label){const p=el("section",{class:"phase "+cls});
+  if(cls==="think")p.append(el("div",{class:"label"},`<span class="dot"></span>Hulpvragen<span class="tag">niet uit het examen</span>`));
+  else p.append(el("div",{class:"label"},`<span class="dot"></span>${label==="Antwoord"?"Jouw antwoord op de examenvraag":label}`));return p;}
+function choiceStep(container,{q,opts,right,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});const fb=el("div",{class:"fb",hidden:""});
+  opts.forEach((o,i)=>{const b=el("button",{class:"opt",onclick:()=>{
+    if(i===right){row.querySelectorAll("button").forEach(x=>x.disabled=true);b.classList.add("right");fb.className="fb ok";fb.innerHTML=ok;fb.hidden=false;onDone&&onDone();}
+    else{b.classList.add("wrong");fb.className="fb no";fb.innerHTML=no;fb.hidden=false;}
+  }},o);row.append(b);});
+  s.append(row,fb);container.append(s);return s;
+}
+function mc(container,{opts,right,pts,qid,graphs:isGraph,onChecked}){
+  const wrap=el("div",{class:isGraph?"graphs":"row",style:isGraph?"":"flex-direction:column;align-items:stretch"});
+  const fb=el("div",{class:"fb",hidden:""});
+  opts.forEach((o,i)=>{const L="ABCDEF"[i];
+    const b=isGraph?el("button",{class:"gopt"},`<b>${L}</b>${o}`):el("button",{class:"opt"},`<b style="font:700 18px var(--titel);color:var(--goud-text);margin-right:10px">${L}</b>${o}`);
+    b.addEventListener("click",()=>{
+      wrap.querySelectorAll("button").forEach(x=>x.disabled=true);
+      const good=i===right; b.classList.add(good?"right":"wrong");
+      if(!good)wrap.children[right].classList.add("right");
+      fb.className="fb "+(good?"ok":"no");
+      fb.innerHTML=good?`Goed: <b>${"ABCDEF"[right]}</b>. ${pts} ${pts>1?"punten":"punt"}.`:`Het goede antwoord is <b>${"ABCDEF"[right]}</b>. 0 punten.`;
+      fb.hidden=false; setScore(qid,good?pts:0); onChecked&&onChecked();
+    });wrap.append(b);});
+  container.append(wrap,fb);
+}
+function waaromBtn(container,build){
+  const b=el("button",{class:"ghost waarombtn"},"Laat zien waarom ›");const box=el("div",{hidden:""});
+  b.onclick=()=>{b.remove();box.hidden=false;build(box);if(window.EXSTOF)EXSTOF.extraWaarom(TOOL,cur,box);};
+  container.append(b,box);
+}
+function lockAns(think,ans,label="Naar de vraag ›"){
+  ans.classList.add("locked");
+  const go=el("button",{class:"go tonext",hidden:""},label);
+  go.onclick=()=>{ans.classList.remove("locked");go.remove();ans.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});};
+  think.append(go);
+  return ()=>{think.append(go);go.hidden=false;};
+}
+function helpButton(q,think){
+  const b=el("button",{class:"ghost helpbtn"},"Hulp nodig? Toon de hulpvragen");
+  b.onclick=()=>{think.classList.add("open");b.remove();};
+  q.append(b);
+}
+function setScore(id,p){store.scores[id]=p;save();renderTabs();if(nextBtns[id])nextBtns[id].hidden=false;}
+
+/* ---------- vragen ---------- */
+const Q=[],OPG=[];
+const FOTO=(n,alt)=>`<img class="exfoto" src="examen-img/vwo-2021-1/${n}.webp" alt="${alt}" loading="lazy">`;
+
+/* Vraag 5 en 6: eerst zonder opties */
+function noOptions(q,{id,pts,text,prompt,hint,opts,right,uitleg}){
+  q.append(el("p",{class:"qtext"},text));
+  const think=phase("think","Eerst zelf"),ans=phase("ans","Kies je antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Toon de keuzes ›");
+  const s=el("div",{class:"step"});s.append(el("p",{},prompt));
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:"Wat denk jij? Schrijf het kort op."});const hb=el("button",{class:"ghost"},"Tip");const hf=el("div",{class:"fb hint",hidden:""},hint);
+  hb.onclick=()=>{hf.hidden=false;hb.remove();};
+  ta.addEventListener("input",()=>{if(ta.value.trim().length>2)unlock();});
+  s.append(ta,hb,hf);think.append(s);
+  mc(ans,{qid:id,pts,right,opts,onChecked:()=>{
+    if(ta.value.trim())ans.append(el("div",{class:"model"},`<b>Jij dacht eerst:</b> ${ta.value.replace(/</g,"&lt;")}<br><span class="muted">Klopte dat met de keuze die je maakte?</span>`));
+    waaromBtn(ans,b=>b.append(el("div",{class:"model"},uitleg)));}});
+  q.append(think,ans);
+}
+/* ================= extra bouwstenen ================= */
+function pre(q,html){q.append(el("div",{class:"pre"},html));}
+function chipsStep(container,{q,items,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});
+  items.forEach(([t])=>{const b=el("button",{class:"chip","aria-pressed":"false"},t);b.onclick=()=>b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")==="true"?"false":"true");row.append(b);});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(row,ck,fb);container.append(s);
+  ck.onclick=()=>{const sel=[...row.children].map(b=>b.getAttribute("aria-pressed")==="true");
+    const teveel=sel.some((s,k)=>s&&!items[k][1]),mist=sel.some((s,k)=>!s&&items[k][1]);fb.hidden=false;
+    if(!teveel&&!mist){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;row.querySelectorAll("button").forEach(b=>b.disabled=true);onDone&&onDone();}
+    else if(teveel){fb.className="fb hint";fb.innerHTML=no;}
+    else{fb.className="fb hint";fb.innerHTML="Wat je gekozen hebt klopt, maar er hoort nog meer bij. Kies alles wat klopt.";}};
+  return s;
+}
+function selectsStep(container,{q,rows,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const id=uid+"s"+k;
+    r.append(el("label",{for:id,class:"sellab"},lab));const sel=el("select",{id});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);s.append(r);return sel;});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(ck,fb);container.append(s);
+  ck.onclick=()=>{const n=sels.filter((sel,k)=>sel.value!==""&&+sel.value===rows[k][2]).length;fb.hidden=false;
+    if(n===rows.length){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;sels.forEach(x=>x.disabled=true);onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=`${n} van de ${rows.length} goed. `+(no||"Probeer het nog eens.");}};
+}
+function numStep(container,{q,right,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const r=el("div",{class:"row"});const inp=el("input",{class:"num",id:uid,inputmode:"decimal","aria-label":"antwoord"});const ck=el("button",{class:"ghost"},"Controleer");const fb=el("div",{class:"fb",hidden:""});
+  r.append(inp,ck);s.append(r,fb);container.append(s);
+  ck.onclick=()=>{const v=parseFloat((inp.value||"").replace(",","."));fb.hidden=false;
+    if(v===right){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;inp.disabled=true;onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=no;}};
+}
+function openAnswer(ans,{id,pts,checks,model,valkuil,placeholder,after}){
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:placeholder||"Schrijf je antwoord…"});
+  const ck=el("button",{class:"go"},"Nakijken");const tf=el("div",{class:"fb hint",hidden:""},"Schrijf eerst je antwoord op. Daarna kijk je het na.");
+  ans.append(ta,ck,tf);
+  ck.onclick=()=>{if(ta.value.trim().length<8){tf.hidden=false;ta.focus();return;}tf.remove();ck.remove();ta.readOnly=true;
+    const ss=el("div",{class:"selfscore"});
+    ss.append(el("p",{style:"margin:0"},"<b>Kijk jezelf na met het correctievoorschrift.</b> Vink aan wat er in jouw antwoord staat."));
+    const boxes=checks.map((c,k)=>{const lab=el("label",{},`<input type="checkbox" id="q${id}c${k}"><span>${c} <span class="pts">1p</span></span>`);ss.append(lab);return lab.querySelector("input");});
+    if(model)ss.append(el("div",{class:"model"},"<b>Voorbeeldantwoord:</b> "+model));
+    if(valkuil)ss.append(el("div",{class:"fb hint"},"<b>Valkuil:</b> "+valkuil));
+    const sc=el("div",{class:"score"});ss.append(sc);ans.append(ss);
+    const upd=()=>{const p=Math.min(pts,boxes.filter(b=>b.checked).length);sc.textContent=`Jouw score: ${p} / ${pts}`;setScore(id,p);};
+    boxes.forEach(b=>b.onchange=upd);upd();after&&after();};
+}
+function juistOnjuist(ans,{id,stm,key,uitleg}){
+  const pick=stm.map(()=>null);
+  stm.forEach((t,k)=>{const r=el("div",{class:"row"});r.append(el("span",{style:"flex:1 1 260px"},`<b style="font-family:var(--meta)">${k+1}</b>&nbsp; ${t}`));
+    ["juist","onjuist"].forEach((lab,v)=>{const b=el("button",{class:"chip","aria-pressed":"false"},lab);b.onclick=()=>{pick[k]=v===0;r.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c===b?"true":"false"));};r.append(b);});ans.append(r);});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(pick.includes(null)){fb.hidden=false;fb.className="fb hint";fb.textContent="Beoordeel eerst alle uitspraken.";return;}
+    const n=pick.filter((p,k)=>p===key[k]).length;const p=n===stm.length?2:n===stm.length-1?1:0;ck.disabled=true;
+    ans.querySelectorAll(".chip").forEach(c=>c.disabled=true);
+    fb.hidden=false;fb.className="fb "+(p===2?"ok":"no");
+    fb.innerHTML=`${n} van de ${stm.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+key.map((k,i)=>`${i+1} ${k?"juist":"onjuist"}`).join(" · ");setScore(id,p);
+    waaromBtn(ans,uitleg);};
+}
+function stepAnim(box,steps,render){
+  let i=0;const stage=el("div",{class:"stage"}),cap=el("p",{class:"cap"});
+  const prev=el("button",{class:"ghost"},"‹ Vorige"),next=el("button",{class:"go"},"Volgende ›");
+  const pips=el("div",{class:"pips"},steps.map(()=>"<span></span>").join(""));
+  const nav=el("div",{class:"nav"});nav.append(prev,next,pips);
+  const a=el("div",{class:"anim"});a.append(stage,cap,nav);box.append(a);
+  function show(){cap.innerHTML=steps[i].cap;prev.disabled=i===0;next.textContent=i===steps.length-1?"Opnieuw ›":"Volgende ›";
+    pips.querySelectorAll("span").forEach((p,j)=>p.classList.toggle("on",j===i));render(stage,steps[i],i);}
+  prev.onclick=()=>{if(i>0){i--;show();}};next.onclick=()=>{i=(i+1)%steps.length;show();};show();
+}
+/* ================= meer bouwstenen ================= */
+function seqStep(container,{q,items,shown,ok,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const seq=el("div",{class:"seq"});let at=0;const fb=el("div",{class:"fb",hidden:""});
+  shown.forEach(k=>{const b=el("button",{class:"opt"},`<span class="n">·</span>${items[k]}`);b.onclick=()=>{if(b.classList.contains("placed"))return;
+    if(k===at){b.classList.add("placed");b.querySelector(".n").textContent=at+1;at++;fb.hidden=true;if(at===items.length){fb.hidden=false;fb.className="fb ok";fb.innerHTML=ok;onDone&&onDone();}}
+    else{fb.hidden=false;fb.className="fb hint";fb.textContent="Dat is nog niet de volgende stap. Wat gebeurt er direct daarna?";}};seq.append(b);});
+  s.append(seq,fb);container.append(s);
+}
+function selectAnswer(ans,{id,rows,score,uid,after,intro}){
+  if(intro)ans.append(el("p",{style:"margin:0"},intro));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const sid=uid+"a"+k;
+    r.append(el("label",{for:sid,class:"sellab"},lab));const sel=el("select",{id:sid});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);ans.append(r);return sel;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(sels.some(x=>x.value==="")){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul eerst alles in.";return;}
+    const n=sels.filter((x,k)=>+x.value===rows[k][2]).length;const p=score(n);sels.forEach(x=>x.disabled=true);ck.remove();
+    fb.hidden=false;fb.className="fb "+(n===rows.length?"ok":"no");
+    fb.innerHTML=`${n} van de ${rows.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+rows.map(([lab,opts,r])=>`${lab}: ${opts[r]}`).join(" · ");
+    setScore(id,p);after&&after();};
+}
+function textBox(html){return b=>b.append(el("div",{class:"model"},html));}
+const svgWrap=(vb,inner,label)=>`<svg viewBox="${vb}" role="img" aria-label="${label}">${inner}</svg>`;
+function numAnswer(ans,{id,fields,after}){
+  const inps=fields.map(([lab,unit],k)=>{const r=el("div",{class:"row"});const fid="q"+id+"f"+k;
+    r.append(el("label",{for:fid,class:"sellab"},lab));const i=el("input",{class:"num",id:fid,inputmode:"decimal"});r.append(i,el("span",{class:"muted"},unit));ans.append(r);return i;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{const v=inps.map(i=>parseFloat((i.value||"").replace(",",".")));if(v.some(isNaN)){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul beide uitkomsten in.";return;}
+    inps.forEach(i=>i.disabled=true);ck.remove();const res=fields.map((f,k)=>f[2](v[k]));const p=res.filter(Boolean).length;
+    fb.hidden=false;fb.className="fb "+(p===fields.length?"ok":"no");
+    fb.innerHTML=`<b>${p} van de ${fields.length} punten.</b><br>`+fields.map((f,k)=>`${res[k]?"✓":"✗"} ${f[3]}`).join("<br>");setScore(id,p);after&&after();};
+}
+
+/* ===== opg1.js ===== */
+/* ================= Opgave 1 · Ledlampjes voorkomen hartritmestoornis (vraag 1–6) ================= */
+const O1_KADER=html=>`<div style="border:1px solid var(--line2);padding:10px 14px;display:flex;flex-direction:column;gap:8px">${html}</div>`;
+const O1_TERUG=(sum,html)=>`<details class="ctxd"><summary>${sum}</summary><div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">${html}</div></details>`;
+/* keuzelijsten met een eigen score-functie: rows = [label, opties, goed (index of lijst)], score(keuzes) -> punten */
+function O1_sel(ans,{id,rows,score,after,intro,uitkomst}){
+  if(intro)ans.append(el("p",{style:"margin:0"},intro));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const sid="q"+id+"o"+k;
+    r.append(el("label",{for:sid,class:"sellab"},lab));const sel=el("select",{id:sid});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);ans.append(r);return sel;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(sels.some(x=>x.value==="")){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul eerst alles in.";return;}
+    const v=sels.map(x=>+x.value);const p=score(v);sels.forEach(x=>x.disabled=true);ck.remove();
+    const ok=k=>{const g=rows[k][2];return Array.isArray(g)?g.includes(v[k]):g===v[k];};
+    fb.hidden=false;fb.className="fb "+(rows.every((r,k)=>ok(k))?"ok":"no");
+    fb.innerHTML=rows.map((r,k)=>`${ok(k)?"✓":"✗"} ${r[0]}`).join("<br>")+`<br><b>${p} ${p===1?"punt":"punten"}</b>`+(uitkomst?"<br>"+uitkomst:"");
+    setScore(id,p);after&&after();};
+}
+/* aantal goed bij keuzelijsten */
+const O1_ngoed=(rows,v)=>rows.filter((r,k)=>Array.isArray(r[2])?r[2].includes(v[k]):r[2]===v[k]).length;
+
+const O1_AFB1=`<div class="eyebrow">afbeelding 1</div>${FOTO("o1-ecg","Twee doorsneden van het hart met de impulsen bij een normale hartslag (één golf) en bij boezemfibrilleren (veel kringetjes in de boezems), met daaronder het ECG bij een normale hartslag en bij boezemfibrilleren")}`;
+const O1_AFB2=`<div class="eyebrow">afbeelding 2</div><div style="max-width:520px">${FOTO("o1-bovenaanzicht","Bovenaanzicht van een hart zonder boezems: vier kleppen in een lichtgekleurd bindweefselschot, met de AV-knoop aangewezen")}</div>`;
+
+const CTX1=`<div class="pkop"><span class="mono">Examentekst · inleiding opgave 1</span></div>
+  <p><i>Tenzij anders vermeld, is er sprake van normale situaties en gezonde organismen.</i></p>
+  <p>De meest voorkomende hartritmestoornis is boezemfibrilleren. De stoornis komt veel voor bij ouderen. Onderzoeker Daniël Pijnappels werkt aan een therapie die gebruikmaakt van ledlampjes.</p>`;
+
+/* --- animatie vraag 1: bloedsomloop vanuit de boezems --- */
+function O1_route(s){
+  const P=(id,k)=>`<marker id="${id}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="${k}"/></marker>`;
+  const doos=(x,y,w,t,on,k)=>`<rect x="${x}" y="${y}" width="${w}" height="34" rx="8" fill="var(--surface)" stroke="${on?k:"var(--line2)"}" stroke-width="${on?2.4:1.4}"/><text class="lbl" x="${x+w/2}" y="${y+22}" text-anchor="middle">${t}</text>`;
+  const pl=(d,on,k)=>`<path d="${d}" fill="none" stroke="${on?k:"var(--text3)"}" stroke-width="${on?2.6:1.4}" marker-end="url(#${on?(k==="var(--koraal)"?"o1k":"o1t"):"o1g"})"/>`;
+  const r=s>=1&&s<3,l=s>=2;
+  return `<svg viewBox="0 0 600 250" role="img" aria-label="Route van een stolsel uit de rechterboezem en uit de linkerboezem"><defs>${P("o1k","var(--koraal)")}${P("o1t","var(--teal)")}${P("o1g","var(--text3)")}</defs>
+  ${doos(20,40,150,"rechterboezem",r,"var(--teal)")}${doos(20,110,150,"rechterkamer",r,"var(--teal)")}${doos(20,180,150,"longen (haarvaten)",r,"var(--teal)")}
+  ${doos(420,40,160,"linkerboezem",l,"var(--koraal)")}${doos(420,110,160,"linkerkamer",l,"var(--koraal)")}${doos(420,180,160,"aorta → hersenen",l,"var(--koraal)")}
+  ${pl("M95,74 L95,108",r,"var(--teal)")}${pl("M95,144 L95,178",r,"var(--teal)")}${pl("M170,197 C300,230 300,40 418,57",false,"var(--teal)")}
+  ${pl("M500,74 L500,108",l,"var(--koraal)")}${pl("M500,144 L500,178",l,"var(--koraal)")}
+  ${s===1||s===3?`<text class="lbl" x="95" y="240" text-anchor="middle" fill="var(--teal)">stolsel blijft hier steken</text>`:""}
+  ${s>=2?`<text class="lbl" x="500" y="240" text-anchor="middle">stolsel kan de hersenen bereiken</text>`:""}</svg>`;
+}
+
+/* Vraag 1 */
+Q.push({id:1,pts:2,t:"stolsel en herseninfarct",build(q){
+  pre(q,O1_KADER(`<p>Hartspiercellen vormen – net als neuronen – aan elkaar gekoppelde banen die impulsen kunnen geleiden. Die impulsen veroorzaken het samentrekken van hartspiercellen. In principe kunnen hartspiercellen impulsen in twee richtingen geleiden, maar als gevolg van een refractaire periode na het optreden van een actiepotentiaal gebeurt dat niet. Zo ontstaan er regelmatige spiersamentrekkingen die zich in een bepaalde richting verplaatsen.<br>Bij beschadiging van hartspiercellen in een hartboezem kunnen impulsen wél de andere kant op lopen. Hierdoor ontstaan onregelmatige en ongecoördineerde samentrekkingen: het boezemfibrilleren. In afbeelding 1 is het impulsverloop bij een normale hartslag en bij boezemfibrilleren schematisch weergegeven, met daaronder de bijbehorende elektrocardiogrammen (ECG).</p>${O1_AFB1}<p>Bij boezemfibrilleren kunnen bloedstolsels ontstaan als gevolg van de beperkte doorstroming in het hart. Daardoor is er een verhoogd risico op een beroerte (herseninfarct).</p>`));
+  q.append(el("p",{class:"qtext"},"<b>Kan een herseninfarct veroorzaakt worden door een stolsel gevormd in de linkerboezem, in de rechterboezem of zijn beide mogelijk?</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Waar gaat bloed uit de rechterboezem naartoe?",opts:["via de rechterkamer naar de longen","via de rechterkamer naar de aorta","direct naar de linkerboezem"],right:0,
+    ok:"Ja: de kleine bloedsomloop. Wat gebeurt er met een stolsel dat in de haarvaten van de longen komt?",no:"De rechterhelft van het hart pompt zuurstofarm bloed. Waar moet dat bloed eerst heen?",
+    onDone:()=>choiceStep(think,{q:"Een stolsel komt in een bloedvat dat steeds smaller wordt. Wat gebeurt er?",opts:["het blijft steken in het eerste haarvatennet dat het tegenkomt","het gaat door de haarvaten heen en reist verder"],right:0,
+      ok:"Klopt. Een stolsel kan dus alleen in de hersenen komen als het eerste haarvatennet op zijn route in de hersenen ligt.",no:"Haarvaten zijn zo smal dat rode bloedcellen er één voor één door moeten.",
+      onDone:()=>choiceStep(think,{q:"Bloed uit de linkerboezem gaat via de linkerkamer naar …",opts:["de aorta en dan naar de organen, ook de hersenen","de longen"],right:0,ok:"Goed. Kies nu je antwoord.",no:"De linkerkamer pompt bloed de grote bloedsomloop in.",onDone:unlock})})});
+  mc(ans,{qid:1,pts:2,right:0,opts:["alleen in de linkerboezem","alleen in de rechterboezem","beide zijn mogelijk"],
+    onChecked:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {s:0,cap:"Volg de route van een stolsel uit elke boezem."},
+      {s:1,cap:"Een stolsel uit de <b>rechterboezem</b> gaat via de rechterkamer naar de longslagader en blijft steken in de <b>haarvaten van de longen</b>. Dat geeft een longembolie, geen herseninfarct."},
+      {s:2,cap:"Een stolsel uit de <b>linkerboezem</b> gaat via de linkerkamer de aorta in en kan zo in een slagader van de <b>hersenen</b> vast komen te zitten."},
+      {s:3,cap:"Alleen een stolsel uit de linkerboezem kan dus een herseninfarct veroorzaken. Het antwoord is <b>A</b>."}],
+      (stg,s)=>stg.innerHTML=O1_route(s.s)))});
+  q.append(think,ans);
+}});
+
+/* Vraag 2 */
+Q.push({id:2,pts:2,t:"stand van de kleppen",build(q){
+  pre(q,O1_KADER(`<p>Het spierweefsel van de boezems wordt door een bindweefseltussenschot gescheiden van het spierweefsel van de kamers. Bindweefsel is een slechte geleider van elektrische impulsen.<br>In het bovenaanzicht van een hart waarvan de boezems niet getekend zijn (afbeelding 2), is het lichtgekleurde bindweefsel te zien.</p>${O1_AFB2}`)+`<p>Drie momenten in de hartcyclus zijn:</p><p class="regels"><span>1</span>het einde van de hartpauze<br><span>2</span>het midden van de boezemsystole<br><span>3</span>het midden van de kamersystole</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Op welk van deze momenten komt de stand van de kleppen overeen met die in afbeelding 2?</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  selectsStep(think,{uid:"q2h",q:"Kijk naar afbeelding 2. Welke kleppen staan open en welke zijn dicht?",rows:[
+    ["de twee grote kleppen (tussen boezem en kamer)",["open","dicht"],0],["de twee kleine kleppen (slagaderkleppen)",["open","dicht"],1]],
+    ok:"Goed gezien. Wanneer in de hartcyclus zijn de hartkleppen open en de slagaderkleppen dicht?",no:"In de grote kleppen zie je de peesdraden in de kamer: daar kijk je doorheen.",
+    onDone:()=>selectsStep(think,{uid:"q2k",q:"Hoe staan de hartkleppen (tussen boezem en kamer) op elk moment?",rows:[
+      ["1 einde hartpauze",["open","dicht"],0],["2 midden boezemsystole",["open","dicht"],0],["3 midden kamersystole",["open","dicht"],1]],
+      ok:"Klopt. Tijdens de kamersystole zijn juist de slagaderkleppen open. Kies je antwoord.",no:"Bloed stroomt van boezem naar kamer zolang de kamer niet samentrekt.",onDone:unlock})});
+  mc(ans,{qid:2,pts:2,right:3,opts:["alleen op moment 1","alleen op moment 2","alleen op moment 3","zowel op moment 1 als 2","zowel op moment 1 als 3","zowel op moment 2 als 3"],
+    onChecked:()=>waaromBtn(ans,textBox(`In afbeelding 2 staan de <b>hartkleppen open</b> (je kijkt de kamers in) en de <b>slagaderkleppen dicht</b>.<div class="tablewrap"><table class="data"><tr><th>moment</th><th>hartkleppen</th><th>slagaderkleppen</th></tr><tr><td>1 einde hartpauze</td><td>open</td><td>dicht</td></tr><tr><td>2 midden boezemsystole</td><td>open</td><td>dicht</td></tr><tr><td>3 midden kamersystole</td><td>dicht</td><td>open</td></tr></table></div>Tijdens de hartpauze en de boezemsystole stroomt bloed van de boezems naar de kamers. Het antwoord is <b>D</b>.`))});
+  q.append(think,ans);
+}});
+
+/* Vraag 3 */
+Q.push({id:3,pts:2,t:"tussenschot en AV-knoop",build(q){
+  pre(q,O1_TERUG("Afbeelding 2 nog eens bekijken",O1_AFB2)+`<p>Dankzij het bindweefseltussenschot en de AV-knoop daarin blijft de pompfunctie van de hartkamers tijdens boezemfibrilleren grotendeels behouden.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Beschrijf hoe dankzij het bindweefseltussenschot en de AV-knoop de pompfunctie van de hartkamers tijdens boezemfibrilleren behouden blijft.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"Bij boezemfibrilleren lopen er heel veel impulsen kriskras door de boezems. Kunnen die rechtstreeks naar de kamerspier?",opts:["nee, het bindweefsel geleidt slecht en houdt ze tegen","ja, via het hele grensvlak tussen boezem en kamer"],right:0,
+    ok:"Ja. De enige doorgang is de AV-knoop.",no:"Lees de tekst: bindweefsel is een slechte geleider van elektrische impulsen.",
+    onDone:()=>choiceStep(think,{q:"Wat gebeurt er met de kamers als ze alleen impulsen via de AV-knoop krijgen?",opts:["de kamerspier trekt (gecoördineerd) samen op impulsen uit de AV-knoop, de kamers gaan niet fibrilleren","de kamers trekken helemaal niet meer samen"],right:0,
+      ok:"Klopt. Noem in je antwoord beide delen: wat het schot tegenhoudt en waardoor de kamers wél samentrekken.",no:"Via de AV-knoop en de bundel van His komt de impuls nog steeds bij de kamerspier.",onDone:unlock})});
+  openAnswer(ans,{id:3,pts:2,checks:["Dankzij het tussenschot worden <b>alleen impulsen via de AV-knoop</b> doorgegeven aan de kamers / het bindweefsel voorkomt dat <b>alle impulsen van de boezems</b> worden doorgegeven aan de kamers.","De <b>kamerspier trekt samen door impulsen vanuit de AV-knoop</b> (en dit systeem is intact)."],
+    model:"Door het niet-geleidende tussenschot gaan de impulsen van de fibrillerende boezemspier niet door naar de kamerspier, zodat de kamers niet gaan fibrilleren. Alleen via de AV-knoop komen impulsen bij de kamers, en daardoor trekt de kamerspier nog steeds gecoördineerd samen.",
+    valkuil:"Alleen het schot noemen. Je moet ook zeggen dat de kamers wél blijven samentrekken doordat impulsen <b>via de AV-knoop</b> doorkomen.",
+    after:()=>waaromBtn(ans,textBox("Bij boezemfibrilleren ontstaan in de boezems heel veel ongecoördineerde impulsen. Het <b>bindweefseltussenschot</b> geleidt slecht, dus die impulsen kunnen niet overal naar de kamerspier overspringen: de kamers gaan niet mee fibrilleren.<br><br>De enige verbinding is de <b>AV-knoop</b>. Daarlangs komen nog steeds impulsen bij de kamers, die daardoor gecoördineerd samentrekken en blijven pompen. De AV-knoop geleidt traag, dus niet elke impuls uit de boezem komt door: de kamers slaan wel onregelmatig, maar ze pompen."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 4 */
+Q.push({id:4,pts:1,t:"transgen op een willekeurige plek",build(q){
+  pre(q,`<p>Vaak gaat boezemfibrilleren vanzelf weer over, maar het kan ook een permanent karakter krijgen. Daarom neemt de cardioloog na de diagnose meestal maatregelen om het normale hartritme te herstellen.<br>Chronisch boezemfibrilleren kan behandeld worden met een externe defibrillator. Deze geeft bij fibrilleren een sterke stroomstoot om alle hartspiercellen te depolariseren, waarna de normale boezemcontractie hersteld wordt. Dat is een heftige ingreep.<br>In het Leids Universitair Medisch Centrum is ‘optogenetica’ ingezet om een schokvrije inwendige defibrillator te ontwikkelen. Optogenetica maakt gebruik van een lichtgevoelig eiwit uit groenalgen. Het eiwit is een ionkanaal dat geopend wordt bij blootstelling aan blauw licht. In transgene hartspiercellen met dit lichtgevoelige eiwit, kunnen door een lichtflits impulsen opgewekt worden.</p>`+O1_KADER(`<p>De onderzoeksgroep van Daniël Pijnappels gebruikte een virus om een gen uit de algen over te brengen in gekweekte hartspiercellen om ze lichtgevoelig te maken.</p>`)+`<p>Bij gebruik van een virus als vector komt het transgen op een willekeurige plaats in het DNA van de hartspiercel terecht.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Beschrijf op moleculair niveau een mogelijk nadelig gevolg hiervan voor deze cel.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"Het transgen wordt ergens in het DNA ingevoegd. Waar zou dat kunnen zijn?",opts:["ook midden in een gen van de cel zelf","alleen tussen de genen in"],right:0,
+    ok:"Ja. Wat gebeurt er met dat gen als er een stuk DNA middenin komt te zitten?",no:"‘Willekeurige plaats’: het kan overal terechtkomen.",
+    onDone:()=>choiceStep(think,{q:"Een gen van de cel wordt onderbroken door het transgen. Wat is het gevolg?",opts:["dat gen kan niet meer goed worden afgelezen: de cel maakt dat eiwit niet meer (goed)","het transgen komt dan niet tot expressie"],right:0,
+      ok:"Klopt. Let op: het CV wil een gevolg voor de cel, niet ‘het transgen werkt niet’.",no:"Denk aan de genen van de cel zelf, niet aan het transgen.",onDone:unlock})});
+  openAnswer(ans,{id:4,pts:1,checks:["Een juist nadelig gevolg op moleculair niveau, bijvoorbeeld: <b>de expressie van een ander gen kan verstoord worden</b> / de hartspiercel kan <b>een bepaald eiwit niet meer maken</b>."],
+    model:"Het transgen kan midden in een gen van de hartspiercel terechtkomen. Dat gen wordt dan niet meer goed afgelezen, zodat de cel een bepaald eiwit niet meer kan maken.",
+    valkuil:"Antwoorden dat het transgen dan misschien niet tot expressie komt. Dat levert volgens het correctievoorschrift <b>geen punt</b> op: het gaat om een nadelig gevolg voor de cel.",
+    after:()=>waaromBtn(ans,textBox("Een virale vector bouwt zijn DNA op een willekeurige plek in het genoom in. Komt het transgen midden in een <b>gen van de cel</b> (of in een regulerende sequentie), dan wordt dat gen verstoord: het wordt niet meer (goed) getranscribeerd of het mRNA codeert voor een ander eiwit. De cel kan dan <b>een eiwit niet meer maken</b> dat ze nodig heeft."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 5 */
+Q.push({id:5,pts:1,t:"sensoren voor de pacemaker",build(q){
+  pre(q,`<p>Met behulp van ledlampjes kunnen de onderzoekers de transgene hartspiercellen regelmatig laten samentrekken (pacemakerfunctie) of alle samentrekkingen in één keer laten stoppen (defibrillatorfunctie). In de toekomst kunnen bij patiënten met hartritmestoornissen de hartspiercellen misschien lichtgevoelig worden gemaakt. Het hartritme kan dan worden beïnvloed met behulp van kleine ledlampjes rondom het hart die lichtflitsen afgeven.</p><p>Wanneer de ledlampjes worden gebruikt als inwendige pacemaker, blijft het hart in het juiste ritme kloppen. Meestal is een pacemaker nodig als het hartritme te langzaam is.<br>Om ervoor te zorgen dat de ledlampjes op het juiste moment een lichtflits afgeven, moeten ze verbonden zijn aan sensoren.<br>Enkele sensoren zijn:</p><p class="regels"><span>1</span>bewegingssensor<br><span>2</span>lichtsensor<br><span>3</span>spanningssensor</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Welke twee van deze sensoren zouden geschikt zijn om de inwendige pacemaker aan te sturen?</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  chipsStep(think,{q:"Wat moet een sensor meten om te weten of het hart (op tijd) klopt? Kies alles wat klopt.",items:[["of de hartspier samentrekt (beweging)",true],["of er een elektrische impuls door de hartspier gaat (spanning)",true],["of er licht op het hart valt",false]],
+    ok:"Goed. Een lichtsensor meet alleen de lichtflitsen van de ledjes zelf: daar heb je niets aan om het hartritme te volgen.",no:"Valt er in de borstkas licht op het hart, behalve van de ledjes zelf?",onDone:unlock});
+  mc(ans,{qid:5,pts:1,right:1,opts:["1 en 2","1 en 3","2 en 3"],
+    onChecked:()=>waaromBtn(ans,textBox("De pacemaker moet een flits geven als het hart te lang niet uit zichzelf klopt. Daarvoor moet hij de hartslag meten. Dat kan met een <b>bewegingssensor</b> (samentrekking van de hartspier) of een <b>spanningssensor</b> (de elektrische impuls, zoals bij een ECG). Een lichtsensor meet geen hartactiviteit. Het antwoord is <b>B</b>."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 6 */
+Q.push({id:6,pts:1,t:"defibrillator of pacemaker",build(q){
+  pre(q,`<p>Twee variabelen voor de ledlampjes rondom het hart, met de te gebruiken instellingen zijn:</p><p class="regels"><span>1</span>de duur van de lichtflits: relatief <b>kort</b> of <b>lang</b><br><span>2</span>het te belichten gebied: relatief <b>klein</b> of <b>groot</b></p>`);
+  q.append(el("p",{class:"qtext"},"<b>Neem de volgende tabel over op je antwoordblad. Vul de tabel in voor variabele 1 en 2: welke instelling maakt de ledlampjes geschikt voor de defibrillatorfunctie en welke instelling maakt ze geschikt voor de pacemakerfunctie? Kies elk vetgedrukt woord een keer.</b>"));
+  q.append(el("div",{class:"tablewrap",style:"max-width:520px"},`<table class="data"><tr><th></th><th>als defibrillator</th><th>als pacemaker</th></tr><tr><td>1 (duur lichtflits)</td><td></td><td></td></tr><tr><td>2 (te belichten gebied)</td><td></td><td></td></tr></table>`));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Een defibrillator moet alle samentrekkingen in één keer laten stoppen. Hoeveel hartspiercellen moet hij tegelijk depolariseren?",opts:["(bijna) alle, in een groot gebied","maar een klein groepje"],right:0,
+    ok:"Ja, net als de stroomstoot van een externe defibrillator.",no:"Lees nog eens wat een externe defibrillator doet met ‘alle hartspiercellen’.",
+    onDone:()=>choiceStep(think,{q:"Een pacemaker geeft een startsein. Waarom is een klein gebied genoeg?",opts:["de impuls verspreidt zich daarna vanzelf via de gekoppelde hartspiercellen","de pacemaker moet maar één hartspiercel laten samentrekken"],right:0,
+      ok:"Klopt. En de duur: een kort startsein, of het hele hart een tijdje gedepolariseerd houden?",no:"Hartspiercellen vormen aan elkaar gekoppelde banen die impulsen geleiden.",onDone:unlock})});
+  O1_sel(ans,{id:6,intro:"Kies per variabele de instellingen.",rows:[["1 (duur lichtflits)",["defibrillator: lang · pacemaker: kort","defibrillator: kort · pacemaker: lang"],0],["2 (te belichten gebied)",["defibrillator: groot · pacemaker: klein","defibrillator: klein · pacemaker: groot"],0]],
+    score:v=>v[0]===0&&v[1]===0?1:0,uitkomst:"Correctievoorschrift: alleen de hele tabel goed levert 1 punt op.",
+    after:()=>waaromBtn(ans,textBox(`<div class="tablewrap"><table class="data"><tr><th></th><th>als defibrillator</th><th>als pacemaker</th></tr><tr><td>1 (duur lichtflits)</td><td>lang</td><td>kort</td></tr><tr><td>2 (te belichten gebied)</td><td>groot</td><td>klein</td></tr></table></div>Als <b>defibrillator</b> moeten alle hartspiercellen tegelijk gedepolariseerd worden en dat even blijven, zodat de chaotische impulsen uitdoven: een <b>groot</b> gebied en een <b>lange</b> flits. Als <b>pacemaker</b> is een kort startsein in een <b>klein</b> gebied genoeg: de impuls verspreidt zich daarna zelf via de hartspiercellen, en een <b>korte</b> flits voorkomt dat de cellen te lang gedepolariseerd blijven.`))});
+  q.append(think,ans);
+}});
+
+OPG.push({nr:1,kort:"Ledlampjes",titel:"Ledlampjes voorkomen hartritmestoornis",ids:[1,2,3,4,5,6],ctx:CTX1});
+
+/* ===== opg2.js ===== */
+/* ================= Opgave 2 · Een vismigratierivier (vraag 7–15) ================= */
+const O2_KADER=html=>`<div style="border:1px solid var(--line2);padding:10px 14px;display:flex;flex-direction:column;gap:8px">${html}</div>`;
+const O2_TERUG=(sum,html)=>`<details class="ctxd"><summary>${sum}</summary><div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">${html}</div></details>`;
+/* stroomsnelheid richting IJsselmeer (m/s) tegen de tijd (uur), nagetekend uit afbeelding 3 */
+const O2_PUNTEN=[[0,0],[2.1,0],[3.2,-0.69],[4.2,-0.96],[5.0,-1.38],[6.0,-1.63],[7.0,-1.27],[7.2,-1.04],[7.8,0.5],[8.1,0.78],[9.0,0],[14.0,0],[15.1,-0.57],[16.2,-0.96],[16.9,-1.35],[18.0,-1.68],[19.2,-1.58],[19.4,-1.38],[19.9,-0.33],[20.1,-0.09],[21.0,0],[26.1,0],[27.0,0.17],[27.4,0.05],[27.8,-0.24],[29.3,-1.25],[30.1,-1.56],[31.2,-1.54],[31.5,-1.15],[32.0,-0.23],[32.2,0],[38.2,0],[39.3,-0.17],[40.3,-0.59],[41.0,-1.06],[42.0,-1.49],[43.1,-1.73],[44.2,-1.28],[44.3,-1.07],[45.0,0.5],[45.3,0.7],[46.1,0],[48,0]];
+/* opt: {wacht:[[van,tot],...], label} */
+function O2_grafiek(opt={}){
+  const X0=78,X1=560,Y0=20,Y1=270,x=h=>X0+(X1-X0)*h/48,y=v=>Y0+(Y1-Y0)*(2-v)/5;
+  let g=`<svg viewBox="0 0 590 320" role="img" aria-label="Grafiek: stroomsnelheid richting IJsselmeer in m/s gedurende 48 uur">`;
+  (opt.wacht||[]).forEach(([a,b])=>{g+=`<rect x="${x(a)}" y="${Y0}" width="${x(b)-x(a)}" height="${Y1-Y0}" fill="var(--goud)" opacity=".18"/><path d="M${x(a)},${y(1.4)} H${x(b)}" stroke="var(--goud)" stroke-width="2"/><text class="lbl" x="${(x(a)+x(b))/2}" y="${y(1.4)-6}" text-anchor="middle">± ${Math.round(b-a)} uur</text>`;});
+  [2,1,0,-1,-2,-3].forEach(v=>{g+=`<path d="M${X0},${y(v)} H${X1}" stroke="${v===0?"var(--text3)":"var(--line2)"}" stroke-width="1"/><text class="lblm" x="${X0-6}" y="${y(v)+4}" text-anchor="end">${v>0?"+":""}${v.toFixed(2).replace(".",",")}</text>`;});
+  for(let h=0;h<=48;h+=6){g+=`<path d="M${x(h)},${Y1} v5" stroke="var(--text2)"/><text class="lblm" x="${x(h)}" y="${Y1+19}" text-anchor="middle">${String(h%24).padStart(2,"0")}:00</text>`;}
+  g+=`<path d="M${X0},${Y0} V${Y1} H${X1} V${Y0}" fill="none" stroke="var(--text2)" stroke-width="1.2"/>`;
+  g+=`<path d="${O2_PUNTEN.map(([h,v],i)=>(i?"L":"M")+x(h).toFixed(1)+","+y(v).toFixed(1)).join(" ")}" fill="none" stroke="var(--text)" stroke-width="2.2" stroke-linejoin="round"/>`;
+  if(opt.positief)O2_PUNTEN.forEach(([h,v])=>{if(v>0.04)g+=`<circle cx="${x(h)}" cy="${y(v)}" r="4" fill="var(--teal)"/>`;});
+  g+=`<text class="lblm" transform="translate(16,${(Y0+Y1)/2}) rotate(-90)" text-anchor="middle">→ stroomsnelheid richting</text><text class="lblm" transform="translate(32,${(Y0+Y1)/2}) rotate(-90)" text-anchor="middle">IJsselmeer (m/s)</text></svg>`;
+  return g;
+}
+const O2_AFB3=()=>`<div class="eyebrow">afbeelding 3</div><div style="max-width:600px">${O2_grafiek()}</div>`;
+const O2_AFB4=`<div class="eyebrow">afbeelding 4</div>${FOTO("o2-trekvissen","Twee vissen: in zeewater drinkt de vis water, neemt zouten op en scheidt zouten uit via kieuwen, met weinig urine; in zoet water neemt de vis water en zouten op via kieuwen en voedsel, met veel urine")}<p style="margin:0;display:flex;justify-content:space-around;font-size:14px"><span>ZEEWATER</span><span>ZOET WATER</span></p>`;
+const O2_AFB5=`<div class="eyebrow">afbeelding 5</div>${FOTO("o2-mrcellen","Twee MR-cellen in het kieuwepitheel. Links de MR-α-cel (zeewater) met Na-K-pomp en een cotransporteiwit voor Na⁺, K⁺ en Cl⁻ aan de kant van het inwendig milieu en een chloridekanaaltje aan de kant van het uitwendig milieu; Na⁺ gaat tussen de cellen naar buiten. Rechts de MR-β-cel (zoet water) met microvilli aan de waterzijde, H⁺ en HCO₃⁻ naar buiten, Cl⁻ en Na⁺ naar binnen, en een Na-K-pomp. In het midden: hormonen sturen de stamcel, die tot beide celtypen kan differentiëren.")}`;
+const O2_MR_TEKST=`<p>Bij vissen zijn de kieuwen de belangrijkste organen voor osmoregulatie. Tussen de kieuwepitheelcellen bevinden zich bepaalde mitochondriënrijke cellen (MR-cellen). Er zijn twee typen MR-cellen:</p><p class="regels"><span>1</span>MR-α-cellen die zoutuitscheiding in zeewater bevorderen<br><span>2</span>MR-β-cellen die zoutopname in zoet water bevorderen</p><p>Deling vanuit stamcellen en de daaropvolgende differentiatie tot het ene of tot het andere type MR-cel gebeurt onder invloed van hormonen.<br>Bij trekvissen kunnen MR-cellen van het ene type overgaan in het andere.<br>Het ionentransport in MR-cellen type α en type β in de kieuwen van trekvissen is weergegeven in afbeelding 5.</p>`;
+
+const CTX2=`<div class="pkop"><span class="mono">Examentekst · inleiding opgave 2</span></div>
+  <p>Tijdens de grote onderhoudsbeurt die voor de Afsluitdijk gepland is, wordt de migratieroute voor trekvissen hersteld.</p>`;
+
+/* MR-α-cel als schema voor de animatie van vraag 11 */
+function O2_alfa(s){
+  const P=`<defs><marker id="o2p" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--text2)"/></marker><marker id="o2g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--goud)"/></marker></defs>`;
+  const ion=(x,y,t,k)=>`<circle cx="${x}" cy="${y}" r="13" fill="var(--surface)" stroke="${k||"var(--text2)"}" stroke-width="1.5"/><text class="lbl" x="${x}" y="${y+4}" text-anchor="middle" style="font-size:10px">${t}</text>`;
+  let g=`<svg viewBox="0 0 600 300" role="img" aria-label="Schema van de MR-alfa-cel">${P}
+  <text class="lblm" x="300" y="18" text-anchor="middle">uitwendig milieu (zeewater)</text><text class="lblm" x="300" y="294" text-anchor="middle">inwendig milieu (bloed)</text>
+  <rect x="170" y="30" width="260" height="240" rx="40" fill="var(--surface2)" stroke="var(--text2)" stroke-width="2"/>
+  <rect x="285" y="24" width="30" height="16" rx="4" fill="${s>=2?"var(--teal)":"var(--surface)"}" stroke="var(--text2)"/><text class="lblm" x="330" y="50">chloridekanaal</text>
+  <rect x="135" y="215" width="70" height="30" rx="14" fill="${s===3?"var(--goud)":"var(--surface)"}" stroke="var(--text2)"/><text class="lbl" x="170" y="234" text-anchor="middle" style="font-size:10px">Na-K-pomp</text>
+  <rect x="265" y="256" width="70" height="28" rx="14" fill="${s===1?"var(--koraal)":"var(--surface)"}" stroke="var(--text2)"/><text class="lbl" x="300" y="274" text-anchor="middle" style="font-size:10px">cotransport</text>`;
+  if(s>=1)g+=`<path d="M285,252 L285,190" stroke="var(--text2)" stroke-width="2" marker-end="url(#o2p)"/><path d="M300,252 L300,190" stroke="var(--text2)" stroke-width="2" marker-end="url(#o2p)"/><path d="M315,252 L315,190" stroke="var(--text2)" stroke-width="2" marker-end="url(#o2p)"/>${ion(250,170,"Na⁺")}${ion(300,170,"Cl⁻","var(--koraal)")}${ion(350,170,"K⁺")}
+    ${ion(240,100,"Cl⁻","var(--koraal)")}${ion(270,125,"Cl⁻","var(--koraal)")}${ion(330,110,"Cl⁻","var(--koraal)")}${ion(360,135,"Cl⁻","var(--koraal)")}`;
+  if(s>=2)g+=`<path d="M300,90 L300,4" stroke="var(--teal)" stroke-width="2.6" marker-end="url(#o2p)"/><text class="lbl" x="450" y="100">Cl⁻ diffundeert naar buiten:</text><text class="lblm" x="450" y="118">veel Cl⁻ in de cel,</text><text class="lblm" x="450" y="134">kost zelf geen ATP</text>`;
+  if(s>=3)g+=`<path d="M160,212 L120,180" stroke="var(--goud)" stroke-width="2.4" marker-end="url(#o2g)"/>${ion(105,165,"Na⁺","var(--goud)")}<path d="M120,260 L160,246" stroke="var(--goud)" stroke-width="2.4" marker-end="url(#o2g)"/>${ion(100,268,"K⁺","var(--goud)")}<text class="lbl" x="20" y="60">ATP → ADP</text><text class="lblm" x="20" y="78">pomp houdt Na⁺ laag</text><text class="lblm" x="20" y="94">in de cel</text>`;
+  return g+`</svg>`;
+}
+
+/* Vraag 7 */
+Q.push({id:7,pts:1,t:"snelle groei en overleving",build(q){
+  pre(q,O2_KADER(`<div style="display:flex;flex-wrap:wrap;gap:12px 18px;align-items:flex-start"><p style="margin:0;flex:1 1 260px">Het huidige IJsselmeer (afbeelding 1) was vroeger een estuarium: een brede riviermonding die uitliep in de Zuiderzee. Estuaria zijn over het algemeen relatief warme en rijke ecosystemen en voor veel vissoorten een belangrijk deel van de trekroute tussen zout water en zoet water. Door de aanleg van de Afsluitdijk werd deze route voor trekvissen geblokkeerd en veranderde de zoute Zuiderzee in het zoete IJsselmeer.<br>Voor veel vissoorten is een estuarium een aantrekkelijke plaats om eitjes af te zetten, omdat de uitgekomen vislarven er snel en veilig kunnen opgroeien. In het relatief warme IJsselmeerwater groeien vislarven sneller dan in de Waddenzee.</p><div style="flex:0 1 260px"><div class="eyebrow">afbeelding 1</div>${FOTO("o2-kaart","Kaart van Noord-Nederland met de Noordzee, de Waddenzee, de Afsluitdijk en het IJsselmeer")}</div></div>`)+`<p>De groeisnelheid van vislarven in het relatief warme IJsselmeerwater beïnvloedt de overlevingskans van deze individuen.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Verklaar hoe de snelle groei van vislarven kan leiden tot verhoging van hun overlevingskans.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  chipsStep(think,{q:"Wat verandert er voor een vislarve als hij groter wordt? Kies alles wat klopt.",items:[["minder rovers kunnen hem nog opeten",true],["hij kan grotere prooien eten: meer voedsel",true],["hij kan concurrenten beter verjagen",true],["hij heeft minder voedsel nodig",false]],
+    ok:"Goed. Kies er één en leg uit waardoor de larve dan een grotere kans heeft om te overleven.",no:"Een groter dier heeft juist meer voedsel nodig. Haal die keuze weg.",onDone:unlock});
+  openAnswer(ans,{id:7,pts:1,checks:["Een juiste verklaring, bijvoorbeeld: snel groot = <b>sneller te groot voor bepaalde predatoren</b> / er komt <b>meer voedsel (grotere prooien) beschikbaar</b> / snelle groeiers kunnen <b>concurrenten beter wegjagen</b> en hebben meer voedsel."],
+    model:"Vislarven die snel groot worden, zijn ook snel te groot voor bepaalde predatoren. Ze worden dus minder vaak opgegeten, waardoor hun overlevingskans groter is.",
+    valkuil:"Alleen ‘ze zijn sterker’ schrijven. Zeg <b>waarom</b> groter zijn helpt: minder predatoren, meer voedsel of beter concurreren.",
+    after:()=>waaromBtn(ans,textBox("Vislarven zijn klein en kwetsbaar: veel predatoren eten ze, en ze kunnen maar kleine prooien eten. Wie snel groeit, is <b>korter kwetsbaar</b>: hij ontgroeit sneller de predatoren die op larven jagen, kan sneller grotere prooien eten en is sterker in de concurrentie om voedsel. Elk van die redenen verhoogt de overlevingskans."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 8 */
+Q.push({id:8,pts:2,t:"wachttijd glasaaltje",build(q){
+  pre(q,O2_KADER(`<p>Een koker dwars door de Afsluitdijk, met aansluitend een kilometerslange brakwaterrivier, maakt het IJsselmeer weer bereikbaar voor veel vissoorten. Afbeelding 2 geeft een impressie hiervan.</p><div class="eyebrow">afbeelding 2</div>${FOTO("o2-vismigratierivier","Impressie van de vismigratierivier: vanuit de Waddenzee door een koker in de Afsluitdijk naar een kronkelende rivier naar het IJsselmeer, met rechts de sluizen")}<p>Bij eb stroomt zoet water uit het IJsselmeer door deze vismigratierivier richting Waddenzee. Bepaalde trekvissen zullen dan, aangelokt door het zoete water, tegen de stroom in naar binnen zwemmen. Dat lukt alleen de sterke zwemmers, zoals de zalm. Bij vloed stroomt zout zeewater de vismigratierivier in en dan pas kunnen ook zwakke zwemmers, zoals jonge palingen (glasaaltjes), het IJsselmeer bereiken.<br>De koker van de vismigratierivier wordt afgesloten zodra de zoutbelasting van het IJsselmeer te groot wordt.</p>`)+`<p>Ecologen gebruikten een computermodel om de omstandigheden in het sterkst stromende deel van de geplande vismigratierivier te simuleren. Afbeelding 3 toont het resultaat hiervan voor een periode van 48 uur.</p>${O2_AFB3()}<p>Een zwakke zwemmer, zoals een glasaaltje, moet soms wachten voor hij door de stroom meegevoerd wordt in de richting van het IJsselmeer.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Hoelang moet dit visje volgens het computermodel in het ongunstigste geval wachten?</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Wanneer wordt een glasaaltje meegevoerd richting IJsselmeer?",opts:["als de stroomsnelheid in de grafiek positief is (boven 0)","als de stroomsnelheid negatief is","als de stroomsnelheid 0 is"],right:0,
+    ok:"Ja: de y-as is de snelheid ‘richting IJsselmeer’.",no:"Kijk naar het pijltje bij de y-as: welke richting is positief?",
+    onDone:()=>choiceStep(think,{q:"Op welke momenten is de stroming richting IJsselmeer (boven 0)?",opts:["rond 08:00, rond 03:00 de tweede dag en rond 21:00 de tweede dag","rond 06:00 en 18:00 elke dag","alleen rond 12:00"],right:0,
+      ok:"Klopt: drie (korte) pieken. Het ongunstigste geval is de langste tijd tussen twee pieken.",no:"Zoek de stukjes van de lijn die boven de 0-lijn uitkomen. Er is ook een heel kleintje.",onDone:unlock})});
+  mc(ans,{qid:8,pts:2,right:3,opts:["ongeveer 2 uur","ongeveer 6 uur","ongeveer 12 uur","ongeveer 18 uur"],
+    onChecked:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {o:{},cap:"Afbeelding 3: boven 0 stroomt het water richting IJsselmeer. Alleen dan wordt een glasaaltje meegevoerd."},
+      {o:{positief:1},cap:"De stroming is richting IJsselmeer rond <b>08:00</b>, heel even rond <b>03:00</b> de tweede dag en rond <b>21:00</b> de tweede dag."},
+      {o:{positief:1,wacht:[[9,26.2],[27.4,45]]},cap:"De wachttijden ertussen zijn ongeveer 17 en 18 uur. In het ongunstigste geval wacht het visje dus <b>ongeveer 18 uur</b>. Het antwoord is <b>D</b>."}],
+      (stg,s)=>stg.innerHTML=`<div style="max-width:600px">${O2_grafiek(s.o)}</div>`))});
+  q.append(think,ans);
+}});
+
+/* Vraag 9 */
+Q.push({id:9,pts:2,t:"geen lis van Henle",build(q){
+  pre(q,O2_KADER(`<p>Trekvissen handhaven een osmotische waarde van het inwendige milieu die lager is dan die van zeewater.<br>In zeewater moeten ze waterverlies voorkomen en passieve zoutopname compenseren. Dit doen ze door de in het darmkanaal geabsorbeerde zouten via de kieuwen en nieren uit te scheiden (afbeelding 4, linker tekening).<br>Een verblijf in zoet water veroorzaakt wateropname en verlies van zouten. Om dit tegen te gaan nemen trekvissen actief zouten op via de kieuwen en produceren ze meer urine (afbeelding 4, rechter tekening).</p>${O2_AFB4}`)+`<p>Bij trekvissen ontbreekt de lis van Henle in de niereenheden.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Wat kunnen deze vissen hierdoor <u>niet</u>?</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Wat doet de lis van Henle bij zoogdieren?",opts:["hij maakt het weefsel van het niermerg zout (hypertoon), zodat water uit de verzamelbuis kan worden teruggewonnen","hij scheidt H⁺ uit","hij filtert het bloed"],right:0,
+    ok:"Ja. Wat kun je dan zonder lis van Henle niet maken?",no:"Filtratie gebeurt in het kapsel van Bowman. De lis werkt met ionen en water in het niermerg.",
+    onDone:()=>choiceStep(think,{q:"pH-regeling (H⁺ uitscheiden, HCO₃⁻ terugnemen) gebeurt vooral in …",opts:["de kronkelde buisjes","de lis van Henle"],right:0,
+      ok:"Klopt, die zijn er bij vissen wel. Kies je antwoord.",no:"Kijk in je informatieboek bij de bouw van een nefron.",onDone:unlock})});
+  mc(ans,{qid:9,pts:2,right:2,opts:["de pH in het inwendig milieu handhaven door H<sup>+</sup> uit te scheiden","de pH in het inwendig milieu handhaven door HCO<sub>3</sub><sup>–</sup> te resorberen","urine produceren die sterk hypertoon is ten opzichte van het inwendig milieu","urine produceren die sterk hypotoon is ten opzichte van het inwendig milieu"],
+    onChecked:()=>waaromBtn(ans,textBox("De lis van Henle pompt zouten uit de urine het weefsel van het niermerg in. Daardoor wordt het niermerg <b>hypertoon</b>, en kan water uit de verzamelbuisjes osmotisch het weefsel in. Zo ontstaat geconcentreerde, <b>sterk hypertone urine</b>. Zonder lis van Henle lukt dat niet. Het antwoord is <b>C</b>.<br><br>Verdunde (hypotone) urine maken lukt wel: dan worden zouten teruggenomen en blijft het water in de urine. pH-regeling gebeurt in de kronkelde buisjes."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 10 */
+Q.push({id:10,pts:2,t:"nieren van zoetwatervissen",build(q){
+  pre(q,`<p>Echte zoetwatervissen zijn aangepast aan het leven in zoet water. Om te kunnen overleven in zoet water zijn de nieren van echte zoetwatervissen anders gebouwd dan die van echte zoutwatervissen: er is een verschil in het aantal glomeruli en in de permeabiliteit van de wand van de verzamelbuisjes.</p>`+O2_TERUG("Afbeelding 4 nog eens bekijken",O2_AFB4));
+  q.append(el("p",{class:"qtext"},"<b>Zal een echte zoetwatervis relatief meer of minder glomeruli hebben dan een echte zoutwatervis? En zal de permeabiliteit voor water van de verzamelbuisjes bij zo’n zoetwatervis groter of kleiner zijn dan bij zo’n zoutwatervis?</b>"));
+  q.append(el("div",{class:"tablewrap",style:"max-width:440px"},`<table class="data"><tr><th></th><th>glomeruli zoetwatervis</th><th>permeabiliteit verzamelbuisjes zoetwatervis</th></tr>${[["meer","groter"],["meer","kleiner"],["minder","groter"],["minder","kleiner"]].map(([a,b],k)=>`<tr><td><b>${"ABCD"[k]}</b></td><td>${a}</td><td>${b}</td></tr>`).join("")}</table>`));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Een zoetwatervis krijgt voortdurend water binnen door osmose. Wat moet zijn nier doen?",opts:["veel water uitscheiden: veel, verdunde urine","water vasthouden: weinig, geconcentreerde urine"],right:0,
+    ok:"Ja. Hoe kan de nier veel voorurine maken?",no:"Kijk naar afbeelding 4: in zoet water ‘veel urine’.",
+    onDone:()=>choiceStep(think,{q:"Wat zorgt voor meer voorurine?",opts:["meer glomeruli (meer filtratie)","minder glomeruli"],right:0,
+      ok:"Klopt. En moet er in de verzamelbuisjes veel water terug het bloed in?",no:"In de glomeruli wordt voorurine uit het bloed gefilterd.",
+      onDone:()=>choiceStep(think,{q:"Het water moet in de urine blijven. Hoe moet de wand van de verzamelbuisjes dan zijn?",opts:["slecht doorlaatbaar voor water","goed doorlaatbaar voor water"],right:0,ok:"Goed. Kies nu je antwoord.",no:"Een goed doorlaatbare wand laat water terug het lichaam in.",onDone:unlock})})});
+  mc(ans,{qid:10,pts:2,right:1,opts:["meer · groter","meer · kleiner","minder · groter","minder · kleiner"],
+    onChecked:()=>waaromBtn(ans,textBox("Een zoetwatervis neemt steeds water op en moet veel <b>verdunde urine</b> maken. Met <b>meer glomeruli</b> wordt er meer voorurine gefilterd. Een <b>kleinere permeabiliteit</b> voor water van de verzamelbuisjes zorgt dat het water in de urine blijft en niet teruggaat naar het bloed. Het antwoord is <b>B</b>."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 11 */
+Q.push({id:11,pts:3,t:"Cl⁻-transport en energie",build(q){
+  pre(q,O2_KADER(O2_MR_TEKST+O2_AFB5)+`<p>Bij trekvissen in zeewater zijn de MR-α-cellen actief. Door deze cellen worden chloride-ionen uit het inwendig milieu uitgescheiden via chloridekanaaltjes (afbeelding 5). Voor dit transport is indirect energie nodig.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Leg uit met behulp van bovenstaande informatie dat het transport van Cl<sup>–</sup>-ionen via de MR-α-cel op zich geen energie kost, maar dat er indirect wel energie voor nodig is.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"Kijk onderaan de MR-α-cel: hoe komt Cl⁻ de cel in?",opts:["samen met Na⁺ en K⁺ via één transporteiwit (cotransport)","via de Na-K-pomp","via het chloridekanaaltje"],right:0,
+    ok:"Ja. Daardoor wordt de Cl⁻-concentratie in de cel hoog.",no:"Zoek de cirkel met drie pijlen omhoog onderaan de cel.",
+    onDone:()=>choiceStep(think,{q:"Hoe gaat Cl⁻ via het chloridekanaaltje naar buiten?",opts:["door diffusie, met het concentratie- of ladingsverschil mee: dat kost zelf geen ATP","door actief transport met ATP"],right:0,
+      ok:"Klopt. Maar waarom kan Na⁺ de cel in blijven stromen bij het cotransport?",no:"Een kanaaltje is een open poort: ionen gaan erdoor van hoog naar laag.",
+      onDone:()=>choiceStep(think,{q:"Wat houdt de Na⁺-concentratie in de cel laag?",opts:["de Na-K-pomp, die ATP verbruikt","diffusie van Na⁺ naar buiten"],right:0,ok:"Goed. Nu heb je de drie stappen van je uitleg.",no:"Kijk naar de twee ‘ovale’ eiwitten links en rechts onderaan, met Na⁺ naar buiten en K⁺ naar binnen.",onDone:unlock})})});
+  openAnswer(ans,{id:11,pts:3,checks:["Door het (co)transport van Cl<sup>–</sup> met Na<sup>+</sup> (en K<sup>+</sup>) de cel in, is de <b>Cl<sup>–</sup>-concentratie in de cel hoog</b> / het cytoplasma negatief geladen.","Cl<sup>–</sup> <b>diffundeert door het concentratieverschil / ladingsverschil</b> (door de chloridekanaaltjes) de cel uit.","Het <b>concentratieverschil van Na<sup>+</sup></b> wordt in stand gehouden door de <b>Na-K-pomp die energie/ATP verbruikt</b>."],
+    model:"Cl⁻ wordt samen met Na⁺ en K⁺ de cel in getransporteerd, waardoor de Cl⁻-concentratie in de cel hoog wordt. Cl⁻ diffundeert daarna door dit concentratieverschil via de chloridekanaaltjes de cel uit; dat kost geen energie. Het cotransport werkt alleen doordat Na⁺ de cel in stroomt, en dat Na⁺-concentratieverschil wordt in stand gehouden door de Na-K-pomp, die ATP verbruikt.",
+    valkuil:"Alleen de Na-K-pomp noemen. Het CV wil drie stappen: Cl⁻ hoog in de cel door cotransport, diffusie naar buiten, en de pomp die het Na⁺-verschil in stand houdt.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {s:0,cap:"De MR-α-cel in zeewater moet Cl⁻ uit het bloed naar buiten krijgen."},
+      {s:1,cap:"Onderaan neemt een <b>cotransporteiwit</b> Na⁺, K⁺ en Cl⁻ samen op. Daardoor wordt de <b>Cl⁻-concentratie in de cel hoog</b>."},
+      {s:2,cap:"Cl⁻ <b>diffundeert</b> door het concentratieverschil via het chloridekanaaltje naar buiten. Dat transport kost zelf <b>geen energie</b>."},
+      {s:3,cap:"Het cotransport werkt alleen zolang Na⁺ de cel in ‘wil’. De <b>Na-K-pomp</b> houdt de Na⁺-concentratie in de cel laag en verbruikt daarvoor <b>ATP</b>: dat is de indirecte energie."}],
+      (stg,s)=>stg.innerHTML=O2_alfa(s.s)))});
+  q.append(think,ans);
+}});
+
+/* Vraag 12 */
+Q.push({id:12,pts:1,t:"veel mitochondriën",build(q){
+  pre(q,O2_TERUG("Afbeelding 5 nog eens bekijken",O2_AFB5));
+  q.append(el("p",{class:"qtext"},"<b>Verklaar de aanwezigheid van de vele mitochondriën aan de hand van de functie van de MR-cellen.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"Wat is de functie van MR-cellen?",opts:["ionen (zouten) transporteren, ook tegen een concentratieverschil in","zuurstof opnemen uit het water"],right:0,
+    ok:"Ja. Wat is daarvoor nodig, en waar wordt dat gemaakt?",no:"Lees de lijst met MR-α- en MR-β-cellen nog eens.",
+    onDone:()=>choiceStep(think,{q:"Wat leveren mitochondriën?",opts:["ATP door dissimilatie","eiwitten"],right:0,ok:"Klopt. Verbind nu de functie met de ATP.",no:"Mitochondriën zijn de plek van de aerobe dissimilatie.",onDone:unlock})});
+  openAnswer(ans,{id:12,pts:1,checks:["Voor het <b>actief transport</b> / het ionentransport / de Na-K-pomp is <b>veel ATP/energie</b> (dissimilatie) nodig."],
+    model:"MR-cellen transporteren ionen actief met de Na-K-pomp. Daarvoor is veel ATP nodig, dat in de mitochondriën wordt gemaakt.",
+    valkuil:"Alleen ‘mitochondriën maken energie’ schrijven zonder de functie (actief ionentransport) te noemen.",
+    after:()=>waaromBtn(ans,textBox("MR-cellen pompen voortdurend ionen, onder andere met de <b>Na-K-pomp</b>. Dat is actief transport en kost <b>ATP</b>. Mitochondriën maken ATP door aerobe dissimilatie. Een cel die veel ATP verbruikt, heeft dus veel mitochondriën."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 13 */
+Q.push({id:13,pts:2,t:"microvilli",build(q){
+  pre(q,O2_TERUG("Afbeelding 5 nog eens bekijken",O2_AFB5)+`<p>Het oppervlak van de MR-β-cellen heeft aan de waterzijde microvilli.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Leg uit hoe de aanwezigheid van microvilli de functie van de MR-β-cellen ondersteunt.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"Wat doen microvilli met het celmembraan?",opts:["ze vergroten het membraanoppervlak","ze maken het membraan dikker"],right:0,
+    ok:"Ja. En wat zit er in dat membraan dat belangrijk is voor de MR-β-cel?",no:"Denk aan de darmvlokken en de microvilli van de dunne darm.",
+    onDone:()=>choiceStep(think,{q:"Wat levert een groter membraanoppervlak op voor een MR-β-cel in zoet water?",opts:["ruimte voor meer transporteiwitten: meer zout kan tegelijk worden opgenomen","de cel kan beter water tegenhouden"],right:0,ok:"Klopt. Noem beide stappen.",no:"De MR-β-cel bevordert de zoutopname in zoet water.",onDone:unlock})});
+  openAnswer(ans,{id:13,pts:2,checks:["(Door microvilli) is het <b>membraanoppervlak sterk vergroot</b>.","(Waardoor) er <b>meer/sneller ionen/zouten</b> (vanuit het zoete water de cel in) getransporteerd kunnen worden / er <b>meer transportenzymen</b> (tegelijk werkzaam) zijn."],
+    model:"Door de microvilli is het membraanoppervlak aan de waterkant sterk vergroot. Daardoor passen er meer transporteiwitten in en kunnen er meer zouten tegelijk uit het zoete water worden opgenomen.",
+    valkuil:"Alleen ‘groter oppervlak’ noemen. Leg ook uit wat dat oplevert: meer zoutopname.",
+    after:()=>waaromBtn(ans,textBox("Microvilli zijn uitstulpingen van het celmembraan: ze <b>vergroten het oppervlak</b> sterk. In zoet water zijn er heel weinig zouten. Hoe meer membraan, hoe meer <b>transporteiwitten</b> er naast elkaar passen en hoe <b>meer zouten</b> de MR-β-cel per seconde uit het water kan opnemen."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 14 */
+Q.push({id:14,pts:2,t:"acclimatiseren",build(q){
+  pre(q,O2_TERUG("Informatie over MR-cellen en afbeelding 5 nog eens bekijken",O2_MR_TEKST+O2_AFB5)+`<p>Het water in de vismigratierivier is brak door het binnendringende zeewater. In het kilometerslange traject hebben binnentrekkende vissen de gelegenheid om te wennen (acclimatiseren) aan het steeds zoeter wordende water.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Verklaar aan de hand van de gegeven informatie<br>– hoe op moleculair niveau kleine kortdurende schommelingen in zoutconcentratie direct opgevangen kunnen worden door trekvissen, en<br>– dat een grote, langdurige verandering in zoutconcentratie een langere acclimatisatie vergt.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"Een kleine, korte schommeling. Wat kan de vis direct aanpassen, zonder nieuwe cellen?",opts:["de activiteit van de ionenpompen in de MR-cellen die er al zijn","het type MR-cel"],right:0,
+    ok:"Ja: dat is ‘op moleculair niveau’ en gaat snel.",no:"Iets wat meteen kan, met de eiwitten die er al zitten.",
+    onDone:()=>choiceStep(think,{q:"Van zout naar zoet water. Wat moet er dan gebeuren in de kieuwen?",opts:["MR-α-cellen moeten overgaan in MR-β-cellen, of er moeten nieuwe MR-β-cellen uit stamcellen worden gevormd","de pompen moeten alleen iets harder werken"],right:0,
+      ok:"Klopt. Andere transporteiwitten aanmaken of cellen laten differentiëren kost tijd.",no:"Kijk naar afbeelding 5: in zout en zoet water zijn er verschillende celtypen met verschillende transporteiwitten.",onDone:unlock})});
+  openAnswer(ans,{id:14,pts:2,checks:["(Kleine schommelingen worden opgevangen doordat) <b>de activiteit van de Na-K-pompen / ionenpompen verandert</b> / de activiteit van het zouttransport kan variëren.","(Bij grote overgangen) moet het <b>ene MR-celtype overgaan in het andere</b> / moeten <b>andere transporteiwitten worden bijgemaakt</b> / moeten de juiste MR-cellen (uit stamcellen) gevormd worden (en dat vergt tijd)."],
+    model:"Kleine schommelingen worden direct opgevangen doordat de activiteit van de ionenpompen in de MR-cellen verandert. Bij een grote, langdurige verandering moeten MR-α-cellen overgaan in MR-β-cellen (of nieuwe uit stamcellen ontstaan) met andere transporteiwitten, en dat kost tijd.",
+    valkuil:"Bij het eerste deel over hormonen of nieuwe cellen beginnen. Het gaat dan om wat er <b>direct</b> kan: de bestaande pompen sneller of langzamer.",
+    after:()=>waaromBtn(ans,textBox("<b>Kort en klein:</b> de MR-cellen die er zijn, passen de <b>activiteit van hun ionenpompen</b> aan. Dat gaat snel, want de eiwitten zijn er al.<br><br><b>Groot en langdurig:</b> in zout en zoet water zijn er verschillende celtypen nodig (MR-α en MR-β) met andere transporteiwitten. Onder invloed van hormonen moet het ene type overgaan in het andere, of moeten stamcellen delen en differentiëren. Dat vraagt genexpressie en eiwitsynthese, en kost dus tijd: de vis moet acclimatiseren."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 15 */
+Q.push({id:15,pts:1,t:"migratierivier of sluis",build(q){
+  pre(q,`<p>Niet iedereen kan zich vinden in het idee van de vismigratierivier.<br>Een voormalige visser reageert: “Vismigreren? Als je in Den Oever tijdens doodtij de sluisdeuren aan de kant van de Waddenzee op een kiertje opende, zwom de sluis vol met glasaal en andere vis, zij roken het zoet. Als daarna de sluisdeuren aan de IJsselmeerzijde opengingen zwom die vis zo het IJsselmeer in”.<br>Doodtij, wanneer de eb- en vloedbeweging minimaal is, treedt slechts twee keer per maand op. De vismigratierivier kan in principe elke dag door vissen als migratieroute gebruikt worden.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Geef nog een verklaring waardoor meer vissen zullen trekken via de migratierivier dan via de sluizen.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  chipsStep(think,{q:"Waarin verschilt de vismigratierivier van een sluis, behalve dat hij elke dag open is? Kies alles wat klopt.",items:[["er stroomt steeds zoet water uit (lokstroom), dus vissen vinden hem makkelijker",true],["de vis kan onderweg wennen aan steeds zoeter water",true],["in de rivier kan een vis schuilen, in een kale sluis niet",true],["een sluis is gewoon lelijk en onnatuurlijk",false]],
+    ok:"Goed. Kies er één en leg uit waardoor er dan meer vissen trekken.",no:"‘Onnatuurlijk’ of ‘onaantrekkelijk’ alleen levert volgens het CV geen punt op. Wat merkt de vis er echt van?",onDone:unlock});
+  openAnswer(ans,{id:15,pts:1,checks:["Een juiste verklaring, bijvoorbeeld: de vismigratierivier heeft een <b>constante lokstroom</b> (makkelijker te vinden) / in de rivier is <b>acclimatisatie aan zoet water</b> mogelijk / in de sluis is <b>geen schuilgelegenheid</b>."],
+    model:"In de vismigratierivier kunnen de vissen over een lang traject geleidelijk wennen aan het steeds zoeter wordende water. In een sluis gaan ze in één keer van zout naar zoet water.",
+    valkuil:"Alleen schrijven dat sluizen onnatuurlijk of onaantrekkelijk zijn. Dat levert volgens het correctievoorschrift <b>geen punt</b> op.",
+    after:()=>waaromBtn(ans,textBox("De vraag zegt ‘nog een verklaring’: dat de rivier elke dag open is, telt dus niet. Goede verklaringen gaan over wat de vis merkt: een <b>constante lokstroom</b> van zoet water maakt de ingang makkelijk te vinden, de lange brakke rivier geeft tijd om te <b>acclimatiseren</b>, en een natuurlijke rivier biedt <b>schuilplekken</b> tegen predatoren, een kale sluis niet."))});
+  q.append(think,ans);
+}});
+
+OPG.push({nr:2,kort:"Vismigratierivier",titel:"Een vismigratierivier",ids:[7,8,9,10,11,12,13,14,15],ctx:CTX2});
+
+/* ===== opg3.js ===== */
+/* ================= Opgave 3 · Yoghurt zonder klonten (vraag 16–23) ================= */
+const O3_KADER=html=>`<div style="border:1px solid var(--line2);padding:10px 14px;display:flex;flex-direction:column;gap:8px">${html}</div>`;
+const O3_TERUG=(sum,html)=>`<details class="ctxd"><summary>${sum}</summary><div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">${html}</div></details>`;
+const O3_AFB3=`<div class="eyebrow">afbeelding 3</div><p style="margin:0;display:flex;justify-content:space-between;gap:10px;font-weight:700;font-size:14px"><span>primaire reactie (immunisatie)</span><span>secundaire reactie (immuunreactie)</span></p>${FOTO("o3-crispr","Schema van het CRISPR-Cas-systeem in een bacterie. Links de primaire reactie: een faag injecteert DNA (1), een proto-spacer wordt herkend (2), Cas-eiwitten knippen hem uit (3) en plakken hem als spacer in de CRISPR-locus naast de Cas-genen (4). Rechts de secundaire reactie: van de spacers wordt spacer-RNA gemaakt (5), dat in losse RNA’s wordt geknipt (6), die met Cas-eiwitten CRISPR-Cas vormen (7), dat het faag-DNA doorknipt (8).")}
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:4px 18px;font-size:15px"><p class="regels" style="line-height:1.5"><span>1</span>Een faag hecht aan een bacterie en injecteert het faag-DNA in de bacterie.<br><span>2</span>Bepaalde stukjes faag-DNA worden als vreemd herkend: de proto-spacers.<br><span>3</span>Een complex van Cas-eiwitten knipt uit het faag-DNA enkele proto-spacers.<br><span>4</span>Deze worden op de CRISPR-locus in het bacteriechromosoom geplakt en heten nu spacers.</p><p class="regels" style="line-height:1.5"><span>5</span>Bij een volgend contact met faag-DNA, wordt op basis van deze spacers RNA gemaakt.<br><span>6</span>Dit spacer-RNA wordt opgeknipt in losse RNA’s.<br><span>7</span>Deze RNA’s binden aan complexen van Cas-eiwitten tot CRISPR-Cas.<br><span>8</span>CRISPR-Cas bindt aan de complementaire sequentie in het faag-DNA, waarna dat doorgeknipt wordt.</p></div>`;
+const O3_CRISPR_TEKST=`<p>Een zuivelbedrijf gaf microbiologen de opdracht om te bepalen welke DNA-sequenties van melkzuurbacteriën betrokken zijn bij de afweer tegen fagen. Het mechanisme dat de bacteriën gebruiken om zich tegen fagen te verdedigen, is met hulp van microbiologen van Wageningen UR verder ontrafeld en staat nu bekend onder de naam CRISPR-Cas. CRISPR’s (clustered regularly interspaced short palindromic repeats) zijn plaatsen in het bacteriële DNA waar, ingesloten tussen repeats, korte segmenten vreemd DNA zijn ingebouwd. Cas-eiwitten (CRISPR-associated eiwitten) kunnen hiermee vreemd DNA herkennen en doorknippen.<br>In afbeelding 3 is de reactie van het CRISPR-Cas-systeem op een eerste contact met faag-DNA (primaire reactie) en op een volgend contact (secundaire reactie) schematisch weergegeven.</p>`;
+
+const CTX3=`<div class="pkop"><span class="mono">Examentekst · inleiding opgave 3</span></div>
+  <p>Zuivelbedrijven die yoghurt bereiden, krijgen soms een opbrengst van waterige melk met klonten, veroorzaakt door bacteriofagen in de yoghurtcultuur. Dankzij CRISPR-Cas kan dit voorkomen worden.</p>`;
+
+/* peptideketen met endo- en exopeptidasen (animatie vraag 16) */
+function O3_keten(s){
+  const n=12,w=38,x0=40,y=90;let g=`<svg viewBox="0 0 560 190" role="img" aria-label="Peptideketen die door endopeptidasen en exopeptidasen wordt geknipt">`;
+  const knip=s>=1?[4,8]:[];let segs=[];let a=0;knip.concat([n]).forEach(k=>{segs.push([a,k]);a=k;});
+  segs.forEach(([b,e],si)=>{const dx=si*14;
+    for(let i=b;i<e;i++){const cx=x0+i*w+dx;const eind=s>=2&&(i===b||i===e-1);
+      g+=`<circle cx="${cx}" cy="${y}" r="14" fill="${eind?"var(--teal)":"var(--surface2)"}" stroke="var(--text2)" stroke-width="1.4"/>`;
+      if(i<e-1)g+=`<path d="M${cx+14},${y} h${w-28}" stroke="var(--text2)" stroke-width="2"/>`;}});
+  g+=`<text class="lblm" x="280" y="30" text-anchor="middle">${s===0?"lange peptideketen: maar twee uiteinden":s===1?"endopeptidasen (L. bulgaricus) knippen binnen de keten":"elk stuk heeft nu twee uiteinden waar exopeptidasen (S. thermophilus) kunnen knippen"}</text>`;
+  if(s>=1)knip.forEach((k,si)=>{const xx=x0+k*w-w/2+si*14+7;g+=`<text class="lbl" x="${xx}" y="${y+44}" text-anchor="middle" fill="var(--koraal)">✂</text>`;});
+  if(s>=2)g+=`<text class="lbl" x="280" y="170" text-anchor="middle">2 uiteinden → 6 uiteinden: meer substraat voor de exopeptidasen</text>`;
+  return g+`</svg>`;
+}
+
+/* Vraag 16 */
+Q.push({id:16,pts:1,t:"endo- en exopeptidasen",build(q){
+  pre(q,O3_KADER(`<p>Yoghurt wordt gemaakt door melk te enten met de melkzuurbacteriën <i>Streptococcus thermophilus</i> en <i>Lactobacillus bulgaricus</i>. Deze bacteriën zetten melkeiwitten om en verbruiken lactose (melksuiker) uit de melk voor hun energievoorziening. Hierdoor verzuurt de melk snel en krijgt die een andere smaak, structuur en voedingswaarde: het wordt yoghurt.<br>Doordat yoghurt veel minder lactose bevat dan melk is het een geschikt zuivelproduct voor mensen met lactose-intolerantie.<br>Na het eten van yoghurt hebben de yoghurtbacteriën die levend de darm bereiken een gunstig effect op de darmflora, de stoelgang en het immuunsysteem van de darm.</p>`)+`<p>De twee bacteriesoorten zijn samen efficiënter in het veranderen van de melk in yoghurt dan ieder apart. Zo produceert <i>L. bulgaricus</i> voornamelijk endopeptidasen, enzymen die peptidebindingen binnen een peptideketen verbreken, en produceert <i>S. thermophilus</i> voornamelijk exopeptidasen, enzymen die peptide-bindingen aan de uiteinden van een peptideketen verbreken.<br>De enzymactiviteit van <i>S. thermophilus</i> is hoger als deze bacterie samen met <i>L. bulgaricus</i> aan melk wordt toegevoegd dan als alleen <i>S. thermophilus</i> wordt toegevoegd.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Verklaar deze hogere enzymactiviteit van <i>S. thermophilus</i> op moleculair niveau.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"Waar kunnen exopeptidasen knippen?",opts:["alleen aan de uiteinden van een peptideketen","overal in de keten"],right:0,
+    ok:"Ja. Een lange keten heeft maar twee uiteinden.",no:"Lees de definitie van exopeptidasen in de tekst.",
+    onDone:()=>choiceStep(think,{q:"Een endopeptidase knipt een keten één keer door. Hoeveel uiteinden zijn er dan?",opts:["vier","twee","drie"],right:0,
+      ok:"Klopt. Wat betekent dat voor de exopeptidasen van S. thermophilus?",no:"Teken het: één keten, één knip in het midden. Tel de uiteinden.",onDone:unlock})});
+  openAnswer(ans,{id:16,pts:1,checks:["Een juiste verklaring, bijvoorbeeld: dankzij de endopeptidasen zijn er <b>meer uiteinden van peptideketens</b> voor de exopeptidasen / er ontstaan sneller uiteinden / <i>L. bulgaricus</i> <b>creëert substraat</b> voor <i>S. thermophilus</i>."],
+    model:"De endopeptidasen van L. bulgaricus knippen de lange eiwitketens in kortere stukken. Daardoor ontstaan veel meer uiteinden, waar de exopeptidasen van S. thermophilus kunnen knippen.",
+    valkuil:"Alleen schrijven dat de bacteriën ‘samenwerken’. Leg uit <b>wat</b> de endopeptidasen opleveren voor de exopeptidasen: meer uiteinden (substraat).",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[{s:0,cap:"Een exopeptidase kan alleen aan een <b>uiteinde</b> knippen. Een lange keten heeft er maar twee."},{s:1,cap:"De <b>endopeptidasen</b> van <i>L. bulgaricus</i> knippen midden in de keten."},{s:2,cap:"Zo ontstaan veel <b>meer uiteinden</b>: meer substraat voor de exopeptidasen van <i>S. thermophilus</i>, dus een hogere enzymactiviteit."}],(stg,s)=>stg.innerHTML=O3_keten(s.s)))});
+  q.append(think,ans);
+}});
+
+/* Vraag 17 */
+Q.push({id:17,pts:1,t:"sneller opnemen uit yoghurt",build(q){
+  pre(q,`<p>Dankzij de activiteit van de melkzuurbacteriën zijn voedingsstoffen uit yoghurt sneller op te nemen dan uit melk, ook voor mensen die geen lactose-intolerantie hebben.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Geef hiervoor een verklaring.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"Wat moet er in je darm met melkeiwit gebeuren voordat je het kunt opnemen?",opts:["het moet verteerd worden tot aminozuren (en kleine peptiden)","niets, eiwitten worden zo opgenomen"],right:0,
+    ok:"Ja. Wat hebben de yoghurtbacteriën daar al aan gedaan?",no:"Grote moleculen gaan niet door de darmwand.",
+    onDone:()=>choiceStep(think,{q:"Wat deden de peptidasen van de yoghurtbacteriën met de melkeiwitten?",opts:["ze hebben ze deels al afgebroken tot aminozuren","ze hebben er nieuwe eiwitten van gemaakt"],right:0,ok:"Klopt. Verbind dat met de snellere opname.",no:"Kijk naar de vorige vraag: endo- en exopeptidasen.",onDone:unlock})});
+  openAnswer(ans,{id:17,pts:1,checks:["Een juiste verklaring, bijvoorbeeld: de <b>eiwitten uit de melk zijn deels al omgezet in aminozuren</b> / de melk is <b>deels al verteerd door enzymen van de bacteriën</b>."],
+    model:"De melkeiwitten zijn door de enzymen van de melkzuurbacteriën al deels afgebroken tot aminozuren. Je darm hoeft ze dus minder te verteren, zodat ze sneller worden opgenomen.",
+    valkuil:"Over lactose beginnen. De vraag zegt juist: ook voor mensen <b>zonder</b> lactose-intolerantie.",
+    after:()=>waaromBtn(ans,textBox("Je kunt alleen kleine moleculen (zoals aminozuren) opnemen in je bloed. Melkeiwitten moeten dus eerst verteerd worden. In yoghurt hebben de peptidasen van de bacteriën dat werk <b>deels al gedaan</b>: er zitten al meer aminozuren en korte peptiden in. Die worden sneller opgenomen."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 18 */
+Q.push({id:18,pts:2,t:"polymerasen voor de faag",build(q){
+  pre(q,O3_KADER(`<p>Als de melkzuurbacteriën geïnfecteerd worden door virussen kan de yoghurt mislukken. Zo’n type virus wordt bacteriofaag, of kortweg faag genoemd (afbeelding 1).<br>In afbeelding 2 is een bacterie weergegeven met daarop vele fagen.</p><div class="figrow"><div><div class="eyebrow">afbeelding 1</div><div style="max-width:200px">${FOTO("o3-faag","Tekening van een bacteriofaag: een kop met daarin DNA, een staart en pootjes")}</div></div><div><div class="eyebrow">afbeelding 2</div>${FOTO("o3-bacterie","Een staafvormige bacterie met daarop veel kleine fagen")}</div></div>`)+`<p>De fagen vermeerderen zich door enzymen te gebruiken van de bacteriën die ze hebben geïnfecteerd.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Welk type polymerase van de bacterie wordt gebruikt voor de vermeerdering van deze fagen?</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Wat is het erfelijk materiaal van deze faag (afbeelding 1)?",opts:["DNA","RNA"],right:0,
+    ok:"Ja. Een nieuwe faag heeft dus een kopie van dat DNA nodig. Welk enzym kopieert DNA?",no:"Kijk naar het label in afbeelding 1.",
+    onDone:()=>choiceStep(think,{q:"Een nieuwe faag heeft ook een eiwitmantel nodig. Wat moet er gebeuren met de faaggenen om die eiwitten te maken?",opts:["ze moeten eerst worden getranscribeerd tot mRNA","ze worden direct vertaald, zonder mRNA"],right:0,ok:"Klopt. Welke twee polymerasen zijn er dus nodig?",no:"Ribosomen lezen mRNA, geen DNA.",onDone:unlock})});
+  mc(ans,{qid:18,pts:2,right:2,opts:["alleen DNA-polymerase","alleen RNA-polymerase","zowel DNA-polymerase als RNA-polymerase"],
+    onChecked:()=>waaromBtn(ans,textBox("Voor nieuwe fagen is nodig: <b>kopieën van het faag-DNA</b> (replicatie met <b>DNA-polymerase</b>) en <b>faageiwitten</b> voor kop en staart. Om die eiwitten te maken, worden de faaggenen eerst getranscribeerd tot mRNA met <b>RNA-polymerase</b>. Het antwoord is <b>C</b>."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 19 */
+Q.push({id:19,pts:2,t:"restrictie en afweer",build(q){
+  pre(q,`<p>Bacteriën kunnen zich verdedigen tegen fagen met behulp van restrictie-enzymen die de vermeerdering van de fagen remmen. Restrictie bij bacteriën is te vergelijken met immunologische afweer bij de mens. Bij beide processen vindt herkenning van een moleculaire structuur plaats.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Welk type molecuul wordt herkend bij restrictie? En welk type molecuul wordt doorgaans herkend bij een immunologische reactie bij de mens?</b>"));
+  q.append(el("div",{class:"tablewrap",style:"max-width:440px"},`<table class="data"><tr><th></th><th>herkend bij restrictie</th><th>herkend bij immunologische reactie bij de mens</th></tr>${[["eiwit","DNA"],["eiwit","eiwit"],["DNA","DNA"],["DNA","eiwit"]].map(([a,b],k)=>`<tr><td><b>${"ABCD"[k]}</b></td><td>${a}</td><td>${b}</td></tr>`).join("")}</table>`));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Wat herkent een restrictie-enzym?",opts:["een bepaalde basenvolgorde in DNA (herkenningsplaats)","een bepaalde aminozuurvolgorde"],right:0,
+    ok:"Ja. En wat zijn antigenen meestal?",no:"Restrictie-enzymen worden in het lab gebruikt om DNA op vaste plekken te knippen.",
+    onDone:()=>choiceStep(think,{q:"Antistoffen en T-cellen herkennen antigenen. Wat voor moleculen zijn dat doorgaans?",opts:["eiwitten (of stukjes daarvan)","DNA"],right:0,ok:"Klopt. Kies je antwoord.",no:"Denk aan de eiwitten in de mantel van een virus of op een bacterie.",onDone:unlock})});
+  mc(ans,{qid:19,pts:2,right:3,opts:["eiwit · DNA","eiwit · eiwit","DNA · DNA","DNA · eiwit"],
+    onChecked:()=>waaromBtn(ans,textBox("Een restrictie-enzym herkent een korte, specifieke <b>basenvolgorde in DNA</b> en knipt daar. Bij de immunologische afweer van de mens herkennen antistoffen en T-cellen <b>antigenen</b>: doorgaans eiwitten (of peptiden daarvan). Het antwoord is <b>D</b>."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 20 */
+Q.push({id:20,pts:2,t:"essentiële processen",build(q){
+  pre(q,O3_KADER(O3_CRISPR_TEKST+O3_AFB3+`<p>De CRISPR-locus bouwt zo na immunisatie een geheugen op van al het vreemde DNA dat in de bacterie terecht is gekomen. Is een binnengedrongen faag een ‘oude bekende’ van de bacterie, dan volgt snel een immuunreactie: het faag-DNA wordt herkend en afgebroken.</p>`)+`<p>In een bacterie kunnen de volgende processen plaatsvinden:</p><p class="regels"><span>1</span>translatie van Cas-RNA<br><span>2</span>transcriptie van CRISPR-DNA<br><span>3</span>translatie van faag-RNA</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Welk proces is of welke processen zijn essentieel voor de CRISPR-Cas-immuunreactie? Schrijf de nummers 1, 2 en 3 onder elkaar en noteer erachter of het betreffende proces <u>wel</u> of <u>niet</u> essentieel is.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Waar komen de Cas-eiwitten vandaan?",opts:["de Cas-genen worden getranscribeerd tot mRNA en dat wordt vertaald","ze zitten in de faag"],right:0,
+    ok:"Ja: zonder translatie van Cas-RNA geen Cas-eiwitten.",no:"Kijk in afbeelding 3: de Cas-genen liggen naast de CRISPR-locus in het bacterie-DNA.",
+    onDone:()=>choiceStep(think,{q:"Stap 5: ‘op basis van deze spacers wordt RNA gemaakt’. Welk proces is dat?",opts:["transcriptie van CRISPR-DNA","translatie"],right:0,
+      ok:"Klopt. En heeft de immuunreactie faageiwitten nodig?",no:"RNA maken van DNA heet …",
+      onDone:()=>choiceStep(think,{q:"CRISPR-Cas knipt het faag-DNA. Is daarvoor nodig dat de faaggenen eerst in eiwit worden vertaald?",opts:["nee, CRISPR-Cas herkent het faag-DNA zelf","ja"],right:0,ok:"Goed. Vul je antwoord in.",no:"Kijk naar stap 8: waaraan bindt CRISPR-Cas?",onDone:unlock})})});
+  O1_sel(ans,{id:20,intro:"Kies per proces.",rows:[["1 translatie van Cas-RNA",["wel","niet"],0],["2 transcriptie van CRISPR-DNA",["wel","niet"],0],["3 translatie van faag-RNA",["wel","niet"],1]],
+    score:v=>{const n=[0,0,1].filter((g,k)=>v[k]===g).length;return n===3?2:n===2?1:0;},uitkomst:"Correctievoorschrift: drie goed 2p · twee goed 1p · minder 0p.",
+    after:()=>waaromBtn(ans,textBox("<b>1 wel.</b> Zonder translatie van het mRNA van de Cas-genen zijn er geen Cas-eiwitten om het faag-DNA te knippen.<br><b>2 wel.</b> Van de spacers in de CRISPR-locus moet RNA worden gemaakt (stap 5): dat RNA wijst de Cas-eiwitten de weg.<br><b>3 niet.</b> CRISPR-Cas herkent en knipt het <b>faag-DNA</b> zelf. Daarvoor hoeven er geen faageiwitten gemaakt te worden; de immuunreactie moet dat juist voorkomen."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 21 */
+Q.push({id:21,pts:2,t:"co-evolutie",build(q){
+  pre(q,O3_TERUG("Afbeelding 3 nog eens bekijken",O3_AFB3)+`<p>Doordat bacteriën en hun fagen elkaar bestrijden, treedt co-evolutie op.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Leg uit hoe selectiedruk deze co-evolutie veroorzaakt.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"Fagen doden bacteriën. Welke bacteriën blijven over en vermenigvuldigen zich?",opts:["bacteriën die immuun/resistent zijn geworden voor de fagen (bv. met een passende spacer)","alle bacteriën evenveel"],right:0,
+    ok:"Ja: de fagen zijn een selectiedruk op de bacteriën. Maar dan hebben de fagen een probleem.",no:"Wat gebeurt er met bacteriën die niet beschermd zijn?",
+    onDone:()=>choiceStep(think,{q:"De bacteriën herkennen de faag aan een stukje faag-DNA. Welke fagen kunnen zich dan nog vermeerderen?",opts:["fagen met een mutatie in dat stukje DNA, die niet meer herkend worden","geen enkele faag meer"],right:0,ok:"Klopt. Nu heb je beide kanten van de wapenwedloop.",no:"Mutaties in het faag-DNA veranderen de sequentie die CRISPR-Cas herkent.",onDone:unlock})});
+  openAnswer(ans,{id:21,pts:2,checks:["Door selectiedruk blijven <b>bacteriën over die immuniteit/resistentie hebben verworven</b> tegen de fagen.","Door selectiedruk blijven <b>fagen over die (door mutaties) niet worden herkend</b> door bacteriën / die (door mutaties) bacteriën kunnen infecteren."],
+    model:"De fagen vormen een selectiedruk op de bacteriën: alleen bacteriën die immuniteit tegen de fagen hebben verworven, overleven en vermenigvuldigen zich. Daardoor ontstaat selectiedruk op de fagen: alleen fagen die door een mutatie niet meer herkend worden, kunnen zich nog vermeerderen.",
+    valkuil:"Alleen één kant beschrijven. Co-evolutie betekent dat <b>beide</b> partijen door selectiedruk veranderen.",
+    after:()=>waaromBtn(ans,textBox("Co-evolutie is een wapenwedloop:<br>1. Fagen doden bacteriën. Bacteriën met een passende spacer (immuniteit) overleven en vermenigvuldigen zich: <b>selectie op de bacteriën</b>.<br>2. Nu worden de meeste fagen herkend en geknipt. Alleen fagen met een <b>mutatie</b> in het herkende stukje DNA kunnen nog infecteren: <b>selectie op de fagen</b>.<br>3. Daarna is er weer selectie op bacteriën die ook die nieuwe faag herkennen, enzovoort."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 22 (met de aanvulling op het correctievoorschrift) */
+Q.push({id:22,pts:2,t:"conjugatie: delen benoemen",build(q){
+  pre(q,O3_KADER(`<p>Het CRISPR-Cas-afweersysteem en de faag-spacers worden bij deling doorgegeven aan de volgende generatie bacteriën. Dit wordt verticale genoverdracht genoemd.<br>De genoverdracht voor afweer kan ook horizontaal plaatsvinden door conjugatie. Na conjugatie geven de donor-spacers pas immuniteit aan de ontvangende bacterie na inbouw in de CRISPR-locus van deze bacterie.<br>In afbeelding 4 is weergegeven hoe een melkzuurbacterie (donor) door conjugatie immuniteit doorgeeft aan een andere bacterie (ontvanger).</p><div class="eyebrow">afbeelding 4</div>${FOTO("o3-conjugatie","Twee bacteriën, DONOR en ONTVANGER, verbonden door een brug. In de donor springt een zwart stukje uit het grote kluwen naar een kleine ring; die ring gaat naar de ontvanger, waar het zwarte stukje in het grote kluwen wordt ingebouwd. Legenda: 1 = het zwarte stukje in het kluwen, 2 = het hele kluwen, 3 = het zwarte stukje bij de kleine ring, 4 = de kleine ring")}`)+`<p>In de legenda van afbeelding 4 zijn vier delen genummerd.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Schrijf de nummers 1 tot en met 4 onder elkaar en noteer de naam van het betreffende deel erachter.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Bij conjugatie geeft een bacterie DNA door via een brug. In welke vorm gebeurt dat meestal?",opts:["als een plasmide: een kleine ring DNA","als het hele bacteriechromosoom"],right:0,
+    ok:"Ja. Welk nummer is dan de kleine ring?",no:"Kijk welk deel van de donor naar de ontvanger gaat in afbeelding 4.",
+    onDone:()=>choiceStep(think,{q:"Het zwarte stukje (1) zit in het grote kluwen (2). Wat ligt er volgens de tekst in het bacterie-DNA en geeft immuniteit?",opts:["de CRISPR-locus met spacers","een restrictie-enzym"],right:0,ok:"Klopt. Vul de vier namen in.",no:"Lees de zin over de donor-spacers en de CRISPR-locus.",onDone:unlock})});
+  const OPT=["CRISPR-locus","CRISPR-gen(en)","CRISPR-DNA","(faag-)spacers / donor-spacers","DNA / chromosoom van de bacterie","plasmide","faag-DNA","Cas-eiwit"];
+  const rows=[["1",OPT,[0,1,2,3]],["2",OPT,[4]],["3",OPT,[1,2,3]],["4",OPT,[5]]];
+  O1_sel(ans,{id:22,intro:"Kies per nummer de naam die jij zou noteren.",rows,
+    score:v=>{const n=O1_ngoed(rows,v);return n===4?2:n>=2?1:0;},
+    uitkomst:"Correctievoorschrift (met aanvulling): 1 CRISPR(-Cas)-locus / CRISPR-gen(en) / (faag-)spacers · 2 DNA / chromosoom (van de bacterie) · 3 donor-spacer(s) / CRISPR-gen(en) / (faag-)spacers · 4 plasmide. CRISPR-locus bij 3 is fout; CRISPR-DNA bij 1 en/of 3 is goed. Vier goed 2p · drie of twee goed 1p · minder 0p.",
+    after:()=>waaromBtn(ans,textBox("<b>1</b> is het zwarte stukje in het chromosoom van de donor: de <b>CRISPR-locus</b> met de faag-spacers.<br><b>2</b> is het grote kluwen: het <b>DNA (chromosoom) van de bacterie</b>.<br><b>3</b> is het zwarte stukje dat in de ring is gekomen: de <b>donor-spacers</b>. Dat is geen hele CRISPR-locus: die geeft pas immuniteit na inbouw in de CRISPR-locus van de ontvanger.<br><b>4</b> is de kleine ring die bij conjugatie naar de ontvanger gaat: een <b>plasmide</b>.<br><br><span class=\"muted\">Aanvulling van het CvTE: ‘CRISPR-DNA’ bij 1 en/of 3 wordt goed gerekend.</span>"))});
+  q.append(think,ans);
+}});
+
+/* Vraag 23 */
+Q.push({id:23,pts:2,t:"immuun voor meerdere fagen",build(q){
+  pre(q,`<p>De opheldering van het bacterieel immuunsysteem CRISPR-Cas is fundamenteel onderzoek waar zuivelbedrijven gebruik van kunnen maken. Met behulp hiervan kunnen zij hun melkzuurbacteriën beschermen tegen verschillende soorten fagen en zo voorkómen dat hun yoghurtcultuur eindigt als een waterige melk met klonten.<br>Drie suggesties voor een methode om een melkzuurbacterie te verkrijgen die immuun is voor meerdere soorten fagen zijn:</p><p class="regels" style="line-height:1.5"><span>1</span>achtereenvolgens verschillende soorten fagen toedienen aan een bacteriestam die voor deze fagen nog niet immuun is<br><span>2</span>horizontale genoverdracht bevorderen tussen bacteriën met verschillende immuniteit voor deze fagen<br><span>3</span>met recombinant-DNA-techniek de CRISPR-locus van bacteriën uitbreiden met spacers van deze fagen</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Schrijf de nummers 1, 2 en 3 onder elkaar en noteer erachter of de betreffende methode <u>wel</u> of <u>niet</u> kan leiden tot een bacterie die voor meerdere soorten fagen immuun is.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Wat heeft een bacterie nodig om immuun te zijn voor een faag?",opts:["een spacer van die faag in zijn CRISPR-locus","een plasmide"],right:0,
+    ok:"Ja. Bekijk per methode of de bacterie zo spacers van meerdere fagen kan krijgen.",no:"Kijk naar stap 4 en 8 in afbeelding 3.",
+    onDone:()=>choiceStep(think,{q:"Methode 1: een bacterie die een faaginfectie overleeft, wat heeft die daarna?",opts:["een nieuwe spacer van die faag (primaire reactie); met de volgende faag komt er nog een bij","niets, na één faag is hij dood"],right:0,ok:"Klopt: overlevers bouwen zo een ‘geheugen’ op. Beoordeel nu ook 2 en 3.",no:"Lees nog eens: de CRISPR-locus bouwt een geheugen op van al het vreemde DNA.",onDone:unlock})});
+  O1_sel(ans,{id:23,intro:"Kies per methode.",rows:[["1",["wel","niet"],0],["2",["wel","niet"],0],["3",["wel","niet"],0]],
+    score:v=>{const n=v.filter(x=>x===0).length;return n===3?2:n===2?1:0;},uitkomst:"Correctievoorschrift: drie goed 2p · twee goed 1p · minder 0p.",
+    after:()=>waaromBtn(ans,textBox("<b>1 wel.</b> Bacteriën die een infectie overleven, bouwen een spacer van die faag in (immunisatie). Na elke soort faag komt er een spacer bij.<br><b>2 wel.</b> Via conjugatie krijgt een bacterie donor-spacers van een andere bacterie, die in de eigen CRISPR-locus worden ingebouwd.<br><b>3 wel.</b> Met recombinant-DNA-techniek kun je spacers van al die fagen direct in de CRISPR-locus zetten.<br>Alle drie leiden tot een bacterie met spacers van meerdere fagen."))});
+  q.append(think,ans);
+}});
+
+OPG.push({nr:3,kort:"Yoghurt",titel:"Yoghurt zonder klonten",ids:[16,17,18,19,20,21,22,23],ctx:CTX3});
+
+/* ===== opg4.js ===== */
+/* ================= Opgave 4 · Aardappels veredelen (vraag 24–32) ================= */
+const O4_KADER=html=>`<div style="border:1px solid var(--line2);padding:10px 14px;display:flex;flex-direction:column;gap:8px">${html}</div>`;
+const O4_TABEL1=`<p style="margin:0"><b>tabel 1</b></p><div class="tablewrap"><table class="data">
+  <tr><th></th><th colspan="2" style="text-align:center">2010</th><th colspan="2" style="text-align:center">2015</th></tr>
+  <tr><th></th><th>totale bruto-opbrengst (in 1000 kg)</th><th>geoogste oppervlakte (ha)</th><th>totale bruto-opbrengst (in 1000 kg)</th><th>geoogste oppervlakte (ha)</th></tr>
+  <tr><td>consumptieaardappels</td><td>3 546 049</td><td>71 852</td><td>3 325 398</td><td>71 736</td></tr>
+  <tr><td>zetmeelaardappels</td><td>1 845 149</td><td>46 667</td><td>1 809 329</td><td>42 077</td></tr>
+  <tr><td>pootaardappels</td><td>1 452 331</td><td>38 450</td><td>1 516 965</td><td>41 848</td></tr></table></div>`;
+const O4_PUNNETT=(kop,rij,kol,cel)=>`<table class="data" style="width:auto;min-width:200px"><tr><th>${kop}</th>${kol.map(k=>`<th>${k}</th>`).join("")}</tr>${rij.map((r,i)=>`<tr><td><b>${r}</b></td>${kol.map((k,j)=>{const c=cel(i,j);return `<td style="${c.z?"background:var(--goud-soft,rgba(214,170,60,.25))":""}">${c.t}</td>`;}).join("")}</tr>`).join("")}</table>`;
+
+const CTX4=`<div class="pkop"><span class="mono">Examentekst · inleiding opgave 4</span></div>
+  <p>Dankzij een innovatieve techniek, ontwikkeld door een Nederlands plantenveredelingsbedrijf, kunnen boeren verbeterde aardappels telen uit zaad in plaats van uit pootaardappels.</p>
+  ${O4_KADER(`<div style="display:flex;flex-wrap:wrap;gap:12px 18px;align-items:flex-start"><p style="margin:0;flex:1 1 240px">Aardappelplanten (<i>Solanum tuberosum</i>) krijgen bloemen die na bestuiving uitgroeien tot bessen met honderden zaden. Beter bekend is de voortplanting door ondergronds gevormde zetmeelrijke knollen: de aardappels (afbeelding 1).<br>De teelt van consumptieaardappels in Nederland is vooral gebaseerd op het gebruik van de knollen: een teler koopt ze als pootaardappels bij een vermeerderingsbedrijf en zet ze in de grond. Uit elke pootaardappel groeit een aardappelplant die weer nieuwe knollen produceert.</p><div style="flex:0 1 280px"><div class="eyebrow">afbeelding 1</div>${FOTO("o4-aardappelplant","Aardappelplant met bovenin bloemen en bessen en onder de grond knollen")}</div></div>`)}`;
+
+/* Vraag 24 */
+Q.push({id:24,pts:2,t:"pootaardappels: constante kwaliteit",build(q){
+  pre(q,`<p>Gebruik van pootaardappels heeft voor een aardappelteler het voordeel dat de aardappelplanten die daaruit groeien, aardappels vormen van een constante kwaliteit.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>– Verklaar waardoor de aardappels uit pootaardappels over het algemeen een constante kwaliteit hebben.<br>– Noteer een oorzaak waardoor er toch verschillen kunnen zijn.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"Een pootaardappel is een knol van een plant. Wat voor voortplanting is dat?",opts:["ongeslachtelijk: alle nakomelingen zijn genetisch gelijk (klonen)","geslachtelijk: elke nakomeling heeft een nieuwe combinatie van allelen"],right:0,
+    ok:"Ja. Dezelfde genen geven dezelfde eigenschappen. Maar het fenotype hangt niet alleen van het genotype af.",no:"Bij een knol komen er geen geslachtscellen of bevruchting aan te pas.",
+    onDone:()=>chipsStep(think,{q:"Wat kan er toch verschil geven tussen planten met hetzelfde genotype? Kies alles wat klopt.",items:[["een verschil in milieu, bijvoorbeeld bodem, water of licht",true],["een mutatie",true],["recombinatie bij de meiose",false]],
+      ok:"Goed. Noem in je antwoord één oorzaak.",no:"Bij ongeslachtelijke voortplanting is er geen meiose.",onDone:unlock})});
+  openAnswer(ans,{id:24,pts:2,checks:["Pootaardappels ontstaan door <b>ongeslachtelijke voortplanting</b> / zijn <b>klonen</b> / zijn genotypisch gelijk / hebben dezelfde erfelijke eigenschappen.","(Verschillen kunnen ontstaan door) <b>lokale milieufactoren</b> (of een voorbeeld daarvan) / <b>mutaties</b>."],
+    model:"Pootaardappels ontstaan ongeslachtelijk: het zijn klonen met hetzelfde genotype, dus ze vormen aardappels met dezelfde eigenschappen. Verschillen kunnen er toch zijn door milieufactoren, bijvoorbeeld een andere bodem of minder water.",
+    valkuil:"Alleen ‘ze komen van dezelfde plant’ schrijven. Noem het begrip: <b>ongeslachtelijk / klonen / genetisch gelijk</b>.",
+    after:()=>waaromBtn(ans,textBox("Een pootaardappel is een knol, een vorm van <b>ongeslachtelijke voortplanting</b>. Alle planten van één ras zijn dus <b>klonen</b> met hetzelfde genotype, en vormen daardoor aardappels met dezelfde eigenschappen.<br><br>Het fenotype is genotype + milieu. Verschillen in <b>milieu</b> (bodem, water, temperatuur, ziekten) of een enkele <b>mutatie</b> kunnen toch voor verschillen zorgen."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 25 (met de aanvulling op het correctievoorschrift) */
+Q.push({id:25,pts:2,t:"solanine: reëel risico?",build(q){
+  pre(q,`<p>Zodra de pootaardappels of de uitlopers daarvan boven de grond uitkomen en er licht op valt, worden ze groen door de vorming van chlorofyl. In het licht neemt ook de hoeveelheid solanine, een giftige stof, in de bovengrondse delen van de plant snel toe.<br>Solanine wordt niet afgebroken tijdens het koken. Het Voedingscentrum raadt daarom aan de groene delen van aardappels vóór bereiding ruim weg te snijden.<br>Een middelgrote aardappel weegt 50 gram. De niet-groene delen van aardappels bevatten maximaal 10 mg solanine per 100 gram.<br>Vergiftigingsverschijnselen zoals misselijkheid, braken en hartritmestoornissen treden op bij een inname van 2,5 mg solanine per kilogram lichaamsgewicht per dag.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Leg aan de hand van een berekening uit in hoeverre solaninevergiftiging door het eten van aardappels voor iemand van 80 kg een reëel risico is.</b>"));
+  const think=phase("think","Eerst rekenen"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  numStep(think,{uid:"q25a",q:"Hoeveel mg solanine moet iemand van 80 kg op één dag binnenkrijgen voor vergiftigingsverschijnselen?",right:200,
+    ok:"Ja: 80 × 2,5 = 200 mg.",no:"Vermenigvuldig het lichaamsgewicht met 2,5 mg per kg.",
+    onDone:()=>numStep(think,{uid:"q25b",q:"Hoeveel gram (niet-groene) aardappel bevat 200 mg solanine, als er maximaal 10 mg in 100 g zit?",right:2000,
+      ok:"Klopt: 2000 g = 2 kg, dat zijn 40 middelgrote aardappels. Is dat een reëel risico? Trek je conclusie.",no:"10 mg per 100 g. Hoe vaak past 10 mg in 200 mg?",onDone:unlock})});
+  openAnswer(ans,{id:25,pts:2,checks:["Een juiste berekening van de <b>giftige dosis solanine</b> met vermelding van de eenheid (80 × 2,5 = <b>200 mg</b>).","Een daarbij passende juiste berekening van de <b>(risicovolle te eten) hoeveelheid aardappels</b> (2 kg / 40 aardappels) <b>en een daaruit volgende conclusie</b>. <span class=\"muted\">Aanvulling CvTE: ook goed is een juiste berekening van de hoeveelheid solanine in een bepaalde hoeveelheid aardappels met een passende conclusie. Geen punt als je uitgaat van groene delen die niet goed zijn weggesneden, of van koken/bakken dat solanine afbreekt.</span>"],
+    model:"Iemand van 80 kg krijgt verschijnselen bij 80 × 2,5 = 200 mg solanine per dag. In 100 g aardappel zit maximaal 10 mg, dus daarvoor moet hij 2000 g = 2 kg aardappels eten, ongeveer 40 aardappels. Zoveel eet je niet op een dag, dus het risico is klein.",
+    valkuil:"De eenheid vergeten (mg) of een conclusie trekken die niet bij je berekening past. Ga ook niet uit van groene delen die blijven zitten: daar zijn geen gegevens over.",
+    after:()=>waaromBtn(ans,textBox("<b>Stap 1:</b> giftige dosis = 80 kg × 2,5 mg/kg = <b>200 mg</b> solanine per dag.<br><b>Stap 2:</b> 10 mg zit in 100 g, dus 200 mg zit in 200 / 10 × 100 = <b>2000 g = 2 kg</b> aardappels. Met 50 g per aardappel is dat <b>40 aardappels</b>.<br><b>Conclusie:</b> zoveel aardappels eet niemand op één dag: vergiftiging door goed geschilde aardappels is <b>geen reëel risico</b>. (De conclusie ‘het zou een keer kunnen’ is ook goed, als hij bij je berekening past.)"))});
+  q.append(think,ans);
+}});
+
+/* Vraag 26 */
+Q.push({id:26,pts:2,t:"genotypen bij tetraploïden",build(q){
+  pre(q,`<p>Tetraploïde (4n) aardappelplanten zijn vaak groter en produceren grotere knollen dan de diploïde planten. Doordat de rassen die in de landbouw worden gebruikt vrijwel allemaal tetraploïd zijn, is aardappelveredeling lastig.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Hoeveel verschillende genotypen zijn bij tetraploïde aardappelplanten mogelijk voor één eigenschap met twee allelen?</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Een tetraploïde plant heeft van elk gen …",opts:["vier allelen","twee allelen","acht allelen"],right:0,
+    ok:"Ja. Noem de allelen A en a. Hoeveel a’s kunnen er in een genotype zitten?",no:"4n: elk chromosoom komt vier keer voor.",
+    onDone:()=>choiceStep(think,{q:"Het aantal allelen a in een genotype kan zijn …",opts:["0, 1, 2, 3 of 4","alleen 0, 2 of 4","1, 2 of 3"],right:0,ok:"Klopt. Tel ze.",no:"Schrijf ze uit: AAAA, AAAa, …",onDone:unlock})});
+  mc(ans,{qid:26,pts:2,right:3,opts:["2","3","4","5","6","8"],
+    onChecked:()=>waaromBtn(ans,textBox("Met vier allelen per gen en twee soorten allelen (A en a) zijn de genotypen: <b>AAAA, AAAa, AAaa, Aaaa en aaaa</b>. Dat zijn er <b>5</b>. Het antwoord is <b>D</b>."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 27: gameten RRrr */
+function O4_gameten(s){
+  const al=["R","R","r","r"],xs=[0,1,2,3].map(i=>80+i*60);
+  let g=`<svg viewBox="0 0 600 260" role="img" aria-label="De zes manieren om twee van de vier allelen RRrr te kiezen">`;
+  al.forEach((a,i)=>g+=`<circle cx="${xs[i]}" cy="50" r="20" fill="${a==="R"?"var(--teal-soft,rgba(60,160,160,.25))":"var(--surface2)"}" stroke="var(--text2)"/><text class="lbl" x="${xs[i]}" y="55" text-anchor="middle">${a}<tspan font-size="9" dy="4">${i+1}</tspan></text>`);
+  g+=`<text class="lblm" x="380" y="45">plant RRrr: vier allelen,</text><text class="lblm" x="380" y="62">elke gameet krijgt er twee</text>`;
+  const par=[[0,1],[0,2],[0,3],[1,2],[1,3],[2,3]];
+  if(s>=1)par.forEach(([a,b],k)=>{const x=60+k*90,t=al[a]+al[b];const kl=t==="RR"?"var(--teal)":t==="rr"?"var(--koraal)":"var(--goud)";
+    g+=`<rect x="${x}" y="110" width="74" height="40" rx="8" fill="var(--surface)" stroke="${s>=2?kl:"var(--line2)"}" stroke-width="2"/><text class="lbl" x="${x+37}" y="135" text-anchor="middle">${al[a]}${a+1} ${al[b]}${b+1}</text>`;});
+  if(s>=2)g+=`<text class="lbl" x="300" y="185" text-anchor="middle">RR : Rr : rr = 1 : 4 : 1</text>`;
+  if(s>=3)g+=`<text class="lbl" x="300" y="225" text-anchor="middle">kans op rr-gameet = 1/6 → kans op rrrr = 1/6 × 1/6 = 1/36 ≈ 2,8%</text>`;
+  return g+`</svg>`;
+}
+Q.push({id:27,pts:2,t:"kruising RRrr × RRrr",build(q){
+  pre(q,`<p>Aardappelveredelaars hebben eeuwenlang getracht door kruising en selectie gewenste eigenschappen homozygoot in de tetraploïde planten te krijgen, zoals resistentie tegen het aardappelvirus PVS.<br>Een recessief allel r codeert voor deze resistentie.<br>Twee tetraploïde aardappelplanten met genotype RRrr worden met elkaar gekruist. Bij tetraploïde planten ontstaan na meiose diploïde geslachtscellen.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>– Noteer de genotypenverhouding van de mannelijke geslachtscellen in deze kruising.<br>– Noteer de kans op PVS-resistentie voor een nakomeling uit deze kruising.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Een geslachtscel krijgt twee van de vier allelen R, R, r, r. Op hoeveel manieren kun je twee van de vier kiezen? Geef de allelen nummers: R1, R2, r3, r4.",opts:["6","4","3"],right:0,
+    ok:"Ja: R1R2, R1r3, R1r4, R2r3, R2r4, r3r4. Tel nu hoeveel daarvan RR, Rr en rr zijn.",no:"Schrijf alle paren uit: R1R2, R1r3, …",
+    onDone:()=>choiceStep(think,{q:"Een PVS-resistente nakomeling heeft genotype …",opts:["rrrr","Rrrr of rrrr","rr"],right:0,ok:"Klopt: r is recessief, dus alle vier allelen moeten r zijn. Welke twee gameten moeten dan samenkomen?",no:"Een tetraploïde nakomeling heeft vier allelen, en r is recessief.",onDone:unlock})});
+  const r1=el("div",{class:"row"});r1.append(el("label",{for:"q27r",class:"sellab"},"RR : Rr : rr ="));
+  const sel=el("select",{id:"q27r"});sel.append(el("option",{value:""},"kies…"));
+  const VERH=[["1 : 2 : 1",1/4],["1 : 4 : 1",1/6],["1 : 1 : 1",1/3],["1 : 3 : 2",1/3]];VERH.forEach(([t],j)=>sel.append(el("option",{value:j},t)));r1.append(sel);
+  const r2=el("div",{class:"row"});r2.append(el("label",{for:"q27k",class:"sellab"},"kans op PVS-resistentie"));const inp=el("input",{class:"num",id:"q27k",placeholder:"bv. 1/16 of 6,3%"});r2.append(inp);
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(r1,r2,ck,fb);
+  const lees=t=>{t=(t||"").replace(",",".").replace(/\s/g,"");let m=t.match(/^(\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)$/);if(m)return +m[1]/+m[2];m=t.match(/^(\d+(?:\.\d+)?)%$/);if(m)return +m[1]/100;const v=parseFloat(t);return isNaN(v)?NaN:(v>1?v/100:v);};
+  ck.onclick=()=>{const k=lees(inp.value);if(sel.value===""||isNaN(k)){fb.hidden=false;fb.className="fb hint";fb.textContent="Kies een verhouding en vul een kans in (bv. 1/36, 0,028 of 2,8%).";return;}
+    const v=+sel.value,p1=v===1?1:0,verw=VERH[v][1]**2,dicht=(a,b)=>Math.abs(a-b)/b<0.06,p2=dicht(k,1/36)||dicht(k,verw)?1:0;sel.disabled=true;inp.disabled=true;ck.remove();
+    fb.hidden=false;fb.className="fb "+(p1+p2===2?"ok":"no");
+    fb.innerHTML=`${p1?"✓":"✗"} verhouding RR : Rr : rr = 1 : 4 : 1<br>${p2?"✓":"✗"} kans = (kans op rr-gameet)² ${v===1?"= 1/36 ≈ 2,8%":`<span class="muted">(met jouw verhouding: ${VERH[v][1]===1/4?"1/16":"1/9"}; het CV geeft dit punt ook bij een verkeerde kans op rr als de berekening ermee klopt)</span>`}<br><b>${p1+p2} ${p1+p2===1?"punt":"punten"}</b>`;
+    setScore(27,p1+p2);
+    waaromBtn(ans,b=>stepAnim(b,[{s:0,cap:"Een RRrr-plant heeft vier allelen. Na de meiose krijgt elke (diploïde) geslachtscel er <b>twee</b>."},{s:1,cap:"Nummer de allelen. Er zijn <b>6</b> manieren om er twee te kiezen."},{s:2,cap:"Eén keer RR, vier keer Rr en één keer rr: <b>RR : Rr : rr = 1 : 4 : 1</b>."},{s:3,cap:"Een resistente nakomeling is <b>rrrr</b>: een rr-gameet van beide ouders. Kans = 1/6 × 1/6 = <b>1/36 ≈ 2,8%</b>."}],(stg,s)=>stg.innerHTML=O4_gameten(s.s)));};
+  q.append(think,ans);
+}});
+
+/* Vraag 28 */
+Q.push({id:28,pts:2,t:"voordeel van kruisbestuiving",build(q){
+  pre(q,O4_KADER(`<p>Tetraploïde aardappelrassen veredelen om een hogere opbrengst te verkrijgen, is moeilijk en tijdrovend. De Wageningse onderzoeker Pim Lindhout begon daarom met diploïde rassen. Hij kruiste een diploïde <i>S. tuberosum</i> die relatief grote knollen vormt, met de verwante soort <i>S. chacoense</i> die kleine knolletjes maakt.<br>Bij de in de landbouw gebruikte aardappelrassen komt alleen kruisbestuiving (bestuiving met stuifmeel van een andere plant) voor, wat het lastig maakt om een homozygote zuivere lijn te verkrijgen. <i>S. chacoense</i>-planten kunnen echter ook ‘zelfbestuiven’ (bevrucht worden door eigen stuifmeel) wanneer ze ten minste één B<sup>S</sup>-allel bezitten.<br>Met een diploïd ras dat kan zelfbestuiven, wordt het veredelen een stuk eenvoudiger.</p>`)+`<p>In bloemen van de diploïde <i>S. tuberosum</i> kan alleen kruisbestuiving optreden.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Leg uit hoe kruisbestuiving kan leiden tot een evolutionair voordeel ten opzichte van zelfbestuiving.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"Bij kruisbestuiving komen allelen van twee verschillende planten samen. Wat doet dat met de populatie?",opts:["er ontstaat/blijft meer genetische variatie","alle planten worden homozygoot"],right:0,
+    ok:"Ja. Waarom is variatie een voordeel als de omgeving verandert?",no:"Bij zelfbestuiving worden planten juist steeds homozygoter.",
+    onDone:()=>choiceStep(think,{q:"Een nieuwe ziekte of droogte. Wanneer overleeft een populatie eerder?",opts:["als er variatie is: de kans is groter dat sommige planten de juiste eigenschappen hebben","als alle planten gelijk zijn"],right:0,ok:"Klopt. Noem beide stappen in je antwoord.",no:"Als alle planten gelijk zijn en de ziekte treft er één, dan …",onDone:unlock})});
+  openAnswer(ans,{id:28,pts:2,checks:["(Door kruisbestuiving) ontstaat/blijft er een <b>grotere genetische diversiteit</b> in de populatie (dan bij zelfbestuiving).","(Daardoor) is de <b>kans groter dat bij veranderende omstandigheden individuen overleven</b> / dat combinaties ontstaan die meer voordeel opleveren."],
+    model:"Bij kruisbestuiving worden allelen van verschillende planten gecombineerd, waardoor de genetische diversiteit in de populatie groter is dan bij zelfbestuiving. Als de omstandigheden veranderen, is de kans dan groter dat er planten zijn die overleven.",
+    valkuil:"Alleen ‘meer variatie’ schrijven. Zeg ook <b>waarom</b> dat een voordeel is: overleven bij veranderende omstandigheden.",
+    after:()=>waaromBtn(ans,textBox("Bij <b>zelfbestuiving</b> worden nakomelingen steeds homozygoter en gaan allelen verloren. Bij <b>kruisbestuiving</b> combineren allelen van verschillende planten: de <b>genetische diversiteit</b> blijft groot. Verandert de omgeving (nieuwe ziekte, ander klimaat), dan is de kans groter dat sommige planten een gunstige combinatie hebben en <b>overleven</b>."))});
+  q.append(think,ans);
+}});
+
+/* zelf nakijken met een score-functie (vraag 29: de 'in totaal 1 punt'-regels van het CV worden zo afgedwongen) */
+function O4_zelf(ans,{id,pts,checks,score,model,valkuil,placeholder,after}){
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:placeholder||"Schrijf je antwoord…"});
+  const ck=el("button",{class:"go"},"Nakijken");const tf=el("div",{class:"fb hint",hidden:""},"Schrijf eerst je antwoord op. Daarna kijk je het na.");
+  ans.append(ta,ck,tf);
+  ck.onclick=()=>{if(ta.value.trim().length<8){tf.hidden=false;ta.focus();return;}tf.remove();ck.remove();ta.readOnly=true;
+    const ss=el("div",{class:"selfscore"});
+    ss.append(el("p",{style:"margin:0"},"<b>Kijk jezelf na met het correctievoorschrift.</b> Vink aan wat er in jouw antwoord staat. De score volgt de regels van het correctievoorschrift."));
+    const boxes=checks.map((c,k)=>{const lab=el("label",{},`<input type="checkbox" id="q${id}c${k}"><span>${c}</span>`);ss.append(lab);return lab.querySelector("input");});
+    if(model)ss.append(el("div",{class:"model"},"<b>Voorbeeldantwoord:</b> "+model));
+    if(valkuil)ss.append(el("div",{class:"fb hint"},"<b>Valkuil:</b> "+valkuil));
+    const sc=el("div",{class:"score"});ss.append(sc);ans.append(ss);
+    const upd=()=>{const p=Math.min(pts,score(boxes.map(b=>b.checked)));sc.textContent=`Jouw score: ${p} / ${pts}`;setScore(id,p);};
+    boxes.forEach(b=>b.onchange=upd);upd();after&&after();};
+}
+/* Vraag 29 (met de aanvulling op het correctievoorschrift) */
+Q.push({id:29,pts:2,t:"kruisingstabellen F1 en F2",build(q){
+  pre(q,`<p>Lindhout voerde een kruising uit tussen een <i>S. chacoense</i>- en een <i>S. tuberosum</i>-plant. Bij de aardappelplanten die daaruit ontstonden (F1) werd zelfbestuiving toegepast om een F2 te krijgen.<br>Van de planten in de F1 kon ongeveer 50% zelfbestuiven en in de F2 waren dat er 10 van de 13.<br>Met behulp van een kruisingsschema kunnen deze verhoudingen worden verklaard.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>– Geef de twee kruisingstabellen waaruit de genotypen in de F1 en de F2 blijken. Gebruik de symbolen B en B<sup>S</sup> voor de allelen.<br>– Geef in beide tabellen aan welk gedeelte kan zelfbestuiven.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Maak je tabellen ›");
+  choiceStep(think,{q:"Welk genotype heeft de <i>S. tuberosum</i>-plant? (die kan niet zelfbestuiven)",opts:["BB","BB<sup>S</sup>","B<sup>S</sup>B<sup>S</sup>"],right:0,
+    ok:"Ja: zonder B<sup>S</sup>-allel geen zelfbestuiving.",no:"Zelfbestuiven kan ‘wanneer ze ten minste één B<sup>S</sup>-allel bezitten’.",
+    onDone:()=>choiceStep(think,{q:"In de F1 kan ongeveer 50% zelfbestuiven. Welk genotype heeft de <i>S. chacoense</i>-ouder dan?",opts:["BB<sup>S</sup>: de helft van de F1 krijgt B<sup>S</sup>","B<sup>S</sup>B<sup>S</sup>: alle F1 krijgen B<sup>S</sup>"],right:0,
+      ok:"Klopt. Voor de F2 gebruik je de F1-planten die kunnen zelfbestuiven: BB<sup>S</sup> × BB<sup>S</sup>.",no:"Als de ouder B<sup>S</sup>B<sup>S</sup> was, zou 100% van de F1 B<sup>S</sup> hebben.",
+      onDone:()=>choiceStep(think,{q:"BB<sup>S</sup> × BB<sup>S</sup>: welk deel van de F2 heeft minstens één B<sup>S</sup>?",opts:["3/4 (10 van de 13 komt daar dicht bij)","1/2","1/4"],right:0,ok:"Goed. Teken nu beide kruisingstabellen en markeer de planten die kunnen zelfbestuiven.",no:"BB, BB<sup>S</sup>, B<sup>S</sup>B, B<sup>S</sup>B<sup>S</sup>: tel de vakjes met een B<sup>S</sup>.",onDone:unlock})})});
+  O4_zelf(ans,{id:29,pts:2,placeholder:"Schrijf je twee tabellen op (bv. regel voor regel) en geef aan welke planten kunnen zelfbestuiven…",
+    checks:["Ik heb een <b>kruisingstabel voor de F1</b> met de juiste verhouding van genotypen (BB × BB<sup>S</sup> → BB : BB<sup>S</sup> = 1 : 1).",
+      "In die F1-tabel heb ik juist aangegeven <b>welk deel kan zelfbestuiven</b> (BB<sup>S</sup>).",
+      "Ik heb een <b>kruisingstabel voor de F2</b> met de juiste verhouding van genotypen (BB<sup>S</sup> × BB<sup>S</sup> → BB : BB<sup>S</sup> : B<sup>S</sup>B<sup>S</sup> = 1 : 2 : 1).",
+      "In die F2-tabel heb ik juist aangegeven <b>welk deel kan zelfbestuiven</b> (BB<sup>S</sup> en B<sup>S</sup>B<sup>S</sup>).",
+      "Ik heb <b>geen twee kruisingstabellen</b> gemaakt, maar mijn antwoord klopt inhoudelijk wel."],
+    score:([f1,a1,f2,a2,zonder])=>{if(zonder)return 1;let p=(f1&&a1?1:0)+(f2&&a2?1:0);if(!p&&f1&&f2)p=1;return p;},
+    model:`<div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:6px">${O4_PUNNETT("F1",["B","B"],["B","B<sup>S</sup>"],(i,j)=>({t:j?"BB<sup>S</sup>":"BB",z:j===1}))}${O4_PUNNETT("F2",["B","B<sup>S</sup>"],["B","B<sup>S</sup>"],(i,j)=>({t:["BB","BB<sup>S</sup>","BB<sup>S</sup>","B<sup>S</sup>B<sup>S</sup>"][i*2+j],z:i+j>0}))}</div><span class="muted">Gemarkeerd = kan zelfbestuiven.</span>`,
+    valkuil:"Twee goede tabellen zonder (of met een verkeerde) aanduiding van wie kan zelfbestuiven: in totaal maar <b>1 punt</b>. Een goed antwoord zonder twee kruisingstabellen: ook in totaal <b>1 punt</b>. Aanvulling CvTE: geef je op een andere duidelijke manier bij de tabel aan welke genotypen kunnen zelfbestuiven (bv. met een sterretje of een zin eronder), dan telt dat als goed aangegeven.",
+    after:()=>waaromBtn(ans,textBox(`<b>F1:</b> <i>S. tuberosum</i> (BB) × <i>S. chacoense</i> (BB<sup>S</sup>). De helft van de nakomelingen is BB<sup>S</sup> en kan zelfbestuiven: dat past bij ‘ongeveer 50%’.<br><b>F2:</b> zelfbestuiving van een BB<sup>S</sup>-plant uit de F1: BB<sup>S</sup> × BB<sup>S</sup> geeft BB : BB<sup>S</sup> : B<sup>S</sup>B<sup>S</sup> = 1 : 2 : 1. Driekwart heeft minstens één B<sup>S</sup> en kan zelfbestuiven: dat past bij 10 van de 13.<div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:8px">${O4_PUNNETT("F1",["B","B"],["B","B<sup>S</sup>"],(i,j)=>({t:j?"BB<sup>S</sup>":"BB",z:j===1}))}${O4_PUNNETT("F2",["B","B<sup>S</sup>"],["B","B<sup>S</sup>"],(i,j)=>({t:["BB","BB<sup>S</sup>","BB<sup>S</sup>","B<sup>S</sup>B<sup>S</sup>"][i*2+j],z:i+j>0}))}</div>`))});
+  q.append(think,ans);
+}});
+
+/* Vraag 30 */
+Q.push({id:30,pts:1,t:"voordeel van zaad",build(q){
+  pre(q,`<p>Een voordeel van zaad is dat het relatief vrij van ziekten en plagen kan worden geproduceerd in kassen, terwijl er bij de productie van pootaardappels in de volle grond meer risico op infectie is.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Noteer nog een ander voordeel van zaad ten opzichte van pootaardappels bij de aardappelteelt.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"Zaden zijn veel kleiner dan pootaardappels. Is ‘zaden zijn kleiner’ alleen genoeg als antwoord?",opts:["nee, je moet ook zeggen wat het voordeel daarvan is (bv. makkelijker te vervoeren)","ja"],right:0,
+    ok:"Precies. Bedenk een voordeel bij vervoer, zaaien, bewaren of genetische variatie.",no:"Het correctievoorschrift geeft geen punt voor ‘kleiner’ zonder het voordeel te noemen.",onDone:unlock});
+  openAnswer(ans,{id:30,pts:1,checks:["Een juist ander voordeel, bijvoorbeeld: zaden zijn kleiner en dus <b>makkelijker te transporteren</b> / <b>zaaien is makkelijker</b> dan poten / zaden zijn <b>minder gevoelig voor schimmels en beter te bewaren</b> / bij zaden is de <b>genetische diversiteit groter</b>."],
+    model:"Zaden zijn veel kleiner en lichter dan pootaardappels, dus ze zijn makkelijker en goedkoper te vervoeren.",
+    valkuil:"Alleen ‘zaden zijn kleiner’ zonder het voordeel daarvan: <b>geen punt</b>.",
+    after:()=>waaromBtn(ans,textBox("Pootaardappels zijn zware, natte knollen: veel transport, opslag en kans op rot. Zaden zijn klein, licht en droog: <b>makkelijk te vervoeren, te zaaien en te bewaren</b>. Een ander goed antwoord: zaad ontstaat geslachtelijk, dus de <b>genetische diversiteit</b> is groter."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 31 */
+Q.push({id:31,pts:1,t:"opbrengst of productiviteit",build(q){
+  pre(q,`<p>In tabel 1 is de totale opbrengst en het geoogste oppervlak van drie typen aardappels weergegeven voor 2010 en 2015.</p>${O4_TABEL1}<p>In 2015 was de pootaardappel-opbrengst groter dan in 2010. Iemand beweert dat dit komt door een hogere productiviteit van de aardappelplanten in 2015 in vergelijking met 2010.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Geef een argument om deze bewering te <u>weerleggen</u>.</b>"));
+  const think=phase("think","Eerst rekenen"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"De totale opbrengst is gestegen. Wat is er nog meer veranderd?",opts:["het geoogste oppervlak is ook groter geworden","het oppervlak is kleiner geworden"],right:0,
+    ok:"Ja: 38 450 → 41 848 ha. Reken de opbrengst per hectare uit.",no:"Vergelijk de kolommen ‘geoogste oppervlakte’ bij pootaardappels.",
+    onDone:()=>numStep(think,{uid:"q31",q:"Opbrengst pootaardappels per ha in 2015, in kg (afgerond op honderdtallen)? 2010 was ± 37 800 kg/ha.",right:36200,
+      ok:"Ja: 1 516 965 000 / 41 848 ≈ 36 250 kg/ha. Per hectare is het dus juist minder.",no:"Deel 1 516 965 × 1000 kg door 41 848 ha en rond af op honderdtallen.",onDone:unlock})});
+  openAnswer(ans,{id:31,pts:1,checks:["Een juist argument, bijvoorbeeld: de <b>opbrengst per hectare is in 2015 juist kleiner</b> (36 249 tegen 37 772 kg/ha) / <b>productiviteit gaat over vastgelegde energie, opbrengst over het gewicht</b> van de knollen / <b>opbrengst is natgewicht, productiviteit gaat over drooggewicht</b>."],
+    model:"De grotere opbrengst komt doordat er meer hectare is geoogst. Per hectare was de opbrengst in 2015 juist kleiner: 36 249 kg/ha tegen 37 772 kg/ha in 2010.",
+    valkuil:"Alleen zeggen dat het oppervlak groter is, zonder te laten zien dat de opbrengst <b>per hectare</b> niet hoger is.",
+    after:()=>waaromBtn(ans,textBox(`<div class="tablewrap"><table class="data"><tr><th>pootaardappels</th><th>2010</th><th>2015</th></tr><tr><td>opbrengst (kg)</td><td>1 452 331 000</td><td>1 516 965 000</td></tr><tr><td>oppervlak (ha)</td><td>38 450</td><td>41 848</td></tr><tr><td>opbrengst per ha</td><td><b>37 772 kg</b></td><td><b>36 249 kg</b></td></tr></table></div>Productiviteit zegt iets over wat een plant (per oppervlak) maakt. De totale opbrengst steeg alleen doordat er <b>meer grond</b> werd gebruikt; per hectare was de opbrengst juist lager. Ook goed: opbrengst is het (nat)gewicht van knollen, productiviteit gaat over vastgelegde energie of drooggewicht.`))});
+  q.append(think,ans);
+}});
+
+/* Vraag 32 */
+Q.push({id:32,pts:2,t:"plantaardig eiwit duurzamer",build(q){
+  pre(q,`<p>Inmiddels zijn door kruisingen aardappels verkregen met een hoger eiwitgehalte dan gewone aardappels. Deze eiwitten kunnen worden toegepast ter vervanging van melk en eieren in bijvoorbeeld ijs en slagroom.<br>De productie van plantaardige eiwitten is ecologisch duurzamer dan de productie van dierlijke eiwitten.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Leg dit uit aan de hand van de energiestroom in de voedselketen.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"Een koe eet gras. Hoeveel van de energie uit het gras komt terecht in melk en vlees?",opts:["maar een klein deel: de rest gaat verloren als warmte, beweging en mest","bijna alles"],right:0,
+    ok:"Ja: bij elke schakel gaat veel energie verloren. Wat betekent dat voor hoeveel plantenvoedsel je nodig hebt voor dierlijk eiwit?",no:"Een koe gebruikt veel energie voor haar eigen dissimilatie.",
+    onDone:()=>choiceStep(think,{q:"Voor 1 kg dierlijk eiwit heb je, vergeleken met 1 kg plantaardig eiwit, …",opts:["veel meer plantmateriaal en dus meer landbouwgrond en grondstoffen nodig","evenveel grond nodig"],right:0,ok:"Klopt. Noem beide stappen.",no:"Het dier moet eerst zelf eten.",onDone:unlock})});
+  openAnswer(ans,{id:32,pts:2,checks:["<b>Energie gaat verloren</b> bij de schakel van producenten/planten naar consumenten/dieren / bij iedere schakel in de voedselketen.","De productie van plantaardige eiwitten vergt (daardoor) <b>minder grondstoffen / grondgebruik</b> (dan de productie van dezelfde hoeveelheid dierlijke eiwitten)."],
+    model:"Bij elke schakel in de voedselketen gaat energie verloren, bijvoorbeeld als warmte bij de dissimilatie van het dier. Voor dezelfde hoeveelheid dierlijk eiwit heb je dus veel meer planten nodig, en daarmee meer landbouwgrond en grondstoffen, dan voor plantaardig eiwit.",
+    valkuil:"Alleen schrijven dat er energie verloren gaat. Leg ook uit wat dat betekent: <b>meer grond en grondstoffen</b> voor dierlijk eiwit.",
+    after:()=>waaromBtn(ans,textBox("Per schakel in de voedselketen gaat een groot deel van de energie verloren (warmte, beweging, onverteerd voedsel); vaak komt maar ongeveer 10% in de volgende schakel terecht. Eet je plantaardig eiwit, dan sla je de schakel ‘dier’ over. Voor dezelfde hoeveelheid eiwit is dan veel <b>minder landbouwgrond, water en meststoffen</b> nodig."))});
+  q.append(think,ans);
+}});
+
+OPG.push({nr:4,kort:"Aardappels",titel:"Aardappels veredelen",ids:[24,25,26,27,28,29,30,31,32],ctx:CTX4});
+
+/* ===== opg5.js ===== */
+/* ================= Opgave 5 · Teken en de ziekte van Lyme (vraag 33–39) ================= */
+const O5_KADER=html=>`<div style="border:1px solid var(--line2);padding:10px 14px;display:flex;flex-direction:column;gap:8px">${html}</div>`;
+const O5_TERUG=(sum,html)=>`<details class="ctxd"><summary>${sum}</summary><div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">${html}</div></details>`;
+const O5_AFB1=`<div class="eyebrow">afbeelding 1</div>${FOTO("o5-levenscyclus","Levenscyclus van de schapenteek: een vrouwtje legt eitjes; larven voeden zich, laten zich vallen en vervellen; nimfen voeden zich, laten zich vallen en vervellen; adulten voeden zich, paren en laten zich vallen. In het midden de gastheren: mens, hert, hond, eekhoorn, haas en muis. Larven zijn veel kleiner dan nimfen, nimfen kleiner dan adulten.")}`;
+const O5_TEKST1=`<p>Teken zijn spinachtigen die voorkomen in bossen en velden. Ze leven van het bloed van gewervelde dieren.<br>In afbeelding 1 is de levenscyclus van de schapenteek <i>Ixodes ricinus</i> weergegeven. De cyclus kan twee tot zes jaar duren en bestaat uit vier fasen: ei, larve, nimf en adult. Van elke levensfase overleeft ongeveer tien procent. Om een volgende fase te bereiken, heeft een teek meestal maar één bloedmaaltijd nodig.</p>`;
+const O5_TEKST2=`<p>De bloedmaaltijd van een teek duurt enkele dagen tot een week. De tijdsduur hangt samen met de grootte van de teek. De schapenteek kan als larve, nimf en adult ook een mens of een hond gebruiken als gastheer.<br>Tijdens de bloedmaaltijd kan de bacterie <i>Borrelia burgdorferi</i> worden opgezogen uit de gastheer. Deze bacterie vermenigvuldigt zich in de darmen van de teek. <i>B. burgdorferi</i> wordt niet overgedragen op de eitjes, maar kan wel via het speeksel worden overgedragen op een nieuwe gastheer. Bij mensen kan deze bacterie de ziekte van Lyme veroorzaken.</p>`;
+
+const CTX5=`<div class="pkop"><span class="mono">Examentekst · inleiding opgave 5</span></div>
+  <p>De ziekte van Lyme wordt veroorzaakt door een bacterie die meestal op de mens wordt overgedragen door een besmette schapenteek. Onderzoek laat zien dat het aantal tekenbeten en het aantal besmette teken de laatste jaren toeneemt.</p>`;
+
+/* aantallen per fase (animatie vraag 33) */
+function O5_fasen(s){
+  const F=[["larve",1000,"niet besmet: Borrelia gaat niet via het ei"],["nimf",100,"had al één bloedmaaltijd: kan besmet zijn"],["adult",10,"kan besmet zijn, maar er zijn er veel minder"]];
+  let g=`<svg viewBox="0 0 600 230" role="img" aria-label="Aantal teken per fase en kans op besmetting">`;
+  F.forEach(([n,a,t],i)=>{const y=30+i*65,w=Math.max(6,a/1000*360);const besm=i>0;
+    g+=`<text class="lbl" x="70" y="${y+22}" text-anchor="end">${n}</text><rect x="80" y="${y}" width="${s>=1?w:0}" height="32" rx="4" fill="${besm&&s>=2?"var(--koraal)":"var(--text3)"}" opacity=".75"/>`;
+    if(s>=1)g+=`<text class="lblm" x="${88+w}" y="${y+21}">± ${a}</text>`;
+    if(s>=2)g+=`<text class="lblm" x="80" y="${y+48}">${t}</text>`;});
+  if(s===0)g+=`<text class="lblm" x="300" y="210" text-anchor="middle">van elke fase overleeft ongeveer 10%</text>`;
+  return g+`</svg>`;
+}
+
+/* Vraag 33 */
+Q.push({id:33,pts:2,t:"besmet door een nimf",build(q){
+  pre(q,O5_KADER(O5_TEKST1+O5_AFB1)+O5_TEKST2+`<p>Als je de ziekte van Lyme hebt, is de kans groter dat je de ziekte hebt opgelopen door de beet van een nimf dan door de beet van een larve of een adult van de schapenteek.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>– Verklaar waardoor meer mensen de ziekte oplopen door de beet van een nimf dan door de beet van een larve.<br>– Verklaar waardoor meer mensen de ziekte oplopen door de beet van een nimf dan door de beet van een adult.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"Kan een larve al besmet zijn met <i>Borrelia</i>?",opts:["nee (nauwelijks): de bacterie gaat niet via het ei, en een larve heeft nog geen bloedmaaltijd gehad","ja, net zo vaak als een nimf"],right:0,
+    ok:"Ja. Een nimf heeft als larve al een bloedmaaltijd gehad en kan daarbij besmet zijn geraakt.",no:"Lees de zin ‘B. burgdorferi wordt niet overgedragen op de eitjes’.",
+    onDone:()=>choiceStep(think,{q:"Van elke fase overleeft ongeveer 10%. Wat betekent dat voor het aantal nimfen vergeleken met adulten?",opts:["er zijn ongeveer tien keer zoveel nimfen als adulten","er zijn evenveel"],right:0,ok:"Klopt. Je hebt nu een verklaring voor beide delen.",no:"Van 100 nimfen worden er ongeveer … adult.",onDone:unlock})});
+  openAnswer(ans,{id:33,pts:2,checks:["<b>Larven zijn niet besmet</b> / de kans dat nimfen besmet zijn met de borreliabacterie is groter dan de kans dat een larve besmet is.","Er zijn <b>veel meer nimfen dan adulten</b> (dus de kans om door een nimf gebeten te worden is veel groter). <span class=\"muted\">Ook goed: nimfen vallen minder op of hoeven korter bloed te zuigen, en worden daardoor minder gestoord dan adulten.</span>"],
+    model:"Larven zijn niet besmet, omdat de bacterie niet via de eitjes wordt doorgegeven; een nimf heeft al een bloedmaaltijd gehad en kan dus besmet zijn. Omdat van elke fase maar 10% overleeft, zijn er veel meer nimfen dan adulten, dus wordt iemand vaker door een nimf gebeten.",
+    valkuil:"Bij het tweede deel schrijven dat adulten minder vaak besmet zijn. Ze zijn juist vaker besmet (twee bloedmaaltijden); het gaat om het <b>aantal</b> (of dat nimfen minder opvallen).",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[{s:0,cap:"Van elke levensfase overleeft ongeveer 10%."},{s:1,cap:"Uit ongeveer 1000 larven komen ± 100 nimfen en ± 10 adulten: er zijn <b>veel meer nimfen dan adulten</b>."},{s:2,cap:"<b>Larven</b> zijn niet besmet: <i>Borrelia</i> gaat niet via het ei. <b>Nimfen</b> kunnen besmet zijn (één eerdere bloedmaaltijd), en ze zijn veel talrijker dan adulten. Zo lopen de meeste mensen Lyme op via een nimf."}],(stg,s)=>stg.innerHTML=O5_fasen(s.s)))});
+  q.append(think,ans);
+}});
+
+/* Vraag 34 */
+Q.push({id:34,pts:1,t:"vrouwtjes zuigen meer bloed",build(q){
+  pre(q,O5_TERUG("Afbeelding 1 nog eens bekijken",O5_AFB1)+`<p>Volwassen vrouwtjesteken zuigen vaker en meer bloed dan volwassen mannetjesteken.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Geef hiervoor een verklaring.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"Kijk naar afbeelding 1. Wat doet een volwassen vrouwtje na haar bloedmaaltijd dat een mannetje niet doet?",opts:["eitjes leggen, heel veel tegelijk","vervellen"],right:0,
+    ok:"Ja. Waar heeft ze voor al die eitjes veel van nodig?",no:"Kijk bovenaan de cyclus: ‘vrouwtje legt eitjes’.",onDone:unlock});
+  openAnswer(ans,{id:34,pts:1,checks:["<b>Alleen de vrouwtjes leggen eitjes</b> (en hebben daar bloed voor nodig) / de mannetjes leggen geen eitjes. <span class=\"muted\">Ook goed: een adult mannetje kruipt vooral op een gastheer om er te paren.</span>"],
+    model:"Alleen de vrouwtjes leggen eitjes. Voor de productie van al die eitjes hebben ze veel voedingsstoffen nodig, die ze uit het bloed halen.",
+    valkuil:"‘Vrouwtjes zijn groter’ is geen verklaring: zeg <b>waarvoor</b> ze het bloed nodig hebben.",
+    after:()=>waaromBtn(ans,textBox("Een vrouwtjesteek legt na haar laatste bloedmaaltijd duizenden eitjes. De bouwstoffen en energie daarvoor haalt ze uit <b>bloed</b>. Een mannetje legt geen eitjes en heeft als adult vooral een gastheer nodig om een vrouwtje te vinden en te paren."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 35 */
+Q.push({id:35,pts:2,t:"direct na de beet",build(q){
+  pre(q,`<p>Teken hebben een stekende zuigsnuit om de huid van hun gastheer te doorboren, waarna ze bloed kunnen opzuigen.<br>In het bloed kunnen de volgende processen plaatsvinden:</p><p class="regels"><span>1</span>activatie van T-lymfocyten<br><span>2</span>antistofproductie<br><span>3</span>migratie van macrofagen</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Worden deze processen in gang gezet onmiddellijk na het doorboren van de huid van de gastheer? Schrijf de nummers 1, 2 en 3 onder elkaar en noteer erachter of het betreffende proces <u>wel</u> of <u>niet</u> onmiddellijk in gang gezet wordt.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Een wond in de huid. Welke afweer reageert meteen?",opts:["de aspecifieke afweer: o.a. macrofagen trekken naar de plek","de specifieke afweer: T- en B-cellen"],right:0,
+    ok:"Ja. Waarom duurt het langer voordat T-cellen geactiveerd worden?",no:"Welke afweer is altijd paraat en hoeft niets eerst te herkennen?",
+    onDone:()=>choiceStep(think,{q:"Wat moet er gebeuren voordat T-helpercellen geactiveerd worden?",opts:["een APC moet een antigeen opnemen en presenteren (in een lymfeknoop): dat kost tijd","niets, ze zijn direct actief"],right:0,ok:"Klopt. En antistoffen komen pas na de activatie van B-cellen. Vul je antwoord in.",no:"T-cellen herkennen alleen gepresenteerde antigenen.",onDone:unlock})});
+  O1_sel(ans,{id:35,intro:"Kies per proces.",rows:[["1 activatie van T-lymfocyten",["wel","niet"],1],["2 antistofproductie",["wel","niet"],1],["3 migratie van macrofagen",["wel","niet"],0]],
+    score:v=>{const n=[1,1,0].filter((g,k)=>v[k]===g).length;return n===3?2:n===2?1:0;},uitkomst:"Correctievoorschrift: drie goed 2p · twee goed 1p · minder 0p.",
+    after:()=>waaromBtn(ans,textBox("<b>1 niet.</b> T-lymfocyten worden pas geactiveerd nadat een APC een antigeen heeft opgenomen en gepresenteerd. Dat kost tijd.<br><b>2 niet.</b> Antistoffen komen pas als B-cellen geactiveerd zijn en uitgegroeid tot plasmacellen: dagen later.<br><b>3 wel.</b> Bij beschadiging van weefsel komen meteen signaalstoffen vrij; macrofagen (aspecifieke afweer) <b>migreren direct</b> naar de plek."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 36 */
+Q.push({id:36,pts:1,t:"sleutelrol bij de immuunrespons",build(q){
+  pre(q,`<p>Om een immuunreactie van de gastheer tegen te gaan, spuit een teek altijd eerst wat speeksel bij de gastheer naar binnen. Een van de speekseleiwitten remt afweercellen die een sleutelrol spelen bij het opwekken van een immuunrespons bij de gastheer.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Welke afweercellen spelen deze sleutelrol?</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Met welke stap begint de specifieke immuunrespons?",opts:["een antigeen wordt opgenomen en aan T-helpercellen gepresenteerd","antistoffen worden gemaakt","geïnfecteerde cellen worden gedood"],right:0,
+    ok:"Ja. Welke cellen doen dat presenteren?",no:"Wat moet er gebeuren voordat T-helpercellen iets herkennen?",onDone:unlock});
+  mc(ans,{qid:36,pts:1,right:0,opts:["APC’s","B-lymfocyten","cytotoxische T-cellen","plasmacellen"],
+    onChecked:()=>waaromBtn(ans,textBox("Een immuunrespons begint met <b>antigeen-presenterende cellen (APC’s)</b>, zoals dendritische cellen in de huid. Ze nemen het antigeen op en presenteren het aan T-helpercellen, die daarna B-cellen en cytotoxische T-cellen activeren. Remt de teek de APC’s, dan komt de hele specifieke afweer moeilijk op gang. Het antwoord is <b>A</b>."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 37 */
+Q.push({id:37,pts:2,t:"direct of indirect aantonen",build(q){
+  pre(q,`<p>Gewoonlijk wordt een infectie met een bepaalde ziekteverwekker vastgesteld door een bloedonderzoek waarmee de aanwezigheid van de betreffende ziekteverwekker direct of indirect kan worden aangetoond.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Waarop wordt getest bij het direct aantonen van de ziekteverwekker? En waarop bij het indirect aantonen?</b>"));
+  q.append(el("div",{class:"tablewrap",style:"max-width:560px"},`<table class="data"><tr><th></th><th style="text-align:left">direct</th><th style="text-align:left">indirect</th></tr>${[["antigenen van ziekteverwekker","antistoffen tegen ziekteverwekker"],["antigenen van ziekteverwekker","DNA van ziekteverwekker"],["antistoffen tegen ziekteverwekker","antigenen van ziekteverwekker"],["antistoffen tegen ziekteverwekker","DNA van ziekteverwekker"]].map(([a,b],k)=>`<tr><td><b>${"ABCD"[k]}</b></td><td style="text-align:left">${a}</td><td style="text-align:left">${b}</td></tr>`).join("")}</table>`));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Welke van deze moleculen komt van de ziekteverwekker zelf?",opts:["antigenen (en DNA) van de ziekteverwekker","antistoffen"],right:0,
+    ok:"Ja: die test je bij ‘direct’. Wie maakt de antistoffen?",no:"Antistoffen worden gemaakt door plasmacellen.",
+    onDone:()=>choiceStep(think,{q:"Antistoffen tegen de ziekteverwekker zijn gemaakt door …",opts:["het afweersysteem van de patiënt: een spoor van de infectie (indirect)","de ziekteverwekker"],right:0,ok:"Klopt. Kies je antwoord.",no:"Antistoffen zijn het antwoord van jouw lichaam op het antigeen.",onDone:unlock})});
+  mc(ans,{qid:37,pts:2,right:0,opts:["antigenen · antistoffen","antigenen · DNA","antistoffen · antigenen","antistoffen · DNA"],
+    onChecked:()=>waaromBtn(ans,textBox("<b>Direct</b> aantonen = iets van de ziekteverwekker zelf vinden, zoals zijn <b>antigenen</b> (of DNA). <b>Indirect</b> aantonen = de reactie van het lichaam vinden: <b>antistoffen</b> tegen de ziekteverwekker. DNA van de ziekteverwekker is ook direct, dus B en D vallen af. Het antwoord is <b>A</b>."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 38 */
+Q.push({id:38,pts:2,t:"nematode en bacteriën",build(q){
+  pre(q,`<p>De enige preventieve maatregel tegen het krijgen van de ziekte van Lyme is het vermijden van een tekenbeet. Om het risico op tekenbeten te verkleinen moet het aantal teken verminderd worden.<br>Een mogelijke aanpak is het gebruik van nematoden, microscopisch kleine rondwormen, die bepaalde symbiotische bacteriën bij zich dragen. Wanneer de nematode een teek binnendringt, gaan deze bacteriën zich ten koste van de teek vermenigvuldigen. De nematode voedt zich vervolgens met deze bacteriën.<br>Naar aanleiding van deze gegevens wordt de volgende stelling gedaan:<br><i>De relatie tussen de nematode en de bacteriën die hij bij zich draagt, is mutualisme.</i></p>`);
+  q.append(el("p",{class:"qtext"},"<b>– Geef een argument dat deze stelling ondersteunt.<br>– Noteer welk ander type relatie tussen de nematode en de bacteriën ook van toepassing is.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  selectsStep(think,{uid:"q38h",q:"Wat heeft elke partij aan de relatie?",rows:[["de nematode",["voedsel: hij eet de bacteriën","niets"],0],["de bacteriën",["ze worden vervoerd en komen in een teek waar ze zich kunnen vermenigvuldigen","niets"],0]],
+    ok:"Beide hebben voordeel: dat past bij mutualisme. Maar wat doet de nematode met een deel van de bacteriën?",no:"Lees de tekst: ‘De nematode voedt zich vervolgens met deze bacteriën’.",
+    onDone:()=>choiceStep(think,{q:"Een dier eet een ander organisme op. Welk type relatie is dat?",opts:["predatie (voedselrelatie)","parasitisme","commensalisme"],right:0,ok:"Klopt. Schrijf nu je argument en de andere relatie op.",no:"Bij parasitisme leeft de één op of in de ander zonder hem op te eten.",onDone:unlock})});
+  openAnswer(ans,{id:38,pts:2,checks:["Een juist argument, bijvoorbeeld: <b>beide organismen hebben voordeel</b> van de relatie / de nematode kan zich voeden met de bacteriën en de bacteriën worden door de nematode verspreid.","<b>Predatie</b> / predator-prooirelatie / voedselrelatie."],
+    model:"Beide hebben voordeel: de nematode kan zich voeden met de bacteriën, en de bacteriën worden door de nematode in een teek gebracht waar ze zich kunnen vermenigvuldigen. Doordat de nematode de bacteriën opeet, is er ook sprake van predatie.",
+    valkuil:"Parasitisme noemen voor de relatie nematode–bacteriën. Parasitisme is er tussen de bacteriën en de <b>teek</b>; tussen nematode en bacteriën is het eten: predatie.",
+    after:()=>waaromBtn(ans,textBox("<b>Mutualisme:</b> beide partners hebben voordeel. De bacteriën worden door de nematode de teek in gebracht, waar ze zich vermenigvuldigen; de nematode krijgt voedsel.<br><b>Ook van toepassing:</b> de nematode <b>eet</b> de bacteriën op. Dat is een <b>predator-prooirelatie</b> (predatie)."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 39 */
+Q.push({id:39,pts:1,t:"lokschapen",build(q){
+  pre(q,`<p>Schapen worden wel tekenstofzuigers genoemd, omdat ze heel aantrekkelijk zijn voor teken zonder er zelf veel last van te hebben.<br>Onderzocht wordt of het inzetten van ‘lokschapen’ langs paden waar mensen lopen, een significante vermindering van het aantal teken kan opleveren.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Noteer een aanvullende handeling die nodig is om het aantal teken te verminderen bij het op deze manier inzetten van lokschapen.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"Een teek zuigt zich vol op het schaap en laat zich daarna vallen. Wat gebeurt er dan als je niets doet?",opts:["de teek vervelt of legt eitjes en zoekt een nieuwe gastheer: het aantal teken neemt niet af","de teek gaat dood"],right:0,
+    ok:"Precies. Het schaap is dan juist een gratis bloedmaaltijd. Wat moet er dus met de teken op het schaap gebeuren?",no:"Kijk naar afbeelding 1: na de bloedmaaltijd laten teken zich vallen en gaan verder met hun cyclus.",onDone:unlock});
+  openAnswer(ans,{id:39,pts:1,checks:["Een handeling waaruit blijkt dat de teken <b>niet de kans krijgen om in dat gebied weer een nieuwe gastheer op te zoeken</b>, bijvoorbeeld de schapen <b>insmeren met insecticide</b> / de teken op de schapen <b>dagelijks verwijderen</b>."],
+    model:"De schapen insmeren met een middel dat teken doodt, zodat alle teken die op het schaap kruipen doodgaan.",
+    valkuil:"Een handeling noemen die de teken alleen tijdelijk weghoudt (bv. de schapen verplaatsen). De teken moeten echt <b>uit de cyclus</b> verdwijnen.",
+    after:()=>waaromBtn(ans,textBox("Een lokschaap trekt veel teken aan. Maar als de teken zich volzuigen en weer laten vallen, hebben ze juist een bloedmaaltijd gehad en kunnen ze vervellen of eitjes leggen. Het aantal teken daalt alleen als je de aangelokte teken <b>doodt of verwijdert</b>, bijvoorbeeld door de schapen in te smeren met insecticide of de teken elke dag van de schapen te halen."))});
+  q.append(think,ans);
+}});
+
+OPG.push({nr:5,kort:"Teken en Lyme",titel:"Teken en de ziekte van Lyme",ids:[33,34,35,36,37,38,39],ctx:CTX5});
+
+
+/* ================= opgaven en navigatie ================= */
+OPG.sort((a,b)=>a.nr-b.nr);
+/* omzettingstabel normering vwo 2021 tijdvak 1: N-term 1.2, 66 punten (examenblad.nl); index = score */
+const NORM="N-term 1,2";
+const CIJFER=[1.0,1.3,1.5,1.6,1.7,1.9,2.0,2.2,2.3,2.4,2.6,2.7,2.8,3.0,3.1,3.2,3.4,3.5,3.7,3.8,3.9,4.1,4.2,4.3,4.5,4.6,4.7,4.9,5.0,5.2,5.3,5.4,5.6,5.7,5.8,6.0,6.1,6.2,6.4,6.5,6.7,6.8,6.9,7.1,7.2,7.3,7.5,7.6,7.7,7.9,8.0,8.2,8.3,8.4,8.6,8.7,8.8,9.0,9.1,9.2,9.4,9.5,9.7,9.8,9.9,9.9,10.0];
+const main=$("#main"),tabs=$("#tabs");let cur=1;const built={},nextBtns={};
+let curOpg=OPG.some(o=>o.nr===store.opg)?store.opg:1;
+const opg=()=>OPG.find(o=>o.nr===curOpg);
+const pts=o=>o.ids.reduce((s,i)=>s+Q.find(q=>q.id===i).pts,0);
+function reach(){const ids=opg().ids;if(store.vrij)return ids[ids.length-1];let k=0;while(k<ids.length-1&&store.scores[ids[k]]!==undefined)k++;return ids[k];}
+function renderTabs(){
+  tabs.innerHTML="";const r=reach();
+  opg().ids.forEach(id=>{const q=Q.find(x=>x.id===id);const locked=id>r;
+    const b=el("button",{class:(id===cur?"cur ":"")+(store.scores[id]!==undefined?"done":"")+(locked?" lock":""),"aria-label":"Vraag "+id+(locked?" (eerst vraag "+(id-1)+" maken)":""),title:locked?"Maak eerst vraag "+(id-1):""},id);
+    if(locked)b.disabled=true;else b.onclick=()=>open(id);tabs.append(b);});
+  const o=el("button",{class:"ov"+(cur==="ov"?" cur":"")},"Score");o.onclick=()=>open("ov");tabs.append(o);
+}
+function open(id){
+  if(id!=="ov"&&id>reach())id=reach();
+  cur=id;renderTabs();main.innerHTML="";
+  if(id==="ov"){main.append(overview());return;}
+  if(!built[id]){const q=Q.find(x=>x.id===id);const sec=el("article",{class:"q"});
+    q.build(sec);
+    const pap=el("section",{class:"papier","aria-label":"Officiële examenvraag "+id});
+    pap.append(el("div",{class:"pkop"},`<span class="pnr"><span class="mono">Examenvraag</span><span class="nr">${id}</span></span><span class="mono">${q.pts} ${q.pts===1?"punt":"punten"}</span>`));
+    for(const c of [...sec.children]){if(c.classList.contains("phase")||c.tagName==="BUTTON")break;pap.append(c);}
+    pap.append(el("div",{class:"pvoet"},"Officiële examentekst · © CvTE"));
+    sec.prepend(pap);
+    const sb=window.EXSTOF&&EXSTOF.blok(TOOL,id);if(sb)pap.after(sb);
+    /* examenvraag nog eens boven de antwoorden (Kamiel 25 okt 2026: niet terug hoeven scrollen) */
+    const qt=[...pap.querySelectorAll(".qtext")].pop(),ansP=sec.querySelector(".phase.ans");
+    if(qt&&ansP){const h=el("div",{class:"herhaal papier"});h.append(el("div",{class:"hkop mono"},`Examenvraag ${id}`));
+      const c=qt.cloneNode(true);c.querySelectorAll("[id]").forEach(x=>x.removeAttribute("id"));h.append(c);
+      const lab=ansP.querySelector(":scope>.label");lab?lab.after(h):ansP.prepend(h);}
+    const ids=opg().ids,last=id===ids[ids.length-1];
+    const nx=el("div",{class:"row",style:"justify-content:flex-end"});const b=el("button",{class:"go"},last?"Naar je score ›":`Volgende vraag (${id+1}) ›`);
+    nextBtns[id]=b;b.hidden=!store.vrij&&store.scores[id]===undefined;
+    b.onclick=()=>{open(last?"ov":id+1);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};nx.append(b);sec.append(nx);built[id]=sec;}
+  main.append(built[id]);
+}
+function overview(){
+  const o=opg();const s=el("section",{class:"phase"});s.append(el("h2",{},`Jouw score op opgave ${o.nr}`));
+  let tot=0;const t=el("table",{class:"data ovtable"});t.innerHTML="<tr><th>vraag</th><th>onderwerp</th><th>score</th></tr>";
+  o.ids.forEach(id=>{const q=Q.find(x=>x.id===id);const p=store.scores[id];if(p!==undefined)tot+=p;t.innerHTML+=`<tr><td>${id}</td><td>${q.t}</td><td>${p===undefined?"–":p} / ${q.pts}</td></tr>`;});
+  const w=el("div",{class:"tablewrap"});w.append(t);s.append(w,el("div",{class:"score"},`Totaal opgave ${o.nr}: ${tot} / ${pts(o)}`));
+  let all=0,allMax=0;OPG.forEach(x=>{allMax+=pts(x);x.ids.forEach(id=>{if(store.scores[id]!==undefined)all+=store.scores[id];});});
+  const gemaakt=OPG.every(x=>x.ids.every(id=>store.scores[id]!==undefined));
+  const cf=CIJFER[Math.min(all,CIJFER.length-1)].toFixed(1).replace(".",",");
+  s.append(el("p",{style:"margin:0"},`Hele examen: <b>${all}</b> van ${allMax} punten · cijfer <b>${cf}</b>`+(gemaakt?"":` <span class="muted">(nog niet alles gemaakt: open vragen tellen als 0 punten)</span>`)));
+  s.append(el("p",{class:"muted",style:"margin:0;font-size:14px"},`Cijfer volgens de officiële omzettingstabel van dit examen (${NORM}, examenblad.nl).`));
+  const nextO=OPG.find(x=>x.nr===o.nr+1);
+  const row=el("div",{class:"row"});
+  if(nextO){const nb=el("button",{class:"go"},`Naar opgave ${nextO.nr}: ${nextO.kort} ›`);nb.onclick=()=>{setOpg(nextO.nr);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};row.append(nb);}
+  const r=el("button",{class:"ghost"},`Opgave ${o.nr} opnieuw`);r.onclick=()=>{o.ids.forEach(id=>{delete store.scores[id];delete built[id];delete nextBtns[id];});save();open(o.ids[0]);};row.append(r);
+  s.append(row);return s;
+}
+function renderOpgs(){const box=$("#opgs");box.innerHTML="";
+  OPG.forEach(o=>{const b=el("button",{"aria-pressed":o.nr===curOpg?"true":"false"},`${o.nr} · ${o.kort}`);b.onclick=()=>setOpg(o.nr);box.append(b);});}
+function setOpg(n){curOpg=n;store.opg=n;save();const o=opg();
+  $("#eb").textContent=`Examen vwo 2021 · tijdvak 1 · opgave ${o.nr}`;$("#h1").textContent=o.titel;
+  $("#sub").textContent=`vraag ${o.ids[0]} t/m ${o.ids[o.ids.length-1]} · ${pts(o)} punten`;
+  $("#ctx").innerHTML=o.ctx;renderOpgs();open(reach());}
+function setVrij(v){store.vrij=v;save();$("#vrij").setAttribute("aria-pressed",v?"true":"false");
+  for(const k in nextBtns)nextBtns[k].hidden=!v&&store.scores[k]===undefined;renderTabs();}
+$("#vrij").onclick=()=>setVrij(!store.vrij);setVrij(!!store.vrij);
+EXSTAND.init({store,save,setVrij});
+setOpg(curOpg);
+})();
+
+</script>
+</body>
+</html>

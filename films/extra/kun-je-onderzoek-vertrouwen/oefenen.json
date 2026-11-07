@@ -1,0 +1,82 @@
+{
+ "intro": "Oefen met de chi-kwadraattoets uit de film. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "puzzel-gele-muizen",
+   "soort": "puzzel",
+   "titel": "Chi-kwadraat: de gele muizen",
+   "opdracht": "Twee gele muizen krijgen samen 80 gele en 40 niet-gele jongen. Past dat bij 3 : 1? Doe de chi-kwadraattoets met grenswaarde 3,84.",
+   "stappen": [
+    {
+     "vraag": "Hoeveel jongen verwacht je bij 3 : 1?",
+     "velden": [
+      {
+       "label": "geel:",
+       "antwoord": 90
+      },
+      {
+       "label": "niet-geel:",
+       "antwoord": 30
+      }
+     ],
+     "uitleg": "Er zijn 120 jongen. Drie kwart is 90 geel, een kwart is 30 niet-geel.",
+     "tip": "Tel eerst alle jongen op."
+    },
+    {
+     "vraag": "Bereken per groep (waargenomen − verwacht)² gedeeld door verwacht.",
+     "velden": [
+      {
+       "label": "geel:",
+       "antwoord": 1.11,
+       "marge": 0.02
+      },
+      {
+       "label": "niet-geel:",
+       "antwoord": 3.33,
+       "marge": 0.02
+      }
+     ],
+     "uitleg": "Geel: (80 − 90)² / 90 = 100 / 90 = 1,11. Niet-geel: (40 − 30)² / 30 = 100 / 30 = 3,33.",
+     "tip": "Kwadrateer het verschil en deel door het verwachte aantal van die groep."
+    },
+    {
+     "vraag": "Hoe groot is χ²?",
+     "velden": [
+      {
+       "label": "χ² =",
+       "antwoord": 4.44,
+       "marge": 0.05
+      }
+     ],
+     "uitleg": "1,11 + 3,33 = 4,44."
+    },
+    {
+     "vraag": "Wat concludeer je?",
+     "velden": [
+      {
+       "label": "conclusie:",
+       "antwoord": "3 : 1 wordt verworpen",
+       "opties": [
+        "3 : 1 wordt verworpen",
+        "het past bij 3 : 1"
+       ]
+      }
+     ],
+     "uitleg": "4,44 is groter dan 3,84. De afwijking is significant: zo'n grote afwijking krijg je bijna nooit door toeval."
+    },
+    {
+     "vraag": "Reken nu met 2 : 1. Hoe groot is χ² dan?",
+     "velden": [
+      {
+       "label": "χ² =",
+       "antwoord": 0,
+       "marge": 0.01
+      }
+     ],
+     "uitleg": "Bij 2 : 1 verwacht je 80 geel en 40 niet-geel: precies wat er is. χ² = 0, dus 2 : 1 past veel beter. Een verklaring: muizen die homozygoot geel zijn, overleven niet.",
+     "tip": "Twee derde van 120 is geel."
+    }
+   ]
+  }
+ ]
+}

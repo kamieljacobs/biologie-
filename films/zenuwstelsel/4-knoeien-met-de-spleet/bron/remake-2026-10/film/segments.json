@@ -1,0 +1,180 @@
+[
+ {
+  "id": "s01",
+  "kind": "speech",
+  "chapter": "Cold open",
+  "level": "basis",
+  "display": "Ochtend. Koffie. Na een kwartier ben je wakker. Avond. Een glas wijn. Na een kwartier ben je losser, en trager. Twee drankjes, twee tegengestelde effecten. En allebei doen ze hetzelfde: ze knoeien met de spleet uit de vorige film. Hoe kan dezelfde spleet zo verschillend reageren?",
+  "voice": "Ochtend. Koffie. Na een kwartier ben je wakker. Avond. Een glas wijn. Na een kwartier ben je losser, en trager. Twee drankjes, twee tegengestelde effecten. En allebei doen ze hetzelfde: ze knoeien met de spleet uit de vorige film. Hoe kan dezelfde spleet zo verschillend reageren?"
+ },
+ {
+  "id": "s02",
+  "kind": "title",
+  "chapter": "Titel",
+  "level": "basis",
+  "text": "Knoeien met de synaps."
+ },
+ {
+  "id": "s03",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 1 — Vier plekken",
+  "level": "basis",
+  "display": "Een stof komt in je bloed en verandert hoe je je voelt. Op hoeveel plekken in een synaps kan zo'n stof ingrijpen? Op één plek: de receptor? Op twee plekken: afgifte en receptor? Of op meer dan twee? Wat denk je?",
+  "voice": "Een stof komt in je bloed en verandert hoe je je voelt. Op hoeveel plekken in een synaps kan zo'n stof ingrijpen? Op één plek: de receptor? Op twee plekken: afgifte en receptor? Of op meer dan twee? Wat denk je?"
+ },
+ {
+  "id": "q04",
+  "kind": "question",
+  "chapter": "Hoofdstuk 1 — Vier plekken",
+  "level": "basis",
+  "options": [
+   "op één plek: de receptor",
+   "op twee plekken: afgifte en receptor",
+   "op meer dan twee plekken"
+  ]
+ },
+ {
+  "id": "s05",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 1 — Vier plekken",
+  "level": "basis",
+  "display": "Hier is de synaps weer. Een stof kan op vier plekken ingrijpen. Eén: bij de afgifte. Meer of minder blaasjes die leeglopen. Twee: op de receptor. Een stof die precies de vorm van de neurotransmitter heeft, past in de receptor en zet hem aan. Dat heet een agonist. Een stof die wel past maar niets doet, zit de echte neurotransmitter in de weg. Dat heet een antagonist: een blokkade. Drie: bij het opruimen. Rem de heropname of het enzym, en de stof blijft langer in de spleet. Vier: bij de aanmaak. Meer grondstof, meer neurotransmitter. Onthoud deze kaart. Elke stof in deze film krijgt er een plek op.",
+  "voice": "Hier is de synaps weer. Een stof kan op vier plekken ingrijpen. Eén: bij de afgifte. Meer of minder blaasjes die leeglopen. Twee: op de receptor. Een stof die precies de vorm van de neurotransmitter heeft, past in de receptor en zet hem aan. Dat heet een agonist. Een stof die wel past maar niets doet, zit de echte neurotransmitter in de weg. Dat heet een antagonist: een blokkade. Drie: bij het opruimen. Rem de heropname of het enzym, en de stof blijft langer in de spleet. Vier: bij de aanmaak. Meer grondstof, meer neurotransmitter. Onthoud deze kaart. Elke stof in deze film krijgt er een plek op."
+ },
+ {
+  "id": "s06",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 2 — Koffie",
+  "level": "basis",
+  "display": "Hoe maakt cafeïne je wakker? Cafeïne geeft je cellen energie? Cafeïne blokkeert een stof die je slaperig maakt? Of cafeïne laat je hart direct sneller kloppen? Wat denk je?",
+  "voice": "Hoe maakt cafeïne je wakker? Cafeïne geeft je cellen energie? Cafeïne blokkeert een stof die je slaperig maakt? Of cafeïne laat je hart direct sneller kloppen? Wat denk je?"
+ },
+ {
+  "id": "q07",
+  "kind": "question",
+  "chapter": "Hoofdstuk 2 — Koffie",
+  "level": "basis",
+  "options": [
+   "cafeïne geeft je cellen energie",
+   "cafeïne blokkeert een stof die je slaperig maakt",
+   "cafeïne laat je hart direct sneller kloppen"
+  ]
+ },
+ {
+  "id": "s08",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 2 — Koffie",
+  "level": "basis",
+  "display": "In je hersenen zit een stof die zich overdag ophoopt: adenosine. Hoe langer je wakker bent, hoe meer adenosine. Adenosine past in zijn eigen receptor en remt zenuwcellen. Dat is je slaapdruk. Cafeïne lijkt op adenosine. Het past in dezelfde receptor, maar zet hem niet aan. Het zit alleen in de weg. Cafeïne is een antagonist. De rem valt weg, en je voelt je wakker. Maar de adenosine is er nog steeds. Hij wacht. Na een paar uur is de cafeïne afgebroken, en komt alles tegelijk binnen. Dat is de dip. Cafeïne geeft geen energie. Het verbergt je vermoeidheid.",
+  "voice": "In je hersenen zit een stof die zich overdag ophoopt: adenosine. Hoe langer je wakker bent, hoe meer adenosine. Adenosine past in zijn eigen receptor en remt zenuwcellen. Dat is je slaapdruk. Cafeïne lijkt op adenosine. Het past in dezelfde receptor, maar zet hem niet aan. Het zit alleen in de weg. Cafeïne is een antagonist. De rem valt weg, en je voelt je wakker. Maar de adenosine is er nog steeds. Hij wacht. Na een paar uur is de cafeïne afgebroken, en komt alles tegelijk binnen. Dat is de dip. Cafeïne geeft geen energie. Het verbergt je vermoeidheid."
+ },
+ {
+  "id": "s09",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 3 — Wijn",
+  "level": "basis",
+  "display": "Alcohol werkt anders. Het grijpt niet op één soort synaps in, maar op twee. De eerste gebruikt GABA, de belangrijkste remmende neurotransmitter van je hersenen. Alcohol maakt die receptor gevoeliger: de rem werkt harder. De tweede gebruikt glutamaat, de belangrijkste exciterende neurotransmitter. Die receptor remt alcohol juist af: het gas werkt minder. Meer rem, minder gas. Het hele netwerk wordt trager. Je reageert langzamer, je praat met dubbele tong, je bewaart minder herinneringen aan de avond.",
+  "voice": "Alcohol werkt anders. Het grijpt niet op één soort synaps in, maar op twee. De eerste gebruikt GABA, de belangrijkste remmende neurotransmitter van je hersenen. Alcohol maakt die receptor gevoeliger: de rem werkt harder. De tweede gebruikt glutamaat, de belangrijkste exciterende neurotransmitter. Die receptor remt alcohol juist af: het gas werkt minder. Meer rem, minder gas. Het hele netwerk wordt trager. Je reageert langzamer, je praat met dubbele tong, je bewaart minder herinneringen aan de avond."
+ },
+ {
+  "id": "s10",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 3 — Wijn",
+  "level": "basis",
+  "display": "Alcohol remt je hersenen. Waarom word je dan na één glas eerst juist losser en spraakzamer? Omdat een beetje alcohol opwekkend werkt? Omdat eerst de cellen worden geremd die jou afremmen? Of omdat je het verwacht? Wat denk je?",
+  "voice": "Alcohol remt je hersenen. Waarom word je dan na één glas eerst juist losser en spraakzamer? Omdat een beetje alcohol opwekkend werkt? Omdat eerst de cellen worden geremd die jou afremmen? Of omdat je het verwacht? Wat denk je?"
+ },
+ {
+  "id": "q11",
+  "kind": "question",
+  "chapter": "Hoofdstuk 3 — Wijn",
+  "level": "basis",
+  "options": [
+   "een beetje alcohol werkt opwekkend",
+   "eerst worden de cellen geremd die jou afremmen",
+   "omdat je het verwacht"
+  ]
+ },
+ {
+  "id": "s12",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 3 — Wijn",
+  "level": "basis",
+  "display": "Een deel van je hersenen is er om je af te remmen: niet alles zeggen, niet alles doen. Die cellen zijn als eerste gevoelig voor alcohol. De rem op de rem valt weg. Daarom word je eerst losser. Pas bij meer alcohol remt de rest ook af, en wordt alles traag. Alcohol is dus geen gas. Het is overal rem, en de volgorde bepaalt wat je merkt.",
+  "voice": "Een deel van je hersenen is er om je af te remmen: niet alles zeggen, niet alles doen. Die cellen zijn als eerste gevoelig voor alcohol. De rem op de rem valt weg. Daarom word je eerst losser. Pas bij meer alcohol remt de rest ook af, en wordt alles traag. Alcohol is dus geen gas. Het is overal rem, en de volgorde bepaalt wat je merkt."
+ },
+ {
+  "id": "s13",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 4 — Medicijnen",
+  "level": "basis",
+  "display": "Een antidepressivum van het type SSRI remt de heropname van serotonine. Wat gebeurt er dan in de spleet? Er komt meer serotonine bij? De serotonine blijft langer in de spleet hangen? Of de receptoren worden gevoeliger? Wat denk je?",
+  "voice": "Een antidepressivum van het type SSRI remt de heropname van serotonine. Wat gebeurt er dan in de spleet? Er komt meer serotonine bij? De serotonine blijft langer in de spleet hangen? Of de receptoren worden gevoeliger? Wat denk je?"
+ },
+ {
+  "id": "q14",
+  "kind": "question",
+  "chapter": "Hoofdstuk 4 — Medicijnen",
+  "level": "basis",
+  "options": [
+   "er komt meer serotonine bij",
+   "de serotonine blijft langer in de spleet hangen",
+   "de receptoren worden gevoeliger"
+  ]
+ },
+ {
+  "id": "s15",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 4 — Medicijnen",
+  "level": "basis",
+  "display": "Terug naar de kaart. Nicotine: een agonist. Het past in een receptor voor acetylcholine en zet hem aan. Binnen een paar seconden na een trek zit het in je hersenen. SSRI's: een rem op het opruimen. De heropname van serotonine wordt geblokkeerd, dus de stof blijft langer in de spleet. Dat is wat er in de synaps gebeurt, en dat is zeker. Waardoor een depressie ontstaat, is minder zeker. Het is in elk geval niet simpelweg een tekort aan één stof. En het medicijn werkt pas na weken, terwijl de heropname al na een uur geremd is. Er verandert dus meer in de hersenen dan de hoeveelheid stof in de spleet. Levodopa: ingrijpen bij de aanmaak. Bij de ziekte van Parkinson sterven zenuwcellen af die dopamine maken. Dopamine zelf komt niet in de hersenen; levodopa wel. Daar wordt het omgezet in dopamine. Meer grondstof, meer neurotransmitter. Drie medicijnen, drie plekken op de kaart.",
+  "voice": "Terug naar de kaart. Nicotine: een agonist. Het past in een reseptor voor acetylcholine en zet hem aan. Binnen een paar seconden na een trek zit het in je hersenen. SSRI's: een rem op het opruimen. De heropname van serotonine wordt geblokkeerd, dus de stof blijft langer in de spleet. Dat is wat er in de synaps gebeurt, en dat is zeker. Waardoor een depressie ontstaat, is minder zeker. Het is in elk geval niet simpelweg een tekort aan één stof. En het medicijn werkt pas na weken, terwijl de heropname al na een uur geremd is. Er verandert dus meer in de hersenen dan de hoeveelheid stof in de spleet. Levodopa: ingrijpen bij de aanmaak. Bij de ziekte van Parkinson sterven zenuwcellen af die dopamine maken. Dopamine zelf komt niet in de hersenen; levodopa wel. Daar wordt het omgezet in dopamine. Meer grondstof, meer neurotransmitter. Drie medicijnen, drie plekken op de kaart."
+ },
+ {
+  "id": "s16",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 5 — Gewenning en verslaving",
+  "level": "basis",
+  "display": "Een zenuwcel krijgt wekenlang veel meer signaal dan normaal, bijvoorbeeld door een stof. Wat doet die cel? Niets, hij vuurt gewoon vaker? Hij maakt minder receptoren, zodat het signaal weer normaal wordt? Of hij raakt beschadigd? Wat denk je?",
+  "voice": "Een zenuwcel krijgt wekenlang veel meer signaal dan normaal, bijvoorbeeld door een stof. Wat doet die cel? Niets, hij vuurt gewoon vaker? Hij maakt minder receptoren, zodat het signaal weer normaal wordt? Of hij raakt beschadigd? Wat denk je?"
+ },
+ {
+  "id": "q17",
+  "kind": "question",
+  "chapter": "Hoofdstuk 5 — Gewenning en verslaving",
+  "level": "basis",
+  "options": [
+   "niets, hij vuurt gewoon vaker",
+   "hij maakt minder receptoren, zodat het signaal weer normaal wordt",
+   "hij raakt beschadigd"
+  ]
+ },
+ {
+  "id": "s18",
+  "kind": "speech",
+  "chapter": "Hoofdstuk 5 — Gewenning en verslaving",
+  "level": "basis",
+  "display": "Een zenuwcel houdt van normaal. Krijgt hij te veel signaal, dan haalt hij receptoren weg of maakt ze minder gevoelig. Het effect van de stof wordt kleiner. Dat heet gewenning, of tolerantie. Je hebt meer nodig voor hetzelfde. Stop je nu, dan is er ineens te weinig signaal: te weinig receptoren voor de gewone hoeveelheid stof. Dat is ontwenning. Hoofdpijn zonder koffie, trillen zonder alcohol. Er is nog iets. Veel stoffen laten dopamine vrijkomen in een deel van je hersenen dat beloont: dit was goed, doe het nog eens. Dat systeem is er voor eten en gezelschap. Een stof kan het sterker aanzetten dan het gewone leven. Dan gaat het verlangen voor het effect uit, ook als het effect allang weg is. Dat is verslaving. Geen zwakke wil, maar een synaps die zich heeft aangepast.",
+  "voice": "Een zenuwcel houdt van normaal. Krijgt hij te veel signaal, dan haalt hij receptoren weg of maakt ze minder gevoelig. Het effect van de stof wordt kleiner. Dat heet gewenning, of tolerantie. Je hebt meer nodig voor hetzelfde. Stop je nu, dan is er ineens te weinig signaal: te weinig receptoren voor de gewone hoeveelheid stof. Dat is ontwenning. Hoofdpijn zonder koffie, trillen zonder alcohol. Er is nog iets. Veel stoffen laten dopamine vrijkomen in een deel van je hersenen dat beloont: dit was goed, doe het nog eens. Dat systeem is er voor eten en gezelschap. Een stof kan het sterker aanzetten dan het gewone leven. Dan gaat het verlangen voor het effect uit, ook als het effect allang weg is. Dat is verslaving. Geen zwakke wil, maar een synaps die zich heeft aangepast."
+ },
+ {
+  "id": "s19",
+  "kind": "speech",
+  "chapter": "Samenvatting",
+  "level": "basis",
+  "display": "Terug naar de koffie en de wijn. Vier plekken in de synaps: afgifte, receptor, opruimen, aanmaak. Cafeïne blokkeert de rem van adenosine. Alcohol versterkt de rem en verzwakt het gas. Nicotine zet een receptor aan. Een SSRI houdt serotonine in de spleet. Levodopa levert grondstof voor dopamine. En elke cel past zich aan: gewenning, ontwenning, verlangen. Dezelfde spleet, en toch elke keer een ander effect. Het hangt af van waar je knoeit.",
+  "voice": "Terug naar de koffie en de wijn. Vier plekken in de synaps: afgifte, receptor, opruimen, aanmaak. Cafeïne blokkeert de rem van adenosine. Alcohol versterkt de rem en verzwakt het gas. Nicotine zet een receptor aan. Een SSRI houdt serotonine in de spleet. Levodopa levert grondstof voor dopamine. En elke cel past zich aan: gewenning, ontwenning, verlangen. Dezelfde spleet, en toch elke keer een ander effect. Het hangt af van waar je knoeit."
+ },
+ {
+  "id": "s20",
+  "kind": "card",
+  "chapter": "Eindkaart",
+  "level": "basis",
+  "lines": [
+   "Een stof grijpt in op één van vier plekken: afgifte, receptor, opruimen, aanmaak.",
+   "Agonist zet een receptor aan, antagonist blokkeert hem.",
+   "Een cel past zich aan: gewenning, ontwenning, verlangen.",
+   "Volgende film: Het hoofdkantoor."
+  ]
+ }
+]

@@ -1,0 +1,3 @@
+- Sarcomeer: van Z-lijn tot Z-lijn (± 2,0–2,5 µm); dunne draden (actine) vanaf elke Z-lijn, dikke draden (myosine) in het midden met koppen die naar de Z-lijnen wijzen en een kale zone in het midden.
+- Bij samentrekken schuiven de draden langs elkaar; de draden zelf blijven even lang.
+- Myofibril: een rij sarcomeren, herkenbaar aan donkere A-banden en lichte I-banden met Z-lijnen.

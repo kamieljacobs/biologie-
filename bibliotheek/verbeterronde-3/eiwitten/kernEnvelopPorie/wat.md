@@ -1,0 +1,1 @@
+De porie-complexen zijn per kant een kort kettinkje kralen dwars door de envelop; de draadjes naar het cytoplasma en het mandje naar binnen zijn rijtjes kleine kralen (alleen groot). Kleur grijsblauw (eiwit) in plaats van lila. Envelop, chromatine, nucleolus, ribosomen, mRNA en ankerpunten ongewijzigd.

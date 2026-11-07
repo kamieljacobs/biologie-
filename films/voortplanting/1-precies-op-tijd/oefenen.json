@@ -1,0 +1,389 @@
+{
+ "versie": 1,
+ "film": "films/voortplanting/1-precies-op-tijd.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-bevruchting",
+   "soort": "volgorde",
+   "titel": "Van bevruchting tot hCG",
+   "opdracht": "Zet de gebeurtenissen vanaf de bevruchting in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Een zaadcel bindt aan de zona pellucida; de acrosoomreactie verteert een tunneltje.",
+     "uitleg": "Het acrosoom in de kop van de zaadcel opent zich, en enzymen verteren een smal tunneltje door de mantel."
+    },
+    {
+     "tekst": "De membranen versmelten en een calciumgolf start de corticale reactie: geen tweede zaadcel meer.",
+     "uitleg": "De corticale korrels lozen enzymen die de zona veranderen. Twee zaadcellen zouden drie sets chromosomen geven."
+    },
+    {
+     "tekst": "De eicel maakt de tweede meiotische deling af: een zygote met 46 chromosomen.",
+     "uitleg": "Pas nu stoot de eicel het tweede poollichaampje af en komt het erfelijk materiaal van eicel en zaadcel samen."
+    },
+    {
+     "tekst": "Klievingsdelingen in de eileider: 2, 4, 8, 16 cellen, zonder groei.",
+     "uitleg": "Het embryo blijft even groot; de cellen worden kleiner. Het draait nog op het cytoplasma van de eicel."
+    },
+    {
+     "tekst": "Rond dag 5 is er een holle bal: de blastocyste, met trofoblast en binnenste celmassa.",
+     "uitleg": "De trofoblast wordt later het kindsdeel van de placenta, de binnenste celmassa het kind zelf."
+    },
+    {
+     "tekst": "Vanaf ongeveer dag 6 nestelt het embryo zich in het baarmoederslijmvlies.",
+     "uitleg": "De blastocyste kruipt uit de zona pellucida en de trofoblast groeit het slijmvlies in."
+    },
+    {
+     "tekst": "De trofoblast maakt hCG: het gele lichaam blijft progesteron maken en er komt geen menstruatie.",
+     "uitleg": "hCG lijkt op LH en bindt aan de LH-receptoren van het gele lichaam. Dit hCG meet een zwangerschapstest."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-cyclus",
+   "soort": "volgorde",
+   "titel": "Eén cyclus: van FSH tot menstruatie",
+   "opdracht": "Zet de stappen van de menstruatiecyclus in de goede volgorde (zonder bevruchting).",
+   "stappen": [
+    {
+     "tekst": "Het FSH stijgt een beetje; een groepje follikels begint te groeien.",
+     "uitleg": "Aan het begin van de cyclus valt de rem weg, waardoor de hypofyse meer FSH afgeeft."
+    },
+    {
+     "tekst": "De follikels maken oestrogeen; samen met inhibine remt dat het FSH.",
+     "uitleg": "Negatieve terugkoppeling: oestrogeen remt zijn eigen oorzaak. Oestrogeen laat ook het slijmvlies weer aangroeien."
+    },
+    {
+     "tekst": "Alleen de follikel met de meeste FSH-receptoren overleeft: de dominante follikel.",
+     "uitleg": "Bij weinig FSH sterven de andere follikels af. De koploper maakt de regels zelf strenger."
+    },
+    {
+     "tekst": "Het oestrogeen blijft ongeveer twee dagen hoog: positieve terugkoppeling geeft een LH-piek.",
+     "uitleg": "Bij een langdurig hoge spiegel slaat het effect om: oestrogeen stimuleert juist de afgifte van LH."
+    },
+    {
+     "tekst": "Ongeveer anderhalve dag na het begin van de LH-piek scheurt de follikel open: de eisprong.",
+     "uitleg": "De eicel maakt de eerste meiotische deling af en stopt opnieuw, nu in metafase II."
+    },
+    {
+     "tekst": "De rest van de follikel wordt het gele lichaam en maakt vooral progesteron.",
+     "uitleg": "Progesteron maakt het slijmvlies klaar voor een embryo en remt (met oestrogeen) de hypofyse."
+    },
+    {
+     "tekst": "Geen embryo: na ongeveer twaalf dagen sterft het gele lichaam af, het slijmvlies wordt afgestoten en het FSH stijgt weer.",
+     "uitleg": "De progesteronspiegel zakt: menstruatie. Omdat de rem wegvalt, begint de cyclus opnieuw."
+    }
+   ]
+  },
+  {
+   "id": "schema-organen",
+   "soort": "schema",
+   "titel": "De weg van de eicel",
+   "opdracht": "Sleep de namen van de vrouwelijke voortplantingsorganen naar de goede vakjes (vooraanzicht).",
+   "alt": "Lijntekening in vooraanzicht van de baarmoeder met eileiders, eierstokken, baarmoederhals en vagina.",
+   "breed": 760,
+   "hoog": 420,
+   "vakbreed": 186,
+   "svg": "<path stroke-width=\"2.4\" d=\"M359 302 C359 285 358 272 352 260 C334 238 308 182 310 122 C306 100 454 100 450 122 C452 182 426 238 408 260 C402 272 401 285 401 302\"/><path class=\"acc\" stroke-width=\"5\" d=\"M332 134 C362 128 398 128 428 134 C418 176 400 220 384 248 L376 248 C360 220 342 176 332 134 Z\"/><path stroke-width=\"1.4\" class=\"zacht\" d=\"M380 250 L380 300\"/><path stroke-width=\"2.4\" d=\"M359 300 C357 340 353 372 350 400 M401 300 C403 340 407 372 410 400\"/><path stroke-width=\"2.2\" d=\"M312 128 C270 112 236 90 206 102 C186 110 175 128 180 146\"/><path stroke-width=\"1.6\" d=\"M182 142 L168 158 M182 142 L196 160 M168 158 l-4 9 M175 160 l-1 10 M183 161 l1 10 M190 161 l3 9 M196 160 l5 7\"/><path stroke-width=\"2.2\" d=\"M448 128 C490 112 524 90 554 102 C574 110 585 128 580 146\"/><path stroke-width=\"1.6\" d=\"M578 142 L592 158 M578 142 L564 160 M592 158 l4 9 M585 160 l1 10 M577 161 l-1 10 M570 161 l-3 9 M564 160 l-5 7\"/><ellipse cx=\"214\" cy=\"184\" rx=\"31\" ry=\"19\" stroke-width=\"2\"/><circle cx=\"204\" cy=\"181\" r=\"6\" stroke-width=\"1.2\"/><circle cx=\"224\" cy=\"189\" r=\"4\" stroke-width=\"1.2\"/><ellipse cx=\"546\" cy=\"184\" rx=\"31\" ry=\"19\" stroke-width=\"2\"/><circle cx=\"556\" cy=\"181\" r=\"6\" stroke-width=\"1.2\"/><circle cx=\"536\" cy=\"189\" r=\"4\" stroke-width=\"1.2\"/><path stroke-width=\"1\" class=\"zacht\" d=\"M244 180 C270 170 300 150 314 140 M516 180 C490 170 460 150 446 140\"/>",
+   "vakjes": [
+    {
+     "naam": "eileider",
+     "x": 96,
+     "y": 60,
+     "punt": [
+      240,
+      98
+     ],
+     "uitleg": "hier vindt de bevruchting plaats; trilharen en spiertjes brengen de zygote naar de baarmoeder."
+    },
+    {
+     "naam": "eierstok",
+     "x": 96,
+     "y": 250,
+     "punt": [
+      212,
+      194
+     ],
+     "uitleg": "hier rijpen de follikels met de eicellen; na de eisprong ontstaat hier het gele lichaam."
+    },
+    {
+     "naam": "baarmoederhals",
+     "x": 96,
+     "y": 340,
+     "punt": [
+      356,
+      280
+     ],
+     "uitleg": "nauwe opening van de baarmoeder; het slijm hier is een hindernis voor zaadcellen."
+    },
+    {
+     "naam": "baarmoeder",
+     "x": 664,
+     "y": 46,
+     "punt": [
+      440,
+      146
+     ],
+     "uitleg": "gespierd orgaan waarin het embryo zich innestelt en groeit."
+    },
+    {
+     "naam": "baarmoederslijmvlies",
+     "x": 664,
+     "y": 250,
+     "punt": [
+      414,
+      190
+     ],
+     "uitleg": "groeit aan onder invloed van oestrogeen en progesteron; wordt bij de menstruatie afgestoten."
+    },
+    {
+     "naam": "vagina",
+     "x": 664,
+     "y": 370,
+     "punt": [
+      408,
+      372
+     ],
+     "uitleg": "hier komen bij een zaadlozing de zaadcellen terecht; zuur milieu."
+    }
+   ]
+  },
+  {
+   "id": "schema-eicel",
+   "soort": "schema",
+   "titel": "Een zaadcel bij de eicel",
+   "opdracht": "Een zaadcel nadert de eicel. Sleep de namen naar de goede vakjes.",
+   "alt": "Lijntekening van een eicel met follikelcellen, zona pellucida, poollichaampje en corticale korrels, en een zaadcel met acrosoom.",
+   "breed": 700,
+   "hoog": 420,
+   "vakbreed": 160,
+   "svg": "<circle cx=\"461.4\" cy=\"302.1\" r=\"13\" stroke-width=\"1.5\"/><circle cx=\"433.7\" cy=\"335.2\" r=\"13\" stroke-width=\"1.5\"/><circle cx=\"397.9\" cy=\"359.3\" r=\"13\" stroke-width=\"1.5\"/><circle cx=\"356.9\" cy=\"372.6\" r=\"13\" stroke-width=\"1.5\"/><circle cx=\"313.8\" cy=\"374.2\" r=\"13\" stroke-width=\"1.5\"/><circle cx=\"271.9\" cy=\"363.7\" r=\"13\" stroke-width=\"1.5\"/><circle cx=\"234.6\" cy=\"342.1\" r=\"13\" stroke-width=\"1.5\"/><circle cx=\"204.6\" cy=\"311.1\" r=\"13\" stroke-width=\"1.5\"/><circle cx=\"184.3\" cy=\"273.0\" r=\"13\" stroke-width=\"1.5\"/><circle cx=\"175.4\" cy=\"230.8\" r=\"13\" stroke-width=\"1.5\"/><circle cx=\"178.4\" cy=\"187.8\" r=\"13\" stroke-width=\"1.5\"/><circle cx=\"193.1\" cy=\"147.2\" r=\"13\" stroke-width=\"1.5\"/><circle cx=\"218.5\" cy=\"112.3\" r=\"13\" stroke-width=\"1.5\"/><circle cx=\"252.5\" cy=\"85.8\" r=\"13\" stroke-width=\"1.5\"/><circle cx=\"292.5\" cy=\"69.6\" r=\"13\" stroke-width=\"1.5\"/><circle cx=\"335.4\" cy=\"65.1\" r=\"13\" stroke-width=\"1.5\"/><circle cx=\"377.9\" cy=\"72.6\" r=\"13\" stroke-width=\"1.5\"/><circle cx=\"416.7\" cy=\"91.5\" r=\"13\" stroke-width=\"1.5\"/><circle cx=\"448.7\" cy=\"120.4\" r=\"13\" stroke-width=\"1.5\"/><circle cx=\"330\" cy=\"220\" r=\"138\" stroke-width=\"2\"/><circle cx=\"330\" cy=\"220\" r=\"124\" stroke-width=\"1.4\"/><circle cx=\"330\" cy=\"220\" r=\"131\" stroke-width=\"10\" class=\"zacht\" opacity=\".18\"/><circle cx=\"330\" cy=\"220\" r=\"100\" stroke-width=\"2.4\"/><circle class=\"vulacc\" cx=\"417.1\" cy=\"232.2\" r=\"3.6\"/><circle class=\"vulacc\" cx=\"404.6\" cy=\"266.6\" r=\"3.6\"/><circle class=\"vulacc\" cx=\"379.2\" cy=\"293.0\" r=\"3.6\"/><circle class=\"vulacc\" cx=\"345.3\" cy=\"306.7\" r=\"3.6\"/><circle class=\"vulacc\" cx=\"308.7\" cy=\"305.4\" r=\"3.6\"/><circle class=\"vulacc\" cx=\"275.8\" cy=\"289.3\" r=\"3.6\"/><circle class=\"vulacc\" cx=\"252.3\" cy=\"261.3\" r=\"3.6\"/><circle class=\"vulacc\" cx=\"242.2\" cy=\"226.1\" r=\"3.6\"/><circle class=\"vulacc\" cx=\"247.3\" cy=\"189.9\" r=\"3.6\"/><circle class=\"vulacc\" cx=\"266.7\" cy=\"158.9\" r=\"3.6\"/><circle class=\"vulacc\" cx=\"297.0\" cy=\"138.4\" r=\"3.6\"/><circle class=\"vulacc\" cx=\"333.1\" cy=\"132.1\" r=\"3.6\"/><circle class=\"vulacc\" cx=\"368.6\" cy=\"140.9\" r=\"3.6\"/><circle class=\"vulacc\" cx=\"397.4\" cy=\"163.4\" r=\"3.6\"/><circle class=\"vulacc\" cx=\"414.6\" cy=\"195.7\" r=\"3.6\"/><path stroke-width=\"1\" class=\"zacht\" d=\"M304 220 Q330 194 356 220 Q330 246 304 220 M304 220 L356 220\"/><path stroke-width=\"3\" d=\"M328 208 v7 M333 217 v7 M328 226 v7\"/><circle cx=\"386.0\" cy=\"123.0\" r=\"10\" stroke-width=\"1.8\"/><ellipse cx=\"528\" cy=\"220\" rx=\"20\" ry=\"12\" stroke-width=\"2\"/><path class=\"acc\" stroke-width=\"4\" d=\"M520 209 C504 211 504 229 520 231\"/><path stroke-width=\"2\" d=\"M548 216 h18 v8 h-18\"/><path stroke-width=\"1.6\" d=\"M566 220 C580 206 592 234 606 220 C620 206 632 234 646 220 C660 206 672 234 686 220\"/><text x=\"330\" y=\"410\" text-anchor=\"middle\">eicel</text><text x=\"600\" y=\"262\" text-anchor=\"middle\">zaadcel</text>",
+   "vakjes": [
+    {
+     "naam": "follikelcellen",
+     "x": 92,
+     "y": 40,
+     "punt": [
+      220,
+      110
+     ],
+     "uitleg": "laag hulpcellen uit de follikel die nog om de eicel zit."
+    },
+    {
+     "naam": "corticale korrels",
+     "x": 92,
+     "y": 220,
+     "punt": [
+      242,
+      226
+     ],
+     "uitleg": "blaasjes vlak onder het membraan; na de calciumgolf veranderen hun enzymen de zona: geen tweede zaadcel."
+    },
+    {
+     "naam": "zona pellucida",
+     "x": 92,
+     "y": 390,
+     "punt": [
+      217,
+      286
+     ],
+     "uitleg": "stevige mantel van glycoproteïnen; hier bindt de zaadcel."
+    },
+    {
+     "naam": "poollichaampje",
+     "x": 608,
+     "y": 46,
+     "punt": [
+      386,
+      123
+     ],
+     "uitleg": "kleine cel uit de eerste meiotische deling, met een set chromosomen en bijna geen cytoplasma; sterft af."
+    },
+    {
+     "naam": "acrosoom",
+     "x": 608,
+     "y": 360,
+     "punt": [
+      508,
+      226
+     ],
+     "uitleg": "blaasje met enzymen in de kop van de zaadcel; bij binding aan de zona verteren ze een tunneltje."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-pil",
+   "soort": "uitleg",
+   "titel": "Drie dagen de pil vergeten",
+   "opdracht": "Een vrouw vergeet drie dagen haar pil. Leg aan een klasgenoot met terugkoppeling uit waarom ze toch een eisprong kan krijgen.",
+   "begrippen": [
+    {
+     "naam": "negatieve terugkoppeling",
+     "varianten": [
+      "remt de hypofyse",
+      "rem",
+      "remmen",
+      "remt"
+     ]
+    },
+    {
+     "naam": "hypofyse",
+     "varianten": [
+      "hypothalamus"
+     ]
+    },
+    {
+     "naam": "FSH",
+     "varianten": []
+    },
+    {
+     "naam": "follikel",
+     "varianten": []
+    },
+    {
+     "naam": "oestrogeen",
+     "varianten": [
+      "oestrogenen",
+      "estrogeen"
+     ]
+    },
+    {
+     "naam": "LH-piek",
+     "varianten": [
+      "LH piek",
+      "LH"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat de hormonen uit de pil normaal via negatieve terugkoppeling de hypofyse remmen (weinig FSH, geen LH-piek).",
+    "Ik leg uit dat de spiegels dalen als ze de pil vergeet, zodat de rem wegvalt.",
+    "Ik leg uit dat het FSH stijgt en er een follikel kan rijpen die oestrogeen maakt.",
+    "Ik leg uit dat een langdurig hoge oestrogeenspiegel de LH-piek uitlokt, en dat die de eisprong veroorzaakt."
+   ],
+   "model": [
+    "De pil bevat een oestrogeen en een progestageen. Die houden de spiegels in het bloed hoog genoeg om via negatieve terugkoppeling de hypofyse te remmen: er komt te weinig FSH om een follikel te laten rijpen, en de LH-piek blijft uit.",
+    "Vergeet ze de pil drie dagen, dan dalen de spiegels en valt de rem weg. De hypofyse geeft meer FSH af, en een follikel kan gaan rijpen. Die maakt steeds meer oestrogeen.",
+    "Blijft het oestrogeen lang genoeg hoog, dan slaat het effect om (positieve terugkoppeling): er volgt een LH-piek, en daarna de eisprong."
+   ]
+  },
+  {
+   "id": "uitleg-hcg",
+   "soort": "uitleg",
+   "titel": "Waarom het embryo hCG maakt",
+   "opdracht": "Leg aan een klasgenoot uit waarom een embryo hCG moet maken, en waarom een zwangerschapstest vier dagen na de bevruchting nog negatief kan zijn.",
+   "begrippen": [
+    {
+     "naam": "gele lichaam",
+     "varianten": [
+      "geel lichaam"
+     ]
+    },
+    {
+     "naam": "progesteron",
+     "varianten": []
+    },
+    {
+     "naam": "baarmoederslijmvlies",
+     "varianten": [
+      "slijmvlies"
+     ]
+    },
+    {
+     "naam": "menstruatie",
+     "varianten": [
+      "afgestoten",
+      "afstoten"
+     ]
+    },
+    {
+     "naam": "LH-receptor",
+     "varianten": [
+      "LH receptor",
+      "receptor",
+      "receptoren",
+      "lijkt op LH"
+     ]
+    },
+    {
+     "naam": "innesteling",
+     "varianten": [
+      "nestelt",
+      "innestelen",
+      "innestelt"
+     ]
+    },
+    {
+     "naam": "trofoblast",
+     "varianten": []
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat het gele lichaam zonder signaal na ongeveer twaalf dagen afsterft, waardoor progesteron daalt en het slijmvlies (met het embryo) wordt afgestoten.",
+    "Ik noem dat de trofoblast hCG maakt, dat op LH lijkt en aan de LH-receptoren van het gele lichaam bindt.",
+    "Ik leg uit dat het gele lichaam dan progesteron blijft maken, zodat het slijmvlies blijft zitten.",
+    "Ik leg uit dat hCG pas na de innesteling (vanaf ongeveer dag 6) in het bloed en de urine komt, dus dat een test op dag 4 nog niets meet."
+   ],
+   "model": [
+    "Het gele lichaam leeft maar ongeveer twaalf dagen. Sterft het af, dan daalt het progesteron en wordt het baarmoederslijmvlies afgestoten: de menstruatie, en het embryo gaat mee.",
+    "Daarom maakt de trofoblast van het embryo het hormoon hCG. Dat lijkt op LH en bindt aan de LH-receptoren van het gele lichaam. Het gele lichaam blijft leven en progesteron maken, en het slijmvlies blijft zitten.",
+    "Een zwangerschapstest meet hCG in de urine. Het embryo nestelt zich pas vanaf ongeveer dag 6 in, en pas daarna komt hCG in het bloed van de moeder. Op dag 4 is er dus nog geen hCG te meten: een negatieve test zegt dan nog niets."
+   ]
+  },
+  {
+   "id": "uitleg-bodybuilder",
+   "soort": "uitleg",
+   "titel": "Extra testosteron, minder zaadcellen",
+   "opdracht": "Een bodybuilder spuit extra testosteron. Leg aan een klasgenoot uit waarom hij daardoor minder zaadcellen gaat maken.",
+   "begrippen": [
+    {
+     "naam": "negatieve terugkoppeling",
+     "varianten": [
+      "remt",
+      "remmen",
+      "rem"
+     ]
+    },
+    {
+     "naam": "hypofyse",
+     "varianten": [
+      "hypothalamus"
+     ]
+    },
+    {
+     "naam": "LH",
+     "varianten": []
+    },
+    {
+     "naam": "FSH",
+     "varianten": []
+    },
+    {
+     "naam": "Leydigcellen",
+     "varianten": [
+      "Leydigcel",
+      "Leydig"
+     ]
+    },
+    {
+     "naam": "Sertolicellen",
+     "varianten": [
+      "Sertolicel",
+      "Sertoli"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat testosteron via negatieve terugkoppeling de hypothalamus en hypofyse remt.",
+    "Ik leg uit dat er daardoor minder LH (en FSH) komt.",
+    "Ik leg uit dat de Leydigcellen met minder LH zelf minder testosteron maken, zodat de concentratie in de zaadbal daalt.",
+    "Ik leg uit dat de Sertolicellen FSH en testosteron nodig hebben om zaadcellen te laten ontstaan, dus dat de zaadcelproductie daalt."
+   ],
+   "model": [
+    "Testosteron remt de hypothalamus en de hypofyse: negatieve terugkoppeling. Met het extra testosteron in zijn bloed geeft de hypofyse dus minder LH en FSH af.",
+    "Met weinig LH maken zijn Leydigcellen zelf nog maar weinig testosteron. Juist in de zaadbal zakt de testosteronconcentratie daardoor.",
+    "De Sertolicellen hebben FSH en een hoge concentratie testosteron nodig om de zaadcellen in wording te verzorgen. Beide zijn nu laag, dus hij maakt minder zaadcellen."
+   ]
+  }
+ ]
+}

@@ -1,0 +1,76 @@
+{
+ "slug": "2-monohybride-kruisingen",
+ "hoofdstuk": "erfelijkheid",
+ "hoofdstukNaam": "Erfelijkheid",
+ "title": "Monohybride kruisingen",
+ "sub": "P, F1, F2 en het kruisingsschema",
+ "puzzle": "Twee ouders met Aa: hoe groot is de kans op een kind met aa? En hoe zie je of een paarse plant een a draagt?",
+ "meta": "erfelijkheid 2/6",
+ "version": "2.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · reeks Erfelijkheid · film 2 van 6 · vorige: <a href=\"1-chromosomen.html\">Chromosomen</a> · volgende: <a href=\"3-voorbij-dominant-en-recessief.html\">Voorbij dominant en recessief</a>",
+ "lead": "Twee ouders zonder albinisme kunnen een kind met albinisme krijgen. Maar hoe groot is die kans? Met de erwtenproef van Gregor Mendel zie je wat P, F1 en F2 zijn, waarom de F1 met elkaar gekruist wordt en waarom er in de F2 drie op één uitkomt. Daarna het kruisingsschema, de productregel, een stappenplan en de terugkruising.",
+ "endHaak": "Is het altijd drie op één? In de volgende film: voorbij dominant en recessief.",
+ "minis": {
+  "Hoofdstuk 1": "Hoe kruiste Mendel twee erwtenplanten, en wat is de F1?",
+  "Hoofdstuk 2": "Hoe maak je de F2, en wat komt eruit?",
+  "Hoofdstuk 3": "Waarom precies drie op één?",
+  "Hoofdstuk 4": "Geeft het kruisingsschema aantallen of kansen?",
+  "Hoofdstuk 5": "Hoe los je elke kruisingsvraag op?",
+  "Hoofdstuk 6": "Hoe zie je of een paarse plant een a draagt?",
+  "Recap": "Hoe groot is de kans op aa bij twee ouders met Aa?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: gezin De Wit uit het castboek; Gregor Mendel als historische figuur. Stijl: Part C van de filmprompt (v13). Versie 2.0 · oktober 2026.",
+ "questions": {
+  "q13": {
+   "q": "Twee F1-planten (Aa) worden met elkaar gekruist. Hoe zien hun nakomelingen eruit, de F2?",
+   "correct": 2,
+   "explain": "In de F2 komt wit terug: ongeveer drie paars op één wit (Mendel telde 705 paars en 224 wit). Het allel a zat verborgen in de F1."
+  },
+  "q24": {
+   "q": "Je zaait vier zaden uit één F1-plant (Aa, zelfbestuiving). Hoeveel van die vier planten bloeien wit?",
+   "correct": 1,
+   "explain": "Elke bevruchting is toeval: de kans op wit is ¼ per zaad, maar bij vier zaden kan het nul, één, twee of meer zijn. Pas bij heel veel nakomelingen kom je dicht bij 3 : 1."
+  },
+  "q30": {
+   "q": "Een paarse plant wordt gekruist met een witte (aa). De helft van de nakomelingen bloeit paars, de helft wit. Welk genotype had de paarse plant?",
+   "correct": 0,
+   "explain": "Aa. Was de paarse plant AA, dan kreeg elk kind een A en was alles paars. Eén witte nakomeling bewijst al dat de paarse ouder een a had."
+  }
+ },
+ "glossary": [
+  {
+   "t": "P, F1 en F2",
+   "d": "P: de ouders (oudergeneratie). F1: hun nakomelingen. F2: de nakomelingen van de F1, onderling gekruist (bij erwten door zelfbestuiving, bij dieren broer × zus)."
+  },
+  {
+   "t": "raszuiver",
+   "d": "Geeft generatie na generatie dezelfde eigenschap: homozygoot (AA of aa)."
+  },
+  {
+   "t": "zelfbestuiving",
+   "d": "Stuifmeel komt op de stamper van dezelfde bloem. Een erwtenbloem doet dat al voordat ze opengaat."
+  },
+  {
+   "t": "monohybride kruising",
+   "d": "Kruising waarbij je op één eigenschap (één gen) let."
+  },
+  {
+   "t": "gameet",
+   "d": "Geslachtscel: krijgt van elk chromosoompaar één chromosoom, dus van elk gen één allel."
+  },
+  {
+   "t": "kruisingsschema",
+   "d": "Tabel met de gameten van de ene ouder boven en van de andere links; elk vakje is één mogelijke, even waarschijnlijke bevruchting."
+  },
+  {
+   "t": "productregel",
+   "d": "Kansen die allebei moeten gebeuren, vermenigvuldig je: ½ × ½ = ¼."
+  },
+  {
+   "t": "terugkruising",
+   "d": "Kruising met een homozygoot recessief individu (aa) om het genotype van een individu met het dominante fenotype te achterhalen."
+  }
+ ],
+ "sections": "<section><h2>Checkvragen</h2>\n  <p class=\"meta\">antwoorden ingeklapt</p>\n  <div class=\"q\"><p><b>1.</b> Wat zijn P, F1 en F2? Hoe kreeg Mendel de F2, en hoe doe je dat bij muizen?</p><details><summary>Antwoord</summary><p>P zijn de ouders, F1 hun nakomelingen, F2 de nakomelingen van de F1. Mendel liet de F1-erwten zichzelf bestuiven; bij muizen kruis je twee F1-muizen met elkaar (broer × zus), want een muis bevrucht zichzelf niet.</p></details></div>\n  <div class=\"q\"><p><b>2.</b> Een raszuivere paarse erwt (AA) wordt gekruist met een witte (aa). Welke genotypen en fenotypen heeft de F1?</p><details><summary>Antwoord</summary><p>Allemaal Aa (een A van de ene ouder, een a van de andere) en allemaal paars, want A is dominant.</p></details></div>\n  <div class=\"q\"><p><b>3.</b> Maak het kruisingsschema van Aa × Aa en geef de genotypen- en fenotypenverhouding.</p><details><summary>Antwoord</summary><p>Gameten A en a bij beide ouders. Vakjes: AA, Aa, Aa, aa. Genotypen 1 AA : 2 Aa : 1 aa; fenotypen 3 paars : 1 wit.</p></details></div>\n  <div class=\"q\"><p><b>4.</b> Leg met de productregel uit waarom de kans op aa bij Aa × Aa een kwart is.</p><details><summary>Antwoord</summary><p>Voor aa moet de gameet van de ene ouder a hebben (kans ½) én die van de andere ouder (kans ½). Kansen die allebei moeten gebeuren vermenigvuldig je: ½ × ½ = ¼.</p></details></div>\n  <div class=\"q\"><p><b>5.</b> Een paarse plant wordt gekruist met een witte. Van de 12 nakomelingen zijn er 12 paars. Is de paarse plant zeker AA?</p><details><summary>Antwoord</summary><p>Waarschijnlijk wel, maar niet zeker: bij Aa is de kans op 12 keer paars (½)¹² ≈ 1 op 4000. Eén witte nakomeling zou wél zeker bewijzen dat de paarse ouder Aa is.</p></details></div>\n  <div class=\"q\"><p><b>6.</b> Twee ouders met Aa hebben drie kinderen: AA, Aa en aa. Klopt dat met het kruisingsschema?</p><details><summary>Antwoord</summary><p>Ja. Het schema geeft kansen per kind (¼ AA, ½ Aa, ¼ aa), geen aantallen. Bij drie kinderen kan de verhouding sterk afwijken van 1 : 2 : 1.</p></details></div>\n</section>\n<section><h2>Voor de docent</h2>\n  <h3>Hoe de film het uitlegt</h3>\n  <table><tr><th>Hoofdstuk</th><th>Type · look</th><th>Kernbeeld</th></tr>\n  <tr><td>Opening</td><td>haak · Macro</td><td>het gezin uit Chromosomen (ouders Aa, kind aa): hoe groot is die kans? Mendel deed het met erwten</td></tr>\n  <tr><td>1. Van P naar F1</td><td>E · Macro → Schema</td><td>vlinderbloem met meeldraden en stamper in de kiel (zelfbestuiving); raszuivere planten; Mendel haalt de meeldraden weg en brengt ander stuifmeel op de stamper; generatieladder P → F1</td></tr>\n  <tr><td>2. De F2</td><td>E · Schema</td><td>de F1 bestuift zichzelf (lus op de ladder); F2 benoemd; bij muizen broer × zus; 929 planten, 705 : 224</td></tr>\n  <tr><td>3. Waarom drie op één?</td><td>E · Schema</td><td>een Aa-cel maakt gameten met A of a (kans ½); kruisingsschema met stuifmeel boven en eicellen links</td></tr>\n  <tr><td>4. Kansen, geen aantallen</td><td>E · Schema</td><td>productregel; simulatie van 400 bevruchtingen met vaste startwaarde (na 4: 2 paars, 2 wit)</td></tr>\n  <tr><td>5. Stappenplan</td><td>Schema</td><td>vier stappen voor elke kruisingsvraag</td></tr>\n  <tr><td>6. Terugkruising</td><td>E · Schema</td><td>A? × aa: alles paars of 1 : 1</td></tr>\n  <tr><td>Recap</td><td>Macro</td><td>terug bij het gezin: kans ¼ per kind; drie kinderen AA, Aa, aa</td></tr></table>\n  <h3>Misvattingen</h3>\n  <ul><li>'De F1 kruis je weer met de ouders' of 'kinderen kruis je niet met elkaar': in een kruisingsproef is de F2 juist de kruising F1 × F1 (erwt: zelfbestuiving; dier: broer × zus). Een fokker vermijdt die inteelt wel.</li>\n  <li>'Het allel voor wit is in de F1 verdwenen': het zit verborgen naast een A.</li>\n  <li>'Een mengkleur' (mengerfelijkheid): bij volledige dominantie krijg je geen lichtpaars.</li>\n  <li>'De vier vakjes zijn vier kinderen' / 'vier nakomelingen geven precies 3 : 1': het schema geeft kansen per bevruchting.</li></ul>\n  <h3>Getallen en bronnen</h3>\n  <table><tr><th>Wat</th><th>Waarde</th><th>Bron</th></tr>\n  <tr><td>Mendel, proef 3 (bloem- en zaadhuidkleur), F2</td><td>705 paars : 224 wit = 3,15 : 1</td><td>Mendel 1866; OpenStax Biology 12.1</td></tr>\n  <tr><td>Erwtenbloem</td><td>kroon 20–25 mm; vlag lila-paars, vleugels donker; peul 6–8 cm</td><td>Cretan Flora; JIRCAS</td></tr>\n  <tr><td>Albino muis</td><td>Tyr<sup>c</sup>: recessief allel van tyrosinase (zelfde enzym als in film 1)</td><td>MGI; Beermann e.a. 2004</td></tr>\n  <tr><td>Simulatie</td><td>400 willekeurige bevruchtingen, vaste startwaarde</td><td>model</td></tr></table>\n  <p>Alle beweringen met bronnen: <code>bron/bronnen.md</code>. Mendels witte allel is waarschijnlijk een mutatie in een splitsplaats van gen A, een bHLH-transcriptiefactor voor de bloemkleur (Hellens e.a. 2010).</p>\n  <h3>Keuzes en vereenvoudigingen</h3>\n  <ul><li>Meiose 'vereenvoudigd': bij een plant maakt de meiose eerst sporen; de zaadcel in de stuifmeelkorrel en de eicel ontstaan later door mitose en krijgen hetzelfde allel.</li>\n  <li>Mendel kruiste in beide richtingen; de film toont één richting (wit stuifmeel op een paarse bloem).</li>\n  <li>Muizen: zwart × albino geeft alleen zwarte F1 als de albinostam verder 'zwart' is (zoals de B6-albinostam); bij een andere achtergrond kan de F1 een andere kleur hebben.</li>\n  <li>Terugkruising = kruising met een homozygoot recessief individu (zoals in de methodes); in het Engels ook <i>testcross</i>. Strikt genomen is een backcross een kruising met een van de oudertypen.</li>\n  <li>Monohybride kruisingen zijn havo- én vwo-stof (syllabus M7.1, spec. 4); de film heeft één niveau.</li></ul>\n  <h3>Plaats in de reeks</h3>\n  <p>Na Chromosomen (gen, allel, dominant/recessief, gezin De Wit) en vóór Voorbij dominant en recessief (intermediair, codominant, multipele allelen). Het kruisingsschema heeft dezelfde indeling als de vooruitblik in Chromosomen: vader/stuifmeel boven, moeder/eicellen links.</p>\n  <h3>Lessuggesties</h3>\n  <ul><li>Muntproef: elk tweetal gooit twee munten (kop = A, munt = a) 40 keer; klassikaal optellen tot je dicht bij 1 : 2 : 1 komt.</li>\n  <li>Stappenplan oefenen met de Kruisingtrainer op de site.</li>\n  <li>Laat leerlingen voorspellen wat er gebeurt als je de F1 terugkruist met de witte ouder (1 : 1).</li></ul>\n</section>\n"
+}

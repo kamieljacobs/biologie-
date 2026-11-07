@@ -1,0 +1,2 @@
+- Zwangerschapstest (lateral flow): zuigstaafje, behuizing, venster met strook, test- en controlelijn.
+- Het vocht trekt als front door de strook; een roze waas loopt mee; de lijnen verschijnen pas als het front ze voorbij is.

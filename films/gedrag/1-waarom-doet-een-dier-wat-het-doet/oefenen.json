@@ -1,0 +1,217 @@
+{
+ "versie": 1,
+ "film": "films/gedrag/1-waarom-doet-een-dier-wat-het-doet.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "indelen-aangeboren-aangeleerd",
+   "soort": "indelen",
+   "titel": "Aangeboren of aangeleerd?",
+   "opdracht": "Hoeft het dier (of de mens) dit gedrag niet te leren, of ontstaat het door ervaring?",
+   "bakken": [
+    {
+     "naam": "Aangeboren",
+     "uitleg": "hoeft niet geleerd te worden, bij alle soortgenoten hetzelfde"
+    },
+    {
+     "naam": "Aangeleerd",
+     "uitleg": "ontstaat door ervaring"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Een stekelbaarsmannetje dat alleen is opgegroeid, valt toch fel rood aan.",
+     "bak": 0,
+     "uitleg": "Hij zag nooit een andere stekelbaars en doet het toch: aangeboren."
+    },
+    {
+     "tekst": "Een hond weet dat de riem \"wandelen\" betekent.",
+     "bak": 1,
+     "uitleg": "Dat heeft de hond door ervaring geleerd."
+    },
+    {
+     "tekst": "Jij kunt fietsen.",
+     "bak": 1,
+     "uitleg": "Fietsen moet je leren."
+    },
+    {
+     "tekst": "Een vink uit een geluiddichte kooi zingt een simpel liedje.",
+     "bak": 0,
+     "uitleg": "Hij hoorde nooit een andere vink en zingt toch: de aanleg is aangeboren."
+    },
+    {
+     "tekst": "Een vink zingt de mooie slotroffel van zijn lied.",
+     "bak": 1,
+     "uitleg": "De slotroffel leert hij alleen als hij in zijn eerste jaar volwassen vinken hoort."
+    },
+    {
+     "tekst": "Een baby gaapt al in de buik.",
+     "bak": 0,
+     "uitleg": "Dat doet het zonder het ooit gezien te hebben."
+    }
+   ]
+  },
+  {
+   "id": "indelen-vier-vragen",
+   "soort": "indelen",
+   "titel": "De vier vragen van Tinbergen",
+   "opdracht": "Bij elk gedrag kun je vier vragen stellen. Op welke vraag geeft elk kaartje antwoord?",
+   "bakken": [
+    {
+     "naam": "Oorzaak",
+     "uitleg": "hoe werkt het, nu, in het dier?"
+    },
+    {
+     "naam": "Ontwikkeling",
+     "uitleg": "hoe ontstaat het in zijn leven?"
+    },
+    {
+     "naam": "Functie",
+     "uitleg": "wat levert het op?"
+    },
+    {
+     "naam": "Evolutie",
+     "uitleg": "waar komt het vandaan?"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "De stekelbaars ziet rood aan de onderkant van een rivaal.",
+     "bak": 0,
+     "uitleg": "Een prikkel van buiten: dat is de oorzaak."
+    },
+    {
+     "tekst": "In het voorjaar maakt het mannetje veel testosteron.",
+     "bak": 0,
+     "uitleg": "Een hormoon van binnen speelt nu mee: ook oorzaak."
+    },
+    {
+     "tekst": "Het gedrag is aangeboren, en wordt met ervaring wat bijgesteld.",
+     "bak": 1,
+     "uitleg": "Dit gaat over hoe het gedrag in zijn leven ontstaat."
+    },
+    {
+     "tekst": "Meegapen met anderen begint pas als je een kleuter bent.",
+     "bak": 1,
+     "uitleg": "Wanneer gedrag in je leven verschijnt, is ontwikkeling."
+    },
+    {
+     "tekst": "Een mannetje dat rivalen wegjaagt, houdt zijn nest en krijgt meer jongen.",
+     "bak": 2,
+     "uitleg": "Wat het gedrag oplevert: de functie."
+    },
+    {
+     "tekst": "Sam: \"Hij valt aan om zijn nest te beschermen.\"",
+     "bak": 2,
+     "uitleg": "Sam noemt wat het oplevert. De vis zelf denkt dat niet."
+    },
+    {
+     "tekst": "Je vergelijkt het dreiggedrag van verwante vissoorten.",
+     "bak": 3,
+     "uitleg": "Door soorten te vergelijken, zoek je waar het gedrag vandaan komt."
+    },
+    {
+     "tekst": "Hoe is de rode kleur erbij gekomen bij de voorouders?",
+     "bak": 3,
+     "uitleg": "Een vraag over vele generaties terug: evolutie."
+    }
+   ]
+  },
+  {
+   "id": "indelen-nabij-uiteindelijk",
+   "soort": "indelen",
+   "vwo": true,
+   "titel": "Nabij of uiteindelijk?",
+   "opdracht": "Gaat de verklaring over dit ene dier in zijn leven (nabij), of over de soort over vele generaties (uiteindelijk)?",
+   "bakken": [
+    {
+     "naam": "Nabije oorzaak",
+     "uitleg": "oorzaak en ontwikkeling"
+    },
+    {
+     "naam": "Uiteindelijke oorzaak",
+     "uitleg": "functie en evolutie"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Hij ziet rood, en valt aan.",
+     "bak": 0,
+     "uitleg": "Wat er nu in dit dier gebeurt: oorzaak, dus nabij."
+    },
+    {
+     "tekst": "Zijn testosteron is in het voorjaar hoog.",
+     "bak": 0,
+     "uitleg": "Een hormoon in dit dier: nabij."
+    },
+    {
+     "tekst": "Ook zonder voorbeeld doet hij het al.",
+     "bak": 0,
+     "uitleg": "Hoe het gedrag in zijn leven ontstaat: ontwikkeling, dus nabij."
+    },
+    {
+     "tekst": "Mannetjes die aanvallen, kregen meer jongen.",
+     "bak": 1,
+     "uitleg": "Functie: verklaart waarom het gedrag bij de soort bleef."
+    },
+    {
+     "tekst": "Voorouders van de stekelbaars hadden al dreiggedrag.",
+     "bak": 1,
+     "uitleg": "Evolutie, over vele generaties: uiteindelijk."
+    },
+    {
+     "tekst": "Dit gedrag is bij de soort gebleven, omdat het territorium oplevert.",
+     "bak": 1,
+     "uitleg": "Functie: uiteindelijk."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-postauto",
+   "soort": "uitleg",
+   "titel": "Aanval op de postauto",
+   "opdracht": "Een stekelbaarsmannetje in het voorjaar schiet in dreighouding naar de ruit als er een rode postauto voorbijrijdt. Leg uit waarom, met wat Tinbergen ontdekte over zijn modellen.",
+   "begrippen": [
+    {
+     "naam": "sleutelprikkel",
+     "varianten": [
+      "sleutel"
+     ]
+    },
+    {
+     "naam": "rood",
+     "varianten": [
+      "rode",
+      "onderkant"
+     ]
+    },
+    {
+     "naam": "aangeboren",
+     "varianten": [
+      "niet leren",
+      "niet geleerd"
+     ]
+    },
+    {
+     "naam": "model",
+     "varianten": [
+      "modellen",
+      "klodder",
+      "nepvis"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik beschrijf de proef: ruwe modellen met een rode onderkant werden vaker aangevallen dan een echt lijkende vis zonder rood.",
+    "Ik leg uit dat één kenmerk, rood aan de onderkant, de aanval uitlokt: een sleutelprikkel.",
+    "Ik leg uit dat de postauto die sleutelprikkel geeft, ook al lijkt hij niet op een vis.",
+    "Ik noem dat het een aangeboren reactie is, die zonder leren al werkt."
+   ],
+   "model": [
+    "Tinbergen hield nepvissen in het water. Ruwe klodders met een rode onderkant werden fel aangevallen, een echt lijkende vis zonder rood bijna niet. Het mannetje reageert dus niet op het hele plaatje.",
+    "Eén kenmerk is genoeg: rood aan de onderkant. Zo'n kenmerk heet een sleutelprikkel. Het zet een vaste reactie in gang, zoals een sleutel op een slot.",
+    "De rode postauto geeft die prikkel ook, dus het mannetje reageert alsof er een rivaal is. Die reactie is aangeboren: ook een mannetje dat alleen opgroeide, doet het."
+   ]
+  }
+ ]
+}

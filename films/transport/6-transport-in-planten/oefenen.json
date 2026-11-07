@@ -1,0 +1,313 @@
+{
+ "versie": 1,
+ "film": "films/transport/6-transport-in-planten.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-water",
+   "soort": "volgorde",
+   "titel": "De reis van een watermolecuul",
+   "opdracht": "Volg een watermolecuul van de bodem tot in de lucht. Zet de stappen in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Wortelcellen nemen mineralen op, vaak met actief transport: ze bevatten meer opgeloste stoffen dan het bodemwater.",
+     "uitleg": "Daardoor is de osmotische waarde in de wortel hoger dan in de bodem."
+    },
+    {
+     "tekst": "Het water gaat door osmose via de wortelharen de wortel in.",
+     "uitleg": "De vele wortelharen geven de wortel een enorm oppervlak."
+    },
+    {
+     "tekst": "Het water komt in de houtvaten en schuift door de stengel omhoog.",
+     "uitleg": "Houtvaten (xyleem) vervoeren water met mineralen, altijd één kant op: omhoog."
+    },
+    {
+     "tekst": "In het blad trekken de bladcellen het water uit de houtvaten.",
+     "uitleg": "Dat is de zuigkracht van de bladeren. De worteldruk helpt maar een klein beetje."
+    },
+    {
+     "tekst": "Het water verdampt uit de bladcellen in de luchtholtes van het blad.",
+     "uitleg": "Elke keer dat er water verdampt, trekken de bladcellen nieuw water aan."
+    },
+    {
+     "tekst": "De waterdamp ontsnapt door een huidmondje naar buiten: transpiratie.",
+     "uitleg": "Huidmondjes zitten vooral aan de onderkant van het blad."
+    }
+   ]
+  },
+  {
+   "id": "schema-blad",
+   "soort": "schema",
+   "titel": "Een blad van binnen",
+   "opdracht": "Je ziet een dwarsdoorsnede van een blad. Onderaan ontsnapt waterdamp. Sleep de namen naar de goede vakjes.",
+   "alt": "Lijntekening van een dwarsdoorsnede van een blad: opperhuid, bladcellen met luchtholtes, een nerf met houtvaten en bastvaten, en onderaan een huidmondje tussen twee sluitcellen.",
+   "breed": 680,
+   "hoog": 400,
+   "vakbreed": 150,
+   "svg": "<path stroke-width=\"2.6\" d=\"M150 60 L530 60\"/><path stroke-width=\"1.6\" d=\"M150 86 L530 86\"/><path stroke-width=\"1.4\" d=\"M150 60 L150 86\"/><path stroke-width=\"1.4\" d=\"M180 60 L180 86\"/><path stroke-width=\"1.4\" d=\"M210 60 L210 86\"/><path stroke-width=\"1.4\" d=\"M240 60 L240 86\"/><path stroke-width=\"1.4\" d=\"M270 60 L270 86\"/><path stroke-width=\"1.4\" d=\"M300 60 L300 86\"/><path stroke-width=\"1.4\" d=\"M330 60 L330 86\"/><path stroke-width=\"1.4\" d=\"M360 60 L360 86\"/><path stroke-width=\"1.4\" d=\"M390 60 L390 86\"/><path stroke-width=\"1.4\" d=\"M420 60 L420 86\"/><path stroke-width=\"1.4\" d=\"M450 60 L450 86\"/><path stroke-width=\"1.4\" d=\"M480 60 L480 86\"/><path stroke-width=\"1.4\" d=\"M510 60 L510 86\"/><rect x=\"154\" y=\"92\" width=\"20\" height=\"60\" rx=\"8\" stroke-width=\"1.4\"/><rect x=\"180\" y=\"92\" width=\"20\" height=\"60\" rx=\"8\" stroke-width=\"1.4\"/><rect x=\"206\" y=\"92\" width=\"20\" height=\"60\" rx=\"8\" stroke-width=\"1.4\"/><rect x=\"232\" y=\"92\" width=\"20\" height=\"60\" rx=\"8\" stroke-width=\"1.4\"/><rect x=\"258\" y=\"92\" width=\"20\" height=\"60\" rx=\"8\" stroke-width=\"1.4\"/><rect x=\"284\" y=\"92\" width=\"20\" height=\"60\" rx=\"8\" stroke-width=\"1.4\"/><rect x=\"310\" y=\"92\" width=\"20\" height=\"60\" rx=\"8\" stroke-width=\"1.4\"/><rect x=\"336\" y=\"92\" width=\"20\" height=\"60\" rx=\"8\" stroke-width=\"1.4\"/><rect x=\"362\" y=\"92\" width=\"20\" height=\"60\" rx=\"8\" stroke-width=\"1.4\"/><rect x=\"388\" y=\"92\" width=\"20\" height=\"60\" rx=\"8\" stroke-width=\"1.4\"/><rect x=\"414\" y=\"92\" width=\"20\" height=\"60\" rx=\"8\" stroke-width=\"1.4\"/><rect x=\"440\" y=\"92\" width=\"20\" height=\"60\" rx=\"8\" stroke-width=\"1.4\"/><rect x=\"466\" y=\"92\" width=\"20\" height=\"60\" rx=\"8\" stroke-width=\"1.4\"/><rect x=\"492\" y=\"92\" width=\"20\" height=\"60\" rx=\"8\" stroke-width=\"1.4\"/><rect x=\"518\" y=\"92\" width=\"20\" height=\"60\" rx=\"8\" stroke-width=\"1.4\"/><ellipse cx=\"172\" cy=\"184\" rx=\"16\" ry=\"12\" stroke-width=\"1.4\"/><ellipse cx=\"206\" cy=\"200\" rx=\"13\" ry=\"15\" stroke-width=\"1.4\"/><ellipse cx=\"176\" cy=\"228\" rx=\"15\" ry=\"13\" stroke-width=\"1.4\"/><ellipse cx=\"214\" cy=\"248\" rx=\"15\" ry=\"12\" stroke-width=\"1.4\"/><ellipse cx=\"168\" cy=\"270\" rx=\"13\" ry=\"11\" stroke-width=\"1.4\"/><ellipse cx=\"242\" cy=\"180\" rx=\"14\" ry=\"12\" stroke-width=\"1.4\"/><ellipse cx=\"250\" cy=\"222\" rx=\"13\" ry=\"15\" stroke-width=\"1.4\"/><ellipse cx=\"262\" cy=\"264\" rx=\"15\" ry=\"12\" stroke-width=\"1.4\"/><ellipse cx=\"300\" cy=\"272\" rx=\"14\" ry=\"11\" stroke-width=\"1.4\"/><ellipse cx=\"338\" cy=\"276\" rx=\"13\" ry=\"10\" stroke-width=\"1.4\"/><ellipse cx=\"378\" cy=\"272\" rx=\"13\" ry=\"11\" stroke-width=\"1.4\"/><ellipse cx=\"412\" cy=\"180\" rx=\"15\" ry=\"12\" stroke-width=\"1.4\"/><ellipse cx=\"402\" cy=\"220\" rx=\"12\" ry=\"13\" stroke-width=\"1.4\"/><ellipse cx=\"446\" cy=\"192\" rx=\"14\" ry=\"12\" stroke-width=\"1.4\"/><ellipse cx=\"472\" cy=\"230\" rx=\"15\" ry=\"13\" stroke-width=\"1.4\"/><ellipse cx=\"486\" cy=\"272\" rx=\"14\" ry=\"11\" stroke-width=\"1.4\"/><ellipse cx=\"508\" cy=\"184\" rx=\"13\" ry=\"13\" stroke-width=\"1.4\"/><ellipse cx=\"512\" cy=\"248\" rx=\"12\" ry=\"12\" stroke-width=\"1.4\"/><ellipse cx=\"386\" cy=\"176\" rx=\"10\" ry=\"10\" stroke-width=\"1.4\"/><circle cx=\"340\" cy=\"205\" r=\"44\" stroke-width=\"2.2\"/><circle cx=\"322\" cy=\"188\" r=\"9\" stroke-width=\"2.6\"/><circle cx=\"342\" cy=\"182\" r=\"10\" stroke-width=\"2.6\"/><circle cx=\"360\" cy=\"192\" r=\"8\" stroke-width=\"2.6\"/><circle cx=\"334\" cy=\"202\" r=\"6\" stroke-width=\"2.6\"/><circle cx=\"352\" cy=\"204\" r=\"6\" stroke-width=\"2.6\"/><circle cx=\"318\" cy=\"224\" r=\"4.5\" stroke-width=\"1.2\" class=\"acc\"/><circle cx=\"330\" cy=\"232\" r=\"4.5\" stroke-width=\"1.2\" class=\"acc\"/><circle cx=\"344\" cy=\"228\" r=\"4.5\" stroke-width=\"1.2\" class=\"acc\"/><circle cx=\"358\" cy=\"222\" r=\"4.5\" stroke-width=\"1.2\" class=\"acc\"/><circle cx=\"338\" cy=\"240\" r=\"4.5\" stroke-width=\"1.2\" class=\"acc\"/><circle cx=\"352\" cy=\"238\" r=\"4.5\" stroke-width=\"1.2\" class=\"acc\"/><circle cx=\"324\" cy=\"240\" r=\"4.5\" stroke-width=\"1.2\" class=\"acc\"/><path stroke-width=\"1.6\" d=\"M150 292 L404 292 M456 292 L530 292\"/><path stroke-width=\"2.6\" d=\"M150 318 L404 318 M456 318 L530 318\"/><path stroke-width=\"1.4\" d=\"M150 292 L150 318\"/><path stroke-width=\"1.4\" d=\"M180 292 L180 318\"/><path stroke-width=\"1.4\" d=\"M210 292 L210 318\"/><path stroke-width=\"1.4\" d=\"M240 292 L240 318\"/><path stroke-width=\"1.4\" d=\"M270 292 L270 318\"/><path stroke-width=\"1.4\" d=\"M300 292 L300 318\"/><path stroke-width=\"1.4\" d=\"M330 292 L330 318\"/><path stroke-width=\"1.4\" d=\"M360 292 L360 318\"/><path stroke-width=\"1.4\" d=\"M390 292 L390 318\"/><path stroke-width=\"1.4\" d=\"M404 292 L404 318\"/><path stroke-width=\"1.4\" d=\"M456 292 L456 318\"/><path stroke-width=\"1.4\" d=\"M486 292 L486 318\"/><path stroke-width=\"1.4\" d=\"M516 292 L516 318\"/><ellipse cx=\"414\" cy=\"305\" rx=\"12\" ry=\"14\" stroke-width=\"2\" class=\"acc\"/><ellipse cx=\"446\" cy=\"305\" rx=\"12\" ry=\"14\" stroke-width=\"2\" class=\"acc\"/><path stroke-width=\"3.4\" class=\"acc\" d=\"M424 296 C427 302 427 308 424 314 M436 296 C433 302 433 308 436 314\"/><path stroke-width=\"1.4\" class=\"zacht\" d=\"M430 326 C424 334 436 340 430 348 C424 356 436 362 430 368 M424 362 L430 370 L436 362\"/><text x=\"340\" y=\"392\" text-anchor=\"middle\" font-size=\"12\">dwarsdoorsnede van een blad</text>",
+   "vakjes": [
+    {
+     "naam": "nerf",
+     "x": 82,
+     "y": 40,
+     "punt": [
+      297,
+      214
+     ],
+     "uitleg": "vaatbundel in het blad, met houtvaten en bastvaten."
+    },
+    {
+     "naam": "houtvat (xyleem)",
+     "x": 82,
+     "y": 160,
+     "punt": [
+      322,
+      188
+     ],
+     "uitleg": "dode cellen met een stevige wand; brengt water met mineralen aan, tot in het blad."
+    },
+    {
+     "naam": "bastvat (floëem)",
+     "x": 82,
+     "y": 270,
+     "punt": [
+      338,
+      236
+     ],
+     "uitleg": "levende cellen; voert de suiker uit het blad af naar de rest van de plant."
+    },
+    {
+     "naam": "luchtholte",
+     "x": 598,
+     "y": 150,
+     "punt": [
+      430,
+      262
+     ],
+     "uitleg": "hier verdampt water uit de bladcellen."
+    },
+    {
+     "naam": "sluitcel",
+     "x": 598,
+     "y": 250,
+     "punt": [
+      448,
+      296
+     ],
+     "uitleg": "twee sluitcellen vormen samen het huidmondje; zwellen ze op, dan gaat de opening open."
+    },
+    {
+     "naam": "huidmondje",
+     "x": 598,
+     "y": 345,
+     "punt": [
+      430,
+      316
+     ],
+     "uitleg": "opening vooral aan de onderkant van het blad: koolstofdioxide komt erin, waterdamp ontsnapt."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-drukstroom",
+   "soort": "volgorde",
+   "vwo": true,
+   "titel": "Suiker van bron naar put",
+   "opdracht": "Zet de stappen van de drukstroomtheorie in de goede volgorde, van blad (bron) naar wortel (put).",
+   "stappen": [
+    {
+     "tekst": "In het blad pompt een begeleidende cel suiker het zeefvat in.",
+     "uitleg": "Het blad is de bron: hier wordt suiker gemaakt bij de fotosynthese."
+    },
+    {
+     "tekst": "De osmotische waarde in het zeefvat stijgt.",
+     "uitleg": "Er zitten meer opgeloste deeltjes in het zeefvat dan ernaast."
+    },
+    {
+     "tekst": "Water uit de houtvaten ernaast stroomt door osmose het zeefvat in; de druk wordt hoog.",
+     "uitleg": "Water gaat naar de kant met de hoogste osmotische waarde."
+    },
+    {
+     "tekst": "In de wortel (de put) worden de suikers uit het zeefvat gehaald; ook water gaat weg en de druk is daar laag.",
+     "uitleg": "Een put verbruikt of slaat suiker op: groeipunten, vruchten, wortels."
+    },
+    {
+     "tekst": "Het sap stroomt door het zeefvat van hoge naar lage druk: van bron naar put.",
+     "uitleg": "Dit drukverschil is de motor; een bladluis hoeft daarom niet te zuigen."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-ringen",
+   "soort": "uitleg",
+   "titel": "Een ring bast weg",
+   "opdracht": "Iemand snijdt rondom een boom een ring bast weg, maar laat het hout heel. Leg aan een klasgenoot uit waarom de boom pas na een tijd doodgaat.",
+   "begrippen": [
+    {
+     "naam": "xyleem",
+     "varianten": [
+      "houtvaten",
+      "houtvat",
+      "hout"
+     ]
+    },
+    {
+     "naam": "floëem",
+     "varianten": [
+      "floeem",
+      "bastvaten",
+      "bastvat",
+      "bast",
+      "zeefvaten"
+     ]
+    },
+    {
+     "naam": "suiker",
+     "varianten": [
+      "suikers",
+      "glucose"
+     ]
+    },
+    {
+     "naam": "wortels",
+     "varianten": [
+      "wortel"
+     ]
+    },
+    {
+     "naam": "water",
+     "varianten": []
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat het xyleem in het hout heel blijft, zodat er eerst nog water omhoog komt.",
+    "Ik leg uit dat het floëem in de bast is doorgesneden.",
+    "Ik leg uit dat de suiker uit de bladeren daardoor niet meer bij de wortels komt, zodat de wortels afsterven.",
+    "Ik leg uit dat er dan ook geen water meer wordt opgenomen, en de hele boom doodgaat."
+   ],
+   "model": [
+    "Bij een boom is het hout xyleem. Dat blijft heel, dus het water met mineralen komt eerst nog gewoon omhoog naar de bladeren.",
+    "Het floëem zit in de bast, net buiten het hout. Dat is doorgesneden. De suiker die de bladeren bij de fotosynthese maken, kan daardoor niet meer omlaag naar de wortels.",
+    "De wortels krijgen geen suiker meer en sterven na een tijd af. Dan wordt er ook geen water meer opgenomen, en gaat de hele boom dood."
+   ]
+  },
+  {
+   "id": "uitleg-slap",
+   "soort": "uitleg",
+   "titel": "Slap in de vensterbank",
+   "opdracht": "Op een warme middag hangt je plant slap, terwijl de aarde nog vochtig is. 's Avonds staat hij weer recht. Leg uit hoe dat komt, en waarom de plant die middag ook minder suiker maakt.",
+   "begrippen": [
+    {
+     "naam": "transpiratie",
+     "varianten": [
+      "verdampt",
+      "verdampen",
+      "verdamping"
+     ]
+    },
+    {
+     "naam": "turgor",
+     "varianten": [
+      "druk tegen de celwand",
+      "drukt minder"
+     ]
+    },
+    {
+     "naam": "vacuole",
+     "varianten": []
+    },
+    {
+     "naam": "huidmondjes",
+     "varianten": [
+      "huidmondje"
+     ]
+    },
+    {
+     "naam": "koolstofdioxide",
+     "varianten": [
+      "CO2",
+      "koolzuurgas"
+     ]
+    },
+    {
+     "naam": "fotosynthese",
+     "varianten": [
+      "minder suiker"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat de plant op een warme middag meer water verdampt dan de wortels kunnen aanvoeren.",
+    "Ik leg uit dat de cellen water verliezen, de turgor daalt en de bladeren zakken.",
+    "Ik leg uit dat de huidmondjes sluiten, zodat er ook minder koolstofdioxide binnenkomt en de fotosynthese minder wordt.",
+    "Ik leg uit dat de plant 's avonds minder verdampt en de wortels het tekort inhalen."
+   ],
+   "model": [
+    "Op een warme middag verdampt de plant meer water dan zijn wortels kunnen aanvoeren. Zijn cellen verliezen water. De vacuole drukt minder hard tegen de celwand: de turgor daalt, en de bladeren zakken.",
+    "Tegelijk sluiten de huidmondjes, zodat de plant minder verdampt. Maar door die gaatjes komt ook koolstofdioxide binnen. Er komt dus minder koolstofdioxide binnen en de plant maakt minder suiker bij de fotosynthese.",
+    "'s Avonds is het koeler en donkerder. De plant verdampt minder en de wortels halen het tekort in. De cellen vullen zich weer en de plant staat weer recht."
+   ]
+  },
+  {
+   "id": "uitleg-cohesie",
+   "soort": "uitleg",
+   "vwo": true,
+   "titel": "Een waterdraad van honderd meter",
+   "opdracht": "In de hoogste bomen komt water ruim honderd meter omhoog. Leg uit waarom de waterkolom in de houtvaten niet afbreekt, en wat het water omhoog laat stromen.",
+   "begrippen": [
+    {
+     "naam": "cohesie",
+     "varianten": [
+      "trekken aan elkaar",
+      "aan elkaar"
+     ]
+    },
+    {
+     "naam": "waterstofbruggen",
+     "varianten": [
+      "waterstofbrug",
+      "H-bruggen"
+     ]
+    },
+    {
+     "naam": "adhesie",
+     "varianten": [
+      "plakken aan de wand",
+      "plakt aan de wand"
+     ]
+    },
+    {
+     "naam": "zuigkracht",
+     "varianten": [
+      "verdamping",
+      "transpiratie",
+      "verdampt"
+     ]
+    },
+    {
+     "naam": "drukverschil",
+     "varianten": [
+      "lagere druk",
+      "hoge naar lage druk",
+      "spanning"
+     ]
+    },
+    {
+     "naam": "worteldruk",
+     "varianten": []
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat watermoleculen sterk aan elkaar trekken door waterstofbruggen (cohesie).",
+    "Ik leg uit dat ze aan de wand van de houtvaten plakken (adhesie), zodat het water een ononderbroken draad blijft.",
+    "Ik leg uit dat de zuigkracht van de bladeren de draad omhoog trekt: bovenin is de druk lager dan onderin.",
+    "Ik noem dat worteldruk alleen het water maar een paar meter omhoog krijgt."
+   ],
+   "model": [
+    "Door verdamping in de bladeren trekken de bladcellen water uit de houtvaten: de zuigkracht van de bladeren. Daardoor staat het water in de houtvaten onder spanning. Bovenin is de druk lager dan onderin, en het water stroomt van hoge naar lage druk.",
+    "De waterkolom breekt niet af, omdat watermoleculen sterk aan elkaar trekken door waterstofbruggen: cohesie. Daarnaast plakken ze aan de wand van de houtvaten: adhesie. Zo blijft het water één ononderbroken draad.",
+    "Met worteldruk alleen kom je maar een paar meter hoog. Het meeste water wordt dus van bovenaf omhoog getrokken."
+   ]
+  }
+ ]
+}

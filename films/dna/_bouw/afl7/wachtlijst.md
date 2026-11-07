@@ -1,0 +1,91 @@
+# Uitspraak-wachtlijst DNA 7 (eerste voorkomen per take)
+
+| woord | take | tijd in take |
+|---|---|---|
+| DNA-profiel | n0 | 0:09.4 |
+| databank | n0 | 0:11.5 |
+| DNA | n3 | 0:04.8 |
+| PCR | n3 | 0:12.1 |
+| polymerase | n3 | 0:18.8 |
+| waterstofbruggen | n3 | 0:27.4 |
+| primers | n3 | 0:34.1 |
+| hittebestendige | n3 | 0:42.0 |
+| PCR | q4 | 0:01.3 |
+| PCR | n5 | 0:00.8 |
+| primers | n5 | 0:04.9 |
+| nucleotiden | n5 | 0:07.9 |
+| DNA | n6 | 0:04.7 |
+| reverse | n6 | 0:11.3 |
+| PCR | n6 | 0:17.6 |
+| primers | n6 | 0:19.3 |
+| DNA | n8 | 0:00.7 |
+| PCR | n9 | 0:00.0 |
+| gelelektroforese | n9 | 0:05.8 |
+| DNA | n9 | 0:08.1 |
+| gel | n9 | 0:12.5 |
+| Bruinvissen | q10 | 0:00.0 |
+| zeehond-DNA | q10 | 0:13.2 |
+| PCR | n11 | 0:12.6 |
+| primers | n11 | 0:13.8 |
+| zeehond-DNA | n11 | 0:15.0 |
+| gel | n11 | 0:17.2 |
+| STR | n12 | 0:04.9 |
+| DNA | n14 | 0:06.8 |
+| sequencen | n14 | 0:08.6 |
+| polymerase | n14 | 0:13.4 |
+| nucleotiden | n14 | 0:18.4 |
+| genoom | n14 | 0:43.3 |
+| NIPT | q15 | 0:00.3 |
+| DNA | q15 | 0:01.7 |
+| foetus | q15 | 0:02.6 |
+| gesequencet | n16 | 0:02.2 |
+| genoom | n16 | 0:05.2 |
+| placenta | n16 | 0:14.3 |
+| DNA | n16 | 0:16.3 |
+| foetus | n16 | 0:27.3 |
+| trisomie | n16 | 0:29.5 |
+| referentiegenoom | n17 | 0:05.4 |
+| DNA | n17 | 0:10.3 |
+| variant | n17 | 0:12.7 |
+| databank | n19 | 0:05.9 |
+| DNA | n19 | 0:12.2 |
+| stamboomsite | n19 | 0:13.0 |
+| stamboomsite | q20 | 0:00.3 |
+| achterneef | q20 | 0:01.7 |
+| DNA | n21 | 0:02.1 |
+| Achterneven | n21 | 0:10.1 |
+| DNA | n22 | 0:01.8 |
+| insulinegen | n22 | 0:09.3 |
+| restrictie-enzym | n22 | 0:12.2 |
+| plasmide | n22 | 0:14.5 |
+| genetisch | n22 | 0:20.9 |
+| CRISPR | n22 | 0:25.9 |
+| sikkelcelziekte | n22 | 0:35.4 |
+| stamboomsite | n23 | 0:03.4 |
+| STR's | n23 | 0:04.9 |
+| SNP's | n23 | 0:06.2 |
+| crossing-over | n23 | 0:20.2 |
+| PCR | n25 | 0:02.9 |
+| primers | n25 | 0:04.3 |
+| gel | n25 | 0:09.4 |
+| sequencen | n25 | 0:17.0 |
+| stopnucleotiden | n25 | 0:18.6 |
+| DNA | n25 | 0:27.3 |
+| DNA | n26 | 0:00.2 |
+
+## Aanvulling 16 okt 2026 (n22 opnieuw, n22v nieuw)
+| woord (stem-invoer) | take | tijd in take |
+|---|---|---|
+| mRNA (em-er-en-aa) | n22 | 0:17.3 |
+| reverse transcriptase (rivurs) | n22 | 0:37.3 |
+| cDNA (cee-deeënaa) | n22 | 0:43.9 |
+| plasmide | n22 | 0:50.1 |
+| ligase (ligaase) | n22 | 1:09.8 |
+| recombinant | n22 | 1:14.6 |
+| antibioticum | n22 | 1:27.5 |
+| CRISPR-Cas9 (krisper-kas-negen) | n22v | 0:00.0 |
+| gids-RNA (gids-er-en-aa) | n22v | 0:06.0 |
+| gentherapie | n22v | 0:42.0 |
+| hemoglobine (hemoglobienuh) | n22v | 1:04.1 |
+| somatisch | n22v | 1:16.6 |
+| kiembaan | n22v | 1:24.2 |

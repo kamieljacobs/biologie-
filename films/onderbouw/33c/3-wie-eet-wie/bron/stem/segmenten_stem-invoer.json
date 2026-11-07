@@ -1,0 +1,184 @@
+[
+ {
+  "id": "s01",
+  "chapter": "Cold open",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Daan loopt door het bos. Op een bord staat: hier leven wolven. Sinds een paar jaar zijn ze terug in Nederland. Stel dat de wolf weer verdwijnt. Wat gebeurt er dan met het bos? Hou die vraag vast."
+  ],
+  "display": "Daan loopt door het bos. Op een bord staat: hier leven wolven. Sinds een paar jaar zijn ze terug in Nederland. Stel dat de wolf weer verdwijnt. Wat gebeurt er dan met het bos? Hou die vraag vast.",
+  "voice": "Daan loopt door het bos. Op een bord staat: hier leven wolven. Sinds een paar jaar zijn ze terug in Nederland. Stel dat de wolf weer verdwijnt. Wat gebeurt er dan met het bos? Hou die vraag vast."
+ },
+ {
+  "id": "s02",
+  "chapter": "Titel",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Wie eet wie? Wat gebeurt er als de wolf verdwijnt?"
+  ],
+  "display": "Wie eet wie? Wat gebeurt er als de wolf verdwijnt?",
+  "voice": "Wie eet wie? Wat gebeurt er als de wolf verdwijnt?"
+ },
+ {
+  "id": "s03",
+  "chapter": "Hoofdstuk 1 — Een voedselketen",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Een wolf eet een ree. Het ree eet kruiden en jonge boompjes. En de plant? Die eet niets op. Waar begint zo'n rij eigenlijk? Wat denk je?"
+  ],
+  "display": "Een wolf eet een ree. Het ree eet kruiden en jonge boompjes. En de plant? Die eet niets op. Waar begint zo'n rij eigenlijk? Wat denk je?",
+  "voice": "Een wolf eet een ree. Het ree eet kruiden en jonge boompjes. En de plant? Die eet niets op. Waar begint zo'n rij eigenlijk? Wat denk je?"
+ },
+ {
+  "id": "q04",
+  "chapter": "Hoofdstuk 1 — Een voedselketen",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "bij een plant",
+   "bij het kleinste dier",
+   "bij het grootste dier"
+  ],
+  "q": "Wolf → ree → ... Waar begint zo'n voedselketen?",
+  "correct": 0,
+  "explain": "Bij een plant: een plant maakt zijn eigen voedsel met zonlicht (producent). Dieren eten iets anders op (consumenten)."
+ },
+ {
+  "id": "s05",
+  "chapter": "Hoofdstuk 1 — Een voedselketen",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Het antwoord is a. Een plant maakt zijn eigen voedsel, met zonlicht. Daarom heet een plant een producent. Dieren maken geen voedsel. Ze eten iets anders op. Ze heten consumenten.",
+   "Zo'n rij heet een voedselketen. We tekenen er pijlen in. Een pijl wijst van het voedsel naar de eter.",
+   "De wolf staat bovenaan. Niet omdat hij het grootste dier is. Een edelhert is groter dan een wolf. Maar een wolf wordt door niemand opgegeten."
+  ],
+  "display": "Het antwoord is a. Een plant maakt zijn eigen voedsel, met zonlicht. Daarom heet een plant een producent. Dieren maken geen voedsel. Ze eten iets anders op. Ze heten consumenten. Zo'n rij heet een voedselketen. We tekenen er pijlen in. Een pijl wijst van het voedsel naar de eter. De wolf staat bovenaan. Niet omdat hij het grootste dier is. Een edelhert is groter dan een wolf. Maar een wolf wordt door niemand opgegeten.",
+  "voice": "Het antwoord is aa. Een plant maakt zijn eigen voedsel, met zonlicht. Daarom heet een plant een producent. Dieren maken geen voedsel. Ze eten iets anders op. Ze heten consumenten. Zo'n rij heet een voedselketen. We tekenen er pijlen in. Een pijl wijst van het voedsel naar de eter. De wolf staat bovenaan. Niet omdat hij het grootste dier is. Een edelhert is groter dan een wolf. Maar een wolf wordt door niemand opgegeten."
+ },
+ {
+  "id": "s06",
+  "chapter": "Hoofdstuk 2 — Een web, en een kringloop",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Een wolf eet niet alleen reeën. Hij eet ook edelherten en wilde zwijnen. Een wild zwijn eet eikels, wortels en muizen. Een muis wordt ook gegeten door een vos en een uil.",
+   "Teken je al die ketens samen, dan krijg je een voedselweb. Elke soort hangt aan meerdere draden. Valt er één draad weg, dan kan de wolf nog iets anders eten."
+  ],
+  "display": "Een wolf eet niet alleen reeën. Hij eet ook edelherten en wilde zwijnen. Een wild zwijn eet eikels, wortels en muizen. Een muis wordt ook gegeten door een vos en een uil. Teken je al die ketens samen, dan krijg je een voedselweb. Elke soort hangt aan meerdere draden. Valt er één draad weg, dan kan de wolf nog iets anders eten.",
+  "voice": "Een wolf eet niet alleen reeën. Hij eet ook edelherten en wilde zwijnen. Een wild zwijn eet eikels, wortels en muizen. Een muis wordt ook gegeten door een vos en een uil. Teken je al die ketens samen, dan krijg je een voedselweb. Elke soort hangt aan meerdere draden. Valt er één draad weg, dan kan de wolf nog iets anders eten."
+ },
+ {
+  "id": "s07",
+  "chapter": "Hoofdstuk 2 — Een web, en een kringloop",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "In de herfst vallen er miljoenen bladeren op de bosgrond. Toch ligt het bos er na een paar jaar niet vol mee. Waar blijven al die dode bladeren? Wat denk je?"
+  ],
+  "display": "In de herfst vallen er miljoenen bladeren op de bosgrond. Toch ligt het bos er na een paar jaar niet vol mee. Waar blijven al die dode bladeren? Wat denk je?",
+  "voice": "In de herfst vallen er miljoenen bladeren op de bosgrond. Toch ligt het bos er na een paar jaar niet vol mee. Waar blijven al die dode bladeren? Wat denk je?"
+ },
+ {
+  "id": "q08",
+  "chapter": "Hoofdstuk 2 — Een web, en een kringloop",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "ze worden vanzelf aarde, zonder hulp",
+   "kleine diertjes, schimmels en bacteriën breken ze af",
+   "de wind blaast ze allemaal weg"
+  ],
+  "q": "In de herfst vallen miljoenen bladeren op de bosgrond. Waar blijven al die dode bladeren?",
+  "correct": 1,
+  "explain": "Pissebedden, wormen, schimmels en bacteriën breken ze af. Schimmels en bacteriën zijn reducenten: zij maken er weer mineralen van voor planten."
+ },
+ {
+  "id": "s09",
+  "chapter": "Hoofdstuk 2 — Een web, en een kringloop",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Het antwoord is b. Pissebedden en wormen eten van de dode bladeren. Schimmels en bacteriën doen de rest. Zij heten reducenten. Ze ruimen ook dode dieren op, nadat raven en aaskevers ervan gegeten hebben.",
+   "Ze breken dode resten af tot kleine stoffen in de bodem: mineralen. Een plant neemt die mineralen op met zijn wortels. Daarmee groeit hij. Het ree eet de plant weer. Zo gaan de stoffen steeds rond. Dat heet een kringloop."
+  ],
+  "display": "Het antwoord is b. Pissebedden en wormen eten van de dode bladeren. Schimmels en bacteriën doen de rest. Zij heten reducenten. Ze ruimen ook dode dieren op, nadat raven en aaskevers ervan gegeten hebben. Ze breken dode resten af tot kleine stoffen in de bodem: mineralen. Een plant neemt die mineralen op met zijn wortels. Daarmee groeit hij. Het ree eet de plant weer. Zo gaan de stoffen steeds rond. Dat heet een kringloop.",
+  "voice": "Het antwoord is bee. Pissebedden en wormen eten van de dode bladeren. Schimmels en bacteriën doen de rest. Zij heten reducenten. Ze ruimen ook dode dieren op, nadat raven en aaskevers ervan gegeten hebben. Ze breken dode resten af tot kleine stoffen in de bodem: mineralen. Een plant neemt die mineralen op met zijn wortels. Daarmee groeit hij. Het ree eet de plant weer. Zo gaan de stoffen steeds rond. Dat heet een kringloop."
+ },
+ {
+  "id": "s10",
+  "chapter": "Hoofdstuk 3 — Zonder wolf",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Nu de startvraag. De wolf verdwijnt uit het bos. Wat gebeurt er met de jonge boompjes? Wat denk je?"
+  ],
+  "display": "Nu de startvraag. De wolf verdwijnt uit het bos. Wat gebeurt er met de jonge boompjes? Wat denk je?",
+  "voice": "Nu de startvraag. De wolf verdwijnt uit het bos. Wat gebeurt er met de jonge boompjes? Wat denk je?"
+ },
+ {
+  "id": "q11",
+  "chapter": "Hoofdstuk 3 — Zonder wolf",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "er komen meer jonge boompjes",
+   "er komen minder jonge boompjes",
+   "er verandert niets"
+  ],
+  "q": "De wolf verdwijnt uit het bos. Wat gebeurt er met de jonge boompjes?",
+  "correct": 1,
+  "explain": "Zonder wolf komen er meer reeën en herten. Die eten veel jonge boompjes op, dus groeien er minder nieuwe bomen."
+ },
+ {
+  "id": "s12",
+  "chapter": "Hoofdstuk 3 — Zonder wolf",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Het antwoord is b. Zonder wolf komen er meer reeën en herten. Ze eten overal jonge boompjes op. Dan groeien er minder nieuwe bomen.",
+   "Dat is echt gebeurd. Ruim honderdvijftig jaar geleden waren de wolven uit Nederland verdwenen. Sindsdien houden mensen het aantal herten en reeën klein door te jagen.",
+   "Eén soort verdwijnt, en het hele web verandert mee. Ook planten en dieren die de wolf nooit eet."
+  ],
+  "display": "Het antwoord is b. Zonder wolf komen er meer reeën en herten. Ze eten overal jonge boompjes op. Dan groeien er minder nieuwe bomen. Dat is echt gebeurd. Ruim honderdvijftig jaar geleden waren de wolven uit Nederland verdwenen. Sindsdien houden mensen het aantal herten en reeën klein door te jagen. Eén soort verdwijnt, en het hele web verandert mee. Ook planten en dieren die de wolf nooit eet.",
+  "voice": "Het antwoord is bee. Zonder wolf komen er meer reeën en herten. Ze eten overal jonge boompjes op. Dan groeien er minder nieuwe bomen. Dat is echt gebeurd. Ruim honderdvijftig jaar geleden waren de wolven uit Nederland verdwenen. Sindsdien houden mensen het aantal herten en reeën klein door te jagen. Eén soort verdwijnt, en het hele web verandert mee. Ook planten en dieren die de wolf nooit eet."
+ },
+ {
+  "id": "s13",
+  "chapter": "Hoofdstuk 3 — Zonder wolf",
+  "level": "vwo",
+  "kind": "speech",
+  "lines": [
+   "Er gebeurt nog meer. Een wolf jaagt ook vossen weg, en doodt ze soms. Zonder wolf kunnen er meer vossen komen.",
+   "Vossen eten eieren en jongen van vogels die op de grond broeden. Zo kan de wolf ook vogels helpen die hij zelf nooit eet."
+  ],
+  "display": "Er gebeurt nog meer. Een wolf jaagt ook vossen weg, en doodt ze soms. Zonder wolf kunnen er meer vossen komen. Vossen eten eieren en jongen van vogels die op de grond broeden. Zo kan de wolf ook vogels helpen die hij zelf nooit eet.",
+  "voice": "Er gebeurt nog meer. Een wolf jaagt ook vossen weg, en doodt ze soms. Zonder wolf kunnen er meer vossen komen. Vossen eten eieren en jongen van vogels die op de grond broeden. Zo kan de wolf ook vogels helpen die hij zelf nooit eet."
+ },
+ {
+  "id": "s14",
+  "chapter": "Samenvatting",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Wat gebeurt er als de wolf verdwijnt? Er komen meer reeën en herten, en minder jonge bomen.",
+   "Elke voedselketen begint bij een plant. Alle ketens samen vormen een voedselweb. Reducenten maken van dode resten weer voedsel voor planten: een kringloop. Haal je één soort weg, dan verandert er meer."
+  ],
+  "display": "Wat gebeurt er als de wolf verdwijnt? Er komen meer reeën en herten, en minder jonge bomen. Elke voedselketen begint bij een plant. Alle ketens samen vormen een voedselweb. Reducenten maken van dode resten weer voedsel voor planten: een kringloop. Haal je één soort weg, dan verandert er meer.",
+  "voice": "Wat gebeurt er als de wolf verdwijnt? Er komen meer reeën en herten, en minder jonge bomen. Elke voedselketen begint bij een plant. Alle ketens samen vormen een voedselweb. Reducenten maken van dode resten weer voedsel voor planten: een kringloop. Haal je één soort weg, dan verandert er meer."
+ },
+ {
+  "id": "s15",
+  "chapter": "Eindkaart",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Probeer het zelf."
+  ],
+  "display": "Probeer het zelf.",
+  "voice": "Probeer het zelf."
+ }
+]

@@ -1,0 +1,136 @@
+{
+ "versie": 1,
+ "film": "films/onderbouw/32b/4-door-de-mens-gekozen/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "indelen-wie-kiest",
+   "soort": "indelen",
+   "titel": "Wie kiest er?",
+   "opdracht": "Een eigenschap komt steeds vaker voor, of is nieuw. Hoe komt dat?",
+   "bakken": [
+    {
+     "naam": "Kunstmatige selectie",
+     "uitleg": "de mens kiest wie nakomelingen krijgt (veredelen bij planten, fokken bij dieren)"
+    },
+    {
+     "naam": "Genetische modificatie",
+     "uitleg": "de mens verandert zelf de genen"
+    },
+    {
+     "naam": "Natuurlijke selectie",
+     "uitleg": "de omgeving bepaalt wie nakomelingen krijgt"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Een kweker zaait elk jaar alleen de zaadjes van de zoetste aardbeien.",
+     "bak": 0,
+     "uitleg": "De mens kiest, generatie na generatie. Bij planten heet dat veredelen."
+    },
+    {
+     "tekst": "Uit één wilde koolplant maakten mensen in honderden jaren spruitjes, bloemkool en boerenkool.",
+     "bak": 0,
+     "uitleg": "Steeds kozen mensen de planten met de grootste knoppen, bloemen of bladeren. Zo ontstonden heel verschillende groenten."
+    },
+    {
+     "tekst": "Een fokker laat alleen schapen met een gen voor extra dikke wol jongen krijgen.",
+     "bak": 0,
+     "uitleg": "Er staat 'gen', maar niemand verandert hier een gen. De fokker kiest welke schapen jongen krijgen: fokken."
+    },
+    {
+     "tekst": "Onderzoekers zetten een stukje DNA van een kwal in een vis. Nu licht de vis op.",
+     "bak": 1,
+     "uitleg": "Er komt een gen van een heel andere soort bij. Dat kan alleen met genetische modificatie."
+    },
+    {
+     "tekst": "Een bacterie krijgt in een lab het recept voor menselijke insuline erbij.",
+     "bak": 1,
+     "uitleg": "Onderzoekers veranderen zelf wat er in de bacterie zit. Een bacterie kun je dat niet aanleren door te kiezen."
+    },
+    {
+     "tekst": "Op wit zand overleven vooral de lichte muizen. Er komen steeds meer lichte muizen.",
+     "bak": 2,
+     "uitleg": "Niemand kiest. Uilen pakken de donkere muizen vaker: natuurlijke selectie."
+    },
+    {
+     "tekst": "Boeren spuiten elk jaar gif. Steeds meer muggen kunnen er tegen.",
+     "bak": 2,
+     "uitleg": "De mens veroorzaakt het, maar kiest de muggen niet uit. Muggen die toevallig tegen het gif kunnen, overleven en krijgen jongen."
+    },
+    {
+     "tekst": "Hazen die het snelst rennen, ontsnappen vaker aan de vos en krijgen meer jongen.",
+     "bak": 2,
+     "uitleg": "De vos 'kiest' niet expres. Wie toevallig snel is, overleeft vaker: natuurlijke selectie."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-kruisen",
+   "soort": "volgorde",
+   "titel": "Een betere tomaat",
+   "opdracht": "Je wilt een tomaat die groot is én goed tegen een ziekte kan. Zet de stappen in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Kies een tomatenplant die groot is, en een die goed tegen de ziekte kan.",
+     "uitleg": "Je begint met wat er al is."
+    },
+    {
+     "tekst": "Breng stuifmeel van de ene plant naar de bloem van de andere.",
+     "uitleg": "Zo kruis je de twee planten."
+    },
+    {
+     "tekst": "Zaai de zaadjes die zo ontstaan.",
+     "uitleg": "Er groeien nakomelingen met een mix van eigenschappen."
+    },
+    {
+     "tekst": "Zoek de nakomelingen die groot én sterk zijn.",
+     "uitleg": "Maar een paar nakomelingen hebben allebei."
+    },
+    {
+     "tekst": "Ga verder met die planten, generatie na generatie.",
+     "uitleg": "Veredelen gaat langzaam. Het duurt vaak tientallen jaren."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-rashonden",
+   "soort": "uitleg",
+   "titel": "Problemen bij rashonden",
+   "opdracht": "Bij rashonden komen erfelijke problemen vaker voor dan bij andere honden. Leg uit hoe dat komt.",
+   "begrippen": [
+    {
+     "naam": "inteelt",
+     "varianten": []
+    },
+    {
+     "naam": "familie",
+     "varianten": [
+      "verwant"
+     ]
+    },
+    {
+     "naam": "genen",
+     "varianten": [
+      "gen"
+     ]
+    },
+    {
+     "naam": "fokken",
+     "varianten": [
+      "fokker"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat rashonden vaak familie van elkaar zijn.",
+    "Ik leg uit dat ze daardoor veel dezelfde genen delen, ook de zwakke.",
+    "Ik noem dat dit inteelt heet."
+   ],
+   "model": [
+    "Bij het fokken kiezen mensen steeds honden uit een kleine groep. Daardoor zijn rashonden vaak familie van elkaar.",
+    "Familie deelt veel dezelfde genen, ook de zwakke. Zo komen erfelijke problemen vaker voor. Dat heet inteelt."
+   ]
+  }
+ ]
+}

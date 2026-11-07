@@ -1,0 +1,89 @@
+{
+ "slug": "pedagogiek-1-een-brein-in-aanbouw",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Een brein in aanbouw",
+ "sub": "van baby tot twintiger",
+ "puzzle": "Waarom nemen pubers meer risico, ook als ze weten dat het gevaarlijk is?",
+ "meta": "pedagogiek · ontwikkeling",
+ "alleen": "vwo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Pedagogiek",
+ "lead": "In de eerste levensjaren ontstaan veel meer verbindingen tussen neuronen dan later nodig zijn; ervaring bepaalt welke blijven. Daarna maken snoeien en myeline de hersenen efficiënter, en de voorhoofdskwab is als laatste klaar. In de puberteit reageert het beloningssysteem extra sterk, vooral met leeftijdgenoten erbij: in een rijspel namen pubers met vrienden erbij veel meer risico, volwassenen bijna niet. Een pedagoog gebruikt die kennis: begeleiden in plaats van alleen verbieden, met ruimte die stap voor stap groeit.",
+ "endHaak": "waar kreeg jij de afgelopen jaren stap voor stap meer ruimte?",
+ "minis": {
+  "Hoofdstuk 1": "Hoe groeit een babybrein?",
+  "Hoofdstuk 2": "Waarom maakt opruimen je hersenen beter?",
+  "Hoofdstuk 3": "Waarom nemen pubers met vrienden meer risico?",
+  "Hoofdstuk 4": "Wat doe je ermee als ouder of pedagoog?",
+  "Recap": "Waarom fietst Bilal door rood?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Bilal, Sam, Daan en de baby (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Bilal wacht alleen altijd bij rood, maar met vrienden fietst hij door. Waarom?",
+   "correct": 1,
+   "explain": "Hij weet best dat het gevaarlijk is, maar met vrienden erbij voelt het spannender en leuker: de beloning weegt zwaarder."
+  },
+  "q06": {
+   "q": "Een kind van twee heeft veel meer verbindingen tussen neuronen dan jij. Wat zegt dat?",
+   "correct": 2,
+   "explain": "Veel daarvan gaan nog verdwijnen: weinig gebruikte verbindingen worden gesnoeid, en dat maakt de hersenen efficiënter."
+  },
+  "q09": {
+   "q": "Welk deel van je hersenen is als laatste klaar?",
+   "correct": 1,
+   "explain": "De voorhoofdskwab, die helpt vooruit denken, afwegen en jezelf inhouden; hij verandert nog tot in je twintiger jaren."
+  },
+  "q13": {
+   "q": "In het rijspel: wie nam meer risico met leeftijdgenoten erbij?",
+   "correct": 0,
+   "explain": "Vooral de pubers. Jongvolwassenen iets meer, volwassenen bijna niet."
+  },
+  "q17": {
+   "q": "Waarom mag je met 17 al rijexamen doen, maar tot je 18e alleen rijden met een coach?",
+   "correct": 2,
+   "explain": "Zodat je ervaring opdoet terwijl een ervaren volwassene meekijkt: een rem van buiten, zolang die van binnen nog groeit."
+  }
+ },
+ "glossary": [
+  {
+   "t": "verbindingen (synapsen)",
+   "d": "Plekken waar neuronen signalen aan elkaar doorgeven; in de eerste jaren ontstaan er veel meer dan later nodig zijn."
+  },
+  {
+   "t": "sensitieve periode",
+   "d": "Tijd waarin ervaring extra veel effect heeft op de ontwikkeling, zoals het afstemmen op de klanken van je moedertaal."
+  },
+  {
+   "t": "snoeien",
+   "d": "Weinig gebruikte verbindingen verdwijnen en vaak gebruikte blijven; maakt de hersenen efficiënter."
+  },
+  {
+   "t": "myeline",
+   "d": "Isolatielaag om uitlopers van neuronen waardoor signalen veel sneller gaan; groeit door tot in je twintiger jaren."
+  },
+  {
+   "t": "voorhoofdskwab",
+   "d": "Voorste deel van de hersenen; helpt vooruit denken, afwegen en jezelf inhouden; als laatste uitgerijpt."
+  },
+  {
+   "t": "beloningssysteem",
+   "d": "Gebieden diep in de hersenen die reageren op iets leuks of spannends; in de puberteit extra gevoelig, vooral met leeftijdgenoten erbij."
+  },
+  {
+   "t": "model 'beloning vooruit, rem later'",
+   "d": "Verklaring voor risicogedrag van pubers (dual-systems-model); omstreden en niet voor elke puber gelijk."
+  },
+  {
+   "t": "begeleid rijden",
+   "d": "Vanaf 17 rijexamen doen en tot je 18e alleen rijden met een coach naast je (2toDrive)."
+  },
+  {
+   "t": "pedagoog",
+   "d": "Deskundige in opvoeden en opgroeien; adviseert ouders, scholen en jeugdhulp."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Een peuter heeft veel meer verbindingen tussen neuronen dan een volwassene. Waarom is dat niet 'beter'? Gebruik het woord snoeien. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Er ontstaan eerst veel meer verbindingen dan nodig; daarna worden weinig gebruikte verbindingen gesnoeid en blijven de vaak gebruikte over (1p). Daardoor werken de hersenen efficiënter; ervaring bepaalt welke verbindingen blijven (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Welk deel van de hersenen is als laatste uitgerijpt, en waarom is dat belangrijk voor het gedrag van pubers? <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>De voorhoofdskwab, die verandert tot in de twintiger jaren (1p). Die helpt vooruit denken, afwegen en jezelf inhouden; het beloningssysteem reageert in de puberteit juist extra sterk (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Beschrijf het rijspelexperiment uit 2005 en wat de uitkomst zegt over pubers. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Proefpersonen reden in een spel op een muur af: langer doorrijden gaf meer punten, maar te lang betekende botsen (1p). Pubers, jongvolwassenen en volwassenen speelden alleen of met twee leeftijdgenoten erbij (1p). Pubers namen met leeftijdgenoten erbij veel meer risico, volwassenen bijna niet: de beloning weegt voor pubers met vrienden erbij zwaarder (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Een ouder wil zijn zestienjarige verbieden om naar een feest te gaan, 'omdat zijn hersenen nog niet klaar zijn'. Wat zou een pedagoog op basis van deze film adviseren? <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Alleen verbieden werkt vaak slecht; pubers moeten leren risico's in te schatten (1p). Beter: ruimte die stap voor stap groeit, met duidelijke afspraken, zodat een volwassene als 'rem van buiten' meedenkt (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Extra film buiten het PTA op <i>Wat word jij?</i> → Pedagogiek. Bouwt voort op <i>Inprenting en de sensitieve periode</i> (taalklanken), <i>Leren en onthouden</i> (snoeien), <i>Het kabelnetwerk</i> (myeline) en <i>Slaap</i> (later ritme). Bilal (17) is de rode draad, met Sam en Daan als zijn vrienden.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>H1</b> groei van het brein en overproductie van verbindingen. <b>H2</b> snoeien, myeline, rijping van achter naar voor. <b>H3</b> het model 'beloning vooruit, rem later' (met de kanttekening dat het een model is), het rijspel van Gardner &amp; Steinberg 2005 en de scanstudie van Chein e.a. 2011. <b>H4</b> begeleiden in plaats van verbieden, begeleid rijden (2toDrive), het werk van een pedagoog.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Hersengewicht</td><td>bij geboorte ± ¼, rond 2 jaar ± ¾ van volwassen (gewicht; MRI-volumes komen iets hoger uit)</td><td>leerboeken ontwikkelingspsychologie; Dekaban 1978</td></tr>\n<tr><td>Rijpen voorhoofdskwab</td><td>verandert door tot in de twintiger jaren</td><td>Gogtay e.a. 2004, PNAS 101</td></tr>\n<tr><td>Rijspel met leeftijdgenoten</td><td>effect het grootst bij 13–16 jaar, kleiner bij 18–22, bij volwassenen bijna afwezig</td><td>Gardner &amp; Steinberg 2005, Developmental Psychology 41</td></tr>\n<tr><td>Scanner met vrienden</td><td>beloningsgebied (ventraal striatum) actiever bij pubers als vrienden meekeken</td><td>Chein e.a. 2011, Developmental Science 14</td></tr>\n<tr><td>Begeleid rijden</td><td>examen vanaf 17, tot 18 alleen met een coach (sinds 2011, definitief 2018)</td><td>CBR, 2toDrive</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul><li>Het 'dual systems'-model is omstreden: de onbalans wordt niet in alle studies gevonden en verschilt sterk tussen pubers (Crone &amp; Dahl 2012); de film noemt het een model.</li><li>De staafjes in H3 zijn schematisch en geven de richting van de uitkomst weer, niet de exacte waarden.</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Laat leerlingen voorbeelden verzamelen van 'ruimte die stap voor stap groeit' (thuis, school, sport) en bespreek wanneer een regel juist averechts werkt.</li></ul>\n</section>\n"
+}

@@ -1,0 +1,177 @@
+[
+ {
+  "id": "s01",
+  "chapter": "Cold open",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Yasmin heeft twee zwarte cavia's. Ze krijgen drie jongen. Twee zijn zwart. Maar één is wit.",
+   "Hoe kan een wit jong twee zwarte ouders hebben? Wat denk je?"
+  ],
+  "display": "Yasmin heeft twee zwarte cavia's. Ze krijgen drie jongen. Twee zijn zwart. Maar één is wit. Hoe kan een wit jong twee zwarte ouders hebben? Wat denk je?",
+  "voice": "Yasmin heeft twee zwarte cavia's. Ze krijgen drie jongen. Twee zijn zwart. Maar één is wit. Hoe kan een wit jong twee zwarte ouders hebben? Wat denk je?"
+ },
+ {
+  "id": "q02",
+  "chapter": "Cold open",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "het witte jong is ziek",
+   "de ouders hebben allebei een verborgen gen voor wit",
+   "het jong is te weinig in de zon geweest"
+  ],
+  "q": "Twee zwarte cavia's krijgen een wit jong. Hoe kan dat?",
+  "correct": 1,
+  "explain": "De ouders hebben allebei een verborgen gen voor wit. Het jong kreeg van allebei dat wit-gen mee."
+ },
+ {
+  "id": "s03",
+  "chapter": "Titel",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "DNA en overerving. Hoe geef je een eigenschap door?"
+  ],
+  "display": "DNA en overerving. Hoe geef je een eigenschap door?",
+  "voice": "deeënaa en overerving. Hoe geef je een eigenschap door?"
+ },
+ {
+  "id": "s04",
+  "chapter": "Hoofdstuk 1 — De bouwtekening",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "In elke cel van de cavia zit een celkern. Daarin liggen de chromosomen. Een chromosoom is een heel lange, opgerolde draad: DNA.",
+   "DNA is als een lange rij letters. Er zijn maar vier letters. Maar de rij is miljarden letters lang.",
+   "Een stukje van die rij is een gen. Een gen is een recept voor één eigenschap. Zoals de kleur van de vacht.",
+   "Je cellen lezen het recept. Zo maken ze bijvoorbeeld de kleurstof voor zwarte haren."
+  ],
+  "display": "In elke cel van de cavia zit een celkern. Daarin liggen de chromosomen. Een chromosoom is een heel lange, opgerolde draad: DNA. DNA is als een lange rij letters. Er zijn maar vier letters. Maar de rij is miljarden letters lang. Een stukje van die rij is een gen. Een gen is een recept voor één eigenschap. Zoals de kleur van de vacht. Je cellen lezen het recept. Zo maken ze bijvoorbeeld de kleurstof voor zwarte haren.",
+  "voice": "In elke cel van de cavia zit een celkern. Daarin liggen de chromosomen. Een chromosoom is een heel lange, opgerolde draad: deeënaa. deeënaa is als een lange rij letters. Er zijn maar vier letters. Maar de rij is miljarden letters lang. Een stukje van die rij is een gen. Een gen is een recept voor één eigenschap. Zoals de kleur van de vacht. Je cellen lezen het recept. Zo maken ze bijvoorbeeld de kleurstof voor zwarte haren."
+ },
+ {
+  "id": "s05",
+  "chapter": "Hoofdstuk 2 — Twee van elk",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Een cavia heeft van elk gen twee exemplaren. Eén van zijn moeder. En één van zijn vader.",
+   "Die twee kunnen verschillen. Er is een zwart-gen en een wit-gen.",
+   "Een cavia met twee zwart-genen is zwart. Een cavia met twee wit-genen is wit. Maar wat is een cavia met één zwart en één wit? Wat denk je?"
+  ],
+  "display": "Een cavia heeft van elk gen twee exemplaren. Eén van zijn moeder. En één van zijn vader. Die twee kunnen verschillen. Er is een zwart-gen en een wit-gen. Een cavia met twee zwart-genen is zwart. Een cavia met twee wit-genen is wit. Maar wat is een cavia met één zwart en één wit? Wat denk je?",
+  "voice": "Een cavia heeft van elk gen twee exemplaren. Eén van zijn moeder. En één van zijn vader. Die twee kunnen verschillen. Er is een zwart-gen en een wit-gen. Een cavia met twee zwart-genen is zwart. Een cavia met twee wit-genen is wit. Maar wat is een cavia met één zwart en één wit? Wat denk je?"
+ },
+ {
+  "id": "q06",
+  "chapter": "Hoofdstuk 2 — Twee van elk",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "zwart",
+   "wit",
+   "grijs, een mengsel"
+  ],
+  "q": "Een cavia heeft één zwart-gen en één wit-gen. Welke kleur heeft hij?",
+  "correct": 0,
+  "explain": "Zwart. Het zwart-gen wint: het is dominant. Wit (recessief) zie je alleen met twee wit-genen. Genen mengen niet tot grijs."
+ },
+ {
+  "id": "s07",
+  "chapter": "Hoofdstuk 2 — Twee van elk",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Zwart. Het zwart-gen wint het van het wit-gen. Zwart heet dominant. Wit heet recessief.",
+   "Wit zie je alleen als er twee wit-genen zijn. Eén wit-gen kan dus verborgen zitten. Bij een zwarte cavia zie je het niet."
+  ],
+  "display": "Zwart. Het zwart-gen wint het van het wit-gen. Zwart heet dominant. Wit heet recessief. Wit zie je alleen als er twee wit-genen zijn. Eén wit-gen kan dus verborgen zitten. Bij een zwarte cavia zie je het niet.",
+  "voice": "Zwart. Het zwart-gen wint het van het wit-gen. Zwart heet dominant. Wit heet recessief. Wit zie je alleen als er twee wit-genen zijn. Eén wit-gen kan dus verborgen zitten. Bij een zwarte cavia zie je het niet."
+ },
+ {
+  "id": "s08",
+  "chapter": "Hoofdstuk 3 — Doorgeven",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Elke ouder geeft maar één van zijn twee genen door. Dat zit in de eicel of de zaadcel. Welke het is, is toeval. Net als een munt opgooien.",
+   "Yasmins cavia's hebben allebei één zwart en één wit. Allebei zwart, maar met een verborgen wit-gen.",
+   "Soms geeft de moeder wit door. En soms de vader ook. Dan krijgt het jong twee wit-genen. Het is wit.",
+   "Gemiddeld is één op de vier jongen wit. Maar dat is een kans. In een klein nest kan het ook vaker of nooit gebeuren."
+  ],
+  "display": "Elke ouder geeft maar één van zijn twee genen door. Dat zit in de eicel of de zaadcel. Welke het is, is toeval. Net als een munt opgooien. Yasmins cavia's hebben allebei één zwart en één wit. Allebei zwart, maar met een verborgen wit-gen. Soms geeft de moeder wit door. En soms de vader ook. Dan krijgt het jong twee wit-genen. Het is wit. Gemiddeld is één op de vier jongen wit. Maar dat is een kans. In een klein nest kan het ook vaker of nooit gebeuren.",
+  "voice": "Elke ouder geeft maar één van zijn twee genen door. Dat zit in de eicel of de zaadcel. Welke het is, is toeval. Net als een munt opgooien. Yasmins cavia's hebben allebei één zwart en één wit. Allebei zwart, maar met een verborgen wit-gen. Soms geeft de moeder wit door. En soms de vader ook. Dan krijgt het jong twee wit-genen. Het is wit. Gemiddeld is één op de vier jongen wit. Maar dat is een kans. In een klein nest kan het ook vaker of nooit gebeuren."
+ },
+ {
+  "id": "s09",
+  "chapter": "Hoofdstuk 3 — Doorgeven",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "En als twee witte cavia's jongen krijgen? Welke kleur hebben die jongen? Wat denk je?"
+  ],
+  "display": "En als twee witte cavia's jongen krijgen? Welke kleur hebben die jongen? Wat denk je?",
+  "voice": "En als twee witte cavia's jongen krijgen? Welke kleur hebben die jongen? Wat denk je?"
+ },
+ {
+  "id": "q10",
+  "chapter": "Hoofdstuk 3 — Doorgeven",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "allemaal wit",
+   "zwart en wit door elkaar",
+   "allemaal zwart"
+  ],
+  "q": "Twee witte cavia's krijgen jongen. Welke kleur hebben die jongen?",
+  "correct": 0,
+  "explain": "Allemaal wit. Witte cavia's hebben twee wit-genen en kunnen dus alleen wit doorgeven."
+ },
+ {
+  "id": "s11",
+  "chapter": "Hoofdstuk 3 — Doorgeven",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Allemaal wit. Witte cavia's hebben alleen wit-genen. Ze kunnen dus alleen wit doorgeven."
+  ],
+  "display": "Allemaal wit. Witte cavia's hebben alleen wit-genen. Ze kunnen dus alleen wit doorgeven.",
+  "voice": "Allemaal wit. Witte cavia's hebben alleen wit-genen. Ze kunnen dus alleen wit doorgeven."
+ },
+ {
+  "id": "s12",
+  "chapter": "Hoofdstuk 3 — Doorgeven",
+  "level": "vwo",
+  "kind": "speech",
+  "lines": [
+   "Biologen schrijven genen als letters. Een hoofdletter voor dominant: grote A voor zwart. Een kleine letter voor recessief: kleine a voor wit. Yasmins cavia's hebben allebei een grote A en een kleine a. In een schema zie je alle vier de mogelijkheden. Alleen een jong met twee kleine a's is wit."
+  ],
+  "display": "Biologen schrijven genen als letters. Een hoofdletter voor dominant: grote A voor zwart. Een kleine letter voor recessief: kleine a voor wit. Yasmins cavia's hebben allebei een grote A en een kleine a. In een schema zie je alle vier de mogelijkheden. Alleen een jong met twee kleine a's is wit.",
+  "voice": "Biologen schrijven genen als letters. Een hoofdletter voor dominant: grote aa voor zwart. Een kleine letter voor recessief: kleine aa voor wit. Yasmins cavia's hebben allebei een grote aa en een kleine aa. In een schema zie je alle vier de mogelijkheden. Alleen een jong met twee kleine aa's is wit."
+ },
+ {
+  "id": "s13",
+  "chapter": "Samenvatting",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "In je DNA zitten genen: recepten voor eigenschappen. Van elk gen heb je er twee, één van elke ouder.",
+   "Een dominant gen wint het. Een recessief gen zie je alleen als het dubbel is.",
+   "Elke ouder geeft één van de twee door, door toeval. Zo kan een wit jong twee zwarte ouders hebben."
+  ],
+  "display": "In je DNA zitten genen: recepten voor eigenschappen. Van elk gen heb je er twee, één van elke ouder. Een dominant gen wint het. Een recessief gen zie je alleen als het dubbel is. Elke ouder geeft één van de twee door, door toeval. Zo kan een wit jong twee zwarte ouders hebben.",
+  "voice": "In je deeënaa zitten genen: recepten voor eigenschappen. Van elk gen heb je er twee, één van elke ouder. Een dominant gen wint het. Een recessief gen zie je alleen als het dubbel is. Elke ouder geeft één van de twee door, door toeval. Zo kan een wit jong twee zwarte ouders hebben."
+ },
+ {
+  "id": "s14",
+  "chapter": "Eindkaart",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Probeer het zelf."
+  ],
+  "display": "Probeer het zelf.",
+  "voice": "Probeer het zelf."
+ }
+]

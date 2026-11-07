@@ -1,0 +1,2086 @@
+{
+"duration": 574.046,
+"lead": 1.0,
+"card": 3.0,
+"chapters": [
+{
+"id": "H0",
+"title": "Koude opening",
+"t": 1.0,
+"t_first": 1.0,
+"t_end": 23.063
+},
+{
+"id": "H1",
+"title": "Wat zit er in het buisje?",
+"t": 23.063,
+"t_first": 26.063,
+"t_end": 118.221
+},
+{
+"id": "H2",
+"title": "Eén cyclus",
+"t": 118.221,
+"t_first": 121.221,
+"t_end": 215.431
+},
+{
+"id": "H3",
+"title": "Van te lang naar precies goed",
+"t": 215.431,
+"t_first": 218.431,
+"t_end": 343.427
+},
+{
+"id": "H4",
+"title": "Tellen",
+"t": 343.427,
+"t_first": 346.427,
+"t_end": 441.286
+},
+{
+"id": "H5",
+"title": "Gevoelig voor besmetting",
+"t": 441.286,
+"t_first": 444.286,
+"t_end": 497.231
+},
+{
+"id": "H6",
+"title": "Terug naar de gel",
+"t": 497.231,
+"t_first": 500.231,
+"t_end": 574.048
+}
+],
+"lines": [
+{
+"ch": "H0",
+"i": 1,
+"t0": 1.08,
+"t1": 2.655,
+"parts": [
+[
+1.08,
+2.655
+]
+],
+"text": "Dit is je gel uit het practicum.",
+"verd": false
+},
+{
+"ch": "H0",
+"i": 2,
+"t0": 3.377,
+"t1": 8.232,
+"parts": [
+[
+3.377,
+5.972
+],
+[
+6.447,
+8.232
+]
+],
+"text": "In de baan van het bloedspoor zit een heldere band: honderdtweeënzeventig basenparen.",
+"verd": false
+},
+{
+"ch": "H0",
+"i": 3,
+"t0": 9.264,
+"t1": 12.539,
+"parts": [
+[
+9.264,
+12.539
+]
+],
+"text": "Maar in je buisje zat dat stuk DNA maar een paar honderd keer.",
+"verd": false
+},
+{
+"ch": "H0",
+"i": 4,
+"t0": 13.411,
+"t1": 17.306,
+"parts": [
+[
+13.411,
+14.926
+],
+[
+15.181,
+17.306
+]
+],
+"text": "Vast aan chromosoom twaalf, dat honderdduizenden keren langer is.",
+"verd": false
+},
+{
+"ch": "H0",
+"i": 5,
+"t0": 18.768,
+"t1": 19.463,
+"parts": [
+[
+18.768,
+19.463
+]
+],
+"text": "Hoe kan dat?",
+"verd": false
+},
+{
+"ch": "H1",
+"i": 1,
+"t0": 26.083,
+"t1": 28.778,
+"parts": [
+[
+26.083,
+28.778
+]
+],
+"text": "Een paar honderd moleculen is te weinig voor een gel.",
+"verd": false
+},
+{
+"ch": "H1",
+"i": 2,
+"t0": 29.42,
+"t1": 34.675,
+"parts": [
+[
+29.42,
+31.105
+],
+[
+31.47,
+32.435
+],
+[
+32.91,
+34.675
+]
+],
+"text": "Daarom maak je eerst kopieën, met PCR: de polymerase-kettingreactie.",
+"verd": false
+},
+{
+"ch": "H1",
+"i": 3,
+"t0": 35.297,
+"t1": 36.412,
+"parts": [
+[
+35.297,
+36.412
+]
+],
+"text": "Wat heb je daarvoor nodig?",
+"verd": false
+},
+{
+"ch": "H1",
+"i": 4,
+"t0": 37.844,
+"t1": 40.849,
+"parts": [
+[
+37.844,
+39.539
+],
+[
+39.974,
+40.849
+]
+],
+"text": "Eerst het DNA uit het spoor: het template.",
+"verd": false
+},
+{
+"ch": "H1",
+"i": 5,
+"t0": 41.591,
+"t1": 44.536,
+"parts": [
+[
+41.591,
+44.536
+]
+],
+"text": "Ergens daarin ligt de STR die je onderzoekt.",
+"verd": false
+},
+{
+"ch": "H1",
+"i": 6,
+"t0": 45.158,
+"t1": 50.563,
+"parts": [
+[
+45.158,
+50.563
+]
+],
+"text": "Een STR is een stuk DNA waarin een kort stukje van vier basen steeds herhaald wordt.",
+"verd": false
+},
+{
+"ch": "H1",
+"i": 7,
+"t0": 51.305,
+"t1": 54.58,
+"parts": [
+[
+51.305,
+51.77
+],
+[
+52.055,
+53.01
+],
+[
+53.525,
+54.58
+]
+],
+"text": "Hoe vaak, verschilt per persoon. Hier zestien keer.",
+"verd": false
+},
+{
+"ch": "H1",
+"i": 8,
+"t0": 55.712,
+"t1": 61.987,
+"parts": [
+[
+55.712,
+57.497
+],
+[
+57.892,
+59.817
+],
+[
+60.122,
+61.987
+]
+],
+"text": "Dan twee soorten primers: korte stukjes enkelstrengs DNA, ongeveer twintig nucleotiden lang.",
+"verd": false
+},
+{
+"ch": "H1",
+"i": 9,
+"t0": 62.809,
+"t1": 66.794,
+"parts": [
+[
+62.809,
+64.954
+],
+[
+65.249,
+66.794
+]
+],
+"text": "De ene primer past op de ene streng, een stukje vóór de STR.",
+"verd": false
+},
+{
+"ch": "H1",
+"i": 10,
+"t0": 67.416,
+"t1": 70.521,
+"parts": [
+[
+67.416,
+69.271
+],
+[
+69.566,
+70.521
+]
+],
+"text": "De andere past op de andere streng, een stukje erachter.",
+"verd": false
+},
+{
+"ch": "H1",
+"i": 11,
+"t0": 71.353,
+"t1": 74.258,
+"parts": [
+[
+71.353,
+74.258
+]
+],
+"text": "Elke primer past in al het DNA maar op één plek.",
+"verd": false
+},
+{
+"ch": "H1",
+"i": 12,
+"t0": 75.49,
+"t1": 79.615,
+"parts": [
+[
+75.49,
+77.325
+],
+[
+77.73,
+79.615
+]
+],
+"text": "Dan het DNA-polymerase: het enzym dat nieuwe strengen bouwt.",
+"verd": false
+},
+{
+"ch": "H1",
+"i": 13,
+"t0": 80.347,
+"t1": 85.192,
+"parts": [
+[
+80.347,
+81.902
+],
+[
+82.517,
+85.192
+]
+],
+"text": "Dit polymerase heet Taq. Het komt uit een bacterie die in hete bronnen leeft.",
+"verd": false
+},
+{
+"ch": "H1",
+"i": 14,
+"t0": 86.124,
+"t1": 89.759,
+"parts": [
+[
+86.124,
+87.659
+],
+[
+88.034,
+89.759
+]
+],
+"text": "En losse nucleotiden: de bouwstenen voor nieuwe strengen.",
+"verd": false
+},
+{
+"ch": "H1",
+"i": 15,
+"t0": 90.491,
+"t1": 94.616,
+"parts": [
+[
+90.491,
+91.666
+],
+[
+91.921,
+94.616
+]
+],
+"text": "Alles zit in een buffer, die de zuurgraad goed houdt en magnesium levert.",
+"verd": false
+},
+{
+"ch": "H1",
+"i": 16,
+"t0": 95.448,
+"t1": 98.603,
+"parts": [
+[
+95.448,
+96.053
+],
+[
+96.458,
+98.603
+]
+],
+"text": "Wat denk je: wat gebeurt er als je de primers vergeet?",
+"verd": false
+},
+{
+"ch": "H1",
+"i": 17,
+"t0": 99.475,
+"t1": 101.69,
+"parts": [
+[
+99.475,
+100.13
+],
+[
+100.725,
+101.69
+]
+],
+"text": "Antwoord B: er wordt niets gekopieerd.",
+"verd": false
+},
+{
+"ch": "H1",
+"i": 18,
+"t0": 103.522,
+"t1": 108.047,
+"parts": [
+[
+103.522,
+106.287
+],
+[
+106.662,
+108.047
+]
+],
+"text": "Een polymerase kan een streng alleen verlengen. Zelf beginnen kan het niet.",
+"verd": false
+},
+{
+"ch": "H1",
+"i": 19,
+"t0": 108.879,
+"t1": 112.014,
+"parts": [
+[
+108.879,
+112.014
+]
+],
+"text": "Daarom bepalen de primers waar het kopiëren begint.",
+"verd": false
+},
+{
+"ch": "H1",
+"i": 20,
+"t0": 112.946,
+"t1": 116.821,
+"parts": [
+[
+112.946,
+116.821
+]
+],
+"text": "Alleen het stuk tussen de twee primers wordt steeds opnieuw gekopieerd.",
+"verd": false
+},
+{
+"ch": "H2",
+"i": 1,
+"t0": 121.263,
+"t1": 125.468,
+"parts": [
+[
+121.263,
+123.488
+],
+[
+123.903,
+125.468
+]
+],
+"text": "Hoe maak je van één molecuul er twee, met alleen warm en koud?",
+"verd": false
+},
+{
+"ch": "H2",
+"i": 2,
+"t0": 126.2,
+"t1": 129.175,
+"parts": [
+[
+126.2,
+127.905
+],
+[
+128.18,
+129.175
+]
+],
+"text": "Met cycli van drie stappen, bij drie temperaturen.",
+"verd": false
+},
+{
+"ch": "H2",
+"i": 3,
+"t0": 130.027,
+"t1": 133.572,
+"parts": [
+[
+130.027,
+130.672
+],
+[
+131.187,
+131.912
+],
+[
+132.427,
+133.572
+]
+],
+"text": "Stap één: denatureren, bij vijfennegentig graden.",
+"verd": false
+},
+{
+"ch": "H2",
+"i": 4,
+"t0": 134.294,
+"t1": 137.619,
+"parts": [
+[
+134.294,
+137.619
+]
+],
+"text": "Door de hitte breken de waterstofbruggen tussen de twee strengen.",
+"verd": false
+},
+{
+"ch": "H2",
+"i": 5,
+"t0": 138.741,
+"t1": 140.046,
+"parts": [
+[
+138.741,
+140.046
+]
+],
+"text": "De strengen gaan uit elkaar.",
+"verd": false
+},
+{
+"ch": "H2",
+"i": 6,
+"t0": 141.078,
+"t1": 143.963,
+"parts": [
+[
+141.078,
+141.623
+],
+[
+142.088,
+143.963
+]
+],
+"text": "Wat denk je: wat doet die hitte verder met het DNA?",
+"verd": false
+},
+{
+"ch": "H2",
+"i": 7,
+"t0": 144.845,
+"t1": 147.34,
+"parts": [
+[
+144.845,
+145.49
+],
+[
+146.095,
+147.34
+]
+],
+"text": "Antwoord B: de strengen blijven heel.",
+"verd": false
+},
+{
+"ch": "H2",
+"i": 8,
+"t0": 148.082,
+"t1": 152.377,
+"parts": [
+[
+148.082,
+152.377
+]
+],
+"text": "De bindingen binnen een streng zijn veel sterker dan de waterstofbruggen ertussen.",
+"verd": false
+},
+{
+"ch": "H2",
+"i": 9,
+"t0": 153.299,
+"t1": 158.744,
+"parts": [
+[
+153.299,
+155.404
+],
+[
+155.859,
+157.804
+],
+[
+158.239,
+158.744
+]
+],
+"text": "Ook het polymerase overleeft de hitte. Een gewoon enzym verliest zijn vorm, Taq niet.",
+"verd": false
+},
+{
+"ch": "H2",
+"i": 10,
+"t0": 159.796,
+"t1": 166.181,
+"parts": [
+[
+159.796,
+160.451
+],
+[
+161.016,
+161.851
+],
+[
+162.216,
+164.341
+],
+[
+164.836,
+166.181
+]
+],
+"text": "Stap twee: primers binden, tussen vijfenvijftig en zestig graden. Dit heet ook annealing.",
+"verd": false
+},
+{
+"ch": "H2",
+"i": 11,
+"t0": 167.013,
+"t1": 170.088,
+"parts": [
+[
+167.013,
+170.088
+]
+],
+"text": "Waar alle basen precies passen, blijft een primer zitten.",
+"verd": false
+},
+{
+"ch": "H2",
+"i": 12,
+"t0": 171.51,
+"t1": 174.855,
+"parts": [
+[
+171.51,
+174.855
+]
+],
+"text": "Past hij maar half, dan valt hij er bij deze temperatuur weer af.",
+"verd": false
+},
+{
+"ch": "H2",
+"i": 13,
+"t0": 176.307,
+"t1": 181.522,
+"parts": [
+[
+176.307,
+176.872
+],
+[
+177.397,
+177.892
+],
+[
+178.277,
+179.662
+],
+[
+180.147,
+181.522
+]
+],
+"text": "Stap drie: verlengen, bij tweeënzeventig graden. Dit heet ook extensie.",
+"verd": false
+},
+{
+"ch": "H2",
+"i": 14,
+"t0": 182.444,
+"t1": 184.639,
+"parts": [
+[
+182.444,
+184.639
+]
+],
+"text": "Rond die temperatuur werkt Taq snel.",
+"verd": false
+},
+{
+"ch": "H2",
+"i": 15,
+"t0": 185.381,
+"t1": 189.696,
+"parts": [
+[
+185.381,
+189.696
+]
+],
+"text": "Het polymerase zet aan de primer telkens een passende nucleotide vast.",
+"verd": false
+},
+{
+"ch": "H2",
+"i": 16,
+"t0": 191.518,
+"t1": 194.453,
+"parts": [
+[
+191.518,
+192.753
+],
+[
+193.138,
+194.453
+]
+],
+"text": "A tegenover T, C tegenover G.",
+"verd": false
+},
+{
+"ch": "H2",
+"i": 17,
+"t0": 195.275,
+"t1": 199.74,
+"parts": [
+[
+195.275,
+197.69
+],
+[
+198.085,
+199.74
+]
+],
+"text": "Elke streng heeft twee verschillende uiteinden: vijf-accent en drie-accent.",
+"verd": false
+},
+{
+"ch": "H2",
+"i": 18,
+"t0": 200.562,
+"t1": 204.507,
+"parts": [
+[
+200.562,
+204.507
+]
+],
+"text": "Nieuwe nucleotiden komen er altijd bij aan het drie-accent-uiteinde.",
+"verd": false
+},
+{
+"ch": "H2",
+"i": 19,
+"t0": 205.429,
+"t1": 208.874,
+"parts": [
+[
+205.429,
+208.874
+]
+],
+"text": "De primers wijzen met hun drie-accent-uiteinde naar elkaar toe.",
+"verd": false
+},
+{
+"ch": "H2",
+"i": 20,
+"t0": 209.796,
+"t1": 213.831,
+"parts": [
+[
+209.796,
+213.831
+]
+],
+"text": "Na één cyclus is het stuk tussen de primers twee keer zo vaak aanwezig.",
+"verd": false
+},
+{
+"ch": "H3",
+"i": 1,
+"t0": 218.461,
+"t1": 219.756,
+"parts": [
+[
+218.461,
+219.756
+]
+],
+"text": "Dit deel is verdieping.",
+"verd": true
+},
+{
+"ch": "H3",
+"i": 2,
+"t0": 220.608,
+"t1": 223.733,
+"parts": [
+[
+220.608,
+222.633
+],
+[
+223.088,
+223.733
+]
+],
+"text": "De eerste kopieën zijn veel te lang. Hoe kan dat?",
+"verd": true
+},
+{
+"ch": "H3",
+"i": 3,
+"t0": 224.695,
+"t1": 227.34,
+"parts": [
+[
+224.695,
+227.34
+]
+],
+"text": "Volg één molecuul door de eerste drie cycli.",
+"verd": true
+},
+{
+"ch": "H3",
+"i": 4,
+"t0": 228.182,
+"t1": 233.027,
+"parts": [
+[
+228.182,
+228.987
+],
+[
+229.492,
+233.027
+]
+],
+"text": "Cyclus één. Op elke streng bindt een primer, en het polymerase bouwt.",
+"verd": true
+},
+{
+"ch": "H3",
+"i": 5,
+"t0": 235.479,
+"t1": 238.054,
+"parts": [
+[
+235.479,
+236.294
+],
+[
+236.819,
+238.054
+]
+],
+"text": "Waar stopt het? Nergens in het bijzonder.",
+"verd": true
+},
+{
+"ch": "H3",
+"i": 6,
+"t0": 238.696,
+"t1": 242.791,
+"parts": [
+[
+238.696,
+242.791
+]
+],
+"text": "Het bouwt door tot de verlengstap voorbij is, of tot het template ophoudt.",
+"verd": true
+},
+{
+"ch": "H3",
+"i": 7,
+"t0": 244.263,
+"t1": 247.988,
+"parts": [
+[
+244.263,
+246.358
+],
+[
+246.663,
+247.988
+]
+],
+"text": "Vaak wel duizend nucleotiden ver, en elke keer anders.",
+"verd": true
+},
+{
+"ch": "H3",
+"i": 8,
+"t0": 248.83,
+"t1": 253.455,
+"parts": [
+[
+248.83,
+251.535
+],
+[
+251.87,
+253.455
+]
+],
+"text": "De primer is zelf het begin van de nieuwe streng: zijn vijf-accent-uiteinde.",
+"verd": true
+},
+{
+"ch": "H3",
+"i": 9,
+"t0": 254.187,
+"t1": 258.552,
+"parts": [
+[
+254.187,
+256.722
+],
+[
+257.047,
+258.552
+]
+],
+"text": "Maar het drie-accent-uiteinde ligt niet vast. Dit heet een lang product.",
+"verd": true
+},
+{
+"ch": "H3",
+"i": 10,
+"t0": 260.394,
+"t1": 263.799,
+"parts": [
+[
+260.394,
+261.239
+],
+[
+261.794,
+263.799
+]
+],
+"text": "Cyclus twee. Volg één van de twee lange producten.",
+"verd": true
+},
+{
+"ch": "H3",
+"i": 11,
+"t0": 265.241,
+"t1": 266.826,
+"parts": [
+[
+265.241,
+266.826
+]
+],
+"text": "Het wordt nu zelf een template.",
+"verd": true
+},
+{
+"ch": "H3",
+"i": 12,
+"t0": 267.548,
+"t1": 270.773,
+"parts": [
+[
+267.548,
+270.773
+]
+],
+"text": "De andere primer bindt erop, en het polymerase bouwt terug.",
+"verd": true
+},
+{
+"ch": "H3",
+"i": 13,
+"t0": 272.605,
+"t1": 275.57,
+"parts": [
+[
+272.605,
+273.18
+],
+[
+273.545,
+275.57
+]
+],
+"text": "Wat denk je: waar stopt het polymerase deze keer?",
+"verd": true
+},
+{
+"ch": "H3",
+"i": 14,
+"t0": 276.442,
+"t1": 279.207,
+"parts": [
+[
+276.442,
+277.107
+],
+[
+277.702,
+279.207
+]
+],
+"text": "Antwoord B: aan het eind van de template-streng.",
+"verd": true
+},
+{
+"ch": "H3",
+"i": 15,
+"t0": 280.439,
+"t1": 285.804,
+"parts": [
+[
+280.439,
+282.594
+],
+[
+283.059,
+285.804
+]
+],
+"text": "In cyclus één liep het ook gewoon door. Het polymerase weet niets en telt niets.",
+"verd": true
+},
+{
+"ch": "H3",
+"i": 16,
+"t0": 286.836,
+"t1": 290.831,
+"parts": [
+[
+286.836,
+290.831
+]
+],
+"text": "Aan die kant eindigt het template precies bij de primer van cyclus één.",
+"verd": true
+},
+{
+"ch": "H3",
+"i": 17,
+"t0": 291.773,
+"t1": 296.298,
+"parts": [
+[
+291.773,
+294.498
+],
+[
+295.163,
+296.298
+]
+],
+"text": "De nieuwe streng loopt dus van primer tot primer: een streng op maat.",
+"verd": true
+},
+{
+"ch": "H3",
+"i": 18,
+"t0": 298.15,
+"t1": 303.425,
+"parts": [
+[
+298.15,
+301.285
+],
+[
+301.71,
+303.425
+]
+],
+"text": "Hij wordt precies honderdtweeënzeventig nucleotiden lang, maar dat komt door het template.",
+"verd": true
+},
+{
+"ch": "H3",
+"i": 19,
+"t0": 304.267,
+"t1": 309.492,
+"parts": [
+[
+304.267,
+306.472
+],
+[
+306.967,
+309.492
+]
+],
+"text": "Het andere lange product levert er ook één. Allebei zitten ze nog vast aan een lang product.",
+"verd": true
+},
+{
+"ch": "H3",
+"i": 20,
+"t0": 310.554,
+"t1": 314.509,
+"parts": [
+[
+310.554,
+311.179
+],
+[
+311.794,
+314.509
+]
+],
+"text": "Cyclus drie. Nu worden de strengen op maat zelf templates.",
+"verd": true
+},
+{
+"ch": "H3",
+"i": 21,
+"t0": 316.341,
+"t1": 321.046,
+"parts": [
+[
+316.341,
+317.516
+],
+[
+317.831,
+321.046
+]
+],
+"text": "Een primer bindt erop, en het polymerase bouwt tot het eind van de streng op maat.",
+"verd": true
+},
+{
+"ch": "H3",
+"i": 22,
+"t0": 322.488,
+"t1": 328.243,
+"parts": [
+[
+322.488,
+326.753
+],
+[
+327.218,
+328.243
+]
+],
+"text": "Zo ontstaan de eerste twee moleculen die aan beide kanten precies kloppen: twee van de acht.",
+"verd": true
+},
+{
+"ch": "H3",
+"i": 23,
+"t0": 330.285,
+"t1": 336.42,
+"parts": [
+[
+330.285,
+331.22
+],
+[
+331.485,
+332.17
+],
+[
+332.655,
+334.76
+],
+[
+335.185,
+336.42
+]
+],
+"text": "Kort samengevat, voor iedereen: de eerste kopieën lopen te ver door. Dat zijn lange producten.",
+"verd": false
+},
+{
+"ch": "H3",
+"i": 24,
+"t0": 337.352,
+"t1": 341.827,
+"parts": [
+[
+337.352,
+340.697
+],
+[
+341.302,
+341.827
+]
+],
+"text": "Een kopie van zo’n lange kopie stopt precies bij de primer: op maat.",
+"verd": false
+},
+{
+"ch": "H4",
+"i": 1,
+"t0": 346.449,
+"t1": 349.834,
+"parts": [
+[
+346.449,
+348.604
+],
+[
+349.189,
+349.834
+]
+],
+"text": "Maar die lange producten zijn er nog steeds. Waar blijven die?",
+"verd": false
+},
+{
+"ch": "H4",
+"i": 2,
+"t0": 350.756,
+"t1": 355.401,
+"parts": [
+[
+350.756,
+351.231
+],
+[
+351.806,
+352.681
+],
+[
+353.296,
+355.401
+]
+],
+"text": "Tel mee. Dit is een model: elke cyclus een perfecte verdubbeling.",
+"verd": false
+},
+{
+"ch": "H4",
+"i": 3,
+"t0": 356.223,
+"t1": 363.578,
+"parts": [
+[
+356.223,
+357.258
+],
+[
+357.663,
+358.768
+],
+[
+359.353,
+360.408
+],
+[
+360.733,
+361.108
+],
+[
+361.723,
+362.628
+],
+[
+363.093,
+363.578
+]
+],
+"text": "Na cyclus één: twee lange producten. Na cyclus twee: vier. Na cyclus drie: zes.",
+"verd": false
+},
+{
+"ch": "H4",
+"i": 4,
+"t0": 364.61,
+"t1": 369.635,
+"parts": [
+[
+364.61,
+365.165
+],
+[
+365.69,
+368.195
+],
+[
+368.57,
+369.635
+]
+],
+"text": "Wat denk je: hoeveel lange producten zijn er na dertig cycli, uit dat ene molecuul?",
+"verd": false
+},
+{
+"ch": "H4",
+"i": 5,
+"t0": 370.507,
+"t1": 372.102,
+"parts": [
+[
+370.507,
+371.142
+],
+[
+371.677,
+372.102
+]
+],
+"text": "Antwoord A: zestig.",
+"verd": false
+},
+{
+"ch": "H4",
+"i": 6,
+"t0": 373.334,
+"t1": 378.809,
+"parts": [
+[
+373.334,
+376.709
+],
+[
+377.304,
+378.809
+]
+],
+"text": "Lange producten ontstaan alleen op de twee originele strengen: elke cyclus twee erbij.",
+"verd": false
+},
+{
+"ch": "H4",
+"i": 7,
+"t0": 379.841,
+"t1": 383.526,
+"parts": [
+[
+379.841,
+381.636
+],
+[
+382.061,
+383.526
+]
+],
+"text": "Elke cyclus evenveel erbij: dat heet lineaire groei.",
+"verd": false
+},
+{
+"ch": "H4",
+"i": 8,
+"t0": 384.758,
+"t1": 387.803,
+"parts": [
+[
+384.758,
+387.803
+]
+],
+"text": "In het buisje zit niets dat DNA op maat knipt.",
+"verd": false
+},
+{
+"ch": "H4",
+"i": 9,
+"t0": 388.625,
+"t1": 394.42,
+"parts": [
+[
+388.625,
+392.32
+],
+[
+392.695,
+394.42
+]
+],
+"text": "Maar moleculen op maat maken zelf nieuwe moleculen op maat. Die verdubbelen elke cyclus.",
+"verd": false
+},
+{
+"ch": "H4",
+"i": 10,
+"t0": 395.862,
+"t1": 401.637,
+"parts": [
+[
+395.862,
+398.537
+],
+[
+399.062,
+400.567
+],
+[
+400.842,
+401.637
+]
+],
+"text": "Steeds verdubbelen heet exponentiële groei. Moleculen op maat heten ook korte producten.",
+"verd": false
+},
+{
+"ch": "H4",
+"i": 11,
+"t0": 402.859,
+"t1": 408.834,
+"parts": [
+[
+402.859,
+407.364
+],
+[
+407.789,
+408.834
+]
+],
+"text": "Na tien cycli is het stuk tussen de primers er twee tot de macht tien keer: ongeveer duizend.",
+"verd": false
+},
+{
+"ch": "H4",
+"i": 12,
+"t0": 410.256,
+"t1": 413.741,
+"parts": [
+[
+410.256,
+411.331
+],
+[
+411.676,
+413.741
+]
+],
+"text": "Na dertig cycli: ruim een miljard moleculen op maat.",
+"verd": false
+},
+{
+"ch": "H4",
+"i": 13,
+"t0": 415.203,
+"t1": 418.938,
+"parts": [
+[
+415.203,
+416.728
+],
+[
+417.113,
+418.938
+]
+],
+"text": "Zestig tegen een miljard: de lange producten vallen in het niet.",
+"verd": false
+},
+{
+"ch": "H4",
+"i": 14,
+"t0": 419.98,
+"t1": 423.325,
+"parts": [
+[
+419.98,
+420.935
+],
+[
+421.25,
+423.325
+]
+],
+"text": "Ze verdwijnen niet. Er zijn er alleen veel te weinig om te zien.",
+"verd": false
+},
+{
+"ch": "H4",
+"i": 15,
+"t0": 424.347,
+"t1": 428.532,
+"parts": [
+[
+424.347,
+428.532
+]
+],
+"text": "In het echt gaat het steeds langzamer als er al veel DNA is gemaakt.",
+"verd": false
+},
+{
+"ch": "H4",
+"i": 16,
+"t0": 429.564,
+"t1": 434.879,
+"parts": [
+[
+429.564,
+434.879
+]
+],
+"text": "Het polymerase krijgt te veel templates tegelijk, en strengen op maat plakken weer aan elkaar.",
+"verd": false
+},
+{
+"ch": "H4",
+"i": 17,
+"t0": 435.911,
+"t1": 439.486,
+"parts": [
+[
+435.911,
+437.886
+],
+[
+438.271,
+439.486
+]
+],
+"text": "De hoeveelheid DNA vlakt af. Dat heet het plateau.",
+"verd": false
+},
+{
+"ch": "H5",
+"i": 1,
+"t0": 444.296,
+"t1": 447.611,
+"parts": [
+[
+444.296,
+447.611
+]
+],
+"text": "Zo’n krachtige kopieermachine heeft ook een risico.",
+"verd": false
+},
+{
+"ch": "H5",
+"i": 2,
+"t0": 448.443,
+"t1": 454.978,
+"parts": [
+[
+448.443,
+451.488
+],
+[
+451.943,
+454.978
+]
+],
+"text": "Daarom zet je altijd een negatieve controle mee: hetzelfde mengsel, maar water in plaats van DNA.",
+"verd": false
+},
+{
+"ch": "H5",
+"i": 3,
+"t0": 456.0,
+"t1": 461.615,
+"parts": [
+[
+456.0,
+456.585
+],
+[
+457.04,
+459.805
+],
+[
+460.1,
+461.615
+]
+],
+"text": "Wat denk je: wat betekent een band in de negatieve controle, op de hoogte van een allel?",
+"verd": false
+},
+{
+"ch": "H5",
+"i": 4,
+"t0": 462.487,
+"t1": 466.112,
+"parts": [
+[
+462.487,
+463.162
+],
+[
+463.767,
+466.112
+]
+],
+"text": "Antwoord B: er is DNA in gekomen dat daar niet hoort.",
+"verd": false
+},
+{
+"ch": "H5",
+"i": 5,
+"t0": 467.134,
+"t1": 470.939,
+"parts": [
+[
+467.134,
+470.939
+]
+],
+"text": "Want elk stuk DNA met de juiste plekken voor de primers wordt gekopieerd.",
+"verd": false
+},
+{
+"ch": "H5",
+"i": 6,
+"t0": 471.761,
+"t1": 474.546,
+"parts": [
+[
+471.761,
+474.546
+]
+],
+"text": "Een paar huidcellen van de onderzoeker kunnen al genoeg zijn.",
+"verd": false
+},
+{
+"ch": "H5",
+"i": 7,
+"t0": 475.568,
+"t1": 480.613,
+"parts": [
+[
+475.568,
+478.533
+],
+[
+478.998,
+480.613
+]
+],
+"text": "Of een onzichtbaar druppeltje uit een eerdere PCR, met miljoenen moleculen op maat.",
+"verd": false
+},
+{
+"ch": "H5",
+"i": 8,
+"t0": 481.645,
+"t1": 485.3,
+"parts": [
+[
+481.645,
+485.3
+]
+],
+"text": "Ook die paar moleculen worden tot een miljard keer gekopieerd.",
+"verd": false
+},
+{
+"ch": "H5",
+"i": 9,
+"t0": 486.332,
+"t1": 488.867,
+"parts": [
+[
+486.332,
+488.867
+]
+],
+"text": "Dan kun je ook de andere banden op die gel niet vertrouwen.",
+"verd": false
+},
+{
+"ch": "H5",
+"i": 10,
+"t0": 489.819,
+"t1": 491.974,
+"parts": [
+[
+489.819,
+490.414
+],
+[
+490.849,
+491.974
+]
+],
+"text": "Geen band? Dan was je mengsel schoon.",
+"verd": false
+},
+{
+"ch": "H5",
+"i": 11,
+"t0": 493.006,
+"t1": 495.831,
+"parts": [
+[
+493.006,
+495.831
+]
+],
+"text": "Daarom werk je met een nieuwe pipetpunt voor elk buisje.",
+"verd": false
+},
+{
+"ch": "H6",
+"i": 1,
+"t0": 500.263,
+"t1": 501.338,
+"parts": [
+[
+500.263,
+501.338
+]
+],
+"text": "Terug naar het bloedspoor.",
+"verd": false
+},
+{
+"ch": "H6",
+"i": 2,
+"t0": 502.26,
+"t1": 507.245,
+"parts": [
+[
+502.26,
+507.245
+]
+],
+"text": "Elk van die paar honderd kan in theorie ruim een miljard moleculen op maat opleveren.",
+"verd": false
+},
+{
+"ch": "H6",
+"i": 3,
+"t0": 508.267,
+"t1": 512.272,
+"parts": [
+[
+508.267,
+510.162
+],
+[
+510.647,
+512.272
+]
+],
+"text": "Allemaal van primer tot primer, hoe lang het DNA eromheen ook was.",
+"verd": false
+},
+{
+"ch": "H6",
+"i": 4,
+"t0": 513.194,
+"t1": 518.919,
+"parts": [
+[
+513.194,
+514.299
+],
+[
+514.714,
+517.239
+],
+[
+517.684,
+518.919
+]
+],
+"text": "Allemaal even lang, dus komen ze allemaal even ver in de gel: één scherpe band.",
+"verd": false
+},
+{
+"ch": "H6",
+"i": 5,
+"t0": 520.341,
+"t1": 525.646,
+"parts": [
+[
+520.341,
+521.336
+],
+[
+521.811,
+523.886
+],
+[
+524.231,
+525.646
+]
+],
+"text": "En de lange producten? Er komen er per cyclus maar twee bij, terwijl de korte verdubbelen.",
+"verd": false
+},
+{
+"ch": "H6",
+"i": 6,
+"t0": 526.658,
+"t1": 531.473,
+"parts": [
+[
+526.658,
+531.473
+]
+],
+"text": "Omdat de primers buiten de STR liggen, zit de hele STR in het product.",
+"verd": false
+},
+{
+"ch": "H6",
+"i": 7,
+"t0": 532.515,
+"t1": 538.31,
+"parts": [
+[
+532.515,
+533.02
+],
+[
+533.525,
+535.63
+],
+[
+535.975,
+536.97
+],
+[
+537.435,
+538.31
+]
+],
+"text": "Wat denk je: een ander allel heeft veertien herhalingen in plaats van zestien. Waar komt die band?",
+"verd": false
+},
+{
+"ch": "H6",
+"i": 8,
+"t0": 539.182,
+"t1": 545.807,
+"parts": [
+[
+539.182,
+539.827
+],
+[
+540.472,
+540.787
+],
+[
+541.522,
+545.807
+]
+],
+"text": "Antwoord B: verder. Minder herhalingen geeft een korter product, en dat komt verder in de gel.",
+"verd": false
+},
+{
+"ch": "H6",
+"i": 9,
+"t0": 547.229,
+"t1": 554.294,
+"parts": [
+[
+547.229,
+549.394
+],
+[
+549.969,
+551.774
+],
+[
+552.269,
+552.964
+],
+[
+553.229,
+554.294
+]
+],
+"text": "Je hebt elke STR twee keer: van je vader en van je moeder. Verschillen ze, dan zie je twee banden.",
+"verd": false
+},
+{
+"ch": "H6",
+"i": 10,
+"t0": 555.566,
+"t1": 561.231,
+"parts": [
+[
+555.566,
+557.551
+],
+[
+557.986,
+561.231
+]
+],
+"text": "Veel mensen hebben hetzelfde allel. Daarom vergelijk je altijd meerdere STR’s tegelijk.",
+"verd": false
+},
+{
+"ch": "H6",
+"i": 11,
+"t0": 562.663,
+"t1": 569.048,
+"parts": [
+[
+562.663,
+565.968
+],
+[
+566.243,
+569.048
+]
+],
+"text": "Zo worden een paar honderd moleculen één scherpe band, en maakt PCR een DNA-profiel mogelijk.",
+"verd": false
+}
+],
+"questions": [
+{
+"ch": "H1",
+"t": 99.103,
+"after_line": 16,
+"q": "Wat gebeurt er als je de primers vergeet?",
+"options": [
+[
+"A",
+"Het polymerase kopieert dan gewoon al het DNA."
+],
+[
+"B",
+"Er wordt niets gekopieerd."
+],
+[
+"C",
+"Het begint op willekeurige plekken: je ziet een vage veeg."
+]
+],
+"answer": "B"
+},
+{
+"ch": "H2",
+"t": 144.463,
+"after_line": 6,
+"q": "Wat doet die hitte verder met het DNA?",
+"options": [
+[
+"A",
+"Het valt in kleine stukjes."
+],
+[
+"B",
+"Vrijwel niets: de strengen blijven heel."
+],
+[
+"C",
+"Het is daarna onbruikbaar, net als een enzym na verhitten."
+]
+],
+"answer": "B"
+},
+{
+"ch": "H3",
+"t": 276.07,
+"after_line": 13,
+"q": "Waar stopt het polymerase deze keer?",
+"options": [
+[
+"A",
+"Waar de STR ophoudt: het weet waar het stuk eindigt."
+],
+[
+"B",
+"Aan het eind van de template-streng."
+],
+[
+"C",
+"Het telt honderdtweeënzeventig nucleotiden en stopt dan."
+]
+],
+"answer": "B"
+},
+{
+"ch": "H4",
+"t": 370.135,
+"after_line": 4,
+"q": "Hoeveel lange producten zijn er na 30 cycli, uit dat ene molecuul?",
+"options": [
+[
+"A",
+"Zestig."
+],
+[
+"B",
+"Nul: ze worden later op maat geknipt."
+],
+[
+"C",
+"Ruim een miljard."
+]
+],
+"answer": "A"
+},
+{
+"ch": "H5",
+"t": 462.115,
+"after_line": 3,
+"q": "Wat betekent een band in de negatieve controle, op de hoogte van een allel?",
+"options": [
+[
+"A",
+"Goed teken: de PCR werkt."
+],
+[
+"B",
+"Er is DNA in de PCR gekomen dat daar niet hoort."
+],
+[
+"C",
+"Primers en polymerase maken ook zonder template DNA."
+]
+],
+"answer": "B"
+},
+{
+"ch": "H6",
+"t": 538.81,
+"after_line": 7,
+"q": "Een ander allel heeft 14 herhalingen in plaats van 16. Waar komt die band?",
+"options": [
+[
+"A",
+"Even ver: het zijn dezelfde primers."
+],
+[
+"B",
+"Verder."
+],
+[
+"C",
+"Minder ver."
+]
+],
+"answer": "B"
+}
+],
+"skip_verdieping": {
+"from_t": 215.431,
+"to_t": 329.685
+}
+}

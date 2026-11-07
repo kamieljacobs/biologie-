@@ -1,0 +1,69 @@
+{
+ "slug": "10-helpen",
+ "hoofdstuk": "gedrag",
+ "hoofdstukNaam": "Gedrag",
+ "title": "Waarom helpen dieren elkaar?",
+ "sub": "Altruïsme, verwantschapsselectie en wederkerig altruïsme",
+ "puzzle": "Een grondeekhoorn slaat alarm als er een wezel aankomt, en loopt daardoor zelf meer gevaar. Waarom doet ze dat?",
+ "meta": "gedrag · altruïsme",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Gedrag · film 10 van 12",
+ "lead": "Altruïsme kost de helper fitness en levert een ander fitness op. Dat ontstaat niet 'voor de soort'. Verwantschapsselectie: door familie te helpen, help je ook genen die je met hen deelt; hoe nauwer verwant, hoe meer het loont. Wederkerig altruïsme: wie eerder hielp, wordt later terug geholpen, als dieren elkaar vaak tegenkomen, herkennen en onthouden.",
+ "endHaak": "wie help jij zonder er iets voor terug te verwachten, en klopt dat echt?",
+ "minis": {
+  "Hoofdstuk 1": "Waarom is helpen een raadsel?",
+  "Hoofdstuk 2": "Waarom helpen dieren hun familie?",
+  "Hoofdstuk 3": "Waarom helpen dieren die geen familie zijn?",
+  "Recap": "Waarom slaat de grondeekhoorn alarm?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Lotte en Yasmin (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Waarom slaat de grondeekhoorn alarm, terwijl ze zelf opvalt?",
+   "correct": 1,
+   "explain": "Er is vaak familie in de buurt: het antwoord zie je in hoofdstuk 2."
+  },
+  "q06": {
+   "q": "Wie slaat het vaakst alarm?",
+   "correct": 1,
+   "explain": "Vrouwtjes met familie in de buurt."
+  },
+  "q09": {
+   "q": "Buur A gaf eerder bloed, buur B nooit. Aan wie geeft de vleermuis het liefst?",
+   "correct": 1,
+   "explain": "Aan A: wie eerder gaf, krijgt later vaker terug."
+  }
+ },
+ "glossary": [
+  {
+   "t": "altruïsme",
+   "d": "Gedrag dat de helper fitness kost en een ander fitness oplevert."
+  },
+  {
+   "t": "fitness",
+   "d": "Kans om te overleven en nakomelingen te krijgen (bijdrage aan de volgende generatie)."
+  },
+  {
+   "t": "verwantschapsselectie",
+   "d": "Selectie op gedrag dat verwanten helpt; loont meer naarmate de ander nauwer verwant is."
+  },
+  {
+   "t": "verwantschap (r)",
+   "d": "Kans dat een gen bij twee individuen identiek is doordat ze het van dezelfde voorouder hebben: broer/zus ½, neef/nicht ⅛."
+  },
+  {
+   "t": "wederkerig altruïsme",
+   "d": "Ik help jou nu, jij helpt mij later; werkt als dieren elkaar vaak tegenkomen, herkennen en onthouden."
+  },
+  {
+   "t": "regel van Hamilton",
+   "d": "vwo · Helpen loont als r × B > C (verwantschap × voordeel voor de ander > kosten voor de helper)."
+  },
+  {
+   "t": "haplodiploïdie",
+   "d": "vwo · Mannetjes uit onbevruchte eitjes (één set chromosomen), vrouwtjes uit bevruchte; zussen zijn dan voor ¾ verwant."
+  }
+ ],
+ "sections": "  <section><h2>Checkvragen</h2>\n    <p class=\"meta\">examenstijl · antwoorden ingeklapt</p>\n    <div class=\"q\"><b>1. Altruïsme</b> <span class=\"pts\">2 punten</span><p>Bij Florida-gaaien helpen jonge vogels vaak een paar jaar hun ouders bij het grootbrengen van nieuwe broertjes en zusjes, in plaats van zelf te broeden.</p>\n      <p>a. Leg uit waarom dit gedrag altruïsme genoemd wordt. Gebruik het begrip fitness. (1p)<br>b. Leg met verwantschapsselectie uit hoe dit gedrag toch door natuurlijke selectie kan blijven bestaan. (1p)</p>\n      <details><summary>Antwoord</summary><p>a. Het kost de helper fitness (geen eigen jongen in die jaren) en levert de ouders/broers en zussen fitness op (1). b. De helpers zijn nauw verwant aan de jongen die ze helpen; zo komen genen die ze delen (ook die voor helpen) toch in de volgende generatie (1).</p></details></div>\n    <div class=\"q\"><b>2. Voor de soort?</b> <span class=\"pts\">2 punten</span><p>Een leerling schrijft: \"Grondeekhoorns slaan alarm om hun soort te laten voortbestaan.\"</p>\n      <p>Leg uit waarom deze verklaring biologisch niet klopt. (2p)</p>\n      <details><summary>Antwoord</summary><p>Dieren die geen alarm slaan, lopen minder risico en krijgen gemiddeld meer jongen (1); hun genen worden steeds vaker, dus 'voor de soort'-gedrag zou verdwijnen: selectie werkt via individuen/genen (1).</p></details></div>\n    <div class=\"q\"><b>3. Wederkerig altruïsme</b> <span class=\"pts\">2 punten</span><p>Vampiervleermuizen delen bloed, ook met buren die geen familie zijn.</p>\n      <p>Noem twee voorwaarden waaronder dit soort wederkerig helpen kan ontstaan. (2p)</p>\n      <details><summary>Antwoord</summary><p>Twee van: dieren komen elkaar vaak tegen; ze herkennen elkaar; ze onthouden wie geholpen heeft; helpen kost de gever weinig en levert de ontvanger veel op; wie niet teruggeeft, krijgt minder (per voorwaarde 1).</p></details></div>\n    <div class=\"q vwo-only\"><b>4. Regel van Hamilton</b> <span class=\"vwo-badge\">vwo</span> <span class=\"pts\">2 punten</span><p>Een werkster kan zelf twee dochters grootbrengen (r = 0,5) of in dezelfde tijd helpen drie extra zussen groot te brengen (r = 0,75; koningin paarde met één mannetje).</p>\n      <p>Bereken voor beide keuzes het aantal 'genkopieën' (r × aantal) en leg uit welke keuze volgens Hamilton loont. (2p)</p>\n      <details><summary>Antwoord</summary><p>Eigen dochters: 2 × 0,5 = 1,0; zussen: 3 × 0,75 = 2,25 (1). Helpen bij zussen levert meer op, dus helpen loont (r × B > C) (1).</p></details></div>\n  </section>\n  <section><h2>Voor de docent</h2>\n    <h3>Hoe de film het uitlegt</h3>\n    <table><tr><th>Hoofdstuk</th><th>Kernbeeld</th></tr>\n      <tr><td>Cold open</td><td>Lotte (castboek) kijkt een natuurfilm: grondeekhoorns, een wezel, één eekhoorn slaat trillend alarm en valt zelf op. Openingsvraag (antwoord in H2)</td></tr>\n      <tr><td>1 Een raadsel</td><td>Helper (− fitness) en ander (+ fitness); aandeel helpers daalt over generaties; 'voor de soort' doorgestreept; populatie met een paar niet-roepers die steeds vaker worden</td></tr>\n      <tr><td>2 Familie</td><td>Genbalk 'jij' vergeleken met broer/zus (½), ouder (½), neef/nicht (⅛); verwantschapsselectie; vrouwtjes blijven bij familie, mannetjes trekken weg; staafdiagram alarm (schematisch); koningin, werksters en larven</td></tr>\n      <tr><td>3 Ik help jou, jij helpt mij</td><td>Ik/jij met pijlen nu en later; vampiervleermuizen in een grot, bloed delen; buur A en B; voorwaarden en kosten/baten; Lotte en Yasmin. Vwo: r × B &gt; C, genbalken bij haplodiploïdie (zussen ¾, moeder–dochter ½, zus–broer ¼), termieten, monogame voorouders</td></tr>\n    </table>\n    <h3>Achtergrond en vereenvoudigingen</h3>\n    <ul>\n      <li>Grondeekhoorns: Sherman (1977, <i>Science</i>) bij Beldings grondeekhoorn. Alarm bij landroofdieren (trillers): roepers worden vaker achtervolgd/gedood; vrouwtjes met verwanten in de buurt roepen het meest. Bij luchtroofdieren (korte fluit) vluchten roepers zelf en is roepen eerder eigenbelang (Sherman 1985). Het staafdiagram is schematisch, niet de echte getallen.</li>\n      <li>Verwantschapscoëfficiënt r: kans dat een gen identiek is door afstamming (niet 'de helft van al je DNA'). Ouder 0,5; volle broer/zus gemiddeld 0,5; volle neef/nicht 0,125.</li>\n      <li>Groepsselectie: de film weerlegt de naïeve 'voor de soort'-verklaring; moderne multilevel-selectie valt buiten het bestek.</li>\n      <li>Vampiervleermuizen: Wilkinson (1984, <i>Nature</i>): sterven na ± 60–70 uur zonder bloed; een verzadigde gever verliest minder overlevingstijd dan de ontvanger wint. Carter &amp; Wilkinson (2013): wie eerder gaf, krijgt later vaker; dat voorspelt delen beter dan verwantschap. Het A/B-voorbeeld in de film is een gedachte-experiment.</li>\n      <li>Haplodiploïdie: zussen r = 0,75 bij één vader; met broers 0,25 (Trivers &amp; Hare 1976). Termieten zijn diploïd en toch eusociaal. Hughes e.a. (2008, <i>Science</i>): eusocialiteit bij vliesvleugeligen ontstond telkens bij monogame voorouders.</li>\n    </ul>\n    <h3>Leerdoelen</h3>\n    <table><tr><th>Leerdoel</th><th>Niveau</th><th>Waar</th></tr>\n      <tr><td>Altruïsme en fitness; waarom het een raadsel is</td><td>basis</td><td>H1, checkvraag 1</td></tr>\n      <tr><td>'Voor de soort' weerleggen</td><td>basis</td><td>H1, checkvraag 2</td></tr>\n      <tr><td>Verwantschapsselectie</td><td>basis</td><td>H2, checkvraag 1</td></tr>\n      <tr><td>Wederkerig altruïsme en voorwaarden</td><td>basis</td><td>H3, checkvraag 3</td></tr>\n      <tr><td>Regel van Hamilton, haplodiploïdie met nuance</td><td>vwo</td><td>H3 (vwo), checkvraag 4</td></tr>\n    </table>\n    <h3>Suggesties voor de les</h3>\n    <ul><li>Laat leerlingen voor drie voorbeelden (helpers bij vogels, delende vleermuizen, alarm bij aapjes) bepalen welke verklaring het best past en wat je zou moeten meten om dat te toetsen.</li><li>Speel een paar rondes 'prisoner's dilemma' in tweetallen en bespreek waarom 'tit for tat' goed werkt.</li></ul>\n  </section>\n"
+}

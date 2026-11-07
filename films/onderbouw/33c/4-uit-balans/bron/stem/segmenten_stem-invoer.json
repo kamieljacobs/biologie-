@@ -1,0 +1,165 @@
+[
+ {
+  "id": "s01",
+  "chapter": "Cold open",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "In een droge zomer brandt een stuk bos af. Alles is zwart. Noor staat er met opa Henk. Komt hier ooit weer bos? Wat denk je?"
+  ],
+  "display": "In een droge zomer brandt een stuk bos af. Alles is zwart. Noor staat er met opa Henk. Komt hier ooit weer bos? Wat denk je?",
+  "voice": "In een droge zomer brandt een stuk bos af. Alles is zwart. Noor staat er met opa Henk. Komt hier ooit weer bos? Wat denk je?"
+ },
+ {
+  "id": "q02",
+  "chapter": "Cold open",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "nee, het blijft voor altijd kaal",
+   "ja, maar alleen als mensen nieuwe bomen planten",
+   "ja, vanzelf, maar dat duurt lang"
+  ],
+  "q": "Een stuk bos is afgebrand. Komt hier ooit weer bos?",
+  "correct": 2,
+  "explain": "Ja, vanzelf: zaadjes waaien aan of liggen al in de bodem. Maar het duurt vijftig tot honderd jaar voor er weer een echt bos staat."
+ },
+ {
+  "id": "s03",
+  "chapter": "Titel",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Uit balans. Hoe herstelt een bos na een brand?"
+  ],
+  "display": "Uit balans. Hoe herstelt een bos na een brand?",
+  "voice": "Uit balans. Hoe herstelt een bos na een brand?"
+ },
+ {
+  "id": "s04",
+  "chapter": "Hoofdstuk 1 — Een bos in evenwicht",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Het antwoord is c. Maar eerst: hoe zag dit bos eruit voor de brand?",
+   "In een bos verandert elk jaar iets. In een jaar met veel eikels komen er veel muizen. Dan krijgen ook de uilen en vossen meer jongen. Wat gebeurt er het jaar daarna met het aantal muizen? Wat denk je?"
+  ],
+  "display": "Het antwoord is c. Maar eerst: hoe zag dit bos eruit voor de brand? In een bos verandert elk jaar iets. In een jaar met veel eikels komen er veel muizen. Dan krijgen ook de uilen en vossen meer jongen. Wat gebeurt er het jaar daarna met het aantal muizen? Wat denk je?",
+  "voice": "Het antwoord is cee. Maar eerst: hoe zag dit bos eruit voor de brand? In een bos verandert elk jaar iets. In een jaar met veel eikels komen er veel muizen. Dan krijgen ook de uilen en vossen meer jongen. Wat gebeurt er het jaar daarna met het aantal muizen? Wat denk je?"
+ },
+ {
+  "id": "q05",
+  "chapter": "Hoofdstuk 1 — Een bos in evenwicht",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "er komen steeds meer muizen bij",
+   "er zijn weer minder muizen",
+   "alle muizen gaan dood"
+  ],
+  "q": "Na een jaar met veel eikels zijn er veel muizen en krijgen uilen en vossen meer jongen. Wat gebeurt er het jaar daarna met het aantal muizen?",
+  "correct": 1,
+  "explain": "Er zijn meer uilen en vossen die muizen eten, en vaak minder eikels. Het aantal muizen daalt weer: het schommelt rond een evenwicht."
+ },
+ {
+  "id": "s06",
+  "chapter": "Hoofdstuk 1 — Een bos in evenwicht",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Het antwoord is b. Er zijn nu meer uilen en vossen die muizen eten. En vaak vallen er minder eikels. Dus zijn er weer minder muizen.",
+   "Het aantal gaat op en neer, maar blijft ongeveer rond hetzelfde niveau. Dat heet een dynamisch evenwicht. Dynamisch betekent: het beweegt steeds.",
+   "Ook de stoffen gaan rond. Bladeren vallen, reducenten breken ze af, en de bomen nemen de mineralen weer op. Die kringloop zag je in de film Wie eet wie."
+  ],
+  "display": "Het antwoord is b. Er zijn nu meer uilen en vossen die muizen eten. En vaak vallen er minder eikels. Dus zijn er weer minder muizen. Het aantal gaat op en neer, maar blijft ongeveer rond hetzelfde niveau. Dat heet een dynamisch evenwicht. Dynamisch betekent: het beweegt steeds. Ook de stoffen gaan rond. Bladeren vallen, reducenten breken ze af, en de bomen nemen de mineralen weer op. Die kringloop zag je in de film Wie eet wie.",
+  "voice": "Het antwoord is bee. Er zijn nu meer uilen en vossen die muizen eten. En vaak vallen er minder eikels. Dus zijn er weer minder muizen. Het aantal gaat op en neer, maar blijft ongeveer rond hetzelfde niveau. Dat heet een dynamisch evenwicht. Dynamisch betekent: het beweegt steeds. Ook de stoffen gaan rond. Bladeren vallen, reducenten breken ze af, en de bomen nemen de mineralen weer op. Die kringloop zag je in de film Wie eet wie."
+ },
+ {
+  "id": "s07",
+  "chapter": "Hoofdstuk 2 — De verstoring",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Dan komt de brand. Een grote, plotselinge gebeurtenis die het evenwicht kapotmaakt: een verstoring.",
+   "Bomen en struiken verbranden. Dieren vluchten of gaan dood. De dode bladeren op de bodem worden as.",
+   "Ook de kringloop raakt uit balans. In de as zitten veel mineralen. Maar er zijn geen wortels meer om ze op te nemen. Bij de eerste regenbui spoelt een deel weg.",
+   "Verstoringen zijn er in allerlei soorten: een storm die bomen omblaast, een overstroming, of mensen die een bos kappen."
+  ],
+  "display": "Dan komt de brand. Een grote, plotselinge gebeurtenis die het evenwicht kapotmaakt: een verstoring. Bomen en struiken verbranden. Dieren vluchten of gaan dood. De dode bladeren op de bodem worden as. Ook de kringloop raakt uit balans. In de as zitten veel mineralen. Maar er zijn geen wortels meer om ze op te nemen. Bij de eerste regenbui spoelt een deel weg. Verstoringen zijn er in allerlei soorten: een storm die bomen omblaast, een overstroming, of mensen die een bos kappen.",
+  "voice": "Dan komt de brand. Een grote, plotselinge gebeurtenis die het evenwicht kapotmaakt: een verstoring. Bomen en struiken verbranden. Dieren vluchten of gaan dood. De dode bladeren op de bodem worden as. Ook de kringloop raakt uit balans. In de as zitten veel mineralen. Maar er zijn geen wortels meer om ze op te nemen. Bij de eerste regenbui spoelt een deel weg. Verstoringen zijn er in allerlei soorten: een storm die bomen omblaast, een overstroming, of mensen die een bos kappen."
+ },
+ {
+  "id": "s08",
+  "chapter": "Hoofdstuk 3 — Stap voor stap terug",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Een jaar later komen Noor en opa terug. Welke planten groeien er als eerste? Wat denk je?"
+  ],
+  "display": "Een jaar later komen Noor en opa terug. Welke planten groeien er als eerste? Wat denk je?",
+  "voice": "Een jaar later komen Noor en opa terug. Welke planten groeien er als eerste? Wat denk je?"
+ },
+ {
+  "id": "q09",
+  "chapter": "Hoofdstuk 3 — Stap voor stap terug",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "grote eiken",
+   "grassen en snelle kruiden",
+   "nog helemaal niets"
+  ],
+  "q": "Een jaar na de brand. Welke planten groeien er als eerste?",
+  "correct": 1,
+  "explain": "Grassen en snelle kruiden: pioniers. Ze groeien goed in het volle licht. Grote eiken komen pas veel later."
+ },
+ {
+  "id": "s10",
+  "chapter": "Hoofdstuk 3 — Stap voor stap terug",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Het antwoord is b. Zaadjes waaien aan, of lagen al in de bodem. Grassen en snelle kruiden groeien goed in het volle licht. Ze heten pioniers.",
+   "Na een paar jaar komen er struiken en jonge berken. Die groeien boven de grassen uit en maken schaduw. De pioniers verdwijnen.",
+   "Daarna komen eiken en beuken. Die kunnen als jong boompje ook in de schaduw groeien. Na vijftig tot honderd jaar staat er weer een echt bos.",
+   "Zo'n vaste volgorde van planten na elkaar heet successie. Elke groep planten verandert de plek voor de volgende."
+  ],
+  "display": "Het antwoord is b. Zaadjes waaien aan, of lagen al in de bodem. Grassen en snelle kruiden groeien goed in het volle licht. Ze heten pioniers. Na een paar jaar komen er struiken en jonge berken. Die groeien boven de grassen uit en maken schaduw. De pioniers verdwijnen. Daarna komen eiken en beuken. Die kunnen als jong boompje ook in de schaduw groeien. Na vijftig tot honderd jaar staat er weer een echt bos. Zo'n vaste volgorde van planten na elkaar heet successie. Elke groep planten verandert de plek voor de volgende.",
+  "voice": "Het antwoord is bee. Zaadjes waaien aan, of lagen al in de bodem. Grassen en snelle kruiden groeien goed in het volle licht. Ze heten pioniers. Na een paar jaar komen er struiken en jonge berken. Die groeien boven de grassen uit en maken schaduw. De pioniers verdwijnen. Daarna komen eiken en beuken. Die kunnen als jong boompje ook in de schaduw groeien. Na vijftig tot honderd jaar staat er weer een echt bos. Zo'n vaste volgorde van planten na elkaar heet successie. Elke groep planten verandert de plek voor de volgende."
+ },
+ {
+  "id": "s11",
+  "chapter": "Hoofdstuk 3 — Stap voor stap terug",
+  "level": "vwo",
+  "kind": "speech",
+  "lines": [
+   "Sommige bomen hebben een brand zelfs nodig. In Canada groeit een den met kegels die dichtgeplakt zitten met hars.",
+   "Pas door de hitte van een brand smelt de hars. Dan gaan de kegels open en vallen de zaadjes op de kale, rijke grond."
+  ],
+  "display": "Sommige bomen hebben een brand zelfs nodig. In Canada groeit een den met kegels die dichtgeplakt zitten met hars. Pas door de hitte van een brand smelt de hars. Dan gaan de kegels open en vallen de zaadjes op de kale, rijke grond.",
+  "voice": "Sommige bomen hebben een brand zelfs nodig. In Canada groeit een den met kegels die dichtgeplakt zitten met hars. Pas door de hitte van een brand smelt de hars. Dan gaan de kegels open en vallen de zaadjes op de kale, rijke grond."
+ },
+ {
+  "id": "s12",
+  "chapter": "Samenvatting",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Hoe herstelt een bos na een brand? Vanzelf, stap voor stap: eerst pioniers, dan struiken, dan bomen. Dat heet successie.",
+   "Een bos is nooit stil. Het aantal dieren gaat op en neer rond een evenwicht. Een verstoring, zoals een brand, gooit het uit balans. Daarna groeit langzaam een nieuw evenwicht."
+  ],
+  "display": "Hoe herstelt een bos na een brand? Vanzelf, stap voor stap: eerst pioniers, dan struiken, dan bomen. Dat heet successie. Een bos is nooit stil. Het aantal dieren gaat op en neer rond een evenwicht. Een verstoring, zoals een brand, gooit het uit balans. Daarna groeit langzaam een nieuw evenwicht.",
+  "voice": "Hoe herstelt een bos na een brand? Vanzelf, stap voor stap: eerst pioniers, dan struiken, dan bomen. Dat heet successie. Een bos is nooit stil. Het aantal dieren gaat op en neer rond een evenwicht. Een verstoring, zoals een brand, gooit het uit balans. Daarna groeit langzaam een nieuw evenwicht."
+ },
+ {
+  "id": "s13",
+  "chapter": "Eindkaart",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Probeer het zelf."
+  ],
+  "display": "Probeer het zelf.",
+  "voice": "Probeer het zelf."
+ }
+]

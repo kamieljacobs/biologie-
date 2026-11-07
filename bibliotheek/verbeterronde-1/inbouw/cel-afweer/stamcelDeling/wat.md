@@ -1,0 +1,2 @@
+Basis: variant B, ongewijzigd (geen opmerking, geen bevestigde fout). na.png = voor.png.
+Vraag: de blinde beoordelaar vond de laatste stap (rode bloedcel via `rodeBloedcel()` van boven) nog 'een bol met donkere kern'. Dat ligt aan de bibliotheekfunctie zelf (donker midden = de indeuking); niet aangepast omdat het geen gemelde fout was. Wil je daar een zij-aanzicht naast, zoals nu in gedifferentieerdeCellen?

@@ -1,0 +1,28 @@
+zonder n=10 gem=40.00 sd=3.018 se=0.955 min=35 max=44
+met n=10 gem=43.00 sd=2.906 se=0.919 min=39 max=49
+verschil 3.0 t=2.264 df=18 p=0.0361
+Welch p=0.0362
+95%-BI verschil: 0.22 .. 5.78
+gepoolde sd 2.963, se verschil 1.325, effectgrootte d=1.01
+permutatie: 4183 van 100000 (p=0.0418) |verschil|>=3
+exact permutatie: 7912/184756 = 0.0428
+groot: gem 40.0 43.0 sd 8.98 8.98 p=0.465
+klein: sd 1.15 p=1.67e-05
+n=3 per groep: power 0.16
+n=5 per groep: power 0.29
+n=10 per groep: power 0.56
+n=17 per groep: power 0.81
+n=20 per groep: power 0.87
+n=30 per groep: power 0.97
+sim n=3: 0.160
+sim n=10: 0.567
+sim n=17: 0.808
+se bij n=3: 1.73 cm
+se bij n=10: 0.95 cm
+se bij n=40: 0.47 cm
+n=3 voorbeeld p=0.021
+kans minstens 1 van 20 toetsen p<0.05 zonder effect: 0.64
+zonder: gem 40.0, SE 0.95, 95%-BI 37.84..42.16 (halve breedte 2.16)
+met: gem 43.0, SE 0.92, 95%-BI 40.92..45.08 (halve breedte 2.08)
+python-regel: stats.ttest_ind(met, zonder).pvalue = 0.036
+verwacht aantal p<0,05 bij 20000 genen zonder effect: 1000.0

@@ -1,0 +1,81 @@
+<title>Steekproef differentiatie</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Lay-out: één kolom met kaarten per bewering; zin uit de film boven, wat de bronnen zeggen eronder, links naar de bronnen, en twee knoppen. Huisstijl van Biologie bij Kamiel (navy, goud, groen). */
+:root{--bg:#EEF1F5;--vlak:#FFFFFF;--vlak2:#F4F6FA;--fg:#18202E;--fg2:#56627A;--lijn:#D4DAE4;--goud:#8A6510;--groen:#2E7D46;--oker:#86642A;--rood:#A4442F;
+--titel:"Fraunces",Georgia,serif;--tekst:"Source Sans 3",system-ui,sans-serif;--meta:"IBM Plex Mono",ui-monospace,monospace}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#121A26;--vlak:#1A2740;--vlak2:#22314C;--fg:#F2F2EE;--fg2:#9AA3B2;--lijn:#33445F;--goud:#E0B64A;--groen:#7FC48F;--oker:#C9A35C;--rood:#E07A5F;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121A26;--vlak:#1A2740;--vlak2:#22314C;--fg:#F2F2EE;--fg2:#9AA3B2;--lijn:#33445F;--goud:#E0B64A;--groen:#7FC48F;--oker:#C9A35C;--rood:#E07A5F;color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--tekst);font-size:17px;line-height:1.5;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 48px}
+.wrap{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1{font-family:var(--titel);font-size:clamp(28px,5vw,40px);margin:0;text-wrap:balance}
+h2{font-family:var(--titel);font-size:24px;margin:10px 0 0}
+.intro{color:var(--fg2);margin:0;max-width:68ch}
+.meta{font-family:var(--meta);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg2)}
+.balk{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;border-bottom:1px solid var(--lijn);display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-variant-numeric:tabular-nums}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.kaart{background:var(--vlak);border:1px solid var(--lijn);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.kaart.ok{border-color:var(--groen)}.kaart.twijfel{border-color:var(--goud)}
+.film{margin:0;font-size:19px;font-weight:600}
+.film::before{content:"In de film · ";font:500 11px var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--goud)}
+.uitleg{margin:0;color:var(--fg2)}
+.uitleg::before{content:"Wat de bronnen zeggen · ";font:500 11px var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--groen)}
+ul.bron{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px;font-size:15px}
+ul.bron a{color:var(--fg);overflow-wrap:anywhere}
+.niv{font:500 11px var(--meta);border:1px solid var(--lijn);border-radius:999px;padding:1px 7px;margin-right:6px;color:var(--fg2)}
+.knoppen{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+button{font:600 15px var(--tekst);color:var(--fg);background:var(--vlak2);border:1px solid var(--lijn);border-radius:999px;padding:7px 14px;cursor:pointer}
+button[aria-pressed="true"].b-ok{background:var(--groen);border-color:var(--groen);color:#0E1A12}
+button[aria-pressed="true"].b-tw{background:var(--goud);border-color:var(--goud);color:#1A1406}
+button:focus-visible,textarea:focus-visible{outline:2px solid var(--goud);outline-offset:2px}
+textarea{font:16px var(--tekst);color:var(--fg);background:var(--vlak2);border:1px solid var(--lijn);border-radius:10px;padding:8px 10px;width:100%;box-sizing:border-box;min-height:52px;resize:vertical}
+.chip{font:500 11px var(--meta);letter-spacing:.1em;text-transform:uppercase;border:1px solid currentColor;border-radius:999px;padding:2px 8px}
+.c-v{color:var(--goud)}.c-n{color:var(--fg2)}
+.status{font-size:13px;color:var(--fg2);min-height:1.2em}
+</style>
+<div class="wrap">
+  <header style="display:flex;flex-direction:column;gap:8px">
+    <span class="meta">Extra film · Cellen · steekproef bronnenlogboek</span>
+    <h1>Hoe weet een cel wat hij moet worden?</h1>
+    <p class="intro">Per bewering staat de zin uit de film, wat de bronnen zeggen, en de bronnen zelf. Open minstens drie bronnen en kijk alleen of de bron hetzelfde zegt als de film. Daar is geen vakkennis op dit niveau voor nodig. Bovenaan de vier zinnen die na de controle zijn aangepast; daaronder de vereenvoudigingen (≈).</p>
+  </header>
+  <div class="balk"><span><b id="nOk" style="color:var(--groen)">0</b> klopt</span><span><b id="nTw" style="color:var(--goud)">0</b> twijfel</span><span class="meta" id="nTot"></span></div>
+  <div id="lijst" style="display:flex;flex-direction:column;gap:14px"></div>
+  <p class="status" id="opslag"></p>
+</div>
+<script>
+const ITEMS = /*ITEMS*/[];
+let st = {}, db = null; const wacht = {}, timers = {};
+const $ = s => document.querySelector(s);
+const el = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
+const id = nr => 'b' + nr.replace(/\./g, '-');
+function render() {
+  const L = $('#lijst'); L.textContent = ''; let kop = null;
+  for (const it of ITEMS) {
+    const k = it.verwerkt ? 'Aangepast na de controle' : 'Vereenvoudigingen (≈)';
+    if (k !== kop) { L.append(el('h2', null, k)); kop = k; }
+    const s = st[id(it.nr)] || {}; const c = el('article', 'kaart' + (s.status ? ' ' + s.status : ''));
+    const top = el('div', 'knoppen'); top.append(el('span', 'meta', it.nr + ' · ' + it.waar), el('span', 'chip ' + (it.verwerkt ? 'c-v' : 'c-n'), it.verwerkt ? 'aangepast' : '≈ vereenvoudiging'));
+    c.append(top, el('p', 'film', it.film), el('p', 'uitleg', it.uitleg));
+    const ul = el('ul', 'bron'); for (const b of it.bronnen) { const li = el('li'); li.append(el('span', 'niv', b.id + ' · ' + b.niveau)); const a = el('a', null, b.naam.length > 140 ? b.naam.slice(0, 140) + '…' : b.naam); a.href = b.link; a.target = '_blank'; a.rel = 'noopener'; li.append(a); ul.append(li); } c.append(ul);
+    const kn = el('div', 'knoppen'); const ok = el('button', 'b-ok', 'Klopt met de bron'); ok.id = 'ok-' + id(it.nr); ok.setAttribute('aria-pressed', s.status === 'ok');
+    const tw = el('button', 'b-tw', 'Twijfel'); tw.id = 'tw-' + id(it.nr); tw.setAttribute('aria-pressed', s.status === 'twijfel');
+    ok.onclick = () => zet(it.nr, s.status === 'ok' ? '' : 'ok'); tw.onclick = () => zet(it.nr, s.status === 'twijfel' ? '' : 'twijfel'); kn.append(ok, tw);
+    const ta = el('textarea'); ta.id = 'opm-' + id(it.nr); ta.placeholder = 'Opmerking (optioneel): wat zag je in de bron?'; ta.setAttribute('aria-label', 'Opmerking bij ' + it.nr); ta.value = (id(it.nr) in wacht) ? wacht[id(it.nr)] : (s.tekst || '');
+    ta.oninput = () => typ(it.nr, ta.value);
+    c.append(kn, ta); L.append(c);
+  }
+  tel();
+}
+function tel() { const v = Object.values(st); $('#nOk').textContent = v.filter(x => x.status === 'ok').length; $('#nTw').textContent = v.filter(x => x.status === 'twijfel').length; $('#nTot').textContent = 'van ' + ITEMS.length + ' beweringen · minimaal drie bronnen openen'; }
+async function opslaan(nr, w) { if (!db) { $('#opslag').textContent = 'Opslaan lukt hier niet: open het blad in claude.ai terwijl je bent ingelogd.'; return false; }
+  try { await db.doc('steekproef/' + id(nr)).set({ nr, ...w, t: Date.now() }); $('#opslag').textContent = ''; return true; } catch (e) { $('#opslag').textContent = 'Niet bewaard. Probeer het nog eens.'; return false; } }
+async function zet(nr, status) { const w = { status, tekst: (st[id(nr)] || {}).tekst || '' }; st[id(nr)] = w; delete wacht[id(nr)]; render(); await opslaan(nr, w); }
+function typ(nr, v) { wacht[id(nr)] = v; clearTimeout(timers[nr]); timers[nr] = setTimeout(async () => { const w = { status: (st[id(nr)] || {}).status || '', tekst: v.trim() }; st[id(nr)] = w; if (await opslaan(nr, w)) delete wacht[id(nr)]; tel(); }, 700); }
+render();
+(async () => { try { db = await claude.use('db'); } catch (e) { db = null; }
+  if (!db) { $('#opslag').textContent = 'Je keuze wordt niet bewaard in deze weergave.'; return; }
+  db.collection('steekproef').onSnapshot(snap => { const n = {}; for (const d of snap.docs) n[d.id] = d.data(); st = n; const ae = document.activeElement && document.activeElement.id; if (ae && ae.startsWith('opm-')) { tel(); return; } render(); }, () => { $('#opslag').textContent = 'Kon de eerdere keuzes niet laden.'; });
+})();
+</script>

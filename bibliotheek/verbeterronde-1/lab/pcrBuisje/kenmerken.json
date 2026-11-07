@@ -1,0 +1,44 @@
+{
+ "A": {
+  "detail": "midden",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "accent",
+  "diepte": "plat",
+  "textuur": "geen",
+  "context": "met-schaal",
+  "beweging": "standen",
+  "opbouw": "in-een-keer",
+  "referentie": "geen",
+  "vondst": "vloeistofniveau uitgerekend uit het binnenprofiel in µl"
+ },
+ "B": {
+  "detail": "midden",
+  "vorm": "realistisch",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "accent",
+  "diepte": "schaduw",
+  "textuur": "geen",
+  "context": "met-schaal",
+  "beweging": "standen",
+  "opbouw": "in-een-keer",
+  "referentie": "geen",
+  "vondst": "echt rondgedraaid 3D-profiel, dop kantelt om achterste scharnier, strip in rek"
+ },
+ "C": {
+  "detail": "midden",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "accent",
+  "diepte": "plat",
+  "textuur": "geen",
+  "context": "met-schaal",
+  "beweging": "standen",
+  "opbouw": "in-een-keer",
+  "referentie": "bron",
+  "vondst": "maten naar Greiner-blad; mix begrensd op 50 µl, blijft in de punt"
+ }
+}

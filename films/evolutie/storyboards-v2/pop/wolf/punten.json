@@ -1,0 +1,52 @@
+{
+  "_uitleg": "Gewrichtspunten in pixels van modelblad.png (1280x720), per houding. Houding 1 (staan) = ruststand: daaruit komen alle botlengtes. F = verre poot. Coordinaten met y omlaag.",
+  "staan": { "nr": 1, "grond": 300, "x0": 168,
+    "midrug": [175, 95], "nekBasis": [262, 95], "kop": [322, 58], "neus": [398, 88], "kaak": [356, 96], "kin": [386, 97],
+    "schoft": [238, 75], "kruis": [80, 95],
+    "schouder": [288, 130], "elleboog": [248, 174], "pols": [254, 268], "vkogel": [262, 289], "vteen": [285, 298],
+    "heup": [82, 120], "knie": [110, 176], "hak": [55, 234], "akogel": [62, 289], "ateen": [86, 298],
+    "staart0": [64, 92], "staart1": [42, 148], "staart2": [30, 200], "staart3": [34, 258],
+    "elleboogF": [262, 176], "polsF": [272, 270], "vkogelF": [282, 289], "vteenF": [304, 297],
+    "knieF": [126, 180], "hakF": [88, 238], "akogelF": [96, 289], "ateenF": [120, 297]
+  },
+  "contact": { "nr": 2, "grond": 298,
+    "midrug": [600, 108], "nekBasis": [687, 110], "kop": [746, 58], "neus": [822, 82], "kruis": [505, 104],
+    "staart0": [490, 108], "staart1": [462, 162], "staart2": [442, 208], "staart3": [426, 240],
+    "elleboog": [693, 186], "pols": [740, 272], "vkogel": [757, 288], "vteen": [786, 296],
+    "elleboogF": [668, 192], "polsF": [632, 266], "vkogelF": [640, 288], "vteenF": [662, 296],
+    "knie": [548, 180], "hak": [532, 252], "akogel": [573, 288], "ateen": [597, 296],
+    "knieF": [500, 186], "hakF": [438, 250], "akogelF": [442, 288], "ateenF": [464, 296]
+  },
+  "passeer": { "nr": 3, "grond": 298,
+    "midrug": [1040, 107], "nekBasis": [1127, 108], "kop": [1187, 58], "neus": [1261, 80], "kruis": [945, 103],
+    "staart0": [930, 108], "staart1": [902, 162], "staart2": [878, 212], "staart3": [866, 244],
+    "elleboog": [1088, 196], "pols": [1119, 254], "vkogel": [1090, 271], "vteen": [1066, 283],
+    "elleboogF": [1130, 196], "polsF": [1155, 270], "vkogelF": [1163, 289], "vteenF": [1193, 296],
+    "knie": [990, 186], "hak": [975, 250], "akogel": [1005, 288], "ateen": [1030, 296],
+    "knieF": [956, 190], "hakF": [877, 250], "akogelF": [885, 288], "ateenF": [906, 296]
+  },
+  "draf": { "nr": 4, "grond": 630,
+    "midrug": [210, 448], "nekBasis": [297, 452], "kop": [390, 424], "neus": [468, 450], "kruis": [116, 448],
+    "staart0": [98, 455], "staart1": [62, 500], "staart2": [36, 545], "staart3": [20, 588],
+    "elleboog": [284, 504], "pols": [284, 582], "vkogel": [258, 592], "vteen": [235, 602],
+    "elleboogF": [328, 522], "polsF": [384, 604], "vkogelF": [397, 619], "vteenF": [416, 628],
+    "knie": [174, 528], "hak": [158, 590], "akogel": [194, 620], "ateen": [220, 628],
+    "knieF": [104, 532], "hakF": [58, 578], "akogelF": [44, 612], "ateenF": [32, 628]
+  },
+  "zitten": { "nr": 5, "grond": 640,
+    "midrug": [612, 528], "nekBasis": [656, 454], "kop": [700, 398], "neus": [777, 410], "kruis": [567, 610],
+    "staart0": [560, 604], "staart1": [522, 626], "staart2": [540, 643], "staart3": [600, 647],
+    "elleboog": [672, 522], "pols": [684, 612], "vkogel": [690, 630], "vteen": [716, 638],
+    "elleboogF": [682, 522], "polsF": [700, 612], "vkogelF": [708, 630], "vteenF": [732, 637],
+    "knie": [648, 598], "hak": [575, 626], "akogel": [632, 630], "ateen": [662, 637],
+    "knieF": [654, 594], "hakF": [584, 624], "akogelF": [640, 629], "ateenF": [668, 636]
+  },
+  "liggen": { "nr": 6, "grond": 635,
+    "midrug": [985, 568], "nekBasis": [1070, 556], "kop": [1110, 487], "neus": [1185, 505], "kruis": [892, 572],
+    "staart0": [878, 580], "staart1": [858, 622], "staart2": [912, 637], "staart3": [972, 632],
+    "elleboog": [1074, 612], "pols": [1168, 620], "vkogel": [1200, 622], "vteen": [1242, 628],
+    "elleboogF": [1070, 606], "polsF": [1160, 612], "vkogelF": [1192, 615], "vteenF": [1232, 620],
+    "knie": [960, 600], "hak": [880, 622], "akogel": [935, 628], "ateen": [962, 632],
+    "knieF": [968, 596], "hakF": [890, 618], "akogelF": [945, 624], "ateenF": [972, 628]
+  }
+}

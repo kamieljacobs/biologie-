@@ -1,0 +1,363 @@
+{
+ "versie": 1,
+ "film": "films/dna/6-genen-aan-en-uit.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-oestradiol",
+   "soort": "volgorde",
+   "titel": "Van hormoon tot nieuw eiwit",
+   "opdracht": "Het hormoon oestradiol zet in borstcellen genen aan. Zet de stappen in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Oestradiol gaat de cel in.",
+     "uitleg": "Oestradiol is een hormoon dat door het celmembraan de cel in kan."
+    },
+    {
+     "tekst": "In de cel bindt oestradiol aan een receptor.",
+     "uitleg": "Dat is de eerste stap. Het hormoon verandert het DNA niet."
+    },
+    {
+     "tekst": "Het koppel van hormoon en receptor bindt in de kern bij het regelgebied van bepaalde genen.",
+     "uitleg": "Het koppel werkt als transcriptiefactor."
+    },
+    {
+     "tekst": "RNA-polymerase bindt en schrijft het gen over naar mRNA.",
+     "uitleg": "Nu staat het gen aan: transcriptie."
+    },
+    {
+     "tekst": "Aan de ribosomen wordt met dat mRNA een eiwit gemaakt.",
+     "uitleg": "Zo komt een signaal van buiten bij het DNA terecht: hormoon, receptor, kern, gen aan."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-lactose",
+   "soort": "volgorde",
+   "titel": "E. coli krijgt melksuiker",
+   "opdracht": "Een darmbacterie E. coli krijgt ineens lactose. Zet in de goede volgorde wat er gebeurt.",
+   "stappen": [
+    {
+     "tekst": "Zonder lactose zit de repressor op de operator: de drie genen staan uit.",
+     "uitleg": "RNA-polymerase kan de genen niet overschrijven."
+    },
+    {
+     "tekst": "Lactose komt de bacterie in en bindt aan de repressor.",
+     "uitleg": "Lactose werkt hier als signaal."
+    },
+    {
+     "tekst": "De repressor laat los van de operator.",
+     "uitleg": "Nu zit er niets meer in de weg."
+    },
+    {
+     "tekst": "RNA-polymerase gaat lopen: er wordt één mRNA gemaakt voor alle drie de genen.",
+     "uitleg": "Het zijn genen van één operon, met één promotor en één operator."
+    },
+    {
+     "tekst": "De bacterie maakt de enzymen voor de opname en afbraak van lactose.",
+     "uitleg": "Zo maakt de bacterie die enzymen alleen als er lactose is."
+    }
+   ]
+  },
+  {
+   "id": "schema-lac-operon",
+   "soort": "schema",
+   "titel": "Het lac-operon",
+   "opdracht": "Er is geen lactose: de genen voor de lactose-enzymen staan uit. Sleep de namen naar de goede vakjes. Pas op: één naam hoort er niet bij.",
+   "alt": "Lijntekening van een stuk DNA met een regulatorgen, een promotor met RNA-polymerase, een operator met een repressor erop en drie structuurgenen.",
+   "breed": 760,
+   "hoog": 420,
+   "vakbreed": 160,
+   "svg": "<path stroke-width=\"2.4\" d=\"M50 250 L710 250\"/><path stroke-width=\"2.4\" d=\"M50 268 L710 268\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M56 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M68 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M80 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M92 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M104 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M116 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M128 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M140 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M152 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M164 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M176 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M188 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M200 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M212 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M224 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M236 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M248 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M260 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M272 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M284 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M296 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M308 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M320 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M332 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M344 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M356 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M368 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M380 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M392 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M404 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M416 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M428 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M440 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M452 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M464 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M476 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M488 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M500 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M512 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M524 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M536 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M548 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M560 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M572 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M584 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M596 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M608 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M620 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M632 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M644 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M656 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M668 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M680 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M692 252 V266\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M704 252 V266\"/><path stroke-width=\"1.6\" d=\"M70 240 V278\"/><path stroke-width=\"1.6\" d=\"M165 240 V278\"/><path stroke-width=\"1.6\" d=\"M250 240 V278\"/><path stroke-width=\"1.6\" d=\"M318 240 V278\"/><path stroke-width=\"1.6\" d=\"M372 240 V278\"/><path stroke-width=\"1.6\" d=\"M476 240 V278\"/><path stroke-width=\"1.6\" d=\"M580 240 V278\"/><path stroke-width=\"1.6\" d=\"M690 240 V278\"/><path stroke-width=\"1.4\" d=\"M73 284 Q73 292 82 292 L111.5 292 Q117.5 292 117.5 300 Q117.5 292 123.5 292 L153 292 Q162 292 162 284\"/><path stroke-width=\"1.4\" d=\"M253 284 Q253 292 262 292 L278.0 292 Q284.0 292 284.0 300 Q284.0 292 290.0 292 L306 292 Q315 292 315 284\"/><path stroke-width=\"1.4\" d=\"M321 284 Q321 292 330 292 L339.0 292 Q345.0 292 345.0 300 Q345.0 292 351.0 292 L360 292 Q369 292 369 284\"/><path class=\"acc\" stroke-width=\"1.4\" d=\"M375 284 Q375 292 384 292 L525.0 292 Q531.0 292 531.0 300 Q531.0 292 537.0 292 L678 292 Q687 292 687 284\"/><text x=\"424\" y=\"236\" text-anchor=\"middle\" style=\"font-size:13px\">1</text><text x=\"528\" y=\"236\" text-anchor=\"middle\" style=\"font-size:13px\">2</text><text x=\"635\" y=\"236\" text-anchor=\"middle\" style=\"font-size:13px\">3</text><path stroke-width=\"2.4\" d=\"M299.5 222 Q307.1 234.2 295.5 241.8 Q281.8 241 273.9 233.3 Q256.5 230.9 254.8 217.1 Q267 208.6 277.9 203.1 Q288.9 208.1 293 215.3 Q303.8 219.1 307 230 Q291.9 231.2 286.1 247 Q276.1 234.8 269.3 229.3 Q271.2 221.7 255.6 206.2 Q272.1 200.2 287.8 195.6 Q300 205.1 295.9 218.4 Q302.7 225.5 300.4 235.6\"/><path class=\"acc\" stroke-width=\"2.4\" d=\"M355.1 232 Q352.1 235.7 350.4 241.3 Q344.1 239.6 340.2 237.3 Q333.6 235.7 326.4 228.9 Q332.3 221.9 340.5 218.1 Q347.8 223.9 355.5 224.1 Q355.4 230.5 353.6 235 Q349.9 237.8 345.7 240.3 Q336.1 246.3 329.7 239.7 Q327.5 231.6 330.4 223.9 Q341 224.7 346.3 222.7 Q354.5 222 360.6 227.3 Q362.7 235.3 358.2 242.9\"/><path class=\"zacht\" stroke-width=\"1.3\" d=\"M118 238 C130 170 280 150 333 214\" stroke-dasharray=\"5 5\"/><path class=\"zacht\" stroke-width=\"1.3\" d=\"M326 204 l8 11 l-13 -1\"/><text x=\"380\" y=\"410\" text-anchor=\"middle\" style=\"font-size:13px\">lac-operon van E. coli, zonder lactose</text>",
+   "vakjes": [
+    {
+     "naam": "RNA-polymerase",
+     "x": 200,
+     "y": 60,
+     "punt": [
+      282,
+      206
+     ],
+     "uitleg": "zit op de promotor, maar kan niet langs de repressor: de genen worden niet overgeschreven."
+    },
+    {
+     "naam": "repressor",
+     "x": 470,
+     "y": 60,
+     "punt": [
+      352,
+      224
+     ],
+     "uitleg": "eiwit dat op de operator zit en zo het gen uit houdt; gemaakt met de informatie van het regulatorgen."
+    },
+    {
+     "naam": "regulatorgen",
+     "x": 110,
+     "y": 360,
+     "punt": [
+      117,
+      300
+     ],
+     "uitleg": "gen voor een schakelaar: hier voor de repressor."
+    },
+    {
+     "naam": "promotor",
+     "x": 290,
+     "y": 360,
+     "punt": [
+      284,
+      300
+     ],
+     "uitleg": "stuk DNA vóór de genen waar RNA-polymerase bindt."
+    },
+    {
+     "naam": "operator",
+     "x": 470,
+     "y": 360,
+     "punt": [
+      345,
+      300
+     ],
+     "uitleg": "stukje DNA tussen promotor en genen; hier zit de repressor op."
+    },
+    {
+     "naam": "structuurgenen",
+     "x": 650,
+     "y": 360,
+     "punt": [
+      531,
+      300
+     ],
+     "uitleg": "drie genen voor de opname en afbraak van lactose, met samen één promotor."
+    }
+   ],
+   "afleiders": [
+    "lactose"
+   ]
+  },
+  {
+   "id": "volgorde-rna-interferentie",
+   "soort": "volgorde",
+   "vwo": true,
+   "titel": "Een gen uitzetten na de transcriptie",
+   "opdracht": "Een siRNA zet een gen uit door RNA-interferentie. Zet de stappen in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Een siRNA wordt geknipt uit dubbelstrengs RNA, bijvoorbeeld van een virus.",
+     "uitleg": "Zulke kleine stukjes RNA zijn zo'n 20 tot 25 nucleotiden lang. MicroRNA maakt de cel met eigen genen."
+    },
+    {
+     "tekst": "Eén streng van het siRNA gaat in een eiwitcomplex zitten: RISC.",
+     "uitleg": "Het kleine RNA werkt als zoekprofiel."
+    },
+    {
+     "tekst": "RISC zoekt een mRNA met de passende basenvolgorde; het kleine RNA bindt eraan door baseparing.",
+     "uitleg": "Het gen is dus gewoon overgeschreven."
+    },
+    {
+     "tekst": "Het complex knipt het mRNA door en het mRNA wordt afgebroken.",
+     "uitleg": "Past het maar voor een deel, zoals vaak bij microRNA, dan wordt de translatie geblokkeerd."
+    },
+    {
+     "tekst": "Van dat mRNA wordt geen eiwit gemaakt.",
+     "uitleg": "Een repressor regelt de transcriptie; RNA-interferentie werkt pas daarna."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-tweeling",
+   "soort": "uitleg",
+   "titel": "Zelfde DNA, andere zus",
+   "opdracht": "Een eeneiige tweeling heeft na vijftig jaar nog bijna precies hetzelfde DNA. Toch staan in de longcellen van de zus die rookt andere genen aan dan bij haar zus. Leg uit hoe dat kan.",
+   "begrippen": [
+    {
+     "naam": "genexpressie",
+     "varianten": [
+      "genen aan",
+      "gen aan"
+     ]
+    },
+    {
+     "naam": "methylgroep",
+     "varianten": [
+      "methylgroepen",
+      "methylering",
+      "slotje",
+      "slotjes"
+     ]
+    },
+    {
+     "naam": "promotor",
+     "varianten": []
+    },
+    {
+     "naam": "transcriptiefactor",
+     "varianten": [
+      "transcriptiefactoren"
+     ]
+    },
+    {
+     "naam": "epigenetisch",
+     "varianten": [
+      "epigenetica",
+      "epigenetische"
+     ]
+    },
+    {
+     "naam": "basenvolgorde",
+     "varianten": [
+      "geen mutatie",
+      "code verandert niet"
+     ]
+    },
+    {
+     "naam": "omgeving",
+     "varianten": [
+      "roken",
+      "voeding",
+      "stress"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat een cel een gen kan uitzetten met een methylgroep (slotje) op het DNA bij de promotor, zodat de transcriptiefactor er niet bij kan.",
+    "Ik leg uit dat de basenvolgorde daarbij niet verandert: het is geen mutatie maar een epigenetische verandering.",
+    "Ik noem dat de omgeving, zoals roken, slotjes op genen zet of eraf haalt.",
+    "Ik leg uit dat de slotjes bij een celdeling meegaan naar de dochtercellen."
+   ],
+   "model": [
+    "Een cel kan een gen voor lange tijd uitzetten met een chemisch slotje: een methylgroep op het DNA, bij de promotor. Dan kan de transcriptiefactor er niet bij en blijft het gen uit. Bij een celdeling krijgen de dochtercellen het slotje mee.",
+    "De basenvolgorde verandert daarbij niet: het is geen mutatie, maar een epigenetische verandering, iets óp het DNA en niet ín het DNA.",
+    "De omgeving bepaalt mee waar slotjes komen. Roken zet slotjes op sommige genen en haalt ze van andere af. Daarom heeft de zus die rookt in haar longcellen andere genen aan en uit staan, met hetzelfde DNA."
+   ]
+  },
+  {
+   "id": "uitleg-differentiatie",
+   "soort": "uitleg",
+   "titel": "Eén eicel, honderden soorten cellen",
+   "opdracht": "Een huidcel, een levercel en een zenuwcel komen uit dezelfde bevruchte eicel en hebben hetzelfde DNA. Leg uit hoe ze toch zo verschillend kunnen worden.",
+   "begrippen": [
+    {
+     "naam": "stamcel",
+     "varianten": [
+      "stamcellen"
+     ]
+    },
+    {
+     "naam": "differentiatie",
+     "varianten": [
+      "celdifferentiatie",
+      "differentieert",
+      "differentiëren"
+     ]
+    },
+    {
+     "naam": "genexpressie",
+     "varianten": [
+      "genen aan",
+      "aan en uit"
+     ]
+    },
+    {
+     "naam": "transcriptiefactor",
+     "varianten": [
+      "transcriptiefactoren",
+      "regulatorgen",
+      "regulatorgenen"
+     ]
+    },
+    {
+     "naam": "hetzelfde DNA",
+     "varianten": [
+      "zelfde DNA",
+      "alle genen"
+     ]
+    },
+    {
+     "naam": "eiwit",
+     "varianten": [
+      "eiwitten",
+      "keratine",
+      "albumine"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat elke cel met een kern alle genen heeft: het DNA is hetzelfde.",
+    "Ik leg uit dat cellen verschillen in welke genen aan staan (genexpressie), en dus welke eiwitten ze maken.",
+    "Ik leg uit dat transcriptiefactoren bepalen of een gen wordt overgeschreven.",
+    "Ik noem dat een stamcel zich zo ontwikkelt tot een gespecialiseerde cel: differentiatie."
+   ],
+   "model": [
+    "Alle cellen met een kern hebben hetzelfde DNA, met alle genen. Ze verschillen in welke genen ze gebruiken: genexpressie. Een huidcel heeft het gen voor keratine aan, een levercel het gen voor albumine.",
+    "Of een gen aan staat, hangt af van transcriptiefactoren: eiwitten die op de promotor gaan zitten, zodat RNA-polymerase het gen kan overschrijven. De genen voor die schakelaars heten regulatorgenen.",
+    "Uit de bevruchte eicel ontstaan stamcellen. Daarin gaan steeds andere genen aan en uit, zodat ze zich ontwikkelen tot gespecialiseerde cellen: differentiatie. Het DNA verandert daarbij niet."
+   ]
+  },
+  {
+   "id": "uitleg-lapjeskat",
+   "soort": "uitleg",
+   "vwo": true,
+   "titel": "Waarom lapjeskatten poezen zijn",
+   "opdracht": "Een lapjeskat heeft plukjes oranje en plukjes zwarte vacht. Leg uit hoe dat ontstaat en waarom lapjeskatten bijna altijd vrouwtjes zijn.",
+   "begrippen": [
+    {
+     "naam": "X-chromosoom",
+     "varianten": [
+      "X-chromosomen",
+      "X"
+     ]
+    },
+    {
+     "naam": "uitgeschakeld",
+     "varianten": [
+      "uitschakelen",
+      "inactief",
+      "X-inactivatie",
+      "uitgezet",
+      "staat uit"
+     ]
+    },
+    {
+     "naam": "willekeurig",
+     "varianten": [
+      "toeval",
+      "toevallig"
+     ]
+    },
+    {
+     "naam": "allel",
+     "varianten": [
+      "allelen"
+     ]
+    },
+    {
+     "naam": "dochtercellen",
+     "varianten": [
+      "uit die cel",
+      "nakomelingen van die cel",
+      "delingen",
+      "deling"
+     ]
+    },
+    {
+     "naam": "kater",
+     "varianten": [
+      "mannetje"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat het gen voor vachtkleur op het X-chromosoom ligt, met de allelen oranje en zwart.",
+    "Ik leg uit dat in elke cel van een vrouwelijk embryo vroeg één X willekeurig wordt uitgeschakeld.",
+    "Ik leg uit dat alle dochtercellen van die cel hetzelfde X uit houden, zodat je plukjes krijgt.",
+    "Ik leg uit dat een kater maar één X heeft en dus óf oranje óf zwart is."
+   ],
+   "model": [
+    "Op het X-chromosoom ligt een gen voor vachtkleur, met de allelen oranje en zwart. Een poes heeft twee X-chromosomen; heeft ze op het ene X oranje en op het andere zwart, dan kan ze allebei de kleuren maken.",
+    "Vroeg in het embryo wordt in elke cel één X willekeurig uitgeschakeld. Alle cellen die daarna uit die cel ontstaan, houden hetzelfde X uit. In elk plukje vacht staat dus een ander X aan: plukjes oranje en plukjes zwart.",
+    "Een kater heeft maar één X-chromosoom en dus maar één allel voor deze vachtkleur: hij is óf oranje óf zwart. Daarom zijn lapjeskatten bijna altijd vrouwtjes."
+   ]
+  }
+ ]
+}

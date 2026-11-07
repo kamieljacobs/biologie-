@@ -1,0 +1,251 @@
+{
+ "versie": 1,
+ "film": "films/zenuwstelsel/1-een-seconde.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-reflexboog",
+   "soort": "volgorde",
+   "titel": "De bal tegen je vingers",
+   "opdracht": "De bal slaat tegen je vingers en je hand schiet terug. Zet de stappen in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Receptoren in je huid geven impulsen af.",
+     "uitleg": "De klap is de prikkel; de receptor zet die om in een impuls."
+    },
+    {
+     "tekst": "Een sensorisch neuron brengt de impuls naar het ruggenmerg.",
+     "uitleg": "Sensorisch: naar het centrale zenuwstelsel toe."
+    },
+    {
+     "tekst": "In het ruggenmerg geeft een schakelneuron de impuls meteen door.",
+     "uitleg": "De hersenen zitten er niet tussen."
+    },
+    {
+     "tekst": "Een motorisch neuron brengt de impuls naar de spieren van je arm.",
+     "uitleg": "Motorisch: naar een spier of een klier."
+    },
+    {
+     "tekst": "De spier, de effector, trekt samen: je hand gaat terug.",
+     "uitleg": "Dit is de reflexboog."
+    },
+    {
+     "tekst": "Pas daarna komt er een impuls in je hersenen aan, en voel je de klap.",
+     "uitleg": "Daarom trekt je hand al terug voordat je iets voelt."
+    }
+   ]
+  },
+  {
+   "id": "schema-reflexboog",
+   "soort": "schema",
+   "titel": "De reflexboog",
+   "opdracht": "Sleep de namen naar de goede vakjes. Volg de pijltjes: zo loopt de impuls. Eén naam blijft over.",
+   "alt": "Lijntekening: links boven de huid met een receptor. Een neuron loopt naar een doorsnede van het ruggenmerg met een vlindervormige binnenkant. In het ruggenmerg een kort neuron, en een neuron dat terugloopt naar een spier links onder. Pijltjes geven de richting aan.",
+   "breed": 760,
+   "hoog": 470,
+   "vakbreed": 165,
+   "svg": "<path stroke-width=\"2.4\" d=\"M50 112 C80 104 110 120 140 112 C170 104 200 120 230 112\"/><path class=\"zacht\" stroke-width=\"1.5\" d=\"M50 100 C80 92 110 108 140 100 C170 92 200 108 230 100\"/><circle class=\"vulacc\" cx=\"140\" cy=\"124\" r=\"6\"/><ellipse cx=\"520\" cy=\"215\" rx=\"95\" ry=\"78\" stroke-width=\"2.6\"/><path class=\"acc\" stroke-width=\"2\" d=\"M520 182 C536 160 566 140 584 150 C598 160 574 188 552 207 C572 226 596 252 580 266 C566 276 538 254 520 242 C502 254 474 276 460 266 C444 252 468 226 488 207 C466 188 442 160 456 150 C474 140 504 160 520 182 Z\"/><circle class=\"zacht\" cx=\"520\" cy=\"212\" r=\"4\"/><path stroke-width=\"3\" d=\"M140 124 C210 170 280 158 338 152\"/><circle cx=\"352\" cy=\"150\" r=\"13\" stroke-width=\"2.6\"/><path stroke-width=\"3\" d=\"M365 151 C400 152 430 155 466 166\"/><path stroke-width=\"3\" d=\"M466 166 L498 204 L486 244\"/><circle class=\"vul\" cx=\"498\" cy=\"204\" r=\"6\"/><circle class=\"vul\" cx=\"478\" cy=\"252\" r=\"8\"/><path stroke-width=\"3\" d=\"M476 252 C380 300 300 338 232 352\"/><path stroke-width=\"2.6\" d=\"M80 360 C110 330 190 330 225 358 C190 386 110 386 80 360 Z\"/><path stroke-width=\"2\" d=\"M80 360 L48 360 M225 358 L256 358\"/><path class=\"zacht\" stroke-width=\"1.4\" d=\"M110 360 C140 352 170 352 200 358\"/><path class=\"acc\" stroke-width=\"2.6\" d=\"M243.8 163.1 L253.5 157.9 L243.9 152.6\"/><path class=\"acc\" stroke-width=\"2.6\" d=\"M350.4 306.2 L343.5 314.8 L354.4 315.9\"/>",
+   "vakjes": [
+    {
+     "naam": "receptor",
+     "x": 100,
+     "y": 40,
+     "punt": [
+      140,
+      122
+     ],
+     "uitleg": "zet de prikkel om in een impuls."
+    },
+    {
+     "naam": "sensorisch neuron",
+     "x": 330,
+     "y": 70,
+     "punt": [
+      213,
+      154
+     ],
+     "uitleg": "brengt de impuls naar het ruggenmerg (het pijltje wijst naar binnen)."
+    },
+    {
+     "naam": "schakelneuron",
+     "x": 675,
+     "y": 60,
+     "punt": [
+      498,
+      204
+     ],
+     "uitleg": "ligt in het ruggenmerg en geeft de impuls door aan het motorische neuron."
+    },
+    {
+     "naam": "grijze stof",
+     "x": 675,
+     "y": 160,
+     "punt": [
+      560,
+      170
+     ],
+     "uitleg": "hier liggen de cellichamen van de neuronen."
+    },
+    {
+     "naam": "witte stof",
+     "x": 675,
+     "y": 300,
+     "punt": [
+      600,
+      218
+     ],
+     "uitleg": "hier lopen de uitlopers; wit door een vettige laag."
+    },
+    {
+     "naam": "motorisch neuron",
+     "x": 400,
+     "y": 425,
+     "punt": [
+      394,
+      292
+     ],
+     "uitleg": "brengt de impuls naar de spier (het pijltje wijst naar buiten)."
+    },
+    {
+     "naam": "effector",
+     "x": 110,
+     "y": 430,
+     "punt": [
+      150,
+      378
+     ],
+     "uitleg": "de spier: het orgaan dat reageert."
+    }
+   ],
+   "afleiders": [
+    "hersenen"
+   ]
+  },
+  {
+   "id": "indelen-animaal-autonoom",
+   "soort": "indelen",
+   "titel": "Animaal of autonoom?",
+   "opdracht": "Je fietst en de bal rolt de straat op. Welk deel van je zenuwstelsel regelt elke reactie?",
+   "bakken": [
+    {
+     "naam": "Animaal",
+     "uitleg": "naar je skeletspieren, vaak bewust"
+    },
+    {
+     "naam": "Autonoom",
+     "uitleg": "naar je organen, onbewust"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Je handen knijpen in de remmen.",
+     "bak": 0,
+     "uitleg": "De spieren in je onderarmen zijn skeletspieren."
+    },
+    {
+     "tekst": "Je stuurt je fiets opzij.",
+     "bak": 0,
+     "uitleg": "Ook sturen doe je met skeletspieren."
+    },
+    {
+     "tekst": "Je hart begint te bonken.",
+     "bak": 1,
+     "uitleg": "De hartspier wordt autonoom aangestuurd."
+    },
+    {
+     "tekst": "Je handen worden klam.",
+     "bak": 1,
+     "uitleg": "Zweetklieren worden autonoom aangestuurd."
+    },
+    {
+     "tekst": "Je pupillen worden groter.",
+     "bak": 1,
+     "uitleg": "Dat besluit je niet: het sympathische deel doet dit."
+    },
+    {
+     "tekst": "Na het eten verteert je darm het voedsel.",
+     "bak": 1,
+     "uitleg": "Gladde spieren in je darm: rust en verteren hoort bij het parasympathische deel."
+    }
+   ]
+  },
+  {
+   "id": "pijlen-veilig-op-de-stoep",
+   "soort": "pijlen",
+   "titel": "Het kind staat veilig",
+   "opdracht": "Na de schrik komt je lichaam tot rust. Voorspel wat er verandert.",
+   "situatie": "Het kind staat veilig op de stoep.",
+   "rijen": [
+    {
+     "naam": "Activiteit van het parasympathische deel",
+     "antwoord": "+",
+     "uitleg": "De rem gaat dieper in."
+    },
+    {
+     "naam": "Activiteit van het sympathische deel",
+     "antwoord": "-",
+     "uitleg": "Het gaspedaal komt omhoog."
+    },
+    {
+     "naam": "Hartslag",
+     "antwoord": "-",
+     "uitleg": "Hoe snel je hart slaat, hangt af van welk pedaal het diepst staat."
+    },
+    {
+     "naam": "Wijdte van je pupillen",
+     "antwoord": "-",
+     "uitleg": "Een wijde pupil hoort bij actie; in rust worden ze weer kleiner."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-reflex",
+   "soort": "uitleg",
+   "titel": "Eerst weg, dan pijn",
+   "opdracht": "Je hand raakt iets scherps. Je hand trekt al terug voordat je pijn voelt. Leg uit hoe dat kan.",
+   "begrippen": [
+    {
+     "naam": "reflex",
+     "varianten": [
+      "reflexboog"
+     ]
+    },
+    {
+     "naam": "ruggenmerg",
+     "varianten": []
+    },
+    {
+     "naam": "schakelneuron",
+     "varianten": []
+    },
+    {
+     "naam": "sensorisch",
+     "varianten": [
+      "sensorische"
+     ]
+    },
+    {
+     "naam": "motorisch",
+     "varianten": [
+      "motorische"
+     ]
+    },
+    {
+     "naam": "hersenen",
+     "varianten": []
+    }
+   ],
+   "checklist": [
+    "Ik beschrijf de weg: receptor, sensorisch neuron, schakelneuron in het ruggenmerg, motorisch neuron, spier.",
+    "Ik leg uit dat de hersenen niet tussen de reflexboog zitten.",
+    "Ik leg uit dat er pas daarna een impuls omhoog gaat naar de hersenen, waar je de pijn voelt.",
+    "Ik concludeer dat de korte route via het ruggenmerg de reflex zo snel maakt."
+   ],
+   "model": [
+    "Receptoren in je huid geven impulsen af. Een sensorisch neuron brengt ze naar het ruggenmerg. Daar geeft een schakelneuron de impuls meteen door aan een motorisch neuron, dat naar de spieren van je arm loopt. Je spier trekt samen en je hand gaat terug.",
+    "Dat is een reflex. De hersenen zitten niet in deze reflexboog, dus de weg is kort en snel.",
+    "Pas daarna gaat er ook een impuls omhoog naar je hersenen. Pas als die daar aankomt, voel je de pijn. Daarom trekt je hand al terug voordat je iets voelt."
+   ]
+  }
+ ]
+}

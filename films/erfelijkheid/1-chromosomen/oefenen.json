@@ -1,0 +1,126 @@
+{
+ "intro": "Oefen met chromosomen, genen en allelen. Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "schema-homoloog-paar",
+   "soort": "schema",
+   "titel": "Een homoloog paar",
+   "opdracht": "Je ziet twee chromosomen uit een cel die zich bijna gaat delen. Ze zijn al gekopieerd. Sleep de namen naar de goede vakjes. Eén naam blijft over.",
+   "alt": "Lijntekening van twee even lange chromosomen naast elkaar. Elk chromosoom bestaat uit twee staafjes die in het midden aan elkaar vastzitten. Op dezelfde hoogte hebben beide chromosomen een gouden band. Boven de twee chromosomen staat een haak.",
+   "breed": 680,
+   "hoog": 340,
+   "vakbreed": 170,
+   "svg": "<path class=\"zacht\" stroke-width=\"2\" d=\"M236 46 L236 36 L444 36 L444 46\"/><rect stroke-width=\"2.4\" x=\"236\" y=\"60\" width=\"22\" height=\"250\" rx=\"11\"/><rect stroke-width=\"2.4\" x=\"262\" y=\"60\" width=\"22\" height=\"250\" rx=\"11\"/><circle class=\"vul\" cx=\"260\" cy=\"140\" r=\"8\"/><rect stroke-width=\"2.4\" x=\"396\" y=\"60\" width=\"22\" height=\"250\" rx=\"11\"/><rect stroke-width=\"2.4\" x=\"422\" y=\"60\" width=\"22\" height=\"250\" rx=\"11\"/><circle class=\"vul\" cx=\"420\" cy=\"140\" r=\"8\"/><rect class=\"vulacc\" x=\"237\" y=\"222\" width=\"46\" height=\"12\"/><rect class=\"vulacc\" x=\"397\" y=\"222\" width=\"46\" height=\"12\"/>",
+   "vakjes": [
+    {"naam": "chromatide", "x": 100, "y": 80, "punt": [247, 100], "uitleg": "één van de twee identieke helften van een gekopieerd chromosoom."},
+    {"naam": "centromeer", "x": 100, "y": 220, "punt": [254, 142], "uitleg": "hier zitten de twee zusterchromatiden aan elkaar vast."},
+    {"naam": "homologe chromosomen", "x": 575, "y": 60, "punt": [444, 38], "uitleg": "een paar: even lang, dezelfde bouw. Eén komt van je vader, één van je moeder."},
+    {"naam": "locus", "x": 575, "y": 240, "punt": [444, 228], "uitleg": "de plek van een gen: op beide chromosomen van het paar op dezelfde hoogte."}
+   ],
+   "afleiders": ["karyogram"]
+  },
+  {
+   "id": "indelen-haploid-diploid",
+   "soort": "indelen",
+   "titel": "Eén set of twee sets?",
+   "opdracht": "Heeft de cel één set chromosomen (haploïd, n) of twee sets (diploïd, 2n)? Denk aan de mens.",
+   "bakken": [
+    {"naam": "Haploïd (n)", "uitleg": "één set: 23 chromosomen"},
+    {"naam": "Diploïd (2n)", "uitleg": "twee sets: 46 chromosomen"}
+   ],
+   "kaartjes": [
+    {"tekst": "eicel", "bak": 0, "uitleg": "Van elk paar precies één chromosoom: 23."},
+    {"tekst": "zaadcel", "bak": 0, "uitleg": "Net als de eicel: 23 chromosomen, van elk paar één."},
+    {"tekst": "bevruchte eicel (zygote)", "bak": 1, "uitleg": "Eicel en zaadcel smelten samen: 23 + 23 = 46."},
+    {"tekst": "cel uit de basale laag van je huid", "bak": 1, "uitleg": "Een gewone lichaamscel heeft 23 paren: 46 chromosomen."},
+    {"tekst": "levercel", "bak": 1, "uitleg": "Ook een lichaamscel: twee sets, één van vader en één van moeder."},
+    {"tekst": "cel met chromosoom 11 maar één keer", "bak": 0, "uitleg": "Van elk paar maar één exemplaar: dat is één set."},
+    {"tekst": "cel met een X- én een Y-chromosoom", "bak": 1, "uitleg": "X en Y vormen samen het 23e paar van een man. Twee sets dus."},
+    {"tekst": "cel met 23 paren", "bak": 1, "uitleg": "23 paren zijn 46 chromosomen: 2n."}
+   ]
+  },
+  {
+   "id": "indelen-genotype-fenotype",
+   "soort": "indelen",
+   "titel": "Genotype of fenotype?",
+   "opdracht": "Gaat het over de combinatie van allelen (genotype) of over wat je kunt waarnemen (fenotype)?",
+   "bakken": [
+    {"naam": "Genotype", "uitleg": "de combinatie van allelen"},
+    {"naam": "Fenotype", "uitleg": "wat je ziet of kunt meten"}
+   ],
+   "kaartjes": [
+    {"tekst": "Aa", "bak": 0, "uitleg": "Twee letters voor twee allelen: een genotype."},
+    {"tekst": "albinisme", "bak": 1, "uitleg": "Bijna geen pigment in huid, haar en ogen: dat zie je."},
+    {"tekst": "homozygoot recessief", "bak": 0, "uitleg": "Twee dezelfde recessieve allelen: aa."},
+    {"tekst": "een bruinere huid na een zomer in de zon", "bak": 1, "uitleg": "Het fenotype ontstaat uit genotype én milieu."},
+    {"tekst": "heterozygoot", "bak": 0, "uitleg": "Twee verschillende allelen: Aa."},
+    {"tekst": "normale huidskleur", "bak": 1, "uitleg": "AA en Aa hebben allebei dit fenotype."},
+    {"tekst": "AA", "bak": 0, "uitleg": "Twee keer het allel voor werkend tyrosinase."},
+    {"tekst": "hoeveel melanine een cel maakt", "bak": 1, "uitleg": "De hoeveelheid pigment kun je meten: fenotype."}
+   ]
+  },
+  {
+   "id": "puzzel-tellen-in-de-cel",
+   "soort": "puzzel",
+   "titel": "Puzzel: tellen in de cel",
+   "opdracht": "Een cel uit de basale laag van je huid gaat zich delen. Het DNA is al gekopieerd. Tel mee.",
+   "stappen": [
+    {
+     "vraag": "Hoeveel chromosomen zitten er in deze cel?",
+     "velden": [{"label": "chromosomen:", "antwoord": 46}],
+     "uitleg": "Een lichaamscel van de mens heeft 46 chromosomen."
+    },
+    {
+     "vraag": "Hoeveel chromatiden zijn dat samen?",
+     "velden": [{"label": "chromatiden:", "antwoord": 92}],
+     "uitleg": "Elk gekopieerd chromosoom bestaat uit twee zusterchromatiden: 46 × 2 = 92.",
+     "tip": "Elk chromosoom is al gekopieerd."
+    },
+    {
+     "vraag": "Hoeveel paren homologe chromosomen vormen ze in een karyogram?",
+     "velden": [{"label": "paren:", "antwoord": 23}],
+     "uitleg": "Op lengte en plek van het centromeer gesorteerd vormen ze 23 paren."
+    },
+    {
+     "vraag": "Hoeveel chromosomen zitten er in één eicel?",
+     "velden": [{"label": "chromosomen:", "antwoord": 23}],
+     "uitleg": "Van elk paar precies één. Eicel en zaadcel samen geven weer 46."
+    },
+    {
+     "vraag": "Uit hoeveel chromatiden bestaat een chromosoom in die eicel?",
+     "velden": [{"label": "chromatiden:", "antwoord": 1}],
+     "uitleg": "In een eicel of zaadcel is een chromosoom niet gekopieerd: één chromatide."
+    },
+    {
+     "vraag": "Hoeveel allelen heb je van een gen op chromosoom 11?",
+     "velden": [{"label": "allelen:", "antwoord": 2}],
+     "uitleg": "Chromosoom 11 heb je twee keer: één van je vader, één van je moeder. Dus twee allelen, die gelijk of verschillend kunnen zijn."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-albinisme",
+   "soort": "uitleg",
+   "titel": "Een kind met albinisme",
+   "opdracht": "Vader en moeder hebben allebei een normale huidskleur, net als de opa's en oma's. Toch heeft hun kind albinisme. Leg uit hoe dat kan. Gebruik het enzym tyrosinase in je uitleg.",
+   "begrippen": [
+    {"naam": "allel", "varianten": ["allelen"]},
+    {"naam": "recessief", "varianten": ["verborgen"]},
+    {"naam": "heterozygoot", "varianten": ["Aa"]},
+    {"naam": "tyrosinase", "varianten": ["enzym"]},
+    {"naam": "genotype", "varianten": ["aa"]}
+   ],
+   "checklist": [
+    "Ik leg uit dat het allel a geen werkend tyrosinase oplevert, zodat er geen melanine komt.",
+    "Ik leg uit dat beide ouders Aa zijn: één A is genoeg voor genoeg pigment, dus a blijft verborgen.",
+    "Ik leg uit dat het kind van elke ouder een a kreeg en dus aa is.",
+    "Ik noem dat het allel a al generaties lang verborgen kan zijn doorgegeven."
+   ],
+   "model": [
+    "Het gen op chromosoom 11 is de instructie voor tyrosinase, het enzym dat melanine maakt. Allel A levert een werkend enzym, allel a niet.",
+    "Beide ouders zijn heterozygoot: Aa. Met maar half zoveel enzym maken hun pigmentcellen toch bijna evenveel melanine, dus je ziet niets. A is dominant, a is recessief.",
+    "Het kind kreeg van vader én moeder een a. Met genotype aa is er geen werkend tyrosinase en dus geen pigment: albinisme. Het allel a was nooit weg; het zat generaties lang verborgen naast een A."
+   ]
+  }
+ ]
+}

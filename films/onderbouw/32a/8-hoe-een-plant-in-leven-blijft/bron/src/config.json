@@ -1,0 +1,17 @@
+{
+ "titel": "Hoe een plant in leven blijft",
+ "ondertitel": "Een zonnebloempit wordt in één zomer een plant van twee meter. Waar haalt een plant zijn eten vandaan?",
+ "meta": "film 8",
+ "versie": "1.0", "datum": "20 oktober 2026",
+ "titelseg": "s02",
+ "scenes": "scenes8.js",
+ "hold": {"s15": 12.0},
+ "mini": {"Hoofdstuk 1": "De wilg van Van Helmont", "Hoofdstuk 2": "Licht, water en koolstofdioxide", "Hoofdstuk 3": "Wat een plant met suiker doet", "Samenvatting": "Water, lucht en licht"},
+ "checkvragen": [
+  {"titel": "Van Helmont", "pts": "1 punt", "vraag": "Van Helmont gaf zijn wilg vijf jaar alleen water. Wat liet zijn proef zien? A. De wilg haalde zijn massa uit de aarde. · B. De massa van de wilg kwam niet uit de aarde. · C. Water is plantenvoedsel.", "antwoord": "B (1): de wilg werd 75 kilo zwaarder, de aarde maar ongeveer 60 gram lichter."},
+  {"titel": "Fotosynthese", "pts": "1 punt", "vraag": "Wat heeft een plant nodig voor fotosynthese? A. licht, zuurstof en suiker · B. mineralen, water en licht · C. licht, water en koolstofdioxide", "antwoord": "C (1): met licht maakt de plant van water en koolstofdioxide suiker; daarbij komt zuurstof vrij."},
+  {"titel": "Een droge pot", "pts": "2 punten", "vraag": "Een plant in een droge pot verhongert, ook al schijnt de zon. Leg uit met de woorden huidmondjes en koolstofdioxide.", "antwoord": "Zonder water gaan de huidmondjes dicht, zodat het blad niet uitdroogt (1). Dan komt er geen koolstofdioxide meer in, dus de plant kan geen suiker maken (1)."},
+  {"titel": "Dag en nacht", "pts": "2 punten", "vraag": "Een kamerplant staat in de vensterbank. Welk gas neemt hij op en welk gas geeft hij af, overdag en 's nachts?", "antwoord": "Overdag: neemt koolstofdioxide op en geeft zuurstof af, want fotosynthese gaat sneller dan verbranden (1). 's Nachts: neemt zuurstof op en geeft koolstofdioxide af, want dan verbrandt hij alleen (1)."},
+  {"titel": "In woorden", "pts": "2 punten", "vraag": "Schrijf fotosynthese en verbranding in woorden op. Waar komt bij elk de energie vandaan of naartoe?", "antwoord": "Fotosynthese: water + koolstofdioxide → glucose + zuurstof, met energie uit licht (1). Verbranding: glucose + zuurstof → water + koolstofdioxide, er komt energie vrij (1).", "uitdaging": true}
+ ]
+}

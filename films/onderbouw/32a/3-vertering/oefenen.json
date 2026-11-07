@@ -1,0 +1,225 @@
+{
+ "versie": 1,
+ "film": "films/onderbouw/32a/3-vertering/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-hap-appel",
+   "soort": "volgorde",
+   "titel": "De reis van een hap appel",
+   "opdracht": "Zet de stappen van de reis in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Je tanden snijden en malen. Speeksel maakt de hap nat en glad.",
+     "uitleg": "Klein maken, zodat de sappen er straks overal bij kunnen."
+    },
+    {
+     "tekst": "Spieren in de wand van je slokdarm duwen de hap naar je maag.",
+     "uitleg": "Ook als je op je kop hangt."
+    },
+    {
+     "tekst": "Je maag kneedt de hap en mengt hem met zuur maagsap.",
+     "uitleg": "Het zuur doodt bacteriën en begint met het afbreken van eiwitten."
+    },
+    {
+     "tekst": "In je dunne darm komen sap uit de alvleesklier, gal uit de lever en sap van de darmwand erbij.",
+     "uitleg": "Nu komen de voedingsstoffen los."
+    },
+    {
+     "tekst": "De voedingsstoffen gaan via de darmvlokken door de darmwand, het bloed in.",
+     "uitleg": "Dat heet opnemen."
+    },
+    {
+     "tekst": "In je dikke darm gaat het laatste water terug je lichaam in.",
+     "uitleg": "Bacteriën breken er vezels af."
+    },
+    {
+     "tekst": "De ontlasting verlaat je lichaam via de anus.",
+     "uitleg": "Ontlasting is alles wat nooit in je bloed kwam. Met de pit."
+    }
+   ]
+  },
+  {
+   "id": "schema-spijsverteringsstelsel",
+   "soort": "schema",
+   "titel": "Je spijsverteringsstelsel",
+   "opdracht": "Sleep de namen naar de goede organen. Eén naam blijft over.",
+   "alt": "Lijntekening van het spijsverteringsstelsel: mond, een buis naar beneden, een zak, een groot orgaan ernaast, een lange kronkelende darm en een brede darm eromheen die eindigt bij de uitgang.",
+   "breed": 700,
+   "hoog": 490,
+   "vakbreed": 150,
+   "svg": "<ellipse cx=\"350\" cy=\"45\" rx=\"24\" ry=\"10\" stroke-width=\"2.4\"/><path stroke-width=\"2.2\" d=\"M344 55 L344 176 M356 55 L356 170\"/><path stroke-width=\"2.4\" d=\"M356 170 C385 160 432 168 442 200 C452 236 430 262 395 262 C372 262 360 250 352 238 C346 226 344 205 344 176\"/><path stroke-width=\"2.4\" d=\"M336 176 C292 164 232 170 216 195 C205 216 226 241 262 239 C302 237 328 222 338 206 Z\"/><path class=\"zacht\" stroke-width=\"18\" d=\"M272 412 L272 288 Q272 276 285 276 L438 276 Q450 276 450 288 L450 410 Q450 425 420 430 L372 432 Q356 434 356 447 L356 462\"/><path class=\"acc\" stroke-width=\"3\" d=\"M362 262 C362 285 330 290 305 300 C290 305 292 318 305 318 L408 318 C424 318 424 336 408 336 L305 336 C290 336 290 354 305 354 L408 354 C424 354 424 372 408 372 L305 372 C290 372 290 390 305 390 L395 390 C408 390 410 404 396 404 L284 404\"/><path stroke-width=\"2.4\" d=\"M344 470 L368 470\"/>",
+   "vakjes": [
+    {
+     "naam": "mond",
+     "x": 100,
+     "y": 45,
+     "punt": [
+      326,
+      45
+     ],
+     "uitleg": "hier maken je tanden het eten klein."
+    },
+    {
+     "naam": "lever",
+     "x": 100,
+     "y": 200,
+     "punt": [
+      245,
+      205
+     ],
+     "uitleg": "groot orgaan rechts onder je ribben; maakt gal."
+    },
+    {
+     "naam": "dikke darm",
+     "x": 100,
+     "y": 330,
+     "punt": [
+      272,
+      340
+     ],
+     "uitleg": "de brede darm om de dunne darm heen; haalt het laatste water terug."
+    },
+    {
+     "naam": "dunne darm",
+     "x": 100,
+     "y": 440,
+     "punt": [
+      330,
+      372
+     ],
+     "uitleg": "ongeveer zes meter, opgevouwen; hier worden voedingsstoffen opgenomen."
+    },
+    {
+     "naam": "slokdarm",
+     "x": 600,
+     "y": 110,
+     "punt": [
+      356,
+      110
+     ],
+     "uitleg": "de buis van je mond naar je maag."
+    },
+    {
+     "naam": "maag",
+     "x": 600,
+     "y": 220,
+     "punt": [
+      425,
+      225
+     ],
+     "uitleg": "een gespierde zak met zuur maagsap."
+    },
+    {
+     "naam": "anus",
+     "x": 600,
+     "y": 440,
+     "punt": [
+      368,
+      470
+     ],
+     "uitleg": "hier verlaat de ontlasting je lichaam."
+    }
+   ],
+   "afleiders": [
+    "luchtpijp"
+   ]
+  },
+  {
+   "id": "indelen-wat-gebeurt-waar",
+   "soort": "indelen",
+   "titel": "Wat gebeurt waar?",
+   "opdracht": "In welk orgaan gebeurt dit?",
+   "bakken": [
+    {
+     "naam": "Mond"
+    },
+    {
+     "naam": "Maag"
+    },
+    {
+     "naam": "Dunne darm"
+    },
+    {
+     "naam": "Dikke darm"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Tanden snijden en malen.",
+     "bak": 0,
+     "uitleg": "Klein maken begint in je mond."
+    },
+    {
+     "tekst": "Speeksel maakt het eten nat en glad.",
+     "bak": 0,
+     "uitleg": "Zo kunnen de sappen er straks overal bij."
+    },
+    {
+     "tekst": "Zuur sap doodt bacteriën.",
+     "bak": 1,
+     "uitleg": "Het maagsap is zuur."
+    },
+    {
+     "tekst": "Het eten wordt gekneed tot een papje.",
+     "bak": 1,
+     "uitleg": "De maag is een gespierde zak."
+    },
+    {
+     "tekst": "Sap uit de alvleesklier en gal komen erbij.",
+     "bak": 2,
+     "uitleg": "De dunne darm is de belangrijkste halte."
+    },
+    {
+     "tekst": "Voedingsstoffen gaan via darmvlokken het bloed in.",
+     "bak": 2,
+     "uitleg": "Alleen in de dunne darm worden voedingsstoffen opgenomen."
+    },
+    {
+     "tekst": "Het laatste water gaat terug je lichaam in.",
+     "bak": 3,
+     "uitleg": "Wat overblijft wordt steviger: ontlasting."
+    },
+    {
+     "tekst": "Bacteriën breken vezels af en maken vitamines.",
+     "bak": 3,
+     "uitleg": "In je dikke darm wonen enorm veel bacteriën."
+    }
+   ]
+  },
+  {
+   "id": "pijlen-alvleesklier",
+   "soort": "pijlen",
+   "titel": "Als je alvleesklier stopt",
+   "opdracht": "Voorspel wat er gebeurt. Kies per rij: meer, minder of gelijk.",
+   "situatie": "Je alvleesklier maakt geen sap meer. De rest van je spijsverteringsstelsel werkt gewoon door.",
+   "rijen": [
+    {
+     "naam": "Sap dat suikers, eiwitten en vetten afbreekt",
+     "antwoord": "-",
+     "uitleg": "Juist het sap dat het meeste afbreekt, is er niet."
+    },
+    {
+     "naam": "Voedingsstoffen die loskomen in de dunne darm",
+     "antwoord": "-",
+     "uitleg": "Zonder dat sap blijven de meeste voedingsstoffen vastzitten in het eten."
+    },
+    {
+     "naam": "Voedingsstoffen die in je bloed komen",
+     "antwoord": "-",
+     "uitleg": "Alleen losse, piepkleine voedingsstoffen gaan door de darmwand."
+    },
+    {
+     "naam": "Voedingsstoffen die met de ontlasting de wc in gaan",
+     "antwoord": "+",
+     "uitleg": "Wat niet in je bloed komt, reist verder naar de wc."
+    },
+    {
+     "naam": "Hoe goed je tanden kauwen",
+     "antwoord": "=",
+     "uitleg": "Je mond werkt gewoon door. De estafette loopt pas later vast."
+    }
+   ]
+  }
+ ]
+}

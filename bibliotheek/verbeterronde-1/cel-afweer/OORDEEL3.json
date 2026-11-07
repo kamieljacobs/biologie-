@@ -1,0 +1,92 @@
+[
+ {
+  "obj": "gedifferentieerdeCellen",
+  "scores": {
+   "P": {
+    "klopt": 5,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   },
+   "Q": {
+    "klopt": 5,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 20
+   }
+  },
+  "winnaar": "P",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "P": "Genenbalken in eigen kolom rechts: goed leesbaar",
+   "Q": "Genenbalk klein onder elke cel, minder leesbaar bij klein formaat"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "Rode bloedcel leest als bol met staartje; ingedeukte schijf niet duidelijk (controleer vergroot)"
+ },
+ {
+  "obj": "membraanReceptor",
+  "scores": {
+   "P": {
+    "klopt": 2,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 18
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 18
+   }
+  },
+  "winnaar": "Q",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "P": "Receptor ligt vóór het membraan in plaats van erin; membraan loopt ongebroken door",
+   "Q": "Receptor zit in een opening van het membraan, maar de eiwitten binnen zijn vormeloze blobs en de receptor is erg druk"
+  },
+  "overnemen": "Receptor in het membraan van Q combineren met de rustige kralenketting van P; blobs vervangen door gevouwen ketens",
+  "combineren": true,
+  "fout": ""
+ },
+ {
+  "obj": "tumorGroei",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 18
+   }
+  },
+  "winnaar": "P",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Rustige koepel van onregelmatige cellen; doorbreken van basaalmembraan maar subtiel",
+   "Q": "Losse cellen die over de gewone cellen heen liggen: rommelig, maar invasie onder het basaalmembraan wel zichtbaar"
+  },
+  "overnemen": "Een paar cellen duidelijk onder het basaalmembraan",
+  "combineren": false,
+  "fout": ""
+ }
+]

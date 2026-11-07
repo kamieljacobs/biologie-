@@ -1,0 +1,1 @@
+De staafjes met streepjes en de vlakke kapjes zijn vervangen door één doorlopende kralenketen: elke α-helix is een kolom kralen (_kkHelix), verbonden door korte kralenlussen buiten en binnen, met een N- en C-staartje. Kanaal: twee helften van elk twee helices met dezelfde porie en ionen.

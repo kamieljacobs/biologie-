@@ -1,0 +1,84 @@
+{
+ "slug": "verloskunde-2-wat-meet-de-verloskundige",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Wat meet de verloskundige?",
+ "sub": "controles, risico's en doorverwijzen",
+ "puzzle": "Waarom meet de verloskundige bij elke controle je bloeddruk?",
+ "meta": "verloskunde · zwangerschapscontrole",
+ "alleen": "vwo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Verloskunde",
+ "lead": "Esra voelt zich prima, toch meet Verloskundige Mirjam bij elke controle haar bloeddruk. Wat meet een verloskundige, hoe ontstaan zwangerschapsvergiftiging en zwangerschapsdiabetes, en wanneer verwijst ze door naar de gynaecoloog?",
+ "endHaak": "welke beslissing in dit vak lijkt jou het moeilijkst?",
+ "minis": {
+  "Hoofdstuk 1": "Wat gebeurt er bij een gewone controle?",
+  "Hoofdstuk 2": "Hoe leidt een slecht ingegroeide placenta tot hoge bloeddruk?",
+  "Hoofdstuk 3": "Waarom maakt de placenta de moeder minder gevoelig voor insuline?",
+  "Hoofdstuk 4": "Wanneer verwijst een verloskundige door?",
+  "Recap": "Hoe is het nu met Esra?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Verloskundige Mirjam, Esra en Dr. Kim als gynaecoloog (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Waarom meet de verloskundige bij elke controle de bloeddruk?",
+   "correct": 1,
+   "explain": "Een hoge bloeddruk kan het eerste teken zijn van pre-eclampsie, een probleem met de placenta. Je merkt het zelf vaak pas laat."
+  },
+  "q10": {
+   "q": "Waar komt het eiwit in de urine bij pre-eclampsie vandaan?",
+   "correct": 2,
+   "explain": "De filtertjes in de nieren zijn beschadigd en laten eiwitten uit het bloed door, die er normaal niet doorheen gaan."
+  },
+  "q16": {
+   "q": "Waarom krijgt een baby van een moeder met zwangerschapsdiabetes soms een te lage bloedsuiker?",
+   "correct": 1,
+   "explain": "De baby maakt nog veel insuline, maar de toevoer van glucose uit de placenta stopt bij de geboorte ineens."
+  },
+  "q20": {
+   "q": "Welke situatie is een reden om door te verwijzen?",
+   "correct": 2,
+   "explain": "Een bloeddruk van 150 over 100 met hoofdpijn in week 34 kan pre-eclampsie zijn. Misselijkheid in week 8 en het eerste schoppen zijn normaal."
+  }
+ },
+ "glossary": [
+  {
+   "t": "zwangerschapscontrole",
+   "d": "Afspraak bij de verloskundige, in totaal ongeveer twaalf keer: gesprek, bloeddruk, buik voelen, groei en hartslag van het kind."
+  },
+  {
+   "t": "spiraalslagaders",
+   "d": "Kleine slagaders in de baarmoederwand die cellen van de placenta ombouwen tot wijde buizen, zodat er veel bloed langs de placenta stroomt."
+  },
+  {
+   "t": "pre-eclampsie",
+   "d": "Zwangerschapsvergiftiging: hoge bloeddruk en schade aan organen (vaak eiwit in de urine) in de tweede helft van de zwangerschap, door een placenta die niet goed is ingegroeid."
+  },
+  {
+   "t": "eiwit in de urine",
+   "d": "Teken dat de filters in de nieren beschadigd zijn en grote eiwitten doorlaten."
+  },
+  {
+   "t": "zwangerschapsdiabetes",
+   "d": "Te hoge bloedsuiker in de zwangerschap doordat de alvleesklier de door placentahormonen verminderde insulinegevoeligheid niet kan bijhouden."
+  },
+  {
+   "t": "suikertest",
+   "d": "Glucosetolerantietest: nuchter bloedsuiker meten, zoet drankje, na twee uur opnieuw meten; in Nederland bij zwangeren met een verhoogd risico."
+  },
+  {
+   "t": "eerste lijn",
+   "d": "Zorg door de verloskundige bij een gezonde zwangerschap en bevalling, zonder arts."
+  },
+  {
+   "t": "tweede lijn",
+   "d": "Zorg door de gynaecoloog in het ziekenhuis bij een verhoogd risico."
+  },
+  {
+   "t": "doorverwijzen",
+   "d": "De zorg overdragen aan de gynaecoloog volgens landelijke afspraken; als het probleem is opgelost, kan de zorg terug naar de verloskundige."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Leg uit waarom een slecht ingegroeide placenta kan leiden tot een hoge bloeddruk bij de moeder. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>De spiraalslagaders worden niet goed omgebouwd tot wijde vaten (1p), waardoor de placenta te weinig bloed krijgt (1p). De placenta geeft stoffen af die de bloedvaten van de moeder beschadigen; die knijpen samen en de bloeddruk stijgt (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Waarom test een verloskundige bij een hoge bloeddruk ook de urine op eiwit? <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Bij pre-eclampsie raken ook de filters in de nieren beschadigd (1p), waardoor grote eiwitten in de urine komen; eiwit in de urine wijst dus op schade aan organen (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Leg uit waarom zwangerschapsdiabetes kan leiden tot een groot kind. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Placentahormonen maken de moeder minder gevoelig voor insuline; lukt het de alvleesklier niet om dat te compenseren, dan is haar bloedsuiker te hoog (1p). Glucose gaat door de placenta, insuline van de moeder niet (1p). Het kind maakt zelf extra insuline en groeit extra, vooral in vet (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Wat is het verschil tussen de eerste en de tweede lijn in de verloskunde? <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Eerste lijn: de verloskundige begeleidt zelfstandig een gezonde zwangerschap en bevalling (1p). Tweede lijn: de gynaecoloog in het ziekenhuis bij een verhoogd risico (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Extra film buiten het PTA op <i>Wat word jij?</i> → Verloskunde, deel 2 van vijf. De reeks volgt één cliënte, Esra (nieuw in het castboek), van intake tot kraamweek, met Verloskundige Mirjam (nieuw). Bouwt voort op <i>Buizen onder druk</i>, <i>Suiker in balans</i> en <i>Van bevruchting tot baby</i>. Dr. Kim verschijnt als gynaecoloog.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>H1</b> een gewone controle. <b>H2</b> pre-eclampsie vanuit de ingroei van de placenta, eiwit in de urine. <b>H3</b> zwangerschapsdiabetes en de suikertest. <b>H4</b> eerste en tweede lijn, wanneer je doorverwijst.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Aantal controles</td><td>± 12</td><td>KNOV / basis prenatale zorg</td></tr>\n<tr><td>Pre-eclampsie</td><td>2–5 % van de zwangeren</td><td>richtlijnendatabase.nl: hypertensieve aandoeningen in de zwangerschap</td></tr>\n<tr><td>Zwangerschapsdiabetes</td><td>± 5 %; risicogestuurde OGTT (nuchter + 2 uur) rond 24–28 weken</td><td>NVOG-richtlijn Diabetes mellitus en zwangerschap</td></tr>\n<tr><td>Doorverwijzing</td><td>meer dan de helft tijdens zwangerschap of bevalling</td><td>kennisnetgeboortezorg.nl: stand van zaken geboortezorg</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul><li>De film noemt bloeddruk en eiwit; de officiële definitie van pre-eclampsie kent ook andere orgaanschade.</li><li>De landelijke afspraken over verwijzen worden niet bij naam genoemd.</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Laat leerlingen in tweetallen casussen sorteren in ‘nog gewoon’ en ‘doorverwijzen’, en hun keuze uitleggen.</li></ul>\n</section>\n"
+}

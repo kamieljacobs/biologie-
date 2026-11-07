@@ -1,0 +1,196 @@
+{
+ "versie": 1,
+ "film": "films/zenuwstelsel/6-leren-en-onthouden.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-sterkere-synaps",
+   "soort": "volgorde",
+   "titel": "Een synaps wordt sterker",
+   "opdracht": "Twee cellen zijn vaak tegelijk actief. Zet in de goede volgorde hoe hun synaps sterker wordt.",
+   "stappen": [
+    {
+     "tekst": "Het eindknopje geeft glutamaat af, terwijl de volgende cel al actief is.",
+     "uitleg": "Beide cellen zijn tegelijk actief."
+    },
+    {
+     "tekst": "De toevalsdetector laat calcium door.",
+     "uitleg": "Die speciale receptor laat alleen calcium door als beide cellen tegelijk actief zijn."
+    },
+    {
+     "tekst": "Calcium stroomt het dendrietvoetje in.",
+     "uitleg": "Dat is het signaal voor het voetje om te veranderen."
+    },
+    {
+     "tekst": "Het voetje bouwt extra receptoren in: hetzelfde signaal geeft een grotere reactie.",
+     "uitleg": "Dat gaat binnen minuten, maar blijft niet vanzelf."
+    },
+    {
+     "tekst": "Bij vaak herhalen maakt de cel nieuwe eiwitten.",
+     "uitleg": "Herhaling is nodig voor een blijvende verandering."
+    },
+    {
+     "tekst": "Het voetje wordt groter en er groeien nieuwe voetjes bij. Dat kan maanden blijven.",
+     "uitleg": "Cellen die samen vuren, raken met elkaar verbonden."
+    }
+   ]
+  },
+  {
+   "id": "indelen-conditionering",
+   "soort": "indelen",
+   "titel": "Pavlov en de friet",
+   "opdracht": "Bij de honden van Pavlov en bij jou en de friet: welke rol speelt elk kaartje?",
+   "bakken": [
+    {
+     "naam": "Ongeconditioneerde prikkel",
+     "uitleg": "geeft vanzelf de reflex"
+    },
+    {
+     "naam": "Neutrale prikkel",
+     "uitleg": "geeft eerst geen reflex"
+    },
+    {
+     "naam": "Geconditioneerde prikkel",
+     "uitleg": "geeft de reflex na koppelen"
+    },
+    {
+     "naam": "Reflex"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Eten voor de hond",
+     "bak": 0,
+     "uitleg": "Eten geeft vanzelf speeksel, zonder leren."
+    },
+    {
+     "tekst": "De bel, vóór de proef",
+     "bak": 1,
+     "uitleg": "Eerst gaf de bel geen speeksel."
+    },
+    {
+     "tekst": "De bel, na vaak samen met eten",
+     "bak": 2,
+     "uitleg": "Nu geeft de bel alleen al speeksel."
+    },
+    {
+     "tekst": "Speeksel bij de hond",
+     "bak": 3,
+     "uitleg": "De reflex die eerst alleen bij eten kwam."
+    },
+    {
+     "tekst": "Een hap friet in je mond",
+     "bak": 0,
+     "uitleg": "Eten in je mond geeft vanzelf speeksel."
+    },
+    {
+     "tekst": "De geur van friet als je honger hebt",
+     "bak": 2,
+     "uitleg": "Die is gekoppeld geraakt aan het eten: het water loopt je al in de mond."
+    },
+    {
+     "tekst": "Het water loopt je in de mond",
+     "bak": 3,
+     "uitleg": "Speeksel maken is de reflex."
+    }
+   ]
+  },
+  {
+   "id": "indelen-twee-geheugens",
+   "soort": "indelen",
+   "titel": "Weten wát of weten hoe?",
+   "opdracht": "Henry kon na zijn operatie nog wel iets leren, maar niet alles. Hoort elk voorbeeld bij weten wát of bij weten hoe?",
+   "bakken": [
+    {
+     "naam": "Weten wát",
+     "uitleg": "feiten en gebeurtenissen, via de hippocampus vastgelegd"
+    },
+    {
+     "naam": "Weten hoe",
+     "uitleg": "vaardigheden, via kleine hersenen, basale kernen en motorische schors"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Fietsen",
+     "bak": 1,
+     "uitleg": "Een vaardigheid: die verleer je bijna nooit."
+    },
+    {
+     "tekst": "Een ster natekenen terwijl je alleen in een spiegel kijkt",
+     "bak": 1,
+     "uitleg": "Henry werd hier elke dag beter in."
+    },
+    {
+     "tekst": "Jongleren",
+     "bak": 1,
+     "uitleg": "Een vaardigheid die je door oefenen leert."
+    },
+    {
+     "tekst": "Vertellen wat je gisteren hebt gegeten",
+     "bak": 0,
+     "uitleg": "Een herinnering aan een gebeurtenis."
+    },
+    {
+     "tekst": "Een gesprek van een halve minuut geleden",
+     "bak": 0,
+     "uitleg": "Henry was het na een halve minuut kwijt: daar is de hippocampus voor nodig."
+    },
+    {
+     "tekst": "Weten dat je de spiegeltaak al eerder hebt gedaan",
+     "bak": 0,
+     "uitleg": "Henry zei elke dag dat hij het nooit eerder had gedaan."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-gespreid-leren",
+   "soort": "uitleg",
+   "titel": "Drie uur leren",
+   "opdracht": "Anna leert drie dagen een uur voor een toets. Bram leert drie uur op de avond ervoor. Wie onthoudt het meest? Leg uit wat er in de synapsen gebeurt.",
+   "begrippen": [
+    {
+     "naam": "gespreid",
+     "varianten": [
+      "spreiden",
+      "verspreid"
+     ]
+    },
+    {
+     "naam": "patroon",
+     "varianten": []
+    },
+    {
+     "naam": "synaps",
+     "varianten": [
+      "synapsen"
+     ]
+    },
+    {
+     "naam": "ophalen",
+     "varianten": [
+      "herhalen",
+      "herhaling"
+     ]
+    },
+    {
+     "naam": "snoeien",
+     "varianten": [
+      "gesnoeid"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik noem dat Anna het meest onthoudt: gespreid leren werkt beter.",
+    "Ik leg uit dat je bij elke keer ophalen na een pauze het patroon opnieuw gebruikt, zodat de synapsen steviger worden.",
+    "Ik leg uit dat herhalen nodig is voor blijvende veranderingen, zoals grotere en nieuwe dendrietvoetjes.",
+    "Ik leg uit dat synapsen die je niet gebruikt, worden afgezwakt of gesnoeid."
+   ],
+   "model": [
+    "Anna onthoudt het meest. Gespreid leren werkt beter, in bijna alle onderzoeken die het vergeleken.",
+    "De stof ligt als een patroon van verbonden cellen in je hersenen. Elke keer dat je hem na een pauze weer ophaalt, gebruik je dat patroon opnieuw, en worden de synapsen steviger. Bij vaak herhalen maakt de cel nieuwe eiwitten, en worden dendrietvoetjes groter.",
+    "Wat je niet gebruikt, wordt juist zwakker: synapsen die weinig gebruikt worden, worden afgezwakt of opgeruimd. Dat heet snoeien. Gebruik het, of raak het kwijt."
+   ]
+  }
+ ]
+}

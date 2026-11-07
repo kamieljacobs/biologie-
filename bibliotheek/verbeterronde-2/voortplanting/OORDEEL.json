@@ -1,0 +1,80 @@
+[
+ {
+  "obj": "echobeeld",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 2,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 15
+   },
+   "Y": {
+    "klopt": 3,
+    "herkenbaar": 3,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 16
+   },
+   "Z": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 2,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 15
+   }
+  },
+  "winnaar": "Y",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "kind leest als een vormloze klodder: gezicht wijst omhoog en is niet als profiel te herkennen, benen als vin",
+   "Y": "zelfde vormprobleem als X: geen herkenbaar profiel (voorhoofd-neus-lippen-kin) tegen het vruchtwater, arm wijst omhoog i.p.v. vuistje bij gezicht",
+   "Z": "drukke korrel, botten als lijnen en hart als kruissymbool (recept: geen lijnen of symbolen), kind ligt met de rug boven, geen benen of maag, romp loopt uit het beeld"
+  },
+  "overnemen": "het profiel uit Z (voorhoofd, neus, lippen, kin naar links tegen het zwart) en het armpje met vuistje bij het gezicht, als zachte echovlakken zonder lijnen en zonder korrel",
+  "combineren": true,
+  "fout": "in geen enkele versie een duidelijk herkenbaar kindje in rugligging met profiel én opgetrokken benen"
+ },
+ {
+  "obj": "embryoecht",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Y": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 16
+   },
+   "Z": {
+    "klopt": 5,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "X",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "hersendelen alleen als zachte bulten, verschil voor-/midden-/achterhersenen moet je zoeken",
+   "Y": "geen navelstreng, geen somieten, geen kieuwbogen of hersendelen te onderscheiden: mist recept-onderdelen",
+   "Z": "hersendelen als felle kleurvlakken (oker/groen/grijsblauw) maken er een atlasschema van i.p.v. een echt embryo"
+  },
+  "overnemen": "de dunne scheidingslijnen tussen de hersendelen uit Z (zonder de kleurvlakken), zodat voor-, midden- en achterhersenen in X duidelijker te zien zijn",
+  "combineren": true,
+  "fout": ""
+ }
+]

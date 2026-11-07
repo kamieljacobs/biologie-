@@ -1,0 +1,73 @@
+{
+ "title": "Ademhaling en bloedsomloop",
+ "nr": "4",
+ "sub": "De reis van een zuurstofdeeltje, van het zwembad tot een cel in je teen. Hoe komt zuurstof bij elke cel?",
+ "duur": 6,
+ "meta": "onderbouw · kerndoelen · film 4",
+ "mini": {
+  "Hoofdstuk 1": "Neus, luchtpijp en longen",
+  "Hoofdstuk 2": "Hart, slagaders, haarvaten en aders",
+  "Hoofdstuk 3": "Twee stelsels, één ketting",
+  "Samenvatting": "De route in één keer"
+ },
+ "subs": [],
+ "hold": {
+  "s18": 12.0
+ },
+ "scene_files": [
+  "helpers.js",
+  "lib_cast.js",
+  "scenes4.js"
+ ],
+ "questions": {
+  "q05": {
+   "q": "Je ademt uit. Wat zit er in die lucht?",
+   "correct": 1,
+   "explain": "Je gebruikt maar een deel van de zuurstof: ongeveer driekwart adem je weer uit. Wel zit er veel meer koolstofdioxide in, en waterdamp."
+  },
+  "q10": {
+   "q": "In een pols zie je blauwe aders. Welke kleur heeft het bloed daarin?",
+   "correct": 0,
+   "explain": "Bloed is altijd rood: helderrood met veel zuurstof, donkerrood met minder. Blauw lijkt het door hoe licht door je huid gaat."
+  },
+  "q14": {
+   "q": "Iemand heeft te weinig rode bloedcellen. Bij sport is hij snel moe. Hoe kan dat?",
+   "correct": 2,
+   "explain": "Longen en hart werken, maar er zijn te weinig rode bloedcellen om de zuurstof te vervoeren. De spieren krijgen te weinig: één schakel van de ketting mist."
+  }
+ },
+ "glossary": [
+  [
+   "middenrif",
+   "Platte spier onder je longen. Trekt hij omlaag, dan wordt je borstkas groter en stroomt er lucht naar binnen."
+  ],
+  [
+   "longblaasjes",
+   "Honderden miljoenen piepkleine blaasjes aan het eind van de buisjes in je longen. Daar gaat zuurstof het bloed in en koolstofdioxide eruit."
+  ],
+  [
+   "haarvaten",
+   "De dunste bloedvaatjes, met een heel dunne wand. Ze lopen om de longblaasjes en vlak langs bijna elke cel; daar gaan stoffen het bloed in of uit."
+  ],
+  [
+   "slagader",
+   "Bloedvat dat bloed van je hart af voert. Dikke, stevige wand; je voelt de slag van je hart erin (je pols)."
+  ],
+  [
+   "ader",
+   "Bloedvat dat bloed naar je hart toe voert. Het bloed erin is donkerrood: het heeft minder zuurstof."
+  ],
+  [
+   "ademhalingsstelsel en bloedvatenstelsel",
+   "Samen één ketting: het ene haalt zuurstof binnen en koolstofdioxide eruit, het andere brengt het rond. Mist één schakel, dan krijgen je cellen te weinig zuurstof."
+  ],
+  [
+   "kleine en grote bloedsomloop",
+   "Je hart is twee pompen: de rechterhelft pompt bloed naar de longen en terug (klein rondje), de linkerhelft door de rest van je lichaam (groot rondje).",
+   true
+  ]
+ ],
+ "check": "check.html",
+ "docent": "docent.html",
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personage Noor uit het castboek. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · 20 oktober 2026."
+}

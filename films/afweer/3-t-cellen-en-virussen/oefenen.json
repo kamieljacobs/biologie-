@@ -1,0 +1,347 @@
+{
+ "versie": 1,
+ "film": "films/afweer/3-t-cellen-en-virussen.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-virus",
+   "soort": "volgorde",
+   "titel": "Een gekaapte cel",
+   "opdracht": "Een griepvirus komt in je luchtwegen. Zet in de goede volgorde hoe het zich vermenigvuldigt.",
+   "stappen": [
+    {
+     "tekst": "Het virus hecht zich aan een cel van je luchtwegen.",
+     "uitleg": "Een virus is geen cel en kan zich niet zelf vermenigvuldigen. Daarvoor heeft het jouw cellen nodig."
+    },
+    {
+     "tekst": "Het virus brengt zijn erfelijk materiaal de cel in.",
+     "uitleg": "Het virus bestaat uit een eiwitmantel met daarin een beetje erfelijk materiaal."
+    },
+    {
+     "tekst": "Op bevel van het virus maakt de cel nieuwe virusdeeltjes.",
+     "uitleg": "Honderden, soms duizenden. De cel is gekaapt."
+    },
+    {
+     "tekst": "De nieuwe virusdeeltjes komen vrij.",
+     "uitleg": "Zolang ze buiten een cel zijn, kunnen antistoffen ze vangen."
+    },
+    {
+     "tekst": "De virusdeeltjes infecteren de buurcellen.",
+     "uitleg": "Zo verspreidt het virus zich door je luchtwegen."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-cellulaire-afweer",
+   "soort": "volgorde",
+   "titel": "Het startsein voor de T-killercellen",
+   "opdracht": "Het virus zit al in je cellen. Zet in de goede volgorde hoe je afweer de gekaapte cellen opruimt.",
+   "stappen": [
+    {
+     "tekst": "Een fagocyt eet virussen op en laat in een lymfeknoop stukjes virus zien.",
+     "uitleg": "Zo krijgt de T-helpercel het antigeen te zien."
+    },
+    {
+     "tekst": "Een T-helpercel die op dat stukje virus past, geeft met signaalstoffen het startsein.",
+     "uitleg": "De T-helpercel is de regelaar: hij zet B-cellen en T-killercellen aan het werk."
+    },
+    {
+     "tekst": "De passende T-killercellen worden gekozen en delen zich tot een kloon.",
+     "uitleg": "Net als bij B-cellen. Er blijven ook geheugencellen over."
+    },
+    {
+     "tekst": "Een T-killercel vindt een geïnfecteerde cel die stukjes virus op zijn oppervlak laat zien, en hecht zich eraan.",
+     "uitleg": "Een T-cel herkent nooit een los virus, alleen een stukje virus op een cel."
+    },
+    {
+     "tekst": "De T-killercel geeft stoffen af die gaatjes maken, en de cel aanzetten om zichzelf af te breken.",
+     "uitleg": "Het virus in die cel wordt mee afgebroken. Zo stopt de virusfabriek."
+    },
+    {
+     "tekst": "Fagocyten ruimen de resten op.",
+     "uitleg": "Virussen die al ontsnapt waren, vangen de antistoffen."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-resistentie",
+   "soort": "volgorde",
+   "titel": "Zo ontstaat resistentie",
+   "opdracht": "Iemand slikt antibiotica. Zet in de goede volgorde hoe er een resistente groep bacteriën ontstaat.",
+   "stappen": [
+    {
+     "tekst": "In een grote groep bacteriën is een enkele bacterie door een toevallige mutatie ongevoelig voor het antibioticum.",
+     "uitleg": "Die mutatie was er al. Het antibioticum veroorzaakt hem niet."
+    },
+    {
+     "tekst": "De persoon slikt het antibioticum.",
+     "uitleg": "Antibiotica remmen onderdelen van bacteriën, zoals de bouw van de celwand."
+    },
+    {
+     "tekst": "De gevoelige bacteriën gaan dood.",
+     "uitleg": "Antibiotica raken ook de bacteriën die gewoon in je lichaam leven."
+    },
+    {
+     "tekst": "De ongevoelige bacteriën blijven over en vermenigvuldigen zich.",
+     "uitleg": "Ze hebben nu ruimte en voedsel genoeg: selectie."
+    },
+    {
+     "tekst": "Er is een groep bacteriën ontstaan waartegen dit antibioticum niet meer werkt.",
+     "uitleg": "Niet jij wordt ongevoelig, maar de bacteriën."
+    }
+   ]
+  },
+  {
+   "id": "schema-t-killercel",
+   "soort": "schema",
+   "titel": "Een cel die zichzelf verraadt",
+   "opdracht": "Een T-killercel vindt een cel die met een virus is geïnfecteerd. Sleep de namen naar de goede vakjes. Eén naam hoort er niet bij.",
+   "alt": "Lijntekening van een ronde cel met een kern en virussen erin, met op het membraan stukjes virus; rechts een T-killercel die met een receptor aan de cel vastzit.",
+   "breed": 760,
+   "hoog": 440,
+   "vakbreed": 176,
+   "svg": "<circle cx=\"300\" cy=\"232\" r=\"130\" stroke-width=\"2.6\"/><ellipse cx=\"262\" cy=\"262\" rx=\"46\" ry=\"38\" stroke-width=\"2\"/><path class=\"zacht\" stroke-width=\"1.2\" d=\"M236 254 c10 -10 20 6 30 -4 c8 -8 18 4 24 -2 M240 274 c10 6 18 -8 28 0 c8 6 16 -6 22 0\"/><polygon points=\"347.5,187.5 338.0,193.0 328.5,187.5 328.5,176.5 338.0,171.0 347.5,176.5\" stroke-width=\"1.8\" /><circle cx=\"338\" cy=\"182\" r=\"3.8\" class=\"vul zacht\"/><polygon points=\"369.5,303.5 360.0,309.0 350.5,303.5 350.5,292.5 360.0,287.0 369.5,292.5\" stroke-width=\"1.8\" /><circle cx=\"360\" cy=\"298\" r=\"3.8\" class=\"vul zacht\"/><polygon points=\"231.5,191.5 222.0,197.0 212.5,191.5 212.5,180.5 222.0,175.0 231.5,180.5\" stroke-width=\"1.8\" /><circle cx=\"222\" cy=\"186\" r=\"3.8\" class=\"vul zacht\"/><polygon points=\"327.5,335.5 318.0,341.0 308.5,335.5 308.5,324.5 318.0,319.0 327.5,324.5\" stroke-width=\"1.8\" /><circle cx=\"318\" cy=\"330\" r=\"3.8\" class=\"vul zacht\"/><polygon points=\"197.3,92.5 186.0,99.0 174.7,92.5 174.7,79.5 186.0,73.0 197.3,79.5\" stroke-width=\"1.8\" /><circle cx=\"186\" cy=\"86\" r=\"4.5\" class=\"vul zacht\"/><path stroke-width=\"2\" d=\"M387.0 135.1 L398.3 123.8 M396.9 145.0 L408.2 133.7 M387.0 135.1 L396.9 145.0\"/><path class=\"acc\" stroke-width=\"4\" d=\"M395.5 129.5 L403.2 128.8 L402.5 136.5\"/><path stroke-width=\"2\" d=\"M430.0 225.0 L446.0 225.0 M430.0 239.0 L446.0 239.0 M430.0 225.0 L430.0 239.0\"/><path class=\"acc\" stroke-width=\"4\" d=\"M440.0 227.0 L446.0 232.0 L440.0 237.0\"/><path stroke-width=\"2\" d=\"M262.1 356.6 L256.6 371.6 M249.0 351.8 L243.5 366.8 M262.1 356.6 L249.0 351.8\"/><path class=\"acc\" stroke-width=\"4\" d=\"M256.8 365.3 L250.1 369.2 L247.4 361.8\"/><circle cx=\"566\" cy=\"232\" r=\"72\" stroke-width=\"2.6\"/><ellipse cx=\"578\" cy=\"236\" rx=\"34\" ry=\"30\" stroke-width=\"1.8\" class=\"zacht\"/><path stroke-width=\"2.4\" d=\"M494 232 L462 232 M462 224 L462 240 M462 224 L452 224 M462 240 L452 240\"/><circle cx=\"472\" cy=\"206\" r=\"2.6\" class=\"vul\"/><circle cx=\"460\" cy=\"258\" r=\"2.6\" class=\"vul\"/><circle cx=\"478\" cy=\"262\" r=\"2.6\" class=\"vul\"/>",
+   "vakjes": [
+    {
+     "naam": "virus",
+     "x": 95,
+     "y": 160,
+     "punt": [
+      186,
+      86
+     ],
+     "uitleg": "een eiwitmantel met erfelijk materiaal; dit deeltje komt net vrij uit de gekaapte cel."
+    },
+    {
+     "naam": "geïnfecteerde cel",
+     "x": 95,
+     "y": 300,
+     "punt": [
+      176,
+      272
+     ],
+     "uitleg": "een cel van je luchtwegen die op bevel van het virus nieuwe virusdeeltjes maakt."
+    },
+    {
+     "naam": "kern",
+     "x": 95,
+     "y": 400,
+     "punt": [
+      262,
+      262
+     ],
+     "uitleg": "een virus is geen cel en heeft geen kern; deze kern hoort bij de gekaapte cel."
+    },
+    {
+     "naam": "stukje virus",
+     "x": 665,
+     "y": 50,
+     "punt": [
+      403,
+      126
+     ],
+     "uitleg": "de geïnfecteerde cel laat stukjes viruseiwit op zijn oppervlak zien: hij verraadt zichzelf."
+    },
+    {
+     "naam": "receptor",
+     "x": 600,
+     "y": 140,
+     "punt": [
+      478,
+      232
+     ],
+     "uitleg": "past precies op één stukje virus; zo herkent de T-killercel de geïnfecteerde cel."
+    },
+    {
+     "naam": "T-killercel",
+     "x": 665,
+     "y": 380,
+     "punt": [
+      590,
+      288
+     ],
+     "uitleg": "hecht zich aan de geïnfecteerde cel en geeft stoffen af die de cel doden."
+    }
+   ],
+   "afleiders": [
+    "antistof"
+   ]
+  },
+  {
+   "id": "uitleg-antibiotica-griep",
+   "soort": "uitleg",
+   "titel": "Geen antibiotica tegen griep",
+   "opdracht": "Noor heeft griep. Haar moeder vraagt de huisarts om antibiotica, maar de huisarts zegt nee. Leg uit waarom antibiotica niet helpen tegen griep, en waarom het zelfs onverstandig is om ze toch te slikken.",
+   "begrippen": [
+    {
+     "naam": "virus",
+     "varianten": [
+      "virussen"
+     ]
+    },
+    {
+     "naam": "geen cel",
+     "varianten": [
+      "niet een cel",
+      "is geen cel"
+     ]
+    },
+    {
+     "naam": "celwand",
+     "varianten": []
+    },
+    {
+     "naam": "stofwisseling",
+     "varianten": []
+    },
+    {
+     "naam": "bacteriën",
+     "varianten": [
+      "bacterie"
+     ]
+    },
+    {
+     "naam": "resistentie",
+     "varianten": [
+      "resistent"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat antibiotica onderdelen van bacteriën remmen, zoals de bouw van de celwand.",
+    "Ik leg uit dat een virus geen cel is: geen celwand en geen eigen stofwisseling, dus niets om te remmen.",
+    "Ik leg uit dat antibiotica wel de bacteriën in je lichaam raken, en dat ongevoelige bacteriën dan overblijven en zich vermenigvuldigen.",
+    "Ik leg uit dat zo resistentie ontstaat: niet jij, maar de bacteriën worden ongevoelig."
+   ],
+   "model": [
+    "Antibiotica remmen onderdelen van bacteriën, zoals het bouwen van de celwand. Een virus is geen cel: het is een eiwitmantel met wat erfelijk materiaal, zonder celwand en zonder eigen stofwisseling. Er is dus niets wat antibiotica kunnen remmen.",
+    "Slik je ze toch, dan raak je de bacteriën die gewoon in je lichaam leven. De gevoelige gaan dood. Een paar zijn door een toevallige mutatie ongevoelig: die blijven over en vermenigvuldigen zich. Zo ontstaat resistentie, en werkt het antibioticum later minder goed als je het echt nodig hebt."
+   ]
+  },
+  {
+   "id": "uitleg-aids",
+   "soort": "uitleg",
+   "titel": "Ziek van gewone infecties",
+   "opdracht": "Bij aids wordt iemand ziek van infecties die anderen nauwelijks merken. Leg uit hoe dat komt.",
+   "begrippen": [
+    {
+     "naam": "T-helpercellen",
+     "varianten": [
+      "T-helpercel",
+      "T helpercel",
+      "T-helper",
+      "helpercellen"
+     ]
+    },
+    {
+     "naam": "hiv",
+     "varianten": []
+    },
+    {
+     "naam": "startsein",
+     "varianten": [
+      "signaalstoffen",
+      "aanzetten",
+      "activeren"
+     ]
+    },
+    {
+     "naam": "B-cellen",
+     "varianten": [
+      "B-cel",
+      "B cel"
+     ]
+    },
+    {
+     "naam": "T-killercellen",
+     "varianten": [
+      "T-killercel",
+      "T killercel",
+      "killercellen"
+     ]
+    },
+    {
+     "naam": "specifieke afweer",
+     "varianten": [
+      "specifieke"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat hiv T-helpercellen infecteert, zodat hun aantal langzaam daalt.",
+    "Ik leg uit dat T-helpercellen het startsein geven aan B-cellen en T-killercellen.",
+    "Ik leg uit dat de specifieke afweer daardoor bijna niet meer werkt; fagocyten alleen zijn niet genoeg.",
+    "Ik leg uit dat je dus vooral ziek wordt van andere ziekteverwekkers, niet van hiv zelf."
+   ],
+   "model": [
+    "Hiv infecteert juist T-helpercellen. Zonder behandeling daalt hun aantal in de loop van jaren. Zakt het onder de tweehonderd per microliter bloed, dan spreek je van aids.",
+    "T-helpercellen zijn de regelaars van de specifieke afweer: zij geven B-cellen en T-killercellen het startsein. Zonder dat startsein komt de specifieke afweer bijna niet meer op gang, ook niet tegen ziekteverwekkers die je normaal zonder moeite opruimt. De fagocyten werken nog wel, maar die zijn niet genoeg.",
+    "Iemand met aids wordt dus vooral ziek van andere ziekteverwekkers, zoals een bepaalde longontsteking of schimmels in de mond."
+   ]
+  },
+  {
+   "id": "uitleg-transplantatie",
+   "soort": "uitleg",
+   "vwo": true,
+   "titel": "Een nieuwe nier",
+   "opdracht": "Iemand krijgt een nier van een donor. Leg met MHC-eiwitten uit waarom de nier kan worden afgestoten, en wat artsen daartegen doen.",
+   "begrippen": [
+    {
+     "naam": "MHC",
+     "varianten": [
+      "MHC-eiwitten",
+      "MHC-I",
+      "MHC-1",
+      "MHC-een",
+      "MHC-II"
+     ]
+    },
+    {
+     "naam": "T-cellen",
+     "varianten": [
+      "T-cel",
+      "T-killercellen",
+      "T-killercel"
+     ]
+    },
+    {
+     "naam": "vreemd",
+     "varianten": [
+      "lichaamsvreemd"
+     ]
+    },
+    {
+     "naam": "verschillen per persoon",
+     "varianten": [
+      "verschilt per persoon",
+      "per persoon",
+      "anders bij iedereen"
+     ]
+    },
+    {
+     "naam": "donor",
+     "varianten": []
+    },
+    {
+     "naam": "afweer remmen",
+     "varianten": [
+      "remmen",
+      "afweeronderdrukkende",
+      "onderdrukken"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat MHC-eiwitten stukjes eiwit op het oppervlak van cellen tonen, en dat ze sterk verschillen per persoon.",
+    "Ik leg uit dat je T-cellen het MHC van de donornier als vreemd zien en de nier aanvallen.",
+    "Ik leg uit dat artsen een donor zoeken met zoveel mogelijk dezelfde MHC.",
+    "Ik noem dat de ontvanger daarna medicijnen slikt die de afweer remmen."
+   ],
+   "model": [
+    "Je cellen tonen stukjes eiwit in houders: MHC-eiwitten. MHC-I zit op al je cellen met een kern. In de thymus worden T-cellen die op je eigen stoffen reageren uitgeschakeld, dus je eigen MHC laat je afweer met rust.",
+    "Maar MHC-eiwitten verschillen sterk per persoon. De cellen van een donornier hebben ander MHC. Je T-cellen zien dat als vreemd, en vallen de nier aan: afstoting.",
+    "Daarom zoeken artsen een donor met zoveel mogelijk dezelfde MHC, en slikt de ontvanger daarna medicijnen die de afweer remmen."
+   ]
+  }
+ ]
+}

@@ -1,0 +1,199 @@
+[
+ {
+  "id": "s01",
+  "chapter": "Cold open",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Je zit in de les. Opeens gaat het brandalarm. Je springt op.",
+   "Even later sta je buiten. Toch bonkt je hart nog. Minutenlang.",
+   "Hoe wisten je benen en je hart dat? Hoe praten je organen met elkaar?"
+  ],
+  "display": "Je zit in de les. Opeens gaat het brandalarm. Je springt op. Even later sta je buiten. Toch bonkt je hart nog. Minutenlang. Hoe wisten je benen en je hart dat? Hoe praten je organen met elkaar?",
+  "voice": "Je zit in de les. Opeens gaat het brandalarm. Je springt op. Even later sta je buiten. Toch bonkt je hart nog. Minutenlang. Hoe wisten je benen en je hart dat? Hoe praten je organen met elkaar?"
+ },
+ {
+  "id": "s02",
+  "chapter": "Titel",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Zenuwen en hormonen. Hoe je organen met elkaar praten."
+  ],
+  "display": "Zenuwen en hormonen. Hoe je organen met elkaar praten.",
+  "voice": "Zenuwen en hormonen. Hoe je organen met elkaar praten."
+ },
+ {
+  "id": "s03",
+  "chapter": "Hoofdstuk 1 — Het snelle bericht",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Je organen praten op twee manieren. De eerste is supersnel: via je zenuwstelsel.",
+   "Het begint bij je oren. Je oren zijn zintuigen. Een zintuig vangt iets op van buiten. Geluid, licht, warmte of aanraking.",
+   "Je oor maakt van het geluid een klein elektrisch signaal. Dat signaal gaat door een zenuw. Een zenuw is een bundel lange, dunne draden. Elke draad hoort bij een zenuwcel.",
+   "Welke weg neemt het bericht naar je benen? Wat denk je?"
+  ],
+  "display": "Je organen praten op twee manieren. De eerste is supersnel: via je zenuwstelsel. Het begint bij je oren. Je oren zijn zintuigen. Een zintuig vangt iets op van buiten. Geluid, licht, warmte of aanraking. Je oor maakt van het geluid een klein elektrisch signaal. Dat signaal gaat door een zenuw. Een zenuw is een bundel lange, dunne draden. Elke draad hoort bij een zenuwcel. Welke weg neemt het bericht naar je benen? Wat denk je?",
+  "voice": "Je organen praten op twee manieren. De eerste is supersnel: via je zenuwstelsel. Het begint bij je oren. Je oren zijn zintuigen. Een zintuig vangt iets op van buiten. Geluid, licht, warmte of aanraking. Je oor maakt van het geluid een klein elektrisch signaal. Dat signaal gaat door een zenuw. Een zenuw is een bundel lange, dunne draden. Elke draad hoort bij een zenuwcel. Welke weg neemt het bericht naar je benen? Wat denk je?"
+ },
+ {
+  "id": "q04",
+  "chapter": "Hoofdstuk 1 — Het snelle bericht",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "van je oor door een zenuw, meteen naar je beenspieren",
+   "van je oor naar je hersenen, dan via je ruggenmerg naar je beenspieren",
+   "van je oor door je bloed naar je beenspieren"
+  ],
+  "q": "Het alarm gaat. Welke weg neemt het bericht naar je benen?",
+  "correct": 1,
+  "explain": "Eerst naar je hersenen. Die sturen een nieuw signaal via je ruggenmerg en zenuwen naar je beenspieren. Het bericht gaat door zenuwen, niet door je bloed."
+ },
+ {
+  "id": "s05",
+  "chapter": "Hoofdstuk 1 — Het snelle bericht",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Eerst naar je hersenen. Je hersenen herkennen het geluid: alarm! Ze sturen een nieuw signaal naar beneden. Door je ruggenmerg, in je rug. Dan door zenuwen naar de spieren in je benen. De spieren worden korter. Je springt op.",
+   "Zintuigen, zenuwen, ruggenmerg en hersenen: samen vormen ze je zenuwstelsel. Je spieren voeren het uit.",
+   "Zo'n signaal is snel. Tot wel honderd meter per seconde. Een heel voetbalveld, in één seconde."
+  ],
+  "display": "Eerst naar je hersenen. Je hersenen herkennen het geluid: alarm! Ze sturen een nieuw signaal naar beneden. Door je ruggenmerg, in je rug. Dan door zenuwen naar de spieren in je benen. De spieren worden korter. Je springt op. Zintuigen, zenuwen, ruggenmerg en hersenen: samen vormen ze je zenuwstelsel. Je spieren voeren het uit. Zo'n signaal is snel. Tot wel honderd meter per seconde. Een heel voetbalveld, in één seconde.",
+  "voice": "Eerst naar je hersenen. Je hersenen herkennen het geluid: alarm! Ze sturen een nieuw signaal naar beneden. Door je ruggenmerg, in je rug. Dan door zenuwen naar de spieren in je benen. De spieren worden korter. Je springt op. Zintuigen, zenuwen, ruggenmerg en hersenen: samen vormen ze je zenuwstelsel. Je spieren voeren het uit. Zo'n signaal is snel. Tot wel honderd meter per seconde. Een heel voetbalveld, in één seconde."
+ },
+ {
+  "id": "s06",
+  "chapter": "Hoofdstuk 1 — Het snelle bericht",
+  "level": "vwo",
+  "kind": "speech",
+  "lines": [
+   "Soms is zelfs de weg langs je hersenen te lang. Je pakt een hete pan. Zintuigen in je huid voelen de hitte.",
+   "Het signaal gaat naar je ruggenmerg. En daar meteen terug, naar de spieren in je arm. Je hand schiet weg.",
+   "Tegelijk gaat er een bericht naar je hersenen. Als je hand al weg is, voel je pas: au! Zo'n snelle reactie, zonder nadenken, heet een reflex."
+  ],
+  "display": "Soms is zelfs de weg langs je hersenen te lang. Je pakt een hete pan. Zintuigen in je huid voelen de hitte. Het signaal gaat naar je ruggenmerg. En daar meteen terug, naar de spieren in je arm. Je hand schiet weg. Tegelijk gaat er een bericht naar je hersenen. Als je hand al weg is, voel je pas: au! Zo'n snelle reactie, zonder nadenken, heet een reflex.",
+  "voice": "Soms is zelfs de weg langs je hersenen te lang. Je pakt een hete pan. Zintuigen in je huid voelen de hitte. Het signaal gaat naar je ruggenmerg. En daar meteen terug, naar de spieren in je arm. Je hand schiet weg. Tegelijk gaat er een bericht naar je hersenen. Als je hand al weg is, voel je pas: au! Zo'n snelle reactie, zonder nadenken, heet een reflex."
+ },
+ {
+  "id": "s07",
+  "chapter": "Hoofdstuk 2 — Het lange bericht",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Terug naar het plein. Het alarm is uit. Toch bonkt je hart nog. Hoe kan dat?",
+   "Dat is de tweede manier: je hormoonstelsel. Toen het alarm ging, stuurden je hersenen ook een seintje naar je bijnieren. Via een zenuw.",
+   "Je bijnieren liggen als kapjes op je nieren. Het zijn hormoonklieren: kleine organen die een stof maken. Je bijnieren maken adrenaline.",
+   "Adrenaline is een hormoon. Een hormoon is een stof die een hormoonklier aan je bloed afgeeft. Adrenaline moet je hart sneller laten kloppen. Waar komt hij terecht? Wat denk je?"
+  ],
+  "display": "Terug naar het plein. Het alarm is uit. Toch bonkt je hart nog. Hoe kan dat? Dat is de tweede manier: je hormoonstelsel. Toen het alarm ging, stuurden je hersenen ook een seintje naar je bijnieren. Via een zenuw. Je bijnieren liggen als kapjes op je nieren. Het zijn hormoonklieren: kleine organen die een stof maken. Je bijnieren maken adrenaline. Adrenaline is een hormoon. Een hormoon is een stof die een hormoonklier aan je bloed afgeeft. Adrenaline moet je hart sneller laten kloppen. Waar komt hij terecht? Wat denk je?",
+  "voice": "Terug naar het plein. Het alarm is uit. Toch bonkt je hart nog. Hoe kan dat? Dat is de tweede manier: je hormoonstelsel. Toen het alarm ging, stuurden je hersenen ook een seintje naar je bijnieren. Via een zenuw. Je bijnieren liggen als kapjes op je nieren. Het zijn hormoonklieren: kleine organen die een stof maken. Je bijnieren maken adrenaline. Adrenaline is een hormoon. Een hormoon is een stof die een hormoonklier aan je bloed afgeeft. Adrenaline moet je hart sneller laten kloppen. Waar komt hij terecht? Wat denk je?"
+ },
+ {
+  "id": "q08",
+  "chapter": "Hoofdstuk 2 — Het lange bericht",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "alleen bij je hart",
+   "alleen in je hersenen",
+   "overal in je lichaam, van je hart tot je tenen"
+  ],
+  "q": "Adrenaline moet je hart sneller laten kloppen. Waar komt hij terecht?",
+  "correct": 2,
+  "explain": "Overal: je bloed neemt de adrenaline in een minuut mee door je hele lichaam. Alleen organen die hem herkennen, zoals je hart, doen er iets mee."
+ },
+ {
+  "id": "s09",
+  "chapter": "Hoofdstuk 2 — Het lange bericht",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Overal. Je bloed gaat in ongeveer een minuut je hele lichaam rond. Het neemt de adrenaline overal mee.",
+   "Maar niet elk orgaan doet er iets mee. Denk aan de omroep op school. \"Klas 1B naar de aula.\" Iedereen hoort het. Alleen 1B gaat lopen.",
+   "Zo herkennen alleen sommige organen de adrenaline. Je hart klopt sneller. Je ademt dieper. Je lever geeft extra suiker aan je bloed.",
+   "De adrenaline blijft een paar minuten in je bloed. Zo lang bonkt je hart door."
+  ],
+  "display": "Overal. Je bloed gaat in ongeveer een minuut je hele lichaam rond. Het neemt de adrenaline overal mee. Maar niet elk orgaan doet er iets mee. Denk aan de omroep op school. \"Klas 1B naar de aula.\" Iedereen hoort het. Alleen 1B gaat lopen. Zo herkennen alleen sommige organen de adrenaline. Je hart klopt sneller. Je ademt dieper. Je lever geeft extra suiker aan je bloed. De adrenaline blijft een paar minuten in je bloed. Zo lang bonkt je hart door.",
+  "voice": "Overal. Je bloed gaat in ongeveer een minuut je hele lichaam rond. Het neemt de adrenaline overal mee. Maar niet elk orgaan doet er iets mee. Denk aan de omroep op school. \"Klas één-bee naar de aula.\" Iedereen hoort het. Alleen één-bee gaat lopen. Zo herkennen alleen sommige organen de adrenaline. Je hart klopt sneller. Je ademt dieper. Je lever geeft extra suiker aan je bloed. De adrenaline blijft een paar minuten in je bloed. Zo lang bonkt je hart door."
+ },
+ {
+  "id": "s10",
+  "chapter": "Hoofdstuk 2 — Het lange bericht",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Je hebt meer hormoonklieren. De namen hoef je niet te onthouden. Je hypofyse, onder je hersenen, regelt onder andere je groei.",
+   "Je schildklier, in je hals, regelt hoe snel je lichaam werkt. Je alvleesklier regelt de suiker in je bloed. En je eierstokken of zaadballen zorgen voor de puberteit.",
+   "Hormonen regelen vooral dingen die lang duren. Groeien, de puberteit, je energie voor een hele dag."
+  ],
+  "display": "Je hebt meer hormoonklieren. De namen hoef je niet te onthouden. Je hypofyse, onder je hersenen, regelt onder andere je groei. Je schildklier, in je hals, regelt hoe snel je lichaam werkt. Je alvleesklier regelt de suiker in je bloed. En je eierstokken of zaadballen zorgen voor de puberteit. Hormonen regelen vooral dingen die lang duren. Groeien, de puberteit, je energie voor een hele dag.",
+  "voice": "Je hebt meer hormoonklieren. De namen hoef je niet te onthouden. Je hypofyse, onder je hersenen, regelt onder andere je groei. Je schildklier, in je hals, regelt hoe snel je lichaam werkt. Je alvleesklier regelt de suiker in je bloed. En je eierstokken of zaadballen zorgen voor de puberteit. Hormonen regelen vooral dingen die lang duren. Groeien, de puberteit, je energie voor een hele dag."
+ },
+ {
+  "id": "s11",
+  "chapter": "Hoofdstuk 3 — Twee manieren, één team",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Zet ze naast elkaar. Je zenuwstelsel is als een appje naar één persoon. Snel, kort, en precies naar één plek.",
+   "Je hormoonstelsel is als de omroep op school. Langzamer, het gaat overal heen, en het werkt lang door.",
+   "Welk bericht gaat via een hormoon? Wat denk je?"
+  ],
+  "display": "Zet ze naast elkaar. Je zenuwstelsel is als een appje naar één persoon. Snel, kort, en precies naar één plek. Je hormoonstelsel is als de omroep op school. Langzamer, het gaat overal heen, en het werkt lang door. Welk bericht gaat via een hormoon? Wat denk je?",
+  "voice": "Zet ze naast elkaar. Je zenuwstelsel is als een appje naar één persoon. Snel, kort, en precies naar één plek. Je hormoonstelsel is als de omroep op school. Langzamer, het gaat overal heen, en het werkt lang door. Welk bericht gaat via een hormoon? Wat denk je?"
+ },
+ {
+  "id": "q12",
+  "chapter": "Hoofdstuk 3 — Twee manieren, één team",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "je groeit in een jaar vijf centimeter",
+   "je knippert als er iets naar je oog vliegt",
+   "je trekt je voet terug als je op iets scherps stapt"
+  ],
+  "q": "Welk bericht gaat via een hormoon?",
+  "correct": 0,
+  "explain": "Groeien duurt jaren en gebeurt in je hele lichaam: werk voor een hormoon. Knipperen en je voet terugtrekken moeten snel en op één plek: dat doen zenuwen."
+ },
+ {
+  "id": "s13",
+  "chapter": "Hoofdstuk 3 — Twee manieren, één team",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Groeien. Dat duurt jaren, en het gebeurt in je hele lichaam. Werk voor een hormoon. Knipperen en je voet terugtrekken moeten snel, op één plek. Dat doen je zenuwen.",
+   "De twee werken samen. Je hersenen sturen je zenuwen aan. Maar ook je hypofyse, en die stuurt weer andere hormoonklieren aan.",
+   "Terug naar het alarm. Je zenuwen lieten je opspringen, in minder dan een seconde. De adrenaline hield je hart minutenlang op hoge snelheid. Twee orgaanstelsels, één reactie van je hele lichaam."
+  ],
+  "display": "Groeien. Dat duurt jaren, en het gebeurt in je hele lichaam. Werk voor een hormoon. Knipperen en je voet terugtrekken moeten snel, op één plek. Dat doen je zenuwen. De twee werken samen. Je hersenen sturen je zenuwen aan. Maar ook je hypofyse, en die stuurt weer andere hormoonklieren aan. Terug naar het alarm. Je zenuwen lieten je opspringen, in minder dan een seconde. De adrenaline hield je hart minutenlang op hoge snelheid. Twee orgaanstelsels, één reactie van je hele lichaam.",
+  "voice": "Groeien. Dat duurt jaren, en het gebeurt in je hele lichaam. Werk voor een hormoon. Knipperen en je voet terugtrekken moeten snel, op één plek. Dat doen je zenuwen. De twee werken samen. Je hersenen sturen je zenuwen aan. Maar ook je hypofyse, en die stuurt weer andere hormoonklieren aan. Terug naar het alarm. Je zenuwen lieten je opspringen, in minder dan een seconde. De adrenaline hield je hart minutenlang op hoge snelheid. Twee orgaanstelsels, één reactie van je hele lichaam."
+ },
+ {
+  "id": "s14",
+  "chapter": "Samenvatting",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Je organen praten op twee manieren. Je zenuwstelsel: zintuigen vangen iets op, zenuwen brengen het signaal naar je hersenen en weer naar je spieren. Snel, kort, naar één plek.",
+   "Je hormoonstelsel: hormoonklieren geven hormonen af aan je bloed. Langzamer, overal, en lang.",
+   "Dus: je benen wisten het via je zenuwen. Je hart via adrenaline in je bloed."
+  ],
+  "display": "Je organen praten op twee manieren. Je zenuwstelsel: zintuigen vangen iets op, zenuwen brengen het signaal naar je hersenen en weer naar je spieren. Snel, kort, naar één plek. Je hormoonstelsel: hormoonklieren geven hormonen af aan je bloed. Langzamer, overal, en lang. Dus: je benen wisten het via je zenuwen. Je hart via adrenaline in je bloed.",
+  "voice": "Je organen praten op twee manieren. Je zenuwstelsel: zintuigen vangen iets op, zenuwen brengen het signaal naar je hersenen en weer naar je spieren. Snel, kort, naar één plek. Je hormoonstelsel: hormoonklieren geven hormonen af aan je bloed. Langzamer, overal, en lang. Dus: je benen wisten het via je zenuwen. Je hart via adrenaline in je bloed."
+ },
+ {
+  "id": "s15",
+  "chapter": "Eindkaart",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Probeer het zelf."
+  ],
+  "display": "Probeer het zelf.",
+  "voice": "Probeer het zelf."
+ }
+]

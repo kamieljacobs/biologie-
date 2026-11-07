@@ -1,0 +1,5 @@
+# Eindreview — Opgroeien onder druk (20 okt 2026, frisse blik op script v3 + contactsheet)
+Vakinhoud klopt (Kauai 698 kinderen, 1/3 hoog risico, daarvan 1/3 goed; ACE ruim 17.000, depressie/verslaving 4–7× bij 4+; 3 op 100 per jaar (NPM-2017); meldcode vijf stappen met afwegingskader 2019; VIPP Leiden; hulpnummers). Veiligheid: zorgvuldig, geen cast-kind als slachtoffer.
+MOET (verwerkt): Dr. Kim als pedagoog zonder labjas (nieuwe outfit 'gewoon' in personages/lib_cast.js) en met tablet; in het filmpje een opvoeder uit de cast (Opa Henk) die oogcontact maakt met de baby in plaats van een losse hand; label 'één persoon: niets zeker' onder de groep (s07); eindhaak vooruitkijkend: 'wie kan voor jou zo iemand zijn, en voor wie ben jij dat?'.
+KAN verwerkt: hulpnummers in s19 volledig zichtbaar; eindkaart met alle vijf stappen; tijdlijn 'geboren 1955'; afleider q09 'heel streng opgevoed worden' in plaats van 'een hoog IQ'; kop script v3.
+KAN niet verwerkt: ondertitels die midden in een zinsdeel breken (s07, s11); 'film: Stress' krap bij de ACE-kop (s05); inhoudsmelding in beeld aan het begin; groene eindhaak (engine-stijl).

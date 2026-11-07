@@ -1,0 +1,16 @@
+<!doctype html><html><head><meta charset="utf-8"><style>body{margin:0;background:#1A2740}canvas{width:1280px;height:720px;display:block}</style></head><body>
+<canvas id="c" width="1920" height="1080"></canvas>
+<script src="repo/films/voeding/1-wat-zit-er-in-je-eten/bron/src/lib.js"></script>
+<script src="repo/films/voeding/1-wat-zit-er-in-je-eten/bron/src/lib_voeding.js"></script>
+<script src="repo/personages/lib_cast.js"></script>
+<script src="repo/films/evolutie/8-stambomen-lezen/bron/src/lib_micro_evo.js"></script>
+<script src="repo/bibliotheek/lib_bio.js"></script>
+<script>
+if(typeof circ==='undefined') window.circ=function(ctx,x,y,r,fill,stroke,lw=1.5){ ctx.beginPath(); ctx.arc(x,y,Math.max(0.1,r),0,6.2832); if(fill){ ctx.fillStyle=fill; ctx.fill(); } if(stroke){ ctx.strokeStyle=stroke; ctx.lineWidth=lw; ctx.stroke(); } };
+const Q=new URLSearchParams(location.search), OBJ=Q.get('obj'), VER=Q.get('v');
+function laad(src){ return new Promise((r,j)=>{ const e=document.createElement('script'); e.src=src; e.onload=r; e.onerror=()=>j(src); document.head.appendChild(e); }); }
+// hulp voor scènes: vak met donker micro-achtergrond
+window.vak=(ctx,x,y,w,h)=>{ ctx.fillStyle=C.bgMicro; roundRect(ctx,x,y,w,h,18); ctx.fill(); };
+(async()=>{ try{ if(VER!=='oud') await laad(OBJ+'/'+VER+'.js'); await laad(OBJ+'/scene.js');
+  const ctx=document.getElementById('c').getContext('2d'); ctx.fillStyle=C.bgSchema; ctx.fillRect(0,0,1920,1080); scene(ctx); window.KLAAR=1; }catch(e){ window.FOUT=String(e); throw e; } })();
+</script></body></html>

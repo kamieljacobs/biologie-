@@ -1,0 +1,4 @@
+- Een menselijke zaadcel: platte kop met een lichtere kap (acrosoom) vooraan, een kort iets dikker middenstuk (mitochondriën) en een lange staart van ± 10 keer de koplengte.
+- Een golf loopt van kop naar staart; de uitslag wordt groter naar het eind; de kop draait iets (smal ↔ breed).
+- Klein in beeld (± 80 px) moet de kop nog herkenbaar zijn, niet alleen een witte sliert.
+- Geen kikkervisje met korte staart.

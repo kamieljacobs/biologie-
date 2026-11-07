@@ -1,0 +1,79 @@
+{
+ "slug": "verloskunde-5-de-kraamweek",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "De kraamweek",
+ "sub": "borstvoeding, eerste testen en hoe het met de moeder gaat",
+ "puzzle": "Waarom gaat er melk lopen als de baby huilt?",
+ "meta": "verloskunde · kraamweek",
+ "alleen": "vwo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Verloskunde",
+ "lead": "Lina is vijf dagen oud. Hoe regelen prolactine en oxytocine de borstvoeding, waarom krimpt de baarmoeder, hoe werkt de gehoortest, en waarom vraagt Verloskundige Mirjam niet alleen naar de baby maar ook: hoe gaat het met jou?",
+ "endHaak": "welk deel van het werk van Mirjam zou jij het liefst doen?",
+ "minis": {
+  "Hoofdstuk 1": "Waarom komt de melk pas na de geboorte op gang?",
+  "Hoofdstuk 2": "Wat gebeurt er met de baarmoeder na de bevalling?",
+  "Hoofdstuk 3": "Hoe werkt de gehoortest bij een baby?",
+  "Hoofdstuk 4": "Wat is het verschil tussen kraamtranen en een postnatale depressie?",
+  "Recap": "Waarom liep de melk bij het huilen?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Verloskundige Mirjam, Esra en baby Lina (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Lina huilt van de honger en bij Esra loopt al melk. Hoe kan dat?",
+   "correct": 1,
+   "explain": "Door het huilen maken haar hersenen oxytocine; dat laat de spiercellen rond de melkklierblaasjes samentrekken. De toeschietreflex heeft geleerd te reageren op het huilen."
+  },
+  "q06": {
+   "q": "Waarom komt de melk pas na de geboorte goed op gang?",
+   "correct": 0,
+   "explain": "Progesteron uit de placenta remt de melkproductie. Na de geboorte valt die rem weg."
+  },
+  "q13": {
+   "q": "Lina weegt op dag drie 3200 gram, bij de geboorte 3400. Moet Mirjam zich zorgen maken?",
+   "correct": 2,
+   "explain": "Nee: dat is ongeveer zes procent. In de eerste dagen is tot ongeveer tien procent afvallen normaal."
+  }
+ },
+ "glossary": [
+  {
+   "t": "prolactine",
+   "d": "Hormoon uit de hypofyse dat de melkproductie regelt; hoe vaker de baby drinkt, hoe meer prolactine en melk."
+  },
+  {
+   "t": "oxytocine",
+   "d": "Hormoon uit de hypofyse dat de spiercellen rond de melkklierblaasjes en de baarmoederspier laat samentrekken."
+  },
+  {
+   "t": "toeschietreflex",
+   "d": "Het uitknijpen van melk onder invloed van oxytocine; kan aangeleerd worden (huilen van de baby) en geremd door stress."
+  },
+  {
+   "t": "colostrum",
+   "d": "De eerste, dikke gele melk met veel antistoffen die de darm van de baby bedekken en beschermen."
+  },
+  {
+   "t": "naweeën",
+   "d": "Krampen van de baarmoeder na de bevalling, vooral bij het voeden, door oxytocine."
+  },
+  {
+   "t": "kraamverzorgende",
+   "d": "Helpt de eerste dagen thuis: controleert moeder en baby, en helpt met voeden; de verloskundige houdt de eindverantwoordelijkheid."
+  },
+  {
+   "t": "gehoortest",
+   "d": "Test met een dopje in het oor dat tikjes geeft; een gezond slakkenhuis maakt een zwakke echo terug (oto-akoestische emissie)."
+  },
+  {
+   "t": "kraamtranen",
+   "d": "Huilerig en emotioneel in de eerste dagen na de bevalling; komt vaak voor en gaat binnen twee weken vanzelf over."
+  },
+  {
+   "t": "postnatale depressie",
+   "d": "Somberheid en verlies van plezier die weken aanhoudt na een bevalling; ongeveer één op de tien moeders; hulp is nodig."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Leg uit hoe prolactine en oxytocine samen de borstvoeding regelen. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Prolactine zorgt dat er melk gemaakt wordt; hoe vaker het kind drinkt, hoe meer (1p). Oxytocine laat de spiercellen rond de blaasjes samentrekken: de melk wordt naar buiten geknepen (toeschietreflex) (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Waarom komt de melk pas na de geboorte op gang? <span class=\"pts\">(1p)</span></p>\n<details><summary>Antwoord</summary><p>Progesteron uit de placenta remt de melkproductie; na de geboorte valt die rem weg.</p></details></div>\n<div class=\"q\"><p><b>3.</b> Een baby woog bij de geboorte 3600 g en op dag 3 3300 g. Moet de verloskundige zich zorgen maken? Laat je berekening zien. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>300/3600 ≈ 8 % (1p); tot ongeveer 10 % is normaal in de eerste dagen, dus geen reden tot zorg, wel volgen of het kind binnen twee weken op geboortegewicht komt (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Noem twee verschillen tussen kraamtranen en een postnatale depressie. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Kraamtranen gaan binnen ongeveer twee weken vanzelf over, een depressie houdt weken aan (1p); kraamtranen komen bij meer dan de helft voor, een postnatale depressie bij ± 1 op 10, en vraagt hulp (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Extra film buiten het PTA op <i>Wat word jij?</i> → Verloskunde, deel 5 van vijf. De reeks volgt één cliënte, Esra (nieuw in het castboek), van intake tot kraamweek, met Verloskundige Mirjam (nieuw). Bouwt voort op <i>Post voor iedereen</i> (hormonen), <i>Wat heb jij aan DNA?</i> (hielprik), <i>Vaccins, allergie en bloedgroepen</i> (antistoffen) en <i>Zintuigen</i> (oor).</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>H1</b> borstvoeding: prolactine, oxytocine, progesteron als rem, colostrum. <b>H2</b> de baarmoeder krimpt, kraamzorg. <b>H3</b> hielprik, gehoortest, gewicht. <b>H4</b> kraamtranen, postnatale depressie, nacontrole en overdracht.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Gewichtsverlies</td><td>tot ± 10 %, terug in 10–14 dagen</td><td>pmc.ncbi.nlm.nih.gov/articles/PMC6904791</td></tr>\n<tr><td>Hielprik en gehoortest</td><td>eerste week</td><td>pns.nl/hielprik; pns.nl gesprekshulp OAE-screening</td></tr>\n<tr><td>Kraamtranen / depressie</td><td>> 50 % / ± 1 op 10</td><td>oudersvannu.nl; NVOG</td></tr>\n<tr><td>Opleidingen</td><td>Amsterdam-Groningen, Rotterdam, Maastricht; numerus fixus</td><td>studiekeuze123.nl</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul><li>De gehoortest wordt in de film beschreven als OAE; bij een tweede onvoldoende volgt ook een andere test (AABR).</li><li>De overdracht naar consultatiebureau en huisarts is vereenvoudigd.</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Laat leerlingen een tijdlijn maken van alle momenten in de reeks waarop Mirjam iets meet of bespreekt.</li></ul>\n</section>\n"
+}

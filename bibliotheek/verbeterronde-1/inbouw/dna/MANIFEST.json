@@ -1,0 +1,168 @@
+[
+ {
+  "obj": "cdcel-cdpool-cdkernmembraan-cddraad",
+  "keuze": "oud",
+  "functies": [
+   "cdAnafaseCel"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": "Korreltjes (160) in de oude cdCel laten of uitdunnen?"
+ },
+ {
+  "obj": "cdchromosoom-cdchromatide-cdeen-cdkluwen",
+  "keuze": "A",
+  "functies": [
+   "CD (Object.assign-regel)",
+   "cdPad",
+   "cdChromatide",
+   "cdChromosoom",
+   "cdEen",
+   "_cdKronkel",
+   "cdKluwen"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Groter verschil korte/lange arm gewenst (keuze, geen fout)?"
+ },
+ {
+  "obj": "chromatidex",
+  "keuze": "A",
+  "functies": [
+   "chromatideX"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "helicasering-primase-ligase",
+  "keuze": "C",
+  "functies": [
+   "_grKluwenCache",
+   "_grKluwenVorm",
+   "_grKluwen",
+   "_lintVorm",
+   "_ellips",
+   "helicaseRing",
+   "_PRIM",
+   "primase",
+   "_ligVorm",
+   "ligase"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": true,
+  "vragen": "_grKluwen*/_lintVorm/_ellips staan in inbouw/dna/_hulp.js (één keer plakken; gelijk aan genregulatie-hulpje)."
+ },
+ {
+  "obj": "kernchromatine",
+  "keuze": "A",
+  "functies": [
+   "_bioL",
+   "_bioCR",
+   "_bioGelijk",
+   "dnaDraad",
+   "_chromDraad",
+   "_chromHer",
+   "_chromDoelA",
+   "kernChromatine"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": "dnaDraad verhuist van lib_micro_evo.js naar lib_bio.js (zelfde code); _bioL/_bioCR/_bioGelijk zijn nieuw in lib_bio."
+ },
+ {
+  "obj": "mrnaSliert",
+  "keuze": "C",
+  "functies": [
+   "MRNA_SEQ",
+   "_mrnaPad",
+   "_mrnaPunt",
+   "mrnaSliert"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": "Codonbogen standaard uit?"
+ },
+ {
+  "obj": "nucleosoomdraad",
+  "keuze": "C",
+  "functies": [
+   "nucleosoomDraad"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": true,
+  "vragen": "Heeft _grKluwen en _ellips uit _hulp.js nodig."
+ },
+ {
+  "obj": "ribosoomEcht",
+  "keuze": "A",
+  "functies": [
+   "_riboKeten",
+   "ribosoomEcht",
+   "polysoom"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": "Optie om tRNA in de P- en A-plek te zetten?"
+ },
+ {
+  "obj": "rnaPolymerase",
+  "keuze": "A",
+  "functies": [
+   "_rnapDNA",
+   "_rnapStrengen",
+   "rnaPolymerase"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "trnaKlaverblad",
+  "keuze": "A",
+  "functies": [
+   "_TRNA_K",
+   "_TRNA_L",
+   "_trnaArm",
+   "trnaKlaverblad"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": "Klein 5′/3′-label bij de acceptorstam?"
+ },
+ {
+  "obj": "vork",
+  "keuze": "oud",
+  "functies": [
+   "_vorkYtop",
+   "vorkEnzymen",
+   "vorkAchter"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": true,
+  "lint_eiwit": true,
+  "vragen": "Heeft helicaseRing uit helicasering-primase-ligase DEF nodig (lint via helicase)."
+ }
+]

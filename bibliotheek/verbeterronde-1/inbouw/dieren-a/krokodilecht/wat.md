@@ -1,0 +1,3 @@
+Basis: huidige versie (keuze 'gelijk'). Fout hersteld (fout_laatste, ≥ 2 bronnen): de kop was ± 27 % van de totale lengte, terwijl hij ± 1/7 hoort te zijn (Whitaker & Whitaker 2008 via J. Threatened Taxa 2021; Sanctuary Nature Foundation).
+Alles vóór het oog is in de lengte samengedrukt (×0,38); de kop is nu ± 15 % van de lengte. Het dier schuift 50 px op, zodat het midden op dezelfde plek blijft. Er zijn 3 tanden in plaats van 5 (het past niet meer).
+Niet aangepast: 'poten onder het lijf' en 'staart niet plat' (alleen stijl en houding, in deze eenvoudige omtrektekening niet te herstellen zonder een nieuwe tekening). De krokodil als pop (`krokodil` in lib_dieren) heeft die wel.

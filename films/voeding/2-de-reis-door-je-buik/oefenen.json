@@ -1,0 +1,372 @@
+{
+ "versie": 1,
+ "film": "films/voeding/2-de-reis-door-je-buik.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-route",
+   "soort": "volgorde",
+   "titel": "De reis van het broodje",
+   "opdracht": "Zet de haltes van het broodje kaas in de goede volgorde, van eerste hap tot wc.",
+   "stappen": [
+    {
+     "tekst": "Mond: tanden en kiezen malen het brood fijn, amylase uit het speeksel knipt al wat zetmeel.",
+     "uitleg": "Halte één. Fijnmalen is mechanische vertering; amylase knippen is chemische vertering."
+    },
+    {
+     "tekst": "Slokdarm: peristaltiek duwt de hap in een paar seconden naar beneden.",
+     "uitleg": "Kringspieren knijpen achter de hap samen en ontspannen ervoor. Dat werkt zelfs op je hoofd."
+    },
+    {
+     "tekst": "Maag: de brij wordt zuur, pepsine knipt eiwit in kortere stukken.",
+     "uitleg": "Twee tot vier uur. Het zuur doodt ook bacteriën; de maag neemt bijna niets op."
+    },
+    {
+     "tekst": "Twaalfvingerige darm: alvleessap en gal komen bij de brij.",
+     "uitleg": "Het eerste stuk van de dunne darm. Hier komen de afvoerbuizen van alvleesklier en galblaas uit."
+    },
+    {
+     "tekst": "Rest van de dunne darm: bijna alles wordt in kleine moleculen geknipt en opgenomen.",
+     "uitleg": "Drie tot vijf uur. Darmsap maakt het knipwerk af; de kleine moleculen gaan door de darmwand."
+    },
+    {
+     "tekst": "Dikke darm: water wordt teruggenomen.",
+     "uitleg": "Eén tot twee dagen. De dikke darm verteert zelf bijna niets."
+    },
+    {
+     "tekst": "Endeldarm: de ontlasting komt hier aan en je voelt dat je naar de wc moet.",
+     "uitleg": "Het laatste stuk van de buis, vlak voor de anus."
+    }
+   ]
+  },
+  {
+   "id": "schema-spijsvertering",
+   "soort": "schema",
+   "titel": "De kaart van je buik",
+   "opdracht": "Je ziet het spijsverteringsstelsel van voren. Sleep de namen naar de goede vakjes.",
+   "alt": "Lijntekening in vooraanzicht van het spijsverteringsstelsel: slokdarm, maag, lever met galblaas, alvleesklier, dunne darm en dikke darm.",
+   "breed": 640,
+   "hoog": 540,
+   "vakbreed": 150,
+   "svg": "<path d=\"M318 14 C320 70 326 112 342 152\" stroke-width=\"15\"/><path d=\"M318 14 C320 70 326 112 342 152\" stroke-width=\"10.4\" style=\"stroke:var(--oe-veld)\"/><path d=\"M300 239 C282 240 268 250 266 272 C264 298 284 314 312 314 C335 314 350 320 356 336 C362 352 402 360 405 375 C410 392 380 395 340 392 C290 388 250 388 248 405 C246 422 290 422 330 420 C380 418 418 418 418 436 C418 452 380 456 330 452 C280 448 245 452 222 462\" stroke-width=\"12.5\"/><path d=\"M300 239 C282 240 268 250 266 272 C264 298 284 314 312 314 C335 314 350 320 356 336 C362 352 402 360 405 375 C410 392 380 395 340 392 C290 388 250 388 248 405 C246 422 290 422 330 420 C380 418 418 418 418 436 C418 452 380 456 330 452 C280 448 245 452 222 462\" stroke-width=\"7.9\" style=\"stroke:var(--oe-veld)\"/><path class=\"acc\" stroke-width=\"2\" d=\"M281 262 C292 252 320 262 350 266 C385 270 420 262 440 258 C452 256 456 268 446 274 C420 286 390 290 362 291 C338 292 316 300 300 300 C284 300 276 280 281 262 Z\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M300 280 C340 278 390 276 440 266\"/><path d=\"M203 486 C196 498 200 512 214 509\" stroke-width=\"9\"/><path d=\"M203 486 C196 498 200 512 214 509\" stroke-width=\"4.4\" style=\"stroke:var(--oe-veld)\"/><path d=\"M205 478 L205 372 C205 354 213 345 232 345 L423 345 C442 345 450 354 450 372 L450 452 C450 480 404 482 362 478 C336 476 328 484 328 496 L328 504\" stroke-width=\"25\"/><path d=\"M205 478 L205 372 C205 354 213 345 232 345 L423 345 C442 345 450 354 450 372 L450 452 C450 480 404 482 362 478 C336 476 328 484 328 496 L328 504\" stroke-width=\"20.4\" style=\"stroke:var(--oe-veld)\"/><path class=\"zacht\" stroke-width=\"1.2\" d=\"M250 336 C254 341 254 349 250 354\"/><path class=\"zacht\" stroke-width=\"1.2\" d=\"M300 336 C304 341 304 349 300 354\"/><path class=\"zacht\" stroke-width=\"1.2\" d=\"M350 336 C354 341 354 349 350 354\"/><path class=\"zacht\" stroke-width=\"1.2\" d=\"M400 336 C404 341 404 349 400 354\"/><path class=\"zacht\" stroke-width=\"1.2\" d=\"M196 380 C201 384 209 384 214 380\"/><path class=\"zacht\" stroke-width=\"1.2\" d=\"M196 415 C201 419 209 419 214 415\"/><path class=\"zacht\" stroke-width=\"1.2\" d=\"M196 445 C201 449 209 449 214 445\"/><path class=\"zacht\" stroke-width=\"1.2\" d=\"M441 385 C446 389 454 389 459 385\"/><path class=\"zacht\" stroke-width=\"1.2\" d=\"M441 420 C446 424 454 424 459 420\"/><path stroke=\"none\" style=\"fill:var(--oe-veld)\" d=\"M334 146 C340 118 386 108 412 130 C447 158 450 215 416 241 C392 259 346 259 304 247 L304 231 C334 236 352 226 352 200 C352 180 350 166 349 152 Z\"/><path stroke-width=\"2.6\" d=\"M334 146 C340 118 386 108 412 130 C447 158 450 215 416 241 C392 259 346 259 304 247 L304 231 C334 236 352 226 352 200 C352 180 350 166 349 152\"/><path class=\"zacht\" stroke-width=\"1.2\" d=\"M372 150 C392 170 402 200 396 228 M392 140 C414 162 424 196 418 222\"/><path stroke-width=\"2.2\" d=\"M304 231 L304 247\"/><path stroke-width=\"2.6\" style=\"fill:var(--oe-veld)\" d=\"M178 150 C190 112 262 104 312 120 C320 124 321 132 313 140 C296 160 276 178 250 190 C224 202 196 204 184 192 C172 180 172 166 178 150 Z\"/><path class=\"zacht\" stroke-width=\"1.2\" d=\"M262 112 C252 140 244 165 238 194\"/><ellipse cx=\"247\" cy=\"208\" rx=\"10\" ry=\"17\" transform=\"rotate(-18 247 208)\" stroke-width=\"2.2\" style=\"fill:var(--oe-veld)\"/><path stroke-width=\"1.8\" d=\"M254 194 C266 210 268 236 262 256\"/><text x=\"328\" y=\"532\" text-anchor=\"middle\" font-size=\"12\">anus</text>",
+   "vakjes": [
+    {
+     "naam": "slokdarm",
+     "x": 558,
+     "y": 50,
+     "punt": [
+      322,
+      62
+     ],
+     "uitleg": "buis van mond naar maag; peristaltiek duwt de hap in een paar seconden naar beneden."
+    },
+    {
+     "naam": "maag",
+     "x": 558,
+     "y": 165,
+     "punt": [
+      420,
+      190
+     ],
+     "uitleg": "gespierde zak met zoutzuur en pepsine; kneedt het eten tot brij en neemt zelf bijna niets op."
+    },
+    {
+     "naam": "alvleesklier",
+     "x": 558,
+     "y": 280,
+     "punt": [
+      418,
+      271
+     ],
+     "uitleg": "maakt alvleessap met enzymen voor koolhydraten, eiwitten en vetten; dat komt uit in de twaalfvingerige darm."
+    },
+    {
+     "naam": "dunne darm",
+     "x": 558,
+     "y": 410,
+     "punt": [
+      384,
+      394
+     ],
+     "uitleg": "een paar meter lang: hier wordt bijna alles verteerd én opgenomen."
+    },
+    {
+     "naam": "lever",
+     "x": 82,
+     "y": 140,
+     "punt": [
+      222,
+      160
+     ],
+     "uitleg": "maakt gal; geen eten komt hier doorheen."
+    },
+    {
+     "naam": "galblaas",
+     "x": 82,
+     "y": 255,
+     "punt": [
+      244,
+      214
+     ],
+     "uitleg": "bewaart gal en knijpt het na een vette maaltijd naar de twaalfvingerige darm."
+    },
+    {
+     "naam": "dikke darm",
+     "x": 82,
+     "y": 400,
+     "punt": [
+      205,
+      405
+     ],
+     "uitleg": "neemt water terug (waterresorptie); verteert zelf bijna niets."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-gastrine",
+   "soort": "volgorde",
+   "titel": "Hoe de maag weet dat hij zuur moet maken",
+   "opdracht": "Je eet een kaasbroodje. Zet in de goede volgorde hoe je maag meer zoutzuur gaat maken.",
+   "stappen": [
+    {
+     "tekst": "Eiwit uit de kaas komt in het onderste deel van de maag.",
+     "uitleg": "Daar zitten de cellen die eiwit in de brij herkennen."
+    },
+    {
+     "tekst": "Cellen in dat onderste deel merken het eiwit op.",
+     "uitleg": "Ze reageren op eiwit, niet op bijvoorbeeld zetmeel."
+    },
+    {
+     "tekst": "Die cellen geven het hormoon gastrine af aan het bloed.",
+     "uitleg": "Een hormoon reist via het bloed. Daarom merkt de maag dit niet via een zenuw, maar via het bloed."
+    },
+    {
+     "tekst": "Via het bloed bereikt gastrine de klieren in de maagwand.",
+     "uitleg": "De klieren in de maagwand hebben de 'ontvangers' voor gastrine."
+    },
+    {
+     "tekst": "De klieren maken meer zoutzuur: de brij wordt zuurder.",
+     "uitleg": "Zuur doodt bacteriën en laat pepsine werken, zodat het eiwit geknipt wordt."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-bypass",
+   "soort": "uitleg",
+   "titel": "Eiwit verteren zonder maag",
+   "opdracht": "Na een gastric bypass gaat het eten langs de maag en de twaalfvingerige darm. Toch verteren mensen bijna al hun eiwit. Leg aan een klasgenoot uit hoe dat kan.",
+   "begrippen": [
+    {
+     "naam": "pepsine",
+     "varianten": [
+      "pepsine"
+     ]
+    },
+    {
+     "naam": "dunne darm",
+     "varianten": [
+      "darm"
+     ]
+    },
+    {
+     "naam": "alvleessap",
+     "varianten": [
+      "alvleesklier",
+      "pancreas"
+     ]
+    },
+    {
+     "naam": "darmsap",
+     "varianten": [
+      "darmwand"
+     ]
+    },
+    {
+     "naam": "enzymen",
+     "varianten": [
+      "enzym",
+      "knippen",
+      "knipt"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik noem dat de maag met pepsine wel begint met eiwit knippen, maar dat dit maar een klein deel is.",
+    "Ik leg uit dat alvleessap en gal nog steeds via de twaalfvingerige darm verderop bij het eten komen.",
+    "Ik noem dat enzymen uit het alvleessap en het darmsap het eiwit in de dunne darm knippen.",
+    "Ik eindig met de conclusie: het meeste eiwit wordt in de dunne darm verteerd."
+   ],
+   "model": [
+    "In de maag knipt pepsine de eiwitten in kortere stukken. Maar dat is alleen het begin: het meeste eiwit wordt pas in de dunne darm verteerd.",
+    "Bij een gastric bypass blijven maag en twaalfvingerige darm gewoon zitten. Alvleessap en gal stromen door de twaalfvingerige darm en komen verderop alsnog bij het eten.",
+    "Daar knippen de enzymen uit het alvleessap en het darmsap het eiwit in stukken. Daarom verteren deze mensen toch bijna al hun eiwit."
+   ]
+  },
+  {
+   "id": "uitleg-gal",
+   "soort": "uitleg",
+   "titel": "Gal is geen enzym, en toch helpt het",
+   "opdracht": "Gal knipt geen enkel vetmolecuul. Leg aan een klasgenoot uit waarom je zonder gal toch minder vet verteert.",
+   "begrippen": [
+    {
+     "naam": "emulgeren",
+     "varianten": [
+      "emulgeert",
+      "emulgatie",
+      "kleine druppeltjes",
+      "kleine druppels",
+      "druppeltjes"
+     ]
+    },
+    {
+     "naam": "mechanische vertering",
+     "varianten": [
+      "mechanisch"
+     ]
+    },
+    {
+     "naam": "oppervlak",
+     "varianten": [
+      "oppervlakte"
+     ]
+    },
+    {
+     "naam": "enzymen",
+     "varianten": [
+      "enzym",
+      "vetverterende",
+      "lipase"
+     ]
+    },
+    {
+     "naam": "chemische vertering",
+     "varianten": [
+      "chemisch",
+      "knippen",
+      "knipt"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat gal vet in kleine druppeltjes verdeelt: emulgeren.",
+    "Ik noem dat emulgeren mechanische vertering is: de vetmoleculen blijven hetzelfde.",
+    "Ik leg uit dat kleine druppels samen veel meer oppervlak hebben, waar de vetverterende enzymen bij kunnen.",
+    "Ik noem dat de enzymen het knippen doen (chemische vertering), niet de gal."
+   ],
+   "model": [
+    "Gal verdeelt grote vetdruppels in heel veel kleine druppeltjes. Dat heet emulgeren. De vetmoleculen blijven daarbij heel, dus het is mechanische vertering.",
+    "Veel kleine druppels hebben samen een veel groter oppervlak dan één grote druppel. De vetverterende enzymen kunnen er daardoor veel beter bij.",
+    "De enzymen knippen het vet (chemische vertering). Zonder gal blijft het vet in grote druppels en gaat dat knippen veel langzamer: er wordt minder vet verteerd."
+   ]
+  },
+  {
+   "id": "uitleg-diarree",
+   "soort": "uitleg",
+   "titel": "Waarom diarree waterig is",
+   "opdracht": "Bij een darminfectie gaat de peristaltiek in de dikke darm veel sneller. Leg aan een klasgenoot uit waardoor je ontlasting dan waterig wordt.",
+   "begrippen": [
+    {
+     "naam": "peristaltiek",
+     "varianten": [
+      "kringspieren",
+      "knijpen"
+     ]
+    },
+    {
+     "naam": "dikke darm",
+     "varianten": []
+    },
+    {
+     "naam": "waterresorptie",
+     "varianten": [
+      "water terugnemen",
+      "water teruggenomen",
+      "water opnemen",
+      "water opgenomen",
+      "terugnemen",
+      "opnemen"
+     ]
+    },
+    {
+     "naam": "te weinig tijd",
+     "varianten": [
+      "minder tijd",
+      "korter",
+      "te kort",
+      "geen tijd",
+      "sneller"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik noem dat de belangrijkste taak van de dikke darm water terugnemen is (waterresorptie).",
+    "Ik leg uit dat snellere peristaltiek de inhoud sneller door de dikke darm duwt.",
+    "Ik leg uit dat er dan te weinig tijd is om het water terug te nemen, dus blijft er veel water in de ontlasting.",
+    "Ik noem eventueel dat de aangetaste darmwand ook nog extra vocht maakt."
+   ],
+   "model": [
+    "De dikke darm verteert zelf bijna niets. Zijn belangrijkste taak is water terugnemen uit de darminhoud: waterresorptie. Normaal blijft er zo van de negen liter vocht per dag maar een klein glas over.",
+    "Bij een darminfectie duwt een snellere peristaltiek de inhoud veel sneller door de dikke darm. Dan is er te weinig tijd om het water terug te nemen.",
+    "Er blijft dus veel water in de ontlasting zitten. Vaak maakt de aangetaste darmwand ook nog extra vocht aan. Samen geeft dat waterige diarree."
+   ]
+  },
+  {
+   "id": "uitleg-bicarbonaat",
+   "soort": "uitleg",
+   "vwo": true,
+   "titel": "Zure brij in de dunne darm",
+   "opdracht": "De brij uit de maag heeft een pH van ongeveer 2. Leg uit hoe het lichaam ervoor zorgt dat de enzymen in de dunne darm toch kunnen werken.",
+   "begrippen": [
+    {
+     "naam": "bicarbonaat",
+     "varianten": [
+      "HCO3",
+      "base"
+     ]
+    },
+    {
+     "naam": "neutraliseren",
+     "varianten": [
+      "neutraliseert",
+      "neutraal",
+      "zuur weg",
+      "minder zuur"
+     ]
+    },
+    {
+     "naam": "pH",
+     "varianten": [
+      "zuurgraad"
+     ]
+    },
+    {
+     "naam": "secretine",
+     "varianten": []
+    },
+    {
+     "naam": "alvleessap",
+     "varianten": [
+      "alvleesklier"
+     ]
+    },
+    {
+     "naam": "enzymen",
+     "varianten": [
+      "enzym"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik noem dat de enzymen in de darm het best werken bij een pH van ongeveer 7 à 8.",
+    "Ik leg uit dat zure brij de darmwand secretine laat afgeven aan het bloed.",
+    "Ik leg uit dat de alvleesklier daardoor sap met veel bicarbonaat (een base) afgeeft, dat het zuur neutraliseert.",
+    "Ik noem dat hoe zuurder de brij is, hoe meer secretine en hoe meer bicarbonaat er komt."
+   ],
+   "model": [
+    "De enzymen in de dunne darm werken het best bij een pH van ongeveer zeven of acht. De brij uit de maag is veel zuurder.",
+    "Komt er zure brij in de twaalfvingerige darm, dan geeft de darmwand het hormoon secretine af aan het bloed. Daardoor geeft de alvleesklier veel alvleessap af, dat rijk is aan bicarbonaat. Dat is een base: het neutraliseert het zuur, en de pH gaat omhoog.",
+    "Hoe zuurder de brij, hoe meer secretine en dus hoe meer bicarbonaat. Zo kunnen de enzymen uit het alvleessap en het darmsap hun werk doen."
+   ]
+  }
+ ]
+}

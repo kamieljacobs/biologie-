@@ -1,0 +1,80 @@
+{
+ "intro": "Oefen met soortvorming: hoe één soort er twee wordt. Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-allopatrisch",
+   "soort": "volgorde",
+   "titel": "Soortvorming met een barrière",
+   "opdracht": "Zet de stappen van allopatrische soortvorming in de goede volgorde.",
+   "stappen": [
+    {"tekst": "Een rivier verlegt zich en splitst een populatie in tweeën.", "uitleg": "Een barrière: ook een gebergte of een eiland kan dat doen."},
+    {"tekst": "Er stromen geen genen meer tussen de twee helften.", "uitleg": "Zolang er uitwisseling is, wist die uit wat selectie opbouwt."},
+    {"tekst": "In elke helft werkt een andere selectie, omdat de omgeving anders is.", "uitleg": "Links is klein voordelig, rechts groot."},
+    {"tekst": "De twee populaties groeien generatie na generatie uit elkaar.", "uitleg": "Niets trekt het verschil terug. In kleine populaties helpt toeval mee."},
+    {"tekst": "De barrière verdwijnt, maar de dieren paren niet meer met elkaar.", "uitleg": "De barrière zit nu in de dieren zelf: een isolatiemechanisme. Er zijn twee soorten."}
+   ]
+  },
+  {
+   "id": "indelen-een-of-twee",
+   "soort": "indelen",
+   "titel": "Eén soort of twee?",
+   "opdracht": "Gebruik de definitie van Mayr: een soort is een groep die onderling vruchtbare nakomelingen krijgt. Zijn dit één soort of twee soorten?",
+   "bakken": [
+    {"naam": "Eén soort"},
+    {"naam": "Twee soorten"}
+   ],
+   "kaartjes": [
+    {"tekst": "Paard en ezel: samen krijgen ze een muilezel, die onvruchtbaar is.", "bak": 1, "uitleg": "Geen vruchtbare nakomelingen, dus geen genenstroom."},
+    {"tekst": "Een chihuahua en een Duitse herder.", "bak": 0, "uitleg": "Ze zien er heel anders uit, maar krijgen samen vruchtbare pups. Uiterlijk telt niet."},
+    {"tekst": "Twee kikkers in dezelfde vijver: de ene roept in april, de andere in juni.", "bak": 1, "uitleg": "Ze zijn nooit tegelijk op zoek naar een partner: isolatie in tijd."},
+    {"tekst": "Blauwe en rode cichliden in het Victoriameer die alleen met hun eigen kleur paren.", "bak": 1, "uitleg": "Partnerkeuze stopt de genenstroom: sympatrische soortvorming."},
+    {"tekst": "Twee groepen die na een barrière weer samen komen en gewoon met elkaar paren.", "bak": 0, "uitleg": "Twee verschillende populaties zijn nog geen twee soorten. Ze paren weer."},
+    {"tekst": "Twee soorten vuurvliegjes die alleen reageren op het eigen knipperritme.", "bak": 1, "uitleg": "Isolatie vóór de bevruchting: ze vinden elkaar niet als partner."},
+    {"tekst": "Buurpopulaties van de salamander Ensatina langs de westkant van de vallei.", "bak": 0, "uitleg": "Buren paren met elkaar: genen stromen in kleine stapjes."},
+    {"tekst": "De twee uiteinden van Ensatina, die in het zuiden naast elkaar leven en niet paren.", "bak": 1, "uitleg": "Een ringsoort: de uiteinden zijn zo ver uit elkaar gegroeid dat ze elkaar niet meer herkennen."}
+   ]
+  },
+  {
+   "id": "indelen-isolatie",
+   "soort": "indelen",
+   "titel": "Vóór of na de bevruchting?",
+   "opdracht": "Werkt dit isolatiemechanisme vóór de bevruchting of erna?",
+   "bakken": [
+    {"naam": "Vóór de bevruchting", "uitleg": "er komt geen bevruchting"},
+    {"naam": "Na de bevruchting", "uitleg": "de nakomeling is zwak of onvruchtbaar"}
+   ],
+   "kaartjes": [
+    {"tekst": "Twee soorten eiken bloeien in andere weken.", "bak": 0, "uitleg": "Het stuifmeel komt nooit op het goede moment aan."},
+    {"tekst": "Twee soorten lieveheersbeestjes passen mechanisch niet op elkaar.", "bak": 0, "uitleg": "Paren lukt niet, dus er komt geen bevruchting."},
+    {"tekst": "Zaadcellen van een zee-egel herkennen alleen eicellen van de eigen soort.", "bak": 0, "uitleg": "Zaadcel en eicel versmelten niet."},
+    {"tekst": "Een muilezel is onvruchtbaar.", "bak": 1, "uitleg": "De nakomeling wordt wel gemaakt, maar krijgt zelf geen nakomelingen."},
+    {"tekst": "Een kruising wordt geboren, maar is zwak.", "bak": 1, "uitleg": "De bevruchting is gelukt; het probleem zit in de nakomeling."},
+    {"tekst": "Vuurvliegjes knipperen in een ander ritme.", "bak": 0, "uitleg": "Ze reageren alleen op het eigen ritme en vinden elkaar niet."}
+   ]
+  },
+  {
+   "id": "uitleg-cichliden",
+   "soort": "uitleg",
+   "titel": "500 soorten in één meer",
+   "opdracht": "In het Victoriameer ontstonden in 15.000 jaar meer dan 500 soorten cichliden, zonder rivier, gebergte of eiland ertussen. Leg uit hoe dat kan.",
+   "begrippen": [
+    {"naam": "sympatrische soortvorming", "varianten": ["sympatrisch"]},
+    {"naam": "partnerkeuze", "varianten": ["partner kiezen", "kiezen"]},
+    {"naam": "genenstroom", "varianten": ["genen stromen", "uitwisseling van genen"]},
+    {"naam": "barrière", "varianten": ["isolatie"]},
+    {"naam": "soort", "varianten": ["soorten"]}
+   ],
+   "checklist": [
+    "Ik leg uit dat vrouwtjes mannen kiezen op kleur: blauw in helder water, rood in dieper water.",
+    "Ik leg uit dat wie op blauw valt met blauw paart, zodat de genenstroom tussen de groepen stopt.",
+    "Ik leg uit dat het gedrag zelf de barrière is, zonder barrière in het landschap.",
+    "Ik noem dat dit sympatrische soortvorming heet: soortvorming op dezelfde plaats."
+   ],
+   "model": [
+    "Een soort is een groep die onderling vruchtbare nakomelingen krijgt. Eén soort wordt er twee zodra er geen genen meer tussen de groepen stromen.",
+    "Bij cichliden kiezen vrouwtjes mannen op kleur: blauw in helder, ondiep water en rood in dieper, troebel water, waar rood beter opvalt. Wie op blauw valt, paart met blauw. Zo stopt de genenstroom tussen blauw en rood.",
+    "De barrière zit dus niet in het landschap, maar in het gedrag zelf. Dat heet sympatrische soortvorming: soortvorming op dezelfde plaats."
+   ]
+  }
+ ]
+}

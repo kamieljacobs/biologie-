@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-label="Doorsnede van een chloroplast">
+<style>text{font-family:"Source Sans 3",system-ui,sans-serif;font-size:24px;fill:#F2F2EE;font-weight:600}.l{stroke:#9AA3B2;stroke-width:1.5;fill:none}</style>
+<rect width="900" height="560" fill="#121A26"/>
+<ellipse cx="450" cy="290" rx="340" ry="160" fill="none" stroke="#A8D8A0" stroke-width="6"/>
+<ellipse cx="450" cy="290" rx="326" ry="147" fill="#2E5A34" stroke="#7FC48F" stroke-width="5"/>
+<g stroke="#5FA86E" stroke-width="7" fill="none"><path d="M220 290 H690"/><path d="M300 250 L380 330"/><path d="M520 330 L600 250"/><path d="M200 330 H300"/><path d="M600 250 H700"/></g>
+<g fill="#7FC48F" stroke="#1F3D24" stroke-width="2">
+<g><rect x="260" y="232" width="80" height="16" rx="8"/><rect x="260" y="250" width="80" height="16" rx="8"/><rect x="260" y="268" width="80" height="16" rx="8"/><rect x="260" y="286" width="80" height="16" rx="8"/><rect x="260" y="304" width="80" height="16" rx="8"/><rect x="260" y="322" width="80" height="16" rx="8"/></g>
+<g transform="translate(150,-60)"><rect x="260" y="232" width="80" height="16" rx="8"/><rect x="260" y="250" width="80" height="16" rx="8"/><rect x="260" y="268" width="80" height="16" rx="8"/><rect x="260" y="286" width="80" height="16" rx="8"/><rect x="260" y="304" width="80" height="16" rx="8"/><rect x="260" y="322" width="80" height="16" rx="8"/></g><g transform="translate(150,70)"><rect x="260" y="232" width="80" height="16" rx="8"/><rect x="260" y="250" width="80" height="16" rx="8"/><rect x="260" y="268" width="80" height="16" rx="8"/><rect x="260" y="286" width="80" height="16" rx="8"/><rect x="260" y="304" width="80" height="16" rx="8"/><rect x="260" y="322" width="80" height="16" rx="8"/></g><g transform="translate(300,-20)"><rect x="260" y="232" width="80" height="16" rx="8"/><rect x="260" y="250" width="80" height="16" rx="8"/><rect x="260" y="268" width="80" height="16" rx="8"/><rect x="260" y="286" width="80" height="16" rx="8"/><rect x="260" y="304" width="80" height="16" rx="8"/><rect x="260" y="322" width="80" height="16" rx="8"/></g>
+</g>
+<ellipse cx="560" cy="380" rx="34" ry="20" fill="#E6E1D3" opacity=".85"/>
+<ellipse cx="660" cy="350" rx="22" ry="15" fill="none" stroke="#8C7BBF" stroke-width="4"/>
+<g fill="#C9B896"><circle cx="400" cy="230" r="5"/><circle cx="415" cy="245" r="5"/></g>
+<path class="l" d="M450 128 L450 60"/><text x="450" y="50" text-anchor="middle">dubbel membraan</text>
+<path class="l" d="M300 228 L180 120"/><text x="180" y="108" text-anchor="middle">granum (stapel thylakoïden)</text>
+<path class="l" d="M262 320 L140 420"/><text x="120" y="445" text-anchor="middle">thylakoïde</text>
+<path class="l" d="M640 290 L780 200"/><text x="790" y="192">stroma-</text><text x="790" y="218">lamel</text>
+<path class="l" d="M470 400 L470 500"/><text x="470" y="525" text-anchor="middle">stroma (vloeistof)</text>
+<path class="l" d="M594 380 L700 470"/><text x="760" y="495" text-anchor="middle">zetmeelkorrel</text>
+<path class="l" d="M682 350 L780 380"/><text x="790" y="388">DNA</text>
+<path class="l" d="M415 245 L600 120"/><text x="610" y="112">ribosomen</text>
+</svg>

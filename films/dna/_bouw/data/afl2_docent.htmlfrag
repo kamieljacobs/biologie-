@@ -1,0 +1,22 @@
+<details><summary>Pauze- en bespreekmomenten</summary><ul>
+  <li>Na vraag 1: laat leerlingen de celcyclus van je celdeling-simulatie ernaast leggen: waar zit de S-fase daar?</li>
+  <li>Na hoofdstuk 2: wat gebeurt er als een verkeerde base toch blijft hangen? (brug naar hoofdstuk 3)</li>
+  <li>Na vraag 3: reken samen uit hoeveel startpunten je minstens nodig hebt om 3 miljard in 8 uur te halen bij 50 per seconde (≈ 2000 bij ideale verdeling).</li>
+  <li class="vonly">Na vraag 4: teken de verwachting voor conservatieve en dispersieve replicatie en vergelijk met het resultaat.</li></ul></details>
+ <!--NUMBERS-->
+ <details><summary>Vereenvoudigingen</summary><ul>
+  <li>Helicase, primase en ligase staan niet in Biologie voor Jou of Nectar; ze zijn op verzoek toegevoegd en in de begrippenlijst als aanvulling gemarkeerd.</li>
+  <li>"Repair-enzymen" dekt zowel de proofreading van de polymerase zelf als mismatch repair.</li>
+  <li>Meselson en Stahl sorteerden op dichtheid (centrifuge met cesiumchloride); de film zegt "op gewicht".</li>
+  <li>De simulatie toont één vork; in werkelijkheid lopen vanuit elk startpunt twee vorken in tegengestelde richting.</li>
+  <li>"Ongeveer vijftig per seconde" geldt voor eukaryote DNA-polymerase; bacteriën zijn ongeveer tien keer sneller.</li></ul></details>
+ <details><summary>Leerdoelen en dekking</summary><table>
+  <tr><th>Leerdoel</th><th>Niveau</th><th>Hoofdstuk</th><th>Vraag</th></tr>
+  <tr><td>S-fase vóór de deling; M-fase verdeelt</td><td>basis</td><td>1</td><td>V1</td></tr>
+  <tr><td>replicatie: open, voorbeeld, polymerase, basenparing</td><td>basis</td><td>2</td><td>V2, check 1</td></tr>
+  <tr><td>twee identieke moleculen omdat één streng de andere vastlegt</td><td>basis</td><td>2, 3</td><td>V2, check 2</td></tr>
+  <tr><td>kopieerfout → mutatie; telomeer</td><td>basis</td><td>3</td><td>check 3</td></tr>
+  <tr class="vonly"><td>semiconservatief (Meselson-Stahl)</td><td>vwo</td><td>4</td><td>V4</td></tr>
+  <tr class="vonly"><td>5'→3', primer, leidende/volgende streng, Okazaki</td><td>vwo</td><td>4</td><td>check 4</td></tr>
+  <tr class="vonly"><td>drie polymerasen; repair</td><td>vwo</td><td>4</td><td>check 5</td></tr></table></details>
+ 

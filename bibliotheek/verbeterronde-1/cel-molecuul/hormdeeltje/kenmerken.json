@@ -1,0 +1,54 @@
+{
+ "oud": {
+  "detail": "weinig",
+  "vorm": "schematisch",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "verzadigd",
+  "diepte": "plat",
+  "textuur": "geen",
+  "context": "los",
+  "beweging": "geen",
+  "opbouw": "in-een-keer",
+  "vondst": "capsules en bollen die alleen in kleur verschillen"
+ },
+ "A": {
+  "detail": "veel",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "accent",
+  "diepte": "plat",
+  "textuur": "geen",
+  "context": "los",
+  "beweging": "geen",
+  "opbouw": "in-een-keer",
+  "vondst": "echte structuur: ringskelet, kralenketen, α+β-kluwens met suikers"
+ },
+ "B": {
+  "detail": "midden",
+  "vorm": "schematisch",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "accent",
+  "diepte": "plat",
+  "textuur": "geen",
+  "context": "los",
+  "beweging": "geen",
+  "opbouw": "in-een-keer",
+  "vondst": "gevuld silhouet per hormoon, op 9 px nog verschillend"
+ },
+ "C": {
+  "detail": "veel",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "accent",
+  "diepte": "schaduw",
+  "textuur": "geen",
+  "context": "los",
+  "beweging": "geen",
+  "opbouw": "in-een-keer",
+  "vondst": "FSH/LH als twee gevouwen ketens met suikertakjes, eiwitVouw-taal"
+ }
+}

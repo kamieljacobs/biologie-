@@ -1,0 +1,17 @@
+{
+ "titel": "DNA en overerving",
+ "ondertitel": "Hoe geef je een eigenschap door?",
+ "meta": "32B · film 6",
+ "kerndoel": "32B",
+ "versie": "1.0", "datum": "20 oktober 2026",
+ "titelseg": "s03",
+ "scenes": ["lib32b.js", "scenes6.js"],
+ "hold": {"s14": 12.0},
+ "mini": {"Hoofdstuk 1": "De bouwtekening", "Hoofdstuk 2": "Twee van elk", "Hoofdstuk 3": "Doorgeven", "Samenvatting": "Genen, dominant, toeval"},
+ "checkvragen": [
+  {"titel": "Gen", "pts": "1 punt", "vraag": "Wat is een gen? A. een cel in je lichaam · B. een stukje DNA met het recept voor één eigenschap · C. een chromosoom", "antwoord": "B (1)."},
+  {"titel": "Dominant", "pts": "1 punt", "vraag": "Een cavia heeft één zwart-gen (dominant) en één wit-gen (recessief). Welke kleur heeft hij? A. zwart · B. wit · C. grijs", "antwoord": "A (1): het dominante gen wint; genen mengen niet."},
+  {"titel": "Wit jong", "pts": "2 punten", "vraag": "Twee zwarte cavia's krijgen een wit jong. Leg uit hoe dat kan.", "antwoord": "Beide ouders hebben één zwart-gen en een verborgen wit-gen (1). Ze gaven toevallig allebei het wit-gen door, zodat het jong twee wit-genen heeft en wit is (1)."},
+  {"titel": "Schema", "pts": "2 punten", "vraag": "Maak het schema voor Aa × Aa. Welk deel van de jongen is gemiddeld wit?", "antwoord": "AA, Aa, aA, aa (1); alleen aa is wit: gemiddeld 1 op de 4 (25 %) (1).", "uitdaging": true}
+ ]
+}

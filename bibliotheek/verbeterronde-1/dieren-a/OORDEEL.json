@@ -1,0 +1,422 @@
+[
+ {
+  "obj": "edelhert",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 5,
+    "bruikbaar": 4,
+    "totaal": 22
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "vierde pose is een tweede staande pose: geen burlen getoond",
+   "Y": "burlpose: hals kort, gewei plat naar achteren, bek open met losse driehoekige onderkaak"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "Poten nog erg dun en staan star; manen weinig zichtbaar"
+ },
+ {
+  "obj": "ezel",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "Y",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "staart zit als losse dikke zwarte klodder midden op de bil, niet dun",
+   "Y": "dunne naad/spleet bij de staartwortel; kwast nog te lang en te dik"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "Ezelstaart nog te dik en te donker over de volle lengte; kwast moet duidelijker een kwast zijn"
+ },
+ {
+  "obj": "grutto",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Y": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 19
+   }
+  },
+  "winnaar": "X",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "vleugelbasis en staart half verborgen, wijsbare tweekleurige snavel nauwelijks tweekleurig",
+   "Y": "winterkleed zonder witte stuit; staart beige in plaats van wit met banden; snavel eenkleurig roze"
+  },
+  "overnemen": "niets of: zomerkleed als alternatief kleed laten staan",
+  "combineren": false,
+  "fout": "Snavel te kort en niet duidelijk tweekleurig; poten zijn dunne lijnen die ver achter de staart steken"
+ },
+ {
+  "obj": "hond-chihuahua",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   },
+   "Y": {
+    "klopt": 5,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 22
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "oog bijna zwart, iris niet zichtbaar",
+   "Y": "oog nog klein in de vergrote versie; verder identiek"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "insecten",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 3,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 16
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "pauwoog-zijaanzicht is een grote rode vlek zonder herkenbaar lijf; bij met vleugel boven het achterlijf in plaats van aan het borststuk",
+   "Y": "bovenaanzicht: loop-/driepootgang niet zichtbaar; bij mist duidelijk stuifmeelkorfje"
+  },
+  "overnemen": "onderkant donker van de dagpauwoog uit X (vlinder klapwiekt met donkere onderkant), zijaanzicht van de loop in een aparte pose",
+  "combineren": true,
+  "fout": "Dagpauwoog toont geen vier poten; stuifmeelkorfje niet herkenbaar"
+ },
+ {
+  "obj": "jachtluipaard",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   },
+   "Y": {
+    "klopt": 5,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 22
+   }
+  },
+  "winnaar": "Y",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "poten bijna zonder vlekken",
+   "Y": "hoofd klein en hals lang; galoppose lijkt op draf"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "Galopposes: gewrichten leesbaar maar geen echte zweeffase met gestrekte rug"
+ },
+ {
+  "obj": "kipecht",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   },
+   "Y": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 2,
+    "bruikbaar": 4,
+    "totaal": 17
+   }
+  },
+  "winnaar": "X",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "staartveren als waaier van sikkels ok, vleugelcontour wat vlak",
+   "Y": "staart een bruine klodder zonder sikkelveren; pikken ontbreekt, vierde pose is weer staan"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "Poten erg dun en lang, kam geen 5 duidelijke punten bij klein formaat"
+ },
+ {
+  "obj": "koe",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "X",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "snuit een grote, bolle roze bult; oor erg donker",
+   "Y": "losse spijker bij de keel (dauwlap); verre poten grijzig in plaats van dezelfde kleurfamilie"
+  },
+  "overnemen": "slankere, natuurlijkere snuit en lichter oor van Y",
+  "combineren": true,
+  "fout": "Hoornstompjes nauwelijks zichtbaar (klein puntje)"
+ },
+ {
+  "obj": "krokodilecht",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 16
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "poten als stompe flippers onder de buik, geen neusgatbult, geen knie/tenen; schilden niet dubbel",
+   "Y": "poten hangen verticaal onder het lijf in plaats van zijwaarts gespreid; staartplatheid niet zichtbaar"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "Poten staan onder het lijf in plaats van zijwaarts gespreid; staart niet duidelijk zijdelings plat"
+ },
+ {
+  "obj": "leeuw",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   }
+  },
+  "winnaar": "X",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "manen erg donker, details verdwijnen bij klein formaat",
+   "Y": "manen lichter en wat modderig, minder contrast met de kaak"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "muilezel",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 19
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "Y",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "oren bijna als bij de ezel",
+   "Y": "staart dun en donker als bij een ezel, niet vol"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "Staart is dun als ezelstaart in plaats van vol (paard); lijf en poten lijken meer ezel dan paard"
+ },
+ {
+  "obj": "paard",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   }
+  },
+  "winnaar": "X",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "identiek aan Y",
+   "Y": "identiek aan X"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "Staart dik en blokkig; poten recht en stijf"
+ },
+ {
+  "obj": "wolf-huilen",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 5,
+    "bruikbaar": 4,
+    "totaal": 22
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "derde pose is gewoon staan: geen echte snelle gang",
+   "Y": "galop blijft eerder een draf met opgetrokken voorpoot; geen volledige zweeffase"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "Galop is geen echte galop (geen zweeffase met gestrekt lijf)"
+ },
+ {
+  "obj": "zeeschildpad-schildpadnest",
+  "scores": {
+   "X": {
+    "klopt": 5,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 22
+   },
+   "Y": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 15
+   }
+  },
+  "winnaar": "X",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "nestvlak is een rechthoek met een rechte bovenrand, eieren liggen nogal netjes gestapeld",
+   "Y": "geen doorsnede: nest is een ovaal met eieren, geen hals en kamer; schild is rij ovale blokjes en niet 5 middenschilden met ribschilden; kop geen schubben"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ }
+]

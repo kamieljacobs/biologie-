@@ -1,0 +1,335 @@
+{
+ "versie": 1,
+ "film": "films/gaswisseling/1-adem-in-adem-uit.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-lucht",
+   "soort": "volgorde",
+   "titel": "De weg van de lucht",
+   "opdracht": "Je ademt in door je neus. Zet de delen van de luchtwegen in de volgorde waarin de lucht erlangs komt.",
+   "stappen": [
+    {
+     "tekst": "Neusholte",
+     "uitleg": "De lucht wordt verwarmd en vochtig gemaakt; neusharen en slijm vangen stof."
+    },
+    {
+     "tekst": "Keelholte",
+     "uitleg": "Hier kruisen lucht en voedsel elkaar."
+    },
+    {
+     "tekst": "Strottenhoofd",
+     "uitleg": "Met je stembanden. Bij het slikken sluit het strotklepje het strottenhoofd af."
+    },
+    {
+     "tekst": "Luchtpijp",
+     "uitleg": "Opengehouden door hoefijzervormige ringen van kraakbeen."
+    },
+    {
+     "tekst": "Bronchiën",
+     "uitleg": "Twee takken, één naar elke long."
+    },
+    {
+     "tekst": "Bronchiolen",
+     "uitleg": "Steeds dunnere vertakkingen in de long."
+    },
+    {
+     "tekst": "Longblaasjes",
+     "uitleg": "Trosjes kleine blaasjes met haarvaten eromheen: hier vindt de gaswisseling plaats."
+    }
+   ]
+  },
+  {
+   "id": "schema-longen",
+   "soort": "schema",
+   "titel": "De weg naar de longblaasjes",
+   "opdracht": "Links zie je de luchtwegen en longen van voren, rechts een uitvergroot trosje longblaasjes. Sleep de namen naar de goede vakjes.",
+   "alt": "Lijntekening van strottenhoofd, luchtpijp met kraakbeenringen, bronchiën, longen en middenrif, met een uitvergroting van een trosje longblaasjes met haarvaten.",
+   "breed": 760,
+   "hoog": 420,
+   "vakbreed": 144,
+   "svg": "<path stroke-width=\"2.4\" d=\"M276 110 C250 100 214 120 192 160 C168 204 156 268 154 330 C154 352 166 362 188 358 C220 350 256 346 282 350 C290 300 292 220 286 150 C284 128 282 116 276 110 Z\"/><path stroke-width=\"2.4\" d=\"M324 110 C350 100 386 120 408 160 C432 204 444 268 446 330 C446 352 434 362 412 358 C384 352 352 348 330 352 C336 330 344 312 340 292 C326 286 318 270 320 250 C318 200 318 150 324 110 Z\"/><path stroke-width=\"1.4\" d=\"M252 212 L233 201 L214 190 M233 201 L217 191 M233 201 L246 188 M233 201 L236 217 M252 212 L229 231 L206 250 M229 231 L213 221 M229 231 L242 218 M229 231 L232 247 M252 212 L244 256 L236 300 M244 256 L228 246 M244 256 L257 243 M244 256 L247 272 M252 212 L222 266 L192 320 M222 266 L206 256 M222 266 L235 253 M222 266 L225 282 M348 212 L367 201 L386 190 M367 201 L351 191 M367 201 L380 188 M367 201 L370 217 M348 212 L371 231 L394 250 M371 231 L355 221 M371 231 L384 218 M371 231 L374 247 M348 212 L358 254 L368 296 M358 254 L342 244 M358 254 L371 241 M358 254 L361 270 M348 212 L379 266 L410 320 M379 266 L363 256 M379 266 L392 253 M379 266 L382 282 \"/><circle cx=\"214\" cy=\"190\" r=\"4\" stroke-width=\"1.2\"/><circle cx=\"206\" cy=\"250\" r=\"4\" stroke-width=\"1.2\"/><circle cx=\"236\" cy=\"300\" r=\"4\" stroke-width=\"1.2\"/><circle cx=\"192\" cy=\"320\" r=\"4\" stroke-width=\"1.2\"/><circle cx=\"386\" cy=\"190\" r=\"4\" stroke-width=\"1.2\"/><circle cx=\"394\" cy=\"250\" r=\"4\" stroke-width=\"1.2\"/><circle cx=\"368\" cy=\"296\" r=\"4\" stroke-width=\"1.2\"/><circle cx=\"410\" cy=\"320\" r=\"4\" stroke-width=\"1.2\"/><path d=\"M300 66 L300 172\" stroke-width=\"26\" stroke-linecap=\"butt\"/><path d=\"M300 66 L300 172\" stroke-width=\"21.4\" stroke-linecap=\"butt\" style=\"stroke:var(--oe-veld)\"/><path d=\"M300 166 C290 184 270 200 250 214\" stroke-width=\"17\" stroke-linecap=\"butt\"/><path d=\"M300 166 C290 184 270 200 250 214\" stroke-width=\"12.4\" stroke-linecap=\"butt\" style=\"stroke:var(--oe-veld)\"/><path d=\"M300 166 C310 184 330 200 350 214\" stroke-width=\"17\" stroke-linecap=\"butt\"/><path d=\"M300 166 C310 184 330 200 350 214\" stroke-width=\"12.4\" stroke-linecap=\"butt\" style=\"stroke:var(--oe-veld)\"/><path d=\"M300 66 L300 172\" stroke-width=\"21.4\" stroke-linecap=\"butt\" style=\"stroke:var(--oe-veld)\"/><path class=\"zacht\" stroke-width=\"1.4\" d=\"M289 80 C295 83 305 83 311 80\"/><path class=\"zacht\" stroke-width=\"1.4\" d=\"M289 92 C295 95 305 95 311 92\"/><path class=\"zacht\" stroke-width=\"1.4\" d=\"M289 104 C295 107 305 107 311 104\"/><path class=\"zacht\" stroke-width=\"1.4\" d=\"M289 116 C295 119 305 119 311 116\"/><path class=\"zacht\" stroke-width=\"1.4\" d=\"M289 128 C295 131 305 131 311 128\"/><path class=\"zacht\" stroke-width=\"1.4\" d=\"M289 140 C295 143 305 143 311 140\"/><path class=\"zacht\" stroke-width=\"1.4\" d=\"M289 152 C295 155 305 155 311 152\"/><path class=\"zacht\" stroke-width=\"1.4\" d=\"M289 164 C295 167 305 167 311 164\"/><path stroke-width=\"2.4\" style=\"fill:var(--oe-veld)\" d=\"M280 26 L320 26 L318 52 C316 62 310 68 300 70 C290 68 284 62 282 52 Z\"/><path stroke-width=\"1.4\" d=\"M292 26 L300 40 L308 26\"/><path stroke-width=\"3\" class=\"acc\" d=\"M128 394 C138 340 200 338 246 348 C276 355 290 362 300 362 C310 362 324 355 354 348 C400 338 462 340 472 394\"/><path class=\"zacht\" stroke-width=\"1.2\" stroke-dasharray=\"4 5\" d=\"M372 296 L510 255\"/><circle cx=\"572\" cy=\"215\" r=\"74\" stroke-width=\"1.6\"/><path d=\"M522 261 L554 227\" stroke-width=\"12\" stroke-linecap=\"butt\"/><path d=\"M522 261 L554 227\" stroke-width=\"7.4\" stroke-linecap=\"butt\" style=\"stroke:var(--oe-veld)\"/><circle cx=\"552\" cy=\"185\" r=\"22\" stroke-width=\"2\" style=\"fill:var(--oe-veld)\"/><circle cx=\"590\" cy=\"185\" r=\"20\" stroke-width=\"2\" style=\"fill:var(--oe-veld)\"/><circle cx=\"606\" cy=\"219\" r=\"19\" stroke-width=\"2\" style=\"fill:var(--oe-veld)\"/><circle cx=\"584\" cy=\"249\" r=\"18\" stroke-width=\"2\" style=\"fill:var(--oe-veld)\"/><circle cx=\"538\" cy=\"213\" r=\"16\" stroke-width=\"2\" style=\"fill:var(--oe-veld)\"/><path class=\"acc\" stroke-width=\"2\" d=\"M520 175 C532 157 566 155 578 167 C592 159 622 175 624 199 C628 221 618 245 600 255 C592 273 568 273 564 261\"/><path class=\"acc zacht\" stroke-width=\"1.4\" d=\"M570 163 C566 179 578 195 588 205 M624 201 C612 205 602 215 594 231\"/>",
+   "vakjes": [
+    {
+     "naam": "strottenhoofd",
+     "x": 82,
+     "y": 40,
+     "punt": [
+      282,
+      44
+     ],
+     "uitleg": "hier zitten je stembanden; bij het slikken sluit het strotklepje het af."
+    },
+    {
+     "naam": "luchtpijp",
+     "x": 82,
+     "y": 125,
+     "punt": [
+      288,
+      118
+     ],
+     "uitleg": "wordt opengehouden door hoefijzervormige ringen van kraakbeen."
+    },
+    {
+     "naam": "bronchie",
+     "x": 82,
+     "y": 230,
+     "punt": [
+      262,
+      206
+     ],
+     "uitleg": "de luchtpijp vertakt zich in twee bronchiën, één naar elke long."
+    },
+    {
+     "naam": "middenrif",
+     "x": 82,
+     "y": 380,
+     "punt": [
+      170,
+      350
+     ],
+     "uitleg": "koepel van spier; trekt bij inademen samen, wordt platter en zakt."
+    },
+    {
+     "naam": "bronchiole",
+     "x": 686,
+     "y": 340,
+     "punt": [
+      520,
+      262
+     ],
+     "uitleg": "dunne vertakking aan het eind van de luchtwegen."
+    },
+    {
+     "naam": "longblaasje",
+     "x": 530,
+     "y": 40,
+     "punt": [
+      552,
+      186
+     ],
+     "uitleg": "honderden miljoenen; samen ongeveer 70 m² vochtig oppervlak."
+    },
+    {
+     "naam": "haarvat",
+     "x": 686,
+     "y": 120,
+     "punt": [
+      624,
+      206
+     ],
+     "uitleg": "netwerk om elk longblaasje; zuurstof diffundeert van het blaasje naar het bloed hierin."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-inademen",
+   "soort": "volgorde",
+   "titel": "Hoe de lucht naar binnen komt",
+   "opdracht": "Zet in de goede volgorde wat er gebeurt als je inademt.",
+   "stappen": [
+    {
+     "tekst": "Het middenrif trekt samen, wordt platter en zakt.",
+     "uitleg": "Niet omhoog, zoals veel mensen denken. Dit gebeurt tegelijk met de tussenribspieren.",
+     "groep": "spieren"
+    },
+    {
+     "tekst": "De tussenribspieren trekken de ribben omhoog en naar buiten.",
+     "uitleg": "Dit gebeurt tegelijk met het middenrif.",
+     "groep": "spieren"
+    },
+    {
+     "tekst": "De borstholte wordt groter.",
+     "uitleg": "Meer ruimte binnen je borstkas."
+    },
+    {
+     "tekst": "De longen gaan mee en worden ook groter, doordat longvlies en borstvlies aan elkaar kleven.",
+     "uitleg": "Het laagje vocht tussen de vliezen werkt als twee natte glasplaatjes."
+    },
+    {
+     "tekst": "Dezelfde hoeveelheid lucht heeft meer ruimte: de druk in de longen daalt.",
+     "uitleg": "De druk in je longen is nu lager dan buiten."
+    },
+    {
+     "tekst": "De hogere luchtdruk buiten duwt lucht via de luchtwegen naar binnen.",
+     "uitleg": "Je longen zuigen dus niet: de lucht wordt naar binnen geduwd."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-klaplong",
+   "soort": "uitleg",
+   "titel": "De klaplong van Daan",
+   "opdracht": "Bij Daan is een blaasje aan de buitenkant van zijn rechterlong geknapt. Er is lucht tussen zijn long en zijn borstwand gekomen. Leg aan een klasgenoot uit waarom zijn rechterlong inzakt, en zijn linkerlong niet.",
+   "begrippen": [
+    {
+     "naam": "longvlies",
+     "varianten": []
+    },
+    {
+     "naam": "borstvlies",
+     "varianten": []
+    },
+    {
+     "naam": "laagje vocht",
+     "varianten": [
+      "vocht",
+      "kleven",
+      "kleeft",
+      "plakken"
+     ]
+    },
+    {
+     "naam": "elastisch",
+     "varianten": [
+      "uitgerekt",
+      "uitgerekte",
+      "veert terug",
+      "terugveren"
+     ]
+    },
+    {
+     "naam": "meegetrokken",
+     "varianten": [
+      "volgt",
+      "volgen",
+      "gaat mee",
+      "beweegt mee",
+      "niet meer mee"
+     ]
+    },
+    {
+     "naam": "eigen vliezen",
+     "varianten": [
+      "elke long",
+      "eigen"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat long en borstwand normaal aan elkaar kleven door een laagje vocht tussen longvlies en borstvlies.",
+    "Ik leg uit dat de longen elastisch zijn en in de borstkas altijd een beetje uitgerekt staan.",
+    "Ik leg uit dat door de lucht tussen de vliezen de long niet meer kleeft, terugveert en inzakt.",
+    "Ik leg uit dat elke long eigen vliezen heeft, zodat alleen de rechterlong inzakt."
+   ],
+   "model": [
+    "Om elke long zit het longvlies, en de binnenkant van de borstkas is bekleed met het borstvlies. Daartussen zit een dun laagje vocht. Daardoor kleven ze aan elkaar, zoals twee natte glasplaatjes, en volgt de long elke beweging van de borstkas.",
+    "De longen zijn elastisch en staan in de borstkas altijd een beetje uitgerekt. Bij Daan kwam er lucht tussen de vliezen. Toen kleefde zijn long niet meer aan de borstwand, veerde de uitgerekte long terug, en zakte hij in.",
+    "Elke long heeft zijn eigen vliezen. Daarom zakte alleen zijn rechterlong in."
+   ]
+  },
+  {
+   "id": "uitleg-gaswisseling",
+   "soort": "uitleg",
+   "titel": "Waarom gaswisseling zo goed werkt",
+   "opdracht": "Leg aan een klasgenoot uit hoe zuurstof uit de longblaasjes in je bloed komt, en welke vier eigenschappen ervoor zorgen dat dit snel genoeg gaat.",
+   "begrippen": [
+    {
+     "naam": "diffusie",
+     "varianten": [
+      "diffundeert",
+      "diffunderen"
+     ]
+    },
+    {
+     "naam": "groot oppervlak",
+     "varianten": [
+      "oppervlak",
+      "oppervlakte",
+      "70 vierkante meter",
+      "zeventig vierkante meter"
+     ]
+    },
+    {
+     "naam": "dunne wand",
+     "varianten": [
+      "dun",
+      "dunner"
+     ]
+    },
+    {
+     "naam": "vochtig",
+     "varianten": [
+      "vocht",
+      "lost op"
+     ]
+    },
+    {
+     "naam": "concentratieverschil",
+     "varianten": [
+      "hoge naar lage concentratie",
+      "concentratie"
+     ]
+    },
+    {
+     "naam": "haarvaten",
+     "varianten": [
+      "haarvat",
+      "bloed"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat zuurstof oplost in het vocht in het longblaasje en dan door diffusie naar het bloed in de haarvaten gaat.",
+    "Ik noem het grote oppervlak (ongeveer 70 m²) en de dunne wand (samen dunner dan een duizendste millimeter).",
+    "Ik noem dat het binnenste van het longblaasje vochtig is.",
+    "Ik leg uit dat het concentratieverschil blijft bestaan, doordat je steeds verse lucht inademt en het bloed de zuurstof steeds afvoert."
+   ],
+   "model": [
+    "Het binnenste van een longblaasje is vochtig. Zuurstof lost op in dat vocht en diffundeert dan naar het bloed in de haarvaten om het blaasje. Bij diffusie gaan stoffen van een hoge naar een lage concentratie: in het blaasje zit veel zuurstof, in het bloed weinig.",
+    "Dat gaat snel genoeg doordat de honderden miljoenen longblaasjes samen een groot oppervlak hebben, ongeveer zeventig vierkante meter. En de wand van blaasje en haarvat is samen heel dun, dunner dan een duizendste millimeter.",
+    "Het concentratieverschil blijft bestaan: je ademt steeds verse lucht in, en het bloed voert de zuurstof steeds af. Koolstofdioxide gaat de andere kant op."
+   ]
+  },
+  {
+   "id": "uitleg-dode-ruimte",
+   "soort": "uitleg",
+   "vwo": true,
+   "titel": "Snel en oppervlakkig ademen",
+   "opdracht": "Twee mensen ademen allebei zes liter per minuut. De een ademt rustig en diep, de ander snel en oppervlakkig. Leg uit wie de meeste verse lucht in zijn longblaasjes krijgt.",
+   "begrippen": [
+    {
+     "naam": "dode ruimte",
+     "varianten": []
+    },
+    {
+     "naam": "luchtwegen",
+     "varianten": [
+      "luchtpijp",
+      "bronchiën"
+     ]
+    },
+    {
+     "naam": "longblaasjes",
+     "varianten": [
+      "longblaasje"
+     ]
+    },
+    {
+     "naam": "ademvolume",
+     "varianten": [
+      "per ademhaling",
+      "per keer"
+     ]
+    },
+    {
+     "naam": "ademminuutvolume",
+     "varianten": [
+      "per minuut"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat ongeveer anderhalve deciliter van elke ademteug in de luchtwegen blijft hangen: de dode ruimte.",
+    "Ik leg uit dat die lucht niet in de longblaasjes komt en niet meedoet aan de gaswisseling.",
+    "Ik leg uit dat bij snel en oppervlakkig ademen een groter deel van elk ademvolume dode ruimte is.",
+    "Ik concludeer dat de rustige, diepe ademer meer verse lucht in zijn longblaasjes krijgt."
+   ],
+   "model": [
+    "Niet alle lucht die je inademt, komt in de longblaasjes. Ongeveer anderhalve deciliter blijft in je luchtwegen hangen: de dode ruimte. Die lucht doet niet mee aan de gaswisseling.",
+    "Bij elke ademhaling gaat dus eerst die anderhalve deciliter verloren. Wie snel en oppervlakkig ademt, heeft een klein ademvolume: een groot deel daarvan ververst alleen de dode ruimte.",
+    "Bij hetzelfde ademminuutvolume krijgt de rustige, diepe ademer dus meer verse lucht in zijn longblaasjes."
+   ]
+  }
+ ]
+}

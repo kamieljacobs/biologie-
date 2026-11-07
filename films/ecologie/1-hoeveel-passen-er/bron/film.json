@@ -1,0 +1,159 @@
+{
+ "slug": "1-hoeveel-passen-er",
+ "hoofdstuk": "ecologie",
+ "hoofdstukNaam": "Ecologie",
+ "title": "Hoeveel passen er?",
+ "sub": "populaties tellen, groeien en begrenzen",
+ "puzzle": "Hoeveel bevers passen er in Nederland? (en: waarom groeit een populatie niet eeuwig door?)",
+ "meta": "ecologie 1/8",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · reeks Ecologie · film 1 van 8",
+ "lead": "Hoeveel bevers passen er dus in Nederland? Dat hangt af van de draagkracht: hoeveel geschikte oever er is, en hoeveel oever een familie nodig heeft. Een familie gebruikt meestal twee tot vier kilometer oever. Waar het heel geschikt is, minder dan één. Een familie telt meestal vier tot zes bevers. Een rekenvoorbeeld met twee aannames. Een familie heeft twee kilometer oever nodig, en telt ongeveer vijf bevers. Is er drieduizend kilometer geschikte oever, dan passen er vijftienhonderd families: ongeveer zevenduizendvijfhonderd bevers. Is er zesduizend kilometer, dan ongeveer vijftienduizend. Het antwoord hangt dus af van hoeveel geschikte oever er echt is. De lijn voor heel Nederland stijgt nog. Maar waar het al vol is, zoals in de Millingerwaard, zie je de S. Zo gaat het ook langs de sloot van de boer, als de oevers daar vol raken. Een populatie groeit niet eeuwig door. Ze groeit tot de draagkracht, en schommelt daar omheen.",
+ "endHaak": "volgende film: Waar past een soort?",
+ "minis": {
+  "Hoofdstuk 1": "Hoe tel je dieren die je bijna nooit ziet?",
+  "Hoofdstuk 2": "Waardoor wordt een populatie groter of kleiner?",
+  "Hoofdstuk 3": "Waarom loopt de lijn steeds steiler?",
+  "Hoofdstuk 4": "Wat gebeurt er als alle plekken bezet zijn?",
+  "Hoofdstuk 5": "Welke factoren remmen de groei, en welke niet?",
+  "Recap": "Hoeveel bevers passen er in Nederland? (en: waarom groeit een populatie niet eeuwig door?)"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Dieren: uitknippoppen uit de dierenbibliotheek en de ecologiepoppen; personages uit het castboek. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q11": {
+   "q": "Ronde 1: 40 bevers. Ronde 2: 30 bevers, waarvan 12 al bekend. Hoeveel bevers leven er ongeveer in dit gebied?",
+   "correct": 1,
+   "explain": "Kijk naar de tweede ronde. Twaalf van de dertig bevers waren al bekend: twee op de vijf. Dan is waarschijnlijk ook twee op de vijf van álle bevers bekend."
+  },
+  "q18": {
+   "q": "400 bevers. In een jaar: 120 geboren, 60 dood, 10 erbij, 30 vertrokken. Met hoeveel procent groeit deze populatie in een jaar?",
+   "correct": 2,
+   "explain": "Tel eerst alles wat erbij komt: honderdtwintig plus tien is honderddertig. Dan alles wat eraf gaat: zestig plus dertig is negentig. Er komen veertig bevers bij."
+  },
+  "q24": {
+   "q": "Een populatie groeit elk jaar met twintig procent. Na hoeveel jaar is ze ongeveer twee keer zo groot?",
+   "correct": 0,
+   "explain": "Bij twintig procent groei per jaar worden honderd bevers er na een jaar honderdtwintig. Daarna honderdvierenveertig, honderddrieënzeventig en tweehonderdzeven. Na vier jaar is het al meer dan het dubbele."
+  },
+  "q28": {
+   "q": "2004–2019: ± 20 % groei per jaar. 2019–2023: ± 14 % per jaar. Welke conclusie mag je uit deze gegevens trekken?",
+   "correct": 1,
+   "explain": "Het aantal stijgt nog steeds, met honderden bevers per jaar. Alleen het percentage is lager geworden. Dat de draagkracht van heel Nederland al bereikt is, staat niet in deze gegevens."
+  },
+  "q33": {
+   "q": "Alle geschikte oevers zijn bezet. Wat gebeurt er de jaren daarna met het aantal bevers in dit gebied?",
+   "correct": 2,
+   "explain": "Na het jaar 2005 bleef het aantal volwassen bevers daar ongeveer gelijk: zo'n achttien, in negen territoria. Er worden nog steeds jongen geboren. Maar er is geen plek meer voor een nieuwe familie."
+  },
+  "q39": {
+   "q": "Een hoogwater in het voorjaar verdrinkt jonge bevers in hun burcht. Wat voor factor is dat?",
+   "correct": 1,
+   "explain": "Hoog water houdt geen rekening met het aantal bevers. Het treft een vast deel van de jongen, of er nu weinig of veel zijn. Zo'n factor heet dichtheidsonafhankelijk."
+  },
+  "q48": {
+   "q": "Twee nieuwe eilanden: een groot eiland dicht bij de kust, een klein eiland ver op zee. Waar leven na twintig jaar de meeste soorten?",
+   "correct": 0,
+   "explain": "Op een eiland vestigen zich steeds nieuwe soorten, en er sterven ook soorten uit. Dicht bij de kust komen er meer nieuwe soorten aan. Op een groot eiland zijn de populaties groter, dus sterven er minder uit."
+  }
+ },
+ "glossary": [
+  {
+   "t": "populatie",
+   "d": "Alle individuen van één soort in één gebied die zich onderling voortplanten."
+  },
+  {
+   "t": "populatiegrootte",
+   "d": "Het aantal individuen in een populatie."
+  },
+  {
+   "t": "populatiedichtheid",
+   "d": "Het aantal individuen per oppervlakte (of per kilometer oever) leefgebied."
+  },
+  {
+   "t": "vangen, merken en terugvangen",
+   "d": "Schatting van de populatiegrootte: N = aantal gemerkt × aantal tweede vangst / aantal teruggevangen. Een DNA-profiel uit haar of keutel kan het merk zijn."
+  },
+  {
+   "t": "geboorte, sterfte, immigratie, emigratie",
+   "d": "De vier factoren die de grootte van een populatie veranderen; groei = (geboorte + immigratie) − (sterfte + emigratie)."
+  },
+  {
+   "t": "groeisnelheid",
+   "d": "De groei in een jaar als percentage van de populatie aan het begin van dat jaar."
+  },
+  {
+   "t": "verdubbelingstijd",
+   "d": "De tijd waarin een populatie twee keer zo groot wordt; benadering: 70 gedeeld door de groeisnelheid in procenten (regel van 70)."
+  },
+  {
+   "t": "exponentiële groei (J-curve)",
+   "d": "Groei met een vast percentage per tijdseenheid: hoe groter de populatie, hoe meer erbij komt."
+  },
+  {
+   "t": "logistische groei (S-curve)",
+   "d": "Groei die afremt en stopt bij de draagkracht."
+  },
+  {
+   "t": "draagkracht",
+   "d": "Het grootste aantal individuen van een soort dat een gebied op lange termijn kan onderhouden."
+  },
+  {
+   "t": "territorium",
+   "d": "Gebied dat een dier of familie verdedigt tegen soortgenoten."
+  },
+  {
+   "t": "overshoot",
+   "d": "Een populatie groeit tijdelijk boven de draagkracht uit en zakt daarna terug."
+  },
+  {
+   "t": "dichtheidsafhankelijke factor",
+   "d": "Factor die sterker werkt naarmate de populatiedichtheid hoger is (voedsel, ruimte, ziekte, concurrentie)."
+  },
+  {
+   "t": "dichtheidsonafhankelijke factor",
+   "d": "Factor die werkt onafhankelijk van de dichtheid (hoogwater, strenge winter)."
+  },
+  {
+   "t": "populatieregulatie",
+   "d": "Dichtheidsafhankelijke factoren houden een populatie rond de draagkracht."
+  },
+  {
+   "t": "dynamiek",
+   "d": "Het voortdurend schommelen van de populatiegrootte."
+  },
+  {
+   "t": "biologisch evenwicht",
+   "d": "De populatiegrootte schommelt over de jaren rond hetzelfde niveau."
+  },
+  {
+   "t": "herintroductie",
+   "d": "Een soort terugzetten in een gebied waar ze verdwenen was."
+  },
+  {
+   "t": "barrière",
+   "d": "Iets wat dieren tegenhoudt bij het verplaatsen (stuw, weg); opheffen met een passage helpt dieren nieuwe gebieden te bereiken."
+  },
+  {
+   "t": "r-strategie",
+   "d": "Veel nakomelingen, weinig zorg, snelle groei; aantallen schommelen sterk.",
+   "vwo": true
+  },
+  {
+   "t": "K-strategie",
+   "d": "Weinig nakomelingen, veel zorg, populatie dicht bij de draagkracht.",
+   "vwo": true
+  },
+  {
+   "t": "leeftijdsopbouw",
+   "d": "Verdeling van een populatie over leeftijdsklassen; een brede basis wijst op groei.",
+   "vwo": true
+  },
+  {
+   "t": "eilandtheorie",
+   "d": "Het aantal soorten op een eiland is een evenwicht tussen vestigen (hoger dicht bij de bron) en uitsterven (lager op een groot eiland).",
+   "vwo": true
+  }
+ ],
+ "sections": "<section><h2>Checkvragen</h2>\n  <p class=\"meta\">antwoorden ingeklapt</p>\n  <div class=\"q\"><p><b>1.</b> In een gebied worden 60 haren met verschillende DNA-profielen gevonden. Een maand later 50, waarvan 20 met een profiel dat al bekend was. Bereken de populatiegrootte en noem één voorwaarde voor deze methode.</p><details><summary>Antwoord</summary><p>N = 60 × 50 / 20 = 150 bevers. Voorwaarde: tussen de rondes geen geboorte, sterfte, immigratie of emigratie (gesloten populatie); elk dier evenveel kans om gevonden te worden.</p></details></div>\n  <div class=\"q\"><p><b>2.</b> Een populatie telt 500 dieren. In een jaar: 150 geboren, 90 dood, 20 immigranten, 30 emigranten. Bereken de groeisnelheid en de verdubbelingstijd met de regel van 70.</p><details><summary>Antwoord</summary><p>Groei = (150 + 20) − (90 + 30) = 50; 50 / 500 = 10 % per jaar; verdubbelingstijd ≈ 70 / 10 = 7 jaar.</p></details></div>\n  <div class=\"q\"><p><b>3.</b> Leg uit waarom het aantal bevers in de Millingerwaard sinds 2005 niet meer groeit, terwijl er elk jaar jongen worden geboren.</p><details><summary>Antwoord</summary><p>Alle geschikte oevers zijn bezet (draagkracht bereikt): er is geen plek voor nieuwe territoria. De jongen trekken weg (emigratie) of sterven, dus geboorte + immigratie ≈ sterfte + emigratie.</p></details></div>\n  <div class=\"q\"><p><b>4.</b> Een strenge winter en een ziekte doden allebei bevers. Welke is dichtheidsafhankelijk? Leg uit.</p><details><summary>Antwoord</summary><p>De ziekte: bij een hogere dichtheid is er meer contact, dus springt ze makkelijker over en sterft een groter deel. De strenge winter treft een vast deel, onafhankelijk van de dichtheid.</p></details></div>\n  <div class=\"q\"><p><b>5.</b> Schets in één diagram een J-curve en een S-curve en geef de draagkracht aan. Leg uit wanneer een populatie volgens de J-curve groeit.</p><details><summary>Antwoord</summary><p>J: steeds steiler; S: eerst steil, buigt af naar een horizontale lijn op de draagkracht. J zolang er geen beperkende factoren zijn (veel ruimte en voedsel), bv. kort na een herintroductie.</p></details></div>\n  <div class=\"q vwo-only\"><p><b>6.</b> Is de veldmuis een r- of een K-strateeg? Noem twee kenmerken en leg uit waarom zijn aantal sterk schommelt. <span class=\"vwo-badge\">vwo</span></p><details><summary>Antwoord</summary><p>r-strateeg: veel jongen per worp, korte generatietijd (na een maand geslachtsrijp), weinig zorg. Door de snelle groei schiet de populatie over de draagkracht heen (overshoot) en stort dan in.</p></details></div>\n  <div class=\"q vwo-only\"><p><b>7.</b> Leg met de eilandtheorie uit waarom een klein eiland ver van de kust de minste soorten heeft. <span class=\"vwo-badge\">vwo</span></p><details><summary>Antwoord</summary><p>Ver weg: weinig nieuwe soorten komen aan (lage immigratie); klein: kleine populaties sterven makkelijker uit (hoge uitsterfsnelheid). Het evenwicht tussen vestigen en uitsterven ligt dan bij weinig soorten.</p></details></div>\n</section>\n<section><h2>Voor de docent</h2>\n  <h3>Hoe de film het uitlegt</h3>\n  <table><tr><th>Hoofdstuk</th><th>Type · look</th><th>Minivraag</th></tr>\n  <tr><td>1. Wie tel je mee?</td><td>F · Macro</td><td>Hoe tel je dieren die je bijna nooit ziet?</td></tr>\n  <tr><td>2. Erbij en eraf</td><td>F · Schema</td><td>Waardoor wordt een populatie groter of kleiner?</td></tr>\n  <tr><td>3. Steeds sneller</td><td>F · Schema</td><td>Waarom loopt de lijn steeds steiler?</td></tr>\n  <tr><td>4. Wanneer is het vol?</td><td>F · Schema</td><td>Wat gebeurt er als alle plekken bezet zijn?</td></tr>\n  <tr><td>5. Wat houdt het aantal in toom?</td><td>F · Schema</td><td>Welke factoren remmen de groei, en welke niet?</td></tr>\n  </table>\n  <h3>Getallen en bronnen</h3>\n  <table><tr><th>Wat</th><th>Bron</th></tr>\n  <tr><td>laatste bever in Nederland gedood in 1826 (bij de IJssel)</td><td>Natura 2000-profiel H1337 Bever (2008); DutchNews 2019</td></tr>\n  <tr><td>herintroductie Biesbosch 1988–1991: 42 bevers (39 wild gevangen in Duitsland, 3 uit Natuurpark Lelystad)</td><td>Faunabeheerplan Bever Zuid-Holland 2023–2029, p. 20; NIOO-blog 2025 (start 1988)</td></tr>\n  <tr><td>landelijk minimaal 128 bevers in 2000, minimaal 220 in maart 2004</td><td>Natura 2000-profiel H1337; Niewold 2004, Alterra-rapport 982</td></tr>\n  <tr><td>± 3500 bevers in 2019; ± 6000 (ouder dan 1 jaar) in 2023</td><td>Faunabeheerplan Bever ZH 2023–2029, p. 21–22; DutchNews 2019; NIOO-blog maart 2025 (± 6000); IPLO 2025 noemt ruim 7000</td></tr>\n  <tr><td>groei ± 20 % per jaar in 1995–2012 (zelf nagerekend: 220 → 3500 in 15 jaar = 20 % per jaar)</td><td>Faunabeheerplan Bever ZH 2023–2029, p. 24</td></tr>\n  <tr><td>worp 1–5 jongen, meestal 2–3 (gemiddeld 2–3), één worp per jaar; draagtijd ± 107 dagen</td><td>Faunabeheerplan Bever ZH p. 17 (meestal drie); ARK &quot;Bevers terug&quot; (gemiddeld 2); Wikipedia Eurasian beaver (gemiddeld 3)</td></tr>\n  <tr><td>jongen verlaten de familie in het voorjaar aan het eind van hun tweede jaar; familie = ouderpaar + jongen van 2–3 jaar; 4–6 dieren</td><td>Faunabeheerplan Bever ZH p. 17; ARK &quot;Bevers terug&quot; (4–6, max 6)</td></tr>\n  <tr><td>dispersie meestal 10–20 km, zwemmend tot ± 100 km</td><td>Niewold 2004 (Alterra 982); Faunabeheerplan ZH p. 17</td></tr>\n  <tr><td>familie gebruikt 2–4 km oever (in Europa tot 10 km; Millingerwaard &lt; 1 km)</td><td>ARK &quot;Bevers terug&quot; (2–4 km); Kaandorp &amp; Lange, Zoogdier 21-3 (&lt; 1 km, tot 10 km in Europa)</td></tr>\n  <tr><td>Millingerwaard/Kekerdomse Waard: 18 volwassen bevers in 9 territoria (2009), stabiel sinds 2005, draagkracht lijkt bereikt</td><td>Kaandorp &amp; Lange, Zoogdier 21-3 (2010) p. 8–11</td></tr>\n  <tr><td>Lincoln-Petersen N = nK/k; voorwaarden: gesloten populatie, merken blijven, gelijke vangkans</td><td>Wikipedia Mark and recapture</td></tr>\n  <tr><td>veldmuis: 6–8 jongen per maand in een gunstig jaar, na ± een maand geslachtsrijp; plaag 2026: zichtbare schade op ± 18 000 ha grasland (Friesland, Zuid-Holland)</td><td>WUR-nieuws &quot;Satellietbeelden tonen muizenschade op 18.000 hectare grasland&quot; (2026); Steenuilenoverleg, Uilen 5 (2014); RVO veldmuis (4–7 per worp)</td></tr>\n  <tr><td>veldmuisplaag stort in door voedselgebrek, winterweer en ziekte; pieken om de 3–5 jaar</td><td>WUR-nieuws 2026; Uilen 5 (2014)</td></tr>\n  <tr><td>Marker Wadden: aanleg vanaf 2016 (Boskalis); ± 400 soorten in 2021</td><td>Bionieuws 20-10-2018 via EcoShape; NOS 23-6-2023; Vroege Vogels (BNNVARA) 2021</td></tr>\n  <tr><td>slakjes kunnen meeliften aan de poten van vogels naar de Marker Wadden</td><td>Neckheim &amp; Van Leeuwen, Spirula 424 (2020)</td></tr>\n  <tr><td>eilandtheorie: vestigen daalt en uitsterven stijgt met het aantal soorten; dichtbij hogere immigratie, groot eiland lagere extinctie</td><td>MacArthur &amp; Wilson 1967 (Wikipedia: The Theory of Island Biogeography); vwo-CE 2025-II vraag 40</td></tr>\n  <tr><td>rekenvoorbeeld 3000 en 6000 km geschikte oever, 2 km en 5 bevers per familie: AANGENOMEN getallen, geen bron</td><td>geen bron: rekenvoorbeeld (zie twijfel e1s40)</td></tr>\n  </table>\n  <h3>Keuzes en vereenvoudigingen</h3>\n  <ul>\n  <li>Puzzel A gekozen (hoeveel bevers passen er?), B wordt onderweg beantwoord (H4), C (vwo) in het vwo-blok eilandtheorie.</li>\n  <li>Combinatie B + C na de blinde beoordeling (zie b15). De volgorde van B (grafiek eerst) is teruggedraaid: tellen en in/uit komen vóór de J-curve, zodat elk hoofdstuk op het vorige bouwt.</li>\n  <li>Rol: boer = Veehouder Gerrit (vaste rol &quot;boer, veehouder&quot;), outfit gewoon, niet bij naam genoemd. De onderzoeker die haren verzamelt staat niet in beeld (geen nieuwe rol voor Dr. Kim of Ecoloog Bas).</li>\n  <li>Vangen-merken-terugvangen gecombineerd met DNA uit haren (&quot;genetisch merken&quot;), want bevers vang je zelden; zo staan beide spec-methoden in één voorbeeld.</li>\n  <li>Groeisnelheid 20 % (1995–2012) uit het faunabeheerplan ZH; zelf nagerekend met 220 (2004) → 3500 (2019) = 20 % per jaar. Tussen 2019 en 2023 is het ± 14 % per jaar: de landelijke groei remt al iets af (niet in de vertelling, wel bruikbaar als docentvraag).</li>\n  <li>De landelijke aantallen komen uit verschillende telmethoden (minimumtellingen 2000/2004, schattingen 2019/2023); IPLO 2025 noemt ruim 7000. In beeld &quot;ongeveer&quot; en het label &quot;schattingen&quot;.</li>\n  <li>Overshoot in H4 als model (geen bevergegevens); het echte voorbeeld van overshoot (veldmuisplaag 2026) staat in het vwo-blok.</li>\n  <li>Draagkracht in de Millingerwaard rust op één bron (Kaandorp &amp; Lange 2010, met data 2009); de vertelling zegt &quot;rond het jaar 2005&quot; en &quot;zo&#x27;n achttien&quot;.</li>\n  <li>Hoogwater als dichtheidsonafhankelijke factor: zo in de methodes (weer = dichtheidsonafhankelijk); vereenvoudigd, want bij hoge dichtheid liggen meer burchten op slechte plekken.</li>\n  <li>Vwo-blokken: r/K en leeftijdsopbouw (e1s32–34) en eilandtheorie (e1s35–38) achter elkaar aan het eind van H5, met één regel terug naar de basis (e1s38). Drift en inteelt alleen als verwijzing naar de evolutiereeks.</li>\n  <li>Afschot van bevers (Limburg) niet in de film: gevoelig en niet in de spec; beheer = barrières opheffen en herintroductie.</li>\n  <li>Proefregel P2: elke misconceptie uit de spec die hier speelt (&quot;een populatie groeit tot alles op is&quot;) is een vraag (e1q23). Begeleider-deel van P2 geldt niet (geen begeleider in deze film).</li>\n  <li>Techniek: lib_eco.js gebruikt nu ECOK (hoofdredactie); de terugval in teken_eco1.js definieert alleen nog functies die ontbreken. dieren_overig.js geeft zonder teken_evo3.js de melding berkenspanner (onschuldig).</li>\n  <li>Uitspraak: nl.wiktionary en woorden.org waren niet bereikbaar; IPA deels uit en.wiktionary (mirror), de rest eigen transcriptie: op de wachtlijst.</li>\n  <li>Herstel na review (MOET 1): e1s30 J- en S-curve nu met dezelfde start en groeisnelheid; de J ligt overal op of boven de S.</li>\n  <li>Herstel na review (MOET 2): e1s18 &quot;minstens honderddertig&quot; werd &quot;ongeveer honderddertig&quot; (bron: minimaal 128).</li>\n  <li>Herstel na review (MOET 3): e1s12 jongen glijden het water in, labels staan direct bij ouderpaar en jongen.</li>\n  <li>Herstel na review (MOET 4): e1s02 boer verplaatst, het Meta-label loopt niet meer over zijn benen.</li>\n  <li>Herstel na review (KAN): e1s11 voorwaarde gelijke vangkans toegevoegd; e1s22 &quot;schattingen, gemaakt met verschillende methoden&quot;; e1s37 vier tot acht jongen per maand en twee beverjongen in beeld; e1s45 twee scenario&#x27;s (3000 en 6000 km) in plaats van één aanname.</li>\n  </ul>\n  <h3>Plaats in de reeks</h3>\n  <p>Film 1 van 8 in de reeks Ecologie (havo en vwo; elke film staat op zichzelf). Havo: Biologie voor Jou, thema 7, paragraaf 7.2. Vwo: Nectar, paragraaf 6.2 (+ 6.5 eilandtheorie). Volgende: Waar past een soort?.</p>\n</section>\n"
+}

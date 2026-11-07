@@ -1,0 +1,94 @@
+{
+ "rows": [
+  [
+   "A",
+   "Op een gel van 4% agarose staat een marker met banden van 50, 100, 150, 200 en 250 bp. Een band van het spoor ligt tussen de markerbanden van 150 en 200 bp, iets dichter bij 150. a) Schat de lengte van de band. b) Bij welke STR uit de kit hoort de band? c) Bereken het allel.",
+   "a) Ongeveer 168 bp. b) vWA (164 – 184 bp). c) Lengte = 108 + 4 × n, dus n = (168 − 108) / 4 = 15: allel 15."
+  ],
+  [
+   "B",
+   "Leg uit waarom je de putjes aan de kant van de zwarte elektrode legt. Wat zie je op de foto als je dat omdraait?",
+   "DNA is negatief geladen door de fosfaatgroepen en beweegt naar de pluspool (rood). Liggen de putjes bij de minpool, dan loopt het DNA de gel in. Draai je het om, dan loopt het DNA de gel uit, de buffer in: op de foto zie je geen banden van de monsters."
+  ],
+  [
+   "C",
+   "Een leerling zet STR-producten van 60 – 220 bp op een gel van 1% agarose. a) Wat verwacht je op de foto? b) Leg uit.",
+   "a) Alle banden liggen dicht bij elkaar, ver in de gel (op een kluitje); allelen die 4 bp verschillen zijn niet te onderscheiden. b) In 1% agarose zijn de gaatjes groot. Alle korte stukken glippen er bijna even makkelijk door en lopen bijna even snel. In 3 – 4% agarose worden ze meer afgeremd, en geeft een klein verschil in lengte een merkbaar verschil in afstand."
+  ],
+  [
+   "D",
+   "Bij het spoor zie je bij D8S1179 een felle band van 140 bp en net daaronder een zwakke band van 136 bp. a) Welk allel lees je af? b) Waarom is de band van 136 bp geen tweede allel?",
+   "a) Allel 13 (140 = 88 + 4 × 13). Omdat er maar één echte band is, die extra fel is, heeft de persoon waarschijnlijk twee keer allel 13. b) De zwakke band ligt precies één herhaling (4 bp) onder de sterke band en is veel zwakker: een stotterband. Bij de PCR sloeg het polymerase één herhaling over."
+  ],
+  [
+   "E",
+   "In de negatieve controle van gel 1 zie je onderaan alleen een vage vlek van ongeveer 46 bp. In de negatieve controle van gel 2 zie je een scherpe band van 176 bp. Welke conclusie trek je bij elke gel?",
+   "Gel 1 is in orde: de vlek komt van primer-dimeren, primers die aan elkaar plakken, ook zonder DNA. Gel 2 is besmet: er is DNA in een buisje gekomen waar het niet hoort. Dan zijn ook de andere banden niet betrouwbaar; doe de PCR opnieuw, met een nieuwe pipetpunt per buisje."
+  ],
+  [
+   "F",
+   "Het spoor heeft bij D3S1358 drie banden: 200 bp (sterk), 204 bp (sterk) en 208 bp (zwak). De eigenaar heeft 200 en 208 bp, verdachte A 200 en 204 bp. a) Hoe kan het spoor drie banden hebben? b) Past verdachte A bij het spoor op deze STR? Leg uit.",
+   "a) Het spoor is een mengsel: het bevat DNA van meer dan één persoon. De zwakke band van 208 bp past bij de eigenaar, die de scherven opraapte. b) Ja: beide banden van A (200 en 204 bp) zitten in het spoor, en de extra band is te verklaren door de eigenaar. Voor een conclusie vergelijk je alle STR’s."
+  ]
+ ],
+ "lead": "<li>Uitleggen waarom DNA in een gel naar de pluspool beweegt (negatief geladen fosfaatgroepen) en waarom de putjes daarom bij de minpool liggen.</li><li>Uitleggen hoe een agarosegel DNA-stukken op lengte sorteert: korte stukken komen verder dan lange, en alle kopieën van één lengte vormen samen één band.</li><li>Uitleggen waarom je voor korte STR-producten een gel met veel agarose kiest (3 – 4%).</li><li>Met een marker de lengte van een band schatten, en uitleggen waarom je de markerbanden vlak bij de band gebruikt.</li><li>Uit de lengte van een band de STR en het allel bepalen met lengte = flank + 4 × n.</li><li>Profielen vergelijken: twee allelen per STR, één felle band (homozygoot) of twee banden (heterozygoot), en uitsluiten bij één verschil.</li><li>Uitleggen wat de negatieve en de positieve controle laten zien, en stotterbanden, primer-dimeren en mengsels herkennen.</li>",
+ "zo": "\n<li><b>Leerling</b>: kijk de film voordat je je eigen gel afleest. De hoofdstukken staan onder de film; zo kijk je bijvoorbeeld alleen hoofdstuk 2 (lengte aflezen) terug.</li>\n<li><b>Klas</b>: pauzeer na hoofdstuk 2 en laat de klas zelf een band aflezen (checkvraag A). Na hoofdstuk 3 kun je checkvraag F bespreken.</li>\n<li><b>Geen voorspelvragen</b>: de film loopt door. Er zijn wel checkvragen hieronder.</li>\n<li><b>Vereenvoudigd</b>: forensische labs scheiden STR’s niet in agarose maar in een dun capillair met fluorescente primers (capillaire elektroforese). Het principe is hetzelfde: sorteren op lengte en vergelijken met een ladder.</li>\n<li>Toetsen: spatie = afspelen/pauze, pijltjes = 5 seconden terug/vooruit, C = ondertitels, F = volledig scherm.</li>\n",
+ "terms": [
+  [
+   "agarosegel",
+   "Plak agarose: een netwerk van lange suikerketens met kleine gaatjes. Hoe meer agarose, hoe kleiner de gaatjes."
+  ],
+  [
+   "elektroforese",
+   "DNA met elektrische spanning door een gel laten bewegen. De stukken worden gesorteerd op lengte: hoe korter, hoe verder."
+  ],
+  [
+   "putje en laadbuffer",
+   "In het putje pipetteer je het PCR-product met laadbuffer. Die is zwaar (glycerol), zodat het monster naar de bodem zakt, en bevat blauwe kleurstof."
+  ],
+  [
+   "marker",
+   "Mengsel van DNA-stukken met bekende lengte (hier 50, 100, 150 … bp). Daarmee lees je de lengte van een band af."
+  ],
+  [
+   "allelladder",
+   "Mengsel van alle allelen van de STR-kit. Ligt een band even hoog als een ladderband, dan is het hetzelfde allel."
+  ],
+  [
+   "band",
+   "Heel veel kopieën van één lengte die even ver door de gel zijn gekomen."
+  ],
+  [
+   "basenpaar (bp)",
+   "Eenheid voor de lengte van dubbelstrengs DNA."
+  ],
+  [
+   "homozygoot / heterozygoot",
+   "Twee dezelfde allelen: één band, extra fel. Twee verschillende allelen: twee banden."
+  ],
+  [
+   "amelogenine",
+   "Stuk DNA op het X- en het Y-chromosoom: X geeft 106 bp, Y 112 bp. Alleen X is een vrouw, X en Y een man."
+  ],
+  [
+   "negatieve controle",
+   "PCR-mengsel met water in plaats van DNA. Hoort leeg te zijn, op primer-dimeren na. Een echte band betekent besmetting."
+  ],
+  [
+   "positieve controle",
+   "DNA met een bekend profiel. Zie je precies die banden, dan werkten de PCR en de gel."
+  ],
+  [
+   "stotterband",
+   "Zwakke band precies één herhaling (4 bp) onder een sterke band. Ontstaat bij de PCR en is geen allel."
+  ],
+  [
+   "primer-dimeer",
+   "Twee primers die aan elkaar plakken en samen gekopieerd worden: een vage vlek onderaan (± 46 bp)."
+  ],
+  [
+   "mengsel",
+   "DNA van meer personen in één monster: bij een STR meer dan twee banden, vaak verschillend van sterkte."
+  ]
+ ]
+}

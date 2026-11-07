@@ -1,0 +1,4 @@
+- Een eicel met kern, daaromheen de zona pellucida (dunne glazige ring) en de stralenkrans: dicht gepakte granulosacellen die tegen de zona liggen.
+- Daarnaast de follikelrijping: primordiaal (één laag platte cellen) → meer lagen → holte (antrum) met de eicel op een heuveltje → Graafse follikel.
+- De eicel hoort qua kleur bij de follikel (zelfde cellen).
+- Klein moet het nog als eicel met krans lezen.

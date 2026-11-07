@@ -1,0 +1,17 @@
+{
+ "titel": "Wie eet wie",
+ "ondertitel": "Wat gebeurt er als de wolf verdwijnt? Voedselketen, voedselweb en kringloop in een Nederlands bos.",
+ "meta": "ecosystemen 3",
+ "kerndoel": "33C",
+ "versie": "1.0", "datum": "20 oktober 2026",
+ "titelseg": "s02",
+ "scenes": "scenes3.js",
+ "hold": {"s15": 12.0},
+ "mini": {"Hoofdstuk 1": "Waar begint de rij?", "Hoofdstuk 2": "Draden en opruimers", "Hoofdstuk 3": "Een bos zonder wolf", "Samenvatting": "Keten, web en kringloop"},
+ "checkvragen": [
+  {"titel": "Begin van de keten", "pts": "1 punt", "vraag": "Waarmee begint elke voedselketen? A. met een plant · B. met het kleinste dier · C. met een reducent", "antwoord": "A (1): een plant maakt zelf voedsel met zonlicht; dat is de producent."},
+  {"titel": "Opruimers", "pts": "1 punt", "vraag": "Wat doen reducenten in een bos? A. ze eten levende planten · B. ze breken dode resten af tot mineralen · C. ze jagen op muizen", "antwoord": "B (1): schimmels en bacteriën breken dode resten af; planten nemen de mineralen weer op (kringloop)."},
+  {"titel": "Zonder wolf", "pts": "2 punten", "vraag": "Leg uit waarom er minder jonge bomen groeien als de wolf uit een bos verdwijnt.", "antwoord": "Zonder wolf komen er meer reeën en herten (1); die eten meer jonge boompjes op, dus groeien er minder nieuwe bomen (1)."},
+  {"titel": "Wolf en vogels", "pts": "2 punten", "vraag": "Een wolf eet nooit vogeleieren. Toch kan hij vogels die op de grond broeden helpen. Leg uit hoe.", "antwoord": "De wolf jaagt vossen weg of doodt ze, dus er zijn minder vossen (1); vossen eten eieren en jongen van grondbroeders, dus die overleven beter (1).", "uitdaging": true}
+ ]
+}

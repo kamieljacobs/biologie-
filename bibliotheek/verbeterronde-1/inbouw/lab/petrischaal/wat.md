@@ -1,0 +1,3 @@
+- Basis: variant B (driekwart-aanzicht met agarlaag en deksel dat opengaat).
+- Gemelde fout 'referentieschaal te klein (4-6 cm)' nagemeten: schaal ± 63 px breed op 6,67 px/cm in de render → ± 9,5 cm. Klopt met 90 mm; niet aangepast.
+- Niet aangepast (stijl niet veranderen): het zwevende deksel van B en de dunne dubbele rand die de beoordelaar zwak vond. Vraag aan Kamiel: wil je het recht opgetilde deksel uit C, of houden zo?

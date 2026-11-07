@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script>(function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Benchmarkscène</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/*FONTS*/
+:root{color-scheme:dark;--bg:#121A26;--surface:#1A2740;--fill:#2A3A58;--text:#F2F2EE;--text2:#9AA3B2;--line:rgba(143,160,181,.35);--goud:#E0B64A;
+ --titel:"Fraunces",Georgia,serif;--tekst:"Source Sans 3",system-ui,sans-serif;--meta:"IBM Plex Mono",ui-monospace,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:18px/1.5 var(--tekst)}
+.wrap{max-width:1240px;margin:0 auto;padding-block:24px 60px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.meta{font:12px var(--meta);letter-spacing:.12em;text-transform:uppercase;color:#C9B896}
+h1{font:700 clamp(30px,4.6vw,50px)/1.05 var(--titel);margin:6px 0 8px}
+p.lead{color:var(--text2);margin:0 0 18px;max-width:62ch}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
+button{font:inherit;font-size:16px;color:var(--text);background:var(--fill);border:1px solid var(--line);border-radius:10px;padding:8px 14px;cursor:pointer;min-height:44px}
+button.on{border-color:var(--goud);color:var(--goud)}
+.stage{position:relative;background:#0D1420;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+canvas{display:block;width:100%;height:auto;aspect-ratio:16/9}
+.ctrl{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0}
+#seek{flex:1 1 220px;accent-color:var(--goud)}
+#tijd{font:14px var(--meta);color:var(--text2);min-width:70px}
+#uitleg{color:var(--text2);margin:6px 0 0;min-height:3em}
+.grid{display:none;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:12px}
+.grid figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.grid figcaption{padding:8px 12px;font-size:15px}
+.grid figcaption b{color:var(--goud)}
+body.naast .grid{display:grid} body.naast #enkel{display:none}
+@media (max-width:420px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="meta">Prompt v9 · B15 · benchmarkscène</div>
+  <h1>Eén scène, vijf manieren</h1>
+  <p class="lead">Noor neemt een hap, we volgen de hap tot in de dunne darm, en daar knipt een enzym zetmeel in glucose. Draaiboek en tekst zijn overal gelijk; alleen de manier van tekenen of bewegen verschilt. Kies welke aanpak de films het meest vooruit helpt, of welke onderdelen je wilt combineren.</p>
+  <div class="tabs" id="tabs"></div>
+  <div id="enkel">
+    <div class="stage"><canvas id="doek" width="1920" height="1080" aria-label="Benchmarkscène"></canvas></div>
+    <p id="uitleg"></p>
+  </div>
+  <div class="grid" id="grid"></div>
+  <div class="ctrl">
+    <button id="speel">❚❚ Pauze</button>
+    <button id="terug">↺ Opnieuw</button>
+    <input type="range" id="seek" min="0" max="21" step="0.01" value="0" aria-label="Tijd">
+    <span id="tijd">0,0 s</span>
+    <button id="naast">Naast elkaar</button>
+  </div>
+</div>
+<script>
+/*LIBS*/
+</script>
+<script>
+var ctx = null; // lib_anatomie tekent op de globale ctx
+const doek = document.getElementById('doek'), d2 = doek.getContext('2d');
+let keuze = new URLSearchParams(location.search).get('v') || 'nu';
+let t = 0, speelt = true, vorige = performance.now(), naast = false;
+const tabs = document.getElementById('tabs'), grid = document.getElementById('grid');
+const klein = {};
+VARIANTEN.forEach(v => { const b = document.createElement('button'); b.textContent = v.naam; b.dataset.id = v.id; b.onclick = () => { keuze = v.id; zetNaast(false); toon(); }; tabs.appendChild(b);
+  const f = document.createElement('figure'); const c = document.createElement('canvas'); c.width = 960; c.height = 540; f.appendChild(c); const cap = document.createElement('figcaption'); cap.innerHTML = '<b>' + v.kort + '</b> · ' + v.uitleg; f.appendChild(cap); grid.appendChild(f); klein[v.id] = c; });
+function toon() { tabs.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.id === keuze && !naast)); const v = VARIANTEN.find(x => x.id === keuze); document.getElementById('uitleg').textContent = v ? v.uitleg : ''; teken(); }
+function zetNaast(aan) { naast = aan; document.body.classList.toggle('naast', aan); document.getElementById('naast').classList.toggle('on', aan); toon(); }
+const groot = (() => { const c = document.createElement('canvas'); c.width = 1920; c.height = 1080; return c; })();
+function teken() {
+  if (!naast) { d2.setTransform(1, 0, 0, 1, 0, 0); tekenFrame(d2, t, keuze); }
+  else { const g = groot.getContext('2d'); for (const v of VARIANTEN) { g.setTransform(1, 0, 0, 1, 0, 0); tekenFrame(g, t, v.id); const k = klein[v.id].getContext('2d'); k.drawImage(groot, 0, 0, 960, 540); } }
+  document.getElementById('seek').value = t; document.getElementById('tijd').textContent = t.toFixed(1).replace('.', ',') + ' s';
+}
+function lus(nu) { const dt = Math.min(0.1, (nu - vorige) / 1000); vorige = nu; if (speelt) { t += dt; if (t > DUUR) t = 0; teken(); } requestAnimationFrame(lus); }
+document.getElementById('speel').onclick = () => { speelt = !speelt; document.getElementById('speel').textContent = speelt ? '❚❚ Pauze' : '▶ Speel'; };
+document.getElementById('terug').onclick = () => { t = 0; teken(); };
+document.getElementById('seek').oninput = (e) => { t = +e.target.value; teken(); };
+document.getElementById('naast').onclick = () => zetNaast(!naast);
+window.BENCH = { teken: (tt, id) => { t = tt; speelt = false; keuze = id; zetNaast(false); } };
+(document.fonts ? document.fonts.ready : Promise.resolve()).then(() => { toon(); requestAnimationFrame(lus); });
+</script>
+</body>
+</html>

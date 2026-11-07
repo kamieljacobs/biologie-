@@ -1,0 +1,1433 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../js/teller.js" data-root="../"></script>
+<link rel="icon" href="../img/icoon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../img/icoon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../img/icoon/apple-touch-icon.png">
+<script>(function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Examen vwo 2024-I · doorklikken · Biologie bij Kamiel</title>
+<meta name="description" content="Maak het centraal examen biologie vwo 2024 tijdvak 1 stap voor stap: eerst hulpvragen, dan de examenvraag, nakijken met het correctievoorschrift en uitleg met animaties.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="huisstijl.css">
+<script src="huisstijl.js"></script>
+<script src="examen-stof.js?v=b496a9e6"></script>
+<script src="examen-stof/vwo24-1.js?v=216cd91b"></script>
+<script src="examen-standen.js?v=558bd73d"></script>
+<style>
+/* Examen vwo 2024-I · doorklik-examen. Kleuren en letters uit huisstijl.css; hier alleen de extra's. */
+:root{--rest:#2A3B57;--area:#5B6B84}
+:root[data-theme="light"]{--rest:#D5DEE9;--area:#B4BDCA}
+ .wrap{padding-inline:0}
+:root[data-theme="light"] .papier{box-shadow:0 0 0 1px rgba(20,32,52,.18),0 6px 18px rgba(20,32,52,.10)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--text);font:17px/1.55 var(--tekst);-webkit-font-smoothing:antialiased;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 40px}
+.wrap{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1,h2,h3{font-family:var(--titel);font-weight:700;letter-spacing:-.01em;text-wrap:balance;margin:0;line-height:1.1}
+h2{font-size:24px}
+.mono,.eyebrow{font:600 12px/1.2 var(--meta);letter-spacing:.1em;text-transform:uppercase}
+.eyebrow{color:var(--goud-text)}
+.muted{color:var(--text2)}
+a{color:var(--goud-text)}
+.sitenav{display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap;min-height:56px;padding:8px 0;border-bottom:1px solid var(--line);font:600 15px/1.3 var(--tekst)}
+.sitenav .merk{font:700 18px/1 var(--titel);color:var(--text);text-decoration:none}
+.sitenav .terug{color:var(--goud-text);text-decoration:none}
+.sitenav .rechts{margin-left:auto}
+.tool-kop{display:flex;flex-direction:column;gap:10px;padding:14px 0 0}
+.tool-kop h1{font-size:clamp(32px,5vw,48px)}
+.tool-kop p{margin:0;color:var(--text2);font-size:18px;max-width:62ch}
+button.toggle{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line2);background:none;color:var(--text2);border-radius:999px;padding:6px 14px 6px 8px;min-height:40px;font:600 14px var(--tekst);cursor:pointer}
+button.toggle .knopje{width:34px;height:20px;border-radius:999px;background:var(--line2);position:relative;flex:none}
+button.toggle .knopje::after{content:"";position:absolute;left:3px;top:3px;width:14px;height:14px;border-radius:50%;background:var(--text2);transition:left .15s}
+button.toggle[aria-pressed="true"]{color:var(--text);border-color:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje{background:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje::after{left:17px;background:var(--goud-ink)}
+.kopbalk{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.seg{display:inline-flex;flex-wrap:wrap;padding:3px;border-radius:999px;border:1px solid var(--line2);gap:2px}
+.seg button{border:0;background:none;padding:6px 14px;border-radius:999px;font:600 14px var(--tekst);color:var(--text2);min-height:36px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--goud);color:var(--goud-ink)}
+nav.tabs{display:flex;flex-wrap:wrap;gap:6px}
+nav.tabs button{min-width:44px;height:44px;border-radius:999px;border:1px solid var(--line2);background:none;color:var(--text2);font:600 15px var(--meta);cursor:pointer;position:relative}
+nav.tabs button:hover{color:var(--text)}
+nav.tabs button.cur{background:var(--goud);color:var(--goud-ink);border-color:var(--goud)}
+nav.tabs button.done::after{content:"";position:absolute;right:3px;top:3px;width:8px;height:8px;border-radius:50%;background:var(--groen);border:2px solid var(--bg)}
+nav.tabs button.lock{opacity:.35;cursor:not-allowed}
+nav.tabs .ov{padding:0 16px;font-family:var(--tekst)}
+.ctx{background:var(--surface);border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.ctx p{margin:0}
+details.ctxd summary{cursor:pointer;font-weight:600;color:var(--goud-text)}
+.tablewrap{overflow-x:auto}
+table.data{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+table.data th,table.data td{border-bottom:1px solid var(--line);padding:7px 10px;text-align:center}
+table.data th:first-child,table.data td:first-child{text-align:left}
+table.data th{font:600 11px var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--text3)}
+.q{display:flex;flex-direction:column;gap:14px}
+.qhead{display:flex;gap:12px;align-items:center}
+.qnum{font:700 40px/1 var(--titel);color:var(--goud-text)}
+.pts{font:600 12px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:3px 9px}
+.qtext{margin:0;font-size:18px}
+.phase{border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;background:var(--surface);display:flex;flex-direction:column;gap:12px}
+.phase>.label{display:flex;gap:8px;align-items:center;font:600 12px var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3)}
+.phase>.label .dot{width:8px;height:8px;border-radius:50%;background:var(--goud)}
+.phase.think{background:var(--surface2)}
+.phase.think>.label{color:var(--goud-text)}
+.step{display:flex;flex-direction:column;gap:8px}
+.step+.step{border-top:1px solid var(--line);padding-top:12px}
+.step p{margin:0}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button.opt,button.chip{border:1px solid var(--line2);background:var(--bg);color:var(--text);border-radius:12px;padding:9px 14px;font:inherit;font-size:16px;cursor:pointer;text-align:left}
+button.chip{border-radius:999px}
+button.opt:hover,button.chip:hover{border-color:var(--text3)}
+button.chip[aria-pressed="true"]{border-color:var(--goud);background:var(--goud-soft)}
+button.opt.right{border-color:var(--groen);background:var(--groen-soft)}
+button.opt.wrong{border-color:var(--koraal);background:var(--koraal-soft)}
+button.opt:disabled{cursor:default}
+button.go,button.ghost{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 18px;border-radius:999px;font:700 15px var(--tekst);cursor:pointer}
+button.go{border:0;background:var(--goud);color:var(--goud-ink)}
+button.go:hover{filter:brightness(1.06)}
+button.ghost{border:0;background:none;color:var(--text);box-shadow:inset 0 0 0 1px var(--line2)}
+button.ghost:hover{box-shadow:inset 0 0 0 1px var(--text3)}
+button:disabled.go,button:disabled.ghost{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:2px solid var(--goud);outline-offset:3px;border-radius:6px}
+input.num{width:96px;min-height:44px;font:600 16px var(--meta);padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text)}
+select{font:inherit;font-size:15px;min-height:44px;padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);max-width:100%;flex:1 1 260px}
+textarea{width:100%;min-height:88px;font:inherit;padding:10px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);resize:vertical}
+.fb{font-size:16px;border-radius:12px;padding:12px 14px;background:var(--surface2);border:1px solid var(--line2)}
+.fb.ok{border-color:var(--groen);background:var(--groen-soft)}
+.fb.no{border-color:var(--koraal);background:var(--koraal-soft)}
+.fb.hint{border-color:var(--teal);background:var(--teal-soft)}
+.graphs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.graphs{grid-template-columns:1fr}}
+.gopt{border:1px solid var(--line2);border-radius:var(--radius);background:var(--bg);padding:8px 8px 2px;cursor:pointer;color:var(--text);font:inherit;text-align:left}
+.gopt b{font:700 20px var(--titel);margin-left:6px;color:var(--goud-text)}
+.gopt:hover{border-color:var(--text3)}
+.gopt.right{border-color:var(--groen);box-shadow:0 0 0 2px var(--groen) inset}
+.gopt.wrong{border-color:var(--koraal);box-shadow:0 0 0 2px var(--koraal) inset}
+svg{display:block;max-width:100%;height:auto}
+.ax{stroke:var(--text3);stroke-width:1.2;fill:none}
+.grid{stroke:var(--line2);stroke-width:1;fill:none}
+.tick{fill:var(--text3);font:500 10px var(--meta)}
+.cv{stroke:var(--teal);stroke-width:2.4;fill:none;stroke-linejoin:round}
+.cvbad{stroke:var(--koraal);stroke-width:2;fill:none;stroke-dasharray:5 4}
+.restband{fill:var(--rest);opacity:.8}
+.lbl{fill:var(--text);font:600 12px var(--tekst)}
+.lblm{fill:var(--text2);font:12px var(--tekst)}
+.lblbad{fill:var(--koraal);font:700 12px var(--tekst)}
+.selfscore{display:flex;flex-direction:column;gap:10px}
+.selfscore label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.selfscore input{margin-top:4px;width:18px;height:18px;accent-color:var(--goud);flex:none}
+.model{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:16px}
+.anim{display:flex;flex-direction:column;gap:10px}
+.anim .stage{border-radius:var(--radius);background:var(--surface2);border:1px solid var(--line2);overflow:hidden}
+.anim .cap{min-height:3.2em;margin:0}
+.anim .nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pips{display:flex;gap:6px;margin-left:auto}
+.pips span{width:9px;height:9px;border-radius:50%;background:var(--line2)}
+.pips span.on{background:var(--goud)}
+.seq{display:flex;flex-direction:column;gap:6px}
+.seq button{display:flex;gap:10px;align-items:center}
+.seq .n{font:600 13px var(--meta);width:24px;height:24px;border-radius:50%;display:inline-grid;place-items:center;background:var(--line2);flex:none}
+.seq button.placed{border-color:var(--groen)} .seq button.placed .n{background:var(--groen);color:var(--goud-ink)}
+.score{font:600 16px var(--meta)}
+.ovtable td:last-child,.ovtable th:last-child{text-align:right}
+.pre{border-left:3px solid var(--goud);padding:2px 0 2px 14px;display:flex;flex-direction:column;gap:8px}
+.pre p{margin:0;color:var(--text2)}
+.figrow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.figrow{grid-template-columns:1fr}}
+.legenda{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--text2)}
+.legenda i{display:inline-block;vertical-align:middle;margin-right:6px}
+.legenda .lijn{width:22px;height:0;border-top:2.5px solid var(--text)}
+.legenda .vlak{width:16px;height:12px;background:var(--area)}
+.tick.dim{opacity:.35}
+p.klikbaar{line-height:2}
+button.mark{font:inherit;color:var(--text);background:none;border:0;border-bottom:2px dashed var(--goud);padding:0 3px;border-radius:4px;cursor:pointer}
+button.mark[aria-pressed="true"]{background:var(--goud-soft);border-bottom-style:solid}
+button.mark:disabled{cursor:default}
+.sellab{min-width:200px;font-weight:600}
+label.slider{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center}
+label.slider span{min-width:170px;font-weight:600;font-size:15px}
+label.slider input{flex:1 1 200px;accent-color:var(--goud)}
+.podium{background:var(--surface2);border:1px solid var(--line2);border-radius:var(--radius);overflow:hidden}
+p.regels{font-family:var(--tekst);line-height:1.9;margin:0}
+p.regels span{display:inline-block;width:2em;font:600 12px var(--meta);color:var(--text3)}
+sup{font-size:.7em}
+.papier{--bg:#FFFFFF;--surface:#FFFFFF;--surface2:#EEF1F5;--line:rgba(20,32,52,.10);--line2:rgba(20,32,52,.24);
+  --text:#121C2E;--text2:#3B4759;--text3:#667185;--goud:#C99A2E;--goud-text:#7E5C0B;--goud-soft:rgba(217,172,60,.18);
+  --groen:#2F8A47;--koraal:#B9502F;--teal:#25729C;--paars:#6550AD;--groen-soft:rgba(47,138,71,.10);--koraal-soft:rgba(185,80,47,.10);--teal-soft:rgba(37,114,156,.10);
+  --rest:#D5DEE9;--area:#B4BDCA;color-scheme:light;
+  background:#FCFCFA;color:var(--text);border:0;border-radius:6px;padding:16px 20px 12px;display:flex;flex-direction:column;gap:12px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.08),0 10px 28px rgba(0,0,0,.35)}
+.papier .pkop{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;border-bottom:2px solid var(--text);padding-bottom:6px}
+.papier .pkop .mono{color:var(--text2)}
+.papier .pnr{display:flex;align-items:baseline;gap:10px}
+.papier .nr{font:700 30px/1 var(--titel);color:var(--text)}
+.papier .pre{border-left:0;padding:0}
+.papier .pre p{color:var(--text)}
+.papier .qtext{color:var(--text)}
+.herhaal.papier{padding:10px 14px;gap:6px;box-shadow:none;border-radius:6px}
+.herhaal .hkop{color:var(--text3);font-size:11px}
+.herhaal .qtext{font-size:16px}
+.papier .pvoet{font:500 11px var(--meta);letter-spacing:.06em;color:var(--text3);text-align:right}
+.papier details.ctxd summary{color:var(--goud-text)}
+.papier .podium{background:var(--surface2)}
+.phase>.label .tag{margin-left:6px;font:600 10px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:2px 8px}
+.sleutel{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:14px;color:var(--text2)}
+.sleutel .sw{display:inline-block;width:16px;height:12px;border-radius:2px;vertical-align:-1px;margin-right:7px}
+.sleutel .papier-sw{background:#FCFCFA}
+.sleutel .donker-sw{background:var(--surface2);box-shadow:inset 0 0 0 1px var(--line2)}
+.exfoto{display:block;width:100%;height:auto;border-radius:2px}
+footer{color:var(--text3);font-size:14px;padding-top:24px;border-top:1px solid var(--line)}
+body.hulp .ans.locked{display:none}
+body.examen .think{display:none}
+body.examen .think.open{display:flex}
+.helpbtn{display:none!important}
+body.examen .helpbtn{display:inline-flex!important}
+body.examen .tonext{display:none!important}
+@media (max-width:600px){body{font-size:16px}.qtext{font-size:17px}.phase,.ctx{padding:14px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="sitenav" aria-label="Site">
+    <a class="merk" href="../index.html#home">Biologie bij Kamiel</a>
+    <a class="terug" href="../index.html#examens">← Terug naar Examen</a>
+    <span class="rechts"><button type="button" class="icoon" data-thema-knop></button></span>
+  </nav>
+  <header class="tool-kop">
+    <div class="eyebrow" id="eb">Examen vwo 2024 · tijdvak 1</div>
+    <h1 id="h1">Examen havo 2026</h1>
+    <div class="seg" id="opgs" role="group" aria-label="Opgave"></div>
+    <div class="sleutel"><span><i class="sw papier-sw"></i>Wit vak = de echte examenvraag</span><span><i class="sw donker-sw"></i>Donker vak = hulpvragen en uitleg van deze tool</span></div>
+    <p>Maak het examen stap voor stap. Bij elke vraag denk je eerst na, dan antwoord je, en daarna zie je waarom het antwoord klopt.</p>
+    <div class="kopbalk">
+      <div class="seg" id="standen" role="group" aria-label="Hoeveel hulp wil je?"></div>
+      <button id="vrij" class="toggle" aria-pressed="false"><span class="knopje"></span>Vrij doorklikken</button>
+      <span class="mono muted" id="sub"></span>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs" aria-label="Vragen"></nav>
+
+  <section class="ctx papier" id="ctx"></section>
+
+  <main id="main"></main>
+
+  <footer>Examenvragen en correctievoorschrift: © College voor Toetsen en Examens (examenblad.nl). Foto's en kaart komen uit het examen; grafieken en tekeningen zijn nagetekend.<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a> · examenvragen © CvTE</span></footer>
+</div>
+
+<script>
+(function(){
+const $=(s,r=document)=>r.querySelector(s);
+const el=(tag,attrs={},html="")=>{const e=document.createElement(tag);for(const k in attrs){if(k==="class")e.className=attrs[k];else if(k.startsWith("on"))e.addEventListener(k.slice(2),attrs[k]);else e.setAttribute(k,attrs[k]);}if(html)e.innerHTML=html;return e;};
+const TOOL="vwo24-1";
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- opslag (alleen gemak) ---------- */
+let store={scores:{},mode:"hulp"};
+try{const s=JSON.parse(localStorage.getItem("examen-vwo24-1")||"null");if(s)store=Object.assign(store,s);}catch(e){}
+const save=()=>{try{localStorage.setItem("examen-vwo24-1",JSON.stringify(store));}catch(e){}};
+
+/* ---------- algemene bouwstenen ---------- */
+function phase(cls,label){const p=el("section",{class:"phase "+cls});
+  if(cls==="think")p.append(el("div",{class:"label"},`<span class="dot"></span>Hulpvragen<span class="tag">niet uit het examen</span>`));
+  else p.append(el("div",{class:"label"},`<span class="dot"></span>${label==="Antwoord"?"Jouw antwoord op de examenvraag":label}`));return p;}
+function choiceStep(container,{q,opts,right,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});const fb=el("div",{class:"fb",hidden:""});
+  opts.forEach((o,i)=>{const b=el("button",{class:"opt",onclick:()=>{
+    if(i===right){row.querySelectorAll("button").forEach(x=>x.disabled=true);b.classList.add("right");fb.className="fb ok";fb.innerHTML=ok;fb.hidden=false;onDone&&onDone();}
+    else{b.classList.add("wrong");fb.className="fb no";fb.innerHTML=no;fb.hidden=false;}
+  }},o);row.append(b);});
+  s.append(row,fb);container.append(s);return s;
+}
+function mc(container,{opts,right,pts,qid,graphs:isGraph,onChecked}){
+  const wrap=el("div",{class:isGraph?"graphs":"row",style:isGraph?"":"flex-direction:column;align-items:stretch"});
+  const fb=el("div",{class:"fb",hidden:""});
+  opts.forEach((o,i)=>{const L="ABCDEF"[i];
+    const b=isGraph?el("button",{class:"gopt"},`<b>${L}</b>${o}`):el("button",{class:"opt"},`<b style="font:700 18px var(--titel);color:var(--goud-text);margin-right:10px">${L}</b>${o}`);
+    b.addEventListener("click",()=>{
+      wrap.querySelectorAll("button").forEach(x=>x.disabled=true);
+      const good=i===right; b.classList.add(good?"right":"wrong");
+      if(!good)wrap.children[right].classList.add("right");
+      fb.className="fb "+(good?"ok":"no");
+      fb.innerHTML=good?`Goed: <b>${"ABCDEF"[right]}</b>. ${pts} ${pts>1?"punten":"punt"}.`:`Het goede antwoord is <b>${"ABCDEF"[right]}</b>. 0 punten.`;
+      fb.hidden=false; setScore(qid,good?pts:0); onChecked&&onChecked();
+    });wrap.append(b);});
+  container.append(wrap,fb);
+}
+function waaromBtn(container,build){
+  const b=el("button",{class:"ghost waarombtn"},"Laat zien waarom ›");const box=el("div",{hidden:""});
+  b.onclick=()=>{b.remove();box.hidden=false;build(box);if(window.EXSTOF)EXSTOF.extraWaarom(TOOL,cur,box);};
+  container.append(b,box);
+}
+function lockAns(think,ans,label="Naar de vraag ›"){
+  ans.classList.add("locked");
+  const go=el("button",{class:"go tonext",hidden:""},label);
+  go.onclick=()=>{ans.classList.remove("locked");go.remove();ans.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});};
+  think.append(go);
+  return ()=>{think.append(go);go.hidden=false;};
+}
+function helpButton(q,think){
+  const b=el("button",{class:"ghost helpbtn"},"Hulp nodig? Toon de hulpvragen");
+  b.onclick=()=>{think.classList.add("open");b.remove();};
+  q.append(b);
+}
+function setScore(id,p){store.scores[id]=p;save();renderTabs();if(nextBtns[id])nextBtns[id].hidden=false;}
+
+/* ---------- vragen ---------- */
+const Q=[],OPG=[];
+const FOTO=(n,alt)=>`<img class="exfoto" src="examen-img/vwo-2024-1/${n}.webp" alt="${alt}" loading="lazy">`;
+
+/* Vraag 5 en 6: eerst zonder opties */
+function noOptions(q,{id,pts,text,prompt,hint,opts,right,uitleg}){
+  q.append(el("p",{class:"qtext"},text));
+  const think=phase("think","Eerst zelf"),ans=phase("ans","Kies je antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Toon de keuzes ›");
+  const s=el("div",{class:"step"});s.append(el("p",{},prompt));
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:"Wat denk jij? Schrijf het kort op."});const hb=el("button",{class:"ghost"},"Tip");const hf=el("div",{class:"fb hint",hidden:""},hint);
+  hb.onclick=()=>{hf.hidden=false;hb.remove();};
+  ta.addEventListener("input",()=>{if(ta.value.trim().length>2)unlock();});
+  s.append(ta,hb,hf);think.append(s);
+  mc(ans,{qid:id,pts,right,opts,onChecked:()=>{
+    if(ta.value.trim())ans.append(el("div",{class:"model"},`<b>Jij dacht eerst:</b> ${ta.value.replace(/</g,"&lt;")}<br><span class="muted">Klopte dat met de keuze die je maakte?</span>`));
+    waaromBtn(ans,b=>b.append(el("div",{class:"model"},uitleg)));}});
+  q.append(think,ans);
+}
+/* ================= extra bouwstenen ================= */
+function pre(q,html){q.append(el("div",{class:"pre"},html));}
+function chipsStep(container,{q,items,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});
+  items.forEach(([t])=>{const b=el("button",{class:"chip","aria-pressed":"false"},t);b.onclick=()=>b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")==="true"?"false":"true");row.append(b);});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(row,ck,fb);container.append(s);
+  ck.onclick=()=>{const sel=[...row.children].map(b=>b.getAttribute("aria-pressed")==="true");
+    const teveel=sel.some((s,k)=>s&&!items[k][1]),mist=sel.some((s,k)=>!s&&items[k][1]);fb.hidden=false;
+    if(!teveel&&!mist){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;row.querySelectorAll("button").forEach(b=>b.disabled=true);onDone&&onDone();}
+    else if(teveel){fb.className="fb hint";fb.innerHTML=no;}
+    else{fb.className="fb hint";fb.innerHTML="Wat je gekozen hebt klopt, maar er hoort nog meer bij. Kies alles wat klopt.";}};
+  return s;
+}
+function selectsStep(container,{q,rows,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const id=uid+"s"+k;
+    r.append(el("label",{for:id,class:"sellab"},lab));const sel=el("select",{id});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);s.append(r);return sel;});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(ck,fb);container.append(s);
+  ck.onclick=()=>{const n=sels.filter((sel,k)=>sel.value!==""&&+sel.value===rows[k][2]).length;fb.hidden=false;
+    if(n===rows.length){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;sels.forEach(x=>x.disabled=true);onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=`${n} van de ${rows.length} goed. `+(no||"Probeer het nog eens.");}};
+}
+function numStep(container,{q,right,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const r=el("div",{class:"row"});const inp=el("input",{class:"num",id:uid,inputmode:"decimal","aria-label":"antwoord"});const ck=el("button",{class:"ghost"},"Controleer");const fb=el("div",{class:"fb",hidden:""});
+  r.append(inp,ck);s.append(r,fb);container.append(s);
+  ck.onclick=()=>{const v=parseFloat((inp.value||"").replace(",","."));fb.hidden=false;
+    if(v===right){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;inp.disabled=true;onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=no;}};
+}
+function openAnswer(ans,{id,pts,checks,model,valkuil,placeholder,after}){
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:placeholder||"Schrijf je antwoord…"});
+  const ck=el("button",{class:"go"},"Nakijken");const tf=el("div",{class:"fb hint",hidden:""},"Schrijf eerst je antwoord op. Daarna kijk je het na.");
+  ans.append(ta,ck,tf);
+  ck.onclick=()=>{if(ta.value.trim().length<8){tf.hidden=false;ta.focus();return;}tf.remove();ck.remove();ta.readOnly=true;
+    const ss=el("div",{class:"selfscore"});
+    ss.append(el("p",{style:"margin:0"},"<b>Kijk jezelf na met het correctievoorschrift.</b> Vink aan wat er in jouw antwoord staat."));
+    const boxes=checks.map((c,k)=>{const lab=el("label",{},`<input type="checkbox" id="q${id}c${k}"><span>${c} <span class="pts">1p</span></span>`);ss.append(lab);return lab.querySelector("input");});
+    if(model)ss.append(el("div",{class:"model"},"<b>Voorbeeldantwoord:</b> "+model));
+    if(valkuil)ss.append(el("div",{class:"fb hint"},"<b>Valkuil:</b> "+valkuil));
+    const sc=el("div",{class:"score"});ss.append(sc);ans.append(ss);
+    const upd=()=>{const p=Math.min(pts,boxes.filter(b=>b.checked).length);sc.textContent=`Jouw score: ${p} / ${pts}`;setScore(id,p);};
+    boxes.forEach(b=>b.onchange=upd);upd();after&&after();};
+}
+function juistOnjuist(ans,{id,stm,key,uitleg}){
+  const pick=stm.map(()=>null);
+  stm.forEach((t,k)=>{const r=el("div",{class:"row"});r.append(el("span",{style:"flex:1 1 260px"},`<b style="font-family:var(--meta)">${k+1}</b>&nbsp; ${t}`));
+    ["juist","onjuist"].forEach((lab,v)=>{const b=el("button",{class:"chip","aria-pressed":"false"},lab);b.onclick=()=>{pick[k]=v===0;r.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c===b?"true":"false"));};r.append(b);});ans.append(r);});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(pick.includes(null)){fb.hidden=false;fb.className="fb hint";fb.textContent="Beoordeel eerst alle uitspraken.";return;}
+    const n=pick.filter((p,k)=>p===key[k]).length;const p=n===stm.length?2:n===stm.length-1?1:0;ck.disabled=true;
+    ans.querySelectorAll(".chip").forEach(c=>c.disabled=true);
+    fb.hidden=false;fb.className="fb "+(p===2?"ok":"no");
+    fb.innerHTML=`${n} van de ${stm.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+key.map((k,i)=>`${i+1} ${k?"juist":"onjuist"}`).join(" · ");setScore(id,p);
+    waaromBtn(ans,uitleg);};
+}
+function stepAnim(box,steps,render){
+  let i=0;const stage=el("div",{class:"stage"}),cap=el("p",{class:"cap"});
+  const prev=el("button",{class:"ghost"},"‹ Vorige"),next=el("button",{class:"go"},"Volgende ›");
+  const pips=el("div",{class:"pips"},steps.map(()=>"<span></span>").join(""));
+  const nav=el("div",{class:"nav"});nav.append(prev,next,pips);
+  const a=el("div",{class:"anim"});a.append(stage,cap,nav);box.append(a);
+  function show(){cap.innerHTML=steps[i].cap;prev.disabled=i===0;next.textContent=i===steps.length-1?"Opnieuw ›":"Volgende ›";
+    pips.querySelectorAll("span").forEach((p,j)=>p.classList.toggle("on",j===i));render(stage,steps[i],i);}
+  prev.onclick=()=>{if(i>0){i--;show();}};next.onclick=()=>{i=(i+1)%steps.length;show();};show();
+}
+/* ================= meer bouwstenen ================= */
+function seqStep(container,{q,items,shown,ok,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const seq=el("div",{class:"seq"});let at=0;const fb=el("div",{class:"fb",hidden:""});
+  shown.forEach(k=>{const b=el("button",{class:"opt"},`<span class="n">·</span>${items[k]}`);b.onclick=()=>{if(b.classList.contains("placed"))return;
+    if(k===at){b.classList.add("placed");b.querySelector(".n").textContent=at+1;at++;fb.hidden=true;if(at===items.length){fb.hidden=false;fb.className="fb ok";fb.innerHTML=ok;onDone&&onDone();}}
+    else{fb.hidden=false;fb.className="fb hint";fb.textContent="Dat is nog niet de volgende stap. Wat gebeurt er direct daarna?";}};seq.append(b);});
+  s.append(seq,fb);container.append(s);
+}
+function selectAnswer(ans,{id,rows,score,uid,after,intro}){
+  if(intro)ans.append(el("p",{style:"margin:0"},intro));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const sid=uid+"a"+k;
+    r.append(el("label",{for:sid,class:"sellab"},lab));const sel=el("select",{id:sid});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);ans.append(r);return sel;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(sels.some(x=>x.value==="")){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul eerst alles in.";return;}
+    const n=sels.filter((x,k)=>+x.value===rows[k][2]).length;const p=score(n);sels.forEach(x=>x.disabled=true);ck.remove();
+    fb.hidden=false;fb.className="fb "+(n===rows.length?"ok":"no");
+    fb.innerHTML=`${n} van de ${rows.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+rows.map(([lab,opts,r])=>`${lab}: ${opts[r]}`).join(" · ");
+    setScore(id,p);after&&after();};
+}
+function textBox(html){return b=>b.append(el("div",{class:"model"},html));}
+const svgWrap=(vb,inner,label)=>`<svg viewBox="${vb}" role="img" aria-label="${label}">${inner}</svg>`;
+function numAnswer(ans,{id,fields,after}){
+  const inps=fields.map(([lab,unit],k)=>{const r=el("div",{class:"row"});const fid="q"+id+"f"+k;
+    r.append(el("label",{for:fid,class:"sellab"},lab));const i=el("input",{class:"num",id:fid,inputmode:"decimal"});r.append(i,el("span",{class:"muted"},unit));ans.append(r);return i;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{const v=inps.map(i=>parseFloat((i.value||"").replace(",",".")));if(v.some(isNaN)){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul beide uitkomsten in.";return;}
+    inps.forEach(i=>i.disabled=true);ck.remove();const res=fields.map((f,k)=>f[2](v[k]));const p=res.filter(Boolean).length;
+    fb.hidden=false;fb.className="fb "+(p===fields.length?"ok":"no");
+    fb.innerHTML=`<b>${p} van de ${fields.length} punten.</b><br>`+fields.map((f,k)=>`${res[k]?"✓":"✗"} ${f[3]}`).join("<br>");setScore(id,p);after&&after();};
+}
+
+/* ===== opg1.js ===== */
+/* ================= opgave 1: Nicotine tijdens de vroege embryonale ontwikkeling (vraag 1–9) ================= */
+const O1_KADER=html=>`<div style="border:1px solid var(--line2);padding:10px 14px;display:flex;flex-direction:column;gap:8px">${html}</div>`;
+const O1_KOP=(a,b)=>`<p class="muted" style="margin:0;font:600 12px var(--meta);letter-spacing:.08em;text-transform:uppercase">${a} · ${b}</p>`;
+const O1_TABEL=(kop,rijen)=>`<div class="tablewrap"><table class="data" style="max-width:520px"><tr><th></th>${kop.map(k=>`<th style="text-align:left">${k}</th>`).join("")}</tr>${rijen.map((r,k)=>`<tr><td><b>${"ABCDEF"[k]}</b></td>${r.map(c=>`<td style="text-align:left">${c}</td>`).join("")}</tr>`).join("")}</table></div>`;
+
+/* afbeelding 4: diameter van de EB's (waarden afgelezen uit de pdf) */
+const O1_C=[[321,173],[368,171],[339,163],[358,159],[311,157],[339,151],[321,148],[357,147],[340,138],[329,136],[348,134],[305,133],[374,130],[313,129],[363,127],[350,125],[301,123],[329,123],[378,122],[313,122],[365,120],[352,119],[340,113],[331,112],[312,107],[370,106],[358,104],[323,103],[332,101],[348,100],[369,97],[310,95],[357,94],[321,90],[345,90],[333,88]];
+const O1_N=[[480,194],[480,167],[488,156],[470,150],[460,131],[498,130],[481,128],[507,122],[451,120],[488,116],[470,113],[517,109],[508,106],[461,101],[471,101],[488,101],[445,100],[517,98],[507,93],[496,90],[465,89],[472,86],[488,86],[470,80],[489,80],[445,79],[514,79],[455,78],[504,76],[465,75],[495,73],[473,72],[486,69],[488,64],[469,56]];
+function O1_afb4(gem){
+  const Y=v=>270-v*0.96;let s=`<line x1="90" y1="20" x2="90" y2="270" stroke="var(--text)" stroke-width="1.4"/><line x1="90" y1="270" x2="320" y2="270" stroke="var(--text)" stroke-width="1.4"/>`;
+  for(let v=0;v<=250;v+=50)s+=`<line x1="84" y1="${Y(v)}" x2="90" y2="${Y(v)}" stroke="var(--text)"/><text x="80" y="${Y(v)+4}" text-anchor="end" class="lblm" style="fill:var(--text)">${v}</text>`;
+  s+=`<text x="40" y="48" text-anchor="middle" class="lblm" style="fill:var(--text)">EB-diameter</text><text x="40" y="63" text-anchor="middle" class="lblm" style="fill:var(--text)">(µm)</text><path d="M40,92 V72" stroke="var(--text)" stroke-width="1.2"/><path d="M36,78 L40,70 L44,78" fill="none" stroke="var(--text)" stroke-width="1.2"/>`;
+  O1_C.forEach(([x,v])=>{s+=`<circle cx="${(120+(x-301)/77*70).toFixed(1)}" cy="${Y(v).toFixed(1)}" r="4.2" fill="var(--text3)"/>`;});
+  O1_N.forEach(([x,v])=>{s+=`<rect x="${(225+(x-445)/72*70-3.8).toFixed(1)}" y="${(Y(v)-3.8).toFixed(1)}" width="7.6" height="7.6" fill="var(--text)"/>`;});
+  s+=`<path d="M155,${Y(205)} V${Y(225)} H260 V${Y(205)}" fill="none" stroke="var(--text)" stroke-width="1.2"/><text x="207" y="${Y(232)}" text-anchor="middle" style="font:700 16px var(--tekst);fill:var(--text)">*</text>`;
+  s+=`<text x="155" y="288" text-anchor="middle" class="lbl">controle</text><text x="260" y="288" text-anchor="middle" class="lbl">nicotine</text>`;
+  if(gem)s+=`<line x1="112" y1="${Y(124)}" x2="198" y2="${Y(124)}" stroke="var(--goud)" stroke-width="3"/><line x1="217" y1="${Y(102)}" x2="303" y2="${Y(102)}" stroke="var(--goud)" stroke-width="3"/><text x="155" y="${Y(124)-8}" text-anchor="middle" class="lbl" style="fill:var(--goud-text)">± 124</text><text x="300" y="${Y(102)-8}" text-anchor="end" class="lbl" style="fill:var(--goud-text)">± 102</text>`;
+  return svgWrap("0 0 330 300",s,"Puntgrafiek van de EB-diameter in µm: controle ongeveer 88 tot 173, nicotine ongeveer 56 tot 194; ster boven de groepen: significant verschil");
+}
+
+const CTX1=`<div class="pkop"><span class="mono">Examentekst · inleiding opgave 1</span></div>
+  <p><i>Tenzij anders vermeld, is er sprake van normale situaties en gezonde organismen.</i></p>
+  <p>Het is al lang bekend dat roken tijdens de zwangerschap kan leiden tot een miskraam, een laag geboortegewicht, vroeggeboorte en nadelige gezondheidseffecten bij de baby. Amerikaanse wetenschappers van de Stanford University School of Medicine hebben een model ontwikkeld om te onderzoeken hoe nicotine een embryo beïnvloedt.</p>`;
+
+/* Vraag 1 */
+Q.push({id:1,pts:2,t:"synaps en nicotine",build(q){
+  pre(q,O1_KADER(`<p>Nicotine is een gifstof met verslavende en verdovende effecten. In het beloningscentrum van de grote hersenen bindt nicotine aan acetylcholinereceptoren die zich bevinden op de axonen van dopamine-producerende neuronen. Zowel na binding van acetylcholine als na binding van nicotine, neemt de dopamine-afgifte in de synaps toe, waardoor het beloningscentrum actiever wordt. Dopamine wordt heropgenomen in het presynaptisch neuron (afbeelding 1).</p>
+  <div class="eyebrow">afbeelding 1</div><div style="max-width:640px">${FOTO("o1-synaps","Synaps: links het presynaptische uiteinde met een acetylcholinereceptor waaraan nicotine bindt, blaasjes met dopamine en dopaminekanalen; in de synapsspleet dopamine; rechts het postsynaptische neuron met dopaminereceptoren, met een pijl naar het beloningscentrum")}</div>`)+
+  `<p>Over afbeelding 1 worden de volgende uitspraken gedaan:</p><p class="regels"><span>1</span>Nicotine is een antagonist van acetylcholine.<br><span>2</span>Dopamine komt via endocytose in de synapsspleet terecht.<br><span>3</span>Heropname van dopamine vindt plaats door dopaminereceptoren.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Schrijf de nummers 1, 2 en 3 onder elkaar en noteer erachter of de betreffende uitspraak juist of onjuist is.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Een antagonist bindt aan een receptor en <b>blokkeert</b> die, zonder hem te activeren. Wat doet nicotine volgens de tekst met de dopamine-afgifte?",
+    opts:["die neemt toe, net als na binding van acetylcholine","die neemt af, omdat acetylcholine niet meer kan binden"],right:0,
+    ok:"Ja. Nicotine doet dus hetzelfde als acetylcholine. Is het dan een antagonist?",no:"Lees de zin ‘Zowel na binding van acetylcholine als na binding van nicotine …’ nog eens.",
+    onDone:()=>choiceStep(think,{q:"De blaasjes met dopamine versmelten met het celmembraan en storten hun inhoud naar buiten. Hoe heet dat?",
+      opts:["exocytose","endocytose"],right:0,
+      ok:"Klopt. Bij endocytose neemt een cel juist iets op in een blaasje.",no:"‘Exo’ betekent naar buiten, ‘endo’ naar binnen.",
+      onDone:()=>choiceStep(think,{q:"Waar zitten in afbeelding 1 de dopaminereceptoren, en waar de dopaminekanalen?",
+        opts:["receptoren op het postsynaptische neuron, kanalen in het presynaptische uiteinde","receptoren in het presynaptische uiteinde, kanalen op het postsynaptische neuron"],right:0,
+        ok:"Goed. Dopamine wordt heropgenomen in het <i>presynaptisch</i> neuron. Welke structuur zit daar?",no:"Kijk naar de labels in afbeelding 1: links het presynaptische uiteinde, rechts het neuron naar het beloningscentrum.",onDone:unlock})})});
+  juistOnjuist(ans,{id:1,stm:["Nicotine is een antagonist van acetylcholine.","Dopamine komt via endocytose in de synapsspleet terecht.","Heropname van dopamine vindt plaats door dopaminereceptoren."],key:[false,false,false],
+    uitleg:textBox("<b>1 onjuist.</b> Nicotine bindt aan dezelfde receptor en heeft hetzelfde effect als acetylcholine (meer dopamine-afgifte). Dan is het een <b>agonist</b>, geen antagonist.<br><br><b>2 onjuist.</b> De blaasjes geven dopamine af door <b>exocytose</b>. Endocytose is opname.<br><br><b>3 onjuist.</b> De dopaminereceptoren zitten op het postsynaptische neuron en geven het signaal door. De heropname in het presynaptische neuron gaat via de <b>dopaminekanalen</b>.<br><br><span class=\"muted\">Correctievoorschrift: drie goed 2p · twee goed 1p · minder 0p.</span>")});
+  q.append(think,ans);
+}});
+
+/* Vraag 2 */
+Q.push({id:2,pts:3,t:"nicotine en acetylcholinesterase",build(q){
+  pre(q,"<p>Nicotine wordt niet afgebroken door acetylcholinesterase, dat in de weefselvloeistof aanwezig is.</p>");
+  q.append(el("p",{class:"qtext"},"<b>Leg uit dat in aanwezigheid van nicotine het beloningscentrum meer geactiveerd wordt dan in aanwezigheid van acetylcholine.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"Acetylcholine wordt snel afgebroken door acetylcholinesterase. Nicotine niet. Wat betekent dat voor de binding aan de receptor?",
+    opts:["nicotine blijft langer (of steeds opnieuw) gebonden aan de receptor","nicotine bindt sterker aan de receptor","nicotine bindt minder vaak"],right:0,
+    ok:"Ja. Het gaat om de <b>duur</b> van de binding, niet om de sterkte.",no:"Het gegeven gaat over afbraak, niet over hoe stevig iets bindt. Wat gebeurt er als een stof niet wordt opgeruimd?",
+    onDone:()=>choiceStep(think,{q:"Langer geactiveerde receptoren op het axon van het dopamine-neuron. Wat is het gevolg in de synaps?",
+      opts:["er komt meer of langer dopamine vrij","er komt minder dopamine vrij"],right:0,
+      ok:"Klopt. En wat doet al die dopamine met het neuron aan de andere kant?",no:"Lees de tekst bij vraag 1: na binding van nicotine neemt de dopamine-afgifte toe.",
+      onDone:()=>choiceStep(think,{q:"Meer dopamine bindt aan de dopaminereceptoren van het postsynaptische neuron. Daardoor …",
+        opts:["ontstaan er meer impulsen in het postsynaptische neuron, naar het beloningscentrum","ontstaan er minder impulsen"],right:0,
+        ok:"Goed. Zet de drie stappen nu achter elkaar in je antwoord.",no:"Dopamine prikkelt het postsynaptische neuron. Meer dopamine is meer prikkeling.",onDone:unlock})})});
+  openAnswer(ans,{id:2,pts:3,checks:["(Doordat nicotine niet wordt afgebroken) is nicotine <b>langer/vaker gebonden aan de (acetylcholine)receptoren</b> dan acetylcholine.","(Waardoor bij nicotine) <b>meer/langduriger dopamine vrijkomt</b> in de synapsspleet.","(Waardoor) <b>meer actiepotentialen/impulsen</b> ontstaan in het <b>postsynaptisch neuron</b> (zodat het beloningscentrum meer geactiveerd wordt)."],
+    model:"Acetylcholine wordt snel afgebroken door acetylcholinesterase, nicotine niet. Nicotine blijft daardoor langer gebonden aan de acetylcholinereceptoren. Daardoor komt er langer en meer dopamine vrij in de synapsspleet, en ontstaan er meer impulsen in het postsynaptische neuron. Het beloningscentrum wordt dus meer geactiveerd.",
+    valkuil:"Schrijven dat nicotine <b>sterker</b> bindt: dan krijg je het eerste punt niet. Het gaat om <b>langer</b> gebonden blijven, omdat nicotine niet wordt afgebroken. <span class=\"muted\">(Een juiste redenering vanuit acetylcholine, andersom, mag ook.)</span>",
+    after:()=>waaromBtn(ans,textBox("Acetylcholine wordt na binding snel door acetylcholinesterase gesplitst, zodat de receptor weer vrijkomt. Nicotine wordt <b>niet afgebroken</b>: het blijft langer (steeds opnieuw) aan de receptoren gebonden. De dopamine-neuronen blijven daardoor langer actief en geven <b>meer dopamine</b> af in de synapsspleet. Meer dopamine op de dopaminereceptoren geeft <b>meer impulsen</b> in het postsynaptische neuron naar het beloningscentrum."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 3 */
+Q.push({id:3,pts:1,t:"functie van nicotine",build(q){
+  pre(q,O1_KADER("<p>De gifstof nicotine wordt gemaakt door planten van de familie Solanaceae. In deze familie worden de grootste hoeveelheden nicotine geproduceerd door de planten van het geslacht <i>Nicotiana</i>.</p>"));
+  q.append(el("p",{class:"qtext"},"<b>Noteer wat de functie is van de aanmaak van nicotine door planten.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"Een plant kan niet weglopen. Welke dieren vormen vooral een bedreiging voor een tabaksplant?",
+    opts:["dieren die de bladeren opeten, zoals insecten","dieren die stuifmeel verplaatsen"],right:0,
+    ok:"Ja. En wat doet een gifstof met zo’n dier?",no:"Stuifmeel verplaatsen helpt de plant juist. Wie beschadigt de plant?",
+    onDone:()=>choiceStep(think,{q:"Een dier eet van een blad met veel nicotine. Wat is waarschijnlijk het gevolg?",
+      opts:["het dier wordt ziek of gaat dood, en eet minder van de plant","het dier groeit sneller"],right:0,
+      ok:"Klopt. Formuleer nu de functie in één zin.",no:"Nicotine is een gifstof. Wat doet gif met een dier?",onDone:unlock})});
+  openAnswer(ans,{id:3,pts:1,checks:["Uit je antwoord blijkt dat nicotine een vorm is van <b>(chemische) afweer</b> / dat nicotine de plant <b>beschermt tegen vraat</b>. <span class=\"muted\">(‘predatie’ in plaats van vraat mag; ‘dieren lokken voor bestuiving of zaadverspreiding’ wordt ook goed gerekend.)</span>"],
+    model:"Nicotine is een gifstof die de plant beschermt tegen vraat door herbivoren (chemische afweer).",
+    valkuil:"Een functie voor de mens noemen (verslaving, genotmiddel). Het gaat om het nut voor de <b>plant</b>.",
+    after:()=>waaromBtn(ans,textBox("Planten maken veel stoffen die niet nodig zijn voor groei, maar wel voor <b>verdediging</b>. Nicotine is giftig voor insecten en andere planteneters: wie ervan eet, raakt verlamd of gaat dood. Zo wordt de plant <b>beschermd tegen vraat</b>. Nicotine werd vroeger zelf als insecticide gebruikt."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 4 */
+Q.push({id:4,pts:1,t:"naam van het proces",build(q){
+  pre(q,"<p><i>Nicotiana</i>-soorten die gebruikt worden voor de productie van tabak hebben hogere gehaltes aan nicotine dan wilde tabaksplanten. Dit komt door een bepaald proces waarbij door middel van kruisingen en selectie een hogere aanmaak van nicotine in deze productiesoorten is verkregen.</p>");
+  q.append(el("p",{class:"qtext"},"<b>Noteer de naam van dit proces.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"Wie kiest hier welke planten zich voortplanten?",
+    opts:["de mens","de natuur (het milieu)"],right:0,
+    ok:"Ja. Maar let op: de vraag noemt <b>kruisingen én selectie</b>, om een gewas te verbeteren.",no:"Productiesoorten voor tabak zijn door telers gemaakt.",
+    onDone:()=>choiceStep(think,{q:"Alleen ‘kunstmatige selectie’ zegt dat de mens kiest welke individuen nakomelingen krijgen. Hoe heet het proces waarbij telers <b>gericht kruisen en selecteren</b> om nieuwe, betere rassen van gewassen of dieren te maken?",
+      opts:["daar is een eigen vakterm voor (je kent hem uit de landbouw)","daar is geen andere term voor"],right:0,
+      ok:"Klopt. Noteer die term. ‘Kunstmatige selectie’ alleen is volgens het correctievoorschrift niet genoeg.",no:"Denk aan de landbouw: zo worden nieuwe tomatenrassen of koeien met meer melk gemaakt.",onDone:unlock})});
+  openAnswer(ans,{id:4,pts:1,checks:["<b>(klassieke) veredeling</b> / (klassiek) veredelen"],
+    model:"(Klassieke) veredeling.",
+    valkuil:"<b>Kunstmatige selectie</b> noteren: daarvoor krijg je volgens het correctievoorschrift géén punt.",
+    after:()=>waaromBtn(ans,textBox("Bij <b>veredeling</b> kruist de mens planten of dieren met gewenste eigenschappen en selecteert uit de nakomelingen steeds de beste. Zo zijn tabaksrassen met veel nicotine ontstaan. Kunstmatige selectie is alleen het kiezen; veredeling is het hele proces van gericht kruisen en selecteren om een ras te verbeteren."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 5 */
+Q.push({id:5,pts:2,t:"potentie van stamcellen",build(q){
+  pre(q,O1_KADER(`<p>De Amerikaanse wetenschappers wilden onderzoeken hoe nicotine de verschillende celtypen in een embryo beïnvloedt. Onderzoek doen aan menselijke embryo’s is in veel landen niet toegestaan of mag alleen onder zeer strikte voorwaarden. Daarom gebruikten de wetenschappers stamcellen afkomstig uit een menselijk embryo van vijf dagen oud (blastula). Een kweek van deze stamcellen vormt spontaan bolletjes die ‘embryoid bodies’ (EB’s) worden genoemd. Om het effect van nicotine op de ontwikkeling van deze stamcellen te onderzoeken, voegden de wetenschappers nicotine toe aan het kweekmedium. De opzet van het onderzoek is in afbeelding 2 weergegeven.</p>
+  <div class="eyebrow">afbeelding 2</div><div style="max-width:620px">${FOTO("o1-blastula","Blastula met een binnenste celmassa; een pijl naar ‘stamcellen’, daarna twee pijlen naar EB’s zonder nicotine en EB’s met nicotine (microscoopbeelden)")}</div>`)+"<p>Stamcellen hebben een bepaalde potentie.</p>");
+  q.append(el("p",{class:"qtext"},"<b>Welke potentie hebben de stamcellen bij de start van het onderzoek? En welke potentie hebben ze na 21 dagen ontwikkeling?</b>"));
+  q.append(el("div",{},O1_TABEL(["start onderzoek","na 21 dagen"],[["multipotent","pluripotent"],["multipotent","totipotent"],["pluripotent","multipotent"],["pluripotent","totipotent"],["totipotent","multipotent"],["totipotent","pluripotent"]])));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  selectsStep(think,{uid:"q5",q:"Koppel elke potentie aan wat de cel nog kan worden.",rows:[
+    ["totipotent",["alle celtypen, ook de placenta: een heel nieuw organisme","alle celtypen van het lichaam, maar geen placenta","alleen een paar celtypen van één weefselsoort"],0],
+    ["pluripotent",["alle celtypen, ook de placenta: een heel nieuw organisme","alle celtypen van het lichaam, maar geen placenta","alleen een paar celtypen van één weefselsoort"],1],
+    ["multipotent",["alle celtypen, ook de placenta: een heel nieuw organisme","alle celtypen van het lichaam, maar geen placenta","alleen een paar celtypen van één weefselsoort"],2]],
+    ok:"Goed. Uit welk deel van de blastula komen de stamcellen?",no:"De volgorde van veel naar weinig mogelijkheden is: toti, pluri, multi.",
+    onDone:()=>choiceStep(think,{q:"De stamcellen komen uit de binnenste celmassa van een blastula van vijf dagen. De buitenste cellaag wordt later de placenta. Wat kunnen de binnenste cellen dus <b>niet</b> meer worden?",
+      opts:["placenta","huid of zenuwcellen"],right:0,
+      ok:"Ja. En na 21 dagen: worden cellen in de loop van de ontwikkeling meer of minder gespecialiseerd?",no:"Kijk naar afbeelding 2: de stamcellen komen uit de celklomp aan de binnenkant, niet uit de buitenwand.",onDone:unlock})});
+  mc(ans,{qid:5,pts:2,right:2,opts:["multipotent · pluripotent","multipotent · totipotent","pluripotent · multipotent","pluripotent · totipotent","totipotent · multipotent","totipotent · pluripotent"],
+    onChecked:()=>waaromBtn(ans,textBox("De stamcellen komen uit de <b>binnenste celmassa</b> van een blastula. Die cellen kunnen alle celtypen van het lichaam worden, maar geen placenta meer: ze zijn <b>pluripotent</b>.<br><br>In 21 dagen differentiëren de cellen in de EB’s tot verschillende celtypen (zie ook afbeelding 5). Gedeeltelijk gedifferentieerde cellen kunnen nog maar een beperkt aantal celtypen worden: <b>multipotent</b>. Een cel wordt nooit vanzelf weer totipotent. Het antwoord is <b>C</b>."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 6 */
+Q.push({id:6,pts:2,t:"resultaat EB-diameter",build(q){
+  pre(q,O1_KADER(`<p>De concentratie nicotine van het kweekmedium was gelijk aan de gemiddelde concentratie in het bloed van embryo’s waarvan de moeder rookt. Na 21 dagen incubatie werd de diameter van de EB’s bepaald. De diameter is een maat voor het aantal cellen in de EB’s.<br>Afbeelding 3 toont een microscopisch beeld van EB’s die aan nicotine zijn blootgesteld en van controle-EB’s. De EB’s zijn als donkere vlekken zichtbaar. In afbeelding 4 zijn de metingen van de diameter van de EB’s in de twee groepen weergegeven.</p>
+  <div class="figrow"><div><div class="eyebrow">afbeelding 3</div><div style="max-width:300px">${FOTO("o1-ebfoto","Twee microscoopbeelden met schaalstreep 100 µm: boven controle-EB’s, onder EB’s met nicotine; de nicotine-EB’s zijn gemiddeld kleiner")}</div></div>
+  <div><div class="eyebrow">afbeelding 4</div><div style="max-width:340px">${O1_afb4()}</div><p class="muted" style="margin:4px 0 0;font-size:14px">* significant verschil in gemiddelde diameter</p></div></div>`)+
+  `<p>Over het resultaat worden de volgende uitspraken gedaan:</p><p class="regels"><span>1</span>Het aantal cellen in een controle-EB is gemiddeld groter dan in een EB die aan nicotine is blootgesteld.<br><span>2</span>Het verschil in gemiddelde diameter tussen de twee groepen EB’s berust op toeval.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Welke uitspraak wordt ondersteund door de gegevens?</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Bekijk afbeelding 4. Welke groep heeft gemiddeld de grootste diameter?",
+    opts:["controle","nicotine","ze zijn gelijk"],right:0,
+    ok:"Ja. De tekst zegt: de diameter is een maat voor het aantal cellen.",no:"Kijk waar het grootste deel van de punten ligt, niet naar het ene hoogste punt.",
+    onDone:()=>choiceStep(think,{q:"Wat betekent een significant verschil?",
+      opts:["het verschil is zo groot dat het waarschijnlijk <b>niet</b> op toeval berust","het verschil berust waarschijnlijk op toeval"],right:0,
+      ok:"Klopt. Beoordeel nu beide uitspraken.",no:"Een statistische toets zegt of een verschil groot genoeg is om niet door toeval verklaard te worden.",onDone:unlock})});
+  mc(ans,{qid:6,pts:2,right:1,opts:["geen van beide","alleen 1","alleen 2","zowel 1 als 2"],
+    onChecked:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {s:0,cap:"De metingen uit afbeelding 4. Elk punt is één EB."},
+      {s:1,cap:"De controle-EB’s zijn gemiddeld groter (ongeveer 124 µm) dan de nicotine-EB’s (ongeveer 102 µm). Grotere diameter = meer cellen: <b>uitspraak 1 wordt ondersteund</b>."},
+      {s:1,cap:"De ster betekent: het verschil is <b>significant</b>. Het berust dus waarschijnlijk niet op toeval: <b>uitspraak 2 wordt niet ondersteund</b>. Het antwoord is <b>B</b>."}],
+      (stg,s)=>stg.innerHTML=`<div style="max-width:340px">${O1_afb4(s.s===1)}</div>`))});
+  q.append(think,ans);
+}});
+
+/* Vraag 7 */
+Q.push({id:7,pts:2,t:"cDNA en PCR",build(q){
+  pre(q,O1_KADER("<p>De onderzoekers hebben ook het effect van nicotine op de genexpressie van de EB’s onderzocht. Om de verschillen in expressie tussen verschillende celtypen te onderzoeken, werd de genexpressie van afzonderlijke cellen bepaald.</p>")+
+  `<p>Om de genexpressie te bepalen werd – op basis van al het RNA – cDNA gemaakt, dat vervolgens werd vermenigvuldigd met de PCR-techniek. Aan de hand van de gevonden genexpressie werd een expressieprofiel opgesteld waarmee de cellen konden worden ingedeeld in verschillende celtypen. Afbeelding 5 toont de stappen van dit deel van het onderzoek.</p>
+  <div class="eyebrow">afbeelding 5</div><div style="max-width:700px">${FOTO("o1-stappen","Stappen: EB, cel, RNA, cDNA, PCR, vermenigvuldigd DNA, sequencing, bepalen expressieprofiel, indeling in celtypen")}</div>
+  <p>Over de stappen in afbeelding 5 worden de volgende uitspraken gedaan:</p><p class="regels"><span>1</span>Om cDNA te maken, zijn andere enzymen nodig dan bij de PCR.<br><span>2</span>Om cDNA te maken, zijn andere nucleotiden nodig dan bij de PCR.<br><span>3</span>Bij de PCR in dit onderzoek wordt in totaal één kenmerkend gen vermenigvuldigd.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Schrijf de nummers 1, 2 en 3 onder elkaar en noteer erachter of de betreffende uitspraak juist of onjuist is.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  selectsStep(think,{uid:"q7",q:"Welk enzym is nodig bij elke stap?",rows:[
+    ["RNA → cDNA",["reverse transcriptase","(hittebestendig) DNA-polymerase","RNA-polymerase"],0],
+    ["PCR: DNA → DNA",["reverse transcriptase","(hittebestendig) DNA-polymerase","RNA-polymerase"],1]],
+    ok:"Goed. En wat wordt er in beide gevallen gemaakt: DNA of RNA?",no:"cDNA maken is ‘terugschrijven’ van RNA naar DNA.",
+    onDone:()=>choiceStep(think,{q:"Het cDNA is gemaakt ‘op basis van al het RNA’ van een cel. Hoeveel verschillende genen zitten er dan in het cDNA?",
+      opts:["alle genen die in die cel tot expressie kwamen","maar één gen"],right:0,
+      ok:"Klopt. Een expressieprofiel gaat over veel genen tegelijk.",no:"Lees ‘op basis van al het RNA’ nog eens. Hoeveel verschillende mRNA’s heeft een cel?",onDone:unlock})});
+  juistOnjuist(ans,{id:7,stm:["Om cDNA te maken, zijn andere enzymen nodig dan bij de PCR.","Om cDNA te maken, zijn andere nucleotiden nodig dan bij de PCR.","Bij de PCR in dit onderzoek wordt in totaal één kenmerkend gen vermenigvuldigd."],key:[true,false,false],
+    uitleg:textBox("<b>1 juist.</b> Voor cDNA is <b>reverse transcriptase</b> nodig (RNA → DNA). Bij de PCR gebruik je een hittebestendig <b>DNA-polymerase</b> (DNA → DNA).<br><br><b>2 onjuist.</b> In beide gevallen wordt <b>DNA</b> gemaakt, dus zijn in beide gevallen DNA-nucleotiden nodig.<br><br><b>3 onjuist.</b> Het cDNA is gemaakt van al het RNA van een cel. Er worden dus <b>veel verschillende genen</b> vermenigvuldigd; alleen zo kun je een expressieprofiel maken.<br><br><span class=\"muted\">Correctievoorschrift: drie goed 2p · twee goed 1p · minder 0p.</span>")});
+  q.append(think,ans);
+}});
+
+/* Vraag 8 */
+Q.push({id:8,pts:2,t:"wet van Fick",build(q){
+  pre(q,`<p>In de tabel hieronder zijn twee celtypen genoemd waarvan de genexpressie was veranderd door nicotine, met het bijbehorend effect op de embryonale ontwikkeling.</p>
+  <div class="tablewrap"><table class="data" style="max-width:560px"><tr><th></th><th style="text-align:left">celtype</th><th style="text-align:left">effect van nicotine</th></tr><tr><td>1</td><td style="text-align:left">epitheelcellen</td><td style="text-align:left">toename van celdeling</td></tr><tr><td>2</td><td style="text-align:left">endotheelcellen</td><td style="text-align:left">verminderde vorming van haarvaten</td></tr></table></div>
+  <p>Kinderen van wie de moeder rookte tijdens de zwangerschap, hebben op latere leeftijd een grotere kans op longproblemen.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Schrijf de nummers 1 en 2 onder elkaar en licht voor elk celtype uit de tabel toe hoe het betreffende effect van nicotine kan leiden tot problemen bij de gaswisseling op latere leeftijd. Doe dit aan de hand van een factor uit de wet van Fick.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  chipsStep(think,{q:"Welke factoren staan in de wet van Fick (informatieboek)? Kies alles wat klopt.",
+    items:[["oppervlakte A",true],["concentratieverschil Δc",true],["diffusieafstand Δx",true],["bloeddruk",false],["aantal mitochondriën",false]],
+    ok:"Goed. Hoe groter A en Δc en hoe kleiner Δx, hoe sneller de diffusie.",no:"Er staat iets bij dat niet in de formule voorkomt.",
+    onDone:()=>choiceStep(think,{q:"1: meer celdeling van epitheelcellen in de longen. Wat gebeurt er met de wand van de longblaasjes?",
+      opts:["die wordt dikker: de diffusieafstand Δx wordt groter","die wordt dunner"],right:0,
+      ok:"Ja. Dat is één goede toelichting voor 1.",no:"Meer cellen in een wand van één cellaag dik. Wat betekent dat voor de dikte?",
+      onDone:()=>choiceStep(think,{q:"2: minder haarvaten rond de longblaasjes. Welke factor uit Fick wordt kleiner?",
+        opts:["het oppervlak A waar gaswisseling plaatsvindt","de temperatuur"],right:0,
+        ok:"Klopt. Schrijf voor 1 en 2 elk een toelichting met de factor erbij.",no:"Gaswisseling gebeurt waar een haarvat tegen een longblaasje ligt. Minder haarvaten is minder …",onDone:unlock})})});
+  openAnswer(ans,{id:8,pts:2,checks:["<b>1:</b> een juiste toelichting aan de hand van een factor uit de wet van Fick, bv. het longepitheel/de wand van de longblaasjes is <b>dikker, dus Δx (diffusieafstand) groter</b>; of de bronchiolen worden nauwer, de lucht ververst minder, dus <b>Δc kleiner</b>.","<b>2:</b> een juiste toelichting aan de hand van een factor uit de wet van Fick, bv. <b>minder haarvaten, dus A kleiner</b>; of de haarvaten maken minder goed contact met de longblaasjes, dus <b>Δx groter</b>."],
+    model:"1 Door extra celdeling wordt de wand van de longblaasjes dikker, zodat de diffusieafstand (Δx) groter wordt. 2 Door minder haarvaten rond de longblaasjes is het oppervlak (A) voor gaswisseling kleiner.",
+    valkuil:"Alleen schrijven dat de gaswisseling ‘slechter gaat’ zonder een <b>factor uit de wet van Fick</b> te noemen.",
+    after:()=>waaromBtn(ans,textBox("Wet van Fick: de diffusiesnelheid is evenredig met <b>A · Δc / Δx</b>.<br><br><b>1</b> Extra celdeling van epitheelcellen maakt de wand van de longblaasjes dikker: Δx neemt toe, de gaswisseling gaat langzamer.<br><br><b>2</b> Minder haarvaten betekent minder contactoppervlak tussen bloed en longblaasjes: A neemt af."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 9 */
+Q.push({id:9,pts:1,t:"tekortkoming van het model",build(q){
+  pre(q,"<p>Het is niet ideaal om EB’s te gebruiken als een model om de gevolgen van nicotinegebruik tijdens de zwangerschap op de ontwikkeling van het embryo te onderzoeken. Een voorbeeld van een tekortkoming is dat een EB geen echt embryo is en effecten voor de latere periode van de zwangerschap dus niet bestudeerd kunnen worden.</p>");
+  q.append(el("p",{class:"qtext"},"<b>Noteer een andere tekortkoming van EB’s als model in het onderzoek naar effecten van nicotine op de embryonale ontwikkeling.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"Een echt embryo groeit in de baarmoeder van een moeder die rookt. Wat ontbreekt er bij EB’s in een kweekschaaltje?",
+    opts:["de moeder: haar baarmoeder, placenta, leefstijl en omgeving","niets, het is precies hetzelfde"],right:0,
+    ok:"Ja. Denk ook aan wanneer de nicotine in het onderzoek is toegevoegd.",no:"Een kweekschaaltje is geen baarmoeder.",
+    onDone:()=>choiceStep(think,{q:"Welk antwoord telt volgens het correctievoorschrift <b>niet</b>?",
+      opts:["‘een EB is geen compleet embryo of orgaan’ (dat is het voorbeeld uit de tekst)","‘de omstandigheden in de baarmoeder worden niet goed nagebootst’"],right:0,
+      ok:"Klopt. Ook ethische of financiële bezwaren tellen niet. Noteer een andere tekortkoming.",no:"Het voorbeeld in de tekst mag je niet herhalen in andere woorden.",onDone:unlock})});
+  openAnswer(ans,{id:9,pts:1,checks:["Een juiste andere tekortkoming, bv. <b>geen rekening met de leefstijl of omgevingsfactoren van de moeder</b> / de <b>omstandigheden in de baarmoeder</b> worden niet goed nagebootst / de nicotine wordt pas <b>op dag vijf</b> toegevoegd."],
+    model:"De omstandigheden in de baarmoeder (bijvoorbeeld de placenta en stoffen uit het bloed van de moeder) worden in een kweekschaaltje niet goed nagebootst.",
+    valkuil:"‘Een EB is geen compleet embryo/orgaan’ (dat is het voorbeeld uit de tekst) of een <b>ethisch of financieel</b> bezwaar: geen punt.",
+    after:()=>waaromBtn(ans,textBox("Een model lijkt op de werkelijkheid, maar is het niet. Bij EB’s ontbreekt <b>de moeder</b>: geen baarmoeder en placenta, geen leefstijl (voeding, stress, andere stoffen in de rook) en geen omgevingsfactoren. Bovendien werd de nicotine pas toegevoegd aan stamcellen van een embryo van vijf dagen, terwijl een embryo van een rokende moeder er vanaf het begin aan blootstaat."))});
+  q.append(think,ans);
+}});
+
+OPG.push({nr:1,kort:"Nicotine",titel:"Nicotine tijdens de vroege embryonale ontwikkeling",ids:[1,2,3,4,5,6,7,8,9],ctx:CTX1});
+
+/* ===== opg2.js ===== */
+/* ================= opgave 2: Spitsbergenrendier verandert zijn dieet (vraag 10–15) ================= */
+const O2_KADER=html=>`<div style="border:1px solid var(--line2);padding:10px 14px;display:flex;flex-direction:column;gap:8px">${html}</div>`;
+/* afbeelding 3: [ijsdikte cm, aandeel] per populatie (afgelezen uit de pdf) */
+const O2_P1=[[0,0],[2,0.01],[3.95,0.032],[4.5,0.10],[9.75,0.146],[10,0.125]];
+const O2_P2=[[1.5,0.029],[2,0.035],[3.95,0.015],[4.5,0],[9.7,0.307],[10,0]];
+const O2_P3=[[0,0.173],[0,0.07],[1.5,0.064],[2,0],[3.95,0.125],[4.5,0.054],[9,0.073],[9.75,0.063],[10,0.215]];
+function O2_afb3(hl){
+  const X=c=>150+c*30,Y=a=>280-a*700;let s="";
+  [0.05,0.10,0.15,0.20,0.25,0.30,0.35].forEach(v=>{if(v<0.35)s+=`<line x1="140" y1="${Y(v)}" x2="490" y2="${Y(v)}" stroke="var(--line2)" stroke-width="${[0.1,0.2,0.3].some(g=>Math.abs(g-v)<1e-9)?1.2:0}"/>`;});
+  s+=`<line x1="140" y1="${Y(0)}" x2="490" y2="${Y(0)}" stroke="var(--line2)" stroke-width="1.2"/>`;
+  s+=`<line x1="140" y1="30" x2="140" y2="295" stroke="var(--text)" stroke-width="1.3"/><line x1="140" y1="295" x2="490" y2="295" stroke="var(--text)" stroke-width="1.3"/>`;
+  for(let v=0;v<=0.351;v+=0.05)s+=`<line x1="134" y1="${Y(v)}" x2="140" y2="${Y(v)}" stroke="var(--text)"/><text x="130" y="${Y(v)+4}" text-anchor="end" class="lblm" style="fill:var(--text)">${v<0.01?"0":v.toFixed(2).replace(".",",")}</text>`;
+  for(let c=0;c<=10;c+=2)s+=`<line x1="${X(c)}" y1="295" x2="${X(c)}" y2="301" stroke="var(--text)"/><text x="${X(c)}" y="315" text-anchor="middle" class="lblm" style="fill:var(--text)">${c}</text>`;
+  s+=`<text x="320" y="338" text-anchor="middle" class="lblm" style="fill:var(--text)">→ dikte van de ijslaag (cm)</text>`;
+  s+=`<text x="40" y="40" text-anchor="middle" class="lblm" style="fill:var(--text)">aandeel dat</text><text x="40" y="54" text-anchor="middle" class="lblm" style="fill:var(--text)">aan de kust</text><text x="40" y="68" text-anchor="middle" class="lblm" style="fill:var(--text)">voedsel zoekt</text><path d="M40,96 V78 M36,84 L40,76 L44,84" fill="none" stroke="var(--text)" stroke-width="1.2"/>`;
+  const op=p=>hl&&hl!==p?0.25:1;
+  const dot=(c,a,f,p)=>`<circle cx="${X(c)}" cy="${Y(a)}" r="5.5" fill="${f}" stroke="var(--text)" stroke-width="1.1" opacity="${op(p)}"/>`;
+  O2_P1.forEach(([c,a])=>s+=dot(c,a,"var(--text)",1));O2_P2.forEach(([c,a])=>s+=dot(c,a,"var(--text3)",2));O2_P3.forEach(([c,a])=>s+=dot(c,a,"var(--surface)",3));
+  s+=`<text x="505" y="40" class="lblm" style="fill:var(--text)">Legenda:</text>`+[["populatie 1","var(--text)"],["populatie 2","var(--text3)"],["populatie 3","var(--surface)"]].map(([t,f],k)=>`<circle cx="513" cy="${58+k*18}" r="5" fill="${f}" stroke="var(--text)" stroke-width="1.1"/><text x="525" y="${62+k*18}" class="lblm" style="fill:var(--text)">${t}</text>`).join("");
+  return svgWrap("0 0 610 345",s,"Puntgrafiek: aandeel rendieren dat aan de kust voedsel zoekt tegen de dikte van de ijslaag, voor populatie 1, 2 en 3");
+}
+const O2_AFB3=hl=>`<div class="eyebrow">afbeelding 3</div><div style="max-width:600px">${O2_afb3(hl)}</div>`;
+
+const CTX2=`<div class="pkop"><span class="mono">Examentekst · inleiding opgave 2</span></div>
+  <p>Door klimaatverandering wordt de vegetatie in arctische gebieden ’s winters steeds vaker door een ijslaag bedekt. De Noorse bioloog Brage Bremset Hansen en zijn collega’s hebben aangetoond dat het dieet van Spitsbergenrendieren dan verandert. Dit veroorzaakt een verandering in de nutriëntenkringloop in het ecosysteem.</p>
+  ${O2_KADER(`<p>Rendieren komen voor op de toendra’s in het gebied rondom de Noordpool. Het Spitsbergenrendier <i>(Rangifer tarandus platyrhynchus)</i> is de kleinste van de zeven ondersoorten en komt alleen voor op Spitsbergen, een eilandengroep in de Noordelijke IJszee (afbeelding 1). Het Spitsbergenrendier heeft korte poten, een relatief kleine, ronde kop en een dikke vacht (afbeelding 2).</p>
+  <div class="figrow"><div><div class="eyebrow">afbeelding 1</div>${FOTO("o2-kaart","Kaart met Spitsbergen in de Noordelijke IJszee, ten noorden van Noorwegen; links IJsland")}</div><div><div class="eyebrow">afbeelding 2</div>${FOTO("o2-rendier","Foto van een Spitsbergenrendier dat door de sneeuw rent: korte poten, dikke vacht, gewei")}</div></div>
+  <p>Spitsbergenrendieren eten grassen, mossen en dwergstruikjes. In de zomerperiode slaan ze overtollige energie uit het voedsel op in een dikke vetlaag. Om in de winter bij hun voedsel te komen, schrapen ze sneeuw weg met hun hoeven.</p>`)}`;
+
+/* Vraag 10 */
+Q.push({id:10,pts:2,t:"oppervlakte-inhoudsverhouding",build(q){
+  pre(q,"<p>Een aantal aanpassingen maakten deze ondersoort geschikt om te overleven in de kou op Spitsbergen. Zo hebben ze een dikke vacht, waardoor ze minder energie verbruiken om warm te blijven, en door hun korte poten is hun oppervlakte-inhoudsverhouding gunstig.</p>");
+  q.append(el("p",{class:"qtext"},"<b>– Licht toe hoe kortere poten de oppervlakte-inhoudsverhouding beïnvloeden.<br>– Licht toe hoe dit leidt tot een lager energieverbruik.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"Een poot is een lange, dunne cilinder. Wat heeft zo’n vorm vergeleken met een bol van hetzelfde volume?",
+    opts:["veel oppervlak per volume","weinig oppervlak per volume"],right:0,
+    ok:"Ja. Kortere poten betekent dus minder oppervlak ten opzichte van het volume van het dier.",no:"Denk aan een lange slang en een bal van dezelfde hoeveelheid klei. Welke heeft meer huid?",
+    onDone:()=>choiceStep(think,{q:"Via welk deel van het lichaam verliest een warmbloedig dier warmte aan de koude omgeving?",
+      opts:["via het oppervlak (de huid)","via het volume"],right:0,
+      ok:"Klopt. Minder oppervlak per volume, dus …? Leg in je antwoord ook het verband met energie.",no:"Warmte gaat naar buiten waar het lichaam de lucht raakt.",onDone:unlock})});
+  openAnswer(ans,{id:10,pts:2,checks:["Kortere poten leiden tot een <b>relatief klein oppervlak</b> / kleiner oppervlak ten opzichte van het volume / een <b>kleinere oppervlakte-inhoudsverhouding</b>.","(Door een kleinere oppervlakte-inhoudsverhouding) wordt <b>warmteverlies beperkt</b>."],
+    model:"Met kortere poten heeft het rendier minder lichaamsoppervlak ten opzichte van zijn volume: een kleinere oppervlakte-inhoudsverhouding. Via een klein oppervlak verliest het minder warmte, dus hoeft het minder energie te verbruiken om warm te blijven.",
+    valkuil:"Zeggen dat de verhouding ‘gunstiger’ wordt zonder te zeggen dat ze <b>kleiner</b> wordt, of het <b>warmteverlies</b> niet noemen.",
+    after:()=>waaromBtn(ans,textBox("Lange dunne lichaamsdelen hebben veel oppervlak en weinig volume. Met <b>korte poten</b> is het oppervlak ten opzichte van het volume <b>kleiner</b>. Warmte gaat via het oppervlak verloren, dus het rendier verliest <b>minder warmte</b> en hoeft minder voedsel te verbranden om zijn lichaamstemperatuur constant te houden."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 11 */
+Q.push({id:11,pts:3,t:"ontstaan van een kleine ondersoort",build(q){
+  pre(q,"<p>De poten van het Spitsbergenrendier zijn kort, maar ook de rest van zijn lichaam is klein vergeleken met ondersoorten die op andere plaatsen leven. Een mogelijke verklaring hiervoor is de afwezigheid van predatoren zoals de wolf. Kleinere dieren vallen daardoor niet vaker ten prooi aan wolven dan grotere exemplaren. Selectiedruk door andere factoren leidde tot de kleine ondersoort op Spitsbergen.</p>");
+  q.append(el("p",{class:"qtext"},"<b>Leg uit hoe op Spitsbergen een ondersoort kon ontstaan die kleiner is dan andere ondersoorten.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  seqStep(think,{q:"Zet de stappen van natuurlijke selectie in de goede volgorde.",
+    items:["er is genetische variatie in een eigenschap","sommige varianten hebben een voordeel in dit milieu","die varianten krijgen gemiddeld meer nakomelingen","het allel voor die eigenschap wordt vaker in de populatie"],shown:[2,0,3,1],
+    ok:"Goed. Vul nu elke stap in voor de grootte van rendieren op Spitsbergen.",
+    onDone:()=>choiceStep(think,{q:"Er zijn op Spitsbergen geen wolven, en de winters zijn lang met weinig voedsel. Welk voordeel kan een <b>kleiner</b> rendier daar hebben?",
+      opts:["het heeft minder voedsel en energie nodig (en is eerder geslachtsrijp)","het kan harder wegrennen voor wolven"],right:0,
+      ok:"Ja. En wat betekent dat voordeel voor zijn fitness?",no:"Er zijn geen wolven. Wat is dan de grootste uitdaging op Spitsbergen?",onDone:unlock})});
+  openAnswer(ans,{id:11,pts:3,checks:["Er was <b>genetische variatie in grootte</b> / er komen mutaties voor die hebben geleid tot verschillen in grootte.","Kleinere individuen hebben voordeel doordat ze <b>minder voedsel/energie nodig</b> hebben (voor groei) / <b>eerder geslachtsrijp</b> zijn. <span class=\"muted\">(‘Kleinere individuen vinden beter beschutting tegen de kou’ mag ook.)</span>","(Waardoor) kleinere individuen een <b>hogere fitness</b> hadden / een grotere overlevingskans hadden en dus <b>meer nakomelingen</b> kregen."],
+    model:"In de oorspronkelijke populatie was er genetische variatie in lichaamsgrootte. Kleinere rendieren hebben minder voedsel en energie nodig, wat in de lange winters met weinig voedsel een voordeel is. Zij overleefden vaker en kregen meer nakomelingen (hogere fitness), zodat de allelen voor een kleine bouw steeds vaker voorkwamen.",
+    valkuil:"Schrijven dat de rendieren klein ‘werden’ omdat ze zich aanpasten (lamarckisme). Selectie werkt op <b>bestaande genetische variatie</b>.",
+    after:()=>waaromBtn(ans,textBox("Natuurlijke selectie in drie stappen:<br>1 <b>Variatie</b>: door mutaties en recombinatie verschillen rendieren erfelijk in grootte.<br>2 <b>Voordeel</b>: zonder wolven is groot zijn geen voordeel meer, maar in de koude, voedselarme winters is een klein dier dat <b>minder voedsel nodig heeft</b> in het voordeel.<br>3 <b>Fitness</b>: kleinere dieren overleven beter en krijgen <b>meer nakomelingen</b>. Over veel generaties ontstaat zo een kleinere ondersoort."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 12 */
+Q.push({id:12,pts:2,t:"netto primaire productie",build(q){
+  pre(q,`<p>Onderzoekers hebben geconstateerd dat temperatuurstijging als gevolg van klimaatverandering in de arctische gebieden een hogere productiviteit van de vegetatie veroorzaakt.<br>Een aantal effecten van temperatuurstijging zijn:</p><p class="regels"><span>1</span>De dissimilatie door plantencellen neemt toe.<br><span>2</span>De periode waarin reducenten in de bodem actief zijn, wordt langer.<br><span>3</span>De stikstofassimilatie verloopt sneller.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Schrijf de nummers 1, 2 en 3 onder elkaar en noteer erachter of de netto primaire productie <u>wel</u> of <u>niet</u> zal toenemen door het betreffende effect.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Netto primaire productie (NPP) = bruto primaire productie min …",
+    opts:["de dissimilatie van de producenten zelf","de dissimilatie van de reducenten","wat de herbivoren opeten"],right:0,
+    ok:"Ja. Meer dissimilatie door de planten zelf, wat doet dat met de NPP?",no:"Zoek de definitie op in je informatieboek. Het gaat om wat de producent zelf verbruikt.",
+    onDone:()=>choiceStep(think,{q:"Reducenten breken dood materiaal af. Wat komt daarbij vrij dat planten weer kunnen gebruiken?",
+      opts:["mineralen, zoals nitraat","glucose"],right:0,
+      ok:"Klopt. Meer mineralen geeft meer groei. En stikstofassimilatie: planten bouwen nitraat in in eiwitten en DNA. Sneller betekent?",no:"Bij afbraak ontstaan anorganische stoffen die planten met hun wortels opnemen.",onDone:unlock})});
+  selectAnswer(ans,{id:12,uid:"q12",intro:"Kies per effect.",rows:[["1 dissimilatie neemt toe",["wel","niet"],1],["2 reducenten langer actief",["wel","niet"],0],["3 stikstofassimilatie sneller",["wel","niet"],0]],
+    score:n=>n===3?2:n===2?1:0,
+    after:()=>waaromBtn(ans,textBox("<b>1 niet.</b> NPP = BPP − dissimilatie van de producent. Meer dissimilatie betekent dat er minder biomassa overblijft.<br><br><b>2 wel.</b> Reducenten die langer actief zijn, maken meer mineralen (zoals nitraat) vrij. Planten kunnen dan meer groeien.<br><br><b>3 wel.</b> Snellere stikstofassimilatie betekent dat planten sneller eiwitten en andere stikstofverbindingen maken: meer groei.<br><br><span class=\"muted\">Correctievoorschrift: drie goed 2p · twee goed 1p · minder 0p.</span>"))});
+  q.append(think,ans);
+}});
+
+/* Vraag 13 */
+Q.push({id:13,pts:1,t:"andere herbivoren nemen af",build(q){
+  pre(q,"<p>De populatiegrootte van sommige soorten herbivoren neemt toe door een hogere productiviteit van de vegetatie.</p>");
+  q.append(el("p",{class:"qtext"},"<b>Verklaar waardoor de populatiegrootte van andere soorten herbivoren juist kan afnemen.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"Herbivoren eten niet allemaal dezelfde planten. Groeien bij een hogere productiviteit alle plantensoorten even hard?",
+    opts:["nee, sommige soorten gaan overheersen en andere verdwijnen","ja, alles groeit evenveel"],right:0,
+    ok:"Ja. Wat betekent dat voor een herbivoor die juist van een verdwijnende plantensoort leeft?",no:"Bij meer warmte en voedingsstoffen winnen vaak snelgroeiende soorten van langzame soorten zoals mossen.",
+    onDone:()=>choiceStep(think,{q:"De herbivoren die toenemen, eten ook van dezelfde planten als andere soorten. Hoe heet die relatie?",
+      opts:["concurrentie","mutualisme"],right:0,
+      ok:"Klopt. Kies één van beide redenen voor je antwoord.",no:"Twee soorten die hetzelfde voedsel nodig hebben, zitten elkaar in de weg.",onDone:unlock})});
+  openAnswer(ans,{id:13,pts:1,checks:["Een juiste verklaring, bv. de <b>soortensamenstelling van de vegetatie verandert</b>, waardoor het vereiste voedsel voor andere herbivoren verdwijnt / door <b>toenemende concurrentie</b> hebben bepaalde herbivoren minder voedsel."],
+    model:"Doordat sommige herbivoren in aantal toenemen, wordt de concurrentie om voedsel groter, zodat andere soorten herbivoren minder voedsel hebben.",
+    valkuil:"Alleen ‘er is minder voedsel’ schrijven zonder te verklaren <b>waarom</b> (concurrentie of andere plantensoorten).",
+    after:()=>waaromBtn(ans,textBox("Een hogere productiviteit betekent niet automatisch meer voedsel voor <i>elke</i> herbivoor. De <b>soortensamenstelling</b> van de vegetatie kan veranderen, zodat een plant die een herbivoor nodig heeft verdwijnt. Of de herbivoren die toenemen, eten het voedsel weg: meer <b>concurrentie</b>."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 14 */
+Q.push({id:14,pts:2,t:"afbeelding 3 lezen",build(q){
+  pre(q,O2_KADER("<p>In de winter is de vegetatie op Spitsbergen bedekt met sneeuw. Wanneer er regen valt op het sneeuwdek, vormt zich een ijslaag over de vegetatie. Hierdoor kunnen herbivoren minder makkelijk aan voedsel komen. Deze ijslagen komen door klimaatverandering vaker voor.<br>Hansen en collega’s onderzochten wat het effect hiervan is op het dieet van Spitsbergenrendieren. Hun hypothese was dat als landplanten onbereikbaar zijn, Spitsbergenrendieren zeewier eten dat is aangespoeld op de kust.</p>")+
+  `<p>De onderzoekers bepaalden negen jaar lang de ruimtelijke spreiding van Spitsbergenrendieren en de gemiddelde dikte van de ijslaag die ontstaat door regen-op-sneeuw.<br>In afbeelding 3 is de relatie weergegeven tussen de dikte van de ijslaag en het aandeel Spitsbergenrendieren dat aan de kust voedsel zoekt. Elk bolletje stelt het gemiddelde voor van één jaar van een bepaalde populatie.</p>${O2_AFB3()}
+  <p>Over afbeelding 3 worden de volgende uitspraken gedaan:</p><p class="regels"><span>1</span>Alleen wanneer er een ijslaag aanwezig is, zoeken Spitsbergenrendieren voedsel aan de kust.<br><span>2</span>Het aandeel Spitsbergenrendieren dat aan de kust voedsel zoekt in populatie 1 wordt gemiddeld groter naarmate de ijslaag dikker is.<br><span>3</span>Als de ijsdikte meer dan 9 cm is, zoekt 31% van de Spitsbergenrendieren uit populatie 2 voedsel aan de kust.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Schrijf de nummers 1, 2 en 3 onder elkaar en noteer erachter of de betreffende uitspraak juist of onjuist is.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Kijk naar de bolletjes bij een ijsdikte van 0 cm. Zoeken daar rendieren voedsel aan de kust?",
+    opts:["ja, bij populatie 3 een aandeel boven 0","nee, alle bolletjes bij 0 cm liggen op 0"],right:0,
+    ok:"Ja. Er liggen open bolletjes (populatie 3) op 0,07 en 0,17.",no:"Kijk ook naar de open bolletjes (populatie 3) boven de 0.",
+    onDone:()=>choiceStep(think,{q:"Bij een ijsdikte van ongeveer 10 cm liggen er twee grijze bolletjes (populatie 2). Waar?",
+      opts:["één op ongeveer 0,31 en één op 0","beide op ongeveer 0,31"],right:0,
+      ok:"Klopt. Geldt ‘31%’ dan voor alle jaren met meer dan 9 cm ijs?",no:"Zoek goed rechtsonder bij 10 cm: er ligt ook een grijs bolletje op de 0-lijn.",onDone:unlock})});
+  juistOnjuist(ans,{id:14,stm:["Alleen wanneer er een ijslaag aanwezig is, zoeken Spitsbergenrendieren voedsel aan de kust.","Het aandeel Spitsbergenrendieren dat aan de kust voedsel zoekt in populatie 1 wordt gemiddeld groter naarmate de ijslaag dikker is.","Als de ijsdikte meer dan 9 cm is, zoekt 31% van de Spitsbergenrendieren uit populatie 2 voedsel aan de kust."],key:[false,true,false],
+    uitleg:b=>stepAnim(b,[
+      {s:3,cap:"<b>1 onjuist.</b> Bij 0 cm ijs zoekt in populatie 3 toch een deel van de rendieren (0,07 en 0,17) voedsel aan de kust."},
+      {s:1,cap:"<b>2 juist.</b> De zwarte bolletjes (populatie 1) liggen bij dun ijs rond 0 en bij 10 cm ijs rond 0,13 tot 0,15: gemiddeld een groter aandeel bij dikker ijs."},
+      {s:2,cap:"<b>3 onjuist.</b> Bij meer dan 9 cm ijs is er voor populatie 2 één jaar met 0,31, maar ook een jaar met 0. Je kunt dus niet zeggen dat dan 31% aan de kust zoekt.<br><span class=\"muted\">Correctievoorschrift: drie goed 2p · twee goed 1p · minder 0p.</span>"}],
+      (stg,s)=>stg.innerHTML=`<div style="max-width:600px">${O2_afb3(s.s)}</div>`)});
+  q.append(think,ans);
+}});
+
+/* Vraag 15 */
+Q.push({id:15,pts:1,t:"stikstofkringloop",build(q){
+  pre(q,"<p>Met een onderzoek aan de uitwerpselen toonden de onderzoekers aan dat het dieet van Spitsbergenrendieren inderdaad is veranderd: Spitsbergenrendieren blijken nu ook zeewier te eten.<br>Het veranderde dieet heeft invloed op de lokale stikstofkringloop.</p>");
+  q.append(el("p",{class:"qtext"},"<b>Verklaar hoe het veranderde dieet van de Spitsbergenrendieren de stikstofkringloop op de toendra van Spitsbergen beïnvloedt.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"Zeewier bevat eiwitten. Waar komt de stikstof in die eiwitten vandaan?",
+    opts:["uit de zee","uit de bodem van de toendra"],right:0,
+    ok:"Ja. En waar laten de rendieren hun mest en urine achter?",no:"Zeewier groeit in zee en neemt daar zijn mineralen op.",
+    onDone:()=>choiceStep(think,{q:"Rendieren grazen ook op de toendra en laten daar uitwerpselen en urine achter. Wat gebeurt er dus met stikstof?",
+      opts:["er komt extra stikstof uit zee op het land terecht","er verdwijnt stikstof van het land naar zee"],right:0,
+      ok:"Klopt. Schrijf dat in één zin op.",no:"Volg de stikstof: zee → zeewier → rendier → …",onDone:unlock})});
+  openAnswer(ans,{id:15,pts:1,checks:["Uit je antwoord blijkt dat <b>(meer) (organische) stikstof uit zee</b> (via feces en urine) <b>op de toendra / op het land</b> terechtkomt."],
+    model:"Rendieren eten zeewier met stikstofverbindingen uit zee. Via hun uitwerpselen en urine komt die stikstof op de toendra terecht: er komt extra stikstof uit zee in de kringloop op het land.",
+    valkuil:"Alleen schrijven dat rendieren ‘meer poepen’ of dat de kringloop ‘verandert’. Het gaat erom dat er <b>stikstof van de zee naar het land</b> wordt verplaatst.",
+    after:()=>waaromBtn(ans,textBox("Stikstof in zeewier komt uit het zeewater. Een rendier dat zeewier eet en daarna op de toendra mest en urine achterlaat, <b>verplaatst stikstof van zee naar land</b>. Reducenten zetten de organische stikstof om in ammonium en nitraat, en die komen beschikbaar voor de planten van de toendra."))});
+  q.append(think,ans);
+}});
+
+OPG.push({nr:2,kort:"Spitsbergenrendier",titel:"Spitsbergenrendier verandert zijn dieet",ids:[10,11,12,13,14,15],ctx:CTX2});
+
+/* ===== opg3.js ===== */
+/* ================= opgave 3: Koolmezen dood door bestrijding buxusmot? (vraag 16–20) ================= */
+const O3_KADER=html=>`<div style="border:1px solid var(--line2);padding:10px 14px;display:flex;flex-direction:column;gap:8px">${html}</div>`;
+const O3_TABEL1=`<p style="margin:0"><b>tabel 1</b></p><div class="tablewrap"><table class="data">
+  <tr><th rowspan="2" style="text-align:left">werkzame stof</th><th rowspan="2" style="text-align:left">type middel</th><th colspan="3">aantal nesten</th></tr>
+  <tr><th>stad (wel bestrijding)</th><th>stad (geen bestrijding)</th><th>bos</th></tr>
+  ${[["DDT","insecticide","9","9","4"],["DEET","insecticide","-","-","3"],["bifenyl-2-ol","fungicide","1","5","3"],["fipronil","insecticide","6","2","1"],["fluralaner","insecticide","1","1","1"],["fluroxypyr meptyl","herbicide","-","1","-"],["imidacloprid","insecticide","1","-","-"],["permethrin","insecticide","4","3","4"]].map(r=>`<tr><td style="text-align:left">${r[0]}</td><td style="text-align:left">${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td></tr>`).join("")}
+  <tr><td colspan="5" style="text-align:left">insecticide: gifstof die insecten doodt<br>fungicide: gifstof die schimmels doodt<br>herbicide: gifstof die planten doodt</td></tr></table></div>`;
+const O3_TERUG=(sum,html)=>`<details class="ctxd"><summary>${sum}</summary><div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">${html}</div></details>`;
+
+/* animatie vraag 16: membraanpotentiaal met en zonder pyrethroïden */
+function O3_ap(st){
+  const Y=v=>150-(v+70)*1.4;let s=`<line x1="50" y1="20" x2="50" y2="210" stroke="var(--text)"/><line x1="50" y1="${Y(-70)}" x2="520" y2="${Y(-70)}" stroke="var(--line2)" stroke-dasharray="4 4"/><text x="44" y="${Y(-70)+4}" text-anchor="end" class="lblm">−70</text><text x="44" y="${Y(0)+4}" text-anchor="end" class="lblm">0</text><text x="44" y="${Y(30)+4}" text-anchor="end" class="lblm">+30</text><text x="60" y="18" class="lblm">mV</text>`;
+  s+=`<text x="520" y="${Y(-70)-6}" text-anchor="end" class="lblm">rustpotentiaal</text>`;
+  if(st===0)s+=`<path d="M50,${Y(-70)} H120 L140,${Y(30)} L160,${Y(-80)} L190,${Y(-70)} H520" fill="none" stroke="var(--teal)" stroke-width="2.6"/><text x="200" y="${Y(20)}" class="lbl" style="fill:var(--teal)">normale actiepotentiaal</text>`;
+  else s+=`<path d="M50,${Y(-70)} H120 L140,${Y(30)} L170,${Y(0)} L240,${Y(-20)} H520" fill="none" stroke="var(--koraal)" stroke-width="2.6"/><text x="250" y="${Y(-12)}" class="lbl" style="fill:var(--koraal)">Na⁺-kanalen blijven open</text>`;
+  if(st===2)s+=`<text x="250" y="${Y(-45)}" class="lblbad">geen terugkeer naar −70 mV: geen nieuwe impulsen</text>`;
+  return svgWrap("0 0 540 220",s,"Verloop van de membraanpotentiaal");
+}
+
+const CTX3=`<div class="pkop"><span class="mono">Examentekst · inleiding opgave 3</span></div>
+  <p>In het voorjaar van 2018 kwamen er verontrustende berichten over opvallend veel dode koolmeesjongen in nestkasten. Ook Henriëtte had zo’n nestje met dode koolmezen in de tuin.</p>
+  ${O3_KADER(`<p>De koolmees (<i>Parus major</i>, afbeelding 1) is een veelvoorkomende broedvogel in Nederland. De koolmees leeft van zaden en insecten. Totdat jonge koolmezen het nest verlaten, worden ze door hun ouders gevoerd met kleine insecten zoals de rupsen van de buxusmot.</p>
+  <div style="display:flex;flex-wrap:wrap;gap:12px 18px;align-items:flex-start"><div style="flex:0 1 300px"><div class="eyebrow">afbeelding 1</div>${FOTO("o3-koolmees","Foto van een koolmees op een tak, met een insect in de snavel")}</div>
+  <p style="margin:0;flex:1 1 240px">In 2018 en 2019 hadden veel Nederlandse tuineigenaren last van de rupsen van de buxusmot. Ook Henriëttes buxus-heg werd kaalgevreten. In het tuincentrum haalde ze toen een middel om de buxusmot te bestrijden. Henriëtte vraagt zich nu af of het nestje dode koolmeesjes in haar tuin misschien het gevolg was van dit bestrijdingsmiddel.</p></div>`)}`;
+
+/* Vraag 16 */
+Q.push({id:16,pts:2,t:"pyrethroïden en Na⁺-kanalen",build(q){
+  pre(q,`<p>Veel insectenbestrijdingsmiddelen behoren tot de pyrethroïden. Deze stoffen verhinderen het sluiten van de spannings-afhankelijke Na<sup>+</sup>-kanalen in de uitlopers van neuronen.<br>Over het effect van pyrethroïden op een neuron worden de volgende uitspraken gedaan:</p><p class="regels"><span>1</span>Door pyrethroïden ontstaan er constant nieuwe impulsen in de axonen.<br><span>2</span>Doordat de Na<sup>+</sup>-kanalen niet sluiten, treedt hyperpolarisatie op.<br><span>3</span>De oorspronkelijke rustpotentiaal wordt niet meer bereikt.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Schrijf de nummers 1, 2 en 3 onder elkaar en noteer erachter of de betreffende uitspraak juist of onjuist is.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Na<sup>+</sup>-ionen stromen de cel in als de Na<sup>+</sup>-kanalen open staan. Wat doet dat met de membraanpotentiaal?",
+    opts:["die wordt minder negatief of positief (depolarisatie)","die wordt negatiever (hyperpolarisatie)"],right:0,
+    ok:"Ja. Positieve ionen naar binnen maken de binnenkant positiever.",no:"Na<sup>+</sup> is positief geladen. Wat gebeurt er met de lading binnen als er positieve ionen bij komen?",
+    onDone:()=>choiceStep(think,{q:"Voor een <b>nieuwe</b> impuls moet het membraan eerst terug naar de rustpotentiaal. Kan dat als de Na<sup>+</sup>-kanalen open blijven?",
+      opts:["nee, het membraan blijft gedepolariseerd","ja, gewoon zoals altijd"],right:0,
+      ok:"Klopt. Beoordeel nu de drie uitspraken.",no:"Zolang Na<sup>+</sup> blijft instromen, kan de binnenkant niet terug naar −70 mV.",onDone:unlock})});
+  juistOnjuist(ans,{id:16,stm:["Door pyrethroïden ontstaan er constant nieuwe impulsen in de axonen.","Doordat de Na⁺-kanalen niet sluiten, treedt hyperpolarisatie op.","De oorspronkelijke rustpotentiaal wordt niet meer bereikt."],key:[false,false,true],
+    uitleg:b=>{textBox("<b>1 onjuist.</b> Een nieuwe impuls kan pas ontstaan als het membraan eerst weer is teruggekeerd naar de rustpotentiaal. Dat lukt niet zolang de Na<sup>+</sup>-kanalen open staan.<br><br><b>2 onjuist.</b> Open Na<sup>+</sup>-kanalen laten Na<sup>+</sup> binnenstromen: dat is <b>depolarisatie</b>, geen hyperpolarisatie.<br><br><b>3 juist.</b> Door de blijvende instroom van Na<sup>+</sup> keert de membraanpotentiaal niet terug naar de oorspronkelijke rustpotentiaal.<br><br><span class=\"muted\">Correctievoorschrift: drie goed 2p · twee goed 1p · minder 0p.</span>")(b);
+      stepAnim(b,[{s:0,cap:"Normaal sluiten de Na<sup>+</sup>-kanalen snel na de piek en keert de membraanpotentiaal terug naar −70 mV."},{s:1,cap:"Met pyrethroïden blijven de Na<sup>+</sup>-kanalen open. Na<sup>+</sup> blijft binnenstromen: het membraan blijft gedepolariseerd."},{s:2,cap:"De rustpotentiaal wordt niet meer bereikt, dus er kunnen ook geen nieuwe impulsen ontstaan."}],(stg,s)=>stg.innerHTML=O3_ap(s.s));}});
+  q.append(think,ans);
+}});
+
+/* Vraag 17 */
+Q.push({id:17,pts:1,t:"slecht afbreekbaar gif",build(q){
+  pre(q,O3_KADER(`<p>In het voorjaar van 2019 hebben onderzoekers van het Centrum voor Landbouw en Milieu 41 nesten met dode jonge koolmezen onderzocht op aanwezigheid van diverse bestrijdingsmiddelen in de koolmezen. Er waren nesten uit stedelijke gebieden waar bestrijdingsmiddelen tegen de buxusmot waren gebruikt, uit stedelijke gebieden waar dit niet was gebeurd, en uit bossen. In <b>geen</b> van de 41 onderzochte nesten werden de insecticiden aangetroffen die werden gebruikt tegen de buxusmot.<br>In tabel 1 zijn de bestrijdingsmiddelen weergegeven die <b>wel</b> werden aangetroffen in de dode koolmezen op de verschillende plaatsen.</p>${O3_TABEL1}`)+
+  "<p>Verontrustend was de aanwezigheid van DDT in veel van de dode jonge koolmezen. DDT is al meer dan 50 jaar een verboden stof in Nederland. Deze gegevens laten zien hoe slecht afbreekbaar dit gif is.</p>");
+  q.append(el("p",{class:"qtext"},"<b>Noteer de term die wordt gebruikt voor zo’n slecht afbreekbare gifstof.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"Een stof die heel lang in het milieu blijft omdat hij nauwelijks wordt afgebroken, noem je …",
+    opts:["een stof die ‘volhardt’: hij blijft hardnekkig aanwezig","een stof die snel verdampt"],right:0,
+    ok:"Ja. Er is een vakterm voor die van het Latijnse woord voor ‘volharden’ komt. Zoek hem zo nodig op bij milieuvervuiling.",no:"DDT is na 50 jaar nog steeds te vinden. Verdwijnt het dan snel?",onDone:unlock});
+  openAnswer(ans,{id:17,pts:1,checks:["een <b>persistente</b> gifstof / persistent"],
+    model:"Een persistente gifstof.",
+    valkuil:"‘Accumulatie’ of ‘biomagnificatie’ noemen. Dat is het ophopen in de voedselketen, niet het slecht afbreekbaar zijn zelf.",
+    after:()=>waaromBtn(ans,textBox("Een <b>persistente</b> stof wordt in het milieu nauwelijks afgebroken door bacteriën, licht of chemische reacties. Daardoor is DDT, dat al meer dan 50 jaar verboden is, nog steeds in het milieu en in dieren te vinden. Persistente stoffen kunnen ook accumuleren in voedselketens."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 18 */
+Q.push({id:18,pts:1,t:"herbicide in koolmezen",build(q){
+  pre(q,"<p>De onderzoekers troffen in de koolmezen uit één nest de herbicide fluroxypyr meptyl aan.</p>"+O3_TERUG("Tabel 1 nog eens bekijken",O3_TABEL1));
+  q.append(el("p",{class:"qtext"},"<b>Verklaar hoe een herbicide in de jonge koolmezen terecht kan komen.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"Waarmee worden de jonge koolmezen gevoerd tot ze het nest verlaten?",
+    opts:["met kleine insecten zoals rupsen","met zaden en planten"],right:0,
+    ok:"Ja. De jongen eten dus geen planten. Hoe komt een plantengif dan toch in hen terecht?",no:"Lees de inleiding van de opgave nog eens.",
+    onDone:()=>choiceStep(think,{q:"Een rups eet bladeren waar herbicide op zit. Daarna eet een jonge koolmees die rups. Hoe heet die weg?",
+      opts:["via de voedselketen","via de lucht"],right:0,
+      ok:"Klopt. Schrijf de route in je antwoord op.",no:"Plant → rups → koolmees. Hoe heet zo’n reeks van wie eet wie?",onDone:unlock})});
+  openAnswer(ans,{id:18,pts:1,checks:["Uit je antwoord blijkt dat de herbicide <b>via de voedselketen</b> in de jonge koolmezen terechtkomt (bv. plant → insect/rups → koolmees). <span class=\"muted\">(‘accumulatie’ of ‘via plantaardig nestmateriaal’ wordt ook goed gerekend.)</span>"],
+    model:"De herbicide zit op of in planten. Insecten zoals rupsen eten van die planten en krijgen het gif binnen. De ouders voeren die insecten aan de jonge koolmezen, zodat de herbicide via de voedselketen in de jongen terechtkomt.",
+    valkuil:"Schrijven dat de jongen de herbicide binnenkrijgen via <b>plantaardig voedsel</b> (zaden): geen punt, want de jongen worden met insecten gevoerd.",
+    after:()=>waaromBtn(ans,textBox("Jonge koolmezen eten geen planten, maar insecten. Een herbicide komt toch in hen terecht via de <b>voedselketen</b>: plant (met herbicide) → rups → jonge koolmees. Slecht afbreekbare stoffen kunnen zich daarbij ophopen (accumulatie)."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 19 */
+Q.push({id:19,pts:2,t:"opname via de darm",build(q){
+  pre(q,O3_KADER(`<p>Veel van de insecticiden uit tabel 1 worden gebruikt als bestrijdingsmiddel tegen vlooien en teken bij honden en katten. Henriëtte ontvlooit haar hond elke vier weken met zo’n middel. Misschien hebben jonge koolmezen in haar tuin de gifstoffen via de huid opgenomen na contact met de haren van de hond. Koolmezen gebruiken haren namelijk als binnenbekleding van het nest (afbeelding 2).</p>
+  <div class="eyebrow">afbeelding 2</div><div style="max-width:440px">${FOTO("o3-nestkast","Foto van een koolmees met een snavel vol haren op een houten nestkast tegen een bakstenen muur")}</div>`)+
+  "<p>Gifstoffen kunnen echter veel gemakkelijker via de darm worden opgenomen dan via de huid.</p>");
+  q.append(el("p",{class:"qtext"},"<b>– Noteer een eigenschap op orgaanniveau waardoor opname via de darm makkelijker verloopt.<br>– Noteer een eigenschap op celniveau waardoor opname via de darm makkelijker verloopt.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  selectsStep(think,{uid:"q19",q:"Bij welk niveau hoort elke eigenschap van de darm?",rows:[
+    ["darmvlokken",["orgaanniveau","celniveau"],0],["microvilli",["orgaanniveau","celniveau"],1],["geen hoornlaag",["orgaanniveau","celniveau"],0],["membraaneiwitten voor transport",["orgaanniveau","celniveau"],1]],
+    ok:"Goed. Darmvlokken bestaan uit veel cellen; microvilli zijn uitstulpingen van één cel.",no:"Vraag je af: kun je het zien aan één cel, of gaat het om de bouw van de darmwand als geheel?",
+    onDone:()=>choiceStep(think,{q:"Waarom helpt het dat de huid een hoornlaag heeft en de darm niet?",
+      opts:["een hoornlaag van dode cellen laat stoffen slecht door","een hoornlaag vergroot het oppervlak"],right:0,
+      ok:"Klopt. Noteer nu één eigenschap per niveau.",no:"De hoornlaag beschermt de huid juist tegen binnendringen.",onDone:unlock})});
+  openAnswer(ans,{id:19,pts:2,checks:["Een juiste eigenschap op <b>orgaanniveau</b>, bv. groter oppervlak / darmvlokken / afwezigheid hoornlaag / betere doorbloeding / hogere temperatuur.","Een juiste eigenschap op <b>celniveau</b>, bv. microvilli / membraaneiwitten / actief transport mogelijk."],
+    model:"Orgaanniveau: de darm heeft darmvlokken, waardoor het oppervlak veel groter is. Celniveau: de darmcellen hebben microvilli.",
+    valkuil:"Microvilli bij orgaanniveau zetten, of darmvlokken bij celniveau. Darmvlokken zijn plooien van de hele wand, microvilli zitten op één cel.",
+    after:()=>waaromBtn(ans,textBox("<b>Orgaanniveau</b> gaat over de bouw van de darm(wand): een groot oppervlak door plooien en <b>darmvlokken</b>, geen hoornlaag (zoals de huid), een goede doorbloeding.<br><b>Celniveau</b> gaat over één darmcel: <b>microvilli</b> op het celmembraan, membraaneiwitten voor transport, de mogelijkheid tot actief transport."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 20 */
+Q.push({id:20,pts:1,t:"conclusie of krantenkop",build(q){
+  pre(q,"<p>Het Centrum voor Landbouw en Milieu heeft ook de haren uit nestjes met dode koolmeesjongen onderzocht. De gevonden haren bleken permethrin, DEET, fipronil en imidacloprid te bevatten. Een landelijk dagblad publiceerde na dit onderzoek een artikel met de volgende kop:<br><b>“Koolmeesjes sterven massaal door vlooien- en tekengif”</b><br>Toen Henriëtte dat las voelde ze zich weer schuldig aan de dood van de koolmeesjongen.</p>"+O3_TERUG("Tabel 1 nog eens bekijken",O3_TABEL1));
+  q.append(el("p",{class:"qtext"},"<b>Beargumenteer dat de onderzoekers deze kop <u>niet</u> als conclusie zullen hebben gepresenteerd.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"De onderzoekers vonden gifstoffen in de dode koolmezen en in de haren. Weten ze daarmee ook <b>waaraan</b> de mezen zijn doodgegaan?",
+    opts:["nee, aanwezigheid van een stof bewijst nog niet dat die stof de doodsoorzaak is","ja, als er gif in zit, is dat de oorzaak"],right:0,
+    ok:"Ja. Denk ook aan wat er niet onderzocht is: levende mezen ter vergelijking, de concentraties, het aantal nesten.",no:"In tabel 1 staan ook andere stoffen, zoals DDT. Weet je welke stof de oorzaak was?",
+    onDone:()=>choiceStep(think,{q:"Welk argument telt volgens het correctievoorschrift <b>niet</b>?",
+      opts:["‘zoiets zouden wetenschappers niet opschrijven’","‘er zijn alleen nesten met dode mezen onderzocht’"],right:0,
+      ok:"Klopt. Je argument moet over het onderzoek of de gegevens gaan.",no:"Een goed argument verwijst naar wat er in het onderzoek ontbreekt.",onDone:unlock})});
+  openAnswer(ans,{id:20,pts:1,checks:["Een juist argument, bv. <b>je weet niet waaraan de mezen zijn doodgegaan</b> / de <b>concentratie</b> van de gifstoffen is niet bekend / er zijn <b>alleen nesten met dode mezen</b> onderzocht / het aantal onderzochte nestjes is <b>te klein</b> / er worden ook <b>andere gifstoffen</b> (zoals DDT) aangetroffen / je weet niet hoeveel nesten er in totaal waren."],
+    model:"Uit het onderzoek blijkt alleen dat de gifstoffen aanwezig waren, niet in welke concentratie en niet of ze de doodsoorzaak waren. Er zijn ook geen nesten met levende jongen onderzocht ter vergelijking.",
+    valkuil:"‘Zoiets zouden wetenschappers niet opschrijven’ is geen argument: geen punt.",
+    after:()=>waaromBtn(ans,textBox("De krantenkop trekt een <b>oorzakelijk</b> verband (‘sterven door’) en spreekt van ‘massaal’. Het onderzoek laat alleen zien dat er gifstoffen <b>aanwezig</b> waren in 41 nesten met dode jongen. De concentraties zijn niet genoemd, er zijn geen levende nesten ter vergelijking, er zitten ook andere gifstoffen in (zoals DDT), en 41 nesten zegt weinig over ‘massaal’."))});
+  q.append(think,ans);
+}});
+
+OPG.push({nr:3,kort:"Koolmezen",titel:"Koolmezen dood door bestrijding buxusmot?",ids:[16,17,18,19,20],ctx:CTX3});
+
+/* ===== opg4.js ===== */
+/* ================= opgave 4: Drop (vraag 21–25) ================= */
+const O4_KADER=html=>`<div style="border:1px solid var(--line2);padding:10px 14px;display:flex;flex-direction:column;gap:8px">${html}</div>`;
+const O4_TERUG=(sum,html)=>`<details class="ctxd"><summary>${sum}</summary><div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">${html}</div></details>`;
+const O4_KADER2="<p>GA heeft effect op bepaalde cellen in de nierbuisjes (afbeelding 2). In het grondplasma van deze cellen bevinden zich mineralocorticoïd-receptoren. Door binding van cortisol wordt een mineralocorticoïd-receptor (MR) geactiveerd. De geactiveerde MR verplaatst zich naar de kern, waar dit complex bindt aan een hormoon-respons-element (HRE). Daardoor komen bepaalde genen tot expressie, wat leidt tot de synthese van Na<sup>+</sup>-kanalen die in het celmembraan terechtkomen. GA verhindert de werking van het enzym 11β-HSD2 in deze niercellen. Dit enzym zet normaliter cortisol om in cortison. Cortison kan niet binden aan de MR.</p>";
+const O4_AFB2=`<div class="eyebrow">afbeelding 2</div><div style="max-width:660px">${FOTO("o4-niercel","Niercel tussen intern milieu en voorurine: GA remt het enzym 11β-HSD2 dat cortisol omzet in cortison (met NAD⁺ naar NADH); cortisol bindt aan MR, het complex gaat naar de kern en bindt aan HRE op het DNA; in het membraan aan de kant van de voorurine Na⁺-kanalen (Na⁺ de cel in) en K⁺-kanalen (K⁺ naar de voorurine)")}</div>`;
+
+const CTX4=`<div class="pkop"><span class="mono">Examentekst · inleiding opgave 4</span></div>
+  <p>Anna heeft last van een hoge bloeddruk. Als ze voor controle naar haar huisarts gaat, vraagt de huisarts of ze vaak drop eet of zoethoutthee drinkt. Bepaalde stoffen in deze voedingsmiddelen kunnen namelijk een hoge bloeddruk veroorzaken.</p>`;
+
+/* Vraag 21 */
+Q.push({id:21,pts:2,t:"enterohepatische circulatie",build(q){
+  pre(q,O4_KADER(`<div style="display:flex;flex-wrap:wrap;gap:12px 18px;align-items:flex-start"><div style="flex:0 1 320px"><div class="eyebrow">afbeelding 1</div>${FOTO("o4-lever","Schema: lever met galbuis naar de darm, zijtak naar de galblaas; pijl door de darm; poortader van de darm omhoog naar de lever")}</div>
+  <p style="margin:0;flex:1 1 240px">Drop en zoethoutthee bevatten glycyrrhizine (GL). Deze stof zorgt voor de typische dropsmaak en heeft een grote zoetkracht. GL wordt in de darmen door darmbacteriën gehydrolyseerd. Hierbij ontstaat glycyrrhetinezuur (GA), dat wordt opgenomen in het bloed. In de lever wordt een gedeelte van het GA omgezet in een aantal verschillende stoffen die via de gal worden afgevoerd.</p></div>
+  <p>Een gedeelte daarvan wordt in de darm weer omgezet in GA en vervolgens opgenomen en getransporteerd naar de lever. Deze cyclus heet de enterohepatische circulatie (afbeelding 1).</p>`)+
+  `<p>Over de aanwezigheid van GA in het lichaam worden de volgende uitspraken gedaan:</p><p class="regels"><span>1</span>GA komt alleen terecht in de lever via de poortader.<br><span>2</span>Door de enterohepatische circulatie duurt het langer voordat GA volledig uit het lichaam is verwijderd.<br><span>3</span>Een trage passage van de voedselbrij in de darm verlaagt de hoeveelheid GA in het lichaam.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Schrijf de nummers 1, 2 en 3 onder elkaar en noteer erachter of de betreffende uitspraak juist of onjuist is.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"De lever krijgt bloed via twee bloedvaten. Welke zijn dat?",
+    opts:["de poortader en de leverslagader","alleen de poortader","de poortader en de leverader"],right:0,
+    ok:"Ja. GA zit in het bloed en komt dus ook via de leverslagader (uit de grote bloedsomloop) in de lever.",no:"Zoek de bloedvoorziening van de lever op. De leverader vervoert bloed <i>weg</i> van de lever.",
+    onDone:()=>choiceStep(think,{q:"Door de enterohepatische circulatie gaat een deel van het GA steeds opnieuw rond: darm → lever → gal → darm. Wat betekent dat voor de verblijftijd van GA in het lichaam?",
+      opts:["die wordt langer","die wordt korter"],right:0,
+      ok:"Klopt. En een trage passage: heeft de darm dan meer of minder tijd om GA op te nemen?",no:"Stoffen die worden teruggewonnen, verlaten het lichaam later.",onDone:unlock})});
+  juistOnjuist(ans,{id:21,stm:["GA komt alleen terecht in de lever via de poortader.","Door de enterohepatische circulatie duurt het langer voordat GA volledig uit het lichaam is verwijderd.","Een trage passage van de voedselbrij in de darm verlaagt de hoeveelheid GA in het lichaam."],key:[false,true,false],
+    uitleg:textBox("<b>1 onjuist.</b> GA wordt opgenomen in het bloed en circuleert door het lichaam. Het komt dus ook via de <b>leverslagader</b> in de lever.<br><br><b>2 juist.</b> Een deel van het GA wordt in de darm teruggewonnen en gaat opnieuw naar de lever. Daardoor blijft GA langer in het lichaam.<br><br><b>3 onjuist.</b> Bij een trage passage is er <b>meer tijd</b> om GL om te zetten en GA op te nemen. De hoeveelheid GA in het lichaam wordt dan eerder groter.<br><br><span class=\"muted\">Correctievoorschrift: drie goed 2p · twee goed 1p · minder 0p.</span>")});
+  q.append(think,ans);
+}});
+
+/* Vraag 22 */
+Q.push({id:22,pts:1,t:"functie van de MR",build(q){
+  pre(q,O4_KADER(O4_KADER2)+O4_AFB2+"<p>De geactiveerde MR is als transcriptiefactor betrokken bij de synthese van Na<sup>+</sup>-kanalen.</p>");
+  q.append(el("p",{class:"qtext"},"<b>Welke functie heeft de geactiveerde MR bij de transcriptie? Gebruik je informatieboek.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Leidt de binding van de geactiveerde MR aan het DNA tot meer of tot minder transcriptie van het gen voor Na<sup>+</sup>-kanalen?",
+    opts:["meer: de genen komen tot expressie","minder"],right:0,
+    ok:"Ja. De MR stimuleert de transcriptie.",no:"Lees ‘Daardoor komen bepaalde genen tot expressie’ nog eens.",
+    onDone:()=>selectsStep(think,{uid:"q22",q:"Is het een eiwit of een stuk DNA?",rows:[
+      ["activator",["eiwit","stuk DNA"],0],["enhancer",["eiwit","stuk DNA"],1],["promotor",["eiwit","stuk DNA"],1],["repressor",["eiwit","stuk DNA"],0]],
+      ok:"Goed. De MR is een eiwit (een receptor) dat de transcriptie stimuleert. Welke keuze past?",no:"Kijk in je informatieboek bij de regulatie van genexpressie.",onDone:unlock})});
+  mc(ans,{qid:22,pts:1,right:0,opts:["activator","enhancer (versterker)","promotor","repressor"],
+    onChecked:()=>waaromBtn(ans,textBox("De MR is een <b>eiwit</b> dat, na binding van cortisol, aan een DNA-element (HRE) bindt en zo de transcriptie van het gen voor Na<sup>+</sup>-kanalen <b>stimuleert</b>. Zo’n eiwit heet een <b>activator</b>.<br><br>Een enhancer en een promotor zijn stukken DNA, geen eiwitten. Het HRE is het regulerende stuk DNA waaraan de activator bindt. Een repressor remt de transcriptie. Het antwoord is <b>A</b>."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 23 */
+Q.push({id:23,pts:2,t:"GA en osmotische waarde",build(q){
+  pre(q,"<p>De opname van GA leidt tot een toename van de osmotische waarde van het bloed.</p>"+O4_TERUG("Afbeelding 2 en de tekst erbij nog eens bekijken",O4_KADER(O4_KADER2)+O4_AFB2));
+  q.append(el("p",{class:"qtext"},"<b>Leg dit uit aan de hand van afbeelding 2.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"GA remt het enzym 11β-HSD2. Wat gebeurt er dan met de hoeveelheid cortisol in de niercel?",
+    opts:["die blijft hoger: er wordt minder cortisol omgezet in cortison","die daalt"],right:0,
+    ok:"Ja. En meer cortisol bindt aan de MR. Wat is het gevolg?",no:"Het enzym zet cortisol om. Als het enzym niet werkt, wat blijft er dan over?",
+    onDone:()=>choiceStep(think,{q:"Meer geactiveerde MR geeft meer Na<sup>+</sup>-kanalen in het membraan aan de kant van de voorurine. Welke kant op gaat Na<sup>+</sup> dan (afbeelding 2)?",
+      opts:["meer Na<sup>+</sup> vanuit de voorurine de cel in, en zo terug naar het bloed","meer Na<sup>+</sup> naar de voorurine"],right:0,
+      ok:"Klopt. Meer zouten terug in het bloed: wat doet dat met de osmotische waarde?",no:"Kijk naar de pijl bij Na<sup>+</sup> in afbeelding 2.",onDone:unlock})});
+  openAnswer(ans,{id:23,pts:2,checks:["Een toename van cortisol / de remming van het enzym 11β-HSD2 leidt tot een <b>toename van (de productie van) Na<sup>+</sup>-kanalen</b>.","(Waardoor) <b>meer Na<sup>+</sup>-opname vanuit de voorurine</b> / meer terugresorptie van Na<sup>+</sup> plaatsvindt (waardoor de osmotische waarde van het bloed stijgt)."],
+    model:"GA remt 11β-HSD2, waardoor er minder cortisol wordt omgezet in cortison. Er bindt dan meer cortisol aan de MR, zodat er meer Na⁺-kanalen worden gemaakt. Daardoor wordt meer Na⁺ uit de voorurine teruggeresorbeerd, en stijgt de osmotische waarde van het bloed.",
+    valkuil:"Alleen ‘meer cortisol’ schrijven zonder het gevolg voor de <b>Na<sup>+</sup>-kanalen</b> en de <b>terugresorptie van Na<sup>+</sup></b>.",
+    after:()=>waaromBtn(ans,textBox("GA ⊣ 11β-HSD2 → minder cortisol wordt cortison → <b>meer cortisol bindt aan MR</b> → transcriptie van genen voor Na<sup>+</sup>-kanalen → <b>meer Na<sup>+</sup>-kanalen</b> in het membraan → <b>meer Na<sup>+</sup> wordt uit de voorurine teruggeresorbeerd</b> → hogere osmotische waarde van het bloed."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 24 */
+Q.push({id:24,pts:1,t:"oedeem",build(q){
+  pre(q,"<p>De toename van de osmotische waarde leidt tot een hoge bloeddruk. Dit kan oedeem veroorzaken.</p>");
+  q.append(el("p",{class:"qtext"},"<b>Verklaar hoe een hoge bloeddruk oedeem kan veroorzaken.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"Oedeem is een ophoping van vocht in de weefsels. Waardoor wordt vocht uit de haarvaten naar de weefsels geperst?",
+    opts:["door de bloeddruk in de haarvaten","door de osmotische waarde van het bloed"],right:0,
+    ok:"Ja. Aan het begin van een haarvat is de bloeddruk hoger dan de osmotische druk: vocht gaat naar buiten.",no:"De osmotische waarde van het bloed trekt juist vocht terug het haarvat in.",
+    onDone:()=>choiceStep(think,{q:"Als de bloeddruk hoger wordt, wat gebeurt er dan met de hoeveelheid vocht die het haarvat verlaat?",
+      opts:["die neemt toe","die neemt af"],right:0,
+      ok:"Klopt. Schrijf dat in je antwoord.",no:"Meer druk duwt meer vocht naar buiten.",onDone:unlock})});
+  openAnswer(ans,{id:24,pts:1,checks:["Uit je antwoord blijkt dat (door een hoge bloeddruk) <b>meer vocht de haarvaten verlaat</b> / meer filtratie plaatsvindt / minder terugresorptie (in de weefsels) plaatsvindt."],
+    model:"Door de hoge bloeddruk wordt er meer vocht uit de haarvaten in de weefsels geperst dan er wordt teruggenomen, zodat er vocht in de weefsels ophoopt.",
+    valkuil:"Oedeem uitleggen met de osmotische waarde van het bloed. De vraag gaat over de <b>bloeddruk</b>.",
+    after:()=>waaromBtn(ans,textBox("In een haarvat werken twee krachten: de <b>bloeddruk</b> perst vocht naar buiten, de <b>osmotische waarde</b> van het bloed (door plasma-eiwitten) trekt vocht terug. Bij een hoge bloeddruk wint de bloeddruk over een groter deel van het haarvat: er gaat <b>meer vocht de weefsels in</b> en minder terug. Het vocht hoopt op: oedeem."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 25: rekenen; nakijken volgens het CV (1p berekening met 2,0 · 1259 · 5 · 70; 1p delen door 10) */
+function O4_drop(ans){
+  const r=el("div",{class:"row"});r.append(el("label",{for:"q25f0",class:"sellab"},"maximaal aantal zoete dropjes per dag"));
+  const i=el("input",{class:"num",id:"q25f0",inputmode:"decimal"});r.append(i);ans.append(r);
+  const ta=el("textarea",{id:"q25t",placeholder:"Je berekening (niet verplicht, wel handig om na te kijken)…"});ans.append(ta);
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{const v=parseFloat((i.value||"").replace(",","."));if(isNaN(v)){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul eerst je uitkomst in.";return;}
+    i.disabled=true;ck.remove();const near=x=>Math.abs(v-x)<0.06;
+    const p=(near(2)||near(2.2))?2:(near(22)||near(22.2))?1:0;
+    fb.hidden=false;fb.className="fb "+(p===2?"ok":"no");
+    fb.innerHTML=`<b>${p} van de 2 punten.</b><br>${p>=1?"✓":"✗"} juiste berekening met 2,0 · 1259 · 5 en 70<br>${p===2?"✓":"✗"} veiligheidsmarge toegepast (delen door 10)<br><span class="muted">Goed: 2 dropjes (2,2). ${p===1?"Je kwam op 22: je bent het delen door 10 vergeten.":""} Klopt je berekening wel, maar maakte je een rekenfoutje? Kijk dan zelf je stappen na met de uitleg.</span>`;
+    setScore(25,p);
+    waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"<b>Stap 1.</b> Grens voor Anna: 2,0 mg GA per kg per dag, gedeeld door 10 (hoge bloeddruk) = <b>0,2 mg/kg</b>."},
+      {cap:"<b>Stap 2.</b> Anna weegt 70 kg: 70 × 0,2 = <b>14 mg GA per dag</b>."},
+      {cap:"<b>Stap 3.</b> Zoete drop: 1259 mg GA per kg = 1,259 mg per gram. Eén dropje van 5 g: 5 × 1,259 = <b>6,295 mg GA</b>."},
+      {cap:"<b>Stap 4.</b> 14 / 6,295 = 2,2. Anna mag dus maximaal <b>2 zoete dropjes</b> per dag."}],
+      (stg,s,k)=>stg.innerHTML=`<div class="model" style="font:600 18px var(--meta)">${["2,0 ÷ 10 = 0,2 mg/kg","70 kg × 0,2 mg/kg = 14 mg","5 g × 1,259 mg/g = 6,295 mg","14 ÷ 6,295 = 2,2 → 2 dropjes"].slice(0,k+1).join("<br>")}</div>`));};
+}
+Q.push({id:25,pts:2,t:"aantal dropjes",build(q){
+  pre(q,`<p>De hoeveelheid glycyrrhizine in drop wordt aangegeven met het GA-gehalte. Het advies voor de hoeveelheid drop die je per dag veilig kan eten, gaat uit van een ‘no effect level’ van 2,0 mg GA per kilogram lichaamsgewicht per dag. Mensen die een hoge bloeddruk hebben zoals Anna, moeten deze waarde door 10 delen.<br>Hieronder is het GA-gehalte van verschillende soorten drop vermeld. Een dropje weegt gemiddeld 5 gram.</p>
+  <div class="tablewrap"><table class="data" style="max-width:460px"><tr><th style="text-align:left">soort drop</th><th>GA-gehalte (mg/kg)</th></tr><tr><td style="text-align:left">zoete drop</td><td>1259</td></tr><tr><td style="text-align:left">mild-zoute drop</td><td>801</td></tr><tr><td style="text-align:left">dubbelzoute drop</td><td>343</td></tr></table></div>`);
+  q.append(el("p",{class:"qtext"},"<b>Bereken het maximale aantal zoete dropjes dat Anna per dag mag eten volgens bovenstaand advies. Ga ervan uit dat Anna 70 kg weegt.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  numStep(think,{uid:"q25a",q:"Hoeveel mg GA per kg lichaamsgewicht per dag mag Anna maximaal binnenkrijgen?",right:0.2,
+    ok:"Ja: 2,0 gedeeld door 10.",no:"Gebruik het ‘no effect level’ en de regel voor mensen met een hoge bloeddruk.",
+    onDone:()=>numStep(think,{uid:"q25b",q:"Hoeveel mg GA zit er in één zoet dropje van 5 gram? (rond af op 1 decimaal)",right:6.3,
+      ok:"Klopt: 5 g is 0,005 kg, en 0,005 × 1259 ≈ 6,3 mg. Reken nu uit hoeveel dropjes Anna mag.",no:"Het gehalte staat per kilogram. Hoeveel kilogram is 5 gram?",onDone:unlock})});
+  O4_drop(ans);
+  q.append(think,ans);
+}});
+
+OPG.push({nr:4,kort:"Drop",titel:"Drop",ids:[21,22,23,24,25],ctx:CTX4});
+
+/* ===== opg5.js ===== */
+/* ================= opgave 5: Bonenziekte (vraag 26–37) ================= */
+const O5_KADER=html=>`<div style="border:1px solid var(--line2);padding:10px 14px;display:flex;flex-direction:column;gap:8px">${html}</div>`;
+const O5_TABEL=(kop,rijen)=>`<div class="tablewrap"><table class="data" style="max-width:520px"><tr><th></th>${kop.map(k=>`<th style="text-align:left">${k}</th>`).join("")}</tr>${rijen.map((r,k)=>`<tr><td><b>${"ABCDEF"[k]}</b></td>${r.map(c=>`<td style="text-align:left">${c}</td>`).join("")}</tr>`).join("")}</table></div>`;
+const O5_TERUG=(sum,html)=>`<details class="ctxd"><summary>${sum}</summary><div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">${html}</div></details>`;
+const O5_AFB1=`<div class="eyebrow">afbeelding 1</div><div style="max-width:560px">${FOTO("o5-ppp","Schema van de pentose-fosfaatweg: glucose → glucose-6-fosfaat → (G6PD, NADP⁺ wordt NADPH) → 6-fosfaatgluconaat → (CO₂ af, NADP⁺ wordt NADPH) → pentose. NADPH zet GSSG om in glutathion, glutathion zet H₂O₂ (uit O₂⁻) om in H₂O. NADPH wordt ook gebruikt bij de vorming van vetzuren uit acetyl-CoA")}</div>`;
+
+/* stamboom afbeelding 2. hl: object met labels per persoon; drager: set van personen met een stip */
+function O5_stamboom(o={}){
+  const sq=(x,y,ziek,k)=>`<rect x="${x-11}" y="${y-11}" width="22" height="22" fill="${ziek?"var(--text2)":"var(--surface)"}" stroke="${o.hl&&o.hl.includes(k)?"var(--goud)":"var(--text)"}" stroke-width="${o.hl&&o.hl.includes(k)?3:1.4}"/>`;
+  const ci=(x,y,k)=>`<circle cx="${x}" cy="${y}" r="11" fill="var(--surface)" stroke="${o.hl&&o.hl.includes(k)?"var(--goud)":"var(--text)"}" stroke-width="${o.hl&&o.hl.includes(k)?3:1.4}"/>`+(o.drager&&o.drager.includes(k)?`<circle cx="${x}" cy="${y}" r="4" fill="var(--text2)"/>`:"");
+  const L=(d)=>`<path d="${d}" fill="none" stroke="var(--text)" stroke-width="1.4"/>`;
+  let s="";
+  s+=L("M231,30 H259")+L("M245,30 V50 M95,50 H315 M95,50 V69 M163,50 V69 M219,50 V69 M315,50 V69");
+  s+=ci(220,30,"F")+sq(270,30,false,"Fv");
+  s+=`<text x="205" y="35" text-anchor="end" class="lblm" style="fill:var(--text)">Francesca</text>`;
+  s+=L("M51,80 H84 M67,80 V128 M45,128 H87 M45,128 V139 M87,128 V139");
+  s+=sq(40,80,false,"Pm")+ci(95,80,"P")+sq(163,80,false,"Q")+sq(219,80,true,"R")+ci(260,80,"Rv")+ci(315,80,"S")+sq(357,80,false,"Sm");
+  s+=L("M230,80 H249 M240,80 V139")+L("M326,80 H346 M336,80 V128 M300,128 H364 M300,128 V139 M364,128 V139");
+  s+=ci(45,150,"Pd")+sq(87,150,true,"Fabio")+sq(240,150,false,"Rz")+sq(300,150,false,"Sz")+ci(364,150,"Stella")+sq(402,150,false,"Stm");
+  s+=L("M375,150 H391 M383,150 V178");
+  s+=`<rect x="372" y="178" width="22" height="22" fill="var(--surface)" stroke="var(--text)" stroke-width="1.4"/><text x="383" y="194" text-anchor="middle" class="lbl">?</text>`;
+  [["P",95],["Q",163],["R",219],["S",315]].forEach(([t,x])=>s+=`<text x="${x}" y="106" text-anchor="middle" class="lbl">${t}</text>`);
+  s+=`<text x="87" y="178" text-anchor="middle" class="lblm" style="fill:var(--text)">Fabio</text><text x="356" y="178" text-anchor="middle" class="lblm" style="fill:var(--text)">Stella</text>`;
+  s+=`<text x="330" y="20" class="lblm" style="fill:var(--text)">Legenda:</text><rect x="330" y="28" width="18" height="18" fill="var(--text2)" stroke="var(--text)"/><text x="354" y="42" class="lblm" style="fill:var(--text)">bonenziekte</text>`;
+  if(o.tekst)o.tekst.forEach(([x,y,t])=>s+=`<text x="${x}" y="${y}" text-anchor="middle" class="lbl" style="fill:var(--goud-text)">${t}</text>`);
+  return svgWrap("0 0 440 230",s,"Stamboom: Francesca (draagster) en haar man; kinderen P (vrouw), Q (man, gezond), R (man, bonenziekte) en S (vrouw); P heeft een dochter en zoon Fabio (bonenziekte); R heeft een gezonde zoon; S heeft een zoon en dochter Stella; Stella verwacht een jongen (?)");
+}
+const O5_AFB2=o=>`<div class="eyebrow">afbeelding 2</div><div style="max-width:480px">${O5_stamboom(o)}</div>`;
+const O5_KADER2=`<p>Fabio is niet de enige in zijn familie met bonenziekte. In afbeelding 2 is een stamboom weergegeven van zijn familie. Het gen voor G6PD ligt op het X-chromosoom. Fabio’s oma Francesca is drager van het gemuteerde G6PD-allel. De kinderen van Francesca zijn in de stamboom met een letter aangegeven.</p>`;
+
+const CTX5=`<div class="pkop"><span class="mono">Examentekst · inleiding opgave 5</span></div>
+  <p>De burgemeester van een Italiaans dorp heeft het verbouwen van tuinbonen verboden vanwege Fabio, een jongen uit het dorp die lijdt aan bonenziekte (favisme). Het eten van tuinbonen of het inademen van pollen van tuinboonplanten leidt bij Fabio tot een versnelde afbraak van rode bloedcellen, waardoor een levensbedreigende situatie kan ontstaan.</p>`;
+
+/* Vraag 26 */
+Q.push({id:26,pts:2,t:"NADPH",build(q){
+  pre(q,O5_KADER(`<p>Bonenziekte is het gevolg van een mutatie in het gen dat codeert voor het enzym glucose-6-fosfaatdehydrogenase (G6PD). Hierdoor is bij Fabio dit enzym minder goed werkzaam. G6PD katalyseert de eerste reactie in de pentose-fosfaatweg (‘pentose phosphate pathway’ of PPP).<br>De PPP (afbeelding 1) is een stofwisselingsroute waarbij glucosemoleculen worden omgezet in pentosemoleculen (C5-moleculen). Hierbij worden ook NADPH-moleculen gevormd.<br>NADPH (bekend van de fotosynthese bij planten) is in menselijke cellen nodig bij de productie van bepaalde organische stoffen zoals glutathion. Glutathion kan schadelijke reactieve zuurstofmoleculen zoals O<sub>2</sub><sup>–</sup> onschadelijk maken (afbeelding 1).</p>${O5_AFB1}`)+"<p>In de PPP wordt NADPH gevormd.</p>");
+  q.append(el("p",{class:"qtext"},"<b>Kan NADPH energierijke elektronen afstaan of opnemen? En bij welk type stofwisselingsproces wordt NADPH dan verbruikt?</b>"));
+  q.append(el("div",{},O5_TABEL(["energierijke elektronen","type stofwisselingsproces"],[["afstaan","assimilatie"],["afstaan","dissimilatie"],["opnemen","assimilatie"],["opnemen","dissimilatie"]])));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"NADP<sup>+</sup> wordt NADPH. Heeft NADPH dan elektronen (met H) opgenomen of afgestaan?",
+    opts:["NADPH is de gereduceerde vorm: het draagt energierijke elektronen en kan ze afstaan","NADPH heeft zijn elektronen al afgegeven en kan ze opnemen"],right:0,
+    ok:"Ja. NADPH is ‘geladen’ en kan elektronen afstaan aan een andere stof.",no:"Bij de vorming van NADPH komen er elektronen (en H) bij. Wat kan het daarna dus doen?",
+    onDone:()=>choiceStep(think,{q:"In de fotosynthese wordt NADPH gebruikt in de Calvincyclus. Hier wordt het gebruikt om vetzuren en glutathion te maken. Wat voor processen zijn dat?",
+      opts:["opbouw van stoffen: assimilatie","afbraak van stoffen: dissimilatie"],right:0,
+      ok:"Klopt.",no:"Vetzuren worden opgebouwd uit kleinere moleculen (acetyl-CoA).",onDone:unlock})});
+  mc(ans,{qid:26,pts:2,right:0,opts:["afstaan · assimilatie","afstaan · dissimilatie","opnemen · assimilatie","opnemen · dissimilatie"],
+    onChecked:()=>waaromBtn(ans,textBox("NADPH is de <b>gereduceerde</b> vorm van de elektronendrager: het heeft energierijke elektronen (met H) opgenomen en kan die <b>afstaan</b> aan een andere stof. Daarbij wordt het weer NADP<sup>+</sup>.<br><br>NADPH wordt verbruikt bij het <b>opbouwen</b> van stoffen, zoals vetzuren uit acetyl-CoA en glucose in de Calvincyclus: <b>assimilatie</b>. Het antwoord is <b>A</b>."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 27 */
+Q.push({id:27,pts:1,t:"vetzuren",build(q){
+  pre(q,"<p>De PPP is betrokken bij de productie van vetzuren. Met behulp van afbeelding 1 kan worden afgeleid wat het gevolg is voor de productie van vetzuren als G6PD onwerkzaam is.</p>"+O5_TERUG("Afbeelding 1 nog eens bekijken",O5_AFB1));
+  q.append(el("p",{class:"qtext"},"<b>Wat gebeurt er met de productie van vetzuren als G6PD onwerkzaam is?</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Als G6PD niet werkt, wordt glucose-6-fosfaat niet omgezet in 6-fosfaatgluconaat. Wat ontstaat er dan ook niet in de twee stappen van de PPP?",
+    opts:["NADPH","acetyl-CoA"],right:0,
+    ok:"Ja. En waarvoor is NADPH nodig volgens afbeelding 1?",no:"Kijk welke stof bij beide stappen van de PPP wordt gevormd.",onDone:unlock});
+  mc(ans,{qid:27,pts:1,right:1,opts:["Die neemt toe.","Die neemt af.","Die verandert niet."],
+    onChecked:()=>waaromBtn(ans,textBox("Zonder werkzaam G6PD stopt de PPP al bij de eerste stap. Er wordt dan <b>geen NADPH</b> gevormd, ook niet in de tweede stap, want 6-fosfaatgluconaat ontstaat niet. Voor de vorming van vetzuren uit acetyl-CoA is NADPH nodig (afbeelding 1). De productie van vetzuren <b>neemt af</b>. Het antwoord is <b>B</b>."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 28 */
+Q.push({id:28,pts:1,t:"geen extra G6PD in rode bloedcellen",build(q){
+  pre(q,O5_KADER("<p>In de rode bloedcellen wordt normaal ongeveer 30% van de glucose via de PPP gedissimileerd. Zo ontstaat er voldoende glutathion om reactieve zuurstofmoleculen onschadelijk te maken. Reactieve zuurstofmoleculen kunnen ontstaan door infecties, door gebruik van bepaalde medicijnen en ook door stoffen in tuinboonplanten.<br>Doordat er bij Fabio te weinig G6PD-activiteit is in zijn rode bloedcellen, is er een tekort aan glutathion. Als Fabio tuinbonen eet of pollen van tuinboonplanten inademt, hopen reactieve zuurstofmoleculen zich op in zijn rode bloedcellen en veroorzaken ze oxidatie van hemoglobine. Hierdoor denatureert de hemoglobine en vormt klonten. Doordat de rode bloedcellen vervolgens openbarsten (hemolyse), ontstaat bloedarmoede.</p>")+
+  "<p>In de andere cellen van Fabio wordt de ophoping van reactieve zuurstofmoleculen beter bestreden, doordat extra G6PD wordt aangemaakt als er te weinig G6PD-activiteit is.</p>");
+  q.append(el("p",{class:"qtext"},"<b>Verklaar dat aanmaak van extra G6PD niet kan plaatsvinden in rode bloedcellen.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"G6PD is een enzym. Wat is er nodig om een enzym aan te maken?",
+    opts:["eiwitsynthese: DNA (transcriptie) en ribosomen (translatie)","alleen glucose"],right:0,
+    ok:"Ja. Wat is er bijzonder aan rijpe rode bloedcellen van zoogdieren?",no:"Enzymen zijn eiwitten. Hoe maakt een cel eiwitten?",
+    onDone:()=>choiceStep(think,{q:"Rijpe rode bloedcellen bij de mens …",
+      opts:["hebben geen kern (en geen ribosomen)","hebben extra veel kernen"],right:0,
+      ok:"Klopt. Leg dat verband in je antwoord.",no:"Daardoor zijn ze hol en hebben ze ruimte voor veel hemoglobine.",onDone:unlock})});
+  openAnswer(ans,{id:28,pts:1,checks:["Uit je antwoord blijkt dat rode bloedcellen <b>geen kern / DNA / ribosomen</b> hebben (waardoor er geen eiwitsynthese kan plaatsvinden)."],
+    model:"Rijpe rode bloedcellen hebben geen kern en geen ribosomen, dus er kan geen nieuw eiwit (G6PD) worden gemaakt.",
+    valkuil:"Schrijven dat het ‘gen kapot is’. Dat geldt voor al Fabio’s cellen, terwijl andere cellen wél extra G6PD maken. Het verschil zit in het <b>ontbreken van kern en ribosomen</b>.",
+    after:()=>waaromBtn(ans,textBox("Om extra G6PD te maken, moet het gen worden afgeschreven (transcriptie in de <b>kern</b>) en vertaald (translatie op <b>ribosomen</b>). Rijpe rode bloedcellen verliezen hun kern en organellen tijdens de rijping. Ze kunnen dus geen nieuwe eiwitten maken en moeten het doen met het G6PD dat er al in zat."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 29 */
+Q.push({id:29,pts:2,t:"gele huid",build(q){
+  pre(q,"<p>Symptomen die Fabio kan krijgen na het eten van tuinbonen, zijn een gele huid en geelverkleuring van zijn oogwit.</p>");
+  q.append(el("p",{class:"qtext"},"<b>Leg uit hoe hemolyse leidt tot deze geelverkleuring.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"Bij hemolyse barsten rode bloedcellen open. Wat gebeurt er met de vrijgekomen hemoglobine?",
+    opts:["die wordt afgebroken (in lever en milt)","die wordt opnieuw in nieuwe rode bloedcellen gestopt"],right:0,
+    ok:"Ja. Welke gele stof ontstaat bij die afbraak?",no:"Oude of kapotte rode bloedcellen worden opgeruimd. Wat gebeurt daarbij met hun hemoglobine?",
+    onDone:()=>choiceStep(think,{q:"Bij de afbraak van hemoglobine ontstaat de gele galkleurstof …",
+      opts:["bilirubine","melanine","chlorofyl"],right:0,
+      ok:"Klopt. Wat gebeurt er als er veel meer van ontstaat dan de lever kan uitscheiden?",no:"Het is de stof die ook de kleur geeft aan gal en ontlasting.",onDone:unlock})});
+  openAnswer(ans,{id:29,pts:2,checks:["<b>Hemoglobine</b> (uit de beschadigde rode bloedcellen) <b>wordt afgebroken</b>.","(Het daarbij gevormde) <b>bilirubine hoopt zich op</b> / komt in de huid of het oogwit terecht. <span class=\"muted\">(‘galkleurstof’ in plaats van bilirubine mag.)</span>"],
+    model:"Door de hemolyse komt veel hemoglobine vrij, dat wordt afgebroken. Daarbij ontstaat bilirubine (galkleurstof). Er ontstaat meer bilirubine dan de lever kan uitscheiden, zodat het zich ophoopt in het bloed en in de huid en het oogwit.",
+    valkuil:"Alleen ‘de lever werkt niet goed’ schrijven. Het begint bij de <b>afbraak van hemoglobine</b>.",
+    after:()=>waaromBtn(ans,textBox("Hemolyse → veel vrij hemoglobine → <b>afbraak van hemoglobine</b> → er ontstaat veel <b>bilirubine</b> (gele galkleurstof). De lever kan die grote hoeveelheid niet snel genoeg via de gal uitscheiden. Bilirubine hoopt zich op in het bloed en in de weefsels: de huid en het oogwit kleuren geel."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 30 */
+Q.push({id:30,pts:2,t:"ademhaling en hartslag",build(q){
+  pre(q,"<p>Nadat Fabio een keer tuinbonen had gegeten, veranderden zijn ademhaling en hartslag.</p>");
+  q.append(el("p",{class:"qtext"},"<b>Zal zijn ademhalingsfrequentie zijn verhoogd of verlaagd? En zijn hartslagfrequentie?</b>"));
+  q.append(el("div",{},O5_TABEL(["ademhalingsfrequentie","hartslagfrequentie"],[["verhoogd","verhoogd"],["verhoogd","verlaagd"],["verlaagd","verhoogd"],["verlaagd","verlaagd"]])));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Na hemolyse heeft Fabio minder rode bloedcellen (bloedarmoede). Wat betekent dat voor het zuurstoftransport?",
+    opts:["er kan minder zuurstof per liter bloed vervoerd worden","er kan meer zuurstof vervoerd worden"],right:0,
+    ok:"Ja. Hoe kan het lichaam toch genoeg zuurstof bij de weefsels krijgen?",no:"Hemoglobine in de rode bloedcellen bindt zuurstof.",
+    onDone:()=>choiceStep(think,{q:"Om het tekort te compenseren …",
+      opts:["ademt hij sneller en pompt het hart sneller","ademt hij langzamer en pompt het hart langzamer"],right:0,
+      ok:"Klopt.",no:"Het lichaam moet meer bloed langs de longen en de weefsels laten stromen.",onDone:unlock})});
+  mc(ans,{qid:30,pts:2,right:0,opts:["verhoogd · verhoogd","verhoogd · verlaagd","verlaagd · verhoogd","verlaagd · verlaagd"],
+    onChecked:()=>waaromBtn(ans,textBox("Door de hemolyse heeft Fabio minder rode bloedcellen en dus minder hemoglobine: elke liter bloed vervoert <b>minder zuurstof</b>. Om de weefsels toch genoeg zuurstof te geven, gaat de <b>ademhalingsfrequentie omhoog</b> en de <b>hartslagfrequentie omhoog</b>, zodat er per minuut meer bloed met zuurstof wordt rondgepompt. Het antwoord is <b>A</b>."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 31 */
+Q.push({id:31,pts:2,t:"mutaties",build(q){
+  pre(q,O5_KADER("<p>Er zijn verschillende mutaties van het G6PD-gen bekend. Het zijn met name puntmutaties en kleine deleties, die leiden tot een minder goed werkzaam G6PD-enzym.</p>")+
+  `<p>Over mutaties worden de volgende uitspraken gedaan:</p><p class="regels"><span>1</span>Een deletie van één basenpaar in een exon leidt tot verandering van het leesraam.<br><span>2</span>Elke puntmutatie in een exon heeft effect op de werkzaamheid van het eiwit waarvoor wordt gecodeerd.<br><span>3</span>Een puntmutatie in een exon kan de afwezigheid van het eiwit waarvoor wordt gecodeerd tot gevolg hebben.</p>`);
+  q.append(el("p",{class:"qtext"},"<b>Schrijf de nummers 1, 2 en 3 onder elkaar en noteer erachter of de betreffende uitspraak juist of onjuist is.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Een gen wordt per drie basen gelezen. Wat gebeurt er als er in een exon één base wegvalt?",
+    opts:["alle tripletten erna worden anders gelezen: het leesraam verschuift","alleen één aminozuur verandert"],right:0,
+    ok:"Ja.",no:"Probeer het: DE KAT AT EEN MUS. Haal er één letter uit en lees opnieuw per drie.",
+    onDone:()=>choiceStep(think,{q:"Een puntmutatie verandert één base. Verandert het aminozuur dan altijd?",
+      opts:["nee, de genetische code is gedegenereerd: een ander codon kan voor hetzelfde aminozuur coderen","ja, altijd"],right:0,
+      ok:"Klopt (een stille mutatie). En als een puntmutatie een codon verandert in een stopcodon?",no:"Kijk in de codontabel: hoeveel codons coderen voor bijvoorbeeld leucine?",onDone:unlock})});
+  juistOnjuist(ans,{id:31,stm:["Een deletie van één basenpaar in een exon leidt tot verandering van het leesraam.","Elke puntmutatie in een exon heeft effect op de werkzaamheid van het eiwit waarvoor wordt gecodeerd.","Een puntmutatie in een exon kan de afwezigheid van het eiwit waarvoor wordt gecodeerd tot gevolg hebben."],key:[true,false,true],
+    uitleg:textBox("<b>1 juist.</b> Door het wegvallen van één base worden alle tripletten daarna anders gelezen: een <b>frameshift</b>.<br><br><b>2 onjuist.</b> Door de gedegenereerde code kan een puntmutatie <b>stil</b> zijn (zelfde aminozuur). Ook een ander aminozuur buiten het actieve centrum heeft niet altijd effect.<br><br><b>3 juist.</b> Een puntmutatie kan een codon veranderen in een <b>stopcodon</b>. Dan wordt er een (veel te kort, onwerkzaam of meteen afgebroken) eiwit gemaakt, of in feite geen werkend eiwit.<br><br><span class=\"muted\">Correctievoorschrift: drie goed 2p · twee goed 1p · minder 0p.</span>")});
+  q.append(think,ans);
+}});
+
+/* Vraag 32: met aanvulling CvTE (R met juiste toelichting: in totaal 1 punt) */
+function O5_q32(ans){
+  const r=el("div",{class:"row"});r.append(el("label",{for:"q32s",class:"sellab"},"letter"));
+  const sel=el("select",{id:"q32s"});sel.append(el("option",{value:""},"kies…"));["P","Q","R","S"].forEach(l=>sel.append(el("option",{value:l},l)));r.append(sel);ans.append(r);
+  const ta=el("textarea",{id:"q32t",placeholder:"Je toelichting…"});ans.append(ta);
+  const ck=el("button",{class:"go"},"Nakijken"),tf=el("div",{class:"fb hint",hidden:""});ans.append(ck,tf);
+  ck.onclick=()=>{if(!sel.value||ta.value.trim().length<8){tf.hidden=false;tf.textContent="Kies een letter en schrijf je toelichting.";return;}
+    tf.remove();ck.remove();sel.disabled=true;ta.readOnly=true;const L=sel.value;
+    const ss=el("div",{class:"selfscore"});const sc=el("div",{class:"score"});let boxes=[],upd;
+    if(L==="Q"){
+      ss.append(el("p",{style:"margin:0"},"<b>Kijk jezelf na met het correctievoorschrift.</b> Het eerste punt (letter Q) heb je. Vink aan als je toelichting klopt."));
+      ss.append(el("label",{},`<input type="checkbox" checked disabled><span>(alleen letter) <b>Q</b> <span class="pts">1p</span></span>`));
+      const lab=el("label",{},`<input type="checkbox" id="q32c1"><span>Een toelichting waaruit blijkt dat persoon Q het (G6PD-)allel <b>alleen van zijn moeder</b> kan hebben gekregen (en dat dat allel niet gemuteerd is). <span class="pts">1p</span></span>`);ss.append(lab);boxes=[lab.querySelector("input")];
+      upd=()=>{const p=1+(boxes[0].checked?1:0);sc.textContent=`Jouw score: ${p} / 2`;setScore(32,p);};
+    }else if(L==="R"){
+      ss.append(el("p",{style:"margin:0"},"<b>Het correctievoorschrift vraagt Q.</b> Volgens een aanvulling van het CvTE krijg je voor R toch <b>1 punt in totaal</b>, als je toelichting klopt."));
+      const lab=el("label",{},`<input type="checkbox" id="q32c1"><span>R, met als toelichting dat R het G6PD-allel <b>alleen van zijn moeder</b> kan hebben gekregen, zodat zij niet homozygoot kan zijn voor het gezonde allel. <span class="pts">1p</span></span>`);ss.append(lab);boxes=[lab.querySelector("input")];
+      upd=()=>{const p=boxes[0].checked?1:0;sc.textContent=`Jouw score: ${p} / 2`;setScore(32,p);};
+    }else{
+      ss.append(el("p",{style:"margin:0"},`<b>${L} is niet goed.</b> Het goede antwoord is <b>Q</b>. ${L==="P"||L==="S"?"Een vrouw krijgt ook een X van haar vader, dus aan haar fenotype zie je niet welk allel ze van Francesca kreeg.":""}`));
+      upd=()=>{sc.textContent="Jouw score: 0 / 2";setScore(32,0);};
+    }
+    ss.append(el("div",{class:"model"},"<b>Voorbeeldantwoord:</b> Q. Een zoon krijgt zijn enige X-chromosoom van zijn moeder. Als Francesca homozygoot was voor het gemuteerde allel, had Q zeker het gemuteerde allel gekregen en bonenziekte gehad. Q is gezond, dus Francesca heeft ook een normaal allel."));
+    ss.append(sc);ans.append(ss);boxes.forEach(b=>b.onchange=upd);upd();
+    waaromBtn(ans,b=>stepAnim(b,[
+      {s:0,cap:"Een zoon krijgt van zijn vader het Y-chromosoom en van zijn moeder zijn <b>enige X-chromosoom</b>. Bij een zoon zie je dus aan het fenotype welk allel hij van zijn moeder kreeg."},
+      {s:1,cap:"<b>R</b> heeft bonenziekte: hij kreeg van Francesca het gemuteerde allel. Dat past bij heterozygoot én bij homozygoot gemuteerd. (R laat wel zien dat ze niet homozygoot <i>gezond</i> is; daarom geeft een aanvulling van het CvTE voor R met die toelichting 1 punt.)"},
+      {s:2,cap:"<b>Q</b> is gezond: hij kreeg van Francesca een <b>normaal</b> allel. Als ze homozygoot gemuteerd was, kon dat niet. Antwoord: <b>Q</b>."}],
+      (stg,s)=>stg.innerHTML=`<div style="max-width:480px">${O5_stamboom(s.s===0?{}:s.s===1?{hl:["R"],tekst:[[219,124,"Xᵍ van moeder"]]}:{hl:["Q"],tekst:[[163,124,"X normaal"]]})}</div>`));};
+}
+Q.push({id:32,pts:2,t:"Francesca niet homozygoot",build(q){
+  pre(q,O5_KADER(O5_KADER2+O5_AFB2())+"<p>Francesca heeft de ziekte niet, maar is wel drager. Dat betekent dat ze heterozygoot is. Ook uit het fenotype van een van de kinderen van Francesca blijkt dat Francesca <b>niet</b> homozygoot kan zijn voor het gemuteerde G6PD-allel.</p>");
+  q.append(el("p",{class:"qtext"},"<b>Noteer de letter van deze persoon. Licht je antwoord toe.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Van wie krijgt een zoon zijn X-chromosoom?",
+    opts:["van zijn moeder","van zijn vader"],right:0,
+    ok:"Ja. Een zoon heeft maar één X, en die komt altijd van zijn moeder.",no:"Van zijn vader krijgt een zoon het Y-chromosoom.",
+    onDone:()=>choiceStep(think,{q:"Stel dat Francesca homozygoot was voor het gemuteerde allel. Hoe zouden al haar zonen dan zijn?",
+      opts:["allemaal met bonenziekte","allemaal gezond","half om half"],right:0,
+      ok:"Klopt. Zoek nu de zoon van Francesca die dat tegenspreekt.",no:"Ze zou dan alleen gemuteerde X-chromosomen kunnen doorgeven.",onDone:unlock})});
+  O5_q32(ans);
+  q.append(think,ans);
+}});
+
+/* Vraag 33 */
+Q.push({id:33,pts:1,t:"X-inactivatie en epigenetica",build(q){
+  pre(q,"<p>Bij vrouwen die drager zijn van het gemuteerde G6PD-allel kan soms toch een tekort aan werkzaam G6PD ontstaan, doordat in de voorlopercellen van rode bloedcellen een van de X-chromosomen geïnactiveerd wordt.</p>");
+  q.append(el("p",{class:"qtext"},"<b>Licht toe dat de inactivatie van het X-chromosoom een vorm van epigenetica is.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"Wat is epigenetica?",
+    opts:["veranderingen in genexpressie (en fenotype) zonder verandering van de basenvolgorde van het DNA","veranderingen in de basenvolgorde van het DNA"],right:0,
+    ok:"Ja. Verandert er bij X-inactivatie iets aan de basenvolgorde?",no:"‘Epi’ betekent ‘boven op’: het gaat om iets bovenop de DNA-volgorde.",
+    onDone:()=>choiceStep(think,{q:"Bij X-inactivatie wordt één X-chromosoom sterk opgevouwen (methylering). Wat gebeurt er met de genen op dat chromosoom?",
+      opts:["ze worden uitgeschakeld: niet meer afgeschreven","ze worden verwijderd uit het DNA"],right:0,
+      ok:"Klopt. Combineer die twee dingen in je antwoord.",no:"Het chromosoom blijft gewoon in de cel aanwezig.",onDone:unlock})});
+  openAnswer(ans,{id:33,pts:1,checks:["Een juiste toelichting, bv. er is <b>geen verandering in de basenvolgorde</b> van het DNA, maar wel in het fenotype / er worden <b>genen uitgeschakeld</b> / het niet-gemuteerde allel is uitgeschakeld / er is minder expressie van het G6PD-allel."],
+    model:"Bij X-inactivatie verandert de basenvolgorde van het DNA niet, maar worden de genen op het geïnactiveerde X-chromosoom uitgeschakeld. Is dat de X met het normale allel, dan is er minder werkzaam G6PD.",
+    valkuil:"Schrijven dat het X-chromosoom ‘kapotgaat’ of ‘muteert’. Bij epigenetica blijft de <b>basenvolgorde gelijk</b>.",
+    after:()=>waaromBtn(ans,textBox("Epigenetica = een verandering in <b>genexpressie</b> zonder verandering in de <b>basenvolgorde</b>. Bij X-inactivatie wordt in elke cel één X-chromosoom ingepakt en uitgeschakeld. Het DNA blijft hetzelfde, maar de genen worden niet meer afgelezen. Wordt in veel voorlopercellen de X met het normale allel uitgeschakeld, dan maken die cellen te weinig werkzaam G6PD."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 34 */
+Q.push({id:34,pts:2,t:"kans voor de baby van Stella",build(q){
+  pre(q,O5_TERUG("Afbeelding 2 nog eens bekijken",O5_AFB2())+"<p>Fabio’s nicht Stella is in verwachting van een jongen.</p>");
+  q.append(el("p",{class:"qtext"},"<b>Hoe groot is de kans dat de baby het gemuteerde G6PD-allel erft?</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Stella’s moeder is S, een dochter van Francesca (drager). Hoe groot is de kans dat S het gemuteerde allel van Francesca kreeg?",
+    opts:["1/2","1/4","1"],right:0,
+    ok:"Ja. Francesca geeft één van haar twee X-chromosomen door.",no:"Francesca is heterozygoot. Hoeveel kans dat ze haar gemuteerde X doorgeeft?",
+    onDone:()=>choiceStep(think,{q:"De vader van Stella is gezond, en de vader van de baby ook. Van wie kan de baby (een jongen) het gemuteerde allel krijgen?",
+      opts:["alleen van Stella, die het alleen van S kan hebben","ook van zijn vader"],right:0,
+      ok:"Klopt. Vermenigvuldig nu de kansen per generatie: Francesca → S → Stella → baby.",no:"Een jongen krijgt zijn X van zijn moeder. Een gezonde man heeft geen gemuteerd allel.",onDone:unlock})});
+  mc(ans,{qid:34,pts:2,right:2,opts:["0","1/16","1/8","1/4","1/2"],
+    onChecked:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {s:0,cap:"Francesca is heterozygoot. Haar dochter <b>S</b> krijgt met kans <b>1/2</b> het gemuteerde allel."},
+      {s:1,cap:"Als S drager is, krijgt <b>Stella</b> het allel met kans 1/2. Haar vader is gezond. Kans dat Stella drager is: 1/2 × 1/2 = <b>1/4</b>."},
+      {s:2,cap:"Is Stella drager, dan krijgt haar zoon het allel met kans 1/2. Totaal: 1/2 × 1/2 × 1/2 = <b>1/8</b>. Het antwoord is <b>C</b>."}],
+      (stg,s)=>stg.innerHTML=`<div style="max-width:480px">${O5_stamboom({hl:s.s===0?["S"]:s.s===1?["Stella"]:["Stella"],tekst:s.s===0?[[315,124,"½"]]:s.s===1?[[315,124,"½"],[364,200,"× ½"]]:[[315,124,"½"],[364,200,"× ½"],[420,195,"× ½"]]})}</div>`))});
+  q.append(think,ans);
+}});
+
+/* Vraag 35 */
+Q.push({id:35,pts:2,t:"Hardy-Weinberg op het X-chromosoom",build(q){
+  pre(q,"<p>Bonenziekte komt relatief veel voor in bepaalde gebieden in Afrika. In een populatie in Nigeria heeft het gemuteerde G6PD-allel een frequentie van 20%.</p>");
+  q.append(el("p",{class:"qtext"},"<b>Hoeveel procent van de vrouwen en hoeveel procent van de mannen in deze populatie heeft bonenziekte? Ga ervan uit dat de wet van Hardy-Weinberg van toepassing is en laat epigenetische processen buiten beschouwing.</b><br><i>Noteer je antwoord als volgt:</i><br>vrouwen: …%<br>mannen: …%"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Bonenziekte is X-chromosomaal recessief. Welk genotype heeft een vrouw met bonenziekte?",
+    opts:["homozygoot voor het gemuteerde allel","heterozygoot"],right:0,
+    ok:"Ja. Welke term van Hardy-Weinberg hoort daarbij?",no:"Francesca is heterozygoot en heeft de ziekte niet.",
+    onDone:()=>choiceStep(think,{q:"Een man heeft maar één X-chromosoom. Hoe groot is de kans dat zijn X het gemuteerde allel heeft?",
+      opts:["gelijk aan de allelfrequentie q","q²","2pq"],right:0,
+      ok:"Klopt. Reken beide uit en zet ze om in procenten.",no:"Bij één allel is de kans op het gemuteerde allel gewoon de allelfrequentie.",onDone:unlock})});
+  numAnswer(ans,{id:35,fields:[["vrouwen","%",v=>Math.abs(v-4)<0.01,"vrouwen: q² = 0,2² = 0,04 → 4%"],["mannen","%",v=>Math.abs(v-20)<0.01,"mannen: q = 0,2 → 20%"]],
+    after:()=>waaromBtn(ans,textBox("Het gemuteerde allel is recessief en ligt op het X-chromosoom, met <i>q</i> = 0,2.<br><b>Vrouwen</b> (XX) hebben de ziekte alleen als ze homozygoot zijn: <i>q</i><sup>2</sup> = 0,04 = <b>4%</b>.<br><b>Mannen</b> (XY) hebben maar één X: ieder gemuteerd allel geeft de ziekte, dus <i>q</i> = 0,2 = <b>20%</b>."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 36 */
+Q.push({id:36,pts:1,t:"malaria en G6PD",build(q){
+  pre(q,"<p>Met name op plaatsen waar malaria heerst, blijkt het G6PD-allel een hoge frequentie te hebben. Dat komt waarschijnlijk doordat rode bloedcellen die een kleinere hoeveelheid werkzaam G6PD hebben, minder gevoelig zijn voor infectie door de malariaparasiet.</p>");
+  q.append(el("p",{class:"qtext"},"<b>Hoe kan de hogere frequentie van het gemuteerde G6PD-allel in malariagebieden het best worden verklaard?</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Mensen met het gemuteerde allel worden minder vaak ernstig ziek van malaria. Wat betekent dat voor hun overlevingskans en aantal nakomelingen in een malariagebied?",
+    opts:["groter: ze hebben een hogere fitness","kleiner","geen verschil"],right:0,
+    ok:"Ja. Hangt die verandering van de allelfrequentie dan van toeval af, of van een voordeel?",no:"Minder gevoelig voor infectie betekent minder kans om aan malaria te overlijden.",onDone:unlock});
+  mc(ans,{qid:36,pts:1,right:4,opts:["door gene-flow","door het flessenhalseffect (bottleneckeffect)","door het stichtereffect (foundereffect)","door migratie","door natuurlijke selectie"],
+    onChecked:()=>waaromBtn(ans,textBox("Dragers van het gemuteerde allel zijn minder gevoelig voor malaria. In een malariagebied overleven ze vaker en krijgen ze meer nakomelingen: het allel geeft een <b>voordeel</b> in dit milieu. Daardoor neemt de frequentie toe door <b>natuurlijke selectie</b>.<br><br>Flessenhals- en stichtereffect zijn toevalsprocessen (genetic drift) en verklaren niet waarom het juist in malariagebieden zo is. Gene-flow en migratie gaan over verplaatsing van allelen tussen populaties. Het antwoord is <b>E</b>."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 37 */
+Q.push({id:37,pts:1,t:"geen allergie",build(q){
+  pre(q,"<p>Op verschillende websites wordt de bonenziekte ook wel bonenallergie genoemd.</p>");
+  q.append(el("p",{class:"qtext"},"<b>Beargumenteer dat bonenziekte <u>geen</u> allergische reactie is.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  chipsStep(think,{q:"Wat hoort bij een allergische reactie? Kies alles wat klopt.",
+    items:[["het afweersysteem reageert op een onschuldig antigeen",true],["er worden antistoffen (IgE) gevormd",true],["mestcellen geven histamine af",true],["een enzym in de rode bloedcellen werkt minder goed",false]],
+    ok:"Goed. Welk van deze dingen gebeurt er bij bonenziekte niet?",no:"Eén van de keuzes beschrijft juist bonenziekte, niet een allergie.",
+    onDone:()=>choiceStep(think,{q:"Wat telt volgens het correctievoorschrift <b>niet</b> als argument?",
+      opts:["alleen beschrijven wat bonenziekte wél is, of alleen de symptomen van allergie noemen","zeggen dat er bij bonenziekte geen antistoffen betrokken zijn"],right:0,
+      ok:"Klopt. Je argument moet laten zien dat een kenmerk van allergie bij bonenziekte ontbreekt.",no:"Een goed argument vergelijkt: wat hoort bij allergie en ontbreekt bij bonenziekte?",onDone:unlock})});
+  openAnswer(ans,{id:37,pts:1,checks:["Een juist argument, bv. er wordt <b>geen histamine</b> gevormd / er zijn <b>geen antistoffen</b> betrokken / het <b>afweersysteem wordt niet geactiveerd</b>."],
+    model:"Bij bonenziekte wordt het afweersysteem niet geactiveerd: er worden geen antistoffen gemaakt en er komt geen histamine vrij. De rode bloedcellen gaan kapot door een enzymtekort.",
+    valkuil:"Alleen uitleggen wat bonenziekte <b>wél</b> is (een enzymtekort), of alleen symptomen van allergie noemen: geen punt.",
+    after:()=>waaromBtn(ans,textBox("Bij een <b>allergie</b> reageert het afweersysteem op een onschuldig antigeen: B-cellen maken IgE, mestcellen geven histamine af. Bij bonenziekte gebeurt dat niet: het <b>afweersysteem doet niet mee</b>, er zijn <b>geen antistoffen</b> en <b>geen histamine</b>. De klachten komen door een tekort aan werkzaam G6PD in de rode bloedcellen."))});
+  q.append(think,ans);
+}});
+
+OPG.push({nr:5,kort:"Bonenziekte",titel:"Bonenziekte",ids:[26,27,28,29,30,31,32,33,34,35,36,37],ctx:CTX5});
+
+/* ===== opg6.js ===== */
+/* ================= opgave 6: PFAS in groentetuintjes (vraag 38–42) ================= */
+const O6_KADER=html=>`<div style="border:1px solid var(--line2);padding:10px 14px;display:flex;flex-direction:column;gap:8px">${html}</div>`;
+const O6_TABEL=(kop,rijen)=>`<div class="tablewrap"><table class="data" style="max-width:520px"><tr><th></th>${kop.map(k=>`<th style="text-align:left">${k}</th>`).join("")}</tr>${rijen.map((r,k)=>`<tr><td><b>${"ABCDEF"[k]}</b></td>${r.map(c=>`<td style="text-align:left">${c}</td>`).join("")}</tr>`).join("")}</table></div>`;
+/* afbeelding 2: aantal monsters (afgelezen uit de pdf): Bilthoven 7 / 7 / 0, Dordrecht 74 / 44 / 30 */
+function O6_afb2(){
+  const Y=v=>290-v*3.3;let s="";
+  for(let v=10;v<=80;v+=10)s+=`<line x1="110" y1="${Y(v)}" x2="470" y2="${Y(v)}" stroke="var(--line2)"/>`;
+  s+=`<line x1="110" y1="${Y(80)}" x2="110" y2="${Y(0)}" stroke="var(--text)" stroke-width="1.3"/><line x1="110" y1="${Y(0)}" x2="470" y2="${Y(0)}" stroke="var(--text)" stroke-width="1.3"/>`;
+  for(let v=0;v<=80;v+=10)s+=`<line x1="104" y1="${Y(v)}" x2="110" y2="${Y(v)}" stroke="var(--text)"/><text x="100" y="${Y(v)+4}" text-anchor="end" class="lblm" style="fill:var(--text)">${v}</text>`;
+  s+=`<text x="50" y="42" text-anchor="middle" class="lblm" style="fill:var(--text)">aantal</text><text x="50" y="56" text-anchor="middle" class="lblm" style="fill:var(--text)">monsters</text><path d="M50,84 V64 M46,70 L50,62 L54,70" fill="none" stroke="var(--text)" stroke-width="1.2"/>`;
+  const D=[["totaal",7,74],["PFOA|niet aangetoond",7,44],["PFOA|aangetoond",0,30]];
+  D.forEach(([lab,b,d],k)=>{const x0=110+k*120;
+    s+=`<rect x="${x0+20}" y="${Y(b)}" width="30" height="${b*3.3}" fill="var(--text)"/><rect x="${x0+62}" y="${Y(d)}" width="30" height="${d*3.3}" fill="var(--text3)" stroke="var(--text)" stroke-width=".8"/>`;
+    if(k)s+=`<line x1="${x0}" y1="${Y(0)}" x2="${x0}" y2="${Y(0)+6}" stroke="var(--text)"/>`;
+    lab.split("|").forEach((t,j)=>s+=`<text x="${x0+60}" y="${Y(0)+20+j*15}" text-anchor="middle" class="lblm" style="fill:var(--text)">${t}</text>`);});
+  s+=`<text x="110" y="350" class="lblm" style="fill:var(--text)">Legenda:</text><rect x="110" y="358" width="24" height="12" fill="var(--text)"/><text x="142" y="369" class="lblm" style="fill:var(--text)">Bilthoven</text><rect x="110" y="378" width="24" height="12" fill="var(--text3)" stroke="var(--text)" stroke-width=".8"/><text x="142" y="389" class="lblm" style="fill:var(--text)">omgeving van Dordrecht</text>`;
+  return svgWrap("0 0 490 400",s,"Staafdiagram aantal monsters: totaal Bilthoven 7, Dordrecht 74; PFOA niet aangetoond Bilthoven 7, Dordrecht 44; PFOA aangetoond Bilthoven 0, Dordrecht 30");
+}
+
+const CTX6=`<div class="pkop"><span class="mono">Examentekst · inleiding opgave 6</span></div>
+  <p>In Nederland ontstond grote ophef toen PFAS (poly- en perfluoralkylstoffen) werden aangetroffen in afvalwater, oppervlaktewater en zelfs drinkwater. PFAS leveren namelijk risico’s op voor de volksgezondheid en het milieu. Wetenschappers van het RIVM (Rijksinstituut voor Volksgezondheid en Milieu) onderzochten of PFAS via besmette groentetuintjes terecht kunnen komen in voedsel voor mensen.</p>
+  ${O6_KADER(`<div style="display:flex;flex-wrap:wrap;gap:12px 18px;align-items:flex-start"><p style="margin:0;flex:1 1 240px">PFAS zijn synthetische stoffen die onder andere worden gebruikt voor de productie van waterafstotende kleding en verpakkingsfolies. Een van deze stoffen is PFOA (perfluoroctaanzuur, afbeelding 1).</p><div style="flex:0 1 300px"><div class="eyebrow">afbeelding 1</div>${FOTO("o6-pfoa","Structuurformule van PFOA: een keten van zeven koolstofatomen vol met fluoratomen, met aan het eind een zuurgroep COOH")}</div></div>
+  <p>Onderzoek bij proefdieren heeft aangetoond dat PFOA onder andere lever- en niertumoren kan veroorzaken. Ook tast de stof het immuunsysteem aan. Het gebruik van PFOA is daarom nu verboden.</p>`)}`;
+
+/* Vraag 38 */
+Q.push({id:38,pts:2,t:"grenswaarde mens en rat",build(q){
+  pre(q,"<p>PFOA wordt nauwelijks afgebroken of uitgescheiden door het lichaam van de mens. Voor PFOA is de grenswaarde een dagelijkse inname van 0,63 ng/kg lichaamsgewicht per dag. Deze waarde is afgeleid van de waarde van 750 ng/kg lichaamsgewicht per dag die uit onderzoek bij ratten kwam.</p>");
+  q.append(el("p",{class:"qtext"},"<b>Waarom is deze waarde voor mensen lager dan voor ratten?</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"PFOA wordt nauwelijks afgebroken of uitgescheiden. Wat gebeurt er dan met de hoeveelheid PFOA in het lichaam als je er elke dag een beetje van binnenkrijgt?",
+    opts:["die stapelt zich op: hoe langer je leeft, hoe meer","die blijft gelijk"],right:0,
+    ok:"Ja. Wat is dan het belangrijkste verschil tussen een mens en een rat?",no:"Als er niets weggaat en er elke dag iets bijkomt …",
+    onDone:()=>choiceStep(think,{q:"De grenswaarde is al per kg lichaamsgewicht. Speelt het verschil in grootte dan nog een rol?",
+      opts:["nee, daar is al voor gecorrigeerd","ja, grote dieren zijn gevoeliger"],right:0,
+      ok:"Klopt. Welke keuze blijft over als je let op de ophoping in de tijd?",no:"‘per kg lichaamsgewicht’: een groter dier mag dus al meer in totaal.",onDone:unlock})});
+  mc(ans,{qid:38,pts:2,right:2,opts:["Mensen behoren tot een ander trofisch niveau dan ratten.","Mensen hebben relatief meer vetweefsel dan ratten.","Mensen leven langer dan ratten.","Mensen zijn groter dan ratten."],
+    onChecked:()=>waaromBtn(ans,textBox("PFOA wordt nauwelijks afgebroken of uitgescheiden: het <b>hoopt zich op</b> in het lichaam. Een mens leeft vele tientallen jaren, een rat een paar jaar. Bij dezelfde dagelijkse inname per kg wordt de totale hoeveelheid bij een mens dus veel groter. Daarom moet de grenswaarde voor mensen veel lager zijn. Het antwoord is <b>C</b>.<br><br><span class=\"muted\">De grootte (D) is al verrekend door ‘per kg lichaamsgewicht’. Het trofisch niveau (A) speelt bij een rechtstreekse inname per dag geen rol.</span>"))});
+  q.append(think,ans);
+}});
+
+/* Vraag 39 */
+Q.push({id:39,pts:1,t:"binding aan plasma-eiwitten",build(q){
+  pre(q,"<p>PFOA wordt nauwelijks uitgescheiden doordat veel PFOA-moleculen binden aan plasma-eiwitten in het bloed. De PFOA-moleculen die niet gebonden zijn, kunnen wel worden uitgescheiden.</p>");
+  q.append(el("p",{class:"qtext"},"<b>Verklaar waardoor de binding van PFOA aan plasma-eiwitten de uitscheiding van PFOA belemmert.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"Bij de ultrafiltratie in het kapsel van Bowman worden stoffen uit het bloed in de voorurine geperst. Gaan plasma-eiwitten daar doorheen?",
+    opts:["nee, ze zijn te groot en blijven in het bloed","ja, net als glucose en zouten"],right:0,
+    ok:"Ja. Wat gebeurt er dan met PFOA dat aan zo’n eiwit vastzit?",no:"In gezonde urine zitten geen eiwitten. Waarom niet?",onDone:unlock});
+  openAnswer(ans,{id:39,pts:1,checks:["Uit je antwoord blijkt dat <b>eiwitten (bij ultrafiltratie) in het bloed blijven</b> / niet of nauwelijks worden uitgescheiden / niet in de (voor)urine terechtkomen (en het gebonden PFOA dus ook niet)."],
+    model:"Plasma-eiwitten zijn te groot om bij de ultrafiltratie in de nieren in de voorurine te komen. PFOA dat aan die eiwitten gebonden is, blijft dus ook in het bloed en wordt niet uitgescheiden.",
+    valkuil:"Schrijven dat PFOA ‘niet oplost’ of ‘in vet wordt opgeslagen’. Het gaat om de <b>grootte van de eiwitten bij de filtratie in de nier</b>.",
+    after:()=>waaromBtn(ans,textBox("In het kapsel van Bowman worden alleen kleine moleculen uit het bloed gefilterd. <b>Plasma-eiwitten zijn te groot</b> en blijven in het bloed. Een PFOA-molecuul dat aan zo’n eiwit vastzit, gaat met het eiwit mee en komt dus niet in de voorurine terecht."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 40 */
+Q.push({id:40,pts:1,t:"genen en tumoren",build(q){
+  pre(q,O6_KADER("<p>Hoewel PFOA geen mutagene effecten heeft, wordt in proefdieren toch een verhoogd aantal tumoren gevonden.</p>")+"<p>Tumoren kunnen – onder invloed van mutagene factoren – ontstaan door mutaties in bepaalde genen die een regulerende functie hebben bij celdeling.</p>");
+  q.append(el("p",{class:"qtext"},"<b>Noteer de naam van een bepaald type genen dat door mutatie een verhoogde kans op tumoren geeft.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"Celdeling wordt geregeld door genen die de deling <b>stimuleren</b> en genen die de deling <b>remmen</b>. Een tumor ontstaat als …",
+    opts:["een stimulerend gen te actief wordt, of een remmend gen uitvalt","alle genen even actief blijven"],right:0,
+    ok:"Ja. Beide soorten genen hebben een eigen naam. Noteer er één. ‘Regulatorgenen’ alleen is niet genoeg.",no:"Denk aan een auto: een gaspedaal dat vastzit of een rem die niet werkt.",onDone:unlock});
+  openAnswer(ans,{id:40,pts:1,checks:["Een juist type genen, bv. <b>(tumor)suppressorgenen</b> / <b>(proto-)oncogenen</b> / ‘zelfmoord’genen / apoptose-genen (of een voorbeeld daarvan, zoals p53)."],
+    model:"Tumorsuppressorgenen (of: proto-oncogenen).",
+    valkuil:"Alleen <b>regulatorgenen</b> noteren: geen punt.",
+    after:()=>waaromBtn(ans,textBox("<b>Proto-oncogenen</b> stimuleren de celdeling. Door een mutatie kunnen ze te actief worden (oncogen). <b>Tumorsuppressorgenen</b> remmen de celdeling of zetten een beschadigde cel aan tot <b>apoptose</b> (zelfmoordgenen). Als die door een mutatie uitvallen, kan een cel ongeremd gaan delen."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 41 */
+Q.push({id:41,pts:2,t:"T-cellen en kankercellen",build(q){
+  pre(q,"<p>De toename van het aantal tumoren bij de proefdieren zou een gevolg kunnen zijn van een verminderde hoeveelheid T-lymfocyten.</p>");
+  q.append(el("p",{class:"qtext"},"<b>Wordt een kankercel herkend aan MHC-I of aan MHC-II? En worden kankercellen gedood door fagocytose of door lysis?</b>"));
+  q.append(el("div",{},O6_TABEL(["herkenning aan","doding door"],[["MHC-I","fagocytose"],["MHC-I","lysis"],["MHC-II","fagocytose"],["MHC-II","lysis"]])));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  selectsStep(think,{uid:"q41",q:"Welke cellen hebben welk MHC?",rows:[
+    ["MHC-I",["bijna alle lichaamscellen met een kern","alleen antigeen-presenterende cellen (zoals macrofagen)"],0],
+    ["MHC-II",["bijna alle lichaamscellen met een kern","alleen antigeen-presenterende cellen (zoals macrofagen)"],1]],
+    ok:"Goed. Een kankercel is een gewone lichaamscel. Welke T-cel doodt hem, en hoe?",no:"Zoek het op in je informatieboek bij de specifieke afweer.",
+    onDone:()=>choiceStep(think,{q:"Een cytotoxische T-cel (T-killercel) doodt een cel door …",
+      opts:["stoffen (perforine) af te geven die het membraan lek maken: de cel valt uiteen","de cel op te eten"],right:0,
+      ok:"Klopt: dat heet lysis. Fagocytose doen macrofagen.",no:"T-cellen eten geen cellen op.",onDone:unlock})});
+  mc(ans,{qid:41,pts:2,right:1,opts:["MHC-I · fagocytose","MHC-I · lysis","MHC-II · fagocytose","MHC-II · lysis"],
+    onChecked:()=>waaromBtn(ans,textBox("Een kankercel is een gewone lichaamscel en presenteert afwijkende eiwitten op <b>MHC-I</b>. Cytotoxische T-cellen herkennen dat en doden de cel door perforine en enzymen af te geven: de cel valt uiteen (<b>lysis</b>). MHC-II zit alleen op antigeen-presenterende cellen; fagocytose wordt gedaan door macrofagen. Het antwoord is <b>B</b>."))});
+  q.append(think,ans);
+}});
+
+/* Vraag 42 */
+Q.push({id:42,pts:1,t:"waarom Bilthoven",build(q){
+  pre(q,`<p>Door de besmetting van grond- en oppervlaktewater met PFAS zouden deze stoffen terecht kunnen komen in voedselgewassen die in de directe omgeving geteeld worden. Om te onderzoeken of dit werkelijk gebeurt, werden groenten uit volkstuintjes in de omgeving van een groot chemiebedrijf in Dordrecht getest op aanwezigheid van PFOA.<br>Behalve groenten uit volkstuintjes in de omgeving van het chemisch bedrijf in Dordrecht werden ook groenten uit volkstuintjes in Bilthoven, dat 60 km verderop ligt, getest op de aanwezigheid van PFOA. De resultaten staan in afbeelding 2.</p>
+  <div class="eyebrow">afbeelding 2</div><div style="max-width:500px">${O6_afb2()}</div>`);
+  q.append(el("p",{class:"qtext"},"<b>Licht toe waarom er ook groenten uit Bilthoven getest werden.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
+  choiceStep(think,{q:"Bilthoven ligt 60 km van het chemiebedrijf. Wat verwacht je daar van de PFOA-besmetting?",
+    opts:["geen of weinig besmetting door het bedrijf","evenveel als bij Dordrecht"],right:0,
+    ok:"Ja. Waarvoor gebruik je in een onderzoek een groep die niet aan de factor is blootgesteld?",no:"Het bedrijf is de vermoedelijke bron van PFOA. Wat betekent afstand?",onDone:unlock});
+  openAnswer(ans,{id:42,pts:1,checks:["Uit je antwoord blijkt dat deze gegevens als <b>controle</b> dienen / een <b>vergelijking</b> mogelijk maken met een (soortgelijk) gebied dat <b>niet in de directe omgeving van een chemisch bedrijf</b> ligt."],
+    model:"De groenten uit Bilthoven zijn een controle: zo kun je vergelijken met een gebied dat niet in de buurt van het chemiebedrijf ligt, en zien of de PFOA bij Dordrecht echt door het bedrijf komt.",
+    valkuil:"Alleen schrijven dat ze ‘meer groenten’ wilden testen. Het gaat om de <b>controle/vergelijking</b>.",
+    after:()=>waaromBtn(ans,textBox("Om te weten of de PFOA in de groenten bij Dordrecht door het chemiebedrijf komt, moet je vergelijken met groenten uit een gebied <b>zonder</b> die bron. Bilthoven is zo’n <b>controle</b>: daar werd in geen enkel monster PFOA aangetoond, bij Dordrecht in 30 van de 74."))});
+  q.append(think,ans);
+}});
+
+OPG.push({nr:6,kort:"PFAS",titel:"PFAS in groentetuintjes",ids:[38,39,40,41,42],ctx:CTX6});
+
+
+/* ================= opgaven en navigatie ================= */
+OPG.sort((a,b)=>a.nr-b.nr);
+/* omzettingstabel normering vwo 2024 tijdvak 1: N-term 1.5, 68 punten (examenblad.nl); index = score */
+const NORM="N-term 1,5";
+const CIJFER=[1.0,1.3,1.5,1.8,2.0,2.2,2.3,2.4,2.6,2.7,2.8,3.0,3.1,3.2,3.4,3.5,3.6,3.8,3.9,4.0,4.1,4.3,4.4,4.5,4.7,4.8,4.9,5.1,5.2,5.3,5.5,5.6,5.7,5.9,6.0,6.1,6.3,6.4,6.5,6.7,6.8,6.9,7.1,7.2,7.3,7.5,7.6,7.7,7.9,8.0,8.1,8.3,8.4,8.5,8.6,8.8,8.9,9.0,9.2,9.3,9.4,9.5,9.6,9.7,9.7,9.8,9.9,9.9,10.0];
+const main=$("#main"),tabs=$("#tabs");let cur=1;const built={},nextBtns={};
+let curOpg=OPG.some(o=>o.nr===store.opg)?store.opg:1;
+const opg=()=>OPG.find(o=>o.nr===curOpg);
+const pts=o=>o.ids.reduce((s,i)=>s+Q.find(q=>q.id===i).pts,0);
+function reach(){const ids=opg().ids;if(store.vrij)return ids[ids.length-1];let k=0;while(k<ids.length-1&&store.scores[ids[k]]!==undefined)k++;return ids[k];}
+function renderTabs(){
+  tabs.innerHTML="";const r=reach();
+  opg().ids.forEach(id=>{const q=Q.find(x=>x.id===id);const locked=id>r;
+    const b=el("button",{class:(id===cur?"cur ":"")+(store.scores[id]!==undefined?"done":"")+(locked?" lock":""),"aria-label":"Vraag "+id+(locked?" (eerst vraag "+(id-1)+" maken)":""),title:locked?"Maak eerst vraag "+(id-1):""},id);
+    if(locked)b.disabled=true;else b.onclick=()=>open(id);tabs.append(b);});
+  const o=el("button",{class:"ov"+(cur==="ov"?" cur":"")},"Score");o.onclick=()=>open("ov");tabs.append(o);
+}
+function open(id){
+  if(id!=="ov"&&id>reach())id=reach();
+  cur=id;renderTabs();main.innerHTML="";
+  if(id==="ov"){main.append(overview());return;}
+  if(!built[id]){const q=Q.find(x=>x.id===id);const sec=el("article",{class:"q"});
+    q.build(sec);
+    const pap=el("section",{class:"papier","aria-label":"Officiële examenvraag "+id});
+    pap.append(el("div",{class:"pkop"},`<span class="pnr"><span class="mono">Examenvraag</span><span class="nr">${id}</span></span><span class="mono">${q.pts} ${q.pts===1?"punt":"punten"}</span>`));
+    for(const c of [...sec.children]){if(c.classList.contains("phase")||c.tagName==="BUTTON")break;pap.append(c);}
+    pap.append(el("div",{class:"pvoet"},"Officiële examentekst · © CvTE"));
+    sec.prepend(pap);
+    const sb=window.EXSTOF&&EXSTOF.blok(TOOL,id);if(sb)pap.after(sb);
+    /* examenvraag nog eens boven de antwoorden (Kamiel 25 okt 2026: niet terug hoeven scrollen) */
+    const qt=[...pap.querySelectorAll(".qtext")].pop(),ansP=sec.querySelector(".phase.ans");
+    if(qt&&ansP){const h=el("div",{class:"herhaal papier"});h.append(el("div",{class:"hkop mono"},`Examenvraag ${id}`));
+      const c=qt.cloneNode(true);c.querySelectorAll("[id]").forEach(x=>x.removeAttribute("id"));h.append(c);
+      const lab=ansP.querySelector(":scope>.label");lab?lab.after(h):ansP.prepend(h);}
+    const ids=opg().ids,last=id===ids[ids.length-1];
+    const nx=el("div",{class:"row",style:"justify-content:flex-end"});const b=el("button",{class:"go"},last?"Naar je score ›":`Volgende vraag (${id+1}) ›`);
+    nextBtns[id]=b;b.hidden=!store.vrij&&store.scores[id]===undefined;
+    b.onclick=()=>{open(last?"ov":id+1);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};nx.append(b);sec.append(nx);built[id]=sec;}
+  main.append(built[id]);
+}
+function overview(){
+  const o=opg();const s=el("section",{class:"phase"});s.append(el("h2",{},`Jouw score op opgave ${o.nr}`));
+  let tot=0;const t=el("table",{class:"data ovtable"});t.innerHTML="<tr><th>vraag</th><th>onderwerp</th><th>score</th></tr>";
+  o.ids.forEach(id=>{const q=Q.find(x=>x.id===id);const p=store.scores[id];if(p!==undefined)tot+=p;t.innerHTML+=`<tr><td>${id}</td><td>${q.t}</td><td>${p===undefined?"–":p} / ${q.pts}</td></tr>`;});
+  const w=el("div",{class:"tablewrap"});w.append(t);s.append(w,el("div",{class:"score"},`Totaal opgave ${o.nr}: ${tot} / ${pts(o)}`));
+  let all=0,allMax=0;OPG.forEach(x=>{allMax+=pts(x);x.ids.forEach(id=>{if(store.scores[id]!==undefined)all+=store.scores[id];});});
+  const gemaakt=OPG.every(x=>x.ids.every(id=>store.scores[id]!==undefined));
+  const cf=CIJFER[Math.min(all,CIJFER.length-1)].toFixed(1).replace(".",",");
+  s.append(el("p",{style:"margin:0"},`Hele examen: <b>${all}</b> van ${allMax} punten · cijfer <b>${cf}</b>`+(gemaakt?"":` <span class="muted">(nog niet alles gemaakt: open vragen tellen als 0 punten)</span>`)));
+  s.append(el("p",{class:"muted",style:"margin:0;font-size:14px"},`Cijfer volgens de officiële omzettingstabel van dit examen (${NORM}, examenblad.nl).`));
+  const nextO=OPG.find(x=>x.nr===o.nr+1);
+  const row=el("div",{class:"row"});
+  if(nextO){const nb=el("button",{class:"go"},`Naar opgave ${nextO.nr}: ${nextO.kort} ›`);nb.onclick=()=>{setOpg(nextO.nr);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};row.append(nb);}
+  const r=el("button",{class:"ghost"},`Opgave ${o.nr} opnieuw`);r.onclick=()=>{o.ids.forEach(id=>{delete store.scores[id];delete built[id];delete nextBtns[id];});save();open(o.ids[0]);};row.append(r);
+  s.append(row);return s;
+}
+function renderOpgs(){const box=$("#opgs");box.innerHTML="";
+  OPG.forEach(o=>{const b=el("button",{"aria-pressed":o.nr===curOpg?"true":"false"},`${o.nr} · ${o.kort}`);b.onclick=()=>setOpg(o.nr);box.append(b);});}
+function setOpg(n){curOpg=n;store.opg=n;save();const o=opg();
+  $("#eb").textContent=`Examen vwo 2024 · tijdvak 1 · opgave ${o.nr}`;$("#h1").textContent=o.titel;
+  $("#sub").textContent=`vraag ${o.ids[0]} t/m ${o.ids[o.ids.length-1]} · ${pts(o)} punten`;
+  $("#ctx").innerHTML=o.ctx;renderOpgs();open(reach());}
+function setVrij(v){store.vrij=v;save();$("#vrij").setAttribute("aria-pressed",v?"true":"false");
+  for(const k in nextBtns)nextBtns[k].hidden=!v&&store.scores[k]===undefined;renderTabs();}
+$("#vrij").onclick=()=>setVrij(!store.vrij);setVrij(!!store.vrij);
+EXSTAND.init({store,save,setVrij});
+setOpg(curOpg);
+})();
+
+</script>
+</body>
+</html>

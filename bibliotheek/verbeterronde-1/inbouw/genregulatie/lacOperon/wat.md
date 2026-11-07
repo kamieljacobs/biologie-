@@ -1,0 +1,3 @@
+Keuze 'gelijk' (geen duidelijke winnaar). Het object is nieuw, er staat dus geen huidige versie in lib_bio.js: niets ingebouwd.
+De gemelde fout is wel bevestigd met twee bronnen: zonder lactose zit de repressor óp de operator en blokkeert RNA-polymerase. Bronnen: Sinauer/Macmillan Life 11e, animatiescript 'The lac Operon' (https://digfir-published.macmillanusa.com/life_11e_animation/asset/sinauer_life11e_animation_scripts/life11e_1601_lac_operon_scr.html) en ODU Genetics 'lac operon' (https://sites.wp.odu.edu/biol294-genetics/wp-content/uploads/sites/28718/2022/04/lac_operon.pdf).
+Vraag aan Kamiel: welke variant (A, B of C)? Daarna zetten we de repressor op de operator.

@@ -1,0 +1,364 @@
+{
+ "versie": 1,
+ "film": "films/dna/2-dna-kopieren.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-replicatie",
+   "soort": "volgorde",
+   "titel": "Van één DNA-molecuul naar twee",
+   "opdracht": "Een huidcel gaat delen. Zet de stappen van het kopiëren van het DNA in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "De S-fase begint: de cel gaat haar DNA kopiëren.",
+     "uitleg": "Het kopiëren gebeurt vóór de deling, in de S-fase (synthese)."
+    },
+    {
+     "tekst": "Helicase trekt de twee strengen uit elkaar, als een rits die opengaat.",
+     "uitleg": "Nu liggen de basen vrij. Elke streng is een voorbeeld voor een nieuwe."
+    },
+    {
+     "tekst": "Vrije nucleotiden botsen tegen de open streng; alleen een passende base blijft hangen.",
+     "uitleg": "Tegenover A past T, tegenover C past G. De basenparing bepaalt wat past."
+    },
+    {
+     "tekst": "DNA-polymerase koppelt elke passende nucleotide vast aan de vorige.",
+     "uitleg": "Het enzym zoekt niets uit: het maakt alleen de verbinding."
+    },
+    {
+     "tekst": "Er liggen twee dubbele DNA-moleculen, allebei gelijk aan het origineel.",
+     "uitleg": "Elke oude streng heeft een nieuwe partner gekregen."
+    },
+    {
+     "tekst": "In de M-fase worden de twee kopieën verdeeld over de dochtercellen.",
+     "uitleg": "Zo krijgt elke dochtercel een complete kopie van het DNA."
+    }
+   ]
+  },
+  {
+   "id": "schema-kopieren",
+   "soort": "schema",
+   "titel": "DNA kopiëren in beeld",
+   "opdracht": "Hier wordt DNA gekopieerd. Goud is nieuw gebouwd DNA. Sleep de namen naar de goede vakjes.",
+   "alt": "Lijntekening van DNA dat wordt gekopieerd: links het dubbele DNA, in de vork een enzym dat de strengen uit elkaar trekt, rechts twee oude strengen met elk een nieuwe streng ernaast, een enzym bij een nieuwe streng en losse nucleotiden.",
+   "breed": 760,
+   "hoog": 420,
+   "vakbreed": 164,
+   "svg": "<path stroke-width=\"2.4\" d=\"M200 195 L385 195\"/><path stroke-width=\"2.4\" d=\"M200 225 L385 225\"/><path stroke-width=\"1.3\" d=\"M208 197 V223\"/><path stroke-width=\"1.3\" d=\"M221 197 V223\"/><path stroke-width=\"1.3\" d=\"M234 197 V223\"/><path stroke-width=\"1.3\" d=\"M247 197 V223\"/><path stroke-width=\"1.3\" d=\"M260 197 V223\"/><path stroke-width=\"1.3\" d=\"M273 197 V223\"/><path stroke-width=\"1.3\" d=\"M286 197 V223\"/><path stroke-width=\"1.3\" d=\"M299 197 V223\"/><path stroke-width=\"1.3\" d=\"M312 197 V223\"/><path stroke-width=\"1.3\" d=\"M325 197 V223\"/><path stroke-width=\"1.3\" d=\"M338 197 V223\"/><path stroke-width=\"1.3\" d=\"M351 197 V223\"/><path stroke-width=\"1.3\" d=\"M364 197 V223\"/><path stroke-width=\"1.3\" d=\"M377 197 V223\"/><path stroke-width=\"2.4\" d=\"M385 195 L560 105.1\"/><path class=\"acc\" stroke-width=\"2.4\" d=\"M464.4 178.9 L570 124.6\"/><path stroke-width=\"1.3\" d=\"M458.8 159.3 L467 175.3\"/><path stroke-width=\"1.3\" d=\"M470.4 153.4 L478.6 169.4\"/><path stroke-width=\"1.3\" d=\"M481.9 147.4 L490.2 163.4\"/><path stroke-width=\"1.3\" d=\"M493.5 141.5 L501.7 157.5\"/><path stroke-width=\"1.3\" d=\"M505 135.5 L513.3 151.5\"/><path stroke-width=\"1.3\" d=\"M516.6 129.6 L524.8 145.6\"/><path stroke-width=\"1.3\" d=\"M528.2 123.7 L536.4 139.7\"/><path stroke-width=\"1.3\" d=\"M539.7 117.7 L547.9 133.7\"/><path stroke-width=\"1.3\" d=\"M551.3 111.8 L559.5 127.8\"/><path stroke-width=\"1.3\" d=\"M398.4 190.4 L401.6 196.6\"/><path stroke-width=\"1.3\" d=\"M409.9 184.4 L413.1 190.7\"/><path stroke-width=\"1.3\" d=\"M421.5 178.5 L424.7 184.7\"/><path stroke-width=\"1.3\" d=\"M433 172.6 L436.2 178.8\"/><path stroke-width=\"1.3\" d=\"M444.6 166.6 L447.8 172.8\"/><path stroke-width=\"2.4\" d=\"M385 225 L560 314.9\"/><path class=\"acc\" stroke-width=\"2.4\" d=\"M480.4 249.3 L570 295.4\"/><path stroke-width=\"1.3\" d=\"M474.8 268.9 L483 252.9\"/><path stroke-width=\"1.3\" d=\"M486.4 274.9 L494.6 258.9\"/><path stroke-width=\"1.3\" d=\"M497.9 280.8 L506.2 264.8\"/><path stroke-width=\"1.3\" d=\"M509.5 286.7 L517.7 270.7\"/><path stroke-width=\"1.3\" d=\"M521 292.7 L529.3 276.7\"/><path stroke-width=\"1.3\" d=\"M532.6 298.6 L540.8 282.6\"/><path stroke-width=\"1.3\" d=\"M544.2 304.6 L552.4 288.6\"/><path stroke-width=\"1.3\" d=\"M555.7 310.5 L563.9 294.5\"/><path stroke-width=\"1.3\" d=\"M398.4 229.6 L401.6 223.4\"/><path stroke-width=\"1.3\" d=\"M409.9 235.6 L413.1 229.3\"/><path stroke-width=\"1.3\" d=\"M421.5 241.5 L424.7 235.3\"/><path stroke-width=\"1.3\" d=\"M433 247.4 L436.2 241.2\"/><path stroke-width=\"1.3\" d=\"M444.6 253.4 L447.8 247.2\"/><path stroke-width=\"1.3\" d=\"M456.1 259.3 L459.3 253.1\"/><path stroke-width=\"2.2\" d=\"M402.6 210 Q404.6 216.6 397.5 219.4 Q390.5 223.2 382.4 220.7 Q384.3 212.5 384.6 208.8 Q378.2 199.1 389.1 201.1 Q395 201.4 407.7 198.2 Q405.6 208 409.4 216 Q400.1 219.5 393.2 223.6 Q387.6 217.1 378.2 216.9 Q372.8 209.6 379.9 203.2 Q384.6 196.5 394 196.1 Q397.1 204.5 408.7 205 Q407.1 212.8 400.2 216.8\"/><path stroke-width=\"2.2\" d=\"M466.3 177.2 Q462.5 181.5 461.7 189.6 Q453.7 184.3 445.6 187.1 Q443 181 446.6 175.9 Q444.1 169 452.5 170.8 Q458.3 166.4 460.8 172.6 Q463 176 466.7 181.4 Q465.5 190 455.2 184.9 Q449.7 185.1 440.8 184.1 Q434.3 176.8 441.8 170.1 Q449.2 167.4 457 159.8 Q459.5 171.9 472.5 171.9 Q465.6 179.3 461.2 182.8\"/><g transform=\"translate(505 205) rotate(0) scale(1.5)\"><path stroke-width=\"1.4\" d=\"M0 -7 L6.7 -2.2 L4.1 5.7 L-4.1 5.7 L-6.7 -2.2 Z\"/><circle cx=\"-14\" cy=\"-4\" r=\"4\" stroke-width=\"1.4\"/><path stroke-width=\"1.4\" d=\"M-10 -3 L-6 -2\"/><path stroke-width=\"2.0\" d=\"M7 1 L20 1 L20 -4\"/></g><g transform=\"translate(530 248) rotate(-20) scale(1.5)\"><path stroke-width=\"1.4\" d=\"M0 -7 L6.7 -2.2 L4.1 5.7 L-4.1 5.7 L-6.7 -2.2 Z\"/><circle cx=\"-14\" cy=\"-4\" r=\"4\" stroke-width=\"1.4\"/><path stroke-width=\"1.4\" d=\"M-10 -3 L-6 -2\"/><path stroke-width=\"2.0\" d=\"M7 1 L20 1 L20 -4\"/></g><g transform=\"translate(470 236) rotate(25) scale(1.5)\"><path stroke-width=\"1.4\" d=\"M0 -7 L6.7 -2.2 L4.1 5.7 L-4.1 5.7 L-6.7 -2.2 Z\"/><circle cx=\"-14\" cy=\"-4\" r=\"4\" stroke-width=\"1.4\"/><path stroke-width=\"1.4\" d=\"M-10 -3 L-6 -2\"/><path stroke-width=\"2.0\" d=\"M7 1 L20 1 L20 -4\"/></g><text x=\"200\" y=\"270\" text-anchor=\"start\" style=\"font-size:13px\">oud DNA</text>",
+   "vakjes": [
+    {
+     "naam": "basenpaar",
+     "x": 100,
+     "y": 120,
+     "punt": [
+      286,
+      210
+     ],
+     "uitleg": "tegenover A staat altijd T, tegenover C altijd G."
+    },
+    {
+     "naam": "helicase",
+     "x": 100,
+     "y": 320,
+     "punt": [
+      392,
+      224
+     ],
+     "uitleg": "enzym dat de twee strengen uit elkaar trekt, als een rits die opengaat."
+    },
+    {
+     "naam": "oude streng",
+     "x": 668,
+     "y": 60,
+     "punt": [
+      520,
+      125
+     ],
+     "uitleg": "elke oude streng is het voorbeeld voor een nieuwe."
+    },
+    {
+     "naam": "nieuwe streng",
+     "x": 668,
+     "y": 170,
+     "punt": [
+      515,
+      163
+     ],
+     "uitleg": "langs elke oude streng groeit een nieuwe; de basenparing bepaalt wat past."
+    },
+    {
+     "naam": "DNA-polymerase",
+     "x": 668,
+     "y": 260,
+     "punt": [
+      458.54200000000003,
+      177.23399999999998
+     ],
+     "uitleg": "enzym dat elke passende nucleotide vastkoppelt aan de vorige; het zoekt zelf niets uit."
+    },
+    {
+     "naam": "vrije nucleotide",
+     "x": 668,
+     "y": 370,
+     "punt": [
+      505,
+      205
+     ],
+     "uitleg": "losse bouwsteen in het kernplasma; past de base niet, dan stuitert hij weg."
+    }
+   ]
+  },
+  {
+   "id": "schema-replicatievork",
+   "soort": "schema",
+   "vwo": true,
+   "titel": "De replicatievork van dichtbij",
+   "opdracht": "Goud is nieuw DNA, stippels zijn primers. Sleep de namen naar de goede vakjes. Let op de richting: 5' en 3'.",
+   "alt": "Lijntekening van een replicatievork met 5'- en 3'-uiteinden: boven een lange nieuwe streng met een enzym bij de vork, onder drie korte nieuwe stukken met elk een primer.",
+   "breed": 760,
+   "hoog": 420,
+   "vakbreed": 170,
+   "svg": "<path stroke-width=\"2.4\" d=\"M60 200 L300 200\"/><path stroke-width=\"2.4\" d=\"M60 230 L300 230\"/><path stroke-width=\"1.3\" d=\"M68 202 V228\"/><path stroke-width=\"1.3\" d=\"M81 202 V228\"/><path stroke-width=\"1.3\" d=\"M94 202 V228\"/><path stroke-width=\"1.3\" d=\"M107 202 V228\"/><path stroke-width=\"1.3\" d=\"M120 202 V228\"/><path stroke-width=\"1.3\" d=\"M133 202 V228\"/><path stroke-width=\"1.3\" d=\"M146 202 V228\"/><path stroke-width=\"1.3\" d=\"M159 202 V228\"/><path stroke-width=\"1.3\" d=\"M172 202 V228\"/><path stroke-width=\"1.3\" d=\"M185 202 V228\"/><path stroke-width=\"1.3\" d=\"M198 202 V228\"/><path stroke-width=\"1.3\" d=\"M211 202 V228\"/><path stroke-width=\"1.3\" d=\"M224 202 V228\"/><path stroke-width=\"1.3\" d=\"M237 202 V228\"/><path stroke-width=\"1.3\" d=\"M250 202 V228\"/><path stroke-width=\"1.3\" d=\"M263 202 V228\"/><path stroke-width=\"1.3\" d=\"M276 202 V228\"/><path stroke-width=\"1.3\" d=\"M289 202 V228\"/><path stroke-width=\"2.4\" d=\"M300 200 C318 198 322 150 345 150 L700 150\"/><path stroke-width=\"2.4\" d=\"M300 230 C318 232 322 280 345 280 L700 280\"/><text x=\"42\" y=\"205\" text-anchor=\"middle\" style=\"font-size:14px\">5'</text><text x=\"42\" y=\"236\" text-anchor=\"middle\" style=\"font-size:14px\">3'</text><text x=\"718\" y=\"155\" text-anchor=\"middle\" style=\"font-size:14px\">3'</text><text x=\"718\" y=\"286\" text-anchor=\"middle\" style=\"font-size:14px\">5'</text><path class=\"acc\" stroke-width=\"2.6\" d=\"M372 174 L676 174\"/><path class=\"acc\" stroke-width=\"4\" d=\"M676 174 L700 174\" stroke-dasharray=\"2 4\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M380 152 V172\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M393 152 V172\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M406 152 V172\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M419 152 V172\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M432 152 V172\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M445 152 V172\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M458 152 V172\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M471 152 V172\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M484 152 V172\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M497 152 V172\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M510 152 V172\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M523 152 V172\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M536 152 V172\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M549 152 V172\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M562 152 V172\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M575 152 V172\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M588 152 V172\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M601 152 V172\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M614 152 V172\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M627 152 V172\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M640 152 V172\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M653 152 V172\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M666 152 V172\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M679 152 V172\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M692 152 V172\"/><text x=\"364\" y=\"196\" text-anchor=\"end\" style=\"font-size:12px\">3'</text><text x=\"706\" y=\"196\" text-anchor=\"start\" style=\"font-size:12px\">5'</text><path stroke-width=\"2\" d=\"M370.3 170 Q369.7 175.1 366.7 181.6 Q359 178.8 353.4 177.3 Q349.1 173.5 352.6 168.8 Q352 163.7 356.8 160 Q364 158.7 364.9 166.3 Q368.6 168.7 366.1 172.1 Q368.2 179.6 360.9 180.9 Q357.2 174.5 346.4 176.8 Q344.4 169.7 349.6 164.2 Q354.9 160.7 360.9 163.9 Q363.6 166.2 370.5 166.9 Q366.1 171.1 365.4 174.5\"/><path class=\"acc\" stroke-width=\"4\" d=\"M392 256 L408 256\" stroke-dasharray=\"2 4\"/><path class=\"acc\" stroke-width=\"2.6\" d=\"M408 256 L452 256\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M396 258 V278\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M409 258 V278\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M422 258 V278\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M435 258 V278\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M448 258 V278\"/><path class=\"acc\" stroke-width=\"4\" d=\"M478 256 L494 256\" stroke-dasharray=\"2 4\"/><path class=\"acc\" stroke-width=\"2.6\" d=\"M494 256 L580 256\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M482 258 V278\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M495 258 V278\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M508 258 V278\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M521 258 V278\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M534 258 V278\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M547 258 V278\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M560 258 V278\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M573 258 V278\"/><path class=\"acc\" stroke-width=\"4\" d=\"M606 256 L622 256\" stroke-dasharray=\"2 4\"/><path class=\"acc\" stroke-width=\"2.6\" d=\"M622 256 L700 256\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M610 258 V278\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M623 258 V278\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M636 258 V278\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M649 258 V278\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M662 258 V278\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M675 258 V278\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M688 258 V278\"/><path stroke-width=\"2\" d=\"M476.6 252 Q475.9 257.2 471.4 261.2 Q464.7 263.4 458.9 259.9 Q453.6 256 460.9 251.2 Q459.3 246.7 462.5 240.9 Q469.1 243.2 475.8 244.6 Q471.8 251.2 474.5 254.9 Q470.2 256.9 466.7 260.3 Q461.3 259.6 461.7 254.2 Q459.1 251.9 459.8 248.5 Q460.4 241.8 467.4 242 Q470 247.8 477.5 248.6 Q472 253.1 473.5 258.2\"/><text x=\"386\" y=\"248\" text-anchor=\"end\" style=\"font-size:12px\">5'</text><path stroke-width=\"2\" d=\"M309.6 215 Q311 219.7 305.9 221.7 Q300.9 224.4 295.1 222.7 Q296.5 216.8 296.7 214.1 Q292.2 207.2 300 208.6 Q304.2 208.9 313.2 206.6 Q311.7 213.6 314.4 219.3 Q307.8 221.8 302.8 224.7 Q298.9 220.1 292.1 219.9 Q288.3 214.7 293.3 210.2 Q296.7 205.4 303.4 205 Q305.7 211.1 313.9 211.4 Q312.8 217 307.9 219.9\"/><text x=\"250\" y=\"128\" text-anchor=\"middle\" style=\"font-size:13px\">← de vork schuift deze kant op</text>",
+   "vakjes": [
+    {
+     "naam": "DNA-polymerase",
+     "x": 120,
+     "y": 45,
+     "punt": [
+      356,
+      166
+     ],
+     "uitleg": "zet nieuwe nucleotiden altijd aan het 3'-uiteinde: bouwt van 5' naar 3'."
+    },
+    {
+     "naam": "leidende streng",
+     "x": 420,
+     "y": 45,
+     "punt": [
+      540,
+      174
+     ],
+     "uitleg": "bouwt met de vork mee, in één lange keten."
+    },
+    {
+     "naam": "primer",
+     "x": 650,
+     "y": 45,
+     "punt": [
+      690,
+      174
+     ],
+     "uitleg": "kort startstukje, gemaakt door primase; DNA-polymerase kan niet zelf beginnen."
+    },
+    {
+     "naam": "helicase",
+     "x": 120,
+     "y": 385,
+     "punt": [
+      300,
+      222
+     ],
+     "uitleg": "trekt de twee strengen uit elkaar in de vork."
+    },
+    {
+     "naam": "Okazaki-fragment",
+     "x": 420,
+     "y": 385,
+     "punt": [
+      530,
+      256
+     ],
+     "uitleg": "kort stuk nieuw DNA op de volgende streng, gebouwd van de vork af; ligase plakt de stukken later aan elkaar."
+    }
+   ],
+   "afleiders": [
+    "RNA-polymerase"
+   ]
+  },
+  {
+   "id": "uitleg-twee-gelijk",
+   "soort": "uitleg",
+   "titel": "Ken je één streng, dan ken je de andere",
+   "opdracht": "Na het kopiëren zijn de twee DNA-moleculen precies gelijk aan het origineel. Leg uit hoe dat kan, terwijl het enzym 'niets uitzoekt'.",
+   "begrippen": [
+    {
+     "naam": "basenparing",
+     "varianten": [
+      "complementair",
+      "A tegenover T",
+      "past"
+     ]
+    },
+    {
+     "naam": "helicase",
+     "varianten": []
+    },
+    {
+     "naam": "DNA-polymerase",
+     "varianten": [
+      "polymerase"
+     ]
+    },
+    {
+     "naam": "vrije nucleotiden",
+     "varianten": [
+      "vrije nucleotide",
+      "losse nucleotiden",
+      "bouwstenen"
+     ]
+    },
+    {
+     "naam": "oude streng",
+     "varianten": [
+      "voorbeeld",
+      "matrijs"
+     ]
+    },
+    {
+     "naam": "nieuwe streng",
+     "varianten": []
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat helicase de twee strengen uit elkaar trekt, zodat elke oude streng een voorbeeld is.",
+    "Ik leg uit dat tegenover A alleen T past en tegenover C alleen G (basenparing).",
+    "Ik leg uit dat alleen passende vrije nucleotiden blijven hangen en dat DNA-polymerase die alleen vastkoppelt.",
+    "Ik concludeer dat elke oude streng dezelfde partner terugkrijgt, dus dat beide moleculen gelijk zijn."
+   ],
+   "model": [
+    "Helicase trekt de twee strengen van het DNA uit elkaar. Elke oude streng is daarna een voorbeeld voor een nieuwe streng.",
+    "Vrije nucleotiden botsen tegen de open streng. Tegenover A past alleen T en tegenover C alleen G: past een base niet, dan stuitert hij weg. DNA-polymerase koppelt de passende nucleotiden alleen aan elkaar; de basenparing bepaalt wat past.",
+    "Zo krijgt elke oude streng precies dezelfde partner terug als in het origineel. Er ontstaan twee dubbele DNA-moleculen die allebei gelijk zijn aan het origineel."
+   ]
+  },
+  {
+   "id": "uitleg-meselson-stahl",
+   "soort": "uitleg",
+   "vwo": true,
+   "titel": "Zwaar en licht DNA",
+   "opdracht": "Meselson en Stahl kweekten bacteriën eerst op zware stikstof en daarna op lichte. Leg uit welk resultaat ze na één en na twee keer kopiëren vonden, en waarom dat semiconservatief kopiëren bewijst.",
+   "begrippen": [
+    {
+     "naam": "semiconservatief",
+     "varianten": [
+      "semi-conservatief",
+      "half oud half nieuw"
+     ]
+    },
+    {
+     "naam": "oude streng",
+     "varianten": [
+      "oude",
+      "oud"
+     ]
+    },
+    {
+     "naam": "nieuwe streng",
+     "varianten": [
+      "nieuwe",
+      "nieuw"
+     ]
+    },
+    {
+     "naam": "zware stikstof",
+     "varianten": [
+      "zwaar"
+     ]
+    },
+    {
+     "naam": "lichte stikstof",
+     "varianten": [
+      "licht"
+     ]
+    },
+    {
+     "naam": "half zwaar",
+     "varianten": [
+      "halfzwaar",
+      "half-zwaar",
+      "tussen"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat al het DNA eerst zwaar was en dat nieuwe strengen met lichte stikstof licht zijn.",
+    "Ik leg uit dat na één keer kopiëren alle moleculen half zwaar zijn: één oude zware en één nieuwe lichte streng.",
+    "Ik leg uit dat er na twee keer twee groepen zijn: half zwaar en helemaal licht.",
+    "Ik leg uit dat dit precies past bij semiconservatief: elk nieuw molecuul houdt één oude streng."
+   ],
+   "model": [
+    "Op zware stikstof werd al het DNA van de bacteriën zwaar. Daarna kregen ze lichte stikstof, dus elke nieuwe streng die ze bouwden, was licht.",
+    "Na één keer kopiëren waren alle moleculen half zwaar: elk molecuul bestond uit één oude zware streng en één nieuwe lichte streng. Na een tweede ronde waren er twee groepen: half zwaar en helemaal licht.",
+    "Dat is precies wat je verwacht als kopiëren semiconservatief is: elk nieuw DNA-molecuul bestaat uit één oude en één nieuwe streng. De helft wordt bewaard."
+   ]
+  },
+  {
+   "id": "uitleg-volgende-streng",
+   "soort": "uitleg",
+   "vwo": true,
+   "titel": "Waarom in stukjes?",
+   "opdracht": "Langs de ene streng bouwt DNA-polymerase één lange keten, langs de andere korte stukjes. Leg uit hoe dat komt.",
+   "begrippen": [
+    {
+     "naam": "antiparallel",
+     "varianten": [
+      "andersom",
+      "tegengesteld"
+     ]
+    },
+    {
+     "naam": "5' naar 3'",
+     "varianten": [
+      "5 naar 3",
+      "vijf naar drie",
+      "3'-uiteinde",
+      "3 uiteinde",
+      "drie-accent"
+     ]
+    },
+    {
+     "naam": "primer",
+     "varianten": [
+      "startstukje",
+      "primase"
+     ]
+    },
+    {
+     "naam": "leidende streng",
+     "varianten": [
+      "leidend"
+     ]
+    },
+    {
+     "naam": "volgende streng",
+     "varianten": [
+      "volgend"
+     ]
+    },
+    {
+     "naam": "Okazaki-fragmenten",
+     "varianten": [
+      "Okazaki",
+      "fragmenten",
+      "stukjes"
+     ]
+    },
+    {
+     "naam": "ligase",
+     "varianten": []
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat de twee strengen antiparallel lopen.",
+    "Ik leg uit dat DNA-polymerase alleen aan het 3'-uiteinde bouwt (van 5' naar 3') en een primer nodig heeft om te beginnen.",
+    "Ik leg uit dat dat langs de leidende streng met de vork mee kan, en langs de volgende streng alleen van de vork af, in Okazaki-fragmenten.",
+    "Ik noem dat ligase de fragmenten later aan elkaar plakt."
+   ],
+   "model": [
+    "De twee strengen van het DNA lopen antiparallel: de ene van 5' naar 3', de andere andersom. DNA-polymerase plakt een nieuwe nucleotide altijd aan het 3'-uiteinde, dus bouwt altijd van 5' naar 3'. Het kan niet zelf beginnen en heeft een primer nodig, gemaakt door primase.",
+    "Langs de ene oude streng loopt die richting met de vork mee. Daar bouwt het enzym in één lange keten: de leidende streng.",
+    "Langs de andere oude streng loopt de richting van de vork af. Daar moet het enzym steeds opnieuw beginnen bij de vork en een stukje terugbouwen: de Okazaki-fragmenten. Ligase plakt die fragmenten later aan elkaar tot de volgende streng."
+   ]
+  }
+ ]
+}

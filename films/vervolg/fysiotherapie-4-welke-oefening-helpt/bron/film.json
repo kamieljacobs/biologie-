@@ -1,0 +1,89 @@
+{
+ "slug": "fysiotherapie-4-welke-oefening-helpt",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Welke oefening helpt?",
+ "sub": "vier klachten, vier soorten belasting",
+ "puzzle": "Waarom geeft een fysiotherapeut vooral oefeningen mee, en geen massage of apparaat?",
+ "meta": "fysiotherapie · oefentherapie",
+ "alleen": "vwo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Fysiotherapie",
+ "lead": "Op het spreekuur van fysiotherapeut Femke komen een verzwikte enkel, een overbelaste knieschijfpees, lage rugpijn en een pijnlijke schouder. Ze sluit eerst uit wat gevaarlijk is en geeft dan de juiste belasting: balansoefeningen voor het spiergevoel, zware en langzame oefeningen voor de pees, blijven bewegen bij rugpijn en kracht voor de spieren rond de schouder. En ze laat zien hoe je met een nepbehandeling test of een behandeling echt werkt.",
+ "endHaak": "welke behandeling heb jij weleens gehad, en weet je of die getest is tegen een nepbehandeling?",
+ "minis": {
+  "Hoofdstuk 1": "Waarom helpt staan op een kussen?",
+  "Hoofdstuk 2": "Waarom maakt rust een pees zwakker?",
+  "Hoofdstuk 3": "Waarom zegt een scan bij rugpijn weinig?",
+  "Hoofdstuk 4": "Hoe test je of een operatie echt werkt?",
+  "Recap": "Welk idee zit achter alle vier de oefeningen?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Fysiotherapeut Femke, Noor, Bilal, Verpleegkundige Jesse en Yasmin (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Waarom gaan alle vier de patiënten vooral met oefeningen naar huis?",
+   "correct": 2,
+   "explain": "De juiste belasting verandert weefsel en aansturing echt; dat is vaak beter onderzocht en werkzamer dan passieve behandelingen."
+  },
+  "q05": {
+   "q": "Waarom helpt staan op één been op een kussen tegen een nieuwe verzwikking?",
+   "correct": 0,
+   "explain": "Bij een verzwikking raken ook zintuigjes in band en spieren beschadigd; balanstraining traint het spiergevoel, zodat je sneller bijstuurt."
+  },
+  "q08": {
+   "q": "Bij de oefeningen doet Bilals knie een beetje pijn. Wat zegt Femke?",
+   "correct": 2,
+   "explain": "Pijn tot ongeveer 5 op 10 mag, als die de volgende ochtend weer gezakt is; de pees past zich aan aan de belasting."
+  },
+  "q11": {
+   "q": "Waarom wil Femke geen scan van Jesses rug?",
+   "correct": 1,
+   "explain": "Slijtage op een scan zie je ook bij veel mensen zonder pijn; zonder alarmsignalen verklaart een scan weinig en kan hij iemand bang maken."
+  },
+  "q14": {
+   "q": "Hoe zoek je uit of een operatie echt helpt?",
+   "correct": 1,
+   "explain": "Vergelijk met een groep die een nepoperatie krijgt; dan zie je wat de ingreep zelf toevoegt bovenop verwachting en tijd."
+  }
+ },
+ "glossary": [
+  {
+   "t": "enkelverzwikking",
+   "d": "De enkel klapt meestal naar buiten om, waardoor de buitenste enkelband wordt uitgerekt of inscheurt."
+  },
+  {
+   "t": "balanstraining",
+   "d": "Oefeningen op één been of op een wiebelig kussen die het spiergevoel trainen; verminderen de kans op een nieuwe verzwikking."
+  },
+  {
+   "t": "overbelaste pees",
+   "d": "Pees met pijn door te veel belasting; de collageendraden zijn rommelig, maar er is niets gescheurd en meestal geen echte ontsteking (tendinopathie)."
+  },
+  {
+   "t": "collageen",
+   "d": "Eiwit dat in draden de stevigheid van pees, band en huid geeft; peescellen maken meer collageen als de pees belast wordt."
+  },
+  {
+   "t": "lage rugpijn",
+   "d": "Pijn onder in de rug; bij de meeste mensen is er geen duidelijke oorzaak te vinden (aspecifiek)."
+  },
+  {
+   "t": "tussenwervelschijf",
+   "d": "Schokdempende schijf tussen twee wervels; slijtage ervan zie je op scans ook bij veel mensen zonder pijn."
+  },
+  {
+   "t": "alarmsignalen",
+   "d": "Klachten die wijzen op iets ernstigs, zoals bij rugpijn een gevoelloos zitvlak, moeite met plassen of koorts; dan direct naar een arts."
+  },
+  {
+   "t": "rotatorenmanchet",
+   "d": "De vier kleine spieren rond het schoudergewricht die de kop van de bovenarm in de kom houden."
+  },
+  {
+   "t": "nepbehandeling",
+   "d": "Behandeling die op de echte lijkt maar het werkzame deel mist (placebo); nodig om te testen of een behandeling zelf iets toevoegt."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Iemand heeft zijn enkel verzwikt en is na drie weken weer pijnvrij. Waarom raadt de fysiotherapeut toch nog balansoefeningen aan? <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Bij de verzwikking zijn ook zintuigjes in band en spieren beschadigd, waardoor je minder goed voelt hoe je voet staat (1p). Balanstraining herstelt dat spiergevoel en verkleint de kans op een nieuwe verzwikking (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Leg uit waarom een overbelaste pees met alleen rust niet goed beter wordt. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Rust vermindert de pijn, maar een pees die niet belast wordt, wordt zwakker (1p). Pas door (zware, langzame) belasting maken de peescellen nieuw collageen en wordt de pees sterk genoeg voor springen (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Bij 37 % van de twintigjarigen zonder rugpijn laat een scan slijtage zien. Waarom maakt dat een scan bij lage rugpijn weinig nuttig? <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Als slijtage ook vaak voorkomt bij mensen zonder pijn, kun je niet zeggen dat de slijtage de pijn veroorzaakt (1p). Zo'n uitslag kan iemand bovendien bang maken om te bewegen, terwijl bewegen juist helpt (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> In een onderzoek ging de groep met een schouderoperatie even veel vooruit als de groep met alleen een kijkoperatie. Wat concludeer je over de operatie, en waarom was de kijkoperatie-groep nodig? <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>De ingreep zelf (ruimte maken) voegt weinig toe (1p). Zonder vergelijkingsgroep had je de verbetering door verwachting en tijd aan de operatie toegeschreven (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Extra film buiten het PTA op <i>Wat word jij?</i> → Fysiotherapie en bewegingswetenschappen. Bouwt voort op <i>Wat is er met die knie?</i> (onderzoek, foto-regels), <i>Hoe weefsel herstelt</i> (pees en collageen), <i>Opnieuw leren bewegen</i> (spiergevoel) en <i>Trainen</i> (belasting en herstel). De film is geen zelfdiagnose: de recap zegt dat je een klacht die niet overgaat moet laten onderzoeken.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>Cold open</b> één spreekuur met vier klachten. <b>H1</b> enkelverzwikking: foto-regels, uitgesteld onderzoek, balanstraining. <b>H2</b> overbelaste knieschijfpees: rust tegenover zware, langzame belasting met pijnmonitoring. <b>H3</b> lage rugpijn: geen scan zonder alarmsignalen, blijf bewegen. <b>H4</b> schouder: rotatorenmanchet, en testen tegen een nepbehandeling (CSAW); ultrageluid voegt nauwelijks iets toe.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Balanstraining na verzwikking</td><td>8 weken thuis: ± een derde minder nieuwe verzwikkingen</td><td>Hupperets e.a. 2009, BMJ 339:b2684</td></tr>\n<tr><td>Foto-regels enkel; opnieuw testen na 4–5 dagen</td><td>drukpijn op bepaalde plekjes bot of geen 4 stappen</td><td>Ottawa ankle rules; KNGF-richtlijn Enkelletsel 2023</td></tr>\n<tr><td>Peesklacht</td><td>zware, langzame belasting, 12 weken; pijn tot ± 5/10 als die de volgende ochtend gezakt is</td><td>Kongsgaard e.a. 2009; Silbernagel e.a. 2007 (pijnmonitoring)</td></tr>\n<tr><td>Lage rugpijn</td><td>8 van de 10 mensen ooit; meestal aspecifiek</td><td>NHG-Standaard Lage rugpijn; KNGF-richtlijn Lage rugpijn</td></tr>\n<tr><td>Slijtage op scans zonder pijn</td><td>20 jaar: 37 %; 80 jaar: 96 %</td><td>Brinjikji e.a. 2015, AJNR 36</td></tr>\n<tr><td>Schouderoperatie tegenover kijkoperatie</td><td>ongeveer even veel vooruit</td><td>Beard e.a. 2018, Lancet 391 (CSAW)</td></tr>\n<tr><td>Ultrageluid</td><td>voegt nauwelijks iets toe</td><td>KNGF-richtlijnen (o.a. Subacromiale klachten); Cochrane-reviews</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul><li>Per klacht noemt de film één hoofdbehandeling; in de praktijk combineert een fysiotherapeut oefeningen met uitleg en advies over belasting.</li><li>De pijngrens van 5 op 10 is een veelgebruikte vuistregel, geen harde grens.</li><li>In CSAW was er ook een groep zonder behandeling; de film noemt alleen de vergelijking tussen echte en nep-operatie.</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Laat leerlingen een eenvoudig onderzoek ontwerpen dat test of tape bij een blessure helpt: welke vergelijkingsgroep heb je nodig?</li></ul>\n</section>\n"
+}

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="nl"><head><meta charset="utf-8"><title>Testvel tu2 · Natuur in de stad</title>
+<link rel="stylesheet" href="../engine/fonts.css">
+<style>body{margin:0;background:#0D1420;color:#9AA3B2;font:14px sans-serif} canvas{display:block;width:1920px;height:1080px;margin:0 0 8px}</style>
+</head><body>
+<canvas id="v1" width="1920" height="1080"></canvas>
+<canvas id="v2" width="1920" height="1080"></canvas>
+<canvas id="v3" width="1920" height="1080"></canvas>
+<canvas id="v4" width="1920" height="1080"></canvas>
+<canvas id="v5" width="1920" height="1080"></canvas>
+<script src="../engine/lib.js"></script>
+<script src="../engine/lib_voeding.js"></script>
+<script src="../engine/lib_hormonen.js"></script>
+<script src="../engine/lib_cast.js"></script>
+<script src="../engine/scenes_kop.js"></script>
+<script>const SCENES = {};</script>
+<script src="../engine/brein.js"></script>
+<script src="../engine/teken.js"></script>
+<script src="../engine/extra.js"></script>
+<script src="teken_tu2.js"></script>
+<script>
+const naam = (ctx, s, x, y) => { ctx.save(); ctx.font = '500 22px "IBM Plex Mono", monospace'; ctx.fillStyle = '#7A8496'; ctx.textAlign = 'center'; ctx.fillText(s, x, y); ctx.restore(); };
+const kop = (ctx, s) => { text(ctx, s, 40, 52, fTekst(30, 700), C.text2, 'left'); };
+function vel1(ctx) { bg(ctx, 'schema'); kop(ctx, 'tu2 · vel 1 · meten op het plein (H1)');
+  // IR-thermometer: twee waarden
+  tu2_irThermometer(ctx, 170, 230, 0.9, { waarde: '50 °C', kleur: '#B23A2A', doel: [400, 380] }); ctx.fillStyle = TU2.asfalt; ctx.fillRect(300, 380, 220, 16);
+  naam(ctx, 'tu2_irThermometer · 50 °C, straal naar asfalt', 300, 440);
+  tu2_irThermometer(ctx, 170, 560, 0.9, { waarde: '31 °C', kleur: '#1A2740' }); naam(ctx, 'waarde 31 °C', 170, 700);
+  // meethut
+  const mh = tu2_meethut(ctx, 720, 760, 1.6 * 0.5 * 1.2, { maat: 1 }); naam(ctx, 'tu2_meethut · maat 1,5 m', 720, 820);
+  tu2_luchtThermo(ctx, 830, 380, 150, 0.6, C.koraal, { waarde: '30 °C' }); naam(ctx, 'tu2_luchtThermo', 860, 450);
+  // tegels middag / nacht
+  tu2_tegelsDoorsnede(ctx, 1210, 300, 520, { fase: 0, t: 1.2 }); naam(ctx, 'tu2_tegelsDoorsnede · middag (fase 0)', 1210, 590);
+  tu2_tegelsDoorsnede(ctx, 1210, 720, 520, { fase: 1, warmte: 0.6, t: 1.7 }); naam(ctx, 'nacht (fase 1)', 1210, 1010);
+  // klok en lantaarn
+  tu2_klok(ctx, 1640, 200, 70, 23, 0); naam(ctx, 'tu2_klok 23:00', 1640, 310);
+  tu2_lantaarn(ctx, 1480, 880, 0.55, { aan: 1 }); naam(ctx, 'tu2_lantaarn (5 m)', 1540, 920);
+  tu2_hoogtemeter(ctx, 1730, 420, { pos: 3 }); naam(ctx, 'tu2_hoogtemeter · PLEIN', 1760, 660);
+}
+function vel2(ctx) { bg(ctx, 'schema'); kop(ctx, 'tu2 · vel 2 · stad en weiland (H1), grasvelden (H2)');
+  tu2_stadNacht(ctx, 480, 640, 900, { therm: 1, vraag: true }); naam(ctx, 'tu2_stadNacht · vraag (twee ?)', 480, 740);
+  tu2_stadNacht(ctx, 1440, 640, 900, { therm: 1, verschil: 1 }); naam(ctx, 'antwoord: stad warmer', 1440, 740);
+  tu2_grasVeld(ctx, 480, 980, 600, { kunst: true, zon: 1 }); naam(ctx, 'tu2_grasVeld · kunstgras', 480, 1068);
+  tu2_grasVeld(ctx, 1440, 980, 600, { kunst: false, damp: 1, zon: 1, t: 2 }); naam(ctx, 'echt gras · damp', 1440, 1068);
+}
+function vel3(ctx) { bg(ctx, 'schema'); kop(ctx, 'tu2 · vel 3 · boom, huidmondje, plantvak (H2)');
+  const b = tu2_boom(ctx, 300, 760, 0.4, { zon: 1, schaduw: 1, grond: 1 }); naam(ctx, 'tu2_boom · zon + schaduw', 300, 820);
+  tu2_boom(ctx, 760, 760, 0.4, { droog: 1, schaduw: 1 }); naam(ctx, 'droog (augustus)', 760, 820);
+  tu2_boom(ctx, 760, 1010, 0.12, { groei: 0 }); tu2_boom(ctx, 900, 1010, 0.12, { groei: 1 }); naam(ctx, 'groei 0 / 1 (klein)', 830, 1050);
+  tu2_huidmondje(ctx, 1290, 330, 0.5, { open: 1, t: 1.4 }); naam(ctx, 'tu2_huidmondje · open', 1290, 470);
+  tu2_huidmondje(ctx, 1690, 330, 0.5, { open: 0, t: 1.4 }); naam(ctx, 'dicht (droogte)', 1690, 470);
+  tu2_plantvak(ctx, 1290, 820, 0.5, { u: 0, kroon: 1 }); naam(ctx, 'tu2_plantvak · smal gat', 1290, 1030);
+  tu2_plantvak(ctx, 1690, 820, 0.5, { u: 1, rand: 1, kroon: 1 }); naam(ctx, 'breed plantvak', 1690, 1030);
+}
+function vel4(ctx) { bg(ctx, 'schema'); kop(ctx, 'tu2 · vel 4 · regen (H3)');
+  tu2_riool(ctx, 300, 160, 500, { vul: 0.3, t: 1 }); naam(ctx, 'tu2_riool · vul 0,3', 300, 596);
+  tu2_riool(ctx, 300, 640, 500, { vul: 1, t: 1 }); naam(ctx, 'vol', 300, 1070);
+  [0.15, 0.45, 0.9].forEach((u, i) => { tu2_bodemDruppel(ctx, 780 + i * 380, 360, 340, { u }); naam(ctx, 'tu2_bodemDruppel u ' + u, 780 + i * 380, 840); });
+  tu2_wadi(ctx, 1150, 920, 900, { water: 0.7, instroom: 1, t: 0.4 }); naam(ctx, 'tu2_wadi · water + instroom', 1150, 1070);
+}
+function vel5(ctx) { bg(ctx, 'schema'); kop(ctx, 'tu2 · vel 5 · groen dak (H3), bijen en ontwerp (H4)');
+  tu2_groenDak(ctx, 380, 300, 620, { vol: 0.6, straal: 1, regen: 1, t: 1 }); naam(ctx, 'tu2_groenDak · bui, dun straaltje', 380, 740);
+  ctx.save(); ctx.translate(380, 800); ctx.scale(0.55, 0.55); tu2_groenDak(ctx, 0, 0, 620, { kaal: true, straal: 1, regen: 0.6, t: 1 }); ctx.restore(); naam(ctx, 'kaal dak (s 0,55): dikke straal', 380, 1060);
+  tu2_wildeBij(ctx, 880, 240, 1.6, { houding: 'staan' }); naam(ctx, 'tu2_wildeBij staan (asbij)', 880, 290);
+  tu2_wildeBij(ctx, 1130, 240, 1.6, { houding: 'lopen', t: 0.25 }); naam(ctx, 'lopen', 1130, 290);
+  tu2_wildeBij(ctx, 1370, 190, 1.6, { houding: 'vliegen', t: 0.1 }); naam(ctx, 'vliegen', 1370, 290);
+  tu2_wildeBij(ctx, 1640, 250, 0.5, {}); naam(ctx, 'klein (s 0,5)', 1640, 290);
+  tu2_grondnest(ctx, 1060, 400, 0.75, { bij: 0.6, t: 0.3 }); tu2_grondnest(ctx, 1480, 640, 0.32, { bij: 0.15, t: 0.3 }); naam(ctx, 'bij landt', 1480, 790); naam(ctx, 'tu2_grondnest · bij in de gang', 1060, 740);
+  tu2_bijenhotel(ctx, 1760, 470, 0.7); naam(ctx, 'tu2_bijenhotel', 1760, 600);
+  ctx.save(); ctx.translate(1100, 860); ctx.scale(0.8, 0.8); tu2_bloeikalender(ctx, 0, 0, 680, { u: 1, rijen: [1, 1, 1, 1] }); ctx.restore(); naam(ctx, 'tu2_bloeikalender (s 0,8)', 1370, 1076);
+}
+[vel1, vel2, vel3, vel4, vel5].forEach((f, i) => { const c = document.getElementById('v' + (i + 1)).getContext('2d'); try { f(c); } catch (e) { c.fillStyle = 'red'; c.font = '30px sans-serif'; c.fillText(e.message, 40, 1040); console.error(e); } });
+document.title += ' ✓';
+</script></body></html>

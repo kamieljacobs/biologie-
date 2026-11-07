@@ -1,0 +1,25 @@
+# Samenvatting fase 1 · Dihybride kruising en gekoppelde overerving (lichte remake, Erfelijkheid 4)
+
+- **Beter voor de les:** gekoppelde overerving staat nu in kruisingsschema's: de gameten van een gekoppeld paar, de terugkruising (1 : 1 naast 1 : 1 : 1 : 1) en de F2 (3 : 1 naast 9 : 3 : 3 : 1), plus de examenvalkuil 'bij gekoppelde genen niet per gen vermenigvuldigen' (CE vwo 2023-II v4). Crossing-over blijft kwalitatief: tussen chromatiden van twee homologe chromosomen, één cel geeft twee oude en twee nieuwe gameten, recombinanten in de minderheid.
+- **Recombinatiepercentage, genkaart en afstand zijn weg** (Kamiel); in de plaats: staven 'veel / weinig' en een gametenkolom met 'grote / kleine kans' (twijfel T4).
+- **Twee niveaus volgens de syllabi:** basis = vier soorten gameten bij onafhankelijke genen, twee bij gekoppelde, ligging afleiden uit de ouders; vwo = alle schema's met twee genen en crossing-over (havo-syllabus: geen dihybride kruising, geen crossing-over). De basislijn lost de puzzel zelf op (twijfel T1).
+- **Nieuwe opening:** Opa Henk (zonder naam) opent erwtenpeulen in zijn moestuin; in de zoomcirkel de nieuwe combinaties (twijfel T2). Mendels getallen gecontroleerd in zijn eigen tekst.
+- **Elk hoofdstuk een voorspelvraag met opties** (4 vragen: q07, q11, q18, q25; antwoorden b c c b), de genkaartvraag is vervangen.
+- **Scènes:** 34 in het storyboard (28 gesproken alinea's, 4 vragen, titel, eindkaart) plus de gewone hoofdstukkaarten; vwo-blokken: hoofdstuk 2, 4, 5 en s32.
+- **Gesproken duur (schatting, 2,4 woord per seconde):** basis 586 woorden ± 4:05 spraak, met vragen en kaarten havo ± 4:35; vwo 1148 woorden ± 8:00 spraak, speeltijd ± 8:50. Oud: 4:22 (alles vwo). `scriptcheck.py`: hoofdstuk 1 260 woorden (grens ± 230: twee leerdoelen, notatie + meiose), totaal 1197 incl. vwo (grens ± 900); verder geen meldingen (opties niet raadbaar, antwoorden b c c b).
+- **Opnieuw ingesproken:** alles, 28 alinea's + 4 vraagzinnen = 32 takes (eleven_v4, één take per alinea; ± 8 min × 700 ≈ 5.600 credits).
+- **Nieuw te tekenen** (code in `tekeningen/nieuw_erf4.js`, testvel `keyframes/t3b-testvel-erwt-peul-plant-vlieg.webp`): `erwt` (geel/groen, rond/gerimpeld), `peul`, `erwtenplant`, `fruitvlieg` (bovenaanzicht; grijs/zwart; normale/stompe vleugels; vrouwtje/mannetje), `staafGenen` + `paarGenen` (staafje met twee genbanden, segmenten na crossing-over), `gameetCel`, `gameetChip`, `kruisSchema`. Hergebruikt: Opa Henk (`lib_cast`), moestuin-decor (Landbouw 2, geen nieuwe credits), `cdChromosoom` (Celdeling 2.0) in teal/oker, `allelChip`-stijl (Chromosomen 2.1). Geen referentieplaat gemaakt (0 credits); voor de fruitvlieg biedt T3 er één aan (± 190).
+- **Keyframes:** 10 (3 twijfel: t2, t3/t3b, t4; 6 kernscènes: k1 meiose twee liggingen, k2 4 × 4-schema, k3 terugkruising gekoppeld naast onafhankelijk, k4 F2 gekoppeld, k5 crossing-over, k6 ligging uit de ouders). Gemaakt met `tekeningen/kf.html` + `render.py` in werkmap `/home/claude/hw/erf4/` (engine-kopie in `eng/`, decor `moestuin.webp`).
+- **Twijfelscènes:** 4 (T1 niveau-indeling · T2 opening met Opa Henk en peulen · T3 fruitvlieg als nieuwe tekening + letters G/V · T4 hoe ver crossing-over gaat).
+- **Bronnen:** 28 beweringen, 13 bronnen zelf geopend: 20 ✓, 8 ≈; crossing-over 'tussen chromatiden' meteen aangepast (≥ 2 bronnen, ≥ 1 A).
+- **Afstemmen met de andere films:** notatie G/g, V/v en GV/gv zoals de kruisingtrainer; 'terugkruising' en 'productregel' zoals film 2 (de trainer zegt 'testkruising': gelijk trekken?); teal/oker voor herkomst zoals film 1 (de beeldbank kleurt `cdChromosoom` sinds 28 okt licht/donkerpaars; hier bewust teal/oker, zie brief); vooruitblik op film 5 (X-chromosoom).
+
+## Opmerkingen van Kamiel (opmerkingen.json, sleutel erf4)
+
+| Id | t | Opmerking | Verwerking |
+|---|---|---|---|
+| `-P52vTq6sE3LzKCM3bPT` | 8,5 s | erwt niet goed uitgesproken, spreek uit als ert | stem-invoer 'ert' / 'erten' / 'ertenplant' in alle 9 alinea's (s01, s02, s05, s10, s12, s13, s16, s23, s31); voorstel om 'erwten' en 'erwtenplant' ook in `uitspraak.json` te zetten (`uitspraak.md`) |
+| `-P52vYYf2UOnl5Dfau4d` | 18,1 s | erwten uitspreken als erten | zelfde |
+| `-P53434V4xSTscsjObiN` | 155 s | allel weer niet goed, check alles waar dat fout kan gaan | eleven_v4 met gewone spelling (uitspraaktest 28 okt: goedgekeurd); alle 6 alinea's met 'allel' (s04, s09, s17, s19, s20, s26) gaan bij de blinde transcriptie mee; gameten als 'ga-MEE-ten' (zelfde test); `uitspraak.md` |
+| `-P534NLbfPJAHEbJKduH` | 244,8 s | gekoppelde overerving ook met kruisingsschema's uitleggen | nieuw hoofdstuk 4 (vwo): s22–s26 met terugkruising, vergelijking met onafhankelijk, F2 en vraag q25; in hoofdstuk 5 een gametenkolom met ongelijke kansen (keyframes k3, k4, t4) |
+| `-P534WdoP4QERyG3Jo7J` | 257,8 s | recombinatiepercentage hoeft niet in de film, te diepgaand (dus ook genkaart/afstanden weg) | oud p12 (17 %, recombinatiepercentage, afstand, volgorde), p13–p14 (genkaart, vraag, 50 %) en de recapzin geschrapt; begrip recombinatiepercentage uit de lijst; kwalitatief vervangen (s27, s30), grens als twijfel T4 |

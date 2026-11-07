@@ -1,0 +1,187 @@
+[
+ {
+  "id": "s01",
+  "chapter": "Cold open",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Sam valt met zijn fiets. Zijn knie is geschaafd. Een week later is de wond weg. Er zit gewoon weer nieuwe huid.",
+   "Waar komen die nieuwe huidcellen vandaan? Wat denk je?"
+  ],
+  "display": "Sam valt met zijn fiets. Zijn knie is geschaafd. Een week later is de wond weg. Er zit gewoon weer nieuwe huid. Waar komen die nieuwe huidcellen vandaan? Wat denk je?",
+  "voice": "Sam valt met zijn fiets. Zijn knie is geschaafd. Een week later is de wond weg. Er zit gewoon weer nieuwe huid. Waar komen die nieuwe huidcellen vandaan? Wat denk je?"
+ },
+ {
+  "id": "q02",
+  "chapter": "Cold open",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "uit het bloed, dat nieuwe cellen aanvoert",
+   "huidcellen eromheen delen zich in tweeën",
+   "de oude cellen groeien heel groot"
+  ],
+  "q": "Een week na de val is Sams knie weer dicht. Waar komen de nieuwe huidcellen vandaan?",
+  "correct": 1,
+  "explain": "De huidcellen rond de wond delen zich in tweeën. Nieuwe cellen komen altijd uit andere cellen."
+ },
+ {
+  "id": "s03",
+  "chapter": "Titel",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Celdeling. Hoe wordt één cel er twee?"
+  ],
+  "display": "Celdeling. Hoe wordt één cel er twee?",
+  "voice": "Celdeling. Hoe wordt één cel er twee?"
+ },
+ {
+  "id": "s04",
+  "chapter": "Hoofdstuk 1 — Eén cel wordt twee",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Nieuwe cellen komen altijd uit andere cellen. De huidcellen rond de wond delen zich. Uit één cel worden er twee.",
+   "Maar elke cel heeft een bouwtekening nodig. Die zit in de celkern, op lange draden: de chromosomen.",
+   "Daarom kopieert de cel eerst al zijn chromosomen. Elk chromosoom wordt dubbel, als een X."
+  ],
+  "display": "Nieuwe cellen komen altijd uit andere cellen. De huidcellen rond de wond delen zich. Uit één cel worden er twee. Maar elke cel heeft een bouwtekening nodig. Die zit in de celkern, op lange draden: de chromosomen. Daarom kopieert de cel eerst al zijn chromosomen. Elk chromosoom wordt dubbel, als een X.",
+  "voice": "Nieuwe cellen komen altijd uit andere cellen. De huidcellen rond de wond delen zich. Uit één cel worden er twee. Maar elke cel heeft een bouwtekening nodig. Die zit in de celkern, op lange draden: de chromosomen. Daarom kopieert de cel eerst al zijn chromosomen. Elk chromosoom wordt dubbel, als een iks."
+ },
+ {
+  "id": "s05",
+  "chapter": "Hoofdstuk 1 — Eén cel wordt twee",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Dan gaat de kern open. De chromosomen gaan in een rij in het midden liggen. Elk chromosoom wordt uit elkaar getrokken. Eén helft naar links, één helft naar rechts.",
+   "Om elke helft komt een nieuwe kern. De cel snoert in het midden in. Nu zijn er twee cellen. Precies dezelfde bouwtekening.",
+   "Deze deling heet mitose. Zo groei je, en zo maakt je lichaam wonden dicht."
+  ],
+  "display": "Dan gaat de kern open. De chromosomen gaan in een rij in het midden liggen. Elk chromosoom wordt uit elkaar getrokken. Eén helft naar links, één helft naar rechts. Om elke helft komt een nieuwe kern. De cel snoert in het midden in. Nu zijn er twee cellen. Precies dezelfde bouwtekening. Deze deling heet mitose. Zo groei je, en zo maakt je lichaam wonden dicht.",
+  "voice": "Dan gaat de kern open. De chromosomen gaan in een rij in het midden liggen. Elk chromosoom wordt uit elkaar getrokken. Eén helft naar links, één helft naar rechts. Om elke helft komt een nieuwe kern. De cel snoert in het midden in. Nu zijn er twee cellen. Precies dezelfde bouwtekening. Deze deling heet mitose. Zo groei je, en zo maakt je lichaam wonden dicht."
+ },
+ {
+  "id": "s06",
+  "chapter": "Hoofdstuk 2 — Hoeveel chromosomen?",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Een cel van een mens heeft zesenveertig chromosomen. Na de mitose heeft elke nieuwe cel er ook zesenveertig.",
+   "Maar hoe zit het bij geslachtscellen? Een eicel en een zaadcel smelten samen. Stel: elk had zesenveertig chromosomen. Hoeveel heeft het kind dan? Wat denk je?"
+  ],
+  "display": "Een cel van een mens heeft zesenveertig chromosomen. Na de mitose heeft elke nieuwe cel er ook zesenveertig. Maar hoe zit het bij geslachtscellen? Een eicel en een zaadcel smelten samen. Stel: elk had zesenveertig chromosomen. Hoeveel heeft het kind dan? Wat denk je?",
+  "voice": "Een cel van een mens heeft zesenveertig chromosomen. Na de mitose heeft elke nieuwe cel er ook zesenveertig. Maar hoe zit het bij geslachtscellen? Een eicel en een zaadcel smelten samen. Stel: elk had zesenveertig chromosomen. Hoeveel heeft het kind dan? Wat denk je?"
+ },
+ {
+  "id": "q07",
+  "chapter": "Hoofdstuk 2 — Hoeveel chromosomen?",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "zesenveertig, dat blijft altijd zo",
+   "tweeënnegentig, en elke generatie het dubbele",
+   "geslachtscellen hebben er maar drieëntwintig, dus samen weer zesenveertig"
+  ],
+  "q": "Een eicel en een zaadcel smelten samen. Stel: elk had 46 chromosomen. Hoeveel heeft het kind dan?",
+  "correct": 2,
+  "explain": "Dan zou het kind er 92 hebben, en elke generatie het dubbele. Dat klopt niet: geslachtscellen hebben er maar 23. Samen weer 46."
+ },
+ {
+  "id": "s08",
+  "chapter": "Hoofdstuk 2 — Hoeveel chromosomen?",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Geslachtscellen hebben er maar drieëntwintig. De helft. Bij de bevruchting komt er twee keer drieëntwintig samen. Dat is weer zesenveertig.",
+   "Geslachtscellen ontstaan door een andere deling: meiose. Bij meiose wordt het aantal chromosomen gehalveerd."
+  ],
+  "display": "Geslachtscellen hebben er maar drieëntwintig. De helft. Bij de bevruchting komt er twee keer drieëntwintig samen. Dat is weer zesenveertig. Geslachtscellen ontstaan door een andere deling: meiose. Bij meiose wordt het aantal chromosomen gehalveerd.",
+  "voice": "Geslachtscellen hebben er maar drieëntwintig. De helft. Bij de bevruchting komt er twee keer drieëntwintig samen. Dat is weer zesenveertig. Geslachtscellen ontstaan door een andere deling: meiose. Bij meiose wordt het aantal chromosomen gehalveerd."
+ },
+ {
+  "id": "s09",
+  "chapter": "Hoofdstuk 3 — Mitose of meiose?",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Mitose gebeurt overal in je lichaam. In je huid, je botten, je darmen. Uit één cel komen twee gelijke cellen.",
+   "Elke dag maak je zo miljarden nieuwe cellen. Want huidcellen en darmcellen slijten snel.",
+   "Meiose gebeurt alleen in de eierstokken en de zaadballen. Uit één cel komen vier geslachtscellen, met elk de helft."
+  ],
+  "display": "Mitose gebeurt overal in je lichaam. In je huid, je botten, je darmen. Uit één cel komen twee gelijke cellen. Elke dag maak je zo miljarden nieuwe cellen. Want huidcellen en darmcellen slijten snel. Meiose gebeurt alleen in de eierstokken en de zaadballen. Uit één cel komen vier geslachtscellen, met elk de helft.",
+  "voice": "Mitose gebeurt overal in je lichaam. In je huid, je botten, je darmen. Uit één cel komen twee gelijke cellen. Elke dag maak je zo miljarden nieuwe cellen. Want huidcellen en darmcellen slijten snel. Meiose gebeurt alleen in de eierstokken en de zaadballen. Uit één cel komen vier geslachtscellen, met elk de helft."
+ },
+ {
+  "id": "s10",
+  "chapter": "Hoofdstuk 3 — Mitose of meiose?",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Een plant groeit een nieuw blad. Welke deling zorgt daarvoor? Wat denk je?"
+  ],
+  "display": "Een plant groeit een nieuw blad. Welke deling zorgt daarvoor? Wat denk je?",
+  "voice": "Een plant groeit een nieuw blad. Welke deling zorgt daarvoor? Wat denk je?"
+ },
+ {
+  "id": "q11",
+  "chapter": "Hoofdstuk 3 — Mitose of meiose?",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "mitose",
+   "meiose",
+   "allebei evenveel"
+  ],
+  "q": "Een plant groeit een nieuw blad. Welke deling zorgt daarvoor?",
+  "correct": 0,
+  "explain": "Mitose: groei gebeurt door gewone celdeling, uit één cel steeds twee gelijke cellen. Meiose is alleen voor geslachtscellen (bij een plant in de bloem)."
+ },
+ {
+  "id": "s12",
+  "chapter": "Hoofdstuk 3 — Mitose of meiose?",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Mitose. Een blad is gewoon groei: uit één cel steeds twee gelijke cellen. Meiose is alleen voor geslachtscellen. Bij een plant gebeurt dat in de bloem."
+  ],
+  "display": "Mitose. Een blad is gewoon groei: uit één cel steeds twee gelijke cellen. Meiose is alleen voor geslachtscellen. Bij een plant gebeurt dat in de bloem.",
+  "voice": "Mitose. Een blad is gewoon groei: uit één cel steeds twee gelijke cellen. Meiose is alleen voor geslachtscellen. Bij een plant gebeurt dat in de bloem."
+ },
+ {
+  "id": "s13",
+  "chapter": "Hoofdstuk 3 — Mitose of meiose?",
+  "level": "vwo",
+  "kind": "speech",
+  "lines": [
+   "De chromosomen in je cellen zitten in paren. Van elk paar komt er één van je moeder en één van je vader. Bij meiose gaan de paren uit elkaar. Welk chromosoom in welke geslachtscel komt, is toeval. Daarom is elke eicel en elke zaadcel een beetje anders."
+  ],
+  "display": "De chromosomen in je cellen zitten in paren. Van elk paar komt er één van je moeder en één van je vader. Bij meiose gaan de paren uit elkaar. Welk chromosoom in welke geslachtscel komt, is toeval. Daarom is elke eicel en elke zaadcel een beetje anders.",
+  "voice": "De chromosomen in je cellen zitten in paren. Van elk paar komt er één van je moeder en één van je vader. Bij meiose gaan de paren uit elkaar. Welk chromosoom in welke geslachtscel komt, is toeval. Daarom is elke eicel en elke zaadcel een beetje anders."
+ },
+ {
+  "id": "s14",
+  "chapter": "Samenvatting",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Bij mitose: eerst kopiëren, dan in tweeën. Twee gelijke cellen, met allebei zesenveertig chromosomen. Voor groei en herstel.",
+   "Bij meiose: geslachtscellen met de helft. Drieëntwintig.",
+   "En Sams knie? Die is dicht door mitose. Miljoenen keren één cel die er twee wordt."
+  ],
+  "display": "Bij mitose: eerst kopiëren, dan in tweeën. Twee gelijke cellen, met allebei zesenveertig chromosomen. Voor groei en herstel. Bij meiose: geslachtscellen met de helft. Drieëntwintig. En Sams knie? Die is dicht door mitose. Miljoenen keren één cel die er twee wordt.",
+  "voice": "Bij mitose: eerst kopiëren, dan in tweeën. Twee gelijke cellen, met allebei zesenveertig chromosomen. Voor groei en herstel. Bij meiose: geslachtscellen met de helft. Drieëntwintig. En Sams knie? Die is dicht door mitose. Miljoenen keren één cel die er twee wordt."
+ },
+ {
+  "id": "s15",
+  "chapter": "Eindkaart",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Probeer het zelf."
+  ],
+  "display": "Probeer het zelf.",
+  "voice": "Probeer het zelf."
+ }
+]

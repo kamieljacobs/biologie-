@@ -1,0 +1,79 @@
+{
+ "slug": "farmacie-1-van-pil-tot-plek",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Van pil tot plek en weer terug",
+ "sub": "wat je lichaam met een medicijn doet",
+ "puzzle": "Waarom slikt Opa Henk zijn bloeddrukpil één keer per dag en paracetamol tot vier keer?",
+ "meta": "farmacie · verpleegkunde",
+ "alleen": "vwo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Farmacie en Verpleegkunde",
+ "lead": "Noor vult de pillendoos van Opa Henk. Zijn bloeddrukpil gaat er één keer per dag in, paracetamol mag tot vier keer. Dat verschil zit niet in hoe sterk een pil is, maar in wat je lichaam ermee doet. Een medicijn moet eerst door de membranen van je darmcellen, dan langs de lever, die al een deel afbreekt. Daarna bepaalt de halfwaardetijd hoe lang het in je bloed blijft. Slechte nieren of grapefruitsap kunnen de bloedspiegel te hoog maken. Dat heet farmacokinetiek: apothekers rekenen ermee, verpleegkundigen moeten het weten als ze medicijnen geven.",
+ "endHaak": "welk medicijn in jullie kastje moet je op een vaste tijd nemen, en waarom?",
+ "minis": {
+  "Hoofdstuk 1": "Waarom komt een vetoplosbare stof makkelijker door de darmwand?",
+  "Hoofdstuk 2": "Waarom spuit je nitroglycerine onder je tong in plaats van het te slikken?",
+  "Hoofdstuk 3": "Hoeveel is er na drie halfwaardetijden nog over van honderd eenheden?",
+  "Hoofdstuk 4": "Waarom staat in de bijsluiter van simvastatine: geen grapefruitsap?",
+  "Recap": "Waarom krijgt iemand met slecht werkende nieren soms een lagere dosis?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Noor, Opa Henk en Apotheker Ravi (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Opa Henk neemt zijn bloeddrukpil één keer per dag, en paracetamol tot vier keer per dag. Waar komt dat verschil vandaan?",
+   "correct": 1,
+   "explain": "Hoe vaak je een pil neemt, hangt vooral af van hoe snel je lichaam de stof opruimt. Paracetamol is na een paar uur grotendeels weg; de bloeddrukpil blijft dagen in je bloed."
+  },
+  "q06": {
+   "q": "Nitroglycerine wordt na het slikken grotendeels door de lever afgebroken. Hoe neemt een patiënt het daarom?",
+   "correct": 2,
+   "explain": "Onder de tong. Daar komt de stof via kleine bloedvaten direct in het bloed, zonder eerst langs de lever te gaan; het werkt binnen een paar minuten."
+  },
+  "q09": {
+   "q": "De halfwaardetijd van paracetamol is ongeveer twee uur. Je hebt honderd eenheden in je bloed. Na hoeveel uur is er nog een kwart over?",
+   "correct": 0,
+   "explain": "Na twee uur is er vijftig over, na nog eens twee uur vijfentwintig: een kwart na vier uur."
+  }
+ },
+ "glossary": [
+  {
+   "t": "opname",
+   "d": "Het binnenkomen van een stof in het bloed; bij een pil vooral in de dunne darm, door de membranen van de darmcellen heen."
+  },
+  {
+   "t": "membraan",
+   "d": "Dun, dubbel laagje vet rond elke cel; vetoplosbare stoffen gaan er makkelijk doorheen, stoffen die alleen in water oplossen slecht. Zie Diffusie en osmose."
+  },
+  {
+   "t": "poortader",
+   "d": "Ader die het bloed uit de darmen eerst naar de lever brengt, voordat het de rest van het lichaam bereikt. Zie De lever als fabriek."
+  },
+  {
+   "t": "first-pass-effect",
+   "d": "Een deel van een geslikt medicijn wordt al in de darmwand en de lever afgebroken voordat het de rest van het lichaam bereikt. Bij nitroglycerine is dat bijna alles."
+  },
+  {
+   "t": "bloedspiegel",
+   "d": "De hoeveelheid (concentratie) van een medicijn in je bloed; boven een bepaalde grens werkt het, te hoog kan schadelijk zijn."
+  },
+  {
+   "t": "halfwaardetijd",
+   "d": "De tijd waarin de helft van een stof uit het bloed verdwijnt; paracetamol ongeveer twee uur, de bloeddrukpil amlodipine ongeveer anderhalve dag."
+  },
+  {
+   "t": "stabiele spiegel",
+   "d": "Bij elke dag een pil stapelt de stof zich eerst op; na vier tot vijf halfwaardetijden komt er per dag evenveel bij als er verdwijnt (steady state)."
+  },
+  {
+   "t": "interactie",
+   "d": "Stoffen zitten elkaar in de weg, bijvoorbeeld omdat ze door hetzelfde enzym worden afgebroken; grapefruitsap remt zo de afbraak van simvastatine."
+  },
+  {
+   "t": "farmacokinetiek",
+   "d": "Wat je lichaam met een medicijn doet: opname, verdeling, afbraak en uitscheiding. Bepaalt hoe vaak, hoeveel en op welke manier je een medicijn neemt."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Een stof A lost goed op in vet, stof B alleen in water. Leg uit welke van de twee na het slikken het makkelijkst in het bloed komt. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Stof A (1p). Om in het bloed te komen moet een stof door de membranen van de darmcellen, en een membraan is een dubbel laagje vet: een vetoplosbare stof glipt erdoor, een wateroplosbare stof komt er slecht door (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Nitroglycerine wordt bij pijn op de borst onder de tong gespoten en niet geslikt. Leg uit waarom. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Na het slikken gaat het bloed uit de darm via de poortader eerst naar de lever, die bijna alle nitroglycerine afbreekt (first-pass-effect) (1p). Onder de tong komt de stof via kleine bloedvaten direct in het bloed, zonder eerst langs de lever; zo komt er veel meer aan en werkt het binnen een paar minuten (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Een medicijn heeft een halfwaardetijd van zes uur. Om 8.00 uur zit er 80 mg in het bloed. Hoeveel is er om 20.00 uur nog over? En waarom is dit middel geschikter om twee keer per dag te nemen dan paracetamol? <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Twaalf uur is twee halfwaardetijden: 80 → 40 → 20 mg (2p). Het verdwijnt veel langzamer dan paracetamol (halfwaardetijd ± 2 uur), dus het blijft langer boven de grens waarboven het werkt (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Een oudere vrouw met slecht werkende nieren krijgt een middel dat via de urine het lichaam verlaat. Leg uit wat er gebeurt als ze de normale dosis krijgt, en wat de apotheker kan doen. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Het middel blijft langer in het bloed, zodat de bloedspiegel bij elke dosis hoger oploopt en te hoog kan worden (1p). De apotheker past de dosis aan: een lagere dosis of minder vaak (1p).</p></details></div>\n<div class=\"q\"><p><b>5.</b> In de bijsluiter van simvastatine staat: geen grapefruitsap. Leg uit waardoor er met grapefruitsap meer simvastatine in het bloed komt. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>In de darmwand breekt een enzym al een deel van de simvastatine af voordat het het bloed bereikt (1p). Grapefruitsap remt dat enzym, dus wordt er minder afgebroken en komt er veel meer in het bloed (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Extra film buiten het PTA op <i>Wat word jij?</i> → Farmacie en Verpleegkunde (gedeelde film). Bouwt voort op <i>Diffusie en osmose</i> (membraan), <i>Van darm naar bloed</i> (opname), <i>De lever als fabriek</i> (afbraak, poortader) en <i>Water in balans</i> (nieren). Noor en Opa Henk met zijn pillendoos zijn de rode draad; Apotheker Ravi komt terug in <i>Achter de balie</i>.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>Cold open</b> pillendoos: één bloeddrukpil per dag, paracetamol tot vier keer (misconceptie: wie minder vaak slikt, slikt een sterkere pil). <b>H1</b> opname door het membraan van de darmcellen: vetoplosbaar gaat makkelijker. <b>H2</b> poortader en first-pass-effect; nitroglycerine onder de tong (misconceptie: alles wat je slikt komt in je bloed). <b>H3</b> bloedspiegel, werkzame grens en halfwaardetijd (100 → 50 → 25 in vier uur); paracetamol tegenover de bloeddrukpil; ophoping tot een stabiele spiegel (misconceptie: een medicijn werkt meteen volledig). <b>H4</b> nieren bij ouderen en een interactie: grapefruitsap en simvastatine. <b>Recap</b> farmacokinetiek en de beroepen.</li>\n<li>'De bloeddrukpil' van Opa Henk is <b>amlodipine</b>; daar komen de anderhalve dag en de week vandaan. In <i>Achter de balie</i> (film 3) komt deze pil terug op Henks medicijnlijst als 'bloeddrukpil (amlodipine)'.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Halfwaardetijd paracetamol</td><td>ongeveer twee uur (SmPC: 1–4 uur); tot vier keer per dag (zelfzorg: 500 mg-tabletten, 1–2 per keer, max. 3 g per 24 uur)</td><td><a href=\"https://www.geneesmiddeleninformatiebank.nl/smpc/h29371_smpc.pdf\">SmPC paracetamol (CBG)</a></td></tr>\n<tr><td>Halfwaardetijd amlodipine</td><td>ongeveer anderhalve dag (SmPC: 35–50 uur); één keer per dag</td><td><a href=\"https://www.geneesmiddeleninformatiebank.nl/smpc/h103860_smpc.pdf\">SmPC amlodipine (CBG)</a></td></tr>\n<tr><td>Stabiele spiegel</td><td>na vier tot vijf halfwaardetijden; bij amlodipine 6–8 dagen, 'ongeveer een week'</td><td><a href=\"https://www.farmacotherapeutischkompas.nl/farmacologie/farmacokinetiek\">Farmacotherapeutisch Kompas, farmacokinetiek</a></td></tr>\n<tr><td>First-pass-effect</td><td>afbraak in darmwand en lever vóór de rest van het lichaam</td><td>idem</td></tr>\n<tr><td>Nitroglycerine onder de tong</td><td>groot first-pass-effect bij slikken; onder de tong werkt het binnen enkele minuten (1–3 min)</td><td><a href=\"https://www.farmacotherapeutischkompas.nl/bladeren/preparaatteksten/n/nitroglycerine__oromucosaal_\">Kompas, nitroglycerine oromucosaal</a>; <a href=\"https://www.apotheek.nl/medicijnen/nitroglycerine-onder-de-tong\">apotheek.nl</a></td></tr>\n<tr><td>Grapefruitsap en simvastatine</td><td>sap remt het afbrekende enzym in de darmwand (CYP3A4); 'veel meer in je bloed': bij 200 ml sap per dag ± 3,6 × zoveel (AUC), sterke CYP3A4-remmers ≥ 5 ×</td><td><a href=\"https://www.farmacotherapeutischkompas.nl/bladeren/preparaatteksten/s/simvastatine\">Kompas, simvastatine</a>; <a href=\"https://www.apotheek.nl/zorg-van-de-apotheker/grapefruit-en-medicijnen\">apotheek.nl, grapefruit</a>; <a href=\"https://www.bps.ac.uk/publishing/our-journals/british-journal-of-clinical-pharmacology/volume-58/issue-1/effects-of-regular-consumption-of-grapefruit-juice\">Lilja e.a. 2004, Br J Clin Pharmacol 58</a></td></tr>\n<tr><td>Dosisaanpassing bij nierfunctie</td><td>middelen die via de nieren het lichaam verlaten, blijven bij slechte nierfunctie langer in het bloed; de apotheker past de dosis aan</td><td><a href=\"https://www.farmacotherapeutischkompas.nl/farmacologie/farmacokinetiek\">Kompas, farmacokinetiek</a> (eliminatie)</td></tr>\n<tr><td>Opleiding</td><td>apothekersassistent: mbo niveau 4, drie jaar</td><td><a href=\"https://www.s-bb.nl/media/e0elcyin/apothekersassistent-25650-nl.pdf\">SBB, kwalificatiedossier apothekersassistent</a></td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul><li>Opname: de film noemt alleen passieve diffusie door het membraan. In werkelijkheid helpen ook transporteiwitten, en pompen in de darmwand duwen een deel van sommige stoffen terug.</li>\n<li>First-pass-effect: H2 legt de nadruk op de lever; de darmwand breekt ook al af (H4 laat dat zien met grapefruitsap). Zetpillen omzeilen de lever maar voor een deel, daarom 'deels'.</li>\n<li>Halfwaardetijd: de grafiek in H3 begint bij 100 eenheden alsof alles meteen in het bloed zit (de opnamefase is weggelaten), en gaat uit van eerste-orde-eliminatie (elke halfwaardetijd de helft).</li>\n<li>De 'werkzame grens' is een vereenvoudiging van de relatie tussen concentratie en effect. In de grafiek met beide middelen staat één grens; in werkelijkheid heeft elk middel zijn eigen werkzame concentratie. Het volle effect van amlodipine hangt ook samen met de bloeddrukdaling op langere termijn.</li>\n<li>'Lever en nieren ruimen het op': paracetamol wordt vooral in de lever omgezet en de afbraakproducten verlaten het lichaam via de nieren. Dosisaanpassing bij slechte nierfunctie geldt vooral voor middelen die onveranderd via de nieren gaan; amlodipine wordt in de lever afgebroken.</li>\n<li>Het enzym in H4 is CYP3A4; de film noemt de naam niet. Het getal ± 3,6 × geldt voor een glas sap per dag; veel sap geeft een groter effect.</li>\n<li>De curves zijn schematisch; alleen de halveringsstappen (100 – 50 – 25 bij 0 – 2 – 4 uur) en de verhoudingen tussen snel en traag zijn op schaal.</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Neem een (lege) pillendoos mee en laat leerlingen voorspellen welk middel vaker per dag nodig is; kom erop terug na H3.</li>\n<li>Laat leerlingen een halveringsreeks tekenen voor een middel met een halfwaardetijd van zes uur en de stabiele spiegel bij één pil per dag schatten (na hoeveel dagen?).</li>\n<li>Laat leerlingen in een bijsluiter (bijvoorbeeld van simvastatine) opzoeken wat er over grapefruitsap en nierfunctie staat.</li></ul>\n</section>\n"
+}

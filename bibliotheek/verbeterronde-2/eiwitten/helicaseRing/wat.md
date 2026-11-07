@@ -1,0 +1,1 @@
+De zes subeenheden van de helicasering zijn elk een kleine gevouwen kralenketen (_kkKluwen) in plaats van een lint; ring, gat, kanteling, lagen en aanroep zijn gelijk. Ook klein (r < 30) nu kralen in plaats van een vlak ellipsje; kralen worden nooit kleiner dan ± 4,5 px, zodat het in de vork rustig blijft.

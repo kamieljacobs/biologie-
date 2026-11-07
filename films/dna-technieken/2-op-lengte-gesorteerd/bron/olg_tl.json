@@ -1,0 +1,761 @@
+{
+ "duration": 239.589,
+ "lead": 0.8,
+ "card": 2.2,
+ "chapters": [
+  {
+   "id": "H0",
+   "title": "Opening",
+   "card": false,
+   "t": 0.8,
+   "t_first": 0.8,
+   "t_end": 15.939
+  },
+  {
+   "id": "H1",
+   "title": "Hoe de gel werkt",
+   "card": true,
+   "t": 15.939,
+   "t_first": 18.139,
+   "t_end": 66.73
+  },
+  {
+   "id": "H2",
+   "title": "Lengte aflezen",
+   "card": true,
+   "t": 66.73,
+   "t_first": 68.93,
+   "t_end": 120.076
+  },
+  {
+   "id": "H3",
+   "title": "Profielen vergelijken",
+   "card": true,
+   "t": 120.076,
+   "t_first": 122.276,
+   "t_end": 172.9
+  },
+  {
+   "id": "H4",
+   "title": "Controles en rare banden",
+   "card": true,
+   "t": 172.9,
+   "t_first": 175.1,
+   "t_end": 226.366
+  },
+  {
+   "id": "H5",
+   "title": "Samengevat",
+   "card": false,
+   "t": 226.366,
+   "t_first": 226.666,
+   "t_end": 239.59
+  }
+ ],
+ "lines": [
+  {
+   "ch": "H0",
+   "i": 1,
+   "t0": 0.82,
+   "t1": 2.475,
+   "parts": [
+    [
+     0.82,
+     2.475
+    ]
+   ],
+   "text": "Dit is een gel uit het practicum."
+  },
+  {
+   "ch": "H0",
+   "i": 2,
+   "t0": 3.407,
+   "t1": 8.512,
+   "parts": [
+    [
+     3.407,
+     5.112
+    ],
+    [
+     5.577,
+     8.512
+    ]
+   ],
+   "text": "Elke baan is één monster, elke band een stuk DNA van één bepaalde lengte."
+  },
+  {
+   "ch": "H0",
+   "i": 3,
+   "t0": 9.444,
+   "t1": 12.939,
+   "parts": [
+    [
+     9.444,
+     11.249
+    ],
+    [
+     11.664,
+     12.939
+    ]
+   ],
+   "text": "Maar hoe lees je zo’n foto? En kun je hem vertrouwen?"
+  },
+  {
+   "ch": "H1",
+   "i": 1,
+   "t0": 18.159,
+   "t1": 21.974,
+   "parts": [
+    [
+     18.159,
+     21.974
+    ]
+   ],
+   "text": "Een gel is een netwerk van agarose, met overal kleine gaatjes."
+  },
+  {
+   "ch": "H1",
+   "i": 2,
+   "t0": 22.796,
+   "t1": 26.861,
+   "parts": [
+    [
+     22.796,
+     26.861
+    ]
+   ],
+   "text": "Met zware laadbuffer zakt het PCR-product naar de bodem van het putje."
+  },
+  {
+   "ch": "H1",
+   "i": 3,
+   "t0": 27.693,
+   "t1": 33.058,
+   "parts": [
+    [
+     27.693,
+     29.298
+    ],
+    [
+     29.993,
+     31.348
+    ],
+    [
+     31.623,
+     33.058
+    ]
+   ],
+   "text": "DNA is negatief geladen. Zet je spanning op de gel, dan beweegt het naar de pluspool."
+  },
+  {
+   "ch": "H1",
+   "i": 4,
+   "t0": 33.8,
+   "t1": 37.235,
+   "parts": [
+    [
+     33.8,
+     35.865
+    ],
+    [
+     36.26,
+     37.235
+    ]
+   ],
+   "text": "De putjes liggen daarom bij de minpool: de zwarte elektrode."
+  },
+  {
+   "ch": "H1",
+   "i": 5,
+   "t0": 37.977,
+   "t1": 42.532,
+   "parts": [
+    [
+     37.977,
+     39.922
+    ],
+    [
+     40.177,
+     40.322
+    ],
+    [
+     40.737,
+     42.532
+    ]
+   ],
+   "text": "Korte stukken glippen makkelijk door de gaatjes. Lange stukken blijven vaker haken."
+  },
+  {
+   "ch": "H1",
+   "i": 6,
+   "t0": 43.354,
+   "t1": 47.339,
+   "parts": [
+    [
+     43.354,
+     45.459
+    ],
+    [
+     46.094,
+     46.639
+    ],
+    [
+     46.934,
+     47.339
+    ]
+   ],
+   "text": "Zo worden de stukken gesorteerd op lengte: hoe korter, hoe verder."
+  },
+  {
+   "ch": "H1",
+   "i": 7,
+   "t0": 48.361,
+   "t1": 53.346,
+   "parts": [
+    [
+     48.361,
+     51.126
+    ],
+    [
+     51.641,
+     53.346
+    ]
+   ],
+   "text": "Alle kopieën met dezelfde lengte komen even ver. Samen vormen ze één band."
+  },
+  {
+   "ch": "H1",
+   "i": 8,
+   "t0": 54.188,
+   "t1": 60.623,
+   "parts": [
+    [
+     54.188,
+     56.863
+    ],
+    [
+     57.378,
+     60.623
+    ]
+   ],
+   "text": "Hoe meer agarose, hoe kleiner de gaatjes. Voor korte STR-stukken neem je drie tot vier procent."
+  },
+  {
+   "ch": "H1",
+   "i": 9,
+   "t0": 61.455,
+   "t1": 65.93,
+   "parts": [
+    [
+     61.455,
+     62.86
+    ],
+    [
+     63.305,
+     65.93
+    ]
+   ],
+   "text": "DNA is kleurloos. Pas met een kleurstof en blauw licht zie je de banden."
+  },
+  {
+   "ch": "H2",
+   "i": 1,
+   "t0": 68.992,
+   "t1": 75.937,
+   "parts": [
+    [
+     68.992,
+     71.037
+    ],
+    [
+     71.312,
+     72.967
+    ],
+    [
+     73.342,
+     75.937
+    ]
+   ],
+   "text": "De lengte lees je af met de marker: stukken DNA van 50, 100, 150 basenparen, enzovoort.",
+   "say": "De lengte lees je af met de marker: stukken DNA van vijftig, honderd, honderdvijftig basenparen, enzovoort."
+  },
+  {
+   "ch": "H2",
+   "i": 2,
+   "t0": 76.679,
+   "t1": 79.004,
+   "parts": [
+    [
+     76.679,
+     79.004
+    ]
+   ],
+   "text": "Kijk tussen welke twee markerbanden je band ligt."
+  },
+  {
+   "ch": "H2",
+   "i": 3,
+   "t0": 79.646,
+   "t1": 85.991,
+   "parts": [
+    [
+     79.646,
+     81.711
+    ],
+    [
+     82.456,
+     83.381
+    ],
+    [
+     84.126,
+     85.991
+    ]
+   ],
+   "text": "Deze ligt tussen 100 en 150, dichter bij 150: ongeveer 140 basenparen.",
+   "say": "Deze ligt tussen honderd en honderdvijftig, dichter bij honderdvijftig: ongeveer honderdveertig basenparen."
+  },
+  {
+   "ch": "H2",
+   "i": 4,
+   "t0": 86.943,
+   "t1": 89.838,
+   "parts": [
+    [
+     86.943,
+     89.838
+    ]
+   ],
+   "text": "Hoger in de gel liggen de markerbanden dichter op elkaar."
+  },
+  {
+   "ch": "H2",
+   "i": 5,
+   "t0": 90.69,
+   "t1": 96.405,
+   "parts": [
+    [
+     90.69,
+     93.685
+    ],
+    [
+     94.07,
+     96.405
+    ]
+   ],
+   "text": "De lengte vertelt ook welke STR het is: elke STR heeft zijn eigen lengtegebied."
+  },
+  {
+   "ch": "H2",
+   "i": 6,
+   "t0": 97.247,
+   "t1": 104.802,
+   "parts": [
+    [
+     97.247,
+     100.552
+    ],
+    [
+     100.967,
+     102.652
+    ],
+    [
+     103.007,
+     104.802
+    ]
+   ],
+   "text": "140 past bij de STR op chromosoom 8. Daar is de lengte 88 plus 4 keer het aantal herhalingen.",
+   "say": "Honderdveertig past bij de STR op chromosoom acht. Daar is de lengte achtentachtig, plus vier keer het aantal herhalingen."
+  },
+  {
+   "ch": "H2",
+   "i": 7,
+   "t0": 105.544,
+   "t1": 112.199,
+   "parts": [
+    [
+     105.544,
+     108.639
+    ],
+    [
+     109.194,
+     110.779
+    ],
+    [
+     111.174,
+     112.199
+    ]
+   ],
+   "text": "140 min 88 is 52. Gedeeld door 4 is 13: allel 13.",
+   "say": "Honderdveertig min achtentachtig is tweeënvijftig. Gedeeld door vier is dertien: allel dertien."
+  },
+  {
+   "ch": "H2",
+   "i": 8,
+   "t0": 113.161,
+   "t1": 119.276,
+   "parts": [
+    [
+     113.161,
+     115.026
+    ],
+    [
+     115.501,
+     117.636
+    ],
+    [
+     117.901,
+     119.276
+    ]
+   ],
+   "text": "Sneller gaat het met een allelladder: ligt je band even hoog als een ladderband, dan is het hetzelfde allel."
+  },
+  {
+   "ch": "H3",
+   "i": 1,
+   "t0": 122.336,
+   "t1": 127.501,
+   "parts": [
+    [
+     122.336,
+     124.721
+    ],
+    [
+     125.336,
+     126.291
+    ],
+    [
+     126.546,
+     127.501
+    ]
+   ],
+   "text": "Van elke STR heb je twee allelen: één van je vader en één van je moeder."
+  },
+  {
+   "ch": "H3",
+   "i": 2,
+   "t0": 128.273,
+   "t1": 134.148,
+   "parts": [
+    [
+     128.273,
+     130.308
+    ],
+    [
+     131.023,
+     131.758
+    ],
+    [
+     132.063,
+     133.148
+    ],
+    [
+     133.473,
+     134.148
+    ]
+   ],
+   "text": "Verschillen ze, dan zie je twee banden. Zijn ze gelijk, dan zie je één band, extra fel."
+  },
+  {
+   "ch": "H3",
+   "i": 3,
+   "t0": 135.0,
+   "t1": 140.375,
+   "parts": [
+    [
+     135.0,
+     136.895
+    ],
+    [
+     137.32,
+     138.765
+    ],
+    [
+     139.1,
+     140.375
+    ]
+   ],
+   "text": "Amelogenine toont het geslacht: X en Y is een man, alleen X een vrouw.",
+   "say": "Amelogenine toont het geslacht: iks en ei is een man, alleen iks een vrouw."
+  },
+  {
+   "ch": "H3",
+   "i": 4,
+   "t0": 141.107,
+   "t1": 147.502,
+   "parts": [
+    [
+     141.107,
+     144.372
+    ],
+    [
+     144.957,
+     147.502
+    ]
+   ],
+   "text": "Om te vergelijken trek je een lijn door elke band van het spoor. Een band op dezelfde lijn is hetzelfde allel."
+  },
+  {
+   "ch": "H3",
+   "i": 5,
+   "t0": 148.364,
+   "t1": 154.869,
+   "parts": [
+    [
+     148.364,
+     151.459
+    ],
+    [
+     151.904,
+     152.909
+    ],
+    [
+     153.464,
+     154.869
+    ]
+   ],
+   "text": "Verdachte B heeft hier een band die niet in het spoor zit. Eén verschil is genoeg: het spoor is niet van B."
+  },
+  {
+   "ch": "H3",
+   "i": 6,
+   "t0": 155.801,
+   "t1": 159.376,
+   "parts": [
+    [
+     155.801,
+     157.896
+    ],
+    [
+     158.241,
+     159.376
+    ]
+   ],
+   "text": "Bij verdachte A passen alle banden, bij elke STR."
+  },
+  {
+   "ch": "H3",
+   "i": 7,
+   "t0": 160.018,
+   "t1": 165.853,
+   "parts": [
+    [
+     160.018,
+     163.083
+    ],
+    [
+     163.418,
+     165.853
+    ]
+   ],
+   "text": "Dat is sterk bewijs, maar geen absoluut bewijs: een ander kan toevallig hetzelfde profiel hebben."
+  },
+  {
+   "ch": "H3",
+   "i": 8,
+   "t0": 166.595,
+   "t1": 172.1,
+   "parts": [
+    [
+     166.595,
+     169.24
+    ],
+    [
+     169.705,
+     172.1
+    ]
+   ],
+   "text": "Hoe meer STR’s, hoe kleiner die kans. Forensische labs onderzoeken er meer dan twintig."
+  },
+  {
+   "ch": "H4",
+   "i": 1,
+   "t0": 175.132,
+   "t1": 180.997,
+   "parts": [
+    [
+     175.132,
+     177.087
+    ],
+    [
+     177.682,
+     179.267
+    ],
+    [
+     179.812,
+     180.997
+    ]
+   ],
+   "text": "Kijk eerst naar de negatieve controle: water in plaats van DNA. Daar hoort geen band in."
+  },
+  {
+   "ch": "H4",
+   "i": 2,
+   "t0": 181.719,
+   "t1": 187.294,
+   "parts": [
+    [
+     181.719,
+     184.004
+    ],
+    [
+     184.679,
+     185.414
+    ],
+    [
+     186.009,
+     187.294
+    ]
+   ],
+   "text": "Onderaan zie je vaak wel een vage vlek: primer-dimeren, primers die aan elkaar plakken."
+  },
+  {
+   "ch": "H4",
+   "i": 3,
+   "t0": 188.016,
+   "t1": 192.431,
+   "parts": [
+    [
+     188.016,
+     190.231
+    ],
+    [
+     190.696,
+     192.431
+    ]
+   ],
+   "text": "Een echte band daarin betekent besmetting: dan kun je geen enkele band vertrouwen."
+  },
+  {
+   "ch": "H4",
+   "i": 4,
+   "t0": 193.273,
+   "t1": 200.178,
+   "parts": [
+    [
+     193.273,
+     196.598
+    ],
+    [
+     197.143,
+     200.178
+    ]
+   ],
+   "text": "De positieve controle bevat DNA met een bekend profiel. Zie je die banden, dan werkten de PCR en de gel."
+  },
+  {
+   "ch": "H4",
+   "i": 5,
+   "t0": 200.93,
+   "t1": 204.795,
+   "parts": [
+    [
+     200.93,
+     204.795
+    ]
+   ],
+   "text": "Blijft die baan leeg, dan zegt een lege baan bij een verdachte niets."
+  },
+  {
+   "ch": "H4",
+   "i": 6,
+   "t0": 205.627,
+   "t1": 211.042,
+   "parts": [
+    [
+     205.627,
+     208.022
+    ],
+    [
+     208.327,
+     209.702
+    ],
+    [
+     210.067,
+     211.042
+    ]
+   ],
+   "text": "Een zwak bandje net onder een sterke band, vier basenparen korter, is een stotterband."
+  },
+  {
+   "ch": "H4",
+   "i": 7,
+   "t0": 211.674,
+   "t1": 216.749,
+   "parts": [
+    [
+     211.674,
+     214.979
+    ],
+    [
+     215.404,
+     216.749
+    ]
+   ],
+   "text": "Het polymerase sloeg bij de PCR één herhaling over: het is geen extra allel."
+  },
+  {
+   "ch": "H4",
+   "i": 8,
+   "t0": 217.581,
+   "t1": 225.366,
+   "parts": [
+    [
+     217.581,
+     219.916
+    ],
+    [
+     220.331,
+     222.396
+    ],
+    [
+     222.811,
+     225.366
+    ]
+   ],
+   "text": "Meer dan twee banden bij één STR? Dan zit er DNA van meer personen in, bijvoorbeeld van de eigenaar die de scherven opraapte."
+  },
+  {
+   "ch": "H5",
+   "i": 1,
+   "t0": 226.698,
+   "t1": 231.183,
+   "parts": [
+    [
+     226.698,
+     227.373
+    ],
+    [
+     227.768,
+     229.223
+    ],
+    [
+     229.748,
+     231.183
+    ]
+   ],
+   "text": "Kort gezegd: de gel sorteert op lengte, en de lengte geeft het allel."
+  },
+  {
+   "ch": "H5",
+   "i": 2,
+   "t0": 232.005,
+   "t1": 236.59,
+   "parts": [
+    [
+     232.005,
+     233.62
+    ],
+    [
+     234.025,
+     235.37
+    ],
+    [
+     235.745,
+     236.59
+    ]
+   ],
+   "text": "Kijk eerst naar je controles. Vergelijk daarna het spoor, band voor band."
+  }
+ ],
+ "questions": []
+}

@@ -1,0 +1,4 @@
+Basis: variant A (Kamiels keuze).
+Aangepast (gemelde fout, twee bronnen): de bij had drie poten en één paar vleugels zichtbaar; nu zes poten aan het borststuk (drie aan de verre kant gedempt) en twee paar vleugels (grote voorvleugel, kleinere achtervleugel apart). Bronnen: ASU Ask a Biologist 'Honey bee anatomy', FAO 'Anatomy of the honeybee'. Bewust binnen A's eigen bij gebleven (geen insect()-afhankelijkheid uit C). Stuifmeelbuis iets dikker (zwakte 'bijna onzichtbaar').
+Niet aangepast: 'stuifmeelbuis komt niet bij een zaadbeginsel': in A eindigt hij al in het bovenste zaadbeginsel (de melding gold de oudere stand). Kelk vóór het vruchtbeginsel laten staan: geen fout, alleen weergave.
+Vraag aan Kamiel: de kelkbladen lopen in A over de onderkant van de kroon/het vruchtbeginsel heen (in C staan ze eronder). Wil je dat ik dat stukje uit C overneem?

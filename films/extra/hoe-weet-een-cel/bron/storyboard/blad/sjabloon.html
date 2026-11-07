@@ -1,0 +1,149 @@
+<title>Storyboard differentiatie</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Lay-out: keuringsblad — filmtabs bovenaan, per film een kop met puzzel en keuzes, dan per scène keyframe links en vertelling + keuring rechts */
+:root{--bg:#121A26;--vlak:#1A2740;--vlak2:#22314C;--fg:#F2F2EE;--fg2:#9AA3B2;--lijn:#33445F;--goud:#E0B64A;--groen:#7FC48F;--teal:#5BA4C9;--paars:#8C7BBF;--oker:#C9A35C;
+--titel:"Fraunces",Georgia,serif;--tekst:"Source Sans 3",system-ui,sans-serif;--meta:"IBM Plex Mono",ui-monospace,monospace;color-scheme:dark}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){--bg:#EEF1F5;--vlak:#FFFFFF;--vlak2:#F4F6FA;--fg:#18202E;--fg2:#56627A;--lijn:#D4DAE4;--goud:#8A6510;--groen:#2E7D46;--teal:#2A6E96;--paars:#5E4E9A;--oker:#86642A;color-scheme:light}}
+:root[data-theme="light"]{--bg:#EEF1F5;--vlak:#FFFFFF;--vlak2:#F4F6FA;--fg:#18202E;--fg2:#56627A;--lijn:#D4DAE4;--goud:#8A6510;--groen:#2E7D46;--teal:#2A6E96;--paars:#5E4E9A;--oker:#86642A;color-scheme:light}
+body{background:var(--bg);color:var(--fg);font-family:var(--tekst);font-size:17px;line-height:1.5;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 64px}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1{font-family:var(--titel);font-size:clamp(30px,5vw,46px);margin:0;text-wrap:balance}
+h2{font-family:var(--titel);font-size:clamp(26px,4vw,36px);margin:0;text-wrap:balance}
+.intro{color:var(--fg2);max-width:72ch;margin:0}
+.meta{font-family:var(--meta);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg2)}
+.balk{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;display:flex;flex-direction:column;gap:8px;border-bottom:1px solid var(--lijn)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px}
+.tabs button{flex:none;font:600 15px var(--tekst);color:var(--fg);background:var(--vlak2);border:1px solid var(--lijn);border-radius:10px;padding:6px 12px;cursor:pointer;display:flex;flex-direction:column;align-items:flex-start;gap:0;min-width:92px}
+.tabs button small{font:500 11px var(--meta);letter-spacing:.06em;color:var(--fg2)}
+.tabs button[aria-selected="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}.tabs button[aria-selected="true"] small{color:var(--bg)}
+.rij{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.tel{font-variant-numeric:tabular-nums;font-weight:700}.tel b{font-family:var(--meta);font-size:13px;letter-spacing:.08em}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto}
+.filters button,.knop{font:600 15px var(--tekst);color:var(--fg);background:var(--vlak2);border:1px solid var(--lijn);border-radius:999px;padding:6px 14px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+button:focus-visible,textarea:focus-visible{outline:2px solid var(--goud);outline-offset:2px}
+.filmkop{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:20px;background:var(--vlak);border:1px solid var(--lijn);border-radius:14px;padding:18px}
+.filmkop dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:0}.filmkop dt{font-family:var(--meta);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg2);padding-top:3px}.filmkop dd{margin:0}
+.filmkop ul{margin:6px 0 0;padding-left:20px;color:var(--fg2)}.filmkop li{margin-bottom:4px}
+details summary{cursor:pointer;font-weight:600}
+.hst{font-family:var(--titel);font-size:24px;margin:14px 0 0}
+.sc{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:20px;background:var(--vlak);border:1px solid var(--lijn);border-radius:14px;padding:16px}
+.sc.ok{border-color:color-mix(in srgb,var(--groen) 70%,transparent)}.sc.opm{border-color:color-mix(in srgb,var(--goud) 80%,transparent)}
+.sc.vwo{box-shadow:inset 6px 0 0 var(--paars)}
+.sc img{width:100%;max-width:100%;aspect-ratio:16/9;border-radius:8px;display:block;background:#121A26}
+.rechts{display:flex;flex-direction:column;gap:10px;min-width:0}
+.kop{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.chip{font-family:var(--meta);font-size:11px;letter-spacing:.12em;text-transform:uppercase;border:1px solid currentColor;border-radius:999px;padding:2px 9px}
+.c-basis{color:var(--groen)}.c-vwo{color:var(--paars)}.c-vraag{color:var(--goud)}.c-look{color:var(--fg2)}
+.verteller{margin:0;font-size:18px}
+.opties{margin:0;color:var(--fg2)}.opties strong{color:var(--groen)}
+.b15{display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--lijn);padding-top:10px}.b15 dd{color:var(--fg2)}
+.twf{margin:0;padding:8px 10px;border-radius:10px;background:var(--vlak2);font-size:15.5px}.twf b{font-family:var(--meta);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--goud);margin-right:6px}
+.bew{margin:0;color:var(--fg2);font-size:15px}.bew::before{content:"Beweging · ";font-family:var(--meta);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--goud)}
+.keur{display:flex;flex-direction:column;gap:8px;margin-top:auto}
+.knop.ja[aria-pressed="true"]{background:var(--groen);color:#0E1A12;border-color:var(--groen)}
+textarea{font:16px var(--tekst);color:var(--fg);background:var(--vlak2);border:1px solid var(--lijn);border-radius:10px;padding:8px 10px;min-height:60px;resize:vertical;width:100%;box-sizing:border-box}
+.status{font-size:13px;color:var(--fg2);min-height:1.2em}
+.bewaard{font:500 12px var(--meta);color:var(--fg2);letter-spacing:.05em}
+.alg{display:inline-flex;gap:6px;align-items:center;font-size:14px;color:var(--fg2);cursor:pointer}.alg input{width:18px;height:18px;accent-color:var(--goud)}
+@media (max-width:760px){.sc,.filmkop{grid-template-columns:1fr}.filters{margin-left:0}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+</style>
+<div class="wrap">
+  <header style="display:flex;flex-direction:column;gap:8px">
+    <span class="meta">Extra film · Cellen · storyboardkeuring</span>
+    <h1>Hoe weet een cel wat hij moet worden?</h1>
+    <p class="intro">Je keurt alleen wat ik niet zelf kan beslissen. Per film staat bovenaan het B15-blok: welke mutaties geloot zijn, de drie varianten in één regel en wat de blinde beoordelaar koos. Daaronder alleen de twijfelscènes, elk met <b>Twijfel</b> (wat de twijfel is) en <b>Waarom</b> (waarom ik het niet zelf beslis). Zet een vinkje of typ wat er anders moet; alles wordt meteen bewaard. Alle andere scènes gaan zonder wachten in productie; met "Alle scènes bekijken" kun je ze toch inzien.</p>
+  </header>
+  <div class="balk" role="region" aria-label="Films en voortgang">
+    <div class="tabs" id="tabs" role="tablist"></div>
+    <div class="rij">
+      <span class="tel"><b style="color:var(--groen)">✓</b> <span id="nOk">0</span></span>
+      <span class="tel"><b style="color:var(--goud)">opmerking</b> <span id="nOpm">0</span></span>
+      <span class="tel"><b style="color:var(--fg2)">open</b> <span id="nOpen">0</span></span>
+      <span class="meta" id="totaal"></span>
+      <div class="filters" id="filters">
+        <button id="f-twijfel" aria-pressed="true" data-f="twijfel">Twijfelscènes</button>
+        <button id="f-open" aria-pressed="false" data-f="open">Nog open</button>
+        <button id="f-alle" aria-pressed="false" data-f="alle">Alle scènes bekijken</button>
+      </div>
+    </div>
+  </div>
+  <section id="filmkop"></section>
+  <div id="lijst" style="display:flex;flex-direction:column;gap:16px"></div>
+  <p class="status" id="opslag"></p>
+</div>
+<script>
+const FILMS = /*FILMS*/[];
+let keur = {}, db = null, filter = 'twijfel', film = 1; const wacht = {};
+const $ = (s, el = document) => el.querySelector(s);
+const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
+try { const h = (location.hash || '').match(/^#film(\d+)$/); if (h) film = +h[1]; } catch (e) {}
+function telling(f) { const ids = f.scenes.filter(s => s.twijfel).map(s => s.id); const v = ids.map(i => (keur[i] || {}).status || ''); return { ok: v.filter(x => x === 'ok').length, opm: v.filter(x => x === 'opm').length, open: v.filter(x => !x).length, n: ids.length }; }
+function tabs() { const T = $('#tabs'); T.textContent = ''; for (const f of FILMS) { const b = el('button'); b.id = 'tab-' + f.film; b.setAttribute('role', 'tab'); b.setAttribute('aria-selected', f.film === film); const t = telling(f);
+  b.append(el('span', null, f.film + ' · ' + f.titel), el('small', null, (t.n ? t.ok + '/' + t.n + ' ✓' : 'geen twijfel') + (t.opm ? ' · ' + t.opm + ' opm.' : '') + ((keur['b15-e' + f.film] || {}).keuze ? ' · B15 ✓' : '')));
+  b.onclick = () => { film = f.film; try { history.replaceState(null, '', '#film' + film); } catch (e) {} render(); window.scrollTo({ top: 0 }); }; T.append(b); } }
+function kop(f) { const K = $('#filmkop'); K.textContent = ''; const box = el('div', 'filmkop'); const l = el('div'); l.style.cssText = 'display:flex;flex-direction:column;gap:10px;min-width:0';
+  l.append(el('span', 'meta', ('Extra film bij Cellen · ') + f.slug), el('h2', null, f.titel));
+  const dl = el('dl'); const rij = (k, v) => { if (!v) return; dl.append(el('dt', null, k), el('dd', null, v)); };
+  rij('Puzzel', f.puzzel); rij('Haak', f.haak); const d = f.duur || {}; if (typeof d === 'string') rij('Duur', d); else rij('Duur', d.basis_min ? ('±' + String(d.basis_min).replace('.', ',') + ' min' + (d.met_vwo_min && d.met_vwo_min !== d.basis_min ? ' (havo) · ±' + String(d.met_vwo_min).replace('.', ',') + ' min met vwo' : '') + (d.woorden ? ' · ' + d.woorden + ' woorden' : '')) : '');
+  rij('Hoofdstukken', (f.hoofdstukken || []).map(h => h.nr + ' ' + h.titel).join(' · ')); l.append(dl);
+  const b = f.b15 || {}; const bx = el('div', 'b15'); bx.append(el('span', 'meta', 'B15 · variatie en selectie'));
+  const dl2 = el('dl'); const r2 = (k, v) => { if (!v) return; dl2.append(el('dt', null, k), el('dd', null, v)); };
+  const tr = b.trekking; r2('Geloot', typeof tr === 'string' ? tr : (tr ? JSON.stringify(tr).replace(/[{}"]/g, '').replace(/,/g, ' · ') : ''));
+  const vv = b.varianten || {}; ['A', 'B', 'C'].forEach(x => r2('Variant ' + x, vv[x]));
+  const sc = b.scores; r2('Scores', typeof sc === 'string' ? sc : (sc ? Object.entries(sc).map(([a, v]) => a + ' ' + (typeof v === 'object' ? JSON.stringify(v).replace(/[{}"]/g, '') : v)).join(' · ') : ''));
+  r2('Winnaar', [b.winnaar, b.reden].filter(Boolean).join(' — ')); r2('Overgenomen', Array.isArray(b.overgenomen) ? b.overgenomen.join(' · ') : b.overgenomen); r2('Beoordelaar', b.beoordelaar_model ? 'blind, model ' + b.beoordelaar_model : 'niet blind');
+  bx.append(dl2); const bid = 'b15-e' + f.film; const bk = keur[bid] || {}; const seg = el('div'); seg.style.cssText = 'display:flex;gap:8px;flex-wrap:wrap';
+  [['winnaar', 'Akkoord met de winnaar'], ['A', 'Toch A'], ['B', 'Toch B'], ['C', 'Toch C']].forEach(([w, t]) => { const k2 = el('button', 'knop ja', t); k2.id = 'b15-' + f.film + '-' + w; k2.setAttribute('aria-pressed', bk.keuze === w); k2.onclick = () => bewaar(bid, { ...(keur[bid] || {}), keuze: bk.keuze === w ? '' : w, status: bk.keuze === w ? '' : 'ok' }); seg.append(k2); });
+  bx.append(seg); l.append(bx);
+  const r = el('div'); r.style.cssText = 'display:flex;flex-direction:column;gap:10px;min-width:0';
+  if (f.keuzes && f.keuzes.length) { const dt = el('details'); dt.open = true; dt.append(el('summary', null, 'Keuzes en twijfels (' + f.keuzes.length + ')')); const ul = el('ul'); f.keuzes.forEach(k => ul.append(el('li', null, k))); dt.append(ul); r.append(dt); }
+  const id = 'film-e' + f.film; const k = keur[id] || {}; const ta = el('textarea'); ta.id = 'opm-' + id; ta.placeholder = 'Opmerking over de film als geheel (opzet, puzzel, keuzes)'; ta.setAttribute('aria-label', 'Opmerking over film ' + f.film); ta.value = (id in wacht) ? wacht[id] : (k.tekst || '');
+  const st = el('span', 'bewaard', k.tekst ? 'bewaard' : ''); ta.oninput = () => typ(id, ta.value, st, true); const rij2 = el('div'); rij2.style.cssText = 'display:flex;gap:14px;align-items:center;flex-wrap:wrap'; rij2.append(algVak(id), st); r.append(ta, rij2); box.append(l, r); K.append(box); }
+function render() { const f = FILMS.find(x => x.film === film) || FILMS[0]; if (!f) return; tabs(); kop(f);
+  const L = $('#lijst'); L.textContent = ''; let vorig = null;
+  for (const s of f.scenes) { const k = keur[s.id] || {}; const status = k.status || '';
+    if (filter === 'twijfel' && !s.twijfel) continue; if (filter === 'open' && (!s.twijfel || status)) continue;
+    if (s.hoofdstuk !== vorig) { L.append(el('h3', 'hst', s.hoofdstuk)); vorig = s.hoofdstuk; }
+    const art = el('article', 'sc' + (status === 'ok' ? ' ok' : status === 'opm' ? ' opm' : '') + (s.laag === 'vwo' ? ' vwo' : '')); art.id = s.id;
+    const img = el('img'); img.src = 'img/' + s.id + '.webp'; img.alt = 'Keyframe ' + s.id; img.loading = 'lazy';
+    const r = el('div', 'rechts'); const kp = el('div', 'kop'); const vraag = !!s.opties;
+    kp.append(el('span', 'meta', s.id), el('span', 'chip ' + (vraag ? 'c-vraag' : s.laag === 'vwo' ? 'c-vwo' : 'c-basis'), vraag ? 'vraagkaart' : s.laag), el('span', 'chip c-look', s.look || ''));
+    r.append(kp); if (s.twijfel) { const t1 = el('p', 'twf'); t1.append(el('b', null, 'Twijfel'), s.twijfel); r.append(t1); if (s.waarom) { const t2 = el('p', 'twf'); t2.append(el('b', null, 'Waarom'), s.waarom); r.append(t2); } } r.append(el('p', 'verteller', s.tekst));
+    if (vraag) { const o = el('p', 'opties'); o.append('Opties: ' + s.opties + ' · goed: '); o.append(el('strong', null, s.juist)); r.append(o); }
+    if (s.beweging) r.append(el('p', 'bew', s.beweging));
+    const kr = el('div', 'keur'); const ja = el('button', 'knop ja', status === 'ok' ? '✓ Goedgekeurd' : '✓ Goed zo'); ja.id = 'ok-' + s.id; ja.setAttribute('aria-pressed', status === 'ok');
+    ja.onclick = () => bewaar(s.id, status === 'ok' ? { status: '', tekst: '' } : { status: 'ok', tekst: '' });
+    const ta = el('textarea'); ta.id = 'opm-' + s.id; ta.placeholder = 'Opmerking (wat moet er anders?)'; ta.setAttribute('aria-label', 'Opmerking bij ' + s.id); ta.value = (s.id in wacht) ? wacht[s.id] : (k.tekst || '');
+    const st = el('span', 'bewaard', k.tekst ? 'bewaard' : ''); ta.oninput = () => typ(s.id, ta.value, st, false);
+    const kn = el('div'); kn.style.cssText = 'display:flex;gap:10px;align-items:center;flex-wrap:wrap'; kn.append(ja, algVak(s.id), st);
+    kr.append(ta, kn); if (s.twijfel) r.append(kr); art.append(img, r); L.append(art); }
+  if (!L.children.length) L.append(el('p', 'intro', filter === 'open' ? 'Alle twijfelscènes van deze film zijn gekeurd.' : filter === 'twijfel' ? 'Deze film heeft geen twijfelscènes; alleen het B15-blok hierboven.' : 'Geen scènes in deze selectie.'));
+  let t = { ok: 0, opm: 0, open: 0, n: 0 }; for (const g of FILMS) { const x = telling(g); for (const k in t) t[k] += x[k]; }
+  $('#nOk').textContent = t.ok; $('#nOpm').textContent = t.opm; $('#nOpen').textContent = t.open; $('#totaal').textContent = 'van ' + t.n + ' twijfelscènes';
+}
+function algVak(id) { const k = keur[id] || {}; const l = el('label', 'alg'); const c = el('input'); c.type = 'checkbox'; c.id = 'alg-' + id; c.checked = !!k.algemeen;
+  c.onchange = async () => { const w = { ...(keur[id] || { status: '', tekst: '' }), algemeen: c.checked }; delete w.t; keur[id] = w; await opslaan(id, w); };
+  l.append(c, document.createTextNode('geldt voor alle films')); return l; }
+const timers = {};
+function typ(id, waarde, st, isFilm) { wacht[id] = waarde; st.textContent = 'typen…'; clearTimeout(timers[id]);
+  timers[id] = setTimeout(async () => { const t = waarde.trim(); const vorige = keur[id] || {};
+    const w = isFilm ? { status: t ? 'opm' : '', tekst: t } : (t ? { status: 'opm', tekst: t } : { status: vorige.status === 'ok' ? 'ok' : '', tekst: '' });
+    w.algemeen = !!vorige.algemeen; keur[id] = w; const ok = await opslaan(id, w); if (ok) delete wacht[id]; st.textContent = ok ? (t ? 'bewaard' : '') : 'niet bewaard'; tabsEnTel(); }, 700); }
+function tabsEnTel() { tabs(); let t = { ok: 0, opm: 0, open: 0, n: 0 }; for (const g of FILMS) { const x = telling(g); for (const k in t) t[k] += x[k]; } $('#nOk').textContent = t.ok; $('#nOpm').textContent = t.opm; $('#nOpen').textContent = t.open; }
+async function opslaan(id, w) { if (!db) { $('#opslag').textContent = 'Opslaan lukt hier niet: open het blad in claude.ai terwijl je bent ingelogd.'; return false; }
+  try { await db.doc('keuring/' + id).set({ ...w, t: Date.now() }); $('#opslag').textContent = ''; return true; }
+  catch (e) { $('#opslag').textContent = 'Niet bewaard: ' + (e && e.message ? e.message : 'onbekende fout') + '. Typ nog iets om het opnieuw te proberen.'; return false; } }
+async function bewaar(id, w) { w.algemeen = !!(keur[id] || {}).algemeen; keur[id] = w; delete wacht[id]; render(); await opslaan(id, w); }
+$('#filters').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; filter = b.dataset.f; for (const x of $('#filters').children) x.setAttribute('aria-pressed', x === b); render(); });
+render();
+(async () => { try { db = await claude.use('db'); } catch (e) { db = null; }
+  if (!db) { $('#opslag').textContent = 'Keuringen worden niet bewaard in deze weergave.'; return; }
+  db.collection('keuring').onSnapshot(snap => { const n = {}; for (const d of snap.docs) n[d.id] = d.data(); const ae = document.activeElement && document.activeElement.id; keur = n;
+    if (ae && ae.startsWith('opm-')) { tabsEnTel(); return; } render(); }, () => { $('#opslag').textContent = 'Kon de keuringen niet laden.'; });
+})();
+</script>

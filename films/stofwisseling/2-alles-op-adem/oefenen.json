@@ -1,0 +1,294 @@
+{
+ "versie": 1,
+ "film": "films/stofwisseling/2-alles-op-adem.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-glucose",
+   "soort": "volgorde",
+   "titel": "Van glucose tot CO₂ en water",
+   "opdracht": "Een spiercel breekt één glucose af, met genoeg zuurstof. Zet de stappen in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Glucose komt uit het bloed, of uit glycogeen: de voorraad glucose in de spier.",
+     "uitleg": "Glucose heeft zes C-atomen."
+    },
+    {
+     "tekst": "In het grondplasma breekt een reeks enzymen glucose af tot twee moleculen pyrodruivenzuur: de glycolyse.",
+     "uitleg": "Elk pyrodruivenzuur heeft drie C-atomen. Netto levert de glycolyse twee ATP per glucose op."
+    },
+    {
+     "tekst": "Pyrodruivenzuur gaat het mitochondrium in, naar de matrix.",
+     "uitleg": "Deze route heeft zuurstof nodig: hij is aeroob."
+    },
+    {
+     "tekst": "In de matrix breken enzymen het pyrodruivenzuur verder af. Daarbij komt CO₂ vrij en gaan er H-atomen af.",
+     "uitleg": "Zo komen alle zes de C-atomen van glucose uiteindelijk in CO₂ terecht. Dat CO₂ adem je uit."
+    },
+    {
+     "tekst": "In het binnenmembraan komt de energie uit de H-atomen vrij; daarmee maakt het mitochondrium heel veel ATP.",
+     "uitleg": "Met zuurstof levert één glucose ongeveer dertig ATP op, in plaats van twee.",
+     "groep": "eind"
+    },
+    {
+     "tekst": "Zuurstof neemt aan het eind de H-atomen op: er ontstaat water.",
+     "uitleg": "De zuurstof die je cellen gebruiken, wordt dus water, niet CO₂. Dit gebeurt tegelijk met de vorming van ATP.",
+     "groep": "eind"
+    }
+   ]
+  },
+  {
+   "id": "schema-mitochondrium",
+   "soort": "schema",
+   "titel": "Glucose op weg naar het mitochondrium",
+   "opdracht": "Je ziet een stukje grondplasma met een mitochondrium. Sleep de namen naar de goede vakjes.",
+   "alt": "Lijntekening: links een zeshoekig molecuul dat in twee ketentjes van drie wordt gesplitst; die gaan een mitochondrium met buitenmembraan en geplooid binnenmembraan in; rechtsboven verlaat een klein molecuul het mitochondrium.",
+   "breed": 760,
+   "hoog": 440,
+   "vakbreed": 178,
+   "svg": "<circle class=\"vul zacht\" cx=\"40\" cy=\"200\" r=\"2.2\"/><circle class=\"vul zacht\" cx=\"160\" cy=\"90\" r=\"2.2\"/><circle class=\"vul zacht\" cx=\"200\" cy=\"380\" r=\"2.2\"/><circle class=\"vul zacht\" cx=\"30\" cy=\"330\" r=\"2.2\"/><circle class=\"vul zacht\" cx=\"170\" cy=\"200\" r=\"2.2\"/><circle class=\"vul zacht\" cx=\"620\" cy=\"60\" r=\"2.2\"/><circle class=\"vul zacht\" cx=\"700\" cy=\"120\" r=\"2.2\"/><circle class=\"vul zacht\" cx=\"250\" cy=\"40\" r=\"2.2\"/><circle class=\"vul zacht\" cx=\"660\" cy=\"420\" r=\"2.2\"/><circle class=\"vul zacht\" cx=\"330\" cy=\"420\" r=\"2.2\"/><circle class=\"vul zacht\" cx=\"110\" cy=\"430\" r=\"2.2\"/><circle class=\"vul zacht\" cx=\"560\" cy=\"410\" r=\"2.2\"/><ellipse cx=\"395\" cy=\"245\" rx=\"185\" ry=\"112\" stroke-width=\"2.6\"/><path stroke-width=\"2\" d=\"M226.0 245.0 L226.0 243.3 L226.1 241.6 L226.2 240.0 L226.4 238.3 L226.6 236.6 L226.9 235.0 L227.3 233.3 L227.6 231.6 L228.1 230.0 L228.6 228.3 L229.1 226.7 L229.7 225.0 L230.3 223.4 L231.0 221.8 L231.8 220.2 L232.5 218.5 L233.4 216.9 L234.3 215.3 L235.2 213.7 L236.2 212.2 L237.2 210.6 L238.3 209.0 L239.4 207.5 L240.6 206.0 L241.8 204.4 L243.1 202.9 L244.4 201.4 L245.8 199.9 L247.2 198.5 L248.6 197.0 L250.1 195.6 L251.7 194.1 L253.3 192.7 L254.9 191.3 L256.6 189.9 L258.3 200.1 L260.0 215.9 L261.8 231.7 L263.7 230.6 L265.5 229.3 L267.5 228.0 L269.4 213.7 L271.4 195.3 L273.4 178.3 L275.5 177.1 L277.6 175.9 L279.7 174.8 L281.9 173.7 L284.1 172.5 L286.4 171.5 L288.6 170.4 L291.0 169.4 L293.3 168.3 L295.7 167.3 L298.1 166.4 L300.5 165.4 L303.0 164.5 L305.4 163.6 L308.0 162.7 L310.5 161.9 L313.1 161.0 L315.7 179.4 L318.3 200.3 L320.9 216.7 L323.6 216.0 L326.3 215.3 L329.0 214.6 L331.7 192.8 L334.4 170.6 L337.2 154.8 L340.0 154.2 L342.8 153.7 L345.6 153.2 L348.4 152.7 L351.3 152.3 L354.1 151.9 L357.0 151.5 L359.9 151.1 L362.8 150.8 L365.7 150.5 L368.6 150.2 L371.5 149.9 L374.4 149.7 L377.3 149.5 L380.3 149.4 L383.2 149.2 L386.2 151.4 L389.1 172.9 L392.1 194.5 L395.0 207.0 L397.9 207.0 L400.9 207.1 L403.8 202.9 L406.8 181.4 L409.7 159.9 L412.7 149.5 L415.6 149.7 L418.5 149.9 L421.4 150.2 L424.3 150.5 L427.2 150.8 L430.1 151.1 L433.0 151.5 L435.9 151.9 L438.7 152.3 L441.6 152.7 L444.4 153.2 L447.2 153.7 L450.0 154.2 L452.8 154.8 L455.6 155.4 L458.3 156.0 L461.0 163.6 L463.7 185.9 L466.4 208.2 L469.1 216.7 L471.7 217.5 L474.3 218.2 L476.9 210.1 L479.5 189.3 L482.0 168.6 L484.6 163.6 L487.0 164.5 L489.5 165.4 L491.9 166.4 L494.3 167.3 L496.7 168.3 L499.0 169.4 L501.4 170.4 L503.6 171.5 L505.9 172.5 L508.1 173.7 L510.3 174.8 L512.4 175.9 L514.5 177.1 L516.6 178.3 L518.6 179.5 L520.6 180.8 L522.5 191.3 L524.5 209.7 L526.3 228.1 L528.2 231.9 L530.0 233.2 L531.7 234.6 L533.4 225.1 L535.1 209.4 L536.7 193.7 L538.3 194.1 L539.9 195.6 L541.4 197.0 L542.8 198.5 L544.2 199.9 L545.6 201.4 L546.9 202.9 L548.2 204.4 L549.4 206.0 L550.6 207.5 L551.7 209.0 L552.8 210.6 L553.8 212.2 L554.8 213.7 L555.7 215.3 L556.6 216.9 L557.5 218.5 L558.2 220.2 L559.0 221.8 L559.7 223.4 L560.3 225.0 L560.9 226.7 L561.4 228.3 L561.9 230.0 L562.4 231.6 L562.7 233.3 L563.1 235.0 L563.4 236.6 L563.6 238.3 L563.8 240.0 L563.9 241.6 L564.0 243.3 L564.0 245.0 L564.0 246.7 L563.9 248.4 L563.8 250.0 L563.6 251.7 L563.4 253.4 L563.1 255.0 L562.7 256.7 L562.4 258.4 L561.9 260.0 L561.4 261.7 L560.9 263.3 L560.3 265.0 L559.7 266.6 L559.0 268.2 L558.2 269.8 L557.5 271.5 L556.6 273.1 L555.7 274.7 L554.8 276.3 L553.8 277.8 L552.8 279.4 L551.7 281.0 L550.6 282.5 L549.4 284.0 L548.2 285.6 L546.9 287.1 L545.6 288.6 L544.2 290.1 L542.8 291.5 L541.4 293.0 L539.9 294.4 L538.3 295.9 L536.7 296.3 L535.1 280.6 L533.4 264.9 L531.7 255.4 L530.0 256.8 L528.2 258.1 L526.3 261.9 L524.5 280.3 L522.5 298.7 L520.6 309.2 L518.6 310.5 L516.6 311.7 L514.5 312.9 L512.4 314.1 L510.3 315.2 L508.1 316.3 L505.9 317.5 L503.6 318.5 L501.4 319.6 L499.0 320.6 L496.7 321.7 L494.3 322.7 L491.9 323.6 L489.5 324.6 L487.0 325.5 L484.6 326.4 L482.0 321.4 L479.5 300.7 L476.9 279.9 L474.3 271.8 L471.7 272.5 L469.1 273.3 L466.4 281.8 L463.7 304.1 L461.0 326.4 L458.3 334.0 L455.6 334.6 L452.8 335.2 L450.0 335.8 L447.2 336.3 L444.4 336.8 L441.6 337.3 L438.7 337.7 L435.9 338.1 L433.0 338.5 L430.1 338.9 L427.2 339.2 L424.3 339.5 L421.4 339.8 L418.5 340.1 L415.6 340.3 L412.7 340.5 L409.7 330.1 L406.8 308.6 L403.8 287.1 L400.9 282.9 L397.9 283.0 L395.0 283.0 L392.1 295.5 L389.1 317.1 L386.2 338.6 L383.2 340.8 L380.3 340.6 L377.3 340.5 L374.4 340.3 L371.5 340.1 L368.6 339.8 L365.7 339.5 L362.8 339.2 L359.9 338.9 L357.0 338.5 L354.1 338.1 L351.3 337.7 L348.4 337.3 L345.6 336.8 L342.8 336.3 L340.0 335.8 L337.2 335.2 L334.4 319.4 L331.7 297.2 L329.0 275.4 L326.3 274.7 L323.6 274.0 L320.9 273.3 L318.3 289.7 L315.7 310.6 L313.1 329.0 L310.5 328.1 L308.0 327.3 L305.4 326.4 L303.0 325.5 L300.5 324.6 L298.1 323.6 L295.7 322.7 L293.3 321.7 L291.0 320.6 L288.6 319.6 L286.4 318.5 L284.1 317.5 L281.9 316.3 L279.7 315.2 L277.6 314.1 L275.5 312.9 L273.4 311.7 L271.4 294.7 L269.4 276.3 L267.5 262.0 L265.5 260.7 L263.7 259.4 L261.8 258.3 L260.0 274.1 L258.3 289.9 L256.6 300.1 L254.9 298.7 L253.3 297.3 L251.7 295.9 L250.1 294.4 L248.6 293.0 L247.2 291.5 L245.8 290.1 L244.4 288.6 L243.1 287.1 L241.8 285.6 L240.6 284.0 L239.4 282.5 L238.3 281.0 L237.2 279.4 L236.2 277.8 L235.2 276.3 L234.3 274.7 L233.4 273.1 L232.5 271.5 L231.8 269.8 L231.0 268.2 L230.3 266.6 L229.7 265.0 L229.1 263.3 L228.6 261.7 L228.1 260.0 L227.6 258.4 L227.3 256.7 L226.9 255.0 L226.6 253.4 L226.4 251.7 L226.2 250.0 L226.1 248.4 L226.0 246.7 L226.0 245.0 Z\"/><path class=\"acc\" stroke-width=\"2.4\" d=\"M114.1 139.0 L95.0 150.0 L75.9 139.0 L75.9 117.0 L95.0 106.0 L114.1 117.0 Z\"/><circle class=\"vulacc\" cx=\"114.1\" cy=\"139.0\" r=\"4\"/><circle class=\"vulacc\" cx=\"95.0\" cy=\"150.0\" r=\"4\"/><circle class=\"vulacc\" cx=\"75.9\" cy=\"139.0\" r=\"4\"/><circle class=\"vulacc\" cx=\"75.9\" cy=\"117.0\" r=\"4\"/><circle class=\"vulacc\" cx=\"95.0\" cy=\"106.0\" r=\"4\"/><circle class=\"vulacc\" cx=\"114.1\" cy=\"117.0\" r=\"4\"/><path stroke-width=\"1.8\" d=\"M95 160 L95 220 M89 210 L95 220 L101 210\"/><path class=\"acc\" stroke-width=\"2.4\" d=\"M60 262 L78 252 L96 262\"/><circle class=\"vulacc\" cx=\"60\" cy=\"262\" r=\"4\"/><circle class=\"vulacc\" cx=\"78\" cy=\"252\" r=\"4\"/><circle class=\"vulacc\" cx=\"96\" cy=\"262\" r=\"4\"/><path class=\"acc\" stroke-width=\"2.4\" d=\"M100 286 L118 276 L136 286\"/><circle class=\"vulacc\" cx=\"100\" cy=\"286\" r=\"4\"/><circle class=\"vulacc\" cx=\"118\" cy=\"276\" r=\"4\"/><circle class=\"vulacc\" cx=\"136\" cy=\"286\" r=\"4\"/><path stroke-width=\"1.8\" d=\"M150 270 L245 262 M235 256 L245 262 L236 268\"/><path stroke-width=\"1.8\" d=\"M480 200 L516 104 M508 110 L516 104 L518 114\"/><circle cx=\"525\" cy=\"80\" r=\"6\" stroke-width=\"2\"/><circle class=\"vul\" cx=\"540\" cy=\"80\" r=\"4.5\"/><circle cx=\"555\" cy=\"80\" r=\"6\" stroke-width=\"2\"/><path stroke-width=\"2\" d=\"M531 78 L536 78 M531 82 L536 82 M544 78 L549 78 M544 82 L549 82\"/>",
+   "vakjes": [
+    {
+     "naam": "glucose",
+     "x": 95,
+     "y": 40,
+     "punt": [
+      95,
+      106
+     ],
+     "uitleg": "zes C-atomen; wordt in het grondplasma afgebroken (glycolyse)."
+    },
+    {
+     "naam": "pyrodruivenzuur",
+     "x": 95,
+     "y": 400,
+     "punt": [
+      118,
+      286
+     ],
+     "uitleg": "drie C-atomen; uit één glucose ontstaan er twee. Met zuurstof gaat het het mitochondrium in."
+    },
+    {
+     "naam": "CO₂",
+     "x": 668,
+     "y": 40,
+     "punt": [
+      555,
+      80
+     ],
+     "uitleg": "ontstaat in de matrix bij de verdere afbraak van pyrodruivenzuur; via je bloed adem je het uit."
+    },
+    {
+     "naam": "matrix",
+     "x": 668,
+     "y": 165,
+     "punt": [
+      430,
+      240
+     ],
+     "uitleg": "de ruimte binnen het binnenmembraan; hier breken enzymen pyrodruivenzuur verder af."
+    },
+    {
+     "naam": "binnenmembraan",
+     "x": 668,
+     "y": 290,
+     "punt": [
+      554,
+      278
+     ],
+     "uitleg": "sterk geplooid; hier komt de energie uit de H-atomen vrij en ontstaat veel ATP."
+    },
+    {
+     "naam": "buitenmembraan",
+     "x": 668,
+     "y": 400,
+     "punt": [
+      514,
+      331
+     ],
+     "uitleg": "de gladde buitenste laag van het mitochondrium."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-sprint",
+   "soort": "volgorde",
+   "titel": "Een sprint van een hele ronde",
+   "opdracht": "Je sprint zo hard als je kunt en probeert dat een hele ronde vol te houden. Zet in de goede volgorde wat er in je spieren gebeurt.",
+   "stappen": [
+    {
+     "tekst": "Vanaf de start gebruik je per seconde veel meer ATP dan je mitochondriën kunnen maken.",
+     "uitleg": "Je spieren krijgen wel zuurstof, alleen te weinig voor zoveel ATP."
+    },
+    {
+     "tekst": "Het tekort komt eerst vooral uit CP: de fosfaataccu.",
+     "uitleg": "CP geeft zijn fosfaat aan ADP, zo ontstaat weer ATP. Dat gaat het snelst, en zonder zuurstof."
+    },
+    {
+     "tekst": "Na zo'n tien seconden is meer dan de helft van je CP op.",
+     "uitleg": "Ook van CP heeft je spier maar een kleine voorraad. Hoe minder CP, hoe minder ATP per seconde."
+    },
+    {
+     "tekst": "Het tekort komt nu vooral uit gisting: er ontstaat melkzuur.",
+     "uitleg": "De glycolyse maakt meer pyrodruivenzuur dan je mitochondriën verwerken. Wat overblijft, wordt melkzuur."
+    },
+    {
+     "tekst": "Gisting levert per seconde minder ATP dan CP: je zakt in tempo, en de pH in je spieren daalt.",
+     "uitleg": "Melkzuur en H⁺ hopen zich op. Die lagere pH draagt bij aan vermoeidheid."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-etc",
+   "soort": "volgorde",
+   "vwo": true,
+   "titel": "De elektronentransportketen",
+   "opdracht": "NADH,H⁺ komt aan bij het binnenmembraan. Zet in de goede volgorde hoe er ATP ontstaat.",
+   "stappen": [
+    {
+     "tekst": "NADH,H⁺ geeft zijn elektronen af aan een eiwitcomplex in het binnenmembraan; er blijft NAD⁺ over.",
+     "uitleg": "Een H-atoom bestaat uit een H⁺ en een elektron. De H⁺ komen los in de matrix."
+    },
+    {
+     "tekst": "De elektronen gaan stap voor stap van eiwitcomplex naar eiwitcomplex en geven telkens een deel van hun energie af.",
+     "uitleg": "Die reeks eiwitcomplexen heet de elektronentransportketen."
+    },
+    {
+     "tekst": "Met die energie pompen de eiwitcomplexen H⁺ door het binnenmembraan.",
+     "uitleg": "De H⁺ gaan van de matrix naar de ruimte tussen de membranen."
+    },
+    {
+     "tekst": "Tussen de membranen zit nu veel meer H⁺ dan in de matrix.",
+     "uitleg": "Zo ontstaat een H⁺-verschil over het binnenmembraan."
+    },
+    {
+     "tekst": "De H⁺ stromen terug naar de matrix, vooral door ATP-synthetase; een deel van dat eiwit draait rond.",
+     "uitleg": "H⁺ stromen naar de kant met weinig H⁺. Niet de elektronen, maar de H⁺ gaan door ATP-synthetase."
+    },
+    {
+     "tekst": "ATP-synthetase koppelt ADP en fosfaat tot ATP.",
+     "uitleg": "Deze vorming van veel ATP met behulp van O₂ heet oxidatieve fosforylering."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-sprint",
+   "soort": "uitleg",
+   "titel": "Sprinten of joggen",
+   "opdracht": "Rustig joggen houd je een uur vol, sprinttempo nog geen hele ronde. Leg uit hoe dat komt.",
+   "begrippen": [
+    {
+     "naam": "ATP",
+     "varianten": []
+    },
+    {
+     "naam": "mitochondriën",
+     "varianten": [
+      "mitochondrium",
+      "mitochondrien",
+      "aeroob",
+      "aerobe dissimilatie"
+     ]
+    },
+    {
+     "naam": "zuurstof",
+     "varianten": [
+      "O2",
+      "zuurstofaanvoer"
+     ]
+    },
+    {
+     "naam": "CP",
+     "varianten": [
+      "creatinefosfaat",
+      "fosfaataccu"
+     ]
+    },
+    {
+     "naam": "gisting",
+     "varianten": [
+      "melkzuur",
+      "anaeroob"
+     ]
+    },
+    {
+     "naam": "pH",
+     "varianten": [
+      "zuur",
+      "verzuring"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat je bij een sprint per seconde meer ATP gebruikt dan je mitochondriën met de zuurstofaanvoer kunnen maken.",
+    "Ik leg uit dat het tekort uit CP en gisting komt, en dat CP na zo'n tien seconden al voor meer dan de helft op is.",
+    "Ik leg uit dat gisting per seconde minder ATP levert dan CP, en dat de pH daalt: je zakt in tempo.",
+    "Ik leg uit dat je bij joggen per seconde zo weinig ATP nodig hebt dat bijna alles aeroob kan."
+   ],
+   "model": [
+    "Bij een sprint gebruik je per seconde veel meer ATP dan je mitochondriën kunnen maken. Hoeveel ATP je aeroob maakt, hangt vooral af van je zuurstofaanvoer.",
+    "Het tekort komt eerst vooral uit CP (de fosfaataccu), maar daarvan is na zo'n tien seconden al meer dan de helft op. Daarna komt het tekort vooral uit gisting. Gisting levert per seconde minder ATP dan CP, dus je zakt in tempo. Ook de pH in je spieren daalt door melkzuur, en dat draagt bij aan vermoeidheid.",
+    "Bij joggen gebruik je per seconde veel minder ATP. Na een paar minuten kan bijna alles aeroob. Elke glucose levert dan veel meer ATP op, dus je voorraad glycogeen gaat lang mee."
+   ]
+  },
+  {
+   "id": "uitleg-nad",
+   "soort": "uitleg",
+   "vwo": true,
+   "titel": "Waarom gisting toch ATP oplevert",
+   "opdracht": "De stap van pyrodruivenzuur naar melkzuur levert zelf geen ATP op. Toch maakt een spiercel zonder zuurstof dankzij gisting ATP. Leg uit hoe dat zit.",
+   "begrippen": [
+    {
+     "naam": "NAD⁺",
+     "varianten": [
+      "NAD+",
+      "NAD"
+     ]
+    },
+    {
+     "naam": "NADH,H⁺",
+     "varianten": [
+      "NADH",
+      "NADH,H+",
+      "NADH+H+"
+     ]
+    },
+    {
+     "naam": "H-atomen",
+     "varianten": [
+      "H-atoom",
+      "waterstofatomen",
+      "waterstof"
+     ]
+    },
+    {
+     "naam": "glycolyse",
+     "varianten": []
+    },
+    {
+     "naam": "pyrodruivenzuur",
+     "varianten": [
+      "pyruvaat"
+     ]
+    },
+    {
+     "naam": "melkzuur",
+     "varianten": [
+      "lactaat"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat bij de glycolyse NAD⁺ H-atomen opneemt en NADH,H⁺ wordt.",
+    "Ik leg uit dat er maar weinig NAD⁺ is, en dat de glycolyse stopt als alle NAD⁺ beladen is.",
+    "Ik leg uit dat bij gisting de H-atomen van NADH,H⁺ op pyrodruivenzuur worden gezet, zodat melkzuur ontstaat en NAD⁺ terugkomt.",
+    "Ik leg uit dat de glycolyse daardoor door kan gaan en netto twee ATP per glucose levert."
+   ],
+   "model": [
+    "Bij één stap van de glycolyse gaan er H-atomen af. Die worden opgenomen door het co-enzym NAD⁺, dat daardoor NADH,H⁺ wordt. Er is maar weinig NAD⁺ in de cel: is alles beladen, dan stopt de glycolyse.",
+    "Zonder zuurstof kan NADH,H⁺ zijn H-atomen niet aan de keten in het mitochondrium kwijt. Bij gisting zet een enzym de H-atomen van NADH,H⁺ op pyrodruivenzuur. Zo ontstaat melkzuur, en komt NAD⁺ weer beschikbaar.",
+    "De stap naar melkzuur levert zelf geen ATP op, maar de glycolyse kan weer door. En die levert netto twee ATP per glucose op."
+   ]
+  }
+ ]
+}

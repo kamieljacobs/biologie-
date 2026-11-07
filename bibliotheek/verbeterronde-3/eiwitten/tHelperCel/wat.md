@@ -1,0 +1,1 @@
+CD4 is een steeltje door het membraan met vier kralen op een rij (de vier Ig-achtige domeinen, D1 buitenaan), licht zigzag; het gebonden exemplaar wordt goud. Cel, kern, mitochondriën, infectie en apoptose ongewijzigd. (De uitknoppende virussen bij geinfecteerd tekenen met hivVirus: neem die DEF mee.)

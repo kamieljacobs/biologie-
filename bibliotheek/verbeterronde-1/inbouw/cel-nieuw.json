@@ -1,0 +1,90 @@
+[
+ {
+  "id": "cel-nieuw__blaasjeVersmelt",
+  "obj": "blaasjeVersmelt",
+  "nieuw": false,
+  "keuze": "C",
+  "actie": "variant C inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "het celmembraan is in alle versies vrijwel recht; het moet een stuk van een cirkel zijn, duidelijk gebogen",
+  "fout_laatste": "",
+  "zwak_gekozen": "Rare schuine rand rechts in het cytoplasmavlak; onderpanelen weinig gebogen"
+ },
+ {
+  "id": "cel-nieuw__celDier",
+  "obj": "celDier",
+  "nieuw": false,
+  "keuze": "C",
+  "actie": "variant C inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "het ruw ER hoort breed door te lopen in het buitenste kernmembraan; in X en Z is er geen verbinding, in Y maar op één plek. Alles blijft wel binnen het celmembraan (alleen het exocytoseblaasje, zoals bedoeld). Mitochondriën zijn in X en Y een beetje te groot vergeleken met de kern",
+  "fout_laatste": "",
+  "zwak_gekozen": "Cel raakt bijna de boven- en onderrand van het beeld; kleine panelen rakend aan de onderrand: geen ruimte voor namen"
+ },
+ {
+  "id": "cel-nieuw__chloroplastEcht",
+  "obj": "chloroplastEcht",
+  "nieuw": false,
+  "keuze": "B",
+  "actie": "variant B inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "dikke 3D-rand lijkt een plaat, ribosomen en DNA nauwelijks zichtbaar, verbindingen tussen grana vaag"
+ },
+ {
+  "id": "cel-nieuw__golgiStapel",
+  "obj": "golgiStapel",
+  "nieuw": false,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "cis/trans niet gelabeld in beeld; blaasjes klein"
+ },
+ {
+  "id": "cel-nieuw__kernEnvelopPorie",
+  "obj": "kernEnvelopPorie",
+  "nieuw": false,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "kern ligt als doorsnede wat plat; ribosomen buiten als gouden stippen; poriën klein bij kleine formaat"
+ },
+ {
+  "id": "cel-nieuw__mitochondrionEcht",
+  "obj": "mitochondrionEcht",
+  "nieuw": false,
+  "keuze": "B",
+  "actie": "variant B inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "buitenmembraan als dikke 3D-rand, cristae als dikke buizen die op de bodem staan en niet duidelijk uit het binnenmembraan plooien"
+ },
+ {
+  "id": "cel-nieuw__plantencel",
+  "obj": "plantencel",
+  "nieuw": false,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "plasmodesmata zijn in alle versies te klein of niet te herkennen als kanaaltjes door de wand; de protoplast losgemaakt van de wand is wel in alle behalve X te zien",
+  "fout_laatste": "De dikke celwand leest in beide als dunne groene rand; dikte t.o.v. de cel te klein voor 'dikke celwand'",
+  "zwak_gekozen": "Kern met stekelkrans (poriën als spijkers) en plasmodesmata slechts als streepjes door de wand"
+ },
+ {
+  "id": "cel-nieuw__ruwER",
+  "obj": "ruwER",
+  "nieuw": false,
+  "keuze": "C",
+  "actie": "variant C inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "in geen enkele versie is het kernmembraan zelf te zien waar het lumen van het ruw ER in overgaat; ribosomen zijn in alle versies losse stippen/bolletjes",
+  "fout_laatste": "",
+  "zwak_gekozen": "Ribosomen aan beide zijden langs de zakken; groeiende keten alleen bovenaan"
+ }
+]

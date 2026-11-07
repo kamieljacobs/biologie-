@@ -1,0 +1,242 @@
+[
+ {
+  "obj": "hartDoorsnede",
+  "scores": {
+   "X": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 15
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 19
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "Atrioventriculaire kleppen als losse stokjes met bolletjes (geen klepslippen), wanden nauwelijks dikteverschil tussen rechter- en linkerkamer, aorta/longslagader te schematisch en zonder vertakkingen",
+   "Y": "Drukke lijntjes en lichtblauwe stipjes (bolletjes) in de holtes; kleppen aan de basis van de slagaders erg klein; rechter longaders ogen als aansluiting op de rechterboezem"
+  },
+  "overnemen": "Rustigere kamerwanden uit X (geen streepjes/stipjes in de holtes); duidelijke bloedstroompijlen uit X in de grote stand.",
+  "combineren": false,
+  "fout": "In beide versies loopt de onderste holle ader als balk dwars door/onder de rechterkamer in plaats van aan de onderkant van de rechterboezem aan te sluiten; AV-kleppen hebben geen herkenbare klepslippen (alleen peesdraden/papillairspieren); open/dicht van de kleppen per fase is klein niet te zien."
+ },
+ {
+  "obj": "nefron",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 16
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "Haarvaten als scherpe zigzaglijnen, veel bolletjes/stipjes in het buisje, glomerulus een rommelig kluwen, dicht en druk",
+   "Y": "Eerste kronkelend deel is bijna recht (geen kronkels); glomerulus-schets met witte pijlen wat onduidelijk; verzamelbuis zonder zijtakken"
+  },
+  "overnemen": "Het kronkelende eerste en tweede deel en de zijtakken van de verzamelbuis uit X; geen zigzaghaarvaten.",
+  "combineren": true,
+  "fout": ""
+ },
+ {
+  "obj": "bladDoorsnede",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 3,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 18
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 19
+   }
+  },
+  "winnaar": "Y",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "Sluitcellen klein met witte blokjes ernaast, spleet nauwelijks als open/dicht te lezen; gasdeeltjes zijn losse stipjes buiten het blad; herkenbaarheid als blad gaat klein verloren",
+   "Y": "Zwaar groen 3D-blok neemt veel ruimte in; bovenvlak leeg; doorsnede zelf kleiner; sluitcellen in de doorsnede zijn halve cellen; grijze en blauwe pijl niet te onderscheiden als CO2/O2"
+  },
+  "overnemen": "De grotere, rustigere doorsnede en cuticula-lijn uit X; Y's onderaanzicht met huidmondjes behouden.",
+  "combineren": true,
+  "fout": "In beide versies is in de doorsnede geen duidelijke open spleet tussen twee sluitcellen met bladgroen te zien; CO2 in en O2 uit zijn niet herkenbaar onderscheiden."
+ },
+ {
+  "obj": "longblaasje",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 3,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 18
+   },
+   "Y": {
+    "klopt": 3,
+    "herkenbaar": 5,
+    "stijl": 3,
+    "beweging": 2,
+    "bruikbaar": 3,
+    "totaal": 16
+   }
+  },
+  "winnaar": "X",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "Eén blaasje in doorsnede: geen trosje aan een luchtwegtakje, wand ziet er dik uit, de herkenning voor een 15-jarige is lager",
+   "Y": "Haarvatennet als dicht kluwen/visnet, rode bloedcellen als zwarte stippen, geen zichtbare gaswisseling of enkele-bloedcelrij, blaasjes lijken platte bollen"
+  },
+  "overnemen": "Het trosje aan het luchtwegtakje met aan- en afvoerend vaatje uit Y als overzicht naast de doorsnede van X.",
+  "combineren": true,
+  "fout": "Wand in X is veel dikker dan de haarvaten en de blaaswand, terwijl gaswisseling juist over een zeer dunne wand gaat."
+ },
+ {
+  "obj": "wortelHaren",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 16
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "Wortelharen zijn dunne losse lijnen en geen duidelijke uitstulping van één cel; geen penwortel/zijwortels; bodemdeeltjes als grote bolletjes",
+   "Y": "Wortelharen op het overzicht piepklein; uitvergroting laat maar één cel zien; vaatbundel ontbreekt in de uitsnede"
+  },
+  "overnemen": "De zones van de wortelpunt (delingszone, rekking, haren) en de vaatbundel in het midden uit X in de uitvergroting.",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "synapsEcht",
+  "scores": {
+   "X": {
+    "klopt": 5,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   },
+   "Y": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 17
+   }
+  },
+  "winnaar": "X",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "Postsynaptisch neuron vlak en vaag; geen context van het hele neuron",
+   "Y": "Synapsspleet veel te breed (20–40 nm moet smal zijn), geen mitochondriën, receptoren als staafjes; kleine knop in de uitvergroting"
+  },
+  "overnemen": "De neuron-context (axon met myeline, takjes naar synapsknoppen) uit Y als inzetje.",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "bloemDoorsnede",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 3,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 16
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "Kroonbladen als dunne gebogen strepen (geen blad), kelk en kroon moeilijk te onderscheiden; bij heeft weinig herkenbare delen en geen stuifmeel op de poten",
+   "Y": "Kelkbladen lopen over de kroonbladen, meeldraden staan in de kroon zonder duidelijk aanhechtingspunt, helmknoppen rommelig; stuifmeelbuis stopt in de stijl-basis, niet bij een zaadbeginsel"
+  },
+  "overnemen": "De opgeruimde meeldraden en het open geheel (alle onderdelen vrij zichtbaar) uit X.",
+  "combineren": true,
+  "fout": "Bij in beide versies: slechts drie poten en twee vleugels getekend (moet zes poten, twee paar vleugels); stuifmeelbuis komt in geen van beide bij een zaadbeginsel."
+ },
+ {
+  "obj": "stamboomSymbolen",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 3,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 17
+   },
+   "Y": {
+    "klopt": 5,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 5,
+    "totaal": 23
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "Portretjes in vierkant/cirkel zijn geen standaardsymbolen; aanwijzing drager/aangedaan alleen via kleine badge of achtergrondkleur; geen generatienummers; nauwelijks bruikbaar klein of in examenstijl",
+   "Y": "Wat kaal; kleine stand mist leesbare nummers"
+  },
+  "overnemen": "Eventueel de portretten uit X als optionele laag, niet in plaats van de symbolen.",
+  "combineren": false,
+  "fout": ""
+ }
+]

@@ -1,0 +1,130 @@
+{
+ "_uitleg": "Instellingen van de leerlingplanner. Geen namen hier: dit bestand is openbaar. Leerlingen zijn nummers; bijnamen staan alleen in Firebase. soort = vast|pauze|stil|sport|les|coach|duo. dagen = ma di wo do vr. reeks = sleutel uit reeksen.json, start = maandag van de eerste filmweek, perWeek = filmpjes per week.",
+ "roosters": {
+  "standaard": [
+   {
+    "dagen": [
+     "ma",
+     "di",
+     "wo",
+     "do",
+     "vr"
+    ],
+    "titel": "Dagstart",
+    "van": "09:00",
+    "tot": "09:30",
+    "soort": "vast"
+   },
+   {
+    "dagen": [
+     "ma",
+     "di",
+     "wo",
+     "do",
+     "vr"
+    ],
+    "titel": "Kleine pauze",
+    "van": "10:45",
+    "tot": "11:00",
+    "soort": "pauze"
+   },
+   {
+    "dagen": [
+     "wo"
+    ],
+    "titel": "Coachgesprek",
+    "van": "11:00",
+    "tot": "11:25",
+    "soort": "coach"
+   },
+   {
+    "dagen": [
+     "wo"
+    ],
+    "titel": "Duolingo",
+    "van": "11:25",
+    "tot": "11:50",
+    "soort": "duo"
+   },
+   {
+    "dagen": [
+     "ma",
+     "di",
+     "do",
+     "vr"
+    ],
+    "titel": "Duolingo",
+    "van": "11:00",
+    "tot": "11:50",
+    "soort": "duo"
+   },
+   {
+    "dagen": [
+     "ma",
+     "di",
+     "wo",
+     "do",
+     "vr"
+    ],
+    "titel": "Grote pauze",
+    "van": "11:50",
+    "tot": "12:20",
+    "soort": "pauze"
+   },
+   {
+    "dagen": [
+     "ma"
+    ],
+    "titel": "LO",
+    "van": "12:20",
+    "tot": "13:20",
+    "soort": "sport",
+    "notitie": "Stiltemoment vervalt"
+   },
+   {
+    "dagen": [
+     "di",
+     "wo",
+     "do",
+     "vr"
+    ],
+    "titel": "Stiltemoment",
+    "van": "12:20",
+    "tot": "12:50",
+    "soort": "stil"
+   },
+   {
+    "dagen": [
+     "do"
+    ],
+    "titel": "Lon",
+    "van": "13:30",
+    "tot": "14:30",
+    "soort": "les"
+   },
+   {
+    "dagen": [
+     "vr"
+    ],
+    "titel": "Wiskunde",
+    "van": "13:05",
+    "tot": "13:45",
+    "soort": "les"
+   }
+  ]
+ },
+ "leerlingen": {
+  "leerling01": {
+   "rooster": "standaard",
+   "reeks": "natuurkunde",
+   "start": "2026-11-02",
+   "perWeek": 3
+  },
+  "leerling02": {
+   "rooster": "standaard",
+   "reeks": "biologie-ecologie-evolutie",
+   "start": "2026-11-02",
+   "perWeek": 3
+  }
+ }
+}

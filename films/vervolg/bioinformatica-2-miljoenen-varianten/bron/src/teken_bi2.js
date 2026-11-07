@@ -1,0 +1,390 @@
+// Wat word jij? · Bio-informatica 2 · Miljoenen varianten: welke maakt ziek? — eigen tekeningen (fase A, 25 okt 2026)
+// Look: Schema met cast. Het kind komt nooit in beeld: dossiermap, kindertekening, stamboomschema.
+// Reeksobject 'scherm met code / sequenties': letterlijk overgenomen uit teken_bi1.js (blok hieronder); scherm(), tegel(), varRij(), rolLijst() zijn de eigen laag erop.
+// =====================================================================================================
+// REEKSOBJECT 'SCHERM MET CODE / SEQUENTIES' (vastgelegd door film 1; films 2–4 kopiëren dit blok letterlijk)
+// =====================================================================================================
+// Gebruiksnoot
+//   Vereist: lib.js (C, rgba, lighten, clamp, lerp, ease, shape, roundRect, text, fTekst, fMeta, metaText) en circ().
+//   Kopieer alles van hier tot '— einde reeksobject —' bovenaan de eigen teken_<d>.js. Niets in dit blok aanpassen;
+//   wil een film iets extra, dan via de opties of in een eigen functie eronder.
+//
+//   codeScherm(ctx, x, y, w, h, regels, o)   donker editorvenster met tabbalk; geeft geometrie terug.
+//       regels  array met regels Python (strings); syntax in de betekeniskleuren (sleutelwoord goud, "tekst" paars,
+//               getal teal, # commentaar grijs, rest wit). Regelnummers links.
+//       o.tab   naam in de tab (bv. 'vertaal.py', 'barcode_sushi.fasta', 'BLAST · resultaten'), hoofdletters zoals gegeven
+//       o.a     doorzichtigheid · o.px  lettergrootte code (36) · o.zicht  aantal zichtbare regels (breuk = laatste fadet in)
+//       o.hl    index (of lijst) van de regel(s) die de stem beschrijft (goud randje links, volle sterkte); andere regels naar 35 %
+//       o.dim   0..1 hoe sterk de andere regels dimmen (standaard 1 als hl gezet is)
+//       o.cursor {regel, kol} knipperende gouden cursor (alleen als er getypt wordt) · o.t  tijd voor het knipperen
+//       o.merk  [{regel, van, tot, a}] gouden kader om tekens van..tot (bv. len(mrna)) · o.fout  [{regel, van, tot, a}] koraal kader
+//       o.inhoud function(B) tekent eigen inhoud in het venster in plaats van code (B = {x, y, w, h}, al geclipt)
+//       terug: {binnen:{x,y,w,h}, regelY(i) (basislijn), kolX(k) (linkerrand teken k), cw (tekenbreedte), lh}
+//   sequentieRij(ctx, x, y, seq, o)          rij lettertegels; x = midden eerste tegel, y = midden van de rij.
+//       basen in de vaste tinten van de DNA-reeks (A, T lichte tegel met donkere letter; C, G donkere tegel met lichte letter);
+//       o.rna  U en de RNA-tinten (teal) · o.s  schaal (1 = tegel 44 × 52, letter 40 px bold) · o.dx  afstand
+//       o.zicht aantal zichtbare tegels · o.mark(i) → kleur of null (koraal rand bij verschil) · o.hl(i) → 0..1 gouden rand
+//       o.alpha(i) → 0..1 per tegel · o.fadeX, o.fadeW  rij loopt rustig uit (vervaagt rechts) · o.letters false = alleen kleur
+//       '-' tekent een gat: leeg tegeltje met gestippelde rand en een streepje. Letters onder 28 px vallen vanzelf weg.
+//       terug: array met de x van elke tegel.
+//   uitlijning(ctx, x, y, boven, onder, o)  twee rijen onder elkaar met streepjes bij gelijke letters, koraal rand bij verschil;
+//       o.kol  aantal kolommen dat al vergeleken is (letter voor letter) · o.streep 0..1 · o.klopt 0..1 (streepjes worden groen)
+//       o.score 0..1 scoreregel eronder (+1 groen, −1 koraal) · o.s, o.dx zoals sequentieRij · o.namen ['stukje 1','stukje 2']
+//       terug: {xs, y1, y2, gelijk, anders, gaten, scoreY}
+//   aaKralen(ctx, x, y, letters, o)          aminozuren als okerkleurige kralen aan een keten, met de eenletterscode erop;
+//       o.r straal (32) · o.dx · o.zicht · o.fout true = koraal rand (verkeerde aminozuren) · o.hl index met gouden rand
+//   resultatenLijst(ctx, x, y, w, rijen, o)  BLAST-uitslag, max. drie regels {soort, gelijk, toeval, best, verdacht};
+//       koppen 'soort', 'gelijk', 'toeval' in Meta; o.zicht · o.kolHl 'gelijk'|'toeval' (goud kader om die kolom) · o.haak 0..1
+//   Kleuren: SCR (venster), BASE_KL / BASE_LT (DNA), RNA_KL / RNA_LT (RNA), AA_KL (aminozuren) — gelijk aan de DNA-reeks.
+//   Nooit: een muur van tekst (code 4–8 regels, rij 20–40 tegels), echte NCBI-schermen of logo's, Engelse menu's.
+// =====================================================================================================
+const SCR = { vul: '#121A26', rand: '#8FA0B5', tab: '#0D1420', nr: '#9AA3B2', kw: '#E0B64A', str: '#8C7BBF', num: '#5BA4C9', com: '#9AA3B2', txt: '#F2F2EE' };
+const BASE_KL = { A: '#C9BEEB', T: '#9F90D4', C: '#6C5BA8', G: '#4F3F86' }, BASE_LT = { A: '#121A26', T: '#121A26', C: '#F2F2EE', G: '#F2F2EE' };
+const RNA_KL = { A: '#BFE0EF', U: '#8CC6E1', C: '#4E93B9', G: '#356F91' }, RNA_LT = { A: '#121A26', U: '#121A26', C: '#F2F2EE', G: '#F2F2EE' };
+const AA_KL = ['#C9A35C', '#B08A5C', '#D9B97A', '#9C7A4A', '#E0C98F'];
+const _PY_KW = new Set(['for', 'in', 'range', 'len', 'print', 'def', 'return', 'if', 'else', 'elif', 'while', 'import', 'from', 'and', 'or', 'not', 'True', 'False', 'None']);
+function _pyTokens(s) { const out = []; let i = 0;
+  while (i < s.length) { const c = s[i];
+    if (c === '#') { out.push([i, s.slice(i), 'com']); break; }
+    if (c === '"' || c === "'") { let j = s.indexOf(c, i + 1); if (j < 0) j = s.length - 1; out.push([i, s.slice(i, j + 1), 'str']); i = j + 1; continue; }
+    if (/[0-9]/.test(c) && !/[A-Za-z_]/.test(s[i - 1] || '')) { let j = i; while (j < s.length && /[0-9.]/.test(s[j])) j++; out.push([i, s.slice(i, j), 'num']); i = j; continue; }
+    if (/[A-Za-z_]/.test(c)) { let j = i; while (j < s.length && /[A-Za-z_0-9]/.test(s[j])) j++; const w = s.slice(i, j); out.push([i, w, _PY_KW.has(w) ? 'kw' : 'txt']); i = j; continue; }
+    out.push([i, c, 'txt']); i++; }
+  return out; }
+function codeScherm(ctx, x, y, w, h, regels = [], o = {}) {
+  const a = o.a == null ? 1 : o.a; if (a <= 0.01) return null;
+  const px = o.px || 36, lh = o.lh || Math.round(px * 1.42), nrs = o.nrs !== false, hls = o.hl == null ? [] : [].concat(o.hl), dim = o.dim == null ? (hls.length ? 1 : 0) : o.dim;
+  const zicht = o.zicht == null ? Infinity : o.zicht, tb = 54;
+  ctx.save(); ctx.globalAlpha *= a;
+  roundRect(ctx, x, y, w, h, 12); shape(ctx, SCR.vul, null);
+  ctx.save(); roundRect(ctx, x, y, w, h, 12); ctx.clip(); ctx.fillStyle = SCR.tab; ctx.fillRect(x, y, w, tb); ctx.restore();
+  if (o.tab) { ctx.font = fMeta(28); ctx.letterSpacing = '1px'; const tw = ctx.measureText(o.tab).width + 48;
+    ctx.beginPath(); ctx.moveTo(x + 16, y + tb); ctx.lineTo(x + 16, y + 18); ctx.arcTo(x + 16, y + 10, x + 24, y + 10, 8); ctx.lineTo(x + 8 + tw, y + 10); ctx.arcTo(x + 16 + tw, y + 10, x + 16 + tw, y + 18, 8); ctx.lineTo(x + 16 + tw, y + tb); ctx.closePath();
+    ctx.fillStyle = SCR.vul; ctx.fill(); ctx.strokeStyle = rgba(SCR.rand, 0.6); ctx.lineWidth = 1; ctx.stroke();
+    ctx.fillStyle = C.text2; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic'; ctx.fillText(o.tab, x + 40, y + tb - 13); ctx.letterSpacing = '0px'; }
+  roundRect(ctx, x, y, w, h, 12); ctx.strokeStyle = SCR.rand; ctx.lineWidth = 1; ctx.stroke();
+  ctx.font = `500 ${px}px ${F.meta}`; const cw = ctx.measureText('M').width;
+  const B = { x: x + (nrs ? 104 : 36), y: y + tb + 22, w: w - (nrs ? 104 : 36) - 28, h: h - tb - 34 };
+  const regelY = (i) => B.y + px * 0.86 + i * lh, kolX = (k) => B.x + k * cw;
+  if (o.inhoud) { ctx.save(); ctx.beginPath(); ctx.rect(x + 1, y + tb, w - 2, h - tb - 1); ctx.clip(); o.inhoud({ x: x + 24, y: y + tb + 12, w: w - 48, h: h - tb - 24 }); ctx.restore(); }
+  for (let i = 0; i < regels.length; i++) { const fa = clamp(zicht - i, 0, 1); if (fa <= 0.01) break;
+    const isHl = hls.includes(i), la = fa * (hls.length && !isHl ? lerp(1, 0.35, dim) : 1), yy = regelY(i);
+    ctx.save(); ctx.globalAlpha *= la;
+    if (nrs) { ctx.font = fMeta(28); ctx.fillStyle = SCR.nr; ctx.textAlign = 'right'; ctx.fillText(String(i + 1), x + 72, yy); }
+    ctx.font = `500 ${px}px ${F.meta}`; ctx.textAlign = 'left'; ctx.beginPath(); ctx.rect(B.x - 4, y + tb, x + w - 14 - (B.x - 4), h - tb); ctx.clip();
+    for (const [k, s, soort] of _pyTokens(regels[i])) { ctx.fillStyle = SCR[soort]; ctx.fillText(s, kolX(k), yy); }
+    ctx.restore();
+    if (isHl && dim > 0.01) { ctx.save(); ctx.globalAlpha *= fa * dim; ctx.fillStyle = C.goud; ctx.fillRect(x + (nrs ? 86 : 14), yy - px * 0.9, 4, lh * 0.92); ctx.restore(); } }
+  const kader = (lijst, col) => { for (const m of (lijst || [])) { const ma = m.a == null ? 1 : m.a; if (ma <= 0.01) continue; const yy = regelY(m.regel);
+      ctx.save(); ctx.globalAlpha *= ma; roundRect(ctx, kolX(m.van) - 5, yy - px * 0.95, (m.tot - m.van) * cw + 10, px * 1.3, 6); ctx.strokeStyle = col; ctx.lineWidth = 3; ctx.stroke(); ctx.restore(); } };
+  kader(o.merk, C.goud); kader(o.fout, C.koraal);
+  if (o.cursor) { const on = Math.sin((o.t || 0) * 6.3) > -0.2; if (on) { const yy = regelY(o.cursor.regel); ctx.fillStyle = C.goud; ctx.fillRect(kolX(o.cursor.kol) + 2, yy - px * 0.85, cw * 0.55, px * 1.05); } }
+  ctx.restore();
+  return { binnen: B, regelY, kolX, cw, lh, px }; }
+function sequentieRij(ctx, x, y, seq, o = {}) {
+  const a = o.a == null ? 1 : o.a, s = o.s || 1, w = (o.w || 44) * s, h = (o.h || 52) * s, dx = o.dx || w + 6 * s, px = Math.round((o.px || 40) * s);
+  const rna = !!o.rna, KL = rna ? RNA_KL : BASE_KL, LT = rna ? RNA_LT : BASE_LT, letters = o.letters !== false && px >= 28;
+  const zicht = o.zicht == null ? Infinity : o.zicht, xs = [];
+  if (a <= 0.01) { for (let i = 0; i < seq.length; i++) xs.push(x + i * dx); return xs; }
+  ctx.save(); ctx.globalAlpha *= a; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  for (let i = 0; i < seq.length; i++) { const xi = x + i * dx; xs.push(xi); let fa = clamp(zicht - i, 0, 1); if (o.alpha) fa *= o.alpha(i);
+    if (o.fadeX != null && xi > o.fadeX) fa *= clamp(1 - (xi - o.fadeX) / (o.fadeW || 200), 0, 1);
+    if (fa <= 0.01) continue; const ch = seq[i]; ctx.save(); ctx.globalAlpha *= fa;
+    if (ch === '-') { roundRect(ctx, xi - w / 2, y - h / 2, w, h, 8 * s); ctx.setLineDash([5 * s, 4 * s]); ctx.strokeStyle = C.line; ctx.lineWidth = 1.5; ctx.stroke(); ctx.setLineDash([]);
+      ctx.beginPath(); ctx.moveTo(xi - w * 0.22, y); ctx.lineTo(xi + w * 0.22, y); ctx.lineWidth = 3 * s; ctx.lineCap = 'round'; ctx.stroke(); }
+    else { const f = KL[ch] || C.fill, mk = o.mark ? o.mark(i) : null; roundRect(ctx, xi - w / 2, y - h / 2, w, h, 8 * s); shape(ctx, f, mk || lighten(f, 0.3), mk ? 3.5 : 1);
+      if (letters) { ctx.font = fTekst(px, 700); ctx.fillStyle = LT[ch] || C.text; ctx.fillText(ch, xi, y + 2 * s); } }
+    const hk = o.hl ? o.hl(i) : 0; if (hk > 0.01) { ctx.globalAlpha *= hk; roundRect(ctx, xi - w / 2 - 4, y - h / 2 - 4, w + 8, h + 8, 10 * s); ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.stroke(); }
+    ctx.restore(); }
+  ctx.restore(); return xs; }
+function uitlijning(ctx, x, y, boven, onder, o = {}) {
+  const a = o.a == null ? 1 : o.a, s = o.s || 1, h = (o.h || 52) * s, dx = o.dx || (o.w || 44) * s + 6 * s, tussen = (o.tussen || 40) * s;
+  const kol = o.kol == null ? Infinity : o.kol, streep = o.streep == null ? 1 : o.streep, klopt = o.klopt || 0, y2 = y + h + tussen;
+  const n = Math.max(boven.length, onder.length); let gelijk = 0, anders = 0, gaten = 0; const soort = [];
+  for (let i = 0; i < n; i++) { const p = boven[i], q = onder[i]; let k = null; if (p && q) { if (p === '-' || q === '-') { k = 'gat'; gaten++; } else if (p === q) { k = 'gelijk'; gelijk++; } else { k = 'anders'; anders++; } } soort.push(k); }
+  const xs = []; for (let i = 0; i < n; i++) xs.push(x + i * dx);
+  if (a <= 0.01) return { xs, y1: y, y2, gelijk, anders, gaten, scoreY: y2 + h / 2 + 52 * s };
+  ctx.save(); ctx.globalAlpha *= a;
+  const mis = (i) => (i < kol && soort[i] === 'anders') ? C.koraal : null, opts = Object.assign({}, o, { a: 1, mark: mis });
+  sequentieRij(ctx, x, y, boven, Object.assign({}, opts, { alpha: o.alpha1 })); sequentieRij(ctx, x, y2, onder, Object.assign({}, opts, { alpha: o.alpha2 }));
+  if (o.namen) { metaText(ctx, o.namen[0], x - dx * 0.5 - 18, y + 10, C.text2, 'right', 28); metaText(ctx, o.namen[1], x - dx * 0.5 - 18, y2 + 10, C.text2, 'right', 28); }
+  if (streep > 0.01) { ctx.save(); ctx.globalAlpha *= streep; ctx.lineCap = 'round';
+    for (let i = 0; i < n; i++) { if (soort[i] !== 'gelijk') continue; const f = clamp(kol - i, 0, 1); if (f <= 0.01) continue;
+      ctx.strokeStyle = klopt > 0.5 ? C.groen : C.line; ctx.globalAlpha = a * streep * f; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(xs[i], y + h / 2 + 7 * s); ctx.lineTo(xs[i], y2 - h / 2 - 7 * s); ctx.stroke(); }
+    ctx.restore(); }
+  const scoreY = y2 + h / 2 + 52 * s;
+  if (o.score > 0.01) { ctx.save(); ctx.globalAlpha *= o.score; for (let i = 0; i < n; i++) { if (!soort[i]) continue; const f = clamp((o.scoreKol == null ? Infinity : o.scoreKol) - i, 0, 1); if (f <= 0.01) continue;
+      ctx.save(); ctx.globalAlpha *= f; text(ctx, soort[i] === 'gelijk' ? '+1' : '−1', xs[i], scoreY, fMeta(28), soort[i] === 'gelijk' ? C.groen : C.koraal, 'center'); ctx.restore(); } ctx.restore(); }
+  ctx.restore(); return { xs, y1: y, y2, gelijk, anders, gaten, scoreY }; }
+function aaKralen(ctx, x, y, letters, o = {}) {
+  const a = o.a == null ? 1 : o.a, r = o.r || 32, dx = o.dx || r * 2.6, zicht = o.zicht == null ? Infinity : o.zicht, xs = [];
+  for (let i = 0; i < letters.length; i++) xs.push(x + i * dx); if (a <= 0.01) return xs;
+  ctx.save(); ctx.globalAlpha *= a; const nz = Math.min(letters.length, Math.ceil(zicht));
+  if (nz > 1) { ctx.strokeStyle = '#8A7550'; ctx.lineWidth = Math.max(3, r * 0.16); ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(xs[0], y); ctx.lineTo(xs[0] + (Math.min(zicht, letters.length) - 1) * dx, y); ctx.stroke(); }
+  for (let i = 0; i < nz; i++) { const f = clamp(zicht - i, 0, 1); if (f <= 0.01) continue; const L = letters[i], c = AA_KL[(L.charCodeAt(0) * 7) % AA_KL.length];
+    ctx.save(); ctx.globalAlpha *= f; const rr = r * (0.6 + 0.4 * ease(f)); circ(ctx, xs[i], y, rr, c, o.fout ? C.koraal : lighten(c, 0.35), o.fout ? 4 : 1.5);
+    if (i === o.hl) circ(ctx, xs[i], y, rr + 7, null, C.goud, 3);
+    if (r >= 24) text(ctx, L, xs[i], y + r * 0.38, fTekst(Math.round(r * 1.1), 700), '#121A26', 'center'); ctx.restore(); }
+  ctx.restore(); return xs; }
+function resultatenLijst(ctx, x, y, w, rijen, o = {}) {
+  const a = o.a == null ? 1 : o.a; if (a <= 0.01) return null; const zicht = o.zicht == null ? Infinity : o.zicht, rh = 76;
+  const cG = x + w * 0.66, cT = x + w * 0.92; ctx.save(); ctx.globalAlpha *= a;
+  metaText(ctx, 'soort', x, y, C.text2, 'left', 28); metaText(ctx, 'gelijk', cG, y, C.text2, 'right', 28); metaText(ctx, 'toeval', cT, y, C.text2, 'right', 28);
+  ctx.strokeStyle = rgba(C.line, 0.5); ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(x, y + 18); ctx.lineTo(x + w, y + 18); ctx.stroke();
+  const rowY = (i) => y + 72 + i * rh;
+  for (let i = 0; i < rijen.length; i++) { const f = clamp(zicht - i, 0, 1); if (f <= 0.01) continue; const R = rijen[i], yy = rowY(i);
+    ctx.save(); ctx.globalAlpha *= f;
+    if (R.verdacht) { roundRect(ctx, x - 16, yy - 46, w + 32, 64, 10); ctx.strokeStyle = C.koraal; ctx.lineWidth = 3; ctx.stroke(); }
+    text(ctx, R.soort, x, yy, fTekst(36, R.best ? 700 : 600), R.best ? C.groen : C.text, 'left');
+    text(ctx, R.gelijk, cG, yy, fTekst(36, 700), R.best ? C.groen : C.text, 'right');
+    text(ctx, R.toeval, cT, yy, fTekst(36, 600), C.text2, 'right'); ctx.restore(); }
+  const hlK = (naam, cx, al) => { roundRect(ctx, cx - 190, y - 40, 210, 60 + Math.min(rijen.length, zicht) * rh, 12); ctx.save(); ctx.globalAlpha *= al; ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.stroke(); ctx.restore(); };
+  if (o.kolHl === 'gelijk' && (o.kolA == null || o.kolA > 0.01)) hlK('gelijk', cG + 10, o.kolA == null ? 1 : o.kolA);
+  if (o.kolHl === 'toeval' && (o.kolA == null || o.kolA > 0.01)) hlK('toeval', cT + 10, o.kolA == null ? 1 : o.kolA);
+  const bi = rijen.findIndex(R => R.best); if (bi >= 0 && o.haak > 0.01) { const yy = rowY(bi); ctx.save(); ctx.globalAlpha *= o.haak; ctx.strokeStyle = C.groen; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(x - 24, yy - 40); ctx.lineTo(x - 38, yy - 40); ctx.lineTo(x - 38, yy + 10); ctx.lineTo(x - 24, yy + 10); ctx.stroke(); ctx.restore(); }
+  ctx.restore(); return { rowY, cG, cT }; }
+// — einde reeksobject —
+
+function metaA(ctx, s2, x, y, a, col, al, px) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; metaText(ctx, s2, x, y, col, al, px); ctx.restore(); }
+function antwoord(ctx, s2, a = 1) { regel(ctx, s2, 120, 150, a, C.groen, 40, 'left', 700); }
+// opeenvolgende fasen: elke fase verdwijnt als de volgende komt (eerst weg, dan nieuw)
+function fasen(q, cues, d = 0.6) { const on = cues.map(c => c ? q.on(c[0], c[1] || 1, d) : 1); return on.map((v, i) => v * (i + 1 < on.length ? 1 - on[i + 1] : 1)); }
+function zacht(ctx, a, fn) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; fn(); ctx.restore(); }
+const MONO = (px, w = 500) => `${w} ${px}px ${F.meta}`;
+
+// ---------------- reeksobject: scherm met code / sequenties ----------------
+const BASE_K = BASE_KL, BASE_L = BASE_LT; // reeksobject-tinten
+function scherm(ctx, x, y, w, h, tab, o = {}) { const a = o.a == null ? 1 : o.a; const B = { x: x + 24, y: y + 66, w: w - 48, h: h - 78 }; if (a <= 0.01) return B;
+  codeScherm(ctx, x, y, w, h, [], { tab, a, inhoud: () => {} }); return B; }
+function tegel(ctx, x, y, b, o = {}) { const a = o.a == null ? 1 : o.a; if (a <= 0.01) return; const w = o.w || 44, h = o.h || 52, c = BASE_K[b] || C.fill;
+  ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - w / 2, y - h / 2, w, h, 8); shape(ctx, c, o.rand || lighten(c, 0.3), o.rand ? 4 : 1.2);
+  ctx.font = MONO(o.px || 36, 700); ctx.fillStyle = BASE_L[b] || C.text; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(b, x, y + 2); ctx.restore(); }
+// één regel in de variantenlijst: chromosoom · plek · referentie → meisje
+function varRij(ctx, x, y, chr, plek, ref, alt, o = {}) { const a = o.a == null ? 1 : o.a; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  if (o.hl) { roundRect(ctx, x - 12, y - 30, o.w || 640, 60, 8); shape(ctx, rgba(C.goud, 0.14 * o.hl), rgba(C.goud, o.hl), 2); ctx.fillStyle = C.goud; ctx.fillRect(x - 12, y - 30, 4, 60); }
+  ctx.font = MONO(30); ctx.fillStyle = C.text2; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(chr, x, y + 2);
+  ctx.fillStyle = C.text; ctx.fillText(plek, x + 110, y + 2);
+  tegel(ctx, x + 400, y, ref, { w: 40, h: 46, px: 30 }); ctx.fillStyle = C.text2; ctx.font = fTekst(30, 600); ctx.textAlign = 'center'; ctx.fillText('→', x + 452, y + 2); tegel(ctx, x + 504, y, alt, { w: 40, h: 46, px: 30, rand: o.altRand });
+  ctx.restore(); }
+function rijData(i) { const ch = 1 + Math.floor(hash(i * 3.7 + 1) * 22), p = Math.floor(1e6 + hash(i * 5.3 + 2) * 1.4e8), B = 'ACGT', r = B[Math.floor(hash(i * 1.9 + 3) * 4)]; let al = B[Math.floor(hash(i * 2.3 + 4) * 4)]; if (al === r) al = B[(B.indexOf(r) + 2) % 4];
+  return ['chr' + ch, p.toLocaleString('nl-NL').replace(/\./g, ' '), r, al]; }
+// rollende variantenlijst in een schermvak; off = hoeveel regels er al voorbij zijn
+function rolLijst(ctx, box, off, o = {}) { const a = o.a == null ? 1 : o.a; if (a <= 0.01) return; const lh = 62; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.rect(box.x - 14, box.y, box.w + 28, box.h); ctx.clip();
+  const i0 = Math.floor(off), fr = off - i0, n = Math.ceil(box.h / lh) + 1;
+  for (let k = 0; k < n; k++) { const i = i0 + k, d = rijData(i + (o.seed || 0)); varRij(ctx, box.x + 10, box.y + 34 + (k - fr) * lh, d[0], d[1], d[2], d[3], { hl: o.hl && o.hl(i) || 0, w: box.w - 4 }); }
+  ctx.restore(); }
+function kolomKoppen(ctx, box, a = 1) { metaA(ctx, 'chromosoom · plek', box.x + 10, box.y - 4, a, C.text2, 'left', 28); metaA(ctx, 'ref. → meisje', box.x + 380, box.y - 4, a, C.text2, 'left', 28); }
+
+// ---------------- spreekkamer (lijntekening, nieuw) ----------------
+function spreekkamer(ctx, o = {}) { const { a = 1, x0 = 300, x1 = 1060, top = 640, map = 1, tekening = 1, stoelen = true } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  ctx.strokeStyle = rgba(C.line, 0.5); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(60, 800); ctx.lineTo(W - 60, 800); ctx.stroke(); // vloer
+  if (stoelen) for (const sx of [x0 - 70, x1 + 70]) { ctx.strokeStyle = '#AFC0D0'; ctx.lineWidth = 4; ctx.lineCap = 'round'; const d = sx < x0 ? -1 : 1; ctx.beginPath(); ctx.moveTo(sx + d * 40, 560); ctx.lineTo(sx + d * 40, 800); ctx.moveTo(sx - d * 40, 700); ctx.lineTo(sx - d * 40, 800); ctx.moveTo(sx - d * 44, 700); ctx.lineTo(sx + d * 44, 700); ctx.stroke(); }
+  roundRect(ctx, x0, top, x1 - x0, 18, 6); shape(ctx, '#5A6A84', '#AFC0D0', 2); ctx.strokeStyle = '#AFC0D0'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(x0 + 30, top + 18); ctx.lineTo(x0 + 30, 800); ctx.moveTo(x1 - 30, top + 18); ctx.lineTo(x1 - 30, 800); ctx.stroke();
+  if (tekening > 0.01) kinderTekening(ctx, x0 + 120, top - 8, 1, tekening);
+  if (map > 0.01) dossierMap(ctx, x1 - 230, top - 8, 1, map);
+  ctx.restore(); }
+// dichte dossiermap op tafel (zijaanzicht van bovenaf gekanteld), zonder naam
+function dossierMap(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
+  ctx.beginPath(); ctx.moveTo(-90, 0); ctx.lineTo(90, 0); ctx.lineTo(110, -34); ctx.lineTo(-70, -34); ctx.closePath(); shape(ctx, C.oker, lighten(C.oker, 0.3), 1.5);
+  ctx.fillStyle = '#F2EEE4'; ctx.beginPath(); ctx.moveTo(-80, -6); ctx.lineTo(84, -6); ctx.lineTo(100, -30); ctx.lineTo(-62, -30); ctx.closePath(); ctx.globalAlpha *= 0.35; ctx.fill(); ctx.restore(); }
+// kindertekening: blad met huisje en zon, plat op tafel
+function kinderTekening(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
+  ctx.beginPath(); ctx.moveTo(-80, 0); ctx.lineTo(80, 0); ctx.lineTo(96, -40); ctx.lineTo(-64, -40); ctx.closePath(); shape(ctx, '#F2EEE4', '#B8B0A0', 1.5);
+  ctx.lineWidth = 3; ctx.lineCap = 'round'; ctx.strokeStyle = '#D8573F'; ctx.beginPath(); ctx.moveTo(-34, -8); ctx.lineTo(-30, -24); ctx.lineTo(-6, -24); ctx.lineTo(-10, -8); ctx.closePath(); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(-34, -24); ctx.lineTo(-16, -34); ctx.lineTo(-2, -24); ctx.stroke(); ctx.strokeStyle = '#E0B64A'; ctx.beginPath(); ctx.ellipse(48, -26, 9, 5, 0, 0, 6.283); ctx.stroke();
+  for (let i = 0; i < 6; i++) { const an = i * 1.05; ctx.beginPath(); ctx.moveTo(48 + Math.cos(an) * 13, -26 + Math.sin(an) * 7); ctx.lineTo(48 + Math.cos(an) * 19, -26 + Math.sin(an) * 10); ctx.stroke(); }
+  ctx.strokeStyle = '#5FA86E'; ctx.beginPath(); ctx.moveTo(-60, -6); ctx.lineTo(70, -6); ctx.stroke(); ctx.restore(); }
+// staande kaart op tafel: groot, zodat je de tekening herkent (cold open)
+function kinderTekeningGroot(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); ctx.rotate(-0.06);
+  roundRect(ctx, -130, -100, 260, 200, 6); shape(ctx, '#F2EEE4', '#B8B0A0', 2); ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  ctx.strokeStyle = '#D8573F'; ctx.beginPath(); ctx.moveTo(-90, 60); ctx.lineTo(-86, -4); ctx.lineTo(-10, -2); ctx.lineTo(-14, 62); ctx.stroke(); ctx.beginPath(); ctx.moveTo(-100, 0); ctx.lineTo(-48, -48); ctx.lineTo(2, 0); ctx.stroke();
+  ctx.strokeStyle = '#5BA4C9'; ctx.strokeRect(-70, 14, 22, 22); ctx.strokeStyle = '#8C5A3A'; ctx.strokeRect(-38, 26, 16, 34);
+  ctx.strokeStyle = '#E0B64A'; ctx.beginPath(); ctx.arc(70, -50, 22, 0, 6.283); ctx.stroke(); for (let i = 0; i < 8; i++) { const an = i * 0.785; ctx.beginPath(); ctx.moveTo(70 + Math.cos(an) * 30, -50 + Math.sin(an) * 30); ctx.lineTo(70 + Math.cos(an) * 42, -50 + Math.sin(an) * 42); ctx.stroke(); }
+  ctx.strokeStyle = '#5FA86E'; ctx.beginPath(); ctx.moveTo(-118, 66); ctx.quadraticCurveTo(0, 56, 118, 68); ctx.stroke();
+  ctx.strokeStyle = '#8C7BBF'; ctx.lineWidth = 4; ctx.beginPath(); ctx.arc(50, 30, 10, 0, 6.283); ctx.moveTo(50, 40); ctx.lineTo(50, 66); ctx.moveTo(36, 50); ctx.lineTo(64, 50); ctx.stroke(); // poppetje getekend door het kind
+  ctx.restore(); }
+
+// ---------------- stamboomschema (stijl Erfelijkheid 6) ----------------
+// vierkant = vader, rondje = moeder, ingekleurd rondje = het meisje (aangedaan). streep: {v:[..], m:[..], k:[..]} gekleurde streepjes per persoon.
+function stamboom(ctx, x, y, s = 1, o = {}) { const { a = 1, aO = 1, aK = 1, leeftijd = '4 jaar', labels = 0, gezond = 0, streep = null, kruisV = 0, rec = 0 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
+  const r = 46, vx = -150, mx = 150, ky = 200;
+  zacht(ctx, aO, () => { ctx.strokeStyle = C.line; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(vx + r, 0); ctx.lineTo(mx - r, 0); ctx.stroke();
+    roundRect(ctx, vx - r, -r, 2 * r, 2 * r, 4); shape(ctx, C.bgSchema, C.text, 3); circ(ctx, mx, 0, r, C.bgSchema, C.text, 3);
+    if (labels > 0.01) { metaA(ctx, 'vader', vx, -r - 18, labels, C.text2, 'center', Math.round(28 / s)); metaA(ctx, 'moeder', mx, -r - 18, labels, C.text2, 'center', Math.round(28 / s)); }
+    if (gezond > 0.01) { regel(ctx, 'gezond', 0, -16, gezond, C.groen, 30, 'center', 700); } });
+  zacht(ctx, aK, () => { ctx.strokeStyle = C.line; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(0, ky - r); ctx.stroke();
+    circ(ctx, 0, ky, r, C.paars, C.text, 3); if (leeftijd) metaA(ctx, leeftijd, r + 22, ky + 10, 1, C.text2, 'left', Math.round(28 / s)); });
+  if (streep) { const rij = (xx, yy, arr) => arr.forEach((c, i) => { if (!c || (c.a != null && c.a <= 0.01)) return; const bx = xx - (arr.length - 1) * 13 + i * 26; zacht(ctx, c.a == null ? 1 : c.a, () => { roundRect(ctx, bx - 6, yy, 12, 40, 4); shape(ctx, c.col, lighten(c.col, 0.3), 1.2); if (c.kruis) kruis(ctx, bx, yy + 20, 16, c.kruis); if (c.ring) { ctx.strokeStyle = C.goud; ctx.lineWidth = 3; roundRect(ctx, bx - 11, yy - 5, 22, 50, 6); ctx.globalAlpha *= c.ring; ctx.stroke(); } }); });
+    zacht(ctx, aO, () => { rij(vx, r + 22, streep.v || []); rij(mx, r + 22, streep.m || []); }); zacht(ctx, aK, () => rij(0, ky + r + 22, streep.k || [])); }
+  ctx.restore(); }
+
+// ---------------- bloed, sequencer, referentiegenoom ----------------
+function buisje(ctx, x, y, lab, a = 1, vul = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 22, y - 110, 44, 140, 20); shape(ctx, rgba('#AFC0D0', 0.12), '#AFC0D0', 2);
+  ctx.save(); roundRect(ctx, x - 22, y - 110, 44, 140, 20); ctx.clip(); ctx.fillStyle = rgba(C.koraal, 0.85); ctx.fillRect(x - 22, y + 30 - 100 * vul, 44, 100 * vul); ctx.restore();
+  roundRect(ctx, x - 26, y - 128, 52, 26, 6); shape(ctx, '#8C7BBF', null); roundRect(ctx, x - 20, y - 70, 40, 34, 4); shape(ctx, '#F2EEE4', null);
+  regel(ctx, lab, x, y + 76, 1, C.text, 32, 'center', 600); ctx.restore(); }
+function sequencer(ctx, x, y, a = 1, t = 0, loopt = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 110, y - 130, 220, 260, 18); shape(ctx, '#2A3A58', C.line, 2);
+  roundRect(ctx, x - 80, y - 100, 160, 70, 8); shape(ctx, C.bgMicro, rgba(C.line, 0.6), 1.5); for (let i = 0; i < 4; i++) { const w = 30 + 90 * hash(i + Math.floor(t * 3 * loopt)); ctx.fillStyle = rgba(C.paars, 0.8); ctx.fillRect(x - 66, y - 88 + i * 14, w, 6); }
+  roundRect(ctx, x - 60, y + 20, 120, 24, 8); shape(ctx, C.kast, rgba(C.line, 0.6), 1.5); circ(ctx, x + 70, y + 90, 10, loopt > 0.5 && Math.sin(t * 6) > 0 ? C.groen : '#3A4458');
+  ctx.restore(); }
+// kort leesstukje (read): reeks basen als gekleurde streepjes
+function leesStukje(ctx, x, y, n, seed, a = 1, w = 12) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const B = 'ACGT'; for (let i = 0; i < n; i++) { ctx.fillStyle = BASE_K[B[Math.floor(hash(seed * 13 + i) * 4)]]; ctx.fillRect(x + i * w, y - 7, w - 2, 14); } ctx.restore(); }
+function referentie(ctx, x0, x1, y, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x0, y - 9, x1 - x0, 18, 9); shape(ctx, '#5A6478', '#8FA0B5', 1.5); ctx.restore(); }
+
+// ---------------- trechter met drie filters (nieuw, voor de bibliotheek) ----------------
+const TR_NAMEN = ['verandert het eiwit?', 'zeldzaam?', 'past bij de familie?'];
+function trechter(ctx, cx, y, o = {}) { const { a = 1, s = 1, lagen = [1, 1, 1], hl = -1, aantal = ['ruim 4 000 000', 'ongeveer 10 000', 'een paar honderd', '1'], aA = [1, 0, 0, 0], uit = 0, namen = 1, t = 0 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(cx, y); ctx.scale(s, s);
+  const Wd = [500, 360, 230, 110], bh = 150;
+  if (aA[0] > 0.01) regel(ctx, aantal[0], 0, -26, aA[0], C.text, Math.round(Math.max(40, 36 / s)), 'center', 700);
+  for (let i = 0; i < 3; i++) { const v = lagen[i]; if (v <= 0.01) continue; zacht(ctx, v, () => { const y0 = i * (bh + 14), w0 = Wd[i], w1 = Wd[i + 1], on = i === hl;
+      ctx.beginPath(); ctx.moveTo(-w0 / 2, y0); ctx.lineTo(w0 / 2, y0); ctx.lineTo(w1 / 2, y0 + bh); ctx.lineTo(-w1 / 2, y0 + bh); ctx.closePath(); shape(ctx, on ? rgba(C.goud, 0.18) : rgba(C.fill, 0.75), on ? C.goud : C.line, on ? 3 : 1.5);
+      // zeefgaatjes
+      ctx.fillStyle = rgba(on ? C.goud : C.line, 0.45); for (let k = 0; k < 7; k++) circ(ctx, -w1 / 2 + 14 + k * (w1 - 28) / 6, y0 + bh - 18, 4, ctx.fillStyle);
+      if (namen > 0.01) { ctx.save(); ctx.globalAlpha *= namen; metaText(ctx, 'filter ' + (i + 1), 0, y0 + 50, on ? C.goud : C.text2, 'center', Math.round(28 / s)); const nm = TR_NAMEN[i], breed = lerp(w0, w1, 0.65) - 24; let px = Math.round(36 / s); ctx.font = fTekst(px, 600); const bw = ctx.measureText(nm).width; if (bw > breed) px = Math.max(Math.round(28 / s), Math.floor(px * breed / bw)); text(ctx, nm, 0, y0 + 98, fTekst(px, 600), C.text, 'center'); ctx.restore(); }
+      if (aA[i + 1] > 0.01) regel(ctx, aantal[i + 1], Wd[i] / 2 + 30, y0 + bh - 10, aA[i + 1], i === 2 ? C.goud : C.text, Math.round(36 / s), 'left', 700); }); }
+  if (uit > 0.01) zacht(ctx, uit, () => { const yy = 3 * (bh + 14) + 30; roundRect(ctx, -8, yy, 16, 48, 5); shape(ctx, C.goud, lighten(C.goud, 0.3), 1.5); });
+  ctx.restore(); }
+
+// ---------------- codon → aminozuur (zoals Mutaties) ----------------
+function aaKraal(ctx, x, y, r, lab, a = 1, col = C.oker) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, r, col, lighten(col, 0.35), 1.5); if (lab) text(ctx, lab, x, y + r * 0.36, fTekst(Math.round(r * 0.95), 700), C.bgMicro, 'center'); ctx.restore(); }
+function stopKraal(ctx, x, y, r, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); for (let k = 0; k < 8; k++) { const an = k / 8 * 6.283 + 0.39; ctx.lineTo(x + Math.cos(an) * r, y + Math.sin(an) * r); } ctx.closePath(); shape(ctx, C.koraal, lighten(C.koraal, 0.3), 1.5); text(ctx, 'stop', x, y + 9, fTekst(26, 800), C.bgMicro, 'center'); ctx.restore(); }
+function codonRij(ctx, x, y, cod, o = {}) { const a = o.a == null ? 1 : o.a; if (a <= 0.01) return; for (let i = 0; i < 3; i++) tegel(ctx, x + i * 50, y, cod[i], { a, rand: o.mark === i ? C.koraal : null }); }
+
+// ---------------- databankkast met telpoppetjes ----------------
+function telpop(ctx, x, y, h, col, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.fillStyle = col;
+  ctx.beginPath(); ctx.arc(x, y - h * 0.82, h * 0.16, 0, 6.283); ctx.fill(); roundRect(ctx, x - h * 0.22, y - h * 0.62, h * 0.44, h * 0.62, h * 0.16); ctx.fill(); ctx.restore(); }
+function databank(ctx, x, y, o = {}) { const { a = 1, aan = -1, aanA = 0 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, 620, 250, 16); shape(ctx, rgba(C.fill, 0.7), C.line, 2);
+  for (let r = 0; r < 2; r++) { ctx.strokeStyle = rgba(C.line, 0.4); ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(x + 20, y + 120 + r * 0); ctx.lineTo(x + 600, y + 120); ctx.stroke(); }
+  for (let i = 0; i < 10; i++) { const px = x + 70 + (i % 5) * 120, py = y + 105 + Math.floor(i / 5) * 118; const on = i === aan ? aanA : 0; telpop(ctx, px, py, 84, on > 0.5 ? C.goud : C.mens, 1); }
+  ctx.restore(); }
+
+// ---------------- vijfvaksschaal (nieuw, voor de bibliotheek) ----------------
+const VV = [['onschuldig', ''], ['waarschijnlijk', 'onschuldig'], ['onbekende', 'betekenis'], ['waarschijnlijk', 'ziekmakend'], ['ziekmakend', '']];
+const VV_K = [C.groen, '#B4D9BC', '#8A93A3', '#EDB6A6', C.koraal];
+function vijfvak(ctx, x, y, o = {}) { const { a = 1, bw = 280, h = 110, streep = -1, aStreep = 0, hl = -1, labels = 1 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  for (let i = 0; i < 5; i++) { const xx = x + i * (bw + 12), on = i === hl; roundRect(ctx, xx, y, bw, h, 12); shape(ctx, rgba(VV_K[i], on ? 0.55 : 0.28), on ? C.goud : VV_K[i], on ? 4 : 2);
+    if (labels > 0.01) { regel(ctx, VV[i][0], xx + bw / 2, y + h + 46, labels, C.text, 34, 'center', 600); if (VV[i][1]) regel(ctx, VV[i][1], xx + bw / 2, y + h + 86, labels, C.text, 34, 'center', 600); } }
+  if (aStreep > 0.01 && streep >= 0) zacht(ctx, aStreep, () => { const sx = x + streep * (bw + 12) + bw / 2; roundRect(ctx, sx - 9, y + 18, 18, h - 36, 5); shape(ctx, C.goud, lighten(C.goud, 0.3), 1.5); });
+  ctx.restore(); }
+
+// ---------------- wereldbol (bibliotheek: aarde uit Van molecuul tot biosfeer) met vaste stand en stippen ----------------
+function bolPunt(cx, cy, r, lon, lat, lonC = 12, latC = 22) { const d = Math.PI / 180, dl = (lon - lonC) * d, la = lat * d, lc = latC * d;
+  const zx = Math.cos(la) * Math.sin(dl), zy = Math.cos(lc) * Math.sin(la) - Math.sin(lc) * Math.cos(la) * Math.cos(dl), vis = Math.sin(lc) * Math.sin(la) + Math.cos(lc) * Math.cos(la) * Math.cos(dl);
+  return { x: cx + r * zx, y: cy - r * zy, zicht: vis > 0.05 }; }
+function aardeVast(ctx, x, y, r, a = 1, lonC = 12, latC = 22) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const sc = Math.min(1, 300 / r), R = Math.round(r * sc);
+  const img = aardeBeeld(R, lonC, latC, lonC + 40); ctx.imageSmoothingEnabled = true; ctx.drawImage(img, x - r, y - r, 2 * r, 2 * r);
+  ctx.strokeStyle = 'rgba(160,205,255,0.5)'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.stroke(); ctx.restore(); }
+function artsIcoon(ctx, x, y, s = 1, a = 1, hl = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 30 * s, y - 30 * s, 60 * s, 60 * s, 12 * s); shape(ctx, '#F2EEE4', hl > 0.5 ? C.goud : '#B8B0A0', hl > 0.5 ? 4 : 2);
+  ctx.fillStyle = C.teal; ctx.fillRect(x - 6 * s, y - 20 * s, 12 * s, 40 * s); ctx.fillRect(x - 20 * s, y - 6 * s, 40 * s, 12 * s); ctx.restore(); }
+
+// ---------------- kalender 'over een paar jaar' ----------------
+function jaarKalender(ctx, x, y, s = 1, a = 1, blad = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
+  for (let k = 2; k >= 0; k--) { const off = k * 14; roundRect(ctx, -130 + off, -110 - off, 260, 230, 14); shape(ctx, k ? '#C9C2B4' : '#F2EEE4', '#B8B0A0', 2); }
+  ctx.fillStyle = C.koraal; ctx.fillRect(-130, -110, 260, 50); for (const kx of [-70, 70]) { roundRect(ctx, kx - 8, -128, 16, 36, 6); shape(ctx, '#8FA0B5', null); }
+  ctx.fillStyle = '#9A9284'; for (let r = 0; r < 4; r++) for (let c = 0; c < 6; c++) ctx.fillRect(-104 + c * 38, -36 + r * 36, 22, 16);
+  if (blad > 0.01) { ctx.save(); ctx.globalAlpha *= blad; circ(ctx, 86, 92, 26, null, C.goud, 5); ctx.restore(); }
+  ctx.restore(); }
+
+// ---------------- GWAS: stipjesgrafiek langs de chromosomen (nieuw, voor de bibliotheek) ----------------
+const MH = (() => { const P = []; for (let i = 0; i < 2600; i++) { const ch = Math.floor(i / 2600 * 22), u = Math.max(1e-6, hash(i * 1.37 + 9)); P.push([i / 2600 + 0.004 * (hash(i * 4.1) - 0.5), -Math.log10(u), ch]); } return P; })();
+function manhattan(ctx, x, y, w, h, o = {}) { const { a = 1, u = 1, laag = 0, hoog = 0, boven = 0, ymax = 9, toren = 0 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  ctx.fillStyle = rgba('#FFFFFF', 0.03); for (let k = 1; k <= 4; k++) ctx.fillRect(x, y + h - k * h / 4.5, w, 1);
+  ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x, y + h); ctx.lineTo(x + w, y + h); ctx.stroke();
+  metaText(ctx, 'chromosoom 1 … 22', x + w, y + h + 40, C.text2, 'right', 28); metaText(ctx, '↑ sterker verband', x + 10, y - 14, C.text2, 'left', 28);
+  const Y = (v) => y + h - Math.min(v, ymax) / ymax * h, n = Math.floor(MH.length * u), yl = Y(1.3);
+  for (let i = 0; i < n; i++) { const [px, v, ch] = MH[i], sx = x + 8 + px * (w - 16), sy = Y(v); const up = laag > 0.5 && v > 1.3 && boven > 0;
+    ctx.fillStyle = up ? rgba(C.koraal, 0.4 + 0.6 * boven) : (ch % 2 ? '#7E8AA0' : C.teal); ctx.fillRect(sx - 2.5, sy - 2.5, 5, 5); }
+  if (toren > 0.01) zacht(ctx, toren, () => { const tx = x + 8 + 0.62 * (w - 16); for (let k = 0; k < 40; k++) { const dx = (hash(k * 3.3) - 0.5) * 30, v = 1 + 8.2 * Math.exp(-Math.pow(dx / 9, 2)) * hash(k * 7.7 + 1); ctx.fillStyle = v > 7.3 ? C.goud : C.teal; ctx.fillRect(tx + dx - 2.5, Y(v) - 2.5, 5, 5); } });
+  if (laag > 0.01) zacht(ctx, laag, () => { ctx.strokeStyle = C.koraal; ctx.lineWidth = 3; ctx.setLineDash([12, 8]); ctx.beginPath(); ctx.moveTo(x, yl); ctx.lineTo(x + w, yl); ctx.stroke(); ctx.setLineDash([]); metaText(ctx, 'grens 0,05', x + w + 14, yl + 10, C.koraal, 'left', 28); });
+  if (hoog > 0.01) zacht(ctx, hoog, () => { const yh = Y(7.3); ctx.strokeStyle = C.groen; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x, yh); ctx.lineTo(x + w, yh); ctx.stroke(); metaText(ctx, '0,05 / 1 000 000', x + w + 14, yh + 10, C.groen, 'left', 28); });
+  metaText(ctx, 'schematisch', x + w, y + h + 84, C.text2, 'right', 28);
+  ctx.restore(); }
+
+// ---------------- DNA-strook met genen en plekken ----------------
+function dnaStrook(ctx, x, y, w, o = {}) { const { a = 1, genen = [], plekken = [] } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  roundRect(ctx, x, y - 10, w, 20, 10); shape(ctx, rgba(C.paars, 0.3), rgba(C.paars, 0.7), 1.5);
+  genen.forEach(([g0, g1, nm, ga]) => zacht(ctx, ga == null ? 1 : ga, () => { roundRect(ctx, x + g0 * w, y - 22, (g1 - g0) * w, 44, 10); shape(ctx, rgba(C.paars, 0.75), lighten(C.paars, 0.35), 2); if (nm) regel(ctx, nm, x + (g0 + g1) / 2 * w, y + 8, 1, C.text, 28, 'center', 700); }));
+  plekken.forEach(p => zacht(ctx, p.a == null ? 1 : p.a, () => { const px = x + p.x * w; roundRect(ctx, px - 6, y - 34, 12, 68, 4); shape(ctx, p.col || C.goud, lighten(p.col || C.goud, 0.3), 1.2); }));
+  ctx.restore(); }
+
+// ---------------- polygene risicoscore als balk van kleine blokjes (nieuw, voor de bibliotheek) ----------------
+function scoreBalk(ctx, x, y, w, o = {}) { const { a = 1, u = 1, n = 60, h = 64 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  roundRect(ctx, x, y, w, h, 12); shape(ctx, rgba(C.fill, 0.5), C.line, 1.5); let xx = x + 6; const tot = Array.from({ length: n }, (_, i) => 0.4 + hash(i * 2.9 + 5)).reduce((p, c) => p + c, 0);
+  for (let i = 0; i < n; i++) { const bw = (0.4 + hash(i * 2.9 + 5)) / tot * (w - 12); const k = clamp(u * n - i, 0, 1); if (k > 0.01) { ctx.save(); ctx.globalAlpha *= k; ctx.fillStyle = i % 3 === 0 ? '#6C5BA8' : i % 3 === 1 ? '#9F90D4' : '#8C7BBF'; ctx.fillRect(xx + 1, y + 8 + (1 - k) * 30, Math.max(1, bw - 2), h - 16); ctx.restore(); } xx += bw; }
+  ctx.restore(); }
+// verdeling van de scores van anderen, met 'jij'
+function scoreVerdeling(ctx, x, y, w, h, o = {}) { const { a = 1, jij = 0.72, aJ = 1 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, y + h); ctx.lineTo(x + w, y + h); ctx.stroke();
+  ctx.beginPath(); for (let i = 0; i <= 60; i++) { const u = i / 60, v = Math.exp(-Math.pow((u - 0.5) / 0.17, 2) / 2); i ? ctx.lineTo(x + u * w, y + h - v * h * 0.9) : ctx.moveTo(x + u * w, y + h - v * h * 0.9); } ctx.lineTo(x + w, y + h); ctx.lineTo(x, y + h); ctx.closePath(); shape(ctx, rgba(C.paars, 0.25), C.paars, 2);
+  metaText(ctx, 'lager', x, y + h + 40, C.text2, 'left', 28); metaText(ctx, 'hoger', x + w, y + h + 40, C.text2, 'right', 28); metaText(ctx, 'scores van anderen', x + w / 2, y - 16, C.text2, 'center', 28);
+  if (aJ > 0.01) zacht(ctx, aJ, () => { const jx = x + jij * w; ctx.strokeStyle = C.goud; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(jx, y + 20); ctx.lineTo(jx, y + h); ctx.stroke(); regel(ctx, 'jij', jx, y + 8, 1, C.goud, 34, 'center', 700); });
+  ctx.restore(); }
+
+// ---------------- gang van de afdeling (lijntekening) ----------------
+function afdelingGang(ctx, a = 1, deuren = [720, 1500]) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = rgba(C.line, 0.5); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(60, 800); ctx.lineTo(W - 60, 800); ctx.stroke();
+  ctx.strokeStyle = rgba('#AFC0D0', 0.55); ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(60, 560); ctx.lineTo(W - 60, 560); ctx.stroke(); // leuning
+  for (const dx of deuren) { roundRect(ctx, dx, 330, 190, 470, 6); shape(ctx, rgba('#5A6A84', 0.35), rgba('#AFC0D0', 0.55), 2); roundRect(ctx, dx + 50, 380, 90, 110, 6); shape(ctx, rgba('#9FC3E8', 0.2), rgba('#AFC0D0', 0.55), 2); circ(ctx, dx + 160, 580, 8, rgba('#AFC0D0', 0.7)); }
+  ctx.restore(); }
+function hartje(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); ctx.beginPath(); ctx.moveTo(0, 30); ctx.bezierCurveTo(-60, -10, -30, -55, 0, -25); ctx.bezierCurveTo(30, -55, 60, -10, 0, 30); ctx.closePath(); shape(ctx, C.koraal, lighten(C.koraal, 0.3), 2); ctx.restore(); }
+
+// ---------------- recap: opleidingen en werkplekken ----------------
+// tweeRegels = true: naam en waar zijn samen de naam (twee regels vet), voor lange opleidingsnamen
+function opleiding(ctx, x, y, w, niveau, naam, waar, a = 1, col = C.teal, tweeRegels = false) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  roundRect(ctx, x, y, w, 150, 14); shape(ctx, rgba(col, 0.12), col, 2);
+  metaText(ctx, niveau, x + 26, y + 42, col, 'left', 28);
+  const pxN = (s2) => { ctx.font = fTekst(36, 700); return ctx.measureText(s2).width > w - 52 ? 32 : 36; };
+  text(ctx, naam, x + 26, y + 88, fTekst(pxN(naam), 700), C.text, 'left');
+  if (tweeRegels) text(ctx, waar, x + 26, y + 130, fTekst(pxN(waar), 700), C.text, 'left'); else text(ctx, waar, x + 26, y + 130, fTekst(30, 600), C.text2, 'left'); ctx.restore(); }
+function werkIcoon(ctx, x, y, soort, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 60, y - 60, 120, 120, 18); shape(ctx, rgba(C.fill, 0.7), C.line, 2);
+  ctx.strokeStyle = '#C9CED6'; ctx.lineWidth = 4; ctx.lineJoin = 'round';
+  if (soort === 'ziekenhuis') { ctx.strokeRect(x - 34, y - 26, 68, 58); ctx.fillStyle = C.koraal; ctx.fillRect(x - 5, y - 18, 10, 30); ctx.fillRect(x - 15, y - 8, 30, 10); ctx.beginPath(); ctx.moveTo(x - 40, y - 26); ctx.lineTo(x, y - 44); ctx.lineTo(x + 40, y - 26); ctx.stroke(); }
+  if (soort === 'instituut') { ctx.beginPath(); ctx.moveTo(x - 10, y - 38); ctx.lineTo(x - 10, y - 8); ctx.lineTo(x - 32, y + 32); ctx.lineTo(x + 32, y + 32); ctx.lineTo(x + 10, y - 8); ctx.lineTo(x + 10, y - 38); ctx.stroke(); ctx.fillStyle = rgba(C.teal, 0.7); ctx.beginPath(); ctx.moveTo(x - 22, y + 14); ctx.lineTo(x + 22, y + 14); ctx.lineTo(x + 30, y + 30); ctx.lineTo(x - 30, y + 30); ctx.fill(); }
+  if (soort === 'bedrijf') { ctx.beginPath(); ctx.moveTo(-40 + x, 34 + y); ctx.lineTo(-40 + x, -6 + y); ctx.lineTo(-14 + x, 8 + y); ctx.lineTo(-14 + x, -6 + y); ctx.lineTo(12 + x, 8 + y); ctx.lineTo(12 + x, -34 + y); ctx.lineTo(28 + x, -34 + y); ctx.lineTo(28 + x, -6 + y); ctx.lineTo(40 + x, -6 + y); ctx.lineTo(40 + x, 34 + y); ctx.closePath(); ctx.stroke(); }
+  ctx.restore(); }
+
+// ---------------- wereldbol: letterlijk overgenomen uit cellen/van-molecuul-tot-biosfeer (bibliotheek, Natural Earth) ----------------
+// ---------- aarde: echte wereldbol met continenten (22 okt 2026) ----------
+// Landvormen: Natural Earth 1:50m (publiek domein, via world-atlas), vereenvoudigd tot ±0,2°, delta-gecodeerd in tienden van graden.
+const AARDE_LAND = '1432,-120,6,-23,7,1,8,-7,1,-15,5,-5,5,-21,24,-13,9,-21,3,-2,1,4,6,-2,1,-11,10,-6,14,-19,-1,-12,5,-15,-7,-27,-4,-10,-12,-12,-11,-22,-3,-17,-20,-4,-10,-8,-7,0,2,-4,-10,6,1,3,-8,-1,4,2,-2,2,-14,-9,-21,4,-16,12,-1,8,-7,8,3,0,0,2,-11,-2,3,6,-4,8,-4,-9,-8,-1,1,3,4,0,5,13,-1,10,-6,-10,-8,-4,-5,-7,1,-3,-4,1,-5,3,3,0,-2,6,-5,7,-4,1,-1,7,-31,10,-52,-8,-17,-7,-7,-9,-36,-1,-20,-11,-14,1,-15,7,0,8,4,-1,3,4,0,15,-6,11,-2,15,-17,29,6,-3,-4,9,3,-5,5,-2,-8,19,6,25,1,-6,6,7,20,11,7,0,36,11,13,15,0,10,7,7,6,-11,3,6,-4,4,1,3,12,-2,-4,1,2,4,-2,4,7,1,-3,2,6,1,-2,4,4,4,1,-2,3,0,1,5,5,-2,3,5,6,-3,7,-7,-1,-6,5,5,10,-3,2,3,-4,4,12,20,3,-2,4,5,1,-2,13,2,0,5,-7,4,30,-10,9,4,-2,-4,4,-2,4,4,4,-3,-4,-9,-6,-1,1,-6,-5,-10,27,-18,8,-2,2,-4,13,-3,9,15,1,23,7,29,4,2,3,-11,3,-2;216,786,19,-4,-4,-2,18,-2,-21,-5,-4,0,3,3,-18,-1,8,4,-15,6,14,1;-981,-719,-1,-2,6,2,3,-3,4,3,8,0,-9,-3,14,1,0,-3,-5,-2,-62,5,42,2;-1800,715,25,-2,-19,-4,3582,-1,-1,3,12,4,-3599,0;1519,-43,5,0,-3,-12,-16,-8,-8,0,-14,6,15,2,3,5,1,-5,5,0,10,6,-1,7,3,-1;1273,-84,-19,-9,-10,-8,-8,-2,1,7,15,10,21,2;1450,-408,13,-4,19,3,1,-13,-1,2,-2,-3,0,-9,-7,4,-4,-8,-9,1,2,2,-7,4,-3,7,3,-2,-7,10,-1,7,3,-1;965,811,14,-3,-8,-2,3,-3,-2,-1,-35,-2,-22,4,13,2,5,2,-7,0,8,2,18,3,13,-2;977,802,3,-2,-3,-2,9,3,15,-3,-4,-5,-7,0,9,-3,-5,-2,-44,3,-19,4,19,6,27,1;1029,793,-5,-5,14,3,13,-3,2,-3,-60,-5,23,13,13,0;1401,758,7,-2,7,5,39,-6,-14,-5,-12,3,1,4,-6,0,-1,-3,9,-4,-34,0,-6,-3,-21,5,3,1,0,4,15,5,13,-4;1468,754,40,-2,-10,-4,-15,0,-22,4,3,4,4,-2;1733,-349,10,-3,5,-11,-1,-5,8,-4,0,7,6,-11,12,-4,7,4,5,-1,-6,-15,-8,0,-3,-10,-15,-14,-7,3,6,11,-14,9,8,5,3,10,-3,7,3,0,-4,2,-3,4,2,-1,0,4,-5,3,2,-5,-7,9,2,2,-2,-2,-3,3,-4,7,3,1,3,-5;1731,-413,12,3,-3,-2,4,1,-3,-3,2,-3,-17,-16,5,-6,-11,2,2,-2,-10,-4,-4,-16,-17,-7,-26,6,5,3,-3,2,5,1,-2,3,14,10,26,12,13,21,6,3,-2,-2,4,-6;1260,93,6,-21,-4,-3,0,-6,-5,10,-3,-6,3,-7,-4,-4,-1,5,-3,-2,-8,5,1,10,-5,4,-3,-4,-8,4,-5,-9,-2,2,3,8,12,8,5,-3,-1,-4,9,6,2,4,6,0,0,8,5,-5;1211,186,7,-3,5,2,-1,-8,3,-6,-11,-18,4,-11,4,-3,4,4,5,-6,2,4,5,-3,-3,-2,3,-5,3,-1,0,-4,-15,13,0,-7,-8,7,-5,-3,-7,2,3,8,-3,3,-2,-4,-3,4,-3,14,6,-2,2,24,5,1;1335,-7,6,-1,1,-15,9,-10,4,0,9,10,15,8,66,-23,13,-10,-1,-6,21,-9,0,-4,-9,-2,12,-12,5,-10,6,1,1,-5,7,-2,-1,-3,10,-2,-6,-5,-25,6,-18,20,-15,5,-4,-2,-4,3,2,-4,-4,-1,1,-2,-14,0,12,-6,-8,-5,-15,1,-11,10,1,3,-12,-4,2,7,-4,3,5,1,-6,3,3,0,-6,12,-10,8,-21,4,-5,4,2,2,-9,1,-3,3,1,4,-4,-8,-4,-2,-2,8,-8,4,12,5,5,-2,2,5,-16,-1,-4,6,-9,2,3,5,12,6,10,-4;1249,10,-5,-5,-6,-2,-32,2,-4,-2,-1,-9,6,-8,5,1,4,5,16,2,2,-2,-20,-11,9,-10,0,-7,6,-8,-13,-4,0,7,-7,6,2,7,-4,1,-4,-2,1,-27,-8,0,-2,3,2,13,-1,5,-6,0,-1,8,5,8,2,10,3,0,-1,8,6,11,3,-1,5,4,27,-5,12,9,2,-2,-3,-5;1074,-60,9,-3,4,-5,17,-1,4,5,17,-5,5,-8,14,-1,2,-10,-13,5,-18,0,-50,9,0,3,-12,4,8,8,13,-1;965,52,10,0,8,-11,14,-9,8,-10,4,-3,1,4,14,-15,5,-1,1,-3,-5,-2,8,3,4,-2,-3,-9,10,-5,4,-10,-1,-5,7,2,6,-7,-3,-27,-11,3,0,-4,-30,27,-13,24,-11,12,-6,15,-9,5,-7,12,-16,13,-1,7,12,-4;1168,67,4,2,5,-6,-2,-4,5,2,0,-4,13,-3,-2,-3,-8,-1,2,-6,-10,-3,3,-4,-7,-1,10,-13,-3,-3,12,-10,-5,-2,-6,3,-4,-9,1,-10,-7,-4,-2,2,-4,-8,2,-6,-5,-12,-13,-6,-4,10,-6,-3,-7,6,-2,-4,-9,-3,-2,7,-14,-1,-3,17,-9,9,0,19,5,5,16,-6,-2,2,5,11,15,5,10,14,14,4,0,4,5,2,9,14,0,-3;678,762,-64,-9,-17,-7,-12,-1,1,-3,-20,-9,-23,1,-5,4,23,7,-5,1,9,4,-6,2,7,-1,46,12,33,1,32,6,12,-3,-11,-5;553,733,11,-1,-10,-7,-1,-6,12,-8,11,-4,-39,1,-3,1,2,2,6,0,-8,4,-16,0,-4,3,2,3,10,2,3,4,-3,1,8,1,-2,3,21,1;1428,544,5,-14,-1,-11,15,-33,-6,6,-10,0,-5,-15,10,-13,-2,-4,-1,6,-7,1,-5,-8,-3,6,4,15,-3,7,3,25,-5,11,1,10,7,1,2,5,-4,4,5,1;1438,441,9,-2,7,4,-3,-6,2,-4,5,1,-18,-5,-8,-9,-13,6,-9,-3,-5,3,-2,-3,9,-5,-12,-3,-1,11,5,4,0,3,10,0,4,12,-1,9,2,1,19,-14;1412,414,3,0,5,-20,-5,-10,-5,-3,0,-10,-4,-9,3,-5,-5,-5,-6,-2,3,6,-3,1,-1,-6,-4,2,-4,-7,-2,5,-5,-5,-11,0,2,2,-4,-1,-1,4,-3,-4,4,-4,-12,-8,-6,5,3,6,-7,2,-24,-5,-2,-5,-12,2,1,4,19,11,30,1,9,18,5,1,-4,-4,3,-3,11,4,15,17,2,18,4,5,3,-4,4,1,1,3,-4,1,1,2,3,-1;1344,343,3,-5,-5,-6,-6,3,-8,-7,-4,6,-4,-1,9,8,15,2;1312,336,5,0,-2,-3,4,0,1,-4,-7,-15,-6,-4,1,7,-2,-5,-5,2,4,14,-3,4,1,-5,-5,-1,-1,5,3,-2,-4,3,11,7,5,-3;1210,226,-3,-6,-6,11,0,6,9,13,6,3,3,-3,-9,-24;1109,200,1,-3,-10,-13,-5,-2,-8,3,0,8,6,6,16,1;800,98,7,-4,12,-21,-3,-9,-9,-4,-6,2,-2,6,-2,14,4,14,3,-1,-4,3;495,-124,4,-7,5,-25,-2,-4,-5,5,1,-10,-4,-18,-22,-65,-21,-7,-11,5,-7,26,2,10,9,15,-4,25,5,12,17,5,2,-2,1,4,4,3,2,-2,3,6,1,-2,5,3,-1,10,9,4,0,8,4,4,3,-3;-1591,-798,-52,6,10,5,9,-1,33,-10;-703,-797,-14,1,2,5,48,7,-36,-13;-452,-788,17,-1,6,-7,-2,-3,-6,-1,2,-2,-63,-6,-46,0,10,7,11,0,20,6,-4,2,3,5,13,8,23,2,22,-2,8,-3,-1,-2,-13,-3;-597,-803,-1,-4,-8,-2,-62,6,52,0,4,0,-5,3,11,3,9,-2,-1,-2,5,-1,-4,-1;-701,-692,18,-17,1,-9,-10,-7,-36,-1,-3,2,4,1,25,1,-15,-1,-2,2,11,2,-15,3,-15,-2,3,-2,-5,-2,-14,4,11,4,8,-2,0,3,13,0,-8,1,3,1,28,0,0,2,-13,2,16,3,-21,3,0,7,-4,2,17,4,3,-4;-692,-527,6,0,4,-4,-3,-2,12,-7,21,-7,-13,-3,-54,4,11,3,5,-2,-6,4,4,5,1,-4,-2,0,4,-3,12,-1,-12,5,8,5,-11,2,4,3,-3,1,12,1;-818,232,20,-3,56,-27,-35,-3,6,5,-1,2,-9,2,-6,8,-31,6,-3,2,4,1,-1,2,-9,0,-21,-9,5,3,3,6,22,5;209,802,14,-2,2,4,5,1,3,-1,-2,-2,13,2,28,-5,-16,-5,-27,-2,-30,3,9,2,-25,2,6,1,-10,1,14,0,-1,2,6,-1,-2,3,13,-3;168,799,10,-1,-1,-4,7,2,4,-2,-1,-1,19,-2,8,-4,-22,-3,-25,-18,-27,9,29,4,-28,-1,-4,2,33,4,-5,1,3,2,-14,-2,0,3,-7,-1,-3,-2,2,-1,-15,-2,-17,8,10,0,-4,0,0,3,-8,-2,-5,7,30,1,-11,-3,14,-3,6,5,17,-8,-5,7,4,3,6,-1;96,409,0,-17,-10,-3,-4,20,10,4,4,-4;156,382,-5,-7,0,-8,-27,11,3,4,11,-2,18,2;-527,699,8,-3,-17,-3,-13,4,6,2,-5,2,4,2,17,-4;-1272,506,17,-3,22,-19,-16,3,-2,1,3,4,-7,-3,-4,5,-7,0,5,3,-18,4,0,3,4,2,-6,-1,-2,3,11,-2;-720,197,10,2,10,-2,3,-4,5,0,-4,-2,12,-6,-3,-3,-6,2,-17,-1,-4,-7,-7,6,-18,-2,-6,4,1,2,21,0,-5,5,1,3,-7,4,14,-1;-496,-2,12,-1,-4,-11,-17,-4,-3,9,2,6,10,1;-31,585,-10,-9,20,1,3,-2,-8,-9,-7,-2,6,-1,-11,-2,12,-1,9,-4,5,-9,11,-6,2,-5,-8,1,10,-4,-3,-4,17,-1,-1,-7,-12,-6,10,-3,-12,-4,-32,-1,-7,-5,-5,2,-14,-3,14,11,11,0,7,5,-9,-3,-19,3,12,8,-1,4,-6,-1,4,3,16,2,-4,2,3,6,-8,4,6,5,-20,-2,-2,2,5,5,-2,4,3,0,-2,3,-4,-3,1,3,-6,-9,5,15,-5,-3,-4,2,4,2,0,8,5,2,-2,2,4,5,19,-1;-72,551,11,1,4,-4,-2,-2,4,-1,-8,-5,3,-11,-3,-7,-30,-7,-8,1,5,3,-7,-1,4,3,-5,1,16,5,-11,-1,10,6,-12,2,5,4,-5,5,16,-1,4,4,-7,1,5,4,6,2,0,-3,4,4,3,-2,-2,-1;-1800,690,47,-13,-1,-3,6,-1,-1,-7,8,-1,0,-3,3,2,-7,7,8,0,5,0,-1,-3,8,2,-5,1,12,-2,12,-7,8,-1,-9,-5,-7,2,3,-3,-17,2,6,-2,-5,-3,5,-2,-9,-2,7,-4,-8,-1,-1,2,-4,-1,-17,4,-7,7,-23,0,-5,5,4,4,-12,-2,-1,-3,4,-4,-6,-4,3598,-1,-13,-4,-16,5,-6,-1,8,-2,-10,2,-16,-3,16,2,2,-2,-2,-1,13,2,3,-5,5,1,5,-6,-2,-2,11,-8,-5,-5,-21,5,2,-2,-43,-11,-23,-11,-2,-4,-12,6,-7,0,-13,-2,-9,-5,1,6,-14,-7,-6,3,-9,-2,-2,-6,-13,-12,4,-4,3,2,5,-1,-4,-6,5,-10,-5,-1,-2,1,4,3,-3,0,-6,-4,-4,-6,4,-7,-20,-6,-3,-4,2,-7,-15,-1,0,-6,-4,-6,-14,-8,-11,42,4,15,8,6,1,5,14,2,38,25,16,4,5,14,12,1,-10,3,-11,-1,-2,-10,-7,1,-22,-11,2,4,-6,0,5,9,-32,-2,-28,-19,-2,-3,11,-3,-39,-3,-2,2,11,2,-26,5,-8,-3,2,-1,-3,-1,-22,2,-5,-3,-4,2,-30,-2,-73,-43,6,-3,9,0,-1,-8,10,5,-4,-2,5,-2,-5,-4,12,5,0,-5,2,8,11,0,16,-10,-6,-2,7,-9,-10,-14,1,-7,-5,-17,-46,-46,-23,-11,-9,2,0,4,-5,0,-20,-16,-1,-8,-21,-11,-2,-6,9,-5,11,-16,2,-12,-4,-7,-15,-2,-4,-5,-1,3,-7,-5,-2,9,5,7,-3,8,-3,1,8,1,-4,9,-8,2,-4,-3,-4,2,2,2,-5,0,9,6,-4,1,2,7,-8,1,-2,4,-32,-13,6,7,-5,1,10,10,-5,5,-6,-1,-22,-17,-12,-1,-1,-7,12,-4,2,-8,7,0,10,6,19,-4,-4,-6,-4,2,-11,-4,-2,-5,-4,1,1,-2,-11,-12,11,-5,6,-16,10,-9,-14,3,-5,-2,7,1,12,-11,-17,-7,11,1,8,-4,-6,-4,5,0,-1,-4,-5,0,2,-8,-9,-3,-6,-13,-5,1,3,-5,-8,-2,5,-1,0,-6,-4,1,1,-3,-6,-6,-9,-1,3,-3,-7,-6,-5,0,-4,-7,-18,-1,-4,-5,-8,8,0,-9,-31,-9,-2,-4,3,-4,-2,-2,-4,0,-2,6,2,6,-4,2,-4,-3,-5,5,-14,-10,-5,1,-11,-20,9,-11,-1,-1,24,-24,6,-28,-2,0,-2,-13,-17,-9,-3,3,-1,-3,-3,1,0,-6,-5,3,5,-6,-8,4,4,-6,-11,-8,-3,0,2,15,-7,4,-7,1,-1,5,-3,-2,-6,13,-9,5,-8,0,1,7,-10,0,0,-12,-8,-19,1,-10,5,0,6,-21,11,-3,17,-16,2,-24,8,-15,-2,2,-5,-3,-22,16,-6,11,-6,24,-14,19,-4,-1,4,20,-2,-1,0,6,4,10,-3,0,0,15,-8,17,-1,17,-3,-1,-6,9,0,-7,-4,-2,-2,3,1,-4,-9,-7,-1,4,-1,-3,-3,4,-2,-3,0,6,-5,-5,4,16,-6,17,-1,-4,-4,5,5,0,-3,5,-6,0,0,5,-3,-2,-5,6,-4,15,-4,6,-6,-3,-3,10,-3,-1,3,-2,0,-9,-4,-6,-2,7,-4,-7,-1,5,-1,-6,-3,4,0,-4,-4,-1,-1,5,0,-4,-5,-1,-2,8,3,-3,-3,-3,-10,-6,-1,-9,-6,-4,-10,-1,2,-2,-13,-13,-17,-12,-1,-5,-10,-3,-3,-5,-7,-1,-2,-6,2,-16,-2,1,2,-2,-6,-21,1,-10,-5,0,-4,-7,5,-4,-10,-1,-3,-7,-6,-3,-9,8,-3,10,-30,66,-5,26,2,2,-3,5,2,9,-3,8,5,3,-6,-1,3,5,-6,1,-2,-11,-10,-5,-5,1,-15,15,12,3,3,5,-8,-3,-9,3,-4,5,4,3,-6,-3,0,3,-6,0,-12,17,-17,-4,-6,2,-27,-3,-36,6,-5,1,-6,13,-21,-6,-30,14,-15,23,-5,-2,-6,5,-2,-5,-8,0,1,-4,-4,-2,4,0,7,-17,14,-10,-2,-6,7,-12,3,11,3,2,2,-3,-2,-16,8,-3,20,2,23,22,0,-14,2,-5,6,-6,16,-4,10,-12,-13,-19,-3,2,-3,-4,-1,-12,-10,-2,-4,-8,-9,-2,-4,-8,-25,-5,-4,-8,-28,-11,-7,-5,-48,-15,-4,1,-3,6,-5,19,1,13,-5,9,-6,6,-9,18,-15,12,-2,16,-6,11,-10,6,-3,10,-20,27,-6,1,4,15,-8,-18,-10,8,-7,13,2,-10,8,-10,17,-34,6,-6,-3,-1,2,-9,11,-8,5,-10,2,-23,11,-7,9,-26,3,-4,1,4,13,-9,22,-22,-1,-4,-8,-5,7,1,11,-11,6,-1,25,8,27,3,7,5,5,-2,-3,-14,4,0,-5,-1,-1,-9,-28,-49,-20,-20,-23,-16,-23,-28,-12,-8,-10,-20,-4,-14,7,-9,-2,-14,4,-16,9,-7,-2,-22,4,-19,-10,-16,-23,-12,-11,-12,-15,-10,-3,1,7,-27,2,3,0,-2,-1,-19,-4,-5,-22,-9,-2,-4,2,-3,2,2,-1,-7,-5,-17,-11,-9,-13,-19,-21,-18,-23,-9,-30,0,-26,-8,-12,4,0,3,-4,-1,0,5,-5,9,4,3,-1,8,-15,27,-14,16,-3,11,-5,39,-27,44,0,22,8,24,11,13,1,10,-8,21,4,6,-11,23,8,2,-9,1,-4,12,-22,22,-6,11,5,-3,-8,10,6,2,1,7,6,-1,-7,4,3,0,-2,5,5,20,-2,10,-7,0,-1,5,-6,3,0,-3,-12,1,-2,-3,-1,3,1,-3,-8,-1,-6,5,0,7,-3,0,3,1,-11,7,-9,1,2,2,-24,-5,-33,-13,-12,3,2,0,-2,2,-1,-2,-11,2,-31,-9,-16,7,-34,23,0,4,-8,6,4,2,-3,0,1,3,-6,6,0,4,-17,13,0,3,3,1,-4,2,4,2,-8,-2,-9,7,4,1,-4,0,1,8,13,1,-10,-1,-2,6,-9,8,9,9,6,22,-5,15,3,8,-7,9,-2,-2,2,10,10,19,10,9,5,16,8,4,7,12,13,4,14,11,5,7,-1,13,6,12,7,7,16,7,10,18,6,1,7,-7,16,2,2,-3,9,0,32,14,25,4,15,-3,12,5,14,-2,18,4,5,-1,2,-5,6,4,1,-2,-6,-6,6,-11,-10,-10,2,-5,20,-8,10,0,19,-5,5,-10,21,-5,11,-6,11,5,1,14,16,7,14,-3,2,-4,16,-2,3,-5,16,0,23,-7,20,8,8,-1,2,-2,-3,0,3,-2,16,0,8,5,15,29,-2,18,4,5,-8,-2,-7,2,-10,-6,-9,-2,-16,8,-6,1,-2,-6,-7,-1,-7,5,-15,0,7,3,-9,0,2,2,-4,5,1,3,-9,3,1,3,3,-3,4,2,-3,2,2,2,-3,4,2,3,-8,-1,1,5,5,4,23,0,0,2,8,1,-7,2,0,3,22,-1,20,9,17,1,14,-8,20,-4,19,1,11,4,4,6,-4,7,-48,25,3,2,7,0,3,6,6,1,-7,5,7,1,8,3,-1,3,-34,-7,-7,-5,1,3,-3,-2,1,-5,5,-4,11,1,-2,-3,-9,0,-16,-7,-5,2,2,5,-11,3,11,7,-18,2,2,1,-4,2,10,0,-6,0,-2,6,1,-5,-11,-1,-6,-7,-6,-2,0,-9,-7,2,-3,-15,-5,-1,-6,-9,7,-9,9,-4,-1,-2,-15,0,-13,-9,6,5,-17,4,-13,-3,5,-6,-6,2,2,-3,-13,5,0,-5,7,-8,-4,1,2,-3,-5,-1,14,-6,1,-5,-11,1,5,-4,-8,0,5,-11,-5,4,-2,-4,-4,6,-4,-1,0,5,-6,5,7,4,10,-3,4,1,-8,3,-13,0,-3,5,3,1,-8,3,-10,11,3,14,-26,12,7,-1,-8,5,-9,1,-8,7,3,1,-10,10,-6,-5,-4,7,3,1,-6,2,-9,-4,1,-12,12,-6,9,-14,17,-3,-3,-4,26,-13,-2,-4,-4,5,-10,2,-4,-8,6,-3,1,-4,-6,-2,-5,-9,-5,1,6,9,-5,11,-46,24,-6,6,-3,9,-14,5,-27,-13,-20,5,-8,-4,-3,-4,2,-9,-25,-11,2,-1,-12,-12,5,-7,-7,-5,-2,-7,-9,-2,-5,-6,-23,-1,-12,-7,-8,6,2,3,-7,4,-21,-3,1,14,2,0,-6,3,5,4,-7,-3,8,20,0,15,-5,9,15,6,57,-5,5,3,4,19,6,-5,-7,7,1,6,-10,6,0,4,4,-1,-26,6,-4,2,5,3,-5,2,15,3,5,-3,13,2,-5,10,6,0,2,-3,15,0,-2,3,12,4,4,8,24,5,-7,1,8,0,-3,4,8,10,7,4,17,0,0,4,4,0,9,-3,1,5,12,-3,-12,7,4,2,-3,8,-6,3,1,10,10,1,-1,3,-8,-2,3,3,20,6,-3,-11,6,-2,-13,-9,-1,-5,5,-3,-1,-2,11,-1,-1,-4,5,-1,16,5,16,-8,-8,5,6,-2,37,9,13,-4,17,12,-5,-6,6,-1,-2,17,7,10,9,1,10,-7,8,3,1,11,-7,0,-3,8,20,4,24,-2,2,4,21,1,-16,5,-1,3,-20,-3,1,2,-36,-8,2,2,-3,2,-4,-2,1,4,-12,2,2,10,-5,10,4,6,8,1,23,15,8,2,-1,5,-7,4,-22,0,-10,-6,2,-2,-5,-3,4,-3,-7,-6,-34,-14,2,-3,-5,-6,1,-9,8,-1,10,-8,-10,-4,6,0,-3,-3,-21,-5,7,-1,-2,-1,-2,-13,-5,-9,-12,0,-6,-4,0,-4,-9,-1,-4,1,1,3,-5,6,3,0,1,3,-17,18,-1,6,3,1,-6,1,-2,6,-4,-8,-6,1,-14,-10,-15,0,-11,5,0,4,8,0,-5,1,5,4,-12,-3,0,4,10,2,-5,1,4,3,9,3,-8,-2,-11,-7,1,5,5,0,-6,3,5,3,-5,-1,-1,4,20,0,6,2,-2,2,-2,-2,-21,0,-1,2,3,1,-4,4,18,0,-16,3,15,2,-5,0,3,2,17,1,-14,0,9,4,10,-3,-4,4,5,4,21,-1,6,5,-13,-5,-5,3,19,9,-2,1,2,2,12,2,-6,2,9,6,-2,1,12,2,-9,-1,1,4,8,2,-3,1,4,2,13,1,-10,1,6,3,6,-3,-3,5,-5,0,12,4,3,-3,-1,4,14,1,-11,1,16,7,2,3,6,-2,-3,2,11,3,-1,-4,7,5,-2,-6,6,2,-1,4,14,-1,-6,4,13,2,7,-4,14,10,10,-2,-8,-7,15,8,2,0,-1,-5,9,4,-2,2,8,0,3,-1,-5,-2,4,0,-1,-5,6,7,21,-5,-21,-3,9,-4,18,0,5,3,10,-3,-8,0,2,-2,11,-1,-4,-3,6,2,22,-1,51,-15,4,-5,-2,-4,-25,-7,-68,11,28,-12,-3,-6,6,-10,24,-6,7,3,-15,7,3,4,29,-6,6,2,-6,8,24,9,19,-5,3,9,-6,4,4,10,-9,4,26,-2,8,-7,-18,-4,16,-6,12,2,2,6,9,1,0,2,32,6,4,-1,3,1,-4,1,15,4,7,0,-7,-1,1,-5,-6,-1,16,-1,5,4,17,0,20,4,3,-3,-3,-3,6,0,2,3,10,3,-7,6,7,2,33,-3,43,-12,6,7,-6,0,-9,6,-7,0,4,11,-6,1,-1,3,17,6,11,13,21,-1,13,-2,-2,-7,-7,-5,8,-5,-1,-20,10,-5,-5,-7,-17,-8,1,-3,-25,1,10,-4,21,-1,27,15,-4,6,7,5,14,1,7,-5,0,-7,17,-2,-13,2,1,4,3,1,-3,6,-17,3,-22,0,-2,6,7,8,-12,8,19,7,-2,7,8,-2,1,-3,-4,-3,2,-3,-2,-3,4,-1,33,-4,-26,7,-4,3,22,0,-8,3,11,2,32,-7,14,0,-8,-4,-1,-7,0,-2,4,5,4,0,-3,-7,4,-1,6,4,-5,6,3,6,-27,8,0,4,-4,3,2,4,63,3,-11,-5,9,-3,-8,4,17,3,-16,5,12,1,-14,2,12,2,5,2,-5,2,71,7,-12,0,4,2,32,-2,22,3,11,-2,-3,-2,3,3,-9,4,27,-1,-7,2,1,4,30,7,21,-3,-19,-3,32,-2,-10,-4,47,2,15,-3,1,-3,6,2,6,-4,-3,-3,-11,2,12,-3,-8,-5,-56,-14,-22,-8,57,9,-11,0,6,3,12,0,-3,0,2,-2,7,-1,9,2,5,-6,-3,-5,5,-2,-5,2,7,5,-4,2,6,1,44,0,4,-1,-5,-3,13,-2,28,-1,11,3,-2,4,11,2,46,-7,-5,-2,7,-2,-9,-2,9,-1,0,-3,-16,3,12,-6,3,1,3,-2,-7,0,10,-6,12,-4,17,12,10,-5,24,2,18,-5,4,2,-4,1,3,2,18,-1,-6,5,8,2,-11,1,20,3,-3,3,55,-5,-20,-2,25,1,-7,-4,1,2,-4,1,0,-3,-7,0,1,-2,21,6,22,-1,5,-3,-10,-2,16,-2,-5,-3,15,1,9,-5,34,3,28,-2,12,-4,-1,-7,11,-2,4,-7,-4,-4,7,4,-1,5,17,3,37,-2,10,2,17,-9,9,0,5,3,-8,5,3,5,54,-2,40,-9,-3599,0;-155,662,9,2,-5,-3,7,-3,-1,-2,9,-1,0,-5,-13,-7,-38,-9,-25,5,-15,-1,0,3,12,3,-6,-1,5,3,-24,3,21,1,-6,2,7,2,-27,1,12,3,-5,0,3,4,11,-3,-5,3,4,1,-6,0,2,1,15,-4,0,-3,-3,0,6,-4,3,3,3,0,3,5,7,-3,1,3,6,1,7,-5,-2,5,7,-2,11,2,3,3,7,-3;-866,710,18,0,1,6,-12,4,6,2,10,-2,-14,7,4,3,10,-2,-12,3,21,5,18,1,13,-9,-9,-5,6,2,-3,-6,10,3,-2,1,3,1,12,-5,-3,2,2,3,12,-2,-9,4,11,1,21,-3,1,-2,-8,-5,16,3,-9,-3,5,0,-3,-5,11,6,-3,-4,5,2,5,-3,-1,2,4,2,13,-2,4,-3,-14,-4,19,3,-12,-7,6,1,-1,-4,8,6,14,1,8,-3,-17,-5,13,2,-2,-2,3,-1,6,4,9,-5,-21,-3,26,-2,-23,-2,12,0,-1,-3,-14,1,26,-4,-3,-2,1,-2,7,2,-2,-5,5,3,5,-4,5,3,-1,-2,12,-2,-9,-2,17,-2,-7,-4,16,2,8,-4,-8,0,5,-2,-3,-1,-7,1,6,-4,-6,0,2,-2,-3,-2,-8,3,-1,-10,-7,3,0,2,-3,-3,-8,7,10,5,-14,-3,1,2,-13,4,-3,0,1,-3,-7,2,5,-6,-13,3,5,-1,3,-5,8,-2,-2,-1,6,-5,13,-1,-1,-2,4,-1,-5,-1,12,-6,-3,-5,-5,6,5,-9,-5,0,1,-3,-28,11,1,-3,-11,4,29,-16,-3,-3,-50,12,-7,3,6,2,-11,2,-10,6,2,2,-8,-2,-6,4,-2,0,2,-3,-22,-3,-11,3,-1,4,8,6,15,-3,3,-4,-3,5,22,2,-8,7,22,11,-11,11,-5,0,0,3,-11,1,2,2,-19,-3,0,3,9,2,-8,3,3,2,-9,-1,2,2,-7,0,-2,4,-13,4,-3,-2,6,-4,-28,1,7,-4,-79,8,-7,6,24,-1,-27,5,-2,4,3,3,-2,2,7,7,15,6,27,1,-17,-10,5,-9,12,-5,-16,-4;-695,830,31,-1,-21,-2,49,1,4,-3,19,-2,-74,-10,39,1,-48,-10,-11,1,4,-3,-18,-1,15,0,-8,-3,-30,1,10,-4,-35,0,24,-4,-41,0,42,-4,-20,-2,12,-2,-8,-3,-20,-1,-1,-4,-4,-1,-32,1,4,-1,-5,-2,23,0,15,-3,-3,-3,-24,-4,-3,3,-15,2,3,-2,-20,2,-1,-3,-8,-1,-14,3,-19,-2,-1,4,0,-4,-11,1,1,3,27,4,-10,3,-3,2,3,1,31,-4,20,5,-22,-4,-6,4,13,3,-7,0,1,3,-8,-4,-6,0,3,2,-17,-1,8,6,50,2,-26,0,8,1,-28,7,-1,5,28,-1,32,-6,-25,7,61,6,-18,1,18,4,-41,-7,-41,-2,-13,2,31,4,-44,-4,-15,2,43,4,-47,-3,-3,2,7,1,-5,0,21,2,-41,1,36,5,31,-1,-16,2,17,2,55,-5,-30,5,16,2,-2,2,23,-1,-12,2,39,-4,4,1,-15,4,44,-3,-7,2,6,2,33,-1;-943,718,13,-5,0,-4,14,-7,-7,0,-2,-1,5,-1,-9,-3,25,-2,-8,-2,7,-4,-1,-4,4,-2,9,10,13,-5,2,-5,-5,0,0,-4,9,-7,8,3,9,12,8,1,-2,0,2,3,-5,1,-1,6,31,-2,-4,-1,14,-3,-6,-3,7,-2,-13,-3,13,-9,-2,-4,-19,-7,-11,6,-6,-1,9,-2,3,-5,-28,3,7,-4,-15,-8,-23,6,-16,1,44,-8,-11,-10,-19,-1,1,-1,-3,0,0,-3,-6,-1,-29,5,1,-2,29,-6,-1,-3,-16,-2,5,-2,-7,-1,-2,-2,3,-1,-7,2,3,-2,-7,-3,3,-1,-15,-13,-2,-14,7,-4,0,-4,2,4,9,0,8,-14,-4,-4,22,3,49,-16,5,-3,-2,-2,15,2,15,-2,1,-21,7,-6,-2,-2,11,-4,3,-4,-5,-3,8,2,8,-5,-4,5,4,3,4,-4,2,3,-3,3,6,5,-7,14,1,3,-7,7,19,6,13,11,-4,14,-16,9,8,10,4,-1,0,4,-3,1,0,7,-6,0,7,8,-5,2,-1,5,7,3,28,-5,9,4,10,-4,-1,-3,6,0,0,-2,6,0,-3,-2,5,-2,19,-2,-2,-9,-10,-1,10,-1,0,-6,4,0,-2,-4,-7,-1,18,-1,0,-5,-6,-3,10,6,-1,-4,3,3,1,-4,13,8,4,-4,0,4,6,3,-3,1,2,3,5,-1,-4,4,4,0,2,5,3,0,-3,-3,5,1,5,-6,-1,-1,5,-2,-6,-1,8,0,3,-4,-6,-4,9,2,-7,-5,13,-1,0,-3,-5,-1,12,-5,-1,-3,-11,1,11,-4,-3,-2,3,0,-1,-2,12,-2,1,-3,-4,-4,8,2,4,-1,-4,-4,5,4,19,-6,-30,-9,3,-2,-2,-2,24,8,-4,1,9,0,3,-4,-4,-2,2,-1,8,3,5,-3,2,-9,-5,-1,6,0,-3,-1,3,-2,-13,-7,-15,-2,-16,-10,-64,-1,-9,-9,-9,-1,-14,-10,-13,3,11,-3,-1,-5,-13,-9,-30,-13,3,-2,-7,-3,11,4,4,6,27,10,23,16,27,7,12,-4,-2,-1,2,-4,-10,-4,-14,0,20,-3,-6,-6,5,0,3,-9,17,-6,8,3,10,-6,-26,-8,-7,0,-12,-10,-6,3,2,8,-2,-1,17,8,3,-3,7,4,-15,0,6,4,-3,1,-13,-7,-1,2,-4,-3,-7,1,1,-4,-11,-4,-3,1,-1,-2,-3,3,-4,-6,-10,-2,-6,-10,2,-2,-4,-3,6,-5,4,0,-1,3,2,-4,-13,-2,-2,3,-1,-4,-14,-1,-11,-5,0,4,-3,-7,3,-1,-1,-6,-8,-9,-6,6,4,5,-4,-2,5,-14,-9,-12,2,8,-6,7,4,8,-7,-2,2,-9,-3,1,4,-4,-9,3,2,5,-3,-5,10,-5,-2,-2,-6,5,8,-6,-2,-3,-3,2,5,-4,-10,2,13,-4,5,-11,-4,9,1,-6,-9,1,0,-2,6,0,0,-3,3,1,-4,-4,-8,1,5,-2,-5,-3,6,-2,-10,-1,-5,-8,-1,3,0,-3,-8,-2,-11,-10,-7,-2,0,-2,-2,1,1,-2,-7,-10,1,-14,13,-30,-5,-16,-6,-1,2,2,-9,8,0,6,-2,-1,0,4,-3,-1,-4,6,3,3,-4,0,1,11,-13,12,-13,-4,-3,6,-16,0,2,3,-10,-4,2,1,-2,4,-1,-3,-22,-1,1,-3,8,0,-3,-4,7,-4,-2,-2,-10,5,1,-4,-7,0,-11,7,-4,-2,-15,1,0,3,-1,-3,-9,-3,3,1,-5,2,1,-3,-10,-8,-7,1,2,-2,-8,-4,-2,-8,-4,2,7,-15,-8,-34,6,-10,-1,-3,-4,7,2,-4,17,-28,14,-6,21,5,9,-2,2,1,-1,3,7,5,3,16,19,6,15,0,2,-6,-9,-14,3,0,-5,-13,-1,5,-4,-4,3,-2,-2,-16,-6,-7,8,-2,31,3,16,-8,2,-9,-7,-30,18,-24,3,1,-1,1,8,-3,15,8,5,-1,13,-4,10,-12,-1,7,13,8,2,12,6,5,5,-1,-1,-2,3,5,8,0,17,11,5,-4,-9,-4,4,-9,-5,-9,5,-8,4,2,1,5,-4,13,17,5,-5,4,3,3,4,-7,12,-3,3,-7,19,1,11,-5,14,4,-6,1,24,1,-10,-2,2,-4,2,1,2,-4,2,2,4,-4,1,3,8,-5,-4,-8,-4,0,3,-2,11,2,14,-9,3,-4,-2,-9,3,5,4,-1,8,-6,0,-7,2,5,11,-3,1,3,14,-1,3,-1,-1,-4,4,4,9,-4,9,-10,2,2,1,-5,2,2,3,-2,5,-20,7,-4,1,-5,-14,-13,-7,-13,-7,-2,8,0,10,7,5,-11,11,3,-3,-10,4,8,8,4,3,8,7,1,19,-8,2,-3,2,2,4,-2,-1,-6,4,-1,-3,-8,5,7,0,-3,8,4,19,-5,15,0,28,-20,17,-3,7,-18,0,-10,-5,-12,-21,-21,-8,-15,-7,0,-3,-49,-4,-6,-2,-13,-12,-16,0,-8,-7,-3,-3,-6,-12,2,0,-3,-14,-1,0,-2,-9,-5,-14,-4,-13,-12,-5,0,3,-2,-3,-7,1,-9,-2,-14,-9,-8,-12,-19,-11,-8,-1,3,8,3,7,11,-7,4,0,-8,-7,-6,-7,-17,-15,-16,-20,-2,-16,4,-6,8,2,12,-3,-18,13,-11,-2,-5,7,-5,0,-6,-8,-11,-7,-3,-29,-6,-12,2,2,-6,-3,-15,-12,-3,-15,3,1,-12,6,-3,6,3,2,-6,-14,0,7,-3,-10,-6,-3,-14,-13,-3,-7,-8,8,-9,9,-2,1,-4,-4,-2,4,-1,-17,-11,-4,-10,-4,-1,-4,3,-3,-2,6,-2,-10,-8,3,-5,-4,-1,5,-1,6,-6,-8,1,-16,-6,-2,-10,-3,-1,-11,5,5,2,1,-3,6,7,-13,-7,-6,3,4,4,12,2,-12,1,-4,-6,-5,3,5,3,-9,-1,-3,5,15,2,1,-5,2,1,0,6,-7,2,6,-3,-9,-2,-7,3,3,4,-9,2,-3,4,4,0,1,3,8,-5,1,4,-3,-3,-2,2,2,1,-6,3,6,2,-3,4,5,0,-3,2,2,4,-5,-4,1,8,3,1,-5,0,-1,5,12,-1,-3,4,-5,-3,-5,3,6,1,-4,2,3,2,-1,4,-7,1,0,2,-5,-2,1,-2,-3,2,8,5,-2,3,9,1,2,4,0,-7,-4,-1,7,4,-1,-8,1,11,8,0,-5,4,7,5,-6,4,5,12,0,7,4,-1,-4,5,5,4,-12,-3,-5,7,8,19,-5,19,5,1,10,21,7,24,-2,19,4,11,-2,8,9,26,2,27,-2,3,5,18,-3,31,-11,11,-36,19,-8,8,-5,7,2,5,-14,21,-12,27,-12,18,-11,7,2,5,-4,9,16,21,-1,5,-1,-4,-1,1,-3,-3,-7,5,1,11,6,5,-2,2,5,6,-1,6,12,4,-1,4,4,2,0,6,8,3,7,12,-4,3,2,5,-2,8,3,3,-2,8,-10,15,3,3,3,-3,-16,9,-11,-8,5,-7,-8,-3,-3,7,-2,-3,-4,5,-10,2,-2,-2,-4,6,0,-3,-3,1,-1,7,-16,11,4,-5,-2,-2,-5,3,-1,12,-20,18,4,0,-2,5,-10,-2,-29,8,-30,23,4,-3,-9,4,1,-2,-17,-5,-43,15,-11,8,-15,3,-21,17,-2,4,4,2,-2,2,3,7,-6,11,-17,19,-5,1,-3,5,3,0,-10,4,1,2,-4,-1,0,9,-12,8,0,6,-12,6,-10,15,-3,12,-8,4,-11,3,3,-17,17,-18,10,-17,3,0,9,-24,3,-2,1,2,9,-8,-6,-6,-4,7,-17,12,-3,14,-8,7,-4,-2,-14,10,9,0,-2,2,3,5,-17,14,-18,35,-10,7,-21,6,0,5,-13,12,1,6,-7,6,1,3,3,-3,-2,5,8,1,-15,-1,-7,9,-1,9,-6,6,3,11,-4,13,4,9,1,25,8,0,-9,1,2,4,-2,2,3,1,-3,0,-6,14,19,-3,1,-2,-4,-5,6,5,-1,-6,-4,-2,4,0,4,9,-5,4,2,4,-7,3,3,3,-4,-1,1,4,-3,-3,-4,1,-1,2,4,0,-3,0,0,5,-2,-4,-6,2,-4,4,2,5,-2,-4,-10,0,-3,1,5,1,-6,0,0,4,-6,-2,-6,3,3,4,7,1,-11,0,0,5,4,2,7,-3,-5,4,2,3,-11,-10,-3,4,5,3,-4,-1,2,5,-3,-1,-8,7,3,2,10,-4,-8,3,2,3,-5,-1,-6,-5,-7,4,7,5,-8,2,8,11,-2,1,-2,-5,0,8,0,-6,-5,-6,-5,5,3,1,-3,8,-11,-5,5,6,-19,10,-1,4,5,0,-4,2,3,1,-8,2,1,4,-3,-3,-5,2,-7,10,3,-12,-8,2,-1,4,2,1,-4,1,0,-2,-8,2,9,-5,-5,-3,-32,13,3,5,2,-4,3,2,-4,2,-10,-3,-10,4,-27,-1,-8,3,2,4,-12,-2,2,2,-9,0,0,4,3,0,-16,-2,1,3,-8,-4,3,-1,-3,-2,6,0,-4,-5,-10,1,-2,-3,-21,-6,-2,2,9,4,-9,0,5,9,10,3,13,-1,-10,3,5,3,-34,-12,3,-3,-15,-8,8,-4,-30,-14,-2,-4,-18,-6,-1,-3,-27,-7,-3,2,-6,-5,-5,1,-7,-4,0,3,16,8,14,-1,-2,2,2,3,28,12,-1,6,4,1,-3,2,7,7,-14,-5,-3,3,4,1,-7,0,-2,-6,-14,7,-17,-5,5,5,-4,0,2,5,-6,7,5,4,-8,-4,1,-3,-13,-2,-15,7,6,4,11,-3,3,2,-5,1,3,0,-15,0,2,2,-7,0,-6,6,10,8,4,0,0,4,4,3,11,-2,10,5,14,2,-1,6,-5,1,6,4,-9,0,-9,-4,-5,3,1,-3,-30,2,-8,6,7,1,-19,4,36,9,9,0,-4,-4,3,-1,27,1,-9,2,-6,4,1,1,8,-4,14,-1,-17,3,2,3,-18,1,-6,5,-27,8,4,0,2,5,23,1,20,13,18,3,2,-3,5,2,-7,1,4,2,18,1,14,5,9,-3,-4,-3,8,3,10,-3,19,0,-2,-1,6,-2,87,-4,79,-14,-6,4,15,6,5,-2,-3,-2,35,8,12,0,-32,-8,-7,-5,3,-1,13,7,7,1,1,-3,9,5,12,3,-3,-2,3,0,12,5,-5,1,2,2,25,-12,9,8,5,-5,-2,-3,22,4,49,-9,22,0,10,-5,-11,-3,-3,-2,3,-1,27,-1,23,3,21,-7,-5,-2,12,-7,-4,6,5,-1,-8,9,23,8,-26,-5,-4,2,4,3,21,3,17,-8,10,0,12,-4,34,0,5,1,-2,3,11,-5,3,3,-10,0,-4,5,8,1,14,-2,-3,-3,7,2,-4,-7,10,-5,-10,0,6,-4,-2,3,6,0,1,4,-4,4,2,3,21,6,-5,4,-7,-2,5,3,-2,2,9,1,-27,4,-4,5,6,4,-5,0,-1,4,9,2,2,2,-5,1,7,3,9,-1;-935,750,-1,-3,-9,-1,-21,5,17,5,10,-2,4,-4;-1000,739,29,-1,-5,-3,3,-1,-11,-4,19,-3,0,-3,-3,-1,2,-5,-10,-2,-7,3,1,-5,-10,0,-14,8,-21,5,5,4,9,-4,12,2,-4,3,7,0,-17,3,10,-1,-5,4,10,1;-849,653,4,2,24,-9,4,-4,-2,-2,11,1,5,-3,-7,-3,-23,6,-21,-10,-4,6,-14,-1,9,5,-1,5,6,12,6,0,3,-5;-757,683,6,-2,-3,-7,-15,-2,-4,5,6,6,10,0;-795,737,23,-2,11,-6,-37,-1,-10,5,0,4,13,0;-977,765,2,-4,-4,-3,6,-4,-6,0,2,-2,-3,-2,-23,0,-2,2,4,0,-6,2,15,3,-36,-1,7,3,11,-1,-11,5,3,2,19,-6,-2,2,6,0,-13,4,19,0,2,2,10,-2;-1034,793,8,-4,9,2,17,-4,10,-7,-10,-2,-11,4,-37,2,-1,2,15,1,-8,1,3,1,-3,1,-7,-2,2,2,-9,1,2,2,20,0;-919,811,13,-5,14,-1,3,-3,12,2,-2,-3,9,-2,-3,-3,17,0,6,-3,-26,-6,-4,3,-3,-3,3,-2,-7,1,-1,-4,-12,4,5,-4,-32,2,8,1,-14,1,-9,4,29,4,-38,-1,-6,2,13,2,-15,0,-9,4,25,1,-21,1,8,1,-6,2,3,1,20,-1,-16,2,22,3,-9,2,23,-2;-943,769,11,-1,-3,-4,22,3,8,-2,-9,0,21,-2,-21,-1,21,-4,-3,-2,7,-1,3,2,26,-3,38,4,25,-4,2,-1,-9,-3,10,-1,-25,-4,-16,4,0,-3,-9,-1,-40,0,-1,3,-11,-2,-20,1,-8,6,2,5,-9,6,-22,-1,-16,4,11,4,15,-2;-962,785,13,-1,-4,-2,4,-1,-21,-3,-7,3,8,1,-11,1,-3,5,21,-3;-1105,781,9,0,-13,-3,8,-1,-6,-3,-17,0,-8,1,-1,3,28,3;-1156,774,-7,-3,5,-2,-5,0,4,-2,-13,-4,-8,1,1,4,-9,-3,2,-1,-4,-3,-6,2,1,-3,-4,-1,-9,3,-16,-3,-5,2,38,12,35,1;-1083,761,14,-4,2,3,11,-1,1,-2,-5,-6,-28,0,-37,-7,-18,3,32,6,-26,-2,-2,2,4,1,-5,0,-5,-3,-12,-1,-19,3,25,4,-21,-1,22,3,-17,1,19,2,-10,1,8,2,23,-3,16,-7,20,0,2,2,-10,2,5,2,-9,3,15,4,3,-1,-1,-1,5,-4,-2,-1;-932,742,28,-4,-17,-10,-21,0,7,-3,-5,-5,-12,0,-4,17,9,0,-5,2,2,1,18,2;-974,696,21,-8,-13,-3,-28,4,-1,2,10,2,0,3,5,-1,-2,3,8,-2;-1145,726,17,4,15,-3,-4,-4,15,4,-5,3,7,0,12,-4,10,-10,5,3,-9,13,17,0,11,-4,10,-12,-1,-5,34,-10,2,-3,-25,-1,4,-2,-1,-3,9,3,4,-3,-11,-4,-22,1,-16,5,-7,-4,-21,-3,-36,-2,-6,7,-28,2,-7,7,56,2,-22,4,-38,-1,-7,4,30,5,-26,-1,-3,1,5,2,-13,1,8,5,-2,2,18,6,23,2,2,-3,-4,-4;-1197,741,22,1,21,-7,-37,-9,-11,-4,-4,-7,-25,-4,-9,6,-18,3,20,18,-9,5,32,2,18,-4;-555,515,-5,-2,2,-3,-10,-14,6,5,7,-1,-6,-4,9,-1,-2,-4,9,4,9,-2,-6,-5,5,-1,-4,-3,11,2,-9,-6,3,0,-3,-2,2,-2,8,5,-3,-6,4,3,1,-3,-4,-8,-5,-1,0,5,-6,-2,3,5,-3,5,-3,-5,-13,-5,10,8,-45,-1,0,3,10,6,-9,1,5,0,3,5,4,-1,-2,4,4,1,-1,2,9,13,10,6,5,-1;-300,836,42,-3,-62,-3,69,2,34,-5,-14,-4,-68,-2,48,-1,8,-3,30,4,1,-5,-19,-8,35,8,21,-2,14,4,19,0,28,-3,-54,-9,9,-2,-6,-1,-37,-3,8,-3,0,-4,4,-1,-21,-5,1,-1,-7,-9,22,0,-12,-1,2,-2,21,-1,1,-4,-43,-2,27,-6,5,-6,-1,-3,-27,-1,12,0,1,-5,9,4,7,-7,-18,-2,-9,1,2,3,-2,1,-3,-5,19,-3,-2,-3,-17,-2,-32,6,7,-4,-13,-2,-12,1,8,-2,-11,-1,35,3,21,-5,-3,-8,-18,4,-5,5,-21,-3,19,2,1,-3,-4,-3,31,-6,-5,-3,7,1,3,-10,-9,0,0,4,-3,-5,-6,1,-13,7,-25,4,13,-1,1,-3,-27,-2,3,-3,-10,-3,25,1,-10,-4,2,-1,19,4,32,-4,-16,-3,-26,-10,-45,-6,-13,3,1,-4,-10,-4,-14,-12,-13,0,3,-3,-22,-5,-2,1,7,6,-9,1,4,-1,-3,-4,-4,1,3,-3,-20,-1,5,-3,-14,-3,9,-5,-14,-2,10,-2,1,-4,-9,-6,-8,1,6,-2,-3,-3,-10,0,7,-1,1,-7,-5,-2,3,-1,-7,-11,-9,1,7,-2,1,-3,-9,-1,3,-1,-2,-1,-5,1,2,4,-4,-3,-8,2,6,5,-12,-1,1,6,-10,-4,-13,0,4,2,-6,0,-9,6,-1,3,6,2,-8,-1,0,2,-7,3,5,5,-6,-2,-11,12,12,2,-14,0,10,5,7,-3,-1,3,-9,5,3,-4,-12,-6,-6,11,14,5,-15,-3,-6,1,1,4,-3,0,22,9,-24,-7,2,4,10,3,-13,1,-1,4,13,4,19,-3,-6,2,2,1,-13,0,-14,-3,5,7,16,-1,4,3,-22,-1,4,3,19,0,3,2,-4,-1,1,4,8,1,-8,0,8,8,-20,1,-22,6,38,-3,-11,6,8,0,-20,2,1,3,11,2,-16,-1,3,2,-6,6,-2,-1,4,-4,-5,-4,-16,1,8,8,-8,-2,3,2,-3,1,9,4,-10,1,4,3,-8,3,3,2,-4,3,-10,0,9,4,-23,9,3,1,-2,2,-48,7,-37,-2,2,-2,-15,1,-12,3,14,3,-31,4,48,2,1,3,-31,-1,-11,2,4,1,-27,4,12,4,58,6,10,8,6,1,-26,0,-4,1,2,2,25,6,15,-1,-2,2,2,1,16,-1,3,3,-1,3,8,2,38,-5,-27,6,48,4,8,-2,1,-5,6,2,0,4,35,-4,-14,5,9,1,53,-7,4,7,-13,2,42,1,-47,1,-4,1,3,1,58,2,22,-3,3,2,-8,2,10,1,77,1;-1800,-844,235,-8,-10,3,9,1,-85,4,13,1,-9,1,6,3,-37,1,-64,10,148,-7,60,9,4,2,-17,5,7,2,-30,4,89,4,-25,5,25,5,-80,12,-4,1,3,0,19,3,-35,2,-7,3,3,6,34,1,51,-7,15,3,-6,2,2,2,29,-4,-1,2,3,1,-5,1,4,1,-1,3,-40,3,14,3,29,-3,-10,3,4,2,37,4,14,-2,-3,2,15,3,31,0,12,5,139,0,28,3,35,-1,6,6,11,-2,-3,-3,5,-1,-8,-5,24,2,-1,5,6,1,10,-3,-12,-7,83,1,21,-3,24,2,-19,3,4,4,-12,0,-15,9,39,0,-40,3,-5,5,3,1,7,-1,0,-2,60,-3,55,0,21,6,6,-1,-2,-4,26,0,36,-7,9,2,1,5,9,-2,-1,5,16,-6,19,0,-1,-3,82,7,11,3,9,7,-19,27,17,2,-4,3,6,7,-3,2,4,4,-8,1,0,4,5,2,5,-4,0,6,7,1,0,3,5,3,8,0,-1,3,8,2,-3,2,3,3,7,-1,0,2,15,3,7,5,35,9,6,-4,-15,-2,-7,-4,2,-3,-12,1,-21,-9,3,-3,-5,-3,17,0,-4,-4,-17,1,1,-5,-12,4,-3,-4,3,-2,-9,1,-3,-4,2,-1,-7,-1,-1,-7,8,0,-7,-2,5,-1,-2,-2,11,-2,2,3,10,1,-8,-3,17,-14,-4,-3,9,-1,-5,-4,7,0,3,-3,-10,-5,8,1,2,-2,-13,-2,16,-1,0,-3,-6,-2,13,-4,-9,-3,-11,2,12,-6,-10,-3,8,-1,-8,-2,10,1,-2,-3,-12,1,3,-4,-5,-2,-8,3,0,-2,-7,-1,7,-2,-11,-1,9,-2,-68,-12,-70,1,15,-8,28,-3,-19,-5,-68,4,42,-6,-5,-3,-24,-1,-35,8,6,-4,-5,0,1,-2,27,-9,8,2,39,-1,2,-2,-6,-3,-31,-1,33,-1,13,-8,44,3,51,-9,32,-1,-37,-4,12,-4,44,2,-22,-3,15,-5,-2,-4,19,-1,37,10,51,5,44,1,3,-3,-5,-3,15,1,13,1,26,11,23,3,16,-2,77,9,59,2,-64,4,-6,5,-36,0,-20,3,0,3,21,11,52,10,106,10,-5,2,14,8,17,0,11,5,-16,0,3,1,-6,2,1,2,8,3,14,0,-1,4,28,3,5,6,-13,4,15,-2,8,5,-3,2,11,-3,6,-5,9,2,-1,7,19,1,3,-2,-5,-4,50,0,6,-4,24,7,66,5,6,3,26,-6,14,7,7,-2,26,2,17,-4,9,3,0,-5,4,-2,17,1,6,5,13,-5,10,4,8,-5,17,-1,61,10,4,4,-4,7,9,2,7,0,-4,-4,8,0,8,-6,24,0,11,-5,13,14,62,12,2,3,8,-1,-3,-2,4,-1,7,0,2,-3,8,8,-7,2,21,-2,-3,8,34,5,16,-1,17,-5,0,-2,-9,1,4,-3,-7,-3,4,-1,14,3,17,-5,103,-3,4,-7,-5,-2,1,-5,-7,-2,2,-5,-9,1,-9,-5,19,-1,-27,-27,8,-2,7,2,0,3,4,3,12,1,17,8,5,8,15,10,23,0,22,7,12,9,43,6,12,5,76,6,73,-1,33,7,68,-10,11,4,3,4,22,3,25,-10,-16,-4,0,-2,62,4,-11,-4,68,10,16,-7,15,0,11,8,33,2,9,-4,11,4,73,-9,10,1,9,-2,-6,-8,20,3,11,-8,38,0,4,-4,20,0,6,5,16,-7,43,-5,16,-13,8,-2,-2,6,7,1,6,-3,43,-2,26,-8,2,2,5,-5,-9,-2,2,-5,-18,2,14,-3,-3,-4,-30,2,12,-5,-24,-5,-2,5,-3,0,0,-6,6,-6,-20,2,-10,-8,-15,-1,13,-2,6,-3,-4,-4,4,-3,-4,-5,7,0,13,-9,-4,-3,14,2,17,-7,-45,-2,-9,4,-2,-2,5,-3,-11,-1,-4,-1,1,-2,-6,-2,3,-1,-4,-2,7,-1,-20,-4,20,0,2,-3,-5,-1,4,-1,-2,-4,31,-8,-23,-4,34,1,39,-7,-9,-1,4,-2,115,-9,-3596,-1';
+const AARDE = { tex: null, wolk: null, cache: {} };
+function aardeTextuur() { if (AARDE.tex) return AARDE.tex;
+  const TW = 2048, TH = 1024, cv = document.createElement('canvas'); cv.width = TW; cv.height = TH; const g = cv.getContext('2d');
+  const X = (lon) => (lon + 180) / 360 * TW, Y = (lat) => (90 - lat) / 180 * TH;
+  const og = g.createLinearGradient(0, 0, 0, TH); og.addColorStop(0, '#16325C'); og.addColorStop(0.5, '#1F5A96'); og.addColorStop(1, '#16325C'); g.fillStyle = og; g.fillRect(0, 0, TW, TH);
+  const polys = AARDE_LAND.split(';').map(r => { const n = r.split(',').map(Number), pts = []; let x = 0, y = 0; for (let i = 0; i < n.length; i += 2) { x += n[i]; y += n[i + 1]; pts.push([x / 10, y / 10]); } return pts; });
+  polys.forEach(p => { for (let i = 1; i < p.length; i++) { const d = p[i][0] - p[i - 1][0]; if (d > 180) p[i][0] -= 360 * Math.round(d / 360); else if (d < -180) p[i][0] += 360 * Math.round(-d / 360); } }); // over de datumgrens: doorlopend maken
+  const pad = () => { g.beginPath(); for (const p of polys) for (const off of [-360, 0, 360]) { p.forEach(([lo, la], i) => i ? g.lineTo(X(lo + off), Y(la)) : g.moveTo(X(lo + off), Y(la))); g.closePath(); } };
+  g.save(); pad(); g.strokeStyle = 'rgba(70,150,200,0.35)'; g.lineWidth = 6; g.lineJoin = 'round'; g.stroke(); g.restore();
+  g.save(); pad(); g.clip();
+  const lg = g.createLinearGradient(0, 0, 0, TH); [[0, '#E8EEF2'], [0.1, '#DCE4E8'], [0.15, '#6E7F5A'], [0.2, '#3F6B3A'], [0.3, '#4F7A3C'], [0.38, '#8A8A50'], [0.45, '#4C7D34'], [0.5, '#3E7A30'], [0.56, '#4C7D34'], [0.63, '#8E8A55'], [0.7, '#5D7F3E'], [0.84, '#7A8C6A'], [0.88, '#E8EEF2'], [1, '#F2F5F7']].forEach(([o, c]) => lg.addColorStop(o, c)); g.fillStyle = lg; g.fillRect(0, 0, TW, TH);
+  const vlek = (lon, lat, rx, ry, col, a) => { const x = X(lon), y = Y(lat), sx = rx / 360 * TW, sy = ry / 180 * TH; g.save(); g.translate(x, y); g.scale(1, sy / sx); const rg = g.createRadialGradient(0, 0, 0, 0, 0, sx); rg.addColorStop(0, col); rg.addColorStop(0.45, col + 'B0'); rg.addColorStop(1, col + '00'); g.globalAlpha = a; g.fillStyle = rg; g.beginPath(); g.arc(0, 0, sx, 0, 6.283); g.fill(); g.restore(); };
+  const ZAND = '#D2B27A', STEP = '#A89A62', ROTS = '#9C7E5A', OER = '#2F6A2A';
+  [[10, 22, 28, 9, ZAND, 1], [-5, 20, 14, 7, ZAND, 0.9], [25, 24, 10, 6, ZAND, 1], [45, 23, 12, 9, ZAND, 1], [55, 29, 9, 5, ROTS, 0.6], [65, 31, 8, 4, STEP, 0.45], [100, 42, 16, 5, STEP, 0.5], [85, 39, 9, 3, ZAND, 0.6], [62, 44, 10, 5, STEP, 0.4],
+   [133, -25, 14, 9, ZAND, 1], [122, -24, 8, 7, ROTS, 0.9], [20, -24, 8, 7, STEP, 0.9], [16, -26, 4, 6, ZAND, 0.9], [-112, 35, 9, 7, ROTS, 0.8], [-104, 40, 6, 9, STEP, 0.45], [-70, -24, 3, 9, ZAND, 0.9], [-67, -42, 4, 7, STEP, 0.8], [45, 5, 6, 6, STEP, 0.4], [-40, -8, 6, 6, STEP, 0.3],
+   [-62, -4, 16, 9, OER, 0.9], [22, 0, 10, 6, OER, 0.8], [110, 0, 14, 6, OER, 0.7], [140, -5, 6, 4, OER, 0.7], [90, 60, 50, 8, '#3D5E36', 0.6], [-100, 56, 30, 7, '#3D5E36', 0.6]].forEach(v => vlek(...v));
+  vlek(-41, 73, 26, 14, '#EEF3F6', 1); vlek(-41, 66, 14, 8, '#EEF3F6', 0.8); g.fillStyle = '#EEF3F6'; g.fillRect(0, Y(-62), TW, TH);
+  g.restore();
+  g.save(); pad(); g.clip(); for (let i = 0; i < 9000; i++) { const x = hash(i * 3.1) * TW, y = hash(i * 7.7 + 1) * TH, r = 1 + hash(i * 1.3 + 2) * 3; g.fillStyle = hash(i + 5) > 0.5 ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.07)'; g.fillRect(x, y, r, r); } g.restore();
+  const zi = g.createLinearGradient(0, 0, 0, TH); zi.addColorStop(0, 'rgba(235,242,246,0.95)'); zi.addColorStop(0.07, 'rgba(235,242,246,0.5)'); zi.addColorStop(0.11, 'rgba(235,242,246,0)'); zi.addColorStop(0.9, 'rgba(235,242,246,0)'); zi.addColorStop(0.95, 'rgba(235,242,246,0.6)'); zi.addColorStop(1, 'rgba(235,242,246,0.95)'); g.fillStyle = zi; g.fillRect(0, 0, TW, TH);
+  AARDE.tex = g.getImageData(0, 0, TW, TH); AARDE.tw = TW; AARDE.th = TH;
+  const CW = 512, CH = 256, wd = new Float32Array(CW * CH);
+  const vn = (x, y, s) => { const xi = Math.floor(x), yi = Math.floor(y), fx = x - xi, fy = y - yi, h = (a, b) => hash(((a % s) + s) % s * 131 + b * 977 + s), sm = u => u * u * (3 - 2 * u); return lerp(lerp(h(xi, yi), h(xi + 1, yi), sm(fx)), lerp(h(xi, yi + 1), h(xi + 1, yi + 1), sm(fx)), sm(fy)); };
+  for (let j = 0; j < CH; j++) { const lat = 90 - (j + 0.5) / CH * 180, band = 0.35 * Math.exp(-Math.pow((Math.abs(lat) - 52) / 14, 2)) + 0.22 * Math.exp(-Math.pow(lat / 7, 2)) - 0.12 * Math.exp(-Math.pow((Math.abs(lat) - 25) / 8, 2));
+    for (let i = 0; i < CW; i++) { let v = 0, amp = 0.5, f = 8; for (let o = 0; o < 4; o++) { v += amp * vn(i / CW * f + j * 0.004 * f, j / CH * f * 0.55, f); amp *= 0.5; f *= 2; } wd[j * CW + i] = clamp((v + band - 0.6) * 2.4, 0, 0.72); } }
+  AARDE.wolk = wd; AARDE.cw = CW; AARDE.ch = CH; return AARDE.tex; }
+function aardeBeeld(R, lonC, latC, wolkLon) {
+  aardeTextuur(); const D = Math.ceil(R * 2), key = D + '|' + latC; let c = AARDE.cache[key];
+  if (!c) { const lat = new Float32Array(D * D), lon = new Float32Array(D * D), sh = new Float32Array(D * D), rim = new Float32Array(D * D), cp = Math.cos(latC * Math.PI / 180), sp = Math.sin(latC * Math.PI / 180);
+    const L = [-0.55, 0.45, 0.70], Ln = Math.hypot(...L); L[0] /= Ln; L[1] /= Ln; L[2] /= Ln;
+    for (let j = 0; j < D; j++) for (let i = 0; i < D; i++) { const u = (i + 0.5 - R) / R, v = (R - j - 0.5) / R, d2 = u * u + v * v, k = j * D + i; if (d2 > 1) { lat[k] = NaN; continue; } const z = Math.sqrt(1 - d2);
+      lat[k] = Math.asin(clamp(v * cp + z * sp, -1, 1)) * 180 / Math.PI; lon[k] = Math.atan2(u, z * cp - v * sp) * 180 / Math.PI;
+      const nl = u * L[0] + v * L[1] + z * L[2]; sh[k] = 0.18 + 0.95 * Math.max(0, nl) + 0.1 * Math.pow(Math.max(0, nl), 24); rim[k] = clamp((Math.sqrt(d2) - 0.86) / 0.14, 0, 1) * clamp(1 - Math.sqrt(d2), 0, 1) * 4; }
+    c = AARDE.cache[key] = { lat, lon, sh, rim, cv: document.createElement('canvas'), D }; c.cv.width = c.cv.height = D; c.cx = c.cv.getContext('2d'); c.img = c.cx.createImageData(D, D); }
+  const T = AARDE.tex.data, TW = AARDE.tw, TH = AARDE.th, Wd = AARDE.wolk, CW = AARDE.cw, CH = AARDE.ch, o = c.img.data;
+  for (let k = 0; k < D * D; k++) { const la = c.lat[k], p = k * 4; if (la !== la) { o[p + 3] = 0; continue; }
+    let lo = c.lon[k] + lonC; lo = ((lo + 180) % 360 + 360) % 360; const tx = Math.min(TW - 1, lo / 360 * TW | 0), ty = Math.min(TH - 1, (90 - la) / 180 * TH | 0), q = (ty * TW + tx) * 4;
+    let wl = c.lon[k] + wolkLon; wl = ((wl + 180) % 360 + 360) % 360; const wa = Wd[Math.min(CH - 1, (90 - la) / 180 * CH | 0) * CW + Math.min(CW - 1, wl / 360 * CW | 0)];
+    const s = c.sh[k], r0 = T[q] * (1 - wa) + 245 * wa, g0 = T[q + 1] * (1 - wa) + 248 * wa, b0 = T[q + 2] * (1 - wa) + 250 * wa, rm = c.rim[k];
+    o[p] = Math.min(255, r0 * s + rm * 60); o[p + 1] = Math.min(255, g0 * s + rm * 110); o[p + 2] = Math.min(255, b0 * s + rm * 190); o[p + 3] = 255; }
+  c.cx.putImageData(c.img, 0, 0); return c.cv; }

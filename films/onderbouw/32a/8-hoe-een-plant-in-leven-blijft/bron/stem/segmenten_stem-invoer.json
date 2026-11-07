@@ -1,0 +1,190 @@
+[
+ {
+  "id": "s01",
+  "chapter": "Cold open",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "In de lente stop je een zonnebloempit in de grond. In de zomer staat er een plant van twee meter.",
+   "Met een stengel zo dik als een bezemsteel. Waar komt al dat spul vandaan? Waar haalt een plant zijn eten vandaan?"
+  ],
+  "display": "In de lente stop je een zonnebloempit in de grond. In de zomer staat er een plant van twee meter. Met een stengel zo dik als een bezemsteel. Waar komt al dat spul vandaan? Waar haalt een plant zijn eten vandaan?",
+  "voice": "In de lente stop je een zonnebloempit in de grond. In de zomer staat er een plant van twee meter. Met een stengel zo dik als een bezemsteel. Waar komt al dat spul vandaan? Waar haalt een plant zijn eten vandaan?"
+ },
+ {
+  "id": "s02",
+  "chapter": "Titel",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Hoe een plant in leven blijft. Waar haalt een plant zijn eten vandaan?"
+  ],
+  "display": "Hoe een plant in leven blijft. Waar haalt een plant zijn eten vandaan?",
+  "voice": "Hoe een plant in leven blijft. Waar haalt een plant zijn eten vandaan?"
+ },
+ {
+  "id": "s03",
+  "chapter": "Hoofdstuk 1 — Niet uit de grond",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Veel mensen denken: uit de grond. Een plant eet aarde, met zijn wortels.",
+   "Bijna vierhonderd jaar geleden testte een Vlaamse onderzoeker dat. Van Helmont. Hij zette een wilgje van twee kilo in een pot vol droge aarde. Hij gaf alleen water.",
+   "Na vijf jaar woog de wilg zevenenzeventig kilo. Toen woog hij de aarde opnieuw. Hoeveel lichter was de aarde? Wat denk je?"
+  ],
+  "display": "Veel mensen denken: uit de grond. Een plant eet aarde, met zijn wortels. Bijna vierhonderd jaar geleden testte een Vlaamse onderzoeker dat. Van Helmont. Hij zette een wilgje van twee kilo in een pot vol droge aarde. Hij gaf alleen water. Na vijf jaar woog de wilg zevenenzeventig kilo. Toen woog hij de aarde opnieuw. Hoeveel lichter was de aarde? Wat denk je?",
+  "voice": "Veel mensen denken: uit de grond. Een plant eet aarde, met zijn wortels. Bijna vierhonderd jaar geleden testte een Vlaamse onderzoeker dat. Van Helmont. Hij zette een wilgje van twee kilo in een pot vol droge aarde. Hij gaf alleen water. Na vijf jaar woog de wilg zevenenzeventig kilo. Toen woog hij de aarde opnieuw. Hoeveel lichter was de aarde? Wat denk je?"
+ },
+ {
+  "id": "q04",
+  "chapter": "Hoofdstuk 1 — Niet uit de grond",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "ongeveer vijfenzeventig kilo, net zoveel als de wilg erbij kreeg",
+   "ongeveer de helft daarvan",
+   "bijna niets"
+  ],
+  "q": "De wilg werd 75 kilo zwaarder. Hoeveel lichter was de aarde?",
+  "correct": 2,
+  "explain": "Bijna niets: ongeveer zestig gram, zo zwaar als een ei. De wilg haalde zijn kilo's niet uit de aarde, maar vooral uit water en uit de lucht (koolstofdioxide)."
+ },
+ {
+  "id": "s05",
+  "chapter": "Hoofdstuk 1 — Niet uit de grond",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Bijna niets. Ongeveer zestig gram. Zo zwaar als een ei. De wilg had zijn kilo's dus niet uit de aarde.",
+   "Van Helmont dacht: dan komt het uit het water. Dat was half goed. Een flink deel van de wilg is water. Maar het stevige hout is vooral gemaakt uit lucht. Uit een gas dat je niet ziet: koolstofdioxide."
+  ],
+  "display": "Bijna niets. Ongeveer zestig gram. Zo zwaar als een ei. De wilg had zijn kilo's dus niet uit de aarde. Van Helmont dacht: dan komt het uit het water. Dat was half goed. Een flink deel van de wilg is water. Maar het stevige hout is vooral gemaakt uit lucht. Uit een gas dat je niet ziet: koolstofdioxide.",
+  "voice": "Bijna niets. Ongeveer zestig gram. Zo zwaar als een ei. De wilg had zijn kilo's dus niet uit de aarde. Van Helmont dacht: dan komt het uit het water. Dat was half goed. Een flink deel van de wilg is water. Maar het stevige hout is vooral gemaakt uit lucht. Uit een gas dat je niet ziet: koolstofdie-oxide."
+ },
+ {
+  "id": "s06",
+  "chapter": "Hoofdstuk 2 — Zelf voedsel maken",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Een plant eet niet. Hij maakt zijn eigen voedsel, met licht. Dat heet fotosynthese. Foto betekent licht, synthese betekent maken.",
+   "Daarvoor zijn drie dingen nodig: licht, water en koolstofdioxide.",
+   "De wortels halen water uit de grond. Daarin zitten ook mineralen: stoffen zoals in plantenvoeding uit de winkel. Die heeft de plant nodig, in kleine beetjes. Maar het is geen eten.",
+   "De stengel brengt het water omhoog, door de vaatbundels. Koolstofdioxide komt uit de lucht. Het gaat het blad in door piepkleine gaatjes: huidmondjes."
+  ],
+  "display": "Een plant eet niet. Hij maakt zijn eigen voedsel, met licht. Dat heet fotosynthese. Foto betekent licht, synthese betekent maken. Daarvoor zijn drie dingen nodig: licht, water en koolstofdioxide. De wortels halen water uit de grond. Daarin zitten ook mineralen: stoffen zoals in plantenvoeding uit de winkel. Die heeft de plant nodig, in kleine beetjes. Maar het is geen eten. De stengel brengt het water omhoog, door de vaatbundels. Koolstofdioxide komt uit de lucht. Het gaat het blad in door piepkleine gaatjes: huidmondjes.",
+  "voice": "Een plant eet niet. Hij maakt zijn eigen voedsel, met licht. Dat heet fotosynthese. Foto betekent licht, synthese betekent maken. Daarvoor zijn drie dingen nodig: licht, water en koolstofdie-oxide. De wortels halen water uit de grond. Daarin zitten ook mineralen: stoffen zoals in plantenvoeding uit de winkel. Die heeft de plant nodig, in kleine beetjes. Maar het is geen eten. De stengel brengt het water omhoog, door de vaatbundels. Koolstofdie-oxide komt uit de lucht. Het gaat het blad in door piepkleine gaatjes: huidmondjes."
+ },
+ {
+  "id": "s07",
+  "chapter": "Hoofdstuk 2 — Zelf voedsel maken",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "In het blad zitten cellen vol bladgroenkorrels. Die vangen het licht. Met die energie maken ze van water en koolstofdioxide suiker. Daarbij komt zuurstof vrij. Die gaat door de huidmondjes naar buiten.",
+   "Een plant staat twee weken in een donkere kast. Hij krijgt wel water. Wat gebeurt er? Wat denk je?"
+  ],
+  "display": "In het blad zitten cellen vol bladgroenkorrels. Die vangen het licht. Met die energie maken ze van water en koolstofdioxide suiker. Daarbij komt zuurstof vrij. Die gaat door de huidmondjes naar buiten. Een plant staat twee weken in een donkere kast. Hij krijgt wel water. Wat gebeurt er? Wat denk je?",
+  "voice": "In het blad zitten cellen vol bladgroenkorrels. Die vangen het licht. Met die energie maken ze van water en koolstofdie-oxide suiker. Daarbij komt zuurstof vrij. Die gaat door de huidmondjes naar buiten. Een plant staat twee weken in een donkere kast. Hij krijgt wel water. Wat gebeurt er? Wat denk je?"
+ },
+ {
+  "id": "q08",
+  "chapter": "Hoofdstuk 2 — Zelf voedsel maken",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "hij maakt geen suiker meer, en wordt geel en slap",
+   "niets, hij haalt zijn voedsel uit de grond",
+   "hij maakt 's nachts suiker uit water"
+  ],
+  "q": "Een plant staat twee weken in een donkere kast, wel met water. Wat gebeurt er?",
+  "correct": 0,
+  "explain": "Zonder licht geen fotosynthese: de plant maakt geen suiker meer, gebruikt zijn voorraad op en wordt geel en slap. Water en grond zijn geen voedsel."
+ },
+ {
+  "id": "s09",
+  "chapter": "Hoofdstuk 3 — Bouwen en verbranden",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Hij wordt geel en slap. Zonder licht geen fotosynthese. De plant gebruikt zijn voorraad op. Water alleen is geen voedsel.",
+   "Wat doet een plant met zijn suiker? Hij bouwt ermee. Van suiker maakt hij celwanden. Hout is vooral celwand. Zo werd die wilg zo zwaar. Suiker is dus bouwstof.",
+   "En suiker is brandstof. Een plant verbrandt suiker, net als jij. In zijn mitochondriën, met zuurstof. Dat geeft energie om te groeien. Daarbij komt koolstofdioxide vrij.",
+   "Doet een plant 's nachts ook iets? Wat denk je?"
+  ],
+  "display": "Hij wordt geel en slap. Zonder licht geen fotosynthese. De plant gebruikt zijn voorraad op. Water alleen is geen voedsel. Wat doet een plant met zijn suiker? Hij bouwt ermee. Van suiker maakt hij celwanden. Hout is vooral celwand. Zo werd die wilg zo zwaar. Suiker is dus bouwstof. En suiker is brandstof. Een plant verbrandt suiker, net als jij. In zijn mitochondriën, met zuurstof. Dat geeft energie om te groeien. Daarbij komt koolstofdioxide vrij. Doet een plant 's nachts ook iets? Wat denk je?",
+  "voice": "Hij wordt geel en slap. Zonder licht geen fotosynthese. De plant gebruikt zijn voorraad op. Water alleen is geen voedsel. Wat doet een plant met zijn suiker? Hij bouwt ermee. Van suiker maakt hij celwanden. Hout is vooral celwand. Zo werd die wilg zo zwaar. Suiker is dus bouwstof. En suiker is brandstof. Een plant verbrandt suiker, net als jij. In zijn mitochondriën, met zuurstof. Dat geeft energie om te groeien. Daarbij komt koolstofdie-oxide vrij. Doet een plant snachts ook iets? Wat denk je?"
+ },
+ {
+  "id": "q10",
+  "chapter": "Hoofdstuk 3 — Bouwen en verbranden",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "nee, zonder licht ligt alles stil",
+   "ja, hij verbrandt dag en nacht suiker",
+   "ja, hij maakt 's nachts extra zuurstof"
+  ],
+  "q": "Doet een plant 's nachts ook iets?",
+  "correct": 1,
+  "explain": "Een plant verbrandt dag en nacht suiker, net als jij. 's Nachts maakt hij geen suiker en geen zuurstof: dan geeft hij alleen koolstofdioxide af."
+ },
+ {
+  "id": "s11",
+  "chapter": "Hoofdstuk 3 — Bouwen en verbranden",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Ja. Dag en nacht verbrandt een plant suiker. Overdag maakt hij meer suiker dan hij verbrandt. Daarom geeft een plant overdag zuurstof af. 's Nachts geeft hij alleen koolstofdioxide af, net als jij."
+  ],
+  "display": "Ja. Dag en nacht verbrandt een plant suiker. Overdag maakt hij meer suiker dan hij verbrandt. Daarom geeft een plant overdag zuurstof af. 's Nachts geeft hij alleen koolstofdioxide af, net als jij.",
+  "voice": "Ja. Dag en nacht verbrandt een plant suiker. Overdag maakt hij meer suiker dan hij verbrandt. Daarom geeft een plant overdag zuurstof af. Snachts geeft hij alleen koolstofdie-oxide af, net als jij."
+ },
+ {
+  "id": "s12",
+  "chapter": "Hoofdstuk 3 — Bouwen en verbranden",
+  "level": "vwo",
+  "kind": "speech",
+  "lines": [
+   "In woorden zijn fotosynthese en verbranding elkaars omgekeerde. Fotosynthese: water en koolstofdioxide worden suiker en zuurstof. Met energie uit licht.",
+   "Verbranding: suiker en zuurstof worden weer water en koolstofdioxide. Daarbij komt de energie vrij. Die suiker heeft een eigen naam: glucose."
+  ],
+  "display": "In woorden zijn fotosynthese en verbranding elkaars omgekeerde. Fotosynthese: water en koolstofdioxide worden suiker en zuurstof. Met energie uit licht. Verbranding: suiker en zuurstof worden weer water en koolstofdioxide. Daarbij komt de energie vrij. Die suiker heeft een eigen naam: glucose.",
+  "voice": "In woorden zijn fotosynthese en verbranding elkaars omgekeerde. Fotosynthese: water en koolstofdie-oxide worden suiker en zuurstof. Met energie uit licht. Verbranding: suiker en zuurstof worden weer water en koolstofdie-oxide. Daarbij komt de energie vrij. Die suiker heeft een eigen naam: glucose."
+ },
+ {
+  "id": "s13",
+  "chapter": "Hoofdstuk 3 — Bouwen en verbranden",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Zo houden de organen samen de plant in leven. Stel: de wortels krijgen geen water meer. Dan gaan de huidmondjes dicht, anders droogt het blad uit.",
+   "Maar dan komt er ook geen koolstofdioxide meer in. Geen suiker dus. De plant verhongert, terwijl de zon gewoon schijnt."
+  ],
+  "display": "Zo houden de organen samen de plant in leven. Stel: de wortels krijgen geen water meer. Dan gaan de huidmondjes dicht, anders droogt het blad uit. Maar dan komt er ook geen koolstofdioxide meer in. Geen suiker dus. De plant verhongert, terwijl de zon gewoon schijnt.",
+  "voice": "Zo houden de organen samen de plant in leven. Stel: de wortels krijgen geen water meer. Dan gaan de huidmondjes dicht, anders droogt het blad uit. Maar dan komt er ook geen koolstofdie-oxide meer in. Geen suiker dus. De plant verhongert, terwijl de zon gewoon schijnt."
+ },
+ {
+  "id": "s14",
+  "chapter": "Samenvatting",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Een plant eet geen aarde. Hij maakt zijn eigen voedsel: fotosynthese. Wortels halen water, de stengel brengt het omhoog. Door de huidmondjes komt koolstofdioxide binnen. Bladgroenkorrels vangen licht. Zo ontstaan suiker en zuurstof.",
+   "Met die suiker bouwt de plant, en hij verbrandt hem, dag en nacht. En de zonnebloem van twee meter? Vooral gemaakt van water en lucht. Met zonlicht als energie."
+  ],
+  "display": "Een plant eet geen aarde. Hij maakt zijn eigen voedsel: fotosynthese. Wortels halen water, de stengel brengt het omhoog. Door de huidmondjes komt koolstofdioxide binnen. Bladgroenkorrels vangen licht. Zo ontstaan suiker en zuurstof. Met die suiker bouwt de plant, en hij verbrandt hem, dag en nacht. En de zonnebloem van twee meter? Vooral gemaakt van water en lucht. Met zonlicht als energie.",
+  "voice": "Een plant eet geen aarde. Hij maakt zijn eigen voedsel: fotosynthese. Wortels halen water, de stengel brengt het omhoog. Door de huidmondjes komt koolstofdie-oxide binnen. Bladgroenkorrels vangen licht. Zo ontstaan suiker en zuurstof. Met die suiker bouwt de plant, en hij verbrandt hem, dag en nacht. En de zonnebloem van twee meter? Vooral gemaakt van water en lucht. Met zonlicht als energie."
+ },
+ {
+  "id": "s15",
+  "chapter": "Eindkaart",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Probeer het zelf."
+  ],
+  "display": "Probeer het zelf.",
+  "voice": "Probeer het zelf."
+ }
+]

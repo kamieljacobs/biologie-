@@ -1,0 +1,749 @@
+{
+ "film": 12,
+ "titel": "Hoe werden we mens?",
+ "slug": "x4-hoe-werden-we-mens",
+ "sleutel": "e12",
+ "puzzel": "Waarom zijn wij nu de enige mensensoort?",
+ "haak": "Vijfenveertigduizend jaar geleden zien twee groepen mensen elkaar over een dal in Europa: ze lijken op elkaar, maar het zijn twee soorten.",
+ "duur": {
+  "basis_min": 8.0,
+  "met_vwo_min": 8.0,
+  "woorden": 920
+ },
+ "hoofdstukken": [
+  {
+   "nr": 1,
+   "titel": "De splitsing",
+   "minivraag": "Stamt de mens af van de chimpansee?",
+   "type": "F",
+   "look": "Schema"
+  },
+  {
+   "nr": 2,
+   "titel": "Eerst lopen",
+   "minivraag": "Wat kwam eerst: rechtop lopen of grote hersenen?",
+   "type": "G",
+   "look": "Macro"
+  },
+  {
+   "nr": 3,
+   "titel": "Hersenen, werktuigen en vuur",
+   "minivraag": "Wie was Homo erectus?",
+   "type": "F",
+   "look": "Macro"
+  },
+  {
+   "nr": 4,
+   "titel": "De neanderthaler",
+   "minivraag": "Wie was de neanderthaler, en waarom is hij er niet meer?",
+   "type": "H",
+   "look": "Macro"
+  },
+  {
+   "nr": 5,
+   "titel": "Wij",
+   "minivraag": "Waren wij altijd de enige?",
+   "type": "F",
+   "look": "Schema"
+  }
+ ],
+ "scenes": [
+  {
+   "id": "e12s01",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Vijfenveertigduizend jaar geleden, in Europa. Twee groepen mensen zien elkaar over een dal: Homo sapiens en neanderthalers.",
+   "beweging": "Een groep Homo sapiens komt over de heuvel; aan de overkant van het dal staan twee neanderthalers bij een vuur en kijken op."
+  },
+  {
+   "id": "e12s02",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Zestigduizend jaar geleden leefden er meerdere mensensoorten tegelijk. Waarom zijn wij nu de enige mensensoort?",
+   "beweging": "Op een wereldkaart lichten vier gebieden op (neanderthaler, denisovamensen, Homo floresiensis, Homo sapiens); drie doven uit, de vraag verschijnt."
+  },
+  {
+   "id": "e12s03",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "",
+   "beweging": "Titelkaart: titel en puzzel links, een neanderthaler en een Homo sapiens naast elkaar rechts."
+  },
+  {
+   "id": "e12s04",
+   "hoofdstuk": "1 De splitsing",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "We zoomen in op de laatste zeven miljoen jaar. Onze naaste levende verwanten zijn de chimpansee en de bonobo.",
+   "beweging": "Een tijdbalk van vier miljard jaar zoomt in op zijn laatste stukje en opent op een chimpansee in het gras; Noor staat ernaast en kijkt."
+  },
+  {
+   "id": "e12q05",
+   "hoofdstuk": "1 De splitsing",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Hoe zag de gemeenschappelijke voorouder van mens en chimpansee eruit?",
+   "beweging": "Vraagkaart met een leeg knooppunt onder twee takken (mens, chimpansee); de gouden aftellijn krimpt.",
+   "opties": "A Als een chimpansee van nu · B Als een mengvorm, half mens en half chimpansee · C Als een eigen soort, anders dan allebei",
+   "juist": "C"
+  },
+  {
+   "id": "e12s06",
+   "hoofdstuk": "1 De splitsing",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "De gemeenschappelijke voorouder die we delen met de chimpansee leefde zes tot acht miljoen jaar geleden in Afrika. Hij was geen chimpansee en geen mens. Beide lijnen veranderden daarna even lang: de mens stamt dus niet af van de chimpansee.",
+   "beweging": "Het knooppunt licht goud op met een vraagteken; twee takken groeien omhoog naar de chimpansee en de mens, langs een tijdas van zeven miljoen jaar; een pijl van chimpansee naar mens wordt doorgestreept."
+  },
+  {
+   "id": "e12q08",
+   "hoofdstuk": "2 Eerst lopen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Wat kwam eerst in onze lijn?",
+   "beweging": "Vraagkaart met twee pictogrammen: een voetafdruk en een schedel; de gouden aftellijn krimpt.",
+   "opties": "A Grote hersenen, daarna rechtop lopen · B Rechtop lopen, daarna grote hersenen · C Allebei tegelijk, stapje voor stapje",
+   "juist": "B"
+  },
+  {
+   "id": "e12s09",
+   "hoofdstuk": "2 Eerst lopen",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Ethiopië, 3,2 miljoen jaar geleden: Lucy, een Australopithecus afarensis van ongeveer een meter. Lange armen en kromme vingers, goed voor klimmen, maar een bekken en dijbeen zoals de jouwe.",
+   "beweging": "Lucy stapt uit een boom en loopt op twee benen over de savanne; een maatlat naast haar groeit tot 1,07 m; armen en vingers, daarna bekken en dijbeen lichten op."
+  },
+  {
+   "id": "e12s10",
+   "hoofdstuk": "2 Eerst lopen",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "In Laetoli, in Tanzania, liepen 3,6 miljoen jaar geleden mensachtigen over natte vulkanische as, waarschijnlijk soortgenoten van Lucy.",
+   "beweging": "Twee figuren lopen door grijze as; achter hen blijven voetafdrukken achter, die verharden tot steen."
+  },
+  {
+   "id": "e12s11",
+   "hoofdstuk": "2 Eerst lopen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "De grote teen staat in lijn met de andere, net als bij jou: eerst de hiel, dan afzetten met de tenen.",
+   "beweging": "Een afdruk uit Laetoli naast een afdruk van een chimpanseevoet; de grote teen licht op, een pijl loopt van hiel naar teen."
+  },
+  {
+   "id": "e12s12",
+   "hoofdstuk": "2 Eerst lopen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "De soort van Lucy had hersenen van ongeveer 450 kubieke centimeter, iets meer dan een chimpansee. Rechtop lopen kwam dus eerst.",
+   "beweging": "Twee maatcilinders vullen zich: chimpansee ongeveer 400 en Lucy ongeveer 450 cm³; een derde cilinder blijft nog leeg."
+  },
+  {
+   "id": "e12s13",
+   "hoofdstuk": "3 Hersenen, werktuigen en vuur",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Bijna twee miljoen jaar geleden verschijnt Homo erectus: de rechtopgaande mens, met lange benen en de lichaamsverhoudingen van jou.",
+   "beweging": "Homo erectus loopt met lange passen over de vlakte langs Lucy, die veel kleiner is."
+  },
+  {
+   "id": "e12q14",
+   "hoofdstuk": "3 Hersenen, werktuigen en vuur",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Lucy en Homo erectus liepen allebei rechtop. Wat was er nieuw bij Homo erectus?",
+   "beweging": "Vraagkaart met Lucy en Homo erectus naast elkaar; de gouden aftellijn krimpt.",
+   "opties": "A Hij liep als eerste echt rechtop · B Zijn hersenen waren twee keer zo groot · C Hij kon als eerste goed klimmen",
+   "juist": "B"
+  },
+  {
+   "id": "e12s15",
+   "hoofdstuk": "3 Hersenen, werktuigen en vuur",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Ondanks zijn naam: de soort van Lucy liep al bijna twee miljoen jaar eerder rechtop. Nieuw waren de hersenen, ongeveer twee keer zo groot als bij Lucy.",
+   "beweging": "Een tijdbalk toont afarensis (3,9–2,8 Mj) vóór erectus; de derde maatcilinder vult zich tot ongeveer 900 cm³."
+  },
+  {
+   "id": "e12s16",
+   "hoofdstuk": "3 Hersenen, werktuigen en vuur",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Homo erectus maakte handbijlen: stenen, aan twee kanten bijgeslagen tot een scherpe druppel. In Zuid-Afrika ligt as van een miljoen jaar oud: misschien het oudste vuur dat mensachtigen gebruikten.",
+   "beweging": "Homo erectus slaat een vuursteen slag voor slag tot een handbijl van ongeveer 20 cm (de oudste: ±1,76 miljoen jaar); naast hem een vuurtje met een vraagteken."
+  },
+  {
+   "id": "e12s18",
+   "hoofdstuk": "4 De neanderthaler",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Nu de neanderthaler. Hij leefde van ongeveer vierhonderdduizend tot veertigduizend jaar geleden in Europa en West- en Centraal-Azië. Hij is genoemd naar het Neandertal in Duitsland. Botten van daar werden als eerste herkend als een andere mensensoort.",
+   "beweging": "Een neanderthaler en een neanderthalervrouw lopen door een koude steppe; een kaartje kleurt hun leefgebied."
+  },
+  {
+   "id": "e12s19",
+   "hoofdstuk": "4 De neanderthaler",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Een neanderthaler was gedrongen: een brede, diepe borstkas en korte onderarmen en onderbenen. Mannen waren ongeveer 1,65 meter, vrouwen 1,55. Zo'n bouw verliest waarschijnlijk minder warmte.",
+   "beweging": "Een neanderthaler en een Homo sapiens staan naast elkaar op schaal; borstkas, onderarm en onderbeen lichten op."
+  },
+  {
+   "id": "e12s20",
+   "hoofdstuk": "4 De neanderthaler",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Zijn schedel was lang en laag, met een zware wenkbrauwboog, een grote neus en geen kin. Zijn hersenen waren gemiddeld zelfs iets groter dan de onze.",
+   "beweging": "Twee schedels in zijaanzicht naast elkaar; wenkbrauwboog, neusopening en kin lichten op; daaronder vullen twee maatcilinders zich."
+  },
+  {
+   "id": "e12q21",
+   "hoofdstuk": "4 De neanderthaler",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Hoe liep een neanderthaler?",
+   "beweging": "Vraagkaart met drie kleine silhouetten; de gouden aftellijn krimpt.",
+   "opties": "A Op handen en voeten, zoals een chimpansee · B Voorovergebogen, met gebogen knieën · C Rechtop, net zoals jij",
+   "juist": "C"
+  },
+  {
+   "id": "e12s22",
+   "hoofdstuk": "4 De neanderthaler",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Neanderthalers liepen gewoon op twee gestrekte benen. Het voorovergebogen beeld komt van een reconstructie uit het jaar 1911. De onderzoeker zag de neanderthaler als primitief, en het skelet was van een oude man met zware artrose. Later werd dat rechtgezet.",
+   "beweging": "De gebogen reconstructie uit 1911 richt zich op tot een rechtopstaande neanderthaler; de jaartallen staan erbij."
+  },
+  {
+   "id": "e12s23",
+   "hoofdstuk": "4 De neanderthaler",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Dom waren ze ook niet. Ze sloegen vuursteen volgens een plan: eerst een kern voorbereiden, dan in één klap een scherpe punt eraf. Daarmee maakten ze speren.",
+   "beweging": "Een neanderthaler knielt en slaat een punt van een voorbereide vuursteenkern; de punt komt op een speer."
+  },
+  {
+   "id": "e12s24",
+   "hoofdstuk": "4 De neanderthaler",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "In Engeland ligt een haard van vierhonderdduizend jaar oud met stukjes pyriet: een steen die vonkt tegen vuursteen. Daar maakten mensen waarschijnlijk zelf vuur, misschien vroege neanderthalers.",
+   "beweging": "Pyriet en vuursteen slaan tegen elkaar; vonken vallen in droog gras en een vuurtje gaat aan."
+  },
+  {
+   "id": "e12s25",
+   "hoofdstuk": "4 De neanderthaler",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Sommige neanderthalers begroeven hun doden. En ze zorgden voor zieken en gewonden in hun groep.",
+   "beweging": "Bij een vuur verzorgt een neanderthalervrouw een gewonde man met een verbonden been."
+  },
+  {
+   "id": "e12s26",
+   "hoofdstuk": "4 De neanderthaler",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Uit Kroatië komen arendsklauwen met snijsporen, ongeveer 130 000 jaar oud: misschien een ketting. Rode handafdrukken in Spaanse grotten zijn misschien van neanderthalers. Over die datering twisten onderzoekers nog.",
+   "beweging": "Arendsklauwen rijgen zich tot een ketting; daarnaast een grotwand met een rode handafdruk en het label 'datering omstreden'."
+  },
+  {
+   "id": "e12s27",
+   "hoofdstuk": "4 De neanderthaler",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Vanaf zo'n vijftigduizend jaar geleden kwam Homo sapiens uit Afrika ook Europa in. Daar leefden de twee een paar duizend jaar in dezelfde streken.",
+   "beweging": "Op een kaart schuift de teal pijl van Homo sapiens het okerkleurige gebied van de neanderthaler in; de overlap licht op."
+  },
+  {
+   "id": "e12q28",
+   "hoofdstuk": "4 De neanderthaler",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Kregen Homo sapiens en neanderthalers samen kinderen?",
+   "beweging": "Vraagkaart met een neanderthaler en een Homo sapiens tegenover elkaar; de gouden aftellijn krimpt.",
+   "opties": "A Ja, dat zie je nog in ons DNA · B Nee, daarvoor verschilden ze te veel · C Alleen heel even, zonder sporen",
+   "juist": "A"
+  },
+  {
+   "id": "e12s29",
+   "hoofdstuk": "4 De neanderthaler",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "De Zweedse onderzoeker Svante Pääbo haalde DNA uit botten van neanderthalers. In het jaar 2010 las zijn team hun hele genoom. Daarvoor kreeg hij in het jaar 2022 de Nobelprijs.",
+   "beweging": "Een bot opent en een paarse DNA-draad komt eruit; stukje voor stukje vult zich een rij chromosomen."
+  },
+  {
+   "id": "e12s30",
+   "hoofdstuk": "4 De neanderthaler",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Bij mensen buiten Afrika komt nu ongeveer twee procent van het DNA van neanderthalers. Neanderthalers en Homo sapiens kregen dus samen kinderen, vooral rond 47 000 jaar geleden.",
+   "beweging": "Chromosomen van een mens van nu; korte okerkleurige stukjes lichten op, samen ongeveer 2 procent."
+  },
+  {
+   "id": "e12s31",
+   "hoofdstuk": "4 De neanderthaler",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "In Hoe één soort er twee wordt zag je: een soort is een groep die in de natuur samen vruchtbare nakomelingen kan krijgen. Neanderthalers en Homo sapiens kregen die, al waarschijnlijk minder vaak. Daarom twisten biologen erover. De meesten zien ze als twee soorten.",
+   "beweging": "Twee potten (genenpools) met een smalle verbinding; een paar okerkleurige knikkers stromen over, de meeste blijven in hun eigen pot."
+  },
+  {
+   "id": "e12s32",
+   "hoofdstuk": "4 De neanderthaler",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wij stammen dus niet áf van de neanderthaler. We delen een gemeenschappelijke voorouder van meer dan een half miljoen jaar geleden: de neanderthaler is een zustergroep. Door die kinderen leeft wel een stukje van hem in ons voort.",
+   "beweging": "Een cladogram met twee takken (neanderthaler, Homo sapiens) uit één knooppunt; een pijl van neanderthaler naar Homo sapiens wordt doorgestreept."
+  },
+  {
+   "id": "e12s33",
+   "hoofdstuk": "4 De neanderthaler",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Er waren nog meer mensen: de denisovamensen, van wie we vooral DNA kennen, en Homo floresiensis op het eiland Flores, ongeveer een meter groot.",
+   "beweging": "Op een kaart verschijnen een vingerbotje bij de Denisovagrot in Siberië (DNA), koraalkleur over Papoea-Nieuw-Guinea (tot 6 % denisova-DNA in mensen nu), en Homo floresiensis op Flores naast een maatlat van 1,06 m."
+  },
+  {
+   "id": "e12s34",
+   "hoofdstuk": "4 De neanderthaler",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Rond veertigduizend jaar geleden verdwijnen de neanderthalers: hun laatste werktuigen zijn ongeveer 41 000 tot 39 000 jaar oud.",
+   "beweging": "Het okerkleurige gebied op de kaart valt uiteen in kleine vlekjes en dooft uit."
+  },
+  {
+   "id": "e12s36",
+   "hoofdstuk": "4 De neanderthaler",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Er zijn verschillende verklaringen: concurrentie met Homo sapiens, een wisselend koud klimaat, kleine groepen met inteelt, en opgaan in de groepen van Homo sapiens. Geen ervan is bewezen; misschien speelde alles mee.",
+   "beweging": "Vier kaartjes verschijnen naast elkaar (concurrentie, klimaat, kleine groepen, opgaan in Homo sapiens); geen enkele krijgt een vinkje."
+  },
+  {
+   "id": "e12s37",
+   "hoofdstuk": "5 Wij",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Homo sapiens zelf ontstond in Afrika: de oudste fossielen, uit Marokko, zijn ongeveer 300 000 jaar oud.",
+   "beweging": "Op de wereldkaart licht Marokko op (±300 000 jaar); de teal pijl uit Afrika (±70 000–50 000 jaar) vertakt naar Europa, Azië en Australië."
+  },
+  {
+   "id": "e12q38",
+   "hoofdstuk": "5 Wij",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Leefden Homo erectus en Homo sapiens ooit tegelijk?",
+   "beweging": "Vraagkaart met Homo erectus en Homo sapiens; de gouden aftellijn krimpt.",
+   "opties": "A Nee, Homo erectus veranderde in Homo sapiens · B Ja, een tijd lang, op verschillende plekken · C Nee, er zat een miljoen jaar tussen",
+   "juist": "B"
+  },
+  {
+   "id": "e12s39",
+   "hoofdstuk": "5 Wij",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Homo erectus leefde op Java nog tot ongeveer 110 000 jaar geleden, toen Homo sapiens al bestond. Het plaatje van een aap die stap voor stap mens wordt, klopt dus niet.",
+   "beweging": "Een rij van vijf figuren loopt naar rechts; een koraalrode streep gaat door de rij; daarboven twee balken (erectus tot ±110 000, sapiens vanaf ±300 000) die overlappen."
+  },
+  {
+   "id": "e12s40",
+   "hoofdstuk": "5 Wij",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "De echte stamboom is een struik met meer dan twintig bekende soorten, waarvan veel tegelijk leefden en uitstierven. Ook de chimpansee zit aan het eind van een eigen tak.",
+   "beweging": "De struik bouwt zich op langs een tijdas; de zijtakken eindigen een voor een; alleen de takken van Homo sapiens en de chimpansee lopen door tot nu."
+  },
+  {
+   "id": "e12s41",
+   "hoofdstuk": "Samenvatting",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Waarom zijn wij nu de enige mensensoort?",
+   "beweging": "De struik; een gouden verticale lijn bij zestigduizend jaar geleden snijdt vier takken."
+  },
+  {
+   "id": "e12s42",
+   "hoofdstuk": "Samenvatting",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "De anderen stierven uit, om redenen die we nog niet zeker weten. Maar van twee van hen leeft een stukje voort in het DNA van veel mensen.",
+   "beweging": "De lijn schuift naar nu; drie takken eindigen; chromosomen met oker- en koraalkleurige stukjes verschijnen."
+  },
+  {
+   "id": "e12s43",
+   "hoofdstuk": "Samenvatting",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Er is geen ladder van aap naar mens. Er is een struik, en wij zijn de enige mensentak die nog groeit.",
+   "beweging": "Eindkaart met drie kernzinnen en een groene haak."
+  }
+ ],
+ "checkvragen": [
+  {
+   "niveau": "basis",
+   "vraag": "Een leerling zegt: 'De mens stamt af van de chimpansee.' Wat is er fout, en hoe zeg je het wel goed?",
+   "antwoord": "Een nu levende soort is geen voorouder van een andere nu levende soort. Mens en chimpansee delen een gemeenschappelijke voorouder (ongeveer 6–8 miljoen jaar geleden) die geen mens en geen chimpansee was; daarna veranderden beide lijnen even lang."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Welke twee vondsten laten zien dat rechtop lopen in onze lijn eerder kwam dan grote hersenen?",
+   "antwoord": "Lucy (Australopithecus afarensis, 3,2 miljoen jaar): bekken en dijbeen van een rechtop lopende soort, maar hersenen van ongeveer 450 cm³; en de voetsporen van Laetoli (3,6 miljoen jaar): grote teen in lijn, hiel eerst, afzetten met de tenen."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Mensen buiten Afrika dragen ongeveer 2 procent DNA van neanderthalers. Wat zegt dat over Homo sapiens en de neanderthaler?",
+   "antwoord": "Ze kregen samen nakomelingen die zelf ook weer kinderen kregen; zo kwamen allelen van neanderthalers in de genenpool van Homo sapiens (genenstroom)."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Is de neanderthaler onze voorouder? Leg uit.",
+   "antwoord": "Nee. Neanderthaler en Homo sapiens delen een gemeenschappelijke voorouder van meer dan een half miljoen jaar geleden; het zijn zustergroepen. Wel kwam er later door kruising wat neanderthaler-DNA in Homo sapiens."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Noem twee verklaringen voor het uitsterven van de neanderthaler. Waarom zegt de film 'misschien speelde alles mee'?",
+   "antwoord": "Bijvoorbeeld concurrentie met Homo sapiens, een wisselend koud klimaat, kleine groepen met inteelt, opgaan in groepen van Homo sapiens. Geen van de verklaringen is bewezen; de gegevens passen bij meerdere tegelijk."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Waarom is een struik een beter beeld van de evolutie van de mens dan een rij 'van aap tot mens'?",
+   "antwoord": "Er leefden vaak meerdere mensachtigen tegelijk op verschillende takken, en veel takken stierven uit. Een rij suggereert één lijn met een doel (wij), maar evolutie heeft geen richting."
+  }
+ ],
+ "begrippen": [
+  {
+   "begrip": "gemeenschappelijke voorouder",
+   "uitleg": "Populatie waarvan twee of meer soorten afstammen; in een stamboom een knooppunt (zie Stambomen lezen).",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "mensachtigen",
+   "uitleg": "Soorten uit onze tak van de stamboom na de splitsing met de chimpanseelijn, zoals Australopithecus afarensis, Homo erectus, de neanderthaler en Homo sapiens.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "rechtop lopen",
+   "uitleg": "Lopen op twee benen; te zien aan het bekken, een dijbeen dat schuin naar de knie loopt en een grote teen in lijn met de andere tenen.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "handbijl",
+   "uitleg": "Stenen werktuig, aan twee kanten bijgeslagen tot een druppelvorm; de oudste zijn ongeveer 1,76 miljoen jaar oud.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "zustergroep",
+   "uitleg": "De groep die in een stamboom het dichtst naast een andere groep staat: ze delen een gemeenschappelijke voorouder, maar de ene is geen voorouder van de andere.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "oud DNA",
+   "uitleg": "DNA uit botten of tanden van organismen die lang geleden leefden; zo werd het genoom van de neanderthaler gelezen.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "genenstroom",
+   "uitleg": "Uitwisseling van allelen tussen populaties of delen van een populatie, doordat individuen verhuizen en paren (zie film 5).",
+   "niveau": "basis"
+  }
+ ],
+ "getallen": [
+  {
+   "waarde": "openingsscène '45 000 jaar geleden in Europa, twee soorten': Homo sapiens in noordelijk Europa (Ranis) ±45 000 jaar; overlap met neanderthalers ±2600–5400 jaar",
+   "bron": "Mylopotamitaki e.a. 2024 Nature (Ranis); Higham e.a. 2014 Nature 512 (persbericht University of Oxford)"
+  },
+  {
+   "waarde": "60 000 jaar geleden meerdere mensensoorten tegelijk: Homo sapiens, neanderthaler, denisovamensen (mogelijk tot 32 000 jaar), Homo floresiensis (botten 100 000–60 000, werktuigen tot 50 000 jaar)",
+   "bron": "NHM 'Meet your ancient relatives' (nhm.ac.uk/discover/human-evolution); Sutikna e.a. 2016 Nature (mq.edu.au)"
+  },
+  {
+   "waarde": "naaste levende verwanten: chimpansee en bonobo, even nauw verwant aan de mens",
+   "bron": "Prüfer e.a. 2012 Nature 486 (bonobogenoom)"
+  },
+  {
+   "waarde": "laatste gemeenschappelijke voorouder mens–chimpansee ongeveer 6–8 miljoen jaar geleden, Afrika (schattingen 13–5,5 Mj; Moorjani e.a. 2016: 9,3–6,5; Yoo e.a. 2025: 6,3–5,5; meta-analyse 2026: ±8); gelijk aan film 8",
+   "bron": "Wikipedia 'Chimpanzee–human last common ancestor' (geraadpleegd 23 okt 2026); f8.json"
+  },
+  {
+   "waarde": "'maar een paar fossielen uit die tijd': Sahelanthropus tchadensis ±7 Mj, positie onzeker",
+   "bron": "Wikipedia 'Chimpanzee–human last common ancestor'"
+  },
+  {
+   "waarde": "Lucy (AL 288-1): ±3,2 Mj, Hadar (Ethiopië), gevonden 1974, ±107 cm, ±28 kg; opperarm/dijbeen 84,6 (mens 71,8; chimpansee ±98–102)",
+   "bron": "talkorigins.org 'Fossil Hominids: Lucy'; Australian Museum 'Australopithecus afarensis'"
+  },
+  {
+   "waarde": "A. afarensis 3,9–2,8 Mj; lange armen, kromme vingers (klimmen); dijbeen schuin naar de knie, bekken kort en breed, grote teen in lijn",
+   "bron": "Australian Museum 'Australopithecus afarensis'"
+  },
+  {
+   "waarde": "Laetoli-voetsporen ±3,6 Mj (3,66), Tanzania; vulkanische as; spoor ±27 m, ±70 afdrukken (1978); grote teen in lijn, hiel eerst, afzet via de tenen; makers waarschijnlijk A. afarensis; voetlengte 18–26 cm",
+   "bron": "Smithsonian Human Origins 'Laetoli Footprint Trails'; Masao e.a. 2016 eLife 5:e19568"
+  },
+  {
+   "waarde": "herseninhoud: chimpansee ±400 cm³ (♂ 399, ♀ 371), A. afarensis ±450 (343–493), H. erectus ±900 (Turkana-jongen 880, volwassen ±910; Aziatisch tot 1250), neanderthaler 1245–1740 (♂ ±1640, ♀ ±1460), H. sapiens nu ±1350",
+   "bron": "Australian Museum 'Larger brains'; Holloway-database (brainevo.sitehost.iu.edu, Appendix A); talkorigins KNM-WT 15000; Wikipedia 'Neanderthal anatomy'"
+  },
+  {
+   "waarde": "Homo erectus ±1,9 Mj tot ±110 000 jaar (laatste vondst Ngandong, Java, 117 000–108 000 jaar: Rizal e.a., Nature 577, online dec 2019); Homo sapiens bestond toen al (Jebel Irhoud ±300 000); romp- en beenverhoudingen als de moderne mens; Turkana-jongen ±160 cm; naam = rechtopgaande mens",
+   "bron": "Live Science 'Homo erectus: facts'; talkorigins KNM-WT 15000; Science News 18 dec 2019 (Rizal e.a.)"
+  },
+  {
+   "waarde": "oudste handbijlen (Acheuléen) ±1,76 Mj, Kokiselei (Kenia), toegeschreven aan H. erectus; handbijl typisch ±20–25 cm, druppelvorm, tweezijdig bewerkt",
+   "bron": "Lepre e.a. 2011 Nature (Science News 'Oldest hand axes found'); Britannica 'hand ax'"
+  },
+  {
+   "waarde": "vuur: Wonderwerk-grot (Zuid-Afrika) ±1 Mj, verbrande botten en as; 'oudste zekere gecontroleerde vuur' volgens de auteurs, maar maker en gebruik onzeker",
+   "bron": "Berna e.a. 2012 PNAS (Science News 'From the ashes, the oldest controlled fire')"
+  },
+  {
+   "waarde": "oudste fossielen buiten Afrika: Dmanisi (Georgië) ±1,85–1,77 Mj; indeling (H. erectus / H. georgicus) omstreden; later H. erectus in China en op Java. Stenen werktuigen in Shangchen (China) zijn ±2,1 Mj: daarom 'oudste fossielen'",
+   "bron": "Wikipedia 'Dmanisi hominins'; Australian Museum 'Homo erectus'; Zhu e.a. 2018 Nature (Science News)"
+  },
+  {
+   "waarde": "neanderthaler ±400 000–40 000 jaar geleden, Europa en Zuidwest- en Centraal-Azië (Portugal tot Altai)",
+   "bron": "NHM 'Who were the Neanderthals' (nhm.ac.uk)"
+  },
+  {
+   "waarde": "Neandertal: in augustus 1856 botten gevonden in de Feldhofergrot bij Mettmann (Duitsland); als eerste herkend als fossiele mens van een andere soort. Eerdere neanderthalervondsten: Engis 2 (België, 1829, Schmerling; pas in 1936 herkend) en Gibraltar 1 (1848; pas na 1864 herkend)",
+   "bron": "Neanderthal Museum (neanderthal.de); Wikipedia 'Engis 2', 'Gibraltar 1'"
+  },
+  {
+   "waarde": "lengte ♂ ±165 cm, ♀ ±155 cm; gewicht ♂ ±78, ♀ ±66 kg; brede, diepe borstkas, relatief korte ledematen; minder huidoppervlak = waarschijnlijk minder warmteverlies",
+   "bron": "Wikipedia 'Neanderthal anatomy'; NHM 'Who were the Neanderthals' (1,50–1,75 m)"
+  },
+  {
+   "waarde": "schedel lang en laag, wenkbrauwboog, knobbel achteraan, groot neusgat, vooruitstekend middengezicht, geen kin; La Chapelle-aux-Saints lengte 208 mm, 1620 cm³; hersenen groter dan het moderne gemiddelde maar in verhouding tot het lichaam",
+   "bron": "Bryn Mawr lab 'Middle and late Pleistocene Homo'; 3B Scientific VP751; NHM 'Who were the Neanderthals'"
+  },
+  {
+   "waarde": "Boules reconstructie 1911–1913 (La Chapelle-aux-Saints, voorovergebogen); Straus & Cave 1957: zware artrose; Trinkaus 1985: fouten vooral door Boules verwachting en de fragmentaire resten; Haeusler e.a. 2019: normale wervelkromming",
+   "bron": "Wikipedia 'La Chapelle-aux-Saints 1'; Trinkaus 1985 Am. J. Phys. Anthropol. 67(1):19–41 (paleocore.org); Haeusler e.a. 2019 PNAS (carta.anthropogeny.org)"
+  },
+  {
+   "waarde": "Levallois-techniek (kern voorbereiden, later afslag) vanaf ±300 000 jaar; vuurstenen handbijlen en speren",
+   "bron": "NHM 'Who were the Neanderthals'"
+  },
+  {
+   "waarde": "Barnham (Engeland): vuur maken ±400 000 jaar geleden; haard, door hitte gebarsten vuursteen, twee stukjes pyriet; 'mogelijk vroege neanderthalers of een andere vroege mens'",
+   "bron": "Ashton e.a. 2025 Nature (UCL News, dec 2025)"
+  },
+  {
+   "waarde": "begraven (o.a. Kebara ±60 000 jaar) en zorg voor zieken",
+   "bron": "NHM 'Who were the Neanderthals'"
+  },
+  {
+   "waarde": "zeearendklauwen met snijsporen, Krapina (Kroatië) ±130 000 jaar, mogelijk sieraad",
+   "bron": "Radovčić e.a. 2015 PLOS ONE; NHM 'Who were the Neanderthals'"
+  },
+  {
+   "waarde": "Spaanse grotkunst (rode handafdrukken) >64 000 jaar volgens U-Th (Hoffmann e.a. 2018 Science); betwist door White e.a. 2019 (J. Hum. Evol., 44 onderzoekers)",
+   "bron": "artnet News (nov 2019); NHM 'Who were the Neanderthals'"
+  },
+  {
+   "waarde": "Homo sapiens in Azië en Europa ±50 000–45 000 jaar; overlap in Europa enkele duizenden jaren",
+   "bron": "Mylopotamitaki e.a. 2024 Nature; Higham e.a. 2014 Nature"
+  },
+  {
+   "waarde": "neanderthalergenoom gepubliceerd 2010; Pääbo (Zweeds, geboren in Stockholm) Nobelprijs Fysiologie of Geneeskunde 2022",
+   "bron": "Nobelprize.org persbericht 2022 (Zweedse versie); Wikipedia 'Svante Pääbo'"
+  },
+  {
+   "waarde": "neanderthaler-DNA bij niet-Afrikanen ±2 % (Prüfer 2017: 1,8–2,6 %; Nobel: 1–4 %; MPG 2024: 2–3 %); Afrikanen ±0,3 % via terugmigratie (Chen e.a. 2020)",
+   "bron": "mpg.de (Prüfer e.a. 2017 Science); Nobelprize.org 2022; Wikipedia 'Interbreeding between archaic and modern humans'"
+  },
+  {
+   "waarde": "belangrijkste kruising ±47 000 jaar geleden, ±7000 jaar lang (Iasi e.a. 2024 Science); 45 000–49 000 (Sümer e.a. 2024 Nature)",
+   "bron": "MPI-EVA persmap 12 dec 2024; mpg.de 'Oldest modern human genomes sequenced'"
+  },
+  {
+   "waarde": "aanwijzingen voor lagere vruchtbaarheid van hybriden: weinig neanderthaler-DNA op het X-chromosoom en in teelbalgenen",
+   "bron": "Wikipedia 'Interbreeding between archaic and modern humans' (o.a. Sankararaman e.a. 2014)"
+  },
+  {
+   "waarde": "soortstatus neanderthaler omstreden; Stringer & Meneganzin pleiten voor twee soorten",
+   "bron": "NHM persbericht 'Neanderthals and modern humans must be classed as separate species'"
+  },
+  {
+   "waarde": "splitsing neanderthaler- en sapienslijn: minstens 500 000 jaar (genetisch ±650 000; Nobel ±800 000)",
+   "bron": "NHM 'Who were the Neanderthals'; Nobelprize.org 2022"
+  },
+  {
+   "waarde": "denisovamensen: vingerbotje Denisovagrot (Siberië) 2008, ±40 000 jaar; tot 6 % denisova-DNA in Melanesië en Zuidoost-Azië (Papoea's 4–6 %)",
+   "bron": "Nobelprize.org 2022 (Zweedse versie); Wikipedia 'Interbreeding…'"
+  },
+  {
+   "waarde": "Harbin-schedel (±146 000 jaar) in 2025 als denisovamens aangewezen via eiwitten en mtDNA; betwist. Niet in de vertelling",
+   "bron": "Fu e.a. 2025 Science en Cell (Science News, juni 2025)"
+  },
+  {
+   "waarde": "Homo floresiensis (LB1) ±106 cm, ±380 cm³; Liang Bua (Flores, Indonesië), gevonden 2003",
+   "bron": "Brown e.a. 2004 (alchetron 'Homo floresiensis'); Sutikna e.a. 2016 Nature"
+  },
+  {
+   "waarde": "neanderthalers verdwenen ±40 000 jaar geleden; Moustérien eindigt 41 030–39 260 jaar geleden (gezegd: 'ongeveer 41 000 tot 39 000')",
+   "bron": "Higham e.a. 2014 Nature (University of Oxford)"
+  },
+  {
+   "waarde": "uitstervingshypothesen: concurrentie, klimaat (Heinrich-event 4), kleine populaties en inteelt, opgaan door kruising, ziekte, vulkaanuitbarsting (Campanian Ignimbrite); geen bewezen",
+   "bron": "Wikipedia 'Neanderthal extinction'; NHM 'Who were the Neanderthals'"
+  },
+  {
+   "waarde": "oudste Homo sapiens Jebel Irhoud (Marokko) ±300 000 jaar (Hublin e.a. 2017 Nature)",
+   "bron": "MPI-EVA 'The first of our kind' (eva.mpg.de)"
+  },
+  {
+   "waarde": "uit Afrika ±70 000 jaar (Nobel) tot ±50 000 jaar (genetica); Australië: ≥50 000 jaar, 65 000 omstreden",
+   "bron": "Nobelprize.org 2022; Archaeology Magazine juli 2025 (Allen & O'Connell 2025)"
+  },
+  {
+   "waarde": "'mars van aap naar mens': Rudolph Zallinger, 1965, Time-Life 'Early Man'; suggereert ten onrechte één lijn",
+   "bron": "Wikipedia 'March of Progress'"
+  },
+  {
+   "waarde": "meer dan twintig soorten mensachtigen bekend",
+   "bron": "NHM 'Meet your ancient relatives'"
+  },
+  {
+   "waarde": "tekenverhoudingen sapiens: bovenarm 0,186 H, onderarm + hand 0,146 H",
+   "bron": "Chaffin e.a., Occupational Biomechanics (via arXiv 0901.0825)"
+  }
+ ],
+ "uitspraak": [
+  {
+   "woord": "neanderthaler",
+   "invoer": "neanderthaler",
+   "ipa": "/neːˈjɑn.dər.taː.lər/ (afgeleid; Duits Neandertaler)",
+   "bron": "nl.wiktionary niet bereikbaar; th als t; wachtlijst"
+  },
+  {
+   "woord": "Neandertal",
+   "invoer": "Neandertal",
+   "ipa": "/neːˈjɑn.dər.tɑl/ (afgeleid)",
+   "bron": "Duitse plaatsnaam; wachtlijst"
+  },
+  {
+   "woord": "Australopithecus afarensis",
+   "invoer": "Australopithecus afarensis",
+   "ipa": "/ˌʌu̯s.traː.loː.piˈteː.kʏs ˌaː.faːˈrɛn.sɪs/ (afgeleid)",
+   "bron": "Latijnse klemtoonregel; wachtlijst"
+  },
+  {
+   "woord": "Homo erectus",
+   "invoer": "Homo erectus",
+   "ipa": "/ˈɦoː.moː eːˈrɛk.tʏs/",
+   "bron": "Latijn; wachtlijst"
+  },
+  {
+   "woord": "Homo sapiens",
+   "invoer": "Homo sapiens",
+   "ipa": "/ˈɦoː.moː ˈsaː.pi.jɛns/",
+   "bron": "zoals f8 (wachtlijst)"
+  },
+  {
+   "woord": "Homo floresiensis",
+   "invoer": "Homo floresiensis",
+   "ipa": "/ˈɦoː.moː ˌfloː.rɛ.siˈjɛn.sɪs/ (afgeleid)",
+   "bron": "Latijn; wachtlijst"
+  },
+  {
+   "woord": "Laetoli",
+   "invoer": "Laa-etolie",
+   "ipa": "/laː.eːˈtoː.li/ (afgeleid)",
+   "bron": "risico op 'lee-toli'; wachtlijst"
+  },
+  {
+   "woord": "Svante Pääbo",
+   "invoer": "Svante Pèèbo",
+   "ipa": "/ˈsvan.tə ˈpɛː.bʊ/",
+   "bron": "Wikipedia (Zweeds [ˈpʰɛ̌ːbʊ̂]); wachtlijst"
+  },
+  {
+   "woord": "denisovamensen",
+   "invoer": "deniesova-mensen",
+   "ipa": "/deːˈni.soː.vaː/ (afgeleid, Russisch Denísova)",
+   "bron": "klemtoon op 'ni'; wachtlijst"
+  },
+  {
+   "woord": "Flores",
+   "invoer": "Flores",
+   "ipa": "/ˈfloː.rɛs/",
+   "bron": "Indonesische eilandnaam; wachtlijst"
+  },
+  {
+   "woord": "pyriet",
+   "invoer": "pieriet",
+   "ipa": "/piˈrit/",
+   "bron": "Van Dale (py-riet); wachtlijst"
+  },
+  {
+   "woord": "artrose",
+   "invoer": "artrose",
+   "ipa": "/ɑrˈtroː.zə/",
+   "bron": "gewoon Nederlands"
+  },
+  {
+   "woord": "Papoea-Nieuw-Guinea (alleen in beeld)",
+   "invoer": "Papoea-Nieuw-Guinee",
+   "ipa": "/paːˈpu.waː niu̯ ɣiˈneː/",
+   "bron": "gangbare NL uitspraak; wachtlijst"
+  },
+  {
+   "woord": "jaartallen 1911, 1957, 2010, 2022",
+   "invoer": "in het jaar 1911 enz.",
+   "ipa": "",
+   "bron": "UITSPRAAK.md (jaartallen)"
+  },
+  {
+   "woord": "DNA",
+   "invoer": "deeënaa",
+   "ipa": "",
+   "bron": "UITSPRAAK.md"
+  },
+  {
+   "woord": "450 kubieke centimeter",
+   "invoer": "vierhonderdvijftig kubieke centimeter",
+   "ipa": "",
+   "bron": "getal met eenheid; wachtlijst"
+  },
+  {
+   "woord": "47 000 / 130 000 / 300 000",
+   "invoer": "zevenenveertigduizend / honderddertigduizend / driehonderdduizend",
+   "ipa": "",
+   "bron": "grote getallen voluit in de stem-invoer; wachtlijst"
+  }
+ ],
+ "nieuw_in_bibliotheek": [
+  "e12Mens(ctx, soort, x, y, h, {pose, t, kijk, hold, uit}) — mensachtigen in zijaanzicht in castboekstijl (afarensis, erectus, neanderthaler ♂/♀, sapiens, floresiensis); verhoudingen per soort in E12_SOORT met bron; poses staan, loop, boule (Boules foute reconstructie), kniel, zit, draag, wijs",
+  "e12Schedel(soort) — schedels in zijaanzicht (chimpansee, afarensis, erectus, neanderthaler, sapiens) met hersenpan-vlak",
+  "e12Cilinder — maatcilinder voor herseninhoud (op schaal t.o.v. elkaar)",
+  "e12Voetafdruk, e12AsVlak — voetafdrukken in vulkanische as (mens en chimpansee)",
+  "e12Handbijl, e12Speer, e12Vuur, e12Pyriet, e12Klauw, e12Grotwand, e12Handafdruk, e12Vingerbot, e12BotDNA — voorwerpen",
+  "e12Kaart, e12Gebied, e12Route — vlakke wereldkaart (Schema) met echte kustlijnen (src/e12_land.js = AARDE_LAND uit Van molecuul tot biosfeer, Natural Earth)",
+  "e12Genoom — 23 chromosomen (paars) met stukjes neanderthaler-DNA (oker) en denisova-DNA (koraal)",
+  "e12Struik — tijdstruik van mensachtigen op een niet-lineaire tijdas; e12Splitsing — knooppunt mens–chimpansee",
+  "e12Steppe, e12Savanne — Macro-nachtachtergronden"
+ ],
+ "keuzes_en_twijfels": [
+  "Review 24 okt verwerkt (review_extra.md, film 12, 18 punten): opening zonder 'het zijn twee soorten' (s01 noemt de namen, s31 zegt dat de meesten ze als twee soorten zien, met de soortdefinitie van film 6: 'groep die in de natuur samen vruchtbare nakomelingen kan krijgen'); Neandertal = eerste als andere soort herkend (Engis 1829 en Gibraltar 1848 eerder gevonden); Lucy–erectus 'bijna twee miljoen jaar'; Boule: verwachting + artrose (Trinkaus 1985 gecontroleerd); leefgebied tot Centraal-Azië; 'de soort van Lucy had 450 cm³'; vraag over erectus vervangen (goed = B, hersenen), vraag over uitsterven geschrapt, ladder/struik-vraag vervangen door 'leefden erectus en sapiens tegelijk?' (goed = B; Rizal e.a. gecontroleerd: Nature 577, online dec 2019, niet 2020); q05 en q26 andere afleiders; e12s06–07 samengevoegd; 'niet áf van' + 'stukje in ons'; vuur gebruiken (s16) vs waarschijnlijk zelf maken (s24); e12s17 (Dmanisi) geschrapt; denisova-zin ingekort; volgorde: e12s27 zegt nu 'vanaf 50 000 jaar uit Afrika ook Europa in', e12s37 noemt alleen de oorsprong (uittocht in beeld). Geschrapte id's: e12s07, e12s17, e12q35 (scène-id's verder ongewijzigd).",
+  "Niet overgenomen: e12s25 (begraven en zorg) blijft, want Kamiel wilde diepte bij de neanderthaler; de inkorting ging naar H1–H3 en H5. Volgorde e12s37 vóór e12s27 niet omgezet: dan breekt H4 doormidden; opgelost door de tekst van e12s25/e12s34 aan te passen. Reekslabel: 'EXTRA 4/4' toegepast.",
+  "Puzzel zoals door Kamiel gekozen. De cold open is een scène (twee groepen over een dal, 45 000 jaar geleden: overlap in Europa) in plaats van een dagelijkse haak. In de puzzel staat 'meerdere mensensoorten tegelijk' en niet 'minstens vier': de botten van Homo floresiensis eindigen rond 60 000 jaar (werktuigen tot 50 000) en de laatste datum van denisovamensen is onzeker. Op de kaart in e12s02 staan wel de vier groepen.",
+  "Splitsing mens–chimpansee: de brief noemt ±6–7 Mj, film 8 zegt 'ongeveer 6 tot 8'. Voor de reeks hier ook '6 tot 8' (schattingen lopen uiteen: Yoo e.a. 2025 5,5–6,3; meta-analyse 2026 ±8).",
+  "H4 is het zwaartepunt: 18 van de 40 scènes, ±3.9 van de ±8.0 minuten.",
+  "Barnham (vuur maken, 400 000 jaar, Nature dec 2025): de onderzoekers laten open of het vroege neanderthalers waren; daarom 'misschien vroege neanderthalers'. Wonderwerk (1 Mj): 'misschien het oudste vuur'.",
+  "Kunst: arendsklauwen (Krapina) en Spaanse handafdrukken (Hoffmann 2018, betwist door White e.a. 2019) met eerlijke twijfel. Recentere claims (vingerafdruk met oker 43 000 jaar, okerkrijtjes Krim, 2025) niet genoemd: te vers en nog niet bevestigd.",
+  "Soortstatus neanderthaler: 'biologen twisten erover; de meesten houden ze als twee soorten apart', gekoppeld aan de soortdefinitie van film 6. Lagere vruchtbaarheid van hybriden als 'aanwijzingen'.",
+  "Recente vondsten nagekeken (na 2020): Iasi e.a. 2024 en Sümer e.a. 2024 (kruising ±47 000 jaar), Ranis 2024, Barnham 2025, Harbin-schedel 2025 als denisovamens (betwist; niet in de vertelling). Shangchen (China): werktuigen van ±2,1 Mj zijn ouder dan Dmanisi; daarom 'de oudste fossielen buiten Afrika'.",
+  "Dmanisi: indeling als Homo erectus omstreden; daarom 'mensachtigen' en 'later leefde Homo erectus tot in China en op Java'.",
+  "Uit Afrika '70 000 tot 50 000 jaar' omdat Nobel (70 000) en genetica (±50 000) uiteenlopen; Australië alleen in beeld, zonder jaartal (65 000 omstreden). Het jaartal 1856 (Neandertal) en de verwijzing naar Stambomen lezen in H5 geschrapt om de lengte.",
+  "Mars van aap naar mens: Zallinger 1965 alleen in getallen, niet in de vertelling (woorden sparen). In beeld (e12s39) als rij van vijf eigen figuren, niet het originele plaatje.",
+  "Mensen in beeld: mensachtigen als eigen tekeningen in castboekstijl (e12Mens), verhoudingen per soort uit bronnen (E12_SOORT). Huid- en haarkleur zijn reconstructies: neanderthalers in een middentint (genetica wijst op variatie van donker tot licht, Wikipedia 'Neanderthal anatomy'); erectus, afarensis en floresiensis donker. Lichaamsbeharing bij afarensis is een aanname. Kleding van huiden bij neanderthaler en sapiens is reconstructie. Noor (castboek) staat bij de chimpansee in e12s04. Neanderthalervrouw en gewonde man in e12s25 als warm moment dat het concept (zorg) draagt.",
+  "Geen ElevenLabs-referentieplaten gemaakt (0 credits): mensachtigen zijn mensfiguren in castboekstijl, maten uit tekstbronnen. De chimpansee is de goedgekeurde pop (pop_rept_chimp.js).",
+  "Extra diepte bij de neanderthaler die ik wegliet om de lengte: Shanidar 1 (verzorgde gewonde, alleen als beeld), EPAS1-variant in Tibet (denisova), neanderthaler-genen en ziekte.",
+  "Lengte ±8.0 min met 7 vragen: aan de bovenkant van 7–8 min. Verder inkorten kan door e12s25 (zorg) weg te laten.",
+  "Renderen: python3 render.py e12_land,pop_rept_chimp,teken_evo12,sb12 SB12 (pop_rept_chimp vóór teken_evo12; e12_land bevat de kustlijnen)."
+ ]
+}

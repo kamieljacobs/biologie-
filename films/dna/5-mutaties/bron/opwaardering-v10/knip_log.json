@@ -1,0 +1,66 @@
+{
+ "n12": {
+  "cut_s": 3.01,
+  "weg": "Voor vwo gaan we hier nog een stap verder.",
+  "bounds_oud": [
+   2.56,
+   15.61,
+   30.115
+  ],
+  "bounds_nieuw": [
+   0.0,
+   12.6,
+   27.105
+  ],
+  "dur_oud": 32.391,
+  "audio_in": 31.79102,
+  "audio_uit": 28.786939,
+  "dur_nieuw": 29.387
+ },
+ "n20": {
+  "cut_s": 1.72,
+  "weg": "Voor vwo:",
+  "bounds_oud": [
+   13.63
+  ],
+  "bounds_nieuw": [
+   11.91
+  ],
+  "dur_oud": 16.404,
+  "audio_in": 15.804082,
+  "audio_uit": 14.08,
+  "dur_nieuw": 14.68
+ },
+ "n25": {
+  "cut_s": 3.22,
+  "weg": "Voor vwo gaan we hier nog een stap verder.",
+  "bounds_oud": [
+   2.67,
+   15.43,
+   24.373,
+   41.5,
+   52.42
+  ],
+  "bounds_nieuw": [
+   0.0,
+   12.21,
+   21.153,
+   38.28,
+   49.2
+  ],
+  "dur_oud": 55.771,
+  "audio_in": 55.170612,
+  "audio_uit": 51.931429,
+  "dur_nieuw": 52.532
+ },
+ "n28": {
+  "cut_s": 1.06,
+  "weg": "Voor vwo,",
+  "bounds_oud": [],
+  "bounds_nieuw": [],
+  "dur_oud": 10.082,
+  "audio_in": 9.482449,
+  "audio_uit": 8.411429,
+  "dur_nieuw": 9.011
+ }
+}

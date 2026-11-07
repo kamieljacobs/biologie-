@@ -1,0 +1,1 @@
+- Basis: variant C (ring opent, gen zakt in, ligase, terug in de bacterie; vergrootcirkel met AATT/TTAA). De fout uit ronde 1 (enzym als blobje, geen ligase) is in C al hersteld met lint-eiwitten. Plasmide ligt binnen het membraan (gecontroleerd). _grKluwen staat los in inbouw/lab/_hulp.js. Verder ongewijzigd.

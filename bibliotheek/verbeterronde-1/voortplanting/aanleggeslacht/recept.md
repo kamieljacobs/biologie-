@@ -1,0 +1,3 @@
+- Aanleg van de inwendige geslachtsorganen (week 6–7), vooraanzicht: gonaden, buizen van Wolff en Müller, sinus urogenitalis onderaan.
+- Vloeiende overgang naar man (testis, bijbal, zaadleider; Müller verdwijnt) of vrouw (eierstok, eileiders, baarmoeder; Wolff verdwijnt).
+- Ook heel klein (miniatuur in een tijdlijn) moeten de buizen leesbaar blijven.

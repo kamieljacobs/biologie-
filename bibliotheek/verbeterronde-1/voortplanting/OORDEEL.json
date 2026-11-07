@@ -1,0 +1,476 @@
+[
+ {
+  "obj": "aanleggeslacht",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": null,
+    "bruikbaar": 3,
+    "totaal": 15
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": null,
+    "bruikbaar": 4,
+    "totaal": 16
+   }
+  },
+  "winnaar": "Y",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "sinus urogenitalis klein en bruin, valt weg tegen de gonaden; op miniatuur nauwelijks te zien waar de buizen samenkomen",
+   "Y": "sinus blauwgrijs en iets groot; kleur wijkt af van de rest, vrijwel identiek aan X"
+  },
+  "overnemen": "niets groots; eventueel sinus in een warmere tint passend bij het palet",
+  "combineren": false,
+  "fout": "Alle versies: het gonaadstadium is al sterk gedifferentieerd (eierstok met follikels, bijbal met kronkelbuis), dus niet echt 'aanleg week 6-7' maar al de eindvorm; de vloeiende overgang van een indifferente aanleg ontbreekt. Ook zijn de gonaden niet verbonden met de buizen in de indifferente fase."
+ },
+ {
+  "obj": "baarmoederwand",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 15
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 18
+   },
+   "Z": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 2,
+    "bruikbaar": 3,
+    "totaal": 13
+   }
+  },
+  "winnaar": "Y",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "menstruatiestap lijkt op een berglandschap met stompen; kliertjes zonder duidelijke holte-opening; losse blobs zweven erboven",
+   "Y": "losgeraakte laag als stijve, gekantelde rechthoekige plakken (kaartjes) en één plak gedimd zonder reden; middenfase al gebarsten",
+   "Z": "klieren als dunne contourlijnen zonder lumen; menstruatie met zwevende ovale ballonnen en rode stippen boven de wand, precies de uitgesloten fout"
+  },
+  "overnemen": "uit X: ruwe, gescheurde randen van de loslatende laag met wat bloed, in plaats van gladde plakken; geen gedimde plak",
+  "combineren": true,
+  "fout": "Alle versies tonen de functionele laag steeds als een egaal vlak; de dikte 1 tot 7 mm is niet als schaal of getal aangeduid, en de spiraalslagaders reiken niet echt tot onder het oppervlak (X) / lopen los van de klieren."
+ },
+ {
+  "obj": "blastocyste",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 1,
+    "bruikbaar": 3,
+    "totaal": 16
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "vijf bijna identieke stills zonder PGT of uitkomen: de twee gevraagde gebeurtenissen ontbreken; alleen een kleurverschil in de celmassa",
+   "Y": "uitgekomen blastocyste is erg ingedeukt en de lege zona is een dunne ring zonder dikte"
+  },
+  "overnemen": "n.v.t.",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "echobeeld",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 15
+   },
+   "Y": {
+    "klopt": 3,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 15
+   }
+  },
+  "winnaar": "X",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "hart is een cirkel met kruis (symbool, geen kloppend hart); lichaam lijkt een blokkerig lego-vlak; echokorrel enkel als stippen",
+   "Y": "handje is een kam van rechte lijntjes, geen vuistje"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "Beide: het hart is een cirkel met kruis; wervelkolom als twee gestippelde lijnen; romp eindigt abrupt zonder bekken of benen; vooral getekend met lijnen i.p.v. echoweefsel."
+ },
+ {
+  "obj": "eicelecht-follikel",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 16
+   },
+   "Y": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 14
+   },
+   "Z": {
+    "klopt": 5,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 22
+   }
+  },
+  "winnaar": "Z",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "stralenkrans als losse cellen met losse grijze bolletjes eromheen; de kringen sluiten niet aan",
+   "Y": "granulosacellen als losse, grijze bollen met ruimte tot de zona: niet dicht gepakt en geen contact",
+   "Z": "kern is een egale vlek zonder kernlichaampje; rij grotere cellen aan de buitenrand nogal vlak"
+  },
+  "overnemen": "niets belangrijks",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "eierstokdoorsnede",
+  "scores": {
+   "X": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 14
+   },
+   "Y": {
+    "klopt": 3,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 15
+   },
+   "Z": {
+    "klopt": 5,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   }
+  },
+  "winnaar": "Z",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "honderden gelijke kraaltjes (uitgesloten fout); eicel hangt als losse bol met waaier naast de eierstok",
+   "Y": "eicel zweeft los uit de eierstok en geel lichaam staat zonder eerdere follikel; veel gelijke kraaltjes",
+   "Z": "alle stadia staan tegelijk in één doorsnede: het is niet meteen duidelijk dat het om een tijdreeks gaat; gele cirkels voor focus zijn druk"
+  },
+  "overnemen": "n.v.t.",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "embryoecht",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 18
+   },
+   "Y": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 17
+   }
+  },
+  "winnaar": "X",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "hartbult als losse rode ovaal bovenop het lijf; staartje klein en grijs; kieuwbogen als losse ovalen",
+   "Y": "geen somieten, geen staartje; kieuwbogen als dunne lijntjes, nauwelijks leesbaar klein"
+  },
+  "overnemen": "uit Y: de duidelijker gebogen kieuwbogen niet nodig; wel de vollere, heldere hartkleur",
+  "combineren": false,
+  "fout": "Beide: de grote kromming onderaan (navelstreng/staart) is onduidelijk; het hart ligt niet in een echte bult maar als rode schijf op het oppervlak; het hoofd mist een verschil tussen voorhersenen en rest."
+ },
+ {
+  "obj": "mandoorsnede-penisdoorsnede",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": null,
+    "bruikbaar": 4,
+    "totaal": 14
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": null,
+    "bruikbaar": 4,
+    "totaal": 16
+   },
+   "Z": {
+    "klopt": 3,
+    "herkenbaar": 3,
+    "stijl": 4,
+    "beweging": null,
+    "bruikbaar": 3,
+    "totaal": 13
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "zwellichamen als rode bol met lichte stippen (de uitgesloten bol met stipjes); zaadblaasje als egaal grijs ei",
+   "Y": "holten als donkere spiesjes eerder streepjes dan sponsholten; zaadblaasje en context erg gedimd",
+   "Z": "context (darm, bekken) ontbreekt en het zaadblaasje is alleen een stippellijn; holten als gebarsten tegels"
+  },
+  "overnemen": "uit Z: de sponsstructuur als holten gescheiden door dunne balkjes (trabekels) in de zwellichamen; uit Z de rustiger, schonere schets",
+  "combineren": true,
+  "fout": ""
+ },
+ {
+  "obj": "placentadoorsnede-vlokvergroot",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": null,
+    "bruikbaar": 4,
+    "totaal": 16
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": null,
+    "bruikbaar": 4,
+    "totaal": 15
+   },
+   "Z": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": null,
+    "bruikbaar": 2,
+    "totaal": 12
+   }
+  },
+  "winnaar": "X",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "de septa zijn spitse stalagmieten; maar drie bomen met veel lege ruimte",
+   "Y": "vijf bomen die elkaar overlappen en druk worden; septa ook stalagmieten",
+   "Z": "vijf bijna identieke bomen; verbinding tussen doorsnede en vergroting ontbreekt, dus niet te zien uit welk deel de vlok komt"
+  },
+  "overnemen": "uit Y: iets meer bloedcellen en meer variatie in bomen; septa afronden",
+  "combineren": false,
+  "fout": "Alle versies: septa als scherpe spitse stalagmieten (uitgesloten fout); moederbloed 'spuit' niet zichtbaar omhoog, alleen losse cellen."
+ },
+ {
+  "obj": "vulvaschema",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 3,
+    "stijl": 4,
+    "beweging": null,
+    "bruikbaar": 3,
+    "totaal": 13
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": null,
+    "bruikbaar": 4,
+    "totaal": 16
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "venusheuvel alleen als vage lichte ellips; urinebuisopening piepklein en op miniatuur onzichtbaar",
+   "Y": "venusheuvel in grijsbruin dat niet bij de huidkleur past"
+  },
+  "overnemen": "n.v.t.",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "zaadbaldoorsnede",
+  "scores": {
+   "X": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": null,
+    "bruikbaar": 3,
+    "totaal": 11
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": null,
+    "bruikbaar": 4,
+    "totaal": 16
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "geen kapsel, geen bijbal, geen zaadleider, geen Leydigcellen: alleen een ovaal met bolletjes en lijnen",
+   "Y": "zaadbuisjes zijn identieke ronde schijfjes met een wieltje in de holte"
+  },
+  "overnemen": "n.v.t.",
+  "combineren": false,
+  "fout": "Beide: zaadbuisjes zijn identieke, regelmatig verdeelde ronde dwarsdoorsneden met een stervormig 'wieltje'; echte buisjes zijn kronkelend en dus in allerlei hoeken doorgesneden. Leydigcellen vrijwel niet zichtbaar tussen de buisjes."
+ },
+ {
+  "obj": "zaadbalweefsel",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 19
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "Y",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "holte donker met nauwelijks zichtbare staartjes; geen opgelicht buisje",
+   "Y": "holte grijs met wit uitwaaierende staartjes, iets rommelig; gedimde rest erg donker"
+  },
+  "overnemen": "n.v.t.",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "zaadcelecht",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 18
+   },
+   "Y": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 19
+   },
+   "Z": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 2,
+    "totaal": 13
+   }
+  },
+  "winnaar": "Y",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "kop met witte spitse driehoek aan de verkeerde kant, ziet eruit als een pijlpunt; middenstuk te dik en te opvallend gestreept",
+   "Y": "lichte kap zit aan de achterkant van de kop; paarse vlek in de kop is onduidelijk",
+   "Z": "geen herkenbaar middenstuk of kap; middenstuk is witte dikke streep zonder mitochondria; staart lijkt kikkervisje"
+  },
+  "overnemen": "uit X: duidelijk gesegmenteerd middenstuk",
+  "combineren": false,
+  "fout": "Alle versies: de lichte kap (acrosoom) zit aan de achterkant van de kop (bij het middenstuk) terwijl de cel met de kop vooruit zwemt; die hoort vooraan."
+ },
+ {
+  "obj": "zwangerschapstest",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 18
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "Y",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "roze waas als een bol vlek met een ruwe voorrand en een witte linkerkant, het lijkt niet op een nat front dat de strook vult",
+   "Y": "voorrand met trapjes (pixelachtig) in plaats van een vloeiend front"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ }
+]

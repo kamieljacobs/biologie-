@@ -1,0 +1,3 @@
+Basis: variant B (volle Micro-doorsnede).
+Golgi beter geplaatst (Kamiel: 'niet altijd goed geplaatst'): in de macrofaag stond hij los in het cytoplasma onder de kern; nu direct in de inham van de boonvormige kern, bolle kant naar de kern. In de plasmacel stond hij te ver van de kern; nu in de lichte zone direct naast de excentrische kern. De stapel is op schaal getekend (nieuw hulpje `_wbGolgi`, omdat `golgi()` uit lib.js vaste minimummaten heeft) en verschijnt nu ook bij kleinere cellen (R > 40). Plaats in de plasmacel: perinucleaire lichte zone met het Golgi-apparaat (WebPath Utah, DoveMed), zie bron.md.
+Geen vragen.

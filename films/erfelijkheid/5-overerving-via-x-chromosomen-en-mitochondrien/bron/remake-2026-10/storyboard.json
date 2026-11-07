@@ -1,0 +1,591 @@
+{
+ "film": "films/erfelijkheid/5-overerving-via-x-chromosomen-en-mitochondrien.html",
+ "versie": "lichte remake 2.0 · fase 1 · 28 okt 2026",
+ "prompt": "v13 (B16 lichte remake; C1–C10)",
+ "straat": "FILMDATA zoals Chromosomen 2.1: segments.json + scenes_erf5.js (één functie per alinea, cue via q.on/q.at) + teken_erf5.js; libs: lib.js, lib_cast.js, lib_bio.js, lib_micro_evo.js, teken_chr1.js (kamer, gezin, lijstje, chromX, allelChip)",
+ "kleuren": "vaste reekskleuren: X/Y van moeder oker, van vader teal (Chromosomen 2.1); allel A goud, allel a / aangedaan paars (zoals stamboomSymbolen); kegeltjes S blauw #6F8FE0, M groen, L koraal (BEELDAFSPRAKEN 28 okt: meer contrast, minder paars); mitochondriën koraal (C1); mtDNA paars",
+ "bibliotheek": {
+  "hergebruik": [
+   "kamer, gezin, lijstje, chromX, kLen, chromatide1, allelChip (teken_chr1.js)",
+   "persoon: opabos, omabos, marieke, dennis, sara, levi, jens",
+   "stamboomSymbolen",
+   "eicelEcht, zaadcelEcht, mitochondrionEcht, celRond",
+   "zoomCircle, naamBij, card (lib.js)"
+  ],
+  "nieuw (kandidaat lib_bio, code in tekeningen/nieuw_erf5.js)": [
+   "genoTekst + G (genotype met superscripts in ouderkleur)",
+   "geslStaaf (X/Y als één chromatide met allelband)",
+   "aardbei, aardbeienBak",
+   "kleurModelDeutan (alleen met label 'model')",
+   "netvliesKegels (kegeltjes en staafjes)",
+   "kegelKrommen (gevoeligheid 420/530/560 nm)",
+   "mtRingen (mtDNA-ringetjes in mitochondrionEcht)"
+  ]
+ },
+ "scenes": [
+  {
+   "id": "s01",
+   "alinea": "Kijk weer naar deze familie. Opa sorteert aardbeien, maar hi …",
+   "woorden": 26,
+   "cue": [
+    "sorteert",
+    "door elkaar",
+    "lijken"
+   ],
+   "look": "Macro (kamer van gezin De Wit, Chromosomen 2.1)",
+   "ziet": "kamer met de vier fotolijstjes (lijstje van opa moederskant licht goud op); opa (opabos) staat aan tafel met twee schalen aardbeien, Jens kijkt mee; opa legt een groene aardbei in de schaal met rode",
+   "beweging": "opa's hand beweegt in een boog van schaal naar schaal (C8); bij 'lijken' schuift een gouden stippellijn van rechts naar het midden: rechts dezelfde kamer door het kleurmodel ('zo ziet opa het · model')",
+   "bieb": [
+    "kamer, lijstje (teken_chr1)",
+    "persoon opabos, jens"
+   ],
+   "nieuw": [
+    "aardbei, aardbeienBak",
+    "kleurModelDeutan"
+   ],
+   "twijfel": "T1, T3",
+   "keyframe": "keyframes/t1-opening-opa-aardbeien-kleurmodel.webp"
+  },
+  {
+   "id": "s02",
+   "alinea": "Zo'n één op de twaalf mannen is rood-groen kleurenblind. Bij …",
+   "woorden": 37,
+   "cue": [
+    "twaalf",
+    "tweehonderd",
+    "dochter",
+    "zoon",
+    "mannen",
+    "generatie"
+   ],
+   "look": "Macro → Schema-kaart",
+   "ziet": "twee rijen telpoppetjes over de gedimde kamer: 12 mannen (1 paars) en 200 vrouwen als klein raster (1 paars), met '± 8 %' en '± 0,5 %'; bij 'dochter' licht Marieke op in de kamer, bij 'zoon' Levi en Jens; daarna twee puzzelkaarten",
+   "beweging": "poppetjes vullen per rij (telpoppetjes mogen pictogram zijn, BEELDAFSPRAKEN); kaarten schuiven in",
+   "bieb": [
+    "card",
+    "gezin()"
+   ],
+   "nieuw": [],
+   "keyframe": null
+  },
+  {
+   "id": "title",
+   "look": "Schema",
+   "ziet": "titelkaart 'Overerving via het X-chromosoom' + puzzel; rechts een X (oker) en Y (teal) als geslStaaf; vwo-stand: ondertitel 'vwo: ook mitochondriaal DNA'",
+   "nieuw": [
+    "geslStaaf"
+   ],
+   "twijfel": "T2"
+  },
+  {
+   "id": "card1",
+   "look": "Schema",
+   "ziet": "hoofdstukkaart 1 'Jongen of meisje?'"
+  },
+  {
+   "id": "s04",
+   "alinea": "Eerst de geslachtschromosomen. Een vrouw heeft twee X-chromo …",
+   "woorden": 39,
+   "cue": [
+    "twee X-chromosomen",
+    "één X",
+    "meiose",
+    "eicel",
+    "helft"
+   ],
+   "look": "Schema",
+   "ziet": "moeder XX (oker), vader XY (teal) als staafjes in kaders; meiose als korte splitsing: eicellen krijgen één X, zaadcellen X of Y",
+   "beweging": "de staafjes splitsen in twee boogjes naar de gameten (C8)",
+   "bieb": [
+    "eicelEcht",
+    "zaadcelEcht"
+   ],
+   "nieuw": [
+    "geslStaaf"
+   ],
+   "keyframe": "keyframes/k1-x-van-moeder.webp (bovenhelft)"
+  },
+  {
+   "id": "s05",
+   "alinea": "Een eicel en een zaadcel met een X worden samen een meisje:  …",
+   "woorden": 43,
+   "cue": [
+    "meisje",
+    "jongen",
+    "meestal",
+    "half"
+   ],
+   "look": "Schema",
+   "ziet": "twee bevruchtingen naast elkaar: eicel + X → XX meisje, eicel + Y → XY jongen; '½' bij jongen",
+   "beweging": "zaadcel zwemt met golf door de staart (C9 beweging)",
+   "bieb": [
+    "eicelEcht",
+    "zaadcelEcht"
+   ],
+   "nieuw": []
+  },
+  {
+   "id": "q06",
+   "alinea": "Wat denk je? Van wie krijgt een jongen zijn X-chromosoom? …",
+   "woorden": 10,
+   "look": "Schema (vraagkaart)",
+   "ziet": "vraagkaart, drie opties"
+  },
+  {
+   "id": "s07",
+   "alinea": "Een jongen krijgt zijn X altijd van zijn moeder. Van zijn va …",
+   "woorden": 30,
+   "cue": [
+    "altijd",
+    "Y",
+    "meisje"
+   ],
+   "look": "Schema",
+   "ziet": "de zoon in een goud kader: X oker 'van moeder', Y teal 'van vader'; daarnaast een dochter met X oker en X teal",
+   "beweging": "de X van moeder schuift in een boog in het kader van de zoon",
+   "bieb": [],
+   "nieuw": [
+    "geslStaaf",
+    "genoTekst"
+   ],
+   "keyframe": "keyframes/k1-x-van-moeder.webp"
+  },
+  {
+   "id": "card2",
+   "look": "Schema",
+   "ziet": "hoofdstukkaart 2 'De X en kleurzien'"
+  },
+  {
+   "id": "s08",
+   "alinea": "Het X-chromosoom is groot. Er liggen zo'n duizend genen op.  …",
+   "woorden": 31,
+   "cue": [
+    "groot",
+    "duizend",
+    "Y-chromosoom",
+    "meeste"
+   ],
+   "look": "Schema",
+   "ziet": "X en Y uit het karyogram van Chromosomen 2.1 (chromX, kLen 23/24) groot naast elkaar; '± 1000 genen' en '70–200 genen'; de pseudoautosomale toppen kort grijs gemarkeerd, de rest van de X oker licht op 'niet op de Y'",
+   "bieb": [
+    "chromX, kLen, CEN (teken_chr1)"
+   ],
+   "nieuw": []
+  },
+  {
+   "id": "s09",
+   "alinea": "Een paar van die genen gaan over kleur zien. In je netvlies  …",
+   "woorden": 33,
+   "cue": [
+    "kleur zien",
+    "netvlies",
+    "kegeltjes",
+    "drie soorten",
+    "blauw",
+    "groen",
+    "rood"
+   ],
+   "look": "Macro → zoomcirkel → Micro",
+   "ziet": "opa groot (kamer gedimd); gouden ringetje om zijn oog; zoomcirkel náást het hoofd naar het netvlies met kegeltjes en staafjes; bij 'blauw/groen/rood' lichten de drie soorten buitensegmenten op",
+   "beweging": "zoomcirkel groeit uit het oog (C6); licht komt van onder als zachte golf",
+   "bieb": [
+    "persoon opabos",
+    "zoomCircle"
+   ],
+   "nieuw": [
+    "netvliesKegels"
+   ],
+   "twijfel": "T4",
+   "keyframe": "keyframes/t4-netvlies-kegeltjes.webp"
+  },
+  {
+   "id": "s10",
+   "alinea": "De genen voor het groene en het rode eiwit liggen naast elka …",
+   "woorden": 52,
+   "cue": [
+    "naast elkaar",
+    "ander chromosoom",
+    "niet goed",
+    "bijna hetzelfde",
+    "op elkaar"
+   ],
+   "look": "Schema",
+   "ziet": "1) X met rood- en groen-gen als twee banden naast elkaar (blauw-gen op een klein chromosoom 7); 2) grafiek met drie krommen; bij 'niet goed' schuift de rode kromme naar de groene (gestippeld de oude plek); 3) aardbeien normaal en door het kleurmodel",
+   "beweging": "morph van de rode kromme (C8)",
+   "nieuw": [
+    "kegelKrommen",
+    "kleurModelDeutan",
+    "aardbei"
+   ],
+   "twijfel": "T3",
+   "keyframe": "keyframes/t3-kegelkrommen-kleurmodel.webp"
+  },
+  {
+   "id": "s11",
+   "alinea": "Een vrouw heeft van elk gen op de X twee allelen. Een man he …",
+   "woorden": 34,
+   "cue": [
+    "vrouw",
+    "man",
+    "geen tweede"
+   ],
+   "look": "Schema",
+   "ziet": "vrouw: twee X'en met het gen (twee allelen); man: X + Y, op de Y geen band; annotatiehaak koraal 'geen reserve'",
+   "nieuw": [
+    "geslStaaf"
+   ]
+  },
+  {
+   "id": "card3",
+   "look": "Schema",
+   "ziet": "hoofdstukkaart 3 'Notatie en kruisingsschema'"
+  },
+  {
+   "id": "s12",
+   "alinea": "Daarom schrijf je het allel als letter bij de X. Het allel d …",
+   "woorden": 40,
+   "cue": [
+    "letter",
+    "hoofdletter",
+    "klein",
+    "geen letter"
+   ],
+   "look": "Schema",
+   "ziet": "X met gouden band → Xᴬ; X met paarse band → Xᵃ; Y zonder letter",
+   "nieuw": [
+    "genoTekst"
+   ]
+  },
+  {
+   "id": "s13",
+   "alinea": "Een vrouw is XᴬXᴬ, XᴬXᵃ of XᵃXᵃ. Met XᴬXᵃ ziet ze normaal, w …",
+   "woorden": 36,
+   "cue": [
+    "vrouw",
+    "dominant",
+    "draagster",
+    "man",
+    "kleurenblind"
+   ],
+   "look": "Schema",
+   "ziet": "vijf genotypen op één basislijn (C4: max 7 elementen), elk met fenotype; XᴬXᵃ krijgt een paars stipje (draagster, zelfde symbool als stamboomSymbolen)",
+   "bieb": [
+    "stamboomSymbolen-symbolen"
+   ],
+   "nieuw": [
+    "genoTekst"
+   ]
+  },
+  {
+   "id": "s14",
+   "alinea": "Stel: een draagster krijgt kinderen met een man die normaal  …",
+   "woorden": 17,
+   "cue": [
+    "draagster",
+    "normaal"
+   ],
+   "look": "Schema",
+   "ziet": "ouders XᴬXᵃ × XᴬY, kleurcode moeder oker, vader teal",
+   "nieuw": []
+  },
+  {
+   "id": "q15",
+   "alinea": "Wat denk je? Ze krijgen een zoon. Hoe groot is de kans dat h …",
+   "woorden": 16,
+   "look": "Schema (vraagkaart)",
+   "ziet": "vraagkaart, drie opties"
+  },
+  {
+   "id": "s16",
+   "alinea": "Elke zoon krijgt de Y van zijn vader en een X van zijn moede …",
+   "woorden": 34,
+   "cue": [
+    "Y",
+    "X",
+    "half",
+    "kleurenblind"
+   ],
+   "look": "Schema",
+   "ziet": "de zoon: Y komt van vader, X van moeder: twee pijltjes (Xᴬ of Xᵃ) met elk '½'",
+   "nieuw": []
+  },
+  {
+   "id": "s17",
+   "alinea": "Zet het in een kruisingsschema. Boven staan de gameten van d …",
+   "woorden": 49,
+   "cue": [
+    "kruisingsschema",
+    "Boven",
+    "Links",
+    "zonen",
+    "dochters",
+    "draagster"
+   ],
+   "look": "Schema",
+   "ziet": "2×2-schema als in de vooruitblik van Chromosomen 2.1: gameten vader boven (teal), moeder links (oker); vakjes vullen één voor één; XᵃY goud omrand",
+   "beweging": "schema lijn voor lijn (C8)",
+   "nieuw": [
+    "genoTekst"
+   ],
+   "keyframe": "keyframes/k2-kruisingsschema.webp"
+  },
+  {
+   "id": "s18",
+   "alinea": "Tel het na met tweehonderd kinderen van zulke ouders. Ongeve …",
+   "woorden": 48,
+   "cue": [
+    "tweehonderd",
+    "zoon",
+    "kleurenblind",
+    "álle",
+    "kwart",
+    "bedoelt"
+   ],
+   "look": "Schema (simulatie)",
+   "ziet": "200 kinderen worden één voor één geloot (vaste seed) en sorteren in zonen (vierkant) en dochters (rondje); tellers lopen mee; bij 'álle' licht de groep kleurenblinde zonen op tegen alle 200",
+   "beweging": "echte loting, verhoudingen wiebelen (B3 type E)",
+   "nieuw": [],
+   "keyframe": "keyframes/k3-simulatie-200-kinderen.webp"
+  },
+  {
+   "id": "card4",
+   "look": "Schema",
+   "ziet": "hoofdstukkaart 4 'Waarom vooral mannen?'"
+  },
+  {
+   "id": "s19",
+   "alinea": "Nu zie je waarom mannen het vaker hebben. Een man is kleuren …",
+   "woorden": 40,
+   "cue": [
+    "één allel",
+    "twee",
+    "moeder",
+    "vader",
+    "kleiner"
+   ],
+   "look": "Schema",
+   "ziet": "man: één Xᵃ = kleurenblind (± 8 %); vrouw: Xᵃ + Xᵃ nodig (gemeten ± 0,4–0,5 %); balkjes op schaal",
+   "nieuw": []
+  },
+  {
+   "id": "s20",
+   "alinea": "En let op: een vader geeft zijn X nooit aan een zoon. Hij ge …",
+   "woorden": 19,
+   "cue": [
+    "nooit",
+    "dochter"
+   ],
+   "look": "Schema",
+   "ziet": "vader met X (teal): pijl naar dochter, doorgestreepte pijl naar zoon",
+   "nieuw": []
+  },
+  {
+   "id": "q21",
+   "alinea": "Wat denk je? Opa is kleurenblind. Oma heeft geen allel a. Is …",
+   "woorden": 15,
+   "look": "Schema (vraagkaart)",
+   "ziet": "vraagkaart, drie opties; klein de lijstjes van opa en oma"
+  },
+  {
+   "id": "s22",
+   "alinea": "Opa heeft maar één X, en dat is Xᵃ. Die geeft hij aan elke d …",
+   "woorden": 39,
+   "cue": [
+    "één X",
+    "dochter",
+    "zeker",
+    "zoon",
+    "half"
+   ],
+   "look": "Schema over de gedimde kamer",
+   "ziet": "stamboom van gezin De Wit met gezichten (stamboomSymbolen, personen STAMBOOM_WIT): opa ingekleurd, Marieke met stip en goud omcirkeld, Levi en Jens 'kans ½', Sara 'kans ½ draagster'",
+   "beweging": "stamboom bouwt per generatie op (opbouw)",
+   "bieb": [
+    "stamboomSymbolen"
+   ],
+   "nieuw": [
+    "STAMBOOM_WIT (data)"
+   ],
+   "twijfel": "T1",
+   "keyframe": "keyframes/k4-stamboom-de-wit.webp"
+  },
+  {
+   "id": "s23",
+   "alinea": "Hemofilie, een stoornis in de bloedstolling, erft op dezelfd …",
+   "woorden": 42,
+   "cue": [
+    "Hemofilie",
+    "Victoria",
+    "Leopold",
+    "dochters",
+    "Rusland",
+    "Spanje",
+    "prinsen"
+   ],
+   "look": "Schema",
+   "ziet": "ingekorte stamboom zonder gezichten met namen; 'ingekort' in beeld",
+   "beweging": "opbouw per generatie op de cuewoorden",
+   "bieb": [
+    "stamboomSymbolen"
+   ],
+   "nieuw": [
+    "STAMBOOM_VIC (data)"
+   ],
+   "keyframe": "keyframes/k5-stamboom-victoria.webp"
+  },
+  {
+   "id": "s24",
+   "alinea": "Er bestaan ook zeldzame aandoeningen waarbij het afwijkende  …",
+   "woorden": 57,
+   "cue": [
+    "dominant",
+    "dochters",
+    "zonen",
+    "helft",
+    "vrouwen"
+   ],
+   "look": "Schema",
+   "ziet": "twee kleine schema's naast elkaar: vader XᴬY (aangedaan) × XᵃXᵃ → alle dochters, geen zonen; moeder XᴬXᵃ × XᵃY → ½ van de kinderen; label 'x-chromosomaal dominant' (hier A = afwijkend allel; in beeld uitgelegd)",
+   "nieuw": [
+    "genoTekst"
+   ]
+  },
+  {
+   "id": "card5",
+   "level": "vwo",
+   "look": "Schema",
+   "ziet": "hoofdstukkaart 5 'Mitochondriaal DNA' met vwo-balk"
+  },
+  {
+   "id": "v25",
+   "alinea": "Er is ook DNA buiten de kern. Mitochondriën hebben hun eigen …",
+   "woorden": 18,
+   "level": "vwo",
+   "cue": [
+    "buiten de kern",
+    "eigen DNA",
+    "ringetje",
+    "zevenendertig"
+   ],
+   "look": "Micro",
+   "ziet": "celRond met kern; zoom op één mitochondrion (mitochondrionEcht) met mtDNA-ringetjes",
+   "bieb": [
+    "celRond",
+    "mitochondrionEcht"
+   ],
+   "nieuw": [
+    "mtRingen"
+   ],
+   "keyframe": "keyframes/t2-vwo-eicel-zaadcel-mtdna.webp (rechts)"
+  },
+  {
+   "id": "v26",
+   "alinea": "Een eicel heeft zo'n honderdduizend mitochondriën. Een zaadc …",
+   "woorden": 28,
+   "level": "vwo",
+   "cue": [
+    "eicel",
+    "zaadcel",
+    "afgebroken",
+    "moeder"
+   ],
+   "look": "Micro",
+   "ziet": "eicel vol mitochondriën (koraal, C1) tegenover een zaadcel met mitochondriën in het middenstuk; na de bevruchting verdwijnen de zaadmitochondriën (een gouden rand volgt er één tot hij wordt afgebroken)",
+   "beweging": "één molecuul volgen (C8)",
+   "bieb": [
+    "eicelEcht",
+    "zaadcelEcht"
+   ],
+   "nieuw": [],
+   "twijfel": "T2",
+   "keyframe": "keyframes/t2-vwo-eicel-zaadcel-mtdna.webp"
+  },
+  {
+   "id": "q27",
+   "alinea": "Wat denk je? Een man heeft een aandoening door een fout in z …",
+   "woorden": 22,
+   "level": "vwo",
+   "look": "Schema (vraagkaart)",
+   "ziet": "vraagkaart, drie opties"
+  },
+  {
+   "id": "v28",
+   "alinea": "Een vader geeft geen mitochondriën door, dus zijn kinderen k …",
+   "woorden": 45,
+   "level": "vwo",
+   "cue": [
+    "vader",
+    "moeder",
+    "zonen",
+    "verschillen",
+    "evenveel"
+   ],
+   "look": "Schema",
+   "ziet": "vader → kinderen zonder fout; moeder → alle kinderen krijgen haar mitochondriën; per kind een balkje met een ander aandeel mitochondriën met fout",
+   "nieuw": []
+  },
+  {
+   "id": "v29",
+   "alinea": "Dat is dus anders dan overerving via het X-chromosoom. Daar  …",
+   "woorden": 56,
+   "level": "vwo",
+   "cue": [
+    "X-chromosoom",
+    "kern",
+    "buiten",
+    "moederlijn",
+    "overgrootmoeder"
+   ],
+   "look": "Macro (kamer)",
+   "ziet": "de fotolijstjes van gezin De Wit: Levi → Marieke → Oma Anja met koraal mitochondriën-stipje; Dennis en zijn ouders gedimd",
+   "nieuw": []
+  },
+  {
+   "id": "s30",
+   "alinea": "Terug naar opa en zijn aardbeien. De genen voor het rode en  …",
+   "woorden": 43,
+   "cue": [
+    "aardbeien",
+    "X",
+    "één allel",
+    "twee"
+   ],
+   "look": "Macro (kamer)",
+   "ziet": "terug naar opa aan tafel; Xᵃ-chip boven zijn hoofd (allelChip-stijl uit film 1)",
+   "bieb": [
+    "kamer",
+    "persoon",
+    "allelChip"
+   ],
+   "nieuw": [
+    "genoTekst"
+   ]
+  },
+  {
+   "id": "s31",
+   "alinea": "Opa gaf zijn Xᵃ aan zijn dochter. Zij ziet normaal, maar ze  …",
+   "woorden": 37,
+   "cue": [
+    "dochter",
+    "draagster",
+    "zoon",
+    "kleinzoon"
+   ],
+   "look": "Macro (kamer)",
+   "ziet": "gezin met chips: opa XᵃY, Marieke XᴬXᵃ, Levi en Jens '½'; Marieke legt een hand op de schouder van Jens (herkenbaar moment)",
+   "nieuw": []
+  },
+  {
+   "id": "end",
+   "look": "Schema",
+   "ziet": "eindkaart: drie kernzinnen met annotatiehaak (vwo: vier)"
+  }
+ ],
+ "telling": {
+  "gesproken alinea's": 26,
+  "vragen": 4,
+  "woorden basis": 867,
+  "woorden vwo": 169,
+  "gesproken duur": "basis ± 6.0 min, vwo-blok ± 1.2 min (spraak, 2,4 woord per seconde); oud 4:00 speeltijd, één niveau"
+ }
+}

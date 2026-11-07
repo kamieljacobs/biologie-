@@ -1,0 +1,703 @@
+{
+ "film": "films/erfelijkheid/4-dihybride-kruising-en-gekoppelde-overerving.html",
+ "versie": "remake 2.0 · fase 1 · 28 okt 2026",
+ "prompt": "v13 (B16 lichte remake; B4 twee niveaus; C8–C10)",
+ "straat": "FILMDATA zoals Chromosomen 2.1: segments.json + scenes_erf4.js (één functie per alinea, cue via q.on/q.at) + teken_erf4.js; libs: lib.js, lib_cast.js, lib_bio.js (cdChromosoom), eigen kopie in /home/claude/hw/erf4/eng",
+ "kleuren": "herkomst chromosoom teal (P1) / oker (P2) zoals Chromosomen 2.1; genband goud; erwt geel #D9C766 / groen #8DBE6E (gedempte planttinten, niet het goud van focus); fruitvlieg grijs #A89C84 / zwart #3B3633, ogen #B8473C; paars alleen voor de vwo-balk (minder paars, BEELDAFSPRAKEN 28 okt)",
+ "notatie": "erwt G/g geel/groen, R/r rond/gerimpeld; fruitvlieg G/g grijs/zwart, V/v normaal/stomp (kruisingtrainer); gekoppeld als GV/gv; genotypen alleen in beeld en nooit in metaText (die zet alles in hoofdletters)",
+ "bibliotheek": {
+  "hergebruik": [
+   "persoon('henk') uit lib_cast",
+   "cdChromosoom (Celdeling 2.0) met teal/oker-segmenten",
+   "allelChip, staafAllel-stijl (Chromosomen 2.1)",
+   "zoomCircle, naamBij, card, haak (lib.js)",
+   "decor moestuin (Landbouw 2)"
+  ],
+  "nieuw (kandidaat lib_bio, code in tekeningen/nieuw_erf4.js)": [
+   "erwt (geel/groen, rond/gerimpeld)",
+   "peul (open/dicht met erwten)",
+   "erwtenplant (klimmend, ranken, peulen)",
+   "fruitvlieg (bovenaanzicht; grijs/zwart; normale/stompe vleugels; vrouwtje/mannetje)",
+   "staafGenen + paarGenen (staafje met 1–2 genbanden, segmenten na crossing-over)",
+   "gameetCel, gameetChip, kruisSchema"
+  ]
+ },
+ "scenes": [
+  {
+   "id": "title",
+   "look": "Schema",
+   "ziet": "titelkaart: links titel en de puzzelvraag, rechts drie erwten (geel-rond, geel-gerimpeld, groen-rond) en één paar staafjes met twee genbanden (teal/oker)",
+   "beweging": "erwten liggen stil; de genbanden lichten één keer op",
+   "bieb": [
+    "erwt (nieuw)",
+    "staafGenen (nieuw)"
+   ],
+   "nieuw": [],
+   "keyframe": null
+  },
+  {
+   "id": "s01",
+   "alinea": "Een erwtenplant. Hij groeide uit een gele, ronde erwt. Zijn  …",
+   "woorden": 26,
+   "level": "basis",
+   "cue": [
+    "erwtenplant",
+    "gele, ronde",
+    "ouders",
+    "peulen"
+   ],
+   "look": "Macro (moestuin-decor ±60 %)",
+   "ziet": "Opa Henk (zonder naam) tussen erwtenplanten aan stokken in de moestuin; bij 'gele, ronde erwt' een kleine gele erwt bij de wortel van één plant (het zaad waaruit hij groeide); bij 'ouders' twee kleine plantjes-iconen met een gele ronde en een groene gerimpelde erwt erboven (gedimd: grootouders); bij 'peulen' opent hij een peul",
+   "beweging": "peul gaat open (klep kantelt, erwten worden zichtbaar), hand komt omhoog",
+   "bieb": [
+    "persoon('henk', pose vasthouden)",
+    "decor moestuin (Landbouw 2, ElevenLabs, al betaald)"
+   ],
+   "nieuw": [
+    "erwtenplant",
+    "peul",
+    "erwt"
+   ],
+   "twijfel": "T2",
+   "keyframe": "keyframes/t2-opening-opa-henk-peulen.webp"
+  },
+  {
+   "id": "s02",
+   "alinea": "Gele, ronde erwten. Groene, gerimpelde. Maar ook gele, gerim …",
+   "woorden": 21,
+   "level": "basis",
+   "cue": [
+    "Gele, ronde",
+    "Groene",
+    "gerimpelde en",
+    "grootouders",
+    "Hoe"
+   ],
+   "look": "Macro → zoomcirkel → Schema",
+   "ziet": "zoomcirkel vanaf de peul: twaalf erwten uit een paar peulen; bij 'gele, gerimpelde' en 'groene, ronde' krijgen die een gouden ring; label 'nieuwe combinaties'",
+   "beweging": "ringen verschijnen op de cue; kleine wiebel per erwt",
+   "bieb": [
+    "zoomCircle"
+   ],
+   "nieuw": [
+    "erwt"
+   ],
+   "twijfel": "T2",
+   "keyframe": "keyframes/t2-opening-opa-henk-peulen.webp"
+  },
+  {
+   "id": "s04",
+   "alinea": "Eerst de letters. Het allel voor geel noem je grote G, voor  …",
+   "woorden": 27,
+   "level": "basis",
+   "cue": [
+    "geel",
+    "groen",
+    "Rond",
+    "gerimpeld",
+    "dominant"
+   ],
+   "look": "Schema",
+   "ziet": "vier erwten in een rij met allelchips eronder: G geel, g groen, R rond, r gerimpeld; bij 'dominant' krijgen G en R een gouden rand",
+   "beweging": "chips schuiven één voor één in",
+   "bieb": [
+    "allelChip (Chromosomen 2.1)",
+    "erwt"
+   ],
+   "nieuw": [],
+   "keyframe": null
+  },
+  {
+   "id": "s05",
+   "alinea": "De ouders waren raszuiver. De gele, ronde ouder gaf grote G  …",
+   "woorden": 32,
+   "level": "basis",
+   "cue": [
+    "raszuiver",
+    "gele, ronde ouder",
+    "groene",
+    "heterozygoot"
+   ],
+   "look": "Schema",
+   "ziet": "P: gele ronde erwt (GGRR) × groene gerimpelde (ggrr), elk met een allelchip; pijlen naar de F1-erwt (GgRr); de letters van de ene ouder teal omrand, van de andere oker",
+   "beweging": "de letters vliegen uit de ouderchips naar de F1-chip (één van elk)",
+   "bieb": [
+    "allelChip"
+   ],
+   "nieuw": [],
+   "keyframe": null
+  },
+  {
+   "id": "s06",
+   "alinea": "Het gen voor kleur ligt op een ander chromosoom dan het gen  …",
+   "woorden": 36,
+   "level": "basis",
+   "cue": [
+    "kleur",
+    "vorm",
+    "twee chromosoomparen",
+    "kleurgen",
+    "vormgen"
+   ],
+   "look": "Schema → Micro (zoomcirkel naar de kern)",
+   "ziet": "zoomcirkel van de F1-erwt naar een cel met kern; daarin twee chromosoomparen als staafjes (paarGenen): lang paar met de genband G/g, kort paar met R/r; teal = van de gele ronde ouder, oker = van de groene gerimpelde",
+   "beweging": "zoom; het kleurpaar en daarna het vormpaar lichten op bij hun woord",
+   "bieb": [
+    "zoomCircle",
+    "kernChromatine (rand)"
+   ],
+   "nieuw": [
+    "staafGenen / paarGenen"
+   ],
+   "keyframe": null
+  },
+  {
+   "id": "q07",
+   "alinea": "Bij de meiose maakt de plant gameten. Hoeveel soorten gamete …",
+   "woorden": 17,
+   "level": "basis",
+   "cue": [
+    "Wat denk je"
+   ],
+   "look": "Schema (vraagkaart)",
+   "ziet": "vraagkaart 'Wat denk je?' met drie opties; achter de kaart de twee paren gedimd",
+   "beweging": "aftelstreep",
+   "bieb": [],
+   "nieuw": [],
+   "keyframe": null
+  },
+  {
+   "id": "s08",
+   "alinea": "Een plant die voor twee genen heterozygoot is, maakt vier so …",
+   "woorden": 64,
+   "level": "basis",
+   "cue": [
+    "vier soorten",
+    "meiose",
+    "toeval",
+    "zo,",
+    "andersom"
+   ],
+   "look": "Schema (cel)",
+   "ziet": "cel in meiose I met de twee paren in het equatorvlak; links ligging 1, rechts ligging 2 (het vormpaar omgedraaid); pijlen naar de gameten GR + gr en Gr + gR",
+   "beweging": "het vormpaar draait als morph om (rotatie om het equatorvlak) bij 'andersom'; de cel snoert in tot twee (Celdeling-recept, alleen grof)",
+   "bieb": [
+    "cdChromosoom (Celdeling 2.0) in teal/oker",
+    "gameetChip"
+   ],
+   "nieuw": [
+    "metaCel (keyframe-hulp)"
+   ],
+   "keyframe": "keyframes/k1-meiose-twee-liggingen.webp"
+  },
+  {
+   "id": "s09",
+   "alinea": "Beide liggingen zijn even waarschijnlijk. Kijk wat er gebeur …",
+   "woorden": 37,
+   "level": "basis",
+   "cue": [
+    "even waarschijnlijk",
+    "honderden",
+    "kwart",
+    "onafhankelijke overerving"
+   ],
+   "look": "Schema (simulatie)",
+   "ziet": "simulatie: 400 cellen kiezen elk een ligging (vaste seed), hun gameten vallen in vier kolommen GR, Gr, gR, gr; een stippellijn op 25 %; termkaart 'onafhankelijke overerving'",
+   "beweging": "kolommen groeien en schommelen rond een kwart (echte trekkingen, wobble zichtbaar bij weinig cellen, B3 type E)",
+   "bieb": [
+    "runSim-stijl uit Chromosomen 2.1 (eigen seed)"
+   ],
+   "nieuw": [],
+   "keyframe": null
+  },
+  {
+   "id": "s10",
+   "alinea": "Daar zit het antwoord op de puzzel. Gameten met grote G en k …",
+   "woorden": 38,
+   "level": "basis",
+   "cue": [
+    "antwoord",
+    "grootouders",
+    "wel",
+    "gele, gerimpelde"
+   ],
+   "look": "Schema",
+   "ziet": "de vier gameten; Gr en gR krijgen een gouden ring; twee gameten Gr + Gr komen samen → een gele gerimpelde erwt verschijnt, gR + gR → groene ronde",
+   "beweging": "gameten schuiven naar elkaar (bevruchting), erwt morpht uit een cirkel",
+   "bieb": [
+    "gameetChip",
+    "erwt"
+   ],
+   "nieuw": [],
+   "keyframe": null
+  },
+  {
+   "id": "q11",
+   "alinea": "De plant bestuift zichzelf. In het stuifmeel zitten dus vier …",
+   "woorden": 26,
+   "level": "vwo",
+   "cue": [
+    "Wat denk je"
+   ],
+   "look": "Schema (vraagkaart)",
+   "ziet": "vraagkaart; achter de kaart de bloem met stuifmeel (4 chips) en de eicellen (4 chips)",
+   "beweging": "aftelstreep",
+   "bieb": [],
+   "nieuw": [],
+   "keyframe": null
+  },
+  {
+   "id": "s12",
+   "alinea": "Vier keer vier: zestien vakjes. Elk vakje is één bevruchting …",
+   "woorden": 35,
+   "level": "vwo",
+   "cue": [
+    "zestien",
+    "dezelfde kans",
+    "Negen",
+    "Drie geel",
+    "Drie groen",
+    "Eén"
+   ],
+   "look": "Schema",
+   "ziet": "4 × 4-kruisingsschema (stuifmeel boven, eicellen links), per vakje een erwtje en het genotype klein eronder; bij elk fenotype lichten die vakjes op en verschijnt het getal rechts",
+   "beweging": "schema bouwt per rij op (C8: lijn voor lijn, hier helpt het: 4 × 4 = 16)",
+   "bieb": [
+    "kruisSchema",
+    "erwt",
+    "gameetChip"
+   ],
+   "nieuw": [],
+   "keyframe": "keyframes/k2-schema-zestien-vakjes.webp"
+  },
+  {
+   "id": "s13",
+   "alinea": "Negen staat tot drie staat tot drie staat tot één. Mendel te …",
+   "woorden": 33,
+   "level": "vwo",
+   "cue": [
+    "Negen staat",
+    "driehonderdvijftien",
+    "honderdeen",
+    "honderdacht",
+    "tweeëndertig",
+    "dicht"
+   ],
+   "look": "Schema",
+   "ziet": "naast de 9 : 3 : 3 : 1 vier staven met Mendels tellingen (315, 101, 108, 32) en de verwachte stand als stippellijn; bron in meta: MENDEL 1866",
+   "beweging": "staven groeien tot de getallen op het woord",
+   "bieb": [
+    "balk"
+   ],
+   "nieuw": [],
+   "keyframe": null
+  },
+  {
+   "id": "s14",
+   "alinea": "Omdat de genen onafhankelijk zijn, kun je het ook uitrekenen …",
+   "woorden": 36,
+   "level": "vwo",
+   "cue": [
+    "onafhankelijk",
+    "drie kwart",
+    "rond ook",
+    "negen zestiende",
+    "productregel"
+   ],
+   "look": "Schema",
+   "ziet": "kanssom: ¾ geel × ¾ rond = 9/16; de 9 vakjes van het schema lichten op",
+   "beweging": "breuken schuiven in",
+   "bieb": [],
+   "nieuw": [],
+   "keyframe": null
+  },
+  {
+   "id": "s15",
+   "alinea": "Bij een terugkruising met een groene, gerimpelde plant, die  …",
+   "woorden": 38,
+   "level": "vwo",
+   "cue": [
+    "terugkruising",
+    "kleine g",
+    "direct terug",
+    "één staat"
+   ],
+   "look": "Schema",
+   "ziet": "kruisingsschema 1 kolom (gameet gr van de groene gerimpelde plant) × 4 rijen (GR, Gr, gR, gr) met vier erwten; 1 : 1 : 1 : 1",
+   "beweging": "rijen verschijnen één voor één",
+   "bieb": [
+    "kruisSchema"
+   ],
+   "nieuw": [],
+   "keyframe": null
+  },
+  {
+   "id": "s16",
+   "alinea": "Nu een fruitvliegje. Ook bij hem volg je twee genen tegelijk …",
+   "woorden": 48,
+   "level": "basis",
+   "cue": [
+    "fruitvliegje",
+    "grijs of zwart",
+    "normaal of stomp",
+    "dominant",
+    "Hoe kan dat"
+   ],
+   "look": "Macro (licht) → Schema",
+   "ziet": "grijs vliegje groot in bovenaanzicht (Schema-achtergrond, schaalstreep 1 millimeter); daarnaast de vier fenotypen klein; minivraag in Tekst",
+   "beweging": "vleugels trillen kort; poten lopen 3 stapjes (geen glijden)",
+   "bieb": [],
+   "nieuw": [
+    "fruitvlieg"
+   ],
+   "twijfel": "T3",
+   "keyframe": "keyframes/t3-fruitvlieg-nieuwe-tekening.webp"
+  },
+  {
+   "id": "s17",
+   "alinea": "Deze twee genen liggen op hetzelfde chromosoom. Bij dit vlie …",
+   "woorden": 33,
+   "level": "basis",
+   "cue": [
+    "hetzelfde chromosoom",
+    "grijs",
+    "normale",
+    "zwart"
+   ],
+   "look": "Schema",
+   "ziet": "één paar staafjes met twee genbanden boven elkaar: teal G naast V, oker g naast v",
+   "beweging": "de tweede genband verschijnt op hetzelfde staafje (dat is het nieuwe)",
+   "bieb": [
+    "paarGenen"
+   ],
+   "nieuw": [],
+   "keyframe": null
+  },
+  {
+   "id": "q18",
+   "alinea": "Bij de meiose gaat elk chromosoom in zijn geheel naar een ga …",
+   "woorden": 22,
+   "level": "basis",
+   "cue": [
+    "Wat denk je"
+   ],
+   "look": "Schema (vraagkaart)",
+   "ziet": "vraagkaart; erachter het paar gedimd",
+   "beweging": "aftelstreep",
+   "bieb": [],
+   "nieuw": [],
+   "keyframe": null
+  },
+  {
+   "id": "s19",
+   "alinea": "Twee soorten: gameten met grijs en normaal, en gameten met z …",
+   "woorden": 33,
+   "level": "basis",
+   "cue": [
+    "Twee soorten",
+    "helft",
+    "samen mee",
+    "gekoppelde genen"
+   ],
+   "look": "Schema",
+   "ziet": "meiose: het paar gaat uit elkaar, elk staafje in zijn geheel naar een gameetcel: GV en gv, elk ½; termkaart gekoppelde genen",
+   "beweging": "staafjes reizen in een boog naar twee gameetcellen",
+   "bieb": [
+    "gameetCel",
+    "staafGenen"
+   ],
+   "nieuw": [],
+   "keyframe": null
+  },
+  {
+   "id": "s20",
+   "alinea": "Welke allelen samen liggen, lees je af aan de ouders. Waren  …",
+   "woorden": 48,
+   "level": "basis",
+   "cue": [
+    "ouders",
+    "grijs en normaal samen",
+    "andersom",
+    "Hetzelfde genotype"
+   ],
+   "look": "Schema",
+   "ziet": "twee kolommen: links P grijs-normaal × zwart-stomp met hun staafjes → F1 G naast V; rechts P grijs-stomp × zwart-normaal → F1 G naast v",
+   "beweging": "de chromosomen van de ouders reizen naar de F1",
+   "bieb": [
+    "fruitvlieg",
+    "paarGenen"
+   ],
+   "nieuw": [],
+   "keyframe": "keyframes/k6-ligging-uit-de-ouders.webp"
+  },
+  {
+   "id": "s21",
+   "alinea": "Vergelijk de twee. Genen op verschillende chromosomen: vier  …",
+   "woorden": 35,
+   "level": "basis",
+   "cue": [
+    "Vergelijk",
+    "vier soorten",
+    "Gekoppelde",
+    "veel minder"
+   ],
+   "look": "Schema",
+   "ziet": "links de vier gameten van de erwtenplant, rechts de twee van het vliegje (de twee ontbrekende gedimd); annotatiehaak 'meestal samen'",
+   "bieb": [
+    "gameetChip",
+    "gameetCel"
+   ],
+   "nieuw": [],
+   "keyframe": null
+  },
+  {
+   "id": "s22",
+   "alinea": "Een kruisingsschema maakt het verschil zichtbaar. Kruis het  …",
+   "woorden": 39,
+   "level": "vwo",
+   "cue": [
+    "kruisingsschema",
+    "zwart vliegje",
+    "twee soorten",
+    "Eén staat"
+   ],
+   "look": "Schema",
+   "ziet": "terugkruising GV/gv × gv/gv als schema 1 × 2 met vliegjes in de vakjes; label MODEL · ZONDER CROSSING-OVER",
+   "beweging": "schema bouwt op",
+   "bieb": [
+    "kruisSchema",
+    "fruitvlieg"
+   ],
+   "nieuw": [],
+   "keyframe": null
+  },
+  {
+   "id": "s23",
+   "alinea": "Bij genen op verschillende chromosomen kreeg je vier soorten …",
+   "woorden": 34,
+   "level": "vwo",
+   "cue": [
+    "verschillende chromosomen",
+    "zoals bij de erwten",
+    "Twee soorten"
+   ],
+   "look": "Schema",
+   "ziet": "het 4-rijenschema van onafhankelijke genen schuift links naast het gekoppelde; in het gekoppelde staan de twee ontbrekende rijen gestippeld",
+   "beweging": "vergelijken: de lege rijen knipperen één keer",
+   "bieb": [
+    "kruisSchema"
+   ],
+   "nieuw": [],
+   "keyframe": "keyframes/k3-terugkruising-gekoppeld-vs-onafhankelijk.webp"
+  },
+  {
+   "id": "s24",
+   "alinea": "Kruis je twee van die vliegjes met elkaar, dan maakt elk maa …",
+   "woorden": 50,
+   "level": "vwo",
+   "cue": [
+    "met elkaar",
+    "twee soorten",
+    "vier vakjes",
+    "Drie staat",
+    "productregel"
+   ],
+   "look": "Schema",
+   "ziet": "F2: 2 × 2-schema met staafjes als gameten, vliegjes in de vakjes; 3 : 1 groot, 'in plaats van 9 : 3 : 3 : 1'; kaart 'Productregel per gen? Werkt niet' (koraal = let op)",
+   "bieb": [
+    "kruisSchema",
+    "staafGenen",
+    "fruitvlieg"
+   ],
+   "nieuw": [],
+   "keyframe": "keyframes/k4-f2-gekoppeld-drie-op-een.webp"
+  },
+  {
+   "id": "q25",
+   "alinea": "Nu een vliegje met grijs naast stomp, en zwart naast normaal …",
+   "woorden": 28,
+   "level": "vwo",
+   "cue": [
+    "Wat denk je"
+   ],
+   "look": "Schema (vraagkaart)",
+   "ziet": "vraagkaart met drie opties; erachter de staafjes G naast v / g naast V",
+   "beweging": "aftelstreep",
+   "bieb": [],
+   "nieuw": [],
+   "keyframe": null
+  },
+  {
+   "id": "s26",
+   "alinea": "Grijs met stompe vleugels, en zwart met normale. Dit vliegje …",
+   "woorden": 42,
+   "level": "vwo",
+   "cue": [
+    "Grijs met stompe",
+    "alleen",
+    "eerst",
+    "samen naar"
+   ],
+   "look": "Schema",
+   "ziet": "schema Gv/gV × gv/gv: twee rijen met de nakomelingen grijs-stomp en zwart-normaal; de staafjes reizen naar de gameten",
+   "bieb": [
+    "kruisSchema",
+    "staafGenen"
+   ],
+   "nieuw": [],
+   "keyframe": null
+  },
+  {
+   "id": "s27",
+   "alinea": "Toch zie je bij echte fruitvliegjes soms nieuwe combinaties. …",
+   "woorden": 42,
+   "level": "vwo",
+   "cue": [
+    "echte fruitvliegjes",
+    "vrouwtje",
+    "meeste",
+    "een paar"
+   ],
+   "look": "Schema",
+   "ziet": "vier staven veel · veel · weinig · weinig met elk een vliegje erop (zonder getallen); haak 'recombinanten' onder de twee kleine",
+   "beweging": "staven groeien; de twee kleine krijgen goud",
+   "bieb": [
+    "fruitvlieg"
+   ],
+   "nieuw": [],
+   "twijfel": "T4",
+   "keyframe": "keyframes/t4-crossing-over-veel-weinig.webp"
+  },
+  {
+   "id": "s28",
+   "alinea": "Dat komt door crossing-over. Bij de meiose liggen de homolog …",
+   "woorden": 41,
+   "level": "vwo",
+   "cue": [
+    "crossing-over",
+    "tegen elkaar",
+    "twee chromatiden",
+    "breken",
+    "uitwisselen"
+   ],
+   "look": "Micro (zoomcirkel van het vliegje naar een cel in de eierstok)",
+   "ziet": "homologe chromosomen tegen elkaar, elk met twee chromatiden (cdChromosoom, teal en oker), genbanden G/g boven, V/v onder; bij 'breken' een gouden ring tussen de genen",
+   "beweging": "de twee binnenste chromatiden kruisen en ruilen hun onderste stuk (morph, geruild stuk aan de kant van de homoloog)",
+   "bieb": [
+    "cdChromosoom (Celdeling 2.0)"
+   ],
+   "nieuw": [],
+   "keyframe": null
+  },
+  {
+   "id": "s29",
+   "alinea": "Valt die uitwisseling tussen de twee genen, dan ontstaan twe …",
+   "woorden": 47,
+   "level": "vwo",
+   "cue": [
+    "tussen de twee genen",
+    "grijs naast stomp",
+    "vier",
+    "recombinanten"
+   ],
+   "look": "Micro → Schema",
+   "ziet": "de vier chromatiden gaan naar vier gameetcellen: oud · nieuw · nieuw · oud; haak 'recombinanten'",
+   "beweging": "meiose I en II grof: eerst twee, dan vier cellen",
+   "bieb": [
+    "gameetCel",
+    "staafGenen"
+   ],
+   "nieuw": [],
+   "keyframe": "keyframes/k5-crossing-over-chromatiden.webp"
+  },
+  {
+   "id": "s30",
+   "alinea": "Niet in elke cel valt zo'n uitwisseling tussen deze twee gen …",
+   "woorden": 39,
+   "level": "vwo",
+   "cue": [
+    "Niet in elke cel",
+    "minderheid",
+    "kleinere kans",
+    "verbreekt"
+   ],
+   "look": "Schema",
+   "ziet": "gametenkolom van het vrouwtje met rijhoogte naar kans: GV en gv breed (grote kans), Gv en gV smal (kleine kans), gekoppeld aan de staven van s27",
+   "beweging": "rijen krimpen/groeien tot hun hoogte",
+   "bieb": [
+    "kruisSchema (rijen ongelijk)"
+   ],
+   "nieuw": [],
+   "twijfel": "T4",
+   "keyframe": "keyframes/t4-crossing-over-veel-weinig.webp"
+  },
+  {
+   "id": "s31",
+   "alinea": "Terug naar de peul. Genen op verschillende chromosomen worde …",
+   "woorden": 55,
+   "level": "basis",
+   "cue": [
+    "peul",
+    "onafhankelijk",
+    "vier soorten",
+    "gele, gerimpelde",
+    "gekoppeld",
+    "meestal"
+   ],
+   "look": "Macro → Schema",
+   "ziet": "terug naar Opa Henk met de peulen (kort), dan links de vier gameten van de erwtenplant, rechts de twee van het vliegje, met een kernwoord in de kast per helft",
+   "bieb": [
+    "persoon('henk')",
+    "gameetChip"
+   ],
+   "nieuw": [],
+   "keyframe": null
+  },
+  {
+   "id": "s32",
+   "alinea": "Bij onafhankelijke genen geeft het kruisingsschema negen sta …",
+   "woorden": 32,
+   "level": "vwo",
+   "cue": [
+    "onafhankelijke genen",
+    "gekoppelde genen",
+    "crossing-over"
+   ],
+   "look": "Schema",
+   "ziet": "klein: 4 × 4-schema (9:3:3:1), 2 × 2 (3:1) en de smalle recombinant-rijen naast elkaar",
+   "bieb": [],
+   "nieuw": [],
+   "keyframe": null
+  },
+  {
+   "id": "s33",
+   "alinea": "In de volgende film: wat er gebeurt als een gen op het X-chr …",
+   "woorden": 14,
+   "level": "basis",
+   "cue": [
+    "volgende film"
+   ],
+   "look": "Schema",
+   "ziet": "vooruitblik: een X-chromosoom (staafje) met één genband; label 'volgende film'",
+   "bieb": [],
+   "nieuw": [],
+   "keyframe": null
+  },
+  {
+   "id": "end",
+   "look": "Schema",
+   "ziet": "eindkaart: drie kernzinnen met annotatiehaak (de derde met vwo-label)",
+   "bieb": [],
+   "nieuw": [],
+   "keyframe": null
+  }
+ ],
+ "telling": {
+  "gesproken alinea's": 28,
+  "vragen": 4,
+  "scènes totaal": 34,
+  "woorden basis": 586,
+  "woorden vwo": 562,
+  "gesproken duur": "basis ± 4:05, vwo ± 8:00 spraak (2,4 woord/s; 'grote G' e.d. tellen als woorden); speeltijd met vragen, titel en hoofdstukkaarten havo ± 4:35, vwo ± 8:50 (oud 4:22, alles vwo)"
+ }
+}

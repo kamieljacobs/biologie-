@@ -1,0 +1,182 @@
+{
+ "intro": "Oefen met de grote lijn van het leven op aarde. Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-grote-lijn",
+   "soort": "volgorde",
+   "titel": "Van bacterie tot dinosauriër",
+   "opdracht": "Zet de gebeurtenissen uit de film in de goede volgorde, van oud naar jong.",
+   "stappen": [
+    {
+     "tekst": "Cyanobacteriën beginnen met fotosynthese en maken zuurstof.",
+     "uitleg": "Ongeveer 3 miljard jaar geleden."
+    },
+    {
+     "tekst": "De zuurstof in de lucht schiet omhoog.",
+     "uitleg": "Rond 2,4 miljard jaar geleden, als de zee leeggeroest is."
+    },
+    {
+     "tekst": "Er verschijnt een cel met een kern en mitochondriën.",
+     "uitleg": "Ongeveer 2 miljard jaar geleden, door endosymbiose."
+    },
+    {
+     "tekst": "De eerste afdrukken van zachte, meercellige wezens.",
+     "uitleg": "Rond 600 miljoen jaar geleden, in Australië en Canada."
+    },
+    {
+     "tekst": "De Cambrische explosie: ogen, poten, schelpen en kaken.",
+     "uitleg": "Rond 540 miljoen jaar geleden."
+    },
+    {
+     "tekst": "De eerste planten op het land.",
+     "uitleg": "Rond 470 miljoen jaar geleden, nadat de ozonlaag de UV-straling tegenhield."
+    },
+    {
+     "tekst": "Een inslag bij Mexico: alle dinosauriërs weg, behalve de vogels.",
+     "uitleg": "66 miljoen jaar geleden. Daarna waaierden de zoogdieren uit."
+    }
+   ]
+  },
+  {
+   "id": "pijlen-zuurstof-ijzer",
+   "soort": "pijlen",
+   "titel": "Waar bleef de zuurstof?",
+   "opdracht": "Voorspel wat er gebeurt in de eerste honderden miljoenen jaren nadat cyanobacteriën zuurstof gaan maken.",
+   "situatie": "Cyanobacteriën doen aan fotosynthese. De oerzee zit vol opgelost ijzer.",
+   "rijen": [
+    {
+     "naam": "Zuurstof die in de zee lekt",
+     "antwoord": "+",
+     "uitleg": "Zuurstof is het afval van fotosynthese."
+    },
+    {
+     "naam": "Opgelost ijzer in de zee",
+     "antwoord": "-",
+     "uitleg": "IJzer reageert gretig met zuurstof: het roest."
+    },
+    {
+     "naam": "Roestlagen op de zeebodem",
+     "antwoord": "+",
+     "uitleg": "De roest zinkt naar de bodem: gebande ijzerformaties."
+    },
+    {
+     "naam": "Zuurstof in de lucht, zolang er nog ijzer in de zee is",
+     "antwoord": "=",
+     "uitleg": "Elk zuurstofmolecuul wordt weggevangen. Honderden miljoenen jaren verandert er niets in de lucht."
+    },
+    {
+     "naam": "Zuurstof in de lucht, als de zee leeggeroest is",
+     "antwoord": "+",
+     "uitleg": "Rond 2,4 miljard jaar geleden blijft zuurstof over en vult de lucht zich."
+    }
+   ]
+  },
+  {
+   "id": "puzzel-jaar-van-de-aarde",
+   "soort": "puzzel",
+   "titel": "Puzzel: het jaar van de aarde",
+   "opdracht": "Stel dat de 4,5 miljard jaar van de aarde één jaar van 365 dagen zijn. Reken uit waar gebeurtenissen in dat jaar vallen.",
+   "stappen": [
+    {
+     "vraag": "Hoeveel miljoen jaar is één dag in dit jaar?",
+     "velden": [
+      {
+       "label": "één dag =",
+       "antwoord": 12.3,
+       "marge": 0.2,
+       "eenheid": "miljoen jaar"
+      }
+     ],
+     "uitleg": "4500 miljoen jaar gedeeld door 365 dagen is ongeveer 12,3 miljoen jaar per dag.",
+     "tip": "4,5 miljard is 4500 miljoen."
+    },
+    {
+     "vraag": "De inslag was 66 miljoen jaar geleden. Hoeveel dagen vóór het eind van het jaar is dat?",
+     "velden": [
+      {
+       "label": "dagen:",
+       "antwoord": 5.4,
+       "marge": 0.3
+      }
+     ],
+     "uitleg": "66 gedeeld door 12,3 is ongeveer 5,4 dagen. Dat is rond 26 december, zoals in de film."
+    },
+    {
+     "vraag": "Hoeveel jaar is één minuut in dit jaar?",
+     "velden": [
+      {
+       "label": "één minuut =",
+       "antwoord": 8562,
+       "marge": 150,
+       "eenheid": "jaar"
+      }
+     ],
+     "uitleg": "Eén dag heeft 1440 minuten. 12,3 miljoen jaar gedeeld door 1440 is ongeveer 8600 jaar per minuut.",
+     "tip": "Een dag heeft 24 × 60 minuten."
+    },
+    {
+     "vraag": "Homo sapiens verschijnt 300.000 jaar geleden. Hoeveel minuten vóór middernacht op 31 december is dat?",
+     "velden": [
+      {
+       "label": "minuten:",
+       "antwoord": 35,
+       "marge": 2
+      }
+     ],
+     "uitleg": "300.000 gedeeld door ongeveer 8600 is ongeveer 35 minuten: 31 december, 23.25 uur."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-endosymbiose",
+   "soort": "uitleg",
+   "titel": "Mitochondriën waren bacteriën",
+   "opdracht": "Mitochondriën hebben eigen DNA in een ring, delen zich zelfstandig en zijn even groot als bacteriën. Leg uit hoe ze zijn ontstaan en welk voordeel dat had.",
+   "begrippen": [
+    {
+     "naam": "endosymbiose",
+     "varianten": []
+    },
+    {
+     "naam": "bacterie",
+     "varianten": [
+      "bacteriën"
+     ]
+    },
+    {
+     "naam": "opgenomen",
+     "varianten": [
+      "opnam",
+      "opnemen"
+     ]
+    },
+    {
+     "naam": "zuurstof",
+     "varianten": []
+    },
+    {
+     "naam": "energie",
+     "varianten": []
+    },
+    {
+     "naam": "chloroplast",
+     "varianten": [
+      "chloroplasten",
+      "bladgroenkorrel"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat een grote cel ooit een bacterie opnam zonder haar te verteren.",
+    "Ik noem dat ringvormig DNA, zelfstandig delen en de grootte passen bij een bacterie.",
+    "Ik leg uit dat beide er voordeel van hadden: de grote cel energie, de bacterie bescherming en voedsel.",
+    "Ik noem dat chloroplasten op dezelfde manier ontstonden uit een cyanobacterie."
+   ],
+   "model": [
+    "Ooit nam een grote cel een kleine bacterie op en verteerde haar niet. Dat heet endosymbiose. Daarom lijken mitochondriën nog op bacteriën: eigen DNA in een ring, zelfstandig delen, dezelfde grootte.",
+    "De bacterie kon zuurstof gebruiken om energie te maken, precies het gif dat toen overal lag. De grote cel kreeg energie, de bacterie bescherming en voedsel. Cellen met zo'n gast deelden sneller, dus na veel generaties had iedereen er een.",
+    "Plantencellen deden het nog een keer, met een cyanobacterie: dat werd de chloroplast."
+   ]
+  }
+ ]
+}

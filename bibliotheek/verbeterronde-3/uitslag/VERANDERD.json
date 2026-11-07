@@ -1,0 +1,21 @@
+{
+ "datum": "2026-10-28",
+ "toelichting": "Objecten die na Kamiels keuze (verbeterronde 3) nog zijn aangepast, ingebouwd in lib_bio.js. voor.png = de gekozen versie zoals gekozen, na.png = zoals nu in de bibliotheek (1280×720).",
+ "objecten": [
+  {"groep": "genregulatie", "obj": "methylgroep", "keuze": "W", "functies": ["methylgroep", "_mgCH3", "_mgDuo", "MG2"],
+   "voor": "bibliotheek/verbeterronde-3/uitslag/methylgroep/voor.png", "na": "bibliotheek/verbeterronde-3/uitslag/methylgroep/na.png",
+   "wat": "CH3 groen (#8CCB5E) in plaats van koraal; transcriptiefactor grijs (#7A8BA8) in plaats van grijsgroen."},
+  {"groep": "voortplanting", "obj": "embryoecht", "keuze": "DEF", "functies": ["embryoEcht", "placentaDoorsnede", "bioNavelstreng", "vrouwOrganenVoor"],
+   "voor": "bibliotheek/verbeterronde-3/uitslag/embryoecht/voor.png", "na": "bibliotheek/verbeterronde-3/uitslag/embryoecht/na.png",
+   "wat": "Navelstreng: twee slagaders blauw, ader rood (kleur volgt zuurstof); ook placentaDoorsnede (kleurO2 false) en vrouwOrganenVoor (bioNavelstreng)."},
+  {"groep": "eiwitten", "obj": "hivVirus", "keuze": "kralenketen", "functies": ["hivVirus", "_rnaTikjes"],
+   "voor": "bibliotheek/verbeterronde-3/uitslag/hivVirus/voor.png", "na": "bibliotheek/verbeterronde-3/uitslag/hivVirus/na.png",
+   "wat": "Virus-RNA teal met basen in palet B (was paars)."},
+  {"groep": "eiwitten", "obj": "tHelperCel", "keuze": "kralenketen", "functies": ["tHelperCel", "_rnaTikjes"],
+   "voor": "bibliotheek/verbeterronde-3/uitslag/tHelperCel/voor.png", "na": "bibliotheek/verbeterronde-3/uitslag/tHelperCel/na.png",
+   "wat": "Virus-RNA in de geïnfecteerde cel teal met basen in palet B (was paars)."},
+  {"groep": "dna", "obj": "vork", "keuze": "aanpassing", "functies": ["vorkTeken", "d2Base"],
+   "voor": "bibliotheek/verbeterronde-3/uitslag/vork/voor.png", "na": "bibliotheek/verbeterronde-3/uitslag/vork/na.png",
+   "wat": "Elke base één staafje van gelijke dikte (dx/2) met spleet; geen puzzelvorm meer in de vork (die liep bij dx ≥ 22 in de buren over)."}
+ ]
+}

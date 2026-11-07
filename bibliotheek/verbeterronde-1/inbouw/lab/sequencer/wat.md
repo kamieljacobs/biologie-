@@ -1,0 +1,1 @@
+- Basis: variant C (Sanger-keten met capillair, laser/detector en chromatogram, apparaat naast Kim, NGS-reads met variant). Geen fouten gemeld, geen opmerking: ongewijzigd overgenomen.

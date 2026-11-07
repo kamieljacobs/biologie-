@@ -1,0 +1,89 @@
+{
+ "slug": "labtechniek-1-preparaat-en-microscoop",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Preparaat en microscoop",
+ "sub": "kleuren, snijden, scherpstellen",
+ "puzzle": "Waarom zie je onder de microscoop zonder kleuring bijna niets?",
+ "meta": "laboratoriumtechniek · microscopie",
+ "alleen": "havo · vwo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Laboratoriumtechniek",
+ "lead": "Yasmin loopt stage als analist in een onderzoekslab. Ze legt een druppel kweekcellen onder de microscoop en ziet bijna niets. Hoe kan dat? Dat ontdek je in de film. Je leert scherpstellen, de vergroting uitrekenen en waar de grens van licht ligt (ongeveer 0,2 micrometer). Je ziet waarom een preparaat wordt gefixeerd, ingebed, flinterdun gesneden en gekleurd, hoe fluorescentie één eiwit laat oplichten en wat een elektronenmicroscoop meer laat zien. Tot slot meet je een cel met een geijkt liniaaltje en tel je cellen in een telkamer.",
+ "endHaak": "wat zou jij als eerste onder een microscoop willen leggen, en hoe maak je het zichtbaar?",
+ "minis": {
+  "Hoofdstuk 1 — Scherpstellen en de grens van licht": "Waarom helpt groter maken na 1000× niet meer?",
+  "Hoofdstuk 2 — Een preparaat maken": "Waarom snijd je een plakje van 4 micrometer?",
+  "Hoofdstuk 3 — Verder inzoomen: fluorescentie en elektronen": "Welke microscoop gebruik je voor een levende cel?",
+  "Hoofdstuk 4 — Meten en tellen": "Hoeveel cellen zitten er in een milliliter?",
+  "Recap": "Waarom zag Yasmin bijna niets?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personage: Yasmin als stagiair-analist (castboek). Tekeningen van microtoom, potje en kleurbakjes uit Wat de patholoog ziet. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Yasmin ziet in een druppel kweekcellen bijna niets. Hoe kan dat?",
+   "correct": 2,
+   "explain": "Ongekleurde cellen bestaan vooral uit water en houden bijna geen licht tegen: er is te weinig contrast. Te klein zijn ze niet; met deze microscoop zie je cellen van 20 micrometer prima, als er contrast is."
+  },
+  "q05": {
+   "q": "Bij 1000× maakt Yasmin het beeld nog twee keer zo groot. Wat ziet ze?",
+   "correct": 1,
+   "explain": "Lege vergroting: het oplossend vermogen (± 0,2 µm) blijft hetzelfde, dus een wazige vlek wordt alleen een grotere wazige vlek. Ribosomen (± 25–30 nm) zie je met een gewone lichtmicroscoop niet los."
+  },
+  "q08": {
+   "q": "Waarom snijdt Yasmin plakjes van ongeveer 4 micrometer?",
+   "correct": 0,
+   "explain": "Een levercel is 20–30 µm; in een plakje van 4 µm kijk je door één laag doorgesneden cellen in plaats van door een stapel. Bederven voorkom je al met fixeren."
+  },
+  "q11": {
+   "q": "Yasmin wil mitochondriën zien bewegen in een levende cel. Welke microscoop kiest ze?",
+   "correct": 1,
+   "explain": "Een coupe en een EM-preparaat zijn gefixeerd en dus dood. Een levende cel kan zelf een lichtgevend label maken (bv. GFP) als het gen is ingebouwd; met een fluorescentiemicroscoop zie je de mitochondriën dan bewegen."
+  },
+  "q14": {
+   "q": "In een vierkant van 1 × 1 mm (0,1 mm diep) telt Yasmin 50 cellen. Hoeveel per milliliter?",
+   "correct": 2,
+   "explain": "1 × 1 × 0,1 mm³ = 0,1 µL. 50 / 0,1 µL = 500 per µL; × 1000 µL per mL = 500 000 per mL."
+  }
+ },
+ "glossary": [
+  {
+   "t": "contrast",
+   "d": "Verschil in licht en donker (of kleur) tussen een structuur en zijn omgeving; zonder contrast zie je geen vorm, hoe groot je ook vergroot."
+  },
+  {
+   "t": "vergroting",
+   "d": "Hoeveel keer groter het beeld is dan het voorwerp: vergroting van het oculair × vergroting van het objectief (bv. 10 × 40 = 400×)."
+  },
+  {
+   "t": "oplossend vermogen",
+   "d": "De kleinste afstand waarop je twee punten nog los van elkaar ziet; bij een gewone lichtmicroscoop ongeveer 0,2 micrometer."
+  },
+  {
+   "t": "lege vergroting",
+   "d": "Vergroten voorbij wat het oplossend vermogen toelaat: het beeld wordt groter, maar je ziet geen extra details."
+  },
+  {
+   "t": "fixeren",
+   "d": "Weefsel vastzetten, bijvoorbeeld met formaline, die eiwitten aan elkaar knoopt; de cellen blijven in vorm en worden niet meer afgebroken door enzymen of bacteriën."
+  },
+  {
+   "t": "coupe",
+   "d": "Een flinterdun gesneden en gekleurd plakje weefsel op een glaasje, voor de lichtmicroscoop meestal 3–5 micrometer dik, gesneden met een microtoom."
+  },
+  {
+   "t": "HE-kleuring",
+   "d": "Standaardkleuring met hematoxyline (kleurt kernen blauwpaars: DNA en RNA) en eosine (kleurt eiwitten in de rest van de cel roze)."
+  },
+  {
+   "t": "fluorescentie",
+   "d": "Een stof (label) neemt licht van één kleur op en geeft licht van een andere kleur af; met een filter zie je alleen dat licht, zodat één stof oplicht tegen een donkere achtergrond."
+  },
+  {
+   "t": "elektronenmicroscoop",
+   "d": "Microscoop die elektronen gebruikt in plaats van licht en details van ongeveer een nanometer laat zien; werkt in vacuüm, dus met dode preparaten; voor de gewone (transmissie-)elektronenmicroscoop gefixeerd en ultradun gesneden."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Een leerling ziet in een ongekleurd preparaat van wangslijmvlies bijna niets en zet de microscoop daarom op een sterker objectief. Leg uit waarom dat weinig helpt en wat wel helpt. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>De cellen zijn niet te klein maar bijna doorzichtig: er is te weinig contrast, en meer vergroting verandert dat niet (1p). Wel helpt: kleuren (bv. met methyleenblauw), of minder licht / het diafragma dichter (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Een microscoop heeft een oculair van 10× en objectieven van 4×, 10×, 40× en 100×. Bereken de grootste vergroting en leg uit waarom een oculair van 20× bij dat objectief geen extra detail oplevert. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>10 × 100 = 1000× (1p). Het oplossend vermogen (± 0,2 µm) ligt vast door het licht en het objectief; 2000× is lege vergroting: groter, maar niet scherper (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Noem de stappen van stukje weefsel tot gekleurde coupe en geef bij elke stap waarom die nodig is. <span class=\"pts\">(4p)</span></p>\n<details><summary>Antwoord</summary><p>Fixeren (formaline): eiwitten vastgeknoopt, cellen blijven in vorm en worden niet afgebroken (1p). Ontwateren en inbedden in paraffine: stevig genoeg om te snijden (1p). Snijden met een microtoom, ± 4 µm: één laag cellen, geen stapel (1p). Kleuren (HE): contrast; kernen blauwpaars, de rest roze (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Een onderzoeker wil weten (a) hoe de cristae in een mitochondrion eruitzien en (b) hoe snel mitochondriën in een levende zenuwcel bewegen. Welke microscoop kiest hij voor (a) en voor (b)? Leg uit. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>(a) Elektronenmicroscoop: cristae liggen dichter bij elkaar dan 0,2 µm, de elektronenmicroscoop toont details van ± 1 nm (1p). (b) Fluorescentiemicroscoop met een label dat de cel zelf maakt: de elektronenmicroscoop werkt alleen met dode cellen (1p).</p></details></div>\n<div class=\"q\"><p><b>5.</b> Bij objectief 10× valt 400 µm van de objectmicrometer precies over 40 streepjes van het oculair. Een pantoffeldiertje is 22 streepjes lang. Bereken de lengte. Mag je bij objectief 40× dezelfde waarde per streepje gebruiken? <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>1 streepje = 400 / 40 = 10 µm (1p); 22 × 10 = 220 µm (1p). Nee: bij 40× bestrijkt één streepje een vier keer zo klein stukje van het preparaat (± 2,5 µm); je moet opnieuw ijken (1p).</p></details></div>\n<div class=\"q\"><p><b>6.</b> Een kweek wordt 1 op 1 gemengd met trypaanblauw. In een vierkant van 1 × 1 mm van een telkamer (0,1 mm diep) tel je gemiddeld 80 levende cellen. Bereken het aantal levende cellen per mL in de kweek. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>80 / 0,1 µL = 800 per µL = 800 000 per mL in het mengsel (1p); × 2 voor de verdunning = 1 600 000 per mL in de kweek (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Film 1 van 4 in <i>Wat word jij?</i> → Laboratoriumtechniek (mbo · hbo). Yasmin loopt in de hele reeks stage als analist; hier in een onderzoekslab, in film 2–4 in het ziekenhuislab. Bouwt voort op <i>Celorganellen</i> (wát er in een cel zit; veel van die beelden komen uit de elektronenmicroscoop), <i>Van molecuul tot biosfeer</i> en <i>Onderzoek doen</i>. <i>Wat de patholoog ziet</i> (Geneeskunde) toont de keten biopt → coupe → diagnose; deze film laat het werk van de analist zien en het waarom van elke stap. Bewust niet in deze film: bloedcellen tellen (film 3), Gramkleuring en verdunningsreeksen (film 4).</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>Cold open</b>: een druppel ongekleurde kweekcellen geeft bijna niets te zien.</li>\n<li><b>H1</b> waarom: weinig contrast; scherpstellen (kleinste objectief, grote schroef, dan fijne schroef); vergroting = oculair × objectief; oplossend vermogen ± 0,2 µm (twee puntjes die samensmelten); lege vergroting.</li>\n<li><b>H2</b> preparaat: fixeren (eiwitten vastgeknoopt, enzymen en bacteriën buitenspel), ontwateren, inbedden in paraffine, snijden met de microtoom op ± 4 µm (op schaal naast levercellen van ± 25 µm), HE-kleuring van een levercoupe (kernen blauwpaars, rest roze).</li>\n<li><b>H3</b> fluorescentie met een antistof met label (excitatie, emissie, filter) en de elektronenmicroscoop (elektronen, vacuüm, ± 1 nm, zware metalen, dode cellen); vraag: levende cel → eigen lichtgevend label.</li>\n<li><b>H4</b> oculairmicrometer ijken met een objectmicrometer (100 µm = 40 streepjes → 2,5 µm per streepje; cel van 8 streepjes = 20 µm), telkamer (1 × 1 × 0,1 mm = 0,1 µL; 50 cellen → 500 000 per mL).</li>\n<li><b>Recap</b> drie manieren om contrast te maken; opleidingen en werkplekken.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Ongekleurde cellen</td><td>bijna doorzichtig, weinig contrast</td><td>University of Leeds, Guide to Histology, 'What is H&amp;E?'</td></tr>\n<tr><td>Oplossend vermogen lichtmicroscoop</td><td>± 0,2 µm</td><td>Lodish e.a., Molecular Cell Biology 8e (h. 4); Leica Microsystems, 'Beware of empty magnification' (0,24 µm bij 550 nm)</td></tr>\n<tr><td>Nuttige vergroting</td><td>tot ± 1000× (olie-objectief); 2000× = lege vergroting</td><td>Leica: 500–1000 × NA; bij NA 1,4 tot ± 1400×, dus 2000× is lege vergroting</td></tr>\n<tr><td>Scherpstellen</td><td>kleinste objectief en grote schroef; daarna alleen fijne schroef</td><td>Microbehunter, 'Why should I not use the coarse focus knob for high-power objectives?'</td></tr>\n<tr><td>Fixeren</td><td>formaline knoopt eiwitten (en nucleïnezuren) aan elkaar; stopt afbraak door enzymen en bacteriën</td><td>JoVE Science Education, 'Fixation and sectioning'</td></tr>\n<tr><td>Coupedikte</td><td>± 4 µm (3–5 µm)</td><td>JoVE (idem)</td></tr>\n<tr><td>Levercel (hepatocyt)</td><td>20–30 µm ('zo'n vijf keer dikker')</td><td>Atlas of plant and animal histology, Universidade de Vigo, 'Hepatocyte'</td></tr>\n<tr><td>HE-kleuring</td><td>hematoxyline (met aluminiumbeits) kleurt DNA/RNA blauwpaars; eosine kleurt eiwitten roze</td><td>University of Leeds (idem)</td></tr>\n<tr><td>Elektronenmicroscoop</td><td>± 1 nm in coupes; ultradunne coupes 50–100 nm; osmium, uranylacetaat, lood; vacuüm</td><td>Uppsala University, BioVis, 'Transmission electron microscopy'; Wikipedia 'Ultramicrotomy'</td></tr>\n<tr><td>Ribosoom</td><td>± 25–30 nm, dus onder de grens van licht</td><td>BioNumbers 100483</td></tr>\n<tr><td>Lichtgevend label in een levende cel</td><td>gen van een fluorescerend eiwit (GFP) ingebouwd</td><td>Nobelprize.org, Chemistry 2008, 'Illuminating biology'</td></tr>\n<tr><td>Telkamer</td><td>diepte 0,1 mm, grote vierkanten 1 mm² → 0,1 µL</td><td>Bürker-telkamer, productinformatie (Faust); rekensom eigen</td></tr>\n<tr><td>Oculairmicrometer</td><td>ijken met objectmicrometer, per objectief opnieuw; 40 streepjes per 100 µm is een rekenvoorbeeld</td><td>CDC job aid 'Calibration of ocular micrometer'</td></tr>\n<tr><td>mbo</td><td>Biologisch-medisch analist, niveau 4, 4 jaar (BOL), o.a. crebo 25953; eerste 2,5 jaar gedeeld met de andere laboratoriumopleidingen (laborant, chemisch-fysisch analist)</td><td>Noorderpoort, opleidingspagina Biologisch-medisch analist BOL; Curio OER 25953</td></tr>\n<tr><td>hbo</td><td>Biologie en medisch laboratoriumonderzoek (BML), 240 EC, 4 jaar; o.a. HAN, Hogeschool Leiden, Hanze, NHL Stenden, Hogeschool Rotterdam</td><td>studiekeuze123.nl (HAN, opleiding 1486)</td></tr>\n<tr><td>Werkvelden</td><td>ziekenhuizen, bedrijven (farmacie, voedsel), onderzoeksinstituten, voedsel- en milieulabs</td><td>studiekeuze123.nl; Noorderpoort</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul><li>Levende, ongekleurde kweekcellen bekijkt een analist in het echt meestal met een fasecontrastmicroscoop, die verschillen in brekingsindex omzet in contrast. De film noemt dat niet; de kern (weinig lichtabsorptie = weinig contrast) blijft gelijk.</li>\n<li>'Zie je met licht als één vlek' en 'het blijft wel licht, dus de grens van 0,2 micrometer blijft ook' (bij fluorescentie) gelden voor gewone lichtmicroscopie. Superresolutiemicroscopie (o.a. STED, PALM; Nobelprijs scheikunde 2014) gaat met fluorescentie onder de 0,2 µm.</li>\n<li>Bij het inbedden is de tussenstap met xyleen (tussen alcohol en paraffine) weggelaten; ook het ontparaffineren vóór het kleuren.</li>\n<li>Hematoxyline bindt via een metaalbeits (aluminium) aan de negatief geladen fosfaatgroepen van DNA en RNA; eosine (negatief geladen) bindt aan positief geladen eiwitten. De film zegt 'hecht aan DNA en RNA' en 'hecht aan eiwitten'.</li>\n<li>Het EM-preparaat wordt in hars ingebed (niet in paraffine) en met een diamantmes gesneden; alleen 'veel dunner gesneden' staat in de stem. Veel dunner (50–100 nm) is nodig omdat elektronen maar door een heel dun laagje heen komen; dat volgt niet uit het vacuüm, al zegt de stem 'dus'. Cryo-elektronenmicroscopie gebruikt bevroren in plaats van gefixeerde preparaten; ook die cellen leven niet.</li>\n<li>Bij de telkamer zijn verdunning (bv. 1 : 1 met trypaanblauw om dode cellen blauw te kleuren) en telregels (welke randcellen tellen) weggelaten; zie checkvraag 6. De verdunningsreeks komt in film 4.</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Laat leerlingen eerst een ongekleurd wangslijmvliespreparaat bekijken, en daarna hetzelfde met methyleenblauw: de cold open in het echt.</li>\n<li>Laat leerlingen hun oculairmicrometer ijken bij twee objectieven en de waarden vergelijken.</li>\n<li>Gisttelling met een telkamer: laat elk groepje een ander vierkant tellen en bespreek de spreiding.</li></ul>\n</section>\n"
+}

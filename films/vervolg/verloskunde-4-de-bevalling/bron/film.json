@@ -1,0 +1,80 @@
+{
+ "slug": "verloskunde-4-de-bevalling",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "De bevalling",
+ "sub": "van eerste wee tot eerste ademteug",
+ "puzzle": "Een baby ademt negen maanden niet. Wat verandert er in zijn hart bij de eerste ademteug?",
+ "meta": "verloskunde · bevalling en geboorte",
+ "alleen": "vwo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Verloskunde",
+ "lead": "Esra bevalt thuis van haar dochter Lina, met Verloskundige Mirjam erbij. Van het bevalplan, de ontsluiting en een hoofd dat een kwartslag draait, via het luisteren naar het hart tijdens de weeën, tot de eerste ademteug en de placenta die volgt.",
+ "endHaak": "welk moment van een bevalling lijkt jou het spannendst voor een verloskundige?",
+ "minis": {
+  "Hoofdstuk 1": "Welke keuzes staan in een bevalplan?",
+  "Hoofdstuk 2": "Waarom draait het hoofd van het kind?",
+  "Hoofdstuk 3": "Waarom luistert de verloskundige naar het hart?",
+  "Hoofdstuk 4": "Waarom gaan de kortsluitingen dicht?",
+  "Hoofdstuk 5": "Waarom bloedt een moeder na de placenta niet leeg?",
+  "Recap": "Wat verandert er bij de eerste ademteug?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Verloskundige Mirjam, Esra en baby Lina (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Wat moet er bij de eerste ademteug in het hart van de baby veranderen?",
+   "correct": 1,
+   "explain": "De twee kortsluitingen, het foramen ovale en de ductus Botalli, moeten dicht, zodat het bloed door de longen gaat."
+  },
+  "q09": {
+   "q": "De ingang van het bekken is breed van links naar rechts, de uitgang van voor naar achter. Wat doet het hoofd?",
+   "correct": 0,
+   "explain": "Het hoofd draait een kwartslag en buigt de kin op de borst, zodat het steeds met de kleinste omtrek door de breedste richting gaat."
+  },
+  "q17": {
+   "q": "Waarom bloedt een moeder niet leeg uit de plek waar de placenta vastzat?",
+   "correct": 2,
+   "explain": "De baarmoeder trekt samen; de kriskras lopende spiervezels knijpen de bloedvaten dicht. Oxytocine helpt daarbij."
+  }
+ },
+ "glossary": [
+  {
+   "t": "bevalplan",
+   "d": "Afspraken over waar je bevalt (thuis, geboortecentrum, ziekenhuis) en hoe je met pijn omgaat."
+  },
+  {
+   "t": "ruggenprik",
+   "d": "Verdoving via de rug van de zenuwen die de pijn van de baarmoeder naar het ruggenmerg brengen; alleen in het ziekenhuis, onder zorg van de gynaecoloog."
+  },
+  {
+   "t": "ontsluiting",
+   "d": "Eerste fase van de bevalling: de baarmoederhals wordt korter en gaat open tot tien centimeter."
+  },
+  {
+   "t": "uitdrijving",
+   "d": "Fase na volledige ontsluiting waarin de moeder perst en het kind geboren wordt."
+  },
+  {
+   "t": "harttonen",
+   "d": "De hartslag van het kind, normaal tussen 110 en 160 per minuut; bewaakt tijdens de bevalling omdat het kind tijdens een wee minder zuurstof krijgt."
+  },
+  {
+   "t": "foramen ovale",
+   "d": "Opening met een klepje tussen de boezems van het ongeboren kind; wordt bij de geboorte dichtgeduwd door de hogere druk links."
+  },
+  {
+   "t": "ductus Botalli",
+   "d": "Bloedvat tussen longslagader en aorta bij het ongeboren kind; knijpt in de eerste dagen na de geboorte samen."
+  },
+  {
+   "t": "Apgar-score",
+   "d": "Score na één en vijf minuten: hartslag, ademhaling, spierspanning, reactie en kleur, elk 0, 1 of 2 punten."
+  },
+  {
+   "t": "nageboorte",
+   "d": "De placenta, die na het kind geboren wordt; daarna knijpt de baarmoeder de bloedvaten van de placentaplek dicht."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Waarom moet een vrouw die een ruggenprik wil naar het ziekenhuis? <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Bij een ruggenprik moeten moeder en kind continu gecontroleerd worden (1p); dat gebeurt in de tweede lijn, de gynaecoloog neemt de zorg over (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Leg uit waarom de hartslag van het kind tijdens een wee kan dalen, en wanneer dat zorgelijk is. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>De samentrekkende baarmoeder knijpt de slagaders naar de placenta dicht (1p), waardoor het kind even minder zuurstof krijgt (1p). Zorgelijk als de hartslag na de wee slecht herstelt (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Leg uit waarom het foramen ovale na de eerste ademteug sluit. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Door de ontplooide longen stroomt veel meer bloed door de longen (1p), dat terugkomt in de linkerboezem, waar de druk hoger wordt dan rechts (1p). Het klepje kan maar één kant op open en wordt dichtgeduwd (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Waarom bloedt een moeder na de geboorte van de placenta niet leeg? <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>De baarmoederspier trekt samen (1p); de kriskras lopende spiervezels knijpen de bloedvaten van de placentaplek dicht, geholpen door oxytocine (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Extra film buiten het PTA op <i>Wat word jij?</i> → Verloskunde, deel 4 van vijf. De reeks volgt één cliënte, Esra (nieuw in het castboek), van intake tot kraamweek, met Verloskundige Mirjam (nieuw). Bouwt voort op <i>Van bevruchting tot baby</i> (oxytocine-lus), <i>Een pomp, twee rondjes</i> (foramen ovale, ductus Botalli), <i>Adem in, adem uit</i> en <i>Negen maanden bouwen</i>.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>H1</b> bevalplan. <b>H2</b> ontsluiting en uitdrijving, draaiing van het hoofd. <b>H3</b> harttonen tijdens weeën. <b>H4</b> eerste ademteug, sluiten van de kortsluitingen, Apgar. <b>H5</b> nageboorte en bloedverlies.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Harttonen</td><td>110–160 per minuut</td><td>standaard CTG-indeling</td></tr>\n<tr><td>Oxytocine na de geboorte</td><td>standaard</td><td>gpnotebook.nl: 3e fase van de bevalling</td></tr>\n<tr><td>Bloedverlies</td><td>extra hulp vanaf ± 500 ml; > 1 liter naar het ziekenhuis</td><td>richtlijnendatabase.nl: hemorrhagia postpartum</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul><li>De draaiing van het hoofd is vereenvoudigd tot één kwartslag en flexie; de echte baringsmechanismen kennen meer stappen.</li><li>De hartslaggrafiek is schematisch.</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Laat leerlingen met een tekening van het hart van het ongeboren kind de route van het bloed vóór en na de eerste ademteug inkleuren.</li></ul>\n</section>\n"
+}

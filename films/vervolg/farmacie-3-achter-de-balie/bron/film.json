@@ -1,0 +1,79 @@
+{
+ "slug": "farmacie-3-achter-de-balie",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Achter de balie",
+ "sub": "wat een apotheker doet met jouw medicijnen",
+ "puzzle": "Waarom aarzelt de apotheker als Opa Henk om ibuprofen vraagt?",
+ "meta": "farmacie · apotheek",
+ "alleen": "vwo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Farmacie",
+ "lead": "Opa Henk haalt vijf medicijnen op en vraagt er ibuprofen bij. Het systeem van de apotheek geeft een signaal: samen met zijn plastablet en ACE-remmer kan ibuprofen zijn nieren schaden. Apotheker Ravi legt uit waarom, geeft een veiliger advies en ontdekt in het gesprek dat Henk zijn plastablet overslaat op clubdagen. Ongeveer de helft van de mensen met een langdurige ziekte gebruikt medicijnen anders dan bedoeld, meestal om goede redenen. Met een ander innamemoment, een medicijnrol en een medicatiebeoordeling samen met de huisarts helpt de apotheker één persoon veilig verder.",
+ "endHaak": "welke medicijnen gebruikt iemand in jouw familie, en weet de apotheek dat allemaal?",
+ "minis": {
+  "Hoofdstuk 1": "Waarom zakt de druk in de filtertjes als de drie middelen samenkomen?",
+  "Hoofdstuk 2": "Wat vraagt Ravi nog meer dan alleen over de ibuprofen?",
+  "Hoofdstuk 3": "Waarom slaat Henk zijn plastablet over?",
+  "Hoofdstuk 4": "Wat is een medicatiebeoordeling?",
+  "Recap": "Welke opleidingen leiden naar werk in de apotheek?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Opa Henk, Apotheker Ravi en Dr. Kim (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Opa Henk gebruikt onder andere een plastablet en een ACE-remmer en vraagt er ibuprofen bij. Waarom aarzelt Apotheker Ravi?",
+   "correct": 0,
+   "explain": "Ibuprofen kun je zonder recept kopen, maar samen met een plastablet en een ACE-remmer kan het de nieren schaden. Daarom kijkt de apotheek bij elk nieuw middel wat iemand al gebruikt."
+  },
+  "q06": {
+   "q": "Hoeveel mensen met een langdurige ziekte gebruiken hun medicijnen anders dan bedoeld?",
+   "correct": 2,
+   "explain": "Ongeveer de helft (WHO 2003). Meestal niet uit luiheid: mensen vergeten het, hebben last van bijwerkingen, merken geen verschil of hebben een praktische reden."
+  },
+  "q09": {
+   "q": "Wat is het belangrijkste doel van een medicatiebeoordeling?",
+   "correct": 1,
+   "explain": "Minder schade door bijwerkingen en interacties. Hoe meer medicijnen, hoe groter de kans dat ze elkaar of de patiënt in de weg zitten; een deel van de ziekenhuisopnames door medicijnen is te voorkomen."
+  }
+ },
+ "glossary": [
+  {
+   "t": "medicatiebewaking",
+   "d": "Controle bij elk nieuw middel: het systeem van de apotheek vergelijkt het met wat iemand al gebruikt en geeft een signaal bij een interactie, een te hoge dosis of een risico door een ziekte."
+  },
+  {
+   "t": "interactie",
+   "d": "Twee of meer medicijnen beïnvloeden elkaars werking of versterken elkaars bijwerkingen, zoals ibuprofen, een plastablet en een ACE-remmer samen bij de nieren."
+  },
+  {
+   "t": "glomerulus",
+   "d": "Kluwen haarvaatjes in de nier waar bloed wordt gefilterd; bloed komt binnen via een aanvoerend vaatje en verlaat de kluwen via een afvoerend vaatje. In de film: de filtertjes."
+  },
+  {
+   "t": "filterdruk",
+   "d": "De bloeddruk in de glomerulus die vocht en opgeloste stoffen uit het bloed perst. Zakt die druk, dan filtert de nier minder."
+  },
+  {
+   "t": "ACE-remmer",
+   "d": "Medicijn tegen hoge bloeddruk en hartfalen; remt de vorming van angiotensine II, waardoor onder andere het afvoerende vaatje van de glomerulus wijder wordt."
+  },
+  {
+   "t": "plastablet (diureticum)",
+   "d": "Medicijn dat de nieren meer zout en water laat uitscheiden; er komt minder vocht in het bloed. Na inname moet je een paar uur vaak plassen."
+  },
+  {
+   "t": "NSAID",
+   "d": "Ontstekingsremmende pijnstiller zoals ibuprofen en naproxen; remt de vorming van prostaglandinen, waardoor onder andere het aanvoerende vaatje in de nier nauwer wordt."
+  },
+  {
+   "t": "therapietrouw",
+   "d": "De mate waarin iemand medicijnen gebruikt zoals afgesproken. Bij langdurige ziekten ongeveer de helft; de redenen zijn meestal begrijpelijk."
+  },
+  {
+   "t": "medicatiebeoordeling",
+   "d": "Gesprek waarin huisarts, apotheker en patiënt de hele medicijnlijst langslopen: werkt alles nog, is er iets dubbel, kan er iets af? Vooral bij ouderen met veel medicijnen."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Leg uit wat medicatiebewaking is en waarom het ook nodig is bij middelen die je zonder recept kunt kopen. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Bij elk nieuw middel kijkt (het systeem van) de apotheek wat iemand al gebruikt en geeft een signaal bij een mogelijk probleem (1p). Ook een middel zonder recept, zoals ibuprofen, kan samen met andere medicijnen schade geven (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Iemand gebruikt een plastablet en een ACE-remmer en neemt een paar dagen ibuprofen. Leg met de bloedvaatjes van de nier uit waardoor de nier slechter kan gaan filteren. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Ibuprofen maakt het aanvoerende vaatje naar de glomerulus nauwer, zodat er minder bloed in komt (1p). De ACE-remmer maakt het afvoerende vaatje wijder, zodat het bloed er makkelijker uit stroomt (1p). De plastablet verlaagt de hoeveelheid vocht in het bloed. Samen zakt de druk in de glomerulus, zodat er minder gefilterd wordt (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Iemand zegt: 'Mensen die hun pillen niet nemen, zijn gewoon lui.' Geef twee andere redenen en bij één daarvan een oplossing die een apotheker kan aandragen. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Twee van: vergeten, last van bijwerkingen, geen verschil merken, een praktisch bezwaar zoals vaak naar de wc moeten (2p). Passende oplossing, bijvoorbeeld: medicijnrol met zakjes per innamemoment bij vergeten, ander innamemoment bij een plastablet, uitleg of overleg met de arts bij bijwerkingen (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Leg uit waarom een medicatiebeoordeling vooral zinvol is bij ouderen die veel medicijnen gebruiken. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Hoe meer medicijnen, hoe groter de kans op interacties en bijwerkingen (1p). Bij ouderen werken onder andere de nieren minder goed, zodat ze gevoeliger zijn; door samen de lijst langs te lopen kan er soms een middel af en worden ziekenhuisopnames voorkomen (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Extra film buiten het PTA op <i>Wat word jij?</i> → Farmacie. Bouwt voort op <i>Van pil tot plek en weer terug</i> (nieren, interacties), <i>Sleutel, slot en dosis</i> (ibuprofen remt een enzym), <i>Water in balans</i> (bouw van de nier) en <i>Van klacht naar diagnose</i> (Henk kreeg plastabletten). Opa Henk (patiënt) en Apotheker Ravi (nieuw in het castboek) zijn de rode draad. Henks medicatielijst in beeld: plastablet, ACE-remmer, bloeddrukpil (amlodipine, zoals in <i>Van pil tot plek</i>), bètablokker en maagbeschermer; Dr. Kim is de huisarts in hoofdstuk 4.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>Cold open en H1</b> medicatiebewaking: het signaal bij ibuprofen naast een plastablet en een ACE-remmer, uitgelegd met een schematische glomerulus (aanvoerend vaatje nauwer, afvoerend vaatje wijder, minder vocht, dus minder filterdruk). Daarnaast zout- en vochtretentie door NSAID's bij hartfalen.</li>\n<li><b>H2</b> advies aan de balie: paracetamol goed verdeeld over de dag; het gesprek over de andere pillen brengt het overslaan van de plastablet aan het licht.</li>\n<li><b>H3</b> therapietrouw: ongeveer de helft, met begrijpelijke redenen; een ander innamemoment voor de plastablet en een medicijnrol.</li>\n<li><b>H4</b> medicatiebeoordeling met huisarts, apotheker en patiënt; medicatiegerelateerde ziekenhuisopnames.</li>\n<li><b>Recap</b> opleidingen: farmacie (wo) en apothekersassistent (mbo).</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Medicatiebewaking</td><td>bij elk nieuw middel een controle op wat iemand al gebruikt</td><td><a href=\"https://www.knmp.nl/sites/default/files/2024-09/KNMP_Voorschrift_AIS_medicatiebewaking_september%202024_DEF.pdf\">KNMP, Voorschrift AIS-medicatiebewaking (G-Standaard), 2024</a></td></tr>\n<tr><td>NSAID + ACE-remmer + diureticum</td><td>samen kan de nierfunctie verslechteren, vooral bij een vochttekort ('triple whammy')</td><td><a href=\"https://www.farmacotherapeutischkompas.nl/bladeren/preparaatteksten/r/ramipril\">Farmacotherapeutisch Kompas, ramipril</a>; <a href=\"https://www.apotheek.nl/medicijnen/ibuprofen\">apotheek.nl, ibuprofen</a></td></tr>\n<tr><td>Mechanisme</td><td>NSAID: aanvoerend vaatje nauwer; ACE-remmer: afvoerend vaatje wijder; diureticum: minder vocht</td><td><a href=\"https://www.farmacotherapeutischkompas.nl/bladeren/preparaatteksten/r/ramipril\">Farmacotherapeutisch Kompas, ramipril (interacties)</a>; <a href=\"https://abdn.ac.uk/medical/elf/courses/view/145980/acute-kidney-injury-part-1/1/page13\">University of Aberdeen, Acute kidney injury</a></td></tr>\n<tr><td>NSAID en hartfalen</td><td>zout- en vochtretentie; kans op hartfalen ongeveer verdubbeld; terughoudend bij ouderen</td><td><a href=\"https://www.farmacotherapeutischkompas.nl/bladeren/groepsteksten/nsaid_s__systemisch\">Farmacotherapeutisch Kompas, NSAID's (systemisch)</a></td></tr>\n<tr><td>Plastablet bij een dagje weg</td><td>werkt 4–8 uur; na thuiskomst innemen, niet na 17.00 uur</td><td><a href=\"https://www.apotheek.nl/medicijnen/furosemide?product=furosemide\">apotheek.nl, furosemide</a></td></tr>\n<tr><td>Therapietrouw</td><td>bij langdurige ziekten gemiddeld ongeveer 50 %</td><td><a href=\"https://www.who.int/news/item/01-07-2003-failure-to-take-prescribed-medicine-for-chronic-diseases-is-a-massive-world-wide-problem\">WHO, Adherence to long-term therapies, 2003</a></td></tr>\n<tr><td>Medicijnrol</td><td>zakjes per innamemoment, met datum en tijd</td><td><a href=\"https://www.apotheek.nl/zorg-van-de-apotheker/juist-medicijngebruik/medicijnen-ordenen-en-overzicht-bewaren\">apotheek.nl, Medicijnen ordenen en overzicht bewaren</a></td></tr>\n<tr><td>Medicatiebeoordeling</td><td>huisarts, apotheker en patiënt; ouderen met ≥ 5 chronische middelen en een risicofactor</td><td><a href=\"https://richtlijnendatabase.nl/richtlijn/polyfarmacie_bij_ouderen/medicatiebeoordeling_mbo.html\">Richtlijn Polyfarmacie bij ouderen (richtlijnendatabase.nl)</a></td></tr>\n<tr><td>Medicatiegerelateerde opnames</td><td>5,6 % van de acute (ongeplande) opnames; 46 % daarvan te voorkomen. In de film: 'ongeveer één op de twintig', 'bijna de helft'</td><td><a href=\"https://psnet.ahrq.gov/issue/frequency-and-risk-factors-preventable-medication-related-hospital-admissions-netherlands\">HARM-rapport 2006</a> (Leendertse e.a., Arch Intern Med 2008)</td></tr>\n<tr><td>Opleiding apotheker</td><td>bachelor farmacie 3 jaar (UU, RUG; Leiden via bio-farmaceutische wetenschappen) + master farmacie 3 jaar</td><td><a href=\"https://www.uu.nl/masters/farmacie/aanmelden-en-toelating/diploma-van-een-nederlandse-universiteit\">uu.nl, Master Farmacie</a>; <a href=\"https://www.universiteitleiden.nl/binaries/content/assets/geneeskunde-lumc/reglementen-farmacie/2023-master-flyer-farmacie.pdf\">universiteitleiden.nl, Master Farmacie</a></td></tr>\n<tr><td>Apothekersassistent</td><td>mbo niveau 4, gemiddeld 3 jaar</td><td><a href=\"https://www.s-bb.nl/media/e0elcyin/apothekersassistent-25650-nl.pdf\">SBB, kwalificatiedossier apothekersassistent</a></td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul><li>De film spreekt van 'filtertjes' en één aanvoerend en één afvoerend vaatje; in werkelijkheid heeft elke nier ongeveer een miljoen glomeruli, elk met een eigen afferente en efferente arteriool.</li>\n<li>Ibuprofen 'knijpt het aanvoerende vaatje dicht': NSAID's remmen de vorming van prostaglandinen die dit vaatje wijd houden, vooral wanneer de nier daarop leunt (bij vochttekort of hartfalen). Bij gezonde mensen is het effect klein. De ACE-remmer 'zet het afvoerende vaatje open': hij heft de vernauwing door angiotensine II op.</li>\n<li>De drie pijlen zijn naast elkaar getekend; in het lichaam versterken ze elkaar vooral bij een vochttekort, bijvoorbeeld bij warm weer of diarree.</li>\n<li>Bij een medicatiebeoordeling bespreken huisarts en apotheker de lijst meestal eerst samen; daarna volgt een gesprek met de patiënt, vaak met één van beiden. De film toont ze met z'n drieën aan tafel.</li>\n<li>'Ongeveer de helft' (WHO 2003) is een gemiddelde over veel ziekten en landen; per ziekte en meetmethode verschilt het sterk.</li>\n<li>De HARM-cijfers zijn uit 2006 (Nederlandse ziekenhuizen); de film rondt 5,6 % af op 'één op de twintig' en 46 % op 'bijna de helft'.</li>\n<li>In beeld valt de maagbeschermer af; maagbeschermers worden vaak langer gebruikt dan nodig en zijn een veelvoorkomend voorbeeld bij een medicatiebeoordeling (Richtlijn Polyfarmacie bij ouderen). De gesproken tekst noemt het middel niet.</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Laat leerlingen vóór de film de bijsluiter van ibuprofen lezen en zoeken bij wie voorzichtigheid nodig is; vergelijk daarna met de film.</li>\n<li>Koppel H1 aan de bouw van de nefron: laat leerlingen in een tekening van de glomerulus zelf aangeven wat elk middel doet met de filterdruk.</li>\n<li>Rollenspel aan de balie: één leerling is apotheker, één patiënt met een (gegeven) reden om medicijnen over te slaan; de apotheker zoekt een oplossing.</li></ul>\n</section>\n"
+}

@@ -1,0 +1,541 @@
+{
+ "film": 8,
+ "titel": "Stambomen lezen",
+ "slug": "8-stambomen-lezen",
+ "puzzel": "Is een dolfijn familie van een haai?",
+ "haak": "Dolfijn en haai lijken van een afstand bijna hetzelfde.",
+ "duur": {
+  "basis_min": 7.3,
+  "met_vwo_min": 7.3,
+  "woorden": 879
+ },
+ "hoofdstukken": [
+  {
+   "nr": 1,
+   "titel": "Een stamboom lezen",
+   "minivraag": "Wie is het nauwst verwant, en hoe zie je dat?",
+   "type": "G",
+   "look": "Schema"
+  },
+  {
+   "nr": 2,
+   "titel": "Kenmerken op de takken",
+   "minivraag": "Wie is nauwer verwant aan een krokodil: een hagedis of een vogel?",
+   "type": "G",
+   "look": "Schema"
+  },
+  {
+   "nr": 3,
+   "titel": "Dezelfde vorm, andere tak",
+   "minivraag": "Waarom lijken haai, dolfijn en ichthyosaurus zo op elkaar?",
+   "type": "F",
+   "look": "Schema"
+  },
+  {
+   "nr": 4,
+   "titel": "Namen en groepen",
+   "minivraag": "Waarom heet de mens Homo sapiens?",
+   "type": "B",
+   "look": "Schema"
+  }
+ ],
+ "scenes": [
+  {
+   "id": "e8s01",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Een dolfijn en een haai. Een gestroomlijnd lijf, een vin op de rug, een krachtige staart. Van een afstand zie je bijna geen verschil.",
+   "beweging": "Dolfijn en haai zwemmen naast elkaar door het blauw, met dezelfde golf door het lijf."
+  },
+  {
+   "id": "e8s02",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Mevrouw Visser vraagt het aan de klas: is een dolfijn familie van een haai?",
+   "beweging": "Mevrouw Visser staat voor het bord met de twee silhouetten; de vraag verschijnt erboven."
+  },
+  {
+   "id": "e8s03",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "",
+   "beweging": "Titelkaart: titel en puzzel links, dolfijn en haai rechts."
+  },
+  {
+   "id": "e8s04",
+   "hoofdstuk": "1 Een stamboom lezen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "In film zeven zag je het: walvis en nijlpaard hebben een gemeenschappelijke voorouder. In een stamboom teken je dat als een vertakking. Zo'n stamboom heet een cladogram.",
+   "beweging": "Twee lijnen lopen omlaag en komen samen in één knooppunt."
+  },
+  {
+   "id": "e8s05",
+   "hoofdstuk": "1 Een stamboom lezen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Elk knooppunt staat voor een gemeenschappelijke voorouder: een populatie die zich splitste in twee lijnen. Volg je een lijn van een soort omlaag naar de wortel, dan volg je zijn afstammingslijn.",
+   "beweging": "Het knooppunt licht goud op; daarna loopt een gouden lijn van de walvis naar de wortel."
+  },
+  {
+   "id": "e8s06",
+   "hoofdstuk": "1 Een stamboom lezen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Voeg de koe toe. Walvis en nijlpaard delen een jongere voorouder dan walvis en koe. Hoe jonger de laatste gemeenschappelijke voorouder, hoe nauwer verwant.",
+   "beweging": "De boom groeit met de koe; het jongste knooppunt is goud, het oudere teal."
+  },
+  {
+   "id": "e8q07",
+   "hoofdstuk": "1 Een stamboom lezen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? In deze boom staat de walvis naast de koe, en het nijlpaard aan de rand. Wie is nu het nauwst verwant aan de walvis?",
+   "beweging": "Vraagkaart: dezelfde boom, maar twee takken zijn gedraaid zodat de volgorde van de namen verandert.",
+   "opties": "A Het nijlpaard · B De koe: die staat er het dichtst naast · C Dat verschilt per tekening",
+   "juist": "A"
+  },
+  {
+   "id": "e8s08",
+   "hoofdstuk": "1 Een stamboom lezen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Een knooppunt is een scharnier. Draai je de takken om, dan verandert alleen de volgorde van de namen. De boom blijft dezelfde. Lees een stamboom dus aan de vertakkingen, nooit aan de volgorde van de namen.",
+   "beweging": "Het knooppunt draait als een scharnier; de namen wisselen van plek, de lijnen blijven verbonden."
+  },
+  {
+   "id": "e8s09",
+   "hoofdstuk": "1 Een stamboom lezen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Nog een valkuil. De chimpansee staat in de boom naast de mens. Maar een soort die nu leeft, is nooit de voorouder van een andere soort die nu leeft.",
+   "beweging": "Mens en chimpansee staan bovenaan; een rode pijl van chimpansee naar mens wordt doorgestreept."
+  },
+  {
+   "id": "e8s10",
+   "hoofdstuk": "1 Een stamboom lezen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Mens en chimpansee hebben allebei evenveel tijd gehad om te veranderen. Ze delen een gemeenschappelijke voorouder, ongeveer 6 tot 8 miljoen jaar geleden. Die voorouder was geen mens en geen chimpansee.",
+   "beweging": "Beide takken worden even lang; het knooppunt krijgt een vraagteken-silhouet en een tijdlabel."
+  },
+  {
+   "id": "e8s11",
+   "hoofdstuk": "2 Kenmerken op de takken",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Hoe weten biologen waar een tak hoort? Ze kijken naar kenmerken. Een kenmerk dat in een voorouder ontstond, erven de soorten op zijn takken. Soms raakt een lijn het later weer kwijt, zoals de walvis zijn achterpoten. Je zet het kenmerk als streepje op de tak waar het verscheen.",
+   "beweging": "Een boom met haai, hagedis en mens; streepjes schuiven op hun tak."
+  },
+  {
+   "id": "e8s12",
+   "hoofdstuk": "2 Kenmerken op de takken",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Een wervelkolom hebben ze alle drie. Longen en vier poten alleen hagedis en mens. Haar en melk alleen de mens. Elk nieuw kenmerk maakt de groep kleiner.",
+   "beweging": "Bij elk genoemd kenmerk licht het streepje op en worden de soorten erboven omcirkeld."
+  },
+  {
+   "id": "e8s13",
+   "hoofdstuk": "2 Kenmerken op de takken",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "De haai hoort er bewust bij. Hij is de buitengroep: een soort die buiten de groep valt die je onderzoekt. Hij laat zien welke kenmerken al oud zijn, zoals de wervelkolom, en welke nieuw.",
+   "beweging": "De haai-tak krijgt een stippellijnkader met 'buitengroep'."
+  },
+  {
+   "id": "e8s14",
+   "hoofdstuk": "2 Kenmerken op de takken",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Nu een lastige. Een krokodil en een hagedis lijken veel op elkaar. Allebei schubben, vier poten opzij, en ze leggen eieren. Een vogel heeft veren en vleugels.",
+   "beweging": "Krokodil, hagedis en vogel staan naast elkaar aan een rivieroever."
+  },
+  {
+   "id": "e8q15",
+   "hoofdstuk": "2 Kenmerken op de takken",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Wie is nauwer verwant aan de krokodil?",
+   "beweging": "Vraagkaart met krokodil, hagedis en vogel.",
+   "opties": "A De hagedis: die lijkt er het meest op · B Ze zijn alle drie even nauw verwant · C De vogel",
+   "juist": "C"
+  },
+  {
+   "id": "e8s16",
+   "hoofdstuk": "2 Kenmerken op de takken",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Krokodil en vogel delen kenmerken die de hagedis mist. Een hart met vier kamers. Een spiermaag, waarin steentjes het voedsel vermalen. En ook hun DNA wijst die kant op.",
+   "beweging": "In de boom komen krokodil en vogel samen op één knooppunt; drie streepjes lichten goud op."
+  },
+  {
+   "id": "e8s17",
+   "hoofdstuk": "2 Kenmerken op de takken",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Schubben zijn een oud kenmerk: dat hadden de voorouders van alle drie al. Een gedeeld oud kenmerk zegt dus niets over wie dichter bij elkaar staat. Alleen gedeelde nieuwe kenmerken tellen.",
+   "beweging": "Het streepje 'schubben' schuift omlaag naar de oudste tak, onder alle drie."
+  },
+  {
+   "id": "e8s18",
+   "hoofdstuk": "3 Dezelfde vorm, andere tak",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Terug naar de haai en de dolfijn. Kijk eens onder de huid. De haai heeft een skelet van kraakbeen en kieuwen. De dolfijn heeft botten en longen, en in zijn borstvin zitten dezelfde botten als in jouw arm.",
+   "beweging": "Haai en dolfijn worden doorschijnend: kraakbeenstralen in de haaienvin, armbotten in teal, oker en paars in de dolfijnvin."
+  },
+  {
+   "id": "e8s19",
+   "hoofdstuk": "3 Dezelfde vorm, andere tak",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "En er is nog een derde zwemmer: de ichthyosaurus. Een reptiel uit de tijd van de dinosauriërs. Hetzelfde stroomlijnlijf, dezelfde rugvin.",
+   "beweging": "Tussen haai en dolfijn zwemt een ichthyosaurus in; zijn label met tijd verschijnt."
+  },
+  {
+   "id": "e8q20",
+   "hoofdstuk": "3 Dezelfde vorm, andere tak",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Waarom hebben haai, dolfijn en ichthyosaurus bijna dezelfde vorm?",
+   "beweging": "Vraagkaart met de drie silhouetten over elkaar.",
+   "opties": "A Ze erfden die vorm van één voorouder die al zo zwom · B Ze kregen die vorm los van elkaar, door dezelfde selectiedruk in water · C Ze pasten zich aan omdat ze snel moesten zwemmen",
+   "juist": "B"
+  },
+  {
+   "id": "e8s21",
+   "hoofdstuk": "3 Dezelfde vorm, andere tak",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Zet ze in de boom. De dolfijn staat bij de zoogdieren, de ichthyosaurus bij de reptielen, de haai helemaal apart. De voorouders van dolfijn en ichthyosaurus liepen op vier poten over het land. Hun zwemmerslijf ontstond dus pas later, in elke lijn opnieuw.",
+   "beweging": "De boom bouwt op; het knooppunt van de viervoeters licht goud op ('op vier poten, op het land'), daarna de twee zwemmerstakken."
+  },
+  {
+   "id": "e8s22",
+   "hoofdstuk": "3 Dezelfde vorm, andere tak",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "In water geeft een gestroomlijnd lijf minder weerstand. In elke lijn hadden individuen met een iets gladdere vorm meer nakomelingen. Zo werd die vorm drie keer los van elkaar algemeen.",
+   "beweging": "In elke tak schuift een rijtje silhouetten generatie na generatie naar dezelfde vorm."
+  },
+  {
+   "id": "e8s23",
+   "hoofdstuk": "3 Dezelfde vorm, andere tak",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Organen met dezelfde functie maar een andere bouw heten analoge organen. Ze ontstaan door dezelfde selectiedruk in groepen die niet nauw verwant zijn. Dat heet convergente evolutie.",
+   "beweging": "De drie rugvinnen staan naast elkaar met verschillende binnenbouw; een groene haak eronder."
+  },
+  {
+   "id": "e8s24",
+   "hoofdstuk": "3 Dezelfde vorm, andere tak",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Homologe organen wijzen dus op verwantschap. Analoge organen niet. Daarom kijken biologen niet naar het uiterlijk, maar naar de bouw en het DNA.",
+   "beweging": "Twee kolommen: homoloog (vier armen) en analoog (drie vinnen); de linkerkolom krijgt een gouden haak."
+  },
+  {
+   "id": "e8s25",
+   "hoofdstuk": "4 Namen en groepen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Om al die soorten te ordenen, delen biologen ze in groepen in. Leeuw en tijger horen bij hetzelfde geslacht, Panthera.",
+   "beweging": "Leeuw en tijger staan naast elkaar in een afgerond vak met 'geslacht Panthera'."
+  },
+  {
+   "id": "e8s26",
+   "hoofdstuk": "4 Namen en groepen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Panthera hoort bij de familie van de katachtigen, samen met bijvoorbeeld de huiskat. Die familie hoort bij de orde roofdieren, de klasse zoogdieren, de stam gewervelde dieren en het rijk dieren.",
+   "beweging": "Om het vak groeien steeds grotere vakken: familie, orde, klasse, stam, rijk."
+  },
+  {
+   "id": "e8s27",
+   "hoofdstuk": "4 Namen en groepen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "De kleinste groep is de soort: individuen die in de natuur samen vruchtbare nakomelingen kunnen krijgen. Een leeuw en een tijger zijn twee soorten.",
+   "beweging": "Het vak 'geslacht' splitst in twee kleinere vakken: leeuw en tijger."
+  },
+  {
+   "id": "e8q28",
+   "hoofdstuk": "4 Namen en groepen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? De leeuw heet Panthera leo en de tijger Panthera tigris. Wat zegt het eerste woord?",
+   "beweging": "Vraagkaart met de twee namen schuin gedrukt.",
+   "opties": "A De soort · B De familie · C Het geslacht",
+   "juist": "C"
+  },
+  {
+   "id": "e8s29",
+   "hoofdstuk": "4 Namen en groepen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Elke soort heeft een wetenschappelijke naam van twee woorden: eerst de geslachtsnaam, met een hoofdletter, dan de soortaanduiding. Samen zijn ze de naam van de soort. Dat heet binomiale naamgeving.",
+   "beweging": "Panthera licht op als geslachtsnaam; leo en tigris als soortaanduiding; de hele naam wordt goud."
+  },
+  {
+   "id": "e8s30",
+   "hoofdstuk": "4 Namen en groepen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Voor dieren deed Carl Linnaeus dat vanaf het jaar 1758. Hij noemde de mens Homo sapiens: de wijze mens. Homo is het geslacht.",
+   "beweging": "Een boekje opent met 'Homo sapiens'; daaronder het jaartal."
+  },
+  {
+   "id": "e8s31",
+   "hoofdstuk": "4 Namen en groepen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Een goede indeling volgt de stamboom. Hoe kleiner de groep die twee soorten delen, hoe nauwer ze verwant zijn. Leeuw en tijger delen een geslacht. Leeuw en huiskat alleen een familie.",
+   "beweging": "Naast de vakken staat een kleine boom; het jongste knooppunt hoort bij het kleinste vak."
+  },
+  {
+   "id": "e8s32",
+   "hoofdstuk": "Samenvatting",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Is een dolfijn familie van een haai? Alleen heel ver. Hun stroomlijn en rugvin zijn analoog: dezelfde selectiedruk in water, niet dezelfde voorouder. De dolfijn is een tandwalvis: een zoogdier, en dus verwant aan het nijlpaard uit de vorige film. Lees een stamboom aan de vertakkingen. En gedeelde nieuwe kenmerken, botten en DNA vertellen wie bij wie hoort.",
+   "beweging": "Eindkaart: drie kernzinnen met een groene haak; geen beeld."
+  }
+ ],
+ "checkvragen": [
+  {
+   "niveau": "basis",
+   "vraag": "In een cladogram komen soort P en Q samen in het jongste knooppunt; R takt eerder af. Welke twee soorten zijn het nauwst verwant? Leg uit.",
+   "antwoord": "P en Q: zij delen de meest recente gemeenschappelijke voorouder."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Een leerling zegt: 'In dit cladogram staat de koe naast de walvis, dus zijn ze het nauwst verwant.' Wat is er fout?",
+   "antwoord": "Je leest een cladogram aan de vertakkingen, niet aan de volgorde van de namen; takken kun je om een knooppunt draaien zonder dat de boom verandert."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Stamt de mens af van de chimpansee? Leg uit.",
+   "antwoord": "Nee. Een nu levende soort is geen voorouder van een andere nu levende soort; mens en chimpansee delen een gemeenschappelijke voorouder die geen van beide was."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Wat is een buitengroep en waarvoor gebruik je hem?",
+   "antwoord": "Een soort die buiten de onderzochte groep valt. Hij laat zien welke kenmerken oud zijn (ook bij de buitengroep) en welke nieuw zijn binnen de groep."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "De vleugel van een vogel en de vleugel van een vlinder hebben dezelfde functie. Zijn ze homoloog of analoog? Leg uit.",
+   "antwoord": "Analoog: dezelfde functie, maar een totaal andere bouw (botten tegenover een vlies van chitine); ze zijn onafhankelijk ontstaan door vergelijkbare selectiedruk (convergente evolutie)."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Waarom zegt een gedeeld kenmerk als 'schubben' niets over de vraag of een krokodil nauwer verwant is aan een hagedis of aan een vogel?",
+   "antwoord": "Schubben zijn een oud kenmerk dat de voorouder van alle drie al had; alleen gedeelde nieuwe kenmerken laten zien wie een jongere gemeenschappelijke voorouder deelt."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Gegeven: Felis catus, Felis silvestris, Panthera leo, Panthera pardus. Hoeveel geslachten en hoeveel soorten zijn dit?",
+   "antwoord": "Twee geslachten (Felis en Panthera) en vier soorten."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Zet in volgorde van groot naar klein: familie, rijk, soort, klasse, geslacht, orde, stam.",
+   "antwoord": "Rijk, stam, klasse, orde, familie, geslacht, soort."
+  }
+ ],
+ "begrippen": [
+  {
+   "begrip": "cladogram",
+   "uitleg": "Stamboom die laat zien welke soorten de meest recente gemeenschappelijke voorouder delen. Je leest hem aan de vertakkingen, niet aan de volgorde van de namen.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "gemeenschappelijke voorouder",
+   "uitleg": "Populatie waarvan twee of meer soorten afstammen; in een cladogram een knooppunt.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "afstammingslijn",
+   "uitleg": "De lijn van een soort via al zijn voorouders terug naar de wortel van de stamboom.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "verwantschap",
+   "uitleg": "Hoe kort geleden twee soorten hun laatste gemeenschappelijke voorouder hadden: hoe jonger die voorouder, hoe nauwer verwant.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "buitengroep",
+   "uitleg": "Soort buiten de onderzochte groep, waarmee je ziet welke kenmerken oud en welke nieuw zijn.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "homologe organen",
+   "uitleg": "Zelfde bouw, vaak andere functie; wijzen op een gemeenschappelijke voorouder (film 7).",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "analoge organen",
+   "uitleg": "Zelfde functie, andere bouw; zeggen niets over verwantschap.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "convergente evolutie",
+   "uitleg": "Niet nauw verwante groepen krijgen door dezelfde selectiedruk los van elkaar dezelfde vorm of eigenschap.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "classificatie",
+   "uitleg": "Indelen van organismen in groepen: rijk, stam, klasse, orde, familie, geslacht, soort.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "soort",
+   "uitleg": "Groep individuen die in de natuur samen vruchtbare nakomelingen kunnen krijgen (film 6).",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "geslacht",
+   "uitleg": "Groep nauw verwante soorten, zoals Panthera (leeuw, tijger, luipaard, jaguar).",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "binomiale naamgeving",
+   "uitleg": "Wetenschappelijke naam van twee woorden: geslachtsnaam (met hoofdletter) plus soortaanduiding, samen de naam van de soort, bijvoorbeeld Homo sapiens.",
+   "niveau": "basis"
+  }
+ ],
+ "getallen": [
+  {
+   "waarde": "laatste gemeenschappelijke voorouder mens–chimpansee ongeveer 6 tot 8 miljoen jaar geleden (schattingen 13–5 Mj, recent 5,5–8)",
+   "bron": "Wikipedia Chimpanzee–human last common ancestor (overzicht 1998–2026)"
+  },
+  {
+   "waarde": "ichthyosauriërs (de groep): reptielen (geen dinosauriërs), van ongeveer 250 tot ongeveer 90 miljoen jaar geleden; het geslacht Ichthyosaurus leefde rond 200 miljoen jaar geleden (vroeg Jura); de vroegste vormen hadden nog geen dolfijnvorm. Film zegt alleen 'uit de tijd van de dinosauriërs'.",
+   "bron": "ZME Science (ichthyosaurus); Scientias.nl ('ongeveer 94 miljoen jaar geleden uitgestorven')"
+  },
+  {
+   "waarde": "krokodilachtigen zijn nauwer verwant aan vogels dan aan hagedissen (archosauriërs)",
+   "bron": "Yale News 2014 ('Birds are most closely related to crocodilians among living reptiles'); St. Augustine Alligator Farm"
+  },
+  {
+   "waarde": "hart met vier kamers bij krokodilachtigen (en vogels), één kamer (ventrikel) bij hagedissen",
+   "bron": "The Physiological Society (evolution of the vertebrate heart)"
+  },
+  {
+   "waarde": "spiermaag (met maagstenen) bij vogels en krokodilachtigen",
+   "bron": "Wikipedia Gizzard; UCMP Berkeley gastroliths"
+  },
+  {
+   "waarde": "indelingsniveaus rijk, stam, klasse, orde, familie, geslacht, soort",
+   "bron": "Biologie voor Jou samenvatting thema 4 (wikiwijs, BvJ 3k th4); BvJ bovenbouw havo (uitwerkingen, 5e druk): 'Een tijger behoort tot de stam van de gewervelden' (wikiwijs)"
+  },
+  {
+   "waarde": "binomiale naam = geslachtsnaam + soortaanduiding (Homo sapiens)",
+   "bron": "encyclo.nl (soortaanduiding)"
+  },
+  {
+   "waarde": "Linnaeus: tweedelige namen voor planten in Species Plantarum (1753), voor dieren in Systema Naturae 10e druk (1758); Homo sapiens = 'wijze mens'",
+   "bron": "Wikipedia 10th edition of Systema Naturae; Names for the human species"
+  }
+ ],
+ "uitspraak": [
+  {
+   "woord": "cladogram",
+   "invoer": "cladogram",
+   "ipa": "/ˌklaː.doːˈɣrɑm/ (afgeleid)",
+   "bron": "naar 'diagram'; wachtlijst"
+  },
+  {
+   "woord": "ichthyosaurus",
+   "invoer": "ichthyosaurus",
+   "ipa": "/ˌɪx.ti.joːˈzɑu̯.rʏs/ (afgeleid)",
+   "bron": "nl.wiktionary niet bereikbaar; bij fouten 'ichtie-ozaurus'"
+  },
+  {
+   "woord": "Panthera leo",
+   "invoer": "Panthera leo",
+   "ipa": "/ˈpɑn.te.raː ˈleː.joː/ (afgeleid)",
+   "bron": "Latijn; wachtlijst"
+  },
+  {
+   "woord": "Panthera tigris",
+   "invoer": "Panthera tigris",
+   "ipa": "/ˈpɑn.te.raː ˈti.ɣrɪs/ (afgeleid)",
+   "bron": "Latijn; wachtlijst"
+  },
+  {
+   "woord": "Homo sapiens",
+   "invoer": "Homo sapiens",
+   "ipa": "/ˈɦoː.moː ˈsaː.pi.jɛns/",
+   "bron": "gangbaar NL; wachtlijst"
+  },
+  {
+   "woord": "binomiale",
+   "invoer": "binomiale",
+   "ipa": "/ˌbi.noː.miˈjaː.lə/ (afgeleid)",
+   "bron": "seriebrief risicowoord; wachtlijst"
+  },
+  {
+   "woord": "convergente",
+   "invoer": "convergente",
+   "ipa": "/ˌkɔn.vɛrˈɣɛn.tə/",
+   "bron": "archief A3: klemtoon GEN, Nederlandse g"
+  },
+  {
+   "woord": "analoge",
+   "invoer": "analoge",
+   "ipa": "/ˌaː.naːˈloː.ɣə/ (afgeleid)",
+   "bron": "wachtlijst"
+  },
+  {
+   "woord": "Linnaeus",
+   "invoer": "Linnéus",
+   "ipa": "/lɪˈneː.ʏs/",
+   "bron": "gangbare NL uitspraak; wachtlijst (review 22 okt, punt 60)"
+  },
+  {
+   "woord": "1758",
+   "invoer": "in het jaar 1758",
+   "ipa": "",
+   "bron": "UITSPRAAK.md (jaartallen)"
+  },
+  {
+   "woord": "Mevrouw Visser",
+   "invoer": "Mevrouw Visser",
+   "ipa": "",
+   "bron": "gewoon"
+  },
+  {
+   "woord": "tandwalvis",
+   "invoer": "tandwalvis",
+   "ipa": "/ˈtɑnt.ʋɑl.vɪs/",
+   "bron": "gewone samenstelling"
+  }
+ ],
+ "nieuw_in_bibliotheek": [
+  "haai — grijze rifhaai-type: vijf kieuwspleten, hoge rugvin, heterocerke staart (verticaal), o.rontgen = kraakbeenstralen in de borstvin",
+  "dolfijn — tuimelaar: snuit en meloen, blaasgat, sikkelvormige rugvin, horizontale staartvin; o.rontgen = armbotten in vaste kleuren",
+  "ichthyosaurus — Stenopterygius-type: lange smalle snuit, groot oog met scleraalring, rugvin, maanvormige verticale staartvin, vier vinpoten",
+  "krokodil, hagedis, vogel (reiger) — archosauriërs-vraag; leeuw, tijger, huiskat — classificatie (Panthera, Felis)",
+  "kenmerkStreep (cladogram met kenmerken), naamVak (geneste classificatievakken), schaduwSilhouet"
+ ],
+ "keuzes_en_twijfels": [
+  "Puzzel A (dolfijn en haai) als rode draad, B (krokodil) als vraag in H2, C (Homo sapiens) als minivraag H4; seriebrief gevolgd.",
+  "cladogram() uit lib_evo.js gebruikt; de 'gedraaide boom' tekent hij goed omdat de functie de boom als genest array leest. Kenmerken op de takken en het draaien teken ik zelf over de lib-boom heen (lib_evo niet aangepast).",
+  "Kenmerken krokodil–vogel: hart met vier kamers en spiermaag (beide gecontroleerd). Antorbitale opening bewust niet genoemd: krokodillen hebben hem dichtgegroeid.",
+  "Mens–chimpansee 'ongeveer 6 tot 8 miljoen jaar': schattingen lopen uiteen (5–13 Mj; meta-analyse 2026 ~8 Mj). Alternatief: alleen 'miljoenen jaren'.",
+  "'Haar en melk' als kenmerk van de zoogdieren; 'longen en vier poten' vereenvoudigd tot één streepje (formeel: vier poten = viervoeters; longen al ouder). Daarom staat op de tak alleen 'vier poten'.",
+  "Indeling: BvJ noemt 'stam'; voor planten 'afdeling' — niet genoemd om één nieuw begrip tegelijk te houden.",
+  "Ichthyosaurus: de vertelling noemt geen jaartallen meer ('uit de tijd van de dinosauriërs'); 250–90 Mj geldt voor de groep ichthyosauriërs, het geslacht Ichthyosaurus leefde ±200 Mj geleden. Geen tijdlijn van miljarden jaren (seriebrief).",
+  "Convergentie-uitleg in termen van selectie (individuen met gladdere vorm meer nakomelingen), geen 'pasten zich aan' (misvatting als optie C in vraag 3).",
+  "De dolfijn als zoogdier verbindt met film 7 (walvis); de walvis zelf komt niet opnieuw als casus terug, alleen als naam in de boom.",
+  "Stam (review punt 45): BvJ gebruikt 'de stam van de gewervelden' (BvJ havo bovenbouw, uitwerkingen; BvJ onderbouw thema 4). Formeel is de stam 'chordadieren' met de gewervelden als onderstam, maar de film volgt de methode: 'de stam gewervelde dieren' blijft. Nectar zelf kon ik online niet inzien; controleer in Nectar H7 of daar 'chordadieren' staat.",
+  "Analogie (punt 8): de borstvinnen van haai en dolfijn zijn homoloog (voorste paar ledematen), dus alleen stroomlijn, rugvin en staart heten analoog; e8s01 noemt de borstvinnen niet meer.",
+  "Review 22 okt: 12 punten verwerkt (2 soort 'in de natuur', 5 dolfijn is een tandwalvis, 6 voorouders liepen op het land, 7 kenmerk kan weer verdwijnen, 8 analogie alleen stroomlijn/rugvin, 24 en 25 opties e8q07/e8q20 niet te raden, 44 Linnaeus 1758 voor dieren, 45 stam volgens BvJ, 46 ichthyosaurus zonder groepsjaartallen, 60 Linnaeus op wachtlijst)."
+ ]
+}

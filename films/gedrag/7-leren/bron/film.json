@@ -1,0 +1,69 @@
+{
+ "slug": "7-leren",
+ "hoofdstuk": "gedrag",
+ "hoofdstukNaam": "Gedrag",
+ "title": "Leren: van Pavlov tot je telefoon",
+ "sub": "Gewenning, klassieke en operante conditionering",
+ "puzzle": "Daan pakt zijn telefoon bij elk trilletje, ook al is het meestal niks. Waarom blijft hij kijken?",
+ "meta": "gedrag · leren en conditionering",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Gedrag · film 7 van 12",
+ "lead": "Gewenning: je reageert niet meer op een herhaalde, onschuldige prikkel. Klassieke conditionering: een neutrale prikkel (een geluid) gaat een vergelijkbare reactie oproepen als een onvoorwaardelijke prikkel (eten); zonder eten dooft dat uit. Operante conditionering: gedrag met een prettig gevolg neemt toe, met een onprettig gevolg neemt af. Elke keer belonen leert snel; onvoorspelbaar belonen maakt gedrag hardnekkig, zoals bij je telefoon.",
+ "endHaak": "welke van jouw gewoontes is door onvoorspelbare beloning ontstaan?",
+ "minis": {
+  "Hoofdstuk 1": "Wat is de eenvoudigste vorm van leren?",
+  "Hoofdstuk 2": "Hoe leerde Pavlovs hond kwijlen bij een geluid?",
+  "Hoofdstuk 3": "Hoe leer je gedrag door de gevolgen?",
+  "Recap": "Waarom pakt Daan zijn telefoon?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personage: Daan (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Waarom blijft Daan kijken, ook al is het meestal niks?",
+   "correct": 1,
+   "explain": "Het antwoord zie je in hoofdstuk 3."
+  },
+  "q06": {
+   "q": "Pavlov liet het geluid steeds klinken zonder eten. Wat gebeurde er met het kwijlen?",
+   "correct": 1,
+   "explain": "Het kwijlen werd steeds minder: uitdoving."
+  },
+  "q09": {
+   "q": "Het voer stopt. Welke rat bleef het langst drukken?",
+   "correct": 1,
+   "explain": "Onvoorspelbaar beloond gedrag dooft langzamer uit."
+  }
+ },
+ "glossary": [
+  {
+   "t": "gewenning",
+   "d": "Niet meer reageren op een prikkel die steeds terugkomt en geen gevolgen heeft."
+  },
+  {
+   "t": "klassieke conditionering",
+   "d": "Een neutrale prikkel gaat een vergelijkbare reactie oproepen als een onvoorwaardelijke prikkel, doordat ze vaak samen voorkomen."
+  },
+  {
+   "t": "onvoorwaardelijke / voorwaardelijke prikkel",
+   "d": "Prikkel die van nature een reactie oproept (eten) / prikkel die dat pas na leren doet (het geluid)."
+  },
+  {
+   "t": "uitdoving",
+   "d": "Een aangeleerde reactie wordt zwakker als de koppeling (of beloning) niet meer volgt."
+  },
+  {
+   "t": "operante conditionering",
+   "d": "Leren door de gevolgen van gedrag: bekrachtiging maakt gedrag vaker, straf minder vaak."
+  },
+  {
+   "t": "bekrachtiging / straf",
+   "d": "Een gevolg waardoor gedrag vaker optreedt (iets prettigs, of iets vervelends dat ophoudt) / minder vaak optreedt."
+  },
+  {
+   "t": "voorspellingsfout",
+   "d": "vwo · Verschil tussen de verwachte en de echte beloning; dopamine-neuronen signaleren dit verschil."
+  }
+ ],
+ "sections": "  <section><h2>Checkvragen</h2>\n    <p class=\"meta\">examenstijl · antwoorden ingeklapt</p>\n    <div class=\"q\"><b>1. Welke vorm van leren?</b> <span class=\"pts\">3 punten</span><p>Geef bij elk voorbeeld de vorm van leren: gewenning, klassieke conditionering of operante conditionering.<br>1 Een kat rent naar de keuken als ze het blikopener-geluid hoort.<br>2 Iemand die naast het spoor woont, wordt niet meer wakker van de treinen.<br>3 Een hond gaat vaker zitten omdat hij er een snoepje voor krijgt.</p>\n      <details><summary>Antwoord</summary><p>1 klassieke conditionering (1) · 2 gewenning (1) · 3 operante conditionering (1).</p></details></div>\n    <div class=\"q\"><b>2. Pavlov</b> <span class=\"pts\">3 punten</span><p>Een hond hoort steeds een zoemer vlak voordat hij eten krijgt. Na een tijdje kwijlt hij al bij de zoemer.</p>\n      <p>a. Wat is hier de onvoorwaardelijke prikkel en wat de voorwaardelijke prikkel? (2p)<br>b. Wat gebeurt er als de zoemer vaak klinkt zonder eten, en hoe heet dat? (1p)</p>\n      <details><summary>Antwoord</summary><p>a. Onvoorwaardelijke prikkel: het eten (1); voorwaardelijke prikkel: de zoemer (1). b. Het kwijlen bij de zoemer neemt af: uitdoving (1).</p></details></div>\n    <div class=\"q\"><b>3. Beloningsschema</b> <span class=\"pts\">2 punten</span><p>Een trainer wil een hond een nieuw trucje leren en wil dat de hond het trucje daarna lang blijft doen, ook als er niet altijd een snoepje is.</p>\n      <p>Leg uit hoe de trainer het belonen het best kan aanpakken. (2p)</p>\n      <details><summary>Antwoord</summary><p>Eerst elke keer belonen: dan leert de hond het snel (1). Daarna af en toe, onvoorspelbaar belonen: dan dooft het gedrag langzaam uit / blijft het lang bestaan (1).</p></details></div>\n    <div class=\"q vwo-only\"><b>4. Voorspellingsfout</b> <span class=\"vwo-badge\">vwo</span> <span class=\"pts\">2 punten</span><p>Een aap leert dat een lampje een slokje sap aankondigt. Na het leren vuren dopamine-neuronen al bij het lampje en nauwelijks nog bij het sap. Op een dag gaat het lampje aan, maar komt er geen sap.</p>\n      <p>Beschrijf wat de dopamine-neuronen doen op het moment dat het sap had moeten komen, en leg uit waarom. (2p)</p>\n      <details><summary>Antwoord</summary><p>Hun activiteit zakt onder het normale niveau (1), omdat de uitkomst slechter is dan verwacht: een negatieve voorspellingsfout (1).</p></details></div>\n  </section>\n  <section><h2>Voor de docent</h2>\n    <h3>Hoe de film het uitlegt</h3>\n    <table><tr><th>Hoofdstuk</th><th>Kernbeeld</th></tr>\n      <tr><td>Cold open</td><td>Daan (castboek) en een trillende telefoon; meldingen (reclame, groepsapp, een leuk bericht). Openingsvraag (antwoord in H3)</td></tr>\n      <tr><td>1 Gewenning</td><td>Zeehaas die steeds minder ver zijn kieuw intrekt; staafjes per aanraking; koelkast: oor vangt het geluid nog op, hersenen reageren niet</td></tr>\n      <tr><td>2 Klassieke conditionering</td><td>Drie panelen (aangeboren, samen, geluid alleen) met hond, metronoom en voerbak; grafiek met verwerving, uitdoving en 'een beetje terug' na een pauze; parallel Pavlov ↔ Daan (geluid/trillen, eten/iets leuks, kwijlen/kriebel)</td></tr>\n      <tr><td>3 Operante conditionering</td><td>Skinnerbox met drukkende rat en korrels; leercurve; bekrachtiging en straf; rat A (elke keer) en B (af en toe); uitdovingscurven; telefoon, likes, loot boxes, gokautomaten; meldingen uit of bundelen. Vwo: rasterplot dopamine-neuronen (onverwacht, na leren, uitblijven)</td></tr>\n    </table>\n    <h3>Achtergrond en vereenvoudigingen</h3>\n    <ul>\n      <li>Gewenning bij <i>Aplysia</i> (zeehaas): kieuwterugtrekreflex na aanraken van de sifon (Kandel, Nobelprijs 2000). Gewenning is iets anders dan sensorische adaptatie: de zintuigcellen blijven vuren, de verandering zit in de synaps.</li>\n      <li>Pavlov gebruikte vooral metronomen en zoemers, zelden een bel. Termen: (on)voorwaardelijke prikkel/reflex; ook (on)geconditioneerd. De geleerde reactie lijkt op de aangeboren reactie maar is niet identiek. Na uitdoving: spontaan herstel (zwakker).</li>\n      <li>Bekrachtiging en straf worden bepaald door het effect op het gedrag. Negatieve bekrachtiging (iets vervelends verdwijnt) is in de film als 'iets vervelends houdt op' genoemd; positief/negatief niet als begrippen.</li>\n      <li>Partial reinforcement extinction effect: intermitterend beloond gedrag dooft langzamer uit. Gokautomaten werken met een variabel (willekeurig) verhoudingsschema.</li>\n      <li>Telefoon: het model van onvoorspelbare beloning is een sterke verklaring; voor likes is er gedragsbewijs (Lindström e.a. 2021), voor meldingen vooral correlationeel. Meldingen bundelen verbeterde aandacht en welzijn (Fitz e.a. 2019); veel keren oppakken gebeurt zonder melding (Heitmayer &amp; Lahlou 2021).</li>\n      <li>Dopamine: Schultz (1997) voorspellingsfout; Fiorillo, Tobler &amp; Schultz (2003) aanhoudende activiteit bij onzekere beloning; dopamine ook bij 'willen' (Berridge). De rasterplot is schematisch.</li>\n    </ul>\n    <h3>Leerdoelen</h3>\n    <table><tr><th>Leerdoel</th><th>Niveau</th><th>Waar</th></tr>\n      <tr><td>Gewenning</td><td>basis</td><td>H1, checkvraag 1</td></tr>\n      <tr><td>Klassieke conditionering, uitdoving</td><td>basis</td><td>H2, checkvragen 1, 2</td></tr>\n      <tr><td>Operante conditionering, bekrachtiging, straf</td><td>basis</td><td>H3, checkvraag 1</td></tr>\n      <tr><td>Onvoorspelbare beloning en hardnekkig gedrag</td><td>basis</td><td>H3, checkvraag 3</td></tr>\n      <tr><td>Dopamine en voorspellingsfout</td><td>vwo</td><td>H3 (vwo), checkvraag 4</td></tr>\n    </table>\n    <h3>Suggesties voor de les</h3>\n    <ul><li>Laat leerlingen een week bijhouden hoe vaak ze hun telefoon pakken zonder melding, en hoe vaak na een melding.</li><li>Bedenk met de klas een trainingsplan voor een huisdier volgens het principe 'eerst elke keer, dan af en toe'.</li></ul>\n  </section>\n"
+}

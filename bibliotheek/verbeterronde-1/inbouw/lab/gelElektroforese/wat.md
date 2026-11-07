@@ -1,0 +1,1 @@
+- Basis: variant C (3D-bak, gelopen, gekleurd in UV-kastje, hand voor de maat). Geen fouten gemeld, geen opmerking: ongewijzigd overgenomen.

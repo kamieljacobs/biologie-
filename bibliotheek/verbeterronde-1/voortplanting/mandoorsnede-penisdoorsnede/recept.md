@@ -1,0 +1,4 @@
+- Mannelijke geslachtsorganen in mediane doorsnede op schaal: zaadbal en bijbal, zaadleider die óver de urineleider naar de achterkant van de blaas loopt, zaadblaasje, prostaat rond de urinebuis, zwellichamen.
+- De organen staan centraal; darm en bekken zijn alleen context.
+- Penis in dwarsdoorsnede: twee zwellichamen boven met een stevig vlies, sponsachtig weefsel met holten die bij een erectie vollopen; onder het sponsachtige lichaam met de urinebuis.
+- Niet: urinebuis in de bovenste zwellichamen; een bol met stipjes.

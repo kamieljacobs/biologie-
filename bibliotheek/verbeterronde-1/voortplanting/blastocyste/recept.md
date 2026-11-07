@@ -1,0 +1,3 @@
+- Blastocyste (dag 5) in de zona: platte buitenlaag (trofoblast), binnenste celmassa aan één kant, holte.
+- PGT: een paar cellen van de buitenlaag worden met een pipet weggenomen, tegenover de celmassa — dat moet duidelijk zichtbaar zijn.
+- Uitkomen: de zona scheurt op één plek en de blastocyste kruipt eruit; de lege zona blijft achter.

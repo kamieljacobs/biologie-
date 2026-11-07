@@ -1,0 +1,58 @@
+{
+ "oud": {
+  "detail": "weinig",
+  "vorm": "schematisch",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "los",
+  "beweging": "idle",
+  "opbouw": "in-een-keer",
+  "referentie": "geen",
+  "vondst": "losse organellen zwevend, ER als golflijnen naast de kern"
+ },
+ "A": {
+  "detail": "veel",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "los",
+  "beweging": "proces",
+  "opbouw": "in-een-keer",
+  "referentie": "elevenlabs",
+  "vondst": "ER loopt door in kernmembraan; blaasjes reizen en versmelten met membraan"
+ },
+ "B": {
+  "detail": "veel",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "doorsnede-3d",
+  "textuur": "druk",
+  "context": "los",
+  "beweging": "proces",
+  "opbouw": "in-een-keer",
+  "referentie": "elevenlabs",
+  "vondst": "volle cel: ruimtelijke organellen, actinecortex, peroxisomen, veel blaasjes"
+ },
+ "C": {
+  "detail": "veel",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "los",
+  "beweging": "proces",
+  "opbouw": "in-een-keer",
+  "referentie": "elevenlabs",
+  "vondst": "ER op zes plekken via halsjes in kernenvelop, zelfde lumenkleur"
+ }
+}

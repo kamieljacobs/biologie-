@@ -1,0 +1,241 @@
+{
+ "film": "films/erfelijkheid/1-chromosomen.html",
+ "titel": "Chromosomen en de taal van erfelijkheid (Erfelijkheid 1 van 6)",
+ "promptversie_nu": "onbekend: oude eigen bouwvorm van 11 okt 2026 (los scenes() + CHAP, één doorlopende audiotake, geen FILMDATA); stem Roos, model onbekend. Nagelopen tegen v10 (PROMPT_v6 + WERKWIJZE-LESSEN + BEELDAFSPRAKEN + CLAUDE.md).",
+ "advies": {
+  "aanpak": "herbouwen",
+  "waarom": "Bijna alle stem moet opnieuw: 12 van de 14 alinea's bevatten een uitspraakwoord uit Kamiels review (DNA, zesenveertig, haploïd, allel, genotype), en in deze film zit alles in één doorlopende take, dus knippen en verschuiven in één mp3 levert meer risico op dan per alinea opnieuw inspreken. Ook het beeld van het hele eerste hoofdstuk (familie, huidzoom, DNA, 0:00-1:14) moet nieuw, en de familie heeft een inhoudelijke fout (het kind met albinisme is het donkerste van allemaal). Het script zelf is goed en kan met een paar kleine wijzigingen blijven; het karyogram en de tyrosinase-simulatie zijn sterk en kunnen als code mee naar de nieuwe film. Daarmee krijgt de film ook meteen de huidige speler (Vragen uit, kort antwoord knippen, donker standaard) in plaats van de oude.",
+  "werk": "Groot: ± 1 tot 1,5 werkdag. Script overnemen in script_v2.md met 4 kleine tekstwijzigingen; 4 nieuwe tekenrecepten eerst op het testvel (DNA-kluwen/chromatine, chromosoom dat condenseert, DNA rond eiwitten, huid in doorsnede met pigmentcel) en een gezin uit het castboek (inclusief een kind met albinisme en een zithouding, of staand); karyogram, telmoment en simulatie overzetten naar scenes_<d>.js; frisse beeldreview na de bouw (C10.7) en Vragen uit afspelen.",
+  "credits": "± 6.500 credits ElevenLabs (TTS, Roos, eleven_v4, één take per alinea; het script is ± 6.200 tekens), Scribe 0. Eventueel ± 240 credits voor een huiskamerdecor. Klein herstel zonder nieuwe stem zou 0 credits kosten maar lost de uitspraakpunten niet op."
+ },
+ "herinspreken": [
+  {
+   "alinea": "p02",
+   "woorden": [
+    "DNA"
+   ],
+   "tijd": "0:42"
+  },
+  {
+   "alinea": "p03",
+   "woorden": [
+    "DNA",
+    "DNA-molecuul"
+   ],
+   "tijd": "0:51"
+  },
+  {
+   "alinea": "p05",
+   "woorden": [
+    "zesenveertig",
+    "zesenveertig"
+   ],
+   "tijd": "1:23",
+   "review": "-P4j4KdyoXtmpV4JTIqt"
+  },
+  {
+   "alinea": "p06",
+   "woorden": [
+    "zesenveertig"
+   ],
+   "tijd": "2:04",
+   "review": "-P4j4bRh2pdn4Lvz1Xir"
+  },
+  {
+   "alinea": "p07",
+   "woorden": [
+    "haploïd",
+    "zesenveertig"
+   ],
+   "tijd": "2:26",
+   "review": "-P4j4itXQhx3gtPrfrCj"
+  },
+  {
+   "alinea": "p08",
+   "woorden": [
+    "DNA",
+    "DNA-volgorde",
+    "allel",
+    "allelen"
+   ],
+   "tijd": "3:00",
+   "review": "-P4j4uMXLXTax-JKexiA, -P4j5h6-XgniRwQeGS9G"
+  },
+  {
+   "alinea": "p09",
+   "woorden": [
+    "allel",
+    "allelen",
+    "genotype"
+   ],
+   "tijd": "4:06",
+   "review": "-P4j6JKUksMDCiYPuuiK, -P4j6QsnpygbegZ5y0m6"
+  },
+  {
+   "alinea": "p10",
+   "woorden": [
+    "allel"
+   ],
+   "tijd": "4:29"
+  },
+  {
+   "alinea": "p11",
+   "woorden": [
+    "genotype",
+    "allel",
+    "allelen"
+   ],
+   "tijd": "4:53"
+  },
+  {
+   "alinea": "p12",
+   "woorden": [
+    "genotype"
+   ],
+   "tijd": "5:38"
+  },
+  {
+   "alinea": "p13",
+   "woorden": [
+    "allel"
+   ],
+   "tijd": "6:10"
+  },
+  {
+   "alinea": "p14",
+   "woorden": [
+    "allel",
+    "allelen"
+   ],
+   "tijd": "6:33"
+  },
+  {
+   "alinea": "opmerking",
+   "woorden": [],
+   "tijd": null,
+   "toelichting": "Eén doorlopende take (blob 007.mp3, 428 s), geen losse bestanden per alinea. Per alinea opnieuw inspreken kan in deze film alleen door het nieuwe stuk in de ene mp3 te plakken en alle latere woordtijden te verschuiven (zie bron/info.md 'Zo pas je deze film aan'). Alleen p01 en p04 hebben geen risicowoord; bij herbouw spreek je dus praktisch alles opnieuw in, één take per alinea. haploïd staat sinds 24 okt al als 'haaploïd' in films/uitspraak.json. Kamiels vraag bij 4:11 (-P4j6JKUksMDCiYPuuiK, 'allel hier het beste, is het hier anders?'): de tekst en de stem-invoer zijn bij elk 'allel' gelijk; de klemtoon wisselt omdat het model elk voorkomen binnen de lange take opnieuw 'raadt' (zinsmelodie, 'een allel met een fout' staat midden in de zin). Een vaste respelling uit de uitspraaktest maakt het overal gelijk."
+  }
+ ],
+ "voorstellen": [
+  {
+   "id": "chr-1",
+   "tijd": "0:08",
+   "bron": "review -P4j42SGiXk0iS_5_T_c | BEELDAFSPRAKEN: Personages (castpersonages, geen zelfgetekende gezichtjes)",
+   "soort": "beeld",
+   "probleem": "De familie op de bank bestaat uit eigen getekende poppetjes (rond hoofd, blokvormig lijf, puntogen) uit de eerste versie van de film, niet uit het castboek. Dezelfde familie komt terug van 6:02 tot het eind.",
+   "voorstel": "Familie opnieuw tekenen met persoon() uit personages/lib_cast.js. Het castboek heeft geen zithouding: óf de familie staat in de kamer, óf er komt eerst een zithouding in lib_cast.js (testvel/castboek). Opa's en oma's in de lijstjes ook als castkoppen.",
+   "omvang": "middel",
+   "still": "r1_0008.webp"
+  },
+  {
+   "id": "chr-2",
+   "tijd": "0:08",
+   "bron": "eigen (vakinhoud) | BEELDAFSPRAKEN: Personages, gevoelige onderwerpen",
+   "soort": "beeld",
+   "probleem": "Het kind met albinisme is getekend met de donkerste huid en zwart haar van het hele gezin (huidkleur #46332A); de ouders hebben juist lichte, bijna witte haren. Dat is het omgekeerde van albinisme ('bijna geen pigment in huid, haar en ogen').",
+   "voorstel": "Kind met albinisme: heel lichte huid, wit-blond haar, lichte ogen; broer en zus met huid en haar zoals hun ouders. Omdat de familie van Noor (ROLLEN.md) geen kind met albinisme heeft, kiest Kamiel: een nieuw figurantgezin in castboekstijl (ouders + drie kinderen, één met albinisme, respectvol getekend) of een nieuw familielid in CAST_FAMILIE. Geen half aangepast vast personage.",
+   "omvang": "middel",
+   "still": "x_0011.webp"
+  },
+  {
+   "id": "chr-3",
+   "tijd": "0:29",
+   "bron": "review -P4j47ZVHE_MROpf9KTg | BEELDAFSPRAKEN: Mooier animeren | prompt v10 C10 (bibliotheek eerst, beeld = ondertitel)",
+   "soort": "beeld",
+   "probleem": "De zoom in de huid is een vlak bruin vak met stippen en één rij ronde cellen; bij 'Bovenop dode, platte cellen, daaronder levende' (0:28) staat er nog geen enkel label: die komen pas ± 5 s later, als de stem al bij de basale laag is. Het label 'dode, platte cellen' staat bovendien tegen de rechterrand.",
+   "voorstel": "Nieuw recept 'huid in doorsnede' voor lib_bio.js (op het testvel): hoornlaag met platte dode cellen, levende lagen, basale laag met delende cellen en een melanocyt met uitlopers, lederhuid met bloedvat; vertrekpunt huidSchema() uit geneeskunde-4 (heeft al pigmentcel en moedervlek). Namen verschijnen op het woord, ≥ 60 px van de rand, zoom via een zoomcirkel vanaf de arm.",
+   "omvang": "groot",
+   "still": "r2_0029.webp"
+  },
+  {
+   "id": "chr-4",
+   "tijd": "0:43",
+   "bron": "review -P4j4B8a2DDxIeDXrBv4 | BEELDAFSPRAKEN: DNA in de kern als losse, zacht kronkelende draden | prompt v10 C10",
+   "soort": "beeld",
+   "probleem": "Het DNA in de kern is een dicht krabbelpatroon van korte zigzaglijntjes; het condenseren (0:54-1:00) is een overvloeier van krabbels naar staafjes, en 'DNA opgerold rond eiwitten' (1:04) is een golflijn met losse bolletjes.",
+   "voorstel": "Kern met chromatine als lange, zacht kronkelende draden (bestaande chromatine() uit cellen/celorganellen en dna/_bouw); bij 'wikkelt het zich strak op' trekken dezelfde draden zichtbaar samen tot chromosomen (condensing()/chromX() uit voortplanting/celdeling/chrom_lib.js); inzet DNA-dubbelhelix die om eiwitbolletjes (nucleosomen) windt, vertrekpunt dnaHelix() uit mbrt-2. Alle drie als recept naar lib_bio.js.",
+   "omvang": "groot",
+   "still": "r3_0043.webp"
+  },
+  {
+   "id": "chr-5",
+   "tijd": "1:48",
+   "bron": "review -P4j4SAXTrk45G6yeiQH | prompt v8/v10 B9/B11 Vragen uit",
+   "soort": "vragen uit",
+   "probleem": "'Waarom paren?' is geen restje van een vraagkaart: het is een retorische vraag die in het script staat (alinea p05) en in beide standen klinkt. De oude speler knipt alleen rond de drie aftelklokken (2:05, 4:29, 6:15) en de zinnen direct ervoor; deze zin ligt 17 s eerder en heeft geen kaart, dus hij blijft altijd staan. Daardoor klinkt het als een vraag die nergens heen gaat. Hetzelfde geldt voor 'Hoeveel chromosomen zitten er in deze cel?' bij het telmoment (1:16).",
+   "voorstel": "Bij het opnieuw inspreken van p05 de vraag vervangen door een gewone zin, bijvoorbeeld 'Dat ze paren vormen, heeft een reden: één chromosoom van elk paar komt van je vader …'. Bij p04 'Laten we ze tellen.' zonder vraagzin. De regel uit de kandidaatlessen (B11: zin met '?' zonder vraagkaart melden) vangt dit voortaan.",
+   "omvang": "klein",
+   "still": "r5_0149.webp"
+  },
+  {
+   "id": "chr-6",
+   "tijd": "1:56",
+   "bron": "review -P4j4XuLkJqAthgfyQzX | prompt v10 C10 (beeld = ondertitel)",
+   "soort": "tekst",
+   "probleem": "Ook geen vraagrest: er ligt geen knip of vraag in de buurt, en in de opname is het gewone uitleg. Wel spreekt de stem de dubbele punt als een punt uit: 'homologe chromosomen. Even lang. Dezelfde bouw' met een nieuwe toonhoogte op 'even lang' en een pauze erna, zodat het klinkt als een los afgebroken stukje. De kaart waar Kamiel op klikte zegt het ook als brokje: 'zelfde lengte en bouw, / zelfde soort informatie'.",
+   "voorstel": "In p05 een hele zin van maken: 'Zo'n paar noemen we homologe chromosomen. Ze zijn even lang, hebben dezelfde bouw en dragen op dezelfde plekken dezelfde soort informatie.' Kaart HOMOLOGE CHROMOSOMEN met dezelfde drie kenmerken als korte regels onder elkaar (even lang · zelfde bouw · zelfde soort informatie op dezelfde plek).",
+   "omvang": "klein",
+   "still": "r6_0156.webp"
+  },
+  {
+   "id": "chr-7",
+   "tijd": "2:15",
+   "bron": "eigen | prompt v8/v10 B9/B11 Vragen uit | CLAUDE.md Speler (kortantwoord)",
+   "soort": "vragen uit",
+   "probleem": "Met ?vragen=uit springt de speler van 2:05 naar 2:15 en hoor je meteen 'Drieëntwintig.': het antwoord op de weggeknipte vraag. De oude speler herkent als los antwoord alleen ja/nee/precies/antwoord A-D; scripts/kortantwoord.py werkt alleen in FILMDATA-films, niet in deze __TIMELINE__-speler.",
+   "voorstel": "Bij herbouw verdwijnt dit vanzelf via de huidige speler + kortantwoord.py. Blijft de oude film staan: p07 laten beginnen met 'Een eicel heeft er drieëntwintig.' (een gewone uitlegzin die ook zonder vraag klopt).",
+   "omvang": "klein",
+   "still": "vu_q1na_0215.webp"
+  },
+  {
+   "id": "chr-8",
+   "tijd": "4:26",
+   "bron": "eigen | prompt v8/v10 B9/B11 Vragen uit",
+   "soort": "vragen uit",
+   "probleem": "Met Vragen uit staat de VOORSPEL-kaart met de opties A/B/C ± 3,5 s in beeld (vanaf 4:26) en hoor je 'Iemand met Aa heeft maar één werkend allel.' voordat de knip begint: de kaart verschijnt op het begin van alinea p10, de knip pas bij 'Hoeveel pigment'. Bij de andere twee vragen flitst de kaart ± 0,1 s op.",
+   "voorstel": "Bij herbouw: vraagkaart alleen in de vraagtijd van de speler (zoals in FILMDATA), en de zin over Aa als gewone uitleg in p09 zetten. Blijft de oude film staan: in threePanels de kaart verbergen als SNEL.v==='uit' en de knip laten beginnen bij PS('p10').",
+   "omvang": "klein",
+   "still": "vu_q2_0428.webp"
+  },
+  {
+   "id": "chr-9",
+   "tijd": "5:39",
+   "bron": "prompt v10 C10.7 (beeld = ondertitel)",
+   "soort": "beeld",
+   "probleem": "'Deze arm is in de zon geweest' terwijl er geen arm in beeld is: alleen twee simulatievakjes met een geel zonnetje; de huidkleurstalen eronder zijn op dat moment nog leeg.",
+   "voorstel": "Twee onderarmen van hetzelfde castpersonage (schaduw / zon, met een zoomcirkel naar het simulatievak) of de huidstalen direct vullen, zodat 'deze arm' iets aanwijst.",
+   "omvang": "middel",
+   "still": "z_0539.webp"
+  },
+  {
+   "id": "chr-10",
+   "tijd": null,
+   "bron": "prompt v6 C5 (UI-laag) en C6 | prompt v10 C10",
+   "soort": "beeld",
+   "probleem": "De film heeft een eigen, oudere UI-laag: kruimelpaden NIVEAU en WEERGAVE in beide bovenhoeken, legenda linksonder en een schaalbalk rechtsonder, op elk beeld. Dat staat niet in de huidige C5 en maakt het beeld druk; de schaalbalk hoort volgens C5 linksonder.",
+   "voorstel": "Bij herbouw de standaard UI-laag: alleen schaalbalk (meta, linksonder) tijdens de zoom en de kleurlegenda vader/moeder alleen waar kleur iets betekent; kruimelpaden vervallen.",
+   "omvang": "klein",
+   "still": "s_0142.webp"
+  },
+  {
+   "id": "chr-11",
+   "tijd": "4:43",
+   "bron": "eigen | WERKWIJZE-LESSEN kandidaat 'stelligheidscheck' en 'regels voor vraagopties'",
+   "soort": "didactiek",
+   "probleem": "De stem zegt 'bijna evenveel melanine', vraagoptie A en het docentdeel zeggen 'evenveel als AA'; de meter in beeld laat Aa iets lager zien. Kleine tegenspraak precies bij het kernmoment van de film.",
+   "voorstel": "Optie A 'ongeveer evenveel als AA' en het docentdeel gelijk trekken met de stem; opties even lang houden.",
+   "omvang": "klein",
+   "still": "s_0435.webp"
+  },
+  {
+   "id": "chr-12",
+   "tijd": null,
+   "bron": "CLAUDE.md Licht/donker | eigen",
+   "soort": "techniek",
+   "probleem": "De pagina heeft geen thema-regeltje (start niet zeker donker, color-scheme staat op light), de <title> ('Chromosomen en erfelijkheid') wijkt af van de kop, en de kop zegt '± 6,5 minuten' terwijl de film 7:08 duurt.",
+   "voorstel": "Thema-regeltje direct na <meta charset>, titel gelijk aan de kop, duur 7 minuten (of de nieuwe duur na herbouw); daarna 'Voldoet aan: prompt v10' in bron/info.md.",
+   "omvang": "klein",
+   "still": null
+  }
+ ]
+}

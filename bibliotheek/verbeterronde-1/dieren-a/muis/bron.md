@@ -1,0 +1,2 @@
+- Mammal Society, Wood Mouse Fact Sheet (https://www.mammal.org.uk/wp-content/uploads/2022/07/Wood-Mouse-Fact-Sheet-v2.pdf), niveau A/B: eet vooral zaden; grote oren, achtervoeten en staart.
+- Rechtop zitten en eten uit de voorpoten: NIET in een geopende bron gevonden; te checken.

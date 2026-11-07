@@ -1,0 +1,2 @@
+- Basis: variant A (lijntekening zijaanzicht; tafel op/neer, lamp aan/uit). Geen fouten gemeld, geen opmerking: ongewijzigd overgenomen.
+- Vraag aan Kamiel: in de derde stand staat de microscoop gespiegeld (statief rechts). De beoordelaar vond dat verwarrend. Moet die stand gelijk worden aan de andere twee? Dat is een demo-keuze (kijk: -1), geen functie-aanpassing.

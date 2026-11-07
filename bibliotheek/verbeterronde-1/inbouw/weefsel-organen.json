@@ -1,0 +1,156 @@
+[
+ {
+  "id": "weefsel-organen__armanatomie",
+  "obj": "armanatomie",
+  "nieuw": false,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "Dun romp-contour achter de arm suggereert een te smalle romp (ca. 15 cm diep): verhouding fout"
+ },
+ {
+  "id": "weefsel-organen__armmodel",
+  "obj": "armmodel",
+  "nieuw": false,
+  "keuze": "gelijk",
+  "actie": "houden (huidige versie blijft; alleen een fout herstellen als die met 2 bronnen bevestigd is)",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "weefsel-organen__bloedvat-rodebloedcel",
+  "obj": "bloedvat-rodebloedcel",
+  "nieuw": false,
+  "keuze": "gelijk",
+  "actie": "houden (huidige versie blijft; alleen een fout herstellen als die met 2 bronnen bevestigd is)",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "weefsel-organen__darmwand",
+  "obj": "darmwand",
+  "nieuw": false,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "wandlagen onderling vrij fijn; klierbuisjes tussen de vlokken zijn niet te zien"
+ },
+ {
+  "id": "weefsel-organen__gewrichtdoorsnede-botdoorsnede-botweefsel",
+  "obj": "gewrichtdoorsnede-botdoorsnede-botweefsel",
+  "nieuw": false,
+  "keuze": "gelijk",
+  "actie": "houden (huidige versie blijft; alleen een fout herstellen als die met 2 bronnen bevestigd is)",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "weefsel-organen__hoofdhersenen",
+  "obj": "hoofdhersenen",
+  "nieuw": false,
+  "keuze": "gelijk",
+  "actie": "houden (huidige versie blijft; alleen een fout herstellen als die met 2 bronnen bevestigd is)",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "weefsel-organen__huiddoorsnede",
+  "obj": "huiddoorsnede",
+  "nieuw": false,
+  "keuze": "gelijk",
+  "actie": "houden (huidige versie blijft; alleen een fout herstellen als die met 2 bronnen bevestigd is)",
+  "opmerking": "",
+  "fout_ronde1": "In de zoom zijn korrellaag (platte cellen), stekelcellaag en basale laag (kolomvormig) nauwelijks te onderscheiden; alle cellen lijken op elkaar",
+  "fout_laatste": "Lagen (korrel-, stekelcel-, basale laag) nauwelijks te onderscheiden in beide",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "weefsel-organen__hypofysepoort",
+  "obj": "hypofysepoort",
+  "nieuw": false,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "geen echte zwakte; hypothalamus-contour blokkerig"
+ },
+ {
+  "id": "weefsel-organen__levervoor",
+  "obj": "levervoor",
+  "nieuw": false,
+  "keuze": "oud",
+  "actie": "huidige versie houden + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "geen inkeping met ronde leverband, vlakke vorm zonder bolle bovenkant"
+ },
+ {
+  "id": "weefsel-organen__nierbijnier",
+  "obj": "nierbijnier",
+  "nieuw": false,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "De stand 'urine die door de urineleider loopt' ontbreekt in alle versies",
+  "fout_laatste": "",
+  "zwak_gekozen": "Alle drie de standen zijn bijna gelijk: geen oplichten of urine"
+ },
+ {
+  "id": "weefsel-organen__sarcomeer-myofibril",
+  "obj": "sarcomeer-myofibril",
+  "nieuw": false,
+  "keuze": "oud",
+  "actie": "huidige versie houden + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "myosinekoppen als lolly-bolletjes (bolletjes-eiwit), myofibril dof met te weinig contrast tussen A- en I-band"
+ },
+ {
+  "id": "weefsel-organen__spierdwars-eenheidzenuw-spierspoeltje",
+  "obj": "spierdwars-eenheidzenuw-spierspoeltje",
+  "nieuw": false,
+  "keuze": "C",
+  "actie": "variant C inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "Perimysium (bindweefselvlies om bundels van vezels) ontbreekt in beide versies; vezels liggen allemaal los in één vlies",
+  "fout_laatste": "",
+  "zwak_gekozen": "Bindweefselschedes (perimysium) tussen de bundels en vlies om de spier duidelijk"
+ },
+ {
+  "id": "weefsel-organen__spiervezel-spierbundel",
+  "obj": "spiervezel-spierbundel",
+  "nieuw": false,
+  "keuze": "oud",
+  "actie": "huidige versie houden + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "De stand samentrekken ontbreekt in alle versies: de lichte banden worden niet smaller, de vezel niet korter of dikker",
+  "fout_laatste": "",
+  "zwak_gekozen": "geen bundel: geen bindweefselvlies, geen haarvat, vezels met gaten ertussen"
+ },
+ {
+  "id": "weefsel-organen__vetcel-vetweefsel",
+  "obj": "vetcel-vetweefsel",
+  "nieuw": false,
+  "keuze": "oud",
+  "actie": "huidige versie houden + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "Het haarvat loopt dwars door/over vetcellen heen in plaats van tussen de cellen in het bindweefsel (beide versies)",
+  "fout_laatste": "",
+  "zwak_gekozen": "gevuld en geslonken stand zijn identiek; kernen nauwelijks zichtbaar"
+ }
+]

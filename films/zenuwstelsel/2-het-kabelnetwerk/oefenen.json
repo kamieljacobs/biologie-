@@ -1,0 +1,335 @@
+{
+ "versie": 1,
+ "film": "films/zenuwstelsel/2-het-kabelnetwerk.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "schema-neuron",
+   "soort": "schema",
+   "titel": "Een neuron",
+   "opdracht": "Sleep de namen naar de goede onderdelen van de zenuwcel. Eén naam blijft over.",
+   "alt": "Lijntekening van een neuron: een cellichaam met kern en vertakte korte uitlopers, een lange uitloper met een rij omhulsels en smalle openingen ertussen, en aan het eind vertakkingen met knopjes.",
+   "breed": 760,
+   "hoog": 380,
+   "vakbreed": 178,
+   "svg": "<path stroke-width=\"2\" d=\"M100 176 L62 120 M78 143 L44 140 M62 120 L58 82 M62 120 L86 88 M112 166 L120 110 M120 110 L104 76 M120 110 L146 80 M96 216 L54 262 M70 244 L36 236 M54 262 L50 300 M54 262 L80 296 M128 232 L140 290 M140 290 L120 326 M140 290 L170 318 M88 196 L40 196 M40 196 L18 176 M40 196 L20 218\"/><path stroke-width=\"2.4\" d=\"M100 168 C112 156 140 156 152 170 C162 182 166 196 168 200 C162 206 160 220 150 232 C136 244 108 242 96 228 C84 214 86 182 100 168 Z\"/><circle cx=\"126\" cy=\"200\" r=\"13\" stroke-width=\"1.8\"/><circle class=\"vul zacht\" cx=\"126\" cy=\"200\" r=\"5\"/><path class=\"acc\" stroke-width=\"3\" d=\"M168 200 L574 200\"/><rect x=\"206\" y=\"186\" width=\"64\" height=\"28\" rx=\"12\" stroke-width=\"2\"/><rect x=\"282\" y=\"186\" width=\"64\" height=\"28\" rx=\"12\" stroke-width=\"2\"/><rect x=\"358\" y=\"186\" width=\"64\" height=\"28\" rx=\"12\" stroke-width=\"2\"/><rect x=\"434\" y=\"186\" width=\"64\" height=\"28\" rx=\"12\" stroke-width=\"2\"/><rect x=\"510\" y=\"186\" width=\"64\" height=\"28\" rx=\"12\" stroke-width=\"2\"/><path stroke-width=\"2\" d=\"M574 200 L604 200 M604 200 L644 150 M604 200 L650 200 M604 200 L644 250\"/><circle class=\"vul\" cx=\"648\" cy=\"146\" r=\"7\"/><circle class=\"vul\" cx=\"656\" cy=\"200\" r=\"7\"/><circle class=\"vul\" cx=\"648\" cy=\"254\" r=\"7\"/>",
+   "vakjes": [
+    {
+     "naam": "dendriet",
+     "x": 90,
+     "y": 32,
+     "punt": [
+      60,
+      86
+     ],
+     "uitleg": "korte uitloper; hier komt informatie binnen."
+    },
+    {
+     "naam": "axon",
+     "x": 280,
+     "y": 70,
+     "punt": [
+      186,
+      200
+     ],
+     "uitleg": "de lange uitloper; geleidt de impuls naar de eindknopjes. Kan wel een meter lang zijn."
+    },
+    {
+     "naam": "myelineschede",
+     "x": 470,
+     "y": 70,
+     "punt": [
+      466,
+      186
+     ],
+     "uitleg": "vettige laag om het axon, gemaakt door cellen van Schwann; laat geen ionen door."
+    },
+    {
+     "naam": "cellichaam",
+     "x": 120,
+     "y": 352,
+     "punt": [
+      150,
+      226
+     ],
+     "uitleg": "het deel met de kern."
+    },
+    {
+     "naam": "insnoering",
+     "x": 380,
+     "y": 330,
+     "punt": [
+      504,
+      204
+     ],
+     "uitleg": "smalle plek tussen twee cellen van Schwann; alleen hier kan een actiepotentiaal ontstaan."
+    },
+    {
+     "naam": "eindknopjes",
+     "x": 660,
+     "y": 330,
+     "punt": [
+      648,
+      254
+     ],
+     "uitleg": "uiteinden van het axon; hier gaat het bericht naar de volgende cel."
+    }
+   ],
+   "afleiders": [
+    "receptor"
+   ]
+  },
+  {
+   "id": "volgorde-actiepotentiaal",
+   "soort": "volgorde",
+   "titel": "Een actiepotentiaal",
+   "opdracht": "Een stukje membraan van een neuron in rust krijgt een prikkel. Zet de stappen in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Een prikkel maakt het membraan een beetje minder negatief.",
+     "uitleg": "In rust is de binnenkant ongeveer −70 mV ten opzichte van buiten: het rustpotentiaal."
+    },
+    {
+     "tekst": "Bij ongeveer −55 mV, de drempelwaarde, schieten natriumkanalen open.",
+     "uitleg": "Onder de drempel gebeurt er nog niets."
+    },
+    {
+     "tekst": "Natrium stroomt naar binnen: de binnenkant wordt positief, tot boven nul (depolarisatie).",
+     "uitleg": "Buiten de cel zit veel natrium, dus het stroomt naar binnen zodra de kanalen open zijn."
+    },
+    {
+     "tekst": "De natriumkanalen sluiten en kaliumkanalen gaan open: kalium stroomt naar buiten (repolarisatie).",
+     "uitleg": "Positieve lading verlaat de cel, dus de binnenkant wordt weer negatief."
+    },
+    {
+     "tekst": "De spanning schiet even door tot onder −70 mV: hyperpolarisatie.",
+     "uitleg": "Dit hele golfje heet een actiepotentiaal en duurt maar een paar duizendste seconde."
+    }
+   ]
+  },
+  {
+   "id": "schema-actiepotentiaal",
+   "soort": "schema",
+   "titel": "De grafiek van een actiepotentiaal",
+   "opdracht": "De grafiek laat de spanning over het membraan zien tijdens één actiepotentiaal. Sleep de namen naar de goede vakjes.",
+   "alt": "Grafiek van de membraanpotentiaal tegen de tijd: eerst een vlakke lijn, dan een kleine stijging tot een gestippelde lijn, een steile piek tot boven nul, een snelle daling tot onder de beginwaarde en een langzaam herstel.",
+   "breed": 760,
+   "hoog": 420,
+   "vakbreed": 170,
+   "svg": "<path stroke-width=\"2\" d=\"M110 400 L110 36 M104 46 L110 36 L116 46 M110 400 L700 400 M690 394 L700 400 L690 406\"/><text x=\"122\" y=\"44\">membraanpotentiaal (mV)</text><text x=\"698\" y=\"390\" text-anchor=\"end\">tijd</text><text x=\"100\" y=\"175.0\" text-anchor=\"end\">0</text><path class=\"zacht\" stroke-width=\"1.4\" stroke-dasharray=\"4 6\" d=\"M110 170.0 L690 170.0\"/><path class=\"zacht\" stroke-width=\"1.6\" stroke-dasharray=\"8 6\" d=\"M110 313.0 L690 313.0\"/><path class=\"acc\" stroke-width=\"3\" d=\"M110.0 352.0 L230.0 352.0 L234.0 351.6 L238.0 350.4 L242.0 348.5 L246.0 345.8 L250.0 342.2 L254.0 338.0 L258.0 332.9 L262.0 327.0 L266.0 320.4 L270.0 313.0 L274.2 282.5 L278.3 252.4 L282.5 223.5 L286.7 196.0 L290.8 170.5 L295.0 147.5 L299.2 127.4 L303.3 110.4 L307.5 96.8 L311.7 87.0 L315.8 81.0 L320.0 79.0 L325.1 81.9 L330.2 90.4 L335.4 104.2 L340.5 122.8 L345.6 145.4 L350.8 171.3 L355.9 199.3 L361.0 228.5 L366.1 257.7 L371.2 285.7 L376.4 311.6 L381.5 334.2 L386.6 352.8 L391.8 366.6 L396.9 375.1 L402.0 378.0 L411.2 374.6 L420.3 371.3 L429.5 368.1 L438.7 365.0 L447.8 362.2 L457.0 359.6 L466.2 357.4 L475.3 355.5 L484.5 354.0 L493.7 352.9 L502.8 352.2 L512.0 352.0 L680.0 352.0\"/>",
+   "vakjes": [
+    {
+     "naam": "rustpotentiaal",
+     "x": 170,
+     "y": 290,
+     "punt": [
+      170,
+      352
+     ],
+     "uitleg": "het neuron in rust: binnen ongeveer −70 mV ten opzichte van buiten."
+    },
+    {
+     "naam": "drempelwaarde",
+     "x": 640,
+     "y": 270,
+     "punt": [
+      640,
+      313
+     ],
+     "uitleg": "bij ongeveer −55 mV schieten de natriumkanalen open."
+    },
+    {
+     "naam": "depolarisatie",
+     "x": 190,
+     "y": 110,
+     "punt": [
+      302,
+      144
+     ],
+     "uitleg": "natrium stroomt naar binnen; de binnenkant wordt positief."
+    },
+    {
+     "naam": "repolarisatie",
+     "x": 520,
+     "y": 110,
+     "punt": [
+      352,
+      196
+     ],
+     "uitleg": "kalium stroomt naar buiten; de binnenkant wordt weer negatief."
+    },
+    {
+     "naam": "hyperpolarisatie",
+     "x": 560,
+     "y": 380,
+     "punt": [
+      404,
+      378
+     ],
+     "uitleg": "even doorschieten tot onder het rustpotentiaal."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-teen",
+   "soort": "uitleg",
+   "titel": "Eerst de stoot, dan de pijn",
+   "opdracht": "Je stoot je teen. Eerst voel je de stoot, bijna een seconde later de pijn. Leg uit hoe dat kan.",
+   "begrippen": [
+    {
+     "naam": "myelineschede",
+     "varianten": [
+      "myeline",
+      "vettige laag"
+     ]
+    },
+    {
+     "naam": "insnoeringen",
+     "varianten": [
+      "insnoering"
+     ]
+    },
+    {
+     "naam": "sprongsgewijze geleiding",
+     "varianten": [
+      "springt",
+      "sprongsgewijs"
+     ]
+    },
+    {
+     "naam": "dik",
+     "varianten": [
+      "dikke",
+      "dikker"
+     ]
+    },
+    {
+     "naam": "dun",
+     "varianten": [
+      "dunne",
+      "dunner"
+     ]
+    },
+    {
+     "naam": "axon",
+     "varianten": [
+      "vezels",
+      "vezel",
+      "zenuwvezel"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat de aanraking over dikke vezels met myeline reist, en de doffe pijn over dunne vezels zonder myeline.",
+    "Ik leg uit dat in een axon zonder myeline elk stukje membraan het volgende prikkelt: stap voor stap, ongeveer één meter per seconde.",
+    "Ik leg uit dat myeline geen ionen doorlaat, zodat de impuls van insnoering naar insnoering springt: sprongsgewijze geleiding.",
+    "Ik leg uit dat een dikker axon ook sneller geleidt."
+   ],
+   "model": [
+    "De stoot en de pijn reizen over verschillende zenuwvezels. De aanraking gaat over dikke vezels met een myelineschede, de doffe pijn over dunne vezels zonder myeline.",
+    "In een axon zonder myeline prikkelt elk stukje membraan het volgende, stap voor stap: ongeveer één meter per seconde. Over een meter naar je ruggenmerg duurt dat een hele seconde.",
+    "Myeline laat geen ionen door. Alleen bij de insnoeringen kan een actiepotentiaal ontstaan, dus de impuls springt van insnoering naar insnoering: sprongsgewijze geleiding. Samen met een dikker axon gaat dat ongeveer vijftig meter per seconde: twintig milliseconden over dezelfde meter."
+   ]
+  },
+  {
+   "id": "uitleg-harder-drukken",
+   "soort": "uitleg",
+   "titel": "Harder drukken",
+   "opdracht": "Je drukt steeds harder op je huid. Leg uit hoe je zenuwstelsel het verschil tussen zacht en hard drukken doorgeeft.",
+   "begrippen": [
+    {
+     "naam": "receptor",
+     "varianten": [
+      "drukreceptor",
+      "receptoren"
+     ]
+    },
+    {
+     "naam": "drempelwaarde",
+     "varianten": [
+      "drempel"
+     ]
+    },
+    {
+     "naam": "alles-of-niets",
+     "varianten": [
+      "alles of niets",
+      "even groot",
+      "altijd even groot"
+     ]
+    },
+    {
+     "naam": "frequentie",
+     "varianten": [
+      "per seconde",
+      "meer impulsen"
+     ]
+    },
+    {
+     "naam": "actiepotentiaal",
+     "varianten": [
+      "impuls",
+      "impulsen",
+      "actiepotentialen"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat druk het membraan van de receptor vervormt, waardoor kanaaltjes opengaan en het membraan minder negatief wordt.",
+    "Ik leg uit dat er pas een impuls vertrekt als de drempelwaarde gehaald wordt.",
+    "Ik leg uit dat een actiepotentiaal altijd even groot is: alles-of-niets.",
+    "Ik leg uit dat een sterkere prikkel meer impulsen per seconde geeft: de sterkte zit in de frequentie."
+   ],
+   "model": [
+    "Druk vervormt het membraan van een receptor in je huid. Daardoor gaan kanaaltjes open en wordt het membraan minder negatief. Zacht drukken is te weinig; pas als de drempelwaarde gehaald wordt, vertrekt er een impuls.",
+    "Een actiepotentiaal is altijd even groot: hij komt helemaal of niet (alles-of-niets). Harder drukken geeft dus geen grotere impuls.",
+    "Een sterkere prikkel geeft wel meer impulsen per seconde. De sterkte van de prikkel zit in de frequentie."
+   ]
+  },
+  {
+   "id": "uitleg-een-kant",
+   "soort": "uitleg",
+   "titel": "Altijd één kant op",
+   "opdracht": "Een impuls rolt over het axon van het cellichaam naar de eindknopjes, en nooit terug. Leg uit hoe dat komt.",
+   "begrippen": [
+    {
+     "naam": "actiepotentiaal",
+     "varianten": [
+      "impuls"
+     ]
+    },
+    {
+     "naam": "membraan",
+     "varianten": [
+      "stukje membraan"
+     ]
+    },
+    {
+     "naam": "prikkelt",
+     "varianten": [
+      "prikkel",
+      "prikkelen"
+     ]
+    },
+    {
+     "naam": "refractaire periode",
+     "varianten": [
+      "refractair",
+      "niet prikkelbaar"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat een stukje membraan met een actiepotentiaal het volgende stukje prikkelt.",
+    "Ik leg uit dat het stukje erachter net een actiepotentiaal heeft gehad.",
+    "Ik leg uit dat dat stukje even niet prikkelbaar is: de refractaire periode.",
+    "Ik concludeer dat de actiepotentiaal daarom alleen vooruit kan."
+   ],
+   "model": [
+    "Een actiepotentiaal in een stukje membraan prikkelt het stukje ernaast. Zo rolt de actiepotentiaal over het axon.",
+    "Het stukje membraan erachter heeft net zelf een actiepotentiaal gehad. Dat stukje is even niet prikkelbaar: de refractaire periode.",
+    "Alleen het stukje ervóór kan dus geprikkeld worden. Daarom loopt een impuls maar één kant op: van de dendrieten naar de eindknopjes."
+   ]
+  }
+ ]
+}

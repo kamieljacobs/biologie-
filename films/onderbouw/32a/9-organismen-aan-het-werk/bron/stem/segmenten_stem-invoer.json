@@ -1,0 +1,182 @@
+[
+ {
+  "id": "s01",
+  "chapter": "Cold open",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Je maakt pizzadeeg. Bloem, water, een snufje zout en een zakje gist. Je dekt het af en wacht een uur.",
+   "Nu is het deeg twee keer zo groot. Wat heeft het deeg opgeblazen? Wat denk je?"
+  ],
+  "display": "Je maakt pizzadeeg. Bloem, water, een snufje zout en een zakje gist. Je dekt het af en wacht een uur. Nu is het deeg twee keer zo groot. Wat heeft het deeg opgeblazen? Wat denk je?",
+  "voice": "Je maakt pizzadeeg. Bloem, water, een snufje zout en een zakje gist. Je dekt het af en wacht een uur. Nu is het deeg twee keer zo groot. Wat heeft het deeg opgeblazen? Wat denk je?"
+ },
+ {
+  "id": "q02",
+  "chapter": "Cold open",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "het water in het deeg is gaan uitzetten",
+   "levende gistcellen hebben gas gemaakt",
+   "de bloem is opgezwollen van het water"
+  ],
+  "q": "Na een uur is het pizzadeeg twee keer zo groot. Wat heeft het opgeblazen?",
+  "correct": 1,
+  "explain": "Levende gistcellen breken suiker af en maken daarbij het gas koolstofdioxide. De belletjes blijven in het taaie deeg hangen: het deeg rijst."
+ },
+ {
+  "id": "s03",
+  "chapter": "Titel",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Organismen aan het werk. Wat doen gist en bacteriën voor ons?"
+  ],
+  "display": "Organismen aan het werk. Wat doen gist en bacteriën voor ons?",
+  "voice": "Organismen aan het werk. Wat doen gist en bacteriën voor ons?"
+ },
+ {
+  "id": "s04",
+  "chapter": "Hoofdstuk 1 — Gist",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Het waren levende gistcellen. Gist is een schimmel, familie van de schimmel op oud brood. Elke gistcel is één cel, veel te klein om te zien. In een zakje gist zitten er miljarden.",
+   "In bloem zit zetmeel. In het natte deeg wordt een deel daarvan suiker. Van die suiker leeft de gist. Hij breekt de suiker af en haalt er energie uit.",
+   "Daarbij maakt hij een gas: koolstofdioxide. Het gas blijft als belletjes in het taaie deeg hangen. Het deeg rijst."
+  ],
+  "display": "Het waren levende gistcellen. Gist is een schimmel, familie van de schimmel op oud brood. Elke gistcel is één cel, veel te klein om te zien. In een zakje gist zitten er miljarden. In bloem zit zetmeel. In het natte deeg wordt een deel daarvan suiker. Van die suiker leeft de gist. Hij breekt de suiker af en haalt er energie uit. Daarbij maakt hij een gas: koolstofdioxide. Het gas blijft als belletjes in het taaie deeg hangen. Het deeg rijst.",
+  "voice": "Het waren levende gistcellen. Gist is een schimmel, familie van de schimmel op oud brood. Elke gistcel is één cel, veel te klein om te zien. In een zakje gist zitten er miljarden. In bloem zit zetmeel. In het natte deeg wordt een deel daarvan suiker. Van die suiker leeft de gist. Hij breekt de suiker af en haalt er energie uit. Daarbij maakt hij een gas: koolstofdie-oxide. Het gas blijft als belletjes in het taaie deeg hangen. Het deeg rijst."
+ },
+ {
+  "id": "s05",
+  "chapter": "Hoofdstuk 1 — Gist",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Wat gebeurt er als je het deeg in de koelkast zet? Wat denk je? Het rijst veel langzamer. Gist werkt het best als het lauw is, rond de dertig graden. In de kou werkt hij traag. In heet water gaat hij dood.",
+   "In de oven zetten de belletjes nog verder uit. Dan gaat de gist dood. Daarom zit brood vol gaatjes.",
+   "Gist maakt ook een beetje alcohol. In brood verdampt dat in de oven.",
+   "Een organisme voor je laten werken, om iets te maken: dat heet biotechnologie. Brood bakken doen mensen al duizenden jaren."
+  ],
+  "display": "Wat gebeurt er als je het deeg in de koelkast zet? Wat denk je? Het rijst veel langzamer. Gist werkt het best als het lauw is, rond de dertig graden. In de kou werkt hij traag. In heet water gaat hij dood. In de oven zetten de belletjes nog verder uit. Dan gaat de gist dood. Daarom zit brood vol gaatjes. Gist maakt ook een beetje alcohol. In brood verdampt dat in de oven. Een organisme voor je laten werken, om iets te maken: dat heet biotechnologie. Brood bakken doen mensen al duizenden jaren.",
+  "voice": "Wat gebeurt er als je het deeg in de koelkast zet? Wat denk je? Het rijst veel langzamer. Gist werkt het best als het lauw is, rond de dertig graden. In de kou werkt hij traag. In heet water gaat hij dood. In de oven zetten de belletjes nog verder uit. Dan gaat de gist dood. Daarom zit brood vol gaatjes. Gist maakt ook een beetje alcohol. In brood verdampt dat in de oven. Een organisme voor je laten werken, om iets te maken: dat heet biotechnologie. Brood bakken doen mensen al duizenden jaren."
+ },
+ {
+  "id": "s06",
+  "chapter": "Hoofdstuk 2 — Bacteriën in je eten",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Ook bacteriën werken voor ons. Neem yoghurt. Het begint als gewone melk.",
+   "Je doet er een schepje yoghurt bij. Daarin zitten bacteriën. Je houdt het een paar uur warm.",
+   "De bacteriën eten de melksuiker. Ze maken er melkzuur van. Daarom heten ze melkzuurbacteriën. Door het melkzuur wordt de melk zuur en dik. Ze helpen ook bij kaas en karnemelk.",
+   "In een schepje yoghurt zitten honderden miljoenen levende bacteriën. Is dat erg? Wat denk je?"
+  ],
+  "display": "Ook bacteriën werken voor ons. Neem yoghurt. Het begint als gewone melk. Je doet er een schepje yoghurt bij. Daarin zitten bacteriën. Je houdt het een paar uur warm. De bacteriën eten de melksuiker. Ze maken er melkzuur van. Daarom heten ze melkzuurbacteriën. Door het melkzuur wordt de melk zuur en dik. Ze helpen ook bij kaas en karnemelk. In een schepje yoghurt zitten honderden miljoenen levende bacteriën. Is dat erg? Wat denk je?",
+  "voice": "Ook bacteriën werken voor ons. Neem yoghurt. Het begint als gewone melk. Je doet er een schepje yoghurt bij. Daarin zitten bacteriën. Je houdt het een paar uur warm. De bacteriën eten de melksuiker. Ze maken er melkzuur van. Daarom heten ze melkzuurbacteriën. Door het melkzuur wordt de melk zuur en dik. Ze helpen ook bij kaas en karnemelk. In een schepje yoghurt zitten honderden miljoenen levende bacteriën. Is dat erg? Wat denk je?"
+ },
+ {
+  "id": "q07",
+  "chapter": "Hoofdstuk 2 — Bacteriën in je eten",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "ja, dan is de yoghurt bedorven",
+   "ja, bacteriën maken je altijd ziek",
+   "nee, die bacteriën hebben de yoghurt gemaakt"
+  ],
+  "q": "In een schepje yoghurt zitten honderden miljoenen levende bacteriën. Is dat erg?",
+  "correct": 2,
+  "explain": "Nee: melkzuurbacteriën hebben van melk yoghurt gemaakt. Maar een klein deel van alle bacteriën maakt je ziek; de meeste zijn onschuldig of nuttig."
+ },
+ {
+  "id": "s08",
+  "chapter": "Hoofdstuk 2 — Bacteriën in je eten",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Nee. Die bacteriën hebben de yoghurt gemaakt. Er bestaan heel veel soorten bacteriën. Maar een klein deel maakt je ziek. De meeste zijn onschuldig, of zelfs nuttig. In je eigen dikke darm wonen er ook enorm veel."
+  ],
+  "display": "Nee. Die bacteriën hebben de yoghurt gemaakt. Er bestaan heel veel soorten bacteriën. Maar een klein deel maakt je ziek. De meeste zijn onschuldig, of zelfs nuttig. In je eigen dikke darm wonen er ook enorm veel.",
+  "voice": "Nee. Die bacteriën hebben de yoghurt gemaakt. Er bestaan heel veel soorten bacteriën. Maar een klein deel maakt je ziek. De meeste zijn onschuldig, of zelfs nuttig. In je eigen dikke darm wonen er ook enorm veel."
+ },
+ {
+  "id": "s09",
+  "chapter": "Hoofdstuk 3 — Op de boerderij",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Ook boeren laten organismen voor zich werken. In een kas met paprika's zitten soms bladluizen. Die zuigen sap uit de plant.",
+   "De tuinder laat sluipwespen los. Een sluipwesp legt een eitje in een bladluis. Uit het eitje komt een larve. Die eet de luis van binnen op.",
+   "Zo ruimen de wespen de luizen op, zonder gif. Dat heet biologische bestrijding.",
+   "Een koe eet de hele dag gras. Wie verteert dat gras eigenlijk? Wat denk je?"
+  ],
+  "display": "Ook boeren laten organismen voor zich werken. In een kas met paprika's zitten soms bladluizen. Die zuigen sap uit de plant. De tuinder laat sluipwespen los. Een sluipwesp legt een eitje in een bladluis. Uit het eitje komt een larve. Die eet de luis van binnen op. Zo ruimen de wespen de luizen op, zonder gif. Dat heet biologische bestrijding. Een koe eet de hele dag gras. Wie verteert dat gras eigenlijk? Wat denk je?",
+  "voice": "Ook boeren laten organismen voor zich werken. In een kas met paprika's zitten soms bladluizen. Die zuigen sap uit de plant. De tuinder laat sluipwespen los. Een sluipwesp legt een eitje in een bladluis. Uit het eitje komt een larve. Die eet de luis van binnen op. Zo ruimen de wespen de luizen op, zonder gif. Dat heet biologische bestrijding. Een koe eet de hele dag gras. Wie verteert dat gras eigenlijk? Wat denk je?"
+ },
+ {
+  "id": "q10",
+  "chapter": "Hoofdstuk 3 — Op de boerderij",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "bacteriën in de maag van de koe",
+   "de koe zelf, met haar maagsap",
+   "niemand, het gras gaat er onverteerd uit"
+  ],
+  "q": "Een koe eet de hele dag gras. Wie verteert dat gras eigenlijk?",
+  "correct": 0,
+  "explain": "Bacteriën in de pens, de grote voormaag van de koe. De koe kan gras zelf niet verteren; ze leeft van wat de bacteriën maken, en verteert de bacteriën ook zelf."
+ },
+ {
+  "id": "s11",
+  "chapter": "Hoofdstuk 3 — Op de boerderij",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Bacteriën. Een koe kan gras zelf niet verteren. In haar grote voormaag, de pens, wonen ontelbaar veel bacteriën. Zij breken het gras af. De koe leeft van wat ze maken. En ze verteert de bacteriën zelf ook.",
+   "Een boer gebruikt ook melkzuurbacteriën. Je kent de grote ingepakte balen gras bij de boer. Dat is kuilvoer, voor de winter. Melkzuurbacteriën maken het gras zuur, zodat het niet bederft. Net als bij yoghurt."
+  ],
+  "display": "Bacteriën. Een koe kan gras zelf niet verteren. In haar grote voormaag, de pens, wonen ontelbaar veel bacteriën. Zij breken het gras af. De koe leeft van wat ze maken. En ze verteert de bacteriën zelf ook. Een boer gebruikt ook melkzuurbacteriën. Je kent de grote ingepakte balen gras bij de boer. Dat is kuilvoer, voor de winter. Melkzuurbacteriën maken het gras zuur, zodat het niet bederft. Net als bij yoghurt.",
+  "voice": "Bacteriën. Een koe kan gras zelf niet verteren. In haar grote voormaag, de pens, wonen ontelbaar veel bacteriën. Zij breken het gras af. De koe leeft van wat ze maken. En ze verteert de bacteriën zelf ook. Een boer gebruikt ook melkzuurbacteriën. Je kent de grote ingepakte balen gras bij de boer. Dat is kuilvoer, voor de winter. Melkzuurbacteriën maken het gras zuur, zodat het niet bederft. Net als bij yoghurt."
+ },
+ {
+  "id": "s12",
+  "chapter": "Hoofdstuk 3 — Op de boerderij",
+  "level": "vwo",
+  "kind": "speech",
+  "lines": [
+   "Biotechnologie kan nog verder gaan. Mensen met suikerziekte hebben insuline nodig, een hormoon.",
+   "Vroeger haalde men insuline uit de alvleesklier van varkens en koeien. Nu maken bacteriën het. Onderzoekers geven een bacterie een stukje van de bouwtekening van een mens.",
+   "Het stukje voor insuline. De bacterie maakt dan menselijke insuline. In grote tanks, miljarden bacteriën tegelijk."
+  ],
+  "display": "Biotechnologie kan nog verder gaan. Mensen met suikerziekte hebben insuline nodig, een hormoon. Vroeger haalde men insuline uit de alvleesklier van varkens en koeien. Nu maken bacteriën het. Onderzoekers geven een bacterie een stukje van de bouwtekening van een mens. Het stukje voor insuline. De bacterie maakt dan menselijke insuline. In grote tanks, miljarden bacteriën tegelijk.",
+  "voice": "Biotechnologie kan nog verder gaan. Mensen met suikerziekte hebben insuline nodig, een hormoon. Vroeger haalde men insuline uit de alvleesklier van varkens en koeien. Nu maken bacteriën het. Onderzoekers geven een bacterie een stukje van de bouwtekening van een mens. Het stukje voor insuline. De bacterie maakt dan menselijke insuline. In grote tanks, miljarden bacteriën tegelijk."
+ },
+ {
+  "id": "s13",
+  "chapter": "Samenvatting",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Gist maakt gas: het deeg rijst. Melkzuurbacteriën maken melk zuur en dik. Sluipwespen ruimen bladluizen op. Bacteriën in de pens verteren gras voor de koe.",
+   "Organismen voor ons laten werken: biotechnologie. En je pizzadeeg? Opgeblazen door miljarden levende gistcellen.",
+   "Hoe warm wil gist het hebben? Dat kun je zelf onderzoeken."
+  ],
+  "display": "Gist maakt gas: het deeg rijst. Melkzuurbacteriën maken melk zuur en dik. Sluipwespen ruimen bladluizen op. Bacteriën in de pens verteren gras voor de koe. Organismen voor ons laten werken: biotechnologie. En je pizzadeeg? Opgeblazen door miljarden levende gistcellen. Hoe warm wil gist het hebben? Dat kun je zelf onderzoeken.",
+  "voice": "Gist maakt gas: het deeg rijst. Melkzuurbacteriën maken melk zuur en dik. Sluipwespen ruimen bladluizen op. Bacteriën in de pens verteren gras voor de koe. Organismen voor ons laten werken: biotechnologie. En je pizzadeeg? Opgeblazen door miljarden levende gistcellen. Hoe warm wil gist het hebben? Dat kun je zelf onderzoeken."
+ },
+ {
+  "id": "s14",
+  "chapter": "Eindkaart",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Probeer het zelf."
+  ],
+  "display": "Probeer het zelf.",
+  "voice": "Probeer het zelf."
+ }
+]

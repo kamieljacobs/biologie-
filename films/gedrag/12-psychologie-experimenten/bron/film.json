@@ -1,0 +1,64 @@
+{
+ "slug": "12-psychologie-experimenten",
+ "hoofdstuk": "gedrag",
+ "hoofdstukNaam": "Gedrag",
+ "title": "Beroemde psychologie-experimenten",
+ "sub": "Asch, Milgram en de marshmallowtest, en wat herhalingen lieten zien",
+ "puzzle": "Zes leerlingen zeggen allemaal hetzelfde foute antwoord. Hoe vaak ga jij mee met de groep?",
+ "meta": "gedrag · sociale psychologie",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Gedrag · film 12 van 12",
+ "lead": "Asch: mensen gaan in ongeveer een derde van de beurten mee met een fout groepsantwoord, maar veel minder als één ander het goede antwoord geeft. Milgram: veel mensen gehoorzaamden gezag, maar hoeveel hangt sterk af van de situatie en de proef had zwakke punten; nu gelden strenge ethische regels. De marshmallowtest voorspelt veel minder dan gedacht. Beroemd is niet bewezen: goed onderzoek wordt herhaald.",
+ "endHaak": "wanneer ging jij voor het laatst mee met de groep, terwijl je het eigenlijk anders zag?",
+ "minis": {
+  "Hoofdstuk 1": "Hoe vaak ga je mee met de groep?",
+  "Hoofdstuk 2": "Hoe ver gaan mensen als iemand met gezag het zegt?",
+  "Hoofdstuk 3": "Voorspelt wachten op een snoepje je toekomst?",
+  "Recap": "Wat leren beroemde experimenten ons?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personage: Yasmin (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Hoe vaak gingen de proefpersonen mee met de groep?",
+   "correct": 1,
+   "explain": "Gemiddeld ongeveer een op de drie keer."
+  },
+  "q07": {
+   "q": "De onderzoeker brak eerder een belofte. Hoe lang wachtten de kinderen daarna?",
+   "correct": 1,
+   "explain": "Veel korter: zo'n drie minuten in plaats van twaalf."
+  }
+ },
+ "glossary": [
+  {
+   "t": "conformisme",
+   "d": "Je gedrag of oordeel aanpassen aan dat van de groep."
+  },
+  {
+   "t": "gehoorzaamheid",
+   "d": "Een opdracht uitvoeren omdat iemand met gezag het vraagt."
+  },
+  {
+   "t": "uitstel van beloning",
+   "d": "Wachten op een grotere beloning later in plaats van een kleinere nu (marshmallowtest)."
+  },
+  {
+   "t": "replicatie",
+   "d": "Een onderzoek opnieuw doen om te zien of het resultaat terugkomt."
+  },
+  {
+   "t": "ethiek van onderzoek",
+   "d": "Regels voor onderzoek met mensen: vooraf toestemming, altijd mogen stoppen, achteraf uitleg."
+  },
+  {
+   "t": "replicatiecrisis",
+   "d": "vwo · Het inzicht dat veel gepubliceerde (psychologische) resultaten bij herhaling niet terugkomen."
+  },
+  {
+   "t": "preregistratie",
+   "d": "vwo · Vooraf vastleggen wat je gaat meten en hoe je het analyseert."
+  }
+ ],
+ "sections": "  <section><h2>Checkvragen</h2>\n    <p class=\"meta\">examenstijl · antwoorden ingeklapt</p>\n    <div class=\"q\"><b>1. Conformisme</b> <span class=\"pts\">2 punten</span><p>In het experiment van Asch gingen proefpersonen in ongeveer een derde van de beurten mee met een duidelijk fout antwoord van de groep.</p>\n      <p>a. Noem twee veranderingen in de proef waardoor proefpersonen veel minder vaak meegingen. (1p)<br>b. Wat zegt dat over de oorzaak van het meegaan? (1p)</p>\n      <details><summary>Antwoord</summary><p>a. Eén andere deelnemer geeft het goede antwoord; antwoorden opschrijven in plaats van hardop zeggen (1). b. Het gaat vooral om sociale druk / niet alleen willen staan, niet om echt anders waarnemen (1).</p></details></div>\n    <div class=\"q\"><b>2. Milgram en ethiek</b> <span class=\"pts\">3 punten</span><p>In Milgrams bekendste versie ging 65% van de proefpersonen door tot 450 volt.</p>\n      <p>a. Noem één kritiekpunt uit later archiefonderzoek. (1p)<br>b. Noem één variant van de proef waarin veel minder mensen gehoorzaamden. (1p)<br>c. Noem twee regels die nu gelden voor onderzoek met proefpersonen. (1p)</p>\n      <details><summary>Antwoord</summary><p>a. De onderzoeker week af van het script, of: ongeveer de helft twijfelde of de schokken echt waren (1). b. Opdrachten per telefoon (of de onderzoeker niet in de kamer) (1). c. Twee van: vooraf (geïnformeerde) toestemming, altijd mogen stoppen, achteraf uitleg/nabespreking, geen onnodige schade (1).</p></details></div>\n    <div class=\"q\"><b>3. De marshmallowtest</b> <span class=\"pts\">2 punten</span><p>Kinderen bij een onderzoeker die eerder een belofte brak, wachtten gemiddeld zo'n 3 minuten; bij een betrouwbare onderzoeker zo'n 12 minuten.</p>\n      <p>Leg uit waarom dit resultaat de conclusie 'kinderen die snel pakken hebben weinig zelfbeheersing' ondergraaft. (2p)</p>\n      <details><summary>Antwoord</summary><p>Hoe lang een kind wacht, hangt af van of het de beloning vertrouwt / van de situatie (1); niet wachten kan dan een verstandige keuze zijn en hoeft niets te zeggen over zelfbeheersing (1).</p></details></div>\n    <div class=\"q vwo-only\"><b>4. Replicatie</b> <span class=\"pts\">2 punten</span><p>In 2015 gaf ruim een derde van 100 herhaalde psychologische studies opnieuw een duidelijk resultaat.</p>\n      <p>Noem een oorzaak van dit probleem en leg uit hoe preregistratie daartegen helpt. (2p)</p>\n      <details><summary>Antwoord</summary><p>Oorzaak: achteraf de analyse kiezen die een mooi resultaat geeft, of: tijdschriften publiceren liever verrassende resultaten (1). Bij preregistratie leg je vooraf vast wat je meet en hoe je analyseert, zodat je achteraf niet kunt kiezen (1).</p></details></div>\n  </section>\n  <section><h2>Voor de docent</h2>\n    <h3>Hoe de film het uitlegt</h3>\n    <table><tr><th>Hoofdstuk</th><th>Kernbeeld</th></tr>\n      <tr><td>Cold open</td><td>Yasmin (castboek) met zes meespelers die allemaal 'A' zeggen; de lijnenkaart van Asch. Openingsvraag (antwoord in H1)</td></tr>\n      <tr><td>1 Mee met de groep</td><td>Balk 1 op 3; 15 van 20 minstens één keer, 5 nooit; twee derde goed; één bondgenoot (1 op 20); opschrijven; herhalingen kleiner (VK) en groter (collectivistische landen)</td></tr>\n      <tr><td>2 Gehoorzaam</td><td>Leraar, onderzoeker, leerling achter een wand; schakelpaneel tot 450 V; 26 van 40; archief (Perry): script, twijfel; telefoonvariant 1 op 5; herhaling 2009 tot 150 V (~70%); ethische regels</td></tr>\n      <tr><td>3 Wachten op een snoepje</td><td>Kind met marshmallow en klok; schoolgrafiek; kleine groepen; 2018: ~900 kinderen, verband half zo groot en na controle bijna weg; gebroken belofte (kleurpotloden); 3 vs 12 minuten; 'herhalen!'. Vwo: 100 studies, 36 opnieuw, preregistratie, Stanford-gevangenisexperiment</td></tr>\n    </table>\n    <h3>Achtergrond en vereenvoudigingen</h3>\n    <ul>\n      <li>Asch (1951, 1956): 12 kritieke beurten; ~32–37% conformiteit; ~75% minstens één keer; ~25% nooit; één bondgenoot → ~5%; schriftelijk antwoorden → veel minder. Proefpersonen waren Amerikaanse mannelijke studenten. Perrin &amp; Spencer (1980, VK) vonden nauwelijks conformiteit; Bond &amp; Smith (1996, meta-analyse 133 studies, 17 landen): daling in de VS, hoger in collectivistische culturen.</li>\n      <li>Milgram (1961–1962, publicatie 1963): 26/40 = 65% tot 450 V; telefoonvariant ±20%. Perry (2012, <i>Behind the Shock Machine</i>): afwijkingen van het script; volgens Milgrams eigen nameting geloofde ongeveer de helft de schokken volledig. Burger (2009): tot 150 V, ±70% wilde doorgaan.</li>\n      <li>Marshmallowtest: Mischel e.a. (Bing Nursery School, Stanford); follow-ups 1988/1990 met kleine, homogene groepen. Watts, Duncan &amp; Quan (2018, <i>Psychological Science</i>): ~900 kinderen, verband ~half zo groot, na controle voor achtergrond en vroege vaardigheden nog ~twee derde kleiner. Kidd, Palmeri &amp; Aslin (2013, <i>Cognition</i>, 28 kinderen): betrouwbaar ~12 min, onbetrouwbaar ~3 min.</li>\n      <li>Open Science Collaboration (2015, <i>Science</i>): 270 onderzoekers, 100 studies, 36% opnieuw significant (97% origineel). Stanford Prison Experiment (1971): kritiek o.a. Le Texier (2018/2019) — bewakers werden gecoacht.</li>\n      <li>Toon: de film laat zien dat de effecten echt zijn, maar sterk van de situatie afhangen, en dat correctie bij wetenschap hoort.</li>\n    </ul>\n    <h3>Leerdoelen</h3>\n    <table><tr><th>Leerdoel</th><th>Niveau</th><th>Waar</th></tr>\n      <tr><td>Conformisme (Asch) en wat het kleiner maakt</td><td>basis</td><td>H1, checkvraag 1</td></tr>\n      <tr><td>Gehoorzaamheid (Milgram), kritiek en ethiek</td><td>basis</td><td>H2, checkvraag 2</td></tr>\n      <tr><td>Uitstel van beloning; herhaling en nuance</td><td>basis</td><td>H3, checkvraag 3</td></tr>\n      <tr><td>Wetenschap corrigeert zichzelf</td><td>basis</td><td>H3</td></tr>\n      <tr><td>Replicatiecrisis en preregistratie</td><td>vwo</td><td>H3 (vwo), checkvraag 4</td></tr>\n    </table>\n    <h3>Suggesties voor de les</h3>\n    <ul><li>Laat leerlingen een eigen (ethisch verantwoorde) mini-Asch-proef ontwerpen en bespreek welke regels ze moeten volgen.</li><li>Geef groepjes elk één beroemd experiment en laat ze uitzoeken: wat werd gevonden, wat gebeurde er bij herhaling?</li></ul>\n  </section>\n"
+}

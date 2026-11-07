@@ -1,0 +1,302 @@
+{
+ "versie": 1,
+ "film": "films/gaswisseling/3-uitscheiding-en-evenwicht.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-ureum",
+   "soort": "volgorde",
+   "titel": "Van te veel eiwit tot urine",
+   "opdracht": "Je eet meer eiwit dan je nodig hebt. Zet in de goede volgorde wat er met de stikstof uit de aminozuren gebeurt.",
+   "stappen": [
+    {
+     "tekst": "Je hebt meer aminozuren dan je nodig hebt; opslaan kan niet.",
+     "uitleg": "Aminozuren kun je niet opslaan, dus het overschot wordt afgebroken."
+    },
+    {
+     "tekst": "De lever haalt de stikstofgroep van de aminozuren af.",
+     "uitleg": "Dit gebeurt in de lever."
+    },
+    {
+     "tekst": "Daarbij ontstaat ammoniak, een giftige stof.",
+     "uitleg": "Ammoniak mag zich niet ophopen."
+    },
+    {
+     "tekst": "De lever zet de ammoniak meteen om in ureum.",
+     "uitleg": "Ureum is veel minder giftig en lost goed op in water."
+    },
+    {
+     "tekst": "Het bloed brengt het ureum naar de nieren.",
+     "uitleg": "De nieren maken het ureum niet, ze scheiden het uit."
+    },
+    {
+     "tekst": "De nieren scheiden het ureum uit met de urine.",
+     "uitleg": "Zo verlaat de stikstof je lichaam."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-verzuring",
+   "soort": "volgorde",
+   "titel": "Zuur bloed, snel ademen",
+   "opdracht": "Bij een tekort aan insuline verzuurt het bloed. Zet in de goede volgorde hoe je longen dat tegenwerken.",
+   "stappen": [
+    {
+     "tekst": "Cellen verbranden veel vet; er ontstaan zure stoffen en de pH van het bloed daalt.",
+     "uitleg": "Hoe zuurder, hoe lager de pH. Normaal ligt die tussen 7,35 en 7,45."
+    },
+    {
+     "tekst": "Het zuurdere bloed prikkelt de chemoreceptoren.",
+     "uitleg": "Chemoreceptoren meten de samenstelling van het bloed."
+    },
+    {
+     "tekst": "Het ademcentrum laat je sneller en dieper ademen.",
+     "uitleg": "Niet langzamer, zoals veel mensen denken."
+    },
+    {
+     "tekst": "Je ademt meer koolstofdioxide uit, en daarmee verdwijnt er zuur uit je bloed.",
+     "uitleg": "Koolstofdioxide vormt in het bloed een zuur; minder CO₂ is dus minder zuur."
+    },
+    {
+     "tekst": "De pH stijgt weer richting normaal: negatieve terugkoppeling.",
+     "uitleg": "De verandering wordt zelf tegengewerkt. De longen zijn de snelle regelaar, de nieren de langzame."
+    }
+   ]
+  },
+  {
+   "id": "schema-dialyse",
+   "soort": "schema",
+   "titel": "In de dialysefilter",
+   "opdracht": "Je ziet één holle vezel uit de filter van een dialysemachine, met dialysevloeistof eromheen. Sleep de namen naar de goede vakjes.",
+   "alt": "Lijntekening van een holle vezel met een wand vol poriën. In de vezel stroomt bloed met bloedcellen, ureum en glucose; eromheen dialysevloeistof met glucose. Ureum gaat door de poriën naar buiten.",
+   "breed": 680,
+   "hoog": 380,
+   "vakbreed": 150,
+   "svg": "<path stroke-width=\"1.6\" class=\"zacht\" d=\"M130 70 L550 70 M130 310 L550 310\"/><rect x=\"150\" y=\"148\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"172\" y=\"148\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"194\" y=\"148\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"216\" y=\"148\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"238\" y=\"148\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"260\" y=\"148\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"282\" y=\"148\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"304\" y=\"148\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"326\" y=\"148\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"348\" y=\"148\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"370\" y=\"148\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"392\" y=\"148\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"414\" y=\"148\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"436\" y=\"148\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"458\" y=\"148\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"480\" y=\"148\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"502\" y=\"148\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"524\" y=\"148\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"150\" y=\"226\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"172\" y=\"226\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"194\" y=\"226\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"216\" y=\"226\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"238\" y=\"226\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"260\" y=\"226\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"282\" y=\"226\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"304\" y=\"226\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"326\" y=\"226\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"348\" y=\"226\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"370\" y=\"226\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"392\" y=\"226\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"414\" y=\"226\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"436\" y=\"226\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"458\" y=\"226\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"480\" y=\"226\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"502\" y=\"226\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><rect x=\"524\" y=\"226\" width=\"16\" height=\"6\" rx=\"1.5\" stroke-width=\"1.4\"/><path stroke-width=\"1.2\" class=\"zacht\" d=\"M150 148 L150 232 M530 148 L530 232\"/><ellipse cx=\"205\" cy=\"190\" rx=\"17\" ry=\"12\" stroke-width=\"2\"/><ellipse cx=\"205\" cy=\"190\" rx=\"8\" ry=\"5\" stroke-width=\"1.2\" class=\"zacht\"/><ellipse cx=\"330\" cy=\"196\" rx=\"17\" ry=\"12\" stroke-width=\"2\"/><ellipse cx=\"330\" cy=\"196\" rx=\"8\" ry=\"5\" stroke-width=\"1.2\" class=\"zacht\"/><ellipse cx=\"455\" cy=\"186\" rx=\"17\" ry=\"12\" stroke-width=\"2\"/><ellipse cx=\"455\" cy=\"186\" rx=\"8\" ry=\"5\" stroke-width=\"1.2\" class=\"zacht\"/><path class=\"acc\" stroke-width=\"2\" d=\"M164 180 L170 176 L176 180 M170 176 L170 169\"/><circle class=\"vulacc\" cx=\"170\" cy=\"168\" r=\"2.4\"/><path class=\"acc\" stroke-width=\"2\" d=\"M256 210 L262 206 L268 210 M262 206 L262 199\"/><circle class=\"vulacc\" cx=\"262\" cy=\"198\" r=\"2.4\"/><path class=\"acc\" stroke-width=\"2\" d=\"M282 176 L288 172 L294 176 M288 172 L288 165\"/><circle class=\"vulacc\" cx=\"288\" cy=\"164\" r=\"2.4\"/><path class=\"acc\" stroke-width=\"2\" d=\"M386 214 L392 210 L398 214 M392 210 L392 203\"/><circle class=\"vulacc\" cx=\"392\" cy=\"202\" r=\"2.4\"/><path class=\"acc\" stroke-width=\"2\" d=\"M404 180 L410 176 L416 180 M410 176 L410 169\"/><circle class=\"vulacc\" cx=\"410\" cy=\"168\" r=\"2.4\"/><path class=\"acc\" stroke-width=\"2\" d=\"M499 214 L505 210 L511 214 M505 210 L505 203\"/><circle class=\"vulacc\" cx=\"505\" cy=\"202\" r=\"2.4\"/><path stroke-width=\"1.6\" d=\"M246.1 179.5 L240.0 183.0 L233.9 179.5 L233.9 172.5 L240.0 169.0 L246.1 172.5 Z\"/><path stroke-width=\"1.6\" d=\"M376.1 181.5 L370.0 185.0 L363.9 181.5 L363.9 174.5 L370.0 171.0 L376.1 174.5 Z\"/><path stroke-width=\"1.6\" d=\"M496.1 175.5 L490.0 179.0 L483.9 175.5 L483.9 168.5 L490.0 165.0 L496.1 168.5 Z\"/><path class=\"acc\" stroke-width=\"2\" d=\"M335 152 L341 148 L347 152 M341 148 L341 141\"/><circle class=\"vulacc\" cx=\"341\" cy=\"140\" r=\"2.4\"/><path stroke-width=\"1.4\" d=\"M351 150 L351 128 M347 134 L351 128 L355 134\"/><path class=\"acc\" stroke-width=\"2\" d=\"M269 236 L275 232 L281 236 M275 232 L275 225\"/><circle class=\"vulacc\" cx=\"275\" cy=\"224\" r=\"2.4\"/><path stroke-width=\"1.4\" d=\"M285 230 L285 252 M281 246 L285 252 L289 246\"/><path class=\"acc\" stroke-width=\"2\" d=\"M366 120 L372 116 L378 120 M372 116 L372 109\"/><circle class=\"vulacc\" cx=\"372\" cy=\"108\" r=\"2.4\"/><path class=\"acc\" stroke-width=\"2\" d=\"M294 274 L300 270 L306 274 M300 270 L300 263\"/><circle class=\"vulacc\" cx=\"300\" cy=\"262\" r=\"2.4\"/><path stroke-width=\"1.6\" d=\"M256.1 115.5 L250.0 119.0 L243.9 115.5 L243.9 108.5 L250.0 105.0 L256.1 108.5 Z\"/><path stroke-width=\"1.6\" d=\"M386.1 123.5 L380.0 127.0 L373.9 123.5 L373.9 116.5 L380.0 113.0 L386.1 116.5 Z\"/><path stroke-width=\"1.6\" d=\"M476.1 111.5 L470.0 115.0 L463.9 111.5 L463.9 104.5 L470.0 101.0 L476.1 104.5 Z\"/><path stroke-width=\"1.6\" d=\"M196.1 271.5 L190.0 275.0 L183.9 271.5 L183.9 264.5 L190.0 261.0 L196.1 264.5 Z\"/><path stroke-width=\"1.6\" d=\"M336.1 275.5 L330.0 279.0 L323.9 275.5 L323.9 268.5 L330.0 265.0 L336.1 268.5 Z\"/><path stroke-width=\"1.6\" d=\"M476.1 273.5 L470.0 277.0 L463.9 273.5 L463.9 266.5 L470.0 263.0 L476.1 266.5 Z\"/><path stroke-width=\"1.8\" d=\"M90 190 L132 190 M124 182 L132 190 L124 198\"/><text x=\"80\" y=\"174\" text-anchor=\"middle\" font-size=\"12\">bloed</text><path stroke-width=\"1.8\" d=\"M590 100 L556 100 M564 92 L556 100 L564 108 M590 280 L556 280 M564 272 L556 280 L564 288\"/>",
+   "vakjes": [
+    {
+     "naam": "vlies met poriën",
+     "x": 82,
+     "y": 120,
+     "punt": [
+      160,
+      151
+     ],
+     "uitleg": "dunne wand van de holle vezel; kleine deeltjes kunnen door de poriën, bloedcellen en grote eiwitten niet."
+    },
+    {
+     "naam": "rode bloedcel",
+     "x": 82,
+     "y": 280,
+     "punt": [
+      205,
+      196
+     ],
+     "uitleg": "te groot voor de poriën: blijft in het bloed."
+    },
+    {
+     "naam": "dialysevloeistof",
+     "x": 598,
+     "y": 40,
+     "punt": [
+      470,
+      86
+     ],
+     "uitleg": "wordt steeds ververst en bevat geen ureum, wel glucose en natrium ongeveer zoveel als gezond bloed."
+    },
+    {
+     "naam": "ureum",
+     "x": 598,
+     "y": 190,
+     "punt": [
+      341,
+      140
+     ],
+     "uitleg": "zit niet in de vloeistof: diffundeert van hoog naar laag het bloed uit."
+    },
+    {
+     "naam": "glucose",
+     "x": 598,
+     "y": 340,
+     "punt": [
+      470,
+      270
+     ],
+     "uitleg": "zit aan beide kanten ongeveer even veel: netto gaat er geen glucose het bloed uit."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-dialysevloeistof",
+   "soort": "uitleg",
+   "titel": "Wel glucose, geen ureum",
+   "opdracht": "In de dialysevloeistof van Ruud zit wel glucose, maar geen ureum. Leg aan een klasgenoot uit waarom.",
+   "begrippen": [
+    {
+     "naam": "diffusie",
+     "varianten": [
+      "diffundeert",
+      "diffunderen"
+     ]
+    },
+    {
+     "naam": "concentratieverschil",
+     "varianten": [
+      "hoog naar laag",
+      "verschil",
+      "concentratie"
+     ]
+    },
+    {
+     "naam": "vlies",
+     "varianten": [
+      "poriën",
+      "porien",
+      "membraan"
+     ]
+    },
+    {
+     "naam": "ureum",
+     "varianten": []
+    },
+    {
+     "naam": "glucose",
+     "varianten": []
+    },
+    {
+     "naam": "ververst",
+     "varianten": [
+      "verversen",
+      "steeds nieuw",
+      "verse vloeistof"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat stoffen door het vlies gaan door diffusie, van hoog naar laag; niets duwt ze.",
+    "Ik leg uit dat er geen ureum in de vloeistof zit, zodat ureum het bloed uit diffundeert.",
+    "Ik leg uit dat er ongeveer even veel glucose in de vloeistof zit als in gezond bloed, zodat glucose in het bloed blijft.",
+    "Ik noem dat de vloeistof steeds wordt ververst, zodat het verschil voor ureum blijft bestaan."
+   ],
+   "model": [
+    "Kleine deeltjes zoals ureum en glucose kunnen door de poriën in het vlies. Er duwt niets: ze gaan door diffusie, van een hoge naar een lage concentratie.",
+    "In de dialysevloeistof zit geen ureum. Het verschil is dus groot en ureum diffundeert het bloed uit. Doordat de vloeistof steeds wordt ververst, blijft dat verschil bestaan.",
+    "Was de vloeistof gewoon water, dan zou ook glucose het bloed uit diffunderen. Daarom zit er ongeveer even veel glucose in als in gezond bloed: dan is er geen verschil en blijft de glucose in het bloed."
+   ]
+  },
+  {
+   "id": "uitleg-ph",
+   "soort": "uitleg",
+   "titel": "De pH van je bloed binnen grenzen",
+   "opdracht": "Je cellen maken steeds zuur. Toch blijft de pH van je bloed tussen 7,35 en 7,45. Leg uit hoe je lichaam dat voor elkaar krijgt.",
+   "begrippen": [
+    {
+     "naam": "buffers",
+     "varianten": [
+      "buffer",
+      "waterstofcarbonaat",
+      "hemoglobine"
+     ]
+    },
+    {
+     "naam": "waterstofionen",
+     "varianten": [
+      "waterstofion",
+      "H+"
+     ]
+    },
+    {
+     "naam": "longen",
+     "varianten": [
+      "uitademen",
+      "ademen"
+     ]
+    },
+    {
+     "naam": "koolstofdioxide",
+     "varianten": [
+      "CO2"
+     ]
+    },
+    {
+     "naam": "nieren",
+     "varianten": [
+      "nier",
+      "urine"
+     ]
+    },
+    {
+     "naam": "homeostase",
+     "varianten": [
+      "negatieve terugkoppeling",
+      "terugkoppeling"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat buffers (zoals waterstofcarbonaat en hemoglobine) waterstofionen opvangen, zodat de pH bijna niet verandert.",
+    "Ik noem dat een buffer het zuur alleen vasthoudt: het moet er echt uit via longen en nieren.",
+    "Ik leg uit dat de longen de snelle regelaar zijn: meer koolstofdioxide uitademen haalt zuur uit het bloed.",
+    "Ik leg uit dat de nieren de langzame regelaar zijn: ze scheiden waterstofionen uit met de urine en houden waterstofcarbonaat vast."
+   ],
+   "model": [
+    "Wat een stof zuur maakt, zijn waterstofionen. Buffers in je bloed, zoals waterstofcarbonaat en hemoglobine, vangen die op. Zo verandert de pH bijna niet. Dit is homeostase.",
+    "Maar een buffer houdt het zuur alleen vast; echt weg moet het via twee organen. De longen zijn de snelle regelaar: wordt het bloed zuurder, dan adem je sneller en dieper en adem je meer koolstofdioxide uit. Daarmee verdwijnt zuur uit je bloed, binnen minuten.",
+    "De nieren zijn de langzame regelaar. Ze scheiden waterstofionen uit met de urine en houden waterstofcarbonaat vast. Dat duurt uren tot dagen."
+   ]
+  },
+  {
+   "id": "uitleg-tegenstroom",
+   "soort": "uitleg",
+   "vwo": true,
+   "titel": "Tegenstroom in de filter",
+   "opdracht": "In de dialysefilter stromen bloed en dialysevloeistof tegen elkaar in. Leg uit waarom er zo meer ureum uit het bloed gaat dan als ze dezelfde kant op stromen.",
+   "begrippen": [
+    {
+     "naam": "tegenstroom",
+     "varianten": [
+      "tegen elkaar in",
+      "tegengesteld"
+     ]
+    },
+    {
+     "naam": "concentratieverschil",
+     "varianten": [
+      "verschil"
+     ]
+    },
+    {
+     "naam": "diffusie",
+     "varianten": [
+      "diffundeert",
+      "diffunderen"
+     ]
+    },
+    {
+     "naam": "hele lengte",
+     "varianten": [
+      "overal",
+      "over de hele"
+     ]
+    },
+    {
+     "naam": "verse vloeistof",
+     "varianten": [
+      "vers",
+      "verse"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat bij tegenstroom het bloed dat de filter bijna uit is (met weinig ureum) de verse vloeistof zonder ureum tegenkomt.",
+    "Ik leg uit dat er daardoor over de hele lengte een concentratieverschil is, en dus overal ureum diffundeert.",
+    "Ik leg uit dat bij meestroom het verschil onderweg steeds kleiner wordt, tot er bijna niets meer diffundeert."
+   ],
+   "model": [
+    "Ureum gaat door diffusie het bloed uit, dus er moet een concentratieverschil zijn.",
+    "Bij tegenstroom heeft het bloed dat de filter bijna uit is nog maar weinig ureum. Precies daar komt de verse vloeistof binnen, zonder ureum. Zo is er over de hele lengte van de filter een verschil, en diffundeert er overal ureum.",
+    "Stromen bloed en vloeistof dezelfde kant op, dan neemt het ureum in de vloeistof onderweg toe en in het bloed af. Het verschil wordt steeds kleiner, tot er bijna niets meer diffundeert."
+   ]
+  }
+ ]
+}

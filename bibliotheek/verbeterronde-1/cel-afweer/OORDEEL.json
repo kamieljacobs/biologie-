@@ -1,0 +1,212 @@
+[
+ {
+  "obj": "antistofY",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 17
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 19
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "Domeinen zijn losse ovalen/trosjes; steel lijkt vier bolletjes, niet een gevouwen keten",
+   "Y": "Bol-kralen zijn nog wat los en klein bij de schaal rechtsonder; staartstuk in membraan eindigt abrupt"
+  },
+  "overnemen": "Uit X: de gladde, doorlopende keten (dunne lijn tussen domeinen) en het duidelijke scharnier; in Y de kralen iets kleiner/dichter zodat het één keten leest",
+  "combineren": true,
+  "fout": ""
+ },
+ {
+  "obj": "gedifferentieerdeCellen",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 18
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   }
+  },
+  "winnaar": "Y",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "Cellen klein en ver van elkaar, stippellijnen vaag; genstrip onder de cel maar geen duidelijke afstamming",
+   "Y": "Genstrips ver van de cel; tussencellen zien er identiek uit; cytoplasma van zygote met tiental stippen"
+  },
+  "overnemen": "Uit X: genstrip direct onder elke cel zetten (nu staat hij ver rechts in Y)",
+  "combineren": true,
+  "fout": ""
+ },
+ {
+  "obj": "lipideNanodeeltje",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 3,
+    "stijl": 2,
+    "beweging": 2,
+    "bruikbaar": 3,
+    "totaal": 14
+   }
+  },
+  "winnaar": "X",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "Binnenste van het deeltje is leeg (geen vier soorten vet); mRNA hoekig; ribosomen/endosoom klein",
+   "Y": "Binnenkant druk en onleesbaar, mRNA verdwijnt in rommel; geen opname of ribosomen, alleen fusie; membraan als plat balkje"
+  },
+  "overnemen": "Uit Y: enkele ionizeerbare lipidemoleculen binnenin (rustig, 5-8 stuks) om de vier vetsoorten te laten zien",
+  "combineren": true,
+  "fout": ""
+ },
+ {
+  "obj": "membraanReceptor",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 19
+   }
+  },
+  "winnaar": "X",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "Receptor gaat als een kralenketting zonder duidelijke domeinen/helices; lijkt een eenvoudige enkelvoudige doorgang",
+   "Y": "Zeven helixcilinders lezen als buizen/staven, minder als gevouwen keten; G-eiwitten als grijze klonten"
+  },
+  "overnemen": "Uit Y: de zeven membraandoorgangen en G-eiwit-stap; in de winnaar de keten ook door het membraan meerdere keren laten slingeren in plaats van 1 rechte doorgang",
+  "combineren": true,
+  "fout": ""
+ },
+ {
+  "obj": "stamcelDeling",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   },
+   "Y": {
+    "klopt": 2,
+    "herkenbaar": 2,
+    "stijl": 3,
+    "beweging": 1,
+    "bruikbaar": 2,
+    "totaal": 10
+   }
+  },
+  "winnaar": "X",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "Eindstadium rode bloedcel is een bol met donkere kern, niet duidelijk een ingedeukte schijf",
+   "Y": "Hoofdbeeld toont maar twee cellen zonder deling of pijlen; rest van de stappen ontbreekt"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "tumorGroei",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 5,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 19
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 18
+   }
+  },
+  "winnaar": "Y",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "Bovenaanzicht: geen basaalmembraan/doorbraak en geen opstapeling, tumor ligt in hetzelfde vlak; apoptosecel klein",
+   "Y": "Tumorcellen overlappen elkaar en de gewone cellen; basaalmembraan niet zichtbaar doorbroken"
+  },
+  "overnemen": "Uit X: tumorcellen netjes naast elkaar zonder overlap en de rustige getekende celgrenzen; apoptose-detail",
+  "combineren": true,
+  "fout": "Basaalmembraan wordt in geen van beide echt zichtbaar doorbroken"
+ },
+ {
+  "obj": "witteBloedcellen",
+  "scores": {
+   "X": {
+    "klopt": 5,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 22
+   },
+   "Y": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 18
+   }
+  },
+  "winnaar": "X",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "Neutrofiel en mestcelkorrels zijn nog wat stippelachtig; Y-antistoffen als simpele pictogrammen",
+   "Y": "Macrofaag leeg (alleen lysosomen), geen mitochondria/Golgi; plasmacel ER zonder Golgi; kern in plasmacel dubbel"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ }
+]

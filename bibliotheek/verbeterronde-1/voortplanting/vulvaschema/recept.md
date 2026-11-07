@@ -1,0 +1,2 @@
+- Vulva in vooraanzicht, vlak schema: venusheuvel, grote en kleine schaamlippen, clitoris waar de kleine schaamlippen vooraan samenkomen, daaronder de opening van de urinebuis, dan de vaginaopening, dan de anus.
+- De openingen moeten groot genoeg zijn om te zien; de huidkleur volgt de cast.

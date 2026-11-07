@@ -1,0 +1,3 @@
+- Zaadbal-weefsel: ronde zaadbuisjes met Sertolicellen en alle stadia van zaadcelvorming naar de holte toe; staartjes in de holte.
+- Leydigcellen in groepjes bij een haarvat tussen de buisjes.
+- Optie: één buisje oplichten terwijl de rest dimt.

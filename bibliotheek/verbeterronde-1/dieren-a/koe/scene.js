@@ -1,0 +1,1 @@
+SCENE = { s0: 1, f: (c,x,y,s,o)=>koe7(c,x,y,s,o), groot: {"houding": "staan"}, ijkOok: ["A"], standen: [{"houding": "lopen", "t": 0.3}, {"houding": "grazen"}, {"houding": "liggen"}], klein: {"houding": "staan"}  };

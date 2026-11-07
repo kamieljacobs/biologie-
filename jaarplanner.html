@@ -1,0 +1,1246 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script>(function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<script src="js/teller.js" data-root="./"></script>
+<link rel="icon" href="img/icoon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="img/icoon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="img/icoon/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jaarplanner biologie 2026-2027</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* weekplanning: afvinken */
+.pl-bar{margin:0 0 16px}
+.pl-prog{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+td.mid .ms{gap:4px}
+td.mid .ms .chip{font-size:12px}
+td.hw .tick span{line-height:1.4}
+tr.klaar td.wk b::after{content:" ✓";color:var(--accent)}
+tr.klaar td{background:color-mix(in srgb,var(--accent) 7%,var(--row))}
+
+/* Layout: one weekly ledger, grouped per hoofdstuk; chapter color on the left edge only. */
+/* Huisstijl van de site (navy, goud, Fraunces / Source Sans 3 / IBM Plex Mono; Kamiel 26 okt 2026: 'opmaak meer op de site laten lijken').
+   De oude namen (--fg, --muted, --row ...) blijven bestaan en wijzen naar de sitekleuren. */
+:root{
+  --bg:#0F1726; --bg2:#0B1220; --surface:#141E33; --line:rgba(143,160,181,.22); --line2:rgba(143,160,181,.34);
+  --text:#F2F2EE; --text2:#A3ACBA; --text3:#7D8899;
+  --goud:#E0B64A; --goud-ink:#1A1405; --goud-text:#E8C266; --goud-soft:rgba(224,182,74,.13);
+  --koraal:#E8876C; --paars:#A897DB; --groen:#7FC48F;
+  --fg:var(--text); --muted:var(--text2); --row:var(--surface);
+  --off:#0B1220; --off-fg:var(--text3); --toets:rgba(232,135,108,.14); --eigen:rgba(168,151,219,.14);
+  --accent:var(--goud-text); --accent-soft:var(--goud-soft);
+  --titel:"Fraunces",Georgia,"Times New Roman",serif; --tekst:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif; --meta:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --display:var(--titel); --body:var(--tekst);
+  color-scheme:dark;
+}
+:root[data-theme="light"]{
+  --bg:#F5F6F8; --bg2:#ECEFF3; --surface:#FFFFFF; --line:rgba(20,32,52,.12); --line2:rgba(20,32,52,.24);
+  --text:#121C2E; --text2:#4E5A6C; --text3:#6B7687;
+  --goud:#D9AC3C; --goud-text:#8A650C; --goud-soft:rgba(217,172,60,.16);
+  --koraal:#B9502F; --paars:#6550AD; --groen:#2F8A47;
+  --off:#ECEFF3; --toets:rgba(185,80,47,.10); --eigen:rgba(101,80,173,.10);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 var(--body);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:24px}
+.pagina{padding-bottom:48px}
+h1{font:700 30px/1.15 var(--display);margin:0 0 6px;text-wrap:balance}
+.mono{font-family:var(--meta);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+
+/* Kopbalk (zoals index.html en challenges.html; houd ze gelijk) */
+.bar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar a{color:inherit;text-decoration:none}
+.bar .wrap{display:flex;align-items:center;gap:10px 28px;min-height:66px;flex-wrap:wrap;padding-block:8px}
+.merk{display:flex;align-items:center;gap:10px;font:700 20px/1 var(--titel);white-space:nowrap}
+.nav{display:flex;gap:4px;flex-wrap:wrap}
+.nav a{padding:7px 12px;border-radius:8px;color:var(--text2);font-weight:600;font-size:15px}
+.nav a:hover{color:var(--text)}
+.nav a[aria-current]{color:var(--text);box-shadow:inset 0 -2px 0 var(--goud);border-radius:0}
+.rechts{margin-left:auto;display:flex;align-items:center;gap:10px}
+.icoon{width:40px;height:40px;border-radius:999px;border:1px solid var(--line2);background:none;display:inline-flex;align-items:center;justify-content:center;color:var(--text2);cursor:pointer}
+.icoon:hover{color:var(--text)}
+.nav a,.menu summary{white-space:nowrap}
+.menu{position:relative}
+.menu summary{list-style:none;cursor:pointer;padding:7px 10px;color:var(--text2);font-weight:600;font-size:15px;display:flex;align-items:center;gap:6px}
+.menu summary::-webkit-details-marker{display:none}
+.menu summary::after{content:"";width:6px;height:6px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .2s}
+.menu[open] summary::after{transform:translateY(1px) rotate(-135deg)}
+.menu summary:hover,.menu[open] summary{color:var(--text)}
+.menu[data-actief] summary{color:var(--text);box-shadow:inset 0 -2px 0 var(--goud)}
+.menu-lijst{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:280px;padding:8px;border:1px solid var(--line2);border-radius:14px;background:var(--surface);box-shadow:0 14px 40px rgba(0,0,0,.14);z-index:30;display:flex;flex-direction:column}
+.menu-lijst a{display:flex;flex-direction:column;gap:2px;padding:10px 12px!important;border-radius:10px!important;box-shadow:none!important}
+.menu-lijst a b{font:700 16px/1.2 var(--titel);color:var(--text)}
+.menu-lijst a span{font-size:13px;color:var(--text3);font-weight:400}
+.menu-lijst a:hover,.menu-lijst a[aria-current]{background:var(--goud-soft)}
+.menu-lijst a:hover b{color:var(--goud-text)}
+.nav-sessie{color:var(--text3)!important}
+@media (max-width:600px){.menu-lijst{position:fixed;left:16px;right:16px;top:auto;margin-top:8px;transform:none;min-width:0}}
+@media (max-width:700px){
+  .bar{transition:transform .22s ease}
+  .bar.weg{transform:translateY(calc(-100% - 2px))}
+  .bar .wrap{gap:0 8px!important;min-height:0;padding-block:6px 0;flex-wrap:wrap;position:relative}
+  .bar .merk{order:0;font-size:17px;gap:8px;min-width:0}
+  .bar .merk svg{width:24px;height:24px;flex:none}
+  .bar .rechts{order:1;margin-left:auto;gap:6px}
+  .bar .rechts .icoon{width:34px;height:34px}
+  .bar .nav{order:2;flex:0 0 calc(100% + 32px);margin:4px -16px 0;padding:0 28px 0 8px;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .bar .nav::-webkit-scrollbar{display:none}
+  .bar .wrap::after{content:"";position:absolute;right:0;bottom:0;width:30px;height:40px;background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none}
+  .bar .nav a,.bar .menu summary{padding:8px 9px 10px;font-size:14.5px;flex:none}
+  .bar .menu-lijst{position:fixed;left:12px;right:12px;top:calc(100% + 4px);margin-top:0;transform:none;min-width:0;max-height:70vh;overflow:auto}
+  .wrap{padding-inline:16px}
+}
+
+/* Paginakop (zoals de Films- en Tools-pagina) */
+.kop{border-bottom:1px solid var(--line);margin-bottom:22px}
+.kop .wrap{padding-block:36px 26px}
+.terug{display:inline-flex;align-items:center;gap:6px;color:var(--text2);font-weight:600;font-size:15px;text-decoration:none}
+.terug:hover{color:var(--text)}
+.kop .lbl{color:var(--goud-text);margin:22px 0 8px}
+.kop h1{font-size:clamp(36px,5vw,56px);line-height:1.02;letter-spacing:-.01em}
+.kop .sub{margin:12px 0 0;color:var(--text2);max-width:70ch;font-size:16.5px}
+.nu-knop{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:7px 14px;border-radius:999px;border:1px solid var(--goud);background:var(--goud-soft);color:var(--goud-text);font:600 14px var(--body);cursor:pointer}
+.nu-knop:hover{background:var(--goud);color:var(--goud-ink)}
+.nu-knop .stip{width:8px;height:8px;border-radius:50%;background:var(--goud);box-shadow:0 0 0 4px var(--goud-soft)}
+
+/* Deze week */
+tr.nu td{background:color-mix(in srgb,var(--goud) 9%,var(--row))}
+tr.nu td.wk{box-shadow:inset 3px 0 0 var(--goud)}
+tr.nu td.wk b{color:var(--goud-text)}
+.nu-tag{display:inline-block;margin-top:4px;font:600 10.5px/1 var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--goud-ink);background:var(--goud);border-radius:999px;padding:3px 7px}
+tr.off.nu td{color:var(--text2)}
+
+/* Blokkop met themamedaillon */
+.blok h2{align-items:center!important}
+.blok h2 .med{width:40px;height:40px;border-radius:50%;flex:none;margin-right:2px}
+.blok{scroll-margin-top:90px}
+tr{scroll-margin-top:120px}
+
+/* Lessen (docent) */
+.chip.les{border-color:var(--paars);color:var(--paars);background:color-mix(in srgb,var(--paars) 12%,transparent)}
+a.chip.les:hover{background:var(--paars);color:var(--bg)}
+.chip.les::before{content:"▤ ";font-size:10px}
+.ms li.les-li{padding-left:22px}
+.chip .fmed{width:18px;height:18px;border-radius:50%;vertical-align:-4px;margin:0 5px 0 -4px}
+.chip.vid.heeftmed::before{content:none}
+/* Leerdoelen */
+td.doel{color:var(--text2);font-size:14px}
+.doelen{margin:0;padding-left:16px;display:flex;flex-direction:column;gap:3px}
+.doelen li::marker{color:var(--goud)}
+/* Films per paragraaf */
+.dk{margin-top:6px;font-size:13px}
+.dk summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:4px;color:var(--text3);font:600 10.5px/1 var(--meta);letter-spacing:.08em;text-transform:uppercase;padding:3px 0}
+.dk summary::-webkit-details-marker{display:none}
+.dk summary span{margin-left:4px}
+.dk summary:hover{color:var(--text)}
+.dk-stip{display:inline-block;width:9px;height:9px;border-radius:50%;border:1.5px solid var(--goud);flex:none}
+.dk-stip.goed{background:var(--goud)}
+.dk-stip.deels{background:linear-gradient(90deg,var(--goud) 50%,transparent 50%)}
+.dk-stip.geen{border-color:var(--koraal)}
+.dk-lijst{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.dk-lijst>li{line-height:1.35}
+.dk-lijst>li>.dk-stip{margin-right:6px;vertical-align:0}
+.dk-naam{color:var(--text3);font-size:12px}
+.dk-lijst ul{margin:3px 0 0 15px;padding:0 0 0 10px;border-left:1px solid var(--line)}
+.dk-lijst ul li{list-style:none}
+.dk-lijst a{color:var(--goud-text);text-decoration:none}
+.dk-lijst a:hover{text-decoration:underline}
+.dk-wat{color:var(--text3);font-size:12px}
+.dk-mist{margin:3px 0 0 15px;color:var(--koraal);font-size:12px}
+/* Les en zelf (Kamiel 26 okt 2026: vwo behapbaar maken) */
+.split{margin:6px 0 0 24px;display:flex;flex-direction:column;gap:2px;font-size:13.5px;color:var(--text2);line-height:1.35}
+.split b{font:600 10.5px/1 var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--goud-text);margin-right:6px}
+.sub{color:var(--muted);margin:0 0 18px}
+.tabs{display:flex;gap:4px;margin:10px 0 12px;border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:thin}
+[hidden]{display:none!important}
+.notes a,.rt-intro a{color:var(--accent)}
+.tab{all:unset;cursor:pointer;white-space:nowrap;flex:none;padding:8px 18px;font:600 14px var(--body);color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px;text-transform:uppercase;letter-spacing:.06em}
+.tab:hover{color:var(--fg)}
+.tab[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
+.tab:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin:0 0 22px;font-size:13px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:14px;border:1px solid var(--line);border-radius:3px;display:inline-block}
+.blok{margin:0 0 26px}
+.blok h2{font:600 18px/1.2 var(--display);margin:0 0 8px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.blok h2 small{font:500 12px var(--body);color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--row)}
+table{border-collapse:collapse;width:100%;min-width:1050px}
+th{font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);background:var(--bg)}
+td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.wk{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--muted);width:92px}
+td.wk b{color:var(--fg);font-weight:600}
+td.par{width:21%}
+td.doel{width:20%}
+td.mid{width:24%}
+td.mid.gu{width:19%}
+td.hw{width:19%}
+td.opm{width:9%}
+td.opm{color:var(--muted)}
+tr.off td{background:var(--off);color:var(--off-fg)}
+tr.act td{background:repeating-linear-gradient(135deg,var(--off) 0 8px,var(--row) 8px 12px);color:var(--off-fg)}
+.tag{display:inline-block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;padding:1px 7px;border-radius:3px;margin-right:8px;border:1px solid currentColor}
+tr.toets td{background:var(--toets)}
+tr.eigen td{background:var(--eigen)}
+.chip{display:inline-block;font-size:12px;padding:2px 8px;border-radius:999px;border:1px solid var(--accent);color:var(--accent);margin:0 4px 4px 0;white-space:nowrap}
+a.chip{text-decoration:none;background:color-mix(in srgb,var(--accent) 10%,transparent)}
+a.chip:hover{background:var(--accent);color:var(--row)}
+.chip.vid::before{content:"▶ ";font-size:10px}
+.chip.tool::before{content:"⚙ ";font-size:10px}
+.leeg{color:var(--muted);font-style:italic}
+.notes{margin-top:30px;max-width:70ch;color:var(--muted);font-size:13px}
+.notes h3{font:600 15px var(--display);color:var(--fg);margin:0 0 6px}
+.notes ul{padding-left:18px;margin:0}
+
+
+/* PTA-route als blokken */
+.ond{background:transparent;border:0;border-radius:0;margin:0 0 28px;overflow:visible}
+.ond header{background:transparent;border:0;border-bottom:2px solid var(--line);padding:0 0 8px;margin:0 0 12px}
+.ond-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px}
+.ond-grid .sub-onderdeel{display:flex;flex-direction:column;gap:10px;background:var(--row);border:1px solid var(--line);border-radius:10px;padding:14px 16px;align-items:stretch}
+.ond-grid .sub-onderdeel:last-child{border-bottom:1px solid var(--line)}
+.ond-grid .sub-onderdeel.done{border-color:var(--accent);background:var(--accent-soft)}
+.ond-grid .sub-onderdeel h3{font-size:17px}
+.ond-grid .sub-onderdeel .af{margin-left:26px}
+
+
+/* PTA-route-tab */
+.rt-intro{max-width:72ch;color:var(--muted);margin:0 0 12px}
+.rt-switch{display:inline-flex;gap:0;border:1px solid var(--line);border-radius:999px;overflow:hidden;margin:0 0 14px}
+.rt-switch button{all:unset;cursor:pointer;padding:6px 16px;font:600 13px var(--body);color:var(--muted)}
+.rt-switch button[aria-pressed="true"]{background:var(--accent);color:var(--row)}
+.rt-switch button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.rt-legend{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:12.5px;color:var(--muted);margin:0 0 16px}
+:root{--row2:var(--bg2);--amber:var(--goud-text);--amber-soft:var(--goud-soft)}
+.meta{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:13px;color:var(--muted);margin:0 0 20px}
+.meta b{color:var(--fg);font-weight:600}
+.ond{background:var(--row);border:1px solid var(--line);border-radius:8px;margin:0 0 20px;overflow:hidden}
+.ond header{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;padding:14px 18px;border-bottom:1px solid var(--line);background:var(--row2)}
+.ond header h2{font:600 20px/1.2 var(--display);margin:0}
+.ond header .w{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--amber);background:var(--amber-soft);padding:2px 8px;border-radius:999px;font-weight:600}
+.ond header .prog{margin-left:auto;font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.sub-onderdeel{display:grid;grid-template-columns:minmax(180px,.9fr) minmax(220px,1.2fr) minmax(220px,1.4fr);gap:10px 18px;padding:14px 18px;border-bottom:1px solid var(--line);align-items:start}
+.sub-onderdeel:last-child{border-bottom:0}
+.sub-onderdeel h3{font:600 15.5px/1.3 var(--body);margin:0 0 4px;display:flex;align-items:flex-start;gap:8px}
+.chk{width:18px;height:18px;margin:2px 0 0;accent-color:var(--accent);flex:none;cursor:pointer}
+.sub-onderdeel.done h3 span{color:var(--muted);text-decoration:line-through}
+.af{margin:0 0 0 26px;font-size:12.5px;color:var(--muted)}
+.af b{color:var(--amber);font-weight:600}
+.k{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
+.hs{margin:0;padding:0;list-style:none}
+.hs li{margin:0 0 3px}
+.hs small{color:var(--muted)}
+a.chip{background:var(--accent-soft)}
+a.chip:hover{background:var(--accent);color:var(--row)}
+.chip.soon{border-style:dashed;color:var(--muted);border-color:var(--line)}
+.chip.ext{border-color:var(--line);color:var(--fg);background:transparent}
+.sub-onderdeel{grid-template-columns:1fr}
+.ond header{background:transparent;border:0;border-bottom:2px solid var(--line);padding:0 0 8px;margin:0 0 12px}
+.ond-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px}
+.ond-grid .sub-onderdeel{display:flex;flex-direction:column;gap:10px;background:var(--row);border:1px solid var(--line);border-radius:10px;padding:14px 16px;align-items:stretch}
+.ond-grid .sub-onderdeel:last-child{border-bottom:1px solid var(--line)}
+.ond-grid .sub-onderdeel.done{border-color:var(--accent);background:var(--accent-soft)}
+.ond-grid .sub-onderdeel h3{font-size:17px}
+.ond-grid .sub-onderdeel .af{margin-left:26px}
+/* blokken (laatst, overschrijft de lijststijl) */
+.ond{background:transparent;border:0;border-radius:0;margin:0 0 28px;overflow:visible}
+.ond header{background:transparent;border:0;border-bottom:2px solid var(--line);padding:0 0 8px;margin:0 0 12px}
+.ond-grid .sub-onderdeel:last-child{border-bottom:1px solid var(--line)}
+
+/* einde PTA-route-tab */
+
+
+.coach-report{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:0 0 12px;max-height:520px;overflow:auto}
+.cr-top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--line);padding:0 0 10px;margin:0 0 12px}
+.cr-titel{font:600 17px var(--display)}
+.cr-wie{font-size:13px;color:var(--muted)}
+.cr-tot{font-size:13px;color:var(--muted)}.cr-tot b{font-size:20px;color:var(--accent)}
+.cr-groep{margin:0 0 14px}
+.cr-kop{font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 6px}
+.cr-rij{background:var(--row);border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:0 0 8px;break-inside:avoid}
+.cr-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.cr-sub{display:block;font-size:12.5px;color:var(--muted)}
+.cr-prog{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.cr-bar{display:inline-block;width:70px;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.cr-bar i{display:block;height:100%;background:var(--accent)}
+.cr-items{list-style:none;margin:8px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:4px 16px}
+.cr-items li{display:flex;align-items:baseline;gap:8px;font-size:13.5px}
+.cr-ico{flex:none;width:16px;height:16px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;transform:translateY(3px)}
+.ok .cr-ico{background:var(--accent);color:var(--row)}
+.nee .cr-ico{border:1.5px solid var(--line)}
+.nee .cr-lbl{color:var(--muted)}
+.cr-soort{margin-left:auto;font-size:11.5px;color:var(--muted);white-space:nowrap}
+.cr-leeg{color:var(--muted);margin:0}
+@media print{body.print-mentor .coach-report{max-height:none;overflow:visible;border:0;padding:0;background:#fff}body.print-mentor .cr-rij{background:#fff}}
+
+
+.coach-report{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:0 0 12px;max-height:520px;overflow:auto}
+.cr-top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--line);padding:0 0 10px;margin:0 0 12px}
+.cr-titel{font:600 17px var(--display)}
+.cr-wie{font-size:13px;color:var(--muted)}
+.cr-tot{font-size:13px;color:var(--muted)}.cr-tot b{font-size:20px;color:var(--accent)}
+.cr-groep{margin:0 0 14px}
+.cr-kop{font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 6px}
+.cr-rij{background:var(--row);border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:0 0 8px;break-inside:avoid}
+.cr-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.cr-sub{display:block;font-size:12.5px;color:var(--muted)}
+.cr-prog{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.cr-bar{display:inline-block;width:70px;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.cr-bar i{display:block;height:100%;background:var(--accent)}
+.cr-items{list-style:none;margin:8px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:4px 16px}
+.cr-items li{display:flex;align-items:baseline;gap:8px;font-size:13.5px}
+.cr-ico{flex:none;width:16px;height:16px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;transform:translateY(3px)}
+.ok .cr-ico{background:var(--accent);color:var(--row)}
+.nee .cr-ico{border:1.5px solid var(--line)}
+.nee .cr-lbl{color:var(--muted)}
+.cr-soort{margin-left:auto;font-size:11.5px;color:var(--muted);white-space:nowrap}
+.cr-leeg{color:var(--muted);margin:0}
+@media print{body.print-mentor .coach-report{max-height:none;overflow:visible;border:0;padding:0;background:#fff}body.print-mentor .cr-rij{background:#fff}}
+
+
+.coach-report{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:0 0 12px;max-height:520px;overflow:auto}
+.cr-top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--line);padding:0 0 10px;margin:0 0 12px}
+.cr-titel{font:600 17px var(--display)}
+.cr-wie{font-size:13px;color:var(--muted)}
+.cr-tot{font-size:13px;color:var(--muted)}.cr-tot b{font-size:20px;color:var(--accent)}
+.cr-groep{margin:0 0 14px}
+.cr-kop{font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 6px}
+.cr-rij{background:var(--row);border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:0 0 8px;break-inside:avoid}
+.cr-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.cr-sub{display:block;font-size:12.5px;color:var(--muted)}
+.cr-prog{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.cr-bar{display:inline-block;width:70px;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.cr-bar i{display:block;height:100%;background:var(--accent)}
+.cr-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 0}
+@media (max-width:640px){.cr-cols{grid-template-columns:1fr}}
+.cr-col{border-radius:6px;padding:8px 10px}
+.cr-col.ok{background:color-mix(in srgb,var(--accent) 9%,transparent)}
+.cr-col.nee{background:var(--bg);border:1px dashed var(--line)}
+.cr-colkop{font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--muted);margin:0 0 6px}
+.cr-col.ok .cr-colkop{color:var(--accent)}
+.cr-colkop span{font-weight:600;opacity:.8}
+.cr-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px}
+.cr-col li{display:flex;align-items:center;gap:8px;font-size:13.5px;line-height:1.3}
+.cr-ico{flex:none;width:16px;height:16px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700}
+.ok .cr-ico{background:var(--accent);color:var(--row)}
+.nee .cr-ico{border:1.5px solid var(--muted);opacity:.6}
+.nee .cr-lbl{color:var(--fg)}
+.cr-soort{margin-left:auto;font-size:11px;color:var(--muted);white-space:nowrap;padding-left:8px}
+.cr-niets{margin:0;font-size:12.5px;color:var(--muted);font-style:italic}
+.cr-leeg{color:var(--muted);margin:0}
+@media print{body.print-mentor .coach-report{max-height:none;overflow:visible;border:0;padding:0;background:#fff}body.print-mentor .cr-rij{background:#fff}}
+
+
+.coach-report{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:0 0 12px;max-height:520px;overflow:auto}
+.cr-top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--line);padding:0 0 10px;margin:0 0 12px}
+.cr-titel{font:600 17px var(--display)}
+.cr-wie{font-size:13px;color:var(--muted)}
+.cr-tot{font-size:13px;color:var(--muted)}.cr-tot b{font-size:20px;color:var(--accent)}
+.cr-groep{margin:0 0 14px}
+.cr-kop{font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 6px}
+.cr-rij{background:var(--row);border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:0 0 8px;break-inside:avoid}
+.cr-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.cr-sub{display:block;font-size:12.5px;color:var(--muted)}
+.cr-prog{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.cr-bar{display:inline-block;width:70px;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.cr-bar i{display:block;height:100%;background:var(--accent)}
+.cr-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 0}
+@media (max-width:640px){.cr-cols{grid-template-columns:1fr}}
+.cr-col{border-radius:6px;padding:8px 10px}
+.cr-col.ok{background:color-mix(in srgb,var(--accent) 9%,transparent)}
+.cr-col.nee{background:var(--bg);border:1px dashed var(--line)}
+.cr-colkop{font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--muted);margin:0 0 6px}
+.cr-col.ok .cr-colkop{color:var(--accent)}
+.cr-colkop span{font-weight:600;opacity:.8}
+.cr-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px}
+.cr-col li{display:flex;align-items:center;gap:8px;font-size:13.5px;line-height:1.3}
+.cr-ico{flex:none;width:16px;height:16px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700}
+.ok .cr-ico{background:var(--accent);color:var(--row)}
+.nee .cr-ico{border:1.5px solid var(--muted);opacity:.6}
+.nee .cr-lbl{color:var(--fg)}
+.cr-soort{margin-left:auto;font-size:11px;color:var(--muted);white-space:nowrap;padding-left:8px}
+.cr-niets{margin:0;font-size:12.5px;color:var(--muted);font-style:italic}
+.rt-acts{display:flex;flex-wrap:wrap;gap:8px}
+.btn.warn{background:#b3261e;color:#fff;border-color:#b3261e}
+.cr-leeg{color:var(--muted);margin:0}
+@media print{body.print-mentor .coach-report{max-height:none;overflow:visible;border:0;padding:0;background:#fff}body.print-mentor .cr-rij{background:#fff}}
+
+
+.coach-report{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:0 0 12px;max-height:520px;overflow:auto}
+.cr-top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--line);padding:0 0 10px;margin:0 0 12px}
+.cr-titel{font:600 17px var(--display)}
+.cr-wie{font-size:13px;color:var(--muted)}
+.cr-tot{font-size:13px;color:var(--muted)}.cr-tot b{font-size:20px;color:var(--accent)}
+.cr-groep{margin:0 0 14px}
+.cr-kop{font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 6px}
+.cr-rij{background:var(--row);border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:0 0 8px;break-inside:avoid}
+.cr-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.cr-sub{display:block;font-size:12.5px;color:var(--muted)}
+.cr-prog{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.cr-bar{display:inline-block;width:70px;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.cr-bar i{display:block;height:100%;background:var(--accent)}
+.cr-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 0}
+@media (max-width:640px){.cr-cols{grid-template-columns:1fr}}
+.cr-col{border-radius:6px;padding:8px 10px}
+.cr-col.ok{background:color-mix(in srgb,var(--accent) 9%,transparent)}
+.cr-col.nee{background:var(--bg);border:1px dashed var(--line)}
+.cr-colkop{font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--muted);margin:0 0 6px}
+.cr-col.ok .cr-colkop{color:var(--accent)}
+.cr-colkop span{font-weight:600;opacity:.8}
+.cr-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px}
+.cr-col li{display:flex;align-items:center;gap:8px;font-size:13.5px;line-height:1.3}
+.cr-ico{flex:none;width:16px;height:16px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700}
+.ok .cr-ico{background:var(--accent);color:var(--row)}
+.nee .cr-ico{border:1.5px solid var(--muted);opacity:.6}
+.nee .cr-lbl{color:var(--fg)}
+.cr-soort{margin-left:auto;font-size:11px;color:var(--muted);white-space:nowrap;padding-left:8px}
+.cr-niets{margin:0;font-size:12.5px;color:var(--muted);font-style:italic}
+.rt-acts{display:flex;flex-wrap:wrap;gap:8px}
+.btn.warn,.btn.ghost.warn{background:#b3261e;color:#fff;border-color:#b3261e}
+.cr-leeg{color:var(--muted);margin:0}
+@media print{body.print-mentor .coach-report{max-height:none;overflow:visible;border:0;padding:0;background:#fff}body.print-mentor .cr-rij{background:#fff}}
+
+
+.coach-report{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:0 0 12px;max-height:520px;overflow:auto}
+.cr-top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--line);padding:0 0 10px;margin:0 0 12px}
+.cr-titel{font:600 17px var(--display)}
+.cr-wie{font-size:13px;color:var(--muted)}
+.cr-tot{font-size:13px;color:var(--muted)}.cr-tot b{font-size:20px;color:var(--accent)}
+.cr-groep{margin:0 0 14px}
+.cr-kop{font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 6px}
+.cr-rij{background:var(--row);border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:0 0 8px;break-inside:avoid}
+.cr-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.cr-sub{display:block;font-size:12.5px;color:var(--muted)}
+.cr-prog{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.cr-bar{display:inline-block;width:70px;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.cr-bar i{display:block;height:100%;background:var(--accent)}
+.cr-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 0}
+@media (max-width:640px){.cr-cols{grid-template-columns:1fr}}
+.cr-col{border-radius:6px;padding:8px 10px}
+.cr-col.ok{background:color-mix(in srgb,var(--accent) 9%,transparent)}
+.cr-col.nee{background:var(--bg);border:1px dashed var(--line)}
+.cr-colkop{font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--muted);margin:0 0 6px}
+.cr-col.ok .cr-colkop{color:var(--accent)}
+.cr-colkop span{font-weight:600;opacity:.8}
+.cr-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px}
+.cr-col li{display:flex;align-items:center;gap:8px;font-size:13.5px;line-height:1.3}
+.cr-ico{flex:none;width:16px;height:16px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700}
+.ok .cr-ico{background:var(--accent);color:var(--row)}
+.nee .cr-ico{border:1.5px solid var(--muted);opacity:.6}
+.nee .cr-lbl{color:var(--fg)}
+.cr-soort{margin-left:auto;font-size:11px;color:var(--muted);white-space:nowrap;padding-left:8px}
+.cr-niets{margin:0;font-size:12.5px;color:var(--muted);font-style:italic}
+.rt-acts{display:flex;flex-wrap:wrap;gap:8px}
+.btn.warn,.btn.ghost.warn{background:#b3261e;color:#fff;border-color:#b3261e}
+.cr-leeg{color:var(--muted);margin:0}
+@media print{body.print-mentor .coach-report{max-height:none;overflow:visible;border:0;padding:0;background:#fff}body.print-mentor .cr-rij{background:#fff}}
+
+
+.coach-report{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:0 0 12px;max-height:520px;overflow:auto}
+.cr-top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--line);padding:0 0 10px;margin:0 0 12px}
+.cr-titel{font:600 17px var(--display)}
+.cr-wie{font-size:13px;color:var(--muted)}
+.cr-tot{font-size:13px;color:var(--muted)}.cr-tot b{font-size:20px;color:var(--accent)}
+.cr-groep{margin:0 0 14px}
+.cr-kop{font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 6px}
+.cr-rij{background:var(--row);border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:0 0 8px;break-inside:avoid}
+.cr-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.cr-sub{display:block;font-size:12.5px;color:var(--muted)}
+.cr-prog{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.cr-bar{display:inline-block;width:70px;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.cr-bar i{display:block;height:100%;background:var(--accent)}
+.cr-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 0}
+@media (max-width:640px){.cr-cols{grid-template-columns:1fr}}
+.cr-col{border-radius:6px;padding:8px 10px}
+.cr-col.ok{background:color-mix(in srgb,var(--accent) 9%,transparent)}
+.cr-col.nee{background:var(--bg);border:1px dashed var(--line)}
+.cr-colkop{font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--muted);margin:0 0 6px}
+.cr-col.ok .cr-colkop{color:var(--accent)}
+.cr-colkop span{font-weight:600;opacity:.8}
+.cr-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px}
+.cr-col li{display:flex;align-items:center;gap:8px;font-size:13.5px;line-height:1.3}
+.cr-ico{flex:none;width:16px;height:16px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700}
+.ok .cr-ico{background:var(--accent);color:var(--row)}
+.nee .cr-ico{border:1.5px solid var(--muted);opacity:.6}
+.nee .cr-lbl{color:var(--fg)}
+.cr-soort{margin-left:auto;font-size:11px;color:var(--muted);white-space:nowrap;padding-left:8px}
+.cr-niets{margin:0;font-size:12.5px;color:var(--muted);font-style:italic}
+.rt-acts{display:flex;flex-wrap:wrap;gap:8px}
+.btn.warn,.btn.ghost.warn{background:#b3261e;color:#fff;border-color:#b3261e}
+.cr-leeg{color:var(--muted);margin:0}
+@media print{body.print-mentor .coach-report{max-height:none;overflow:visible;border:0;padding:0;background:#fff}body.print-mentor .cr-rij{background:#fff}}
+
+
+.coach-report{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:0 0 12px;max-height:520px;overflow:auto}
+.cr-top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--line);padding:0 0 10px;margin:0 0 12px}
+.cr-titel{font:600 17px var(--display)}
+.cr-wie{font-size:13px;color:var(--muted)}
+.cr-tot{font-size:13px;color:var(--muted)}.cr-tot b{font-size:20px;color:var(--accent)}
+.cr-groep{margin:0 0 14px}
+.cr-kop{font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 6px}
+.cr-rij{background:var(--row);border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:0 0 8px;break-inside:avoid}
+.cr-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.cr-sub{display:block;font-size:12.5px;color:var(--muted)}
+.cr-prog{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.cr-bar{display:inline-block;width:70px;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.cr-bar i{display:block;height:100%;background:var(--accent)}
+.cr-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 0}
+@media (max-width:640px){.cr-cols{grid-template-columns:1fr}}
+.cr-col{border-radius:6px;padding:8px 10px}
+.cr-col.ok{background:color-mix(in srgb,var(--accent) 9%,transparent)}
+.cr-col.nee{background:var(--bg);border:1px dashed var(--line)}
+.cr-colkop{font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--muted);margin:0 0 6px}
+.cr-col.ok .cr-colkop{color:var(--accent)}
+.cr-colkop span{font-weight:600;opacity:.8}
+.cr-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px}
+.cr-col li{display:flex;align-items:center;gap:8px;font-size:13.5px;line-height:1.3}
+.cr-ico{flex:none;width:16px;height:16px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700}
+.ok .cr-ico{background:var(--accent);color:var(--row)}
+.nee .cr-ico{border:1.5px solid var(--muted);opacity:.6}
+.nee .cr-lbl{color:var(--fg)}
+.cr-soort{margin-left:auto;font-size:11px;color:var(--muted);white-space:nowrap;padding-left:8px}
+.cr-niets{margin:0;font-size:12.5px;color:var(--muted);font-style:italic}
+.extra-tag{display:inline-block;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;font-weight:700;color:var(--muted);border:1px dashed var(--muted);border-radius:4px;padding:0 5px;margin-left:6px;vertical-align:middle;white-space:nowrap}
+.chip.tool{border-style:dashed}
+.chip.ext{border-color:var(--line);color:var(--fg);background:transparent}
+.rt-acts{display:flex;flex-wrap:wrap;gap:8px}
+.btn.warn,.btn.ghost.warn{background:#b3261e;color:#fff;border-color:#b3261e}
+.cr-leeg{color:var(--muted);margin:0}
+@media print{body.print-mentor .coach-report{max-height:none;overflow:visible;border:0;padding:0;background:#fff}body.print-mentor .cr-rij{background:#fff}}
+
+.gu-k{margin-top:12px}
+/* PTA-route: afvinken en mentoroverzicht */
+.rt-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin:0 0 14px}
+.rt-switch{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.rt-switch button{all:unset;cursor:pointer;padding:6px 16px;font:600 13px var(--body);color:var(--muted)}
+.rt-switch button[aria-pressed="true"]{background:var(--accent);color:var(--row)}
+.rt-switch button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.rt-intro{max-width:72ch;color:var(--muted);margin:0 0 12px}
+.rt-intro a,.notes a{color:var(--accent)}
+.rt-legend{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:12.5px;color:var(--muted);margin:0 0 16px}
+.btn{all:unset;cursor:pointer;font:600 13.5px var(--body);padding:8px 14px;border-radius:8px;background:var(--accent);color:var(--row)}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sub-onderdeel.done h3 .cnt{text-decoration:none}
+.sub-onderdeel h3 .cnt{margin-left:auto;font:500 12px var(--body);color:var(--muted);font-variant-numeric:tabular-nums;padding-top:3px}
+.hs li{margin:0 0 4px}
+.tick{display:flex;gap:8px;align-items:flex-start;cursor:pointer}
+.tick input,.ms input{width:16px;height:16px;margin:2px 0 0;accent-color:var(--accent);flex:none;cursor:pointer}
+.ms{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px}
+.ms li{display:flex;align-items:center;gap:8px}
+.ms .chip{margin:0;white-space:normal}
+.ms li:has(input:checked) .chip,.tick:has(input:checked) span{opacity:.6}
+.mentor{background:var(--row);border:2px solid var(--accent);border-radius:10px;padding:16px 18px;margin:0 0 22px}
+.mentor-h{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.mentor-h h2{font:600 18px var(--display);margin:0}
+.mentor-tip{color:var(--muted);font-size:13.5px;margin:6px 0 12px;max-width:72ch}
+.mentor-naam{display:flex;align-items:center;gap:8px;font-size:14px;margin:0 0 10px}
+.mentor-naam input{font:inherit;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);min-width:0;flex:1;max-width:320px}
+.mentor pre{white-space:pre-wrap;font:13px/1.5 ui-monospace,Menlo,Consolas,monospace;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin:0 0 12px;max-height:360px;overflow:auto}
+.mentor-btns{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.copied{color:var(--accent);font-size:13px;font-weight:600}
+@media print{
+  body.print-mentor *{visibility:hidden}
+  body.print-mentor #mentor,body.print-mentor #mentor *{visibility:visible}
+  body.print-mentor #mentor{position:absolute;left:0;top:0;width:100%;border:0}
+  body.print-mentor #mentor pre{max-height:none;overflow:visible;border:0}
+  body.print-mentor .mentor-btns,body.print-mentor .mentor-naam,body.print-mentor [data-act="close"],body.print-mentor .mentor-tip{display:none}
+}
+
+/* Telefoon (Kamiel 25 okt 2026: 'op de telefoon zie je delen maar half'): de weektabel wordt een
+   lijst van weekkaarten, zodat er niets rechts buiten beeld valt. */
+@media (max-width:700px){
+  .tw{overflow:visible}
+  .tw table{min-width:0}
+  .tw thead{display:none}
+  .tw table,.tw tbody,.tw tr,.tw td{display:block;width:auto!important}
+  .tw tr{border-bottom:1px solid var(--line);padding:8px 0 6px}
+  .tw tr:last-child{border-bottom:0}
+  .tw td{border-bottom:0;padding:3px 12px}
+  .tw td.wk{white-space:normal;padding-bottom:2px}
+  .tw td.wk br{display:none}
+  .tw td.wk b{margin-right:6px}
+  .tw td.par{font-weight:600}
+  .tw td.mid::before,.tw td.hw::before,.tw td.opm::before{display:block;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin:4px 0 3px}
+  .tw td.mid::before{content:"Eigen films en tools"}
+  .tw td.doel::before{display:block;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin:4px 0 3px;content:"Leerdoelen"}
+  .tw td.doel:has(>.leeg:only-child){display:none}
+  .tw td.hw::before{content:"Huiswerk"}
+  .tw td.opm::before{content:"Opmerkingen"}
+  .tw td.mid:has(>.leeg:only-child),.tw td.opm:empty{display:none}
+  .chip{white-space:normal}
+  .tabs{scrollbar-width:none}
+}
+</style>
+<style>body{margin:0}</style>
+</head>
+<body>
+<header class="bar">
+  <div class="wrap">
+    <a class="merk" href="index.html#home" aria-label="Biologie bij Kamiel, naar de homepage">
+      <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="13" fill="none" stroke="var(--goud)" stroke-width="1.5"/><path d="M8 19.5c5.5 0 11-5 12.5-12-6.5 1.4-12 6.6-12.5 12z" fill="none" stroke="var(--goud)" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 19.5l7.5-7.5" stroke="var(--goud)" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Biologie bij Kamiel
+    </a>
+    <nav class="nav" aria-label="Hoofdmenu">
+      <a href="index.html#home">Thema's</a>
+      <a href="index.html#films">Films</a>
+      <a href="index.html#tools">Tools</a>
+      <a href="index.html#lessen">Lessen</a>
+      <details class="menu" data-actief>
+        <summary>Agora</summary>
+        <div class="menu-lijst">
+          <a href="index.html#pta"><b>PTA Agora</b><span>havo en vwo per PTA-onderdeel</span></a>
+          <a href="index.html#onderbouw"><b>Agora onderbouw</b><span>de kerndoelen mens en natuur</span></a>
+          <a href="jaarplanner.html" aria-current="page"><b>Jaarplanner</b><span>week voor week, 2026-2027</span></a>
+          <a href="examenatlas.html"><b>Examenatlas</b><span>wat komt terug op het examen</span></a>
+          <a href="challenges.html"><b>Challenges</b><span>grote vragen om zelf uit te zoeken</span></a>
+        </div>
+      </details>
+      <a href="vervolg.html">Wat word jij?</a>
+      <a href="sessie/" class="nav-sessie">Klas live</a>
+    </nav>
+    <div class="rechts">
+      <button class="icoon" id="thema" type="button" aria-label="Wissel tussen licht en donker"></button>
+    </div>
+  </div>
+</header>
+<section class="kop">
+  <div class="wrap">
+    <a class="terug" href="index.html#pta">← Agora</a>
+    <div class="mono lbl">Agora · schooljaar 2026-2027</div>
+    <h1>Jaarplanner</h1>
+    <p class="sub">Week voor week: wat je leest en maakt, en welke films erbij horen. Vink af wat je gedaan hebt; je vinkjes blijven in deze browser.</p>
+    <button type="button" class="nu-knop" id="nuKnop" hidden><span class="stip" aria-hidden="true"></span><span id="nuTekst">Naar deze week</span></button>
+  </div>
+</section>
+<div class="wrap pagina">
+<div class="rt-switch locatie" id="locatie" role="group" aria-label="Locatie"><button type="button" data-loc="" aria-pressed="true">Nijmegen</button><button type="button" data-loc="gb" aria-pressed="false">Groesbeek</button></div>
+<div class="tabs" role="tablist" aria-label="Niveau">
+  <button class="tab" role="tab" data-tab="havo4" aria-selected="true">havo 4</button>
+  <button class="tab" role="tab" data-tab="havo5" aria-selected="false">havo 5</button>
+  <button class="tab" role="tab" data-tab="vwo45" aria-selected="false">vwo 4+5</button>
+  <button class="tab" role="tab" data-tab="vwo6" aria-selected="false">vwo 6</button>
+</div>
+
+<div class="legend" id="legend">
+  <span><i class="sw" style="background:var(--goud);border-color:var(--goud)"></i> deze week</span>
+  <span><i class="sw" style="background:var(--off)"></i> vakantie</span>
+  <span><i class="sw" style="background:repeating-linear-gradient(135deg,var(--off) 0 4px,var(--row) 4px 6px)"></i> activiteitenweek</span>
+  <span><i class="sw" style="background:var(--toets)"></i> toets</span>
+  <span><i class="sw" style="background:var(--eigen)"></i> eigen lespakket</span>
+  <span><i class="chip vid">video</i> eigen film</span><span><i class="chip tool">tool</i><span class="extra-tag">extra</span> extra, als je tijd over hebt</span><span><i class="chip les">les</i> les van de docent</span>
+</div>
+<div id="planner"></div>
+<div class="notes">
+<h3>Uitgangspunten</h3>
+<ul id="notes"></ul>
+</div>
+</div>
+<script>
+// Elke rij = één schoolweek vanaf 31-08-2026. type: "" les, "off" geen les, "toets", "eigen".
+// mid = middelen: [["vid"|"tool", "naam", "url (optioneel)"]]. hw = huiswerk (leeg = nog in te vullen).
+// Een url maakt de chip klikbaar (opent in nieuw tabblad). SITE = basis-url van Kamiels site; relatieve urls worden daaraan geplakt.
+const SITE = ".";
+const KORT=n=>String(n).replace(/^(Zenuwstelsel|Hormonen|Evolutie|Voeding) \d+ · /,"$1 · ").replace(/^(Erfelijkheid|DNA|Transport|Gaswisseling|Afweer|Cel) \d+ · /,"").replace(/ \((eigen|\d+ min)\)$/,"").replace(/ · (kringlopen|de wolf op de Veluwe|enzymen|dissimilatie|fotosynthese|voortplanting|DNA \d|PCR|gel-elektroforese|gelelektroforese|hart|bloedvaten|bloed|xyleem en floëem)$/,"").replace(/^(.+?) · (Voeding|DNA) \d+$/,"$1").replace("Overerving via X-chromosomen en mitochondriën","X-chromosomen en mitochondriën").replace("Dihybride kruising en gekoppelde overerving","Dihybride kruising").replace("Onderzoek doen in de biologie","Onderzoek doen").replace("Vaccins, allergie en bloedgroepen","Vaccins en allergie").replace("De genetische code lezen","Genetische code").replace("Supplementen en superfoods","Supplementen").replace(" (vwo)","");
+
+const GU="https://gewoonuitgelegd.nl/biologie/";
+// Kamiel 26 okt 2026: alleen deze tools staan (even) in de planner; de rest is verborgen.
+// Weer tonen = het pad hier toevoegen. Lessen (tools/docent) staan niet in de planner.
+const TOOL_ZICHTBAAR=u=>/schaallab|examenatlas/.test(u||"");
+// Gewoon Uitgelegd uit de planner (Kamiel 26 okt 2026: 'ik heb nu zoveel zelf'); de data blijft staan, true = weer tonen
+const TOON_GU=false;
+function verbergTools(o){
+  if(Array.isArray(o)){
+    for(let i=o.length-1;i>=0;i--){const x=o[i];
+      if(Array.isArray(x)&&((x[0]==="tool"&&!TOOL_ZICHTBAAR(x[2]))||(!TOON_GU&&(x[3]==="ext"||/gewoonuitgelegd/.test(x[2]||""))))) o.splice(i,1); else verbergTools(x);}
+  } else if(o&&typeof o==="object") for(const k in o) verbergTools(o[k]);
+}
+const START = new Date(2026, 7, 31);
+
+// ---------- Kalender (één bron voor alle tabbladen) ----------
+const KALENDER={"2026-10-19":"Herfstvakantie","2026-12-21":"Kerstvakantie","2026-12-28":"Kerstvakantie","2027-02-01":"Activiteitenweek 2 (facultatief)","2027-02-08":"Carnavalsvakantie","2027-04-19":"Meivakantie","2027-04-26":"Meivakantie","2027-07-05":"Activiteitenweek 3 (facultatief)","2027-07-19":"Zomervakantie"};
+const KALENDER_EXTRA={havo5:{"2027-05-17":"Centraal examen","2027-05-24":"Centraal examen","2027-05-31":"Centraal examen"},vwo6:{"2027-05-24":"Centraal examen","2027-05-31":"Centraal examen"}};
+const DAGNOTITIES={"2027-03-22":"Vr 26 mrt Goede Vrijdag","2027-03-29":"Ma 29 mrt 2e Paasdag","2027-05-17":"Ma 17 mei 2e Pinksterdag","2027-07-12":"Laatste lesweek"};
+// Laatste week die nog gevuld wordt (uitloop of examentraining)
+const EINDE={havo4:"2027-07-12",vwo45:"2027-07-12",havo4gb:"2027-07-12",vwo45gb:"2027-07-12",havo5:"2027-05-10",vwo6:"2027-05-17"};
+const PLANNERS = {
+ havo4: {
+  sub:"Biologie voor jou · 1 lesuur per week · steeds 3 weken les en een toetsweek, regeling 4 · havo 4 en vwo 4+5 lopen tot en met gedrag gelijk op",
+  notes:["Na de herfstvakantie: elk hoofdstuk 3 lesweken en dan een toetsweek; regeling 4 (twee weken hormonen). Havo 4 en vwo 4+5 lopen tot en met gedrag week voor week gelijk op; vwo neemt daarna 6 weken voor regeling en doet H6 en H8, havo doet H7. Waar twee of meer paragrafen in één week staan, doet de les de kern en is de rest huiswerk.", "Aan het eind van het jaar blijven er weken over voor uitloop en herhaling (of een extra onderwerp).", "Thema 1 volgt de paragrafen van Biologie voor jou; de paragraafnamen van thema 2–7 zijn nog te controleren tegen het boek."],
+  blokken:[
+   {"titel": "Thema 1 Inleiding in de biologie (cellen)", "rijen": [{"par": "Oriëntatie + § 1.1 Biologie is overal"}, {"par": "§ 1.2 Organen, weefsels en cellen", "mid": [["les", "Les 1 · Wat is leven?", "tools/docent/cellen-1/index.html"], ["les", "Les 2 · Zelfde DNA, andere cel", "tools/docent/cellen-2/index.html"], ["vid", "Van molecuul tot biosfeer", "films/cellen/van-molecuul-tot-biosfeer.html"], ["vid", "Stamcellen", "films/cellen/stamcellen.html"]]}, {"par": "§ 1.3 Plantaardige en dierlijke cellen + § 1.4 Organellen", "mid": [["les", "Les 3 · Een fabriek die leeft", "tools/docent/cellen-3/index.html"], ["tool", "Virtuele microscoop", "tools/virtuele-microscoop/index.html"], ["tool", "Celbouwer", "tools/celbouwer/index.html"], ["vid", "Celorganellen (eigen)", "films/cellen/celorganellen/index.html"], ["vid", "Celorganellen (GU)", "https://gewoonuitgelegd.nl/biologie/celorganellen/"]]}, {"par": "§ 1.5 Transport door membranen", "mid": [["les", "Les 4 · Diffusie en osmose", "tools/docent/cellen-4/index.html"], ["tool", "Aardappellab", "tools/aardappellab.html"], ["vid", "Diffusie en osmose", "films/cellen/diffusie-osmose/index.html"], ["vid", "Diffusie en osmose (GU)", "https://gewoonuitgelegd.nl/biologie/diffusie/"], ["vid", "Membraantransport (GU)", "https://gewoonuitgelegd.nl/biologie/membraantransport/"]]}, {"par": "§ 1.6 Natuurwetenschappelijk onderzoek", "mid": [["les", "Les 5 · Onderzoek doen", "tools/docent/cellen-5/index.html"], ["vid", "Biologisch onderzoek (GU)", "https://gewoonuitgelegd.nl/biologie/biologisch-onderzoek/"], ["vid", "Onderzoek doen in de biologie (eigen)", "films/cellen/onderzoek-doen/index.html"]]}, {"par": "Herhaling thema 1", "hw": "Samenvatting maken, diagnostische toets"}, {"par": "Toets thema 1", "type": "toets", "hw": "Leren thema 1"}]},
+   {"titel": "H2 Voortplanting en seksualiteit", "rijen": [{"par": "§ 2.1 Ongeslachtelijke voortplanting + § 2.2 Geslachtelijke voortplanting (SE)", "mid": [["les", "Les 1 · Eén ouder of twee?", "tools/docent/voortplanting-1/index.html"], ["vid", "Celdeling", "films/voortplanting/celdeling/index.html"], ["vid", "Voortplanting (GU)", "https://gewoonuitgelegd.nl/biologie/voortplanting/"], ["vid", "Celdeling (GU)", "https://gewoonuitgelegd.nl/biologie/celdeling/"], ["vid", "Eicellen en zaadcellen (GU)", "https://gewoonuitgelegd.nl/biologie/eicel-en-zaadcel/"]]}, {"par": "§ 2.3 Hormonen + § 2.4 Zwanger", "mid": [["les", "Les 2 · Precies op tijd", "tools/docent/voortplanting-2/index.html"], ["vid", "Van bevruchting tot baby", "films/voortplanting/1-precies-op-tijd.html"], ["vid", "Geslachtsorganen en puberteit", "films/voortplanting/2-geslachtsorganen-puberteit.html"], ["vid", "Menstruatiecyclus (GU)", "https://gewoonuitgelegd.nl/biologie/menstruatiecyclus/"], ["vid", "Zwangerschap (GU)", "https://gewoonuitgelegd.nl/biologie/zwangerschap/"]]}, {"par": "§ 2.5 Seksualiteit + § 2.6 Soa's", "mid": [["les", "Les 3 · Ingrijpen en variatie", "tools/docent/voortplanting-3/index.html"], ["vid", "Anticonceptie, soa's en voortplantingstechniek", "films/voortplanting/3-anticonceptie-soa-voortplantingstechniek.html"], ["vid", "Sekse, gender en diversiteit", "films/voortplanting/4-sekse-gender-diversiteit.html"]]}, {"type": "toets", "par": "Toets H2", "hw": "Leren H2"}]},
+   {"titel": "H3 Erfelijkheid", "rijen": [{"par": "§ 3.1 Fenotype en genotype + § 3.2 Genenparen", "mid": [["les", "Les 1 · Eén van je vader, één van je moeder", "tools/docent/erfelijkheid-1/index.html"], ["vid", "Erfelijkheid 1 · Chromosomen", "films/erfelijkheid/1-chromosomen.html"]]}, {"par": "§ 3.3 Monohybride kruisingen + § 3.4 Geslachtschromosomen", "mid": [["les", "Les 2 · Kruisen en tellen", "tools/docent/erfelijkheid-2/index.html"], ["vid", "Bloedgroepen (GU)", "https://gewoonuitgelegd.nl/biologie/bloedgroepen/"], ["tool", "Kruisingslab", "tools/kruisingslab.html"], ["tool", "Bloedgroepenlab", "tools/bloedgroepenlab.html"], ["vid", "Kruisingsschema's (GU)", "https://gewoonuitgelegd.nl/biologie/kruisingsschemas/"], ["vid", "Erfelijkheid 2 · Monohybride kruisingen", "films/erfelijkheid/2-monohybride-kruisingen.html"], ["vid", "Erfelijkheid 3 · Voorbij dominant en recessief", "films/erfelijkheid/3-voorbij-dominant-en-recessief.html"], ["vid", "Erfelijkheid 5 · Overerving via het X-chromosoom", "films/erfelijkheid/5-overerving-via-x-chromosomen-en-mitochondrien.html"]]}, {"par": "§ 3.5 Speciale manieren van overerven + § 3.6 Opvoeding of aanleg", "mid": [["les", "Les 3 · Twee genen en een stamboom", "tools/docent/erfelijkheid-3/index.html"], ["vid", "Dihybride kruisingen (GU)", "https://gewoonuitgelegd.nl/biologie/dihybride-kruisingen/"], ["vid", "Stambomen (GU)", "https://gewoonuitgelegd.nl/biologie/stambomen/"], ["vid", "Erfelijkheid 4 · Dihybride kruising en gekoppelde overerving", "films/erfelijkheid/4-dihybride-kruising-en-gekoppelde-overerving.html"], ["vid", "Erfelijkheid 6 · Stambomen en kansrekenen", "films/erfelijkheid/6-stambomen-en-kansrekenen.html"]]}, {"type": "toets", "par": "Toets H3", "hw": "Leren H3"}]},
+   {"titel": "H4 Evolutie", "rijen": [{"par": "§ 4.1 Indeling van de levende natuur + § 4.2 Bacteriën, virussen en schimmels", "mid": [["les", "Les 6 · Wat groeit er op je boterham?", "tools/docent/cellen-6/index.html"], ["vid", "Wat groeit er op je boterham?", "films/cellen/microben.html"], ["vid", "Evolutie 1 · Wat is evolutie eigenlijk?", "films/evolutie/1-wat-is-evolutie.html"], ["vid", "Evolutie 8 · Stambomen lezen", "films/evolutie/8-stambomen-lezen.html"], ["vid", "Het ontstaan van het leven", "films/evolutie/x2-het-ontstaan-van-het-leven.html"], ["vid", "Van eerste cel tot nu", "films/evolutie/x3-van-eerste-cel-tot-nu.html"]]}, {"par": "§ 4.3 De evolutietheorie", "mid": [["vid", "Evolutie 2 · Natuurlijke selectie", "films/evolutie/2-natuurlijke-selectie.html"], ["vid", "Evolutie 3 · Vormen van selectie", "films/evolutie/3-vormen-van-selectie.html"], ["vid", "De reis van Darwin", "films/evolutie/x1-de-reis-van-darwin.html"], ["vid", "Natuurlijke selectie (GU)", "https://gewoonuitgelegd.nl/biologie/natuurlijke-selectie/"], ["vid", "Evolutie (GU)", "https://gewoonuitgelegd.nl/biologie/evolutie/"]]}, {"par": "§ 4.4 Evolutie in populaties + § 4.5 Onderzoek naar evolutie", "mid": [["vid", "Evolutie 4 · De mens als selectiefactor", "films/evolutie/4-de-mens-als-selectiefactor.html"], ["vid", "Evolutie 5 · Toeval en uitwisseling", "films/evolutie/5-toeval-en-uitwisseling.html"], ["vid", "Evolutie 6 · Hoe één soort er twee wordt", "films/evolutie/6-hoe-een-soort-er-twee-wordt.html"], ["vid", "Evolutie 7 · Hoe weten we dat?", "films/evolutie/7-hoe-weten-we-dat.html"], ["vid", "Hoe werden we mens?", "films/evolutie/x4-hoe-werden-we-mens.html"], ["tool", "Resistentielab", "https://claude.ai/code/artifact/75d0cbb8-ba7e-431c-a43c-87e3242a7008"], ["vid", "Soortvorming (GU)", "https://gewoonuitgelegd.nl/biologie/soortvorming/"]]}, {"type": "toets", "par": "Toets H4", "hw": "Leren H4"}]},
+   {"titel": "Gedrag en waarneming", "sub": "3 weken · eigen lespakket", "rijen": [{"par": "Les 1 · gedrag", "type": "eigen", "mid": [["vid", "Waarom doet een dier wat het doet?", "films/gedrag/1-waarom-doet-een-dier-wat-het-doet.html"], ["vid", "Inprenting en de sensitieve periode", "films/gedrag/2-inprenting-en-de-sensitieve-periode.html"], ["vid", "Leren: van Pavlov tot je telefoon", "films/gedrag/7-leren.html"], ["vid", "Baltsen en kiezen", "films/gedrag/3-baltsen-en-kiezen.html"]]}, {"par": "Les 2 · gedrag", "type": "eigen", "mid": [["vid", "De dans van de honingbij", "films/gedrag/8-honingbij.html"], ["vid", "Een mierenkolonie zonder baas", "films/gedrag/9-mierenkolonie.html"], ["vid", "Waarom helpen dieren elkaar?", "films/gedrag/10-helpen.html"], ["vid", "Slimme dieren", "films/gedrag/11-slimme-dieren.html"]]}, {"par": "Les 3 · gedrag en waarneming", "type": "eigen", "mid": [["vid", "Zintuigen", "films/zenuwstelsel/8-zintuigen.html"], ["vid", "Hechting: van baby tot verliefd", "films/gedrag/4-hechting.html"], ["vid", "Emotieregulatie", "films/gedrag/5-emotieregulatie.html"], ["vid", "Wiens schuld is het? Interne en externe attributie", "films/gedrag/6-attributie.html"], ["vid", "Beroemde psychologie-experimenten", "films/gedrag/12-psychologie-experimenten.html"]]}]},
+   {"titel": "H5 Regeling", "rijen": [{"par": "§ 5.1 Homeostase en regelkringen + § 5.2 Het hormoonstelsel", "mid": [["tool", "Regelkring · glucoseregulatie", "tools/regelkring.html"], ["vid", "Regelkringen (GU)", "https://gewoonuitgelegd.nl/biologie/regelkringen/"], ["vid", "Hormonen 1 · Post voor iedereen", "films/hormonen/1-post-voor-iedereen.html"]]}, {"par": "§ 5.2 Het hormoonstelsel (vervolg)", "mid": [["vid", "Hormonen 2 · Suiker in balans", "films/hormonen/2-suiker-in-balans.html"], ["vid", "Hormonen 3 · De baas van de klieren", "films/hormonen/3-de-baas-van-de-klieren.html"], ["tool", "Regelkring · opdrachten 1–6", "tools/regelkring.html"], ["vid", "Hormonen 4 · Stress", "films/hormonen/4-stress.html"], ["vid", "Hormonen 5 · Water in balans", "films/hormonen/5-water-in-balans.html"], ["vid", "Hormonen (GU)", "https://gewoonuitgelegd.nl/biologie/hormonen/"], ["vid", "Schildklier (GU)", "https://gewoonuitgelegd.nl/biologie/schildklier/"]]}, {"par": "§ 5.3 Het zenuwstelsel + § 5.4 Reflexen en autonome zenuwstelsel", "mid": [["vid", "Zenuwstelsel 1 · Eén seconde", "films/zenuwstelsel/1-een-seconde.html"], ["vid", "Zenuwstelsel 2 · Het kabelnetwerk", "films/zenuwstelsel/2-het-kabelnetwerk.html"], ["vid", "Zenuwstelsel 5 · Het hoofdkantoor", "films/zenuwstelsel/5-het-hoofdkantoor.html"], ["vid", "Zintuigen", "films/zenuwstelsel/8-zintuigen.html"], ["vid", "Hersenen (GU)", "https://gewoonuitgelegd.nl/biologie/hersenen/"], ["vid", "Zenuwstelsel (GU)", "https://gewoonuitgelegd.nl/biologie/zenuwstelsel/"], ["vid", "Actiepotentiaal (GU)", "https://gewoonuitgelegd.nl/biologie/actiepotentiaal/"]]}, {"par": "§ 5.5 Impulsgeleiding + § 5.6 Spieren en beweging (SE)", "mid": [["vid", "Zenuwstelsel 3 · De spleet", "films/zenuwstelsel/3-de-spleet.html"], ["vid", "Zenuwstelsel 4 · Knoeien met de synaps", "films/zenuwstelsel/4-knoeien-met-de-spleet.html"], ["vid", "Zenuwstelsel 6 · Leren en onthouden", "films/zenuwstelsel/6-leren-en-onthouden.html"], ["vid", "Zenuwstelsel 7 · Slaap", "films/zenuwstelsel/7-slaap.html"], ["vid", "Zenuwstelsel 9 · Spieren en beweging", "films/zenuwstelsel/9-spieren-en-beweging.html"]]}, {"type": "toets", "par": "Toets H5", "hw": "Leren H5"}]},
+   {"titel": "H7 Ecologie en milieu", "rijen": [{"par": "§ 7.1 Organismen + § 7.2 Populaties", "mid": [["vid", "Niche (GU)", "https://gewoonuitgelegd.nl/biologie/niche/"], ["vid", "Populaties (GU)", "https://gewoonuitgelegd.nl/biologie/populaties/"], ["vid", "Ecologie 2 · Waar past een soort?", "films/ecologie/2-waar-past-een-soort.html"], ["vid", "Ecologie 1 · Hoeveel passen er?", "films/ecologie/1-hoeveel-passen-er.html"], ["vid", "Ecologie 3 · Wie eet wie?", "films/ecologie/3-wie-eet-wie.html"]]}, {"par": "§ 7.3 Ecosystemen + § 7.4 Veranderende ecosystemen", "mid": [["vid", "Ecologie 4 · Waar blijft het blad?", "films/ecologie/4-waar-blijft-het-blad.html"], ["vid", "Ecologie 5 · Waarom zo weinig roofdieren?", "films/ecologie/5-waarom-zo-weinig-roofdieren.html"], ["vid", "Ecologie 8 · Van zand tot bos", "films/ecologie/8-van-zand-tot-bos.html"], ["tool", "Terrariumlab", "https://claude.ai/code/artifact/3c627959-8535-401a-8415-afa8a5755c03"], ["vid", "Voedselwebben (GU)", "https://gewoonuitgelegd.nl/biologie/voedselweb/"], ["vid", "Successie (GU)", "https://gewoonuitgelegd.nl/biologie/successie/"], ["vid", "Omslagpunten (GU)", "https://gewoonuitgelegd.nl/biologie/omslagpunten/"], ["vid", "Mens en milieu 2 · Ingrijpen of laten gaan?", "films/ecologie/4-ingrijpen-of-laten-gaan.html"]]}, {"par": "§ 7.5 Kringlopen + § 7.6 Duurzaamheid + § 7.7 Voedselproductie + § 7.8 Energie", "mid": [["vid", "Koolstofkringloop (GU)", "https://gewoonuitgelegd.nl/biologie/koolstofkringloop/"], ["vid", "Ecologie 6 · Koolstof gaat rond", "films/ecologie/6-koolstof-gaat-rond.html"], ["vid", "Ecologie 7 · Stikstof gaat rond", "films/ecologie/7-stikstof-gaat-rond.html"], ["vid", "Stikstofkringloop (GU)", "https://gewoonuitgelegd.nl/biologie/stikstofkringloop/"], ["tool", "Reactorlab", "https://claude.ai/code/artifact/91fd7565-2989-456a-8537-0d1c17c3e53c"], ["vid", "Mens en milieu 1 · Eén aarde", "films/ecologie/3-een-aarde.html"], ["vid", "Mens en milieu 3 · Binnen de grenzen", "films/ecologie/5-binnen-de-grenzen.html"], ["vid", "Landbouw 1 · Meer oogst", "films/vervolg/landbouw-1-meer-oogst.html", "extra"], ["vid", "Landbouw 2 · Wat zit er in de bodem?", "films/vervolg/landbouw-2-wat-zit-er-in-de-bodem.html", "extra"], ["vid", "Landbouw 3 · Fokken", "films/vervolg/landbouw-3-fokken.html", "extra"]]}, {"type": "toets", "par": "Toets H7", "hw": "Leren H7"}]},
+   {"titel": "Uitloop en herhaling", "vul": {"par": "Uitloop of herhaling", "hw": "Inhalen wat nog open staat"}},
+  ],
+ },
+ havo5: {
+  sub:"Biologie voor jou · examenjaar · PTA OND3 en OND4 · elk thema 3 weken, toets in de 4e week · alles af in de week van 8 maart 2027",
+  notes:["Na de herfstvakantie: elk thema 3 lesweken; de toets valt in de 4e week, waarin ook het volgende thema begint. Alleen de laatste toets (thema 13) heeft een eigen week. Alles is af in de week van 8 maart 2027; daarna examentraining tot het CE.", "Paragrafen volgens Biologie voor jou (Malmberg). Gedrag (OND3) komt uit het eigen lespakket en moet nog een plek krijgen."],
+  blokken:[
+   {"titel": "Thema 8 Stofwisseling in de cel", "rijen": [{"par": "§ 8.1 Chemie in cellen", "mid": [["vid", "Biomoleculen (GU)", "https://gewoonuitgelegd.nl/biologie/biomoleculen/"]]}, {"par": "§ 8.2 Enzymen", "mid": [["vid", "Alles versneld · enzymen", "films/stofwisseling/1-alles-versneld.html"]]}, {"par": "§ 8.3 Fotosynthese", "mid": [["vid", "Alles in het groen · fotosynthese", "films/stofwisseling/3-alles-in-het-groen.html"], ["vid", "Enzymen (GU)", "https://gewoonuitgelegd.nl/biologie/enzymen/"]]}, {"par": "§ 8.4 Voortgezette assimilatie + § 8.5 Dissimilatie", "mid": [["vid", "Alles op adem · dissimilatie", "films/stofwisseling/2-alles-op-adem.html"], ["vid", "Dissimilatie (GU)", "https://gewoonuitgelegd.nl/biologie/dissimilatie/"]]}, {"par": "§ 8.6 Intensiteit van de stofwisseling", "mid": [["vid", "Fotosynthese (GU)", "https://gewoonuitgelegd.nl/biologie/fotosynthese/"], ["vid", "Gisting (GU)", "https://gewoonuitgelegd.nl/biologie/gisting/"]]}, {"par": "Herhaling thema 8", "hw": "Samenvatting maken, diagnostische toets"}, {"par": "Toets thema 8", "type": "toets", "hw": "Leren thema 8"}]},
+   {"titel": "Thema 9 DNA", "rijen": [{"par": "§ 9.1 DNA + § 9.2 DNA-replicatie (SE)", "mid": [["les", "Les 1 · De bouw van DNA", "tools/dna-bouw/index.html"], ["vid", "Wat is DNA? · DNA 1", "films/dna/1-wat-is-dna.html"], ["vid", "DNA kopiëren · DNA 2", "films/dna/2-dna-kopieren.html"]]}, {"par": "§ 9.3 Eiwitsynthese (SE) + § 9.4 Genexpressie", "mid": [["les", "Les 2 · Van gen tot eiwit", "tools/docent/dna-2/index.html"], ["vid", "DNA 6 · Genen aan en uit", "films/dna/6-genen-aan-en-uit.html"], ["tool", "De Eiwitfabriek", "tools/eiwitfabriek.html"], ["vid", "DNA 3 · Van DNA naar eiwit", "films/dna/3-van-dna-naar-eiwit.html"], ["vid", "DNA 4 · De genetische code lezen", "films/dna/4-de-genetische-code-lezen.html"], ["vid", "Eiwitsynthese (GU)", "https://gewoonuitgelegd.nl/biologie/eiwitsynthese/"], ["vid", "Genregulatie (GU)", "https://gewoonuitgelegd.nl/biologie/genregulatie/"], ["vid", "Mutaties (GU)", "https://gewoonuitgelegd.nl/biologie/mutaties/"], ["vid", "Genetische modificatie (GU)", "https://gewoonuitgelegd.nl/biologie/genetische-modificatie/"]]}, {"par": "§ 9.5 Mutaties + § 9.6 DNA-technieken", "mid": [["les", "Les 3 · Veranderen, regelen, lezen", "tools/docent/dna-3/index.html"], ["vid", "DNA 5 · Mutaties", "films/dna/5-mutaties.html"], ["vid", "Op maat gekopieerd · PCR", "films/dna-technieken/1-op-maat-gekopieerd/index.html"], ["vid", "Op lengte gesorteerd", "films/dna-technieken/2-op-lengte-gesorteerd/index.html"], ["vid", "DNA 7 · DNA lezen", "films/dna/7-dna-lezen.html"], ["vid", "DNA 8 · Wat heb jij aan DNA?", "films/dna/8-wat-heb-jij-aan-dna.html"], ["tool", "DNA-profielen vergelijken", "tools/dna-profielen/index.html"], ["vid", "PCR (GU)", "https://gewoonuitgelegd.nl/biologie/pcr/"]]}, {"type": "toets", "par": "Toets thema 9", "hw": "Leren thema 9", "metVolgende": true}]},
+   {"titel": "Thema 10 Vertering", "rijen": [{"par": "§ 10.1 Voedingsstoffen + § 10.2 Het verteringsstelsel", "mid": [["vid", "Voeding 1 · Wat zit er in je eten?", "films/voeding/1-wat-zit-er-in-je-eten.html"], ["vid", "Voeding 2 · De reis door je buik", "films/voeding/2-de-reis-door-je-buik.html"], ["vid", "Vertering (GU)", "https://gewoonuitgelegd.nl/biologie/vertering/"]]}, {"par": "§ 10.3 Chemische vertering + § 10.4 Resorptie", "mid": [["vid", "Voeding 5 · De lever als fabriek", "films/voeding/5-de-lever-als-fabriek.html"], ["vid", "Voeding 3 · Knippen op maat", "films/voeding/3-knippen-op-maat.html"], ["vid", "Voeding 4 · Van darm naar bloed", "films/voeding/4-van-darm-naar-bloed.html"]]}, {"par": "§ 10.5 Gezonde voeding (SE)", "mid": [["vid", "Voeding 6 · Je darmbewoners", "films/voeding/6-je-darmbewoners.html"], ["vid", "Voeding 7 · Supplementen en superfoods", "films/voeding/7-supplementen-en-superfoods.html"], ["vid", "Voeding en diëtetiek 1 · Bij de diëtist", "films/vervolg/voedingsleer-1-bij-de-dietist.html", "extra"], ["vid", "Voeding en diëtetiek 2 · Waarom afvallen zo moeilijk is", "films/vervolg/voedingsleer-2-waarom-afvallen-zo-moeilijk-is.html", "extra"]]}, {"type": "toets", "par": "Toets thema 10", "hw": "Leren thema 10", "metVolgende": true}]},
+   {"titel": "Thema 11 Transport", "rijen": [{"par": "§ 11.1 Het bloed + § 11.2 Transportsystemen bij dieren", "mid": [["vid", "Transport 3 · Wat er in je bloed zit", "films/transport/3-wat-er-in-je-bloed-zit.html"], ["vid", "Bloedsomloop (GU)", "https://gewoonuitgelegd.nl/biologie/bloedsomloop/"], ["vid", "Bloed (GU)", "https://gewoonuitgelegd.nl/biologie/bloed/"]]}, {"par": "§ 11.3 Het hart + § 11.4 De bloedvaten", "mid": [["vid", "Transport 1 · Eén pomp, twee rondjes", "films/transport/1-een-pomp-twee-rondjes.html"], ["vid", "Transport 2 · Buizen onder druk", "films/transport/2-buizen-onder-druk.html"], ["vid", "Transport 5 · Het hart onder controle", "films/transport/5-het-hart-onder-controle.html"], ["vid", "Hemoglobine (GU)", "https://gewoonuitgelegd.nl/biologie/hemoglobine/"], ["vid", "Weefselvloeistof (GU)", "https://gewoonuitgelegd.nl/biologie/weefselvloeistof/"]]}, {"par": "§ 11.5 Weefselvloeistof en lymfe", "mid": [["vid", "Transport 4 · Weefselvloeistof en lymfe", "films/transport/4-weefselvloeistof-en-lymfe.html"], ["vid", "Transport 6 · Transport in planten", "films/transport/6-transport-in-planten.html"], ["vid", "Transport in planten (GU)", "https://gewoonuitgelegd.nl/biologie/transport-in-planten/"]]}, {"type": "toets", "par": "Toets thema 11", "hw": "Leren thema 11", "metVolgende": true}]},
+   {"titel": "Thema 12 Gaswisseling en uitscheiding", "rijen": [{"par": "§ 12.1 Gaswisseling + § 12.2 Longventilatie", "mid": [["vid", "Gaswisseling 1 · Adem in, adem uit", "films/gaswisseling/1-adem-in-adem-uit.html"], ["vid", "Gaswisseling 2 · Gas op reis", "films/gaswisseling/2-gas-op-reis.html"], ["vid", "Ademhaling (GU)", "https://gewoonuitgelegd.nl/biologie/ademhaling/"], ["vid", "Kieuwen (GU)", "https://gewoonuitgelegd.nl/biologie/kieuwen/"]]}, {"par": "§ 12.3 De lever + § 12.4 De nieren", "mid": [["vid", "Gaswisseling 3 · Uitscheiding en evenwicht", "films/gaswisseling/3-uitscheiding-en-evenwicht.html"], ["vid", "Hormonen 5 · Water in balans", "films/hormonen/5-water-in-balans.html"], ["vid", "Nieren (GU)", "https://gewoonuitgelegd.nl/biologie/nieren/"]]}, {"par": "§ 12.5 De huid"}, {"type": "toets", "par": "Toets thema 12", "hw": "Leren thema 12", "metVolgende": true}]},
+   {"titel": "Thema 13 Afweer", "rijen": [{"par": "§ 13.1 Bescherming + § 13.2 Aangeboren en verworven afweer", "mid": [["vid", "Afweer 1 · De eerste verdediging", "films/afweer/1-de-eerste-verdediging.html"], ["vid", "Afweer 2 · Antistoffen op maat", "films/afweer/2-antistoffen-op-maat.html"], ["vid", "Afweer (GU)", "https://gewoonuitgelegd.nl/biologie/afweer/"]]}, {"par": "§ 13.3 Immuniteit", "mid": [["vid", "Afweer 3 · T-cellen en virussen", "films/afweer/3-t-cellen-en-virussen.html"], ["vid", "Gezondheidswetenschappen 1 · Hoe een epidemie groeit en stopt", "films/vervolg/gezondheidswetenschappen-1-hoe-een-epidemie-groeit.html", "extra"]]}, {"par": "§ 13.4 Transplantatie en bloedtransfusie", "mid": [["vid", "Afweer 4 · Vaccins, allergie en bloedgroepen", "films/afweer/4-vaccins-allergie-en-bloedgroepen.html"]]}, {"type": "toets", "par": "Toets thema 13", "hw": "Leren thema 13"}]},
+   {"titel": "Examentraining", "vul": {"par": "Examentraining", "hw": "Oefenexamens"}},
+  ],
+ },
+ vwo45: {
+  sub:"Nectar (editie 4.1) · pilot: vwo 4 en 5 samen · OND1, ecologie (OND2) en regeling (OND3) · steeds 3 weken les en een toetsweek, regeling 6 · tot en met gedrag gelijk met havo 4",
+  notes:["Na de herfstvakantie: elk hoofdstuk 3 lesweken en dan een toetsweek; regeling (§ 12.1, H13, H14, § 15.5) 6 lesweken, twee meer dan havo; § 15.1–15.4 Waarnemen (SE) zit in les 3 van het gedragsblok. Vwo 4+5 loopt tot en met gedrag week voor week gelijk op met havo 4; daarna regeling, H6 en H8 (ecologie). Staan er twee paragrafen in een week, dan zegt de kolom Opmerkingen welke de les behandelt en welke je zelf doet, vaak met een film erbij. H3 Wetenschappelijk onderzoek liep mee bij H2.", "Aan het eind van het jaar blijven er weken over voor uitloop en herhaling (of een extra onderwerp). Paragrafen volgens de inhoudsopgave van Nectar (editie 4.1)."],
+  blokken:[
+   {"titel": "H2 Cel en leven", "rijen": [{"par": "§ 2.1 Cellen leven samen", "mid": [["les", "Les 1 · Wat is leven?", "tools/docent/cellen-1/index.html"], ["les", "Les 2 · Zelfde DNA, andere cel", "tools/docent/cellen-2/index.html"], ["vid", "Van molecuul tot biosfeer", "films/cellen/van-molecuul-tot-biosfeer.html"], ["vid", "Stamcellen", "films/cellen/stamcellen.html"], ["tool", "Virtuele microscoop", "tools/virtuele-microscoop/index.html"], ["tool", "Celbouwer", "tools/celbouwer/index.html"], ["tool", "Schaallab", "tools/schaallab.html"], ["vid", "Biomoleculen (GU)", "https://gewoonuitgelegd.nl/biologie/biomoleculen/"]]}, {"par": "§ 2.2 Cellen", "mid": [["les", "Les 3 · Een fabriek die leeft", "tools/docent/cellen-3/index.html"], ["vid", "Celorganellen (eigen)", "films/cellen/celorganellen/index.html"], ["vid", "Celorganellen (GU)", "https://gewoonuitgelegd.nl/biologie/celorganellen/"]]}, {"par": "§ 2.3 Celmembranen en transport", "mid": [["les", "Les 4 · Diffusie en osmose", "tools/docent/cellen-4/index.html"], ["tool", "Aardappellab", "tools/aardappellab.html"], ["vid", "Diffusie en osmose", "films/cellen/diffusie-osmose/index.html"], ["vid", "Diffusie en osmose (GU)", "https://gewoonuitgelegd.nl/biologie/diffusie/"], ["vid", "Membraantransport (GU)", "https://gewoonuitgelegd.nl/biologie/membraantransport/"]]}, {"par": "§ 2.4 DNA: het besturingssysteem van de cel + § 2.5 DNA en de celcyclus", "mid": []}, {"par": "H3 Wetenschappelijk onderzoek (§ 3.1–3.4)", "mid": [["les", "Les 5 · Onderzoek doen", "tools/docent/cellen-5/index.html"], ["tool", "Onderzoekskeuring", "https://claude.ai/code/artifact/0398cc0f-06f7-4769-b365-95433ed715f5"], ["vid", "Onderzoek doen in de biologie (eigen)", "films/cellen/onderzoek-doen/index.html"]]}, {"par": "Herhaling H2", "hw": "Samenvatting maken, diagnostische toets"}, {"par": "Toets H2", "type": "toets", "hw": "Leren H2"}]},
+   {"titel": "H4 Voortplanting", "rijen": [{"par": "§ 4.1 Nieuw leven + § 4.2 Vorming van geslachtscellen", "mid": [["les", "Les 1 · Eén ouder of twee?", "tools/docent/voortplanting-1/index.html"], ["vid", "Celdeling", "films/voortplanting/celdeling/index.html"], ["vid", "Voortplanting (GU)", "https://gewoonuitgelegd.nl/biologie/voortplanting/"], ["vid", "Celdeling (GU)", "https://gewoonuitgelegd.nl/biologie/celdeling/"], ["vid", "Eicellen en zaadcellen (GU)", "https://gewoonuitgelegd.nl/biologie/eicel-en-zaadcel/"]], "split": "Les: § 4.2 · Zelf: § 4.1"}, {"par": "§ 4.3 Hormonale regeling + § 4.4 Hulp bij zwangerschap", "mid": [["les", "Les 2 · Precies op tijd", "tools/docent/voortplanting-2/index.html"], ["vid", "Van bevruchting tot baby · voortplanting", "films/voortplanting/1-precies-op-tijd.html"], ["vid", "Geslachtsorganen en puberteit", "films/voortplanting/2-geslachtsorganen-puberteit.html"], ["vid", "Menstruatiecyclus (GU)", "https://gewoonuitgelegd.nl/biologie/menstruatiecyclus/"]], "split": "Les: § 4.3 · Zelf: § 4.4 met de film Anticonceptie, soa's en voortplantingstechniek"}, {"par": "§ 4.5 Voorkomen van soa's en van zwangerschappen (CE/SE)", "mid": [["les", "Les 3 · Ingrijpen en variatie", "tools/docent/voortplanting-3/index.html"], ["vid", "Anticonceptie, soa's en voortplantingstechniek", "films/voortplanting/3-anticonceptie-soa-voortplantingstechniek.html"], ["vid", "Sekse, gender en diversiteit", "films/voortplanting/4-sekse-gender-diversiteit.html"], ["vid", "Zwangerschap (GU)", "https://gewoonuitgelegd.nl/biologie/zwangerschap/"], ["vid", "Stamcellen (GU)", "https://gewoonuitgelegd.nl/biologie/stamcellen/"]]}, {"type": "toets", "par": "Toets H4", "hw": "Leren H4"}]},
+   {"titel": "H5 Erfelijkheid", "rijen": [{"par": "§ 5.1 Verschillen tussen mensen + § 5.2 Chromosomen bestuderen", "mid": [["les", "Les 1 · Eén van je vader, één van je moeder", "tools/docent/erfelijkheid-1/index.html"], ["vid", "Erfelijkheid 1 · Chromosomen", "films/erfelijkheid/1-chromosomen.html"]], "split": "Les: § 5.2 · Zelf: § 5.1"}, {"par": "§ 5.3 Stamboomonderzoek", "mid": [["les", "Les 2 · Kruisen en tellen", "tools/docent/erfelijkheid-2/index.html"], ["vid", "Bloedgroepen (GU)", "https://gewoonuitgelegd.nl/biologie/bloedgroepen/"], ["tool", "Kruisingslab", "tools/kruisingslab.html"], ["tool", "Bloedgroepenlab", "tools/bloedgroepenlab.html"], ["vid", "Kruisingsschema's (GU)", "https://gewoonuitgelegd.nl/biologie/kruisingsschemas/"], ["vid", "Erfelijkheid 2 · Monohybride kruisingen", "films/erfelijkheid/2-monohybride-kruisingen.html"], ["vid", "Erfelijkheid 3 · Voorbij dominant en recessief", "films/erfelijkheid/3-voorbij-dominant-en-recessief.html"], ["vid", "Erfelijkheid 5 · Overerving via het X-chromosoom", "films/erfelijkheid/5-overerving-via-x-chromosomen-en-mitochondrien.html"]]}, {"par": "§ 5.4 Meer genen in het spel + § 5.5 Mogelijkheden en ethische dilemma's", "mid": [["les", "Les 3 · Twee genen en een stamboom", "tools/docent/erfelijkheid-3/index.html"], ["vid", "Dihybride kruisingen (GU)", "https://gewoonuitgelegd.nl/biologie/dihybride-kruisingen/"], ["vid", "Stambomen (GU)", "https://gewoonuitgelegd.nl/biologie/stambomen/"], ["vid", "Erfelijkheid 4 · Dihybride kruising en gekoppelde overerving", "films/erfelijkheid/4-dihybride-kruising-en-gekoppelde-overerving.html"], ["vid", "Erfelijkheid 6 · Stambomen en kansrekenen", "films/erfelijkheid/6-stambomen-en-kansrekenen.html"]], "split": "Les: § 5.4 · Zelf: § 5.5"}, {"type": "toets", "par": "Toets H5", "hw": "Leren H5"}]},
+   {"titel": "H7 Evolutie", "rijen": [{"par": "§ 7.1 De ontwikkeling van het leven + § 7.2 Ontstaan van nieuwe soorten", "mid": [["vid", "Evolutie 1 · Wat is evolutie eigenlijk?", "films/evolutie/1-wat-is-evolutie.html"], ["vid", "Evolutie 6 · Hoe één soort er twee wordt", "films/evolutie/6-hoe-een-soort-er-twee-wordt.html"], ["vid", "Het ontstaan van het leven", "films/evolutie/x2-het-ontstaan-van-het-leven.html"], ["vid", "Van eerste cel tot nu", "films/evolutie/x3-van-eerste-cel-tot-nu.html"]], "split": "Les: § 7.2 · Zelf: § 7.1 met de films Het ontstaan van het leven en Van eerste cel tot nu"}, {"par": "§ 7.3 Het verhaal van de fossielen + § 7.4 Evolutietheorie in ontwikkeling", "mid": [["vid", "Evolutie 7 · Hoe weten we dat?", "films/evolutie/7-hoe-weten-we-dat.html"], ["vid", "Evolutie 8 · Stambomen lezen", "films/evolutie/8-stambomen-lezen.html"], ["vid", "Evolutie 2 · Natuurlijke selectie", "films/evolutie/2-natuurlijke-selectie.html"], ["vid", "Evolutie 3 · Vormen van selectie", "films/evolutie/3-vormen-van-selectie.html"], ["vid", "De reis van Darwin", "films/evolutie/x1-de-reis-van-darwin.html"], ["vid", "Natuurlijke selectie (GU)", "https://gewoonuitgelegd.nl/biologie/natuurlijke-selectie/"], ["vid", "Evolutie (GU)", "https://gewoonuitgelegd.nl/biologie/evolutie/"]], "split": "Les: § 7.4 · Zelf: § 7.3 met de film Hoe weten we dat?"}, {"par": "§ 7.5 Een populatie vol allelen", "mid": [["vid", "Evolutie 5 · Toeval en uitwisseling", "films/evolutie/5-toeval-en-uitwisseling.html"], ["vid", "Evolutie 4 · De mens als selectiefactor", "films/evolutie/4-de-mens-als-selectiefactor.html"], ["vid", "Hoe werden we mens?", "films/evolutie/x4-hoe-werden-we-mens.html"], ["tool", "Resistentielab", "https://claude.ai/code/artifact/75d0cbb8-ba7e-431c-a43c-87e3242a7008"], ["vid", "Soortvorming (GU)", "https://gewoonuitgelegd.nl/biologie/soortvorming/"], ["vid", "Hardy-Weinberg (GU)", "https://gewoonuitgelegd.nl/biologie/hardy-weinberg/"]]}, {"type": "toets", "par": "Toets H7", "hw": "Leren H7"}]},
+   {"titel": "Gedrag en waarneming", "sub": "3 weken · eigen lespakket", "rijen": [{"par": "Les 1 · gedrag", "type": "eigen", "mid": [["vid", "Waarom doet een dier wat het doet?", "films/gedrag/1-waarom-doet-een-dier-wat-het-doet.html"], ["vid", "Inprenting en de sensitieve periode", "films/gedrag/2-inprenting-en-de-sensitieve-periode.html"], ["vid", "Leren: van Pavlov tot je telefoon", "films/gedrag/7-leren.html"], ["vid", "Baltsen en kiezen", "films/gedrag/3-baltsen-en-kiezen.html"]]}, {"par": "Les 2 · gedrag", "type": "eigen", "mid": [["vid", "De dans van de honingbij", "films/gedrag/8-honingbij.html"], ["vid", "Een mierenkolonie zonder baas", "films/gedrag/9-mierenkolonie.html"], ["vid", "Waarom helpen dieren elkaar?", "films/gedrag/10-helpen.html"], ["vid", "Slimme dieren", "films/gedrag/11-slimme-dieren.html"]]}, {"par": "Les 3 · gedrag en waarneming + § 15.1–15.4 Waarnemen (SE)", "type": "eigen", "mid": [["vid", "Zintuigen", "films/zenuwstelsel/8-zintuigen.html"], ["vid", "Hechting: van baby tot verliefd", "films/gedrag/4-hechting.html"], ["vid", "Emotieregulatie", "films/gedrag/5-emotieregulatie.html"], ["vid", "Wiens schuld is het? Interne en externe attributie", "films/gedrag/6-attributie.html"], ["vid", "Beroemde psychologie-experimenten", "films/gedrag/12-psychologie-experimenten.html"]]}]},
+   {"titel": "H12–H15 Regeling en waarneming", "rijen": [{"par": "§ 12.1 Het inwendige milieu + § 13.1 Hormoonstelsel, hypothalamus en hypofyse", "split": "Les: § 13.1 · Zelf: § 12.1", "mid": [["tool", "Regelkring · glucoseregulatie", "tools/regelkring.html"], ["vid", "Hormonen 1 · Post voor iedereen", "films/hormonen/1-post-voor-iedereen.html"], ["vid", "Regelkringen (GU)", "https://gewoonuitgelegd.nl/biologie/regelkringen/"]]}, {"par": "§ 13.2 Reacties op hormonen + § 13.3 Hormonen recyclen botten (SE)", "split": "Les: § 13.2 · Zelf: § 13.3 (SE)", "mid": [["vid", "Hormonen 3 · De baas van de klieren", "films/hormonen/3-de-baas-van-de-klieren.html"], ["vid", "Hormonen (GU)", "https://gewoonuitgelegd.nl/biologie/hormonen/"], ["vid", "Schildklier (GU)", "https://gewoonuitgelegd.nl/biologie/schildklier/"]]}, {"par": "§ 13.4 Hormonen regelen glucoseconcentratie + § 13.5 Reageren met hormonen", "split": "Les: § 13.4 · Zelf: § 13.5 met de film Stress", "mid": [["vid", "Hormonen 2 · Suiker in balans", "films/hormonen/2-suiker-in-balans.html"], ["tool", "Regelkring · opdrachten 1–6", "tools/regelkring.html"], ["vid", "Hormonen 4 · Stress", "films/hormonen/4-stress.html"], ["vid", "Hormonen 5 · Water in balans", "films/hormonen/5-water-in-balans.html"]]}, {"par": "§ 14.1 Cellen in het zenuwstelsel + § 14.2 Het centrale zenuwstelsel", "split": "Les: § 14.1 · Zelf: § 14.2 met de film Het hoofdkantoor", "mid": [["vid", "Zenuwstelsel 1 · Eén seconde", "films/zenuwstelsel/1-een-seconde.html"], ["vid", "Zenuwstelsel 5 · Het hoofdkantoor", "films/zenuwstelsel/5-het-hoofdkantoor.html"], ["vid", "Hersenen (GU)", "https://gewoonuitgelegd.nl/biologie/hersenen/"], ["vid", "Zenuwstelsel (GU)", "https://gewoonuitgelegd.nl/biologie/zenuwstelsel/"]]}, {"par": "§ 14.3 Impulsgeleiding + § 14.4 Impulsoverdracht tussen neuronen", "split": "Les: § 14.4 · Zelf: § 14.3 met de film Het kabelnetwerk", "mid": [["vid", "Zenuwstelsel 2 · Het kabelnetwerk", "films/zenuwstelsel/2-het-kabelnetwerk.html"], ["vid", "Zenuwstelsel 3 · De spleet", "films/zenuwstelsel/3-de-spleet.html"], ["vid", "Zenuwstelsel 4 · Knoeien met de synaps", "films/zenuwstelsel/4-knoeien-met-de-spleet.html"], ["vid", "Actiepotentiaal (GU)", "https://gewoonuitgelegd.nl/biologie/actiepotentiaal/"]]}, {"par": "§ 14.5 Het autonome zenuwstelsel + § 15.5 Zintuigen en regeling", "split": "Les: § 14.5 · Zelf: § 15.5", "mid": [["vid", "Zenuwstelsel 6 · Leren en onthouden", "films/zenuwstelsel/6-leren-en-onthouden.html"], ["vid", "Zenuwstelsel 7 · Slaap", "films/zenuwstelsel/7-slaap.html"]]}, {"par": "Toets regeling en waarneming", "type": "toets", "hw": "Leren H12.1, H13, H14, H15"}]},
+   {"titel": "H6 Soorten en populaties", "rijen": [{"par": "§ 6.1 De verwantschap tussen soorten + § 6.2 Populaties", "mid": [["vid", "Populaties (GU)", "https://gewoonuitgelegd.nl/biologie/populaties/"], ["vid", "Ecologie 1 · Hoeveel passen er?", "films/ecologie/1-hoeveel-passen-er.html"]], "split": "Les: § 6.2 · Zelf: § 6.1"}, {"par": "§ 6.3 Soorten in hun omgeving + § 6.4 Relaties tussen soorten", "mid": [["vid", "Niche (GU)", "https://gewoonuitgelegd.nl/biologie/niche/"], ["vid", "Ecologie 2 · Waar past een soort?", "films/ecologie/2-waar-past-een-soort.html"], ["vid", "Ecologie 3 · Wie eet wie?", "films/ecologie/3-wie-eet-wie.html"]], "split": "Les: § 6.4 · Zelf: § 6.3"}, {"par": "§ 6.5 Nieuwe en kwetsbare populaties"}, {"type": "toets", "par": "Toets H6", "hw": "Leren H6"}]},
+   {"titel": "H8 Kenmerken van ecosystemen", "rijen": [{"par": "§ 8.1 Opbouw en afbraak van stoffen in ecosystemen + § 8.2 Energie in ecosystemen", "mid": [["vid", "Ecologie 4 · Waar blijft het blad?", "films/ecologie/4-waar-blijft-het-blad.html"], ["vid", "Ecologie 5 · Waarom zo weinig roofdieren?", "films/ecologie/5-waarom-zo-weinig-roofdieren.html"], ["vid", "Voedselwebben (GU)", "https://gewoonuitgelegd.nl/biologie/voedselweb/"], ["vid", "Successie (GU)", "https://gewoonuitgelegd.nl/biologie/successie/"], ["vid", "Omslagpunten (GU)", "https://gewoonuitgelegd.nl/biologie/omslagpunten/"], ["tool", "Terrariumlab", "https://claude.ai/code/artifact/3c627959-8535-401a-8415-afa8a5755c03"]], "split": "Les: § 8.2 · Zelf: § 8.1"}, {"par": "§ 8.3 Kringlopen en water", "mid": [["vid", "Koolstofkringloop (GU)", "https://gewoonuitgelegd.nl/biologie/koolstofkringloop/"], ["vid", "Ecologie 6 · Koolstof gaat rond", "films/ecologie/6-koolstof-gaat-rond.html"], ["vid", "Ecologie 7 · Stikstof gaat rond", "films/ecologie/7-stikstof-gaat-rond.html"], ["vid", "Stikstofkringloop (GU)", "https://gewoonuitgelegd.nl/biologie/stikstofkringloop/"]]}, {"par": "§ 8.4 Veranderende ecosystemen", "mid": [["vid", "Ecologie 8 · Van zand tot bos", "films/ecologie/8-van-zand-tot-bos.html"], ["vid", "Mens en milieu 2 · Ingrijpen of laten gaan?", "films/ecologie/4-ingrijpen-of-laten-gaan.html"]]}, {"type": "toets", "par": "Toets H8", "hw": "Leren H8"}]},
+   {"titel": "Uitloop en herhaling", "vul": {"par": "Uitloop of herhaling", "hw": "Inhalen wat nog open staat"}},
+  ],
+ },
+ vwo6: {
+  sub:"Nectar (editie 4.1) · examenjaar · tweede helft van het PTA · elk blok 3 weken, toets in de 4e week · alles af in de week van 8 maart 2027",
+  notes:["Na de herfstvakantie: elk blok 3 lesweken; de toets valt in de 4e week, waarin ook het volgende blok begint. Alleen de laatste toets heeft een eigen week. Alles is af in de week van 8 maart 2027; daarna examentraining tot het CE.", "Paragrafen volgens de inhoudsopgave van Nectar (editie 4.1)."],
+  blokken:[
+   {"titel": "H17 DNA + H18 Eiwitten", "rijen": [{"par": "§ 17.1 DNA in je cellen + § 17.2 DNA kopiëren", "mid": [["les", "Les 1 · De bouw van DNA", "tools/dna-bouw/index.html"], ["vid", "Wat is DNA? · DNA 1", "films/dna/1-wat-is-dna.html"], ["vid", "DNA kopiëren · DNA 2", "films/dna/2-dna-kopieren.html"]]}, {"par": "§ 17.3 De vorming van polypeptideketens + § 17.4 Het belang van de nucleotidevolgorde", "mid": [["les", "Les 2 · Van gen tot eiwit", "tools/docent/dna-2/index.html"], ["tool", "De Eiwitfabriek", "tools/eiwitfabriek.html"], ["vid", "DNA 3 · Van DNA naar eiwit", "films/dna/3-van-dna-naar-eiwit.html"], ["vid", "DNA 4 · De genetische code lezen", "films/dna/4-de-genetische-code-lezen.html"], ["vid", "DNA 5 · Mutaties", "films/dna/5-mutaties.html"], ["vid", "Eiwitsynthese (GU)", "https://gewoonuitgelegd.nl/biologie/eiwitsynthese/"], ["tool", "Waarom U in RNA", "tools/waarom-u-in-rna.html"]]}, {"par": "§ 17.5 Genregulatie", "mid": [["les", "Les 3 · Veranderen, regelen, lezen", "tools/docent/dna-3/index.html"], ["vid", "Genregulatie (GU)", "https://gewoonuitgelegd.nl/biologie/genregulatie/"], ["vid", "Mutaties (GU)", "https://gewoonuitgelegd.nl/biologie/mutaties/"], ["vid", "Stamcellen (GU)", "https://gewoonuitgelegd.nl/biologie/stamcellen/"]]}, {"par": "§ 18.1 Van polypeptideketen tot werkzaam eiwit + § 18.2 Functies van eiwitten + Toepassen: DNA-sequenties", "mid": [["vid", "Op maat gekopieerd · PCR", "films/dna-technieken/1-op-maat-gekopieerd/index.html"], ["vid", "Op lengte gesorteerd", "films/dna-technieken/2-op-lengte-gesorteerd/index.html"], ["vid", "DNA 6 · Genen aan en uit", "films/dna/6-genen-aan-en-uit.html"], ["vid", "DNA 7 · DNA lezen", "films/dna/7-dna-lezen.html"], ["vid", "DNA 8 · Wat heb jij aan DNA?", "films/dna/8-wat-heb-jij-aan-dna.html"], ["tool", "DNA-profielen vergelijken", "tools/dna-profielen/index.html"], ["vid", "Genetische modificatie (GU)", "https://gewoonuitgelegd.nl/biologie/genetische-modificatie/"]]}, {"par": "§ 18.3 Enzymwerking + § 18.4 Regeling van eiwitvorming in een cel + § 18.5 Eiwitten zichtbaar maken", "mid": [["vid", "Alles versneld · enzymen", "films/stofwisseling/1-alles-versneld.html"]]}, {"par": "Herhaling", "hw": "Samenvatting maken, diagnostische toets"}, {"par": "Toets H17 + H18", "type": "toets", "hw": "Leren H17, H18"}]},
+   {"titel": "Stofwisseling (H18–H20)", "rijen": [{"par": "§ 19.3 Energieproductie zonder zuurstof + § 19.4 Energieproductie met zuurstof", "mid": [["vid", "Alles op adem · dissimilatie", "films/stofwisseling/2-alles-op-adem.html"], ["vid", "Dissimilatie (GU)", "https://gewoonuitgelegd.nl/biologie/dissimilatie/"]]}, {"par": "§ 19.1 Bouw van pezen en spieren + § 19.2 Bewegingen in spiervezels + § 19.5 Controle", "mid": [["vid", "Gisting (GU)", "https://gewoonuitgelegd.nl/biologie/gisting/"], ["vid", "Biomoleculen (GU)", "https://gewoonuitgelegd.nl/biologie/biomoleculen/"], ["vid", "Zenuwstelsel 9 · Spieren en beweging", "films/zenuwstelsel/9-spieren-en-beweging.html"]]}, {"par": "§ 20.3 Fotosynthese + § 20.4 Glucose als grondstof", "mid": [["vid", "Alles in het groen · fotosynthese", "films/stofwisseling/3-alles-in-het-groen.html"], ["vid", "Fotosynthese (GU)", "https://gewoonuitgelegd.nl/biologie/fotosynthese/"]]}, {"type": "toets", "par": "Toets stofwisseling", "hw": "Leren stofwisseling", "metVolgende": true}]},
+   {"titel": "H12–H15 Regeling en waarneming", "rijen": [{"par": "§ 13.1 Hormoonstelsel, hypothalamus en hypofyse + § 13.2 Reacties op hormonen + § 13.3 Hormonen recyclen botten (SE)", "mid": [["vid", "Hormonen 1 · Post voor iedereen", "films/hormonen/1-post-voor-iedereen.html"], ["vid", "Hormonen 3 · De baas van de klieren", "films/hormonen/3-de-baas-van-de-klieren.html"], ["vid", "Hormonen (GU)", "https://gewoonuitgelegd.nl/biologie/hormonen/"], ["vid", "Schildklier (GU)", "https://gewoonuitgelegd.nl/biologie/schildklier/"]]}, {"par": "§ 13.4 Hormonen regelen glucoseconcentratie + § 13.5 Reageren met hormonen", "mid": [["vid", "Hormonen 2 · Suiker in balans", "films/hormonen/2-suiker-in-balans.html"], ["vid", "Hormonen 4 · Stress", "films/hormonen/4-stress.html"], ["vid", "Hormonen 5 · Water in balans", "films/hormonen/5-water-in-balans.html"], ["tool", "Regelkring", "tools/regelkring.html"], ["vid", "Regelkringen (GU)", "https://gewoonuitgelegd.nl/biologie/regelkringen/"]]}, {"par": "§ 14.1 Cellen in het zenuwstelsel + § 14.2 Het centrale zenuwstelsel + § 14.3 Impulsgeleiding", "mid": [["vid", "Zenuwstelsel 1 · Eén seconde", "films/zenuwstelsel/1-een-seconde.html"], ["vid", "Zenuwstelsel 2 · Het kabelnetwerk", "films/zenuwstelsel/2-het-kabelnetwerk.html"], ["vid", "Zenuwstelsel 3 · De spleet", "films/zenuwstelsel/3-de-spleet.html"], ["vid", "Hersenen (GU)", "https://gewoonuitgelegd.nl/biologie/hersenen/"]]}, {"par": "§ 14.4 Impulsoverdracht tussen neuronen + § 14.5 Het autonome zenuwstelsel + § 15.1–15.5 Waarnemen (SE, § 15.5 CE)", "mid": [["vid", "Zenuwstelsel 4 · Knoeien met de synaps", "films/zenuwstelsel/4-knoeien-met-de-spleet.html"], ["vid", "Zenuwstelsel 5 · Het hoofdkantoor", "films/zenuwstelsel/5-het-hoofdkantoor.html"], ["vid", "Zenuwstelsel 6 · Leren en onthouden", "films/zenuwstelsel/6-leren-en-onthouden.html"], ["vid", "Zintuigen", "films/zenuwstelsel/8-zintuigen.html"], ["vid", "Actiepotentiaal (GU)", "https://gewoonuitgelegd.nl/biologie/actiepotentiaal/"], ["vid", "Zenuwstelsel 7 · Slaap", "films/zenuwstelsel/7-slaap.html"]]}, {"type": "toets", "par": "Toets regeling en waarneming", "hw": "Leren H12–H15", "metVolgende": true}]},
+   {"titel": "H10 Bloedsomloop + H11 Voeding en vertering", "rijen": [{"par": "§ 10.1–10.5 Bloedsomloop", "mid": [["vid", "Transport 1 · Eén pomp, twee rondjes", "films/transport/1-een-pomp-twee-rondjes.html"], ["vid", "Transport 2 · Buizen onder druk", "films/transport/2-buizen-onder-druk.html"], ["vid", "Transport 3 · Wat er in je bloed zit", "films/transport/3-wat-er-in-je-bloed-zit.html"], ["vid", "Transport 4 · Weefselvloeistof en lymfe", "films/transport/4-weefselvloeistof-en-lymfe.html"], ["vid", "Transport 5 · Het hart onder controle", "films/transport/5-het-hart-onder-controle.html"], ["vid", "Bloedsomloop (GU)", "https://gewoonuitgelegd.nl/biologie/bloedsomloop/"], ["vid", "Bloed (GU)", "https://gewoonuitgelegd.nl/biologie/bloed/"], ["vid", "Hemoglobine (GU)", "https://gewoonuitgelegd.nl/biologie/hemoglobine/"], ["vid", "Weefselvloeistof (GU)", "https://gewoonuitgelegd.nl/biologie/weefselvloeistof/"]]}, {"par": "§ 11.1 Je voeding + § 11.2 Verteringsstelsel + § 11.3 Enzymen", "mid": [["vid", "Voeding 1 · Wat zit er in je eten?", "films/voeding/1-wat-zit-er-in-je-eten.html"], ["vid", "Voeding 2 · De reis door je buik", "films/voeding/2-de-reis-door-je-buik.html"], ["vid", "Voeding 3 · Knippen op maat", "films/voeding/3-knippen-op-maat.html"], ["vid", "Vertering (GU)", "https://gewoonuitgelegd.nl/biologie/vertering/"]]}, {"par": "§ 11.4 Vetten verteren en verwerken + § 11.5 Opname van voedingsstoffen", "mid": [["vid", "Voeding 4 · Van darm naar bloed", "films/voeding/4-van-darm-naar-bloed.html"], ["vid", "Voeding 5 · De lever als fabriek", "films/voeding/5-de-lever-als-fabriek.html"], ["vid", "Voeding 6 · Je darmbewoners", "films/voeding/6-je-darmbewoners.html"], ["vid", "Voeding 7 · Supplementen en superfoods", "films/voeding/7-supplementen-en-superfoods.html"]]}, {"type": "toets", "par": "Toets H10 + H11", "hw": "Leren H10, H11", "metVolgende": true}]},
+   {"titel": "Gaswisseling en uitscheiding (H12) + H16 Afweer", "rijen": [{"par": "§ 12.1–12.5 Regeling intern milieu (lever, longen, ademhaling, nieren)", "mid": [["vid", "Gaswisseling 1 · Adem in, adem uit", "films/gaswisseling/1-adem-in-adem-uit.html"], ["vid", "Gaswisseling 2 · Gas op reis", "films/gaswisseling/2-gas-op-reis.html"], ["vid", "Gaswisseling 3 · Uitscheiding en evenwicht", "films/gaswisseling/3-uitscheiding-en-evenwicht.html"], ["vid", "Nieren (GU)", "https://gewoonuitgelegd.nl/biologie/nieren/"], ["vid", "Ademhaling (GU)", "https://gewoonuitgelegd.nl/biologie/ademhaling/"], ["vid", "Kieuwen (GU)", "https://gewoonuitgelegd.nl/biologie/kieuwen/"]]}, {"par": "§ 16.1 Aangeboren afweer + § 16.2 Vervolg aangeboren afweer + § 16.3 Verworven afweer en antistoffen", "mid": [["vid", "Afweer 1 · De eerste verdediging", "films/afweer/1-de-eerste-verdediging.html"], ["vid", "Afweer 2 · Antistoffen op maat", "films/afweer/2-antistoffen-op-maat.html"], ["vid", "Afweer (GU)", "https://gewoonuitgelegd.nl/biologie/afweer/"]]}, {"par": "§ 16.4 Immuniteit, vaccinatie en allergische reacties + § 16.5 Lichaamsvreemde eiwitten: afstoten of niet", "mid": [["vid", "Afweer 3 · T-cellen en virussen", "films/afweer/3-t-cellen-en-virussen.html"], ["vid", "Afweer 4 · Vaccins, allergie en bloedgroepen", "films/afweer/4-vaccins-allergie-en-bloedgroepen.html"], ["vid", "Zenuwstelsel 7 · Slaap", "films/zenuwstelsel/7-slaap.html"], ["vid", "Gezondheidswetenschappen 1 · Hoe een epidemie groeit en stopt", "films/vervolg/gezondheidswetenschappen-1-hoe-een-epidemie-groeit.html", "extra"]]}, {"type": "toets", "par": "Toets gaswisseling + afweer", "hw": "Leren H12 (§12.3–12.4), H16", "metVolgende": true}]},
+   {"titel": "H20 Planten", "rijen": [{"par": "§ 20.1 Veredelen + § 20.2 Opname en transport van water", "mid": [["vid", "Transport 6 · Transport in planten", "films/transport/6-transport-in-planten.html"], ["vid", "Transport in planten (GU)", "https://gewoonuitgelegd.nl/biologie/transport-in-planten/"], ["vid", "Alles in het groen · fotosynthese", "films/stofwisseling/3-alles-in-het-groen.html"]]}, {"par": "§ 20.5 Groei en levenscyclus", "mid": [["vid", "Transport 7 · Hoe een plant groeit", "films/transport/7-hoe-een-plant-groeit.html"]]}, {"type": "toets", "par": "Toets planten en beweging", "hw": "Leren H20 (en H19 § 19.1, 19.2, 19.5)"}]},
+   {"titel": "Examentraining", "vul": {"par": "Examentraining", "hw": "Oefenexamens", "mid": [["tool", "Examenatlas biologie", "examenatlas.html"]]}},
+  ],
+ },
+ // Groesbeek (Kamiel 26 okt 2026: eigen planner, voorlopig gelijk aan Nijmegen; pas hem hier los aan)
+ havo4gb: {
+  sub:"Groesbeek · Biologie voor jou · 1 lesuur per week · steeds 3 weken les en een toetsweek, regeling 4 · havo 4 en vwo 4+5 lopen tot en met gedrag gelijk op",
+  notes:["Na de herfstvakantie: elk hoofdstuk 3 lesweken en dan een toetsweek; regeling 4 (twee weken hormonen). Havo 4 en vwo 4+5 lopen tot en met gedrag week voor week gelijk op; vwo neemt daarna 6 weken voor regeling en doet H6 en H8, havo doet H7. Waar twee of meer paragrafen in één week staan, doet de les de kern en is de rest huiswerk.", "Aan het eind van het jaar blijven er weken over voor uitloop en herhaling (of een extra onderwerp).", "Thema 1 volgt de paragrafen van Biologie voor jou; de paragraafnamen van thema 2–7 zijn nog te controleren tegen het boek."],
+  blokken:[
+   {"titel": "Thema 1 Inleiding in de biologie (cellen)", "rijen": [{"par": "Oriëntatie + § 1.1 Biologie is overal"}, {"par": "§ 1.2 Organen, weefsels en cellen", "mid": [["les", "Les 1 · Wat is leven?", "tools/docent/cellen-1/index.html"], ["les", "Les 2 · Zelfde DNA, andere cel", "tools/docent/cellen-2/index.html"], ["vid", "Van molecuul tot biosfeer", "films/cellen/van-molecuul-tot-biosfeer.html"], ["vid", "Stamcellen", "films/cellen/stamcellen.html"]]}, {"par": "§ 1.3 Plantaardige en dierlijke cellen + § 1.4 Organellen", "mid": [["les", "Les 3 · Een fabriek die leeft", "tools/docent/cellen-3/index.html"], ["tool", "Virtuele microscoop", "tools/virtuele-microscoop/index.html"], ["tool", "Celbouwer", "tools/celbouwer/index.html"], ["vid", "Celorganellen (eigen)", "films/cellen/celorganellen/index.html"], ["vid", "Celorganellen (GU)", "https://gewoonuitgelegd.nl/biologie/celorganellen/"]]}, {"par": "§ 1.5 Transport door membranen", "mid": [["les", "Les 4 · Diffusie en osmose", "tools/docent/cellen-4/index.html"], ["tool", "Aardappellab", "tools/aardappellab.html"], ["vid", "Diffusie en osmose", "films/cellen/diffusie-osmose/index.html"], ["vid", "Diffusie en osmose (GU)", "https://gewoonuitgelegd.nl/biologie/diffusie/"], ["vid", "Membraantransport (GU)", "https://gewoonuitgelegd.nl/biologie/membraantransport/"]]}, {"par": "§ 1.6 Natuurwetenschappelijk onderzoek", "mid": [["les", "Les 5 · Onderzoek doen", "tools/docent/cellen-5/index.html"], ["vid", "Biologisch onderzoek (GU)", "https://gewoonuitgelegd.nl/biologie/biologisch-onderzoek/"], ["vid", "Onderzoek doen in de biologie (eigen)", "films/cellen/onderzoek-doen/index.html"]]}, {"par": "Herhaling thema 1", "hw": "Samenvatting maken, diagnostische toets"}, {"par": "Toets thema 1", "type": "toets", "hw": "Leren thema 1"}]},
+   {"titel": "H2 Voortplanting en seksualiteit", "rijen": [{"par": "§ 2.1 Ongeslachtelijke voortplanting + § 2.2 Geslachtelijke voortplanting (SE)", "mid": [["les", "Les 1 · Eén ouder of twee?", "tools/docent/voortplanting-1/index.html"], ["vid", "Celdeling", "films/voortplanting/celdeling/index.html"], ["vid", "Voortplanting (GU)", "https://gewoonuitgelegd.nl/biologie/voortplanting/"], ["vid", "Celdeling (GU)", "https://gewoonuitgelegd.nl/biologie/celdeling/"], ["vid", "Eicellen en zaadcellen (GU)", "https://gewoonuitgelegd.nl/biologie/eicel-en-zaadcel/"]]}, {"par": "§ 2.3 Hormonen + § 2.4 Zwanger", "mid": [["les", "Les 2 · Precies op tijd", "tools/docent/voortplanting-2/index.html"], ["vid", "Van bevruchting tot baby", "films/voortplanting/1-precies-op-tijd.html"], ["vid", "Geslachtsorganen en puberteit", "films/voortplanting/2-geslachtsorganen-puberteit.html"], ["vid", "Menstruatiecyclus (GU)", "https://gewoonuitgelegd.nl/biologie/menstruatiecyclus/"], ["vid", "Zwangerschap (GU)", "https://gewoonuitgelegd.nl/biologie/zwangerschap/"]]}, {"par": "§ 2.5 Seksualiteit + § 2.6 Soa's", "mid": [["les", "Les 3 · Ingrijpen en variatie", "tools/docent/voortplanting-3/index.html"], ["vid", "Anticonceptie, soa's en voortplantingstechniek", "films/voortplanting/3-anticonceptie-soa-voortplantingstechniek.html"], ["vid", "Sekse, gender en diversiteit", "films/voortplanting/4-sekse-gender-diversiteit.html"]]}, {"type": "toets", "par": "Toets H2", "hw": "Leren H2"}]},
+   {"titel": "H3 Erfelijkheid", "rijen": [{"par": "§ 3.1 Fenotype en genotype + § 3.2 Genenparen", "mid": [["les", "Les 1 · Eén van je vader, één van je moeder", "tools/docent/erfelijkheid-1/index.html"], ["vid", "Erfelijkheid 1 · Chromosomen", "films/erfelijkheid/1-chromosomen.html"]]}, {"par": "§ 3.3 Monohybride kruisingen + § 3.4 Geslachtschromosomen", "mid": [["les", "Les 2 · Kruisen en tellen", "tools/docent/erfelijkheid-2/index.html"], ["vid", "Bloedgroepen (GU)", "https://gewoonuitgelegd.nl/biologie/bloedgroepen/"], ["tool", "Kruisingslab", "tools/kruisingslab.html"], ["tool", "Bloedgroepenlab", "tools/bloedgroepenlab.html"], ["vid", "Kruisingsschema's (GU)", "https://gewoonuitgelegd.nl/biologie/kruisingsschemas/"], ["vid", "Erfelijkheid 2 · Monohybride kruisingen", "films/erfelijkheid/2-monohybride-kruisingen.html"], ["vid", "Erfelijkheid 3 · Voorbij dominant en recessief", "films/erfelijkheid/3-voorbij-dominant-en-recessief.html"], ["vid", "Erfelijkheid 5 · Overerving via het X-chromosoom", "films/erfelijkheid/5-overerving-via-x-chromosomen-en-mitochondrien.html"]]}, {"par": "§ 3.5 Speciale manieren van overerven + § 3.6 Opvoeding of aanleg", "mid": [["les", "Les 3 · Twee genen en een stamboom", "tools/docent/erfelijkheid-3/index.html"], ["vid", "Dihybride kruisingen (GU)", "https://gewoonuitgelegd.nl/biologie/dihybride-kruisingen/"], ["vid", "Stambomen (GU)", "https://gewoonuitgelegd.nl/biologie/stambomen/"], ["vid", "Erfelijkheid 4 · Dihybride kruising en gekoppelde overerving", "films/erfelijkheid/4-dihybride-kruising-en-gekoppelde-overerving.html"], ["vid", "Erfelijkheid 6 · Stambomen en kansrekenen", "films/erfelijkheid/6-stambomen-en-kansrekenen.html"]]}, {"type": "toets", "par": "Toets H3", "hw": "Leren H3"}]},
+   {"titel": "H4 Evolutie", "rijen": [{"par": "§ 4.1 Indeling van de levende natuur + § 4.2 Bacteriën, virussen en schimmels", "mid": [["les", "Les 6 · Wat groeit er op je boterham?", "tools/docent/cellen-6/index.html"], ["vid", "Wat groeit er op je boterham?", "films/cellen/microben.html"], ["vid", "Evolutie 1 · Wat is evolutie eigenlijk?", "films/evolutie/1-wat-is-evolutie.html"], ["vid", "Evolutie 8 · Stambomen lezen", "films/evolutie/8-stambomen-lezen.html"], ["vid", "Het ontstaan van het leven", "films/evolutie/x2-het-ontstaan-van-het-leven.html"], ["vid", "Van eerste cel tot nu", "films/evolutie/x3-van-eerste-cel-tot-nu.html"]]}, {"par": "§ 4.3 De evolutietheorie", "mid": [["vid", "Evolutie 2 · Natuurlijke selectie", "films/evolutie/2-natuurlijke-selectie.html"], ["vid", "Evolutie 3 · Vormen van selectie", "films/evolutie/3-vormen-van-selectie.html"], ["vid", "De reis van Darwin", "films/evolutie/x1-de-reis-van-darwin.html"], ["vid", "Natuurlijke selectie (GU)", "https://gewoonuitgelegd.nl/biologie/natuurlijke-selectie/"], ["vid", "Evolutie (GU)", "https://gewoonuitgelegd.nl/biologie/evolutie/"]]}, {"par": "§ 4.4 Evolutie in populaties + § 4.5 Onderzoek naar evolutie", "mid": [["vid", "Evolutie 4 · De mens als selectiefactor", "films/evolutie/4-de-mens-als-selectiefactor.html"], ["vid", "Evolutie 5 · Toeval en uitwisseling", "films/evolutie/5-toeval-en-uitwisseling.html"], ["vid", "Evolutie 6 · Hoe één soort er twee wordt", "films/evolutie/6-hoe-een-soort-er-twee-wordt.html"], ["vid", "Evolutie 7 · Hoe weten we dat?", "films/evolutie/7-hoe-weten-we-dat.html"], ["vid", "Hoe werden we mens?", "films/evolutie/x4-hoe-werden-we-mens.html"], ["tool", "Resistentielab", "https://claude.ai/code/artifact/75d0cbb8-ba7e-431c-a43c-87e3242a7008"], ["vid", "Soortvorming (GU)", "https://gewoonuitgelegd.nl/biologie/soortvorming/"]]}, {"type": "toets", "par": "Toets H4", "hw": "Leren H4"}]},
+   {"titel": "Gedrag en waarneming", "sub": "3 weken · eigen lespakket", "rijen": [{"par": "Les 1 · gedrag", "type": "eigen", "mid": [["vid", "Waarom doet een dier wat het doet?", "films/gedrag/1-waarom-doet-een-dier-wat-het-doet.html"], ["vid", "Inprenting en de sensitieve periode", "films/gedrag/2-inprenting-en-de-sensitieve-periode.html"], ["vid", "Leren: van Pavlov tot je telefoon", "films/gedrag/7-leren.html"], ["vid", "Baltsen en kiezen", "films/gedrag/3-baltsen-en-kiezen.html"]]}, {"par": "Les 2 · gedrag", "type": "eigen", "mid": [["vid", "De dans van de honingbij", "films/gedrag/8-honingbij.html"], ["vid", "Een mierenkolonie zonder baas", "films/gedrag/9-mierenkolonie.html"], ["vid", "Waarom helpen dieren elkaar?", "films/gedrag/10-helpen.html"], ["vid", "Slimme dieren", "films/gedrag/11-slimme-dieren.html"]]}, {"par": "Les 3 · gedrag en waarneming", "type": "eigen", "mid": [["vid", "Zintuigen", "films/zenuwstelsel/8-zintuigen.html"], ["vid", "Hechting: van baby tot verliefd", "films/gedrag/4-hechting.html"], ["vid", "Emotieregulatie", "films/gedrag/5-emotieregulatie.html"], ["vid", "Wiens schuld is het? Interne en externe attributie", "films/gedrag/6-attributie.html"], ["vid", "Beroemde psychologie-experimenten", "films/gedrag/12-psychologie-experimenten.html"]]}]},
+   {"titel": "H5 Regeling", "rijen": [{"par": "§ 5.1 Homeostase en regelkringen + § 5.2 Het hormoonstelsel", "mid": [["tool", "Regelkring · glucoseregulatie", "tools/regelkring.html"], ["vid", "Regelkringen (GU)", "https://gewoonuitgelegd.nl/biologie/regelkringen/"], ["vid", "Hormonen 1 · Post voor iedereen", "films/hormonen/1-post-voor-iedereen.html"]]}, {"par": "§ 5.2 Het hormoonstelsel (vervolg)", "mid": [["vid", "Hormonen 2 · Suiker in balans", "films/hormonen/2-suiker-in-balans.html"], ["vid", "Hormonen 3 · De baas van de klieren", "films/hormonen/3-de-baas-van-de-klieren.html"], ["tool", "Regelkring · opdrachten 1–6", "tools/regelkring.html"], ["vid", "Hormonen 4 · Stress", "films/hormonen/4-stress.html"], ["vid", "Hormonen 5 · Water in balans", "films/hormonen/5-water-in-balans.html"], ["vid", "Hormonen (GU)", "https://gewoonuitgelegd.nl/biologie/hormonen/"], ["vid", "Schildklier (GU)", "https://gewoonuitgelegd.nl/biologie/schildklier/"]]}, {"par": "§ 5.3 Het zenuwstelsel + § 5.4 Reflexen en autonome zenuwstelsel", "mid": [["vid", "Zenuwstelsel 1 · Eén seconde", "films/zenuwstelsel/1-een-seconde.html"], ["vid", "Zenuwstelsel 2 · Het kabelnetwerk", "films/zenuwstelsel/2-het-kabelnetwerk.html"], ["vid", "Zenuwstelsel 5 · Het hoofdkantoor", "films/zenuwstelsel/5-het-hoofdkantoor.html"], ["vid", "Zintuigen", "films/zenuwstelsel/8-zintuigen.html"], ["vid", "Hersenen (GU)", "https://gewoonuitgelegd.nl/biologie/hersenen/"], ["vid", "Zenuwstelsel (GU)", "https://gewoonuitgelegd.nl/biologie/zenuwstelsel/"], ["vid", "Actiepotentiaal (GU)", "https://gewoonuitgelegd.nl/biologie/actiepotentiaal/"]]}, {"par": "§ 5.5 Impulsgeleiding + § 5.6 Spieren en beweging (SE)", "mid": [["vid", "Zenuwstelsel 3 · De spleet", "films/zenuwstelsel/3-de-spleet.html"], ["vid", "Zenuwstelsel 4 · Knoeien met de synaps", "films/zenuwstelsel/4-knoeien-met-de-spleet.html"], ["vid", "Zenuwstelsel 6 · Leren en onthouden", "films/zenuwstelsel/6-leren-en-onthouden.html"], ["vid", "Zenuwstelsel 7 · Slaap", "films/zenuwstelsel/7-slaap.html"], ["vid", "Zenuwstelsel 9 · Spieren en beweging", "films/zenuwstelsel/9-spieren-en-beweging.html"]]}, {"type": "toets", "par": "Toets H5", "hw": "Leren H5"}]},
+   {"titel": "H7 Ecologie en milieu", "rijen": [{"par": "§ 7.1 Organismen + § 7.2 Populaties", "mid": [["vid", "Niche (GU)", "https://gewoonuitgelegd.nl/biologie/niche/"], ["vid", "Populaties (GU)", "https://gewoonuitgelegd.nl/biologie/populaties/"], ["vid", "Ecologie 2 · Waar past een soort?", "films/ecologie/2-waar-past-een-soort.html"], ["vid", "Ecologie 1 · Hoeveel passen er?", "films/ecologie/1-hoeveel-passen-er.html"], ["vid", "Ecologie 3 · Wie eet wie?", "films/ecologie/3-wie-eet-wie.html"]]}, {"par": "§ 7.3 Ecosystemen + § 7.4 Veranderende ecosystemen", "mid": [["vid", "Ecologie 4 · Waar blijft het blad?", "films/ecologie/4-waar-blijft-het-blad.html"], ["vid", "Ecologie 5 · Waarom zo weinig roofdieren?", "films/ecologie/5-waarom-zo-weinig-roofdieren.html"], ["vid", "Ecologie 8 · Van zand tot bos", "films/ecologie/8-van-zand-tot-bos.html"], ["tool", "Terrariumlab", "https://claude.ai/code/artifact/3c627959-8535-401a-8415-afa8a5755c03"], ["vid", "Voedselwebben (GU)", "https://gewoonuitgelegd.nl/biologie/voedselweb/"], ["vid", "Successie (GU)", "https://gewoonuitgelegd.nl/biologie/successie/"], ["vid", "Omslagpunten (GU)", "https://gewoonuitgelegd.nl/biologie/omslagpunten/"], ["vid", "Mens en milieu 2 · Ingrijpen of laten gaan?", "films/ecologie/4-ingrijpen-of-laten-gaan.html"]]}, {"par": "§ 7.5 Kringlopen + § 7.6 Duurzaamheid + § 7.7 Voedselproductie + § 7.8 Energie", "mid": [["vid", "Koolstofkringloop (GU)", "https://gewoonuitgelegd.nl/biologie/koolstofkringloop/"], ["vid", "Ecologie 6 · Koolstof gaat rond", "films/ecologie/6-koolstof-gaat-rond.html"], ["vid", "Ecologie 7 · Stikstof gaat rond", "films/ecologie/7-stikstof-gaat-rond.html"], ["vid", "Stikstofkringloop (GU)", "https://gewoonuitgelegd.nl/biologie/stikstofkringloop/"], ["tool", "Reactorlab", "https://claude.ai/code/artifact/91fd7565-2989-456a-8537-0d1c17c3e53c"], ["vid", "Mens en milieu 1 · Eén aarde", "films/ecologie/3-een-aarde.html"], ["vid", "Mens en milieu 3 · Binnen de grenzen", "films/ecologie/5-binnen-de-grenzen.html"], ["vid", "Landbouw 1 · Meer oogst", "films/vervolg/landbouw-1-meer-oogst.html", "extra"], ["vid", "Landbouw 2 · Wat zit er in de bodem?", "films/vervolg/landbouw-2-wat-zit-er-in-de-bodem.html", "extra"], ["vid", "Landbouw 3 · Fokken", "films/vervolg/landbouw-3-fokken.html", "extra"]]}, {"type": "toets", "par": "Toets H7", "hw": "Leren H7"}]},
+   {"titel": "Uitloop en herhaling", "vul": {"par": "Uitloop of herhaling", "hw": "Inhalen wat nog open staat"}},
+  ],
+ },
+ // Groesbeek (Kamiel 26 okt 2026: eigen planner, voorlopig gelijk aan Nijmegen; pas hem hier los aan)
+ vwo45gb: {
+  sub:"Groesbeek · Nectar (editie 4.1) · pilot: vwo 4 en 5 samen · OND1, ecologie (OND2) en regeling (OND3) · steeds 3 weken les en een toetsweek, regeling 6 · tot en met gedrag gelijk met havo 4",
+  notes:["Na de herfstvakantie: elk hoofdstuk 3 lesweken en dan een toetsweek; regeling (§ 12.1, H13, H14, § 15.5) 6 lesweken, twee meer dan havo; § 15.1–15.4 Waarnemen (SE) zit in les 3 van het gedragsblok. Vwo 4+5 loopt tot en met gedrag week voor week gelijk op met havo 4; daarna regeling, H6 en H8 (ecologie). Staan er twee paragrafen in een week, dan zegt de kolom Opmerkingen welke de les behandelt en welke je zelf doet, vaak met een film erbij. H3 Wetenschappelijk onderzoek liep mee bij H2.", "Aan het eind van het jaar blijven er weken over voor uitloop en herhaling (of een extra onderwerp). Paragrafen volgens de inhoudsopgave van Nectar (editie 4.1)."],
+  blokken:[
+   {"titel": "H2 Cel en leven", "rijen": [{"par": "§ 2.1 Cellen leven samen", "mid": [["les", "Les 1 · Wat is leven?", "tools/docent/cellen-1/index.html"], ["les", "Les 2 · Zelfde DNA, andere cel", "tools/docent/cellen-2/index.html"], ["vid", "Van molecuul tot biosfeer", "films/cellen/van-molecuul-tot-biosfeer.html"], ["vid", "Stamcellen", "films/cellen/stamcellen.html"], ["tool", "Virtuele microscoop", "tools/virtuele-microscoop/index.html"], ["tool", "Celbouwer", "tools/celbouwer/index.html"], ["tool", "Schaallab", "tools/schaallab.html"], ["vid", "Biomoleculen (GU)", "https://gewoonuitgelegd.nl/biologie/biomoleculen/"]]}, {"par": "§ 2.2 Cellen", "mid": [["les", "Les 3 · Een fabriek die leeft", "tools/docent/cellen-3/index.html"], ["vid", "Celorganellen (eigen)", "films/cellen/celorganellen/index.html"], ["vid", "Celorganellen (GU)", "https://gewoonuitgelegd.nl/biologie/celorganellen/"]]}, {"par": "§ 2.3 Celmembranen en transport", "mid": [["les", "Les 4 · Diffusie en osmose", "tools/docent/cellen-4/index.html"], ["tool", "Aardappellab", "tools/aardappellab.html"], ["vid", "Diffusie en osmose", "films/cellen/diffusie-osmose/index.html"], ["vid", "Diffusie en osmose (GU)", "https://gewoonuitgelegd.nl/biologie/diffusie/"], ["vid", "Membraantransport (GU)", "https://gewoonuitgelegd.nl/biologie/membraantransport/"]]}, {"par": "§ 2.4 DNA: het besturingssysteem van de cel + § 2.5 DNA en de celcyclus", "mid": []}, {"par": "H3 Wetenschappelijk onderzoek (§ 3.1–3.4)", "mid": [["les", "Les 5 · Onderzoek doen", "tools/docent/cellen-5/index.html"], ["tool", "Onderzoekskeuring", "https://claude.ai/code/artifact/0398cc0f-06f7-4769-b365-95433ed715f5"], ["vid", "Onderzoek doen in de biologie (eigen)", "films/cellen/onderzoek-doen/index.html"]]}, {"par": "Herhaling H2", "hw": "Samenvatting maken, diagnostische toets"}, {"par": "Toets H2", "type": "toets", "hw": "Leren H2"}]},
+   {"titel": "H4 Voortplanting", "rijen": [{"par": "§ 4.1 Nieuw leven + § 4.2 Vorming van geslachtscellen", "mid": [["les", "Les 1 · Eén ouder of twee?", "tools/docent/voortplanting-1/index.html"], ["vid", "Celdeling", "films/voortplanting/celdeling/index.html"], ["vid", "Voortplanting (GU)", "https://gewoonuitgelegd.nl/biologie/voortplanting/"], ["vid", "Celdeling (GU)", "https://gewoonuitgelegd.nl/biologie/celdeling/"], ["vid", "Eicellen en zaadcellen (GU)", "https://gewoonuitgelegd.nl/biologie/eicel-en-zaadcel/"]], "split": "Les: § 4.2 · Zelf: § 4.1"}, {"par": "§ 4.3 Hormonale regeling + § 4.4 Hulp bij zwangerschap", "mid": [["les", "Les 2 · Precies op tijd", "tools/docent/voortplanting-2/index.html"], ["vid", "Van bevruchting tot baby · voortplanting", "films/voortplanting/1-precies-op-tijd.html"], ["vid", "Geslachtsorganen en puberteit", "films/voortplanting/2-geslachtsorganen-puberteit.html"], ["vid", "Menstruatiecyclus (GU)", "https://gewoonuitgelegd.nl/biologie/menstruatiecyclus/"]], "split": "Les: § 4.3 · Zelf: § 4.4 met de film Anticonceptie, soa's en voortplantingstechniek"}, {"par": "§ 4.5 Voorkomen van soa's en van zwangerschappen (CE/SE)", "mid": [["les", "Les 3 · Ingrijpen en variatie", "tools/docent/voortplanting-3/index.html"], ["vid", "Anticonceptie, soa's en voortplantingstechniek", "films/voortplanting/3-anticonceptie-soa-voortplantingstechniek.html"], ["vid", "Sekse, gender en diversiteit", "films/voortplanting/4-sekse-gender-diversiteit.html"], ["vid", "Zwangerschap (GU)", "https://gewoonuitgelegd.nl/biologie/zwangerschap/"], ["vid", "Stamcellen (GU)", "https://gewoonuitgelegd.nl/biologie/stamcellen/"]]}, {"type": "toets", "par": "Toets H4", "hw": "Leren H4"}]},
+   {"titel": "H5 Erfelijkheid", "rijen": [{"par": "§ 5.1 Verschillen tussen mensen + § 5.2 Chromosomen bestuderen", "mid": [["les", "Les 1 · Eén van je vader, één van je moeder", "tools/docent/erfelijkheid-1/index.html"], ["vid", "Erfelijkheid 1 · Chromosomen", "films/erfelijkheid/1-chromosomen.html"]], "split": "Les: § 5.2 · Zelf: § 5.1"}, {"par": "§ 5.3 Stamboomonderzoek", "mid": [["les", "Les 2 · Kruisen en tellen", "tools/docent/erfelijkheid-2/index.html"], ["vid", "Bloedgroepen (GU)", "https://gewoonuitgelegd.nl/biologie/bloedgroepen/"], ["tool", "Kruisingslab", "tools/kruisingslab.html"], ["tool", "Bloedgroepenlab", "tools/bloedgroepenlab.html"], ["vid", "Kruisingsschema's (GU)", "https://gewoonuitgelegd.nl/biologie/kruisingsschemas/"], ["vid", "Erfelijkheid 2 · Monohybride kruisingen", "films/erfelijkheid/2-monohybride-kruisingen.html"], ["vid", "Erfelijkheid 3 · Voorbij dominant en recessief", "films/erfelijkheid/3-voorbij-dominant-en-recessief.html"], ["vid", "Erfelijkheid 5 · Overerving via het X-chromosoom", "films/erfelijkheid/5-overerving-via-x-chromosomen-en-mitochondrien.html"]]}, {"par": "§ 5.4 Meer genen in het spel + § 5.5 Mogelijkheden en ethische dilemma's", "mid": [["les", "Les 3 · Twee genen en een stamboom", "tools/docent/erfelijkheid-3/index.html"], ["vid", "Dihybride kruisingen (GU)", "https://gewoonuitgelegd.nl/biologie/dihybride-kruisingen/"], ["vid", "Stambomen (GU)", "https://gewoonuitgelegd.nl/biologie/stambomen/"], ["vid", "Erfelijkheid 4 · Dihybride kruising en gekoppelde overerving", "films/erfelijkheid/4-dihybride-kruising-en-gekoppelde-overerving.html"], ["vid", "Erfelijkheid 6 · Stambomen en kansrekenen", "films/erfelijkheid/6-stambomen-en-kansrekenen.html"]], "split": "Les: § 5.4 · Zelf: § 5.5"}, {"type": "toets", "par": "Toets H5", "hw": "Leren H5"}]},
+   {"titel": "H7 Evolutie", "rijen": [{"par": "§ 7.1 De ontwikkeling van het leven + § 7.2 Ontstaan van nieuwe soorten", "mid": [["vid", "Evolutie 1 · Wat is evolutie eigenlijk?", "films/evolutie/1-wat-is-evolutie.html"], ["vid", "Evolutie 6 · Hoe één soort er twee wordt", "films/evolutie/6-hoe-een-soort-er-twee-wordt.html"], ["vid", "Het ontstaan van het leven", "films/evolutie/x2-het-ontstaan-van-het-leven.html"], ["vid", "Van eerste cel tot nu", "films/evolutie/x3-van-eerste-cel-tot-nu.html"]], "split": "Les: § 7.2 · Zelf: § 7.1 met de films Het ontstaan van het leven en Van eerste cel tot nu"}, {"par": "§ 7.3 Het verhaal van de fossielen + § 7.4 Evolutietheorie in ontwikkeling", "mid": [["vid", "Evolutie 7 · Hoe weten we dat?", "films/evolutie/7-hoe-weten-we-dat.html"], ["vid", "Evolutie 8 · Stambomen lezen", "films/evolutie/8-stambomen-lezen.html"], ["vid", "Evolutie 2 · Natuurlijke selectie", "films/evolutie/2-natuurlijke-selectie.html"], ["vid", "Evolutie 3 · Vormen van selectie", "films/evolutie/3-vormen-van-selectie.html"], ["vid", "De reis van Darwin", "films/evolutie/x1-de-reis-van-darwin.html"], ["vid", "Natuurlijke selectie (GU)", "https://gewoonuitgelegd.nl/biologie/natuurlijke-selectie/"], ["vid", "Evolutie (GU)", "https://gewoonuitgelegd.nl/biologie/evolutie/"]], "split": "Les: § 7.4 · Zelf: § 7.3 met de film Hoe weten we dat?"}, {"par": "§ 7.5 Een populatie vol allelen", "mid": [["vid", "Evolutie 5 · Toeval en uitwisseling", "films/evolutie/5-toeval-en-uitwisseling.html"], ["vid", "Evolutie 4 · De mens als selectiefactor", "films/evolutie/4-de-mens-als-selectiefactor.html"], ["vid", "Hoe werden we mens?", "films/evolutie/x4-hoe-werden-we-mens.html"], ["tool", "Resistentielab", "https://claude.ai/code/artifact/75d0cbb8-ba7e-431c-a43c-87e3242a7008"], ["vid", "Soortvorming (GU)", "https://gewoonuitgelegd.nl/biologie/soortvorming/"], ["vid", "Hardy-Weinberg (GU)", "https://gewoonuitgelegd.nl/biologie/hardy-weinberg/"]]}, {"type": "toets", "par": "Toets H7", "hw": "Leren H7"}]},
+   {"titel": "Gedrag en waarneming", "sub": "3 weken · eigen lespakket", "rijen": [{"par": "Les 1 · gedrag", "type": "eigen", "mid": [["vid", "Waarom doet een dier wat het doet?", "films/gedrag/1-waarom-doet-een-dier-wat-het-doet.html"], ["vid", "Inprenting en de sensitieve periode", "films/gedrag/2-inprenting-en-de-sensitieve-periode.html"], ["vid", "Leren: van Pavlov tot je telefoon", "films/gedrag/7-leren.html"], ["vid", "Baltsen en kiezen", "films/gedrag/3-baltsen-en-kiezen.html"]]}, {"par": "Les 2 · gedrag", "type": "eigen", "mid": [["vid", "De dans van de honingbij", "films/gedrag/8-honingbij.html"], ["vid", "Een mierenkolonie zonder baas", "films/gedrag/9-mierenkolonie.html"], ["vid", "Waarom helpen dieren elkaar?", "films/gedrag/10-helpen.html"], ["vid", "Slimme dieren", "films/gedrag/11-slimme-dieren.html"]]}, {"par": "Les 3 · gedrag en waarneming + § 15.1–15.4 Waarnemen (SE)", "type": "eigen", "mid": [["vid", "Zintuigen", "films/zenuwstelsel/8-zintuigen.html"], ["vid", "Hechting: van baby tot verliefd", "films/gedrag/4-hechting.html"], ["vid", "Emotieregulatie", "films/gedrag/5-emotieregulatie.html"], ["vid", "Wiens schuld is het? Interne en externe attributie", "films/gedrag/6-attributie.html"], ["vid", "Beroemde psychologie-experimenten", "films/gedrag/12-psychologie-experimenten.html"]]}]},
+   {"titel": "H12–H15 Regeling en waarneming", "rijen": [{"par": "§ 12.1 Het inwendige milieu + § 13.1 Hormoonstelsel, hypothalamus en hypofyse", "split": "Les: § 13.1 · Zelf: § 12.1", "mid": [["tool", "Regelkring · glucoseregulatie", "tools/regelkring.html"], ["vid", "Hormonen 1 · Post voor iedereen", "films/hormonen/1-post-voor-iedereen.html"], ["vid", "Regelkringen (GU)", "https://gewoonuitgelegd.nl/biologie/regelkringen/"]]}, {"par": "§ 13.2 Reacties op hormonen + § 13.3 Hormonen recyclen botten (SE)", "split": "Les: § 13.2 · Zelf: § 13.3 (SE)", "mid": [["vid", "Hormonen 3 · De baas van de klieren", "films/hormonen/3-de-baas-van-de-klieren.html"], ["vid", "Hormonen (GU)", "https://gewoonuitgelegd.nl/biologie/hormonen/"], ["vid", "Schildklier (GU)", "https://gewoonuitgelegd.nl/biologie/schildklier/"]]}, {"par": "§ 13.4 Hormonen regelen glucoseconcentratie + § 13.5 Reageren met hormonen", "split": "Les: § 13.4 · Zelf: § 13.5 met de film Stress", "mid": [["vid", "Hormonen 2 · Suiker in balans", "films/hormonen/2-suiker-in-balans.html"], ["tool", "Regelkring · opdrachten 1–6", "tools/regelkring.html"], ["vid", "Hormonen 4 · Stress", "films/hormonen/4-stress.html"], ["vid", "Hormonen 5 · Water in balans", "films/hormonen/5-water-in-balans.html"]]}, {"par": "§ 14.1 Cellen in het zenuwstelsel + § 14.2 Het centrale zenuwstelsel", "split": "Les: § 14.1 · Zelf: § 14.2 met de film Het hoofdkantoor", "mid": [["vid", "Zenuwstelsel 1 · Eén seconde", "films/zenuwstelsel/1-een-seconde.html"], ["vid", "Zenuwstelsel 5 · Het hoofdkantoor", "films/zenuwstelsel/5-het-hoofdkantoor.html"], ["vid", "Hersenen (GU)", "https://gewoonuitgelegd.nl/biologie/hersenen/"], ["vid", "Zenuwstelsel (GU)", "https://gewoonuitgelegd.nl/biologie/zenuwstelsel/"]]}, {"par": "§ 14.3 Impulsgeleiding + § 14.4 Impulsoverdracht tussen neuronen", "split": "Les: § 14.4 · Zelf: § 14.3 met de film Het kabelnetwerk", "mid": [["vid", "Zenuwstelsel 2 · Het kabelnetwerk", "films/zenuwstelsel/2-het-kabelnetwerk.html"], ["vid", "Zenuwstelsel 3 · De spleet", "films/zenuwstelsel/3-de-spleet.html"], ["vid", "Zenuwstelsel 4 · Knoeien met de synaps", "films/zenuwstelsel/4-knoeien-met-de-spleet.html"], ["vid", "Actiepotentiaal (GU)", "https://gewoonuitgelegd.nl/biologie/actiepotentiaal/"]]}, {"par": "§ 14.5 Het autonome zenuwstelsel + § 15.5 Zintuigen en regeling", "split": "Les: § 14.5 · Zelf: § 15.5", "mid": [["vid", "Zenuwstelsel 6 · Leren en onthouden", "films/zenuwstelsel/6-leren-en-onthouden.html"], ["vid", "Zenuwstelsel 7 · Slaap", "films/zenuwstelsel/7-slaap.html"]]}, {"par": "Toets regeling en waarneming", "type": "toets", "hw": "Leren H12.1, H13, H14, H15"}]},
+   {"titel": "H6 Soorten en populaties", "rijen": [{"par": "§ 6.1 De verwantschap tussen soorten + § 6.2 Populaties", "mid": [["vid", "Populaties (GU)", "https://gewoonuitgelegd.nl/biologie/populaties/"], ["vid", "Ecologie 1 · Hoeveel passen er?", "films/ecologie/1-hoeveel-passen-er.html"]], "split": "Les: § 6.2 · Zelf: § 6.1"}, {"par": "§ 6.3 Soorten in hun omgeving + § 6.4 Relaties tussen soorten", "mid": [["vid", "Niche (GU)", "https://gewoonuitgelegd.nl/biologie/niche/"], ["vid", "Ecologie 2 · Waar past een soort?", "films/ecologie/2-waar-past-een-soort.html"], ["vid", "Ecologie 3 · Wie eet wie?", "films/ecologie/3-wie-eet-wie.html"]], "split": "Les: § 6.4 · Zelf: § 6.3"}, {"par": "§ 6.5 Nieuwe en kwetsbare populaties"}, {"type": "toets", "par": "Toets H6", "hw": "Leren H6"}]},
+   {"titel": "H8 Kenmerken van ecosystemen", "rijen": [{"par": "§ 8.1 Opbouw en afbraak van stoffen in ecosystemen + § 8.2 Energie in ecosystemen", "mid": [["vid", "Ecologie 4 · Waar blijft het blad?", "films/ecologie/4-waar-blijft-het-blad.html"], ["vid", "Ecologie 5 · Waarom zo weinig roofdieren?", "films/ecologie/5-waarom-zo-weinig-roofdieren.html"], ["vid", "Voedselwebben (GU)", "https://gewoonuitgelegd.nl/biologie/voedselweb/"], ["vid", "Successie (GU)", "https://gewoonuitgelegd.nl/biologie/successie/"], ["vid", "Omslagpunten (GU)", "https://gewoonuitgelegd.nl/biologie/omslagpunten/"], ["tool", "Terrariumlab", "https://claude.ai/code/artifact/3c627959-8535-401a-8415-afa8a5755c03"]], "split": "Les: § 8.2 · Zelf: § 8.1"}, {"par": "§ 8.3 Kringlopen en water", "mid": [["vid", "Koolstofkringloop (GU)", "https://gewoonuitgelegd.nl/biologie/koolstofkringloop/"], ["vid", "Ecologie 6 · Koolstof gaat rond", "films/ecologie/6-koolstof-gaat-rond.html"], ["vid", "Ecologie 7 · Stikstof gaat rond", "films/ecologie/7-stikstof-gaat-rond.html"], ["vid", "Stikstofkringloop (GU)", "https://gewoonuitgelegd.nl/biologie/stikstofkringloop/"]]}, {"par": "§ 8.4 Veranderende ecosystemen", "mid": [["vid", "Ecologie 8 · Van zand tot bos", "films/ecologie/8-van-zand-tot-bos.html"], ["vid", "Mens en milieu 2 · Ingrijpen of laten gaan?", "films/ecologie/4-ingrijpen-of-laten-gaan.html"]]}, {"type": "toets", "par": "Toets H8", "hw": "Leren H8"}]},
+   {"titel": "Uitloop en herhaling", "vul": {"par": "Uitloop of herhaling", "hw": "Inhalen wat nog open staat"}},
+  ],
+ },
+};
+verbergTools(PLANNERS);
+const COMMON_NOTES = [
+ 'Alle films staan op <a href="index.html#home">Biologie bij Kamiel</a>. Alle links openen in een nieuw tabblad.',
+ "Waar twee paragrafen in één week staan, behandelt de les de kern en is de rest huiswerk.",
+ "Valt het lesuur op maandag, dan vervallen ook 29 maart (2e Paasdag) en 17 mei (2e Pinksterdag).",
+ "Vakanties en activiteitenweken volgens schoolkalender 2026-2027.",
+];
+
+
+// ---------- Overzicht voor de coach (gedeeld door weekplanning en PTA-route) ----------
+// rep = {titel, naam, datum, groepen:[{kop, rijen:[{titel, sub, items:[{ok, soort, label}]}]}]}
+const COACH=(function(){
+  const e=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  const sorted=items=>items.filter(i=>i.ok).concat(items.filter(i=>!i.ok&&!i.extra));
+  const req=items=>items.filter(i=>!i.extra);   // verplicht: huiswerk en films; tools zijn extra
+  const telling=rep=>{let d=0,t=0;for(const g of rep.groepen)for(const r of g.rijen)for(const i of req(r.items)){t++;if(i.ok)d++}return {d,t}};
+  const col=(kop,its,cls)=>`<div class="cr-col ${cls}"><div class="cr-colkop">${kop} <span>${its.length}</span></div>${its.length?`<ul>${its.map(i=>`<li><span class="cr-ico" aria-hidden="true">${cls==="ok"?"✓":""}</span><span class="cr-lbl">${e(i.label)}</span><span class="cr-soort">${e(i.soort)}${i.extra?" · extra":""}</span></li>`).join("")}</ul>`:`<p class="cr-niets">${cls==="ok"?"nog niets":"alles gedaan"}</p>`}</div>`;
+  function html(rep){
+    if(!rep.groepen.length) return `<p class="cr-leeg">Je hebt nog niets afgevinkt.</p>`;
+    const {d,t}=telling(rep);
+    let out=`<div class="cr-top"><div><div class="cr-titel">${e(rep.titel)}</div><div class="cr-wie">${rep.naam?e(rep.naam)+" · ":""}${e(rep.datum)}</div></div><div class="cr-tot"><b>${d}</b> van ${t} gedaan</div></div>`;
+    for(const g of rep.groepen){
+      out+=`<div class="cr-groep"><div class="cr-kop">${e(g.kop)}</div>`;
+      for(const r of g.rijen){
+        const R=req(r.items), n=R.filter(i=>i.ok).length, pct=R.length?Math.round(100*n/R.length):100;
+        out+=`<div class="cr-rij"><div class="cr-head"><div><b>${e(r.titel)}</b>${r.sub?`<span class="cr-sub">${e(r.sub)}</span>`:""}</div><div class="cr-prog"><span>${n} van ${R.length}</span><i class="cr-bar"><i style="width:${pct}%"></i></i></div></div><div class="cr-cols">`
+          +col("Gedaan",r.items.filter(i=>i.ok),"ok")+col("Nog niet gedaan",r.items.filter(i=>!i.ok&&!i.extra),"nee")+`</div></div>`;
+      }
+      out+=`</div>`;
+    }
+    return out;
+  }
+  // Platte tekst (voor als plakken als tabel niet lukt)
+  function text(rep){
+    if(!rep.groepen.length) return `${rep.titel}\n${rep.naam?rep.naam+" · ":""}${rep.datum}\n\nNog niets afgevinkt.`;
+    const {d,t}=telling(rep);
+    const L=[rep.titel,`${rep.naam?rep.naam+" · ":""}${rep.datum} · ${d} van ${t} gedaan`,""];
+    for(const g of rep.groepen){
+      L.push(g.kop.toUpperCase());
+      for(const r of g.rijen){
+        const R=req(r.items), n=R.filter(i=>i.ok).length;
+        L.push(`${r.titel}${r.sub?" · "+r.sub:""} (${n} van ${R.length})`);
+        for(const i of sorted(r.items)) L.push(`  ${i.ok?"✓":"○"} ${i.label} (${i.soort.toLowerCase()}${i.extra?", extra":""}${i.ok?"":", nog niet"})`);
+        L.push("");
+      }
+    }
+    return L.join("\n").trim();
+  }
+  // Tabel met inline opmaak, zodat hij netjes in Teams of Word plakt
+  function pasteHtml(rep){
+    if(!rep.groepen.length) return `<p>${e(rep.titel)}<br>Nog niets afgevinkt.</p>`;
+    const {d,t}=telling(rep), td='style="padding:4px 10px;border-bottom:1px solid #e3e3e3;vertical-align:top"';
+    let h=`<p><b>${e(rep.titel)}</b><br>${rep.naam?e(rep.naam)+" · ":""}${e(rep.datum)} · ${d} van ${t} gedaan</p>`;
+    for(const g of rep.groepen){
+      h+=`<p style="margin:12px 0 4px"><b>${e(g.kop)}</b></p><table style="border-collapse:collapse;font-size:13px">`;
+      for(const r of g.rijen){
+        const R=req(r.items), n=R.filter(i=>i.ok).length;
+        h+=`<tr><td colspan="3" style="padding:8px 10px 4px;background:#eef4f0"><b>${e(r.titel)}</b>${r.sub?" · "+e(r.sub):""} — ${n} van ${R.length}</td></tr>`;
+        for(const i of sorted(r.items)) h+=`<tr><td ${td}><span style="color:${i.ok?"#2d6a4f":"#9aa39e"}">${i.ok?"✓":"○"}</span></td><td ${td}>${e(i.label)}</td><td ${td}><span style="color:#6b7570">${e(i.soort.toLowerCase())}${i.extra?", extra":""}${i.ok?"":", nog niet"}</span></td></tr>`;
+      }
+      h+=`</table>`;
+    }
+    return h;
+  }
+  function panel(rep,tip){
+    return `<section class="mentor" id="mentor"><div class="mentor-h"><h2>Overzicht voor je coach</h2><button type="button" class="btn ghost" data-coach="close">Sluiten</button></div>
+      <p class="mentor-tip">${e(tip)}</p>
+      <label class="mentor-naam">Je naam <input type="text" id="coach-naam" value="${e(rep.naam)}" autocomplete="name"></label>
+      <div class="coach-report" id="coach-report">${html(rep)}</div>
+      <div class="mentor-btns"><button type="button" class="btn" data-coach="copy">Kopieer voor Teams</button><button type="button" class="btn ghost" data-coach="print">Afdrukken of pdf</button><span class="copied" id="copied" hidden>Gekopieerd, plak het in Teams</span></div></section>`;
+  }
+  // Knoppen en naamveld koppelen; getRep() bouwt het overzicht opnieuw, onClose sluit het paneel
+  function wire(el,getRep,onClose){
+    const naam=el.querySelector("#coach-naam");
+    if(naam) naam.addEventListener("input",()=>{try{localStorage.setItem("pta-naam",naam.value)}catch(x){}const box=el.querySelector("#coach-report");if(box)box.innerHTML=html(getRep())});
+    el.querySelectorAll("[data-coach]").forEach(b=>b.addEventListener("click",()=>{
+      const a=b.dataset.coach;
+      if(a==="close") onClose();
+      else if(a==="print"){document.body.classList.add("print-mentor");window.print();setTimeout(()=>document.body.classList.remove("print-mentor"),500)}
+      else if(a==="copy"){
+        const rep=getRep(), txt=text(rep), ok=()=>{const c=el.querySelector("#copied");if(c){c.hidden=false;setTimeout(()=>{c.hidden=true},2500)}};
+        const plain=()=>{try{navigator.clipboard.writeText(txt).then(ok,fallback)}catch(x){fallback()}};
+        const fallback=()=>{const ta=document.createElement("textarea");ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");ok()}catch(x){}ta.remove()};
+        try{navigator.clipboard.write([new ClipboardItem({"text/html":new Blob([pasteHtml(rep)],{type:"text/html"}),"text/plain":new Blob([txt],{type:"text/plain"})})]).then(ok,plain)}catch(x){plain()}
+      }
+    }));
+  }
+  const naam=()=>{try{return localStorage.getItem("pta-naam")||""}catch(x){return ""}};
+  const datum=()=>new Date().toLocaleDateString("nl-NL",{day:"numeric",month:"long",year:"numeric"});
+  // Knop "Alles uitvinken": eerste klik vraagt om bevestiging, tweede klik wist alle sleutels met dit voorvoegsel
+  function resetKnop(btn,prefix,klaar){
+    let armed=false,timer=null;
+    btn.addEventListener("click",()=>{
+      if(!armed){armed=true;btn.textContent="Zeker weten? Klik nog een keer";btn.classList.add("warn");timer=setTimeout(()=>{armed=false;btn.textContent="Alles uitvinken";btn.classList.remove("warn")},4000);return}
+      clearTimeout(timer);
+      try{const weg=[];for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.indexOf(prefix)===0)weg.push(k)}weg.forEach(k=>localStorage.removeItem(k))}catch(x){}
+      klaar();
+    });
+  }
+  return {html,text,panel,wire,naam,datum,resetKnop};
+})();
+// ---------- PTA-route-tab ----------
+// Gegenereerd uit pta-route.html op de site (zelfde data en weergave).
+const ROUTE=(function(){
+const ART = "https://claude.ai/code/artifact/";
+// m = middelen: [type, naam, url?, flag?]. type "vid"|"tool"; flag "ext" (Gewoon Uitgelegd) of "soon" (komt nog).
+const f=(n,u)=>["vid",n,u], t=(n,u)=>["tool",n,u], gu=(n,slug)=>["vid","GU · "+n,GU+slug+"/","ext"], soon=n=>["vid",n,"","soon"];
+
+const DATA = {
+ havo: {
+  methode:"Biologie voor jou (6e editie)", pta:"PTA havo 2026-2028 · examendossier leerjaar 5",
+  notes:[
+   "Het hele havo-PTA in twee jaar: OND1 en OND2 in havo 4, OND3 en OND4 in havo 5. De datum 'af vóór' is de toetsweek uit de jaarplanner. Examenjaar: alles af in de tweede week van maart; die maanden zijn voor het volgende leerjaar een indicatie.",
+   "Thema's zijn doorgenummerd over 4 en 5 havo (thema 1–7 in 4 havo, thema 8–13 in 5 havo), zoals in Biologie voor jou.",
+   "Gedrag wordt gegeven met een eigen lespakket, niet uit het boek.",
+   "Het PTA havo kent in dit document geen keuzeonderdeel (OND5).",
+  ],
+  ond:[
+   {code:"OND1", w:15, subs:[
+     {n:"Cellen", af:["havo 4","12 okt 2026"], h:[["Thema 1 Inleiding in de biologie","4 havo"]], m:[f("Van molecuul tot biosfeer",SITE+"/films/cellen/van-molecuul-tot-biosfeer.html"),f("Celorganellen",SITE+"/films/cellen/celorganellen/index.html"),f("Diffusie en osmose",SITE+"/films/cellen/diffusie-osmose/index.html"),f("Stamcellen",SITE+"/films/cellen/stamcellen.html"),f("Onderzoek doen in de biologie",SITE+"/films/cellen/onderzoek-doen/index.html"),t("Aardappellab",SITE+"/tools/aardappellab.html"),t("Celbouwer",SITE+"/tools/celbouwer/index.html"),t("Virtuele microscoop",SITE+"/tools/virtuele-microscoop/index.html"),gu("Celorganellen","celorganellen"),gu("Diffusie en osmose","diffusie"),gu("Membraantransport","membraantransport"),gu("Biomoleculen","biomoleculen"),gu("Biologisch onderzoek","biologisch-onderzoek")]},
+     {n:"Voortplanting", af:["havo 4","16 nov 2026"], h:[["Thema 2 Voortplanting","4 havo"]], m:[f("Van bevruchting tot baby",SITE+"/films/voortplanting/1-precies-op-tijd.html"),f("Celdeling",SITE+"/films/voortplanting/celdeling/index.html"),f("Geslachtsorganen en puberteit",SITE+"/films/voortplanting/2-geslachtsorganen-puberteit.html"),f("Anticonceptie, soa's en voortplantingstechniek",SITE+"/films/voortplanting/3-anticonceptie-soa-voortplantingstechniek.html"),f("Sekse, gender en diversiteit",SITE+"/films/voortplanting/4-sekse-gender-diversiteit.html"),gu("Voortplanting","voortplanting"),gu("Celdeling","celdeling"),gu("Eicellen en zaadcellen","eicel-en-zaadcel"),gu("Menstruatiecyclus","menstruatiecyclus"),gu("Zwangerschap","zwangerschap"),gu("Stamcellen","stamcellen")]},
+     {n:"Erfelijkheid", af:["havo 4","14 dec 2026"], h:[["Thema 3 Genetica","4 havo"]], m:[f("Chromosomen",SITE+"/films/erfelijkheid/1-chromosomen.html"),f("Monohybride kruisingen",SITE+"/films/erfelijkheid/2-monohybride-kruisingen.html"),f("Voorbij dominant en recessief",SITE+"/films/erfelijkheid/3-voorbij-dominant-en-recessief.html"),f("Dihybride kruising en gekoppelde overerving",SITE+"/films/erfelijkheid/4-dihybride-kruising-en-gekoppelde-overerving.html"),f("Overerving via X-chromosomen en mitochondriën",SITE+"/films/erfelijkheid/5-overerving-via-x-chromosomen-en-mitochondrien.html"),f("Stambomen en kansrekenen",SITE+"/films/erfelijkheid/6-stambomen-en-kansrekenen.html"),t("Kruisingslab",SITE+"/tools/kruisingslab.html"),t("Bloedgroepenlab",SITE+"/tools/bloedgroepenlab.html"),gu("Kruisingsschema's","kruisingsschemas"),gu("Stambomen","stambomen"),gu("Dihybride kruisingen","dihybride-kruisingen"),gu("Bloedgroepen","bloedgroepen")]},
+   ]},
+   {code:"OND2", w:15, subs:[
+     {n:"Evolutie", af:["havo 4","25 jan 2027"], h:[["Thema 4 Evolutie","4 havo"]], m:[f("Wat is evolutie eigenlijk?",SITE+"/films/evolutie/1-wat-is-evolutie.html"),f("Natuurlijke selectie",SITE+"/films/evolutie/2-natuurlijke-selectie.html"),f("Vormen van selectie",SITE+"/films/evolutie/3-vormen-van-selectie.html"),f("De mens als selectiefactor",SITE+"/films/evolutie/4-de-mens-als-selectiefactor.html"),f("Toeval en uitwisseling",SITE+"/films/evolutie/5-toeval-en-uitwisseling.html"),f("Hoe één soort er twee wordt",SITE+"/films/evolutie/6-hoe-een-soort-er-twee-wordt.html"),f("Hoe weten we dat?",SITE+"/films/evolutie/7-hoe-weten-we-dat.html"),f("Stambomen lezen",SITE+"/films/evolutie/8-stambomen-lezen.html"),t("Resistentielab",ART+"75d0cbb8-ba7e-431c-a43c-87e3242a7008"),gu("Natuurlijke selectie","natuurlijke-selectie"),gu("Soortvorming","soortvorming"),gu("Evolutie","evolutie")]},
+     {n:"Regeling en waarneming", af:["havo 4","5 apr 2027"], h:[["Thema 5 Regeling","4 havo"],["Thema 6 Waarneming en gedrag (waarneming)","4 havo"]], m:[f("Post voor iedereen",SITE+"/films/hormonen/1-post-voor-iedereen.html"),f("Suiker in balans",SITE+"/films/hormonen/2-suiker-in-balans.html"),f("De baas van de klieren",SITE+"/films/hormonen/3-de-baas-van-de-klieren.html"),f("Stress",SITE+"/films/hormonen/4-stress.html"),f("Water in balans",SITE+"/films/hormonen/5-water-in-balans.html"),f("Eén seconde",SITE+"/films/zenuwstelsel/1-een-seconde.html"),f("Het kabelnetwerk",SITE+"/films/zenuwstelsel/2-het-kabelnetwerk.html"),f("De spleet",SITE+"/films/zenuwstelsel/3-de-spleet.html"),f("Knoeien met de synaps",SITE+"/films/zenuwstelsel/4-knoeien-met-de-spleet.html"),f("Het hoofdkantoor",SITE+"/films/zenuwstelsel/5-het-hoofdkantoor.html"),f("Leren en onthouden",SITE+"/films/zenuwstelsel/6-leren-en-onthouden.html"),f("Zintuigen",SITE+"/films/zenuwstelsel/8-zintuigen.html"),t("Regelkring",SITE+"/tools/regelkring.html"),gu("Regelkringen","regelkringen"),gu("Hormonen","hormonen"),gu("Schildklier","schildklier"),gu("Actiepotentiaal","actiepotentiaal"),gu("Zenuwstelsel","zenuwstelsel"),gu("Hersenen","hersenen")]},
+     {n:"Ecologie", af:["havo 4","17 mei 2027"], h:[["Thema 7 Ecologie en milieu","4 havo"]], m:[f("Hoeveel passen er?",SITE+"/films/ecologie/1-hoeveel-passen-er.html"),f("Waar past een soort?",SITE+"/films/ecologie/2-waar-past-een-soort.html"),f("Wie eet wie?",SITE+"/films/ecologie/3-wie-eet-wie.html"),f("Waar blijft het blad?",SITE+"/films/ecologie/4-waar-blijft-het-blad.html"),f("Waarom zo weinig roofdieren?",SITE+"/films/ecologie/5-waarom-zo-weinig-roofdieren.html"),f("Koolstof gaat rond",SITE+"/films/ecologie/6-koolstof-gaat-rond.html"),f("Stikstof gaat rond",SITE+"/films/ecologie/7-stikstof-gaat-rond.html"),f("Van zand tot bos",SITE+"/films/ecologie/8-van-zand-tot-bos.html"),t("Terrariumlab",ART+"3c627959-8535-401a-8415-afa8a5755c03"),t("Reactorlab",ART+"91fd7565-2989-456a-8537-0d1c17c3e53c"),gu("Populaties","populaties"),gu("Niche","niche"),gu("Voedselwebben","voedselweb"),gu("Koolstofkringloop","koolstofkringloop"),gu("Stikstofkringloop","stikstofkringloop"),gu("Successie","successie"),gu("Omslagpunten","omslagpunten")]},
+   ]},
+   {code:"OND3", w:25, subs:[
+     {n:"Gedrag", af:["havo 4 · eigen pakket","mrt 2027"], h:[["Eigen lespakket gedrag (psychologie-experimenten)",""]], m:[]},
+     {n:"Stofwisseling", af:["havo 5","okt 2027"], h:[["Thema 8 Stofwisseling in de cel","5 havo"]], m:[f("Alles versneld",SITE+"/films/stofwisseling/1-alles-versneld.html"),f("Alles op adem",SITE+"/films/stofwisseling/2-alles-op-adem.html"),f("Alles in het groen",SITE+"/films/stofwisseling/3-alles-in-het-groen.html"),gu("Biomoleculen","biomoleculen"),gu("Enzymen","enzymen"),gu("Dissimilatie","dissimilatie"),gu("Gisting","gisting"),gu("Fotosynthese","fotosynthese")]},
+     {n:"DNA", af:["havo 5","nov 2027"], h:[["Thema 9 DNA","5 havo"]], m:[f("Wat is DNA?",SITE+"/films/dna/1-wat-is-dna.html"),f("DNA kopiëren",SITE+"/films/dna/2-dna-kopieren.html"),f("Van DNA naar eiwit",SITE+"/films/dna/3-van-dna-naar-eiwit.html"),f("De genetische code lezen",SITE+"/films/dna/4-de-genetische-code-lezen.html"),f("Mutaties",SITE+"/films/dna/5-mutaties.html"),f("Genen aan en uit",SITE+"/films/dna/6-genen-aan-en-uit.html"),f("DNA lezen",SITE+"/films/dna/7-dna-lezen.html"),f("Wat heb jij aan DNA?",SITE+"/films/dna/8-wat-heb-jij-aan-dna.html"),f("Op maat gekopieerd · PCR",SITE+"/films/dna-technieken/1-op-maat-gekopieerd/index.html"),f("Op lengte gesorteerd · gelelektroforese",SITE+"/films/dna-technieken/2-op-lengte-gesorteerd/index.html"),t("De Eiwitfabriek",SITE+"/tools/eiwitfabriek.html"),t("DNA-profielen vergelijken",SITE+"/tools/dna-profielen/index.html"),t("De bouw van DNA",SITE+"/tools/dna-bouw/index.html"),gu("Eiwitsynthese","eiwitsynthese"),gu("Genregulatie","genregulatie"),gu("Mutaties","mutaties"),gu("Genetische modificatie","genetische-modificatie"),gu("PCR","pcr"),gu("Stamcellen","stamcellen")]},
+   ]},
+   {code:"OND4", w:25, subs:[
+     {n:"Voeding", af:["havo 5","dec 2027"], h:[["Thema 10 Vertering","5 havo"]], m:[f("Wat zit er in je eten?",SITE+"/films/voeding/1-wat-zit-er-in-je-eten.html"),f("De reis door je buik",SITE+"/films/voeding/2-de-reis-door-je-buik.html"),f("Knippen op maat",SITE+"/films/voeding/3-knippen-op-maat.html"),f("Van darm naar bloed",SITE+"/films/voeding/4-van-darm-naar-bloed.html"),f("De lever als fabriek",SITE+"/films/voeding/5-de-lever-als-fabriek.html"),f("Je darmbewoners",SITE+"/films/voeding/6-je-darmbewoners.html"),f("Supplementen en superfoods",SITE+"/films/voeding/7-supplementen-en-superfoods.html"),gu("Vertering","vertering")]},
+     {n:"Transport", af:["havo 5","jan 2028"], h:[["Thema 11 Transport","5 havo"]], m:[f("Eén pomp, twee rondjes",SITE+"/films/transport/1-een-pomp-twee-rondjes.html"),f("Buizen onder druk",SITE+"/films/transport/2-buizen-onder-druk.html"),f("Wat er in je bloed zit",SITE+"/films/transport/3-wat-er-in-je-bloed-zit.html"),f("Weefselvloeistof en lymfe",SITE+"/films/transport/4-weefselvloeistof-en-lymfe.html"),f("Het hart onder controle",SITE+"/films/transport/5-het-hart-onder-controle.html"),f("Transport in planten",SITE+"/films/transport/6-transport-in-planten.html"),gu("Bloedsomloop","bloedsomloop"),gu("Bloed","bloed"),gu("Hemoglobine","hemoglobine"),gu("Weefselvloeistof","weefselvloeistof"),gu("Transport in planten","transport-in-planten")]},
+     {n:"Gaswisseling en uitscheiding", af:["havo 5","feb 2028"], h:[["Thema 12 Gaswisseling en uitscheiding","5 havo"]], m:[f("Adem in, adem uit",SITE+"/films/gaswisseling/1-adem-in-adem-uit.html"),f("Gas op reis",SITE+"/films/gaswisseling/2-gas-op-reis.html"),f("Uitscheiding en evenwicht",SITE+"/films/gaswisseling/3-uitscheiding-en-evenwicht.html"),gu("Ademhaling","ademhaling"),gu("Kieuwen","kieuwen"),gu("Nieren","nieren")]},
+     {n:"Bescherming en evenwicht", af:["havo 5","mrt 2028"], h:[["Thema 13 Afweer","5 havo"]], m:[f("De eerste verdediging",SITE+"/films/afweer/1-de-eerste-verdediging.html"),f("Antistoffen op maat",SITE+"/films/afweer/2-antistoffen-op-maat.html"),f("T-cellen en virussen",SITE+"/films/afweer/3-t-cellen-en-virussen.html"),f("Vaccins, allergie en bloedgroepen",SITE+"/films/afweer/4-vaccins-allergie-en-bloedgroepen.html"),gu("Afweer","afweer"),gu("Bloedgroepen","bloedgroepen")]},
+   ]},
+  ],
+ },
+ vwo: {
+  methode:"Nectar (editie 4.1)", pta:"PTA vwo 2025-2028 · examendossier leerjaar 6",
+  notes:[
+   "Het vwo-PTA in twee jaar (pilot: vwo 4 en 5 samen): de eerste helft — OND1, ecologie (OND2) en regeling en waarneming (OND3) — in vwo 4+5, gelijk op met havo 4; de rest — stofwisseling en DNA (OND2), de rest van OND3 en OND4 — in vwo 6. De datum 'af vóór' is de toetsweek uit de jaarplanner. In vwo 6 is alles af in de tweede week van maart; die maanden zijn een indicatie.",
+   "Hoofdstukkoppeling volgens de Nectar-inhoudsopgaves (boek 4, 5 en 6 vwo). H3 Wetenschappelijk onderzoek is vaardigheden en ondersteunt alle onderdelen.",
+   "Stofwisseling zit in Nectar verspreid over H18 (enzymen), H19 (dissimilatie) en H20 (fotosynthese).",
+   "Gedrag wordt gegeven met een eigen lespakket in plaats van H1.",
+  ],
+  ond:[
+   {code:"OND1", w:15, subs:[
+     {n:"Cellen", af:["vwo 4+5","12 okt 2026"], h:[["H2 Cel en leven","4 vwo"],["H3 Wetenschappelijk onderzoek (vaardigheden)","4 vwo"]], m:[f("Van molecuul tot biosfeer",SITE+"/films/cellen/van-molecuul-tot-biosfeer.html"),f("Celorganellen",SITE+"/films/cellen/celorganellen/index.html"),f("Diffusie en osmose",SITE+"/films/cellen/diffusie-osmose/index.html"),f("Stamcellen",SITE+"/films/cellen/stamcellen.html"),f("Onderzoek doen in de biologie",SITE+"/films/cellen/onderzoek-doen/index.html"),t("Onderzoekskeuring",ART+"0398cc0f-06f7-4769-b365-95433ed715f5"),t("Schaallab",SITE+"/tools/schaallab.html"),t("Aardappellab",SITE+"/tools/aardappellab.html"),t("Celbouwer",SITE+"/tools/celbouwer/index.html"),t("Virtuele microscoop",SITE+"/tools/virtuele-microscoop/index.html"),gu("Celorganellen","celorganellen"),gu("Diffusie en osmose","diffusie"),gu("Membraantransport","membraantransport"),gu("Biomoleculen","biomoleculen"),gu("Biologisch onderzoek","biologisch-onderzoek")]},
+     {n:"Voortplanting", af:["vwo 4+5","16 nov 2026"], h:[["H4 Voortplanting","4 vwo"]], m:[f("Van bevruchting tot baby",SITE+"/films/voortplanting/1-precies-op-tijd.html"),f("Celdeling",SITE+"/films/voortplanting/celdeling/index.html"),f("Geslachtsorganen en puberteit",SITE+"/films/voortplanting/2-geslachtsorganen-puberteit.html"),f("Anticonceptie, soa's en voortplantingstechniek",SITE+"/films/voortplanting/3-anticonceptie-soa-voortplantingstechniek.html"),f("Sekse, gender en diversiteit",SITE+"/films/voortplanting/4-sekse-gender-diversiteit.html"),gu("Voortplanting","voortplanting"),gu("Celdeling","celdeling"),gu("Eicellen en zaadcellen","eicel-en-zaadcel"),gu("Menstruatiecyclus","menstruatiecyclus"),gu("Zwangerschap","zwangerschap"),gu("Stamcellen","stamcellen")]},
+     {n:"Genetica", af:["vwo 4+5","14 dec 2026"], h:[["H5 Erfelijkheid","4 vwo"]], m:[f("Chromosomen",SITE+"/films/erfelijkheid/1-chromosomen.html"),f("Monohybride kruisingen",SITE+"/films/erfelijkheid/2-monohybride-kruisingen.html"),f("Voorbij dominant en recessief",SITE+"/films/erfelijkheid/3-voorbij-dominant-en-recessief.html"),f("Dihybride kruising en gekoppelde overerving",SITE+"/films/erfelijkheid/4-dihybride-kruising-en-gekoppelde-overerving.html"),f("Overerving via X-chromosomen en mitochondriën",SITE+"/films/erfelijkheid/5-overerving-via-x-chromosomen-en-mitochondrien.html"),f("Stambomen en kansrekenen",SITE+"/films/erfelijkheid/6-stambomen-en-kansrekenen.html"),t("Kruisingslab",SITE+"/tools/kruisingslab.html"),t("Bloedgroepenlab",SITE+"/tools/bloedgroepenlab.html"),gu("Kruisingsschema's","kruisingsschemas"),gu("Stambomen","stambomen"),gu("Dihybride kruisingen","dihybride-kruisingen"),gu("Bloedgroepen","bloedgroepen")]},
+     {n:"Evolutie", af:["vwo 4+5","25 jan 2027"], h:[["H7 Evolutie","4 vwo"]], m:[f("Wat is evolutie eigenlijk?",SITE+"/films/evolutie/1-wat-is-evolutie.html"),f("Natuurlijke selectie",SITE+"/films/evolutie/2-natuurlijke-selectie.html"),f("Vormen van selectie",SITE+"/films/evolutie/3-vormen-van-selectie.html"),f("De mens als selectiefactor",SITE+"/films/evolutie/4-de-mens-als-selectiefactor.html"),f("Toeval en uitwisseling",SITE+"/films/evolutie/5-toeval-en-uitwisseling.html"),f("Hoe één soort er twee wordt",SITE+"/films/evolutie/6-hoe-een-soort-er-twee-wordt.html"),f("Hoe weten we dat?",SITE+"/films/evolutie/7-hoe-weten-we-dat.html"),f("Stambomen lezen",SITE+"/films/evolutie/8-stambomen-lezen.html"),t("Resistentielab",ART+"75d0cbb8-ba7e-431c-a43c-87e3242a7008"),gu("Natuurlijke selectie","natuurlijke-selectie"),gu("Hardy-Weinberg","hardy-weinberg"),gu("Soortvorming","soortvorming"),gu("Evolutie","evolutie")]},
+   ]},
+   {code:"OND2", w:25, subs:[
+     {n:"Ecologie", af:["vwo 4+5","31 mei en 28 jun 2027"], h:[["H6 Soorten en populaties","4 vwo"],["H8 Kenmerken van ecosystemen","4 vwo"]], m:[f("Hoeveel passen er?",SITE+"/films/ecologie/1-hoeveel-passen-er.html"),f("Waar past een soort?",SITE+"/films/ecologie/2-waar-past-een-soort.html"),f("Wie eet wie?",SITE+"/films/ecologie/3-wie-eet-wie.html"),f("Waar blijft het blad?",SITE+"/films/ecologie/4-waar-blijft-het-blad.html"),f("Waarom zo weinig roofdieren?",SITE+"/films/ecologie/5-waarom-zo-weinig-roofdieren.html"),f("Koolstof gaat rond",SITE+"/films/ecologie/6-koolstof-gaat-rond.html"),f("Stikstof gaat rond",SITE+"/films/ecologie/7-stikstof-gaat-rond.html"),f("Van zand tot bos",SITE+"/films/ecologie/8-van-zand-tot-bos.html"),t("Terrariumlab",ART+"3c627959-8535-401a-8415-afa8a5755c03"),gu("Populaties","populaties"),gu("Niche","niche"),gu("Voedselwebben","voedselweb"),gu("Koolstofkringloop","koolstofkringloop"),gu("Stikstofkringloop","stikstofkringloop"),gu("Successie","successie"),gu("Omslagpunten","omslagpunten")]},
+     {n:"Stofwisseling", af:["vwo 6","nov 2027"], h:[["H18 Eiwitten (enzymen)","6 vwo"],["H19 Sport (dissimilatie)","6 vwo"],["H20 Planten (fotosynthese)","6 vwo"]], m:[f("Alles versneld",SITE+"/films/stofwisseling/1-alles-versneld.html"),f("Alles op adem",SITE+"/films/stofwisseling/2-alles-op-adem.html"),f("Alles in het groen",SITE+"/films/stofwisseling/3-alles-in-het-groen.html"),gu("Biomoleculen","biomoleculen"),gu("Enzymen","enzymen"),gu("Dissimilatie","dissimilatie"),gu("Gisting","gisting"),gu("Fotosynthese","fotosynthese")]},
+     {n:"DNA", af:["vwo 6","okt 2027"], h:[["H17 DNA","6 vwo"],["H18 Eiwitten","6 vwo"]], m:[f("Wat is DNA?",SITE+"/films/dna/1-wat-is-dna.html"),f("DNA kopiëren",SITE+"/films/dna/2-dna-kopieren.html"),f("Van DNA naar eiwit",SITE+"/films/dna/3-van-dna-naar-eiwit.html"),f("De genetische code lezen",SITE+"/films/dna/4-de-genetische-code-lezen.html"),f("Mutaties",SITE+"/films/dna/5-mutaties.html"),f("Genen aan en uit",SITE+"/films/dna/6-genen-aan-en-uit.html"),f("DNA lezen",SITE+"/films/dna/7-dna-lezen.html"),f("Wat heb jij aan DNA?",SITE+"/films/dna/8-wat-heb-jij-aan-dna.html"),f("Op maat gekopieerd · PCR",SITE+"/films/dna-technieken/1-op-maat-gekopieerd/index.html"),f("Op lengte gesorteerd · gelelektroforese",SITE+"/films/dna-technieken/2-op-lengte-gesorteerd/index.html"),t("De Eiwitfabriek",SITE+"/tools/eiwitfabriek.html"),t("DNA-profielen vergelijken",SITE+"/tools/dna-profielen/index.html"),t("Waarom U in RNA",SITE+"/tools/waarom-u-in-rna.html"),t("Examenatlas biologie",SITE+"/examenatlas.html"),t("De bouw van DNA",SITE+"/tools/dna-bouw/index.html"),gu("Eiwitsynthese","eiwitsynthese"),gu("Genregulatie","genregulatie"),gu("Mutaties","mutaties"),gu("Genetische modificatie","genetische-modificatie"),gu("PCR","pcr"),gu("Stamcellen","stamcellen")]},
+   ]},
+   {code:"OND3", w:15, subs:[
+     {n:"Planten", af:["vwo 6","mrt 2028"], h:[["H20 Planten","6 vwo"]], m:[f("Alles in het groen · fotosynthese",SITE+"/films/stofwisseling/3-alles-in-het-groen.html"),f("Transport in planten · xyleem en floëem",SITE+"/films/transport/6-transport-in-planten.html"),gu("Fotosynthese","fotosynthese"),gu("Transport in planten","transport-in-planten")]},
+     {n:"Regeling en waarneming", af:["vwo 4+5","3 mei 2027"], h:[["H12 Regeling intern milieu","5 vwo"],["H13 Hormonen","5 vwo"],["H14 Zenuwstelsel","5 vwo"],["H15 Waarnemen (§15.5)","5 vwo"]], m:[f("Post voor iedereen",SITE+"/films/hormonen/1-post-voor-iedereen.html"),f("Suiker in balans",SITE+"/films/hormonen/2-suiker-in-balans.html"),f("De baas van de klieren",SITE+"/films/hormonen/3-de-baas-van-de-klieren.html"),f("Stress",SITE+"/films/hormonen/4-stress.html"),f("Water in balans",SITE+"/films/hormonen/5-water-in-balans.html"),f("Eén seconde",SITE+"/films/zenuwstelsel/1-een-seconde.html"),f("Het kabelnetwerk",SITE+"/films/zenuwstelsel/2-het-kabelnetwerk.html"),f("De spleet",SITE+"/films/zenuwstelsel/3-de-spleet.html"),f("Knoeien met de synaps",SITE+"/films/zenuwstelsel/4-knoeien-met-de-spleet.html"),f("Het hoofdkantoor",SITE+"/films/zenuwstelsel/5-het-hoofdkantoor.html"),f("Leren en onthouden",SITE+"/films/zenuwstelsel/6-leren-en-onthouden.html"),f("Zintuigen",SITE+"/films/zenuwstelsel/8-zintuigen.html"),t("Regelkring",SITE+"/tools/regelkring.html"),gu("Regelkringen","regelkringen"),gu("Hormonen","hormonen"),gu("Schildklier","schildklier"),gu("Actiepotentiaal","actiepotentiaal"),gu("Zenuwstelsel","zenuwstelsel"),gu("Hersenen","hersenen")]},
+     {n:"Gedrag en beweging", af:["vwo 6","mrt 2028"], h:[["Eigen lespakket gedrag (i.p.v. H1)",""],["H19 Sport","6 vwo"]], m:[]},
+   ]},
+   {code:"OND4", w:25, subs:[
+     {n:"Voeding", af:["vwo 6","jan 2028"], h:[["H11 Voeding en vertering","5 vwo"]], m:[f("Wat zit er in je eten?",SITE+"/films/voeding/1-wat-zit-er-in-je-eten.html"),f("De reis door je buik",SITE+"/films/voeding/2-de-reis-door-je-buik.html"),f("Knippen op maat",SITE+"/films/voeding/3-knippen-op-maat.html"),f("Van darm naar bloed",SITE+"/films/voeding/4-van-darm-naar-bloed.html"),f("De lever als fabriek",SITE+"/films/voeding/5-de-lever-als-fabriek.html"),f("Je darmbewoners",SITE+"/films/voeding/6-je-darmbewoners.html"),f("Supplementen en superfoods",SITE+"/films/voeding/7-supplementen-en-superfoods.html"),gu("Vertering","vertering")]},
+     {n:"Transport", af:["vwo 6","jan 2028"], h:[["H10 Bloedsomloop","5 vwo"]], m:[f("Eén pomp, twee rondjes",SITE+"/films/transport/1-een-pomp-twee-rondjes.html"),f("Buizen onder druk",SITE+"/films/transport/2-buizen-onder-druk.html"),f("Wat er in je bloed zit",SITE+"/films/transport/3-wat-er-in-je-bloed-zit.html"),f("Weefselvloeistof en lymfe",SITE+"/films/transport/4-weefselvloeistof-en-lymfe.html"),f("Het hart onder controle",SITE+"/films/transport/5-het-hart-onder-controle.html"),gu("Bloedsomloop","bloedsomloop"),gu("Bloed","bloed"),gu("Hemoglobine","hemoglobine"),gu("Weefselvloeistof","weefselvloeistof")]},
+     {n:"Gaswisseling en uitscheiding", af:["vwo 6","feb 2028"], h:[["H12 Regeling intern milieu (§12.3–12.4)","5 vwo"]], m:[f("Adem in, adem uit",SITE+"/films/gaswisseling/1-adem-in-adem-uit.html"),f("Gas op reis",SITE+"/films/gaswisseling/2-gas-op-reis.html"),f("Uitscheiding en evenwicht",SITE+"/films/gaswisseling/3-uitscheiding-en-evenwicht.html"),gu("Ademhaling","ademhaling"),gu("Kieuwen","kieuwen"),gu("Nieren","nieren")]},
+     {n:"Bescherming", af:["vwo 6","feb 2028"], h:[["H16 Afweer","5 vwo"]], m:[f("De eerste verdediging",SITE+"/films/afweer/1-de-eerste-verdediging.html"),f("Antistoffen op maat",SITE+"/films/afweer/2-antistoffen-op-maat.html"),f("T-cellen en virussen",SITE+"/films/afweer/3-t-cellen-en-virussen.html"),f("Vaccins, allergie en bloedgroepen",SITE+"/films/afweer/4-vaccins-allergie-en-bloedgroepen.html"),gu("Afweer","afweer"),gu("Bloedgroepen","bloedgroepen")]},
+   ]},
+   {code:"OND5", w:20, subs:[
+     {n:"Keuzeonderdeel", af:["vwo 6","vóór het CE 2028"], h:[["Bijv. uit het CE: eiwitsynthese, stofwisseling van de cel, zelfregulatie, afweer, regulatie van ecosystemen, soortvorming …",""]], m:[t("Examenatlas biologie",SITE+"/examenatlas.html")]},
+   ]},
+  ],
+ },
+};
+verbergTools(DATA);
+  // ---- PTA-route: weergave, afvinken per onderdeel en mentoroverzicht ----
+  // Afvinken wordt alleen in de eigen browser bewaard (localStorage).
+  // Het coachoverzicht maakt daarvan een tekst die de leerling kan kopiëren (Teams) of afdrukken.
+  const KEY=(...p)=>"pta:"+p.join(":");
+  const getB=k=>{try{return localStorage.getItem(k)==="1"}catch(e){return false}};
+  const setB=(k,v)=>{try{localStorage.setItem(k,v?"1":"0")}catch(e){}};
+  const getS=(k,d)=>{try{const v=localStorage.getItem(k);return v==null?d:v}catch(e){return d}};
+  const setS=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}};
+  const escH=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  const rank=m=>(m[0]==="tool"?2:0)+(m[3]==="ext"?1:0);   // eigen films, dan GU-films, dan tools (extra)
+  const sortM=m=>m.slice().sort((a,b)=>rank(a)-rank(b));
+  // Alle afvinkbare dingen van één subonderdeel: hoofdstukken (lezen en opdrachten) en films/tools.
+  function items(lvl,o,x){
+    const out=x.h.map(([h])=>({k:KEY(lvl,o.code,x.n,"h",h),label:h,kind:"Hoofdstuk",what:"gelezen en opdrachten gemaakt"}));
+    for(const [t,n,u,fl] of sortM(x.m)) out.push({k:KEY(lvl,o.code,x.n,t,n),label:n,kind:t==="tool"?"Tool":(fl==="ext"?"Film (GU)":"Film"),what:t==="tool"?"gedaan":"gekeken",extra:t==="tool"||fl==="ext"});
+    return out;
+  }
+  let lvl=getS("pta-tab","havo"); if(!DATA[lvl]) lvl="havo";
+  let mentorOpen=false;
+
+  function cards(){
+    const P=DATA[lvl]; let out="";
+    for(const o of P.ond){
+      const total=o.subs.length, done=o.subs.filter(x=>getB(KEY(lvl,o.code,x.n))).length;
+      out+=`<section class="ond"><header><h2>${o.code}</h2><span class="prog">${done} van ${total} onderwerpen af</span></header><div class="ond-grid">`;
+      for(const x of o.subs){
+        const k=KEY(lvl,o.code,x.n), d=getB(k), its=items(lvl,o,x), req=its.filter(i=>!i.extra), nd=req.filter(i=>getB(i.k)).length;
+        const hs=x.h.map(([h,b])=>{const ik=KEY(lvl,o.code,x.n,"h",h);return `<li><label class="tick"><input type="checkbox" class="it" data-key="${escH(ik)}" ${getB(ik)?"checked":""}><span>${escH(h)}${b?` <small>· ${escH(b)}</small>`:""}</span></label></li>`}).join("");
+        const li=([t,n,u,fl])=>{
+          const ik=KEY(lvl,o.code,x.n,t,n), cls=`chip ${t}${fl?" "+fl:""}`;
+          const nn=fl==="ext"?String(n).replace(/^GU · /,""):KORT(n); const chip=u?`<a class="${cls}" href="${escH(u)}" target="_blank" rel="noopener">${escH(nn)}</a>`:`<span class="${cls}">${escH(nn)}</span>`;
+          return `<li><input type="checkbox" class="it" data-key="${escH(ik)}" ${getB(ik)?"checked":""} aria-label="${t==="tool"?"Gedaan":"Gekeken"}: ${escH(n)}">${chip}${t==="tool"?'<span class="extra-tag">extra</span>':""}</li>`;
+        };
+        const ms=sortM(x.m.filter(z=>z[3]!=="ext")).map(li).join(""), gus=x.m.filter(z=>z[3]==="ext").map(li).join("");
+        out+=`<div class="sub-onderdeel${d?" done":""}"><div><h3><input class="chk" type="checkbox" data-key="${escH(k)}" ${d?"checked":""} aria-label="Onderwerp af: ${escH(x.n)}"><span>${escH(x.n)}</span><span class="cnt">${nd}/${req.length}</span></h3>${x.af?`<p class="af"><b>${escH(x.af[0])}</b> · af vóór ${escH(x.af[1])}</p>`:""}</div>`
+          +`<div><p class="k">Hoofdstukken · lezen en opdrachten maken</p><ul class="hs">${hs}</ul></div>`
+          +`<div><p class="k">Films en tools</p>${ms?`<ul class="ms">${ms}</ul>`:`<span class="leeg">nog geen eigen materiaal</span>`}${gus?`<p class="k gu-k">Extra · Gewoon Uitgelegd</p><ul class="ms gu">${gus}</ul>`:""}</div></div>`;
+      }
+      out+=`</div></section>`;
+    }
+    return out;
+  }
+
+  // Overzicht voor de coach: alleen onderwerpen waarin iets is afgevinkt, met ook wat nog open staat
+  function coachRep(){
+    const P=DATA[lvl], groepen=[];
+    for(const o of P.ond){
+      const rijen=[];
+      for(const x of o.subs){
+        const its=items(lvl,o,x), subDone=getB(KEY(lvl,o.code,x.n));
+        if(!its.some(i=>getB(i.k))&&!subDone) continue;
+        rijen.push({titel:x.n+(subDone?" ✓":""),sub:x.h.map(h=>h[0]).join(", "),items:its.map(i=>({ok:getB(i.k),soort:i.kind,label:i.label,extra:i.extra}))});
+      }
+      if(rijen.length) groepen.push({kop:o.code,rijen});
+    }
+    return {titel:`PTA-route biologie · ${lvl}`,naam:COACH.naam(),datum:COACH.datum(),groepen};
+  }
+
+  function html(){
+    const P=DATA[lvl];
+    return `<p class="rt-intro">Per PTA-onderdeel zie je welke hoofdstukken, films en tools erbij horen. Lees elk hoofdstuk en maak de opdrachten; de films en tools helpen je daarbij. Werk in je eigen tempo en vink af wat je hebt gedaan.</p>`
+      +`<div class="rt-bar"><div class="rt-switch" role="group" aria-label="Niveau">${["havo","vwo"].map(l=>`<button type="button" data-rt="${l}" aria-pressed="${l===lvl}">${l}</button>`).join("")}</div>`
+      +`<div class="rt-acts"><button type="button" class="btn ghost" data-reset>Alles uitvinken</button><button type="button" class="btn" data-act="mentor" aria-expanded="${mentorOpen}">Overzicht voor je coach</button></div></div>`
+      +(mentorOpen?COACH.panel(coachRep(),"Hier staan de onderwerpen waarin je iets hebt afgevinkt: wat je hebt gedaan en welke hoofdstukken of films nog open staan. Tools zijn extra en staan er alleen in als je ze hebt gedaan. Je vinkjes worden alleen in deze browser bewaard; kopieer het overzicht naar je coach in Teams, of druk het af of sla het op als pdf."):"")
+      +`<div class="meta"><span><b>${escH(P.methode)}</b></span><span>${escH(P.pta)}</span></div>`
+      +`<div class="rt-legend"><span><i class="chip vid">film</i> eigen film</span><span><i class="chip tool">tool</i><span class="extra-tag">extra</span> extra stof, als je tijd over hebt</span><span>☐ vink af wat je hebt gedaan</span></div>`
+      +cards();
+  }
+
+  function mount(el,notesEl){
+    const y=window.scrollY;
+    el.innerHTML=html();
+    if(notesEl) notesEl.innerHTML=DATA[lvl].notes.map(n=>`<li>${escH(n)}</li>`).join("");
+    window.scrollTo(0,y);
+    el.querySelectorAll("[data-rt]").forEach(b=>b.addEventListener("click",()=>{lvl=b.dataset.rt;setS("pta-tab",lvl);mount(el,notesEl)}));
+    el.querySelectorAll(".chk,.it").forEach(c=>c.addEventListener("change",()=>{setB(c.dataset.key,c.checked);mount(el,notesEl)}));
+    el.querySelectorAll("[data-act]").forEach(b=>b.addEventListener("click",()=>{
+      if(b.dataset.act==="mentor"){mentorOpen=!mentorOpen;mount(el,notesEl);if(mentorOpen){const m=el.querySelector("#mentor");if(m&&m.scrollIntoView)m.scrollIntoView({block:"start"})}}
+    }));
+    const rb=el.querySelector("[data-reset]"); if(rb) COACH.resetKnop(rb,`pta:${lvl}:`,()=>mount(el,notesEl));
+    if(mentorOpen) COACH.wire(el,coachRep,()=>{mentorOpen=false;mount(el,notesEl)});
+  }
+
+  return {mount};
+})();
+// ---------- einde PTA-route-tab ----------
+
+// ---------- Rendering ----------
+// Zet de blokken op de kalender: vakanties en feestdagen vallen vanzelf op de juiste week.
+function rooster(level){
+  const P=PLANNERS[level], extra=KALENDER_EXTRA[level]||{}, out=[]; let d=new Date(START);
+  const k=()=>iso(d), off=()=>KALENDER[k()]||extra[k()];
+  const push=(bi,r)=>{out.push({d:new Date(d),bi,r});d.setDate(d.getDate()+7)};
+  P.blokken.forEach((b,bi)=>{
+    if(b.vul){
+      while(k()<=EINDE[level]){ if(off()) push(bi,{type:"off",opm:off()}); else push(bi,{...b.vul,opm:DAGNOTITIES[k()]||""}) }
+      while(off()&&out.length<60) push(bi,{type:"off",opm:off()});   // aansluitende vakantie/CE nog tonen
+      return;
+    }
+    for(const r of b.rijen){
+      while(off()) push(bi,{type:"off",opm:off()});
+      if(r.metVolgende){ out.push({d:new Date(d),bi,r:{...r,opm:"Toets in deze week; het volgende hoofdstuk begint ook"}}); continue; }
+      push(bi,{...r,opm:[r.opm,DAGNOTITIES[k()]].filter(Boolean).join(" · ")});
+    }
+  });
+  return out;
+}
+function blokSub(b,rows){
+  if(b.sub) return b.sub;
+  const les=rows.filter(x=>x.r.type!=="off"&&x.r.type!=="toets"), toets=rows.find(x=>x.r.type==="toets");
+  const dag=x=>x.d.toLocaleDateString("nl-NL",{day:"numeric",month:"short"});
+  if(b.vul){const l=rows.filter(x=>x.r.type!=="off");return l.length?`${l.length} weken · ${dag(l[0])} t/m ${dag(l[l.length-1])}`:""}
+  return `${les.length} ${les.length===1?"week":"weken"}${toets?(toets.r.metVolgende?` · toets in de 4e week (${dag(toets)}), samen met de start van het volgende hoofdstuk`:` + toets · toets week van ${dag(toets)}`):""}`;
+}
+
+function isoWeek(d){const t=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()));const day=t.getUTCDay()||7;t.setUTCDate(t.getUTCDate()+4-day);const y=new Date(Date.UTC(t.getUTCFullYear(),0,1));return Math.ceil(((t-y)/864e5+1)/7)}
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+// ---------- Afvinken in de weekplanning ----------
+// Per lesweek: het huiswerk (lezen en maken) en elke film of tool. Alleen in de eigen browser bewaard.
+const PL={
+  get:k=>{try{return localStorage.getItem(k)==="1"}catch(e){return false}},
+  set:(k,v)=>{try{localStorage.setItem(k,v?"1":"0")}catch(e){}},
+  getS:(k,d)=>{try{const v=localStorage.getItem(k);return v==null?d:v}catch(e){return d}},
+  setS:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}},
+  open:false,
+};
+const LEVELNAAM={havo4:"havo 4",havo5:"havo 5",vwo45:"vwo 4+5",vwo6:"vwo 6",havo4gb:"havo 4 Groesbeek",vwo45gb:"vwo 4+5 Groesbeek"};
+// Locatie: Nijmegen (gewone sleutels) of Groesbeek (sleutel + "gb", alleen havo 4 en vwo 4+5)
+const basis=l=>String(l).replace(/gb$/,""), opLocatie=(tab,loc)=>loc==="gb"&&PLANNERS[tab+"gb"]?tab+"gb":tab;
+let LOC="";
+const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+// Alle lesweken met hun afvinkbare dingen
+function plWeeks(level){
+  const P=PLANNERS[level], out=[];
+  for(const x of rooster(level)){
+    const r=x.r; if(r.type==="off") continue;
+    const secs=(r.par.match(/§ \d+\.\d+(?:–\d+\.\d+)?|\bB\d+\b/g)||[]).join(" + ");
+    const hw=[secs?`Lezen en maken ${secs}`:"",r.hw].filter(Boolean).join(" · ");
+    const its=[];
+    if(hw) its.push({k:`pl:${level}:${iso(x.d)}:${r.type==="toets"?"toets":"hw"}`,label:hw,kind:"Huiswerk"});
+    for(const [t,n,u,fx] of (r.mid||[])){ if(t==="les") continue; const gu=/gewoonuitgelegd/.test(u||""); its.push({k:`pl:${level}:${iso(x.d)}:${t}:${n}`,label:n,kind:t==="tool"?"Tool":(gu?"Film (GU)":"Film"),t,n,extra:t==="tool"||gu||fx==="extra"}); }
+    out.push({d:x.d,blok:P.blokken[x.bi].titel,r,hwText:hw,its});
+  }
+  return out;
+}
+function plCoachRep(level){
+  // Alleen weken waarin iets is afgevinkt, met ook wat die week nog open staat
+  const groepen=[]; let g=null;
+  for(const w of plWeeks(level)){
+    if(!w.its.some(i=>PL.get(i.k))) continue;
+    if(!g||g.kop!==w.blok){g={kop:w.blok,rijen:[]};groepen.push(g)}
+    g.rijen.push({titel:`wk ${isoWeek(w.d)} · ${w.d.toLocaleDateString("nl-NL",{day:"numeric",month:"short"})}`,sub:w.r.par,items:w.its.map(i=>({ok:PL.get(i.k),soort:i.kind,label:i.label,extra:i.extra}))});
+  }
+  return {titel:`Jaarplanner biologie · ${LEVELNAAM[level]}`,naam:COACH.naam(),datum:COACH.datum(),groepen};
+}
+
+
+// ---------- Films per paragraaf (Kamiel 26 okt 2026: 'welke video's welke paragrafen behandelen') ----------
+// Data: jaarplanner-dekking.json (per methode, per paragraaf: films met kern/deels/zijdelings, dekking goed/deels/geen, mist).
+// Gemaakt op paragraaftitels + bronmappen van de films, niet op de tekst van het boek. 'mist' alleen voor de docent (?k=1).
+let DEKKING=null;
+const DK_BRON={havo4:"bvj-havo4",havo4gb:"bvj-havo4",havo5:"bvj-havo5",vwo45:"nectar",vwo45gb:"nectar",vwo6:"nectar"};
+const DOCENT=(()=>{try{const q=new URLSearchParams(location.search).get("k");if(q!==null)localStorage.setItem("bk-k",q==="1"?"1":"0");return localStorage.getItem("bk-k")==="1"}catch(e){return false}})();
+function paragrafen(par){
+  const out=[];
+  for(const m of String(par||"").matchAll(/§ (\d+)\.(\d+)(?:[–-](\d+)\.(\d+))?/g)){
+    const h=+m[1],a=+m[2],b=m[4]?+m[4]:a; for(let i=a;i<=b;i++) out.push(`${h}.${i}`);
+  }
+  return out;
+}
+function dekkingHtml(level,par){
+  const bron=DEKKING&&DEKKING[DK_BRON[level]]; if(!bron) return "";
+  const ps=paragrafen(par).filter(p=>bron[p]); if(!ps.length) return "";
+  const stip=d=>`<i class="dk-stip ${d}" aria-hidden="true"></i>`;
+  const naam={goed:"goed gedekt",deels:"deels gedekt",geen:"nog geen film"};
+  const rij=p=>{const x=bron[p];
+    const films=(x.films||[]).filter(f=>f.dekking!=="zijdelings"||DOCENT);
+    return `<li>${stip(x.dekking)}<b>§ ${p}</b> <span class="dk-naam">${naam[x.dekking]||""}</span>`
+      +(films.length?`<ul>${films.map(f=>`<li><a href="${esc(SITE.replace(/\/$/,"")+"/"+f.href)}" target="_blank" rel="noopener">${esc(f.titel)}</a>${f.extra?' <span class="extra-tag">extra</span>':""} <span class="dk-wat">${f.dekking==="kern"?"":f.dekking+" · "}${esc(f.wat||"")}</span></li>`).join("")}</ul>`:"")
+      +(DOCENT&&x.mist?`<div class="dk-mist">Mist: ${esc(x.mist)}</div>`:"")+`</li>`};
+  return `<details class="dk"><summary>${ps.map(p=>stip(bron[p].dekking)).join("")}<span>Films per paragraaf</span></summary><ul class="dk-lijst">${ps.map(rij).join("")}</ul></details>`;
+}
+// ---------- Leerdoelen per week (Kamiel 26 okt 2026: kolom nu, doelen vullen we later) ----------
+// Veld "doelen" in een rij: lijst zinnen ("Je kunt ..."). Leeg = streepje (op de telefoon verborgen).
+function doelHtml(r){const d=Array.isArray(r.doelen)?r.doelen:(r.doelen?[r.doelen]:[]);
+  return d.length?`<ul class="doelen">${d.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:`<span class="leeg">—</span>`}
+// ---------- Deze week (Kamiel 26 okt 2026) ----------
+// Maandag van de lopende week; te testen met ?vandaag=2026-11-09
+const NU=(function(){let d=new Date();try{const q=new URLSearchParams(location.search).get("vandaag");if(q&&/^\d{4}-\d{2}-\d{2}$/.test(q)){const [y,m,dd]=q.split("-").map(Number);d=new Date(y,m-1,dd)}}catch(e){}
+  d.setHours(0,0,0,0);d.setDate(d.getDate()-((d.getDay()+6)%7));return iso(d)})();
+function naarDezeWeek(gedrag){const r=document.getElementById("dezeweek");if(r&&r.scrollIntoView)r.scrollIntoView({block:"center",behavior:gedrag||"smooth"})}
+function nuKnop(){
+  const k=document.getElementById("nuKnop"), r=document.getElementById("dezeweek");
+  k.hidden=!r; if(r) document.getElementById("nuTekst").textContent=`Naar deze week · wk ${r.querySelector(".wk b").textContent.replace(/\D/g,"")}`;
+}
+document.getElementById("nuKnop").addEventListener("click",()=>naarDezeWeek());
+
+// ---------- Medaillons zoals op de site ----------
+const THEMA_ICOON=[[/examen/i,"examens"],[/\bDNA\b/,"dna"],[/stofwisseling/i,"stofwisseling"],[/regeling/i,"regeling"],[/gaswisseling/i,"gaswisseling"],[/afweer/i,"afweer"],[/planten/i,"planten"],[/transport|bloedsomloop/i,"transport"],[/vertering|voeding/i,"voeding"],[/voortplanting/i,"voortplanting"],[/erfelijkheid/i,"erfelijkheid"],[/evolutie/i,"evolutie"],[/gedrag/i,"gedrag"],[/ecolog|populaties|ecosystemen/i,"ecologie"],[/\bcel/i,"cellen"]];
+function blokMed(titel){const m=THEMA_ICOON.find(([rx])=>rx.test(titel));return m?`<img class="med" src="img/kunst/iconen/${m[1]}.webp?v=4" alt="" width="40" height="40" decoding="async">`:""}
+// Filmmedaillon: img/kunst/films/<slug>.webp (slug = bestandsnaam, of de map bij index.html); ontbreekt hij, dan valt het plaatje weg.
+function filmMed(u){
+  if(/^https?:/.test(u)||!/^films\//.test(u)) return "";
+  const p=u.split("#")[0].split("/"); let slug=p.pop().replace(/\.html$/,""); if(slug==="index") slug=p.pop();
+  return `<img class="fmed" src="img/kunst/films/${slug}.webp" alt="" width="18" height="18" loading="lazy" decoding="async" onerror="this.parentNode.classList.remove('heeftmed');this.remove()">`;
+}
+
+// ---------- Kopbalk: licht/donker en Agora-menu (zoals challenges.html) ----------
+(function(){
+  const root=document.documentElement, b=document.getElementById("thema");
+  const teken=()=>{const d=root.getAttribute("data-theme")!=="light";
+    b.innerHTML=d?'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>':'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg>';
+    b.setAttribute("aria-label",d?"Zet licht thema aan":"Zet donker thema aan")};
+  b.addEventListener("click",()=>{const n=root.getAttribute("data-theme")==="light"?"dark":"light";root.setAttribute("data-theme",n);try{localStorage.setItem("thema",n)}catch(e){}teken()});
+  teken();
+  document.addEventListener("click",e=>{document.querySelectorAll("details.menu[open]").forEach(d=>{if(!d.contains(e.target)||e.target.closest(".menu-lijst a"))d.removeAttribute("open")})});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape")document.querySelectorAll("details.menu[open]").forEach(d=>d.removeAttribute("open"))});
+})();
+
+function render(level){
+  if(level!=="route") LOC=/gb$/.test(level)?"gb":"";
+  document.querySelectorAll(".tab").forEach(t=>{t.setAttribute("aria-selected",String(t.dataset.tab===basis(level)));t.hidden=LOC==="gb"&&t.dataset.tab!=="route"&&!PLANNERS[t.dataset.tab+"gb"]});
+  document.querySelectorAll("#locatie button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.loc===LOC)));
+  try{const sel=document.querySelector('.tab[aria-selected="true"]');if(sel&&sel.scrollIntoView)sel.scrollIntoView({inline:"nearest",block:"nearest"})}catch(e){}
+  const isRoute=level==="route";
+  document.getElementById("legend").hidden=isRoute;
+  if(isRoute){
+    (document.getElementById("sub")||{}).textContent="";
+    ROUTE.mount(document.getElementById("planner"),document.getElementById("notes"));
+    nuKnop();
+    document.title="PTA-route biologie";
+    try{localStorage.setItem("planner-tab",level)}catch(e){}
+    try{history.replaceState(null,"","#"+level)}catch(e){}
+    return;
+  }
+  const y=window.scrollY;
+  const P=PLANNERS[level];
+  const weeks=plWeeks(level), all=weeks.flatMap(w=>w.its).filter(i=>!i.extra), nDone=all.filter(i=>PL.get(i.k)).length;
+  let out=`<div class="rt-bar pl-bar"><span class="pl-prog">${nDone} van ${all.length} afgevinkt</span><div class="rt-acts"><button type="button" class="btn ghost" data-reset>Alles uitvinken</button><button type="button" class="btn" data-pl="mentor" aria-expanded="${PL.open}">Overzicht voor je coach</button></div></div>`;
+  if(PL.open) out+=COACH.panel(plCoachRep(level),"Hier staan de weken waarin je iets hebt afgevinkt: wat je hebt gedaan en welk huiswerk of welke films je die week nog niet hebt gedaan. Tools zijn extra en staan er alleen in als je ze hebt gedaan. Je vinkjes worden alleen in deze browser bewaard; kopieer het overzicht naar je coach in Teams, of druk het af of sla het op als pdf.");
+  const ro=rooster(level);
+  P.blokken.forEach((b,bi)=>{
+    const rows=ro.filter(x=>x.bi===bi); if(!rows.length) return;
+    out+=`<section class="blok"><h2>${blokMed(b.titel)}${esc(b.titel)} <small>${esc(blokSub(b,rows))}</small></h2><div class="tw"><table><thead><tr><th>Week</th><th>Paragrafen / les</th><th>Leerdoelen</th><th>Eigen films en tools</th><th>Huiswerk</th><th>Opmerkingen</th></tr></thead><tbody>`;
+    for(const x of rows){
+      const r=x.r, d=x.d;
+      const dat=`${String(d.getDate()).padStart(2,"0")}-${String(d.getMonth()+1).padStart(2,"0")}`;
+      const isNu=iso(d)===NU;
+      const wk=`<td class="wk"><b>wk ${isoWeek(d)}</b><br>ma ${dat}${isNu?'<br><span class="nu-tag">deze week</span>':""}</td>`;
+      if(r.type==="off"){
+        const act=/activiteitenweek/i.test(r.opm);
+        out+=`<tr class="${act?"act":"off"}${isNu?" nu":""}"${isNu?' id="dezeweek"':""}>${wk}<td colspan="5"><span class="tag">${act?"Activiteitenweek":"Vakantie"}</span>${esc(r.opm)} · geen les</td></tr>`}
+      else{
+        const day=iso(d);
+        const isGU=m=>/gewoonuitgelegd/.test(m[2]||""); const rk=m=>(isGU(m)?2:0)+(m[0]==="tool"||m[3]==="extra"?1:0);
+        const chipLi=([t,n,u,fx])=>{ const gu=/gewoonuitgelegd/.test(u||"");
+          const k=`pl:${level}:${day}:${t}:${n}`;
+          const href=u?(/^https?:\/\//.test(u)?u:SITE.replace(/\/$/,"")+"/"+u.replace(/^\//,"")):"";
+          if(t==="les") return `<li class="les-li"><a class="chip les" href="${esc(href)}" target="_blank" rel="noopener" title="Les van de docent (uitleg in stappen)">${esc(n)}</a></li>`;
+          const med=t==="vid"&&!gu&&u?filmMed(u):"";
+          const chip=u?`<a class="chip ${t}${gu?" ext":""}${med?" heeftmed":""}" href="${esc(href)}" target="_blank" rel="noopener">${med}${esc(gu?n.replace(/ \(GU\)$/,""):KORT(n))}</a>`:`<span class="chip ${t}">${esc(n)}</span>`;
+          return `<li><input type="checkbox" class="pl-it" data-key="${esc(k)}" ${PL.get(k)?"checked":""} aria-label="${t==="tool"?"Gedaan":"Gekeken"}: ${esc(n)}">${chip}${t==="tool"||fx==="extra"?'<span class="extra-tag">extra</span>':""}</li>`;
+        };
+        const all=(r.mid||[]).slice().sort((a,b)=>rk(a)-rk(b)), mid=all.filter(m=>!isGU(m)).map(chipLi).join(""), gum=all.filter(isGU).map(chipLi).join("");
+        const midHtml=mid?`<ul class="ms">${mid}</ul>`:`<span class="leeg">—</span>`, guHtml=gum?`<ul class="ms">${gum}</ul>`:`<span class="leeg">—</span>`;
+        // Standaard huiswerk: de paragrafen van die week lezen en maken; r.hw is een aanvulling.
+        const secs=(r.par.match(/§ \d+\.\d+(?:–\d+\.\d+)?|\bB\d+\b/g)||[]).join(" + ");
+        const basis=secs?`Lezen en maken ${secs}`:"";
+        const hwParts=[basis,r.hw].filter(Boolean);
+        const hk=`pl:${level}:${day}:${r.type==="toets"?"toets":"hw"}`;
+        const hw=(hwParts.length?`<label class="tick"><input type="checkbox" class="pl-it" data-key="${esc(hk)}" ${PL.get(hk)?"checked":""}><span>${hwParts.map(esc).join("<br>")}</span></label>`:`<span class="leeg">nog invullen</span>`)+(r.split?`<div class="split">${r.split.split(" · ").map(x=>{const m=x.match(/^(Les|Zelf): (.*)$/);return m?`<span><b>${m[1]==="Les"?"In de les":"Zelf"}</b> ${esc(m[2])}</span>`:esc(x)}).join("")}</div>`:"");
+        const par=r.par||`<span class="leeg">nog invullen</span>`;
+        const w=weeks.find(x=>iso(x.d)===day), req=w?w.its.filter(i=>!i.extra):[], alles=req.length&&req.every(i=>PL.get(i.k));
+        out+=`<tr class="${r.type||""}${alles?" klaar":""}${isNu?" nu":""}"${isNu?' id="dezeweek"':""}>${wk}<td class="par">${r.par?esc(r.par):par}${dekkingHtml(level,r.par)}</td><td class="doel">${doelHtml(r)}</td><td class="mid">${midHtml}</td><td class="hw">${hw}</td><td class="opm">${esc(r.opm)}</td></tr>`;
+      }
+    }
+    out+=`</tbody></table></div></section>`;
+  });
+  const el=document.getElementById("planner");
+  el.innerHTML=out;
+  window.scrollTo(0,y);
+  el.querySelectorAll(".pl-it").forEach(c=>c.addEventListener("change",()=>{PL.set(c.dataset.key,c.checked);render(level)}));
+  el.querySelectorAll("[data-pl]").forEach(b=>b.addEventListener("click",()=>{
+    if(b.dataset.pl==="mentor"){PL.open=!PL.open;render(level);if(PL.open){const m=el.querySelector("#mentor");if(m&&m.scrollIntoView)m.scrollIntoView({block:"start"})}}
+  }));
+  const rb=el.querySelector("[data-reset]"); if(rb) COACH.resetKnop(rb,`pl:${level}:`,()=>render(level));
+  if(PL.open) COACH.wire(el,()=>plCoachRep(level),()=>{PL.open=false;render(level)});
+  (document.getElementById("sub")||{}).textContent=P.sub;
+  nuKnop();
+  document.getElementById("notes").innerHTML=[...P.notes,...COMMON_NOTES].map(n=>`<li>${n}</li>`).join("");
+  document.title=`Jaarplanner biologie ${LEVELNAAM[level]} 2026-2027`;
+  try{localStorage.setItem("planner-tab",level)}catch(e){}
+  try{history.replaceState(null,"","#"+level)}catch(e){}
+}
+document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>render(opLocatie(t.dataset.tab,LOC))));
+document.querySelectorAll("#locatie button").forEach(b=>b.addEventListener("click",()=>{LOC=b.dataset.loc;const cur=document.querySelector('.tab[aria-selected="true"]');const tab=cur?cur.dataset.tab:"havo4";render(opLocatie(tab==="route"||(LOC==="gb"&&!PLANNERS[tab+"gb"])?(tab==="route"?"route":"havo4"):tab,LOC))}));
+let start="havo4";
+try{const h=location.hash.replace("#","");if(PLANNERS[h])start=h;else{const s=localStorage.getItem("planner-tab");if(PLANNERS[s])start=s}}catch(e){}
+render(start);
+fetch("jaarplanner-dekking.json?v=8").then(r=>r.ok?r.json():null).then(d=>{if(!d)return;DEKKING=d;const cur=location.hash.replace("#","");if(PLANNERS[cur]){const y=scrollY;render(cur);scrollTo(0,y)}}).catch(()=>{});
+window.addEventListener("hashchange",()=>{const h=location.hash.replace("#","");if(PLANNERS[h])render(h)});
+// Bij openen meteen naar deze week (niet bij terug/vooruit: dan zet js/terug.js de oude hoogte terug)
+try{const nav=performance.getEntriesByType("navigation")[0];if(!nav||nav.type==="navigate"||nav.type==="reload"&&!sessionStorage.getItem("bk-scroll"))requestAnimationFrame(()=>naarDezeWeek("auto"))}catch(e){}
+</script>
+
+<p data-licentie style="max-width:1080px;margin:28px auto 22px;padding:0 24px;font:13px/1.5 system-ui,-apple-system,'Segoe UI',sans-serif;opacity:.6;text-align:center">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></p>
+</body></html>

@@ -1,0 +1,30 @@
+{
+"rep": [
+[
+"strip('twee manieren van remmen', T.twee - 0.1, T.dit - 0.4, null, 48);",
+"if (window.BKN !== 'havo') strip('twee manieren van remmen', T.twee - 0.1, T.dit - 0.4, null, 48);   // havo: maar één manier"
+],
+[
+"const aM = aIn * Math.max(",
+"const aM = (window.BKN === 'havo' ? 0 : aIn) * Math.max("
+],
+[
+"let y = 262; let cur = -1; recap.forEach(([t0], i) => { if (t >= t0 - 0.15) cur = i; });\n      recap.forEach(([t0, s], i) => {",
+"const RC = window.BKN === 'havo' ? recap.slice(0, 5) : recap;   // havo: zonder allosterische zijde en terugkoppeling\n      let y = 262; let cur = -1; RC.forEach(([t0], i) => { if (t >= t0 - 0.15) cur = i; });\n      RC.forEach(([t0, s], i) => {"
+],
+[
+"{ const a = E.vis(t, T.C - 0.1, T.nog + 0.4, 0.35, 0.45); if (a > 0.01) g.text('antwoord C klopt niet'",
+"{ const a = (window.BKN === 'havo' ? 0 : 1) * E.vis(t, T.C - 0.1, T.nog + 0.4, 0.35, 0.45); if (a > 0.01) g.text('antwoord C klopt niet'"
+]
+],
+"vwoTerms": [
+"induced fit",
+"V-max (verdieping)",
+"allosterische zijde",
+"inhibitormolecuul",
+"activatormolecuul",
+"negatieve terugkoppeling",
+"cofactor",
+"co-enzym"
+]
+}

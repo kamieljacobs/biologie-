@@ -1,0 +1,657 @@
+{
+ "film": 4,
+ "titel": "Waar blijft het blad?",
+ "slug": "4-waar-blijft-het-blad",
+ "puzzel": "Waar blijven alle herfstbladeren?",
+ "haak": "Elke herfst valt er een hele laag blad, en toch zak je in het voorjaar niet tot je knieën in de bladeren.",
+ "duur": {
+  "basis_min": 9.2,
+  "met_vwo_min": 10.0,
+  "woorden": 1205,
+  "woorden_basis": 1098
+ },
+ "hoofdstukken": [
+  {
+   "nr": 1,
+   "titel": "Een blad is voedsel",
+   "minivraag": "Is een schimmel op een dood blad een producent?",
+   "type": "F",
+   "look": "Schema"
+  },
+  {
+   "nr": 2,
+   "titel": "De opruimers",
+   "minivraag": "Waar is het deel van het blad gebleven dat weg is?",
+   "type": "C",
+   "look": "Macro"
+  },
+  {
+   "nr": 3,
+   "titel": "De composthoop",
+   "minivraag": "Waarom wordt een composthoop warm, en waarom gaat een natte hoop stinken?",
+   "type": "F",
+   "look": "Schema"
+  },
+  {
+   "nr": 4,
+   "titel": "Waar afbraak stopt",
+   "minivraag": "Waarom blijft een lichaam in het veen eeuwen bewaard?",
+   "type": "F",
+   "look": "Schema"
+  }
+ ],
+ "scenes": [
+  {
+   "id": "e4s01",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Elf november. In een eikenbos valt een blad op de grond. Een ecoloog raapt het op, weegt het en stopt het in een zakje van grof gaas.",
+   "beweging": "Een eikenblad dwarrelt omlaag; de ecoloog weegt het (1,0 g) en schuift het in een gaaszakje van ± 15 cm dat hij op het strooisel legt; een zoomcirkel toont het zakje vergroot."
+  },
+  {
+   "id": "e4s02",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Elke herfst valt er zo een hele laag blad. Toch zak je in het voorjaar niet tot je knieën in de bladeren. Waar blijft al dat blad?",
+   "beweging": "De camera trekt uit naar het hele bos; overal vallen bladeren; daarna springt een tijdbalk naar april en ligt er nog maar een dunne laag."
+  },
+  {
+   "id": "e4s03",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "",
+   "beweging": "Titelkaart: titel en puzzel; rechts het gaaszakje met het blad en een logboekkaart met de kolommen 'datum · massa · wie · vrijgekomen'."
+  },
+  {
+   "id": "e4s04",
+   "hoofdstuk": "H1 Een blad is voedsel",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Begin bij wat er in het blad zit. Een afgevallen blad bestaat vooral uit cellulose en lignine, de taaie stof die ook in hout zit. Een groot deel van de eiwitten heeft de eik er vóór de bladval al uitgehaald. Dat zijn organische stoffen: grote moleculen met koolstof, waar energie in zit.",
+   "beweging": "Logboekregel 1 vult zich: '11 nov · 1,0 g'; naast het blad verschijnen drie kleine molecuulkettingen (groen) met de namen cellulose, lignine, eiwit (kort: de meeste eiwitten zijn al weg)."
+  },
+  {
+   "id": "e4s05",
+   "hoofdstuk": "H1 Een blad is voedsel",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Daartegenover staan anorganische stoffen: kleine moleculen zoals koolstofdioxide, water en mineralen, bijvoorbeeld nitraat en fosfaat. Daar zit bijna geen energie in.",
+   "beweging": "Rechts verschijnen grijze vormpjes: CO₂, H₂O, nitraat (blauw), fosfaat (oranje)."
+  },
+  {
+   "id": "e4q06",
+   "hoofdstuk": "H1 Een blad is voedsel",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Welke van deze stoffen is anorganisch?",
+   "beweging": "Vraagkaart met aftellijn.",
+   "opties": "A Cellulose · B Eiwit · C Nitraat",
+   "juist": "C"
+  },
+  {
+   "id": "e4s07",
+   "hoofdstuk": "H1 Een blad is voedsel",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Nitraat is een klein mineraal zonder energierijke koolstofketen. De eik nam het op uit de bodem. Met licht maakte hij uit koolstofdioxide, water en mineralen zelf zijn organische stoffen. Een organisme dat dat kan, heet autotroof. In een ecosysteem is het een producent.",
+   "beweging": "Een eik in zomertooi: pijlen van CO₂ (in het blad), water en nitraat (via de wortels) naar het blad, waar groene ketens ontstaan; een zonnetje boven de kroon."
+  },
+  {
+   "id": "e4s08",
+   "hoofdstuk": "H1 Een blad is voedsel",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Alles wat dat niet kan, moet organische stoffen opnemen uit andere organismen of uit dode resten. Dat heet heterotroof. Dieren zijn heterotroof, en ook schimmels en de meeste bacteriën.",
+   "beweging": "Langs de bosrand: een ree, een paddenstoel op een stronk en een pissebed op een blad krijgen alle drie het label heterotroof."
+  },
+  {
+   "id": "e4q09",
+   "hoofdstuk": "H1 Een blad is voedsel",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Op een dood blad groeit een witte schimmel. Is die schimmel een producent?",
+   "beweging": "Vraagkaart met aftellijn.",
+   "opties": "A Nee, hij haalt organische stof uit het blad · B Ja, hij groeit vanzelf op het blad · C Ja, schimmels zijn planten",
+   "juist": "A"
+  },
+  {
+   "id": "e4s10",
+   "hoofdstuk": "H1 Een blad is voedsel",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Een schimmel heeft geen bladgroen en kan dus geen fotosynthese doen. Hij groeit met draden het blad in en neemt de organische stoffen daaruit op. Een schimmel is heterotroof, net als jij.",
+   "beweging": "Zoomcirkel op het blad: witte schimmeldraden groeien tussen de bladcellen; groene ketentjes verdwijnen in de draad."
+  },
+  {
+   "id": "e4s11",
+   "hoofdstuk": "H2 De opruimers",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "December. In het zakje zitten de eerste gaatjes. Pissebedden en regenwormen kunnen door het grove gaas naar binnen. Ze eten dode resten van planten en dieren: detritus. Daarom heten ze detrituseters.",
+   "beweging": "In het zakje kruipt een pissebed over het blad en vreet een rand weg; een regenworm trekt een punt van het blad zijn gang in."
+  },
+  {
+   "id": "e4s12",
+   "hoofdstuk": "H2 De opruimers",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Ze verteren maar een klein deel. De rest komt er als uitwerpselen weer uit, vol piepkleine stukjes blad. Zo maken detrituseters het blad kleiner.",
+   "beweging": "Achter de pissebed blijven korreltjes uitwerpselen liggen; een zoomcirkel toont dat die vol blad-snippers zitten."
+  },
+  {
+   "id": "e4s13",
+   "hoofdstuk": "H2 De opruimers",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Detrituseters zijn ook gewone consumenten. In een voedselweb staan ze tussen het dode blad en hun eigen eters. Een merel eet de regenworm, een spitsmuis eet de pissebed.",
+   "beweging": "Een klein schema: dood blad → pissebed → spitsmuis en dood blad → regenworm → merel; de pijlen in oker van voedsel naar eter."
+  },
+  {
+   "id": "e4s14",
+   "hoofdstuk": "H2 De opruimers",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Intussen doen schimmels en bacteriën het grote werk. Ze breken de stukjes helemaal af, tot koolstofdioxide, water en mineralen. Zulke organismen heten reducenten. Dat afbreken tot mineralen heet mineralisatie.",
+   "beweging": "Zoomcirkel in de bodem: bacteriën en schimmeldraden rond een bladsnipper; uit de snipper komen CO₂, water, ammonium en fosfaat vrij; de logboekkolom 'vrijgekomen' vult zich."
+  },
+  {
+   "id": "e4s15",
+   "hoofdstuk": "H2 De opruimers",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Schimmels groeien met lange draden door het strooisel en kunnen zelfs taaie celwanden afbreken. Bacteriën zijn veel kleiner, maar met miljarden in een handvol grond. Allebei maken ze enzymen die ze naar buiten afgeven. Die knippen de grote moleculen buiten hun cel in kleine stukjes, die ze dan opnemen.",
+   "beweging": "In de zoomcirkel knippen gouden enzymen (kleine kluwens met een gouden pocket) een groene cellulosebundel in stukjes; de schimmeldraad neemt de stukjes op."
+  },
+  {
+   "id": "e4s16",
+   "hoofdstuk": "H2 De opruimers",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Mei. De ecoloog haalt het zakje op en weegt het blad. Er is ongeveer een derde weg. Hij schrijft het op.",
+   "beweging": "De ecoloog weegt: 0,7 g; logboekregel 'mei · 0,7 g' verschijnt; het blad is een kanten skelet met gaten."
+  },
+  {
+   "id": "e4q17",
+   "hoofdstuk": "H2 De opruimers",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Een derde van het blad is weg. Waar is dat deel gebleven?",
+   "beweging": "Vraagkaart met aftellijn.",
+   "opties": "A Het is opgegeten en daarmee verdwenen · B Als koolstofdioxide in de lucht, en als water en mineralen in de bodem · C Het is omgezet in energie",
+   "juist": "B"
+  },
+  {
+   "id": "e4s18",
+   "hoofdstuk": "H2 De opruimers",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Een stof kan niet zomaar verdwijnen. Een deel zit nu even in de lichamen van de opruimers. De rest van de koolstof is als koolstofdioxide de lucht in gegaan. Water en mineralen zitten in de bodem. Volg één nitraatdeeltje: het gaat met water een wortel in en omhoog door de stam. In het nieuwe blad wordt het weer een eiwit.",
+   "beweging": "Een blauw nitraatdeeltje met gouden rand reist uit de bodem een wortel in, door de stam omhoog, en verdwijnt in een jong blad aan de kroon."
+  },
+  {
+   "id": "e4s19",
+   "hoofdstuk": "H2 De opruimers",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Met energie gaat het anders. Elke pissebed, worm, schimmel en bacterie haalt energie uit het blad door te dissimileren. Ook de eik dissimileert, dag en nacht. Daarbij komt warmte vrij. Die gaat het bos uit en komt niet terug.",
+   "beweging": "Kleine koraalrode golfjes (warmte) stijgen op uit de pissebed, de worm, de bodem en ook uit de eik zelf, en verdwijnen boven de kroon."
+  },
+  {
+   "id": "e4q20",
+   "hoofdstuk": "H2 De opruimers",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Een leerling zegt: 'De energie uit het blad komt met de mineralen terug in de eik.' Wat vind jij?",
+   "beweging": "Vraagkaart met aftellijn.",
+   "opties": "A Klopt: mineralen nemen de energie mee · B Niet helemaal: de energie blijft als humus in de bodem · C Klopt niet: de energie komt vrij als warmte",
+   "juist": "C"
+  },
+  {
+   "id": "e4s21",
+   "hoofdstuk": "H2 De opruimers",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Stoffen gaan dus rond: van de eik naar het blad, naar de bodem en weer naar de eik. Energie gaat één kant op. Die komt binnen als licht en vertrekt als warmte.",
+   "beweging": "Een groene kringlooppijl (stoffen) loopt rond tussen eik, blad, bodem; een gouden pijl (energie) komt van de zon binnen en een koraal pijl (warmte) gaat het beeld uit."
+  },
+  {
+   "id": "e4s22",
+   "hoofdstuk": "H2 De opruimers",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Hoeveel doen de detrituseters? Je stopt evenveel blad in zakjes met grof gaas en met heel fijn gaas. Door het grove gaas kunnen pissebedden en wormen naar binnen. Door het fijne gaas komen alleen schimmels en bacteriën. Je legt de zakjes een half jaar in het bos en weegt ze daarna.",
+   "beweging": "Twee zakjes naast elkaar (grof 5 mm, fijn 0,5 mm), elk met 125 g blad; een pissebed kruipt door het grove gaas en blijft buiten het fijne."
+  },
+  {
+   "id": "e4s23",
+   "hoofdstuk": "H2 De opruimers",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Lees de grafiek. In het grove zakje is na zes maanden 72 van de 125 gram verdwenen, in het fijne zakje 36 gram. Met detrituseters gaat de afbraak dus ongeveer twee keer zo snel. Ze breken het blad niet zelf af. Ze maken het kleiner, zodat schimmels en bacteriën meer oppervlak hebben om op te werken.",
+   "beweging": "Een staafdiagram tekent zich: massa na zes maanden, grof 53 g en fijn 89 g naast de beginmassa 125 g; een gouden haak onder het verschil."
+  },
+  {
+   "id": "e4s24",
+   "hoofdstuk": "H3 De composthoop",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "In een tuin gaat het veel sneller. Gooi je groente- en tuinafval op een composthoop, dan is het na een paar maanden donkere compost. In het midden wordt de hoop warm, soms wel zestig graden.",
+   "beweging": "Een achtertuin met schutting en moestuinbak; een tiener gooit groente- en tuinafval op een composthoop; uit de top komt in de koude ochtendlucht wat damp; een thermometer in de hoop wijst 60 °C."
+  },
+  {
+   "id": "e4s25",
+   "hoofdstuk": "H3 De composthoop",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Na een paar maanden zeeft de tiener de compost en strooit hem in de moestuin. De mineralen uit de schillen komen zo bij nieuwe groente terecht.",
+   "beweging": "De tiener schept donkere compost op een zeef boven de moestuin; een jonge sla- en boonplant staan klaar; een blauw nitraatdeeltje met gouden rand valt mee in de grond."
+  },
+  {
+   "id": "e4s26",
+   "hoofdstuk": "H3 De composthoop",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Die warmte komt van de bacteriën en schimmels zelf. Ze dissimileren, en daarbij komt warmte vrij. Ze werken het snelst als het warm en vochtig is, en als er genoeg zuurstof is. Daarom zet je de hoop af en toe om.",
+   "beweging": "Doorsnede van de hoop: bacteriën in het midden (koraal warmtegolfjes), drie labels 'warm · vochtig · zuurstof'; een riek keert de hoop en lucht stroomt naar binnen."
+  },
+  {
+   "id": "e4q27",
+   "hoofdstuk": "H3 De composthoop",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Een composthoop die veel te nat is, gaat stinken. Wat is daar de oorzaak van?",
+   "beweging": "Vraagkaart met aftellijn.",
+   "opties": "A Er komt te weinig zuurstof in · B De hoop is te koud geworden · C Er zitten te veel bacteriën in",
+   "juist": "A"
+  },
+  {
+   "id": "e4s28",
+   "hoofdstuk": "H3 De composthoop",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Water vult de ruimtes tussen het afval. Daardoor komt er bijna geen lucht meer in. Zonder zuurstof gaat de afbraak traag, en bacteriën maken dan stinkende gassen. Een goede composthoop is vochtig, maar niet nat.",
+   "beweging": "In de doorsnede lopen de luchtkanaaltjes vol met water (teal); de bacteriën worden trager; een paar gele geurwolkjes."
+  },
+  {
+   "id": "e4s29",
+   "hoofdstuk": "H3 De composthoop",
+   "laag": "vwo",
+   "look": "Schema",
+   "tekst": "Ook het soort afval maakt uit. Vers gras bevat veel stikstof naast zijn koolstof. Het is snel weg. Afgevallen eikenblad bevat veel koolstof en weinig stikstof. Reducenten hebben stikstof nodig voor hun eigen eiwitten. Daardoor gaat eikenblad traag. Biologen zeggen: het heeft een hoge C/N-verhouding.",
+   "beweging": "Twee stapels: gras met een label 'C/N ± 15' en eikenblad met 'C/N ± 40–80'; de grasstapel krimpt snel, de bladstapel langzaam."
+  },
+  {
+   "id": "e4s30",
+   "hoofdstuk": "H4 Waar afbraak stopt",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "En als het nat is, zuur en zonder zuurstof? Kijk naar een hoogveen. Veenmos groeit er bovenop. Onder water sterven de oude delen af. Maar er komt geen zuurstof bij, en het water is zuur. Reducenten kunnen bijna niets.",
+   "beweging": "Een hoogveen onder een nachtlucht: kussens veenmos; de camera zakt door het oppervlak het bruine, natte veen in."
+  },
+  {
+   "id": "e4s31",
+   "hoofdstuk": "H4 Waar afbraak stopt",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Zo stapelen de plantenresten zich op. Ongeveer een millimeter per jaar. Na duizend jaar is het een meter veen.",
+   "beweging": "Doorsnede van het veen met lagen; een schaalbalk 1 m = ± 1000 jaar; de camera zakt laag voor laag dieper, jaartallen lopen terug."
+  },
+  {
+   "id": "e4s32",
+   "hoofdstuk": "H4 Waar afbraak stopt",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "In het jaar 1897 vonden turfstekers bij Yde in Drenthe het lichaam van een meisje van ongeveer zestien jaar. Ze had ongeveer tweeduizend jaar in het veen gelegen. Haar huid en haar waren nog bewaard.",
+   "beweging": "Diep in de doorsnede, in een zoomcirkel: een eenvoudig silhouet van een liggend lichaam onder een wollen omslagdoek, geen gezicht; label Yde, ± 2000 jaar.",
+   "twijfel": "Het meisje van Yde: een echt mens, gestorven en bewaard; ik teken alleen een rustig silhouet onder een doek.",
+   "waarom": "Gevoelig onderwerp (dode, echt persoon); de keuze om haar te tonen en hoe ligt bij Kamiel."
+  },
+  {
+   "id": "e4q33",
+   "hoofdstuk": "H4 Waar afbraak stopt",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Waarom bleef het lichaam in het veen zo lang bewaard?",
+   "beweging": "Vraagkaart met aftellijn.",
+   "opties": "A Het lag er diep en ijskoud · B Het werd gebalsemd voor het begraven · C Het lag nat, zuur en zonder zuurstof",
+   "juist": "C"
+  },
+  {
+   "id": "e4s34",
+   "hoofdstuk": "H4 Waar afbraak stopt",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "In nat, zuur veen zonder zuurstof breken bacteriën en schimmels bijna niets af. Dat geldt voor plantenresten, en ook voor een lichaam. Steek je veen af en laat je het drogen, dan krijg je turf. Daar komt lucht in: turf breekt wel af.",
+   "beweging": "Drie vakjes naast elkaar: nat · zuur · geen zuurstof met een gouden haak 'afbraak staat bijna stil'; daarna een droog blok turf met luchtgaatjes en weer bacteriën."
+  },
+  {
+   "id": "e4s35",
+   "hoofdstuk": "H4 Waar afbraak stopt",
+   "laag": "vwo",
+   "look": "Micro",
+   "tekst": "Bijna alle leven op aarde hangt af van licht. Maar diep in de oceaan, kilometers onder het licht, liggen hete bronnen. Daar leven bacteriën die hun energie halen uit een chemische reactie met zwavelwaterstof uit de bron.",
+   "beweging": "Zoomcirkel in de diepzee: een rookpluim van een hete bron (zwarte roker) met bacteriën eromheen; een pijl zwavelwaterstof naar een bacterie."
+  },
+  {
+   "id": "e4s36",
+   "hoofdstuk": "H4 Waar afbraak stopt",
+   "laag": "vwo",
+   "look": "Micro",
+   "tekst": "Met die energie maken ze uit koolstofdioxide zelf hun organische stoffen. Ze leven zonder licht én zonder voedsel te eten. Zulke organismen heten chemo-autotroof.",
+   "beweging": "Rond de bacterie verschijnt het label 'chemo-autotroof: energie uit een reactie, koolstof uit CO₂'; een doorgestreept zonnetje."
+  },
+  {
+   "id": "e4s37",
+   "hoofdstuk": "Samenvatting",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Waar blijft het blad? Detrituseters maken het klein. Reducenten breken het af tot koolstofdioxide, water en mineralen. Eikenblad is taai, met veel lignine en looizuren: het duurt een paar jaar voor het helemaal weg is. Maar elk jaar verdwijnt er ongeveer evenveel oud blad als er nieuw blad valt. Daarom blijft de laag dun.",
+   "beweging": "Het logboek sluit met regels voor het tweede en derde jaar (0,4 g · 0,1 g); daarnaast een balans: 'nieuw blad erbij' en 'oud blad weg' even zwaar."
+  },
+  {
+   "id": "e4s38",
+   "hoofdstuk": "Samenvatting",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "De stoffen uit het blad van vorig jaar zitten in het blad van dit jaar. Alleen in nat, zuur veen zonder zuurstof stopt de kringloop bijna.",
+   "beweging": "Terug naar het bos in mei: de eik loopt uit; het nitraatdeeltje met de gouden rand zit in een nieuw blad; de ecoloog legt een nieuw zakje (± 15 cm) neer."
+  },
+  {
+   "id": "e4s39",
+   "hoofdstuk": "Samenvatting",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "",
+   "beweging": "Eindkaart: 'Organische stof wordt afgebroken tot anorganische stof.' · 'Detrituseters maken klein, reducenten breken af.' · 'Stoffen gaan rond, energie verlaat het bos als warmte.'"
+  }
+ ],
+ "checkvragen": [
+  {
+   "niveau": "basis",
+   "vraag": "Noem twee organische en twee anorganische stoffen uit de film en leg uit wat het verschil is.",
+   "antwoord": "Organisch: cellulose, zetmeel, eiwit (grote, energierijke moleculen met koolstof, gemaakt door organismen). Anorganisch: koolstofdioxide, water, nitraat, fosfaat (kleine moleculen, (bijna) geen energie)."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Een paddenstoel groeit op een dode boomstam en onder de schors kruipen pissebedden. Welke rol hebben de paddenstoel en de pissebedden in het ecosysteem? Zijn ze autotroof of heterotroof?",
+   "antwoord": "De paddenstoel is het vruchtlichaam van een schimmel: reducent. De pissebedden zijn detrituseters (consumenten van dode resten). Allebei heterotroof: ze nemen organische stoffen op uit het hout."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Een eikenblad in een gaaszakje weegt in november 1,0 gram en in mei 0,7 gram. Waar is de 0,3 gram gebleven?",
+   "antwoord": "Afgebroken door detrituseters en reducenten: de koolstof is bij de dissimilatie als koolstofdioxide in de lucht gekomen, de rest als water en mineralen (zoals ammonium, nitraat en fosfaat) in de bodem. Een deel zit tijdelijk in de lichamen van de opruimers."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Een augurk in azijn bederft bijna niet en een composthoop die te nat is, gaat stinken. Leg beide uit met de omstandigheden die reducenten nodig hebben.",
+   "antwoord": "Azijn is zuur: in zuur milieu werken de meeste reducenten slecht. In een te natte hoop vult water de ruimtes en komt er te weinig zuurstof; de afbraak gaat traag en bacteriën maken zonder zuurstof stinkende gassen."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Leg uit waarom er in een hoogveen veen ontstaat en waarom gedroogde turf wel afbreekt.",
+   "antwoord": "In het hoogveen is het nat, zuur en zuurstofarm: reducenten breken plantenresten bijna niet af, zodat ze zich ophopen (± 1 mm per jaar). In droge turf komt lucht en dus zuurstof: dan kunnen reducenten het wel afbreken."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "In een proef ligt 125 g blad in een zakje met grof gaas (5 mm) en 125 g in een zakje met fijn gaas (0,5 mm). Na zes maanden is er 53 g en 89 g over. Bereken per zakje het percentage dat is afgebroken en leg het verschil uit.",
+   "antwoord": "Grof: 72/125 = 58 %; fijn: 36/125 = 29 %. Door grof gaas kunnen ook detrituseters (pissebedden, regenwormen); die maken het blad klein, zodat reducenten meer oppervlak hebben. Door fijn gaas komen alleen schimmels en bacteriën."
+  },
+  {
+   "niveau": "vwo",
+   "vraag": "Bacteriën bij een hete bron in de diepzee worden chemo-autotroof genoemd. Leg uit wat dat betekent.",
+   "antwoord": "Ze halen hun energie uit een chemische reactie met zwavelwaterstof uit de bron, niet uit licht, en maken met die energie zelf organische stoffen uit koolstofdioxide (autotroof)."
+  },
+  {
+   "niveau": "vwo",
+   "vraag": "Leg uit waarom eikenblad langzamer composteert dan vers gras.",
+   "antwoord": "Eikenblad heeft een hoge C/N-verhouding: veel koolstof en weinig stikstof. Reducenten hebben stikstof nodig om hun eigen eiwitten te maken; bij een stikstoftekort groeien ze langzaam en gaat de afbraak traag."
+  }
+ ],
+ "begrippen": [
+  {
+   "begrip": "organische stof",
+   "uitleg": "Grote, energierijke verbinding met koolstof die door organismen wordt gemaakt, zoals cellulose, lignine, zetmeel, eiwit en vet.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "anorganische stof",
+   "uitleg": "Kleine, (bijna) energieloze stof zoals koolstofdioxide, water en mineralen (nitraat, fosfaat, ammonium).",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "autotroof",
+   "uitleg": "Maakt zelf organische stoffen uit anorganische stoffen; planten doen dat met licht (fotosynthese). Autotrofe organismen zijn de producenten.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "heterotroof",
+   "uitleg": "Moet organische stoffen opnemen uit andere organismen of dode resten: dieren, schimmels en de meeste bacteriën (consumenten, detrituseters, reducenten).",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "producent · consument · reducent",
+   "uitleg": "Maakt organische stof (plant) · haalt organische stof uit andere organismen (dier) · breekt dode organische stof af tot anorganische stoffen (bacterie, schimmel).",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "detritus",
+   "uitleg": "Dode resten van planten en dieren en uitwerpselen, zoals afgevallen blad.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "detrituseter",
+   "uitleg": "Dier dat detritus eet en het zo kleiner maakt, zoals een pissebed of regenworm.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "mineralisatie",
+   "uitleg": "Het afbreken van organische stof tot anorganische stoffen (mineralen, koolstofdioxide en water) door reducenten.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "voorwaarden voor afbraak",
+   "uitleg": "Reducenten werken het best als het warm en vochtig is, er genoeg zuurstof is en het niet te zuur is.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "veen · hoogveen · turf",
+   "uitleg": "Laag van onvolledig afgebroken plantenresten · veen dat door veenmos en regenwater omhoog groeit (nat, zuur, zuurstofarm) · gestoken en gedroogd veen.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "compost",
+   "uitleg": "Door reducenten (en detrituseters) afgebroken organisch afval.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "chemo-autotroof",
+   "uitleg": "Haalt energie uit een chemische reactie in plaats van uit licht en maakt daarmee organische stoffen uit koolstofdioxide (bijvoorbeeld bacteriën bij hete bronnen in de diepzee).",
+   "niveau": "vwo"
+  },
+  {
+   "begrip": "C/N-verhouding",
+   "uitleg": "Verhouding tussen koolstof en stikstof in organisch materiaal; hoe hoger, hoe langzamer de afbraak (eikenblad hoog; vers gras laag).",
+   "niveau": "vwo"
+  }
+ ],
+ "getallen": [
+  {
+   "waarde": "eikenblad: in een half jaar ± een derde weg (logboek: 1,0 → 0,7 g in mei; 0,4 g na twee jaar; 0,1 g na drie jaar) — vereenvoudigd verloop; afbraak van eikenblad duurt een jaar of langer en de laatste fase is traag",
+   "bron": "Max Vandaag, Natuurmoment: waar blijft al dat blad? (een jaar of langer); Davey e.a. (NERC NORA 1587): zakjes 3–31 maanden, eindwaarde 57–95 % afgebroken. Getallen in het logboek zijn een model (keuzes_en_twijfels)"
+  },
+  {
+   "waarde": "detrituseters verteren maar een klein deel; hun uitwerpselen bestaan uit tienduizenden stukjes blad en breken gemiddeld sneller af dan heel blad",
+   "bron": "iDiv Young Minds, De bizarre rol van bodemdieren bij de afbraak van dode bladeren (NL)"
+  },
+  {
+   "waarde": "proef met grof (5 mm) en fijn (0,5 mm) gaas, 125 g blad: na 6 maanden 53 g en 89 g over (72 g en 36 g weg; ± 58 % en ± 29 %)",
+   "bron": "examenstijl-voorbeeld met beukenblad, GCSE-opgave (mathsgenie.co.uk, OCR ecosystems q89); voorbeeldgetallen, geen gepubliceerde meting (zie keuzes_en_twijfels)"
+  },
+  {
+   "waarde": "stikstof, fosfor en kalium nemen in de bladeren al af vóór de bladval: de boom trekt ze terug",
+   "bron": "Niinemets & Tamm 2005, Tree Physiology 25: 1001–1014 (agris.fao.org)"
+  },
+  {
+   "waarde": "C/N bladeren 40–80, vers gras ± 15",
+   "bron": "NVON, Biologie van de composthoop (Niche 1994)"
+  },
+  {
+   "waarde": "composthoop 43–49 °C binnen drie dagen, na keren boven 60 °C; ideale C/N ± 30; gras ± 15, stro ± 80, blad 40–80",
+   "bron": "NVON, Biologie van de composthoop (Niche 1994); Cornell Composting fact sheet 5 (32–60 °C, warmte uit afbraak, keren geeft zuurstof)"
+  },
+  {
+   "waarde": "hoogveen groeit gemiddeld ± 1 mm per jaar; 1 m veen kost minimaal 1000 jaar",
+   "bron": "geocaching GC29PJQ (veengebied, 1 mm per jaar); wikiwijs Veen.pdf (1 m ≥ 1000 jaar)"
+  },
+  {
+   "waarde": "meisje van Yde gevonden in 1897 door turfstekers, ± 16 jaar oud, ± 2000 jaar in het veen; zuurstofloos en zuur",
+   "bron": "WUR nieuws 2019, Landscape setting gives unique insight in the life of Yde Girl"
+  },
+  {
+   "waarde": "bij verzuring (pH 2,9) blijven bladeren liggen: afbraak op de Veluwe sinds 2000 tientallen procenten afgenomen",
+   "bron": "WUR nieuws, Minder afbraak van bladeren in Veluwse bossen door verzuring (achtergrond, niet in de vertelling)"
+  },
+  {
+   "waarde": "kleurloze zwavelbacteriën oxideren waterstofsulfide; koolstof uit CO₂",
+   "bron": "Encyclopedia.com, Chemoautotrophic and chemolithotrophic bacteria; examenatlas vwo, chemosynthese"
+  },
+  {
+   "waarde": "hydrothermale bronnen: ± 1000 bekend, tot 5000 m diep, tot 350 °C; kokerwormen zonder mond met bacteriën in een zak",
+   "bron": "NIOZ, Gollner, Vulkanen in de diepzee (2021)"
+  }
+ ],
+ "uitspraak": [
+  {
+   "woord": "autotroof",
+   "invoer": "autotroof",
+   "ipa": "/ˌɑu̯.toːˈtroːf/",
+   "bron": "bron/info.md Alles gaat rond (afgeleid, klemtoon op troof); wachtlijst"
+  },
+  {
+   "woord": "heterotroof",
+   "invoer": "heterotroof",
+   "ipa": "/ˌɦeː.tə.roːˈtroːf/",
+   "bron": "idem"
+  },
+  {
+   "woord": "chemo-autotroof",
+   "invoer": "geemo-autotroof",
+   "ipa": "/ˌɣeː.moː.ɑu̯.toːˈtroːf/",
+   "bron": "bron/info.md Alles gaat rond: risico Engels \"kee-mo\"; let op: les van eleven_v4 is dat gewone spelling meestal wint — eerst \"chemo-autotroof\" proberen"
+  },
+  {
+   "woord": "detritus",
+   "invoer": "detritus",
+   "ipa": "/deːˈtri.tʏs/ (afgeleid)",
+   "bron": "geen Nederlandse IPA gevonden: twijfelwoord"
+  },
+  {
+   "woord": "mineralisatie",
+   "invoer": "mineralisatie",
+   "ipa": "/mi.nə.raː.liˈzaː.(t)si/",
+   "bron": "zoals transcriptiefactor: \"tie\" = \"sie\" (Kamiels lijst); wachtlijst"
+  },
+  {
+   "woord": "zwavelwaterstof",
+   "invoer": "zwavelwaterstof",
+   "ipa": "/ˈzʋaː.vəl.ʋaː.tər.stɔf/",
+   "bron": "gewoon Nederlands samengesteld woord"
+  },
+  {
+   "woord": "lignine",
+   "invoer": "lignine",
+   "ipa": "/lɪɣˈni.nə/",
+   "bron": "afgeleid (-ine gewoon, zoals serotonine in de uitspraaklijst); wachtlijst"
+  },
+  {
+   "woord": "Yde",
+   "invoer": "Yde",
+   "ipa": "/ˈɛi.də/",
+   "bron": "Drentse plaatsnaam (ij-klank); twijfelwoord, op de wachtlijst"
+  },
+  {
+   "woord": "C/N-verhouding",
+   "invoer": "C-N-verhouding",
+   "ipa": "/seː ɛn/",
+   "bron": "letters los zoals E-R en P-H in de lijst"
+  },
+  {
+   "woord": "koolstofdioxide",
+   "invoer": "koolstofdie-oxide",
+   "ipa": "—",
+   "bron": "uitspraak.json (regel staat al)"
+  },
+  {
+   "woord": "jaartal",
+   "invoer": "het jaar 1897",
+   "ipa": "—",
+   "bron": "Kamiels vaste afspraak"
+  }
+ ],
+ "nieuw_in_bibliotheek": [
+  "e4Logboek — logboekkaart (datum · massa · wie · vrijgekomen) die regel voor regel volloopt",
+  "e4Gaaszakje — zakje met maaswijdte (grof/middel/fijn) met een eikenblad (ecoEikenblad met stadium)",
+  "e4Molecuul — kleine vormpjes: cellulose/zetmeel/eiwit (groene keten), CO₂, H₂O, nitraat (blauw), fosfaat (oranje), ammonium",
+  "e4Composthoop — hoop in doorsnede met luchtkanalen, thermometer",
+  "e4Veen — veendoorsnede met lagen, veenmoskussens; e4Yde — silhouet onder een omslagdoek (twijfelscène)",
+  "e4ZwarteRoker — hete bron in de diepzee in een zoomcirkel; e4Bacterie — staafbacterie",
+  "e4Tuin — achtertuin met schutting en moestuinbak (decor composthoop)",
+  "e4Eik — eik in zomer met opname-pijlen; e4Weegschaal — klein weegschaaltje met display"
+ ],
+ "keuzes_en_twijfels": [
+  "B15: combinatie W (geraamte C dossier) won ronde 2 nipt (37 tegen 36 voor C alleen); de twee herstelpunten waar de beoordelaar de winst aan ophing (puzzel sluiten met meerjarige afbraak; scènes ontstapelen) zijn uitgevoerd: aparte scènes voor detrituseters, reducenten, de nitraatreis en de energie.",
+  "Massaverloop in het logboek (1,0 → 0,7 → 0,4 → 0,1 g) is een model: bronnen zeggen \"een jaar of langer\" en voor eikenblad blijft in de late fase 57–95 % onafgebroken in sommige proeven (Davey). Ik zeg \"ongeveer een derde weg\" en \"een paar jaar\"; Kamiel kan de getallen schrappen.",
+  "De wolf, de ree en het kadaver uit Alles gaat rond zijn bewust niet gebruikt (de wolf hoort in de extra film).",
+  "Composthoop: een tiener (Noor) gooit afval op de hoop; geen naam in de vertelling. De ecoloog is Ecoloog Bas (eigen vak, vaste rol).",
+  "C/N-verhouding staat in H3 (composthoop) als vwo-scène; chemo-autotroof staat aan het eind van H4 (vwo) en beantwoordt puzzel C. Basislijn zonder die scènes loopt door.",
+  "Vragen-uit: na de vraag over de verdwenen massa begint de vertelling met \"Een stof kan niet zomaar verdwijnen\", niet met een verwijzing naar de vraag.",
+  "Review MOET F4-1 (e4s01, e4s38): gaaszakje nu ± 15 cm naast de ecoloog (op schaal) met een zoomcirkel; blad erin op schaal.",
+  "Review MOET F4-2 (e4s24, e4s25): composthoop en moestuin in een eigen tuindecor (schutting, moestuinbak), niet meer in het eikenbos.",
+  "Review MOET F4-3 en coördinator: de gaaszakjesproef staat nu in de basislijn (e4s22, e4s23) met een staafdiagram om te lezen (125 g → 53 g en 89 g) en een basis-checkvraag met percentages; middel gaas geschrapt (geen bron voor die waarde). De getallen komen uit een examenstijl-oefenopgave met beukenblad, geen gepubliceerde meting.",
+  "Review MOET F4-4 en coördinatorbesluit 3/4: chemo-autotroof alleen nog met de zwarte roker (e4s35, geen nitrificeerders: die horen in F7); C/N blijft hier en vergelijkt vers gras (± 15) met eikenblad (± 40–80), zonder stro.",
+  "Review KAN (e4s04): afgevallen blad = vooral cellulose en lignine; de eik trekt eiwitten (stikstof) vóór de bladval terug (Niinemets & Tamm 2005); lignine ook in de samenvatting als reden voor trage afbraak.",
+  "Review KAN (e4s16): een deel van de verdwenen massa zit tijdelijk in de lichamen van de opruimers.",
+  "Review KAN (e4q20): energievraag omgezet in een leerlinguitspraak die je beoordeelt, zodat hij niet meer lijkt op e5q23.",
+  "Review KAN (e4s14): Februari werd Intussen.",
+  "De misvatting \"planten ademen niet\" zit in de energievraag-scène als zin (\"Ook de eik dissimileert, dag en nacht\"), niet als eigen vraag; de vraag zelf toetst \"energie gaat rond\"."
+ ],
+ "b15": {
+  "trekking": "run 2 van de dobbelsteen: A klassiek · B opening, camerabeweging · C dossier (logboek van één eikenblad)",
+  "varianten": {
+   "A": "Klassiek: organisch/anorganisch → auto/heterotroof → opruimers → composthoop → veen.",
+   "B": "Eén verticale camerareis van kroon via strooisel en bodem terug omhoog; opening met een blad in je hand.",
+   "C": "Dossier: logboek van één eikenblad in een gaaszakje, met de kolom vrijgekomen; composthoop en veen als twee extra dossiers."
+  },
+  "scores": {
+   "ronde1": {
+    "A": 30,
+    "B": 32,
+    "C": 36,
+    "max": 50,
+    "labels": {
+     "A": "X",
+     "B": "Z",
+     "C": "Y"
+    }
+   },
+   "ronde2": {
+    "combinatie_W": 37,
+    "A": 30,
+    "B": 32,
+    "C": 36
+   }
+  },
+  "winnaar": "C (dossier), uitgewerkt als combinatie W",
+  "reden": "C won ronde 1 duidelijk (36-32-30): het logboek maakt \"materie verdwijnt niet\" tot de structuur, met de ecoloog als menselijk moment en de beste afleiders. W won ronde 2 nipt; de herstelpunten zijn verwerkt.",
+  "beoordelaar_model": "sonnet (claude-sonnet-5-5)",
+  "overgenomen": [
+   "nitraatreis de wortel in en de stam omhoog (B)",
+   "laag voor laag terug in de tijd door het veen (B)",
+   "composthoop en veen als eigen hoofdstukken (A)",
+   "realistisch massaverlies en grof gaas, tweede beurt ecoloog, energievraag, puzzel gesloten (advies)"
+  ]
+ }
+}

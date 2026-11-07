@@ -1,0 +1,92 @@
+{
+ "slug": "ecologie-3-een-plan-voor-de-natuur",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Een plan voor de natuur",
+ "sub": "van doel tot herstel",
+ "puzzle": "Een maisakker naast de heide wordt natuur. Waarom haal je dan eerst de bovenste laag grond weg?",
+ "meta": "ecologie en natuurbeheer · hbo en wo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Ecologie en natuurbeheer",
+ "lead": "Daan loopt stage bij een natuurbeheerder. Bas, de ecoloog, maakt een plan voor een maisakker naast de heide. Eerst het doel: de heide hoort bij Natura 2000, en voor droge heide ligt vast dat er meer en betere moet komen; de tapuit wordt de doelsoort. De overheid beslist, de ecoloog adviseert. Dan de bodem: in de bouwvoor zit het fosfaat van jaren bemesten, en op rijke grond wint gras van heide. Maaien haalt ± 10 kg fosfor per hectare per jaar weg, uitmijnen ± 40 kg, afgraven alles in één keer. Op de Reijerscamp bij Wolfheze werd in 2006 afgegraven en een laagje heidegrond gestrooid. Daarna: waarom een los gebied traag nieuwe dieren krijgt, en hoe je met vegetatieopnamen meet of het plan werkt en bijstuurt.",
+ "endHaak": "komt de tapuit terug?",
+ "minis": {
+  "Hoofdstuk 1": "Wie bepaalt welke natuur hier moet komen?",
+  "Hoofdstuk 2": "Waarom wordt een akker niet vanzelf heide?",
+  "Hoofdstuk 3": "Komen de dieren vanzelf als het gebied goed is?",
+  "Hoofdstuk 4": "Hoe weet je of het plan werkt?",
+  "Recap": "Waarom haal je eerst de bovenste laag weg?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Daan (stagiair) en Ecoloog Bas (castboek; voorstel). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Deze maisakker naast de heide wordt natuur. Toch laat Bas, de ecoloog, de donkere bovenlaag afgraven. Waarom?",
+   "correct": 2,
+   "explain": "In de donkere bovenlaag zit het fosfaat van jaren bemesten. Op zulke rijke grond groeit vooral snel gras, en dat wint het van heide."
+  },
+  "q08": {
+   "q": "Wie beslist dat deze akker heide wordt?",
+   "correct": 0,
+   "explain": "De overheid beslist: Europa maakte de regels, het Rijk wijst de gebieden en hun doelen aan, de provincie maakt het beheerplan en zet de akker op de kaart. De ecoloog levert de kennis en het advies."
+  },
+  "q14": {
+   "q": "Uitmijnen haalt ongeveer veertig kilo fosfor per hectare per jaar weg. Stel dat er vierhonderd kilo fosfor per hectare uit moet. Hoe lang duurt uitmijnen dan?",
+   "correct": 1,
+   "explain": "400 ÷ 40 = 10 jaar. Met maaien (± 10 kilo per jaar) zou het 400 ÷ 10 = 40 jaar duren. Het is een rekenvoorbeeld: in echte proeven duurt uitmijnen meestal tien tot twintig jaar."
+  },
+  "q20": {
+   "q": "Op de Reijerscamp waren na tien jaar veel zeldzame loopkevers weer weg. Een proef in Drenthe kreeg sneller echte heidekevers. Hoe kan dat?",
+   "correct": 0,
+   "explain": "Volgens de onderzoekers lag de proef in Drenthe direct naast een grote heide, zodat de kevers konden binnenlopen. De Reijerscamp ligt verder van een grote heide."
+  },
+  "q24": {
+   "q": "Na zes jaar: niets gedaan = bijna alles begroeid, alleen afgegraven = ongeveer een kwart, afgegraven met heidegrond = ruim de helft. Welk stuk lijkt het meest op droge heide?",
+   "correct": 1,
+   "explain": "Meer groen is niet beter: het gaat om de goede soorten. Op het stuk met heidegrond groeide een jonge heide; het stuk waar niets was gedaan, leek het minst op droge heide."
+  }
+ },
+ "glossary": [
+  {
+   "t": "natuurdoel / doelsoort",
+   "d": "Het type natuur of de soort waarvoor een gebied beheerd wordt. Hier: droge heide als natuurdoel, de tapuit als doelsoort."
+  },
+  {
+   "t": "Natura 2000",
+   "d": "Europees netwerk van beschermde natuurgebieden, op grond van de Vogelrichtlijn en de Habitatrichtlijn. Nederland heeft er ruim 160."
+  },
+  {
+   "t": "habitattype",
+   "d": "Een vast type natuur, met een eigen lijst van planten en eisen aan de bodem, bijvoorbeeld droge heide."
+  },
+  {
+   "t": "instandhoudingsdoel",
+   "d": "Wat er per Natura 2000-gebied moet gebeuren met een habitattype of soort: behoud of uitbreiding van de oppervlakte, en behoud of verbetering van de kwaliteit."
+  },
+  {
+   "t": "bouwvoor",
+   "d": "De bovenste laag van een akker (± 20–40 cm) die jarenlang geploegd en bemest is. Daarin zit veel fosfaat."
+  },
+  {
+   "t": "verschralen",
+   "d": "Een voedselrijke grond arm maken, zodat soorten van arme grond (zoals heide) een kans krijgen: maaien en afvoeren, uitmijnen of afgraven."
+  },
+  {
+   "t": "uitmijnen",
+   "d": "Gewassen blijven telen en de oogst afvoeren, met wel stikstof maar zonder fosfaat te geven. Zo haal je ± 40 kg fosfor per hectare per jaar weg."
+  },
+  {
+   "t": "populatie",
+   "d": "Alle individuen van één soort in één gebied. Een kleine, losse populatie sterft makkelijker uit en krijgt moeilijk nieuwe dieren erbij."
+  },
+  {
+   "t": "monitoring en vegetatieopname",
+   "d": "Monitoring: steeds op dezelfde manier herhaald meten, zodat je een verandering kunt zien. Een vegetatieopname: in een afgebakend vierkant alle plantensoorten noteren met hoeveel grond elke soort bedekt."
+  },
+  {
+   "t": "adaptief beheer",
+   "d": "Leren door te doen: je meet wat een maatregel doet en past het plan aan op wat je meet."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Leg met de heide op de Veluwe als voorbeeld uit wat een habitattype is, wat een instandhoudingsdoel is en wat een doelsoort is. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Een habitattype is een vast type natuur met een eigen lijst van planten en eisen aan de bodem, bijvoorbeeld droge heide (1p). Een instandhoudingsdoel zegt wat er in een Natura 2000-gebied met dat type moet gebeuren; voor droge heide op de Veluwe: uitbreiding van de oppervlakte en verbetering van de kwaliteit (1p). Een doelsoort is een soort waarvoor het gebied beheerd wordt, zoals de tapuit, een vogel van open, kale heide (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Een buurman zegt: 'De ecoloog heeft besloten dat die akker heide moet worden.' Klopt dat? Leg uit wie wat doet. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Nee: de overheid beslist, de ecoloog adviseert (1p). Europa maakte de regels (Vogel- en Habitatrichtlijn), het Rijk wijst de gebieden aan met hun doelen, de provincie maakt het beheerplan en zet de akker op de kaart (1p). De ecoloog levert de kennis: wat kan hier groeien, en hoe kom je er (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Iemand zegt: 'Meer voedsel in de grond is goed voor de natuur, want dan groeit er meer.' Leg uit waarom dat voor heide niet klopt. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Op voedselrijke grond groeien snelle grassen het hardst; die groeien over heide en andere soorten van arme grond heen (1p). Heide en veel bedreigde planten groeien juist op grond met weinig fosfaat, dus 'meer groen' betekent hier minder van de soorten die je wilt (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Op een akker moet 600 kilo fosfor per hectare weg. Maaien en afvoeren haalt ongeveer 10 kilo fosfor per hectare per jaar weg, uitmijnen ongeveer 40. Bereken voor allebei hoe lang het duurt en noem één voor- en één nadeel van afgraven. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Maaien: 600 ÷ 10 = 60 jaar (1p). Uitmijnen: 600 ÷ 40 = 15 jaar (1p). Afgraven: voordeel snel (de fosfaatrijke bouwvoor is in één keer weg); nadeel duur, en je haalt ook het bodemleven en de zaden weg (1p).</p></details></div>\n<div class=\"q\"><p><b>5.</b> Een vriend denkt dat uitmijnen hetzelfde is als 'niet meer bemesten'. Leg het verschil uit. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Bij uitmijnen blijf je gewassen telen en voer je de oogst af; elke oogst neemt fosfor mee (1p). Je geeft wel stikstof (of kalium), zodat het gewas goed blijft groeien en veel fosfor opneemt, maar geen fosfaat (1p).</p></details></div>\n<div class=\"q\"><p><b>6.</b> Leg uit waarom een klein, los heideveld na een verbetering minder snel nieuwe diersoorten krijgt dan een veld naast een groot heidegebied. Noem één manier om dat te verbeteren. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Dieren moeten van elders komen; vanuit een groot gebied vlakbij kunnen ze binnenlopen of vliegen, naar een ver, los veld nauwelijks (1p). Een kleine populatie sterft bovendien makkelijker uit door pech, en wordt dan moeilijk opnieuw bevolkt (1p). Verbinden helpt, bijvoorbeeld met een ecoduct of een strook natuur tussen de gebieden (1p).</p></details></div>\n<div class=\"q\"><p><b>7.</b> Een beheerder zegt: 'Het stuk waar we niets deden is na zes jaar bijna helemaal groen. Dat werkt dus het best.' Leg uit wat er mis is aan deze redenering en hoe een ecoloog meet of het doel dichterbij komt. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Hoeveel er groeit zegt niet of het de goede soorten zijn; dat stuk leek op de Reijerscamp juist het minst op droge heide (1p). Een ecoloog maakt vegetatieopnamen: in vaste vierkanten alle plantensoorten noteren met hun bedekking (1p), elk jaar op dezelfde plekken en op dezelfde manier, en vergelijkt dat met de soorten van het doel; valt het tegen, dan stuurt hij bij (adaptief beheer) (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Film 3 van <i>Wat word jij?</i> → Ecologie en natuurbeheer (id <code>natuurplan</code>). Daan loopt in de hele reeks stage bij een fictieve natuurbeheerder; Ecoloog Bas is zijn begeleider. Het gebied is fictief en Veluwe-achtig (heide met ven, bos, snelweg met ecoduct, en een maisakker aan de rand die natuur wordt). Film 1 telt er dieren (monitoring, trend), film 2 meet de stikstof, deze film maakt het plan voor de akker. Bouwt voort op <i>Alles gaat rond</i> (successie), <i>Ingrijpen of laten gaan?</i> (grazers, maaien en afvoeren, ecoduct), <i>Binnen de grenzen</i> (biodiversiteit, rode lijst) en <i>Evolutie 5 Toeval en uitwisseling</i> (drift, genenstroom). De film is beschrijvend over beleid: hij zegt wie kiest, niet wat de keuze zou moeten zijn.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>Cold open</b> Daan in een kuil in de akker: bovenin donkere grond, daaronder licht zand. Waarom moet die donkere laag eraf?</li>\n<li><b>H1</b> Het plan begint met een doel. Natura 2000, instandhoudingsdoelen, habitattype droge heide met het doel voor de Veluwe (uitbreiding oppervlakte, verbetering kwaliteit); de tapuit als doelsoort. Wie beslist: Europa → Rijk → provincie; de ecoloog adviseert.</li>\n<li><b>H2</b> De bouwvoor als spaarpot vol fosfaat; arme tegen rijke grond. Drie wegen: maaien (± 10 kg fosfor/ha/jaar), uitmijnen (± 40 kg, met stikstof maar zonder fosfaat), afgraven. Rekenvoorbeeld 400 ÷ 40 = 10 jaar, tegen 400 ÷ 10 = 40 jaar. De Reijerscamp: afgraven in 2006 en een laagje heidegrond van één centimeter.</li>\n<li><b>H3</b> Kleine, losse populaties sterven makkelijker uit en worden traag opnieuw bevolkt; loopkevers op de Reijerscamp tegen de proef in Drenthe naast een grote heide; verbinden helpt.</li>\n<li><b>H4</b> Vegetatieopnamen en monitoring; de proefvakken van de Reijerscamp na zes jaar (bedekking en overeenkomst met droge heide); meer groen is niet beter; adaptief beheer als kringloop doel → maatregel → meten → bijsturen.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Natura 2000</td><td>Europees netwerk; Nederland ruim 160 gebieden</td><td>Rijksoverheid, <i>Beschermde natuurgebieden</i>; WUR, <i>Hoe komt Nederland aan 30 % beschermde natuur in 2030?</i> (162 gebieden)</td></tr>\n<tr><td>Instandhoudingsdoel droge heide, Veluwe</td><td>uitbreiding oppervlakte, verbetering kwaliteit</td><td>Ministerie LNV, <i>Gebiedendocument Veluwe</i> (057), 2006; RVO, <i>Natura 2000-gebied Veluwe</i></td></tr>\n<tr><td>Habitattype</td><td>vast type natuur met eigen plantenlijst en eisen aan de bodem</td><td>Natura 2000, <i>Leeswijzer Natura 2000-profielen</i> (2014), vereenvoudigd</td></tr>\n<tr><td>Tapuit</td><td>vogel van open, kale heide; in het binnenland sterk achteruitgegaan</td><td>Natura 2000, <i>Profiel vogel A277 Tapuit</i> (2008); Van Turnhout &amp; Van Beusekom, <i>Toevlucht voor de tapuit</i> (Sovon/Vogelbescherming, 2014)</td></tr>\n<tr><td>Wie beslist</td><td>Rijk wijst aan met doelen; provincie maakt beheerplan (elke zes jaar) en natuurbeheerplan met kaart</td><td>IPLO, <i>Beheerplan Natura 2000-gebied</i>; Provincie Gelderland, <i>Natuurbeheerplan N2000 Veluwe</i> (2018) en <i>Ontwerp Natuurbeheerplan 2027</i> (2026)</td></tr>\n<tr><td>Fosfaat en bedreigde soorten</td><td>op het kaartje: 7 van de 10 bedreigde soorten op fosfaatarme plekken (onderzochte natte graslanden en moerassen, NL/België)</td><td>Wassen e.a., <i>Nature</i> 437 (2005); Van Eekeren e.a., <i>De Levende Natuur</i> 2007; Van Mullekom e.a., <i>De Levende Natuur</i> 114 (2013)</td></tr>\n<tr><td>Maaien en afvoeren</td><td>± 10 kg fosfor per hectare per jaar; tientallen tot honderden jaren</td><td>Lamers e.a., <i>H2O</i> 17 (2005); Van Mullekom e.a. 2013; Chardon e.a., <i>De Levende Natuur</i> 110 (2009)</td></tr>\n<tr><td>Uitmijnen</td><td>± 40 kg fosfor per hectare per jaar (vier keer zoveel); wel stikstof, geen fosfaat; meestal 10–20 jaar</td><td>Van Mullekom e.a. 2013 (gemiddeld 40 kg P, factor vier); Chardon e.a. 2009 (46 kg P; Hengstven ± 10 jaar); Van Eekeren e.a. 2007 (9–18 jaar); Chardon e.a., <i>Landschap</i> 31 (2014)</td></tr>\n<tr><td>Drents-Friese Wold</td><td>rijkste grond: schatting 18–44 jaar</td><td>NP Drents-Friese Wold, <i>Eindrapportage pilotproject uitmijnen Oude Willem 2015–2019</i> (2019)</td></tr>\n<tr><td>Rekenvoorbeeld</td><td>400 kg fosfor ÷ 40 = 10 jaar; ÷ 10 = 40 jaar</td><td>eigen rekenvoorbeeld (geen meting); de uitkomst valt binnen de gemeten 10–20 jaar</td></tr>\n<tr><td>Bouwvoor en afgraven</td><td>20–40 cm; duur, bodemleven en zaden gaan mee; diepte via bodemonderzoek</td><td>Chardon e.a. 2009 (20–30 cm); Chardon e.a. 2014 (25–40 cm); Lamers e.a. 2005; Van Mullekom e.a. 2013</td></tr>\n<tr><td>Reijerscamp (Wolfheze)</td><td>2006 afgegraven; laagje heidegrond van ± 1 cm van vlakbij; na zes jaar bedekking ± 99 / 25 / 58 % (niets / afgegraven / met heidegrond)</td><td>Wubs e.a., <i>Landschap</i> 33(1) (2016); Wubs e.a., <i>Nature Plants</i> 2: 16107 (2016, abstract); NIOO-KNAW, <i>Soil inoculation works</i> (2016)</td></tr>\n<tr><td>Loopkevers</td><td>Reijerscamp: zeldzame soorten na tien jaar weer weg; Drenthe naast grote heide sneller heidekevers</td><td>Vermeulen &amp; Turin, <i>ARPHA Conference Abstracts</i> 2: e38866 (2019), toegeschreven 'volgens de onderzoekers'</td></tr>\n<tr><td>Kleine, losse populaties</td><td>sterven makkelijker uit, worden minder snel opnieuw bevolkt</td><td>Ricklefs, <i>The Economy of Nature</i> 7e, h. 13.5; Van der Meijden e.a., <i>Landschap</i> 25(3)</td></tr>\n<tr><td>Drenthe (Noordenveld)</td><td>laag heidegrond (plagsel) gaf snel een heide met zeldzame soorten</td><td>Provincie Drenthe / B-WARE / Universiteit Antwerpen, <i>Eindrapport praktijkproef Noordenveld</i> (2020); Weijters e.a., <i>Vakblad NBL</i> (2014)</td></tr>\n<tr><td>Vegetatieopname, adaptief beheer</td><td>vierkant, alle soorten met bedekking; leren door te doen</td><td>NDFF, <i>Protocol Vegetatieopname</i> (2024); Williams, <i>J. Environmental Management</i> 92 (2011)</td></tr>\n<tr><td>Opleidingen (oktober 2026)</td><td>hbo Bos- en natuurbeheer Velp (vier jaar); bachelor biologie Nijmegen; bos- en natuurbeheer Wageningen; mbo bij een groene school</td><td>Studiekeuze123 (Van Hall Larenstein; WUR); WUR, <i>Bachelor Bos- en Natuurbeheer</i>; Studiekeuze123 (Radboud, Biology); MBO Terra, <i>Natuur, Water &amp; Recreatie</i></td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul>\n<li><b>Fictief gebied.</b> De akker, de kuil en het plan van Bas zijn verzonnen; de Reijerscamp en de proeven in Drenthe zijn echt. Op de Reijerscamp lagen akkers (graan, graszaad, ook mais); de maisakker is van het reeksgebied.</li>\n<li><b>Fosfaat en fosfor.</b> Bronnen tellen de afvoer in kilo fosfor (P). Veertig kilo fosfaat (P₂O₅) is ± 17 kilo fosfor.</li>\n<li><b>Rekenvoorbeeld.</b> '400 kilo moet eruit' is geen meting; echte voorraden verschillen per akker en worden in andere eenheden gemeten. De afvoer bij uitmijnen zakt ook als de grond armer wordt.</li>\n<li><b>Waarom gras wint.</b> De film zegt 'op rijke grond groeien snelle grassen eroverheen'. Ook stikstof uit de lucht speelt mee bij vergrassing van heide (film 2); dat laat deze film weg.</li>\n<li><b>Tapuit.</b> Een tapuit op een net afgegraven akker is optimistisch: hij heeft open, kale, insectenrijke heide en konijnen nodig. De jongste bron die we openden is van 2014.</li>\n<li><b>Reijerscamp-oppervlakten.</b> Bronnen noemen 180 of 200 ha en ontgrondingen van 2,7–4,6 of 5–10 ha; de film zegt 'een paar stukken'. Zaden en bodemleven in de heidegrond zijn in de proef niet te scheiden.</li>\n<li><b>Afgeronde gemiddelden.</b> De balken in H4 tonen afgeronde gemiddelden (met '±'); de spreiding staat niet in beeld, omdat het artikel die niet in tekst geeft.</li>\n</ul>\n<h3>Lessuggesties</h3>\n<ul>\n<li>Laat leerlingen een tabel maken met maaien, uitmijnen en afgraven: hoe snel, hoe duur, wat gaat er verloren? Laat ze daarna voor een akker naast een heide een keuze verdedigen.</li>\n<li>Rekenopdracht: varieer de voorraad (200, 400, 800 kg fosfor) en laat zien hoe de duur verandert bij 10 en 40 kg per jaar. Bespreek waarom de echte afvoer bij uitmijnen in de loop van de jaren daalt.</li>\n<li>Rollenspel 'wie beslist': Europa, Rijk, provincie, ecoloog en buurman zitten aan tafel. Wie mag wat zeggen?</li>\n<li>Veldwerk op het schoolplein of in een park: zet vierkanten van 1 × 1 m uit, noteer de soorten en schat de bedekking. Wat zou je elk jaar opnieuw moeten doen om een verandering te zien?</li>\n</ul>\n</section>\n"
+}

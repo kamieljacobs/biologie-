@@ -1,0 +1,17 @@
+{
+ "titel": "Waarom bonkt je hart voor een spreekbeurt?",
+ "ondertitel": "Lotte staat voor de klas en haar hart bonkt. Wat doet stress in je lichaam, wanneer helpt het en wat brengt je terug naar rust?",
+ "meta": "32C · film 5",
+ "kerndoel": "32C",
+ "versie": "1.0", "datum": "3 november 2026",
+ "titelseg": "s02",
+ "scenes": "scenes_32c5.js",
+ "hold": {"s18": 12.0},
+ "mini": {"Hoofdstuk 1": "Het alarm gaat af", "Hoofdstuk 2": "Als het alarm blijft hangen", "Hoofdstuk 3": "Terug naar rust", "Samenvatting": "Eén alarm, aan en weer uit"},
+ "checkvragen": [
+  {"titel": "Korte stress", "pts": "1 punt", "vraag": "Je moet zo een spreekbeurt houden en je hart bonkt. Wat doet je lichaam? A. Het raakt in de war; dat is slecht voor je. · B. Het maakt je klaar om iets te doen: hart, ademhaling en spieren doen mee. · C. Niets; stress zit alleen in je hoofd.", "antwoord": "B (1): korte stress is een reactie van je hele lichaam die je scherp kan maken."},
+  {"titel": "Wat helpt", "pts": "1 punt", "vraag": "Wat helpt je lichaam het best terug naar rust na een drukke dag? A. tot laat scrollen op je telefoon · B. bewegen, buiten zijn, genoeg slapen of praten met iemand · C. nog een uur doorwerken", "antwoord": "B (1): scrollen voelt als rust, maar je hoofd ziet steeds iets nieuws en je gaat vaak later slapen."},
+  {"titel": "Eén alarm", "pts": "2 punten", "vraag": "Er is geen leeuw in de klas. Leg uit waarom je hart toch bonkt voor een spreekbeurt.", "antwoord": "Je lichaam heeft maar één alarm, voor gevaar én voor iets spannends (1). Je hersenen zetten het aan en je hart, ademhaling en spieren maken je klaar om iets te doen (1)."},
+  {"titel": "De keten", "pts": "2 punten", "vraag": "Beschrijf de keten van je hersenen naar je hart bij stress, en leg uit waarom die keten bij gevaar handig is.", "antwoord": "Hersenen → via zenuwen een seintje naar de bijnieren → adrenaline in het bloed → hart klopt sneller (1). Met meer bloed in je spieren kun je beter vechten of vluchten (1).", "uitdaging": true}
+ ]
+}

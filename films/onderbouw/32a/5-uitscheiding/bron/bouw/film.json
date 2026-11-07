@@ -1,0 +1,78 @@
+{
+ "title": "Uitscheiding",
+ "nr": "5",
+ "sub": "Waar blijft het afval van je cellen? Over je nieren, je longen, je huid, en de kleur van plas.",
+ "duur": 6,
+ "meta": "onderbouw · kerndoelen · film 5",
+ "mini": {
+  "Hoofdstuk 1": "Koolstofdioxide, ureum en te veel",
+  "Hoofdstuk 2": "Eerst eruit, dan het goede terug",
+  "Hoofdstuk 3": "Urineleiders, blaas en samenwerking",
+  "Samenvatting": "De route van het afval"
+ },
+ "subs": [
+  [
+   "'s Avonds",
+   "Savonds"
+  ]
+ ],
+ "hold": {
+  "s15": 12.0
+ },
+ "scene_files": [
+  "helpers.js",
+  "lib_cast.js",
+  "scenes5.js"
+ ],
+ "questions": {
+  "q05": {
+   "q": "Welke van deze drie hoort niet bij uitscheiding?",
+   "correct": 2,
+   "explain": "Appelresten in je ontlasting zijn nooit in je bloed geweest; ze reisden alleen door je darmen. Uitscheiding is afval uit je eigen cellen en je bloed."
+  },
+  "q08": {
+   "q": "Daan zweette veel en dronk weinig. Wat doen zijn nieren?",
+   "correct": 0,
+   "explain": "Ze halen bijna al het water terug. Er blijft weinig urine over, met evenveel afval en kleurstof: donkergeel."
+  },
+  "q12": {
+   "q": "Iemands nieren werken niet meer. Wat gebeurt er?",
+   "correct": 1,
+   "explain": "Afval en water hopen zich op in het bloed. Longen en huid kunnen het niet overnemen; dialyse of een donornier is nodig."
+  }
+ },
+ "glossary": [
+  [
+   "uitscheiding",
+   "Afvalstoffen uit je eigen stofwisseling, en wat je te veel hebt aan water en zout, je lichaam uit. Via je longen, je huid en vooral je nieren."
+  ],
+  [
+   "ureum",
+   "Afvalstof die ontstaat als je lichaam eiwitten afbreekt. Je lever maakt het; het lost goed op in water en gaat met je urine naar buiten."
+  ],
+  [
+   "urine",
+   "Plas: water met ureum, zout en een gele kleurstof. Je nieren maken het, ongeveer anderhalve liter per dag."
+  ],
+  [
+   "nieren",
+   "Twee filters achter in je buik. Eerst persen ze veel uit het bloed, dan halen ze terug wat je nodig hebt. Wat overblijft is urine."
+  ],
+  [
+   "urineleider",
+   "Dunne buis van een nier naar je blaas. Je hebt er twee."
+  ],
+  [
+   "blaas en plasbuis",
+   "De blaas is een rekbare spierzak die urine bewaart; via de plasbuis gaat de urine naar buiten."
+  ],
+  [
+   "nefron",
+   "Een van de ongeveer een miljoen filtertjes in een nier: een kluwen haarvaten filtert het bloed, een kronkelend buisje haalt suiker, water en zout terug.",
+   true
+  ]
+ ],
+ "check": "check.html",
+ "docent": "docent.html",
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personage Daan uit het castboek. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · 20 oktober 2026."
+}

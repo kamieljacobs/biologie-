@@ -1,0 +1,41 @@
+[
+ {
+  "obj": "schimmelGist",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 3,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 18
+   },
+   "Y": {
+    "klopt": 2,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 16
+   },
+   "Z": {
+    "klopt": 5,
+    "herkenbaar": 5,
+    "stijl": 5,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 23
+   }
+  },
+  "winnaar": "Z",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "hoofdbeeld is een algemeen sterpatroon-mycelium in een cirkel; Rhizopus met liggende draden, wortelachtige draadjes en sporendragers zie je alleen in de kleine loep",
+   "Y": "de Rhizopus-draden hebben dwarswanden (fout volgens recept), draden steken onder het brood uit in het niets, plus zwevende sporen en vlekken in het brood als decor",
+   "Z": "liggende draad is een vrij dikke buis; geen netwerk van vertakte hyfen te zien (mycelium-idee mager)"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ }
+]

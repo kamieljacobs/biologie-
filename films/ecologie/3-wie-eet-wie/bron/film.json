@@ -1,0 +1,145 @@
+{
+ "slug": "3-wie-eet-wie",
+ "hoofdstuk": "ecologie",
+ "hoofdstukNaam": "Ecologie",
+ "title": "Wie eet wie?",
+ "sub": "voedselwebben, rovers en prooien, symbiose",
+ "puzzle": "Waarom eet een vos de konijnen nooit allemaal op?",
+ "meta": "ecologie 3/8",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · reeks Ecologie · film 3 van 8",
+ "lead": "Langs dezelfde pijlen gaan ook stoffen die niet afbreken. Ze hopen zich op bij de eters bovenaan het web. Dat heet accumulatie. Meer daarover zie je in de film Eén aarde. Wie eet wie? De pijlen in een voedselweb wijzen van voedsel naar eter. Een rover doodt zijn prooi; bij vraat blijft de plant leven. En soorten leven ook samen: plus en plus, plus en nul, of plus en min. En de vos? Hoe minder konijnen, hoe moeilijker hij ze vindt. Hij eet dan iets anders en krijgt minder jongen. Zo kan het aantal vossen meegaan met het aantal konijnen, zoals bij lynxen en hazen. Daarom eet een vos de konijnen nooit allemaal op.",
+ "endHaak": "volgende film: Waar blijft het blad?",
+ "minis": {
+  "Hoofdstuk 1": "In welke richting wijst een pijl in een voedselketen?",
+  "Hoofdstuk 2": "Is een konijn dat aan een eikje knabbelt een rover?",
+  "Hoofdstuk 3": "Wat gebeurt er met een rover als zijn prooi schaars wordt?",
+  "Hoofdstuk 4": "Wie heeft voordeel als een gaai eikels verstopt?",
+  "Hoofdstuk 5": "Waarom heeft een parasiet soms twee gastheren nodig?",
+  "Recap": "Waarom eet een vos de konijnen nooit allemaal op?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Dieren: uitknippoppen uit de dierenbibliotheek en de ecologiepoppen; personages uit het castboek. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q06": {
+   "q": "Je tekent deze voedselketen met pijlen. Hoe loopt de pijl tussen het konijn en de vos?",
+   "correct": 0,
+   "explain": "In een voedselketen wijst de pijl van wie gegeten wordt naar wie eet. De pijl volgt het voedsel: de stoffen uit het konijn komen in de vos terecht. Lees de pijl dus als 'wordt gegeten door'."
+  },
+  "q15": {
+   "q": "Het konijn eet een deel van het eikje. Het eikje blijft leven. Hoe heet deze relatie?",
+   "correct": 2,
+   "explain": "Eet een dier een deel van een plant en blijft de plant leven, dan heet dat vraat. Bij predatie gaat de prooi dood: een rover doodt zijn prooi en eet hem op. Een vos die een konijn vangt, is een predator."
+  },
+  "q22": {
+   "q": "Kijk naar de piek van de hazen rond het jaar 1903. Wat doet de lijn van de lynx vlak daarna?",
+   "correct": 1,
+   "explain": "De lynxen pieken een jaar of twee na de hazen. Dat zie je bij elke golf opnieuw. Zo’n golf duurt ongeveer tien jaar."
+  },
+  "q26": {
+   "q": "In een duingebied haal je alle vossen weg. Wat gebeurt er met de konijnen?",
+   "correct": 1,
+   "explain": "Zonder vossen nemen de konijnen eerst toe. Maar ook dan houdt het op. Het gras raakt op, en in een drukke populatie verspreiden ziektes zich snel."
+  },
+  "q31": {
+   "q": "Wie heeft voordeel als een gaai eikels verstopt?",
+   "correct": 0,
+   "explain": "Een gaai verstopt in één herfst ongeveer vijfduizend eikels. In de winter en het voorjaar vindt hij er veel terug. Maar niet allemaal."
+  },
+  "q42": {
+   "q": "Uit een eitje komt een larve. Die kan geen schaap besmetten. Eerst moet hij een kleine slak vinden. Waarom heeft de leverbot die slak nodig?",
+   "correct": 2,
+   "explain": "Een larve uit het eitje zwemt in een plasje. Vindt hij binnen een dag geen leverbotslak, dan gaat hij dood. In de slak vermenigvuldigt hij zich: uit één larve komen er honderden."
+  },
+  "q46": {
+   "q": "Een leverbot doodt zijn gastheer meestal niet snel. Hoe komt dat?",
+   "correct": 0,
+   "explain": "Een leverbot leeft van een levend schaap. Leverbotten waardoor het schaap snel stierf, hadden minder tijd om eitjes te leggen. Ze lieten minder nakomelingen na."
+  }
+ },
+ "glossary": [
+  {
+   "t": "voedselketen",
+   "d": "Een rij organismen waarin elk organisme voedsel is voor het volgende. De pijl wijst van wie gegeten wordt naar de eter."
+  },
+  {
+   "t": "voedselweb",
+   "d": "Alle voedselketens in een gebied samen, met elkaar verbonden."
+  },
+  {
+   "t": "producent",
+   "d": "Organisme dat met licht zelf organische stoffen maakt (fotosynthese), zoals gras, helm of een eik. Staat altijd aan het begin van een voedselketen."
+  },
+  {
+   "t": "consument",
+   "d": "Organisme dat organische stoffen uit andere organismen haalt door ze (deels) te eten. Consument van de eerste orde eet producenten, van de tweede orde eet consumenten van de eerste orde, enzovoort."
+  },
+  {
+   "t": "herbivoor · carnivoor · omnivoor",
+   "d": "Planteneter · vleeseter · alleseter (eet planten én dieren, zoals de vos)."
+  },
+  {
+   "t": "aaseter",
+   "d": "Dier dat dode dieren eet die het niet zelf heeft gedood."
+  },
+  {
+   "t": "trofisch niveau",
+   "d": "De plaats van een organisme in een voedselketen: producent, consument van de eerste orde, van de tweede orde, enzovoort. Eén dier kan op meer niveaus zitten."
+  },
+  {
+   "t": "predatie",
+   "d": "Een predator (rover) doodt zijn prooi en eet hem op: +/−."
+  },
+  {
+   "t": "vraat",
+   "d": "Een dier eet een deel van een plant; de plant blijft leven: +/−."
+  },
+  {
+   "t": "afweer tegen vraat",
+   "d": "Eigenschappen waarmee een plant minder gegeten wordt, zoals stekels (braam) en bittere of slecht verteerbare stoffen (looizuren in eikenblad)."
+  },
+  {
+   "t": "predator-prooirelatie",
+   "d": "De aantallen van rover en prooi golven samen; de rover piekt iets later dan de prooi (sneeuwschoenhaas en lynx: golf van ongeveer tien jaar, lynx één tot twee jaar later)."
+  },
+  {
+   "t": "symbiose",
+   "d": "Twee soorten leven langdurig en nauw met elkaar samen. Vormen: mutualisme, commensalisme, parasitisme."
+  },
+  {
+   "t": "mutualisme",
+   "d": "Symbiose waarbij beide soorten voordeel hebben: +/+ (gaai en eik)."
+  },
+  {
+   "t": "commensalisme",
+   "d": "Symbiose waarbij de ene soort voordeel heeft en de andere geen voordeel en geen nadeel: +/0 (bergeend die broedt in een konijnenhol)."
+  },
+  {
+   "t": "parasitisme",
+   "d": "Symbiose waarbij de parasiet voordeel heeft en de gastheer nadeel; de parasiet leeft lange tijd van een levende gastheer: +/− (leverbot in een schaap)."
+  },
+  {
+   "t": "gastheer",
+   "d": "Organisme waarin of waarop een parasiet leeft."
+  },
+  {
+   "t": "eindgastheer · tussengastheer",
+   "d": "Gastheer waarin de parasiet volwassen wordt en zich geslachtelijk voortplant (schaap) · gastheer waarin de larven leven en zich vaak vermenigvuldigen (leverbotslak)."
+  },
+  {
+   "t": "levenscyclus",
+   "d": "De vaste rij stadia die een parasiet doorloopt, van ei via larve en tussengastheer terug naar de eindgastheer."
+  },
+  {
+   "t": "darmflora",
+   "d": "De bacteriën die in je darm leven; de relatie met de mens is mutualisme (vitamine K, afbraak van onverteerbare resten).",
+   "vwo": true
+  },
+  {
+   "t": "mycorrhiza",
+   "d": "Symbiose tussen schimmeldraden en plantenwortels: de schimmel levert water en mineralen, de plant suikers (mutualisme).",
+   "vwo": true
+  }
+ ],
+ "sections": "<section><h2>Checkvragen</h2>\n  <p class=\"meta\">antwoorden ingeklapt</p>\n  <div class=\"q\"><p><b>1.</b> In een duingebied eten konijnen gras, eten muizen zaden, eten vossen konijnen en muizen, en eet een buizerd muizen. Teken het voedselweb met pijlen en noem de producent en de consumenten van de tweede orde.</p><details><summary>Antwoord</summary><p>Pijlen van voedsel naar eter: gras → konijn, zaden (plant) → muis, konijn → vos, muis → vos, muis → buizerd. Producent: de plant (gras, zaden). Consumenten van de tweede orde: vos en buizerd.</p></details></div>\n  <div class=\"q\"><p><b>2.</b> Leg uit wat het verschil is tussen predatie en parasitisme. Geef bij allebei een voorbeeld uit de film.</p><details><summary>Antwoord</summary><p>Bij predatie doodt de rover zijn prooi en eet hem op (vos en konijn, lynx en haas). Bij parasitisme leeft de parasiet lange tijd van een gastheer die blijft leven (leverbot in een schaap). Allebei +/−.</p></details></div>\n  <div class=\"q\"><p><b>3.</b> In de grafiek van de pelshandel piekt de lynx een of twee jaar na de sneeuwschoenhaas. Leg dit uit.</p><details><summary>Antwoord</summary><p>Bij veel hazen is er veel voedsel: meer jonge lynxen overleven en het aantal lynxen stijgt pas daarna. Veel lynxen eten veel hazen (en de hazen vinden minder voedsel), zodat de hazen dalen; daarna dalen ook de lynxen door voedselgebrek.</p></details></div>\n  <div class=\"q\"><p><b>4.</b> Een leerling zegt: &quot;Een parasiet wil zijn gastheer in leven houden, anders heeft hij geen voedsel meer.&quot; Verbeter deze uitspraak.</p><details><summary>Antwoord</summary><p>Een parasiet wil niets. Parasieten die hun gastheer snel doodden, hadden minder tijd om nakomelingen te maken en lieten dus minder nakomelingen na; daardoor komen vooral parasieten voor die hun gastheer niet snel doden.</p></details></div>\n  <div class=\"q\"><p><b>5.</b> Noem de eindgastheer en de tussengastheer van de leverbot en leg uit waarom de leverbot de tussengastheer nodig heeft.</p><details><summary>Antwoord</summary><p>Eindgastheer: het schaap (volwassen worm, eitjes). Tussengastheer: de leverbotslak. In de slak vermenigvuldigen de larven zich: uit één larve komen er honderden, die als cysten op het gras komen.</p></details></div>\n  <div class=\"q\"><p><b>6.</b> Een bergeend broedt in een konijnenhol. Een gaai verstopt eikels. Benoem beide relaties met plus, min en nul en met de juiste naam.</p><details><summary>Antwoord</summary><p>Bergeend en konijn: +/0, commensalisme. Gaai en eik: +/+, mutualisme (de gaai krijgt voedsel, vergeten eikels kiemen ver van de boom).</p></details></div>\n  <div class=\"q vwo-only\"><p><b>7.</b> Leg uit waarom mycorrhiza een vorm van mutualisme is. Noem welke stoffen elke partner krijgt. <span class=\"vwo-badge\">vwo</span></p><details><summary>Antwoord</summary><p>Beide partners hebben voordeel: de schimmel (heterotroof) krijgt suikers uit de fotosynthese van de plant; de plant krijgt via de schimmeldraden water en mineralen (stikstof, fosfaat) uit bodem die de wortel zelf niet bereikt.</p></details></div>\n  <div class=\"q vwo-only\"><p><b>8.</b> Leg uit waarom de relatie tussen jou en je darmbacteriën mutualisme is en geen commensalisme. <span class=\"vwo-badge\">vwo</span></p><details><summary>Antwoord</summary><p>Ook de mens heeft voordeel: de bacteriën breken voedselresten af die wij niet kunnen verteren en maken stoffen die wij gebruiken, zoals vitamine K. De bacteriën krijgen voedsel en een woonplaats. Dus +/+.</p></details></div>\n</section>\n<section><h2>Voor de docent</h2>\n  <h3>Hoe de film het uitlegt</h3>\n  <table><tr><th>Hoofdstuk</th><th>Type · look</th><th>Minivraag</th></tr>\n  <tr><td>1. Pijlen van voedsel</td><td>F · Schema</td><td>In welke richting wijst een pijl in een voedselketen?</td></tr>\n  <tr><td>2. Eten zonder te doden</td><td>F · Macro</td><td>Is een konijn dat aan een eikje knabbelt een rover?</td></tr>\n  <tr><td>3. De golven</td><td>F · Schema</td><td>Wat gebeurt er met een rover als zijn prooi schaars wordt?</td></tr>\n  <tr><td>4. Samenleven</td><td>F · Macro</td><td>Wie heeft voordeel als een gaai eikels verstopt?</td></tr>\n  <tr><td>5. Twee gastheren</td><td>C · Schema</td><td>Waarom heeft een parasiet soms twee gastheren nodig?</td></tr>\n  </table>\n  <h3>Getallen en bronnen</h3>\n  <table><tr><th>Wat</th><th>Bron</th></tr>\n  <tr><td>sneeuwschoenhaas–lynx: golf van ongeveer 10 jaar; lynx volgt de haas met 1–2 jaar vertraging; ± 95 % van de gezenderde hazen stierf door predatie</td><td>Krebs e.a., The lynx-hare cycle (zoology.ubc.ca/~krebs/papers/180.pdf)</td></tr>\n  <tr><td>pelsvangsten Hudson’s Bay Company 1845–1935, in duizenden vellen; grafiek 1900–1920: haas 30; 47,2; 70,2; 77,4; 36,3; 20,6; 18,1; 21,4; 22; 25,4; 27,1; 40,3; 57; 76,6; 52,3; 19,5; 11,2; 7,6; 14,6; 16,2; 24,7 · lynx 4; 6,1; 9,8; 35,2; 59,4; 41,7; 19; 13; 8,3; 9,1; 7,4; 8; 12,3; 19,5; 45,7; 51,1; 29,7; 15,8; 9,7; 10,1; 8,6 (pieken haas 1903 en 1913, lynx 1904 en 1915)</td><td>Odum 1953, Fundamentals of Ecology, via jmahaffy.sdsu.edu (lab q3v1) en R-pakket astsa (Hare/Lynx, 1845–1935); vangsten, geen tellingen; reeks samengesteld uit meerdere gebieden (rdrr.io ecostudy/lynxhare)</td></tr>\n  <tr><td>lynx: in de winter &gt; 75 % sneeuwschoenhaas; bij veel hazen ± 1 haas per 1–2 dagen</td><td>Hinterland Who’s Who, Canada lynx (hww.ca)</td></tr>\n  <tr><td>myxomatose in de Hollandse duinen vanaf september 1953; &gt; 95 % minder konijnen in 1956; VHS/RHD 1990–2003 nog eens ± 90 % minder</td><td>Van der Meijden, Holland’s Duinen 72 (Dunea), p. 6</td></tr>\n  <tr><td>tapuit en bergeend nestelen graag in konijnenholen</td><td>NH Nieuws, Schoorlse duinen bijna zonder konijnen (nhnieuws.nl/nieuws/210341)</td></tr>\n  <tr><td>vos in de duinen rond 1400 uitgeroeid, sinds 1968 terug</td><td>Van der Meijden, Holland’s Duinen 72 (Dunea), p. 8</td></tr>\n  <tr><td>gaai verstopt ± 5000 eikels per herfst, elk apart</td><td>Bossema (1979), samengevat in Straatgras 1979 (natuurtijdschriften.nl STR1979011004001); Rodi Heiloo: tot 6000, tot 5 tegelijk in de keelzak</td></tr>\n  <tr><td>gaai vervoert eikels tot ± een halve kilometer ver; tot 9 tegelijk, meestal 1–2</td><td>The Rattling Crow (2025) met Pons &amp; Pausas 2007 en Kurek e.a. 2019</td></tr>\n  <tr><td>looizuren in eikenblad nemen in de loop van de zomer toe</td><td>Feeny 1970, Ecology 51, geciteerd in Suurd 2022 (RUG-scriptie)</td></tr>\n  <tr><td>leverbot volwassen 2,0–3,5 cm lang, in de galgangen; tot 300 eitjes per dag; cercariën 5–7 weken na besmetting van de slak; honderden (soms duizenden) per besmetting</td><td>Para-site, Fasciola hepatica (parasite.org.au)</td></tr>\n  <tr><td>trilhaarlarve sterft als hij binnen 24 uur geen slak vindt; Galba truncatula in vochtige tot natte plekken; eitjes in de mest 10–12 weken na besmetting</td><td>WUR, leverbot bij schapen (edepot.wur.nl/312417)</td></tr>\n  <tr><td>leverbotslak: huisje 5–10 mm</td><td>lessen_pop_eco_klein2.md (Mollusc Ireland)</td></tr>\n  <tr><td>in een mens ± 3,8 × 10¹³ bacteriën en ± 3,0 × 10¹³ lichaamscellen (verhouding ± 1 : 1)</td><td>Sender, Fuchs &amp; Milo 2016, PLoS Biol 14: e1002533 (via BioNumbers 113006 en ScienceDaily 2016)</td></tr>\n  <tr><td>darmbacteriën maken vitamine K en B-vitamines en zetten voor de mens onverteerbare stoffen om in korteketenvetzuren</td><td>Orthica, inleiding darmwerking (2022); Test-Aankoop, microbiota</td></tr>\n  <tr><td>de meeste planten vormen mycorrhiza; plant kan tot 80 % van zijn stikstof en tot 90 % van zijn fosfor via de schimmel krijgen</td><td>Van der Heijden, Universiteit Utrecht (uu.nl, plant-microbe interactions)</td></tr>\n  </table>\n  <h3>Keuzes en vereenvoudigingen</h3>\n  <ul>\n  <li>B15: trekking 1 (wedstrijd) geschrapt volgens P1; gewonnen heeft de combinatie W (geraamte A klassiek, overnames uit B en C), tweede ronde 38 tegen 32. Zie b15/f3/beoordeling.md.</li>\n  <li>Grafiek: geen Binas 93D2 nagetekend maar de oorspronkelijke vangstcijfers (Odum 1953) voor 1900–1920; twee volledige golven, zodat de kijker de vertraging twee keer ziet.</li>\n  <li>Pelsregisters zijn vangsten, geen tellingen; dat wordt gezegd (de beoordelaar wees erop).</li>\n  <li>De vos staat bij omnivoor (eet ook bramen en kevers); BvJ en Nectar noemen de vos soms carnivoor. De film laat zien dat één dier op twee niveaus zit.</li>\n  <li>Commensalisme: bergeend in een konijnenhol (bron: NH Nieuws, Schoorlse duinen: tapuit en bergeend nestelen graag in konijnenholen).</li>\n  <li>Mycorrhiza en darmflora als vwo-blok in H4; de basislijn H4 → H5 loopt zonder die twee scènes door.</li>\n  <li>Misconceptie &quot;energie gaat rond&quot; wordt in H1 in één zin gezegd (de energiestroom zelf is film 5) en niet met een vraag getoetst; de andere misconcepties uit de reeks die hier spelen (pijl = eet, rover roeit prooi uit, parasiet wil doden, populatie groeit tot alles op is) krijgen elk een vraag.</li>\n  <li>Castrollen: de schapenhouder is Veehouder Gerrit (vaste rol boer/veehouder), de dierenarts is Mila (eigen vak); de vertelling noemt alleen hun beroep. In de darmflora-scène staat Noor (jij, bovenbouw).</li>\n  <li>Bibliotheekbotsing gevonden bij het testvel (const ECO in lib_eco.js en pop_eco_klein.js; _ecoWrap in pop_eco_hoef.js en pop_eco_klein.js); door de coördinator opgelost (ECOK, _ecoWrapHoef), daarna alles opnieuw gerenderd zonder eigen kopieën. Bij elke render blijft één melding over die niet van deze film is: berkenspanner is not defined (dieren_overig.js r. 827).</li>\n  <li>P2 (begeleider met een eigen beurt) past maar half: deze film heeft geen begeleider. Schapenhouder en dierenarts hebben een eigen moment in beeld en hun beroep wordt genoemd, maar ze spreken zelf niet.</li>\n  <li>Myxomatose: de dode konijnen zijn gedimd (35 %), niet als kadavers getekend.</li>\n  <li>Uitspraak: mutualisme, myxomatose en cysten hebben geen gevonden Nederlandse IPA (wachtlijst).</li>\n  <li>Review MOET F3-1 (e3s25): gaai en eiken nu op dezelfde schaal (6 px/cm); de eik is een oude boom die boven uit beeld loopt.</li>\n  <li>Review MOET F3-2 en coördinatorbesluit 1 (e3s29): pimpelmees in de holte vervangen door een bergeend in een konijnenhol (commensalisme, bron NH Nieuws); in het voedselweb is de pimpelmees vervangen door de merel (e3s09–e3s11, e3s41, e3s42); tabel, checkvraag en begrip aangepast.</li>\n  <li>Review MOET F3-3 (e3s43): &#x27;golven zo samen, net als lynxen&#x27; werd &#x27;zo kan het aantal vossen meegaan met het aantal konijnen, zoals bij lynxen en hazen&#x27;.</li>\n  <li>Review KAN (e3s32): beweging zegt nu grove den; pijlen &#x27;suikers&#x27; en &#x27;water, mineralen&#x27; staan bij de goede richting; &#x27;bijna alle planten&#x27; werd &#x27;de meeste planten&#x27;.</li>\n  <li>Review KAN (e3s30): toegevoegd dat mutualisme ook bij een lossere relatie kan (gaai en eik).</li>\n  <li>Review KAN (e3s38, e3s15): teleologie weg (&#x27;een deel komt terecht waar schapen grazen&#x27;; &#x27;zo worden ze minder gegeten&#x27;).</li>\n  <li>Coördinatorbesluit 2: de vraag over de pijlrichting blijft in deze film (e3q05), ongewijzigd.</li>\n  </ul>\n  <h3>Plaats in de reeks</h3>\n  <p>Film 3 van 8 in de reeks Ecologie (havo en vwo; elke film staat op zichzelf). Havo: Biologie voor Jou, thema 7, paragraaf 7.2 en 7.3. Vwo: Nectar, paragraaf 6.4. Vorige: Waar past een soort?. Volgende: Waar blijft het blad?.</p>\n</section>\n"
+}

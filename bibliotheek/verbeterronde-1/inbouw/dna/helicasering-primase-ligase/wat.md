@@ -1,0 +1,3 @@
+Basis: variant C, ongewijzigd (na.png = voor.png). Het lintmodel `_grKluwen` staat los in `inbouw/dna/_hulp.js` (gelijk aan dna/_eiwitlint.js + `_ellips`).
+Gemelde fout 'streng als platte balk over de ring': gecontroleerd en klopt al. De ring staat loodrecht op de streng: achterste subeenheden worden vóór de streng getekend, voorste erna, dus de streng gaat door het gat. Dat het één streng omsluit klopt met twee bronnen (Meagher e.a. 2019 Nat Commun: 'the ring encircles the translocating strand while excluding its complementary strand'; DnaB: 'the lagging strand binds in the central channel'). De platte balk is de testscène (d2Rug), niet het object.
+Eiwitten in lintstijl (helicase, primase, ligase): die gaan later om naar de kralenketen.

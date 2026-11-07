@@ -1,0 +1,79 @@
+{
+ "slug": "diergeneeskunde-1-hond-koe-paard",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Hond, koe, paard",
+ "sub": "hetzelfde lichaam, anders gebouwd",
+ "puzzle": "Waarom heeft een koe vier magen nodig, en een hond niet?",
+ "meta": "diergeneeskunde · vergelijkende anatomie",
+ "alleen": "vwo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Diergeneeskunde",
+ "lead": "Op één dag ziet Dierenarts Mila een koe die niet eet, een paard met koliek en een kat die paracetamol kreeg. Zoogdieren delen één bouwplan, maar wat normaal is, verschilt per soort. Een koe laat microben in haar pens de cellulose afbreken en herkauwt; een paard gist achteraan en kan bijna niet braken. En een kat breekt paracetamol slecht af: wat voor jou veilig is, kan een dier doden. Daarom doseert een dierenarts per soort, per ras en per dier.",
+ "endHaak": "welk dier zou jij als dierenarts het moeilijkst vinden om te onderzoeken, en waarom?",
+ "minis": {
+  "Hoofdstuk 1": "Wat hebben mens, hond en paard gemeen?",
+  "Hoofdstuk 2": "Hoe haalt een koe energie uit gras?",
+  "Hoofdstuk 3": "Waarom is koliek een spoedgeval?",
+  "Hoofdstuk 4": "Waarom mag een kat geen paracetamol?",
+  "Recap": "Wat maakt een dierenarts tot vergelijkend bioloog?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Dierenarts Mila en Noor (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Mila behandelt koeien, paarden en katten, maar deed maar één studie. Hoe kan dat?",
+   "correct": 0,
+   "explain": "Zoogdieren delen één bouwplan (homologe botten en organen), met per soort andere aanpassingen en normaalwaarden."
+  },
+  "q07": {
+   "q": "Een koe heeft geen enzymen voor cellulose. Hoe haalt ze toch energie uit gras?",
+   "correct": 1,
+   "explain": "Microben in de pens breken de cellulose af tot vetzuren, die de koe opneemt als belangrijkste brandstof."
+  },
+  "q14": {
+   "q": "De kat van Noor kreeg een halve tablet paracetamol. Wat gebeurt er?",
+   "correct": 2,
+   "explain": "Een kat mist een groot deel van het enzym voor de gewone afbraak; al bij een kleine hoeveelheid ontstaat een giftig tussenproduct dat rode bloedcellen en lever beschadigt."
+  }
+ },
+ "glossary": [
+  {
+   "t": "homologe organen",
+   "d": "Organen of botten met dezelfde bouw en afkomst maar soms een andere functie, zoals de arm van een mens en het voorbeen van een paard."
+  },
+  {
+   "t": "normaalwaarde",
+   "d": "Wat bij een gezond dier normaal is, zoals hartslag of temperatuur; verschilt sterk per diersoort."
+  },
+  {
+   "t": "herkauwer",
+   "d": "Dier met een maag in vier delen dat zijn voedsel opnieuw kauwt, zoals koe, schaap en geit."
+  },
+  {
+   "t": "pens",
+   "d": "Grootste deel van de maag van een herkauwer: een gistingsvat waarin microben cellulose afbreken tot vetzuren."
+  },
+  {
+   "t": "lebmaag",
+   "d": "Het vierde deel van de maag van een herkauwer, met maagzuur en enzymen: de 'echte' maag."
+  },
+  {
+   "t": "lebmaagverplaatsing",
+   "d": "De lebmaag vult zich met gas en schuift omhoog; de dierenarts hoort een hoge ping als ze tegen de buik tikt."
+  },
+  {
+   "t": "blinde darm",
+   "d": "Bij een paard een grote zak aan het begin van de dikke darm, waarin microben plantenvezels vergisten."
+  },
+  {
+   "t": "koliek",
+   "d": "Buikpijn bij een paard, bijvoorbeeld door een verstopte of gedraaide darm; een spoedgeval omdat een paard bijna niet kan braken."
+  },
+  {
+   "t": "MDR1-mutatie",
+   "d": "Afwijking bij veel collies in het gen voor een pompje in de bloed-hersenbarrière; sommige middelen hopen zich dan op in de hersenen."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Leg uit waarom een dierenarts met één studie dieren van heel verschillende soorten kan behandelen, maar toch per soort veel apart moet leren. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Zoogdieren delen één bouwplan: dezelfde (homologe) botten en organen (1p). Maar verhoudingen, aanpassingen (zoals de maag) en normaalwaarden zoals hartslag verschillen per soort (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Beschrijf de weg van een grassprietje door de maag van een koe en geef aan waar de cellulose wordt afgebroken. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Pens: microben breken cellulose af tot vetzuren, die de koe opneemt (1p). Grove stukken gaan terug naar de bek en worden herkauwd (1p). Daarna via netmaag en boekmaag naar de lebmaag, waar maagzuur en enzymen ook de microben verteren (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Paard en koe eten allebei gras. Noem één verschil in hun spijsverteringsstelsel en leg uit waarom koliek bij een paard extra gevaarlijk is. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Bij het paard zit de gisting achteraan, in de blinde darm en dikke darm; het heeft één kleine maag (1p). Door een sterke sluitspier kan een paard bijna niet braken, dus bij een verstopping of draaiing kan er niets terug (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Een hondeneigenaar geeft zijn collie een wormmiddel op basis van het gewicht, net als bij zijn labrador. Waarom kan dat misgaan? <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Veel collies hebben de MDR1-mutatie: het pompje in de bloed-hersenbarrière werkt niet goed (1p). Het middel hoopt zich op in de hersenen; dosering hangt dus ook af van ras, niet alleen van gewicht (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Extra film buiten het PTA op <i>Wat word jij?</i> → Diergeneeskunde. Bouwt voort op <i>Hoe weten we dat?</i> (homologe botten), <i>De reis door je buik</i> (vertering), <i>De lever als fabriek</i> (giftig tussenproduct van paracetamol) en <i>Van pil tot plek en weer terug</i>. Dierenarts Mila (nieuw in het castboek) en Noor met haar kat zijn de rode draad.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>Cold open en H1</b> één werkdag met drie patiënten; één bouwplan, maar normaalwaarden per soort. <b>H2</b> de herkauwer: pens, herkauwen, lebmaag, en een lebmaagverplaatsing herkennen met stethoscoop en 'ping'. <b>H3</b> het paard: gisting achteraan, niet kunnen braken, koliek als spoedgeval. <b>H4</b> dezelfde pil, ander dier: paracetamol bij de kat en de MDR1-mutatie bij collies.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Hartslag in rust</td><td>paard ± 30 per minuut, kat ± 140</td><td>MSD Veterinary Manual, Resting heart rates (paard 28–40, kat 120–140)</td></tr>\n<tr><td>Pens</td><td>± 150 liter; normaal 100–200 liter bij een volwassen koe</td><td>Reticulorumen; UF/IFAS VM139</td></tr>\n<tr><td>Herkauwen</td><td>± 8 uur per dag (7–8)</td><td>Dairy Herd, rumination</td></tr>\n<tr><td>Pensbewegingen</td><td>gezonde pens 1–2 contracties per minuut</td><td>Bovine Physical Exam (Univ. of Guelph)</td></tr>\n<tr><td>Lebmaagverplaatsing</td><td>ping bij percussie links; operatieve correctie</td><td>MSD Veterinary Manual, abomasal displacement</td></tr>\n<tr><td>Paracetamol bij de kat</td><td>halve tablet (± 60 mg/kg) giftig; methemoglobine, bruin tandvlees</td><td>MSD Veterinary Manual, analgesics toxicity</td></tr>\n<tr><td>MDR1 bij collies</td><td>± drie op de vier collies</td><td>Washington State University, MDR1 in dogs</td></tr>\n<tr><td>Opleiding</td><td>alleen in Utrecht; bachelor 3 jaar, master 3 jaar met differentiatie gezelschapsdieren, landbouwhuisdieren of paard</td><td>Universiteit Utrecht, studieprogramma master Diergeneeskunde</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul><li>De vier maagdelen zijn in de film schematisch getekend; in werkelijkheid liggen boekmaag en lebmaag grotendeels rechts.</li><li>'Een enzym mist' bij de kat: katten hebben een sterk verminderde glucuronidering (UGT1A6); de film noemt het enzym niet bij naam.</li><li>Koliek heeft veel oorzaken; de meeste gevallen gaan over met medicijnen.</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Laat leerlingen een tabel maken van vertering bij mens, hond, koe en paard (waar wordt cellulose afgebroken, door wie, wat wordt opgenomen).</li><li>Bespreek waarom je een huisdier nooit zelf een middel voor mensen geeft, met de kat en paracetamol als voorbeeld.</li></ul>\n</section>\n"
+}

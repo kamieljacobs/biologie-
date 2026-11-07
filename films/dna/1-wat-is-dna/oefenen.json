@@ -1,0 +1,251 @@
+{
+ "intro": "Oefen met de bouw van DNA. Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "schema-dna-ladder",
+   "soort": "schema",
+   "titel": "De ladder van DNA",
+   "opdracht": "Je ziet een stukje dubbelstrengs DNA, platgelegd. Sleep de namen naar de goede vakjes. Eén naam blijft over.",
+   "alt": "Lijntekening van een stukje DNA als ladder. Links en rechts een rug van afwisselend rondjes en vijfhoeken. Vanaf elke vijfhoek steekt een rechthoek naar binnen; twee rechthoeken in het midden zijn verbonden met korte gouden stippellijntjes. Om één rondje, een vijfhoek en een rechthoek staat een gouden stippelkader.",
+   "breed": 720,
+   "hoog": 400,
+   "vakbreed": 160,
+   "svg": "<path stroke-width=\"2.4\" d=\"M250 55 L250 66 M250 110 L250 139\"/><path stroke-width=\"2.4\" d=\"M470 110 L470 125 M470 66 L470 56\"/><path stroke-width=\"2.4\" d=\"M250 165 L250 176 M250 220 L250 249\"/><path stroke-width=\"2.4\" d=\"M470 220 L470 235 M470 176 L470 151\"/><path stroke-width=\"2.4\" d=\"M250 275 L250 286 M250 330 L250 344\"/><path stroke-width=\"2.4\" d=\"M470 330 L470 345 M470 286 L470 261\"/><circle stroke-width=\"2.4\" cx=\"250\" cy=\"42\" r=\"13\"/><path stroke-width=\"2.4\" d=\"M250.0 66.0 L272.8 82.6 L264.1 109.4 L235.9 109.4 L227.2 82.6 Z\"/><rect stroke-width=\"2.4\" x=\"276\" y=\"76\" width=\"78\" height=\"28\" rx=\"4\"/><circle stroke-width=\"2.4\" cx=\"470\" cy=\"138\" r=\"13\"/><path stroke-width=\"2.4\" d=\"M470.0 66.0 L492.8 82.6 L484.1 109.4 L455.9 109.4 L447.2 82.6 Z\"/><rect stroke-width=\"2.4\" x=\"366\" y=\"76\" width=\"78\" height=\"28\" rx=\"4\"/><path class=\"acc\" stroke-width=\"2\" stroke-dasharray=\"3 4\" d=\"M354 84 L366 84 M354 96 L366 96\"/><circle stroke-width=\"2.4\" cx=\"250\" cy=\"152\" r=\"13\"/><path stroke-width=\"2.4\" d=\"M250.0 176.0 L272.8 192.6 L264.1 219.4 L235.9 219.4 L227.2 192.6 Z\"/><rect stroke-width=\"2.4\" x=\"276\" y=\"186\" width=\"78\" height=\"28\" rx=\"4\"/><circle stroke-width=\"2.4\" cx=\"470\" cy=\"248\" r=\"13\"/><path stroke-width=\"2.4\" d=\"M470.0 176.0 L492.8 192.6 L484.1 219.4 L455.9 219.4 L447.2 192.6 Z\"/><rect stroke-width=\"2.4\" x=\"366\" y=\"186\" width=\"78\" height=\"28\" rx=\"4\"/><path class=\"acc\" stroke-width=\"2\" stroke-dasharray=\"3 4\" d=\"M354 194 L366 194 M354 206 L366 206\"/><circle stroke-width=\"2.4\" cx=\"250\" cy=\"262\" r=\"13\"/><path stroke-width=\"2.4\" d=\"M250.0 286.0 L272.8 302.6 L264.1 329.4 L235.9 329.4 L227.2 302.6 Z\"/><rect stroke-width=\"2.4\" x=\"276\" y=\"296\" width=\"78\" height=\"28\" rx=\"4\"/><circle stroke-width=\"2.4\" cx=\"470\" cy=\"358\" r=\"13\"/><path stroke-width=\"2.4\" d=\"M470.0 286.0 L492.8 302.6 L484.1 329.4 L455.9 329.4 L447.2 302.6 Z\"/><rect stroke-width=\"2.4\" x=\"366\" y=\"296\" width=\"78\" height=\"28\" rx=\"4\"/><path class=\"acc\" stroke-width=\"2\" stroke-dasharray=\"3 4\" d=\"M354 304 L366 304 M354 316 L366 316\"/><rect class=\"acc\" stroke-width=\"1.6\" stroke-dasharray=\"7 6\" x=\"222\" y=\"128\" width=\"142\" height=\"104\" rx=\"10\"/>",
+   "vakjes": [
+    {
+     "naam": "fosfaatgroep",
+     "x": 100,
+     "y": 42,
+     "punt": [
+      238,
+      42
+     ],
+     "uitleg": "vormt samen met de suiker de rug van de streng."
+    },
+    {
+     "naam": "suiker",
+     "x": 100,
+     "y": 200,
+     "punt": [
+      232,
+      200
+     ],
+     "uitleg": "desoxyribose; zit vast aan een fosfaatgroep en aan een base."
+    },
+    {
+     "naam": "stikstofbase",
+     "x": 100,
+     "y": 340,
+     "punt": [
+      300,
+      322
+     ],
+     "uitleg": "A, T, C of G; steekt naar binnen uit."
+    },
+    {
+     "naam": "nucleotide",
+     "x": 620,
+     "y": 110,
+     "punt": [
+      364,
+      150
+     ],
+     "uitleg": "de bouwsteen: fosfaatgroep + suiker + stikstofbase."
+    },
+    {
+     "naam": "basenparing",
+     "x": 620,
+     "y": 290,
+     "punt": [
+      360,
+      304
+     ],
+     "uitleg": "twee basen tegenover elkaar met een vaste partner: A met T, C met G."
+    }
+   ],
+   "afleiders": [
+    "histon"
+   ]
+  },
+  {
+   "id": "volgorde-klein-groot",
+   "soort": "volgorde",
+   "titel": "Van klein naar groot",
+   "opdracht": "Zet de begrippen in volgorde van klein naar groot.",
+   "stappen": [
+    {
+     "tekst": "stikstofbase",
+     "uitleg": "A, T, C of G: één deel van een nucleotide."
+    },
+    {
+     "tekst": "nucleotide",
+     "uitleg": "fosfaatgroep + suiker + base."
+    },
+    {
+     "tekst": "gen",
+     "uitleg": "een stuk DNA met de informatie voor één eiwit."
+    },
+    {
+     "tekst": "chromosoom",
+     "uitleg": "één heel lang DNA-molecuul met veel genen."
+    },
+    {
+     "tekst": "genoom",
+     "uitleg": "alle DNA in een cel samen."
+    }
+   ]
+  },
+  {
+   "id": "puzzel-basenparing",
+   "soort": "puzzel",
+   "titel": "Puzzel: ken je één streng",
+   "opdracht": "Gebruik de regel van de basenparing: A met T, C met G.",
+   "stappen": [
+    {
+     "vraag": "Eén streng heeft de volgorde A T T G C. Wat is de volgorde van de andere streng, base voor base ertegenover?",
+     "velden": [
+      {
+       "label": "andere streng:",
+       "antwoord": [
+        "TAACG"
+       ],
+       "hoofdletters": true,
+       "breed": 9
+      }
+     ],
+     "uitleg": "Tegenover A een T, tegenover T een A, tegenover G een C, tegenover C een G: T A A C G."
+    },
+    {
+     "vraag": "Een stukje DNA bevat 30% adenine (A). Hoeveel procent thymine (T) bevat het?",
+     "velden": [
+      {
+       "label": "T:",
+       "antwoord": 30,
+       "eenheid": "%"
+      }
+     ],
+     "uitleg": "Elke A heeft een T als partner. Er zijn dus evenveel T als A: 30%."
+    },
+    {
+     "vraag": "Hoeveel procent is dan samen C en G?",
+     "velden": [
+      {
+       "label": "C + G:",
+       "antwoord": 40,
+       "eenheid": "%"
+      }
+     ],
+     "uitleg": "A en T samen zijn 60%. De rest, 100 − 60 = 40%, is C en G."
+    },
+    {
+     "vraag": "Hoeveel procent guanine (G) bevat het stukje?",
+     "velden": [
+      {
+       "label": "G:",
+       "antwoord": 20,
+       "eenheid": "%"
+      }
+     ],
+     "uitleg": "C en G zijn partners, dus evenveel: 40 / 2 = 20%.",
+     "tip": "C en G komen altijd in paren voor."
+    }
+   ]
+  },
+  {
+   "id": "puzzel-5-3",
+   "soort": "puzzel",
+   "vwo": true,
+   "titel": "Puzzel: de juiste richting",
+   "opdracht": "Een streng heeft de volgorde 5'-ATGCCA-3'. De andere streng loopt antiparallel.",
+   "stappen": [
+    {
+     "vraag": "Schrijf de complementaire streng op, base voor base onder de gegeven streng (dus van links naar rechts).",
+     "velden": [
+      {
+       "label": "3'-",
+       "antwoord": [
+        "TACGGT"
+       ],
+       "hoofdletters": true,
+       "breed": 9
+      }
+     ],
+     "uitleg": "Onder ATGCCA staat TACGGT. Omdat de strengen antiparallel lopen, is dit 3'-TACGGT-5'."
+    },
+    {
+     "vraag": "Aan welk uiteinde zit een vrije fosfaatgroep?",
+     "velden": [
+      {
+       "label": "uiteinde:",
+       "antwoord": "5'",
+       "opties": [
+        "5'",
+        "3'"
+       ]
+      }
+     ],
+     "uitleg": "Aan het 5'-uiteinde zit een vrije fosfaatgroep aan het vijfde koolstofatoom, aan het 3'-uiteinde een vrije OH-groep."
+    },
+    {
+     "vraag": "Een volgorde schrijf je altijd van 5' naar 3'. Hoe schrijf je de complementaire streng dan op?",
+     "velden": [
+      {
+       "label": "5'-",
+       "antwoord": [
+        "TGGCAT"
+       ],
+       "hoofdletters": true,
+       "breed": 9
+      }
+     ],
+     "uitleg": "Lees 3'-TACGGT-5' achterstevoren: 5'-TGGCAT-3'.",
+     "tip": "Lees de streng van de vorige stap van rechts naar links."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-smelten",
+   "soort": "uitleg",
+   "vwo": true,
+   "titel": "Welk stukje laat eerst los?",
+   "opdracht": "Twee stukjes DNA zijn even lang. Het ene bevat veel C en G, het andere veel A en T. Je verwarmt ze langzaam. Leg uit welk stukje het eerst uit elkaar gaat.",
+   "begrippen": [
+    {
+     "naam": "waterstofbrug",
+     "varianten": [
+      "waterstofbruggen",
+      "bruggen"
+     ]
+    },
+    {
+     "naam": "basenparing",
+     "varianten": [
+      "basenpaar",
+      "paren"
+     ]
+    },
+    {
+     "naam": "twee",
+     "varianten": [
+      "2"
+     ]
+    },
+    {
+     "naam": "drie",
+     "varianten": [
+      "3"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat de twee strengen bij elkaar worden gehouden door waterstofbruggen tussen de basen.",
+    "Ik noem dat A–T twee waterstofbruggen heeft en C–G drie.",
+    "Ik concludeer dat het stukje met veel A en T minder bruggen heeft en dus het eerst loslaat."
+   ],
+   "model": [
+    "De twee strengen van DNA worden bij elkaar gehouden door waterstofbruggen tussen de basen. Die zijn zwak: bij ongeveer 95 graden laten de strengen los.",
+    "Een A–T-paar heeft twee waterstofbruggen, een C–G-paar drie. Het stukje met veel A en T heeft dus minder bruggen in totaal en laat het eerst los. Het stukje met veel C en G houdt het langer vol."
+   ]
+  }
+ ]
+}

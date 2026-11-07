@@ -1,0 +1,1 @@
+De myosinekop is een gevouwen kralenketen in dezelfde ovale omtrek (kralen bewust ± 0,15 s groot, passend bij de actinebolletjes), de hals een korte α-helix van kralen (de hefboomarm); de gedimde buurkoppen ook als kralen. Gouden rand bij hl, ATP-holte, chip, dikke draad en actine ongewijzigd.
