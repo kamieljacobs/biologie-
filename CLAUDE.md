@@ -17,6 +17,7 @@ git checkout
 - In zo'n clone: zoek met gewone `grep -r` in de werkmap, niet met `git grep`, `git ls-tree -l` of `git log -p`. Die halen anders bestand voor bestand alle blobs op (ook mp3) en duren uren.
 - Volledige geschiedenis nodig (bv. `scripts/nieuwste_films.py`)? `git fetch --filter=blob:none --unshallow origin main`: alleen commits en mappen, geen inhoud.
 - Verwijderen van bestanden buiten de sparse-set: `git rm -r --sparse <pad>`.
+- `scripts/levensloop.py` leest alle `films/**/bron/**/*.js` en `bron/script.md`: in een slanke clone haalt hij anders bijna niets op en wist hij de automatische lijst in LEVENSLOOP.md (gebeurd 7 nov 2026: 'Noor — 2 films'). Haal ze eerst binnen: `git sparse-checkout add '/films/**/bron/**/*.js' '/films/**/bron/script.md'` (± 2200 kleine bestanden).
 - Gepland, als apart project (Kamiel 3 nov 2026 akkoord): audio en grote media naar aparte opslag (Firebase Storage of een CDN) en `bron/` naar een privé-repo; daarna eventueel de geschiedenis opschonen. Tot dan geldt deze werkwijze.
 
 ## Elke nieuwe of aangepaste film krijgt een bronmap
