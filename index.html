@@ -149,6 +149,7 @@ a.rij:hover .pijl{transform:translateX(4px);color:var(--goud-text)}
 .hero-kort{grid-template-columns:minmax(0,1fr);padding-block:44px 28px}
 .hero-kort p a{color:var(--goud-text);font-weight:700}
 .seg-pagina{display:inline-flex;margin:22px 0 0}
+.seg-home{display:inline-flex;margin:14px 0 0;flex-wrap:wrap}
 .vlakken{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
 .vlak{display:flex;flex-direction:column;border:1px solid var(--line2);border-radius:18px;background:var(--surface);overflow:hidden;min-width:0}
 .vlak-basis{grid-column:1/-1}
@@ -3859,6 +3860,27 @@ const BASIS=[ /* volgorde en namen als in het PTA Agora (havo/vwo), Kamiel 7 nov
   ['Het lichaam van binnen','hoe je lijf werkt',['voeding','transport','gaswisseling','afweer']],
   ['Examen','oefenen voor het centraal examen',['examens']],
 ];
+/* Hoofdpagina: thema's als 'alle' (BASIS) of precies als het PTA havo/vwo (Kamiel 7 nov 2026) */
+function basisGroepen(stand,thema){
+  let g=BASIS;
+  if(stand==='havo'||stand==='vwo'){
+    const gezien=new Set(); g=[];
+    for(const o of NIVEAUS[stand].ond){
+      const ids=[...new Set(o.subs.map(x=>hoofdstukVan(x[4])))].filter(id=>HOOFDSTUKKEN[id]&&!gezien.has(id));
+      if(!ids.length) continue; ids.forEach(id=>gezien.add(id));
+      const jaar=stand==='vwo'&&/^OND[12]$/.test(o.code)?' · jaar 1':stand==='vwo'&&/^OND[34]$/.test(o.code)?' · jaar 2':'';
+      g.push([o.naam||o.code,o.code.replace(/^OND/,'OND ')+(o.w?' · '+o.w+'%':'')+jaar,ids]);
+    }
+    const rest=BASIS.flatMap(b=>b[2]).filter(id=>id!=='examens'&&!gezien.has(id)&&HOOFDSTUKKEN[id]);
+    if(rest.length) g.push(['Buiten het '+stand+'-PTA','ook de moeite waard',rest]);
+    g.push(BASIS.find(b=>b[2].includes('examens')));
+  }
+  return g.filter(Boolean).map(([naam,sub,ids])=>`<div class="vgroep"><div class="vgroep-kop"><h3>${esc(naam)}</h3><span class="mono">${esc(sub)}</span></div><ul>${ids.map(thema).join('')}</ul></div>`).join('');
+}
+const homeStand=()=>{const v=lees('homepta');return v==='havo'||v==='vwo'?v:'alle'};
+document.addEventListener('click',e=>{const b=e.target.closest('[data-homepta]');if(!b)return;const v=b.dataset.homepta;schrijf('homepta',v);
+  if(v!=='alle'){niveau=window.__niveau=v;schrijf('niveau',v)}
+  const y=scrollY;render();requestAnimationFrame(()=>scrollTo(0,y));});
 const VERDERKUNST={gedrag:`<path d="M60 22c-10-8-28-4-30 10-12 2-18 16-10 26-6 10 0 24 12 24 2 12 18 18 28 10z" stroke-width="1.7"/>
  <path d="M60 22c10-8 28-4 30 10 12 2 18 16 10 26 6 10 0 24-12 24-2 12-18 18-28 10z" stroke-width="1.7"/>
  <path d="M60 22v70" stroke-width="1.1" opacity=".6"/><path d="M36 48c6 0 10 4 12 10M84 48c-6 0-10 4-12 10M40 72c6-2 10-6 10-12" stroke-width="1.2" opacity=".8"/>
@@ -3992,8 +4014,9 @@ function home(){
   </section>
   <section class="wrap blok vlakken" aria-label="Kies waar je begint">
     <article class="vlak vlak-basis" id="vlak-basis">
-      <header><span class="mono vlak-lbl">Alle thema's · havo en vwo</span><h2>Van molecuul tot planeet</h2><p>Biologie geordend van klein naar groot. Elk thema heeft films, tools en oefeningen.</p></header>
-      <div class="vlak-groepen">${BASIS.map(([naam,sub,ids])=>`<div class="vgroep"><div class="vgroep-kop"><h3>${esc(naam)}</h3><span class="mono">${esc(sub)}</span></div><ul>${ids.map(thema).join('')}</ul></div>`).join('')}</div>
+      <header><span class="mono vlak-lbl">${homeStand()==='alle'?"Alle thema's · havo en vwo":'Geordend als het PTA Agora · '+homeStand()}</span><h2>Van molecuul tot planeet</h2><p>Biologie geordend van klein naar groot. Elk thema heeft films, tools en oefeningen. Kies havo of vwo om de thema's te zien zoals in jouw PTA.</p>
+        <div class="seg seg-home" role="group" aria-label="Ordening van de thema's">${[['alle','Alle thema\'s'],['havo','PTA havo'],['vwo','PTA vwo']].map(([v,t])=>`<button type="button" data-homepta="${v}" aria-pressed="${homeStand()===v}">${t}</button>`).join('')}</div></header>
+      <div class="vlak-groepen">${basisGroepen(homeStand(),thema)}</div>
     </article>
     <article class="vlak vlak-onder" id="vlak-onderbouw">
       <header><span class="mono vlak-lbl">Onderbouw · mens en natuur</span><h2>Eerste ontdekkingen</h2><p>Korte video's, onderzoekjes en opdrachten om biologie te leren kennen.</p></header>
