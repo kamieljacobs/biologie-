@@ -30,6 +30,26 @@
   "datum": "2026-11-07"
  },
  {
+  "href": "films/voortplanting/bevruchting/index.html",
+  "titel": "Bevruchting",
+  "thema": "voortplanting",
+  "themaTitel": "Voortplanting",
+  "duur": 7,
+  "vraag": "Honderden zaadcellen bereiken de eicel. Toch komt er maar één binnen. Hoe kan dat?",
+  "extra": false,
+  "datum": "2026-11-07"
+ },
+ {
+  "href": "films/voortplanting/cyclus/index.html",
+  "titel": "De cyclus",
+  "thema": "voortplanting",
+  "themaTitel": "Voortplanting",
+  "duur": 8,
+  "vraag": "De pil bevat hormonen die het lichaam van een vrouw ook zelf maakt. Toch komt er daardoor geen eisprong. Hoe kan meer van een eigen hormoon iets tegenhouden?",
+  "extra": false,
+  "datum": "2026-11-07"
+ },
+ {
   "href": "films/vervolg/forensisch-4-stille-getuigen.html",
   "titel": "Stille getuigen: haren, stuifmeel en kiezelwieren",
   "thema": "vervolg",
@@ -76,26 +96,6 @@
   "themaTitel": "DNA",
   "duur": 11,
   "vraag": "Hoe maak je met alleen warm en koud van één stukje DNA er een miljard?",
-  "extra": false,
-  "datum": "2026-10-31"
- },
- {
-  "href": "films/dna-technieken/2-op-lengte-gesorteerd/index.html",
-  "titel": "Op lengte gesorteerd · gelelektroforese",
-  "thema": "dna",
-  "themaTitel": "DNA",
-  "duur": 4,
-  "vraag": "Alle banden van de verdachte passen bij het spoor. Is hij dan zeker de dader?",
-  "extra": false,
-  "datum": "2026-10-31"
- },
- {
-  "href": "films/dna/7-dna-lezen.html",
-  "titel": "DNA lezen",
-  "thema": "dna",
-  "themaTitel": "DNA",
-  "duur": 15,
-  "vraag": "Hoe lees je DNA uit een paar druppels bloed, en hoe vind je een dader die nergens geregistreerd staat?",
   "extra": false,
   "datum": "2026-10-31"
  }
