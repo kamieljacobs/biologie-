@@ -33,7 +33,7 @@ Stand 3 nov 2026 (avond). Lees ook `films/vervolg/BOUWEN.md`, `films/PROMPT_v13.
 | 3 Een zee vol voedsel | `mariene-biologie-3-een-zee-vol-voedsel/bron/` | B (kanoetperspectief + emmerproef) duidelijk 54–50–49 | 5 MOET + 12 KAN | 898 w · 8 vragen |
 
 - **Twijfelblad (24 punten):** https://claude.ai/artifact/1jnG9MLpBZgrEsEB67Wj5p (account ghallie880; db-collectie `keuring`, doc-id `mb-r1..r5` reeks, `mb<film>-t<n>` per film; velden `keuze` (0 = voorstel, 1 = anders), `opm`, `algemeen`). Bron: `werk-marien/bouw_blad.py` + `sjabloon.html`. Bij film 2 de keuze combinatie/variant A: log die als `beslist_door: kamiel`, `kamiel_keuze` in mutaties.jsonl.
-- **Decors** gemaakt (flow RVqu1vLFRgY3QXwS4WcU, gpt-image-2.5-sunburst, stijlreferentie 'moestuin', ± 433 cr per stuk): schip `FesXpBsbhZpalx2snVnC`, lab `2O9SAy6vNuRpuJvNig4G`, wad `9zURzGfCfhvphkqqbXzS`. Alleen voorvertoningen in `werk-marien/beeld/`: **elevenlabsusercontent.com staat niet op de toegestane domeinen** van de sessie, dus volle resolutie (en straks de stemopnames) downloaden lukt pas als Kamiel dat domein toevoegt.
+- **Decors** gemaakt (flow RVqu1vLFRgY3QXwS4WcU, gpt-image-2.5-sunburst, stijlreferentie 'moestuin', ± 433 cr per stuk): schip `FesXpBsbhZpalx2snVnC`, lab `2O9SAy6vNuRpuJvNig4G`, wad `9zURzGfCfhvphkqqbXzS`. Volle resolutie (1280×720) in `werk-marien/beeld/decor-schip|lab|wad.webp` (7 nov 2026; domein toegevoegd, zie CLAUDE.md).
 - **Castvoorstel Sam buiten:** A teal regenjas + gele laarzen, B winterjas + groene laarzen (`werk-marien/beeld/sam_outfit_s.png`); nog niet in lib_cast.js.
 - `vervolg.html`: startvraag film 2 → 'ruim een kwart' (GCB 2025: 29 %).
 

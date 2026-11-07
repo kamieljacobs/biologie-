@@ -129,7 +129,7 @@ Reviewpagina `sessie/review.html` (Kamiel 24 okt 2026: 'inloggen op de site en d
 
 ## Downloads van ElevenLabs (Kamiel 7 nov 2026)
 
-ElevenLabs levert beelden en audio sinds nov 2026 via `elevenlabsusercontent.com`. Dat domein moet één keer in de netwerkinstelling van de cloudomgeving staan (nieuwe chat → omgevingskiezer onder het berichtvak → tandwieltje bij de omgeving → Network access → Custom → Allowed domains `elevenlabsusercontent.com`, 'Also include default list of common package managers' aangevinkt → Save changes); elke chat in die omgeving heeft het dan. Weigert de proxy een download (403), vraag Kamiel dan of het domein nog in de omgeving staat (per account een eigen omgeving), niet opnieuw genereren.
+ElevenLabs levert beelden en audio sinds nov 2026 via `elevenlabsusercontent.com` (daarvoor `storage.googleapis.com`). Voor chats in de Claude-app staat dat domein in claude.ai → Instellingen → Mogelijkheden → Code-uitvoering en aanmaken van bestanden → Extra toegestane domeinen (sinds 7 nov 2026 toegevoegd, account ghallie880; het tweede account apart instellen). Voor Claude Code-sessies (claude.ai/code, omgeving Default) staat het ook in de netwerkinstelling van de omgeving. Weigert de proxy een download (403 bij CONNECT), vraag Kamiel dan of het domein bij dat account in die lijst staat; niet opnieuw genereren.
 
 ## Zuinig met tokens (20 okt 2026)
 
