@@ -5,7 +5,7 @@
 | Gecontroleerde versie | opzet (fase 1, 7 nov 2026); script volgt na Kamiels akkoord |
 | Gecontroleerd door | Claude (eerste ronde), 7 nov 2026 |
 | Menselijke steekproef | nog niet gedaan |
-| Samenvatting | 17 beweringen uit opzet en script v1: 11 ✓, 6 ≈, 0 !, 0 ?. Aangevuld met 12 bronnen die de tweede chat opende (B16–B27, zo gemarkeerd); die moet Kamiel bij de steekproef als eerste aanklikken. Bewust geen blogs of belangengroepen als bron. Beleids- en behandelvragen (puberteitsremmers) alleen in het docentdeel (B26, B27). |
+| Samenvatting | 17 beweringen uit opzet en script v1: 12 ✓, 5 ≈, 0 !, 0 ?. Aangevuld met 12 bronnen die de tweede chat opende (B16–B27, zo gemarkeerd); die moet Kamiel bij de steekproef als eerste aanklikken. Bewust geen blogs of belangengroepen als bron. Beleids- en behandelvragen (puberteitsremmers) alleen in het docentdeel (B26, B27). |
 
 ## Bronnen
 
@@ -39,6 +39,7 @@
 | B25 | A | Reiner WG, Gearhart JP (2004). Discordant sexual identity in some genetic males with cloacal exstrophy assigned to female sex at birth. *NEJM* 350: 333–341 (samenvatting) — geopend door de tweede chat; alleen docentdeel | https://pesquisa.bvsalud.org/bvsespana/resource/es/mdl-14736925 | 7 nov 2026 |
 | B26 | A | BMJ Group (10 apr 2024). Systematische reviews van de Universiteit van York voor de Cass Review (*Archives of Disease in Childhood*) — geopend door de tweede chat; alleen docentdeel | https://bmjgroup.com/?p=2191 | 7 nov 2026 |
 | B27 | B | Radboud Universiteit (18 feb 2025). Gezondheidsraadcommissie over transgenderzorg voor jongeren — geopend door de tweede chat; alleen docentdeel | https://www.ru.nl/over-ons/nieuws/enny-das-benoemd-tot-lid-van-gezondheidsraad-commissie-over-transgenderzorg-voor-jongeren | 7 nov 2026 |
+| B28 | A | Frigerio A, Ballerini L, Valdés Hernández M (2021). Structural, functional, and metabolic brain differences as a function of gender identity or sexual orientation: a systematic review of the human neuroimaging literature. *Archives of Sexual Behavior* 50(8): 3329–3352 (samenvatting; dataset Universiteit van Edinburgh) — onafhankelijk van Guillamon | https://ricerca.unistrapg.it/handle/20.500.12071/32513 · https://www.research.ed.ac.uk/en/datasets/structural-functional-and-metabolic-brain-differences-between-gro/ | 7 nov 2026 |
 
 Eerder geopend voor film 4 (Sekse, gender en diversiteit), hier hergebruikt waar nodig: RIVM-pns factsheet AGS en hielprik (film 4, B6/B9).
 
@@ -55,7 +56,7 @@ Eerder geopend voor film 4 (Sekse, gender en diversiteit), hier hergebruikt waar
 | 7 | H2 | Meisjes met AGS kregen vóór de geboorte veel mannelijke hormonen en spelen vaker met 'jongensspeelgoed' | B6, B7 | ✓ | B6: meer jongensspeelgoed, 3–8 jaar; B7: prenatale androgenen vermannelijken activiteiten en interesses ('good evidence') |
 | 8 | H2 | Toch voelt de grote meerderheid van hen zich meisje/vrouw (± 95 %) | B5, B7, B19, B20 | ✓ | B5: 237 van 250 (94,8 %) vrouwelijke genderidentiteit; B7: prenatale androgenen hebben 'a smaller effect on gender identity'. Film: 'bijna allemaal' of 'ongeveer negentien van de twintig' |
 | 9 | docent | Bij AGS komt een andere genderidentiteit wel vaker voor dan gemiddeld | B5, B20 | ✓ | B5: 5,2 % ernstige genderproblemen; B20: meer cross-gender-identificatie dan zussen/nichten. Alleen in het docentdeel (twijfel 4) |
-| 10 | H2 | Hersenonderzoek bij transgender personen: kleine groepen, wisselende uitkomsten; hersenen niet 'omgedraaid' maar een mengsel; oorzaak of gevolg is onduidelijk | B8, B9 | ≈ | Beide reviews met Guillamon als (co)auteur: niet volledig onafhankelijk. Ook de tweede chat vond geen review zonder Guillamon. Derde, onafhankelijke review zoeken vóór het inspreken (bv. een recente ENIGMA- of meta-analyse) |
+| 10 | H2 | Hersenonderzoek bij transgender personen: kleine groepen, wisselende uitkomsten; hersenen niet 'omgedraaid' maar een mengsel; oorzaak of gevolg is onduidelijk | B8, B9, B28 | ✓ | B8 en B9 hebben allebei Guillamon als (co)auteur; B28 (Frigerio e.a. 2021, Edinburgh, systematische review van 39 studies naar genderidentiteit, alleen vóór hormoonbehandeling) is onafhankelijk en bevestigt: enkele kenmerken lijken op het ervaren geslacht, de meeste op het geboortegeslacht (= mengsel); tegenstrijdige uitkomsten, kleine en ongelijke studies, daarom geen meta-analyse mogelijk |
 | 11 | H2 | Hormonen (bij behandeling) veranderen de hersenen, daarom is onderzoek vóór behandeling nodig | B8, B9 | ✓ | B8: 'hormone treatment can change brain measures'; B9: 'marked treatment effects' |
 | 12 | H3 | Seksuele oriëntatie is deels erfelijk (tweelingen), de omgeving die per persoon verschilt telt zwaarder | B11, B10 | ✓ | B11: mannen genetisch 0,34–0,39, unieke omgeving 0,61–0,66; vrouwen 0,18–0,19 genetisch. B10 bevestigt genetische invloed |
 | 13 | H3 | Er is geen 'homogen': grootste DNA-onderzoek (± 477 000 mensen) vond vijf plekken met kleine effecten; je kunt iemands oriëntatie niet uit DNA voorspellen | B10, B12 | ✓ | B10: 5 loci, alle gangbare varianten samen 8–25 %, 'do not allow meaningful prediction'; B12: genetica en hormonen dragen bij, niet als enige oorzaak |
@@ -65,6 +66,7 @@ Eerder geopend voor film 4 (Sekse, gender en diversiteit), hier hergebruikt waar
 | 17 | docent | Zo'n 4 % van de Nederlanders voelt zich niet helemaal het geslacht van de geboorte; ± 1 % transgender | B14, B15, B23 | ≈ | B14: 3,9 % en ± 1 %; B15: ambivalent 4,6 %/3,2 %, incongruent 1,1 %/0,8 %. Definities verschillen; getal waarschijnlijk niet in de stem (docentdeel) |
 
 ## Aanpassingen
+- Bewering 10: ≈ → ✓ na een derde, onafhankelijke review (B28, Frigerio 2021). Scripttekst ongewijzigd: 'kleine groepen, wisselende uitkomsten, een mengsel, oorzaak of gevolg' past bij B28; meter blijft 'nog niet zeker'.
 - Bewering 2: script v1 'meestal tussen vier en zes jaar … Daarin verschillen de onderzoeken iets. Op de meter: waarschijnlijk' → 'tussen vijf en zeven jaar … Op de meter: vastgesteld' (B17, B1).
 
 ## Docentdeel (geen bewering in de stem)
