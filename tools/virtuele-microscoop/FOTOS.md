@@ -12,6 +12,10 @@ Alle ontvangen foto's staan in `fotos/`, gekoppeld aan hun beschrijving in **`fo
 
 `echt.html` is de microscoop op echte foto's. De didactische laag staat in **`preparaten.json`**: per preparaat de Nederlandse naam, groep, beschrijving, *letop*-punten, aanwijsopdrachten (`zoek`, met `punten` als fractie van breedte/hoogte en `r` als tolerantie) en een meerkeuzevraag. De tool koppelt elk preparaat via `sectie` aan de foto's in `fotos/catalogus.json` en kiest per vergroting de eerste foto, tenzij `kies` een andere aanwijst. Twee standen: **Verkennen** (genummerde markeringen op de foto, tik = kaart met `uitleg` + `meer`) en **Opdrachten** (zelf aanwijzen + meerkeuzevraag). 15 van de 23 preparaten hebben gemarkeerde structuren (37 in totaal, 14 okt). Nieuwe aanwijspunten bepalen: foto met raster tekenen (zie de scratch-aanpak van 14 okt: `PIL`, lijnen op elke 0,1) en de coördinaten aflezen; testen door in de tool `cam[cur.id]` op het punt te zetten en `handleTap(R,R)` aan te roepen.
 
+## Lichte versies voor de tool (7 nov 2026)
+
+`echt.html` laadt niet de originelen (tot 2560 px, ±0,9 MB) maar `fotos/klein/<naam>.webp`: 1152 px hoog (precies 1-op-1 met het oculair), webp kwaliteit 72, ±270 kB (36 MB in totaal in plaats van 116 MB). Een nieuwe foto: na het toevoegen aan de catalogus `python3 fotos/klein_maken.py` draaien (vanuit deze map, idempotent) en de webp meecommitten. De originelen blijven staan voor het fotoverzicht en voor films.
+
 ## Eisen aan foto's
 
 - Minstens 2000 px breed, liever het Flickr-**Original** (3000–6000 px): de tool zoomt tot 400×. De 768 px-plaatjes van de blog zijn alleen goed als klein illustratieplaatje, niet voor de microscoop of als filmachtergrond (1920 px).

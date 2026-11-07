@@ -14,217 +14,500 @@
 <link rel="stylesheet" href="../huisstijl.css">
 <script src="../huisstijl.js"></script>
 <style>
-/* Virtuele microscoop · in de huisstijl (tools/huisstijl.css), oktober 2026.
-   De pagina volgt licht/donker; het oculair (.scope) blijft bewust donker, zoals door een echte microscoop.
-   --scope* zijn daarom in beide thema's gelijk. */
-:root{--scope:#05080D;--scope-line:rgba(143,160,181,.35);--scope-text:#C9B896}
+/* Virtuele microscoop 2.0 · bovenbouw (havo 4, vwo 4 en 5) · november 2026.
+   In de huisstijl (tools/huisstijl.css). De pagina volgt licht/donker; het oculair (.scope) blijft bewust donker,
+   zoals door een echte microscoop: --scope* zijn daarom in beide thema's gelijk.
+   Het preparaat is getekend op echte schaal: 1 eenheid = 1 µm, gezichtsveld bij veldgetal 18 (4,5 / 1,8 / 0,45 mm). */
+:root{--scope:#05080D;--scope-line:rgba(143,160,181,.35);--scope-text:#C9B896;--scope-text2:#A3ACBA;--scope-goud:#E0B64A}
 .modus{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0 18px}
 @media (max-width:700px){.modus{grid-template-columns:1fr}}
-.modus a{display:flex;gap:16px;align-items:center;text-decoration:none;color:var(--text);background:var(--surface);border:2px solid var(--line2);border-radius:18px;padding:16px 18px;min-height:112px;transition:transform .12s,border-color .12s;min-width:0}
+.modus a{display:flex;gap:16px;align-items:center;text-decoration:none;color:var(--text);background:var(--surface);border:2px solid var(--line2);border-radius:18px;padding:14px 18px;min-height:100px;transition:transform .12s,border-color .12s;min-width:0}
 .modus a:hover{transform:translateY(-2px);border-color:var(--goud)}
 @media (prefers-reduced-motion:reduce){.modus a{transition:none}.modus a:hover{transform:none}}
 .modus a[aria-current="page"]{border-color:var(--goud);background:var(--goud-soft)}
 .modus a .num{font:600 12px var(--meta);letter-spacing:.12em;text-transform:uppercase;color:var(--text3)}
-.modus a b{display:block;font-family:var(--titel);font-size:clamp(22px,2.6vw,28px);line-height:1.1;margin:2px 0 4px}
+.modus a b{display:block;font-family:var(--titel);font-size:clamp(21px,2.4vw,26px);line-height:1.1;margin:2px 0 4px}
 .modus a small{color:var(--text2);font-size:16px}
 .modus a .ga{margin-left:auto;color:var(--goud-text);font-weight:700;font-size:17px;white-space:nowrap}
 .modus a[aria-current="page"] .ga{color:var(--groen)}
 .modus .beeld{flex:none;width:84px;height:84px;position:relative}
 .modus .beeld img,.modus .beeld .teken{position:absolute;width:64px;height:64px;border-radius:50%;object-fit:cover;border:3px solid var(--scope);box-shadow:0 2px 8px rgba(0,0,0,.35)}
-.modus .beeld img:nth-child(1){left:0;top:0}.modus .beeld img:nth-child(2){left:20px;top:20px}.modus .beeld img:nth-child(3){left:0;top:20px;display:none}
+.modus .beeld img:nth-child(1){left:0;top:0}.modus .beeld img:nth-child(2){left:20px;top:20px}
 .modus .beeld .teken{left:10px;top:10px;background:#E6E0C2;display:grid;place-items:center}
 @media (max-width:480px){.modus a{gap:12px;padding:12px 14px;min-height:0}.modus .beeld{width:64px;height:64px}.modus .beeld img,.modus .beeld .teken{width:48px;height:48px}.modus .beeld img:nth-child(2){left:16px;top:16px}.modus .beeld .teken{left:8px;top:8px}.modus a small{font-size:15px}.modus a .ga{font-size:15px}}
-.slides{margin:4px 0 14px}
+/* stappen */
+.stappen{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:6px 0 14px}
+@media (max-width:760px){.stappen{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.stappen button{text-align:left;background:var(--surface);border:1px solid var(--line2);border-radius:12px;padding:10px 12px;min-height:56px;display:flex;gap:10px;align-items:center}
+.stappen button .n{flex:0 0 28px;height:28px;border-radius:50%;border:1.5px solid var(--text3);display:grid;place-items:center;font:600 13px var(--meta);color:var(--text2)}
+.stappen button b{display:block;font-size:15px;line-height:1.2}
+.stappen button small{display:block;color:var(--text3);font-size:13px;line-height:1.2}
+.stappen button[aria-pressed="true"]{border-color:var(--goud);background:var(--goud-soft)}
+.stappen button[aria-pressed="true"] .n{background:var(--goud);border-color:var(--goud);color:var(--goud-ink)}
+.stappen button.af .n{border-color:var(--groen);color:var(--groen)}
+.slides{margin:2px 0 12px}
 .slides button .done{color:var(--groen);margin-left:6px}
 .slides button[aria-pressed="true"] .done{color:inherit}
-.board{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:16px;align-items:start}
+.board{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:16px;align-items:start}
 @media (max-width:860px){.board{grid-template-columns:minmax(0,1fr)}}
+/* oculair: altijd donker */
 .scope{background:var(--scope);border:1px solid var(--scope-line);border-radius:var(--radius);padding:12px;position:relative;color:#F2F2EE}
-.scope :focus-visible{outline-color:#E0B64A}
+.scope :focus-visible{outline-color:var(--scope-goud)}
 canvas{display:block;width:100%;height:auto;aspect-ratio:1/1;touch-action:none;cursor:grab;border-radius:50%}
 canvas.drag{cursor:grabbing}
-.mag{position:absolute;right:20px;top:18px;font:600 13px var(--meta);color:var(--scope-text);letter-spacing:.08em}
+.mag{position:absolute;right:18px;top:16px;font:600 13px var(--meta);color:var(--scope-text);letter-spacing:.06em;text-align:right;line-height:1.35;pointer-events:none}
+.optiek{font:500 12px/1.4 var(--meta);color:var(--scope-text2);text-align:center;margin-top:6px}
 .controls{display:grid;gap:10px;margin-top:12px}
-.ctl{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
-.ctl label{font:600 13px var(--meta);letter-spacing:.08em;text-transform:uppercase;color:#A3ACBA;min-width:130px}
-.ctl input[type=range]{flex:1 1 200px;min-height:32px;accent-color:#E0B64A}
-/* bediening op het donkere oculair: vaste donkere variant van .seg */
+.ctl{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px}
+.ctl>label:not(.vink),.ctl>.lbl{font:600 12px var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--scope-text2);min-width:120px}
+.ctl input[type=range]{flex:1 1 180px;min-height:32px;accent-color:var(--scope-goud)}
+.ctl .vink{display:inline-flex;align-items:center;gap:8px;font-size:15px;color:#DDE2EA;min-height:36px;cursor:pointer}
+.ctl .vink input{accent-color:var(--scope-goud)}
 .scope .seg{border-color:rgba(143,160,181,.30)}
-.scope .seg button{color:#A3ACBA}
-.scope .seg button[aria-pressed="true"]{background:#E0B64A;color:#1A1405}
+.scope .seg button{color:var(--scope-text2)}
+.scope .seg button[aria-pressed="true"]{background:var(--scope-goud);color:#1A1405}
+/* zijpaneel */
+.paneel .kop{font:600 12px var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--goud-text);margin:14px 0 6px}
+.paneel .kop:first-child{margin-top:0}
+.paneel p{margin:6px 0}
+.fase{display:inline-block;font:600 11px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:4px 8px;margin-right:6px;vertical-align:2px}
+.fase.v{color:var(--teal);border:1px solid var(--teal)}.fase.k{color:var(--goud-text);border:1px solid var(--goud)}.fase.e{color:var(--groen);border:1px solid var(--groen)}
 .tasks{list-style:none;padding:0;margin:0 0 10px}
 .tasks li{display:flex;gap:10px;align-items:flex-start;padding:8px 10px;border:1px solid var(--line2);border-radius:10px;margin:6px 0;background:var(--surface2)}
 .tasks li.active{border-color:var(--goud)}
 .tasks li.ok{border-color:var(--groen);background:var(--groen-soft)}
 .tasks li .box{flex:0 0 22px;height:22px;border-radius:6px;border:2px solid var(--text3);display:grid;place-items:center;font-size:14px;margin-top:2px}
 .tasks li.ok .box{border-color:var(--groen);color:var(--groen)}
-.feedback{min-height:64px;margin-top:8px}
+.tasks li small{color:var(--text3)}
+.feedback{margin-top:8px}
 .opts{display:grid;gap:8px;margin-top:8px}
 .opts button{text-align:left;background:var(--surface2);border:1px solid var(--line2);border-radius:10px;padding:8px 12px;min-height:44px}
 .opts button:hover{border-color:var(--text3)}
-.opts button.ok{border-color:var(--groen)}.opts button.no{border-color:var(--koraal)}
+.opts button[aria-pressed="true"]{border-color:var(--teal);background:var(--teal-soft)}
+.opts button.ok{border-color:var(--groen);background:var(--groen-soft)}.opts button.no{border-color:var(--koraal);background:var(--koraal-soft)}
+.voorsp{list-style:none;padding:0;margin:6px 0}
+.voorsp li{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 10px;padding:7px 0;border-bottom:1px solid var(--line)}
+.voorsp li b{font-weight:600}
+.voorsp .seg button{min-height:34px;padding:4px 12px}
+.voorsp .seg button[data-w="ja"][aria-pressed="true"]{background:var(--teal);color:#fff}
+.voorsp .seg button[data-w="nee"][aria-pressed="true"]{background:var(--text3);color:var(--bg)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.chip{font-size:14px;border:1px solid var(--line2);border-radius:999px;padding:4px 10px;color:var(--text2)}
+.chip.ok{border-color:var(--groen);color:var(--groen);background:var(--groen-soft)}
+.invoer{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}
+.invoer input{width:120px;flex:0 0 auto}
+.invoer .eenh{color:var(--text2)}
+.tabel td small{display:block;color:var(--text3);font-size:13px;line-height:1.3}
+.tabel .ja{color:var(--groen);font-weight:700}.tabel .nee{color:var(--koraal);font-weight:700}.tabel .grens{color:var(--oker);font-weight:700}
+.ladder{margin:12px 0 6px;font-size:15px}
+.lad-kop,.lad-rij{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr) minmax(0,1.3fr);gap:2px 10px;align-items:baseline}
+.lad-kop{font:600 11px var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--text3);padding-bottom:4px;border-bottom:1px solid var(--line)}
+.lad-rij{padding:6px 0 7px;border-bottom:1px solid var(--line)}
+.lad-rij b{hyphens:manual;overflow-wrap:anywhere}
+.lad-rij span:nth-child(3){color:var(--text2);font-size:14px}
+.lad-balk{grid-column:1/-1;position:relative;height:8px;border-radius:4px;background:var(--surface2);margin-top:3px}
+.lad-balk i{position:absolute;left:0;top:0;bottom:0;border-radius:4px;background:var(--text3)}
+.lad-balk i.zicht{background:var(--goud)}
+.lad-balk em{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--koraal)}
+.lad-uitleg{color:var(--text2);font-size:13px;line-height:1.4}
+.lad-sw{display:inline-block;width:12px;height:8px;border-radius:3px;background:var(--text3);vertical-align:0}.lad-sw.zicht{background:var(--goud)}
+.vraag{border:1px solid var(--line2);border-radius:12px;padding:10px 12px;margin:8px 0;background:var(--surface2)}
+.vraag.ok{border-color:var(--groen)}
+.vraag .q{font-weight:600}
+.vraag .nr{font:600 12px var(--meta);color:var(--text3);margin-right:6px}
+.final{margin-top:16px}
+.final h2{font-size:24px;margin:0 0 6px;color:var(--goud-text)}
 details{margin-top:14px;color:var(--text2);font-size:16px}
 summary{cursor:pointer;color:var(--text);font-weight:600}
-.final{margin-top:16px;border:1px solid var(--goud);border-radius:var(--radius);padding:14px 16px;background:var(--goud-soft)}
-.final h2{font-size:24px;margin:0 0 6px;color:var(--goud-text)}
+.verbergvwo .alleenvwo{display:none}
 </style>
 </head>
 <body>
 <div class="wrap">
 <nav class="sitenav" aria-label="Site">
   <a class="merk" href="../../index.html#home">Biologie bij Kamiel</a>
-  <a class="terug" href="../../index.html#kerndoelen">← Terug naar Kerndoelen onderbouw</a>
-  <a href="echt.html">Echte preparaten (weefsels, 40–400×)</a>
+  <a class="terug" href="../../index.html#cellen">← Terug naar Cellen</a>
+  <a href="echt.html">Echte preparaten</a>
   <span class="rechts"><button type="button" class="icoon" data-thema-knop></button></span>
 </nav>
 <header class="tool-kop">
-  <div class="mono">Tool · Kerndoelen onderbouw · 32A · bij de film Alles is cel</div>
+  <div class="mono">Tool · Cellen · havo 4 · vwo 4 en 5</div>
   <h1>Virtuele microscoop</h1>
 <div class="modus" aria-label="Kies een microscoop">
-  <a href="echt.html"><span class="beeld"><img src="fotos/thumb-plat-epitheel.jpg" alt=""><img src="fotos/thumb-bot.jpg" alt=""></span><span><span class="num">Echte preparaten</span><b>Echte foto's van 23 weefsels</b><small>epitheel, bot, bloed, kraakbeen, spier · 40–400×</small></span><span class="ga">Open →</span></a>
-  <a href="index.html" aria-current="page"><span class="beeld"><span class="teken"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#7A5A1E" stroke-width="1.6"><rect x="4" y="6" width="32" height="12" rx="2"/><rect x="4" y="22" width="32" height="12" rx="2"/><circle cx="14" cy="12" r="2.2" fill="#7A5A1E"/><circle cx="26" cy="28" r="2.2" fill="#7A5A1E"/></svg></span></span><span><span class="num">Geanimeerde preparaten</span><b>Uienvlies, wangcellen, waterpest</b><small>de opdracht bij de film Alles is cel</small></span><span class="ga">✓ hier</span></a>
+  <a href="index.html" aria-current="page"><span class="beeld"><span class="teken"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#7A5A1E" stroke-width="1.6"><rect x="4" y="6" width="32" height="12" rx="2"/><rect x="4" y="22" width="32" height="12" rx="2"/><circle cx="14" cy="12" r="2.2" fill="#7A5A1E"/><circle cx="26" cy="28" r="2.2" fill="#7A5A1E"/></svg></span></span><span><span class="num">Getekend, op echte schaal</span><b>Ui, wangcel, waterpest</b><small>scherpstellen, wat zie je wel en niet, hoe groot is het echt</small></span><span class="ga">✓ hier</span></a>
+  <a href="echt.html"><span class="beeld"><img src="fotos/thumb-plat-epitheel.jpg" alt=""><img src="fotos/thumb-bot.jpg" alt=""></span><span><span class="num">Echte foto's</span><b>23 weefsels door de microscoop</b><small>epitheel, bindweefsel, bloed, kraakbeen, spier · 40–400×</small></span><span class="ga">Open →</span></a>
 </div>
-  <p>Twee microscopen: eerst drie getekende preparaten bij de film <i>Alles is cel</i>, daarna echte foto's van 23 weefsels. Stel scherp, vergroot en zoek de onderdelen. Sleep om het preparaat te verschuiven, tik om iets aan te wijzen.</p>
+  <p>Een lichtmicroscoop zoals in het practicumlokaal, met preparaten die op echte schaal getekend zijn. Je voorspelt eerst, dan kijk je, dan verklaar je. Sleep om het preparaat te verschuiven, tik om iets aan te wijzen.</p>
 </header>
 
+<div class="stappen" role="group" aria-label="Opdracht" id="stappen"></div>
 <div class="slides seg" role="group" aria-label="Preparaat" id="slides"></div>
 
 <div class="board">
   <div class="scope">
-    <canvas id="view" width="720" height="720" aria-label="Beeld door de microscoop"></canvas>
-    <div class="mag" id="maglbl">40×</div>
+    <canvas id="view" width="720" height="720" aria-label="Beeld door de microscoop. Sleep om te verschuiven, tik om aan te wijzen."></canvas>
+    <div class="mag" id="maglbl"></div>
+    <div class="optiek" id="optiek"></div>
     <div class="controls">
-      <div class="ctl"><label>Vergroting</label><span class="seg" id="mags"><button type="button" data-m="40" aria-pressed="true">40×</button><button type="button" data-m="100" aria-pressed="false">100×</button><button type="button" data-m="400" aria-pressed="false">400×</button></span></div>
-      <div class="ctl"><label for="focus">Scherpstellen</label><input id="focus" type="range" min="0" max="100" value="10"></div>
-      <div class="ctl"><label for="light">Licht</label><input id="light" type="range" min="0" max="100" value="70"></div>
+      <div class="ctl"><span class="lbl" id="lblmag">Vergroting</span><span class="seg" id="mags" role="group" aria-labelledby="lblmag"><button type="button" data-m="40" aria-pressed="true">40×</button><button type="button" data-m="100" aria-pressed="false">100×</button><button type="button" data-m="400" aria-pressed="false">400×</button></span></div>
+      <div class="ctl"><label for="focus">Scherpstellen</label><input id="focus" type="range" min="0" max="100" step="0.5" value="10"></div>
+      <div class="ctl"><label for="light">Licht</label><input id="light" type="range" min="0" max="100" value="65"></div>
+      <div class="ctl"><span class="lbl">Extra</span><label class="vink"><input type="checkbox" id="meetlat"> Meetlat</label><label class="vink"><input type="checkbox" id="omgekeerd"> Echt schuiven (beeld op zijn kop)</label></div>
     </div>
   </div>
-  <div class="paneel" id="side"></div>
+  <div class="paneel" id="side" aria-live="polite"></div>
 </div>
 <div id="finalbox"></div>
-<details><summary>Zo werk je met een microscoop</summary><ol><li>Begin met de kleinste vergroting (40×) en stel scherp.</li><li>Schuif wat je wilt bekijken naar het midden.</li><li>Kies een grotere vergroting en stel opnieuw scherp. Bij een grotere vergroting is het beeld veel sneller onscherp.</li><li>Te donker of te licht? Draai aan het licht.</li></ol><p>Zeg wat je ziet met de vergroting erbij, bijvoorbeeld: "Bij 400× zie ik in elke cel een celkern."</p></details>
-<footer class="tool-voet">Biologie bij Kamiel · Virtuele microscoop · versie 1.0 · oktober 2026 · getekende preparaten, vereenvoudigd · past bij de film <a href="../../films/onderbouw/32a/1-alles-is-cel/index.html">Alles is cel</a> · verder kijken: <a href="echt.html">echte preparaten</a><span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></footer>
+<details><summary>Zo werk je met een microscoop</summary><ol><li>Begin altijd met de kleinste vergroting (objectief 4×, samen 40×) en stel scherp.</li><li>Schuif wat je wilt bekijken naar het midden van het beeld.</li><li>Draai een sterker objectief ervoor. De objectieven zijn zo gemaakt dat het beeld bijna scherp blijft: stel alleen nog fijn bij.</li><li>Bij een sterkere vergroting zie je een kleiner stukje, wordt het beeld donkerder en is het veel sneller onscherp. Geef meer licht.</li><li>Het beeld staat op zijn kop. Schuif je het preparaat naar rechts, dan schuift het beeld naar links.</li></ol><p>Zeg wat je ziet met de vergroting erbij, bijvoorbeeld: "Bij 400× zie ik in elke cel een celkern."</p></details>
+<details><summary>Voor de docent</summary><p>Alle preparaten zijn getekend op echte schaal (1 eenheid = 1 µm). Het gezichtsveld hoort bij een microscoop met oculair 10× en veldgetal 18: 4,5 mm bij 40×, 1,8 mm bij 100× en 0,45 mm bij 400×. De objectieven zijn parfocaal: na scherpstellen bij 40× is alleen fijn bijstellen nodig. Bij een sterkere vergroting wordt het beeld donkerder. Met <i>Echt schuiven</i> beweegt het beeld de andere kant op dan je vinger, zoals bij een echt preparaat. Maten: uiencel ± 150–350 × 50–70 µm, wangcel ± 50–70 µm met kern ± 7 µm, waterpestcel ± 60–110 × 20–30 µm met bladgroenkorrels van ± 5 µm, bacteriën ± 1–2 µm. Grens van de lichtmicroscoop ± 0,2 µm. Opdracht 4 heeft een havo- en een vwo-stand (<code>?niveau=vwo</code>).</p></details>
+<footer class="tool-voet">Biologie bij Kamiel · Virtuele microscoop · versie 2.0 · november 2026 · getekende preparaten op echte schaal · past bij de films <a href="../../films/cellen/celorganellen/index.html">Celorganellen</a>, <a href="../../films/cellen/van-molecuul-tot-biosfeer.html">Van molecuul tot biosfeer</a> en <a href="../../films/cellen/microben.html">Microben</a> en bij het <a href="../schaallab.html">Schaallab</a> · verder kijken: <a href="echt.html">echte preparaten</a> · onderbouw: <a href="../../films/onderbouw/32a/1-alles-is-cel/index.html">Alles is cel</a><span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></footer>
 </div>
 
 <script>
+'use strict';
+// ================= microscoop: optiek op echte schaal =================
 const cv=document.getElementById('view'), main=cv.getContext('2d'), S=720, R=S/2;
 const off=document.createElement('canvas'); off.width=S; off.height=S; const ctx=off.getContext('2d');
-let dirty=true, lastKey='', lastAnim=0;
+const FILTER_OK=typeof main.filter==='string';           // Safari < 18 kent ctx.filter niet: dan vervagen we met verkleinen
+const tmp=document.createElement('canvas'); const tctx=tmp.getContext('2d');
 const H=n=>{ const x=Math.sin(n*127.1+311.7)*43758.5453; return x-Math.floor(x); };
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
-// ---------- preparaten (wereld in µm-achtige eenheden) ----------
-const WORLD=2400;
-function makeOnion(){ const cells=[]; const rowH=70; for(let r=0;r*rowH<WORLD;r++){ let x=-((r*97)%300); while(x<WORLD){ const w=220+H(r*31+x)*160; cells.push({x,y:r*rowH,w,h:rowH,nx:x+w*(0.3+0.4*H(x+r)),ny:r*rowH+rowH*(0.35+0.3*H(r+x*2)),nr:11}); x+=w; } } return cells; }
-function makeCheek(){ const cells=[]; for(let i=0;i<220;i++){ const x=100+H(i*3)*2200, y=100+H(i*3+1)*2200; if(cells.some(c=>Math.hypot(c.x-x,c.y-y)<70)) continue; const n=7+Math.floor(H(i)*3), r=50+H(i*7)*18, rot=H(i*11)*6.28, pts=[];
-    for(let k=0;k<n;k++){ const a=rot+k/n*6.283+(H(i*13+k)-0.5)*0.5, rr=r*(0.8+0.32*H(i*17+k)); pts.push([x+Math.cos(a)*rr,y+Math.sin(a)*rr]); }
-    cells.push({x,y,r,pts,nx:x+(H(i+4)-0.5)*r*0.3,ny:y+(H(i+5)-0.5)*r*0.3,nr:r*0.13,rot}); } return cells; }
-function makeElodea(){ const cells=[]; const rowH=44; for(let r=0;r*rowH<WORLD;r++){ let x=-((r*53)%120); while(x<WORLD){ const w=90+H(r*19+x)*50; const ch=[]; const n=14+Math.floor(H(x+r)*6); for(let k=0;k<n;k++) ch.push({u:k/n+H(k+r*3)*0.03,sp:0.025+0.01*H(x+k)}); cells.push({x,y:r*rowH,w,h:rowH,ch,nx:x+w*0.3,ny:r*rowH+rowH*0.5,nr:7}); x+=w; } } return cells; }
+const OC=10, OBJ={40:4,100:10,400:40};
+const FOV={40:4500,100:1800,400:450};                    // middellijn gezichtsveld in µm (veldgetal 18)
+const SC=m=>S/FOV[m];                                     // schermpixels per µm
+const LAT={40:500,100:200,400:50};                        // lengte meetlat in µm (± 80 px)
+const W=6000;                                             // preparaat: 6 × 6 mm
+const nl=(x,d=0)=>x.toLocaleString('nl-NL',{maximumFractionDigits:d});
+
+// ---------- preparaten ----------
+function maakUi(){ const cellen=[]; let y=0, r=0;
+  while(y<W){ const h=50+H(r*7.3)*20; let x=-H(r*3.1)*300;
+    while(x<W){ const w=150+H(r*31+x*0.7)*200; const n=1+(H(x+r*5)>0.7?1:0);
+      cellen.push({x,y,w,h,nx:x+w*(0.25+0.5*H(x*1.3+r)),ny:y+h*(0.4+0.2*H(r+x*2)),nr:9+H(x+r*9)*3,nl:Array.from({length:n},(_,k)=>[(H(x+k*3+r)-0.5)*7,(H(x*2+k+r)-0.5)*5])}); x+=w; }
+    y+=h; r++; }
+  return {cellen}; }
+function maakWang(){ const cellen=[], bact=[]; const centra=[];
+  for(let i=0;i<16;i++) centra.push([700+H(i*3.7)*4600, 700+H(i*5.1+2)*4600, 15+Math.floor(H(i*9.2)*30)]);
+  const plaats=(x,y,i)=>{ if(x<150||y<150||x>W-150||y>W-150) return; if(cellen.some(c=>Math.hypot(c.x-x,c.y-y)<38)) return;
+    const r=25+H(i*7)*10, n=7+Math.floor(H(i)*3), rot=H(i*11)*6.283, pts=[];
+    for(let k=0;k<n;k++){ const a=rot+k/n*6.283+(H(i*13+k)-0.5)*0.5, rr=r*(0.82+0.3*H(i*17+k)); pts.push([x+Math.cos(a)*rr,y+Math.sin(a)*rr]); }
+    const plooi=H(i*19)>0.55?[[x+(H(i+1)-0.5)*r,y-r*0.6],[x+(H(i+2)-0.5)*r*0.8,y],[x+(H(i+3)-0.5)*r,y+r*0.55]]:null;
+    cellen.push({x,y,r,pts,plooi,nx:x+(H(i+4)-0.5)*r*0.35,ny:y+(H(i+5)-0.5)*r*0.35,nr:3.2+H(i*23)*0.9,rot}); };
+  let i=0; centra.forEach(([cx,cy,n])=>{ for(let k=0;k<n*3&&k<200;k++){ i++; const a=H(i*1.7)*6.283, d=Math.sqrt(H(i*2.3))*(60+n*9); plaats(cx+Math.cos(a)*d,cy+Math.sin(a)*d,i); } });
+  for(let k=0;k<160;k++){ i++; plaats(200+H(i*3.3)*5600,200+H(i*4.4)*5600,i); }
+  // bacteriën uit de mond (± 1–2 µm), vooral op en bij de cellen
+  cellen.forEach((c,j)=>{ const n=Math.floor(H(j*29)*14); for(let k=0;k<n;k++){ const a=H(j*31+k)*6.283, d=Math.sqrt(H(j*37+k))*c.r*1.05; bact.push({x:c.x+Math.cos(a)*d,y:c.y+Math.sin(a)*d,a:H(j+k*3)*3.14,staaf:H(j*41+k)>0.6}); } });
+  const bellen=[[1500,1800,95],[3900,2600,140],[2600,4300,70],[4700,4700,110]];
+  return {cellen,bact,bellen}; }
+function maakWaterpest(){ const cellen=[]; const L0=2100, L1=3900, N0=2930, N1=3070; let y=0, r=0;
+  while(y<W){ const h=22+H(r*5.7)*8; let x=L0-H(r*2.9)*60;
+    while(x<L1){ const nerf=x+40>N0&&x<N1; const w=nerf?(55+H(r*13+x)*40):(60+H(r*19+x*0.3)*50);
+      const hh=nerf?h*0.55:h;
+      if(x+w>L0+10&&x<L1-10){ cellen.push({x,y,w,h:hh,n:nerf?9:30+Math.floor(H(x+r)*12),s:H(x*0.37+r*1.9)*1000,v:4+H(x+r*3)*4,nx:x+w*(0.3+0.4*H(x+r*7)),ny:y+hh*0.5,nr:nerf?3:5});
+        if(nerf) cellen.push({x,y:y+hh,w,h:h-hh,n:7,s:H(x*0.71+r)*1000,v:5,nx:x+w*0.6,ny:y+hh+(h-hh)*0.5,nr:3}); }
+      x+=w; }
+    y+=h; r++; }
+  return {cellen,L0,L1}; }
 const SLIDES={
- ui:{name:'Uienvlies',sub:'met een druppel jodium',bg:[236,226,196],cells:makeOnion(),kind:'grid',focus:{40:34,100:52,400:68},
-   tasks:[{id:'celwand',t:'Wijs een celwand aan.'},{id:'celkern',t:'Wijs een celkern aan.'},{id:'q',t:'Zie je bladgroenkorrels?',q:'Zie je in het uienvlies bladgroenkorrels?',opts:['ja, in elke cel','nee, geen enkele'],ok:1,ex:'Nee. Een ui groeit onder de grond; zijn rokken krijgen geen licht. Zonder licht heeft een cel niets aan bladgroenkorrels.'}]},
- wang:{name:'Wangcellen',sub:'gekleurd met methyleenblauw',bg:[230,236,239],cells:makeCheek(),kind:'free',focus:{40:22,100:47,400:76},
-   tasks:[{id:'celkern',t:'Wijs een celkern aan.'},{id:'celmembraan',t:'Wijs het celmembraan aan (de rand van een cel).'},{id:'q',t:'Heeft een wangcel een celwand?',q:'Heeft een wangcel een celwand?',opts:['ja, net als de ui','nee, alleen een celmembraan'],ok:1,ex:'Nee. Een dierlijke cel heeft alleen een celmembraan. Daarom zijn wangcellen zo dun en slap, en liggen ze los.'}]},
- waterpest:{name:'Waterpest',sub:'een blaadje, zonder kleuring',bg:[226,236,216],cells:makeElodea(),kind:'grid',focus:{40:40,100:61,400:84},
-   tasks:[{id:'bladgroenkorrel',t:'Wijs een bladgroenkorrel aan.'},{id:'celwand',t:'Wijs een celwand aan.'},{id:'q',t:'Waarom bewegen de bladgroenkorrels?',q:'Bij 400× zie je de bladgroenkorrels langs de rand van de cel schuiven. Hoe komt dat?',opts:['ze zwemmen zelf','het cytoplasma stroomt en neemt ze mee','het water onder het dekglaasje stroomt'],ok:1,ex:'Het cytoplasma stroomt rond in de cel en neemt de bladgroenkorrels mee. Een levende cel is niet stil!'}]}
+ ui:{naam:'Uienvlies',sub:'opperhuid van een uienrok, met een druppel jodium',bg:[236,226,196],foc:0,data:maakUi()},
+ wang:{naam:'Wangcellen',sub:'van de binnenkant van je wang geschraapt, gekleurd met methyleenblauw',bg:[228,234,238],foc:-3,data:maakWang()},
+ waterpest:{naam:'Waterpest',sub:'een heel blaadje in een druppel water, zonder kleuring',bg:[222,232,214],foc:4,data:maakWaterpest()}
 };
-const SCALE={40:0.3,100:0.6,400:1.6};
-let cur='ui', mag=40, cam={ui:{x:900,y:900},wang:{x:900,y:900},waterpest:{x:900,y:900}}, focus=10, light=70, t0=performance.now();
-const prog={ui:{},wang:{},waterpest:{}}; let feedback=null, ask=null;
+const START={ui:{x:3000,y:3000},wang:{x:SLIDES.wang.data.cellen[0].x+20,y:SLIDES.wang.data.cellen[0].y},waterpest:{x:2560,y:3000}};
+
+// ---------- toestand ----------
+const OPSLAG='virtuele-microscoop-2';
+let st={}; try{ st=JSON.parse(localStorage.getItem(OPSLAG)||'{}')||{}; }catch(e){ st={}; }
+st.prog=st.prog||{ui:{},wang:{},waterpest:{}}; st.voor=st.voor||{}; st.zien=st.zien||{voor:{},gezien:{},klaar:false}; st.groot=st.groot||{}; st.rek=st.rek||{};
+const qs=new URLSearchParams(location.search);
+st.niveau=qs.get('niveau')==='vwo'?'vwo':qs.get('niveau')==='havo'?'havo':(st.niveau||'havo');
+const bewaar=()=>{ try{ localStorage.setItem(OPSLAG,JSON.stringify(st)); }catch(e){} };
+let stap=['aanwijzen','zien','groot','rekenen'].includes(location.hash.slice(1))?location.hash.slice(1):'aanwijzen';
+let cur='ui', mag=40, focus=10, light=65, meetlat=false, omgekeerd=false, lege=false;
+const cam={ui:{...START.ui},wang:{...START.wang},waterpest:{...START.waterpest}};
+let feedback=null, ask=null, t0=performance.now(), lastKey='', lastComp='', lastAnim=0, scherpSinds=0;
 
 // ---------- tekenen ----------
-function chPos(c,k,t){ const per=2*(c.w+c.h)-40, ch=c.ch[k]; let d=((ch.u+t*ch.sp*0.2)%1)*per; const iw=c.w-20, ih=c.h-20; const x0=c.x+10,y0=c.y+10;
-  if(d<iw) return [x0+d,y0+3]; d-=iw; if(d<ih) return [x0+iw-3,y0+d]; d-=ih; if(d<iw) return [x0+iw-d,y0+ih-3]; d-=iw; return [x0+3,y0+ih-d]; }
-function draw(now){
-  const sl=SLIDES[cur], sc=SCALE[mag], c=cam[cur], t=(performance.now()-t0)/1000;
-  const key=[cur,mag,Math.round(c.x),Math.round(c.y),light].join('|');
-  const anim=cur==='waterpest'&&mag>=100&&(performance.now()-lastAnim>(mag===400?33:120));
-  if(key!==lastKey||anim||dirty){ lastKey=key; dirty=false; if(anim) lastAnim=performance.now(); renderScene(sl,sc,c,t); }
-  composite(); requestAnimationFrame(draw);
-}
-function renderScene(sl,sc,c,t){
-  ctx.save(); ctx.clearRect(0,0,S,S);
-  const L=0.35+light/100*0.9; ctx.fillStyle=`rgb(${sl.bg.map(v=>Math.round(clamp(v*L,0,255))).join(',')})`; ctx.fillRect(0,0,S,S);
+const zichtbaar=(k,c,sc,marge)=>!(k.x>c.x+R/sc+marge||k.x+k.w<c.x-R/sc-marge||k.y>c.y+R/sc+marge||k.y+k.h<c.y-R/sc-marge);
+function chPos(c,k,t){ const w=c.w-6, h=c.h-6, per=2*(w+h); const u0=k/c.n+H(c.s+k)*0.02; let d=((u0+t*c.v/per)%1+1)%1*per;
+  const x0=c.x+3, y0=c.y+3, ins=2.4+H(c.s+k*7.7)*2.6;
+  if(d<w) return [x0+d,y0+ins]; d-=w; if(d<h) return [x0+w-ins,y0+d]; d-=h; if(d<w) return [x0+w-d,y0+h-ins]; d-=w; return [x0+ins,y0+h-d]; }
+function helderheid(){ return (0.3+light/100*0.95)*({40:1.1,100:1,400:0.8}[mag]); }
+function renderScene(t){
+  const sl=SLIDES[cur], sc=SC(mag), c=cam[cur], L=helderheid(), dim=v=>Math.round(clamp(v*L,0,255));
+  ctx.save(); ctx.setTransform(1,0,0,1,0,0); ctx.fillStyle=`rgb(${sl.bg.map(dim).join(',')})`; ctx.fillRect(0,0,S,S);
   ctx.translate(R,R); ctx.scale(sc,sc); ctx.translate(-c.x,-c.y);
-  const vx0=c.x-R/sc-200, vx1=c.x+R/sc+200, vy0=c.y-R/sc-200, vy1=c.y+R/sc+200;
-  const dim=v=>Math.round(clamp(v*L,0,255));
-  if(cur==='ui'){ for(const k of sl.cells){ if(k.x>vx1||k.x+k.w<vx0||k.y>vy1||k.y+k.h<vy0) continue;
-      ctx.fillStyle=`rgba(${dim(225)},${dim(205)},${dim(150)},0.35)`; ctx.fillRect(k.x+3,k.y+3,k.w-6,k.h-6);
-      ctx.strokeStyle=`rgb(${dim(150)},${dim(120)},${dim(70)})`; ctx.lineWidth=5; ctx.strokeRect(k.x,k.y,k.w,k.h);
-      ctx.fillStyle=`rgb(${dim(160)},${dim(110)},${dim(40)})`; ctx.beginPath(); ctx.ellipse(k.nx,k.ny,k.nr*1.3,k.nr,0,0,6.283); ctx.fill();
-      ctx.fillStyle=`rgb(${dim(110)},${dim(70)},${dim(20)})`; ctx.beginPath(); ctx.arc(k.nx+3,k.ny-2,3,0,6.283); ctx.fill(); } }
-  if(cur==='wang'){ for(const k of sl.cells){ if(Math.abs(k.x-c.x)>R/sc+120||Math.abs(k.y-c.y)>R/sc+120) continue;
+  const lw=px=>Math.max(px/sc,0);
+  if(cur==='ui'){ const D=sl.data;
+    for(const k of D.cellen){ if(!zichtbaar(k,c,sc,40)) continue;
+      ctx.fillStyle=`rgba(${dim(226)},${dim(208)},${dim(150)},0.32)`; ctx.fillRect(k.x+2,k.y+2,k.w-4,k.h-4);
+      ctx.strokeStyle=`rgb(${dim(148)},${dim(118)},${dim(66)})`; ctx.lineWidth=Math.max(2.4,lw(1.1)); ctx.strokeRect(k.x,k.y,k.w,k.h);
+      if(sc<0.2) continue;
+      ctx.fillStyle=`rgb(${dim(176)},${dim(124)},${dim(46)})`; ctx.beginPath(); ctx.ellipse(k.nx,k.ny,k.nr*1.25,k.nr,0,0,6.283); ctx.fill();
+      if(sc>1){ ctx.fillStyle=`rgb(${dim(112)},${dim(70)},${dim(22)})`; k.nl.forEach(([dx,dy])=>{ ctx.beginPath(); ctx.arc(k.nx+dx,k.ny+dy,2.2,0,6.283); ctx.fill(); }); } } }
+  if(cur==='wang'){ const D=sl.data, mx=R/sc+90;
+    for(const k of D.cellen){ if(Math.abs(k.x-c.x)>mx||Math.abs(k.y-c.y)>mx) continue;
       ctx.beginPath(); k.pts.forEach((p,i)=>{ const q=k.pts[(i+1)%k.pts.length], m=[(p[0]+q[0])/2,(p[1]+q[1])/2]; if(!i){ const l=k.pts[k.pts.length-1]; ctx.moveTo((l[0]+p[0])/2,(l[1]+p[1])/2); } ctx.quadraticCurveTo(p[0],p[1],m[0],m[1]); }); ctx.closePath();
-      ctx.fillStyle=`rgba(${dim(120)},${dim(155)},${dim(205)},0.28)`; ctx.fill(); ctx.strokeStyle=`rgba(${dim(55)},${dim(85)},${dim(145)},0.7)`; ctx.lineWidth=1.6/sc*0.6+1; ctx.stroke();
-      ctx.fillStyle=`rgba(${dim(60)},${dim(90)},${dim(150)},0.3)`; for(let i=0;i<18;i++){ const a=H(k.x+i)*6.283, d=Math.sqrt(H(k.y+i))*k.r*0.7; ctx.beginPath(); ctx.arc(k.x+Math.cos(a)*d,k.y+Math.sin(a)*d,1.2,0,6.283); ctx.fill(); }
-      ctx.fillStyle=`rgba(${dim(42)},${dim(62)},${dim(128)},0.9)`; ctx.beginPath(); ctx.ellipse(k.nx,k.ny,k.nr,k.nr*0.8,k.rot,0,6.283); ctx.fill(); }
-    ctx.fillStyle=`rgba(${dim(42)},${dim(62)},${dim(128)},0.7)`; for(let i=0;i<500;i++){ const x=H(i*5)*WORLD, y=H(i*5+1)*WORLD; if(Math.abs(x-c.x)>R/sc||Math.abs(y-c.y)>R/sc) continue; ctx.beginPath(); ctx.ellipse(x,y,1.6,0.9,H(i)*3,0,6.283); ctx.fill(); }
-    // a few air bubbles
-    [[600,700,90],[1500,1300,120],[1100,1900,70]].forEach(([x,y,r])=>{ ctx.beginPath(); ctx.arc(x,y,r,0,6.283); ctx.strokeStyle=`rgb(${dim(40)},${dim(45)},${dim(50)})`; ctx.lineWidth=8; ctx.stroke(); ctx.beginPath(); ctx.arc(x-r*0.3,y-r*0.3,r*0.2,0,6.283); ctx.fillStyle='rgba(255,255,255,.5)'; ctx.fill(); }); }
-  if(cur==='waterpest'){ for(const k of sl.cells){ if(k.x>vx1||k.x+k.w<vx0||k.y>vy1||k.y+k.h<vy0) continue;
-      ctx.fillStyle=`rgba(${dim(200)},${dim(225)},${dim(185)},0.5)`; ctx.fillRect(k.x+2,k.y+2,k.w-4,k.h-4);
-      ctx.strokeStyle=`rgb(${dim(90)},${dim(130)},${dim(80)})`; ctx.lineWidth=3; ctx.strokeRect(k.x,k.y,k.w,k.h);
-      ctx.fillStyle=`rgb(${dim(60)},${dim(140)},${dim(60)})`; k.ch.forEach((_,i)=>{ const p=chPos(k,i,t); ctx.beginPath(); ctx.ellipse(p[0],p[1],5,3.4,0,0,6.283); ctx.fill(); });
-      ctx.fillStyle=`rgba(${dim(140)},${dim(150)},${dim(140)},0.5)`; ctx.beginPath(); ctx.ellipse(k.nx,k.ny,k.nr,k.nr*0.8,0,0,6.283); ctx.fill(); } }
+      ctx.fillStyle=`rgba(${dim(120)},${dim(156)},${dim(206)},0.26)`; ctx.fill(); ctx.strokeStyle=`rgba(${dim(58)},${dim(88)},${dim(148)},0.65)`; ctx.lineWidth=Math.max(0.8,lw(1)); ctx.stroke();
+      if(k.plooi&&sc>0.3){ ctx.beginPath(); ctx.moveTo(...k.plooi[0]); ctx.quadraticCurveTo(...k.plooi[1],...k.plooi[2]); ctx.strokeStyle=`rgba(${dim(70)},${dim(100)},${dim(160)},0.35)`; ctx.lineWidth=Math.max(1.2,lw(1)); ctx.stroke(); }
+      ctx.fillStyle=`rgba(${dim(38)},${dim(58)},${dim(126)},0.92)`; ctx.beginPath(); ctx.ellipse(k.nx,k.ny,k.nr,k.nr*0.8,k.rot,0,6.283); ctx.fill(); }
+    if(sc>0.3){ ctx.fillStyle=`rgba(${dim(36)},${dim(54)},${dim(118)},0.75)`;
+      for(const b of D.bact){ if(Math.abs(b.x-c.x)>R/sc||Math.abs(b.y-c.y)>R/sc) continue; ctx.beginPath(); ctx.ellipse(b.x,b.y,b.staaf?1.1:0.55,0.5,b.a,0,6.283); ctx.fill(); } }
+    for(const [x,y,r] of D.bellen){ if(Math.abs(x-c.x)>R/sc+r||Math.abs(y-c.y)>R/sc+r) continue;
+      ctx.beginPath(); ctx.arc(x,y,r,0,6.283); ctx.strokeStyle=`rgb(${dim(40)},${dim(45)},${dim(52)})`; ctx.lineWidth=Math.max(6,lw(2)); ctx.stroke();
+      ctx.beginPath(); ctx.arc(x-r*0.3,y-r*0.3,r*0.18,0,6.283); ctx.fillStyle='rgba(255,255,255,.55)'; ctx.fill(); } }
+  if(cur==='waterpest'){ const D=sl.data;
+    for(const k of D.cellen){ if(!zichtbaar(k,c,sc,20)) continue;
+      if(sc<0.3){ ctx.fillStyle=`rgb(${dim(108)},${dim(160)},${dim(90)})`; ctx.fillRect(k.x,k.y,k.w,k.h); ctx.strokeStyle=`rgb(${dim(70)},${dim(112)},${dim(62)})`; ctx.lineWidth=lw(0.6); ctx.strokeRect(k.x,k.y,k.w,k.h); continue; }
+      ctx.fillStyle=`rgba(${dim(206)},${dim(228)},${dim(192)},0.55)`; ctx.fillRect(k.x+1,k.y+1,k.w-2,k.h-2);
+      ctx.strokeStyle=`rgb(${dim(86)},${dim(128)},${dim(78)})`; ctx.lineWidth=Math.max(1.6,lw(1)); ctx.strokeRect(k.x,k.y,k.w,k.h);
+      if(sc>1){ ctx.fillStyle=`rgba(${dim(150)},${dim(160)},${dim(148)},0.45)`; ctx.beginPath(); ctx.ellipse(k.nx,k.ny,k.nr,k.nr*0.75,0,0,6.283); ctx.fill(); }
+      ctx.fillStyle=`rgb(${dim(58)},${dim(138)},${dim(56)})`;
+      for(let i=0;i<k.n;i++){ const p=chPos(k,i,t); if(sc>1){ ctx.beginPath(); ctx.ellipse(p[0],p[1],2.6,1.9,0,0,6.283); ctx.fill(); } else ctx.fillRect(p[0]-2.4,p[1]-1.8,4.8,3.6); } } }
   ctx.restore();
 }
-function composite(){ const blur=blurPx(); main.save(); main.clearRect(0,0,S,S); main.beginPath(); main.arc(R,R,R-2,0,6.283); main.clip();
-  main.fillStyle=getComputedStyle(document.body).backgroundColor; main.filter=blur>0.3?`blur(${blur.toFixed(1)}px)`:'none'; main.drawImage(off,0,0); main.filter='none'; main.restore();
-  const g=main.createRadialGradient(R,R,R*0.7,R,R,R); g.addColorStop(0,'rgba(0,0,0,0)'); g.addColorStop(1,'rgba(0,0,0,0.55)'); main.fillStyle=g; main.beginPath(); main.arc(R,R,R-2,0,6.283); main.fill();
+function blurPx(){ const doel={40:46,100:49,400:51}[mag]+SLIDES[cur].foc; const d=Math.abs(focus-doel); const sens={40:0.22,100:0.42,400:0.95}[mag]; return Math.min(14, Math.max(0,d-1.2)*sens); }
+function composite(){ const blur=blurPx()+(lege?2.2:0);
+  main.save(); main.setTransform(1,0,0,1,0,0); main.clearRect(0,0,S,S); main.beginPath(); main.arc(R,R,R-2,0,6.283); main.clip();
+  main.fillStyle='#111'; main.fillRect(0,0,S,S);
+  const z=lege?2.5:1, bron=[R-R/z,R-R/z,S/z,S/z];
+  if(blur>0.3&&FILTER_OK){ main.filter=`blur(${blur.toFixed(1)}px)`; main.drawImage(off,...bron,0,0,S,S); main.filter='none'; }
+  else if(blur>0.3){ const f=1/(1+blur*0.55); tmp.width=Math.max(8,Math.round(S*f)); tmp.height=tmp.width; tctx.imageSmoothingEnabled=true; tctx.drawImage(off,...bron,0,0,tmp.width,tmp.height); main.imageSmoothingEnabled=true; main.drawImage(tmp,0,0,S,S); }
+  else main.drawImage(off,...bron,0,0,S,S);
+  main.restore();
+  const g=main.createRadialGradient(R,R,R*0.72,R,R,R); g.addColorStop(0,'rgba(0,0,0,0)'); g.addColorStop(1,'rgba(0,0,0,0.5)'); main.fillStyle=g; main.beginPath(); main.arc(R,R,R-2,0,6.283); main.fill();
   main.beginPath(); main.arc(R,R,R-3,0,6.283); main.strokeStyle='#05080D'; main.lineWidth=6; main.stroke();
+  const sc=SC(mag)*(lege?2.5:1);
+  if(stap==='groot'&&!lege){ main.save(); main.setLineDash([10,8]); main.strokeStyle='rgba(224,182,74,.95)'; main.lineWidth=2.5; main.beginPath(); main.moveTo(8,R); main.lineTo(S-8,R); main.stroke(); main.restore(); }
+  if(meetlat){ const len=LAT[mag]*sc, x0=R-len/2, y0=S-78; main.save(); main.lineCap='butt';
+    main.strokeStyle='rgba(0,0,0,.75)'; main.lineWidth=9; main.beginPath(); main.moveTo(x0,y0); main.lineTo(x0+len,y0); main.stroke();
+    main.strokeStyle='#F2F2EE'; main.lineWidth=4; main.beginPath(); main.moveTo(x0,y0); main.lineTo(x0+len,y0); main.moveTo(x0,y0-8); main.lineTo(x0,y0+8); main.moveTo(x0+len,y0-8); main.lineTo(x0+len,y0+8); main.stroke();
+    main.font='600 22px "IBM Plex Mono",monospace'; main.textAlign='center'; main.lineWidth=5; main.strokeStyle='rgba(0,0,0,.8)'; const tekst=nl(LAT[mag])+' µm'; main.strokeText(tekst,R,y0-16); main.fillStyle='#F2F2EE'; main.fillText(tekst,R,y0-16); main.restore(); }
   if(ask&&ask.mark){ main.beginPath(); main.arc(ask.mark[0],ask.mark[1],18,0,6.283); main.strokeStyle=ask.mark[2]; main.lineWidth=3; main.stroke(); }
-  if(light<12){ main.fillStyle='rgba(224,182,74,.9)'; main.font='600 26px "Source Sans 3",sans-serif'; main.textAlign='center'; main.fillText('te donker: meer licht',R,R); }
+  if(light<12){ main.fillStyle='rgba(224,182,74,.95)'; main.font='600 26px "Source Sans 3",sans-serif'; main.textAlign='center'; main.fillText('te donker: meer licht',R,R-40); }
+  if(lege){ main.fillStyle='rgba(224,182,74,.95)'; main.font='600 22px "Source Sans 3",sans-serif'; main.textAlign='center'; main.fillText('digitaal vergroot: groter, niet scherper',R,64); }
 }
-function blurPx(){ const target=SLIDES[cur].focus[mag]; const d=Math.abs(focus-target); const sens={40:0.25,100:0.4,400:0.7}[mag]; return Math.min(16, Math.max(0,d-2)*sens); }
+function draw(){ const t=(performance.now()-t0)/1000, c=cam[cur];
+  const key=[cur,mag,Math.round(c.x*SC(mag)),Math.round(c.y*SC(mag)),light].join('|');
+  const anim=cur==='waterpest'&&mag===400&&performance.now()-lastAnim>40;
+  if(key!==lastKey||anim){ lastKey=key; if(anim) lastAnim=performance.now(); renderScene(t); }
+  const ck=[key,anim?lastAnim:0,blurPx().toFixed(2),meetlat,stap,lege,ask&&ask.mark?ask.mark.join():''].join('|');
+  if(ck!==lastComp){ lastComp=ck; composite(); }
+  volgScherp(); requestAnimationFrame(draw); }
+// 'gezien': scherp bij 400× gedurende 1 s (voor opdracht 2)
+function volgScherp(){ const nu=performance.now();
+  if(mag===400&&blurPx()<1&&light>=25){ if(!scherpSinds) scherpSinds=nu; if(nu-scherpSinds>1000&&!st.zien.gezien[cur]){ st.zien.gezien[cur]=true; bewaar(); if(stap==='zien') renderSide(); } }
+  else scherpSinds=0; }
+function labelMag(){ document.getElementById('maglbl').textContent=mag+'×'; document.getElementById('optiek').textContent=`oculair ${OC}× · objectief ${OBJ[mag]}× · gezichtsveld ⌀ ${nl(FOV[mag]/1000,2)} mm`; }
 
-// ---------- aanwijzen ----------
-function toWorld(px,py){ const sc=SCALE[mag], c=cam[cur]; return [c.x+(px-R)/sc, c.y+(py-R)/sc]; }
-function what(wx,wy){ const sl=SLIDES[cur], sc=SCALE[mag], tol=Math.max(6, 10/sc), t=(performance.now()-t0)/1000;
-  if(cur==='ui'||cur==='waterpest'){ const k=sl.cells.find(k=>wx>=k.x&&wx<k.x+k.w&&wy>=k.y&&wy<k.y+k.h); if(!k) return 'niets';
-    if(cur==='waterpest'){ for(let i=0;i<k.ch.length;i++){ const p=chPos(k,i,t); if(Math.hypot(p[0]-wx,p[1]-wy)<Math.max(7,9/sc)) return 'bladgroenkorrel'; } }
-    if(Math.hypot((wx-k.nx)/1.3,wy-k.ny)<k.nr+Math.max(3,6/sc)) return 'celkern';
-    const edge=Math.min(wx-k.x,k.x+k.w-wx,wy-k.y,k.y+k.h-wy); if(edge<tol) return 'celwand';
-    return cur==='ui'?'binnenkant van de cel (vacuole en cytoplasma)':'binnenkant van de cel (vacuole)'; }
-  // wangcellen
-  let best=null, bd=1e9; for(const k of sl.cells){ const d=Math.hypot(k.x-wx,k.y-wy); if(d<bd){ bd=d; best=k; } }
-  if(!best||bd>best.r*1.25) return 'niets (tussen de cellen)';
-  if(Math.hypot(best.nx-wx,best.ny-wy)<best.nr+Math.max(3,6/sc)) return 'celkern';
-  if(bd>best.r*0.78-tol*0.5) return 'celmembraan';
-  return 'cytoplasma';
-}
-function handleTap(px,py){ const sl=SLIDES[cur]; const [wx,wy]=toWorld(px,py); const task=sl.tasks.find(x=>!prog[cur][x.id]&&x.id!=='q');
-  if(blurPx()>3){ feedback={kind:'no',title:'Het beeld is nog onscherp',text:'Draai aan de schuif "Scherpstellen" tot je de randen van de cellen scherp ziet.'}; ask={mark:[px,py,'#E07A5F']}; renderSide(); return; }
-  if(mag===40){ feedback={kind:'no',title:'Vergroot eerst',text:'Bij 40× zijn de onderdelen te klein om aan te wijzen. Kies 100× of 400× en stel opnieuw scherp.'}; ask={mark:[px,py,'#E07A5F']}; renderSide(); return; }
-  const w=what(wx,wy);
-  if(!task){ feedback={kind:'info',title:'Je wijst aan: '+w,text:'Alle aanwijsopdrachten bij dit preparaat zijn klaar.'}; ask={mark:[px,py,'#E0B64A']}; renderSide(); return; }
-  if(w===task.id){ prog[cur][task.id]=true; feedback={kind:'ok',title:'Goed: '+w,text:EXPL[cur+':'+w]||''}; ask={mark:[px,py,'#7FC48F']}; }
-  else { feedback={kind:'no',title:'Dat is: '+w,text:'Je zoekt: '+task.id+'. '+(HINT[cur+':'+task.id]||'')}; ask={mark:[px,py,'#E07A5F']}; }
-  renderSide(); renderSlides(); checkFinal();
-}
-const EXPL={'ui:celwand':'De dikke lijnen tussen de cellen. Ze liggen tegen elkaar aan als stenen in een muur.','ui:celkern':'Door het jodium kleurt de celkern bruin. Elke cel heeft er één.','wang:celkern':'Het methyleenblauw kleurt de celkern donkerblauw.','wang:celmembraan':'De dunne rand van de cel. Er zit geen celwand omheen.','waterpest:bladgroenkorrel':'Groene korrels die licht vangen. Kijk goed bij 400×: ze schuiven langzaam langs de rand.','waterpest:celwand':'De rand om elke cel. De cellen liggen in rijen tegen elkaar.'};
-const HINT={'ui:celwand':'Tik precies op een lijn tussen twee cellen.','ui:celkern':'Zoek in een cel een klein bruin bolletje.','wang:celkern':'Zoek in een cel het donkerblauwe vlekje.','wang:celmembraan':'Tik op de dunne rand van een losse cel.','waterpest:bladgroenkorrel':'Zoek de kleine groene korrels langs de rand van een cel. Vergroot naar 400×.','waterpest:celwand':'Tik op de rand tussen twee cellen.'};
+// ================= aanwijzen =================
+function toWorld(px,py){ const sc=SC(mag), c=cam[cur]; return [c.x+(px-R)/sc, c.y+(py-R)/sc]; }
+function wat(wx,wy){ const sl=SLIDES[cur], sc=SC(mag), tol=Math.max(2,7/sc), t=(performance.now()-t0)/1000;
+  if(cur==='ui'){ const k=sl.data.cellen.find(k=>wx>=k.x&&wx<k.x+k.w&&wy>=k.y&&wy<k.y+k.h); if(!k) return 'niets';
+    if(sc>1) for(const [dx,dy] of k.nl) if(Math.hypot(k.nx+dx-wx,k.ny+dy-wy)<2.2+Math.max(1.5,5/sc)) return 'kernlichaampje';
+    if(Math.hypot((wx-k.nx)/1.25,wy-k.ny)<k.nr+Math.max(2,5/sc)) return 'celkern';
+    if(Math.min(wx-k.x,k.x+k.w-wx,wy-k.y,k.y+k.h-wy)<tol) return 'celwand';
+    return 'cytoplasma en vacuole'; }
+  if(cur==='waterpest'){ const k=sl.data.cellen.find(k=>wx>=k.x&&wx<k.x+k.w&&wy>=k.y&&wy<k.y+k.h); if(!k) return 'water naast het blaadje';
+    const rand=Math.min(wx-k.x,k.x+k.w-wx,wy-k.y,k.y+k.h-wy);
+    if(rand<1.6) return 'celwand';
+    // bladgroenkorrels (± 5 µm) zijn pas bij 400× aan te wijzen; bij 100× zijn ze 2 pixels
+    if(sc>1) for(let i=0;i<k.n;i++){ const p=chPos(k,i,t); if(Math.hypot(p[0]-wx,p[1]-wy)<2.6+Math.max(1.5,4/sc)) return 'bladgroenkorrel'; }
+    if(rand<Math.max(2,4/sc)) return 'celwand';
+    if(rand<6) return sc>1?'rand van het cytoplasma':'cytoplasma met bladgroenkorrels';
+    return 'vacuole'; }
+  const D=sl.data;
+  if(sc>1) for(const b of D.bact) if(Math.hypot(b.x-wx,b.y-wy)<1.2+5/sc) return 'bacterie';
+  for(const [x,y,r] of D.bellen){ const d=Math.hypot(x-wx,y-wy); if(Math.abs(d-r)<Math.max(4,8/sc)) return 'luchtbel'; }
+  let best=null, bd=1e9; for(const k of D.cellen){ const d=Math.hypot(k.x-wx,k.y-wy); if(d<bd){ bd=d; best=k; } }
+  if(!best||bd>best.r*1.12) return 'niets (tussen de cellen)';
+  if(Math.hypot(best.nx-wx,best.ny-wy)<best.nr+Math.max(2,5/sc)) return 'celkern';
+  if(bd>best.r*0.86-tol*0.6) return 'rand van de cel';
+  return 'cytoplasma'; }
+const TAKEN={
+ ui:{voor:{q:'Een ui is een plant. Verwacht je bladgroenkorrels in het vlies van een uienrok?',opts:['ja, in elke cel','nee, geen enkele'],ok:1},
+   zoek:[{id:'celwand',t:'Wijs een celwand aan.'},{id:'celkern',t:'Wijs een celkern aan.'},{id:'kernlichaampje',t:'Wijs in een celkern een kernlichaampje aan.',bij:400}],
+   verklaar:'Je zag geen bladgroenkorrels. De rokken van een ui groeien onder de grond en in het donker: zonder licht heeft de cel niets aan bladgroenkorrels. Toch is het een plantencel: je zag een celwand.'},
+ wang:{voor:{q:'Verwacht je dat een wangcel een celwand heeft?',opts:['ja, net als een plantencel','nee, alleen een celmembraan'],ok:1},
+   zoek:[{id:'celkern',t:'Wijs een celkern aan.'},{id:'rand van de cel',t:'Wijs de rand van een cel aan.'},{id:'bacterie',t:'Wijs een bacterie aan: een van de piepkleine stipjes.',bij:400}],
+   verklaar:'Een dierlijke cel heeft geen celwand, alleen een celmembraan. Let op: dat membraan zelf is maar ± 7 nanometer dik, veel te dun voor een lichtmicroscoop. Je ziet alleen waar de cel ophoudt. Daarom liggen wangcellen los, plat en vaak gekreukt. De stipjes zijn bacteriën uit je mond: ± 1–2 µm, bijna 50 keer zo klein als een wangcel.'},
+ waterpest:{voor:{q:'Bij 400× zie je de bladgroenkorrels langs de rand van de cel schuiven. Waardoor komt dat, denk je?',opts:['ze zwemmen zelf','het cytoplasma stroomt rond en neemt ze mee','het water onder het dekglaasje stroomt'],ok:1},
+   zoek:[{id:'celwand',t:'Wijs een celwand aan.'},{id:'bladgroenkorrel',t:'Wijs een bladgroenkorrel aan.',bij:400},{id:'vacuole',t:'Wijs de grote heldere ruimte midden in een cel aan.',bij:400}],
+   verklaar:'Het cytoplasma stroomt rond in de cel en neemt de bladgroenkorrels mee: een levende cel is niet stil. Ze schuiven alleen langs de rand, want het midden van de cel wordt gevuld door een grote vacuole. Die is kleurloos: je ziet hem als lege ruimte.'}
+};
+const EXPL={'ui:celwand':'De dikke lijnen tussen de cellen. Ze liggen als stenen in een muur tegen elkaar aan.','ui:celkern':'Jodium kleurt de celkern geelbruin. Elke cel heeft er één.','ui:kernlichaampje':'Het donkere bolletje in de kern. Hier worden de onderdelen van ribosomen gemaakt. De ribosomen zelf zie je niet: veel te klein.',
+ 'wang:celkern':'Methyleenblauw kleurt de celkern donkerblauw. Hij is maar ± 7 µm.','wang:rand van de cel':'Hier houdt de cel op. Er zit geen celwand omheen.','wang:bacterie':'Een bacterie uit je mond. Hij is ± 1–2 µm: bij 400× net een stipje.',
+ 'waterpest:celwand':'De rand om elke cel. De cellen liggen in rijen tegen elkaar.','waterpest:bladgroenkorrel':'Een groene korrel van ± 5 µm. Hier vindt de fotosynthese plaats.','waterpest:vacuole':'De vacuole vult het grootste deel van de cel. Daarom liggen de bladgroenkorrels langs de rand.'};
+const HINT={'ui:celwand':'Tik precies op een lijn tussen twee cellen.','ui:celkern':'Zoek in een cel een geelbruine ovale vlek.','ui:kernlichaampje':'Ga naar 400×, stel scherp en zoek in de kern een donker stipje.',
+ 'wang:celkern':'Zoek in een cel het donkerblauwe vlekje.','wang:rand van de cel':'Tik op de dunne rand van een losse cel.','wang:bacterie':'Ga naar 400×, stel scherp en tik op een heel klein donker stipje.',
+ 'waterpest:celwand':'Tik op de lijn tussen twee cellen.','waterpest:bladgroenkorrel':'Ga naar 400× en tik op een van de groene korrels langs de rand.','waterpest:vacuole':'Ga naar 400× en tik midden in een cel, waar geen korrels liggen.'};
+function taakKlaar(k){ const T=TAKEN[k], p=st.prog[k]; return st.voor[k]!=null&&T.zoek.every(x=>p[x.id]); }
+function handleTap(px,py){
+  if(stap!=='aanwijzen'){ const w=wat(...toWorld(px,py)); feedback={kind:'info',title:'Je wijst aan: '+w,text:blurPx()>3?'Het beeld is wel onscherp.':''}; ask={mark:[px,py,'#E0B64A']}; toonTap(); return; }
+  const T=TAKEN[cur], p=st.prog[cur];
+  if(st.voor[cur]==null){ feedback={kind:'no',title:'Eerst voorspellen',text:'Beantwoord eerst de vraag hiernaast. Daarna ga je kijken.'}; ask={mark:[px,py,'#E07A5F']}; renderSide(); return; }
+  if(blurPx()>3){ feedback={kind:'no',title:'Het beeld is nog onscherp',text:'Draai aan Scherpstellen tot je de randen van de cellen scherp ziet.'}; ask={mark:[px,py,'#E07A5F']}; renderSide(); return; }
+  if(mag===40){ feedback={kind:'no',title:'Vergroot eerst',text:'Bij 40× zijn de onderdelen te klein om aan te wijzen. Kies 100× of 400× en stel bij.'}; ask={mark:[px,py,'#E07A5F']}; renderSide(); return; }
+  const w=wat(...toWorld(px,py)), task=T.zoek.find(x=>!p[x.id]);
+  if(task&&task.bij&&mag<task.bij){ feedback={kind:'no',title:`Vergroot naar ${task.bij}×`,text:`Je zoekt: ${task.id}. Dat is zo klein dat je het pas bij ${task.bij}× goed ziet. Stel daarna fijn bij.`}; ask={mark:[px,py,'#E07A5F']}; renderSide(); return; }
+  if(!task){ feedback={kind:'info',title:'Je wijst aan: '+w,text:EXPL[cur+':'+w]||''}; ask={mark:[px,py,'#E0B64A']}; renderSide(); return; }
+  if(w===task.id){ p[task.id]=true; bewaar(); feedback={kind:'ok',title:'Goed: '+w,text:EXPL[cur+':'+w]||''}; ask={mark:[px,py,'#7FC48F']}; }
+  else feedback={kind:'no',title:'Dat is: '+w,text:'Je zoekt: '+task.id+'. '+(task.bij&&mag<task.bij?`Dat lukt pas bij ${task.bij}×. `:'')+(HINT[cur+':'+task.id]||'')}, ask={mark:[px,py,'#E07A5F']};
+  renderSide(); renderSlides(); renderStappen(); checkFinal(); }
+function toonTap(){ const box=document.getElementById('tapinfo'); if(box&&feedback) box.innerHTML=`<div class="feedback tip"><b>${feedback.title}</b>${feedback.text}</div>`; }
 
-// ---------- zijpaneel ----------
+// ================= opdracht 2: wat kun je zien? =================
+const STRUCT=[
+ {id:'celwand',naam:'celwand',maat:'± 0,1–1 µm dik',zie:'ja',w:'Je ziet hem als lijn tussen de cellen: twee wanden tegen elkaar geven genoeg contrast.'},
+ {id:'kern',naam:'celkern',maat:'± 5–25 µm',zie:'ja',w:'Ruim boven de grens; met een kleurstof goed te zien.'},
+ {id:'bgk',naam:'bladgroenkorrel',maat:'± 5 µm',zie:'ja',w:'Groot genoeg, en groen van zichzelf.'},
+ {id:'vac',naam:'vacuole',maat:'tot het grootste deel van de cel',zie:'ja',w:'Groot, maar kleurloos: je ziet hem als heldere ruimte.'},
+ {id:'mito',naam:'mitochondrium',maat:'± 0,5–1 µm breed',zie:'grens',w:'Net boven de grens. Zonder speciale kleuring zie je ze niet; hooguit als vage stipjes. Hun binnenkant (cristae) zie je nooit.'},
+ {id:'ribo',naam:'ribosoom',maat:'± 25 nm',zie:'nee',w:'Bijna tien keer kleiner dan de grens: alleen met een elektronenmicroscoop.'},
+ {id:'mem',naam:'celmembraan (de laag zelf)',maat:'± 7 nm dik',zie:'nee',w:'Veel te dun. Je ziet alleen waar de cel ophoudt, niet het membraan.'}
+];
+const zienKlaarOm=()=>STRUCT.every(s=>st.zien.voor[s.id])&&st.zien.gezien.waterpest&&st.zien.gezien.wang;
+
+// ================= opdracht 3: hoe groot? =================
+// echte gemiddelde lengte van de uiencellen op de stippellijn bij 100× (op de plek waar de leerling kijkt)
+function telLijn(){ const c=cam.ui, half=FOV[100]/2; const rij=SLIDES.ui.data.cellen.filter(k=>c.y>=k.y&&c.y<k.y+k.h&&k.x<c.x+half&&k.x+k.w>c.x-half);
+  let som=0; rij.forEach(k=>{ som+=(Math.min(k.x+k.w,c.x+half)-Math.max(k.x,c.x-half))/k.w; }); const gem=rij.reduce((a,k)=>a+k.w,0)/Math.max(1,rij.length); return {n:som, gem}; }
+function getal(s){ if(s==null) return NaN; s=String(s).trim().replace(/\s/g,'').replace(',','.').replace(/[a-zµ]+$/i,''); if(s.includes('/')){ const [a,b]=s.split('/').map(Number); return a/b; } return s===''?NaN:Number(s); }
+
+// ================= opdracht 4: rekenen =================
+const REKEN=[
+ {id:'r1',q:'Je kijkt met een oculair van 10× en het objectief van 40×. Wat is de totale vergroting?',ant:400,eenh:'×',uit:'Vergroting = oculair × objectief = 10 × 40 = 400×.'},
+ {id:'r2',q:'Bij 100× is het gezichtsveld 1,8 mm breed. Voorspel: hoe breed is het bij 400×? Kijk daarna zelf met de meetlat aan.',ant:0.45,marge:0.01,eenh:'mm',uit:'4 keer zo sterk vergroot, dus de middellijn van het gezichtsveld is 4 keer zo klein: 1,8 / 4 = 0,45 mm. Je ziet dus maar een klein stukje van het preparaat.'},
+ {id:'r3',q:'Een uiencel is 0,25 mm lang. Hoeveel µm is dat?',ant:250,eenh:'µm',uit:'1 mm = 1000 µm, dus 0,25 mm = 0,25 × 1000 = 250 µm.'},
+ {id:'r4',q:'Op een tekening van wat je bij 400× ziet, is een celkern 4 mm breed. Hoe breed is die kern echt?',ant:10,eenh:'µm',uit:'Werkelijke grootte = grootte in het beeld / vergroting = 4 mm / 400 = 0,01 mm = 10 µm.'},
+ {id:'r5',q:'Een bacterie is 2 µm lang. Hoe lang is hij in het beeld bij 1000×?',ant:2,eenh:'mm',uit:'2 µm × 1000 = 2000 µm = 2 mm. Een bacterie is dus ook bij de sterkste lichtmicroscoop nog maar een stipje.'},
+ {id:'r6',q:'Je ziet een cel linksboven in het beeld. Welke kant schuif je het preparaat op om hem in het midden te krijgen? Probeer het met Echt schuiven aan.',keus:['naar linksboven','naar rechtsonder'],ant:0,uit:'Het beeld staat op zijn kop: het preparaat en het beeld bewegen tegengesteld. Schuif het preparaat dus naar linksboven: dan schuift het beeld naar rechtsonder, naar het midden. Vuistregel: schuif het preparaat de kant op waar het beeld ligt.'},
+ {id:'r7',vwo:true,q:'Op een foto van een elektronenmicroscoop is de schaalstreep van 1 µm 25 mm lang. Een mitochondrium is op die foto 40 mm lang. Hoe lang is het echt?',ant:1.6,marge:0.05,eenh:'µm',uit:'25 mm op de foto staat voor 1 µm. 40 mm is dus 40 / 25 = 1,6 µm.'},
+ {id:'r8',vwo:true,q:'Hoeveel keer is die foto vergroot?',ant:25000,marge:1,eenh:'×',uit:'1 µm wordt 25 mm = 25 000 µm. Vergroting = 25 000 / 1 = 25 000×. Een schaalstreep is handiger dan een vergroting: hij klopt ook als de foto groter of kleiner wordt afgedrukt.'},
+ {id:'r9',vwo:true,q:'Twee ribosomen liggen 50 nm uit elkaar. Wat zie je ervan met een lichtmicroscoop bij 1000×?',keus:['twee losse stipjes','één stipje','niets: ze zijn te klein en liggen veel dichter bij elkaar dan 0,2 µm'],ant:2,uit:'Het oplossend vermogen van een lichtmicroscoop is ± 0,2 µm = 200 nm. Wat dichter bij elkaar ligt, valt samen; een ribosoom van 25 nm geeft bovendien te weinig contrast. Sterker vergroten helpt niet: dan wordt de vlek alleen groter (lege vergroting).'}
+];
+
+// ================= zijpaneel =================
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const FASE={v:'<span class="fase v">Voorspel</span>',k:'<span class="fase k">Kijk</span>',e:'<span class="fase e">Verklaar</span>'};
+const fb=f=>f?`<div class="feedback ${f.kind==='ok'?'ok':f.kind==='no'?'no':'tip'}"><b>${esc(f.title)}</b>${esc(f.text)}</div>`:'';
+function renderSide(){ const box=document.getElementById('side'); document.body.classList.toggle('verbergvwo',st.niveau!=='vwo');
+  if(stap==='aanwijzen') box.innerHTML=paneelAanwijzen(); else if(stap==='zien') box.innerHTML=paneelZien(); else if(stap==='groot') box.innerHTML=paneelGroot(); else box.innerHTML=paneelRekenen();
+  koppel(); }
+function paneelAanwijzen(){ const T=TAKEN[cur], p=st.prog[cur], sl=SLIDES[cur]; const v=st.voor[cur]; const first=T.zoek.find(x=>!p[x.id]);
+  let h=`<h2>${sl.naam}</h2><p class="sub">${sl.sub}</p>`;
+  h+=`<div class="kop">${FASE.v}</div><p><b>${esc(T.voor.q)}</b></p><div class="opts" data-groep="voor">`+T.voor.opts.map((o,i)=>`<button type="button" data-i="${i}" aria-pressed="${v===i}">${esc(o)}</button>`).join('')+'</div>';
+  if(v==null){ h+=fb(feedback)||`<p class="sub" style="margin-top:10px">Kies eerst wat je verwacht. Daarna ga je kijken.</p>`; return h; }
+  h+=`<div class="kop">${FASE.k}</div><ul class="tasks">`+T.zoek.map(x=>`<li class="${p[x.id]?'ok':(x===first?'active':'')}"><span class="box">${p[x.id]?'✓':''}</span><span>${esc(x.t)}${x.bij?` <small>bij ${x.bij}×</small>`:''}</span></li>`).join('')+'</ul>';
+  h+=fb(feedback)||(first?`<div class="feedback">Stel scherp, vergroot en tik in het beeld.</div>`:'');
+  if(!first){ const goed=v===T.voor.ok; h+=`<div class="kop">${FASE.e}</div><div class="feedback ${goed?'ok':'tip'}"><b>Je voorspelde: ${esc(T.voor.opts[v])}. ${goed?'Dat klopt.':'Je zag iets anders.'}</b>${esc(T.verklaar)}</div>`; }
+  return h; }
+function paneelZien(){ const z=st.zien; let h=`<h2>Wat kun je zien met een lichtmicroscoop?</h2><p class="sub">Een organel kan groot genoeg zijn om te bestaan, maar te klein om te zien.</p>`;
+  h+=`<div class="kop">${FASE.v}</div><p>Welke van deze onderdelen verwacht je bij 400× te zien?</p><ul class="voorsp">`+STRUCT.map(s=>`<li><b>${s.naam}</b><span class="seg" role="group" aria-label="${s.naam}"><button type="button" data-s="${s.id}" data-w="ja" aria-pressed="${z.voor[s.id]==='ja'}">zichtbaar</button><button type="button" data-s="${s.id}" data-w="nee" aria-pressed="${z.voor[s.id]==='nee'}">niet</button></span></li>`).join('')+'</ul>';
+  h+=`<div class="kop">${FASE.k}</div><p>Bekijk <b>waterpest</b> en <b>wangcellen</b> bij 400× en stel scherp. Zoek alles wat je hierboven noemde.</p><div class="chips"><span class="chip ${z.gezien.waterpest?'ok':''}">${z.gezien.waterpest?'✓ ':''}waterpest bij 400×</span><span class="chip ${z.gezien.wang?'ok':''}">${z.gezien.wang?'✓ ':''}wangcellen bij 400×</span></div>`;
+  h+=`<div id="tapinfo"></div>`;
+  if(!z.klaar){ h+=`<p><button type="button" class="knop" id="vergelijk" ${zienKlaarOm()?'':'disabled'}>Vergelijk met je voorspelling</button></p>`; if(!zienKlaarOm()) h+=`<p class="sub">${STRUCT.every(s=>z.voor[s.id])?'Kijk eerst bij 400× naar beide preparaten.':'Kies eerst bij elk onderdeel zichtbaar of niet.'}</p>`; return h; }
+  const goed=STRUCT.filter(s=>s.zie!=='grens'&&(s.zie==='ja')===(z.voor[s.id]==='ja')).length;
+  h+=`<div class="kop">${FASE.e}</div><p><b>${goed} van de ${STRUCT.length-1}</b> goed voorspeld (het mitochondrium is een grensgeval en telt niet mee).</p>`;
+  h+=`<div class="tabel-wrap"><table class="tabel"><tr><th>onderdeel</th><th>grootte</th><th>te zien?</th></tr>`+STRUCT.map(s=>{ const ok=s.zie==='grens'?null:(s.zie==='ja')===(z.voor[s.id]==='ja'); return `<tr><td><b>${s.naam}</b><small>jij: ${z.voor[s.id]==='ja'?'zichtbaar':'niet'}${ok===null?'':ok?' ✓':' ✗'}</small></td><td>${s.maat}</td><td><span class="${s.zie}">${s.zie==='ja'?'ja':s.zie==='nee'?'nee':'nauwelijks'}</span><small>${s.w}</small></td></tr>`; }).join('')+'</table></div>';
+  h+=`<p>De grens is het <b>oplossend vermogen</b>: twee punten die dichter dan ± 0,2 µm bij elkaar liggen, zie je met licht als één vlek. Dat komt door de golflengte van licht, niet door de lenzen. Sterker vergroten helpt dan niet.</p>`;
+  h+=`<p><button type="button" class="knop stil" id="legeknop" aria-pressed="${lege}">${lege?'Terug naar 400×':'Probeer het: vergroot digitaal 2,5× verder'}</button></p>`;
+  h+=`<p>Een <b>elektronenmicroscoop</b> gebruikt elektronen in plaats van licht en komt tot ± 1 nm. Daarmee zie je ribosomen, membranen en de cristae van mitochondriën, zoals in de film <a href="../../films/cellen/celorganellen/index.html">Celorganellen</a>. Maar het preparaat is dood en ligt in vacuüm: stromend cytoplasma zie je alleen met licht.</p>`;
+  return h; }
+function paneelGroot(){ const g=st.groot; let h=`<h2>Hoe groot is het echt?</h2><p class="sub">Twee manieren om te meten: tellen in het gezichtsveld, en de meetlat.</p>`;
+  h+=`<div class="kop">${FASE.v}</div><p><b>Hoe lang is één uiencel volgens jou?</b></p><div class="opts" data-groep="gv">`+['0,025 mm','0,25 mm','2,5 mm'].map((o,i)=>`<button type="button" data-i="${i}" aria-pressed="${g.v===i}">${o}</button>`).join('')+'</div>';
+  if(g.v==null) return h;
+  h+=`<div class="kop">${FASE.k} · tellen</div><p>Kies <b>uienvlies</b> en <b>100×</b>. Het gezichtsveld is daar 1,8 mm = 1800 µm breed. Tel hoeveel cellen er op de stippellijn naast elkaar liggen (halve cellen aan de rand tellen als een half).</p>`;
+  const okA=g.a==='ok';
+  h+=`<div class="invoer"><label for="g-n">Aantal cellen</label><input type="text" inputmode="decimal" id="g-n" value="${esc(g.n??'')}" ${okA?'disabled':''}></div><div class="invoer"><label for="g-l">Lengte van één cel</label><input type="text" inputmode="decimal" id="g-l" value="${esc(g.l??'')}" ${okA?'disabled':''}><span class="eenh">µm</span></div>`;
+  if(!okA) h+=`<p><button type="button" class="knop" id="g-check">Controleer</button></p>`;
+  h+=fb(g.fbA);
+  if(!okA) return h;
+  h+=`<div class="kop">${FASE.k} · meetlat</div><p>Kies <b>wangcellen</b> en <b>400×</b> en zet de <b>meetlat</b> aan (50 µm). Hoe breed is een wangcel ongeveer?</p>`;
+  const okB=g.b==='ok';
+  h+=`<div class="invoer"><label for="g-w">Breedte wangcel</label><input type="text" inputmode="decimal" id="g-w" value="${esc(g.w??'')}" ${okB?'disabled':''}><span class="eenh">µm</span>${okB?'':'<button type="button" class="knop klein" id="g-check2">Controleer</button>'}</div>`;
+  h+=fb(g.fbB);
+  if(!okB) return h;
+  const vgoed=g.v===1;
+  h+=`<div class="kop">${FASE.e}</div><div class="feedback ${vgoed?'ok':'tip'}"><b>Je voorspelde ${['0,025 mm','0,25 mm','2,5 mm'][g.v]}. ${vgoed?'Goed geschat.':'Een uiencel is ± 0,25 mm.'}</b>Een uiencel is groot voor een cel: met een loep zie je hem nét. Een wangcel is ± 60 µm, een bacterie ± 2 µm, een virus ± 0,1 µm. Het virus zie je met geen enkele lichtmicroscoop.</div>`;
+  h+=ladder();
+  h+=`<p>Waarom zijn cellen zo klein? Dat zoek je uit in het <a href="../schaallab.html">Schaallab</a>. Meer over bacteriën en virussen: <a href="../../films/cellen/microben.html">Microben</a> en <a href="../../films/cellen/van-molecuul-tot-biosfeer.html">Van molecuul tot biosfeer</a>.</p>`;
+  return h; }
+function ladder(){ // van groot naar klein; balk = grootte op een logaritmische schaal (1 nm – 1 mm)
+  const rij=[['uiencel',2.5e-4,'± 0,25 mm','oog (net), licht, elektronen'],['wangcel',6e-5,'± 60 µm','licht, elektronen'],['celkern',1e-5,'± 10 µm','licht, elektronen'],['bladgroen&shy;korrel',5e-6,'± 5 µm','licht, elektronen'],['bacterie',2e-6,'± 2 µm','licht (als stipje), elektronen'],['mito&shy;chondrium',7e-7,'± 0,5–1 µm','licht (nauwelijks), elektronen'],['virus',1e-7,'± 0,1 µm','alleen elektronen'],['ribosoom',2.5e-8,'± 25 nm','alleen elektronen'],['cel&shy;membraan',7e-9,'± 7 nm dik','alleen elektronen']];
+  const pct=v=>clamp((Math.log10(v)+9)/6*100,2,100), grens=pct(2e-7);
+  return `<div class="ladder" role="table" aria-label="Hoe groot is het, en waarmee zie je het?"><div class="lad-kop" role="row"><span role="columnheader">wat</span><span role="columnheader">grootte</span><span role="columnheader">zie je met</span></div>`+
+   rij.map(([n,v,m,z])=>`<div class="lad-rij" role="row"><span role="cell"><b>${n}</b></span><span role="cell">${m}</span><span role="cell">${z}</span><span class="lad-balk" aria-hidden="true"><i style="width:${pct(v)}%" class="${v>=2e-7?'zicht':''}"></i><em style="left:${grens}%"></em></span></div>`).join('')+
+   `<p class="lad-uitleg"><span class="lad-sw zicht"></span> boven de grens van de lichtmicroscoop (± 0,2 µm, de streep) · <span class="lad-sw"></span> eronder: alleen met een elektronenmicroscoop. De balk is een logaritmische schaal: elk stuk is 10 keer zo groot.</p></div>`; }
+function paneelRekenen(){ let h=`<h2>Rekenen met vergroting</h2><p class="sub">Vergroting = oculair × objectief · werkelijke grootte = grootte in het beeld / vergroting</p>`;
+  h+=`<p><span class="seg" role="group" aria-label="Niveau"><button type="button" data-niv="havo" aria-pressed="${st.niveau==='havo'}">havo</button><button type="button" data-niv="vwo" aria-pressed="${st.niveau==='vwo'}">vwo</button></span></p>`;
+  let nr=0; REKEN.forEach(r=>{ if(r.vwo&&st.niveau!=='vwo') return; nr++; const a=st.rek[r.id]||{};
+    h+=`<div class="vraag ${a.ok?'ok':''} ${r.vwo?'vwo-blok':''}"><p class="q"><span class="nr">${nr}</span>${r.vwo?'<span class="vwo-label">vwo</span> ':''}${esc(r.q)}</p>`;
+    if(r.keus) h+=`<div class="opts">`+r.keus.map((o,i)=>`<button type="button" data-r="${r.id}" data-k="${i}" class="${a.k===i?(i===r.ant?'ok':'no'):''}" ${a.ok?'disabled':''}>${esc(o)}</button>`).join('')+'</div>';
+    else h+=`<div class="invoer"><input type="text" inputmode="decimal" aria-label="antwoord" data-ri="${r.id}" value="${esc(a.v??'')}" ${a.ok?'disabled':''}><span class="eenh">${r.eenh}</span>${a.ok?'':`<button type="button" class="knop klein" data-rc="${r.id}">Controleer</button>`}</div>`;
+    if(a.ok) h+=`<div class="feedback ok"><b>Goed</b>${esc(r.uit)}</div>`;
+    else if(a.fout>=2) h+=`<div class="feedback tip"><b>Zo reken je het uit</b>${esc(r.uit)}</div>`;
+    else if(a.fout) h+=`<div class="feedback no"><b>Nog niet goed</b>Probeer het nog een keer. ${r.keus?'':'Let op de eenheid.'}</div>`;
+    h+='</div>'; });
+  return h; }
+function koppel(){ const side=document.getElementById('side');
+  side.querySelectorAll('[data-groep="voor"] button').forEach(b=>b.onclick=()=>{ st.voor[cur]=+b.dataset.i; feedback=null; bewaar(); renderSide(); renderSlides(); renderStappen(); checkFinal(); });
+  side.querySelectorAll('[data-groep="gv"] button').forEach(b=>b.onclick=()=>{ st.groot.v=+b.dataset.i; bewaar(); renderSide(); });
+  side.querySelectorAll('.voorsp button').forEach(b=>b.onclick=()=>{ if(st.zien.klaar) return; st.zien.voor[b.dataset.s]=b.dataset.w; bewaar(); renderSide(); });
+  const vg=side.querySelector('#vergelijk'); if(vg) vg.onclick=()=>{ st.zien.klaar=true; bewaar(); renderSide(); renderStappen(); };
+  const lk=side.querySelector('#legeknop'); if(lk) lk.onclick=()=>{ lege=!lege; if(lege){ zetMag(400); } renderSide(); };
+  const gc=side.querySelector('#g-check'); if(gc) gc.onclick=()=>{ const g=st.groot, n=getal(side.querySelector('#g-n').value), l=getal(side.querySelector('#g-l').value); g.n=side.querySelector('#g-n').value; g.l=side.querySelector('#g-l').value;
+    const echt=telLijn();
+    if(cur!=='ui'||mag!==100) g.fbA={kind:'no',title:'Kijk bij uienvlies, 100×',text:'Zet het uienvlies op 100× en tel langs de stippellijn.'};
+    else if(!(n>0)) g.fbA={kind:'no',title:'Vul het aantal cellen in',text:'Tel de cellen op de stippellijn, van rand tot rand.'};
+    else if(Math.abs(n-echt.n)>Math.max(1.5,echt.n*0.3)) g.fbA={kind:'no',title:'Tel nog eens',text:`Je telde ${nl(n,1)} cellen. Tel alleen de cellen die de stippellijn raken, van de linker- tot de rechterrand.`};
+    else if(!(l>0)) g.fbA={kind:'no',title:'Reken nu de lengte uit',text:'Het gezichtsveld is 1800 µm breed. Hoe lang is dan één cel?'};
+    else if(Math.abs(l-1800/n)>Math.max(12,0.12*1800/n)) g.fbA={kind:'no',title:'Reken het nog eens na',text:`Je telde ${nl(n,1)} cellen op 1800 µm. Lengte van één cel = 1800 / ${nl(n,1)}.`};
+    else { g.a='ok'; g.fbA={kind:'ok',title:`Goed: ± ${nl(1800/n)} µm = ${nl(1800/n/1000,2)} mm`,text:`De cellen hier zijn gemiddeld ${nl(echt.gem)} µm lang. Tellen in het gezichtsveld is een schatting, maar wel snel.`}; }
+    bewaar(); renderSide(); renderStappen(); };
+  const gc2=side.querySelector('#g-check2'); if(gc2) gc2.onclick=()=>{ const g=st.groot, w=getal(side.querySelector('#g-w').value); g.w=side.querySelector('#g-w').value;
+    if(!(w>0)) g.fbB={kind:'no',title:'Vul een getal in',text:'Leg de meetlat van 50 µm in gedachten naast een cel.'};
+    else if(w>=40&&w<=85){ g.b='ok'; g.fbB={kind:'ok',title:'Goed: ± '+nl(w)+' µm',text:'Wangcellen zijn ± 50–70 µm. Ongeveer één tot anderhalve meetlat.'}; }
+    else g.fbB={kind:'no',title:w<40?'Te klein':'Te groot',text:mag!==400||!meetlat?'Zet de wangcellen op 400× en zet de meetlat aan.':'Hoe vaak past de meetlat van 50 µm op één cel?'};
+    bewaar(); renderSide(); renderStappen(); };
+  side.querySelectorAll('[data-niv]').forEach(b=>b.onclick=()=>{ st.niveau=b.dataset.niv; bewaar(); renderSide(); renderStappen(); });
+  side.querySelectorAll('[data-r]').forEach(b=>b.onclick=()=>{ const r=REKEN.find(x=>x.id===b.dataset.r), a=st.rek[r.id]=st.rek[r.id]||{}; a.k=+b.dataset.k; if(a.k===r.ant) a.ok=true; else a.fout=(a.fout||0)+1; bewaar(); renderSide(); renderStappen(); });
+  side.querySelectorAll('[data-rc]').forEach(b=>b.onclick=()=>{ const r=REKEN.find(x=>x.id===b.dataset.rc), a=st.rek[r.id]=st.rek[r.id]||{}; const inp=side.querySelector(`[data-ri="${r.id}"]`); a.v=inp.value; const v=getal(inp.value);
+    if(Math.abs(v-r.ant)<=(r.marge??Math.abs(r.ant)*0.005+1e-9)) a.ok=true; else a.fout=(a.fout||0)+1; bewaar(); renderSide(); renderStappen(); });
+  side.querySelectorAll('[data-ri]').forEach(inp=>inp.onkeydown=e=>{ if(e.key==='Enter'){ const b=side.querySelector(`[data-rc="${inp.dataset.ri}"]`); if(b) b.click(); } });
+}
+
+// ================= stappen, preparaten, eindkaart =================
+const STAPPEN=[['aanwijzen','Aanwijzen','ui · wang · waterpest'],['zien','Wat zie je wel?','en wat niet'],['groot','Hoe groot is het?','tellen en meten'],['rekenen','Rekenen','met vergroting']];
+function stapAf(s){ if(s==='aanwijzen') return Object.keys(SLIDES).every(taakKlaar); if(s==='zien') return !!st.zien.klaar; if(s==='groot') return st.groot.b==='ok'; return REKEN.filter(r=>!r.vwo||st.niveau==='vwo').every(r=>st.rek[r.id]&&st.rek[r.id].ok); }
+function renderStappen(){ const box=document.getElementById('stappen'); box.innerHTML='';
+  STAPPEN.forEach(([id,t,s],i)=>{ const b=document.createElement('button'); b.type='button'; b.setAttribute('aria-pressed',String(id===stap)); if(stapAf(id)) b.classList.add('af');
+    b.innerHTML=`<span class="n">${stapAf(id)?'✓':i+1}</span><span><b>${t}</b><small>${s}</small></span>`;
+    b.onclick=()=>{ stap=id; feedback=null; ask=null; lege=false; history.replaceState(null,'','#'+id); renderStappen(); renderSide(); checkFinal(); }; box.appendChild(b); }); }
 function renderSlides(){ const box=document.getElementById('slides'); box.innerHTML='';
-  Object.entries(SLIDES).forEach(([k,s])=>{ const b=document.createElement('button'); b.type='button'; const done=s.tasks.every(x=>prog[k][x.id]); b.setAttribute('aria-pressed',String(k===cur)); b.innerHTML=s.name+(done?'<span class="done">✓</span>':''); b.onclick=()=>{ cur=k; feedback=null; ask=null; renderSlides(); renderSide(); }; box.appendChild(b); }); }
-function renderSide(){ const sl=SLIDES[cur]; const p=prog[cur]; const first=sl.tasks.find(x=>!p[x.id]);
-  let html=`<h2>${sl.name}</h2><p class="sub">${sl.sub}</p><ul class="tasks">`+sl.tasks.map(x=>`<li class="${p[x.id]?'ok':(x===first?'active':'')}"><span class="box">${p[x.id]?'✓':''}</span><span>${x.t}</span></li>`).join('')+'</ul>';
-  if(first&&first.id==='q'){ const ans=p.q_ans; html+=`<div><b>${first.q}</b><div class="opts">`+first.opts.map((o,i)=>`<button data-i="${i}">${o}</button>`).join('')+'</div></div>'; }
-  html+=`<div class="feedback ${feedback?(feedback.kind==='ok'?'ok':feedback.kind==='no'?'no':''):''}" aria-live="polite">${feedback?`<b>${feedback.title}</b><br>${feedback.text}`:'Stel scherp en zoek wat er in de opdracht staat.'}</div>`;
-  document.getElementById('side').innerHTML=html;
-  document.querySelectorAll('.opts button').forEach(b=>b.onclick=()=>{ const i=+b.dataset.i; const q=sl.tasks.find(x=>x.id==='q'); if(i===q.ok){ prog[cur].q=true; feedback={kind:'ok',title:'Goed',text:q.ex}; } else { feedback={kind:'no',title:'Niet goed',text:'Kijk nog eens goed door de microscoop en probeer het opnieuw.'}; } renderSide(); renderSlides(); checkFinal(); });
-}
-function checkFinal(){ const all=Object.keys(SLIDES).every(k=>SLIDES[k].tasks.every(x=>prog[k][x.id])); const box=document.getElementById('finalbox');
-  box.innerHTML=all?`<div class="final"><h2>Alle drie de preparaten bekeken</h2><p><b>In welk preparaat zag je bladgroenkorrels? En waarom niet in het uienvlies?</b></p><details open><summary>Antwoord</summary><p>Alleen in het blaadje waterpest. Waterpest is een groene plant die licht vangt en zo zijn eigen voedsel maakt. Een ui groeit onder de grond: de rokken krijgen geen licht, dus hebben de cellen geen bladgroenkorrels. Toch is het uienvlies een plantencel: je ziet een celwand. De wangcellen zijn dierlijke cellen: geen celwand en geen bladgroenkorrels.</p></details></div>`:''; }
+  Object.entries(SLIDES).forEach(([k,s])=>{ const b=document.createElement('button'); b.type='button'; b.setAttribute('aria-pressed',String(k===cur)); b.innerHTML=s.naam+(taakKlaar(k)?'<span class="done">✓</span>':''); b.onclick=()=>{ cur=k; feedback=null; ask=null; lege=false; renderSlides(); renderSide(); }; box.appendChild(b); }); }
+function checkFinal(){ const box=document.getElementById('finalbox'); const all=stap==='aanwijzen'&&Object.keys(SLIDES).every(taakKlaar);
+  box.innerHTML=all?`<div class="paneel final"><h2>Drie preparaten vergeleken</h2><p><b>Wat zag je in welk preparaat? Vul de tabel in je hoofd in en klap dan open.</b></p><details><summary>Vergelijking</summary><div class="tabel-wrap"><table class="tabel"><tr><th></th><th>uienvlies</th><th>wangcel</th><th>waterpest</th></tr><tr><td>celwand</td><td>ja</td><td>nee</td><td>ja</td></tr><tr><td>celkern</td><td>ja</td><td>ja</td><td>vaag</td></tr><tr><td>bladgroenkorrels</td><td>nee</td><td>nee</td><td>ja</td></tr><tr><td>grote vacuole</td><td>ja (kleurloos)</td><td>nee</td><td>ja</td></tr><tr><td>soort cel</td><td>plant</td><td>dier</td><td>plant</td></tr></table></div><p>Een celwand en een grote vacuole wijzen op een plantencel. Bladgroenkorrels alleen als de cel licht krijgt. Mitochondriën en ribosomen hebben alle drie, maar die zie je met deze microscoop niet: dat is opdracht 2.</p></details></div>`:''; }
 
-// ---------- bediening ----------
-document.querySelectorAll('#mags button').forEach(b=>b.onclick=()=>{ mag=+b.dataset.m; document.querySelectorAll('#mags button').forEach(x=>x.setAttribute('aria-pressed',String(x===b))); document.getElementById('maglbl').textContent=mag+'×'; ask=null; });
+// ================= bediening =================
+function zetMag(m){ if(m!==400) lege=false; mag=m; document.querySelectorAll('#mags button').forEach(x=>x.setAttribute('aria-pressed',String(+x.dataset.m===m))); labelMag(); ask=null; klemCam(); }
+function klemCam(){ const c=cam[cur], h=FOV[mag]/2; c.x=clamp(c.x,h,W-h); c.y=clamp(c.y,h,W-h); }
+document.querySelectorAll('#mags button').forEach(b=>b.onclick=()=>{ zetMag(+b.dataset.m); if(stap==='zien') renderSide(); });
 document.getElementById('focus').oninput=e=>{ focus=+e.target.value; };
 document.getElementById('light').oninput=e=>{ light=+e.target.value; };
+document.getElementById('meetlat').onchange=e=>{ meetlat=e.target.checked; };
+document.getElementById('omgekeerd').onchange=e=>{ omgekeerd=e.target.checked; };
 let drag=null;
 cv.addEventListener('pointerdown',e=>{ cv.setPointerCapture(e.pointerId); const r=cv.getBoundingClientRect(); drag={x:e.clientX,y:e.clientY,moved:0,k:S/r.width}; cv.classList.add('drag'); });
-cv.addEventListener('pointermove',e=>{ if(!drag) return; const dx=(e.clientX-drag.x)*drag.k, dy=(e.clientY-drag.y)*drag.k; drag.moved+=Math.abs(dx)+Math.abs(dy); drag.x=e.clientX; drag.y=e.clientY; const sc=SCALE[mag], c=cam[cur]; c.x=clamp(c.x-dx/sc,200,WORLD-200); c.y=clamp(c.y-dy/sc,200,WORLD-200); if(drag.moved>6) ask=null; });
-cv.addEventListener('pointerup',e=>{ cv.classList.remove('drag'); if(drag&&drag.moved<8){ const r=cv.getBoundingClientRect(); const px=(e.clientX-r.left)*S/r.width, py=(e.clientY-r.top)*S/r.height; if(Math.hypot(px-R,py-R)<R) handleTap(px,py); } drag=null; });
-renderSlides(); renderSide(); requestAnimationFrame(draw);
+cv.addEventListener('pointermove',e=>{ if(!drag) return; const dx=(e.clientX-drag.x)*drag.k, dy=(e.clientY-drag.y)*drag.k; drag.moved+=Math.abs(dx)+Math.abs(dy); drag.x=e.clientX; drag.y=e.clientY;
+  const sc=SC(mag)*(lege?2.5:1), c=cam[cur], s=omgekeerd?1:-1; c.x+=s*dx/sc; c.y+=s*dy/sc; klemCam(); if(drag.moved>6) ask=null; });
+const loslaten=e=>{ cv.classList.remove('drag'); if(drag&&drag.moved<8&&e.type==='pointerup'){ const r=cv.getBoundingClientRect(); let px=(e.clientX-r.left)*S/r.width, py=(e.clientY-r.top)*S/r.height; if(Math.hypot(px-R,py-R)<R){ if(lege){ px=R+(px-R)/2.5; py=R+(py-R)/2.5; } handleTap(px,py); } } drag=null; };
+cv.addEventListener('pointerup',loslaten); cv.addEventListener('pointercancel',loslaten);
+// toetsenbord: pijltjes schuiven, + en - vergroten
+cv.tabIndex=0; cv.addEventListener('keydown',e=>{ const c=cam[cur], d=FOV[mag]/12, mp={ArrowLeft:[-d,0],ArrowRight:[d,0],ArrowUp:[0,-d],ArrowDown:[0,d]}[e.key];
+  if(mp){ c.x+=mp[0]; c.y+=mp[1]; klemCam(); e.preventDefault(); } else if(e.key==='+'||e.key==='=') zetMag(mag===40?100:400); else if(e.key==='-') zetMag(mag===400?100:40); });
+window.__mic={st,cam,SLIDES,wat,telLijn,blurPx,zet:(o)=>{ if(o.cur) cur=o.cur; if(o.mag) zetMag(o.mag); if(o.focus!=null){ focus=o.focus; document.getElementById('focus').value=o.focus; } if(o.stap){ stap=o.stap; renderStappen(); } if(o.meetlat!=null){ meetlat=o.meetlat; document.getElementById('meetlat').checked=o.meetlat; } renderSlides(); renderSide(); checkFinal(); }, doel:()=>({40:46,100:49,400:51}[mag]+SLIDES[cur].foc), tap:handleTap, toWorld, SC:()=>SC(mag)};
+labelMag(); renderStappen(); renderSlides(); renderSide(); checkFinal(); requestAnimationFrame(draw);
 </script>
 </body>
 </html>

@@ -9,108 +9,104 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Microscoop · echte preparaten · Biologie bij Kamiel</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../huisstijl.css">
+<script src="../huisstijl.js"></script>
 <style>
-:root{--bg:#1A2740;--micro:#121A26;--fill:#2A3A58;--text:#F2F2EE;--text2:#9AA3B2;--line:#8FA0B5;--goud:#E0B64A;--groen:#7FC48F;--koraal:#E07A5F;--teal:#5BA4C9;--grain:#C9B896;
- --titel:"Fraunces",Georgia,serif;--tekst:"Source Sans 3",system-ui,sans-serif;--meta:"IBM Plex Mono",ui-monospace,monospace}
-*{box-sizing:border-box}
-body{margin:0;background:var(--micro);color:var(--text);font-family:var(--tekst);font-size:18px;line-height:1.5}
-button,input,select{font:inherit;color:inherit}
-button{cursor:pointer}
-:focus-visible{outline:3px solid var(--goud);outline-offset:2px}
-.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
-.nav{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;padding:14px 0 0;font:600 15px/1.3 var(--tekst)}
-.nav a{color:var(--text2);text-decoration:none}.nav a.terug{color:var(--goud)}
-header{padding:18px 0 6px}
-header .meta{font:12px var(--meta);letter-spacing:.12em;text-transform:uppercase;color:var(--grain)}
-h1{font-family:var(--titel);font-size:clamp(32px,5vw,50px);margin:4px 0;line-height:1.05}
-header p{color:var(--text2);margin:0;max-width:780px}
-.groepen{display:flex;flex-wrap:wrap;gap:6px;margin:18px 0 8px}
-.groepen button{background:transparent;border:0;border-bottom:3px solid transparent;padding:6px 10px;color:var(--text2);font-weight:600}
-.groepen button[aria-pressed="true"]{color:var(--goud);border-color:var(--goud)}
-.slides{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
-.slides button{background:var(--fill);border:1px solid rgba(143,160,181,.45);border-radius:999px;padding:8px 16px;min-height:44px}
-.slides button[aria-pressed="true"]{border-color:var(--goud);color:var(--goud)}
-.slides button .done{color:var(--groen);margin-left:6px}
-.board{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:16px;align-items:start}
-@media (max-width:860px){.board{grid-template-columns:minmax(0,1fr)}}
-.scope{background:#05080D;border:1px solid rgba(143,160,181,.35);border-radius:14px;padding:12px;position:relative}
-canvas{display:block;width:100%;height:auto;aspect-ratio:1/1;touch-action:none;cursor:grab;border-radius:50%}
-canvas.drag{cursor:grabbing}
-.mag{position:absolute;right:20px;top:18px;font:13px var(--meta);color:var(--grain);letter-spacing:.08em}
-.controls{display:grid;gap:10px;margin-top:12px}
-.ctl{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
-.ctl label{font:13px var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--text2);min-width:130px}
-.ctl input[type=range]{flex:1 1 200px;accent-color:var(--goud);min-height:32px}
-.seg{display:inline-flex;border-radius:10px;overflow:hidden;border:1px solid rgba(143,160,181,.45)}
-.seg button{background:var(--fill);border:0;padding:8px 16px;min-height:44px;border-right:1px solid rgba(143,160,181,.3)}
-.seg button:last-child{border-right:0}
-.seg button[aria-pressed="true"]{color:var(--goud);background:#33476B}
-.seg button:disabled{opacity:.35;cursor:default}
-.klein{background:transparent;border:1px solid rgba(143,160,181,.45);border-radius:8px;padding:4px 10px;font-size:15px;color:var(--text2);min-height:36px}
-.bron{font-size:13px;color:var(--text2);margin-top:10px;line-height:1.4}
-.bron a{color:var(--teal)}
-.panel{background:var(--bg);border:1px solid rgba(143,160,181,.35);border-radius:14px;padding:14px 16px}
-.panel h2{font-family:var(--titel);font-size:24px;margin:0 0 4px}
-.panel .sub{color:var(--text2);font-size:16px;margin:0 0 10px}
-.panel p.besch{margin:0 0 10px;font-size:17px}
-.tasks{list-style:none;padding:0;margin:0 0 10px}
-.tasks li{display:flex;gap:10px;align-items:flex-start;padding:8px 10px;border:1px solid rgba(143,160,181,.3);border-radius:10px;margin:6px 0;background:rgba(42,58,88,.5)}
-.tasks li.active{border-color:var(--goud)}
-.tasks li.ok{border-color:var(--groen);background:rgba(127,196,143,.12)}
-.tasks li .box{flex:0 0 22px;height:22px;border-radius:6px;border:2px solid var(--line);display:grid;place-items:center;font-size:14px;margin-top:2px}
-.tasks li.ok .box{border-color:var(--groen);color:var(--groen)}
-.tasks li small{color:var(--text2)}
-.feedback{border-radius:12px;padding:10px 14px;min-height:64px;background:rgba(42,58,88,.55);border:1px solid rgba(143,160,181,.3);margin-top:8px}
-.feedback.ok{border-color:var(--groen);background:rgba(127,196,143,.12)}
-.feedback.no{border-color:var(--koraal);background:rgba(224,122,95,.12)}
-.opts{display:grid;gap:8px;margin-top:8px}
-.opts button{text-align:left;background:var(--fill);border:1px solid rgba(143,160,181,.45);border-radius:10px;padding:8px 12px;min-height:44px}
-.letop{margin:10px 0 0;padding-left:20px;color:var(--text2);font-size:16px}
-.letop li{margin:3px 0}
-.stand{display:grid;grid-template-columns:1fr 1fr;border:1px solid rgba(143,160,181,.45);border-radius:12px;overflow:hidden;margin:0 0 12px}
-.stand button{background:var(--fill);border:0;padding:10px 8px;min-height:48px;font-weight:600;color:var(--text2)}
-.stand button[aria-pressed="true"]{background:#33476B;color:var(--goud)}
-.struct{list-style:none;padding:0;margin:0 0 10px}
-.struct li{display:flex;gap:10px;align-items:flex-start;padding:8px 10px;border:1px solid rgba(143,160,181,.3);border-radius:10px;margin:6px 0;background:rgba(42,58,88,.5);cursor:pointer}
-.struct li.sel{border-color:var(--goud);background:rgba(224,182,74,.1)}
-.struct li .nr{flex:0 0 26px;height:26px;border-radius:50%;background:var(--goud);color:#1A2740;font:700 15px/26px var(--tekst);text-align:center}
-.struct li.elders .nr{background:transparent;border:1px solid var(--line);color:var(--text2)}
-.struct li small{display:block;color:var(--text2)}
-.kaart{border-radius:12px;padding:12px 14px;background:rgba(224,182,74,.08);border:1px solid var(--goud);margin-top:8px}
-.kaart h3{margin:0 0 4px;font-family:var(--titel);font-size:21px;color:var(--goud)}
-.kaart p{margin:6px 0 0;font-size:16px}
-.kop{font:12px var(--meta);letter-spacing:.12em;text-transform:uppercase;color:var(--grain);margin:12px 0 4px}
-details{margin-top:14px;color:var(--text2);font-size:16px}
-summary{cursor:pointer;color:var(--text);font-weight:600}
-footer{color:var(--text2);font-size:14px;padding:30px 0 40px}
-.modus{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:6px 0 18px}
+/* Microscoop: echte preparaten 2.0 · in de huisstijl (tools/huisstijl.css), november 2026.
+   De pagina volgt licht/donker; het oculair (.scope) blijft bewust donker. Foto's: fotos/klein/*.webp (zie fotos/klein_maken.py). */
+:root{--scope:#05080D;--scope-line:rgba(143,160,181,.35);--scope-text:#C9B896;--scope-text2:#A3ACBA;--scope-goud:#E0B64A}
+.modus{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0 18px}
 @media (max-width:700px){.modus{grid-template-columns:1fr}}
-.modus a{display:flex;gap:16px;align-items:center;text-decoration:none;color:var(--text);background:var(--fill);border:3px solid rgba(143,160,181,.35);border-radius:18px;padding:16px 18px;min-height:112px;transition:transform .12s,border-color .12s}
+.modus a{display:flex;gap:16px;align-items:center;text-decoration:none;color:var(--text);background:var(--surface);border:2px solid var(--line2);border-radius:18px;padding:14px 18px;min-height:100px;transition:transform .12s,border-color .12s;min-width:0}
 .modus a:hover{transform:translateY(-2px);border-color:var(--goud)}
-.modus a[aria-current="page"]{border-color:var(--goud);background:#33476B;box-shadow:0 0 0 4px rgba(224,182,74,.18)}
-.modus a .num{font:12px var(--meta);letter-spacing:.12em;text-transform:uppercase;color:var(--grain)}
-.modus a b{display:block;font-family:var(--titel);font-size:clamp(22px,2.6vw,28px);line-height:1.1;margin:2px 0 4px}
+@media (prefers-reduced-motion:reduce){.modus a{transition:none}.modus a:hover{transform:none}}
+.modus a[aria-current="page"]{border-color:var(--goud);background:var(--goud-soft)}
+.modus a .num{font:600 12px var(--meta);letter-spacing:.12em;text-transform:uppercase;color:var(--text3)}
+.modus a b{display:block;font-family:var(--titel);font-size:clamp(21px,2.4vw,26px);line-height:1.1;margin:2px 0 4px}
 .modus a small{color:var(--text2);font-size:16px}
-.modus a .ga{margin-left:auto;color:var(--goud);font-weight:700;font-size:17px;white-space:nowrap}
+.modus a .ga{margin-left:auto;color:var(--goud-text);font-weight:700;font-size:17px;white-space:nowrap}
 .modus a[aria-current="page"] .ga{color:var(--groen)}
 .modus .beeld{flex:none;width:84px;height:84px;position:relative}
-.modus .beeld img,.modus .beeld .teken{position:absolute;width:64px;height:64px;border-radius:50%;object-fit:cover;border:3px solid #05080D;box-shadow:0 2px 8px rgba(0,0,0,.5)}
-.modus .beeld img:nth-child(1){left:0;top:0}.modus .beeld img:nth-child(2){left:20px;top:20px}.modus .beeld img:nth-child(3){left:0;top:20px;display:none}
+.modus .beeld img,.modus .beeld .teken{position:absolute;width:64px;height:64px;border-radius:50%;object-fit:cover;border:3px solid var(--scope);box-shadow:0 2px 8px rgba(0,0,0,.35)}
+.modus .beeld img:nth-child(1){left:0;top:0}.modus .beeld img:nth-child(2){left:20px;top:20px}
 .modus .beeld .teken{left:10px;top:10px;background:#E6E0C2;display:grid;place-items:center}
+@media (max-width:480px){.modus a{gap:12px;padding:12px 14px;min-height:0}.modus .beeld{width:64px;height:64px}.modus .beeld img,.modus .beeld .teken{width:48px;height:48px}.modus .beeld img:nth-child(2){left:16px;top:16px}.modus .beeld .teken{left:8px;top:8px}.modus a small{font-size:15px}.modus a .ga{font-size:15px}}
+.groepen{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0 8px;border-bottom:1px solid var(--line)}
+.groepen button{background:transparent;border:0;border-bottom:3px solid transparent;padding:8px 10px;color:var(--text2);font-weight:600;min-height:44px}
+.groepen button[aria-pressed="true"]{color:var(--goud-text);border-color:var(--goud)}
+.slides{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 12px}
+.slides button{background:var(--surface);border:1px solid var(--line2);border-radius:999px;padding:8px 16px;min-height:44px}
+.slides button[aria-pressed="true"]{border-color:var(--goud);background:var(--goud-soft)}
+.slides button .done{color:var(--groen);margin-left:6px}
+.board{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:860px){.board{grid-template-columns:minmax(0,1fr)}}
+.scope{background:var(--scope);border:1px solid var(--scope-line);border-radius:var(--radius);padding:12px;position:relative;color:#F2F2EE}
+.scope :focus-visible{outline-color:var(--scope-goud)}
+canvas{display:block;width:100%;height:auto;aspect-ratio:1/1;touch-action:none;cursor:grab;border-radius:50%}
+canvas.drag{cursor:grabbing}
+.mag{position:absolute;right:18px;top:16px;font:600 13px var(--meta);color:var(--scope-text);letter-spacing:.06em;pointer-events:none}
+.laden{position:absolute;left:0;right:0;top:45%;text-align:center;color:var(--scope-text);font:600 15px var(--meta)}
+.controls{display:grid;gap:10px;margin-top:12px}
+.ctl{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px}
+.ctl>label,.ctl>.lbl{font:600 12px var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--scope-text2);min-width:120px}
+.ctl input[type=range]{flex:1 1 180px;min-height:32px;accent-color:var(--scope-goud)}
+.scope .seg{border-color:rgba(143,160,181,.30)}
+.scope .seg button{color:var(--scope-text2)}
+.scope .seg button[aria-pressed="true"]{background:var(--scope-goud);color:#1A1405}
+.scope .seg button:disabled{opacity:.3;cursor:default}
+.scope .klein{background:transparent;border:1px solid rgba(143,160,181,.4);border-radius:999px;padding:4px 12px;font-size:14px;color:var(--scope-text2);min-height:36px}
+.bron{font-size:13px;color:var(--scope-text2);margin-top:10px;line-height:1.4}
+.bron a{color:var(--scope-goud)}
+.paneel .besch{margin:0 0 10px;font-size:17px}
+.paneel .kop{font:600 12px var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--goud-text);margin:14px 0 6px}
+.fase{display:inline-block;font:600 11px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:4px 8px;margin-right:6px;vertical-align:2px}
+.fase.v{color:var(--teal);border:1px solid var(--teal)}.fase.e{color:var(--groen);border:1px solid var(--groen)}
+.tasks,.struct{list-style:none;padding:0;margin:0 0 10px}
+.tasks li,.struct li{display:flex;gap:10px;align-items:flex-start;padding:8px 10px;border:1px solid var(--line2);border-radius:10px;margin:6px 0;background:var(--surface2)}
+.tasks li.active{border-color:var(--goud)}
+.tasks li.ok{border-color:var(--groen);background:var(--groen-soft)}
+.tasks li .box{flex:0 0 22px;height:22px;border-radius:6px;border:2px solid var(--text3);display:grid;place-items:center;font-size:14px;margin-top:2px}
+.tasks li.ok .box{border-color:var(--groen);color:var(--groen)}
+.tasks li small,.struct li small{color:var(--text3)}
+.feedback{margin-top:8px}
+.opts{display:grid;gap:8px;margin-top:8px}
+.opts button{text-align:left;background:var(--surface2);border:1px solid var(--line2);border-radius:10px;padding:8px 12px;min-height:44px}
+.opts button[aria-pressed="true"]{border-color:var(--teal);background:var(--teal-soft)}
+.letop{margin:6px 0 0;padding-left:20px;color:var(--text2);font-size:16px}
+.letop li{margin:3px 0}
+.stand{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line2);border-radius:12px;overflow:hidden;margin:0 0 12px}
+.stand button{background:var(--surface2);border:0;padding:10px 8px;min-height:48px;font-weight:600;color:var(--text2)}
+.stand button[aria-pressed="true"]{background:var(--goud);color:var(--goud-ink)}
+.struct li{cursor:pointer}
+.struct li.sel{border-color:var(--goud);background:var(--goud-soft)}
+.struct li .nr{flex:0 0 26px;height:26px;border-radius:50%;background:var(--goud);color:var(--goud-ink);font:700 15px/26px var(--tekst);text-align:center}
+.struct li.elders .nr{background:transparent;border:1px solid var(--text3);color:var(--text2);flex-basis:auto;padding:0 6px;border-radius:999px;font-size:13px}
+.struct li small{display:block}
+.kaart{border-radius:12px;padding:12px 14px;background:var(--goud-soft);border:1px solid var(--goud);margin-top:8px}
+.kaart h3{margin:0 0 4px;font-size:21px;color:var(--goud-text)}
+.kaart p{margin:6px 0 0;font-size:16px}
+details{margin-top:14px;color:var(--text2);font-size:16px}
+summary{cursor:pointer;color:var(--text);font-weight:600}
 </style>
 </head>
 <body>
 <div class="wrap">
-<nav class="sitenav nav"><a href="../../index.html#home">Biologie bij Kamiel</a><span style="opacity:.4">·</span><a class="terug" href="../../index.html#kerndoelen">← Terug naar Kerndoelen onderbouw</a><span style="opacity:.4">·</span><a href="index.html">Getekende preparaten (Alles is cel)</a></nav>
-<header>
-  <div class="meta">Tool · Microscoop · echte preparaten</div>
+<nav class="sitenav" aria-label="Site">
+  <a class="merk" href="../../index.html#home">Biologie bij Kamiel</a>
+  <a class="terug" href="../../index.html#cellen">← Terug naar Cellen</a>
+  <a href="index.html">Getekende preparaten</a>
+  <span class="rechts"><button type="button" class="icoon" data-thema-knop></button></span>
+</nav>
+<header class="tool-kop">
+  <div class="mono">Tool · Cellen en weefsels · havo 4 · vwo 4 en 5</div>
   <h1>Microscoop: echte preparaten</h1>
 <div class="modus" aria-label="Kies een microscoop">
-  <a href="echt.html" aria-current="page"><span class="beeld"><img src="fotos/thumb-plat-epitheel.jpg" alt=""><img src="fotos/thumb-bot.jpg" alt=""></span><span><span class="num">Echte preparaten</span><b>Echte foto's van 23 weefsels</b><small>epitheel, bot, bloed, kraakbeen, spier · 40–400×</small></span><span class="ga">✓ hier</span></a>
-  <a href="index.html"><span class="beeld"><span class="teken"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#7A5A1E" stroke-width="1.6"><rect x="4" y="6" width="32" height="12" rx="2"/><rect x="4" y="22" width="32" height="12" rx="2"/><circle cx="14" cy="12" r="2.2" fill="#7A5A1E"/><circle cx="26" cy="28" r="2.2" fill="#7A5A1E"/></svg></span></span><span><span class="num">Geanimeerde preparaten</span><b>Uienvlies, wangcellen, waterpest</b><small>de opdracht bij de film Alles is cel</small></span><span class="ga">Open →</span></a>
+  <a href="index.html"><span class="beeld"><span class="teken"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#7A5A1E" stroke-width="1.6"><rect x="4" y="6" width="32" height="12" rx="2"/><rect x="4" y="22" width="32" height="12" rx="2"/><circle cx="14" cy="12" r="2.2" fill="#7A5A1E"/><circle cx="26" cy="28" r="2.2" fill="#7A5A1E"/></svg></span></span><span><span class="num">Getekend, op echte schaal</span><b>Ui, wangcel, waterpest</b><small>scherpstellen, wat zie je wel en niet, hoe groot is het echt</small></span><span class="ga">Open →</span></a>
+  <a href="echt.html" aria-current="page"><span class="beeld"><img src="fotos/thumb-plat-epitheel.jpg" alt=""><img src="fotos/thumb-bot.jpg" alt=""></span><span><span class="num">Echte foto's</span><b>23 weefsels door de microscoop</b><small>epitheel, bindweefsel, bloed, kraakbeen, spier · 40–400×</small></span><span class="ga">✓ hier</span></a>
 </div>
-  <p>Echte foto's door de microscoop, van 40× tot 400×. Kies een weefsel, stel scherp en vergroot. <b>Verkennen</b>: tik op de genummerde markeringen en lees wat je ziet en wat het doet. <b>Opdrachten</b>: wijs zelf de onderdelen aan.</p>
+  <p>Echte foto's door de microscoop, van 40× tot 400×. Een weefsel is een groep cellen met dezelfde bouw en taak. Kies een weefsel, stel scherp en vergroot. <b>Verkennen</b>: tik op de genummerde markeringen. <b>Opdrachten</b>: voorspel, wijs zelf de onderdelen aan en verklaar.</p>
 </header>
 
 <div class="groepen" role="tablist" aria-label="Soort weefsel" id="groepen"></div>
@@ -122,17 +118,17 @@ footer{color:var(--text2);font-size:14px;padding:30px 0 40px}
     <div class="laden" id="laden" hidden>foto laden…</div>
     <div class="mag" id="maglbl">40×</div>
     <div class="controls">
-      <div class="ctl"><label>Vergroting</label><span class="seg" id="mags"></span><button class="klein" id="andere" hidden>andere foto bij deze vergroting</button></div>
+      <div class="ctl"><span class="lbl" id="lblmag">Vergroting</span><span class="seg" id="mags" role="group" aria-labelledby="lblmag"></span><button type="button" class="klein" id="andere" hidden>andere foto bij deze vergroting</button></div>
       <div class="ctl"><label for="focus">Scherpstellen</label><input id="focus" type="range" min="0" max="100" value="10"></div>
       <div class="ctl"><label for="light">Licht</label><input id="light" type="range" min="0" max="100" value="70"></div>
     </div>
     <div class="bron" id="bron"></div>
   </div>
-  <div class="panel" id="side"></div>
+  <div class="paneel" id="side" aria-live="polite"></div>
 </div>
 <details><summary>Zo werk je met een microscoop</summary><ol><li>Begin met de kleinste vergroting en stel scherp.</li><li>Schuif wat je wilt bekijken naar het midden.</li><li>Kies een grotere vergroting en stel opnieuw scherp. Bij een grotere vergroting is het beeld veel sneller onscherp.</li><li>Te donker of te licht? Draai aan het licht.</li></ol><p>Zeg wat je ziet met de vergroting erbij, bijvoorbeeld: "Bij 400× zie ik in elke cel een celkern."</p></details>
-<details><summary>Bronnen</summary><p>Alle foto's: <a href="https://blogs.berkshirecc.edu/bccoer/" style="color:var(--teal)">Berkshire Community College Bioscience Image Library</a>, publiek domein (CC0). De vergroting is de vergroting van de microscoop waarmee de foto is gemaakt (objectief × oculair). De foto's zijn onbewerkt; alleen verkleind.</p></details>
-<footer>Biologie bij Kamiel · Microscoop: echte preparaten · versie 1.0 · oktober 2026 · <a href="index.html">getekende preparaten bij de film Alles is cel</a> · <a href="fotos/index.html">alle foto's met beschrijving</a><span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></footer>
+<details><summary>Bronnen</summary><p>Alle foto's: <a href="https://blogs.berkshirecc.edu/bccoer/">Berkshire Community College Bioscience Image Library</a>, publiek domein (CC0). De vergroting is de vergroting van de microscoop waarmee de foto is gemaakt (objectief × oculair). De foto's zijn onbewerkt; alleen verkleind (1152 px hoog). Er staat geen meetlat bij: van deze foto's is het gezichtsveld niet bekend. Meten doe je in de <a href="index.html#groot">getekende microscoop</a>.</p></details>
+<footer class="tool-voet">Biologie bij Kamiel · Microscoop: echte preparaten · versie 2.0 · november 2026 · <a href="index.html">getekende preparaten op echte schaal</a> · <a href="fotos/index.html">alle foto's met beschrijving</a><span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></footer>
 </div>
 
 <script>
@@ -162,13 +158,14 @@ Promise.all([fetch('fotos/catalogus.json').then(r=>r.json()), fetch('preparaten.
 });
 function kies(id, stil){ cur=P.find(p=>p.id===id); mag=cur.mags[0]; fotoIdx=0; feedback=null; ask=null; gekozen=null; focus=10; document.getElementById('focus').value=10;
   if(!stil) history.replaceState(null,'','#'+id); renderMags(); renderSlides(); renderSide(); laadFoto(); }
+const klein=f=>'fotos/klein/'+f.bestand.split('/').pop().replace(/\.[a-z]+$/i,'.webp');
 function foto(){ return cur.per[mag][fotoIdx%cur.per[mag].length]; }
 function laadFoto(){ const f=foto(); document.getElementById('maglbl').textContent=mag+'×'; document.getElementById('andere').hidden=cur.per[mag].length<2;
-  document.getElementById('bron').innerHTML=`Foto ${cur.per[mag].length>1?(fotoIdx%cur.per[mag].length+1)+'/'+cur.per[mag].length+' ':''}bij ${mag}×: ${esc(f.origineleTitel||f.titel)} · ${esc(f.bron.collectie)}, ${esc(f.bron.licentie)}${f.bron.link?` · <a href="${esc(f.bron.link)}" target="_blank" rel="noopener">Flickr</a>`:''}`;
-  if(!imgs[f.id]){ const im=new Image(); im.src='fotos/'+f.bestand; imgs[f.id]=im; document.getElementById('laden').hidden=false; im.onload=()=>{ document.getElementById('laden').hidden=true; }; im.onerror=()=>{ document.getElementById('laden').textContent='foto niet gevonden'; }; }
+  document.getElementById('bron').innerHTML=`Foto ${cur.per[mag].length>1?(fotoIdx%cur.per[mag].length+1)+'/'+cur.per[mag].length+' ':''}bij ${mag}×: ${esc(f.origineleTitel&&f.origineleTitel!=='All sizes'?f.origineleTitel:f.titel)} · ${esc(f.bron.collectie)}, ${esc(f.bron.licentie)}${f.bron.link?` · <a href="${esc(f.bron.link)}" target="_blank" rel="noopener">Flickr</a>`:''}`;
+  if(!imgs[f.id]){ const im=new Image(); im.src=klein(f); imgs[f.id]=im; document.getElementById('laden').hidden=false; im.onload=()=>{ document.getElementById('laden').hidden=true; }; im.onerror=()=>{ document.getElementById('laden').textContent='foto niet gevonden'; }; }
   else if(imgs[f.id].complete) document.getElementById('laden').hidden=true;
   // alvast de andere vergrotingen van dit preparaat laden
-  cur.mags.forEach(m=>{ const g=cur.per[m][0]; if(!imgs[g.id]){ const im=new Image(); im.src='fotos/'+g.bestand; imgs[g.id]=im; } });
+  cur.mags.forEach(m=>{ const g=cur.per[m][0]; if(!imgs[g.id]){ const im=new Image(); im.src=klein(g); imgs[g.id]=im; } });
 }
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
@@ -212,6 +209,7 @@ function handleTap(px,py){ const fr=toFrac(px,py); if(!fr) return;
     const z=herken(...fr); if(z){ gekozen=z.id; ringT=performance.now(); feedback=null; ask=null; }
     else { gekozen=null; feedback={kind:'info',title:'Hier is niets gemarkeerd',text:hier().length?'Tik op een genummerde markering, of kies een onderdeel in de lijst hiernaast. Je kunt ook op een ander deel van de foto tikken dat op een markering lijkt.':'Bij deze vergroting zijn nog geen onderdelen gemarkeerd. Kies een andere vergroting (zie de lijst hiernaast).'}; ask={mark:[px,py,'#E0B64A']}; }
     renderSide(); return; }
+  if(cur.vraag&&cur.vraag.moment==='voor'&&prog[cur.id].vk==null){ feedback={kind:'no',title:'Eerst voorspellen',text:'Beantwoord eerst de vraag hiernaast. Daarna ga je kijken.'}; ask={mark:[px,py,'#E07A5F']}; renderSide(); return; }
   if(blurPx()>3){ feedback={kind:'no',title:'Het beeld is nog onscherp',text:'Draai aan de schuif "Scherpstellen" tot je de randen van de cellen scherp ziet.'}; ask={mark:[px,py,'#E07A5F']}; renderSide(); return; }
   const open=(cur.zoek||[]).filter(z=>!prog[cur.id][z.id]);
   if(!open.length){ const z=herken(...fr); feedback={kind:'info',title:z?'Je wijst aan: '+z.id:'Vrij kijken',text:z?z.uitleg:'Alle aanwijsopdrachten bij dit preparaat zijn klaar. Kijk rustig verder.'}; ask={mark:[px,py,'#E0B64A']}; renderSide(); return; }
@@ -242,16 +240,29 @@ function renderSide(){ const p=cur, pr=prog[p.id]; const zoek=p.zoek||[]; const 
     if(elders.length) html+=`<ul class="struct">`+elders.map(z=>`<li class="elders" data-m="${z.bij[0]}"><span class="nr">${z.bij[0]}×</span><span><b>${esc(z.id)}</b><small>te zien bij ${z.bij.join('× / ')}× · tik om daarheen te gaan</small></span></li>`).join('')+'</ul>';
     const g=zoek.find(z=>z.id===gekozen);
     if(g) html+=`<div class="kaart"><h3>${esc(g.id)}</h3><p>${esc(g.uitleg)}</p><p>${esc(g.meer||'')}</p></div>`;
-    else if(feedback) html+=`<div class="feedback ${feedback.kind==='no'?'no':''}"><b>${esc(feedback.title)}</b><br>${esc(feedback.text)}</div>`;
+    else if(feedback) html+=`<div class="feedback ${feedback.kind==='no'?'no':'tip'}"><b>${esc(feedback.title)}</b>${esc(feedback.text)}</div>`;
     else if(h.length) html+=`<div class="feedback">Tik op een nummer in het beeld of op een onderdeel in de lijst om te lezen wat het is en wat het doet.</div>`;
     if(p.letop&&p.letop.length){ html+=`<div class="kop">Let op</div><ul class="letop">`+p.letop.map(x=>`<li>${esc(x)}</li>`).join('')+'</ul>'; }
     document.getElementById('side').innerHTML=html; koppelStand(); return; }
+  const V=p.vraag, voor=V&&V.moment==='voor';
+  if(voor){ html+=`<div class="kop"><span class="fase v">Voorspel</span></div><p><b>${esc(V.q)}</b></p><div class="opts">`+V.opts.map((o,i)=>`<button type="button" data-i="${i}" aria-pressed="${pr.vk===i}" ${zoek.some(z=>pr[z.id])?'disabled':''}>${esc(o)}</button>`).join('')+'</div>';
+    if(pr.vk==null){ html+=fbHtml()||`<p class="sub" style="margin-top:10px">Kies eerst wat je verwacht. Daarna ga je kijken.</p>`; return zetSide(html,p,pr); } }
   if(zoek.length){ html+=`<div class="kop">Zoek</div><ul class="tasks">`+zoek.map(z=>`<li class="${pr[z.id]?'ok':(z===first?'active':'')}"><span class="box">${pr[z.id]?'✓':''}</span><span>${esc(z.t)} <small>bij ${z.bij.join('× / ')}×</small></span></li>`).join('')+'</ul>'; }
-  if(p.vraag&&!first){ if(pr.q) html+=`<ul class="tasks"><li class="ok"><span class="box">✓</span><span>${esc(p.vraag.q)}</span></li></ul>`; else html+=`<div class="kop">Vraag</div><div><b>${esc(p.vraag.q)}</b><div class="opts">`+p.vraag.opts.map((o,i)=>`<button data-i="${i}">${esc(o)}</button>`).join('')+'</div></div>'; }
-  html+=`<div class="feedback ${feedback?(feedback.kind==='ok'?'ok':feedback.kind==='no'?'no':''):''}" aria-live="polite">${feedback?`<b>${esc(feedback.title)}</b><br>${esc(feedback.text)}`:(zoek.length?'Stel scherp en zoek wat er in de opdracht staat.':'Bij dit preparaat kijk je vrij. Lees hieronder waar je op kunt letten.')}</div>`;
+  html+=fbHtml()||(first?`<div class="feedback">Stel scherp en zoek wat er in de opdracht staat.</div>`:'');
+  if(V&&!first){
+    if(voor){ if(!pr.q){ pr.q=true; renderSlides(); } const goed=pr.vk===V.ok; html+=`<div class="kop"><span class="fase e">Verklaar</span></div><div class="feedback ${goed?'ok':'tip'}"><b>Je voorspelde: ${esc(V.opts[pr.vk])}. ${goed?'Dat klopt.':'Je zag iets anders.'}</b>${esc(V.ex)}</div>`; }
+    else if(pr.q) html+=`<div class="kop"><span class="fase e">Verklaar</span></div><div class="feedback ok"><b>${esc(V.q)}</b>${esc(V.ex)}</div>`;
+    else html+=`<div class="kop"><span class="fase e">Verklaar</span></div><p><b>${esc(V.q)}</b></p><div class="opts">`+V.opts.map((o,i)=>`<button type="button" data-i="${i}">${esc(o)}</button>`).join('')+'</div>'; }
+  if(!zoek.length&&!V) html+=`<div class="feedback">Bij dit preparaat kijk je vrij. Lees hieronder waar je op kunt letten.</div>`;
+  return zetSide(html,p,pr); }
+function fbHtml(){ return feedback?`<div class="feedback ${feedback.kind==='ok'?'ok':feedback.kind==='no'?'no':'tip'}"><b>${esc(feedback.title)}</b>${esc(feedback.text)}</div>`:''; }
+function zetSide(html,p,pr){
   if(p.letop&&p.letop.length){ html+=`<div class="kop">Let op</div><ul class="letop">`+p.letop.map(x=>`<li>${esc(x)}</li>`).join('')+'</ul>'; }
   document.getElementById('side').innerHTML=html; koppelStand();
-  document.querySelectorAll('.opts button').forEach(b=>b.onclick=()=>{ const i=+b.dataset.i; if(i===p.vraag.ok){ pr.q=true; feedback={kind:'ok',title:'Goed',text:p.vraag.ex}; } else { feedback={kind:'no',title:'Niet goed',text:'Kijk nog eens goed door de microscoop en probeer het opnieuw.'}; } renderSide(); renderSlides(); });
+  document.querySelectorAll('#side .opts button').forEach(b=>b.onclick=()=>{ const i=+b.dataset.i, V=p.vraag;
+    if(V.moment==='voor'){ pr.vk=i; feedback=null; }
+    else if(i===V.ok){ pr.q=true; feedback=null; } else { feedback={kind:'no',title:'Niet goed',text:'Kijk nog eens goed door de microscoop en probeer het opnieuw.'}; }
+    renderSide(); renderSlides(); });
 }
 
 function koppelStand(){ document.querySelectorAll('.stand button').forEach(b=>b.onclick=()=>{ stand=b.dataset.s; feedback=null; ask=null; renderSide(); });
