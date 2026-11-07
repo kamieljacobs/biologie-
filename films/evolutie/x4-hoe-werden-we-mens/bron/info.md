@@ -58,3 +58,7 @@ Werkmap `/root/hw` opzetten zoals in `films/evolutie/storyboards-v2/productie/RE
 - Keuzes en vereenvoudigingen uit het storyboard staan in het docentdeel en in `storyboard_f12.json`.
 - Frisse beeldreview 24 okt 2026 verwerkt (MOET-punten hersteld)
 - Kleding neanderthaler en Homo sapiens op verzoek van Kamiel (24 okt 2026), in teken_e12.js
+
+## Heropname 7 nov 2026 (DNA)
+
+Uitspraaktest Kamiel 7 nov: DNA klonk fout in s33 (stem-invoer 'deeënaa'). Opnieuw ingesproken met de gewone spelling DNA en door Kamiel goedgekeurd in de luisterlijst; ingezet zonder herbouw (audio, woordtijden en FILMDATA van die alinea's). Film-eigen regel voor 'deeënaa' uit uitspraak_film.json gehaald.

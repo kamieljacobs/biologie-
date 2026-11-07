@@ -153,11 +153,11 @@ De Zweedse onderzoeker Svante Pääbo haalde DNA uit botten van neanderthalers. 
 
 _Stem-invoer:_ De Zweedse onderzoeker Svante Pääbo haalde deeënaa uit botten van neanderthalers. In het jaar 2010 las zijn team hun hele genoom. Daarvoor kreeg hij in het jaar 2022 de Nobelprijs.
 
-**s33** (e12s30) · audio `s33.mp3` · 12.4 s · generation `SbhETvRYmOhPIXPXjs31`
+**s33** (e12s30) · audio `s33.mp3` · 12.0 s · generation `bWPuUZJi1V7ud7yQBiO7` (heropname 7 nov 2026: DNA)
 
 Bij mensen buiten Afrika komt nu ongeveer twee procent van het DNA van neanderthalers. Neanderthalers en Homo sapiens kregen dus samen kinderen, vooral rond 47 000 jaar geleden.
 
-_Stem-invoer:_ Bij mensen buiten Afrika komt nu ongeveer twee procent van het deeënaa van neanderthalers. Neanderthalers en Homo sapiens kregen dus samen kinderen, vooral rond 47.000 jaar geleden.
+_Stem-invoer:_ Bij mensen buiten Afrika komt nu ongeveer twee procent van het DNA van neanderthalers. Neanderthalers en Homo sapiens kregen dus samen kinderen, vooral rond 47.000 jaar geleden.
 
 **s34** (e12s31) · audio `s34.mp3` · 17.7 s · generation `F2PathXuBwriLfOqfEIt`
 

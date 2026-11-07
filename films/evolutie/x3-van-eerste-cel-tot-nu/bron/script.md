@@ -96,11 +96,9 @@ Bij de voorouders van planten en algen gebeurde het nog een keer. Een cel nam ee
 
 Cellen met een kern heten eukaryoten. De oudste fossielen die waarschijnlijk van eukaryoten zijn, zijn ongeveer 1,6 miljard jaar oud: half vier 's middags. Misschien zijn ze ouder; dat weten we nog niet.
 
-**s20** (e11s18) · audio `s20.mp3` · 14.2 s · generation `svCi9QTQD4ID4lO5ABsX`
+**s20** (e11s18) · audio `s20.mp3` · 10.2 s · generation `jE89d1GGMWfWV7D0YWTA` (heropname 7 nov 2026: DNA)
 
-Het leven heeft dus drie grote groepen: bacteriën, archaea en eukaryoten. Volgens het DNA zijn eukaryoten het nauwst verwant aan archaea. Hoe je zo'n stamboom leest, zie je in de film Stambomen lezen.
-
-_Stem-invoer:_ Het leven heeft dus drie grote groepen: bacteriën, archaea en eukaryoten. Volgens het deeënaa zijn eukaryoten het nauwst verwant aan archaea. Hoe je zo'n stamboom leest, zie je in de film Stambomen lezen.
+Het leven heeft dus drie grote groepen: bacteriën, archaea en eukaryoten. Volgens het DNA zijn eukaryoten het nauwst verwant aan archaea.
 
 ## Hoofdstuk 3 — Groot worden en het land op
 
@@ -133,11 +131,9 @@ Wat denk je? Een paddenstoel staat stil en groeit uit de grond. Met wie zijn sch
 - b) Met planten: die staan ook stil en groeien uit de grond
 - c) Met geen van beide: schimmels zijn een groep apart
 
-**s28** (e11s25) · audio `s28.mp3` · 13.0 s · generation `ZiB36enyWiO4qKrsAY1C`
+**s28** (e11s25) · audio `s28.mp3` · 13.4 s · generation `yQWqLnkpxkPuwECCCzHw` (heropname 7 nov 2026: DNA)
 
 Schimmels staan dichter bij dieren dan bij planten. Dat blijkt vooral uit hun DNA. Maar ook hun celwand bevat chitine, net als het pantser van een insect. Ze slaan suiker op als glycogeen, net als jij.
-
-_Stem-invoer:_ Schimmels staan dichter bij dieren dan bij planten. Dat blijkt vooral uit hun deeënaa. Maar ook hun celwand bevat chitine, net als het pantser van een insect. Ze slaan suiker op als glycogeen, net als jij.
 
 **s29** (e11s26) · audio `s29.mp3` · 17.0 s · generation `wEsOfsCioJiIJQk0oZCQ`
 

@@ -56,3 +56,7 @@ Werkmap `/root/hw` opzetten zoals in `films/evolutie/storyboards-v2/productie/RE
 - Uitspraakwachtlijst: `uitspraak.md` (nog niet getest).
 - Keuzes en vereenvoudigingen uit het storyboard staan in het docentdeel en in `storyboard_f7.json`.
 - Zie storyboard_f7.json voor getallen (leeftijden fossielen, halveringstijd koolstof-14 ±5700 jaar)
+
+## Heropname 7 nov 2026 (DNA)
+
+Uitspraaktest Kamiel 7 nov: DNA klonk fout in s29, s34 (stem-invoer 'deeënaa'). Opnieuw ingesproken met de gewone spelling DNA en door Kamiel goedgekeurd in de luisterlijst; ingezet zonder herbouw (audio, woordtijden en FILMDATA van die alinea's). In s29 is de zin met de verwijzing naar de DNA-reeks weggelaten. Film-eigen regel voor 'deeënaa' uit uitspraak_film.json gehaald.

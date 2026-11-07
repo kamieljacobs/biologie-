@@ -69,11 +69,9 @@ Bouwstenen kunnen dus vanzelf ontstaan. Maar een zak losse letters is nog geen b
 
 ## Hoofdstuk 2 — Informatie en gereedschap
 
-**s14** (e10s13) · audio `s14.mp3` · 9.4 s · generation `Or7g1C4iejxkh4TVUaoi`
+**s14** (e10s13) · audio `s14.mp3` · 9.3 s · generation `K28tcXmlgFqSnVAdmtBJ` (heropname 7 nov 2026: DNA)
 
 In je cellen staat de bouwtekening van eiwitten in het DNA. Maar om DNA te kopiëren, heb je eiwitten nodig. En die staan weer in het DNA.
-
-_Stem-invoer:_ In je cellen staat de bouwtekening van eiwitten in het deeënaa. Maar om deeënaa te kopiëren, heb je eiwitten nodig. En die staan weer in het deeënaa.
 
 **s15** (e10q14) · audio `s15.mp3` · 7.8 s · generation `sjphm4ti8bZB1SeDRu5w`
 
@@ -86,11 +84,11 @@ _Stem-invoer:_ Wat denk je? deeënaa heeft eiwitten nodig, en eiwitten hebben de
 - b) Meer DNA, want dat is de bouwtekening
 - c) Grotere eiwitten, want die doen het werk
 
-**s17** (e10s15) · audio `s17.mp3` · 11.0 s · generation `0pavpot1gRrixuPzRPFK`
+**s17** (e10s15) · audio `s17.mp3` · 11.7 s · generation `D030EOoNLhpzDst6JGMU` (heropname 7 nov 2026: DNA)
 
 Veel onderzoekers kijken naar RNA. RNA draagt informatie, net als DNA. Maar het is meestal één losse streng, en die kan op zichzelf terugvouwen.
 
-_Stem-invoer:_ Veel onderzoekers kijken naar er-en-aa. er-en-aa draagt informatie, net als deeënaa. Maar het is meestal één losse streng, en die kan op zichzelf terugvouwen.
+_Stem-invoer:_ Veel onderzoekers kijken naar er-en-aa. er-en-aa draagt informatie, net als DNA. Maar het is meestal één losse streng, en die kan op zichzelf terugvouwen.
 
 **s18** (e10s16) · audio `s18.mp3` · 11.0 s · generation `LpK2GNr2GURV3wyBWnTg`
 

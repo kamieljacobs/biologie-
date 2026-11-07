@@ -59,3 +59,7 @@ Werkmap `/root/hw` opzetten zoals in `films/evolutie/storyboards-v2/productie/RE
 - Herdershond: overgang van lopen naar staan is een harde wissel (bekende zwakte van de hondenpop)
 - Mops zit met de staart laag (zie lessen_pop_honden.md)
 - s25 en s29: figurant Erik (castboek) als mens bij de wolf en als hondenfokker; in s25 staat hij in een rustige zijhouding in moderne kleding
+
+## Heropname 7 nov 2026 (DNA)
+
+Uitspraaktest Kamiel 7 nov: DNA klonk fout in s04 (stem-invoer 'deeënaa'). Opnieuw ingesproken met de gewone spelling DNA en door Kamiel goedgekeurd in de luisterlijst; ingezet zonder herbouw (audio, woordtijden en FILMDATA van die alinea's). In s04 is de zin met de verwijzing naar de DNA-reeks weggelaten. Film-eigen regel voor 'deeënaa' uit uitspraak_film.json gehaald.

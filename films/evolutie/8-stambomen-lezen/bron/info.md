@@ -57,3 +57,7 @@ Werkmap `/root/hw` opzetten zoals in `films/evolutie/storyboards-v2/productie/RE
 - Keuzes en vereenvoudigingen uit het storyboard staan in het docentdeel en in `storyboard_f8.json`.
 - Dieren in de cladogrammen staan in losse tegels (geen onderlinge maat); waar ze samen in één beeld staan, op echte maat
 - Zandhagedis aan de oever en huiskat staan op schaal met een vergrootcirkel
+
+## Heropname 7 nov 2026 (DNA)
+
+Uitspraaktest Kamiel 7 nov: DNA klonk fout in s27 (stem-invoer 'deeënaa'). Opnieuw ingesproken met de gewone spelling DNA en door Kamiel goedgekeurd in de luisterlijst; ingezet zonder herbouw (audio, woordtijden en FILMDATA van die alinea's). Film-eigen regel voor 'deeënaa' uit uitspraak_film.json gehaald.

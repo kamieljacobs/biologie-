@@ -12,7 +12,7 @@ Centrale lijst van uitspraken die Kamiel heeft goedgekeurd. Gebruik deze bij **e
 
 | Woord | Stem-invoer | Sinds |
 |---|---|---|
-| DNA | DNA (gewone spelling, eleven_v4); 'deeënaa' gaf in Chromosomen de klemtoon verkeerd (uitspraaktest 24 okt) en opnieuw in Evolutie 1 s13 (Kamiel 7 nov). Oude film-eigen regels met 'deeënaa': bij herinspreken weghalen; takes met 'deeënaa' staan op de luisterlijst van 7 nov | 24 okt, 7 nov |
+| DNA | DNA (gewone spelling, eleven_v4); 'deeënaa' gaf in Chromosomen de klemtoon verkeerd (uitspraaktest 24 okt) en opnieuw in Evolutie 1 s13 (Kamiel 7 nov). Oude film-eigen regels met 'deeënaa': bij herinspreken weghalen; uitspraaktest 7 nov: 9 alinea's in Evolutie 4, 7, 8, x2, x3, x4 klonken fout en zijn opnieuw ingesproken met de gewone spelling (goedgekeurd) | 24 okt, 7 nov |
 | RNA / mRNA / tRNA | erenaa / em-erenaa; tRNA in een film steeds hetzelfde | 13 okt |
 | PCR | pee cee er | 13 okt |
 | template | klemtoon op laatste lettergreep | 13 okt |

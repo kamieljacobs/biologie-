@@ -18,11 +18,9 @@ Opa Henk haalt een doosje antibiotica op bij apotheker Ravi. Iedereen kent het a
 
 Bacteriën planten zich voort door te delen. Eén bacterie wordt twee, twee worden vier. Onder ideale omstandigheden kan een darmbacterie als E. coli dat elke twintig minuten.
 
-**s04** (e4s04) · audio `s04.mp3` · 13.6 s · generation `gFmNoLEXpLABlFzgg1xf`
+**s04** (e4s04) · audio `s04.mp3` · 10.4 s · generation `FKoukI5pd9OiDWVjRQVA` (heropname 7 nov 2026: DNA)
 
-In je darmen leven tienduizenden miljarden bacteriën. Bij elke deling wordt het DNA gekopieerd, en heel af en toe gaat daarbij iets mis: een mutatie. Hoe dat precies gebeurt, zie je in de DNA-reeks.
-
-_Stem-invoer:_ In je darmen leven tienduizenden miljarden bacteriën. Bij elke deling wordt het deeënaa gekopieerd, en heel af en toe gaat daarbij iets mis: een mutatie. Hoe dat precies gebeurt, zie je in de deeënaa-reeks.
+In je darmen leven tienduizenden miljarden bacteriën. Bij elke deling wordt het DNA gekopieerd, en heel af en toe gaat daarbij iets mis: een mutatie.
 
 **s05** (e4q05) · audio `s05.mp3` · 6.3 s · generation `GDr3Tv0yzCoJ3eV7487J`
 

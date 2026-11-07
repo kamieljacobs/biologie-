@@ -129,11 +129,9 @@ Jij hebt er ook een: je staartbeen. Een paar vergroeide wervels aan het eind van
 
 ## Hoofdstuk 4 — Het spoor in het DNA
 
-**s29** (e7s26) · audio `s29.mp3` · 13.9 s · generation `QsWib9yy0emOHRCymbr9`
+**s29** (e7s26) · audio `s29.mp3` · 10.8 s · generation `TYDh3QN2UnvF2MkyXkns` (heropname 7 nov 2026: DNA)
 
-Het derde spoor zit in het DNA. Soorten met een gemeenschappelijke voorouder erfden allebei zijn DNA. Daarna stapelen zich in elke lijn eigen mutaties op. Hoe een mutatie ontstaat, zie je in de DNA-reeks.
-
-_Stem-invoer:_ Het derde spoor zit in het deeënaa. Soorten met een gemeenschappelijke voorouder erfden allebei zijn deeënaa. Daarna stapelen zich in elke lijn eigen mutaties op. Hoe een mutatie ontstaat, zie je in de deeënaa-reeks.
+Het derde spoor zit in het DNA. Soorten met een gemeenschappelijke voorouder erfden allebei zijn DNA. Daarna stapelen zich in elke lijn eigen mutaties op.
 
 **s30** (e7s27) · audio `s30.mp3` · 9.5 s · generation `v4J4I1ZSZehwLHeCgxbf`
 
@@ -156,11 +154,9 @@ Walvis en nijlpaard hebben de minste verschillen. De zeehond lijkt van buiten me
 
 _Stem-invoer:_ Walvis en nijlpaard hebben de minste verschillen. De zeehond lijkt van buiten meer op een walvis, maar zijn deeënaa wijkt verder af. Hij is een roofdier, verwant aan honden en beren.
 
-**s34** (e7s30) · audio `s34.mp3` · 11.0 s · generation `f2FTyHWJV7xTnIGMzQKV`
+**s34** (e7s30) · audio `s34.mp3` · 11.1 s · generation `ksl0hROmTINJovfQbj2i` (heropname 7 nov 2026: DNA)
 
 Walvis en nijlpaard delen zelfs een ingevoegd stukje DNA, op precies dezelfde plek. De koe heeft het niet. Zo'n stukje erven ze van één gemeenschappelijke voorouder.
-
-_Stem-invoer:_ Walvis en nijlpaard delen zelfs een ingevoegd stukje deeënaa, op precies dezelfde plek. De koe heeft het niet. Zo'n stukje erven ze van één gemeenschappelijke voorouder.
 
 **s35** (e7s31) · audio `s35.mp3` · 11.7 s · generation `LefJjZ0SyqDRBQVHgqGv`
 

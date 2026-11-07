@@ -57,3 +57,7 @@ Werkmap `/root/hw` opzetten zoals in `films/evolutie/storyboards-v2/productie/RE
 - Keuzes en vereenvoudigingen uit het storyboard staan in het docentdeel en in `storyboard_f10.json`.
 - Frisse beeldreview 24 okt 2026 verwerkt (MOET-punten hersteld)
 - Heropname 25 okt 2026: s06 opnieuw ingesproken (UV-straling (gewone spelling), 158 credits); duur bijgewerkt. Het versielabel in de film zelf (footer) staat nog op 1.0.
+
+## Heropname 7 nov 2026 (DNA)
+
+Uitspraaktest Kamiel 7 nov: DNA klonk fout in s14, s17 (stem-invoer 'deeënaa'). Opnieuw ingesproken met de gewone spelling DNA en door Kamiel goedgekeurd in de luisterlijst; ingezet zonder herbouw (audio, woordtijden en FILMDATA van die alinea's). Film-eigen regel voor 'deeënaa' uit uitspraak_film.json gehaald.

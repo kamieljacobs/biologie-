@@ -119,11 +119,9 @@ In water geeft een gestroomlijnd lijf minder weerstand. In elke lijn hadden indi
 
 Organen met dezelfde functie maar een andere bouw heten analoge organen. Ze ontstaan door dezelfde selectiedruk in groepen die niet nauw verwant zijn. Dat heet convergente evolutie.
 
-**s27** (e8s24) · audio `s27.mp3` · 10.0 s · generation `uesTSa2NshKBZzFXOIcS`
+**s27** (e8s24) · audio `s27.mp3` · 10.0 s · generation `JGPksOFxwaW5LpPRHDMS` (heropname 7 nov 2026: DNA)
 
 Homologe organen wijzen dus op verwantschap. Analoge organen niet. Daarom kijken biologen niet naar het uiterlijk, maar naar de bouw en het DNA.
-
-_Stem-invoer:_ Homologe organen wijzen dus op verwantschap. Analoge organen niet. Daarom kijken biologen niet naar het uiterlijk, maar naar de bouw en het deeënaa.
 
 ## Hoofdstuk 4 — Namen en groepen
 
