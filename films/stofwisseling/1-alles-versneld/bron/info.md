@@ -235,7 +235,7 @@ Aanvulling 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als [
 ## Wijziging 7 nov 2026: reviewronde Kamiel + opwaardering naar prompt v13 (versie 1.1)
 
 **Voldoet aan: prompt v13 (7 nov 2026, opwaardering zonder keuring, takes behouden).** Bewust niet gevolgd:
-- **Moleculekleuren** (C1/C2): enzym nog blauw (Part C: grijsblauw `#7A8BA8` met het actieve centrum in goud), product groen (water en zuurstof zijn teal), remstof en inhibitor paars (paars is voor kern, erfelijkheid, hormonen en de vwo-balk), activator turquoise. Omkleuren raakt alle simulaties en legenda's en vraagt een nieuwe kleur voor de remstof: **voorgelegd aan Kamiel** (twijfelpunt), daarna in één keer in `sim.js` (`drawParticle`, regel ≈ 713–722) en de legenda's.
+- **Moleculekleuren** (C1/C2): enzym nog blauw (Part C: grijsblauw `#7A8BA8` met het actieve centrum in goud), product groen (water en zuurstof zijn teal), remstof en inhibitor paars (paars is voor kern, erfelijkheid, hormonen en de vwo-balk), activator turquoise. Omkleuren raakt alle simulaties en legenda's en vraagt een nieuwe kleur voor de remstof: voorgelegd aan Kamiel; **besluit Kamiel 7 nov 2026: 'ik denk dat voor nu paars blijven oke is'** → kleuren voorlopig ongewijzigd. Later omkleuren: in één keer in `sim.js` (`drawParticle`, regel ≈ 713–722) en de legenda's.
 - Grafiekpanelen in H4–H6 staan op de Micro-achtergrond, omdat ze in dezelfde scène naast de deeltjessimulatie staan (Part C: een scène wisselt niet van look).
 - De wachtlijst 'opnieuw inspreken' (H4, eiwitstructuur) blijft openstaan; geen nieuwe opname in deze ronde.
 
