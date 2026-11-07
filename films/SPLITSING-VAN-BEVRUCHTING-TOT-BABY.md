@@ -83,7 +83,7 @@ Kosten: ± 2.700 credits TTS (s04 van film 7 helemaal, twee nieuwe alinea's, dri
 ## Stand
 | Film | Stand |
 |---|---|
-| De cyclus | nog niet begonnen |
+| De cyclus | fase 1 klaar (7 nov 2026): script v1, termenlijst en 5 twijfelscènes in `voortplanting/cyclus/bron/remake-2026-11/`; wacht op Kamiel, dan bronnen, stem en bouw |
 | Bevruchting | nog niet begonnen |
 | Zwanger | concept klaar (7 nov 2026): termenlijst, script en storyboard in `voortplanting/zwanger/bron/concept.md`; boek heeft alle vier (vruchtvliezen, tijdlijn, fasen bevalling, borstvoeding); geen Firebase-opmerkingen bij de oude film. **Wacht op Kamiels keuring van 5 twijfelscènes**, daarna stem en beeld |
 | Inpassen deel 1 (films 6 en 7) | voorstel 7 nov 2026, wacht op Kamiels antwoorden |
