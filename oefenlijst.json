@@ -3693,56 +3693,6 @@
    ]
   ]
  },
- "films/voortplanting/1-precies-op-tijd.html": {
-  "titel": "Van bevruchting tot baby",
-  "hoofdstuk": "voortplanting",
-  "htitel": "Voortplanting",
-  "json": "films/voortplanting/1-precies-op-tijd/oefenen.json",
-  "oef": [
-   [
-    "volgorde-bevruchting",
-    "Van bevruchting tot hCG",
-    "volgorde",
-    0
-   ],
-   [
-    "volgorde-cyclus",
-    "Eén cyclus: van FSH tot menstruatie",
-    "volgorde",
-    0
-   ],
-   [
-    "schema-organen",
-    "De weg van de eicel",
-    "schema",
-    0
-   ],
-   [
-    "schema-eicel",
-    "Een zaadcel bij de eicel",
-    "schema",
-    0
-   ],
-   [
-    "uitleg-pil",
-    "Drie dagen de pil vergeten",
-    "uitleg",
-    0
-   ],
-   [
-    "uitleg-hcg",
-    "Waarom het embryo hCG maakt",
-    "uitleg",
-    0
-   ],
-   [
-    "uitleg-bodybuilder",
-    "Extra testosteron, minder zaadcellen",
-    "uitleg",
-    0
-   ]
-  ]
- },
  "films/voortplanting/2-geslachtsorganen-puberteit.html": {
   "titel": "Geslachtsorganen en puberteit",
   "hoofdstuk": "voortplanting",
@@ -3863,6 +3813,32 @@
    ]
   ]
  },
+ "films/voortplanting/bevruchting/index.html": {
+  "titel": "Bevruchting",
+  "hoofdstuk": "voortplanting",
+  "htitel": "Voortplanting",
+  "json": "films/voortplanting/bevruchting/oefenen.json",
+  "oef": [
+   [
+    "volgorde-bevruchting",
+    "Van zaadlozing tot holle bal",
+    "volgorde",
+    0
+   ],
+   [
+    "uitleg-een-zaadcel",
+    "Waarom er maar één binnenkomt",
+    "uitleg",
+    0
+   ],
+   [
+    "uitleg-klieving",
+    "Meer cellen, niet groter",
+    "uitleg",
+    0
+   ]
+  ]
+ },
  "films/voortplanting/celdeling/index.html": {
   "titel": "Celdeling",
   "hoofdstuk": "voortplanting",
@@ -3908,9 +3884,9 @@
   ]
  },
  "films/voortplanting/cyclus/index.html": {
-  "titel": "",
-  "hoofdstuk": "",
-  "htitel": "",
+  "titel": "De cyclus",
+  "hoofdstuk": "voortplanting",
+  "htitel": "Voortplanting",
   "json": "films/voortplanting/cyclus/oefenen.json",
   "oef": [
    [
@@ -3928,6 +3904,32 @@
    [
     "uitleg-pil",
     "Drie dagen de pil vergeten",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/voortplanting/zwanger/index.html": {
+  "titel": "Zwanger",
+  "hoofdstuk": "voortplanting",
+  "htitel": "Voortplanting",
+  "json": "films/voortplanting/zwanger/oefenen.json",
+  "oef": [
+   [
+    "uitleg-hcg",
+    "Waarom het embryo hCG maakt",
+    "uitleg",
+    0
+   ],
+   [
+    "volgorde-bevalling",
+    "Van eerste wee tot nageboorte",
+    "volgorde",
+    0
+   ],
+   [
+    "uitleg-placenta",
+    "Dichtbij, maar gescheiden",
     "uitleg",
     0
    ]
