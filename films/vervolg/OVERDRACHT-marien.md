@@ -38,3 +38,5 @@ Stand 3 nov 2026 (avond). Lees ook `films/vervolg/BOUWEN.md`, `films/PROMPT_v13.
 - `vervolg.html`: startvraag film 2 → 'ruim een kwart' (GCB 2025: 29 %).
 
 **Volgende stap:** keuring teruglezen → keuzes verwerken in script_v2 (film 2 eventueel variant A met de MOET-punten), Sams outfit in lib_cast/ROLLEN → testvel nieuwe tekeningen (als gekozen) → decors downloaden → `script_opname.md` + segments.json → inspreken (Roos, eleven_v4, hooguit 2 takes tegelijk; uitspraakrisico's in de twijfelbestanden: otoliet, kanoet, Yerseke, Oregon, Newfoundland, Marine Sciences/Biology) → bouwen (engine = bronmap van milieukunde-2) → frisse beeldreview → repo → medaillons → LEVENSLOOP.
+
+**Keuring (7 nov 2026):** op het blad koos Kamiel `mb-r1` = B (Sam buiten: zijn winterjas + groene laarzen) en `mb-r2` = decors zo gebruiken. Daarna in de chat: 'oke is goed' → de overige 22 punten volgens voorstel (dus film 2 = combinatie, `kamiel_keuze: combi` loggen). Lees het blad bij de start nog één keer na: een later gezette keuze gaat voor.
