@@ -85,6 +85,6 @@ Kosten: ± 2.700 credits TTS (s04 van film 7 helemaal, twee nieuwe alinea's, dri
 |---|---|
 | De cyclus | nog niet begonnen |
 | Bevruchting | nog niet begonnen |
-| Zwanger | nog niet begonnen |
+| Zwanger | concept klaar (7 nov 2026): termenlijst, script en storyboard in `voortplanting/zwanger/bron/concept.md`; boek heeft alle vier (vruchtvliezen, tijdlijn, fasen bevalling, borstvoeding); geen Firebase-opmerkingen bij de oude film. **Wacht op Kamiels keuring van 5 twijfelscènes**, daarna stem en beeld |
 | Inpassen deel 1 (films 6 en 7) | voorstel 7 nov 2026, wacht op Kamiels antwoorden |
 | Inpassen deel 2 (lijn, Les 2, toets, planner, oude film eruit) | wacht op de drie films |
