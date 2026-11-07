@@ -5,7 +5,7 @@ Kamiel (23 okt 2026): houd een lijst bij van alle opmerkingen, aanpassingen en f
 `fouten.jsonl`: één regel per fout, JSON met deze velden:
 - `datum` (JJJJ-MM-DD), `reeks`, `film` (bv. "evo2-8"), `scene` (id of null)
 - `gevonden_door`: `kamiel` | `review` (frisse reviewer) | `beoordelaar` (blinde beoordelaar van de scriptvarianten, B15) | `zelf` (Claude tijdens het werk) | `leerling` (feedbackknop)
-- `soort` (vaste lijst): `vakinhoud` · `te-stellig` · `teleologie` · `vragen-uit` · `vraagkaart-te-raden` · `consistentie-reeks` · `niveau-havo-vwo` · `tekening-verhouding` · `tekening-anatomie` · `tekening-overlap` · `cast-personage` · `uitspraak` · `taal-zin` · `lengte` · `brief-haak` · `techniek-bouw` · `misconceptie-niet-bevraagd` · `verhaal-logica`
+- `soort` (vaste lijst): `vakinhoud` · `te-stellig` · `teleologie` · `vragen-uit` · `vraagkaart-te-raden` · `consistentie-reeks` · `niveau-havo-vwo` · `tekening-verhouding` · `tekening-anatomie` · `tekening-overlap` · `cast-personage` · `uitspraak` · `taal-zin` · `lengte` · `brief-haak` · `techniek-bouw` · `misconceptie-niet-bevraagd` · `verhaal-logica` · `verwijzing-andere-film` (sinds 7 nov 2026)
 - `ontstaan_bij`: stap waar de fout erin kwam: `brief` · `onderzoek` · `script` · `tekenen` · `keyframe` · `audio` · `bouw`
 - `gemist_bij`: stap die hem had moeten vangen: `bronnencheck` · `zelfreview-script` · `testvel` · `contactblad` · `consistentiecheck` · `qa-vragen-uit` · `uitspraakcheck` · `niet-van-toepassing`
 - `wat`: één zin over de fout · `aanpassing`: wat er is veranderd · `algemeen`: true als Kamiel 'geldt voor alle films' aanvinkte

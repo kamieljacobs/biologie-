@@ -3562,8 +3562,6 @@ const oefEsc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>'
 const oefRij=href=>{const o=OEFENEN[href];if(!o||!o.oef.length)return '';const u=BASE+'oefenen.html?film='+encodeURIComponent(href);return `<div class="oefrij"><span class="mono">Oefenen</span>${o.oef.map(([id,t,soort,vwo])=>`<a class="oefchip" href="${u}#${encodeURIComponent(id)}">${OEF_ICOON[soort]||''}${oefEsc(t)}${vwo?'<span class="vw">vwo</span>':''}</a>`).join('')}</div>`;};
 const REVIEW = {
   // 7 nov: reviewstatus opgehaald; opmerkingen nog te verwerken
-  "films/evolutie/1-wat-is-evolutie.html": "feedback",
-  "films/evolutie/2-natuurlijke-selectie.html": "feedback",
   "films/onderbouw/33c/3-wie-eet-wie/index.html": "feedback",
   "films/onderbouw/33c/4-uit-balans/index.html": "feedback",
   "films/stofwisseling/1-alles-versneld.html": "feedback",
