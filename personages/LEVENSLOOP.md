@@ -44,7 +44,7 @@
 
 **Esra** (29) · vast: zwanger van haar eerste kind, cliënte van Mirjam, los van Noors familie. Gebeurd: loopt door Verloskunde 1–5. Grenzen: geen familie van Noor.
 
-**Erik** (38) · vast: figurant, verdachte of voorbijganger. Gebeurd: verdachte in Forensisch onderzoek 2. Anonieme patiënt in het voorbeeld van de ziekte van Wilson (DNA 5 Mutaties 1.2, 27 okt 2026; ter keuring). Grenzen: blijft figurant (geen naam of rol met een verhaal).
+**Erik** (38) · vast: figurant, verdachte of voorbijganger. Gebeurd: verdachte in Forensisch onderzoek 2. Anonieme patiënt in het voorbeeld van de ziekte van Wilson (DNA 5 Mutaties 1.2, 27 okt 2026; ter keuring). Anonieme bodybuilder die testosteron spuit (Voortplanting · De cyclus 1.0, 7 nov 2026; rol door Kamiel goedgekeurd). Grenzen: blijft figurant (geen naam of rol met een verhaal).
 
 **Mevrouw Jansen** (`buurvrouw`, 72) · vast: buurvrouw. Gebeurd: patiënt met een gebroken heup in het ziekenhuis, ondervoed, herstelt met drinkvoeding en tijdelijk een neussonde (Voeding 4, Eten als behandeling, 31 okt 2026; in de stem naamloos); Forensisch onderzoek 3; vrijwillige vlinderteller in Ecologie 1. Grenzen: staat los van Noors familie.
 
@@ -67,202 +67,73 @@
 Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `films/**/bron/**/*.js` en de naam in `bron/script.md`; films die een personage alleen via een variabele aanroepen ontbreken mogelijk).
 
 <!-- AUTO:start -->
-### Noor (`noor`) — 89 films
-- `afweer`: 1-de-eerste-verdediging, 2-antistoffen-op-maat, 3-t-cellen-en-virussen, 4-vaccins-allergie-en-bloedgroepen
-- `cellen`: celorganellen, diffusie-osmose, microben, stamcellen, van-molecuul-tot-biosfeer
-- `dna`: 1-wat-is-dna, 2-dna-kopieren, 7-dna-lezen
-- `dna-technieken`: 2-op-lengte-gesorteerd
-- `ecologie`: 2-waar-past-een-soort, 3-een-aarde, 3-wie-eet-wie, 4-ingrijpen-of-laten-gaan, 4-waar-blijft-het-blad, 5-waarom-zo-weinig-roofdieren, 6-koolstof-gaat-rond
-- `erfelijkheid`: 1-chromosomen, 2-monohybride-kruisingen, 4-dihybride-kruising-en-gekoppelde-overerving, 5-overerving-via-x-chromosomen-en-mitochondrien, 6-stambomen-en-kansrekenen
-- `evolutie`: 4-de-mens-als-selectiefactor, 7-hoe-weten-we-dat, 8-stambomen-lezen, x2-het-ontstaan-van-het-leven, x3-van-eerste-cel-tot-nu, x4-hoe-werden-we-mens
-- `examens`: vwo-2018-2
-- `extra`: geschiedenis-van-de-biologie, hoe-weet-een-cel
-- `gaswisseling`: 3-uitscheiding-en-evenwicht
-- `gedrag`: 2-inprenting-en-de-sensitieve-periode, 6-attributie, 8-honingbij
-- `hormonen`: 1-post-voor-iedereen, 2-suiker-in-balans, 4-stress, 5-water-in-balans
-- `onderbouw/32a`: 2-van-cel-tot-lichaam, 2b-rondleiding-door-je-lichaam, 4-ademhaling-en-bloedsomloop, 7-zenuw-en-hormoonstelsel
-- `onderbouw/32b`: 1-levenscyclus-genen-en-milieu
-- `onderbouw/32c`: 1-voeding-en-beweging, 2-slaap-natuur-en-hygiene, 3-microben-vriend-en-vijand, 4-ziek-worden-en-beter-worden
-- `onderbouw/33c`: 4-uit-balans, 5-wij-hebben-de-natuur-nodig
-- `vervolg`: biomedisch-1-signalen-in-de-cel, biomedisch-3-van-lab-tot-patient, biomedisch-4-toeval-of-echt, diergeneeskunde-1-hond-koe-paard, diergeneeskunde-3-van-dier-naar-mens, farmacie-1-van-pil-tot-plek, fysiotherapie-2-opnieuw-leren-bewegen, fysiotherapie-3-trainen, fysiotherapie-4-welke-oefening-helpt, geneeskunde-3-welk-antibioticum, leraar-1-waar-blijft-je-vet, leraar-2-een-practicum-dat-werkt, mbrt-1-in-het-lichaam-kijken, neurowetenschappen-3-als-hersencellen-uitvallen, psychologie-6-kun-je-je-geheugen-vertrouwen, psychologie-7-waarom-raakt-de-een-opgebrand, tandheelkunde-4-een-tand-door-bot, voedingsleer-1-bij-de-dietist, voedingsleer-2-waarom-afvallen-zo-moeilijk-is, voedingsleer-3-een-burger-zonder-koe, voedingsleer-4-de-dietist-in-het-ziekenhuis
-- `voeding`: 1-wat-zit-er-in-je-eten, 4-van-darm-naar-bloed, 5-de-lever-als-fabriek, 6-je-darmbewoners, 7-supplementen-en-superfoods
-- `voortplanting`: 2-geslachtsorganen-puberteit, 4-sekse-gender-diversiteit, celdeling
-- `zenuwstelsel`: 2-het-kabelnetwerk, 4-knoeien-met-de-spleet, 5-het-hoofdkantoor, 6-leren-en-onthouden, 7-slaap, 8-zintuigen, 9-spieren-en-beweging
+### Noor (`noor`) — 2 films
+- `voortplanting`: 2-geslachtsorganen-puberteit, celdeling
 
-### Sam (`sam`) — 38 films
-- `afweer`: 3-t-cellen-en-virussen
-- `evolutie`: 4-de-mens-als-selectiefactor
-- `gedrag`: 1-waarom-doet-een-dier-wat-het-doet, 6-attributie, 9-mierenkolonie
-- `onderbouw/32a`: 2-van-cel-tot-lichaam, 6-skelet-en-spieren, 7-zenuw-en-hormoonstelsel, 9-organismen-aan-het-werk
-- `onderbouw/32b`: 1-levenscyclus-genen-en-milieu, 5-celdeling
-- `onderbouw/32c`: 1-voeding-en-beweging, 2-slaap-natuur-en-hygiene, 3-microben-vriend-en-vijand
-- `vervolg`: bioinformatica-1-zoeken-in-dna, bioinformatica-2-miljoenen-varianten, bioinformatica-3-een-uitbraak-volgen, bioinformatica-4-eiwitstructuur-voorspellen, biotechnologie-1-bacterien-als-fabriek, biotechnologie-2-enzymen-op-maat, biotechnologie-3-mag-dat, farmacie-2-sleutel-slot-en-dosis, leraar-1-waar-blijft-je-vet, neurowetenschappen-1-je-brein-vult-het-in, pedagogiek-1-een-brein-in-aanbouw, psychologie-1-welke-therapie-werkt, psychologie-5-in-de-spreekkamer, tandheelkunde-1-zuur-in-je-mond, verpleegkunde-2-hoe-weefsel-herstelt
-- `voeding`: 1-wat-zit-er-in-je-eten, 2-de-reis-door-je-buik, 6-je-darmbewoners
-- `voortplanting`: 2-geslachtsorganen-puberteit, 3-anticonceptie-soa-voortplantingstechniek, 4-sekse-gender-diversiteit
-- `zenuwstelsel`: 5-het-hoofdkantoor, 7-slaap, 9-spieren-en-beweging
-
-### Daan (`daan`) — 32 films
-- `dna`: 7-dna-lezen
-- `ecologie`: 3-een-aarde
-- `evolutie`: 1-wat-is-evolutie, 4-de-mens-als-selectiefactor
-- `gaswisseling`: 1-adem-in-adem-uit
-- `gedrag`: 7-leren
-- `onderbouw/32a`: 2b-rondleiding-door-je-lichaam, 5-uitscheiding, 8-hoe-een-plant-in-leven-blijft
-- `onderbouw/32b`: 1-levenscyclus-genen-en-milieu, 7-stambomen-en-de-grote-stappen
-- `onderbouw/32c`: 1-voeding-en-beweging, 2-slaap-natuur-en-hygiene
-- `onderbouw/33c`: 1-hoe-vindt-een-haai-zijn-prooi, 3-wie-eet-wie
-- `transport`: 7-hoe-een-plant-groeit
-- `vervolg`: biomedisch-4-toeval-of-echt, ecologie-1-tellen-in-het-veld, ecologie-2-stikstof, ecologie-3-een-plan-voor-de-natuur, leraar-1-waar-blijft-je-vet, leraar-2-een-practicum-dat-werkt, milieukunde-1-pfas-ddt-en-microplastic, neurowetenschappen-1-je-brein-vult-het-in, neurowetenschappen-2-brein-en-computer, pedagogiek-1-een-brein-in-aanbouw, psychologie-6-kun-je-je-geheugen-vertrouwen, psychologie-7-waarom-raakt-de-een-opgebrand
+### Sam (`sam`) — 1 films
 - `voortplanting`: 2-geslachtsorganen-puberteit
-- `zenuwstelsel`: 1-een-seconde, 3-de-spleet, 4-knoeien-met-de-spleet
 
-### Yasmin (`yasmin`) — 26 films
-- `cellen`: onderzoek-doen
-- `ecologie`: 7-stikstof-gaat-rond
-- `evolutie`: 1-wat-is-evolutie
-- `gedrag`: 10-helpen, 12-psychologie-experimenten
-- `onderbouw/32b`: 2-geslachtelijk-en-ongeslachtelijk, 6-dna-en-overerving
-- `onderbouw/32c`: 2-slaap-natuur-en-hygiene
-- `vervolg`: farmacie-2-sleutel-slot-en-dosis, fysiotherapie-4-welke-oefening-helpt, gezondheidswetenschappen-1-hoe-een-epidemie-groeit, gezondheidswetenschappen-2-screenen-of-niet, gezondheidswetenschappen-3-roken-en-longkanker, labtechniek-1-preparaat-en-microscoop, labtechniek-2-van-buisje-tot-uitslag, labtechniek-3-wat-staat-er-op-je-bloeduitslag, labtechniek-4-antibioticaresistentie, landbouw-1-meer-oogst, landbouw-2-wat-zit-er-in-de-bodem, landbouw-3-fokken, leraar-2-een-practicum-dat-werkt, neurowetenschappen-1-je-brein-vult-het-in, neurowetenschappen-3-als-hersencellen-uitvallen, psychologie-2-kijken-in-een-denkend-brein, psychologie-3-aanleg-of-opvoeding, psychologie-6-kun-je-je-geheugen-vertrouwen
+### Daan (`daan`) — 1 films
+- `voortplanting`: 2-geslachtsorganen-puberteit
 
-### Bilal (`bilal`) — 25 films
-- `afweer`: 4-vaccins-allergie-en-bloedgroepen
-- `cellen`: onderzoek-doen
-- `ecologie`: 7-stikstof-gaat-rond
-- `evolutie`: 1-wat-is-evolutie
-- `examens`: vwo-2018-2
-- `gedrag`: 11-slimme-dieren, 5-emotieregulatie
-- `onderbouw/32b`: 2-geslachtelijk-en-ongeslachtelijk
-- `onderbouw/32c`: 2-slaap-natuur-en-hygiene, 4-ziek-worden-en-beter-worden
-- `vervolg`: farmacie-2-sleutel-slot-en-dosis, forensisch-1-sporen, forensisch-2-hoe-zeker-is-een-match, forensisch-3-hoe-lang-al-dood, forensisch-4-stille-getuigen, fysiotherapie-3-trainen, fysiotherapie-4-welke-oefening-helpt, geneeskunde-2-als-regelkringen-ontsporen, gezondheidswetenschappen-1-hoe-een-epidemie-groeit, gezondheidswetenschappen-2-screenen-of-niet, landbouw-3-fokken, pedagogiek-1-een-brein-in-aanbouw, psychologie-3-aanleg-of-opvoeding, tandheelkunde-1-zuur-in-je-mond
-- `zenuwstelsel`: 7-slaap
+### Yasmin (`yasmin`) — 0 films
+- (geen films gevonden)
 
-### Dr. Kim (`kim`) — 53 films
-- `afweer`: 3-t-cellen-en-virussen, 4-vaccins-allergie-en-bloedgroepen
-- `cellen`: van-molecuul-tot-biosfeer
-- `dna`: 7-dna-lezen, 8-wat-heb-jij-aan-dna
-- `ecologie`: 5-binnen-de-grenzen
-- `erfelijkheid`: 6-stambomen-en-kansrekenen
-- `evolutie`: 4-de-mens-als-selectiefactor, 7-hoe-weten-we-dat
-- `onderbouw/32b`: 1-levenscyclus-genen-en-milieu, 4-door-de-mens-gekozen
-- `onderbouw/32c`: 2-slaap-natuur-en-hygiene, 3-microben-vriend-en-vijand, 4-ziek-worden-en-beter-worden
-- `onderbouw/33c`: 5-wij-hebben-de-natuur-nodig
-- `vervolg`: bioinformatica-1-zoeken-in-dna, bioinformatica-2-miljoenen-varianten, bioinformatica-3-een-uitbraak-volgen, bioinformatica-4-eiwitstructuur-voorspellen, biomedisch-1-signalen-in-de-cel, biomedisch-2-crispr-wat-doet-dit-gen, biomedisch-3-van-lab-tot-patient, biomedisch-4-toeval-of-echt, diergeneeskunde-3-van-dier-naar-mens, farmacie-3-achter-de-balie, forensisch-1-sporen, forensisch-2-hoe-zeker-is-een-match, forensisch-3-hoe-lang-al-dood, forensisch-4-stille-getuigen, fysiotherapie-1-wat-is-er-met-die-knie, geneeskunde-1-van-klacht-naar-diagnose, geneeskunde-2-als-regelkringen-ontsporen, geneeskunde-3-welk-antibioticum, geneeskunde-4-wat-de-patholoog-ziet, labtechniek-2-van-buisje-tot-uitslag, labtechniek-3-wat-staat-er-op-je-bloeduitslag, labtechniek-4-antibioticaresistentie, mbrt-1-in-het-lichaam-kijken, mbrt-2-bestraling, neurowetenschappen-2-brein-en-computer, neurowetenschappen-3-als-hersencellen-uitvallen, pedagogiek-2-opgroeien-onder-druk, psychologie-1-welke-therapie-werkt, psychologie-2-kijken-in-een-denkend-brein, psychologie-3-aanleg-of-opvoeding, psychologie-4-meten-wat-je-niet-kunt-zien, psychologie-6-kun-je-je-geheugen-vertrouwen, psychologie-7-waarom-raakt-de-een-opgebrand, tandheelkunde-3-bloedend-tandvlees, verloskunde-2-wat-meet-de-verloskundige, verpleegkunde-1-bel-je-de-arts
-- `voortplanting`: 3-anticonceptie-soa-voortplantingstechniek, 4-sekse-gender-diversiteit
+### Bilal (`bilal`) — 0 films
+- (geen films gevonden)
 
-### Lotte (`lotte`) — 32 films
-- `afweer`: 3-t-cellen-en-virussen, 4-vaccins-allergie-en-bloedgroepen
-- `ecologie`: 5-binnen-de-grenzen
-- `examens`: vwo-2018-2
-- `extra`: bestaat-dit-echt
-- `gedrag`: 10-helpen, 4-hechting
-- `onderbouw/32a`: 1-alles-is-cel, 2-van-cel-tot-lichaam, 2b-rondleiding-door-je-lichaam, 3-vertering, 7-zenuw-en-hormoonstelsel
-- `onderbouw/32b`: 1-levenscyclus-genen-en-milieu, 4-door-de-mens-gekozen
-- `onderbouw/32c`: 1-voeding-en-beweging, 2-slaap-natuur-en-hygiene
-- `onderbouw/33c`: 2-wie-woont-waar, 5-wij-hebben-de-natuur-nodig
-- `vervolg`: diergeneeskunde-2-bronst-dekken-kalven, diergeneeskunde-3-van-dier-naar-mens, diergeneeskunde-4-welzijn-meten, fysiotherapie-1-wat-is-er-met-die-knie, leraar-2-een-practicum-dat-werkt, mbrt-1-in-het-lichaam-kijken, neurowetenschappen-1-je-brein-vult-het-in, psychologie-1-welke-therapie-werkt, psychologie-4-meten-wat-je-niet-kunt-zien, tandheelkunde-2-van-glazuur-tot-zenuw, tuin-1-welke-plant-waar, tuin-2-natuur-in-de-stad, verpleegkunde-2-hoe-weefsel-herstelt
-- `voortplanting`: 3-anticonceptie-soa-voortplantingstechniek
+### Dr. Kim (`kim`) — 0 films
+- (geen films gevonden)
 
-### Teun (`kind`) — 18 films
-- `afweer`: 2-antistoffen-op-maat
-- `cellen`: microben
-- `ecologie`: 5-waarom-zo-weinig-roofdieren
-- `examens`: vwo-2018-2
-- `hormonen`: 1-post-voor-iedereen
-- `onderbouw/32b`: 1-levenscyclus-genen-en-milieu
-- `onderbouw/32c`: 2-slaap-natuur-en-hygiene, 4-ziek-worden-en-beter-worden
-- `vervolg`: biomedisch-2-crispr-wat-doet-dit-gen, neurowetenschappen-2-brein-en-computer, psychologie-3-aanleg-of-opvoeding, psychologie-6-kun-je-je-geheugen-vertrouwen
-- `voeding`: 1-wat-zit-er-in-je-eten, 4-van-darm-naar-bloed, 5-de-lever-als-fabriek, 6-je-darmbewoners
-- `zenuwstelsel`: 1-een-seconde, 3-de-spleet
+### Lotte (`lotte`) — 0 films
+- (geen films gevonden)
 
-### Baby (`baby`) — 16 films
-- `afweer`: 4-vaccins-allergie-en-bloedgroepen
-- `dna`: 8-wat-heb-jij-aan-dna
-- `evolutie`: 3-vormen-van-selectie
-- `gedrag`: 2-inprenting-en-de-sensitieve-periode
-- `onderbouw/32b`: 1-levenscyclus-genen-en-milieu, 5-celdeling
-- `vervolg`: pedagogiek-1-een-brein-in-aanbouw, pedagogiek-2-opgroeien-onder-druk, verloskunde-2-wat-meet-de-verloskundige, verloskunde-4-de-bevalling, verloskunde-5-de-kraamweek
-- `voeding`: 1-wat-zit-er-in-je-eten, 4-van-darm-naar-bloed, 5-de-lever-als-fabriek, 6-je-darmbewoners
-- `voortplanting`: 4-sekse-gender-diversiteit
+### Teun (`kind`) — 0 films
+- (geen films gevonden)
 
-### Mevrouw Visser (`visser`) — 15 films
-- `cellen`: microben
-- `dna`: 2-dna-kopieren, 7-dna-lezen
-- `erfelijkheid`: 1-chromosomen, 2-monohybride-kruisingen, 4-dihybride-kruising-en-gekoppelde-overerving, 5-overerving-via-x-chromosomen-en-mitochondrien, 6-stambomen-en-kansrekenen
-- `evolutie`: 8-stambomen-lezen
-- `onderbouw/32a`: 2-van-cel-tot-lichaam
-- `vervolg`: geneeskunde-4-wat-de-patholoog-ziet, leraar-1-waar-blijft-je-vet, leraar-2-een-practicum-dat-werkt
-- `zenuwstelsel`: 5-het-hoofdkantoor, 9-spieren-en-beweging
+### Baby (`baby`) — 0 films
+- (geen films gevonden)
 
-### Opa Henk (`henk`) — 46 films
-- `afweer`: 3-t-cellen-en-virussen
-- `dna`: 7-dna-lezen, 8-wat-heb-jij-aan-dna
-- `ecologie`: 4-ingrijpen-of-laten-gaan, 5-binnen-de-grenzen
-- `erfelijkheid`: 4-dihybride-kruising-en-gekoppelde-overerving
-- `evolutie`: 4-de-mens-als-selectiefactor, x2-het-ontstaan-van-het-leven
-- `examens`: vwo-2018-2
-- `gedrag`: 8-honingbij
-- `onderbouw/32a`: 9-organismen-aan-het-werk
-- `onderbouw/32b`: 1-levenscyclus-genen-en-milieu, 2-geslachtelijk-en-ongeslachtelijk
-- `onderbouw/32c`: 1-voeding-en-beweging
-- `onderbouw/33c`: 3-wie-eet-wie, 4-uit-balans
-- `vervolg`: biomedisch-1-signalen-in-de-cel, biomedisch-2-crispr-wat-doet-dit-gen, biomedisch-3-van-lab-tot-patient, biomedisch-4-toeval-of-echt, diergeneeskunde-3-van-dier-naar-mens, farmacie-1-van-pil-tot-plek, farmacie-3-achter-de-balie, fysiotherapie-2-opnieuw-leren-bewegen, geneeskunde-1-van-klacht-naar-diagnose, gezondheidswetenschappen-2-screenen-of-niet, labtechniek-2-van-buisje-tot-uitslag, labtechniek-3-wat-staat-er-op-je-bloeduitslag, labtechniek-4-antibioticaresistentie, landbouw-1-meer-oogst, landbouw-2-wat-zit-er-in-de-bodem, landbouw-3-fokken, mbrt-1-in-het-lichaam-kijken, mbrt-2-bestraling, neurowetenschappen-3-als-hersencellen-uitvallen, pedagogiek-1-een-brein-in-aanbouw, pedagogiek-2-opgroeien-onder-druk, psychologie-1-welke-therapie-werkt, psychologie-2-kijken-in-een-denkend-brein, psychologie-7-waarom-raakt-de-een-opgebrand, tandheelkunde-3-bloedend-tandvlees, tuin-1-welke-plant-waar, verpleegkunde-1-bel-je-de-arts, verpleegkunde-2-hoe-weefsel-herstelt
-- `voeding`: 6-je-darmbewoners, 7-supplementen-en-superfoods
+### Mevrouw Visser (`visser`) — 0 films
+- (geen films gevonden)
 
-### Verpleegkundige Jesse (`jesse`) — 5 films
-- `vervolg`: diergeneeskunde-3-van-dier-naar-mens, fysiotherapie-4-welke-oefening-helpt, verpleegkunde-1-bel-je-de-arts, verpleegkunde-2-hoe-weefsel-herstelt, voedingsleer-4-de-dietist-in-het-ziekenhuis
+### Opa Henk (`henk`) — 0 films
+- (geen films gevonden)
 
-### Fysiotherapeut Femke (`femke`) — 6 films
-- `vervolg`: fysiotherapie-1-wat-is-er-met-die-knie, fysiotherapie-2-opnieuw-leren-bewegen, fysiotherapie-3-trainen, fysiotherapie-4-welke-oefening-helpt, verpleegkunde-2-hoe-weefsel-herstelt, voedingsleer-4-de-dietist-in-het-ziekenhuis
+### Verpleegkundige Jesse (`jesse`) — 0 films
+- (geen films gevonden)
 
-### Apotheker Ravi (`ravi`) — 4 films
-- `ecologie`: 5-binnen-de-grenzen
-- `evolutie`: 4-de-mens-als-selectiefactor
-- `vervolg`: farmacie-1-van-pil-tot-plek, farmacie-3-achter-de-balie
+### Fysiotherapeut Femke (`femke`) — 0 films
+- (geen films gevonden)
 
-### Verloskundige Mirjam (`mirjam`) — 6 films
-- `evolutie`: 3-vormen-van-selectie
-- `vervolg`: verloskunde-1-negen-maanden-bouwen, verloskunde-2-wat-meet-de-verloskundige, verloskunde-3-screenen-een-keuze, verloskunde-4-de-bevalling, verloskunde-5-de-kraamweek
+### Apotheker Ravi (`ravi`) — 0 films
+- (geen films gevonden)
 
-### Esra (`esra`) — 7 films
-- `dna`: 7-dna-lezen
-- `extra`: hoe-weet-een-cel
-- `vervolg`: verloskunde-1-negen-maanden-bouwen, verloskunde-2-wat-meet-de-verloskundige, verloskunde-3-screenen-een-keuze, verloskunde-4-de-bevalling, verloskunde-5-de-kraamweek
+### Verloskundige Mirjam (`mirjam`) — 0 films
+- (geen films gevonden)
 
-### Dierenarts Mila (`mila`) — 6 films
-- `ecologie`: 3-wie-eet-wie
-- `evolutie`: 4-de-mens-als-selectiefactor
-- `vervolg`: diergeneeskunde-1-hond-koe-paard, diergeneeskunde-2-bronst-dekken-kalven, diergeneeskunde-3-van-dier-naar-mens, diergeneeskunde-4-welzijn-meten
+### Esra (`esra`) — 0 films
+- (geen films gevonden)
 
-### Veehouder Gerrit (`gerrit`) — 9 films
-- `ecologie`: 1-hoeveel-passen-er, 3-wie-eet-wie, 5-waarom-zo-weinig-roofdieren, 7-stikstof-gaat-rond
-- `evolutie`: 4-de-mens-als-selectiefactor, 6-hoe-een-soort-er-twee-wordt
-- `vervolg`: diergeneeskunde-3-van-dier-naar-mens, diergeneeskunde-4-welzijn-meten, landbouw-3-fokken
+### Dierenarts Mila (`mila`) — 0 films
+- (geen films gevonden)
 
-### Tandarts Wouter (`wouter`) — 4 films
-- `vervolg`: tandheelkunde-1-zuur-in-je-mond, tandheelkunde-2-van-glazuur-tot-zenuw, tandheelkunde-3-bloedend-tandvlees, tandheelkunde-4-een-tand-door-bot
+### Veehouder Gerrit (`gerrit`) — 0 films
+- (geen films gevonden)
 
-### Mondhygiënist Ilse (`ilse`) — 3 films
-- `vervolg`: tandheelkunde-1-zuur-in-je-mond, tandheelkunde-3-bloedend-tandvlees, tandheelkunde-4-een-tand-door-bot
+### Tandarts Wouter (`wouter`) — 0 films
+- (geen films gevonden)
 
-### Linda (`linda`) — 7 films
-- `cellen`: onderzoek-doen
-- `dna`: 7-dna-lezen
-- `evolutie`: x2-het-ontstaan-van-het-leven
-- `vervolg`: biomedisch-2-crispr-wat-doet-dit-gen
+### Mondhygiënist Ilse (`ilse`) — 0 films
+- (geen films gevonden)
+
+### Linda (`linda`) — 1 films
 - `voortplanting`: celdeling
-- `zenuwstelsel`: 4-knoeien-met-de-spleet, 8-zintuigen
 
-### Rachid (`rachid`) — 5 films
-- `dna`: 7-dna-lezen
-- `ecologie`: 5-waarom-zo-weinig-roofdieren
-- `evolutie`: x2-het-ontstaan-van-het-leven
+### Rachid (`rachid`) — 1 films
 - `voortplanting`: celdeling
-- `zenuwstelsel`: 6-leren-en-onthouden
 
-### Oma Ria (`ria`) — 3 films
-- `evolutie`: x2-het-ontstaan-van-het-leven
-- `vervolg`: mbrt-2-bestraling
+### Oma Ria (`ria`) — 1 films
 - `voortplanting`: celdeling
 
 ### Opa Ahmed (`ahmed`) — 0 films
@@ -271,71 +142,62 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 ### Oma Malika (`malika`) — 0 films
 - (geen films gevonden)
 
-### Tante Petra (`petra`) — 2 films
-- `dna`: 8-wat-heb-jij-aan-dna
-- `voortplanting`: 4-sekse-gender-diversiteit
+### Tante Petra (`petra`) — 0 films
+- (geen films gevonden)
 
-### Thijs (`thijs`) — 4 films
-- `dna`: 7-dna-lezen
-- `evolutie`: 1-wat-is-evolutie
-- `vervolg`: milieukunde-1-pfas-ddt-en-microplastic, milieukunde-2-van-wieg-tot-graf
+### Thijs (`thijs`) — 0 films
+- (geen films gevonden)
 
-### Erik (`erik`) — 10 films
-- `cellen`: stamcellen
-- `dna`: 7-dna-lezen
-- `ecologie`: 6-koolstof-gaat-rond
-- `evolutie`: 4-de-mens-als-selectiefactor
-- `hormonen`: 3-de-baas-van-de-klieren
-- `vervolg`: biomedisch-3-van-lab-tot-patient, forensisch-2-hoe-zeker-is-een-match, forensisch-4-stille-getuigen, voedingsleer-4-de-dietist-in-het-ziekenhuis
-- `voortplanting`: 3-anticonceptie-soa-voortplantingstechniek
+### Erik (`erik`) — 1 films
+- `voortplanting`: cyclus
 
-### Joost (`joost`) — 7 films
-- `dna`: 7-dna-lezen
-- `vervolg`: biomedisch-3-van-lab-tot-patient, forensisch-2-hoe-zeker-is-een-match, forensisch-4-stille-getuigen, milieukunde-1-pfas-ddt-en-microplastic, voedingsleer-1-bij-de-dietist, voedingsleer-2-waarom-afvallen-zo-moeilijk-is
+### Joost (`joost`) — 0 films
+- (geen films gevonden)
 
-### Mevrouw Jansen (`buurvrouw`) — 4 films
-- `ecologie`: 8-van-zand-tot-bos
-- `vervolg`: ecologie-1-tellen-in-het-veld, forensisch-3-hoe-lang-al-dood, voedingsleer-4-de-dietist-in-het-ziekenhuis
+### Mevrouw Jansen (`buurvrouw`) — 0 films
+- (geen films gevonden)
 
-### Lieke (`lieke`) — 1 films
-- `vervolg`: forensisch-3-hoe-lang-al-dood
+### Lieke (`lieke`) — 0 films
+- (geen films gevonden)
 
-### Procestechnoloog Merel (`merel`) — 3 films
-- `vervolg`: biotechnologie-1-bacterien-als-fabriek, biotechnologie-2-enzymen-op-maat, biotechnologie-3-mag-dat
+### Procestechnoloog Merel (`merel`) — 0 films
+- (geen films gevonden)
 
-### Ecoloog Bas (`bas`) — 5 films
-- `ecologie`: 4-waar-blijft-het-blad, 8-van-zand-tot-bos
-- `vervolg`: ecologie-1-tellen-in-het-veld, ecologie-2-stikstof, ecologie-3-een-plan-voor-de-natuur
+### Ecoloog Bas (`bas`) — 0 films
+- (geen films gevonden)
 
-### Diëtist Hanneke (`hanneke`) — 3 films
-- `vervolg`: voedingsleer-1-bij-de-dietist, voedingsleer-2-waarom-afvallen-zo-moeilijk-is, voedingsleer-4-de-dietist-in-het-ziekenhuis
+### Diëtist Hanneke (`hanneke`) — 0 films
+- (geen films gevonden)
 
-### Epidemioloog Farid (`farid`) — 3 films
-- `vervolg`: gezondheidswetenschappen-1-hoe-een-epidemie-groeit, gezondheidswetenschappen-2-screenen-of-niet, gezondheidswetenschappen-3-roken-en-longkanker
+### Epidemioloog Farid (`farid`) — 0 films
+- (geen films gevonden)
 
-### Levensmiddelentechnoloog Lars (`lars`) — 1 films
-- `vervolg`: voedingsleer-3-een-burger-zonder-koe
+### Levensmiddelentechnoloog Lars (`lars`) — 0 films
+- (geen films gevonden)
 
-### Hovenier Jeroen (`jeroen`) — 2 films
-- `vervolg`: tuin-1-welke-plant-waar, tuin-2-natuur-in-de-stad
+### Hovenier Jeroen (`jeroen`) — 0 films
+- (geen films gevonden)
 
-### Milieukundige Iris (`iris`) — 2 films
-- `vervolg`: milieukunde-1-pfas-ddt-en-microplastic, milieukunde-2-van-wieg-tot-graf
+### Milieukundige Iris (`iris`) — 0 films
+- (geen films gevonden)
 
-### Palynoloog (`palynoloog`) — 1 films
-- `vervolg`: forensisch-4-stille-getuigen
+### Palynoloog (`palynoloog`) — 0 films
+- (geen films gevonden)
 
-### Fleur (`fleur`) — 1 films
-- `voortplanting`: 3-anticonceptie-soa-voortplantingstechniek
+### Mariene bioloog (`marien`) — 0 films
+- (geen films gevonden)
 
-### Ruben (`ruben`) — 1 films
-- `voortplanting`: 3-anticonceptie-soa-voortplantingstechniek
+### Fleur (`fleur`) — 0 films
+- (geen films gevonden)
+
+### Ruben (`ruben`) — 0 films
+- (geen films gevonden)
 
 ### Dennis (`dennis`) — 0 films
 - (geen films gevonden)
 
-### Marieke (`marieke`) — 1 films
-- `erfelijkheid`: 1-chromosomen
+### Marieke (`marieke`) — 0 films
+- (geen films gevonden)
 
 ### Sara (`sara`) — 0 films
 - (geen films gevonden)
@@ -343,8 +205,8 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 ### Levi (`levi`) — 0 films
 - (geen films gevonden)
 
-### Jens (`jens`) — 1 films
-- `erfelijkheid`: 5-overerving-via-x-chromosomen-en-mitochondrien
+### Jens (`jens`) — 0 films
+- (geen films gevonden)
 
 ### Opa Frank (`opawit`) — 0 films
 - (geen films gevonden)
@@ -352,35 +214,33 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 ### Oma Lucia (`omawit`) — 0 films
 - (geen films gevonden)
 
-### Opa Wim (`opabos`) — 1 films
-- `erfelijkheid`: 5-overerving-via-x-chromosomen-en-mitochondrien
+### Opa Wim (`opabos`) — 0 films
+- (geen films gevonden)
 
 ### Oma Anja (`omabos`) — 0 films
 - (geen films gevonden)
 
-### Anouk (`anouk`) — 1 films
-- `vervolg`: bioinformatica-2-miljoenen-varianten
+### Anouk (`anouk`) — 0 films
+- (geen films gevonden)
 
-### Milan (`milan`) — 1 films
-- `vervolg`: bioinformatica-2-miljoenen-varianten
+### Milan (`milan`) — 0 films
+- (geen films gevonden)
 
-### Sanne (`sanne`) — 2 films
-- `dna`: 8-wat-heb-jij-aan-dna
-- `erfelijkheid`: 6-stambomen-en-kansrekenen
+### Sanne (`sanne`) — 0 films
+- (geen films gevonden)
 
-### Bram (`bram`) — 1 films
-- `afweer`: 2-antistoffen-op-maat
+### Bram (`bram`) — 0 films
+- (geen films gevonden)
 
 ### Wilma (`wilma`) — 0 films
 - (geen films gevonden)
 
-### Voorbijganger (`passant`) — 1 films
-- `hormonen`: 3-de-baas-van-de-klieren
+### Voorbijganger (`passant`) — 0 films
+- (geen films gevonden)
 
-### Gregor Mendel (`mendel`) — 3 films
-- `erfelijkheid`: 2-monohybride-kruisingen
-- `extra`: geschiedenis-van-de-biologie, kun-je-onderzoek-vertrouwen
+### Gregor Mendel (`mendel`) — 0 films
+- (geen films gevonden)
 
-### Sanne (`sanne16`) — 1 films
-- `hormonen`: 2-suiker-in-balans
+### Sanne (`sanne16`) — 0 films
+- (geen films gevonden)
 <!-- AUTO:end -->

@@ -65,14 +65,14 @@ Antwoord b.
 Krijgt een vrouw elke dag veel FSH, dan valt de wedstrijd weg. Ook follikels met minder receptoren krijgen genoeg. Er rijpen er dan meerdere tegelijk. Precies dat gebruiken artsen bij ivf.
 
 ## Hoofdstuk 3 — Van rem naar gaspedaal [Schema-lus + Micro]
-`~` **s16** (s18) — 'ongeveer twee dagen' → 'een paar dagen' tot de bron het bevestigt
-De follikel die overblijft, maakt steeds meer oestrogeen. En dan gebeurt er iets opmerkelijks. Zolang er weinig oestrogeen is, remt het de hypofyse. Maar blijft het oestrogeen een paar dagen hoog, dan slaat het effect om. Dan zet oestrogeen de hypofyse juist aan tot het maken van LH.
+`~` **s16** (s18) — 'ongeveer twee dagen' → 'blijft het even hoog' (geen tweede bron voor de duur)
+De follikel die overblijft, maakt steeds meer oestrogeen. En dan gebeurt er iets opmerkelijks. Zolang er weinig oestrogeen is, remt het de hypofyse. Maar wordt het oestrogeen hoog genoeg, en blijft het even hoog, dan slaat het effect om. Dan zet oestrogeen de hypofyse juist aan tot het maken van LH.
 
 `~` **s17** (s19)
 Meer oestrogeen geeft meer LH, en LH jaagt de follikel weer aan. Het signaal versterkt zichzelf: dat heet positieve terugkoppeling. In korte tijd schiet het LH omhoog. Dat is de LH-piek.
 
-`~` **s18** (s19) — meiose van de eicel en metafase II weg (naar Bevruchting); de lus stopt
-Die piek laat de follikel openscheuren, zo'n anderhalve dag na het begin ervan. De eicel komt vrij: de eisprong. Daarna valt het oestrogeen terug, en zakt ook het LH. De lus is doorbroken.
+`~` **s18** (s19) — meiose van de eicel en metafase II weg (naar Bevruchting); 'anderhalve dag' weg (was `?`); de lus stopt
+Die piek laat de follikel openscheuren. De eicel komt vrij: de eisprong. Daarna valt het oestrogeen terug, en zakt ook het LH. De lus is doorbroken.
 
 ## Hoofdstuk 4 — Het gele lichaam [Micro + grafiek]
 `~` **s19** (s20) — 'metafase twee' weg

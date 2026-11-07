@@ -1,0 +1,88 @@
+{
+ "slug": "cyclus",
+ "hoofdstuk": "voortplanting",
+ "hoofdstukNaam": "Voortplanting",
+ "title": "De cyclus",
+ "sub": "Hoe hormonen elkaar remmen en aanjagen",
+ "puzzle": "De pil bevat hormonen die het lichaam van een vrouw ook zelf maakt. Toch komt er daardoor geen eisprong. Hoe kan meer van een eigen hormoon iets tegenhouden?",
+ "meta": "voortplanting · hormonale regeling",
+ "version": "1.0 · november 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Voortplanting · film 3",
+ "lead": "Hormonen remmen hun eigen oorzaak: negatieve terugkoppeling. Bij de man houdt dat het testosteron gelijk, en daarom maakt een bodybuilder die testosteron spuit juist minder zaadcellen. Bij de vrouw zorgt dezelfde rem ervoor dat er van een groepje follikels één overblijft. Vlak voor de eisprong slaat de rem om in een gaspedaal: positieve terugkoppeling geeft de LH-piek. Het gele lichaam maakt progesteron; sterft het af, dan volgt de menstruatie en begint de cyclus opnieuw. De pil houdt de rem de hele maand aan.",
+ "endHaak": "kun je nu uitleggen waarom drie dagen de pil vergeten toch een eisprong kan geven?",
+ "minis": {
+  "Hoofdstuk 1 — De rem": "Wat doet extra testosteron met de zaadcellen?",
+  "Hoofdstuk 2 — Eén follikel wint": "Waarom rijpt er meestal maar één follikel?",
+  "Hoofdstuk 3 — Van rem naar gaspedaal": "Hoe ontstaat de LH-piek?",
+  "Hoofdstuk 4 — Het gele lichaam": "Waarom komt er een menstruatie?",
+  "Hoofdstuk 5 — De pil": "Hoe houdt de pil de eisprong tegen?",
+  "Recap": "Wat moet je onthouden?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · november 2026 (prompt v13, lichte remake van een deel van Van bevruchting tot baby).",
+ "questions": {
+  "q07": {
+   "q": "Een bodybuilder spuit extra testosteron. Wat gebeurt er met zijn LH, zijn eigen testosteron en zijn zaadcellen?",
+   "correct": 2,
+   "explain": "Negatieve terugkoppeling: het extra testosteron remt hypothalamus en hypofyse. Er komt minder LH en FSH, de zaadballen maken zelf minder testosteron, en daardoor rijpen er minder zaadcellen."
+  },
+  "q14": {
+   "q": "Bij ivf krijgt een vrouw elke dag een prik met veel FSH. Wat gebeurt er in haar eierstokken?",
+   "correct": 1,
+   "explain": "Normaal remt het oestrogeen het FSH, zodat alleen de follikel met de meeste FSH-receptoren overblijft. Blijft het FSH hoog, dan valt die wedstrijd weg en rijpen er meerdere follikels."
+  },
+  "q22": {
+   "q": "Op welke dag was de eisprong, welke lijn verraadt dat, en hoe zie je aan het progesteron dat er geen zwangerschap is?",
+   "correct": 0,
+   "explain": "De eisprong valt vlak na de LH-piek. Het progesteron van het gele lichaam zakt aan het eind: het gele lichaam is afgestorven, dus er is geen embryo."
+  },
+  "q29": {
+   "q": "Een vrouw vergeet drie dagen haar pil. Waarom kan ze dan toch een eisprong krijgen?",
+   "correct": 1,
+   "explain": "Zonder pil zakken de hormonen; de rem op de hypofyse valt weg, het FSH stijgt en een follikel kan rijpen. Maakt die genoeg oestrogeen, dan kan er toch een LH-piek komen."
+  }
+ },
+ "glossary": [
+  {
+   "t": "negatieve terugkoppeling",
+   "d": "Een signaal remt zijn eigen oorzaak, zodat een hoeveelheid ongeveer gelijk blijft. Voorbeeld: testosteron remt hypothalamus en hypofyse."
+  },
+  {
+   "t": "positieve terugkoppeling",
+   "d": "Een signaal versterkt zichzelf en loopt op tot iets de lus doorbreekt. Voorbeeld: lang hoog oestrogeen geeft de LH-piek."
+  },
+  {
+   "t": "follikel",
+   "d": "Blaasje van hulpcellen rond een eicel in de eierstok; maakt oestrogeen."
+  },
+  {
+   "t": "LH-piek",
+   "d": "Snelle, grote stijging van LH midden in de cyclus; laat de follikel openscheuren: de eisprong."
+  },
+  {
+   "t": "geel lichaam",
+   "d": "Wat er na de eisprong van de follikel overblijft; maakt vooral progesteron en sterft zonder embryo na ongeveer twaalf dagen af."
+  },
+  {
+   "t": "progesteron",
+   "d": "Hormoon van het gele lichaam: maakt het baarmoederslijmvlies klaar voor een embryo en remt samen met oestrogeen de hypofyse."
+  },
+  {
+   "t": "menstruatiecyclus",
+   "d": "De regelmatige cyclus van ongeveer vier weken waarin een follikel rijpt, de eisprong plaatsvindt en het slijmvlies opbouwt en loslaat. Dag 1 is de eerste dag van de menstruatie."
+  },
+  {
+   "t": "de pil",
+   "d": "Bevat een vorm van oestrogeen en een nagemaakt progesteron; houdt de hypofyse geremd, zodat geen follikel rijpt en de LH-piek uitblijft."
+  },
+  {
+   "t": "eiwithormoon",
+   "d": "vwo · Hormoon dat uit aminozuren bestaat (zoals FSH en LH); wordt in de darm verteerd en bindt aan een receptor op het celmembraan."
+  },
+  {
+   "t": "steroïdhormoon",
+   "d": "vwo · Hormoon gemaakt van cholesterol (zoals oestrogeen en progesteron); gaat door het celmembraan en bindt aan een receptor in de cel."
+  }
+ ],
+ "sections": "  <section><h2>Checkvragen</h2>\n    <p class=\"meta\">examenstijl · antwoorden ingeklapt</p>\n    <div class=\"q\"><b>1. Anabole steroïden</b> <span class=\"pts\">3 punten</span><p>Een krachtsporter gebruikt maandenlang testosteron. Bij een onderzoek blijken zijn zaadballen kleiner te zijn geworden en maakt hij veel minder zaadcellen.</p>\n      <p>a. Leg met negatieve terugkoppeling uit wat er gebeurt met de afgifte van LH door de hypofyse. (1p)<br>b. Verklaar waarom hij minder zaadcellen maakt, terwijl er juist méér testosteron in zijn bloed zit. (2p)</p>\n      <details><summary>Antwoord</summary><p>a. Het extra testosteron remt de hypothalamus en de hypofyse, dus de hypofyse geeft minder LH (en FSH) af (1). b. Door het lage LH maken de zaadballen zelf minder testosteron (1); voor de rijping van zaadcellen is (veel) testosteron ín de zaadbal en FSH nodig, en die zijn nu laag (1).</p></details></div>\n    <div class=\"q\"><b>2. Eén follikel</b> <span class=\"pts\">2 punten</span><p>Aan het begin van de cyclus groeit een groepje follikels. Bij de eisprong is er meestal maar één over.</p>\n      <p>Leg uit hoe oestrogeen ervoor zorgt dat de andere follikels afsterven. (2p)</p>\n      <details><summary>Antwoord</summary><p>Oestrogeen van de groeiende follikels remt de hypofyse, waardoor het FSH daalt (1). Alleen de follikel die het met weinig FSH redt (de meeste FSH-receptoren) groeit door; de andere sterven af (1).</p></details></div>\n    <div class=\"q\"><b>3. De LH-piek</b> <span class=\"pts\">2 punten</span><p>Midden in de cyclus stijgt het LH in korte tijd heel sterk.</p>\n      <p>a. Welk soort terugkoppeling veroorzaakt deze piek? (1p)<br>b. Wat is het gevolg van de LH-piek in de eierstok? (1p)</p>\n      <details><summary>Antwoord</summary><p>a. Positieve terugkoppeling: lang hoog oestrogeen zet de hypofyse aan tot meer LH, en LH jaagt de follikel weer aan (1). b. De follikel scheurt open: de eisprong (1).</p></details></div>\n    <div class=\"q\"><b>4. Menstruatie</b> <span class=\"pts\">2 punten</span><p>Leg uit hoe het afsterven van het gele lichaam leidt tot de menstruatie én tot het begin van een nieuwe cyclus. (2p)</p>\n      <details><summary>Antwoord</summary><p>Het gele lichaam maakt geen progesteron meer; zonder progesteron laat het baarmoederslijmvlies los: de menstruatie (1). De rem van progesteron en oestrogeen op de hypofyse valt weg, het FSH stijgt en nieuwe follikels gaan groeien (1).</p></details></div>\n    <div class=\"q vwo-only\"><b>5. Pil of prik</b> <span class=\"pts\">2 punten</span><p>De pil wordt geslikt. Bij ivf krijgt een vrouw FSH als prik.</p>\n      <p>Verklaar dit verschil met het soort hormoon. (2p)</p>\n      <details><summary>Antwoord</summary><p>FSH is een eiwithormoon; als je het slikt, wordt het in de darm verteerd (1). De hormonen in de pil zijn steroïdhormonen; die worden niet verteerd zoals eiwitten en komen via de darm in het bloed (1).</p></details></div>\n  </section>\n  <section><h2>Voor de docent</h2>\n    <h3>Hoe de film het uitlegt</h3>\n    <table><tr><th>Hoofdstuk</th><th>Kernbeeld</th></tr>\n      <tr><td>Cold open</td><td>Een pillenstrip: hormonen die het lichaam zelf ook maakt, en toch geen eisprong. Puzzel: hoe kan meer van een eigen hormoon iets tegenhouden?</td></tr>\n      <tr><td>1 De rem</td><td>Regelkring bij de man (hypothalamus/hypofyse → FSH, LH → zaadbal → testosteron, terug met een remlijn) met een meter voor testosteron in het bloed; thermostaat als vergelijking; de bodybuilder als voorspelvraag. Zoom: in de zaadbal moet testosteron veel hoger zijn dan in het bloed.</td></tr>\n      <tr><td>2 Eén follikel wint</td><td>Eierstok met een groepje follikels; oestrogeen remt FSH, follikels sterven één voor één af; de winnaar heeft de meeste FSH-receptoren. De cyclusgrafiek (hypofyse, eierstok, slijmvlies) tekent mee. Vraag: ivf met veel FSH.</td></tr>\n      <tr><td>3 Van rem naar gaspedaal</td><td>Het teken op de lus tussen follikel en hypofyse slaat om van − naar +: positieve terugkoppeling, LH-piek, eisprong.</td></tr>\n      <tr><td>4 Het gele lichaam</td><td>De follikel wordt een geel lichaam (progesteron), het slijmvlies wordt dikker; zonder embryo sterft het af, menstruatie, FSH stijgt. Grafiekvraag.</td></tr>\n      <tr><td>5 De pil</td><td>Pilhormonen houden de rem de hele maand aan; geen follikel rijpt, geen LH-piek, taai slijm. Stopweek = bloeding zonder eisprong. Vwo-blok: eiwit- tegenover steroïdhormoon (waarom een pil en geen prik).</td></tr>\n    </table>\n    <h3>Achtergrond en vereenvoudigingen</h3>\n    <ul>\n      <li>De hormoonkrommen zijn een schets van een cyclus van 28 dagen (zelfde krommen als Les 2 Voortplanting). Echte cycli verschillen in lengte; vooral de fase vóór de eisprong varieert.</li>\n      <li>Niet in de stem (bewust weggelaten, kan in de les): Leydig- en Sertolicellen, inhibine (remt vooral FSH), de tweecellen-oestrogeenproductie met aromatase, 'dominante follikel', 'progestageen', 'onttrekkingsbloeding'.</li>\n      <li>Waarom oestrogeen omslaat van remmen naar stimuleren, is moleculair ingewikkeld (o.a. kisspeptine-neuronen in de hypothalamus); de film noemt alleen dat het gebeurt als het oestrogeen hoog genoeg is en even hoog blijft.</li>\n      <li>In de zaadbal ligt de testosteronconcentratie ongeveer honderd keer hoger dan in het bloed; extra testosteron in het bloed haalt dat niveau niet, en remt intussen LH en FSH.</li>\n      <li>De pil: een combinatiepil bevat een synthetisch oestrogeen en een progestageen. Het progestageen remt vooral de LH-piek; de pil maakt ook het baarmoederhalsslijm taai en het slijmvlies dunner. Bij vergeten pillen geldt de bijsluiter.</li>\n      <li>Komt er wél een embryo, dan houdt hCG het gele lichaam in leven: dat staat in de film Zwanger.</li>\n    </ul>\n    <h3>Leerdoelen</h3>\n    <ul><li>basis — negatieve terugkoppeling uitleggen met testosteron en voorspellen wat extra testosteron doet (vraag 1)</li><li>basis — de follikelfase: waarom er meestal één follikel overblijft (vraag 2)</li><li>basis — positieve terugkoppeling: de LH-piek en de eisprong (vraag 3)</li><li>basis — geel lichaam, progesteron en menstruatie (vraag 4)</li><li>basis — hormoonkrommen van één cyclus lezen (grafiekvraag in de film)</li><li>basis — de werking van de pil verklaren met terugkoppeling (pilvraag in de film)</li><li>vwo — eiwit- en steroïdhormonen (vraag 5)</li></ul>\n    <h3>Misvattingen die de film aanpakt</h3>\n    <ul><li>Meer hormoon geeft altijd meer effect (bodybuilder, de pil).</li><li>Elke maand wordt één eicel uitgekozen (ivf-vraag: met veel FSH rijpen er meer).</li><li>Oestrogeen remt altijd.</li><li>De bloeding in de stopweek is een gewone menstruatie.</li></ul>\n    <h3>Suggesties voor de les</h3>\n    <ul><li>Pauzeer bij de bodybuilder en laat leerlingen eerst in tweetallen de lus aftekenen met + en −.</li><li>Laat leerlingen de grafiek uit hoofdstuk 4 zelf schetsen en de eisprong aanwijzen.</li><li>Bij de film hoort Les 2 Voortplanting (cycluskrommen, terugkoppeling).</li></ul>\n    <h3>Bronnen</h3>\n    <p>Zie <code>bron/bronnen.md</code> naast de film: OpenStax Biology 2e § 43.4, OpenStax A&amp;P 2e § 27.2, NHS (anabole steroïden, combinatiepil), NIDA, Endotext, NHG-standaard Anticonceptie, e.a.</p>\n  </section>\n"
+}
