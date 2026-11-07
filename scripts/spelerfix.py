@@ -426,6 +426,20 @@ def fix_vraagcitaat(s):
     return s.replace(VC_OUD, VC_NIEUW, 1), ['citaat voor vraag blijft']
 
 
+# 'Wat denk je?' vóór de vraag (Kamiel 7 nov 2026, Evolutie 2 s05/s25/s30): vraagCuts knipte alleen de vraagzinnen
+# aan het eind van de alinea, dus 'Wat denk je? Twee vinken.' bleef bij Vragen uit hoorbaar. Fix: knip ook elke losse
+# zin 'Wat denk je?' eerder in de vraag-alinea; begint de alinea ermee, dan ook een korte zin (≤ 3 woorden) vlak vóór de
+# vraag ('Twee vinken.'). Een gewone zin met inhoud blijft staan. Alleen bij Vragen uit. Idempotent.
+VK_OUD = "let i=z.length; while(i>0&&/\\?$/.test(z[i-1][z[i-1].length-1].t)) i--; if(i>=z.length||!z.length) return []; return [[Math.max(0,z[i][0].s-0.05),seg.dur||(w[w.length-1].e+0.3)]]; }"
+VK_NIEUW = "let i=z.length; while(i>0&&/\\?$/.test(z[i-1][z[i-1].length-1].t)) i--; if(i>=z.length||!z.length) return []; /*VRAAGKOP_MARK*/ const zt=k=>z[k].map(x=>x.t).join(' '), wdj=k=>/^wat denk je\\?$/i.test(zt(k)), uit=[]; let kop=false; for(let k=0;k<i;k++) if(wdj(k)){ uit.push([Math.max(0,z[k][0].s-0.05), z[k+1][0].s-0.05]); if(k===0) kop=true; } if(kop&&i>1&&!wdj(i-1)&&z[i-1].length<=3) i--; uit.push([Math.max(0,z[i][0].s-0.05),seg.dur||(w[w.length-1].e+0.3)]); return uit; }"
+
+
+def fix_vraagkop(s):
+    if 'VRAAGKOP_MARK' in s or VK_OUD not in s:
+        return s, []
+    return s.replace(VK_OUD, VK_NIEUW, 1), ["'wat denk je?' voor de vraag weg"]
+
+
 def alle_bestanden():
     fs = [f for f in glob.glob(os.path.join(ROOT, 'films/**/*.html'), recursive=True)
           if '/bron/' not in f and not f.endswith('presentatie.html')]
@@ -450,6 +464,7 @@ def main(argv):
         s2, log3 = fix_antwletter(s2); log += log3
         s2, log4 = fix_capletter(s2); log += log4
         s2, log5 = fix_vraagcitaat(s2); log += log5
+        s2, log6 = fix_vraagkop(s2); log += log6
         if check:
             ok = MARK in s
             if not ok:

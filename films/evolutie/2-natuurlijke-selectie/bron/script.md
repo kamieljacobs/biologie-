@@ -91,9 +91,9 @@ Wat denk je? De overlevers krijgen in het jaar 1978 jongen. Hoe hoog zijn de sna
 
 De jongen van het jaar 1978 hebben gemiddeld een hogere snavel. Ongeveer vier procent hoger dan de vinken van vóór de droogte. Er zijn nog steeds lage, gemiddelde en hoge snavels. Het hele histogram is een stukje opgeschoven.
 
-**s21** (e2s18) · audio `s21.mp3` · 14.3 s · generation `vVKnKEGQ0sttptdojgtZ`
+**s21** (e2s18) · audio `s21.mp3` · 14.3 s · generation `uj1dtYSmD041MP8dtPEL` (heropname 7 nov 2026)
 
-Snavelhoogte hangt af van veel genen. Vereenvoudigd kun je het zo zien: allelen voor een hoge snavel zijn vaker geworden in de genenpool. De allelfrequentie is veranderd. Dat is evolutie, in één generatie.
+Snavelhoogte hangt af van veel genen. Vereenvoudigd kun je het zo zien: allelen voor een hoge snavel komen nu vaker voor in de genenpool. De allelfrequentie is veranderd. Dat is evolutie, in één generatie.
 
 ## Hoofdstuk 3 — Wie wint?
 
@@ -141,11 +141,9 @@ Wat denk je? Een groene rups leeft op een rood blad. Wat erven zijn jongen van h
 - b) De allelen die hij zelf al had  ✓
 - c) Niets: alleen de sterkste rupsen geven allelen door
 
-**s32** (e2s27) · audio `s32.mp3` · 25.3 s · generation `rutl0nd62Udy9sVzELPz`
+**s32** (e2s27) · audio `s32.mp3` · 22.6 s · generation `rutl0nd62Udy9sVzELPz` (7 nov 2026: verwijzing naar andere film(s) weggeknipt)
 
-Wat een individu in zijn leven meemaakt, verandert zijn allelen niet. Zijn jongen erven alleen de allelen die hij al had. Selectie heeft geen doel. Ze maakt zelf geen nieuwe allelen, maar werkt met de variatie die er al is. Nieuwe allelen ontstaan door mutaties: een mutatie is een toevallige verandering in het DNA, bijvoorbeeld bij het kopiëren. Meer daarover zie je in de DNA-reeks.
-
-_Stem-invoer:_ Wat een individu in zijn leven meemaakt, verandert zijn allelen niet. Zijn jongen erven alleen de allelen die hij al had. Selectie heeft geen doel. Ze maakt zelf geen nieuwe allelen, maar werkt met de variatie die er al is. Nieuwe allelen ontstaan door mutaties: een mutatie is een toevallige verandering in het DNA, bijvoorbeeld bij het kopiëren. Meer daarover zie je in de DNA-reeks.
+Wat een individu in zijn leven meemaakt, verandert zijn allelen niet. Zijn jongen erven alleen de allelen die hij al had. Selectie heeft geen doel. Ze maakt zelf geen nieuwe allelen, maar werkt met de variatie die er al is. Nieuwe allelen ontstaan door mutaties: een mutatie is een toevallige verandering in het DNA, bijvoorbeeld bij het kopiëren.
 
 **s33** (e2s28) · audio `s33.mp3` · 20.0 s · generation `NBgEGVRoQIwJGG5apqAc`
 

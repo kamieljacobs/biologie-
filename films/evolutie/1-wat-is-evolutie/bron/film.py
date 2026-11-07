@@ -8,11 +8,11 @@ film = {
  "sub": "variatie, allelen en de genenpool",
  "puzzle": "Waarom lijken broers en zussen op elkaar, maar nooit precies?",
  "meta": "evolutie 1/8",
- "version": "1.0 · oktober 2026",
+ "version": "1.1 · november 2026",
  "titleLook": "schema",
  "seriesline": "Biologie bij Kamiel · reeks Evolutie · film 1 van 8",
- "lead": "Variatie is het verschil tussen individuen van één soort. Een deel is erfelijk, een deel komt uit de omgeving. Nieuwe allelen ontstaan door mutatie. Meiose en bevruchting maken er steeds nieuwe combinaties mee. Daarom lijken broers en zussen op elkaar, maar nooit precies. Dezelfde ouders, maar elk een andere greep uit hun allelen. Alle allelen van een populatie samen vormen de genenpool. Evolutie is een verandering van de allelfrequenties in die pot, over generaties.",
- "endHaak": "volgende film: Natuurlijke selectie",
+ "lead": "Variatie is het verschil tussen individuen van één soort. Een deel is erfelijk, een deel komt uit de omgeving. Alleen de erfelijke variatie telt voor evolutie. Nieuwe allelen ontstaan door mutatie. Meiose en bevruchting maken er steeds nieuwe combinaties mee. Daarom lijken broers en zussen op elkaar, maar nooit precies. Dezelfde ouders, maar elk een andere greep uit hun allelen. Alle allelen van een populatie samen vormen de genenpool. Evolutie is een verandering van de allelfrequenties in die pot, over generaties.",
+ "endHaak": "evolutie = verandering van allelfrequenties",
  "minis": {
   "Hoofdstuk 1": "Zijn alle verschillen erfelijk?",
   "Hoofdstuk 2": "Hoe krijgt elk kind een andere mix?",
@@ -20,7 +20,7 @@ film = {
   "Hoofdstuk 4": "Wat verandert er als een soort evolueert?",
   "Recap": "Waarom lijken broers en zussen op elkaar, maar nooit precies?"
  },
- "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Dieren: uitknippoppen uit de dierenbibliotheek; personages uit het castboek. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Dieren: uitknippoppen uit de dierenbibliotheek; personages uit het castboek. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.1 · november 2026.",
  "questions": {
   "q10": {
    "q": "Twee oranje beestjes uit hetzelfde legsel. Het ene groeit op in de kou, het andere in de warmte. Hoe zit het met hun stippen?",
@@ -28,7 +28,7 @@ film = {
    "explain": "Kou geeft een oranje beestje meer en grotere stippen. In een proef hadden beestjes bij veertien graden er allemaal negentien. Bij achtentwintig graden waren het er gemiddeld acht."
   },
   "q16": {
-   "q": "Yasmin en Bilal hebben dezelfde ouders. Waarom hebben ze toch niet dezelfde allelen?",
+   "q": "Deze zus en broer hebben dezelfde ouders. Waarom hebben ze toch niet dezelfde allelen?",
    "correct": 1,
    "explain": "Elke ouder heeft van elk gen twee allelen. Bij de meiose komt in een eicel of zaadcel maar één van de twee terecht. Welke, dat is toeval."
   },

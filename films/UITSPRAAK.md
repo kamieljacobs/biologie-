@@ -12,7 +12,7 @@ Centrale lijst van uitspraken die Kamiel heeft goedgekeurd. Gebruik deze bij **e
 
 | Woord | Stem-invoer | Sinds |
 |---|---|---|
-| DNA | DNA (gewone spelling, eleven_v4); 'deeënaa' gaf in Chromosomen de klemtoon verkeerd (uitspraaktest 24 okt). Oude film-eigen regels met 'deeënaa': bij herinspreken weghalen | 24 okt |
+| DNA | DNA (gewone spelling, eleven_v4); 'deeënaa' gaf in Chromosomen de klemtoon verkeerd (uitspraaktest 24 okt) en opnieuw in Evolutie 1 s13 (Kamiel 7 nov). Oude film-eigen regels met 'deeënaa': bij herinspreken weghalen; takes met 'deeënaa' staan op de luisterlijst van 7 nov | 24 okt, 7 nov |
 | RNA / mRNA / tRNA | erenaa / em-erenaa; tRNA in een film steeds hetzelfde | 13 okt |
 | PCR | pee cee er | 13 okt |
 | template | klemtoon op laatste lettergreep | 13 okt |
@@ -149,7 +149,7 @@ Luisterpagina https://claude.ai/artifact/K3YNurbu7mGVzPFfqt33Ra (collectie `keuz
 | gameet / gameten | ga-MEET / ga-MEE-ten | gameet/gameten (klonk Engels), gaméét/gaméten |
 | Iᴬ, Iᴮ, i (bloedgroep) | I-A, I-B, i (dus IᴬIᴮ = 'I-A I-B', Iᴬi = 'I-A i', ii = 'i i') | ie-aa ie-bee / kleine ie; grote I A / kleine i |
 
-Les: bij eleven_v4 is 'allel' met de gewone spelling goed; een losse misser in één take = die alinea opnieuw (één take), geen respelling.
+Les: bij eleven_v4 is 'allel' met de gewone spelling goed; een losse misser in één take = die alinea opnieuw (één take), geen respelling. 7 nov 2026: opnieuw één losse misser ('allelen', Evolutie 1 s26), alinea opnieuw ingesproken met de gewone spelling.
 
 ## Beluisterd in de films Erfelijkheid 1–6 (29 okt 2026)
 

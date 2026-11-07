@@ -8,11 +8,11 @@ film = {
  "sub": "waarom niet de sterkste wint",
  "puzzle": "Waarom wint niet altijd het sterkste dier?",
  "meta": "evolutie 2/8",
- "version": "1.0 · oktober 2026",
+ "version": "1.2 · november 2026",
  "titleLook": "schema",
  "seriesline": "Biologie bij Kamiel · reeks Evolutie · film 2 van 8",
  "lead": "Natuurlijke selectie heeft drie dingen nodig: erfelijke variatie, meer nakomelingen dan er kunnen overleven, en selectiedruk. Tel de jongen die zelf ook weer jongen krijgen. Wie daarvan de meeste heeft, geeft de meeste allelen door. Voor een rups is dat de groene. Voor een vink in een droog jaar is het die met de hoogste snavel. Niet de sterkste.",
- "endHaak": "volgende film: Vormen van selectie",
+ "endHaak": "selectie kiest uit variatie die er al is",
  "minis": {
   "Hoofdstuk 1": "Waarom blijft het aantal vinken gelijk als ze zoveel jongen krijgen?",
   "Hoofdstuk 2": "Welke vinken overleven een jaar zonder regen?",
@@ -20,7 +20,7 @@ film = {
   "Hoofdstuk 4": "Wordt een rups groen omdat hij dat nodig heeft?",
   "Recap": "Waarom wint niet altijd het sterkste dier?"
  },
- "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Dieren: uitknippoppen uit de dierenbibliotheek; personages uit het castboek. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Dieren: uitknippoppen uit de dierenbibliotheek; personages uit het castboek. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.2 · november 2026.",
  "questions": {
   "q06": {
    "q": "Het aantal vinken op het eiland blijft over de jaren ongeveer gelijk. Hoe kan dat?",

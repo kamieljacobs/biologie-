@@ -158,6 +158,8 @@ For every type:
 - Terms exactly as in the brief or the method, introduced one at a time, each tied to something visible.
 - Mark verdieping clearly whenever the film goes beyond exam stof.
 - No character names in the narration (bovenbouw). The castpersonages stay on screen, but the voice never names them: it uses the je-vorm ("Stel, je schaaft je knie") or a role ("een vrouw van dertig", "de moeder", "persoon 1 en 2" where people must be told apart). No name labels on screen either. The castboek keeps the names internally, so the same role always gets the same character. Exception: onderbouw (Part D) and films for young children may use names.
+- No references to other films (Kamiel 7 nov 2026): not in the narration ('zie je in de DNA-reeks', 'dat zie je in de volgende films'), not in labels ('film 5') and not as an end-card hook ('volgende film: …'); every film stands on its own, and the site's own 'Volgende film' button does the navigation. The docentdeel may name related films.
+- "Wat denk je?" closes the question paragraph, after the question itself. A paragraph that opens with it leaves it audible with Vragen uit unless the player cuts it (spelerfix VRAAGKOP, 7 nov 2026); keep the facts the next paragraph needs in a separate statement sentence of more than three words.
 
 Two levels (NIVEAU "havo + vwo, vwo-blokken gelabeld")
 
@@ -732,6 +734,8 @@ Part C stays, with these adjustments:
 Kerndoel 32D (relationele en seksuele gezondheid) gets no films for now. If it is added later, it needs its own rules first.
 
 ## Wijzigingen
+
+✦ v13 aanvulling (7 nov 2026, review Evolutie 1 en 2): B4 no references to other films (narration, labels, end-card hook); "Wat denk je?" closes a question paragraph, a leading one is cut by spelerfix VRAAGKOP.
 
 ✦ v13 (27 okt 2026): B14 rebuilt for upgrading many films cheaply: zonder keuring as default mode (verbeterblad only on request, one per batch, grouped per kind), text-only triage first, one fix for every film, no B15, light model for routine, contact sheets of changed scenes only, re-recording batched with a credit estimate and a test film for a new kind; ElevenLabs takes kept (picture follows the voice, cut before recording, solve in the picture); B4 and C1: castpersonages are no longer named in the narration or on screen (bovenbouw).
 

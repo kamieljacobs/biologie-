@@ -24,7 +24,7 @@ Algemene feedback van Kamiel die voor (bijna) elke film geldt. Lees dit vóór h
 - **Niet 'Voor vwo …' zeggen** (15 okt 2026): de kijker kiest zelf havo of vwo in de speler en het vwo-blok is op het scherm gemarkeerd. Een vwo-blok begint gewoon met de inhoud. (Bestaande films: 74 keer in 40 films; weghalen staat op de bouwlijst.)
 
 ## Inhoud tussen films
-- Herhaal geen leerstof die een andere film al als hoofdthema heeft (bv. levenskenmerken staan in *Van molecuul tot biosfeer*, niet opnieuw als rode draad in *Celorganellen*). Een korte verwijzing mag.
+- Herhaal geen leerstof die een andere film al als hoofdthema heeft (bv. levenskenmerken staan in *Van molecuul tot biosfeer*, niet opnieuw als rode draad in *Celorganellen*). Verwijs in de film zelf niet naar andere films: niet in de vertelling, niet in labels ('film 5') en niet als eindhaak 'volgende film: …' (Kamiel 7 nov 2026; was: 'een korte verwijzing mag'). Het docentdeel mag andere films noemen.
 
 ## Personages
 - Gebruik de vaste personages uit `personages/lib_cast.js` (castboek: `personages/index.html`).

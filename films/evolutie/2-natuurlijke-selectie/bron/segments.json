@@ -694,10 +694,10 @@
   "look": "Macro",
   "level": "basis",
   "lines": [
-   "Snavelhoogte hangt af van veel genen. Vereenvoudigd kun je het zo zien: allelen voor een hoge snavel zijn vaker geworden in de genenpool. De allelfrequentie is veranderd. Dat is evolutie, in één generatie."
+   "Snavelhoogte hangt af van veel genen. Vereenvoudigd kun je het zo zien: allelen voor een hoge snavel komen nu vaker voor in de genenpool. De allelfrequentie is veranderd. Dat is evolutie, in één generatie."
   ],
-  "display": "Snavelhoogte hangt af van veel genen. Vereenvoudigd kun je het zo zien: allelen voor een hoge snavel zijn vaker geworden in de genenpool. De allelfrequentie is veranderd. Dat is evolutie, in één generatie.",
-  "voice": "Snavelhoogte hangt af van veel genen. Vereenvoudigd kun je het zo zien: allelen voor een hoge snavel zijn vaker geworden in de genenpool. De allelfrequentie is veranderd. Dat is evolutie, in één generatie.",
+  "display": "Snavelhoogte hangt af van veel genen. Vereenvoudigd kun je het zo zien: allelen voor een hoge snavel komen nu vaker voor in de genenpool. De allelfrequentie is veranderd. Dat is evolutie, in één generatie.",
+  "voice": "Snavelhoogte hangt af van veel genen. Vereenvoudigd kun je het zo zien: allelen voor een hoge snavel komen nu vaker voor in de genenpool. De allelfrequentie is veranderd. Dat is evolutie, in één generatie.",
   "vmap": [
    0,
    1,
@@ -731,7 +731,8 @@
    29,
    30,
    31,
-   32
+   32,
+   33
   ]
  },
  {
@@ -1151,10 +1152,10 @@
   "look": "Macro",
   "level": "basis",
   "lines": [
-   "Wat een individu in zijn leven meemaakt, verandert zijn allelen niet. Zijn jongen erven alleen de allelen die hij al had. Selectie heeft geen doel. Ze maakt zelf geen nieuwe allelen, maar werkt met de variatie die er al is. Nieuwe allelen ontstaan door mutaties: een mutatie is een toevallige verandering in het DNA, bijvoorbeeld bij het kopiëren. Meer daarover zie je in de DNA-reeks."
+   "Wat een individu in zijn leven meemaakt, verandert zijn allelen niet. Zijn jongen erven alleen de allelen die hij al had. Selectie heeft geen doel. Ze maakt zelf geen nieuwe allelen, maar werkt met de variatie die er al is. Nieuwe allelen ontstaan door mutaties: een mutatie is een toevallige verandering in het DNA, bijvoorbeeld bij het kopiëren."
   ],
-  "display": "Wat een individu in zijn leven meemaakt, verandert zijn allelen niet. Zijn jongen erven alleen de allelen die hij al had. Selectie heeft geen doel. Ze maakt zelf geen nieuwe allelen, maar werkt met de variatie die er al is. Nieuwe allelen ontstaan door mutaties: een mutatie is een toevallige verandering in het DNA, bijvoorbeeld bij het kopiëren. Meer daarover zie je in de DNA-reeks.",
-  "voice": "Wat een individu in zijn leven meemaakt, verandert zijn allelen niet. Zijn jongen erven alleen de allelen die hij al had. Selectie heeft geen doel. Ze maakt zelf geen nieuwe allelen, maar werkt met de variatie die er al is. Nieuwe allelen ontstaan door mutaties: een mutatie is een toevallige verandering in het DNA, bijvoorbeeld bij het kopiëren. Meer daarover zie je in de DNA-reeks.",
+  "display": "Wat een individu in zijn leven meemaakt, verandert zijn allelen niet. Zijn jongen erven alleen de allelen die hij al had. Selectie heeft geen doel. Ze maakt zelf geen nieuwe allelen, maar werkt met de variatie die er al is. Nieuwe allelen ontstaan door mutaties: een mutatie is een toevallige verandering in het DNA, bijvoorbeeld bij het kopiëren.",
+  "voice": "Wat een individu in zijn leven meemaakt, verandert zijn allelen niet. Zijn jongen erven alleen de allelen die hij al had. Selectie heeft geen doel. Ze maakt zelf geen nieuwe allelen, maar werkt met de variatie die er al is. Nieuwe allelen ontstaan door mutaties: een mutatie is een toevallige verandering in het DNA, bijvoorbeeld bij het kopiëren.",
   "vmap": [
    0,
    1,
@@ -1213,14 +1214,7 @@
    54,
    55,
    56,
-   57,
-   58,
-   59,
-   60,
-   61,
-   62,
-   63,
-   64
+   57
   ]
  },
  {

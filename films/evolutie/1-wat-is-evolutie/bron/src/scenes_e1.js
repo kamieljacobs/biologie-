@@ -31,11 +31,11 @@ Object.assign(SCENES, {
   // ===================== Opening =====================
   s01(ctx, t, q) {
     f1Bg(ctx);
-    const aY = q.on('Yasmin', 1, 0.3), aB = q.on('Bilal', 1, 0.3), lach = q.on('lach', 1, 0.3) > 0.5;
+    const aY = q.on('zus', 1, 0.3), aB = q.on('broer', 1, 0.3), lach = q.on('lach', 1, 0.3) > 0.5;
     const A = persoon(ctx, 'yasmin', 760, 880, 640, { uit: lach ? 'lacht' : 'blij', a: aY, t });
     const B = persoon(ctx, 'bilal', 1160, 880, 640, { uit: 'lacht', kijk: -1, a: aB, t });
-    naamMeta(ctx, 'Yasmin', 'zus · 16', 520, 420, aY, q.on('zus', 1, 0.4), 'right');
-    naamMeta(ctx, 'Bilal', 'broer · 17', 1400, 400, aB, q.on('broer', 1, 0.4), 'left');
+    naamMeta(ctx, 'zus', '16 jaar', 520, 420, aY, q.on('zus', 1, 0.4), 'right');
+    naamMeta(ctx, 'broer', '17 jaar', 1400, 400, aB, q.on('broer', 1, 0.4), 'left');
     for (const P of [A, B]) { gezichtRing(ctx, P.hoofd, 'ogen', q.on('ogen', 1, 0.4)); gezichtRing(ctx, P.hoofd, 'neus', q.on('neus', 1, 0.4)); gezichtRing(ctx, P.hoofd, 'mond', q.on('lach', 1, 0.4)); }
   },
   s02(ctx, t, q) {
@@ -155,7 +155,6 @@ Object.assign(SCENES, {
     naamBij(ctx, 'mutatie', 'nieuw allel', 1060, 420, q.on('mutatie', 1, 0.5), 'left', C.paars);
     const z = q.on('DNA', 1, 0.7), bx = 1012, by = 470 - 220 + 440 * 0.32;
     if (z > 0.01) zoomCircle(ctx, 1480, 680, 150, bx, by, null, z, () => { ctx.fillStyle = C.bgSchema; ctx.fillRect(1300, 500, 360, 360); dnaStukje(ctx, 1480, 680, 260, ease((t - q.at('DNA') - 0.6) / 0.8), t); });
-    naamBij(ctx, 'hoe dat gaat:', 'zie de DNA-reeks', 860, 420, q.on('reeks', 1, 0.5), 'right', C.text2);
   },
   s14(ctx, t, q) {
     f1Bg(ctx);
@@ -167,7 +166,7 @@ Object.assign(SCENES, {
     const ap = q.on('Toch', 1, 0.3);
     persoon(ctx, 'yasmin', 360, 860, 440, { uit: 'denkt', a: ap, t }); persoon(ctx, 'bilal', 640, 860, 440, { uit: 'neutraal', kijk: -1, a: ap, t });
   },
-  s15(ctx, t, q) { // vraag-alinea: Yasmin en Bilal, dezelfde ouders, toch andere allelen
+  s15(ctx, t, q) { // vraag-alinea: zus en broer, dezelfde ouders, toch andere allelen
     f1Bg(ctx);
     const m = ease(t / 1.0);
     persoon(ctx, 'yasmin', lerp(360, 640, m), lerp(860, 700, m), lerp(440, 500, m), { uit: 'denkt', t });
@@ -189,8 +188,8 @@ Object.assign(SCENES, {
       if (u < 1) chromosoom1(ctx, cx, cy, lerp(130, soort === 'ei' ? 96 : 44, u), kleur, { breed: lerp(30, soort === 'ei' ? 24 : 16, u), a: 1 - ease((u - 0.7) / 0.3) });
       if (u > 0.5) geslachtscel(ctx, x, y, soort, kleur, 1, ease((u - 0.5) / 0.5)); };
     cel('ei', 448, 330, eiX[0], eiY[0], EVO.a1, te - 0.4); cel('ei', 512, 330, eiX[1], eiY[1], EVO.a2, te - 0.1);
-    cel('zaad', 1408, 330, 1400, 700, EVO.a2, tz - 0.3); cel('zaad', 1472, 330, 1560, 790, EVO.a2, tz);
-    const ap = q.on('meiose', 1, 0.6); pijl(ctx, 450, 550, 400, 620, C.line, ap, 3); pijl(ctx, 510, 550, 560, 620, C.line, ap, 3); pijl(ctx, 1420, 550, 1400, 650, C.line, ap, 3); pijl(ctx, 1460, 550, 1540, 740, C.line, ap, 3);
+    cel('zaad', 1408, 330, 1340, 720, EVO.a2, tz - 0.3); cel('zaad', 1472, 330, 1540, 720, EVO.a2, tz);
+    const ap = q.on('meiose', 1, 0.6); pijl(ctx, 450, 550, 400, 620, C.line, ap, 3); pijl(ctx, 510, 550, 560, 620, C.line, ap, 3); pijl(ctx, 1410, 550, 1360, 620, C.line, ap, 3); pijl(ctx, 1470, 550, 1520, 620, C.line, ap, 3);
     naamMeta(ctx, 'meiose', 'één van de twee, door toeval', 960, 400, q.on('meiose', 1, 0.5), q.on('toeval', 1, 0.5), 'center', C.goud);
     const ae = q.on('eicel', 1, 0.5); if (ae > 0.01) metaText(ctx, 'geslachtscellen', 960, 720, rgba(C.text2, ae), 'center', 26);
     const dz = q.on('duizenden', 1, 0.8); if (dz > 0.01) metaText(ctx, '× duizenden genen', 960, 780, rgba(C.goud, dz), 'center', 26);
@@ -400,10 +399,10 @@ Object.assign(SCENES, {
     const ap = ease(t / 0.6);
     potK(ctx, 960 + sh, 720, 1.25, L, { seed: 41, a: ap, ring: mu ? [70] : [] });
     allelBalk(ctx, 800, 770, 320, 0.3, { procent: false, a: ap });
-    const k = [[C.groen, 'selectie', 'film 2–4', 420, 300, 'selectie', EVO.a1], [C.goud, 'toeval', 'film 5', 420, 640, 'toeval', null], [C.line, 'uitwisseling', 'film 5', 1500, 300, 'uitwisseling', EVO.a2], [C.paars, 'mutatie', 'nieuwe knikkers', 1500, 640, 'mutatie', '#8C7BBF']];
+    const k = [[C.groen, 'selectie', 'meer jongen', 420, 300, 'selectie', EVO.a1], [C.goud, 'toeval', 'kans', 420, 640, 'toeval', null], [C.line, 'uitwisseling', 'andere populaties', 1500, 300, 'uitwisseling', EVO.a2], [C.paars, 'mutatie', 'nieuwe knikkers', 1500, 640, 'mutatie', '#8C7BBF']];
     for (const [c, n, m, x, y, w, kl] of k) { const a = q.on(w, 1, 0.5), u = ease((t - q.at(w)) / 0.8);
       const x1 = x + (x < 960 ? 150 : -150), y1 = y - 10, x2 = x < 960 ? 790 : 1130, y2 = y < 500 ? 520 : 640;
-      naamMeta(ctx, n, m, x, y, a, w === 'mutatie' ? q.on('knikkers', 1, 0.5) : q.on('zie', 1, 0.5), 'center', c); e1pijl(ctx, x1, y1, x2, y2, c, u, 4);
+      naamMeta(ctx, n, m, x, y, a, w === 'mutatie' ? q.on('knikkers', 1, 0.5) : ease((t - q.at(w) - 0.4) / 0.5), 'center', c); e1pijl(ctx, x1, y1, x2, y2, c, u, 4);
       if (kl) { const t0 = w === 'mutatie' ? tm : q.at(w) + 0.9, v = clamp((t - t0) / 1.0, 0, 1); if (v > 0 && v < 1) knikker(ctx, lerp(x1, x2, ease(v)), lerp(y1, y2, ease(v)), 15, kl); } }
   },
 
@@ -411,7 +410,7 @@ Object.assign(SCENES, {
   s37(ctx, t, q) {
     f1Bg(ctx);
     const a1 = q.on('Variatie', 1, 0.5), b1 = q.on('erfelijk', 1, 0.5), a2 = q.on('mutatie', 1, 0.5), a3 = q.on('Meiose', 1, 0.5);
-    card(ctx, 200, 280, 480, 300, 'variatie', null, a1 * (1 - b1), C.goud); card(ctx, 200, 280, 480, 300, 'variatie', 'deels erfelijk, deels omgeving', a1 * b1, C.goud);
+    card(ctx, 200, 280, 480, 300, 'variatie', null, a1 * (1 - b1), C.goud); const tl = q.on('telt', 1, 0.5); card(ctx, 200, 280, 480, 300, 'variatie', 'deels erfelijk, deels omgeving', a1 * b1 * (1 - tl), C.goud); card(ctx, 200, 280, 480, 300, 'variatie', 'alleen het erfelijke deel telt', a1 * tl, C.goud);
     [['succinea', 330], ['spectabilis', 440], ['conspicua', 550]].forEach(([v, x], i) => { const a = ease((t - 0.2 - i * 0.25) / 0.4) * a1; if (a > 0.01) lhb(ctx, x, 500, 0.5, { vorm: v, stippen: 12, a }); });
     card(ctx, 720, 280, 480, 300, 'mutatie', 'nieuwe allelen', a2, C.paars);
     if (a2 > 0.01) { ctx.save(); ctx.globalAlpha = a2; const mm = ease((t - q.at('mutatie') - 0.4) / 0.8); chromosoomPaar(ctx, 960, 500, 120, { breed: 22, gap: 18, nieuw: mm > 0.02 ? [1, e1hex(EVO.a2, '#B9AEDB', mm)] : null }); ctx.restore(); }

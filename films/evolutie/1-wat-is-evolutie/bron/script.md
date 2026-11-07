@@ -4,9 +4,9 @@ Stem Roos (7qdUFMklKPaaAVMsBTBt), ElevenLabs eleven_v4, één take per alinea, f
 
 ## Cold open
 
-**s01** (e1s01) · audio `s01.mp3` · 9.8 s · generation `4RSa5WSIHCFTGvTp4xu9`
+**s01** (e1s01) · audio `s01.mp3` · 8.4 s · generation `VasaJs9FyKjdsNtrZLwD` (heropname 7 nov 2026)
 
-Dit zijn Yasmin en Bilal, zus en broer. Ze hebben dezelfde ouders, en dat zie je. Dezelfde ogen, dezelfde neus, dezelfde lach.
+Dit zijn een zus en haar broer. Ze hebben dezelfde ouders, en dat zie je. Dezelfde ogen, dezelfde neus, dezelfde lach.
 
 **s02** (e1s02) · audio `s02.mp3` · 15.6 s · generation `GbjDVRS9WBDAhQP1We6X`
 
@@ -57,21 +57,19 @@ Dat verschil komt uit de omgeving, niet uit de allelen. Zo ook de grootte: een l
 
 ## Hoofdstuk 2 — Waar komt variatie vandaan?
 
-**s13** (e1s12) · audio `s13.mp3` · 9.1 s · generation `ickXCFOicN4wcNGwfjtk`
+**s13** (e1s12) · audio `s13.mp3` · 5.3 s · generation `rm7wYXyO0CAnT6EwAluI` (heropname 7 nov 2026)
 
-Hoe ontstaat een nieuw allel? Door een mutatie: een verandering in het DNA. Hoe zo'n verandering ontstaat, zie je in de DNA-reeks.
-
-_Stem-invoer:_ Hoe ontstaat een nieuw allel? Door een mutatie: een verandering in het deeënaa. Hoe zo'n verandering ontstaat, zie je in de deeënaa-reeks.
+Hoe ontstaat een nieuw allel? Door een mutatie: een verandering in het DNA.
 
 **s14** (e1s13) · audio `s14.mp3` · 10.3 s · generation `jmk5Bs2GT4UHmhXZS4Zh`
 
 Een mutatie gebeurt toevallig. Niet omdat een beestje een andere kleur nodig heeft. En mutaties zijn zeldzaam. Toch is elk kind anders dan zijn broers en zussen.
 
-**s15** (e1q14) · audio `s15.mp3` · 6.3 s · generation `CCy7otIml8A2z099qzoi`
+**s15** (e1q14) · audio `s15.mp3` · 6.3 s · generation `QazAWPmjCrARSdBCbBeW` (heropname 7 nov 2026)
 
-Yasmin en Bilal hebben dezelfde ouders. Waarom hebben ze toch niet dezelfde allelen? Wat denk je?
+Deze zus en broer hebben dezelfde ouders. Waarom hebben ze toch niet dezelfde allelen? Wat denk je?
 
-**q16** · vraag: Yasmin en Bilal hebben dezelfde ouders. Waarom hebben ze toch niet dezelfde allelen?
+**q16** · vraag: Deze zus en broer hebben dezelfde ouders. Waarom hebben ze toch niet dezelfde allelen?
 - a) Bij elk kind ontstaan nieuwe mutaties die het uiterlijk bepalen
 - b) Elk kind krijgt van elke ouder een toevallige helft  ✓
 - c) Elk kind erft ook wat de ouders leerden of trainden
@@ -115,7 +113,7 @@ De grens van een populatie ligt niet vast. De onderzoeker kiest hem, passend bij
 
 Lieveheersbeestjes vliegen van tuin naar tuin. Een scherpe grens is er dus niet. Het blijft een keuze.
 
-**s26** (e1s23) · audio `s26.mp3` · 11.5 s · generation `stbF06zr0B3J2sRw06Gh`
+**s26** (e1s23) · audio `s26.mp3` · 11.4 s · generation `VKruIMXJ0Nezspl9y9QS` (heropname 7 nov 2026)
 
 Stop nu in gedachten alle allelen van de hele populatie in één pot. Elk allel is een knikker: blauw voor zwart, geel voor oranje. Die pot is de genenpool.
 
@@ -163,15 +161,15 @@ Een beestje dat oranje uit de pop komt, blijft zijn hele leven oranje. Zijn alle
 
 Dat zie je ook echt gebeuren. Het Aziatisch lieveheersbeestje verspreidde zich over Groot-Brittannië. In de eerste twee jaar werd het deel zwarte beestjes daar kleiner. Het allel voor zwart werd dus zeldzamer.
 
-**s36** (e1s31) · audio `s36.mp3` · 15.7 s · generation `0yZTwiQvnozE0ftErnzg`
+**s36** (e1s31) · audio `s36.mp3` · 13.8 s · generation `0yZTwiQvnozE0ftErnzg` (7 nov 2026: verwijzing naar andere film(s) weggeknipt)
 
-Waardoor verandert de pot? Door selectie: individuen met sommige allelen krijgen meer jongen. Door toeval, en door uitwisseling met andere populaties. En door mutatie, die nieuwe knikkers toevoegt. Dat zie je in de volgende films.
+Waardoor verandert de pot? Door selectie: individuen met sommige allelen krijgen meer jongen. Door toeval, en door uitwisseling met andere populaties. En door mutatie, die nieuwe knikkers toevoegt.
 
 ## Recap
 
-**s37** (e1s32) · audio `s37.mp3` · 13.9 s · generation `JeSgqGz5KbmzMZqk0zSn`
+**s37** (e1s32) · audio `s37.mp3` · 17.6 s · generation `1ZRrFeWXUw5rn6XqMk35` (heropname 7 nov 2026)
 
-Variatie is het verschil tussen individuen van één soort. Een deel is erfelijk, een deel komt uit de omgeving. Nieuwe allelen ontstaan door mutatie. Meiose en bevruchting maken er steeds nieuwe combinaties mee.
+Variatie is het verschil tussen individuen van één soort. Een deel is erfelijk, een deel komt uit de omgeving. Alleen de erfelijke variatie telt voor evolutie. Nieuwe allelen ontstaan door mutatie. Meiose en bevruchting maken er steeds nieuwe combinaties mee.
 
 **s38** (e1s33) · audio `s38.mp3` · 7.8 s · generation `VWaBMxxPqQu4ODXlnQku`
 
