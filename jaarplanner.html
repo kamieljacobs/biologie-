@@ -666,7 +666,7 @@ const START = new Date(2026, 7, 31);
 
 // ---------- Kalender (één bron voor alle tabbladen) ----------
 const KALENDER={"2026-10-19":"Herfstvakantie","2026-12-21":"Kerstvakantie","2026-12-28":"Kerstvakantie","2027-02-01":"Activiteitenweek 2 (facultatief)","2027-02-08":"Carnavalsvakantie","2027-04-19":"Meivakantie","2027-04-26":"Meivakantie","2027-07-05":"Activiteitenweek 3 (facultatief)","2027-07-19":"Zomervakantie"};
-const KALENDER_EXTRA={havo5:{"2027-05-17":"Centraal examen","2027-05-24":"Centraal examen","2027-05-31":"Centraal examen"},vwo6:{"2027-05-24":"Centraal examen","2027-05-31":"Centraal examen"}};
+const KALENDER_EXTRA={havo4:{"2026-11-09":"Les uitgevallen"},vwo45:{"2026-11-09":"Les uitgevallen"},havo5:{"2027-05-17":"Centraal examen","2027-05-24":"Centraal examen","2027-05-31":"Centraal examen"},vwo6:{"2027-05-24":"Centraal examen","2027-05-31":"Centraal examen"}};
 const DAGNOTITIES={"2027-03-22":"Vr 26 mrt Goede Vrijdag","2027-03-29":"Ma 29 mrt 2e Paasdag","2027-05-17":"Ma 17 mei 2e Pinksterdag","2027-07-12":"Laatste lesweek"};
 // Laatste week die nog gevuld wordt (uitloop of examentraining)
 const EINDE={havo4:"2027-07-12",vwo45:"2027-07-12",havo4gb:"2027-07-12",vwo45gb:"2027-07-12",havo5:"2027-05-10",vwo6:"2027-05-17"};
@@ -1056,6 +1056,17 @@ function isoWeek(d){const t=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.get
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 // ---------- Afvinken in de weekplanning ----------
 // Per lesweek: het huiswerk (lezen en maken) en elke film of tool. Alleen in de eigen browser bewaard.
+// Kamiel 16 nov 2026: de les van week 46 (9 nov) viel uit bij havo 4 en vwo 4+5 (Nijmegen); alles vanaf die week schuift een week op.
+// Afvinkjes hangen aan de datum van de week: schuif ze eenmalig mee.
+(function(){try{
+  const VLAG="pl-verschoven-2026-11-09"; if(localStorage.getItem(VLAG)) return;
+  const zet=[];
+  for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);const m=k&&k.match(/^pl:(havo4|vwo45):(\d{4}-\d{2}-\d{2}):(.*)$/);if(m&&m[2]>="2026-11-09")zet.push([k,m])}
+  const plus7=d=>{const x=new Date(d+"T12:00:00");x.setDate(x.getDate()+7);return `${x.getFullYear()}-${String(x.getMonth()+1).padStart(2,"0")}-${String(x.getDate()).padStart(2,"0")}`};
+  const nieuw=zet.map(([k,m])=>[`pl:${m[1]}:${plus7(m[2])}:${m[3]}`,localStorage.getItem(k)]);
+  zet.forEach(([k])=>localStorage.removeItem(k)); nieuw.forEach(([k,v])=>localStorage.setItem(k,v));
+  localStorage.setItem(VLAG,"1");
+}catch(e){}})();
 const PL={
   get:k=>{try{return localStorage.getItem(k)==="1"}catch(e){return false}},
   set:(k,v)=>{try{localStorage.setItem(k,v?"1":"0")}catch(e){}},
@@ -1187,8 +1198,8 @@ function render(level){
       const isNu=iso(d)===NU;
       const wk=`<td class="wk"><b>wk ${isoWeek(d)}</b><br>ma ${dat}${isNu?'<br><span class="nu-tag">deze week</span>':""}</td>`;
       if(r.type==="off"){
-        const act=/activiteitenweek/i.test(r.opm);
-        out+=`<tr class="${act?"act":"off"}${isNu?" nu":""}"${isNu?' id="dezeweek"':""}>${wk}<td colspan="5"><span class="tag">${act?"Activiteitenweek":"Vakantie"}</span>${esc(r.opm)} · geen les</td></tr>`}
+        const act=/activiteitenweek/i.test(r.opm), uit=/uitgevallen/i.test(r.opm);
+        out+=`<tr class="${act?"act":"off"}${isNu?" nu":""}"${isNu?' id="dezeweek"':""}>${wk}<td colspan="5"><span class="tag">${act?"Activiteitenweek":uit?"Uitgevallen":"Vakantie"}</span>${esc(r.opm)} · geen les</td></tr>`}
       else{
         const day=iso(d);
         const isGU=m=>/gewoonuitgelegd/.test(m[2]||""); const rk=m=>(isGU(m)?2:0)+(m[0]==="tool"||m[3]==="extra"?1:0);
