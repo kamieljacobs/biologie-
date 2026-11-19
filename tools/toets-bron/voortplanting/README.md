@@ -9,7 +9,16 @@ Gemaakt 3 nov 2026 op verzoek van Kamiel, in dezelfde opzet als de Oefentoets Er
 
 ## Films na de splitsing (7 nov 2026)
 
-Van bevruchting tot baby (vwo, oude 'film 3') is gesplitst in De cyclus, Bevruchting en Zwanger (havo + vwo). In `F` staan nu `cyc`, `bev` en `zw`; `FV` (oude film weg in havo) is vervallen, want alle films zijn havo + vwo. 'Uitleg van de stof' linkt per onderwerp naar de passende nieuwe film: eicel en zaadcel → Bevruchting; cyclus, terugkoppeling, pil, LH-piek, ivf → De cyclus; hCG en placenta → Zwanger; sekse in lagen alleen nog Sekse, gender en diversiteit (Wolff/Müller komt daar bij Inpassen deel 1). De nummering in de tabel hieronder is nog die van vóór de splitsing (1 Celdeling, 2 Geslachtsorganen, 3 Van bevruchting tot baby, 4 Sekse, 5 Anticonceptie); de huidige lijn: 1 Celdeling · 2 Geslachtsorganen en puberteit · 3 De cyclus · 4 Bevruchting · 5 Zwanger · 6 Anticonceptie · 7 Sekse. De vragen zelf zijn niet aangepast: de havo-toets mijdt nog hCG en terugkoppeling als begrip, terwijl Zwanger en De cyclus die nu ook in havo noemen (kandidaat voor een volgende ronde, als Kamiel dat wil).
+Van bevruchting tot baby (vwo, oude 'film 3') is gesplitst in De cyclus, Bevruchting en Zwanger (havo + vwo). In `F` staan nu `cyc`, `bev` en `zw`; `FV` (oude film weg in havo) is vervallen, want alle films zijn havo + vwo. 'Uitleg van de stof' linkt per onderwerp naar de passende nieuwe film: eicel en zaadcel → Bevruchting; cyclus, terugkoppeling, pil, LH-piek, ivf → De cyclus; hCG en placenta → Zwanger; sekse in lagen alleen nog Sekse, gender en diversiteit (Wolff/Müller komt daar bij Inpassen deel 1). De vragen zijn op 19 nov 2026 bijgewerkt naar deze zeven films (zie hieronder). De filmnummers in de tabel volgen nu de site: 1 Celdeling · 2 Geslachtsorganen en puberteit · 3 De cyclus · 4 Bevruchting · 5 Zwanger · 6 Anticonceptie · 7 Sekse.
+
+## Bijgewerkt naar de zeven films (19 nov 2026)
+
+Bron van de vragen blijft `kamieljacobs/toetsen-biologie` (`WERKWIJZE.md` daar; dekkingslijst met `films_basis`). Wat in de tool veranderde:
+- Opgave 2: havo en vwo hebben nu dezelfde uitspraak 2 bij H8/V8 ('daling van progesteron leidt tot de menstruatie', zoals B4 in de toetsrepo); de havo-inleiding noemt het geel lichaam niet meer (havo ziet het in De cyclus, dus H7 is geen leesvraag meer); 'negatieve terugkoppeling' staat nu ook in de havo-uitleg en het havo-antwoordmodel van de pil; de animatie zegt 'vlak na de LH-piek' (de 'anderhalve dag' staat in geen film meer).
+- Opgave 3 vwo (Kallmann): Leydig-, Sertolicellen, inhibine, trofoblast, buizen van Wolff en dihydrotestosteron weggehaald uit inleiding, uitleg en modelantwoorden (staan in geen film meer); in plaats daarvan 'cellen in de zaadbal' en, uit De cyclus, 'in de zaadbal moet testosteron veel hoger zijn dan in het bloed'.
+- Opgave 6: de uitleg 'Ivf stap voor stap' is voor havo en vwo gelijk (LH-piek onderdrukken en hCG-injectie zien beide niveaus nu in De cyclus en Zwanger); havo-uitleg placenta linkt naar Zwanger; vwo 'precies op tijd' steunt op Bevruchting (eerste deling vlak voor de eisprong) in plaats van 'profase I' en 'anderhalve dag'; 'rond week 8–10' wordt 'na ongeveer twee maanden' (woorden van Zwanger).
+- Punten en opbouw ongewijzigd (havo 24 vragen/43 p, vwo 26 vragen/46 p).
+- Controle (19 nov 2026, één frisse controleur): 'anderhalve dag' en 'de LH-piek laat de meiose hervatten' ook uit de vwo-hulpstappen en het model van 'precies op tijd' gehaald (staan in geen film); twee zinnen uit 'Uitleg van de stof' geschrapt die een antwoordelement weggaven (STOF_PIEK: eerste deling vlak voor de eisprong; STOF_RK: testosteron in de zaadbal hoger dan in het bloed). `test.py` en `speel.py`: geen fouten.
 
 ## Inhoud
 
@@ -18,14 +27,14 @@ K = kennis (OBIT O/B), I = inzicht (OBIT T/I), in punten.
 | opgave | havo | vwo | films |
 |---|---|---|---|
 | 1 Alleen maar moeders: de marmerkreeft | eigen vragen A1–A4: 4 vragen, 7p (K4 I3) | + triploïdie door een misgelopen meiose (non-disjunctie): 5 vragen, 9p (K4 I5) | 1 |
-| 2 Zwanger worden met een app (cyclusgrafiek, rekenen, geel lichaam, pil) | eigen vragen B1–B5: 5 vragen, 9p (K5 I4) | idem, uitleg met terugkoppeling (film 3) | 2, 5 (vwo 3) |
-| 3 havo: Een knip in de zaadleider (sterilisatie man) · vwo: Geen GnRH, het syndroom van Kallmann | nieuw: startsein, route zaadcel, sperma na sterilisatie, nog weken zaadcellen, testosteron: 5 vragen, 8p (K3 I5) | eigen vragen C1, C2, C4, C5 (C5 herschreven in filmtermen, C3 weggelaten; C1 nu 1 punt): 4 vragen, 7p (K2 I5) | havo 2, 5 · vwo 1, 2, 3 |
-| 4 Een wangslijmvliestest voor de vrouwencategorie (SRY-test World Athletics; de inleiding noemt het gen niet bij naam, dat leidt de leerling af) | nieuw: lagen, androgeen-ongevoeligheid, Turner/Klinefelter/AGS, sekse/gender: 4 vragen, 7p (K5 I2) | + XX-man (SRY naar het X-chromosoom, cascade): 5 vragen, 9p (K5 I4) | 4 (vwo ook 3) |
-| 5 Hoe betrouwbaar? Anticonceptie en soa's (Pearl-tabel) | nieuw: prikpil vs pil, schakels, HPV-prik voor jongens: 3 vragen, 6p (K2 I4) | prikpil vs pil, schakels, resistentie gonorroe: 3 vragen, 6p (K4 I2) | 5 (vwo ook 3) |
-| 6 Louise Brown, het eerste ivf-kind | nieuw: chlamydia en dichte eileiders, FSH-injecties, alcohol en de placenta: 3 vragen, 6p (K2 I4) | nieuw: timing na de LH-piek, eigen LH-piek onderdrukken, zwangerschapstest na hCG, placenta (juist/onjuist): 4 vragen, 6p (K4 I2) | havo 2, 5 · vwo 3, 5 |
+| 2 Zwanger worden met een app (cyclusgrafiek, rekenen, geel lichaam, pil) | eigen vragen B1–B5: 5 vragen, 9p (K5 I4) | idem | 2, 3, 4, 6 |
+| 3 havo: Een knip in de zaadleider (sterilisatie man) · vwo: Geen GnRH, het syndroom van Kallmann | nieuw: startsein, route zaadcel, sperma na sterilisatie, nog weken zaadcellen, testosteron: 5 vragen, 8p (K3 I5) | eigen vragen C1, C2, C4, C5 (C5 herschreven in filmtermen, C3 weggelaten; C1 nu 1 punt): 4 vragen, 7p (K2 I5) | havo 2, 6 · vwo 1, 2, 3, 5, 7 |
+| 4 Een wangslijmvliestest voor de vrouwencategorie (SRY-test World Athletics; de inleiding noemt het gen niet bij naam, dat leidt de leerling af) | nieuw: lagen, androgeen-ongevoeligheid, Turner/Klinefelter/AGS, sekse/gender: 4 vragen, 7p (K5 I2) | + XX-man (SRY naar het X-chromosoom, cascade): 5 vragen, 9p (K5 I4) | 7 |
+| 5 Hoe betrouwbaar? Anticonceptie en soa's (Pearl-tabel) | nieuw: prikpil vs pil, schakels, HPV-prik voor jongens: 3 vragen, 6p (K2 I4) | prikpil vs pil, schakels, resistentie gonorroe: 3 vragen, 6p (K4 I2) | 6 (vwo ook 3) |
+| 6 Louise Brown, het eerste ivf-kind | nieuw: chlamydia en dichte eileiders, FSH-injecties, alcohol en de placenta: 3 vragen, 6p (K2 I4) | nieuw: timing na de LH-piek, eigen LH-piek onderdrukken, zwangerschapstest na hCG, placenta (juist/onjuist): 4 vragen, 6p (K4 I2) | havo 2, 3, 5, 6 · vwo 3, 4, 5, 6 |
 | **totaal** | **24 vragen, 43p: K21 I22** | **26 vragen, 46p: K24 I22** | |
 
-Havo ziet film 3 niet: bevruchting, geel lichaam en placenta komen in havo alleen op het niveau van films 1, 2 en 5 en Biologie voor Jou havo thema 2 (geel lichaam als naam, placenta: bloed mengt niet, diffusie); geen Leydig/Sertoli, hCG, Wolff/Müller of terugkoppeling als begrip. 'Uitleg van de stof' linkt in havo nooit naar film 3 (`FV`).
+Tot 7 nov 2026 zag havo de film Van bevruchting tot baby niet; de havo-toets meed daarom hCG en terugkoppeling. Sinds de splitsing zien havo en vwo De cyclus, Bevruchting en Zwanger; alleen de vwo-blokken (eiwit- en steroïdhormonen, zona pellucida/acrosoom, transport door de placenta, prolactine) zijn vwo.
 
 ## Herkomst van de vragen
 
@@ -49,6 +58,6 @@ Twijfelpunten voor de controleur: prikpil 'elke 12 weken' (algemene kennis, niet
 
 Eén onafhankelijke controleur; verwerkt: 'Uitleg van de stof' teruggebracht tot algemene theorie (gaf in 'Stap voor stap' antwoorden weg), hulpvraag-bevestigingen neutraal, V26 uitspraak 1 eenduidig, H8 uitspraak 2 havo-passend ('veel oestrogeen remt de hypofyse'), H24 met de dunne laag cellen in de tekst, Kallmann-prevalentie, Turner-uitspraak, lagen 1–6 gelijk aan het schema, figuren op de telefoon scrollbaar met leesbare letters, doorrekenfout H6/V7 strenger, V11 1 punt, H15/V15 geen leesvraag meer.
 
-**Beslissing voor Kamiel:** H7 (wie maakt progesteron: het geel lichaam) staat in de havo-toets, omdat geel lichaam en progesteron in de begrippenlijst van BvJ havo T02 staan, maar havo ziet film 3 niet. Daarom noemt de havo-inleiding van opgave 2 het geel lichaam als rest van de follikel na de eisprong; daardoor is H7 in havo bijna een leesvraag. Schrappen of laten staan?
+~~Beslissing voor Kamiel: H7 (geel lichaam) in havo een leesvraag?~~ Vervallen op 19 nov 2026: havo ziet het geel lichaam in De cyclus; de hint in de inleiding is weg.
 
 Status: concept, wacht op Kamiels oordeel.

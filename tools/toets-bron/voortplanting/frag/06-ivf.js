@@ -1,7 +1,7 @@
 /* ===== Opgave 6: Louise Brown, het eerste ivf-kind (nieuw; films 3 De cyclus, 5 Zwanger en 6 Anticonceptie) ===== */
 {
 const STOF_IVF={titel:"Ivf stap voor stap",html:`
-<p>Normaal rijpt er per cyclus één follikel. Bij <b>ivf</b> (bevruchting buiten het lichaam) krijgt de vrouw eerst ongeveer tien dagen <b>hormooninjecties met FSH</b>. `+(VWO?`Tegelijk krijgt ze een middel dat haar eigen LH-piek onderdrukt. Zijn de follikels groot genoeg, dan krijgt ze één injectie met <b>hCG</b>, dat lijkt op LH en de LH-piek nadoet; zo'n anderhalve dag later worden de eicellen opgezogen. `:`Met een dunne naald haalt de arts daarna de eicellen uit de eierstokken. `)+`</p>
+<p>Normaal rijpt er per cyclus één follikel. Bij <b>ivf</b> (bevruchting buiten het lichaam) krijgt de vrouw eerst ongeveer tien dagen <b>hormooninjecties met FSH</b>. Tegelijk krijgt ze een middel dat haar eigen LH-piek onderdrukt. Zijn de follikels groot genoeg, dan krijgt ze één injectie met <b>hCG</b>, dat lijkt op LH en de LH-piek nadoet; zo'n anderhalve dag later haalt de arts met een dunne naald de eicellen uit de eierstokken.</p>
 <p>In een schaaltje komen eicellen en zaadcellen samen; bij weinig of slecht zwemmende zaadcellen spuit de arts één zaadcel in de eicel (<b>ICSI</b>). De embryo's groeien een paar dagen in het lab. Meestal gaat er één terug in de baarmoeder, om een tweeling te voorkomen; andere goede embryo's gaan de vriezer in.</p>`,
 films:[F.anti,F.cyc]};
 const ids=[];
@@ -41,7 +41,7 @@ ids.push(vraag(2,"één eicel of tien",(q,id)=>{
 const STOF_PLAC={titel:"De placenta",html:`
 <p>Een groeiend kind krijgt zuurstof en voedingsstoffen via de <b>placenta</b> en raakt daar koolstofdioxide en afvalstoffen kwijt.</p>
 <p>Bij <b>diffusie</b> gaan kleine moleculen vanzelf van een plek met een hoge concentratie naar een plek met een lage concentratie, ook door een dunne laag cellen.</p>`,
-films:[F.anti,F.cel]};
+films:[F.zw]};
 ids.push(vraag(2,"alcohol en de placenta",(q,id)=>{
   pre(q,"<p>Louise Brown groeide negen maanden in de baarmoeder van haar moeder, net als elk ander kind. Artsen raden zwangere vrouwen af om alcohol te drinken.</p><p>In de placenta liggen bloedvaatjes van het kind vlak bij bloed van de moeder; daartussen zit een dunne laag cellen.</p>");
   const {think,ans,unlock}=start(q,B("Leg uit dat alcohol uit het bloed van de moeder in het bloed van het kind kan komen, terwijl het bloed van moeder en kind in de placenta niet mengt."));
@@ -58,19 +58,19 @@ ids.push(vraag(2,"alcohol en de placenta",(q,id)=>{
 },STOF_PLAC));
 }else{
 const STOF_PIEK={titel:"De LH-piek en de eisprong",html:`
-<p>De dominante follikel maakt steeds meer oestrogeen. Blijft de oestrogeenspiegel ongeveer twee dagen hoog, dan gaat oestrogeen de afgifte van LH juist stimuleren. Meer LH stimuleert de follikel weer: <b>positieve terugkoppeling</b>, een signaal dat zichzelf versterkt. Het resultaat is de <b>LH-piek</b>, midden in de cyclus.</p>`,
-films:[F.cyc]};
+<p>De follikel die overblijft, maakt steeds meer oestrogeen. Wordt de oestrogeenspiegel hoog genoeg en blijft hij even hoog, dan gaat oestrogeen de afgifte van LH juist stimuleren. Meer LH stimuleert de follikel weer: <b>positieve terugkoppeling</b>, een signaal dat zichzelf versterkt. Het resultaat is de <b>LH-piek</b>, midden in de cyclus: de follikel scheurt open en de eicel komt vrij.</p>`,
+films:[F.cyc,F.bev]};
 ids.push(vraag(2,"precies op tijd",(q,id)=>{
   pre(q,"<p>Steptoe en Edwards haalden de eicel van Lesley met een kijkoperatie uit de follikel, 15 tot 35 uur nadat de LH-piek in de urine was gezien. De urine werd daarvoor elke drie uur verzameld.</p>");
   const {think,ans,unlock}=start(q,B("Leg uit waarom ze de eicel niet veel eerder en ook niet veel later na het begin van de LH-piek konden ophalen."));
-  choiceStep(think,{q:"Wat doet de LH-piek met de eicel zelf?",opts:["die hervat de meiose en maakt de eerste deling af","die wordt direct bevrucht","niets: de LH-piek werkt alleen op de baarmoeder"],right:0,
-    ok:"Ja: vóór de piek is de eicel dus nog niet rijp. En wat gebeurt er ongeveer anderhalve dag na het begin van de piek?",no:"De eicel staat jaren stil in profase I. Wat zet de LH-piek in gang?",
-    onDone:()=>choiceStep(think,{q:"Ongeveer anderhalve dag (± 36 uur) na het begin van de LH-piek…",opts:["scheurt de follikel open en komt de eicel vrij","sterft het geel lichaam af"],right:0,
+  choiceStep(think,{q:"Wat doet de LH-piek met de eicel zelf?",opts:["die maakt vlak voor de eisprong haar eerste deling van de meiose af","die wordt direct bevrucht","niets: de LH-piek werkt alleen op de baarmoeder"],right:0,
+    ok:"Ja: vóór de piek is de eicel dus nog niet rijp. En wat gebeurt er vlak na de LH-piek?",no:"De eicel ligt al jaren klaar, maar haar eerste deling van de meiose is nog niet af. Wanneer maakt ze die af?",
+    onDone:()=>choiceStep(think,{q:"Vlak na de LH-piek…",opts:["scheurt de follikel open en komt de eicel vrij","sterft het geel lichaam af"],right:0,
       ok:"Goed. Waar is de eicel dan, en kunnen de artsen haar nog uit de follikel halen?",no:"Denk aan de eisprong.",onDone:unlock})});
   openAnswer(ans,{id,pts:2,checks:[
-    "<b>Te vroeg</b>: de eicel is nog niet rijp; pas door de LH-piek hervat ze de meiose en maakt ze de eerste deling af.",
-    "<b>Te laat</b>: ongeveer anderhalve dag (± 36 uur) na het begin van de LH-piek scheurt de follikel open (eisprong); dan zit de eicel niet meer in de follikel en is ze niet meer op te halen."],
-    model:"De LH-piek laat de eicel de meiose hervatten en de eerste deling afmaken; vóór de piek is de eicel dus nog niet klaar om bevrucht te worden. Ongeveer 36 uur na het begin van de piek is de eisprong: de follikel scheurt open en de eicel verdwijnt uit de follikel. Daarom moest de eicel er tussen die twee momenten uit, en moest de piek zo precies (elke drie uur) gemeten worden.",
+    "<b>Te vroeg</b>: de eicel is nog niet rijp; haar eerste deling van de meiose maakt ze pas af na het begin van de LH-piek, vlak voor de eisprong.",
+    "<b>Te laat</b>: vlak na de LH-piek scheurt de follikel open (eisprong); dan zit de eicel niet meer in de follikel en is ze niet meer op te halen."],
+    model:"De eicel maakt haar eerste deling van de meiose pas af na het begin van de LH-piek, vlak voor de eisprong; vóór de piek is ze dus nog niet klaar om bevrucht te worden. Vlak na de piek is de eisprong: de follikel scheurt open en de eicel verdwijnt uit de follikel. Daarom moest de eicel er tussen die twee momenten uit, en moest de piek zo precies (elke drie uur) gemeten worden.",
     valkuil:"‘Na de LH-piek is de eicel dood’ klopt niet; het probleem is dat ze na de eisprong de follikel uit is. Bij Lesley kon de eicel bovendien niet verder: haar eileiders zaten dicht."});
   q.append(think,ans);
 },STOF_PIEK));
@@ -78,7 +78,7 @@ ids.push(vraag(1,"de eigen LH-piek onderdrukken",(q,id)=>{
   pre(q,"<p>Tegenwoordig krijgt de vrouw bij ivf ongeveer tien dagen injecties met FSH. Tegelijk krijgt ze een middel dat haar eigen LH-piek onderdrukt.</p>");
   const {think,ans,unlock}=start(q,B("Waarom krijgt ze dat middel?"));
   choiceStep(think,{q:"Wat zou er gebeuren als haar eigen LH-piek op een onverwacht moment kwam?",opts:["de follikels scheuren open voordat de arts de eicellen kan opzuigen","er rijpen minder follikels","de baarmoeder wordt niet klaar"],right:0,
-    ok:"Ja. De arts wil zelf bepalen wanneer de eicellen hun rijping afmaken.",no:"Wat volgt er ongeveer anderhalve dag na een LH-piek?",onDone:unlock});
+    ok:"Ja. De arts wil zelf bepalen wanneer de eicellen hun rijping afmaken.",no:"Wat volgt er vlak na een LH-piek?",onDone:unlock});
   mc(ans,{qid:id,pts:1,right:1,opts:["Zodat er meer follikels tegelijk rijpen.","Zodat de eicellen niet vrijkomen voordat de arts ze kan opzuigen.","Zodat het baarmoederslijmvlies dikker wordt.","Zodat het geel lichaam langer blijft leven."],
     onChecked:()=>waaromBtn(ans,textBox("Een eigen LH-piek zou een eisprong geven op een moment dat de arts niet kiest: de eicellen zouden dan al uit de follikels zijn. Daarom wordt de eigen piek onderdrukt en geeft de arts zelf het signaal, met hCG. Meer follikels (A) komt door het FSH. Het antwoord is <b>B</b>."))});
   q.append(think,ans);
@@ -98,11 +98,11 @@ const STOF_PLAC={titel:"Dichtbij, maar gescheiden",html:`
 films:[F.zw]};
 ids.push(vraag(2,"juist of onjuist: de placenta",(q,id)=>{
   pre(q,"<p>Na de terugplaatsing van een embryo krijgt de vrouw vaak een paar weken extra progesteron. Over de zwangerschap worden vier uitspraken gedaan:</p>");
-  q.append(el("p",{class:"qtext"},"1 In de vlokken van de placenta stroomt het bloed van de moeder door dezelfde bloedvaatjes als het bloed van het kind.<br>2 Zuurstof gaat door diffusie van het bloed van de moeder naar het bloed van het kind.<br>3 Alcohol en nicotine gaan bijna net zo makkelijk door de placenta als zuurstof.<br>4 Rond week acht tot tien neemt de placenta de productie van progesteron over van het geel lichaam.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
+  q.append(el("p",{class:"qtext"},"1 In de vlokken van de placenta stroomt het bloed van de moeder door dezelfde bloedvaatjes als het bloed van het kind.<br>2 Zuurstof gaat door diffusie van het bloed van de moeder naar het bloed van het kind.<br>3 Alcohol en nicotine gaan bijna net zo makkelijk door de placenta als zuurstof.<br>4 Na ongeveer twee maanden neemt de placenta de productie van progesteron over van het geel lichaam.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
   const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
   chipsStep(think,{q:"Welke stoffen gaan door de placenta naar het kind? Kies alles wat klopt.",items:[["zuurstof",1],["glucose",1],["rode bloedcellen van de moeder",0],["alcohol",1]],
     ok:"Goed. Kijk bij uitspraak 1 goed wáár het bloed van de moeder stroomt.",no:"Het bloed van moeder en kind mengt niet. Kunnen hele cellen dan door de laag?",onDone:unlock});
-  juistOnjuist(ans,{id,stm:["bloed van moeder en kind in dezelfde vaatjes","zuurstof gaat door diffusie","alcohol en nicotine gaan er makkelijk door","rond week 8–10 neemt de placenta progesteron over"],key:[false,true,true,true],
+  juistOnjuist(ans,{id,stm:["bloed van moeder en kind in dezelfde vaatjes","zuurstof gaat door diffusie","alcohol en nicotine gaan er makkelijk door","na ± twee maanden neemt de placenta progesteron over"],key:[false,true,true,true],
     uitleg:textBox("1 <b>onjuist</b>: de vlokken bevatten alleen bloedvaatjes van het kind; ze hangen in holtes met bloed van de moeder. Het bloed mengt niet.<br>2 <b>juist</b>: van hoog naar laag.<br>3 <b>juist</b>: kleine, ongeladen moleculen gaan er bijna net zo makkelijk door als zuurstof.<br>4 <b>juist</b>: daarna is het geel lichaam niet meer nodig. Vier goed: 2 punten, drie goed: 1 punt.")});
   q.append(think,ans);
 },STOF_PLAC));

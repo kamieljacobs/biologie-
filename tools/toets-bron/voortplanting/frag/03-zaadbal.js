@@ -92,8 +92,8 @@ opgave("Sterilisatie","Een knip in de zaadleider",`
 <p class="muted" style="font-size:14px">Citaten uit de folder ‘Sterilisatie bij de man’ van het Albert Schweitzer ziekenhuis; Bas is een fictieve patiënt.</p>`,[h1,h2,h3,h4,h5]);
 }else{
 const STOF_RK={titel:"De regelkring van hypothalamus, hypofyse en zaadbal",html:`
-<p>De <b>hypothalamus</b> geeft in korte stoten <b>GnRH</b> af aan de <b>hypofyse</b>. Die maakt <b>FSH</b> en <b>LH</b>. Bij de man zet LH de Leydigcellen tussen de zaadbuisjes aan tot het maken van <b>testosteron</b>. FSH en testosteron sturen samen de Sertolicellen aan, die de zaadcellen in de buisjes voeden en begeleiden.</p>
-<p><b>Negatieve terugkoppeling</b>: testosteron remt de hypothalamus en de hypofyse, en inhibine uit de Sertolicellen remt vooral de afgifte van FSH. Stijgt het testosteron, dan daalt de afgifte van GnRH en LH. Daalt het testosteron, dan valt die rem weg.</p>
+<p>De <b>hypothalamus</b> geeft in korte stoten <b>GnRH</b> af aan de <b>hypofyse</b>. Die maakt <b>FSH</b> en <b>LH</b>. Bij de man zet LH cellen in de zaadbal aan tot het maken van <b>testosteron</b>. FSH en testosteron laten samen de zaadcellen in de buisjes rijpen.</p>
+<p><b>Negatieve terugkoppeling</b>: testosteron remt de hypothalamus en de hypofyse. Stijgt het testosteron, dan daalt de afgifte van GnRH en LH. Daalt het testosteron, dan valt die rem weg.</p>
 <p>Een storing zoek je schakel voor schakel: welke schakel werkt niet, en wat gebeurt er dan met de schakels erna?</p>`,
 films:[F.cyc,F.org]};
 
@@ -119,15 +119,15 @@ const c2=vraag(2,"testosteron alleen is niet genoeg",(q,id)=>{
   openAnswer(ans,{id,pts:2,checks:[
     "De <b>FSH</b>- (en LH-)concentratie blijft laag, doordat GnRH ontbreekt / doordat het toegediende testosteron de afgifte van FSH en LH bovendien remt (negatieve terugkoppeling).",
     "Zonder FSH (en zonder door LH gestimuleerde testosteronproductie in de zaadbal zelf, zodat de testosteronconcentratie in de zaadbal te laag blijft) worden er <b>geen zaadcellen</b> gevormd."],
-    model:"Zonder GnRH maakt Sems hypofyse weinig FSH en LH, en het testosteron uit de injecties remt die afgifte nog verder. Zonder FSH, en zonder de hoge testosteronconcentratie die de Leydigcellen onder invloed van LH in de zaadbal zelf maken, komt de zaadcelvorming in de zaadbuisjes niet op gang. Voor baardgroei en stem is testosteron in het bloed wel genoeg.",
+    model:"Zonder GnRH maakt Sems hypofyse weinig FSH en LH, en het testosteron uit de injecties remt die afgifte nog verder. Zonder FSH, en zonder de hoge testosteronconcentratie die de zaadbal onder invloed van LH zelf maakt, komt de zaadcelvorming in de zaadbuisjes niet op gang. Voor baardgroei en stem is testosteron in het bloed wel genoeg.",
     valkuil:"‘Testosteron = vruchtbaar’ is een misvatting. Alleen ‘er is te weinig FSH’ zonder oorzaak of gevolg levert hooguit 1 punt op."});
   q.append(think,ans);
 },STOF_RK);
 
 const STOF_FOETUS={titel:"hCG werkt als LH",html:`
-<p>De trofoblast van het embryo, later de placenta, maakt <b>hCG</b>. Dat hormoon lijkt sterk op LH en bindt aan de <b>LH-receptoren</b>. Bij de moeder houdt hCG zo het geel lichaam in leven.</p>
+<p>De buitenste cellen van het embryo, later de placenta, maken <b>hCG</b>. Dat hormoon lijkt sterk op LH en bindt aan de <b>LH-receptoren</b>. Bij de moeder houdt hCG zo het geel lichaam in leven.</p>
 <p>Een hormoon werkt op elke cel met de juiste receptor, waar het ook vandaan komt. Wat de LH-receptor aanzet, maakt voor de cel niet uit: LH uit de eigen hypofyse of hCG uit de placenta.</p>
-<p>Bij een jongensembryo maken de Leydigcellen al vroeg testosteron. Testosteron houdt de buizen van Wolff in stand; dihydrotestosteron vormt de uitwendige geslachtsorganen.</p>`,
+<p>Bij een jongensembryo maken de zaadballen al vroeg testosteron. Zonder testosteron ontstaan geen penis en balzak (de lagen van sekse in de film Sekse, gender en diversiteit).</p>`,
 films:[F.zw,F.sekse]};
 const c3=vraag(2,"aanleg normaal, groei te weinig",(q,id)=>{
   pre(q,"<p>Bij jongens met het syndroom van Kallmann zijn de geslachtsorganen bij de geboorte normaal aangelegd, maar de penis is vaak klein. Voor de aanleg én de groei van de penis bij de foetus is testosteron nodig.</p><p>In het begin van de zwangerschap wordt de testosteronproductie in de zaadballen van een jongensfoetus gestimuleerd door hCG uit de placenta (hCG werkt als LH). Na ongeveer week 12 daalt de hCG-concentratie sterk.</p>");
@@ -139,7 +139,7 @@ const c3=vraag(2,"aanleg normaal, groei te weinig",(q,id)=>{
   openAnswer(ans,{id,pts:2,checks:[
     "In het begin stimuleert <b>hCG uit de placenta</b> de testosteronproductie; dat hangt niet af van de GnRH van de foetus, dus de aanleg is normaal.",
     "Later moet <b>LH uit de hypofyse van de foetus</b> het overnemen; zonder GnRH maakt de hypofyse te weinig LH, dus te weinig testosteron voor de groei van de penis."],
-    model:"Vroeg in de zwangerschap zet hCG uit de placenta via de LH-receptoren de Leydigcellen van de foetus aan. Daarvoor is geen GnRH van de foetus nodig, dus er is genoeg testosteron voor de aanleg. Na week 12 daalt hCG en moet de eigen hypofyse LH maken. Zonder GnRH lukt dat niet, dus het testosteron daalt en de penis groeit te weinig.",
+    model:"Vroeg in de zwangerschap zet hCG uit de placenta via de LH-receptoren de zaadballen van de foetus aan tot het maken van testosteron. Daarvoor is geen GnRH van de foetus nodig, dus er is genoeg testosteron voor de aanleg. Na week 12 daalt hCG en moet de eigen hypofyse LH maken. Zonder GnRH lukt dat niet, dus het testosteron daalt en de penis groeit te weinig.",
     valkuil:"hCG ‘alleen als zwangerschapshormoon van de moeder’ zien. Hier werkt het op de zaadballen van de foetus, omdat die ook LH-receptoren hebben."});
   q.append(think,ans);
 },STOF_FOETUS);
@@ -163,7 +163,7 @@ const c4=vraag(2,"juist of onjuist: zaadcellen maken",(q,id)=>{
 opgave("Kallmann","Geen GnRH: het syndroom van Kallmann",`
 <p>Sem is 17 jaar. Hij heeft nog geen baardgroei, zijn stem is niet gezakt en zijn zaadballen zijn klein. Ook ruikt hij vrijwel niets. De endocrinoloog stelt vast dat Sem het syndroom van Kallmann heeft. Dit komt voor bij ongeveer 1 op de 30.000 mannen en 1 op de 120.000 vrouwen.</p>
 <p>Tijdens de embryonale ontwikkeling ontstaan de zenuwcellen die GnRH maken in het reukslijmvlies van de neus. Van daaruit trekken ze langs de reukzenuwen naar de hypothalamus. Bij het syndroom van Kallmann mislukt die tocht: in de hypothalamus komen geen GnRH-producerende cellen aan, en ook de reukkolven ontwikkelen zich niet goed.</p>
-<p>Bij mannen stimuleert LH de Leydigcellen tussen de zaadbuisjes tot de productie van testosteron. Voor de vorming van zaadcellen in de zaadbuisjes zijn FSH en een hoge testosteronconcentratie in de zaadbal nodig.</p>
+<p>Bij mannen stimuleert LH cellen tussen de zaadbuisjes in de zaadbal tot de productie van testosteron. Voor de vorming van zaadcellen in de zaadbuisjes zijn FSH en een hoge testosteronconcentratie in de zaadbal nodig.</p>
 <p class="muted" style="font-size:14px">Sem is een fictieve patiënt.</p>`,[c1,c2,c3,c4]);
 }
 }
