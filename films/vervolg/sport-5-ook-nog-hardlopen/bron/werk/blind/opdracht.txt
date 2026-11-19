@@ -1,0 +1,7 @@
+Je bent de blinde beoordelaar. Volg exact de brief in /home/claude/biologie-/films/BLIND-BEOORDELAAR.md, met deze paden:
+- filmbrief: /home/claude/hw/sp5/werk/blind/brief.md
+- varianten: /home/claude/hw/sp5/werk/blind/variant_X.md, variant_Y.md, variant_Z.md (dit zijn behandelingen van ± 400 woorden; het uitgeschreven script wordt 850-950 woorden, dus beoordeel 'lengte' op of de inhoud in die ruimte past)
+- reeksbrief: /home/claude/biologie-/films/vervolg/REEKS-sport.md
+- voorbeeld van vorm en strengheid: /home/claude/biologie-/films/vervolg/forensisch-1-sporen/bron/werk/blind/oordeel.md
+- uitvoer scriptcheck (signaal, geen oordeel): /home/claude/hw/sp5/werk/blind/scriptcheck.txt
+Lees niets anders in /home/claude/hw/sp5 (geen andere bestanden of mappen). Schrijf je oordeel naar /home/claude/hw/sp5/werk/blind/oordeel.md. Wijzig niets anders. Eindbericht: winnaar, totaalscores, duidelijk of nipt, drie belangrijkste overnames (≤ 8 regels).

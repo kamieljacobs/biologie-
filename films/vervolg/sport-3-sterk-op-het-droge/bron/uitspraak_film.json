@@ -1,0 +1,7 @@
+[
+ ["^vijftigmeterbad([:.,?!]?)$", "vijftig-meterbad\\1"],
+ ["^vijfentwintigmeterbad([:.,?!]?)$", "vijfentwintig-meterbad\\1"],
+ ["^Sportfysiotherapeut([:.,?!]?)$", "Sport-fysiotherapeut\\1"],
+ ["^Sportfysiotherapie([:.,?!]?)$", "Sport-fysiotherapie\\1"],
+ ["^gedachte-experiment([:.,?!]?)$", "gedachte-experiment\\1"]
+]

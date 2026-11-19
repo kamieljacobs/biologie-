@@ -49,7 +49,7 @@ Uit de zes blokken van het gesprek (lichaam in het water, techniek, trainingsond
 - **voortstuwing**: de kracht die je vooruit brengt doordat je water naar achteren duwt.
 - **trainingszone**: een intensiteit van trainen (van rustig tot maximaal) met een eigen doel.
 - **aerobe basis**: hoe goed je lichaam langdurig energie met zuurstof kan leveren.
-- **interferentie-effect**: twee trainingsdoelen die elkaars aanpassing afremmen als je ze tegelijk traint.
+- **interferentie-effect**: als je kracht en duur tegelijk traint, valt de winst op één doel (meestal de kracht, vooral explosieve kracht) kleiner uit; de conditie groeit gewoon door (feitenreview sp4, 19 nov 2026: niet 'elkaars').
 - **periodiseren**: een seizoen opdelen in blokken met elk een eigen doel.
 - **taperen**: de laatste weken voor een belangrijke wedstrijd minder trainen, zodat je fris en op je best bent.
 - **overtraining**: langdurig minder presteren doordat belasting en herstel niet in balans zijn.

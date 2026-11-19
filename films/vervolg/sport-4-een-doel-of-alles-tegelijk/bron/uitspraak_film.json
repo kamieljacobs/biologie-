@@ -1,0 +1,22 @@
+[
+ [
+  "^taperen([.,:;!?]?)$",
+  "teeperen\\1"
+ ],
+ [
+  "^interferentie-effect([.,:;!?]?)$",
+  "interferensie-effect\\1"
+ ],
+ [
+  "^aerobe([.,:;!?]?)$",
+  "a-eroobe\\1"
+ ],
+ [
+  "^eenennegentig([.,:;!?]?)$",
+  "een en neguntig\\1"
+ ],
+ [
+  "^VU([.,:;!?]?)$",
+  "V-U\\1"
+ ]
+]
