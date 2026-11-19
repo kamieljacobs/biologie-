@@ -72,7 +72,7 @@ vj = os.path.join(R, 'films', 'vervolg', 'films.json')
 if os.path.exists(vj):
     duur = {f['href']: f.get('duur') or 0 for f in json.load(open(vj, encoding='utf-8'))}
 for g in G:
-    fs = [[b[1], b[0], duur.get(b[1], 0)] for b in g.get('basis', []) if len(b) > 1 and isinstance(b[1], str)]
+    fs = [[b[1], b[0], duur.get(b[1], 0)] for b in g.get("basis", []) if isinstance(b, list) and len(b) > 1 and isinstance(b[1], str)]
     reeks('v:' + g['id'], g.get('naam') or g['id'], 'vervolg.html#' + g['id'], fs)
 
 uit = {'reeksen': reeksen, 'film': film}

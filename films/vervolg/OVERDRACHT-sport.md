@@ -24,3 +24,10 @@ Stand 19 nov 2026. Lees ook `REEKS-sport.md`, `films/vervolg/BOUWEN.md`, `films/
 
 ## Bouwen (19 nov 2026, avond)
 - Zeven bouwers parallel, één per film, met de vaste brief `/home/claude/hw/BRIEF-bouwen.md` (werkmap buiten de repo; engine = bronmap mariene-biologie-3 + actuele `personages/lib_cast.js`). Brief: storyboard volgen, alleen cast, contactsheets nakijken, niets pushen. Gaat de sessie verloren: werkmap opnieuw opzetten volgens BOUWEN.md, audio opnieuw ophalen via `bron/stem/takes.tsv` (zie hierboven), en de brief opnieuw maken uit deze regels.
+
+## Stand 19 nov 2026, laat: ALLE 7 FILMS OP DE SITE
+- Gebouwd door zeven bouwers (brief `/home/claude/hw/BRIEF-bouwen.md`), contactsheets door de hoofdsessie nagekeken, in de repo gezet met maakinfo + pak, `vervolg.html` (planobjecten → `[titel, href]`), `films.json` (datum 2026-11-19), scripts, LEVENSLOOP. REVIEW = nog bekijken (staat niet in REVIEW).
+- Bekende zwakke plekken (voor Kamiels review): sp1 s12 zakkende elleboog subtiel, s19 Sam klein in overzicht 0–15 m; sp2 s18 oorlel simpel, s01 lege band onder de kant; sp3 —; sp4 s06 druk en klein startblok, s16 Sam alleen hoofd boven dekbed; sp5 s11 geen hand-op-scheenbeen-pose, duik = gedraaide stroomlijn; sp6 s11 kleine zwemmer van boven, s17 stap op blok stijf, s20 duik; sp7 s01 zwemmer klein, s14 'afstand' alleen leunen.
+- Cast die ontbrak en film-eigen is opgelost (kandidaat voor castboek): zwemkleding voor Bilal, Daan, Noor, Teun, Jens; zwemmer van boven; duik; plank/elastiek; krachttrainer; Sam pyjama/bed; trainingsjack; armen over elkaar; hand op schouder; hometrainer-fietser.
+- `scripts/volgende.py` liep vast op planobjecten in `basis` (dicts): gerepareerd (`isinstance(b, list)`).
+- Nog te doen: filmmedaillons (vel met 7 vakken, gpt-image-2 met vel-14 als stijlreferentie), uitspraak-wachtlijsten in de volgende batchtest, luisterpagina.

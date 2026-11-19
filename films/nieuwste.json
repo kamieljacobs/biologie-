@@ -1,5 +1,75 @@
 [
  {
+  "href": "films/vervolg/sport-1-glijden-trekken-drijven.html",
+  "titel": "Glijden, trekken, drijven",
+  "thema": "vervolg",
+  "themaTitel": "Wat word jij?",
+  "duur": 7,
+  "vraag": "Water is ruim achthonderd keer zo dicht als lucht. Waarom wint een zwemmer daar meer met zijn houding dan met zijn spieren?",
+  "extra": true,
+  "datum": "2026-11-19"
+ },
+ {
+  "href": "films/vervolg/sport-2-waarom-al-die-rustige-meters.html",
+  "titel": "Waarom al die rustige meters?",
+  "thema": "vervolg",
+  "themaTitel": "Wat word jij?",
+  "duur": 7,
+  "vraag": "Een 100 meter duurt nog geen minuut. Waarom zwemt een sprinter dan toch elke week kilometers rustig?",
+  "extra": true,
+  "datum": "2026-11-19"
+ },
+ {
+  "href": "films/vervolg/sport-4-een-doel-of-alles-tegelijk.html",
+  "titel": "Eén doel of alles tegelijk?",
+  "thema": "vervolg",
+  "themaTitel": "Wat word jij?",
+  "duur": 7,
+  "vraag": "Je wilt sneller, sterker én langer kunnen zwemmen. Kun je dat allemaal tegelijk trainen?",
+  "extra": true,
+  "datum": "2026-11-19"
+ },
+ {
+  "href": "films/vervolg/sport-5-ook-nog-hardlopen.html",
+  "titel": "Ook nog hardlopen?",
+  "thema": "vervolg",
+  "themaTitel": "Wat word jij?",
+  "duur": 7,
+  "vraag": "Is een andere sport naast het zwemmen goede extra training, of kost het je juist snelheid?",
+  "extra": true,
+  "datum": "2026-11-19"
+ },
+ {
+  "href": "films/vervolg/sport-6-de-stem-in-je-hoofd.html",
+  "titel": "De stem in je hoofd",
+  "thema": "vervolg",
+  "themaTitel": "Wat word jij?",
+  "duur": 7,
+  "vraag": "Op het startblok begint je hoofd te praten. Waarom helpt het om jezelf dan bij je naam aan te spreken?",
+  "extra": true,
+  "datum": "2026-11-19"
+ },
+ {
+  "href": "films/vervolg/sport-7-na-de-race.html",
+  "titel": "Na de race",
+  "thema": "vervolg",
+  "themaTitel": "Wat word jij?",
+  "duur": 7,
+  "vraag": "Je zwemt een tijd die tegenvalt. Moet je die teleurstelling wegdrukken, of kun je er iets mee?",
+  "extra": true,
+  "datum": "2026-11-19"
+ },
+ {
+  "href": "films/vervolg/sport-3-sterk-op-het-droge.html",
+  "titel": "Sterk op het droge",
+  "thema": "vervolg",
+  "themaTitel": "Wat word jij?",
+  "duur": 7,
+  "vraag": "Een zwemmer traint ook in de krachtzaal, terwijl water bijna niets weegt. Waarom?",
+  "extra": true,
+  "datum": "2026-11-19"
+ },
+ {
   "href": "films/voortplanting/zwanger/index.html",
   "titel": "Zwanger",
   "thema": "voortplanting",
@@ -28,75 +98,5 @@
   "vraag": "De zee neemt ruim een kwart van onze CO₂ op. Waarom is dat slecht nieuws voor een oester?",
   "extra": true,
   "datum": "2026-11-07"
- },
- {
-  "href": "films/vervolg/mariene-biologie-3-een-zee-vol-voedsel.html",
-  "titel": "Een zee vol voedsel: de Waddenzee",
-  "thema": "vervolg",
-  "themaTitel": "Wat word jij?",
-  "duur": 8,
-  "vraag": "Een mosselkweker wil meer mosselen in de Waddenzee. Waarom maken vogelonderzoekers zich daar zorgen over?",
-  "extra": true,
-  "datum": "2026-11-07"
- },
- {
-  "href": "films/voortplanting/bevruchting/index.html",
-  "titel": "Bevruchting",
-  "thema": "voortplanting",
-  "themaTitel": "Voortplanting",
-  "duur": 7,
-  "vraag": "Honderden zaadcellen bereiken de eicel. Toch komt er maar één binnen. Hoe kan dat?",
-  "extra": false,
-  "datum": "2026-11-07"
- },
- {
-  "href": "films/voortplanting/cyclus/index.html",
-  "titel": "De cyclus",
-  "thema": "voortplanting",
-  "themaTitel": "Voortplanting",
-  "duur": 8,
-  "vraag": "De pil bevat hormonen die het lichaam van een vrouw ook zelf maakt. Toch komt er daardoor geen eisprong. Hoe kan meer van een eigen hormoon iets tegenhouden?",
-  "extra": false,
-  "datum": "2026-11-07"
- },
- {
-  "href": "films/vervolg/forensisch-4-stille-getuigen.html",
-  "titel": "Stille getuigen: haren, stuifmeel en kiezelwieren",
-  "thema": "vervolg",
-  "themaTitel": "Wat word jij?",
-  "duur": 8,
-  "vraag": "Hoe kan stuifmeel op een schoen verraden waar iemand is geweest?",
-  "extra": true,
-  "datum": "2026-11-02"
- },
- {
-  "href": "films/vervolg/milieukunde-2-van-wieg-tot-graf.html",
-  "titel": "Van wieg tot graf: de levenscyclusanalyse",
-  "thema": "vervolg",
-  "themaTitel": "Wat word jij?",
-  "duur": 8,
-  "vraag": "Papieren tasje of plastic tas: welke is beter voor het milieu?",
-  "extra": true,
-  "datum": "2026-11-02"
- },
- {
-  "href": "films/vervolg/tuin-2-natuur-in-de-stad.html",
-  "titel": "Natuur in de stad: hitte, water en bijen",
-  "thema": "vervolg",
-  "themaTitel": "Wat word jij?",
-  "duur": 7,
-  "vraag": "Op een hete dag is het asfalt van het schoolplein vijftig graden. Hoe maak je het koeler zonder airco?",
-  "extra": true,
-  "datum": "2026-11-02"
- },
- {
-  "href": "films/cellen/onderzoek-doen/index.html",
-  "titel": "Onderzoek doen in de biologie",
-  "thema": "cellen",
-  "themaTitel": "Cellen",
-  "duur": 15,
-  "vraag": "Hoe weet je eigenlijk of iets waar is?",
-  "extra": false,
-  "datum": "2026-10-31"
  }
 ]
