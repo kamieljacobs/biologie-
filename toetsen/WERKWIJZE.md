@@ -1,5 +1,9 @@
 # Leerdoelen en toetsen · werkwijze
 
+> **Sinds 19 nov 2026 staat de werkwijze voor toetsen in de privé repo `kamieljacobs/toetsen-biologie`** (`WERKWIJZE.md`,
+> lessen in `LESSEN.md`, filminhoud in `films/`). Deze repo levert de films en krijgt de oefentoetsen als tool
+> (`tools/toets-<thema>-*.html`, bron in `tools/toets-bron/`). Onderstaande tekst is het plan van 26 okt 2026 (leerdoelen uit het boek).
+
 Opgezet 26 okt 2026 (Kamiel: 'toetsen maken gebaseerd op eindtermen en de inhoud van de films, en daar later de leerdoelen aan koppelen'; daarna: 'een combi tussen leerdoelen uit het boek en wat er in de film zit'). Nog niet begonnen: Kamiel levert de leerdoelen uit het boek aan wanneer hij tijd heeft.
 
 ## Uitgangspunten
