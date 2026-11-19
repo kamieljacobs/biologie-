@@ -3,7 +3,7 @@
  "regels": [
   {
    "id": "P1",
-   "status": "proef",
+   "status": "vast",
    "sinds": "2026-10-25",
    "meet": "concept_vorm",
    "ontdekt_in_reeksen": [
@@ -12,11 +12,16 @@
     "vervolg-bioinformatica"
    ],
    "tekst": "De grote mutatie speelt het concept na: een grote vertelvorm moet een vorm zijn waarin de kijker het concept zelf doet of ziet (selecteren = gerichte evolutie, een verzegelde envelop = een voorspelling toetsen, een rechter = bron versus activiteit), geen lijst eromheen (achteruit, wedstrijd, raadsel, checklist). Kan de getrokken vorm dat bij dit onderwerp niet, trek één keer opnieuw en noteer waarom.",
-   "herkomst": "prompt v10 (25 okt 2026): uit 10 films won een conceptvorm 4 van 5, een lijstvorm 0 van 7. Was weggevallen in v12/v13, teruggezet 29 okt 2026."
+   "herkomst": "prompt v10 (25 okt 2026): uit 10 films won een conceptvorm 4 van 5, een lijstvorm 0 van 7. Was weggevallen in v12/v13, teruggezet 29 okt 2026. · Vast op 19 nov 2026 na B15-rapport 2026-11-19 (voorstel promoveren), akkoord Kamiel.",
+   "vast_sinds": "2026-11-19",
+   "akkoord": {
+    "datum": "2026-11-19",
+    "citaat": "ja die mogen vast"
+   }
   },
   {
    "id": "P2",
-   "status": "proef",
+   "status": "vast",
    "sinds": "2026-10-25",
    "meet": "logboek",
    "ontdekt_in_reeksen": [
@@ -25,7 +30,12 @@
     "vervolg-bioinformatica"
    ],
    "tekst": "Elke misconceptie een vraag, de begeleider een eigen beurt: elke misconceptie uit de brief wordt getoetst met een voorspel- of controlevraag, niet alleen verteld; de begeleider heeft minstens één scène met eigen tekst en het beroep wordt uitgesproken.",
-   "herkomst": "prompt v10 (25 okt 2026): in alle 10 films werd een van de twee bij de zwakke plekken genoemd. Was weggevallen in v12/v13, teruggezet 29 okt 2026."
+   "herkomst": "prompt v10 (25 okt 2026): in alle 10 films werd een van de twee bij de zwakke plekken genoemd. Was weggevallen in v12/v13, teruggezet 29 okt 2026. · Vast op 19 nov 2026 na B15-rapport 2026-11-19 (voorstel promoveren), akkoord Kamiel.",
+   "vast_sinds": "2026-11-19",
+   "akkoord": {
+    "datum": "2026-11-19",
+    "citaat": "ja die mogen vast"
+   }
   },
   {
    "id": "V1",
