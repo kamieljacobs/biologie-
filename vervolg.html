@@ -834,7 +834,7 @@ function kaart(g){
 }
 
 /* Overzicht bovenaan: rij per richting, rond medaillon per gebied (img/kunst/iconen/vervolg/<id>.webp) */
-const VICOON=['geneeskunde','diergeneeskunde','tandheelkunde','farmacie','verloskunde','verpleegkunde','fysiotherapie','mbrt','biomedisch','labtechniek','biotechnologie','forensisch','bioinformatica','voedingsleer','gezondheidswetenschappen','psychologie','neurowetenschappen','pedagogiek','ecologie','milieukunde','landbouw','tuin','leraar','marien'];
+const VICOON=['sport','geneeskunde','diergeneeskunde','tandheelkunde','farmacie','verloskunde','verpleegkunde','fysiotherapie','mbrt','biomedisch','labtechniek','biotechnologie','forensisch','bioinformatica','voedingsleer','gezondheidswetenschappen','psychologie','neurowetenschappen','pedagogiek','ecologie','milieukunde','landbouw','tuin','leraar','marien'];
 function overzicht(){
   const tel=g=>{const b=g.basis.filter(zichtbaar),k=b.filter(x=>Array.isArray(x)).length,n=b.filter(x=>!Array.isArray(x)&&!x.schrappen).length;
     return [k?`${k} ${k===1?'film':'films'}`:'',n?`${n} komt nog`:''].filter(Boolean).join(' · ')||'komt nog'};

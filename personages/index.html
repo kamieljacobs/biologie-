@@ -504,7 +504,8 @@ const CAST = {
               winter: { top: 'jas', topKleur: '#3A3F4E', topAccent: '#2C303C', sjaal: '#4F8F6A', broek: '#2A2F3E', schoen: '#2A2F3E', schoenAccent: '#4F8F6A' },
               sport: { top: 'tshirt', topKleur: '#D8573F', topAccent: '#B9452F', broek: '#2A2F3E', kort: true, schoen: '#F2F2EE', schoenAccent: '#D8573F' },
               practicum: { top: 'labjas', topKleur: '#F2F2EE', topAccent: '#D4D8DE', binnen: '#4F8F6A', veiligheidsbril: true },
-              buiten: { top: 'jas', topKleur: '#3A3F4E', topAccent: '#2C303C', sjaal: '#4F8F6A', broek: '#2A2F3E', schoen: '#3E5A36', schoenAccent: '#2E4428', accessoire: ['laarzen'] } } }, // buiten (7 nov 2026, Mariene biologie: aan boord en op het wad; Kamiel koos op het twijfelblad voorstel B = winterjas + groene laarzen)
+              buiten: { top: 'jas', topKleur: '#3A3F4E', topAccent: '#2C303C', sjaal: '#4F8F6A', broek: '#2A2F3E', schoen: '#3E5A36', schoenAccent: '#2E4428', accessoire: ['laarzen'] },
+              zwem: { top: 'bloot', topKleur: '#7A5440', topAccent: '#684636', broek: '#1F2B48', broekAccent: '#D8573F', schoen: '#7A5440', schoenAccent: '#7A5440', kapsel: 'badmuts', badmuts: '#D8573F', accessoire: ['zwembroek', 'blootsvoets', 'zwembril'] } } }, // zwem (19 nov 2026, Wat word jij? · Sport en topsport, ter keuring): jammer tot halverwege de dij, rode badmuts (zelfde rood als zijn sportshirt), zwembril op de badmuts (o.bril: 'ogen' = op de ogen); in het water: zwemmer(); buiten (7 nov 2026, Mariene biologie: aan boord en op het wad; Kamiel koos op het twijfelblad voorstel B = winterjas + groene laarzen)
   daan:   { naam: 'Daan', leeftijd: 15, rol: 'leerling · rustig, denkt na, houdt van getallen', huid: '#EBC6A6', haar: '#D8B26A', kapsel: 'pony', wenkbrauw: '#B8904E',
             top: 'overhemd', topKleur: '#5B8CC9', topAccent: '#4A76AD', broek: '#5A4A3A', schoen: '#3A3F4E', schoenAccent: '#6B7287', accessoire: ['bril', 'sproeten'], lengte: 0.95,
             garderobe: { school: {}, practicum: { top: 'labjas', topKleur: '#F2F2EE', topAccent: '#D4D8DE', binnen: '#5B8CC9', veiligheidsbril: true }, veld: { top: 'jas', topKleur: '#4F7A9C', topAccent: '#41678A', broek: '#4A4A3A', schoen: '#2E3A2A', schoenAccent: '#1E261C' } } }, // practicum (20 okt 2026); veld (25 okt 2026, Ecologie: regenjas en laarzen)
@@ -623,6 +624,13 @@ const CAST = {
   marien: { naam: 'Mariene bioloog', leeftijd: 40, rol: 'mariene bioloog · onderzoekt vis, schelpdieren en zeewater, aan boord en in het lab · alleen in haar eigen vak; in beeld alleen het vak, geen naam', huid: '#B98862', haar: '#1A1412', kapsel: 'staart', elastiek: '#1A1412', wenkbrauw: '#16100C', wimpers: true, lippen: '#A9584E',
             top: 'jas', topKleur: '#E0562E', topAccent: '#C04424', binnen: '#2E7F80', broek: '#2A3452', schoen: '#E8B730', schoenAccent: '#C49720', accessoire: ['muts', 'reflectie', 'laarzen'], mutsKleur: '#26345A', lengte: 0.98,
             garderobe: { boord: {}, lab: { top: 'labjas', topKleur: '#F2F2EE', topAccent: '#D4D8DE', binnen: '#2E7F80', schoen: '#2A2A2E', schoenAccent: '#1C1C20', accessoire: [] } } }, // 3 nov 2026 (Mariene biologie, begeleider van Sam; castvel personages/vellen/vel-nl-4-mariene-bioloog.webp goedgekeurd door Kamiel 3 nov 2026): Indisch-Nederlands, zwarte lage paardenstaart; boord = rood-oranje werkjas met reflectiestrepen over een tealkleurige trui, navy waterdichte broek, gele laarzen, navy muts (ook op het wad); lab = labjas over dezelfde trui
+  // 19 nov 2026 (Wat word jij? · Sport en topsport, reeksmodus, ter keuring; nog zonder ElevenLabs-castvel): twee naamloze beroepspersonages
+  zwemtrainer: { naam: 'Zwemtrainer', leeftijd: 45, rol: 'zwemtrainer · staat aan de kant van het bad, klokt tijden en plant elk trainingsonderdeel · alleen in zijn eigen vak; in beeld alleen het vak, geen naam', huid: '#E2B48E', haar: '#8E8A84', kapsel: 'kort', wenkbrauw: '#5E5A54', stoppels: true,
+            top: 'jas', topKleur: '#2F5FA8', topAccent: '#264E8C', broek: '#1E2740', schoen: '#F2F2EE', schoenAccent: '#2F5FA8', accessoire: ['mouwstreep', 'fluitje', 'stopwatch', 'klembord'], lengte: 1.01, schouderK: 2.0,
+            garderobe: { bad: {} } }, // grijs kortgeknipt haar, grijze stoppels, koningsblauw trainingsjack met witte mouwstrepen, navy trainingsbroek, fluitje en stopwatch aan een koord, klembord in de andere hand; anders dan Jeroen (groene fleece) en Bas (olijf, baard)
+  sportpsycholoog: { naam: 'Sportpsycholoog', leeftijd: 35, rol: 'sportpsycholoog · helpt sporters met spanning, twijfel en tegenvallers · alleen in haar eigen vak; in beeld alleen het vak, geen naam', huid: '#8E5E42', haar: '#1C1410', kapsel: 'knot', wenkbrauw: '#18100C', wimpers: true, lippen: '#9C4E46',
+            top: 'vest', topKleur: '#8FA88A', topAccent: '#7A9476', binnen: '#F0E8DA', broek: '#A8865E', schoen: '#5A4232', schoenAccent: '#3E2E22', accessoire: ['bril-dun', 'oorbel'], lengte: 0.99,
+            garderobe: { gewoon: {} } }, // donkere huid, zwart haar in een knot, dun brilletje, saliegroen vest over een crème shirt, camel broek; rustig, geen labjas of pak
   fleur:  { naam: 'Fleur', leeftijd: 10, rol: 'meisje van ± 10 jaar (groep 7) · voor scènes met een basisschoolkind, bv. de HPV-prik', huid: '#C99872', haar: '#3A2418', kapsel: 'vlecht', wenkbrauw: '#2A1A12',
             top: 'tshirt', strepen: null, topKleur: '#E07A8F', topAccent: '#C8667A', broek: '#4D6E9C', schoen: '#F2F2EE', schoenAccent: '#E07A8F', accessoire: [], lengte: 1,
             kop: 5.8, armK: 0.9, schouderK: 1.42, heupK: 1.24 }, // kinderverhoudingen (± 10 jaar, ± 140 cm): hoofd iets kleiner dan bij Teun
@@ -702,7 +710,7 @@ const CAST_FAMILIE = {
   anouk: { partner: 'milan' }
 };
 const CAST_EXTRA = ['linda', 'rachid', 'ria', 'ahmed', 'malika', 'petra', 'thijs', 'erik', 'joost', 'buurvrouw', 'sanne16']; // sanne16 (29 okt 2026): figurant met diabetes type 1, Hormonen 2
-const CAST_VOLGORDE = ['noor', 'sam', 'lotte', 'daan', 'yasmin', 'bilal', 'kim', 'henk', 'visser', 'ravi', 'jesse', 'femke', 'mirjam', 'esra', 'mila', 'gerrit', 'wouter', 'ilse', 'lieke', 'merel', 'bas', 'hanneke', 'farid', 'lars', 'jeroen', 'iris', 'palynoloog', 'marien'];
+const CAST_VOLGORDE = ['noor', 'sam', 'lotte', 'daan', 'yasmin', 'bilal', 'kim', 'henk', 'visser', 'ravi', 'jesse', 'femke', 'mirjam', 'esra', 'mila', 'gerrit', 'wouter', 'ilse', 'lieke', 'merel', 'bas', 'hanneke', 'farid', 'lars', 'jeroen', 'iris', 'palynoloog', 'marien', 'zwemtrainer', 'sportpsycholoog'];
 const CAST_JONG = ['kind', 'fleur', 'ruben', 'baby']; // 22 okt 2026: Fleur en Ruben (± 10 jaar)
 const CAST_OUDERS_BI = ['anouk', 'milan']; // 25 okt 2026: ouders in het uitslaggesprek van Bio-informatica 2 (figuranten, ter keuring)
 const CAST_FIGURANTEN_BI3 = ['sanne', 'bram', 'wilma', 'passant']; // 25 okt 2026: Bio-informatica 3, bedacht uitbraakvoorbeeld (ter keuring)
@@ -803,6 +811,15 @@ function persoon(ctx, id, x, y, h, o = {}) {
     const sx = kx + s * hh * 0.06 + hh * 0.04; ctx.fillStyle = P.schoen; ctx.beginPath(); ctx.ellipse(sx, voetY - hh * 0.15, hh * 0.4, hh * 0.18, 0, Math.PI, 0); ctx.lineTo(sx + hh * 0.4, voetY - hh * 0.04); ctx.lineTo(sx - hh * 0.4, voetY - hh * 0.04); ctx.closePath(); ctx.fill();
     ctx.fillStyle = P.schoenAccent; ctx.fillRect(sx - hh * 0.4, voetY - hh * 0.07, hh * 0.8, hh * 0.05);
   }
+  else if (P.accessoire.includes('zwembroek')) for (const s of [-1, 1]) { // zwembroek (19 nov 2026): blote benen, jammer tot ± een derde van de dij, blote voeten
+    const lx = cx + s * hw2 * 0.24, kn = heupY + (voetY - heupY) * 0.46, ax = lx + s * hh * 0.06, ay = voetY - hh * 0.2, hu = s < 0 ? P.huid : _donker(P.huid, 0.08);
+    ctx.strokeStyle = hu; ctx.lineWidth = hh * 0.5; ctx.beginPath(); ctx.moveTo(lx, heupY); ctx.lineTo(lx + s * hh * 0.03, kn); ctx.stroke();
+    ctx.lineWidth = hh * 0.4; ctx.beginPath(); ctx.moveTo(lx + s * hh * 0.03, kn); ctx.quadraticCurveTo(lx + s * hh * 0.01, kn + (ay - kn) * 0.35, ax, ay); ctx.stroke();
+    ctx.strokeStyle = _donker(P.huid, 0.16); ctx.lineWidth = Math.max(1, hh * 0.025); ctx.beginPath(); ctx.arc(lx + s * hh * 0.03, kn, hh * 0.12, 0.5, 2.6); ctx.stroke(); // knieschijf
+    ctx.strokeStyle = s < 0 ? P.broek : _donker(P.broek, 0.12); ctx.lineWidth = hh * 0.6; ctx.beginPath(); ctx.moveTo(lx, heupY); ctx.lineTo(lx + s * hh * 0.01, heupY + (voetY - heupY) * 0.17); ctx.stroke();
+    const sx = ax + s * hh * 0.04; ctx.fillStyle = hu; ctx.beginPath(); ctx.ellipse(sx, voetY - hh * 0.1, hh * 0.3, hh * 0.13, 0, Math.PI, 0); ctx.lineTo(sx + hh * 0.3, voetY - hh * 0.03); ctx.lineTo(sx - hh * 0.3, voetY - hh * 0.03); ctx.closePath(); ctx.fill();
+    for (let k = 0; k < 4; k++) circ(ctx, sx - s * hh * 0.17 + s * k * hh * 0.1, voetY - hh * 0.05, hh * (k ? 0.045 : 0.06), _donker(P.huid, s < 0 ? 0.04 : 0.12)); // tenen, grote teen binnen
+  }
   else for (const s of [-1, 1]) {
     const lx = cx + s * hw2 * 0.24;
     ctx.strokeStyle = s < 0 ? P.broek : _donker(P.broek, 0.12); ctx.lineWidth = hh * 0.6;
@@ -847,6 +864,10 @@ function persoon(ctx, id, x, y, h, o = {}) {
     if (P.top === 'vest') { ctx.fillStyle = P.binnen; ctx.beginPath(); ctx.moveTo(cx - hh * 0.3, schouderY); ctx.lineTo(cx + hh * 0.3, schouderY); ctx.lineTo(cx + hh * 0.08, heupY + hh * 0.3); ctx.lineTo(cx - hh * 0.08, heupY + hh * 0.3); ctx.closePath(); ctx.fill();
       for (let i = 0; i < 4; i++) circ(ctx, cx + hh * 0.17, schouderY + hh * (0.7 + i * 0.42), hh * 0.05, _donker(P.topKleur, 0.3)); }
   }
+  if (P.top === 'bloot') { const lijn = rgba(_donker(P.huid, 0.45), 0.45); ctx.strokeStyle = lijn; ctx.lineWidth = Math.max(1, hh * 0.03); // bloot bovenlijf (19 nov 2026, zwemmer): borst, buiklijn, navel; rustig, geen karikatuur
+    for (const s of [-1, 1]) { ctx.beginPath(); ctx.moveTo(cx + s * hh * 0.08, schouderY + hh * 0.85); ctx.quadraticCurveTo(cx + s * sw * 0.22, schouderY + hh * 0.98, cx + s * sw * 0.38, schouderY + hh * 0.7); ctx.stroke(); }
+    ctx.beginPath(); ctx.moveTo(cx, schouderY + hh * 0.95); ctx.lineTo(cx, tailleY + hh * 0.05); ctx.stroke(); circ(ctx, cx, tailleY + hh * 0.18, hh * 0.035, _donker(P.huid, 0.35)); }
+  if (P.accessoire.includes('zwembroek')) { romp(sw); ctx.save(); ctx.clip(); ctx.fillStyle = P.broek; ctx.fillRect(cx - sw, heupY - hh * 0.12, sw * 2, hh); ctx.fillStyle = P.broekAccent || _licht(P.broek, 0.3); ctx.fillRect(cx - sw, heupY - hh * 0.12, sw * 2, hh * 0.06); ctx.restore(); } // zwembroek over de heupen, gekleurde band
   // --- zwangerschapsbuik (o.zwanger of P.zwanger, 0..1): ronde buik laag op de romp, licht naar de kijkrichting
   { const zw = o.zwanger != null ? o.zwanger : (P.zwanger || 0); if (zw > 0.02 && !P.baby) {
     const open = P.top === 'labjas' || P.top === 'vest' || P.top === 'jasje', kl = open ? (P.binnen || P.topKleur) : P.topKleur;
@@ -864,8 +885,11 @@ function persoon(ctx, id, x, y, h, o = {}) {
     ctx.strokeStyle = handK; ctx.lineWidth = hh * 0.27; ctx.beginPath(); ctx.moveTo(ex, ey); ctx.lineTo(hx, hy); ctx.stroke();
     const kort = P.top === 'hoodie' || P.top === 'trui' || P.top === 'vest' || P.top === 'labjas' || P.top === 'jasje' || P.top === 'overhemd' || P.top === 'jas' || P.top === 'overall';
     if (P.top === 'tshirt') { ctx.strokeStyle = P.huid; ctx.lineWidth = hh * 0.29; ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(ex, ey); ctx.stroke(); ctx.strokeStyle = mouw; ctx.lineWidth = hh * 0.46; ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(sx + (ex - sx) * 0.45, sy + (ey - sy) * 0.45); ctx.stroke(); }
-    if (P.top !== 'tshirt') { ctx.strokeStyle = mouw; ctx.lineWidth = hh * 0.42; ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(ex, ey); } if (kort) ctx.lineTo(ex + (hx - ex) * 0.72, ey + (hy - ey) * 0.72); if (P.top !== 'tshirt') ctx.stroke();
+    if (P.top !== 'tshirt') { ctx.strokeStyle = mouw; ctx.lineWidth = hh * (P.top === 'bloot' ? 0.34 : 0.42); ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(ex, ey); } if (kort) ctx.lineTo(ex + (hx - ex) * 0.72, ey + (hy - ey) * 0.72); if (P.top !== 'tshirt') ctx.stroke();
     if (kort) { ctx.strokeStyle = _donker(mouw, 0.12); ctx.lineWidth = hh * 0.44; ctx.beginPath(); ctx.moveTo(ex + (hx - ex) * 0.66, ey + (hy - ey) * 0.66); ctx.lineTo(ex + (hx - ex) * 0.74, ey + (hy - ey) * 0.74); ctx.stroke(); }
+    if (P.accessoire.includes('mouwstreep')) { const off = (ax0, ay0, bx0, by0) => { const L = Math.hypot(bx0 - ax0, by0 - ay0) || 1, nx = (by0 - ay0) / L * s, ny = -(bx0 - ax0) / L * s; return [nx * hh * 0.13, ny * hh * 0.13]; }; // witte strepen langs de buitenkant van de mouw (trainingsjack, 19 nov 2026)
+      const [o1x, o1y] = off(sx, sy, ex, ey), [o2x, o2y] = off(ex, ey, hx, hy), mx = ex + (hx - ex) * 0.64, my = ey + (hy - ey) * 0.64; ctx.strokeStyle = '#F2F2EE'; ctx.lineWidth = Math.max(1.2, hh * 0.055);
+      ctx.beginPath(); ctx.moveTo(sx + o1x * 0.6, sy + o1y * 0.6 - hh * 0.05); ctx.lineTo(ex + (o1x + o2x) / 2, ey + (o1y + o2y) / 2); ctx.lineTo(mx + o2x, my + o2y); ctx.stroke(); }
     if (P.top === 'jas' && P.accessoire.includes('reflectie')) { ctx.save(); ctx.lineCap = 'butt'; ctx.strokeStyle = '#DDE1E6'; ctx.lineWidth = hh * 0.43; ctx.beginPath(); ctx.moveTo(sx + (ex - sx) * 0.62, sy + (ey - sy) * 0.62); ctx.lineTo(sx + (ex - sx) * 0.7, sy + (ey - sy) * 0.7); ctx.stroke(); ctx.restore(); } // reflectieband om de bovenarm
     if (s === -kijk && P.accessoire.includes('glucosesensor')) { const gx = sx + (ex - sx) * 0.62 - s * hh * 0.06, gy = sy + (ey - sy) * 0.62; _acc.sensor = { x: gx, y: gy, r: hh * 0.13 }; // glucosesensor (29 okt 2026): wit rond plakkertje op de bovenarm
       circ(ctx, gx, gy, hh * 0.13, '#F2F2EE'); ctx.strokeStyle = '#9AA3B2'; ctx.lineWidth = Math.max(1, hh * 0.025); ctx.beginPath(); ctx.arc(gx, gy, hh * 0.13, 0, 6.283); ctx.stroke(); circ(ctx, gx, gy, hh * 0.045, '#9AA3B2'); }
@@ -894,6 +918,7 @@ function persoon(ctx, id, x, y, h, o = {}) {
     ctx.strokeStyle = '#C9CED6'; ctx.lineWidth = Math.max(1, hh * 0.025); ctx.beginPath(); ctx.moveTo(px - kijk * hh * 0.2, py); ctx.quadraticCurveTo(px - kijk * hh * 0.45, py - hh * 0.1, px - kijk * hh * 0.4, py - hh * 0.4); ctx.stroke();
     roundRect(ctx, px - hh * 0.22, py - hh * 0.15, hh * 0.44, hh * 0.3, hh * 0.07); ctx.fillStyle = '#5B6B88'; ctx.fill(); ctx.strokeStyle = '#AFC0D0'; ctx.lineWidth = Math.max(1, hh * 0.02); ctx.stroke(); ctx.fillStyle = '#AFC0D0'; ctx.fillRect(px - hh * 0.13, py - hh * 0.07, hh * 0.15, hh * 0.1); }
   const handR = arm(kijk, R), handL = arm(-kijk, L);
+  if (P.accessoire.includes('klembord') && !zit) _klembord(ctx, handL.x, handL.y, hh, -kijk, P.huid); // klembord in de andere hand (zwemtrainer, 19 nov 2026)
   if (o.hold) o.hold(ctx, handR.x, handR.y, handR.ang);
   if (P.kapsel === 'golf') { for (const s of [-1, 1]) { const N = 14, y0 = hoofdY + hh * 0.05, y1 = schouderY + hh * (P.golfLang ?? 1.05); const xs = (u, off) => cx + s * (hh * (0.36 + 0.22 * u) + off + Math.sin(u * 9 + (s > 0 ? 0.6 : 0)) * hh * 0.07);
       ctx.fillStyle = P.haar; ctx.beginPath(); for (let k = 0; k <= N; k++) { const u = k / N; ctx.lineTo(xs(u, hh * 0.26 * (1 - u * 0.35)), y0 + (y1 - y0) * u); }
@@ -913,6 +938,10 @@ function persoon(ctx, id, x, y, h, o = {}) {
   if (P.top === 'hoodie') { ctx.fillStyle = P.topAccent; ctx.beginPath(); ctx.ellipse(cx, schouderY - hh * 0.02, hh * 0.55, hh * 0.2, 0, 0, Math.PI); ctx.fill(); }
   if (P.accessoire.includes('verrekijker')) { const vy = schouderY + hh * 0.72; ctx.strokeStyle = '#2A2620'; ctx.lineWidth = hh * 0.045; ctx.beginPath(); ctx.moveTo(cx - hh * 0.28, schouderY - hh * 0.02); ctx.quadraticCurveTo(cx - hh * 0.26, vy - hh * 0.3, cx - hh * 0.14, vy - hh * 0.08); ctx.moveTo(cx + hh * 0.28, schouderY - hh * 0.02); ctx.quadraticCurveTo(cx + hh * 0.26, vy - hh * 0.3, cx + hh * 0.14, vy - hh * 0.08); ctx.stroke(); for (const s of [-1, 1]) { roundRect(ctx, cx + s * hh * 0.13 - hh * 0.09, vy - hh * 0.1, hh * 0.18, hh * 0.3, hh * 0.05); shape(ctx, '#2E3230', '#1A1C1A', Math.max(1, hh * 0.015)); circ(ctx, cx + s * hh * 0.13, vy + hh * 0.2, hh * 0.075, '#4A5A66'); } ctx.fillStyle = '#1A1C1A'; ctx.fillRect(cx - hh * 0.05, vy - hh * 0.02, hh * 0.1, hh * 0.1); } // verrekijker op de borst (Ecologie, 25 okt 2026)
   if (P.accessoire.includes('stethoscoop')) { ctx.strokeStyle = '#3A3F4E'; ctx.lineWidth = hh * 0.05; ctx.beginPath(); ctx.moveTo(cx - hh * 0.3, schouderY - hh * 0.02); ctx.quadraticCurveTo(cx - hh * 0.32, schouderY + hh * 0.9, cx - hh * 0.08, schouderY + hh * 1.15); ctx.moveTo(cx + hh * 0.3, schouderY - hh * 0.02); ctx.quadraticCurveTo(cx + hh * 0.34, schouderY + hh * 0.7, cx + hh * 0.22, schouderY + hh * 0.95); ctx.stroke(); circ(ctx, cx + hh * 0.22, schouderY + hh * 1.0, hh * 0.09, '#9AA3B2'); }
+  if (P.accessoire.includes('fluitje') || P.accessoire.includes('stopwatch')) { const ky = schouderY + hh * 0.95; ctx.strokeStyle = '#E0B64A'; ctx.lineWidth = Math.max(1, hh * 0.035); // koord om de nek met fluitje en stopwatch (zwemtrainer, 19 nov 2026)
+    ctx.beginPath(); ctx.moveTo(cx - hh * 0.26, schouderY - hh * 0.04); ctx.quadraticCurveTo(cx - hh * 0.3, ky - hh * 0.3, cx - hh * 0.05, ky); ctx.moveTo(cx + hh * 0.26, schouderY - hh * 0.04); ctx.quadraticCurveTo(cx + hh * 0.3, ky - hh * 0.3, cx + hh * 0.05, ky); ctx.stroke();
+    if (P.accessoire.includes('stopwatch')) { circ(ctx, cx + hh * 0.13, ky + hh * 0.2, hh * 0.17, '#2A2F3E'); circ(ctx, cx + hh * 0.13, ky + hh * 0.2, hh * 0.115, '#E8ECF0'); ctx.fillStyle = '#2A2F3E'; ctx.fillRect(cx + hh * 0.1, ky + hh * 0.0, hh * 0.06, hh * 0.05); ctx.strokeStyle = '#C8463C'; ctx.lineWidth = Math.max(1, hh * 0.025); ctx.beginPath(); ctx.moveTo(cx + hh * 0.13, ky + hh * 0.2); ctx.lineTo(cx + hh * 0.18, ky + hh * 0.13); ctx.stroke(); }
+    if (P.accessoire.includes('fluitje')) { ctx.fillStyle = '#C9CED6'; roundRect(ctx, cx - hh * 0.3, ky + hh * 0.02, hh * 0.26, hh * 0.13, hh * 0.05); ctx.fill(); circ(ctx, cx - hh * 0.07, ky + hh * 0.1, hh * 0.08, '#C9CED6'); circ(ctx, cx - hh * 0.07, ky + hh * 0.1, hh * 0.03, '#7A8290'); } }
   if (P.accessoire.includes('veldtas')) { const bx = cx - hw2 * 0.55, by = heupY - hh * 0.3; ctx.strokeStyle = '#4E4C2A'; ctx.lineWidth = hh * 0.07; ctx.beginPath(); ctx.moveTo(cx + sw * 0.3, schouderY - hh * 0.04); ctx.lineTo(bx + hh * 0.1, by + hh * 0.02); ctx.stroke(); roundRect(ctx, bx - hh * 0.42, by, hh * 0.84, hh * 0.66, hh * 0.08); shape(ctx, '#6B6A3A', '#3E3C22', Math.max(1, hh * 0.02)); for (const k of [-1, 1]) { ctx.fillStyle = '#4A7AB0'; roundRect(ctx, bx + k * hh * 0.17 - hh * 0.11, by - hh * 0.12, hh * 0.22, hh * 0.12, hh * 0.03); ctx.fill(); } ctx.fillStyle = '#58572E'; roundRect(ctx, bx - hh * 0.42, by, hh * 0.84, hh * 0.24, hh * 0.06); ctx.fill(); } // veldtas met monsterpotjes (Milieukundige Iris, 31 okt 2026)
   if (P.accessoire.includes('snoeischaar')) { const hx0 = cx + hw2 * 0.5, hy0 = heupY - hh * 0.12; ctx.strokeStyle = '#9AA3B2'; ctx.lineWidth = hh * 0.05; ctx.beginPath(); ctx.moveTo(hx0 + hh * 0.06, hy0 + hh * 0.05); ctx.lineTo(hx0 - hh * 0.04, hy0 - hh * 0.32); ctx.moveTo(hx0 + hh * 0.12, hy0 + hh * 0.05); ctx.lineTo(hx0 + hh * 0.22, hy0 - hh * 0.3); ctx.stroke(); circ(ctx, hx0 - hh * 0.04, hy0 - hh * 0.32, hh * 0.04, '#B23A3A'); circ(ctx, hx0 + hh * 0.22, hy0 - hh * 0.3, hh * 0.04, '#B23A3A'); roundRect(ctx, hx0 - hh * 0.04, hy0, hh * 0.26, hh * 0.5, hh * 0.06); shape(ctx, '#8A5A34', '#5A3A20', Math.max(1, hh * 0.02)); } // snoeischaar in een holster op de heup (Hovenier Jeroen, 31 okt 2026)
   // --- hoofd
@@ -939,7 +968,7 @@ function persoon(ctx, id, x, y, h, o = {}) {
     ctx.bezierCurveTo(cx + fw * 0.8, hy - hh * 0.2, cx + fw * 0.74, hy + hh * 0.55, cx + hh * 0.62, schouderY + hh * 0.14); ctx.quadraticCurveTo(cx, schouderY + hh * 0.3, cx - hh * 0.62, schouderY + hh * 0.14); ctx.fill();
     ctx.save(); ctx.clip(); ctx.fillStyle = P.topAccent; ctx.beginPath(); ctx.ellipse(cx - kijk * fw * 0.6, hy, fw * 0.28, hh * 1.1, 0, 0, 6.283); ctx.fill(); ctx.restore(); }
   // oren
-  if (P.kapsel !== 'hoofddoek' && P.kapsel !== 'capuchon') for (const s of [-1, 1]) { ctx.fillStyle = huidS; ctx.beginPath(); ctx.ellipse(cx + s * fw * 0.5, hy + hh * 0.05, hh * 0.1, hh * 0.13, 0, 0, 6.283); ctx.fill(); }
+  if (P.kapsel !== 'hoofddoek' && P.kapsel !== 'capuchon' && P.kapsel !== 'badmuts') for (const s of [-1, 1]) { ctx.fillStyle = huidS; ctx.beginPath(); ctx.ellipse(cx + s * fw * 0.5, hy + hh * 0.05, hh * 0.1, hh * 0.13, 0, 0, 6.283); ctx.fill(); }
   if (P.accessoire.includes('oorbel')) circ(ctx, cx - fw * 0.5, hy + hh * 0.2, hh * 0.045, '#E0B64A');
   // gezicht: zacht ei met iets smallere kin
   ctx.fillStyle = P.huid; ctx.beginPath(); ctx.moveTo(cx + ax, hy - hh * 0.5);
@@ -967,6 +996,9 @@ function persoon(ctx, id, x, y, h, o = {}) {
     ctx.bezierCurveTo(cx + fw * 0.4, hy - hh * 0.2, cx + fw * 0.1, hy - hh * 0.16, cx - fw * 0.12, hy - hh * 0.26); ctx.bezierCurveTo(cx - fw * 0.3, hy - hh * 0.16, cx - fw * 0.46, hy - hh * 0.2, cx - fw * 0.54, hy); ctx.fill(); }
   if (P.kapsel === 'bob') { ctx.beginPath(); ctx.moveTo(cx - fw * 0.56, hy + hh * 0.1); ctx.bezierCurveTo(cx - fw * 0.62, hy - hh * 0.72, cx + fw * 0.62, hy - hh * 0.74, cx + fw * 0.56, hy + hh * 0.1);
     ctx.lineTo(cx + fw * 0.44, hy - hh * 0.22); ctx.quadraticCurveTo(cx, hy - hh * 0.3, cx - fw * 0.44, hy - hh * 0.22); ctx.closePath(); ctx.fill(); }
+  if (P.kapsel === 'badmuts') { const mk = P.badmuts || '#D8573F'; ctx.fillStyle = mk; ctx.beginPath(); ctx.moveTo(cx - fw * 0.6, hy + hh * 0.2); // badmuts (19 nov 2026): over het haar en de oren, rand boven de wenkbrauwen
+    ctx.bezierCurveTo(cx - fw * 0.74, hy - hh * 0.95, cx + fw * 0.74, hy - hh * 0.95, cx + fw * 0.6, hy + hh * 0.2); ctx.quadraticCurveTo(cx + fw * 0.5, hy - hh * 0.22, cx, hy - hh * 0.3); ctx.quadraticCurveTo(cx - fw * 0.5, hy - hh * 0.22, cx - fw * 0.6, hy + hh * 0.2); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = rgba('#FFFFFF', 0.22); ctx.beginPath(); ctx.ellipse(cx - fw * 0.2, hy - hh * 0.55, fw * 0.16, hh * 0.07, -0.4, 0, 6.283); ctx.fill(); ctx.fillStyle = P.haar; }
   if (P.kapsel === 'kalend') { for (const s of [-1, 1]) { ctx.beginPath(); ctx.ellipse(cx + s * fw * 0.48, hy - hh * 0.08, fw * 0.12, hh * 0.24, s * 0.2, 0, 6.283); ctx.fill(); } ctx.fillStyle = _donker(P.huid, 0.08); ctx.beginPath(); ctx.ellipse(cx, hy - hh * 0.36, fw * 0.3, hh * 0.08, 0, Math.PI, 0); ctx.fill(); }
   if (P.kapsel === 'hoofddoek' && P.doekKlein) { ctx.fillStyle = P.haar; kap(0.24); // haar zichtbaar onder de losse doek
     ctx.fillStyle = P.doekKleur; ctx.beginPath(); ctx.moveTo(cx - fw * 0.66, hy + hh * 0.3); ctx.bezierCurveTo(cx - fw * 0.76, hy - hh * 0.6, cx - fw * 0.42, hy - hh * 0.9, cx, hy - hh * 0.88);
@@ -998,6 +1030,10 @@ function persoon(ctx, id, x, y, h, o = {}) {
   if (P.accessoire.includes('bril') || P.accessoire.includes('bril-dun')) { const dun = P.accessoire.includes('bril-dun'); ctx.strokeStyle = dun ? '#5A5F6E' : '#2A2F3E'; ctx.lineWidth = Math.max(1.4, hh * (dun ? 0.025 : 0.04));
     for (const s of [-1, 1]) { ctx.beginPath(); dun ? ctx.ellipse(ex0 + s * fw * 0.2, ey0 + hh * 0.025, fw * 0.15, hh * 0.1, 0, 0, 6.283) : roundRect(ctx, ex0 + s * fw * 0.2 - fw * 0.15, ey0 - hh * 0.08, fw * 0.3, hh * 0.2, hh * 0.07); ctx.stroke(); }
     ctx.beginPath(); ctx.moveTo(ex0 - fw * 0.05, ey0 + hh * 0.0); ctx.quadraticCurveTo(ex0, ey0 - hh * 0.03, ex0 + fw * 0.05, ey0); ctx.stroke(); }
+  if (P.accessoire.includes('zwembril')) { const op = o.bril === 'ogen', by = op ? ey0 + hh * 0.02 : hy - hh * 0.42; ctx.strokeStyle = '#1E2230'; ctx.lineWidth = Math.max(1.2, hh * 0.045); // zwembril (19 nov 2026): op de badmuts, of met o.bril: 'ogen' op de ogen
+    ctx.beginPath(); ctx.moveTo(cx - fw * 0.62, by + hh * 0.02); ctx.lineTo(cx - fw * 0.3, by); ctx.moveTo(cx + fw * 0.3, by); ctx.lineTo(cx + fw * 0.62, by + hh * 0.02); ctx.stroke();
+    for (const s of [-1, 1]) { const bx = (op ? ex0 : cx) + s * fw * 0.2; ctx.fillStyle = '#1E2230'; ctx.beginPath(); ctx.ellipse(bx, by, fw * 0.16, hh * 0.1, 0, 0, 6.283); ctx.fill(); ctx.fillStyle = '#2E7F98'; ctx.beginPath(); ctx.ellipse(bx, by, fw * 0.12, hh * 0.07, 0, 0, 6.283); ctx.fill(); ctx.fillStyle = rgba('#FFFFFF', 0.5); ctx.beginPath(); ctx.ellipse(bx - fw * 0.04, by - hh * 0.025, fw * 0.04, hh * 0.018, -0.3, 0, 6.283); ctx.fill(); }
+    ctx.strokeStyle = '#1E2230'; ctx.lineWidth = Math.max(1, hh * 0.03); ctx.beginPath(); ctx.moveTo((op ? ex0 : cx) - fw * 0.05, by); ctx.lineTo((op ? ex0 : cx) + fw * 0.05, by); ctx.stroke(); }
   if (P.veiligheidsbril) { ctx.fillStyle = 'rgba(200,230,240,0.35)'; ctx.strokeStyle = '#9AA3B2'; ctx.lineWidth = Math.max(1.4, hh * 0.03); roundRect(ctx, ex0 - fw * 0.42, ey0 - hh * 0.1, fw * 0.84, hh * 0.24, hh * 0.1); ctx.fill(); ctx.stroke(); ctx.strokeStyle = '#5A5F6E'; ctx.beginPath(); ctx.moveTo(ex0 - fw * 0.42, ey0); ctx.lineTo(ex0 - fw * 0.52, ey0 - hh * 0.02); ctx.moveTo(ex0 + fw * 0.42, ey0); ctx.lineTo(ex0 + fw * 0.52, ey0 - hh * 0.02); ctx.stroke(); }
   ctx.strokeStyle = _donker(P.huid, 0.3); ctx.lineWidth = Math.max(1.2, hh * 0.03); ctx.beginPath(); ctx.moveTo(ex0 + kijk * fw * 0.02, ey0 + hh * 0.08); ctx.quadraticCurveTo(ex0 + kijk * fw * 0.08, ey0 + hh * 0.17, ex0, ey0 + hh * 0.19); ctx.stroke();
   const masker = P.accessoire.includes('mondkapje');
@@ -1048,6 +1084,12 @@ function _baby(ctx, P, x, y, h, a, uit, o) { const t = o.t || 0, geel = o.geel |
   ctx.beginPath(); if (uit === 'huilt') { ctx.fillStyle = _donker(huid, 0.55); ctx.ellipse(hx, hy + 0.95 * u, 0.32 * u, 0.26 * u, 0, 0, 6.283); ctx.fill(); }
   else { ctx.lineWidth = 0.17 * u; ctx.strokeStyle = ink; ctx.arc(hx, hy + 0.65 * u, uit === 'blij' ? 0.42 * u : 0.3 * u, 0.5, 2.64); ctx.stroke(); }
   ctx.restore(); return { hoofd: { x: hx, y: hy, r: hr }, heup: { x: x + 2.4 * u, y: by }, top: hy - hr }; }
+// klembord (19 nov 2026, zwemtrainer): hangt aan de hand (hx, hy), s = kant (1 = rechts), staat iets scheef; vingers over de rand
+function _klembord(ctx, hx, hy, hh, s, huid) { ctx.save(); ctx.translate(hx + s * hh * 0.12, hy - hh * 0.12); ctx.rotate(s * 0.1);
+  roundRect(ctx, -hh * 0.38, 0, hh * 0.76, hh * 1.05, hh * 0.06); ctx.fillStyle = '#A8865E'; ctx.fill();
+  ctx.fillStyle = '#F4F1EA'; ctx.fillRect(-hh * 0.31, hh * 0.1, hh * 0.62, hh * 0.86); ctx.fillStyle = '#9AA3B2'; for (let k = 0; k < 5; k++) ctx.fillRect(-hh * 0.24, hh * (0.26 + k * 0.13), hh * (k % 2 ? 0.36 : 0.46), Math.max(1, hh * 0.025));
+  ctx.fillStyle = '#7A8290'; roundRect(ctx, -hh * 0.16, -hh * 0.04, hh * 0.32, hh * 0.13, hh * 0.04); ctx.fill(); ctx.restore();
+  ctx.fillStyle = huid; ctx.beginPath(); ctx.ellipse(hx, hy - hh * 0.04, hh * 0.13, hh * 0.1, 0, 0, 6.283); ctx.fill(); }
 function _mixHex(h1, h2, k) { const a = parseInt(h1.slice(1), 16), b = parseInt(h2.slice(1), 16); const c = (s) => Math.round(((a >> s) & 255) * (1 - k) + ((b >> s) & 255) * k); return '#' + [c(16), c(8), c(0)].map(v => v.toString(16).padStart(2, '0')).join(''); }
 
 // ===== Zijaanzicht (21 okt 2026) =====
@@ -1084,9 +1126,10 @@ function _kf(tab, p) { // periodieke kubische interpolatie (Catmull-Rom met onge
   const dt = t1 - t0, u = (p - t0) / dt, u2 = u * u, u3 = u2 * u;
   return (2 * u3 - 3 * u2 + 1) * y0 + (u3 - 2 * u2 + u) * dt * m0 + (-2 * u3 + 3 * u2) * y1 + (u3 - u2) * dt * m1; }
 const _ZOOL = [[-0.24, 0.22], [0.42, 0.22], [0.64, 0.16]]; // hiel, bal, teen (voetassen, × kopmaat) t.o.v. de enkel
-function _beenPose(G, p, L1, L2, hh, extra = 0) { // p = fase van dit been (0..1)
+function _beenPose(G, p, L1, L2, hh, extra = 0, ov = null) { // p = fase van dit been (0..1); ov = {th, kn, an} in rad (19 nov 2026, vrije beenstand: zwemmer, startblok)
   const D = Math.PI / 180; let th, kn, an;
-  if (G) { th = (_kf(G.th, p) - (G.kantel || 0)) * D; kn = _kf(G.kn, p) * D; an = (_kf(G.an, p) + extra) * D; } else { th = 0.02; kn = 0.03; an = 0; }
+  if (ov) { th = ov.th; kn = ov.kn; an = (ov.an || 0) + extra * D; }
+  else if (G) { th = (_kf(G.th, p) - (G.kantel || 0)) * D; kn = _kf(G.kn, p) * D; an = (_kf(G.an, p) + extra) * D; } else { th = 0.02; kn = 0.03; an = 0; }
   const kx = Math.sin(th) * L1, ky = Math.cos(th) * L1, sa = th - kn, ax = kx + Math.sin(sa) * L2, ay = ky + Math.cos(sa) * L2, fA = sa + an;
   const ux = Math.cos(fA), uy = -Math.sin(fA), nx = Math.sin(fA), ny = Math.cos(fA);
   let low = -1e9, lowX = 0; for (const [lx, ly] of _ZOOL) { const X = ax + (lx * ux + ly * nx) * hh, Y = ay + (lx * uy + ly * ny) * hh; if (Y > low) { low = Y; lowX = X; } }
@@ -1106,14 +1149,14 @@ function _zij(ctx, P, x, y, h, a, o) {
   const Lb = voetY - heupY0 - hh * 0.22, L1 = Lb * 0.5, L2 = Lb * 0.5;
   // --- benen: pose per been uit de gangcyclus (B1 = been aan de kant van de kijker)
   const fr = (q) => ((q % 1) + 1) % 1, p1 = fr(fase), p2 = fr(fase + 0.5);
-  let B1 = _beenPose(G, p1, L1, L2, hh), B2 = _beenPose(G, p2, L1, L2, hh);
+  let B1 = _beenPose(G, p1, L1, L2, hh, 0, G ? null : o.been1), B2 = _beenPose(G, p2, L1, L2, hh, 0, G ? null : o.been2); // o.been1/o.been2 = vrije beenstand (19 nov 2026)
   if (zit) { const need = zitH - hh * 0.22, th = Math.PI / 2 - Math.asin(Math.max(-0.5, Math.min(0.5, (need - L2) / L1))); // dij (bijna) horizontaal naar voren, onderbeen loodrecht omlaag, voet plat
     const mk = (off) => { const kx = Math.sin(th) * L1 + off, ky = Math.cos(th) * L1; return { th, kn: th, kx, ky, ax: kx, ay: ky + L2, sa: 0, fA: 0, low: ky + L2 + hh * 0.22, lowX: kx, ballX: kx + hh * 0.42, p: 0 }; };
     B1 = mk(0); B2 = mk(-hh * 0.1); }
   // --- heuphoogte: steunvoet op de grond; in de zweeffase een worp (zwaartekracht) tussen afzet en landing
   const duty = G ? G.duty : 1, steun = (B) => B.p < duty;
   let heupY;
-  if (zit) heupY = heupY0;
+  if (zit || o.vrij) heupY = heupY0; // o.vrij (19 nov 2026): niet op de grond (zwemmer), heup blijft op y - h + 3,45 kopmaat
   else if (!G) heupY = voetY - Math.max(B1.low, B2.low);
   else if (steun(B1) || steun(B2)) heupY = Math.min(steun(B1) ? voetY - B1.low : 1e9, steun(B2) ? voetY - B2.low : 1e9);
   else { const L = B1.p >= duty && B1.p < 0.5 ? B1 : B2, Tf = (0.5 - duty) / fEff, tau = (L.p - duty) / fEff;
@@ -1125,7 +1168,7 @@ function _zij(ctx, P, x, y, h, a, o) {
   let cx = x;
   if (G && o.vooruit) { const sEnd = Math.min(duty, 0.5), c0 = _beenPose(G, 0, L1, L2, hh).ballX, v = (c0 - _beenPose(G, sEnd, L1, L2, hh).ballX) * fEff / sEnd;
     const S = [B1, B2].filter(B => B.p < sEnd).sort((p, q) => p.p - q.p)[0]; const dl = S ? (c0 - S.ballX) - v * S.p / fEff : 0; cx = x + v * t + dl; }
-  const dy = heupY - heupY0, lean = G ? G.leun * Math.PI / 180 : (zit ? (o.leun != null ? o.leun : (o.tafel != null ? 6 : 0)) * Math.PI / 180 : 0); // zit aan tafel: iets voorover
+  const dy = heupY - heupY0, lean = G ? G.leun * Math.PI / 180 : (zit ? (o.leun != null ? o.leun : (o.tafel != null ? 6 : 0)) * Math.PI / 180 : (o.voorover || 0)); // o.voorover = romp voorover in rad (19 nov 2026, startblok) // zit aan tafel: iets voorover
   if (zit && o.stoel) { const k = typeof o.stoel === 'string' ? o.stoel : '#5A6A84', rand = _licht(k, 0.35); ctx.save(); ctx.lineCap = 'round'; // stoel van opzij: poten, zitting, rugleuning achter de rug
     const zx0 = cx - hw * 0.75, zx1 = cx + L1 * 0.62, zy = heupY + hh * 0.24; ctx.strokeStyle = rand; ctx.lineWidth = hh * 0.1;
     ctx.beginPath(); ctx.moveTo(zx0 + hh * 0.1, zy); ctx.lineTo(zx0 + hh * 0.05, voetY - hh * 0.03); ctx.moveTo(zx1 - hh * 0.1, zy); ctx.lineTo(zx1 - hh * 0.05, voetY - hh * 0.03); ctx.moveTo(zx0 + hh * 0.08, zy); ctx.lineTo(zx0 - hh * 0.12, heupY - hh * 1.9); ctx.stroke();
@@ -1138,13 +1181,20 @@ function _zij(ctx, P, x, y, h, a, o) {
   const tekenBeen = (B, ver) => {
     const hx = cx - hw * 0.05, kx = hx + B.kx, ky = heupY + B.ky, ax = hx + B.ax, ay = heupY + B.ay;
     const br = ver ? _donker(P.broek, 0.18) : P.broek, hu = ver ? _donker(P.huid, 0.14) : P.huid;
-    ctx.lineWidth = hh * 0.58; ctx.strokeStyle = br; ctx.beginPath(); ctx.moveTo(hx, heupY); ctx.lineTo(kx, ky);
-    if (P.kort) { const mx = kx + (ax - kx) * 0.12, my = ky + (ay - ky) * 0.12; ctx.lineTo(mx, my); ctx.stroke(); ctx.strokeStyle = hu; ctx.lineWidth = hh * 0.4; ctx.beginPath(); ctx.moveTo(mx, my); ctx.lineTo(ax, ay); ctx.stroke();
+    if (P.accessoire.includes('zwembroek')) { ctx.strokeStyle = hu; ctx.lineWidth = hh * 0.5; ctx.beginPath(); ctx.moveTo(hx, heupY); ctx.lineTo(kx, ky); ctx.stroke(); // zwembroek (19 nov 2026): blote benen, jammer tot ± een derde van de dij
+      ctx.lineWidth = hh * 0.4; ctx.beginPath(); ctx.moveTo(kx, ky); ctx.quadraticCurveTo(kx + (ax - kx) * 0.3 - Math.cos(B.sa) * hh * 0.06, ky + (ay - ky) * 0.3 + Math.sin(B.sa) * hh * 0.06, ax, ay); ctx.stroke(); // kuit iets voller aan de achterkant
+      ctx.strokeStyle = br; ctx.lineWidth = hh * 0.58; ctx.beginPath(); ctx.moveTo(hx, heupY); ctx.lineTo(hx + B.kx * 0.38, heupY + B.ky * 0.38); ctx.stroke(); }
+    else { ctx.lineWidth = hh * 0.58; ctx.strokeStyle = br; ctx.beginPath(); ctx.moveTo(hx, heupY); ctx.lineTo(kx, ky); }
+    if (P.accessoire.includes('zwembroek')) {}
+    else if (P.kort) { const mx = kx + (ax - kx) * 0.12, my = ky + (ay - ky) * 0.12; ctx.lineTo(mx, my); ctx.stroke(); ctx.strokeStyle = hu; ctx.lineWidth = hh * 0.4; ctx.beginPath(); ctx.moveTo(mx, my); ctx.lineTo(ax, ay); ctx.stroke();
       ctx.strokeStyle = ver ? '#D6D6D0' : '#F2F2EE'; ctx.lineWidth = hh * 0.38; ctx.beginPath(); ctx.moveTo(kx + (ax - kx) * 0.9, ky + (ay - ky) * 0.9); ctx.lineTo(ax, ay); ctx.stroke(); }
     else { ctx.lineTo(ax, ay); ctx.stroke(); }
     if (P.accessoire.includes('laarzen') && !P.kort) { ctx.strokeStyle = ver ? _donker(P.schoen, 0.15) : P.schoen; ctx.lineWidth = hh * 0.6; ctx.beginPath(); ctx.moveTo(kx + (ax - kx) * 0.5, ky + (ay - ky) * 0.38); ctx.lineTo(ax, ay); ctx.stroke(); } // laarzen (3 nov 2026)
     // schoen in de voetstand uit de cyclus (hiel, bal, teen)
     ctx.save(); ctx.translate(ax, ay); ctx.rotate(-B.fA);
+    if (P.accessoire.includes('blootsvoets')) { ctx.fillStyle = hu; ctx.beginPath(); ctx.moveTo(-hh * 0.16, -hh * 0.1); ctx.quadraticCurveTo(-hh * 0.28, hh * 0.12, -hh * 0.14, hh * 0.19); // blote voet (19 nov 2026): hiel, voetzool, tenen
+      ctx.lineTo(hh * 0.46, hh * 0.19); ctx.quadraticCurveTo(hh * 0.62, hh * 0.18, hh * 0.6, hh * 0.08); ctx.quadraticCurveTo(hh * 0.44, -hh * 0.0, hh * 0.18, -hh * 0.04); ctx.quadraticCurveTo(hh * 0.02, -hh * 0.11, -hh * 0.16, -hh * 0.1); ctx.fill();
+      ctx.strokeStyle = _donker(P.huid, ver ? 0.32 : 0.2); ctx.lineWidth = Math.max(1, hh * 0.02); ctx.beginPath(); ctx.moveTo(hh * 0.42, hh * 0.18); ctx.lineTo(hh * 0.45, hh * 0.1); ctx.stroke(); ctx.restore(); return { x: ax, y: ay }; }
     ctx.fillStyle = ver ? _donker(P.schoen, 0.15) : P.schoen; ctx.beginPath(); ctx.moveTo(-hh * 0.2, -hh * 0.12);
     ctx.quadraticCurveTo(-hh * 0.3, hh * 0.18, -hh * 0.2, hh * 0.22); ctx.lineTo(hh * 0.56, hh * 0.22); ctx.quadraticCurveTo(hh * 0.68, hh * 0.18, hh * 0.64, hh * 0.08); ctx.quadraticCurveTo(hh * 0.5, -hh * 0.04, hh * 0.22, -hh * 0.06); ctx.quadraticCurveTo(hh * 0.05, -hh * 0.14, -hh * 0.2, -hh * 0.12); ctx.fill();
     ctx.fillStyle = ver ? _donker(P.schoenAccent, 0.15) : P.schoenAccent; ctx.fillRect(-hh * 0.22, hh * 0.15, hh * 0.84, hh * 0.07); ctx.restore();
@@ -1172,19 +1222,20 @@ function _zij(ctx, P, x, y, h, a, o) {
       else { lx = cx + L1 * 0.55 + (kant > 0 ? 0 : hh * 0.1); ly = heupY - hh * 0.12; }
       const [a1, a2] = _ik(lx - sx, ly - sy, A1, A2); return [a1 - lean, a2 - a1]; }
     return [0.04 * kant, 0.12]; };
-  const tekenArm = (B, kant) => { const [u, e] = armHoek(B, kant); const [sx, sy] = rot(sx0, sy0);
-    const ex = sx + Math.sin(u + lean) * A1, ey = sy + Math.cos(u + lean) * A1, f = u + lean + e, hx = ex + Math.sin(f) * A2, hy = ey + Math.cos(f) * A2;
-    const ver = kant < 0, lang = P.top !== 'tshirt';
+  const tekenArm = (B, kant) => { const [u, e] = armHoek(B, kant); const [sx, sy] = rot(sx0, sy0), kk = (kant > 0 ? o.armK : o.armVerK) || [1, 1]; // o.armK / o.armVerK = [bovenarm, onderarm] verkorting (19 nov 2026: arm die naar de kijker of opzij wijst, zwemmer)
+    const ex = sx + Math.sin(u + lean) * A1 * kk[0], ey = sy + Math.cos(u + lean) * A1 * kk[0], f = u + lean + e, hx = ex + Math.sin(f) * A2 * kk[1], hy = ey + Math.cos(f) * A2 * kk[1];
+    const ver = kant < 0, lang = P.top !== 'tshirt' && P.top !== 'bloot';
     // dichtbije arm: mouw iets lichter dan het shirt en een donkere rand, zodat de arm loskomt van de romp (Kamiel 22 okt 2026)
     const mouw = ver ? _donker(P.top === 'labjas' ? P.topKleur : (P.topAccent || P.topKleur), 0.16) : _licht(P.topKleur, 0.1), hu0 = P.accessoire.includes('handschoenen') ? _NITRIL : P.huid, hu = ver ? _donker(hu0, 0.14) : hu0; // nitrilhandschoenen (25 okt 2026)
     const rand = ver ? null : rgba('#0B1020', 0.55), rw = hh * 0.07;
     const huidPad = () => { ctx.beginPath(); ctx.moveTo(lang ? ex + (hx - ex) * 0.6 : sx + (ex - sx) * 0.4, lang ? ey + (hy - ey) * 0.6 : sy + (ey - sy) * 0.4); if (!lang) ctx.lineTo(ex, ey); ctx.lineTo(hx, hy); };
     const mouwPad = () => { ctx.beginPath(); ctx.moveTo(sx, sy); if (lang) { ctx.lineTo(ex, ey); ctx.lineTo(ex + (hx - ex) * 0.72, ey + (hy - ey) * 0.72); } else ctx.lineTo(sx + (ex - sx) * 0.5, sy + (ey - sy) * 0.5); };
     const handPad = () => { ctx.beginPath(); ctx.ellipse(hx + Math.sin(f) * hh * 0.07, hy + Math.cos(f) * hh * 0.07, hh * 0.17, hh * 0.2, -f, 0, 6.283); };
-    const wMouw = hh * (lang ? 0.4 : 0.44), wHuid = hh * 0.27;
+    const wMouw = hh * (lang ? 0.4 : P.top === 'bloot' ? 0.34 : 0.44), wHuid = hh * 0.27; const mouwK = P.top === 'bloot' ? hu : mouw; // bloot (19 nov 2026): bovenarm in huidkleur
     if (rand) { ctx.strokeStyle = rand; ctx.lineWidth = wHuid + rw; huidPad(); ctx.stroke(); ctx.lineWidth = wMouw + rw; mouwPad(); ctx.stroke(); ctx.lineWidth = rw; handPad(); ctx.stroke(); }
     ctx.strokeStyle = hu; ctx.lineWidth = wHuid; huidPad(); ctx.stroke();
-    ctx.strokeStyle = mouw; ctx.lineWidth = wMouw; mouwPad(); ctx.stroke();
+    ctx.strokeStyle = mouwK; ctx.lineWidth = wMouw; mouwPad(); ctx.stroke();
+    if (P.accessoire.includes('mouwstreep')) { ctx.strokeStyle = ver ? '#C9CED4' : '#F2F2EE'; ctx.lineWidth = Math.max(1.2, hh * 0.055); ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(ex, ey); ctx.lineTo(ex + (hx - ex) * 0.64, ey + (hy - ey) * 0.64); ctx.stroke(); } // witte streep over de mouw (trainingsjack)
     if (lang) { ctx.strokeStyle = ver ? _donker(P.top === 'labjas' ? P.topKleur : (P.topAccent || P.topKleur), 0.3) : _donker(P.topKleur, 0.06); ctx.lineWidth = hh * 0.42; ctx.beginPath(); ctx.moveTo(ex + (hx - ex) * 0.66, ey + (hy - ey) * 0.66); ctx.lineTo(ex + (hx - ex) * 0.74, ey + (hy - ey) * 0.74); ctx.stroke(); }
     if (o.pose === 'handdruk' && kant > 0 && !G) { const H = _grip(ctx, hx, hy, Math.PI / 2 - f, hh, hu, rand); return Object.assign(H, { x: H.x, y: H.y }); }
     ctx.fillStyle = hu; handPad(); ctx.fill();
@@ -1192,6 +1243,7 @@ function _zij(ctx, P, x, y, h, a, o) {
   // tekenvolgorde: ver been, ver arm, romp, dichtbij been (onder de romp door), dichtbij arm, hoofd
   tekenBeen(B2, true);
   const hand2 = tekenArm(B2, -1);
+  if (P.accessoire.includes('klembord') && !zit && !G) _klembord(ctx, hand2.x, hand2.y, hh, 1, _donker(P.huid, 0.14)); // klembord in de verre hand (19 nov 2026)
   { const [nx0, ny0] = rot(cx + d * 0.05, schouderY0 + dy - hh * 0.05), V0 = (schouderY0 - hoofdY0) - hh * 0.04 - (G && G !== GANG.loop ? hh * 0.05 : 0); // haar achter het hoofd beweegt mee met de kanteling
     const hx0 = nx0 + hh * 0.04 + Math.sin(lean) * V0, hy0 = ny0 - Math.cos(lean) * V0;
     if (P.kapsel === 'staart' || P.kapsel === 'vlecht' || P.kapsel === 'golf') _zijHaarAchter(ctx, P, rot, hx0 - d * 0.05 - hh * 0.04, hy0 - hh * 0.04, schouderY0 + dy, hh, t, G, fi); }
@@ -1211,6 +1263,8 @@ function _zij(ctx, P, x, y, h, a, o) {
   ctx.save(); romp(); ctx.clip();
   { const [bx, by] = rot(cx - d * 0.62, tY); ctx.fillStyle = P.topAccent || _donker(P.topKleur, 0.1); ctx.beginPath(); ctx.ellipse(bx, by, d * 0.3, hh * 2.6, lean, 0, 6.283); ctx.fill(); } // schaduw op de rug
   if (P.top === 'jas' && P.accessoire.includes('reflectie')) for (const yy of [sY + hh * 1.0, tY + hh * 0.22]) { const [qx, qy] = rot(cx, yy); ctx.save(); ctx.translate(qx, qy); ctx.rotate(lean); ctx.fillStyle = '#C9CED4'; ctx.fillRect(-d, 0, d * 2, hh * 0.13); ctx.fillStyle = '#EEF1F4'; ctx.fillRect(-d, hh * 0.03, d * 2, hh * 0.05); ctx.restore(); } // reflectiestrepen (3 nov 2026)
+  if (P.accessoire.includes('zwembroek')) { const q = [[cx - d, heupY - hh * 0.14], [cx + d, heupY - hh * 0.14], [cx + d, onder + hh], [cx - d, onder + hh]].map(p => rot(p[0], p[1])); ctx.fillStyle = P.broek; ctx.beginPath(); q.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); ctx.fill();
+    const [bx, by] = rot(cx, heupY - hh * 0.14); ctx.save(); ctx.translate(bx, by); ctx.rotate(lean); ctx.fillStyle = P.broekAccent || _licht(P.broek, 0.3); ctx.fillRect(-d, 0, d * 2, hh * 0.06); ctx.restore(); } // zwembroek met gekleurde band (19 nov 2026)
   if (P.strepen) { ctx.fillStyle = P.strepen; for (let yy = sY + hh * 0.45; yy < heupY + hh * 0.3; yy += hh * 0.36) { const [qx, qy] = rot(cx, yy); ctx.save(); ctx.translate(qx, qy); ctx.rotate(lean); ctx.fillRect(-d, 0, d * 2, hh * 0.15); ctx.restore(); } }
   if (P.top === 'labjas' || P.top === 'vest' || P.top === 'jasje') { const [p1x, p1y] = rot(cx + d * 0.36, sY + hh * 0.05), [p2x, p2y] = rot(cx + hw * 0.4, onder); ctx.strokeStyle = P.binnen || P.topAccent; ctx.lineWidth = hh * 0.22; ctx.beginPath(); ctx.moveTo(p1x + hh * 0.08, p1y); ctx.lineTo(p2x + hh * 0.08, p2y); ctx.stroke();
     ctx.strokeStyle = P.topAccent; ctx.lineWidth = hh * 0.05; ctx.beginPath(); ctx.moveTo(p1x - hh * 0.06, p1y); ctx.lineTo(p2x - hh * 0.06, p2y); ctx.stroke(); }
@@ -1223,18 +1277,25 @@ function _zij(ctx, P, x, y, h, a, o) {
     ctx.fillStyle = rgba('#FFFFFF', 0.12); ctx.beginPath(); ctx.ellipse(bx + hh * 0.38 * zw, by - hh * 0.3 * zw, hh * 0.18 * zw, hh * 0.1 * zw, -0.6, 0, 6.283); ctx.fill(); } }
   if (P.sjaal) { const [qx, qy] = rot(cx, sY - hh * 0.05); ctx.fillStyle = P.sjaal; ctx.beginPath(); ctx.ellipse(qx, qy, d * 0.42, hh * 0.22, 0, 0, 6.283); ctx.fill(); ctx.fillStyle = _donker(P.sjaal, 0.12); ctx.save(); ctx.translate(qx - d * 0.3, qy); ctx.rotate(0.25 + (G ? 0.5 + 0.15 * Math.sin(fi * 2) : 0)); roundRect(ctx, -hh * 0.12, 0, hh * 0.26, hh * 0.95, hh * 0.08); ctx.fill(); ctx.restore(); }
   // --- dichtbij arm
-  const hand1 = tekenArm(B1, 1);
-  if (o.hold) o.hold(ctx, hand1.x, hand1.y, hand1.ang);
+  const hand1 = o.armNaHoofd ? {} : tekenArm(B1, 1);
+  if (o.hold && !o.armNaHoofd) o.hold(ctx, hand1.x, hand1.y, hand1.ang);
   // --- nek en hoofd
   const [nx, ny] = rot(cx + d * 0.05, sY - hh * 0.05);
   const Vk = (schouderY0 - hoofdY0) - hh * 0.04 - (G && G !== GANG.loop ? hh * 0.05 : 0); // nek → hoofd, langs de lichaamsas (kruin in lijn met het lijf)
   const hcx = nx + hh * 0.04 + Math.sin(lean) * Vk, hy = ny - Math.cos(lean) * Vk;
+  if (o.knik) { ctx.save(); ctx.translate(nx, ny); ctx.rotate(o.knik); ctx.translate(-nx, -ny); } // o.knik = hoofd voorover buigen in rad (19 nov 2026, startblok)
   ctx.strokeStyle = P.kapsel === 'capuchon' ? (P.topAccent || P.topKleur) : huidS; ctx.lineWidth = hh * 0.32; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(nx, ny + hh * 0.05); ctx.lineTo(hcx - hh * 0.04, hy + hh * 0.35); ctx.stroke(); // capuchon: hals bedekt
   if (P.top === 'hoodie') { ctx.fillStyle = P.topAccent; ctx.beginPath(); ctx.moveTo(nx - hh * 0.12, ny - hh * 0.12); ctx.quadraticCurveTo(nx - d * 0.62, ny - hh * 0.1, nx - d * 0.55, ny + hh * 0.55); ctx.quadraticCurveTo(nx - d * 0.3, ny + hh * 0.3, nx + hh * 0.05, ny + hh * 0.05); ctx.closePath(); ctx.fill(); }
   if (P.top === 'overhemd') { ctx.fillStyle = _licht(P.topKleur, 0.15); ctx.beginPath(); ctx.moveTo(nx - hh * 0.2, ny - hh * 0.05); ctx.lineTo(nx + hh * 0.22, ny - hh * 0.02); ctx.lineTo(nx + hh * 0.1, ny + hh * 0.25); ctx.closePath(); ctx.fill(); }
   if (P.accessoire.includes('verrekijker')) { ctx.strokeStyle = '#2A2620'; ctx.lineWidth = hh * 0.045; ctx.beginPath(); ctx.moveTo(nx - hh * 0.1, ny); ctx.quadraticCurveTo(nx + hh * 0.3, ny + hh * 0.4, nx + hh * 0.32, ny + hh * 0.62); ctx.stroke(); roundRect(ctx, nx + hh * 0.24, ny + hh * 0.6, hh * 0.24, hh * 0.18, hh * 0.05); shape(ctx, '#2E3230', '#1A1C1A', Math.max(1, hh * 0.015)); }
   if (P.accessoire.includes('stethoscoop')) { ctx.strokeStyle = '#3A3F4E'; ctx.lineWidth = hh * 0.05; ctx.beginPath(); ctx.moveTo(nx - hh * 0.15, ny); ctx.quadraticCurveTo(nx + hh * 0.35, ny + hh * 0.7, nx + hh * 0.3, ny + hh * 1.05); ctx.stroke(); circ(ctx, nx + hh * 0.3, ny + hh * 1.1, hh * 0.09, '#9AA3B2'); }
-  const H = _zijHoofd(ctx, P, hcx, hy, hh, uit, t, G, fi);
+  if (P.accessoire.includes('fluitje') || P.accessoire.includes('stopwatch')) { ctx.strokeStyle = '#E0B64A'; ctx.lineWidth = Math.max(1, hh * 0.035); ctx.beginPath(); ctx.moveTo(nx - hh * 0.12, ny); ctx.quadraticCurveTo(nx + hh * 0.28, ny + hh * 0.45, nx + hh * 0.3, ny + hh * 0.85); ctx.stroke(); // koord met fluitje en stopwatch (19 nov 2026)
+    if (P.accessoire.includes('stopwatch')) { circ(ctx, nx + hh * 0.3, ny + hh * 1.0, hh * 0.15, '#2A2F3E'); circ(ctx, nx + hh * 0.32, ny + hh * 1.0, hh * 0.1, '#E8ECF0'); }
+    if (P.accessoire.includes('fluitje')) { ctx.fillStyle = '#C9CED6'; roundRect(ctx, nx + hh * 0.26, ny + hh * 0.72, hh * 0.24, hh * 0.12, hh * 0.04); ctx.fill(); } }
+  if (o.armNaHoofd) { ctx.restore(); ctx.save(); ctx.globalAlpha *= a; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; if (kijk < 0) { ctx.translate(x, 0); ctx.scale(-1, 1); ctx.translate(-x, 0); } }
+  const H = _zijHoofd(ctx, P, hcx, hy, hh, uit, t, G, fi, o);
+  if (o.knik) ctx.restore();
+  if (o.armNaHoofd) Object.assign(hand1, tekenArm(B1, 1)); // stroomlijn (19 nov 2026): dichtbij arm over het oor heen
   ctx.restore();
   const m = (p) => kijk < 0 ? { ...p, x: 2 * x - p.x } : p;
   return { hoofd: m({ x: hcx, y: hy, r: hh * 0.55 }), handR: m(hand1), handL: m(hand2 || hand1), heup: m({ x: cx, y: heupY }), voet: m(voet1), x: kijk < 0 ? 2 * x - cx : cx, schoot: zit ? m({ x: cx + L1 * 0.5, y: heupY - hh * 0.1 }) : undefined, zit: zit ? { y: heupY } : undefined };
@@ -1248,7 +1309,7 @@ function _zijHaarAchter(ctx, P, rot, cx, hoofdY, schouderY, hh, t, G, fi) {
     for (let k = 0; k <= 4; k++) ctx.lineTo(hx - hh * 0.22 + k * hh * 0.14 - zw * hh * 0.3, hy + L + Math.sin(k * 2.4) * hh * 0.08);
     ctx.quadraticCurveTo(hx + hh * 0.4, hy + L * 0.4, hx + hh * 0.5, hy - hh * 0.2); ctx.fill(); }
 }
-function _zijHoofd(ctx, P, cx, hy, hh, uit, t, G, fi) {
+function _zijHoofd(ctx, P, cx, hy, hh, uit, t, G, fi, o = {}) {
   const ink = _donker(P.huid, 0.68), r = hh * 0.5, huidS = _donker(P.huid, 0.12), haar = P.haar;
   // haar achter (bob, krul, hoofddoek, knot)
   if (P.kapsel === 'bob') { ctx.fillStyle = haar; ctx.beginPath(); ctx.moveTo(cx + r * 0.3, hy - r * 0.95); ctx.bezierCurveTo(cx - r * 1.3, hy - r * 1.05, cx - r * 1.25, hy + r * 0.6, cx - r * 0.9, hy + r * 0.85); ctx.lineTo(cx + r * 0.15, hy + r * 0.85); ctx.lineTo(cx + r * 0.1, hy - r * 0.2); ctx.closePath(); ctx.fill(); }
@@ -1291,8 +1352,12 @@ function _zijHoofd(ctx, P, cx, hy, hh, uit, t, G, fi) {
     ctx.quadraticCurveTo(cx - r * 0.5, hy - r * 0.35, cx - r * 0.55, hy - r * 0.62); ctx.fill(); }
   if (P.kapsel === 'hoofddoek') { ctx.fillStyle = P.doekKleur; ctx.beginPath(); ctx.moveTo(cx + r * 0.78, hy - r * 0.5); ctx.bezierCurveTo(cx + r * 0.6, hy - r * 1.3, cx - r * 1.2, hy - r * 1.25, cx - r * 1.1, hy + r * 0.2); ctx.lineTo(cx - r * 0.2, hy + r * 0.6); ctx.quadraticCurveTo(cx + r * 0.1, hy - r * 0.6, cx + r * 0.78, hy - r * 0.5); ctx.fill(); }
   if (P.accessoire && P.accessoire.includes('muts')) { const mk = P.mutsKleur || '#26345A'; ctx.fillStyle = mk; ctx.beginPath(); ctx.ellipse(cx - r * 0.2, hy - r * 0.14, r * 1.16, r * 1.06, 0, Math.PI * 0.96, Math.PI * 2.04); ctx.closePath(); ctx.fill(); ctx.fillStyle = _donker(mk, 0.12); ctx.beginPath(); ctx.moveTo(cx - r * 1.16, hy - r * 0.02); ctx.lineTo(cx + r * 0.92, hy - r * 0.2); ctx.lineTo(cx + r * 0.9, hy - r * 0.42); ctx.lineTo(cx - r * 1.12, hy - r * 0.26); ctx.closePath(); ctx.fill(); } // muts (3 nov 2026)
+  if (P.kapsel === 'badmuts') { const mk = P.badmuts || '#D8573F'; ctx.fillStyle = mk; ctx.beginPath(); ctx.moveTo(cx + r * 0.8, hy - r * 0.42); // badmuts (19 nov 2026): van boven de wenkbrauw tot in de nek, over het oor
+    ctx.bezierCurveTo(cx + r * 0.9, hy - r * 1.05, cx + r * 0.1, hy - r * 1.22, cx - r * 0.35, hy - r * 1.14); ctx.bezierCurveTo(cx - r * 1.05, hy - r * 1.02, cx - r * 1.25, hy - r * 0.2, cx - r * 0.95, hy + r * 0.55);
+    ctx.quadraticCurveTo(cx - r * 0.55, hy + r * 0.55, cx - r * 0.05, hy + r * 0.3); ctx.quadraticCurveTo(cx + r * 0.25, hy - r * 0.3, cx + r * 0.8, hy - r * 0.42); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = rgba('#FFFFFF', 0.22); ctx.beginPath(); ctx.ellipse(cx - r * 0.1, hy - r * 0.85, r * 0.35, r * 0.12, -0.2, 0, 6.283); ctx.fill(); }
   // oor
-  if (P.kapsel !== 'hoofddoek' && P.kapsel !== 'capuchon') { ctx.fillStyle = huidS; ctx.beginPath(); ctx.ellipse(cx - r * 0.18, hy + r * 0.1, r * 0.17, r * 0.24, 0.15, 0, 6.283); ctx.fill(); ctx.strokeStyle = _donker(P.huid, 0.25); ctx.lineWidth = Math.max(1, hh * 0.025); ctx.beginPath(); ctx.arc(cx - r * 0.18, hy + r * 0.1, r * 0.1, -1.2, 1.4); ctx.stroke();
+  if (P.kapsel !== 'hoofddoek' && P.kapsel !== 'capuchon' && P.kapsel !== 'badmuts') { ctx.fillStyle = huidS; ctx.beginPath(); ctx.ellipse(cx - r * 0.18, hy + r * 0.1, r * 0.17, r * 0.24, 0.15, 0, 6.283); ctx.fill(); ctx.strokeStyle = _donker(P.huid, 0.25); ctx.lineWidth = Math.max(1, hh * 0.025); ctx.beginPath(); ctx.arc(cx - r * 0.18, hy + r * 0.1, r * 0.1, -1.2, 1.4); ctx.stroke();
     if (P.accessoire.includes('oorbel')) circ(ctx, cx - r * 0.16, hy + r * 0.38, hh * 0.045, '#E0B64A'); }
   // gezicht
   const E = { neutraal: [0, 'glim'], blij: [0.02, 'lach'], lacht: [0.04, 'open'], verbaasd: [0.07, 'o'], denkt: [0.03, 'scheef'], bezorgd: [-0.02, 'zuur'], ernstig: [0.015, 'recht'], praat: [0.01, Math.sin(t * 11) > 0 ? 'open' : 'glim'], slaapt: [-0.01, 'glim'], moe: [-0.03, 'glim'] }[uit] || [0, 'glim'];
@@ -1319,12 +1384,95 @@ function _zijHoofd(ctx, P, cx, hy, hh, uit, t, G, fi) {
   else if (E[1] === 'recht') { ctx.moveTo(mx - r * 0.12, my); ctx.lineTo(mx + r * 0.06, my); ctx.stroke(); }
   else if (E[1] === 'zuur') { ctx.moveTo(mx - r * 0.12, my + r * 0.02); ctx.lineTo(mx + r * 0.06, my - r * 0.02); ctx.stroke(); }
   else { ctx.moveTo(mx - r * 0.14, my); ctx.quadraticCurveTo(mx - r * 0.04, my + r * 0.05, mx + r * 0.06, my - r * 0.01); ctx.stroke(); }
+  if (P.accessoire.includes('zwembril')) { const op = o.bril === 'ogen', bx = op ? ex + r * 0.12 : cx + r * 0.42, by = op ? ey + r * 0.02 : hy - r * 0.7; // zwembril (19 nov 2026): op de muts, of met o.bril: 'ogen' op het oog
+    ctx.strokeStyle = '#1E2230'; ctx.lineWidth = Math.max(1.2, hh * 0.045); ctx.beginPath(); ctx.moveTo(bx - r * 0.1, by); ctx.quadraticCurveTo(cx - r * 0.4, by + (op ? r * 0.05 : r * 0.1), cx - r * 1.05, by + r * (op ? 0.12 : 0.3)); ctx.stroke();
+    ctx.fillStyle = '#1E2230'; ctx.beginPath(); ctx.ellipse(bx, by, r * 0.13, r * 0.17, 0, 0, 6.283); ctx.fill(); ctx.fillStyle = '#2E7F98'; ctx.beginPath(); ctx.ellipse(bx + r * 0.03, by, r * 0.07, r * 0.12, 0, 0, 6.283); ctx.fill(); }
   // bril
-  if (P.accessoire.includes('bril') || P.veiligheidsbril) { const vb = !!P.veiligheidsbril; ctx.strokeStyle = vb ? 'rgba(190,220,235,0.9)' : '#2A2F3E'; ctx.lineWidth = Math.max(1.4, hh * 0.04);
+  if (P.accessoire.includes('bril') || P.accessoire.includes('bril-dun') || P.veiligheidsbril) { const vb = !!P.veiligheidsbril; ctx.strokeStyle = vb ? 'rgba(190,220,235,0.9)' : '#2A2F3E'; ctx.lineWidth = Math.max(1.4, hh * 0.04);
     if (vb) { ctx.fillStyle = 'rgba(190,220,235,0.35)'; ctx.beginPath(); ctx.ellipse(ex + r * 0.12, ey + r * 0.02, r * 0.26, r * 0.2, 0, 0, 6.283); ctx.fill(); ctx.stroke(); }
     else { ctx.beginPath(); ctx.moveTo(ex + r * 0.3, ey - r * 0.12); ctx.lineTo(ex + r * 0.3, ey + r * 0.16); ctx.stroke(); }
     ctx.beginPath(); ctx.moveTo(ex + r * 0.28, ey - r * 0.08); ctx.lineTo(cx - r * 0.12, hy - r * 0.05); ctx.stroke(); }
   return { x: cx, y: hy };
+}
+
+// ===== Zwemmer in het water (19 nov 2026, Wat word jij? · Sport en topsport; ter keuring) =====
+// Gebruik: zwemmer(ctx, 'sam', x, y, lengte, { slag: 'crawl'|'rug'|'school'|'vlinder'|'stroomlijn'|'onderwater'|'startblok', t, fase, tempo, kijk, a, uit, bril, outfit })
+//   Zijaanzicht, horizontaal. (x, y) = heupgewricht; lengte = staande lengte zoals bij persoon() (h). kijk 1 = zwemt naar rechts, -1 = naar links.
+//   t = tijd in s (één slagcyclus = 1 / f s, zie ZWEM[slag].f), of fase 0..1 (0 = instrek van de dichtbije hand; bij schoolslag = glijden).
+//   Tekent alleen de persoon: de film tekent zelf de waterlijn. Teruggegeven (in de coördinaten van de aanroeper): hoofd, handR (dichtbij), handL (ver),
+//   heup, schouder, voet, rug (punt midden op de rug: leg de waterlijn daar net boven bij crawl/vlinder/school, bij rugslag ligt de borst boven: zie borst).
+//   Standaard: outfit 'zwem' (als het personage die heeft) en de zwembril op de ogen; o.bril: 'muts' zet hem op de badmuts.
+//   slag 'startblok': (x, y) = voorrand en bovenkant van het startblok; staat in de startpositie (trackstart): voorste voet met de tenen over de rand,
+//   achterste voet op de wig (o.wig = hoogte van de wig in px, standaard 0,14 × beenlengte), voorover, handen aan de voorrand, hoofd omlaag.
+// Biomechanica (bronnen: Maglischo, Swimming Fastest (2003); Counsilman & Counsilman; World Aquatics-reglement voor schoolslag en vlinderslag):
+//   crawl: instrek voor het hoofd, strekken, catch met hoge elleboog (onderarm loodrecht, elleboog bij het wateroppervlak), trekfase onder de borst,
+//          duwfase naar de dij, recovery boven water met de elleboog hoog en de hand laag; zesslagsbeenslag (3 per been per armcyclus), klein, vanuit de heup.
+//   rug:   rechte arm boven water, instrek achter het hoofd (pink eerst), trekfase met gebogen elleboog (± 90°) naast het lichaam, duwfase naar de dij; beenslag als crawl.
+//   school: glijden, uitwaartse zwaai, catch met hoge elleboog, inwaartse zwaai tot onder de kin, armen naar voren; dan pas de beenslag (hielen naar de billen,
+//          voeten haaks en naar buiten, zwiepen en sluiten), adem bij de inwaartse zwaai; armen blijven vóór de heupen.
+//   vlinder: beide armen tegelijk (sleutelgatpatroon), recovery laag en zijwaarts over het water; twee dolfijnslagen per armcyclus (bij de instrek en bij de duwfase).
+//   Zijaanzicht: armen die zijwaarts staan worden verkort getekend (armK). Of de hand de middellijn kruist zie je alleen van boven of van voren: in deze tabel blijft de hand onder de schouder.
+const _TAU = Math.PI * 2;
+const ZWEMBEEN = { // [fase, dij, knie, enkel] in graden; dij + = naar de buikzijde (bij crawl: naar de bodem), knie = buiging, enkel - = gestrekte voet
+  flutter: [[0, -5, 26, -68], [0.25, 3, 22, -72], [0.45, 8, 4, -82], [0.6, 5, 0, -78], [0.8, -3, 3, -70]], // ± 30 cm voetuitslag, knie tot ± 25° (de hiel breekt net door het water)
+  dolfijn: [[0, -7, 40, -66], [0.3, 8, 28, -70], [0.5, 15, 4, -84], [0.75, 0, 2, -74]], // benen samen, knie tot ± 40° aan het eind van de opwaartse slag
+  school:  [[0, 0, 0, -78], [0.45, 0, 3, -72], [0.55, 18, 62, -30], [0.63, 40, 118, 16], [0.71, 22, 62, 12], [0.78, 0, 3, -55], [0.88, 0, 0, -78]],
+  recht:   [[0, 0, 0, -80]]
+};
+const ZWEM = { // arm: [fase, U, F, kBoven, kOnder]: U/F = richting bovenarm/onderarm in rad in het lichaamsvlak (0 = naar het hoofd, π/2 = buikzijde, π = naar de voeten), k = verkorting
+  crawl: { f: 0.8, tegen: 0.5, perU: _TAU, perF: 0, been: 'flutter', kick: 3, pitch: [[0, 0.03]], dy: [[0, 0]],
+    arm: [[0, 0.3, 0.25, 1, 1], [0.12, 0.12, 0.1, 1, 1], [0.26, 0.38, 1.45, 0.9, 1], [0.4, 1.15, 2.0, 0.8, 0.95], [0.52, 1.85, 2.55, 0.85, 1], [0.62, 2.8, 2.95, 1, 1], [0.7, 3.6, 3.2, 0.9, 0.9], [0.8, 4.5, 1.25, 1, 0.45], [0.9, 5.55, 0.45, 1, 0.8]] },
+  rug: { f: 0.75, tegen: 0.5, rug: true, perU: -_TAU, perF: -_TAU, been: 'flutter', kick: 3, pitch: [[0, 0.03]], dy: [[0, 0]],
+    arm: [[0, -0.15, -0.15, 1, 1], [0.1, -0.45, -0.55, 1, 1], [0.32, -1.35, -3.55, 0.7, 1], [0.46, -2.2, -3.0, 0.9, 1], [0.55, -2.95, -3.05, 1, 1], [0.62, -3.6, -3.6, 1, 1], [0.78, -4.71, -4.71, 1, 1], [0.92, -5.85, -5.85, 1, 1]] },
+  school: { f: 0.85, tegen: 0, perU: 0, perF: 0, been: 'school', pitch: [[0, 0.02], [0.3, 0.08], [0.45, 0.3], [0.55, 0.26], [0.66, 0.06], [0.78, 0]], dy: [[0, 0], [0.5, 0.25], [0.7, 0.1], [0.85, 0]],
+    arm: [[0, 0.06, 0.06, 1, 1], [0.18, 0.1, 0.1, 1, 1], [0.3, 0.35, 0.75, 0.85, 0.9], [0.4, 0.55, 1.45, 0.85, 1], [0.48, 1.3, 0.35, 0.7, 0.9], [0.56, 0.75, -0.05, 0.9, 1], [0.66, 0.1, 0.06, 1, 1]] },
+  vlinder: { f: 0.8, tegen: 0, perU: _TAU, perF: _TAU, been: 'dolfijn', kick: 2, kickOff: 0.25, pitch: [[0, -0.1], [0.15, -0.12], [0.35, 0.02], [0.55, 0.22], [0.7, 0.25], [0.85, 0.08]], dy: [[0, -0.2], [0.15, -0.25], [0.45, 0.05], [0.65, 0.15], [0.85, 0]],
+    arm: [[0, 0.3, 0.28, 1, 1], [0.1, 0.15, 0.12, 1, 1], [0.25, 0.5, 1.4, 1, 1], [0.4, 1.25, 2.05, 0.9, 1], [0.55, 2.2, 2.75, 1, 1], [0.63, 2.85, 3.0, 1, 1], [0.72, 3.5, 3.5, 0.75, 0.75], [0.79, 4.1, 4.1, 0.5, 0.5], [0.83, 4.71, 4.71, 0.12, 0.12], [0.87, 5.35, 5.35, 0.5, 0.5], [0.93, 5.95, 5.95, 0.85, 0.85]] }, // recovery laag en zijwaarts: halverwege wijst de arm naar de kijker (sterk verkort)
+  stroomlijn: { f: 0.5, tegen: 0, perU: 0, perF: 0, been: 'recht', naHoofd: true, pitch: [[0, 0]], dy: [[0, 0]], arm: [[0, -0.12, -0.1, 1.06, 1.06]] },
+  onderwater: { f: 2.0, tegen: 0, perU: 0, perF: 0, been: 'dolfijn', kick: 1, kickOff: 0, naHoofd: true, pitch: [[0, 0.05], [0.5, -0.05]], dy: [[0, -0.12], [0.5, 0.12]], arm: [[0, -0.12, -0.1, 1.06, 1.06]] }
+};
+function _zwKf(tab, p, col, per) { const n = tab.length; if (n === 1) return tab[0][col];
+  const T = (i) => tab[((i % n) + n) % n][0] + Math.floor(i / n), Y = (i) => tab[((i % n) + n) % n][col] + Math.floor(i / n) * per;
+  let i = n - 1; for (let k = 0; k < n; k++) if (tab[k][0] <= p) i = k; if (p < tab[0][0]) i = -1;
+  const t0 = T(i), t1 = T(i + 1), y0 = Y(i), y1 = Y(i + 1), m0 = (Y(i + 1) - Y(i - 1)) / (T(i + 1) - T(i - 1)), m1 = (Y(i + 2) - Y(i)) / (T(i + 2) - T(i));
+  const dt = t1 - t0, u = (p - t0) / dt, u2 = u * u, u3 = u2 * u;
+  return (2 * u3 - 3 * u2 + 1) * y0 + (u3 - 2 * u2 + u) * dt * m0 + (-2 * u3 + 3 * u2) * y1 + (u3 - u2) * dt * m1; }
+function _zwBeen(naam, q) { const D = Math.PI / 180, T = ZWEMBEEN[naam]; return { th: _zwKf(T, q, 1, 0) * D, kn: Math.max(0, _zwKf(T, q, 2, 0)) * D, an: _zwKf(T, q, 3, 0) * D }; }
+function zwemmer(ctx, id, x, y, lengte, o = {}) {
+  const P0 = CAST[id]; if (!P0) return {}; const a = o.a == null ? 1 : o.a; if (a <= 0.01) return {};
+  const outfit = o.outfit || (P0.garderobe && P0.garderobe.zwem ? 'zwem' : undefined), P = Object.assign({}, P0, (P0.garderobe && outfit && P0.garderobe[outfit]) || {});
+  const H = lengte * (P.lengte || 1), hh = H / (P.kop || 6.1), kijk = o.kijk || 1, slag = o.slag || 'crawl', bril = o.bril === 'muts' ? undefined : 'ogen';
+  const fr = (q) => ((q % 1) + 1) % 1, Lb = H - hh * 3.67, L1 = Lb / 2;
+  if (slag === 'startblok') return _startblok(ctx, id, x, y, lengte, o, P, H, hh, L1, outfit, bril);
+  const S = ZWEM[slag] || ZWEM.crawl, p = o.fase != null ? fr(o.fase) : fr((o.t || 0) * S.f * (o.tempo || 1));
+  const arm = (q) => { const U = _zwKf(S.arm, q, 1, S.perU), F = _zwKf(S.arm, q, 2, S.perF); return { a: [Math.PI - U, U - F], k: [_zwKf(S.arm, q, 3, 0), _zwKf(S.arm, q, 4, 0)] }; };
+  const A = arm(p), B = arm(fr(p + S.tegen)), pitch = _zwKf(S.pitch, p, 1, 0), dyh = _zwKf(S.dy, p, 1, 0) * hh;
+  let b1, b2; if (S.been === 'school' || S.been === 'recht') b1 = b2 = _zwBeen(S.been, p);
+  else if (S.been === 'dolfijn') { const q = fr(S.kick * p + (S.kickOff || 0)); b1 = _zwBeen('dolfijn', q); b2 = _zwBeen('dolfijn', fr(q + 0.02)); }
+  else { const q = fr(S.kick * p); b1 = _zwBeen('flutter', q); b2 = _zwBeen('flutter', fr(q + 0.5)); }
+  const M = new DOMMatrix().translate(x, y + dyh).scale(kijk, 1).scale(1, S.rug ? -1 : 1).rotate((Math.PI / 2 - pitch) * 180 / Math.PI);
+  ctx.save(); ctx.transform(M.a, M.b, M.c, M.d, M.e, M.f);
+  const r = persoon(ctx, id, 0, H - hh * 3.45, lengte, { zij: true, kijk: 1, vrij: true, outfit, a, uit: o.uit || 'neutraal', bril, t: o.t || 0,
+    arm: A.a, armK: A.k, armVer: B.a, armVerK: B.k, been1: b1, been2: b2, armNaHoofd: true }); // dichtbij arm altijd vóór het hoofd: hij is dichter bij de kijker
+  ctx.restore();
+  const W = (pt) => { if (!pt || pt.x == null) return pt; const q = M.transformPoint(new DOMPoint(pt.x, pt.y)); return Object.assign({}, pt, { x: q.x, y: q.y }); };
+  const d = hh * (P.schouderK ? P.schouderK * 0.68 : 1.25);
+  return { hoofd: W(r.hoofd), handR: W(r.handR), handL: W(r.handL), heup: W(r.heup), voet: W(r.voet), schouder: W({ x: d * 0.04, y: -hh * 1.75 }), rug: W({ x: -d * 0.47, y: -hh * 1.0 }), borst: W({ x: d * 0.5, y: -hh * 1.3 }), fase: p, pitch };
+}
+// startpositie op het blok (trackstart), zijaanzicht; (x, y) = voorrand en bovenkant van het blok
+// heup boven het midden van het blok, romp met het hoofd omlaag (schouders boven de voorrand), voorste voet plat met de tenen over de rand, achterste voet op de wig met de hiel omhoog
+function _startblok(ctx, id, x, y, lengte, o, P, H, hh, L1, outfit, bril) {
+  const kijk = o.kijk || 1, lean = 1.62, d = hh * (P.schouderK ? P.schouderK * 0.68 : 1.25), hw = hh * (P.heupK || 1.45) * 0.62, A1 = hh * 1.32 * (P.armK || 1), A2 = hh * 1.2 * (P.armK || 1);
+  const hH = hh * 2.05, hipX = -hh * 1.85, wig = o.wig != null ? o.wig : hh * 0.3; // heuphoogte boven het blok, heup achter de rand
+  const been = (ax, ay, fA) => { const dx = ax - hipX, dy = ay + hH, dd = Math.min(Math.hypot(dx, dy), L1 * 1.995), phi = Math.atan2(dx, dy), al = Math.acos(dd / (2 * L1)), th = phi + al, kn = 2 * al; return { th, kn, an: fA - (th - kn) }; }; // knie naar voren
+  const voor = been(-hh * 0.56, -hh * 0.22, 0), ach = been(hipX - hh * 0.25, -wig - hh * 0.3, -0.5);
+  const cx = hipX + hw * 0.05, shx = cx + d * 0.04 * Math.cos(lean) + hh * 1.75 * Math.sin(lean), shy = -hH + d * 0.04 * Math.sin(lean) - hh * 1.75 * Math.cos(lean);
+  const ik = (tx) => { const [a1, a2] = _ik(tx - shx, -hh * 0.08 - shy, A1, A2); return [a1 - lean, a2 - a1]; };
+  ctx.save(); ctx.translate(x, y); ctx.scale(kijk, 1);
+  const r = persoon(ctx, id, cx, H - hh * 3.45 - hH, lengte, { zij: true, kijk: 1, vrij: true, outfit, a: o.a == null ? 1 : o.a, uit: o.uit || 'neutraal', bril, t: o.t || 0, been1: voor, been2: ach, voorover: lean, knik: 0.42, arm: ik(hh * 0.06), armVer: ik(-hh * 0.06) });
+  ctx.restore();
+  const W = (pt) => pt && pt.x != null ? Object.assign({}, pt, { x: x + kijk * pt.x, y: y + pt.y }) : pt;
+  return { hoofd: W(r.hoofd), handR: W(r.handR), handL: W(r.handL), heup: W(r.heup), voet: W(r.voet), wig: { x: x + kijk * (hipX - hh * 0.25), y: y - wig, h: wig } };
 }
 
 const ctx=document.getElementById('c').getContext('2d');
