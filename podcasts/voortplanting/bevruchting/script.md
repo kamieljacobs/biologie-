@@ -4,7 +4,7 @@ Luistervariant van de film *Bevruchting* (`films/voortplanting/bevruchting/`, sc
 
 v2 t.o.v. v1 (Kamiel 20 nov 2026): spreekstijl 'Huberman' (zonder zijn stem) en het begripsblok na elk nieuw begrip.
 
-Stem: nog te kiezen (stemproef ronde 2, mannenstem 45–50). Model eleven_v4, één take per hoofdstuk. `[STILTE 3]` / `[STILTE 4]` = stilte in seconden, ingevoegd in de nabewerking (niet in de stem-invoer), gevolgd door het zachte toontje. Stem-invoer = weergave, behalve de regels onder *Stem-invoer*.
+Stem: **Remko** (`vjeU1L5RIGPyrwuboFwz`), gekozen 20 nov 2026. Model eleven_v4, één take per hoofdstuk. `[STILTE 3]` / `[STILTE 4]` = stilte in seconden, ingevoegd in de nabewerking (niet in de stem-invoer), gevolgd door het zachte toontje. Stem-invoer = weergave, behalve de regels onder *Stem-invoer*.
 
 Nieuw ten opzichte van de film (nagerekend): schaalbeeld sinaasappel. Eicel ± 0,1 mm, kop zaadcel ± 5 µm, hele zaadcel ± 55 µm. Sinaasappel 8 cm = 800×: kop ± 4 mm (linze), staart ± 4 cm. Klopt met 'twintig koppen naast elkaar over de eicel' uit de film (100 / 5 = 20). 'Tweehonderd miljoen = meer dan tien keer zoveel als er mensen in Nederland wonen': NL ± 18 miljoen, × 10 = 180 miljoen.
 
@@ -159,7 +159,7 @@ Wil je het zien gebeuren? Kijk dan de film Bevruchting. Hoe het embryo zich daar
 
 ## Stem-invoer (afwijkend van de weergave)
 
-Geen centrale vervangregel van toepassing (gecontroleerd tegen `films/uitspraak.json`). Risicowoorden zoals in de film: zona pellucida, acrosoom, acrosoomreactie, poollichaampje, zygote, klievingsdelingen, mitochondriën: gewone spelling (bij de film bevestigd door blinde transcriptie, `films/voortplanting/bevruchting/bron/uitspraak.md`). Nieuwe stem = deze woorden opnieuw op de wachtlijst.
+"DNA" → "deeënaa" (vaste afspraak, ook in de films). Verder geen vervangregel van toepassing (gecontroleerd tegen `films/uitspraak.json`). Risicowoorden zoals in de film: zona pellucida, acrosoom, acrosoomreactie, poollichaampje, zygote, klievingsdelingen, mitochondriën: gewone spelling (bij de film bevestigd door blinde transcriptie, `films/voortplanting/bevruchting/bron/uitspraak.md`). Nieuwe stem = deze woorden opnieuw op de wachtlijst.
 
 ## Begripsblokken in deze aflevering
 

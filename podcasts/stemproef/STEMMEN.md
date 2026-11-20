@@ -13,4 +13,4 @@ Ronde 2 (Kamiel: 'mannelijke, sterke, enigszins zware stem van een 45–50 jaar 
 | ramon.mp3 | Ramon | QkkCTFipKAsDWEnEuFkb | zachte, warme stem, volwassen man |
 | tonny.mp3 | Tonny | nnCnl6QH9wLBf50FTj4j | warm, eind dertig, subtiel diep |
 
-Keuze Kamiel: nog open.
+Keuze Kamiel (20 nov 2026): **stem 3, Remko** (`vjeU1L5RIGPyrwuboFwz`). Vaste podcaststem.

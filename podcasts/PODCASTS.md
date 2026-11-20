@@ -81,7 +81,7 @@ Geen nagemaakte stem van een echt persoon; wel deze stijlkenmerken:
 
 ## 8. Open punten na de pilot
 
-- Stem (stemmenproef `podcasts/stemproef/`).
+- ~~Stem~~ gekozen: Remko (`vjeU1L5RIGPyrwuboFwz`, eleven_v4), zie `podcasts/stemproef/STEMMEN.md`.
 - Lengte en tempo goed? Denkmoment-stilte lang genoeg?
 - Herkenningstoon ja/nee.
 - RSS-feed voor podcast-apps.
