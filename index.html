@@ -389,6 +389,9 @@ body.op-thema .kop .wrap{grid-template-columns:minmax(0,1fr) 380px}
 .exvoort .mono{color:var(--text3);font-size:12px}
 .bijthema{margin:22px 0 0;padding:12px 16px;border-left:3px solid var(--goud);border-radius:0 10px 10px 0;background:var(--surface);color:var(--text2);font-size:16px}
 .bijthema a{color:var(--goud-text);font-weight:600}
+.ptatoetsen{margin:26px 0 8px}.ptakop{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.ptakop h2{margin:0}
+.ptatoetsen .schakel{display:flex;gap:4px;padding:3px;border:1px solid var(--line);border-radius:999px}.ptatoetsen .schakel button{border:0;background:none;color:var(--text2);font:inherit;font-weight:600;padding:5px 14px;border-radius:999px;cursor:pointer}.ptatoetsen .schakel button[aria-pressed=true]{background:var(--goud);color:var(--bg)}
+.ptagroep{margin-top:18px}.ptatoets{display:flex;align-items:center;gap:14px;padding:10px 12px;margin-top:8px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--text);text-decoration:none}.ptatoets:hover{border-color:var(--goud)}.ptatoets>span:nth-child(2){flex:1;min-width:0}.ptatoets b{display:block}.ptatoets small{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;color:var(--text2);font-size:14px;line-height:1.35}.ptatoets.leeg{opacity:.6}.ptatoets .pm{flex:none;display:flex}.ptatoets svg:last-child{flex:none;color:var(--goud-text)}
 .tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;padding-top:14px}
 .tool{display:flex;flex-direction:column;border:1px solid var(--line2);border-radius:16px;background:var(--surface);overflow:hidden;transition:border-color .18s,transform .18s}
 a.tool:hover{border-color:var(--text3);transform:translateY(-2px)}
@@ -4557,8 +4560,22 @@ function toolsBijThema(){
   const toets=Object.entries(HOOFDSTUKKEN).filter(([id,h])=>(h.tools||[]).some(t=>/tools\/toets-/.test(t.href||''))).map(([id,h])=>`<a href="#${id}">oefentoetsen ${esc(h.titel)}</a>`);
   return [ex?`<a href="#examens">${ex} oefenexamens bij Examen</a>`:'',...toets,`<a href="#lessen">lessen per thema</a>`].filter(Boolean).join(' · ');
 }
+function toetsenPTA(stand){
+  const gezien=new Set(), re=new RegExp('tools/toets-[a-z]+-'+stand+'\\.html$');
+  const groepen=NIVEAUS[stand].ond.map(o=>{
+    const rijen=[...new Set(o.subs.map(x=>hoofdstukVan(x[4])))].filter(id=>HOOFDSTUKKEN[id]&&!gezien.has(id)).map(id=>{gezien.add(id);
+      const t=(HOOFDSTUKKEN[id].tools||[]).find(t=>re.test(t.href||''));
+      return t?`<a class="ptatoets" href="${esc(t.href)}"><span class="pm">${medaille(id,52)}</span><span><b>${esc(HOOFDSTUKKEN[id].titel)}</b><small>${esc(t.tekst)}</small></span>${pijl}</a>`:`<div class="ptatoets leeg"><span class="pm">${medaille(id,52)}</span><span><b>${esc(HOOFDSTUKKEN[id].titel)}</b><small>${id==='milieu'?'zit in de oefentoets Ecologie hierboven':'nog geen oefentoets voor '+stand}</small></span></div>`;}).join('');
+    if(!rijen) return '';
+    const jaar=stand==='vwo'&&/^OND[12]$/.test(o.code)?' · jaar 1':stand==='vwo'&&/^OND[34]$/.test(o.code)?' · jaar 2':'';
+    return `<div class="ptagroep"><div class="vgroep-kop"><h3>${esc(o.naam||o.code)}</h3><span class="mono">${esc(o.code.replace(/^OND/,'OND ')+(o.w?' · '+o.w+'%':'')+jaar)}</span></div>${rijen}</div>`;
+  }).join('');
+  return `<section id="oefentoetsen" class="ptatoetsen"><div class="ptakop"><h2>Oefentoetsen in de volgorde van het PTA</h2><div class="schakel" role="group" aria-label="Niveau">${['havo','vwo'].map(n=>`<button type="button" data-toetspta="${n}" aria-pressed="${n===stand}">${n}</button>`).join('')}</div></div>${groepen}</section>`;
+}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-toetspta]');if(!b)return;niveau=window.__niveau=b.dataset.toetspta;schrijf('niveau',niveau);const y=scrollY;render();requestAnimationFrame(()=>scrollTo(0,y));});
 function tools(){
-  return kopPagina('Alle tools','Tools en practica','Simulaties en virtuele practica om het zelf te proberen.','erfelijkheid')+`<div class="wrap smal lijst"><p class="bijthema">Oefenexamens, oefentoetsen en lessen staan bij hun eigen thema: ${toolsBijThema()}</p><div class="tools">${alleTools.filter(t=>t.href).map(toolRij).join('')}</div>${alleTools.some(t=>!t.href)?`<h2>In de maak</h2><div class="tools">${alleTools.filter(t=>!t.href).map(toolRij).join('')}</div>`:''}</div>`;
+  const stand=niveau==='vwo'?'vwo':'havo';
+  return kopPagina('Alle tools','Tools en practica','Simulaties en virtuele practica om het zelf te proberen.','erfelijkheid')+`<div class="wrap smal lijst"><p class="bijthema">Oefenexamens, oefentoetsen en lessen staan bij hun eigen thema: ${toolsBijThema()} · <a href="#oefentoetsen">alle oefentoetsen in PTA-volgorde</a></p>${toetsenPTA(stand)}<h2>Tools en practica</h2><div class="tools">${alleTools.filter(t=>t.href).map(toolRij).join('')}</div>${alleTools.some(t=>!t.href)?`<h2>In de maak</h2><div class="tools">${alleTools.filter(t=>!t.href).map(toolRij).join('')}</div>`:''}</div>`;
 }
 
 function render(){
