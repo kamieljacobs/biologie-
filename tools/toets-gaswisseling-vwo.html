@@ -1,0 +1,1112 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../js/teller.js" data-root="../"></script>
+<link rel="icon" href="../img/icoon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../img/icoon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../img/icoon/apple-touch-icon.png">
+<script>(function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oefentoets Gaswisseling en uitscheiding vwo · doorklikken · Biologie bij Kamiel</title>
+<meta name="description" content="Oefentoets Gaswisseling en uitscheiding voor vwo: per vraag eerst hulpvragen, dan de toetsvraag, nakijken met het antwoordmodel en uitleg waarom.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="huisstijl.css">
+<script src="huisstijl.js"></script>
+<script src="examen-stof.js?v=b496a9e6"></script>
+<script src="examen-standen.js?v=558bd73d"></script>
+<style>
+/* Oefentoets Gaswisseling en uitscheiding vwo · zelfde bouwstenen als de oefenexamens (tools/OEFENEXAMEN_PROMPT.md). */
+body.echt .klok{display:none!important}
+@media (max-width:600px){.gwfig{overflow-x:auto;-webkit-overflow-scrolling:touch}.gwfig>svg{min-width:var(--min)}}
+:root{--rest:#2A3B57;--area:#5B6B84}
+:root[data-theme="light"]{--rest:#D5DEE9;--area:#B4BDCA}
+ .wrap{padding-inline:0}
+:root[data-theme="light"] .papier{box-shadow:0 0 0 1px rgba(20,32,52,.18),0 6px 18px rgba(20,32,52,.10)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--text);font:17px/1.55 var(--tekst);-webkit-font-smoothing:antialiased;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 40px}
+.wrap{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1,h2,h3{font-family:var(--titel);font-weight:700;letter-spacing:-.01em;text-wrap:balance;margin:0;line-height:1.1}
+h2{font-size:24px}
+.mono,.eyebrow{font:600 12px/1.2 var(--meta);letter-spacing:.1em;text-transform:uppercase}
+.eyebrow{color:var(--goud-text)}
+.muted{color:var(--text2)}
+a{color:var(--goud-text)}
+.sitenav{display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap;min-height:56px;padding:8px 0;border-bottom:1px solid var(--line);font:600 15px/1.3 var(--tekst)}
+.sitenav .merk{font:700 18px/1 var(--titel);color:var(--text);text-decoration:none}
+.sitenav .terug{color:var(--goud-text);text-decoration:none}
+.sitenav .rechts{margin-left:auto}
+.tool-kop{display:flex;flex-direction:column;gap:10px;padding:14px 0 0}
+.tool-kop h1{font-size:clamp(32px,5vw,48px)}
+.tool-kop p{margin:0;color:var(--text2);font-size:18px;max-width:62ch}
+button.toggle{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line2);background:none;color:var(--text2);border-radius:999px;padding:6px 14px 6px 8px;min-height:40px;font:600 14px var(--tekst);cursor:pointer}
+button.toggle .knopje{width:34px;height:20px;border-radius:999px;background:var(--line2);position:relative;flex:none}
+button.toggle .knopje::after{content:"";position:absolute;left:3px;top:3px;width:14px;height:14px;border-radius:50%;background:var(--text2);transition:left .15s}
+button.toggle[aria-pressed="true"]{color:var(--text);border-color:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje{background:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje::after{left:17px;background:var(--goud-ink)}
+.kopbalk{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.seg{display:inline-flex;flex-wrap:wrap;padding:3px;border-radius:999px;border:1px solid var(--line2);gap:2px}
+.seg button{border:0;background:none;padding:6px 14px;border-radius:999px;font:600 14px var(--tekst);color:var(--text2);min-height:36px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--goud);color:var(--goud-ink)}
+nav.tabs{display:flex;flex-wrap:wrap;gap:6px}
+nav.tabs button{min-width:44px;height:44px;border-radius:999px;border:1px solid var(--line2);background:none;color:var(--text2);font:600 15px var(--meta);cursor:pointer;position:relative}
+nav.tabs button:hover{color:var(--text)}
+nav.tabs button.cur{background:var(--goud);color:var(--goud-ink);border-color:var(--goud)}
+nav.tabs button.done::after{content:"";position:absolute;right:3px;top:3px;width:8px;height:8px;border-radius:50%;background:var(--groen);border:2px solid var(--bg)}
+nav.tabs button.lock{opacity:.35;cursor:not-allowed}
+nav.tabs .ov{padding:0 16px;font-family:var(--tekst)}
+.ctx{background:var(--surface);border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.ctx p{margin:0}
+details.ctxd summary{cursor:pointer;font-weight:600;color:var(--goud-text)}
+.tablewrap{overflow-x:auto}
+table.data{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+table.data th,table.data td{border-bottom:1px solid var(--line);padding:7px 10px;text-align:center}
+table.data th:first-child,table.data td:first-child{text-align:left}
+table.data th{font:600 11px var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--text3)}
+.q{display:flex;flex-direction:column;gap:14px}
+.qhead{display:flex;gap:12px;align-items:center}
+.qnum{font:700 40px/1 var(--titel);color:var(--goud-text)}
+.pts{font:600 12px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:3px 9px}
+.qtext{margin:0;font-size:18px}
+.phase{border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;background:var(--surface);display:flex;flex-direction:column;gap:12px}
+.phase>.label{display:flex;gap:8px;align-items:center;font:600 12px var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3)}
+.phase>.label .dot{width:8px;height:8px;border-radius:50%;background:var(--goud)}
+.phase.think{background:var(--surface2)}
+.phase.think>.label{color:var(--goud-text)}
+.step{display:flex;flex-direction:column;gap:8px}
+.step+.step{border-top:1px solid var(--line);padding-top:12px}
+.step p{margin:0}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button.opt,button.chip{border:1px solid var(--line2);background:var(--bg);color:var(--text);border-radius:12px;padding:9px 14px;font:inherit;font-size:16px;cursor:pointer;text-align:left}
+button.chip{border-radius:999px}
+button.opt:hover,button.chip:hover{border-color:var(--text3)}
+button.chip[aria-pressed="true"]{border-color:var(--goud);background:var(--goud-soft)}
+button.opt.right{border-color:var(--groen);background:var(--groen-soft)}
+button.opt.wrong{border-color:var(--koraal);background:var(--koraal-soft)}
+button.opt:disabled{cursor:default}
+button.go,button.ghost{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 18px;border-radius:999px;font:700 15px var(--tekst);cursor:pointer}
+button.go{border:0;background:var(--goud);color:var(--goud-ink)}
+button.go:hover{filter:brightness(1.06)}
+button.ghost{border:0;background:none;color:var(--text);box-shadow:inset 0 0 0 1px var(--line2)}
+button.ghost:hover{box-shadow:inset 0 0 0 1px var(--text3)}
+button:disabled.go,button:disabled.ghost{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:2px solid var(--goud);outline-offset:3px;border-radius:6px}
+input.num{width:96px;min-height:44px;font:600 16px var(--meta);padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text)}
+select{font:inherit;font-size:15px;min-height:44px;padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);max-width:100%;flex:1 1 260px}
+textarea{width:100%;min-height:88px;font:inherit;padding:10px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);resize:vertical}
+.fb{font-size:16px;border-radius:12px;padding:12px 14px;background:var(--surface2);border:1px solid var(--line2)}
+.fb.ok{border-color:var(--groen);background:var(--groen-soft)}
+.fb.no{border-color:var(--koraal);background:var(--koraal-soft)}
+.fb.hint{border-color:var(--teal);background:var(--teal-soft)}
+.graphs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.graphs{grid-template-columns:1fr}}
+.gopt{border:1px solid var(--line2);border-radius:var(--radius);background:var(--bg);padding:8px 8px 2px;cursor:pointer;color:var(--text);font:inherit;text-align:left}
+.gopt b{font:700 20px var(--titel);margin-left:6px;color:var(--goud-text)}
+.gopt:hover{border-color:var(--text3)}
+.gopt.right{border-color:var(--groen);box-shadow:0 0 0 2px var(--groen) inset}
+.gopt.wrong{border-color:var(--koraal);box-shadow:0 0 0 2px var(--koraal) inset}
+svg{display:block;max-width:100%;height:auto}
+.ax{stroke:var(--text3);stroke-width:1.2;fill:none}
+.grid{stroke:var(--line2);stroke-width:1;fill:none}
+.tick{fill:var(--text3);font:500 10px var(--meta)}
+.cv{stroke:var(--teal);stroke-width:2.4;fill:none;stroke-linejoin:round}
+.cvbad{stroke:var(--koraal);stroke-width:2;fill:none;stroke-dasharray:5 4}
+.restband{fill:var(--rest);opacity:.8}
+.lbl{fill:var(--text);font:600 12px var(--tekst)}
+.lblm{fill:var(--text2);font:12px var(--tekst)}
+.lblbad{fill:var(--koraal);font:700 12px var(--tekst)}
+.selfscore{display:flex;flex-direction:column;gap:10px}
+.selfscore label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.selfscore input{margin-top:4px;width:18px;height:18px;accent-color:var(--goud);flex:none}
+.model{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:16px}
+.anim{display:flex;flex-direction:column;gap:10px}
+.anim .stage{border-radius:var(--radius);background:var(--surface2);border:1px solid var(--line2);overflow:hidden}
+.anim .cap{min-height:3.2em;margin:0}
+.anim .nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pips{display:flex;gap:6px;margin-left:auto}
+.pips span{width:9px;height:9px;border-radius:50%;background:var(--line2)}
+.pips span.on{background:var(--goud)}
+.seq{display:flex;flex-direction:column;gap:6px}
+.seq button{display:flex;gap:10px;align-items:center}
+.seq .n{font:600 13px var(--meta);width:24px;height:24px;border-radius:50%;display:inline-grid;place-items:center;background:var(--line2);flex:none}
+.seq button.placed{border-color:var(--groen)} .seq button.placed .n{background:var(--groen);color:var(--goud-ink)}
+.score{font:600 16px var(--meta)}
+.ovtable td:last-child,.ovtable th:last-child{text-align:right}
+.pre{border-left:3px solid var(--goud);padding:2px 0 2px 14px;display:flex;flex-direction:column;gap:8px}
+.pre p{margin:0;color:var(--text2)}
+.figrow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.figrow{grid-template-columns:1fr}}
+.legenda{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--text2)}
+.legenda i{display:inline-block;vertical-align:middle;margin-right:6px}
+.legenda .lijn{width:22px;height:0;border-top:2.5px solid var(--text)}
+.legenda .vlak{width:16px;height:12px;background:var(--area)}
+.tick.dim{opacity:.35}
+p.klikbaar{line-height:2}
+button.mark{font:inherit;color:var(--text);background:none;border:0;border-bottom:2px dashed var(--goud);padding:0 3px;border-radius:4px;cursor:pointer}
+button.mark[aria-pressed="true"]{background:var(--goud-soft);border-bottom-style:solid}
+button.mark:disabled{cursor:default}
+.sellab{min-width:200px;font-weight:600}
+label.slider{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center}
+label.slider span{min-width:170px;font-weight:600;font-size:15px}
+label.slider input{flex:1 1 200px;accent-color:var(--goud)}
+.podium{background:var(--surface2);border:1px solid var(--line2);border-radius:var(--radius);overflow:hidden}
+p.regels{font-family:var(--tekst);line-height:1.9;margin:0}
+p.regels span{display:inline-block;width:2em;font:600 12px var(--meta);color:var(--text3)}
+sup{font-size:.7em}
+.papier{--bg:#FFFFFF;--surface:#FFFFFF;--surface2:#EEF1F5;--line:rgba(20,32,52,.10);--line2:rgba(20,32,52,.24);
+  --text:#121C2E;--text2:#3B4759;--text3:#667185;--goud:#C99A2E;--goud-text:#7E5C0B;--goud-soft:rgba(217,172,60,.18);
+  --groen:#2F8A47;--koraal:#B9502F;--teal:#25729C;--paars:#6550AD;--groen-soft:rgba(47,138,71,.10);--koraal-soft:rgba(185,80,47,.10);--teal-soft:rgba(37,114,156,.10);
+  --rest:#D5DEE9;--area:#B4BDCA;color-scheme:light;
+  background:#FCFCFA;color:var(--text);border:0;border-radius:6px;padding:16px 20px 12px;display:flex;flex-direction:column;gap:12px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.08),0 10px 28px rgba(0,0,0,.35)}
+.papier .pkop{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;border-bottom:2px solid var(--text);padding-bottom:6px}
+.papier .pkop .mono{color:var(--text2)}
+.papier .pnr{display:flex;align-items:baseline;gap:10px}
+.papier .nr{font:700 30px/1 var(--titel);color:var(--text)}
+.papier .pre{border-left:0;padding:0}
+.papier .pre p{color:var(--text)}
+.papier .qtext{color:var(--text)}
+.herhaal.papier{padding:10px 14px;gap:6px;box-shadow:none;border-radius:6px}
+.herhaal .hkop{color:var(--text3);font-size:11px}
+.herhaal .qtext{font-size:16px}
+.papier .pvoet{font:500 11px var(--meta);letter-spacing:.06em;color:var(--text3);text-align:right}
+.papier details.ctxd summary{color:var(--goud-text)}
+.papier .podium{background:var(--surface2)}
+.phase>.label .tag{margin-left:6px;font:600 10px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:2px 8px}
+.sleutel{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:14px;color:var(--text2)}
+.sleutel .sw{display:inline-block;width:16px;height:12px;border-radius:2px;vertical-align:-1px;margin-right:7px}
+.sleutel .papier-sw{background:#FCFCFA}
+.sleutel .donker-sw{background:var(--surface2);box-shadow:inset 0 0 0 1px var(--line2)}
+.exfoto{display:block;width:100%;height:auto;border-radius:2px}
+footer{color:var(--text3);font-size:14px;padding-top:24px;border-top:1px solid var(--line)}
+body.hulp .ans.locked{display:none}
+body.examen .think{display:none}
+body.examen .think.open{display:flex}
+.helpbtn{display:none!important}
+body.examen .helpbtn{display:inline-flex!important}
+body.examen .tonext{display:none!important}
+@media (max-width:600px){body{font-size:16px}.qtext{font-size:17px}.phase,.ctx{padding:14px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="sitenav" aria-label="Site">
+    <a class="merk" href="../index.html#home">Biologie bij Kamiel</a>
+    <a class="terug" href="../index.html#gaswisseling">← Terug naar Gaswisseling en uitscheiding</a>
+    <span class="rechts"><button type="button" class="icoon" data-thema-knop></button></span>
+  </nav>
+  <header class="tool-kop">
+    <div class="eyebrow" id="eb">Oefentoets Gaswisseling en uitscheiding · vwo</div>
+    <h1 id="h1">Oefentoets Gaswisseling en uitscheiding</h1>
+    <div class="seg" id="opgs" role="group" aria-label="Opgave"></div>
+    <div class="sleutel"><span><i class="sw papier-sw"></i>Wit vak = de toetsvraag</span><span><i class="sw donker-sw"></i>Donker vak = hulpvragen en uitleg (niet uit de toets)</span></div>
+    <p>Maak de toets stap voor stap. Bij elke vraag denk je eerst na met de hulpvragen, dan beantwoord je de toetsvraag, en daarna zie je waarom het antwoord klopt. Kies zelf hoeveel hulp je wilt; met ‘Echte toets’ oefen je zonder hulp.</p>
+    <div class="kopbalk">
+      <div class="seg" id="standen" role="group" aria-label="Hoeveel hulp wil je?"></div>
+      <button id="vrij" class="toggle" aria-pressed="false"><span class="knopje"></span>Vrij doorklikken</button>
+      <span class="mono muted" id="sub"></span>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs" aria-label="Vragen"></nav>
+
+  <section class="ctx papier" id="ctx"></section>
+
+  <main id="main"></main>
+
+  <footer>Eigen vragen, met inspiratie uit de centrale examens (© CvTE), Biologie voor Jou en Nectar. Grafieken en schema's zijn eigen tekeningen; bronnen van de gegevens staan bij de opgaven.<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a> </span></footer>
+</div>
+
+<script>
+(function(){
+const $=(s,r=document)=>r.querySelector(s);
+const el=(tag,attrs={},html="")=>{const e=document.createElement(tag);for(const k in attrs){if(k==="class")e.className=attrs[k];else if(k.startsWith("on"))e.addEventListener(k.slice(2),attrs[k]);else e.setAttribute(k,attrs[k]);}if(html)e.innerHTML=html;return e;};
+const TOOL="gw-vwo";
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- opslag (alleen gemak) ---------- */
+let store={scores:{},mode:"hulp"};
+try{const s=JSON.parse(localStorage.getItem("toets-gaswisseling-vwo")||"null");if(s)store=Object.assign(store,s);}catch(e){}
+const save=()=>{try{localStorage.setItem("toets-gaswisseling-vwo",JSON.stringify(store));}catch(e){}};
+
+/* ---------- algemene bouwstenen ---------- */
+function phase(cls,label){const p=el("section",{class:"phase "+cls});
+  if(cls==="think")p.append(el("div",{class:"label"},`<span class="dot"></span>Hulpvragen<span class="tag">niet uit de toets</span>`));
+  else p.append(el("div",{class:"label"},`<span class="dot"></span>${label==="Antwoord"?"Jouw antwoord op de toetsvraag":label}`));return p;}
+function choiceStep(container,{q,opts,right,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});const fb=el("div",{class:"fb",hidden:""});
+  const knop=[];opts.forEach((o,i)=>{const b=el("button",{class:"opt",onclick:()=>{
+    if(i===right){row.querySelectorAll("button").forEach(x=>x.disabled=true);b.classList.add("right");fb.className="fb ok";fb.innerHTML=ok;fb.hidden=false;onDone&&onDone();}
+    else{b.classList.add("wrong");fb.className="fb no";fb.innerHTML=no;fb.hidden=false;}
+  }},o);knop.push(b);});
+  /* @@schud@@ vaste, geschudde volgorde (zaadje = vraagtekst), zodat het goede antwoord niet steeds eerst staat */
+  {let h=2166136261;for(const c of String(q))h=Math.imul(h^c.charCodeAt(0),16777619)>>>0;
+   const v=knop.map((b,i)=>i);for(let i=v.length-1;i>0;i--){h=Math.imul(h^(h>>>15),2246822507)>>>0;const j=h%(i+1);[v[i],v[j]]=[v[j],v[i]];}
+   if(v.length>1&&v[0]===right&&opts.length>2){const k=v.indexOf(right);[v[0],v[1]]=[v[1],v[0]];}
+   v.forEach(i=>row.append(knop[i]));}
+  s.append(row,fb);container.append(s);return s;
+}
+function mc(container,{opts,right,pts,qid,graphs:isGraph,onChecked}){
+  const wrap=el("div",{class:isGraph?"graphs":"row",style:isGraph?"":"flex-direction:column;align-items:stretch"});
+  const fb=el("div",{class:"fb",hidden:""});
+  opts.forEach((o,i)=>{const L="ABCDEF"[i];
+    const b=isGraph?el("button",{class:"gopt"},`<b>${L}</b>${o}`):el("button",{class:"opt"},`<b style="font:700 18px var(--titel);color:var(--goud-text);margin-right:10px">${L}</b>${o}`);
+    b.addEventListener("click",()=>{
+      wrap.querySelectorAll("button").forEach(x=>x.disabled=true);
+      const good=i===right; b.classList.add(good?"right":"wrong");
+      if(!good)wrap.children[right].classList.add("right");
+      fb.className="fb "+(good?"ok":"no");
+      fb.innerHTML=good?`Goed: <b>${"ABCDEF"[right]}</b>. ${pts} ${pts>1?"punten":"punt"}.`:`Het goede antwoord is <b>${"ABCDEF"[right]}</b>. 0 punten.`;
+      fb.hidden=false; setScore(qid,good?pts:0); onChecked&&onChecked();
+    });wrap.append(b);});
+  container.append(wrap,fb);
+}
+function waaromBtn(container,build){
+  const b=el("button",{class:"ghost waarombtn"},"Laat zien waarom ›");const box=el("div",{hidden:""});
+  b.onclick=()=>{b.remove();box.hidden=false;build(box);if(window.EXSTOF)EXSTOF.extraWaarom(TOOL,cur,box);};
+  container.append(b,box);
+}
+function lockAns(think,ans,label="Naar de vraag ›"){
+  ans.classList.add("locked");
+  const go=el("button",{class:"go tonext",hidden:""},label);
+  go.onclick=()=>{ans.classList.remove("locked");go.remove();ans.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});};
+  think.append(go);
+  return ()=>{think.append(go);go.hidden=false;};
+}
+function helpButton(q,think){
+  const b=el("button",{class:"ghost helpbtn"},"Hulp nodig? Toon de hulpvragen");
+  b.onclick=()=>{think.classList.add("open");b.remove();};
+  q.append(b);
+}
+function setScore(id,p){store.scores[id]=p;save();renderTabs();if(nextBtns[id])nextBtns[id].hidden=false;}
+
+/* ---------- vragen ---------- */
+const Q=[],OPG=[];
+
+/* Vraag 5 en 6: eerst zonder opties */
+function noOptions(q,{id,pts,text,prompt,hint,opts,right,uitleg}){
+  q.append(el("p",{class:"qtext"},text));
+  const think=phase("think","Eerst zelf"),ans=phase("ans","Kies je antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Toon de keuzes ›");
+  const s=el("div",{class:"step"});s.append(el("p",{},prompt));
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:"Wat denk jij? Schrijf het kort op."});const hb=el("button",{class:"ghost"},"Tip");const hf=el("div",{class:"fb hint",hidden:""},hint);
+  hb.onclick=()=>{hf.hidden=false;hb.remove();};
+  ta.addEventListener("input",()=>{if(ta.value.trim().length>2)unlock();});
+  s.append(ta,hb,hf);think.append(s);
+  mc(ans,{qid:id,pts,right,opts,onChecked:()=>{
+    if(ta.value.trim())ans.append(el("div",{class:"model"},`<b>Jij dacht eerst:</b> ${ta.value.replace(/</g,"&lt;")}<br><span class="muted">Klopte dat met de keuze die je maakte?</span>`));
+    waaromBtn(ans,b=>b.append(el("div",{class:"model"},uitleg)));}});
+  q.append(think,ans);
+}
+/* ================= extra bouwstenen ================= */
+function pre(q,html){q.append(el("div",{class:"pre"},html));}
+function chipsStep(container,{q,items,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});
+  items.forEach(([t])=>{const b=el("button",{class:"chip","aria-pressed":"false"},t);b.onclick=()=>b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")==="true"?"false":"true");row.append(b);});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(row,ck,fb);container.append(s);
+  ck.onclick=()=>{const sel=[...row.children].map(b=>b.getAttribute("aria-pressed")==="true");
+    const teveel=sel.some((s,k)=>s&&!items[k][1]),mist=sel.some((s,k)=>!s&&items[k][1]);fb.hidden=false;
+    if(!teveel&&!mist){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;row.querySelectorAll("button").forEach(b=>b.disabled=true);onDone&&onDone();}
+    else if(teveel){fb.className="fb hint";fb.innerHTML=no;}
+    else{fb.className="fb hint";fb.innerHTML="Wat je gekozen hebt klopt, maar er hoort nog meer bij. Kies alles wat klopt.";}};
+  return s;
+}
+function selectsStep(container,{q,rows,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const id=uid+"s"+k;
+    r.append(el("label",{for:id,class:"sellab"},lab));const sel=el("select",{id});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);s.append(r);return sel;});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(ck,fb);container.append(s);
+  ck.onclick=()=>{const n=sels.filter((sel,k)=>sel.value!==""&&+sel.value===rows[k][2]).length;fb.hidden=false;
+    if(n===rows.length){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;sels.forEach(x=>x.disabled=true);onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=`${n} van de ${rows.length} goed. `+(no||"Probeer het nog eens.");}};
+}
+function numStep(container,{q,right,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const r=el("div",{class:"row"});const inp=el("input",{class:"num",id:uid,inputmode:"decimal","aria-label":"antwoord"});const ck=el("button",{class:"ghost"},"Controleer");const fb=el("div",{class:"fb",hidden:""});
+  r.append(inp,ck);s.append(r,fb);container.append(s);
+  ck.onclick=()=>{const v=parseFloat((inp.value||"").replace(",","."));fb.hidden=false;
+    if(v===right){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;inp.disabled=true;onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=no;}};
+}
+function openAnswer(ans,{id,pts,checks,model,valkuil,placeholder,after}){
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:placeholder||"Schrijf je antwoord…"});
+  const ck=el("button",{class:"go"},"Nakijken");const tf=el("div",{class:"fb hint",hidden:""},"Schrijf eerst je antwoord op. Daarna kijk je het na.");
+  ans.append(ta,ck,tf);
+  ck.onclick=()=>{if(ta.value.trim().length<8){tf.hidden=false;ta.focus();return;}tf.remove();ck.remove();ta.readOnly=true;
+    const ss=el("div",{class:"selfscore"});
+    ss.append(el("p",{style:"margin:0"},"<b>Kijk jezelf na met het antwoordmodel.</b> Vink aan wat er in jouw antwoord staat."));
+    const boxes=checks.map((c,k)=>{const lab=el("label",{},`<input type="checkbox" id="q${id}c${k}"><span>${c} <span class="pts">1p</span></span>`);ss.append(lab);return lab.querySelector("input");});
+    if(model)ss.append(el("div",{class:"model"},"<b>Voorbeeldantwoord:</b> "+model));
+    if(valkuil)ss.append(el("div",{class:"fb hint"},"<b>Valkuil:</b> "+valkuil));
+    const sc=el("div",{class:"score"});ss.append(sc);ans.append(ss);
+    const upd=()=>{const p=Math.min(pts,boxes.filter(b=>b.checked).length);sc.textContent=`Jouw score: ${p} / ${pts}`;setScore(id,p);};
+    boxes.forEach(b=>b.onchange=upd);upd();after&&after();};
+}
+function juistOnjuist(ans,{id,stm,key,uitleg}){
+  const pick=stm.map(()=>null);
+  stm.forEach((t,k)=>{const r=el("div",{class:"row"});r.append(el("span",{style:"flex:1 1 260px"},`<b style="font-family:var(--meta)">${k+1}</b>&nbsp; ${t}`));
+    ["juist","onjuist"].forEach((lab,v)=>{const b=el("button",{class:"chip","aria-pressed":"false"},lab);b.onclick=()=>{pick[k]=v===0;r.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c===b?"true":"false"));};r.append(b);});ans.append(r);});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(pick.includes(null)){fb.hidden=false;fb.className="fb hint";fb.textContent="Beoordeel eerst alle uitspraken.";return;}
+    const n=pick.filter((p,k)=>p===key[k]).length;const p=n===stm.length?2:n===stm.length-1?1:0;ck.disabled=true;
+    ans.querySelectorAll(".chip").forEach(c=>c.disabled=true);
+    fb.hidden=false;fb.className="fb "+(p===2?"ok":"no");
+    fb.innerHTML=`${n} van de ${stm.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+key.map((k,i)=>`${i+1} ${k?"juist":"onjuist"}`).join(" · ");setScore(id,p);
+    waaromBtn(ans,uitleg);};
+}
+function stepAnim(box,steps,render){
+  let i=0;const stage=el("div",{class:"stage"}),cap=el("p",{class:"cap"});
+  const prev=el("button",{class:"ghost"},"‹ Vorige"),next=el("button",{class:"go"},"Volgende ›");
+  const pips=el("div",{class:"pips"},steps.map(()=>"<span></span>").join(""));
+  const nav=el("div",{class:"nav"});nav.append(prev,next,pips);
+  const a=el("div",{class:"anim"});a.append(stage,cap,nav);box.append(a);
+  function show(){cap.innerHTML=steps[i].cap;prev.disabled=i===0;next.textContent=i===steps.length-1?"Opnieuw ›":"Volgende ›";
+    pips.querySelectorAll("span").forEach((p,j)=>p.classList.toggle("on",j===i));render(stage,steps[i],i);}
+  prev.onclick=()=>{if(i>0){i--;show();}};next.onclick=()=>{i=(i+1)%steps.length;show();};show();
+}
+/* ================= meer bouwstenen ================= */
+function seqStep(container,{q,items,shown,ok,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const seq=el("div",{class:"seq"});let at=0;const fb=el("div",{class:"fb",hidden:""});
+  shown.forEach(k=>{const b=el("button",{class:"opt"},`<span class="n">·</span>${items[k]}`);b.onclick=()=>{if(b.classList.contains("placed"))return;
+    if(k===at){b.classList.add("placed");b.querySelector(".n").textContent=at+1;at++;fb.hidden=true;if(at===items.length){fb.hidden=false;fb.className="fb ok";fb.innerHTML=ok;onDone&&onDone();}}
+    else{fb.hidden=false;fb.className="fb hint";fb.textContent="Dat is nog niet de volgende stap. Wat gebeurt er direct daarna?";}};seq.append(b);});
+  s.append(seq,fb);container.append(s);
+}
+function selectAnswer(ans,{id,rows,score,uid,after,intro}){
+  if(intro)ans.append(el("p",{style:"margin:0"},intro));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const sid=uid+"a"+k;
+    r.append(el("label",{for:sid,class:"sellab"},lab));const sel=el("select",{id:sid});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);ans.append(r);return sel;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(sels.some(x=>x.value==="")){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul eerst alles in.";return;}
+    const n=sels.filter((x,k)=>+x.value===rows[k][2]).length;const p=score(n);sels.forEach(x=>x.disabled=true);ck.remove();
+    fb.hidden=false;fb.className="fb "+(n===rows.length?"ok":"no");
+    fb.innerHTML=`${n} van de ${rows.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+rows.map(([lab,opts,r])=>`${lab}: ${opts[r]}`).join(" · ");
+    setScore(id,p);after&&after();};
+}
+function textBox(html){return b=>b.append(el("div",{class:"model"},html));}
+const svgWrap=(vb,inner,label)=>`<svg viewBox="${vb}" role="img" aria-label="${label}">${inner}</svg>`;
+function numAnswer(ans,{id,fields,after}){
+  const inps=fields.map(([lab,unit],k)=>{const r=el("div",{class:"row"});const fid="q"+id+"f"+k;
+    r.append(el("label",{for:fid,class:"sellab"},lab));const i=el("input",{class:"num",id:fid,inputmode:"decimal"});r.append(i,el("span",{class:"muted"},unit));ans.append(r);return i;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{const v=inps.map(i=>parseFloat((i.value||"").replace(",",".")));if(v.some(isNaN)){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul beide uitkomsten in.";return;}
+    inps.forEach(i=>i.disabled=true);ck.remove();const res=fields.map((f,k)=>f[2](v[k]));const p=res.filter(Boolean).length;
+    fb.hidden=false;fb.className="fb "+(p===fields.length?"ok":"no");
+    fb.innerHTML=`<b>${p} van de ${fields.length} punten.</b><br>`+fields.map((f,k)=>`${res[k]?"✓":"✗"} ${f[3]}`).join("<br>");setScore(id,p);after&&after();};
+}
+
+/* ===== Oefentoets Gaswisseling en uitscheiding: gedeelde hulpjes (havo en vwo uit één bron) ===== */
+const VWO=true;
+let QN=0,ON=0;
+/* vraag(punten, onderwerp, build(q,id), stof?) -> id; stof = {titel, html, anim?, films?} voor 'Uitleg van de stof' */
+function vraag(pts,t,build,stof){const id=++QN;Q.push({id,pts,t,build:q=>build(q,id)});
+  if(stof&&window.EXSTOF)EXSTOF.zet(TOOL,[id],stof);return id;}
+function opgave(kort,titel,html,ids){const nr=++ON;
+  OPG.push({nr,kort,titel,ids,ctx:`<div class="pkop"><span class="mono">Toetstekst · inleiding opgave ${nr}</span></div>`+html});}
+/* films van het thema (hrefs als in HOOFDSTUKKEN.gaswisseling.films); alle drie havo + vwo, met vwo-blokken */
+const F={
+  adem:["Adem in, adem uit","films/gaswisseling/1-adem-in-adem-uit.html"],
+  gas:["Gas op reis","films/gaswisseling/2-gas-op-reis.html"],
+  uit:["Uitscheiding en evenwicht","films/gaswisseling/3-uitscheiding-en-evenwicht.html"]};
+/* begin van een vraag: vraagzin, hulp- en antwoordvak */
+function start(q,html){q.append(el("p",{class:"qtext"},html));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  return {think,ans,unlock};}
+const B=t=>`<b>${t}</b>`;
+const TABEL=(nr,kop,rijen,noot,label)=>`<div class="eyebrow">${label||"tabel "+nr}</div><div class="tablewrap"><table class="data"><tr>${kop.map(k=>`<th>${k}</th>`).join("")}</tr>${rijen.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join("")}</tr>`).join("")}</table></div>`+(noot?`<p class="muted" style="font-size:14px;margin:4px 0 0">${noot}</p>`:"");
+const FIG=(inner,vb,label,max=640,min=520)=>`<div class="gwfig" style="max-width:${max}px;margin:0 auto;width:100%;--min:${min}px">`+svgWrap(vb,inner,label)+`</div>`;
+const komma=v=>String(v).replace(".",",");
+
+/* Rekenvraag met één uitkomst: goed = alle punten; fout = de leerling vinkt zelf aan of de aanpak klopte (deelpunt). */
+function rekenAnswer(ans,{id,pts,label,unit,right,tol=1e-6,aanpak,model,after}){
+  const r=el("div",{class:"row"});const fid="q"+id+"r";
+  r.append(el("label",{for:fid,class:"sellab"},label));const inp=el("input",{class:"num",id:fid,inputmode:"decimal"});r.append(inp,el("span",{class:"muted"},unit));ans.append(r);
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{const v=parseFloat((inp.value||"").replace(",","."));if(isNaN(v)){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul eerst je uitkomst in.";return;}
+    inp.disabled=true;ck.remove();fb.hidden=false;
+    if(Math.abs(v-right)<=tol){fb.className="fb ok";fb.innerHTML=`Goed: <b>${komma(right)} ${unit}</b>. ${pts} punten.<br>${model}`;setScore(id,pts);}
+    else{fb.className="fb no";fb.innerHTML=`Het goede antwoord is <b>${komma(right)} ${unit}</b>.<br>${model}`;
+      const ss=el("div",{class:"selfscore"});
+      const lab=el("label",{},`<input type="checkbox" id="q${id}c0"><span>${aanpak} <span class="pts">1p</span></span>`);ss.append(lab);
+      const sc=el("div",{class:"score"});ss.append(sc);ans.append(ss);const box=lab.querySelector("input");
+      const upd=()=>{const p=box.checked?1:0;sc.textContent=`Jouw score: ${p} / ${pts}`;setScore(id,p);};box.onchange=upd;upd();}
+    after&&after();};
+}
+/* Open tabel: per rij een invulvak; na nakijken het model per rij en een vinkje 'klopt'. score(n) = punten bij n goede rijen. */
+function rijenAnswer(ans,{id,rows,score,kop,after}){
+  if(kop)ans.append(el("p",{style:"margin:0"},kop));
+  const tas=rows.map(([lab],k)=>{const r=el("div",{class:"row"});const fid="q"+id+"t"+k;
+    r.append(el("label",{for:fid,class:"sellab"},lab));const t=el("input",{class:"txt",id:fid,style:"flex:1 1 260px;min-width:0;font:inherit;padding:8px 10px;border-radius:8px;border:1px solid var(--line2);background:var(--surface);color:var(--text)",placeholder:"stof(fen) en hoe"});r.append(t);ans.append(r);return t;});
+  const ck=el("button",{class:"go"},"Nakijken"),tf=el("div",{class:"fb hint",hidden:""},"Vul eerst elke rij in.");ans.append(ck,tf);
+  ck.onclick=()=>{if(tas.some(t=>t.value.trim().length<3)){tf.hidden=false;return;}tf.remove();ck.remove();tas.forEach(t=>t.readOnly=true);
+    const ss=el("div",{class:"selfscore"});ss.append(el("p",{style:"margin:0"},"<b>Kijk jezelf na met het antwoordmodel.</b> Vink per rij aan of jouw antwoord klopt."));
+    const boxes=rows.map(([lab,model],k)=>{const l=el("label",{},`<input type="checkbox" id="q${id}c${k}"><span><b>${lab}</b>: ${model}</span>`);ss.append(l);return l.querySelector("input");});
+    const sc=el("div",{class:"score"});ss.append(sc);ans.append(ss);
+    const max=score(rows.length);const upd=()=>{const p=score(boxes.filter(b=>b.checked).length);sc.textContent=`Jouw score: ${p} / ${max}`;setScore(id,p);};
+    boxes.forEach(b=>b.onchange=upd);upd();after&&after();};
+}
+
+/* ---------- Afbeelding: saturatie van Kees tijdens twee ademstops (opgave Ademstops), zelfde krommen als
+   eigen/figuren/gaswisseling/maak.py in kamieljacobs/toetsen-biologie (fictief). hl = [[van,tot,kleur]] in s ---------- */
+const SATW=t=>{for(const st of [20,110]){const d=t-st;if(d>=0&&d<45)return 96-16*(d/45)**3;if(d>=45&&d<60)return 80+16*(d-45)/15;}return 96;};
+function SAT({hl=[],punt=null}={}){
+  const X0=60,X1=620,Y0=30,Y1=290,xs=t=>X0+t*(X1-X0)/180,ys=v=>Y1-(v-70)*(Y1-Y0)/31;
+  let s="";
+  hl.forEach(([a,b,c])=>s+=`<rect x="${xs(a)}" y="${Y0}" width="${xs(b)-xs(a)}" height="${Y1-Y0}" fill="${c}" opacity=".2"/>`);
+  [0,25,50,75,100,125,150,175].forEach(k=>s+=`<path d="M${xs(k)},${Y1} v5" stroke="var(--text2)"/><text x="${xs(k)}" y="${Y1+20}" text-anchor="middle" class="lblm">${k}</text>`);
+  [70,75,80,85,90,95,100].forEach(v=>s+=`<path d="M${X0},${ys(v)} H${X1}" stroke="var(--line)"/><text x="${X0-8}" y="${ys(v)+4}" text-anchor="end" class="lblm">${v}</text>`);
+  s+=`<path d="M${X0},${Y0} V${Y1} H${X1}" fill="none" stroke="var(--text2)" stroke-width="1.4"/>`;
+  let d="";for(let t=0;t<=180;t++)d+=(t?"L":"M")+xs(t).toFixed(1)+","+ys(SATW(t)).toFixed(1);
+  s+=`<path d="${d}" fill="none" stroke="var(--text)" stroke-width="2.4" stroke-linejoin="round"/>`;
+  for(const st of [20,110]){
+    s+=`<path d="M${xs(st)+6},${ys(99)} H${xs(st+45)-6}" stroke="var(--text)" stroke-width="1.2"/><path d="M${xs(st)},${ys(99)} l7,-4 v8 z M${xs(st+45)},${ys(99)} l-7,-4 v8 z" fill="var(--text)"/>`;
+    s+=`<text x="${xs(st+22.5)}" y="${ys(99)-7}" text-anchor="middle" class="lblm">geen ademhaling</text>`;
+    s+=`<path d="M${xs(st+52)},${ys(73.5)} L${xs(st+45.6)},${ys(79.4)}" stroke="var(--text)" stroke-width="1.2"/><text x="${xs(st+53)}" y="${ys(72)}" class="lblm">wakker</text>`;}
+  if(punt!=null)s+=`<circle cx="${xs(punt)}" cy="${ys(SATW(punt))}" r="7" fill="var(--goud)" stroke="var(--text)" stroke-width="1.2"/>`;
+  s+=`<text x="16" y="${(Y0+Y1)/2}" class="lblm" text-anchor="middle" transform="rotate(-90 16 ${(Y0+Y1)/2})">saturatie (%)</text>`;
+  s+=`<text x="${(X0+X1)/2}" y="${Y1+40}" text-anchor="middle" class="lblm">tijd (s)</text>`;
+  return FIG(s,"0 0 640 340","Saturatie tijdens twee ademstops: eerst ongeveer 96 procent, daarna eerst langzaam en dan steeds sneller dalend tot 80 procent, na het wakker worden snel terug naar 96");
+}
+
+/* ---------- Afbeelding: lichaamstemperatuur en ademfrequentie van een hond (opgave Hond), zelfde gegevens als maak.py ---------- */
+const HONDD={t:[0,5,10,15,20,25,30,35,40,45,50,55,60],T:[38.5,38.7,39.0,39.3,39.5,39.6,39.6,39.4,39.2,39.0,38.9,38.8,38.8],f:[30,60,120,200,240,250,250,200,140,100,80,70,60]};
+function HOND({hl=[],dim=[]}={}){
+  const X0=70,X1=560,Y0=24,Y1=284,xs=t=>X0+t*(X1-X0)/60,yT=v=>Y1-(v-38)*(Y1-Y0)/2,yF=v=>Y1-v*(Y1-Y0)/300;
+  let s=`<rect x="${xs(0)}" y="${Y0}" width="${xs(30)-xs(0)}" height="${Y1-Y0}" fill="var(--text3)" opacity=".14"/>`;
+  hl.forEach(([a,b,c])=>s+=`<rect x="${xs(a)}" y="${Y0}" width="${xs(b)-xs(a)}" height="${Y1-Y0}" fill="${c}" opacity=".22"/>`);
+  s+=`<text x="${xs(15)}" y="${Y0+18}" text-anchor="middle" class="lblm">lopen in de zon</text><text x="${xs(45)}" y="${Y0+18}" text-anchor="middle" class="lblm">rust in de schaduw</text>`;
+  [0,10,20,30,40,50,60].forEach(k=>s+=`<path d="M${xs(k)},${Y1} v5" stroke="var(--text2)"/><text x="${xs(k)}" y="${Y1+20}" text-anchor="middle" class="lblm">${k}</text>`);
+  [38,38.5,39,39.5,40].forEach(v=>s+=`<text x="${X0-8}" y="${yT(v)+4}" text-anchor="end" class="lblm">${komma(v.toFixed(2))}</text><path d="M${X0-4},${yT(v)} h4" stroke="var(--text2)"/>`);
+  [0,50,100,150,200,250,300].forEach(v=>s+=`<text x="${X1+8}" y="${yF(v)+4}" class="lblm">${v}</text><path d="M${X1},${yF(v)} h4" stroke="var(--text2)"/>`);
+  s+=`<path d="M${X0},${Y0} V${Y1} H${X1} V${Y0} Z" fill="none" stroke="var(--text2)" stroke-width="1.4"/>`;
+  const pT=HONDD.t.map((t,i)=>`${i?"L":"M"}${xs(t)},${yT(HONDD.T[i])}`).join(""),pF=HONDD.t.map((t,i)=>`${i?"L":"M"}${xs(t)},${yF(HONDD.f[i])}`).join("");
+  const oT=dim.includes("T")?.25:1,oF=dim.includes("f")?.25:1;
+  s+=`<path d="${pT}" fill="none" stroke="var(--text)" stroke-width="2.2" opacity="${oT}"/>`+HONDD.t.map((t,i)=>`<circle cx="${xs(t)}" cy="${yT(HONDD.T[i])}" r="4" fill="var(--text)" opacity="${oT}"/>`).join("");
+  s+=`<path d="${pF}" fill="none" stroke="var(--text)" stroke-width="2.2" stroke-dasharray="8 5" opacity="${oF}"/>`+HONDD.t.map((t,i)=>`<rect x="${xs(t)-4}" y="${yF(HONDD.f[i])-4}" width="8" height="8" fill="var(--text)" opacity="${oF}"/>`).join("");
+  const lx=xs(14),ly=Y1-50;
+  s+=`<rect x="${lx-10}" y="${ly-16}" width="206" height="56" rx="4" fill="var(--surface)" stroke="var(--line2)"/>`;
+  s+=`<path d="M${lx},${ly} h30" stroke="var(--text)" stroke-width="2.2"/><circle cx="${lx+15}" cy="${ly}" r="4" fill="var(--text)"/><text x="${lx+40}" y="${ly+4}" class="lblm">lichaamstemperatuur</text>`;
+  s+=`<path d="M${lx},${ly+24} h30" stroke="var(--text)" stroke-width="2.2" stroke-dasharray="8 5"/><rect x="${lx+11}" y="${ly+20}" width="8" height="8" fill="var(--text)"/><text x="${lx+40}" y="${ly+28}" class="lblm">ademfrequentie</text>`;
+  s+=`<text x="16" y="${(Y0+Y1)/2}" class="lblm" text-anchor="middle" transform="rotate(-90 16 ${(Y0+Y1)/2})">lichaamstemperatuur (°C)</text>`;
+  s+=`<text x="628" y="${(Y0+Y1)/2}" class="lblm" text-anchor="middle" transform="rotate(90 628 ${(Y0+Y1)/2})">ademfrequentie (per minuut)</text>`;
+  s+=`<text x="${(X0+X1)/2}" y="${Y1+40}" text-anchor="middle" class="lblm">tijd (min)</text>`;
+  return FIG(s,"0 0 640 334","Lichaamstemperatuur en ademfrequentie van een hond: allebei stijgend tijdens 30 minuten lopen in de zon, daarna allebei dalend tijdens rust in de schaduw",640,560);
+}
+
+/* ===== Opgave 1: Ademhaling (kennisvragen KA01 en KA03 uit toetsen-biologie, eigen/gaswisseling.json) ===== */
+{
+const STOF_WEG={titel:"De luchtwegen",html:`
+<p>De luchtwegen zijn een stelsel van buizen dat zich steeds verder vertakt, als een boom op zijn kop: van één brede buis naar steeds meer en steeds dunnere buisjes. Aan het eind zitten trosjes <b>longblaasjes</b>, waar de gaswisseling plaatsvindt.</p>
+<p>Onderweg wordt de lucht verwarmd, vochtig gemaakt en schoongemaakt. In de <b>keelholte</b> kruisen lucht en voedsel elkaar; het <b>strotklepje</b> zorgt dat er bij het slikken geen eten in de luchtpijp komt. De <b>stembanden</b> zitten in het strottenhoofd.</p>`,
+films:[F.adem]};
+const STOF_TRIL={titel:"De luchtwegen schoonhouden",html:`
+<p>Ingeademde lucht bevat stof, roet en bacteriën. Die mogen de longblaasjes niet bereiken. De neusholte, de luchtpijp en de bronchiën zijn daarom van binnen bekleed met <b>trilhaarepitheel</b>: een laag cellen met trilhaartjes, met daartussen cellen die <b>slijm</b> maken.</p>
+<p>Trilhaartjes bewegen steeds in één richting heen en weer, als roeiriemen. Als die beweging stopt, verandert er dus iets aan de afvoer van wat er in de luchtwegen terechtkomt.</p>`,
+films:[F.adem]};
+const DELEN=["bronchiën","bronchiolen","keelholte","luchtpijp","neusholte","strottenhoofd"];
+
+const q1=vraag(1,"de weg van de lucht",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Een stofje wordt ingeademd via de neus en komt in een longblaasje terecht. "+B("Zet de delen in de volgorde waarin het stofje ze passeert: bronchiën, bronchiolen, keelholte, luchtpijp, neusholte, strottenhoofd."));
+  choiceStep(think,{q:"Waar kruisen lucht en voedsel elkaar?",opts:["in de keelholte","in het strottenhoofd","in de luchtpijp"],right:0,
+    ok:"Ja. Lucht en voedsel delen dus een stuk van de weg, en gaan daarna elk hun eigen kant op.",no:"Het is de ruimte achter je neus en mond, waar je ook je eten doorheen slikt.",
+    onDone:()=>choiceStep(think,{q:"De luchtpijp vertakt zich in steeds dunnere buisjes. Welke zijn het dunst?",opts:["de bronchiën","de bronchiolen"],right:1,
+      ok:"Goed. Zet nu alle zes de delen op volgorde.",no:"Het verkleinwoord zit in de naam: ‑olen.",onDone:unlock})});
+  selectAnswer(ans,{id,uid:"q"+id,intro:"Kies bij elke plek welk deel het stofje passeert.",
+    rows:[["1e",DELEN,4],["2e",DELEN,2],["3e",DELEN,5],["4e",DELEN,3],["5e",DELEN,0],["6e",DELEN,1]],score:n=>n===6?1:0,
+    after:()=>waaromBtn(ans,textBox("Neusholte → keelholte → strottenhoofd → luchtpijp → bronchiën → bronchiolen, en dan het longblaasje. In het <b>strottenhoofd</b> (met de stembanden) begint de eigen weg van de lucht; de luchtpijp splitst in twee <b>bronchiën</b>, die zich vertakken tot dunne <b>bronchiolen</b>. Alleen de volledig juiste volgorde levert het punt op."))});
+  q.append(think,ans);
+},STOF_WEG);
+
+const q2=vraag(2,"rokers hoesten slijm op",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Rokers hoesten 's ochtends vaak slijm op. "+B("Leg uit hoe dat komt. Beschrijf eerst hoe het trilhaarepitheel bij een niet-roker de luchtwegen schoonhoudt."));
+  choiceStep(think,{q:"Uit welke soorten cellen bestaat het trilhaarepitheel?",opts:["cellen met trilhaartjes, en daartussen cellen die slijm maken","spiercellen en kraakbeencellen","cellen van de longblaasjes met haarvaten eromheen"],right:0,
+    ok:"Ja. Wat gebeurt er met stof dat in het slijm terechtkomt?",no:"Het woord zegt het al half: tril‑haar‑epitheel. En er hoort nog een soort cel bij.",
+    onDone:()=>choiceStep(think,{q:"In welke richting slaan de trilhaartjes het slijm?",opts:["naar beneden, naar de longblaasjes","omhoog, naar de keel"],right:1,
+      ok:"Goed. Beschrijf nu de niet-roker, en daarna wat rook aan dit systeem verandert.",no:"Het vuil moet juist weg van de longblaasjes.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Bij een niet-roker plakken stof en bacteriën in het <b>slijm</b> (van de slijmcellen) en slaan de <b>trilhaartjes</b> het slijm omhoog naar de keel, waar het wordt doorgeslikt.",
+    "Bij rokers <b>verlamt de rook de trilhaartjes</b> (en maken ze meer slijm), dus blijft het slijm liggen en moet het worden opgehoest."],
+    model:"Bij een niet-roker blijven stof en bacteriën plakken in het slijm dat de slijmcellen maken. De trilhaartjes slaan dat slijm omhoog naar de keel, en daar slik je het door. Rook verlamt de trilhaartjes (op den duur gaan ze kapot) en rokers maken meer slijm. Het slijm wordt dan niet meer afgevoerd, blijft liggen en moet worden opgehoest.",
+    valkuil:"‘De rook maakt de luchtpijp nauwer’ of ‘er zit teer in de longblaasjes’: 0 punten voor het tweede element.",
+    after:()=>waaromBtn(ans,textBox("Het trilhaarepitheel werkt als een <b>lopende band</b>: het slijm vangt het vuil, de trilhaartjes voeren het af naar de keel. Bij een roker staat de band stil (trilhaartjes verlamd) terwijl er juist méér slijm bij komt. Wat niet wordt afgevoerd, blijft liggen; 's nachts hoopt het zich op, en 's ochtends hoest de roker het op."))});
+  q.append(think,ans);
+},STOF_TRIL);
+
+opgave("Ademhaling","Ademhaling",`<p>Bij deze opgave hoort geen inleiding.</p>`,[q1,q2]);
+}
+
+/* ===== Opgave 2: De ijzeren long (eigen vragen A01–A04 havo, A01 A03 A04 A05 vwo, uit toetsen-biologie) ===== */
+{
+/* Schematische ijzeren long. fase: rust | tank (pomp zuigt) | uitzetten | in | uit; hoofdIn = hoofd ook in de tank; lek = kraag lekt */
+function IJZER({fase="rust",hoofdIn=false,lek=false}={}){
+  const pijl=(x1,y1,x2,y2,c="var(--teal)",w=2.4)=>{const a=Math.atan2(y2-y1,x2-x1),h=9;
+    return `<path d="M${x1},${y1} L${x2},${y2}" stroke="${c}" stroke-width="${w}" fill="none"/><path d="M${x2},${y2} L${(x2-h*Math.cos(a-0.45)).toFixed(1)},${(y2-h*Math.sin(a-0.45)).toFixed(1)} L${(x2-h*Math.cos(a+0.45)).toFixed(1)},${(y2-h*Math.sin(a+0.45)).toFixed(1)} Z" fill="${c}"/>`;};
+  const groot=(fase==="uitzetten"||fase==="in")&&!hoofdIn&&!lek, klein=fase==="uit";
+  const laag=(fase==="tank"||fase==="uitzetten"||fase==="in");
+  const TX=hoofdIn?96:210;
+  let s=`<rect x="${TX}" y="58" width="${600-TX}" height="164" rx="60" fill="var(--surface2)" stroke="var(--text2)" stroke-width="2.4"/>`;
+  if(laag)s+=`<rect x="${TX+4}" y="62" width="${592-TX}" height="156" rx="56" fill="var(--teal)" opacity="${lek?.06:.13}"/>`;
+  /* patiënt: hoofd links, lichaam liggend in de tank */
+  const bry=groot?42:klein?33:37;
+  s+=`<ellipse cx="400" cy="140" rx="170" ry="${bry}" fill="var(--surface)" stroke="var(--text2)" stroke-width="1.6"/>`;
+  s+=`<path d="M190,130 h50 M190,150 h50" stroke="var(--text2)" stroke-width="1.6"/>`;
+  s+=`<circle cx="160" cy="140" r="28" fill="var(--surface)" stroke="var(--text2)" stroke-width="1.6"/><circle cx="140" cy="134" r="2.4" fill="var(--text2)"/>`;
+  /* longen in de borstkas */
+  const lr=groot?26:klein?16:21;
+  s+=`<ellipse cx="300" cy="${140-lr*0.55}" rx="${lr*1.7}" ry="${lr*0.62}" fill="var(--koraal-soft)" stroke="var(--koraal)" stroke-width="1.6"/><ellipse cx="300" cy="${140+lr*0.55}" rx="${lr*1.7}" ry="${lr*0.62}" fill="var(--koraal-soft)" stroke="var(--koraal)" stroke-width="1.6"/>`;
+  s+=`<text x="300" y="${140+bry+18}" text-anchor="middle" class="lblm">longen</text>`;
+  /* kraag */
+  if(!hoofdIn)s+=`<rect x="203" y="104" width="14" height="72" rx="4" fill="var(--text2)"/><text x="210" y="196" text-anchor="middle" class="lblm">kraag</text>`;
+  else s+=`<text x="${TX+20}" y="80" class="lblm">hoofd in de tank</text>`;
+  /* pomp */
+  s+=`<rect x="420" y="246" width="110" height="40" rx="6" fill="var(--surface)" stroke="var(--text2)" stroke-width="1.6"/><text x="475" y="271" text-anchor="middle" class="lbl">pomp</text><path d="M475,222 V246" stroke="var(--text2)" stroke-width="5"/>`;
+  if(fase==="tank"||fase==="uitzetten"||fase==="in")s+=pijl(490,200,490,240,"var(--goud)");
+  if(fase==="uit")s+=pijl(490,240,490,200,"var(--goud)");
+  /* druk in de tank */
+  const dt=fase==="rust"?"luchtdruk in de tank = buiten":fase==="uit"?"luchtdruk in de tank hoger":lek?"luchtdruk daalt nauwelijks":"luchtdruk in de tank lager";
+  s+=`<text x="540" y="84" text-anchor="end" class="lbl">${dt}</text>`;
+  /* borstkas zet uit */
+  if(groot)s+=pijl(250,100,250,82,"var(--text)",1.8)+pijl(250,180,250,198,"var(--text)",1.8);
+  /* lucht bij neus en mond */
+  if(fase==="in"&&!hoofdIn&&!lek)s+=pijl(70,140,126,140)+`<text x="24" y="122" class="lbl">buitenlucht</text>`;
+  if(fase==="in"&&lek)s+=pijl(96,140,126,140,"var(--teal)",1.2)+`<text x="20" y="122" class="lblm">weinig lucht</text>`;
+  if(fase==="uit")s+=pijl(126,140,70,140)+`<text x="24" y="122" class="lbl">lucht naar buiten</text>`;
+  if(hoofdIn)s+=`<text x="36" y="196" class="lblbad">geen drukverschil bij de mond</text>`;
+  if(lek)s+=pijl(196,46,207,100,"var(--koraal)")+pijl(232,46,216,100,"var(--koraal)")+`<text x="214" y="36" text-anchor="middle" class="lblbad">lek: buitenlucht de tank in</text>`;
+  if(fase==="uitzetten")s+=`<text x="300" y="44" text-anchor="middle" class="lblm">borstkas zet uit, longen gaan mee</text>`;
+  return FIG(s,"0 0 640 300","Schematische ijzeren long: patiënt in een luchtdichte tank met het hoofd buiten de tank, een kraag om de hals en een pomp onder de tank",620,520);
+}
+const STOF_POMP={titel:"Lucht, druk en de ademspieren",html:`
+<p>Lucht stroomt altijd van een plek met een <b>hogere druk</b> naar een plek met een <b>lagere druk</b>. Maak je een afgesloten ruimte met lucht groter, dan daalt de druk erin; maak je hem kleiner, dan stijgt de druk.</p>
+<p>Je longen hebben zelf geen spieren: ze kunnen niet zuigen. De spieren rond de borstholte, het <b>middenrif</b> en de <b>tussenribspieren</b>, veranderen de grootte van de borstholte. Om elke long zit het <b>longvlies</b>, de binnenkant van de borstkas is bekleed met het <b>borstvlies</b>, en daartussen zit een dun laagje vocht.</p>`,
+films:[F.adem]};
+const STOF_VOL={titel:"Hoeveel lucht adem je?",html:`
+<p>Met een spirometer meet je hoeveel lucht je ademt. Het <b>ademvolume</b> is de hoeveelheid lucht die je per keer inademt: in rust ongeveer een halve liter. Het <b>ademminuutvolume</b> is de hoeveelheid lucht die je per minuut inademt: in rust zo'n zes tot acht liter.</p>`+(VWO?`
+<p>Niet alle ingeademde lucht komt in de longblaasjes: ongeveer anderhalve deciliter blijft in de luchtwegen hangen, de <b>dode ruimte</b>. Die lucht doet niet mee aan de gaswisseling, en bij de volgende uitademing gaat hij er als eerste weer uit.</p>`:""),
+films:[F.adem]};
+const ids=[];
+
+ids.push(vraag(2,"de ademspieren",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Noteer welke twee soorten spieren deze patiënten niet meer konden gebruiken, en beschrijf wat elk van die spieren bij een gezond iemand doet bij het inademen."));
+  choiceStep(think,{q:"Welke spier ligt als een koepel onder de longen?",opts:["het middenrif","de buikspieren","de hartspier"],right:0,
+    ok:"Ja. De tweede soort spieren zit tussen de ribben.",no:"Het is een spierplaat die borstholte en buikholte van elkaar scheidt.",
+    onDone:()=>choiceStep(think,{q:"Wat gebeurt er met de borstholte als je inademt?",opts:["die wordt groter","die wordt kleiner","die blijft even groot"],right:0,
+      ok:"Goed. Beschrijf nu per spier hoe hij de borstholte groter maakt.",no:"Er moet ruimte komen voor de lucht die binnenkomt.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "<b>middenrif</b>: trekt samen, wordt platter en zakt",
+    "<b>tussenribspieren</b>: trekken de ribben omhoog en naar buiten"],
+    model:"Het middenrif trekt samen, wordt platter en zakt. De tussenribspieren trekken de ribben omhoog en naar buiten. Zo wordt de borstholte groter.",
+    valkuil:"Alleen de twee namen zonder beschrijving: maximaal 1 punt. ‘Het middenrif gaat omhoog’ is fout: veel mensen denken dat, omdat de borst omhoog komt.",
+    after:()=>waaromBtn(ans,textBox("In rust staat het middenrif als een koepel omhoog in de borstholte. Trekt het samen, dan wordt de koepel <b>platter en zakt</b> hij: de borstholte wordt langer. De tussenribspieren trekken de ribben <b>omhoog en naar buiten</b>: de borstholte wordt breder. Bij polio werken de zenuwen naar deze spieren niet meer, en dan wordt de borstholte niet groter."))});
+  q.append(think,ans);
+},STOF_POMP));
+
+if(!VWO)ids.push(vraag(2,"pompslagen per minuut",(q,id)=>{
+  pre(q,"<p>Een kind in een ijzeren long heeft in rust 7,2 liter lucht per minuut nodig. De arts stelt de pomp zo in dat er per pompslag 0,40 liter lucht in de longen stroomt.</p>");
+  const {think,ans,unlock}=start(q,B("Bereken hoeveel pompslagen per minuut de arts moet instellen."));
+  numStep(think,{uid:"q"+id+"n",q:"Oefen eerst met de getallen uit de film. Je ademt in rust 0,5 liter per keer in, 12 keer per minuut. Hoeveel liter is dat per minuut?",right:6,
+    ok:"Ja: 0,5 × 12 = 6 liter per minuut, je ademminuutvolume.",no:"Hoeveel liter per keer, en hoeveel keer per minuut?",
+    onDone:()=>choiceStep(think,{q:"Bij het kind weet je het aantal liter per minuut en het aantal liter per keer. Wat is onbekend?",opts:["het aantal keer per minuut","het ademvolume","het ademminuutvolume"],right:0,
+      ok:"Goed. Draai je berekening van hierboven om.",no:"Lees de vraag nog eens: wat moet de arts instellen?",onDone:unlock})});
+  rekenAnswer(ans,{id,pts:2,label:"aantal pompslagen per minuut",unit:"per minuut",right:18,
+    aanpak:"Ik heb wel gebruikt dat het ademminuutvolume = volume per pompslag × aantal pompslagen per minuut (ik deelde 7,2 door 0,40), maar maakte een rekenfout.",
+    model:"Ademminuutvolume = ademvolume × aantal keer per minuut, dus 7,2 / 0,40 = <b>18 pompslagen per minuut</b>.",
+    after:()=>waaromBtn(ans,textBox("Per pompslag gaat er 0,40 L in. Na 10 slagen is dat 4,0 L, na 18 slagen 7,2 L. Het kind krijgt dan precies de 7,2 liter per minuut die het nodig heeft. Wie vermenigvuldigt (7,2 × 0,40 ≈ 2,9) heeft de verhouding omgedraaid: dan zou het kind maar 1,2 liter per minuut krijgen."))});
+  q.append(think,ans);
+},STOF_VOL));
+
+ids.push(vraag(2,"lucht in de longen",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Leg in stappen uit hoe het verlagen van de luchtdruk in de tank ervoor zorgt dat er lucht in de longen van de patiënt stroomt."));
+  choiceStep(think,{q:"Waarom gaan de longen mee als de borstkas groter wordt?",opts:["longvlies en borstvlies kleven met een laagje vocht aan elkaar","de longen zijn vastgegroeid aan de ribben","de longen hebben eigen spieren"],right:0,
+    ok:"Ja. Wat de borstkas doet, doen de longen dus ook.",no:"De longen zitten niet vast aan de borstwand, maar volgen hem wel. Hoe heette dat in de film met de twee natte glasplaatjes?",
+    onDone:()=>seqStep(think,{q:"Zet de stappen bij <b>gewoon</b> inademen op volgorde. Daarna pas je ze toe op de ijzeren long.",items:["de ademspieren maken de borstholte groter","de longen gaan mee en worden groter","de druk in de longen daalt","de lucht van buiten wordt de longen in geduwd"],shown:[2,0,3,1],
+      ok:"Goed. In de ijzeren long doen de ademspieren niets. Wat neemt in de tank de eerste stap over?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "De druk <b>rond de borstkas</b> wordt lager, waardoor de borstkas uitzet en de longen meegaan (de vliezen kleven).",
+    "Daardoor daalt de <b>druk in de longen onder de luchtdruk buiten de tank</b>, en duwt de buitenlucht via neus/mond en luchtwegen de longen in."],
+    model:"De pomp verlaagt de druk in de tank, dus rond de borstkas. De druk in de borstkas is dan hoger dan erbuiten, zodat de borstkas uitzet; de longen gaan mee, omdat longvlies en borstvlies aan elkaar kleven. In de grotere longen daalt de druk onder de luchtdruk buiten de tank, waar het hoofd ligt. De buitenlucht wordt via neus en mond en de luchtwegen de longen in geduwd.",
+    valkuil:"‘De lage druk zuigt de lucht de longen in’: de lucht in de tank komt niet in de longen. Het gaat om het verschil tussen de druk in de longen en de luchtdruk bij de mond, buiten de tank.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Rust: de luchtdruk in de tank is gelijk aan de luchtdruk buiten.",o:{fase:"rust"}},
+      {cap:"De pomp zuigt lucht uit de tank: de luchtdruk rond de borstkas daalt.",o:{fase:"tank"}},
+      {cap:"De borstkas zet uit, en de longen gaan mee: longvlies en borstvlies kleven met een laagje vocht aan elkaar.",o:{fase:"uitzetten"}},
+      {cap:"In de grotere longen is de druk nu lager dan de luchtdruk buiten de tank. De buitenlucht duwt via neus, mond en luchtwegen de longen in.",o:{fase:"in"}},
+      {cap:"Daarna verhoogt de pomp de druk in de tank: de borstkas wordt kleiner, de druk in de longen stijgt, en de lucht stroomt naar buiten.",o:{fase:"uit"}}],
+      (st,s)=>st.innerHTML=IJZER(s.o)))});
+  q.append(think,ans);
+},STOF_POMP));
+
+ids.push(vraag(2,"hoofd buiten de tank en een lekke kraag",(q,id)=>{
+  pre(q,"<p>Het hoofd van de patiënt ligt buiten de tank, en de kraag sluit de tank om de hals luchtdicht af.</p>");
+  q.append(el("p",{class:"qtext"},"– <b>Leg uit waarom het hoofd buiten de tank moet liggen.</b><br>– <b>Leg uit wat er gebeurt als de kraag om de hals lekt.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Lucht stroomt altijd …",opts:["van een hoge naar een lage druk","van een lage naar een hoge druk"],right:0,
+    ok:"Ja. Er stroomt dus alleen lucht als er een drukverschil is.",no:"Denk aan een ballon die je loslaat.",
+    onDone:()=>choiceStep(think,{q:"Waar is de druk het laagst als de pomp lucht uit de tank zuigt?",opts:["in de tank, rond de borstkas","buiten de tank, bij het hoofd","overal even laag"],right:0,
+      ok:"Goed. Bedenk nu wat er verandert als de lucht bij neus en mond óók in de tank zou zitten, en wat er gebeurt als buitenlucht door een lek de tank in kan.",no:"De pomp zuigt alleen lucht uit de tank.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Hoofd buiten de tank: lag het hoofd in de tank, dan zou de druk bij neus en mond ook dalen; er is dan <b>geen drukverschil</b> tussen de lucht bij de mond en de longen, dus stroomt er geen lucht naar binnen.",
+    "Lek: er stroomt buitenlucht de tank in, zodat de druk in de tank (rond de borstkas) <b>niet (genoeg) daalt</b>; de borstkas zet dan niet (genoeg) uit en er stroomt minder lucht de longen in."],
+    model:"Het hoofd moet buiten de tank liggen, want anders daalt de druk bij neus en mond net zo hard als in de longen: dan is er geen drukverschil en stroomt er geen lucht de longen in. Lekt de kraag, dan stroomt er buitenlucht de tank in. De druk in de tank daalt dan niet genoeg, de borstkas zet nauwelijks uit, en er komt te weinig lucht in de longen.",
+    valkuil:"‘Anders kan de patiënt niet ademen’ zonder het drukverschil te noemen is geen uitleg. Bij het lek: het gaat niet om lucht die ‘ontsnapt’ uit de longen, maar om lucht die de tank in komt.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Zo werkt het: lage druk in de tank, de longen worden groter, de buitenlucht bij de mond heeft een hogere druk en stroomt de longen in.",o:{fase:"in"}},
+      {cap:"Hoofd in de tank: ook bij neus en mond is de druk laag. Tussen de mond en de longen is er geen drukverschil, dus er stroomt geen lucht naar binnen.",o:{fase:"tank",hoofdIn:true}},
+      {cap:"Lekke kraag: buitenlucht stroomt de tank in. De druk in de tank daalt nauwelijks, de borstkas zet niet genoeg uit, en er komt weinig lucht in de longen.",o:{fase:"in",lek:true}}],
+      (st,s)=>st.innerHTML=IJZER(s.o)))});
+  q.append(think,ans);
+},STOF_POMP));
+
+if(VWO)ids.push(vraag(2,"pompslagen met de dode ruimte",(q,id)=>{
+  pre(q,"<p>Een kind in een ijzeren long heeft per minuut 5,0 liter verse lucht in zijn longblaasjes nodig. De arts stelt de pomp zo in dat er per pompslag 0,40 liter lucht wordt ingeademd. De dode ruimte van het kind is 0,15 liter.</p>");
+  const {think,ans,unlock}=start(q,B("Bereken hoeveel pompslagen per minuut de arts moet instellen."));
+  choiceStep(think,{q:"Doet alle lucht van een pompslag mee aan de gaswisseling?",opts:["ja, alle 0,40 liter komt in de longblaasjes","nee, een deel blijft in de luchtwegen hangen"],right:1,
+    ok:"Ja: dat deel is de dode ruimte. Reken eerst uit hoeveel verse lucht er per pompslag in de longblaasjes komt.",no:"Wat is de dode ruimte ook alweer?",onDone:unlock});
+  let f1=null;
+  numAnswer(ans,{id,fields:[
+    ["verse lucht per pompslag","liter",v=>{f1=v;return Math.abs(v-0.25)<1e-6;},"0,40 − 0,15 = 0,25 liter verse lucht per pompslag"],
+    ["aantal pompslagen per minuut","per minuut",v=>Math.abs(v-20)<1e-6||(f1>0&&Math.abs(f1-0.40)>1e-6&&Math.abs(v-5/f1)<0.05),"5,0 / 0,25 = 20 pompslagen per minuut. Verkeerde verse lucht per slag maar goed doorgerekend (5,0 / jouw getal): dit punt telt wel; 12,5 (zonder dode ruimte) telt niet."]],
+    after:()=>waaromBtn(ans,textBox("Van elke pompslag van 0,40 L blijft 0,15 L in de luchtwegen hangen (de dode ruimte). Alleen 0,25 L verse lucht komt in de longblaasjes. Voor 5,0 L verse lucht per minuut zijn dus 5,0 / 0,25 = <b>20</b> pompslagen nodig. Wie 5,0 / 0,40 = 12,5 rekent, vergeet de dode ruimte: dan krijgt het kind maar 12,5 × 0,25 ≈ 3,1 L verse lucht per minuut."))});
+  q.append(think,ans);
+},STOF_VOL));
+
+opgave("IJzeren long","De ijzeren long",`
+<p>Rond 1950 waren er in Nederland en de Verenigde Staten grote epidemieën van polio (kinderverlamming). Het poliovirus kan de zenuwen aantasten die de ademspieren aansturen. Sommige patiënten konden daardoor niet meer zelf ademen. Zij werden behandeld in een ijzeren long (afbeelding 1).</p>
+<p>In een ijzeren long ligt de patiënt in een luchtdichte metalen tank. Alleen het hoofd steekt erbuiten; rond de hals sluit een rubberen kraag de tank luchtdicht af. Een pomp verlaagt en verhoogt steeds de luchtdruk in de tank.</p>
+<div class="eyebrow">afbeelding 1 (schematisch)</div>${IJZER()}
+${TABEL(0,["onderdeel","functie"],[["metalen tank om het lichaam","luchtdichte ruimte"],["rubberen kraag om de hals","sluit de tank af; het hoofd ligt buiten de tank"],["pomp","verlaagt en verhoogt de luchtdruk in de tank"]],"","bij afbeelding 1")}`,ids);
+}
+
+/* ===== Opgave 3: Ademstops in de nacht (eigen vragen E01–E04, vwo ook E05, uit toetsen-biologie) ===== */
+{
+/* concentratieverschil longblaasje–bloed (schema voor 'laat zien waarom' bij E01). lb, bl = relatieve zuurstofconcentratie 0–100 */
+function DIFF({lb,bl,cap}){
+  const Y1=230,h=v=>v*1.8;let s="";
+  [[150,"longblaasje",lb,"var(--teal)"],[420,"bloed in het haarvat",bl,"var(--koraal)"]].forEach(([x,n,v,c])=>{
+    s+=`<rect x="${x-50}" y="${Y1-180}" width="100" height="180" fill="none" stroke="var(--text2)" stroke-width="1.4"/><rect x="${x-50}" y="${Y1-h(v)}" width="100" height="${h(v)}" fill="${c}" opacity=".55"/>`;
+    s+=`<text x="${x}" y="${Y1+20}" text-anchor="middle" class="lbl">${n}</text>`;});
+  const d=lb-bl,w=Math.max(1,d/6);
+  s+=`<path d="M210,${Y1-90} H340" stroke="var(--goud)" stroke-width="${w}"/><path d="M${352},${Y1-90} l-14,${-6-w/2} v${12+w} z" fill="var(--goud)"/>`;
+  s+=`<text x="280" y="${Y1-110}" text-anchor="middle" class="lblm">zuurstof diffundeert</text>`;
+  if(cap)s+=`<text x="20" y="22" class="lbl">${cap}</text>`;
+  s+=`<text x="560" y="22" class="lblm" text-anchor="end">hoogte = zuurstofconcentratie</text>`;
+  return FIG(s,"0 0 580 260","Staafjes met de zuurstofconcentratie in het longblaasje en in het bloed, met een pijl die dikker is naarmate het verschil groter is",580,480);
+}
+/* zuurstofbindingscurve (vwo, E05): verzadiging (%) tegen zuurstofspanning (kPa); vereenvoudigd, vorm als in Binas */
+const CURVEV=p=>100*p**2.7/(p**2.7+3.6**2.7);
+function CURVE({punten=[],band=null}={}){
+  const X0=60,X1=600,Y0=24,Y1=264,xs=p=>X0+p*(X1-X0)/14,ys=v=>Y1-v*(Y1-Y0)/100;
+  let s="";
+  if(band)band.forEach(([a,b,c])=>s+=`<rect x="${xs(a)}" y="${Y0}" width="${xs(b)-xs(a)}" height="${Y1-Y0}" fill="${c}" opacity=".18"/>`);
+  [0,2,4,6,8,10,12,14].forEach(k=>s+=`<path d="M${xs(k)},${Y1} v5" stroke="var(--text2)"/><text x="${xs(k)}" y="${Y1+20}" text-anchor="middle" class="lblm">${k}</text>`);
+  [0,25,50,75,100].forEach(v=>s+=`<path d="M${X0},${ys(v)} H${X1}" stroke="var(--line)"/><text x="${X0-8}" y="${ys(v)+4}" text-anchor="end" class="lblm">${v}</text>`);
+  s+=`<path d="M${X0},${Y0} V${Y1} H${X1}" fill="none" stroke="var(--text2)" stroke-width="1.4"/>`;
+  let d="";for(let i=0;i<=140;i++){const p=i/10;d+=(i?"L":"M")+xs(p).toFixed(1)+","+ys(CURVEV(p)).toFixed(1);}
+  s+=`<path d="${d}" fill="none" stroke="var(--text)" stroke-width="2.4"/>`;
+  punten.forEach(([p,lab])=>s+=`<circle cx="${xs(p)}" cy="${ys(CURVEV(p))}" r="7" fill="var(--goud)" stroke="var(--text)" stroke-width="1.2"/>`+(lab?`<text x="${xs(p)+12}" y="${ys(CURVEV(p))+18}" class="lbl">${lab}</text>`:""));
+  s+=`<text x="18" y="${(Y0+Y1)/2}" class="lblm" text-anchor="middle" transform="rotate(-90 18 ${(Y0+Y1)/2})">verzadiging (%)</text>`;
+  s+=`<text x="${(X0+X1)/2}" y="${Y1+40}" text-anchor="middle" class="lblm">zuurstofspanning (kPa)</text>`;
+  return FIG(s,"0 0 620 314","Zuurstofbindingscurve: S-vormig, steil bij lage en middelmatige zuurstofspanning, vlak bij hoge zuurstofspanning",620,500);
+}
+const STOF_DIFF={titel:"Diffusie in het longblaasje",html:`
+<p>In het longblaasje lost zuurstof op in het vocht en <b>diffundeert</b> naar het bloed in de haarvaten; koolstofdioxide gaat de andere kant op. Bij diffusie gaan stoffen van een plek met een <b>hoge concentratie</b> naar een plek met een <b>lage concentratie</b>.</p>
+<p>Hoe groter het concentratieverschil, hoe sneller de diffusie. Bij gewoon ademen blijft het verschil bestaan: je ademt steeds verse lucht in, en het bloed voert de zuurstof steeds af.</p>`,
+films:[F.adem]};
+const STOF_HB={titel:"Zuurstof aan boord",html:`
+<p>Bijna alle zuurstof reist gebonden aan <b>hemoglobine</b> in de rode bloedcellen. In de longen is de zuurstofspanning hoog, en raakt de hemoglobine bijna vol. Waar de zuurstofspanning laag is, in de weefsels, laat de hemoglobine een deel van de zuurstof los.</p>
+<p>De <b>saturatie</b> is het percentage van de hemoglobine dat zuurstof draagt. Een saturatiemeter op de vinger meet die in het bloed dat daar langsstroomt.</p>`,
+films:[F.gas,F.adem]};
+const STOF_ZUUR={titel:"Zuurgraad en pH",html:`
+<p>Wat een stof zuur maakt, zijn <b>waterstofionen</b>. De zuurgraad meet je als pH: hoe meer waterstofionen, hoe zuurder, en hoe <b>lager</b> de pH. Normaal ligt de pH van het bloed tussen 7,35 en 7,45.</p>
+<p>Je cellen maken bij de verbranding van glucose steeds koolstofdioxide. Bij gewoon ademen voer je dat net zo snel af als het ontstaat.</p>`,
+films:[F.uit,F.gas]};
+const STOF_REGEL={titel:"Het ademcentrum",html:`
+<p>Het <b>ademcentrum</b> in het verlengde merg (onderste deel van de hersenstam) regelt je ademhaling, ook als je slaapt. Het stuurt via zenuwen het middenrif en de tussenribspieren aan.</p>
+<p>Vlak bij het ademcentrum zitten <b>chemoreceptoren</b>. Sensor, regelcentrum en de ademspieren als uitvoerder vormen samen een <b>regelkring</b>: ademen wordt zo aangepast aan wat er in het bloed gebeurt.</p>`,
+films:[F.gas]};
+const ids=[];
+
+ids.push(vraag(2,"lucht in de longen, toch minder zuurstof",(q,id)=>{
+  pre(q,"<p>Tijdens een ademstop zit er nog ruim een liter lucht in de longen van Kees. Toch komt er steeds minder zuurstof in zijn bloed.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit waardoor."));
+  choiceStep(think,{q:"Diffusie gaat van …",opts:["een hoge naar een lage concentratie","een lage naar een hoge concentratie"],right:0,
+    ok:"Ja. De zuurstof gaat dus van het longblaasje naar het bloed zolang er in het longblaasje meer is.",no:"Denk aan een druppel inkt in water.",
+    onDone:()=>choiceStep(think,{q:"Waardoor blijft bij gewoon ademen het concentratieverschil tussen longblaasje en bloed bestaan?",opts:["je ademt steeds verse lucht in, en het bloed voert de zuurstof steeds af","de longblaasjes pompen de zuurstof het bloed in","het bloed bevat helemaal geen zuurstof"],right:0,
+      ok:"Goed. Welke van die twee valt tijdens een ademstop weg, en wat gebeurt er dan met het verschil?",no:"De film noemde twee dingen die samen het verschil in stand houden.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Er komt <b>geen verse lucht</b> in de longblaasjes, terwijl het bloed steeds zuurstof afvoert: de <b>zuurstofconcentratie in de longblaasjes daalt</b>.",
+    "Daardoor wordt het <b>concentratieverschil</b> tussen longblaasje en bloed kleiner, en diffundeert er minder zuurstof naar het bloed."],
+    model:"Tijdens de ademstop komt er geen verse lucht in de longblaasjes, maar het bloed neemt wel steeds zuurstof mee. De zuurstofconcentratie in de longblaasjes daalt dus. Daardoor wordt het concentratieverschil tussen longblaasje en bloed steeds kleiner, en diffundeert er steeds minder zuurstof naar het bloed.",
+    valkuil:"‘Er is geen lucht meer’ klopt niet: er zit nog ruim een liter in. Het gaat om de zuurstof in die lucht en het verschil met het bloed.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Gewoon ademen: veel zuurstof in het longblaasje, weinig in het bloed dat aankomt. Groot verschil, veel diffusie.",d:{lb:95,bl:40,cap:"gewoon ademen"}},
+      {cap:"Ademstop, na een tijdje: er komt geen verse lucht bij, maar het bloed haalt nog steeds zuurstof weg. De zuurstof in het longblaasje daalt.",d:{lb:70,bl:40,cap:"tijdens de ademstop"}},
+      {cap:"Later in de ademstop: het verschil is klein geworden, dus er diffundeert nog maar weinig zuurstof naar het bloed.",d:{lb:52,bl:38,cap:"later in de ademstop"}}],
+      (st,s)=>st.innerHTML=DIFF(s.d)))});
+  q.append(think,ans);
+},STOF_DIFF));
+
+ids.push(vraag(2,"eerst bijna geen daling",(q,id)=>{
+  pre(q,"<p>In afbeelding 1 daalt de saturatie in de eerste 10 seconden van een ademstop bijna niet.</p>");
+  const {think,ans,unlock}=start(q,B("Geef hiervoor twee verklaringen."));
+  choiceStep(think,{q:"Een saturatie van 96 % betekent …",opts:["dat 96 % van de hemoglobine zuurstof draagt","dat 96 % van de lucht in de longen zuurstof is"],right:0,
+    ok:"Ja. De meter op de vinger meet dus iets in het bloed, niet in de longen.",no:"Lees de inleiding nog eens: daar staat wat de saturatie is.",
+    onDone:()=>choiceStep(think,{q:"Wanneer daalt de saturatie op de meter?",opts:["als het bloed dat langs de vinger stroomt minder zuurstof draagt","zodra Kees stopt met ademen"],right:0,
+      ok:"Goed. Zoek nu twee redenen waarom het bloed de eerste seconden van een ademstop nog bijna net zoveel zuurstof draagt: één in de longen en één in het bloed zelf.",no:"Stoppen met ademen is de oorzaak, maar de meter meet iets in het bloed.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "De longen zijn niet leeg: de lucht die nog in de longen zit, bevat nog <b>zuurstof die naar het bloed kan diffunderen</b>.",
+    "Het bloed laat in rust maar ongeveer <b>een kwart</b> van zijn zuurstof los / het bloed dat terugkomt in de longen bevat nog veel zuurstof (de hemoglobine is nog bijna vol)."],
+    model:"Ten eerste blijft er altijd lucht in de longen achter (het restvolume), en ook die lucht bevat nog zuurstof die naar het bloed kan diffunderen. Ten tweede laat de hemoglobine in rust maar ongeveer een kwart van zijn zuurstof los: het bloed dat terugkomt, is nog grotendeels gevuld. De saturatie daalt daarom eerst maar weinig.",
+    valkuil:"Ook goed (voor één van de twee punten): het bloed met minder zuurstof moet eerst van de longen naar de vinger (de meetplek) stromen, dus de meting loopt achter.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Begin van de ademstop (20 s). De saturatie blijft eerst rond 96 %.",o:{hl:[[20,30,"var(--goud)"]],punt:25}},
+      {cap:"In de longen zit nog ruim een liter lucht met zuurstof, en de hemoglobine die terugkomt, is nog grotendeels vol: er is nog een voorraad.",o:{hl:[[20,30,"var(--goud)"]],punt:30}},
+      {cap:"Pas als die voorraad opraakt, daalt de saturatie steeds sneller, tot Kees wakker wordt.",o:{hl:[[30,65,"var(--koraal)"]],punt:60}}],
+      (st,s)=>st.innerHTML=SAT(s.o)))});
+  q.append(think,ans);
+},STOF_HB));
+
+ids.push(vraag(2,"koolstofdioxide en de pH",(q,id)=>{
+  pre(q,"<p>Tijdens een ademstop verandert ook de zuurgraad van het bloed van Kees.</p>");
+  const {think,ans,unlock}=start(q,B("Beschrijf wat er tijdens een ademstop met het koolstofdioxide en de pH van zijn bloed gebeurt, en leg uit waardoor de pH toch maar weinig verandert."));
+  choiceStep(think,{q:"Een oplossing wordt zuurder als er meer … in zit.",opts:["waterstofionen","water","zuurstof"],right:0,
+    ok:"Ja. Waar komen die waterstofionen tijdens een ademstop vandaan?",no:"Welk deeltje maakt een stof zuur?",
+    onDone:()=>chipsStep(think,{q:"Welke stoffen in het bloed werken als buffer? Kies alles wat klopt.",items:[["waterstofcarbonaat",1],["hemoglobine",1],["glucose",0],["ureum",0]],
+      ok:"Goed. Bedenk wat een buffer met waterstofionen doet.",no:"Eén of meer van je keuzes zijn geen buffer.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Het <b>koolstofdioxide</b> wordt niet uitgeademd en <b>hoopt zich op</b>; het reageert met water tot waterstofcarbonaat en zuur (waterstofionen), dus de <b>pH daalt</b>.",
+    "<b>Buffers</b> in het bloed (waterstofcarbonaat, hemoglobine) vangen de waterstofionen op, zodat de pH maar weinig daalt."],
+    model:"Kees ademt het koolstofdioxide niet uit, dus het hoopt zich op in zijn bloed. Koolstofdioxide reageert met water tot waterstofcarbonaat, en daarbij komt zuur (waterstofionen) vrij: de pH daalt. Buffers in het bloed, zoals waterstofcarbonaat en hemoglobine, vangen de meeste waterstofionen op. Daardoor daalt de pH maar weinig.",
+    valkuil:"Alleen ‘het bloed wordt zuurder’ zonder koolstofdioxide als oorzaak: 0 punten voor het eerste element. Een buffer voert het zuur niet af, hij houdt het alleen vast.",
+    after:()=>waaromBtn(ans,textBox("Ademstop → koolstofdioxide wordt niet uitgeademd → meer koolstofdioxide in het bloed → met water ontstaan waterstofcarbonaat en <b>waterstofionen</b> → de pH daalt. Buffers vangen het grootste deel van die waterstofionen weg, dus de daling blijft klein. Echt weg gaat het zuur pas weer als Kees ademt: dan blaast hij het koolstofdioxide uit."))});
+  q.append(think,ans);
+},STOF_ZUUR));
+
+ids.push(vraag(2,"geen slaapmiddel",(q,id)=>{
+  pre(q,"<p>Kees slaapt slecht en vraagt om een slaapmiddel. De arts weigert een middel dat het ademcentrum minder gevoelig maakt voor koolstofdioxide.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit waarom zo'n middel bij Kees gevaarlijk is."));
+  choiceStep(think,{q:"Waarop reageert het ademcentrum vooral?",opts:["op koolstofdioxide in het bloed","op zuurstof in het bloed"],right:0,
+    ok:"Ja. Tijdens een ademstop stijgt het koolstofdioxide.",no:"Denk aan de film: wat dwingt je om weer te ademen als je je adem inhoudt?",
+    onDone:()=>choiceStep(think,{q:"Hoe eindigt elke ademstop van Kees (afbeelding 1)?",opts:["hij wordt kort wakker en ademt weer","de saturatie stijgt vanzelf, terwijl hij doorslaapt"],right:0,
+      ok:"Goed. Bedenk wat er met dat ‘wakker worden’ gebeurt als het ademcentrum minder gevoelig is, en wat dat betekent voor de zuurstof in zijn bloed.",no:"Lees de inleiding nog eens.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Het ademcentrum reageert dan pas <b>later</b> op het stijgende koolstofdioxide, dus Kees wordt later wakker en een <b>ademstop duurt langer</b>.",
+    "De zuurstof in zijn bloed <b>daalt dan verder</b> (de saturatie zakt dieper), terwijl het alarm voor zuurstof pas komt als die echt laag is."],
+    model:"Het stijgende koolstofdioxide is het signaal dat Kees wakker maakt en weer laat ademen. Met zo'n middel reageert het ademcentrum daar pas later op, dus duurt elke ademstop langer. De zuurstof in zijn bloed zakt dan veel dieper. De sensoren voor zuurstof slaan pas alarm als de zuurstof echt laag is: dat is gevaarlijk.",
+    valkuil:"Alleen ‘hij krijgt te weinig zuurstof’ zonder de koppeling met het ademcentrum: hooguit 1 punt.",
+    after:()=>waaromBtn(ans,textBox("Bij Kees is het koolstofdioxide de wekker. Een middel dat het ademcentrum minder gevoelig maakt, zet die wekker later: de ademstop duurt langer, en in afbeelding 1 zou de dip veel dieper worden dan 80 %. De zuurstofsensoren in de halsslagader en de aorta zijn geen goede reserve: die slaan pas alarm als de zuurstof al echt laag is."))});
+  q.append(think,ans);
+},STOF_REGEL));
+
+const STOF_CURVE={titel:"De zuurstofbindingscurve",html:`
+<p>Zet je de <b>verzadiging</b> (het percentage van de hemoglobine dat zuurstof draagt) uit tegen de <b>zuurstofspanning</b>, dan krijg je de zuurstofbindingscurve. Je vindt hem in Binas. Hij heeft een S-vorm: bij hoge zuurstofspanning loopt hij vlak, bij lagere zuurstofspanning steil.</p>
+<p>In de longen is de zuurstofspanning hoog; in de weefsels, waar zuurstof wordt verbruikt, is hij laag.</p>`,
+films:[F.gas]};
+if(VWO)ids.push(vraag(2,"eerst langzaam, dan steeds sneller",(q,id)=>{
+  pre(q,"<p>In afbeelding 1 daalt de saturatie eerst langzaam en daarna steeds sneller.</p>");
+  const {think,ans,unlock}=start(q,B("Leg dit uit met de zuurstofbindingscurve."));
+  q.querySelector(".pre").insertAdjacentHTML("beforeend",`<p class="muted" style="font-size:14px">De zuurstofbindingscurve, zoals in Binas (vereenvoudigd):</p>${CURVE()}`);
+  choiceStep(think,{q:"Wat staat er op de assen van de zuurstofbindingscurve?",opts:["verzadiging van de hemoglobine tegen zuurstofspanning","zuurstofspanning tegen tijd","saturatie tegen ademfrequentie"],right:0,
+    ok:"Ja. Tijdens de ademstop daalt de zuurstofspanning in het bloed geleidelijk.",no:"Kijk naar de assen van de curve hierboven.",
+    onDone:()=>choiceStep(think,{q:"Waar loopt de curve het steilst?",opts:["bij hoge zuurstofspanning (rechts)","bij lage tot middelmatige zuurstofspanning"],right:1,
+      ok:"Goed. Volg nu de zuurstofspanning in het bloed van Kees tijdens de ademstop langs de curve.",no:"Kijk waar de lijn het snelst stijgt.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Eerst ligt de zuurstofspanning in het bloed op het <b>vlakke stuk</b> van de curve: een daling van de zuurstofspanning geeft weinig daling van de verzadiging.",
+    "Daarna komt de zuurstofspanning op het <b>steile stuk</b>: een kleine verdere daling geeft een grote daling van de verzadiging."],
+    model:"Aan het begin van de ademstop is de zuurstofspanning hoog: het bloed zit op het vlakke stuk van de curve. De zuurstofspanning daalt, maar de verzadiging nauwelijks. Daalt de zuurstofspanning verder, dan komt het bloed op het steile stuk. Daar geeft elke kleine daling van de zuurstofspanning een grote daling van de verzadiging: de saturatie zakt steeds sneller.",
+    valkuil:"‘De zuurstof raakt steeds sneller op’ zonder de curve te gebruiken: 0 punten. Het gaat om vlak stuk → steil stuk.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Begin van de ademstop: hoge zuurstofspanning, vlak stuk. De verzadiging is ongeveer 96 %.",p:[[11,""]],band:[[8,14,"var(--groen)"]]},
+      {cap:"De zuurstofspanning daalt een stuk, maar op het vlakke stuk zakt de verzadiging maar een paar procent.",p:[[11,""],[8,""]],band:[[8,14,"var(--groen)"]]},
+      {cap:"Nu komt het bloed op het steile stuk: dezelfde daling van de zuurstofspanning geeft een veel grotere daling van de verzadiging.",p:[[8,""],[5,""]],band:[[3,8,"var(--koraal)"]]}],
+      (st,s)=>st.innerHTML=CURVE({punten:s.p,band:s.band})))});
+  q.append(think,ans);
+},STOF_CURVE));
+
+opgave("Ademstops","Ademstops in de nacht",`
+<p>Kees (52) snurkt hard. Zijn vrouw merkt dat hij 's nachts soms helemaal stopt met ademen. In het ziekenhuis wordt hij een nacht gemeten. Hij heeft obstructieve slaapapneu: tijdens de slaap worden de spieren in zijn keel te slap, en zakt zijn bovenste luchtweg (achter in de keel) even dicht. Zijn ademspieren blijven bewegen, maar er komt geen lucht in zijn longen. Na een ademstop wordt hij heel even wakker, vaak zonder het te merken, en ademt hij weer. Dat gebeurt soms tientallen keren per uur.</p>
+<p>In afbeelding 1 zie je de saturatie van Kees (hoeveel procent van zijn hemoglobine zuurstof draagt) tijdens twee ademstops.</p>
+<div class="eyebrow">afbeelding 1 (fictieve gegevens)</div>${SAT()}`,ids);
+}
+
+/* ===== Opgave 4: Een hond die hijgt (eigen vragen C01, C02, C04 uit toetsen-biologie) ===== */
+{
+const STOF_HUID={titel:"De huid en je temperatuur",html:`
+<p>De huid bestaat van buiten naar binnen uit de <b>opperhuid</b> (met bovenaan de hoornlaag en onderin de kiemlaag), de <b>lederhuid</b> en het <b>onderhuids bindweefsel</b> met vet. In de huid liggen onder andere bloedvaten, zweetklieren, talgklieren, haarzakjes en zintuigen.</p>
+<p>De temperatuur binnen in je lichaam blijft rond de 37 graden. De <b>hypothalamus</b> in de hersenen is het regelcentrum. Wordt het bloed te warm, dan worden de bloedvaten in de huid wijder en maken de zweetklieren meer zweet.</p>`,
+films:[F.uit]};
+const STOF_TK={titel:"Negatieve terugkoppeling",html:`
+<p>Bij <b>negatieve terugkoppeling</b> remt het gevolg zijn eigen oorzaak. Een regelkring heeft een <b>sensor</b> die iets meet, een <b>regelcentrum</b> dat vergelijkt met de gewenste waarde, en een <b>uitvoerder</b> die iets verandert. Zo blijft een waarde binnen grenzen, zoals de temperatuur binnen in je lichaam of het koolstofdioxide in je bloed.</p>
+<p>Een grafiek met twee lijnen lees je per tijdvak: wat doet de ene lijn, wat doet de andere lijn, en wat gebeurt er eerst?</p>`,
+films:[F.uit,F.gas]};
+const STOF_UIT={titel:"Wat is uitscheiding?",html:`
+<p><b>Uitscheiding</b> is het kwijtraken van afvalstoffen die je eigen cellen maken, en van wat je te veel hebt aan water en zouten. Ontlasting bestaat vooral uit resten van je eten die je nooit hebt opgenomen: die zijn alleen door je darmen gereisd, en dat is dus geen uitscheiding.</p>
+<p>Verschillende organen scheiden uit, elk op hun eigen manier en elk met hun eigen afvalstoffen.</p>`,
+films:[F.uit]};
+
+const q1=vraag(2,"zweetklieren en afkoelen",(q,id)=>{
+  pre(q,"<p>Bij een mens zitten zweetklieren over de hele huid.</p>");
+  q.append(el("p",{class:"qtext"},"– <b>Noteer in welke laag van de huid de zweetklieren liggen.</b><br>– <b>Leg uit hoe zweet een mens afkoelt.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  seqStep(think,{q:"Zet de lagen van de huid op volgorde, van buiten naar binnen.",items:["opperhuid","lederhuid","onderhuids bindweefsel"],shown:[2,0,1],
+    ok:"Goed. Bedenk in welke van deze lagen bloedvaten, klieren en haarzakjes liggen.",
+    onDone:()=>choiceStep(think,{q:"Wanneer koelt zweet je níet af?",opts:["als het van je huid af druipt","als het op je huid verdampt"],right:0,
+      ok:"Ja. Het zweet moet dus iets dóén op je huid om je af te koelen. Wat heeft dat nodig?",no:"Denk aan een zweetdruppel die op de grond valt.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "in de <b>lederhuid</b>",
+    "het zweet <b>verdampt</b>; verdampen kost warmte, die uit de huid komt"],
+    model:"De zweetklieren liggen in de lederhuid. Zweet koelt doordat het verdampt: om te verdampen heeft water veel warmte nodig, en die haalt het uit de huid.",
+    valkuil:"‘Het zweet neemt warmte mee naar buiten’: 0 punten voor het tweede element. Zweet dat van je huid af druipt, koelt niet.",
+    after:()=>waaromBtn(ans,textBox("Om water te laten verdampen is energie nodig: warmte. Verdampt zweet op je huid, dan haalt het die warmte uit je huid, en het bloed dat daar stroomt koelt af. Daarom koelt zweet minder als de lucht vochtig is (het verdampt dan slecht), en daarom koelt een hond via de natte bek en luchtwegen: ook daar verdampt water."))});
+  q.append(think,ans);
+},STOF_HUID);
+
+const q2=vraag(2,"hijgen als negatieve terugkoppeling",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Leg met afbeelding 1 uit dat het hijgen van de hond deel is van een negatieve terugkoppeling."));
+  choiceStep(think,{q:"Wat is negatieve terugkoppeling?",opts:["het gevolg remt zijn eigen oorzaak","het gevolg versterkt zijn eigen oorzaak","twee dingen gebeuren toevallig tegelijk"],right:0,
+    ok:"Ja. Lees nu de grafiek af.",no:"Negatief = tegenwerken.",
+    onDone:()=>selectsStep(think,{uid:"q"+id,q:"Wat doen de lijnen in afbeelding 1?",rows:[
+      ["0–25 min: lichaamstemperatuur",["stijgt","daalt","blijft gelijk"],0],["0–25 min: ademfrequentie",["stijgt","daalt","blijft gelijk"],0],
+      ["30–60 min: lichaamstemperatuur",["stijgt","daalt","blijft gelijk"],1],["30–60 min: ademfrequentie",["stijgt","daalt","blijft gelijk"],1]],
+      ok:"Goed afgelezen. Leg nu uit hoe de temperatuur het hijgen beïnvloedt, en hoe het hijgen de temperatuur beïnvloedt.",no:"Kijk per tijdvak naar het begin en het eind van elke lijn.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Als de lichaamstemperatuur <b>stijgt</b>, stijgt ook de <b>ademfrequentie</b> (meer hijgen) (0–30 min).",
+    "Door het hijgen <b>verdampt er water</b>, dat kost warmte, waardoor de temperatuur daalt; als de temperatuur daalt, neemt het hijgen weer af (30–60 min): het gevolg remt zijn oorzaak."],
+    model:"Tussen 0 en 30 minuten stijgt de lichaamstemperatuur van de hond, en tegelijk stijgt de ademfrequentie: hij gaat harder hijgen. Door het hijgen verdampt er water uit de bek en de luchtwegen, en dat kost warmte: de temperatuur daalt. Daarna (30–60 min) daalt de temperatuur, en neemt ook het hijgen weer af. Het gevolg (afkoelen) remt de oorzaak (de hoge temperatuur): negatieve terugkoppeling.",
+    valkuil:"‘Na 30 minuten daalt alles omdat hij gaat rusten’ zonder de koppeling hijgen → afkoelen: maximaal 1 punt. Ook goed voor het tweede element: tussen 25 en 30 minuten stijgt de temperatuur niet meer terwijl de hond maximaal hijgt: het hijgen houdt de stijging tegen.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"0–25 min: de temperatuur stijgt (doorgetrokken lijn), en de hond gaat steeds sneller hijgen (stippellijn).",o:{hl:[[0,25,"var(--koraal)"]]}},
+      {cap:"25–30 min: de hond hijgt maximaal. De temperatuur stijgt niet meer, ook al loopt hij nog in de zon: het verdampen van water houdt de stijging tegen.",o:{hl:[[25,30,"var(--goud)"]]}},
+      {cap:"30–60 min: de temperatuur daalt, en het hijgen neemt weer af. Is de oorzaak weg, dan stopt ook de reactie: negatieve terugkoppeling.",o:{hl:[[30,60,"var(--teal)"]]}}],
+      (st,s)=>st.innerHTML=HOND(s.o)))});
+  q.append(think,ans);
+},STOF_TK);
+
+const q3=vraag(2,"andere uitscheidingsorganen",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Een hond scheidt via zijn huid bijna niets uit. "+B("Noem twee andere organen waarmee een hond afvalstoffen uitscheidt, en noteer bij elk orgaan één afvalstof die het uitscheidt."));
+  choiceStep(think,{q:"Wat valt onder uitscheiding?",opts:["afvalstoffen die je eigen cellen maken (en te veel water en zouten) kwijtraken","onverteerde resten van je eten kwijtraken","allebei"],right:0,
+    ok:"Ja. Denk nu aan afvalstoffen die bij de stofwisseling ontstaan, zoals bij de verbranding van glucose en bij de afbraak van aminozuren.",no:"Onverteerde voedselresten zijn nooit in je cellen geweest.",onDone:unlock});
+  openAnswer(ans,{id,pts:2,checks:[
+    "<b>longen</b>: koolstofdioxide",
+    "<b>nieren</b>: ureum (of <b>lever</b>: galkleurstof met de gal)"],
+    model:"De longen scheiden koolstofdioxide uit (met de uitgeademde lucht). De nieren scheiden ureum uit met de urine. Ook goed: de lever scheidt galkleurstof uit met de gal.",
+    valkuil:"Water of zouten mogen ook bij de nieren. Darm met onverteerde voedselresten: 0 punten.",
+    after:()=>waaromBtn(ans,textBox("Uitscheidingsorganen en hun afval: <b>longen</b> koolstofdioxide en waterdamp; <b>nieren</b> ureum, water en zouten (urine); <b>lever</b> galkleurstof uit oude rode bloedcellen, via de gal naar de darm; <b>huid</b> water, zouten en een beetje ureum (zweet). Bij een hond valt de huid bijna weg, want hij zweet alleen via zijn voetzolen."))});
+  q.append(think,ans);
+},STOF_UIT);
+
+opgave("Hond","Een hond die hijgt",`
+<p>Een hond heeft alleen zweetklieren in zijn voetzolen. Hij raakt zijn warmte vooral kwijt door te hijgen: snel en oppervlakkig ademen met de bek open en de tong naar buiten. Daarbij verdampt water uit de bek en de luchtwegen. Bij een hoge luchtvochtigheid kan een hond via hijgen minder water verdampen.</p>
+<p>In afbeelding 1 zie je de lichaamstemperatuur en de ademfrequentie van een hond tijdens een wandeling op een warme dag. De eerste 30 minuten loopt hij in de zon, daarna rust hij in de schaduw.</p>
+<div class="eyebrow">afbeelding 1 (fictieve gegevens)</div>${HOND()}`,[q1,q2,q3]);
+}
+
+/* ===== Opgave 5: Uitscheiding en zuurgraad (kennisvragen KC01 (havo), KC04, KC10 uit toetsen-biologie) ===== */
+{
+const STOF_UIT={titel:"Uitscheiding",html:`
+<p><b>Uitscheiding</b> is het kwijtraken van afvalstoffen die je eigen cellen maken, en van wat je te veel hebt aan water en zouten. Ontlasting bestaat vooral uit resten van je eten die je nooit hebt opgenomen; dat is geen uitscheiding.</p>
+<p>Bij een uitscheidingsorgaan kun je twee dingen vragen: <b>welke stof</b> gaat eruit, en <b>waarmee</b> (in welke vloeistof of in welk gas) verlaat hij je lichaam?</p>`,
+films:[F.uit]};
+const STOF_HOM={titel:"Alles binnen grenzen",html:`
+<p>In je lichaam moet veel gelijk blijven: de hoeveelheid water, zout en glucose, de temperatuur en de zuurgraad. Je lichaam houdt dat binnen nauwe grenzen.</p>
+<p>De zuurgraad meet je als <b>pH</b>: hoe zuurder, hoe lager de pH. Normaal ligt de pH van het bloed tussen 7,35 en 7,45: heel licht basisch. Wat een stof zuur maakt, zijn <b>waterstofionen</b>.</p>`,
+films:[F.uit]};
+const STOF_DIAL={titel:"Hemodialyse",html:`
+<p>Werken de nieren bijna niet meer (<b>nierfalen</b>), dan hopen afvalstoffen, zouten, zuur en water zich op in het bloed. Bij <b>hemodialyse</b> stroomt het bloed door een filter met duizenden holle vezels. De wand van die vezels is dun en heeft kleine poriën. Om de vezels heen stroomt dialysevloeistof.</p>
+<p>De machine pompt het bloed rond, maar door het vlies duwt niets de stoffen. Hoe een stof door een vlies gaat, hangt af van de grootte van het deeltje en van de concentraties aan beide kanten.</p>`,
+films:[F.uit]};
+const ids=[];
+
+if(!VWO)ids.push(vraag(2,"tabel: uitscheidingsorganen",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Neem de tabel over en vul per orgaan in welke stof(fen) het uitscheidt en hoe.")+`<br><br>${TABEL(0,["orgaan","stof(fen)","hoe"],[["longen","…","…"],["huid","…","…"],["lever","…","…"],["nieren","…","…"]],"","tabel")}`);
+  choiceStep(think,{q:"Welk orgaan maakt ureum?",opts:["de nieren","de lever","de spieren"],right:1,
+    ok:"Ja. Maar let op: in de tabel gaat het om welk orgaan iets uitscheidt.",no:"Het orgaan dat ureum maakt, is niet hetzelfde als het orgaan dat het uitscheidt.",
+    onDone:()=>choiceStep(think,{q:"Waardoor is poep bruin?",opts:["door galkleurstof uit oude rode bloedcellen","door onverteerde vezels uit groente"],right:0,
+      ok:"Goed. Vul nu de tabel in: per orgaan de stof(fen) en waarmee ze het lichaam verlaten.",no:"Het komt van een stof die de lever kwijt moet.",onDone:unlock})});
+  rijenAnswer(ans,{id,kop:"Vul per orgaan de stof(fen) en het ‘hoe’ in.",rows:[
+    ["longen","koolstofdioxide (en waterdamp), met de uitgeademde lucht"],
+    ["huid","water, zouten, een beetje ureum, met zweet"],
+    ["lever","afvalstoffen zoals galkleurstof, met de gal (naar de darm, ontlasting)"],
+    ["nieren","water, zouten, ureum, met de urine"]],score:n=>n===4?2:n===3?1:0,
+    after:()=>waaromBtn(ans,textBox("Alles juist: 2 punten, één fout: 1 punt, meer fouten: 0 punten. Let op de lever: galkleurstof gaat met de gal naar de darm en verlaat het lichaam met de ontlasting. Dat stukje is dus wél uitscheiding, ook al zit het in de poep."))});
+  q.append(think,ans);
+},STOF_UIT));
+
+ids.push(vraag(2,"inwendig milieu en pH",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Beantwoord beide onderdelen.<br>– "+B("Wat is het inwendig milieu, en hoe heet het binnen nauwe grenzen houden ervan?")+"<br>– "+B("Leg uit waarom de pH van het bloed niet veel mag dalen, en noem twee stoffen die het bloed zuurder maken."));
+  choiceStep(think,{q:"Een lagere pH betekent …",opts:["zuurder","basischer","meer zuurstof"],right:0,
+    ok:"Ja.",no:"Hoe zuurder, hoe … de pH?",
+    onDone:()=>choiceStep(think,{q:"Hoe zuur is het bloed normaal?",opts:["pH 7,35–7,45: heel licht basisch","pH 2: sterk zuur","pH 10: sterk basisch"],right:0,
+      ok:"Goed. Bedenk welke stoffen in je cellen hun werk niet meer goed doen als het zuurder wordt, en welke stoffen je cellen steeds maken die zuur zijn. En voor het eerste onderdeel: waarin leven je cellen eigenlijk?",no:"Het bloed is net niet zuur.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "de <b>weefselvloeistof</b> waarin je cellen leven; <b>homeostase</b>",
+    "bij een lagere pH werken <b>enzymen en eiwitten</b> niet goed meer; <b>koolstofdioxide</b> (vormt een zuur) en <b>melkzuur</b>"],
+    model:"Het inwendig milieu is de weefselvloeistof waarin je cellen leven. Het binnen nauwe grenzen houden ervan heet homeostase. Daalt de pH van het bloed te veel, dan werken je enzymen en andere eiwitten niet goed meer. Koolstofdioxide (dat in het bloed een zuur vormt) en melkzuur maken het bloed zuurder.",
+    valkuil:"Half goed = 0 punten voor dat element: alleen ‘weefselvloeistof’ zonder ‘homeostase’ (of omgekeerd), of alleen de reden zonder de twee stoffen (of omgekeerd). Ook goed als stof: waterstofionen of zure stoffen bij vetverbranding.",
+    after:()=>waaromBtn(ans,textBox("Je cellen zitten niet in het bloed, maar in <b>weefselvloeistof</b>: dat is hun omgeving, het inwendig milieu. <b>Homeostase</b> houdt water, zout, glucose, temperatuur en pH daarin binnen grenzen. Eiwitten, zoals enzymen, hebben een vorm die verandert als het te zuur wordt; dan werken ze niet meer goed. Zuur komt er steeds bij: koolstofdioxide uit de verbranding, melkzuur bij zware inspanning."))});
+  q.append(think,ans);
+},STOF_HOM));
+
+ids.push(vraag(2,"dialyse: ureum en glucose",(q,id)=>{
+  pre(q,"<p>Bij hemodialyse stroomt bloed langs dialysevloeistof, gescheiden door een vlies met kleine poriën. In de vloeistof zit geen ureum, maar wel glucose in dezelfde concentratie als in gezond bloed.</p>");
+  const {think,ans,unlock}=start(q,"– "+B("Noem twee soorten deeltjes die niet door de poriën kunnen.")+"<br>– "+B("Leg uit waardoor ureum het bloed uit gaat en glucose niet."));
+  choiceStep(think,{q:"Wat bepaalt of een deeltje door een porie van het vlies kan?",opts:["de grootte van het deeltje","de kleur van het deeltje","of het deeltje nuttig is"],right:0,
+    ok:"Ja. Welke delen van het bloed zijn te groot?",no:"Een vlies met poriën werkt als een zeef.",
+    onDone:()=>choiceStep(think,{q:"Diffusie gaat van …",opts:["een hoge naar een lage concentratie","een lage naar een hoge concentratie"],right:0,
+      ok:"Goed. Vergelijk nu voor ureum en voor glucose de concentratie in het bloed met die in de vloeistof.",no:"Denk aan een druppel inkt in water.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "<b>bloedcellen</b> en <b>grote eiwitten</b>",
+    "het is <b>diffusie</b> van hoog naar laag: ureum heeft in het bloed een hoge en in de vloeistof (die steeds ververst wordt) een lage concentratie; voor glucose is de concentratie aan beide kanten <b>even hoog</b>, dus gaat het er niet uit"],
+    model:"Bloedcellen en grote eiwitten kunnen niet door de poriën. Door het vlies gaan stoffen door diffusie, van een hoge naar een lage concentratie. In het bloed zit veel ureum en in de vloeistof (die steeds ververst wordt) niets, dus ureum diffundeert het bloed uit. Glucose is aan beide kanten even geconcentreerd, dus er gaat netto geen glucose het bloed uit.",
+    valkuil:"‘De machine perst het ureum eruit’ is fout: de stoffen gaan door diffusie. Bij ‘glucose is te groot’ vergeet je dat glucose wél door de poriën kan.",
+    after:()=>waaromBtn(ans,textBox("Ureum: bloed <b>veel</b> → vloeistof <b>niets</b> → groot verschil → ureum diffundeert het bloed uit. Glucose: bloed <b>normaal</b> ↔ vloeistof <b>even veel</b> → geen verschil → glucose blijft in het bloed. Was de vloeistof gewoon water, dan zou ook de glucose het bloed uit diffunderen."))});
+  q.append(think,ans);
+},STOF_DIAL));
+
+opgave("Uitscheiding","Uitscheiding en zuurgraad",`<p>Bij deze opgave hoort geen inleiding.</p>`,ids);
+}
+
+/* ===== Opgave 6: Eiwitshakes (eigen vraag F01 uit toetsen-biologie); vwo daarna opgave 7: De zuurgraad van het bloed (KD01) ===== */
+{
+const STOF_UREUM={titel:"Ureum",html:`
+<p>Eiwit uit je eten wordt verteerd tot <b>aminozuren</b>. Aminozuren kun je niet opslaan.</p>
+<p>Ureum wordt gemaakt door de <b>lever</b>: die haalt de stikstofgroep van aminozuren af. Daarbij ontstaat <b>ammoniak</b>, en dat is giftig. De lever zet ammoniak meteen om in <b>ureum</b>, dat veel minder giftig is en goed oplost in water. Het bloed brengt het ureum naar de <b>nieren</b>, en die scheiden het uit met de urine.</p>`,
+films:[F.uit]};
+const q1=vraag(2,"ureum stijgt minder dan eiwit",(q,id)=>{
+  pre(q,"<p>Met de shakes eet Jesse twee keer zoveel eiwit (tabel 1), maar hij scheidt geen twee keer zoveel ureum uit.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit waardoor de hoeveelheid ureum minder sterk stijgt dan de hoeveelheid eiwit."));
+  numStep(think,{uid:"q"+id+"n",q:"Hoeveel keer zoveel ureum scheidt Jesse uit met de shakes? Rond af op één decimaal.",right:1.8,
+    ok:"Ja: 45 / 25 = 1,8 keer zoveel ureum, bij 2 keer zoveel eiwit.",no:"Deel de hoeveelheid ureum met shakes door die zonder shakes.",
+    onDone:()=>choiceStep(think,{q:"Kun je aminozuren opslaan voor later?",opts:["nee","ja, in de lever","ja, in het vetweefsel"],right:0,
+      ok:"Klopt. Bedenk nu: worden álle aminozuren uit zijn eten afgebroken tot ureum?",no:"Aminozuren worden niet opgeslagen zoals glucose of vet.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Ureum ontstaat alleen uit aminozuren die worden <b>afgebroken</b> (waarvan de stikstofgroep wordt verwijderd), niet uit aminozuren die het lichaam <b>gebruikt</b>.",
+    "Jesse gebruikt een deel van het extra eiwit om <b>spieren te bouwen</b>; die aminozuren blijven in zijn lichaam en worden geen ureum."],
+    model:"Ureum ontstaat alleen uit aminozuren die worden afgebroken: de lever haalt er de stikstofgroep af. Aminozuren die het lichaam gebruikt, worden geen ureum. Jesse traint vijf keer per week en gebruikt een deel van het extra eiwit om spieren op te bouwen. Die aminozuren blijven in zijn lichaam, dus het ureum stijgt minder dan het eiwit.",
+    valkuil:"Alleen ‘een deel wordt gebruikt’ zonder te noemen waarvoor of zonder verband met ureum: maximaal 1 punt. Een antwoord dat alleen beschrijft hoe ureum in de lever ontstaat (zonder dat een deel van het eiwit niet wordt afgebroken): maximaal 1 punt.",
+    after:()=>waaromBtn(ans,textBox("Eiwit in (g per dag) → aminozuren → twee wegen: <b>gebruiken</b> (eigen eiwit, bij Jesse vooral spieren) of <b>afbreken</b> (stikstofgroep eraf → ammoniak → ureum). Alleen de tweede weg geeft ureum. Met de shakes gaat er 90 g eiwit extra in, maar een deel daarvan neemt de eerste weg. Daarom komt er geen 2 × 25 = 50 g ureum uit, maar 45 g."))});
+  q.append(think,ans);
+},STOF_UREUM);
+
+opgave("Eiwitshakes","Eiwitshakes",`
+<p>Jesse (17) traint vijf keer per week in de sportschool. Hij drinkt elke dag drie eiwitshakes, bovenop zijn gewone eten. In tabel 1 staat hoeveel ureum Jesse per dag met zijn urine uitscheidt (fictieve gegevens).</p>
+${TABEL(1,["","gewoon eten","gewoon eten + 3 eiwitshakes"],[["eiwit per dag (g)","90","180"],["ureum in de urine per dag (g)","25","45"]])}`,[q1]);
+
+/* ---- vwo: opgave 7 ---- */
+if(VWO){
+const STOF_EVW={titel:"Evenwicht en de regelaars van de pH",html:`
+<p>Koolstofdioxide, water, koolzuur, waterstofionen en waterstofcarbonaat staan in het bloed met elkaar in <b>evenwicht</b>. Alle reacties in dit evenwicht verlopen tegelijk, heen en terug.</p>
+<p>Twee organen houden de pH van het bloed op peil: de <b>longen</b> zijn de snelle regelaar (binnen minuten), de <b>nieren</b> de langzame (uren tot dagen).</p>`,
+films:[F.uit,F.gas]};
+const k1=vraag(2,"het evenwicht van koolzuur",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Koolstofdioxide + water ⇌ koolzuur ⇌ waterstofion + waterstofcarbonaat<br><br>– "+B("Leg met dit evenwicht uit waardoor de pH van het bloed daalt als je koolstofdioxide ophoopt.")+"<br>– "+B("Beschrijf wat de cellen van de nierbuisjes doen om de pH weer te verhogen."));
+  choiceStep(think,{q:"Wat doet een evenwicht als je er één van de stoffen bij doet?",opts:["het verschuift zo dat die extra stof voor een deel wordt weggewerkt","het maakt nog meer van die stof","er verandert niets"],right:0,
+    ok:"Ja. Pas dat nu toe op het evenwicht hierboven als er koolstofdioxide bijkomt.",no:"Een evenwicht werkt een verandering tegen.",
+    onDone:()=>choiceStep(think,{q:"Welk orgaan is de langzame regelaar van de pH?",opts:["de nieren","de longen"],right:0,
+      ok:"Goed. Bedenk welke stoffen uit het evenwicht de nieren kunnen kwijtraken of juist kunnen bewaren.",no:"De longen werken binnen minuten.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Meer koolstofdioxide schuift het evenwicht <b>naar rechts</b>: er ontstaan meer <b>waterstofionen</b>, dus de pH daalt.",
+    "Ze scheiden actief <b>waterstofionen uit</b> naar de voorurine en geven <b>waterstofcarbonaat terug</b> aan het bloed."],
+    model:"Hoopt koolstofdioxide zich op, dan schuift het evenwicht naar rechts. Er ontstaat meer koolzuur, dat splitst in waterstofionen en waterstofcarbonaat. Meer waterstofionen betekent een lagere pH. De cellen van de nierbuisjes scheiden actief waterstofionen uit naar de voorurine en geven waterstofcarbonaat terug aan het bloed; zo stijgt de pH weer.",
+    valkuil:"‘Het evenwicht schuift naar links’ is de reactie op extra waterstofionen (zoals bij verzuring door vetverbranding), niet op extra koolstofdioxide. Alleen ‘de nieren scheiden zuur uit’ zonder waterstofcarbonaat: dat is maar de helft van het tweede element.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Evenwicht: links koolstofdioxide en water, rechts waterstofionen en waterstofcarbonaat.",k:0},
+      {cap:"Er hoopt koolstofdioxide op (links meer): het evenwicht schuift naar rechts. Er ontstaan meer waterstofionen, en de pH daalt.",k:1},
+      {cap:"De nierbuisjes halen waterstofionen uit het bloed (naar de voorurine) en geven waterstofcarbonaat terug: er blijven minder waterstofionen in het bloed, en de pH stijgt weer.",k:2}],
+      (st,s)=>{const kl=["var(--text2)","var(--koraal)","var(--teal)"][s.k];
+        const tx=(x,t,c,w)=>`<text x="${x}" y="80" text-anchor="middle" style="fill:${c};font:${w||600} 15px var(--tekst)">${t}</text>`;
+        let g=tx(85,"CO₂ + H₂O",s.k===1?"var(--koraal)":"var(--text)")+tx(190,"⇌","var(--text2)")+tx(270,"koolzuur","var(--text)")+tx(355,"⇌","var(--text2)")+tx(430,"H⁺",s.k?"var(--koraal)":"var(--text)",700)+tx(475,"+","var(--text2)")+tx(540,"HCO₃⁻",s.k===2?"var(--teal)":"var(--text)");
+        if(s.k===1)g+=`<path d="M150,110 H470" stroke="var(--koraal)" stroke-width="3"/><path d="M482,110 l-14,-7 v14 z" fill="var(--koraal)"/><text x="310" y="140" text-anchor="middle" class="lblm">evenwicht schuift naar rechts: meer H⁺, pH daalt</text>`;
+        if(s.k===2)g+=`<path d="M430,96 V150" stroke="var(--koraal)" stroke-width="3"/><path d="M430,162 l-7,-14 h14 z" fill="var(--koraal)"/><text x="430" y="182" text-anchor="middle" class="lblm">H⁺ naar de voorurine</text><path d="M540,150 V100" stroke="var(--teal)" stroke-width="3"/><path d="M540,90 l-7,14 h14 z" fill="var(--teal)"/><text x="560" y="182" text-anchor="middle" class="lblm">HCO₃⁻ terug in het bloed</text>`;
+        st.innerHTML=FIG(g,"0 0 620 200","Het evenwicht van koolstofdioxide, water, koolzuur, waterstofionen en waterstofcarbonaat",620,500);})) });
+  q.append(think,ans);
+},STOF_EVW);
+opgave("Zuurgraad","De zuurgraad van het bloed",`<p>Bij deze opgave hoort geen inleiding.</p>`,[k1]);
+}
+}
+
+
+/* ================= opgaven en navigatie ================= */
+OPG.sort((a,b)=>a.nr-b.nr);
+/* cijfer als bij een schooltoets: 9 × score / maximum + 1 */
+const NORM="";
+const CIJFER=(()=>{const L=Q.reduce((s,q)=>s+q.pts,0);return Array.from({length:L+1},(_,S)=>Math.round((9*S/L+1)*10)/10);})();
+const main=$("#main"),tabs=$("#tabs");let cur=1;const built={},nextBtns={};
+let curOpg=OPG.some(o=>o.nr===store.opg)?store.opg:1;
+const opg=()=>OPG.find(o=>o.nr===curOpg);
+const pts=o=>o.ids.reduce((s,i)=>s+Q.find(q=>q.id===i).pts,0);
+function reach(){const ids=opg().ids;if(store.vrij)return ids[ids.length-1];let k=0;while(k<ids.length-1&&store.scores[ids[k]]!==undefined)k++;return ids[k];}
+function renderTabs(){
+  tabs.innerHTML="";const r=reach();
+  opg().ids.forEach(id=>{const q=Q.find(x=>x.id===id);const locked=id>r;
+    const b=el("button",{class:(id===cur?"cur ":"")+(store.scores[id]!==undefined?"done":"")+(locked?" lock":""),"aria-label":"Vraag "+id+(locked?" (eerst vraag "+(id-1)+" maken)":""),title:locked?"Maak eerst vraag "+(id-1):""},id);
+    if(locked)b.disabled=true;else b.onclick=()=>open(id);tabs.append(b);});
+  const o=el("button",{class:"ov"+(cur==="ov"?" cur":"")},"Score");o.onclick=()=>open("ov");tabs.append(o);
+}
+function open(id){
+  if(id!=="ov"&&id>reach())id=reach();
+  cur=id;renderTabs();main.innerHTML="";
+  if(id==="ov"){main.append(overview());return;}
+  if(!built[id]){const q=Q.find(x=>x.id===id);const sec=el("article",{class:"q"});
+    q.build(sec);
+    const pap=el("section",{class:"papier","aria-label":"Toetsvraag "+id});
+    pap.append(el("div",{class:"pkop"},`<span class="pnr"><span class="mono">Toetsvraag</span><span class="nr">${id}</span></span><span class="mono">${q.pts} ${q.pts===1?"punt":"punten"}</span>`));
+    for(const c of [...sec.children]){if(c.classList.contains("phase")||c.tagName==="BUTTON")break;pap.append(c);}
+    pap.append(el("div",{class:"pvoet"},"Oefentoets Gaswisseling en uitscheiding · vwo"));
+    sec.prepend(pap);
+    const sb=window.EXSTOF&&EXSTOF.blok(TOOL,id);if(sb)pap.after(sb);
+    /* toetsvraag nog eens boven de antwoorden (Kamiel 25 okt 2026: niet terug hoeven scrollen) */
+    const qt=[...pap.querySelectorAll(".qtext")].pop(),ansP=sec.querySelector(".phase.ans");
+    if(qt&&ansP){const h=el("div",{class:"herhaal papier"});h.append(el("div",{class:"hkop mono"},`Toetsvraag ${id}`));
+      const c=qt.cloneNode(true);c.querySelectorAll("[id]").forEach(x=>x.removeAttribute("id"));h.append(c);
+      const lab=ansP.querySelector(":scope>.label");lab?lab.after(h):ansP.prepend(h);}
+    const ids=opg().ids,last=id===ids[ids.length-1];
+    const nx=el("div",{class:"row",style:"justify-content:flex-end"});const b=el("button",{class:"go"},last?"Naar je score ›":`Volgende vraag (${id+1}) ›`);
+    nextBtns[id]=b;b.hidden=!store.vrij&&store.scores[id]===undefined;
+    b.onclick=()=>{open(last?"ov":id+1);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};nx.append(b);sec.append(nx);built[id]=sec;}
+  main.append(built[id]);
+}
+function overview(){
+  const o=opg();const s=el("section",{class:"phase"});s.append(el("h2",{},`Jouw score op opgave ${o.nr}`));
+  let tot=0;const t=el("table",{class:"data ovtable"});t.innerHTML="<tr><th>vraag</th><th>onderwerp</th><th>score</th></tr>";
+  o.ids.forEach(id=>{const q=Q.find(x=>x.id===id);const p=store.scores[id];if(p!==undefined)tot+=p;t.innerHTML+=`<tr><td>${id}</td><td>${q.t}</td><td>${p===undefined?"–":p} / ${q.pts}</td></tr>`;});
+  const w=el("div",{class:"tablewrap"});w.append(t);s.append(w,el("div",{class:"score"},`Totaal opgave ${o.nr}: ${tot} / ${pts(o)}`));
+  let all=0,allMax=0;OPG.forEach(x=>{allMax+=pts(x);x.ids.forEach(id=>{if(store.scores[id]!==undefined)all+=store.scores[id];});});
+  const gemaakt=OPG.every(x=>x.ids.every(id=>store.scores[id]!==undefined));
+  const cf=CIJFER[Math.min(all,CIJFER.length-1)].toFixed(1).replace(".",",");
+  s.append(el("p",{style:"margin:0"},`Hele toets: <b>${all}</b> van ${allMax} punten · cijfer <b>${cf}</b>`+(gemaakt?"":` <span class="muted">(nog niet alles gemaakt: open vragen tellen als 0 punten)</span>`)));
+  s.append(el("p",{class:"muted",style:"margin:0;font-size:14px"},`Cijfer = 9 × score / maximum + 1. Open vragen kijk je zelf na met het antwoordmodel.`));
+  const nextO=OPG.find(x=>x.nr===o.nr+1);
+  const row=el("div",{class:"row"});
+  if(nextO){const nb=el("button",{class:"go"},`Naar opgave ${nextO.nr}: ${nextO.kort} ›`);nb.onclick=()=>{setOpg(nextO.nr);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};row.append(nb);}
+  const r=el("button",{class:"ghost"},`Opgave ${o.nr} opnieuw`);r.onclick=()=>{o.ids.forEach(id=>{delete store.scores[id];delete built[id];delete nextBtns[id];});save();open(o.ids[0]);};row.append(r);
+  s.append(row);return s;
+}
+function renderOpgs(){const box=$("#opgs");box.innerHTML="";
+  OPG.forEach(o=>{const b=el("button",{"aria-pressed":o.nr===curOpg?"true":"false"},`${o.nr} · ${o.kort}`);b.onclick=()=>setOpg(o.nr);box.append(b);});}
+function setOpg(n){curOpg=n;store.opg=n;save();const o=opg();
+  $("#eb").textContent=`Oefentoets Gaswisseling en uitscheiding · vwo · opgave ${o.nr}`;$("#h1").textContent=o.titel;
+  $("#sub").textContent=`vraag ${o.ids[0]} t/m ${o.ids[o.ids.length-1]} · ${pts(o)} punten`;
+  $("#ctx").innerHTML=o.ctx;renderOpgs();open(reach());}
+function setVrij(v){store.vrij=v;save();$("#vrij").setAttribute("aria-pressed",v?"true":"false");
+  for(const k in nextBtns)nextBtns[k].hidden=!v&&store.scores[k]===undefined;renderTabs();}
+$("#vrij").onclick=()=>setVrij(!store.vrij);setVrij(!!store.vrij);
+EXSTAND.STANDEN.forEach(s=>{s.uitleg=s.uitleg.replace(/examenvraag/g,"toetsvraag").replace("het echte examen","een echte toets").replace(" Zet de klok aan voor 3 uur examentijd.","");if(s.k==="echt")s.naam="Echte toets";});
+EXSTAND.init({store,save,setVrij});
+setOpg(curOpg);
+})();
+
+</script>
+</body>
+</html>

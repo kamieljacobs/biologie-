@@ -63,3 +63,7 @@ for niv in ('havo', 'vwo'):
     p = f'{uit}/toets-{ANKER}-{niv}.html'
     open(p, 'w').write(s)
     print(p, len(s), 'rest:', left)
+
+# hulpvragen in een geschudde volgorde (gedeeld script, 20 nov 2026)
+import subprocess as _sp, glob as _gl
+_sp.run(["python3", os.path.join(R, "tools/toets-bron/schud_hulp.py")] + _gl.glob(os.path.join(uit, "toets-voortplanting-*.html")), check=True)

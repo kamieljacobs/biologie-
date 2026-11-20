@@ -1,0 +1,1113 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../js/teller.js" data-root="../"></script>
+<link rel="icon" href="../img/icoon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../img/icoon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../img/icoon/apple-touch-icon.png">
+<script>(function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oefentoets Ecologie en milieu vwo · doorklikken · Biologie bij Kamiel</title>
+<meta name="description" content="Oefentoets Ecologie en milieu voor vwo: per vraag eerst hulpvragen, dan de toetsvraag, nakijken met het antwoordmodel en uitleg waarom.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="huisstijl.css">
+<script src="huisstijl.js"></script>
+<script src="examen-stof.js?v=b496a9e6"></script>
+<script src="examen-standen.js?v=558bd73d"></script>
+<style>
+/* Oefentoets Ecologie en milieu vwo · zelfde bouwstenen als de oefenexamens (tools/OEFENEXAMEN_PROMPT.md). */
+body.echt .klok{display:none!important}
+@media (max-width:600px){.vpfig{overflow-x:auto;-webkit-overflow-scrolling:touch}.vpfig>svg{min-width:var(--min)}}
+#ctx:empty{display:none}
+:root{--rest:#2A3B57;--area:#5B6B84}
+:root[data-theme="light"]{--rest:#D5DEE9;--area:#B4BDCA}
+ .wrap{padding-inline:0}
+:root[data-theme="light"] .papier{box-shadow:0 0 0 1px rgba(20,32,52,.18),0 6px 18px rgba(20,32,52,.10)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--text);font:17px/1.55 var(--tekst);-webkit-font-smoothing:antialiased;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 40px}
+.wrap{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1,h2,h3{font-family:var(--titel);font-weight:700;letter-spacing:-.01em;text-wrap:balance;margin:0;line-height:1.1}
+h2{font-size:24px}
+.mono,.eyebrow{font:600 12px/1.2 var(--meta);letter-spacing:.1em;text-transform:uppercase}
+.eyebrow{color:var(--goud-text)}
+.muted{color:var(--text2)}
+a{color:var(--goud-text)}
+.sitenav{display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap;min-height:56px;padding:8px 0;border-bottom:1px solid var(--line);font:600 15px/1.3 var(--tekst)}
+.sitenav .merk{font:700 18px/1 var(--titel);color:var(--text);text-decoration:none}
+.sitenav .terug{color:var(--goud-text);text-decoration:none}
+.sitenav .rechts{margin-left:auto}
+.tool-kop{display:flex;flex-direction:column;gap:10px;padding:14px 0 0}
+.tool-kop h1{font-size:clamp(32px,5vw,48px)}
+.tool-kop p{margin:0;color:var(--text2);font-size:18px;max-width:62ch}
+button.toggle{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line2);background:none;color:var(--text2);border-radius:999px;padding:6px 14px 6px 8px;min-height:40px;font:600 14px var(--tekst);cursor:pointer}
+button.toggle .knopje{width:34px;height:20px;border-radius:999px;background:var(--line2);position:relative;flex:none}
+button.toggle .knopje::after{content:"";position:absolute;left:3px;top:3px;width:14px;height:14px;border-radius:50%;background:var(--text2);transition:left .15s}
+button.toggle[aria-pressed="true"]{color:var(--text);border-color:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje{background:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje::after{left:17px;background:var(--goud-ink)}
+.kopbalk{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.seg{display:inline-flex;flex-wrap:wrap;padding:3px;border-radius:999px;border:1px solid var(--line2);gap:2px}
+.seg button{border:0;background:none;padding:6px 14px;border-radius:999px;font:600 14px var(--tekst);color:var(--text2);min-height:36px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--goud);color:var(--goud-ink)}
+nav.tabs{display:flex;flex-wrap:wrap;gap:6px}
+nav.tabs button{min-width:44px;height:44px;border-radius:999px;border:1px solid var(--line2);background:none;color:var(--text2);font:600 15px var(--meta);cursor:pointer;position:relative}
+nav.tabs button:hover{color:var(--text)}
+nav.tabs button.cur{background:var(--goud);color:var(--goud-ink);border-color:var(--goud)}
+nav.tabs button.done::after{content:"";position:absolute;right:3px;top:3px;width:8px;height:8px;border-radius:50%;background:var(--groen);border:2px solid var(--bg)}
+nav.tabs button.lock{opacity:.35;cursor:not-allowed}
+nav.tabs .ov{padding:0 16px;font-family:var(--tekst)}
+.ctx{background:var(--surface);border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.ctx p{margin:0}
+details.ctxd summary{cursor:pointer;font-weight:600;color:var(--goud-text)}
+.tablewrap{overflow-x:auto}
+table.data{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+table.data th,table.data td{border-bottom:1px solid var(--line);padding:7px 10px;text-align:center}
+table.data th:first-child,table.data td:first-child{text-align:left}
+table.data th{font:600 11px var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--text3)}
+.q{display:flex;flex-direction:column;gap:14px}
+.qhead{display:flex;gap:12px;align-items:center}
+.qnum{font:700 40px/1 var(--titel);color:var(--goud-text)}
+.pts{font:600 12px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:3px 9px}
+.qtext{margin:0;font-size:18px}
+.phase{border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;background:var(--surface);display:flex;flex-direction:column;gap:12px}
+.phase>.label{display:flex;gap:8px;align-items:center;font:600 12px var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3)}
+.phase>.label .dot{width:8px;height:8px;border-radius:50%;background:var(--goud)}
+.phase.think{background:var(--surface2)}
+.phase.think>.label{color:var(--goud-text)}
+.step{display:flex;flex-direction:column;gap:8px}
+.step+.step{border-top:1px solid var(--line);padding-top:12px}
+.step p{margin:0}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button.opt,button.chip{border:1px solid var(--line2);background:var(--bg);color:var(--text);border-radius:12px;padding:9px 14px;font:inherit;font-size:16px;cursor:pointer;text-align:left}
+button.chip{border-radius:999px}
+button.opt:hover,button.chip:hover{border-color:var(--text3)}
+button.chip[aria-pressed="true"]{border-color:var(--goud);background:var(--goud-soft)}
+button.opt.right{border-color:var(--groen);background:var(--groen-soft)}
+button.opt.wrong{border-color:var(--koraal);background:var(--koraal-soft)}
+button.opt:disabled{cursor:default}
+button.go,button.ghost{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 18px;border-radius:999px;font:700 15px var(--tekst);cursor:pointer}
+button.go{border:0;background:var(--goud);color:var(--goud-ink)}
+button.go:hover{filter:brightness(1.06)}
+button.ghost{border:0;background:none;color:var(--text);box-shadow:inset 0 0 0 1px var(--line2)}
+button.ghost:hover{box-shadow:inset 0 0 0 1px var(--text3)}
+button:disabled.go,button:disabled.ghost{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:2px solid var(--goud);outline-offset:3px;border-radius:6px}
+input.num{width:96px;min-height:44px;font:600 16px var(--meta);padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text)}
+select{font:inherit;font-size:15px;min-height:44px;padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);max-width:100%;flex:1 1 260px}
+textarea{width:100%;min-height:88px;font:inherit;padding:10px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);resize:vertical}
+.fb{font-size:16px;border-radius:12px;padding:12px 14px;background:var(--surface2);border:1px solid var(--line2)}
+.fb.ok{border-color:var(--groen);background:var(--groen-soft)}
+.fb.no{border-color:var(--koraal);background:var(--koraal-soft)}
+.fb.hint{border-color:var(--teal);background:var(--teal-soft)}
+.graphs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.graphs{grid-template-columns:1fr}}
+.gopt{border:1px solid var(--line2);border-radius:var(--radius);background:var(--bg);padding:8px 8px 2px;cursor:pointer;color:var(--text);font:inherit;text-align:left}
+.gopt b{font:700 20px var(--titel);margin-left:6px;color:var(--goud-text)}
+.gopt:hover{border-color:var(--text3)}
+.gopt.right{border-color:var(--groen);box-shadow:0 0 0 2px var(--groen) inset}
+.gopt.wrong{border-color:var(--koraal);box-shadow:0 0 0 2px var(--koraal) inset}
+svg{display:block;max-width:100%;height:auto}
+.ax{stroke:var(--text3);stroke-width:1.2;fill:none}
+.grid{stroke:var(--line2);stroke-width:1;fill:none}
+.tick{fill:var(--text3);font:500 10px var(--meta)}
+.cv{stroke:var(--teal);stroke-width:2.4;fill:none;stroke-linejoin:round}
+.cvbad{stroke:var(--koraal);stroke-width:2;fill:none;stroke-dasharray:5 4}
+.restband{fill:var(--rest);opacity:.8}
+.lbl{fill:var(--text);font:600 12px var(--tekst)}
+.lblm{fill:var(--text2);font:12px var(--tekst)}
+.lblbad{fill:var(--koraal);font:700 12px var(--tekst)}
+.selfscore{display:flex;flex-direction:column;gap:10px}
+.selfscore label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.selfscore input{margin-top:4px;width:18px;height:18px;accent-color:var(--goud);flex:none}
+.model{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:16px}
+.anim{display:flex;flex-direction:column;gap:10px}
+.anim .stage{border-radius:var(--radius);background:var(--surface2);border:1px solid var(--line2);overflow:hidden}
+.anim .cap{min-height:3.2em;margin:0}
+.anim .nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pips{display:flex;gap:6px;margin-left:auto}
+.pips span{width:9px;height:9px;border-radius:50%;background:var(--line2)}
+.pips span.on{background:var(--goud)}
+.seq{display:flex;flex-direction:column;gap:6px}
+.seq button{display:flex;gap:10px;align-items:center}
+.seq .n{font:600 13px var(--meta);width:24px;height:24px;border-radius:50%;display:inline-grid;place-items:center;background:var(--line2);flex:none}
+.seq button.placed{border-color:var(--groen)} .seq button.placed .n{background:var(--groen);color:var(--goud-ink)}
+.score{font:600 16px var(--meta)}
+.ovtable td:last-child,.ovtable th:last-child{text-align:right}
+.pre{border-left:3px solid var(--goud);padding:2px 0 2px 14px;display:flex;flex-direction:column;gap:8px}
+.pre p{margin:0;color:var(--text2)}
+.figrow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.figrow{grid-template-columns:1fr}}
+.legenda{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--text2)}
+.legenda i{display:inline-block;vertical-align:middle;margin-right:6px}
+.legenda .lijn{width:22px;height:0;border-top:2.5px solid var(--text)}
+.legenda .vlak{width:16px;height:12px;background:var(--area)}
+.tick.dim{opacity:.35}
+p.klikbaar{line-height:2}
+button.mark{font:inherit;color:var(--text);background:none;border:0;border-bottom:2px dashed var(--goud);padding:0 3px;border-radius:4px;cursor:pointer}
+button.mark[aria-pressed="true"]{background:var(--goud-soft);border-bottom-style:solid}
+button.mark:disabled{cursor:default}
+.sellab{min-width:200px;font-weight:600}
+label.slider{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center}
+label.slider span{min-width:170px;font-weight:600;font-size:15px}
+label.slider input{flex:1 1 200px;accent-color:var(--goud)}
+.podium{background:var(--surface2);border:1px solid var(--line2);border-radius:var(--radius);overflow:hidden}
+p.regels{font-family:var(--tekst);line-height:1.9;margin:0}
+p.regels span{display:inline-block;width:2em;font:600 12px var(--meta);color:var(--text3)}
+sup{font-size:.7em}
+.papier{--bg:#FFFFFF;--surface:#FFFFFF;--surface2:#EEF1F5;--line:rgba(20,32,52,.10);--line2:rgba(20,32,52,.24);
+  --text:#121C2E;--text2:#3B4759;--text3:#667185;--goud:#C99A2E;--goud-text:#7E5C0B;--goud-soft:rgba(217,172,60,.18);
+  --groen:#2F8A47;--koraal:#B9502F;--teal:#25729C;--paars:#6550AD;--groen-soft:rgba(47,138,71,.10);--koraal-soft:rgba(185,80,47,.10);--teal-soft:rgba(37,114,156,.10);
+  --rest:#D5DEE9;--area:#B4BDCA;color-scheme:light;
+  background:#FCFCFA;color:var(--text);border:0;border-radius:6px;padding:16px 20px 12px;display:flex;flex-direction:column;gap:12px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.08),0 10px 28px rgba(0,0,0,.35)}
+.papier .pkop{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;border-bottom:2px solid var(--text);padding-bottom:6px}
+.papier .pkop .mono{color:var(--text2)}
+.papier .pnr{display:flex;align-items:baseline;gap:10px}
+.papier .nr{font:700 30px/1 var(--titel);color:var(--text)}
+.papier .pre{border-left:0;padding:0}
+.papier .pre p{color:var(--text)}
+.papier .qtext{color:var(--text)}
+.herhaal.papier{padding:10px 14px;gap:6px;box-shadow:none;border-radius:6px}
+.herhaal .hkop{color:var(--text3);font-size:11px}
+.herhaal .qtext{font-size:16px}
+.papier .pvoet{font:500 11px var(--meta);letter-spacing:.06em;color:var(--text3);text-align:right}
+.papier details.ctxd summary{color:var(--goud-text)}
+.papier .podium{background:var(--surface2)}
+.phase>.label .tag{margin-left:6px;font:600 10px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:2px 8px}
+.sleutel{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:14px;color:var(--text2)}
+.sleutel .sw{display:inline-block;width:16px;height:12px;border-radius:2px;vertical-align:-1px;margin-right:7px}
+.sleutel .papier-sw{background:#FCFCFA}
+.sleutel .donker-sw{background:var(--surface2);box-shadow:inset 0 0 0 1px var(--line2)}
+.exfoto{display:block;width:100%;height:auto;border-radius:2px}
+footer{color:var(--text3);font-size:14px;padding-top:24px;border-top:1px solid var(--line)}
+body.hulp .ans.locked{display:none}
+body.examen .think{display:none}
+body.examen .think.open{display:flex}
+.helpbtn{display:none!important}
+body.examen .helpbtn{display:inline-flex!important}
+body.examen .tonext{display:none!important}
+@media (max-width:600px){body{font-size:16px}.qtext{font-size:17px}.phase,.ctx{padding:14px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="sitenav" aria-label="Site">
+    <a class="merk" href="../index.html#home">Biologie bij Kamiel</a>
+    <a class="terug" href="../index.html#ecologie">← Terug naar Ecologie</a>
+    <span class="rechts"><button type="button" class="icoon" data-thema-knop></button></span>
+  </nav>
+  <header class="tool-kop">
+    <div class="eyebrow" id="eb">Oefentoets Ecologie en milieu · vwo</div>
+    <h1 id="h1">Oefentoets Ecologie en milieu</h1>
+    <div class="seg" id="opgs" role="group" aria-label="Opgave"></div>
+    <div class="sleutel"><span><i class="sw papier-sw"></i>Wit vak = de toetsvraag</span><span><i class="sw donker-sw"></i>Donker vak = hulpvragen en uitleg (niet uit de toets)</span></div>
+    <p>Maak de toets stap voor stap. Bij elke vraag denk je eerst na met de hulpvragen, dan beantwoord je de toetsvraag, en daarna zie je waarom het antwoord klopt. Kies zelf hoeveel hulp je wilt; met ‘Echte toets’ oefen je zonder hulp.</p>
+    <div class="kopbalk">
+      <div class="seg" id="standen" role="group" aria-label="Hoeveel hulp wil je?"></div>
+      <button id="vrij" class="toggle" aria-pressed="false"><span class="knopje"></span>Vrij doorklikken</button>
+      <span class="mono muted" id="sub"></span>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs" aria-label="Vragen"></nav>
+
+  <section class="ctx papier" id="ctx"></section>
+
+  <main id="main"></main>
+
+  <footer>Eigen vragen, met inspiratie uit de centrale examens (© CvTE), Biologie voor Jou en Nectar. De gegevens in de tabellen zijn fictief; schema's en grafieken zijn eigen tekeningen.<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a> </span></footer>
+</div>
+
+<script>
+(function(){
+const $=(s,r=document)=>r.querySelector(s);
+const el=(tag,attrs={},html="")=>{const e=document.createElement(tag);for(const k in attrs){if(k==="class")e.className=attrs[k];else if(k.startsWith("on"))e.addEventListener(k.slice(2),attrs[k]);else e.setAttribute(k,attrs[k]);}if(html)e.innerHTML=html;return e;};
+const TOOL="eco-vwo";
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- opslag (alleen gemak) ---------- */
+let store={scores:{},mode:"hulp"};
+try{const s=JSON.parse(localStorage.getItem("toets-ecologie-vwo")||"null");if(s)store=Object.assign(store,s);}catch(e){}
+const save=()=>{try{localStorage.setItem("toets-ecologie-vwo",JSON.stringify(store));}catch(e){}};
+
+/* ---------- algemene bouwstenen ---------- */
+function phase(cls,label){const p=el("section",{class:"phase "+cls});
+  if(cls==="think")p.append(el("div",{class:"label"},`<span class="dot"></span>Hulpvragen<span class="tag">niet uit de toets</span>`));
+  else p.append(el("div",{class:"label"},`<span class="dot"></span>${label==="Antwoord"?"Jouw antwoord op de toetsvraag":label}`));return p;}
+function choiceStep(container,{q,opts,right,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});const fb=el("div",{class:"fb",hidden:""});
+  const knop=[];opts.forEach((o,i)=>{const b=el("button",{class:"opt",onclick:()=>{
+    if(i===right){row.querySelectorAll("button").forEach(x=>x.disabled=true);b.classList.add("right");fb.className="fb ok";fb.innerHTML=ok;fb.hidden=false;onDone&&onDone();}
+    else{b.classList.add("wrong");fb.className="fb no";fb.innerHTML=no;fb.hidden=false;}
+  }},o);knop.push(b);});
+  /* @@schud@@ vaste, geschudde volgorde (zaadje = vraagtekst), zodat het goede antwoord niet steeds eerst staat */
+  {let h=2166136261;for(const c of String(q))h=Math.imul(h^c.charCodeAt(0),16777619)>>>0;
+   const v=knop.map((b,i)=>i);for(let i=v.length-1;i>0;i--){h=Math.imul(h^(h>>>15),2246822507)>>>0;const j=h%(i+1);[v[i],v[j]]=[v[j],v[i]];}
+   if(v.length>1&&v[0]===right&&opts.length>2){const k=v.indexOf(right);[v[0],v[1]]=[v[1],v[0]];}
+   v.forEach(i=>row.append(knop[i]));}
+  s.append(row,fb);container.append(s);return s;
+}
+function mc(container,{opts,right,pts,qid,graphs:isGraph,onChecked}){
+  const wrap=el("div",{class:isGraph?"graphs":"row",style:isGraph?"":"flex-direction:column;align-items:stretch"});
+  const fb=el("div",{class:"fb",hidden:""});
+  opts.forEach((o,i)=>{const L="ABCDEF"[i];
+    const b=isGraph?el("button",{class:"gopt"},`<b>${L}</b>${o}`):el("button",{class:"opt"},`<b style="font:700 18px var(--titel);color:var(--goud-text);margin-right:10px">${L}</b>${o}`);
+    b.addEventListener("click",()=>{
+      wrap.querySelectorAll("button").forEach(x=>x.disabled=true);
+      const good=i===right; b.classList.add(good?"right":"wrong");
+      if(!good)wrap.children[right].classList.add("right");
+      fb.className="fb "+(good?"ok":"no");
+      fb.innerHTML=good?`Goed: <b>${"ABCDEF"[right]}</b>. ${pts} ${pts>1?"punten":"punt"}.`:`Het goede antwoord is <b>${"ABCDEF"[right]}</b>. 0 punten.`;
+      fb.hidden=false; setScore(qid,good?pts:0); onChecked&&onChecked();
+    });wrap.append(b);});
+  container.append(wrap,fb);
+}
+function waaromBtn(container,build){
+  const b=el("button",{class:"ghost waarombtn"},"Laat zien waarom ›");const box=el("div",{hidden:""});
+  b.onclick=()=>{b.remove();box.hidden=false;build(box);if(window.EXSTOF)EXSTOF.extraWaarom(TOOL,cur,box);};
+  container.append(b,box);
+}
+function lockAns(think,ans,label="Naar de vraag ›"){
+  ans.classList.add("locked");
+  const go=el("button",{class:"go tonext",hidden:""},label);
+  go.onclick=()=>{ans.classList.remove("locked");go.remove();ans.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});};
+  think.append(go);
+  return ()=>{think.append(go);go.hidden=false;};
+}
+function helpButton(q,think){
+  const b=el("button",{class:"ghost helpbtn"},"Hulp nodig? Toon de hulpvragen");
+  b.onclick=()=>{think.classList.add("open");b.remove();};
+  q.append(b);
+}
+function setScore(id,p){store.scores[id]=p;save();renderTabs();if(nextBtns[id])nextBtns[id].hidden=false;}
+
+/* ---------- vragen ---------- */
+const Q=[],OPG=[];
+
+/* Vraag 5 en 6: eerst zonder opties */
+function noOptions(q,{id,pts,text,prompt,hint,opts,right,uitleg}){
+  q.append(el("p",{class:"qtext"},text));
+  const think=phase("think","Eerst zelf"),ans=phase("ans","Kies je antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Toon de keuzes ›");
+  const s=el("div",{class:"step"});s.append(el("p",{},prompt));
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:"Wat denk jij? Schrijf het kort op."});const hb=el("button",{class:"ghost"},"Tip");const hf=el("div",{class:"fb hint",hidden:""},hint);
+  hb.onclick=()=>{hf.hidden=false;hb.remove();};
+  ta.addEventListener("input",()=>{if(ta.value.trim().length>2)unlock();});
+  s.append(ta,hb,hf);think.append(s);
+  mc(ans,{qid:id,pts,right,opts,onChecked:()=>{
+    if(ta.value.trim())ans.append(el("div",{class:"model"},`<b>Jij dacht eerst:</b> ${ta.value.replace(/</g,"&lt;")}<br><span class="muted">Klopte dat met de keuze die je maakte?</span>`));
+    waaromBtn(ans,b=>b.append(el("div",{class:"model"},uitleg)));}});
+  q.append(think,ans);
+}
+/* ================= extra bouwstenen ================= */
+function pre(q,html){q.append(el("div",{class:"pre"},html));}
+function chipsStep(container,{q,items,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});
+  items.forEach(([t])=>{const b=el("button",{class:"chip","aria-pressed":"false"},t);b.onclick=()=>b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")==="true"?"false":"true");row.append(b);});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(row,ck,fb);container.append(s);
+  ck.onclick=()=>{const sel=[...row.children].map(b=>b.getAttribute("aria-pressed")==="true");
+    const teveel=sel.some((s,k)=>s&&!items[k][1]),mist=sel.some((s,k)=>!s&&items[k][1]);fb.hidden=false;
+    if(!teveel&&!mist){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;row.querySelectorAll("button").forEach(b=>b.disabled=true);onDone&&onDone();}
+    else if(teveel){fb.className="fb hint";fb.innerHTML=no;}
+    else{fb.className="fb hint";fb.innerHTML="Wat je gekozen hebt klopt, maar er hoort nog meer bij. Kies alles wat klopt.";}};
+  return s;
+}
+function selectsStep(container,{q,rows,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const id=uid+"s"+k;
+    r.append(el("label",{for:id,class:"sellab"},lab));const sel=el("select",{id});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);s.append(r);return sel;});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(ck,fb);container.append(s);
+  ck.onclick=()=>{const n=sels.filter((sel,k)=>sel.value!==""&&+sel.value===rows[k][2]).length;fb.hidden=false;
+    if(n===rows.length){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;sels.forEach(x=>x.disabled=true);onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=`${n} van de ${rows.length} goed. `+(no||"Probeer het nog eens.");}};
+}
+function numStep(container,{q,right,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const r=el("div",{class:"row"});const inp=el("input",{class:"num",id:uid,inputmode:"decimal","aria-label":"antwoord"});const ck=el("button",{class:"ghost"},"Controleer");const fb=el("div",{class:"fb",hidden:""});
+  r.append(inp,ck);s.append(r,fb);container.append(s);
+  ck.onclick=()=>{const v=parseFloat((inp.value||"").replace(",","."));fb.hidden=false;
+    if(v===right){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;inp.disabled=true;onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=no;}};
+}
+function openAnswer(ans,{id,pts,checks,model,valkuil,placeholder,after}){
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:placeholder||"Schrijf je antwoord…"});
+  const ck=el("button",{class:"go"},"Nakijken");const tf=el("div",{class:"fb hint",hidden:""},"Schrijf eerst je antwoord op. Daarna kijk je het na.");
+  ans.append(ta,ck,tf);
+  ck.onclick=()=>{if(ta.value.trim().length<8){tf.hidden=false;ta.focus();return;}tf.remove();ck.remove();ta.readOnly=true;
+    const ss=el("div",{class:"selfscore"});
+    ss.append(el("p",{style:"margin:0"},"<b>Kijk jezelf na met het antwoordmodel.</b> Vink aan wat er in jouw antwoord staat."));
+    const boxes=checks.map((c,k)=>{const lab=el("label",{},`<input type="checkbox" id="q${id}c${k}"><span>${c} <span class="pts">1p</span></span>`);ss.append(lab);return lab.querySelector("input");});
+    if(model)ss.append(el("div",{class:"model"},"<b>Voorbeeldantwoord:</b> "+model));
+    if(valkuil)ss.append(el("div",{class:"fb hint"},"<b>Valkuil:</b> "+valkuil));
+    const sc=el("div",{class:"score"});ss.append(sc);ans.append(ss);
+    const upd=()=>{const p=Math.min(pts,boxes.filter(b=>b.checked).length);sc.textContent=`Jouw score: ${p} / ${pts}`;setScore(id,p);};
+    boxes.forEach(b=>b.onchange=upd);upd();after&&after();};
+}
+function juistOnjuist(ans,{id,stm,key,uitleg}){
+  const pick=stm.map(()=>null);
+  stm.forEach((t,k)=>{const r=el("div",{class:"row"});r.append(el("span",{style:"flex:1 1 260px"},`<b style="font-family:var(--meta)">${k+1}</b>&nbsp; ${t}`));
+    ["juist","onjuist"].forEach((lab,v)=>{const b=el("button",{class:"chip","aria-pressed":"false"},lab);b.onclick=()=>{pick[k]=v===0;r.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c===b?"true":"false"));};r.append(b);});ans.append(r);});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(pick.includes(null)){fb.hidden=false;fb.className="fb hint";fb.textContent="Beoordeel eerst alle uitspraken.";return;}
+    const n=pick.filter((p,k)=>p===key[k]).length;const p=n===stm.length?2:n===stm.length-1?1:0;ck.disabled=true;
+    ans.querySelectorAll(".chip").forEach(c=>c.disabled=true);
+    fb.hidden=false;fb.className="fb "+(p===2?"ok":"no");
+    fb.innerHTML=`${n} van de ${stm.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+key.map((k,i)=>`${i+1} ${k?"juist":"onjuist"}`).join(" · ");setScore(id,p);
+    waaromBtn(ans,uitleg);};
+}
+function stepAnim(box,steps,render){
+  let i=0;const stage=el("div",{class:"stage"}),cap=el("p",{class:"cap"});
+  const prev=el("button",{class:"ghost"},"‹ Vorige"),next=el("button",{class:"go"},"Volgende ›");
+  const pips=el("div",{class:"pips"},steps.map(()=>"<span></span>").join(""));
+  const nav=el("div",{class:"nav"});nav.append(prev,next,pips);
+  const a=el("div",{class:"anim"});a.append(stage,cap,nav);box.append(a);
+  function show(){cap.innerHTML=steps[i].cap;prev.disabled=i===0;next.textContent=i===steps.length-1?"Opnieuw ›":"Volgende ›";
+    pips.querySelectorAll("span").forEach((p,j)=>p.classList.toggle("on",j===i));render(stage,steps[i],i);}
+  prev.onclick=()=>{if(i>0){i--;show();}};next.onclick=()=>{i=(i+1)%steps.length;show();};show();
+}
+/* ================= meer bouwstenen ================= */
+function seqStep(container,{q,items,shown,ok,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const seq=el("div",{class:"seq"});let at=0;const fb=el("div",{class:"fb",hidden:""});
+  shown.forEach(k=>{const b=el("button",{class:"opt"},`<span class="n">·</span>${items[k]}`);b.onclick=()=>{if(b.classList.contains("placed"))return;
+    if(k===at){b.classList.add("placed");b.querySelector(".n").textContent=at+1;at++;fb.hidden=true;if(at===items.length){fb.hidden=false;fb.className="fb ok";fb.innerHTML=ok;onDone&&onDone();}}
+    else{fb.hidden=false;fb.className="fb hint";fb.textContent="Dat is nog niet de volgende stap. Wat gebeurt er direct daarna?";}};seq.append(b);});
+  s.append(seq,fb);container.append(s);
+}
+function selectAnswer(ans,{id,rows,score,uid,after,intro}){
+  if(intro)ans.append(el("p",{style:"margin:0"},intro));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const sid=uid+"a"+k;
+    r.append(el("label",{for:sid,class:"sellab"},lab));const sel=el("select",{id:sid});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);ans.append(r);return sel;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(sels.some(x=>x.value==="")){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul eerst alles in.";return;}
+    const n=sels.filter((x,k)=>+x.value===rows[k][2]).length;const p=score(n);sels.forEach(x=>x.disabled=true);ck.remove();
+    fb.hidden=false;fb.className="fb "+(n===rows.length?"ok":"no");
+    fb.innerHTML=`${n} van de ${rows.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+rows.map(([lab,opts,r])=>`${lab}: ${opts[r]}`).join(" · ");
+    setScore(id,p);after&&after();};
+}
+function textBox(html){return b=>b.append(el("div",{class:"model"},html));}
+const svgWrap=(vb,inner,label)=>`<svg viewBox="${vb}" role="img" aria-label="${label}">${inner}</svg>`;
+function numAnswer(ans,{id,fields,after}){
+  const inps=fields.map(([lab,unit],k)=>{const r=el("div",{class:"row"});const fid="q"+id+"f"+k;
+    r.append(el("label",{for:fid,class:"sellab"},lab));const i=el("input",{class:"num",id:fid,inputmode:"decimal"});r.append(i,el("span",{class:"muted"},unit));ans.append(r);return i;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{const v=inps.map(i=>parseFloat((i.value||"").replace(",",".")));if(v.some(isNaN)){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul beide uitkomsten in.";return;}
+    inps.forEach(i=>i.disabled=true);ck.remove();const res=fields.map((f,k)=>f[2](v[k]));const p=res.filter(Boolean).length;
+    fb.hidden=false;fb.className="fb "+(p===fields.length?"ok":"no");
+    fb.innerHTML=`<b>${p} van de ${fields.length} punten.</b><br>`+fields.map((f,k)=>`${res[k]?"✓":"✗"} ${f[3]}`).join("<br>");setScore(id,p);after&&after();};
+}
+
+/* ===== Oefentoets Ecologie en milieu: gedeelde hulpjes (havo en vwo uit één bron) ===== */
+const VWO=true;
+let QN=0,ON=0;
+/* vraag(punten, onderwerp, build(q,id), stof?) -> id; stof = {titel, html, anim?, films?} voor 'Uitleg van de stof' */
+function vraag(pts,t,build,stof){const id=++QN;Q.push({id,pts,t,build:q=>build(q,id)});
+  if(stof&&window.EXSTOF)EXSTOF.zet(TOOL,[id],stof);return id;}
+/* opgave zonder inleiding (alleen een kopje, zoals in de Word-toets): html leeg, dan geen wit inleidingsvak */
+function opgave(kort,titel,html,ids){const nr=++ON;
+  OPG.push({nr,kort,titel,ids,ctx:html?`<div class="pkop"><span class="mono">Toetstekst · inleiding opgave ${nr}</span></div>`+html:""});}
+/* films van de thema's Ecologie en Mens en milieu (hrefs als in HOOFDSTUKKEN.ecologie.films en HOOFDSTUKKEN.milieu.films) */
+const F={
+  pop:["Hoeveel passen er?","films/ecologie/1-hoeveel-passen-er.html"],
+  soort:["Waar past een soort?","films/ecologie/2-waar-past-een-soort.html"],
+  eet:["Wie eet wie?","films/ecologie/3-wie-eet-wie.html"],
+  blad:["Waar blijft het blad?","films/ecologie/4-waar-blijft-het-blad.html"],
+  energie:["Waarom zo weinig roofdieren?","films/ecologie/5-waarom-zo-weinig-roofdieren.html"],
+  c:["Koolstof gaat rond","films/ecologie/6-koolstof-gaat-rond.html"],
+  n:["Stikstof gaat rond","films/ecologie/7-stikstof-gaat-rond.html"],
+  zand:["Van zand tot bos","films/ecologie/8-van-zand-tot-bos.html"],
+  aarde:["Eén aarde","films/ecologie/3-een-aarde.html"],
+  ingrijpen:["Ingrijpen of laten gaan?","films/ecologie/4-ingrijpen-of-laten-gaan.html"],
+  grenzen:["Binnen de grenzen","films/ecologie/5-binnen-de-grenzen.html"]};
+/* begin van een vraag: vraagzin, hulp- en antwoordvak */
+function start(q,html){q.append(el("p",{class:"qtext"},html));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  return {think,ans,unlock};}
+const B=t=>`<b>${t}</b>`;
+const TABEL=(nr,kop,rijen,noot)=>`<div class="eyebrow">tabel ${nr}${noot?" (fictieve gegevens)":""}</div><div class="tablewrap"><table class="data"><tr>${kop.map(k=>`<th>${k}</th>`).join("")}</tr>${rijen.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join("")}</tr>`).join("")}</table></div>`;
+/* getal uit een invoerveld: 0,6 / 0.6 / 9.000 / 9 000 */
+function getal(s){s=(s||"").trim().replace(/\s/g,"");if(/^\d{1,3}(\.\d{3})+$/.test(s))s=s.replace(/\./g,"");return parseFloat(s.replace(",","."));}
+/* rekenvraag: berekening opschrijven + uitkomst. De uitkomst kijkt de tool na (1 scorepunt), de stappen van de
+   berekening of de uitleg vink je zelf aan (de andere scorepunten), zoals in het antwoordmodel. */
+function rekenOpen(ans,{id,pts,veld:[lab,eenheid,test,goed],checks,model,valkuil,after}){
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:"Schrijf je berekening (en uitleg) op…"});
+  const r=el("div",{class:"row"});const fid="q"+id+"u";
+  r.append(el("label",{for:fid,class:"sellab"},lab));const inp=el("input",{class:"num",id:fid,inputmode:"decimal"});r.append(inp,el("span",{class:"muted"},eenheid));
+  const ck=el("button",{class:"go"},"Nakijken");const tf=el("div",{class:"fb hint",hidden:""});
+  ans.append(ta,r,ck,tf);
+  ck.onclick=()=>{const v=getal(inp.value);
+    if(isNaN(v)){tf.hidden=false;tf.textContent="Vul je uitkomst in het vakje in.";inp.focus();return;}
+    if(ta.value.trim().length<4){tf.hidden=false;tf.textContent="Schrijf ook je berekening op. Daarna kijk je het na.";ta.focus();return;}
+    tf.remove();ck.remove();ta.readOnly=true;inp.disabled=true;
+    const ok=test(v);
+    const fb=el("div",{class:"fb "+(ok?"ok":"no")},`${ok?"✓":"✗"} Uitkomst: ${goed} <span class="pts">${ok?1:0}p</span>`);ans.append(fb);
+    const ss=el("div",{class:"selfscore"});
+    ss.append(el("p",{style:"margin:0"},"<b>Kijk de rest zelf na met het antwoordmodel.</b> Vink aan wat er in jouw antwoord staat."));
+    const boxes=checks.map((c,k)=>{const l=el("label",{},`<input type="checkbox" id="q${id}c${k}"><span>${c} <span class="pts">1p</span></span>`);ss.append(l);return l.querySelector("input");});
+    if(model)ss.append(el("div",{class:"model"},"<b>Voorbeeldantwoord:</b> "+model));
+    if(valkuil)ss.append(el("div",{class:"fb hint"},"<b>Valkuil:</b> "+valkuil));
+    const sc=el("div",{class:"score"});ss.append(sc);ans.append(ss);
+    const upd=()=>{const p=Math.min(pts,(ok?1:0)+boxes.filter(b=>b.checked).length);sc.textContent=`Jouw score: ${p} / ${pts}`;setScore(id,p);};
+    boxes.forEach(b=>b.onchange=upd);upd();after&&after();};
+}
+/* kleine SVG-hulpjes (kleuren alleen via css-variabelen, werkt in licht en donker) */
+const SVG=(vb,inner,label,maxw=560)=>`<div class="vpfig" style="max-width:${maxw}px;margin:0 auto;width:100%;--min:${Math.min(+vb.split(" ")[2],320)}px">`+svgWrap(vb,inner,label)+`</div>`;
+const T=(x,y,t,cls="lblm",anchor="middle",extra="")=>`<text x="${x}" y="${y}" class="${cls}" text-anchor="${anchor}" ${extra}>${t}</text>`;
+
+/* ===== Opgave 1: Kamsalamanders in een nieuwe poel (EI-ecologie-A01–A04, vwo + A05) ===== */
+{
+const JAAR=[2019,2020,2021,2022,2023,2024,2025],AANTAL=[0,6,15,38,92,180,186];
+const TAB1=TABEL(1,["jaar","volwassen kamsalamanders in de poel"],JAAR.map((j,i)=>[j,AANTAL[i]]),true);
+
+/* grafiek van tabel 1 (voor 'laat zien waarom' bij vraag 4) */
+function GROEI({tot=7,hl=null,s=false,dk=false}={}){
+  const xs=i=>66+i*55,ys=v=>250-v*1.05;let g="";
+  [0,50,100,150,200].forEach(v=>g+=`<path d="M64,${ys(v)} H410" stroke="var(--line)" stroke-width="1"/>`+T(58,ys(v)+4,v,"lblm","end"));
+  g+=`<path d="M64,20 V250 H410" fill="none" stroke="var(--text2)" stroke-width="1.4"/>`;
+  JAAR.forEach((j,i)=>g+=T(xs(i),270,j));
+  g+=T(236,292,"jaar");g+=T(16,140,"aantal","lblm","middle",'transform="rotate(-90 16 140)"');
+  if(hl)g+=`<rect x="${xs(hl[0])-18}" y="22" width="${xs(hl[1])-xs(hl[0])+36}" height="228" fill="${hl[2]}" opacity=".18"/>`;
+  if(dk)g+=`<path d="M64,${ys(190)} H410" stroke="var(--koraal)" stroke-width="2" stroke-dasharray="7 5"/>`+T(406,ys(190)-8,"draagkracht","lbl","end");
+  if(s){/* vloeiende lijn (Catmull-Rom) door de meetpunten, zodat de kromme in 2024 bij 180 loopt */
+    const P=AANTAL.map((v,i)=>[xs(i),ys(v)]);let d=`M${P[0][0]},${P[0][1]}`;
+    for(let i=0;i<P.length-1;i++){const p0=P[Math.max(0,i-1)],p1=P[i],p2=P[i+1],p3=P[Math.min(P.length-1,i+2)];
+      const c1=[p1[0]+(p2[0]-p0[0])/6,p1[1]+(p2[1]-p0[1])/6],c2=[p2[0]-(p3[0]-p1[0])/6,Math.max(p2[1]-(p3[1]-p1[1])/6,ys(190))];
+      d+=` C${c1[0].toFixed(1)},${Math.max(c1[1],ys(190)).toFixed(1)} ${c2[0].toFixed(1)},${c2[1].toFixed(1)} ${p2[0]},${p2[1]}`;}
+    g+=`<path d="${d}" fill="none" stroke="var(--goud)" stroke-width="2.4"/>`;}
+  for(let i=0;i<tot;i++)g+=`<circle cx="${xs(i)}" cy="${ys(AANTAL[i])}" r="5" fill="var(--text)"/>`;
+  return SVG("0 0 420 300",g,"Aantal volwassen kamsalamanders in de nieuwe poel, 2019 tot 2025");}
+
+const STOF_TEL={titel:"Een populatie tellen",html:`
+<p>Een <b>populatie</b> is een groep dieren van één soort, in één gebied, die zich onderling voortplanten. Alle dieren tellen lukt bijna nooit. Daarom schat je de populatiegrootte.</p>
+<p>Bij <b>vangen, merken en terugvangen</b> herken je in een eerste ronde een aantal dieren (met een merkje, of aan hun DNA). In een tweede ronde kijk je welk deel van de dieren je al kende. Je neemt aan dat in de hele populatie hetzelfde deel bekend is. In de film: ronde 1 veertig bevers, ronde 2 dertig bevers waarvan twaalf bekend (twee op de vijf). Veertig is dan twee vijfde van de populatie: ongeveer honderd bevers.</p>
+<p>Dat klopt alleen als er tussen de rondes geen dieren bijkomen of verdwijnen, en als elk dier evenveel kans heeft om gevonden te worden.</p>`,
+films:[F.pop]};
+const q1=vraag(2,"vlekkenpatronen tellen",(q,id)=>{
+  pre(q,"<p>In 2025 schatten de vrijwilligers het aantal ook op een andere manier. Elke kamsalamander heeft een eigen vlekkenpatroon op zijn buik. In de eerste week fotograferen ze 48 verschillende dieren. Een week later fotograferen ze 36 dieren; 9 daarvan hadden ze al eerder gezien.</p>");
+  const {think,ans,unlock}=start(q,B("Bereken met deze gegevens hoeveel kamsalamanders er in de poel zijn."));
+  choiceStep(think,{q:"Kijk alleen naar de tweede week. Welk deel van die dieren hadden ze al eerder gezien?",opts:["9 van de 36","9 van de 48","36 van de 48"],right:0,
+    ok:"Ja. Schrijf dat als een eenvoudige breuk. Wat zegt dat deel over de hele populatie?",no:"In de tweede week fotograferen ze 36 dieren. Hoeveel daarvan kenden ze al?",
+    onDone:()=>choiceStep(think,{q:"Je neemt aan dat in de hele poel hetzelfde deel al bekend is. Welke dieren zijn in de hele poel ‘bekend’?",opts:["de 48 dieren uit de eerste week","de 9 dieren die twee keer op de foto staan","alle 75 dieren die ze samen zagen"],right:0,
+      ok:"Goed. Die bekende dieren vormen dus hetzelfde deel van de populatie als in de tweede week. Reken nu de hele populatie uit.",no:"‘Bekend’ zijn alle dieren die ze in de eerste week gefotografeerd hebben.",onDone:unlock})});
+  rekenOpen(ans,{id,pts:2,veld:["aantal kamsalamanders","",v=>v===192,"192 kamsalamanders"],
+    checks:["Berekening: <b>9 van de 36 is een kwart</b>, dus de 48 bekende dieren zijn ook een kwart van de populatie (of 48 × 36 / 9)."],
+    model:"In de tweede week was 9 van de 36 dieren al bekend: een kwart. Dan is waarschijnlijk ook een kwart van alle kamsalamanders bekend. De 48 dieren uit de eerste week zijn dus een kwart van de populatie: 48 × 4 = 192 kamsalamanders.",
+    valkuil:"48 + 36 − 9 = 75 telt alleen de dieren die je gezien hebt, niet de hele populatie. Alleen 192 zonder berekening: alleen het punt voor de uitkomst.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Tweede week: 36 dieren op de foto. 9 daarvan (goud) kenden ze al: dat is 1 op de 4.",k:1},
+      {cap:"Neem aan dat in de hele poel ook 1 op de 4 dieren bekend is. De bekende dieren zijn de 48 uit de eerste week.",k:2},
+      {cap:"48 is dus een kwart van de populatie. Vier keer 48 = <b>192</b> kamsalamanders.",k:3}],
+      (st,s)=>{let g="";const R=(x,y,w,f,t)=>`<rect x="${x}" y="${y}" width="${w}" height="34" rx="4" fill="${f}" stroke="var(--text2)" stroke-width="1"/>`+(t?T(x+w/2,y+22,t,"lbl"):"");
+        g+=T(10,30,"tweede week","lbl","start");g+=R(10,40,300,"none","")+R(10,40,75,"var(--goud)","9 bekend")+T(197,62,"27 nieuw");
+        if(s.k>=2){g+=T(10,120,"hele poel","lbl","start");g+=R(10,130,75,"var(--goud)","48");}
+        if(s.k>=3){[1,2,3].forEach(k=>g+=R(10+k*75,130,75,"none","48"));g+=T(160,192,"4 × 48 = 192","lbl");}
+        st.innerHTML=SVG("0 0 320 205",g,"Vangen en terugvangen met de vlekkenpatronen",420);}))});
+  q.append(think,ans);
+},STOF_TEL);
+
+const STOF_POP={titel:"Erbij en eraf",html:`
+<p>De grootte van een populatie verandert door vier processen. Twee laten de populatie groeien: <b>geboorte</b> en dieren die van buiten het gebied <b>binnenkomen</b>. Twee laten haar krimpen: <b>sterfte</b> en dieren die het gebied <b>verlaten</b>. De groei is alles wat erbij komt, min alles wat eraf gaat.</p>
+<p>Let bij zo'n vraag goed op <b>vanuit welke populatie</b> je kijkt. Hetzelfde dier kan voor de ene populatie erbij komen en voor de andere eraf gaan.</p>
+<p>Waar een soort helemaal verdwenen is, kunnen mensen hem terugzetten: <b>herintroductie</b>, zoals de bevers in de Biesbosch.</p>`,
+films:[F.pop]};
+const q2=vraag(1,"trekken naar de nieuwe poel",(q,id)=>{
+  q.append(el("p",{class:"qtext"},"Kamsalamanders uit de oude poel trekken naar de nieuwe poel. <b>Welk begrip hoort bij deze dieren, gezien vanuit de populatie in de nieuwe poel?</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Kies je antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Vanuit welke populatie moet je kijken?",opts:["de populatie in de oude poel","de populatie in de nieuwe poel"],right:1,
+    ok:"Ja, dat staat in de vraag.",no:"Lees het laatste stukje van de vraag nog eens.",
+    onDone:()=>choiceStep(think,{q:"Komen deze dieren voor die populatie erbij of gaan ze eraf?",opts:["ze komen erbij","ze gaan eraf"],right:0,
+      ok:"Goed. Ze zijn niet in de poel geboren: ze komen van ergens anders. Welk begrip hoort daarbij?",no:"Ze trekken náár de nieuwe poel toe.",onDone:unlock})});
+  mc(ans,{qid:id,pts:1,right:3,opts:["emigratie","geboorte","herintroductie","immigratie"],onChecked:()=>waaromBtn(ans,textBox(
+    "Voor de nieuwe poel komen deze dieren van buiten het gebied binnen: <b>immigratie (D)</b>. Voor de oude poel is het juist emigratie (A): dat is het standpunt van de oude poel. Geboorte (B) is het niet, want ze zijn elders geboren. Herintroductie (C) is het terugzetten door mensen van een soort die verdwenen was."))});
+  q.append(think,ans);
+},STOF_POP);
+
+const STOF_VW={titel:"Eten en gegeten worden",html:`
+<p>Bij <b>predatie</b> eet een dier (de rover) een ander dier (de prooi). Twee soorten die hetzelfde voedsel gebruiken, zijn elkaars <b>concurrenten</b>.</p>
+<p>Veel dieren leven in hun jonge stadium heel anders dan als volwassen dier: ze zijn kleiner, eten iets anders en leven soms op een andere plek. Een populatie groeit alleen als er genoeg jonge dieren overleven tot ze volwassen zijn.</p>`,
+films:[F.eet,F.pop]};
+const q3=vraag(2,"goudvissen in de oude poel",(q,id)=>{
+  pre(q,"<p>In 2023 zet iemand goudvissen uit in de oude poel. Goudvissen eten geen volwassen kamsalamanders.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit hoe de goudvissen toch tot minder volwassen kamsalamanders in de oude poel kunnen leiden. Gebruik de informatie bij deze opgave."));
+  chipsStep(think,{q:"Lees de inleiding. Welke stadia van de kamsalamander leven <b>in het water</b> van de poel? Kies alles wat klopt.",items:[["eitjes",1],["larven",1],["volwassen dieren buiten de voortplantingstijd",0]],
+    ok:"Ja: eitjes en larven zitten in de poel. Volwassen kamsalamanders leven het grootste deel van het jaar op het land. Welke stadia kan een vis dus raken?",no:"De volwassen dieren leven op het land en komen alleen naar de poel om zich voort te planten.",
+    onDone:()=>choiceStep(think,{q:"Waar zijn volwassen kamsalamanders vroeger zelf uit ontstaan?",opts:["uit larven die in de poel zijn opgegroeid","uit dieren die van een andere poel kwamen"],right:0,
+      ok:"Goed. Maak nu de redenering af: wat doet de goudvis, en wat betekent dat een paar jaar later?",no:"Lees de inleiding nog eens: waar groeien de larven op?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Goudvissen eten <b>eitjes en/of larven</b> van de kamsalamander (predatie).",
+    "Daardoor groeien er <b>minder larven op tot volwassen dieren</b> (minder aanwas), zodat het aantal volwassen dieren afneemt. Ook goed: goudvissen eten ook watervlooien, het voedsel van de larven (concurrentie), zodat minder larven overleven."],
+    model:"Goudvissen eten de eitjes en larven van de kamsalamander in de poel. Daardoor overleven er minder larven tot ze volwassen zijn. Er komen dus minder nieuwe volwassen dieren bij, terwijl de oude dieren wel doodgaan. Zo neemt het aantal volwassen kamsalamanders af.",
+    valkuil:"‘De goudvissen eten de kamsalamanders op’ is fout: dat sluit de vraag uit. Het gaat om een tussenstap: de eitjes en larven, of hun voedsel.",
+    after:()=>waaromBtn(ans,textBox("De vraag zegt dat goudvissen geen <b>volwassen</b> kamsalamanders eten. In de inleiding staat dat het vrouwtje haar <b>eitjes</b> in de poel legt en dat de <b>larven</b> daar opgroeien en watervlooien eten. Juist daarom leven kamsalamanders in poelen zonder vis. Eet de goudvis eitjes en larven (of hun watervlooien), dan worden er minder larven volwassen. De volwassen dieren gaan na een tijd dood, en er komen er te weinig bij."))});
+  q.append(think,ans);
+},STOF_VW);
+
+const STOF_GROEI={titel:"Hoe een populatie groeit",html:`
+<p>Groeit een populatie elk jaar met ongeveer hetzelfde <b>percentage</b>, dan komen er steeds meer dieren per jaar bij: hoe meer dieren, hoe meer jongen. De lijn in een grafiek loopt steeds steiler omhoog, in de vorm van een J. Dat heet <b>exponentiële groei</b> (J-curve).</p>
+<p>Niet elke populatie blijft zo groeien. Vlakt de groei na een tijd af, dan heeft de lijn een andere vorm, en die groeivorm heeft een eigen naam.</p>
+<p>Kijk bij een tabel dus naar het begin én naar het eind: groeit het aantal steeds sneller, of wordt de groei kleiner? En vraag je af wat een populatie kan afremmen.</p>`,
+films:[F.pop]};
+const q4=vraag(2,"de groeivorm in de nieuwe poel",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Gebruik tabel 1. <b>Geef de naam van de groeivorm van de populatie in de nieuwe poel van 2019 tot 2025. Leg uit waardoor het aantal na 2024 bijna niet meer stijgt.</b>");
+  choiceStep(think,{q:"Kijk naar 2021, 2022 en 2023 in tabel 1. Hoe verandert het aantal per jaar?",opts:["het wordt elk jaar ruim twee keer zo groot","er komen elk jaar ongeveer evenveel bij","het daalt"],right:0,
+    ok:"Ja: 15, 38, 92. Snel en steeds sneller. En van 2024 naar 2025?",no:"Deel elk getal door het getal van het jaar ervoor.",
+    onDone:()=>choiceStep(think,{q:"Van 2024 naar 2025 gaat het aantal van 180 naar 186. Welke vorm krijgt de lijn van 2019 tot 2025 dus?",opts:["steeds steiler omhoog","eerst steeds steiler, daarna bijna vlak"],right:1,
+      ok:"Goed. Welke groeivorm hoort bij die vorm, en waardoor kan een poel niet eindeloos meer kamsalamanders hebben?",no:"Let op het laatste stuk: 180 → 186 is bijna geen groei meer.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "<b>Logistische groei</b> (S-curve).",
+    "De <b>draagkracht</b> van de poel is (bijna) bereikt: dichtheidsafhankelijke factoren, zoals voedsel (watervlooien) voor de larven of plek, remmen de groei (meer sterfte / minder aanwas)."],
+    model:"Het is logistische groei: eerst groeit het aantal steeds sneller, daarna bijna niet meer (een S-curve). Na 2024 is de draagkracht van de poel bereikt. Er zijn dan zoveel dieren dat er te weinig voedsel (watervlooien) voor de larven en te weinig plek is. Er sterven meer dieren en er komen er minder bij.",
+    valkuil:"‘Exponentiële groei’: 0 punten voor het eerste punt. Bij exponentiële groei wordt de lijn steeds steiler en vlakt hij niet af.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"De punten uit tabel 1.",o:{}},
+      {cap:"2020 tot 2023: elk jaar meer dan twee keer zoveel. Dat lijkt in het begin op exponentiële groei.",o:{hl:[1,4,"var(--groen)"]}},
+      {cap:"2024 en 2025: bijna geen groei meer. De lijn vlakt af.",o:{hl:[5,6,"var(--koraal)"]}},
+      {cap:"Samen een S: <b>logistische groei</b>. Het aantal blijft hangen rond de <b>draagkracht</b> van de poel. Daar remmen voedsel en plek de groei.",o:{s:true,dk:true}}],
+      (st,s)=>st.innerHTML=GROEI(s.o)))});
+  q.append(think,ans);
+},STOF_GROEI);
+
+const ids=[q1,q2,q3,q4];
+if(VWO){
+const STOF_LO={titel:"Leeftijdsopbouw",html:`
+<p>De <b>leeftijdsopbouw</b> van een populatie laat zien hoeveel dieren er in elke leeftijdsklasse zitten. Je tekent die vaak als een piramide van liggende balken: onderaan de jongste dieren, bovenaan de oudste. De breedte van een balk is het aantal dieren in die klasse.</p>
+<p>Uit de vorm lees je af hoeveel jonge dieren erbij komen, vergeleken met de oudere dieren.</p>`,
+films:[F.pop]};
+const PIR=(breed)=>{const ws=breed?[140,104,72,44,20]:[76,74,68,58,42];let g="";
+  ws.forEach((w,i)=>{const y=150-i*28;g+=`<rect x="${85-w/2}" y="${y}" width="${w}" height="22" rx="3" fill="var(--teal)" opacity=".75"/>`;});
+  return g+T(85,190,breed?"2021":"2025","lbl");};
+ids.push(vraag(2,"leeftijdsopbouw in 2021 en 2025",(q,id)=>{
+  pre(q,"<p>Onderzoekers bepalen in 2021 en in 2025 de leeftijd van de kamsalamanders in de nieuwe poel.</p>");
+  const {think,ans,unlock}=start(q,B("Beredeneer met tabel 1 welke leeftijdsopbouw je in 2021 verwacht en welke in 2025. Leg ook uit waardoor die verschillen."));
+  choiceStep(think,{q:"In welke fase zit de populatie in 2021 volgens tabel 1?",opts:["ze groeit snel","ze zit rond de draagkracht","ze krimpt"],right:0,
+    ok:"Ja. Komen er dan veel of weinig jonge dieren bij, vergeleken met het aantal oude dieren?",no:"Vergelijk 2021 met 2020 en 2022.",
+    onDone:()=>choiceStep(think,{q:"In 2025 groeit het aantal bijna niet meer. Wat weet je dan over de jonge dieren die erbij komen en de dieren die doodgaan?",opts:["er komen er veel meer bij dan er doodgaan","er komen er ongeveer evenveel bij als er doodgaan"],right:1,
+      ok:"Goed. Vertaal dat nu naar de vorm van de leeftijdsopbouw in beide jaren.",no:"Als het aantal bijna gelijk blijft, moeten erbij en eraf ongeveer even groot zijn.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "2021: een <b>brede basis</b> (veel jonge dieren, piramidevorm), want de populatie groeit snel: veel aanwas, nog weinig oude dieren.",
+    "2025: een <b>smallere basis</b> (meer een zuil), want de populatie zit rond de draagkracht: er komen ongeveer evenveel jonge dieren bij als er (oude) dieren sterven."],
+    model:"In 2021 groeit de populatie snel. Er komen veel jonge dieren bij en er zijn nog weinig oude dieren, want de poel is pas twee jaar oud: een piramide met een brede basis. In 2025 zit de populatie rond de draagkracht. Er komen ongeveer evenveel jonge dieren bij als er doodgaan, dus de basis is smaller en de leeftijdsopbouw lijkt meer op een zuil.",
+    valkuil:"Alleen ‘in 2025 zijn de dieren ouder’ is geen uitleg. Koppel de vorm aan de groei: snelle groei ↔ brede basis, rond de draagkracht ↔ smallere basis.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"2021: de populatie groeit snel. Veel jonge dieren onderaan, nog weinig oude dieren bovenaan: een brede basis.",k:1},
+      {cap:"2025: rond de draagkracht. Er komen ongeveer evenveel jongen bij als er dieren doodgaan: een smallere basis, bijna een zuil.",k:2}],
+      (st,s)=>{let g=`<g transform="translate(34,0)">${PIR(true)}</g>`;if(s.k>=2)g+=`<g transform="translate(200,0)">${PIR(false)}</g>`;
+        g+=T(2,30,"oud","lblm","start")+T(2,165,"jong","lblm","start")+T(368,195,"schets","lblm","end");
+        st.innerHTML=SVG("0 0 370 200",g,"Leeftijdsopbouw van de kamsalamanders in 2021 en 2025 (schets)",440);}))});
+  q.append(think,ans);
+},STOF_LO));
+}
+
+opgave("Kamsalamanders","Kamsalamanders in een nieuwe poel",`
+<p>De kamsalamander is een zeldzame salamander. Hij leeft op het land, maar plant zich voort in poelen zonder vis: daar legt het vrouwtje haar eitjes en groeien de larven op. Larven eten kleine waterdiertjes zoals watervlooien.</p>
+<p>In 2019 graaft een natuurorganisatie een nieuwe poel, 300 meter van een oude poel waar al kamsalamanders leven. Elk voorjaar tellen vrijwilligers de volwassen kamsalamanders die naar de nieuwe poel komen (tabel 1).</p>
+${TAB1}`,ids);
+}
+
+/* ===== Opgave 2: Waar een soort leeft (EI-ecologie-KB02; havo KB05, vwo KB09) ===== */
+{
+const STOF_FACT={titel:"Abiotische en biotische factoren",html:`
+<p>Elke plek heeft eigen omstandigheden. <b>Abiotische factoren</b> zijn de niet-levende omstandigheden: temperatuur, licht, zuurstof, stroming, pH, de bodem. <b>Biotische factoren</b> hebben te maken met andere organismen: voedsel, rovers, concurrenten, parasieten, en ook de mens.</p>
+<p>Factoren hangen vaak samen: als de ene verandert, verandert een andere mee. Zo kan een biotische factor (een organisme) een abiotische factor veranderen.</p>
+<p>Bij een vraag met twee waarnemingen: zoek bij elke waarneming apart wat er anders is, en welk proces dat verschil veroorzaakt.</p>`,
+films:[F.soort]};
+const k1=vraag(2,"zuurstof in de beek",(q,id)=>{
+  pre(q,"<p>Onder een lozingspunt van afvalwater zit minder zuurstof in een beek dan erboven. In de zomer is het water bovendien zuurstofarmer dan in de winter.</p>");
+  const {think,ans,unlock}=start(q,B("Verklaar beide waarnemingen."));
+  choiceStep(think,{q:"Afvalwater bevat afvalstoffen. Welke organismen breken die in de beek af?",opts:["bacteriën","waterplanten","vissen"],right:0,
+    ok:"Ja. Wat hebben die bacteriën nodig om te kunnen afbreken?",no:"Denk aan de afbrekers in een rioolwaterzuivering of een composthoop.",
+    onDone:()=>choiceStep(think,{q:"Wat is in de zomer anders aan het water dan in de winter?",opts:["het is warmer","het is zouter","het stroomt altijd sneller"],right:0,
+      ok:"Goed. Bedenk nu wat de temperatuur doet met de hoeveelheid zuurstof die in water kan oplossen.",no:"Denk aan de belangrijkste abiotische factor die met de seizoenen verandert.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Onder het lozingspunt: <b>bacteriën</b> breken de afvalstoffen af en <b>verbruiken daarbij zuurstof</b>.",
+    "In de zomer: in <b>warm water lost minder zuurstof op</b> dan in koud water."],
+    model:"Onder het lozingspunt breken bacteriën de afvalstoffen af. Daarbij gebruiken ze zuurstof, dus er blijft minder zuurstof over in het water. In de zomer is het water warmer, en in warm water lost minder zuurstof op dan in koud water.",
+    valkuil:"‘De vissen gebruiken in de zomer meer zuurstof’ zonder het oplossen: 0 punten voor het tweede punt.",
+    after:()=>waaromBtn(ans,textBox("Twee waarnemingen, twee verschillende oorzaken. Onder het lozingspunt is het een <b>biotische</b> oorzaak: bacteriën breken de afvalstoffen af en verbruiken zuurstof. In de zomer is het een <b>abiotische</b> oorzaak: warm water kan minder zuurstof bevatten dan koud water. Traag, warm water met afvalwater is daarom vaak zuurstofarm."))});
+  q.append(think,ans);
+},STOF_FACT);
+
+const STOF_TOL={titel:"Tolerantie en optimum",html:`
+<p>Elke soort overleeft alleen tussen twee grenzen van een factor, bijvoorbeeld zuurstof of temperatuur. Onder de <b>minimumtolerantiegrens</b> is er te weinig, boven de <b>maximumtolerantiegrens</b> te veel. Daartussen ligt het <b>tolerantiegebied</b>, met in het midden het <b>optimum</b>: daar groeit de soort het best en plant ze zich het best voort. In een grafiek is dat de <b>optimumkromme</b>.</p>
+<p>Sommige soorten hebben een smalle kromme (smalle tolerantie), andere een brede. Een soort kan alleen ergens leven als <b>alle</b> factoren tegelijk binnen haar grenzen liggen.</p>`,
+films:[F.soort]};
+const ids=[k1];
+if(!VWO){
+const KROM=({smal=true,breed=true,lijn=null}={})=>{let g="";const X=v=>40+v*30,Y=y=>170-y;
+  g+=`<path d="M40,20 V170 H380" fill="none" stroke="var(--text2)" stroke-width="1.4"/>`+T(210,200,"zuurstof (mg per liter)")+T(14,95,"groei (schets)","lblm","middle",'transform="rotate(-90 14 95)"');
+  [0,2,4,6,8,10].forEach(v=>g+=T(X(v),186,v,"lblm"));
+  /* zuurstof: onder de minimumgrens geen groei, daarboven tot het optimum stijgend en dan vlak (te veel zuurstof is in een beek geen probleem) */
+  const kr=(mn,steil,h)=>{let d="";for(let k=0;k<=110;k++){const v=k/10,y=v<=mn?0:h*(1-Math.exp(-(v-mn)*steil));d+=(d?"L":"M")+X(v).toFixed(1)+","+Y(y).toFixed(1);}return d;};
+  if(breed)g+=`<path d="${kr(1,0.9,95)}" fill="none" stroke="var(--teal)" stroke-width="2.4"/>`+T(X(1.6),Y(30),"brede tolerantie","lbl","start");
+  if(smal)g+=`<path d="${kr(7,1.6,125)}" fill="none" stroke="var(--goud)" stroke-width="2.6"/>`+T(X(9),Y(138),"smalle tolerantie","lbl");
+  if(lijn!==null)g+=`<path d="M${X(lijn)},20 V170" stroke="var(--koraal)" stroke-width="2" stroke-dasharray="6 4"/>`;
+  return SVG("0 0 390 210",g,"Twee optimumkrommen: smalle en brede tolerantie voor zuurstof (schets)");};
+ids.push(vraag(2,"indicatorsoort en beperkende factor",(q,id)=>{
+  pre(q,"<p>Een waterschap telt beestjes in sloten om de waterkwaliteit te bepalen.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit waarom een soort met een smalle tolerantie daarvoor beter bruikbaar is dan een soort met een brede tolerantie. Leg ook uit wat de beperkende factor van een soort is."));
+  choiceStep(think,{q:"Een soort met een smalle tolerantie voor zuurstof: waar kan die leven?",opts:["alleen in water waar de zuurstof binnen nauwe grenzen ligt","in bijna elk water"],right:0,
+    ok:"Ja. Wat weet je dus over het water als je zo'n soort in een sloot vindt? En wat weet je als je een soort vindt die bijna overal leeft?",no:"Een smalle tolerantie betekent: een smal tolerantiegebied tussen minimum en maximum.",
+    onDone:()=>choiceStep(think,{q:"Een plant heeft genoeg licht en water, maar er is weinig stikstof in de bodem. Wat helpt hem het meest?",opts:["extra licht","extra water","extra stikstof"],right:2,
+      ok:"Goed. Die ene factor heeft een naam. Leg in je antwoord in het algemeen uit welke factor dat is.",no:"Extra van iets wat er al genoeg is, helpt niet.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Een soort met een <b>smalle tolerantie</b> leeft alleen waar de factoren binnen nauwe grenzen liggen, dus vertelt zijn aanwezigheid iets over het water (<b>indicatorsoort</b>); een soort met een brede tolerantie leeft bijna overal.",
+    "De <b>beperkende factor</b> is de factor die het verst buiten het optimum ligt en de soort het meest beperkt."],
+    model:"Een soort met een smalle tolerantie kan alleen leven als bijvoorbeeld de zuurstof en de temperatuur binnen nauwe grenzen liggen. Vind je die soort, dan weet je dus hoe het water is: het is een indicatorsoort. Een soort met een brede tolerantie leeft bijna overal en zegt weinig. De beperkende factor is de factor die het verst buiten het optimum ligt: die remt de soort het meest.",
+    valkuil:"‘De beperkende factor is de factor waar de soort het minst van nodig heeft’ is fout. Het gaat om de factor die het verst van het optimum af ligt.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Twee soorten, twee optimumkrommen voor zuurstof.",o:{}},
+      {cap:"Bij 3 mg zuurstof per liter: de soort met de brede tolerantie leeft er nog, de soort met de smalle tolerantie niet.",o:{lijn:3}},
+      {cap:"Bij 9,5 mg leven ze allebei. De brede soort vind je dus bijna overal: die zegt weinig. Vind je de smalle soort, dan weet je dat het water zuurstofrijk is: een <b>indicatorsoort</b>.",o:{lijn:9.5}}],
+      (st,s)=>st.innerHTML=KROM(s.o)))});
+  q.append(think,ans);
+},STOF_TOL));
+}else{
+const STOF_ACC={titel:"Grenzen, signalen en seizoenen",html:`
+<p>Elke soort overleeft alleen tussen een minimum- en een maximumgrens van een factor, met daartussen het <b>optimum</b>. Die grenzen zijn voor een groot deel erfelijk: <b>adaptaties</b>, ontstaan door natuurlijke selectie.</p>
+<p>Veel planten en dieren bereiden zich voor op de winter: ze laten bladeren vallen, gaan in winterrust of leggen eitjes die de winter overleven. Daarvoor reageren ze op een signaal uit de omgeving, zodat ze op tijd beginnen.</p>`,
+films:[F.soort]};
+ids.push(vraag(2,"tropische vissen en daglengte",(q,id)=>{
+  pre(q,"<p>Een kweker zet tropische vissen in één keer over van water van 28 °C naar water van 22 °C. Ze sterven. Een andere kweker laat de temperatuur in drie weken langzaam dalen; zijn vissen overleven.</p>");
+  const {think,ans,unlock}=start(q,B("Verklaar het verschil met het begrip acclimatisatie. Leg ook uit waarom veel planten op de daglengte reageren als signaal voor de winter, en niet op de temperatuur."));
+  choiceStep(think,{q:"Wat is het verschil tussen de twee kwekers?",opts:["hoe koud het water uiteindelijk wordt","hoe snel de temperatuur verandert"],right:1,
+    ok:"Ja: allebei eindigen ze bij 22 °C. Wat kan het lichaam van een vis doen als het daar drie weken de tijd voor krijgt?",no:"Kijk naar de eindtemperatuur: is die bij beide kwekers anders?",
+    onDone:()=>choiceStep(think,{q:"Hoe betrouwbaar is de temperatuur van dag tot dag als teken dat de winter eraan komt?",opts:["heel betrouwbaar","niet zo betrouwbaar: hij schommelt"],right:1,
+      ok:"Goed. Vergelijk dat met de daglengte: hoe verandert die door het jaar heen?",no:"Denk aan een warme dag in november of een koude dag in mei.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Bij een langzame verandering kunnen de vissen <b>acclimatiseren</b>: hun tolerantiekromme schuift een stukje op; bij een snelle verandering lukt dat niet.",
+    "De <b>daglengte verandert elk jaar precies hetzelfde</b>, de temperatuur schommelt (fotoperiodiciteit)."],
+    model:"Als de temperatuur langzaam daalt, krijgen de vissen de tijd om te acclimatiseren: hun lichaam past zich in een paar weken aan, en hun tolerantiekromme schuift een stukje op naar kouder water. In één keer van 28 naar 22 °C lukt dat niet: dan valt 22 °C buiten hun grens. Planten reageren op de daglengte, omdat die elk jaar precies hetzelfde verandert. De temperatuur schommelt van dag tot dag en van jaar tot jaar. Dat heet fotoperiodiciteit.",
+    valkuil:"‘De vissen passen zich aan door evolutie’ is fout: acclimatisatie gebeurt tijdens het leven van één dier en is niet erfelijk.",
+    after:()=>waaromBtn(ans,textBox("<b>Acclimatisatie</b> is wennen tijdens het leven: binnen een paar weken schuift de optimumkromme van een dier een stukje op. Dat kost tijd. Daarom overleven de vissen van de tweede kweker wel. Het is niet erfelijk, dus geen adaptatie.<br><br>Een plant die op de temperatuur zou letten, kan zich vergissen: na een warme week in de herfst lijkt het lente. De <b>daglengte</b> verandert elk jaar op precies dezelfde manier, dus is een betrouwbaar signaal. Reageren op de daglengte heet <b>fotoperiodiciteit</b>."))});
+  q.append(think,ans);
+},STOF_ACC));
+}
+opgave("Waar een soort leeft","Waar een soort leeft","",ids);
+}
+
+/* ===== Opgave 3: Eten en samenleven (EI-ecologie-KI03) ===== */
+{
+const STOF_RP={titel:"Rover en prooi",html:`
+<p>Een <b>rover</b> (predator) leeft van een <b>prooi</b>. De aantallen van de twee hangen van elkaar af: hoeveel rovers er zijn, heeft invloed op de prooien, en hoeveel prooien er zijn, heeft invloed op de rovers. Daardoor schommelen hun aantallen vaak in golven.</p>
+<p>In de film: de sneeuwschoenhaas en de lynx in Canada, met golven van ongeveer tien jaar. Zo'n grafiek lees je zo: zoek de pieken van beide lijnen, en kijk welke lijn eerst piekt.</p>`,
+films:[F.eet]};
+/* golven van muizen en torenvalken (schets; muizen pieken 2018, 2021, 2024) */
+function GOLF({valk=false,pijl=false}={}){
+  const X=j=>40+(j-2016)*35,muis=j=>95-62*Math.cos(2*Math.PI*(j-2018)/3),valkY=j=>140-38*Math.cos(2*Math.PI*(j-2019.3)/3);
+  let g=`<path d="M40,20 V200 H400" fill="none" stroke="var(--text2)" stroke-width="1.4"/>`;
+  for(let j=2016;j<=2026;j+=2)g+=T(X(j),218,j);
+  g+=T(14,110,"aantal (schets)","lblm","middle",'transform="rotate(-90 14 110)"');
+  const pad=f=>{let d="";for(let k=0;k<=100;k++){const j=2016+k/10;d+=(k?"L":"M")+X(j).toFixed(1)+","+f(j).toFixed(1);}return d;};
+  g+=`<path d="${pad(muis)}" fill="none" stroke="var(--goud)" stroke-width="2.6"/>`+T(X(2016.3),28,"veldmuizen","lbl","start");
+  [2018,2021,2024].forEach(j=>g+=`<circle cx="${X(j)}" cy="${muis(j)}" r="5" fill="var(--goud)"/>`);
+  if(valk){g+=`<path d="${pad(valkY)}" fill="none" stroke="var(--teal)" stroke-width="2.6" stroke-dasharray="8 5"/>`+T(X(2016.3),48,"torenvalken","lbl","start");
+    [2019.3,2022.3,2025.3].forEach(j=>g+=`<circle cx="${X(j)}" cy="${valkY(j)}" r="5" fill="var(--teal)"/>`);}
+  if(pijl)[2018,2021,2024].forEach(j=>g+=`<path d="M${X(j)+6},${muis(j)-10} H${X(j+1.3)-6}" stroke="var(--text)" stroke-width="1.6" marker-end="url(#pk)"/>`);
+  return SVG("0 0 410 230",`<defs><marker id="pk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--text)"/></marker></defs>`+g,"Schets: aantallen veldmuizen en torenvalken door de jaren");}
+const ids=[vraag(2,"veldmuizen en torenvalken",(q,id)=>{
+  pre(q,"<p>Van een populatie veldmuizen en de torenvalken die er vooral van leven, worden elk jaar de aantallen geteld. De muizen pieken in 2018, 2021 en 2024.</p>");
+  const {think,ans,unlock}=start(q,B("Geef aan wanneer de torenvalken waarschijnlijk pieken. Leg ook uit waarom de torenvalken de muizen niet uitroeien."));
+  choiceStep(think,{q:"Er zijn heel veel muizen. Wat gebeurt er met de jongen van de torenvalken?",opts:["er overleven er meer","er overleven er minder","dat maakt niet uit"],right:0,
+    ok:"Ja. Maar jonge torenvalken groeien op en krijgen pas later zelf jongen. Kan het aantal torenvalken dus al in hetzelfde jaar pieken als de muizen?",no:"Met veel voedsel kunnen ouders meer jongen grootbrengen.",
+    onDone:()=>choiceStep(think,{q:"Er zijn nog maar weinig muizen. Kost het een torenvalk dan meer of minder tijd om er één te vangen?",opts:["meer tijd","minder tijd"],right:0,
+      ok:"Goed. Wat betekent dat voor de torenvalken zelf, en dus voor de muizen die overblijven?",no:"Hoe minder muizen er rondlopen, hoe langer hij moet zoeken.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "De torenvalken pieken <b>een jaar of één à twee na de muizen</b> (2019–2020, 2022–2023, 2025–2026).",
+    "Bij weinig muizen <b>kost jagen meer tijd</b>, vangen torenvalken minder, eten ze iets anders en krijgen ze minder jongen, zodat er muizen overblijven."],
+    model:"De torenvalken pieken een jaar of twee na de muizen, dus rond 2019–2020, 2022–2023 en 2025–2026. Bij veel muizen overleven meer jonge torenvalken; als er weinig muizen zijn, kost jagen veel tijd. De torenvalken vangen er dan minder, eten iets anders en krijgen minder jongen. Daardoor blijft er altijd een deel van de muizen over.",
+    valkuil:"‘De torenvalken pieken tegelijk met de muizen’ is fout: de rover volgt de prooi. En ‘de muizen verstoppen zich’ verklaart niet waarom de rovers zelf afnemen.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"De muizen pieken in 2018, 2021 en 2024.",o:{}},
+      {cap:"Na een muizenpiek overleven meer jonge torenvalken. Het aantal torenvalken piekt dus later: een jaar of twee na de muizen. De prooi gaat voorop, de rover volgt.",o:{valk:true,pijl:true}},
+      {cap:"Bij weinig muizen vangen de torenvalken er minder, eten ze iets anders en krijgen ze minder jongen. Dan kunnen de overgebleven muizen weer groeien.",o:{valk:true}}],
+      (st,s)=>st.innerHTML=GOLF(s.o)))});
+  q.append(think,ans);
+},STOF_RP)];
+opgave("Eten en samenleven","Eten en samenleven","",ids);
+}
+
+/* ===== Opgave 4: Veenweiden: het water omhoog (EI-ecologie-B01–B03, vwo + B04) ===== */
+{
+const TAB2=TABEL(2,["grondwater onder het maaiveld","60 cm","20 cm"],[["daling van de bodem (mm per jaar)","10","3"],["CO₂ uit de bodem (ton per hectare per jaar)","22","7"]],true);
+const STOF_AF={titel:"Afbraak door reducenten",html:`
+<p>Dode resten van planten en dieren zijn <b>organische stof</b>: grote moleculen met koolstof, waar energie in zit. Detrituseters, zoals regenwormen, maken de resten kleiner. <b>Reducenten</b> (bacteriën en schimmels) breken ze helemaal af tot koolstofdioxide, water en mineralen. Dat heet <b>mineralisatie</b>. De reducenten halen er energie uit door te dissimileren.</p>
+<p>Hoe snel afbraak gaat, hangt af van de omstandigheden: denk aan een composthoop, die je af en toe omzet, of aan een lichaam dat tweeduizend jaar bewaard bleef in een hoogveen.</p>`,
+films:[F.blad,F.c]};
+const b1=vraag(2,"meer CO₂ en een dalende bodem",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Leg met tabel 2 uit waardoor er bij een laag grondwaterpeil meer CO₂ uit de bodem komt én de bodem sneller daalt."));
+  choiceStep(think,{q:"Bij een laag grondwaterpeil ligt de bovenste 60 cm van het veen boven het water. Wat zit er dan tussen het veen?",opts:["lucht, met zuurstof","alleen water"],right:0,
+    ok:"Ja. Wat kunnen bacteriën en schimmels in het veen doen als er zuurstof is?",no:"Boven het grondwater zijn de ruimtes in de bodem niet met water gevuld.",
+    onDone:()=>choiceStep(think,{q:"Veen bestaat uit oude plantenresten. Wat gebeurt er met de dikte van de bodem als een deel van die resten verdwijnt?",opts:["de bodem wordt dunner","de bodem wordt dikker","de dikte verandert niet"],right:0,
+      ok:"Goed. Verbind nu de twee rijen van tabel 2 met één proces, en zeg in welke vorm het veen verdwijnt.",no:"Als er materiaal uit een laag weggaat, blijft er minder van over.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Boven het grondwater komt <b>lucht (zuurstof)</b> in het veen, zodat bacteriën en schimmels het veen <b>afbreken</b> en daarbij (door dissimilatie) CO₂ afgeven.",
+    "Het afgebroken veen <b>verdwijnt</b> (als CO₂ en water), dus de bodem wordt dunner en daalt."],
+    model:"Bij een laag grondwaterpeil komt er lucht, en dus zuurstof, in het veen. Bacteriën en schimmels kunnen het veen dan afbreken. Ze dissimileren en geven daarbij CO₂ af: 22 in plaats van 7 ton per hectare. Het veen dat wordt afgebroken, verdwijnt als CO₂ en water. De bodem wordt dus dunner en zakt: 10 in plaats van 3 mm per jaar.",
+    valkuil:"‘Het veen droogt in’ zonder afbraak: 0 punten voor het tweede punt. Het gaat erom dat het veen echt verdwijnt, doordat het wordt afgebroken.",
+    after:()=>waaromBtn(ans,textBox("Eén proces verklaart beide rijen van tabel 2: <b>afbraak met zuurstof</b>. Bij 60 cm komt er lucht in het veen. Reducenten breken de oude plantenresten af en geven CO₂ af. Wat ze afbreken, is weg: de bodem wordt dunner en daalt. Bij 20 cm zit het veen bijna helemaal onder water, zonder zuurstof: dan gaat de afbraak heel langzaam."))});
+  q.append(think,ans);
+},STOF_AF);
+
+const STOF_KR={titel:"De koolstofkringloop",html:`
+<p>In de <b>snelle kringloop</b> haalt een plant met fotosynthese koolstofdioxide uit de lucht en bouwt de koolstof in in organische stof. Dieren eten de plant, reducenten breken dode resten af. Allemaal dissimileren ze en geven ze de koolstof weer af als koolstofdioxide. Een koolstofatoom gaat zo in dagen tot jaren rond, soms eeuwen in het hout van een boom.</p>
+<p>Daarnaast is er een <b>trage kringloop</b>: koolstof die lange tijd uit de snelle kringloop is, zoals in steenkool, aardolie, aardgas en kalksteen.</p>`,
+films:[F.c,F.blad]};
+const b2=vraag(2,"hoe het veen is ontstaan",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Leg uit hoe het veen in deze weilanden ooit is ontstaan. Leg ook uit waarom het veen een voorraad van de trage koolstofkringloop is."));
+  choiceStep(think,{q:"Waar bestaat veen uit?",opts:["uit opgestapelde plantenresten","uit zand en klei","uit kalk van schelpen"],right:0,
+    ok:"Ja. Normaal breken reducenten plantenresten af. Onder welke omstandigheden lukt dat bijna niet?",no:"Denk aan veenmos in een hoogveen.",
+    onDone:()=>choiceStep(think,{q:"Hoe lang zit een koolstofatoom in de snelle kringloop meestal vast, voordat het weer in de lucht is?",opts:["dagen tot jaren","miljoenen jaren"],right:0,
+      ok:"Goed. Vergelijk dat met hoe lang de koolstof in het veen al ligt.",no:"In de snelle kringloop gaat koolstof van de lucht naar planten, dieren en reducenten en weer terug.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Plantenresten (veenmos, riet) stapelden zich op in <b>nat, zuurstofarm (zuur) water</b>, waar reducenten ze bijna niet afbreken.",
+    "De koolstof <b>blijft daar duizenden jaren liggen</b>, in plaats van binnen dagen tot jaren terug te gaan naar de lucht."],
+    model:"Veen is ontstaan uit plantenresten, zoals veenmos en riet, die afstierven in nat, zuurstofarm water. Daar konden bacteriën en schimmels ze bijna niet afbreken, dus stapelden de resten zich op. De koolstof in die resten ligt er al duizenden jaren en gaat niet binnen een paar jaar terug naar de lucht, zoals in de snelle kringloop. Daarom hoort veen bij de trage kringloop.",
+    valkuil:"‘Veen is uit dode dieren ontstaan’ of ‘veen is ontstaan doordat het koud was’: 0 punten. Het gaat om plantenresten in nat, zuurstofarm water.",
+    after:()=>waaromBtn(ans,textBox("In een moeras of hoogveen sterven de onderste delen van de planten onder water af. Daar komt geen zuurstof bij en het water is zuur. Reducenten kunnen dan bijna niets: de resten stapelen zich op, ongeveer een millimeter per jaar. Zo komt koolstof terecht <b>waar afbraak stopt</b>, en ligt hij duizenden jaren stil. In de snelle kringloop gaat koolstof juist in dagen tot jaren terug de lucht in."))});
+  q.append(think,ans);
+},STOF_KR);
+
+const STOF_N={titel:"Stikstof in de bodem",html:`
+<p>Planten nemen stikstof op als <b>nitraat</b> of ammonium en maken er eiwitten van. Mest bevat veel stikstof. Afbrekers maken van de stikstof in mest en dode resten <b>ammonium</b> (ammonificatie). Nitrificerende bacteriën maken van ammonium <b>nitraat</b>: <b>nitrificatie</b>, dat kan alleen met zuurstof.</p>
+<p>Ammonium blijft aan klei en humus plakken. Nitraat niet: wat de planten niet opnemen, spoelt met het regenwater uit naar het grondwater en de sloot (<b>uitspoeling</b>). Daar groeien algen en kroos harder: <b>eutrofiëring</b>.</p>
+<p>Let bij elke stap van de stikstofkringloop op de zuurstof: welke bacteriën werken mét zuurstof, en welke juist zonder?</p>`,
+films:[F.n]};
+/* schema bij 'laat zien waarom' vraag 3: stap voor stap oplichten */
+function KETEN(k){const box=(x,y,w,t,on)=>`<rect x="${x}" y="${y}" width="${w}" height="44" rx="8" fill="${on?"var(--goud)":"none"}" fill-opacity="${on?.22:0}" stroke="${on?"var(--goud)":"var(--text3)"}" stroke-width="${on?2.2:1.2}"/>`+T(x+w/2,y+27,t,"lbl");
+  const pijl=(x1,y1,x2,y2,on)=>`<path d="M${x1},${y1} L${x2},${y2}" stroke="${on?"var(--text)":"var(--text3)"}" stroke-width="1.8" marker-end="url(#pn)"/>`;
+  let g=`<defs><marker id="pn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--text2)"/></marker></defs>`;
+  g+=`<rect x="0" y="100" width="320" height="104" rx="6" fill="var(--teal)" opacity="${k>=1?.22:.08}"/>`+T(10,120,"natte bodem: geen zuurstof","lbl","start");
+  g+=box(70,10,180,"stikstofgas → lucht",k>=2)+box(70,135,180,"nitraat in de bodem",k>=2)+box(70,240,180,"minder nitraat in de sloot",k>=3);
+  g+=pijl(160,133,160,58,k>=2)+T(172,98,"bacteriën","lblm","start")+pijl(160,181,160,236,k>=3);
+  return SVG("0 0 320 290",g,"Schema: denitrificatie in een natte bodem",380);}
+const b3=vraag(3,"minder nitraat in de sloten",(q,id)=>{
+  pre(q,"<p>Op de weilanden komt mest. Bij een hoog grondwaterpeil komt er minder nitraat in de sloten.</p>");
+  const {think,ans,unlock}=start(q,B("Leg in drie stappen uit hoe dat komt. Noem het proces dat daarbij hoort."));
+  choiceStep(think,{q:"Is er in een bodem die bijna helemaal onder water staat veel of weinig zuurstof?",opts:["veel","weinig"],right:1,
+    ok:"Ja: water vult de ruimtes tussen de bodemdeeltjes. Welke bacteriën kunnen daar dus níet werken?",no:"Denk aan een composthoop die veel te nat is.",
+    onDone:()=>choiceStep(think,{q:"Nitrificerende bacteriën maken van ammonium nitraat. Kan dat zonder zuurstof?",opts:["ja","nee, alleen met zuurstof"],right:1,
+      ok:"Goed. Maar er is ook een stap in de stikstofkringloop die juist alleen zónder zuurstof gebeurt. Welke stof maken bacteriën daar van nitraat, en waar blijft die stof?",no:"Kijk naar de uitleg van de stof: nitrificatie heeft zuurstof nodig.",onDone:unlock})});
+  openAnswer(ans,{id,pts:3,checks:[
+    "In een natte bodem is (bijna) <b>geen zuurstof</b>.",
+    "Bacteriën maken daar van nitraat <b>stikstofgas</b>: <b>denitrificatie</b> (anaeroob).",
+    "Het stikstofgas <b>verdwijnt naar de lucht</b>, dus er spoelt minder nitraat uit naar de sloot (minder eutrofiëring)."],
+    model:"Bij een hoog grondwaterpeil staat de bodem bijna helemaal onder water, dus er is bijna geen zuurstof. Bacteriën gebruiken dan nitraat in plaats van zuurstof en maken er stikstofgas van: denitrificatie. Het stikstofgas gaat naar de lucht. Er blijft dus minder nitraat over dat met het regenwater naar de sloot kan spoelen.",
+    valkuil:"‘Nitrificatie’ als proces: 0 punten voor de tweede stap. Nitrificatie maakt juist nitraat, en kan alleen mét zuurstof.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Stap 1: de bodem staat bijna helemaal onder water. Tussen de korrels zit geen lucht: <b>geen zuurstof</b>.",k:1},
+      {cap:"Stap 2: bacteriën gebruiken het nitraat zoals jij zuurstof gebruikt. Ze maken er <b>stikstofgas</b> van, dat de lucht in gaat: <b>denitrificatie</b>.",k:2},
+      {cap:"Stap 3: dat nitraat is weg uit de bodem. Er spoelt dus <b>minder nitraat</b> naar de sloot.",k:3}],
+      (st,s)=>st.innerHTML=KETEN(s.k)))});
+  q.append(think,ans);
+},STOF_N);
+
+const ids=[b1,b2,b3];
+if(VWO){
+const STOF_TK={titel:"Terugkoppeling",html:`
+<p>Bij een <b>terugkoppeling</b> heeft een gevolg invloed op zijn eigen oorzaak. Bij een <b>negatieve terugkoppeling</b> remt het gevolg de oorzaak af, zodat iets stabiel blijft. Bij een <b>positieve terugkoppeling</b> versterkt het gevolg zijn eigen oorzaak: het effect wordt steeds groter.</p>
+<p>In de film: warmer zeewater lost minder koolstofdioxide op. Leg zo'n terugkoppeling altijd uit als een rondje: begin bij de oorzaak en eindig weer bij dezelfde oorzaak.</p>`,
+films:[F.c]};
+ids.push(vraag(2,"veen en opwarming: een terugkoppeling",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Door klimaatverandering worden de zomers warmer en droger. Leg uit dat de afbraak van veenweiden daardoor een positieve terugkoppeling op de opwarming kan geven."));
+  choiceStep(think,{q:"Wat doet een warme, droge zomer met het grondwater in een veenweide?",opts:["het zakt verder","het stijgt","het blijft gelijk"],right:0,
+    ok:"Ja. En wat betekent dat, samen met de warmte, voor de reducenten in het veen? Kijk ook nog eens naar tabel 2.",no:"In een droge zomer verdampt veel water en valt er weinig regen.",
+    onDone:()=>choiceStep(think,{q:"Wat moet er aan het eind van een positieve terugkoppeling gebeuren?",opts:["het gevolg versterkt de oorzaak: de opwarming","het gevolg remt de oorzaak af"],right:0,
+      ok:"Goed. Maak het rondje: opwarming → … → opwarming.",no:"Positief betekent hier: versterkend.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Warmer en droger: het grondwater zakt verder / het veen wordt warmer, zodat reducenten het <b>sneller afbreken</b> en er <b>meer CO₂</b> vrijkomt.",
+    "Meer CO₂ <b>versterkt het broeikaseffect</b> en dus de opwarming, die de afbraak weer versnelt: het effect versterkt zijn eigen oorzaak."],
+    model:"In warmere, drogere zomers zakt het grondwater verder en wordt het veen warmer. Er komt meer zuurstof in het veen en de reducenten werken sneller, dus wordt er meer veen afgebroken en komt er meer CO₂ vrij. CO₂ is een broeikasgas: de aarde warmt verder op. Daardoor worden de zomers nog warmer en droger, en gaat de afbraak nog sneller. Het effect versterkt zijn eigen oorzaak.",
+    valkuil:"Alleen ‘er komt meer CO₂ vrij’ is geen terugkoppeling. Het rondje moet terugkomen bij de opwarming, die de afbraak weer versnelt.",
+    after:()=>waaromBtn(ans,textBox("Het rondje: <b>opwarming</b> → warmere, drogere zomers → grondwater lager, veen warmer → reducenten breken sneller af → <b>meer CO₂</b> → sterker broeikaseffect → <b>meer opwarming</b>. Het gevolg (meer CO₂) versterkt de oorzaak (opwarming): een positieve terugkoppeling."))});
+  q.append(think,ans);
+},STOF_TK));
+}
+opgave("Veenweiden","Veenweiden: het water omhoog",`
+<p>In het westen van Nederland liggen veel weilanden op veen. Om er koeien te kunnen laten grazen, houden boeren het grondwater laag: vaak zo'n 60 cm onder het maaiveld. In sommige proefgebieden wordt het grondwater hoger gezet, tot 20 cm onder het maaiveld. Onderzoekers meten in beide situaties hoeveel de bodem per jaar daalt en hoeveel CO₂ er uit de bodem komt (tabel 2).</p>
+${TAB2}`,ids);
+}
+
+/* ===== Opgave 5: Energie (EI-ecologie-KE01) ===== */
+{
+const STOF_E={titel:"Energie in een ecosysteem",html:`
+<p>Bijna alle energie in een ecosysteem komt binnen als <b>zonlicht</b>. Planten leggen daarvan met fotosynthese maar een klein deel vast, meestal één tot twee procent. Alle energie die de planten per jaar vastleggen, heet de <b>bruto primaire productie</b> (BPP).</p>
+<p>Elke levende cel heeft energie nodig en haalt die uit <b>dissimilatie</b>: glucose afbreken, waarbij warmte vrijkomt. Stoffen gaan rond in een ecosysteem, energie niet: die gaat één kant op en verlaat het ecosysteem als warmte.</p>
+<p>In de film: een rund neemt 200 MJ per dag op, 60 MJ gaat naar de feces en 135 MJ naar dissimilatie. Er blijft 5 MJ over voor groei.</p>`,
+films:[F.energie]};
+function BALK(k){const W=300,X=v=>10+v/20000*W;let g="";
+  g+=T(10,28,"kJ per m² per jaar","lblm","start")+`<rect x="10" y="40" width="${W}" height="40" rx="6" fill="var(--groen)" opacity=".35" stroke="var(--groen)"/>`+T(160,66,"BPP: 20.000","lbl");
+  if(k>=2){g+=`<rect x="10" y="110" width="${X(11000)-10}" height="40" rx="6" fill="var(--koraal)" opacity=".35" stroke="var(--koraal)"/>`+T((10+X(11000))/2,136,"dissimilatie: 11.000","lbl");}
+  if(k>=3){g+=`<rect x="${X(11000)}" y="110" width="${X(20000)-X(11000)}" height="40" rx="6" fill="var(--goud)" opacity=".45" stroke="var(--goud)"/>`+T((X(11000)+X(20000))/2,136,"NPP: 9000","lbl");}
+  return SVG("0 0 320 165",g,"Balk: bruto en netto primaire productie van het moeras",440);}
+const ids=[vraag(2,"netto primaire productie",(q,id)=>{
+  pre(q,"<p>Planten in een moeras leggen per jaar 20.000 kJ per m² vast. Ze gebruiken zelf 11.000 kJ per m² bij dissimilatie.</p>");
+  const {think,ans,unlock}=start(q,B("Bereken de netto primaire productie. Leg ook uit waarom de netto primaire productie altijd kleiner is dan de bruto primaire productie."));
+  choiceStep(think,{q:"Welk getal uit de vraag is de bruto primaire productie?",opts:["20.000 kJ per m² per jaar","11.000 kJ per m² per jaar"],right:0,
+    ok:"Ja: alles wat de planten vastleggen. Gaat al die energie naar groei, of gebruiken de planten er zelf ook iets van?",no:"De BPP is alle energie die de planten met fotosynthese vastleggen.",
+    onDone:()=>choiceStep(think,{q:"Wanneer dissimileert een plant?",opts:["alleen 's nachts","alleen als hij groeit","dag en nacht, zolang hij leeft"],right:2,
+      ok:"Goed. Gebruik dat voor de berekening en voor je uitleg.",no:"Elke levende cel heeft steeds energie nodig.",onDone:unlock})});
+  rekenOpen(ans,{id,pts:2,veld:["netto primaire productie","kJ per m² per jaar",v=>v===9000,"NPP = 20.000 − 11.000 = 9000 kJ per m² per jaar"],
+    checks:["Uitleg: planten <b>dissimileren zelf</b> (dag en nacht) een deel van wat ze vastleggen."],
+    model:"NPP = BPP − dissimilatie van de planten = 20.000 − 11.000 = 9000 kJ per m² per jaar. De NPP is altijd kleiner dan de BPP, omdat de planten zelf dag en nacht dissimileren: ze gebruiken een deel van de vastgelegde energie voor hun eigen leven.",
+    valkuil:"‘Een deel van het licht wordt niet opgevangen’ verklaart niet het verschil tussen BPP en NPP: dat licht zit ook niet in de BPP.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"De planten leggen 20.000 kJ per m² per jaar vast: de bruto primaire productie.",k:1},
+      {cap:"Een deel gebruiken ze zelf bij dissimilatie: 11.000 kJ. Dat komt vrij als warmte.",k:2},
+      {cap:"Wat overblijft, is de netto primaire productie: 20.000 − 11.000 = <b>9000</b> kJ. Omdat planten altijd zelf dissimileren, is de NPP altijd kleiner dan de BPP.",k:3}],
+      (st,s)=>st.innerHTML=BALK(s.k)))});
+  q.append(think,ans);
+},STOF_E)];
+opgave("Energie","Energie","",ids);
+}
+
+/* ===== Opgave 6: Koolstof (EI-ecologie-KF03) ===== */
+{
+const STOF_FD={titel:"Fotosynthese en dissimilatie",html:`
+<p>Bij <b>fotosynthese</b> neemt een plant koolstofdioxide en water op en maakt er met lichtenergie glucose van; er komt zuurstof vrij. Bij <b>dissimilatie</b> breekt een organisme glucose af met zuurstof; er komen koolstofdioxide en water vrij, en energie.</p>
+<p>Bij een proef met een afgesloten stolp meet je het <b>verschil</b> tussen wat de plant opneemt en wat zij afgeeft. Ga voor elke situatie na welke processen er dan bezig zijn.</p>`,
+films:[F.c,F.energie]};
+function STOLP(k){const X=t=>40+t*150,Y=c=>170-c;let g=`<path d="M40,20 V180 H340" fill="none" stroke="var(--text2)" stroke-width="1.4"/>`;
+  g+=`<rect x="40" y="20" width="150" height="160" fill="var(--goud)" opacity=".1"/>`+T(115,36,"licht","lbl")+`<rect x="190" y="20" width="150" height="160" fill="var(--text3)" opacity=".12"/>`+T(265,36,"donker","lbl");
+  g+=T(115,198,"uur 1")+T(265,198,"uur 2")+T(16,100,"CO₂ onder de stolp (schets)","lblm","middle",'transform="rotate(-90 16 100)"');
+  if(k>=1)g+=`<path d="M${X(0)},${Y(90)} L${X(1)},${Y(40)}" stroke="var(--teal)" stroke-width="3"/>`;
+  if(k>=2)g+=`<path d="M${X(1)},${Y(40)} L${X(2)},${Y(75)}" stroke="var(--teal)" stroke-width="3"/>`;
+  return SVG("0 0 350 210",g,"Schets: CO₂-gehalte onder de stolp, een uur licht en een uur donker",500);}
+const ids=[vraag(2,"een plant onder een stolp",(q,id)=>{
+  pre(q,"<p>Een plant staat onder een afgesloten glazen stolp. Het CO₂-gehalte onder de stolp wordt gemeten, eerst een uur in het licht en daarna een uur in het donker.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit wat er met het CO₂-gehalte gebeurt in het licht en in het donker."));
+  chipsStep(think,{q:"Welke processen doet de plant <b>in het licht</b>? Kies alles wat klopt.",items:[["fotosynthese",1],["dissimilatie",1],["verbranding",0]],
+    ok:"Ja, allebei tegelijk. Welk van de twee is in het licht groter?",no:"Een plant brandt niet. Welke twee processen met CO₂ doet een levende plant?",
+    onDone:()=>chipsStep(think,{q:"En welke processen doet de plant <b>in het donker</b>? Kies alles wat klopt.",items:[["fotosynthese",0],["dissimilatie",1]],
+      ok:"Goed. Bedenk nu per uur of er onder de stolp meer CO₂ bij komt of meer verdwijnt.",no:"Voor fotosynthese is licht nodig.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "In het licht <b>daalt</b> het: de fotosynthese neemt meer CO₂ op dan de plant met dissimilatie afgeeft.",
+    "In het donker <b>stijgt</b> het: er is geen fotosynthese, maar de plant dissimileert wel."],
+    model:"In het licht doet de plant fotosynthese en dissimilatie. De fotosynthese neemt meer CO₂ op dan de dissimilatie afgeeft, dus het CO₂-gehalte daalt. In het donker is er geen fotosynthese, maar de plant dissimileert wel door. Ze geeft dan alleen CO₂ af, dus het CO₂-gehalte stijgt.",
+    valkuil:"‘In het donker doet een plant niets, dus het blijft gelijk’ is fout: een plant dissimileert dag en nacht.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Uur 1, licht: fotosynthese én dissimilatie. De fotosynthese is groter, dus er verdwijnt meer CO₂ dan erbij komt: het gehalte <b>daalt</b>.",k:1},
+      {cap:"Uur 2, donker: geen fotosynthese, wel dissimilatie. Er komt alleen CO₂ bij: het gehalte <b>stijgt</b>.",k:2}],
+      (st,s)=>st.innerHTML=STOLP(s.k)))});
+  q.append(think,ans);
+},STOF_FD)];
+opgave("Koolstof","Koolstof","",ids);
+}
+
+/* ===== Opgave 7: Van zand tot bos (EI-ecologie-KH01) ===== */
+{
+const STOF_SUC={titel:"Successie",html:`
+<p>Op één plek volgen levensgemeenschappen elkaar op: dat heet <b>successie</b>. Begint het op kale grond zonder humus, zoals een zandvlakte of een nieuw eiland, dan is het <b>primaire successie</b>. Begint het op een plek waar al bodem en zaden zijn, zoals een verlaten akker of na een bosbrand, dan is het <b>secundaire successie</b>.</p>
+<p>De soorten die als eerste op een kale plek groeien, heten <b>pioniersoorten</b>. Uiteindelijk ontstaat een stabiel eindstadium: het <b>climaxecosysteem</b>, in Nederland meestal een bos.</p>
+<p>Bij successie veranderen de organismen zelf de abiotische factoren van de plek, zoals de bodem, de temperatuur en het licht.</p>`,
+films:[F.zand]};
+const ids=[vraag(2,"pioniersoorten",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Noem twee kenmerken van pioniersoorten. Leg ook uit hoe pioniers er zelf voor zorgen dat ze later verdwijnen."));
+  choiceStep(think,{q:"Hoe is het op een kale zandvlakte waar pioniers als eerste groeien?",opts:["heet, droog, arm en stuivend","schaduwrijk, vochtig en voedselrijk"],right:0,
+    ok:"Ja. Welke eigenschappen heeft een soort nodig om daar te komen en daar te overleven?",no:"Denk aan kaal zand in de zon.",
+    onDone:()=>choiceStep(think,{q:"Wat gebeurt er met de resten van pioniers als ze afsterven?",opts:["ze worden afgebroken tot humus","ze verdwijnen zonder iets na te laten","ze waaien allemaal weg"],right:0,
+      ok:"Goed. Wat verandert humus aan de bodem? En welke planten kunnen daardoor groeien, en wat betekent dat voor de pioniers?",no:"Reducenten breken de resten af.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Twee van: <b>brede tolerantie</b> (hitte, droogte, arme bodem), <b>veel kleine zaden of sporen die ver waaien</b>, lang kiemkrachtig.",
+    "Hun resten worden <b>humus</b>: de bodem houdt meer water en voedingsstoffen vast, zodat andere (grotere) soorten kunnen groeien, die de pioniers <b>wegconcurreren</b> (om licht)."],
+    model:"Pioniersoorten hebben een brede tolerantie: ze kunnen tegen hitte, droogte en een arme bodem. En ze maken veel kleine zaden of sporen die ver waaien. Als pioniers afsterven, worden hun resten humus. De bodem houdt dan meer water en voedingsstoffen vast. Daardoor kunnen grotere soorten groeien, zoals heide en dennen. Die nemen de pioniers het licht af: de pioniers verliezen de concurrentie.",
+    valkuil:"‘De pioniers worden oud en gaan dood’ is geen uitleg: dan zouden er nieuwe pioniers komen. Ze verdwijnen doordat ze zelf de plek veranderen en daarna de concurrentie verliezen.",
+    after:()=>waaromBtn(ans,textBox("Pioniers zijn er als eerste bij doordat ze veel kleine zaden of sporen maken die ver waaien, en doordat ze hitte, droogte en arme grond verdragen. Maar ze veranderen de plek: hun dode resten worden humus, de bodem houdt water en voedingsstoffen vast, en in hun schaduw is het koeler. Nu kunnen grotere planten groeien. Die groeien over de pioniers heen en nemen het licht weg. Zo zorgen de pioniers zelf voor hun opvolgers."))});
+  q.append(think,ans);
+},STOF_SUC)];
+opgave("Van zand tot bos","Van zand tot bos","",ids);
+}
+
+/* ===== Opgave 8 (alleen havo): Te veel, en het blijft (EI-milieu-KN05) ===== */
+if(!VWO){
+const STOF_ADI={titel:"De ADI",html:`
+<p>Sommige stoffen, zoals bestrijdingsmiddelen, kunnen schadelijk zijn als je er te veel van binnenkrijgt. Hoeveel veilig is, staat in de <b>ADI</b>: de aanvaardbare dagelijkse inname. Dat is de hoeveelheid die je je hele leven elke dag mag binnenkrijgen zonder merkbaar risico.</p>
+<p>De ADI geldt <b>per kilo lichaamsgewicht</b>. In de film: ADI 0,02 mg per kilo, Daan weegt 50 kilo, op één appel zit 0,1 mg. Daan mag 0,02 × 50 = 1 mg per dag binnenkrijgen, dus 1 : 0,1 = 10 appels. Een kind van 20 kilo zit al bij 4 appels aan de grens.</p>
+<p>Let bij zo'n som goed op de eenheden: gram of kilogram, per dag of per kilo.</p>`,
+films:[F.aarde]};
+const ids=[vraag(2,"ADI en appelmoes",(q,id)=>{
+  pre(q,"<p>Een bestrijdingsmiddel heeft een ADI van 0,01 mg per kg lichaamsgewicht. Een peuter van 12 kg eet elke dag 200 gram appelmoes.</p>");
+  const {think,ans,unlock}=start(q,B("Bereken hoeveel mg van het middel er per kilo appelmoes maximaal in mag zitten."));
+  choiceStep(think,{q:"De ADI geldt per kilo lichaamsgewicht. Wat reken je dus eerst uit?",opts:["hoeveel mg de peuter in totaal per dag mag binnenkrijgen","hoeveel kilo appelmoes de peuter per jaar eet","hoeveel mg er in 200 gram appelmoes zit"],right:0,
+    ok:"Ja. Dat is wat in de 200 gram appelmoes van één dag maximaal mag zitten.",no:"Begin bij de peuter: hoe zwaar is hij, en hoeveel mag hij per kilo?",
+    onDone:()=>choiceStep(think,{q:"De vraag gaat over een kilo appelmoes. Hoeveel keer 200 gram is een kilo?",opts:["2 keer","5 keer","10 keer"],right:1,
+      ok:"Goed. Reken nu de twee stappen uit.",no:"1 kilo = 1000 gram.",onDone:unlock})});
+  rekenOpen(ans,{id,pts:2,veld:["maximaal in appelmoes","mg per kg",v=>Math.abs(v-0.6)<1e-9,"0,12 mg in 0,2 kg = 0,6 mg per kg appelmoes"],
+    checks:["Berekening: de peuter mag per dag <b>0,01 × 12 = 0,12 mg</b> binnenkrijgen."],
+    model:"De peuter mag per dag 0,01 × 12 = 0,12 mg van het middel binnenkrijgen. Die 0,12 mg zit dan in 200 gram = 0,2 kg appelmoes. In een kilo appelmoes mag dus maximaal 0,12 : 0,2 = 0,6 mg zitten.",
+    valkuil:"0,12 mg per kg is de hoeveelheid per dag, niet per kilo appelmoes. En vergeet niet eerst met het lichaamsgewicht te vermenigvuldigen (0,01 : 0,2 = 0,05 is fout).",
+    after:()=>waaromBtn(ans,textBox("Stap 1: wat mag de peuter per dag? ADI × lichaamsgewicht = 0,01 × 12 = <b>0,12 mg</b>.<br>Stap 2: die 0,12 mg mag in de 200 gram appelmoes van die dag zitten. Een kilo is vijf keer zoveel appelmoes, dus 5 × 0,12 = <b>0,6 mg per kg</b> (of 0,12 : 0,2)."))});
+  q.append(think,ans);
+},STOF_ADI)];
+opgave("Te veel, en het blijft","Te veel, en het blijft","",ids);
+}
+
+/* ===== Opgave 9 (vwo 8): Een bloemrijke dijk (EI-milieu-I01–I04) ===== */
+{
+const TAB3=TABEL(3,["","oud beheer, april","nieuw beheer, april","oud beheer, juni","nieuw beheer, juni"],[
+  ["honingbijen","1","2","6","18"],["hommels","0","9","1","12"],["andere wilde bijen en zweefvliegen","1","7","3","25"]],true);
+const STOF_BEH={titel:"Natuur beheren",html:`
+<p>In veel natuurgebieden grijpt de mens in om een bepaald soort natuur te houden: <b>natuurbeheer</b>. Zonder beheer groeit een heide langzaam dicht met gras, berken en dennen. Daarom laat men er schapen of runderen grazen. In graslanden wordt <b>gemaaid</b>; soms blijft het maaisel liggen, soms wordt het <b>afgevoerd</b>.</p>
+<p>Beheer is vaak jarenlang werk: het effect van een andere manier van maaien zie je pas na een aantal jaren.</p>`,
+films:[F.ingrijpen,F.aarde]};
+const i1=vraag(1,"voedselarmer door het nieuwe beheer",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Leg uit waardoor de bodem van de dijk door het nieuwe beheer voedselarmer wordt."));
+  choiceStep(think,{q:"Bij het oude beheer bleef het maaisel liggen. Wat gebeurt er dan met de stoffen in dat maaisel?",opts:["het wordt afgebroken en de mineralen komen terug in de bodem","het verdwijnt helemaal naar de lucht"],right:0,
+    ok:"Ja. Wat gebeurt er dus met die mineralen als je het maaisel afvoert? En wat is er nog meer veranderd aan het beheer?",no:"Reducenten breken het maaisel af tot koolstofdioxide, water en mineralen.",onDone:unlock});
+  openAnswer(ans,{id,pts:1,checks:[
+    "Met het maaisel worden <b>voedingsstoffen (stikstof, fosfaat) afgevoerd</b> en er komt <b>geen mest</b> meer bij."],
+    model:"In het gras zitten mineralen, zoals stikstof en fosfaat, die het uit de bodem heeft opgenomen. Door het maaisel af te voeren, haal je die mineralen weg van de dijk. En omdat er niet meer bemest wordt, komen er ook geen nieuwe bij. Zo wordt de bodem steeds armer.",
+    valkuil:"Alleen ‘er wordt minder vaak gemaaid’ is geen uitleg. Het gaat om de mineralen die met het maaisel weggaan en de mest die niet meer komt.",
+    after:()=>waaromBtn(ans,textBox("Oud beheer: het maaisel bleef liggen, werd afgebroken en de mineralen kwamen terug in de bodem. Daar kwam elk jaar mest bij. Nieuw beheer: het maaisel gaat weg, mét de mineralen die erin zitten, en er komt geen mest meer bij. Er gaat dus meer weg dan erbij komt."))});
+  q.append(think,ans);
+},STOF_BEH);
+
+const STOF_BIO={titel:"Biodiversiteit en bestuivers",html:`
+<p><b>Biodiversiteit</b> is de verscheidenheid aan leven. Je kunt die op drie niveaus bekijken: verschillen in genen binnen een soort, het aantal verschillende soorten, en de verschillende ecosystemen.</p>
+<p>Bijen en hommels leven van <b>nectar en stuifmeel</b> uit bloemen. In Nederland leven ruim 350 soorten wilde bijen, plus zweefvliegen, vlinders en kevers. Een honingbij wordt gehouden door een imker.</p>`,
+films:[F.grenzen,F.ingrijpen]};
+const i2=vraag(2,"meer soorten wilde bijen",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Leg uit hoe het nieuwe beheer kan leiden tot meer soorten wilde bijen op de dijk."));
+  choiceStep(think,{q:"Welke planten groeien hard op een voedselrijke, bemeste bodem?",opts:["grassen (en bijvoorbeeld brandnetels)","kleine planten van arme grond"],right:0,
+    ok:"Ja. Die nemen dan het licht en de ruimte weg. Wat verandert er als de bodem armer wordt?",no:"Denk aan wat stikstofdepositie in de natuur doet.",
+    onDone:()=>choiceStep(think,{q:"Waar leven bijen van?",opts:["van nectar en stuifmeel uit bloemen","van gras","van kleine insecten"],right:0,
+      ok:"Goed. Bezoeken alle soorten wilde bijen dezelfde bloemen? Leg nu de hele keten uit, van de bodem tot de bijen.",no:"Bijen bezoeken bloemen.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Op voedselarme grond <b>groeien grassen minder hard</b>, zodat (meer soorten) <b>bloemen van arme grond ruimte</b> krijgen.",
+    "Meer soorten bloemen geven <b>nectar en stuifmeel voor meer soorten bijen</b> (met elk hun eigen bloemen)."],
+    model:"Op een voedselarme bodem groeien de grassen minder hard. Daardoor krijgen veel soorten bloemen van arme grond weer licht en ruimte. Meer soorten bloemen betekent meer verschillende nectar en stuifmeel, op verschillende momenten in het jaar. Veel soorten wilde bijen zijn op hun eigen bloemen aangewezen, dus kunnen er meer soorten bijen leven.",
+    valkuil:"‘Er zijn meer bloemen, dus meer bijen’ gaat over het aantal bijen, niet over het aantal soorten. Noem dat meer soorten bloemen voedsel geven voor meer soorten bijen.",
+    after:()=>waaromBtn(ans,textBox("De keten: <b>armere bodem</b> → grassen groeien minder hard → <b>meer soorten bloemen</b> krijgen ruimte → meer soorten nectar en stuifmeel → <b>meer soorten wilde bijen</b>, die elk hun eigen bloemen bezoeken."))});
+  q.append(think,ans);
+},STOF_BIO);
+
+const STOF_DIENST={titel:"Ecosysteemdiensten",html:`
+<p>Een <b>ecosysteemdienst</b> is iets wat de mens uit de natuur haalt, zonder ervoor te betalen. Er zijn drie soorten:</p>
+<ul style="margin:0;padding-left:20px"><li><b>leveren</b>: de natuur levert spullen, zoals voedsel, hout en grondstoffen voor medicijnen;</li>
+<li><b>regelen</b>: processen in de natuur regelen dingen voor ons, zoals de bodem die water zuivert, of een nevengeul die bij hoogwater water afvoert;</li>
+<li><b>beleven</b>: de natuur als plek om te wandelen, te sporten en tot rust te komen.</li></ul>`,
+films:[F.grenzen]};
+const i3=vraag(2,"de fruitteler en de bestuivers",(q,id)=>{
+  const {think,ans,unlock}=start(q,"De fruitteler naast de dijk is blij met het nieuwe beheer. <b>Leg met tabel 3 uit welke ecosysteemdienst de dijk voor hem levert, en waarom vooral de vele wilde bestuivers in april voor hem belangrijk zijn.</b>");
+  choiceStep(think,{q:"Wat doen de bestuivers van de dijk voor de appelbomen van de fruitteler?",opts:["ze zorgen dat de bloesem bestoven wordt en vrucht zet","ze leveren hout","ze maken de grond rijker"],right:0,
+    ok:"Ja. Is dat leveren, regelen of beleven?",no:"Bestuivers brengen stuifmeel van bloem naar bloem.",
+    onDone:()=>numStep(think,{uid:"q"+id+"n",q:"Lees tabel 3. Hoeveel hommels en andere wilde bijen en zweefvliegen samen komen er in <b>april</b> bij het <b>nieuwe beheer</b> per uur langs?",right:16,
+      ok:"Ja: 16, tegen 2 honingbijen. Wanneer bloeien appels, en hoe is het weer dan vaak?",no:"Tel in de kolom ‘nieuw beheer, april’ de hommels en de andere wilde bijen en zweefvliegen op.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "<b>Regelen</b>: bestuiving van de appelbloesem.",
+    "Appels <b>bloeien in het voorjaar</b>; in april zijn er (bij het nieuwe beheer) veel meer hommels en andere wilde bestuivers dan honingbijen (9 + 7 tegen 2); vooral <b>hommels vliegen ook bij koud en bewolkt weer</b> (en sommige andere wilde bijen), dus wordt de bloesem betrouwbaarder bestoven."],
+    model:"De dijk levert een regelende ecosysteemdienst: bestuiving van de appelbloesem. Appels bloeien in april. In april komen er bij het nieuwe beheer 9 hommels en 7 andere wilde bestuivers per uur langs, maar maar 2 honingbijen. Vooral hommels vliegen ook als het koud en bewolkt is, en dan blijft een honingbij thuis. Zo wordt de bloesem ook in een koud voorjaar bestoven.",
+    valkuil:"‘Leveren, want hij krijgt appels’: de appels groeien aan zijn eigen bomen. Wat de dijk doet, is het proces bestuiving: regelen.",
+    after:()=>waaromBtn(ans,textBox("Bestuiving is een proces in de natuur dat iets voor ons regelt: een <b>regelende</b> dienst. In juni zijn er ook veel honingbijen (18), maar dan bloeien de appels al lang niet meer. In april, als de bloesem er is, zijn er vooral <b>hommels en andere wilde bestuivers</b> (9 + 7 = 16 tegen 2 honingbijen). Vooral hommels vliegen ook bij koud en bewolkt weer, als een honingbij thuisblijft. Met veel soorten bestuivers is de oogst betrouwbaarder."))});
+  q.append(think,ans);
+},STOF_DIENST);
+
+const STOF_STAB={titel:"Stabiliteit en veerkracht",html:`
+<p>Een ecosysteem krijgt regelmatig een <b>verstoring</b>: een droge zomer, een overstroming, een ziekte. <b>Veerkracht</b> is hoe snel een ecosysteem na zo'n verstoring herstelt.</p>
+<p>Een voedselweb met veel soorten heeft meer verbindingen. In de film: valt één prooi weg, dan kan een rover overstappen op een andere.</p>`,
+films:[F.ingrijpen,F.soort]};
+const i4=vraag(2,"na een droge zomer",(q,id)=>{
+  pre(q,"<p>Na een heel droge zomer is het gras op het deel met oud beheer grotendeels bruin en dood. Op het deel met nieuw beheer is het na een paar weken weer groen.</p>");
+  const {think,ans,unlock}=start(q,B("Verklaar dit verschil met de begrippen biodiversiteit en veerkracht."));
+  choiceStep(think,{q:"Op welk deel van de dijk groeien de meeste soorten planten?",opts:["op het deel met oud beheer","op het deel met nieuw beheer"],right:1,
+    ok:"Ja: daar is de biodiversiteit hoger. Reageren al die soorten hetzelfde op droogte?",no:"Lees de inleiding nog eens: waar groeien veel meer soorten bloemen?",
+    onDone:()=>choiceStep(think,{q:"Welke zin past bij veerkracht?",opts:["hoe snel een ecosysteem herstelt na een verstoring","hoeveel soorten er in een ecosysteem leven","hoe groot een ecosysteem is"],right:0,
+      ok:"Goed. Gebruik beide begrippen in je verklaring: wat doen de andere soorten als er één wegvalt?",no:"Lees de uitleg van de stof.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Op het nieuwe deel groeien veel meer soorten (<b>hogere biodiversiteit</b>); daaronder zijn soorten die <b>beter tegen droogte</b> kunnen.",
+    "Valt de ene soort weg, dan <b>nemen andere het over</b>, zodat het ecosysteem sneller herstelt na de verstoring (<b>veerkracht</b>)."],
+    model:"Op het deel met nieuw beheer groeien veel meer soorten planten: de biodiversiteit is hoger. Daaronder zitten soorten die beter tegen droogte kunnen. Gaan sommige soorten dood, dan nemen de andere hun plek in. Daardoor herstelt dat deel sneller na de droge zomer: het heeft meer veerkracht. Op het oude deel staan vooral een paar soorten gras, die allemaal tegelijk verdrogen.",
+    valkuil:"‘Er groeien meer bloemen, dus het is groener’ gebruikt de begrippen niet. Leg uit dat meer soorten betekent dat er altijd soorten zijn die de droogte overleven en het overnemen.",
+    after:()=>waaromBtn(ans,textBox("Op het oude deel groeien vooral een paar soorten gras met ongeveer dezelfde tolerantie: droogte raakt ze allemaal tegelijk. Op het nieuwe deel groeien veel meer soorten (<b>hogere biodiversiteit</b>), met verschillende toleranties. Een deel overleeft de droogte en groeit daarna snel weer uit. Zo herstelt het ecosysteem sneller: meer <b>veerkracht</b>."))});
+  q.append(think,ans);
+},STOF_STAB);
+
+opgave("Bloemrijke dijk","Een bloemrijke dijk",`
+<p>Een waterschap beheert een dijk langs een rivier. Vroeger werd het gras op de dijk bemest en elke paar weken gemaaid; het maaisel bleef liggen. Sinds tien jaar wordt de dijk niet meer bemest en twee keer per jaar gemaaid, en wordt het maaisel afgevoerd. Er groeien nu veel meer soorten bloemen. Naast de dijk ligt een appelboomgaard.</p>
+<p>Onderzoekers tellen op beide delen van de dijk hoeveel bestuivers er per uur op een stuk van 10 meter langskomen (tabel 3).</p>
+${TAB3}`,[i1,i2,i3,i4]);
+}
+
+
+/* ================= opgaven en navigatie ================= */
+OPG.sort((a,b)=>a.nr-b.nr);
+/* cijfer als bij een schooltoets: 9 × score / maximum + 1 */
+const NORM="";
+const CIJFER=(()=>{const L=Q.reduce((s,q)=>s+q.pts,0);return Array.from({length:L+1},(_,S)=>Math.round((9*S/L+1)*10)/10);})();
+const main=$("#main"),tabs=$("#tabs");let cur=1;const built={},nextBtns={};
+let curOpg=OPG.some(o=>o.nr===store.opg)?store.opg:1;
+const opg=()=>OPG.find(o=>o.nr===curOpg);
+const pts=o=>o.ids.reduce((s,i)=>s+Q.find(q=>q.id===i).pts,0);
+function reach(){const ids=opg().ids;if(store.vrij)return ids[ids.length-1];let k=0;while(k<ids.length-1&&store.scores[ids[k]]!==undefined)k++;return ids[k];}
+function renderTabs(){
+  tabs.innerHTML="";const r=reach();
+  opg().ids.forEach(id=>{const q=Q.find(x=>x.id===id);const locked=id>r;
+    const b=el("button",{class:(id===cur?"cur ":"")+(store.scores[id]!==undefined?"done":"")+(locked?" lock":""),"aria-label":"Vraag "+id+(locked?" (eerst vraag "+(id-1)+" maken)":""),title:locked?"Maak eerst vraag "+(id-1):""},id);
+    if(locked)b.disabled=true;else b.onclick=()=>open(id);tabs.append(b);});
+  const o=el("button",{class:"ov"+(cur==="ov"?" cur":"")},"Score");o.onclick=()=>open("ov");tabs.append(o);
+}
+function open(id){
+  if(id!=="ov"&&id>reach())id=reach();
+  cur=id;renderTabs();main.innerHTML="";
+  if(id==="ov"){main.append(overview());return;}
+  if(!built[id]){const q=Q.find(x=>x.id===id);const sec=el("article",{class:"q"});
+    q.build(sec);
+    const pap=el("section",{class:"papier","aria-label":"Toetsvraag "+id});
+    pap.append(el("div",{class:"pkop"},`<span class="pnr"><span class="mono">Toetsvraag</span><span class="nr">${id}</span></span><span class="mono">${q.pts} ${q.pts===1?"punt":"punten"}</span>`));
+    for(const c of [...sec.children]){if(c.classList.contains("phase")||c.tagName==="BUTTON")break;pap.append(c);}
+    pap.append(el("div",{class:"pvoet"},"Oefentoets Ecologie en milieu · vwo"));
+    sec.prepend(pap);
+    const sb=window.EXSTOF&&EXSTOF.blok(TOOL,id);if(sb)pap.after(sb);
+    /* toetsvraag nog eens boven de antwoorden (Kamiel 25 okt 2026: niet terug hoeven scrollen) */
+    const qt=[...pap.querySelectorAll(".qtext")].pop(),ansP=sec.querySelector(".phase.ans");
+    if(qt&&ansP){const h=el("div",{class:"herhaal papier"});h.append(el("div",{class:"hkop mono"},`Toetsvraag ${id}`));
+      const c=qt.cloneNode(true);c.querySelectorAll("[id]").forEach(x=>x.removeAttribute("id"));h.append(c);
+      const lab=ansP.querySelector(":scope>.label");lab?lab.after(h):ansP.prepend(h);}
+    const ids=opg().ids,last=id===ids[ids.length-1];
+    const nx=el("div",{class:"row",style:"justify-content:flex-end"});const b=el("button",{class:"go"},last?"Naar je score ›":`Volgende vraag (${id+1}) ›`);
+    nextBtns[id]=b;b.hidden=!store.vrij&&store.scores[id]===undefined;
+    b.onclick=()=>{open(last?"ov":id+1);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};nx.append(b);sec.append(nx);built[id]=sec;}
+  main.append(built[id]);
+}
+function overview(){
+  const o=opg();const s=el("section",{class:"phase"});s.append(el("h2",{},`Jouw score op opgave ${o.nr}`));
+  let tot=0;const t=el("table",{class:"data ovtable"});t.innerHTML="<tr><th>vraag</th><th>onderwerp</th><th>score</th></tr>";
+  o.ids.forEach(id=>{const q=Q.find(x=>x.id===id);const p=store.scores[id];if(p!==undefined)tot+=p;t.innerHTML+=`<tr><td>${id}</td><td>${q.t}</td><td>${p===undefined?"–":p} / ${q.pts}</td></tr>`;});
+  const w=el("div",{class:"tablewrap"});w.append(t);s.append(w,el("div",{class:"score"},`Totaal opgave ${o.nr}: ${tot} / ${pts(o)}`));
+  let all=0,allMax=0;OPG.forEach(x=>{allMax+=pts(x);x.ids.forEach(id=>{if(store.scores[id]!==undefined)all+=store.scores[id];});});
+  const gemaakt=OPG.every(x=>x.ids.every(id=>store.scores[id]!==undefined));
+  const cf=CIJFER[Math.min(all,CIJFER.length-1)].toFixed(1).replace(".",",");
+  s.append(el("p",{style:"margin:0"},`Hele toets: <b>${all}</b> van ${allMax} punten · cijfer <b>${cf}</b>`+(gemaakt?"":` <span class="muted">(nog niet alles gemaakt: open vragen tellen als 0 punten)</span>`)));
+  s.append(el("p",{class:"muted",style:"margin:0;font-size:14px"},`Cijfer = 9 × score / maximum + 1. Open vragen kijk je zelf na met het antwoordmodel.`));
+  const nextO=OPG.find(x=>x.nr===o.nr+1);
+  const row=el("div",{class:"row"});
+  if(nextO){const nb=el("button",{class:"go"},`Naar opgave ${nextO.nr}: ${nextO.kort} ›`);nb.onclick=()=>{setOpg(nextO.nr);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};row.append(nb);}
+  const r=el("button",{class:"ghost"},`Opgave ${o.nr} opnieuw`);r.onclick=()=>{o.ids.forEach(id=>{delete store.scores[id];delete built[id];delete nextBtns[id];});save();open(o.ids[0]);};row.append(r);
+  s.append(row);return s;
+}
+function renderOpgs(){const box=$("#opgs");box.innerHTML="";
+  OPG.forEach(o=>{const b=el("button",{"aria-pressed":o.nr===curOpg?"true":"false"},`${o.nr} · ${o.kort}`);b.onclick=()=>setOpg(o.nr);box.append(b);});}
+function setOpg(n){curOpg=n;store.opg=n;save();const o=opg();
+  $("#eb").textContent=`Oefentoets Ecologie en milieu · vwo · opgave ${o.nr}`;$("#h1").textContent=o.titel;
+  $("#sub").textContent=`vraag ${o.ids[0]} t/m ${o.ids[o.ids.length-1]} · ${pts(o)} punten`;
+  $("#ctx").innerHTML=o.ctx;renderOpgs();open(reach());}
+function setVrij(v){store.vrij=v;save();$("#vrij").setAttribute("aria-pressed",v?"true":"false");
+  for(const k in nextBtns)nextBtns[k].hidden=!v&&store.scores[k]===undefined;renderTabs();}
+$("#vrij").onclick=()=>setVrij(!store.vrij);setVrij(!!store.vrij);
+EXSTAND.STANDEN.forEach(s=>{s.uitleg=s.uitleg.replace(/examenvraag/g,"toetsvraag").replace("het echte examen","een echte toets").replace(" Zet de klok aan voor 3 uur examentijd.","");if(s.k==="echt")s.naam="Echte toets";});
+EXSTAND.init({store,save,setVrij});
+setOpg(curOpg);
+})();
+
+</script>
+</body>
+</html>

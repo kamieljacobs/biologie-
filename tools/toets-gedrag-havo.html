@@ -1,0 +1,1043 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../js/teller.js" data-root="../"></script>
+<link rel="icon" href="../img/icoon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../img/icoon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../img/icoon/apple-touch-icon.png">
+<script>(function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oefentoets Gedrag havo · doorklikken · Biologie bij Kamiel</title>
+<meta name="description" content="Oefentoets Gedrag voor havo: per vraag eerst hulpvragen, dan de toetsvraag, nakijken met het antwoordmodel en uitleg waarom.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="huisstijl.css">
+<script src="huisstijl.js"></script>
+<script src="examen-stof.js?v=b496a9e6"></script>
+<script src="examen-standen.js?v=558bd73d"></script>
+<style>
+/* Oefentoets Gedrag havo · zelfde bouwstenen als de oefenexamens (tools/OEFENEXAMEN_PROMPT.md). */
+body.echt .klok{display:none!important}
+@media (max-width:600px){.vpfig{overflow-x:auto;-webkit-overflow-scrolling:touch}.vpfig>svg{min-width:var(--min)}}
+:root{--rest:#2A3B57;--area:#5B6B84}
+:root[data-theme="light"]{--rest:#D5DEE9;--area:#B4BDCA}
+ .wrap{padding-inline:0}
+:root[data-theme="light"] .papier{box-shadow:0 0 0 1px rgba(20,32,52,.18),0 6px 18px rgba(20,32,52,.10)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--text);font:17px/1.55 var(--tekst);-webkit-font-smoothing:antialiased;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 40px}
+.wrap{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1,h2,h3{font-family:var(--titel);font-weight:700;letter-spacing:-.01em;text-wrap:balance;margin:0;line-height:1.1}
+h2{font-size:24px}
+.mono,.eyebrow{font:600 12px/1.2 var(--meta);letter-spacing:.1em;text-transform:uppercase}
+.eyebrow{color:var(--goud-text)}
+.muted{color:var(--text2)}
+a{color:var(--goud-text)}
+.sitenav{display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap;min-height:56px;padding:8px 0;border-bottom:1px solid var(--line);font:600 15px/1.3 var(--tekst)}
+.sitenav .merk{font:700 18px/1 var(--titel);color:var(--text);text-decoration:none}
+.sitenav .terug{color:var(--goud-text);text-decoration:none}
+.sitenav .rechts{margin-left:auto}
+.tool-kop{display:flex;flex-direction:column;gap:10px;padding:14px 0 0}
+.tool-kop h1{font-size:clamp(32px,5vw,48px)}
+.tool-kop p{margin:0;color:var(--text2);font-size:18px;max-width:62ch}
+button.toggle{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line2);background:none;color:var(--text2);border-radius:999px;padding:6px 14px 6px 8px;min-height:40px;font:600 14px var(--tekst);cursor:pointer}
+button.toggle .knopje{width:34px;height:20px;border-radius:999px;background:var(--line2);position:relative;flex:none}
+button.toggle .knopje::after{content:"";position:absolute;left:3px;top:3px;width:14px;height:14px;border-radius:50%;background:var(--text2);transition:left .15s}
+button.toggle[aria-pressed="true"]{color:var(--text);border-color:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje{background:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje::after{left:17px;background:var(--goud-ink)}
+.kopbalk{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.seg{display:inline-flex;flex-wrap:wrap;padding:3px;border-radius:999px;border:1px solid var(--line2);gap:2px}
+.seg button{border:0;background:none;padding:6px 14px;border-radius:999px;font:600 14px var(--tekst);color:var(--text2);min-height:36px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--goud);color:var(--goud-ink)}
+nav.tabs{display:flex;flex-wrap:wrap;gap:6px}
+nav.tabs button{min-width:44px;height:44px;border-radius:999px;border:1px solid var(--line2);background:none;color:var(--text2);font:600 15px var(--meta);cursor:pointer;position:relative}
+nav.tabs button:hover{color:var(--text)}
+nav.tabs button.cur{background:var(--goud);color:var(--goud-ink);border-color:var(--goud)}
+nav.tabs button.done::after{content:"";position:absolute;right:3px;top:3px;width:8px;height:8px;border-radius:50%;background:var(--groen);border:2px solid var(--bg)}
+nav.tabs button.lock{opacity:.35;cursor:not-allowed}
+nav.tabs .ov{padding:0 16px;font-family:var(--tekst)}
+.ctx{background:var(--surface);border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.ctx p{margin:0}
+details.ctxd summary{cursor:pointer;font-weight:600;color:var(--goud-text)}
+.tablewrap{overflow-x:auto}
+table.data{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+table.data th,table.data td{border-bottom:1px solid var(--line);padding:7px 10px;text-align:center}
+table.data th:first-child,table.data td:first-child{text-align:left}
+table.data th{font:600 11px var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--text3)}
+.q{display:flex;flex-direction:column;gap:14px}
+.qhead{display:flex;gap:12px;align-items:center}
+.qnum{font:700 40px/1 var(--titel);color:var(--goud-text)}
+.pts{font:600 12px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:3px 9px}
+.qtext{margin:0;font-size:18px}
+.phase{border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;background:var(--surface);display:flex;flex-direction:column;gap:12px}
+.phase>.label{display:flex;gap:8px;align-items:center;font:600 12px var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3)}
+.phase>.label .dot{width:8px;height:8px;border-radius:50%;background:var(--goud)}
+.phase.think{background:var(--surface2)}
+.phase.think>.label{color:var(--goud-text)}
+.step{display:flex;flex-direction:column;gap:8px}
+.step+.step{border-top:1px solid var(--line);padding-top:12px}
+.step p{margin:0}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button.opt,button.chip{border:1px solid var(--line2);background:var(--bg);color:var(--text);border-radius:12px;padding:9px 14px;font:inherit;font-size:16px;cursor:pointer;text-align:left}
+button.chip{border-radius:999px}
+button.opt:hover,button.chip:hover{border-color:var(--text3)}
+button.chip[aria-pressed="true"]{border-color:var(--goud);background:var(--goud-soft)}
+button.opt.right{border-color:var(--groen);background:var(--groen-soft)}
+button.opt.wrong{border-color:var(--koraal);background:var(--koraal-soft)}
+button.opt:disabled{cursor:default}
+button.go,button.ghost{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 18px;border-radius:999px;font:700 15px var(--tekst);cursor:pointer}
+button.go{border:0;background:var(--goud);color:var(--goud-ink)}
+button.go:hover{filter:brightness(1.06)}
+button.ghost{border:0;background:none;color:var(--text);box-shadow:inset 0 0 0 1px var(--line2)}
+button.ghost:hover{box-shadow:inset 0 0 0 1px var(--text3)}
+button:disabled.go,button:disabled.ghost{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:2px solid var(--goud);outline-offset:3px;border-radius:6px}
+input.num{width:96px;min-height:44px;font:600 16px var(--meta);padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text)}
+select{font:inherit;font-size:15px;min-height:44px;padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);max-width:100%;flex:1 1 260px}
+textarea{width:100%;min-height:88px;font:inherit;padding:10px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);resize:vertical}
+.fb{font-size:16px;border-radius:12px;padding:12px 14px;background:var(--surface2);border:1px solid var(--line2)}
+.fb.ok{border-color:var(--groen);background:var(--groen-soft)}
+.fb.no{border-color:var(--koraal);background:var(--koraal-soft)}
+.fb.hint{border-color:var(--teal);background:var(--teal-soft)}
+.graphs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.graphs{grid-template-columns:1fr}}
+.gopt{border:1px solid var(--line2);border-radius:var(--radius);background:var(--bg);padding:8px 8px 2px;cursor:pointer;color:var(--text);font:inherit;text-align:left}
+.gopt b{font:700 20px var(--titel);margin-left:6px;color:var(--goud-text)}
+.gopt:hover{border-color:var(--text3)}
+.gopt.right{border-color:var(--groen);box-shadow:0 0 0 2px var(--groen) inset}
+.gopt.wrong{border-color:var(--koraal);box-shadow:0 0 0 2px var(--koraal) inset}
+svg{display:block;max-width:100%;height:auto}
+.ax{stroke:var(--text3);stroke-width:1.2;fill:none}
+.grid{stroke:var(--line2);stroke-width:1;fill:none}
+.tick{fill:var(--text3);font:500 10px var(--meta)}
+.cv{stroke:var(--teal);stroke-width:2.4;fill:none;stroke-linejoin:round}
+.cvbad{stroke:var(--koraal);stroke-width:2;fill:none;stroke-dasharray:5 4}
+.restband{fill:var(--rest);opacity:.8}
+.lbl{fill:var(--text);font:600 12px var(--tekst)}
+.lblm{fill:var(--text2);font:12px var(--tekst)}
+.lblbad{fill:var(--koraal);font:700 12px var(--tekst)}
+.selfscore{display:flex;flex-direction:column;gap:10px}
+.selfscore label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.selfscore input{margin-top:4px;width:18px;height:18px;accent-color:var(--goud);flex:none}
+.model{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:16px}
+.anim{display:flex;flex-direction:column;gap:10px}
+.anim .stage{border-radius:var(--radius);background:var(--surface2);border:1px solid var(--line2);overflow:hidden}
+.anim .cap{min-height:3.2em;margin:0}
+.anim .nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pips{display:flex;gap:6px;margin-left:auto}
+.pips span{width:9px;height:9px;border-radius:50%;background:var(--line2)}
+.pips span.on{background:var(--goud)}
+.seq{display:flex;flex-direction:column;gap:6px}
+.seq button{display:flex;gap:10px;align-items:center}
+.seq .n{font:600 13px var(--meta);width:24px;height:24px;border-radius:50%;display:inline-grid;place-items:center;background:var(--line2);flex:none}
+.seq button.placed{border-color:var(--groen)} .seq button.placed .n{background:var(--groen);color:var(--goud-ink)}
+.score{font:600 16px var(--meta)}
+.ovtable td:last-child,.ovtable th:last-child{text-align:right}
+.pre{border-left:3px solid var(--goud);padding:2px 0 2px 14px;display:flex;flex-direction:column;gap:8px}
+.pre p{margin:0;color:var(--text2)}
+.figrow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.figrow{grid-template-columns:1fr}}
+.legenda{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--text2)}
+.legenda i{display:inline-block;vertical-align:middle;margin-right:6px}
+.legenda .lijn{width:22px;height:0;border-top:2.5px solid var(--text)}
+.legenda .vlak{width:16px;height:12px;background:var(--area)}
+.tick.dim{opacity:.35}
+p.klikbaar{line-height:2}
+button.mark{font:inherit;color:var(--text);background:none;border:0;border-bottom:2px dashed var(--goud);padding:0 3px;border-radius:4px;cursor:pointer}
+button.mark[aria-pressed="true"]{background:var(--goud-soft);border-bottom-style:solid}
+button.mark:disabled{cursor:default}
+.sellab{min-width:200px;font-weight:600}
+label.slider{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center}
+label.slider span{min-width:170px;font-weight:600;font-size:15px}
+label.slider input{flex:1 1 200px;accent-color:var(--goud)}
+.podium{background:var(--surface2);border:1px solid var(--line2);border-radius:var(--radius);overflow:hidden}
+p.regels{font-family:var(--tekst);line-height:1.9;margin:0}
+p.regels span{display:inline-block;width:2em;font:600 12px var(--meta);color:var(--text3)}
+sup{font-size:.7em}
+.papier{--bg:#FFFFFF;--surface:#FFFFFF;--surface2:#EEF1F5;--line:rgba(20,32,52,.10);--line2:rgba(20,32,52,.24);
+  --text:#121C2E;--text2:#3B4759;--text3:#667185;--goud:#C99A2E;--goud-text:#7E5C0B;--goud-soft:rgba(217,172,60,.18);
+  --groen:#2F8A47;--koraal:#B9502F;--teal:#25729C;--paars:#6550AD;--groen-soft:rgba(47,138,71,.10);--koraal-soft:rgba(185,80,47,.10);--teal-soft:rgba(37,114,156,.10);
+  --rest:#D5DEE9;--area:#B4BDCA;color-scheme:light;
+  background:#FCFCFA;color:var(--text);border:0;border-radius:6px;padding:16px 20px 12px;display:flex;flex-direction:column;gap:12px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.08),0 10px 28px rgba(0,0,0,.35)}
+.papier .pkop{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;border-bottom:2px solid var(--text);padding-bottom:6px}
+.papier .pkop .mono{color:var(--text2)}
+.papier .pnr{display:flex;align-items:baseline;gap:10px}
+.papier .nr{font:700 30px/1 var(--titel);color:var(--text)}
+.papier .pre{border-left:0;padding:0}
+.papier .pre p{color:var(--text)}
+.papier .qtext{color:var(--text)}
+.herhaal.papier{padding:10px 14px;gap:6px;box-shadow:none;border-radius:6px}
+.herhaal .hkop{color:var(--text3);font-size:11px}
+.herhaal .qtext{font-size:16px}
+.papier .pvoet{font:500 11px var(--meta);letter-spacing:.06em;color:var(--text3);text-align:right}
+.papier details.ctxd summary{color:var(--goud-text)}
+.papier .podium{background:var(--surface2)}
+.phase>.label .tag{margin-left:6px;font:600 10px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:2px 8px}
+.sleutel{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:14px;color:var(--text2)}
+.sleutel .sw{display:inline-block;width:16px;height:12px;border-radius:2px;vertical-align:-1px;margin-right:7px}
+.sleutel .papier-sw{background:#FCFCFA}
+.sleutel .donker-sw{background:var(--surface2);box-shadow:inset 0 0 0 1px var(--line2)}
+.exfoto{display:block;width:100%;height:auto;border-radius:2px}
+footer{color:var(--text3);font-size:14px;padding-top:24px;border-top:1px solid var(--line)}
+body.hulp .ans.locked{display:none}
+body.examen .think{display:none}
+body.examen .think.open{display:flex}
+.helpbtn{display:none!important}
+body.examen .helpbtn{display:inline-flex!important}
+body.examen .tonext{display:none!important}
+@media (max-width:600px){body{font-size:16px}.qtext{font-size:17px}.phase,.ctx{padding:14px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="sitenav" aria-label="Site">
+    <a class="merk" href="../index.html#home">Biologie bij Kamiel</a>
+    <a class="terug" href="../index.html#gedrag">← Terug naar Gedrag</a>
+    <span class="rechts"><button type="button" class="icoon" data-thema-knop></button></span>
+  </nav>
+  <header class="tool-kop">
+    <div class="eyebrow" id="eb">Oefentoets Gedrag · havo</div>
+    <h1 id="h1">Oefentoets Gedrag</h1>
+    <div class="seg" id="opgs" role="group" aria-label="Opgave"></div>
+    <div class="sleutel"><span><i class="sw papier-sw"></i>Wit vak = de toetsvraag</span><span><i class="sw donker-sw"></i>Donker vak = hulpvragen en uitleg (niet uit de toets)</span></div>
+    <p>Maak de toets stap voor stap. Bij elke vraag denk je eerst na met de hulpvragen, dan beantwoord je de toetsvraag, en daarna zie je waarom het antwoord klopt. Kies zelf hoeveel hulp je wilt; met ‘Echte toets’ oefen je zonder hulp.</p>
+    <div class="kopbalk">
+      <div class="seg" id="standen" role="group" aria-label="Hoeveel hulp wil je?"></div>
+      <button id="vrij" class="toggle" aria-pressed="false"><span class="knopje"></span>Vrij doorklikken</button>
+      <span class="mono muted" id="sub"></span>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs" aria-label="Vragen"></nav>
+
+  <section class="ctx papier" id="ctx"></section>
+
+  <main id="main"></main>
+
+  <footer>Eigen vragen, met inspiratie uit de centrale examens (© CvTE), Biologie voor Jou en Nectar. Grafieken en schema's zijn eigen tekeningen; bronnen van de gegevens staan bij de opgaven.<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a> </span></footer>
+</div>
+
+<script>
+(function(){
+const $=(s,r=document)=>r.querySelector(s);
+const el=(tag,attrs={},html="")=>{const e=document.createElement(tag);for(const k in attrs){if(k==="class")e.className=attrs[k];else if(k.startsWith("on"))e.addEventListener(k.slice(2),attrs[k]);else e.setAttribute(k,attrs[k]);}if(html)e.innerHTML=html;return e;};
+const TOOL="gedrag-havo";
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- opslag (alleen gemak) ---------- */
+let store={scores:{},mode:"hulp"};
+try{const s=JSON.parse(localStorage.getItem("toets-gedrag-havo")||"null");if(s)store=Object.assign(store,s);}catch(e){}
+const save=()=>{try{localStorage.setItem("toets-gedrag-havo",JSON.stringify(store));}catch(e){}};
+
+/* ---------- algemene bouwstenen ---------- */
+function phase(cls,label){const p=el("section",{class:"phase "+cls});
+  if(cls==="think")p.append(el("div",{class:"label"},`<span class="dot"></span>Hulpvragen<span class="tag">niet uit de toets</span>`));
+  else p.append(el("div",{class:"label"},`<span class="dot"></span>${label==="Antwoord"?"Jouw antwoord op de toetsvraag":label}`));return p;}
+function choiceStep(container,{q,opts,right,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});const fb=el("div",{class:"fb",hidden:""});
+  const knop=[];opts.forEach((o,i)=>{const b=el("button",{class:"opt",onclick:()=>{
+    if(i===right){row.querySelectorAll("button").forEach(x=>x.disabled=true);b.classList.add("right");fb.className="fb ok";fb.innerHTML=ok;fb.hidden=false;onDone&&onDone();}
+    else{b.classList.add("wrong");fb.className="fb no";fb.innerHTML=no;fb.hidden=false;}
+  }},o);knop.push(b);});
+  /* @@schud@@ vaste, geschudde volgorde (zaadje = vraagtekst), zodat het goede antwoord niet steeds eerst staat */
+  {let h=2166136261;for(const c of String(q))h=Math.imul(h^c.charCodeAt(0),16777619)>>>0;
+   const v=knop.map((b,i)=>i);for(let i=v.length-1;i>0;i--){h=Math.imul(h^(h>>>15),2246822507)>>>0;const j=h%(i+1);[v[i],v[j]]=[v[j],v[i]];}
+   if(v.length>1&&v[0]===right&&opts.length>2){const k=v.indexOf(right);[v[0],v[1]]=[v[1],v[0]];}
+   v.forEach(i=>row.append(knop[i]));}
+  s.append(row,fb);container.append(s);return s;
+}
+function mc(container,{opts,right,pts,qid,graphs:isGraph,onChecked}){
+  const wrap=el("div",{class:isGraph?"graphs":"row",style:isGraph?"":"flex-direction:column;align-items:stretch"});
+  const fb=el("div",{class:"fb",hidden:""});
+  opts.forEach((o,i)=>{const L="ABCDEF"[i];
+    const b=isGraph?el("button",{class:"gopt"},`<b>${L}</b>${o}`):el("button",{class:"opt"},`<b style="font:700 18px var(--titel);color:var(--goud-text);margin-right:10px">${L}</b>${o}`);
+    b.addEventListener("click",()=>{
+      wrap.querySelectorAll("button").forEach(x=>x.disabled=true);
+      const good=i===right; b.classList.add(good?"right":"wrong");
+      if(!good)wrap.children[right].classList.add("right");
+      fb.className="fb "+(good?"ok":"no");
+      fb.innerHTML=good?`Goed: <b>${"ABCDEF"[right]}</b>. ${pts} ${pts>1?"punten":"punt"}.`:`Het goede antwoord is <b>${"ABCDEF"[right]}</b>. 0 punten.`;
+      fb.hidden=false; setScore(qid,good?pts:0); onChecked&&onChecked();
+    });wrap.append(b);});
+  container.append(wrap,fb);
+}
+function waaromBtn(container,build){
+  const b=el("button",{class:"ghost waarombtn"},"Laat zien waarom ›");const box=el("div",{hidden:""});
+  b.onclick=()=>{b.remove();box.hidden=false;build(box);if(window.EXSTOF)EXSTOF.extraWaarom(TOOL,cur,box);};
+  container.append(b,box);
+}
+function lockAns(think,ans,label="Naar de vraag ›"){
+  ans.classList.add("locked");
+  const go=el("button",{class:"go tonext",hidden:""},label);
+  go.onclick=()=>{ans.classList.remove("locked");go.remove();ans.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});};
+  think.append(go);
+  return ()=>{think.append(go);go.hidden=false;};
+}
+function helpButton(q,think){
+  const b=el("button",{class:"ghost helpbtn"},"Hulp nodig? Toon de hulpvragen");
+  b.onclick=()=>{think.classList.add("open");b.remove();};
+  q.append(b);
+}
+function setScore(id,p){store.scores[id]=p;save();renderTabs();if(nextBtns[id])nextBtns[id].hidden=false;}
+
+/* ---------- vragen ---------- */
+const Q=[],OPG=[];
+
+/* Vraag 5 en 6: eerst zonder opties */
+function noOptions(q,{id,pts,text,prompt,hint,opts,right,uitleg}){
+  q.append(el("p",{class:"qtext"},text));
+  const think=phase("think","Eerst zelf"),ans=phase("ans","Kies je antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Toon de keuzes ›");
+  const s=el("div",{class:"step"});s.append(el("p",{},prompt));
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:"Wat denk jij? Schrijf het kort op."});const hb=el("button",{class:"ghost"},"Tip");const hf=el("div",{class:"fb hint",hidden:""},hint);
+  hb.onclick=()=>{hf.hidden=false;hb.remove();};
+  ta.addEventListener("input",()=>{if(ta.value.trim().length>2)unlock();});
+  s.append(ta,hb,hf);think.append(s);
+  mc(ans,{qid:id,pts,right,opts,onChecked:()=>{
+    if(ta.value.trim())ans.append(el("div",{class:"model"},`<b>Jij dacht eerst:</b> ${ta.value.replace(/</g,"&lt;")}<br><span class="muted">Klopte dat met de keuze die je maakte?</span>`));
+    waaromBtn(ans,b=>b.append(el("div",{class:"model"},uitleg)));}});
+  q.append(think,ans);
+}
+/* ================= extra bouwstenen ================= */
+function pre(q,html){q.append(el("div",{class:"pre"},html));}
+function chipsStep(container,{q,items,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});
+  items.forEach(([t])=>{const b=el("button",{class:"chip","aria-pressed":"false"},t);b.onclick=()=>b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")==="true"?"false":"true");row.append(b);});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(row,ck,fb);container.append(s);
+  ck.onclick=()=>{const sel=[...row.children].map(b=>b.getAttribute("aria-pressed")==="true");
+    const teveel=sel.some((s,k)=>s&&!items[k][1]),mist=sel.some((s,k)=>!s&&items[k][1]);fb.hidden=false;
+    if(!teveel&&!mist){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;row.querySelectorAll("button").forEach(b=>b.disabled=true);onDone&&onDone();}
+    else if(teveel){fb.className="fb hint";fb.innerHTML=no;}
+    else{fb.className="fb hint";fb.innerHTML="Wat je gekozen hebt klopt, maar er hoort nog meer bij. Kies alles wat klopt.";}};
+  return s;
+}
+function selectsStep(container,{q,rows,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const id=uid+"s"+k;
+    r.append(el("label",{for:id,class:"sellab"},lab));const sel=el("select",{id});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);s.append(r);return sel;});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(ck,fb);container.append(s);
+  ck.onclick=()=>{const n=sels.filter((sel,k)=>sel.value!==""&&+sel.value===rows[k][2]).length;fb.hidden=false;
+    if(n===rows.length){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;sels.forEach(x=>x.disabled=true);onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=`${n} van de ${rows.length} goed. `+(no||"Probeer het nog eens.");}};
+}
+function numStep(container,{q,right,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const r=el("div",{class:"row"});const inp=el("input",{class:"num",id:uid,inputmode:"decimal","aria-label":"antwoord"});const ck=el("button",{class:"ghost"},"Controleer");const fb=el("div",{class:"fb",hidden:""});
+  r.append(inp,ck);s.append(r,fb);container.append(s);
+  ck.onclick=()=>{const v=parseFloat((inp.value||"").replace(",","."));fb.hidden=false;
+    if(v===right){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;inp.disabled=true;onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=no;}};
+}
+function openAnswer(ans,{id,pts,checks,model,valkuil,placeholder,after}){
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:placeholder||"Schrijf je antwoord…"});
+  const ck=el("button",{class:"go"},"Nakijken");const tf=el("div",{class:"fb hint",hidden:""},"Schrijf eerst je antwoord op. Daarna kijk je het na.");
+  ans.append(ta,ck,tf);
+  ck.onclick=()=>{if(ta.value.trim().length<8){tf.hidden=false;ta.focus();return;}tf.remove();ck.remove();ta.readOnly=true;
+    const ss=el("div",{class:"selfscore"});
+    ss.append(el("p",{style:"margin:0"},"<b>Kijk jezelf na met het antwoordmodel.</b> Vink aan wat er in jouw antwoord staat."));
+    const boxes=checks.map((c,k)=>{const lab=el("label",{},`<input type="checkbox" id="q${id}c${k}"><span>${c} <span class="pts">1p</span></span>`);ss.append(lab);return lab.querySelector("input");});
+    if(model)ss.append(el("div",{class:"model"},"<b>Voorbeeldantwoord:</b> "+model));
+    if(valkuil)ss.append(el("div",{class:"fb hint"},"<b>Valkuil:</b> "+valkuil));
+    const sc=el("div",{class:"score"});ss.append(sc);ans.append(ss);
+    const upd=()=>{const p=Math.min(pts,boxes.filter(b=>b.checked).length);sc.textContent=`Jouw score: ${p} / ${pts}`;setScore(id,p);};
+    boxes.forEach(b=>b.onchange=upd);upd();after&&after();};
+}
+function juistOnjuist(ans,{id,stm,key,uitleg}){
+  const pick=stm.map(()=>null);
+  stm.forEach((t,k)=>{const r=el("div",{class:"row"});r.append(el("span",{style:"flex:1 1 260px"},`<b style="font-family:var(--meta)">${k+1}</b>&nbsp; ${t}`));
+    ["juist","onjuist"].forEach((lab,v)=>{const b=el("button",{class:"chip","aria-pressed":"false"},lab);b.onclick=()=>{pick[k]=v===0;r.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c===b?"true":"false"));};r.append(b);});ans.append(r);});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(pick.includes(null)){fb.hidden=false;fb.className="fb hint";fb.textContent="Beoordeel eerst alle uitspraken.";return;}
+    const n=pick.filter((p,k)=>p===key[k]).length;const p=n===stm.length?2:n===stm.length-1?1:0;ck.disabled=true;
+    ans.querySelectorAll(".chip").forEach(c=>c.disabled=true);
+    fb.hidden=false;fb.className="fb "+(p===2?"ok":"no");
+    fb.innerHTML=`${n} van de ${stm.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+key.map((k,i)=>`${i+1} ${k?"juist":"onjuist"}`).join(" · ");setScore(id,p);
+    waaromBtn(ans,uitleg);};
+}
+function stepAnim(box,steps,render){
+  let i=0;const stage=el("div",{class:"stage"}),cap=el("p",{class:"cap"});
+  const prev=el("button",{class:"ghost"},"‹ Vorige"),next=el("button",{class:"go"},"Volgende ›");
+  const pips=el("div",{class:"pips"},steps.map(()=>"<span></span>").join(""));
+  const nav=el("div",{class:"nav"});nav.append(prev,next,pips);
+  const a=el("div",{class:"anim"});a.append(stage,cap,nav);box.append(a);
+  function show(){cap.innerHTML=steps[i].cap;prev.disabled=i===0;next.textContent=i===steps.length-1?"Opnieuw ›":"Volgende ›";
+    pips.querySelectorAll("span").forEach((p,j)=>p.classList.toggle("on",j===i));render(stage,steps[i],i);}
+  prev.onclick=()=>{if(i>0){i--;show();}};next.onclick=()=>{i=(i+1)%steps.length;show();};show();
+}
+/* ================= meer bouwstenen ================= */
+function seqStep(container,{q,items,shown,ok,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const seq=el("div",{class:"seq"});let at=0;const fb=el("div",{class:"fb",hidden:""});
+  shown.forEach(k=>{const b=el("button",{class:"opt"},`<span class="n">·</span>${items[k]}`);b.onclick=()=>{if(b.classList.contains("placed"))return;
+    if(k===at){b.classList.add("placed");b.querySelector(".n").textContent=at+1;at++;fb.hidden=true;if(at===items.length){fb.hidden=false;fb.className="fb ok";fb.innerHTML=ok;onDone&&onDone();}}
+    else{fb.hidden=false;fb.className="fb hint";fb.textContent="Dat is nog niet de volgende stap. Wat gebeurt er direct daarna?";}};seq.append(b);});
+  s.append(seq,fb);container.append(s);
+}
+function selectAnswer(ans,{id,rows,score,uid,after,intro}){
+  if(intro)ans.append(el("p",{style:"margin:0"},intro));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const sid=uid+"a"+k;
+    r.append(el("label",{for:sid,class:"sellab"},lab));const sel=el("select",{id:sid});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);ans.append(r);return sel;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(sels.some(x=>x.value==="")){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul eerst alles in.";return;}
+    const n=sels.filter((x,k)=>+x.value===rows[k][2]).length;const p=score(n);sels.forEach(x=>x.disabled=true);ck.remove();
+    fb.hidden=false;fb.className="fb "+(n===rows.length?"ok":"no");
+    fb.innerHTML=`${n} van de ${rows.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+rows.map(([lab,opts,r])=>`${lab}: ${opts[r]}`).join(" · ");
+    setScore(id,p);after&&after();};
+}
+function textBox(html){return b=>b.append(el("div",{class:"model"},html));}
+const svgWrap=(vb,inner,label)=>`<svg viewBox="${vb}" role="img" aria-label="${label}">${inner}</svg>`;
+function numAnswer(ans,{id,fields,after}){
+  const inps=fields.map(([lab,unit],k)=>{const r=el("div",{class:"row"});const fid="q"+id+"f"+k;
+    r.append(el("label",{for:fid,class:"sellab"},lab));const i=el("input",{class:"num",id:fid,inputmode:"decimal"});r.append(i,el("span",{class:"muted"},unit));ans.append(r);return i;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{const v=inps.map(i=>parseFloat((i.value||"").replace(",",".")));if(v.some(isNaN)){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul beide uitkomsten in.";return;}
+    inps.forEach(i=>i.disabled=true);ck.remove();const res=fields.map((f,k)=>f[2](v[k]));const p=res.filter(Boolean).length;
+    fb.hidden=false;fb.className="fb "+(p===fields.length?"ok":"no");
+    fb.innerHTML=`<b>${p} van de ${fields.length} punten.</b><br>`+fields.map((f,k)=>`${res[k]?"✓":"✗"} ${f[3]}`).join("<br>");setScore(id,p);after&&after();};
+}
+
+/* ===== Oefentoets Gedrag: gedeelde hulpjes (havo en vwo uit één bron) ===== */
+const VWO=false;
+let QN=0,ON=0;
+/* vraag(punten, onderwerp, build(q,id), stof?) -> id; stof = {titel, html, anim?, films?} voor 'Uitleg van de stof' */
+function vraag(pts,t,build,stof){const id=++QN;Q.push({id,pts,t,build:q=>build(q,id)});
+  if(stof&&window.EXSTOF)EXSTOF.zet(TOOL,[id],stof);return id;}
+/* opgave(kort, titel, inleiding, ids); zonder inleiding (losse vraag) een korte regel */
+function opgave(kort,titel,html,ids){const nr=++ON;
+  OPG.push({nr,kort,titel,ids,ctx:`<div class="pkop"><span class="mono">Toetstekst · ${html?"inleiding ":""}opgave ${nr}</span></div>`+
+    (html||`<p class="muted" style="margin:0">Bij deze opgave hoort geen inleiding: de vraag staat hieronder.</p>`)});}
+/* films van het thema (hrefs als in HOOFDSTUKKEN.gedrag.films) */
+const F={
+  wdd:["Waarom doet een dier wat het doet?","films/gedrag/1-waarom-doet-een-dier-wat-het-doet.html"],
+  inp:["Inprenting en de sensitieve periode","films/gedrag/2-inprenting-en-de-sensitieve-periode.html"],
+  balts:["Baltsen en kiezen","films/gedrag/3-baltsen-en-kiezen.html"],
+  hecht:["Hechting: van baby tot verliefd","films/gedrag/4-hechting.html"],
+  emo:["Emotieregulatie","films/gedrag/5-emotieregulatie.html"],
+  attr:["Wiens schuld is het? Interne en externe attributie","films/gedrag/6-attributie.html"],
+  leren:["Leren: van Pavlov tot je telefoon","films/gedrag/7-leren.html"],
+  bij:["De dans van de honingbij","films/gedrag/8-honingbij.html"],
+  mier:["Een mierenkolonie zonder baas","films/gedrag/9-mierenkolonie.html"],
+  help:["Waarom helpen dieren elkaar?","films/gedrag/10-helpen.html"],
+  slim:["Slimme dieren","films/gedrag/11-slimme-dieren.html"],
+  exp:["Beroemde psychologie-experimenten","films/gedrag/12-psychologie-experimenten.html"]};
+/* begin van een vraag: vraagzin, hulp- en antwoordvak */
+function start(q,html){q.append(el("p",{class:"qtext"},html));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  return {think,ans,unlock};}
+/* vraag met uitspraken (juist/onjuist): vaste opbouw */
+function uitspraken(q,inleiding,lijst){pre(q,`<p>${inleiding}</p>`);
+  q.append(el("p",{class:"qtext"},lijst.map((t,i)=>`${i+1} ${t}`).join("<br>")+"<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  return {think,ans,unlock};}
+const B=t=>`<b>${t}</b>`;
+const TABEL=(nr,kop,rijen,titel)=>(titel?`<div class="eyebrow">tabel ${nr}</div><p style="margin:2px 0 6px;font-size:15px">${titel}</p>`:`<div class="eyebrow">tabel ${nr}</div>`)+
+  `<div class="tablewrap"><table class="data"><tr>${kop.map(k=>`<th>${k}</th>`).join("")}</tr>${rijen.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join("")}</tr>`).join("")}</table></div>`;
+
+/* Afbeelding 1 van opgave 'Zalmen ruiken hun rivier': zelfde fictieve punten als eigen/figuren/gedrag/maak.py (D-1)
+   in kamieljacobs/toetsen-biologie. opties: band = [van, tot, kleur, tekst] (verticale band), lijn50 = stippellijn 50 % benadrukken,
+   kwek = [tot maand, tekst] (balk 'in de kwekerij' onder de as), dimPunten = punten vaag. */
+const ZALM_PT=[[6,51],[12,53],[15,74],[18,90],[21,63],[24,50]];
+function ZALM({band=null,lijn50=false,kwek=null,dimPunten=false,controle=false}={}){
+  const X0=78,X1=610,Y0=330,Y1=30,xs=m=>X0+(m-4)*(X1-X0)/22,ys=p=>Y0-p*(Y0-Y1)/100;
+  let s="";
+  if(band)s+=`<rect x="${xs(band[0])}" y="${Y1}" width="${xs(band[1])-xs(band[0])}" height="${Y0-Y1}" fill="${band[2]}" opacity=".2"/>`+
+    (band[3]?`<text x="${(xs(band[0])+xs(band[1]))/2}" y="${Y1+16}" text-anchor="middle" class="lbl">${band[3]}</text>`:"");
+  [0,20,40,60,80,100].forEach(v=>s+=`<path d="M${X0},${ys(v)} H${X1}" stroke="var(--line)" stroke-width="1"/><text x="${X0-10}" y="${ys(v)+4}" text-anchor="end" class="lblm">${v}</text>`);
+  [6,9,12,15,18,21,24].forEach(m=>s+=`<path d="M${xs(m)},${Y0} v6" stroke="var(--text2)" stroke-width="1.2"/><text x="${xs(m)}" y="${Y0+22}" text-anchor="middle" class="lblm">${m}</text>`);
+  s+=`<path d="M${X0},${Y1-6} V${Y0} H${X1+8}" fill="none" stroke="var(--text2)" stroke-width="1.4"/>`;
+  s+=`<path d="M${X0},${ys(50)} H${X1}" stroke="${lijn50?"var(--goud)":"var(--text2)"}" stroke-width="${lijn50?2.4:1.2}" stroke-dasharray="6 5"/><text x="${xs(4.4)}" y="${ys(50)-6}" class="lblm">50 %</text>`;
+  if(controle)s+=`<circle cx="${xs(25.2)}" cy="${ys(50)}" r="7" fill="none" stroke="var(--goud)" stroke-width="2.6"/><text x="${xs(25.2)}" y="${ys(50)+24}" text-anchor="middle" class="lbl">?</text>`;
+  const op=dimPunten?.3:1;
+  s+=`<path d="${ZALM_PT.map(([m,p],i)=>`${i?"L":"M"}${xs(m)},${ys(p)}`).join(" ")}" fill="none" stroke="var(--text)" stroke-width="2" opacity="${op}"/>`;
+  ZALM_PT.forEach(([m,p])=>s+=`<circle cx="${xs(m)}" cy="${ys(p)}" r="5" fill="var(--text)" opacity="${op}"/>`);
+  if(kwek)s+=`<rect x="${X0}" y="${Y0+34}" width="${xs(kwek[0])-X0}" height="12" rx="4" fill="var(--teal)" opacity=".7"/><text x="${xs(kwek[0])+8}" y="${Y0+44}" class="lbl">${kwek[1]}</text>`;
+  s+=`<text x="${(X0+X1)/2}" y="${kwek?Y0+70:Y0+48}" text-anchor="middle" class="lblm">leeftijd tijdens de week met morfoline (maanden)</text>`;
+  s+=`<text x="20" y="${(Y0+Y1)/2}" text-anchor="middle" class="lblm" transform="rotate(-90 20 ${(Y0+Y1)/2})">kiest de tak met morfoline (%)</text>`;
+  const H=kwek?Y0+82:Y0+60;
+  return `<div class="vpfig" style="max-width:640px;margin:0 auto;width:100%;--min:520px">`+svgWrap(`0 0 640 ${H}`,s,"Teruggekeerde zalmen die de tak met morfoline kozen, per leeftijd tijdens de week met morfoline")+`</div>`;}
+
+/* staafjes voor tabel 2 (neushoorns na het stoppen van de beloning); toon = aantal dagen zichtbaar */
+function UITDOOF({toon=3,hl=null}={}){
+  const D={Bao:[20,9,2],Mila:[20,17,14]},X0=70,Y0=210,h=v=>v*8;let s="";
+  [0,5,10,15,20].forEach(v=>s+=`<path d="M${X0},${Y0-h(v)} H600" stroke="var(--line)" stroke-width="1"/><text x="${X0-10}" y="${Y0-h(v)+4}" text-anchor="end" class="lblm">${v}</text>`);
+  s+=`<path d="M${X0},20 V${Y0} H600" fill="none" stroke="var(--text2)" stroke-width="1.4"/>`;
+  [0,1,2].forEach(d=>{const gx=X0+30+d*175;
+    s+=`<text x="${gx+60}" y="${Y0+22}" text-anchor="middle" class="lblm">dag ${d+1}</text>`;
+    if(d>=toon)return;
+    [["Bao","var(--teal)"],["Mila","var(--goud)"]].forEach(([n,c],k)=>{const v=D[n][d],x=gx+k*62;
+      s+=`<rect x="${x}" y="${Y0-h(v)}" width="52" height="${h(v)}" rx="3" fill="${c}" opacity="${hl&&hl!==n?.3:.85}"/><text x="${x+26}" y="${Y0-h(v)-6}" text-anchor="middle" class="lbl">${v}</text>`;});});
+  s+=`<rect x="420" y="14" width="14" height="14" fill="var(--teal)"/><text x="440" y="26" class="lbl">Bao</text><rect x="500" y="14" width="14" height="14" fill="var(--goud)"/><text x="520" y="26" class="lbl">Mila</text>`;
+  return `<div class="vpfig" style="max-width:620px;margin:0 auto;width:100%;--min:480px">`+svgWrap("0 0 620 240",s,"Aantal keer poot op de plank per tien minuten, Bao en Mila, dag 1 tot 3")+`</div>`;}
+
+/* ===== Opgave 1: Waarom doet een dier wat het doet? (EI-gedrag-KA01) ===== */
+{
+const STOF={titel:"Prikkel en reactie",html:`
+<p>Een bioloog kijkt naar gedrag als een reactie op een <b>prikkel</b>: wat neemt het dier waar, en wat doet het dan? Een prikkel kan van buiten komen (iets wat het dier ziet, hoort of ruikt) en van binnen (bijvoorbeeld een hormoon).</p>
+<p>Gedrag dat een dier niet hoeft te leren, en dat bij alle soortgenoten op dezelfde manier verloopt, heet <b>aangeboren gedrag</b>. <b>Aangeleerd gedrag</b> ontstaat door ervaring. Vaak is gedrag een mix van allebei, zoals de zang van een vink.</p>
+<p>Wil je weten waar een dier precies op reageert, dan bied je het modellen aan die steeds op één punt verschillen, en kijk je welk model de reactie uitlokt.</p>`,
+films:[F.wdd]};
+const q1=vraag(2,"de sleutelprikkel van de stekelbaars",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Een stekelbaarsmannetje valt in het voorjaar een rode postauto aan. "+B("Beschrijf de proef van Tinbergen met nepvissen, en leg met die proef uit wat een sleutelprikkel is."));
+  choiceStep(think,{q:"Wat wilde Tinbergen met de nepvissen te weten komen?",opts:["of stekelbaarzen kunnen leren","waar het mannetje precies op reageert","hoe snel een stekelbaars zwemt"],right:1,
+    ok:"Ja. Hij hield daarom nepvissen in het water die er heel verschillend uitzagen.",no:"De vraag gaat over nepvissen die steeds ergens in verschilden. Wat kun je daarmee uitzoeken?",
+    onDone:()=>choiceStep(think,{q:"Een postauto lijkt helemaal niet op een vis, en toch valt het mannetje hem aan. Wat zegt dat over waar het mannetje op reageert?",opts:["op het hele plaatje van een rivaal","op een deel van het plaatje","op iets wat hij over postauto's heeft geleerd"],right:1,
+      ok:"Goed. Beschrijf nu welke nepvissen Tinbergen gebruikte en welke het mannetje aanviel. Leg daarna uit wat een sleutelprikkel is.",no:"Als het mannetje alleen een echte vis zou aanvallen, liet hij de postauto met rust.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Een <b>ruwe klodder met een rode onderkant</b> werd fel aangevallen, een <b>echt lijkende vis zonder rood</b> bijna niet.",
+    "Dus <b>één kenmerk</b> (rood aan de onderkant) is genoeg om een <b>vaste reactie</b> (de aanval) uit te lokken: dat is een sleutelprikkel."],
+    model:"Tinbergen hield nepvissen in het water: een heel echt lijkende stekelbaars zonder rode buik, en ruwe klodders die nauwelijks op een vis leken, maar wel een rode onderkant hadden. De klodders met rood werden fel aangevallen, de echte vorm zonder rood bijna niet. Eén kenmerk, rood aan de onderkant, is dus genoeg om een vaste reactie, de aanval, in gang te zetten. Zo'n kenmerk heet een sleutelprikkel. Daarom valt het mannetje ook de rode postauto aan.",
+    valkuil:"Alleen ‘een prikkel die een reactie uitlokt’, zonder ‘één kenmerk’ of ‘vaste reactie’: 0 punten voor het tweede element.",
+    after:()=>waaromBtn(ans,textBox("Het mannetje reageert niet op het hele plaatje van een rivaal, maar op één kenmerk: rood aan de onderkant. Dat kenmerk past als een sleutel op een slot en zet een vaste, aangeboren reactie in gang. De postauto heeft dat ene kenmerk ook, dus ook die wordt ‘aangevallen’. Het mannetje denkt daarbij niet na; hij ziet rood, en valt aan."))});
+  q.append(think,ans);
+},STOF);
+opgave("Sleutelprikkel","Waarom doet een dier wat het doet?","",[q1]);
+}
+
+/* ===== Opgave 2: Zalmen ruiken hun rivier (EI-gedrag-D01, D02 havo, D03, D04 vwo) ===== */
+{
+const STOF_PROEF={titel:"Aangeboren of aangeleerd?",html:`
+<p><b>Aangeboren gedrag</b> hoeft een dier niet te leren; het verloopt bij alle soortgenoten op dezelfde manier. <b>Aangeleerd gedrag</b> ontstaat door ervaring.</p>
+<p>Hoe weet je of iets aangeleerd is? Je vergelijkt dieren die een ervaring wel hebben gehad met dieren die hem niet hebben gehad. Zo liet William Thorpe jonge vinken opgroeien zonder ooit een andere vink te horen. Ze zongen wel, maar een kaal liedje: de aanleg is aangeboren, het complete lied wordt geleerd.</p>
+<p>Een eerlijke proef test zo dat maar één ding verschilt tussen de groepen.</p>`,
+films:[F.wdd,F.inp]};
+const STOF_SP={titel:"Inprenting en de sensitieve periode",html:`
+<p>Een gansje leert in de eerste uren na het uitkomen wie zijn moeder is: wat beweegt, geluid maakt en dichtbij is. Dat heet <b>inprenting</b>. Het gaat snel, het jong krijgt er geen beloning voor, en het effect blijft lang bestaan.</p>
+<p>Zo'n tijdvenster, waarin een ervaring veel invloed heeft, heet een <b>sensitieve periode</b>. Daarvóór of daarna heeft dezelfde ervaring veel minder effect. Ook mensen hebben sensitieve periodes, bijvoorbeeld bij zien (een lui oog) en bij het horen van taalklanken.</p>
+<p>In een grafiek zie je een sensitieve periode als een piek: alleen bij een bepaalde leeftijd heeft de ervaring een groot effect.</p>`,
+films:[F.inp]};
+const STOF_VIER={titel:"De vier vragen van Tinbergen",html:`
+<p>Bij elk gedrag kun je vier vragen stellen:</p>
+<ol style="margin:0;padding-left:22px"><li><b>Oorzaak</b>: hoe werkt het, nu, in het dier? Welke prikkel van buiten, welk hormoon van binnen?</li>
+<li><b>Ontwikkeling</b>: hoe ontstaat dit gedrag in het leven van het dier? Aangeboren, aangeleerd of allebei?</li>
+<li><b>Functie</b>: wat levert het gedrag op?</li>
+<li><b>Evolutie</b>: waar komt het vandaan? Daarvoor vergelijk je verwante soorten.</li></ol>
+<p>De vier antwoorden spreken elkaar niet tegen: het zijn antwoorden op verschillende vragen.</p>`+(VWO?`<p>Oorzaak en ontwikkeling gaan over dit ene dier, in zijn leven: <b>nabije</b> oorzaken. Functie en evolutie gaan over de soort, over vele generaties: <b>uiteindelijke</b> oorzaken.</p>`:""),
+films:[F.wdd]};
+
+const d1=vraag(2,"een controlegroep",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Een criticus zegt: ‘Misschien vinden zalmen morfoline gewoon van nature lekker, en heeft de week met morfoline niets te maken.’ "+B("Leg uit welke controlegroep de onderzoekers hadden moeten toevoegen om dit te weerleggen, en welk resultaat je dan bij die groep verwacht. Gebruik afbeelding 1."));
+  choiceStep(think,{q:"De criticus denkt dat de voorkeur aangeboren is. Met welke groep kun je zien hoe zalmen kiezen zonder de ervaring met morfoline?",opts:["een groep die twee weken morfoline krijgt in plaats van één","een groep die nooit morfoline krijgt, maar verder hetzelfde wordt behandeld","een groep wilde zalmen uit een andere rivier"],right:1,
+    ok:"Ja: dan verschilt maar één ding. Welk resultaat verwacht je bij die groep als de criticus ongelijk heeft?",no:"Bij een eerlijke vergelijking verschilt maar één ding tussen de groepen. Welk ding wil je hier weglaten?",
+    onDone:()=>choiceStep(think,{q:"Kijk in afbeelding 1 naar de groepen die de week met morfoline kregen op 6 of op 24 maanden. Welk deel koos daar de tak met morfoline?",opts:["ongeveer 10 %","ongeveer 50 %","ongeveer 90 %"],right:1,
+      ok:"Goed. Wat betekent ongeveer 50 % als een zalm uit twee takken moet kiezen? Gebruik dat voor je verwachting bij de controlegroep.",no:"Lees de punten bij 6 en 24 maanden af op de verticale as.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Een groep zalmen die <b>nooit morfoline</b> kreeg (verder hetzelfde behandeld).",
+    "Als ze geen aangeboren voorkeur hebben, kiest <b>ongeveer 50 %</b> de tak met morfoline, net als de groepen van 6 en 24 maanden in afbeelding 1."],
+    model:"Ze hadden een groep zalmen moeten toevoegen die nooit water met morfoline kreeg, maar verder precies hetzelfde werd behandeld. Hebben zalmen geen aangeboren voorkeur voor morfoline, dan kiest ongeveer 50 % van die groep de tak met morfoline: toeval tussen twee takken, net als bij de groepen van 6 en 24 maanden in afbeelding 1. De hoge waarde rond 18 maanden komt dan door de week met morfoline.",
+    valkuil:"Wilde zalmen ‘uit een andere rivier’ verschillen op meer dan één punt van de proefzalmen. En alleen ‘geen morfoline geven’ zonder verwachte uitkomst is 1 punt.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Op 6 en op 24 maanden had de week met morfoline geen effect: ongeveer 50 % kiest de tak met morfoline. Bij twee takken is dat wat je door toeval verwacht.",o:{lijn50:true}},
+      {cap:"De controlegroep krijgt nooit morfoline. Als zalmen morfoline niet van nature lekker vinden, verwacht je ook hier ongeveer 50 %.",o:{lijn50:true,controle:true,dimPunten:true}},
+      {cap:"Kiest de controlegroep inderdaad ongeveer 50 %, dan komt de 90 % rond 18 maanden door de week met morfoline: de zalmen hebben de geur geleerd. Kiest de controlegroep veel vaker morfoline, dan heeft de criticus gelijk.",o:{band:[16.5,19.5,"var(--goud)","geleerd"],controle:true}}],
+      (st,s)=>st.innerHTML=ZALM(s.o)))});
+  q.append(think,ans);
+},STOF_PROEF);
+
+const ids=[d1];
+if(!VWO){
+ids.push(vraag(2,"de kwekerij in het voorjaar",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Een kwekerij kweekt jonge zalmen in water uit haar eigen put tot ze 24 maanden oud zijn, en laat ze dan pas los in de rivier. Volwassen zalmen die terugkomen, zwemmen niet de rivier op, maar zoeken de uitstroom van de kwekerij. "+B("Leg met afbeelding 1 uit hoe dat komt, en bedenk een maatregel."));
+  choiceStep(think,{q:"Bij welke leeftijd had de week met morfoline het grootste effect?",opts:["rond 6–12 maanden","rond 15–21 maanden","rond 24 maanden"],right:1,
+    ok:"Ja: alleen in die periode leren de zalmen een geur goed. Waar zaten de zalmen van de kwekerij in die periode?",no:"Zoek in afbeelding 1 de punten die ver boven de 50 % liggen.",
+    onDone:()=>choiceStep(think,{q:"In welk water zwommen de kwekerijzalmen toen ze 15 tot 21 maanden oud waren?",opts:["in het water van de rivier","in het water van de kwekerij (uit de put)"],right:1,
+      ok:"Goed. Leg uit wat ze dus hebben geleerd. Bedenk daarna een maatregel die ervoor zorgt dat ze in die periode de goede geur leren.",no:"Lees de vraag nog eens: tot welke leeftijd blijven ze in de kwekerij?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Tijdens de <b>sensitieve periode</b> (rond 15–21 maanden) zaten de zalmen in het <b>water van de kwekerij</b>, dus ze leerden die geur en niet die van de rivier.",
+    "Maatregel: de zalmen <b>vóór of tijdens die periode</b> (rond 15–18 maanden) in de rivier loslaten / tijdens die periode <b>rivierwater door de kwekerij</b> laten stromen."],
+    model:"Afbeelding 1 laat zien dat zalmen een geur vooral leren rond 15 tot 21 maanden: dat is hun sensitieve periode. In die tijd zaten de kwekerijzalmen nog in het water uit de put. Ze leerden dus de geur van de kwekerij en niet die van de rivier, en zoeken als volwassen zalm die geur op. Maatregel: laat de zalmen al rond 15 maanden los in de rivier, of laat in die periode rivierwater door de kwekerij stromen.",
+    valkuil:"‘Ze zijn aan de kwekerij gewend geraakt’ is niet genoeg: noem dat ze tijdens de sensitieve periode (de piek in afbeelding 1) in het water van de kwekerij zaten. Een maatregel die pas ná die periode iets verandert, werkt niet.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Afbeelding 1: alleen rond 15–21 maanden heeft een week met een geur veel effect. Dat is de sensitieve periode.",o:{band:[15,21,"var(--goud)","sensitieve periode"]}},
+      {cap:"De kwekerijzalmen zitten tot 24 maanden in het water uit de put. De hele sensitieve periode ruiken ze dus de kwekerij.",o:{band:[15,21,"var(--goud)","sensitieve periode"],kwek:[24,"in de kwekerij"]}},
+      {cap:"Maatregel: zorg dat ze in die periode de rivier ruiken, door ze eerder los te laten of rivierwater door de kwekerij te laten stromen.",o:{band:[15,21,"var(--groen)","rivierwater nodig"],kwek:[15,"kwekerij"]}}],
+      (st,s)=>st.innerHTML=ZALM(s.o)))});
+  q.append(think,ans);
+},STOF_SP));
+}
+
+ids.push(vraag(1,"welke vraag van Tinbergen?",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Zalmen die terugkeren naar hun eigen rivier, paaien op een plek waar hun eigen ouders ook succes hadden. "+B("Op welke van de vier vragen van Tinbergen geeft de zin ‘zo komen hun jongen in een geschikte rivier terecht’ antwoord?"));
+  selectsStep(think,{uid:"q"+id,q:"Oefen eerst met de stekelbaars uit de film. Bij welke vraag hoort elk antwoord?",rows:[
+    ["‘Hij ziet rood aan de onderkant, en in het voorjaar maakt hij veel testosteron.’",["oorzaak","ontwikkeling","functie","evolutie"],0],
+    ["‘Het gedrag is aangeboren en wordt met ervaring wat bijgesteld.’",["oorzaak","ontwikkeling","functie","evolutie"],1],
+    ["‘Hij houdt zijn territorium en zijn nest, en krijgt meer jongen.’",["oorzaak","ontwikkeling","functie","evolutie"],2],
+    ["‘Verwante vissoorten met elkaar vergelijken.’",["oorzaak","ontwikkeling","functie","evolutie"],3]],
+    ok:"Goed. Bekijk nu de zin over de zalmen: op welke van deze vier vragen lijkt hij?",no:"Oorzaak = hoe het nu werkt; ontwikkeling = hoe het in zijn leven ontstaat; functie = wat het oplevert; evolutie = waar het vandaan komt.",onDone:unlock});
+  mc(ans,{qid:id,pts:1,right:2,opts:["oorzaak","ontwikkeling","functie","evolutie"],
+    onChecked:()=>waaromBtn(ans,textBox("De zin zegt wat het gedrag <b>oplevert</b>: jongen in een geschikte rivier. Dat is de <b>functie</b>. De zalm denkt daarbij zelf niet ‘ik zoek een goede plek voor mijn jongen’; hij volgt de geur. Dat zou een antwoord op de oorzaak zijn. Het antwoord is <b>C</b>."))});
+  q.append(think,ans);
+},STOF_VIER));
+
+if(VWO){
+const STOF_NU={titel:"Nabij en uiteindelijk",html:`
+<p>De vier vragen van Tinbergen kun je in twee groepen verdelen.</p>
+<p><b>Nabije oorzaken</b> gaan over dit ene dier, in zijn leven: hoe werkt het gedrag nu (oorzaak), en hoe is het in zijn leven ontstaan (ontwikkeling)?</p>
+<p><b>Uiteindelijke oorzaken</b> gaan over de soort, over vele generaties: wat levert het gedrag op (functie), en hoe is het in de loop van de evolutie ontstaan?</p>
+<p>Een dier hoeft de functie van zijn gedrag niet te ‘weten’. De functie verklaart waarom het gedrag bij de soort is gebleven, niet wat het dier op dat moment denkt.</p>`,
+films:[F.wdd]};
+ids.push(vraag(2,"nabij en uiteindelijk",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Geef bij het terugzwemmen van de zalm naar zijn eigen rivier een nabije en een uiteindelijke verklaring."));
+  chipsStep(think,{q:"Welke van de vier vragen van Tinbergen horen bij een <b>nabije</b> verklaring? Kies alles wat klopt.",items:[["oorzaak",1],["ontwikkeling",1],["functie",0],["evolutie",0]],
+    ok:"Goed. Bedenk nu voor de zalm: wat gebeurt er in zijn eigen leven (wat leerde hij, wat neemt hij nu waar)? En waarom is dit gedrag over vele generaties bij de soort gebleven?",no:"Nabij gaat over dit ene dier, in zijn eigen leven. Welke vragen gaan over de soort?",onDone:unlock});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Nabij: de zalm <b>ruikt de geur</b> van de rivier die hij als jonge zalm (in de sensitieve periode) heeft <b>geleerd</b>, en zwemt naar die geur toe.",
+    "Uiteindelijk: zalmen die terugzwemmen naar een rivier waarin zij zelf goed opgroeiden, krijgen gemiddeld <b>meer nakomelingen die overleven</b>; daardoor is dit gedrag bij de soort gebleven."],
+    model:"Nabij: de zalm heeft als jonge zalm, in de sensitieve periode, de geur van zijn rivier geleerd. Nu ruikt hij die geur en zwemt hij ernaartoe. Uiteindelijk: een rivier waarin een zalm zelf goed is opgegroeid, is waarschijnlijk ook geschikt voor zijn jongen. Zalmen die zo terugzwemmen, kregen gemiddeld meer nakomelingen die overleefden, en daarom is dit gedrag bij de soort gebleven.",
+    valkuil:"‘Hij wil dat zijn jongen het goed hebben’ is geen uiteindelijke verklaring: de zalm denkt dat niet. Noem wat het gedrag oplevert in aantal nakomelingen, over generaties.",
+    after:()=>waaromBtn(ans,textBox("Een nabije verklaring blijft binnen het leven van deze ene zalm: wat hij geleerd heeft en wat hij nu waarneemt. Een uiteindelijke verklaring gaat over vele generaties: zalmen met dit gedrag kregen meer jongen die overleefden, dus het gedrag bleef. Beide verklaringen zijn tegelijk waar: het zijn antwoorden op verschillende vragen."))});
+  q.append(think,ans);
+},STOF_NU));
+}
+
+opgave("Zalmen","Zalmen ruiken hun rivier",`
+<p>Zalmen komen uit het ei in een rivier. Na een tot twee jaar trekken de jonge zalmen naar zee. Jaren later zwemmen ze terug, vaak naar precies de rivier waar ze opgroeiden, om daar eieren te leggen en te bevruchten (paaien). Onderzoekers denken dat jonge zalmen de geur van hun rivier leren in de periode dat ze naar zee gaan trekken.</p>
+<p>In een proef kregen groepen jonge zalmen in een kwekerij één week lang water met een geurstof, morfoline. Elke groep kreeg die week op een andere leeftijd. Tijdens die week kregen ze niet meer voer dan anders. Daarna werden alle zalmen in een meer losgelaten. Toen ze jaren later terugkwamen, kwamen ze bij een splitsing van de rivier; in één tak werd morfoline gedruppeld. Afbeelding 1 laat zien welk deel van de teruggekeerde zalmen de tak met morfoline koos.</p>
+<div class="eyebrow">afbeelding 1</div>${ZALM()}
+<p class="muted" style="font-size:14px;margin:4px 0 0">Afbeelding 1 Teruggekeerde zalmen die de tak met morfoline kozen, per leeftijd tijdens de week met morfoline (fictieve gegevens)</p>`,ids);
+}
+
+/* ===== Opgave 3: Baltsen en kiezen (EI-gedrag-KC02) ===== */
+{
+const STOF={titel:"Waarom kiest het vrouwtje?",html:`
+<p>Een vrouwtje maakt weinig eicellen, en die zijn groot en kostbaar. Een mannetje maakt miljoenen kleine zaadcellen. Vaak zorgt het vrouwtje daarna ook nog voor de jongen. Een vrouwtje <b>investeert</b> dus meestal meer in elk jong, en voor haar is een slechte keuze duur. Daarom is zij kieskeurig, en moeten mannetjes opvallen: met vechten of met showen.</p>
+<p>Wil je weten of vrouwtjes echt op één kenmerk kiezen, dan verander je dat kenmerk bij een paar mannetjes en kijk je wat de vrouwtjes doen. Met een <b>controlegroep</b> sluit je uit dat de behandeling zelf het verschil maakt.</p>`,
+films:[F.balts]};
+const q1=vraag(2,"de staart van de widavogel",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Bij widavogels deed een onderzoeker een proef met de staart van de mannetjes. "+B("Beschrijf de drie groepen en de uitkomst, en leg uit welke vorm van selectie deze proef laat zien."));
+  choiceStep(think,{q:"Wat wilde de onderzoeker met deze proef te weten komen?",opts:["of een lange staart helpt bij het vliegen","of vrouwtjes kiezen op de lengte van de staart","of mannetjes vechten om de langste staart"],right:1,
+    ok:"Ja. Bedenk welke groepen je daarvoor nodig hebt: wat moet er tussen de groepen verschillen, en hoe sluit je uit dat de behandeling van de staart zelf het verschil maakt?",no:"Het gaat om de mannetjes én de vrouwtjes die bij ze nestelen.",
+    onDone:()=>choiceStep(think,{q:"Waaraan zag de onderzoeker hoe succesvol een mannetje was?",opts:["hoe lang het mannetje bleef leven","hoeveel nesten er in zijn territorium kwamen","hoe hoog het mannetje kon vliegen"],right:1,
+      ok:"Goed. Noem in je antwoord ook welke groep de meeste en welke de minste nesten kreeg, en welke vorm van selectie Darwin bedacht voor zo'n kenmerk.",no:"Een vrouwtje bouwt haar nest in het territorium van het mannetje dat ze kiest.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Groepen: staart <b>korter</b> geknipt / staart <b>verlengd</b> met het afgeknipte stuk / staart doorgeknipt en weer vastgeplakt (<b>controle</b>, even lang); uitkomst: <b>verlengde staart de meeste nesten, korte staart de minste</b>.",
+    "<b>Seksuele selectie</b>: de lange staart blijft bestaan omdat hij helpt om te <b>paren</b> (ook al helpt hij niet bij overleven)."],
+    model:"Bij de ene groep knipte de onderzoeker de staart korter. Het afgeknipte stuk plakte hij bij een tweede groep vast, die daardoor een extra lange staart kreeg. Bij een derde groep knipte hij de staart door en plakte hem weer vast, zodat die even lang bleef. De mannetjes met de verlengde staart kregen de meeste nesten, die met de korte staart de minste. Dit laat seksuele selectie zien: een lange staart blijft bestaan omdat hij helpt om te paren, ook al helpt hij niet bij het overleven.",
+    valkuil:"De drie groepen zonder de uitkomst: 0 punten voor het eerste element. ‘Natuurlijke selectie’ is fout: de staart helpt niet bij overleven.",
+    after:()=>waaromBtn(ans,textBox("Omdat het knippen en plakken zelf geen verschil maakte (de controlegroep), ligt het verschil in nesten aan de <b>lengte</b> van de staart. De vrouwtjes kiezen dus echt op staartlengte. Een kenmerk dat blijft bestaan omdat het helpt om te paren, ook als het de overleving wat kleiner maakt, ontstaat door <b>seksuele selectie</b>."))});
+  q.append(think,ans);
+},STOF);
+opgave("Balts","Baltsen en kiezen","",[q1]);
+}
+
+/* ===== Opgave 4: Een zwerm zoekt een nieuw huis (EI-gedrag-A01, A02 havo, A03) ===== */
+{
+const TAB1=TABEL(1,["tijdstip","9.00","11.00","13.00","15.00"],[["holte P","2","8","25","60"],["holte Q","3","5","4","1"]],
+  "Aantal verkensters dat op de tros danst voor holte P (groot, droog) en holte Q (klein, tochtig) (fictieve gegevens)");
+const STOF_ZO={titel:"Slim zonder baas",html:`
+<p>Bij sociale insecten zoals bijen en mieren geeft niemand bevelen. Een koningin legt eieren, maar ze is geen baas en weet niet wat er buiten gebeurt.</p>
+<p>Elke werkster volgt een paar eenvoudige regels en reageert op wat ze tegenkomt. Geen enkele werkster overziet het geheel. Toch ontstaat er slim gedrag van de hele groep, zoals een mierenstraat over de kortste route. Dat heet <b>zelforganisatie</b>: het slimme gedrag zit niet in één dier, maar in de samenwerking.</p>
+<p>Een verkenster vertelt met een dans waar iets goeds is: hoe beter het voedsel, hoe vaker ze de dans herhaalt.</p>`,
+films:[F.mier,F.bij]};
+const STOF_TK={titel:"Een signaal dat zichzelf versterkt",html:`
+<p>Een mier die voedsel vindt, legt op de terugweg een geurspoor (feromonen). Andere mieren volgen het spoor. Vinden zij ook voedsel, dan leggen ze er ook geur bij. Het spoor wordt sterker, er volgen nog meer mieren, en het wordt nog sterker. Dat heet <b>positieve terugkoppeling</b>.</p>
+<p>Zo werd bij de twee bruggetjes de korte brug de drukste: mieren op de korte brug waren eerder terug, dus daar kwam sneller geur bij. Geen enkele mier had de bruggen vergeleken.</p>
+<p>In een tabel lees je zo'n proces af aan hoe een aantal per tijdstip verandert: neemt het steeds sneller toe, of neemt het af?</p>`,
+films:[F.mier]};
+
+/* animatie bij vraag 'vijftien bijen': verkensters bij twee holtes, drempel van 15 */
+function QUORUM({p,q,vertrek=false}){
+  let s="";const Y0=200,h=v=>v*9;
+  s+=`<path d="M60,${Y0-h(15)} H520" stroke="var(--goud)" stroke-width="2.2" stroke-dasharray="7 5"/><text x="524" y="${Y0-h(15)+4}" class="lbl" style="fill:var(--goud-text)">± 15</text>`;
+  s+=`<path d="M60,${Y0} H520" stroke="var(--text2)" stroke-width="1.4"/>`;
+  [["holte P (groot, droog)",p,150],["holte Q (klein, tochtig)",q,340]].forEach(([n,v,x])=>{
+    for(let k=0;k<v;k++){const r=Math.floor(k/5),c=k%5;s+=`<circle cx="${x+c*14}" cy="${Y0-8-r*14}" r="5.5" fill="var(--text)"/>`;}
+    s+=`<text x="${x+28}" y="${Y0+22}" text-anchor="middle" class="lblm">${n}</text><text x="${x+28}" y="${Y0+40}" text-anchor="middle" class="lbl">${v} bijen</text>`;});
+  if(vertrek)s+=`<text x="178" y="36" text-anchor="middle" class="lbl" style="fill:var(--groen)">vertrek naar P</text>`;
+  return `<div class="vpfig" style="max-width:560px;margin:0 auto;width:100%;--min:440px">`+svgWrap("0 0 560 250",s,"Aantal verkensters bij holte P en holte Q, met de drempel van ongeveer vijftien")+`</div>`;}
+
+const a1=vraag(2,"waarom pas bij vijftien bijen?",(q,id)=>{
+  const {think,ans,unlock}=start(q,"De zwerm vertrekt pas als ongeveer vijftien bijen tegelijk bij één holte zijn, en niet al als de eerste verkenster een holte heeft gevonden. "+B("Leg uit waarom dit voor de zwerm voordelig is."));
+  choiceStep(think,{q:"Stel dat de zwerm al vertrekt zodra één verkenster danst. Wie heeft de holte dan bekeken?",opts:["alleen die ene verkenster","honderden verkensters","de koningin"],right:0,
+    ok:"Ja. Wat kan daar het risico van zijn?",no:"Er heeft dan nog maar één bij gedanst. Hoeveel bijen zijn er dan al gaan kijken?",
+    onDone:()=>choiceStep(think,{q:"Bij welke holte komen er volgens de inleiding sneller nieuwe bezoekers bij?",opts:["bij de holte die als eerste gevonden is","bij een betere holte, want daarvoor wordt langer gedanst","bij alle holtes even snel"],right:1,
+      ok:"Goed. Leg nu uit wat het wachten tot ongeveer vijftien bijen de zwerm oplevert.",no:"Lees de inleiding nog eens: wat doet een verkenster bij een betere holte?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Eén verkenster kan een <b>slechte holte</b> hebben gevonden (de eerst gevonden holte is vaak niet de beste).",
+    "Als pas vertrokken wordt bij veel bijen tegelijk bij één holte, hebben <b>veel verkensters</b> die holte bezocht en goed gevonden / heeft de <b>betere holte de tijd</b> gehad om de meeste dansers te krijgen, zodat de zwerm meestal de beste holte kiest."],
+    model:"De eerste holte die een verkenster vindt, is vaak niet de beste. Vertrekt de zwerm meteen, dan kan hij in een slechte holte terechtkomen. Door te wachten tot ongeveer vijftien bijen tegelijk bij één holte zijn, hebben veel verkensters die holte zelf bekeken en goed gevonden. Een betere holte krijgt langere dansen en dus sneller nieuwe bezoekers, zodat die meestal als eerste de vijftien haalt.",
+    valkuil:"Alleen ‘dan weten ze het zeker’ zonder uitleg: 0 punten.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Stel: de eerste verkenster vindt holte Q, die klein en tochtig is. Zou de zwerm nu al vertrekken, dan koos hij een slechte holte.",o:{p:0,q:1}},
+      {cap:"Andere verkensters vinden ook holte P. Voor P wordt langer gedanst, dus daar gaan sneller nieuwe bijen kijken.",o:{p:5,q:3}},
+      {cap:"Bij P lopen de aantallen snel op, bij Q nauwelijks.",o:{p:11,q:4}},
+      {cap:"Bij P zijn ongeveer vijftien bijen tegelijk: veel bijen hebben P bekeken en goed gevonden. Nu vertrekt de zwerm, naar de betere holte.",o:{p:15,q:3,vertrek:true}}],
+      (st,s)=>st.innerHTML=QUORUM(s.o)))});
+  q.append(think,ans);
+},STOF_ZO);
+
+const ids=[a1];
+if(!VWO){
+ids.push(vraag(1,"vijf holtes, langer wachten",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Onderzoekers boden een zwerm vijf even goede holtes aan in plaats van twee. De zwerm deed er toen bijna twee keer zo lang over om te vertrekken. "+B("Welke verklaring past bij de werkwijze van de zwerm?"));
+  choiceStep(think,{q:"Wie beslist in de zwerm waar hij naartoe gaat?",opts:["de koningin","één leider die alle holtes vergelijkt","niemand: het volgt uit wat elke verkenster doet"],right:2,
+    ok:"Ja. Wat moet er bij één holte gebeuren voordat de zwerm vertrekt? Bedenk wat er met dat aantal gebeurt als de verkensters over vijf holtes verdeeld zijn.",no:"Lees de inleiding nog eens: geeft iemand een opdracht?",onDone:unlock});
+  mc(ans,{qid:id,pts:1,right:1,opts:["De verkensters moeten meer holtes met elkaar vergelijken, en dat kost meer tijd.","De verkensters verdelen zich over meer holtes, waardoor het aantal bijen bij elke holte langzamer oploopt tot ongeveer vijftien.","De koningin heeft meer tijd nodig om te beslissen.","Bij vijf holtes dansen de verkensters korter, omdat de holtes minder goed zijn."],
+    onChecked:()=>waaromBtn(ans,textBox("Het antwoord is <b>B</b>. De zwerm vertrekt pas als ongeveer vijftien bijen tegelijk bij één holte zijn. Zijn de verkensters over vijf holtes verdeeld, dan duurt het langer voordat één holte dat aantal haalt.<br>A: geen bij vergelijkt holtes; dat is de misvatting van een ‘slimme beslisser’. C: de koningin geeft geen opdrachten. D: de holtes waren even goed."))});
+  q.append(think,ans);
+},STOF_ZO));
+}
+
+ids.push(vraag(2,"de dansers voor Q verdwijnen",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Volgens tabel 1 daalt het aantal dansers voor holte Q na 11.00 uur, terwijl het aantal voor P blijft stijgen. Holte Q is er gewoon nog. "+B("Leg met de inleiding uit hoe het komt dat de dansers voor Q verdwijnen en die voor P niet. Vergelijk met de mierenstraat uit de film."));
+  choiceStep(think,{q:"Wat doet een verkenster na een paar bezoeken aan haar holte, volgens de inleiding?",opts:["ze danst steeds langer","ze houdt op met dansen","ze gaat voor een andere holte dansen"],right:1,
+    ok:"Ja, en dat geldt voor de dansers van P én van Q. Waarom groeit P dan toch?",no:"Lees de laatste zin van de inleiding nog eens.",
+    onDone:()=>choiceStep(think,{q:"Voor welke holte duren de dansen het langst, zodat er de meeste nieuwe verkensters gaan kijken?",opts:["holte P (groot, droog)","holte Q (klein, tochtig)"],right:0,
+      ok:"Goed. Vergelijk voor P en voor Q: komen er meer dansers bij dan er stoppen, of minder? Zoek daarna bij de mierenstraat wat ook zo werkt als het stoppen van de dansers.",no:"Hoe beter de holte, hoe langer de dans.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Elke verkenster houdt na een paar bezoeken <b>op met dansen</b>; voor Q (korte dansen) komen er <b>minder nieuwe dansers bij dan er stoppen</b>, voor P (lange dansen) meer, dus Q verdwijnt en P groeit.",
+    "Het stoppen werkt als een <b>rem</b>, zoals het <b>verdampen van de geur</b> bij de mierenstraat: zonder nieuwe aanvoer verdwijnt het signaal vanzelf."],
+    model:"Elke verkenster danst na elk bezoek iets korter en houdt na een paar bezoeken op. Voor Q, een slechte holte, zijn de dansen kort, dus er gaan weinig nieuwe verkensters kijken: er stoppen meer dansers dan er bijkomen, en Q verdwijnt vanzelf. Voor P zijn de dansen lang, dus er komen meer nieuwe dansers bij dan er stoppen, en P groeit. Het stoppen werkt als een rem, net als het verdampen van de geur bij de mierenstraat: komt er geen nieuwe geur bij, dan verdwijnt het spoor vanzelf.",
+    valkuil:"‘De bijen kiezen voor P omdat P beter is’ legt niet uit waarom de dansers voor Q verdwijnen: geen bij vergelijkt de holtes. Noem het stoppen van de dansers én de vergelijking met de geur die verdampt.",
+    after:()=>waaromBtn(ans,textBox("Er werken twee dingen tegelijk. Dansen brengen nieuwe dansers (positieve terugkoppeling), en elke danser stopt na een paar bezoeken (een rem). Bij P wint de terugkoppeling, want de dansen zijn lang: 2 → 8 → 25 → 60. Bij Q wint de rem: 3 → 5 → 4 → 1. Bij de mieren is het verdampen van de geur de rem: is het voedsel op, dan legt niemand meer geur en verdwijnt het spoor. Zo verdwijnt een slechte keuze vanzelf, zonder dat iemand beslist."))});
+  q.append(think,ans);
+},STOF_TK));
+
+opgave("Bijenzwerm","Een zwerm zoekt een nieuw huis",`
+<p>In het voorjaar verlaat een oude bijenkoningin met een groot deel van de werksters de kast. Duizenden bijen hangen als een tros aan een tak: een zwerm. Een paar honderd verkensters vliegen uit om een nieuwe woonplek te zoeken, meestal een holte in een boom.</p>
+<p>Een verkenster die een holte heeft gevonden, danst op de tros een kwispeldans voor die holte. Hoe beter de holte, hoe langer ze danst. Andere verkensters gaan dan zelf kijken, en dansen ook als zij de holte goed vinden. In een proef kreeg een uitstekende holte samen 100 rondjes dans, een middelmatige holte 12. Zijn bij één holte ongeveer vijftien of meer bijen tegelijk, dan maken ze de zwerm klaar voor vertrek en vliegt de hele zwerm daarheen. Een verkenster danst na elk nieuw bezoek aan haar holte iets korter, en houdt na een paar bezoeken op met dansen (vereenvoudigd).</p>
+${TAB1}`,ids);
+}
+
+/* ===== Opgave 5: Waarom helpen dieren elkaar? (EI-gedrag-KJ01) ===== */
+{
+const STOF={titel:"Natuurlijke selectie en helpen",html:`
+<p><b>Natuurlijke selectie</b> bevoordeelt dieren die zelf veel nakomelingen krijgen. Hun genen komen in de volgende generatie vaker voor.</p>
+<p>Toch helpen dieren elkaar vaak. Biologen kennen twee belangrijke verklaringen:</p>
+<ul style="margin:0;padding-left:20px"><li><b>Verwantschapsselectie</b>: wie familie helpt, helpt ook een deel van zijn eigen genen verder. Hoe nauwer verwant, hoe meer helpen loont.</li>
+<li><b>Wederkerig altruïsme</b>: ik help jou nu, jij helpt mij later, zoals bij vampiervleermuizen die bloed delen.</li></ul>`,
+films:[F.help]};
+const q1=vraag(2,"de grondeekhoorn slaat alarm",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Een grondeekhoorn slaat alarm als er een wezel aankomt, en valt daardoor zelf meer op. "+B("Leg uit waarom dit gedrag altruïsme heet; gebruik het begrip fitness. Leg ook uit waarom ‘ze doet het voor het voortbestaan van de soort’ geen goede verklaring is."));
+  choiceStep(think,{q:"Wat betekent <b>fitness</b> in de biologie?",opts:["hoe sterk en sportief een dier is","je kans om te overleven en nakomelingen te krijgen","hoe snel een dier kan vluchten"],right:1,
+    ok:"Ja. Wat doet het alarm met de fitness van de roeper, en met die van de anderen?",no:"Het gaat niet om conditie. Waar draait natuurlijke selectie om?",
+    onDone:()=>choiceStep(think,{q:"Natuurlijke selectie werkt doordat sommige dieren meer nakomelingen krijgen dan andere. Tussen wie vindt die selectie plaats?",opts:["tussen soorten: de soort die het best samenwerkt, blijft bestaan","tussen individuen: wie meer nakomelingen krijgt, geeft vaker zijn genen door"],right:1,
+      ok:"Goed. Bedenk nu wat er over vele generaties zou gebeuren in een groep met eekhoorns die wel en die nooit alarm slaan.",no:"Een soort krijgt geen jongen; een eekhoorn wel.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Altruïsme: het gedrag <b>kost de helper fitness</b> (kans om te overleven en jongen te krijgen) en <b>levert anderen fitness op</b>.",
+    "Eekhoorns die nooit alarm slaan, lopen minder risico en krijgen meer jongen, dus hun genen worden elke generatie vaker; selectie werkt via <b>individuen en hun genen</b>, niet ‘voor de soort’."],
+    model:"Fitness is de kans om te overleven en nakomelingen te krijgen. De roeper valt op en wordt vaker door de wezel achtervolgd: het alarm kost haar fitness. De andere eekhoorns kunnen vluchten en winnen dus fitness. Gedrag dat de helper fitness kost en een ander fitness oplevert, heet altruïsme. ‘Voor de soort’ klopt niet: eekhoorns die nooit alarm slaan, lopen minder risico en krijgen gemiddeld meer jongen. Hun genen worden elke generatie vaker. Selectie werkt via individuen en hun genen, niet voor de soort.",
+    valkuil:"Alleen ‘ze helpt anderen’ is geen altruïsme in biologische zin: noem dat het de helper zelf fitness kost.",
+    after:()=>waaromBtn(ans,textBox("Altruïsme gaat altijd over twee kanten: <b>kosten</b> voor de helper en <b>winst</b> voor de ander, allebei in fitness. ‘Voor de soort’ werkt niet, omdat selectie tussen individuen plaatsvindt: dieren die niet helpen, zouden steeds talrijker worden. Dat helpen toch blijft, vraagt dus om een andere verklaring, zoals familie in de buurt (verwantschapsselectie)."))});
+  q.append(think,ans);
+},STOF);
+opgave("Helpen","Waarom helpen dieren elkaar?","",[q1]);
+}
+
+/* ===== Opgave 6: Slimme dieren (EI-gedrag-KK02) ===== */
+{
+const STOF={titel:"Dieren eerlijk testen",html:`
+<p>Het paard de slimme Hans leek rond het jaar 1904 te kunnen rekenen. Maar als de vraagsteller het antwoord zelf niet wist, of Hans hem niet kon zien, zat Hans er bijna altijd naast. Hans las de vraagsteller, die bij het goede aantal heel even rechtop ging staan.</p>
+<p>Wie onderzoekt wat een dier kan, moet daarom <b>eerlijk testen, met controles</b>. En kun je gedrag verklaren met een eenvoudiger vermogen, kies dan niet voor een slimmer vermogen: dat heet de <b>regel van Morgan</b>.</p>
+<p>Een uitkomst wordt pas betrouwbaar als andere onderzoekers hem bij herhaling ook vinden.</p>`,
+films:[F.slim]};
+const q1=vraag(2,"juist of onjuist: slimme dieren",(q,id)=>{
+  const {think,ans,unlock}=uitspraken(q,"Over slimme dieren worden zes uitspraken gedaan:",[
+    "Cognitie is hoe een dier informatie opneemt, onthoudt en gebruikt om problemen op te lossen.",
+    "Bij inzichtelijk leren probeert een dier van alles uit, tot iets werkt.",
+    "Nieuw-Caledonische kraaien kozen bij de buis met water vooral zinkende voorwerpen.",
+    "Als een dier zakt voor de spiegeltest, weet je zeker dat het zichzelf niet herkent.",
+    "Bij de spiegeltest zit een dier dat zichzelf lijkt te herkennen alleen met spiegel aan het vlekje.",
+    "De proef met eksters werd bij herhaling door andere onderzoekers niet teruggevonden."]);
+  selectsStep(think,{uid:"q"+id,q:"Proberen of inzicht? Kies bij elk voorbeeld de manier van leren.",rows:[
+    ["Een rat drukt toevallig op een hendel, krijgt voer, en drukt daarna steeds vaker.",["proefondervindelijk leren","inzichtelijk leren"],0],
+    ["Chimpansees stoppen met springen, kijken rond en schuiven ineens een kist onder de banaan.",["proefondervindelijk leren","inzichtelijk leren"],1]],
+    ok:"Goed. Bekijk nu elke uitspraak. Let extra op woorden als ‘zeker’ en ‘alleen’: klopt dat met wat de film liet zien?",no:"Bij het ene voorbeeld gaat het met vallen en opstaan, bij het andere ineens.",onDone:unlock});
+  juistOnjuist(ans,{id,stm:["cognitie: informatie opnemen, onthouden en gebruiken","inzichtelijk leren = proberen tot iets werkt","kraaien kozen vooral zinkende voorwerpen","zakken = zeker geen zelfherkenning","alleen met spiegel aan het vlekje","eksterproef niet teruggevonden"],key:[true,false,true,false,true,true],
+    uitleg:textBox("1 <b>juist</b>.<br>2 <b>onjuist</b>: dat is proefondervindelijk leren (trial-and-error). Inzichtelijk leren is een plotselinge oplossing.<br>3 <b>juist</b>: daarmee stijgt het water.<br>4 <b>onjuist</b>: honden zakken, maar merken wel dat hun eigen geur veranderd is; de test moet passen bij het dier.<br>5 <b>juist</b>: zonder spiegel zit het dier niet aan die plek.<br>6 <b>juist</b>: daarom ben je voorzichtig met één proef.<br>Alles goed: 2 punten, één fout: 1 punt.")});
+  q.append(think,ans);
+},STOF);
+opgave("Slimme dieren","Slimme dieren","",[q1]);
+}
+
+/* ===== Opgave 7: Clickertraining bij de neushoorn (EI-gedrag-B01, B02 havo, B03, B04, B05, B06 vwo) ===== */
+{
+const TAB2=TABEL(2,["","dag 1","dag 2","dag 3"],[["Bao","20","9","2"],["Mila","20","17","14"]],
+  "Aantal keer poot op de plank in tien minuten, nadat de beloning stopte (fictieve gegevens)");
+const STOF_LEREN={titel:"Drie manieren van leren",html:`
+<p><b>Gewenning</b>: een zeehaas trekt zijn kieuw in als je zijn sifon aanraakt. Doe je het steeds opnieuw, zonder dat er iets gebeurt, dan reageert hij steeds minder.</p>
+<p><b>Klassieke conditionering</b>: eten is voor een hond een onvoorwaardelijke prikkel, kwijlen een onvoorwaardelijke reflex. Pavlov liet steeds vlak voor het eten een geluid horen. Na een aantal keer kwijlde de hond al bij het geluid: het geluid was een <b>voorwaardelijke prikkel</b> geworden. Je koppelt twee prikkels.</p>
+<p><b>Operante conditionering</b>: je koppelt gedrag aan een gevolg. Skinners ratten drukten steeds vaker op een hendel als er dan een voerkorreltje kwam. Gedrag met een prettig gevolg neemt toe: <b>bekrachtiging</b>. Gedrag met een onprettig gevolg neemt af: <b>straf</b>.</p>
+<p><b>Uitdoving</b>: liet Pavlov het geluid klinken zonder eten, dan werd het kwijlen steeds minder. Het verband was niet gewist: na een pauze kwam het kwijlen een beetje terug.</p>`,
+films:[F.leren]};
+const STOF_UIT={titel:"Als de beloning stopt",html:`
+<p>Gedrag dat is aangeleerd met een beloning, neemt af als de beloning wegvalt. Dat heet <b>uitdoving</b>. Het verband is daarbij niet gewist: na een pauze komt het gedrag vaak een beetje terug.</p>
+<p>Hoe snel gedrag uitdooft, verschilt. In een tabel zie je dat aan hoe snel het aantal per dag daalt. Vergelijk dus per dier de daling van dag 1 naar dag 3, niet alleen het getal op één dag.</p>`,
+films:[F.leren]};
+
+const b1=vraag(2,"het zoemende scheerapparaat",(q,id)=>{
+  pre(q,"<p>Vóór het bloedprikken scheert de dierenarts een stukje huid met een zoemend scheerapparaat. In het begin schrikt Bao van het zoemen. Sanne laat het apparaat daarom twee weken lang elke dag even zoemen naast zijn hok, zonder het te gebruiken. Daarna reageert Bao er niet meer op.</p>");
+  const {think,ans,unlock}=start(q,B("Welke vorm van leren is dit? Leg uit waarom dit geen uitdoving is."));
+  chipsStep(think,{q:"Bij welke vormen van leren wordt iets <b>gekoppeld</b>: twee prikkels aan elkaar, of gedrag aan een gevolg? Kies alles wat klopt.",items:[["gewenning",0],["klassieke conditionering",1],["operante conditionering",1]],
+    ok:"Goed. Uitdoving is het zwakker worden van zo'n aangeleerde koppeling. Was het zoemen voor Bao ooit ergens aan gekoppeld?",no:"Bij een van de drie wordt niets gekoppeld: daar reageer je alleen steeds minder op een prikkel die steeds terugkomt.",
+    onDone:()=>choiceStep(think,{q:"Volgde er voor Bao ooit iets prettigs of vervelends op het zoemen?",opts:["ja, steeds een appel","nee, het zoemen kwam steeds terug zonder gevolg"],right:1,
+      ok:"Goed. Noem nu de vorm van leren, en leg het verschil met uitdoving uit.",no:"Lees nog eens wat Sanne twee weken lang deed.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "<b>Gewenning</b>.",
+    "Het zoemen was <b>nooit aan iets gekoppeld</b> (niet aangeleerd); het is een prikkel die steeds terugkomt zonder gevolgen. Bij <b>uitdoving</b> wordt een <b>aangeleerde reactie</b> zwakker doordat de koppeling (de beloning) niet meer volgt."],
+    model:"Dit is gewenning. Het zoemen is een prikkel die steeds terugkomt zonder dat er iets op volgt, en Bao reageert er steeds minder op. Het is geen uitdoving, want Bao heeft het zoemen nooit aan iets geleerd te koppelen. Uitdoving is het zwakker worden van een aangeleerde reactie, doordat de beloning of de andere prikkel niet meer volgt.",
+    valkuil:"Alleen ‘er gebeurt niets’ zonder het verschil met uitdoving: 0 punten voor het tweede element.",
+    after:()=>waaromBtn(ans,textBox("Bij <b>gewenning</b> reageer je niet meer op een prikkel die er niet toe doet; er is nooit iets geleerd. Bij <b>uitdoving</b> was er eerst wél een koppeling (bijvoorbeeld klik → appel) en wordt de reactie zwakker omdat het gevolg wegblijft. In beide gevallen neemt een reactie af, maar de oorzaak is anders."))});
+  q.append(think,ans);
+},STOF_LEREN);
+
+const ids=[b1];
+if(!VWO){
+ids.push(vraag(1,"de sleutelbos van Sanne",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Sanne rammelt elke ochtend met haar sleutelbos, vlak voordat ze het voer in Bao's verblijf brengt. Na een week loopt Bao al naar het hek als hij de sleutels hoort. "+B("Welke vorm van leren is dit?"));
+  choiceStep(think,{q:"Moet Bao iets dóén om het voer te krijgen?",opts:["ja, hij moet naar het hek lopen","nee, het voer komt hoe dan ook"],right:1,
+    ok:"Klopt. Wat doet het rammelen van de sleutels dan voor Bao? En welke vorm van leren hoort daarbij?",no:"Lees de vraag nog eens: brengt Sanne het voer alleen als Bao naar het hek loopt?",onDone:unlock});
+  mc(ans,{qid:id,pts:1,right:1,opts:["gewenning","klassieke conditionering","operante conditionering","inzichtelijk leren"],
+    onChecked:()=>waaromBtn(ans,textBox("Het antwoord is <b>B</b>. Twee prikkels worden gekoppeld: de sleutels kondigen het voer aan, net als het geluid bij Pavlov. C is fout: Bao krijgt het voer niet doordat hij iets doet."))});
+  q.append(think,ans);
+},STOF_LEREN));
+}
+
+ids.push(vraag(2,"de klik als beloning",(q,id)=>{
+  const {think,ans,unlock}=start(q,"In fase 2 klikt Sanne op het moment dat Bao zijn poot op de plank zet, en geeft ze de appel pas daarna. "+B("Leg uit waarom de klik daar werkt als beloning, en waarom klikken beter werkt dan alleen een appel geven."));
+  choiceStep(think,{q:"Wat heeft Bao in fase 1 geleerd?",opts:["dat de klik een appel aankondigt","dat hij zijn poot op de plank moet zetten","dat de klik gevaarlijk is"],right:0,
+    ok:"Ja. Wat voor prikkel is de klik daardoor geworden, en wat doet de klik dus met Bao?",no:"Lees fase 1 nog eens: wat volgde er steeds vlak na de klik?",
+    onDone:()=>choiceStep(think,{q:"Bao zet zijn poot op de plank en haalt hem meteen weer weg. Sanne pakt een appel en geeft die drie seconden later. Waaraan koppelt Bao de appel het makkelijkst?",opts:["aan de poot op de plank, ook al is die al weg","aan wat hij doet op het moment dat hij de appel krijgt"],right:1,
+      ok:"Goed. Leg nu uit wat de klik daar beter doet dan de appel.",no:"Een dier koppelt een gevolg aan wat het vlak daarvoor deed.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Door fase 1 is de klik een <b>voorwaardelijke prikkel</b> geworden die de appel aankondigt, dus de klik zelf is al prettig (<b>bekrachtiging</b>).",
+    "Een klik kan <b>precies op het moment</b> van het goede gedrag, een appel geven duurt langer; zo koppelt Bao het gevolg aan het <b>juiste gedrag</b> (poot op de plank) en niet aan iets wat hij een paar seconden later doet."],
+    model:"In fase 1 heeft Bao geleerd dat de klik een appel aankondigt: de klik is een voorwaardelijke prikkel geworden. Daardoor is de klik zelf al prettig en werkt hij als bekrachtiging van het gedrag. Een klik kan Sanne precies laten horen op het moment dat de poot op de plank staat. Een appel geven duurt een paar seconden; dan koppelt Bao de beloning misschien aan iets anders wat hij net deed.",
+    valkuil:"‘De klik is leuk’ zonder fase 1 (de koppeling met de appel) is geen uitleg. Noem ook het tijdstip: daar zit het voordeel van de klik.",
+    after:()=>waaromBtn(ans,textBox("Hier werken <b>klassieke</b> en <b>operante</b> conditionering samen. Fase 1 (klassiek) koppelt de klik aan de appel. In fase 2 (operant) gebruikt Sanne die klik als beloning voor gedrag. Een gevolg werkt het best als het direct op het gedrag volgt; de klik is als het ware een snelle belofte: ‘dit was goed, de appel komt eraan’."))});
+  q.append(think,ans);
+},STOF_LEREN));
+
+const B4=vraag(1,"rekenen aan tabel 2",(q,id)=>{
+  pre(q,"<p>In een andere dierentuin werden twee neushoorns, Bao en Mila, getraind om hun poot op de plank te zetten. Daarna kregen ze allebei helemaal geen appel meer. Tabel 2 laat zien hoe vaak ze daarna nog hun poot op de plank zetten.</p>"+TAB2);
+  const {think,ans,unlock}=start(q,B("Bereken hoeveel keer zo vaak Mila op dag 3 haar poot op de plank zet als Bao."));
+  numStep(think,{uid:"q"+id+"n",q:"Hoe vaak zet Bao op dag 3 zijn poot op de plank?",right:2,ok:"Ja. Lees ook het getal van Mila op dag 3 af.",no:"Kijk in de rij van Bao, kolom dag 3.",
+    onDone:()=>choiceStep(think,{q:"Hoe reken je uit hoeveel keer zo vaak het ene getal is als het andere?",opts:["het grootste getal min het kleinste","het ene getal gedeeld door het andere","de twee getallen bij elkaar opgeteld"],right:1,
+      ok:"Goed. Reken het uit.",no:"‘Hoeveel keer zo vaak’ vraagt om een verhouding, niet om een verschil.",onDone:unlock})});
+  numAnswer(ans,{id,fields:[["Mila zet haar poot … keer zo vaak op de plank","keer",v=>v===7,"14 / 2 = 7 keer zo vaak"]],
+    after:()=>waaromBtn(ans,textBox("Op dag 3 zet Mila haar poot 14 keer op de plank, Bao 2 keer. 14 / 2 = <b>7</b>: Mila doet het zeven keer zo vaak. Wie 12 invult, rekent het verschil uit (14 − 2) in plaats van hoeveel keer zo vaak."))});
+  q.append(think,ans);
+},{titel:"Hoeveel keer zo vaak?",html:`<p>‘Hoeveel keer zo vaak’ is een <b>verhouding</b>: je deelt het ene getal door het andere. Voorbeeld: een vogel zingt 's ochtends 30 keer en 's middags 10 keer, dus 's ochtends 30 / 10 = 3 keer zo vaak.</p><p>Een <b>verschil</b> (aftrekken) beantwoordt een andere vraag: hoeveel keer méér?</p>`});
+ids.push(B4);
+
+ids.push(vraag(2,"wie werd af en toe beloond?",(q,id)=>{
+  pre(q,`<p>Eén van de twee neushoorns werd tijdens de training bij elke poot op de plank beloond, de ander alleen af en toe, onvoorspelbaar.</p><p class="muted" style="font-size:14px;margin:6px 0 2px">Tabel 2 (uit vraag ${B4}):</p>`+TAB2);
+  const {think,ans,unlock}=start(q,B("Leg met tabel 2 uit welke neushoorn af en toe werd beloond."));
+  choiceStep(think,{q:"Kijk in tabel 2. Bij wie neemt het gedrag het snelst af nadat de beloning stopte?",opts:["bij Bao","bij Mila","bij allebei even snel"],right:0,
+    ok:"Ja: bij Bao gaat het van 20 naar 2, bij Mila van 20 naar 14. Bedenk nu: voor welk dier was ‘geen beloning’ tijdens de training heel gewoon?",no:"Vergelijk per neushoorn dag 1 met dag 3.",
+    onDone:()=>choiceStep(think,{q:"Een dier kreeg tijdens de training vaak níets na de poot op de plank. Wat merkt het als de beloning helemaal stopt?",opts:["meteen: het verschil is heel groot","weinig: niets krijgen was al heel gewoon"],right:1,
+      ok:"Goed. Welke neushoorn werd dus af en toe beloond? Leg het uit met de tabel.",no:"Bedenk hoe vaak dit dier tijdens de training al niets kreeg.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "<b>Mila</b>, want haar gedrag <b>dooft veel langzamer uit</b>.",
+    "Voor een dier dat af en toe beloond werd, is ‘niets’ heel gewoon, dus het <b>blijft langer proberen</b>; een dier dat altijd beloond werd, <b>merkt snel</b> dat er niets meer komt."],
+    model:"Mila werd af en toe beloond. Haar gedrag dooft veel langzamer uit: van 20 naar 14 keer, tegen 20 naar 2 bij Bao. Voor Mila was niets krijgen tijdens de training heel gewoon, dus ze blijft het proberen: misschien komt de appel de volgende keer wel. Bao kreeg altijd een appel en merkt daarom snel dat er niets meer komt.",
+    valkuil:"Alleen ‘Mila’ zonder uitleg: 0 punten.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Dag 1: allebei zetten ze hun poot nog 20 keer op de plank.",o:{toon:1}},
+      {cap:"Dag 2: Bao merkt al snel dat er niets meer komt (9), Mila gaat door (17).",o:{toon:2}},
+      {cap:"Dag 3: bij Bao is het gedrag bijna uitgedoofd (2), bij Mila nog lang niet (14). Elke keer belonen leert snel; onvoorspelbaar belonen maakt gedrag hardnekkig.",o:{toon:3,hl:"Mila"}}],
+      (st,s)=>st.innerHTML=UITDOOF(s.o)))});
+  q.append(think,ans);
+},STOF_UIT));
+
+if(VWO){
+const STOF_DA={titel:"Dopamine: een leersignaal",html:`
+<p><b>Dopamine</b> wordt vaak een gelukstof genoemd, maar dat klopt niet goed. Het werkt vooral als leer- en motivatiesignaal: het zorgt dat je iets wílt.</p>
+<p>Bij apen vuurden dopamine-neuronen sterk bij een onverwachte beloning. Wat er gebeurt als de aap leert dat een lampje de beloning aankondigt, en wat er gebeurt als de beloning uitblijft, zie je in de film.</p>
+<p>Het verschil tussen wat je verwacht en wat er echt gebeurt, heet de <b>voorspellingsfout</b>.</p>`,
+films:[F.leren]};
+ids.push(vraag(2,"voorspellingsfout",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Leg met het begrip voorspellingsfout uit wat er in Bao's dopaminesysteem gebeurt bij de klik na de training, en als de appel daarna uitblijft."));
+  choiceStep(think,{q:"Bij de aap in de film: wanneer vuurden de dopamine-neuronen nadat de aap had geleerd dat een lampje de beloning aankondigt?",opts:["nog steeds vooral bij de beloning","al bij het lampje","helemaal niet meer"],right:1,
+    ok:"Ja. Voor Bao werkt de klik als dat lampje. Wat verwacht Bao na de klik?",no:"Het lampje gaf de aap al informatie: de beloning komt eraan.",
+    onDone:()=>choiceStep(think,{q:"Bao hoort de klik, maar de appel blijft uit. Is de uitkomst dan beter of slechter dan Bao verwachtte?",opts:["beter dan verwacht","slechter dan verwacht","precies zoals verwacht"],right:1,
+      ok:"Goed. Wat doen de dopamine-neuronen bij een uitkomst die slechter is dan verwacht, en wat betekent dat voor het leren?",no:"Na de klik verwacht Bao een appel.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Na de training vuren de dopamine-neuronen <b>al bij de klik</b>, die de beloning aankondigt (en bij de appel zelf nauwelijks).",
+    "Blijft de appel uit, dan is de uitkomst <b>slechter dan verwacht</b>: de activiteit van de dopamine-neuronen <b>zakt</b> (voorspellingsfout), waardoor de koppeling zwakker wordt."],
+    model:"Na de training kondigt de klik de appel aan. De dopamine-neuronen vuren daarom al bij de klik, en bij de appel zelf nauwelijks nog, want die werd verwacht. Blijft de appel uit, dan is de uitkomst slechter dan verwacht: een negatieve voorspellingsfout. De activiteit van de dopamine-neuronen zakt dan, en de koppeling tussen klik en appel wordt zwakker.",
+    valkuil:"‘Er komt minder dopamine omdat hij verdrietig is’ gebruikt het begrip voorspellingsfout niet: het gaat om het verschil tussen verwachting en uitkomst.",
+    after:()=>waaromBtn(ans,textBox("Dopamine-neuronen reageren op het <b>verschil</b> tussen verwachting en uitkomst. Onverwacht een appel: veel activiteit. Klik geleerd: de activiteit verschuift naar de klik, want daar zit nu het ‘nieuws’. Klik zonder appel: slechter dan verwacht, de activiteit zakt onder het gewone niveau. Zo wordt de koppeling zwakker: uitdoving."))});
+  q.append(think,ans);
+},STOF_DA));
+}
+
+opgave("Clickertraining","Clickertraining bij de neushoorn",`
+<p>In dierentuinen leren verzorgers dieren mee te werken aan een medische controle, zoals bloedprikken, zonder verdoving. Verzorgster Sanne traint neushoorn Bao met een clicker: een klein apparaatje dat een kort klikgeluid maakt.</p>
+<p><b>Fase 1</b>: Sanne laat steeds een klik horen, vlak voordat ze Bao een stuk appel geeft. Na een paar dagen spitst Bao zijn oren en loopt hij naar haar toe zodra hij de klik hoort.</p>
+<p><b>Fase 2</b>: Sanne klikt alleen nog als Bao zijn voorpoot op een plank zet, en geeft dan een stuk appel. Bao zet zijn poot steeds vaker op de plank. Op de plank kan de dierenarts later bloed prikken.</p>`,ids);
+}
+
+/* ===== Opgave 8–11: Emotieregulatie, Hechting, Wiens schuld is het?, Beroemde psychologie-experimenten
+   (EI-gedrag-KE04, KD02, KF02, KL02; losse vragen zonder inleiding) ===== */
+{
+const STOF_EMO={titel:"Emoties in je hersenen",html:`
+<p>In je hersenen werken twee delen samen. De <b>amygdala</b>, diep in je hersenen, reageert razendsnel op wat belangrijk voor je is: een snel alarm. De <b>prefrontale cortex</b>, achter je voorhoofd, is trager. Die weegt af, en kan het alarm bijsturen of afremmen.</p>
+<p>Een emotie ontstaat in stappen: een <b>situatie</b>, waar je <b>aandacht</b> naartoe gaat, welke <b>betekenis</b> je eraan geeft, en hoe je <b>reageert</b>. Bij elke stap kun je bijsturen. De situatie anders bekijken heet <b>herwaarderen</b>.</p>
+<p>Hoe goed een strategie werkt, onderzoeken psychologen met proeven: ze vergelijken groepen die een andere strategie gebruiken.</p>`,
+films:[F.emo]};
+const e1=vraag(2,"juist of onjuist: emoties",(q,id)=>{
+  const {think,ans,unlock}=uitspraken(q,"Over emoties en emotieregulatie worden vijf uitspraken gedaan:",[
+    "Emoties maken je lichaam snel klaar om te handelen en laten anderen zien hoe je je voelt.",
+    "Wie een emotie onderdrukt, laat minder zien en zijn lichaam reageert ook minder.",
+    "Een gevoel in woorden benoemen kan de reactie van de amygdala minder fel maken.",
+    "Volgens de film is één strategie altijd de beste.",
+    "In een grote proef hielp langzaam ademen niet beter tegen stress dan bewust ademen in een gewoon tempo."]);
+  selectsStep(think,{uid:"q"+id,q:"Bij welke stap van een emotie stuur je bij?",rows:[
+    ["even weg van het scherm",["situatie","aandacht","betekenis","reactie"],0],
+    ["ergens anders naar kijken",["situatie","aandacht","betekenis","reactie"],1],
+    ["het anders bekijken (herwaarderen)",["situatie","aandacht","betekenis","reactie"],2],
+    ["niets laten merken (onderdrukken)",["situatie","aandacht","betekenis","reactie"],3]],
+    ok:"Goed. Bekijk nu elke uitspraak. Staan er twee beweringen in één uitspraak, dan moeten ze allebei kloppen.",no:"Kijk naar de volgorde: situatie → aandacht → betekenis → reactie.",onDone:unlock});
+  juistOnjuist(ans,{id,stm:["emoties maken je klaar en laten zien hoe je je voelt","onderdrukken: minder laten zien én lichaam reageert minder","benoemen maakt de amygdala minder fel","één strategie is altijd de beste","langzaam ademen niet beter dan gewoon tempo"],key:[true,false,true,false,true],
+    uitleg:textBox("1 <b>juist</b>.<br>2 <b>onjuist</b>: wie onderdrukte liet minder zien, maar het lichaam reageerde juist sterker, en de walging bleef even groot.<br>3 <b>juist</b>: de amygdala reageerde minder fel, de prefrontale cortex werd actiever.<br>4 <b>onjuist</b>: soms is weglopen of even niets laten merken goed; het gaat erom dat je kunt kiezen.<br>5 <b>juist</b>: bij beide groepen daalde de stress ongeveer evenveel.<br>Alles goed: 2 punten, één fout: 1 punt.")});
+  q.append(think,ans);
+},STOF_EMO);
+opgave("Emoties","Emotieregulatie","",[e1]);
+
+const STOF_HE={titel:"Wat is hechting?",html:`
+<p><b>Hechting</b> is de emotionele band tussen een kind en een vaste verzorger. Een baby wordt geboren met gedrag dat die band uitlokt: huilen, lachen, vastgrijpen.</p>
+<p>John Bowlby keek naar de functie, net als Tinbergen: een kind dat dicht bij een verzorger blijft, is beter beschermd tegen gevaar. Dat lijkt op inprenting bij gansjes, maar hechting groeit langzamer, in de eerste jaren, en een kind kan zich aan meerdere mensen hechten.</p>
+<p>Gaat hechting eigenlijk om eten? Dat wilde de onderzoeker Harry Harlow testen met jonge rhesusaapjes.</p>`,
+films:[F.hecht]};
+const h1=vraag(2,"de proef van Harlow",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Beschrijf de proef van Harlow met jonge rhesusaapjes en leg uit wat die liet zien over hechting."));
+  choiceStep(think,{q:"Welke vraag wilde Harlow met zijn proef beantwoorden?",opts:["Gaat hechting om eten?","Kunnen apen rekenen?","Zijn apen bang voor ijzerdraad?"],right:0,
+    ok:"Ja. Hoe moeten de twee nepmoeders van elkaar verschillen om dat te kunnen testen?",no:"Harlow was benieuwd waarom een jong zich aan zijn moeder hecht.",
+    onDone:()=>choiceStep(think,{q:"Stel dat hechting wél om eten gaat. Naar welke nepmoeder rent een bang aapje dan?",opts:["naar de nepmoeder die melk geeft","naar de nepmoeder die het prettigst aanvoelt","naar geen van beide"],right:0,
+      ok:"Dat is de voorspelling. Beschrijf nu de twee nepmoeders en wat de aapjes in de film echt deden, en leg uit wat dat zegt over hechting.",no:"Als het om eten gaat, is de melk het belangrijkste.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Aapjes zonder moeder kregen een <b>nepmoeder van ijzerdraad met melk</b> en een <b>zachte nepmoeder zonder melk</b>; ze dronken bij de draadmoeder maar <b>zaten urenlang bij de zachte moeder</b> en renden daarheen als ze bang waren.",
+    "<b>Contact en troost</b> zijn belangrijker dan voedsel (hechting gaat niet om eten)."],
+    model:"Harlow liet jonge rhesusaapjes opgroeien zonder hun moeder. In de kooi stonden twee nepmoeders: een van ijzerdraad met een fles melk, en een van zachte stof zonder melk. De aapjes dronken snel bij de draadmoeder, maar klampten zich daarna urenlang vast aan de zachte moeder. Werden ze bang, dan renden ze naar de zachte moeder. De proef liet zien dat contact en troost belangrijker zijn dan voedsel: hechting gaat niet om eten.",
+    after:()=>waaromBtn(ans,textBox("Als hechting om eten ging, zouden de aapjes bij de draadmoeder met melk blijven. Ze kozen juist de zachte moeder, vooral als ze bang waren: daar kalmeerden ze, en daarna durfden ze de kooi te verkennen. Een verzorger is een <b>veilige haven</b> als je bang bent, en een <b>veilige basis</b> om de wereld te ontdekken. Zulke proeven worden nu om ethische redenen niet meer toegestaan."))});
+  q.append(think,ans);
+},STOF_HE);
+opgave("Hechting","Hechting","",[h1]);
+
+const STOF_AT={titel:"Attributie",html:`
+<p>Zoeken naar de oorzaak van wat er gebeurt, heet <b>attributie</b>. Er zijn twee soorten verklaringen:</p>
+<ul style="margin:0;padding-left:20px"><li><b>intern</b>: de oorzaak ligt bij de persoon, zoals aanleg, inzet of karakter;</li>
+<li><b>extern</b>: de oorzaak ligt in de situatie, zoals een moeilijke toets, lawaai of pech.</li></ul>
+<p>Bernard Weiner voegde twee vragen toe: is de oorzaak blijvend of tijdelijk, en kun je er zelf iets aan doen (beheersbaar)?</p>
+<p>Mensen maken bij het toeschrijven vaak vaste denkfouten. Let er bij elke situatie op <b>over wie</b> het gaat: over jezelf of over een ander.</p>`,
+films:[F.attr]};
+const t1=vraag(2,"welke denkfout?",(q,id)=>{
+  q.append(el("p",{class:"qtext"},"Welke denkfout zie je: de zelfdienende vertekening (A) of de fundamentele attributiefout (B)? Een letter mag vaker voorkomen.<br><br>1 Na een overwinning: ‘We waren gewoon beter.’ Na een nederlaag: ‘De scheidsrechter floot slecht.’<br>2 Een nieuwe klasgenoot zegt weinig; jij denkt meteen dat ze arrogant is.<br>3 Lezers denken dat iemand die een opgelegd opstel schreef, het toch een beetje eens is met wat hij moest schrijven.<br>4 Na een 9: ‘Ik ben er goed in.’ Na een 4: ‘De vragen waren raar.’<br><br>A zelfdienende vertekening<br>B fundamentele attributiefout"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  selectsStep(think,{uid:"q"+id,q:"Oefen eerst: is de verklaring intern of extern?",rows:[
+    ["‘Ik had goed geleerd.’",["intern","extern"],0],["‘Het was te lawaaiig in het lokaal.’",["intern","extern"],1],["‘Hij is gewoon lui.’",["intern","extern"],0]],
+    ok:"Goed. Kijk nu bij elke situatie: gaat het over jezelf (bij succes en bij falen), of over een ander?",no:"Intern = bij de persoon (inzet, karakter); extern = in de situatie.",onDone:unlock});
+  const S=["A zelfdienende vertekening","B fundamentele attributiefout"];
+  selectAnswer(ans,{id,uid:"q"+id,rows:[["1 overwinning en nederlaag",S,0],["2 de stille klasgenoot",S,1],["3 het opgelegde opstel",S,1],["4 een 9 en een 4",S,0]],score:n=>n===4?2:n===3?1:0,
+    after:()=>waaromBtn(ans,textBox("1 en 4: <b>A</b>. Over jezelf: bij succes een interne verklaring (‘wij’, ‘ik’), bij falen een externe (scheidsrechter, vragen). Zo blijf je je goed voelen over jezelf.<br>2 en 3: <b>B</b>. Over een ander: je onderschat de situatie (nieuw in de klas, een opgelegd standpunt) en overschat het karakter. Dat is de fundamentele attributiefout; zin 3 is de proef van Jones en Harris uit de film.<br>Alles goed: 2 punten, één fout: 1 punt."))});
+  q.append(think,ans);
+},STOF_AT);
+opgave("Attributie","Wiens schuld is het?","",[t1]);
+
+const STOF_EX={titel:"Beroemd is niet bewezen",html:`
+<p>Een bekend experiment laat iets echts zien, maar één proef is nog geen bewezen waarheid. Pas als onderzoek vaak genoeg is herhaald, weet je hoe sterk een effect is. Toen honderden onderzoekers in het jaar 2015 honderd psychologische studies probeerden te herhalen, gaf slechts ruim een derde opnieuw een duidelijk resultaat: de <b>replicatiecrisis</b>.</p>
+<p>Daarom leggen onderzoekers nu vaker vooraf vast wat ze gaan meten en hoe ze het analyseren: <b>preregistratie</b>.</p>
+<p>Bij uitspraken over experimenten helpt het om te letten op woorden als ‘iedereen’, ‘niemand’ en ‘altijd’: kloppen die met wat er gemeten is?</p>`,
+films:[F.exp]};
+const x1=vraag(2,"juist of onjuist: beroemde experimenten",(q,id)=>{
+  const {think,ans,unlock}=uitspraken(q,"Over beroemde psychologie-experimenten worden vijf uitspraken gedaan:",[
+    "In het experiment van Asch ging bijna iedereen wel eens mee met de groep, maar niemand deed het altijd.",
+    "In de proef van Milgram kregen de ‘leerlingen’ echte schokken.",
+    "Hoeveel mensen gehoorzamen aan iemand met gezag, hangt sterk af van de situatie.",
+    "Volgens de regels voor onderzoek met mensen mag een proefpersoon altijd stoppen.",
+    "Kinderen die bij de marshmallowtest kort wachten, hebben volgens de film altijd weinig zelfbeheersing."]);
+  choiceStep(think,{q:"Wat betekent <b>conformisme</b>?",opts:["gehoorzamen aan iemand met gezag","je gedrag aanpassen aan de groep","je eigen mening vasthouden"],right:1,
+    ok:"Ja. Dat onderzocht Asch; gehoorzamen aan gezag onderzocht Milgram.",no:"Bij Asch zeiden zes anderen hardop een fout antwoord. Wat deden de proefpersonen dan?",
+    onDone:()=>choiceStep(think,{q:"Bij Asch gaf soms één andere deelnemer wél het goede antwoord. Wat gebeurde er dan?",opts:["de proefpersoon ging nog vaker mee met de groep","de proefpersoon ging nog maar zelden mee met de groep","er veranderde niets"],right:1,
+      ok:"Goed: de situatie maakt veel uit. Bekijk nu elke uitspraak, en let op woorden als ‘altijd’ en ‘niemand’.",no:"Je staat dan niet meer alleen. Wordt de druk groter of kleiner?",onDone:unlock})});
+  juistOnjuist(ans,{id,stm:["Asch: bijna iedereen wel eens, niemand altijd","Milgram: echte schokken","gehoorzamen hangt sterk af van de situatie","een proefpersoon mag altijd stoppen","kort wachten = altijd weinig zelfbeheersing"],key:[true,false,true,true,false],
+    uitleg:textBox("1 <b>juist</b>: driekwart ging minstens één keer mee, niemand deed het altijd.<br>2 <b>onjuist</b>: de leerling was een acteur.<br>3 <b>juist</b>: per telefoon ging maar één op de vijf door tot het einde.<br>4 <b>juist</b>: dat is nu een vaste regel, net als vooraf toestemming en achteraf uitleg.<br>5 <b>onjuist</b>: na een gebroken belofte is niet wachten een verstandige keuze.<br>Alles goed: 2 punten, één fout: 1 punt.")});
+  q.append(think,ans);
+},STOF_EX);
+opgave("Experimenten","Beroemde psychologie-experimenten","",[x1]);
+}
+
+
+/* ================= opgaven en navigatie ================= */
+OPG.sort((a,b)=>a.nr-b.nr);
+/* cijfer als bij een schooltoets: 9 × score / maximum + 1 */
+const NORM="";
+const CIJFER=(()=>{const L=Q.reduce((s,q)=>s+q.pts,0);return Array.from({length:L+1},(_,S)=>Math.round((9*S/L+1)*10)/10);})();
+const main=$("#main"),tabs=$("#tabs");let cur=1;const built={},nextBtns={};
+let curOpg=OPG.some(o=>o.nr===store.opg)?store.opg:1;
+const opg=()=>OPG.find(o=>o.nr===curOpg);
+const pts=o=>o.ids.reduce((s,i)=>s+Q.find(q=>q.id===i).pts,0);
+function reach(){const ids=opg().ids;if(store.vrij)return ids[ids.length-1];let k=0;while(k<ids.length-1&&store.scores[ids[k]]!==undefined)k++;return ids[k];}
+function renderTabs(){
+  tabs.innerHTML="";const r=reach();
+  opg().ids.forEach(id=>{const q=Q.find(x=>x.id===id);const locked=id>r;
+    const b=el("button",{class:(id===cur?"cur ":"")+(store.scores[id]!==undefined?"done":"")+(locked?" lock":""),"aria-label":"Vraag "+id+(locked?" (eerst vraag "+(id-1)+" maken)":""),title:locked?"Maak eerst vraag "+(id-1):""},id);
+    if(locked)b.disabled=true;else b.onclick=()=>open(id);tabs.append(b);});
+  const o=el("button",{class:"ov"+(cur==="ov"?" cur":"")},"Score");o.onclick=()=>open("ov");tabs.append(o);
+}
+function open(id){
+  if(id!=="ov"&&id>reach())id=reach();
+  cur=id;renderTabs();main.innerHTML="";
+  if(id==="ov"){main.append(overview());return;}
+  if(!built[id]){const q=Q.find(x=>x.id===id);const sec=el("article",{class:"q"});
+    q.build(sec);
+    const pap=el("section",{class:"papier","aria-label":"Toetsvraag "+id});
+    pap.append(el("div",{class:"pkop"},`<span class="pnr"><span class="mono">Toetsvraag</span><span class="nr">${id}</span></span><span class="mono">${q.pts} ${q.pts===1?"punt":"punten"}</span>`));
+    for(const c of [...sec.children]){if(c.classList.contains("phase")||c.tagName==="BUTTON")break;pap.append(c);}
+    pap.append(el("div",{class:"pvoet"},"Oefentoets Gedrag · havo"));
+    sec.prepend(pap);
+    const sb=window.EXSTOF&&EXSTOF.blok(TOOL,id);if(sb)pap.after(sb);
+    /* toetsvraag nog eens boven de antwoorden (Kamiel 25 okt 2026: niet terug hoeven scrollen) */
+    const qt=[...pap.querySelectorAll(".qtext")].pop(),ansP=sec.querySelector(".phase.ans");
+    if(qt&&ansP){const h=el("div",{class:"herhaal papier"});h.append(el("div",{class:"hkop mono"},`Toetsvraag ${id}`));
+      const c=qt.cloneNode(true);c.querySelectorAll("[id]").forEach(x=>x.removeAttribute("id"));h.append(c);
+      const lab=ansP.querySelector(":scope>.label");lab?lab.after(h):ansP.prepend(h);}
+    const ids=opg().ids,last=id===ids[ids.length-1];
+    const nx=el("div",{class:"row",style:"justify-content:flex-end"});const b=el("button",{class:"go"},last?"Naar je score ›":`Volgende vraag (${id+1}) ›`);
+    nextBtns[id]=b;b.hidden=!store.vrij&&store.scores[id]===undefined;
+    b.onclick=()=>{open(last?"ov":id+1);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};nx.append(b);sec.append(nx);built[id]=sec;}
+  main.append(built[id]);
+}
+function overview(){
+  const o=opg();const s=el("section",{class:"phase"});s.append(el("h2",{},`Jouw score op opgave ${o.nr}`));
+  let tot=0;const t=el("table",{class:"data ovtable"});t.innerHTML="<tr><th>vraag</th><th>onderwerp</th><th>score</th></tr>";
+  o.ids.forEach(id=>{const q=Q.find(x=>x.id===id);const p=store.scores[id];if(p!==undefined)tot+=p;t.innerHTML+=`<tr><td>${id}</td><td>${q.t}</td><td>${p===undefined?"–":p} / ${q.pts}</td></tr>`;});
+  const w=el("div",{class:"tablewrap"});w.append(t);s.append(w,el("div",{class:"score"},`Totaal opgave ${o.nr}: ${tot} / ${pts(o)}`));
+  let all=0,allMax=0;OPG.forEach(x=>{allMax+=pts(x);x.ids.forEach(id=>{if(store.scores[id]!==undefined)all+=store.scores[id];});});
+  const gemaakt=OPG.every(x=>x.ids.every(id=>store.scores[id]!==undefined));
+  const cf=CIJFER[Math.min(all,CIJFER.length-1)].toFixed(1).replace(".",",");
+  s.append(el("p",{style:"margin:0"},`Hele toets: <b>${all}</b> van ${allMax} punten · cijfer <b>${cf}</b>`+(gemaakt?"":` <span class="muted">(nog niet alles gemaakt: open vragen tellen als 0 punten)</span>`)));
+  s.append(el("p",{class:"muted",style:"margin:0;font-size:14px"},`Cijfer = 9 × score / maximum + 1. Open vragen kijk je zelf na met het antwoordmodel.`));
+  const nextO=OPG.find(x=>x.nr===o.nr+1);
+  const row=el("div",{class:"row"});
+  if(nextO){const nb=el("button",{class:"go"},`Naar opgave ${nextO.nr}: ${nextO.kort} ›`);nb.onclick=()=>{setOpg(nextO.nr);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};row.append(nb);}
+  const r=el("button",{class:"ghost"},`Opgave ${o.nr} opnieuw`);r.onclick=()=>{o.ids.forEach(id=>{delete store.scores[id];delete built[id];delete nextBtns[id];});save();open(o.ids[0]);};row.append(r);
+  s.append(row);return s;
+}
+function renderOpgs(){const box=$("#opgs");box.innerHTML="";
+  OPG.forEach(o=>{const b=el("button",{"aria-pressed":o.nr===curOpg?"true":"false"},`${o.nr} · ${o.kort}`);b.onclick=()=>setOpg(o.nr);box.append(b);});}
+function setOpg(n){curOpg=n;store.opg=n;save();const o=opg();
+  $("#eb").textContent=`Oefentoets Gedrag · havo · opgave ${o.nr}`;$("#h1").textContent=o.titel;
+  $("#sub").textContent=`vraag ${o.ids[0]}${o.ids.length>1?" t/m "+o.ids[o.ids.length-1]:""} · ${pts(o)} punten`;
+  $("#ctx").innerHTML=o.ctx;renderOpgs();open(reach());}
+function setVrij(v){store.vrij=v;save();$("#vrij").setAttribute("aria-pressed",v?"true":"false");
+  for(const k in nextBtns)nextBtns[k].hidden=!v&&store.scores[k]===undefined;renderTabs();}
+$("#vrij").onclick=()=>setVrij(!store.vrij);setVrij(!!store.vrij);
+EXSTAND.STANDEN.forEach(s=>{s.uitleg=s.uitleg.replace(/examenvraag/g,"toetsvraag").replace("het echte examen","een echte toets").replace(" Zet de klok aan voor 3 uur examentijd.","");if(s.k==="echt")s.naam="Echte toets";});
+EXSTAND.init({store,save,setVrij});
+setOpg(curOpg);
+})();
+
+</script>
+</body>
+</html>

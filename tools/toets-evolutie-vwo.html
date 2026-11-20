@@ -1,0 +1,1090 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../js/teller.js" data-root="../"></script>
+<link rel="icon" href="../img/icoon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../img/icoon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../img/icoon/apple-touch-icon.png">
+<script>(function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oefentoets Evolutie vwo · doorklikken · Biologie bij Kamiel</title>
+<meta name="description" content="Oefentoets Evolutie voor vwo: per vraag eerst hulpvragen, dan de toetsvraag, nakijken met het antwoordmodel en uitleg waarom.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="huisstijl.css">
+<script src="huisstijl.js"></script>
+<script src="examen-stof.js?v=b496a9e6"></script>
+<script src="examen-standen.js?v=558bd73d"></script>
+<style>
+/* Oefentoets Evolutie vwo · zelfde bouwstenen als de oefenexamens (tools/OEFENEXAMEN_PROMPT.md). */
+body.echt .klok{display:none!important}
+#ctx:empty{display:none}
+@media (max-width:600px){.vpfig{overflow-x:auto;-webkit-overflow-scrolling:touch}.vpfig>svg{min-width:var(--min)}}
+:root{--rest:#2A3B57;--area:#5B6B84}
+:root[data-theme="light"]{--rest:#D5DEE9;--area:#B4BDCA}
+ .wrap{padding-inline:0}
+:root[data-theme="light"] .papier{box-shadow:0 0 0 1px rgba(20,32,52,.18),0 6px 18px rgba(20,32,52,.10)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--text);font:17px/1.55 var(--tekst);-webkit-font-smoothing:antialiased;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 40px}
+.wrap{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1,h2,h3{font-family:var(--titel);font-weight:700;letter-spacing:-.01em;text-wrap:balance;margin:0;line-height:1.1}
+h2{font-size:24px}
+.mono,.eyebrow{font:600 12px/1.2 var(--meta);letter-spacing:.1em;text-transform:uppercase}
+.eyebrow{color:var(--goud-text)}
+.muted{color:var(--text2)}
+a{color:var(--goud-text)}
+.sitenav{display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap;min-height:56px;padding:8px 0;border-bottom:1px solid var(--line);font:600 15px/1.3 var(--tekst)}
+.sitenav .merk{font:700 18px/1 var(--titel);color:var(--text);text-decoration:none}
+.sitenav .terug{color:var(--goud-text);text-decoration:none}
+.sitenav .rechts{margin-left:auto}
+.tool-kop{display:flex;flex-direction:column;gap:10px;padding:14px 0 0}
+.tool-kop h1{font-size:clamp(32px,5vw,48px)}
+.tool-kop p{margin:0;color:var(--text2);font-size:18px;max-width:62ch}
+button.toggle{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line2);background:none;color:var(--text2);border-radius:999px;padding:6px 14px 6px 8px;min-height:40px;font:600 14px var(--tekst);cursor:pointer}
+button.toggle .knopje{width:34px;height:20px;border-radius:999px;background:var(--line2);position:relative;flex:none}
+button.toggle .knopje::after{content:"";position:absolute;left:3px;top:3px;width:14px;height:14px;border-radius:50%;background:var(--text2);transition:left .15s}
+button.toggle[aria-pressed="true"]{color:var(--text);border-color:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje{background:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje::after{left:17px;background:var(--goud-ink)}
+.kopbalk{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.seg{display:inline-flex;flex-wrap:wrap;padding:3px;border-radius:999px;border:1px solid var(--line2);gap:2px}
+.seg button{border:0;background:none;padding:6px 14px;border-radius:999px;font:600 14px var(--tekst);color:var(--text2);min-height:36px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--goud);color:var(--goud-ink)}
+nav.tabs{display:flex;flex-wrap:wrap;gap:6px}
+nav.tabs button{min-width:44px;height:44px;border-radius:999px;border:1px solid var(--line2);background:none;color:var(--text2);font:600 15px var(--meta);cursor:pointer;position:relative}
+nav.tabs button:hover{color:var(--text)}
+nav.tabs button.cur{background:var(--goud);color:var(--goud-ink);border-color:var(--goud)}
+nav.tabs button.done::after{content:"";position:absolute;right:3px;top:3px;width:8px;height:8px;border-radius:50%;background:var(--groen);border:2px solid var(--bg)}
+nav.tabs button.lock{opacity:.35;cursor:not-allowed}
+nav.tabs .ov{padding:0 16px;font-family:var(--tekst)}
+.ctx{background:var(--surface);border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.ctx p{margin:0}
+details.ctxd summary{cursor:pointer;font-weight:600;color:var(--goud-text)}
+.tablewrap{overflow-x:auto}
+table.data{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+table.data th,table.data td{border-bottom:1px solid var(--line);padding:7px 10px;text-align:center}
+table.data th:first-child,table.data td:first-child{text-align:left}
+table.data th{font:600 11px var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--text3)}
+.q{display:flex;flex-direction:column;gap:14px}
+.qhead{display:flex;gap:12px;align-items:center}
+.qnum{font:700 40px/1 var(--titel);color:var(--goud-text)}
+.pts{font:600 12px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:3px 9px}
+.qtext{margin:0;font-size:18px}
+.phase{border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;background:var(--surface);display:flex;flex-direction:column;gap:12px}
+.phase>.label{display:flex;gap:8px;align-items:center;font:600 12px var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3)}
+.phase>.label .dot{width:8px;height:8px;border-radius:50%;background:var(--goud)}
+.phase.think{background:var(--surface2)}
+.phase.think>.label{color:var(--goud-text)}
+.step{display:flex;flex-direction:column;gap:8px}
+.step+.step{border-top:1px solid var(--line);padding-top:12px}
+.step p{margin:0}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button.opt,button.chip{border:1px solid var(--line2);background:var(--bg);color:var(--text);border-radius:12px;padding:9px 14px;font:inherit;font-size:16px;cursor:pointer;text-align:left}
+button.chip{border-radius:999px}
+button.opt:hover,button.chip:hover{border-color:var(--text3)}
+button.chip[aria-pressed="true"]{border-color:var(--goud);background:var(--goud-soft)}
+button.opt.right{border-color:var(--groen);background:var(--groen-soft)}
+button.opt.wrong{border-color:var(--koraal);background:var(--koraal-soft)}
+button.opt:disabled{cursor:default}
+button.go,button.ghost{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 18px;border-radius:999px;font:700 15px var(--tekst);cursor:pointer}
+button.go{border:0;background:var(--goud);color:var(--goud-ink)}
+button.go:hover{filter:brightness(1.06)}
+button.ghost{border:0;background:none;color:var(--text);box-shadow:inset 0 0 0 1px var(--line2)}
+button.ghost:hover{box-shadow:inset 0 0 0 1px var(--text3)}
+button:disabled.go,button:disabled.ghost{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:2px solid var(--goud);outline-offset:3px;border-radius:6px}
+input.num{width:96px;min-height:44px;font:600 16px var(--meta);padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text)}
+select{font:inherit;font-size:15px;min-height:44px;padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);max-width:100%;flex:1 1 260px}
+textarea{width:100%;min-height:88px;font:inherit;padding:10px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);resize:vertical}
+.fb{font-size:16px;border-radius:12px;padding:12px 14px;background:var(--surface2);border:1px solid var(--line2)}
+.fb.ok{border-color:var(--groen);background:var(--groen-soft)}
+.fb.no{border-color:var(--koraal);background:var(--koraal-soft)}
+.fb.hint{border-color:var(--teal);background:var(--teal-soft)}
+.graphs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.graphs{grid-template-columns:1fr}}
+.gopt{border:1px solid var(--line2);border-radius:var(--radius);background:var(--bg);padding:8px 8px 2px;cursor:pointer;color:var(--text);font:inherit;text-align:left}
+.gopt b{font:700 20px var(--titel);margin-left:6px;color:var(--goud-text)}
+.gopt:hover{border-color:var(--text3)}
+.gopt.right{border-color:var(--groen);box-shadow:0 0 0 2px var(--groen) inset}
+.gopt.wrong{border-color:var(--koraal);box-shadow:0 0 0 2px var(--koraal) inset}
+svg{display:block;max-width:100%;height:auto}
+.ax{stroke:var(--text3);stroke-width:1.2;fill:none}
+.grid{stroke:var(--line2);stroke-width:1;fill:none}
+.tick{fill:var(--text3);font:500 10px var(--meta)}
+.cv{stroke:var(--teal);stroke-width:2.4;fill:none;stroke-linejoin:round}
+.cvbad{stroke:var(--koraal);stroke-width:2;fill:none;stroke-dasharray:5 4}
+.restband{fill:var(--rest);opacity:.8}
+.lbl{fill:var(--text);font:600 12px var(--tekst)}
+.lblm{fill:var(--text2);font:12px var(--tekst)}
+.lblbad{fill:var(--koraal);font:700 12px var(--tekst)}
+.selfscore{display:flex;flex-direction:column;gap:10px}
+.selfscore label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.selfscore input{margin-top:4px;width:18px;height:18px;accent-color:var(--goud);flex:none}
+.model{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:16px}
+.anim{display:flex;flex-direction:column;gap:10px}
+.anim .stage{border-radius:var(--radius);background:var(--surface2);border:1px solid var(--line2);overflow:hidden}
+.anim .cap{min-height:3.2em;margin:0}
+.anim .nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pips{display:flex;gap:6px;margin-left:auto}
+.pips span{width:9px;height:9px;border-radius:50%;background:var(--line2)}
+.pips span.on{background:var(--goud)}
+.seq{display:flex;flex-direction:column;gap:6px}
+.seq button{display:flex;gap:10px;align-items:center}
+.seq .n{font:600 13px var(--meta);width:24px;height:24px;border-radius:50%;display:inline-grid;place-items:center;background:var(--line2);flex:none}
+.seq button.placed{border-color:var(--groen)} .seq button.placed .n{background:var(--groen);color:var(--goud-ink)}
+.score{font:600 16px var(--meta)}
+.ovtable td:last-child,.ovtable th:last-child{text-align:right}
+.pre{border-left:3px solid var(--goud);padding:2px 0 2px 14px;display:flex;flex-direction:column;gap:8px}
+.pre p{margin:0;color:var(--text2)}
+.figrow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.figrow{grid-template-columns:1fr}}
+.legenda{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--text2)}
+.legenda i{display:inline-block;vertical-align:middle;margin-right:6px}
+.legenda .lijn{width:22px;height:0;border-top:2.5px solid var(--text)}
+.legenda .vlak{width:16px;height:12px;background:var(--area)}
+.tick.dim{opacity:.35}
+p.klikbaar{line-height:2}
+button.mark{font:inherit;color:var(--text);background:none;border:0;border-bottom:2px dashed var(--goud);padding:0 3px;border-radius:4px;cursor:pointer}
+button.mark[aria-pressed="true"]{background:var(--goud-soft);border-bottom-style:solid}
+button.mark:disabled{cursor:default}
+.sellab{min-width:200px;font-weight:600}
+label.slider{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center}
+label.slider span{min-width:170px;font-weight:600;font-size:15px}
+label.slider input{flex:1 1 200px;accent-color:var(--goud)}
+.podium{background:var(--surface2);border:1px solid var(--line2);border-radius:var(--radius);overflow:hidden}
+p.regels{font-family:var(--tekst);line-height:1.9;margin:0}
+p.regels span{display:inline-block;width:2em;font:600 12px var(--meta);color:var(--text3)}
+sup{font-size:.7em}
+.papier{--bg:#FFFFFF;--surface:#FFFFFF;--surface2:#EEF1F5;--line:rgba(20,32,52,.10);--line2:rgba(20,32,52,.24);
+  --text:#121C2E;--text2:#3B4759;--text3:#667185;--goud:#C99A2E;--goud-text:#7E5C0B;--goud-soft:rgba(217,172,60,.18);
+  --groen:#2F8A47;--koraal:#B9502F;--teal:#25729C;--paars:#6550AD;--groen-soft:rgba(47,138,71,.10);--koraal-soft:rgba(185,80,47,.10);--teal-soft:rgba(37,114,156,.10);
+  --rest:#D5DEE9;--area:#B4BDCA;color-scheme:light;
+  background:#FCFCFA;color:var(--text);border:0;border-radius:6px;padding:16px 20px 12px;display:flex;flex-direction:column;gap:12px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.08),0 10px 28px rgba(0,0,0,.35)}
+.papier .pkop{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;border-bottom:2px solid var(--text);padding-bottom:6px}
+.papier .pkop .mono{color:var(--text2)}
+.papier .pnr{display:flex;align-items:baseline;gap:10px}
+.papier .nr{font:700 30px/1 var(--titel);color:var(--text)}
+.papier .pre{border-left:0;padding:0}
+.papier .pre p{color:var(--text)}
+.papier .qtext{color:var(--text)}
+.herhaal.papier{padding:10px 14px;gap:6px;box-shadow:none;border-radius:6px}
+.herhaal .hkop{color:var(--text3);font-size:11px}
+.herhaal .qtext{font-size:16px}
+.papier .pvoet{font:500 11px var(--meta);letter-spacing:.06em;color:var(--text3);text-align:right}
+.papier details.ctxd summary{color:var(--goud-text)}
+.papier .podium{background:var(--surface2)}
+.phase>.label .tag{margin-left:6px;font:600 10px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:2px 8px}
+.sleutel{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:14px;color:var(--text2)}
+.sleutel .sw{display:inline-block;width:16px;height:12px;border-radius:2px;vertical-align:-1px;margin-right:7px}
+.sleutel .papier-sw{background:#FCFCFA}
+.sleutel .donker-sw{background:var(--surface2);box-shadow:inset 0 0 0 1px var(--line2)}
+.exfoto{display:block;width:100%;height:auto;border-radius:2px}
+footer{color:var(--text3);font-size:14px;padding-top:24px;border-top:1px solid var(--line)}
+body.hulp .ans.locked{display:none}
+body.examen .think{display:none}
+body.examen .think.open{display:flex}
+.helpbtn{display:none!important}
+body.examen .helpbtn{display:inline-flex!important}
+body.examen .tonext{display:none!important}
+@media (max-width:600px){body{font-size:16px}.qtext{font-size:17px}.phase,.ctx{padding:14px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="sitenav" aria-label="Site">
+    <a class="merk" href="../index.html#home">Biologie bij Kamiel</a>
+    <a class="terug" href="../index.html#evolutie">← Terug naar Evolutie</a>
+    <span class="rechts"><button type="button" class="icoon" data-thema-knop></button></span>
+  </nav>
+  <header class="tool-kop">
+    <div class="eyebrow" id="eb">Oefentoets Evolutie · vwo</div>
+    <h1 id="h1">Oefentoets Evolutie</h1>
+    <div class="seg" id="opgs" role="group" aria-label="Opgave"></div>
+    <div class="sleutel"><span><i class="sw papier-sw"></i>Wit vak = de toetsvraag</span><span><i class="sw donker-sw"></i>Donker vak = hulpvragen en uitleg (niet uit de toets)</span></div>
+    <p>Maak de toets stap voor stap. Bij elke vraag denk je eerst na met de hulpvragen, dan beantwoord je de toetsvraag, en daarna zie je waarom het antwoord klopt. Kies zelf hoeveel hulp je wilt; met ‘Echte toets’ oefen je zonder hulp.</p>
+    <div class="kopbalk">
+      <div class="seg" id="standen" role="group" aria-label="Hoeveel hulp wil je?"></div>
+      <button id="vrij" class="toggle" aria-pressed="false"><span class="knopje"></span>Vrij doorklikken</button>
+      <span class="mono muted" id="sub"></span>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs" aria-label="Vragen"></nav>
+
+  <section class="ctx papier" id="ctx"></section>
+
+  <main id="main"></main>
+
+  <footer>Eigen vragen, met inspiratie uit de centrale examens (© CvTE), Biologie voor Jou en Nectar. Grafieken en schema's zijn eigen tekeningen; bronnen van de gegevens staan bij de opgaven.<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a> </span></footer>
+</div>
+
+<script>
+(function(){
+const $=(s,r=document)=>r.querySelector(s);
+const el=(tag,attrs={},html="")=>{const e=document.createElement(tag);for(const k in attrs){if(k==="class")e.className=attrs[k];else if(k.startsWith("on"))e.addEventListener(k.slice(2),attrs[k]);else e.setAttribute(k,attrs[k]);}if(html)e.innerHTML=html;return e;};
+const TOOL="evo-vwo";
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- opslag (alleen gemak) ---------- */
+let store={scores:{},mode:"hulp"};
+try{const s=JSON.parse(localStorage.getItem("toets-evolutie-vwo")||"null");if(s)store=Object.assign(store,s);}catch(e){}
+const save=()=>{try{localStorage.setItem("toets-evolutie-vwo",JSON.stringify(store));}catch(e){}};
+
+/* ---------- algemene bouwstenen ---------- */
+function phase(cls,label){const p=el("section",{class:"phase "+cls});
+  if(cls==="think")p.append(el("div",{class:"label"},`<span class="dot"></span>Hulpvragen<span class="tag">niet uit de toets</span>`));
+  else p.append(el("div",{class:"label"},`<span class="dot"></span>${label==="Antwoord"?"Jouw antwoord op de toetsvraag":label}`));return p;}
+function choiceStep(container,{q,opts,right,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});const fb=el("div",{class:"fb",hidden:""});
+  const knop=[];opts.forEach((o,i)=>{const b=el("button",{class:"opt",onclick:()=>{
+    if(i===right){row.querySelectorAll("button").forEach(x=>x.disabled=true);b.classList.add("right");fb.className="fb ok";fb.innerHTML=ok;fb.hidden=false;onDone&&onDone();}
+    else{b.classList.add("wrong");fb.className="fb no";fb.innerHTML=no;fb.hidden=false;}
+  }},o);knop.push(b);});
+  /* @@schud@@ vaste, geschudde volgorde (zaadje = vraagtekst), zodat het goede antwoord niet steeds eerst staat */
+  {let h=2166136261;for(const c of String(q))h=Math.imul(h^c.charCodeAt(0),16777619)>>>0;
+   const v=knop.map((b,i)=>i);for(let i=v.length-1;i>0;i--){h=Math.imul(h^(h>>>15),2246822507)>>>0;const j=h%(i+1);[v[i],v[j]]=[v[j],v[i]];}
+   if(v.length>1&&v[0]===right&&opts.length>2){const k=v.indexOf(right);[v[0],v[1]]=[v[1],v[0]];}
+   v.forEach(i=>row.append(knop[i]));}
+  s.append(row,fb);container.append(s);return s;
+}
+function mc(container,{opts,right,pts,qid,graphs:isGraph,onChecked}){
+  const wrap=el("div",{class:isGraph?"graphs":"row",style:isGraph?"":"flex-direction:column;align-items:stretch"});
+  const fb=el("div",{class:"fb",hidden:""});
+  opts.forEach((o,i)=>{const L="ABCDEF"[i];
+    const b=isGraph?el("button",{class:"gopt"},`<b>${L}</b>${o}`):el("button",{class:"opt"},`<b style="font:700 18px var(--titel);color:var(--goud-text);margin-right:10px">${L}</b>${o}`);
+    b.addEventListener("click",()=>{
+      wrap.querySelectorAll("button").forEach(x=>x.disabled=true);
+      const good=i===right; b.classList.add(good?"right":"wrong");
+      if(!good)wrap.children[right].classList.add("right");
+      fb.className="fb "+(good?"ok":"no");
+      fb.innerHTML=good?`Goed: <b>${"ABCDEF"[right]}</b>. ${pts} ${pts>1?"punten":"punt"}.`:`Het goede antwoord is <b>${"ABCDEF"[right]}</b>. 0 punten.`;
+      fb.hidden=false; setScore(qid,good?pts:0); onChecked&&onChecked();
+    });wrap.append(b);});
+  container.append(wrap,fb);
+}
+function waaromBtn(container,build){
+  const b=el("button",{class:"ghost waarombtn"},"Laat zien waarom ›");const box=el("div",{hidden:""});
+  b.onclick=()=>{b.remove();box.hidden=false;build(box);if(window.EXSTOF)EXSTOF.extraWaarom(TOOL,cur,box);};
+  container.append(b,box);
+}
+function lockAns(think,ans,label="Naar de vraag ›"){
+  ans.classList.add("locked");
+  const go=el("button",{class:"go tonext",hidden:""},label);
+  go.onclick=()=>{ans.classList.remove("locked");go.remove();ans.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});};
+  think.append(go);
+  return ()=>{think.append(go);go.hidden=false;};
+}
+function helpButton(q,think){
+  const b=el("button",{class:"ghost helpbtn"},"Hulp nodig? Toon de hulpvragen");
+  b.onclick=()=>{think.classList.add("open");b.remove();};
+  q.append(b);
+}
+function setScore(id,p){store.scores[id]=p;save();renderTabs();if(nextBtns[id])nextBtns[id].hidden=false;}
+
+/* ---------- vragen ---------- */
+const Q=[],OPG=[];
+
+/* Vraag 5 en 6: eerst zonder opties */
+function noOptions(q,{id,pts,text,prompt,hint,opts,right,uitleg}){
+  q.append(el("p",{class:"qtext"},text));
+  const think=phase("think","Eerst zelf"),ans=phase("ans","Kies je antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Toon de keuzes ›");
+  const s=el("div",{class:"step"});s.append(el("p",{},prompt));
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:"Wat denk jij? Schrijf het kort op."});const hb=el("button",{class:"ghost"},"Tip");const hf=el("div",{class:"fb hint",hidden:""},hint);
+  hb.onclick=()=>{hf.hidden=false;hb.remove();};
+  ta.addEventListener("input",()=>{if(ta.value.trim().length>2)unlock();});
+  s.append(ta,hb,hf);think.append(s);
+  mc(ans,{qid:id,pts,right,opts,onChecked:()=>{
+    if(ta.value.trim())ans.append(el("div",{class:"model"},`<b>Jij dacht eerst:</b> ${ta.value.replace(/</g,"&lt;")}<br><span class="muted">Klopte dat met de keuze die je maakte?</span>`));
+    waaromBtn(ans,b=>b.append(el("div",{class:"model"},uitleg)));}});
+  q.append(think,ans);
+}
+/* ================= extra bouwstenen ================= */
+function pre(q,html){q.append(el("div",{class:"pre"},html));}
+function chipsStep(container,{q,items,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});
+  items.forEach(([t])=>{const b=el("button",{class:"chip","aria-pressed":"false"},t);b.onclick=()=>b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")==="true"?"false":"true");row.append(b);});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(row,ck,fb);container.append(s);
+  ck.onclick=()=>{const sel=[...row.children].map(b=>b.getAttribute("aria-pressed")==="true");
+    const teveel=sel.some((s,k)=>s&&!items[k][1]),mist=sel.some((s,k)=>!s&&items[k][1]);fb.hidden=false;
+    if(!teveel&&!mist){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;row.querySelectorAll("button").forEach(b=>b.disabled=true);onDone&&onDone();}
+    else if(teveel){fb.className="fb hint";fb.innerHTML=no;}
+    else{fb.className="fb hint";fb.innerHTML="Wat je gekozen hebt klopt, maar er hoort nog meer bij. Kies alles wat klopt.";}};
+  return s;
+}
+function selectsStep(container,{q,rows,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const id=uid+"s"+k;
+    r.append(el("label",{for:id,class:"sellab"},lab));const sel=el("select",{id});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);s.append(r);return sel;});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(ck,fb);container.append(s);
+  ck.onclick=()=>{const n=sels.filter((sel,k)=>sel.value!==""&&+sel.value===rows[k][2]).length;fb.hidden=false;
+    if(n===rows.length){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;sels.forEach(x=>x.disabled=true);onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=`${n} van de ${rows.length} goed. `+(no||"Probeer het nog eens.");}};
+}
+function numStep(container,{q,right,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const r=el("div",{class:"row"});const inp=el("input",{class:"num",id:uid,inputmode:"decimal","aria-label":"antwoord"});const ck=el("button",{class:"ghost"},"Controleer");const fb=el("div",{class:"fb",hidden:""});
+  r.append(inp,ck);s.append(r,fb);container.append(s);
+  ck.onclick=()=>{const v=parseFloat((inp.value||"").replace(",","."));fb.hidden=false;
+    if(v===right){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;inp.disabled=true;onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=no;}};
+}
+function openAnswer(ans,{id,pts,checks,model,valkuil,placeholder,after}){
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:placeholder||"Schrijf je antwoord…"});
+  const ck=el("button",{class:"go"},"Nakijken");const tf=el("div",{class:"fb hint",hidden:""},"Schrijf eerst je antwoord op. Daarna kijk je het na.");
+  ans.append(ta,ck,tf);
+  ck.onclick=()=>{if(ta.value.trim().length<8){tf.hidden=false;ta.focus();return;}tf.remove();ck.remove();ta.readOnly=true;
+    const ss=el("div",{class:"selfscore"});
+    ss.append(el("p",{style:"margin:0"},"<b>Kijk jezelf na met het antwoordmodel.</b> Vink aan wat er in jouw antwoord staat."));
+    const boxes=checks.map((c,k)=>{const lab=el("label",{},`<input type="checkbox" id="q${id}c${k}"><span>${c} <span class="pts">1p</span></span>`);ss.append(lab);return lab.querySelector("input");});
+    if(model)ss.append(el("div",{class:"model"},"<b>Voorbeeldantwoord:</b> "+model));
+    if(valkuil)ss.append(el("div",{class:"fb hint"},"<b>Valkuil:</b> "+valkuil));
+    const sc=el("div",{class:"score"});ss.append(sc);ans.append(ss);
+    const upd=()=>{const p=Math.min(pts,boxes.filter(b=>b.checked).length);sc.textContent=`Jouw score: ${p} / ${pts}`;setScore(id,p);};
+    boxes.forEach(b=>b.onchange=upd);upd();after&&after();};
+}
+function juistOnjuist(ans,{id,stm,key,uitleg}){
+  const pick=stm.map(()=>null);
+  stm.forEach((t,k)=>{const r=el("div",{class:"row"});r.append(el("span",{style:"flex:1 1 260px"},`<b style="font-family:var(--meta)">${k+1}</b>&nbsp; ${t}`));
+    ["juist","onjuist"].forEach((lab,v)=>{const b=el("button",{class:"chip","aria-pressed":"false"},lab);b.onclick=()=>{pick[k]=v===0;r.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c===b?"true":"false"));};r.append(b);});ans.append(r);});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(pick.includes(null)){fb.hidden=false;fb.className="fb hint";fb.textContent="Beoordeel eerst alle uitspraken.";return;}
+    const n=pick.filter((p,k)=>p===key[k]).length;const p=n===stm.length?2:n===stm.length-1?1:0;ck.disabled=true;
+    ans.querySelectorAll(".chip").forEach(c=>c.disabled=true);
+    fb.hidden=false;fb.className="fb "+(p===2?"ok":"no");
+    fb.innerHTML=`${n} van de ${stm.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+key.map((k,i)=>`${i+1} ${k?"juist":"onjuist"}`).join(" · ");setScore(id,p);
+    waaromBtn(ans,uitleg);};
+}
+function stepAnim(box,steps,render){
+  let i=0;const stage=el("div",{class:"stage"}),cap=el("p",{class:"cap"});
+  const prev=el("button",{class:"ghost"},"‹ Vorige"),next=el("button",{class:"go"},"Volgende ›");
+  const pips=el("div",{class:"pips"},steps.map(()=>"<span></span>").join(""));
+  const nav=el("div",{class:"nav"});nav.append(prev,next,pips);
+  const a=el("div",{class:"anim"});a.append(stage,cap,nav);box.append(a);
+  function show(){cap.innerHTML=steps[i].cap;prev.disabled=i===0;next.textContent=i===steps.length-1?"Opnieuw ›":"Volgende ›";
+    pips.querySelectorAll("span").forEach((p,j)=>p.classList.toggle("on",j===i));render(stage,steps[i],i);}
+  prev.onclick=()=>{if(i>0){i--;show();}};next.onclick=()=>{i=(i+1)%steps.length;show();};show();
+}
+/* ================= meer bouwstenen ================= */
+function seqStep(container,{q,items,shown,ok,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const seq=el("div",{class:"seq"});let at=0;const fb=el("div",{class:"fb",hidden:""});
+  shown.forEach(k=>{const b=el("button",{class:"opt"},`<span class="n">·</span>${items[k]}`);b.onclick=()=>{if(b.classList.contains("placed"))return;
+    if(k===at){b.classList.add("placed");b.querySelector(".n").textContent=at+1;at++;fb.hidden=true;if(at===items.length){fb.hidden=false;fb.className="fb ok";fb.innerHTML=ok;onDone&&onDone();}}
+    else{fb.hidden=false;fb.className="fb hint";fb.textContent="Dat is nog niet de volgende stap. Wat gebeurt er direct daarna?";}};seq.append(b);});
+  s.append(seq,fb);container.append(s);
+}
+function selectAnswer(ans,{id,rows,score,uid,after,intro}){
+  if(intro)ans.append(el("p",{style:"margin:0"},intro));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const sid=uid+"a"+k;
+    r.append(el("label",{for:sid,class:"sellab"},lab));const sel=el("select",{id:sid});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);ans.append(r);return sel;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(sels.some(x=>x.value==="")){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul eerst alles in.";return;}
+    const n=sels.filter((x,k)=>+x.value===rows[k][2]).length;const p=score(n);sels.forEach(x=>x.disabled=true);ck.remove();
+    fb.hidden=false;fb.className="fb "+(n===rows.length?"ok":"no");
+    fb.innerHTML=`${n} van de ${rows.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+rows.map(([lab,opts,r])=>`${lab}: ${opts[r]}`).join(" · ");
+    setScore(id,p);after&&after();};
+}
+function textBox(html){return b=>b.append(el("div",{class:"model"},html));}
+const svgWrap=(vb,inner,label)=>`<svg viewBox="${vb}" role="img" aria-label="${label}">${inner}</svg>`;
+function numAnswer(ans,{id,fields,after}){
+  const inps=fields.map(([lab,unit],k)=>{const r=el("div",{class:"row"});const fid="q"+id+"f"+k;
+    r.append(el("label",{for:fid,class:"sellab"},lab));const i=el("input",{class:"num",id:fid,inputmode:"decimal"});r.append(i,el("span",{class:"muted"},unit));ans.append(r);return i;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{const v=inps.map(i=>parseFloat((i.value||"").replace(",",".")));if(v.some(isNaN)){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul beide uitkomsten in.";return;}
+    inps.forEach(i=>i.disabled=true);ck.remove();const res=fields.map((f,k)=>f[2](v[k]));const p=res.filter(Boolean).length;
+    fb.hidden=false;fb.className="fb "+(p===fields.length?"ok":"no");
+    fb.innerHTML=`<b>${p} van de ${fields.length} punten.</b><br>`+fields.map((f,k)=>`${res[k]?"✓":"✗"} ${f[3]}`).join("<br>");setScore(id,p);after&&after();};
+}
+
+/* ===== Oefentoets Evolutie: gedeelde hulpjes (havo en vwo uit één bron) ===== */
+const VWO=true;
+let QN=0,ON=0;
+/* vraag(punten, onderwerp, build(q,id), stof?) -> id; stof = {titel, html, anim?, films?} voor 'Uitleg van de stof' */
+function vraag(pts,t,build,stof){const id=++QN;Q.push({id,pts,t,build:q=>build(q,id)});
+  if(stof&&window.EXSTOF)EXSTOF.zet(TOOL,[id],stof);return id;}
+/* opgave zonder inleiding (kennisvragen onder een kopje): html = "" -> geen inleidingsvak */
+function opgave(kort,titel,html,ids){const nr=++ON;
+  OPG.push({nr,kort,titel,ids,ctx:html?`<div class="pkop"><span class="mono">Toetstekst · inleiding opgave ${nr}</span></div>`+html:""});}
+/* films van het thema (hrefs als in HOOFDSTUKKEN.evolutie.films in index.html) */
+const F={
+  e1:["Wat is evolutie eigenlijk?","films/evolutie/1-wat-is-evolutie.html"],
+  e2:["Natuurlijke selectie","films/evolutie/2-natuurlijke-selectie.html"],
+  e3:["Vormen van selectie","films/evolutie/3-vormen-van-selectie.html"],
+  e4:["De mens als selectiefactor","films/evolutie/4-de-mens-als-selectiefactor.html"],
+  e5:["Toeval en uitwisseling","films/evolutie/5-toeval-en-uitwisseling.html"],
+  e6:["Hoe één soort er twee wordt","films/evolutie/6-hoe-een-soort-er-twee-wordt.html"],
+  e7:["Hoe weten we dat?","films/evolutie/7-hoe-weten-we-dat.html"],
+  e8:["Stambomen lezen","films/evolutie/8-stambomen-lezen.html"]};
+/* 'Uitleg van de stof' bij een kennisvraag: alleen waar je het terugkijkt (de theorie zelf zou het antwoord zijn) */
+const TERUG=(titel,film,hfd)=>({titel,html:`<p>Deze vraag toetst kennis uit de film <b>${film[0]}</b>. Weet je het niet zeker? Kijk dan het hoofdstuk <b>${hfd}</b> terug en probeer het daarna opnieuw.</p>`,films:[film]});
+/* begin van een vraag: vraagzin, hulp- en antwoordvak */
+function start(q,html){q.append(el("p",{class:"qtext"},html));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  return {think,ans,unlock};}
+const B=t=>`<b>${t}</b>`;
+const LIJST=a=>`<ul style="margin:0;padding-left:22px">${a.map(x=>`<li>${x}</li>`).join("")}</ul>`;
+const TABEL=(nr,kop,rijen,noot)=>(nr?`<div class="eyebrow">tabel ${nr}</div>`:"")+`<div class="tablewrap"><table class="data"><tr>${kop.map(k=>`<th>${k}</th>`).join("")}</tr>${rijen.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join("")}</tr>`).join("")}</table></div>`+(noot?`<p class="muted" style="font-size:14px;margin:4px 0 0">${noot}</p>`:"");
+const dicht=(a,b,m)=>Math.abs(a-b)<=m;
+const getal=s=>parseFloat(String(s||"").replace(/\s/g,"").replace(",",".").replace(/[^0-9.\-]/g,""));
+
+/* combi: rekenvraag met delen die de tool nakijkt (getallen, keuzelijst) en delen die je zelf afvinkt (uitleg).
+   parts = [{nums:[[label, eenheid],…], ok:(waarden, alleWaarden)=>bool, tekst} | {sel:[label, opties], right, tekst} | {open:true, tekst}]
+   Elk deel = 1 punt (zoals de scoringselementen van het antwoordmodel). */
+function combi(ans,{id,pts,parts,model,valkuil,alt,placeholder,after}){
+  const all=[];let ta=null;
+  const ui=parts.map((p,k)=>{
+    if(p.open){if(!ta){ta=el("textarea",{id:"q"+id+"t",placeholder:placeholder||"Schrijf je uitleg…"});ans.append(ta);}return null;}
+    if(p.sel){const r=el("div",{class:"row"});const sid="q"+id+"s"+k;r.append(el("label",{for:sid,class:"sellab"},p.sel[0]));
+      const s=el("select",{id:sid});s.append(el("option",{value:""},"kies…"));p.sel[1].forEach((o,j)=>s.append(el("option",{value:j},o)));r.append(s);ans.append(r);return s;}
+    return p.nums.map(([lab,unit],j)=>{const r=el("div",{class:"row"});const fid="q"+id+"f"+k+"_"+j;
+      r.append(el("label",{for:fid,class:"sellab"},lab));const i=el("input",{class:"num",id:fid,inputmode:"decimal"});r.append(i);if(unit)r.append(el("span",{class:"muted"},unit));ans.append(r);all.push(i);return i;});});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb hint",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{
+    const leeg=ui.some((u,k)=>parts[k].sel?u.value==="":parts[k].nums?u.some(i=>isNaN(getal(i.value))):false);
+    if(leeg){fb.hidden=false;fb.textContent="Vul eerst alle uitkomsten in.";return;}
+    if(ta&&ta.value.trim().length<8){fb.hidden=false;fb.textContent="Schrijf eerst je uitleg op. Daarna kijk je het na.";ta.focus();return;}
+    fb.remove();ck.remove();if(ta)ta.readOnly=true;
+    const alleW=all.map(i=>getal(i.value));let auto=0;
+    const ss=el("div",{class:"selfscore"});
+    ss.append(el("p",{style:"margin:0"},"<b>Nakijken met het antwoordmodel.</b>"+(ta?" De tool kijkt de uitkomsten na; vink zelf aan wat er in je uitleg staat.":"")));
+    const boxes=[];
+    parts.forEach((p,k)=>{
+      if(p.open){const lab=el("label",{},`<input type="checkbox" id="q${id}c${k}"><span>${p.tekst} <span class="pts">1p</span></span>`);ss.append(lab);boxes.push(lab.querySelector("input"));return;}
+      let goed;
+      if(p.sel){ui[k].disabled=true;goed=+ui[k].value===p.right;}
+      else{ui[k].forEach(i=>i.disabled=true);goed=!!p.ok(ui[k].map(i=>getal(i.value)),alleW);}
+      if(goed)auto++;
+      ss.append(el("div",{class:"fb "+(goed?"ok":"no")},`${goed?"✓":"✗"} ${p.tekst} <span class="pts">${goed?1:0}p</span>`));});
+    if(model)ss.append(el("div",{class:"model"},"<b>Voorbeeldantwoord:</b> "+model));
+    if(valkuil)ss.append(el("div",{class:"fb hint"},"<b>Let op:</b> "+valkuil));
+    /* alt = andere goedgekeurde aanpak uit het correctievoorschrift: zelf aanvinken geeft alle punten */
+    let altBox=null;if(alt){const lab=el("label",{},`<input type="checkbox" id="q${id}alt"><span>${alt} <span class="pts">${pts}p</span></span>`);ss.append(lab);altBox=lab.querySelector("input");}
+    const sc=el("div",{class:"score"});ss.append(sc);ans.append(ss);
+    const upd=()=>{const p=altBox&&altBox.checked?pts:Math.min(pts,auto+boxes.filter(b=>b.checked).length);sc.textContent=`Jouw score: ${p} / ${pts}`;setScore(id,p);};
+    boxes.forEach(b=>b.onchange=upd);if(altBox)altBox.onchange=upd;upd();after&&after();};
+}
+
+/* ---------- figuren (eigen tekeningen, kleuren via de huisstijl, werken in het witte papiervak en in donker) ---------- */
+/* Afbeelding 1, opgave Zwaluwen: zelfde vereenvoudigde krommen als eigen/figuren/evolutie/maak.py (a1) in toetsen-biologie:
+   normaalverdeling, sd 2,5 mm, gemiddelde 111 mm (1983) en 107 mm (2012), klassen van 1 mm. */
+const VL=(()=>{const n=(x,m,s)=>Math.exp(-0.5*((x-m)/s)**2)/(s*Math.sqrt(2*Math.PI));
+  const x=[...Array(19)].map((_,i)=>100+i);return {x,a:x.map(v=>100*n(v,111,2.5)),b:x.map(v=>100*n(v,107,2.5))};})();
+/* opties: toon = ['1983','2012'], dim = [...], staart = true (lange vleugels gemarkeerd), gem = true (gemiddelden), pijl = true */
+function VLEUGEL({toon=["1983","2012"],dim=[],staart=false,gem=false,pijl=false}={}){
+  const X0=70,X1=610,xs=v=>X0+(v-100)*(X1-X0)/18,ys=p=>300-p*15;
+  let s="";
+  [0,3,6,9,12,15,18].forEach(v=>s+=`<path d="M${X0},${ys(v)} H${X1}" stroke="var(--line)" stroke-width="1"/><text x="${X0-10}" y="${ys(v)+4}" text-anchor="end" class="lblm">${v}</text>`);
+  for(let v=100;v<=118;v+=2)s+=`<text x="${xs(v)}" y="320" text-anchor="middle" class="lblm">${v}</text>`;
+  s+=`<path d="M${X0},26 V300 H${X1+6}" fill="none" stroke="var(--text2)" stroke-width="1.4"/>`;
+  s+=`<text x="${(X0+X1)/2}" y="344" text-anchor="middle" class="lblm">vleugellengte (mm)</text>`;
+  s+=`<text x="18" y="165" class="lblm" text-anchor="middle" transform="rotate(-90 18 165)">zwaluwen (% van de populatie)</text>`;
+  if(staart)s+=`<rect x="${xs(113)}" y="26" width="${xs(118)-xs(113)}" height="274" fill="var(--koraal)" opacity=".16"/><text x="${xs(115.5)}" y="44" text-anchor="middle" class="lbl" style="fill:var(--koraal)">vaker doodgereden</text>`;
+  const L=[["1983",VL.a,"9 5","c",111],["2012",VL.b,"","s",107]];
+  L.forEach(([k,a,da,m,g],i)=>{if(!toon.includes(k))return;const op=dim.includes(k)?.25:1,c=k==="1983"?"var(--text2)":"var(--text)";
+    s+=`<path d="${a.map((p,j)=>`${j?"L":"M"}${xs(VL.x[j]).toFixed(1)},${ys(p).toFixed(1)}`).join(" ")}" fill="none" stroke="${c}" stroke-width="2" stroke-dasharray="${da}" opacity="${op}"/>`;
+    a.forEach((p,j)=>{const cx=xs(VL.x[j]),cy=ys(p);s+=m==="c"?`<circle cx="${cx}" cy="${cy}" r="3.6" fill="${c}" opacity="${op}"/>`:`<rect x="${cx-3.4}" y="${cy-3.4}" width="6.8" height="6.8" fill="${c}" opacity="${op}"/>`;});
+    const lx=X1-120,ly=52+i*22;
+    s+=`<path d="M${lx},${ly} h30" stroke="${c}" stroke-width="2" stroke-dasharray="${da}" opacity="${op}"/>`+(m==="c"?`<circle cx="${lx+15}" cy="${ly}" r="3.6" fill="${c}" opacity="${op}"/>`:`<rect x="${lx+11.6}" y="${ly-3.4}" width="6.8" height="6.8" fill="${c}" opacity="${op}"/>`)+`<text x="${lx+38}" y="${ly+4}" class="lbl" opacity="${op}">${k}</text>`;
+    if(gem&&op===1)s+=`<path d="M${xs(g)},70 V300" stroke="var(--goud)" stroke-width="1.6" stroke-dasharray="3 4"/><text x="${xs(g)}" y="64" text-anchor="middle" class="lbl" style="fill:var(--goud-text)">${g} mm</text>`;});
+  if(pijl)s+=`<path d="M${xs(110.4)},84 L${xs(107.6)},84" stroke="var(--goud)" stroke-width="2.4" marker-end="url(#evpijl)"/>`;
+  const defs=`<defs><marker id="evpijl" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--goud)"/></marker></defs>`;
+  return `<div class="vpfig" style="max-width:640px;margin:0 auto;width:100%;--min:520px">`+svgWrap("0 0 640 354",defs+s,"Verdeling van de vleugellengte van klifzwaluwen in 1983 en in 2012")+`</div>`;}
+
+/* Cladogram met rechthoekige takken. Knoop = {id, x, c:[kinderen]}; blad = {id, naam} (rij = volgorde van de bladeren).
+   opties: hl = [ids van takken (blad of knoop) die goud worden], dots = [knoop-ids met een stip], streep = {id: label} (streepje op de tak naar id),
+   kruis = {id: '✓'|'✗'}, vet = [blad-ids] */
+function CLAD(boom,{X,Y0,DY,nx,breed,hoog,label,stam=0,tijd=false},{hl=[],dots=[],streep={},kruis={},vet=[]}={}){
+  let rij=0,s="",lijn="",top="";const XL=nx(X);
+  const pos=k=>{if(k.naam){k.y=Y0+DY*(rij++);k.px=XL;return k;}k.c.forEach(pos);k.px=nx(k.x);
+    k.y=(Math.min(...k.c.map(c=>c.y))+Math.max(...k.c.map(c=>c.y)))/2;return k;};
+  pos(boom);
+  const kl=id=>hl.includes(id)?"var(--goud)":"var(--text)",dk=id=>hl.includes(id)?3.4:1.8;
+  const teken=k=>{if(k.naam){top+=`<text x="${XL+8}" y="${k.y+4.5}" class="lbl" style="${vet.includes(k.id)?"fill:var(--goud-text);font-weight:700":""}">${k.naam}</text>`;return;}
+    lijn+=`<path d="M${k.px},${Math.min(...k.c.map(c=>c.y))} V${Math.max(...k.c.map(c=>c.y))}" stroke="var(--text)" stroke-width="1.8"/>`;
+    k.c.forEach(c=>{lijn+=`<path d="M${k.px},${c.y} H${c.px}" stroke="${kl(c.id)}" stroke-width="${dk(c.id)}"/>`;
+      if(streep[c.id]!==undefined){const mx=(k.px+c.px)/2;top+=`<path d="M${mx},${c.y-9} V${c.y+9}" stroke="var(--koraal)" stroke-width="4"/>`+(streep[c.id]?`<text x="${mx}" y="${c.y-14}" text-anchor="middle" class="lbl" style="fill:var(--koraal)">${streep[c.id]}</text>`:"");}
+      if(kruis[c.id]){const mx=(k.px+c.px)/2,ok=kruis[c.id]==="✓";top+=`<circle cx="${mx}" cy="${c.y}" r="11" fill="var(--surface)" stroke="${ok?"var(--groen)":"var(--koraal)"}" stroke-width="2"/><text x="${mx}" y="${c.y+5}" text-anchor="middle" class="lbl" style="fill:${ok?"var(--groen)":"var(--koraal)"}">${ok?"✓":"✗"}</text>`;}
+      teken(c);});
+    if(dots.includes(k.id))top+=`<circle cx="${k.px}" cy="${k.y}" r="7" fill="var(--goud)" stroke="var(--surface)" stroke-width="2"/>`;};
+  teken(boom);
+  if(stam)lijn+=`<path d="M${nx(boom.x)-stam},${boom.y} H${nx(boom.x)}" stroke="${kl(boom.id)}" stroke-width="${dk(boom.id)}"/>`;
+  if(stam&&streep[boom.id]!==undefined){const mx=nx(boom.x)-stam/2;top+=`<path d="M${mx},${boom.y-9} V${boom.y+9}" stroke="var(--koraal)" stroke-width="4"/>`;}
+  if(tijd){const yy=Y0+DY*(rij-1)+DY*0.65;s+=`<path d="M${nx(boom.x)},${yy} H${XL-6}" stroke="var(--text2)" stroke-width="1.2" marker-end="url(#evtijd)"/><text x="${(nx(boom.x)+XL)/2}" y="${yy+18}" text-anchor="middle" class="lblm">tijd →</text>`;}
+  const defs=`<defs><marker id="evtijd" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--text2)"/></marker></defs>`;
+  return {svg:svgWrap(`0 0 ${breed} ${hoog}`,defs+lijn+s+top,label)};}
+
+/* Afbeelding 2, opgave Big Bird: zelfde boom als eigen/figuren/evolutie/maak.py (b1): (zangervink, (vegetarische vink, (kleine boomvink,
+   ((kleine gv, middelste gv), (grote cactusvink, grote gv))))); knoopposities 1, 3, 5, 6,5 en 8, bladeren op 10. */
+function VINKEN(o={}){
+  const b=(id,n,l)=>({id,naam:`${n} (<tspan font-style="italic">${l}</tspan>)`});
+  const boom={id:"wortel",x:1,c:[b("zang","zangervink","Certhidea olivacea"),{id:"kveg",x:3,c:[b("veg","vegetarische vink","Platyspiza crassirostris"),
+    {id:"kboom",x:5,c:[b("boom","kleine boomvink","Camarhynchus parvulus"),{id:"kgeo",x:6.5,c:[{id:"kfu",x:8,c:[b("fu","kleine grondvink","Geospiza fuliginosa"),b("fo","middelste grondvink","Geospiza fortis")]},
+      {id:"kco",x:8,c:[b("co","grote cactusvink","Geospiza conirostris"),b("ma","grote grondvink","Geospiza magnirostris")]}]}]}]}]};
+  const r=CLAD(boom,{X:10,Y0:26,DY:40,nx:x=>14+x*30,breed:680,hoog:290,label:"Cladogram van zeven soorten Darwinvinken",stam:30},o);
+  return `<div class="vpfig" style="max-width:680px;margin:0 auto;width:100%;--min:600px">${r.svg}</div>`;}
+
+/* Afbeelding 3, opgave Cactus of wolfsmelk: zelfde boom als eigen/figuren/evolutie/maak_extra.py (J-1):
+   (lelie, ((cactus, anjer), (wolfsmelk, wilg))), alle bladeren op diepte 3, met tijdpijl. */
+function PLANTEN(o={}){
+  const L=(id,n)=>({id,naam:n});
+  const boom={id:"wortel",x:0,c:[L("lelie","lelie"),{id:"kvier",x:1,c:[{id:"kca",x:2,c:[L("cactus","cactus"),L("anjer","anjer")]},{id:"kww",x:2,c:[L("wolfsmelk","wolfsmelk"),L("wilg","wilg")]}]}]};
+  const r=CLAD(boom,{X:3,Y0:26,DY:44,nx:x=>60+x*120,breed:560,hoog:262,label:"Cladogram van cactus, anjer, wolfsmelk, wilg en lelie",stam:26,tijd:true},o);
+  return `<div class="vpfig" style="max-width:560px;margin:0 auto;width:100%;--min:440px">${r.svg}</div>`;}
+
+/* ===== Opgave 1: Variatie en evolutie (EI-evolutie-P03, P06) ===== */
+{
+const STOF_ALLEL={titel:"Genenpool en allelfrequentie",html:`
+<p>Van elk gen heeft een individu <b>twee allelen</b>: twee dezelfde (homozygoot) of twee verschillende (heterozygoot). Stop je in gedachten alle allelen van zo'n gen uit een hele populatie in één pot, dan heb je de <b>genenpool</b>.</p>
+<p>De <b>allelfrequentie</b> is het aandeel van één allel in die pot: hoe vaak dat allel voorkomt, gedeeld door het totale aantal allelen. Let op: het percentage individuen met een kenmerk is iets anders dan de allelfrequentie, want een individu brengt twee allelen mee.</p>
+<p><b>Evolutie</b> is een verandering van de allelfrequenties in een populatie, over generaties. Een individu evolueert niet, een populatie wel.</p>`,
+films:[F.e1]};
+
+const q1=vraag(1,"waarom zussen verschillen",(q,id)=>{
+  pre(q,"<p>Twee zussen die geen eeneiige tweeling zijn, hebben allebei hun allelen van dezelfde ouders.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit waarom ze toch niet precies dezelfde allelen hebben."));
+  choiceStep(think,{q:"Hoeveel allelen heeft een mens van één gen?",opts:["één","twee: één van de vader en één van de moeder","vier"],right:1,
+    ok:"Ja. Een ouder heeft van dat gen dus ook twee allelen.",no:"Je hebt elk chromosoom twee keer: één van je vader en één van je moeder.",
+    onDone:()=>choiceStep(think,{q:"Hoeveel van zijn twee allelen geeft een ouder per gen door aan één kind?",opts:["allebei","één"],right:1,
+      ok:"Goed. Bedenk nu: krijgt elk kind van die ouder hetzelfde allel?",no:"Een eicel of zaadcel is haploïd: van elk chromosoom één.",onDone:unlock})});
+  openAnswer(ans,{id,pts:1,checks:[
+    "elke ouder geeft per gen maar <b>één van zijn twee allelen</b> door, en <b>welke</b> dat is, is bij de meiose <b>toeval</b> / elk kind krijgt een andere greep uit de allelen van de ouders"],
+    model:"Elke ouder heeft van elk gen twee allelen, maar geeft er per kind maar één door. Welk van de twee in de eicel of zaadcel terechtkomt, is bij de meiose toeval. Daardoor krijgt elk kind een andere combinatie van allelen.",
+    valkuil:"Een antwoord als ‘door mutaties’ levert 0 punten op.",
+    after:()=>waaromBtn(ans,textBox("Beide zussen krijgen hun allelen uit dezelfde twee ‘potten’: die van hun vader en die van hun moeder. Maar bij de meiose komt in elke eicel en zaadcel per gen <b>één van de twee allelen</b>, en welke, is <b>toeval</b>. Elke bevruchting is dus een nieuwe greep. Alleen een eeneiige tweeling komt uit één bevruchte eicel en heeft daardoor wel dezelfde allelen. Mutaties zijn zeldzaam: die verklaren het verschil tussen gewone zussen niet."))});
+  q.append(think,ans);
+},TERUG("Waar komt variatie vandaan?",F.e1,"Waar komt variatie vandaan?"));
+
+const q2=vraag(2,"allelfrequentie bij slakken",(q,id)=>{
+  pre(q,"<p>Bij een slakkensoort hangt de kleur van het huisje af van één gen. Het allel voor geel (G) is dominant over het allel voor bruin (g). In een populatie van 50 slakken hebben 18 slakken genotype GG, 24 genotype Gg en 8 genotype gg (fictieve gegevens).</p>");
+  const {think,ans,unlock}=start(q,LIJST([B("Bereken de allelfrequentie van g. Noteer je berekening."),B("Twintig generaties later is de allelfrequentie van g in deze populatie 0,55. Leg uit of de populatie geëvolueerd is.")]));
+  numStep(think,{uid:"q"+id+"n",q:"Hoeveel allelen van dit gen hebben de 50 slakken samen?",right:100,
+    ok:"Ja: elke slak heeft er twee. Tel nu hoeveel daarvan g zijn. Let op: een slak met gg heeft er twee.",no:"Hoeveel allelen van één gen heeft één slak?",
+    onDone:()=>choiceStep(think,{q:"Wanneer noem je een verandering in een populatie evolutie?",opts:["als de individuen zich in hun leven aanpassen","als de allelfrequenties over generaties veranderen","alleen als er een nieuwe soort ontstaat"],right:1,
+      ok:"Goed. Vergelijk straks jouw uitkomst met 0,55.",no:"Een individu evolueert niet. Waar kijk je dan naar?",onDone:unlock})});
+  combi(ans,{id,pts:2,parts:[
+    {nums:[["allelfrequentie van g",""]],ok:v=>dicht(v[0],0.40,0.001),tekst:"50 slakken hebben samen 100 allelen; g: 24 + 2 × 8 = 40; 40 / 100 = <b>0,40</b> (dit punt telt alleen als je de berekening hebt opgeschreven)"},
+    {open:true,tekst:"<b>ja</b>, met een uitleg dat de <b>allelfrequentie over generaties is veranderd</b> (van 0,40 naar 0,55), en dat is evolutie"}],
+    placeholder:"Is de populatie geëvolueerd? Leg uit…",
+    model:"g-allelen: 24 × 1 + 8 × 2 = 40 van de 100 allelen, dus 0,40. Twintig generaties later is het 0,55. De allelfrequentie is over generaties veranderd, dus de populatie is geëvolueerd.",
+    valkuil:"0,16 (alleen de bruine slakken: 8/50) is fout. Alleen het antwoord 0,40 zonder berekening: 0 punten voor het eerste element.",
+    after:()=>waaromBtn(ans,textBox("Tel allelen, geen slakken. De 24 slakken met Gg hebben elk één g, de 8 slakken met gg hebben er elk twee: 24 + 16 = <b>40</b> g-allelen van de 100. Dat is <b>0,40</b>. Wie 8/50 = 0,16 rekent, telt alleen de bruine slakken en vergeet dat ook gele slakken (Gg) een g dragen.<br><br>Van 0,40 naar 0,55 in twintig generaties: de inhoud van de genenpool is veranderd, en dat is precies wat evolutie is. Of het door selectie of door toeval kwam, maakt voor deze vraag niet uit."))});
+  q.append(think,ans);
+},STOF_ALLEL);
+
+opgave("Variatie","Variatie en evolutie","",[q1,q2]);
+}
+
+/* ===== Opgave 2: Natuurlijke selectie (EI-evolutie-N04) ===== */
+{
+const BEG=["adaptatie","fitness","genetische drift","natuurlijke selectie","overproductie","selectiedruk","variatie"];
+const q1=vraag(3,"begrippen van natuurlijke selectie",(q,id)=>{
+  const {think,ans,unlock}=start(q,"<b>Vul de begrippen in.</b> Kies uit: adaptatie, fitness, genetische drift, natuurlijke selectie, overproductie, selectiedruk, variatie. Niet alle begrippen worden gebruikt; gebruik elk begrip hoogstens één keer.<br><br>In een droog jaar blijven op een eiland alleen harde zaden over: de droogte is voor de vinken een (1) … . Elk jaar komen er veel meer jongen uit het ei dan er kunnen overleven: dat heet (2) … . De vinken verschillen in snavelhoogte; deze (3) … is grotendeels erfelijk. Vinken met een hoge snavel krijgen meer jongen die zelf ook weer broeden: ze hebben een hogere (4) … . Het hele proces waarbij de omgeving bepaalt welke erfelijke eigenschappen vaker worden doorgegeven, heet (5) … .");
+  choiceStep(think,{q:"Eén begrip uit de lijst gaat over <b>toeval</b> en niet over wat de omgeving doet. Welk?",opts:["genetische drift","fitness","variatie"],right:0,
+    ok:"Ja. Deze tekst gaat over wat de omgeving doet, dus genetische drift hoort er niet in. Lees nu per zin wat er beschreven wordt: een oorzaak, een aantal jongen, een verschil, of het hele proces?",no:"Welk begrip gaat over veranderingen in de genenpool die door kans ontstaan?",onDone:unlock});
+  selectAnswer(ans,{id,uid:"q"+id,rows:[["(1)",BEG,5],["(2)",BEG,4],["(3)",BEG,6],["(4)",BEG,1],["(5)",BEG,3]],
+    score:n=>n===5?3:n===4?2:n===3?1:0,intro:"Kies bij elk nummer het begrip. 5 goed = 3 punten, 4 goed = 2 punten, 3 goed = 1 punt.",
+    after:()=>waaromBtn(ans,textBox("(1) <b>selectiedruk</b>: een factor uit de omgeving die bepaalt wie overleeft, hier de droogte met alleen harde zaden.<br>(2) <b>overproductie</b>: meer jongen dan er kunnen overleven.<br>(3) <b>variatie</b>: de verschillen tussen individuen, hier in snavelhoogte.<br>(4) <b>fitness</b>: hoeveel jongen een individu krijgt die zelf ook weer jongen krijgen.<br>(5) <b>natuurlijke selectie</b>: het hele proces.<br><br><b>Adaptatie</b> is wat er uit dat proces komt: een erfelijke eigenschap die door natuurlijke selectie algemeen is geworden. <b>Genetische drift</b> is verandering door toeval. Die twee bleven over."))});
+  q.append(think,ans);
+},TERUG("De begrippen van natuurlijke selectie",F.e2,"Wie wint?"));
+
+opgave("Selectie","Natuurlijke selectie","",[q1]);
+}
+
+/* ===== Opgave 3: Zwaluwen ontwijken het verkeer (EI-evolutie-A01, A02, A05, A06) =====
+   Gegevens: Brown & Brown (2013) Current Biology 23: R233–R234; getallen in afbeelding 1 fictief (zie eigen/evolutie.json, bron_data). */
+{
+const STOF_NS={titel:"Hoe natuurlijke selectie werkt",html:`
+<p>Natuurlijke selectie heeft drie dingen nodig:</p>
+<ul style="margin:0;padding-left:20px"><li><b>erfelijke variatie</b>: individuen van een populatie verschillen, en een deel van die verschillen zit in hun allelen;</li>
+<li><b>overproductie</b>: er worden meer jongen geboren dan er kunnen overleven;</li>
+<li><b>selectiedruk</b>: een factor uit de omgeving waardoor sommige individuen meer kans hebben om te overleven en jongen te krijgen.</li></ul>
+<p>Het gaat er niet om wie het langst leeft, maar om de <b>fitness</b>: hoeveel jongen een individu krijgt die zelf ook weer jongen krijgen. Wie de hoogste fitness heeft, geeft de meeste allelen door. Zo veranderen de allelfrequenties in de genenpool, generatie na generatie.</p>
+`,
+films:[F.e2,F.e1]};
+
+const q1=vraag(3,"natuurlijke selectie in drie stappen",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Leg in drie stappen uit hoe door natuurlijke selectie de gemiddelde vleugellengte van de klifzwaluwen in dertig jaar kleiner is geworden. Gebruik in je uitleg de begrippen variatie, fitness en allelfrequentie."));
+  choiceStep(think,{q:"Waar zie je in afbeelding 1 dat er variatie in vleugellengte is?",opts:["in elk jaar hebben niet alle zwaluwen dezelfde vleugellengte","de lijn van 2012 ligt links van die van 1983","er worden minder zwaluwen doodgereden"],right:0,
+    ok:"Ja: elk jaar is er een spreiding. Voor selectie moet die variatie (deels) erfelijk zijn.",no:"Variatie gaat over verschillen tussen individuen in één populatie, op één moment.",
+    onDone:()=>choiceStep(think,{q:"Welke zwaluwen hebben langs de weg de hoogste fitness?",opts:["zwaluwen met lange vleugels","zwaluwen met korte vleugels"],right:1,
+      ok:"Goed. Fitness gaat over nakomelingen, niet alleen over overleven. Maak in je antwoord ook de derde stap: wat gebeurt er met de allelen in de populatie?",no:"Kijk in de inleiding: welke zwaluwen werden vaker doodgereden?",onDone:unlock})});
+  openAnswer(ans,{id,pts:3,checks:[
+    "er is (door mutatie/recombinatie) <b>erfelijke variatie</b> in vleugellengte tussen de zwaluwen in de populatie",
+    "zwaluwen met kortere vleugels worden minder vaak doodgereden / overleven vaker en <b>krijgen daardoor meer nakomelingen</b> (hebben een hogere <b>fitness</b>)",
+    "(zij geven hun allelen voor kortere vleugels door, waardoor) de <b>allelfrequentie</b> van allelen voor kortere vleugels in de volgende generaties <b>toeneemt</b>"],
+    model:"In de populatie verschillen zwaluwen erfelijk in vleugellengte (variatie). Zwaluwen met kortere vleugels worden minder vaak doodgereden, overleven vaker en krijgen meer jongen: ze hebben een hogere fitness. Zo geven ze vaker hun allelen voor korte vleugels door, en neemt de allelfrequentie van die allelen generatie na generatie toe.",
+    valkuil:"Het tweede punt krijg je alleen als je het verband met nakomelingen/voortplanting legt; alleen ‘ze overleven beter’ levert voor dat element 0 punten op. Een antwoord waarin zwaluwen hun vleugels korter maken of ‘zich aanpassen omdat het moet’, levert voor het eerste en het derde element geen punten op.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"1983: de zwaluwen verschillen in vleugellengte, rond een gemiddelde van 111 mm. Een deel van die verschillen is erfelijk: dat is de <b>variatie</b>.",o:{toon:["1983"],gem:true}},
+      {cap:"Langs de weg worden vooral zwaluwen met lange vleugels doodgereden. Zwaluwen met kortere vleugels overleven vaker en krijgen <b>meer jongen</b>: een hogere <b>fitness</b>.",o:{toon:["1983"],staart:true}},
+      {cap:"Die jongen erven de allelen voor kortere vleugels. Elke generatie neemt de <b>allelfrequentie</b> van die allelen iets toe.",o:{toon:["1983","2012"],dim:["2012"],pijl:true}},
+      {cap:"2012: de hele verdeling ligt naar links, gemiddeld 107 mm. Geen enkele zwaluw kreeg zelf kortere vleugels: de populatie veranderde.",o:{toon:["1983","2012"],dim:["1983"],gem:true}}],
+      (st,s)=>st.innerHTML=VLEUGEL(s.o)))});
+  q.append(think,ans);
+},STOF_NS);
+
+const q2=vraag(2,"juist of onjuist: uitspraken van leerlingen",(q,id)=>{
+  q.append(el("p",{class:"qtext"},"Drie leerlingen geven een uitspraak over de klifzwaluwen:<br>1 Een zwaluw die vaak voor auto’s moet uitwijken, krijgt in de loop van zijn leven kortere vleugels.<br>2 De mutaties die kortere vleugels geven, zijn ontstaan doordat er steeds meer verkeer kwam.<br>3 Als er geen erfelijke variatie in vleugellengte was geweest, had het verkeer de gemiddelde vleugellengte in de populatie niet kunnen veranderen.<br><br><b>Schrijf de nummers 1, 2 en 3 onder elkaar en noteer erachter of de uitspraak juist of onjuist is volgens de evolutietheorie.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Waar werkt natuurlijke selectie mee?",opts:["met verschillen die al in de populatie aanwezig zijn","het maakt de eigenschappen die een soort nodig heeft"],right:0,
+    ok:"Ja. Lees nu elke uitspraak en vraag je af: past dit bij selectie op verschillen die er al zijn?",no:"Denk aan de vinken op Daphne Major: er kwamen in het droge jaar geen nieuwe snavels bij.",onDone:unlock});
+  juistOnjuist(ans,{id,stm:["een zwaluw krijgt in zijn leven kortere vleugels door het uitwijken","de mutaties voor korte vleugels ontstonden door het verkeer","zonder erfelijke variatie geen verandering van de gemiddelde vleugellengte"],key:[false,false,true],
+    uitleg:textBox("1 <b>onjuist</b>: een zwaluw houdt de vleugels waarmee hij opgroeit. Wat verandert, is welke zwaluwen jongen krijgen.<br>2 <b>onjuist</b>: mutaties ontstaan toevallig, niet omdat ze nodig zijn. Het verkeer bepaalt alleen welke allelen vaker worden doorgegeven.<br>3 <b>juist</b>: selectie kan alleen kiezen uit erfelijke verschillen die er al zijn. Zonder die variatie gaan alle allelen even vaak door.")});
+  q.append(think,ans);
+},TERUG("Aangepast, zonder doel",F.e2,"Aangepast, zonder doel"));
+
+const q3=vraag(1,"natuurlijke of kunstmatige selectie?",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Is de selectie op vleugellengte door het verkeer een voorbeeld van natuurlijke of van kunstmatige selectie?"));
+  choiceStep(think,{q:"Bij het fokken van honden spreek je van kunstmatige selectie. Waarom?",opts:["omdat de fokker bepaalt welke dieren jongen krijgen","omdat er mensen bij betrokken zijn","omdat honden bij mensen leven"],right:0,
+    ok:"Ja: bij kunstmatige selectie bepaalt de mens wie zich voortplant. Bekijk nu de vier keuzes: wie bepaalt hier welke zwaluwen jongen krijgen?",no:"Het mechanisme is hetzelfde als bij natuurlijke selectie. Wat is dan het verschil?",onDone:unlock});
+  mc(ans,{qid:id,pts:1,right:2,opts:["kunstmatige selectie, omdat de auto’s door mensen zijn gemaakt","kunstmatige selectie, omdat de selectiedruk door mensen wordt veroorzaakt","natuurlijke selectie, omdat mensen niet bewust kiezen welke zwaluwen zich voortplanten","natuurlijke selectie, omdat de mutaties voor korte vleugels vanzelf zijn ontstaan"],
+    onChecked:()=>waaromBtn(ans,textBox("Het antwoord is <b>C</b>. Bij kunstmatige selectie kiest de mens bewust welke individuen zich voortplanten, zoals een fokker. Een automobilist kiest niet welke zwaluw hij raakt. Dat de oorzaak (auto's, selectiedruk) van mensen komt, maakt het nog geen kunstmatige selectie: dat is ook zo bij antibiotica en bacteriën (A en B). D klopt op zich, maar dat mutaties vanzelf ontstaan geldt voor élke vorm van selectie, ook kunstmatige. Het zegt dus niets over het verschil."))});
+  q.append(think,ans);
+},{titel:"Natuurlijke en kunstmatige selectie",html:`
+<p>Bij <b>natuurlijke selectie</b> bepalen omstandigheden in de omgeving welke individuen meer jongen krijgen, zoals droogte, roofdieren of ziekten.</p>
+<p>Bij <b>kunstmatige selectie</b> laat een fokker of kweker steeds de dieren of planten met de gewenste kenmerken jongen krijgen, bijvoorbeeld de kleinste honden of de koeien die de meeste melk geven. Zo ontstaan rassen.</p>
+<p>Het mechanisme is in beide gevallen hetzelfde: individuen met bepaalde allelen krijgen meer nakomelingen, en die allelen worden vaker in de genenpool.</p>`,films:[F.e4,F.e2]});
+
+const q4=vraag(2,"selectie of leren?",(q,id)=>{
+  pre(q,"<p>Een andere verklaring voor het dalende aantal doodgereden zwaluwen is dat zwaluwen in de loop van hun leven leren om auto’s te ontwijken.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit welk gegeven uit de inleiding beter past bij natuurlijke selectie dan bij leren alleen."));
+  chipsStep(think,{q:"Welke gegevens uit de inleiding passen óók bij de verklaring ‘leren’? Kies alles wat klopt.",items:[
+    ["het aantal doodgereden zwaluwen daalde",true],["doodgereden zwaluwen hadden gemiddeld langere vleugels",false],["de vleugellengte in de populatie nam af (afbeelding 1)",false]],
+    ok:"Goed. Zo'n gegeven kan de twee verklaringen niet uit elkaar houden. Zoek een gegeven dat maar bij één van beide past.",no:"Niet alles wat je koos, past bij leren. Vraag je per gegeven af: zou je dit ook zien als zwaluwen alleen leren?",onDone:unlock});
+  openAnswer(ans,{id,pts:2,checks:[
+    "het gegeven dat <b>doodgereden zwaluwen gemiddeld langere vleugels</b> hadden (en/of dat de vleugellengte in de populatie afnam, afbeelding 1) wordt gebruikt",
+    "<b>leren verandert de vleugellengte niet</b>, een erfelijk kenmerk; dat juist zwaluwen met lange vleugels vaker sterven, past bij selectie op een erfelijk kenmerk"],
+    model:"Doodgereden zwaluwen hadden gemiddeld langere vleugels, en de vleugellengte in de populatie nam af. Vleugellengte is erfelijk en verandert niet door te leren. Dat juist zwaluwen met een bepaalde erfelijke eigenschap vaker sterven en dat die eigenschap zeldzamer wordt, past bij natuurlijke selectie.",
+    valkuil:"Een antwoord met alleen het gegeven dat het aantal doodgereden zwaluwen daalde, levert 0 punten op: dat past bij beide verklaringen.",
+    after:()=>waaromBtn(ans,textBox("Als zwaluwen alleen leren, zouden de doodgereden zwaluwen gemiddeld net zulke vleugels hebben als de rest: vooral jonge, onervaren vogels zouden sterven. Maar de slachtoffers hadden juist <b>langere vleugels</b>, en de vleugellengte van de hele populatie werd kleiner. Leren kan een lichaamskenmerk als vleugellengte niet veranderen; selectie op een erfelijk kenmerk wel. Leren kan er best óók bij helpen, maar het verklaart deze twee gegevens niet."))});
+  q.append(think,ans);
+},STOF_NS);
+
+opgave("Zwaluwen","Zwaluwen ontwijken het verkeer",`
+<p>Klifzwaluwen (<i>Petrochelidon pyrrhonota</i>) zijn insecteneters die in de vlucht jagen. Ze overwinteren in Zuid-Amerika en broeden in Noord-Amerika, vaak in grote kolonies. In het westen van de staat Nebraska (VS) bouwen ze hun modderen nesten graag onder viaducten en bruggen van autowegen. Daar vliegen ze vlak boven het wegdek, en elk jaar worden er zwaluwen doodgereden.</p>
+<p>Biologen volgden deze kolonies dertig jaar lang. Ze verzamelden de doodgereden zwaluwen en maten hun vleugels. Ook maten ze de vleugels van zwaluwen uit de kolonies zelf. Wat ze vonden:</p>
+${LIJST(["Het aantal doodgereden zwaluwen daalde van ongeveer twintig per jaar naar ongeveer vier per jaar, terwijl het aantal zwaluwen in de kolonies juist toenam.","Doodgereden zwaluwen hadden gemiddeld langere vleugels dan de zwaluwen in de kolonies.","Zwaluwen met kortere vleugels kunnen steiler opstijgen en sneller een bocht maken."])}
+<p>In afbeelding 1 is de verdeling van de vleugellengte in de populatie weergegeven in het begin en aan het eind van het onderzoek.</p>
+<div class="eyebrow">afbeelding 1 (vereenvoudigd; de getallen zijn fictief, de richting van de verandering komt uit het onderzoek)</div>${VLEUGEL()}`,[q1,q2,q3,q4]);
+}
+
+/* ===== Opgave 4: De mens als selectiefactor (EI-evolutie-M04) ===== */
+{
+const STOF_AB={titel:"Bacteriën en antibiotica",html:`
+<p>Een antibioticum doodt bacteriën. In een grote groep bacteriën zitten soms een paar die door een toevallige mutatie een allel hebben waardoor het antibioticum hen niet doodt. Het antibioticum is dan een <b>selectiedruk</b>: de gevoelige bacteriën sterven, de resistente blijven over en delen zich.</p>
+<p>Bacteriën delen zich soms al na twintig minuten. Door die korte <b>generatietijd</b> kan een populatie bacteriën in een paar dagen veranderen. Daarom is het belangrijk om antibiotica alleen te gebruiken als het echt nodig is.</p>`,
+films:[F.e4]};
+/* twee bacteriën, plasmide met resistentiegen; st 0 = E. coli met plasmide, 1 = buisje + kopie, 2 = Klebsiella resistent */
+function M_bact(st){
+  const bac=(x,naam,dna)=>`<rect x="${x}" y="60" width="200" height="110" rx="55" fill="var(--surface2)" stroke="var(--text)" stroke-width="2"/>`+
+    `<path d="M${x+40},115 c10,-18 40,-18 50,0 s40,18 50,0" fill="none" stroke="var(--text2)" stroke-width="2.4"/>`+
+    `<text x="${x+100}" y="196" text-anchor="middle" class="lbl"><tspan font-style="italic">${naam}</tspan></text>`+dna;
+  const ring=(cx,cy,op=1)=>`<g opacity="${op}"><circle cx="${cx}" cy="${cy}" r="15" fill="none" stroke="var(--goud)" stroke-width="3.2"/><path d="M${cx+9},${cy-12} A15,15 0 0 1 ${cx+15},${cy}" stroke="var(--koraal)" stroke-width="6" fill="none"/></g>`;
+  let s=bac(30,"E. coli",ring(190,146))+bac(330,"Klebsiella",st>=1?ring(490,146,st===1?.55:1):"");
+  if(st>=1)s+=`<path d="M230,112 H330" stroke="var(--text)" stroke-width="5" stroke-linecap="round"/>`;
+  s+=`<text x="${st===2?430:130}" y="36" text-anchor="middle" class="lbl" style="fill:var(--koraal)">${["plasmide met resistentiegen","kopie gaat door een buisje","nu ook resistent"][st]}</text>`;
+  s+=`<path d="M40,232 h14" stroke="var(--text2)" stroke-width="2.4"/><text x="60" y="236" class="lblm">groot DNA-molecuul</text><circle cx="232" cy="232" r="7" fill="none" stroke="var(--goud)" stroke-width="3"/><text x="246" y="236" class="lblm">plasmide</text><rect x="342" y="226" width="14" height="10" fill="var(--koraal)"/><text x="362" y="236" class="lblm">resistentiegen</text>`;
+  return `<div style="max-width:560px;margin:0 auto">`+svgWrap("0 0 560 250",s,"Een bacterie geeft een plasmide met een resistentiegen door aan een andere bacterie")+`</div>`;}
+
+const q1=vraag(2,"resistent zonder mutatie",(q,id)=>{
+  pre(q,"<p>Een bacterie van de soort <i>Klebsiella</i> wordt resistent tegen een antibioticum, terwijl er in haar eigen DNA geen mutatie is opgetreden.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit hoe dat kan."));
+  choiceStep(think,{q:"Resistentie ligt vast in een gen. Als de bacterie het gen niet door een mutatie kreeg, waar kan het dan vandaan komen?",opts:["van een andere bacterie","het antibioticum maakt het gen aan","uit het voedsel van de bacterie"],right:0,
+    ok:"Ja. Bij bacteriën kan DNA van de ene naar de andere bacterie gaan.",no:"Een antibioticum maakt geen genen. Waar zit nog meer DNA met resistentiegenen?",
+    onDone:()=>choiceStep(think,{q:"Kan dat ook tussen twee bacteriën van verschillende soorten?",opts:["ja","nee, alleen binnen één soort"],right:0,
+      ok:"Goed. Leg nu uit in welke vorm het gen wordt doorgegeven, en hoe.",no:"Denk aan de film: resistentie ‘springt over’ naar een andere soort.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "een andere bacterie (bv. <i>E. coli</i>) heeft een <b>plasmide</b> (klein ringetje DNA) met een <b>resistentiegen</b>",
+    "die bacterie <b>geeft een kopie van het plasmide door</b> aan de <i>Klebsiella</i>-bacterie (via een dun buisje); dat kan ook tussen verschillende soorten"],
+    model:"Een andere bacterie, bijvoorbeeld een <i>E. coli</i>, heeft een plasmide: een klein ringetje DNA met een resistentiegen. Via een dun buisje geeft die bacterie een kopie van het plasmide door aan de <i>Klebsiella</i>. Dat kan ook tussen bacteriën van verschillende soorten.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Naast hun grote DNA-molecuul hebben bacteriën vaak kleine ringetjes DNA: <b>plasmiden</b>. Op dit plasmide van een <i>E. coli</i> ligt een resistentiegen."},
+      {cap:"De <i>E. coli</i> geeft via een dun buisje een <b>kopie</b> van het plasmide door aan de buurbacterie. Die hoeft niet dezelfde soort te zijn."},
+      {cap:"Nu heeft de <i>Klebsiella</i> het resistentiegen ook, zonder dat er in haar eigen DNA iets is veranderd. Komt er antibioticum, dan overleeft zij."}],
+      (st,s,i)=>st.innerHTML=M_bact(i)))});
+  q.append(think,ans);
+},STOF_AB);
+
+opgave("Mens","De mens als selectiefactor","",[q1]);
+}
+
+/* ===== Opgave 5: Een nieuwe vinkenlijn op Daphne Major (EI-evolutie-B01, B02, B03; havo ook B04, B05) =====
+   Gegevens: Lamichhaney e.a. (2018) Science 359: 224–228; cladogram naar Sato e.a. (1999) en Lamichhaney e.a. (2015). */
+{
+const STOF_CLAD={titel:"Een cladogram lezen",html:`
+<p>Een <b>cladogram</b> is een stamboom van soorten. Elk <b>knooppunt</b> staat voor een gemeenschappelijke voorouder: een populatie die zich splitste in twee lijnen. Volg je een lijn van een soort naar de wortel, dan volg je zijn afstammingslijn.</p>
+<p>Hoe <b>jonger</b> de laatste gemeenschappelijke voorouder van twee soorten (hoe verder naar de bladeren het knooppunt ligt), hoe <b>nauwer verwant</b> ze zijn. Lees een cladogram aan de vertakkingen, nooit aan de volgorde van de namen: draai je takken om een knooppunt, dan blijft de boom dezelfde.</p>
+<p>Een soort die nu leeft, is nooit de voorouder van een andere soort die nu leeft. Alle soorten aan de rechterkant hebben even lang gehad om te veranderen.</p>`,
+films:[F.e8]};
+const STOF_SOORT={titel:"Genenstroom en reproductieve isolatie",html:`
+<p>Zolang twee groepen zich met elkaar voortplanten, gaan er allelen van de ene groep naar de andere: <b>genenstroom</b>.</p>
+<p>Planten twee groepen zich in de natuur niet meer met elkaar voort, dan heet dat <b>reproductieve isolatie</b>. Dat kan op verschillende manieren: soms zit er een barrière tussen de groepen, soms komen ze elkaar wel tegen maar vormen ze toch geen paren met elkaar.</p>`,
+films:[F.e6]};
+const STOF_DRIFT={titel:"Toeval en uitwisseling",html:`
+<p>Niet alleen selectie verandert een genenpool. In elke generatie wordt maar een deel van de allelen doorgegeven, en welk deel is soms <b>toeval</b>. Dat heet <b>genetische drift</b>. In een kleine populatie is het effect van toeval groot: een allel kan zo zomaar verdwijnen.</p>
+<p>Begint een nieuwe populatie met maar een paar individuen, dan neemt die alleen hun allelen mee: het <b>founder-effect</b>. Slinkt een populatie tijdelijk tot een paar individuen, dan heet dat een <b>flessenhals</b>. In beide gevallen gaat genetische variatie verloren.</p>
+<p>Komen er individuen uit een andere populatie bij die zich voortplanten, dan brengen ze nieuwe allelen mee: <b>genenstroom</b>. Genenstroom maakt de variatie juist groter.</p>`,
+films:[F.e5]};
+
+const q1=vraag(1,"het cladogram van de vinken",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Welke uitspraak over afbeelding 2 is juist?"));
+  choiceStep(think,{q:"Hoe lees je in een cladogram hoe nauw twee soorten verwant zijn?",opts:["aan hoe dicht hun namen bij elkaar staan","aan hoe jong hun laatste gemeenschappelijke voorouder is: het knooppunt waar hun lijnen samenkomen","aan hoe lang hun takken zijn"],right:1,
+    ok:"Ja. Zoek bij elke uitspraak het knooppunt waar de lijnen samenkomen, en vergelijk.",no:"De volgorde van de namen kun je omdraaien zonder dat de boom verandert. Waar kijk je dan naar?",onDone:unlock});
+  mc(ans,{qid:id,pts:1,right:1,opts:["De zangervink is de voorouder van de andere zes soorten in het cladogram.","De kleine boomvink is nauwer verwant aan de grote grondvink dan aan de vegetarische vink.","De grote cactusvink is even nauw verwant aan de middelste grondvink als aan de grote grondvink.","De vegetarische vink is minder ver geëvolueerd dan de vier grondvinken."],
+    onChecked:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"<b>A</b>: de zangervink leeft nu, net als de andere zes. Een soort die nu leeft, is nooit de voorouder van een andere soort die nu leeft. Hij splitste alleen het eerst af.",o:{vet:["zang"],dots:["wortel"]}},
+      {cap:"<b>B</b>: kleine boomvink en grote grondvink komen samen in dit knooppunt…",o:{vet:["boom","ma"],dots:["kboom"]}},
+      {cap:"…kleine boomvink en vegetarische vink pas in dit oudere knooppunt, verder naar links. De voorouder met de grote grondvink is dus jonger: B is <b>juist</b>.",o:{vet:["boom","veg"],dots:["kveg"]}},
+      {cap:"<b>C</b>: de grote cactusvink deelt met de grote grondvink een jongere voorouder dan met de middelste grondvink. Niet even nauw.",o:{vet:["co","ma","fo"],dots:["kco","kgeo"]}},
+      {cap:"<b>D</b>: alle soorten rechts hebben even lang gehad om te veranderen. ‘Minder ver geëvolueerd’ bestaat in een cladogram niet.",o:{vet:["zang","veg","boom","fu","fo","co","ma"]}}],
+      (st,s)=>st.innerHTML=VINKEN(s.o)))});
+  q.append(think,ans);
+},STOF_CLAD);
+
+const q2=vraag(2,"de zang houdt de lijn apart",(q,id)=>{
+  pre(q,"<p>De Big Bird-lijn leeft op hetzelfde eiland als de middelste grondvink, maar de vogels van beide groepen planten zich niet met elkaar voort.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit hoe het leren van de zang ervoor zorgt dat de Big Bird-lijn reproductief geïsoleerd blijft van de middelste grondvinken."));
+  choiceStep(think,{q:"Van wie leert een jong Big Bird-mannetje zijn zang?",opts:["van zijn vader","van de middelste grondvinken om hem heen","de zang is aangeboren"],right:0,
+    ok:"Ja, zo staat het in de inleiding. Hoe zingt hij dan, vergeleken met een mannetje van de middelste grondvink?",no:"Lees het eerste punt van de lijst in de inleiding nog eens.",
+    onDone:()=>choiceStep(think,{q:"Welk mannetje kiest een vrouwtje?",opts:["een mannetje dat zingt zoals haar eigen vader","het mannetje met de grootste snavel","maakt niet uit"],right:0,
+      ok:"Goed. Wat betekent dat voor paringen en voor de uitwisseling van genen tussen beide groepen?",no:"Ook dat staat in het eerste punt van de lijst.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "mannetjes van de Big Bird-lijn <b>leren de afwijkende zang van hun vader</b> (de immigrant) en zingen dus anders dan mannetjes van de middelste grondvink",
+    "vrouwtjes van de Big Bird-lijn kiezen daardoor <b>alleen Big Bird-mannetjes</b> (en vrouwtjes van de middelste grondvink alleen mannetjes van hun eigen soort), zodat er <b>geen paring en geen uitwisseling van genen</b> is tussen beide groepen"],
+    model:"Jonge Big Bird-mannetjes leren de afwijkende zang van hun vader en zingen dus anders dan middelste grondvinken. Vrouwtjes kiezen een partner die zingt zoals hun eigen vader: Big Bird-vrouwtjes kiezen dus Big Bird-mannetjes, en grondvinkvrouwtjes kiezen grondvinkmannetjes. Zo paren de groepen niet met elkaar en is er geen uitwisseling van genen.",
+    valkuil:"Een antwoord als ‘ze zingen anders, dus ze herkennen elkaar niet’ levert alleen het eerste scorepunt op.",
+    after:()=>waaromBtn(ans,textBox("De zang werkt als een <b>wachtwoord</b> dat van vader op zoon gaat. Big Bird-zonen leren het Big Bird-lied; grondvinkzonen leren het grondvinklied. Dochters kiezen een man die klinkt als hun vader. Zo vormt elke groep alleen paren binnen de eigen groep, en er gaan geen allelen van de ene genenpool naar de andere. Dat is een vorm van isolatie <b>vóór de bevruchting</b>: er is geen barrière zoals een zee nodig."))});
+  q.append(think,ans);
+},STOF_SOORT);
+
+const q3=vraag(2,"minder genetische variatie",(q,id)=>{
+  pre(q,"<p>DNA-onderzoek liet zien dat de genetische variatie in de Big Bird-lijn in de vierde tot en met de zesde generatie kleiner was dan in de eerste generatie.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit waardoor de genetische variatie in de Big Bird-lijn kleiner werd. Gebruik twee gegevens uit de inleiding."));
+  choiceStep(think,{q:"Kan genetische variatie in een kleine groep ook verloren gaan zonder selectie?",opts:["ja, door toeval: niet alle allelen worden doorgegeven","nee, dat kan alleen door selectie"],right:0,
+    ok:"Ja. Hoe kleiner de groep, hoe groter de rol van toeval.",no:"Denk aan de film over toeval: wat gebeurt er met allelen in een heel kleine groep?",
+    onDone:()=>choiceStep(think,{q:"Waardoor kan de variatie in een groep juist weer groter worden?",opts:["doordat er allelen van buiten de groep bij komen","doordat de groep kleiner wordt"],right:0,
+      ok:"Goed. Zoek nu in de inleiding twee gegevens die hierbij passen.",no:"Een kleinere groep heeft minder allelen, niet meer.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "alle latere vogels stammen af van <b>één broer-zuspaar</b>, dat maar een (toevallig) deel van de allelen van de lijn bezat / waardoor allelen verloren gingen",
+    "door de reproductieve isolatie / doordat de vogels <b>alleen met elkaar paren</b> komen er <b>geen nieuwe allelen</b> van andere vinken in de lijn (geen genenstroom)"],
+    model:"In de derde generatie plantte zich nog maar één broer-zuspaar voort. Dat paar had maar een toevallig deel van de allelen van de lijn, dus allelen gingen verloren. Omdat de vogels daarna alleen nog met elkaar paarden, kwamen er geen nieuwe allelen van andere vinken bij: er was geen genenstroom.",
+    valkuil:"Een antwoord als ‘door inteelt’ zonder uitleg levert 0 punten op. Een antwoord waarin natuurlijke selectie de oorzaak is, levert 0 punten op.",
+    after:()=>waaromBtn(ans,textBox("Twee dingen werkten samen. Eerst een <b>flessenhals</b>: in de derde generatie bracht nog maar één broer-zuspaar jongen voort. Alleen de allelen van die twee gingen mee naar de volgende generaties; de rest was door toeval weg. Daarna was er <b>geen genenstroom</b>: de lijn paarde alleen met zichzelf, dus er kwamen geen nieuwe allelen bij om het verlies aan te vullen. Selectie is hier niet nodig om de variatie te laten dalen."))});
+  q.append(think,ans);
+},STOF_DRIFT);
+
+const ids=[q1,q2,q3];
+if(!VWO){
+  const q4=vraag(2,"juist of onjuist: de Big Bird-lijn",(q,id)=>{
+    q.append(el("p",{class:"qtext"},"Drie uitspraken over de Big Bird-lijn:<br>1 De reproductieve isolatie tussen de Big Bird-lijn en de middelste grondvink is ontstaan doordat de zee de groepen van elkaar scheidt.<br>2 Door de reproductieve isolatie kan de genenpool van de Big Bird-lijn veranderen zonder dat de genenpool van de middelste grondvink mee verandert.<br>3 Je mag de Big Bird-lijn pas een nieuwe soort noemen als de vogels er anders uitzien dan alle andere vinkensoorten.<br><br><b>Schrijf de nummers 1, 2 en 3 onder elkaar en noteer erachter of de uitspraak juist of onjuist is.</b>"));
+    const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+    choiceStep(think,{q:"Wat is het verschil tussen geografische en reproductieve isolatie?",opts:["bij geografische isolatie scheidt een barrière de groepen; bij reproductieve isolatie krijgen ze samen geen vruchtbare jongen meer","er is geen verschil: beide betekenen dat groepen ver uit elkaar wonen"],right:0,
+      ok:"Ja. Lees de inleiding nog eens: waar leven deze vinken, en waardoor planten ze zich niet met elkaar voort?",no:"Reproductieve isolatie kan ook als twee groepen op dezelfde plek leven.",onDone:unlock});
+    juistOnjuist(ans,{id,stm:["de zee scheidt de groepen","de genenpool van de lijn kan los van die van de grondvink veranderen","pas een soort als ze er anders uitzien"],key:[false,true,false],
+      uitleg:textBox("1 <b>onjuist</b>: beide groepen leven op hetzelfde eiland. De isolatie komt door de zang en de partnerkeuze, niet door de zee.<br>2 <b>juist</b>: zonder genenstroom tussen beide groepen kan de genenpool van de ene groep veranderen terwijl die van de andere gelijk blijft.<br>3 <b>onjuist</b>: of groepen tot verschillende soorten horen, hangt af van de vraag of ze in de natuur samen vruchtbare nakomelingen krijgen, niet van het uiterlijk.")});
+    q.append(think,ans);
+  },TERUG("Wanneer is het een soort?",F.e6,"Wat is een soort?"));
+  const q5=vraag(2,"past niet als één tak",(q,id)=>{
+    pre(q,"<p>Iemand wil de Big Bird-lijn als achtste tak toevoegen aan het cladogram van afbeelding 2. Dat kan niet zomaar.</p>");
+    const {think,ans,unlock}=start(q,B("Leg met behulp van de herkomst van de Big Bird-lijn uit waarom deze lijn niet als één nieuwe tak in het cladogram past."));
+    choiceStep(think,{q:"Van welke soort(en) stamt de Big Bird-lijn af?",opts:["alleen van de middelste grondvink","alleen van de grote cactusvink","van een grote cactusvink én een middelste grondvink"],right:2,
+      ok:"Ja: de vader was een grote cactusvink, de moeder een middelste grondvink. Zoek die twee soorten op in afbeelding 2.",no:"Lees de inleiding nog eens: wie waren de vader en de moeder van de eerste Big Bird-jongen?",
+      onDone:()=>choiceStep(think,{q:"Hoe ontstaat in een cladogram een nieuwe tak?",opts:["doordat één lijn zich splitst in twee","doordat twee lijnen samengaan"],right:0,
+        ok:"Goed. Leg nu uit waarom de Big Bird-lijn daar niet in past.",no:"Elk knooppunt is een voorouder die zich splitste.",onDone:unlock})});
+    openAnswer(ans,{id,pts:2,checks:[
+      "de Big Bird-lijn stamt af van <b>twee verschillende soorten</b> (de grote cactusvink en de middelste grondvink) / is een kruising (hybride) van twee soorten",
+      "in een cladogram ontstaat elke tak door een <b>splitsing uit één voorouder</b> / takken gaan alleen uit elkaar en komen niet weer samen, zodat de lijn bij <b>twee takken tegelijk</b> zou horen"],
+      model:"De Big Bird-lijn is een kruising van twee soorten: een grote cactusvink en een middelste grondvink. In een cladogram splitst een tak zich alleen in tweeën; takken komen niet weer samen. De Big Bird-lijn zou dus aan twee takken tegelijk vastzitten.",
+      after:()=>waaromBtn(ans,b=>stepAnim(b,[
+        {cap:"De vader van de lijn was een grote cactusvink…",o:{vet:["co"],hl:["co"]}},
+        {cap:"…de moeder een middelste grondvink. Die twee soorten zitten op verschillende takken.",o:{vet:["co","fo"],hl:["co","fo"]}},
+        {cap:"In een cladogram splitst elk knooppunt één lijn in tweeën. Een lijn die uit twee takken samenkomt, past daar niet als één nieuwe tak in.",o:{vet:["co","fo"],hl:["co","fo"],dots:["kgeo"]}}],
+        (st,s)=>st.innerHTML=VINKEN(s.o)))});
+    q.append(think,ans);
+  },STOF_CLAD);
+  ids.push(q4,q5);
+}
+
+opgave("Big Bird","Een nieuwe vinkenlijn op Daphne Major",`
+<p>Op de Galápagoseilanden leven ongeveer vijftien soorten Darwinvinken. Ze verschillen vooral in de vorm en grootte van hun snavel en in hun zang. Afbeelding 2 is een cladogram van zeven van deze soorten.</p>
+<div class="eyebrow">afbeelding 2 (vereenvoudigd)</div>${VINKEN()}
+<p>Op het kleine eiland Daphne Major onderzoeken biologen al tientallen jaren alle vinken. In 1981 zagen ze daar een onbekend, groot mannetje met een afwijkende zang. Veel later bleek uit DNA-onderzoek dat het een grote cactusvink was van het eiland Española, meer dan 100 km verderop. Dit mannetje paarde met een vrouwtje van de middelste grondvink, een soort die op Daphne Major algemeen is. Hun nakomelingen worden de ‘Big Bird’-lijn genoemd.</p>
+<p>Over de Big Bird-lijn is het volgende bekend:</p>
+${LIJST(["Jonge mannetjes leren de zang van hun vader. Vrouwtjes kiezen een partner die zingt zoals hun eigen vader.","De vogels hebben een grotere snavel dan de andere vinken op Daphne Major.","Op één uitzondering in de eerste generatie na, paarden de nakomelingen alleen nog met elkaar.","In de derde generatie plantte zich nog maar één broer-zuspaar voort. Alle vogels van de vierde tot en met de zesde generatie stammen van dit paar af.","In 2010 bestond de lijn uit 36 vogels, met acht broedparen."])}`,ids);
+}
+
+/*@@ALLEEN-VWO@@*/
+/* ===== Opgave 6 (alleen vwo): De witte beer van het regenwoud (EI-evolutie-C01, C02) =====
+   Gegevens: Reimchen & Klinka (2017) Biol. J. Linn. Soc. 122: 274–285 (allelfrequenties en percentages uit Ritland e.a. 2001). */
+if(VWO){
+const STOF_HW={titel:"De regel van Hardy-Weinberg",html:`
+<p>Noem het aandeel van het ene allel in de genenpool <b>p</b> en van het andere <b>q</b>. Dan is <b>p + q = 1</b>.</p>
+<p>Bij willekeurig paren trek je voor elk jong twee allelen uit de pot. Twee keer het eerste allel: <b>p²</b>. Twee keer het tweede: <b>q²</b>. Eén van elk: <b>2pq</b>. Samen is dat p² + 2pq + q² = 1. Dat zijn de genotypefrequenties.</p>
+<p>Dat klopt alleen als er niets aan de pot verandert: een grote populatie, willekeurig paren, en geen selectie, genenstroom of mutatie. Wijkt een echte populatie af van wat de regel voorspelt, dan werkt er een kracht.</p>`,
+films:[F.e5]};
+
+const q1=vraag(2,"kans op een drager (Hardy-Weinberg)",(q,id)=>{
+  pre(q,"<p>Een bioloog ziet op Princess Royal Island een zwarte beer.</p>");
+  const {think,ans,unlock}=start(q,"<b>Hoe groot is de kans dat deze zwarte beer drager is van het witte allel?</b><br>Ga uit van de allelfrequentie in de tabel en neem aan dat de regel van Hardy-Weinberg geldt. Noteer je berekening en geef je antwoord als percentage, afgerond op een geheel getal.");
+  choiceStep(think,{q:"Welke genotypen kan een zwarte beer hebben?",opts:["alleen homozygoot voor het zwarte allel","homozygoot voor het zwarte allel of heterozygoot","alleen heterozygoot"],right:1,
+    ok:"Ja: het witte allel is recessief. Je zoekt dus het deel heterozygoten binnen de zwarte beren, niet binnen alle beren.",no:"Lees de inleiding: hoe ziet een heterozygote beer eruit?",
+    onDone:()=>numStep(think,{uid:"q"+id+"n",q:"Wat is p, de frequentie van het zwarte allel op Princess Royal Island?",right:0.66,
+      ok:"Goed. Reken nu 2pq uit, en het aandeel zwarte beren (p² + 2pq).",no:"p + q = 1, en q staat in de tabel.",onDone:unlock})});
+  combi(ans,{id,pts:2,parts:[
+    {nums:[["tussenuitkomst 1",""],["tussenuitkomst 2",""]],ok:v=>{const a=[...v].sort((x,y)=>x-y);return dicht(a[0],0.449,0.006)&&dicht(a[1],0.884,0.006);},tekst:"juiste berekening van 2pq (<b>0,449</b>) en van het aandeel zwarte beren (<b>0,884</b>)"},
+    {nums:[["uitkomst","%"]],ok:v=>dicht(v[0],51,0.5)||dicht(v[0],0.51,0.005),tekst:"juiste deling en antwoord <b>51%</b>"}],
+    model:"q = 0,34 en p = 0,66. Heterozygoot: 2pq = 2 × 0,66 × 0,34 = 0,449. Zwart: p² + 2pq = 1 − q² = 1 − 0,116 = 0,884. Kans op drager onder de zwarte beren = 0,449 / 0,884 = 0,51 → 51%.",
+    valkuil:"Een antwoord van 45% (alleen 2pq, niet gedeeld door het aandeel zwarte beren) levert alleen het eerste scorepunt op.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Denk aan 1000 beren. Met q = 0,34 is q² = 0,116: ongeveer <b>116 witte</b> beren.",r:[449,435,116],toon:[0,0,1]},
+      {cap:"2pq = 2 × 0,66 × 0,34 = 0,449: ongeveer <b>449 dragers</b>. De rest, ongeveer 435 (p² ≈ 0,436), is zwart zonder wit allel.",r:[449,435,116],toon:[1,1,1]},
+      {cap:"De bioloog ziet een <b>zwarte</b> beer. De witte vallen dus af: er blijven 449 + 435 = 884 zwarte beren over.",r:[449,435,116],toon:[1,1,.15]},
+      {cap:"Daarvan zijn er 449 drager: 449 / 884 = 0,51. De kans is <b>51%</b>. Wie 45% zegt, deelt door alle beren in plaats van alleen door de zwarte.",r:[449,435,116],toon:[1,.35,.15]}],
+      (st,s)=>{const W=520,lab=["drager (zwart)","zwart, geen wit allel","wit"],kl=["var(--goud)","var(--text2)","var(--surface2)"];let x=20,g="";
+        s.r.forEach((n,k)=>{const w=n/1000*W;g+=`<rect x="${x}" y="40" width="${w}" height="60" fill="${kl[k]}" stroke="var(--text)" stroke-width="1.4" opacity="${s.toon[k]}"/>`+
+          `<text x="${x+w/2}" y="76" text-anchor="middle" class="lbl" opacity="${s.toon[k]}" style="${k===0?"fill:var(--bg)":""}">${n}</text><text x="${x+w/2}" y="124" text-anchor="middle" class="lblm" opacity="${s.toon[k]}">${lab[k]}</text>`;x+=w;});
+        st.innerHTML=`<div style="max-width:560px;margin:0 auto">`+svgWrap("0 0 560 140",`<text x="20" y="26" class="lbl">1000 beren op Princess Royal Island (bij Hardy-Weinberg)</text>`+g,"Verdeling van 1000 beren over drie genotypen")+`</div>`;}))});
+  q.append(think,ans);
+},STOF_HW);
+
+const q2=vraag(2,"klopt Hardy-Weinberg hier?",(q,id)=>{
+  pre(q,"<p>In de vorige vraag nam je aan dat de regel van Hardy-Weinberg geldt voor de beren op Princess Royal Island.</p>");
+  const {think,ans,unlock}=start(q,B("Laat met een berekening zien dat de getelde vachtkleuren op Princess Royal Island niet passen bij een populatie in Hardy-Weinberg-evenwicht. Noteer ook of er meer of minder witte beren zijn dan je bij evenwicht verwacht."));
+  choiceStep(think,{q:"Welke genotypefrequentie hoort bij de witte beren?",opts:["q²","2pq","p²"],right:0,
+    ok:"Ja: witte beren hebben twee witte allelen. Reken uit welk percentage wit je bij evenwicht verwacht en vergelijk dat met de tabel.",no:"Het witte allel is recessief. Hoeveel witte allelen heeft een witte beer?",onDone:unlock});
+  combi(ans,{id,pts:2,parts:[
+    {nums:[["verwacht percentage witte beren bij evenwicht","%"]],ok:v=>(v[0]>=11.5&&v[0]<=12.05)||(v[0]>=0.115&&v[0]<=0.1205),tekst:"berekening van het verwachte percentage witte beren: q² = 0,34² = 0,116 → <b>11,6%</b> (of 12%)"},
+    {sel:["Vergeleken met de getelde 17% zijn er",["meer witte beren dan verwacht","minder witte beren dan verwacht","evenveel witte beren als verwacht"]],right:0,tekst:"vergelijking met 17% en conclusie: <b>meer</b> witte beren dan verwacht"}],
+    model:"Verwacht bij evenwicht: q² = 0,34² = 0,116 → 11,6% witte beren. Geteld: 17%. Er zijn dus meer witte beren dan verwacht; de populatie is niet in evenwicht.",
+    alt:"Andere aanpak, ook goed: ik heb uit 17% witte beren q = √0,17 = 0,41 berekend en geconcludeerd dat dit hoger is dan de gemeten 0,34, dus meer witte beren dan bij evenwicht (beide scorepunten).",
+    after:()=>waaromBtn(ans,textBox("Bij evenwicht verwacht je q² witte beren: 0,34 × 0,34 = 0,116, dus <b>11,6%</b>. Geteld werd <b>17%</b>: meer witte beren dan de regel voorspelt. Dan klopt minstens één van de voorwaarden niet, bijvoorbeeld willekeurig paren of ‘geen selectie’. Bij meer witte beren dan verwacht zijn er ook minder dragers dan verwacht; de onderzoekers vonden inderdaad zo'n tekort aan heterozygoten."))});
+  q.append(think,ans);
+},STOF_HW);
+
+opgave("Witte beer","De witte beer van het regenwoud",`
+<p>Aan de kust van British Columbia (Canada) leeft de Kermodebeer, een ondersoort van de Amerikaanse zwarte beer. De meeste Kermodeberen zijn zwart, maar een deel heeft een crèmewitte vacht. De witte vacht wordt veroorzaakt door een recessieve mutatie in het <i>Mc1r</i>-gen. Beren die heterozygoot zijn, zijn zwart.</p>
+<p>Op het vasteland zijn witte beren zeldzaam. Op enkele eilanden voor de kust komen ze veel vaker voor. Onderzoekers bepaalden met DNA uit haren de frequentie van het witte allel:</p>
+${TABEL(0,["eiland","frequentie witte allel","percentage witte beren (geteld)"],[["Princess Royal Island","0,34","17%"],["Gribbell Island","0,57","43%"]])}
+<p>De beren vangen in de herfst zalm in de rivieren. Uit veldonderzoek bleek dat witte beren overdag meer zalm vangen dan zwarte beren, maar ’s nachts juist minder. In een proef vluchtten zalmen overdag ongeveer half zo vaak voor een wit model van een beer als voor een zwart model.</p>`,[q1,q2]);
+}
+
+/*@@ALLEEN-VWO@@*/
+/* ===== Opgave 7 (alleen vwo): Toeval en uitwisseling (EI-evolutie-D07) ===== */
+if(VWO){
+const q1=vraag(2,"heterozygotenvoordeel bij sikkelcelanemie",(q,id)=>{
+  pre(q,"<p>Kinderen met twee sikkelcelallelen worden zonder behandeling vaak niet oud. Toch komt het sikkelcelallel in gebieden met veel malaria veel voor.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit hoe heterozygotenvoordeel ervoor zorgt dat het sikkelcelallel daar in de populatie blijft."));
+  choiceStep(think,{q:"Wie is een heterozygoot voor het sikkelcelallel?",opts:["iemand met één sikkelcelallel en één normaal allel","iemand met twee sikkelcelallelen","iemand zonder sikkelcelallel"],right:0,
+    ok:"Ja: een drager. Er zijn dus drie groepen: twee normale allelen, drager, en twee sikkelcelallelen.",no:"Hetero betekent: twee verschillende allelen.",
+    onDone:()=>choiceStep(think,{q:"Wat betekent ‘voordeel’ als het over evolutie gaat?",opts:["meer kans om te overleven en jongen te krijgen","sterker of groter zijn dan anderen"],right:0,
+      ok:"Goed. Vergelijk nu de drie groepen in een gebied met veel malaria: wie overleeft het best, en wat gebeurt er dan met de allelen?",no:"Denk aan fitness.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "<b>dragers</b> (heterozygoten) krijgen veel minder vaak ernstige <b>malaria</b> dan mensen zonder sikkelcelallel, en worden niet ziek van sikkelcelanemie",
+    "daardoor <b>overleven dragers het best</b> en geven ze het allel door; selectie houdt zo <b>beide allelen</b> in de populatie"],
+    model:"Dragers hebben één sikkelcelallel en één normaal allel. Zij krijgen veel minder vaak ernstige malaria dan mensen met twee normale allelen, en ze worden niet ziek van sikkelcelanemie. In een malariagebied overleven dragers dus het best en krijgen ze de meeste kinderen. Zo geven ze steeds weer het sikkelcelallel door, en houdt selectie beide allelen in de populatie.",
+    after:()=>waaromBtn(ans,textBox("Selectie werkt hier van twee kanten. Mensen met <b>twee sikkelcelallelen</b> overleven vaak niet: dat haalt sikkelcelallelen uit de pot. Mensen met <b>twee normale allelen</b> sterven vaker aan malaria: dat haalt normale allelen uit de pot. De <b>dragers</b> doen het in een malariagebied het best, en zij geven aan hun kinderen allebei de allelen door. Daardoor verdwijnt het sikkelcelallel niet. Waar geen malaria is, valt het voordeel weg en wordt het allel zeldzamer."))});
+  q.append(think,ans);
+},TERUG("Heterozygotenvoordeel",F.e5,"Hardy-Weinberg en heterozygotenvoordeel"));
+opgave("Toeval","Toeval en uitwisseling","",[q1]);
+}
+
+/* ===== Opgave 8: Hoe één soort er twee wordt (EI-evolutie-O03) ===== */
+{
+const q1=vraag(2,"juist of onjuist: soorten en isolatie",(q,id)=>{
+  q.append(el("p",{class:"qtext"},"1 Of twee dieren tot dezelfde soort horen, zie je aan het uiterlijk.<br>2 Hond en wolf zijn nog steeds één soort, omdat er tussen hen genenstroom is.<br>3 Een hondenras is te vergelijken met een ondersoort in de natuur.<br>4 Twee kikkersoorten die in verschillende maanden paren, zijn gescheiden door isolatie vóór de bevruchting.<br>5 Een onvruchtbaar jong van twee soorten is een voorbeeld van isolatie vóór de bevruchting.<br><br><b>Noteer de nummers en schrijf erachter of de uitspraak juist of onjuist is.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Een paard en een ezel krijgen samen een muilezel. Waarom is de muilezel geen nieuwe soort?",opts:["omdat hij onvruchtbaar is: hij krijgt zelf geen jongen","omdat hij er anders uitziet dan paard en ezel","omdat hij door mensen gefokt is"],right:0,
+    ok:"Ja. Gebruik bij elke uitspraak de afspraak over wat een soort is, en bedenk bij 4 en 5 of er wel of geen bevruchte eicel ontstaat.",no:"Denk aan de afspraak die biologen gebruiken: wat moeten twee dieren samen kunnen krijgen?",onDone:unlock});
+  juistOnjuist(ans,{id,stm:["soort zie je aan het uiterlijk","hond en wolf één soort door genenstroom","hondenras ≈ ondersoort","andere paartijd = isolatie vóór de bevruchting","onvruchtbaar jong = isolatie vóór de bevruchting"],key:[false,true,true,true,false],
+    uitleg:textBox("Puntentelling: alles goed 2 punten, één fout 1 punt, meer fouten 0 punten.<br>1 <b>onjuist</b>: een soort is een groep die in de natuur samen vruchtbare nakomelingen kan krijgen. Uiterlijk kan misleiden: een chihuahua en een wolf zijn één soort.<br>2 <b>juist</b>: honden en wolven kunnen samen vruchtbare jongen krijgen, dus er gaan allelen heen en weer.<br>3 <b>juist</b>: een ras is een groep binnen een soort, net als een ondersoort in de natuur.<br>4 <b>juist</b>: ze komen niet eens tot paren, dus er ontstaat geen bevruchte eicel.<br>5 <b>onjuist</b>: er is wél bevruchting en er is een jong. Dat het jong onvruchtbaar is, is isolatie <b>ná</b> de bevruchting.")});
+  q.append(think,ans);
+},TERUG("Soort en isolatie",F.e6,"Wat is een soort? en Wanneer is het echt een tweede soort?"));
+opgave("Soort","Hoe één soort er twee wordt","",[q1]);
+}
+
+/* ===== Opgave 9: Hoe weten we dat? (EI-evolutie-E03) ===== */
+{
+const q1=vraag(2,"homologe en rudimentaire organen",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Over bewijs voor evolutie."+LIJST([B("Leg uit wat homologe organen zijn en waarom ze wijzen op een gemeenschappelijke voorouder."),B("Noem een rudimentair orgaan van de mens.")]));
+  choiceStep(think,{q:"In de borstvin van een walvis zitten dezelfde botten als in jouw arm. Wat is bij die twee hetzelfde?",opts:["de functie","de bouw"],right:1,
+    ok:"Ja. Een vin werkt ook zonder vingers. Waarom zitten die botjes er dan toch?",no:"Met een vin zwem je, met een arm grijp je. Wat is er dan wél hetzelfde?",
+    onDone:()=>choiceStep(think,{q:"Wat is een rudimentair orgaan?",opts:["een orgaan dat zijn oorspronkelijke functie (grotendeels) kwijt is","een orgaan dat net nieuw ontstaan is"],right:0,
+      ok:"Goed. Bedenk een voorbeeld bij de mens.",no:"Denk aan de heupbotjes van een walvis.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "homologe organen hebben <b>dezelfde bouw</b> (vaak met een andere functie); die bouw <b>erfden</b> de soorten van een <b>gemeenschappelijke voorouder</b>",
+    "het <b>staartbeen</b> (ook goed: een ander juist rudimentair orgaan van de mens, bv. de oorspieren of het plooitje in de binnenooghoek, rest van een knipvlies; de blindedarm/het wormvormig aanhangsel ook goed)"],
+    model:"Homologe organen hebben dezelfde bouw, maar vaak een andere functie, zoals de arm van een mens en de borstvin van een walvis. Die gelijke bouw is alleen te verklaren doordat beide soorten hem erfden van een gemeenschappelijke voorouder. Een rudimentair orgaan van de mens is het staartbeen.",
+    valkuil:"De blindedarm (wormvormig aanhangsel) ook goed rekenen: veel boeken noemen hem rudimentair, al speelt hij een rol in de afweer.",
+    after:()=>waaromBtn(ans,textBox("Een vin hoeft geen vingerbotjes te hebben: een haaienvin heeft ze niet. Dat een walvis ze wél heeft, en in dezelfde volgorde als in jouw arm, verklaar je alleen met een <b>voorouder die die botten al had</b>. Dat zijn <b>homologe organen</b>: dezelfde bouw, geërfd van een gemeenschappelijke voorouder, ook als de functie veranderd is.<br><br>Een <b>rudimentair orgaan</b> is een overblijfsel dat zijn oorspronkelijke functie kwijt is. Bij de mens is het staartbeen de rest van een staart; ook de spiertjes waarmee sommige mensen hun oren kunnen bewegen, zijn zo'n overblijfsel."))});
+  q.append(think,ans);
+},TERUG("Bewijs voor evolutie",F.e7,"Hetzelfde skelet"));
+opgave("Bewijs","Hoe weten we dat?","",[q1]);
+}
+
+/* ===== Opgave 10 (vwo) / 8 (havo): Cactus of wolfsmelk? (EI-evolutie-J01–J04) ===== */
+{
+const STOF_TAK={titel:"Kenmerken op de takken",html:`
+<p>Biologen bepalen waar een tak in een cladogram hoort aan de hand van <b>kenmerken</b>. Een kenmerk dat in een voorouder ontstond, erven alle soorten die van die voorouder afstammen. Soms raakt een lijn een kenmerk later weer kwijt.</p>
+<p>Je tekent zo'n kenmerk als een <b>streepje op de tak</b> waar het verscheen. Hoe meer soorten het kenmerk delen, hoe dichter bij de wortel het streepje staat. Elk nieuw kenmerk maakt de groep kleiner.</p>`,
+films:[F.e8]};
+const STOF_KLOK={titel:"De moleculaire klok",html:`
+<p>Na een splitsing stapelen zich in beide lijnen mutaties op. Hoe langer geleden twee soorten uit elkaar gingen, hoe meer hun DNA van elkaar verschilt.</p>
+<p>Mutaties stapelen zich in een gen gemiddeld in een vrij vast tempo op. Dan kun je de verschillen gebruiken als klok: de <b>moleculaire klok</b>. Je stelt hem af met fossielen waarvan de leeftijd gemeten is. Ken je het tempo, dan reken je een verschil om in een tijd.</p>
+<p>DNA, fossielen en de bouw van organen vertellen meestal hetzelfde verhaal over wie met wie verwant is.</p>`,
+films:[F.e7,F.e8]};
+
+const q1=vraag(1,"waar hoort het streepje?",(q,id)=>{
+  pre(q,"<p>Het kenmerk ‘stekels die omgevormde bladeren zijn’ wil je als streepje in afbeelding 3 zetten.</p>");
+  const {think,ans,unlock}=start(q,B("Waar hoort dat streepje?"));
+  choiceStep(think,{q:"Welke planten in afbeelding 3 hebben stekels die omgevormde bladeren zijn?",opts:["alleen de cactus","de cactus en de wolfsmelk","alle vijf"],right:0,
+    ok:"Ja: ‘geen van de andere planten in afbeelding 3 heeft zulke stekels’. Een streepje zet je op de tak waar het kenmerk ontstond; alle soorten na die tak erven het.",no:"Lees de tweede alinea van de inleiding nog eens. De wolfsmelk heeft wel stekels, maar zijn het omgevormde bladeren?",onDone:unlock});
+  mc(ans,{qid:id,pts:1,right:2,opts:["bij de wortel van de boom","op de tak die naar cactus en anjer samen leidt","op de tak die alleen naar de cactus leidt","op een tak naar cactus en wolfsmelk"],
+    onChecked:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"<b>A</b>, bij de wortel: dan zouden alle vijf planten het kenmerk hebben. Dat is niet zo.",o:{streep:{wortel:""},kruis:{lelie:"✗"}}},
+      {cap:"<b>B</b>, op de tak naar cactus en anjer: dan zou ook de anjer zulke stekels hebben.",o:{streep:{kca:""},kruis:{anjer:"✗"}}},
+      {cap:"<b>D</b>: cactus en wolfsmelk staan niet samen op één tak. Hun laatste gemeenschappelijke voorouder is ook die van anjer en wilg.",o:{hl:["kca","kww"],dots:["kvier"]}},
+      {cap:"<b>C</b>: alleen de cactus heeft het kenmerk. Het ontstond dus ná de splitsing van cactus en anjer, in de lijn naar de cactus.",o:{streep:{cactus:"stekels"},hl:["cactus"],vet:["cactus"]}}],
+      (st,s)=>st.innerHTML=PLANTEN(s.o)))});
+  q.append(think,ans);
+},STOF_TAK);
+
+const q2=vraag(2,"buitengroep en een oud kenmerk",(q,id)=>{
+  pre(q,"<p>In afbeelding 3 staat de lelie als buitengroep.</p>");
+  const {think,ans,unlock}=start(q,LIJST([B("Leg uit waarom biologen een buitengroep in een cladogram zetten."),B("Alle vijf planten maken bloemen. Leg uit waarom het kenmerk ‘bloemen’ niets zegt over de vraag of de cactus nauwer verwant is aan de anjer of aan de wolfsmelk.")]));
+  choiceStep(think,{q:"In welke voorouder is het kenmerk ‘bloemen’ waarschijnlijk ontstaan?",opts:["in de voorouder van alle vijf planten, de lelie ook","in de voorouder van cactus en anjer","in de lijn naar de wolfsmelk"],right:0,
+    ok:"Ja: ook de lelie maakt bloemen. Wat vertelt een kenmerk dat ál die planten van hun voorouder kregen over wie dichter bij wie staat?",no:"Kijk welke planten bloemen maken: alleen de cactus en de anjer?",onDone:unlock});
+  openAnswer(ans,{id,pts:2,checks:[
+    "een buitengroep laat zien welke kenmerken al <b>oud</b> zijn (al aanwezig bij de voorouder van alle soorten in de boom)",
+    "de lelie heeft ook bloemen, dus bloemen zijn een <b>oud kenmerk</b> dat de voorouder van alle vijf al had; alleen <b>gedeelde nieuwe kenmerken</b> zeggen iets over wie dichter bij elkaar staat"],
+    model:"Een buitengroep is een soort die buiten de onderzochte groep valt. Wat de buitengroep ook heeft, was al aanwezig bij de voorouder van alle soorten: dat is een oud kenmerk. De lelie maakt ook bloemen, dus bloemen zijn zo'n oud kenmerk. Cactus, anjer en wolfsmelk kregen het allemaal van dezelfde oude voorouder. Alleen gedeelde nieuwe kenmerken laten zien wie dichter bij elkaar staat.",
+    valkuil:"‘Omdat alle planten bloemen hebben’ zonder het begrip oud kenmerk of de rol van de buitengroep: 0 punten voor het tweede element.",
+    after:()=>waaromBtn(ans,textBox("Vergelijk het met de film: alle dieren in de boom hadden een wervelkolom, ook de haai als buitengroep. De wervelkolom zegt dus niets over wie dichter bij wie staat. Zo werkt het hier met <b>bloemen</b>: de lelie heeft ze ook, dus het kenmerk ontstond al vóór de eerste splitsing in de boom. Wie wil weten of de cactus bij de anjer of bij de wolfsmelk hoort, moet kijken naar kenmerken die alleen een deel van de planten deelt: <b>gedeelde nieuwe kenmerken</b>."))});
+  q.append(think,ans);
+},TERUG("Buitengroep, oude en nieuwe kenmerken",F.e8,"Kenmerken op de takken"));
+
+const q3=vraag(2,"DNA naast het cladogram",(q,id)=>{
+  pre(q,"<p>Onderzoekers vergelijken hetzelfde gen bij vier plantensoorten (fictieve gegevens):</p>"+TABEL(0,["soorten","verschil in het gen"],[["cactus – anjer","5%"],["wolfsmelk – wilg","6%"],["cactus – wolfsmelk","18%"]])+"<p>In dit gen ontstaat gemiddeld 1% verschil per 7 miljoen jaar (fictief).</p>");
+  const {think,ans,unlock}=start(q,LIJST([B("Leg uit of deze gegevens passen bij het cladogram van afbeelding 3."),B("Bereken hoe lang geleden de lijnen van de wolfsmelk en de wilg splitsten.")]));
+  choiceStep(think,{q:"Wat verwacht je van het DNA van twee soorten met een jonge laatste gemeenschappelijke voorouder?",opts:["weinig verschil","veel verschil","dat zegt niets over het DNA"],right:0,
+    ok:"Ja. Zoek in afbeelding 3 welke paren een jonge voorouder delen, en vergelijk met de tabel.",no:"Hoe korter geleden de splitsing, hoe minder tijd er was om mutaties op te stapelen.",onDone:unlock});
+  combi(ans,{id,pts:2,parts:[
+    {open:true,tekst:"<b>ja</b>: soorten die in het cladogram samen een tak delen (cactus en anjer, wolfsmelk en wilg) verschillen het minst; cactus en wolfsmelk, die alleen een oudere voorouder delen, verschillen veel meer"},
+    {nums:[["splitsing wolfsmelk en wilg","miljoen jaar geleden"]],ok:v=>dicht(v[0],42,0.01),tekst:"6 × 7 = <b>42 miljoen jaar</b> geleden"}],
+    placeholder:"Passen de gegevens bij het cladogram? Leg uit…",
+    model:"Ja. In het cladogram delen cactus en anjer een jonge voorouder, net als wolfsmelk en wilg; zij verschillen maar 5% en 6%. Cactus en wolfsmelk delen alleen een oudere voorouder en verschillen 18%. Splitsing wolfsmelk en wilg: 6 × 7 = 42 miljoen jaar geleden.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Cactus en anjer delen een jonge voorouder: weinig tijd voor mutaties, <b>5%</b> verschil.",o:{hl:["cactus","anjer"],dots:["kca"],vet:["cactus","anjer"]}},
+      {cap:"Wolfsmelk en wilg ook: <b>6%</b> verschil. 6 × 7 miljoen jaar = <b>42 miljoen jaar</b> geleden splitsten ze.",o:{hl:["wolfsmelk","wilg"],dots:["kww"],vet:["wolfsmelk","wilg"]}},
+      {cap:"Cactus en wolfsmelk komen pas samen in een ouder knooppunt: veel meer tijd, <b>18%</b> verschil. Het DNA past dus bij het cladogram, ook al lijken cactus en wolfsmelk zo op elkaar.",o:{hl:["kca","kww","cactus","wolfsmelk"],dots:["kvier"],vet:["cactus","wolfsmelk"]}}],
+      (st,s)=>st.innerHTML=PLANTEN(s.o)))});
+  q.append(think,ans);
+},STOF_KLOK);
+
+const q4=vraag(2,"stekels en doornen",(q,id)=>{
+  pre(q,"<p>Een roos heeft ook scherpe ‘doornen’. Die zijn uitgroeisels van de buitenste laag van de stengel. Zowel de stekels van een cactus als de doornen van een roos beschermen de plant tegen dieren die hem willen opeten.</p>");
+  const {think,ans,unlock}=start(q,B("Zijn de stekels van een cactus en de doornen van een roos homologe of analoge organen? Leg je antwoord uit."));
+  choiceStep(think,{q:"Waaruit zijn de stekels van een cactus ontstaan, en waaruit de doornen van een roos?",opts:["allebei uit bladeren","cactus: uit bladeren; roos: uit de buitenste laag van de stengel","allebei uit de stengel"],right:1,
+    ok:"Ja. De functie is hetzelfde. Is de bouw (de oorsprong) ook hetzelfde?",no:"Lees de inleiding en de tekst bij deze vraag nog eens.",onDone:unlock});
+  openAnswer(ans,{id,pts:2,checks:[
+    "<b>analoge</b> organen",
+    "met een uitleg dat ze <b>dezelfde functie</b> hebben (bescherming tegen vraat), maar een <b>andere bouw en oorsprong</b> (omgevormd blad tegenover uitgroeisel van de stengel)"],
+    model:"Analoge organen. Ze hebben dezelfde functie, de plant beschermen tegen vraat, maar een andere bouw en oorsprong: de stekel is een omgevormd blad, de doorn een uitgroeisel van de stengel.",
+    valkuil:"‘Analoog’ zonder uitleg levert in totaal één punt op. ‘Homoloog, want dezelfde functie’ levert 0 punten op.",
+    after:()=>waaromBtn(ans,textBox("<b>Homoloog</b> = dezelfde bouw, geërfd van een gemeenschappelijke voorouder, ook bij een andere functie. <b>Analoog</b> = dezelfde functie, maar een andere bouw: los van elkaar ontstaan door dezelfde selectiedruk. Een cactusstekel is een omgevormd blad, een rozendoorn een uitgroeisel van de stengel: andere oorsprong, zelfde taak. Dus <b>analoog</b>. Net zo zijn de rugvinnen van haai en dolfijn analoog."))});
+  q.append(think,ans);
+},{titel:"Homologe en analoge organen",html:`
+<p><b>Homologe organen</b> hebben dezelfde bouw, ook als ze een andere functie hebben. De arm van een mens, de vleugel van een vleermuis en de borstvin van een walvis bevatten dezelfde botten: die erfden ze van een gemeenschappelijke voorouder.</p>
+<p><b>Analoge organen</b> hebben dezelfde functie, maar een andere bouw. De vleugel van een vlinder en de vleugel van een vogel dienen allebei om te vliegen, maar ze zijn heel anders gebouwd en los van elkaar ontstaan, door dezelfde selectiedruk. Dat heet convergente evolutie.</p>
+<p>Om te bepalen welke van de twee het is, kijk je dus naar de bouw en de oorsprong, niet alleen naar de functie.</p>`,films:[F.e8,F.e7]});
+
+opgave("Cactus","Cactus of wolfsmelk?",`
+<p>In de woestijnen van Amerika groeien cactussen. In droge gebieden in Afrika groeien wolfsmelken die er bijna hetzelfde uitzien: een dikke, groene stam waarin water wordt opgeslagen, (bijna) geen bladeren en scherpe stekels. Beschadig je een wolfsmelk, dan loopt er wit melksap uit; bij de meeste cactussen gebeurt dat niet.</p>
+<p>De stekels van een cactus zijn omgevormde bladeren; geen van de andere planten in afbeelding 3 heeft zulke stekels. Alle vijf planten in afbeelding 3 maken bloemen.</p>
+<div class="eyebrow">afbeelding 3 (vereenvoudigd, takken niet op schaal)</div>${PLANTEN()}`,[q1,q2,q3,q4]);
+}
+
+
+/* ================= opgaven en navigatie ================= */
+OPG.sort((a,b)=>a.nr-b.nr);
+/* cijfer als bij een schooltoets: 9 × score / maximum + 1 */
+const NORM="";
+const CIJFER=(()=>{const L=Q.reduce((s,q)=>s+q.pts,0);return Array.from({length:L+1},(_,S)=>Math.round((9*S/L+1)*10)/10);})();
+const main=$("#main"),tabs=$("#tabs");let cur=1;const built={},nextBtns={};
+let curOpg=OPG.some(o=>o.nr===store.opg)?store.opg:1;
+const opg=()=>OPG.find(o=>o.nr===curOpg);
+const pts=o=>o.ids.reduce((s,i)=>s+Q.find(q=>q.id===i).pts,0);
+function reach(){const ids=opg().ids;if(store.vrij)return ids[ids.length-1];let k=0;while(k<ids.length-1&&store.scores[ids[k]]!==undefined)k++;return ids[k];}
+function renderTabs(){
+  tabs.innerHTML="";const r=reach();
+  opg().ids.forEach(id=>{const q=Q.find(x=>x.id===id);const locked=id>r;
+    const b=el("button",{class:(id===cur?"cur ":"")+(store.scores[id]!==undefined?"done":"")+(locked?" lock":""),"aria-label":"Vraag "+id+(locked?" (eerst vraag "+(id-1)+" maken)":""),title:locked?"Maak eerst vraag "+(id-1):""},id);
+    if(locked)b.disabled=true;else b.onclick=()=>open(id);tabs.append(b);});
+  const o=el("button",{class:"ov"+(cur==="ov"?" cur":"")},"Score");o.onclick=()=>open("ov");tabs.append(o);
+}
+function open(id){
+  if(id!=="ov"&&id>reach())id=reach();
+  cur=id;renderTabs();main.innerHTML="";
+  if(id==="ov"){main.append(overview());return;}
+  if(!built[id]){const q=Q.find(x=>x.id===id);const sec=el("article",{class:"q"});
+    q.build(sec);
+    const pap=el("section",{class:"papier","aria-label":"Toetsvraag "+id});
+    pap.append(el("div",{class:"pkop"},`<span class="pnr"><span class="mono">Toetsvraag</span><span class="nr">${id}</span></span><span class="mono">${q.pts} ${q.pts===1?"punt":"punten"}</span>`));
+    for(const c of [...sec.children]){if(c.classList.contains("phase")||c.tagName==="BUTTON")break;pap.append(c);}
+    pap.append(el("div",{class:"pvoet"},"Oefentoets Evolutie · vwo"));
+    sec.prepend(pap);
+    const sb=window.EXSTOF&&EXSTOF.blok(TOOL,id);if(sb)pap.after(sb);
+    /* toetsvraag nog eens boven de antwoorden (Kamiel 25 okt 2026: niet terug hoeven scrollen) */
+    const qt=[...pap.querySelectorAll(".qtext")].pop(),ansP=sec.querySelector(".phase.ans");
+    if(qt&&ansP){const h=el("div",{class:"herhaal papier"});h.append(el("div",{class:"hkop mono"},`Toetsvraag ${id}`));
+      const c=qt.cloneNode(true);c.querySelectorAll("[id]").forEach(x=>x.removeAttribute("id"));h.append(c);
+      const lab=ansP.querySelector(":scope>.label");lab?lab.after(h):ansP.prepend(h);}
+    const ids=opg().ids,last=id===ids[ids.length-1];
+    const nx=el("div",{class:"row",style:"justify-content:flex-end"});const b=el("button",{class:"go"},last?"Naar je score ›":`Volgende vraag (${id+1}) ›`);
+    nextBtns[id]=b;b.hidden=!store.vrij&&store.scores[id]===undefined;
+    b.onclick=()=>{open(last?"ov":id+1);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};nx.append(b);sec.append(nx);built[id]=sec;}
+  main.append(built[id]);
+}
+function overview(){
+  const o=opg();const s=el("section",{class:"phase"});s.append(el("h2",{},`Jouw score op opgave ${o.nr}`));
+  let tot=0;const t=el("table",{class:"data ovtable"});t.innerHTML="<tr><th>vraag</th><th>onderwerp</th><th>score</th></tr>";
+  o.ids.forEach(id=>{const q=Q.find(x=>x.id===id);const p=store.scores[id];if(p!==undefined)tot+=p;t.innerHTML+=`<tr><td>${id}</td><td>${q.t}</td><td>${p===undefined?"–":p} / ${q.pts}</td></tr>`;});
+  const w=el("div",{class:"tablewrap"});w.append(t);s.append(w,el("div",{class:"score"},`Totaal opgave ${o.nr}: ${tot} / ${pts(o)}`));
+  let all=0,allMax=0;OPG.forEach(x=>{allMax+=pts(x);x.ids.forEach(id=>{if(store.scores[id]!==undefined)all+=store.scores[id];});});
+  const gemaakt=OPG.every(x=>x.ids.every(id=>store.scores[id]!==undefined));
+  const cf=CIJFER[Math.min(all,CIJFER.length-1)].toFixed(1).replace(".",",");
+  s.append(el("p",{style:"margin:0"},`Hele toets: <b>${all}</b> van ${allMax} punten · cijfer <b>${cf}</b>`+(gemaakt?"":` <span class="muted">(nog niet alles gemaakt: open vragen tellen als 0 punten)</span>`)));
+  s.append(el("p",{class:"muted",style:"margin:0;font-size:14px"},`Cijfer = 9 × score / maximum + 1. Open vragen kijk je zelf na met het antwoordmodel.`));
+  const nextO=OPG.find(x=>x.nr===o.nr+1);
+  const row=el("div",{class:"row"});
+  if(nextO){const nb=el("button",{class:"go"},`Naar opgave ${nextO.nr}: ${nextO.kort} ›`);nb.onclick=()=>{setOpg(nextO.nr);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};row.append(nb);}
+  const r=el("button",{class:"ghost"},`Opgave ${o.nr} opnieuw`);r.onclick=()=>{o.ids.forEach(id=>{delete store.scores[id];delete built[id];delete nextBtns[id];});save();open(o.ids[0]);};row.append(r);
+  s.append(row);return s;
+}
+function renderOpgs(){const box=$("#opgs");box.innerHTML="";
+  OPG.forEach(o=>{const b=el("button",{"aria-pressed":o.nr===curOpg?"true":"false"},`${o.nr} · ${o.kort}`);b.onclick=()=>setOpg(o.nr);box.append(b);});}
+function setOpg(n){curOpg=n;store.opg=n;save();const o=opg();
+  $("#eb").textContent=`Oefentoets Evolutie · vwo · opgave ${o.nr}`;$("#h1").textContent=o.titel;
+  $("#sub").textContent=`vraag ${o.ids[0]} t/m ${o.ids[o.ids.length-1]} · ${pts(o)} punten`;
+  $("#ctx").innerHTML=o.ctx;renderOpgs();open(reach());}
+function setVrij(v){store.vrij=v;save();$("#vrij").setAttribute("aria-pressed",v?"true":"false");
+  for(const k in nextBtns)nextBtns[k].hidden=!v&&store.scores[k]===undefined;renderTabs();}
+$("#vrij").onclick=()=>setVrij(!store.vrij);setVrij(!!store.vrij);
+EXSTAND.STANDEN.forEach(s=>{s.uitleg=s.uitleg.replace(/examenvraag/g,"toetsvraag").replace("het echte examen","een echte toets").replace(" Zet de klok aan voor 3 uur examentijd.","");if(s.k==="echt")s.naam="Echte toets";});
+EXSTAND.init({store,save,setVrij});
+setOpg(curOpg);
+})();
+
+</script>
+</body>
+</html>

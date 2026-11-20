@@ -1,0 +1,1089 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../js/teller.js" data-root="../"></script>
+<link rel="icon" href="../img/icoon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../img/icoon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../img/icoon/apple-touch-icon.png">
+<script>(function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oefentoets Transport vwo · doorklikken · Biologie bij Kamiel</title>
+<meta name="description" content="Oefentoets Transport voor vwo: per vraag eerst hulpvragen, dan de toetsvraag, nakijken met het antwoordmodel en uitleg waarom.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="huisstijl.css">
+<script src="huisstijl.js"></script>
+<script src="examen-stof.js?v=b496a9e6"></script>
+<script src="examen-standen.js?v=558bd73d"></script>
+<style>
+/* Oefentoets Transport vwo · zelfde bouwstenen als de oefenexamens (tools/OEFENEXAMEN_PROMPT.md). */
+body.echt .klok{display:none!important}
+@media (max-width:600px){.trfig{overflow-x:auto;-webkit-overflow-scrolling:touch}.trfig>svg{min-width:var(--min)}}
+:root{--rest:#2A3B57;--area:#5B6B84}
+:root[data-theme="light"]{--rest:#D5DEE9;--area:#B4BDCA}
+ .wrap{padding-inline:0}
+:root[data-theme="light"] .papier{box-shadow:0 0 0 1px rgba(20,32,52,.18),0 6px 18px rgba(20,32,52,.10)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--text);font:17px/1.55 var(--tekst);-webkit-font-smoothing:antialiased;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 40px}
+.wrap{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1,h2,h3{font-family:var(--titel);font-weight:700;letter-spacing:-.01em;text-wrap:balance;margin:0;line-height:1.1}
+h2{font-size:24px}
+.mono,.eyebrow{font:600 12px/1.2 var(--meta);letter-spacing:.1em;text-transform:uppercase}
+.eyebrow{color:var(--goud-text)}
+.muted{color:var(--text2)}
+a{color:var(--goud-text)}
+.sitenav{display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap;min-height:56px;padding:8px 0;border-bottom:1px solid var(--line);font:600 15px/1.3 var(--tekst)}
+.sitenav .merk{font:700 18px/1 var(--titel);color:var(--text);text-decoration:none}
+.sitenav .terug{color:var(--goud-text);text-decoration:none}
+.sitenav .rechts{margin-left:auto}
+.tool-kop{display:flex;flex-direction:column;gap:10px;padding:14px 0 0}
+.tool-kop h1{font-size:clamp(32px,5vw,48px)}
+.tool-kop p{margin:0;color:var(--text2);font-size:18px;max-width:62ch}
+button.toggle{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line2);background:none;color:var(--text2);border-radius:999px;padding:6px 14px 6px 8px;min-height:40px;font:600 14px var(--tekst);cursor:pointer}
+button.toggle .knopje{width:34px;height:20px;border-radius:999px;background:var(--line2);position:relative;flex:none}
+button.toggle .knopje::after{content:"";position:absolute;left:3px;top:3px;width:14px;height:14px;border-radius:50%;background:var(--text2);transition:left .15s}
+button.toggle[aria-pressed="true"]{color:var(--text);border-color:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje{background:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje::after{left:17px;background:var(--goud-ink)}
+.kopbalk{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.seg{display:inline-flex;flex-wrap:wrap;padding:3px;border-radius:999px;border:1px solid var(--line2);gap:2px}
+.seg button{border:0;background:none;padding:6px 14px;border-radius:999px;font:600 14px var(--tekst);color:var(--text2);min-height:36px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--goud);color:var(--goud-ink)}
+nav.tabs{display:flex;flex-wrap:wrap;gap:6px}
+nav.tabs button{min-width:44px;height:44px;border-radius:999px;border:1px solid var(--line2);background:none;color:var(--text2);font:600 15px var(--meta);cursor:pointer;position:relative}
+nav.tabs button:hover{color:var(--text)}
+nav.tabs button.cur{background:var(--goud);color:var(--goud-ink);border-color:var(--goud)}
+nav.tabs button.done::after{content:"";position:absolute;right:3px;top:3px;width:8px;height:8px;border-radius:50%;background:var(--groen);border:2px solid var(--bg)}
+nav.tabs button.lock{opacity:.35;cursor:not-allowed}
+nav.tabs .ov{padding:0 16px;font-family:var(--tekst)}
+.ctx{background:var(--surface);border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.ctx p{margin:0}
+details.ctxd summary{cursor:pointer;font-weight:600;color:var(--goud-text)}
+.tablewrap{overflow-x:auto}
+table.data{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+table.data th,table.data td{border-bottom:1px solid var(--line);padding:7px 10px;text-align:center}
+table.data th:first-child,table.data td:first-child{text-align:left}
+table.data th{font:600 11px var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--text3)}
+.q{display:flex;flex-direction:column;gap:14px}
+.qhead{display:flex;gap:12px;align-items:center}
+.qnum{font:700 40px/1 var(--titel);color:var(--goud-text)}
+.pts{font:600 12px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:3px 9px}
+.qtext{margin:0;font-size:18px}
+.phase{border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;background:var(--surface);display:flex;flex-direction:column;gap:12px}
+.phase>.label{display:flex;gap:8px;align-items:center;font:600 12px var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3)}
+.phase>.label .dot{width:8px;height:8px;border-radius:50%;background:var(--goud)}
+.phase.think{background:var(--surface2)}
+.phase.think>.label{color:var(--goud-text)}
+.step{display:flex;flex-direction:column;gap:8px}
+.step+.step{border-top:1px solid var(--line);padding-top:12px}
+.step p{margin:0}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button.opt,button.chip{border:1px solid var(--line2);background:var(--bg);color:var(--text);border-radius:12px;padding:9px 14px;font:inherit;font-size:16px;cursor:pointer;text-align:left}
+button.chip{border-radius:999px}
+button.opt:hover,button.chip:hover{border-color:var(--text3)}
+button.chip[aria-pressed="true"]{border-color:var(--goud);background:var(--goud-soft)}
+button.opt.right{border-color:var(--groen);background:var(--groen-soft)}
+button.opt.wrong{border-color:var(--koraal);background:var(--koraal-soft)}
+button.opt:disabled{cursor:default}
+button.go,button.ghost{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 18px;border-radius:999px;font:700 15px var(--tekst);cursor:pointer}
+button.go{border:0;background:var(--goud);color:var(--goud-ink)}
+button.go:hover{filter:brightness(1.06)}
+button.ghost{border:0;background:none;color:var(--text);box-shadow:inset 0 0 0 1px var(--line2)}
+button.ghost:hover{box-shadow:inset 0 0 0 1px var(--text3)}
+button:disabled.go,button:disabled.ghost{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:2px solid var(--goud);outline-offset:3px;border-radius:6px}
+input.num{width:96px;min-height:44px;font:600 16px var(--meta);padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text)}
+select{font:inherit;font-size:15px;min-height:44px;padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);max-width:100%;flex:1 1 260px}
+textarea{width:100%;min-height:88px;font:inherit;padding:10px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);resize:vertical}
+.fb{font-size:16px;border-radius:12px;padding:12px 14px;background:var(--surface2);border:1px solid var(--line2)}
+.fb.ok{border-color:var(--groen);background:var(--groen-soft)}
+.fb.no{border-color:var(--koraal);background:var(--koraal-soft)}
+.fb.hint{border-color:var(--teal);background:var(--teal-soft)}
+.graphs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.graphs{grid-template-columns:1fr}}
+.gopt{border:1px solid var(--line2);border-radius:var(--radius);background:var(--bg);padding:8px 8px 2px;cursor:pointer;color:var(--text);font:inherit;text-align:left}
+.gopt b{font:700 20px var(--titel);margin-left:6px;color:var(--goud-text)}
+.gopt:hover{border-color:var(--text3)}
+.gopt.right{border-color:var(--groen);box-shadow:0 0 0 2px var(--groen) inset}
+.gopt.wrong{border-color:var(--koraal);box-shadow:0 0 0 2px var(--koraal) inset}
+svg{display:block;max-width:100%;height:auto}
+.ax{stroke:var(--text3);stroke-width:1.2;fill:none}
+.grid{stroke:var(--line2);stroke-width:1;fill:none}
+.tick{fill:var(--text3);font:500 10px var(--meta)}
+.cv{stroke:var(--teal);stroke-width:2.4;fill:none;stroke-linejoin:round}
+.cvbad{stroke:var(--koraal);stroke-width:2;fill:none;stroke-dasharray:5 4}
+.restband{fill:var(--rest);opacity:.8}
+.lbl{fill:var(--text);font:600 12px var(--tekst)}
+.lblm{fill:var(--text2);font:12px var(--tekst)}
+.lblbad{fill:var(--koraal);font:700 12px var(--tekst)}
+.selfscore{display:flex;flex-direction:column;gap:10px}
+.selfscore label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.selfscore input{margin-top:4px;width:18px;height:18px;accent-color:var(--goud);flex:none}
+.model{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:16px}
+.anim{display:flex;flex-direction:column;gap:10px}
+.anim .stage{border-radius:var(--radius);background:var(--surface2);border:1px solid var(--line2);overflow:hidden}
+.anim .cap{min-height:3.2em;margin:0}
+.anim .nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pips{display:flex;gap:6px;margin-left:auto}
+.pips span{width:9px;height:9px;border-radius:50%;background:var(--line2)}
+.pips span.on{background:var(--goud)}
+.seq{display:flex;flex-direction:column;gap:6px}
+.seq button{display:flex;gap:10px;align-items:center}
+.seq .n{font:600 13px var(--meta);width:24px;height:24px;border-radius:50%;display:inline-grid;place-items:center;background:var(--line2);flex:none}
+.seq button.placed{border-color:var(--groen)} .seq button.placed .n{background:var(--groen);color:var(--goud-ink)}
+.score{font:600 16px var(--meta)}
+.ovtable td:last-child,.ovtable th:last-child{text-align:right}
+.pre{border-left:3px solid var(--goud);padding:2px 0 2px 14px;display:flex;flex-direction:column;gap:8px}
+.pre p{margin:0;color:var(--text2)}
+.figrow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.figrow{grid-template-columns:1fr}}
+.legenda{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--text2)}
+.legenda i{display:inline-block;vertical-align:middle;margin-right:6px}
+.legenda .lijn{width:22px;height:0;border-top:2.5px solid var(--text)}
+.legenda .vlak{width:16px;height:12px;background:var(--area)}
+.tick.dim{opacity:.35}
+p.klikbaar{line-height:2}
+button.mark{font:inherit;color:var(--text);background:none;border:0;border-bottom:2px dashed var(--goud);padding:0 3px;border-radius:4px;cursor:pointer}
+button.mark[aria-pressed="true"]{background:var(--goud-soft);border-bottom-style:solid}
+button.mark:disabled{cursor:default}
+.sellab{min-width:200px;font-weight:600}
+label.slider{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center}
+label.slider span{min-width:170px;font-weight:600;font-size:15px}
+label.slider input{flex:1 1 200px;accent-color:var(--goud)}
+.podium{background:var(--surface2);border:1px solid var(--line2);border-radius:var(--radius);overflow:hidden}
+p.regels{font-family:var(--tekst);line-height:1.9;margin:0}
+p.regels span{display:inline-block;width:2em;font:600 12px var(--meta);color:var(--text3)}
+sup{font-size:.7em}
+.papier{--bg:#FFFFFF;--surface:#FFFFFF;--surface2:#EEF1F5;--line:rgba(20,32,52,.10);--line2:rgba(20,32,52,.24);
+  --text:#121C2E;--text2:#3B4759;--text3:#667185;--goud:#C99A2E;--goud-text:#7E5C0B;--goud-soft:rgba(217,172,60,.18);
+  --groen:#2F8A47;--koraal:#B9502F;--teal:#25729C;--paars:#6550AD;--groen-soft:rgba(47,138,71,.10);--koraal-soft:rgba(185,80,47,.10);--teal-soft:rgba(37,114,156,.10);
+  --rest:#D5DEE9;--area:#B4BDCA;color-scheme:light;
+  background:#FCFCFA;color:var(--text);border:0;border-radius:6px;padding:16px 20px 12px;display:flex;flex-direction:column;gap:12px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.08),0 10px 28px rgba(0,0,0,.35)}
+.papier .pkop{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;border-bottom:2px solid var(--text);padding-bottom:6px}
+.papier .pkop .mono{color:var(--text2)}
+.papier .pnr{display:flex;align-items:baseline;gap:10px}
+.papier .nr{font:700 30px/1 var(--titel);color:var(--text)}
+.papier .pre{border-left:0;padding:0}
+.papier .pre p{color:var(--text)}
+.papier .qtext{color:var(--text)}
+.herhaal.papier{padding:10px 14px;gap:6px;box-shadow:none;border-radius:6px}
+.herhaal .hkop{color:var(--text3);font-size:11px}
+.herhaal .qtext{font-size:16px}
+.papier .pvoet{font:500 11px var(--meta);letter-spacing:.06em;color:var(--text3);text-align:right}
+.papier details.ctxd summary{color:var(--goud-text)}
+.papier .podium{background:var(--surface2)}
+.phase>.label .tag{margin-left:6px;font:600 10px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:2px 8px}
+.sleutel{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:14px;color:var(--text2)}
+.sleutel .sw{display:inline-block;width:16px;height:12px;border-radius:2px;vertical-align:-1px;margin-right:7px}
+.sleutel .papier-sw{background:#FCFCFA}
+.sleutel .donker-sw{background:var(--surface2);box-shadow:inset 0 0 0 1px var(--line2)}
+.exfoto{display:block;width:100%;height:auto;border-radius:2px}
+footer{color:var(--text3);font-size:14px;padding-top:24px;border-top:1px solid var(--line)}
+body.hulp .ans.locked{display:none}
+body.examen .think{display:none}
+body.examen .think.open{display:flex}
+.helpbtn{display:none!important}
+body.examen .helpbtn{display:inline-flex!important}
+body.examen .tonext{display:none!important}
+@media (max-width:600px){body{font-size:16px}.qtext{font-size:17px}.phase,.ctx{padding:14px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="sitenav" aria-label="Site">
+    <a class="merk" href="../index.html#home">Biologie bij Kamiel</a>
+    <a class="terug" href="../index.html#transport">← Terug naar Transport</a>
+    <span class="rechts"><button type="button" class="icoon" data-thema-knop></button></span>
+  </nav>
+  <header class="tool-kop">
+    <div class="eyebrow" id="eb">Oefentoets Transport · vwo</div>
+    <h1 id="h1">Oefentoets Transport</h1>
+    <div class="seg" id="opgs" role="group" aria-label="Opgave"></div>
+    <div class="sleutel"><span><i class="sw papier-sw"></i>Wit vak = de toetsvraag</span><span><i class="sw donker-sw"></i>Donker vak = hulpvragen en uitleg (niet uit de toets)</span></div>
+    <p>Maak de toets stap voor stap. Bij elke vraag denk je eerst na met de hulpvragen, dan beantwoord je de toetsvraag, en daarna zie je waarom het antwoord klopt. Kies zelf hoeveel hulp je wilt; met ‘Echte toets’ oefen je zonder hulp.</p>
+    <div class="kopbalk">
+      <div class="seg" id="standen" role="group" aria-label="Hoeveel hulp wil je?"></div>
+      <button id="vrij" class="toggle" aria-pressed="false"><span class="knopje"></span>Vrij doorklikken</button>
+      <span class="mono muted" id="sub"></span>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs" aria-label="Vragen"></nav>
+
+  <section class="ctx papier" id="ctx"></section>
+
+  <main id="main"></main>
+
+  <footer>Eigen vragen, met inspiratie uit de centrale examens (© CvTE), Biologie voor Jou en Nectar. Grafieken en schema's zijn eigen tekeningen; bronnen van de gegevens staan bij de opgaven.<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a> </span></footer>
+</div>
+
+<script>
+(function(){
+const $=(s,r=document)=>r.querySelector(s);
+const el=(tag,attrs={},html="")=>{const e=document.createElement(tag);for(const k in attrs){if(k==="class")e.className=attrs[k];else if(k.startsWith("on"))e.addEventListener(k.slice(2),attrs[k]);else e.setAttribute(k,attrs[k]);}if(html)e.innerHTML=html;return e;};
+const TOOL="tr-vwo";
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- opslag (alleen gemak) ---------- */
+let store={scores:{},mode:"hulp"};
+try{const s=JSON.parse(localStorage.getItem("toets-transport-vwo")||"null");if(s)store=Object.assign(store,s);}catch(e){}
+const save=()=>{try{localStorage.setItem("toets-transport-vwo",JSON.stringify(store));}catch(e){}};
+
+/* ---------- algemene bouwstenen ---------- */
+function phase(cls,label){const p=el("section",{class:"phase "+cls});
+  if(cls==="think")p.append(el("div",{class:"label"},`<span class="dot"></span>Hulpvragen<span class="tag">niet uit de toets</span>`));
+  else p.append(el("div",{class:"label"},`<span class="dot"></span>${label==="Antwoord"?"Jouw antwoord op de toetsvraag":label}`));return p;}
+function choiceStep(container,{q,opts,right,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});const fb=el("div",{class:"fb",hidden:""});
+  const knop=[];opts.forEach((o,i)=>{const b=el("button",{class:"opt",onclick:()=>{
+    if(i===right){row.querySelectorAll("button").forEach(x=>x.disabled=true);b.classList.add("right");fb.className="fb ok";fb.innerHTML=ok;fb.hidden=false;onDone&&onDone();}
+    else{b.classList.add("wrong");fb.className="fb no";fb.innerHTML=no;fb.hidden=false;}
+  }},o);knop.push(b);});
+  /* @@schud@@ vaste, geschudde volgorde (zaadje = vraagtekst), zodat het goede antwoord niet steeds eerst staat */
+  {let h=2166136261;for(const c of String(q))h=Math.imul(h^c.charCodeAt(0),16777619)>>>0;
+   const v=knop.map((b,i)=>i);for(let i=v.length-1;i>0;i--){h=Math.imul(h^(h>>>15),2246822507)>>>0;const j=h%(i+1);[v[i],v[j]]=[v[j],v[i]];}
+   if(v.length>1&&v[0]===right&&opts.length>2){const k=v.indexOf(right);[v[0],v[1]]=[v[1],v[0]];}
+   v.forEach(i=>row.append(knop[i]));}
+  s.append(row,fb);container.append(s);return s;
+}
+function mc(container,{opts,right,pts,qid,graphs:isGraph,onChecked}){
+  const wrap=el("div",{class:isGraph?"graphs":"row",style:isGraph?"":"flex-direction:column;align-items:stretch"});
+  const fb=el("div",{class:"fb",hidden:""});
+  opts.forEach((o,i)=>{const L="ABCDEF"[i];
+    const b=isGraph?el("button",{class:"gopt"},`<b>${L}</b>${o}`):el("button",{class:"opt"},`<b style="font:700 18px var(--titel);color:var(--goud-text);margin-right:10px">${L}</b>${o}`);
+    b.addEventListener("click",()=>{
+      wrap.querySelectorAll("button").forEach(x=>x.disabled=true);
+      const good=i===right; b.classList.add(good?"right":"wrong");
+      if(!good)wrap.children[right].classList.add("right");
+      fb.className="fb "+(good?"ok":"no");
+      fb.innerHTML=good?`Goed: <b>${"ABCDEF"[right]}</b>. ${pts} ${pts>1?"punten":"punt"}.`:`Het goede antwoord is <b>${"ABCDEF"[right]}</b>. 0 punten.`;
+      fb.hidden=false; setScore(qid,good?pts:0); onChecked&&onChecked();
+    });wrap.append(b);});
+  container.append(wrap,fb);
+}
+function waaromBtn(container,build){
+  const b=el("button",{class:"ghost waarombtn"},"Laat zien waarom ›");const box=el("div",{hidden:""});
+  b.onclick=()=>{b.remove();box.hidden=false;build(box);if(window.EXSTOF)EXSTOF.extraWaarom(TOOL,cur,box);};
+  container.append(b,box);
+}
+function lockAns(think,ans,label="Naar de vraag ›"){
+  ans.classList.add("locked");
+  const go=el("button",{class:"go tonext",hidden:""},label);
+  go.onclick=()=>{ans.classList.remove("locked");go.remove();ans.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});};
+  think.append(go);
+  return ()=>{think.append(go);go.hidden=false;};
+}
+function helpButton(q,think){
+  const b=el("button",{class:"ghost helpbtn"},"Hulp nodig? Toon de hulpvragen");
+  b.onclick=()=>{think.classList.add("open");b.remove();};
+  q.append(b);
+}
+function setScore(id,p){store.scores[id]=p;save();renderTabs();if(nextBtns[id])nextBtns[id].hidden=false;}
+
+/* ---------- vragen ---------- */
+const Q=[],OPG=[];
+
+/* Vraag 5 en 6: eerst zonder opties */
+function noOptions(q,{id,pts,text,prompt,hint,opts,right,uitleg}){
+  q.append(el("p",{class:"qtext"},text));
+  const think=phase("think","Eerst zelf"),ans=phase("ans","Kies je antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Toon de keuzes ›");
+  const s=el("div",{class:"step"});s.append(el("p",{},prompt));
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:"Wat denk jij? Schrijf het kort op."});const hb=el("button",{class:"ghost"},"Tip");const hf=el("div",{class:"fb hint",hidden:""},hint);
+  hb.onclick=()=>{hf.hidden=false;hb.remove();};
+  ta.addEventListener("input",()=>{if(ta.value.trim().length>2)unlock();});
+  s.append(ta,hb,hf);think.append(s);
+  mc(ans,{qid:id,pts,right,opts,onChecked:()=>{
+    if(ta.value.trim())ans.append(el("div",{class:"model"},`<b>Jij dacht eerst:</b> ${ta.value.replace(/</g,"&lt;")}<br><span class="muted">Klopte dat met de keuze die je maakte?</span>`));
+    waaromBtn(ans,b=>b.append(el("div",{class:"model"},uitleg)));}});
+  q.append(think,ans);
+}
+/* ================= extra bouwstenen ================= */
+function pre(q,html){q.append(el("div",{class:"pre"},html));}
+function chipsStep(container,{q,items,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});
+  items.forEach(([t])=>{const b=el("button",{class:"chip","aria-pressed":"false"},t);b.onclick=()=>b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")==="true"?"false":"true");row.append(b);});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(row,ck,fb);container.append(s);
+  ck.onclick=()=>{const sel=[...row.children].map(b=>b.getAttribute("aria-pressed")==="true");
+    const teveel=sel.some((s,k)=>s&&!items[k][1]),mist=sel.some((s,k)=>!s&&items[k][1]);fb.hidden=false;
+    if(!teveel&&!mist){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;row.querySelectorAll("button").forEach(b=>b.disabled=true);onDone&&onDone();}
+    else if(teveel){fb.className="fb hint";fb.innerHTML=no;}
+    else{fb.className="fb hint";fb.innerHTML="Wat je gekozen hebt klopt, maar er hoort nog meer bij. Kies alles wat klopt.";}};
+  return s;
+}
+function selectsStep(container,{q,rows,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const id=uid+"s"+k;
+    r.append(el("label",{for:id,class:"sellab"},lab));const sel=el("select",{id});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);s.append(r);return sel;});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(ck,fb);container.append(s);
+  ck.onclick=()=>{const n=sels.filter((sel,k)=>sel.value!==""&&+sel.value===rows[k][2]).length;fb.hidden=false;
+    if(n===rows.length){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;sels.forEach(x=>x.disabled=true);onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=`${n} van de ${rows.length} goed. `+(no||"Probeer het nog eens.");}};
+}
+function numStep(container,{q,right,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const r=el("div",{class:"row"});const inp=el("input",{class:"num",id:uid,inputmode:"decimal","aria-label":"antwoord"});const ck=el("button",{class:"ghost"},"Controleer");const fb=el("div",{class:"fb",hidden:""});
+  r.append(inp,ck);s.append(r,fb);container.append(s);
+  ck.onclick=()=>{const v=parseFloat((inp.value||"").replace(",","."));fb.hidden=false;
+    if(v===right){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;inp.disabled=true;onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=no;}};
+}
+function openAnswer(ans,{id,pts,checks,model,valkuil,placeholder,after}){
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:placeholder||"Schrijf je antwoord…"});
+  const ck=el("button",{class:"go"},"Nakijken");const tf=el("div",{class:"fb hint",hidden:""},"Schrijf eerst je antwoord op. Daarna kijk je het na.");
+  ans.append(ta,ck,tf);
+  ck.onclick=()=>{if(ta.value.trim().length<8){tf.hidden=false;ta.focus();return;}tf.remove();ck.remove();ta.readOnly=true;
+    const ss=el("div",{class:"selfscore"});
+    ss.append(el("p",{style:"margin:0"},"<b>Kijk jezelf na met het antwoordmodel.</b> Vink aan wat er in jouw antwoord staat."));
+    const boxes=checks.map((c,k)=>{const lab=el("label",{},`<input type="checkbox" id="q${id}c${k}"><span>${c} <span class="pts">1p</span></span>`);ss.append(lab);return lab.querySelector("input");});
+    if(model)ss.append(el("div",{class:"model"},"<b>Voorbeeldantwoord:</b> "+model));
+    if(valkuil)ss.append(el("div",{class:"fb hint"},"<b>Valkuil:</b> "+valkuil));
+    const sc=el("div",{class:"score"});ss.append(sc);ans.append(ss);
+    const upd=()=>{const p=Math.min(pts,boxes.filter(b=>b.checked).length);sc.textContent=`Jouw score: ${p} / ${pts}`;setScore(id,p);};
+    boxes.forEach(b=>b.onchange=upd);upd();after&&after();};
+}
+function juistOnjuist(ans,{id,stm,key,uitleg}){
+  const pick=stm.map(()=>null);
+  stm.forEach((t,k)=>{const r=el("div",{class:"row"});r.append(el("span",{style:"flex:1 1 260px"},`<b style="font-family:var(--meta)">${k+1}</b>&nbsp; ${t}`));
+    ["juist","onjuist"].forEach((lab,v)=>{const b=el("button",{class:"chip","aria-pressed":"false"},lab);b.onclick=()=>{pick[k]=v===0;r.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c===b?"true":"false"));};r.append(b);});ans.append(r);});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(pick.includes(null)){fb.hidden=false;fb.className="fb hint";fb.textContent="Beoordeel eerst alle uitspraken.";return;}
+    const n=pick.filter((p,k)=>p===key[k]).length;const p=n===stm.length?2:n===stm.length-1?1:0;ck.disabled=true;
+    ans.querySelectorAll(".chip").forEach(c=>c.disabled=true);
+    fb.hidden=false;fb.className="fb "+(p===2?"ok":"no");
+    fb.innerHTML=`${n} van de ${stm.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+key.map((k,i)=>`${i+1} ${k?"juist":"onjuist"}`).join(" · ");setScore(id,p);
+    waaromBtn(ans,uitleg);};
+}
+function stepAnim(box,steps,render){
+  let i=0;const stage=el("div",{class:"stage"}),cap=el("p",{class:"cap"});
+  const prev=el("button",{class:"ghost"},"‹ Vorige"),next=el("button",{class:"go"},"Volgende ›");
+  const pips=el("div",{class:"pips"},steps.map(()=>"<span></span>").join(""));
+  const nav=el("div",{class:"nav"});nav.append(prev,next,pips);
+  const a=el("div",{class:"anim"});a.append(stage,cap,nav);box.append(a);
+  function show(){cap.innerHTML=steps[i].cap;prev.disabled=i===0;next.textContent=i===steps.length-1?"Opnieuw ›":"Volgende ›";
+    pips.querySelectorAll("span").forEach((p,j)=>p.classList.toggle("on",j===i));render(stage,steps[i],i);}
+  prev.onclick=()=>{if(i>0){i--;show();}};next.onclick=()=>{i=(i+1)%steps.length;show();};show();
+}
+/* ================= meer bouwstenen ================= */
+function seqStep(container,{q,items,shown,ok,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const seq=el("div",{class:"seq"});let at=0;const fb=el("div",{class:"fb",hidden:""});
+  shown.forEach(k=>{const b=el("button",{class:"opt"},`<span class="n">·</span>${items[k]}`);b.onclick=()=>{if(b.classList.contains("placed"))return;
+    if(k===at){b.classList.add("placed");b.querySelector(".n").textContent=at+1;at++;fb.hidden=true;if(at===items.length){fb.hidden=false;fb.className="fb ok";fb.innerHTML=ok;onDone&&onDone();}}
+    else{fb.hidden=false;fb.className="fb hint";fb.textContent="Dat is nog niet de volgende stap. Wat gebeurt er direct daarna?";}};seq.append(b);});
+  s.append(seq,fb);container.append(s);
+}
+function selectAnswer(ans,{id,rows,score,uid,after,intro}){
+  if(intro)ans.append(el("p",{style:"margin:0"},intro));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const sid=uid+"a"+k;
+    r.append(el("label",{for:sid,class:"sellab"},lab));const sel=el("select",{id:sid});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);ans.append(r);return sel;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(sels.some(x=>x.value==="")){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul eerst alles in.";return;}
+    const n=sels.filter((x,k)=>+x.value===rows[k][2]).length;const p=score(n);sels.forEach(x=>x.disabled=true);ck.remove();
+    fb.hidden=false;fb.className="fb "+(n===rows.length?"ok":"no");
+    fb.innerHTML=`${n} van de ${rows.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+rows.map(([lab,opts,r])=>`${lab}: ${opts[r]}`).join(" · ");
+    setScore(id,p);after&&after();};
+}
+function textBox(html){return b=>b.append(el("div",{class:"model"},html));}
+const svgWrap=(vb,inner,label)=>`<svg viewBox="${vb}" role="img" aria-label="${label}">${inner}</svg>`;
+function numAnswer(ans,{id,fields,after}){
+  const inps=fields.map(([lab,unit],k)=>{const r=el("div",{class:"row"});const fid="q"+id+"f"+k;
+    r.append(el("label",{for:fid,class:"sellab"},lab));const i=el("input",{class:"num",id:fid,inputmode:"decimal"});r.append(i,el("span",{class:"muted"},unit));ans.append(r);return i;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{const v=inps.map(i=>parseFloat((i.value||"").replace(",",".")));if(v.some(isNaN)){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul beide uitkomsten in.";return;}
+    inps.forEach(i=>i.disabled=true);ck.remove();const res=fields.map((f,k)=>f[2](v[k]));const p=res.filter(Boolean).length;
+    fb.hidden=false;fb.className="fb "+(p===fields.length?"ok":"no");
+    fb.innerHTML=`<b>${p} van de ${fields.length} punten.</b><br>`+fields.map((f,k)=>`${res[k]?"✓":"✗"} ${f[3]}`).join("<br>");setScore(id,p);after&&after();};
+}
+
+/* ===== Oefentoets Transport: gedeelde hulpjes (havo en vwo uit één bron) ===== */
+const VWO=true;
+let QN=0,ON=0;
+/* vraag(punten, onderwerp, build(q,id), stof?) -> id; stof = {titel, html, anim?, films?} voor 'Uitleg van de stof' */
+function vraag(pts,t,build,stof){const id=++QN;Q.push({id,pts,t,build:q=>build(q,id)});
+  if(stof&&window.EXSTOF)EXSTOF.zet(TOOL,[id],stof);return id;}
+function opgave(kort,titel,html,ids){const nr=++ON;
+  OPG.push({nr,kort,titel,ids,ctx:`<div class="pkop"><span class="mono">Toetstekst · ${html?"inleiding opgave "+nr:"opgave "+nr}</span></div>`+(html||`<p class="muted" style="margin:0">Bij deze opgave hoort geen inleiding.</p>`)});}
+/* films van het thema (hrefs als in HOOFDSTUKKEN.transport.films) */
+const F={
+  pomp:["Eén pomp, twee rondjes","films/transport/1-een-pomp-twee-rondjes.html"],
+  druk:["Buizen onder druk","films/transport/2-buizen-onder-druk.html"],
+  bloed:["Wat er in je bloed zit","films/transport/3-wat-er-in-je-bloed-zit.html"],
+  lymfe:["Weefselvloeistof en lymfe","films/transport/4-weefselvloeistof-en-lymfe.html"],
+  regel:["Het hart onder controle","films/transport/5-het-hart-onder-controle.html"]};
+/* begin van een vraag: vraagzin, hulp- en antwoordvak */
+function start(q,html){q.append(el("p",{class:"qtext"},html));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  return {think,ans,unlock};}
+/* uitspraken onder elkaar, zoals in de Word-toets */
+const UITSPRAKEN=(n,lijst,slot)=>`<p>Hieronder staan ${n} uitspraken.</p><p class="qtext" style="margin:0">${lijst.map((u,k)=>`${k+1} ${u}`).join("<br>")}<br><br><b>${slot||"Geef bij elke uitspraak aan of hij juist of onjuist is."}</b></p>`;
+const B=t=>`<b>${t}</b>`;
+
+/* Rekenvraag: goed antwoord (binnen marge) = alle punten; anders zelf afvinken wat wel goed was (deelpunten uit het
+   correctievoorschrift, samen hooguit punten − 1). */
+function rekenAnswer(ans,{id,pts,right,marge=0,ook=[],eenheid="",label="uitkomst",deel=[],model,after}){
+  const r=el("div",{class:"row"});const fid="q"+id+"f0";
+  r.append(el("label",{for:fid,class:"sellab"},label));const inp=el("input",{class:"num",id:fid,inputmode:"decimal"});r.append(inp,el("span",{class:"muted"},eenheid));ans.append(r);
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{const v=parseFloat((inp.value||"").replace(/\s/g,"").replace(",","."));
+    if(isNaN(v)){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul eerst je uitkomst in (alleen het getal).";return;}
+    inp.disabled=true;ck.remove();fb.hidden=false;
+    if([right,...ook.map(o=>o[0])].some((w,k)=>Math.abs(v-w)<=(k?ook[k-1][1]:marge)+1e-9)){fb.className="fb ok";fb.innerHTML=`Goed: <b>${pts} punten</b>.`;setScore(id,pts);}
+    else{fb.className="fb no";fb.innerHTML=`Jouw uitkomst klopt niet. Het goede antwoord is <b>${String(right).replace(".",",")} ${eenheid}</b>.`;
+      const ss=el("div",{class:"selfscore"});ss.append(el("p",{style:"margin:0"},"<b>Deelpunten?</b> Vink aan wat er wel goed was in je berekening."));
+      const boxes=deel.map((c,k)=>{const lab=el("label",{},`<input type="checkbox" id="q${id}d${k}"><span>${c} <span class="pts">1p</span></span>`);ss.append(lab);return lab.querySelector("input");});
+      const sc=el("div",{class:"score"});ss.append(sc);ans.append(ss);
+      const upd=()=>{const p=Math.min(pts-1,boxes.filter(b=>b.checked).length);sc.textContent=`Jouw score: ${p} / ${pts}`;setScore(id,p);};
+      boxes.forEach(b=>b.onchange=upd);upd();}
+    if(model)ans.append(el("div",{class:"model"},"<b>Uitwerking:</b> "+model));
+    after&&after();};
+}
+/* Tabel invullen met keuzelijsten: rijen = [naam, [[opties, goed], [opties, goed]]]; alles goed 2p, één fout 1p. */
+function tabelAnswer(ans,{id,kop,rijen,after}){
+  const t=el("table",{class:"data"});t.innerHTML=`<tr>${kop.map(k=>`<th>${k}</th>`).join("")}</tr>`;const sels=[];
+  rijen.forEach(([naam,cellen],r)=>{const tr=el("tr");tr.append(el("td",{},naam));
+    cellen.forEach(([opts,goed],c)=>{const td=el("td");const s=el("select",{id:`q${id}t${r}${c}`,"aria-label":`${naam}: ${kop[c+1]}`});
+      s.append(el("option",{value:""},"kies…"));opts.forEach((o,j)=>s.append(el("option",{value:j},o)));td.append(s);tr.append(td);sels.push([s,goed,opts]);});t.append(tr);});
+  const w=el("div",{class:"tablewrap"});w.append(t);ans.append(w);
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(sels.some(([s])=>s.value==="")){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul eerst alle vakjes in.";return;}
+    const fout=sels.filter(([s,g])=>+s.value!==g).length;const p=fout===0?2:fout===1?1:0;sels.forEach(([s,g])=>{s.disabled=true;s.style.outline=`2px solid var(${+s.value===g?"--groen":"--koraal"})`;});ck.remove();
+    fb.hidden=false;fb.className="fb "+(p===2?"ok":"no");
+    fb.innerHTML=`${sels.length-fout} van de ${sels.length} vakjes goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+rijen.map(([n,c])=>`${n}: ${c.map(([o,g])=>o[g]).join(", ")}`).join(" · ");
+    setScore(id,p);after&&after();};
+}
+/* Koppelvraag: begrippen 1–5 aan omschrijvingen A–F; alles goed 2p, één fout 1p. */
+function koppelAnswer(ans,{id,uid,begrippen,omschr,key,after}){
+  ans.append(el("p",{style:"margin:0"},omschr.map((o,k)=>`<b>${"ABCDEF"[k]}</b> ${o}`).join("<br>")));
+  selectAnswer(ans,{id,uid,rows:begrippen.map((b,k)=>[`${k+1} ${b}`,omschr.map((o,j)=>"ABCDEF"[j]),key[k]]),
+    score:n=>n===begrippen.length?2:n===begrippen.length-1?1:0,after});
+}
+
+/* ---------- figuren (eigen tekeningen, kleuren uit de huisstijl) ---------- */
+const PIJLKOP=(x,y,dir,kl)=>{const d={r:[-9,-5,-9,5],l:[9,-5,9,5],u:[-5,9,5,9],d:[-5,-9,5,-9]}[dir];
+  return `<path d="M${x},${y} L${x+d[0]},${y+d[1]} L${x+d[2]},${y+d[3]} Z" fill="${kl}"/>`;};
+/* Bloedsomloop als schema. opties: hl = vaten/delen die oplichten, kleur = zuurstofrijk/-arm kleuren, stip = [x,y] */
+const CIRC_VAT={
+  longslagader:{d:"M230,250 H170 V50 H200",eind:[200,50,"r"],rijk:0,lab:[164,135,"end","longslagader"]},
+  longader:{d:"M440,50 H480 V178 H410",eind:[410,178,"l"],rijk:1,lab:[486,120,"start","longader"]},
+  aorta:{d:"M410,250 H520 V390 H440",eind:[440,390,"l"],rijk:1,lab:[526,320,"start","aorta"]},
+  holle:{d:"M200,390 H120 V178 H230",eind:[230,178,"r"],rijk:0,lab:[114,300,"end","holle aders"]}};
+function CIRC({hl=[],kleur=false,stip=null}={}){
+  const dim=k=>hl.length&&!hl.includes(k)?.28:1;
+  const kl=k=>kleur?(CIRC_VAT[k].rijk?"var(--koraal)":"var(--teal)"):"var(--text2)";
+  let s="";
+  const vak=(k,x,y,w,h,t1,t2)=>{s+=`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="8" fill="${hl.includes(k)?"var(--goud-soft)":"none"}" stroke="var(--text2)" stroke-width="1.4" opacity="${dim(k)}"/>`+
+    `<text x="${x+w/2}" y="${y+h/2+(t2?-3:4)}" text-anchor="middle" class="lbl" opacity="${dim(k)}">${t1}</text>`+(t2?`<text x="${x+w/2}" y="${y+h/2+13}" text-anchor="middle" class="lblm" opacity="${dim(k)}">${t2}</text>`:"");};
+  vak("longen",200,22,240,56,"longen","haarvaten");
+  vak("lichaam",200,362,240,56,"hoofd, romp, armen en benen","haarvaten");
+  vak("RB",230,150,85,55,"rechter-","boezem");vak("RK",230,210,85,80,"rechter-","kamer");
+  vak("LB",325,150,85,55,"linker-","boezem");vak("LK",325,210,85,80,"linker-","kamer");
+  for(const k in CIRC_VAT){const v=CIRC_VAT[k];const c=kl(k);
+    s+=`<path d="${v.d}" fill="none" stroke="${c}" stroke-width="${hl.includes(k)?5:3}" opacity="${dim(k)}" stroke-linejoin="round"/>`+`<g opacity="${dim(k)}">${PIJLKOP(v.eind[0],v.eind[1],v.eind[2],c)}</g>`+
+      `<text x="${v.lab[0]}" y="${v.lab[1]}" text-anchor="${v.lab[2]}" class="lbl" opacity="${dim(k)}">${v.lab[3]}</text>`;}
+  s+=`<text x="320" y="320" text-anchor="middle" class="lblm">hart (vooraanzicht: rechts in het lichaam = links in de tekening)</text>`;
+  if(kleur)s+=`<path d="M40,440 h30" stroke="var(--koraal)" stroke-width="4"/><text x="78" y="444" class="lblm">zuurstofrijk</text><path d="M190,440 h30" stroke="var(--teal)" stroke-width="4"/><text x="228" y="444" class="lblm">zuurstofarm</text>`;
+  if(stip)s+=`<circle cx="${stip[0]}" cy="${stip[1]}" r="9" fill="var(--goud)" stroke="var(--text)" stroke-width="1.5"/>`;
+  return `<div class="trfig" style="max-width:600px;margin:0 auto;width:100%;--min:420px">`+svgWrap("0 0 640 456",s,"Schema van de bloedsomloop met hart, longen en lichaam")+`</div>`;}
+
+/* Drukverloop in de grote bloedsomloop (vereenvoudigd). hl = index van het deel dat oplicht. */
+const DRUK_DEEL=["aorta","grote slagaders","kleine slagaders","haarvaten","aders","holle aders"];
+function DRUK({hl=-1}={}){
+  const X0=70,X1=620,W=(X1-X0)/6,yP=p=>250-p*1.6;
+  let s="";
+  DRUK_DEEL.forEach((n,i)=>{const x=X0+i*W;if(i===hl)s+=`<rect x="${x}" y="40" width="${W}" height="212" fill="var(--goud-soft)"/>`;
+    s+=`<path d="M${x},40 V252" stroke="var(--line)"/><text x="${x+W/2}" y="270" text-anchor="middle" class="lblm">${n}</text>`;});
+  s+=`<path d="M${X0},36 V252 H${X1}" fill="none" stroke="var(--text2)" stroke-width="1.4"/>`;
+  [0,40,80,120].forEach(v=>s+=`<text x="${X0-8}" y="${yP(v)+4}" text-anchor="end" class="lblm">${v}</text>`);
+  s+=`<text x="16" y="146" class="lblm" text-anchor="middle" transform="rotate(-90 16 146)">bloeddruk (mm kwik)</text>`;
+  /* midden en uitslag per x: hoog en golvend in de slagaders, daarna dalend en vlak */
+  const N=330;let d="";for(let k=0;k<=N;k++){const f=k/N,x=X0+f*(X1-X0);let mid,amp;
+    if(f<2/6){mid=98-f*6;amp=20;}else if(f<3/6){const g=(f-2/6)*6;mid=96-g*61;amp=20*(1-g)+1;}else if(f<4/6){const g=(f-3/6)*6;mid=35-g*20;amp=0;}else{const g=(f-4/6)*3;mid=15-g*12;amp=0;}
+    const p=mid+amp*Math.sin(f*2*Math.PI*14);d+=(k?"L":"M")+x.toFixed(1)+","+yP(p).toFixed(1)+" ";}
+  s+=`<path d="${d}" fill="none" stroke="var(--koraal)" stroke-width="2.4" stroke-linejoin="round"/>`;
+  s+=`<text x="${X1}" y="30" text-anchor="end" class="lblm">vereenvoudigd; de golfjes zijn de hartslagen</text>`;
+  return `<div class="trfig" style="max-width:640px;margin:0 auto;width:100%;--min:460px">`+svgWrap("0 0 640 284",s,"Bloeddruk in de grote bloedsomloop, van aorta tot holle aders")+`</div>`;}
+
+/* Afbeelding 1 van de wielrenner: hartfrequentie bij toenemend vermogen (fictieve gegevens, zoals
+   eigen/figuren/transport/maak.py in kamieljacobs/toetsen-biologie). hl = vermogen (W) dat oplicht. */
+const FIETS_ONG=[[0,70],[50,100],[100,125],[150,150],[200,175],[250,195]];
+const FIETS_GET=[[0,42],[50,65],[100,85],[150,105],[200,125],[250,145],[300,162],[350,176],[400,186]];
+function FIETS({hl=null}={}){
+  const X0=80,X1=620,xs=w=>X0+(w+10)*(X1-X0)/430,ys=h=>300-h*1.3;
+  let s="";
+  if(hl!==null)s+=`<rect x="${xs(hl)-10}" y="24" width="20" height="276" fill="var(--goud-soft)"/>`;
+  [0,50,100,150,200,250,300,350,400].forEach(w=>s+=`<path d="M${xs(w)},27 V300" stroke="var(--line)"/><text x="${xs(w)}" y="318" text-anchor="middle" class="lblm">${w}</text>`);
+  [0,40,80,120,160,200].forEach(h=>s+=`<path d="M${X0},${ys(h)} H${X1}" stroke="var(--line)"/><text x="${X0-10}" y="${ys(h)+4}" text-anchor="end" class="lblm">${h}</text>`);
+  s+=`<path d="M${X0},24 V300 H${X1}" fill="none" stroke="var(--text2)" stroke-width="1.4"/>`;
+  const lijn=(a,da,c)=>`<path d="${a.map(([w,h],i)=>(i?"L":"M")+xs(w)+","+ys(h)).join(" ")}" fill="none" stroke="${c}" stroke-width="2.4" stroke-dasharray="${da}"/>`;
+  s+=lijn(FIETS_ONG,"8 5","var(--text2)")+FIETS_ONG.map(([w,h])=>`<circle cx="${xs(w)}" cy="${ys(h)}" r="5" fill="var(--surface)" stroke="var(--text2)" stroke-width="2"/>`).join("");
+  s+=lijn(FIETS_GET,"","var(--text)")+FIETS_GET.map(([w,h])=>`<rect x="${xs(w)-5}" y="${ys(h)-5}" width="10" height="10" fill="var(--text)"/>`).join("");
+  s+=`<path d="M380,250 h34" stroke="var(--text2)" stroke-width="2.4" stroke-dasharray="8 5"/><circle cx="397" cy="250" r="5" fill="var(--surface)" stroke="var(--text2)" stroke-width="2"/><text x="422" y="254" class="lbl">ongetrainde leeftijdsgenoot</text>`;
+  s+=`<path d="M380,274 h34" stroke="var(--text)" stroke-width="2.4"/><rect x="392" y="269" width="10" height="10" fill="var(--text)"/><text x="422" y="278" class="lbl">getrainde wielrenner</text>`;
+  s+=`<text x="${(X0+X1)/2}" y="340" text-anchor="middle" class="lblm">vermogen op de fiets (W)</text>`;
+  s+=`<text x="20" y="160" class="lblm" text-anchor="middle" transform="rotate(-90 20 160)">hartfrequentie (slagen per minuut)</text>`;
+  return `<div class="trfig" style="max-width:640px;margin:0 auto;width:100%;--min:440px">`+svgWrap("0 0 640 350",s,"Hartfrequentie van de wielrenner en zijn ongetrainde leeftijdsgenoot bij toenemend vermogen")+`</div>`;}
+
+/* ===== Opgave 1: Het hart en de bloedsomloop (KH05, KH06, vwo KH07 en KH09, KH10 uit eigen/transport.json) ===== */
+{
+const STOF_SLAG={titel:"Eén hartslag",html:`
+<p>Bij elke hartslag trekken eerst de twee <b>boezems</b> samen: zij duwen het bloed de kamers in. Daarna trekken de twee <b>kamers</b> samen (de <b>systole</b>) en pompen het bloed de slagaders in. Dan ontspant het hart: de <b>diastole</b> of hartpauze. De hartkleppen zorgen dat het bloed maar één kant op kan.</p>
+<p>Het startsein voor elke slag komt niet uit je hersenen, maar uit het hart zelf: de <b>sinusknoop</b> in de wand van de rechterboezem geeft uit zichzelf steeds een elektrische prikkel af. Die prikkels kun je op je huid meten: dat is een <b>ECG</b> (elektrocardiogram), met een kleine P-top, een hoge piek (het QRS-complex) en, wat later, de T-top.</p>`
++(VWO?`<p>Voor vwo: de prikkel loopt over de boezems en kan alleen via de <b>AV-knoop</b> naar de kamers; daarna gaat hij via de <b>bundel van His</b> naar de punt van het hart en van daaruit omhoog door de kamerwanden.</p>`:""),
+films:[F.pomp]};
+const q1=vraag(1,"het ECG",(q,id)=>{
+  const {think,ans,unlock}=start(q,"In een ECG volgt op elke P-top een QRS-complex. "+B("Wat gebeurt er in het hart vlak na het QRS-complex?"));
+  choiceStep(think,{q:"In welke volgorde trekken de delen van het hart samen bij één hartslag?",opts:["eerst de kamers, dan de boezems","eerst de boezems, dan de kamers","boezems en kamers tegelijk"],right:1,
+    ok:"Ja. Kijk nu naar het ECG: welke top komt eerst, en welke daarna?",no:"Het bloed gaat van de boezems naar de kamers. Wat moet er dan eerst samentrekken?",
+    onDone:()=>choiceStep(think,{q:"Wanneer geeft de sinusknoop zijn prikkel af?",opts:["aan het begin van elke slag, vóór de boezems samentrekken","pas als de kamers klaar zijn met samentrekken"],right:0,
+      ok:"Goed. Elke top in het ECG hoort bij de prikkel die door een deel van het hart loopt. Kies nu je antwoord.",no:"De sinusknoop is de gangmaker: hij geeft het startsein voor de slag.",onDone:unlock})});
+  mc(ans,{qid:id,pts:1,right:1,opts:["de boezems trekken samen","de kamers trekken samen","de sinusknoop geeft een nieuwe prikkel af","de kleppen tussen boezems en kamers gaan open"],onChecked:()=>waaromBtn(ans,textBox(
+    "De kleine P-top hoort bij de boezems, het hoge QRS-complex bij de kamers: vlak daarna trekken de <b>kamers</b> samen. Antwoord <b>B</b>.<br>A verwart de P-top met het QRS-complex. C: de sinusknoop vuurt vóór de P-top, aan het begin van de slag. D: als de kamers samentrekken, gaan de kleppen tussen boezems en kamers juist dicht (dat is de boem)."))});
+  q.append(think,ans);
+},STOF_SLAG);
+
+const STOF_HMV={titel:"Slagvolume en hartminuutvolume",html:`
+<p>Het <b>slagvolume</b> is de hoeveelheid bloed die een kamer bij één slag wegpompt. De <b>hartfrequentie</b> is het aantal slagen per minuut. Samen bepalen ze het <b>hartminuutvolume</b>: hoeveel bloed het hart per minuut rondpompt.</p>
+<p>In rust klopt je hart ongeveer 70 keer per minuut en pompt elke kamer per slag ongeveer 70 mL weg. Samen is dat ongeveer 5 liter per minuut: al je bloed, één keer rond.</p>
+<p>Let bij rekenen op de eenheden: 1 liter = 1000 mL.</p>`,
+films:[F.pomp,F.regel]};
+const q2=vraag(2,"het slagvolume berekenen",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Bij een sporter in rust wordt een hartminuutvolume van 6,0 liter per minuut gemeten, bij een hartfrequentie van 75 slagen per minuut.<br>"+B("Bereken het slagvolume in mL."));
+  choiceStep(think,{q:"Welke formule hoort bij het hartminuutvolume?",opts:["hartminuutvolume = hartfrequentie × slagvolume","hartminuutvolume = slagvolume : hartfrequentie","hartminuutvolume = hartfrequentie + slagvolume"],right:0,
+    ok:"Ja. Je zoekt nu het slagvolume: schrijf de formule zo om dat het slagvolume alleen staat.",no:"Denk aan het voorbeeld uit de film: 70 slagen per minuut en 70 mL per slag geeft samen ongeveer 5 liter per minuut.",
+    onDone:()=>numStep(think,{uid:"q"+id+"n",q:"Hoeveel mL is 6,0 liter?",right:6000,ok:"Goed. Reken nu het slagvolume uit.",no:"1 liter = 1000 mL.",onDone:unlock})});
+  rekenAnswer(ans,{id,pts:2,right:80,marge:0.5,ook:[[0.08,0.0005]],eenheid:"mL",label:"slagvolume",deel:["Juiste berekening opgezet: slagvolume = hartminuutvolume : hartfrequentie (6000 mL : 75)"],
+    model:"hartminuutvolume = hartfrequentie × slagvolume, dus slagvolume = 6000 mL : 75 = <b>80 mL</b> (1 punt voor de berekening, 1 punt voor de uitkomst). Ook goed: 0,080 L.",
+    after:()=>waaromBtn(ans,textBox("Het hartminuutvolume is het bloed van alle slagen in één minuut samen. Delen door het aantal slagen per minuut geeft de hoeveelheid per slag: 6000 mL : 75 = 80 mL. Wie 6,0 : 75 rekent, krijgt 0,08: dat is in liter, niet in mL."))});
+  q.append(think,ans);
+},STOF_HMV);
+
+const ids=[q1,q2];
+if(VWO){
+ids.push(vraag(2,"de AV-knoop en de bundel van His",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Tussen de boezems en de kamers ligt een laag bindweefsel. De prikkel van de sinusknoop kan alleen via de AV-knoop naar de kamers.<br>"+B("Leg uit waarom het belangrijk is dat de prikkel in de AV-knoop wordt vertraagd, en waarom het nuttig is dat de kamers van onder naar boven samentrekken."));
+  choiceStep(think,{q:"Waar gaat het bloed heen als de boezems samentrekken?",opts:["naar de kamers","de slagaders in"],right:0,
+    ok:"Ja. Wat moet er dus gebeurd zijn voordat de kamers zelf samentrekken?",no:"Tussen boezem en slagader zit nog iets. Volg de weg van het bloed.",
+    onDone:()=>choiceStep(think,{q:"Waar vertrekken de aorta en de longslagader uit het hart?",opts:["bovenaan het hart","bij de punt van het hart, onderaan"],right:0,
+      ok:"Goed. Bedenk nu wat er met het bloed gebeurt als je een kamer van onder naar boven leegknijpt.",no:"Kijk in gedachten naar een tekening van het hart: de grote slagaders zitten aan de bovenkant.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Door de vertraging trekken de kamers pas samen als de boezems klaar zijn / als de kamers zich gevuld hebben.",
+    "De kamers trekken samen van de punt naar boven, zodat het bloed naar boven wordt geknepen, naar de slagaders (aorta en longslagader) die bovenaan vertrekken (zoals een tube tandpasta)."],
+    model:"In de AV-knoop wordt de prikkel ongeveer een tiende seconde vertraagd. Zo trekken de kamers pas samen als de boezems klaar zijn en de kamers vol zitten. De prikkel loopt daarna via de bundel van His naar de punt, en de kamers trekken van onder naar boven samen. Zo wordt het bloed naar boven geknepen, naar de aorta en de longslagader, die bovenaan vertrekken.",
+    valkuil:"‘Zodat het hart rust krijgt’ is geen uitleg bij de vertraging: het gaat om het vullen van de kamers. Bij het tweede deel moet de plek van de slagaders (bovenaan) erin staan.",
+    after:()=>waaromBtn(ans,textBox("Trekken boezems en kamers tegelijk samen, dan duwen de boezems bloed naar kamers die zich al leegknijpen: de kamers zijn dan niet goed gevuld. De vertraging in de AV-knoop voorkomt dat. En knijp je een tube tandpasta in het midden, dan blijft er onderin iets zitten; van onder naar boven knijpen duwt alles naar de opening, net als bij de kamers en de slagaders bovenaan."))});
+  q.append(think,ans);
+},STOF_SLAG));
+
+const STOF_VOL={titel:"Het hart van een ongeboren kind; druk en snelheid",html:`
+<p>Een ongeboren kind ademt nog niet: zijn bloed krijgt zuurstof uit de placenta, via de navelstreng. Daarom gaat het meeste bloed langs de longen. Daarvoor heeft het hart van een ongeboren kind twee extra verbindingen, het <b>foramen ovale</b> en de <b>ductus Botalli</b>. Bij de geboorte gaan de longen aan het werk en sluiten die verbindingen.</p>
+<p>Elastische slagaders vangen de stoten uit het hart op (de <b>windketelwerking</b>), zodat er ook tijdens de hartpauze bloed blijft stromen.</p>
+<p>Per seconde stroomt overal in de bloedsomloop even veel bloed. Dat <b>volume per seconde</b> is de totale doorsnede maal de snelheid.</p>`,
+films:[F.pomp,F.druk]};
+ids.push(vraag(2,"juist of onjuist: foetaal hart, windketel en snelheid",(q,id)=>{
+  q.append(el("div",{class:"qtext"},UITSPRAKEN(4,["Bij een ongeboren kind stroomt bloed door het foramen ovale van de rechterboezem naar de linkerboezem.","De ductus Botalli verbindt de longader met de aorta.","Bij de windketelwerking rekt de wand van de aorta uit tijdens de systole en veert hij terug tijdens de diastole.","Als de totale doorsnede van een deel van de bloedsomloop twee keer zo groot is, stroomt het bloed daar twee keer zo langzaam."])));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Waarom gaat bij een ongeboren kind het meeste bloed langs de longen?",opts:["de longen werken nog niet: de zuurstof komt uit de placenta","de longen zijn nog te klein om bloed door te laten"],right:0,
+    ok:"Ja. Bedenk bij uitspraak 1 en 2 waar het bloed langs moet om de longen over te slaan.",no:"Een ongeboren kind ademt nog niet. Waar komt zijn zuurstof dan vandaan?",
+    onDone:()=>choiceStep(think,{q:"Wat is overal in de bloedsomloop even groot?",opts:["de snelheid van het bloed","het volume bloed dat per seconde voorbijkomt","de bloeddruk"],right:1,
+      ok:"Goed: volume per seconde = doorsnede × snelheid. Denk bij uitspraak 4 na wat er dan met de snelheid gebeurt.",no:"Bloed hoopt zich nergens op: wat er bij het hart vertrekt, komt overal even veel per seconde langs.",onDone:unlock})});
+  juistOnjuist(ans,{id,stm:["foramen ovale: van rechterboezem naar linkerboezem","ductus Botalli: longader met aorta","windketel: aortawand rekt uit in de systole, veert terug in de diastole","twee keer zo grote doorsnede: twee keer zo langzaam"],key:[true,false,true,true],
+    uitleg:textBox("1 <b>juist</b>: zo slaat het bloed de longen over.<br>2 <b>onjuist</b>: de ductus Botalli verbindt de <b>longslagader</b> met de aorta. De longader brengt bloed van de longen naar het hart; die is bij een ongeboren kind niet de omweg.<br>3 <b>juist</b>: zo duwt de aorta ook in de hartpauze nog bloed verder.<br>4 <b>juist</b>: het volume per seconde blijft gelijk, dus bij twee keer zo veel doorsnede is de snelheid half zo groot.")});
+  q.append(think,ans);
+},STOF_VOL));
+}
+
+const STOF_ROND={titel:"Twee rondjes",html:`
+<p>Je hart is eigenlijk twee pompen naast elkaar. De rechterhelft pompt bloed door de <b>kleine bloedsomloop</b>: naar de longen en terug. De linkerhelft pompt bloed door de <b>grote bloedsomloop</b>: naar alle organen en terug.</p>
+<p>Een <b>slagader</b> voert bloed van het hart af, een <b>ader</b> voert bloed naar het hart toe. In de haarvaten van de longen neemt het bloed zuurstof op; in de haarvaten van de organen geeft het zuurstof af.</p>`,
+films:[F.pomp]};
+const VATEN=["aorta","longslagader","longader","onderste holle ader"];
+const SOORT=["slagader","ader"],O2=["zuurstofrijk","zuurstofarm"];
+ids.push(vraag(2,"slagader of ader, zuurstofrijk of -arm",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Vul bij elk bloedvat in of het een slagader of een ader is, en of het zuurstofrijk of zuurstofarm bloed vervoert."));
+  choiceStep(think,{q:"Wat bepaalt of een bloedvat een slagader of een ader heet?",opts:["of het bloed zuurstofrijk of zuurstofarm is","de richting: van het hart af of naar het hart toe","hoe dik het bloedvat is"],right:1,
+    ok:"Ja. Bepaal dat per bloedvat. Daarna de zuurstof.",no:"Er bestaan slagaders met zuurstofarm bloed. Het gaat dus niet om de zuurstof.",
+    onDone:()=>choiceStep(think,{q:"Waar neemt het bloed zuurstof op?",opts:["in de haarvaten van de longen","in het hart","in de haarvaten van de organen"],right:0,
+      ok:"Goed. Bedenk per bloedvat: komt het bloed net uit de longen, of is het op weg ernaartoe?",no:"Waar komt de zuurstof in je lichaam binnen?",onDone:unlock})});
+  tabelAnswer(ans,{id,kop:["bloedvat","slagader of ader","zuurstofrijk of zuurstofarm"],rijen:[
+    ["aorta",[[SOORT,0],[O2,0]]],["longslagader",[[SOORT,0],[O2,1]]],["longader",[[SOORT,1],[O2,0]]],["onderste holle ader",[[SOORT,1],[O2,1]]]],
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"De <b>aorta</b> voert bloed uit de linkerkamer naar de organen: een slagader, met zuurstofrijk bloed.",hl:["aorta","LK"]},
+      {cap:"De <b>longslagader</b> voert bloed uit de rechterkamer naar de longen: ook van het hart af, dus een slagader. Het bloed komt uit het lichaam en is zuurstofarm.",hl:["longslagader","RK"]},
+      {cap:"De <b>longader</b> brengt bloed uit de longen naar de linkerboezem: naar het hart toe, dus een ader. Het heeft net zuurstof opgenomen: zuurstofrijk.",hl:["longader","LB"]},
+      {cap:"De <b>onderste holle ader</b> brengt bloed uit de romp en de benen naar de rechterboezem: een ader, met zuurstofarm bloed. Slagader betekent dus niet ‘zuurstofrijk’.",hl:["holle","RB"]}],
+      (st,s)=>st.innerHTML=CIRC({hl:s.hl,kleur:true})))});
+  q.append(think,ans);
+},STOF_ROND));
+
+opgave("Hart","Het hart en de bloedsomloop","",ids);
+}
+
+/* ===== Opgave 2 (alleen havo): Bloedvaten en bloeddruk (KV02, KV03, KV04 uit eigen/transport.json) ===== */
+if(!VWO){
+const STOF_DRUK={titel:"Bloeddruk en polsslag",html:`
+<p>Bij elke hartslag trekt de linkerkamer samen (<b>systole</b>) en spuit het bloed de aorta in: de druk schiet omhoog. Dat is de <b>bovendruk</b>. Daarna ontspant de kamer (<b>diastole</b>) en zakt de druk weer: de <b>onderdruk</b>. Bij een jongvolwassene in rust is dat ongeveer 120 over 80 mm kwik.</p>
+<p>Een <b>bloeddrukmeter</b> knijpt met een band om je bovenarm de slagader dicht en laat hem langzaam weer los. Je <b>polsslag</b> voel je bij elke slag in een slagader.</p>
+<p>Vanaf het hart vertakken de slagaders in steeds kleinere vaten, tot de <b>haarvaten</b>; daarna komen ze samen in aders.</p>`,
+films:[F.druk]};
+const q1=vraag(2,"juist of onjuist: bloeddruk",(q,id)=>{
+  q.append(el("div",{class:"qtext"},UITSPRAKEN(6,["De bovendruk is de druk in de slagaders tijdens de systole van de kamers.","Tijdens de diastole wordt de druk in de aorta nul.","Als je je polsslag voelt, voel je het bloed langs je vingers stromen.","Bij een bloeddrukmeting meet je de bovendruk op het moment dat het eerste bloed weer door de dichtgeknepen slagader komt.","De grootste daling van de bloeddruk zit in de kleinste slagaders.","Het bloed stroomt het snelst in de haarvaten, omdat die zo smal zijn."])));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  selectsStep(think,{uid:"q"+id,q:"Wat gebeurt er met de kamers?",rows:[["systole",["de kamers trekken samen","de kamers ontspannen"],0],["diastole",["de kamers trekken samen","de kamers ontspannen"],1]],
+    ok:"Goed. Bedenk bij uitspraak 1 en 2 wat er in die twee fasen met de druk in de slagaders gebeurt.",no:"Systole = samentrekken; diastole = de hartpauze.",
+    onDone:()=>choiceStep(think,{q:"Waar is de totale doorsnede van alle bloedvaten samen het grootst?",opts:["bij de aorta","bij alle haarvaten samen","bij de holle aders"],right:1,
+      ok:"Ja. Denk bij uitspraak 6 na: per seconde stroomt overal even veel bloed. Wat betekent een grote totale doorsnede dan voor de snelheid?",no:"Eén haarvat is smal, maar tel ze allemaal bij elkaar op.",onDone:unlock})});
+  juistOnjuist(ans,{id,stm:["bovendruk = druk tijdens de systole","in de diastole wordt de druk in de aorta nul","polsslag = bloed dat langs je vingers stroomt","bovendruk = eerste bloed door de dichtgeknepen slagader","grootste daling in de kleinste slagaders","snelst in de haarvaten"],key:[true,false,false,true,true,false],
+    uitleg:b=>{textBox("1 <b>juist</b>.<br>2 <b>onjuist</b>: de rekbare wand van de aorta duwt in de diastole nog bloed na, dus de druk blijft rond 80.<br>3 <b>onjuist</b>: je voelt een drukgolf in de wand van de slagader. Die is in een tiende seconde bij je pols; het bloed zelf doet er een paar seconden over.<br>4 <b>juist</b>; als het bloed weer vrij stroomt, lees je de onderdruk af.<br>5 <b>juist</b>: zie de grafiek hieronder.<br>6 <b>onjuist</b>: alle haarvaten samen hebben een veel grotere doorsnede, dus daar stroomt het bloed juist het <b>langzaamst</b>.")(b);
+      b.append(el("div",{},DRUK({hl:2})));}});
+  q.append(think,ans);
+},STOF_DRUK);
+
+const STOF_TERUG={titel:"Terug naar het hart",html:`
+<p>Na de haarvaten is er nog maar weinig druk over: te weinig om het bloed uit je voeten omhoog te duwen. De aders in je benen liggen tussen je spieren. Loop je, dan knijpen je kuitspieren de aders steeds even samen. De <b>kleppen</b> in de aders laten het bloed maar één kant op: naar het hart. Samen werken spieren en kleppen als een pomp: de <b>spierpomp</b>.</p>
+<p>Als er te weinig bloed naar het hoofd gaat, krijgen de hersenen te weinig zuurstof.</p>`,
+films:[F.druk]};
+const q2=vraag(2,"flauwvallen bij de diploma-uitreiking",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Tijdens een lange diploma-uitreiking in de zon valt een leerling flauw.<br>"+B("Leg uit hoe het stilstaan en de warmte samen leiden tot te weinig bloed in de hersenen. Gebruik het begrip spierpomp."));
+  choiceStep(think,{q:"Wat doen je kuitspieren met de aders in je benen als je loopt?",opts:["ze knijpen de aders steeds even samen","ze maken de aders wijder","niets: aders liggen niet bij spieren"],right:0,
+    ok:"Ja, samen met de kleppen is dat de spierpomp. Wat gebeurt er als je stilstaat?",no:"Lees ‘Uitleg van de stof’ nog eens: waar liggen de aders in je benen?",
+    onDone:()=>choiceStep(think,{q:"Wat doen de bloedvaten in je huid als het warm is?",opts:["ze gaan wijd open","ze knijpen samen"],right:0,
+      ok:"Goed. Bedenk nu wat die twee dingen samen betekenen voor het bloed dat terugkomt bij je hart, en wat het hart dan per slag wegpompt.",no:"Bij warmte word je rood: er stroomt meer bloed door je huid.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Bij stilstaan werkt de <b>spierpomp</b> niet en door de warmte staan de huidvaten wijd, waardoor er bloed in de benen/huid blijft hangen.",
+    "Er komt minder bloed terug naar het hart, het slagvolume daalt, de druk naar het hoofd zakt (en het lichaam kan dat niet meer opvangen met een snellere hartslag en samenknijpende kleine slagaders)."],
+    model:"Bij stilstaan doen de kuitspieren niets, dus de spierpomp werkt niet en er blijft bloed in de aders van de benen hangen. Door de warmte staan de bloedvaten in de huid wijd: ook daar blijft bloed. Er komt minder bloed terug naar het hart, dus pompt het hart per slag minder weg. De druk in de slagaders naar het hoofd zakt en de hersenen krijgen te weinig bloed.",
+    valkuil:"Een antwoord dat het flauwvallen toeschrijft aan te weinig zuurstof in de lucht: 0 punten. Het probleem zit in het vervoer, niet in de lucht.",
+    after:()=>waaromBtn(ans,textBox("Zie het als een keten: spierpomp stil + wijde huidvaten → bloed blijft hangen in benen en huid → minder bloed terug naar het hart → kleiner slagvolume → lagere druk naar het hoofd → te weinig bloed in de hersenen. Door het vallen ligt het hoofd op dezelfde hoogte als het hart, en komt er weer genoeg bloed. Moet je lang staan? Span je kuiten af en toe aan."))});
+  q.append(think,ans);
+},STOF_TERUG);
+
+const q3=vraag(1,"waar is de bloeddruk het laagst?",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("In welk bloedvat van de grote bloedsomloop is de bloeddruk het laagst?"));
+  choiceStep(think,{q:"Waardoor stroomt het bloed van de linkerkamer helemaal rond tot in de rechterboezem?",opts:["doordat de aders het bloed aanzuigen","door een drukverschil: bloed stroomt van een plek met hogere naar een plek met lagere druk","doordat de haarvaten het bloed verder pompen"],right:1,
+    ok:"Ja. Volg nu de weg van het bloed vanaf de linkerkamer. Waar zal de druk het laagst zijn?",no:"Alleen het hart pompt. Hoe kan het bloed dan in één richting blijven stromen?",onDone:unlock});
+  mc(ans,{qid:id,pts:1,right:3,opts:["in de aorta","in de kleinste slagaders","in de haarvaten","in de holle aders vlak bij het hart"],onChecked:()=>waaromBtn(ans,b=>stepAnim(b,[
+    {cap:"In de <b>aorta</b> is de druk het hoogst en golft hij met elke hartslag mee.",hl:0},
+    {cap:"In de <b>kleine slagaders</b> daalt de druk het sterkst: daar is de weerstand groot.",hl:2},
+    {cap:"In de <b>haarvaten</b> is de druk al laag, maar nog niet het laagst. Veel leerlingen kiezen C omdat haarvaten het smalst zijn.",hl:3},
+    {cap:"In de <b>holle aders</b> vlak bij het hart is de druk het laagst. Juist dat drukverschil, van linkerkamer naar rechterboezem, houdt het bloed in beweging. Antwoord <b>D</b>.",hl:5}],
+    (st,s)=>st.innerHTML=DRUK({hl:s.hl})))});
+  q.append(think,ans);
+},STOF_DRUK);
+
+opgave("Bloedvaten","Bloedvaten en bloeddruk","",[q1,q2,q3]);
+}
+
+/* ===== Opgave 3: Het bloed (havo KB02, vwo KB06; KB07 uit eigen/transport.json) ===== */
+{
+const STOF_BLOED={titel:"Wat er in je bloed zit",html:`
+<p>Laat je bloed in een centrifuge draaien, dan zie je lagen: bovenin geel <b>bloedplasma</b>, daaronder een dun wit laagje met <b>witte bloedcellen</b> en <b>bloedplaatjes</b>, en onderin de zware <b>rode bloedcellen</b>.</p>
+<p>Alle bloedcellen worden gemaakt in het <b>rode beenmerg</b>, uit <b>stamcellen</b>. Een rode bloedcel is een plat schijfje vol <b>hemoglobine</b>. Na ongeveer 120 dagen is hij versleten en wordt hij afgebroken; de rest van de hemoglobine wordt galkleurstof.</p>
+<p>Om nieuwe eiwitten te maken, heeft een cel de informatie uit het DNA nodig.</p>`,
+films:[F.bloed]};
+const ids=[];
+if(!VWO){
+ids.push(vraag(2,"waarom een rode bloedcel slijt",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Een rode bloedcel leeft ongeveer 120 dagen en kan zichzelf niet herstellen.<br>"+B("Leg uit waardoor een rode bloedcel slijt. Gebruik de bouw van de rode bloedcel."));
+  choiceStep(think,{q:"Wat heeft een cel nodig om nieuwe eiwitten te maken, bijvoorbeeld om een beschadigd onderdeel te vervangen?",opts:["alleen genoeg zuurstof","de informatie uit het DNA in de kern","alleen hemoglobine"],right:1,
+    ok:"Ja. Bedenk nu wat er in een rijpe rode bloedcel wel en niet zit.",no:"Eiwitten worden gemaakt volgens een recept. Waar ligt dat recept in de cel?",onDone:unlock});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Een rode bloedcel heeft (tijdens het rijpen zijn kern uitgestoten en heeft) <b>geen kern</b>. Ook goed: ‘de kern is eruit gestoten om meer ruimte te maken voor hemoglobine’.",
+    "Daardoor kan hij <b>geen nieuwe eiwitten</b> maken (en niet delen), dus beschadigde onderdelen worden niet vervangen."],
+    model:"Een rode bloedcel stoot tijdens het rijpen zijn kern uit, zodat er meer hemoglobine in past. Zonder kern heeft hij geen DNA meer en kan hij geen nieuwe eiwitten maken. Beschadigde onderdelen worden dus niet vervangen: na ongeveer 120 dagen is hij versleten.",
+    valkuil:"‘Hij wordt moe van het vele rondstromen’ zonder de kern is 0 punten: het gaat erom dat hij niets kan vervangen.",
+    after:()=>waaromBtn(ans,textBox("Een gewone cel vervangt steeds kapotte eiwitten met nieuwe, gemaakt volgens het DNA in de kern. Een rode bloedcel ruilt die mogelijkheid in voor ruimte: zonder kern past er meer hemoglobine in, dus vervoert hij meer zuurstof. De prijs: hij slijt en moet na ongeveer 120 dagen vervangen worden door een nieuwe uit het beenmerg."))});
+  q.append(think,ans);
+},STOF_BLOED));
+}else{
+const STOF_STOL={titel:"Een lek dichten",html:`
+<p>Bij een wond plakken <b>bloedplaatjes</b> aan elkaar en aan de wondrand. Daarna komt een reeks reacties van eiwitten op gang: de <b>stolling</b>. Aan het eind zet <b>trombine</b> het opgeloste <b>fibrinogeen</b> om in <b>fibrine</b>: lange draden die een net over de wond weven. Rode bloedcellen raken erin verstrikt: een stolsel.</p>
+<p>Voor vwo: de stolling is een <b>cascade</b>: de ene stollingsfactor activeert de volgende. Er zijn veel stollingsfactoren, elk een eiwit uit het bloedplasma; voor een aantal stappen zijn ook <b>calciumionen</b> nodig. Laat je bloed in een buisje stollen, dan blijft er een gele vloeistof over: <b>serum</b>.</p>`,
+films:[F.bloed]};
+ids.push(vraag(2,"juist of onjuist: de stolling",(q,id)=>{
+  q.append(el("div",{class:"qtext"},UITSPRAKEN(5,["De meeste stollingsfactoren worden door de lever gemaakt.","Voor het maken van protrombine heeft de lever vitamine K nodig.","Zonder vrije calciumionen ontstaat er wel trombine, maar geen fibrine.","Serum is bloedplasma zonder fibrinogeen.","Bij elke stap van de stollingscascade wordt het signaal sterker."])));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  seqStep(think,{q:"Zet de stappen van de stolling in de goede volgorde. Klik ze aan van eerste naar laatste.",items:["bij een wond worden stollingsfactoren actief","protrombine wordt trombine","trombine zet fibrinogeen om in fibrine","fibrinedraden vangen bloedcellen: een stolsel"],shown:[2,0,3,1],
+    ok:"Goed. Bedenk bij uitspraak 3: als er vroeg in deze reeks iets ontbreekt, wat gebeurt er dan met alles wat erna komt?",onDone:unlock});
+  juistOnjuist(ans,{id,stm:["de meeste stollingsfactoren uit de lever","vitamine K nodig voor protrombine","zonder calciumionen wel trombine, geen fibrine","serum = plasma zonder fibrinogeen","het signaal wordt bij elke stap sterker"],key:[true,true,false,true,true],
+    uitleg:textBox("1 <b>juist</b> en 2 <b>juist</b>: de lever maakt de meeste stollingsfactoren, en voor een paar daarvan, zoals protrombine, heeft hij vitamine K nodig.<br>3 <b>onjuist</b>: calciumionen zijn al nodig vóór de trombine ontstaat. Zonder vrije calciumionen ontstaat er al <b>geen trombine</b>, en dus ook geen fibrine. Zo werkt citraat in een zakje donorbloed: het bindt de calciumionen.<br>4 <b>juist</b>: bij het stollen is het fibrinogeen omgezet in fibrine en in het stolsel blijven zitten.<br>5 <b>juist</b>: één actieve factor activeert er veel van de volgende.")});
+  q.append(think,ans);
+},STOF_STOL));
+}
+
+ids.push(vraag(2,"koppel: delen van het bloed",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Koppel elk begrip aan de juiste omschrijving. Er blijft één omschrijving over."));
+  chipsStep(think,{q:"Welke lagen zie je in een buisje bloed na de centrifuge? Kies alles wat klopt.",items:[["geel bloedplasma",1],["een dun wit laagje met witte bloedcellen en bloedplaatjes",1],["rode bloedcellen",1],["een laagje beenmerg",0]],
+    ok:"Goed. Twee begrippen in de vraag zijn geen deel van het bloed: een stamcel zit in het beenmerg, en de milt is een orgaan. Koppel ze aan de omschrijving die past.",no:"Beenmerg zit in je botten, niet in het bloed.",onDone:unlock});
+  koppelAnswer(ans,{id,uid:"q"+id,begrippen:["bloedplasma","bloedplaatje","rode bloedcel","stamcel","milt"],
+    omschr:["vooral water met opgeloste stoffen, zoals glucose, zouten en ureum","stukje van een grote cel dat helpt een lek te dichten","vervoert zuurstof, gebonden aan hemoglobine","deelt zich; één van de dochtercellen blijft hetzelfde","hier worden versleten rode bloedcellen afgebroken","bestrijdt ziekteverwekkers"],key:[0,1,2,3,4],
+    after:()=>waaromBtn(ans,textBox("1A, 2B, 3C, 4D, 5E. Omschrijving <b>F</b> blijft over: ziekteverwekkers bestrijden doen de <b>witte bloedcellen</b>, en die staan niet in het rijtje. Let op 2: een bloedplaatje is geen echte cel, maar een stukje van een grote cel uit het beenmerg. En 4: een stamcel deelt zich zo dat één dochtercel stamcel blijft; de andere gaat verder en wordt uiteindelijk een bloedcel."))});
+  q.append(think,ans);
+},STOF_BLOED));
+
+opgave("Bloed","Het bloed","",ids);
+}
+
+/* ===== Opgave 4: Een half jaar in de ruimte (D01, D02; havo D05, vwo D04 uit eigen/transport.json) ===== */
+{
+const STOF_AANTAL={titel:"Aanmaak en afbraak van rode bloedcellen",html:`
+<p>Een volwassene heeft ongeveer 25 biljoen rode bloedcellen. Elke dag gaat ongeveer een honderdtwintigste deel kapot; het beenmerg maakt er evenveel bij. Zolang aanmaak en afbraak gelijk zijn, blijft het aantal gelijk.</p>
+<p>Gaan er meer rode bloedcellen kapot dan het beenmerg maakt, dan daalt het aantal: <b>bloedarmoede</b>. Het bloed kan dan minder zuurstof vervoeren.</p>
+<p>Rekenen met machten van tien: 1 miljoen = 10⁶, 1 biljoen = 10¹². Een percentage is deel : geheel × 100 %.</p>`,
+films:[F.bloed]};
+const q1=vraag(2,"rode bloedcellen tellen",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Een volwassene heeft ongeveer 25 biljoen (25 × 10¹²) rode bloedcellen. Stel dat het beenmerg in de ruimte 2 miljoen rode bloedcellen per seconde blijft maken, terwijl er 3 miljoen per seconde kapotgaan. Een dag heeft 86 400 seconden.<br>"+B("Bereken hoeveel procent van de rode bloedcellen er dan na 30 dagen minder is."));
+  numStep(think,{uid:"q"+id+"n1",q:"Hoeveel miljoen rode bloedcellen gaan er per seconde <b>netto</b> verloren?",right:1,ok:"Ja: 3 miljoen kapot en 2 miljoen erbij. Reken nu uit hoeveel seconden er in 30 dagen zitten.",no:"Kijk naar het verschil tussen kapotgaan en aanmaken.",
+    onDone:()=>numStep(think,{uid:"q"+id+"n2",q:"Hoeveel seconden zitten er in 30 dagen?",right:2592000,ok:"Goed: 2 592 000 seconden. Bereken nu het totale verlies en vergelijk dat met de 25 × 10¹² cellen.",no:"30 × 86 400 = ? (zonder spaties of punten invullen)",onDone:unlock})});
+  rekenAnswer(ans,{id,pts:2,right:10.4,marge:0.6,eenheid:"%",label:"afname",deel:["Verlies na 30 dagen juist berekend: 1 × 10⁶ × 86 400 × 30 ≈ 2,6 × 10¹² rode bloedcellen","Met een verkeerd verlies, maar juist doorgerekend naar een percentage (verlies : 25 × 10¹² × 100 %)"],
+    model:"netto verlies 1 miljoen per seconde; na 30 dagen 1 × 10⁶ × 86 400 × 30 ≈ 2,6 × 10¹² rode bloedcellen (1 punt). 2,6 × 10¹² : 25 × 10¹² × 100 % ≈ <b>10 %</b> (1 punt). Ook goed: 10,4 %. Bij een rekenfout in de eerste stap en verder juist doorgerekend: alleen het tweede punt.",
+    after:()=>waaromBtn(ans,textBox("Het gaat om het <b>verschil</b> tussen afbraak en aanmaak: 3 − 2 = 1 miljoen per seconde. Wie met 3 miljoen rekent, vergeet dat het beenmerg doorwerkt (dan kom je op ongeveer 31 %). Na 30 dagen is er ongeveer een tiende deel minder. Dat past bij de bloedarmoede van een deel van de astronauten na de landing."))});
+  q.append(think,ans);
+},STOF_AANTAL);
+
+const STOF_EPO={titel:"Bloedvorming en EPO",html:`
+<p>Rode bloedcellen worden gemaakt in het <b>rode beenmerg</b>, uit stamcellen. Hoeveel er gemaakt worden, wordt geregeld door een hormoon.</p>
+<p>Bij een regeling meet het lichaam iets, en als de waarde te laag of te hoog is, reageert het zo dat de waarde terugkomt. Is het weer goed, dan wordt de reactie kleiner. Zo blijft een waarde in je lichaam ongeveer gelijk.</p>
+<p>Een voorbeeld uit de film: hoog in de bergen zit er weinig zuurstof in de lucht, en dus in je bloed. Ook dan reageert het lichaam met deze regeling.</p>`,
+films:[F.bloed]};
+const q2=vraag(2,"herstel na de landing",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Na de landing hadden veel astronauten bloedarmoede, maar na een paar maanden was het aantal rode bloedcellen weer normaal.<br>"+B("Leg uit hoe het lichaam dat herstel regelt. Noem het hormoon en het orgaan dat het maakt."));
+  choiceStep(think,{q:"Wat merkt het lichaam van iemand met bloedarmoede?",opts:["het bloed vervoert minder zuurstof","het bloed wordt dikker","de bloeddruk stijgt"],right:0,
+    ok:"Ja. Welk orgaan reageert daarop met een hormoon, en wat doet dat hormoon?",no:"Wat is de taak van rode bloedcellen?",
+    onDone:()=>choiceStep(think,{q:"Waar werkt het hormoon dat de aanmaak van rode bloedcellen aanzet?",opts:["op de lever","op het rode beenmerg","op de milt"],right:1,
+      ok:"Goed. Maak nu de regeling af: wat meet het lichaam, wie maakt het hormoon, wat gebeurt er in het beenmerg, en wat als er weer genoeg zijn?",no:"Waar worden rode bloedcellen gemaakt?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Door de bloedarmoede vervoert het bloed minder zuurstof; bij weinig zuurstof maken de <b>nieren</b> meer <b>EPO</b>.",
+    "EPO zet (de stamcellen in) het <b>rode beenmerg</b> aan tot het maken van meer rode bloedcellen; zijn er weer genoeg, dan maken de nieren minder EPO."],
+    model:"Met bloedarmoede vervoert het bloed minder zuurstof. De nieren merken dat en maken meer van het hormoon EPO. EPO zet het rode beenmerg aan om meer rode bloedcellen te maken. Als er weer genoeg zijn, maken de nieren minder EPO, en blijft het aantal gelijk.",
+    valkuil:"‘Het beenmerg maakt gewoon meer’ zonder hormoon en orgaan: hooguit 1 punt. EPO komt niet uit de lever of het beenmerg zelf, maar uit de nieren.",
+    after:()=>waaromBtn(ans,textBox("Weinig zuurstof → nieren maken meer EPO → beenmerg maakt meer rode bloedcellen → meer zuurstof in het bloed → nieren maken minder EPO. Het gevolg remt de oorzaak: zo blijft het aantal rode bloedcellen in balans. Dat herstel duurt maanden, want een nieuwe rode bloedcel moet eerst rijpen."))});
+  q.append(think,ans);
+},STOF_EPO);
+
+const ids=[q1,q2];
+if(!VWO){
+const STOF_TROMB={titel:"Stolsels en de weg van het bloed",html:`
+<p>Bloed stolt niet alleen bij een wond. Soms ontstaat er in een bloedvat een stolsel zonder wond: <b>trombose</b>. Zo'n stolsel kan een bloedvat afsluiten.</p>
+<p>Aders brengen het bloed terug naar het hart, slagaders voeren het van het hart af. Het hart heeft twee helften: de ene pompt bloed door de kleine bloedsomloop, de andere door de grote. Slagaders vertakken onderweg in steeds nauwere vaten, tot de haarvaten.</p>`,
+films:[F.bloed,F.pomp]};
+ids.push(vraag(2,"een stolsel in de halsader",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Leg uit waardoor een trage of stilstaande stroom in de halsader de kans op een stolsel vergroot, en beschrijf de weg die een losgeraakt stolsel uit de halsader aflegt tot het ergens vast komt te zitten."));
+  choiceStep(think,{q:"Waar ontstaat volgens de film vaak een stolsel zonder wond?",opts:["in je been na lang stilzitten","in een slagader die hard stroomt","in de haarvaten van je huid bij warmte"],right:0,
+    ok:"Ja. Wat hebben dat been en de halsader van de astronauten gemeen?",no:"Denk aan een lange vliegreis.",
+    onDone:()=>choiceStep(think,{q:"Is de halsader een slagader of een ader?",opts:["een ader: hij brengt bloed uit het hoofd naar het hart","een slagader: hij brengt bloed naar de hersenen"],right:0,
+      ok:"Goed. Volg nu zelf de weg van het stolsel vanaf de halsader: via welke holtes van het hart en welk bloedvat gaat het, en waar worden de vaten zo nauw dat het vast komt te zitten?",no:"Lees de inleiding nog eens: wat doet de linker halsader met het bloed uit het hoofd?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "In stilstaand of traag stromend bloed kan gemakkelijker een stolsel ontstaan zonder wond (trombose), zoals in het been na lang stilzitten.",
+    "Het stolsel gaat via de <b>bovenste holle ader</b> naar de <b>rechterboezem</b> en <b>rechterkamer</b> en dan de <b>longslagader</b> in, waar het in een (kleiner) bloedvat in de longen vast komt te zitten. Een route via de linkerharthelft of de aorta: 0 punten voor dit element."],
+    model:"In bloed dat traag stroomt of stilstaat, kan gemakkelijk een stolsel ontstaan zonder wond, net als in je been na lang stilzitten: trombose. Raakt het los, dan gaat het met het bloed mee via de bovenste holle ader naar de rechterboezem en de rechterkamer, en dan de longslagader in. Die vertakt in steeds kleinere vaten; in een klein bloedvat in de longen loopt het vast.",
+    valkuil:"De route via de linkerkamer en de aorta naar de hersenen is fout: bloed uit een ader komt eerst in de rechterharthelft en gaat naar de longen.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Het stolsel raakt los in de halsader en gaat mee met het bloed naar beneden: de <b>bovenste holle ader</b> in.",hl:["holle","lichaam"],stip:[120,250]},
+      {cap:"Het komt in de <b>rechterboezem</b> en wordt naar de <b>rechterkamer</b> geduwd.",hl:["RB","RK"],stip:[272,280]},
+      {cap:"De rechterkamer pompt het de <b>longslagader</b> in.",hl:["longslagader"],stip:[170,140]},
+      {cap:"De longslagader vertakt in steeds kleinere vaten. In een klein bloedvat in de <b>longen</b> loopt het stolsel vast. Het komt dus niet in de linkerharthelft of de aorta.",hl:["longen"],stip:[260,50]}],
+      (st,s)=>st.innerHTML=CIRC({hl:s.hl,stip:s.stip})))});
+  q.append(think,ans);
+},STOF_TROMB));
+}else{
+const STOF_BARO={titel:"De bloeddruk geregeld",html:`
+<p>Voor vwo: in de wand van de aortaboog en de halsslagaders zitten <b>drukreceptoren</b> (baroreceptoren). Die meten hoe ver de wand uitrekt en sturen impulsen naar een regelcentrum in het <b>verlengde merg</b>, in de hersenstam.</p>
+<p>Voorbeeld uit de film: sta je snel op, dan zakt er bloed naar je benen en daalt de druk naar je hoofd. De wand rekt minder uit en de drukreceptoren sturen minder impulsen. Het regelcentrum zet het hart sneller en vernauwt de kleine slagaders in benen en buik. De druk stijgt weer. Het gevolg remt de oorzaak: <b>negatieve terugkoppeling</b>.</p>`,
+films:[F.regel]};
+ids.push(vraag(2,"de drukreceptoren in de ruimte",(q,id)=>{
+  const {think,ans,unlock}=start(q,"In de ruimte zit er meer bloed in het bovenlichaam dan op aarde, en het slagvolume is groter. De drukreceptoren in de halsslagaders en de aortaboog merken dat.<br>"+B("Leg uit hoe de regeling van de bloeddruk hierop reageert. Beschrijf wat er gebeurt met de impulsen van de drukreceptoren, met de hartfrequentie en met de kleine slagaders."));
+  choiceStep(think,{q:"Wat meten de drukreceptoren eigenlijk?",opts:["hoeveel zuurstof er in het bloed zit","hoe ver de wand van het bloedvat uitrekt","hoe snel het hart klopt"],right:1,
+    ok:"Ja. Wat gebeurt er met die wand als er meer bloed in het bovenlichaam zit en er per slag meer bloed de aorta in gaat?",no:"Het zijn drukreceptoren in de wand van de slagader.",
+    onDone:()=>choiceStep(think,{q:"Bij snel opstaan daalt de druk naar het hoofd. Hoe reageert de regeling dan?",opts:["het hart sneller en de kleine slagaders nauwer","het hart langzamer en de kleine slagaders wijder"],right:0,
+      ok:"Goed, dat staat ook in de uitleg van de stof. In de ruimte is de situatie andersom. Redeneer nu de drie stappen voor de astronaut.",no:"Het lichaam wil de druk weer omhoog krijgen. Wat helpt daarbij?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "De wand van de halsslagaders en aortaboog rekt verder uit, dus de drukreceptoren sturen <b>meer impulsen</b> naar het (regelcentrum in het) verlengde merg.",
+    "Het regelcentrum laat het hart <b>langzamer</b> kloppen en de kleine slagaders (in benen en buik) <b>verwijden</b>, zodat de druk daalt (negatieve terugkoppeling)."],
+    model:"Doordat er meer bloed in het bovenlichaam zit en het slagvolume groter is, rekt de wand van de halsslagaders en de aortaboog verder uit. De drukreceptoren sturen meer impulsen naar het regelcentrum in het verlengde merg. Dat laat het hart langzamer kloppen en de kleine slagaders in benen en buik verwijden. Daardoor daalt de druk weer: negatieve terugkoppeling.",
+    valkuil:"‘De drukreceptoren zorgen dat het hart sneller gaat’ is precies de reactie bij snel opstaan, niet bij een te hoge druk.",
+    after:()=>waaromBtn(ans,textBox("Het is het spiegelbeeld van snel opstaan uit de film. Daar: minder rek → minder impulsen → hart sneller, vaten nauwer → druk omhoog. In de ruimte: meer rek → meer impulsen → hart langzamer, vaten wijder → druk omlaag. In beide gevallen remt het gevolg de oorzaak."))});
+  q.append(think,ans);
+},STOF_BARO));
+}
+
+opgave("Ruimte","Een half jaar in de ruimte",`
+<p>Astronauten verblijven vaak een half jaar in het ruimtestation ISS. Zonder zwaartekracht verandert er veel in hun bloedsomloop. Bij onderzoek bleek dat astronauten in de ruimte een opgezwollen gezicht en dunnere benen, een groter slagvolume en minder bloedplasma hadden dan op aarde. Bij 6 van de 11 onderzochte astronauten stroomde het bloed in de linker halsader (een ader die bloed uit het hoofd afvoert) heel traag, stond het stil of stroomde het zelfs terug. Bij één astronaut ontstond in die ader een bloedstolsel.</p>
+<p>Ander onderzoek, bij 14 astronauten, ging over rode bloedcellen. Op aarde gaan er bij een volwassene ongeveer 2 miljoen rode bloedcellen per seconde kapot, en maakt het beenmerg er evenveel bij. In de ruimte gingen er ongeveer 3 miljoen per seconde kapot. Van 13 astronauten bij wie na de landing bloed werd geprikt, hadden er 5 bloedarmoede. Na drie tot vier maanden op aarde was dat hersteld.</p>`,ids);
+}
+
+/* ===== Opgave 5: Weefselvloeistof en lymfe (KL05) en opgave 6: Olifantsbenen door wormen (E01–E04) uit eigen/transport.json ===== */
+{
+const STOF_WV={titel:"Rond elke cel",html:`
+<p>Je cellen raken je bloed niet direct. Tussen het haarvat en de cellen zit vocht: <b>weefselvloeistof</b>. Via dat vocht krijgen de cellen hun stoffen.</p>
+<p>Aan het begin van een haarvat is de bloeddruk nog vrij hoog. Die druk duwt vocht door de dunne wand van het haarvat naar buiten: <b>filtratie</b>. De wand van een haarvat bestaat uit één laag cellen, met kleine openingen.</p>`
++(VWO?`<p>Voor vwo: plasma en weefselvloeistof verschillen in <b>osmotische waarde</b>; daardoor trekt het plasma aan het eind van het haarvat water terug.</p>`:""),
+films:[F.lymfe]};
+const q1=vraag(2,"plasma en weefselvloeistof",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Weefselvloeistof lijkt op bloedplasma, maar is er niet gelijk aan.<br>"+B("Beschrijf twee verschillen tussen bloedplasma en weefselvloeistof, en leg uit waardoor die verschillen ontstaan."));
+  choiceStep(think,{q:"Waaruit ontstaat weefselvloeistof?",opts:["uit bloed: vocht wordt door de wand van het haarvat naar buiten geduwd","uit de cellen zelf: ze lekken vocht","uit de lymfe"],right:0,
+    ok:"Ja. Het haarvat werkt dus als een soort zeef. Bedenk welke delen van het bloed te groot zijn om erdoor te gaan.",no:"Lees de uitleg van de stof nog eens: wat duwt de bloeddruk naar buiten?",
+    onDone:()=>chipsStep(think,{q:"Welke van deze delen van het bloed zijn <b>klein</b>? Kies alles wat klopt.",items:[["water",1],["glucose",1],["zouten",1],["rode bloedcellen",0],["grote eiwitten",0]],
+      ok:"Goed. Welke delen blijven dan achter in het haarvat?",no:"Cellen en grote moleculen zijn niet klein.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Weefselvloeistof bevat <b>geen rode bloedcellen</b> en (veel) <b>minder eiwitten</b> dan bloedplasma.",
+    "De rode bloedcellen en de meeste plasma-eiwitten zijn <b>te groot</b> om door de wand van het haarvat te gaan; alleen water met kleine stoffen wordt naar buiten geduwd."],
+    model:"Weefselvloeistof heeft geen rode bloedcellen en veel minder eiwitten dan bloedplasma. Dat komt doordat de bloeddruk alleen water met kleine stoffen door de wand van het haarvat duwt; rode bloedcellen en de meeste plasma-eiwitten zijn te groot en blijven in het bloed.",
+    valkuil:"‘Weefselvloeistof is bloed dat gelekt is’ is precies de misvatting: dan zouden er wel rode bloedcellen in zitten.",
+    after:()=>waaromBtn(ans,textBox("Denk aan een zeef: water, glucose, zouten en zuurstof gaan door de openingen in de wand van het haarvat, cellen en de meeste grote eiwitten niet. Weefselvloeistof lijkt dus op plasma, maar zonder rode bloedcellen en met veel minder eiwitten. Rode bloedcellen kunnen hun zuurstof wel afgeven: die gaat er als klein molecuul doorheen."))});
+  q.append(think,ans);
+},STOF_WV);
+opgave("Weefselvloeistof","Weefselvloeistof en lymfe","",[q1]);
+
+const STOF_LYMFE={titel:"Een tweede afvoer: de lymfe",html:`
+<p>Aan het eind van een haarvat gaat het meeste vocht weer terug het bloed in (<b>resorptie</b>). Tussen je cellen beginnen dunne, doodlopende vaatjes: <b>lymfevaten</b>. Wat in de lymfevaten loopt, heet <b>lymfe</b>.</p>
+<p>De lymfevaten komen samen in steeds grotere vaten, met onderweg <b>lymfeknopen</b> vol witte bloedcellen. Een hart heeft het lymfestelsel niet: spieren knijpen de lymfevaten samen en er zitten <b>kleppen</b> in, net als in aders.</p>
+<p>Hoopt er vocht op tussen de cellen, dan zwelt het weefsel op: <b>oedeem</b>.</p>`,
+films:[F.lymfe]};
+const q2=vraag(2,"een dik been",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Leg uit waardoor verstopte lymfevaten tot een dik been leiden."));
+  choiceStep(think,{q:"Gaat aan het eind van het haarvat al het vocht dat eruit kwam weer terug het bloed in?",opts:["ja, alles","nee, niet alles"],right:1,
+    ok:"Ja. Waar blijft het deel dat niet terugkomt normaal gesproken?",no:"Lees de uitleg van de stof nog eens, en let op het woord ‘meeste’.",
+    onDone:()=>choiceStep(think,{q:"Wat gebeurt er met vocht dat zich ophoopt tussen de cellen?",opts:["het weefsel zwelt op","het verdampt via de huid","de cellen nemen het allemaal op"],right:0,
+      ok:"Goed. Verbind nu de twee stappen: wat doen de lymfevaten normaal, en wat gaat er mis als ze verstopt zijn?",no:"Dat heet oedeem.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Uit de haarvaten gaat steeds meer vocht naar buiten dan er terugkomt; het restje weefselvloeistof wordt normaal door de <b>lymfevaten afgevoerd</b>.",
+    "Als de lymfevaten verstopt zijn, wordt dat vocht <b>niet afgevoerd</b> en hoopt de weefselvloeistof zich op (<b>oedeem</b>)."],
+    model:"Uit de haarvaten gaat elke dag meer vocht naar buiten dan er terugkomt. Dat restje weefselvloeistof wordt normaal via de lymfevaten afgevoerd. Zijn de lymfevaten verstopt, dan kan dat vocht niet weg. Het hoopt zich op tussen de cellen en het been zwelt op: oedeem.",
+    valkuil:"‘De wormen maken het been dik’ of ‘er lekt bloed uit de lymfevaten’ is geen uitleg: het gaat om vocht dat niet meer wordt afgevoerd.",
+    after:()=>waaromBtn(ans,textBox("Vergelijk het met een gootsteen waarin de kraan een beetje harder loopt dan het putje afvoert, met een tweede afvoer (de lymfevaten) die het verschil wegwerkt. Zit die tweede afvoer dicht, dan loopt de gootsteen langzaam vol. Zo hoopt het restje weefselvloeistof zich op in het been."))});
+  q.append(think,ans);
+},STOF_LYMFE);
+
+const q3=vraag(1,"van lymfe naar bloed",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Jonge wormen kunnen met de lymfe worden meegevoerd. "+B("Langs welke weg komen ze dan in het bloed terecht?"));
+  choiceStep(think,{q:"Waar begint een lymfevat?",opts:["doodlopend, tussen de cellen in het weefsel","vast aan het eind van een haarvat","in een lymfeknoop"],right:0,
+    ok:"Ja. Volg nu in gedachten de weg van de lymfe: door steeds grotere lymfevaten, tot ze bij het bloed komt. Langs welk soort bloedvat kan dat, waar de druk laag is?",no:"Lymfevaten zitten niet aan haarvaten vast: het restje weefselvloeistof loopt erin.",onDone:unlock});
+  mc(ans,{qid:id,pts:1,right:0,opts:["via de borstbuis en een ader bij het sleutelbeen","via de poortader naar de lever","via de wand van de haarvaten in het been","via de lymfeknopen rechtstreeks in de aorta"],onChecked:()=>waaromBtn(ans,textBox(
+    "De lymfevaten komen samen in de borstbuis; die komt bij het linkersleutelbeen uit in een <b>ader</b>, die naar de bovenste holle ader gaat. Antwoord <b>A</b>.<br>B: ook het vet uit de darm gaat juist níét via de poortader, maar via de lymfe. C: lymfe stroomt van de weefsels naar het bloed via de lymfevaten, niet terug door de wand van de haarvaten. D: lymfe komt nooit rechtstreeks in een slagader."))});
+  q.append(think,ans);
+},STOF_LYMFE);
+
+const q4=vraag(2,"infecties in het gezwollen been",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Bij patiënten met olifantsbenen ontstaan vaak infecties in de huid van het gezwollen been. Het advies is daarom om het been goed te wassen en wondjes te verzorgen.<br>"+B("Leg uit waardoor ziekteverwekkers in het gezwollen been minder goed worden opgeruimd, nu de lymfevaten verstopt zijn."));
+  choiceStep(think,{q:"Wat zit er in grote aantallen in een lymfeknoop?",opts:["rode bloedcellen","witte bloedcellen","vetcellen"],right:1,
+    ok:"Ja. Wat doen die met ziekteverwekkers? En hoe komen ziekteverwekkers uit het been normaal bij een lymfeknoop?",no:"Denk aan dikke klieren in je hals bij keelpijn.",onDone:unlock});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Normaal neemt de lymfe ziekteverwekkers uit het weefsel mee naar de <b>lymfeknopen</b>, waar <b>witte bloedcellen</b> ze vangen.",
+    "Als de lymfevaten verstopt zijn, blijven ziekteverwekkers in het (vochtige) weefsel achter en komen ze niet bij de lymfeknopen, zodat ze zich kunnen vermeerderen."],
+    model:"Normaal neemt de lymfe ziekteverwekkers uit het weefsel mee naar de lymfeknopen. Daar vangen witte bloedcellen ze. Zijn de lymfevaten verstopt, dan komen de ziekteverwekkers niet bij de lymfeknopen. Ze blijven in het vochtige weefsel van het been en kunnen zich daar vermeerderen.",
+    valkuil:"‘De wormen eten de witte bloedcellen op’ of alleen ‘de afweer is zwakker’ zonder de rol van de lymfe en de lymfeknopen: 0 punten.",
+    after:()=>waaromBtn(ans,textBox("De lymfe is een soort lopende band van het weefsel naar de lymfeknopen, de controleposten met witte bloedcellen. Ligt die band stil, dan worden ziekteverwekkers niet meer naar de controlepost gebracht. In het stilstaande vocht van het gezwollen been kunnen ze zich vermeerderen. Daarom is goed wassen en wondjes verzorgen zo belangrijk."))});
+  q.append(think,ans);
+},STOF_LYMFE);
+
+const q5=vraag(1,"de richting van de lymfe",(q,id)=>{
+  const {think,ans,unlock}=start(q,"In de lymfevaten van het been zitten kleppen. "+B("In welke richting stroomt de lymfe in het been?"));
+  choiceStep(think,{q:"Waar gaat de lymfe uiteindelijk naartoe?",opts:["terug naar het bloed","naar de voet, waar ze wordt uitgescheiden","nergens: lymfe blijft in het weefsel"],right:0,
+    ok:"Ja. Wat doen kleppen met de richting van een stroom?",no:"Lymfe is vocht dat terug moet naar het bloed.",onDone:unlock});
+  mc(ans,{qid:id,pts:1,right:0,opts:["van de voet naar de lies, en verder naar het bloed","van de lies naar de voet","beide kanten op, afhankelijk van de stand van het been","de lymfe staat stil; alleen de wormen bewegen"],onChecked:()=>waaromBtn(ans,textBox(
+    "Net als in de aders laten de kleppen de lymfe maar één kant op: naar het bloed. In het been is dat <b>van de voet naar de lies</b>, en verder via de borstbuis naar het bloed. Antwoord <b>A</b>. C denkt dat de lymfe met de zwaartekracht mee zakt: de kleppen voorkomen dat. De spieren knijpen de lymfevaten samen; ook daarom helpt bewegen tegen een dik been."))});
+  q.append(think,ans);
+},STOF_LYMFE);
+
+opgave("Olifantsbenen","Olifantsbenen door wormen",`
+<p>Lymfatische filariasis is een tropische ziekte die wordt veroorzaakt door kleine wormen. Muggen brengen de larven over: na een beet komen ze via de huid binnen en trekken ze naar het lymfestelsel. Daar groeien ze in ongeveer een jaar uit tot volwassen wormen, die in de lymfevaten leven. Door steeds terugkerende ontstekingen raken de lymfevaten beschadigd en verstopt. Een been kan dan enorm opzwellen: olifantsziekte.</p>
+<p>Patiënten wordt geadviseerd het gezwollen been vaak hoog te leggen en goed te wassen.</p>`,[q2,q3,q4,q5]);
+}
+
+/* ===== Opgave 7: Het hart onder controle (KR02) en opgave 8: Het hart van een wielrenner (havo F01–F04, vwo F02, F03, F05) uit eigen/transport.json ===== */
+{
+const STOF_AUTO={titel:"Het hart bijsturen",html:`
+<p>Het hart klopt uit zichzelf, maar zenuwen en hormonen kunnen het sneller of langzamer zetten. Dat gebeurt buiten je wil om, via het <b>autonome zenuwstelsel</b>. Dat heeft twee delen die elkaars tegenspelers zijn: het <b>orthosympathische</b> en het <b>parasympathische</b> zenuwstelsel. Het ene hoort bij actie en spanning, het andere bij rust en herstel.</p>
+<p>Ook een hormoon kan het hart versnellen. Een hormoon gaat via het bloed naar zijn doelorganen.</p>
+<p>De kleine slagaders kunnen nauwer en wijder worden. Zo stuurt het lichaam het bloed naar de plek waar het nodig is.</p>`,
+films:[F.regel]};
+const q1=vraag(2,"koppel: het hart onder controle",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Koppel elk begrip aan de juiste omschrijving. Gebruik elke omschrijving één keer; er blijft één omschrijving over."));
+  chipsStep(think,{q:"Welke van deze begrippen zijn delen van het autonome zenuwstelsel? Kies alles wat klopt.",items:[["orthosympathisch zenuwstelsel",1],["parasympathisch zenuwstelsel",1],["adrenaline",0],["sinusknoop",0]],
+    ok:"Goed. Adrenaline is een hormoon en de sinusknoop hoort bij het hart zelf. Bedenk per omschrijving: gaat het via een zenuw, via het bloed, of zit het in het hart of in de wand van een bloedvat?",no:"Een hormoon is geen deel van het zenuwstelsel.",onDone:unlock});
+  koppelAnswer(ans,{id,uid:"q"+id,begrippen:["orthosympathisch zenuwstelsel","parasympathisch zenuwstelsel","adrenaline","sinusknoop","glad spierweefsel"],
+    omschr:["maakt je hartslag na het sporten weer rustiger","komt bij schrik uit de bijnieren in het bloed en versnelt het hart","zet bij een sprint het hart sneller en vernauwt de kleine slagaders naar de darmen","geeft ook zonder zenuwen het startsein voor elke hartslag","ring in de wand van kleine slagaders die het vat nauwer kan maken","klep in de kleine slagaders die het bloed tegenhoudt"],key:[2,0,1,3,4],
+    after:()=>waaromBtn(ans,textBox("1C, 2A, 3B, 4D, 5E. Omschrijving <b>F</b> blijft over: kleine slagaders hebben geen kleppen. Kleppen zitten in het hart, in aders en in lymfevaten. Het orthosympathische zenuwstelsel zet het lichaam in actie (sneller hart, minder bloed naar de darmen), het parasympathische brengt het terug tot rust. Adrenaline doet hetzelfde als het orthosympathische zenuwstelsel, maar via het bloed. Trekt het gladde spierweefsel in de wand samen, dan wordt het vat nauwer."))});
+  q.append(think,ans);
+},STOF_AUTO);
+opgave("Regeling","Het hart onder controle","",[q1]);
+
+const STOF_HMV2={titel:"Harder pompen",html:`
+<p>Het <b>hartminuutvolume</b> is de hartfrequentie maal het slagvolume. In rust is dat ongeveer 5 liter per minuut.</p>
+<p>Bij inspanning hebben je spieren veel meer bloed nodig. Je hartfrequentie kan oplopen tot rond 190 slagen per minuut. Ook het <b>slagvolume</b> kan groter worden: het hart trekt krachtiger samen, en werkende spieren duwen meer bloed terug naar het hart, zodat de kamers zich beter vullen.</p>
+<p>Training verandert het hart: de linkerkamer wordt groter en de wand dikker. Een grafiek lees je af door bij een waarde op de x-as recht omhoog te gaan tot de lijn.</p>`,
+films:[F.pomp,F.regel]};
+const STOF_DRUK2={titel:"Bloeddruk bij inspanning",html:`
+<p>Bij de systole spuit de kamer bloed de slagaders in en stijgt de druk: de <b>bovendruk</b>. Tijdens de diastole stroomt bloed uit de grote slagaders weg via de kleine slagaders en de haarvaten, en zakt de druk tot de <b>onderdruk</b>.</p>
+<p>In de wand van de kleine slagaders zit glad spierweefsel. Daardoor kunnen ze nauwer en wijder worden, en zo bepalen hoeveel bloed er naar een orgaan stroomt.</p>`,
+films:[F.druk,F.regel]};
+const ids=[];
+if(!VWO){
+ids.push(vraag(1,"het slagvolume in rust",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Hoe groot is het slagvolume van de wielrenner in rust ongeveer?"));
+  choiceStep(think,{q:"Welke twee gegevens over de wielrenner in rust heb je nodig?",opts:["hartminuutvolume 5 L/min en hartfrequentie 42 per minuut","hartfrequentie 42 en 70 per minuut","hartminuutvolume 5 L/min en het vermogen in afbeelding 1"],right:0,
+    ok:"Ja. Gebruik nu de formule voor het hartminuutvolume, en let op de eenheden.",no:"Het gaat om de wielrenner zelf, in rust. Lees de inleiding nog eens.",onDone:unlock});
+  mc(ans,{qid:id,pts:1,right:2,opts:["70 mL","84 mL","120 mL","210 mL"],onChecked:()=>waaromBtn(ans,textBox(
+    "5000 mL : 42 ≈ 119 mL, dus ongeveer <b>120 mL</b>. Antwoord <b>C</b>.<br>A is het gewone getal uit de film voor een ongetraind hart. B rekent met 42 × 2. D deelt door 24 of verwisselt iets. Het getrainde hart pompt per slag veel meer weg: daardoor kan het in rust zo langzaam kloppen."))});
+  q.append(think,ans);
+},STOF_HMV2));
+}
+
+ids.push(vraag(2,"lagere hartfrequentie, toch genoeg bloed",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Bij 200 W is de hartfrequentie van de wielrenner veel lager dan die van zijn ongetrainde leeftijdsgenoot (afbeelding 1), terwijl hun spieren ongeveer even veel bloed nodig hebben.<br>"+B("Leg uit hoe de wielrenner met een lagere hartfrequentie toch genoeg bloed naar zijn spieren pompt."));
+  think.append(el("div",{},FIETS({hl:200})));
+  selectsStep(think,{uid:"q"+id,q:"Lees afbeelding 1 af bij 200 W. Wat is de hartfrequentie?",rows:[["wielrenner",["ongeveer 100","ongeveer 125","ongeveer 175"],1],["ongetrainde leeftijdsgenoot",["ongeveer 100","ongeveer 125","ongeveer 175"],2]],
+    ok:"Goed. Hun spieren krijgen toch even veel bloed per minuut.",no:"Ga bij 200 W recht omhoog tot elke lijn.",
+    onDone:()=>choiceStep(think,{q:"Welke twee grootheden bepalen samen hoeveel bloed het hart per minuut rondpompt?",opts:["hartfrequentie en bloeddruk","hartfrequentie en slagvolume","slagvolume en bloeddruk"],right:1,
+      ok:"Ja. Bedenk nu welke van de twee bij de wielrenner anders moet zijn, en waardoor zijn hart dat kan: kijk in de inleiding.",no:"Denk aan het hartminuutvolume: wat vermenigvuldig je met wat?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Het hartminuutvolume is hartfrequentie × slagvolume; om evenveel bloed rond te pompen bij een lagere hartfrequentie moet het <b>slagvolume groter</b> zijn.",
+    "De <b>grotere linkerkamer met dikkere wand</b> vult zich met meer bloed en pompt per slag meer weg."],
+    model:"Het hartminuutvolume is de hartfrequentie maal het slagvolume. Omdat de spieren evenveel bloed per minuut nodig hebben, moet de wielrenner met zijn lagere hartfrequentie per slag meer bloed wegpompen: een groter slagvolume. Dat kan doordat zijn linkerkamer door training groter is en een dikkere wand heeft: hij vult zich met meer bloed en pompt per slag meer weg.",
+    valkuil:"‘Zijn hart is sterker’ zonder slagvolume of hartminuutvolume: 0 punten voor het eerste element. ‘Zijn bloed vervoert meer zuurstof’ gaat niet over de vraag.",
+    after:()=>waaromBtn(ans,textBox("Reken het na met de grafiek: de ongetrainde pompt bij 200 W met 175 slagen per minuut. Pompt hij per slag bijvoorbeeld 100 mL, dan is dat 17,5 liter per minuut. De wielrenner haalt dat met 125 slagen alleen als hij per slag 140 mL wegpompt. (De 100 mL is een voorbeeld, geen meetwaarde.) Dat grotere slagvolume komt van de grotere, dikkere linkerkamer."))});
+  q.append(think,ans);
+},STOF_HMV2));
+
+ids.push(vraag(2,"bovendruk en onderdruk bij 300 W",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Tijdens de test wordt ook de bloeddruk van de wielrenner gemeten. Bij 300 W is zijn bovendruk veel hoger dan in rust, maar zijn onderdruk is bijna gelijk gebleven.<br>"+B("Leg uit waardoor de bovendruk stijgt, en waardoor de onderdruk niet stijgt."));
+  choiceStep(think,{q:"Tijdens welke fase van de hartslag ontstaat de bovendruk?",opts:["tijdens de systole: de kamer spuit bloed de slagaders in","tijdens de diastole: de kamer ontspant"],right:0,
+    ok:"Ja. Wat is er bij 300 W anders aan wat de kamer per slag de slagaders in spuit?",no:"‘Boven’ is de hoogste druk: als het hart zijn bloed wegpompt.",
+    onDone:()=>choiceStep(think,{q:"Waar stroomt het bloed tijdens de diastole uit de grote slagaders naartoe?",opts:["via de kleine slagaders en de haarvaten naar de organen","terug de linkerkamer in","nergens: het blijft in de grote slagaders staan"],right:0,
+      ok:"Goed. Hoe makkelijk dat bloed kan wegstromen, bepaalt hoe ver de druk in de diastole zakt. Bedenk wat er bij 300 W in de werkende beenspieren met de kleine slagaders gebeurt.",no:"De kleppen laten het bloed niet terug de kamer in. Lees de uitleg van de stof nog eens.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Bovendruk: bij elke systole wordt er (door het grotere slagvolume en het krachtiger samentrekken) <b>meer bloed de slagaders in gepompt</b>, en die rekken maar een beetje mee, dus de druk tijdens de systole stijgt. Alleen ‘het hart klopt sneller’ zonder slagvolume of meerekken van de slagaders: 0 punten voor dit element.",
+    "Onderdruk: de <b>kleine slagaders in de werkende spieren zijn verwijd</b>, zodat het bloed tijdens de diastole makkelijk uit de grote slagaders wegstroomt en de druk dan niet hoger wordt."],
+    model:"Bij 300 W trekt het hart krachtiger samen en pompt het per slag meer bloed de slagaders in. De slagaders rekken maar een beetje mee, dus de druk tijdens de systole, de bovendruk, stijgt. Tegelijk zijn de kleine slagaders in de werkende beenspieren wijd. Tijdens de diastole stroomt het bloed daardoor makkelijk weg uit de grote slagaders, zodat de onderdruk niet hoger wordt.",
+    valkuil:"‘De onderdruk blijft gelijk omdat het hart in de diastole rust’ verklaart niet waarom hij bij 300 W niet stijgt: het verschil zit in de wijde kleine slagaders in de werkende spieren.",
+    after:()=>waaromBtn(ans,textBox("Zie de slagaders als een ballon met een gat. Bij elke slag pomp je er een flinke stoot lucht in (groter slagvolume): de ballon zwelt meer op, de bovendruk stijgt. Maar het gat is groter geworden (wijde kleine slagaders in de spieren): tussen twee stoten loopt de ballon net zo ver leeg, dus de laagste druk, de onderdruk, blijft ongeveer gelijk."))});
+  q.append(think,ans);
+},STOF_DRUK2));
+
+if(!VWO){
+ids.push(vraag(2,"oudere mensen en training",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Bij oudere mensen is de hoogste hartfrequentie die ze kunnen halen lager dan bij jonge mensen.<br>"+B("Leg uit wat dit betekent voor hun maximale hartminuutvolume, en hoe training dat gedeeltelijk kan goedmaken."));
+  choiceStep(think,{q:"Van welke twee dingen hangt het hartminuutvolume af?",opts:["hartfrequentie en slagvolume","hartfrequentie en bloeddruk","slagvolume en de dikte van de aorta"],right:0,
+    ok:"Ja. Wat gebeurt er met het product als één van de twee kleiner wordt en de ander gelijk blijft?",no:"Kijk naar de formule in de uitleg van de stof.",
+    onDone:()=>choiceStep(think,{q:"Wat verandert er door training aan het hart van de wielrenner (zie de inleiding)?",opts:["de linkerkamer wordt groter en de wand dikker","de sinusknoop vuurt sneller","er komen extra kleppen bij"],right:0,
+      ok:"Goed. Wat doet zo'n kamer met het slagvolume? Gebruik dat voor het tweede deel van je antwoord.",no:"Lees de eerste zin van de inleiding nog eens.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Met een lagere maximale hartfrequentie is (bij hetzelfde slagvolume) het <b>maximale hartminuutvolume lager</b>, zodat er minder bloed (zuurstof) naar de spieren kan.",
+    "Door training wordt de linkerkamer groter en sterker, zodat het <b>slagvolume</b> (en daarmee het hartminuutvolume) toch groter wordt."],
+    model:"Het hartminuutvolume is hartfrequentie × slagvolume. Is de hoogste hartfrequentie lager, dan is bij hetzelfde slagvolume ook het hoogste hartminuutvolume lager: er kan minder bloed, en dus minder zuurstof, naar de spieren. Door training wordt de linkerkamer groter en sterker, zodat er per slag meer bloed uit gaat. Dat grotere slagvolume maakt het hartminuutvolume weer groter.",
+    valkuil:"‘Door training gaat de hartfrequentie weer omhoog’ is onjuist: de hoogste hartfrequentie verandert door training nauwelijks (zie afbeelding 1: ze eindigen ongeveer even hoog). Training werkt via het slagvolume.",
+    after:()=>waaromBtn(ans,textBox("In afbeelding 1 eindigen de wielrenner en zijn leeftijdsgenoot met ongeveer dezelfde hoogste hartfrequentie (186 en 195), maar de wielrenner levert veel meer vermogen. Het verschil zit dus in het slagvolume. Zo werkt training ook bij ouderen: de maximale hartfrequentie kan het niet goedmaken, een groter slagvolume gedeeltelijk wel."))});
+  q.append(think,ans);
+},STOF_HMV2));
+}else{
+const STOF_VAGUS={titel:"Zenuwen en adrenaline",html:`
+<p>De sinusknoop geeft uit zichzelf prikkels af. Het <b>autonome zenuwstelsel</b> zet hem sneller of langzamer: het orthosympathische zenuwstelsel versnelt, het parasympathische remt. Voor vwo: de parasympathische zenuw naar het hart heet de <b>nervus vagus</b>.</p>
+<p>Ook <b>adrenaline</b> versnelt het hart. Een signaal via een zenuw is binnen een fractie van een seconde bij het hart; een hormoon moet eerst gemaakt en via het bloed naar het hart vervoerd worden.</p>`,
+films:[F.regel]};
+ids.push(vraag(2,"de rem op de sinusknoop",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Zonder zenuwen zou de sinusknoop van de wielrenner ongeveer 100 keer per minuut prikkels afgeven. Toch is zijn hartfrequentie in rust 42.<br>"+B("Leg uit hoe die lage rusthartslag tot stand komt, en waarom zijn hart bij de start van een sprint binnen enkele seconden versnelt, terwijl een getransplanteerd hart daar minuten over doet."));
+  choiceStep(think,{q:"De sinusknoop zou uit zichzelf 100 keer per minuut vuren, maar het hart klopt 42 keer. Wat moet er dan in rust gebeuren?",opts:["de sinusknoop wordt geremd","de sinusknoop wordt versneld","de kamers slaan een slag over"],right:0,
+    ok:"Ja. Door welk deel van het autonome zenuwstelsel?",no:"42 is minder dan 100. Wat doet het lichaam dan met de sinusknoop?",
+    onDone:()=>choiceStep(think,{q:"Wat gebeurt er bij een harttransplantatie met de zenuwen naar het hart?",opts:["ze worden doorgeknipt","ze worden mee getransplanteerd en blijven werken"],right:0,
+      ok:"Goed. Wat blijft er dan nog over om het getransplanteerde hart te versnellen, en waarom gaat dat trager?",no:"Het hart komt uit een ander lichaam. Kan het meteen aan de zenuwen van de ontvanger vastzitten?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "In rust <b>remt</b> de <b>nervus vagus</b> (het parasympathische zenuwstelsel) de sinusknoop sterk.",
+    "Bij de start valt die rem weg en zet het <b>orthosympathische zenuwstelsel</b> het hart meteen sneller (via zenuwen, snel); een getransplanteerd hart heeft geen zenuwen en versnelt pas als <b>adrenaline via het bloed</b> het hart bereikt."],
+    model:"In rust remt de nervus vagus, het parasympathische zenuwstelsel, de sinusknoop sterk: van ongeveer 100 naar 42 slagen per minuut. Bij de start van een sprint valt die rem weg en zet het orthosympathische zenuwstelsel het hart via zenuwen meteen sneller. Bij een getransplanteerd hart zijn de zenuwen doorgeknipt. Dat hart versnelt pas als adrenaline via het bloed bij het hart komt, en dat duurt minuten.",
+    valkuil:"‘Het getransplanteerde hart is zwakker’ of ‘het moet wennen’ is geen uitleg: het gaat om zenuwen (snel) tegenover adrenaline via het bloed (langzaam).",
+    after:()=>waaromBtn(ans,textBox("De sinusknoop is als een motor die stationair op 100 draait, met de nervus vagus als rem. Bij de wielrenner staat die rem in rust stevig aan. Bij een sprint gaat de rem los en geeft het orthosympathische zenuwstelsel gas: binnen seconden. Een getransplanteerd hart heeft geen rem en geen gaspedaal van zenuwen; het klopt in rust juist sneller, en versnelt pas als er adrenaline in het bloed komt."))});
+  q.append(think,ans);
+},STOF_VAGUS));
+}
+
+opgave("Wielrenner","Het hart van een wielrenner",`
+<p>Na jaren training is het hart van een wielrenner veranderd: de linkerkamer is groter en de wand ervan is dikker. Een getrainde wielrenner heeft in rust een hartfrequentie van 42 slagen per minuut, een ongetrainde leeftijdsgenoot 70. In rust hebben beiden een hartminuutvolume van ongeveer 5 liter per minuut.</p>
+<p>Beiden fietsen op een hometrainer. Het vermogen wordt stap voor stap opgevoerd tot ze niet meer kunnen. In afbeelding 1 staat hun hartfrequentie.</p>
+<div class="eyebrow">afbeelding 1 (fictieve gegevens)</div>${FIETS()}`,ids);
+}
+
+
+/* ================= opgaven en navigatie ================= */
+OPG.sort((a,b)=>a.nr-b.nr);
+/* cijfer als bij een schooltoets: 9 × score / maximum + 1 */
+const NORM="";
+const CIJFER=(()=>{const L=Q.reduce((s,q)=>s+q.pts,0);return Array.from({length:L+1},(_,S)=>Math.round((9*S/L+1)*10)/10);})();
+const main=$("#main"),tabs=$("#tabs");let cur=1;const built={},nextBtns={};
+let curOpg=OPG.some(o=>o.nr===store.opg)?store.opg:1;
+const opg=()=>OPG.find(o=>o.nr===curOpg);
+const pts=o=>o.ids.reduce((s,i)=>s+Q.find(q=>q.id===i).pts,0);
+function reach(){const ids=opg().ids;if(store.vrij)return ids[ids.length-1];let k=0;while(k<ids.length-1&&store.scores[ids[k]]!==undefined)k++;return ids[k];}
+function renderTabs(){
+  tabs.innerHTML="";const r=reach();
+  opg().ids.forEach(id=>{const q=Q.find(x=>x.id===id);const locked=id>r;
+    const b=el("button",{class:(id===cur?"cur ":"")+(store.scores[id]!==undefined?"done":"")+(locked?" lock":""),"aria-label":"Vraag "+id+(locked?" (eerst vraag "+(id-1)+" maken)":""),title:locked?"Maak eerst vraag "+(id-1):""},id);
+    if(locked)b.disabled=true;else b.onclick=()=>open(id);tabs.append(b);});
+  const o=el("button",{class:"ov"+(cur==="ov"?" cur":"")},"Score");o.onclick=()=>open("ov");tabs.append(o);
+}
+function open(id){
+  if(id!=="ov"&&id>reach())id=reach();
+  cur=id;renderTabs();main.innerHTML="";
+  if(id==="ov"){main.append(overview());return;}
+  if(!built[id]){const q=Q.find(x=>x.id===id);const sec=el("article",{class:"q"});
+    q.build(sec);
+    const pap=el("section",{class:"papier","aria-label":"Toetsvraag "+id});
+    pap.append(el("div",{class:"pkop"},`<span class="pnr"><span class="mono">Toetsvraag</span><span class="nr">${id}</span></span><span class="mono">${q.pts} ${q.pts===1?"punt":"punten"}</span>`));
+    for(const c of [...sec.children]){if(c.classList.contains("phase")||c.tagName==="BUTTON")break;pap.append(c);}
+    pap.append(el("div",{class:"pvoet"},"Oefentoets Transport · vwo"));
+    sec.prepend(pap);
+    const sb=window.EXSTOF&&EXSTOF.blok(TOOL,id);if(sb)pap.after(sb);
+    /* toetsvraag nog eens boven de antwoorden (Kamiel 25 okt 2026: niet terug hoeven scrollen) */
+    const qt=[...pap.querySelectorAll(".qtext")].pop(),ansP=sec.querySelector(".phase.ans");
+    if(qt&&ansP){const h=el("div",{class:"herhaal papier"});h.append(el("div",{class:"hkop mono"},`Toetsvraag ${id}`));
+      const c=qt.cloneNode(true);c.querySelectorAll("[id]").forEach(x=>x.removeAttribute("id"));h.append(c);
+      const lab=ansP.querySelector(":scope>.label");lab?lab.after(h):ansP.prepend(h);}
+    const ids=opg().ids,last=id===ids[ids.length-1];
+    const nx=el("div",{class:"row",style:"justify-content:flex-end"});const b=el("button",{class:"go"},last?"Naar je score ›":`Volgende vraag (${id+1}) ›`);
+    nextBtns[id]=b;b.hidden=!store.vrij&&store.scores[id]===undefined;
+    b.onclick=()=>{open(last?"ov":id+1);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};nx.append(b);sec.append(nx);built[id]=sec;}
+  main.append(built[id]);
+}
+function overview(){
+  const o=opg();const s=el("section",{class:"phase"});s.append(el("h2",{},`Jouw score op opgave ${o.nr}`));
+  let tot=0;const t=el("table",{class:"data ovtable"});t.innerHTML="<tr><th>vraag</th><th>onderwerp</th><th>score</th></tr>";
+  o.ids.forEach(id=>{const q=Q.find(x=>x.id===id);const p=store.scores[id];if(p!==undefined)tot+=p;t.innerHTML+=`<tr><td>${id}</td><td>${q.t}</td><td>${p===undefined?"–":p} / ${q.pts}</td></tr>`;});
+  const w=el("div",{class:"tablewrap"});w.append(t);s.append(w,el("div",{class:"score"},`Totaal opgave ${o.nr}: ${tot} / ${pts(o)}`));
+  let all=0,allMax=0;OPG.forEach(x=>{allMax+=pts(x);x.ids.forEach(id=>{if(store.scores[id]!==undefined)all+=store.scores[id];});});
+  const gemaakt=OPG.every(x=>x.ids.every(id=>store.scores[id]!==undefined));
+  const cf=CIJFER[Math.min(all,CIJFER.length-1)].toFixed(1).replace(".",",");
+  s.append(el("p",{style:"margin:0"},`Hele toets: <b>${all}</b> van ${allMax} punten · cijfer <b>${cf}</b>`+(gemaakt?"":` <span class="muted">(nog niet alles gemaakt: open vragen tellen als 0 punten)</span>`)));
+  s.append(el("p",{class:"muted",style:"margin:0;font-size:14px"},`Cijfer = 9 × score / maximum + 1. Open vragen kijk je zelf na met het antwoordmodel.`));
+  const nextO=OPG.find(x=>x.nr===o.nr+1);
+  const row=el("div",{class:"row"});
+  if(nextO){const nb=el("button",{class:"go"},`Naar opgave ${nextO.nr}: ${nextO.kort} ›`);nb.onclick=()=>{setOpg(nextO.nr);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};row.append(nb);}
+  const r=el("button",{class:"ghost"},`Opgave ${o.nr} opnieuw`);r.onclick=()=>{o.ids.forEach(id=>{delete store.scores[id];delete built[id];delete nextBtns[id];});save();open(o.ids[0]);};row.append(r);
+  s.append(row);return s;
+}
+function renderOpgs(){const box=$("#opgs");box.innerHTML="";
+  OPG.forEach(o=>{const b=el("button",{"aria-pressed":o.nr===curOpg?"true":"false"},`${o.nr} · ${o.kort}`);b.onclick=()=>setOpg(o.nr);box.append(b);});}
+function setOpg(n){curOpg=n;store.opg=n;save();const o=opg();
+  $("#eb").textContent=`Oefentoets Transport · vwo · opgave ${o.nr}`;$("#h1").textContent=o.titel;
+  $("#sub").textContent=`vraag ${o.ids[0]} t/m ${o.ids[o.ids.length-1]} · ${pts(o)} punten`;
+  $("#ctx").innerHTML=o.ctx;renderOpgs();open(reach());}
+function setVrij(v){store.vrij=v;save();$("#vrij").setAttribute("aria-pressed",v?"true":"false");
+  for(const k in nextBtns)nextBtns[k].hidden=!v&&store.scores[k]===undefined;renderTabs();}
+$("#vrij").onclick=()=>setVrij(!store.vrij);setVrij(!!store.vrij);
+EXSTAND.STANDEN.forEach(s=>{s.uitleg=s.uitleg.replace(/examenvraag/g,"toetsvraag").replace("het echte examen","een echte toets").replace(" Zet de klok aan voor 3 uur examentijd.","");if(s.k==="echt")s.naam="Echte toets";});
+EXSTAND.init({store,save,setVrij});
+setOpg(curOpg);
+})();
+
+</script>
+</body>
+</html>

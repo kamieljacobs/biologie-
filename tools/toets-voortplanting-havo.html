@@ -243,10 +243,15 @@ function phase(cls,label){const p=el("section",{class:"phase "+cls});
 function choiceStep(container,{q,opts,right,ok,no,onDone}){
   const s=el("div",{class:"step"});s.append(el("p",{},q));
   const row=el("div",{class:"row"});const fb=el("div",{class:"fb",hidden:""});
-  opts.forEach((o,i)=>{const b=el("button",{class:"opt",onclick:()=>{
+  const knop=[];opts.forEach((o,i)=>{const b=el("button",{class:"opt",onclick:()=>{
     if(i===right){row.querySelectorAll("button").forEach(x=>x.disabled=true);b.classList.add("right");fb.className="fb ok";fb.innerHTML=ok;fb.hidden=false;onDone&&onDone();}
     else{b.classList.add("wrong");fb.className="fb no";fb.innerHTML=no;fb.hidden=false;}
-  }},o);row.append(b);});
+  }},o);knop.push(b);});
+  /* @@schud@@ vaste, geschudde volgorde (zaadje = vraagtekst), zodat het goede antwoord niet steeds eerst staat */
+  {let h=2166136261;for(const c of String(q))h=Math.imul(h^c.charCodeAt(0),16777619)>>>0;
+   const v=knop.map((b,i)=>i);for(let i=v.length-1;i>0;i--){h=Math.imul(h^(h>>>15),2246822507)>>>0;const j=h%(i+1);[v[i],v[j]]=[v[j],v[i]];}
+   if(v.length>1&&v[0]===right&&opts.length>2){const k=v.indexOf(right);[v[0],v[1]]=[v[1],v[0]];}
+   v.forEach(i=>row.append(knop[i]));}
   s.append(row,fb);container.append(s);return s;
 }
 function mc(container,{opts,right,pts,qid,graphs:isGraph,onChecked}){

@@ -2,7 +2,9 @@
 """Speelt elke vraag in de toetsstand: antwoord geven, nakijken, 'Laat zien waarom', door alle animatiestappen. Meldt fouten en eindscore."""
 import sys, os
 from playwright.sync_api import sync_playwright
-T = __import__('os').path.abspath(__import__('os').path.join(__import__('os').path.dirname(__file__),'..','..')); shots = '/tmp/toets-erf-shots'
+import subprocess, time, atexit
+POORT = 8137  # eigen poort (8100–8199) zodat andere tools tegelijk kunnen testen
+T = __import__('os').path.abspath(__import__('os').path.join(__import__('os').path.dirname(__file__),'..','..')); shots = '/tmp/toets-erfelijkheid-shots'
 JS = r"""async()=>{const m=document.querySelector('#main .phase.ans');const w=ms=>new Promise(r=>setTimeout(r,ms));
  const click=b=>{b&&b.click();};
  const mcb=m.querySelector('.row button.opt, .graphs button');
@@ -14,6 +16,7 @@ JS = r"""async()=>{const m=document.querySelector('#main .phase.ans');const w=ms
  await w(60);const wb=[...m.querySelectorAll('button.ghost')].find(b=>b.textContent.startsWith('Laat zien'));click(wb);await w(60);
  const nx=m.querySelector('.anim .nav button.go');let n=0;if(nx){const k=m.querySelectorAll('.pips span').length;for(;n<k;n++){nx.click();await w(20);}}
  return {waarom:!!wb,anim:n,fb:(m.querySelector('.fb:not([hidden])')||m.querySelector('.score')||{}).textContent?.slice(0,60)};}"""
+SRV = subprocess.Popen([sys.executable, '-m', 'http.server', str(POORT), '-d', os.path.dirname(T)], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL); atexit.register(SRV.kill); time.sleep(.8)
 for niv in sys.argv[1:] or ['havo', 'vwo']:
     errs = []
     with sync_playwright() as p:
@@ -21,7 +24,7 @@ for niv in sys.argv[1:] or ['havo', 'vwo']:
         pg.on('pageerror', lambda e: errs.append('PAGEERROR ' + str(e)))
         pg.on('console', lambda m: m.type == 'error' and 'ERR_' not in m.text and errs.append(m.text))
         pg.add_init_script(f"if(!sessionStorage.getItem('x')){{sessionStorage.setItem('x',1);localStorage.setItem('toets-erfelijkheid-{niv}',JSON.stringify({{scores:{{}},mode:'examen',vrij:true}}))}}")
-        pg.goto(f'file://{T}/toets-erfelijkheid-{niv}.html'); pg.wait_for_timeout(400)
+        pg.goto(f'http://localhost:{POORT}/tools/toets-erfelijkheid-{niv}.html'); pg.wait_for_timeout(400)
         n = pg.evaluate("document.querySelectorAll('#opgs button').length")
         for i in range(n):
             pg.click(f'#opgs button >> nth={i}'); pg.wait_for_timeout(100)

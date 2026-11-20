@@ -1,0 +1,1061 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../js/teller.js" data-root="../"></script>
+<link rel="icon" href="../img/icoon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../img/icoon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../img/icoon/apple-touch-icon.png">
+<script>(function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oefentoets Cellen havo · doorklikken · Biologie bij Kamiel</title>
+<meta name="description" content="Oefentoets Cellen voor havo: per vraag eerst hulpvragen, dan de toetsvraag, nakijken met het antwoordmodel en uitleg waarom.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="huisstijl.css">
+<script src="huisstijl.js"></script>
+<script src="examen-stof.js?v=b496a9e6"></script>
+<script src="examen-standen.js?v=558bd73d"></script>
+<style>
+/* Oefentoets Cellen havo · zelfde bouwstenen als de oefenexamens (tools/OEFENEXAMEN_PROMPT.md). */
+body.echt .klok{display:none!important}
+@media (max-width:600px){.tfig{overflow-x:auto;-webkit-overflow-scrolling:touch}.tfig>svg{min-width:var(--min)}}
+:root{--rest:#2A3B57;--area:#5B6B84}
+:root[data-theme="light"]{--rest:#D5DEE9;--area:#B4BDCA}
+ .wrap{padding-inline:0}
+:root[data-theme="light"] .papier{box-shadow:0 0 0 1px rgba(20,32,52,.18),0 6px 18px rgba(20,32,52,.10)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--text);font:17px/1.55 var(--tekst);-webkit-font-smoothing:antialiased;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 40px}
+.wrap{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1,h2,h3{font-family:var(--titel);font-weight:700;letter-spacing:-.01em;text-wrap:balance;margin:0;line-height:1.1}
+h2{font-size:24px}
+.mono,.eyebrow{font:600 12px/1.2 var(--meta);letter-spacing:.1em;text-transform:uppercase}
+.eyebrow{color:var(--goud-text)}
+.muted{color:var(--text2)}
+a{color:var(--goud-text)}
+.sitenav{display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap;min-height:56px;padding:8px 0;border-bottom:1px solid var(--line);font:600 15px/1.3 var(--tekst)}
+.sitenav .merk{font:700 18px/1 var(--titel);color:var(--text);text-decoration:none}
+.sitenav .terug{color:var(--goud-text);text-decoration:none}
+.sitenav .rechts{margin-left:auto}
+.tool-kop{display:flex;flex-direction:column;gap:10px;padding:14px 0 0}
+.tool-kop h1{font-size:clamp(32px,5vw,48px)}
+.tool-kop p{margin:0;color:var(--text2);font-size:18px;max-width:62ch}
+button.toggle{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line2);background:none;color:var(--text2);border-radius:999px;padding:6px 14px 6px 8px;min-height:40px;font:600 14px var(--tekst);cursor:pointer}
+button.toggle .knopje{width:34px;height:20px;border-radius:999px;background:var(--line2);position:relative;flex:none}
+button.toggle .knopje::after{content:"";position:absolute;left:3px;top:3px;width:14px;height:14px;border-radius:50%;background:var(--text2);transition:left .15s}
+button.toggle[aria-pressed="true"]{color:var(--text);border-color:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje{background:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje::after{left:17px;background:var(--goud-ink)}
+.kopbalk{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.seg{display:inline-flex;flex-wrap:wrap;padding:3px;border-radius:999px;border:1px solid var(--line2);gap:2px}
+.seg button{border:0;background:none;padding:6px 14px;border-radius:999px;font:600 14px var(--tekst);color:var(--text2);min-height:36px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--goud);color:var(--goud-ink)}
+nav.tabs{display:flex;flex-wrap:wrap;gap:6px}
+nav.tabs button{min-width:44px;height:44px;border-radius:999px;border:1px solid var(--line2);background:none;color:var(--text2);font:600 15px var(--meta);cursor:pointer;position:relative}
+nav.tabs button:hover{color:var(--text)}
+nav.tabs button.cur{background:var(--goud);color:var(--goud-ink);border-color:var(--goud)}
+nav.tabs button.done::after{content:"";position:absolute;right:3px;top:3px;width:8px;height:8px;border-radius:50%;background:var(--groen);border:2px solid var(--bg)}
+nav.tabs button.lock{opacity:.35;cursor:not-allowed}
+nav.tabs .ov{padding:0 16px;font-family:var(--tekst)}
+.ctx{background:var(--surface);border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.ctx p{margin:0}
+details.ctxd summary{cursor:pointer;font-weight:600;color:var(--goud-text)}
+.tablewrap{overflow-x:auto}
+table.data{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+table.data th,table.data td{border-bottom:1px solid var(--line);padding:7px 10px;text-align:center}
+table.data th:first-child,table.data td:first-child{text-align:left}
+table.data th{font:600 11px var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--text3)}
+.q{display:flex;flex-direction:column;gap:14px}
+.qhead{display:flex;gap:12px;align-items:center}
+.qnum{font:700 40px/1 var(--titel);color:var(--goud-text)}
+.pts{font:600 12px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:3px 9px}
+.qtext{margin:0;font-size:18px}
+.phase{border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;background:var(--surface);display:flex;flex-direction:column;gap:12px}
+.phase>.label{display:flex;gap:8px;align-items:center;font:600 12px var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3)}
+.phase>.label .dot{width:8px;height:8px;border-radius:50%;background:var(--goud)}
+.phase.think{background:var(--surface2)}
+.phase.think>.label{color:var(--goud-text)}
+.step{display:flex;flex-direction:column;gap:8px}
+.step+.step{border-top:1px solid var(--line);padding-top:12px}
+.step p{margin:0}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button.opt,button.chip{border:1px solid var(--line2);background:var(--bg);color:var(--text);border-radius:12px;padding:9px 14px;font:inherit;font-size:16px;cursor:pointer;text-align:left}
+button.chip{border-radius:999px}
+button.opt:hover,button.chip:hover{border-color:var(--text3)}
+button.chip[aria-pressed="true"]{border-color:var(--goud);background:var(--goud-soft)}
+button.opt.right{border-color:var(--groen);background:var(--groen-soft)}
+button.opt.wrong{border-color:var(--koraal);background:var(--koraal-soft)}
+button.opt:disabled{cursor:default}
+button.go,button.ghost{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 18px;border-radius:999px;font:700 15px var(--tekst);cursor:pointer}
+button.go{border:0;background:var(--goud);color:var(--goud-ink)}
+button.go:hover{filter:brightness(1.06)}
+button.ghost{border:0;background:none;color:var(--text);box-shadow:inset 0 0 0 1px var(--line2)}
+button.ghost:hover{box-shadow:inset 0 0 0 1px var(--text3)}
+button:disabled.go,button:disabled.ghost{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:2px solid var(--goud);outline-offset:3px;border-radius:6px}
+input.num{width:96px;min-height:44px;font:600 16px var(--meta);padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text)}
+select{font:inherit;font-size:15px;min-height:44px;padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);max-width:100%;flex:1 1 260px}
+textarea{width:100%;min-height:88px;font:inherit;padding:10px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);resize:vertical}
+.fb{font-size:16px;border-radius:12px;padding:12px 14px;background:var(--surface2);border:1px solid var(--line2)}
+.fb.ok{border-color:var(--groen);background:var(--groen-soft)}
+.fb.no{border-color:var(--koraal);background:var(--koraal-soft)}
+.fb.hint{border-color:var(--teal);background:var(--teal-soft)}
+.graphs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.graphs{grid-template-columns:1fr}}
+.gopt{border:1px solid var(--line2);border-radius:var(--radius);background:var(--bg);padding:8px 8px 2px;cursor:pointer;color:var(--text);font:inherit;text-align:left}
+.gopt b{font:700 20px var(--titel);margin-left:6px;color:var(--goud-text)}
+.gopt:hover{border-color:var(--text3)}
+.gopt.right{border-color:var(--groen);box-shadow:0 0 0 2px var(--groen) inset}
+.gopt.wrong{border-color:var(--koraal);box-shadow:0 0 0 2px var(--koraal) inset}
+svg{display:block;max-width:100%;height:auto}
+.ax{stroke:var(--text3);stroke-width:1.2;fill:none}
+.grid{stroke:var(--line2);stroke-width:1;fill:none}
+.tick{fill:var(--text3);font:500 10px var(--meta)}
+.cv{stroke:var(--teal);stroke-width:2.4;fill:none;stroke-linejoin:round}
+.cvbad{stroke:var(--koraal);stroke-width:2;fill:none;stroke-dasharray:5 4}
+.restband{fill:var(--rest);opacity:.8}
+.lbl{fill:var(--text);font:600 12px var(--tekst)}
+.lblm{fill:var(--text2);font:12px var(--tekst)}
+.lblbad{fill:var(--koraal);font:700 12px var(--tekst)}
+.selfscore{display:flex;flex-direction:column;gap:10px}
+.selfscore label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.selfscore input{margin-top:4px;width:18px;height:18px;accent-color:var(--goud);flex:none}
+.model{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:16px}
+.anim{display:flex;flex-direction:column;gap:10px}
+.anim .stage{border-radius:var(--radius);background:var(--surface2);border:1px solid var(--line2);overflow:hidden}
+.anim .cap{min-height:3.2em;margin:0}
+.anim .nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pips{display:flex;gap:6px;margin-left:auto}
+.pips span{width:9px;height:9px;border-radius:50%;background:var(--line2)}
+.pips span.on{background:var(--goud)}
+.seq{display:flex;flex-direction:column;gap:6px}
+.seq button{display:flex;gap:10px;align-items:center}
+.seq .n{font:600 13px var(--meta);width:24px;height:24px;border-radius:50%;display:inline-grid;place-items:center;background:var(--line2);flex:none}
+.seq button.placed{border-color:var(--groen)} .seq button.placed .n{background:var(--groen);color:var(--goud-ink)}
+.score{font:600 16px var(--meta)}
+.ovtable td:last-child,.ovtable th:last-child{text-align:right}
+.pre{border-left:3px solid var(--goud);padding:2px 0 2px 14px;display:flex;flex-direction:column;gap:8px}
+.pre p{margin:0;color:var(--text2)}
+.figrow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.figrow{grid-template-columns:1fr}}
+.legenda{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--text2)}
+.legenda i{display:inline-block;vertical-align:middle;margin-right:6px}
+.legenda .lijn{width:22px;height:0;border-top:2.5px solid var(--text)}
+.legenda .vlak{width:16px;height:12px;background:var(--area)}
+.tick.dim{opacity:.35}
+p.klikbaar{line-height:2}
+button.mark{font:inherit;color:var(--text);background:none;border:0;border-bottom:2px dashed var(--goud);padding:0 3px;border-radius:4px;cursor:pointer}
+button.mark[aria-pressed="true"]{background:var(--goud-soft);border-bottom-style:solid}
+button.mark:disabled{cursor:default}
+.sellab{min-width:200px;font-weight:600}
+label.slider{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center}
+label.slider span{min-width:170px;font-weight:600;font-size:15px}
+label.slider input{flex:1 1 200px;accent-color:var(--goud)}
+.podium{background:var(--surface2);border:1px solid var(--line2);border-radius:var(--radius);overflow:hidden}
+p.regels{font-family:var(--tekst);line-height:1.9;margin:0}
+p.regels span{display:inline-block;width:2em;font:600 12px var(--meta);color:var(--text3)}
+sup{font-size:.7em}
+.papier{--bg:#FFFFFF;--surface:#FFFFFF;--surface2:#EEF1F5;--line:rgba(20,32,52,.10);--line2:rgba(20,32,52,.24);
+  --text:#121C2E;--text2:#3B4759;--text3:#667185;--goud:#C99A2E;--goud-text:#7E5C0B;--goud-soft:rgba(217,172,60,.18);
+  --groen:#2F8A47;--koraal:#B9502F;--teal:#25729C;--paars:#6550AD;--groen-soft:rgba(47,138,71,.10);--koraal-soft:rgba(185,80,47,.10);--teal-soft:rgba(37,114,156,.10);
+  --rest:#D5DEE9;--area:#B4BDCA;color-scheme:light;
+  background:#FCFCFA;color:var(--text);border:0;border-radius:6px;padding:16px 20px 12px;display:flex;flex-direction:column;gap:12px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.08),0 10px 28px rgba(0,0,0,.35)}
+.papier .pkop{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;border-bottom:2px solid var(--text);padding-bottom:6px}
+.papier .pkop .mono{color:var(--text2)}
+.papier .pnr{display:flex;align-items:baseline;gap:10px}
+.papier .nr{font:700 30px/1 var(--titel);color:var(--text)}
+.papier .pre{border-left:0;padding:0}
+.papier .pre p{color:var(--text)}
+.papier .qtext{color:var(--text)}
+.herhaal.papier{padding:10px 14px;gap:6px;box-shadow:none;border-radius:6px}
+.herhaal .hkop{color:var(--text3);font-size:11px}
+.herhaal .qtext{font-size:16px}
+.papier .pvoet{font:500 11px var(--meta);letter-spacing:.06em;color:var(--text3);text-align:right}
+.papier details.ctxd summary{color:var(--goud-text)}
+.papier .podium{background:var(--surface2)}
+.phase>.label .tag{margin-left:6px;font:600 10px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:2px 8px}
+.sleutel{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:14px;color:var(--text2)}
+.sleutel .sw{display:inline-block;width:16px;height:12px;border-radius:2px;vertical-align:-1px;margin-right:7px}
+.sleutel .papier-sw{background:#FCFCFA}
+.sleutel .donker-sw{background:var(--surface2);box-shadow:inset 0 0 0 1px var(--line2)}
+.exfoto{display:block;width:100%;height:auto;border-radius:2px}
+footer{color:var(--text3);font-size:14px;padding-top:24px;border-top:1px solid var(--line)}
+body.hulp .ans.locked{display:none}
+body.examen .think{display:none}
+body.examen .think.open{display:flex}
+.helpbtn{display:none!important}
+body.examen .helpbtn{display:inline-flex!important}
+body.examen .tonext{display:none!important}
+@media (max-width:600px){body{font-size:16px}.qtext{font-size:17px}.phase,.ctx{padding:14px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="sitenav" aria-label="Site">
+    <a class="merk" href="../index.html#home">Biologie bij Kamiel</a>
+    <a class="terug" href="../index.html#cellen">← Terug naar Cellen</a>
+    <span class="rechts"><button type="button" class="icoon" data-thema-knop></button></span>
+  </nav>
+  <header class="tool-kop">
+    <div class="eyebrow" id="eb">Oefentoets Cellen · havo</div>
+    <h1 id="h1">Oefentoets Cellen</h1>
+    <div class="seg" id="opgs" role="group" aria-label="Opgave"></div>
+    <div class="sleutel"><span><i class="sw papier-sw"></i>Wit vak = de toetsvraag</span><span><i class="sw donker-sw"></i>Donker vak = hulpvragen en uitleg (niet uit de toets)</span></div>
+    <p>Maak de toets stap voor stap. Bij elke vraag denk je eerst na met de hulpvragen, dan beantwoord je de toetsvraag, en daarna zie je waarom het antwoord klopt. Kies zelf hoeveel hulp je wilt; met ‘Echte toets’ oefen je zonder hulp.</p>
+    <div class="kopbalk">
+      <div class="seg" id="standen" role="group" aria-label="Hoeveel hulp wil je?"></div>
+      <button id="vrij" class="toggle" aria-pressed="false"><span class="knopje"></span>Vrij doorklikken</button>
+      <span class="mono muted" id="sub"></span>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs" aria-label="Vragen"></nav>
+
+  <section class="ctx papier" id="ctx"></section>
+
+  <main id="main"></main>
+
+  <footer>Eigen vragen, met inspiratie uit de centrale examens (© CvTE), Biologie voor Jou en Nectar. Grafieken en schema's zijn eigen tekeningen; bronnen van de gegevens staan bij de opgaven.<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a> </span></footer>
+</div>
+
+<script>
+(function(){
+const $=(s,r=document)=>r.querySelector(s);
+const el=(tag,attrs={},html="")=>{const e=document.createElement(tag);for(const k in attrs){if(k==="class")e.className=attrs[k];else if(k.startsWith("on"))e.addEventListener(k.slice(2),attrs[k]);else e.setAttribute(k,attrs[k]);}if(html)e.innerHTML=html;return e;};
+const TOOL="cel-havo";
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- opslag (alleen gemak) ---------- */
+let store={scores:{},mode:"hulp"};
+try{const s=JSON.parse(localStorage.getItem("toets-cellen-havo")||"null");if(s)store=Object.assign(store,s);}catch(e){}
+const save=()=>{try{localStorage.setItem("toets-cellen-havo",JSON.stringify(store));}catch(e){}};
+
+/* ---------- algemene bouwstenen ---------- */
+function phase(cls,label){const p=el("section",{class:"phase "+cls});
+  if(cls==="think")p.append(el("div",{class:"label"},`<span class="dot"></span>Hulpvragen<span class="tag">niet uit de toets</span>`));
+  else p.append(el("div",{class:"label"},`<span class="dot"></span>${label==="Antwoord"?"Jouw antwoord op de toetsvraag":label}`));return p;}
+function choiceStep(container,{q,opts,right,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});const fb=el("div",{class:"fb",hidden:""});
+  const knop=[];opts.forEach((o,i)=>{const b=el("button",{class:"opt",onclick:()=>{
+    if(i===right){row.querySelectorAll("button").forEach(x=>x.disabled=true);b.classList.add("right");fb.className="fb ok";fb.innerHTML=ok;fb.hidden=false;onDone&&onDone();}
+    else{b.classList.add("wrong");fb.className="fb no";fb.innerHTML=no;fb.hidden=false;}
+  }},o);knop.push(b);});
+  /* @@schud@@ vaste, geschudde volgorde (zaadje = vraagtekst), zodat het goede antwoord niet steeds eerst staat */
+  {let h=2166136261;for(const c of String(q))h=Math.imul(h^c.charCodeAt(0),16777619)>>>0;
+   const v=knop.map((b,i)=>i);for(let i=v.length-1;i>0;i--){h=Math.imul(h^(h>>>15),2246822507)>>>0;const j=h%(i+1);[v[i],v[j]]=[v[j],v[i]];}
+   if(v.length>1&&v[0]===right&&opts.length>2){const k=v.indexOf(right);[v[0],v[1]]=[v[1],v[0]];}
+   v.forEach(i=>row.append(knop[i]));}
+  s.append(row,fb);container.append(s);return s;
+}
+function mc(container,{opts,right,pts,qid,graphs:isGraph,onChecked}){
+  const wrap=el("div",{class:isGraph?"graphs":"row",style:isGraph?"":"flex-direction:column;align-items:stretch"});
+  const fb=el("div",{class:"fb",hidden:""});
+  opts.forEach((o,i)=>{const L="ABCDEF"[i];
+    const b=isGraph?el("button",{class:"gopt"},`<b>${L}</b>${o}`):el("button",{class:"opt"},`<b style="font:700 18px var(--titel);color:var(--goud-text);margin-right:10px">${L}</b>${o}`);
+    b.addEventListener("click",()=>{
+      wrap.querySelectorAll("button").forEach(x=>x.disabled=true);
+      const good=i===right; b.classList.add(good?"right":"wrong");
+      if(!good)wrap.children[right].classList.add("right");
+      fb.className="fb "+(good?"ok":"no");
+      fb.innerHTML=good?`Goed: <b>${"ABCDEF"[right]}</b>. ${pts} ${pts>1?"punten":"punt"}.`:`Het goede antwoord is <b>${"ABCDEF"[right]}</b>. 0 punten.`;
+      fb.hidden=false; setScore(qid,good?pts:0); onChecked&&onChecked();
+    });wrap.append(b);});
+  container.append(wrap,fb);
+}
+function waaromBtn(container,build){
+  const b=el("button",{class:"ghost waarombtn"},"Laat zien waarom ›");const box=el("div",{hidden:""});
+  b.onclick=()=>{b.remove();box.hidden=false;build(box);if(window.EXSTOF)EXSTOF.extraWaarom(TOOL,cur,box);};
+  container.append(b,box);
+}
+function lockAns(think,ans,label="Naar de vraag ›"){
+  ans.classList.add("locked");
+  const go=el("button",{class:"go tonext",hidden:""},label);
+  go.onclick=()=>{ans.classList.remove("locked");go.remove();ans.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});};
+  think.append(go);
+  return ()=>{think.append(go);go.hidden=false;};
+}
+function helpButton(q,think){
+  const b=el("button",{class:"ghost helpbtn"},"Hulp nodig? Toon de hulpvragen");
+  b.onclick=()=>{think.classList.add("open");b.remove();};
+  q.append(b);
+}
+function setScore(id,p){store.scores[id]=p;save();renderTabs();if(nextBtns[id])nextBtns[id].hidden=false;}
+
+/* ---------- vragen ---------- */
+const Q=[],OPG=[];
+
+/* Vraag 5 en 6: eerst zonder opties */
+function noOptions(q,{id,pts,text,prompt,hint,opts,right,uitleg}){
+  q.append(el("p",{class:"qtext"},text));
+  const think=phase("think","Eerst zelf"),ans=phase("ans","Kies je antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Toon de keuzes ›");
+  const s=el("div",{class:"step"});s.append(el("p",{},prompt));
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:"Wat denk jij? Schrijf het kort op."});const hb=el("button",{class:"ghost"},"Tip");const hf=el("div",{class:"fb hint",hidden:""},hint);
+  hb.onclick=()=>{hf.hidden=false;hb.remove();};
+  ta.addEventListener("input",()=>{if(ta.value.trim().length>2)unlock();});
+  s.append(ta,hb,hf);think.append(s);
+  mc(ans,{qid:id,pts,right,opts,onChecked:()=>{
+    if(ta.value.trim())ans.append(el("div",{class:"model"},`<b>Jij dacht eerst:</b> ${ta.value.replace(/</g,"&lt;")}<br><span class="muted">Klopte dat met de keuze die je maakte?</span>`));
+    waaromBtn(ans,b=>b.append(el("div",{class:"model"},uitleg)));}});
+  q.append(think,ans);
+}
+/* ================= extra bouwstenen ================= */
+function pre(q,html){q.append(el("div",{class:"pre"},html));}
+function chipsStep(container,{q,items,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});
+  items.forEach(([t])=>{const b=el("button",{class:"chip","aria-pressed":"false"},t);b.onclick=()=>b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")==="true"?"false":"true");row.append(b);});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(row,ck,fb);container.append(s);
+  ck.onclick=()=>{const sel=[...row.children].map(b=>b.getAttribute("aria-pressed")==="true");
+    const teveel=sel.some((s,k)=>s&&!items[k][1]),mist=sel.some((s,k)=>!s&&items[k][1]);fb.hidden=false;
+    if(!teveel&&!mist){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;row.querySelectorAll("button").forEach(b=>b.disabled=true);onDone&&onDone();}
+    else if(teveel){fb.className="fb hint";fb.innerHTML=no;}
+    else{fb.className="fb hint";fb.innerHTML="Wat je gekozen hebt klopt, maar er hoort nog meer bij. Kies alles wat klopt.";}};
+  return s;
+}
+function selectsStep(container,{q,rows,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const id=uid+"s"+k;
+    r.append(el("label",{for:id,class:"sellab"},lab));const sel=el("select",{id});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);s.append(r);return sel;});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(ck,fb);container.append(s);
+  ck.onclick=()=>{const n=sels.filter((sel,k)=>sel.value!==""&&+sel.value===rows[k][2]).length;fb.hidden=false;
+    if(n===rows.length){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;sels.forEach(x=>x.disabled=true);onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=`${n} van de ${rows.length} goed. `+(no||"Probeer het nog eens.");}};
+}
+function numStep(container,{q,right,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const r=el("div",{class:"row"});const inp=el("input",{class:"num",id:uid,inputmode:"decimal","aria-label":"antwoord"});const ck=el("button",{class:"ghost"},"Controleer");const fb=el("div",{class:"fb",hidden:""});
+  r.append(inp,ck);s.append(r,fb);container.append(s);
+  ck.onclick=()=>{const v=parseFloat((inp.value||"").replace(",","."));fb.hidden=false;
+    if(v===right){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;inp.disabled=true;onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=no;}};
+}
+function openAnswer(ans,{id,pts,checks,model,valkuil,placeholder,after}){
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:placeholder||"Schrijf je antwoord…"});
+  const ck=el("button",{class:"go"},"Nakijken");const tf=el("div",{class:"fb hint",hidden:""},"Schrijf eerst je antwoord op. Daarna kijk je het na.");
+  ans.append(ta,ck,tf);
+  ck.onclick=()=>{if(ta.value.trim().length<8){tf.hidden=false;ta.focus();return;}tf.remove();ck.remove();ta.readOnly=true;
+    const ss=el("div",{class:"selfscore"});
+    ss.append(el("p",{style:"margin:0"},"<b>Kijk jezelf na met het antwoordmodel.</b> Vink aan wat er in jouw antwoord staat."));
+    const boxes=checks.map((c,k)=>{const lab=el("label",{},`<input type="checkbox" id="q${id}c${k}"><span>${c} <span class="pts">1p</span></span>`);ss.append(lab);return lab.querySelector("input");});
+    if(model)ss.append(el("div",{class:"model"},"<b>Voorbeeldantwoord:</b> "+model));
+    if(valkuil)ss.append(el("div",{class:"fb hint"},"<b>Valkuil:</b> "+valkuil));
+    const sc=el("div",{class:"score"});ss.append(sc);ans.append(ss);
+    const upd=()=>{const p=Math.min(pts,boxes.filter(b=>b.checked).length);sc.textContent=`Jouw score: ${p} / ${pts}`;setScore(id,p);};
+    boxes.forEach(b=>b.onchange=upd);upd();after&&after();};
+}
+function juistOnjuist(ans,{id,stm,key,uitleg}){
+  const pick=stm.map(()=>null);
+  stm.forEach((t,k)=>{const r=el("div",{class:"row"});r.append(el("span",{style:"flex:1 1 260px"},`<b style="font-family:var(--meta)">${k+1}</b>&nbsp; ${t}`));
+    ["juist","onjuist"].forEach((lab,v)=>{const b=el("button",{class:"chip","aria-pressed":"false"},lab);b.onclick=()=>{pick[k]=v===0;r.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c===b?"true":"false"));};r.append(b);});ans.append(r);});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(pick.includes(null)){fb.hidden=false;fb.className="fb hint";fb.textContent="Beoordeel eerst alle uitspraken.";return;}
+    const n=pick.filter((p,k)=>p===key[k]).length;const p=n===stm.length?2:n===stm.length-1?1:0;ck.disabled=true;
+    ans.querySelectorAll(".chip").forEach(c=>c.disabled=true);
+    fb.hidden=false;fb.className="fb "+(p===2?"ok":"no");
+    fb.innerHTML=`${n} van de ${stm.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+key.map((k,i)=>`${i+1} ${k?"juist":"onjuist"}`).join(" · ");setScore(id,p);
+    waaromBtn(ans,uitleg);};
+}
+function stepAnim(box,steps,render){
+  let i=0;const stage=el("div",{class:"stage"}),cap=el("p",{class:"cap"});
+  const prev=el("button",{class:"ghost"},"‹ Vorige"),next=el("button",{class:"go"},"Volgende ›");
+  const pips=el("div",{class:"pips"},steps.map(()=>"<span></span>").join(""));
+  const nav=el("div",{class:"nav"});nav.append(prev,next,pips);
+  const a=el("div",{class:"anim"});a.append(stage,cap,nav);box.append(a);
+  function show(){cap.innerHTML=steps[i].cap;prev.disabled=i===0;next.textContent=i===steps.length-1?"Opnieuw ›":"Volgende ›";
+    pips.querySelectorAll("span").forEach((p,j)=>p.classList.toggle("on",j===i));render(stage,steps[i],i);}
+  prev.onclick=()=>{if(i>0){i--;show();}};next.onclick=()=>{i=(i+1)%steps.length;show();};show();
+}
+/* ================= meer bouwstenen ================= */
+function seqStep(container,{q,items,shown,ok,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const seq=el("div",{class:"seq"});let at=0;const fb=el("div",{class:"fb",hidden:""});
+  shown.forEach(k=>{const b=el("button",{class:"opt"},`<span class="n">·</span>${items[k]}`);b.onclick=()=>{if(b.classList.contains("placed"))return;
+    if(k===at){b.classList.add("placed");b.querySelector(".n").textContent=at+1;at++;fb.hidden=true;if(at===items.length){fb.hidden=false;fb.className="fb ok";fb.innerHTML=ok;onDone&&onDone();}}
+    else{fb.hidden=false;fb.className="fb hint";fb.textContent="Dat is nog niet de volgende stap. Wat gebeurt er direct daarna?";}};seq.append(b);});
+  s.append(seq,fb);container.append(s);
+}
+function selectAnswer(ans,{id,rows,score,uid,after,intro}){
+  if(intro)ans.append(el("p",{style:"margin:0"},intro));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const sid=uid+"a"+k;
+    r.append(el("label",{for:sid,class:"sellab"},lab));const sel=el("select",{id:sid});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);ans.append(r);return sel;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(sels.some(x=>x.value==="")){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul eerst alles in.";return;}
+    const n=sels.filter((x,k)=>+x.value===rows[k][2]).length;const p=score(n);sels.forEach(x=>x.disabled=true);ck.remove();
+    fb.hidden=false;fb.className="fb "+(n===rows.length?"ok":"no");
+    fb.innerHTML=`${n} van de ${rows.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+rows.map(([lab,opts,r])=>`${lab}: ${opts[r]}`).join(" · ");
+    setScore(id,p);after&&after();};
+}
+function textBox(html){return b=>b.append(el("div",{class:"model"},html));}
+const svgWrap=(vb,inner,label)=>`<svg viewBox="${vb}" role="img" aria-label="${label}">${inner}</svg>`;
+function numAnswer(ans,{id,fields,after}){
+  const inps=fields.map(([lab,unit],k)=>{const r=el("div",{class:"row"});const fid="q"+id+"f"+k;
+    r.append(el("label",{for:fid,class:"sellab"},lab));const i=el("input",{class:"num",id:fid,inputmode:"decimal"});r.append(i,el("span",{class:"muted"},unit));ans.append(r);return i;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{const v=inps.map(i=>parseFloat((i.value||"").replace(",",".")));if(v.some(isNaN)){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul beide uitkomsten in.";return;}
+    inps.forEach(i=>i.disabled=true);ck.remove();const res=fields.map((f,k)=>f[2](v[k]));const p=res.filter(Boolean).length;
+    fb.hidden=false;fb.className="fb "+(p===fields.length?"ok":"no");
+    fb.innerHTML=`<b>${p} van de ${fields.length} punten.</b><br>`+fields.map((f,k)=>`${res[k]?"✓":"✗"} ${f[3]}`).join("<br>");setScore(id,p);after&&after();};
+}
+
+/* ===== Oefentoets Cellen: gedeelde hulpjes (havo en vwo uit één bron) ===== */
+const VWO=false;
+let QN=0,ON=0;
+/* vraag(punten, onderwerp, build(q,id), stof?) -> id; stof = {titel, html, anim?, films?} voor 'Uitleg van de stof' */
+function vraag(pts,t,build,stof){const id=++QN;Q.push({id,pts,t,build:q=>build(q,id)});
+  if(stof&&window.EXSTOF)EXSTOF.zet(TOOL,[id],stof);return id;}
+function opgave(kort,titel,html,ids){const nr=++ON;
+  OPG.push({nr,kort,titel,ids,ctx:`<div class="pkop"><span class="mono">Toetstekst · opgave ${nr}</span></div>`+html});}
+/* films van het thema (hrefs als in HOOFDSTUKKEN.cellen.films in index.html) */
+const F={
+  mol:["Van molecuul tot biosfeer","films/cellen/van-molecuul-tot-biosfeer.html"],
+  org:["Celorganellen","films/cellen/celorganellen/index.html"],
+  mic:["Wat groeit er op je boterham?","films/cellen/microben.html"],
+  dif:["Diffusie en osmose","films/cellen/diffusie-osmose/index.html"],
+  stam:["Stamcellen","films/cellen/stamcellen.html"],
+  ond:["Onderzoek doen in de biologie","films/cellen/onderzoek-doen/index.html"],
+  dis:["Alles op adem","films/stofwisseling/2-alles-op-adem.html"]};
+const GEEN_INLEIDING="<p>Bij deze opgave hoort geen inleiding: je beantwoordt een losse vraag.</p>";
+/* begin van een vraag: vraagzin, hulp- en antwoordvak */
+function start(q,html){q.append(el("p",{class:"qtext"},html));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  return {think,ans,unlock};}
+const B=t=>`<b>${t}</b>`;
+const TABEL=(nr,kop,rijen,noot)=>`<div class="eyebrow">tabel ${nr}</div><div class="tablewrap"><table class="data"><tr>${kop.map(k=>`<th>${k}</th>`).join("")}</tr>${rijen.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join("")}</tr>`).join("")}</table></div>`+(noot?`<p class="muted" style="font-size:14px;margin:4px 0 0">${noot}</p>`:"");
+
+/* Afbeelding 1 van opgave 6 (pantoffeldiertjes): zelfde fictieve gegevens als eigen/figuren/cellen/maak.py (D-1)
+   in kamieljacobs/toetsen-biologie. opties: hl = index van een punt dat oplicht, tot = aantal punten dat getekend wordt. */
+const PD={c:[0,1,2,3,4,5,6],f:[12,9.5,7,4.5,2,0.5,0]};
+function GRAF({hl=-1,tot=7,kader=""}={}){
+  const X0=70,X1=600,Y0=330,Y1=30,xs=c=>X0+c*(X1-X0)/6.3,ys=f=>Y0-f*(Y0-Y1)/13;
+  let s="";
+  [0,1,2,3,4,5,6].forEach(c=>s+=`<path d="M${xs(c)},${Y1} V${Y0}" stroke="var(--line)" stroke-width="1"/><text x="${xs(c)}" y="${Y0+20}" text-anchor="middle" class="lblm">${c}</text>`);
+  [0,2,4,6,8,10,12].forEach(f=>s+=`<path d="M${X0},${ys(f)} H${X1}" stroke="var(--line)" stroke-width="1"/><text x="${X0-10}" y="${ys(f)+4}" text-anchor="end" class="lblm">${f}</text>`);
+  s+=`<path d="M${X0},${Y1-6} V${Y0} H${X1+6}" fill="none" stroke="var(--text2)" stroke-width="1.4"/>`;
+  if(kader)s+=kader(xs,ys);
+  const pts=PD.c.slice(0,tot).map((c,i)=>[xs(c),ys(PD.f[i])]);
+  if(pts.length>1)s+=`<path d="${pts.map((p,i)=>(i?"L":"M")+p[0].toFixed(1)+","+p[1].toFixed(1)).join(" ")}" fill="none" stroke="var(--text)" stroke-width="2"/>`;
+  pts.forEach((p,i)=>s+=`<rect x="${p[0]-5}" y="${p[1]-5}" width="10" height="10" fill="${i===hl?"var(--goud)":"var(--text)"}"/>`);
+  s+=`<text x="${(X0+X1)/2}" y="${Y0+44}" text-anchor="middle" class="lblm">concentratie keukenzout in het water (g/L)</text>`;
+  s+=`<text x="18" y="${(Y0+Y1)/2}" class="lblm" text-anchor="middle" transform="rotate(-90 18 ${(Y0+Y1)/2})">samentrekkingen per minuut</text>`;
+  return `<div class="tfig" style="max-width:620px;margin:0 auto;width:100%;--min:440px">`+svgWrap("0 0 620 390",s,"Grafiek: hoe vaak de contractiele vacuole per minuut samentrekt bij 0 tot 6 gram keukenzout per liter")+`</div>`;}
+
+/* U-buis met een membraan dat alleen water doorlaat (waarom-animatie bij de U-buisvraag).
+   links/rechts = aantal deeltjes dat je tekent; h = hoogteverschil (px, rechts omhoog). */
+function UBUIS({links=2,rechts=2,h=0,pijl=false,lab=["",""]}={}){
+  const hl=150+h/2,hr=150-h/2;let s="";
+  s+=`<path d="M60,40 V250 Q60,300 110,300 H250 Q300,300 300,250 V40" fill="none" stroke="var(--text2)" stroke-width="3"/>`;
+  s+=`<path d="M100,40 V250 Q100,262 112,262 H248 Q260,262 260,250 V40" fill="none" stroke="var(--text2)" stroke-width="3"/>`;
+  s+=`<path d="M62,${hl} H98 M262,${hr} H298" stroke="var(--teal)" stroke-width="3"/>`;
+  s+=`<path d="M62,${hl} H98 V250 Q100,262 112,262 H180 V298 H110 Q62,298 62,250 Z" fill="var(--teal)" opacity=".18"/>`;
+  s+=`<path d="M298,${hr} H262 V250 Q260,262 248,262 H180 V298 H250 Q298,298 298,250 Z" fill="var(--teal)" opacity=".18"/>`;
+  s+=`<path d="M180,262 V298" stroke="var(--goud)" stroke-width="4" stroke-dasharray="4 4"/><text x="180" y="326" text-anchor="middle" class="lblm">membraan</text>`;
+  const stip=(x0,n,kl)=>{let r="";for(let i=0;i<n;i++){const x=x0+(i%3)*12,y=210+Math.floor(i/3)*14;r+=`<circle cx="${x}" cy="${y}" r="4.5" fill="${kl}"/>`;}return r;};
+  s+=stip(68,links,"var(--koraal)")+stip(268,rechts,"var(--paars)");
+  s+=`<text x="80" y="28" text-anchor="middle" class="lbl">${lab[0]}</text><text x="280" y="28" text-anchor="middle" class="lbl">${lab[1]}</text>`;
+  if(pijl)s+=`<path d="M150,280 H205" stroke="var(--teal)" stroke-width="3"/><path d="M205,273 L216,280 L205,287 Z" fill="var(--teal)"/><text x="150" y="250" class="lblm">water</text>`;
+  return `<div style="max-width:360px;margin:0 auto">`+svgWrap("0 0 360 340",s,"U-buis met links en rechts een oplossing, gescheiden door een membraan dat alleen water doorlaat")+`</div>`;}
+
+/* Pantoffeldiertje: water komt binnen door osmose, de contractiele vacuole perst het eruit (waarom-animatie). */
+function PANT({stap=0}={}){
+  let s=`<ellipse cx="200" cy="130" rx="150" ry="70" fill="var(--groen)" opacity=".12" stroke="var(--text2)" stroke-width="2.5"/>`;
+  s+=`<text x="200" y="232" text-anchor="middle" class="lblm">alleen een celmembraan, geen celwand</text>`;
+  const r=stap===2?26:stap===3?8:16;
+  s+=`<circle cx="270" cy="115" r="${r}" fill="var(--teal)" opacity=".35" stroke="var(--teal)" stroke-width="2"/><text x="262" y="${115+r+16}" text-anchor="middle" class="lblm">contractiele vacuole</text>`;
+  if(stap>=1)[[40,60,80,95],[40,200,85,165],[360,200,315,165],[230,22,215,60]].forEach(([x1,y1,x2,y2])=>s+=`<path d="M${x1},${y1} L${x2},${y2}" stroke="var(--teal)" stroke-width="3"/><circle cx="${x2}" cy="${y2}" r="4" fill="var(--teal)"/>`);
+  if(stap>=1)s+=`<text x="20" y="14" class="lbl">slootwater: lage osmotische waarde</text><text x="80" y="135" class="lbl">cytoplasma: hogere</text>`;
+  if(stap===3)s+=`<path d="M296,104 L350,70" stroke="var(--teal)" stroke-width="3"/><path d="M352,62 L356,74 L344,72 Z" fill="var(--teal)"/><text x="300" y="60" class="lblm">eruit geperst</text>`;
+  return `<div style="max-width:420px;margin:0 auto">`+svgWrap("0 0 400 245",s,"Schets van een pantoffeldiertje met contractiele vacuole")+`</div>`;}
+
+/* ===== Opgave 1: Van molecuul tot biosfeer (EI-cellen-KA02) ===== */
+{
+const STOF_NIV={titel:"De ladder van organisatieniveaus",html:`
+<p>Biologen kijken naar het leven op verschillende <b>organisatieniveaus</b>, van klein naar groot:</p>
+<p>molecuul · organel · cel · weefsel · orgaan · orgaanstelsel · organisme · populatie · levensgemeenschap · ecosysteem · biosfeer</p>
+<p>Elk niveau bestaat uit delen van het niveau eronder. De cel is het kleinste niveau dat leeft. Bij een bacterie is één cel meteen het hele organisme.</p>
+<p>Op elk niveau komt er iets nieuws bij: een eigenschap die de losse delen niet hebben. Dat heet een <b>emergente eigenschap</b>. Eén spiercel trekt samen, maar pas een hart pompt bloed rond.</p>`,
+films:[F.mol]};
+const NIV=["molecuul","organel","cel","weefsel","orgaan","orgaanstelsel","organisme","populatie","levensgemeenschap","ecosysteem","biosfeer"];
+const q1=vraag(3,"organisatieniveaus in een vijver",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Bij een onderzoek in een vijver worden zes dingen beschreven. Noem bij elke beschrijving het organisatieniveau.")+
+    "<br><br>a alle snoeken in de vijver<br>b alle planten, dieren, schimmels en bacteriën in de vijver samen<br>c de vijver met alles wat erin leeft, samen met het water, het licht en de temperatuur<br>d de kieuw van een snoek<br>e een laag gelijke cellen die de binnenkant van de kieuw bekleedt<br>f maag, darm en lever van een snoek, die samen het voedsel verteren");
+  choiceStep(think,{q:"Kijk naar a en b. Waarin verschillen ze?",opts:["a gaat over één soort, b over alle soorten samen","a gaat over dieren, b over planten","a is levend, b is levenloos"],right:0,
+    ok:"Ja. Eén soort in één gebied heeft een andere naam dan alle soorten samen.",no:"Hoeveel soorten noemt a, en hoeveel b?",
+    onDone:()=>choiceStep(think,{q:"Bij c komen er water, licht en temperatuur bij. Wat voor factoren zijn dat?",opts:["biotische factoren: ze leven","abiotische factoren: ze leven niet"],right:1,
+      ok:"Goed. Een niveau met alleen levende wezens is dus niet hetzelfde als een niveau met ook de levenloze omgeving.",no:"Leeft licht? Leeft water?",
+      onDone:()=>choiceStep(think,{q:"Bij d, e en f: wat is het kleinst?",opts:["d de kieuw","e een laag gelijke cellen","f maag, darm en lever samen"],right:1,
+        ok:"Ja. Zet d, e en f nu van klein naar groot en zoek bij elk de naam op de ladder.",no:"Een laag cellen zit ín de kieuw. En de kieuw is kleiner dan maag, darm en lever samen.",onDone:unlock})})});
+  selectAnswer(ans,{id,uid:"q"+id,intro:"Kies bij elke beschrijving het organisatieniveau.",
+    rows:[["a alle snoeken",NIV,7],["b alle planten, dieren, schimmels en bacteriën",NIV,8],["c de vijver met water, licht en temperatuur",NIV,9],["d de kieuw",NIV,4],["e een laag gelijke cellen",NIV,3],["f maag, darm en lever samen",NIV,5]],
+    score:n=>n===6?3:n===5?2:n===4?1:0,
+    after:()=>waaromBtn(ans,textBox("Puntentelling: zes goed 3 punten, vijf goed 2, vier goed 1, minder 0.<br>a <b>populatie</b>: één soort in één gebied.<br>b <b>levensgemeenschap</b>: alle populaties samen.<br>c <b>ecosysteem</b>: de levensgemeenschap plus de abiotische factoren, zoals water, licht en temperatuur. Wie hier ‘levensgemeenschap’ kiest, vergeet dat de levenloze omgeving meetelt.<br>d <b>orgaan</b>: de kieuw bestaat uit verschillende weefsels.<br>e <b>weefsel</b>: cellen met dezelfde bouw en functie.<br>f <b>orgaanstelsel</b>: organen die samen één taak doen."))});
+  q.append(think,ans);
+},STOF_NIV);
+opgave("Niveaus","Van molecuul tot biosfeer",GEEN_INLEIDING,[q1]);
+}
+
+/* ===== Opgave 2: Celorganellen (EI-cellen-KB09; vwo ook KB10) ===== */
+{
+const STOF_ORG={titel:"Organellen en hun taak",html:`
+<p>Een cel met een kern heet <b>eukaryoot</b>. Het werk is verdeeld over afdelingen: de <b>organellen</b>, elk met een eigen bouw en taak.</p>
+<ul><li><b>kern</b>: hier ligt het DNA, de bouwtekening van bijna elk eiwit. Werkkopieën gaan door de kernporiën naar buiten.</li>
+<li><b>ribosomen</b>: kleine deeltjes die eiwitten maken.</li>
+<li><b>endoplasmatisch reticulum (ER)</b>: een netwerk van membranen. Zitten er ribosomen op, dan heet het ruw ER.</li>
+<li><b>golgisysteem</b>: een stapel platte zakjes die eiwitten bewerkt, sorteert en verpakt in blaasjes.</li>
+<li><b>mitochondriën</b>: hier wordt de verbranding van glucose afgemaakt.</li>
+<li><b>lysosomen</b>: blaasjes vol afbraakenzymen, de opruimdienst.</li></ul>
+<p>De bouw van een cel past bij zijn taak: een cel heeft veel van de organellen die hij voor zijn werk nodig heeft.</p>`,
+films:[F.org]};
+const ids=[];
+ids.push(vraag(2,"organellen in een traankliercel",(q,id)=>{
+  pre(q,"<p>Een cel uit de traanklier maakt veel lysozym, een eiwit dat buiten de cel in het traanvocht werkt.</p>");
+  const {think,ans,unlock}=start(q,B("Noem twee organellen die je in deze cel in grote hoeveelheid verwacht en leg bij één van de twee uit waarom."));
+  choiceStep(think,{q:"Wat moet deze cel vooral heel veel doen?",opts:["glucose opslaan","een eiwit maken en naar buiten brengen","zich snel delen"],right:1,
+    ok:"Ja. Zo'n eiwit legt een route af door de cel, van de plek waar het gemaakt wordt tot buiten de cel.",no:"Lees de eerste zin nog eens: wat maakt de cel, en waar werkt dat?",
+    onDone:()=>choiceStep(think,{q:"Van welke organellen heeft zo'n cel er méér dan een gewone cel?",opts:["van alle organellen evenveel meer","van de organellen die het eiwit maken, bewerken en naar buiten brengen","vooral meer kernen, want daar ligt het DNA"],right:1,
+      ok:"Goed. Bedenk nu welke organellen dat zijn: waar wordt het eiwit gemaakt, waar verpakt, en hoe komt het bij het celmembraan? Kies er twee en zeg bij één wat het doet.",no:"Een cel heeft veel van wat hij voor zijn taak nodig heeft. Wat is de taak van deze cel?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "<b>Twee</b> van: ruw ER / ribosomen, golgisysteem, blaasjes, mitochondriën.",
+    "Een juiste <b>uitleg bij één</b> ervan, bijvoorbeeld: eiwitten voor buiten de cel worden op het ruw ER gemaakt en gevouwen / het golgisysteem verpakt ze in blaasjes / mitochondriën leveren de ATP voor het maken."],
+    model:"Veel ruw ER en een groot golgisysteem. Lysozym is een eiwit voor buiten de cel: zulke eiwitten worden gemaakt door ribosomen op het ruw ER en daar gevouwen. Het golgisysteem verpakt ze in blaasjes die naar het celmembraan gaan.",
+    valkuil:"Alleen ‘de kern, want daar ligt het DNA’ levert geen punt op: elke cel heeft één kern. Het gaat om organellen waarvan deze cel er méér heeft dan een gewone cel.",
+    after:()=>waaromBtn(ans,textBox("Een cel die veel eiwit voor buiten maakt, heeft veel van alles op de route: <b>ribosomen op het ruw ER</b> (maken en vouwen), het <b>golgisysteem</b> (bewerken en verpakken), <b>blaasjes</b> (vervoer naar het membraan) en <b>mitochondriën</b> (ATP voor al dat werk). In de film zie je hetzelfde bij de alvleeskliercel: die heeft veel meer ruw ER dan een huidcel."))});
+  q.append(think,ans);
+},STOF_ORG));
+if(VWO){
+ids.push(vraag(2,"het golgisysteem sorteert",(q,id)=>{
+  pre(q,"<p>Een cel maakt twee enzymen: een afbraakenzym dat in een lysosoom moet komen, en een verteringsenzym dat de cel uit moet.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit hoe het golgisysteem ervoor zorgt dat elk enzym op de goede plek komt. Gebruik het begrip exocytose."));
+  choiceStep(think,{q:"Beide enzymen gaan door hetzelfde golgisysteem. Wat moet er dus aan elk eiwit te zien zijn?",opts:["hoe groot het is","waar het heen moet","hoeveel energie het kost"],right:1,
+    ok:"Ja. Hoe kan het golgisysteem dat aan een eiwit zien, en wat doet het daarna met de eiwitten?",no:"Grootte zegt niets over de bestemming. Hoe weet een postsorteerder waar een pakketje heen moet?",
+    onDone:()=>choiceStep(think,{q:"Hoe komt de inhoud van een blaasje buiten de cel?",opts:["het blaasje lost op in het cytoplasma","het blaasje versmelt met het celmembraan","het blaasje gaat door een kernporie"],right:1,
+      ok:"Goed. Gebruik nu het begrip uit de vraag voor deze stap.",no:"Een blaasje heeft zelf ook een membraan. Waar moet dat membraan mee samengaan om de inhoud buiten te krijgen?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Het golgisysteem zet een <b>adreslabel</b> op elk eiwit en sorteert ze op dat label in verschillende blaasjes.",
+    "Het blaasje met het verteringsenzym <b>versmelt met het celmembraan</b>, zodat de inhoud buiten komt: <b>exocytose</b>."],
+    model:"In het golgisysteem krijgt elk eiwit een adreslabel. Op dat label sorteert het golgisysteem de eiwitten in verschillende blaasjes: het afbraakenzym gaat naar een lysosoom, het verteringsenzym naar het celmembraan. Dat blaasje versmelt met het celmembraan en de inhoud komt buiten de cel: exocytose.",
+    valkuil:"‘Het enzym lekt door het membraan naar buiten’ of ‘het golgisysteem pompt het eruit’: 0 punten voor het tweede punt. En exocytose is iets anders dan endocytose (iets naar binnen halen).",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"In het golgisysteem krijgt elk eiwit een <b>adreslabel</b>.",t:0},
+      {cap:"Het golgisysteem sorteert op dat label: elk eiwit komt in een eigen blaasje.",t:1},
+      {cap:"Het blaasje met het verteringsenzym versmelt met het celmembraan: de inhoud komt buiten. Dat is <b>exocytose</b>. Het andere blaasje gaat naar het lysosoom.",t:2}],
+      (st,s)=>{const golgi=[0,1,2,3].map(k=>`<path d="M120,${70+k*18} q60,-10 120,0" fill="none" stroke="var(--text2)" stroke-width="5" stroke-linecap="round"/>`).join("");
+        const lab=(x,y,c)=>`<circle cx="${x}" cy="${y}" r="9" fill="${c}"/><rect x="${x+6}" y="${y-12}" width="10" height="7" fill="${c}"/>`;
+        let g=golgi+`<path d="M470,20 Q440,120 470,230" fill="none" stroke="var(--text2)" stroke-width="3"/><text x="478" y="30" class="lblm">celmembraan</text><text x="150" y="160" class="lblm">golgisysteem</text>`;
+        if(s.t===0)g+=lab(170,95,"var(--koraal)")+lab(200,95,"var(--paars)");
+        if(s.t>=1){g+=`<circle cx="${s.t===2?458:330}" cy="80" r="20" fill="none" stroke="var(--text2)" stroke-width="2"/>`+lab(s.t===2?458:330,80,"var(--koraal)");
+          g+=`<circle cx="320" cy="${s.t===2?200:170}" r="20" fill="none" stroke="var(--text2)" stroke-width="2"/>`+lab(320,s.t===2?200:170,"var(--paars)");
+          g+=`<text x="300" y="${s.t===2?236:206}" class="lblm">naar het lysosoom</text>`;}
+        if(s.t===2)g+=`<path d="M486,80 h40" stroke="var(--koraal)" stroke-width="3"/><text x="490" y="110" class="lblm">buiten</text>`;
+        st.innerHTML=svgWrap("0 0 560 250",g,"Golgisysteem sorteert twee eiwitten in blaasjes");}))});
+  q.append(think,ans);
+},STOF_ORG));
+}
+opgave("Organellen","Celorganellen",GEEN_INLEIDING,ids);
+}
+
+/* ===== Opgave 3: Kolibries: vliegen op volle kracht (EI-cellen-E01–E03; vwo ook E04) ===== */
+{
+const STOF_MITO={titel:"Het mitochondrium",html:`
+<p>Een <b>mitochondrium</b> heeft twee membranen. Het binnenmembraan is geplooid tot <b>cristae</b>.</p>
+<p>In het mitochondrium wordt de verbranding van glucose afgemaakt. Daarbij ontstaat <b>ATP</b>: de energiedrager van de cel. Alles wat een cel doet, kost ATP: eiwitten maken, stoffen vervoeren, en in een spiercel samentrekken.</p>
+<p>Op plaatjes zijn mitochondriën boontjes. In een levende cel zijn het vaak buizen die splitsen en samensmelten.</p>`,
+films:[F.org]};
+const STOF_STW={titel:"Stofwisseling: opbouw en afbraak",html:`
+<p>Stoffen omzetten in de cel heet <b>stofwisseling</b>. Er is een opbouwkant en een afbraakkant.</p>
+<ul><li><b>Assimilatie</b> (opbouw): de cel maakt grote stoffen uit kleine, zoals eiwitten. Dat kost energie.</li>
+<li><b>Dissimilatie</b> (afbraak): de cel breekt stoffen af om energie vrij te maken. De cel legt die energie vast in een energiedrager, die hij overal in de cel kan gebruiken.</li></ul>
+<p>Hoe de verbranding precies verloopt, zie je in de film Alles op adem (thema Stofwisseling).</p>`,
+films:[F.org,F.dis]};
+const ids=[];
+ids.push(vraag(2,"bouw past bij functie",(q,id)=>{
+  pre(q,"<p>Een kip vliegt bijna nooit.</p>");
+  const {think,ans,unlock}=start(q,B("Leg met tabel 1 uit hoe de bouw van de vliegspiercellen van de kolibrie past bij hun functie, en waarom de kip zoveel minder mitochondriën in zijn borstspier heeft."));
+  choiceStep(think,{q:"Wat maken mitochondriën?",opts:["eiwitten","ATP","glucose"],right:1,
+    ok:"Ja: de energiedrager van de cel.",no:"Eiwitten maken de ribosomen, glucose maakt een plant in de chloroplasten.",
+    onDone:()=>choiceStep(think,{q:"Welke spier uit tabel 1 werkt het langst en het hardst?",opts:["de vliegspier van de kolibrie","de borstspier van de kip","de dijspier van de mens"],right:0,
+      ok:"Goed. Leg nu het verband tussen hoe hard een spier werkt en het aandeel mitochondriën. Doe dat voor de kolibrie én voor de kip.",no:"Lees de inleiding nog eens: wie hangt lange tijd stil in de lucht?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "De vliegspier van de kolibrie werkt lang en hard en heeft <b>veel energie</b> nodig; veel mitochondriën maken <b>veel ATP</b> (uit glucose en zuurstof).",
+    "De borstspier van de kip wordt bijna niet gebruikt om te vliegen, dus is er <b>weinig ATP nodig</b> en zijn weinig mitochondriën genoeg."],
+    model:"De kolibrie slaat lang en heel snel met zijn vleugels. Daarvoor is veel energie nodig. Mitochondriën maken ATP, dus met 35% mitochondriën kan de vliegspier veel ATP maken. De kip vliegt bijna nooit: zijn borstspier heeft weinig ATP nodig, dus 5% mitochondriën is genoeg.",
+    valkuil:"Alleen ‘de kolibrie heeft meer mitochondriën’ is aflezen, geen uitleg. Noem wát mitochondriën doen (ATP maken) en koppel dat aan het werk van de spier.",
+    after:()=>waaromBtn(ans,textBox("Bouw en functie horen bij elkaar: een spier die lang en hard werkt, heeft veel ATP nodig en dus veel mitochondriën (kolibrie 35%, duif 20%). Een spier die weinig werkt, heeft er weinig (kip 5%). Zo zit ook een hartspiercel, die nooit stopt, voor ongeveer een derde vol mitochondriën."))});
+  q.append(think,ans);
+},STOF_MITO));
+
+ids.push(vraag(2,"cyanide blokkeert het mitochondrium",(q,id)=>{
+  pre(q,"<p>Cyanide is een gif dat een van de eiwitten op het binnenmembraan van mitochondriën blokkeert (vereenvoudigd).</p>");
+  const {think,ans,unlock}=start(q,B("Voorspel wat er gebeurt met een kolibrie die een kleine hoeveelheid cyanide binnenkrijgt, en leg uit."));
+  choiceStep(think,{q:"Wat gebeurt er in het mitochondrium op en rond het binnenmembraan?",opts:["de laatste stappen van de verbranding, waarbij ATP ontstaat","de afbraak van versleten organellen","het maken van werkkopieën van het DNA"],right:0,
+    ok:"Ja. Wat betekent een geblokkeerd eiwit daar dan voor de hoeveelheid ATP?",no:"Afbraak van organellen doen de lysosomen, werkkopieën worden in de kern gemaakt.",
+    onDone:()=>choiceStep(think,{q:"Waarvoor heeft de vliegspier ATP nodig?",opts:["om samen te trekken","om zuurstof op te nemen","om glucose op te slaan"],right:0,
+      ok:"Goed. Maak nu de keten af: cyanide → mitochondrium → ATP → spier → wat merk je aan de kolibrie?",no:"Een spier doet maar één ding: samentrekken. Kost dat energie?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "De verbranding in de mitochondriën stopt (gedeeltelijk), dus wordt er <b>(veel) minder ATP</b> gemaakt.",
+    "De vliegspier heeft <b>te weinig energie</b> om samen te trekken: de kolibrie kan niet (lang) vliegen / stilhangen."],
+    model:"Cyanide blokkeert een eiwit op het binnenmembraan, dus de verbranding in de mitochondriën loopt (deels) vast en er wordt veel minder ATP gemaakt. De vliegspieren krijgen te weinig energie om snel samen te trekken: de kolibrie kan niet meer lang stilhangen of vliegen.",
+    valkuil:"Een voorspelling zonder uitleg (‘hij gaat dood’, ‘hij valt’) levert 0 punten op. De punten zitten in de keten: minder ATP, dus te weinig energie voor de spier.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Normaal: op het binnenmembraan wordt de verbranding afgemaakt en ontstaat veel ATP.",n:6},
+      {cap:"Cyanide blokkeert een van de eiwitten op het binnenmembraan: de verbranding loopt vast, er komt veel minder ATP.",n:1},
+      {cap:"Te weinig ATP: de vliegspier kan niet snel genoeg samentrekken. Stilhangen bij een bloem lukt niet meer.",n:1}],
+      (st,s,i)=>{let g=`<ellipse cx="150" cy="110" rx="125" ry="70" fill="none" stroke="var(--text2)" stroke-width="2.5"/>`;
+        g+=`<path d="M45,110 q15,-45 30,0 q15,45 30,0 q15,-45 30,0 q15,45 30,0 q15,-45 30,0 q15,45 30,0 q15,-45 30,0" fill="none" stroke="var(--text)" stroke-width="2.5"/>`;
+        if(i>=1)g+=`<path d="M120,90 l22,22 m0,-22 l-22,22" stroke="var(--koraal)" stroke-width="4"/><text x="104" y="160" class="lbl">cyanide</text>`;
+        for(let k=0;k<s.n;k++)g+=`<circle cx="${320+(k%3)*30}" cy="${80+Math.floor(k/3)*34}" r="11" fill="var(--goud)"/><text x="${320+(k%3)*30}" y="${84+Math.floor(k/3)*34}" text-anchor="middle" style="font:700 9px var(--meta);fill:var(--bg)">ATP</text>`;
+        g+=`<text x="345" y="170" text-anchor="middle" class="lblm">ATP per seconde</text>`;
+        if(i===2)g+=`<text x="345" y="200" text-anchor="middle" class="lbl">spier: te weinig energie</text>`;
+        st.innerHTML=svgWrap("0 0 440 215",g,"Mitochondrium met geplooid binnenmembraan en de hoeveelheid ATP");}))});
+  q.append(think,ans);
+},STOF_MITO));
+
+ids.push(vraag(2,"stoffen bij de verbranding",(q,id)=>{
+  pre(q,"<p>De glucose in de nectar wordt in de vliegspiercellen verbrand.</p>");
+  const {think,ans,unlock}=start(q,B("Noem de twee stoffen die bij deze verbranding in het mitochondrium nodig zijn, en de stof die daarbij ontstaat en die de spiercel als energiedrager gebruikt."));
+  choiceStep(think,{q:"Verbranden betekent: een stof reageert met een gas. Welk gas is daarvoor altijd nodig?",opts:["stikstof","zuurstof","koolstofdioxide"],right:1,
+    ok:"Ja, zonder dat gas geen verbranding, ook niet in een cel.",no:"Een kaars gaat uit als je er een glas over zet. Welk gas raakt dan op?",
+    onDone:()=>choiceStep(think,{q:"De spiercel gebruikt de vrijgekomen energie niet direct, maar via een energiedrager. Hoe heet de afkorting van die stof?",opts:["DNA","ATP","ER"],right:1,
+      ok:"Goed. Je hebt nu alle drie de stoffen: twee die nodig zijn en één die ontstaat.",no:"DNA is de bouwtekening, ER is een organel.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Nodig: <b>glucose</b> (brokstukken van glucose) en <b>zuurstof</b>.",
+    "Ontstaat: <b>ATP</b>."],
+    model:"Nodig zijn glucose en zuurstof. Daarbij ontstaat ATP, de energiedrager van de spiercel.",
+    valkuil:"Koolstofdioxide of water als extra stof is niet fout. Maar ‘energie’ is geen stof: de stof die de energie draagt, is ATP.",
+    after:()=>waaromBtn(ans,textBox("In het mitochondrium wordt de verbranding van glucose afgemaakt, <b>met zuurstof</b>. De energie die vrijkomt, legt de cel vast in <b>ATP</b>. Die ATP gebruikt de spiercel om samen te trekken. Koolstofdioxide en water ontstaan ook, maar die zijn afvalstoffen, geen energiedrager."))});
+  q.append(think,ans);
+},STOF_STW));
+
+if(VWO){
+const STOF_E4={titel:"Bouw en functie in een cel",html:`
+<p>De bouw van een organel past bij zijn taak. Dat zie je bij membranen: op een membraan zitten eiwitten die het werk doen, zoals in het mitochondrium en in de chloroplast.</p>
+<p>Een mitochondrium heeft twee membranen; alleen het binnenmembraan is geplooid. Ook in een chloroplast liggen membranen in stapels schijfjes, de grana.</p>`,
+films:[F.org]};
+ids.push(vraag(2,"dichtere plooien in het binnenmembraan",(q,id)=>{
+  pre(q,"<p>Bij geen enkel dier bestaat een spiercel voor meer dan ongeveer 35 tot 40 procent uit mitochondriën. In de mitochondriën van kolibries ligt het binnenmembraan wel dichter opeengepakt dan bij zoogdieren.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit hoe dat dichter opeengepakte binnenmembraan de kolibrie helpt, en waarom nog meer mitochondriën per cel geen oplossing is."));
+  choiceStep(think,{q:"Een binnenmembraan met meer plooien in een even groot mitochondrium. Wat wordt er dan groter?",opts:["het volume van het mitochondrium","het oppervlak van het membraan","het aantal kernen"],right:1,
+    ok:"Ja. En wat zit er op dat membraan?",no:"Het mitochondrium blijft even groot. Denk aan een gekreukt vel papier in een doosje.",
+    onDone:()=>choiceStep(think,{q:"Wat moet een vliegspiercel naast ATP maken nog meer kunnen?",opts:["samentrekken, met de onderdelen die daarvoor zorgen","licht opvangen","zich zo vaak mogelijk delen"],right:0,
+      ok:"Goed. Bedenk wat er met de ruimte daarvoor gebeurt als de cel nog voller met mitochondriën zit.",no:"Een spiercel heeft maar één taak. Welke?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Meer cristae (plooien) per mitochondrium geven <b>meer membraanoppervlak</b> met ATP-makende eiwitten, dus <b>meer ATP</b> per mitochondrium.",
+    "Nog meer mitochondriën laten <b>te weinig ruimte</b> over voor de onderdelen waarmee de spiercel samentrekt (de spierdraden)."],
+    model:"Door de dichtere plooien heeft elk mitochondrium meer binnenmembraan, en dus meer van de eiwitten die ATP maken: meer ATP per mitochondrium. Nog meer mitochondriën kan niet, want dan blijft er te weinig plaats over voor de spierdraden die de beweging maken.",
+    valkuil:"‘Meer plooien maken het mitochondrium groter’ klopt niet: het oppervlak wordt groter, niet het mitochondrium. Ook goed voor het tweede punt: er is dan minder plaats voor de eiwitten die de beweging maken.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[{cap:"Een glad binnenmembraan: weinig oppervlak, weinig plek voor ATP-makende eiwitten.",p:0},{cap:"Geplooid tot cristae: in hetzelfde mitochondrium veel meer membraan, dus meer eiwitten en meer ATP.",p:1},{cap:"Dichter opeengepakte cristae (kolibrie): nog meer oppervlak in dezelfde ruimte. Meer mitochondriën kan niet: de spierdraden hebben ook plaats nodig.",p:2}],
+      (st,s)=>{let g=`<ellipse cx="160" cy="100" rx="140" ry="70" fill="none" stroke="var(--text2)" stroke-width="2.5"/><ellipse cx="160" cy="100" rx="126" ry="58" fill="none" stroke="var(--text)" stroke-width="2"/>`;
+        const n=[0,5,10][s.p];for(let k=0;k<n;k++){const x=60+(k+0.5)*(200/n),dy=58*Math.sqrt(Math.max(0,1-((x-160)/126)**2)),boven=k%2===0,y0=boven?100-dy:100+dy,y1=boven?100+dy*0.35:100-dy*0.35,w=s.p===2?3:5;
+          g+=`<path d="M${x-w},${y0} V${y1} Q${x},${y1+(boven?w*1.4:-w*1.4)} ${x+w},${y1} V${y0}" fill="none" stroke="var(--text)" stroke-width="2"/>`;}
+        g+=`<text x="160" y="195" text-anchor="middle" class="lblm">${["glad","geplooid","dicht opeengepakt"][s.p]} binnenmembraan</text>`;
+        st.innerHTML=`<div style="max-width:380px;margin:0 auto">`+svgWrap("0 0 320 205",g,"Mitochondrium met meer of minder plooien in het binnenmembraan")+`</div>`;}))});
+  q.append(think,ans);
+},STOF_E4));
+}
+
+opgave("Kolibries","Kolibries: vliegen op volle kracht",`
+<p>Een kolibrie kan lange tijd stil voor een bloem hangen terwijl hij nectar drinkt. Daarvoor slaat hij heel snel met zijn vleugels. In tabel 1 staat welk deel van het volume van een spiercel uit mitochondriën bestaat, bij een paar soorten.</p>
+${TABEL(1,["spiercel","mitochondriën (% van het celvolume)"],[["vliegspier kolibrie","35"],["vliegspier duif","20"],["borstspier kip","5"],["dijspier mens","5"]],"vereenvoudigd; de waarden voor duif, kip en mens zijn fictief")}`,ids);
+}
+
+/* ===== Opgave 4: Schimmels, bacteriën en virussen (EI-cellen-KC01) ===== */
+{
+const STOF_SCH={titel:"Schimmels",html:`
+<p>Schimmels zijn geen planten: ze vormen een eigen rijk. Een schimmel bestaat uit schimmeldraden, de <b>hyfen</b>. Alle hyfen samen heten het <b>mycelium</b>.</p>
+<p>Op steeltjes ontstaan <b>sporen</b>: piepkleine cellen waaruit een nieuwe schimmel kan groeien. De sporen geven de schimmel zijn kleur. Een paddenstoel is het vruchtlichaam van een schimmel, waarin ook sporen ontstaan.</p>
+<p>Hoe snel een schimmel groeit, hangt af van de omstandigheden. In de film zie je een proef met sneetjes brood op verschillende plekken.</p>`,
+films:[F.mic]};
+const q1=vraag(2,"schimmel in een dichte trommel",(q,id)=>{
+  pre(q,"<p>Een boterham is in een dichte trommel toch gaan schimmelen.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit hoe de schimmel op het brood kwam, en waarom hij in de trommel snel groeide."));
+  choiceStep(think,{q:"Waaruit groeit een nieuwe schimmel?",opts:["uit oud brood dat vanzelf gaat schimmelen","uit sporen","uit bacteriën die van vorm veranderen"],right:1,
+    ok:"Ja. De trommel was dicht. Wanneer kunnen die sporen er dan op gekomen zijn?",no:"Schimmel ontstaat niet vanzelf. Waaruit groeit een nieuwe schimmel?",
+    onDone:()=>choiceStep(think,{q:"Wat gebeurt er met het vocht uit een boterham in een dichte trommel?",opts:["het blijft in de trommel","het verdwijnt door het deksel","het wordt zout"],right:0,
+      ok:"Goed. Welke omstandigheden in de trommel helpen een schimmel dus groeien?",no:"Een dichte trommel laat bijna geen lucht en waterdamp door.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "<b>Sporen uit de lucht</b> zaten al op het brood (vóór het deksel dichtging).",
+    "In de trommel was het <b>vochtig</b> (en warm): schimmel groeit het best als het warm en vochtig is."],
+    model:"Er zweven overal schimmelsporen in de lucht. Die kwamen op het brood vóór de trommel dichtging, bijvoorbeeld bij het snijden of inpakken. In de dichte trommel bleef het vocht van het brood hangen; in een warme en vochtige omgeving groeit schimmel snel.",
+    valkuil:"‘De schimmel ontstond uit het brood’: 0 punten. Schimmel ontstaat niet vanzelf, hij groeit altijd uit sporen.",
+    after:()=>waaromBtn(ans,textBox("Sporen zijn piepkleine cellen die overal in de lucht zweven, binnen en buiten. De meeste komen pas ná het bakken op het brood: bij afkoelen, snijden of inpakken. Een dicht deksel houdt nieuwe sporen tegen, maar niet de sporen die er al op zaten. En het houdt het vocht vast: schimmel groeit het best als het <b>warm en vochtig</b> is. In de koelkast groeit hij langzamer."))});
+  q.append(think,ans);
+},STOF_SCH);
+opgave("Schimmels","Schimmels, bacteriën en virussen",GEEN_INLEIDING,[q1]);
+}
+
+/* ===== Opgave 5: Diffusie en osmose (EI-cellen-KD06; havo ook KD07) ===== */
+{
+const STOF_DIF={titel:"Diffusie en het celmembraan",html:`
+<p>Alle deeltjes bewegen kriskras door elkaar. Daardoor gaan er netto meer deeltjes van een plek met een hoge concentratie naar een plek met een lage concentratie: <b>diffusie</b>. Zijn de concentraties gelijk, dan gaan er evenveel heen als terug: evenwicht.</p>
+<p>Het celmembraan laat sommige stoffen door en andere niet: het is <b>selectief doorlatend</b> (selectief permeabel). Kleine stoffen die goed in vet oplossen, zoals zuurstof, gaan er zo doorheen. Ionen en glucose hebben een eiwit in het membraan nodig.</p>`,
+films:[F.dif]};
+const STOF_OSM={titel:"Osmose en osmotische waarde",html:`
+<p>Of een oplossing veel of weinig ‘osmotisch werk’ doet, hangt niet af van hoe zwaar de opgeloste stof is, maar van <b>hoeveel losse deeltjes</b> er in het water zweven. Tel daarom deeltjes, geen moleculen.</p>
+<p>Sommige stoffen blijven in water heel. Andere vallen bij het oplossen uiteen in <b>ionen</b>: geladen deeltjes. Eén mol van zo'n stof levert dan meer dan één mol deeltjes.</p>
+<p>In een U-buis kan water de vloeistof aan één kant laten stijgen. Een hogere kolom vloeistof duwt harder terug.</p>`,
+films:[F.dif]};
+const ids=[];
+ids.push(vraag(2,"wat is osmose?",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Wat is osmose? Gebruik in je antwoord de begrippen semipermeabel en osmotische waarde."));
+  choiceStep(think,{q:"Welke stof beweegt bij osmose door het membraan?",opts:["de opgeloste stof","water","allebei evenveel"],right:1,
+    ok:"Ja. Wat voor membraan is daarvoor nodig?",no:"Bij osmose kan juist één van de twee er niet door.",
+    onDone:()=>choiceStep(think,{q:"Wat bepaalt de richting?",opts:["de kant met de meeste watermoleculen trekt","de concentratie opgeloste deeltjes die er niet door kunnen","de temperatuur"],right:1,
+      ok:"Goed. Schrijf nu de twee delen op: wat voor membraan, en welke kant op.",no:"Zout trekt niet. Wat verschilt er tussen links en rechts?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Water gaat door een <b>semipermeabel membraan</b> (dat water doorlaat, maar de opgeloste stof niet).",
+    "Naar de kant met de <b>hoogste osmotische waarde</b> (de hoogste concentratie opgeloste deeltjes die er niet door kunnen)."],
+    model:"Osmose is het verplaatsen van water door een semipermeabel membraan, dat water wel doorlaat en de opgeloste stof niet. Het water gaat naar de kant met de hoogste osmotische waarde.",
+    valkuil:"Ook goed: ‘osmose is diffusie van water door een semipermeabel membraan’, als de richting goed is. Fout: ‘water gaat naar de kant met de laagste osmotische waarde’ of ‘het zout gaat door het membraan’.",
+    after:()=>waaromBtn(ans,textBox("Bij osmose beweegt alleen het <b>water</b>: de opgeloste stof kan niet door het <b>semipermeabele</b> membraan. Het water gaat naar de kant met de <b>hoogste osmotische waarde</b>, dus naar de kant met de meeste opgeloste deeltjes die er niet door kunnen. ‘Het zout trekt water aan’ hoor je vaak, maar zout trekt niet; in de film zie je hoe het wél zit."))});
+  q.append(think,ans);
+},STOF_DIF));
+if(!VWO){
+ids.push(vraag(2,"glucose of zout in een U-buis",(q,id)=>{
+  pre(q,"<p>In een U-buis zit een membraan dat alleen water doorlaat. Links zit een oplossing van 0,2 mol glucose per liter, rechts een oplossing van 0,2 mol keukenzout per liter.</p>");
+  const {think,ans,unlock}=start(q,B("a Welke kant heeft de hoogste osmotische waarde? Leg uit.<br>b Wat zie je na een uur aan de hoogte van de vloeistof?"));
+  choiceStep(think,{q:"Wat gebeurt er met keukenzout als het oplost in water?",opts:["het blijft heel, net als glucose","het valt uiteen in ionen","het verdampt"],right:1,
+    ok:"Ja: natrium en chloride. Hoeveel deeltjes per liter levert 0,2 mol zout dan?",no:"Keukenzout is natriumchloride. Wat gebeurt er met de natrium en de chloride in water?",
+    onDone:()=>choiceStep(think,{q:"Water gaat naar de kant met de hoogste osmotische waarde. Wat gebeurt er met de hoogte aan die kant?",opts:["die stijgt","die daalt","die blijft gelijk"],right:0,
+      ok:"Goed. Hoe lang gaat dat door? Denk aan het gewicht van de kolom.",no:"Er komt water bij aan die kant.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "a <b>rechts</b>: keukenzout valt uiteen in twee ionen, dus 0,4 mol deeltjes per liter tegen 0,2 mol bij glucose.",
+    "b de vloeistof <b>rechts stijgt</b> (links daalt), tot de kolom even hard terugduwt."],
+    model:"a Rechts. Keukenzout valt in water uiteen in natrium- en chloride-ionen: 0,2 mol zout geeft 0,4 mol deeltjes per liter, glucose blijft heel en geeft 0,2 mol. b Water gaat door osmose naar rechts: de vloeistof rechts stijgt en links daalt, tot de hogere kolom even hard terugduwt.",
+    valkuil:"‘Evenveel, want beide 0,2 mol’: 0 punten. Je telt deeltjes, geen moleculen.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Begin: links 0,2 mol glucose per liter, rechts 0,2 mol keukenzout per liter. De hoogte is gelijk.",l:2,r:2,h:0},
+      {cap:"Keukenzout valt uiteen in twee ionen: rechts zitten nu twee keer zoveel opgeloste deeltjes (0,4 mol per liter). Rechts heeft de hoogste osmotische waarde.",l:2,r:4,h:0},
+      {cap:"Water gaat door het membraan naar rechts: de kolom rechts stijgt, links daalt.",l:2,r:4,h:50,p:1},
+      {cap:"Hoe hoger de kolom, hoe harder hij terugduwt. Op een bepaalde hoogte stroomt er netto geen water meer.",l:2,r:4,h:80}],
+      (st,s)=>{st.innerHTML=UBUIS({links:s.l,rechts:s.r,h:s.h,pijl:!!s.p,lab:["glucose","keukenzout"]});}))});
+  q.append(think,ans);
+},STOF_OSM));
+}
+opgave("Osmose","Diffusie en osmose",GEEN_INLEIDING,ids);
+}
+
+/* ===== Opgave 6: Pantoffeldiertjes in de sloot (EI-cellen-D01–D03) ===== */
+{
+const STOF_TON={titel:"Water in en uit een cel",html:`
+<p>Of er water een cel in of uit gaat, hangt af van de osmotische waarde binnen en buiten de cel. Daar zijn woorden voor:</p>
+<ul><li><b>isotonisch</b>: dezelfde osmotische waarde als de cel;</li><li><b>hypotonisch</b>: een lagere osmotische waarde dan de cel;</li><li><b>hypertonisch</b>: een hogere osmotische waarde dan de cel.</li></ul>
+<p>Water vanzelf laten bewegen kost een cel geen energie. Iets tegen het concentratieverschil in verplaatsen wel: dat is <b>actief transport</b>, en het kost ATP.</p>`,
+films:[F.dif]};
+const ids=[];
+ids.push(vraag(2,"waarom wegpompen?",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Leg uit waarom een pantoffeldiertje in zoet water steeds water moet wegpompen."));
+  choiceStep(think,{q:"Waar is de osmotische waarde het hoogst: in het slootwater of in het cytoplasma?",opts:["in het slootwater","in het cytoplasma","overal even hoog"],right:1,
+    ok:"Ja: in het cytoplasma zitten veel opgeloste stoffen. Welke kant op gaat het water dan?",no:"Zoet water bevat bijna geen opgeloste stoffen. In een cel zitten er veel.",
+    onDone:()=>choiceStep(think,{q:"Wat heeft een plantencel wél en een pantoffeldiertje niet?",opts:["een celmembraan","een celwand","cytoplasma"],right:1,
+      ok:"Goed. Wat zou er met het pantoffeldiertje gebeuren als het het water niet wegpompte?",no:"Lees de inleiding nog eens: wat heeft het pantoffeldiertje niet?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Het cytoplasma heeft een <b>hogere osmotische waarde</b> dan het slootwater (het water is hypotonisch), dus komt er door <b>osmose</b> steeds water de cel in.",
+    "Zonder wegpompen zou de cel <b>zwellen en barsten</b>, want er is <b>geen celwand</b> die terugduwt."],
+    model:"Het slootwater is hypotonisch: het cytoplasma heeft een hogere osmotische waarde. Daardoor komt er door osmose steeds water de cel in. Het pantoffeldiertje heeft geen celwand die terugduwt; zonder wegpompen zou het zwellen en barsten.",
+    valkuil:"‘Het pantoffeldiertje drinkt te veel’ of ‘er komt zout naar binnen’: 0 punten. Het gaat om water dat door osmose binnenkomt.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Een pantoffeldiertje in zoet water: binnen veel opgeloste stoffen, buiten bijna niets.",s:0},
+      {cap:"Het cytoplasma heeft een hogere osmotische waarde: door osmose komt er steeds water naar binnen.",s:1},
+      {cap:"De contractiele vacuole verzamelt dat water…",s:2},
+      {cap:"…en perst het eruit. Zonder celwand zou de cel anders zwellen en barsten, net als een rode bloedcel in zuiver water.",s:3}],
+      (st,s)=>{st.innerHTML=PANT({stap:s.s});}))});
+  q.append(think,ans);
+},STOF_TON));
+
+ids.push(vraag(2,"bij 6 g/L geen samentrekkingen",(q,id)=>{
+  pre(q,"<p>Bij 6 g/L zout trekt de contractiele vacuole niet meer samen.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit wat je daaruit kunt afleiden over de osmotische waarde van het cytoplasma van het pantoffeldiertje."));
+  choiceStep(think,{q:"Wat zie je in afbeelding 1 als de zoutconcentratie stijgt?",opts:["de vacuole trekt steeds vaker samen","de vacuole trekt steeds minder vaak samen","er verandert niets"],right:1,
+    ok:"Ja. Minder samentrekken betekent: er hoeft minder water weg. Komt er dan meer of minder water binnen?",no:"Lees de grafiek van links naar rechts: wat doet de lijn?",
+    onDone:()=>choiceStep(think,{q:"Er komt netto geen water meer de cel in en ook niet uit. Wat weet je dan van de osmotische waarde binnen en buiten?",opts:["binnen is hij hoger","buiten is hij hoger","ze zijn ongeveer gelijk"],right:2,
+      ok:"Goed. Welk begrip uit de film hoort bij die situatie?",no:"Als de ene kant hoger is, gaat het water die kant op.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Bij 6 g/L komt er <b>netto geen water</b> meer de cel in, dus hoeft er niets weggepompt te worden.",
+    "Het cytoplasma heeft dus ongeveer <b>dezelfde osmotische waarde</b> als een oplossing van 6 g/L keukenzout (de oplossing is dan <b>isotonisch</b>)."],
+    model:"De vacuole hoeft niets meer weg te pompen, dus komt er bij 6 g/L netto geen water meer binnen. Dan zijn de osmotische waarden binnen en buiten gelijk: het cytoplasma heeft ongeveer dezelfde osmotische waarde als 6 g/L keukenzout. Die oplossing is isotonisch.",
+    valkuil:"‘Bij 6 g/L is het pantoffeldiertje dood’: 0 punten. Er is gewoon geen water meer om weg te pompen.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"In zoet water (0 g/L) trekt de vacuole 12 keer per minuut samen: er komt veel water binnen.",hl:0},
+      {cap:"Hoe zouter het water, hoe kleiner het verschil in osmotische waarde, en hoe minder water er binnenkomt.",hl:3},
+      {cap:"Bij 6 g/L: 0 samentrekkingen. Er komt netto geen water binnen: binnen en buiten hebben dezelfde osmotische waarde. De oplossing is <b>isotonisch</b>.",hl:6}],
+      (st,s)=>{st.innerHTML=GRAF({hl:s.hl});}))});
+  q.append(think,ans);
+},STOF_TON));
+
+ids.push(vraag(2,"hoe snel is de cel ‘leeggepompt’?",(q,id)=>{
+  pre(q,"<p>Bij één samentrekking perst de contractiele vacuole een hoeveelheid water naar buiten die gelijk is aan 2 procent van het volume van de cel. In zoet water trekt de vacuole 12 keer per minuut samen (fictieve gegevens).</p>");
+  const {think,ans,unlock}=start(q,B("Bereken na hoeveel minuten het pantoffeldiertje een hoeveelheid water heeft weggepompt die even groot is als zijn eigen volume."));
+  choiceStep(think,{q:"Hoeveel procent van het celvolume is ‘even groot als zijn eigen volume’?",opts:["2 procent","12 procent","100 procent"],right:2,
+    ok:"Ja. Elke samentrekking pompt een vast stukje daarvan weg. Bereken eerst hoeveel samentrekkingen dat zijn, en daarna de tijd.",no:"Het hele volume van de cel, uitgedrukt in procent.",onDone:unlock});
+  let n1;
+  numAnswer(ans,{id,fields:[
+    ["aantal samentrekkingen dat nodig is","",v=>{n1=v;return v===50;},"100 / 2 = 50 samentrekkingen"],
+    ["tijd","minuten",v=>(v>=4&&v<=4.3)||(n1>0&&n1!==50&&Math.abs(v-n1/12)<=0.02*n1/12+0.05),"50 / 12 ≈ 4,2 minuten (ook goed: ruim 4 minuten; met een fout aantal uit stap 1 dat je goed doorrekent ook 1 punt)"]],
+    after:()=>waaromBtn(ans,textBox("Eén samentrekking = 2% van het celvolume. Voor 100% zijn dus 100 / 2 = <b>50</b> samentrekkingen nodig. Met 12 per minuut duurt dat 50 / 12 ≈ <b>4,2 minuten</b>. Zo snel komt er in zoet water dus water binnen: in ruim vier minuten een hele cel vol. Wie 12 × 2 = 24% per minuut uitrekent, komt via 100 / 24 ook op 4,2 minuten."))});
+  q.append(think,ans);
+},STOF_TON));
+
+opgave("Pantoffeldiertjes","Pantoffeldiertjes in de sloot",`
+<p>Een pantoffeldiertje is een eencellig organisme dat in zoet water leeft, bijvoorbeeld in een sloot. Het heeft geen celwand. In het cytoplasma ligt een contractiele vacuole: een blaasje dat water uit het cytoplasma verzamelt en dat water, door samen te trekken, naar buiten perst. Dit wegpompen kost de cel energie.</p>
+<p>Leerlingen zetten pantoffeldiertjes in water met verschillende concentraties keukenzout en tellen onder de microscoop hoe vaak de contractiele vacuole per minuut samentrekt (afbeelding 1).</p>
+<div class="eyebrow">afbeelding 1 (fictieve gegevens)</div>${GRAF()}`,ids);
+}
+
+/* ===== Opgave 7: Stamcellen (havo EI-cellen-KE07, vwo EI-cellen-KE02) ===== */
+const STOF_MITOSE={titel:"Van één cel naar honderden celsoorten",html:`
+<p>Je begon als één cel: een bevruchte eicel. Die deelde zich door <b>mitose</b>, steeds weer. Nu bestaat je lichaam uit zo'n dertig biljoen cellen, van meer dan tweehonderd soorten.</p>
+<p>Bij elke mitose krijgen beide cellen een kopie van hetzelfde DNA. Een uitzondering is de rode bloedcel: die verliest zijn kern.</p>
+<p>Een gen is een stukje DNA met de bouwtekening van een eiwit. Welke eiwitten een cel maakt, bepaalt zijn bouw en zijn taak.</p>`,
+films:[F.stam]};
+{
+const ids=[];
+if(!VWO){
+const STOF_EMB={titel:"Embryonale en volwassen stamcellen",html:`
+<p>Een <b>stamcel</b> is nog niet gespecialiseerd en kan zich blijven delen. Bij een deling blijft er meestal één stamcel over.</p>
+<p><b>Volwassen stamcellen</b> zitten bijvoorbeeld in de kiemlaag van je huid, in je rode beenmerg en in je darmwand.</p>
+<p>Een embryo van vijf dagen is een holle bol met binnenin een klompje cellen. Onderzoekers kweken die cellen in het lab: dat zijn <b>embryonale stamcellen</b>.</p>`,
+films:[F.stam]};
+ids.push(vraag(2,"embryonale stamcellen roepen vragen op",(q,id)=>{
+  pre(q,"<p>Embryonale stamcellen roepen vragen op.</p>");
+  const {think,ans,unlock}=start(q,B("a Leg uit waarom, en noem waar onderzoekers in Nederland de embryo's vandaan halen.<br>b Leg uit waarom onderzoekers toch met embryonale stamcellen willen werken en niet alleen met volwassen stamcellen."));
+  choiceStep(think,{q:"Waaruit kweken onderzoekers embryonale stamcellen?",opts:["uit het beenmerg van een volwassene","uit het klompje cellen in een embryo van een paar dagen","uit huidcellen"],right:1,
+    ok:"Ja. Wat gebeurt er met het embryo als je die cellen eruit haalt?",no:"De naam zegt het al: embryonaal.",
+    onDone:()=>choiceStep(think,{q:"Een bloedstamcel uit het beenmerg: welke cellen kan die maken?",opts:["alle celsoorten van het lichaam","alleen bloedcellen","alleen huidcellen"],right:1,
+      ok:"Goed. Vergelijk dat nu met wat een embryonale stamcel kan worden.",no:"Een volwassen stamcel maakt de celsoorten van zijn eigen weefsel.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "a Om embryonale stamcellen te kweken <b>gaat een embryo verloren</b>; in Nederland gebruiken onderzoekers <b>restembryo's van ivf</b> (die ouders aan de wetenschap geven).",
+    "b Embryonale stamcellen kunnen nog <b>elke celsoort</b> van het lichaam worden, volwassen stamcellen alleen de celsoorten van hun <b>eigen weefsel</b>."],
+    model:"a Om embryonale stamcellen te kweken gaat een embryo verloren, en een embryo is het begin van een mens. In Nederland gebruiken onderzoekers restembryo's van ivf: embryo's die over zijn en die ouders aan de wetenschap geven. b Embryonale stamcellen kunnen nog elke celsoort van het lichaam worden. Volwassen stamcellen maken alleen de celsoorten van hun eigen weefsel, zoals een bloedstamcel alleen bloedcellen.",
+    valkuil:"Bij a moeten beide delen erin staan (embryo gaat verloren én restembryo's van ivf) voor het punt. Bij b is ‘embryonale stamcellen zijn beter’ geen uitleg: zeg wat ze méér kunnen.",
+    after:()=>waaromBtn(ans,textBox("a Om embryonale stamcellen te kweken haal je het klompje cellen uit een embryo van een paar dagen: dat embryo gaat verloren. Daarom zijn de regels streng. In Nederland komen de embryo's uit ivf: <b>restembryo's</b> die over zijn en die ouders aan de wetenschap geven.<br>b Een embryonale stamcel kan nog <b>elke celsoort</b> worden. Een volwassen stamcel maakt alleen cellen van zijn eigen weefsel: een bloedstamcel maakt bloedcellen, geen huid of hartspier."))});
+  q.append(think,ans);
+},STOF_EMB));
+}else{
+ids.push(vraag(2,"insuline: hetzelfde gen, andere cel",(q,id)=>{
+  pre(q,"<p>Alleen sommige cellen in je alvleesklier maken insuline. Je huidcellen hebben het gen voor insuline ook.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit hoe dat kan. Gebruik het begrip differentiatie."));
+  choiceStep(think,{q:"Een huidcel en een alvleeskliercel van dezelfde persoon: hebben ze hetzelfde DNA?",opts:["ja","nee, elke celsoort heeft eigen genen"],right:0,
+    ok:"Ja, beide zijn door mitose uit dezelfde bevruchte eicel ontstaan. Waarom maakt de huidcel dan geen insuline?",no:"Beide cellen zijn door mitose ontstaan uit één bevruchte eicel. Wat krijgt elke cel bij een mitose mee?",
+    onDone:()=>choiceStep(think,{q:"Een gen zit in een cel. Wat moet er gebeuren voordat de cel het eiwit van dat gen maakt?",opts:["het gen moet aan staan","het gen moet uit de cel geknipt worden","het gen moet verdubbelen"],right:0,
+      ok:"Goed. Gebruik nu het begrip uit de vraag voor wat er zo met een cel gebeurt.",no:"Een gen is een bouwtekening. Je kunt hem gebruiken, of laten liggen.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "In de alvleeskliercel staat het gen voor insuline <b>aan</b>, in de huidcel staat het <b>uit</b> (het gen zit er wel in).",
+    "Door <b>differentiatie</b> krijgt elke celsoort zo een eigen bouw en taak."],
+    model:"Alle lichaamscellen hebben hetzelfde DNA, ook het gen voor insuline. In sommige alvleeskliercellen staat dat gen aan, in huidcellen staat het uit. Doordat in elke celsoort andere genen aan staan, krijgt elke cel een eigen bouw en taak: dat is differentiatie.",
+    valkuil:"‘De huidcel heeft het gen niet’ of ‘de huidcel is het gen kwijtgeraakt’: dat spreekt de vraag tegen. Het gen zit erin, maar staat uit.",
+    after:()=>waaromBtn(ans,textBox("Bij elke mitose krijgen beide cellen een kopie van hetzelfde DNA. Het verschil tussen celsoorten zit dus niet in welke genen ze hebben, maar in welke genen <b>aan</b> staan. In sommige alvleeskliercellen staat het insulinegen aan; in de huidcel staat het uit. Een cel die zo een eigen bouw en taak krijgt, is gedifferentieerd: <b>differentiatie</b>. Voor vwo: transcriptiefactoren en methylgroepen bepalen of een gen wordt overgeschreven."))});
+  q.append(think,ans);
+},STOF_MITOSE));
+}
+opgave("Stamcellen","Stamcellen",GEEN_INLEIDING,ids);
+}
+
+/* ===== Opgave 8: Een nieuw hoornvlies uit je andere oog (EI-cellen-F01–F03; havo F04, vwo F05) ===== */
+{
+const STOF_STAM={titel:"Stamcellen in je lichaam",html:`
+<p>Een <b>stamcel</b> is nog niet gespecialiseerd. Stamcellen zitten op verschillende plekken: in de kiemlaag onderin je opperhuid, in je rode beenmerg en in je darmwand. Daar vernieuwen ze steeds het weefsel: je opperhuid is in ongeveer vier weken helemaal nieuw.</p>
+<p>Zulke volwassen stamcellen maken alleen de celsoorten van hun eigen weefsel. Embryonale stamcellen kunnen nog elke celsoort van het lichaam worden.</p>`,
+films:[F.stam]};
+const STOF_OND={titel:"Een eerlijke proef",html:`
+<p>In een goed onderzoek verander je maar één factor: de rest houd je gelijk. Je vergelijkt met een <b>controlegroep</b>, die alles krijgt behalve het ding dat je test.</p>
+<p>Een uitkomst is <b>betrouwbaar</b> als je bij herhalen (bijna) hetzelfde vindt. Daarom gebruik je genoeg proefpersonen en herhaal je de proef.</p>
+<p>Wie meet, kan zich ongemerkt laten leiden door wat hij verwacht. Ook daar letten onderzoekers op.</p>`,
+films:[F.ond]};
+const ids=[];
+ids.push(vraag(2,"waarom uit de rand?",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Leg uit waarom de artsen het stukje uit de rand van het gezonde oog nemen en niet uit het midden van het hoornvlies."));
+  choiceStep(think,{q:"Waar zitten volgens de inleiding de stamcellen van het hoornvlies?",opts:["in het midden","in de rand","overal evenveel"],right:1,
+    ok:"Ja. Wat kunnen stamcellen dat de andere cellen niet kunnen?",no:"Lees de inleiding nog eens: waar komen de nieuwe cellen vandaan?",
+    onDone:()=>choiceStep(think,{q:"De cellen in het midden zijn gespecialiseerd. Wat doen veel gespecialiseerde cellen niet meer?",opts:["eiwitten maken","zich blijven delen","ATP maken"],right:1,
+      ok:"Goed. Wat zou er dan gebeuren met een laag die alleen uit zulke cellen bestaat en steeds afslijt?",no:"Denk aan een zenuwcel of een hartspiercel uit de film.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "In de rand zitten de <b>stamcellen</b>, die zich <b>blijven delen</b> (en waarbij steeds een stamcel overblijft).",
+    "De cellen in het midden zijn <b>gespecialiseerd</b> en delen niet blijvend; een laag van alleen die cellen slijt af en wordt <b>niet vervangen</b>."],
+    model:"In de rand zitten de stamcellen. Die blijven zich delen, en bij elke deling blijft er een stamcel over, zodat er steeds nieuwe cellen komen. De cellen in het midden zijn gespecialiseerd en delen zich niet blijvend. Een laag van alleen die cellen zou afslijten zonder dat er nieuwe cellen bij komen.",
+    valkuil:"‘In het midden zitten geen cellen’ of ‘de rand is minder belangrijk voor het zien’ is geen biologische uitleg. Noem de stamcellen en wat ze kunnen.",
+    after:()=>waaromBtn(ans,textBox("Net als in de kiemlaag van je huid: een <b>stamcel</b> blijft zich delen, en bij een deling blijft er meestal één stamcel over. Zo blijft de voorraad op peil en komen er steeds nieuwe cellen bij. De cellen in het midden zijn al gespecialiseerd: die delen zich niet blijvend. Neem je alleen die mee, dan slijt het nieuwe laagje af en komt er niets voor terug."))});
+  q.append(think,ans);
+},STOF_STAM));
+
+ids.push(vraag(2,"cellen van een donor",(q,id)=>{
+  pre(q,"<p>Bij patiënten van wie beide ogen beschadigd zijn, kan deze behandeling niet met eigen cellen.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit welk probleem ontstaat als je dan cellen van een donor gebruikt, en waarom dat probleem er bij eigen cellen niet is."));
+  choiceStep(think,{q:"Welk systeem in je lichaam ruimt lichaamsvreemde cellen op?",opts:["het afweersysteem","het zenuwstelsel","het spijsverteringsstelsel"],right:0,
+    ok:"Ja. Hoe ‘ziet’ dat systeem of een cel lichaamsvreemd is?",no:"Denk aan bacteriën die je lichaam binnendringen. Wie ruimt die op?",
+    onDone:()=>choiceStep(think,{q:"Waaraan herkent het afweersysteem een cel?",opts:["aan zijn grootte","aan eiwitten op zijn celmembraan","aan zijn kleur"],right:1,
+      ok:"Goed. Vergelijk nu die eiwitten van een donor met die van de patiënt zelf.",no:"Bij een transplantatie moet de donor ‘passen’. Waar kijkt men dan naar?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Donorcellen hebben (meestal) <b>andere herkenningseiwitten</b>, zodat het <b>afweersysteem</b> van de patiënt ze kan opruimen (<b>afstoting</b>).",
+    "<b>Eigen cellen</b> hebben dezelfde herkenningseiwitten (hetzelfde DNA) en worden <b>niet afgestoten</b>."],
+    model:"Cellen van een donor hebben meestal andere herkenningseiwitten. Het afweersysteem van de patiënt ziet ze als lichaamsvreemd en ruimt ze op: het nieuwe hoornvlies wordt afgestoten. Eigen cellen hebben hetzelfde DNA en dus dezelfde herkenningseiwitten; die worden niet afgestoten.",
+    valkuil:"‘Donorcellen passen niet in het oog’ of ‘ze hebben ander DNA, dus werken ze niet’ is te vaag. Noem wat het afweersysteem doet en waaraan het de cellen herkent.",
+    after:()=>waaromBtn(ans,textBox("Op het membraan van je cellen zitten <b>herkenningseiwitten</b>. Hebben donorcellen andere herkenningseiwitten, dan ruimt het <b>afweersysteem</b> ze op: afstoting. Daarom moet bij een transplantatie, bijvoorbeeld van bloedstamcellen bij leukemie, de donor goed passen. Met <b>eigen</b> cellen speelt dit niet: zelfde DNA, zelfde herkenningseiwitten."))});
+  q.append(think,ans);
+},STOF_STAM));
+
+ids.push(vraag(2,"blind en valide meten",(q,id)=>{
+  pre(q,"<p>In het onderzoek bekeek een oogarts na een jaar of het hoornvlies ‘helder’ was.</p>");
+  const {think,ans,unlock}=start(q,B("a Leg uit waarom het beter is als die oogarts niet weet wie welke behandeling kreeg.<br>b Een onderzoeker stelt voor om bij elke patiënt ook te meten hoeveel regels letters hij op een letterkaart kan lezen. Leg uit waarom dat het onderzoek meer valide maakt."));
+  choiceStep(think,{q:"‘Helder’ of niet: hoe stelt de oogarts dat vast?",opts:["met een meetapparaat dat een getal geeft","door te kijken en te oordelen","door bloed af te nemen"],right:1,
+    ok:"Ja: het is een oordeel. Wat kan dat oordeel beïnvloeden als hij weet wie de nieuwe behandeling kreeg?",no:"Lees de zin nog eens: de oogarts ‘bekeek’ het hoornvlies.",
+    onDone:()=>choiceStep(think,{q:"Waarom krijgt een patiënt deze behandeling eigenlijk?",opts:["om een mooier hoornvlies te krijgen","om weer te kunnen zien","om minder pijn te hebben"],right:1,
+      ok:"Goed. Meet ‘helder’ precies dat? En wat meet de letterkaart?",no:"Lees de inleiding nog eens: wat kan de patiënt na de brandwond niet meer?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "a <b>Blind meten</b>: de oogarts kan zijn oordeel dan niet (onbewust) laten beïnvloeden door wat hij verwacht.",
+    "b Dan meet je <b>wat je wilt weten</b>: of de patiënt weer kan zien (in plaats van alleen hoe het hoornvlies eruitziet)."],
+    model:"a Als de oogarts weet wie de behandeling kreeg, kan hij onbewust een hoornvlies eerder ‘helder’ noemen omdat hij dat verwacht. Weet hij het niet (blind meten), dan kan zijn verwachting het oordeel niet beïnvloeden. b Het doel van de behandeling is dat de patiënt weer kan zien. Met de letterkaart meet je het zien zelf, en niet alleen hoe het hoornvlies eruitziet: je meet dus beter wat je wilt weten.",
+    valkuil:"Bij b gaat het om valide (meet je wat je wilt weten?), niet om betrouwbaar (krijg je bij herhalen hetzelfde?). Ook goed bij b: een letterkaart geeft een getal en hangt minder af van de mening van de arts, mits je uitlegt dat je zo het zien zelf meet.",
+    after:()=>waaromBtn(ans,textBox("a Wie meet, kan zich ongemerkt laten leiden door wat hij verwacht. Daarom werken onderzoekers <b>blind</b>: wie meet of telt, weet niet in welke groep iets hoort.<br>b <b>Valide</b> betekent: je meet echt wat je wilt weten. De behandeling is bedoeld om weer te kunnen zien. ‘Helder’ zegt iets over hoe het hoornvlies eruitziet; de letterkaart meet of de patiënt weer kan lezen, dus het zien zelf."))});
+  q.append(think,ans);
+},STOF_OND));
+
+if(!VWO){
+ids.push(vraag(2,"zelfde DNA, toch anders",(q,id)=>{
+  pre(q,"<p>Een cel van het hoornvlies en een huidcel van het ooglid van dezelfde patiënt hebben hetzelfde DNA. Toch is de hoornvliescel doorzichtig en de huidcel niet.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit hoe dat kan."));
+  choiceStep(think,{q:"Uit welke cel zijn de hoornvliescel en de huidcel allebei ontstaan?",opts:["uit één bevruchte eicel","uit een stamcel van het hoornvlies","uit verschillende eicellen"],right:0,
+    ok:"Ja, door steeds weer mitose. Waarom hebben ze daardoor hetzelfde DNA?",no:"Je begon als één cel.",
+    onDone:()=>choiceStep(think,{q:"Als het DNA hetzelfde is, waarin kunnen twee cellen dan verschillen?",opts:["in welke genen aan staan","in welke genen erin zitten","in het aantal chromosomen"],right:0,
+      ok:"Goed. Welk begrip uit de film hoort bij een cel die zo een eigen bouw en taak krijgt?",no:"Het DNA is gelijk, dus de genen ook. Maar gebruikt elke cel alle genen?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Alle lichaamscellen zijn door <b>mitose</b> ontstaan uit één bevruchte eicel en hebben dus hetzelfde DNA (dezelfde genen).",
+    "In een hoornvliescel staan <b>andere genen aan</b> dan in een huidcel, zodat elke cel een eigen bouw en taak krijgt (<b>differentiatie</b>)."],
+    model:"Beide cellen zijn door mitose ontstaan uit dezelfde bevruchte eicel; bij elke mitose krijgen de cellen een kopie van hetzelfde DNA. In een hoornvliescel staan andere genen aan dan in een huidcel. Zo krijgt elke cel een eigen bouw en taak: differentiatie.",
+    valkuil:"‘De huidcel heeft andere genen’ of ‘de hoornvliescel is genen kwijtgeraakt’: 0 punten voor het tweede punt. De genen zitten in beide cellen; ze staan alleen aan of uit.",
+    after:()=>waaromBtn(ans,textBox("Je begon als één bevruchte eicel, die zich door <b>mitose</b> steeds weer deelde. Bij elke mitose krijgen beide cellen een kopie van hetzelfde DNA. Het verschil zit in welke genen <b>aan</b> staan: in de hoornvliescel andere dan in de huidcel. Een cel die zo een eigen bouw en taak krijgt, is gedifferentieerd: <b>differentiatie</b>."))});
+  q.append(think,ans);
+},STOF_MITOSE));
+}else{
+const STOF_POT={titel:"Hoeveel kan een stamcel nog worden?",html:`
+<p>Niet elke stamcel kan hetzelfde. De bevruchte eicel kan alles maken. Embryonale stamcellen kunnen nog elke celsoort van het lichaam worden. Volwassen stamcellen maken alleen celsoorten van hun eigen weefsel: een bloedstamcel maakt rode en witte bloedcellen en bloedplaatjes.</p>
+<p>Voor vwo hebben biologen vier woorden voor hoeveel een cel nog kan worden: <b>totipotent</b>, <b>pluripotent</b>, <b>multipotent</b> en <b>unipotent</b>.</p>
+<p>In 2006 zette Yamanaka cellen van een muis terug tot stamcellen. Zo'n teruggezette cel heet een <b>iPS-cel</b>.</p>`,
+films:[F.stam]};
+ids.push(vraag(2,"hoeveel kan deze stamcel nog?",(q,id)=>{
+  pre(q,"<p>De stamcellen in de rand van het hoornvlies maken alleen nieuwe cellen voor de buitenlaag van het hoornvlies.</p>");
+  const {think,ans,unlock}=start(q,B("Zijn deze stamcellen totipotent, pluripotent, multipotent of unipotent? Leg uit, en leg uit waarom een iPS-cel van dezelfde patiënt meer kan."));
+  choiceStep(think,{q:"Hoeveel verschillende celsoorten maken de stamcellen in de rand?",opts:["één soort","een paar soorten","alle celsoorten"],right:0,
+    ok:"Ja. Welk van de vier woorden hoort bij één celsoort?",no:"Lees de zin boven de vraag nog eens.",
+    onDone:()=>choiceStep(think,{q:"Waar staat de ‘i’ in iPS-cel voor?",opts:["geïnduceerd: teruggezet in het lab","immuun","inwendig"],right:0,
+      ok:"Goed. Tot wat voor cel wordt hij teruggezet, en hoeveel celsoorten kan die nog worden?",no:"Een iPS-cel ontstaat in het lab uit een gewone cel.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "<b>Unipotent</b>: ze maken maar <b>één soort</b> cel.",
+    "Een iPS-cel is <b>pluripotent</b>: teruggezet tot een stamcel die (bijna) <b>elke celsoort</b> van het lichaam kan worden."],
+    model:"Ze zijn unipotent, want ze maken maar één soort cel: cellen voor de buitenlaag van het hoornvlies. Een iPS-cel is een cel die in het lab is teruggezet tot een pluripotente stamcel. Die kan (bijna) elke celsoort van het lichaam worden.",
+    valkuil:"‘Multipotent, want het zijn volwassen stamcellen’: let op wat er staat: maar één soort cel. En een iPS-cel is niet totipotent: hij kan geen placenta maken.",
+    after:()=>waaromBtn(ans,textBox("<b>Totipotent</b>: het hele lichaam en de placenta (bevruchte eicel). <b>Pluripotent</b>: elke celsoort van het lichaam, geen placenta (embryonale stamcellen, iPS-cellen). <b>Multipotent</b>: een paar celsoorten van het eigen weefsel (bloedstamcel). <b>Unipotent</b>: één soort cel, zoals de stamcel in de kiemlaag van je huid en deze stamcel in de rand van het hoornvlies."))});
+  q.append(think,ans);
+},STOF_POT));
+}
+
+opgave("Hoornvlies","Een nieuw hoornvlies uit je andere oog",`
+<p>Het hoornvlies aan de voorkant van je oog is bedekt met een dunne laag cellen. Die cellen slijten steeds af en worden vervangen. Nieuwe cellen komen uit stamcellen in de rand van het hoornvlies. Bij een ernstige brandwond door een chemische stof kunnen al die stamcellen verloren gaan. Dan groeit er troebel weefsel over het hoornvlies en ziet de patiënt bijna niets meer.</p>
+<p>Er is een behandeling: artsen nemen een stukje van 1 tot 2 mm² uit de rand van het gezonde andere oog. In het lab worden de cellen vermeerderd op een doorzichtig plaatje. Dat plaatje wordt op het beschadigde oog gelegd. In een langlopend onderzoek was de behandeling na een paar jaar bij ongeveer driekwart van de patiënten geslaagd.</p>`,ids);
+}
+
+/* ===== Opgave 9: Onderzoek doen (EI-cellen-KF01) ===== */
+{
+const STOF_CYC={titel:"De stappen van een onderzoek",html:`
+<p>Een onderzoek doorloopt een vaste reeks stappen: <b>waarneming</b> → <b>onderzoeksvraag</b> → <b>hypothese</b> → <b>werkplan</b> → proef en <b>resultaten</b> → <b>conclusie</b> → <b>discussie</b>. Vaak levert de discussie weer een nieuwe vraag op.</p>
+<p>Een goede hypothese is <b>falsifieerbaar</b>: er is een uitkomst denkbaar die haar weerlegt. Komt die uitkomst, dan verwerp je de hypothese. Dat is geen mislukte proef: je weet dan iets nieuws.</p>`,
+films:[F.ond]};
+const q1=vraag(2,"onderzoeksvraag en hypothese",(q,id)=>{
+  pre(q,"<p>Femke ziet dat madeliefjes in de schaduw langere stelen hebben dan in de zon.</p>");
+  const {think,ans,unlock}=start(q,B("a Schrijf een goede onderzoeksvraag bij deze waarneming.<br>b Schrijf een hypothese en de verwachting die erbij hoort."));
+  choiceStep(think,{q:"Welke factor verschilt tussen schaduw en zon, die Femke kan onderzoeken?",opts:["de hoeveelheid licht","de soort plant","de kleur van de bloem"],right:0,
+    ok:"Ja. Een goede onderzoeksvraag gaat over één factor en over iets wat je kunt meten. Wat meet Femke?",no:"Het zijn allemaal madeliefjes. Wat is er anders in de schaduw?",
+    onDone:()=>choiceStep(think,{q:"Wat is het verschil tussen een hypothese en een verwachting?",opts:["er is geen verschil","de hypothese is het idee, de verwachting is wat je dan in de proef zou meten","de verwachting komt na de proef"],right:1,
+      ok:"Goed. Schrijf ze allebei op; voor de verwachting helpt de vorm ‘als … dan …’.",no:"Denk aan Semmelweis in de film: wat was zijn idee, en wat verwachtte hij dan te zien?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "a Een vraag over <b>één factor</b> die <b>meetbaar</b> is, bijvoorbeeld: ‘Krijgen madeliefjes in het donker langere stelen dan in het licht?’",
+    "b <b>Hypothese</b> (het idee) en <b>verwachting</b> (wat je dan meet, met als … dan), bijvoorbeeld: ‘Weinig licht maakt de stelen langer. Als dat zo is, dan zijn de stelen van madeliefjes in de schaduw na drie weken langer dan in de zon.’"],
+    model:"a Krijgen madeliefjes bij weinig licht langere stelen dan bij veel licht? b Hypothese: weinig licht maakt de stelen van madeliefjes langer. Verwachting: als dat zo is, dan zijn de stelen van madeliefjes die drie weken in de schaduw staan langer dan die van madeliefjes in de zon.",
+    valkuil:"Een vage vraag als ‘Wat doet licht met madeliefjes?’: 0 punten voor a. Bij b moeten hypothese én verwachting er allebei staan.",
+    after:()=>waaromBtn(ans,textBox("Een <b>onderzoeksvraag</b> gaat over één factor (hier: licht) en over iets wat je kunt meten (de lengte van de stelen). ‘Wat doet licht met madeliefjes?’ is te vaag. De <b>hypothese</b> is een mogelijk antwoord, het idee zelf. De <b>verwachting</b> zegt wat je in deze proef zult meten als de hypothese klopt, vaak met ‘als … dan …’."))});
+  q.append(think,ans);
+},STOF_CYC);
+opgave("Onderzoek","Onderzoek doen",GEEN_INLEIDING,[q1]);
+}
+
+
+/* ================= opgaven en navigatie ================= */
+OPG.sort((a,b)=>a.nr-b.nr);
+/* cijfer als bij een schooltoets: 9 × score / maximum + 1 */
+const NORM="";
+const CIJFER=(()=>{const L=Q.reduce((s,q)=>s+q.pts,0);return Array.from({length:L+1},(_,S)=>Math.round((9*S/L+1)*10)/10);})();
+const main=$("#main"),tabs=$("#tabs");let cur=1;const built={},nextBtns={};
+let curOpg=OPG.some(o=>o.nr===store.opg)?store.opg:1;
+const opg=()=>OPG.find(o=>o.nr===curOpg);
+const pts=o=>o.ids.reduce((s,i)=>s+Q.find(q=>q.id===i).pts,0);
+function reach(){const ids=opg().ids;if(store.vrij)return ids[ids.length-1];let k=0;while(k<ids.length-1&&store.scores[ids[k]]!==undefined)k++;return ids[k];}
+function renderTabs(){
+  tabs.innerHTML="";const r=reach();
+  opg().ids.forEach(id=>{const q=Q.find(x=>x.id===id);const locked=id>r;
+    const b=el("button",{class:(id===cur?"cur ":"")+(store.scores[id]!==undefined?"done":"")+(locked?" lock":""),"aria-label":"Vraag "+id+(locked?" (eerst vraag "+(id-1)+" maken)":""),title:locked?"Maak eerst vraag "+(id-1):""},id);
+    if(locked)b.disabled=true;else b.onclick=()=>open(id);tabs.append(b);});
+  const o=el("button",{class:"ov"+(cur==="ov"?" cur":"")},"Score");o.onclick=()=>open("ov");tabs.append(o);
+}
+function open(id){
+  if(id!=="ov"&&id>reach())id=reach();
+  cur=id;renderTabs();main.innerHTML="";
+  if(id==="ov"){main.append(overview());return;}
+  if(!built[id]){const q=Q.find(x=>x.id===id);const sec=el("article",{class:"q"});
+    q.build(sec);
+    const pap=el("section",{class:"papier","aria-label":"Toetsvraag "+id});
+    pap.append(el("div",{class:"pkop"},`<span class="pnr"><span class="mono">Toetsvraag</span><span class="nr">${id}</span></span><span class="mono">${q.pts} ${q.pts===1?"punt":"punten"}</span>`));
+    for(const c of [...sec.children]){if(c.classList.contains("phase")||c.tagName==="BUTTON")break;pap.append(c);}
+    pap.append(el("div",{class:"pvoet"},"Oefentoets Cellen · havo"));
+    sec.prepend(pap);
+    const sb=window.EXSTOF&&EXSTOF.blok(TOOL,id);if(sb)pap.after(sb);
+    /* toetsvraag nog eens boven de antwoorden (Kamiel 25 okt 2026: niet terug hoeven scrollen) */
+    const qt=[...pap.querySelectorAll(".qtext")].pop(),ansP=sec.querySelector(".phase.ans");
+    if(qt&&ansP){const h=el("div",{class:"herhaal papier"});h.append(el("div",{class:"hkop mono"},`Toetsvraag ${id}`));
+      const c=qt.cloneNode(true);c.querySelectorAll("[id]").forEach(x=>x.removeAttribute("id"));h.append(c);
+      const lab=ansP.querySelector(":scope>.label");lab?lab.after(h):ansP.prepend(h);}
+    const ids=opg().ids,last=id===ids[ids.length-1];
+    const nx=el("div",{class:"row",style:"justify-content:flex-end"});const b=el("button",{class:"go"},last?"Naar je score ›":`Volgende vraag (${id+1}) ›`);
+    nextBtns[id]=b;b.hidden=!store.vrij&&store.scores[id]===undefined;
+    b.onclick=()=>{open(last?"ov":id+1);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};nx.append(b);sec.append(nx);built[id]=sec;}
+  main.append(built[id]);
+}
+function overview(){
+  const o=opg();const s=el("section",{class:"phase"});s.append(el("h2",{},`Jouw score op opgave ${o.nr}`));
+  let tot=0;const t=el("table",{class:"data ovtable"});t.innerHTML="<tr><th>vraag</th><th>onderwerp</th><th>score</th></tr>";
+  o.ids.forEach(id=>{const q=Q.find(x=>x.id===id);const p=store.scores[id];if(p!==undefined)tot+=p;t.innerHTML+=`<tr><td>${id}</td><td>${q.t}</td><td>${p===undefined?"–":p} / ${q.pts}</td></tr>`;});
+  const w=el("div",{class:"tablewrap"});w.append(t);s.append(w,el("div",{class:"score"},`Totaal opgave ${o.nr}: ${tot} / ${pts(o)}`));
+  let all=0,allMax=0;OPG.forEach(x=>{allMax+=pts(x);x.ids.forEach(id=>{if(store.scores[id]!==undefined)all+=store.scores[id];});});
+  const gemaakt=OPG.every(x=>x.ids.every(id=>store.scores[id]!==undefined));
+  const cf=CIJFER[Math.min(all,CIJFER.length-1)].toFixed(1).replace(".",",");
+  s.append(el("p",{style:"margin:0"},`Hele toets: <b>${all}</b> van ${allMax} punten · cijfer <b>${cf}</b>`+(gemaakt?"":` <span class="muted">(nog niet alles gemaakt: open vragen tellen als 0 punten)</span>`)));
+  s.append(el("p",{class:"muted",style:"margin:0;font-size:14px"},`Cijfer = 9 × score / maximum + 1. Open vragen kijk je zelf na met het antwoordmodel.`));
+  const nextO=OPG.find(x=>x.nr===o.nr+1);
+  const row=el("div",{class:"row"});
+  if(nextO){const nb=el("button",{class:"go"},`Naar opgave ${nextO.nr}: ${nextO.kort} ›`);nb.onclick=()=>{setOpg(nextO.nr);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};row.append(nb);}
+  const r=el("button",{class:"ghost"},`Opgave ${o.nr} opnieuw`);r.onclick=()=>{o.ids.forEach(id=>{delete store.scores[id];delete built[id];delete nextBtns[id];});save();open(o.ids[0]);};row.append(r);
+  s.append(row);return s;
+}
+function renderOpgs(){const box=$("#opgs");box.innerHTML="";
+  OPG.forEach(o=>{const b=el("button",{"aria-pressed":o.nr===curOpg?"true":"false"},`${o.nr} · ${o.kort}`);b.onclick=()=>setOpg(o.nr);box.append(b);});}
+function setOpg(n){curOpg=n;store.opg=n;save();const o=opg();
+  $("#eb").textContent=`Oefentoets Cellen · havo · opgave ${o.nr}`;$("#h1").textContent=o.titel;
+  $("#sub").textContent=`vraag ${o.ids[0]} t/m ${o.ids[o.ids.length-1]} · ${pts(o)} punten`;
+  $("#ctx").innerHTML=o.ctx;renderOpgs();open(reach());}
+function setVrij(v){store.vrij=v;save();$("#vrij").setAttribute("aria-pressed",v?"true":"false");
+  for(const k in nextBtns)nextBtns[k].hidden=!v&&store.scores[k]===undefined;renderTabs();}
+$("#vrij").onclick=()=>setVrij(!store.vrij);setVrij(!!store.vrij);
+EXSTAND.STANDEN.forEach(s=>{s.uitleg=s.uitleg.replace(/examenvraag/g,"toetsvraag").replace("het echte examen","een echte toets").replace(" Zet de klok aan voor 3 uur examentijd.","");if(s.k==="echt")s.naam="Echte toets";});
+EXSTAND.init({store,save,setVrij});
+setOpg(curOpg);
+})();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,1132 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../js/teller.js" data-root="../"></script>
+<link rel="icon" href="../img/icoon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../img/icoon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../img/icoon/apple-touch-icon.png">
+<script>(function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oefentoets Afweer havo · doorklikken · Biologie bij Kamiel</title>
+<meta name="description" content="Oefentoets Afweer voor havo: per vraag eerst hulpvragen, dan de toetsvraag, nakijken met het antwoordmodel en uitleg waarom.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="huisstijl.css">
+<script src="huisstijl.js"></script>
+<script src="examen-stof.js?v=b496a9e6"></script>
+<script src="examen-standen.js?v=558bd73d"></script>
+<style>
+/* Oefentoets Afweer havo · zelfde bouwstenen als de oefenexamens (tools/OEFENEXAMEN_PROMPT.md). */
+body.echt .klok{display:none!important}
+@media (max-width:600px){.affig{overflow-x:auto;-webkit-overflow-scrolling:touch}.affig>svg{min-width:var(--min)}}
+:root{--rest:#2A3B57;--area:#5B6B84}
+:root[data-theme="light"]{--rest:#D5DEE9;--area:#B4BDCA}
+ .wrap{padding-inline:0}
+:root[data-theme="light"] .papier{box-shadow:0 0 0 1px rgba(20,32,52,.18),0 6px 18px rgba(20,32,52,.10)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--text);font:17px/1.55 var(--tekst);-webkit-font-smoothing:antialiased;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 40px}
+.wrap{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1,h2,h3{font-family:var(--titel);font-weight:700;letter-spacing:-.01em;text-wrap:balance;margin:0;line-height:1.1}
+h2{font-size:24px}
+.mono,.eyebrow{font:600 12px/1.2 var(--meta);letter-spacing:.1em;text-transform:uppercase}
+.eyebrow{color:var(--goud-text)}
+.muted{color:var(--text2)}
+a{color:var(--goud-text)}
+.sitenav{display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap;min-height:56px;padding:8px 0;border-bottom:1px solid var(--line);font:600 15px/1.3 var(--tekst)}
+.sitenav .merk{font:700 18px/1 var(--titel);color:var(--text);text-decoration:none}
+.sitenav .terug{color:var(--goud-text);text-decoration:none}
+.sitenav .rechts{margin-left:auto}
+.tool-kop{display:flex;flex-direction:column;gap:10px;padding:14px 0 0}
+.tool-kop h1{font-size:clamp(32px,5vw,48px)}
+.tool-kop p{margin:0;color:var(--text2);font-size:18px;max-width:62ch}
+button.toggle{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line2);background:none;color:var(--text2);border-radius:999px;padding:6px 14px 6px 8px;min-height:40px;font:600 14px var(--tekst);cursor:pointer}
+button.toggle .knopje{width:34px;height:20px;border-radius:999px;background:var(--line2);position:relative;flex:none}
+button.toggle .knopje::after{content:"";position:absolute;left:3px;top:3px;width:14px;height:14px;border-radius:50%;background:var(--text2);transition:left .15s}
+button.toggle[aria-pressed="true"]{color:var(--text);border-color:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje{background:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje::after{left:17px;background:var(--goud-ink)}
+.kopbalk{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.seg{display:inline-flex;flex-wrap:wrap;padding:3px;border-radius:999px;border:1px solid var(--line2);gap:2px}
+.seg button{border:0;background:none;padding:6px 14px;border-radius:999px;font:600 14px var(--tekst);color:var(--text2);min-height:36px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--goud);color:var(--goud-ink)}
+nav.tabs{display:flex;flex-wrap:wrap;gap:6px}
+nav.tabs button{min-width:44px;height:44px;border-radius:999px;border:1px solid var(--line2);background:none;color:var(--text2);font:600 15px var(--meta);cursor:pointer;position:relative}
+nav.tabs button:hover{color:var(--text)}
+nav.tabs button.cur{background:var(--goud);color:var(--goud-ink);border-color:var(--goud)}
+nav.tabs button.done::after{content:"";position:absolute;right:3px;top:3px;width:8px;height:8px;border-radius:50%;background:var(--groen);border:2px solid var(--bg)}
+nav.tabs button.lock{opacity:.35;cursor:not-allowed}
+nav.tabs .ov{padding:0 16px;font-family:var(--tekst)}
+.ctx{background:var(--surface);border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.ctx p{margin:0}
+details.ctxd summary{cursor:pointer;font-weight:600;color:var(--goud-text)}
+.tablewrap{overflow-x:auto}
+table.data{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+table.data th,table.data td{border-bottom:1px solid var(--line);padding:7px 10px;text-align:center}
+table.data th:first-child,table.data td:first-child{text-align:left}
+table.data th{font:600 11px var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--text3)}
+.q{display:flex;flex-direction:column;gap:14px}
+.qhead{display:flex;gap:12px;align-items:center}
+.qnum{font:700 40px/1 var(--titel);color:var(--goud-text)}
+.pts{font:600 12px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:3px 9px}
+.qtext{margin:0;font-size:18px}
+.phase{border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;background:var(--surface);display:flex;flex-direction:column;gap:12px}
+.phase>.label{display:flex;gap:8px;align-items:center;font:600 12px var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3)}
+.phase>.label .dot{width:8px;height:8px;border-radius:50%;background:var(--goud)}
+.phase.think{background:var(--surface2)}
+.phase.think>.label{color:var(--goud-text)}
+.step{display:flex;flex-direction:column;gap:8px}
+.step+.step{border-top:1px solid var(--line);padding-top:12px}
+.step p{margin:0}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button.opt,button.chip{border:1px solid var(--line2);background:var(--bg);color:var(--text);border-radius:12px;padding:9px 14px;font:inherit;font-size:16px;cursor:pointer;text-align:left}
+button.chip{border-radius:999px}
+button.opt:hover,button.chip:hover{border-color:var(--text3)}
+button.chip[aria-pressed="true"]{border-color:var(--goud);background:var(--goud-soft)}
+button.opt.right{border-color:var(--groen);background:var(--groen-soft)}
+button.opt.wrong{border-color:var(--koraal);background:var(--koraal-soft)}
+button.opt:disabled{cursor:default}
+button.go,button.ghost{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 18px;border-radius:999px;font:700 15px var(--tekst);cursor:pointer}
+button.go{border:0;background:var(--goud);color:var(--goud-ink)}
+button.go:hover{filter:brightness(1.06)}
+button.ghost{border:0;background:none;color:var(--text);box-shadow:inset 0 0 0 1px var(--line2)}
+button.ghost:hover{box-shadow:inset 0 0 0 1px var(--text3)}
+button:disabled.go,button:disabled.ghost{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:2px solid var(--goud);outline-offset:3px;border-radius:6px}
+input.num{width:96px;min-height:44px;font:600 16px var(--meta);padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text)}
+select{font:inherit;font-size:15px;min-height:44px;padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);max-width:100%;flex:1 1 260px}
+textarea{width:100%;min-height:88px;font:inherit;padding:10px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);resize:vertical}
+.fb{font-size:16px;border-radius:12px;padding:12px 14px;background:var(--surface2);border:1px solid var(--line2)}
+.fb.ok{border-color:var(--groen);background:var(--groen-soft)}
+.fb.no{border-color:var(--koraal);background:var(--koraal-soft)}
+.fb.hint{border-color:var(--teal);background:var(--teal-soft)}
+.graphs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.graphs{grid-template-columns:1fr}}
+.gopt{border:1px solid var(--line2);border-radius:var(--radius);background:var(--bg);padding:8px 8px 2px;cursor:pointer;color:var(--text);font:inherit;text-align:left}
+.gopt b{font:700 20px var(--titel);margin-left:6px;color:var(--goud-text)}
+.gopt:hover{border-color:var(--text3)}
+.gopt.right{border-color:var(--groen);box-shadow:0 0 0 2px var(--groen) inset}
+.gopt.wrong{border-color:var(--koraal);box-shadow:0 0 0 2px var(--koraal) inset}
+svg{display:block;max-width:100%;height:auto}
+.ax{stroke:var(--text3);stroke-width:1.2;fill:none}
+.grid{stroke:var(--line2);stroke-width:1;fill:none}
+.tick{fill:var(--text3);font:500 10px var(--meta)}
+.cv{stroke:var(--teal);stroke-width:2.4;fill:none;stroke-linejoin:round}
+.cvbad{stroke:var(--koraal);stroke-width:2;fill:none;stroke-dasharray:5 4}
+.restband{fill:var(--rest);opacity:.8}
+.lbl{fill:var(--text);font:600 12px var(--tekst)}
+.lblm{fill:var(--text2);font:12px var(--tekst)}
+.lblbad{fill:var(--koraal);font:700 12px var(--tekst)}
+.selfscore{display:flex;flex-direction:column;gap:10px}
+.selfscore label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.selfscore input{margin-top:4px;width:18px;height:18px;accent-color:var(--goud);flex:none}
+.model{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:16px}
+.anim{display:flex;flex-direction:column;gap:10px}
+.anim .stage{border-radius:var(--radius);background:var(--surface2);border:1px solid var(--line2);overflow:hidden}
+.anim .cap{min-height:3.2em;margin:0}
+.anim .nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pips{display:flex;gap:6px;margin-left:auto}
+.pips span{width:9px;height:9px;border-radius:50%;background:var(--line2)}
+.pips span.on{background:var(--goud)}
+.seq{display:flex;flex-direction:column;gap:6px}
+.seq button{display:flex;gap:10px;align-items:center}
+.seq .n{font:600 13px var(--meta);width:24px;height:24px;border-radius:50%;display:inline-grid;place-items:center;background:var(--line2);flex:none}
+.seq button.placed{border-color:var(--groen)} .seq button.placed .n{background:var(--groen);color:var(--goud-ink)}
+.score{font:600 16px var(--meta)}
+.ovtable td:last-child,.ovtable th:last-child{text-align:right}
+.pre{border-left:3px solid var(--goud);padding:2px 0 2px 14px;display:flex;flex-direction:column;gap:8px}
+.pre p{margin:0;color:var(--text2)}
+.figrow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.figrow{grid-template-columns:1fr}}
+.legenda{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--text2)}
+.legenda i{display:inline-block;vertical-align:middle;margin-right:6px}
+.legenda .lijn{width:22px;height:0;border-top:2.5px solid var(--text)}
+.legenda .vlak{width:16px;height:12px;background:var(--area)}
+.tick.dim{opacity:.35}
+p.klikbaar{line-height:2}
+button.mark{font:inherit;color:var(--text);background:none;border:0;border-bottom:2px dashed var(--goud);padding:0 3px;border-radius:4px;cursor:pointer}
+button.mark[aria-pressed="true"]{background:var(--goud-soft);border-bottom-style:solid}
+button.mark:disabled{cursor:default}
+.sellab{min-width:200px;font-weight:600}
+label.slider{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center}
+label.slider span{min-width:170px;font-weight:600;font-size:15px}
+label.slider input{flex:1 1 200px;accent-color:var(--goud)}
+.podium{background:var(--surface2);border:1px solid var(--line2);border-radius:var(--radius);overflow:hidden}
+p.regels{font-family:var(--tekst);line-height:1.9;margin:0}
+p.regels span{display:inline-block;width:2em;font:600 12px var(--meta);color:var(--text3)}
+sup{font-size:.7em}
+.papier{--bg:#FFFFFF;--surface:#FFFFFF;--surface2:#EEF1F5;--line:rgba(20,32,52,.10);--line2:rgba(20,32,52,.24);
+  --text:#121C2E;--text2:#3B4759;--text3:#667185;--goud:#C99A2E;--goud-text:#7E5C0B;--goud-soft:rgba(217,172,60,.18);
+  --groen:#2F8A47;--koraal:#B9502F;--teal:#25729C;--paars:#6550AD;--groen-soft:rgba(47,138,71,.10);--koraal-soft:rgba(185,80,47,.10);--teal-soft:rgba(37,114,156,.10);
+  --rest:#D5DEE9;--area:#B4BDCA;color-scheme:light;
+  background:#FCFCFA;color:var(--text);border:0;border-radius:6px;padding:16px 20px 12px;display:flex;flex-direction:column;gap:12px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.08),0 10px 28px rgba(0,0,0,.35)}
+.papier .pkop{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;border-bottom:2px solid var(--text);padding-bottom:6px}
+.papier .pkop .mono{color:var(--text2)}
+.papier .pnr{display:flex;align-items:baseline;gap:10px}
+.papier .nr{font:700 30px/1 var(--titel);color:var(--text)}
+.papier .pre{border-left:0;padding:0}
+.papier .pre p{color:var(--text)}
+.papier .qtext{color:var(--text)}
+.herhaal.papier{padding:10px 14px;gap:6px;box-shadow:none;border-radius:6px}
+.herhaal .hkop{color:var(--text3);font-size:11px}
+.herhaal .qtext{font-size:16px}
+.papier .pvoet{font:500 11px var(--meta);letter-spacing:.06em;color:var(--text3);text-align:right}
+.papier details.ctxd summary{color:var(--goud-text)}
+.papier .podium{background:var(--surface2)}
+.phase>.label .tag{margin-left:6px;font:600 10px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:2px 8px}
+.sleutel{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:14px;color:var(--text2)}
+.sleutel .sw{display:inline-block;width:16px;height:12px;border-radius:2px;vertical-align:-1px;margin-right:7px}
+.sleutel .papier-sw{background:#FCFCFA}
+.sleutel .donker-sw{background:var(--surface2);box-shadow:inset 0 0 0 1px var(--line2)}
+.exfoto{display:block;width:100%;height:auto;border-radius:2px}
+footer{color:var(--text3);font-size:14px;padding-top:24px;border-top:1px solid var(--line)}
+body.hulp .ans.locked{display:none}
+body.examen .think{display:none}
+body.examen .think.open{display:flex}
+.helpbtn{display:none!important}
+body.examen .helpbtn{display:inline-flex!important}
+body.examen .tonext{display:none!important}
+@media (max-width:600px){body{font-size:16px}.qtext{font-size:17px}.phase,.ctx{padding:14px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="sitenav" aria-label="Site">
+    <a class="merk" href="../index.html#home">Biologie bij Kamiel</a>
+    <a class="terug" href="../index.html#afweer">← Terug naar Bescherming en afweer</a>
+    <span class="rechts"><button type="button" class="icoon" data-thema-knop></button></span>
+  </nav>
+  <header class="tool-kop">
+    <div class="eyebrow" id="eb">Oefentoets Afweer · havo</div>
+    <h1 id="h1">Oefentoets Afweer</h1>
+    <div class="seg" id="opgs" role="group" aria-label="Opgave"></div>
+    <div class="sleutel"><span><i class="sw papier-sw"></i>Wit vak = de toetsvraag</span><span><i class="sw donker-sw"></i>Donker vak = hulpvragen en uitleg (niet uit de toets)</span></div>
+    <p>Maak de toets stap voor stap. Bij elke vraag denk je eerst na met de hulpvragen, dan beantwoord je de toetsvraag, en daarna zie je waarom het antwoord klopt. Kies zelf hoeveel hulp je wilt; met ‘Echte toets’ oefen je zonder hulp.</p>
+    <div class="kopbalk">
+      <div class="seg" id="standen" role="group" aria-label="Hoeveel hulp wil je?"></div>
+      <button id="vrij" class="toggle" aria-pressed="false"><span class="knopje"></span>Vrij doorklikken</button>
+      <span class="mono muted" id="sub"></span>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs" aria-label="Vragen"></nav>
+
+  <section class="ctx papier" id="ctx"></section>
+
+  <main id="main"></main>
+
+  <footer>Eigen vragen, met inspiratie uit de centrale examens (© CvTE), Biologie voor Jou en Nectar. Grafieken en schema's zijn eigen tekeningen; bronnen van de gegevens staan bij de opgaven.<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a> </span></footer>
+</div>
+
+<script>
+(function(){
+const $=(s,r=document)=>r.querySelector(s);
+const el=(tag,attrs={},html="")=>{const e=document.createElement(tag);for(const k in attrs){if(k==="class")e.className=attrs[k];else if(k.startsWith("on"))e.addEventListener(k.slice(2),attrs[k]);else e.setAttribute(k,attrs[k]);}if(html)e.innerHTML=html;return e;};
+const TOOL="afweer-havo";
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- opslag (alleen gemak) ---------- */
+let store={scores:{},mode:"hulp"};
+try{const s=JSON.parse(localStorage.getItem("toets-afweer-havo")||"null");if(s)store=Object.assign(store,s);}catch(e){}
+const save=()=>{try{localStorage.setItem("toets-afweer-havo",JSON.stringify(store));}catch(e){}};
+
+/* ---------- algemene bouwstenen ---------- */
+function phase(cls,label){const p=el("section",{class:"phase "+cls});
+  if(cls==="think")p.append(el("div",{class:"label"},`<span class="dot"></span>Hulpvragen<span class="tag">niet uit de toets</span>`));
+  else p.append(el("div",{class:"label"},`<span class="dot"></span>${label==="Antwoord"?"Jouw antwoord op de toetsvraag":label}`));return p;}
+function choiceStep(container,{q,opts,right,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});const fb=el("div",{class:"fb",hidden:""});
+  const knop=[];opts.forEach((o,i)=>{const b=el("button",{class:"opt",onclick:()=>{
+    if(i===right){row.querySelectorAll("button").forEach(x=>x.disabled=true);b.classList.add("right");fb.className="fb ok";fb.innerHTML=ok;fb.hidden=false;onDone&&onDone();}
+    else{b.classList.add("wrong");fb.className="fb no";fb.innerHTML=no;fb.hidden=false;}
+  }},o);knop.push(b);});
+  /* @@schud@@ vaste, geschudde volgorde (zaadje = vraagtekst), zodat het goede antwoord niet steeds eerst staat */
+  {let h=2166136261;for(const c of String(q))h=Math.imul(h^c.charCodeAt(0),16777619)>>>0;
+   const v=knop.map((b,i)=>i);for(let i=v.length-1;i>0;i--){h=Math.imul(h^(h>>>15),2246822507)>>>0;const j=h%(i+1);[v[i],v[j]]=[v[j],v[i]];}
+   if(v.length>1&&v[0]===right&&opts.length>2){const k=v.indexOf(right);[v[0],v[1]]=[v[1],v[0]];}
+   v.forEach(i=>row.append(knop[i]));}
+  s.append(row,fb);container.append(s);return s;
+}
+function mc(container,{opts,right,pts,qid,graphs:isGraph,onChecked}){
+  const wrap=el("div",{class:isGraph?"graphs":"row",style:isGraph?"":"flex-direction:column;align-items:stretch"});
+  const fb=el("div",{class:"fb",hidden:""});
+  opts.forEach((o,i)=>{const L="ABCDEF"[i];
+    const b=isGraph?el("button",{class:"gopt"},`<b>${L}</b>${o}`):el("button",{class:"opt"},`<b style="font:700 18px var(--titel);color:var(--goud-text);margin-right:10px">${L}</b>${o}`);
+    b.addEventListener("click",()=>{
+      wrap.querySelectorAll("button").forEach(x=>x.disabled=true);
+      const good=i===right; b.classList.add(good?"right":"wrong");
+      if(!good)wrap.children[right].classList.add("right");
+      fb.className="fb "+(good?"ok":"no");
+      fb.innerHTML=good?`Goed: <b>${"ABCDEF"[right]}</b>. ${pts} ${pts>1?"punten":"punt"}.`:`Het goede antwoord is <b>${"ABCDEF"[right]}</b>. 0 punten.`;
+      fb.hidden=false; setScore(qid,good?pts:0); onChecked&&onChecked();
+    });wrap.append(b);});
+  container.append(wrap,fb);
+}
+function waaromBtn(container,build){
+  const b=el("button",{class:"ghost waarombtn"},"Laat zien waarom ›");const box=el("div",{hidden:""});
+  b.onclick=()=>{b.remove();box.hidden=false;build(box);if(window.EXSTOF)EXSTOF.extraWaarom(TOOL,cur,box);};
+  container.append(b,box);
+}
+function lockAns(think,ans,label="Naar de vraag ›"){
+  ans.classList.add("locked");
+  const go=el("button",{class:"go tonext",hidden:""},label);
+  go.onclick=()=>{ans.classList.remove("locked");go.remove();ans.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});};
+  think.append(go);
+  return ()=>{think.append(go);go.hidden=false;};
+}
+function helpButton(q,think){
+  const b=el("button",{class:"ghost helpbtn"},"Hulp nodig? Toon de hulpvragen");
+  b.onclick=()=>{think.classList.add("open");b.remove();};
+  q.append(b);
+}
+function setScore(id,p){store.scores[id]=p;save();renderTabs();if(nextBtns[id])nextBtns[id].hidden=false;}
+
+/* ---------- vragen ---------- */
+const Q=[],OPG=[];
+
+/* Vraag 5 en 6: eerst zonder opties */
+function noOptions(q,{id,pts,text,prompt,hint,opts,right,uitleg}){
+  q.append(el("p",{class:"qtext"},text));
+  const think=phase("think","Eerst zelf"),ans=phase("ans","Kies je antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Toon de keuzes ›");
+  const s=el("div",{class:"step"});s.append(el("p",{},prompt));
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:"Wat denk jij? Schrijf het kort op."});const hb=el("button",{class:"ghost"},"Tip");const hf=el("div",{class:"fb hint",hidden:""},hint);
+  hb.onclick=()=>{hf.hidden=false;hb.remove();};
+  ta.addEventListener("input",()=>{if(ta.value.trim().length>2)unlock();});
+  s.append(ta,hb,hf);think.append(s);
+  mc(ans,{qid:id,pts,right,opts,onChecked:()=>{
+    if(ta.value.trim())ans.append(el("div",{class:"model"},`<b>Jij dacht eerst:</b> ${ta.value.replace(/</g,"&lt;")}<br><span class="muted">Klopte dat met de keuze die je maakte?</span>`));
+    waaromBtn(ans,b=>b.append(el("div",{class:"model"},uitleg)));}});
+  q.append(think,ans);
+}
+/* ================= extra bouwstenen ================= */
+function pre(q,html){q.append(el("div",{class:"pre"},html));}
+function chipsStep(container,{q,items,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});
+  items.forEach(([t])=>{const b=el("button",{class:"chip","aria-pressed":"false"},t);b.onclick=()=>b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")==="true"?"false":"true");row.append(b);});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(row,ck,fb);container.append(s);
+  ck.onclick=()=>{const sel=[...row.children].map(b=>b.getAttribute("aria-pressed")==="true");
+    const teveel=sel.some((s,k)=>s&&!items[k][1]),mist=sel.some((s,k)=>!s&&items[k][1]);fb.hidden=false;
+    if(!teveel&&!mist){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;row.querySelectorAll("button").forEach(b=>b.disabled=true);onDone&&onDone();}
+    else if(teveel){fb.className="fb hint";fb.innerHTML=no;}
+    else{fb.className="fb hint";fb.innerHTML="Wat je gekozen hebt klopt, maar er hoort nog meer bij. Kies alles wat klopt.";}};
+  return s;
+}
+function selectsStep(container,{q,rows,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const id=uid+"s"+k;
+    r.append(el("label",{for:id,class:"sellab"},lab));const sel=el("select",{id});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);s.append(r);return sel;});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(ck,fb);container.append(s);
+  ck.onclick=()=>{const n=sels.filter((sel,k)=>sel.value!==""&&+sel.value===rows[k][2]).length;fb.hidden=false;
+    if(n===rows.length){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;sels.forEach(x=>x.disabled=true);onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=`${n} van de ${rows.length} goed. `+(no||"Probeer het nog eens.");}};
+}
+function numStep(container,{q,right,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const r=el("div",{class:"row"});const inp=el("input",{class:"num",id:uid,inputmode:"decimal","aria-label":"antwoord"});const ck=el("button",{class:"ghost"},"Controleer");const fb=el("div",{class:"fb",hidden:""});
+  r.append(inp,ck);s.append(r,fb);container.append(s);
+  ck.onclick=()=>{const v=parseFloat((inp.value||"").replace(",","."));fb.hidden=false;
+    if(v===right){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;inp.disabled=true;onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=no;}};
+}
+function openAnswer(ans,{id,pts,checks,model,valkuil,placeholder,after}){
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:placeholder||"Schrijf je antwoord…"});
+  const ck=el("button",{class:"go"},"Nakijken");const tf=el("div",{class:"fb hint",hidden:""},"Schrijf eerst je antwoord op. Daarna kijk je het na.");
+  ans.append(ta,ck,tf);
+  ck.onclick=()=>{if(ta.value.trim().length<8){tf.hidden=false;ta.focus();return;}tf.remove();ck.remove();ta.readOnly=true;
+    const ss=el("div",{class:"selfscore"});
+    ss.append(el("p",{style:"margin:0"},"<b>Kijk jezelf na met het antwoordmodel.</b> Vink aan wat er in jouw antwoord staat."));
+    const boxes=checks.map((c,k)=>{const lab=el("label",{},`<input type="checkbox" id="q${id}c${k}"><span>${c} <span class="pts">1p</span></span>`);ss.append(lab);return lab.querySelector("input");});
+    if(model)ss.append(el("div",{class:"model"},"<b>Voorbeeldantwoord:</b> "+model));
+    if(valkuil)ss.append(el("div",{class:"fb hint"},"<b>Valkuil:</b> "+valkuil));
+    const sc=el("div",{class:"score"});ss.append(sc);ans.append(ss);
+    const upd=()=>{const p=Math.min(pts,boxes.filter(b=>b.checked).length);sc.textContent=`Jouw score: ${p} / ${pts}`;setScore(id,p);};
+    boxes.forEach(b=>b.onchange=upd);upd();after&&after();};
+}
+function juistOnjuist(ans,{id,stm,key,uitleg}){
+  const pick=stm.map(()=>null);
+  stm.forEach((t,k)=>{const r=el("div",{class:"row"});r.append(el("span",{style:"flex:1 1 260px"},`<b style="font-family:var(--meta)">${k+1}</b>&nbsp; ${t}`));
+    ["juist","onjuist"].forEach((lab,v)=>{const b=el("button",{class:"chip","aria-pressed":"false"},lab);b.onclick=()=>{pick[k]=v===0;r.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c===b?"true":"false"));};r.append(b);});ans.append(r);});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(pick.includes(null)){fb.hidden=false;fb.className="fb hint";fb.textContent="Beoordeel eerst alle uitspraken.";return;}
+    const n=pick.filter((p,k)=>p===key[k]).length;const p=n===stm.length?2:n===stm.length-1?1:0;ck.disabled=true;
+    ans.querySelectorAll(".chip").forEach(c=>c.disabled=true);
+    fb.hidden=false;fb.className="fb "+(p===2?"ok":"no");
+    fb.innerHTML=`${n} van de ${stm.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+key.map((k,i)=>`${i+1} ${k?"juist":"onjuist"}`).join(" · ");setScore(id,p);
+    waaromBtn(ans,uitleg);};
+}
+function stepAnim(box,steps,render){
+  let i=0;const stage=el("div",{class:"stage"}),cap=el("p",{class:"cap"});
+  const prev=el("button",{class:"ghost"},"‹ Vorige"),next=el("button",{class:"go"},"Volgende ›");
+  const pips=el("div",{class:"pips"},steps.map(()=>"<span></span>").join(""));
+  const nav=el("div",{class:"nav"});nav.append(prev,next,pips);
+  const a=el("div",{class:"anim"});a.append(stage,cap,nav);box.append(a);
+  function show(){cap.innerHTML=steps[i].cap;prev.disabled=i===0;next.textContent=i===steps.length-1?"Opnieuw ›":"Volgende ›";
+    pips.querySelectorAll("span").forEach((p,j)=>p.classList.toggle("on",j===i));render(stage,steps[i],i);}
+  prev.onclick=()=>{if(i>0){i--;show();}};next.onclick=()=>{i=(i+1)%steps.length;show();};show();
+}
+/* ================= meer bouwstenen ================= */
+function seqStep(container,{q,items,shown,ok,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const seq=el("div",{class:"seq"});let at=0;const fb=el("div",{class:"fb",hidden:""});
+  shown.forEach(k=>{const b=el("button",{class:"opt"},`<span class="n">·</span>${items[k]}`);b.onclick=()=>{if(b.classList.contains("placed"))return;
+    if(k===at){b.classList.add("placed");b.querySelector(".n").textContent=at+1;at++;fb.hidden=true;if(at===items.length){fb.hidden=false;fb.className="fb ok";fb.innerHTML=ok;onDone&&onDone();}}
+    else{fb.hidden=false;fb.className="fb hint";fb.textContent="Dat is nog niet de volgende stap. Wat gebeurt er direct daarna?";}};seq.append(b);});
+  s.append(seq,fb);container.append(s);
+}
+function selectAnswer(ans,{id,rows,score,uid,after,intro}){
+  if(intro)ans.append(el("p",{style:"margin:0"},intro));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const sid=uid+"a"+k;
+    r.append(el("label",{for:sid,class:"sellab"},lab));const sel=el("select",{id:sid});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);ans.append(r);return sel;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(sels.some(x=>x.value==="")){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul eerst alles in.";return;}
+    const n=sels.filter((x,k)=>+x.value===rows[k][2]).length;const p=score(n);sels.forEach(x=>x.disabled=true);ck.remove();
+    fb.hidden=false;fb.className="fb "+(n===rows.length?"ok":"no");
+    fb.innerHTML=`${n} van de ${rows.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+rows.map(([lab,opts,r])=>`${lab}: ${opts[r]}`).join(" · ");
+    setScore(id,p);after&&after();};
+}
+function textBox(html){return b=>b.append(el("div",{class:"model"},html));}
+const svgWrap=(vb,inner,label)=>`<svg viewBox="${vb}" role="img" aria-label="${label}">${inner}</svg>`;
+function numAnswer(ans,{id,fields,after}){
+  const inps=fields.map(([lab,unit],k)=>{const r=el("div",{class:"row"});const fid="q"+id+"f"+k;
+    r.append(el("label",{for:fid,class:"sellab"},lab));const i=el("input",{class:"num",id:fid,inputmode:"decimal"});r.append(i,el("span",{class:"muted"},unit));ans.append(r);return i;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{const v=inps.map(i=>parseFloat((i.value||"").replace(",",".")));if(v.some(isNaN)){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul beide uitkomsten in.";return;}
+    inps.forEach(i=>i.disabled=true);ck.remove();const res=fields.map((f,k)=>f[2](v[k]));const p=res.filter(Boolean).length;
+    fb.hidden=false;fb.className="fb "+(p===fields.length?"ok":"no");
+    fb.innerHTML=`<b>${p} van de ${fields.length} punten.</b><br>`+fields.map((f,k)=>`${res[k]?"✓":"✗"} ${f[3]}`).join("<br>");setScore(id,p);after&&after();};
+}
+
+/* ===== Oefentoets Afweer: gedeelde hulpjes (havo en vwo uit één bron) ===== */
+const VWO=false;
+let QN=0,ON=0;
+/* vraag(punten, onderwerp, build(q,id), stof?) -> id; stof = {titel, html, anim?, films?} voor 'Uitleg van de stof' */
+function vraag(pts,t,build,stof){const id=++QN;Q.push({id,pts,t,build:q=>build(q,id)});
+  if(stof&&window.EXSTOF)EXSTOF.zet(TOOL,[id],stof);return id;}
+function opgave(kort,titel,html,ids){const nr=++ON;
+  OPG.push({nr,kort,titel,ids,ctx:`<div class="pkop"><span class="mono">Toetstekst · inleiding opgave ${nr}</span></div>`+html});}
+/* films van het thema (hrefs als in HOOFDSTUKKEN.afweer.films in index.html); alle vier havo + vwo */
+const F={
+  ev:["De eerste verdediging","films/afweer/1-de-eerste-verdediging.html"],
+  as:["Antistoffen op maat","films/afweer/2-antistoffen-op-maat.html"],
+  tc:["T-cellen en virussen","films/afweer/3-t-cellen-en-virussen.html"],
+  vb:["Vaccins, allergie en bloedgroepen","films/afweer/4-vaccins-allergie-en-bloedgroepen.html"]};
+const GEEN_INLEIDING=`<p class="muted" style="margin:0">Bij deze vragen hoort geen inleiding.</p>`;
+/* begin van een vraag: vraagzin, hulp- en antwoordvak */
+function start(q,html){q.append(el("p",{class:"qtext"},html));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  return {think,ans,unlock};}
+const B=t=>`<b>${t}</b>`;
+const TABEL=(nr,kop,rijen,noot)=>`<div class="eyebrow">tabel ${nr}</div><div class="tablewrap"><table class="data"><tr>${kop.map(k=>`<th>${k}</th>`).join("")}</tr>${rijen.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join("")}</tr>`).join("")}</table></div>`+(noot?`<p class="muted" style="font-size:14px;margin:4px 0 0">${noot}</p>`:"");
+/* grotere letters in de eigen figuren (anders onleesbaar op de telefoon) */
+document.head.append(el("style",{},".afg15 .lbl,.afg15 .lblm{font-size:15px}.afg17 .lbl,.afg17 .lblm{font-size:17px}.afg18 .lbl,.afg18 .lblm{font-size:18px}"));
+const svgG=(vb,inner,label,n)=>svgWrap(vb,`<g class="afg${n}">${inner}</g>`,label);
+const getal=s=>parseFloat(String(s||"").replace(/\s/g,"").replace(/\.(?=\d{3}(\D|$))/g,"").replace(",","."));
+
+/* Volgorde-antwoord (ordenvraag): leerling tikt de letters in volgorde. Score volgens het antwoordmodel:
+   helemaal goed 2 punten; alleen twee letters die naast elkaar staan verwisseld 1 punt; anders 0. */
+function volgordeAnswer(ans,{id,letters,key,after}){
+  const seq=[];const toon=el("div",{class:"row",style:"min-height:34px"});
+  const rij=el("div",{class:"row"});
+  function upd(){toon.innerHTML=`<span class="muted">Jouw volgorde:</span>&nbsp;<b style="font:700 20px var(--titel);letter-spacing:.06em">${seq.length?seq.join(" – "):"…"}</b>`;}
+  const knoppen=[...letters].map(L=>{const b=el("button",{class:"chip","aria-pressed":"false"},L);
+    b.onclick=()=>{if(b.disabled)return;seq.push(L);b.disabled=true;b.setAttribute("aria-pressed","true");upd();};rij.append(b);return b;});
+  const wis=el("button",{class:"ghost"},"Opnieuw kiezen");
+  wis.onclick=()=>{seq.length=0;knoppen.forEach(b=>{b.disabled=false;b.setAttribute("aria-pressed","false");});upd();};
+  ans.append(el("p",{style:"margin:0"},"Tik de letters aan in de goede volgorde."),rij,toon,wis);upd();
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(seq.length<letters.length){fb.hidden=false;fb.className="fb hint";fb.textContent="Zet eerst alle letters op hun plek.";return;}
+    const s=seq.join("");let p=0;
+    if(s===key)p=2;else{const d=[...s].map((c,k)=>c!==key[k]?k:-1).filter(k=>k>=0);
+      if(d.length===2&&d[1]===d[0]+1&&s[d[0]]===key[d[1]]&&s[d[1]]===key[d[0]])p=1;}
+    ck.remove();wis.remove();knoppen.forEach(b=>b.disabled=true);
+    fb.hidden=false;fb.className="fb "+(p===2?"ok":"no");
+    fb.innerHTML=`<b>${p} ${p===1?"punt":"punten"}.</b> Goede volgorde: <b>${[...key].join(" – ")}</b>.`+(p===1?" Je had alleen twee stappen die naast elkaar staan verwisseld.":"");
+    setScore(id,p);after&&after();};
+}
+
+/* Getal-antwoord met eigen controle per veld (spaties en punten als duizendtal-scheiding mogen) */
+function rekenAnswer(ans,{id,fields,after}){
+  const inps=fields.map(([lab,unit],k)=>{const r=el("div",{class:"row"});const fid="q"+id+"f"+k;
+    r.append(el("label",{for:fid,class:"sellab"},lab));const i=el("input",{class:"num",id:fid,inputmode:"decimal"});r.append(i,el("span",{class:"muted"},unit));ans.append(r);return i;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{const v=inps.map(i=>getal(i.value));if(v.some(isNaN)){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul beide uitkomsten in.";return;}
+    inps.forEach(i=>i.disabled=true);ck.remove();const res=fields.map((f,k)=>f[2](v[k],v));const p=res.filter(Boolean).length;
+    fb.hidden=false;fb.className="fb "+(p===fields.length?"ok":"no");
+    fb.innerHTML=`<b>${p} van de ${fields.length} punten.</b><br>`+fields.map((f,k)=>`${res[k]?"✓":"✗"} ${f[3]}`).join("<br>");setScore(id,p);after&&after();};
+}
+
+/* Bloedgroep afleiden: eerste punt (bloedgroep + resus) kijkt de tool na, de uitleg kijk je zelf na. */
+function bloedgroepAnswer(ans,{id,abo,resus,check,model,valkuil,after}){
+  const rij=(lab,opts,k)=>{const r=el("div",{class:"row"});const sid="q"+id+"b"+k;
+    r.append(el("label",{for:sid,class:"sellab"},lab));const sel=el("select",{id:sid});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);ans.append(r);return sel;};
+  const ABO=["A","B","AB","O"],RES=["resuspositief","resusnegatief"];
+  const s1=rij("bloedgroep (ABO)",ABO,0),s2=rij("resusfactor",RES,1);
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:"Leg uit hoe je dat met de tabel afleidt…"});ans.append(ta);
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(s1.value===""||s2.value===""||ta.value.trim().length<8){fb.hidden=false;fb.className="fb hint";fb.textContent="Kies de bloedgroep en de resusfactor, en schrijf je uitleg op.";return;}
+    const p1=(+s1.value===abo&&+s2.value===resus)?1:0;s1.disabled=s2.disabled=true;ta.readOnly=true;ck.remove();
+    fb.hidden=false;fb.className="fb "+(p1?"ok":"no");
+    fb.innerHTML=(p1?"✓ Goed: ":"✗ Het is: ")+`<b>bloedgroep ${ABO[abo]}, ${RES[resus]}</b>. ${p1} ${p1===1?"punt":"punten"} voor de bloedgroep.`;
+    const ss=el("div",{class:"selfscore"});
+    ss.append(el("p",{style:"margin:0"},"<b>Kijk je uitleg zelf na met het antwoordmodel.</b> Vink aan als het in jouw antwoord staat."));
+    const lab=el("label",{},`<input type="checkbox" id="q${id}c0"><span>${check} <span class="pts">1p</span></span>`);ss.append(lab);
+    if(model)ss.append(el("div",{class:"model"},"<b>Voorbeeldantwoord:</b> "+model));
+    if(valkuil)ss.append(el("div",{class:"fb hint"},"<b>Let op:</b> "+valkuil));
+    const sc=el("div",{class:"score"});ss.append(sc);ans.append(ss);
+    const box=lab.querySelector("input");const upd=()=>{const p=p1+(box.checked?1:0);sc.textContent=`Jouw score: ${p} / 2`;setScore(id,p);};
+    box.onchange=upd;upd();after&&after();};
+}
+
+/* ---------- figuren (kleuren via de huisstijl-variabelen, werken in het witte papiervak en in donker) ---------- */
+/* Afbeelding 1 (opgave Biest): totale hoeveelheid antistoffen in het bloed van een kalf. Zelfde krommen als
+   eigen/figuren/afweer/maak.py in toetsen-biologie (fictief, schematisch): biest = 100·e^(−t/2,2), eigen = 60/(1+e^(−1,6(t−4))).
+   split = ook de twee delen tonen (alleen in 'Laat zien waarom', anders geeft het het antwoord op de vraag weg). */
+const KALF_B=t=>100*Math.exp(-t/2.2),KALF_E=t=>60/(1+Math.exp(-(t-4)*1.6));
+function KALF({split=false,toon=["tot","b","e"],hl=null}={}){
+  const X0=78,X1=610,Y0=280,Y1=24,xs=t=>X0+t*(X1-X0)/8,ys=v=>Y0-v*(Y0-Y1)/110;
+  const pad=f=>[...Array(161)].map((_,i)=>{const t=i/20;return `${i?"L":"M"}${xs(t).toFixed(1)},${ys(f(t)).toFixed(1)}`;}).join(" ");
+  let s="";
+  if(hl)s+=`<rect x="${xs(hl[0])}" y="${Y1}" width="${xs(hl[1])-xs(hl[0])}" height="${Y0-Y1}" fill="var(--goud)" opacity=".14"/>`;
+  for(let w=0;w<=8;w++)s+=`<path d="M${xs(w)},${Y0} v6" stroke="var(--text2)"/><text x="${xs(w)}" y="${Y0+22}" text-anchor="middle" class="lblm">${w}</text>`;
+  [0,20,40,60,80,100].forEach(v=>s+=`<path d="M${X0-6},${ys(v)} h6" stroke="var(--text2)"/><text x="${X0-12}" y="${ys(v)+4}" text-anchor="end" class="lblm">${v}</text>`);
+  s+=`<path d="M${X0},${Y1-6} V${Y0} H${X1+10}" fill="none" stroke="var(--text2)" stroke-width="1.4"/>`;
+  s+=`<text x="${(X0+X1)/2}" y="${Y0+44}" text-anchor="middle" class="lblm">leeftijd van het kalf (weken)</text>`;
+  s+=`<text x="22" y="${(Y0+Y1)/2}" class="lblm" text-anchor="middle" transform="rotate(-90 22 ${(Y0+Y1)/2})">hoeveelheid antistoffen in het bloed (relatief)</text>`;
+  if(toon.includes("tot"))s+=`<path d="${pad(t=>KALF_B(t)+KALF_E(t))}" fill="none" stroke="var(--text)" stroke-width="2.6" opacity="${split?.35:1}"/>`;
+  if(split){
+    if(toon.includes("b"))s+=`<path d="${pad(KALF_B)}" fill="none" stroke="var(--koraal)" stroke-width="2.6" stroke-dasharray="9 5"/><text x="${xs(1.1)+8}" y="${ys(KALF_B(1.1))-4}" class="lbl" style="fill:var(--koraal)">uit de biest (van de koe)</text>`;
+    if(toon.includes("e"))s+=`<path d="${pad(KALF_E)}" fill="none" stroke="var(--teal)" stroke-width="2.6" stroke-dasharray="2 5"/><text x="${xs(5.6)}" y="${ys(KALF_E(5.6))+22}" class="lbl" style="fill:var(--teal)">zelf gemaakt door het kalf</text>`;
+    if(toon.includes("tot"))s+=`<text x="${xs(7.9)}" y="${ys(KALF_B(7.9)+KALF_E(7.9))-8}" text-anchor="end" class="lblm">totaal</text>`;}
+  return `<div class="affig" style="max-width:640px;margin:0 auto;width:100%;--min:460px">`+svgG("0 0 640 340",s,"Totale hoeveelheid antistoffen in het bloed van een kalf in de eerste 8 weken",15)+`</div>`;}
+
+/* Putjes van een bloedgroepbepaling of kruisproef: rode bloedcellen los of samengeklonterd */
+function PUTJE(x,y,kop,klont,sub){
+  const r=48;let s=`<circle cx="${x}" cy="${y}" r="${r}" fill="var(--surface2)" stroke="var(--text2)" stroke-width="1.4"/>`;
+  const los=[[-26,-20],[4,-30],[28,-12],[-30,10],[-6,-4],[22,18],[-14,28],[10,32],[30,-34],[-34,-36],[0,14],[-22,-38]];
+  const kl=[[-6,-6],[6,-8],[0,4],[-12,4],[12,4],[-4,14],[8,15],[-16,-6],[16,-4],[2,-18],[-8,-16],[12,-16]];
+  (klont?kl:los).forEach(([dx,dy])=>s+=`<circle cx="${x+dx*(klont?1:.95)}" cy="${y+dy*(klont?1:.9)}" r="6.2" fill="var(--koraal)" stroke="var(--text)" stroke-width=".8" opacity=".9"/>`);
+  s+=`<text x="${x}" y="${y-r-12}" text-anchor="middle" class="lbl">${kop}</text>`;
+  s+=`<text x="${x}" y="${y+r+22}" text-anchor="middle" class="lblm">${sub||(klont?"klontert samen":"klontert niet")}</text>`;
+  return s;}
+
+/* Fagocytose in vijf stappen (voor 'Laat zien waarom' bij de ordenvraag) */
+function FAGO(st){
+  const cx=300,cy=128;let s=`<path d="M${cx-170},${cy} C${cx-170},${cy-110} ${cx+170},${cy-110} ${cx+170},${cy} C${cx+170},${cy+100} ${cx-170},${cy+100} ${cx-170},${cy} Z" fill="var(--goud)" fill-opacity=".10" stroke="var(--text2)" stroke-width="1.6"/>`;
+  s+=`<ellipse cx="${cx+80}" cy="${cy+18}" rx="38" ry="26" fill="var(--paars)" fill-opacity=".18" stroke="var(--paars)"/><text x="${cx+80}" y="${cy+22}" text-anchor="middle" class="lblm">kern</text>`;
+  s+=`<text x="${cx+150}" y="${cy-80}" text-anchor="end" class="lbl">macrofaag</text>`;
+  const bac=(x,y,heel=true)=>heel?`<rect x="${x-20}" y="${y-9}" width="40" height="18" rx="9" fill="var(--groen)" stroke="var(--text)" stroke-width="1"/>`
+    :[[-14,-4],[0,6],[12,-6],[-4,-10],[16,8]].map(([dx,dy])=>`<circle cx="${x+dx}" cy="${y+dy}" r="3.2" fill="var(--groen)"/>`).join("");
+  const lyso=(x,y)=>`<circle cx="${x}" cy="${y}" r="9" fill="var(--paars)" fill-opacity=".55" stroke="var(--paars)"/>`;
+  const bx=st===0?cx-230:cx-70,by=cy-10;
+  if(st===0){s+=bac(bx,by)+`<text x="${bx}" y="${by+34}" text-anchor="middle" class="lblm">bacterie</text>`;}
+  if(st===1){s+=`<path d="M${cx-160},${cy-40} C${cx-215},${cy-60} ${cx-205},${cy-20} ${cx-185},${cy-22}" fill="none" stroke="var(--text2)" stroke-width="7" stroke-linecap="round" opacity=".55"/>
+    <path d="M${cx-160},${cy+20} C${cx-215},${cy+40} ${cx-205},${cy+2} ${cx-185},${cy+2}" fill="none" stroke="var(--text2)" stroke-width="7" stroke-linecap="round" opacity=".55"/>`+bac(cx-190,cy-10)+`<text x="${cx-200}" y="${cy+58}" text-anchor="middle" class="lblm">schijnvoetjes</text>`;}
+  if(st>=2){s+=`<circle cx="${bx}" cy="${by}" r="30" fill="none" stroke="var(--text)" stroke-width="1.4" stroke-dasharray="${st>=3?"0":"4 3"}"/>`+bac(bx,by,st<4);
+    if(st===2)s+=`<text x="${bx}" y="${by+50}" text-anchor="middle" class="lblm">blaasje</text>`+lyso(cx+10,cy-50)+lyso(cx-10,cy+50);
+    if(st===3)s+=lyso(bx+28,by-14)+lyso(bx-22,by+22)+`<text x="${bx}" y="${by+56}" text-anchor="middle" class="lblm">lysosomen versmelten</text>`;
+    if(st===4)s+=`<text x="${bx}" y="${by+50}" text-anchor="middle" class="lblm">enzymen breken af</text>`;
+    if(st===2)s+=`<text x="${cx+10}" y="${cy-66}" text-anchor="middle" class="lblm">lysosoom</text>`;}
+  return svgG("0 0 600 250",s,"Een macrofaag ruimt een bacterie op",18);}
+
+/* Vermenigvuldiging van het virus per ronde van 8 uur (opgave Muizen) */
+function RONDES(n){
+  const R=[[0,1],[8,50],[16,2500],[24,125000]];const X0=90,W=110,Y0=232,H=160,ys=v=>Y0-Math.log10(v)/5.5*H;
+  let s=`<path d="M${X0-20},${Y0} H${X0+4*W}" stroke="var(--text2)" stroke-width="1.4"/>`;
+  s+=`<path d="M${X0-20},${ys(1e5)} H${X0+4*W}" stroke="var(--koraal)" stroke-width="1.6" stroke-dasharray="6 4"/><text x="${X0-16}" y="${ys(1e5)-8}" class="lbl" style="fill:var(--koraal)">grens: 100 000</text>`;
+  R.forEach(([u,v],k)=>{const x=X0+k*W+20,on=k<=n;
+    s+=`<rect x="${x}" y="${Math.min(ys(v),Y0-3)}" width="60" height="${Math.max(3,Y0-ys(v))}" fill="var(--teal)" opacity="${on?.8:.12}"/>`;
+    s+=`<text x="${x+30}" y="${Y0+22}" text-anchor="middle" class="lblm">${u} uur</text>`;
+    if(on)s+=`<text x="${x+30}" y="${Math.min(ys(v),Y0-3)-8}" text-anchor="middle" class="lbl">${v.toLocaleString("nl-NL").replace(/\./g," ")}</text>`;});
+  s+=`<text x="${X0-20}" y="22" class="lblm">nieuw geïnfecteerde cellen</text>`;
+  return svgG("0 0 560 270",s,"Aantal nieuw geïnfecteerde cellen per ronde van 8 uur",17);}
+
+/* ===== Opgave 1: De eerste verdediging (eigen vragen NA21, NA22 uit toetsen-biologie) ===== */
+{
+const STOF_FAG={titel:"Fagocyten",html:`
+<p>Je eerste verdediging bestaat uit <b>barrières</b> (huid, slijm en trilharen, lysozym, maagzuur, je eigen bacteriën) en uit <b>fagocyten</b>: witte bloedcellen die ziekteverwekkers opeten.</p>
+<p><b>Macrofagen</b> zijn grote fagocyten die in je weefsels leven. Bij een ontsteking kruipen er extra fagocyten uit het bloed het weefsel in, vooral <b>neutrofielen</b>.</p>
+<p>Bij het opeten (<b>fagocytose</b>) spelen een paar onderdelen van de fagocyt een rol: het celmembraan met uitstulpingen (<b>schijnvoetjes</b>), een <b>blaasje</b> en <b>lysosomen</b>: blaasjes met verteringsenzymen.</p>
+<p>Naast deze <b>aspecifieke afweer</b> heb je een <b>specifieke afweer</b> met lymfocyten (B-cellen en T-cellen). Die zie je in film 2 en 3.</p>`,
+films:[F.ev]};
+
+const q1=vraag(2,"hoe een fagocyt vreemd herkent",(q,id)=>{
+  pre(q,"<p>Een fagocyt kan een bacterie opeten die je lichaam nog nooit heeft gezien.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit hoe de fagocyt die bacterie als vreemd herkent, en noem één nadeel van deze manier van afweer."));
+  choiceStep(think,{q:"Wat zit er op het oppervlak van elke cel, ook van jouw eigen cellen?",opts:["vormpjes (meestal stukjes eiwit)","antistoffen","lysosomen"],right:0,
+    ok:"Ja. Jouw cellen hebben jouw vormpjes. Moet een fagocyt de precieze bacteriesoort kennen om te zien dat iets niet van jou is?",no:"Denk aan sleutel en slot: waaraan zie je afweer of iets eigen of vreemd is?",
+    onDone:()=>choiceStep(think,{q:"Hoort de fagocyt bij de aspecifieke of bij de specifieke afweer?",opts:["aspecifiek","specifiek"],right:0,
+      ok:"Goed. Wat betekent ‘aspecifiek’ voor wat een fagocyt wél en níet kan? Daar zit je nadeel.",no:"De specifieke afweer werkt met lymfocyten (B-cellen en T-cellen). Is een fagocyt een lymfocyt?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "De fagocyt herkent <b>vormpjes die veel bacteriën gemeen hebben</b>, maar die jouw eigen cellen niet hebben.",
+    "Nadeel, één van: hij herkent <b>niet precies welke bacterie</b> het is / het is <b>niet op maat</b> / hij <b>onthoudt niets</b> (de volgende keer niet sneller)."],
+    model:"Op elke cel zitten vormpjes. Een fagocyt herkent vormpjes die bij veel bacteriën voorkomen, maar niet op jouw eigen cellen. Zo weet hij dat de bacterie vreemd is, ook als hij die soort nog nooit zag. Een nadeel is dat hij niet herkent welke bacterie het precies is, en dat hij niets onthoudt: de volgende keer gaat het niet sneller.",
+    valkuil:"‘De fagocyt heeft geleerd hoe de bacterie eruitziet’ is fout: hij kent geen soorten. ‘Hij is traag’ is geen goed nadeel: fagocyten zijn er juist meteen."});
+  q.append(think,ans);
+},STOF_FAG);
+
+const q2=vraag(2,"volgorde van de fagocytose",(q,id)=>{
+  q.append(el("p",{class:"qtext"},B("Een macrofaag ruimt een bacterie op. Zet de stappen in de juiste volgorde.")+
+    "<br><br>A Enzymen breken de bacterie af.<br>B Een bacterie komt via een wondje in het weefsel terecht, waar de macrofaag hem tegenkomt.<br>C Lysosomen versmelten met het blaasje.<br>D De macrofaag omsluit de bacterie met schijnvoetjes.<br>E De bacterie zit in een blaasje in de macrofaag."));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Wat is een lysosoom?",opts:["een blaasje met verteringsenzymen","een uitstulping van het celmembraan","een bacterie die is opgegeten"],right:0,
+    ok:"Ja. Een lysosoom kan iets alleen afbreken als het ermee versmelt. Moet de bacterie dan al binnen zijn?",no:"Een lysosoom is een onderdeel van de fagocyt zelf. Wat zit erin?",
+    onDone:()=>choiceStep(think,{q:"Een bacterie is helemaal omsloten door schijnvoetjes. Waar zit hij daarna?",opts:["in een blaasje in de macrofaag","los in het cytoplasma","buiten de macrofaag"],right:0,
+      ok:"Goed. Zet nu alle stappen op een rij, van binnenkomen tot afbreken.",no:"De schijnvoetjes sluiten zich om de bacterie, met een stukje membraan eromheen.",onDone:unlock})});
+  volgordeAnswer(ans,{id,letters:"ABCDE",key:"BDECA",after:()=>waaromBtn(ans,b=>stepAnim(b,[
+    {cap:"<b>B</b> De bacterie komt via een wondje in het weefsel. Daar leven macrofagen."},
+    {cap:"<b>D</b> De macrofaag omsluit de bacterie met schijnvoetjes."},
+    {cap:"<b>E</b> De bacterie zit nu in een blaasje in de macrofaag."},
+    {cap:"<b>C</b> Lysosomen versmelten met het blaasje."},
+    {cap:"<b>A</b> De enzymen uit de lysosomen breken de bacterie af. Dat hele proces heet fagocytose."}],
+    (st,s,i)=>st.innerHTML=FAGO(i)))});
+  q.append(think,ans);
+},STOF_FAG);
+
+opgave("Eerste verdediging","De eerste verdediging",GEEN_INLEIDING,[q1,q2]);
+}
+
+/* ===== Opgave 2: Koorts bij een hagedis (eigen vragen C01, C02, havo C03 / vwo C04) ===== */
+{
+const STOF_KOORTS={titel:"Koorts en de thermostaat",html:`
+<p>In je <b>hypothalamus</b> zit een soort <b>thermostaat</b>: hij vergelijkt je lichaamstemperatuur met een ingestelde waarde. Is je lichaam kouder dan die instelling, dan zet hij processen aan die warmte vasthouden en warmte maken. Is je lichaam warmer, dan processen die warmte kwijtraken.</p>
+<p>Bij <b>koorts</b> blijft de thermostaat werken, maar zijn <b>instelling gaat omhoog</b>. Daarvoor zorgen stoffen die witte bloedcellen afgeven. Is de infectie voorbij, dan gaat de instelling weer omlaag.</p>
+<p>Een mens maakt zelf veel warmte. Een <b>hagedis</b> maakt zelf nauwelijks warmte: zijn lichaamstemperatuur hangt af van de omgeving.</p>`,
+films:[F.ev]};
+
+const q1=vraag(2,"temperatuur omhoog: mens en leguaan",(q,id)=>{
+  pre(q,"<p>Bij een mens stijgt de lichaamstemperatuur aan het begin van koorts doordat het lichaam warmte vasthoudt en warmte maakt.</p>");
+  const {think,ans,unlock}=start(q,B("Beschrijf hoe dat bij een mens gebeurt, en hoe de zieke leguaan zijn temperatuur verhoogt."));
+  choiceStep(think,{q:"Je hebt het warm en je wordt rood. Waar stroomt dan extra bloed, zodat je warmte kwijtraakt?",opts:["door de bloedvaatjes in je huid","door je spieren","door je lever"],right:0,
+    ok:"Ja. Wat moeten die bloedvaatjes dan juist doen om warmte <i>vast te houden</i>? En wat kunnen je spieren doen om warmte te maken?",no:"Waar komt je bloed het dichtst bij de buitenlucht?",
+    onDone:()=>choiceStep(think,{q:"Een leguaan maakt zelf nauwelijks warmte. Hoe wordt hij toch warmer?",opts:["door zijn gedrag","door te rillen","door zijn hart sneller te laten kloppen"],right:0,
+      ok:"Goed. Beschrijf nu de mens én de leguaan.",no:"Lees de inleiding: wat deden de zieke leguanen in het terrarium?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Mens: de <b>bloedvaatjes in de huid worden nauwer</b> (minder warmteverlies) en de <b>spieren gaan rillen</b> (warmte maken).",
+    "Leguaan: hij gaat op een <b>warmere plek</b> zitten (aan de warme kant / in de zon), dus door zijn <b>gedrag</b>."],
+    model:"Bij een mens worden de bloedvaatjes in de huid nauwer, zodat hij minder warmte kwijtraakt, en gaan de spieren rillen, wat warmte maakt. De zieke leguaan gaat aan de warme kant van het terrarium zitten: hij verhoogt zijn temperatuur door zijn gedrag.",
+    valkuil:"Alleen ‘de mens krijgt het warm’ of ‘de thermostaat gaat omhoog’ beschrijft niet hóé de temperatuur stijgt. Voor het eerste punt moeten de huidvaatjes én het rillen erin staan."});
+  q.append(think,ans);
+},STOF_KOORTS);
+
+const q2=vraag(2,"tabel 1: gunstig om warm te zitten",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Leg met tabel 1 uit dat het voor een besmette leguaan gunstig is om de warme kant op te zoeken. Gebruik in je uitleg wat je weet over het effect van een hogere temperatuur."));
+  numStep(think,{uid:"q"+id+"n1",q:"Hoeveel van de 12 leguanen leven na 7 dagen nog bij 38 °C, de normale temperatuur?",right:6,
+    ok:"Ja, de helft. En bij 42 °C?",no:"Lees de onderste rij van tabel 1 af onder 38.",
+    onDone:()=>numStep(think,{uid:"q"+id+"n2",q:"Hoeveel leven er nog bij 42 °C?",right:11,
+      ok:"Goed. Dat is het eerste deel van je uitleg.",no:"Kijk in de laatste kolom van tabel 1.",
+      onDone:()=>chipsStep(think,{q:"Op welke dingen kan een hogere lichaamstemperatuur invloed hebben? Kies alles wat klopt.",items:[["de groei van de bacteriën",1],["het werk van de afweercellen",1],["de hoeveelheid zonlicht",0]],
+        ok:"Goed. Bedenk nu in welke richting die twee veranderen bij een hogere temperatuur.",no:"Eén keuze gaat niet over het lichaam van de leguaan.",onDone:unlock})})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Uit tabel 1: <b>hoe hoger de temperatuur, hoe meer leguanen overleven</b> (bij 42 °C 11 van de 12, bij 38 °C 6 van de 12).",
+    "Bij een hogere temperatuur <b>groeien de bacteriën trager</b> en/of <b>werkt de afweer beter</b>."],
+    model:"In tabel 1 overleven bij een hogere temperatuur meer leguanen: bij 38 °C 6 van de 12, bij 42 °C 11 van de 12. Bij een hogere temperatuur groeien de bacteriën trager en werkt de afweer beter. Aan de warme kant krijgt de leguaan koorts en heeft hij dus meer kans om te overleven.",
+    valkuil:"Alleen de getallen uit de tabel noemen, zonder wat de hogere temperatuur doet met de bacteriën of de afweer: 1 punt.",
+    after:()=>waaromBtn(ans,textBox("Lees tabel 1 van links naar rechts: van 34 °C naar 42 °C stijgt het aantal levende leguanen van 1 naar 11. Een besmette leguaan die de warme kant opzoekt, krijgt zo een temperatuur van ongeveer 41 °C: <b>koorts</b>. Bij die temperatuur groeien veel bacteriën trager en werkt de afweer beter. Koorts is dus geen fout van het lichaam, maar een deel van de afweer."))});
+  q.append(think,ans);
+},STOF_KOORTS);
+
+const ids=[q1,q2];
+if(!VWO){
+ids.push(vraag(2,"een koortsremmer bij leguanen",(q,id)=>{
+  pre(q,"<p>In een tweede proef kregen besmette leguanen een koortsremmer: een stof die voorkomt dat de witte bloedcellen de thermostaat in de hersenen hoger zetten. Deze leguanen bleven aan de koele kant zitten, ook al was de warme kant vrij. Er stierven er meer dan bij besmette leguanen zonder koortsremmer.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit hoe de koortsremmer ervoor zorgt dat er meer leguanen sterven."));
+  choiceStep(think,{q:"Een besmette leguaan zonder koortsremmer zoekt de warmte op. Waardoor?",opts:["zijn thermostaat staat hoger, dus hij ‘vindt’ zichzelf te koud","hij heeft het door de bacteriën koud gekregen","de warme kant is groter"],right:0,
+    ok:"Ja. En als de koortsremmer dat hoger zetten tegenhoudt?",no:"Lees de inleiding van de vraag: wat zetten de witte bloedcellen hoger?",
+    onDone:()=>choiceStep(think,{q:"Welke lichaamstemperatuur houdt een leguaan met koortsremmer ongeveer?",opts:["ongeveer 38 °C","ongeveer 41 °C"],right:0,
+      ok:"Goed. Wat zegt tabel 1 over 38 °C, en waarom zou dat zo zijn?",no:"Hij blijft aan de koele kant zitten, zoals een gezonde leguaan.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "De <b>thermostaat blijft op de normale stand</b>, dus de leguaan ‘vindt’ zichzelf niet te koud en <b>zoekt de warmte niet op</b>.",
+    "Zijn temperatuur blijft rond <b>38 °C</b>, waardoor de <b>bacteriën sneller groeien</b> / de <b>afweer minder goed werkt</b> dan bij koorts, dus overleven er minder."],
+    model:"Door de koortsremmer zetten de witte bloedcellen de thermostaat niet hoger. De leguaan vindt zichzelf dan niet te koud en blijft aan de koele kant. Zijn temperatuur blijft rond 38 °C. Daarbij groeien de bacteriën sneller en werkt de afweer minder goed dan bij koorts, dus sterven er meer leguanen.",
+    valkuil:"‘De koortsremmer is giftig’ of ‘de koortsremmer remt de afweercellen’: 0 punten.",
+    after:()=>waaromBtn(ans,textBox("Volg de keten: koortsremmer → thermostaat blijft normaal → de leguaan vindt zichzelf niet te koud → hij blijft aan de koele kant → lichaamstemperatuur rond 38 °C → bacteriën groeien sneller en de afweer werkt minder goed (tabel 1: bij 38 °C leeft maar de helft) → meer leguanen sterven. Het is dus niet de koortsremmer zelf die ze doodt, maar het <b>ontbreken van de koorts</b>."))});
+  q.append(think,ans);
+},STOF_KOORTS));
+}else{
+ids.push(vraag(2,"koorts remmen bij een mens: voor en tegen",(q,id)=>{
+  pre(q,"<p>Bij koorts in mensen wordt vaak een koortsremmer gegeven, bijvoorbeeld paracetamol.</p>");
+  const {think,ans,unlock}=start(q,B("Geef één argument voor en één argument tegen het remmen van koorts bij een mens. Gebruik bij het argument tegen de resultaten van dit onderzoek."));
+  choiceStep(think,{q:"Is koorts de ziekte zelf, of een deel van de afweer?",opts:["de ziekte zelf","een deel van de afweer"],right:1,
+    ok:"Ja. Wat lieten de leguanen in tabel 1 dan zien? Daar zit je argument tegen.",no:"Wie zet de thermostaat hoger: de ziekteverwekker of je eigen witte bloedcellen?",
+    onDone:()=>choiceStep(think,{q:"Koorts heeft ook nadelen. Waaraan kost koorts je lichaam veel?",opts:["aan energie en vocht","aan zuurstof in de longen","aan rode bloedcellen"],right:0,
+      ok:"Goed. Zo'n nadeel is een argument vóór remmen. Schrijf nu beide argumenten op.",no:"Denk aan hoe je je voelt met hoge koorts: moe, slap, veel zweten.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Argument voor, één van: koorts kost veel <b>energie en vocht</b> / je voelt je <b>slap</b> / boven ongeveer <b>41 °C</b> kunnen eigen eiwitten beschadigen.",
+    "Argument tegen: koorts is een <b>deel van de afweer</b>; bij de leguanen <b>overleefden bij een hogere temperatuur meer dieren</b> (tabel 1; ziekteverwekkers groeien trager / afweer werkt beter)."],
+    model:"Voor: koorts kost veel energie en vocht en je voelt je slap; boven ongeveer 41 °C kunnen eigen eiwitten beschadigen. Tegen: koorts is een deel van de afweer. Bij de leguanen overleefden bij een hogere temperatuur meer dieren, omdat ziekteverwekkers dan trager groeien en de afweer beter werkt. Remmen kan het herstel dus vertragen.",
+    valkuil:"Een argument tegen zonder de resultaten van het onderzoek (tabel 1): geen punt voor het tweede element.",
+    after:()=>waaromBtn(ans,textBox("Koorts heeft een prijs (energie, vocht, je voelt je slap, en boven 41 °C schade aan eigen eiwitten) en een opbrengst (trager groeiende ziekteverwekkers, een afweer die beter werkt). In tabel 1 zie je de opbrengst: van 6 van de 12 levende leguanen bij 38 °C naar 11 van de 12 bij 42 °C. Of je koorts remt, is dus een afweging, geen vaste regel."))});
+  q.append(think,ans);
+},STOF_KOORTS));
+}
+
+opgave("Koorts bij een hagedis","Koorts bij een hagedis",`
+<p>De woestijnleguaan is een hagedis uit het zuidwesten van de Verenigde Staten. Een hagedis maakt zelf nauwelijks warmte: zijn lichaamstemperatuur hangt af van de omgeving. Een gezonde woestijnleguaan zoekt steeds een plek in de zon of in de schaduw op, zodat zijn lichaamstemperatuur rond 38 °C blijft.</p>
+<p>Onderzoekers besmetten leguanen met een ziekteverwekkende bacterie en zetten ze in een terrarium met een warme en een koele kant. Zieke leguanen gingen vaker aan de warme kant zitten; hun lichaamstemperatuur steeg tot ongeveer 41 °C.</p>
+<p>Daarna hielden de onderzoekers groepen besmette leguanen elk bij een vaste temperatuur (tabel 1).</p>
+${TABEL("1 (fictieve gegevens)",["temperatuur van het terrarium (°C)","34","36","38","40","42"],[["aantal leguanen (van de 12) dat na 7 dagen nog leeft","1","3","6","10","11"]])}`,ids);
+}
+
+/* ===== Opgave 3: Antistoffen op maat (eigen vragen NB26, NB29, vwo + NB41) ===== */
+{
+const STOF_AS={titel:"Antigenen en antistoffen",html:`
+<p>Een <b>antigeen</b> is een vormpje op een oppervlak, meestal een stukje eiwit. Ook je eigen cellen hebben antigenen; je afweer reageert alleen op antigenen die vreemd zijn.</p>
+<p>De specifieke afweer werkt met <b>lymfocyten</b>. Op een <b>B-cel</b> zitten receptoren die op één vormpje passen, zoals een sleutel op één slot.</p>
+<p><b>Plasmacellen</b> maken <b>antistoffen</b>: losse kopieën van de receptor van een B-cel, in de vorm van een Y. Antistoffen plakken op een ziekteverwekker, laten ziekteverwekkers samenklonteren en markeren ze, zodat fagocyten ze opruimen. Zelf doden ze niets.</p>`,
+films:[F.as]};
+const STOF_GEH={titel:"Primaire en secundaire reactie",html:`
+<p>Bij het eerste contact met een ziekteverwekker duurt het ongeveer een week voordat er antistoffen verschijnen; de piek komt na één à twee weken. Dat is de <b>primaire afweerreactie</b>. Ondertussen ben je ziek.</p>
+<p>Een deel van de nieuwe cellen wordt <b>geheugencel</b>. Die blijven jaren in je lichaam, soms je hele leven. Bij een volgend contact met <b>hetzelfde</b> antigeen worden ze snel plasmacellen: de <b>secundaire afweerreactie</b> is sneller en sterker. Dan ben je <b>immuun</b>.</p>`,
+films:[F.as]};
+
+const q1=vraag(2,"de passende B-cel was er al",(q,id)=>{
+  pre(q,"<p>Het lijkt alsof je afweer ‘op maat’ een antistof maakt tegen een virus dat hij nog nooit heeft gezien.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit dat de passende B-cel er al was, en hoe je lichaam er toch genoeg van krijgt."));
+  choiceStep(think,{q:"Kan een B-cel zijn receptor aanpassen aan een nieuw antigeen?",opts:["ja, tot hij past","nee, elke B-cel heeft één vaste receptor"],right:1,
+    ok:"Goed. Hoe kan er dan toch een B-cel zijn die past? Denk aan wat je beenmerg de hele tijd doet.",no:"Denk aan sleutel en slot: verandert een sleutel van vorm als hij een nieuw slot tegenkomt?",
+    onDone:()=>choiceStep(think,{q:"Eén passende B-cel is te weinig om een virus op te ruimen. Wat doet hij als hij het startsein krijgt?",opts:["hij deelt zich steeds opnieuw","hij maakt zijn receptor groter","hij roept fagocyten"],right:0,
+      ok:"Ja. Hoe heet de groep cellen die zo ontstaat, en hoe heet het hele proces van kiezen en vermenigvuldigen?",no:"Je hebt veel cellen nodig die allemaal op hetzelfde antigeen passen. Hoe krijg je die uit één cel?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Je beenmerg maakt steeds nieuwe B-cellen, <b>elk met een andere receptor</b>: er zijn al <b>miljoenen soorten voordat het virus binnenkomt</b> (een B-cel kan zijn receptor niet aanpassen).",
+    "De B-cel(len) met een <b>passende receptor worden gekozen en delen zich tot een kloon</b> (klonale selectie)."],
+    model:"Je beenmerg maakt steeds nieuwe B-cellen, elk met een andere receptor. Zo heb je al miljoenen soorten voordat een virus binnenkomt; een B-cel past zijn receptor niet aan. Komt het virus binnen, dan wordt de B-cel die past gekozen. Hij deelt zich steeds opnieuw tot een kloon van precies dezelfde cellen: klonale selectie.",
+    valkuil:"‘De B-cel past zijn receptor aan het virus aan’ is fout: dan lijkt het maatwerk, maar het is kiezen uit wat er al was.",
+    after:()=>waaromBtn(ans,textBox("Het is <b>kiezen, niet maken</b>. Eerst zijn er miljoenen verschillende B-cellen, elk met een eigen receptor. Het virus ‘kiest’ daaruit de B-cel die past. Die vermenigvuldigt zich tot een kloon; de meeste cellen worden plasmacellen die antistoffen maken, een deel wordt geheugencel. Zo lijkt het achteraf alsof de antistof op maat gemaakt is."))});
+  q.append(think,ans);
+},STOF_AS);
+
+const q2=vraag(1,"elk jaar griep, één keer waterpokken",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Waarom kun je griep elk jaar opnieuw krijgen, terwijl je waterpokken maar één keer krijgt?"));
+  choiceStep(think,{q:"Waardoor word je na waterpokken niet nog eens ziek?",opts:["door geheugencellen, die jaren blijven","doordat het virus niet meer bestaat"],right:0,
+    ok:"Ja. Na griep heb je dus ook geheugencellen. Waarom helpen ze dan het volgende jaar niet? Denk aan sleutel en slot.",no:"Het waterpokkenvirus bestaat nog: kinderen krijgen het elke dag.",onDone:unlock});
+  mc(ans,{qid:id,pts:1,right:1,opts:[
+    "Geheugencellen tegen griep leven veel korter dan geheugencellen tegen waterpokken.",
+    "Het griepvirus verandert door mutaties steeds een beetje van vorm; het waterpokkenvirus bijna niet.",
+    "Het griepvirus zit in cellen van de luchtwegen, waar antistoffen niet bij kunnen.",
+    "Tegen griep maakt je lichaam alleen een primaire reactie."],
+    onChecked:()=>waaromBtn(ans,textBox("Door <b>mutaties</b> veranderen de antigenen van het griepvirus steeds een beetje. Je oude geheugencellen passen dan minder goed, zoals een sleutel die net niet in een nieuw slot past. Het waterpokkenvirus verandert bijna niet. Het antwoord is <b>B</b>.<br>A klopt niet: geheugencellen blijven jaren; het probleem is dat ze niet meer passen. C klopt niet: griepvirussen tussen de cellen worden wél door antistoffen gevangen. D klopt niet: tegen hetzelfde griepvirus krijg je wel een secundaire reactie."))});
+  q.append(think,ans);
+},STOF_GEH);
+
+const ids=[q1,q2];
+if(VWO){
+const STOF_Y={titel:"De bouw van een antistof (vwo)",html:`
+<p>Een antistof (immunoglobuline) bestaat uit <b>vier eiwitketens</b>: twee zware en twee lichte, samen in de vorm van een Y.</p>
+<p>Bijna de hele antistof is bij alle antistoffen van één klasse gelijk: het <b>constante deel</b>. Alleen de uiteinden van de armen verschillen per kloon: het <b>variabele deel</b>, met de twee bindplaatsen.</p>
+<p>Een B-cel die past, gaat pas aan de slag als ook een <b>T-helpercel</b> het startsein geeft. Die hoort bij hetzelfde antigeen.</p>`,
+films:[F.as,F.tc]};
+ids.push(vraag(2,"een miljard receptoren (vwo)",(q,id)=>{
+  pre(q,"<p>Er kunnen meer dan een miljard verschillende B-cel-receptoren ontstaan, terwijl je maar een beperkt aantal genen hebt.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit hoe dat kan, en beschrijf wat er gebeurt met B-cellen waarvan de receptor op je eigen stoffen past. Beschrijf ook wat een B-cel zelf laat zien om het startsein van een T-helpercel te krijgen."));
+  choiceStep(think,{q:"Wanneer krijgt een B-cel zijn receptor?",opts:["bij het ontstaan van de B-cel, in het beenmerg","pas als hij een antigeen tegenkomt"],right:0,
+    ok:"Ja. Met één gen per receptor zou je meer dan een miljard genen nodig hebben. Wat gebeurt er dus met de genstukjes bij het ontstaan van elke B-cel?",no:"Een B-cel kan zijn receptor later niet meer veranderen.",
+    onDone:()=>choiceStep(think,{q:"Een willekeurig gemaakte receptor kan ook op je eigen stoffen passen. Wat zou er zonder controle dan gebeuren?",opts:["je afweer zou je eigen cellen aanvallen","er gebeurt niets, eigen stoffen zijn nooit een antigeen"],right:0,
+      ok:"Goed. Waar en hoe wordt dat voorkomen?",no:"Denk aan een auto-immuunziekte.",
+      onDone:()=>choiceStep(think,{q:"Een T-helpercel herkent nooit een los antigeen, alleen een stukje op een cel. Wat moet de B-cel dus doen?",opts:["stukjes van het antigeen op zijn eigen oppervlak laten zien","antistoffen naar de T-helpercel sturen","zich eerst delen"],right:0,
+        ok:"Goed. Zet nu de drie delen in je antwoord.",no:"Een T-cel kijkt naar stukjes eiwit op het oppervlak van een cel.",onDone:unlock})})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Bij het ontstaan van elke B-cel worden <b>genstukjes willekeurig gecombineerd en onnauwkeurig aan elkaar geplakt</b>; B-cellen met een receptor tegen eigen stoffen worden <b>in het beenmerg (meestal) uitgeschakeld</b>.",
+    "De B-cel laat <b>stukjes van het antigeen op zijn oppervlak</b> zien; een T-helpercel die daarop past, geeft het startsein."],
+    model:"Bij het ontstaan van elke B-cel worden stukjes van een paar genen op een willekeurige manier gecombineerd en onnauwkeurig aan elkaar geplakt. Zo ontstaan meer dan een miljard verschillende receptoren. B-cellen waarvan de receptor op eigen stoffen past, worden in het beenmerg meestal uitgeschakeld. Een B-cel die een antigeen heeft gebonden, laat stukjes daarvan op zijn oppervlak zien; een passende T-helpercel geeft dan het startsein.",
+    valkuil:"Ondergrens: ‘de receptor past zich aan het antigeen aan’ of ‘de B-cel muteert tot hij past’: 0 punten voor het eerste element. Alleen ‘genen worden gecombineerd’, zonder dat dit willekeurig of onnauwkeurig bij het ontstaan van elke B-cel gebeurt: ook 0 punten voor het eerste element."});
+  q.append(think,ans);
+},STOF_Y));
+}
+
+opgave("Antistoffen op maat","Antistoffen op maat",GEEN_INLEIDING,ids);
+}
+
+/* ===== Opgave 4: Muizen zonder thymus (eigen vragen D01, D03, D04, vwo + D05) ===== */
+{
+const STOF_LYM={titel:"Witte bloedcellen en virussen",html:`
+<p>Al je bloedcellen ontstaan in het <b>beenmerg</b>. Bij de witte bloedcellen horen de <b>fagocyten</b> (aspecifieke afweer) en de <b>lymfocyten</b>: B-cellen en T-cellen (specifieke afweer).</p>
+<p>Afweer met antistoffen heet <b>humoraal</b>: antistoffen werken in bloed en weefselvocht, dus alleen buiten de cellen. Afweer met cellen die andere cellen doden, heet <b>cellulair</b>.</p>
+<p>Een <b>virus</b> kan zich niet zelf vermenigvuldigen. Het brengt zijn erfelijk materiaal in een cel; die cel maakt dan nieuwe virusdeeltjes, die vrijkomen en buurcellen infecteren.</p>`,
+films:[F.tc,F.as]};
+
+const q1=vraag(2,"geen thymus, geen T-cellen",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Leg uit waardoor naaktmuizen bijna geen T-cellen hebben, terwijl ze evenveel B-cellen hebben als gewone muizen."));
+  choiceStep(think,{q:"Waar ontstaan B-cellen en T-cellen?",opts:["allebei in het beenmerg","B-cellen in het beenmerg, T-cellen in de thymus","allebei in de thymus"],right:0,
+    ok:"Ja. Het verschil zit dus niet in het ontstaan. Wat ontbreekt er bij een naaktmuis?",no:"Je beenmerg maakt al je bloedcellen, ook alle witte.",
+    onDone:()=>choiceStep(think,{q:"De T in T-cel komt van een orgaan. Welk?",opts:["de thymus","de tong","de teelbal"],right:0,
+      ok:"Goed. Wat moet er met een jonge T-cel in dat orgaan gebeuren? En heeft een B-cel die stap nodig?",no:"Lees de inleiding: welk orgaan heeft een naaktmuis niet?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "T-cellen ontstaan in het beenmerg, maar <b>rijpen in de thymus</b>; zonder thymus rijpen er (bijna) geen T-cellen.",
+    "B-cellen ontstaan (en rijpen) in het <b>beenmerg</b> en hebben de thymus niet nodig."],
+    model:"T-cellen ontstaan in het beenmerg, maar moeten rijpen in de thymus. Een naaktmuis heeft geen thymus, dus rijpen er bijna geen T-cellen. B-cellen ontstaan en rijpen in het beenmerg en hebben de thymus niet nodig; daarom heeft een naaktmuis er evenveel als een gewone muis.",
+    valkuil:"‘T-cellen worden gemaakt in de thymus’ is niet goed genoeg voor het eerste punt: ze ontstaan in het beenmerg en rijpen in de thymus."});
+  q.append(think,ans);
+},STOF_LYM);
+
+const q2=vraag(2,"rekenen aan een virusfabriek",(q,id)=>{
+  pre(q,"<p>Een naaktmuis wordt besmet met een virus. In elke geïnfecteerde cel ontstaan na 8 uur 50 nieuwe virusdeeltjes, die vrijkomen en elk één nieuwe cel infecteren. Op tijdstip 0 is één cel geïnfecteerd.</p>");
+  const {think,ans,unlock}=start(q,B("Bereken na hoeveel uur er voor het eerst meer dan 100 000 cellen geïnfecteerd raken, als het virus niet wordt tegengehouden. Schrijf je berekening op."));
+  numStep(think,{uid:"q"+id+"n1",q:"Hoeveel cellen raken na 8 uur nieuw geïnfecteerd?",right:50,
+    ok:"Ja. Elk van die 50 cellen maakt na nog eens 8 uur óók 50 virusdeeltjes.",no:"Eén cel maakt 50 virusdeeltjes, en elk deeltje infecteert één cel.",
+    onDone:()=>numStep(think,{uid:"q"+id+"n2",q:"Hoeveel cellen raken na 16 uur nieuw geïnfecteerd?",right:2500,
+      ok:"Goed. Reken zo door, ronde na ronde, tot je boven de 100 000 komt.",no:"50 cellen maken elk 50 virusdeeltjes.",onDone:unlock})});
+  rekenAnswer(ans,{id,fields:[
+    ["aantal cellen dat in die ronde (nieuw) geïnfecteerd raakt","cellen",v=>v===125000||v===127550||v===127551,"125 000 nieuw geïnfecteerde cellen (2500 × 50). Alle rondes opgeteld (127 550) is ook goed."],
+    ["na hoeveel uur","uur",v=>v===24,"na 24 uur (8 → 50, 16 → 2500, 24 → 125 000)"]],
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Tijdstip 0: één geïnfecteerde cel."},
+      {cap:"Na 8 uur: 1 × 50 = 50 nieuw geïnfecteerde cellen."},
+      {cap:"Na 16 uur: 50 × 50 = 2500. Nog onder de 100 000."},
+      {cap:"Na 24 uur: 2500 × 50 = 125 000. Voor het eerst meer dan 100 000, dus het antwoord is <b>24 uur</b>. Zonder T-cellen groeit de infectie zo in één dag enorm."}],
+      (st,s,i)=>st.innerHTML=RONDES(i)))});
+  q.append(think,ans);
+},STOF_LYM);
+
+const q3=vraag(2,"wie stopt de virusfabriek?",(q,id)=>{
+  pre(q,"<p>Gewone muizen stoppen een infectie met dit virus binnen ongeveer een week. Bij naaktmuizen gaat de infectie door, ook al hebben ze evenveel fagocyten.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit welke cellen bij gewone muizen de virusfabriek stoppen, en waarom de fagocyten van de naaktmuis dat niet kunnen."));
+  choiceStep(think,{q:"Kunnen antistoffen een virus bereiken dat al in een cel zit?",opts:["ja","nee"],right:1,
+    ok:"Klopt. Om de fabriek te stoppen moet de hele geïnfecteerde cel weg. Hoe kan je afweer zien welke cel geïnfecteerd is?",no:"Antistoffen werken in bloed en weefselvocht, buiten de cellen.",
+    onDone:()=>choiceStep(think,{q:"Wat laat een geïnfecteerde cel op zijn oppervlak zien?",opts:["stukjes virus","antistoffen","niets: hij ziet er gewoon uit"],right:0,
+      ok:"Goed. Welke cellen herkennen zo'n stukje virus op een cel, en welke cellen heeft een naaktmuis bijna niet (tabel 2)?",no:"Een geïnfecteerde cel maakt viruseiwitten. Waar komen stukjes van terecht?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Bij gewone muizen <b>doden T-killercellen de geïnfecteerde cellen</b> (die stukjes virus laten zien), zodat er geen nieuwe virussen meer worden gemaakt (cellulaire afweer).",
+    "Fagocyten <b>herkennen geen cellen met virus erin</b> / kunnen het virus niet uit de cel halen; ze eten alleen losse virussen en resten op, en de naaktmuis heeft <b>geen T-killercellen</b>."],
+    model:"Een geïnfecteerde cel laat stukjes virus op zijn oppervlak zien. Bij gewone muizen herkennen T-killercellen die cellen en doden ze, zodat er geen nieuwe virussen meer worden gemaakt. Fagocyten herkennen geen cellen met virus erin en kunnen het virus niet uit een cel halen; ze ruimen alleen losse virussen en resten op. De naaktmuis heeft bijna geen T-cellen, dus ook geen T-killercellen.",
+    valkuil:"‘De naaktmuis heeft geen antistoffen’ verklaart niet waarom de virusfabriek doorgaat: antistoffen kunnen niet bij het virus in de cel."});
+  q.append(think,ans);
+},STOF_LYM);
+
+const ids=[q1,q2,q3];
+if(VWO){
+ids.push(vraag(2,"rattenhuid op een muis (vwo)",(q,id)=>{
+  pre(q,"<p>Onderzoekers plaatsen een stukje huid van een rat op de rug van een gewone muis en op de rug van een naaktmuis. Bij de gewone muis is het stukje huid na ongeveer tien dagen afgestoten; bij de naaktmuis groeit het vast.</p>");
+  const {think,ans,unlock}=start(q,B("Leg dit verschil uit."));
+  choiceStep(think,{q:"Bij de gewone muis duurt het ongeveer tien dagen voordat de huid is afgestoten. Welk deel van de afweer past daarbij?",opts:["de specifieke afweer, die eerst op gang moet komen","de aspecifieke afweer, die er meteen is"],right:0,
+    ok:"Ja. Waaraan kan de specifieke afweer zien dat levende cellen van een rat niet van de muis zelf zijn?",no:"Fagocyten en barrières werken binnen uren. Welke afweer heeft meer tijd nodig?",
+    onDone:()=>choiceStep(think,{q:"Kijk in tabel 2. Welke cellen heeft de naaktmuis bijna niet?",opts:["T-cellen","B-cellen","fagocyten"],right:0,
+      ok:"Goed. Bedenk welke afweercellen naar het oppervlak van andere cellen kijken. Leg nu het verschil tussen de twee muizen uit.",no:"Vergelijk de twee kolommen van tabel 2.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "De cellen van de rattenhuid hebben <b>MHC-eiwitten die anders zijn</b> dan die van de muis (vreemd).",
+    "De <b>T-cellen</b> van de gewone muis herkennen die vreemde MHC en vallen het weefsel aan; de naaktmuis heeft (bijna) <b>geen T-cellen</b>."],
+    model:"De cellen van de rattenhuid hebben andere MHC-eiwitten dan de muis. De T-cellen van de gewone muis zien die MHC als vreemd en vallen de huid aan, zodat die wordt afgestoten. De naaktmuis heeft bijna geen T-cellen, dus wordt de huid niet aangevallen en groeit hij vast.",
+    valkuil:"‘De naaktmuis maakt geen antistoffen tegen de huid’ levert geen punt op voor het tweede element: afstoting van weefsel gaat via T-cellen. Noem ook dát de rattenhuid anders is (andere MHC-eiwitten) voor het eerste punt."});
+  q.append(think,ans);
+},{titel:"Eigen en vreemd herkennen (vwo)",html:`
+<p>Bijna al je cellen laten op hun oppervlak stukjes zien van de eiwitten die ze maken, in houders: <b>MHC-eiwitten</b>. <b>MHC-I</b> zit op al je cellen met een kern; daar kijken T-killercellen naar. <b>MHC-II</b> zit alleen op antigeenpresenterende cellen; daar kijken T-helpercellen naar.</p>
+<p>In de thymus worden T-cellen die op je eigen stoffen reageren uitgeschakeld.</p>`,films:[F.tc]}));
+}
+
+opgave("Muizen zonder thymus","Muizen zonder thymus",`
+<p>Naaktmuizen zijn muizen met een mutatie waardoor ze geen haar hebben én geen thymus. Ze worden veel gebruikt in laboratoriumonderzoek.</p>
+<p>Onderzoekers vergeleken gewone muizen en naaktmuizen. Ze telden de witte bloedcellen in het bloed. Daarna spoten ze de muizen in met een onschadelijk eiwit X, dat de muizen nooit eerder in hun lichaam hadden gehad. Na 14 dagen maten ze de antistoffen tegen eiwit X. De resultaten staan in tabel 2.</p>
+${TABEL("2 (fictieve gegevens)",["","gewone muis","naaktmuis"],[["T-cellen per microliter bloed","2000","40"],["B-cellen per microliter bloed","1500","1500"],["fagocyten per microliter bloed","3000","3000"],["antistoffen tegen eiwit X na 14 dagen (relatief)","100","4"]])}`,ids);
+}
+
+/* ===== Opgave 5 (alleen havo): Bacteriën, virussen en T-cellen (eigen vraag NC30; de vwo-oefentoets heeft hem niet) ===== */
+if(!VWO){
+const STOF_AB={titel:"Antibiotica en resistentie",html:`
+<p><b>Antibiotica</b> zijn medicijnen tegen bacteriën. Je kunt ze slikken zonder dat je eigen cellen kapotgaan, omdat ze iets remmen wat bacteriën wel hebben en jouw cellen niet.</p>
+<p>Slik je antibiotica, dan sterven de gevoelige bacteriën. Een paar bacteriën zijn door een toevallige mutatie ongevoelig. Die blijven over en vermenigvuldigen zich: zo ontstaat <b>resistentie</b>. Niet jij wordt ongevoelig, maar de bacteriën.</p>
+<p>Tegen sommige virussen bestaan andere medicijnen, bijvoorbeeld <b>hiv-remmers</b>.</p>`,
+films:[F.tc,F.ev]};
+const q1=vraag(2,"antibiotica: wel tegen bacteriën, niet tegen griep",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Leg uit waarom antibiotica wel helpen tegen een longontsteking door een bacterie, maar niet tegen griep. Noem in je antwoord een verschil in bouw tussen een bacterie en een virus."));
+  chipsStep(think,{q:"Welke onderdelen heeft een bacterie? Kies alles wat klopt.",items:[["een celwand",1],["eigen ribosomen",1],["een eigen stofwisseling",1],["een kern met een kernmembraan",0]],
+    ok:"Goed. Welke van die onderdelen heeft een griepvirus?",no:"Een bacterie is een cel, maar zonder kern.",
+    onDone:()=>choiceStep(think,{q:"Waar vermenigvuldigt een griepvirus zich?",opts:["in jouw eigen cellen","zelfstandig, in het slijm van je luchtwegen"],right:0,
+      ok:"Goed. Combineer nu: wat remmen antibiotica, en heeft een virus dat?",no:"Een virus kan zich niet zelf vermenigvuldigen.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Antibiotica <b>remmen onderdelen van bacteriën</b>, zoals het bouwen van de celwand (of de eigen ribosomen / stofwisseling).",
+    "Een <b>virus is geen cel</b>: het heeft geen celwand en geen eigen stofwisseling (alleen een eiwitmantel met erfelijk materiaal) en vermenigvuldigt zich in jouw cellen, dus er is <b>niets om te remmen</b>."],
+    model:"Een bacterie is een cel met een celwand, eigen ribosomen en een eigen stofwisseling. Antibiotica remmen zulke onderdelen, bijvoorbeeld het bouwen van de celwand. Een griepvirus is geen cel: het is een eiwitmantel met erfelijk materiaal, zonder celwand en zonder eigen stofwisseling. Het vermenigvuldigt zich in jouw cellen. Er is dus niets wat antibiotica kunnen remmen.",
+    valkuil:"‘Griepvirussen zijn resistent geworden’: 0 punten. Antibiotica hebben nooit tegen virussen gewerkt."});
+  q.append(think,ans);
+},STOF_AB);
+opgave("Bacteriën en virussen","Bacteriën, virussen en T-cellen",GEEN_INLEIDING,[q1]);
+}
+
+/* ===== Opgave 6: Biest voor het kalf (eigen vragen A01, A02, havo A03 / vwo A04) ===== */
+{
+const STOF_IMM={titel:"Actieve en passieve immunisatie",html:`
+<p><b>Immunisatie</b> betekent dat je bescherming krijgt tegen een ziekteverwekker. Je onderscheidt twee dingen:</p>
+<ul style="margin:0;padding-left:20px">
+<li><b>Actief</b>: je lichaam maakt de afweer zelf. Passende B- en T-cellen worden gekozen en vermenigvuldigd en er ontstaan geheugencellen. Dat duurt even, maar de bescherming houdt lang.</li>
+<li><b>Passief</b>: je krijgt kant-en-klare antistoffen. Ze beschermen meteen, maar tijdelijk.</li></ul>
+<p>Daarnaast is immunisatie <b>natuurlijk</b> (het gebeurt vanzelf, zonder medische handeling) of <b>kunstmatig</b> (door een medische handeling, zoals een prik met een vaccin of met serum).</p>`,
+films:[F.vb]};
+const STOF_PRIK={titel:"Waarom een tweede prik?",html:`
+<p>Een <b>vaccin</b> bevat antigenen, maar je wordt er niet ziek van. Je afweer reageert alsof het echt is: passende B- en T-cellen worden gekozen en vermenigvuldigd, en er ontstaan geheugencellen.</p>
+<p>Hoe je afweer reageert, hangt af van wat hij al kent. Bij het eerste contact met een antigeen is de reactie traag en laag; bij een volgend contact met hetzelfde antigeen sneller en sterker.</p>`,
+films:[F.vb,F.as]};
+
+const q1=vraag(2,"welke immunisatie is biest?",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Is de bescherming die een kalf via de biest krijgt actieve of passieve immunisatie, en natuurlijk of kunstmatig? Leg je antwoord uit."));
+  choiceStep(think,{q:"Waarin verschillen actieve en passieve immunisatie?",opts:["in wie de afweer maakt: je eigen lichaam, of je krijgt hem kant-en-klaar","in de manier: actief gaat met een prik, passief zonder"],right:0,
+    ok:"Ja. Pas dat nu toe op het kalf: lees in de inleiding van wie de antistoffen in de biest komen.",no:"Dat is het verschil tussen kunstmatig en natuurlijk. Actief en passief gaat over iets anders: kijk in ‘Uitleg van de stof’.",
+    onDone:()=>choiceStep(think,{q:"Wanneer noem je een immunisatie kunstmatig?",opts:["als er een medische handeling aan te pas komt","als de antistoffen van een ander komen","als het snel werkt"],right:0,
+      ok:"Goed. Kies nu bij allebei het juiste woord en leg met de inleiding uit waarom.",no:"Kunstmatig of natuurlijk gaat over de manier waarop je de bescherming krijgt.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "<b>Passief</b>, want het kalf krijgt <b>kant-en-klare antistoffen</b>; zijn eigen B-cellen komen er niet aan te pas (geen geheugencellen).",
+    "<b>Natuurlijk</b>, want het gaat <b>via de melk van de moeder</b> (niet via een injectie)."],
+    model:"Het is passieve immunisatie: het kalf krijgt kant-en-klare antistoffen van de koe en maakt ze niet zelf, dus er ontstaan geen geheugencellen. Het is natuurlijke immunisatie: de antistoffen komen via de melk van de moeder, niet via een injectie.",
+    valkuil:"Alleen de woorden ‘passief’ en ‘natuurlijk’ zonder uitleg: 0 punten. Een advies van de veehouder maakt het nog geen kunstmatige immunisatie."});
+  q.append(think,ans);
+},STOF_IMM);
+
+const q2=vraag(2,"afbeelding 1: eerst omlaag, dan omhoog",(q,id)=>{
+  pre(q,"<p>In afbeelding 1 daalt de hoeveelheid antistoffen in het bloed van het kalf eerst, en vanaf ongeveer week 3 stijgt hij weer.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit waardoor de hoeveelheid eerst daalt, en waardoor hij daarna weer stijgt."));
+  choiceStep(think,{q:"Waar komen de antistoffen in het bloed van het kalf in de eerste dagen vandaan?",opts:["uit de biest, van de koe","van het kalf zelf"],right:0,
+    ok:"Ja. Kan het kalf van die antistoffen nieuwe bijmaken? En blijft een antistof altijd in het bloed?",no:"Lees de inleiding: met hoeveel antistoffen wordt een kalf geboren?",
+    onDone:()=>choiceStep(think,{q:"Een kalf komt in zijn eerste weken overal ziekteverwekkers tegen. Hoe lang duurt het ongeveer voordat een primaire reactie veel antistoffen geeft?",opts:["een paar uur","een week of twee","een jaar"],right:1,
+      ok:"Goed. Leg nu het dalen én het stijgen uit.",no:"Bij het eerste contact verschijnen pas na ongeveer een week de eerste antistoffen.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "De antistoffen uit de biest (van de koe) <b>worden afgebroken</b> en er komen er <b>geen nieuwe bij</b>, want het kalf heeft er zelf geen B-cellen of geheugencellen voor.",
+    "Het kalf komt zelf in aanraking met <b>ziekteverwekkers</b>; passende B-cellen worden gekozen en vermenigvuldigd en <b>plasmacellen maken eigen antistoffen</b> (primaire reactie, duurt even)."],
+    model:"De antistoffen in het bloed komen eerst uit de biest. Die worden langzaam afgebroken, en het kalf maakt ze niet bij, want het heeft geen passende B-cellen of geheugencellen voor die antistoffen. Ondertussen komt het kalf zelf ziekteverwekkers tegen. Passende B-cellen worden gekozen en vermenigvuldigd, en plasmacellen gaan eigen antistoffen maken. Dat duurt een paar weken (primaire reactie), dus vanaf ongeveer week 3 stijgt de hoeveelheid weer.",
+    valkuil:"‘De koe geeft minder biest’ of ‘de darm neemt geen antistoffen meer op’, zonder dat de antistoffen worden afgebroken: 0 punten voor het eerste element.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"De totale hoeveelheid antistoffen, zoals in afbeelding 1."},
+      {cap:"Deel 1: de antistoffen uit de biest. Ze worden afgebroken en het kalf maakt ze niet bij: de lijn daalt.",toon:["tot","b"]},
+      {cap:"Deel 2: de antistoffen die het kalf zelf maakt. Na het eerste contact met ziekteverwekkers duurt het even (primaire reactie), daarna stijgt deze lijn.",toon:["tot","e"]},
+      {cap:"Samen geven ze de totale lijn: eerst omlaag (biest wordt afgebroken), vanaf ongeveer week 3 omhoog (eigen antistoffen).",toon:["tot","b","e"],hl:[2.4,3.6]}],
+      (st,s,i)=>st.innerHTML=i===0?KALF():KALF({split:true,toon:s.toon,hl:s.hl})))});
+  q.append(think,ans);
+},STOF_IMM);
+
+const ids=[q1,q2];
+if(!VWO){
+ids.push(vraag(2,"de koe inenten, het kalf beschermd",(q,id)=>{
+  pre(q,"<p>Een veehouder laat zijn koeien zes weken voor het kalven inenten tegen een virus dat bij jonge kalveren diarree veroorzaakt. Vlak voor het kalven krijgen de koeien een tweede prik met hetzelfde vaccin.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit hoe het inenten van de koe het kalf beschermt, en waarom de tweede prik die bescherming beter maakt."));
+  choiceStep(think,{q:"Wie maakt na de prik antistoffen tegen het virus?",opts:["de koe","het kalf"],right:0,
+    ok:"Ja. Hoe komen die antistoffen bij het kalf? Lees de inleiding van de opgave nog eens.",no:"Het kalf is nog niet geboren als de koe de prik krijgt.",
+    onDone:()=>choiceStep(think,{q:"Wat heeft de koe na de eerste prik, waardoor ze op de tweede prik anders reageert?",opts:["geheugencellen","een grotere uier","antistoffen van het kalf"],right:0,
+      ok:"Goed. Hoe reageren geheugencellen op een tweede contact met hetzelfde antigeen, en wat betekent dat voor de biest?",no:"Na het eerste contact met een antigeen blijven er cellen over die het onthouden.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "De <b>koe maakt zelf antistoffen</b> tegen het virus, die <b>in de biest</b> komen; via de biest krijgt het kalf die antistoffen.",
+    "Na de eerste prik heeft de koe <b>geheugencellen</b>; de tweede prik geeft een <b>secundaire reactie met veel meer antistoffen</b>, dus er zitten meer antistoffen tegen het virus in de biest."],
+    model:"Na de prik maakt de koe zelf antistoffen tegen het virus. Die komen in de biest, en het kalf neemt ze op in zijn bloed. Na de eerste prik heeft de koe geheugencellen. Bij de tweede prik reageren die snel, met veel meer antistoffen: een secundaire reactie. Daardoor zitten er vlak na het kalven veel meer antistoffen tegen het virus in de biest.",
+    valkuil:"‘Het kalf wordt via de biest ingeënt en maakt zelf geheugencellen’: 0 punten voor het eerste element. De koe is actief geïmmuniseerd, het kalf passief.",
+    after:()=>waaromBtn(ans,textBox("Hier zitten twee soorten immunisatie in één verhaal. De <b>koe</b> wordt <b>actief</b> geïmmuniseerd: zij maakt zelf antistoffen en geheugencellen. De tweede prik geeft een secundaire reactie: sneller en met veel meer antistoffen, precies op tijd voor de biest. Het <b>kalf</b> wordt <b>passief</b> geïmmuniseerd: het drinkt de kant-en-klare antistoffen van de koe."))});
+  q.append(think,ans);
+},STOF_PRIK));
+}else{
+ids.push(vraag(2,"biest werkt een vaccin tegen (vwo)",(q,id)=>{
+  pre(q,"<p>Kalveren die veel biest hebben gekregen, reageren in hun eerste levensweken vaak slecht op een vaccin tegen het diarreevirus: ze maken dan weinig geheugencellen.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit hoe de antistoffen uit de biest de werking van het vaccin kunnen tegenwerken."));
+  choiceStep(think,{q:"Wat bevat het vaccin?",opts:["antigenen van het virus","antistoffen tegen het virus"],right:0,
+    ok:"Ja. In het bloed van het kalf zitten ook nog antistoffen uit de biest tegen dit virus. Wat doen die met de antigenen?",no:"Een vaccin laat je afweer zelf iets maken. Wat moet je afweer dan te zien krijgen?",
+    onDone:()=>choiceStep(think,{q:"Wat is er nodig om bij het kalf geheugencellen te krijgen?",opts:["de eigen lymfocyten van het kalf moeten het antigeen tegenkomen","het kalf moet antistoffen uit de biest opnemen"],right:0,
+      ok:"Goed. Zet die twee dingen nu achter elkaar.",no:"Geheugencellen ontstaan uit de eigen cellen van het kalf.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "De antistoffen uit de biest <b>binden aan de antigenen van het vaccin</b> (maken ze onschadelijk / markeren ze), zodat <b>fagocyten ze opruimen</b>.",
+    "Daardoor komen er <b>weinig antigenen bij de B-cellen</b> (en T-cellen) van het kalf zelf, die dus nauwelijks worden gekozen en vermenigvuldigd en <b>weinig geheugencellen</b> vormen."],
+    model:"De antistoffen uit de biest binden aan de antigenen uit het vaccin en markeren ze, zodat fagocyten ze opruimen voordat de eigen afweer van het kalf ze goed ziet. De B-cellen en T-cellen van het kalf komen dan weinig antigenen tegen, worden nauwelijks gekozen en vermenigvuldigd en vormen weinig geheugencellen.",
+    valkuil:"‘De biest maakt het vaccin kapot’ zonder dat de antistoffen aan de antigenen binden: geen punt voor het eerste element.",
+    after:()=>waaromBtn(ans,textBox("Passieve en actieve immunisatie zitten elkaar hier in de weg. De kant-en-klare antistoffen uit de biest (passief) vangen de antigenen uit het vaccin weg. Het vaccin (actief) heeft juist nodig dat de eigen B- en T-cellen van het kalf die antigenen tegenkomen. Hetzelfde idee zag je bij de anti-D-injectie: kant-en-klare antistoffen ruimen antigenen op voordat de eigen afweer geheugencellen maakt."))});
+  q.append(think,ans);
+},STOF_PRIK));
+}
+
+opgave("Biest voor het kalf","Biest voor het kalf",`
+<p>Een kalf wordt geboren zonder antistoffen in zijn bloed: bij koeien gaan er geen antistoffen door de placenta naar het kalf. De eerste melk na het kalven, de biest, bevat heel veel antistoffen van de koe. De darm van een pasgeboren kalf kan die antistoffen in de eerste uren na de geboorte opnemen in het bloed. Veehouders krijgen het advies om een kalf in de eerste 24 uur 6 liter biest te geven, het liefst 4 liter in het eerste uur.</p>
+<p>In afbeelding 1 zie je de totale hoeveelheid antistoffen in het bloed van een kalf dat op tijd genoeg biest kreeg.</p>
+<div class="eyebrow">afbeelding 1 (fictieve gegevens, vereenvoudigd)</div>${KALF()}`,ids);
+}
+
+/* ===== Opgave 7: Vaccins en allergie (eigen vraag ND37) ===== */
+{
+const STOF_ALL={titel:"Allergie",html:`
+<p>Bij een <b>allergie</b> reageert je afweer op een onschuldige stof, het <b>allergeen</b>, alsof het gevaarlijk is. Bij het eerste contact merk je nog niets: plasmacellen maken antistoffen tegen het allergeen, en die gaan vastzitten op <b>mestcellen</b>.</p>
+<p>Bij een volgend contact bindt het allergeen aan die antistoffen. Dan geven de mestcellen <b>histamine</b> af, de alarmstof die je ook bij een ontsteking zag.</p>
+<p>Een allergie betekent dus geen zwakke afweer: hij reageert juist te sterk.</p>`,
+films:[F.vb,F.ev]};
+const q1=vraag(2,"pinda-allergie en antihistaminica",(q,id)=>{
+  pre(q,"<p>Sara is allergisch voor pinda's. Ze heeft altijd antihistaminica en een noodinjectie bij zich.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit hoe antihistaminica haar klachten verminderen, en waarom een pinda-allergie gevaarlijker kan zijn dan hooikoorts."));
+  choiceStep(think,{q:"Welke stof geven de mestcellen af bij een allergische reactie?",opts:["histamine","insuline","antistoffen"],right:0,
+    ok:"Ja. Wat doet die stof met de haarvaten? Denk aan de splinter uit film 1.",no:"Het is dezelfde alarmstof als bij een ontsteking.",
+    onDone:()=>choiceStep(think,{q:"Bij hooikoorts reageren vooral je neus en je ogen. Kan een allergische reactie ook in veel delen van je lichaam tegelijk optreden?",opts:["ja","nee, alleen op de plek waar het allergeen binnenkomt"],right:0,
+      ok:"Klopt. Bedenk wat het betekent als heel veel haarvaten tegelijk wijder worden en lekken, en waarom Sara naast de pillen ook een noodinjectie bij zich heeft.",no:"Een allergeen dat je eet, komt in je bloed en kan zo overal mestcellen bereiken.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Antihistaminica <b>blokkeren de werking van histamine</b> dat de mestcellen afgeven, zodat de haarvaten <b>minder wijder worden en minder lekken</b>.",
+    "Bij een pinda-allergie kan de reactie <b>zo sterk</b> zijn dat het <b>levensgevaarlijk</b> wordt."],
+    model:"Bij een allergische reactie geven mestcellen histamine af. Histamine maakt de haarvaten wijder en laat ze vocht lekken. Antihistaminica blokkeren de werking van histamine, zodat de haarvaten minder wijder worden en minder lekken. Bij hooikoorts blijft het bij niezen en jeuk, maar een pinda-allergie kan zo sterk zijn dat de reactie levensgevaarlijk wordt; daarom heeft Sara ook een noodinjectie.",
+    valkuil:"‘Antihistaminica doden de mestcellen’ of ‘ze remmen de antistoffen’ is fout: ze werken op het effect van histamine."});
+  q.append(think,ans);
+},STOF_ALL);
+opgave("Vaccins en allergie","Vaccins en allergie",GEEN_INLEIDING,[q1]);
+}
+
+/* ===== Opgave 8: Twee tests voor een bloedtransfusie (eigen vragen K01, havo K02 K03 / vwo K03 K04) ===== */
+{
+const STOF_BG={titel:"Bloedgroepen en samenklonteren",html:`
+<p>Ook rode bloedcellen hebben vormpjes op hun oppervlak. Heb je <b>antigeen A</b>, dan heb je bloedgroep A; met <b>antigeen B</b> bloedgroep B; met allebei AB; met geen van beide O. Heb je het <b>antigeen D</b>, dan ben je <b>resuspositief</b>; zonder D resusnegatief.</p>
+<p>Een <b>antiserum</b> bevat antistoffen tegen één antigeen, bijvoorbeeld anti-A. Een antistof heeft twee armen. Zit het antigeen op de rode bloedcellen, dan binden de antistoffen eraan en plakken de cellen aan elkaar vast: ze <b>klonteren samen</b> (agglutinatie).</p>
+<p>Bij een transfusie gaat het erom of de antistoffen in het <b>plasma van de ontvanger</b> iets vinden om aan te binden op de <b>rode bloedcellen van de donor</b>.</p>`,
+films:[F.vb]};
+const PUTJES=(klont,kop)=>svgG("0 0 560 210",[0,1,2].map(k=>PUTJE(100+k*180,96,kop[k],klont[k])).join(""),"Putjes met rode bloedcellen",18);
+
+const q1=vraag(2,"bloedgroep van patiënt 1",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Welke bloedgroep heeft patiënt 1? Leg met tabel 3 uit hoe je dat afleidt."));
+  choiceStep(think,{q:"Het antiserum anti-A bevat antistoffen tegen antigeen A. Wanneer klonteren de rode bloedcellen van de patiënt dan samen?",opts:["als antigeen A op zijn rode bloedcellen zit","als hij antistoffen tegen A in zijn plasma heeft"],right:0,
+    ok:"Ja. Lees zo elke kolom van tabel 3: welke antigenen zitten er wel en welke niet op zijn rode bloedcellen?",no:"Bij de bloedgroepbepaling worden de rode bloedcellen van de patiënt getest. Waar binden de antistoffen uit het antiserum aan?",onDone:unlock});
+  bloedgroepAnswer(ans,{id,abo:0,resus:0,
+    check:"Uitleg: <b>anti-A laat samenklonteren</b>, dus er zit antigeen A op de rode bloedcellen; <b>anti-B niet</b>, dus geen B; <b>anti-D wel</b>, dus antigeen D (resuspositief).",
+    model:"Bloedgroep A, resuspositief. Met anti-A klonteren de rode bloedcellen samen, dus er zit antigeen A op. Met anti-B niet, dus er zit geen antigeen B op. Met anti-D wel, dus er zit antigeen D op: resuspositief.",
+    valkuil:"Alleen de bloedgroep zonder uitleg: alleen het eerste punt.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Drie putjes met rode bloedcellen van patiënt 1, elk met een ander antiserum.",k:[0,0,0]},
+      {cap:"Anti-A: de cellen klonteren samen. De antistoffen vinden antigeen A: <b>A is aanwezig</b>.",k:[1,0,0]},
+      {cap:"Anti-B: geen samenklontering. Er is niets om aan te binden: <b>geen B</b>.",k:[1,0,0]},
+      {cap:"Anti-D: samenklontering, dus <b>antigeen D</b> zit erop. Samen: bloedgroep <b>A, resuspositief</b>.",k:[1,0,1]}],
+      (st,s)=>st.innerHTML=PUTJES(s.k,["anti-A","anti-B","anti-D"])))});
+  q.append(think,ans);
+},STOF_BG);
+
+const ids=[q1];
+if(!VWO){
+ids.push(vraag(2,"kruisproef met de verkeerde zak",(q,id)=>{
+  pre(q,"<p>Bij de kruisproef blijkt dat de zak voor patiënt 1 per ongeluk rode bloedcellen van bloedgroep B bevat.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit welk resultaat de kruisproef dan geeft, en waardoor."));
+  choiceStep(think,{q:"Tegen welke antigenen heb je vanaf je eerste levensjaar antistoffen in je plasma?",opts:["tegen de antigenen A of B die je zelf níet hebt","tegen je eigen antigenen","tegen geen enkel antigeen, tot je bloed van een ander krijgt"],right:0,
+    ok:"Ja. Pas dat toe op patiënt 1, met de bloedgroep die je in de vorige vraag vond.",no:"Je afweer valt je eigen cellen normaal niet aan.",
+    onDone:()=>choiceStep(think,{q:"Wat zit er op rode bloedcellen van bloedgroep B?",opts:["antigeen B","antistoffen tegen A","niets"],right:0,
+      ok:"Goed. Wat gebeurt er als het plasma van de patiënt en deze cellen samen in één buisje komen?",no:"De bloedgroep zegt welk antigeen er op de rode bloedcellen zit.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Het plasma van patiënt 1 (bloedgroep A) bevat <b>antistoffen tegen B</b>.",
+    "Die <b>binden aan het antigeen B</b> op de rode bloedcellen uit de zak, zodat die <b>samenklonteren</b>; de patiënt krijgt de zak dus niet."],
+    model:"Patiënt 1 heeft bloedgroep A, dus in zijn plasma zitten antistoffen tegen B. Die binden aan antigeen B op de rode bloedcellen uit de zak. Doordat een antistof twee armen heeft, plakken de cellen aan elkaar: ze klonteren samen. De patiënt krijgt deze zak dus niet.",
+    valkuil:"‘De rode bloedcellen van de patiënt klonteren samen’ is fout: bij de kruisproef gaat het om de rode bloedcellen uit de zak.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Links: plasma van patiënt 1 (bloedgroep A) met rode bloedcellen van bloedgroep A. Er gebeurt niets.",k:[0,0,0]},
+      {cap:"Rechts: hetzelfde plasma met de rode bloedcellen uit de zak (bloedgroep B). De anti-B in het plasma bindt aan antigeen B: <b>samenklontering</b>.",k:[0,0,1]}],
+      (st,s)=>st.innerHTML=svgG("0 0 560 210",PUTJE(140,96,"plasma A + cellen A",s.k[0])+PUTJE(420,96,"plasma A + cellen B",s.k[2]),"Kruisproef",18)))});
+  q.append(think,ans);
+},STOF_BG));
+}
+
+ids.push(vraag(2,"resusnegatief, en toch samenklontering",(q,id)=>{
+  pre(q,"<p>Patiënt 2 heeft bloedgroep O, resusnegatief: in de bloedgroepbepaling klontert zijn bloed met geen van de drie antisera. Vorig jaar kreeg hij na een ongeluk per ongeluk resuspositief bloed. Nu klonteren bij de kruisproef rode bloedcellen van O, resuspositief, wél samen met zijn plasma.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit waarom de kruisproef samenklontering geeft, terwijl de bloedgroepbepaling ‘resusnegatief’ gaf."));
+  choiceStep(think,{q:"Wat wordt bij de bloedgroepbepaling van de patiënt getest?",opts:["zijn rode bloedcellen, met antistoffen uit een antiserum","zijn plasma, met rode bloedcellen van een donor"],right:0,
+    ok:"Goed. En bij de kruisproef?",no:"Lees in de inleiding van de opgave wat er bij de bloedgroepbepaling in de druppels gaat.",
+    onDone:()=>choiceStep(think,{q:"Wat test de kruisproef van de patiënt?",opts:["zijn plasma, dus zijn eigen antistoffen","zijn rode bloedcellen"],right:0,
+      ok:"Goed. Bij de kruisproef zitten er dus antistoffen in zijn plasma die aan de donorcellen binden. Waar kunnen die vandaan komen? Denk aan vorig jaar.",no:"Bij de kruisproef wordt plasma van de patiënt gemengd met rode bloedcellen uit de zak.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Door het resuspositieve bloed van vorig jaar heeft hij <b>zelf antistoffen (en geheugencellen) tegen D</b> gemaakt; die zitten nu in zijn plasma en <b>binden aan D op de donorcellen</b>.",
+    "De bloedgroepbepaling test met antisera welke <b>antigenen op zijn eigen rode bloedcellen</b> zitten (geen D); de kruisproef test <b>zijn eigen antistoffen</b> tegen de donorcellen."],
+    model:"Vorig jaar kwam er antigeen D in zijn bloed. Zijn afweer zag D als vreemd en maakte antistoffen en geheugencellen tegen D. Die antistoffen zitten nu in zijn plasma en binden aan D op de rode bloedcellen van de donor, dus die klonteren samen. De bloedgroepbepaling kijkt alleen welke antigenen op zijn eigen rode bloedcellen zitten: daar zit geen D, dus resusnegatief. De kruisproef kijkt naar zijn antistoffen.",
+    valkuil:"‘Antistoffen tegen D heeft iedereen met resusnegatief bloed’: 0 punten voor het eerste element. Anti-D maak je pas na contact met D.",
+    after:()=>waaromBtn(ans,textBox("De twee tests kijken naar iets anders. De <b>bloedgroepbepaling</b> vraagt: welke antigenen zitten op de rode bloedcellen van de patiënt? Bij patiënt 2: A nee, B nee, D nee. De <b>kruisproef</b> vraagt: welke antistoffen zitten in zijn plasma, en binden die aan de donorcellen? Anti-A en anti-B heeft hij vanzelf, maar anti-D niet. Die heeft hij pas gemaakt na het resuspositieve bloed van vorig jaar. Daarom klonteren cellen van O, resuspositief, nu wél samen."))});
+  q.append(think,ans);
+},STOF_BG));
+
+if(VWO){
+ids.push(vraag(2,"de kruisproef bij een baby (vwo)",(q,id)=>{
+  pre(q,"<p>Patiënt 3 is een baby van twee weken die een bloedtransfusie nodig heeft. Bij een baby doet het laboratorium de kruisproef niet met het plasma van de baby zelf, maar met het plasma van de moeder.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit waarom het plasma van de moeder hier een betrouwbaarder uitslag geeft."));
+  choiceStep(think,{q:"Wat wil het laboratorium met de kruisproef weten?",opts:["of er in het bloed van de patiënt antistoffen zijn die aan de donorcellen kunnen binden","welke bloedgroep de donor heeft"],right:0,
+    ok:"Ja. Welke antistoffen zitten er in het bloed van een baby van twee weken, en wie heeft die gemaakt?",no:"Bij de kruisproef gaat plasma van de patiënt bij rode bloedcellen uit de zak.",
+    onDone:()=>choiceStep(think,{q:"Vanaf wanneer heb je zelf antistoffen tegen de antigenen A of B die je niet hebt?",opts:["vanaf je eerste levensjaar","al vanaf de bevruchting"],right:0,
+      ok:"Goed. Combineer nu: wat heeft de baby zelf nog niet, en wat zit er wél in zijn bloed?",no:"Je hebt ze al voordat je ooit bloed van een ander krijgt, maar niet al bij de geboorte.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "De antistoffen in het bloed van de baby <b>komen (grotendeels) van de moeder, via de placenta</b>.",
+    "De baby <b>maakt zelf nog (bijna) geen anti-A en anti-B</b> (die komen pas in het eerste levensjaar); het plasma van de moeder laat zien welke antistoffen in de baby aan de donorcellen kunnen binden."],
+    model:"Een baby van twee weken maakt zelf nog bijna geen anti-A en anti-B; die komen pas in het eerste levensjaar. De antistoffen die wél in zijn bloed zitten, kreeg hij van zijn moeder via de placenta. Het plasma van de moeder bevat die antistoffen ook. Zo zie je welke antistoffen in de baby aan de rode bloedcellen van de donor kunnen binden.",
+    valkuil:"‘De baby heeft nog geen bloedgroep’ is fout: de antigenen op zijn rode bloedcellen heeft hij al. Het gaat om de antistoffen."});
+  q.append(think,ans);
+},STOF_BG));
+}
+
+opgave("Bloedtransfusie","Twee tests voor een bloedtransfusie",`
+<p>Voordat een patiënt in het ziekenhuis een bloedtransfusie krijgt, doet het laboratorium twee tests.</p>
+<ul style="margin:0;padding-left:20px">
+<li><b>Bloedgroepbepaling</b>: druppels bloed van de patiënt worden gemengd met antiserum met anti-A, met anti-B en met anti-D. Je kijkt of de rode bloedcellen samenklonteren.</li>
+<li><b>Kruisproef</b>: plasma van de patiënt wordt gemengd met een beetje rode bloedcellen uit de zak die hij zou krijgen. Klonteren de rode bloedcellen samen, dan krijgt de patiënt die zak niet.</li></ul>
+<p>Tabel 3 geeft de bloedgroepbepaling van patiënt 1.</p>
+${TABEL(3,["antiserum","anti-A","anti-B","anti-D"],[["samenklontering?","ja","nee","ja"]])}`,ids);
+}
+
+
+/* ================= opgaven en navigatie ================= */
+OPG.sort((a,b)=>a.nr-b.nr);
+/* cijfer als bij een schooltoets: 9 × score / maximum + 1 */
+const NORM="";
+const CIJFER=(()=>{const L=Q.reduce((s,q)=>s+q.pts,0);return Array.from({length:L+1},(_,S)=>Math.round((9*S/L+1)*10)/10);})();
+const main=$("#main"),tabs=$("#tabs");let cur=1;const built={},nextBtns={};
+let curOpg=OPG.some(o=>o.nr===store.opg)?store.opg:1;
+const opg=()=>OPG.find(o=>o.nr===curOpg);
+const pts=o=>o.ids.reduce((s,i)=>s+Q.find(q=>q.id===i).pts,0);
+function reach(){const ids=opg().ids;if(store.vrij)return ids[ids.length-1];let k=0;while(k<ids.length-1&&store.scores[ids[k]]!==undefined)k++;return ids[k];}
+function renderTabs(){
+  tabs.innerHTML="";const r=reach();
+  opg().ids.forEach(id=>{const q=Q.find(x=>x.id===id);const locked=id>r;
+    const b=el("button",{class:(id===cur?"cur ":"")+(store.scores[id]!==undefined?"done":"")+(locked?" lock":""),"aria-label":"Vraag "+id+(locked?" (eerst vraag "+(id-1)+" maken)":""),title:locked?"Maak eerst vraag "+(id-1):""},id);
+    if(locked)b.disabled=true;else b.onclick=()=>open(id);tabs.append(b);});
+  const o=el("button",{class:"ov"+(cur==="ov"?" cur":"")},"Score");o.onclick=()=>open("ov");tabs.append(o);
+}
+function open(id){
+  if(id!=="ov"&&id>reach())id=reach();
+  cur=id;renderTabs();main.innerHTML="";
+  if(id==="ov"){main.append(overview());return;}
+  if(!built[id]){const q=Q.find(x=>x.id===id);const sec=el("article",{class:"q"});
+    q.build(sec);
+    const pap=el("section",{class:"papier","aria-label":"Toetsvraag "+id});
+    pap.append(el("div",{class:"pkop"},`<span class="pnr"><span class="mono">Toetsvraag</span><span class="nr">${id}</span></span><span class="mono">${q.pts} ${q.pts===1?"punt":"punten"}</span>`));
+    for(const c of [...sec.children]){if(c.classList.contains("phase")||c.tagName==="BUTTON")break;pap.append(c);}
+    pap.append(el("div",{class:"pvoet"},"Oefentoets Afweer · havo"));
+    sec.prepend(pap);
+    const sb=window.EXSTOF&&EXSTOF.blok(TOOL,id);if(sb)pap.after(sb);
+    /* toetsvraag nog eens boven de antwoorden (Kamiel 25 okt 2026: niet terug hoeven scrollen) */
+    const qt=[...pap.querySelectorAll(".qtext")].pop(),ansP=sec.querySelector(".phase.ans");
+    if(qt&&ansP){const h=el("div",{class:"herhaal papier"});h.append(el("div",{class:"hkop mono"},`Toetsvraag ${id}`));
+      const c=qt.cloneNode(true);c.querySelectorAll("[id]").forEach(x=>x.removeAttribute("id"));h.append(c);
+      const lab=ansP.querySelector(":scope>.label");lab?lab.after(h):ansP.prepend(h);}
+    const ids=opg().ids,last=id===ids[ids.length-1];
+    const nx=el("div",{class:"row",style:"justify-content:flex-end"});const b=el("button",{class:"go"},last?"Naar je score ›":`Volgende vraag (${id+1}) ›`);
+    nextBtns[id]=b;b.hidden=!store.vrij&&store.scores[id]===undefined;
+    b.onclick=()=>{open(last?"ov":id+1);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};nx.append(b);sec.append(nx);built[id]=sec;}
+  main.append(built[id]);
+}
+function overview(){
+  const o=opg();const s=el("section",{class:"phase"});s.append(el("h2",{},`Jouw score op opgave ${o.nr}`));
+  let tot=0;const t=el("table",{class:"data ovtable"});t.innerHTML="<tr><th>vraag</th><th>onderwerp</th><th>score</th></tr>";
+  o.ids.forEach(id=>{const q=Q.find(x=>x.id===id);const p=store.scores[id];if(p!==undefined)tot+=p;t.innerHTML+=`<tr><td>${id}</td><td>${q.t}</td><td>${p===undefined?"–":p} / ${q.pts}</td></tr>`;});
+  const w=el("div",{class:"tablewrap"});w.append(t);s.append(w,el("div",{class:"score"},`Totaal opgave ${o.nr}: ${tot} / ${pts(o)}`));
+  let all=0,allMax=0;OPG.forEach(x=>{allMax+=pts(x);x.ids.forEach(id=>{if(store.scores[id]!==undefined)all+=store.scores[id];});});
+  const gemaakt=OPG.every(x=>x.ids.every(id=>store.scores[id]!==undefined));
+  const cf=CIJFER[Math.min(all,CIJFER.length-1)].toFixed(1).replace(".",",");
+  s.append(el("p",{style:"margin:0"},`Hele toets: <b>${all}</b> van ${allMax} punten · cijfer <b>${cf}</b>`+(gemaakt?"":` <span class="muted">(nog niet alles gemaakt: open vragen tellen als 0 punten)</span>`)));
+  s.append(el("p",{class:"muted",style:"margin:0;font-size:14px"},`Cijfer = 9 × score / maximum + 1. Open vragen kijk je zelf na met het antwoordmodel.`));
+  const nextO=OPG.find(x=>x.nr===o.nr+1);
+  const row=el("div",{class:"row"});
+  if(nextO){const nb=el("button",{class:"go"},`Naar opgave ${nextO.nr}: ${nextO.kort} ›`);nb.onclick=()=>{setOpg(nextO.nr);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};row.append(nb);}
+  const r=el("button",{class:"ghost"},`Opgave ${o.nr} opnieuw`);r.onclick=()=>{o.ids.forEach(id=>{delete store.scores[id];delete built[id];delete nextBtns[id];});save();open(o.ids[0]);};row.append(r);
+  s.append(row);return s;
+}
+function renderOpgs(){const box=$("#opgs");box.innerHTML="";
+  OPG.forEach(o=>{const b=el("button",{"aria-pressed":o.nr===curOpg?"true":"false"},`${o.nr} · ${o.kort}`);b.onclick=()=>setOpg(o.nr);box.append(b);});}
+function setOpg(n){curOpg=n;store.opg=n;save();const o=opg();
+  $("#eb").textContent=`Oefentoets Afweer · havo · opgave ${o.nr}`;$("#h1").textContent=o.titel;
+  $("#sub").textContent=`vraag ${o.ids[0]} t/m ${o.ids[o.ids.length-1]} · ${pts(o)} punten`;
+  $("#ctx").innerHTML=o.ctx;renderOpgs();open(reach());}
+function setVrij(v){store.vrij=v;save();$("#vrij").setAttribute("aria-pressed",v?"true":"false");
+  for(const k in nextBtns)nextBtns[k].hidden=!v&&store.scores[k]===undefined;renderTabs();}
+$("#vrij").onclick=()=>setVrij(!store.vrij);setVrij(!!store.vrij);
+EXSTAND.STANDEN.forEach(s=>{s.uitleg=s.uitleg.replace(/examenvraag/g,"toetsvraag").replace("het echte examen","een echte toets").replace(" Zet de klok aan voor 3 uur examentijd.","");if(s.k==="echt")s.naam="Echte toets";});
+EXSTAND.init({store,save,setVrij});
+setOpg(curOpg);
+})();
+
+</script>
+</body>
+</html>

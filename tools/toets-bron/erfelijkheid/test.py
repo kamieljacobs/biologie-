@@ -2,8 +2,11 @@
 """Opent elke vraag (vrij doorklikken), opent de stofuitleg, klikt 'Toon hulpvragen' niet; meldt fouten, punten en schermafdrukken."""
 import sys, os
 from playwright.sync_api import sync_playwright
+import subprocess, time, atexit
+POORT = 8137  # eigen poort (8100–8199) zodat andere tools tegelijk kunnen testen
 T = __import__('os').path.abspath(__import__('os').path.join(__import__('os').path.dirname(__file__),'..','..'))
-shots = '/tmp/toets-erf-shots'; os.makedirs(shots, exist_ok=True)
+shots = '/tmp/toets-erfelijkheid-shots'; os.makedirs(shots, exist_ok=True)
+SRV = subprocess.Popen([sys.executable, '-m', 'http.server', str(POORT), '-d', os.path.dirname(T)], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL); atexit.register(SRV.kill); time.sleep(.8)
 for niv in sys.argv[1:] or ['havo', 'vwo']:
     errs = []
     with sync_playwright() as p:
@@ -11,7 +14,7 @@ for niv in sys.argv[1:] or ['havo', 'vwo']:
         pg.on('console', lambda m: m.type == 'error' and 'teller' not in m.text and 'ERR_' not in m.text and errs.append(m.text))
         pg.on('pageerror', lambda e: errs.append('PAGEERROR ' + str(e)))
         pg.add_init_script(f"localStorage.setItem('toets-erfelijkheid-{niv}',JSON.stringify({{scores:{{}},mode:'hulp',vrij:true}}))")
-        pg.goto(f'file://{T}/toets-erfelijkheid-{niv}.html'); pg.wait_for_timeout(500)
+        pg.goto(f'http://localhost:{POORT}/tools/toets-erfelijkheid-{niv}.html'); pg.wait_for_timeout(500)
         info = pg.evaluate("(()=>{const o=[...document.querySelectorAll('#opgs button')].map(b=>b.textContent);return o})()")
         print(niv, 'opgaven:', info)
         tot = 0

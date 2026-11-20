@@ -1,0 +1,1030 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../js/teller.js" data-root="../"></script>
+<link rel="icon" href="../img/icoon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../img/icoon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../img/icoon/apple-touch-icon.png">
+<script>(function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oefentoets Voeding vwo · doorklikken · Biologie bij Kamiel</title>
+<meta name="description" content="Oefentoets Voeding voor vwo: per vraag eerst hulpvragen, dan de toetsvraag, nakijken met het antwoordmodel en uitleg waarom.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="huisstijl.css">
+<script src="huisstijl.js"></script>
+<script src="examen-stof.js?v=b496a9e6"></script>
+<script src="examen-standen.js?v=558bd73d"></script>
+<style>
+/* Oefentoets Voeding vwo · zelfde bouwstenen als de oefenexamens (tools/OEFENEXAMEN_PROMPT.md). */
+body.echt .klok{display:none!important}
+@media (max-width:600px){.vdfig{overflow-x:auto;-webkit-overflow-scrolling:touch}.vdfig>svg{min-width:var(--min)}}
+:root{--rest:#2A3B57;--area:#5B6B84}
+:root[data-theme="light"]{--rest:#D5DEE9;--area:#B4BDCA}
+ .wrap{padding-inline:0}
+:root[data-theme="light"] .papier{box-shadow:0 0 0 1px rgba(20,32,52,.18),0 6px 18px rgba(20,32,52,.10)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--text);font:17px/1.55 var(--tekst);-webkit-font-smoothing:antialiased;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 40px}
+.wrap{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1,h2,h3{font-family:var(--titel);font-weight:700;letter-spacing:-.01em;text-wrap:balance;margin:0;line-height:1.1}
+h2{font-size:24px}
+.mono,.eyebrow{font:600 12px/1.2 var(--meta);letter-spacing:.1em;text-transform:uppercase}
+.eyebrow{color:var(--goud-text)}
+.muted{color:var(--text2)}
+a{color:var(--goud-text)}
+.sitenav{display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap;min-height:56px;padding:8px 0;border-bottom:1px solid var(--line);font:600 15px/1.3 var(--tekst)}
+.sitenav .merk{font:700 18px/1 var(--titel);color:var(--text);text-decoration:none}
+.sitenav .terug{color:var(--goud-text);text-decoration:none}
+.sitenav .rechts{margin-left:auto}
+.tool-kop{display:flex;flex-direction:column;gap:10px;padding:14px 0 0}
+.tool-kop h1{font-size:clamp(32px,5vw,48px)}
+.tool-kop p{margin:0;color:var(--text2);font-size:18px;max-width:62ch}
+button.toggle{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line2);background:none;color:var(--text2);border-radius:999px;padding:6px 14px 6px 8px;min-height:40px;font:600 14px var(--tekst);cursor:pointer}
+button.toggle .knopje{width:34px;height:20px;border-radius:999px;background:var(--line2);position:relative;flex:none}
+button.toggle .knopje::after{content:"";position:absolute;left:3px;top:3px;width:14px;height:14px;border-radius:50%;background:var(--text2);transition:left .15s}
+button.toggle[aria-pressed="true"]{color:var(--text);border-color:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje{background:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje::after{left:17px;background:var(--goud-ink)}
+.kopbalk{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.seg{display:inline-flex;flex-wrap:wrap;padding:3px;border-radius:999px;border:1px solid var(--line2);gap:2px}
+.seg button{border:0;background:none;padding:6px 14px;border-radius:999px;font:600 14px var(--tekst);color:var(--text2);min-height:36px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--goud);color:var(--goud-ink)}
+nav.tabs{display:flex;flex-wrap:wrap;gap:6px}
+nav.tabs button{min-width:44px;height:44px;border-radius:999px;border:1px solid var(--line2);background:none;color:var(--text2);font:600 15px var(--meta);cursor:pointer;position:relative}
+nav.tabs button:hover{color:var(--text)}
+nav.tabs button.cur{background:var(--goud);color:var(--goud-ink);border-color:var(--goud)}
+nav.tabs button.done::after{content:"";position:absolute;right:3px;top:3px;width:8px;height:8px;border-radius:50%;background:var(--groen);border:2px solid var(--bg)}
+nav.tabs button.lock{opacity:.35;cursor:not-allowed}
+nav.tabs .ov{padding:0 16px;font-family:var(--tekst)}
+.ctx{background:var(--surface);border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.ctx p{margin:0}
+details.ctxd summary{cursor:pointer;font-weight:600;color:var(--goud-text)}
+.tablewrap{overflow-x:auto}
+table.data{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+table.data th,table.data td{border-bottom:1px solid var(--line);padding:7px 10px;text-align:center}
+table.data th:first-child,table.data td:first-child{text-align:left}
+table.data th{font:600 11px var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--text3)}
+.q{display:flex;flex-direction:column;gap:14px}
+.qhead{display:flex;gap:12px;align-items:center}
+.qnum{font:700 40px/1 var(--titel);color:var(--goud-text)}
+.pts{font:600 12px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:3px 9px}
+.qtext{margin:0;font-size:18px}
+.phase{border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;background:var(--surface);display:flex;flex-direction:column;gap:12px}
+.phase>.label{display:flex;gap:8px;align-items:center;font:600 12px var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3)}
+.phase>.label .dot{width:8px;height:8px;border-radius:50%;background:var(--goud)}
+.phase.think{background:var(--surface2)}
+.phase.think>.label{color:var(--goud-text)}
+.step{display:flex;flex-direction:column;gap:8px}
+.step+.step{border-top:1px solid var(--line);padding-top:12px}
+.step p{margin:0}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button.opt,button.chip{border:1px solid var(--line2);background:var(--bg);color:var(--text);border-radius:12px;padding:9px 14px;font:inherit;font-size:16px;cursor:pointer;text-align:left}
+button.chip{border-radius:999px}
+button.opt:hover,button.chip:hover{border-color:var(--text3)}
+button.chip[aria-pressed="true"]{border-color:var(--goud);background:var(--goud-soft)}
+button.opt.right{border-color:var(--groen);background:var(--groen-soft)}
+button.opt.wrong{border-color:var(--koraal);background:var(--koraal-soft)}
+button.opt:disabled{cursor:default}
+button.go,button.ghost{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 18px;border-radius:999px;font:700 15px var(--tekst);cursor:pointer}
+button.go{border:0;background:var(--goud);color:var(--goud-ink)}
+button.go:hover{filter:brightness(1.06)}
+button.ghost{border:0;background:none;color:var(--text);box-shadow:inset 0 0 0 1px var(--line2)}
+button.ghost:hover{box-shadow:inset 0 0 0 1px var(--text3)}
+button:disabled.go,button:disabled.ghost{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:2px solid var(--goud);outline-offset:3px;border-radius:6px}
+input.num{width:96px;min-height:44px;font:600 16px var(--meta);padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text)}
+select{font:inherit;font-size:15px;min-height:44px;padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);max-width:100%;flex:1 1 260px}
+textarea{width:100%;min-height:88px;font:inherit;padding:10px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);resize:vertical}
+.fb{font-size:16px;border-radius:12px;padding:12px 14px;background:var(--surface2);border:1px solid var(--line2)}
+.fb.ok{border-color:var(--groen);background:var(--groen-soft)}
+.fb.no{border-color:var(--koraal);background:var(--koraal-soft)}
+.fb.hint{border-color:var(--teal);background:var(--teal-soft)}
+.graphs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.graphs{grid-template-columns:1fr}}
+.gopt{border:1px solid var(--line2);border-radius:var(--radius);background:var(--bg);padding:8px 8px 2px;cursor:pointer;color:var(--text);font:inherit;text-align:left}
+.gopt b{font:700 20px var(--titel);margin-left:6px;color:var(--goud-text)}
+.gopt:hover{border-color:var(--text3)}
+.gopt.right{border-color:var(--groen);box-shadow:0 0 0 2px var(--groen) inset}
+.gopt.wrong{border-color:var(--koraal);box-shadow:0 0 0 2px var(--koraal) inset}
+svg{display:block;max-width:100%;height:auto}
+.ax{stroke:var(--text3);stroke-width:1.2;fill:none}
+.grid{stroke:var(--line2);stroke-width:1;fill:none}
+.tick{fill:var(--text3);font:500 10px var(--meta)}
+.cv{stroke:var(--teal);stroke-width:2.4;fill:none;stroke-linejoin:round}
+.cvbad{stroke:var(--koraal);stroke-width:2;fill:none;stroke-dasharray:5 4}
+.restband{fill:var(--rest);opacity:.8}
+.lbl{fill:var(--text);font:600 12px var(--tekst)}
+.lblm{fill:var(--text2);font:12px var(--tekst)}
+.lblbad{fill:var(--koraal);font:700 12px var(--tekst)}
+.selfscore{display:flex;flex-direction:column;gap:10px}
+.selfscore label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.selfscore input{margin-top:4px;width:18px;height:18px;accent-color:var(--goud);flex:none}
+.model{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:16px}
+.anim{display:flex;flex-direction:column;gap:10px}
+.anim .stage{border-radius:var(--radius);background:var(--surface2);border:1px solid var(--line2);overflow:hidden}
+.anim .cap{min-height:3.2em;margin:0}
+.anim .nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pips{display:flex;gap:6px;margin-left:auto}
+.pips span{width:9px;height:9px;border-radius:50%;background:var(--line2)}
+.pips span.on{background:var(--goud)}
+.seq{display:flex;flex-direction:column;gap:6px}
+.seq button{display:flex;gap:10px;align-items:center}
+.seq .n{font:600 13px var(--meta);width:24px;height:24px;border-radius:50%;display:inline-grid;place-items:center;background:var(--line2);flex:none}
+.seq button.placed{border-color:var(--groen)} .seq button.placed .n{background:var(--groen);color:var(--goud-ink)}
+.score{font:600 16px var(--meta)}
+.ovtable td:last-child,.ovtable th:last-child{text-align:right}
+.pre{border-left:3px solid var(--goud);padding:2px 0 2px 14px;display:flex;flex-direction:column;gap:8px}
+.pre p{margin:0;color:var(--text2)}
+.figrow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.figrow{grid-template-columns:1fr}}
+.legenda{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--text2)}
+.legenda i{display:inline-block;vertical-align:middle;margin-right:6px}
+.legenda .lijn{width:22px;height:0;border-top:2.5px solid var(--text)}
+.legenda .vlak{width:16px;height:12px;background:var(--area)}
+.tick.dim{opacity:.35}
+p.klikbaar{line-height:2}
+button.mark{font:inherit;color:var(--text);background:none;border:0;border-bottom:2px dashed var(--goud);padding:0 3px;border-radius:4px;cursor:pointer}
+button.mark[aria-pressed="true"]{background:var(--goud-soft);border-bottom-style:solid}
+button.mark:disabled{cursor:default}
+.sellab{min-width:200px;font-weight:600}
+label.slider{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center}
+label.slider span{min-width:170px;font-weight:600;font-size:15px}
+label.slider input{flex:1 1 200px;accent-color:var(--goud)}
+.podium{background:var(--surface2);border:1px solid var(--line2);border-radius:var(--radius);overflow:hidden}
+p.regels{font-family:var(--tekst);line-height:1.9;margin:0}
+p.regels span{display:inline-block;width:2em;font:600 12px var(--meta);color:var(--text3)}
+sup{font-size:.7em}
+.papier{--bg:#FFFFFF;--surface:#FFFFFF;--surface2:#EEF1F5;--line:rgba(20,32,52,.10);--line2:rgba(20,32,52,.24);
+  --text:#121C2E;--text2:#3B4759;--text3:#667185;--goud:#C99A2E;--goud-text:#7E5C0B;--goud-soft:rgba(217,172,60,.18);
+  --groen:#2F8A47;--koraal:#B9502F;--teal:#25729C;--paars:#6550AD;--groen-soft:rgba(47,138,71,.10);--koraal-soft:rgba(185,80,47,.10);--teal-soft:rgba(37,114,156,.10);
+  --rest:#D5DEE9;--area:#B4BDCA;color-scheme:light;
+  background:#FCFCFA;color:var(--text);border:0;border-radius:6px;padding:16px 20px 12px;display:flex;flex-direction:column;gap:12px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.08),0 10px 28px rgba(0,0,0,.35)}
+.papier .pkop{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;border-bottom:2px solid var(--text);padding-bottom:6px}
+.papier .pkop .mono{color:var(--text2)}
+.papier .pnr{display:flex;align-items:baseline;gap:10px}
+.papier .nr{font:700 30px/1 var(--titel);color:var(--text)}
+.papier .pre{border-left:0;padding:0}
+.papier .pre p{color:var(--text)}
+.papier .qtext{color:var(--text)}
+.herhaal.papier{padding:10px 14px;gap:6px;box-shadow:none;border-radius:6px}
+.herhaal .hkop{color:var(--text3);font-size:11px}
+.herhaal .qtext{font-size:16px}
+.papier .pvoet{font:500 11px var(--meta);letter-spacing:.06em;color:var(--text3);text-align:right}
+.papier details.ctxd summary{color:var(--goud-text)}
+.papier .podium{background:var(--surface2)}
+.phase>.label .tag{margin-left:6px;font:600 10px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:2px 8px}
+.sleutel{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:14px;color:var(--text2)}
+.sleutel .sw{display:inline-block;width:16px;height:12px;border-radius:2px;vertical-align:-1px;margin-right:7px}
+.sleutel .papier-sw{background:#FCFCFA}
+.sleutel .donker-sw{background:var(--surface2);box-shadow:inset 0 0 0 1px var(--line2)}
+.exfoto{display:block;width:100%;height:auto;border-radius:2px}
+footer{color:var(--text3);font-size:14px;padding-top:24px;border-top:1px solid var(--line)}
+body.hulp .ans.locked{display:none}
+body.examen .think{display:none}
+body.examen .think.open{display:flex}
+.helpbtn{display:none!important}
+body.examen .helpbtn{display:inline-flex!important}
+body.examen .tonext{display:none!important}
+@media (max-width:600px){body{font-size:16px}.qtext{font-size:17px}.phase,.ctx{padding:14px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="sitenav" aria-label="Site">
+    <a class="merk" href="../index.html#home">Biologie bij Kamiel</a>
+    <a class="terug" href="../index.html#voeding">← Terug naar Voeding</a>
+    <span class="rechts"><button type="button" class="icoon" data-thema-knop></button></span>
+  </nav>
+  <header class="tool-kop">
+    <div class="eyebrow" id="eb">Oefentoets Voeding · vwo</div>
+    <h1 id="h1">Oefentoets Voeding</h1>
+    <div class="seg" id="opgs" role="group" aria-label="Opgave"></div>
+    <div class="sleutel"><span><i class="sw papier-sw"></i>Wit vak = de toetsvraag</span><span><i class="sw donker-sw"></i>Donker vak = hulpvragen en uitleg (niet uit de toets)</span></div>
+    <p>Maak de toets stap voor stap. Bij elke vraag denk je eerst na met de hulpvragen, dan beantwoord je de toetsvraag, en daarna zie je waarom het antwoord klopt. Kies zelf hoeveel hulp je wilt; met ‘Echte toets’ oefen je zonder hulp.</p>
+    <div class="kopbalk">
+      <div class="seg" id="standen" role="group" aria-label="Hoeveel hulp wil je?"></div>
+      <button id="vrij" class="toggle" aria-pressed="false"><span class="knopje"></span>Vrij doorklikken</button>
+      <span class="mono muted" id="sub"></span>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs" aria-label="Vragen"></nav>
+
+  <section class="ctx papier" id="ctx"></section>
+
+  <main id="main"></main>
+
+  <footer>Eigen vragen, met inspiratie uit de centrale examens (© CvTE), Biologie voor Jou en Nectar. Grafieken en schema's zijn eigen tekeningen; bronnen van de gegevens staan bij de opgaven.<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a> </span></footer>
+</div>
+
+<script>
+(function(){
+const $=(s,r=document)=>r.querySelector(s);
+const el=(tag,attrs={},html="")=>{const e=document.createElement(tag);for(const k in attrs){if(k==="class")e.className=attrs[k];else if(k.startsWith("on"))e.addEventListener(k.slice(2),attrs[k]);else e.setAttribute(k,attrs[k]);}if(html)e.innerHTML=html;return e;};
+const TOOL="voeding-vwo";
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- opslag (alleen gemak) ---------- */
+let store={scores:{},mode:"hulp"};
+try{const s=JSON.parse(localStorage.getItem("toets-voeding-vwo")||"null");if(s)store=Object.assign(store,s);}catch(e){}
+const save=()=>{try{localStorage.setItem("toets-voeding-vwo",JSON.stringify(store));}catch(e){}};
+
+/* ---------- algemene bouwstenen ---------- */
+function phase(cls,label){const p=el("section",{class:"phase "+cls});
+  if(cls==="think")p.append(el("div",{class:"label"},`<span class="dot"></span>Hulpvragen<span class="tag">niet uit de toets</span>`));
+  else p.append(el("div",{class:"label"},`<span class="dot"></span>${label==="Antwoord"?"Jouw antwoord op de toetsvraag":label}`));return p;}
+function choiceStep(container,{q,opts,right,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});const fb=el("div",{class:"fb",hidden:""});
+  const knop=[];opts.forEach((o,i)=>{const b=el("button",{class:"opt",onclick:()=>{
+    if(i===right){row.querySelectorAll("button").forEach(x=>x.disabled=true);b.classList.add("right");fb.className="fb ok";fb.innerHTML=ok;fb.hidden=false;onDone&&onDone();}
+    else{b.classList.add("wrong");fb.className="fb no";fb.innerHTML=no;fb.hidden=false;}
+  }},o);knop.push(b);});
+  /* @@schud@@ vaste, geschudde volgorde (zaadje = vraagtekst), zodat het goede antwoord niet steeds eerst staat */
+  {let h=2166136261;for(const c of String(q))h=Math.imul(h^c.charCodeAt(0),16777619)>>>0;
+   const v=knop.map((b,i)=>i);for(let i=v.length-1;i>0;i--){h=Math.imul(h^(h>>>15),2246822507)>>>0;const j=h%(i+1);[v[i],v[j]]=[v[j],v[i]];}
+   if(v.length>1&&v[0]===right&&opts.length>2){const k=v.indexOf(right);[v[0],v[1]]=[v[1],v[0]];}
+   v.forEach(i=>row.append(knop[i]));}
+  s.append(row,fb);container.append(s);return s;
+}
+function mc(container,{opts,right,pts,qid,graphs:isGraph,onChecked}){
+  const wrap=el("div",{class:isGraph?"graphs":"row",style:isGraph?"":"flex-direction:column;align-items:stretch"});
+  const fb=el("div",{class:"fb",hidden:""});
+  opts.forEach((o,i)=>{const L="ABCDEF"[i];
+    const b=isGraph?el("button",{class:"gopt"},`<b>${L}</b>${o}`):el("button",{class:"opt"},`<b style="font:700 18px var(--titel);color:var(--goud-text);margin-right:10px">${L}</b>${o}`);
+    b.addEventListener("click",()=>{
+      wrap.querySelectorAll("button").forEach(x=>x.disabled=true);
+      const good=i===right; b.classList.add(good?"right":"wrong");
+      if(!good)wrap.children[right].classList.add("right");
+      fb.className="fb "+(good?"ok":"no");
+      fb.innerHTML=good?`Goed: <b>${"ABCDEF"[right]}</b>. ${pts} ${pts>1?"punten":"punt"}.`:`Het goede antwoord is <b>${"ABCDEF"[right]}</b>. 0 punten.`;
+      fb.hidden=false; setScore(qid,good?pts:0); onChecked&&onChecked();
+    });wrap.append(b);});
+  container.append(wrap,fb);
+}
+function waaromBtn(container,build){
+  const b=el("button",{class:"ghost waarombtn"},"Laat zien waarom ›");const box=el("div",{hidden:""});
+  b.onclick=()=>{b.remove();box.hidden=false;build(box);if(window.EXSTOF)EXSTOF.extraWaarom(TOOL,cur,box);};
+  container.append(b,box);
+}
+function lockAns(think,ans,label="Naar de vraag ›"){
+  ans.classList.add("locked");
+  const go=el("button",{class:"go tonext",hidden:""},label);
+  go.onclick=()=>{ans.classList.remove("locked");go.remove();ans.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});};
+  think.append(go);
+  return ()=>{think.append(go);go.hidden=false;};
+}
+function helpButton(q,think){
+  const b=el("button",{class:"ghost helpbtn"},"Hulp nodig? Toon de hulpvragen");
+  b.onclick=()=>{think.classList.add("open");b.remove();};
+  q.append(b);
+}
+function setScore(id,p){store.scores[id]=p;save();renderTabs();if(nextBtns[id])nextBtns[id].hidden=false;}
+
+/* ---------- vragen ---------- */
+const Q=[],OPG=[];
+
+/* Vraag 5 en 6: eerst zonder opties */
+function noOptions(q,{id,pts,text,prompt,hint,opts,right,uitleg}){
+  q.append(el("p",{class:"qtext"},text));
+  const think=phase("think","Eerst zelf"),ans=phase("ans","Kies je antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Toon de keuzes ›");
+  const s=el("div",{class:"step"});s.append(el("p",{},prompt));
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:"Wat denk jij? Schrijf het kort op."});const hb=el("button",{class:"ghost"},"Tip");const hf=el("div",{class:"fb hint",hidden:""},hint);
+  hb.onclick=()=>{hf.hidden=false;hb.remove();};
+  ta.addEventListener("input",()=>{if(ta.value.trim().length>2)unlock();});
+  s.append(ta,hb,hf);think.append(s);
+  mc(ans,{qid:id,pts,right,opts,onChecked:()=>{
+    if(ta.value.trim())ans.append(el("div",{class:"model"},`<b>Jij dacht eerst:</b> ${ta.value.replace(/</g,"&lt;")}<br><span class="muted">Klopte dat met de keuze die je maakte?</span>`));
+    waaromBtn(ans,b=>b.append(el("div",{class:"model"},uitleg)));}});
+  q.append(think,ans);
+}
+/* ================= extra bouwstenen ================= */
+function pre(q,html){q.append(el("div",{class:"pre"},html));}
+function chipsStep(container,{q,items,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});
+  items.forEach(([t])=>{const b=el("button",{class:"chip","aria-pressed":"false"},t);b.onclick=()=>b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")==="true"?"false":"true");row.append(b);});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(row,ck,fb);container.append(s);
+  ck.onclick=()=>{const sel=[...row.children].map(b=>b.getAttribute("aria-pressed")==="true");
+    const teveel=sel.some((s,k)=>s&&!items[k][1]),mist=sel.some((s,k)=>!s&&items[k][1]);fb.hidden=false;
+    if(!teveel&&!mist){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;row.querySelectorAll("button").forEach(b=>b.disabled=true);onDone&&onDone();}
+    else if(teveel){fb.className="fb hint";fb.innerHTML=no;}
+    else{fb.className="fb hint";fb.innerHTML="Wat je gekozen hebt klopt, maar er hoort nog meer bij. Kies alles wat klopt.";}};
+  return s;
+}
+function selectsStep(container,{q,rows,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const id=uid+"s"+k;
+    r.append(el("label",{for:id,class:"sellab"},lab));const sel=el("select",{id});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);s.append(r);return sel;});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(ck,fb);container.append(s);
+  ck.onclick=()=>{const n=sels.filter((sel,k)=>sel.value!==""&&+sel.value===rows[k][2]).length;fb.hidden=false;
+    if(n===rows.length){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;sels.forEach(x=>x.disabled=true);onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=`${n} van de ${rows.length} goed. `+(no||"Probeer het nog eens.");}};
+}
+function numStep(container,{q,right,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const r=el("div",{class:"row"});const inp=el("input",{class:"num",id:uid,inputmode:"decimal","aria-label":"antwoord"});const ck=el("button",{class:"ghost"},"Controleer");const fb=el("div",{class:"fb",hidden:""});
+  r.append(inp,ck);s.append(r,fb);container.append(s);
+  ck.onclick=()=>{const v=parseFloat((inp.value||"").replace(",","."));fb.hidden=false;
+    if(v===right){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;inp.disabled=true;onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=no;}};
+}
+function openAnswer(ans,{id,pts,checks,model,valkuil,placeholder,after}){
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:placeholder||"Schrijf je antwoord…"});
+  const ck=el("button",{class:"go"},"Nakijken");const tf=el("div",{class:"fb hint",hidden:""},"Schrijf eerst je antwoord op. Daarna kijk je het na.");
+  ans.append(ta,ck,tf);
+  ck.onclick=()=>{if(ta.value.trim().length<8){tf.hidden=false;ta.focus();return;}tf.remove();ck.remove();ta.readOnly=true;
+    const ss=el("div",{class:"selfscore"});
+    ss.append(el("p",{style:"margin:0"},"<b>Kijk jezelf na met het antwoordmodel.</b> Vink aan wat er in jouw antwoord staat."));
+    const boxes=checks.map((c,k)=>{const lab=el("label",{},`<input type="checkbox" id="q${id}c${k}"><span>${c} <span class="pts">1p</span></span>`);ss.append(lab);return lab.querySelector("input");});
+    if(model)ss.append(el("div",{class:"model"},"<b>Voorbeeldantwoord:</b> "+model));
+    if(valkuil)ss.append(el("div",{class:"fb hint"},"<b>Valkuil:</b> "+valkuil));
+    const sc=el("div",{class:"score"});ss.append(sc);ans.append(ss);
+    const upd=()=>{const p=Math.min(pts,boxes.filter(b=>b.checked).length);sc.textContent=`Jouw score: ${p} / ${pts}`;setScore(id,p);};
+    boxes.forEach(b=>b.onchange=upd);upd();after&&after();};
+}
+function juistOnjuist(ans,{id,stm,key,uitleg}){
+  const pick=stm.map(()=>null);
+  stm.forEach((t,k)=>{const r=el("div",{class:"row"});r.append(el("span",{style:"flex:1 1 260px"},`<b style="font-family:var(--meta)">${k+1}</b>&nbsp; ${t}`));
+    ["juist","onjuist"].forEach((lab,v)=>{const b=el("button",{class:"chip","aria-pressed":"false"},lab);b.onclick=()=>{pick[k]=v===0;r.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c===b?"true":"false"));};r.append(b);});ans.append(r);});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(pick.includes(null)){fb.hidden=false;fb.className="fb hint";fb.textContent="Beoordeel eerst alle uitspraken.";return;}
+    const n=pick.filter((p,k)=>p===key[k]).length;const p=n===stm.length?2:n===stm.length-1?1:0;ck.disabled=true;
+    ans.querySelectorAll(".chip").forEach(c=>c.disabled=true);
+    fb.hidden=false;fb.className="fb "+(p===2?"ok":"no");
+    fb.innerHTML=`${n} van de ${stm.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+key.map((k,i)=>`${i+1} ${k?"juist":"onjuist"}`).join(" · ");setScore(id,p);
+    waaromBtn(ans,uitleg);};
+}
+function stepAnim(box,steps,render){
+  let i=0;const stage=el("div",{class:"stage"}),cap=el("p",{class:"cap"});
+  const prev=el("button",{class:"ghost"},"‹ Vorige"),next=el("button",{class:"go"},"Volgende ›");
+  const pips=el("div",{class:"pips"},steps.map(()=>"<span></span>").join(""));
+  const nav=el("div",{class:"nav"});nav.append(prev,next,pips);
+  const a=el("div",{class:"anim"});a.append(stage,cap,nav);box.append(a);
+  function show(){cap.innerHTML=steps[i].cap;prev.disabled=i===0;next.textContent=i===steps.length-1?"Opnieuw ›":"Volgende ›";
+    pips.querySelectorAll("span").forEach((p,j)=>p.classList.toggle("on",j===i));render(stage,steps[i],i);}
+  prev.onclick=()=>{if(i>0){i--;show();}};next.onclick=()=>{i=(i+1)%steps.length;show();};show();
+}
+/* ================= meer bouwstenen ================= */
+function seqStep(container,{q,items,shown,ok,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const seq=el("div",{class:"seq"});let at=0;const fb=el("div",{class:"fb",hidden:""});
+  shown.forEach(k=>{const b=el("button",{class:"opt"},`<span class="n">·</span>${items[k]}`);b.onclick=()=>{if(b.classList.contains("placed"))return;
+    if(k===at){b.classList.add("placed");b.querySelector(".n").textContent=at+1;at++;fb.hidden=true;if(at===items.length){fb.hidden=false;fb.className="fb ok";fb.innerHTML=ok;onDone&&onDone();}}
+    else{fb.hidden=false;fb.className="fb hint";fb.textContent="Dat is nog niet de volgende stap. Wat gebeurt er direct daarna?";}};seq.append(b);});
+  s.append(seq,fb);container.append(s);
+}
+function selectAnswer(ans,{id,rows,score,uid,after,intro}){
+  if(intro)ans.append(el("p",{style:"margin:0"},intro));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const sid=uid+"a"+k;
+    r.append(el("label",{for:sid,class:"sellab"},lab));const sel=el("select",{id:sid});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);ans.append(r);return sel;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(sels.some(x=>x.value==="")){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul eerst alles in.";return;}
+    const n=sels.filter((x,k)=>+x.value===rows[k][2]).length;const p=score(n);sels.forEach(x=>x.disabled=true);ck.remove();
+    fb.hidden=false;fb.className="fb "+(n===rows.length?"ok":"no");
+    fb.innerHTML=`${n} van de ${rows.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+rows.map(([lab,opts,r])=>`${lab}: ${opts[r]}`).join(" · ");
+    setScore(id,p);after&&after();};
+}
+function textBox(html){return b=>b.append(el("div",{class:"model"},html));}
+const svgWrap=(vb,inner,label)=>`<svg viewBox="${vb}" role="img" aria-label="${label}">${inner}</svg>`;
+function numAnswer(ans,{id,fields,after}){
+  const inps=fields.map(([lab,unit],k)=>{const r=el("div",{class:"row"});const fid="q"+id+"f"+k;
+    r.append(el("label",{for:fid,class:"sellab"},lab));const i=el("input",{class:"num",id:fid,inputmode:"decimal"});r.append(i,el("span",{class:"muted"},unit));ans.append(r);return i;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{const v=inps.map(i=>parseFloat((i.value||"").replace(",",".")));if(v.some(isNaN)){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul beide uitkomsten in.";return;}
+    inps.forEach(i=>i.disabled=true);ck.remove();const res=fields.map((f,k)=>f[2](v[k]));const p=res.filter(Boolean).length;
+    fb.hidden=false;fb.className="fb "+(p===fields.length?"ok":"no");
+    fb.innerHTML=`<b>${p} van de ${fields.length} punten.</b><br>`+fields.map((f,k)=>`${res[k]?"✓":"✗"} ${f[3]}`).join("<br>");setScore(id,p);after&&after();};
+}
+
+/* ===== Oefentoets Voeding: gedeelde hulpjes (havo en vwo uit één bron) =====
+   Inhoud = de Word-oefentoetsen 5havo_voeding_oefentoets / 6vwo_voeding_oefentoets (toetsen-biologie, 20 nov 2026),
+   vragen uit eigen/voeding.json (EI-voeding-…). Zelfde opgaven, volgorde, contexten, vraagteksten en punten. */
+const VWO=true;
+let QN=0,ON=0;
+/* vraag(punten, onderwerp, build(q,id), stof?) -> id; stof = {titel, html, anim?, films?} voor 'Uitleg van de stof' */
+function vraag(pts,t,build,stof){const id=++QN;Q.push({id,pts,t,build:q=>build(q,id)});
+  if(stof&&window.EXSTOF)EXSTOF.zet(TOOL,[id],stof);return id;}
+function opgave(kort,titel,html,ids){const nr=++ON;
+  const kop=html?`Toetstekst · inleiding opgave ${nr}`:`Toetstekst · opgave ${nr}`;
+  OPG.push({nr,kort,titel,ids,ctx:`<div class="pkop"><span class="mono">${kop}</span></div>`+(html||`<p class="muted" style="margin:0">Bij deze opgave hoort geen inleiding: de vragen staan op zichzelf.</p>`)});}
+/* films van het thema (hrefs als in HOOFDSTUKKEN.voeding.films) */
+const F={
+  eten:["Wat zit er in je eten?","films/voeding/1-wat-zit-er-in-je-eten.html"],
+  reis:["De reis door je buik","films/voeding/2-de-reis-door-je-buik.html"],
+  enz:["Knippen op maat","films/voeding/3-knippen-op-maat.html"],
+  darm:["Van darm naar bloed","films/voeding/4-van-darm-naar-bloed.html"],
+  lever:["De lever als fabriek","films/voeding/5-de-lever-als-fabriek.html"],
+  bact:["Je darmbewoners","films/voeding/6-je-darmbewoners.html"],
+  supp:["Supplementen en superfoods","films/voeding/7-supplementen-en-superfoods.html"]};
+/* begin van een vraag: vraagzin, hulp- en antwoordvak */
+function start(q,html){q.append(el("p",{class:"qtext"},html));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  return {think,ans,unlock};}
+const B=t=>`<b>${t}</b>`;
+const UITSPRAKEN=(lijst,slot)=>lijst.map((t,k)=>`${k+1} ${t}`).join("<br>")+`<br><br><b>${slot}</b>`;
+/* getal uit een invoerveld: spaties (ook 44 400) en een komma mogen */
+const getal=s=>parseFloat(String(s||"").replace(/[\s  ]/g,"").replace(",","."));
+const fmt=(v,d=0)=>v.toFixed(d).replace(".",",").replace(/\B(?=(\d{3})+(?!\d))/g," ");
+/* rekenantwoord met meerdere velden, 1 punt per veld; check(v, alle waarden) -> goed? */
+function NUM(ans,{id,fields,after}){
+  const inps=fields.map(([lab,unit],k)=>{const r=el("div",{class:"row"});const fid="q"+id+"f"+k;
+    r.append(el("label",{for:fid,class:"sellab"},lab));const i=el("input",{class:"num",id:fid,inputmode:"decimal"});r.append(i,el("span",{class:"muted"},unit));ans.append(r);return i;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{const v=inps.map(i=>getal(i.value));if(v.some(isNaN)){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul eerst alle uitkomsten in.";return;}
+    inps.forEach(i=>i.disabled=true);ck.remove();const res=fields.map((f,k)=>!!f[2](v[k],v));const p=res.filter(Boolean).length;
+    fb.hidden=false;fb.className="fb "+(p===fields.length?"ok":"no");
+    fb.innerHTML=`<b>${p} van de ${fields.length} ${fields.length===1?"punt":"punten"}.</b><br>`+fields.map((f,k)=>`${res[k]?"✓":"✗"} ${f[3]}`).join("<br>");setScore(id,p);after&&after();};
+}
+
+/* Afbeelding 1 van opgave 3: activiteit van de wasmiddelprotease (zelfde fictieve waarden als
+   eigen/figuren/voeding/maak.py in kamieljacobs/toetsen-biologie). opties: hl = [temperaturen] om te markeren,
+   lijn = [[t1,t2]] hulplijnen naar de as, opt = optimum tonen. */
+const PROT={t:[0,10,20,30,40,50,60,70,80],a:[5,12,30,55,80,100,70,20,0]};
+function GRAFIEK({hl=[],lijn=false,opt=false}={}){
+  const X0=70,X1=600,Y0=330,Y1=30,xs=t=>X0+t*(X1-X0)/85,ys=a=>Y0-a*(Y0-Y1)/110;
+  let s="";
+  [0,10,20,30,40,50,60,70,80].forEach(t=>s+=`<path d="M${xs(t)},${Y1} V${Y0}" stroke="var(--line)" stroke-width="1"/><text x="${xs(t)}" y="${Y0+20}" text-anchor="middle" class="lblm">${t}</text>`);
+  [0,20,40,60,80,100].forEach(a=>s+=`<path d="M${X0},${ys(a)} H${X1}" stroke="var(--line)" stroke-width="1"/><text x="${X0-10}" y="${ys(a)+4}" text-anchor="end" class="lblm">${a}</text>`);
+  s+=`<path d="M${X0},${Y1} V${Y0} H${X1}" fill="none" stroke="var(--text2)" stroke-width="1.4"/>`;
+  s+=`<path d="${PROT.t.map((t,i)=>`${i?"L":"M"}${xs(t).toFixed(1)},${ys(PROT.a[i]).toFixed(1)}`).join(" ")}" fill="none" stroke="var(--text)" stroke-width="2.2" stroke-linejoin="round"/>`;
+  PROT.t.forEach((t,i)=>{const on=hl.includes(t);
+    if(on&&lijn)s+=`<path d="M${xs(t)},${ys(PROT.a[i])} V${Y0} M${xs(t)},${ys(PROT.a[i])} H${X0}" stroke="var(--goud)" stroke-width="1.6" stroke-dasharray="5 4"/>`;
+    s+=`<circle cx="${xs(t)}" cy="${ys(PROT.a[i])}" r="${on?7:4}" fill="${on?"var(--goud)":"var(--text)"}"/>`;
+    s+=`<text x="${xs(t)}" y="${ys(PROT.a[i])-11}" text-anchor="middle" class="lbl">${PROT.a[i]}</text>`;});
+  if(opt)s+=`<text x="${xs(50)+12}" y="${ys(100)+18}" class="lbl" style="fill:var(--goud-text)">optimum</text>`;
+  s+=`<text x="${(X0+X1)/2}" y="${Y0+44}" text-anchor="middle" class="lblm">temperatuur (°C)</text>`;
+  s+=`<text x="18" y="${(Y0+Y1)/2}" text-anchor="middle" class="lblm" transform="rotate(-90 18 ${(Y0+Y1)/2})">activiteit protease (%)</text>`;
+  return `<div class="vdfig" style="max-width:620px;margin:0 auto;width:100%;--min:520px">`+svgWrap("0 0 620 390",s,"Grafiek: activiteit van de protease bij 0 tot 80 graden Celsius")+`</div>`;}
+
+/* ===== Opgave 1: Voedingsstoffen (havo K102 + K107, vwo K104 + K107; film 1) ===== */
+{
+const STOF_VS={titel:"Voedingsstoffen en hun taken",html:`
+<p>Biologen sorteren de stoffen in je eten in <b>zes groepen voedingsstoffen</b>: koolhydraten, eiwitten, vetten, water, mineralen en vitaminen. Daarnaast zitten er <b>voedingsvezels</b> in plantaardig voedsel, die je zelf niet verteert.</p>
+<p>Je lichaam gebruikt voedingsstoffen voor vier taken:</p>
+<ul style="margin:0;padding-left:20px"><li><b>bouwstof</b>: om je lichaam te maken en te herstellen;</li><li><b>brandstof</b>: om energie uit te halen;</li><li><b>reservestof</b>: om energie te bewaren voor later;</li><li><b>regelstof</b>: om de stofwisseling goed te laten lopen.</li></ul>
+<p>Eén stof kan meer dan één taak hebben. De energie in voedsel druk je uit in kilojoule (kJ).</p>`,
+films:[F.eten]};
+const STOF_AZ={titel:"Eiwit en aminozuren",html:`
+<p>Een eiwit is een lange keten van bouwstenen: <b>aminozuren</b>. Er zijn twintig soorten. Het eiwit uit je eten knip je eerst in losse aminozuren; daarmee bouw je je eigen eiwitten, zoals enzymen, hormonen, antistoffen en spiereiwit.</p>
+<p>De meeste aminozuren kan je lichaam zelf maken uit andere stoffen. Een paar niet: die moeten in je voeding zitten. Dat zijn de <b>essentiële aminozuren</b>.</p>`,
+films:[F.eten,F.lever]};
+
+const ids=[];
+
+
+ids.push(vraag(2,"rekenen met het etiket van havermout",(q,id)=>{
+  pre(q,"<p>Op een pak havermout staat per 100 gram: 13 g eiwit, 7 g vet, 59 g koolhydraten en 10 g voedingsvezel. Eiwit en koolhydraat leveren 17 kJ per gram, vet 37 kJ per gram. Reken de vezels niet mee.</p>");
+  const {think,ans,unlock}=start(q,B("Bereken hoeveel kJ een portie van 40 gram havermout levert."));
+  numStep(think,{uid:"q"+id+"n",q:"Hoeveel kJ leveren de 13 g eiwit in 100 g havermout?",right:221,
+    ok:"Ja: 13 × 17 = 221 kJ. Reken zo ook het vet en de koolhydraten uit en tel alles op.",no:"Vermenigvuldig het aantal gram met het aantal kJ per gram.",
+    onDone:()=>choiceStep(think,{q:"Je weet de energie in 100 g. Hoe reken je dat om naar een portie van 40 g?",opts:["× 0,40","÷ 40","× 40"],right:0,
+      ok:"Goed. Vul nu beide uitkomsten in.",no:"40 g is minder dan 100 g. Welk deel van 100 g is 40 g?",onDone:unlock})});
+  NUM(ans,{id,fields:[
+    ["energie in 100 g havermout","kJ",v=>Math.abs(v-1483)<=3||(v>=590&&v<=595),"13 × 17 + 7 × 37 + 59 × 17 = 221 + 259 + 1003 = 1483 kJ per 100 g (meteen met de grammen per 40 g rekenen is ook goed)"],
+    ["energie in een portie van 40 g","kJ",(v,a)=>(v>=590&&v<=595)||(a[0]>0&&!(a[0]>=590&&a[0]<=595)&&Math.abs(v-a[0]*0.4)<=Math.max(2,a[0]*0.004)),"1483 × 0,40 = 593 kJ (590–595 kJ is goed). Rekenfout in de eerste stap maar daarna goed doorgerekend: dit punt telt wel."]],
+    after:()=>waaromBtn(ans,textBox("Per 100 g: eiwit 13 × 17 = 221 kJ, vet 7 × 37 = 259 kJ, koolhydraten 59 × 17 = 1003 kJ. Samen <b>1483 kJ</b>. Een portie van 40 g is 0,40 deel daarvan: 1483 × 0,40 ≈ <b>593 kJ</b>. De 10 g vezels tel je niet mee: die verteer je zelf niet."))});
+  q.append(think,ans);
+},STOF_VS));
+
+ids.push(vraag(2,"Sanne eet bijna alleen graaneiwit",(q,id)=>{
+  pre(q,"<p>Sanne is vegan. Ze eet genoeg eiwit, maar bijna alleen uit granen (brood, pasta, rijst).</p>");
+  const {think,ans,unlock}=start(q,B("Leg in twee stappen uit waarom Sanne toch minder eigen eiwit kan bouwen dan je op grond van de hoeveelheid eiwit zou verwachten. Beschrijf ook wat er gebeurt met de aminozuren die zij over heeft."));
+  choiceStep(think,{q:"Wat is een essentieel aminozuur?",opts:["een aminozuur dat je lichaam niet zelf kan maken","een aminozuur dat alleen in vlees zit","het aminozuur waarvan een eiwit het meest bevat"],right:0,
+    ok:"Ja: dat moet in je voeding zitten. Wat gebeurt er als er van zo'n aminozuur te weinig is?",no:"Denk aan wat ‘essentieel’ betekent: je kunt niet zonder, en je lichaam kan het niet zelf …",
+    onDone:()=>choiceStep(think,{q:"Kan je lichaam aminozuren die je over hebt bewaren als voorraad, zoals vet of glycogeen?",opts:["ja, in een eiwitvoorraad in de spieren","nee, een aparte eiwitvoorraad bestaat niet"],right:1,
+      ok:"Klopt. Bedenk dus ook wat er met de overgebleven aminozuren gebeurt, en in welk orgaan.",no:"Spieren zijn geen voorraad: elk eiwit in je lichaam heeft een taak.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Granen bevatten van één <b>essentieel aminozuur weinig</b>; dat aminozuur is het eerst op en <b>bepaalt hoeveel eiwit</b> ze kan bouwen.",
+    "De overige aminozuren worden in de <b>lever afgebroken</b>: het stikstofdeel wordt <b>ureum</b>, de rest brandstof of vet."],
+    model:"In granen zit van één essentieel aminozuur weinig. Sanne kan dat aminozuur niet zelf maken, dus als het op is, kunnen eiwitten met die bouwsteen niet af. Dat aminozuur bepaalt hoeveel eiwit ze kan bouwen. De andere aminozuren die ze dan over heeft, worden in de lever afgebroken: het stikstofdeel wordt ureum, de rest wordt brandstof of vet.",
+    valkuil:"Ook goed bij het eerste punt: ‘ze moet granen combineren met peulvruchten’, als je uitlegt dat die elkaar aanvullen. ‘Plantaardig eiwit mist aminozuren’ is 0 punten: plantaardig voedsel bevat alle negen essentiële aminozuren, alleen van sommige weinig."});
+  q.append(think,ans);
+},STOF_AZ));
+
+opgave("Voedingsstoffen","Voedingsstoffen","",ids);
+}
+
+/* ===== Opgave 2: De reis door je buik (K207 gal, K209 darminfectie; film 2, ook film 3) ===== */
+{
+const STOF_VERT={titel:"Mechanische en chemische vertering",html:`
+<p>Je eten gaat door één lange buis, van mond tot anus: het <b>spijsverteringskanaal</b>. Onderweg spuiten klieren er sappen in.</p>
+<ul style="margin:0;padding-left:20px"><li><b>Mechanische vertering</b>: het eten wordt in kleinere stukjes verdeeld, bijvoorbeeld door kauwen of door het kneden van de maag. De moleculen blijven hetzelfde.</li>
+<li><b>Chemische vertering</b>: enzymen knippen grote moleculen in kleine moleculen.</li></ul>
+<p>Hoe kleiner de stukjes, hoe meer oppervlak er is waarop verteringssappen kunnen werken.</p>`,
+films:[F.reis,F.enz]};
+const STOF_DIKKE={titel:"Peristaltiek en de dikke darm",html:`
+<p>In de wand van het hele spijsverteringskanaal zitten kringspieren. Achter de darminhoud knijpen ze samen, ervoor ontspannen ze: zo schuift een golf de inhoud verder. Die knijpbeweging heet <b>peristaltiek</b>.</p>
+<p>Elke dag komt er zo'n negen liter vocht in je darmen: wat je drinkt, plus speeksel, maagsap, gal, alvleessap en darmsap. Het meeste neemt de dunne darm weer op. De <b>dikke darm</b> verteert zelf bijna niets; zijn belangrijkste taak is de rest van het water terugnemen: <b>waterresorptie</b>.</p>`,
+films:[F.reis,F.bact]};
+
+/* klik-animatie bij 'Laat zien waarom': gal emulgeert vet */
+function GAL(stap){
+  let s=`<rect x="0" y="0" width="560" height="230" fill="none"/>`;
+  const vet=(cx,cy,r)=>`<circle cx="${cx}" cy="${cy}" r="${r}" fill="var(--goud-soft)" stroke="var(--goud)" stroke-width="2"/>`;
+  const enz=(x,y)=>`<g transform="translate(${x},${y})"><path d="M-7,-6 a8,8 0 1,0 0,12 l6,-6 z" fill="var(--teal)"/></g>`;
+  if(stap===0){s+=vet(280,115,80);[[188,115],[372,115],[280,23],[280,207]].forEach(([x,y])=>s+=enz(x,y));
+    s+=`<text x="280" y="120" text-anchor="middle" class="lbl">één grote vetdruppel</text>`;}
+  else if(stap===1){const d=[[120,60],[190,140],[260,70],[330,150],[400,65],[455,150],[150,190],[300,205],[420,205],[90,130],[360,100],[230,190]];
+    d.forEach(([x,y])=>{s+=vet(x,y,20);s+=enz(x+24,y-6);});
+    s+=`<text x="280" y="20" text-anchor="middle" class="lbl">dezelfde hoeveelheid vet in kleine druppeltjes</text>`;}
+  else{const mol=(x,y)=>`<g transform="translate(${x},${y})"><rect x="-6" y="-26" width="12" height="52" rx="5" fill="var(--text2)"/><path d="M6,-20 h52 M6,0 h52 M6,20 h52" stroke="var(--goud)" stroke-width="4" stroke-linecap="round"/></g>`;
+    s+=`<circle cx="140" cy="115" r="78" fill="var(--goud-soft)" stroke="var(--goud)" stroke-width="2"/>`+mol(110,115);
+    s+=`<path d="M235,115 h80" stroke="var(--text2)" stroke-width="2" marker-end="url(#galp)"/><defs><marker id="galp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--text2)"/></marker></defs>`;
+    s+=`<circle cx="420" cy="115" r="40" fill="var(--goud-soft)" stroke="var(--goud)" stroke-width="2"/>`+mol(392,115);
+    s+=`<text x="280" y="215" text-anchor="middle" class="lbl">het vetmolecuul zelf is na het emulgeren nog precies hetzelfde</text>`;}
+  return svgWrap("0 0 560 230",s,"Gal verdeelt vet in kleine druppeltjes");}
+
+const ids=[];
+ids.push(vraag(2,"hoe gal helpt bij vet",(q,id)=>{
+  pre(q,"<p>Gal is geen enzym, maar helpt wel bij de vertering van vet.</p>");
+  const {think,ans,unlock}=start(q,B("a Leg uit hoe gal helpt.<br>b Is dat mechanische of chemische vertering? Leg je antwoord uit."));
+  choiceStep(think,{q:"Wat is het verschil tussen mechanische en chemische vertering?",opts:["mechanisch: de stukjes worden kleiner, de moleculen blijven hetzelfde; chemisch: moleculen worden geknipt","mechanisch gebeurt in de mond, chemisch in de darm","mechanisch gebeurt met spieren, chemisch met zuur"],right:0,
+    ok:"Goed. Daarmee kun je b beantwoorden. Nu a.",no:"Het verschil zit niet in de plek, maar in wat er met de moleculen gebeurt.",
+    onDone:()=>choiceStep(think,{q:"Een blokje boter of dezelfde boter verdeeld over heel veel kleine druppeltjes: waarbij kan een enzym op meer plekken tegelijk werken?",opts:["bij het blokje","bij de kleine druppeltjes","het maakt niet uit"],right:1,
+      ok:"Ja. Bedenk nu wat gal met het vet doet.",no:"Een enzym kan alleen aan de buitenkant van een druppel werken. Waar is meer buitenkant?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "a: gal verdeelt vet in <b>kleine druppeltjes</b> (emulgeren), waardoor de vetverterende enzymen er <b>beter bij kunnen</b> / een groter oppervlak hebben.",
+    "b: <b>mechanisch</b>, want de vetmoleculen blijven heel (er wordt niets geknipt)."],
+    model:"a Gal verdeelt het vet in heel veel kleine druppeltjes: emulgeren. Daardoor is er veel meer oppervlak, en kunnen de vetverterende enzymen er beter bij. b Dat is mechanische vertering: de druppels worden kleiner, maar de vetmoleculen blijven heel.",
+    valkuil:"‘Mechanisch’ zonder uitleg levert voor b 0 punten op.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Eén grote vetdruppel: de vetverterende enzymen (blauw) kunnen alleen aan de buitenkant knippen."},
+      {cap:"Gal verdeelt hetzelfde vet in kleine druppeltjes (emulgeren). Samen hebben die veel meer buitenkant: veel meer enzymen kunnen tegelijk knippen."},
+      {cap:"De vetmoleculen zelf blijven heel: gal knipt niets en is geen enzym. Daarom is emulgeren <b>mechanische</b> vertering."}],
+      (st,s,i)=>st.innerHTML=GAL(i)))});
+  q.append(think,ans);
+},STOF_VERT));
+
+ids.push(vraag(2,"waterige ontlasting bij een darminfectie",(q,id)=>{
+  pre(q,"<p>Bij een darminfectie wordt de ontlasting waterig.</p>");
+  const {think,ans,unlock}=start(q,B("Geef twee oorzaken."));
+  choiceStep(think,{q:"Wat is de belangrijkste taak van de dikke darm?",opts:["voedsel verteren","water terugnemen","vet opnemen"],right:1,
+    ok:"Ja. Ontlasting wordt waterig als er meer water in de darm overblijft dan de darm terugneemt.",no:"De dikke darm verteert zelf bijna niets.",
+    onDone:()=>choiceStep(think,{q:"Op welke twee manieren kan er meer water in de dikke darm overblijven?",opts:["de darm neemt minder water terug, of er komt extra vocht bij","je drinkt meer, of je eet minder","je maag maakt meer zuur, of je speeksel minder slijm"],right:0,
+      ok:"Goed. Bedenk nu bij beide manieren wat een infectie in de dikke darm doet.",no:"Het gaat om wat er in de darm zelf gebeurt, niet om wat je eet of drinkt.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "De <b>peristaltiek</b> in de dikke darm is <b>sneller</b>, zodat er te weinig tijd is om water terug te nemen (waterresorptie).",
+    "De aangetaste darmwand maakt (lekt) <b>extra vocht</b>."],
+    model:"Bij een darminfectie gaat de peristaltiek in de dikke darm sneller. De inhoud zit er dan te kort in, en er is te weinig tijd om het water terug te nemen. Daarnaast maakt de aangetaste darmwand zelf extra vocht aan."});
+  q.append(think,ans);
+},STOF_DIKKE));
+
+opgave("De reis door je buik","De reis door je buik","",ids);
+}
+
+/* ===== Opgave 3: Enzymen in de was (eigen vragen B1, B2, B4 havo / B5 vwo, B6; film 3, film 7) ===== */
+{
+const STOF_ENZ={titel:"Hoe een enzym werkt",html:`
+<p>Een <b>enzym</b> is een eiwit dat een reactie heel veel sneller laat gaan. Het enzym zelf raakt daarbij niet op.</p>
+<p>Op één plek heeft een enzym een kuiltje met een precieze vorm: het <b>actieve centrum</b>. De stof die het enzym omzet, heet het <b>substraat</b>. Past het substraat in het actieve centrum, dan knipt het enzym een binding door, met een watermolecuul: <b>hydrolyse</b>. Wat er na de reactie overblijft, zijn de <b>producten</b>.</p>
+<p>Hoe snel een enzym werkt, hangt af van de temperatuur en de pH. Bij het <b>optimum</b> werkt het enzym het snelst. Wordt het te warm, dan verandert het enzym blijvend van vorm (<b>denatureren</b>) en past het substraat niet meer.</p>`,
+films:[F.enz]};
+const STOF_SPEC={titel:"Elk enzym zijn eigen stof",html:`
+<p>Elk enzym knipt maar één soort stof: het is <b>substraatspecifiek</b>, zoals een sleutel die maar op één slot past. Daarom heb je voor je eten een hele set ‘scharen’ nodig.</p>
+<p>Je herkent ze vaak aan de naam: veel verteringsenzymen eindigen op <b>-ase</b>, en vaak zit het substraat in de naam. Maltose wordt geknipt door maltase, lactose door lactase. Eiwitsplitsende enzymen heten samen <b>proteasen</b>.</p>`,
+films:[F.enz]};
+const STOF_EIGEN={titel:"Enzympillen en claims",html:`
+<p>Je lichaam maakt zelf alle enzymen die nodig zijn om zetmeel, eiwit en vet te verteren. Ze komen uit de speekselklieren, de maagwand, de alvleesklier en de wand van de dunne darm. Een gezond mens heeft dus geen enzymen uit een pil nodig.</p>
+<p>Op een verpakking of website mag een fabrikant veel beweren. Zo'n bewering heet een <b>claim</b>. Een claim is nog geen bewijs: of een middel werkt en of het veilig is, moet blijken uit onderzoek. Vraag je bij elke claim af waarop hij rust.</p>`,
+films:[F.enz,F.supp]};
+
+const ids=[];
+ids.push(vraag(2,"waarom de eigeelvlek eruit gaat",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Leg uit waardoor een eigeelvlek er met dit wasmiddel uit gaat, maar met hetzelfde wasmiddel zonder protease niet. Gebruik de begrippen substraat en product."));
+  choiceStep(think,{q:"Wat is het substraat van een enzym?",opts:["de stof die het enzym omzet","de stof die na de reactie overblijft","het kuiltje in het enzym"],right:0,
+    ok:"Ja. Welke stof in de eigeelvlek past in het actieve centrum van een protease?",no:"De stof die overblijft is het product; het kuiltje is het actieve centrum.",
+    onDone:()=>choiceStep(think,{q:"Wat zijn de producten als een protease een lange eiwitketen knipt?",opts:["kleine stukjes: korte ketens en aminozuren","grotere eiwitten","het enzym zelf"],right:0,
+      ok:"Goed. Bedenk nu wat het verschil in grootte betekent voor de vlek in de was.",no:"Een protease knipt eiwit door. Worden de stukken dan groter of kleiner?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Het eiwit uit het eigeel is het <b>substraat</b> van de protease: het past in het actieve centrum en wordt (met water, hydrolyse) <b>geknipt</b>.",
+    "De <b>producten</b> zijn kleine stukjes (aminozuren / korte ketens) die in het waswater <b>oplossen en wegspoelen</b>; zonder enzym blijven de lange ketens aan de stof."],
+    model:"Het eiwit uit het eigeel is het substraat van de protease. Het past in het actieve centrum en de protease knipt de lange eiwitketens door. De producten zijn kleine stukjes, korte ketens en aminozuren. Die lossen op in het waswater en spoelen weg. Zonder protease blijven de lange eiwitketens aan de stof plakken.",
+    valkuil:"‘Het enzym lost de vlek op’ zonder dat het eiwit geknipt wordt: 0 punten."});
+  q.append(think,ans);
+},STOF_ENZ));
+
+ids.push(vraag(2,"aflezen in de grafiek",(q,id)=>{
+  pre(q,"<p>Gebruik de waarden in afbeelding 1.</p>");
+  const {think,ans,unlock}=start(q,B("a Bij welke temperatuur ligt het optimum van deze protease?<br>b Iemand wast op 20 °C in plaats van op 40 °C. Hoeveel keer zo hoog is de activiteit bij 40 °C als bij 20 °C?"));
+  choiceStep(think,{q:"Wat is het optimum van een enzym?",opts:["de temperatuur waarbij het enzym het snelst werkt","de hoogste temperatuur waarbij het enzym nog werkt","altijd 37 °C, je lichaamstemperatuur"],right:0,
+    ok:"Ja. Zoek in afbeelding 1 het hoogste punt.",no:"Het optimum is geen grens en ook niet voor elk enzym hetzelfde.",
+    onDone:()=>numStep(think,{uid:"q"+id+"n",q:"Oefen eerst met aflezen: hoeveel procent activiteit heeft de protease bij 30 °C?",right:55,
+      ok:"Goed: 55 %. Lees nu de waarden bij 20 °C en 40 °C af en deel de grootste door de kleinste.",no:"Zoek 30 op de horizontale as en kijk welk getal bij dat punt staat.",onDone:unlock})});
+  NUM(ans,{id,fields:[
+    ["a optimum","°C",v=>v===50,"het optimum ligt bij 50 °C (activiteit 100 %)"],
+    ["b keer zo hoog","keer",v=>v>=2.5&&v<=3,"80 / 30 = 2,7 keer (ongeveer 2,5 tot 3 is goed)"]],
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"a Het hoogste punt van de kromme ligt bij <b>50 °C</b>: activiteit 100 %. Daar werkt de protease het snelst: het optimum.",hl:[50],opt:true},
+      {cap:"b Bij 20 °C is de activiteit 30 %, bij 40 °C 80 %.",hl:[20,40],lijn:true},
+      {cap:"80 / 30 = <b>2,7</b>: bij 40 °C knipt de protease bijna drie keer zo snel. Kouder wassen kan wel, maar de vlek gaat er minder goed uit.",hl:[20,40],lijn:true}],
+      (st,s)=>st.innerHTML=GRAFIEK({hl:s.hl,lijn:s.lijn,opt:s.opt})))});
+  q.append(think,ans);
+},STOF_ENZ));
+
+
+
+ids.push(vraag(2,"knippen in het midden of aan het uiteinde",(q,id)=>{
+  pre(q,"<p>De fabrikant kan kiezen uit een protease die eiwitketens midden in de keten knipt en een protease die steeds één aminozuur van het uiteinde knipt.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit welke protease een eiwitvlek het snelst losmaakt."));
+  choiceStep(think,{q:"Wanneer lossen de eiwitketens van de vlek op in het waswater?",opts:["pas als ze helemaal in losse aminozuren geknipt zijn","als ze in stukken geknipt zijn die klein genoeg zijn","als ze van vorm veranderen"],right:1,
+    ok:"Ja: korte stukken lossen al op. Vergelijk nu wat één knip doet bij elke protease.",no:"Ook korte ketens van een paar aminozuren lossen al op.",
+    onDone:()=>choiceStep(think,{q:"Een keten van 100 aminozuren wordt één keer midden in de keten geknipt. Wat levert dat op?",opts:["twee stukken van ongeveer 50 aminozuren","een stuk van 99 aminozuren en één los aminozuur","100 losse aminozuren"],right:0,
+      ok:"Goed. Bedenk nu wat één knip aan het uiteinde oplevert, en welke protease dus sneller kleine stukken maakt.",no:"Knippen in het midden verdeelt de keten in twee delen.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "De protease die <b>midden in de keten</b> knipt (endopeptidase): elke knip breekt een lange keten in <b>twee kortere stukken</b>.",
+    "Na weinig knippen zijn de stukken <b>klein genoeg om op te lossen</b>; aan het uiteinde knippen (exopeptidase) maakt de keten per knip maar <b>één aminozuur korter</b>."],
+    model:"De protease die midden in de keten knipt, een endopeptidase. Elke knip maakt van een lange keten twee kortere stukken, dus na een paar knippen zijn de stukken al klein genoeg om op te lossen. Een exopeptidase knipt per keer maar één aminozuur van het uiteinde: de lange keten wordt per knip maar één aminozuur korter en blijft lang aan de stof plakken."});
+  q.append(think,ans);
+},STOF_ENZ));
+
+ids.push(vraag(2,"enzympillen: natuurlijk en 8 van de 10",(q,id)=>{
+  pre(q,"<p>Dezelfde fabrikant verkoopt ook “enzympillen voor een betere spijsvertering”, met protease, amylase en lipase uit planten. Op de website staat: “100 % natuurlijk, dus veilig. 8 van de 10 klanten voelen zich minder opgeblazen.” (fictieve gegevens)</p>");
+  const {think,ans,unlock}=start(q,B("Geef bij elk van de twee beweringen een kritische opmerking."));
+  chipsStep(think,{q:"Welke vragen stel je bij een claim? Kies alles wat klopt.",items:[["Vergeleken met wat?",1],["Hoeveel effect?",1],["Wie betaalde het onderzoek?",1],["Ziet de verpakking er betrouwbaar uit?",0]],
+    ok:"Goed. Gebruik die vragen bij de tweede bewering.",no:"Eén keuze zegt niets over of een middel werkt.",
+    onDone:()=>choiceStep(think,{q:"Waaruit kun je afleiden dat een pil veilig is?",opts:["uit goed onderzoek naar de werking en de bijwerkingen","uit de plek waar de stof vandaan komt","uit het aantal mensen dat de pil koopt"],right:0,
+      ok:"Ja. Denk nu aan een voorbeeld uit de film over supplementen, en bedenk wat dat zegt over de eerste bewering.",no:"Ook planten maken stoffen die schadelijk kunnen zijn.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "“Natuurlijk, dus veilig”: <b>natuurlijk is niet automatisch veilig</b> (bijvoorbeeld bètacaroteenpillen gaven rokers meer longkanker).",
+    "“8 van de 10 klanten”: zonder <b>controlegroep met een placebo</b> weet je niet hoeveel klanten zich ook zonder pil beter hadden gevoeld (placebo-effect) / de fabrikant verdient eraan."],
+    model:"Bij ‘natuurlijk, dus veilig’: een natuurlijke stof is niet automatisch veilig. Bètacaroteen komt uit wortels, maar pillen ervan gaven rokers juist meer longkanker. Bij ‘8 van de 10 klanten’: er is geen controlegroep die een placebo kreeg. Door het placebo-effect hadden misschien ook zonder pil veel klanten zich beter gevoeld. Bovendien verdient de fabrikant aan de pillen."});
+  q.append(think,ans);
+},STOF_EIGEN));
+
+opgave("Enzymen in de was","Enzymen in de was",`
+<p>Een wasmiddel bevat een protease: een enzym dat eiwitten knipt. Een vlek van eigeel of bloed bestaat voor een groot deel uit eiwit. De lange eiwitketens plakken aan de stof.</p>
+<p>Een fabrikant meet hoe actief de protease uit zijn wasmiddel is bij verschillende temperaturen. In afbeelding 1 staat het resultaat.</p>
+<div class="eyebrow">afbeelding 1 (fictieve, vereenvoudigde gegevens)</div>${GRAFIEK()}`,ids);
+}
+
+/* ===== Opgave 4: Van darm naar bloed (havo K401, vwo K403; K408; film 4) ===== */
+{
+const STOF_WAND={titel:"Vaten in de darmwand",html:`
+<p>In de wand van de dunne darm liggen twee soorten vaatjes: een netwerk van <b>haarvaten</b> en <b>lymfevaten</b>. Een lymfevat voert vocht uit het weefsel af; dat vocht heet <b>lymfe</b>.</p>
+<p>De wand van een haarvat en de wand van een lymfevat zijn verschillend gebouwd. Welke stoffen erdoor kunnen, hangt onder andere af van hoe groot ze zijn.</p>`,
+films:[F.darm]};
+
+const STOF_DUNNE={titel:"Verteren en opnemen in de dunne darm",html:`
+<p>In de dunne darm komen gal en alvleessap bij het voedsel, en de enzymen uit de darmwand maken de vertering af. Wat overblijft zijn kleine moleculen, zoals glucose en aminozuren.</p>
+<p>Die moleculen moeten door de binnenwand van de darm naar het bloed: dat heet <b>opname</b> of <b>resorptie</b>. De binnenwand is bekleed met één laag cellen, de <b>darmepitheelcellen</b>. Elk molecuul gaat door het membraan van zo'n cel naar binnen en er aan de andere kant weer uit. Vlak onder de cellen liggen de haarvaten.</p>`,
+films:[F.darm]};
+const STOF_OPN={titel:"Glucose de cel in",html:`
+<p>Glucose gaat niet zomaar door het celmembraan van een darmepitheelcel: het gaat door <b>transporteiwitten</b> in het membraan. Zo'n transporteiwit past alleen op moleculen met de juiste vorm, zoals een enzym op zijn substraat.</p>
+<p>De <b>concentratie</b> van een stof is hoeveel ervan in een bepaalde hoeveelheid vocht is opgelost. Hoeveel glucose er in de darm zit, verandert in de loop van de vertering. De epitheelcel geeft de glucose aan de andere kant weer af, naar het bloed.</p>`,
+films:[F.darm]};
+
+/* klik-animatie: twee routes naar het hart */
+function ROUTES(stap){
+  const box=(x,y,w,t,on,kl)=>`<rect x="${x}" y="${y}" width="${w}" height="34" rx="8" fill="${on?kl+"-soft)":"var(--surface2)"}" stroke="${on?kl+")":"var(--line2)"}" stroke-width="1.6"/><text x="${x+w/2}" y="${y+22}" text-anchor="middle" class="lbl">${t}</text>`;
+  const pijl=(x1,y1,x2,y2,on,kl)=>`<path d="M${x1},${y1} L${x2},${y2}" stroke="${on?kl+")":"var(--line2)"}" stroke-width="${on?2.6:1.6}" marker-end="url(#rp${on?kl.slice(6):"x"})"/>`;
+  const G="var(--groen",O="var(--goud";const g=stap===1||stap===3,o=stap===2||stap===3;
+  let s=`<defs>${[["groen","var(--groen)"],["goud","var(--goud)"],["x","var(--line2)"]].map(([k,c])=>`<marker id="rp${k}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="${c}"/></marker>`).join("")}</defs>`;
+  s+=box(20,128,120,"darmvlok",stap>0,stap===2?O:G);
+  s+=box(190,40,140,"haarvat",g,G)+box(370,40,110,"poortader",g,G)+box(520,40,70,"lever",g,G)+box(520,128,70,"hart",stap>0,stap===2?O:G);
+  s+=box(190,216,140,"lymfevat",o,O)+box(370,216,140,"borstbuis",o,O);
+  s+=`<text x="555" y="235" text-anchor="middle" class="lblm">ader bij het</text><text x="555" y="250" text-anchor="middle" class="lblm">sleutelbeen</text>`;
+  s+=pijl(140,138,190,62,g,G)+pijl(330,57,368,57,g,G)+pijl(480,57,518,57,g,G)+pijl(555,74,555,126,g,G);
+  s+=pijl(140,158,190,228,o,O)+pijl(330,233,368,233,o,O)+pijl(510,225,540,164,o,O);
+  if(g)s+=`<text x="260" y="30" text-anchor="middle" class="lblm">glucose, aminozuren</text>`;
+  if(o)s+=`<text x="260" y="270" text-anchor="middle" class="lblm">vet (als bolletjes)</text>`;
+  return `<div class="vdfig" style="max-width:610px;margin:0 auto;width:100%;--min:520px">`+svgWrap("0 0 610 280",s,"Twee routes van de darmvlok naar het hart")+`</div>`;}
+
+const ids=[];
+
+
+ids.push(vraag(2,"glucose: eerst diffusie, later actief transport",(q,id)=>{
+  pre(q,"<p>Vlak na een maaltijd gaat een deel van de glucose door diffusie de epitheelcel in. Later gaat het door actief transport.</p>");
+  const {think,ans,unlock}=start(q,B("a Leg uit waarom de opname vlak na de maaltijd door diffusie kan.<br>b Wat is het verschil tussen diffusie en actief transport? Noem twee verschillen."));
+  choiceStep(think,{q:"Vlak na de maaltijd: waar is de glucoseconcentratie het hoogst?",opts:["in de darm","in de epitheelcel","overal even hoog"],right:0,
+    ok:"Ja. Bedenk welke kant diffusie op gaat.",no:"Je hebt net gegeten: waar zit dan de meeste glucose?",
+    onDone:()=>choiceStep(think,{q:"Later is er minder glucose in de darm dan in de cel. Kan de glucose dan nog door diffusie de cel in?",opts:["ja","nee"],right:1,
+      ok:"Klopt: dan is er een andere manier nodig. Bedenk bij b hoe die manier verschilt van diffusie.",no:"Diffusie gaat altijd van veel naar weinig.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "a: er is dan <b>veel glucose in de darm en weinig in de cel</b>; diffusie gaat van veel naar weinig.",
+    "b: actief transport gaat <b>tegen het verschil in</b> (van weinig naar veel) <b>en kost de cel energie</b>; diffusie niet. (Beide verschillen nodig.)"],
+    model:"a Vlak na de maaltijd zit er veel glucose in de darm en weinig in de cel. Diffusie gaat van veel naar weinig, dus de glucose gaat vanzelf de cel in. b Actief transport gaat tegen het verschil in, van weinig naar veel, en kost de cel energie. Diffusie gaat met het verschil mee en kost geen energie.",
+    valkuil:"Voor b moeten beide verschillen genoemd zijn."});
+  q.append(think,ans);
+},STOF_OPN));
+
+ids.push(vraag(2,"juist of onjuist: lymfe en vet",(q,id)=>{
+  pre(q,"<p>Hieronder staan enkele uitspraken.</p>");
+  const S=["Lymfe is vocht uit het weefsel dat later ook in het bloed komt.","De vetbolletjes uit de epitheelcel gaan door de wand van een haarvat.","De poortader brengt het bloed van de darm rechtstreeks naar het hart.","In de wand van de haarvaten in vetweefsel zit een enzym dat het vet uit de bolletjes weer knipt.","Een vetcel maakt van de opgenomen vetzuren weer vet en slaat dat op."];
+  q.append(el("p",{class:"qtext"},UITSPRAKEN(S,"Geef bij elke uitspraak aan of hij juist of onjuist is.")));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  chipsStep(think,{q:"Wat ligt er binnen in een darmvlok? Kies alles wat klopt.",items:[["haarvaten",1],["een lymfevat",1],["de poortader",0],["de lever",0]],
+    ok:"Goed: twee soorten vaatjes, met een verschillende wand. Bedenk bij elke uitspraak welk vat bedoeld wordt en waar het heen gaat.",no:"De vlok is maar ½ tot 1 mm groot. Wat past daar niet in?",onDone:unlock});
+  juistOnjuist(ans,{id,stm:S,key:[true,false,false,true,true],
+    uitleg:b=>{b.append(el("div",{class:"model"},"1 <b>juist</b> · 4 <b>juist</b> · 5 <b>juist</b>.<br>2 <b>onjuist</b>: de vetbolletjes zijn te groot voor de wand van een haarvat; ze gaan het lymfevat in.<br>3 <b>onjuist</b>: de poortader gaat eerst naar de lever. Alles goed: 2 punten, één fout: 1 punt."));
+      stepAnim(b,[{cap:"In elke darmvlok liggen haarvaten en een lymfevat."},
+        {cap:"Glucose en aminozuren: haarvat → <b>poortader</b> → eerst de <b>lever</b> → leverader → hart."},
+        {cap:"Vet: in de epitheelcel weer vet, als bolletjes → lymfevat → borstbuis → ader vlak bij het hart. Het vet komt dus eerst in het hart en pas later in de lever."},
+        {cap:"Twee routes naast elkaar. Daarom is uitspraak 3 onjuist en uitspraak 2 ook."}],(st,s,i)=>st.innerHTML=ROUTES(i));}});
+  q.append(think,ans);
+},STOF_WAND));
+
+opgave("Van darm naar bloed","Van darm naar bloed","",ids);
+}
+
+/* ===== Opgave 5: De lever (K505 alcohol en medicijnen; film 5) ===== */
+{
+const STOF_LEVER={titel:"De lever als fabriek",html:`
+<p>De lever ligt rechtsboven in je buik, onder je ribben. Er lopen drie grote bloedvaten naar en van de lever: de <b>poortader</b> (bloed van de darm, met de opgenomen voedingsstoffen), de <b>leverslagader</b> (zuurstofrijk bloed van de aorta) en de <b>leverader</b> (naar de onderste holle ader en het hart).</p>
+<p>De lever heeft verschillende ‘afdelingen’: hij bewaart glucose als glycogeen, maakt eiwitten en breekt aminozuren af, maakt gal, en ruimt stoffen op die je lichaam kwijt moet.</p>
+<p>De <b>nieren</b> halen stoffen uit het bloed die in water oplossen; die verlaten je lichaam met de urine.</p>`,
+films:[F.lever]};
+
+const ids=[vraag(2,"alcohol en medicijnen in de lever",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("a Leg uit waarom de lever alcohol niet zomaar uit het bloed kan zeven.<br>b Beschrijf hoe de lever een medicijn klaarmaakt om uitgeplast te worden."));
+  choiceStep(think,{q:"Hoe werkt een zeef?",opts:["hij houdt deeltjes tegen op grootte","hij breekt deeltjes af","hij lost deeltjes op"],right:0,
+    ok:"Ja. Vergelijk dan de grootte van een alcoholmolecuul met die van water.",no:"Denk aan een vergiet: wat blijft erin liggen en wat valt erdoor?",
+    onDone:()=>choiceStep(think,{q:"Welke stoffen kunnen de nieren uit het bloed halen en uitplassen?",opts:["stoffen die goed in water oplossen","stoffen die alleen in vet oplossen","alleen ureum"],right:0,
+      ok:"Goed. Bedenk voor b wat de lever met een medicijn moet doen zodat het zo'n stof wordt.",no:"Urine is vooral water.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "a: alcohol is een <b>klein molecuul, nauwelijks groter dan water</b>: een zeef die alcohol tegenhoudt, houdt ook water tegen (de lever breekt het daarom af).",
+    "b: de lever <b>bouwt het medicijn om en plakt er een stukje aan</b>, zodat het <b>in water oplost</b> en de nieren het kunnen uitplassen."],
+    model:"a Een zeef houdt deeltjes tegen op grootte. Een alcoholmolecuul is nauwelijks groter dan een watermolecuul: een zeef die alcohol tegenhoudt, houdt ook al het water tegen. Daarom breekt de lever alcohol stap voor stap af. b De lever bouwt het medicijn om en plakt er een stukje aan. Daardoor lost het in water op, en kunnen de nieren het met de urine uitplassen."});
+  q.append(think,ans);
+},STOF_LEVER)];
+
+opgave("De lever","De lever","",ids);
+}
+
+/* ===== Opgave 6: Vasten op het nest (eigen vragen A2–A5, vwo + A6; film 1 en 5) =====
+   Bron context: Bertile e.a. 2016, Scientific Reports 6:39008 (zie eigen/voeding.json); 1,2 kg vet is fictief. */
+{
+const STOF_BRAND={titel:"Brandstof en reserve",html:`
+<p>Koolhydraten, vetten en eiwitten kun je allemaal als brandstof gebruiken. Per gram leveren koolhydraten en eiwitten ongeveer 17 kJ, vet ongeveer 37 kJ.</p>
+<p>Wat je niet meteen verbrandt, bewaar je als reserve: een klein beetje als <b>glycogeen</b> (een keten van glucose) in je lever en spieren, en het meeste als <b>vet</b>. Glycogeen wordt samen met water opgeslagen, vet bijna zonder water.</p>
+<p>Rekenen met eenheden: 1 kg = 1000 g. Reken eerst alles om naar dezelfde eenheid.</p>`,
+films:[F.eten]};
+const STOF_EIWIT={titel:"Eiwit is bouwstof",html:`
+<p>Eiwit is vooral <b>bouwstof</b>. Je spieren bestaan voor een groot deel uit eiwit, en ook enzymen, veel hormonen en antistoffen zijn eiwitten.</p>
+<p>Je lichaam breekt elke dag een deel van zijn eigen eiwit af en bouwt het weer op. Aminozuren die over zijn, breekt de lever af: het stikstofdeel wordt een afvalstof die met de urine je lichaam verlaat.</p>`,
+films:[F.eten,F.lever]};
+const STOF_VET={titel:"Vet in water",html:`
+<p>Vet lost niet op in water. Bloedplasma bestaat voor het grootste deel uit water.</p>
+<p>Vet uit de darm wordt in de epitheelcellen verpakt in kleine bolletjes en gaat via de lymfe naar het bloed. Ook stoffen die de lever afgeeft, moeten met het bloed mee naar de cellen.</p>`,
+films:[F.darm,F.lever]};
+
+/* klik-animatie: hoe zwaar is dezelfde energie als vet of als glycogeen? */
+function GEWICHT(stap){
+  const sc=40,X0=150,bar=(y,kg,c,t)=>`<rect x="${X0}" y="${y}" width="${Math.max(2,kg*sc)}" height="34" rx="5" fill="${c}"/><text x="${X0-12}" y="${y+22}" text-anchor="end" class="lbl">${t}</text>`;
+  let s="";
+  s+=bar(30,1.2,"var(--goud)","vet");s+=`<text x="${X0+1.2*sc+10}" y="52" class="lbl">1,2 kg → 44 400 kJ</text>`;
+  if(stap>=1){s+=bar(100,2.61,"var(--teal)","glycogeen");s+=`<text x="${X0+2.61*sc+10}" y="122" class="lbl">44 400 / 17 = 2612 g ≈ 2,6 kg</text>`;}
+  if(stap>=2){s+=`<rect x="${X0}" y="170" width="${2.61*sc}" height="34" rx="5" fill="var(--teal)"/><rect x="${X0+2.61*sc}" y="170" width="${7.84*sc}" height="34" rx="5" fill="var(--teal-soft)" stroke="var(--teal)"/><text x="${X0-12}" y="192" text-anchor="end" class="lbl">+ water</text>`;
+    s+=`<text x="${X0+5}" y="225" class="lblm">2,6 kg glycogeen + 3 × 2,6 = 7,8 kg water</text>`;}
+  if(stap>=3)s+=`<text x="${X0+10.45*sc}" y="192" text-anchor="end" class="lbl" style="fill:var(--text)">≈ 10,4 kg</text>`;
+  [0,2,4,6,8,10].forEach(k=>s+=`<path d="M${X0+k*sc},240 v6" stroke="var(--text2)"/><text x="${X0+k*sc}" y="262" text-anchor="middle" class="lblm">${k}</text>`);
+  s+=`<path d="M${X0},240 H${X0+11*sc}" stroke="var(--text2)"/><text x="${X0+5.5*sc}" y="280" text-anchor="middle" class="lblm">massa (kg)</text>`;
+  return `<div class="vdfig" style="max-width:620px;margin:0 auto;width:100%;--min:520px">`+svgWrap("0 0 620 290",s,"Staafdiagram: massa van dezelfde energie als vet en als glycogeen met water")+`</div>`;}
+
+const ids=[];
+ids.push(vraag(2,"rekenen: vet of glycogeen meenemen",(q,id)=>{
+  pre(q,"<p>Stel dat een pinguïn tijdens het vasten 1,2 kg lichaamsvet verbrandt (fictief getal). Vet levert 37 kJ per gram.</p>");
+  const {think,ans,unlock}=start(q,B("a Bereken hoeveel kJ dit vet heeft geleverd.<br>b Stel dat de pinguïn dezelfde energie als glycogeen had meegenomen. Glycogeen levert 17 kJ per gram, en bij elke gram glycogeen zit 3 gram water. Bereken hoeveel kilogram die voorraad glycogeen met water zou wegen."));
+  numStep(think,{uid:"q"+id+"n1",q:"Hoeveel gram is 1,2 kg?",right:1200,
+    ok:"Ja. Nu kun je a uitrekenen met de kJ per gram.",no:"1 kg = 1000 g.",
+    onDone:()=>numStep(think,{uid:"q"+id+"n2",q:"Bij elke gram glycogeen zit 3 gram water. Hoeveel gram weegt 1 gram glycogeen samen met zijn water?",right:4,
+      ok:"Goed. Reken bij b eerst uit hoeveel gram glycogeen dezelfde energie levert, en tel dan het water erbij.",no:"1 gram glycogeen + 3 gram water = ?",onDone:unlock})});
+  NUM(ans,{id,fields:[
+    ["a energie uit het vet","kJ",v=>Math.abs(v-44400)<=50,"1200 × 37 = 44 400 kJ"],
+    ["b glycogeen met water","kg",(v,a)=>(v>=10&&v<=10.5)||(a[0]>0&&Math.abs(a[0]-44400)>50&&Math.abs(v-a[0]/17*4/1000)<=0.02*a[0]/17*4/1000),"44 400 / 17 = 2612 g glycogeen; met water × 4 = 10 447 g ≈ 10,4 kg (10–10,5 kg is goed). Rekenfout in a maar goed doorgerekend: dit punt telt wel. Water vergeten (2,6 kg): 0 punten."]],
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"a 1,2 kg vet = 1200 g. 1200 × 37 = <b>44 400 kJ</b>."},
+      {cap:"Dezelfde energie als glycogeen: 44 400 / 17 = 2612 g, ongeveer 2,6 kg. Alleen dat is al ruim twee keer zo zwaar."},
+      {cap:"Bij elke gram glycogeen zit 3 gram water: 2,6 kg glycogeen neemt 7,8 kg water mee."},
+      {cap:"Samen ≈ <b>10,4 kg</b>: bijna negen keer zo zwaar als 1,2 kg vet. Daarom bewaren dieren die lang vasten hun energie als vet."}],
+      (st,s,i)=>st.innerHTML=GEWICHT(i)))});
+  q.append(think,ans);
+},STOF_BRAND));
+
+ids.push(vraag(2,"meer urinezuur in het bloed",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Leg uit waardoor de hoeveelheid urinezuur in het bloed stijgt in de fase met veel eiwitafbraak."));
+  choiceStep(think,{q:"Welk deel van een aminozuur wordt bij een vogel urinezuur?",opts:["het stikstofdeel","het hele aminozuur","het deel zonder stikstof"],right:0,
+    ok:"Ja, dat staat in de inleiding.",no:"Lees de laatste zin van de tweede alinea van de inleiding nog eens.",
+    onDone:()=>choiceStep(think,{q:"In welk orgaan wordt bij jou het stikstofdeel van aminozuren omgezet in ureum?",opts:["in de lever","in de nieren","in de dunne darm"],right:0,
+      ok:"Goed. Leg nu het verband: wat gebeurt er in deze fase met het eiwit, en wat levert dat op?",no:"De nieren plassen het uit, maar maken het niet.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "De pinguïn breekt <b>meer eiwit / aminozuren</b> af als brandstof.",
+    "Het <b>stikstofdeel</b> van die aminozuren wordt (in de lever) omgezet in <b>urinezuur</b>, dat in het bloed komt."],
+    model:"In deze fase breekt de pinguïn veel meer eiwit af en verbrandt hij de aminozuren. Van al die aminozuren blijft het stikstofdeel over. De lever zet dat om in urinezuur, dat in het bloed komt. Hoe meer eiwitafbraak, hoe meer urinezuur.",
+    valkuil:"Schrijf je ‘er komt meer ureum’ zonder urinezuur, dan krijg je wel het tweede punt als de redenering klopt."});
+  q.append(think,ans);
+},STOF_BRAND));
+
+ids.push(vraag(2,"waarom het ei opgeven?",(q,id)=>{
+  pre(q,"<p>Onderzoekers denken dat de sterke stijging van de eiwitafbraak voor de pinguïn een signaal is om het nest te verlaten, ook als de partner nog niet terug is.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit waarom het voor de overleving van de pinguïn gunstig is om het ei op dat moment op te geven."));
+  choiceStep(think,{q:"Hoeveel van de vetvoorraad is op als de fase met veel eiwitafbraak begint?",opts:["ongeveer 20 %","ongeveer 50 %","ongeveer 80 %"],right:2,
+    ok:"Ja. Wat betekent dat voor de brandstof die hij nog heeft?",no:"Lees de inleiding nog eens.",
+    onDone:()=>choiceStep(think,{q:"Waarvoor gebruikt een lichaam eiwit normaal vooral?",opts:["als bouwstof","als reservestof","als brandstof"],right:0,
+      ok:"Goed. Het eiwit dat de pinguïn nu verbrandt, was dus een deel van zijn lichaam. Bedenk welk deel, en wat dat betekent als hij nog langer blijft zitten.",no:"Bekijk de taken van voedingsstoffen nog eens: welke taak heeft eiwit vooral?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Het <b>vet is bijna op</b>; de pinguïn verbrandt nu <b>eiwit uit zijn spieren</b> (er is geen eiwitvoorraad).",
+    "Wacht hij langer, dan heeft hij <b>te weinig spieren / kracht</b> over om naar zee te gaan en voedsel te vangen, en sterft hij; nu kan hij nog weg (en later opnieuw broeden)."],
+    model:"Als de eiwitafbraak sterk stijgt, is het vet bijna op en verbrandt de pinguïn eiwit uit zijn eigen spieren; een eiwitvoorraad heeft hij niet. Blijft hij nog langer zitten, dan heeft hij te weinig spierkracht over om naar zee te zwemmen en voedsel te vangen, en gaat hij dood. Door nu te gaan overleeft hij, en kan hij later opnieuw broeden."});
+  q.append(think,ans);
+},STOF_EIWIT));
+
+ids.push(vraag(1,"glycogeen in het begin van het vasten",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Een pinguïn heeft, net als jij, glycogeen in zijn lever. Wat gebeurt er met die voorraad in het begin van het vasten?"));
+  choiceStep(think,{q:"Wat is glycogeen?",opts:["een keten van glucose","een soort vet","een eiwit"],right:0,
+    ok:"Ja. Bedenk waarvoor de lever die voorraad heeft.",no:"Glycogeen bestaat uit dezelfde bouwsteen als zetmeel.",onDone:unlock});
+  mc(ans,{qid:id,pts:1,right:1,opts:["De voorraad wordt aangevuld, omdat de pinguïn stilzit.","De lever knipt het glycogeen in glucose om de glucose in het bloed op peil te houden; de voorraad is snel op.","De voorraad blijft gelijk tot het vet op is.","Het glycogeen wordt omgezet in urinezuur."],
+    onChecked:()=>waaromBtn(ans,textBox("Tussen de maaltijden knipt de lever glycogeen in glucose en geeft die af aan het bloed, zodat de glucose in het bloed ongeveer gelijk blijft. De voorraad is klein: bij jou genoeg voor een nacht. Bij vasten is hij dus snel op. D is fout: glycogeen is een koolhydraat en bevat geen stikstof, dus er kan geen urinezuur van komen. Het antwoord is <b>B</b>."))});
+  q.append(think,ans);
+},STOF_BRAND));
+
+ids.push(vraag(1,"hoe de lever vet vervoert",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Vet lost niet op in het bloed. Hoe brengt de lever vet en cholesterol naar de cellen, bijvoorbeeld naar de spieren van een pinguïn?"));
+  choiceStep(think,{q:"Lost vet op in water?",opts:["ja","nee"],right:1,
+    ok:"Klopt, en bloedplasma is vooral water. Hoe kan vet dan toch met het bloed mee naar de cellen?",no:"Denk aan een vette soep: het vet drijft als oogjes bovenop.",onDone:unlock});
+  mc(ans,{qid:id,pts:1,right:1,opts:["opgelost in het bloedplasma","verpakt in bolletjes met een jasje van eiwit: lipoproteïnen","via de lymfe","als glycogeen"],
+    onChecked:()=>waaromBtn(ans,textBox("Vet en cholesterol lossen niet op in het waterige bloedplasma (A fout). De lever verpakt ze in bolletjes met een jasje van eiwit: <b>lipoproteïnen</b>, zoals LDL. Via de lymfe (C) komt vet uit de darm, niet uit de lever. Glycogeen (D) is een koolhydraat, geen vet. Het antwoord is <b>B</b>."))});
+  q.append(think,ans);
+},STOF_VET));
+
+opgave("Vasten op het nest","Vasten op het nest",`
+<p>Adéliepinguïns broeden in Antarctica. Terwijl de ene ouder op het nest zit, zoekt de andere op zee naar voedsel. De vogel op het nest eet dan dagen tot weken niets.</p>
+<p>Onderzoekers volgden broedende Adéliepinguïns. In het begin van het vasten verbrandt een pinguïn vooral vet en spaart hij zijn eiwit. Als ongeveer 80 % van zijn vetvoorraad op is, begint een nieuwe fase: hij breekt dan veel meer eiwit af. In die fase stijgt de hoeveelheid urinezuur in zijn bloed. Vogels maken van het stikstofdeel van aminozuren geen ureum, zoals jij, maar urinezuur.</p>
+<p>De meeste pinguïns worden afgelost voordat de fase met veel eiwitafbraak begint. Van de pinguïns die wel in die fase komen, verlaat ongeveer twee derde het nest voordat de partner terug is.</p>`,ids);
+}
+
+/* ===== Opgave 7: Een jonge koala eet pap (havo C1–C4, vwo C2, C3, C5; film 6, ook 2 en 3) =====
+   Bron context: Australian Geographic, juli 2022, 'Pap not poop'; de situaties in de opvang zijn bedacht. */
+{
+const STOF_MB={titel:"Het microbioom",html:`
+<p>In je darm leven ongeveer veertig biljoen bacteriën, van honderden soorten. Al die micro-organismen samen heten je <b>microbioom</b>. Ze leven in de darminhoud en in de slijmlaag op de wand, buiten je weefsel. Je wordt er niet ziek van.</p>
+<p>Jij en je darmbacteriën hebben allebei voordeel van het samenleven: <b>mutualisme</b>. Zij krijgen een warme plek en eten; jij krijgt er iets voor terug.</p>`,
+films:[F.bact]};
+const STOF_AB={titel:"Wat een antibioticum doet",html:`
+<p>Een <b>antibioticum</b> is een stof die bacteriën doodt of hun groei remt. Het werkt op onderdelen die bacteriën wel hebben en dier- en mensencellen niet, zoals de celwand van een bacterie. Daarom kun je een dier of mens met antibiotica behandelen tegen een bacteriële infectie.</p>
+<p>Tegen virussen werkt een antibioticum niet: een virus heeft geen eigen cel.</p>`,
+films:[F.bact]};
+const STOF_LACT={titel:"Suikers knippen en opnemen",html:`
+<p>Melk bevat melksuiker: <b>lactose</b>. Dat is een disacharide: twee suikers aan elkaar. Alleen losse suikers (monosachariden) kunnen door de darmwand worden opgenomen. Daarvoor knipt het enzym <b>lactase</b> uit de wand van de dunne darm lactose in glucose en galactose.</p>
+<p>Waar stoffen de darmwand in gaan, gaat water mee, door osmose. Elke dag komt er veel vocht in je darmen; normaal wordt bijna al dat water weer teruggenomen.</p>`,
+films:[F.enz,F.bact]};
+
+const ids=[];
+
+
+ids.push(vraag(2,"diarree van koemelk",(q,id)=>{
+  pre(q,"<p>Een verzorger geeft een jong koala zonder moeder koemelk (bedachte situatie). Het jong maakt weinig lactase en krijgt diarree.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit hoe de diarree ontstaat."));
+  choiceStep(think,{q:"Wat is het substraat van lactase?",opts:["lactose (melksuiker)","melkeiwit","melkvet"],right:0,
+    ok:"Ja. Wat gebeurt er met lactose die niet geknipt wordt: kan die door de darmwand van de dunne darm?",no:"De naam van een enzym verwijst vaak naar zijn substraat.",
+    onDone:()=>choiceStep(think,{q:"Wat is de belangrijkste taak van de dikke darm?",opts:["water terugnemen","voedsel verteren","vet opnemen"],right:0,
+      ok:"Goed. Bedenk wat een opgeloste suiker in de dikke darm met die taak doet (denk aan osmose), en zet de stappen achter elkaar: weinig lactase → … → diarree.",no:"De dikke darm verteert zelf bijna niets.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Door het tekort aan lactase komt de <b>lactose ongeknipt in de dikke darm</b>.",
+    "De suiker <b>houdt daar water vast</b> (en bacteriën vergisten hem), zodat de dikke darm het water <b>niet kan terugnemen</b>."],
+    model:"Het jong maakt weinig lactase, dus de lactose uit de koemelk wordt in de dunne darm niet geknipt en niet opgenomen. Die lactose komt in de dikke darm. Daar houdt de suiker water vast, en bacteriën vergisten hem. De dikke darm kan dat water niet terugnemen: waterige ontlasting, diarree."});
+  q.append(think,ans);
+},STOF_LACT));
+
+ids.push(vraag(2,"pap uit de koelkast helpt niet",(q,id)=>{
+  pre(q,"<p>In een opvang groeit een jong op zonder moeder. Een verzorger vangt pap op van een andere koala en bewaart die een week in een open bakje in de koelkast. Als het jong de pap krijgt, helpt die niet.</p>");
+  const {think,ans,unlock}=start(q,B("Geef een verklaring."));
+  choiceStep(think,{q:"Wat moet er in de pap zitten om het jong te helpen?",opts:["levende darmbacteriën","dode bacteriën","enzymen van de moeder"],right:0,
+    ok:"Ja, dat staat in de inleiding. Wat is er in de darm anders dan in een open bakje?",no:"Lees het verschil tussen pap en gewone ontlasting in de inleiding.",
+    onDone:()=>choiceStep(think,{q:"Hoeveel zuurstof is er diep in de darm?",opts:["bijna niets","net zoveel als in de lucht","meer dan in de lucht"],right:0,
+      ok:"Goed. Wat betekent dat voor darmbacteriën die een week in een open bakje zitten?",no:"De wandcellen en de bacteriën bij de wand gebruiken de zuurstof uit het bloed op.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Voor de meeste darmbacteriën is <b>zuurstof giftig</b>.",
+    "In het open bakje kwam <b>zuurstof</b> bij de bacteriën, die zijn <b>doodgegaan</b>; pap helpt alleen met levende bacteriën."],
+    model:"De meeste darmbacteriën leven zonder zuurstof; voor hen is zuurstof giftig. In een open bakje kwam er een week lang lucht bij de pap. Daardoor zijn de bacteriën doodgegaan. Pap helpt alleen door de levende bacteriën, dus deze pap helpt niet meer.",
+    valkuil:"‘De kou heeft de bacteriën gedood’: 0 punten. Kou laat bacteriën trager groeien, maar het probleem is de zuurstof."});
+  q.append(think,ans);
+},STOF_MB));
+
+
+
+ids.push(vraag(2,"maakt het microbioom ze ziek?",(q,id)=>{
+  pre(q,"<p>In een opvang zijn de koala's die vaak ziek zijn, ook de koala's met een ander microbioom dan gezonde koala's. Een verzorger concludeert: “Het microbioom maakt ze ziek.”</p>");
+  const {think,ans,unlock}=start(q,B("a Leg uit waarom die conclusie niet zomaar mag.<br>b Beschrijf een proef die het wél kan beslissen."));
+  choiceStep(think,{q:"Wat heeft de verzorger eigenlijk vastgesteld?",opts:["dat twee dingen samen voorkomen: vaak ziek en een ander microbioom","dat het microbioom de ziekte veroorzaakt","dat alle koala's in de opvang ziek zijn"],right:0,
+    ok:"Ja: een verband. Bedenk bij a of het ook andersom kan werken.",no:"Kijk goed wat er gemeten is, en wat de verzorger erbij denkt.",
+    onDone:()=>chipsStep(think,{q:"Wat hoort bij een proef die een oorzaak kan aantonen? Kies alles wat klopt.",items:[["een controlegroep",1],["het lot bepaalt wie in welke groep komt",1],["je verandert één ding en meet het effect",1],["alleen koala's die al gezond zijn",0]],
+      ok:"Goed. Beschrijf nu bij b zo'n proef voor de koala's.",no:"Eén keuze past niet: je wilt juist weten of het zieke koala's helpt.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "a: een <b>verband is geen oorzaak</b>: een zieke koala eet bijvoorbeeld minder of anders, waardoor zijn microbioom verandert.",
+    "b: verdeel door <b>loting</b> zieke koala's over een groep die <b>pap van een gezonde koala</b> krijgt en een <b>controlegroep</b> die geen (of een onwerkzame) pap krijgt; vergelijk daarna hoe vaak ze ziek zijn."],
+    model:"a Dat de zieke koala's een ander microbioom hebben, is een verband en nog geen oorzaak. Het kan ook andersom: een zieke koala eet minder of anders, en daardoor verandert zijn microbioom. b Verdeel zieke koala's door loting over twee groepen. De ene groep krijgt pap van een gezonde koala, de controlegroep krijgt geen pap of pap zonder levende bacteriën. Vergelijk daarna hoe vaak de koala's in beide groepen ziek zijn.",
+    valkuil:"Een proef zonder controlegroep: 0 punten voor b."});
+  q.append(think,ans);
+},STOF_MB));
+
+opgave("Een jonge koala eet pap","Een jonge koala eet pap",`
+<p>Koala's eten bijna alleen bladeren van eucalyptus. Die bladeren zitten vol vezels, zoals cellulose. Een jonge koala drinkt eerst alleen melk in de buidel van zijn moeder. Als het jong ongeveer 300 gram weegt, op een leeftijd van 5 tot 6 maanden, eet het een tijd lang “pap” van zijn moeder. Pap is een zachte, vettige brij uit de darm van de moeder, die lijkt op ontlasting. In gewone ontlasting zitten vooral dode bacteriën, in pap juist levende. Na de periode met pap kan het jong eucalyptusbladeren verteren.</p>`,ids);
+}
+
+/* ===== Opgave 8: Supplementen en claims (K704; film 7, ook film 6) ===== */
+{
+const STOF_PROEF={titel:"Hoe sterk is een claim?",html:`
+<p>Een claim is een bewering, bijvoorbeeld dat een supplement je minder vaak ziek maakt. Eén persoon of één verhaal zegt daarover weinig: misschien was het ook zonder het supplement zo gegaan.</p>
+<p>Hoe meer goede onderzoeken hetzelfde vinden, hoe sterker het bewijs. In de films sorteer je claims op een bewijsbord met de vakken vastgesteld, waarschijnlijk, hypothese en weerlegd.</p>`,
+films:[F.supp,F.bact]};
+
+const ids=[vraag(2,"echt maar klein, weerlegd of hypothese",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("a Leg met het voorbeeld van vitamine C en verkoudheid uit wat het betekent dat een effect “echt, maar klein” is.<br>b Leg uit wat het verschil is tussen een claim op “weerlegd” en een claim op “hypothese”."));
+  choiceStep(think,{q:"Wanneer noem je een effect ‘echt’?",opts:["als het in veel goede onderzoeken terugkomt","als één persoon het duidelijk merkt","als het verschil groot is"],right:0,
+    ok:"Ja. ‘Klein’ gaat dan over hoeveel het scheelt. Wat scheelde vitamine C bij verkoudheid?",no:"Eén persoon zegt niets, en ook een klein verschil kan echt zijn.",
+    onDone:()=>choiceStep(think,{q:"Wat is het verschil tussen een proefgroep en een controlegroep?",opts:["de controlegroep krijgt het middel niet, maar een placebo","de controlegroep bestaat uit de onderzoekers","de controlegroep krijgt een hogere dosis"],right:0,
+      ok:"Goed. Bedenk bij b of een claim al met zo'n controlegroep getest is, en wat eruit kwam.",no:"Met een controlegroep vergelijk je: wat gebeurt er zónder het middel?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "a: wie elke dag vitamine C slikt, wordt <b>niet minder vaak verkouden</b>, maar een verkoudheid duurt gemiddeld <b>iets (een halve dag) korter</b>: het effect komt in veel onderzoeken terug, maar het scheelt weinig.",
+    "b: <b>weerlegd</b>: goed getest met een controlegroep en het klopt niet; <b>hypothese</b>: nog niet (goed) getest met een controlegroep."],
+    model:"a In veel onderzoeken met samen ruim tienduizend mensen werd wie elke dag vitamine C slikte niet minder vaak verkouden, maar duurde een verkoudheid gemiddeld een halve dag korter. Het effect komt steeds terug, dus het is echt, maar een halve dag scheelt weinig: klein. b Een claim op ‘weerlegd’ is goed getest met een controlegroep, en bleek niet te kloppen. Een claim op ‘hypothese’ is nog niet (goed) met een controlegroep getest: of hij klopt, weet je nog niet."});
+  q.append(think,ans);
+},STOF_PROEF)];
+
+opgave("Supplementen en claims","Supplementen en claims","",ids);
+}
+
+
+/* ================= opgaven en navigatie ================= */
+OPG.sort((a,b)=>a.nr-b.nr);
+/* cijfer als bij een schooltoets: 9 × score / maximum + 1 */
+const NORM="";
+const CIJFER=(()=>{const L=Q.reduce((s,q)=>s+q.pts,0);return Array.from({length:L+1},(_,S)=>Math.round((9*S/L+1)*10)/10);})();
+const main=$("#main"),tabs=$("#tabs");let cur=1;const built={},nextBtns={};
+let curOpg=OPG.some(o=>o.nr===store.opg)?store.opg:1;
+const opg=()=>OPG.find(o=>o.nr===curOpg);
+const pts=o=>o.ids.reduce((s,i)=>s+Q.find(q=>q.id===i).pts,0);
+function reach(){const ids=opg().ids;if(store.vrij)return ids[ids.length-1];let k=0;while(k<ids.length-1&&store.scores[ids[k]]!==undefined)k++;return ids[k];}
+function renderTabs(){
+  tabs.innerHTML="";const r=reach();
+  opg().ids.forEach(id=>{const q=Q.find(x=>x.id===id);const locked=id>r;
+    const b=el("button",{class:(id===cur?"cur ":"")+(store.scores[id]!==undefined?"done":"")+(locked?" lock":""),"aria-label":"Vraag "+id+(locked?" (eerst vraag "+(id-1)+" maken)":""),title:locked?"Maak eerst vraag "+(id-1):""},id);
+    if(locked)b.disabled=true;else b.onclick=()=>open(id);tabs.append(b);});
+  const o=el("button",{class:"ov"+(cur==="ov"?" cur":"")},"Score");o.onclick=()=>open("ov");tabs.append(o);
+}
+function open(id){
+  if(id!=="ov"&&id>reach())id=reach();
+  cur=id;renderTabs();main.innerHTML="";
+  if(id==="ov"){main.append(overview());return;}
+  if(!built[id]){const q=Q.find(x=>x.id===id);const sec=el("article",{class:"q"});
+    q.build(sec);
+    const pap=el("section",{class:"papier","aria-label":"Toetsvraag "+id});
+    pap.append(el("div",{class:"pkop"},`<span class="pnr"><span class="mono">Toetsvraag</span><span class="nr">${id}</span></span><span class="mono">${q.pts} ${q.pts===1?"punt":"punten"}</span>`));
+    for(const c of [...sec.children]){if(c.classList.contains("phase")||c.tagName==="BUTTON")break;pap.append(c);}
+    pap.append(el("div",{class:"pvoet"},"Oefentoets Voeding · vwo"));
+    sec.prepend(pap);
+    const sb=window.EXSTOF&&EXSTOF.blok(TOOL,id);if(sb)pap.after(sb);
+    /* toetsvraag nog eens boven de antwoorden (Kamiel 25 okt 2026: niet terug hoeven scrollen) */
+    const qt=[...pap.querySelectorAll(".qtext")].pop(),ansP=sec.querySelector(".phase.ans");
+    if(qt&&ansP){const h=el("div",{class:"herhaal papier"});h.append(el("div",{class:"hkop mono"},`Toetsvraag ${id}`));
+      const c=qt.cloneNode(true);c.querySelectorAll("[id]").forEach(x=>x.removeAttribute("id"));h.append(c);
+      const lab=ansP.querySelector(":scope>.label");lab?lab.after(h):ansP.prepend(h);}
+    const ids=opg().ids,last=id===ids[ids.length-1];
+    const nx=el("div",{class:"row",style:"justify-content:flex-end"});const b=el("button",{class:"go"},last?"Naar je score ›":`Volgende vraag (${id+1}) ›`);
+    nextBtns[id]=b;b.hidden=!store.vrij&&store.scores[id]===undefined;
+    b.onclick=()=>{open(last?"ov":id+1);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};nx.append(b);sec.append(nx);built[id]=sec;}
+  main.append(built[id]);
+}
+function overview(){
+  const o=opg();const s=el("section",{class:"phase"});s.append(el("h2",{},`Jouw score op opgave ${o.nr}`));
+  let tot=0;const t=el("table",{class:"data ovtable"});t.innerHTML="<tr><th>vraag</th><th>onderwerp</th><th>score</th></tr>";
+  o.ids.forEach(id=>{const q=Q.find(x=>x.id===id);const p=store.scores[id];if(p!==undefined)tot+=p;t.innerHTML+=`<tr><td>${id}</td><td>${q.t}</td><td>${p===undefined?"–":p} / ${q.pts}</td></tr>`;});
+  const w=el("div",{class:"tablewrap"});w.append(t);s.append(w,el("div",{class:"score"},`Totaal opgave ${o.nr}: ${tot} / ${pts(o)}`));
+  let all=0,allMax=0;OPG.forEach(x=>{allMax+=pts(x);x.ids.forEach(id=>{if(store.scores[id]!==undefined)all+=store.scores[id];});});
+  const gemaakt=OPG.every(x=>x.ids.every(id=>store.scores[id]!==undefined));
+  const cf=CIJFER[Math.min(all,CIJFER.length-1)].toFixed(1).replace(".",",");
+  s.append(el("p",{style:"margin:0"},`Hele toets: <b>${all}</b> van ${allMax} punten · cijfer <b>${cf}</b>`+(gemaakt?"":` <span class="muted">(nog niet alles gemaakt: open vragen tellen als 0 punten)</span>`)));
+  s.append(el("p",{class:"muted",style:"margin:0;font-size:14px"},`Cijfer = 9 × score / maximum + 1. Open vragen kijk je zelf na met het antwoordmodel.`));
+  const nextO=OPG.find(x=>x.nr===o.nr+1);
+  const row=el("div",{class:"row"});
+  if(nextO){const nb=el("button",{class:"go"},`Naar opgave ${nextO.nr}: ${nextO.kort} ›`);nb.onclick=()=>{setOpg(nextO.nr);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};row.append(nb);}
+  const r=el("button",{class:"ghost"},`Opgave ${o.nr} opnieuw`);r.onclick=()=>{o.ids.forEach(id=>{delete store.scores[id];delete built[id];delete nextBtns[id];});save();open(o.ids[0]);};row.append(r);
+  s.append(row);return s;
+}
+function renderOpgs(){const box=$("#opgs");box.innerHTML="";
+  OPG.forEach(o=>{const b=el("button",{"aria-pressed":o.nr===curOpg?"true":"false"},`${o.nr} · ${o.kort}`);b.onclick=()=>setOpg(o.nr);box.append(b);});}
+function setOpg(n){curOpg=n;store.opg=n;save();const o=opg();
+  $("#eb").textContent=`Oefentoets Voeding · vwo · opgave ${o.nr}`;$("#h1").textContent=o.titel;
+  $("#sub").textContent=`vraag ${o.ids[0]} t/m ${o.ids[o.ids.length-1]} · ${pts(o)} punten`;
+  $("#ctx").innerHTML=o.ctx;renderOpgs();open(reach());}
+function setVrij(v){store.vrij=v;save();$("#vrij").setAttribute("aria-pressed",v?"true":"false");
+  for(const k in nextBtns)nextBtns[k].hidden=!v&&store.scores[k]===undefined;renderTabs();}
+$("#vrij").onclick=()=>setVrij(!store.vrij);setVrij(!!store.vrij);
+EXSTAND.STANDEN.forEach(s=>{s.uitleg=s.uitleg.replace(/examenvraag/g,"toetsvraag").replace("het echte examen","een echte toets").replace(" Zet de klok aan voor 3 uur examentijd.","");if(s.k==="echt")s.naam="Echte toets";});
+EXSTAND.init({store,save,setVrij});
+setOpg(curOpg);
+})();
+
+</script>
+</body>
+</html>

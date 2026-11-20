@@ -1,0 +1,1011 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../js/teller.js" data-root="../"></script>
+<link rel="icon" href="../img/icoon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../img/icoon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../img/icoon/apple-touch-icon.png">
+<script>(function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oefentoets Planten vwo · doorklikken · Biologie bij Kamiel</title>
+<meta name="description" content="Oefentoets Planten voor vwo: per vraag eerst hulpvragen, dan de toetsvraag, nakijken met het antwoordmodel en uitleg waarom.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="huisstijl.css">
+<script src="huisstijl.js"></script>
+<script src="examen-stof.js?v=b496a9e6"></script>
+<script src="examen-standen.js?v=558bd73d"></script>
+<style>
+/* Oefentoets Planten vwo · zelfde bouwstenen als de oefenexamens (tools/OEFENEXAMEN_PROMPT.md). */
+body.echt .klok{display:none!important}
+@media (max-width:600px){.plfig{overflow-x:auto;-webkit-overflow-scrolling:touch}.plfig>svg{min-width:var(--min)}}
+:root{--rest:#2A3B57;--area:#5B6B84}
+:root[data-theme="light"]{--rest:#D5DEE9;--area:#B4BDCA}
+ .wrap{padding-inline:0}
+:root[data-theme="light"] .papier{box-shadow:0 0 0 1px rgba(20,32,52,.18),0 6px 18px rgba(20,32,52,.10)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--text);font:17px/1.55 var(--tekst);-webkit-font-smoothing:antialiased;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 40px}
+.wrap{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1,h2,h3{font-family:var(--titel);font-weight:700;letter-spacing:-.01em;text-wrap:balance;margin:0;line-height:1.1}
+h2{font-size:24px}
+.mono,.eyebrow{font:600 12px/1.2 var(--meta);letter-spacing:.1em;text-transform:uppercase}
+.eyebrow{color:var(--goud-text)}
+.muted{color:var(--text2)}
+a{color:var(--goud-text)}
+.sitenav{display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap;min-height:56px;padding:8px 0;border-bottom:1px solid var(--line);font:600 15px/1.3 var(--tekst)}
+.sitenav .merk{font:700 18px/1 var(--titel);color:var(--text);text-decoration:none}
+.sitenav .terug{color:var(--goud-text);text-decoration:none}
+.sitenav .rechts{margin-left:auto}
+.tool-kop{display:flex;flex-direction:column;gap:10px;padding:14px 0 0}
+.tool-kop h1{font-size:clamp(32px,5vw,48px)}
+.tool-kop p{margin:0;color:var(--text2);font-size:18px;max-width:62ch}
+button.toggle{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line2);background:none;color:var(--text2);border-radius:999px;padding:6px 14px 6px 8px;min-height:40px;font:600 14px var(--tekst);cursor:pointer}
+button.toggle .knopje{width:34px;height:20px;border-radius:999px;background:var(--line2);position:relative;flex:none}
+button.toggle .knopje::after{content:"";position:absolute;left:3px;top:3px;width:14px;height:14px;border-radius:50%;background:var(--text2);transition:left .15s}
+button.toggle[aria-pressed="true"]{color:var(--text);border-color:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje{background:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje::after{left:17px;background:var(--goud-ink)}
+.kopbalk{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.seg{display:inline-flex;flex-wrap:wrap;padding:3px;border-radius:999px;border:1px solid var(--line2);gap:2px}
+.seg button{border:0;background:none;padding:6px 14px;border-radius:999px;font:600 14px var(--tekst);color:var(--text2);min-height:36px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--goud);color:var(--goud-ink)}
+nav.tabs{display:flex;flex-wrap:wrap;gap:6px}
+nav.tabs button{min-width:44px;height:44px;border-radius:999px;border:1px solid var(--line2);background:none;color:var(--text2);font:600 15px var(--meta);cursor:pointer;position:relative}
+nav.tabs button:hover{color:var(--text)}
+nav.tabs button.cur{background:var(--goud);color:var(--goud-ink);border-color:var(--goud)}
+nav.tabs button.done::after{content:"";position:absolute;right:3px;top:3px;width:8px;height:8px;border-radius:50%;background:var(--groen);border:2px solid var(--bg)}
+nav.tabs button.lock{opacity:.35;cursor:not-allowed}
+nav.tabs .ov{padding:0 16px;font-family:var(--tekst)}
+.ctx{background:var(--surface);border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.ctx p{margin:0}
+details.ctxd summary{cursor:pointer;font-weight:600;color:var(--goud-text)}
+.tablewrap{overflow-x:auto}
+table.data{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+table.data th,table.data td{border-bottom:1px solid var(--line);padding:7px 10px;text-align:center}
+table.data th:first-child,table.data td:first-child{text-align:left}
+table.data th{font:600 11px var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--text3)}
+.q{display:flex;flex-direction:column;gap:14px}
+.qhead{display:flex;gap:12px;align-items:center}
+.qnum{font:700 40px/1 var(--titel);color:var(--goud-text)}
+.pts{font:600 12px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:3px 9px}
+.qtext{margin:0;font-size:18px}
+.phase{border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;background:var(--surface);display:flex;flex-direction:column;gap:12px}
+.phase>.label{display:flex;gap:8px;align-items:center;font:600 12px var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3)}
+.phase>.label .dot{width:8px;height:8px;border-radius:50%;background:var(--goud)}
+.phase.think{background:var(--surface2)}
+.phase.think>.label{color:var(--goud-text)}
+.step{display:flex;flex-direction:column;gap:8px}
+.step+.step{border-top:1px solid var(--line);padding-top:12px}
+.step p{margin:0}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button.opt,button.chip{border:1px solid var(--line2);background:var(--bg);color:var(--text);border-radius:12px;padding:9px 14px;font:inherit;font-size:16px;cursor:pointer;text-align:left}
+button.chip{border-radius:999px}
+button.opt:hover,button.chip:hover{border-color:var(--text3)}
+button.chip[aria-pressed="true"]{border-color:var(--goud);background:var(--goud-soft)}
+button.opt.right{border-color:var(--groen);background:var(--groen-soft)}
+button.opt.wrong{border-color:var(--koraal);background:var(--koraal-soft)}
+button.opt:disabled{cursor:default}
+button.go,button.ghost{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 18px;border-radius:999px;font:700 15px var(--tekst);cursor:pointer}
+button.go{border:0;background:var(--goud);color:var(--goud-ink)}
+button.go:hover{filter:brightness(1.06)}
+button.ghost{border:0;background:none;color:var(--text);box-shadow:inset 0 0 0 1px var(--line2)}
+button.ghost:hover{box-shadow:inset 0 0 0 1px var(--text3)}
+button:disabled.go,button:disabled.ghost{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:2px solid var(--goud);outline-offset:3px;border-radius:6px}
+input.num{width:96px;min-height:44px;font:600 16px var(--meta);padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text)}
+select{font:inherit;font-size:15px;min-height:44px;padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);max-width:100%;flex:1 1 260px}
+textarea{width:100%;min-height:88px;font:inherit;padding:10px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);resize:vertical}
+.fb{font-size:16px;border-radius:12px;padding:12px 14px;background:var(--surface2);border:1px solid var(--line2)}
+.fb.ok{border-color:var(--groen);background:var(--groen-soft)}
+.fb.no{border-color:var(--koraal);background:var(--koraal-soft)}
+.fb.hint{border-color:var(--teal);background:var(--teal-soft)}
+.graphs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.graphs{grid-template-columns:1fr}}
+.gopt{border:1px solid var(--line2);border-radius:var(--radius);background:var(--bg);padding:8px 8px 2px;cursor:pointer;color:var(--text);font:inherit;text-align:left}
+.gopt b{font:700 20px var(--titel);margin-left:6px;color:var(--goud-text)}
+.gopt:hover{border-color:var(--text3)}
+.gopt.right{border-color:var(--groen);box-shadow:0 0 0 2px var(--groen) inset}
+.gopt.wrong{border-color:var(--koraal);box-shadow:0 0 0 2px var(--koraal) inset}
+svg{display:block;max-width:100%;height:auto}
+.ax{stroke:var(--text3);stroke-width:1.2;fill:none}
+.grid{stroke:var(--line2);stroke-width:1;fill:none}
+.tick{fill:var(--text3);font:500 10px var(--meta)}
+.cv{stroke:var(--teal);stroke-width:2.4;fill:none;stroke-linejoin:round}
+.cvbad{stroke:var(--koraal);stroke-width:2;fill:none;stroke-dasharray:5 4}
+.restband{fill:var(--rest);opacity:.8}
+.lbl{fill:var(--text);font:600 12px var(--tekst)}
+.lblm{fill:var(--text2);font:12px var(--tekst)}
+.lblbad{fill:var(--koraal);font:700 12px var(--tekst)}
+.selfscore{display:flex;flex-direction:column;gap:10px}
+.selfscore label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.selfscore input{margin-top:4px;width:18px;height:18px;accent-color:var(--goud);flex:none}
+.model{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:16px}
+.anim{display:flex;flex-direction:column;gap:10px}
+.anim .stage{border-radius:var(--radius);background:var(--surface2);border:1px solid var(--line2);overflow:hidden}
+.anim .cap{min-height:3.2em;margin:0}
+.anim .nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pips{display:flex;gap:6px;margin-left:auto}
+.pips span{width:9px;height:9px;border-radius:50%;background:var(--line2)}
+.pips span.on{background:var(--goud)}
+.seq{display:flex;flex-direction:column;gap:6px}
+.seq button{display:flex;gap:10px;align-items:center}
+.seq .n{font:600 13px var(--meta);width:24px;height:24px;border-radius:50%;display:inline-grid;place-items:center;background:var(--line2);flex:none}
+.seq button.placed{border-color:var(--groen)} .seq button.placed .n{background:var(--groen);color:var(--goud-ink)}
+.score{font:600 16px var(--meta)}
+.ovtable td:last-child,.ovtable th:last-child{text-align:right}
+.pre{border-left:3px solid var(--goud);padding:2px 0 2px 14px;display:flex;flex-direction:column;gap:8px}
+.pre p{margin:0;color:var(--text2)}
+.figrow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.figrow{grid-template-columns:1fr}}
+.legenda{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--text2)}
+.legenda i{display:inline-block;vertical-align:middle;margin-right:6px}
+.legenda .lijn{width:22px;height:0;border-top:2.5px solid var(--text)}
+.legenda .vlak{width:16px;height:12px;background:var(--area)}
+.tick.dim{opacity:.35}
+p.klikbaar{line-height:2}
+button.mark{font:inherit;color:var(--text);background:none;border:0;border-bottom:2px dashed var(--goud);padding:0 3px;border-radius:4px;cursor:pointer}
+button.mark[aria-pressed="true"]{background:var(--goud-soft);border-bottom-style:solid}
+button.mark:disabled{cursor:default}
+.sellab{min-width:200px;font-weight:600}
+label.slider{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center}
+label.slider span{min-width:170px;font-weight:600;font-size:15px}
+label.slider input{flex:1 1 200px;accent-color:var(--goud)}
+.podium{background:var(--surface2);border:1px solid var(--line2);border-radius:var(--radius);overflow:hidden}
+p.regels{font-family:var(--tekst);line-height:1.9;margin:0}
+p.regels span{display:inline-block;width:2em;font:600 12px var(--meta);color:var(--text3)}
+sup{font-size:.7em}
+.papier{--bg:#FFFFFF;--surface:#FFFFFF;--surface2:#EEF1F5;--line:rgba(20,32,52,.10);--line2:rgba(20,32,52,.24);
+  --text:#121C2E;--text2:#3B4759;--text3:#667185;--goud:#C99A2E;--goud-text:#7E5C0B;--goud-soft:rgba(217,172,60,.18);
+  --groen:#2F8A47;--koraal:#B9502F;--teal:#25729C;--paars:#6550AD;--groen-soft:rgba(47,138,71,.10);--koraal-soft:rgba(185,80,47,.10);--teal-soft:rgba(37,114,156,.10);
+  --rest:#D5DEE9;--area:#B4BDCA;color-scheme:light;
+  background:#FCFCFA;color:var(--text);border:0;border-radius:6px;padding:16px 20px 12px;display:flex;flex-direction:column;gap:12px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.08),0 10px 28px rgba(0,0,0,.35)}
+.papier .pkop{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;border-bottom:2px solid var(--text);padding-bottom:6px}
+.papier .pkop .mono{color:var(--text2)}
+.papier .pnr{display:flex;align-items:baseline;gap:10px}
+.papier .nr{font:700 30px/1 var(--titel);color:var(--text)}
+.papier .pre{border-left:0;padding:0}
+.papier .pre p{color:var(--text)}
+.papier .qtext{color:var(--text)}
+.herhaal.papier{padding:10px 14px;gap:6px;box-shadow:none;border-radius:6px}
+.herhaal .hkop{color:var(--text3);font-size:11px}
+.herhaal .qtext{font-size:16px}
+.papier .pvoet{font:500 11px var(--meta);letter-spacing:.06em;color:var(--text3);text-align:right}
+.papier details.ctxd summary{color:var(--goud-text)}
+.papier .podium{background:var(--surface2)}
+.phase>.label .tag{margin-left:6px;font:600 10px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:2px 8px}
+.sleutel{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:14px;color:var(--text2)}
+.sleutel .sw{display:inline-block;width:16px;height:12px;border-radius:2px;vertical-align:-1px;margin-right:7px}
+.sleutel .papier-sw{background:#FCFCFA}
+.sleutel .donker-sw{background:var(--surface2);box-shadow:inset 0 0 0 1px var(--line2)}
+.exfoto{display:block;width:100%;height:auto;border-radius:2px}
+footer{color:var(--text3);font-size:14px;padding-top:24px;border-top:1px solid var(--line)}
+body.hulp .ans.locked{display:none}
+body.examen .think{display:none}
+body.examen .think.open{display:flex}
+.helpbtn{display:none!important}
+body.examen .helpbtn{display:inline-flex!important}
+body.examen .tonext{display:none!important}
+@media (max-width:600px){body{font-size:16px}.qtext{font-size:17px}.phase,.ctx{padding:14px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="sitenav" aria-label="Site">
+    <a class="merk" href="../index.html#home">Biologie bij Kamiel</a>
+    <a class="terug" href="../index.html#planten">← Terug naar Planten</a>
+    <span class="rechts"><button type="button" class="icoon" data-thema-knop></button></span>
+  </nav>
+  <header class="tool-kop">
+    <div class="eyebrow" id="eb">Oefentoets Planten · vwo</div>
+    <h1 id="h1">Oefentoets Planten</h1>
+    <div class="seg" id="opgs" role="group" aria-label="Opgave"></div>
+    <div class="sleutel"><span><i class="sw papier-sw"></i>Wit vak = de toetsvraag</span><span><i class="sw donker-sw"></i>Donker vak = hulpvragen en uitleg (niet uit de toets)</span></div>
+    <p>Maak de toets stap voor stap. Bij elke vraag denk je eerst na met de hulpvragen, dan beantwoord je de toetsvraag, en daarna zie je waarom het antwoord klopt. Kies zelf hoeveel hulp je wilt; met ‘Echte toets’ oefen je zonder hulp.</p>
+    <div class="kopbalk">
+      <div class="seg" id="standen" role="group" aria-label="Hoeveel hulp wil je?"></div>
+      <button id="vrij" class="toggle" aria-pressed="false"><span class="knopje"></span>Vrij doorklikken</button>
+      <span class="mono muted" id="sub"></span>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs" aria-label="Vragen"></nav>
+
+  <section class="ctx papier" id="ctx"></section>
+
+  <main id="main"></main>
+
+  <footer>Eigen vragen, met inspiratie uit de centrale examens (© CvTE), Biologie voor Jou en Nectar. Grafieken en schema's zijn eigen tekeningen; bronnen van de gegevens staan bij de opgaven.<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a> </span></footer>
+</div>
+
+<script>
+(function(){
+const $=(s,r=document)=>r.querySelector(s);
+const el=(tag,attrs={},html="")=>{const e=document.createElement(tag);for(const k in attrs){if(k==="class")e.className=attrs[k];else if(k.startsWith("on"))e.addEventListener(k.slice(2),attrs[k]);else e.setAttribute(k,attrs[k]);}if(html)e.innerHTML=html;return e;};
+const TOOL="pl-vwo";
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- opslag (alleen gemak) ---------- */
+let store={scores:{},mode:"hulp"};
+try{const s=JSON.parse(localStorage.getItem("toets-planten-vwo")||"null");if(s)store=Object.assign(store,s);}catch(e){}
+const save=()=>{try{localStorage.setItem("toets-planten-vwo",JSON.stringify(store));}catch(e){}};
+
+/* ---------- algemene bouwstenen ---------- */
+function phase(cls,label){const p=el("section",{class:"phase "+cls});
+  if(cls==="think")p.append(el("div",{class:"label"},`<span class="dot"></span>Hulpvragen<span class="tag">niet uit de toets</span>`));
+  else p.append(el("div",{class:"label"},`<span class="dot"></span>${label==="Antwoord"?"Jouw antwoord op de toetsvraag":label}`));return p;}
+function choiceStep(container,{q,opts,right,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});const fb=el("div",{class:"fb",hidden:""});
+  const knop=[];opts.forEach((o,i)=>{const b=el("button",{class:"opt",onclick:()=>{
+    if(i===right){row.querySelectorAll("button").forEach(x=>x.disabled=true);b.classList.add("right");fb.className="fb ok";fb.innerHTML=ok;fb.hidden=false;onDone&&onDone();}
+    else{b.classList.add("wrong");fb.className="fb no";fb.innerHTML=no;fb.hidden=false;}
+  }},o);knop.push(b);});
+  /* @@schud@@ vaste, geschudde volgorde (zaadje = vraagtekst), zodat het goede antwoord niet steeds eerst staat */
+  {let h=2166136261;for(const c of String(q))h=Math.imul(h^c.charCodeAt(0),16777619)>>>0;
+   const v=knop.map((b,i)=>i);for(let i=v.length-1;i>0;i--){h=Math.imul(h^(h>>>15),2246822507)>>>0;const j=h%(i+1);[v[i],v[j]]=[v[j],v[i]];}
+   if(v.length>1&&v[0]===right&&opts.length>2){const k=v.indexOf(right);[v[0],v[1]]=[v[1],v[0]];}
+   v.forEach(i=>row.append(knop[i]));}
+  s.append(row,fb);container.append(s);return s;
+}
+function mc(container,{opts,right,pts,qid,graphs:isGraph,onChecked}){
+  const wrap=el("div",{class:isGraph?"graphs":"row",style:isGraph?"":"flex-direction:column;align-items:stretch"});
+  const fb=el("div",{class:"fb",hidden:""});
+  opts.forEach((o,i)=>{const L="ABCDEF"[i];
+    const b=isGraph?el("button",{class:"gopt"},`<b>${L}</b>${o}`):el("button",{class:"opt"},`<b style="font:700 18px var(--titel);color:var(--goud-text);margin-right:10px">${L}</b>${o}`);
+    b.addEventListener("click",()=>{
+      wrap.querySelectorAll("button").forEach(x=>x.disabled=true);
+      const good=i===right; b.classList.add(good?"right":"wrong");
+      if(!good)wrap.children[right].classList.add("right");
+      fb.className="fb "+(good?"ok":"no");
+      fb.innerHTML=good?`Goed: <b>${"ABCDEF"[right]}</b>. ${pts} ${pts>1?"punten":"punt"}.`:`Het goede antwoord is <b>${"ABCDEF"[right]}</b>. 0 punten.`;
+      fb.hidden=false; setScore(qid,good?pts:0); onChecked&&onChecked();
+    });wrap.append(b);});
+  container.append(wrap,fb);
+}
+function waaromBtn(container,build){
+  const b=el("button",{class:"ghost waarombtn"},"Laat zien waarom ›");const box=el("div",{hidden:""});
+  b.onclick=()=>{b.remove();box.hidden=false;build(box);if(window.EXSTOF)EXSTOF.extraWaarom(TOOL,cur,box);};
+  container.append(b,box);
+}
+function lockAns(think,ans,label="Naar de vraag ›"){
+  ans.classList.add("locked");
+  const go=el("button",{class:"go tonext",hidden:""},label);
+  go.onclick=()=>{ans.classList.remove("locked");go.remove();ans.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});};
+  think.append(go);
+  return ()=>{think.append(go);go.hidden=false;};
+}
+function helpButton(q,think){
+  const b=el("button",{class:"ghost helpbtn"},"Hulp nodig? Toon de hulpvragen");
+  b.onclick=()=>{think.classList.add("open");b.remove();};
+  q.append(b);
+}
+function setScore(id,p){store.scores[id]=p;save();renderTabs();if(nextBtns[id])nextBtns[id].hidden=false;}
+
+/* ---------- vragen ---------- */
+const Q=[],OPG=[];
+
+/* Vraag 5 en 6: eerst zonder opties */
+function noOptions(q,{id,pts,text,prompt,hint,opts,right,uitleg}){
+  q.append(el("p",{class:"qtext"},text));
+  const think=phase("think","Eerst zelf"),ans=phase("ans","Kies je antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Toon de keuzes ›");
+  const s=el("div",{class:"step"});s.append(el("p",{},prompt));
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:"Wat denk jij? Schrijf het kort op."});const hb=el("button",{class:"ghost"},"Tip");const hf=el("div",{class:"fb hint",hidden:""},hint);
+  hb.onclick=()=>{hf.hidden=false;hb.remove();};
+  ta.addEventListener("input",()=>{if(ta.value.trim().length>2)unlock();});
+  s.append(ta,hb,hf);think.append(s);
+  mc(ans,{qid:id,pts,right,opts,onChecked:()=>{
+    if(ta.value.trim())ans.append(el("div",{class:"model"},`<b>Jij dacht eerst:</b> ${ta.value.replace(/</g,"&lt;")}<br><span class="muted">Klopte dat met de keuze die je maakte?</span>`));
+    waaromBtn(ans,b=>b.append(el("div",{class:"model"},uitleg)));}});
+  q.append(think,ans);
+}
+/* ================= extra bouwstenen ================= */
+function pre(q,html){q.append(el("div",{class:"pre"},html));}
+function chipsStep(container,{q,items,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});
+  items.forEach(([t])=>{const b=el("button",{class:"chip","aria-pressed":"false"},t);b.onclick=()=>b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")==="true"?"false":"true");row.append(b);});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(row,ck,fb);container.append(s);
+  ck.onclick=()=>{const sel=[...row.children].map(b=>b.getAttribute("aria-pressed")==="true");
+    const teveel=sel.some((s,k)=>s&&!items[k][1]),mist=sel.some((s,k)=>!s&&items[k][1]);fb.hidden=false;
+    if(!teveel&&!mist){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;row.querySelectorAll("button").forEach(b=>b.disabled=true);onDone&&onDone();}
+    else if(teveel){fb.className="fb hint";fb.innerHTML=no;}
+    else{fb.className="fb hint";fb.innerHTML="Wat je gekozen hebt klopt, maar er hoort nog meer bij. Kies alles wat klopt.";}};
+  return s;
+}
+function selectsStep(container,{q,rows,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const id=uid+"s"+k;
+    r.append(el("label",{for:id,class:"sellab"},lab));const sel=el("select",{id});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);s.append(r);return sel;});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(ck,fb);container.append(s);
+  ck.onclick=()=>{const n=sels.filter((sel,k)=>sel.value!==""&&+sel.value===rows[k][2]).length;fb.hidden=false;
+    if(n===rows.length){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;sels.forEach(x=>x.disabled=true);onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=`${n} van de ${rows.length} goed. `+(no||"Probeer het nog eens.");}};
+}
+function numStep(container,{q,right,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const r=el("div",{class:"row"});const inp=el("input",{class:"num",id:uid,inputmode:"decimal","aria-label":"antwoord"});const ck=el("button",{class:"ghost"},"Controleer");const fb=el("div",{class:"fb",hidden:""});
+  r.append(inp,ck);s.append(r,fb);container.append(s);
+  ck.onclick=()=>{const v=parseFloat((inp.value||"").replace(",","."));fb.hidden=false;
+    if(v===right){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;inp.disabled=true;onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=no;}};
+}
+function openAnswer(ans,{id,pts,checks,model,valkuil,placeholder,after}){
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:placeholder||"Schrijf je antwoord…"});
+  const ck=el("button",{class:"go"},"Nakijken");const tf=el("div",{class:"fb hint",hidden:""},"Schrijf eerst je antwoord op. Daarna kijk je het na.");
+  ans.append(ta,ck,tf);
+  ck.onclick=()=>{if(ta.value.trim().length<8){tf.hidden=false;ta.focus();return;}tf.remove();ck.remove();ta.readOnly=true;
+    const ss=el("div",{class:"selfscore"});
+    ss.append(el("p",{style:"margin:0"},"<b>Kijk jezelf na met het antwoordmodel.</b> Vink aan wat er in jouw antwoord staat."));
+    const boxes=checks.map((c,k)=>{const lab=el("label",{},`<input type="checkbox" id="q${id}c${k}"><span>${c} <span class="pts">1p</span></span>`);ss.append(lab);return lab.querySelector("input");});
+    if(model)ss.append(el("div",{class:"model"},"<b>Voorbeeldantwoord:</b> "+model));
+    if(valkuil)ss.append(el("div",{class:"fb hint"},"<b>Valkuil:</b> "+valkuil));
+    const sc=el("div",{class:"score"});ss.append(sc);ans.append(ss);
+    const upd=()=>{const p=Math.min(pts,boxes.filter(b=>b.checked).length);sc.textContent=`Jouw score: ${p} / ${pts}`;setScore(id,p);};
+    boxes.forEach(b=>b.onchange=upd);upd();after&&after();};
+}
+function juistOnjuist(ans,{id,stm,key,uitleg}){
+  const pick=stm.map(()=>null);
+  stm.forEach((t,k)=>{const r=el("div",{class:"row"});r.append(el("span",{style:"flex:1 1 260px"},`<b style="font-family:var(--meta)">${k+1}</b>&nbsp; ${t}`));
+    ["juist","onjuist"].forEach((lab,v)=>{const b=el("button",{class:"chip","aria-pressed":"false"},lab);b.onclick=()=>{pick[k]=v===0;r.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c===b?"true":"false"));};r.append(b);});ans.append(r);});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(pick.includes(null)){fb.hidden=false;fb.className="fb hint";fb.textContent="Beoordeel eerst alle uitspraken.";return;}
+    const n=pick.filter((p,k)=>p===key[k]).length;const p=n===stm.length?2:n===stm.length-1?1:0;ck.disabled=true;
+    ans.querySelectorAll(".chip").forEach(c=>c.disabled=true);
+    fb.hidden=false;fb.className="fb "+(p===2?"ok":"no");
+    fb.innerHTML=`${n} van de ${stm.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+key.map((k,i)=>`${i+1} ${k?"juist":"onjuist"}`).join(" · ");setScore(id,p);
+    waaromBtn(ans,uitleg);};
+}
+function stepAnim(box,steps,render){
+  let i=0;const stage=el("div",{class:"stage"}),cap=el("p",{class:"cap"});
+  const prev=el("button",{class:"ghost"},"‹ Vorige"),next=el("button",{class:"go"},"Volgende ›");
+  const pips=el("div",{class:"pips"},steps.map(()=>"<span></span>").join(""));
+  const nav=el("div",{class:"nav"});nav.append(prev,next,pips);
+  const a=el("div",{class:"anim"});a.append(stage,cap,nav);box.append(a);
+  function show(){cap.innerHTML=steps[i].cap;prev.disabled=i===0;next.textContent=i===steps.length-1?"Opnieuw ›":"Volgende ›";
+    pips.querySelectorAll("span").forEach((p,j)=>p.classList.toggle("on",j===i));render(stage,steps[i],i);}
+  prev.onclick=()=>{if(i>0){i--;show();}};next.onclick=()=>{i=(i+1)%steps.length;show();};show();
+}
+/* ================= meer bouwstenen ================= */
+function seqStep(container,{q,items,shown,ok,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const seq=el("div",{class:"seq"});let at=0;const fb=el("div",{class:"fb",hidden:""});
+  shown.forEach(k=>{const b=el("button",{class:"opt"},`<span class="n">·</span>${items[k]}`);b.onclick=()=>{if(b.classList.contains("placed"))return;
+    if(k===at){b.classList.add("placed");b.querySelector(".n").textContent=at+1;at++;fb.hidden=true;if(at===items.length){fb.hidden=false;fb.className="fb ok";fb.innerHTML=ok;onDone&&onDone();}}
+    else{fb.hidden=false;fb.className="fb hint";fb.textContent="Dat is nog niet de volgende stap. Wat gebeurt er direct daarna?";}};seq.append(b);});
+  s.append(seq,fb);container.append(s);
+}
+function selectAnswer(ans,{id,rows,score,uid,after,intro}){
+  if(intro)ans.append(el("p",{style:"margin:0"},intro));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const sid=uid+"a"+k;
+    r.append(el("label",{for:sid,class:"sellab"},lab));const sel=el("select",{id:sid});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);ans.append(r);return sel;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(sels.some(x=>x.value==="")){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul eerst alles in.";return;}
+    const n=sels.filter((x,k)=>+x.value===rows[k][2]).length;const p=score(n);sels.forEach(x=>x.disabled=true);ck.remove();
+    fb.hidden=false;fb.className="fb "+(n===rows.length?"ok":"no");
+    fb.innerHTML=`${n} van de ${rows.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+rows.map(([lab,opts,r])=>`${lab}: ${opts[r]}`).join(" · ");
+    setScore(id,p);after&&after();};
+}
+function textBox(html){return b=>b.append(el("div",{class:"model"},html));}
+const svgWrap=(vb,inner,label)=>`<svg viewBox="${vb}" role="img" aria-label="${label}">${inner}</svg>`;
+function numAnswer(ans,{id,fields,after}){
+  const inps=fields.map(([lab,unit],k)=>{const r=el("div",{class:"row"});const fid="q"+id+"f"+k;
+    r.append(el("label",{for:fid,class:"sellab"},lab));const i=el("input",{class:"num",id:fid,inputmode:"decimal"});r.append(i,el("span",{class:"muted"},unit));ans.append(r);return i;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{const v=inps.map(i=>parseFloat((i.value||"").replace(",",".")));if(v.some(isNaN)){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul beide uitkomsten in.";return;}
+    inps.forEach(i=>i.disabled=true);ck.remove();const res=fields.map((f,k)=>f[2](v[k]));const p=res.filter(Boolean).length;
+    fb.hidden=false;fb.className="fb "+(p===fields.length?"ok":"no");
+    fb.innerHTML=`<b>${p} van de ${fields.length} punten.</b><br>`+fields.map((f,k)=>`${res[k]?"✓":"✗"} ${f[3]}`).join("<br>");setScore(id,p);after&&after();};
+}
+
+/* ===== Oefentoets Planten (alleen vwo, 6 vwo · Nectar H20): gedeelde hulpjes ===== */
+const VWO=true;
+let QN=0,ON=0;
+/* vraag(punten, onderwerp, build(q,id), stof?) -> id; stof = {titel, html, anim?, films?} voor 'Uitleg van de stof' */
+function vraag(pts,t,build,stof){const id=++QN;Q.push({id,pts,t,build:q=>build(q,id)});
+  if(stof&&window.EXSTOF)EXSTOF.zet(TOOL,[id],stof);return id;}
+function opgave(kort,titel,html,ids){const nr=++ON;
+  OPG.push({nr,kort,titel,ids,ctx:`<div class="pkop"><span class="mono">Toetstekst · inleiding opgave ${nr}</span></div>`+html});}
+/* films van het thema (hrefs als in HOOFDSTUKKEN.planten.films in index.html) */
+const F={
+  groei:["Hoe een plant groeit","films/transport/7-hoe-een-plant-groeit.html"],
+  trans:["Transport in planten","films/transport/6-transport-in-planten.html"],
+  groen:["Alles in het groen","films/stofwisseling/3-alles-in-het-groen.html"]};
+/* begin van een vraag: vraagzin, hulp- en antwoordvak */
+function start(q,html){q.append(el("p",{class:"qtext"},html));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  return {think,ans,unlock};}
+const B=t=>`<b>${t}</b>`;
+const TABEL=(nr,kop,rijen,noot)=>`<div class="eyebrow">tabel ${nr}${noot?" "+noot:""}</div><div class="tablewrap"><table class="data"><tr>${kop.map(k=>`<th>${k}</th>`).join("")}</tr>${rijen.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join("")}</tr>`).join("")}</table></div>`;
+const esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");
+
+/* Open vraag met zelf nakijken, met een eigen puntentelling: score(aantal aangevinkt) -> punten.
+   Voor vragen als 'drie stappen 2 punten, twee stappen 1 punt'. */
+function openScore(ans,{id,pts,checks,score,model,valkuil,placeholder,after,kop}){
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:placeholder||"Schrijf je antwoord…"});
+  const ck=el("button",{class:"go"},"Nakijken");const tf=el("div",{class:"fb hint",hidden:""},"Schrijf eerst je antwoord op. Daarna kijk je het na.");
+  ans.append(ta,ck,tf);
+  ck.onclick=()=>{if(ta.value.trim().length<8){tf.hidden=false;ta.focus();return;}tf.remove();ck.remove();ta.readOnly=true;
+    const ss=el("div",{class:"selfscore"});
+    ss.append(el("p",{style:"margin:0"},"<b>Kijk jezelf na met het antwoordmodel.</b> "+(kop||"Vink aan wat er in jouw antwoord staat.")));
+    const boxes=checks.map((c,k)=>{const lab=el("label",{},`<input type="checkbox" id="q${id}c${k}"><span>${c}</span>`);ss.append(lab);return lab.querySelector("input");});
+    if(model)ss.append(el("div",{class:"model"},"<b>Voorbeeldantwoord:</b> "+model));
+    if(valkuil)ss.append(el("div",{class:"fb hint"},"<b>Valkuil:</b> "+valkuil));
+    const sc=el("div",{class:"score"});ss.append(sc);ans.append(ss);
+    const upd=()=>{const n=boxes.filter(b=>b.checked).length;const p=Math.min(pts,score(n));sc.textContent=`${n} aangevinkt · jouw score: ${p} / ${pts}`;setScore(id,p);};
+    boxes.forEach(b=>b.onchange=upd);upd();after&&after();};
+}
+
+/* Woorden invullen die de tool zelf nakijkt. fields = [[label, [stukjes die goed zijn], juiste naam]], score(n goed) -> punten.
+   Spelling telt niet: kleine letters, zonder spaties en streepjes; een veld is goed als het een van de stukjes bevat. */
+function woordAnswer(ans,{id,pts,fields,score,after,uitleg}){
+  const norm=s=>s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[\s\-–.]/g,"");
+  const inps=fields.map(([lab],k)=>{const r=el("div",{class:"row"});const fid="q"+id+"w"+k;
+    r.append(el("label",{for:fid,class:"sellab"},lab));const i=el("input",{class:"num woord",id:fid,autocomplete:"off",spellcheck:"false",style:"width:220px;font-family:var(--tekst)"});r.append(i);ans.append(r);return i;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(inps.some(i=>!i.value.trim())){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul eerst alles in.";return;}
+    const res=fields.map((f,k)=>f[1].some(s=>norm(inps[k].value).includes(norm(s))));
+    const n=res.filter(Boolean).length,p=Math.min(pts,score(n));inps.forEach(i=>i.disabled=true);ck.remove();
+    fb.hidden=false;fb.className="fb "+(p===pts?"ok":"no");
+    fb.innerHTML=`${n} van de ${fields.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+fields.map((f,k)=>`${res[k]?"✓":"✗"} ${f[0]} ${f[2]}`).join("<br>");
+    setScore(id,p);if(uitleg)waaromBtn(ans,uitleg);after&&after();};
+}
+
+/* Gemengd antwoord: onderdelen die de tool nakijkt (getal of keuze, elk 1 punt) plus uitleg die je zelf nakijkt (vinkjes, elk 1 punt).
+   auto = [{label, unit?, ok:(v, alle getallen)=>bool, toon}] voor een getal, of [{label, opts:[...], right, toon}] voor een keuze;
+   checks = zelf nakijken (na 'Nakijken'); tekst = vraag boven het tekstvak voor de uitleg. */
+function mixAnswer(ans,{id,pts,auto,checks=[],tekst,model,valkuil,after}){
+  const vals=[];
+  const parts=auto.map((a,k)=>{const r=el("div",{class:"row"});const fid="q"+id+"m"+k;
+    r.append(el("label",{for:fid,class:"sellab"},a.label));
+    if(a.opts){const box=el("span",{class:"row",style:"gap:8px"});a.opts.forEach((o,j)=>{const at={class:"chip","aria-pressed":"false"};if(!j)at.id=fid;const b=el("button",at,o);
+      b.onclick=()=>{vals[k]=j;box.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c===b?"true":"false"));};box.append(b);});r.append(box);}
+    else{const i=el("input",{class:"num",id:fid,inputmode:"decimal"});i.oninput=()=>{vals[k]=parseFloat((i.value||"").replace(",","."));};r.append(i);if(a.unit)r.append(el("span",{class:"muted"},a.unit));}
+    ans.append(r);return r;});
+  let ta=null;
+  if(checks.length){if(tekst)ans.append(el("p",{style:"margin:6px 0 0"},tekst));ta=el("textarea",{id:"q"+id+"t",placeholder:"Schrijf je uitleg…"});ans.append(ta);}
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{
+    if(auto.some((a,k)=>vals[k]===undefined||Number.isNaN(vals[k]))){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul eerst alles in.";return;}
+    if(ta&&ta.value.trim().length<8){fb.hidden=false;fb.className="fb hint";fb.textContent="Schrijf eerst je uitleg op. Daarna kijk je het na.";ta.focus();return;}
+    ck.remove();parts.forEach(r=>r.querySelectorAll("input,button").forEach(x=>x.disabled=true));if(ta)ta.readOnly=true;
+    const res=auto.map((a,k)=>a.opts?vals[k]===a.right:!!a.ok(vals[k],vals));const na=res.filter(Boolean).length;
+    fb.hidden=false;fb.className="fb "+(na===auto.length?"ok":"no");
+    fb.innerHTML=`<b>Door de tool nagekeken: ${na} van de ${auto.length} ${auto.length===1?"punt":"punten"}.</b><br>`+auto.map((a,k)=>`${res[k]?"✓":"✗"} ${a.toon}`).join("<br>");
+    const sc=el("div",{class:"score"});
+    let boxes=[];
+    if(checks.length){const ss=el("div",{class:"selfscore"});ss.append(el("p",{style:"margin:0"},"<b>Kijk je uitleg zelf na met het antwoordmodel.</b> Vink aan wat er in jouw antwoord staat."));
+      boxes=checks.map((c,k)=>{const lab=el("label",{},`<input type="checkbox" id="q${id}c${k}"><span>${c} <span class="pts">1p</span></span>`);ss.append(lab);return lab.querySelector("input");});
+      ss.append(sc);ans.append(ss);}
+    else ans.append(sc);
+    if(model)ans.append(el("div",{class:"model"},"<b>Voorbeeldantwoord:</b> "+model));
+    if(valkuil)ans.append(el("div",{class:"fb hint"},"<b>Valkuil:</b> "+valkuil));
+    const upd=()=>{const p=Math.min(pts,na+boxes.filter(b=>b.checked).length);sc.textContent=`Jouw score: ${p} / ${pts}`;setScore(id,p);};
+    boxes.forEach(b=>b.onchange=upd);upd();after&&after();};
+}
+
+/* Grafiek netto CO₂-opname tegen lichtintensiteit (afbeelding 1 van de vertical farm). Zelfde modelkrommen als
+   eigen/figuren/planten/maak.py in kamieljacobs/toetsen-biologie: normaal 14·L/(150+L) − 2, extra CO₂ 20·L/(214+L) − 2.
+   opties: krommen = [{f, streep, naam, op}], band = [{x, kleur}], stip = [{x, y, kleur, tekst}], bruto = [x, laag, hoog],
+   ymin/ymax/xmax, legenda (true/false). Alleen kleuren uit de huisstijl, dus licht en donker werken. */
+const SLA={norm:L=>14*L/(150+L)-2, extra:L=>20*L/(214+L)-2};
+function GRAF({krommen=[{f:SLA.norm,streep:"",naam:"normaal CO₂-gehalte"},{f:SLA.extra,streep:"9 6",naam:"extra CO₂"}],band=[],stip=[],bruto=null,
+  ymin=-4,ymax=14,ystap=2,xmax=600,xstap=100,legenda=true,xtitel="lichtintensiteit (µmol fotonen per m² per s)",ytitel="netto CO₂-opname (mg per uur per plant)",label="Netto CO₂-opname van een slaplant bij verschillende lichtintensiteiten"}={}){
+  const X0=72,X1=612,Y0=24,Y1=344;
+  const xs=L=>X0+L*(X1-X0)/xmax, ys=v=>Y0+(ymax-v)*(Y1-Y0)/(ymax-ymin);
+  let s="";
+  band.forEach(b=>s+=`<rect x="${xs(b.x)-10}" y="${Y0}" width="20" height="${Y1-Y0}" fill="${b.kleur}" opacity=".22"/>`);
+  for(let L=0;L<=xmax;L+=xstap)s+=`<path d="M${xs(L)},${Y0} V${Y1}" stroke="var(--line)" stroke-width="1"/><text x="${xs(L)}" y="${Y1+18}" text-anchor="middle" class="lblm">${L}</text>`;
+  for(let v=ymin;v<=ymax;v+=ystap)s+=`<path d="M${X0},${ys(v)} H${X1}" stroke="var(--line)" stroke-width="1"/><text x="${X0-10}" y="${ys(v)+4}" text-anchor="end" class="lblm">${String(v).replace("-","−")}</text>`;
+  s+=`<path d="M${X0},${Y0} V${Y1} H${X1}" fill="none" stroke="var(--text2)" stroke-width="1.4"/><path d="M${X0},${ys(0)} H${X1}" stroke="var(--text)" stroke-width="1.3"/>`;
+  krommen.forEach(k=>{let d="";for(let L=0;L<=xmax;L+=4)d+=`${L?"L":"M"}${xs(L).toFixed(1)},${ys(k.f(L)).toFixed(1)} `;
+    s+=`<path d="${d}" fill="none" stroke="${k.kleur||"var(--text)"}" stroke-width="2.6" stroke-dasharray="${k.streep||""}" opacity="${k.op??1}" stroke-linejoin="round"/>`;});
+  if(bruto){const [x,lo,hi]=bruto;s+=`<path d="M${xs(x)+16},${ys(lo)} V${ys(hi)}" stroke="var(--goud)" stroke-width="4"/><path d="M${xs(x)+8},${ys(lo)} h16 M${xs(x)+8},${ys(hi)} h16" stroke="var(--goud)" stroke-width="2"/>`;}
+  stip.forEach(p=>{s+=`<circle cx="${xs(p.x)}" cy="${ys(p.y)}" r="6" fill="${p.kleur||"var(--goud)"}"/>`;if(p.tekst)s+=`<text x="${xs(p.x)+(p.links?-10:10)}" y="${ys(p.y)-10}" text-anchor="${p.links?"end":"start"}" class="lbl">${p.tekst}</text>`;});
+  if(legenda)krommen.forEach((k,i)=>{const lx=X1-210,ly=Y1-46+i*22;s+=`<path d="M${lx},${ly} h36" stroke="${k.kleur||"var(--text)"}" stroke-width="2.6" stroke-dasharray="${k.streep||""}" opacity="${k.op??1}"/><text x="${lx+44}" y="${ly+4}" class="lbl">${k.naam}</text>`;});
+  s+=`<text x="${(X0+X1)/2}" y="${Y1+40}" text-anchor="middle" class="lblm">${xtitel}</text>`;
+  s+=`<text x="18" y="${(Y0+Y1)/2}" class="lblm" text-anchor="middle" transform="rotate(-90 18 ${(Y0+Y1)/2})">${ytitel}</text>`;
+  return `<div class="plfig" style="max-width:640px;margin:0 auto;width:100%;--min:540px">`+svgWrap("0 0 630 396",s,label)+`</div>`;}
+
+/* ===== Opgave 1: Groei en plantenhormonen (EI-planten-A02, A07 uit toetsen-biologie) ===== */
+{
+const STOF_PLEK={titel:"Waar een plant groeit",html:`
+<p>Een mens groeit overal tegelijk. Een plant groeit alleen op een paar vaste plekken: in de <b>meristemen</b>. Zo'n groeipunt zit in de top van elke stengel en in elke wortelpunt (beschermd door een <b>wortelmutsje</b>). Een stengel wordt dus alleen bij de top langer: een spijker op één meter hoogte in een jonge boom zit daar tien jaar later nog.</p>
+<p>Dikker worden gaat anders: in de stam zit een dunne ring delende cellen, het <b>cambium</b>.</p>
+<p>Een cel die net ontstaan is, is nog klein en heeft nog geen vaste taak. Een plant moet daarna nog veel met die cel doen voordat hij een stuk stengel met houtvaten en bastvaten is.</p>`,
+films:[F.groei]};
+const q1=vraag(2,"drie zones in de stengeltop",(q,id)=>{
+  const {think,ans,unlock}=start(q,"In een stengeltop onderscheid je drie zones.<br><br>"+B("Noem de drie zones van boven naar beneden, en geef aan in welke zone de stengel de meeste lengte wint."));
+  choiceStep(think,{q:"Je slaat een spijker op één meter hoogte in een jonge boom. Tien jaar later zit hij nog op één meter. Wat zegt dat?",opts:["de hele stam groeit even hard mee","een stengel wordt alleen vlak bij de top langer","de boom groeit niet meer"],right:1,
+    ok:"Ja. Vlak bij de top gebeuren na elkaar drie dingen met de cellen.",no:"Als de hele stam mee groeide, zou de spijker omhoog schuiven.",
+    onDone:()=>choiceStep(think,{q:"Na een celdeling zijn de twee nieuwe cellen samen ongeveer even groot als de oude cel. Is de stengel na alleen delen al veel langer?",opts:["ja: meer cellen is meteen een langere stengel","nee: er moet daarna nog iets met de nieuwe cellen gebeuren"],right:1,
+      ok:"Goed. Bedenk wat er met de nieuwe cellen gebeurt voordat de stengel langer is, en wat daarna voordat ze een houtvat of bastvat zijn. In welke van die zones wint de stengel de meeste lengte?",no:"Twee kleine cellen naast elkaar nemen evenveel ruimte in als de ene cel van daarvoor.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "van boven naar beneden: cellen <b>delen</b>, cellen <b>strekken</b>, cellen <b>differentiëren</b> (krijgen hun eigen bouw en taak)",
+    "de meeste lengtewinst komt uit de zone waar de cellen <b>strekken</b>"],
+    model:"Bovenaan delen de cellen zich (meristeem). Daaronder strekken ze zich: ze worden veel langer. Nog lager differentiëren ze: ze krijgen hun eigen bouw en taak, bijvoorbeeld als houtvat of bastvat. De meeste lengte wint de stengel in de strekkingszone.",
+    valkuil:"De zones in de verkeerde volgorde (bijvoorbeeld differentiëren bovenaan) levert voor het eerste punt 0 punten op. ‘De meeste lengte komt van het delen’ is fout: delen maakt cellen, strekken maakt lengte.",
+    after:()=>waaromBtn(ans,textBox("In de top ontstaan nieuwe cellen door <b>deling</b>. Die nemen daaronder water op in hun vacuole en <b>strekken</b> zich, soms tot tien keer hun lengte: daar komt de meeste lengtewinst vandaan. Nog lager krijgen ze hun eigen bouw en taak (<b>differentiatie</b>), bijvoorbeeld als houtvat. Door deze volgorde schuift de top steeds verder omhoog, en blijft een spijker op één meter staan."))});
+  q.append(think,ans);
+},STOF_PLEK);
+
+const STOF_HORM={titel:"Plantenhormonen",html:`
+<p>Een <b>plantenhormoon</b> is een stof die in kleine hoeveelheden de groei of ontwikkeling van een plant regelt, vaak ergens anders dan waar hij gemaakt wordt.</p>
+<p>Het bekendste voorbeeld is <b>auxine</b>. Dat komt uit de top en maakt de celwand soepel, zodat de cellen eronder strekken. Komt het licht van één kant, dan gaat auxine naar de schaduwkant: die kant strekt meer en de stengel buigt naar het licht (fototropie). Dezelfde auxine remt bij een hogere concentratie juist de strekking in de wortel.</p>
+<p>Naast auxine noemt de film nog vier plantenhormonen, elk met een eigen hoofdrol.</p>`,
+films:[F.groei]};
+const q2=vraag(2,"welk plantenhormoon?",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Noem bij elke situatie het plantenhormoon dat de hoofdrol speelt.")+"<br><br>a Avocado's worden sneller rijp in een papieren zak met een rijpe banaan.<br>b Bij droogte sluiten de huidmondjes.<br>c Zaden kiemen.<br>d Cellen in een meristeem delen.");
+  choiceStep(think,{q:"Situatie c (zaden kiemen) en d (cellen delen) gaan allebei over groei. Is het in beide situaties hetzelfde hormoon?",opts:["ja, één groeihormoon regelt allebei","nee, elk heeft een eigen hormoon met een eigen hoofdrol"],right:1,
+    ok:"Goed. Je hebt dus vier verschillende hormonen nodig, voor vier verschillende hoofdrollen: rijpen, sluiten bij droogte, kiemen en delen.",no:"De vraag noemt vier situaties en vraagt bij elke het hormoon met de hoofdrol. De film noemt naast auxine nog vier plantenhormonen.",
+    onDone:()=>choiceStep(think,{q:"Situatie a: de banaan raakt de avocado niet eens. Wat zegt dat over het hormoon?",opts:["het gaat via de bastvaten van de banaan naar de avocado","het verspreidt zich door de lucht in de zak"],right:1,
+      ok:"Ja. Dat is een bijzondere eigenschap van dit hormoon. Vul nu bij elke situatie het hormoon in.",no:"De banaan en de avocado zijn twee losse vruchten, zonder vaten ertussen.",onDone:unlock})});
+  woordAnswer(ans,{id,pts:2,score:n=>n===4?2:n===3?1:0,fields:[
+    ["a",["ethyl","etheen","ethen","etyl","etheen"],"ethyleen"],
+    ["b",["absci","abcis","abscis","aba"],"abscisinezuur"],
+    ["c",["gibber","giber","gibbe"],"gibberelline"],
+    ["d",["cytokin","cytokyn","citokin","cytoquin"],"cytokinine"]],
+    uitleg:textBox("a <b>Ethyleen</b> is een gas: het komt uit de rijpe banaan en laat de avocado rijpen.<br>b <b>Abscisinezuur</b> sluit de huidmondjes als het droog is, zodat de plant minder water verliest.<br>c <b>Gibberelline</b> laat zaden kiemen (en stengels strekken).<br>d <b>Cytokinine</b> laat cellen delen, vooral in de meristemen.<br><br>Vier goed: 2 punten, drie goed: 1 punt, minder: 0 punten. Kleine spelfouten rekent de tool niet fout.")});
+  q.append(think,ans);
+},STOF_HORM);
+
+opgave("Groei","Groei en plantenhormonen",`
+<p>Deze toets bestaat uit 17 vragen (36 punten). De toets volgt de plant: eerst hoe een plant groeit, dan hoe water en suiker door de plant gaan, dan de fotosynthese, en tot slot wat de plant met zijn glucose doet en wanneer hij groeit. Je mag BiNaS gebruiken.</p>
+<p>De eerste twee vragen gaan over groei en plantenhormonen.</p>`,[q1,q2]);
+}
+
+/* ===== Opgave 2: Transport in de plant (EI-planten-B04, B09 uit toetsen-biologie) ===== */
+{
+const STOF_OSM={titel:"Osmose en opname door de wortel",html:`
+<p><b>Osmose</b> is de beweging van water door een membraan dat wel water doorlaat, maar opgeloste stoffen moeilijk. Water gaat altijd naar de kant waar <b>meer opgeloste stoffen</b> zitten (de hoogste osmotische waarde).</p>
+<p>Een plant haalt uit de bodem alleen water en mineralen. Stoffen die een cel opneemt tegen het concentratieverschil in, neemt hij op met <b>actief transport</b>: dat kost energie (ATP).</p>
+<p>Hoe groter het oppervlak van een orgaan, hoe meer stoffen er per seconde over de grens kunnen.</p>`,
+films:[F.trans]};
+const q1=vraag(2,"water de wortel in",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Leg in drie stappen uit hoe water vanuit de bodem in de wortel komt. Begin bij de wortelharen."));
+  choiceStep(think,{q:"Bij osmose gaat water naar de kant met…",opts:["meer opgeloste stoffen","minder opgeloste stoffen"],right:0,
+    ok:"Ja. Onthoud die richting: die heb je in je uitleg nodig.",no:"Denk aan een plantencel in zout water: het water gaat de cel uit, naar het zout.",
+    onDone:()=>choiceStep(think,{q:"Wortelharen zijn lange, dunne uitstulpingen van cellen in de wortel. Wat hebben ze voor nut?",opts:["ze maken het oppervlak van de wortel veel groter","ze houden de plant stevig in de grond","ze pompen het water omhoog"],right:0,
+      ok:"Goed: dat is je eerste stap. Bedenk zelf de twee stappen die volgen, tot het water in de wortel is.",no:"Bedenk wat er gebeurt met de opname als er veel meer celoppervlak tegen het bodemwater ligt.",onDone:unlock})});
+  openScore(ans,{id,pts:2,score:n=>n>=3?2:n===2?1:0,kop:"Vink elke stap aan die in jouw antwoord staat. Drie stappen: 2 punten, twee stappen: 1 punt, minder: 0 punten.",checks:[
+    "wortelharen geven de wortel een <b>groot oppervlak</b>",
+    "wortelcellen nemen <b>mineralen</b> op (vaak met actief transport), zodat er <b>meer opgeloste stoffen</b> in zitten dan in het bodemwater",
+    "daardoor gaat water door <b>osmose</b> de wortel in (tot in de houtvaten)"],
+    model:"Wortelharen geven de wortel een enorm oppervlak dat tegen het bodemwater ligt. De wortelcellen nemen mineralen op, vaak met actief transport, zodat er in de cellen meer opgeloste stoffen zitten dan in het bodemwater. Daardoor gaat water door osmose de wortel in, tot in de houtvaten.",
+    valkuil:"‘De wortels zuigen het water op’ is geen stap: noem waaróm het water naar binnen gaat (meer opgeloste stoffen binnen, osmose).",
+    after:()=>waaromBtn(ans,textBox("Het water gaat de wortel niet in omdat de wortel ‘zuigt’, maar door <b>osmose</b>: de wortelcellen hebben eerst mineralen opgenomen, vaak met actief transport. Daardoor is de osmotische waarde binnen hoger dan in het bodemwater, en gaat water naar binnen. De <b>wortelharen</b> zorgen dat dat over een heel groot oppervlak tegelijk gebeurt."))});
+  q.append(think,ans);
+},STOF_OSM);
+
+/* Drukstroom in beeld: boven een houtvat, onder een zeefvat met begeleidende cellen; links blad (bron), rechts vrucht (put). */
+function DRUK(st){
+  const W=620,H=270;let s="";
+  s+=`<text x="70" y="22" text-anchor="middle" class="lbl">blad (bron)</text><text x="${W-70}" y="22" text-anchor="middle" class="lbl">vrucht (put)</text>`;
+  s+=`<rect x="20" y="34" width="${W-40}" height="44" rx="8" fill="var(--teal-soft)" stroke="var(--teal)" stroke-width="1.6"/><text x="${W/2}" y="61" text-anchor="middle" class="lblm">houtvat (xyleem)</text>`;
+  s+=`<rect x="20" y="110" width="${W-40}" height="54" rx="8" fill="var(--surface2)" stroke="var(--text2)" stroke-width="1.6"/>`;
+  [160,300,440].forEach(x=>s+=`<path d="M${x},110 v54" stroke="var(--text3)" stroke-width="2" stroke-dasharray="4 4"/>`);
+  s+=`<text x="${W/2}" y="186" text-anchor="middle" class="lblm">zeefvat (floëem), met zeefplaten</text>`;
+  s+=`<rect x="34" y="196" width="110" height="44" rx="10" fill="var(--groen-soft)" stroke="var(--groen)" stroke-width="1.6"/><text x="89" y="223" text-anchor="middle" class="lblm">begeleidende cel</text>`;
+  const suiker=(x,y)=>`<circle cx="${x}" cy="${y}" r="5" fill="var(--goud)"/>`;
+  if(st.pomp){s+=`<path d="M89,196 V170" stroke="var(--goud)" stroke-width="3" marker-end="url(#plpijl)"/>`;[[60,128],[80,146],[100,130],[120,148],[70,150],[110,124]].forEach(([x,y])=>s+=suiker(x,y));
+    s+=`<text x="160" y="228" class="lbl">pompt suiker het zeefvat in</text>`;}
+  else [[60,190+30],[90,210+10]].forEach(([x,y])=>s+=suiker(x,y));
+  if(st.water){[60,110].forEach(x=>s+=`<path d="M${x},80 V106" stroke="var(--teal)" stroke-width="3" marker-end="url(#plpijlb)"/>`);s+=`<text x="128" y="99" class="lbl">water erin: druk hoog</text>`;}
+  if(st.put){[[W-100,130],[W-70,146]].forEach(([x,y])=>s+=suiker(x,y));s+=`<path d="M${W-85},164 V${H-20}" stroke="var(--goud)" stroke-width="3" marker-end="url(#plpijl)"/><text x="${W-95}" y="${H-24}" text-anchor="end" class="lbl">suiker eruit: druk laag</text>`;
+    s+=`<path d="M${W-60},106 V82" stroke="var(--teal)" stroke-width="3" marker-end="url(#plpijlb)"/>`;}
+  if(st.stroom)s+=`<path d="M170,137 H${W-150}" stroke="var(--koraal)" stroke-width="5" marker-end="url(#plpijlk)"/><text x="440" y="99" text-anchor="middle" class="lbl">sap stroomt van hoge naar lage druk</text>`;
+  const m=(id,c)=>`<marker id="${id}" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="${c}"/></marker>`;
+  return svgWrap(`0 0 ${W} ${H}`,`<defs>${m("plpijl","var(--goud)")}${m("plpijlb","var(--teal)")}${m("plpijlk","var(--koraal)")}</defs>`+s,"Drukstroom in een zeefvat van bron naar put");}
+
+const STOF_VATEN={titel:"Twee soorten vaten",html:`
+<p>In elke vaatbundel zitten twee soorten vaten. De <b>houtvaten</b> (xyleem) zijn dode, holle buizen: ze vervoeren water met mineralen van de wortels omhoog, altijd één kant op. De <b>bastvaten</b> of zeefvaten (floëem) zijn levende cellen met zeefplaten: ze vervoeren opgeloste suiker uit de bladeren naar plekken die suiker verbruiken of opslaan, in twee richtingen.</p>
+<p>Een vloeistof in een buis stroomt altijd van een plek met hoge druk naar een plek met lage druk.</p>`,
+films:[F.trans]};
+const q2=vraag(3,"de drukstroomtheorie",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Beschrijf de drukstroomtheorie in drie stappen: van een blad (bron) naar een vrucht (put)."));
+  selectsStep(think,{uid:"q"+id,q:"Is het een bron of een put voor suiker?",rows:[
+    ["blad in de zon",["bron","put"],0],["groeiende vrucht",["bron","put"],1],["wortel in de zomer",["bron","put"],1]],
+    ok:"Goed. In het floëem gaat het sap van bron naar put. Maar wat duwt het sap vooruit?",no:"Een bron maakt suiker of geeft het af; een put verbruikt of slaat het op.",
+    onDone:()=>choiceStep(think,{q:"Wat gebeurt er met een cel of vat als de concentratie opgeloste suiker erin stijgt?",opts:["er gaat water uit, door osmose","er stroomt water in, door osmose","er gebeurt niets met het water"],right:1,
+      ok:"Ja. En wat doet dat instromende water met de druk in het zeefvat? Maak nu de drie stappen: bron, druk, put.",no:"Water gaat naar de kant met meer opgeloste stoffen.",onDone:unlock})});
+  openAnswer(ans,{id,pts:3,checks:[
+    "in het blad (de bron) pompt de <b>begeleidende cel</b> suiker het zeefvat in",
+    "daardoor stijgt de osmotische waarde, stroomt er <b>water uit de houtvaten</b> het zeefvat in en wordt de <b>druk hoog</b>",
+    "in de vrucht (de put) worden de suikers eruit gehaald en gaat ook water weg, zodat de <b>druk daar laag</b> is; het sap stroomt van hoge naar lage druk, van bron naar put"],
+    model:"In het blad pompt de begeleidende cel suiker het zeefvat in. Daardoor stijgt de osmotische waarde en stroomt er water uit de houtvaten ernaast het zeefvat in: de druk wordt hoog. In de vrucht worden de suikers eruit gehaald en gaat er ook water weg, dus is de druk daar laag. Het sap stroomt van hoge naar lage druk, van bron naar put.",
+    valkuil:"‘De suiker diffundeert naar de vrucht’ of ‘de vrucht zuigt de suiker aan’ is niet de drukstroomtheorie: het sap wordt door een drukverschil geduwd, en dat drukverschil ontstaat door osmose.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"In het blad (de bron) pompt de begeleidende cel suiker het zeefvat in. De osmotische waarde in het zeefvat stijgt.",pomp:1},
+      {cap:"Door osmose stroomt water uit het houtvat ernaast het zeefvat in. In het zeefvat bij het blad wordt de druk hoog.",pomp:1,water:1},
+      {cap:"In de vrucht (de put) worden de suikers eruit gehaald, en gaat ook het water weg: daar is de druk laag.",pomp:1,water:1,put:1},
+      {cap:"Het sap stroomt van hoge naar lage druk, van bron naar put. Een bladluis hoeft daarom niet te zuigen: het sap wordt vanzelf in zijn monddeel geperst.",pomp:1,water:1,put:1,stroom:1}],
+      (st,s)=>st.innerHTML=DRUK(s)))});
+  q.append(think,ans);
+},STOF_VATEN);
+
+opgave("Transport","Transport in de plant",`<p>De volgende twee vragen gaan over het transport van water en suiker in een plant.</p>`,[q1,q2]);
+}
+
+/* ===== Opgave 3: De hoogste bomen (EI-planten-H01, H02, H03 uit toetsen-biologie) ===== */
+{
+const STOF_OMHOOG={titel:"Water omhoog",html:`
+<p>In het blad verdampt water uit de cellen in luchtholtes; de waterdamp ontsnapt door de <b>huidmondjes</b>. Dat is <b>transpiratie</b>. Verdampt er water, dan trekken de bladcellen nieuw water uit de houtvaten: de <b>zuigkracht van de bladeren</b>. Worteldruk duwt maar een klein beetje mee.</p>
+<p>Watermoleculen trekken sterk aan elkaar door waterstofbruggen: <b>cohesie</b>. Ze plakken ook aan de wand van de houtvaten: <b>adhesie</b>. Zo blijft het water in een houtvat één ononderbroken draad. Water stroomt van hoge naar lage druk.</p>`,
+films:[F.trans]};
+const STOF_TURGOR={titel:"Turgor en strekking",html:`
+<p>Een plantencel neemt water op in zijn <b>vacuole</b>, door osmose. De vacuole duwt van binnen tegen de celwand. Die druk heet <b>turgor</b>.</p>
+<p>In de strekkingszone maakt auxine de celwand soepeler. Dan geeft de wand mee en rekt de cel uit in de lengte: <b>strekking</b>. Een cel kan zo wel tien keer zo lang worden, vooral met water en weinig bouwstof.</p>`,
+films:[F.groei,F.trans]};
+const STOF_HUID={titel:"Huidmondjes",html:`
+<p>Een <b>huidmondje</b> is een opening tussen twee <b>sluitcellen</b>. Hun wand is aan de kant van de opening dikker. Zwellen de sluitcellen op, dan buigen ze uit elkaar en gaat de opening open. Verliezen ze water, dan sluit de opening.</p>
+<p>Door dezelfde opening gaat waterdamp naar buiten én koolstofdioxide naar binnen. Een plant moet dus steeds ‘kiezen’ tussen water sparen en gassen uitwisselen.</p>`,
+films:[F.trans,F.groei]};
+
+const q1=vraag(2,"spanning bovenin de boom",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Leg in twee stappen uit waardoor het water in de houtvaten bovenin de boom onder grotere spanning staat dan onderin. Gebruik de begrippen zuigkracht van de bladeren en cohesie."));
+  choiceStep(think,{q:"Waardoor trekken de bladcellen water uit de houtvaten?",opts:["doordat er water uit het blad verdampt (transpiratie)","doordat de wortels het water omhoog duwen","doordat de bladeren suiker maken"],right:0,
+    ok:"Ja: dat is de zuigkracht van de bladeren. Waarom breekt de waterkolom daarbij niet af?",no:"Worteldruk duwt maar een klein beetje. De trek komt van bovenaf.",
+    onDone:()=>choiceStep(think,{q:"Een touw hangt aan een haak, met een zwaar gewicht aan het onderste eind. Waar staat het touw onder de grootste spanning?",opts:["vlak bij de haak, bovenaan","vlak bij het gewicht, onderaan","overal even veel"],right:0,
+      ok:"Goed: het bovenste stuk draagt het hele touw eronder. Vergelijk de waterkolom in een houtvat met dat touw.",no:"Welk stuk van het touw moet het meeste gewicht dragen?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "door de transpiratie trekken de bladcellen water uit de houtvaten (<b>zuigkracht van de bladeren</b>); door <b>cohesie</b> hangt de hele waterkolom aan die trek",
+    "bovenin moet de hele (zware) waterkolom eronder mee omhoog worden getrokken: daar is de <b>druk het laagst</b> en de <b>spanning het grootst</b>"],
+    model:"Door transpiratie trekken de bladcellen water uit de houtvaten: de zuigkracht van de bladeren. Door cohesie trekken de watermoleculen aan elkaar, zodat de hele waterkolom aan die trek hangt. Bovenin moet de trek de hele zware kolom eronder omhoog trekken. Daar is de druk het laagst en de spanning het grootst.",
+    valkuil:"Alleen de begrippen uitleggen (‘cohesie is dat watermoleculen aan elkaar trekken’) zonder de stap naar ‘bovenin moet de hele kolom eronder worden meegetrokken’ levert hooguit 1 punt op.",
+    after:()=>waaromBtn(ans,textBox("De trek komt van bovenaf: water verdampt uit de bladeren en de bladcellen trekken nieuw water uit de houtvaten. Door <b>cohesie</b> is het water één draad, als een touw. Het bovenste stuk van dat touw draagt het hele gewicht eronder: bovenin is de druk dus het laagst en de spanning het grootst. Hoe hoger de boom, hoe groter die spanning, en daarom kan een kustmammoetboom niet onbeperkt hoger worden."))});
+  q.append(think,ans);
+},STOF_OMHOOG);
+
+const q2=vraag(2,"kleine naalden bovenin",(q,id)=>{
+  const {think,ans,unlock}=start(q,"In tabel 1 zie je dat de naalden bovenin de boom kleiner blijven dan onderin.<br><br>"+B("Leg uit hoe een grote spanning in de houtvaten ervoor kan zorgen dat de naalden bovenin kleiner blijven. Gebruik de begrippen turgor en strekking."));
+  choiceStep(think,{q:"Hoe wordt een cel in een groeiende naald langer?",opts:["hij neemt water op in zijn vacuole en rekt uit tegen een soepele celwand","hij maakt steeds meer celwand bij","hij deelt zich steeds weer"],right:0,
+    ok:"Ja: zo worden cellen langer. Wat heeft zo'n cel daarvoor dus nodig?",no:"De meeste lengte komt niet van delen of van bouwstof.",
+    onDone:()=>choiceStep(think,{q:"Het water in de houtvaten bovenin staat onder grote spanning: het wordt hard naar boven getrokken. Wat betekent dat voor een cel in een groeiende naald daar?",opts:["die krijgt makkelijk extra water","die krijgt moeilijker water"],right:1,
+      ok:"Goed. Maak nu de keten af met turgor en strekking.",no:"Als het water in de houtvaten zelf al hard wordt weggetrokken, kan een cel er dan makkelijk water uit halen?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "bij een grote spanning krijgen de cellen in de groeiende naalden <b>minder water</b>: de vacuole drukt minder hard tegen de celwand, de <b>turgor is lager</b>",
+    "zonder genoeg turgor <b>strekken</b> de cellen minder; de naalden worden dus minder lang"],
+    model:"Bij een grote spanning in de houtvaten krijgen de cellen van de groeiende naalden moeilijk water. Hun vacuole drukt dan minder hard tegen de celwand: de turgor is lager. Zonder genoeg turgor strekken de cellen minder, en blijven de naalden kort.",
+    valkuil:"‘De naalden krijgen minder voedsel’ is niet de uitleg die gevraagd wordt: het gaat om water, turgor en strekking.",
+    after:()=>waaromBtn(ans,textBox("Strekken gaat met water: de cel neemt water op in zijn vacuole, de <b>turgor</b> duwt tegen de soepele celwand en de cel rekt uit. Bovenin de boom wordt het water in de houtvaten hard weggetrokken, dus komt er minder water in de groeiende cellen. Lagere turgor betekent minder <b>strekking</b>, en dus kortere naalden: 5 mm op 100 meter tegen 20 mm op 20 meter."))});
+  q.append(think,ans);
+},STOF_TURGOR);
+
+const q3=vraag(2,"huidmondjes bovenin dicht",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Op een warme middag sluiten de huidmondjes bovenin de boom eerder dan onderin.<br><br>"+B("Leg uit waarom, en leg uit wat het gevolg is voor de fotosynthese van de naalden bovenin."));
+  choiceStep(think,{q:"Wanneer sluit een huidmondje?",opts:["als de sluitcellen water verliezen","als de sluitcellen opzwellen","als het licht wordt"],right:0,
+    ok:"Ja. Waar in de boom krijgen de bladcellen het minst water?",no:"Zwellen de sluitcellen op, dan buigen ze uit elkaar en gaat de opening open.",
+    onDone:()=>choiceStep(think,{q:"Wat komt er via de huidmondjes het blad in?",opts:["koolstofdioxide","glucose","mineralen"],right:0,
+      ok:"Goed. Welke stof heeft de fotosynthese daarvan nodig?",no:"Glucose maakt het blad zelf, mineralen komen via de houtvaten. Wat komt er uit de lucht?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "bovenin krijgen de bladcellen het <b>minst water</b> (grootste spanning); de sluitcellen verliezen water (of: abscisinezuur) en de huidmondjes sluiten",
+    "er komt <b>minder CO₂</b> binnen, dus <b>minder fotosynthese</b> (minder suiker) bovenin"],
+    model:"Bovenin is de spanning in de houtvaten het grootst en krijgen de bladcellen het minste water. Op een warme middag verliezen de sluitcellen daar het eerst water, dus sluiten de huidmondjes daar eerder. Dan komt er minder CO₂ het blad in, en doen de naalden bovenin minder fotosynthese.",
+    valkuil:"‘Bovenin is het warmer’ is geen biologische uitleg; het gaat om het water dat de sluitcellen krijgen. ‘Minder fotosynthese doordat er minder licht is’ is fout: het licht is er wel, CO₂ komt niet binnen.",
+    after:()=>waaromBtn(ans,textBox("Hoe minder water de sluitcellen krijgen, hoe eerder ze slap worden en de opening sluiten. Bovenin, met de grootste spanning in de houtvaten, gebeurt dat het eerst. Dicht = water gespaard, maar ook <b>geen CO₂</b> naar binnen. Zonder CO₂ kan de calvincyclus geen glucose maken, dus doen de naalden bovenin minder fotosynthese. Dat sluit aan bij wat de onderzoekers zagen."))});
+  q.append(think,ans);
+},STOF_HUID);
+
+opgave("Hoogste bomen","De hoogste bomen",`
+<p>De hoogste levende boom die bekend is, is een kustmammoetboom (<i>Sequoia sempervirens</i>) in Californië van 112,7 meter. Onderzoekers die in deze bomen klommen, concludeerden dat het water bovenin onder zoveel spanning staat, dat de bladeren daar slechter uitgroeien en minder fotosynthese doen. Volgens hun berekening kan een kustmammoetboom niet veel hoger worden dan 122 tot 130 meter.</p>
+${TABEL(1,["hoogte in de boom (m)","gemiddelde lengte van een naald (mm)"],[[20,20],[60,12],[100,5]],"(vereenvoudigd, fictieve getallen)")}`,[q1,q2,q3]);
+}
+
+/* ===== Opgave 4: Fotosynthese (EI-planten-C04, C11 uit toetsen-biologie) ===== */
+{
+const STOF_LICHT={titel:"De bladgroenkorrel en de lichtreactie",html:`
+<p>De fotosynthese gebeurt in de <b>bladgroenkorrel</b> (chloroplast). Binnen het dubbele membraan ligt het <b>stroma</b>, een vloeistof vol enzymen. Daarin liggen platte zakjes: de <b>thylakoïden</b>, opgestapeld in grana. In het membraan van de thylakoïden zit <b>chlorofyl</b>.</p>
+<p>De fotosynthese heeft twee delen. De <b>lichtreactie</b> in de thylakoïden gebruikt licht en water, en levert O₂, ATP en NADPH,H⁺. De <b>calvincyclus</b> in het stroma gebruikt die ATP en NADPH,H⁺ om CO₂ vast te leggen in glucose.</p>
+<p>Hoe een mitochondrium ATP maakt, ken je al: een keten van eiwitcomplexen pompt H⁺ naar één kant van een membraan, en de H⁺ stromen terug door ATP-synthetase.</p>`,
+films:[F.groen]};
+const q1=vraag(3,"de niet-cyclische fotofosforylering",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Beschrijf de niet-cyclische fotofosforylering in drie stappen: van het licht tot ATP en NADPH,H⁺. Noem daarbij: water, O₂, H⁺, ATP-synthetase, tweede chlorofyl en NADP⁺."));
+  chipsStep(think,{q:"Wat levert de lichtreactie op? Kies alles wat klopt.",items:[["O₂",1],["ATP",1],["NADPH,H⁺",1],["glucose",0],["CO₂",0]],
+    ok:"Goed. Begin je beschrijving bij het chlorofyl dat licht absorbeert. Wat gebeurt er dan met een elektron?",no:"Glucose ontstaat pas in de calvincyclus, en CO₂ wordt daar juist gebruikt.",
+    onDone:()=>choiceStep(think,{q:"Waarmee maakt ATP-synthetase ATP, in het mitochondrium én in de chloroplast?",opts:["met H⁺ die door het enzym terugstroomt","met energie die het rechtstreeks uit glucose haalt","met elektronen uit NADPH,H⁺"],right:0,
+      ok:"Ja: hetzelfde principe. Waar hoopt de H⁺ zich in de chloroplast op? Werk nu de drie stappen uit en gebruik alle zes woorden.",no:"Denk aan het mitochondrium: wat stroomt er door ATP-synthetase heen?",onDone:unlock})});
+  openAnswer(ans,{id,pts:3,checks:[
+    "chlorofyl absorbeert licht; een elektron krijgt energie en gaat naar de keten; het chlorofyl krijgt een nieuw elektron uit <b>water</b>, dat wordt gesplitst in elektronen, H⁺ en <b>O₂</b>",
+    "met energie van de elektronen wordt <b>H⁺ het thylakoïd in</b> gepompt; de H⁺ stromen terug door <b>ATP-synthetase</b> en daarbij ontstaat ATP",
+    "bij een <b>tweede chlorofyl</b> krijgen de elektronen nog eens energie uit licht; ze komen bij <b>NADP⁺</b>, dat met H⁺ uit het stroma NADPH,H⁺ wordt"],
+    model:"Chlorofyl absorbeert licht. Een elektron krijgt daardoor veel energie en gaat naar een keten van eiwitcomplexen. Het chlorofyl krijgt een nieuw elektron uit water; water wordt gesplitst in elektronen, H⁺ en O₂. Met de energie van de elektronen pompt een eiwitcomplex H⁺ het thylakoïd in. De H⁺ stromen terug door ATP-synthetase, en daarbij ontstaat ATP. Bij een tweede chlorofyl krijgen de elektronen nog een keer energie uit licht. Aan het eind komen ze bij NADP⁺, dat met H⁺ uit het stroma NADPH,H⁺ wordt.",
+    valkuil:"‘De O₂ komt uit CO₂’ is fout: de O₂ komt uit water. En H⁺ wordt het thylakoïd <i>in</i> gepompt, niet het stroma in; ATP ontstaat als de H⁺ terugstromen.",
+    after:()=>waaromBtn(ans,textBox("Volg één elektron: <b>licht</b> → chlorofyl geeft een elektron met veel energie af aan de keten → het gat wordt gevuld met een elektron uit <b>water</b> (water → elektronen + H⁺ + O₂) → de energie van de elektronen pompt <b>H⁺ het thylakoïd in</b> → de H⁺ stromen terug door <b>ATP-synthetase</b>: ATP → bij een <b>tweede chlorofyl</b> nog eens energie uit licht → het elektron komt bij <b>NADP⁺</b>, dat met H⁺ NADPH,H⁺ wordt. ‘Niet-cyclisch’: de elektronen gaan in één richting, van water naar NADP⁺."))});
+  q.append(think,ans);
+},STOF_LICHT);
+
+const STOF_MASSA={titel:"Rekenen met molecuulmassa's",html:`
+<p>De massa van een molecuul is de som van de massa's van zijn atomen. Een C-atoom heeft massa 12, een O-atoom 16 en een H-atoom 1 (in BiNaS staan alle atoommassa's).</p>
+<p>Voorbeeld: CO₂ heeft massa 12 + 2 × 16 = 44. Van die massa komt 12 / 44 × 100 % = 27 % van het C-atoom.</p>
+<p>In de fotosynthese komen de atomen van glucose uit twee stoffen: CO₂ en water. De film volgt waar elk atoom terechtkomt.</p>`,
+films:[F.groen]};
+const q2=vraag(2,"hoeveel van glucose komt uit CO₂?",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Glucose is C₆H₁₂O₆. Gebruik de atoommassa's C = 12, O = 16 en H = 1.<br><br>"+B("Bereken welk percentage van de massa van glucose bestaat uit atomen die uit CO₂ komen. Leg uit welke atomen dat zijn."));
+  numStep(think,{uid:"q"+id+"n",q:"Bereken eerst de massa van één glucosemolecuul.",right:180,
+    ok:"Ja: 6 × 12 + 12 × 1 + 6 × 16 = 180. Nu de vraag welke atomen uit CO₂ komen.",no:"Tel op: zes keer C, twaalf keer H, zes keer O.",
+    onDone:()=>choiceStep(think,{q:"Bij de lichtreactie wordt water gesplitst. Waar komen de O-atomen van de O₂ vandaan die de plant afgeeft?",opts:["uit water","uit CO₂","uit allebei"],right:0,
+      ok:"Goed. Gebruik dat om te bedenken uit welke stof de O-atomen in glucose dan komen. En de C-atomen?",no:"Algen die water met zware O-atomen krijgen, geven zware O₂ af.",onDone:unlock})});
+  mixAnswer(ans,{id,pts:2,auto:[
+    {label:"atomen die uit CO₂ komen",opts:["alleen C","C en O","C, H en O","alleen O"],right:1,toon:"de C- én de O-atomen in glucose komen uit CO₂ (de H-atomen uit water) — 1 punt"},
+    {label:"percentage van de massa",unit:"%",ok:v=>v>=92.5&&v<=93.5,toon:"(6 × 12 + 6 × 16) / 180 × 100 % = 168 / 180 × 100 % = 93 % — 1 punt"}],
+    valkuil:"Wie alleen de C-atomen telt (72 / 180 = 40 %), krijgt 0 punten: ook de O-atomen in glucose komen uit CO₂.",
+    after:()=>waaromBtn(ans,textBox("De O₂ komt uit water. Alle O-atomen van het gesplitste water gaan in O₂, dus de O-atomen in glucose moeten uit <b>CO₂</b> komen, net als de C-atomen. De H-atomen komen uit water.<br>C: 6 × 12 = 72 · O: 6 × 16 = 96 · samen 168 van de 180: <b>93 %</b>.<br>Daarom zegt de film dat het droge hout van een eik ‘vrijwel helemaal uit de lucht’ komt."))});
+  q.append(think,ans);
+},STOF_MASSA);
+
+opgave("Fotosynthese","Fotosynthese",`<p>De volgende twee vragen gaan over de fotosynthese.</p>`,[q1,q2]);
+}
+
+/* ===== Opgave 5: Sla uit een vertical farm (EI-planten-G01, G02, G04 uit toetsen-biologie; afbeelding 1 = G-1 nagetekend) ===== */
+{
+const STOF_NETTO={titel:"Een grafiek van de CO₂-opname lezen",html:`
+<p>Een plant doet overdag twee dingen tegelijk: hij legt CO₂ vast in de fotosynthese (<b>assimilatie</b>) en hij breekt glucose af tot CO₂ en water (<b>dissimilatie</b>). Dissimileren doet een plant dag en nacht.</p>
+<p>Wat je in een proef meet, is wat de plant per saldo opneemt: de <b>netto</b> CO₂-opname. Daarin zie je de dissimilatie niet apart. Een negatieve netto opname betekent dat de plant meer CO₂ afgeeft dan hij opneemt.</p>
+<p>De <b>biomassa</b> (alle organische stof in de plant) neemt toe als er over een hele periode meer wordt vastgelegd dan afgebroken. Het <b>compensatiepunt</b> is de lichtintensiteit waarbij assimilatie en dissimilatie even groot zijn.</p>`,
+films:[F.groen]};
+const STOF_BEPERK={titel:"Beperkende factoren",html:`
+<p>De snelheid van de fotosynthese hangt af van meerdere factoren tegelijk: lichtintensiteit, kleur van het licht, CO₂-concentratie, temperatuur. De <b>beperkende factor</b> is de factor die op dat moment de snelheid begrenst. Geef je méér van een factor die niet beperkend is, dan verandert de snelheid nauwelijks.</p>
+<p>Zo lees je dat in een grafiek met twee lijnen: liggen de lijnen ergens ver uit elkaar, dan maakt het verschil tussen de twee proeven daar veel uit. Liggen ze op elkaar, dan maakt dat verschil daar niets uit.</p>`,
+films:[F.groen]};
+
+const q1=vraag(2,"bruto CO₂-opname",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Bij een lichtintensiteit van 200 is de netto CO₂-opname van een slaplant 6 mg per uur.<br><br>"+B("Bereken de bruto CO₂-opname bij deze lichtintensiteit. Leg uit hoe je de waarde voor de dissimilatie uit afbeelding 1 haalt."));
+  choiceStep(think,{q:"Wat is het verschil tussen netto en bruto?",opts:["netto is wat je meet (opname min afgifte); bruto is alles wat de fotosynthese vastlegt","netto is alles wat de fotosynthese vastlegt; bruto is wat je meet"],right:0,
+    ok:"Ja. Om van netto naar bruto te gaan, heb je dus de dissimilatie nodig. Waar in de grafiek zie je die?",no:"Je meet altijd wat de plant per saldo opneemt.",
+    onDone:()=>choiceStep(think,{q:"Bij welke lichtintensiteit doet de slaplant géén fotosynthese?",opts:["bij 0","bij het compensatiepunt","waar de lijn vlak wordt"],right:0,
+      ok:"Goed. Wat doet de plant daar dan nog wel, en hoeveel? Lees het af in afbeelding 1.",no:"Fotosynthese heeft licht nodig.",onDone:unlock})});
+  mixAnswer(ans,{id,pts:2,auto:[
+    {label:"dissimilatie (mg CO₂ per uur)",ok:v=>Math.abs(v)===2,toon:"de dissimilatie lees je af bij lichtintensiteit 0: daar is alleen dissimilatie, 2 mg CO₂ per uur (afgifte) — 1 punt"},
+    {label:"bruto CO₂-opname (mg per uur)",ok:(v,a)=>v===8||(!Number.isNaN(a[0])&&Math.abs(a[0])!==2&&v===6+Math.abs(a[0])),toon:"bruto = netto + dissimilatie = 6 + 2 = 8 mg CO₂ per uur — 1 punt (verkeerd afgelezen, maar goed opgeteld: dit punt telt wel)"}],
+    valkuil:"6 − 2 = 4 is fout: de dissimilatie zit al ‘afgetrokken’ in de netto opname, dus voor de bruto opname tel je hem er weer bij.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Bij lichtintensiteit 0 is er geen fotosynthese, alleen dissimilatie: de plant geeft 2 mg CO₂ per uur af (−2).",stip:[{x:0,y:-2,tekst:"−2",links:false}],band:[{x:0,kleur:"var(--koraal)"}]},
+      {cap:"De plant dissimileert ook in het licht, ongeveer even veel. Bij lichtintensiteit 200 meet je netto +6.",stip:[{x:0,y:-2},{x:200,y:6,tekst:"netto 6",links:true}],band:[{x:200,kleur:"var(--goud)"}]},
+      {cap:"De fotosynthese moet dus eerst de 2 mg van de dissimilatie ‘goedmaken’ en daarna nog 6 mg opnemen: bruto = 6 + 2 = <b>8 mg CO₂ per uur</b>.",stip:[{x:200,y:6,tekst:"bruto 8",links:true}],bruto:[200,-2,6]}],
+      (st,s)=>st.innerHTML=GRAF({krommen:[{f:SLA.norm,naam:"normaal CO₂-gehalte"}],stip:s.stip||[],band:s.band||[],bruto:s.bruto||null})))});
+  q.append(think,ans);
+},STOF_NETTO);
+
+const q2=vraag(2,"16 uur licht, 8 uur donker",(q,id)=>{
+  const {think,ans,unlock}=start(q,"De boer laat de lampen 16 uur per etmaal branden op lichtintensiteit 200. De andere 8 uur is het donker. In het licht is de netto CO₂-opname 6 mg per uur; in het donker geeft een plant 2 mg CO₂ per uur af.<br><br>"+B("Bereken de netto CO₂-opname van één plant per etmaal, en leg uit of de sla groeit."));
+  numStep(think,{uid:"q"+id+"n",q:"Hoeveel mg CO₂ neemt één plant netto op in de 16 uur licht?",right:96,
+    ok:"Ja: 16 × 6 = 96 mg. Maar het etmaal is nog niet om.",no:"Vermenigvuldig het aantal uren met de netto opname per uur.",
+    onDone:()=>choiceStep(think,{q:"Wat gebeurt er in de 8 uur donker met de CO₂ van de plant?",opts:["de plant geeft CO₂ af","de plant neemt nog een beetje CO₂ op","er gebeurt niets"],right:0,
+      ok:"Goed. Reken nu het hele etmaal uit, en bedenk wat het teken van je uitkomst zegt over de biomassa.",no:"Een plant dissimileert dag en nacht.",onDone:unlock})});
+  mixAnswer(ans,{id,pts:2,auto:[{label:"netto CO₂-opname per etmaal",unit:"mg",ok:v=>v===80,toon:"16 × 6 − 8 × 2 = 96 − 16 = 80 mg CO₂ per etmaal — 1 punt"}],
+    tekst:"Leg uit of de sla groeit.",checks:["de netto opname is <b>positief</b>: over een etmaal is de <b>assimilatie groter dan de dissimilatie</b>, dus neemt de <b>biomassa toe</b> en groeit de sla"],
+    valkuil:"Wie de nacht vergeet (16 × 6 = 96 mg), krijgt 0 punten voor de berekening. ‘De sla groeit, want hij krijgt licht’ is geen uitleg: het gaat om assimilatie tegenover dissimilatie over het hele etmaal.",
+    after:()=>waaromBtn(ans,textBox("Licht: 16 uur × 6 mg = 96 mg opgenomen. Donker: 8 uur × 2 mg = 16 mg afgegeven. Per etmaal netto 96 − 16 = <b>80 mg</b>. Dat is meer dan nul: de plant legt over een heel etmaal meer koolstof vast dan hij door dissimilatie kwijtraakt. Zijn biomassa neemt toe, dus de sla groeit."))});
+  q.append(think,ans);
+},STOF_NETTO);
+
+const q3=vraag(2,"extra CO₂: bij 50 of bij 400?",(q,id)=>{
+  const {think,ans,unlock}=start(q,"De boer kan ook extra CO₂ in de hal blazen (gestippelde lijn in afbeelding 1). Dat kost geld.<br><br>"+B("Bij welke lichtintensiteit heeft extra CO₂ het meeste zin: bij 50 of bij 400? Leg je antwoord uit met het begrip beperkende factor."));
+  choiceStep(think,{q:"Wat betekent het als een factor beperkend is?",opts:["meer van die factor maakt de fotosynthese sneller","meer van die factor verandert niets"],right:0,
+    ok:"Ja. Extra CO₂ heeft dus alleen zin waar CO₂ (ook) beperkend is. Hoe zie je dat in afbeelding 1?",no:"De beperkende factor is de factor die de snelheid begrenst.",
+    onDone:()=>choiceStep(think,{q:"Wat betekent het als de doorgetrokken en de gestippelde lijn bij een lichtintensiteit bijna op elkaar liggen?",opts:["daar maakt extra CO₂ weinig uit","daar maakt extra CO₂ veel uit"],right:0,
+      ok:"Goed. Kijk nu in afbeelding 1 bij 50 en bij 400.",no:"De twee lijnen verschillen alleen in de hoeveelheid CO₂.",onDone:unlock})});
+  mixAnswer(ans,{id,pts:2,auto:[{label:"extra CO₂ heeft het meeste zin bij",opts:["50","400"],right:1,toon:"bij 400 — 1 punt"}],
+    tekst:"Leg je antwoord uit met het begrip beperkende factor.",checks:["bij 50 is <b>licht de beperkende factor</b>: de lijnen liggen bijna op elkaar, extra CO₂ helpt nauwelijks; bij 400 is <b>CO₂ (ook) beperkend</b>: met extra CO₂ ligt de lijn veel hoger"],
+    valkuil:"‘Bij 400 is er meer fotosynthese’ is niet genoeg: leg uit dat bij 50 licht beperkend is en bij 400 CO₂.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Bij lichtintensiteit 50 liggen de lijnen bijna op elkaar: extra CO₂ maakt hier weinig verschil. Licht is de beperkende factor.",band:[{x:50,kleur:"var(--teal)"}],stip:[{x:50,y:SLA.norm(50)},{x:50,y:SLA.extra(50)}]},
+      {cap:"Bij 400 ligt de gestippelde lijn bijna 3 mg per uur hoger: hier is CO₂ (ook) beperkend.",band:[{x:400,kleur:"var(--goud)"}],stip:[{x:400,y:SLA.norm(400)},{x:400,y:SLA.extra(400)}]},
+      {cap:"Extra CO₂ kost geld, en levert alleen iets op als het licht fel genoeg is. Daarom geeft een tuinder extra CO₂ bij veel licht, niet op een donkere dag.",band:[{x:50,kleur:"var(--teal)"},{x:400,kleur:"var(--goud)"}]}],
+      (st,s)=>st.innerHTML=GRAF({band:s.band,stip:s.stip||[]})))});
+  q.append(think,ans);
+},STOF_BEPERK);
+
+opgave("Vertical farm","Sla uit een vertical farm",`
+<p>In een vertical farm groeit sla in rekken boven elkaar, in een hal zonder ramen. Ledlampen geven het licht; de boer kiest zelf hoe fel en hoe lang.</p>
+<p>In afbeelding 1 zie je de netto CO₂-opname van één slaplant bij verschillende lichtintensiteiten, bij het normale CO₂-gehalte en bij extra CO₂.</p>
+<div class="eyebrow">afbeelding 1 (fictieve gegevens)</div>${GRAF()}`,[q1,q2,q3]);
+}
+
+/* ===== Opgave 6: Wat de plant met glucose doet (EI-planten-D01, D10 uit toetsen-biologie) ===== */
+{
+const STOF_GRONDSTOF={titel:"Brandstof, bouwstof, reservestof",html:`
+<p>De glucose uit de fotosynthese is het begin van alle organische stoffen in een plant. Wat de plant ermee doet, kun je indelen naar de rol die de stof krijgt:</p>
+<ul style="margin:0;padding-left:20px">
+<li><b>brandstof</b>: de plant breekt de stof af om energie (ATP) vrij te maken;</li>
+<li><b>bouwstof</b>: de stof wordt een vast onderdeel van de plant;</li>
+<li><b>reservestof</b>: de plant slaat de stof op om hem later te gebruiken; zo'n stof lost meestal niet (goed) op;</li>
+<li><b>transportsuiker</b>: de vorm waarin suiker door de plant wordt vervoerd.</li></ul>
+<p>Uit glucose andere organische stoffen maken heet <b>voortgezette assimilatie</b>. Voor sommige stoffen heeft de plant naast glucose ook mineralen uit de bodem nodig.</p>`,
+films:[F.groen]};
+const q1=vraag(2,"vier bestemmingen van glucose",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Een eikenblad maakt glucose. Noem vier dingen die de eik met die glucose doet, en geef bij elk aan of de glucose dan brandstof, bouwstof, reservestof of transportsuiker wordt."));
+  choiceStep(think,{q:"Glucose lost goed op in water. Kan een cel grote hoeveelheden glucose zomaar als glucose bewaren?",opts:["ja, dat is geen probleem","nee: veel opgeloste glucose trekt door osmose water de cel in"],right:1,
+    ok:"Klopt. Een plant bewaart en vervoert suiker daarom vaak in een andere vorm. Bedenk welke vormen, en wat de plant nog meer met glucose doet.",no:"Denk aan osmose: wat doet water als er in een cel veel meer opgeloste stoffen zitten dan erbuiten?",
+    onDone:()=>choiceStep(think,{q:"Wat is het verschil tussen een bouwstof en een reservestof?",opts:["een bouwstof blijft een vast onderdeel van de plant; een reservestof slaat de plant op om later te gebruiken","een bouwstof slaat de plant op om later te gebruiken; een reservestof blijft een vast onderdeel"],right:0,
+      ok:"Goed. Noem nu vier bestemmingen, elk met de rol erbij.",no:"Een reservestof wordt later weer gebruikt; een bouwstof blijft zitten waar hij is ingebouwd.",onDone:unlock})});
+  openScore(ans,{id,pts:2,score:n=>n>=4?2:n===3?1:0,kop:"Vink elke bestemming aan die jij noemde, mét de juiste rol. Vier juist: 2 punten, drie juist: 1 punt, minder: 0 punten.",checks:[
+    "afbreken in de dissimilatie: <b>brandstof</b>",
+    "zetmeel: <b>reservestof</b>",
+    "sacharose: <b>transportsuiker</b>",
+    "cellulose: <b>bouwstof</b> (celwanden, hout)",
+    "vet (in zaden): <b>reservestof</b>",
+    "eiwitten en andere stoffen (met mineralen): <b>bouwstof</b>"],
+    model:"De eik breekt een deel van de glucose af in de dissimilatie (brandstof). Hij maakt er zetmeel van, in het blad en in stam, wortels en eikels (reservestof). Hij maakt sacharose om de suiker via de bastvaten te vervoeren (transportsuiker). En hij maakt er cellulose van voor de celwanden en het hout (bouwstof).",
+    valkuil:"Een stof zonder rol, of met de verkeerde rol (bijvoorbeeld ‘zetmeel: bouwstof’), telt niet mee. Zetmeel en cellulose zijn allebei ketens van glucose, maar zetmeel is een reserve en cellulose een bouwstof.",
+    after:()=>waaromBtn(ans,textBox("De film volgt één glucose uit een eikenblad. Een deel wordt <b>afgebroken</b> in de dissimilatie: brandstof. De rest is grondstof: <b>zetmeel</b> (lost niet op: reservestof), <b>sacharose</b> (glucose + fructose: de transportsuiker in de bastvaten), <b>cellulose</b> (lange ketens glucose in de celwanden: bouwstof), <b>vet</b> in zaden (reservestof) en, met mineralen zoals nitraat, <b>eiwitten</b> (bouwstof)."))});
+  q.append(think,ans);
+},STOF_GRONDSTOF);
+
+const STOF_KLEUR={titel:"Licht en kleur",html:`
+<p>Wit licht bestaat uit alle kleuren van de regenboog, van violet (golflengte ongeveer 400 nanometer) tot rood (ongeveer 700 nanometer).</p>
+<p>Een stof kan licht <b>absorberen</b> (opnemen), <b>weerkaatsen</b> of <b>doorlaten</b>. Alleen geabsorbeerd licht kan energie leveren voor de fotosynthese. De kleur die je van een voorwerp ziet, is de kleur van het licht dat het weerkaatst.</p>
+<p>De kleur van het licht is net als licht en CO₂ een factor die de snelheid van de fotosynthese kan beperken.</p>`,
+films:[F.groen]};
+const q2=vraag(2,"absorptiespectrum en roze-paarse kassen",(q,id)=>{
+  const {think,ans,unlock}=start(q,"a "+B("Wat laat een absorptiespectrum van chlorofyl zien? Leg daarmee uit waarom bladeren groen zijn.")+"<br>b Veel kassen met ledlampen gloeien 's avonds roze-paars. "+B("Leg uit waarom tuinders die kleur kiezen."));
+  choiceStep(think,{q:"Een rode appel ligt in wit licht. Welk licht komt van de appel in je oog?",opts:["vooral rood licht, dat de appel weerkaatst","vooral groen en blauw licht, dat de appel absorbeert"],right:0,
+    ok:"Ja: je ziet de kleur die een voorwerp weerkaatst. Pas dat toe op chlorofyl.",no:"Geabsorbeerd licht komt niet meer terug naar je oog.",
+    onDone:()=>choiceStep(think,{q:"Je mengt licht van twee kleuren ledlampen en ziet roze-paars. Welke twee kleuren zijn het?",opts:["rood en blauw","groen en geel","geel en oranje"],right:0,
+      ok:"Goed. Waarom zou een tuinder juist die twee kleuren willen?",no:"Paars ligt in de regenboog tussen blauw en … het andere uiteinde?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "a welke kleuren (golflengtes) licht chlorofyl <b>absorbeert</b>; chlorofyl absorbeert vooral <b>blauw en rood</b>, groen het minst; een deel van het groene licht wordt <b>weerkaatst</b>, daarom zie je bladeren groen",
+    "b de lampen geven vooral <b>rood en blauw</b> licht: precies de kleuren die chlorofyl absorbeert, dus er gaat <b>weinig licht (energie) verloren</b>"],
+    model:"a Een absorptiespectrum laat zien welke kleuren (golflengtes) licht chlorofyl absorbeert. Chlorofyl absorbeert vooral blauw en rood licht, en groen het minst. Een deel van het groene licht wordt weerkaatst, en dat zie je: daarom zijn bladeren groen. b De roze-paarse lampen geven vooral rood en blauw licht. Dat zijn precies de kleuren die chlorofyl absorbeert, dus vrijwel al het licht van de lampen wordt gebruikt voor fotosynthese en er gaat weinig energie verloren.",
+    valkuil:"‘Bladeren zijn groen omdat ze groen licht absorberen’ is precies omgekeerd: groen licht wordt het minst geabsorbeerd.",
+    after:()=>waaromBtn(ans,textBox("Je ziet de kleur die <b>niet</b> wordt geabsorbeerd. Chlorofyl absorbeert vooral blauw en rood; groen het minst, en een deel ervan wordt weerkaatst: groene bladeren. Een tuinder betaalt voor de stroom van zijn lampen. Groen licht zou grotendeels verloren gaan, dus kiest hij leds die vooral rood en blauw geven: samen zie je dat als roze-paars."))});
+  q.append(think,ans);
+},STOF_KLEUR);
+
+opgave("Glucose","Wat de plant met glucose doet",`<p>De volgende twee vragen gaan over wat de plant met zijn glucose doet en over het licht dat hij gebruikt.</p>`,[q1,q2]);
+}
+
+/* ===== Opgave 7: Bonte bladeren (EI-planten-F01, F02, F03 uit toetsen-biologie) ===== */
+{
+const STOF_JODIUM={titel:"Zetmeel aantonen met jodium",html:`
+<p>Met <b>jodium</b> (joodoplossing) toon je <b>zetmeel</b> aan: waar zetmeel zit, kleurt het blauwzwart. Glucose of sacharose kleuren niet.</p>
+<p>Een blad dat lang in het donker heeft gestaan, bevat bijna geen zetmeel meer: 's nachts breekt de plant zijn zetmeel weer af. Wil je weten waar een blad <i>vandaag</i> zetmeel heeft gemaakt, dan zet je de plant dus eerst een nacht in het donker.</p>
+<p>In de film wordt een deel van een blad afgedekt met aluminiumfolie. Zo vergelijk je twee delen van hetzelfde blad, die maar in één ding verschillen.</p>`,
+films:[F.groen]};
+const STOF_PUT={titel:"Bron en put",html:`
+<p>In de drukstroomtheorie heet een plek die suiker in het zeefvat pompt een <b>bron</b>, en een plek waar suiker uit het zeefvat wordt gehaald een <b>put</b>. Welke plek bron of put is, hangt af van wat er op dat moment gebeurt: een wortel is in de zomer een put en kan in het voorjaar een bron zijn.</p>
+<p>Diffusie gaat alleen snel over heel korte afstanden (een paar cellen). Over grotere afstanden is er transport door vaten nodig.</p>`,
+films:[F.trans,F.groen]};
+const STOF_COMP={titel:"Compensatiepunt",html:`
+<p>Het <b>compensatiepunt</b> is de lichtintensiteit waarbij de assimilatie (CO₂ vastleggen in de fotosynthese) en de dissimilatie (CO₂ afgeven) precies even groot zijn. De netto CO₂-opname is daar nul: in de grafiek snijdt de lijn de x-as.</p>
+<p>Een plant groeit alleen als het licht overdag ruim boven zijn compensatiepunt ligt.</p>`,
+films:[F.groen]};
+
+const q1=vraag(2,"welke delen worden blauwzwart?",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Een bonte klimop heeft een nacht in het donker gestaan en daarna een dag in de zon. 's Avonds kleur je een blad met jodium.<br><br>"+B("Welke delen worden blauwzwart? Leg uit waarom de andere delen niet kleuren."));
+  choiceStep(think,{q:"Wat toon je aan met jodium?",opts:["zetmeel","glucose","chlorofyl"],right:0,
+    ok:"Ja. Waarom heeft de plant eerst een nacht in het donker gestaan?",no:"Jodium kleurt een stof die niet oplost en die de plant opslaat.",
+    onDone:()=>choiceStep(think,{q:"Waarom heeft de plant eerst een nacht in het donker gestaan?",opts:["zodat het oude zetmeel is afgebroken","zodat de witte delen groen worden","zodat de plant meer chlorofyl maakt"],right:0,
+      ok:"Goed: al het zetmeel dat je 's avonds ziet, is die dag gemaakt. Wat is daarvoor nodig, en hebben de witte delen dat?",no:"Wat doet de plant 's nachts met zijn zetmeel?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "alleen de <b>groene delen</b> worden blauwzwart",
+    "de witte delen hebben <b>geen chlorofyl</b>: daar is <b>geen lichtreactie</b>, dus geen ATP en NADPH,H⁺ voor de calvincyclus, dus <b>geen glucose en geen zetmeel</b>"],
+    model:"Alleen de groene delen worden blauwzwart. In de witte delen zit geen chlorofyl. Daar kan geen lichtreactie plaatsvinden, dus komen er geen ATP en NADPH,H⁺ voor de calvincyclus. Zonder calvincyclus wordt er daar geen glucose gemaakt, en dus ook geen zetmeel.",
+    valkuil:"Alleen ‘de witte delen hebben geen chlorofyl’ zonder de stap naar glucose/zetmeel: 0 punten voor het tweede punt.",
+    after:()=>waaromBtn(ans,textBox("Na de nacht in het donker is het oude zetmeel afgebroken. Al het zetmeel dat jodium 's avonds blauwzwart kleurt, is dus die dag gemaakt. Daarvoor is de hele keten nodig: <b>chlorofyl</b> absorbeert licht → <b>lichtreactie</b> levert ATP en NADPH,H⁺ → <b>calvincyclus</b> maakt glucose → de chloroplast maakt er <b>zetmeel</b> van. In de witte delen breekt de keten bij de eerste schakel. Het is dezelfde proef als in de film, maar nu doet de plant het ‘afdekken’ zelf."))});
+  q.append(think,ans);
+},STOF_JODIUM);
+
+const q2=vraag(2,"hoe komen witte cellen aan glucose?",(q,id)=>{
+  const {think,ans,unlock}=start(q,"De witte cellen in een bont blad leven en groeien wel.<br><br>"+B("Leg uit hoe deze cellen aan glucose komen. Noem het vervoermiddel en de vorm waarin de suiker wordt vervoerd, en de rol van de witte cellen in de drukstroom."));
+  choiceStep(think,{q:"Kunnen de witte cellen hun glucose zelf maken?",opts:["ja, met de fotosynthese","nee, ze moeten suiker van elders krijgen"],right:1,
+    ok:"Ja. Waar wordt die suiker dan gemaakt, en hoe komt die bij de witte cellen?",no:"Kijk naar vraag 15: wat ontbreekt er in de witte delen?",
+    onDone:()=>choiceStep(think,{q:"Groene en witte delen liggen soms centimeters uit elkaar. Kan de suiker die afstand overbruggen door diffusie?",opts:["ja, diffusie is snel genoeg","nee, daarvoor is transport door vaten nodig"],right:1,
+      ok:"Goed. Welke vaten, welke suiker, en zijn de witte cellen dan een bron of een put?",no:"Diffusie is alleen snel over een paar cellen.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "vanuit de groene delen komt suiker als <b>sacharose</b> via de <b>bastvaten</b> (het floëem) naar de witte delen",
+    "de witte delen zijn een <b>put</b>: daar worden de suikers uit het zeefvat gehaald (en gebruikt voor dissimilatie en groei)"],
+    model:"De groene delen maken glucose en zetten die om in sacharose. Die gaat via de bastvaten (het floëem) naar de witte delen. De witte cellen zijn een put: daar wordt de suiker uit het zeefvat gehaald en gebruikt voor dissimilatie en groei.",
+    valkuil:"‘Via de houtvaten’ is fout: houtvaten vervoeren water en mineralen. ‘De witte cellen zijn een bron’ is fout: een bron levert suiker, een put neemt het op.",
+    after:()=>waaromBtn(ans,textBox("Het groene deel is de <b>bron</b>: de begeleidende cellen pompen er sacharose het zeefvat in. Het witte deel is een <b>put</b>: daar wordt de sacharose uit het zeefvat gehaald. Door dat verschil in druk stroomt het sap via de <b>bastvaten</b> van groen naar wit. De witte cellen gebruiken de suiker als brandstof (dissimilatie) en als grondstof om te groeien, net als de wortels van een plant."))});
+  q.append(think,ans);
+},STOF_PUT);
+
+/* Compensatiepunt groen en bont: zelfde dissimilatie (2), bont de helft van de fotosynthese. Fictieve modelkrommen. */
+const GROEN=L=>14*L/(150+L)-2, BONT=L=>7*L/(150+L)-2;
+const q3=vraag(2,"compensatiepunt van een bonte klimop",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Een kweker zet een helemaal groene klimop en een bonte klimop van dezelfde grootte naast elkaar. Bij de bonte plant is de helft van het bladoppervlak wit.<br><br>"+B("Leg in twee stappen uit dat het compensatiepunt van de bonte klimop hoger ligt dan dat van de groene."));
+  choiceStep(think,{q:"Wat is het compensatiepunt?",opts:["de lichtintensiteit waarbij assimilatie en dissimilatie even groot zijn","de lichtintensiteit waarbij de fotosynthese het snelst gaat","de lichtintensiteit waarbij de plant geen dissimilatie meer doet"],right:0,
+    ok:"Ja. Vergelijk nu de twee planten bij dezelfde lichtintensiteit: de assimilatie, en de dissimilatie.",no:"Op het compensatiepunt is de netto CO₂-opname nul.",
+    onDone:()=>choiceStep(think,{q:"Dissimileren de witte delen van het blad?",opts:["ja","nee"],right:0,
+      ok:"Goed: lees de inleiding nog eens. Wat betekent dat voor de dissimilatie van de bonte plant, vergeleken met de groene?",no:"Lees de inleiding: wat doen de witte cellen wel?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "de witte delen dissimileren wel, maar doen geen fotosynthese: de bonte plant heeft bij dezelfde lichtintensiteit <b>minder fotosynthese</b> tegenover (ongeveer) <b>dezelfde dissimilatie</b>",
+    "er is dus <b>meer licht nodig</b> voordat de assimilatie even groot is als de dissimilatie: het compensatiepunt ligt hoger"],
+    model:"De witte delen doen geen fotosynthese, maar dissimileren wel. De bonte plant legt bij dezelfde lichtintensiteit dus minder CO₂ vast dan de groene, terwijl hij ongeveer evenveel afbreekt. Hij heeft meer licht nodig voordat de assimilatie de dissimilatie inhaalt: zijn compensatiepunt ligt hoger.",
+    valkuil:"‘De bonte plant heeft minder chlorofyl, dus een hoger compensatiepunt’ is één stap te kort: noem dat de dissimilatie gelijk blijft terwijl de fotosynthese lager is.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"De groene klimop: bij lichtintensiteit 0 alleen dissimilatie (−2). Waar de lijn de x-as snijdt, ligt zijn compensatiepunt.",k:[1,0],stip:[{x:25,y:0,tekst:"groen",links:false}]},
+      {cap:"De bonte klimop dissimileert even veel: hij begint bij 0 ook op −2. Maar met de helft van het bladoppervlak wit, stijgt zijn fotosynthese maar half zo snel.",k:[1,1]},
+      {cap:"De bonte plant heeft dus meer licht nodig voordat assimilatie en dissimilatie gelijk zijn: zijn compensatiepunt ligt verder naar rechts, hoger.",k:[1,1],stip:[{x:25,y:0,tekst:"groen",links:true},{x:60,y:0,tekst:"bont",links:false}]}],
+      (st,s)=>st.innerHTML=`<div class="eyebrow" style="padding:8px 10px 0">groene en bonte klimop (schets, geen meetgegevens)</div>`+GRAF({krommen:[{f:GROEN,naam:"groene klimop",op:s.k[0]},{f:BONT,streep:"9 6",naam:"bonte klimop",op:s.k[1]?1:0}].filter(k=>k.op),stip:s.stip||[],
+        xmax:200,xstap:25,ymin:-4,ymax:6,ystap:2,ytitel:"netto CO₂-opname (relatief)",xtitel:"lichtintensiteit (relatief)",label:"Compensatiepunt van een groene en een bonte klimop (schets, geen meetgegevens)"})))});
+  q.append(think,ans);
+},STOF_COMP);
+
+opgave("Bonte bladeren","Bonte bladeren",`
+<p>Sommige kamerplanten, zoals bonte klimop, hebben bladeren met groene en witte delen. In de witte delen maken de cellen geen chlorofyl. Ze leven wel: ze delen, groeien en dissimileren.</p>`,[q1,q2,q3]);
+}
+
+
+/* ================= opgaven en navigatie ================= */
+OPG.sort((a,b)=>a.nr-b.nr);
+/* cijfer als bij een schooltoets: 9 × score / maximum + 1 */
+const NORM="";
+const CIJFER=(()=>{const L=Q.reduce((s,q)=>s+q.pts,0);return Array.from({length:L+1},(_,S)=>Math.round((9*S/L+1)*10)/10);})();
+const main=$("#main"),tabs=$("#tabs");let cur=1;const built={},nextBtns={};
+let curOpg=OPG.some(o=>o.nr===store.opg)?store.opg:1;
+const opg=()=>OPG.find(o=>o.nr===curOpg);
+const pts=o=>o.ids.reduce((s,i)=>s+Q.find(q=>q.id===i).pts,0);
+function reach(){const ids=opg().ids;if(store.vrij)return ids[ids.length-1];let k=0;while(k<ids.length-1&&store.scores[ids[k]]!==undefined)k++;return ids[k];}
+function renderTabs(){
+  tabs.innerHTML="";const r=reach();
+  opg().ids.forEach(id=>{const q=Q.find(x=>x.id===id);const locked=id>r;
+    const b=el("button",{class:(id===cur?"cur ":"")+(store.scores[id]!==undefined?"done":"")+(locked?" lock":""),"aria-label":"Vraag "+id+(locked?" (eerst vraag "+(id-1)+" maken)":""),title:locked?"Maak eerst vraag "+(id-1):""},id);
+    if(locked)b.disabled=true;else b.onclick=()=>open(id);tabs.append(b);});
+  const o=el("button",{class:"ov"+(cur==="ov"?" cur":"")},"Score");o.onclick=()=>open("ov");tabs.append(o);
+}
+function open(id){
+  if(id!=="ov"&&id>reach())id=reach();
+  cur=id;renderTabs();main.innerHTML="";
+  if(id==="ov"){main.append(overview());return;}
+  if(!built[id]){const q=Q.find(x=>x.id===id);const sec=el("article",{class:"q"});
+    q.build(sec);
+    const pap=el("section",{class:"papier","aria-label":"Toetsvraag "+id});
+    pap.append(el("div",{class:"pkop"},`<span class="pnr"><span class="mono">Toetsvraag</span><span class="nr">${id}</span></span><span class="mono">${q.pts} ${q.pts===1?"punt":"punten"}</span>`));
+    for(const c of [...sec.children]){if(c.classList.contains("phase")||c.tagName==="BUTTON")break;pap.append(c);}
+    pap.append(el("div",{class:"pvoet"},"Oefentoets Planten · vwo"));
+    sec.prepend(pap);
+    const sb=window.EXSTOF&&EXSTOF.blok(TOOL,id);if(sb)pap.after(sb);
+    /* toetsvraag nog eens boven de antwoorden (Kamiel 25 okt 2026: niet terug hoeven scrollen) */
+    const qt=[...pap.querySelectorAll(".qtext")].pop(),ansP=sec.querySelector(".phase.ans");
+    if(qt&&ansP){const h=el("div",{class:"herhaal papier"});h.append(el("div",{class:"hkop mono"},`Toetsvraag ${id}`));
+      const c=qt.cloneNode(true);c.querySelectorAll("[id]").forEach(x=>x.removeAttribute("id"));h.append(c);
+      const lab=ansP.querySelector(":scope>.label");lab?lab.after(h):ansP.prepend(h);}
+    const ids=opg().ids,last=id===ids[ids.length-1];
+    const nx=el("div",{class:"row",style:"justify-content:flex-end"});const b=el("button",{class:"go"},last?"Naar je score ›":`Volgende vraag (${id+1}) ›`);
+    nextBtns[id]=b;b.hidden=!store.vrij&&store.scores[id]===undefined;
+    b.onclick=()=>{open(last?"ov":id+1);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};nx.append(b);sec.append(nx);built[id]=sec;}
+  main.append(built[id]);
+}
+function overview(){
+  const o=opg();const s=el("section",{class:"phase"});s.append(el("h2",{},`Jouw score op opgave ${o.nr}`));
+  let tot=0;const t=el("table",{class:"data ovtable"});t.innerHTML="<tr><th>vraag</th><th>onderwerp</th><th>score</th></tr>";
+  o.ids.forEach(id=>{const q=Q.find(x=>x.id===id);const p=store.scores[id];if(p!==undefined)tot+=p;t.innerHTML+=`<tr><td>${id}</td><td>${q.t}</td><td>${p===undefined?"–":p} / ${q.pts}</td></tr>`;});
+  const w=el("div",{class:"tablewrap"});w.append(t);s.append(w,el("div",{class:"score"},`Totaal opgave ${o.nr}: ${tot} / ${pts(o)}`));
+  let all=0,allMax=0;OPG.forEach(x=>{allMax+=pts(x);x.ids.forEach(id=>{if(store.scores[id]!==undefined)all+=store.scores[id];});});
+  const gemaakt=OPG.every(x=>x.ids.every(id=>store.scores[id]!==undefined));
+  const cf=CIJFER[Math.min(all,CIJFER.length-1)].toFixed(1).replace(".",",");
+  s.append(el("p",{style:"margin:0"},`Hele toets: <b>${all}</b> van ${allMax} punten · cijfer <b>${cf}</b>`+(gemaakt?"":` <span class="muted">(nog niet alles gemaakt: open vragen tellen als 0 punten)</span>`)));
+  s.append(el("p",{class:"muted",style:"margin:0;font-size:14px"},`Cijfer = 9 × score / maximum + 1. Open vragen kijk je zelf na met het antwoordmodel.`));
+  const nextO=OPG.find(x=>x.nr===o.nr+1);
+  const row=el("div",{class:"row"});
+  if(nextO){const nb=el("button",{class:"go"},`Naar opgave ${nextO.nr}: ${nextO.kort} ›`);nb.onclick=()=>{setOpg(nextO.nr);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};row.append(nb);}
+  const r=el("button",{class:"ghost"},`Opgave ${o.nr} opnieuw`);r.onclick=()=>{o.ids.forEach(id=>{delete store.scores[id];delete built[id];delete nextBtns[id];});save();open(o.ids[0]);};row.append(r);
+  s.append(row);return s;
+}
+function renderOpgs(){const box=$("#opgs");box.innerHTML="";
+  OPG.forEach(o=>{const b=el("button",{"aria-pressed":o.nr===curOpg?"true":"false"},`${o.nr} · ${o.kort}`);b.onclick=()=>setOpg(o.nr);box.append(b);});}
+function setOpg(n){curOpg=n;store.opg=n;save();const o=opg();
+  $("#eb").textContent=`Oefentoets Planten · vwo · opgave ${o.nr}`;$("#h1").textContent=o.titel;
+  $("#sub").textContent=`vraag ${o.ids[0]} t/m ${o.ids[o.ids.length-1]} · ${pts(o)} punten`;
+  $("#ctx").innerHTML=o.ctx;renderOpgs();open(reach());}
+function setVrij(v){store.vrij=v;save();$("#vrij").setAttribute("aria-pressed",v?"true":"false");
+  for(const k in nextBtns)nextBtns[k].hidden=!v&&store.scores[k]===undefined;renderTabs();}
+$("#vrij").onclick=()=>setVrij(!store.vrij);setVrij(!!store.vrij);
+EXSTAND.STANDEN.forEach(s=>{s.uitleg=s.uitleg.replace(/examenvraag/g,"toetsvraag").replace("het echte examen","een echte toets").replace(" Zet de klok aan voor 3 uur examentijd.","");if(s.k==="echt")s.naam="Echte toets";});
+EXSTAND.init({store,save,setVrij});
+setOpg(curOpg);
+})();
+
+</script>
+</body>
+</html>

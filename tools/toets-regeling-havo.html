@@ -1,0 +1,1150 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../js/teller.js" data-root="../"></script>
+<link rel="icon" href="../img/icoon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../img/icoon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../img/icoon/apple-touch-icon.png">
+<script>(function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oefentoets Regeling havo · doorklikken · Biologie bij Kamiel</title>
+<meta name="description" content="Oefentoets Regeling voor havo: per vraag eerst hulpvragen, dan de toetsvraag, nakijken met het antwoordmodel en uitleg waarom.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="huisstijl.css">
+<script src="huisstijl.js"></script>
+<script src="examen-stof.js?v=b496a9e6"></script>
+<script src="examen-standen.js?v=558bd73d"></script>
+<style>
+/* Oefentoets Regeling havo · zelfde bouwstenen als de oefenexamens (tools/OEFENEXAMEN_PROMPT.md). */
+body.echt .klok{display:none!important}
+@media (max-width:600px){.tfig{overflow-x:auto;-webkit-overflow-scrolling:touch}.tfig>svg{min-width:var(--min)}}
+.tfig{margin:4px auto;width:100%}.afb{font:600 11px var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--text3);margin:4px 0 0}
+:root{--rest:#2A3B57;--area:#5B6B84}
+:root[data-theme="light"]{--rest:#D5DEE9;--area:#B4BDCA}
+ .wrap{padding-inline:0}
+:root[data-theme="light"] .papier{box-shadow:0 0 0 1px rgba(20,32,52,.18),0 6px 18px rgba(20,32,52,.10)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--text);font:17px/1.55 var(--tekst);-webkit-font-smoothing:antialiased;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 40px}
+.wrap{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1,h2,h3{font-family:var(--titel);font-weight:700;letter-spacing:-.01em;text-wrap:balance;margin:0;line-height:1.1}
+h2{font-size:24px}
+.mono,.eyebrow{font:600 12px/1.2 var(--meta);letter-spacing:.1em;text-transform:uppercase}
+.eyebrow{color:var(--goud-text)}
+.muted{color:var(--text2)}
+a{color:var(--goud-text)}
+.sitenav{display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap;min-height:56px;padding:8px 0;border-bottom:1px solid var(--line);font:600 15px/1.3 var(--tekst)}
+.sitenav .merk{font:700 18px/1 var(--titel);color:var(--text);text-decoration:none}
+.sitenav .terug{color:var(--goud-text);text-decoration:none}
+.sitenav .rechts{margin-left:auto}
+.tool-kop{display:flex;flex-direction:column;gap:10px;padding:14px 0 0}
+.tool-kop h1{font-size:clamp(32px,5vw,48px)}
+.tool-kop p{margin:0;color:var(--text2);font-size:18px;max-width:62ch}
+button.toggle{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line2);background:none;color:var(--text2);border-radius:999px;padding:6px 14px 6px 8px;min-height:40px;font:600 14px var(--tekst);cursor:pointer}
+button.toggle .knopje{width:34px;height:20px;border-radius:999px;background:var(--line2);position:relative;flex:none}
+button.toggle .knopje::after{content:"";position:absolute;left:3px;top:3px;width:14px;height:14px;border-radius:50%;background:var(--text2);transition:left .15s}
+button.toggle[aria-pressed="true"]{color:var(--text);border-color:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje{background:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje::after{left:17px;background:var(--goud-ink)}
+.kopbalk{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.seg{display:inline-flex;flex-wrap:wrap;padding:3px;border-radius:999px;border:1px solid var(--line2);gap:2px}
+.seg button{border:0;background:none;padding:6px 14px;border-radius:999px;font:600 14px var(--tekst);color:var(--text2);min-height:36px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--goud);color:var(--goud-ink)}
+nav.tabs{display:flex;flex-wrap:wrap;gap:6px}
+nav.tabs button{min-width:44px;height:44px;border-radius:999px;border:1px solid var(--line2);background:none;color:var(--text2);font:600 15px var(--meta);cursor:pointer;position:relative}
+nav.tabs button:hover{color:var(--text)}
+nav.tabs button.cur{background:var(--goud);color:var(--goud-ink);border-color:var(--goud)}
+nav.tabs button.done::after{content:"";position:absolute;right:3px;top:3px;width:8px;height:8px;border-radius:50%;background:var(--groen);border:2px solid var(--bg)}
+nav.tabs button.lock{opacity:.35;cursor:not-allowed}
+nav.tabs .ov{padding:0 16px;font-family:var(--tekst)}
+.ctx{background:var(--surface);border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.ctx p{margin:0}
+details.ctxd summary{cursor:pointer;font-weight:600;color:var(--goud-text)}
+.tablewrap{overflow-x:auto}
+table.data{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+table.data th,table.data td{border-bottom:1px solid var(--line);padding:7px 10px;text-align:center}
+table.data th:first-child,table.data td:first-child{text-align:left}
+table.data th{font:600 11px var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--text3)}
+.q{display:flex;flex-direction:column;gap:14px}
+.qhead{display:flex;gap:12px;align-items:center}
+.qnum{font:700 40px/1 var(--titel);color:var(--goud-text)}
+.pts{font:600 12px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:3px 9px}
+.qtext{margin:0;font-size:18px}
+.phase{border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;background:var(--surface);display:flex;flex-direction:column;gap:12px}
+.phase>.label{display:flex;gap:8px;align-items:center;font:600 12px var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3)}
+.phase>.label .dot{width:8px;height:8px;border-radius:50%;background:var(--goud)}
+.phase.think{background:var(--surface2)}
+.phase.think>.label{color:var(--goud-text)}
+.step{display:flex;flex-direction:column;gap:8px}
+.step+.step{border-top:1px solid var(--line);padding-top:12px}
+.step p{margin:0}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button.opt,button.chip{border:1px solid var(--line2);background:var(--bg);color:var(--text);border-radius:12px;padding:9px 14px;font:inherit;font-size:16px;cursor:pointer;text-align:left}
+button.chip{border-radius:999px}
+button.opt:hover,button.chip:hover{border-color:var(--text3)}
+button.chip[aria-pressed="true"]{border-color:var(--goud);background:var(--goud-soft)}
+button.opt.right{border-color:var(--groen);background:var(--groen-soft)}
+button.opt.wrong{border-color:var(--koraal);background:var(--koraal-soft)}
+button.opt:disabled{cursor:default}
+button.go,button.ghost{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 18px;border-radius:999px;font:700 15px var(--tekst);cursor:pointer}
+button.go{border:0;background:var(--goud);color:var(--goud-ink)}
+button.go:hover{filter:brightness(1.06)}
+button.ghost{border:0;background:none;color:var(--text);box-shadow:inset 0 0 0 1px var(--line2)}
+button.ghost:hover{box-shadow:inset 0 0 0 1px var(--text3)}
+button:disabled.go,button:disabled.ghost{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:2px solid var(--goud);outline-offset:3px;border-radius:6px}
+input.num{width:96px;min-height:44px;font:600 16px var(--meta);padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text)}
+select{font:inherit;font-size:15px;min-height:44px;padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);max-width:100%;flex:1 1 260px}
+textarea{width:100%;min-height:88px;font:inherit;padding:10px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);resize:vertical}
+.fb{font-size:16px;border-radius:12px;padding:12px 14px;background:var(--surface2);border:1px solid var(--line2)}
+.fb.ok{border-color:var(--groen);background:var(--groen-soft)}
+.fb.no{border-color:var(--koraal);background:var(--koraal-soft)}
+.fb.hint{border-color:var(--teal);background:var(--teal-soft)}
+.graphs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.graphs{grid-template-columns:1fr}}
+.gopt{border:1px solid var(--line2);border-radius:var(--radius);background:var(--bg);padding:8px 8px 2px;cursor:pointer;color:var(--text);font:inherit;text-align:left}
+.gopt b{font:700 20px var(--titel);margin-left:6px;color:var(--goud-text)}
+.gopt:hover{border-color:var(--text3)}
+.gopt.right{border-color:var(--groen);box-shadow:0 0 0 2px var(--groen) inset}
+.gopt.wrong{border-color:var(--koraal);box-shadow:0 0 0 2px var(--koraal) inset}
+svg{display:block;max-width:100%;height:auto}
+.ax{stroke:var(--text3);stroke-width:1.2;fill:none}
+.grid{stroke:var(--line2);stroke-width:1;fill:none}
+.tick{fill:var(--text3);font:500 10px var(--meta)}
+.cv{stroke:var(--teal);stroke-width:2.4;fill:none;stroke-linejoin:round}
+.cvbad{stroke:var(--koraal);stroke-width:2;fill:none;stroke-dasharray:5 4}
+.restband{fill:var(--rest);opacity:.8}
+.lbl{fill:var(--text);font:600 12px var(--tekst)}
+.lblm{fill:var(--text2);font:12px var(--tekst)}
+.lblbad{fill:var(--koraal);font:700 12px var(--tekst)}
+.selfscore{display:flex;flex-direction:column;gap:10px}
+.selfscore label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.selfscore input{margin-top:4px;width:18px;height:18px;accent-color:var(--goud);flex:none}
+.model{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:16px}
+.anim{display:flex;flex-direction:column;gap:10px}
+.anim .stage{border-radius:var(--radius);background:var(--surface2);border:1px solid var(--line2);overflow:hidden}
+.anim .cap{min-height:3.2em;margin:0}
+.anim .nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pips{display:flex;gap:6px;margin-left:auto}
+.pips span{width:9px;height:9px;border-radius:50%;background:var(--line2)}
+.pips span.on{background:var(--goud)}
+.seq{display:flex;flex-direction:column;gap:6px}
+.seq button{display:flex;gap:10px;align-items:center}
+.seq .n{font:600 13px var(--meta);width:24px;height:24px;border-radius:50%;display:inline-grid;place-items:center;background:var(--line2);flex:none}
+.seq button.placed{border-color:var(--groen)} .seq button.placed .n{background:var(--groen);color:var(--goud-ink)}
+.score{font:600 16px var(--meta)}
+.ovtable td:last-child,.ovtable th:last-child{text-align:right}
+.pre{border-left:3px solid var(--goud);padding:2px 0 2px 14px;display:flex;flex-direction:column;gap:8px}
+.pre p{margin:0;color:var(--text2)}
+.figrow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.figrow{grid-template-columns:1fr}}
+.legenda{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--text2)}
+.legenda i{display:inline-block;vertical-align:middle;margin-right:6px}
+.legenda .lijn{width:22px;height:0;border-top:2.5px solid var(--text)}
+.legenda .vlak{width:16px;height:12px;background:var(--area)}
+.tick.dim{opacity:.35}
+p.klikbaar{line-height:2}
+button.mark{font:inherit;color:var(--text);background:none;border:0;border-bottom:2px dashed var(--goud);padding:0 3px;border-radius:4px;cursor:pointer}
+button.mark[aria-pressed="true"]{background:var(--goud-soft);border-bottom-style:solid}
+button.mark:disabled{cursor:default}
+.sellab{min-width:200px;font-weight:600}
+label.slider{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center}
+label.slider span{min-width:170px;font-weight:600;font-size:15px}
+label.slider input{flex:1 1 200px;accent-color:var(--goud)}
+.podium{background:var(--surface2);border:1px solid var(--line2);border-radius:var(--radius);overflow:hidden}
+p.regels{font-family:var(--tekst);line-height:1.9;margin:0}
+p.regels span{display:inline-block;width:2em;font:600 12px var(--meta);color:var(--text3)}
+sup{font-size:.7em}
+.papier{--bg:#FFFFFF;--surface:#FFFFFF;--surface2:#EEF1F5;--line:rgba(20,32,52,.10);--line2:rgba(20,32,52,.24);
+  --text:#121C2E;--text2:#3B4759;--text3:#667185;--goud:#C99A2E;--goud-text:#7E5C0B;--goud-soft:rgba(217,172,60,.18);
+  --groen:#2F8A47;--koraal:#B9502F;--teal:#25729C;--paars:#6550AD;--groen-soft:rgba(47,138,71,.10);--koraal-soft:rgba(185,80,47,.10);--teal-soft:rgba(37,114,156,.10);
+  --rest:#D5DEE9;--area:#B4BDCA;color-scheme:light;
+  background:#FCFCFA;color:var(--text);border:0;border-radius:6px;padding:16px 20px 12px;display:flex;flex-direction:column;gap:12px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.08),0 10px 28px rgba(0,0,0,.35)}
+.papier .pkop{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;border-bottom:2px solid var(--text);padding-bottom:6px}
+.papier .pkop .mono{color:var(--text2)}
+.papier .pnr{display:flex;align-items:baseline;gap:10px}
+.papier .nr{font:700 30px/1 var(--titel);color:var(--text)}
+.papier .pre{border-left:0;padding:0}
+.papier .pre p{color:var(--text)}
+.papier .qtext{color:var(--text)}
+.herhaal.papier{padding:10px 14px;gap:6px;box-shadow:none;border-radius:6px}
+.herhaal .hkop{color:var(--text3);font-size:11px}
+.herhaal .qtext{font-size:16px}
+.papier .pvoet{font:500 11px var(--meta);letter-spacing:.06em;color:var(--text3);text-align:right}
+.papier details.ctxd summary{color:var(--goud-text)}
+.papier .podium{background:var(--surface2)}
+.phase>.label .tag{margin-left:6px;font:600 10px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:2px 8px}
+.sleutel{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:14px;color:var(--text2)}
+.sleutel .sw{display:inline-block;width:16px;height:12px;border-radius:2px;vertical-align:-1px;margin-right:7px}
+.sleutel .papier-sw{background:#FCFCFA}
+.sleutel .donker-sw{background:var(--surface2);box-shadow:inset 0 0 0 1px var(--line2)}
+.exfoto{display:block;width:100%;height:auto;border-radius:2px}
+footer{color:var(--text3);font-size:14px;padding-top:24px;border-top:1px solid var(--line)}
+body.hulp .ans.locked{display:none}
+body.examen .think{display:none}
+body.examen .think.open{display:flex}
+.helpbtn{display:none!important}
+body.examen .helpbtn{display:inline-flex!important}
+body.examen .tonext{display:none!important}
+@media (max-width:600px){body{font-size:16px}.qtext{font-size:17px}.phase,.ctx{padding:14px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="sitenav" aria-label="Site">
+    <a class="merk" href="../index.html#home">Biologie bij Kamiel</a>
+    <a class="terug" href="../index.html#regeling">← Terug naar Regeling</a>
+    <span class="rechts"><button type="button" class="icoon" data-thema-knop></button></span>
+  </nav>
+  <header class="tool-kop">
+    <div class="eyebrow" id="eb">Oefentoets Regeling · havo</div>
+    <h1 id="h1">Oefentoets Regeling</h1>
+    <div class="seg" id="opgs" role="group" aria-label="Opgave"></div>
+    <div class="sleutel"><span><i class="sw papier-sw"></i>Wit vak = de toetsvraag</span><span><i class="sw donker-sw"></i>Donker vak = hulpvragen en uitleg (niet uit de toets)</span></div>
+    <p>Maak de toets stap voor stap. Bij elke vraag denk je eerst na met de hulpvragen, dan beantwoord je de toetsvraag, en daarna zie je waarom het antwoord klopt. Kies zelf hoeveel hulp je wilt; met ‘Echte toets’ oefen je zonder hulp.</p>
+    <div class="kopbalk">
+      <div class="seg" id="standen" role="group" aria-label="Hoeveel hulp wil je?"></div>
+      <button id="vrij" class="toggle" aria-pressed="false"><span class="knopje"></span>Vrij doorklikken</button>
+      <span class="mono muted" id="sub"></span>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs" aria-label="Vragen"></nav>
+
+  <section class="ctx papier" id="ctx"></section>
+
+  <main id="main"></main>
+
+  <footer>Eigen vragen, met inspiratie uit de centrale examens (© CvTE), Biologie voor Jou en Nectar. Grafieken en schema's zijn eigen tekeningen met fictieve, vereenvoudigde gegevens.<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a> </span></footer>
+</div>
+
+<script>
+(function(){
+const $=(s,r=document)=>r.querySelector(s);
+const el=(tag,attrs={},html="")=>{const e=document.createElement(tag);for(const k in attrs){if(k==="class")e.className=attrs[k];else if(k.startsWith("on"))e.addEventListener(k.slice(2),attrs[k]);else e.setAttribute(k,attrs[k]);}if(html)e.innerHTML=html;return e;};
+const TOOL="reg-havo";
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- opslag (alleen gemak) ---------- */
+let store={scores:{},mode:"hulp"};
+try{const s=JSON.parse(localStorage.getItem("toets-regeling-havo")||"null");if(s)store=Object.assign(store,s);}catch(e){}
+const save=()=>{try{localStorage.setItem("toets-regeling-havo",JSON.stringify(store));}catch(e){}};
+
+/* ---------- algemene bouwstenen ---------- */
+function phase(cls,label){const p=el("section",{class:"phase "+cls});
+  if(cls==="think")p.append(el("div",{class:"label"},`<span class="dot"></span>Hulpvragen<span class="tag">niet uit de toets</span>`));
+  else p.append(el("div",{class:"label"},`<span class="dot"></span>${label==="Antwoord"?"Jouw antwoord op de toetsvraag":label}`));return p;}
+function choiceStep(container,{q,opts,right,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});const fb=el("div",{class:"fb",hidden:""});
+  const knop=[];opts.forEach((o,i)=>{const b=el("button",{class:"opt",onclick:()=>{
+    if(i===right){row.querySelectorAll("button").forEach(x=>x.disabled=true);b.classList.add("right");fb.className="fb ok";fb.innerHTML=ok;fb.hidden=false;onDone&&onDone();}
+    else{b.classList.add("wrong");fb.className="fb no";fb.innerHTML=no;fb.hidden=false;}
+  }},o);knop.push(b);});
+  /* @@schud@@ vaste, geschudde volgorde (zaadje = vraagtekst), zodat het goede antwoord niet steeds eerst staat */
+  {let h=2166136261;for(const c of String(q))h=Math.imul(h^c.charCodeAt(0),16777619)>>>0;
+   const v=knop.map((b,i)=>i);for(let i=v.length-1;i>0;i--){h=Math.imul(h^(h>>>15),2246822507)>>>0;const j=h%(i+1);[v[i],v[j]]=[v[j],v[i]];}
+   if(v.length>1&&v[0]===right&&opts.length>2){const k=v.indexOf(right);[v[0],v[1]]=[v[1],v[0]];}
+   v.forEach(i=>row.append(knop[i]));}
+  s.append(row,fb);container.append(s);return s;
+}
+function mc(container,{opts,right,pts,qid,graphs:isGraph,onChecked}){
+  const wrap=el("div",{class:isGraph?"graphs":"row",style:isGraph?"":"flex-direction:column;align-items:stretch"});
+  const fb=el("div",{class:"fb",hidden:""});
+  opts.forEach((o,i)=>{const L="ABCDEF"[i];
+    const b=isGraph?el("button",{class:"gopt"},`<b>${L}</b>${o}`):el("button",{class:"opt"},`<b style="font:700 18px var(--titel);color:var(--goud-text);margin-right:10px">${L}</b>${o}`);
+    b.addEventListener("click",()=>{
+      wrap.querySelectorAll("button").forEach(x=>x.disabled=true);
+      const good=i===right; b.classList.add(good?"right":"wrong");
+      if(!good)wrap.children[right].classList.add("right");
+      fb.className="fb "+(good?"ok":"no");
+      fb.innerHTML=good?`Goed: <b>${"ABCDEF"[right]}</b>. ${pts} ${pts>1?"punten":"punt"}.`:`Het goede antwoord is <b>${"ABCDEF"[right]}</b>. 0 punten.`;
+      fb.hidden=false; setScore(qid,good?pts:0); onChecked&&onChecked();
+    });wrap.append(b);});
+  container.append(wrap,fb);
+}
+function waaromBtn(container,build){
+  const b=el("button",{class:"ghost waarombtn"},"Laat zien waarom ›");const box=el("div",{hidden:""});
+  b.onclick=()=>{b.remove();box.hidden=false;build(box);if(window.EXSTOF)EXSTOF.extraWaarom(TOOL,cur,box);};
+  container.append(b,box);
+}
+function lockAns(think,ans,label="Naar de vraag ›"){
+  ans.classList.add("locked");
+  const go=el("button",{class:"go tonext",hidden:""},label);
+  go.onclick=()=>{ans.classList.remove("locked");go.remove();ans.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});};
+  think.append(go);
+  return ()=>{think.append(go);go.hidden=false;};
+}
+function helpButton(q,think){
+  const b=el("button",{class:"ghost helpbtn"},"Hulp nodig? Toon de hulpvragen");
+  b.onclick=()=>{think.classList.add("open");b.remove();};
+  q.append(b);
+}
+function setScore(id,p){store.scores[id]=p;save();renderTabs();if(nextBtns[id])nextBtns[id].hidden=false;}
+
+/* ---------- vragen ---------- */
+const Q=[],OPG=[];
+
+/* Vraag 5 en 6: eerst zonder opties */
+function noOptions(q,{id,pts,text,prompt,hint,opts,right,uitleg}){
+  q.append(el("p",{class:"qtext"},text));
+  const think=phase("think","Eerst zelf"),ans=phase("ans","Kies je antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Toon de keuzes ›");
+  const s=el("div",{class:"step"});s.append(el("p",{},prompt));
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:"Wat denk jij? Schrijf het kort op."});const hb=el("button",{class:"ghost"},"Tip");const hf=el("div",{class:"fb hint",hidden:""},hint);
+  hb.onclick=()=>{hf.hidden=false;hb.remove();};
+  ta.addEventListener("input",()=>{if(ta.value.trim().length>2)unlock();});
+  s.append(ta,hb,hf);think.append(s);
+  mc(ans,{qid:id,pts,right,opts,onChecked:()=>{
+    if(ta.value.trim())ans.append(el("div",{class:"model"},`<b>Jij dacht eerst:</b> ${ta.value.replace(/</g,"&lt;")}<br><span class="muted">Klopte dat met de keuze die je maakte?</span>`));
+    waaromBtn(ans,b=>b.append(el("div",{class:"model"},uitleg)));}});
+  q.append(think,ans);
+}
+/* ================= extra bouwstenen ================= */
+function pre(q,html){q.append(el("div",{class:"pre"},html));}
+function chipsStep(container,{q,items,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});
+  items.forEach(([t])=>{const b=el("button",{class:"chip","aria-pressed":"false"},t);b.onclick=()=>b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")==="true"?"false":"true");row.append(b);});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(row,ck,fb);container.append(s);
+  ck.onclick=()=>{const sel=[...row.children].map(b=>b.getAttribute("aria-pressed")==="true");
+    const teveel=sel.some((s,k)=>s&&!items[k][1]),mist=sel.some((s,k)=>!s&&items[k][1]);fb.hidden=false;
+    if(!teveel&&!mist){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;row.querySelectorAll("button").forEach(b=>b.disabled=true);onDone&&onDone();}
+    else if(teveel){fb.className="fb hint";fb.innerHTML=no;}
+    else{fb.className="fb hint";fb.innerHTML="Wat je gekozen hebt klopt, maar er hoort nog meer bij. Kies alles wat klopt.";}};
+  return s;
+}
+function selectsStep(container,{q,rows,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const id=uid+"s"+k;
+    r.append(el("label",{for:id,class:"sellab"},lab));const sel=el("select",{id});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);s.append(r);return sel;});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(ck,fb);container.append(s);
+  ck.onclick=()=>{const n=sels.filter((sel,k)=>sel.value!==""&&+sel.value===rows[k][2]).length;fb.hidden=false;
+    if(n===rows.length){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;sels.forEach(x=>x.disabled=true);onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=`${n} van de ${rows.length} goed. `+(no||"Probeer het nog eens.");}};
+}
+function numStep(container,{q,right,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const r=el("div",{class:"row"});const inp=el("input",{class:"num",id:uid,inputmode:"decimal","aria-label":"antwoord"});const ck=el("button",{class:"ghost"},"Controleer");const fb=el("div",{class:"fb",hidden:""});
+  r.append(inp,ck);s.append(r,fb);container.append(s);
+  ck.onclick=()=>{const v=parseFloat((inp.value||"").replace(",","."));fb.hidden=false;
+    if(v===right){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;inp.disabled=true;onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=no;}};
+}
+function openAnswer(ans,{id,pts,checks,model,valkuil,placeholder,after}){
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:placeholder||"Schrijf je antwoord…"});
+  const ck=el("button",{class:"go"},"Nakijken");const tf=el("div",{class:"fb hint",hidden:""},"Schrijf eerst je antwoord op. Daarna kijk je het na.");
+  ans.append(ta,ck,tf);
+  ck.onclick=()=>{if(ta.value.trim().length<8){tf.hidden=false;ta.focus();return;}tf.remove();ck.remove();ta.readOnly=true;
+    const ss=el("div",{class:"selfscore"});
+    ss.append(el("p",{style:"margin:0"},"<b>Kijk jezelf na met het antwoordmodel.</b> Vink aan wat er in jouw antwoord staat."));
+    const boxes=checks.map((c,k)=>{const lab=el("label",{},`<input type="checkbox" id="q${id}c${k}"><span>${c} <span class="pts">1p</span></span>`);ss.append(lab);return lab.querySelector("input");});
+    if(model)ss.append(el("div",{class:"model"},"<b>Voorbeeldantwoord:</b> "+model));
+    if(valkuil)ss.append(el("div",{class:"fb hint"},"<b>Valkuil:</b> "+valkuil));
+    const sc=el("div",{class:"score"});ss.append(sc);ans.append(ss);
+    const upd=()=>{const p=Math.min(pts,boxes.filter(b=>b.checked).length);sc.textContent=`Jouw score: ${p} / ${pts}`;setScore(id,p);};
+    boxes.forEach(b=>b.onchange=upd);upd();after&&after();};
+}
+function juistOnjuist(ans,{id,stm,key,uitleg}){
+  const pick=stm.map(()=>null);
+  stm.forEach((t,k)=>{const r=el("div",{class:"row"});r.append(el("span",{style:"flex:1 1 260px"},`<b style="font-family:var(--meta)">${k+1}</b>&nbsp; ${t}`));
+    ["juist","onjuist"].forEach((lab,v)=>{const b=el("button",{class:"chip","aria-pressed":"false"},lab);b.onclick=()=>{pick[k]=v===0;r.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c===b?"true":"false"));};r.append(b);});ans.append(r);});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(pick.includes(null)){fb.hidden=false;fb.className="fb hint";fb.textContent="Beoordeel eerst alle uitspraken.";return;}
+    const n=pick.filter((p,k)=>p===key[k]).length;const p=n===stm.length?2:n===stm.length-1?1:0;ck.disabled=true;
+    ans.querySelectorAll(".chip").forEach(c=>c.disabled=true);
+    fb.hidden=false;fb.className="fb "+(p===2?"ok":"no");
+    fb.innerHTML=`${n} van de ${stm.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+key.map((k,i)=>`${i+1} ${k?"juist":"onjuist"}`).join(" · ");setScore(id,p);
+    waaromBtn(ans,uitleg);};
+}
+function stepAnim(box,steps,render){
+  let i=0;const stage=el("div",{class:"stage"}),cap=el("p",{class:"cap"});
+  const prev=el("button",{class:"ghost"},"‹ Vorige"),next=el("button",{class:"go"},"Volgende ›");
+  const pips=el("div",{class:"pips"},steps.map(()=>"<span></span>").join(""));
+  const nav=el("div",{class:"nav"});nav.append(prev,next,pips);
+  const a=el("div",{class:"anim"});a.append(stage,cap,nav);box.append(a);
+  function show(){cap.innerHTML=steps[i].cap;prev.disabled=i===0;next.textContent=i===steps.length-1?"Opnieuw ›":"Volgende ›";
+    pips.querySelectorAll("span").forEach((p,j)=>p.classList.toggle("on",j===i));render(stage,steps[i],i);}
+  prev.onclick=()=>{if(i>0){i--;show();}};next.onclick=()=>{i=(i+1)%steps.length;show();};show();
+}
+/* ================= meer bouwstenen ================= */
+function seqStep(container,{q,items,shown,ok,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const seq=el("div",{class:"seq"});let at=0;const fb=el("div",{class:"fb",hidden:""});
+  shown.forEach(k=>{const b=el("button",{class:"opt"},`<span class="n">·</span>${items[k]}`);b.onclick=()=>{if(b.classList.contains("placed"))return;
+    if(k===at){b.classList.add("placed");b.querySelector(".n").textContent=at+1;at++;fb.hidden=true;if(at===items.length){fb.hidden=false;fb.className="fb ok";fb.innerHTML=ok;onDone&&onDone();}}
+    else{fb.hidden=false;fb.className="fb hint";fb.textContent="Dat is nog niet de volgende stap. Wat gebeurt er direct daarna?";}};seq.append(b);});
+  s.append(seq,fb);container.append(s);
+}
+function selectAnswer(ans,{id,rows,score,uid,after,intro}){
+  if(intro)ans.append(el("p",{style:"margin:0"},intro));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const sid=uid+"a"+k;
+    r.append(el("label",{for:sid,class:"sellab"},lab));const sel=el("select",{id:sid});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);ans.append(r);return sel;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(sels.some(x=>x.value==="")){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul eerst alles in.";return;}
+    const n=sels.filter((x,k)=>+x.value===rows[k][2]).length;const p=score(n);sels.forEach(x=>x.disabled=true);ck.remove();
+    fb.hidden=false;fb.className="fb "+(n===rows.length?"ok":"no");
+    fb.innerHTML=`${n} van de ${rows.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+rows.map(([lab,opts,r])=>`${lab}: ${opts[r]}`).join(" · ");
+    setScore(id,p);after&&after();};
+}
+function textBox(html){return b=>b.append(el("div",{class:"model"},html));}
+const svgWrap=(vb,inner,label)=>`<svg viewBox="${vb}" role="img" aria-label="${label}">${inner}</svg>`;
+function numAnswer(ans,{id,fields,after}){
+  const inps=fields.map(([lab,unit],k)=>{const r=el("div",{class:"row"});const fid="q"+id+"f"+k;
+    r.append(el("label",{for:fid,class:"sellab"},lab));const i=el("input",{class:"num",id:fid,inputmode:"decimal"});r.append(i,el("span",{class:"muted"},unit));ans.append(r);return i;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{const v=inps.map(i=>parseFloat((i.value||"").replace(",",".")));if(v.some(isNaN)){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul beide uitkomsten in.";return;}
+    inps.forEach(i=>i.disabled=true);ck.remove();const res=fields.map((f,k)=>f[2](v[k]));const p=res.filter(Boolean).length;
+    fb.hidden=false;fb.className="fb "+(p===fields.length?"ok":"no");
+    fb.innerHTML=`<b>${p} van de ${fields.length} punten.</b><br>`+fields.map((f,k)=>`${res[k]?"✓":"✗"} ${f[3]}`).join("<br>");setScore(id,p);after&&after();};
+}
+
+/* ===== Oefentoets Regeling: gedeelde hulpjes (havo en vwo uit één bron) ===== */
+const VWO=false;
+let QN=0,ON=0;
+/* vraag(punten, onderwerp, build(q,id), stof?) -> id; stof = {titel, html, anim?, films?} voor 'Uitleg van de stof' */
+function vraag(pts,t,build,stof){const id=++QN;Q.push({id,pts,t,build:q=>build(q,id)});
+  if(stof&&window.EXSTOF)EXSTOF.zet(TOOL,[id],stof);return id;}
+function opgave(kort,titel,html,ids){const nr=++ON;
+  OPG.push({nr,kort,titel,ids,ctx:`<div class="pkop"><span class="mono">Toetstekst · inleiding opgave ${nr}</span></div>`+html});}
+const GEEN_INLEIDING=`<p class="muted" style="font-size:15px">Deze opgave heeft geen inleiding: de vraag staat hieronder.</p>`;
+/* films van het thema (hrefs als in HOOFDSTUKKEN.regeling.films in index.html) */
+const F={
+  post:["Post voor iedereen","films/hormonen/1-post-voor-iedereen.html"],
+  suiker:["Suiker in balans","films/hormonen/2-suiker-in-balans.html"],
+  baas:["De baas van de klieren","films/hormonen/3-de-baas-van-de-klieren.html"],
+  stress:["Stress","films/hormonen/4-stress.html"],
+  sec:["Eén seconde","films/zenuwstelsel/1-een-seconde.html"],
+  kabel:["Het kabelnetwerk","films/zenuwstelsel/2-het-kabelnetwerk.html"],
+  spleet:["De spleet","films/zenuwstelsel/3-de-spleet.html"],
+  knoei:["Knoeien met de synaps","films/zenuwstelsel/4-knoeien-met-de-spleet.html"],
+  hoofd:["Het hoofdkantoor","films/zenuwstelsel/5-het-hoofdkantoor.html"],
+  zin:["Zintuigen","films/zenuwstelsel/8-zintuigen.html"],
+  spier:["Spieren en beweging","films/zenuwstelsel/9-spieren-en-beweging.html"]};
+/* begin van een vraag: vraagzin, hulp- en antwoordvak */
+function start(q,html){q.append(el("p",{class:"qtext"},html));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  return {think,ans,unlock};}
+const B=t=>`<b>${t}</b>`;
+const AFB=(nr,extra)=>`<p class="afb">Afbeelding ${nr}${extra?` <span style="text-transform:none;letter-spacing:0;font-weight:400">(${extra})</span>`:""}</p>`;
+const FIG=(min,max,vb,s,label)=>`<div class="tfig" style="max-width:${max}px;--min:${min}px">`+svgWrap(vb,s,label)+`</div>`;
+const NOG=(nr,html)=>`<details class="ctxd"><summary>Afbeelding ${nr} nog eens</summary>${html}</details>`;
+let MK=0;
+/* inBeeld: op de telefoon scrolt een brede figuur (.tfig) binnen zijn vak; zet het oplichtende deel (fx = 0–1 van de breedte) in beeld */
+function inBeeld(stg,fx){const f=stg.querySelector(".tfig");if(!f)return;
+  requestAnimationFrame(()=>{if(f.scrollWidth>f.clientWidth+1)f.scrollLeft=fx==null?0:Math.max(0,fx*f.scrollWidth-f.clientWidth/2);});}
+const pijlDef=(id,kleur="var(--text)")=>`<defs><marker id="${id}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="${kleur}"/></marker></defs>`;
+
+/* selectPunten: keuzelijsten, per groep rijen 1 punt als alle rijen van die groep goed zijn */
+function selectPunten(ans,{id,uid,rows,groepen,after,intro}){
+  if(intro)ans.append(el("p",{style:"margin:0"},intro));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const sid=uid+"a"+k;
+    r.append(el("label",{for:sid,class:"sellab"},lab));const sel=el("select",{id:sid});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);ans.append(r);return sel;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(sels.some(x=>x.value==="")){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul eerst alles in.";return;}
+    const goed=sels.map((x,k)=>+x.value===rows[k][2]);const p=groepen.filter(g=>g.every(k=>goed[k])).length;
+    sels.forEach(x=>x.disabled=true);ck.remove();fb.hidden=false;fb.className="fb "+(p===groepen.length?"ok":"no");
+    fb.innerHTML=`<b>${p} ${p===1?"punt":"punten"}</b> (per deel alleen een punt als dat hele deel goed is).<br>`+rows.map(([lab,opts,r],k)=>`${goed[k]?"✓":"✗"} ${lab}: ${opts[r]}`).join("<br>");
+    setScore(id,p);after&&after();};
+}
+
+/* ---------- Afbeelding 1: regelkring van cortisol (naar eigen/figuren/regeling/A-1.png) ----------
+   vul = 0 leeg, 1 organen, 2 + tekens P en Q, 3 + tekens R en S (voor 'laat zien waarom'); hl = lijst van onderdelen die oplichten ('P','Q','R','S','1','2','3') */
+function SCHEMA_CORT({vul=0,hl=[]}={}){
+  const m="mk"+(++MK);let s=pijlDef(m);
+  const on=k=>hl.includes(k);
+  const doos=(cx,cy,w,h,t,k)=>`<rect x="${cx-w/2}" y="${cy-h/2}" width="${w}" height="${h}" rx="8" fill="${on(k)?"var(--goud-soft)":"var(--surface)"}" stroke="${on(k)?"var(--goud)":"var(--text)"}" stroke-width="${on(k)?2.6:1.8}"/><text x="${cx}" y="${cy+6}" text-anchor="middle" style="fill:var(--text);font:700 ${vul&&k?16:18}px var(--tekst)">${t}</text>`;
+  const teken={P:"+",Q:"+",R:"−",S:"−"};
+  const cirkel=(cx,cy,k)=>{const t=(vul>=2&&"PQ".includes(k))||(vul>=3&&"RS".includes(k))?teken[k]:"";const kl=t==="+"?"var(--groen)":"var(--koraal)";
+    return `<circle cx="${cx}" cy="${cy}" r="17" fill="${on(k)?"var(--goud-soft)":"var(--surface)"}" stroke="${on(k)?"var(--goud)":"var(--text)"}" stroke-width="${on(k)?2.6:1.6}"/>`+(t?`<text x="${cx}" y="${cy+8}" text-anchor="middle" style="fill:${kl};font:700 24px var(--tekst)">${t}</text>`:"");};
+  const lijn=(d,st="")=>`<path d="${d}" fill="none" stroke="var(--text)" stroke-width="1.8" ${st}/>`;
+  const pijl=(d,st="")=>`<path d="${d}" fill="none" stroke="var(--text)" stroke-width="1.8" marker-end="url(#${m})" ${st}/>`;
+  const N=vul?["hypothalamus","hypofyse","bijnierschors"]:["1","2","3"];
+  s+=lijn("M180,85 V104")+pijl("M180,136 V152")+lijn("M180,205 V224")+pijl("M180,256 V272");
+  s+=`<text x="150" y="114" text-anchor="end" class="lblm">releasing</text><text x="150" y="130" text-anchor="end" class="lblm">hormoon</text>`;
+  s+=`<text x="150" y="245" text-anchor="end" class="lblm">ACTH</text>`;
+  s+=cirkel(180,120,"P")+`<text x="206" y="126" class="lbl" style="font-size:16px">P</text>`;
+  s+=cirkel(180,240,"Q")+`<text x="206" y="246" class="lbl" style="font-size:16px">Q</text>`;
+  s+=lijn("M180,325 V385")+pijl("M180,385 H382");
+  s+=`<text x="270" y="406" text-anchor="middle" class="lblm">cortisol</text>`;
+  s+=lijn("M330,385 V60",'stroke-dasharray="7 5"');
+  s+=lijn("M330,180 H303",'stroke-dasharray="7 5"')+pijl("M269,180 H262")+cirkel(286,180,"R");
+  s+=lijn("M330,60 H303",'stroke-dasharray="7 5"')+pijl("M269,60 H262")+cirkel(286,60,"S");
+  s+=`<text x="342" y="168" class="lbl" style="font-size:16px">R</text><text x="342" y="48" class="lbl" style="font-size:16px">S</text>`;
+  s+=doos(180,60,160,50,N[0],"1")+doos(180,180,160,50,N[1],"2")+doos(180,300,160,50,N[2],"3");
+  s+=`<rect x="388" y="358" width="200" height="56" rx="8" fill="var(--surface)" stroke="var(--text)" stroke-width="1.8"/><text x="488" y="381" text-anchor="middle" style="fill:var(--text);font:700 15px var(--tekst)">doelwitcellen</text><text x="488" y="401" text-anchor="middle" style="fill:var(--text);font:700 15px var(--tekst)">(o.a. levercellen)</text>`;
+  return FIG(420,560,"0 0 600 430",s,"Regelkring van cortisol met organen 1, 2 en 3 en cirkels P tot en met S");}
+
+/* ---------- Afbeelding 2: ACTH en cortisol rond een prednisonkuur (fictief, zelfde getallen als A-2.png) ---------- */
+const PRED={wk:[-2,-1,0,0.5,1,2,3,4,5,6,6.5,7,8,9,10,11,12,13,14],
+  acth:[5.0,5.2,5.0,2.0,1.2,1.0,1.0,1.1,1.0,1.0,6.0,11.5,12.0,10.5,9.0,7.8,6.6,5.8,5.3],
+  cort:[410,400,405,150,70,60,55,60,58,55,60,80,120,170,230,290,340,375,395]};
+/* hl = [van, tot] in weken (gouden band); pijl = tekst bij de band */
+const PREDX=w=>(86+(w+2.6)*524/17.2)/630;
+function GRAF_PRED({hl=null,tekst=""}={}){
+  const X0=86,X1=610,xs=w=>X0+(w+2.6)*(X1-X0)/17.2;
+  const yA=v=>226-v*(196/14), yC=v=>476-v*(196/500);
+  let s="";
+  [[30,226],[280,476]].forEach(([a,b])=>{s+=`<rect x="${xs(0)}" y="${a}" width="${xs(6)-xs(0)}" height="${b-a}" fill="var(--text3)" opacity=".16"/>`;});
+  if(hl)[[30,226],[280,476]].forEach(([a,b])=>{s+=`<rect x="${xs(hl[0])-6}" y="${a}" width="${xs(hl[1])-xs(hl[0])+12}" height="${b-a}" fill="var(--goud)" opacity=".22"/>`;});
+  s+=`<text x="${xs(3)}" y="50" text-anchor="middle" class="lblm">prednisonkuur</text>`;
+  [0,2,4,6,8,10,12,14].forEach(v=>{s+=`<path d="M${X0},${yA(v)} H${X1}" stroke="var(--line)" stroke-width="1"/><text x="${X0-8}" y="${yA(v)+4}" text-anchor="end" class="lblm">${v}</text>`;});
+  [0,100,200,300,400,500].forEach(v=>{s+=`<path d="M${X0},${yC(v)} H${X1}" stroke="var(--line)" stroke-width="1"/><text x="${X0-8}" y="${yC(v)+4}" text-anchor="end" class="lblm">${v}</text>`;});
+  s+=`<rect x="${X0}" y="30" width="${X1-X0}" height="196" fill="none" stroke="var(--text2)" stroke-width="1.2"/><rect x="${X0}" y="280" width="${X1-X0}" height="196" fill="none" stroke="var(--text2)" stroke-width="1.2"/>`;
+  [-2,0,2,4,6,8,10,12,14].forEach(w=>{s+=`<path d="M${xs(w)},476 v5 M${xs(w)},226 v5" stroke="var(--text2)"/><text x="${xs(w)}" y="496" text-anchor="middle" class="lblm">${String(w).replace("-","−")}</text>`;});
+  s+=`<text x="20" y="128" text-anchor="middle" class="lblm" transform="rotate(-90 20 128)">ACTH (pmol/L)</text><text x="20" y="378" text-anchor="middle" class="lblm" transform="rotate(-90 20 378)">cortisol (nmol/L)</text>`;
+  s+=`<text x="${(X0+X1)/2}" y="516" text-anchor="middle" class="lblm">tijd (weken na de start van de kuur)</text>`;
+  const pad=(a,f)=>a.map((v,i)=>`${i?"L":"M"}${xs(PRED.wk[i]).toFixed(1)},${f(v).toFixed(1)}`).join(" ");
+  s+=`<path d="${pad(PRED.acth,yA)}" fill="none" stroke="var(--text)" stroke-width="2"/>`+PRED.acth.map((v,i)=>`<circle cx="${xs(PRED.wk[i])}" cy="${yA(v)}" r="3.6" fill="var(--text)"/>`).join("");
+  s+=`<path d="${pad(PRED.cort,yC)}" fill="none" stroke="var(--text)" stroke-width="2"/>`+PRED.cort.map((v,i)=>`<rect x="${xs(PRED.wk[i])-3.6}" y="${yC(v)-3.6}" width="7.2" height="7.2" fill="var(--text)"/>`).join("");
+  if(tekst&&hl)s+=`<text x="${Math.max(X0+80,(xs(hl[0])+xs(hl[1]))/2)}" y="20" text-anchor="middle" class="lbl" style="fill:var(--goud-text)">${tekst}</text>`;
+  return FIG(480,620,"0 0 630 524",s,"Grafiek: ACTH- en cortisolconcentratie in het bloed van week −2 tot week 14; de kuur loopt van week 0 tot week 6");}
+
+/* ---------- Afbeelding 3: spierrespons bij herhaalde prikkels (fictief, zelfde getallen als B-1.png) ---------- */
+const SPR={gezond:[100,99,99,98,98,98,99,98,99,98],jeroen:[100,87,78,73,71,72,73,74,74,75]};
+function GRAF_SPIER({hl=null}={}){
+  const X0=74,X1=600,xs=n=>X0+30+(n-1)*(X1-X0-60)/9,ys=v=>300-v*(270/110);
+  let s="";
+  if(hl)s+=`<rect x="${xs(hl[0])-14}" y="30" width="${xs(hl[1])-xs(hl[0])+28}" height="270" fill="var(--goud)" opacity=".2"/>`;
+  [0,20,40,60,80,100].forEach(v=>s+=`<path d="M${X0},${ys(v)} H${X1}" stroke="var(--line)" stroke-width="1"/><text x="${X0-8}" y="${ys(v)+4}" text-anchor="end" class="lblm">${v}</text>`);
+  s+=`<rect x="${X0}" y="30" width="${X1-X0}" height="270" fill="none" stroke="var(--text2)" stroke-width="1.2"/>`;
+  for(let n=1;n<=10;n++)s+=`<path d="M${xs(n)},300 v5" stroke="var(--text2)"/><text x="${xs(n)}" y="320" text-anchor="middle" class="lblm">${n}</text>`;
+  s+=`<text x="${(X0+X1)/2}" y="342" text-anchor="middle" class="lblm">nummer van de prikkel (3 prikkels per seconde)</text>`;
+  s+=`<text x="20" y="165" text-anchor="middle" class="lblm" transform="rotate(-90 20 165)">spierrespons (% van de eerste)</text>`;
+  const pad=a=>a.map((v,i)=>`${i?"L":"M"}${xs(i+1)},${ys(v).toFixed(1)}`).join(" ");
+  s+=`<path d="${pad(SPR.gezond)}" fill="none" stroke="var(--text)" stroke-width="2"/>`+SPR.gezond.map((v,i)=>`<circle cx="${xs(i+1)}" cy="${ys(v)}" r="5" fill="var(--surface)" stroke="var(--text)" stroke-width="2"/>`).join("");
+  s+=`<path d="${pad(SPR.jeroen)}" fill="none" stroke="var(--text)" stroke-width="2"/>`+SPR.jeroen.map((v,i)=>`<rect x="${xs(i+1)-5}" y="${ys(v)-5}" width="10" height="10" fill="var(--text)"/>`).join("");
+  s+=`<path d="M${X0+16},250 h34" stroke="var(--text)" stroke-width="2"/><circle cx="${X0+33}" cy="250" r="5" fill="var(--surface)" stroke="var(--text)" stroke-width="2"/><text x="${X0+60}" y="255" class="lbl" style="font-weight:400;font-size:14px">gezonde proefpersoon</text>`;
+  s+=`<path d="M${X0+16},276 h34" stroke="var(--text)" stroke-width="2"/><rect x="${X0+28}" y="271" width="10" height="10" fill="var(--text)"/><text x="${X0+60}" y="281" class="lbl" style="font-weight:400;font-size:14px">Jeroen</text>`;
+  return FIG(440,620,"0 0 620 350",s,"Grafiek: spierrespons bij tien prikkels, bij een gezonde proefpersoon en bij Jeroen");}
+
+/* ---------- Afbeelding 4: audiogram (fictief, zelfde getallen als E-1.png) ---------- */
+const AUD={f:[250,500,1000,2000,3000,4000,6000,8000],gezond:[5,5,0,5,5,5,10,10],tim:[5,5,5,10,25,40,30,20]};
+const AUDX=f=>{const lx=Math.log(250)-0.18,rx=Math.log(8000)+0.12;return (96+(Math.log(f)-lx)*504/(rx-lx))/620;};
+function GRAF_AUDIO({hl=null,verschil=false}={}){
+  const X0=96,X1=600,lx=Math.log(250)-0.18,rx=Math.log(8000)+0.12,xs=f=>X0+(Math.log(f)-lx)*(X1-X0)/(rx-lx),ys=v=>30+(v+10)*(270/70);
+  let s="";
+  if(hl)s+=`<rect x="${xs(hl)-16}" y="30" width="32" height="270" fill="var(--goud)" opacity=".22"/>`;
+  [-10,0,10,20,30,40,50,60].forEach(v=>s+=`<path d="M${X0},${ys(v)} H${X1}" stroke="var(--line)" stroke-width="1"/><text x="${X0-8}" y="${ys(v)+4}" text-anchor="end" class="lblm">${String(v).replace("-","−")}</text>`);
+  AUD.f.forEach(f=>s+=`<path d="M${xs(f)},30 V300" stroke="var(--line)" stroke-width="1"/><text x="${xs(f)}" y="318" text-anchor="middle" class="lblm">${f}</text>`);
+  s+=`<rect x="${X0}" y="30" width="${X1-X0}" height="270" fill="none" stroke="var(--text2)" stroke-width="1.2"/>`;
+  s+=`<text x="${(X0+X1)/2}" y="340" text-anchor="middle" class="lblm">toonhoogte (Hz)</text>`;
+  s+=`<text x="22" y="165" text-anchor="middle" class="lblm" transform="rotate(-90 22 165)">gehoordrempel (dB)</text><text x="40" y="165" text-anchor="middle" class="lblm" transform="rotate(-90 40 165)">(hoger getal = slechter horen)</text>`;
+  const pad=a=>a.map((v,i)=>`${i?"L":"M"}${xs(AUD.f[i]).toFixed(1)},${ys(v).toFixed(1)}`).join(" ");
+  s+=`<path d="${pad(AUD.gezond)}" fill="none" stroke="var(--text)" stroke-width="2"/>`+AUD.gezond.map((v,i)=>`<circle cx="${xs(AUD.f[i])}" cy="${ys(v)}" r="5" fill="var(--text)"/>`).join("");
+  s+=`<path d="${pad(AUD.tim)}" fill="none" stroke="var(--text)" stroke-width="2" stroke-dasharray="7 5"/>`+AUD.tim.map((v,i)=>`<rect x="${xs(AUD.f[i])-5}" y="${ys(v)-5}" width="10" height="10" fill="var(--text)"/>`).join("");
+  if(verschil&&hl){const i=AUD.f.indexOf(hl);const a=ys(AUD.gezond[i])+7,b=ys(AUD.tim[i])-7;
+    s+=`<path d="M${xs(hl)+24},${a} V${b}" stroke="var(--goud)" stroke-width="2.4" marker-start="url(#au${MK})" marker-end="url(#au${MK})"/>`+pijlDef("au"+MK,"var(--goud)")+`<text x="${xs(hl)+32}" y="${(a+b)/2+5}" class="lbl" style="fill:var(--goud-text)">${AUD.tim[i]-AUD.gezond[i]} dB</text>`;}
+  s+=`<path d="M${X0+18},258 h34" stroke="var(--text)" stroke-width="2"/><circle cx="${X0+35}" cy="258" r="5" fill="var(--text)"/><text x="${X0+62}" y="263" class="lbl" style="font-weight:400;font-size:14px">leeftijdgenoot, gezonde oren</text>`;
+  s+=`<path d="M${X0+18},282 h34" stroke="var(--text)" stroke-width="2" stroke-dasharray="7 5"/><rect x="${X0+30}" y="277" width="10" height="10" fill="var(--text)"/><text x="${X0+62}" y="287" class="lbl" style="font-weight:400;font-size:14px">Tim</text>`;
+  return FIG(440,620,"0 0 620 350",s,"Audiogram: gehoordrempel van Tim en van een leeftijdgenoot bij toonhoogtes van 250 tot 8000 Hz");}
+
+/* ===== Opgave 1 Bloedsuiker (EI-regeling-KB03) en opgave 2 Hypothalamus, hypofyse en schildklier (EI-regeling-KC08) ===== */
+{
+const STOF_GLUC={titel:"Glucose in je bloed",html:`
+<p>De glucoseconcentratie in je bloed blijft in een gezond lichaam dicht bij een vaste waarde. Na het eten stijgt hij, tussen de maaltijden en bij inspanning daalt hij. Hormonen sturen hem terug: dat is een <b>regelkring</b>.</p>
+<p>Je lichaam heeft een <b>voorraad</b>: in de lever en de spieren ligt glucose opgeslagen als <b>glycogeen</b>, lange ketens van glucose. Een hormoon kan de glucose in het bloed op verschillende manieren veranderen: cellen laten glucose opnemen en opslaan, glucose uit de voorraad halen, of in de lever nieuwe glucose laten maken uit andere stoffen.</p>
+<p>Een hormoon werkt alleen op <b>doelwitcellen</b>: cellen met een receptor die bij dat hormoon past. Twee hormonen die elkaars werking tegengaan, heten tegenspelers.</p>`,
+films:[F.suiker,F.stress]};
+const OPT=["verlaagt: cellen nemen glucose op, lever en spieren maken glycogeen","verhoogt: de lever breekt glycogeen af tot glucose","verhoogt: de lever maakt nieuwe glucose uit aminozuren","verlaagt: de lever breekt glycogeen af","verhoogt: cellen nemen glucose op"];
+const k1=vraag(2,"vier hormonen en de glucose",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Vier hormonen beïnvloeden de glucoseconcentratie: insuline, glucagon, adrenaline en cortisol.<br><br>"+B("Noteer de vier hormonen onder elkaar. Zet erachter of het hormoon de glucose verhoogt of verlaagt, en hoe het dat doet."));
+  choiceStep(think,{q:"Je hebt net een groot bord pasta gegeten. Wat moet er gebeuren met de glucose in je bloed?",opts:["die moet omlaag: er komt veel glucose binnen","die moet omhoog: je hebt energie nodig"],right:0,
+    ok:"Ja. Welk hormoon komt dan vrij? En welk hormoon is zijn tegenspeler?",no:"Na het eten wordt de glucose uit je darm opgenomen. Wordt hij dan hoger of lager?",
+    onDone:()=>chipsStep(think,{q:"Op welke manieren kan een hormoon de glucose in je bloed veranderen? Kies alles wat klopt.",items:[["cellen glucose laten opnemen en opslaan",1],["glucose uit de voorraad glycogeen halen",1],["de lever nieuwe glucose laten maken",1],["de nieren glucose laten maken uit ureum",0]],
+      ok:"Goed. Bedenk nu per hormoon welke van deze manieren erbij hoort.",no:"Eén van je keuzes klopt niet: welk orgaan heeft een voorraad glucose?",onDone:unlock})});
+  selectAnswer(ans,{id,uid:"q"+id,intro:"Kies per hormoon de richting én de manier.",rows:[["insuline",OPT,0],["glucagon",OPT,1],["adrenaline",OPT,1],["cortisol",OPT,2]],
+    score:n=>n===4?2:n===3?1:0,
+    after:()=>waaromBtn(ans,textBox(`<b>Insuline</b> verlaagt: cellen nemen glucose op, en lever en spieren maken er glycogeen van. <b>Glucagon</b> is de tegenspeler: de lever breekt glycogeen af tot glucose. <b>Adrenaline</b> (bij schrik) haalt ook glucose uit de voorraad glycogeen, maar snel. <b>Cortisol</b> (bij langere stress) laat de lever <i>nieuwe</i> glucose maken uit aminozuren.<br>Vier goed: 2 punten, drie goed: 1 punt. Een hormoon telt alleen als richting én manier kloppen. Veel gemaakte fout: cortisol en adrenaline op dezelfde manier laten werken.`))});
+  q.append(think,ans);
+},STOF_GLUC);
+opgave("Bloedsuiker","Bloedsuiker",GEEN_INLEIDING,[k1]);
+
+/* schildklier-regelkring voor 'laat zien waarom': stap 0 normaal, 1 weinig jodium, 2 rem valt weg, 3 struma */
+function KRING_SCHILD(st){
+  const m="mk"+(++MK);let s=pijlDef(m)+pijlDef(m+"r","var(--koraal)");
+  const doos=(x,y,t,on)=>`<rect x="${x-80}" y="${y-22}" width="160" height="44" rx="10" fill="${on?"var(--goud-soft)":"var(--surface)"}" stroke="${on?"var(--goud)":"var(--line2)"}" stroke-width="${on?2.4:1.4}"/><text x="${x}" y="${y+5}" text-anchor="middle" class="lbl">${t}</text>`;
+  const tsh=st>=2?4:st===0?2:2, th=st>=1?1:3, rem=st>=1?(st>=2?0.35:0.6):1;
+  s+=doos(140,50,"hypofyse",st===2)+doos(140,250,st===3?"schildklier (groot)":"schildklier",st===3);
+  if(st===3)s+=`<ellipse cx="140" cy="250" rx="102" ry="36" fill="none" stroke="var(--goud)" stroke-width="2" stroke-dasharray="5 4"/>`;
+  s+=`<path d="M140,74 V224" stroke="var(--groen)" stroke-width="${1.5+tsh}" marker-end="url(#${m})"/><text x="152" y="152" class="lbl" style="fill:var(--groen)">TSH ${st>=2?"(veel)":""}</text>`;
+  s+=`<path d="M222,250 H330 V50 H226" fill="none" stroke="var(--koraal)" stroke-width="${0.8+th}" stroke-dasharray="7 5" opacity="${rem}" marker-end="url(#${m}r)"/><text x="340" y="150" class="lbl" style="fill:var(--koraal)">thyroxine${st>=1?" (weinig)":""}</text><text x="340" y="170" class="lblm">remt de hypofyse</text>`;
+  s+=`<text x="40" y="300" class="lblm">jodium: ${st>=1?"tekort":"genoeg"}</text>`;
+  return FIG(380,520,"0 0 500 312",s,"Regelkring van de schildklier");}
+
+const STOF_KLIER={titel:"De baas van de klieren",html:`
+<p>De <b>hypothalamus</b> in je hersenen meet allerlei waarden in je bloed en stuurt de <b>hypofyse</b> aan. De hypofyse geeft <b>opdrachthormonen</b> af: hormonen die een andere hormoonklier aan het werk zetten.</p>
+<p>Zo'n keten houdt zichzelf in balans met <b>negatieve terugkoppeling</b>, net als een thermostaat: wordt het warm genoeg, dan zet de thermostaat de verwarming lager. Bij een hormoon betekent dat: het eindproduct van de keten werkt terug op het begin.</p>`,
+films:[F.baas]};
+const k2=vraag(2,"twee fouten bij struma",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Een leerling schrijft in een verslag: ‘Bij een tekort aan jodium wordt de schildklier groter en maakt hij daardoor meer thyroxine. Thyroxine stimuleert de hypofyse, zodat die nog meer TSH afgeeft.’<br><br>"+B("In deze tekst staan twee fouten. Verbeter ze."));
+  choiceStep(think,{q:"Welk hormoon maakt de schildklier zelf?",opts:["thyroxine","TSH"],right:0,
+    ok:"Ja. Wat heeft jodium daarmee te maken? Lees de eerste zin van de leerling nog eens.",no:"TSH is een opdrachthormoon. Uit welke klier komen opdrachthormonen?",
+    onDone:()=>choiceStep(think,{q:"De thermostaat staat op 20 °C en het wordt 21 °C in de kamer. Wat doet de thermostaat met de verwarming?",opts:["zet hem zachter","zet hem harder"],right:0,
+      ok:"Goed: zo werkt negatieve terugkoppeling. Wat is in de keten hypofyse → schildklier de ‘verwarming’, en wat de ‘temperatuur’? Lees dan de tweede zin van de leerling.",no:"Het is al warmer dan de thermostaat wil.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Een grote schildklier (struma) maakt juist <b>te weinig thyroxine</b>, want zonder jodium kan hij geen thyroxine maken.",
+    "Thyroxine <b>remt</b> de hypofyse (negatieve terugkoppeling); de TSH is hoog doordat die rem bij weinig thyroxine wegvalt."],
+    model:"Fout 1: bij een tekort aan jodium maakt de schildklier juist te weinig thyroxine, want jodium is een bouwstof van thyroxine. Fout 2: thyroxine remt de hypofyse. Is er weinig thyroxine, dan valt die rem weg en geeft de hypofyse veel TSH af. Daardoor groeit de schildklier.",
+    valkuil:"Alleen zeggen dát iets fout is (‘het is niet meer maar minder’) zonder de juiste werking van thyroxine op de hypofyse levert geen punt op voor de tweede fout.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Normaal: TSH zet de schildklier aan, thyroxine remt de hypofyse. Zo blijft alles in balans."},
+      {cap:"Te weinig jodium: de schildklier kan weinig thyroxine maken."},
+      {cap:"Weinig thyroxine = weinig rem. De hypofyse geeft veel TSH af."},
+      {cap:"Al die TSH laat de schildklier groeien: struma. Groter, maar zonder jodium nog steeds weinig thyroxine."}],
+      (stg,s,i)=>stg.innerHTML=KRING_SCHILD(i)))});
+  q.append(think,ans);
+},STOF_KLIER);
+opgave("Schildklier","Hypothalamus, hypofyse en schildklier",GEEN_INLEIDING,[k2]);
+}
+
+/* ===== Opgave 3: Zes weken prednison (EI-regeling-A01 t/m A05) ===== */
+{
+const STOF_SCHEMA={titel:"Een regelkring in een schema lezen",html:`
+<p>In een schema van een hormoonregelkring staat elk vak voor een orgaan of een groep cellen. Een <b>pijl</b> is een hormoon dat via het bloed naar het volgende vak gaat. Een <b>+</b> betekent: stimuleert, een <b>−</b>: remt.</p>
+<p>Een lijn die van het eindproduct terug naar boven loopt, is <b>terugkoppeling</b>. Bij een hormoon dat in balans moet blijven, is dat <b>negatieve terugkoppeling</b>: veel eindproduct zorgt voor minder aanmaak, weinig eindproduct voor meer.</p>`,
+films:[F.baas,F.stress]};
+const STOF_NADOEN={titel:"Een medicijn dat een hormoon nadoet",html:`
+<p>Een hormoon werkt doordat het aan een <b>receptor</b> bindt. Een medicijn dat sterk op een hormoon lijkt en aan dezelfde receptor bindt, heeft dus ook hetzelfde effect, op <b>alle</b> cellen met die receptor.</p>
+<p>Lees je twee grafieken onder elkaar, kijk dan steeds naar hetzelfde tijdstip in allebei: wat doet de ene stof als de andere stijgt of daalt? Zo zie je welke stof de andere aanstuurt.</p>`,
+films:[F.baas,F.stress]};
+
+const ORG=["hypothalamus","hypofyse","bijnierschors","schildklier","alvleesklier"],PM=["+ (stimuleren)","− (remmen)"];
+const a1=vraag(2,"regelkring van cortisol",(q,id)=>{
+  pre(q,"<p>In afbeelding 1 is de regelkring van cortisol schematisch weergegeven. De cijfers 1, 2 en 3 staan voor organen. In de cirkels P tot en met S hoort een + (stimuleren) of een − (remmen).</p>"+AFB(1)+SCHEMA_CORT());
+  const {think,ans,unlock}=start(q,B("Noteer de namen van de organen 1, 2 en 3. Noteer daarna de letters P, Q, R en S onder elkaar en zet achter elke letter een + of een −."));
+  choiceStep(think,{q:"Wat betekent de gestippelde lijn die van cortisol terug naar boven loopt?",opts:["terugkoppeling: cortisol werkt terug op de organen erboven","een tweede hormoon dat de bijnier maakt","de weg van cortisol naar de levercellen"],right:0,
+    ok:"Ja. Wat voor terugkoppeling is dat bij een hormoon dat in balans moet blijven?",no:"Volg de gestippelde lijn: waar begint hij, en waar komt hij uit?",
+    onDone:()=>choiceStep(think,{q:"Bij negatieve terugkoppeling: wat gebeurt er als er veel cortisol in het bloed is?",opts:["er wordt minder cortisol aangemaakt","er wordt nog meer cortisol aangemaakt"],right:0,
+      ok:"Goed. Gebruik dit voor de cirkels R en S, en de inleiding voor de rest.",no:"Negatief betekent: het eindproduct werkt zijn eigen aanmaak tegen.",onDone:unlock})});
+  selectPunten(ans,{id,uid:"q"+id,intro:"Eerste punt: alle drie de organen goed. Tweede punt: alle vier de tekens goed.",
+    rows:[["orgaan 1",ORG,0],["orgaan 2",ORG,1],["orgaan 3",ORG,2],["P",PM,0],["Q",PM,0],["R",PM,1],["S",PM,1]],groepen:[[0,1,2],[3,4,5,6]],
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"De hypothalamus (1) zet met een releasing hormoon de hypofyse (2) aan; de hypofyse zet met ACTH de bijnierschors (3) aan. Ook ‘bijnier’ zonder ‘schors’ is goed.",v:1,hl:["1","2","3"]},
+      {cap:"Langs de keten naar beneden stimuleert elk hormoon de volgende klier: P en Q zijn +.",v:2,hl:["P","Q"]},
+      {cap:"Cortisol remt de hypofyse en de hypothalamus: R en S zijn −. Dit is negatieve terugkoppeling. Wie hier + zet, laat cortisol zijn eigen aanmaak opjagen.",v:3,hl:["R","S"]}],
+      (stg,s)=>stg.innerHTML=SCHEMA_CORT({vul:s.v,hl:s.hl})))});
+  q.append(think,ans);
+},STOF_SCHEMA);
+
+const FIG2=AFB(2,"fictieve gegevens, vereenvoudigd")+GRAF_PRED();
+const a2=vraag(2,"waarom daalt cortisol?",(q,id)=>{
+  pre(q,"<p>Bij Mila zijn vóór, tijdens en na de kuur de ACTH-concentratie en de cortisolconcentratie in het bloed gemeten. De meting van cortisol meet alleen het cortisol dat het lichaam zelf maakt, niet de prednison. In dit voorbeeld is de kuur na zes weken in één keer gestopt. Prednison is binnen een dag na de laatste tablet uit het bloed verdwenen.</p>"+FIG2);
+  const {think,ans,unlock}=start(q,"Tijdens de kuur daalt de cortisolconcentratie in het bloed van Mila sterk.<br><br>"+B("Leg met behulp van afbeelding 2 uit hoe prednison deze daling veroorzaakt."));
+  choiceStep(think,{q:"Wat doet de ACTH-concentratie in afbeelding 2 in de eerste week van de kuur?",opts:["die daalt","die stijgt","die blijft gelijk"],right:0,
+    ok:"Ja, van ongeveer 5 naar ongeveer 1 pmol/L. Welk orgaan maakt ACTH, en op welke organen werkt prednison volgens de inleiding?",no:"Kijk naar de bovenste grafiek, tussen week 0 en week 1.",
+    onDone:()=>choiceStep(think,{q:"Wat doet ACTH met de bijnierschors?",opts:["stimuleert de afgifte van cortisol","remt de afgifte van cortisol"],right:0,
+      ok:"Goed. Maak nu de keten af: van prednison, via ACTH, naar cortisol.",no:"Lees de tweede alinea van de inleiding nog eens.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Prednison remt (net als cortisol) de <b>hypothalamus en/of hypofyse</b> (negatieve terugkoppeling), waardoor de <b>ACTH</b>-concentratie daalt (van ongeveer 5 naar ongeveer 1 pmol/L).",
+    "Door de lage ACTH-concentratie wordt de <b>bijnierschors</b> minder gestimuleerd en geeft die minder cortisol af."],
+    model:"Prednison bindt aan de cortisolreceptoren in de hypothalamus en de hypofyse en remt die, net als cortisol zelf. Daardoor daalt de ACTH-concentratie van ongeveer 5 naar ongeveer 1 pmol/L. De bijnierschors wordt dan nauwelijks nog gestimuleerd en maakt veel minder cortisol.",
+    valkuil:"‘Prednison neemt de plaats van cortisol in, dus maakt het lichaam minder cortisol’ zonder de rol van ACTH: 0 punten. ‘Prednison remt de bijnier rechtstreeks’: geen punt voor het tweede deel.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Begin van de kuur: prednison remt hypothalamus en hypofyse. Eerst daalt ACTH (boven).",hl:[-0.3,1],t:"ACTH daalt"},
+      {cap:"Met weinig ACTH wordt de bijnierschors niet meer aangezet: cortisol (onder) daalt mee en blijft de hele kuur laag.",hl:[0,6],t:"weinig ACTH → weinig cortisol"}],
+      (stg,s)=>{stg.innerHTML=GRAF_PRED({hl:s.hl,tekst:s.t});inBeeld(stg,PREDX((s.hl[0]+s.hl[1])/2));}))});
+  q.append(think,ans);
+},STOF_NADOEN);
+
+const a3=vraag(2,"ACTH na de kuur",(q,id)=>{
+  pre(q,NOG(2,GRAF_PRED()));
+  const {think,ans,unlock}=start(q,"In week 7 en 8 is de ACTH-concentratie bij Mila veel hoger dan vóór de kuur.<br><br>"+B("Leg uit waardoor de ACTH-concentratie in deze weken hoger is dan vóór de kuur."));
+  choiceStep(think,{q:"Hoe hoog is de cortisolconcentratie in week 7 en 8, vergeleken met vóór de kuur?",opts:["veel lager","ongeveer even hoog","hoger"],right:0,
+    ok:"Ja: ongeveer 80–120 nmol/L, tegen ongeveer 400 nmol/L vóór de kuur.",no:"Kijk naar de onderste grafiek bij week 7 en 8, en vergelijk met week −2 tot 0.",
+    onDone:()=>choiceStep(think,{q:"Wat doet cortisol met de afgifte van ACTH (denk aan R en S in afbeelding 1)?",opts:["remt","stimuleert"],right:0,
+      ok:"Goed. Combineer beide: wat betekent weinig cortisol voor de afgifte van ACTH?",no:"In de regelkring werkt cortisol terug op hypothalamus en hypofyse. Is dat negatieve of positieve terugkoppeling?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Na het stoppen is er geen prednison meer en is de <b>cortisolconcentratie</b> (nog) veel lager dan vóór de kuur.",
+    "Daardoor is de <b>remming</b> van hypothalamus/hypofyse (negatieve terugkoppeling) kleiner dan vóór de kuur, zodat de hypofyse meer ACTH afgeeft."],
+    model:"Na het stoppen is de prednison weg, en de cortisolconcentratie is nog veel lager dan vóór de kuur. Er is dus veel minder remming van de hypothalamus en de hypofyse dan normaal (negatieve terugkoppeling). De hypofyse geeft daardoor meer ACTH af dan vóór de kuur.",
+    valkuil:"Alleen ‘omdat de prednison weg is’, zonder de lage cortisolconcentratie: maximaal 1 punt. Dat de prednison weg is, verklaart wel dat ACTH weer stijgt, maar niet dat hij hóger wordt dan vóór de kuur.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Vóór de kuur remt een normale hoeveelheid cortisol de hypofyse een beetje: ACTH ongeveer 5 pmol/L.",hl:[-2,0],t:"normale rem"},
+      {cap:"Week 7–8: geen prednison en nog weinig cortisol. De rem is bijna weg, dus de hypofyse geeft veel meer ACTH af dan normaal.",hl:[6.5,8],t:"bijna geen rem → veel ACTH"}],
+      (stg,s)=>{stg.innerHTML=GRAF_PRED({hl:s.hl,tekst:s.t});inBeeld(stg,PREDX((s.hl[0]+s.hl[1])/2));}))});
+  q.append(think,ans);
+},STOF_NADOEN);
+
+const a4=vraag(1,"waarom duurt herstel zo lang?",(q,id)=>{
+  pre(q,NOG(2,GRAF_PRED()));
+  const {think,ans,unlock}=start(q,"Ondanks de hoge ACTH-concentratie duurt het na het stoppen ongeveer acht weken voordat de cortisolconcentratie weer normaal is.<br><br>"+B("Wat is hiervoor de verklaring?"));
+  choiceStep(think,{q:"Hoe lang is de ACTH-concentratie tijdens de kuur laag geweest?",opts:["ongeveer zes weken","een paar dagen"],right:0,
+    ok:"Ja. Lees in de inleiding nog eens wat ACTH, naast het aanzetten van de bijnierschors, nog meer doet.",no:"Kijk in de bovenste grafiek van week 0 tot week 6.",
+    onDone:()=>choiceStep(think,{q:"Is de ACTH-concentratie in week 7 tot 10 hoog of laag?",opts:["hoog","laag"],right:0,
+      ok:"Goed. Kijk met deze twee dingen naar de keuzes.",no:"Kijk in de bovenste grafiek na week 6.",onDone:unlock})});
+  mc(ans,{qid:id,pts:1,right:2,opts:["Prednison remt de bijnierschors na de kuur nog weken rechtstreeks.","De hoge ACTH-concentratie remt de cortisolafgifte door negatieve terugkoppeling.","De bijnierschors is tijdens de kuur door het tekort aan ACTH gekrompen en heeft weken nodig om te herstellen.","De hypofyse geeft na de kuur nog te weinig ACTH af."],
+    onChecked:()=>waaromBtn(ans,textBox("Zes weken lang was er weinig ACTH. Volgens de inleiding krimpt de bijnierschors dan. Na de kuur is er wel veel ACTH, maar de kleine bijnierschors kan nog weinig cortisol maken; hij moet eerst weer groeien. Het antwoord is <b>C</b>.<br>A kan niet: prednison is binnen een dag uit het bloed. B draait de regelkring om: ACTH stimuleert de bijnierschors. D klopt niet met de grafiek: ACTH is na de kuur juist hoog."))});
+  q.append(think,ans);
+},STOF_NADOEN);
+
+const a5=vraag(2,"afbouwen",(q,id)=>{
+  pre(q,"<p>In werkelijkheid stopt een arts een langdurige, hoge prednisonkuur nooit in één keer. De dosis wordt in een aantal weken stap voor stap verlaagd (afbouwen).</p>"+NOG(2,GRAF_PRED()));
+  const {think,ans,unlock}=start(q,B("Leg uit dat Mila bij afbouwen minder risico loopt op een tekort aan cortisolwerking dan bij stoppen in één keer. Gebruik in je antwoord de begrippen ACTH en bijnierschors."));
+  choiceStep(think,{q:"Waardoor heeft Mila in week 6 tot 12 van afbeelding 2 een tekort aan cortisolwerking?",opts:["er is geen prednison meer, en zelf maakt ze nog weinig cortisol","er is te veel ACTH in haar bloed"],right:0,
+    ok:"Ja. Dat is het risico bij stoppen in één keer.",no:"Kijk naar de onderste grafiek na week 6, en bedenk dat de prednison binnen een dag weg is.",
+    onDone:()=>choiceStep(think,{q:"Bij afbouwen daalt de dosis prednison langzaam. Wat gebeurt er dan met de rem op hypothalamus en hypofyse?",opts:["die wordt langzaam kleiner","die blijft tot de laatste tablet even groot"],right:0,
+      ok:"Goed. Bedenk nu wat dat betekent voor ACTH en de bijnierschors, en wat de prednison in de tussentijd nog doet.",no:"Minder prednison bindt aan minder receptoren in hypothalamus en hypofyse.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Bij een lagere dosis prednison worden hypothalamus/hypofyse minder geremd, zodat er geleidelijk weer meer <b>ACTH</b> komt en de <b>bijnierschors</b> weer gestimuleerd wordt / kan herstellen.",
+    "De nog aanwezige <b>prednison</b> neemt intussen de werking van cortisol over, zodat er geen periode is met (te) weinig cortisolwerking zoals in week 6–12 van afbeelding 2."],
+    model:"Bij afbouwen wordt de remming van hypothalamus en hypofyse stap voor stap kleiner. Er komt weer meer ACTH, en de bijnierschors wordt weer gestimuleerd en kan groeien en herstellen. Ondertussen is er nog prednison, die de werking van cortisol overneemt. Zo is er geen periode zoals in week 6 tot 12, waarin er geen prednison meer is en de bijnierschors nog te weinig cortisol maakt.",
+    valkuil:"‘Dan went het lichaam er langzaam aan’ zonder ACTH of bijnierschors: 0 punten. Je hebt twee dingen nodig: herstel van de bijnierschors én overbrugging door de prednison.",
+    after:()=>waaromBtn(ans,textBox("Bij stoppen in één keer is de prednison binnen een dag weg, terwijl de gekrompen bijnierschors nog weken te weinig cortisol maakt: een gat in de cortisolwerking (week 6–12 in afbeelding 2). Bij afbouwen schuiven twee dingen langzaam over elkaar heen: de prednison neemt af, en tegelijk komt er weer meer ACTH, zodat de bijnierschors herstelt en zelf weer cortisol gaat maken. Er is dus steeds óf prednison, óf eigen cortisol."))});
+  q.append(think,ans);
+},STOF_NADOEN);
+
+opgave("Prednison","Zes weken prednison",`
+<p>Mila heeft de ziekte van Crohn, een chronische ontsteking van de darm. Tijdens een heftige periode krijgt ze zes weken lang een hoge dosis prednison. Prednison is een geneesmiddel dat sterk lijkt op het hormoon cortisol. Het bindt aan dezelfde receptoren als cortisol, ook aan de receptoren in de hypothalamus en de hypofyse, en remt ontstekingen.</p>
+<p>De afgifte van cortisol wordt geregeld door een regelkring. ACTH stimuleert de bijnierschors tot de afgifte van cortisol. ACTH houdt de bijnierschors bovendien ‘in conditie’: als er langere tijd weinig ACTH is, krimpt dit weefsel.</p>
+<p class="muted" style="font-size:14px">Mila is een fictieve patiënt; de meetwaarden in afbeelding 2 zijn fictief en vereenvoudigd.</p>`,[a1,a2,a3,a4,a5]);
+}
+
+/* ===== Opgave 4 Het zenuwstelsel en reflexen (KF04), opgave 5 De impuls (KG06) ===== */
+{
+const STOF_REFLEX={titel:"Reflex of bewuste reactie",html:`
+<p>Bij een <b>reflex</b> gaat de impuls van een zintuig via een sensorische zenuwcel naar het ruggenmerg (of de hersenstam), via een schakelcel meteen naar een <b>motorische zenuwcel</b> en zo naar een spier. Je hoeft er niet over na te denken: de reactie gaat vanzelf en is altijd hetzelfde.</p>
+<p>Bij een <b>bewuste reactie</b> gaat de impuls eerst naar de grote hersenen. Daar wordt de prikkel herkend en beslis je wat je doet; daarna gaat er een nieuwe impuls via het ruggenmerg naar de spieren. Ook de hersenen sturen dus via motorische zenuwcellen in het ruggenmerg je spieren aan.</p>`,
+films:[F.sec]};
+const k3=vraag(2,"remmen en een hete pan",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Beantwoord de volgende vragen.<ul style='margin:6px 0 0;padding-left:20px'><li>Je knijpt in de remmen als er een bal de straat op rolt. "+B("Leg uit waarom dit geen reflex is, terwijl het toch snel gaat.")+"</li><li>Je kunt een hete pan nog even vasthouden tot hij op het aanrecht staat. "+B("Leg uit hoe je hersenen dat doen.")+"</li></ul>");
+  choiceStep(think,{q:"Wat maakt een reactie een reflex?",opts:["de impuls gaat niet eerst naar de grote hersenen: je hoeft niet na te denken","elke reactie die binnen een seconde gebeurt","elke reactie die je vaak geoefend hebt"],right:0,
+    ok:"Ja. Moet je de rollende bal eerst zien en herkennen voordat je remt?",no:"Snelheid alleen maakt iets nog geen reflex. Waar gaat de impuls bij een reflex wel en niet langs?",
+    onDone:()=>choiceStep(think,{q:"Bij de hete pan wil je reflex je hand terugtrekken. Langs welke zenuwcel gaat die opdracht naar je armspieren?",opts:["langs een motorische zenuwcel in het ruggenmerg","rechtstreeks van de huid naar de spier"],right:0,
+      ok:"Goed. Bedenk nu hoe de hersenen op díe zenuwcel kunnen ingrijpen.",no:"Ook bij een reflex gaat er een schakel via het ruggenmerg.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Remmen: het signaal gaat <b>via de hersenen</b> (beeld verwerkt, nieuwe impuls via het ruggenmerg en een motorische zenuw); het gaat snel omdat de beweging <b>geleerd/geoefend</b> is.",
+    "Hete pan: de hersenen <b>remmen de reflex af</b> via remmende verbindingen op het motorische neuron."],
+    model:"Remmen voor een bal is geen reflex: je moet de bal eerst zien en herkennen, dus het signaal gaat via de hersenen, die een nieuwe impuls via het ruggenmerg naar je handen sturen. Het gaat snel omdat je die beweging honderden keren geoefend hebt. Bij de hete pan sturen je hersenen remmende impulsen naar het motorische neuron in het ruggenmerg, zodat de reflex even wordt tegengehouden.",
+    valkuil:"‘Het is geen reflex omdat het niet snel genoeg is’ mist het punt: het verschil zit in de weg (via de hersenen), niet in de snelheid.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Reflex: zintuig → ruggenmerg → motorische zenuwcel → spier. De grote hersenen zitten er niet tussen.",k:0},
+      {cap:"Remmen voor een bal: oog → hersenen (zien, herkennen, kiezen) → ruggenmerg → spieren. Snel, omdat het geoefend is.",k:1},
+      {cap:"Hete pan: de reflex wil loslaten, maar de hersenen sturen een remmende impuls naar hetzelfde motorische neuron.",k:2}],
+      (stg,s)=>stg.innerHTML=ROUTE_REFLEX(s.k)))});
+  q.append(think,ans);
+},STOF_REFLEX);
+
+/* reflexboog of route via de hersenen (k = 0 reflex, 1 via de hersenen, 2 hersenen remmen de reflex) */
+function ROUTE_REFLEX(k){
+  const m="mk"+(++MK);let s=pijlDef(m,"var(--teal)")+pijlDef(m+"r","var(--koraal)");
+  const doos=(x,y,t,on)=>`<rect x="${x-62}" y="${y-20}" width="124" height="40" rx="10" fill="${on?"var(--goud-soft)":"var(--surface)"}" stroke="${on?"var(--goud)":"var(--line2)"}" stroke-width="${on?2.2:1.3}"/><text x="${x}" y="${y+5}" text-anchor="middle" class="lbl">${t}</text>`;
+  const p=(d,kl="teal")=>`<path d="${d}" fill="none" stroke="var(--${kl})" stroke-width="3" marker-end="url(#${m}${kl==="koraal"?"r":""})"/>`;
+  s+=doos(300,40,"grote hersenen",k>=1)+doos(300,170,"ruggenmerg",true)+doos(80,170,k===1?"oog":"huid",true)+doos(520,170,"spier",true);
+  if(k===0||k===2)s+=p("M142,170 H234")+p("M366,170 H454");
+  if(k===1)s+=p("M80,148 V60 H234")+p("M300,62 V146")+p("M366,170 H454");
+  if(k===2)s+=p("M300,62 V146","koraal")+`<text x="312" y="110" class="lbl" style="fill:var(--koraal)">remmende impuls</text><text x="410" y="210" text-anchor="middle" class="lblm">motorische zenuwcel</text>`;
+  if(k===0)s+=`<text x="410" y="210" text-anchor="middle" class="lblm">motorische zenuwcel</text><text x="188" y="210" text-anchor="middle" class="lblm">sensorische zenuwcel</text>`;
+  return FIG(440,600,"0 0 600 226",s,"Weg van een impuls");}
+
+const STOF_IMP={titel:"De impuls in een zenuwcel",html:`
+<p>In rust is de binnenkant van een zenuwcel negatief ten opzichte van de buitenkant: de <b>rustpotentiaal</b>. Wordt het membraan genoeg geprikkeld, voorbij de <b>drempelwaarde</b>, dan gaan er kanalen open, stromen er natriumionen naar binnen en draait de spanning even om: een <b>actiepotentiaal</b>. Daarna herstelt de cel de rustpotentiaal.</p>
+<p>Een actiepotentiaal prikkelt het stukje membraan ernaast, dat daardoor ook boven de drempel komt. Zo loopt de impuls als een golf langs het axon.</p>`,
+films:[F.kabel]};
+/* axon als rij stukjes: i = plek van de actiepotentiaal; freq = twee prikkels met impulsen per seconde */
+function AXON(st){
+  let s="";
+  if(st<3){const i=[2,4,6][st];
+    s+=`<text x="20" y="34" class="lblm">cellichaam</text><text x="580" y="34" text-anchor="end" class="lblm">uiteinde →</text>`;
+    for(let k=0;k<10;k++){const x=20+k*56;const ap=k===i,rf=k===i-1;
+      s+=`<rect x="${x}" y="50" width="52" height="40" rx="6" fill="${ap?"var(--goud-soft)":rf?"var(--surface2)":"var(--surface)"}" stroke="${ap?"var(--goud)":"var(--line2)"}" stroke-width="${ap?2.4:1.2}" ${rf?'stroke-dasharray="4 3"':""}/>`;
+      if(ap)s+=`<text x="${x+26}" y="76" text-anchor="middle" class="lbl" style="fill:var(--goud-text)">AP</text>`;
+      if(rf)s+=`<text x="${x+26}" y="112" text-anchor="middle" class="lblm">even niet</text><text x="${x+26}" y="128" text-anchor="middle" class="lblm">prikkelbaar</text>`;
+      if(k===i+1)s+=`<text x="${x+26}" y="112" text-anchor="middle" class="lblm" style="fill:var(--groen)">wordt</text><text x="${x+26}" y="128" text-anchor="middle" class="lblm" style="fill:var(--groen)">geprikkeld</text>`;}
+    return FIG(440,600,"0 0 600 140",s,"Axon met de plek van de actiepotentiaal");}
+  const rij=(y,n,t)=>{let r=`<text x="20" y="${y-30}" class="lbl">${t}</text><path d="M20,${y} H580" stroke="var(--line2)"/>`;for(let k=0;k<n;k++){const x=40+k*(520/n);r+=`<path d="M${x},${y} l4,-40 l4,40" fill="none" stroke="var(--teal)" stroke-width="2.2"/>`;}return r;};
+  s+=rij(70,4,"zwakke prikkel")+rij(160,11,"sterke prikkel")+`<text x="580" y="186" text-anchor="end" class="lblm">tijd →</text>`;
+  return FIG(440,600,"0 0 600 192",s,"Impulsen bij een zwakke en een sterke prikkel");}
+const k4=vraag(2,"één kant op, en sterker",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Beantwoord de volgende vragen.<ul style='margin:6px 0 0;padding-left:20px'><li>"+B("Leg uit waardoor een impuls in een axon maar één kant op kan lopen.")+"</li><li>Een sterkere prikkel geeft geen grotere actiepotentiaal. "+B("Hoe geeft een zenuwcel dan door dat een prikkel sterker is?")+"</li></ul>");
+  choiceStep(think,{q:"Een actiepotentiaal prikkelt het membraan ernaast. Aan welke kanten ligt membraan ernaast?",opts:["aan beide kanten: ervoor en erachter","alleen ervoor"],right:0,
+    ok:"Klopt. Toch loopt de impuls maar één kant op. Denk aan wat het stukje erachter net heeft meegemaakt.",no:"Het axon is een buis: een stukje membraan heeft buren aan twee kanten.",
+    onDone:()=>choiceStep(think,{q:"Een zenuwcel krijgt eerst een zwakke en dan een sterke prikkel. Wat blijft gelijk?",opts:["de hoogte van elke actiepotentiaal","het aantal impulsen per seconde"],right:0,
+      ok:"Ja. Wat kan er dan wél veranderen?",no:"De vraag zegt het al: een sterkere prikkel geeft geen grotere actiepotentiaal.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Het stukje membraan <b>achter</b> de actiepotentiaal is even niet prikkelbaar (<b>refractaire periode</b>).",
+    "Een actiepotentiaal is altijd even groot (<b>alles-of-niets</b>); bij een sterkere prikkel komen er <b>meer impulsen per seconde</b>."],
+    model:"Het stukje membraan waar de actiepotentiaal net was, is even niet prikkelbaar: de refractaire periode. Daardoor kan de impuls alleen naar voren. Een actiepotentiaal is alles-of-niets en dus altijd even groot. Een sterkere prikkel geeft meer impulsen per seconde.",
+    valkuil:"‘De impuls kan niet terug omdat er een synaps zit’ verklaart niet waarom hij in het axon zelf één kant op gaat. ‘Grotere impulsen’ is fout: alleen de frequentie verandert.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"De actiepotentiaal (AP) prikkelt het stukje ervoor.",st:0},
+      {cap:"Het stukje waar hij net was, is even niet prikkelbaar: daar kan hij niet terug.",st:1},
+      {cap:"Zo schuift hij steeds één kant op, naar het uiteinde.",st:2},
+      {cap:"Elke impuls is even hoog. Een sterkere prikkel geeft er meer per seconde.",st:3}],
+      (stg,s)=>{stg.innerHTML=AXON(s.st);inBeeld(stg,s.st<3?(46+[2,4,6][s.st]*56)/600:null);}))});
+  q.append(think,ans);
+},STOF_IMP);
+
+opgave("Reflexen","Het zenuwstelsel en reflexen",GEEN_INLEIDING,[k3]);
+opgave("Impuls","De impuls",GEEN_INLEIDING,[k4]);
+}
+
+/* ===== Opgave 6 Moeie spieren (EI-regeling-B06, B08, B09, B10) en opgave 7 De hersenen (KI03) ===== */
+{
+const STOF_SYN={titel:"De synaps tussen zenuw en spier",html:`
+<p>Komt een impuls aan het uiteinde van een motorische zenuwcel, dan laten blaasjes de neurotransmitter <b>acetylcholine</b> los in de <b>synapsspleet</b>. Acetylcholine bindt aan <b>receptoren</b> op de spiervezel. Zijn er genoeg receptoren bezet, dan komt de spiervezel boven de drempelwaarde en trekt hij samen.</p>
+<p>Daarna moet de spleet weer leeg: het enzym <b>acetylcholinesterase</b> breekt acetylcholine af.</p>
+<p>Een spier bestaat uit veel spiervezels. Hoe sterk een spier samentrekt, hangt af van hoeveel vezels er meedoen.</p>`,
+films:[F.spleet,F.knoei]};
+
+/* staafjes: binding van acetylcholine per spiervezel bij prikkel 1 en prikkel 5, met drempel */
+function DREMPEL(st){
+  const W={g1:[90,84,96,80,88],g5:[76,70,82,68,74],j1:[66,61,72,59,63],j5:[54,48,60,46,52]};
+  const D=58,ys=v=>230-v*1.9;let s="";
+  const groep=(x0,arr,titel)=>{let r=`<text x="${x0+70}" y="258" text-anchor="middle" class="lbl">${titel}</text>`;
+    arr.forEach((v,k)=>{const x=x0+k*30,on=v>=D;r+=`<rect x="${x}" y="${ys(v)}" width="22" height="${230-ys(v)}" rx="3" fill="${on?"var(--groen)":"var(--koraal)"}" opacity="${on?.8:.55}"/>`;});
+    const nn=arr.filter(v=>v>=D).length;r+=`<text x="${x0+70}" y="278" text-anchor="middle" class="lblm">${nn} van de 5 vezels ${nn===1?"trekt":"trekken"} samen</text>`;return r;};
+  const zet=st===0?[["g1","gezond, prikkel 1"],["j1","Jeroen, prikkel 1"]]:[["g5","gezond, prikkel 5"],["j5","Jeroen, prikkel 5"]];
+  s+=groep(60,W[zet[0][0]],zet[0][1])+groep(290,W[zet[1][0]],zet[1][1]);
+  s+=`<path d="M40,${ys(D)} H490" stroke="var(--goud)" stroke-width="2" stroke-dasharray="7 5"/><text x="490" y="${ys(D)-6}" text-anchor="end" class="lbl" style="fill:var(--goud-text)">drempelwaarde</text>`;
+  s+=`<path d="M40,230 H490" stroke="var(--text2)"/><text x="18" y="130" text-anchor="middle" class="lblm" transform="rotate(-90 18 130)">prikkeling per spiervezel</text>`;
+  return FIG(360,520,"0 0 500 290",s,"Prikkeling van vijf spiervezels ten opzichte van de drempelwaarde");}
+
+const b6=vraag(2,"de spierrespons neemt af",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Leg uit waardoor de spierrespons bij Jeroen bij herhaalde prikkels afneemt, terwijl die bij de gezonde proefpersoon gelijk blijft."));
+  choiceStep(think,{q:"Wat heeft Jeroen minder dan de gezonde proefpersoon?",opts:["werkzame acetylcholinereceptoren","acetylcholine","spiervezels"],right:0,
+    ok:"Ja, dat staat in de inleiding.",no:"Lees de eerste alinea van de inleiding nog eens: waar maakt het afweersysteem antistoffen tegen?",
+    onDone:()=>choiceStep(think,{q:"Wat verandert er volgens de inleiding bij snel herhaalde impulsen, ook bij gezonde mensen?",opts:["er komt per impuls iets minder acetylcholine vrij","er komen meer receptoren bij","de spiervezels worden moe"],right:0,
+      ok:"Goed. Bedenk nu wat een spiervezel nodig heeft om samen te trekken, en waarom dat bij Jeroen na een paar prikkels niet meer bij alle vezels lukt.",no:"De laatste zin van de tweede alinea gaat hierover.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Bij Jeroen bindt (door het kleinere aantal receptoren) <b>minder acetylcholine</b> aan de spiervezels / ontstaat er minder depolarisatie dan bij een gezond persoon.",
+    "Als bij herhaalde impulsen ook minder acetylcholine vrijkomt, wordt bij een deel van de spiervezels de <b>drempelwaarde</b> niet meer bereikt, zodat minder vezels samentrekken; bij de gezonde persoon is er genoeg om de drempel toch te halen."],
+    model:"Jeroen heeft minder werkzame receptoren, dus er bindt minder acetylcholine aan zijn spiervezels en ze worden minder sterk geprikkeld. Bij de eerste prikkel is dat nog genoeg. Bij herhaalde prikkels komt er per impuls minder acetylcholine vrij: dan haalt een deel van zijn spiervezels de drempelwaarde niet meer en trekken er minder vezels samen. Een gezond persoon heeft zoveel receptoren dat de drempel ook dan nog gehaald wordt.",
+    valkuil:"‘De spieren van Jeroen raken sneller vermoeid’ zonder de synaps: 0 punten. Het gaat niet om energie in de spier, maar om de overdracht in de synaps.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Prikkel 1: bij de gezonde persoon én bij Jeroen halen alle vezels de drempel, al komt Jeroen minder ver boven de drempel uit.",st:0},
+      {cap:"Prikkel 5: er komt minder acetylcholine vrij. Bij de gezonde persoon nog steeds genoeg; bij Jeroen haalt een deel van de vezels de drempel niet meer.",st:1}],
+      (stg,s)=>stg.innerHTML=DREMPEL(s.st)))});
+  q.append(think,ans);
+},STOF_SYN);
+
+const b8=vraag(2,"hoe helpt pyridostigmine?",(q,id)=>{
+  pre(q,"<p>Jeroen krijgt het geneesmiddel pyridostigmine. Pyridostigmine remt het enzym acetylcholinesterase.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit hoe pyridostigmine ervoor zorgt dat de spieren van Jeroen minder snel verzwakken. Gebruik in je antwoord de begrippen synapsspleet en receptoren."));
+  choiceStep(think,{q:"Wat doet het enzym acetylcholinesterase normaal?",opts:["het breekt acetylcholine in de synapsspleet af","het maakt nieuwe acetylcholine","het bouwt nieuwe receptoren"],right:0,
+    ok:"Ja. Wat gebeurt er dan als dit enzym geremd wordt?",no:"De uitgang ‘-ase’ zegt dat het een enzym is. Wat doet het met acetylcholine?",onDone:unlock});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Acetylcholine in de <b>synapsspleet</b> wordt minder snel afgebroken, zodat het langer / in hogere concentratie aanwezig is.",
+    "De acetylcholine bindt daardoor vaker/langer aan de overgebleven <b>receptoren</b>, zodat ook bij herhaalde impulsen meer spiervezels blijven samentrekken."],
+    model:"Pyridostigmine remt acetylcholinesterase, dus acetylcholine wordt in de synapsspleet minder snel afgebroken en blijft er langer en in een hogere concentratie. Daardoor bindt het vaker en langer aan de receptoren die Jeroen nog heeft. Ook bij herhaalde impulsen halen dan meer spiervezels de drempel.",
+    valkuil:"‘Pyridostigmine maakt nieuwe receptoren’ of ‘pyridostigmine remt de antistoffen’: 0 punten. Het medicijn verandert niets aan de oorzaak.",
+    after:()=>waaromBtn(ans,textBox("Normaal ruimt acetylcholinesterase acetylcholine binnen een paar duizendste seconde op. Remt pyridostigmine dat enzym, dan blijft er meer acetylcholine langer in de synapsspleet. Elk molecuul krijgt zo vaker de kans om aan een van de weinige overgebleven receptoren te binden. Daardoor halen meer spiervezels de drempelwaarde, ook bij herhaalde impulsen. Aan het aantal receptoren verandert niets."))});
+  q.append(think,ans);
+},STOF_SYN);
+
+const b9=vraag(2,"drie uitspraken over pyridostigmine",(q,id)=>{
+  pre(q,"<p>Over de behandeling met pyridostigmine worden drie uitspraken gedaan:</p>");
+  q.append(el("p",{class:"qtext"},"1 Pyridostigmine geneest de oorzaak van myasthenia gravis.<br>2 Bij een te hoge dosis pyridostigmine kunnen spiervezels blijven samentrekken, doordat acetylcholine in de spleet blijft.<br>3 Pyridostigmine helpt alleen zolang er nog werkzame acetylcholinereceptoren zijn.<br><br><b>Schrijf de nummers 1, 2 en 3 onder elkaar en noteer erachter of de uitspraak juist of onjuist is.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Wat is de oorzaak van myasthenia gravis?",opts:["antistoffen tegen de acetylcholinereceptoren","te veel acetylcholinesterase","te weinig acetylcholine"],right:0,
+    ok:"Ja. Pakt pyridostigmine dát aan? Bekijk daarna uitspraak 2 en 3: wat gebeurt er met de spiervezel zolang acetylcholine aan de receptoren zit?",no:"Lees de eerste alinea van de inleiding nog eens.",onDone:unlock});
+  juistOnjuist(ans,{id,stm:["geneest de oorzaak","te hoge dosis: vezels blijven samentrekken","helpt alleen met nog werkzame receptoren"],key:[false,true,true],
+    uitleg:textBox("1 <b>onjuist</b>: de antistoffen tegen de receptoren blijven; pyridostigmine verlengt alleen de werking van acetylcholine.<br>2 <b>juist</b>: zolang de receptoren bezet zijn, blijft de spiervezel geprikkeld. Wordt acetylcholine nauwelijks nog afgebroken, dan blijft de spier samentrekken.<br>3 <b>juist</b>: acetylcholine moet nog ergens aan kunnen binden. Zonder werkzame receptoren helpt meer acetylcholine niet.")});
+  q.append(think,ans);
+},STOF_SYN);
+
+const b10=vraag(1,"de ijszaktest",(q,id)=>{
+  pre(q,"<p>Een eenvoudige test bij hangende oogleden is de ijszaktest. De arts legt twee minuten een zakje met ijs op het hangende ooglid. Bij myasthenia gravis gaat het ooglid daarna duidelijk verder open. Enzymen werken bij een lagere temperatuur langzamer. Onderzoekers vermoeden dat de kou op een vergelijkbare manier werkt als pyridostigmine.</p>");
+  const {think,ans,unlock}=start(q,B("Geef een verklaring voor het effect van de ijszaktest."));
+  choiceStep(think,{q:"Op welk enzym werkt pyridostigmine?",opts:["acetylcholinesterase","een enzym in de spiervezel dat energie levert","een enzym in de antistoffen"],right:0,
+    ok:"Ja. Combineer dat met wat er in de inleiding staat over kou en enzymen.",no:"Kijk terug naar vraag "+(id-2)+".",onDone:unlock});
+  openAnswer(ans,{id,pts:1,checks:[
+    "Het enzym <b>acetylcholinesterase</b> werkt bij een lage temperatuur langzamer, zodat <b>acetylcholine</b> minder snel wordt afgebroken (en langer aan de receptoren kan binden)."],
+    model:"Door de kou werkt acetylcholinesterase in de synapsen van het ooglid langzamer. Acetylcholine wordt dan minder snel afgebroken en kan langer aan de overgebleven receptoren binden, net als bij pyridostigmine. Daardoor trekken meer spiervezels samen en gaat het ooglid verder open.",
+    valkuil:"‘Door de kou zwelt het ooglid minder op’ of ‘de kou remt de ontsteking’: 0 punten.",
+    after:()=>waaromBtn(ans,textBox("De kou doet hetzelfde als pyridostigmine, maar op een andere manier: het medicijn remt acetylcholinesterase, de kou laat dit enzym langzamer werken. In beide gevallen blijft acetylcholine langer in de synapsspleet en kan het langer aan de overgebleven receptoren binden. Na twee minuten ijs halen meer spiervezels van de ooglidspier de drempel, dus gaat het ooglid verder open. Het effect is tijdelijk: als het ooglid weer opwarmt, werkt het enzym weer op volle snelheid."))});
+  q.append(think,ans);
+},STOF_SYN);
+
+opgave("Moeie spieren","Moeie spieren",`
+<p>Jeroen (34) merkt dat zijn oogleden aan het eind van de dag gaan hangen en dat hij dan dubbel ziet. Bij een lange maaltijd worden zijn kauwspieren moe. Na een nacht slapen is alles weer beter. De neuroloog stelt vast dat Jeroen myasthenia gravis heeft. Bij deze auto-immuunziekte maakt het afweersysteem antistoffen tegen de acetylcholinereceptoren in de synapsen tussen bewegingszenuwcellen en skeletspiervezels. Daardoor zijn er minder werkzame receptoren.</p>
+<p>Om de diagnose te bevestigen geeft de neuroloog met een elektrode tien elektrische prikkels kort na elkaar op een zenuw naar een handspier en meet de spierrespons. De spierrespons is een maat voor het aantal spiervezels dat samentrekt. Bij de eerste prikkel was de spierrespons van Jeroen even groot als die van een gezonde proefpersoon. Bij snel herhaalde impulsen komt per impuls iets minder acetylcholine vrij dan bij de eerste impuls, ook bij gezonde mensen.</p>
+${AFB(3,"fictieve gegevens, vereenvoudigd")}${GRAF_SPIER()}
+<p class="muted" style="font-size:14px">Jeroen is een fictieve patiënt.</p>`,[b6,b8,b9,b10]);
+
+/* ----- opgave 7: De hersenen (KI03) ----- */
+const STOF_HERS={titel:"De hersenschors",html:`
+<p>Elke hersenhelft heeft vier <b>kwabben</b>: de voorhoofdskwab, de wandbeenkwab, de slaapkwab en de achterhoofdskwab. Tussen de voorhoofdskwab en de wandbeenkwab loopt een diepe groeve, de centrale groeve.</p>
+<p>In een <b>primair</b> schorsgebied komen de impulsen van één soort zintuig binnen, of beginnen de opdrachten voor de spieren. Een <b>associatief</b> gebied ernaast koppelt die informatie aan wat je al weet en geeft er betekenis aan.</p>
+<p>Hoe groter een lichaamsdeel op de strook voor voelen of bewegen, hoe preciezer je het kunt gebruiken: het gaat om precisie, niet om grootte.</p>`,
+films:[F.hoofd]};
+const KWAB=["voorhoofdskwab","wandbeenkwab","slaapkwab","achterhoofdskwab"],TAAK=["bewegingsopdrachten beginnen","impulsen van de huid komen binnen (voelen)","plannen, kiezen, je inhouden","geluid herkennen"];
+const k5=vraag(2,"gebieden in de hersenschors",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Neem de tabel over en vul bij elk gebied in waar het ligt (kwab) of wat het doet.")+`<div class="tablewrap" style="margin-top:8px"><table class="data"><tr><th>gebied</th><th>ligt in</th><th>taak</th></tr>
+<tr><td>primaire schors voor zien</td><td>…</td><td>binnenkomen van impulsen van de ogen</td></tr>
+<tr><td>strook voor bewegen</td><td>voorhoofdskwab</td><td>…</td></tr>
+<tr><td>strook voor voelen</td><td>…</td><td>…</td></tr>
+<tr><td>veel associatieve schors</td><td>voorhoofdskwab</td><td>…</td></tr></table></div>`);
+  choiceStep(think,{q:"Je ziet een gezicht en herkent je vriend. Welk soort schors heb je nodig om te weten wie het is?",opts:["associatieve schors","primaire schors"],right:0,
+    ok:"Ja. Bedenk per regel in de tabel: is dit een primair gebied (impulsen komen binnen of vertrekken) of een associatief gebied (betekenis geven)?",no:"In de primaire schors voor zien komen de impulsen van je ogen alleen binnen. Wie het is, weet je dan nog niet.",
+    onDone:()=>numStep(think,{uid:"q"+id+"n",q:"Hoeveel kwabben heeft elke hersenhelft?",right:4,ok:"Goed. Elke kwab is genoemd naar het schedelbot erboven: denk na waar dat bot ligt.",no:"Elke kwab is genoemd naar het bot van je schedel erboven. Noem ze één voor één.",onDone:unlock})});
+  selectAnswer(ans,{id,uid:"q"+id,intro:"Kies voor elk leeg vakje.",rows:[["zien · ligt in",KWAB,3],["bewegen · taak",TAAK,0],["voelen · ligt in",KWAB,1],["voelen · taak",TAAK,1],["associatieve schors · taak",TAAK,2]],
+    score:n=>n===5?2:n===4?1:0,
+    after:()=>waaromBtn(ans,textBox("De primaire schors voor zien ligt in de <b>achterhoofdskwab</b>. De strook voor bewegen (motorische schors) laat <b>bewegingsopdrachten beginnen</b>. Vlak daarachter, over de centrale groeve, ligt de strook voor voelen in de <b>wandbeenkwab</b>: daar komen de <b>impulsen van de huid</b> binnen. De voorhoofdskwab heeft veel associatieve schors: <b>plannen, kiezen en je inhouden</b>.<br>Alle vakjes goed: 2 punten, één fout: 1 punt."))});
+  q.append(think,ans);
+},STOF_HERS);
+opgave("Hersenen","De hersenen",GEEN_INLEIDING,[k5]);
+}
+
+/* ===== Opgave 8 Een piep na het festival (EI-regeling-E01, E02, E03, havo E04 / vwo E05) en vwo opgave 9 Bot en spieren (KK02) ===== */
+{
+const STOF_OOR={titel:"Van geluid naar impuls",html:`
+<p>Geluid is een trilling van de lucht. De oorschelp vangt die op en de gehoorgang leidt hem naar binnen. In het middenoor en het binnenoor wordt de trilling doorgegeven tot hij bij de <b>zintuigcellen</b> van het gehoor aankomt.</p>
+<p>Een zintuigcel zet een prikkel om in impulsen. Hoe sterker de prikkel, hoe meer impulsen per seconde; is de prikkel te zwak, dan ontstaat er geen impuls.</p>
+<p>In een <b>audiogram</b> staat per toonhoogte de zachtste toon die iemand nog hoort: de gehoordrempel. Hoe lager een punt in de grafiek, hoe harder een toon moet zijn om hem te horen.</p>`,
+films:[F.zin]};
+/* keten in het oor; k = laatste onderdeel dat oplicht */
+function OOR_KETEN(k){
+  const m="mk"+(++MK);let s=pijlDef(m,"var(--text2)");
+  const N=[["trommelvlies","trilt mee"],["gehoorbeentjes","geven door"],["slakkenhuis","vloeistof trilt"],["haarcellen","haartjes buigen"],["gehoorzenuw","impulsen"]];
+  N.forEach(([t,o],i)=>{const x=62+i*118,on=i<=k,nu=i===k;
+    s+=`<rect x="${x-54}" y="40" width="108" height="46" rx="10" fill="${nu?"var(--goud-soft)":"var(--surface)"}" stroke="${nu?"var(--goud)":on?"var(--text2)":"var(--line2)"}" stroke-width="${nu?2.4:1.3}" opacity="${on?1:.45}"/><text x="${x}" y="68" text-anchor="middle" class="lbl" opacity="${on?1:.45}" style="font-size:12.5px">${t}</text>`;
+    if(on)s+=`<text x="${x}" y="108" text-anchor="middle" class="lblm">${o}</text>`;
+    if(i<4)s+=`<path d="M${x+56},63 H${x+62}" stroke="var(--text2)" stroke-width="2" marker-end="url(#${m})" opacity="${i<k?1:.35}"/>`;});
+  return FIG(480,600,"0 0 600 120",s,"Van trilling naar impuls in het oor");}
+
+const e1=vraag(2,"van trilling naar impuls",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Beschrijf hoe een geluidstrilling in het oor leidt tot impulsen in de gehoorzenuw. Noem het trommelvlies, de gehoorbeentjes en de haarcellen."));
+  choiceStep(think,{q:"Wat is geluid?",opts:["een trilling van de lucht","een stroom deeltjes die het oor in vliegt","licht dat je niet kunt zien"],right:0,
+    ok:"Ja. Die trilling moet van buiten tot diep in je oor komen.",no:"Denk aan een speaker: wat doet de lucht ervoor?",
+    onDone:()=>choiceStep(think,{q:"Welk onderdeel uit de vraag is de zintuigcel, die van een trilling een impuls maakt?",opts:["de haarcellen","het trommelvlies","de gehoorbeentjes"],right:0,
+      ok:"Goed. Zet nu de drie onderdelen in de goede volgorde en zeg bij elk wat het doet.",no:"Een zintuigcel is een cel. Welk van de drie is een cel?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Het <b>trommelvlies</b> trilt mee en de <b>gehoorbeentjes</b> (hamer, aambeeld, stijgbeugel) geven de trilling door naar het slakkenhuis.",
+    "In het slakkenhuis buigen de haartjes van de <b>haarcellen</b> mee met de trilling, en dan ontstaan er impulsen."],
+    model:"Het trommelvlies gaat meetrillen met het geluid. De gehoorbeentjes in het middenoor (hamer, aambeeld en stijgbeugel) geven de trilling door naar het slakkenhuis. Daar gaat de vloeistof trillen en buigen de haartjes van de haarcellen mee. Dan ontstaan er impulsen in de gehoorzenuw.",
+    valkuil:"Het trommelvlies maakt zelf geen impulsen: alleen de haarcellen zijn zintuigcellen.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[0,1,2,3,4].map(k=>({k,cap:["Het trommelvlies trilt mee met de lucht.","De gehoorbeentjes geven de trilling door naar het slakkenhuis.","In het slakkenhuis gaat de vloeistof trillen.","De haartjes van de haarcellen buigen mee.","Dan ontstaan er impulsen in de gehoorzenuw, naar de hersenen."][k]})),
+      (stg,s)=>{stg.innerHTML=OOR_KETEN(s.k);inBeeld(stg,(62+s.k*118)/600);}))});
+  q.append(think,ans);
+},STOF_OOR);
+
+const e2=vraag(2,"het audiogram van Tim",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Beantwoord de volgende vragen.<ul style='margin:6px 0 0;padding-left:20px'><li>"+B("Bij welke toonhoogte is het gehoor van Tim het meest achteruitgegaan? Gebruik afbeelding 4.")+"</li><li>"+B("Leg uit waardoor Tim bij deze toonhoogte slechter hoort. Gebruik het begrip haarcellen.")+"</li></ul>");
+  choiceStep(think,{q:"Wat betekent het als een punt in een audiogram lager ligt?",opts:["de toon moet harder zijn om hem te horen: je hoort slechter","de toon is lager","je hoort beter"],right:0,
+    ok:"Ja. Zoek nu de toonhoogte waar Tim het verst onder zijn leeftijdgenoot zit.",no:"Lees het bijschrift bij de verticale as.",
+    onDone:()=>choiceStep(think,{q:"Wat doen haarcellen?",opts:["ze zetten een trilling om in impulsen","ze geven de trilling door aan het slakkenhuis"],right:0,
+      ok:"Goed. Wat zou er met de haarcellen van Tim gebeurd zijn, en kan dat herstellen?",no:"Doorgeven doen de gehoorbeentjes.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Bij ongeveer <b>4000 Hz</b> (hoge tonen); zijn gehoordrempel is daar ongeveer 35 dB hoger dan bij zijn leeftijdgenoot.",
+    "Door het harde geluid zijn <b>haarcellen</b> (die hoge tonen opvangen) beschadigd of doodgegaan; die groeien niet terug, dus een toon moet harder zijn om nog een impuls te geven."],
+    model:"Bij ongeveer 4000 Hz: daar ligt zijn gehoordrempel op 40 dB, tegen 5 dB bij zijn leeftijdgenoot. Door het harde geluid op festivals zijn haarcellen die deze hoge tonen opvangen beschadigd of doodgegaan. Dode haarcellen groeien niet terug, dus een toon moet veel harder zijn voordat er nog genoeg haarcellen een impuls geven.",
+    valkuil:"‘Zijn trommelvlies is kapot’ of ‘zijn oren zijn gewend aan hard geluid’: 0 punten voor het tweede deel.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Tot 2000 Hz liggen Tim en zijn leeftijdgenoot dicht bij elkaar.",hl:null},
+      {cap:"Bij 4000 Hz is het verschil het grootst: 40 − 5 = 35 dB. Daar heeft Tim de meeste haarcellen verloren.",hl:4000}],
+      (stg,s)=>{stg.innerHTML=GRAF_AUDIO({hl:s.hl,verschil:!!s.hl});inBeeld(stg,s.hl?AUDX(s.hl)+0.03:null);}))});
+  q.append(think,ans);
+},STOF_OOR);
+
+const e3=vraag(2,"weer weg, en toch blijvend",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Na een festival hoort Tim de volgende dag alles gedempt, met een piep. Een dag later is dat weer weg. Toch zegt de huisarts dat zijn gehoor in de afgelopen jaren blijvend slechter is geworden.<br><br>"+B("Leg uit hoe het kan dat de klachten na een festival verdwijnen, terwijl zijn gehoor toch blijvend achteruitgaat."));
+  choiceStep(think,{q:"Hoe vaak gaat Tim naar een festival?",opts:["elke zomer een paar keer","één keer"],right:0,
+    ok:"Ja: elk festival telt mee. Bedenk twee dingen die er na één festival met haarcellen kunnen gebeuren.",no:"Lees de inleiding van de opgave nog eens.",onDone:unlock});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Na één festival zijn de meeste haarcellen alleen <b>overbelast</b> en herstellen ze na rust.",
+    "Bij elk festival gaat een <b>deel van de haarcellen dood</b>, en die groeien niet terug; zo neemt het aantal werkende haarcellen steeds verder af."],
+    model:"Na één festival zijn de meeste haarcellen alleen overbelast. Na rust herstellen ze, en dan zijn de klachten weg. Maar bij elk festival gaat ook een klein deel van de haarcellen dood, en dode haarcellen groeien niet terug. Na jaren festivals zijn er zo steeds minder werkende haarcellen.",
+    valkuil:"‘Zijn oren wennen aan hard geluid’: 0 punten. Het lijkt zachter te klinken, juist doordat er haarcellen beschadigd zijn.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Vóór het festival: alle haarcellen werken.",st:0},
+      {cap:"De dag erna: veel haarcellen zijn overbelast (geel), een paar zijn dood (rood). Alles klinkt gedempt.",st:1},
+      {cap:"Na rust herstellen de overbelaste haarcellen. De dode niet.",st:2},
+      {cap:"Na jaren festivals: steeds meer dode haarcellen. Blijvend slechter horen.",st:3}],
+      (stg,s)=>stg.innerHTML=HAARCELLEN(s.st)))});
+  q.append(think,ans);
+},STOF_OOR);
+/* rij haarcellen: 0 gezond, 1 na festival, 2 na rust, 3 na jaren */
+function HAARCELLEN(st){
+  const n=16,dood=st===3?[1,3,4,6,8,9,11,13,14]:st>=1?[4,11]:[],moe=st===1?[0,1,2,3,5,6,7,8,9,10,12,13,14]:[];let s="";
+  for(let k=0;k<n;k++){const x=30+k*35,d=dood.includes(k),m=moe.includes(k);const kl=d?"var(--koraal)":m?"var(--goud)":"var(--groen)";
+    s+=`<rect x="${x}" y="60" width="22" height="46" rx="6" fill="${kl}" opacity="${d?.35:.75}"/>`;
+    if(!d)for(let h=0;h<3;h++)s+=`<path d="M${x+5+h*6},60 l${m?3:0},-16" stroke="${kl}" stroke-width="2"/>`;
+    else s+=`<path d="M${x+4},70 l14,26 M${x+18},70 l-14,26" stroke="var(--koraal)" stroke-width="2"/>`;}
+  s+=`<text x="30" y="132" class="lblm">${["vóór het festival","de dag erna","na een dag rust","na jaren festivals"][st]}: ${n-dood.length} van de ${n} haarcellen werken${st===1?" (veel zijn overbelast)":""}</text>`;
+  return FIG(440,600,"0 0 600 142",s,"Rij haarcellen");}
+
+let e4;
+if(!VWO){
+e4=vraag(2,"veilig met oordopjes",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Bij de geluidssterkte vooraan op het festival is het ongeveer 15 minuten veilig om te luisteren. Elke 3 dB harder betekent: de helft zo lang veilig. Omgekeerd: elke 3 dB zachter betekent twee keer zo lang veilig. Oordopjes maken het geluid 15 dB zachter.<br><br>"+B("Bereken hoe lang Tim met oordopjes vooraan veilig kan luisteren. Geef je antwoord in uren."));
+  numStep(think,{uid:"q"+id+"n",q:"Hoeveel stappen van 3 dB zitten er in 15 dB?",right:5,ok:"Ja, vijf stappen.",no:"Deel 15 dB door 3 dB.",
+    onDone:()=>choiceStep(think,{q:"Stel dat het geluid 9 dB zachter wordt: drie stappen. Hoeveel keer zo lang is het dan veilig?",opts:["3 × 2 = 6 keer zo lang","2 × 2 × 2 = 8 keer zo lang"],right:1,
+      ok:"Ja: elke stap verdubbelt de tijd opnieuw. Reken nu met vijf stappen, en zet de minuten om in uren.",no:"Na één stap: 2 keer zo lang. Na de tweede stap verdubbelt díe tijd weer.",onDone:unlock})});
+  numAnswer(ans,{id,fields:[
+    ["Hoeveel keer zo lang veilig met oordopjes?","keer",v=>v===32,"15 dB = 5 stappen van 3 dB: 2 × 2 × 2 × 2 × 2 = 32 keer zo lang (1 punt)"],
+    ["Veilige tijd met oordopjes","uur",v=>{const f0=parseFloat((document.getElementById("q"+id+"f0").value||"").replace(",","."));return Math.abs(v-8)<0.01||(f0!==32&&Math.abs(v-f0*15/60)<0.01);},"32 × 15 min = 480 min = 8 uur (1 punt; bij een fout in de eerste stap telt een juiste omrekening naar uren)"]],
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[0,1,2,3,4,5].map(k=>({k,cap:k===0?"Zonder oordopjes: 15 minuten veilig.":k<5?`${3*k} dB zachter: ${k} ${k===1?"stap":"stappen"}, ${2**k} keer zo lang: ${15*2**k} minuten.`:"15 dB zachter: 5 stappen, 2 × 2 × 2 × 2 × 2 = 32 keer zo lang: 480 minuten = <b>8 uur</b>. Wie 15/3 = 5 keer zo lang rekent (75 minuten), vergeet dat elke stap de tijd opnieuw verdubbelt."})),
+      (stg,s)=>{stg.innerHTML=VERDUBBEL(s.k);inBeeld(stg,(77+s.k*90)/600);}))});
+  q.append(think,ans);
+},STOF_OOR);
+}else{
+const STOF_BAS={titel:"Het basilair membraan",html:`
+<p>De haarcellen in het slakkenhuis staan op een lang vlies: het <b>basilair membraan</b>. Dat is niet overal hetzelfde: van het begin naar het eind verandert de breedte en de stevigheid. Daardoor trilt elke plek het best bij een eigen toonhoogte.</p>`,
+films:[F.zin]};
+e4=vraag(2,"de plek van de schade",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Bij gehoorschade door lawaai zijn vooral de haarcellen aan het begin van het slakkenhuis beschadigd.<ul style='margin:6px 0 0;padding-left:20px'><li>"+B("Leg uit waarom schade aan dít deel vooral het horen van hoge tonen aantast.")+"</li><li>Bij Tim is het gehoor bij 8000 Hz minder achteruitgegaan dan bij 4000 Hz. "+B("Wat kun je daaruit afleiden over de plek van de schade op het basilair membraan?")+"</li></ul>");
+  choiceStep(think,{q:"Hoe weten je hersenen welke toonhoogte je hoort?",opts:["aan de plek op het basilair membraan van de haarcellen die impulsen geven","aan hoe hard de impulsen zijn"],right:0,
+    ok:"Ja. Welke toonhoogte laat dan het begin van het membraan trillen, en waarom?",no:"Impulsen zijn altijd even groot (alles-of-niets).",
+    onDone:()=>choiceStep(think,{q:"Welke toon is hoger: 4000 Hz of 8000 Hz?",opts:["8000 Hz","4000 Hz"],right:0,
+      ok:"Goed. Bedenk waar op het membraan de hoogste tonen worden opgevangen, en waar 4000 Hz.",no:"Hertz is het aantal trillingen per seconde: meer trillingen is een hogere toon.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Het begin van het basilair membraan is <b>smal en stijf</b> en trilt mee met <b>hoge tonen</b>; de hersenen horen de toonhoogte aan de plek van de haarcellen die een impuls geven.",
+    "De schade zit op een plek <b>iets verder van het begin</b> (waar 4000 Hz wordt opgevangen), niet helemaal aan het begin (waar de hoogste tonen worden opgevangen)."],
+    model:"Het begin van het basilair membraan is smal en stijf en trilt bij hoge tonen. De hersenen horen de toonhoogte aan de plek van de haarcellen die impulsen geven, dus schade aan het begin raakt vooral de hoge tonen. Omdat 8000 Hz minder is aangetast dan 4000 Hz, zit de meeste schade niet helemaal aan het begin, maar iets verder, op de plek waar 4000 Hz wordt opgevangen.",
+    valkuil:"Voor het tweede punt moet je de plek ten opzichte van het begin noemen; alleen ‘bij 4000 Hz’ is te weinig.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Het basilair membraan, uitgerold: aan het begin smal en stijf (hoge tonen, helemaal vooraan tot 20 000 Hz), aan het eind breed en slap (lage tonen).",st:0},
+      {cap:"Bij Tim is het gehoor bij 4000 Hz het slechtst, bij 8000 Hz minder slecht: de meeste schade zit iets na het begin.",st:1}],
+      (stg,s)=>{stg.innerHTML=BASILAIR(s.st);inBeeld(stg,s.st?0.3:null);}))});
+  q.append(think,ans);
+},STOF_BAS);
+}
+/* verdubbelen per 3 dB (havo) */
+function VERDUBBEL(k){let s="";const ys=v=>220-v*0.4;
+  for(let j=0;j<=5;j++){const x=50+j*90,v=15*2**j,on=j<=k;
+    s+=`<rect x="${x}" y="${ys(v)}" width="54" height="${220-ys(v)}" rx="4" fill="${j===k?"var(--goud)":"var(--teal)"}" opacity="${on?.8:.12}"/>`;
+    s+=`<text x="${x+27}" y="240" text-anchor="middle" class="lblm">−${3*j} dB</text>`;
+    if(on)s+=`<text x="${x+27}" y="${ys(v)-6}" text-anchor="middle" class="lbl">${v} min</text>`;}
+  s+=`<path d="M40,220 H580" stroke="var(--text2)"/>`;
+  return FIG(440,600,"0 0 600 250",s,"Veilige luistertijd per 3 dB zachter");}
+/* basilair membraan (vwo) */
+function BASILAIR(st){let s="";
+  /* plek als fractie van het begin (ovale venster) volgens de Greenwood-functie voor de mens: 20 000 Hz helemaal aan het begin, 8000 Hz op ± een vijfde */
+  const X=f=>40+520*(1-Math.log10(f/165.4+0.88)/2.1),top=x=>90-30*(x-40)/520;
+  s+=`<path d="M40,90 L560,60 L560,140 L40,110 Z" fill="var(--teal-soft)" stroke="var(--teal)" stroke-width="1.6"/>`;
+  s+=`<text x="40" y="40" class="lbl">begin (bij het ovale venster): smal en stijf</text><text x="560" y="40" text-anchor="end" class="lbl">eind: breed en slap</text>`;
+  [20000,8000,6000,4000,3000,2000,1000,500,250].forEach((f,k)=>{const x=X(f);
+    s+=`<path d="M${x.toFixed(1)},${top(x).toFixed(1)} V${k%2?178:192}" stroke="var(--line2)" stroke-width="1"/><text x="${x.toFixed(1)}" y="${k%2?192:206}" text-anchor="${k?"middle":"start"}" class="lblm">${f===20000?"20 000":f}</text>`;});
+  s+=`<text x="300" y="228" text-anchor="middle" class="lblm">toonhoogte die op die plek het sterkst trilt (Hz)</text>`;
+  if(st===1){[[8000,.3],[6000,.55],[4000,.9],[3000,.55],[2000,.15]].forEach(([f,o])=>s+=`<circle cx="${X(f).toFixed(1)}" cy="100" r="15" fill="var(--koraal)" opacity="${o}"/>`);
+    s+=`<text x="${X(4000).toFixed(1)}" y="152" text-anchor="middle" class="lbl" style="fill:var(--koraal)">meeste schade</text>`;}
+  return FIG(440,600,"0 0 600 238",s,"Basilair membraan met de plek van hoge en lage tonen");}
+
+opgave("Festival","Een piep na het festival",`
+<p>Tim (18) gaat elke zomer naar een paar festivals en staat daar graag vooraan bij de boxen. Oordopjes vindt hij niet nodig. De laatste tijd hoort hij na een festival een hoge piep, en in de klas verstaat hij zijn klasgenoten slecht als er geroezemoes is. Bij de huisarts wordt zijn gehoor getest: met een koptelefoon krijgt hij tonen van verschillende hoogte te horen, steeds zachter, totdat hij ze niet meer hoort. De zachtste toon die hij nog hoort, is zijn gehoordrempel.</p>
+${AFB(4,"fictieve gegevens")}${GRAF_AUDIO()}
+<p class="muted" style="font-size:14px">Tim is fictief.</p>`,[e1,e2,e3,e4]);
+
+if(VWO){
+/* ----- opgave 9 (vwo): Bot en spieren (KK02) ----- */
+const STOF_SPIER={titel:"Spieren en gewrichten",html:`
+<p>Een skeletspier zit met <b>pezen</b> vast aan botten. Over een gewricht heen trekt een spier twee botten naar elkaar toe. Als een spier samentrekt, wordt hij korter en dikker.</p>
+<p>Hoe sterk een spier trekt, hangt af van hoeveel spiervezels meedoen en hoeveel impulsen per seconde ze krijgen.</p>`,
+films:[F.spier]};
+/* arm: st 0 buigen (biceps), 1 strekken (triceps) */
+const ARM=st=>{const b=st===0,E=[160,190],H=b?[272,112]:[170,342];let s="";
+  const L=Math.hypot(H[0]-E[0],H[1]-E[1]),u=[(H[0]-E[0])/L,(H[1]-E[1])/L],n=[u[1],-u[0]];
+  const A=[E[0]+u[0]*34+n[0]*7,E[1]+u[1]*34+n[1]*7],O=[E[0]-n[0]*0-8,E[1]+12];
+  s+=`<path d="M150,30 L${E[0]},${E[1]} L${H[0]},${H[1]}" fill="none" stroke="var(--text3)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>`;
+  const bE=[E[0]+15,E[1]-30],tE=[E[0]-13,E[1]-26];
+  s+=`<path d="M170,44 L172,62 M${bE[0]},${bE[1]} L${A[0].toFixed(1)},${A[1].toFixed(1)}" stroke="var(--koraal)" stroke-width="3" fill="none"/>`;
+  s+=`<path d="M172,62 Q${b?222:190},${b?118:126} ${bE[0]},${bE[1]}" fill="none" stroke="var(--koraal)" stroke-width="${b?24:13}" stroke-linecap="round" opacity="${b?.9:.45}"/>`;
+  s+=`<path d="M132,44 L134,62 M${tE[0]},${tE[1]} L${O[0]},${O[1]}" stroke="var(--teal)" stroke-width="3" fill="none"/>`;
+  s+=`<path d="M134,62 Q${b?116:104},126 ${tE[0]},${tE[1]}" fill="none" stroke="var(--teal)" stroke-width="${b?13:24}" stroke-linecap="round" opacity="${b?.45:.9}"/>`;
+  s+=`<circle cx="${E[0]}" cy="${E[1]}" r="7" fill="var(--surface)" stroke="var(--text2)" stroke-width="2"/>`;
+  s+=`<text x="${b?222:206}" y="76" class="lbl" style="fill:var(--koraal)">biceps${b?" trekt":""}</text><text x="${b?20:10}" y="120" class="lbl" style="fill:var(--teal)">triceps${b?"":" trekt"}</text>`;
+  s+=`<text x="${b?150:110}" y="${b?222:200}" class="lblm"${b?"":` text-anchor="end"`}>elleboog</text><text x="${b?204:(Math.max(bE[0],A[0])+10).toFixed(0)}" y="${b?190:((bE[1]+A[1])/2+4).toFixed(0)}" class="lblm">pees</text>`;
+  return FIG(320,420,"0 0 360 350",s,b?"Arm buigen: de biceps trekt":"Arm strekken: de triceps trekt");};
+const k6=vraag(2,"buigen en strekken",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Je buigt en strekt je arm.<br><br>"+B("Leg uit waarom je daar twee spieren voor nodig hebt. Gebruik de begrippen pees, biceps, triceps en antagonisten."));
+  choiceStep(think,{q:"Wat gebeurt er met een spier als hij samentrekt?",opts:["hij wordt korter en dikker","hij wordt langer en dunner"],right:0,
+    ok:"Ja. Bedenk wat dat betekent als je je gebogen arm weer wilt strekken.",no:"Voel maar aan je bovenarm als je je arm buigt.",
+    onDone:()=>choiceStep(think,{q:"Waarmee zit een spier vast aan een bot?",opts:["met een pees","met een gewrichtsband"],right:0,
+      ok:"Goed. Volg bij elke spier de pees naar de onderarm: wat doet de onderarm als die spier korter wordt?",no:"Een gewrichtsband houdt twee botten bij elkaar.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Een spier kan alleen <b>korter worden / trekken</b>, niet duwen.",
+    "De <b>biceps</b> (pees vóór de elleboog) buigt en de <b>triceps</b> (pees achter de elleboog) strekt de arm; ze bewegen in tegengestelde richting: <b>antagonisten</b>."],
+    model:"Een spier kan alleen samentrekken en dus alleen trekken, niet duwen. De biceps zit met een pees vóór de elleboog aan het onderarmbot en buigt de arm. De triceps zit met een pees achter de elleboog vast en strekt de arm. Ze maken tegengestelde bewegingen: het zijn antagonisten.",
+    valkuil:"‘De biceps duwt de arm weer recht’ klopt niet: een spier kan niet duwen.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[{cap:"Buigen: de biceps trekt (korter en dikker), de triceps ontspant.",st:0},{cap:"Strekken: de triceps trekt, de biceps wordt weer uitgerekt.",st:1}],
+      (stg,s)=>stg.innerHTML=ARM(s.st)))});
+  q.append(think,ans);
+},STOF_SPIER);
+opgave("Spieren","Bot en spieren",GEEN_INLEIDING,[k6]);
+}
+}
+
+
+/* ================= opgaven en navigatie ================= */
+OPG.sort((a,b)=>a.nr-b.nr);
+/* cijfer als bij een schooltoets: 9 × score / maximum + 1 */
+const NORM="";
+const CIJFER=(()=>{const L=Q.reduce((s,q)=>s+q.pts,0);return Array.from({length:L+1},(_,S)=>Math.round((9*S/L+1)*10)/10);})();
+const main=$("#main"),tabs=$("#tabs");let cur=1;const built={},nextBtns={};
+let curOpg=OPG.some(o=>o.nr===store.opg)?store.opg:1;
+const opg=()=>OPG.find(o=>o.nr===curOpg);
+const pts=o=>o.ids.reduce((s,i)=>s+Q.find(q=>q.id===i).pts,0);
+function reach(){const ids=opg().ids;if(store.vrij)return ids[ids.length-1];let k=0;while(k<ids.length-1&&store.scores[ids[k]]!==undefined)k++;return ids[k];}
+function renderTabs(){
+  tabs.innerHTML="";const r=reach();
+  opg().ids.forEach(id=>{const q=Q.find(x=>x.id===id);const locked=id>r;
+    const b=el("button",{class:(id===cur?"cur ":"")+(store.scores[id]!==undefined?"done":"")+(locked?" lock":""),"aria-label":"Vraag "+id+(locked?" (eerst vraag "+(id-1)+" maken)":""),title:locked?"Maak eerst vraag "+(id-1):""},id);
+    if(locked)b.disabled=true;else b.onclick=()=>open(id);tabs.append(b);});
+  const o=el("button",{class:"ov"+(cur==="ov"?" cur":"")},"Score");o.onclick=()=>open("ov");tabs.append(o);
+}
+function open(id){
+  if(id!=="ov"&&id>reach())id=reach();
+  cur=id;renderTabs();main.innerHTML="";
+  if(id==="ov"){main.append(overview());return;}
+  if(!built[id]){const q=Q.find(x=>x.id===id);const sec=el("article",{class:"q"});
+    q.build(sec);
+    const pap=el("section",{class:"papier","aria-label":"Toetsvraag "+id});
+    pap.append(el("div",{class:"pkop"},`<span class="pnr"><span class="mono">Toetsvraag</span><span class="nr">${id}</span></span><span class="mono">${q.pts} ${q.pts===1?"punt":"punten"}</span>`));
+    for(const c of [...sec.children]){if(c.classList.contains("phase")||c.tagName==="BUTTON")break;pap.append(c);}
+    pap.append(el("div",{class:"pvoet"},"Oefentoets Regeling · havo"));
+    sec.prepend(pap);
+    const sb=window.EXSTOF&&EXSTOF.blok(TOOL,id);if(sb)pap.after(sb);
+    /* toetsvraag nog eens boven de antwoorden (Kamiel 25 okt 2026: niet terug hoeven scrollen) */
+    const qt=[...pap.querySelectorAll(".qtext")].pop(),ansP=sec.querySelector(".phase.ans");
+    if(qt&&ansP){const h=el("div",{class:"herhaal papier"});h.append(el("div",{class:"hkop mono"},`Toetsvraag ${id}`));
+      const c=qt.cloneNode(true);c.querySelectorAll("[id]").forEach(x=>x.removeAttribute("id"));h.append(c);
+      const lab=ansP.querySelector(":scope>.label");lab?lab.after(h):ansP.prepend(h);}
+    const ids=opg().ids,last=id===ids[ids.length-1];
+    const nx=el("div",{class:"row",style:"justify-content:flex-end"});const b=el("button",{class:"go"},last?"Naar je score ›":`Volgende vraag (${id+1}) ›`);
+    nextBtns[id]=b;b.hidden=!store.vrij&&store.scores[id]===undefined;
+    b.onclick=()=>{open(last?"ov":id+1);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};nx.append(b);sec.append(nx);built[id]=sec;}
+  main.append(built[id]);
+}
+function overview(){
+  const o=opg();const s=el("section",{class:"phase"});s.append(el("h2",{},`Jouw score op opgave ${o.nr}`));
+  let tot=0;const t=el("table",{class:"data ovtable"});t.innerHTML="<tr><th>vraag</th><th>onderwerp</th><th>score</th></tr>";
+  o.ids.forEach(id=>{const q=Q.find(x=>x.id===id);const p=store.scores[id];if(p!==undefined)tot+=p;t.innerHTML+=`<tr><td>${id}</td><td>${q.t}</td><td>${p===undefined?"–":p} / ${q.pts}</td></tr>`;});
+  const w=el("div",{class:"tablewrap"});w.append(t);s.append(w,el("div",{class:"score"},`Totaal opgave ${o.nr}: ${tot} / ${pts(o)}`));
+  let all=0,allMax=0;OPG.forEach(x=>{allMax+=pts(x);x.ids.forEach(id=>{if(store.scores[id]!==undefined)all+=store.scores[id];});});
+  const gemaakt=OPG.every(x=>x.ids.every(id=>store.scores[id]!==undefined));
+  const cf=CIJFER[Math.min(all,CIJFER.length-1)].toFixed(1).replace(".",",");
+  s.append(el("p",{style:"margin:0"},`Hele toets: <b>${all}</b> van ${allMax} punten · cijfer <b>${cf}</b>`+(gemaakt?"":` <span class="muted">(nog niet alles gemaakt: open vragen tellen als 0 punten)</span>`)));
+  s.append(el("p",{class:"muted",style:"margin:0;font-size:14px"},`Cijfer = 9 × score / maximum + 1. Open vragen kijk je zelf na met het antwoordmodel.`));
+  const nextO=OPG.find(x=>x.nr===o.nr+1);
+  const row=el("div",{class:"row"});
+  if(nextO){const nb=el("button",{class:"go"},`Naar opgave ${nextO.nr}: ${nextO.kort} ›`);nb.onclick=()=>{setOpg(nextO.nr);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};row.append(nb);}
+  const r=el("button",{class:"ghost"},`Opgave ${o.nr} opnieuw`);r.onclick=()=>{o.ids.forEach(id=>{delete store.scores[id];delete built[id];delete nextBtns[id];});save();open(o.ids[0]);};row.append(r);
+  s.append(row);return s;
+}
+function renderOpgs(){const box=$("#opgs");box.innerHTML="";
+  OPG.forEach(o=>{const b=el("button",{"aria-pressed":o.nr===curOpg?"true":"false"},`${o.nr} · ${o.kort}`);b.onclick=()=>setOpg(o.nr);box.append(b);});}
+function setOpg(n){curOpg=n;store.opg=n;save();const o=opg();
+  $("#eb").textContent=`Oefentoets Regeling · havo · opgave ${o.nr}`;$("#h1").textContent=o.titel;
+  $("#sub").textContent=`vraag ${o.ids[0]} t/m ${o.ids[o.ids.length-1]} · ${pts(o)} punten`;
+  $("#ctx").innerHTML=o.ctx;renderOpgs();open(reach());}
+function setVrij(v){store.vrij=v;save();$("#vrij").setAttribute("aria-pressed",v?"true":"false");
+  for(const k in nextBtns)nextBtns[k].hidden=!v&&store.scores[k]===undefined;renderTabs();}
+$("#vrij").onclick=()=>setVrij(!store.vrij);setVrij(!!store.vrij);
+EXSTAND.STANDEN.forEach(s=>{s.uitleg=s.uitleg.replace(/examenvraag/g,"toetsvraag").replace("het echte examen","een echte toets").replace(" Zet de klok aan voor 3 uur examentijd.","");if(s.k==="echt")s.naam="Echte toets";});
+EXSTAND.init({store,save,setVrij});
+setOpg(curOpg);
+})();
+
+</script>
+</body>
+</html>

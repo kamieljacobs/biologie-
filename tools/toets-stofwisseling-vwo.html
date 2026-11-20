@@ -1,0 +1,1190 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../js/teller.js" data-root="../"></script>
+<link rel="icon" href="../img/icoon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../img/icoon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../img/icoon/apple-touch-icon.png">
+<script>(function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oefentoets Stofwisseling vwo · doorklikken · Biologie bij Kamiel</title>
+<meta name="description" content="Oefentoets Stofwisseling voor vwo: per vraag eerst hulpvragen, dan de toetsvraag, nakijken met het antwoordmodel en uitleg waarom.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="huisstijl.css">
+<script src="huisstijl.js"></script>
+<script src="examen-stof.js?v=b496a9e6"></script>
+<script src="examen-standen.js?v=558bd73d"></script>
+<style>
+/* Oefentoets Stofwisseling vwo · zelfde bouwstenen als de oefenexamens (tools/OEFENEXAMEN_PROMPT.md). */
+body.echt .klok{display:none!important}
+@media (max-width:600px){.swfig{overflow-x:auto;-webkit-overflow-scrolling:touch}.swfig>svg{min-width:var(--min)}}
+:root{--rest:#2A3B57;--area:#5B6B84}
+:root[data-theme="light"]{--rest:#D5DEE9;--area:#B4BDCA}
+ .wrap{padding-inline:0}
+:root[data-theme="light"] .papier{box-shadow:0 0 0 1px rgba(20,32,52,.18),0 6px 18px rgba(20,32,52,.10)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--text);font:17px/1.55 var(--tekst);-webkit-font-smoothing:antialiased;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 40px}
+.wrap{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1,h2,h3{font-family:var(--titel);font-weight:700;letter-spacing:-.01em;text-wrap:balance;margin:0;line-height:1.1}
+h2{font-size:24px}
+.mono,.eyebrow{font:600 12px/1.2 var(--meta);letter-spacing:.1em;text-transform:uppercase}
+.eyebrow{color:var(--goud-text)}
+.muted{color:var(--text2)}
+a{color:var(--goud-text)}
+.sitenav{display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap;min-height:56px;padding:8px 0;border-bottom:1px solid var(--line);font:600 15px/1.3 var(--tekst)}
+.sitenav .merk{font:700 18px/1 var(--titel);color:var(--text);text-decoration:none}
+.sitenav .terug{color:var(--goud-text);text-decoration:none}
+.sitenav .rechts{margin-left:auto}
+.tool-kop{display:flex;flex-direction:column;gap:10px;padding:14px 0 0}
+.tool-kop h1{font-size:clamp(32px,5vw,48px)}
+.tool-kop p{margin:0;color:var(--text2);font-size:18px;max-width:62ch}
+button.toggle{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line2);background:none;color:var(--text2);border-radius:999px;padding:6px 14px 6px 8px;min-height:40px;font:600 14px var(--tekst);cursor:pointer}
+button.toggle .knopje{width:34px;height:20px;border-radius:999px;background:var(--line2);position:relative;flex:none}
+button.toggle .knopje::after{content:"";position:absolute;left:3px;top:3px;width:14px;height:14px;border-radius:50%;background:var(--text2);transition:left .15s}
+button.toggle[aria-pressed="true"]{color:var(--text);border-color:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje{background:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje::after{left:17px;background:var(--goud-ink)}
+.kopbalk{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.seg{display:inline-flex;flex-wrap:wrap;padding:3px;border-radius:999px;border:1px solid var(--line2);gap:2px}
+.seg button{border:0;background:none;padding:6px 14px;border-radius:999px;font:600 14px var(--tekst);color:var(--text2);min-height:36px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--goud);color:var(--goud-ink)}
+nav.tabs{display:flex;flex-wrap:wrap;gap:6px}
+nav.tabs button{min-width:44px;height:44px;border-radius:999px;border:1px solid var(--line2);background:none;color:var(--text2);font:600 15px var(--meta);cursor:pointer;position:relative}
+nav.tabs button:hover{color:var(--text)}
+nav.tabs button.cur{background:var(--goud);color:var(--goud-ink);border-color:var(--goud)}
+nav.tabs button.done::after{content:"";position:absolute;right:3px;top:3px;width:8px;height:8px;border-radius:50%;background:var(--groen);border:2px solid var(--bg)}
+nav.tabs button.lock{opacity:.35;cursor:not-allowed}
+nav.tabs .ov{padding:0 16px;font-family:var(--tekst)}
+.ctx{background:var(--surface);border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.ctx p{margin:0}
+details.ctxd summary{cursor:pointer;font-weight:600;color:var(--goud-text)}
+.tablewrap{overflow-x:auto}
+table.data{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+table.data th,table.data td{border-bottom:1px solid var(--line);padding:7px 10px;text-align:center}
+table.data th:first-child,table.data td:first-child{text-align:left}
+table.data th{font:600 11px var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--text3)}
+.q{display:flex;flex-direction:column;gap:14px}
+.qhead{display:flex;gap:12px;align-items:center}
+.qnum{font:700 40px/1 var(--titel);color:var(--goud-text)}
+.pts{font:600 12px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:3px 9px}
+.qtext{margin:0;font-size:18px}
+.phase{border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;background:var(--surface);display:flex;flex-direction:column;gap:12px}
+.phase>.label{display:flex;gap:8px;align-items:center;font:600 12px var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3)}
+.phase>.label .dot{width:8px;height:8px;border-radius:50%;background:var(--goud)}
+.phase.think{background:var(--surface2)}
+.phase.think>.label{color:var(--goud-text)}
+.step{display:flex;flex-direction:column;gap:8px}
+.step+.step{border-top:1px solid var(--line);padding-top:12px}
+.step p{margin:0}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button.opt,button.chip{border:1px solid var(--line2);background:var(--bg);color:var(--text);border-radius:12px;padding:9px 14px;font:inherit;font-size:16px;cursor:pointer;text-align:left}
+button.chip{border-radius:999px}
+button.opt:hover,button.chip:hover{border-color:var(--text3)}
+button.chip[aria-pressed="true"]{border-color:var(--goud);background:var(--goud-soft)}
+button.opt.right{border-color:var(--groen);background:var(--groen-soft)}
+button.opt.wrong{border-color:var(--koraal);background:var(--koraal-soft)}
+button.opt:disabled{cursor:default}
+button.go,button.ghost{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 18px;border-radius:999px;font:700 15px var(--tekst);cursor:pointer}
+button.go{border:0;background:var(--goud);color:var(--goud-ink)}
+button.go:hover{filter:brightness(1.06)}
+button.ghost{border:0;background:none;color:var(--text);box-shadow:inset 0 0 0 1px var(--line2)}
+button.ghost:hover{box-shadow:inset 0 0 0 1px var(--text3)}
+button:disabled.go,button:disabled.ghost{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:2px solid var(--goud);outline-offset:3px;border-radius:6px}
+input.num{width:96px;min-height:44px;font:600 16px var(--meta);padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text)}
+select{font:inherit;font-size:15px;min-height:44px;padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);max-width:100%;flex:1 1 260px}
+textarea{width:100%;min-height:88px;font:inherit;padding:10px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);resize:vertical}
+.fb{font-size:16px;border-radius:12px;padding:12px 14px;background:var(--surface2);border:1px solid var(--line2)}
+.fb.ok{border-color:var(--groen);background:var(--groen-soft)}
+.fb.no{border-color:var(--koraal);background:var(--koraal-soft)}
+.fb.hint{border-color:var(--teal);background:var(--teal-soft)}
+.graphs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.graphs{grid-template-columns:1fr}}
+.gopt{border:1px solid var(--line2);border-radius:var(--radius);background:var(--bg);padding:8px 8px 2px;cursor:pointer;color:var(--text);font:inherit;text-align:left}
+.gopt b{font:700 20px var(--titel);margin-left:6px;color:var(--goud-text)}
+.gopt:hover{border-color:var(--text3)}
+.gopt.right{border-color:var(--groen);box-shadow:0 0 0 2px var(--groen) inset}
+.gopt.wrong{border-color:var(--koraal);box-shadow:0 0 0 2px var(--koraal) inset}
+svg{display:block;max-width:100%;height:auto}
+.ax{stroke:var(--text3);stroke-width:1.2;fill:none}
+.grid{stroke:var(--line2);stroke-width:1;fill:none}
+.tick{fill:var(--text3);font:500 10px var(--meta)}
+.cv{stroke:var(--teal);stroke-width:2.4;fill:none;stroke-linejoin:round}
+.cvbad{stroke:var(--koraal);stroke-width:2;fill:none;stroke-dasharray:5 4}
+.restband{fill:var(--rest);opacity:.8}
+.lbl{fill:var(--text);font:600 12px var(--tekst)}
+.lblm{fill:var(--text2);font:12px var(--tekst)}
+.lblbad{fill:var(--koraal);font:700 12px var(--tekst)}
+.selfscore{display:flex;flex-direction:column;gap:10px}
+.selfscore label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.selfscore input{margin-top:4px;width:18px;height:18px;accent-color:var(--goud);flex:none}
+.model{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:16px}
+.anim{display:flex;flex-direction:column;gap:10px}
+.anim .stage{border-radius:var(--radius);background:var(--surface2);border:1px solid var(--line2);overflow:hidden}
+.anim .cap{min-height:3.2em;margin:0}
+.anim .nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pips{display:flex;gap:6px;margin-left:auto}
+.pips span{width:9px;height:9px;border-radius:50%;background:var(--line2)}
+.pips span.on{background:var(--goud)}
+.seq{display:flex;flex-direction:column;gap:6px}
+.seq button{display:flex;gap:10px;align-items:center}
+.seq .n{font:600 13px var(--meta);width:24px;height:24px;border-radius:50%;display:inline-grid;place-items:center;background:var(--line2);flex:none}
+.seq button.placed{border-color:var(--groen)} .seq button.placed .n{background:var(--groen);color:var(--goud-ink)}
+.score{font:600 16px var(--meta)}
+.ovtable td:last-child,.ovtable th:last-child{text-align:right}
+.pre{border-left:3px solid var(--goud);padding:2px 0 2px 14px;display:flex;flex-direction:column;gap:8px}
+.pre p{margin:0;color:var(--text2)}
+.figrow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.figrow{grid-template-columns:1fr}}
+.legenda{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--text2)}
+.legenda i{display:inline-block;vertical-align:middle;margin-right:6px}
+.legenda .lijn{width:22px;height:0;border-top:2.5px solid var(--text)}
+.legenda .vlak{width:16px;height:12px;background:var(--area)}
+.tick.dim{opacity:.35}
+p.klikbaar{line-height:2}
+button.mark{font:inherit;color:var(--text);background:none;border:0;border-bottom:2px dashed var(--goud);padding:0 3px;border-radius:4px;cursor:pointer}
+button.mark[aria-pressed="true"]{background:var(--goud-soft);border-bottom-style:solid}
+button.mark:disabled{cursor:default}
+.sellab{min-width:200px;font-weight:600}
+label.slider{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center}
+label.slider span{min-width:170px;font-weight:600;font-size:15px}
+label.slider input{flex:1 1 200px;accent-color:var(--goud)}
+.podium{background:var(--surface2);border:1px solid var(--line2);border-radius:var(--radius);overflow:hidden}
+p.regels{font-family:var(--tekst);line-height:1.9;margin:0}
+p.regels span{display:inline-block;width:2em;font:600 12px var(--meta);color:var(--text3)}
+sup{font-size:.7em}
+.papier{--bg:#FFFFFF;--surface:#FFFFFF;--surface2:#EEF1F5;--line:rgba(20,32,52,.10);--line2:rgba(20,32,52,.24);
+  --text:#121C2E;--text2:#3B4759;--text3:#667185;--goud:#C99A2E;--goud-text:#7E5C0B;--goud-soft:rgba(217,172,60,.18);
+  --groen:#2F8A47;--koraal:#B9502F;--teal:#25729C;--paars:#6550AD;--groen-soft:rgba(47,138,71,.10);--koraal-soft:rgba(185,80,47,.10);--teal-soft:rgba(37,114,156,.10);
+  --rest:#D5DEE9;--area:#B4BDCA;color-scheme:light;
+  background:#FCFCFA;color:var(--text);border:0;border-radius:6px;padding:16px 20px 12px;display:flex;flex-direction:column;gap:12px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.08),0 10px 28px rgba(0,0,0,.35)}
+.papier .pkop{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;border-bottom:2px solid var(--text);padding-bottom:6px}
+.papier .pkop .mono{color:var(--text2)}
+.papier .pnr{display:flex;align-items:baseline;gap:10px}
+.papier .nr{font:700 30px/1 var(--titel);color:var(--text)}
+.papier .pre{border-left:0;padding:0}
+.papier .pre p{color:var(--text)}
+.papier .qtext{color:var(--text)}
+.herhaal.papier{padding:10px 14px;gap:6px;box-shadow:none;border-radius:6px}
+.herhaal .hkop{color:var(--text3);font-size:11px}
+.herhaal .qtext{font-size:16px}
+.papier .pvoet{font:500 11px var(--meta);letter-spacing:.06em;color:var(--text3);text-align:right}
+.papier details.ctxd summary{color:var(--goud-text)}
+.papier .podium{background:var(--surface2)}
+.phase>.label .tag{margin-left:6px;font:600 10px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:2px 8px}
+.sleutel{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:14px;color:var(--text2)}
+.sleutel .sw{display:inline-block;width:16px;height:12px;border-radius:2px;vertical-align:-1px;margin-right:7px}
+.sleutel .papier-sw{background:#FCFCFA}
+.sleutel .donker-sw{background:var(--surface2);box-shadow:inset 0 0 0 1px var(--line2)}
+.exfoto{display:block;width:100%;height:auto;border-radius:2px}
+footer{color:var(--text3);font-size:14px;padding-top:24px;border-top:1px solid var(--line)}
+body.hulp .ans.locked{display:none}
+body.examen .think{display:none}
+body.examen .think.open{display:flex}
+.helpbtn{display:none!important}
+body.examen .helpbtn{display:inline-flex!important}
+body.examen .tonext{display:none!important}
+@media (max-width:600px){body{font-size:16px}.qtext{font-size:17px}.phase,.ctx{padding:14px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="sitenav" aria-label="Site">
+    <a class="merk" href="../index.html#home">Biologie bij Kamiel</a>
+    <a class="terug" href="../index.html#stofwisseling">← Terug naar Stofwisseling</a>
+    <span class="rechts"><button type="button" class="icoon" data-thema-knop></button></span>
+  </nav>
+  <header class="tool-kop">
+    <div class="eyebrow" id="eb">Oefentoets Stofwisseling · vwo</div>
+    <h1 id="h1">Oefentoets Stofwisseling</h1>
+    <div class="seg" id="opgs" role="group" aria-label="Opgave"></div>
+    <div class="sleutel"><span><i class="sw papier-sw"></i>Wit vak = de toetsvraag</span><span><i class="sw donker-sw"></i>Donker vak = hulpvragen en uitleg (niet uit de toets)</span></div>
+    <p>Maak de toets stap voor stap. Bij elke vraag denk je eerst na met de hulpvragen, dan beantwoord je de toetsvraag, en daarna zie je waarom het antwoord klopt. Kies zelf hoeveel hulp je wilt; met ‘Echte toets’ oefen je zonder hulp.</p>
+    <div class="kopbalk">
+      <div class="seg" id="standen" role="group" aria-label="Hoeveel hulp wil je?"></div>
+      <button id="vrij" class="toggle" aria-pressed="false"><span class="knopje"></span>Vrij doorklikken</button>
+      <span class="mono muted" id="sub"></span>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs" aria-label="Vragen"></nav>
+
+  <section class="ctx papier" id="ctx"></section>
+
+  <main id="main"></main>
+
+  <footer>Eigen vragen, met inspiratie uit de centrale examens (© CvTE), Biologie voor Jou en Nectar. Grafieken en schema's zijn eigen tekeningen; bronnen van de gegevens staan bij de opgaven.<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a> </span></footer>
+</div>
+
+<script>
+(function(){
+const $=(s,r=document)=>r.querySelector(s);
+const el=(tag,attrs={},html="")=>{const e=document.createElement(tag);for(const k in attrs){if(k==="class")e.className=attrs[k];else if(k.startsWith("on"))e.addEventListener(k.slice(2),attrs[k]);else e.setAttribute(k,attrs[k]);}if(html)e.innerHTML=html;return e;};
+const TOOL="sw-vwo";
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- opslag (alleen gemak) ---------- */
+let store={scores:{},mode:"hulp"};
+try{const s=JSON.parse(localStorage.getItem("toets-stofwisseling-vwo")||"null");if(s)store=Object.assign(store,s);}catch(e){}
+const save=()=>{try{localStorage.setItem("toets-stofwisseling-vwo",JSON.stringify(store));}catch(e){}};
+
+/* ---------- algemene bouwstenen ---------- */
+function phase(cls,label){const p=el("section",{class:"phase "+cls});
+  if(cls==="think")p.append(el("div",{class:"label"},`<span class="dot"></span>Hulpvragen<span class="tag">niet uit de toets</span>`));
+  else p.append(el("div",{class:"label"},`<span class="dot"></span>${label==="Antwoord"?"Jouw antwoord op de toetsvraag":label}`));return p;}
+function choiceStep(container,{q,opts,right,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});const fb=el("div",{class:"fb",hidden:""});
+  const knop=[];opts.forEach((o,i)=>{const b=el("button",{class:"opt",onclick:()=>{
+    if(i===right){row.querySelectorAll("button").forEach(x=>x.disabled=true);b.classList.add("right");fb.className="fb ok";fb.innerHTML=ok;fb.hidden=false;onDone&&onDone();}
+    else{b.classList.add("wrong");fb.className="fb no";fb.innerHTML=no;fb.hidden=false;}
+  }},o);knop.push(b);});
+  /* @@schud@@ vaste, geschudde volgorde (zaadje = vraagtekst), zodat het goede antwoord niet steeds eerst staat */
+  {let h=2166136261;for(const c of String(q))h=Math.imul(h^c.charCodeAt(0),16777619)>>>0;
+   const v=knop.map((b,i)=>i);for(let i=v.length-1;i>0;i--){h=Math.imul(h^(h>>>15),2246822507)>>>0;const j=h%(i+1);[v[i],v[j]]=[v[j],v[i]];}
+   if(v.length>1&&v[0]===right&&opts.length>2){const k=v.indexOf(right);[v[0],v[1]]=[v[1],v[0]];}
+   v.forEach(i=>row.append(knop[i]));}
+  s.append(row,fb);container.append(s);return s;
+}
+function mc(container,{opts,right,pts,qid,graphs:isGraph,onChecked}){
+  const wrap=el("div",{class:isGraph?"graphs":"row",style:isGraph?"":"flex-direction:column;align-items:stretch"});
+  const fb=el("div",{class:"fb",hidden:""});
+  opts.forEach((o,i)=>{const L="ABCDEF"[i];
+    const b=isGraph?el("button",{class:"gopt"},`<b>${L}</b>${o}`):el("button",{class:"opt"},`<b style="font:700 18px var(--titel);color:var(--goud-text);margin-right:10px">${L}</b>${o}`);
+    b.addEventListener("click",()=>{
+      wrap.querySelectorAll("button").forEach(x=>x.disabled=true);
+      const good=i===right; b.classList.add(good?"right":"wrong");
+      if(!good)wrap.children[right].classList.add("right");
+      fb.className="fb "+(good?"ok":"no");
+      fb.innerHTML=good?`Goed: <b>${"ABCDEF"[right]}</b>. ${pts} ${pts>1?"punten":"punt"}.`:`Het goede antwoord is <b>${"ABCDEF"[right]}</b>. 0 punten.`;
+      fb.hidden=false; setScore(qid,good?pts:0); onChecked&&onChecked();
+    });wrap.append(b);});
+  container.append(wrap,fb);
+}
+function waaromBtn(container,build){
+  const b=el("button",{class:"ghost waarombtn"},"Laat zien waarom ›");const box=el("div",{hidden:""});
+  b.onclick=()=>{b.remove();box.hidden=false;build(box);if(window.EXSTOF)EXSTOF.extraWaarom(TOOL,cur,box);};
+  container.append(b,box);
+}
+function lockAns(think,ans,label="Naar de vraag ›"){
+  ans.classList.add("locked");
+  const go=el("button",{class:"go tonext",hidden:""},label);
+  go.onclick=()=>{ans.classList.remove("locked");go.remove();ans.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});};
+  think.append(go);
+  return ()=>{think.append(go);go.hidden=false;};
+}
+function helpButton(q,think){
+  const b=el("button",{class:"ghost helpbtn"},"Hulp nodig? Toon de hulpvragen");
+  b.onclick=()=>{think.classList.add("open");b.remove();};
+  q.append(b);
+}
+function setScore(id,p){store.scores[id]=p;save();renderTabs();if(nextBtns[id])nextBtns[id].hidden=false;}
+
+/* ---------- vragen ---------- */
+const Q=[],OPG=[];
+
+/* Vraag 5 en 6: eerst zonder opties */
+function noOptions(q,{id,pts,text,prompt,hint,opts,right,uitleg}){
+  q.append(el("p",{class:"qtext"},text));
+  const think=phase("think","Eerst zelf"),ans=phase("ans","Kies je antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Toon de keuzes ›");
+  const s=el("div",{class:"step"});s.append(el("p",{},prompt));
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:"Wat denk jij? Schrijf het kort op."});const hb=el("button",{class:"ghost"},"Tip");const hf=el("div",{class:"fb hint",hidden:""},hint);
+  hb.onclick=()=>{hf.hidden=false;hb.remove();};
+  ta.addEventListener("input",()=>{if(ta.value.trim().length>2)unlock();});
+  s.append(ta,hb,hf);think.append(s);
+  mc(ans,{qid:id,pts,right,opts,onChecked:()=>{
+    if(ta.value.trim())ans.append(el("div",{class:"model"},`<b>Jij dacht eerst:</b> ${ta.value.replace(/</g,"&lt;")}<br><span class="muted">Klopte dat met de keuze die je maakte?</span>`));
+    waaromBtn(ans,b=>b.append(el("div",{class:"model"},uitleg)));}});
+  q.append(think,ans);
+}
+/* ================= extra bouwstenen ================= */
+function pre(q,html){q.append(el("div",{class:"pre"},html));}
+function chipsStep(container,{q,items,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});
+  items.forEach(([t])=>{const b=el("button",{class:"chip","aria-pressed":"false"},t);b.onclick=()=>b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")==="true"?"false":"true");row.append(b);});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(row,ck,fb);container.append(s);
+  ck.onclick=()=>{const sel=[...row.children].map(b=>b.getAttribute("aria-pressed")==="true");
+    const teveel=sel.some((s,k)=>s&&!items[k][1]),mist=sel.some((s,k)=>!s&&items[k][1]);fb.hidden=false;
+    if(!teveel&&!mist){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;row.querySelectorAll("button").forEach(b=>b.disabled=true);onDone&&onDone();}
+    else if(teveel){fb.className="fb hint";fb.innerHTML=no;}
+    else{fb.className="fb hint";fb.innerHTML="Wat je gekozen hebt klopt, maar er hoort nog meer bij. Kies alles wat klopt.";}};
+  return s;
+}
+function selectsStep(container,{q,rows,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const id=uid+"s"+k;
+    r.append(el("label",{for:id,class:"sellab"},lab));const sel=el("select",{id});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);s.append(r);return sel;});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(ck,fb);container.append(s);
+  ck.onclick=()=>{const n=sels.filter((sel,k)=>sel.value!==""&&+sel.value===rows[k][2]).length;fb.hidden=false;
+    if(n===rows.length){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;sels.forEach(x=>x.disabled=true);onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=`${n} van de ${rows.length} goed. `+(no||"Probeer het nog eens.");}};
+}
+function numStep(container,{q,right,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const r=el("div",{class:"row"});const inp=el("input",{class:"num",id:uid,inputmode:"decimal","aria-label":"antwoord"});const ck=el("button",{class:"ghost"},"Controleer");const fb=el("div",{class:"fb",hidden:""});
+  r.append(inp,ck);s.append(r,fb);container.append(s);
+  ck.onclick=()=>{const v=parseFloat((inp.value||"").replace(",","."));fb.hidden=false;
+    if(v===right){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;inp.disabled=true;onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=no;}};
+}
+function openAnswer(ans,{id,pts,checks,model,valkuil,placeholder,after}){
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:placeholder||"Schrijf je antwoord…"});
+  const ck=el("button",{class:"go"},"Nakijken");const tf=el("div",{class:"fb hint",hidden:""},"Schrijf eerst je antwoord op. Daarna kijk je het na.");
+  ans.append(ta,ck,tf);
+  ck.onclick=()=>{if(ta.value.trim().length<8){tf.hidden=false;ta.focus();return;}tf.remove();ck.remove();ta.readOnly=true;
+    const ss=el("div",{class:"selfscore"});
+    ss.append(el("p",{style:"margin:0"},"<b>Kijk jezelf na met het antwoordmodel.</b> Vink aan wat er in jouw antwoord staat."));
+    const boxes=checks.map((c,k)=>{const lab=el("label",{},`<input type="checkbox" id="q${id}c${k}"><span>${c} <span class="pts">1p</span></span>`);ss.append(lab);return lab.querySelector("input");});
+    if(model)ss.append(el("div",{class:"model"},"<b>Voorbeeldantwoord:</b> "+model));
+    if(valkuil)ss.append(el("div",{class:"fb hint"},"<b>Valkuil:</b> "+valkuil));
+    const sc=el("div",{class:"score"});ss.append(sc);ans.append(ss);
+    const upd=()=>{const p=Math.min(pts,boxes.filter(b=>b.checked).length);sc.textContent=`Jouw score: ${p} / ${pts}`;setScore(id,p);};
+    boxes.forEach(b=>b.onchange=upd);upd();after&&after();};
+}
+function juistOnjuist(ans,{id,stm,key,uitleg}){
+  const pick=stm.map(()=>null);
+  stm.forEach((t,k)=>{const r=el("div",{class:"row"});r.append(el("span",{style:"flex:1 1 260px"},`<b style="font-family:var(--meta)">${k+1}</b>&nbsp; ${t}`));
+    ["juist","onjuist"].forEach((lab,v)=>{const b=el("button",{class:"chip","aria-pressed":"false"},lab);b.onclick=()=>{pick[k]=v===0;r.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c===b?"true":"false"));};r.append(b);});ans.append(r);});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(pick.includes(null)){fb.hidden=false;fb.className="fb hint";fb.textContent="Beoordeel eerst alle uitspraken.";return;}
+    const n=pick.filter((p,k)=>p===key[k]).length;const p=n===stm.length?2:n===stm.length-1?1:0;ck.disabled=true;
+    ans.querySelectorAll(".chip").forEach(c=>c.disabled=true);
+    fb.hidden=false;fb.className="fb "+(p===2?"ok":"no");
+    fb.innerHTML=`${n} van de ${stm.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+key.map((k,i)=>`${i+1} ${k?"juist":"onjuist"}`).join(" · ");setScore(id,p);
+    waaromBtn(ans,uitleg);};
+}
+function stepAnim(box,steps,render){
+  let i=0;const stage=el("div",{class:"stage"}),cap=el("p",{class:"cap"});
+  const prev=el("button",{class:"ghost"},"‹ Vorige"),next=el("button",{class:"go"},"Volgende ›");
+  const pips=el("div",{class:"pips"},steps.map(()=>"<span></span>").join(""));
+  const nav=el("div",{class:"nav"});nav.append(prev,next,pips);
+  const a=el("div",{class:"anim"});a.append(stage,cap,nav);box.append(a);
+  function show(){cap.innerHTML=steps[i].cap;prev.disabled=i===0;next.textContent=i===steps.length-1?"Opnieuw ›":"Volgende ›";
+    pips.querySelectorAll("span").forEach((p,j)=>p.classList.toggle("on",j===i));render(stage,steps[i],i);}
+  prev.onclick=()=>{if(i>0){i--;show();}};next.onclick=()=>{i=(i+1)%steps.length;show();};show();
+}
+/* ================= meer bouwstenen ================= */
+function seqStep(container,{q,items,shown,ok,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const seq=el("div",{class:"seq"});let at=0;const fb=el("div",{class:"fb",hidden:""});
+  shown.forEach(k=>{const b=el("button",{class:"opt"},`<span class="n">·</span>${items[k]}`);b.onclick=()=>{if(b.classList.contains("placed"))return;
+    if(k===at){b.classList.add("placed");b.querySelector(".n").textContent=at+1;at++;fb.hidden=true;if(at===items.length){fb.hidden=false;fb.className="fb ok";fb.innerHTML=ok;onDone&&onDone();}}
+    else{fb.hidden=false;fb.className="fb hint";fb.textContent="Dat is nog niet de volgende stap. Wat gebeurt er direct daarna?";}};seq.append(b);});
+  s.append(seq,fb);container.append(s);
+}
+function selectAnswer(ans,{id,rows,score,uid,after,intro}){
+  if(intro)ans.append(el("p",{style:"margin:0"},intro));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const sid=uid+"a"+k;
+    r.append(el("label",{for:sid,class:"sellab"},lab));const sel=el("select",{id:sid});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);ans.append(r);return sel;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(sels.some(x=>x.value==="")){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul eerst alles in.";return;}
+    const n=sels.filter((x,k)=>+x.value===rows[k][2]).length;const p=score(n);sels.forEach(x=>x.disabled=true);ck.remove();
+    fb.hidden=false;fb.className="fb "+(n===rows.length?"ok":"no");
+    fb.innerHTML=`${n} van de ${rows.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+rows.map(([lab,opts,r])=>`${lab}: ${opts[r]}`).join(" · ");
+    setScore(id,p);after&&after();};
+}
+function textBox(html){return b=>b.append(el("div",{class:"model"},html));}
+const svgWrap=(vb,inner,label)=>`<svg viewBox="${vb}" role="img" aria-label="${label}">${inner}</svg>`;
+function numAnswer(ans,{id,fields,after}){
+  const inps=fields.map(([lab,unit],k)=>{const r=el("div",{class:"row"});const fid="q"+id+"f"+k;
+    r.append(el("label",{for:fid,class:"sellab"},lab));const i=el("input",{class:"num",id:fid,inputmode:"decimal"});r.append(i,el("span",{class:"muted"},unit));ans.append(r);return i;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{const v=inps.map(i=>parseFloat((i.value||"").replace(",",".")));if(v.some(isNaN)){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul beide uitkomsten in.";return;}
+    inps.forEach(i=>i.disabled=true);ck.remove();const res=fields.map((f,k)=>f[2](v[k]));const p=res.filter(Boolean).length;
+    fb.hidden=false;fb.className="fb "+(p===fields.length?"ok":"no");
+    fb.innerHTML=`<b>${p} van de ${fields.length} punten.</b><br>`+fields.map((f,k)=>`${res[k]?"✓":"✗"} ${f[3]}`).join("<br>");setScore(id,p);after&&after();};
+}
+
+/* ===== Oefentoets Stofwisseling: gedeelde hulpjes (havo en vwo uit één bron) ===== */
+const VWO=true;
+let QN=0,ON=0;
+/* vraag(punten, onderwerp, build(q,id), stof?) -> id; stof = {titel, html, anim?, films?} voor 'Uitleg van de stof' */
+function vraag(pts,t,build,stof){const id=++QN;Q.push({id,pts,t,build:q=>build(q,id)});
+  if(stof&&window.EXSTOF)EXSTOF.zet(TOOL,[id],stof);return id;}
+function opgave(kort,titel,html,ids){const nr=++ON;
+  OPG.push({nr,kort,titel,ids,ctx:`<div class="pkop"><span class="mono">Toetstekst · ${html?"inleiding ":""}opgave ${nr}</span></div>`+(html||`<p class="muted" style="margin:0">Losse kennisvragen, zonder inleiding.</p>`)});}
+/* films van het thema (hrefs als in HOOFDSTUKKEN.stofwisseling.films) */
+const F={
+  v:["Alles versneld","films/stofwisseling/1-alles-versneld.html"],
+  a:["Alles op adem","films/stofwisseling/2-alles-op-adem.html"],
+  g:["Alles in het groen","films/stofwisseling/3-alles-in-het-groen.html"]};
+/* begin van een vraag: vraagzin, hulp- en antwoordvak */
+function start(q,html){q.append(el("p",{class:"qtext"},html));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  return {think,ans,unlock};}
+const B=t=>`<b>${t}</b>`;
+const TABEL=(nr,kop,rijen,noot)=>`<div class="eyebrow">tabel ${nr}${noot?" "+noot:""}</div><div class="tablewrap"><table class="data"><tr>${kop.map(k=>`<th>${k}</th>`).join("")}</tr>${rijen.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join("")}</tr>`).join("")}</table></div>`;
+
+/* Vraag met een rekendeel (a, door de tool nagekeken) en een uitlegdeel (b, zelf afvinken). Elk deel 1 punt.
+   reken = [label, eenheid, test(v) -> bool, uitleg]; check = scoringselement van b */
+function rekenOpen(ans,{id,reken:[lab,unit,test,uitleg],check,model,valkuil,after}){
+  const r=el("div",{class:"row"});const fid="q"+id+"f0";
+  r.append(el("label",{for:fid,class:"sellab"},lab));const inp=el("input",{class:"num",id:fid,inputmode:"decimal"});r.append(inp,el("span",{class:"muted"},unit));
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:"b · Schrijf je uitleg…"});
+  const ck=el("button",{class:"go"},"Nakijken");const tf=el("div",{class:"fb hint",hidden:""});
+  ans.append(r,ta,ck,tf);
+  ck.onclick=()=>{const v=parseFloat((inp.value||"").replace(",","."));
+    if(isNaN(v)||ta.value.trim().length<8){tf.hidden=false;tf.textContent="Vul eerst je uitkomst bij a in en schrijf je uitleg bij b. Daarna kijk je het na.";return;}
+    tf.remove();ck.remove();inp.disabled=true;ta.readOnly=true;
+    const ok=test(v);
+    ans.append(el("div",{class:"fb "+(ok?"ok":"no")},`<b>a · ${ok?"1 punt":"0 punten"}</b><br>${ok?"✓":"✗"} ${uitleg}`));
+    const ss=el("div",{class:"selfscore"});
+    ss.append(el("p",{style:"margin:0"},"<b>b · Kijk jezelf na met het antwoordmodel.</b> Vink aan wat er in jouw antwoord staat."));
+    const lab2=el("label",{},`<input type="checkbox" id="q${id}c0"><span>${check} <span class="pts">1p</span></span>`);ss.append(lab2);const box=lab2.querySelector("input");
+    if(model)ss.append(el("div",{class:"model"},"<b>Voorbeeldantwoord b:</b> "+model));
+    if(valkuil)ss.append(el("div",{class:"fb hint"},"<b>Valkuil:</b> "+valkuil));
+    const sc=el("div",{class:"score"});ss.append(sc);ans.append(ss);
+    const upd=()=>{const p=(ok?1:0)+(box.checked?1:0);sc.textContent=`Jouw score: ${p} / 2`;setScore(id,p);};
+    box.onchange=upd;upd();after&&after();};
+}
+
+/* ---------- figuren (SVG, kleuren uit de huisstijl, dus licht en donker) ---------- */
+const FIG=(vb,inner,label,min=520,max=640)=>`<div class="swfig" style="max-width:${max}px;margin:0 auto;width:100%;--min:${min}px">`+svgWrap(vb,inner,label)+`</div>`;
+/* Reactiesnelheid tegen hoeveelheid substraat (model, geen meetwaarden).
+   lijnen = [{vmax, km, kleur, naam, dash, half}]; tot = tot welke substraatwaarde (0–10) de lijn loopt;
+   stip = [substraatwaarde, lijnindex] -> stip op de lijn; bezet = 0..1 -> balkje 'actieve centra bezet' */
+function KROMME({lijnen,tot=10,stip=null,labels=true}){
+  const X0=70,X1=600,Y0=300,Y1=40,xs=s=>X0+s/10*(X1-X0),ys=v=>Y0-v/2.2*(Y0-Y1);
+  let s=`<path d="M${X0},${Y1-8} V${Y0} H${X1+10}" fill="none" stroke="var(--text2)" stroke-width="1.4"/>`;
+  s+=`<text x="${(X0+X1)/2}" y="${Y0+30}" text-anchor="middle" class="lblm">hoeveelheid substraat →</text>`;
+  s+=`<text x="22" y="${(Y0+Y1)/2}" text-anchor="middle" class="lblm" transform="rotate(-90 22 ${(Y0+Y1)/2})">reactiesnelheid →</text>`;
+  lijnen.forEach((l,i)=>{let d="";for(let k=0;k<=60;k++){const S=k/60*tot;const v=l.vmax*S/(l.km+S);d+=`${k?"L":"M"}${xs(S).toFixed(1)},${ys(v).toFixed(1)} `;}
+    s+=`<path d="${d}" fill="none" stroke="${l.kleur}" stroke-width="3" stroke-dasharray="${l.dash||""}" stroke-linecap="round"/>`;
+    if(l.vmaxLijn)s+=`<path d="M${X0},${ys(l.vmax)} H${X1}" stroke="${l.kleur}" stroke-width="1.2" stroke-dasharray="3 5"/><text x="${X0+6}" y="${ys(l.vmax)-6}" class="lblm" style="fill:${l.kleur}">V-max</text>`;
+    if(l.half){const yh=ys(l.vmax/2),xh=xs(l.km);s+=`<path d="M${X0},${yh} H${xh} V${Y0}" fill="none" stroke="${l.kleur}" stroke-width="1.2" stroke-dasharray="3 4"/><circle cx="${xh}" cy="${yh}" r="4.5" fill="${l.kleur}"/>`;}
+    if(labels&&l.naam){const S=tot,v=l.vmax*S/(l.km+S);s+=`<text x="${xs(S)-4}" y="${ys(v)-10}" text-anchor="end" class="lbl" style="fill:${l.kleur}">${l.naam}</text>`;}});
+  if(stip){const [S,i]=stip,l=lijnen[i],v=l.vmax*S/(l.km+S);s+=`<circle cx="${xs(S)}" cy="${ys(v)}" r="7" fill="var(--goud)" stroke="var(--bg)" stroke-width="2"/>`;}
+  return FIG("0 0 640 340",s,"Reactiesnelheid uitgezet tegen de hoeveelheid substraat (model)");}
+/* Een enzym met actief centrum, met n van de 6 centra bezet (voor de verzadiging) */
+function CENTRA(bezet,totaal=6,extraSub=0){
+  let s="";for(let k=0;k<totaal;k++){const x=50+k*92,y=70,vol=k<bezet;
+    s+=`<path d="M${x-30},${y+26} Q${x-34},${y-24} ${x-12},${y-26} L${x-12},${y-6} L${x+12},${y-6} L${x+12},${y-26} Q${x+34},${y-24} ${x+30},${y+26} Z" fill="var(--teal-soft)" stroke="var(--teal)" stroke-width="2"/>`;
+    if(vol)s+=`<rect x="${x-11}" y="${y-24}" width="22" height="17" rx="4" fill="var(--goud)"/>`;}
+  for(let k=0;k<extraSub;k++)s+=`<rect x="${70+k*58}" y="${132+(k%2)*14}" width="22" height="17" rx="4" fill="var(--goud)" opacity=".8"/>`;
+  return FIG("0 0 560 175",s,"Enzymmoleculen met een actief centrum, bezet of vrij",420,560);}
+
+/* ===== Opgave 1: Eiwitten en enzymen (kennis; EI-stofwisseling-K03, K08, havo K09 / vwo K12) ===== */
+{
+const STOF_EIWIT={titel:"Eiwitten werken door hun vorm",html:`
+<p>Een eiwit bestaat uit een of meer lange ketens <b>aminozuren</b>, opgevouwen tot een eigen ruimtelijke vorm. Die <b>vorm bepaalt wat het eiwit kan</b>.</p>
+<p>Je lichaam heeft heel verschillende soorten eiwitten, bijvoorbeeld membraaneiwitten die cellen aan elkaar vasthouden. De naam van een soort eiwit zegt vaak al iets over zijn taak. Vraag je bij elk eiwit af: wat doet het, en met welk ander molecuul of welke structuur?</p>`,
+films:[F.v]};
+const STOF_WERKING={titel:"Hoe een enzym werkt",html:`
+<p>Het molecuul waar een enzym op inwerkt, is het <b>substraat</b>. Het past in een holte met precies de goede vorm: het <b>actieve centrum</b>. Samen vormen ze even het <b>enzym-substraatcomplex</b>. Zo verloopt de reactie over een lagere drempel: het enzym verlaagt de <b>activeringsenergie</b>.</p>
+<p>Moleculen bewegen voortdurend en botsen heel vaak. De vorm van het actieve centrum hangt af van de vouwing van het eiwit en van de ladingen erin. Daarom heeft elk enzym een eigen <b>optimumtemperatuur</b> en een eigen <b>optimum-pH</b>.</p>
+<p>Bij een proef hoort een <b>controle</b>: een opstelling die zo gelijk mogelijk is, maar zonder de factor die je onderzoekt.</p>`,
+films:[F.v]};
+
+const q1=vraag(1,"eiwit en functie",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Welke combinatie van eiwit en functie is juist?"));
+  choiceStep(think,{q:"Wat bepaalt wat een eiwit kan?",opts:["zijn ruimtelijke vorm","hoe groot het eiwit is","in welk orgaan het zit"],right:0,
+    ok:"Ja. De naam van een soort eiwit zegt vaak al wat het doet.",no:"Denk aan de gekookte aardappel: de ketens waren er nog, maar wat was er kapot?",
+    onDone:()=>choiceStep(think,{q:"Welke soort eiwit versnelt één specifieke reactie?",opts:["een enzym","een eiwithormoon","een receptor"],right:0,
+      ok:"Goed. Controleer op dezelfde manier de andere keuzes: past het werk bij de naam?",no:"Welk eiwit werkt bij de rauwe aardappel en laat het waterstofperoxide schuimen?",onDone:unlock})});
+  mc(ans,{qid:id,pts:1,right:2,opts:["motoreiwit: brengt een bepaalde stof door het membraan","transporteiwit: loopt over een microtubulus met een blaasje op sleeptouw","receptor: past precies om een bepaalde signaalstof heen","eiwithormoon: versnelt één specifieke reactie"],
+    onChecked:()=>waaromBtn(ans,textBox("Een <b>receptor</b> past precies om een bepaalde signaalstof heen: <b>C</b>. Bij A en B zijn de taken verwisseld: een <b>transporteiwit</b> brengt een stof door het membraan, een <b>motoreiwit</b> loopt over een microtubulus met een blaasje op sleeptouw. D is de taak van een <b>enzym</b>; een eiwithormoon, zoals insuline, past juist in een receptor. Wat een eiwit kan, hangt af van zijn vorm."))});
+  q.append(think,ans);
+},STOF_EIWIT);
+
+const q2=vraag(2,"juist of onjuist: enzymen",(q,id)=>{
+  pre(q,"<p>Hieronder staan 5 uitspraken.</p>");
+  q.append(el("p",{class:"qtext"},"1 Een enzym zoekt actief naar zijn substraat.<br>2 Pepsine werkt het best in een zure omgeving, zoals de maag.<br>3 Trypsine werkt in de dunne darm bij een hogere pH dan pepsine.<br>4 Wordt de pH een beetje anders dan het optimum, dan kloppen de ladingen in het actieve centrum al niet meer.<br>5 Bij een proef met rauwe aardappel is een blokje gekookte aardappel de controle.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Kan een molecuul zelf ergens naartoe ‘willen’ of iets ‘zoeken’?",opts:["ja, enzymen hebben een soort zintuig","nee, moleculen bewegen willekeurig"],right:1,
+    ok:"Ja. Houd dat in je achterhoofd bij uitspraak 1.",no:"Een enzym is een molecuul: het leeft niet en heeft geen zintuigen.",
+    onDone:()=>choiceStep(think,{q:"Bij de aardappelproef onderzoek je wat katalase doet. Wat moet de controle dan zijn?",opts:["een opstelling die verder gelijk is, maar zonder werkend katalase","een opstelling met twee keer zoveel aardappel","een opstelling zonder vloeistof"],right:0,
+      ok:"Goed. Denk bij 2 en 3 aan de pH van je maag en je dunne darm.",no:"Een controle verschilt maar in één ding: de factor die je onderzoekt.",onDone:unlock})});
+  juistOnjuist(ans,{id,stm:["een enzym zoekt actief naar zijn substraat","pepsine werkt het best in een zure omgeving","trypsine werkt bij een hogere pH dan pepsine","een beetje andere pH: de ladingen in het actieve centrum kloppen niet meer","de gekookte aardappel is de controle"],key:[false,true,true,true,true],
+    uitleg:textBox("1 <b>onjuist</b>: een enzym zoekt niets op. Alles beweegt willekeurig en botsingen zijn toeval; er zijn alleen enorm veel botsingen per seconde.<br>2 <b>juist</b>: pepsine werkt het best bij ongeveer pH 2.<br>3 <b>juist</b>: trypsine werkt het best bij ongeveer pH 8.<br>4 <b>juist</b>: een kleine verandering van de pH verandert al de ladingen in het actieve centrum; nog verder weg gaat de hele vouwing kapot.<br>5 <b>juist</b>: in het gekookte blokje is katalase gedenatureerd; verder is het zo gelijk mogelijk.")});
+  q.append(think,ans);
+},STOF_WERKING);
+
+const ids=[q1,q2];
+if(!VWO){
+const STOF_HV={titel:"Meer enzym of meer substraat",html:`
+<p>Een enzym zet alleen een substraatmolecuul om dat botst met een <b>vrij</b> actief centrum. Een enzymmolecuul kan dat heel vaak achter elkaar doen, want het wordt niet verbruikt.</p>
+<p>Elk enzymmolecuul werkt los van de andere. Als je de snelheid meet, kijk je dus naar twee dingen: hoeveel enzymmoleculen er zijn, en hoe vaak er een substraatmolecuul in een vrij actief centrum terechtkomt.</p>`,
+films:[F.v]};
+ids.push(vraag(2,"meer substraat, nauwelijks sneller",(q,id)=>{
+  pre(q,"<p>Een leerling meet de reactiesnelheid van een vaste hoeveelheid enzym bij steeds meer substraat. Eerst stijgt de snelheid, daarna nauwelijks nog.</p>");
+  const {think,ans,unlock}=start(q,"<b>a</b> Verklaar waarom de snelheid bij veel substraat nauwelijks nog stijgt.<br><b>b</b> Wat moet de leerling veranderen om de snelheid dan tóch te verhogen?");
+  choiceStep(think,{q:"Wat moet er gebeuren voordat een enzym een substraatmolecuul omzet?",opts:["het substraat moet botsen met een vrij actief centrum","het enzym moet eerst opgewarmd worden","het substraat moet eerst in stukken vallen"],right:0,
+    ok:"Ja. Stel je nu heel veel substraat voor, en steeds evenveel enzym.",no:"Het substraat moet in het actieve centrum passen. Wat moet daar dan vrij zijn?",
+    onDone:()=>choiceStep(think,{q:"Bij heel veel substraat: hoe vaak is een actief centrum vrij?",opts:["bijna altijd","bijna nooit"],right:1,
+      ok:"Goed. Gebruik dat bij a. Bedenk bij b wat er dan nog wél helpt, nu meer substraat niet meer helpt.",no:"Elk centrum kan maar één substraatmolecuul tegelijk vasthouden. Er botsen er heel veel.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "<b>a</b> Bijna elk actief centrum is vrijwel steeds <b>bezet</b>; een nieuw substraatmolecuul botst op een bezet centrum (<b>verzadiging</b>).",
+    "<b>b</b> <b>Meer enzym</b> toevoegen."],
+    model:"a: Bij veel substraat is bijna elk actief centrum vrijwel steeds bezet. Een nieuw substraatmolecuul botst dan op een bezet centrum en kaatst weg: het enzym is verzadigd. b: Meer enzym toevoegen. Elk enzymmolecuul werkt los van de andere, dus twee keer zoveel enzym geeft twee keer zoveel omzettingen.",
+    valkuil:"Bij a: ‘het enzym raakt op’ of ‘het enzym wordt moe’ is fout: een enzym wordt niet verbruikt. Bij b: ‘nog meer substraat’ helpt juist niet meer.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Weinig substraat: de meeste actieve centra zijn vrij. Elk extra substraatmolecuul geeft meer botsingen met een vrij centrum, dus de snelheid stijgt.",tot:2.5,bezet:1},
+      {cap:"Meer substraat: steeds meer centra zijn bezet. De lijn buigt af.",tot:6,bezet:4},
+      {cap:"Heel veel substraat: bijna elk centrum is steeds bezet. Een nieuw substraatmolecuul kaatst weg. Dat is verzadiging: meer substraat helpt niet meer.",tot:10,bezet:6,extra:6},
+      {cap:"Twee keer zoveel enzym: twee keer zoveel actieve centra, dus twee keer zoveel omzettingen per seconde. Meer enzym helpt dus wél.",tot:10,bezet:6,dubbel:true}],
+      (st,s)=>{const L=[{vmax:1,km:1.2,kleur:"var(--teal)",naam:s.dubbel?"evenveel enzym":""}];if(s.dubbel)L.push({vmax:2,km:1.2,kleur:"var(--goud)",naam:"twee keer zoveel enzym"});
+        st.innerHTML=KROMME({lijnen:L,tot:s.tot,stip:[s.tot,0]})+(s.dubbel?"":CENTRA(s.bezet,6,s.extra||0));}))});
+  q.append(think,ans);
+},STOF_HV));
+}else{
+const STOF_REM={titel:"Remmen en activeren",html:`
+<p>Een enzym kan op twee manieren worden afgeremd. Een <b>competitieve remstof</b> lijkt op het substraat: hij past in het actieve centrum, wordt niet omgezet en laat ook weer los.</p>
+<p>Een molecuul kan ook binden op een andere plek: de <b>allosterische zijde</b>. Daardoor verandert de vorm van het hele enzym. Een <b>inhibitor</b> vervormt het actieve centrum, zodat het substraat niet meer past; een <b>activator</b> geeft het actieve centrum juist de goede vorm. Zo'n molecuul hoeft niet op het substraat te lijken.</p>`,
+films:[F.v]};
+/* keten van drie enzymen: E1 → E2 → E3 → eindproduct; rem = eindproduct op de allosterische zijde van E1 */
+function KETEN({rem,veel,loopt}){
+  const E=[110,290,470];let s="";
+  s+=`<text x="30" y="92" class="lblm">A</text>`;
+  E.forEach((x,i)=>{const op=(!loopt&&i>0)?.45:1;
+    s+=`<path d="M${x-42},${110} Q${x-48},${52} ${x-16},${50} L${x-16},${66} L${x+16},${66} L${x+16},${50} Q${x+48},${52} ${x+42},${110} Z" fill="var(--teal-soft)" stroke="var(--teal)" stroke-width="2" opacity="${op}"/>`;
+    s+=`<text x="${x}" y="100" text-anchor="middle" class="lbl">enzym ${i+1}</text>`;
+    if(i<2)s+=`<path d="M${x+52},80 H${E[i+1]-58}" stroke="var(--text2)" stroke-width="2" opacity="${loopt?1:.3}" marker-end="url(#pijl)"/>`;});
+  s+=`<path d="M40,80 H${E[0]-58}" stroke="var(--text2)" stroke-width="2" marker-end="url(#pijl)"/>`;
+  s+=`<path d="M${E[2]+52},80 H${E[2]+84}" stroke="var(--text2)" stroke-width="2" opacity="${loopt?1:.3}" marker-end="url(#pijl)"/>`;
+  const n=veel?7:2;for(let k=0;k<n;k++)s+=`<circle cx="${574+(k%3)*16}" cy="${66+Math.floor(k/3)*16}" r="6" fill="var(--paars)"/>`;
+  s+=`<text x="590" y="132" text-anchor="middle" class="lblm">eindproduct</text>`;
+  s+=`<text x="${E[0]-16}" y="158" text-anchor="middle" class="lblm">allosterische zijde</text><path d="M${E[0]-16},146 V128" stroke="var(--text3)" stroke-width="1"/>`;
+  if(rem)s+=`<circle cx="${E[0]-16}" cy="${116}" r="7" fill="var(--paars)"/><path d="M560,96 C470,170 220,170 ${E[0]-8},124" fill="none" stroke="var(--paars)" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#pijlp)"/>`;
+  const defs=`<defs><marker id="pijl" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--text2)"/></marker><marker id="pijlp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--paars)"/></marker></defs>`;
+  return FIG("0 0 640 168",defs+s,"Een keten van drie enzymen die samen één eindproduct maken",520,640);}
+ids.push(vraag(2,"een keten die zichzelf remt",(q,id)=>{
+  pre(q,"<p>In een cel maken drie enzymen na elkaar één eindproduct.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit hoe het eindproduct zijn eigen aanmaak remt als er veel van is, en waarom de keten weer op gang komt als het eindproduct wordt verbruikt."));
+  choiceStep(think,{q:"Welk enzym van de keten kun je het beste remmen om de hele keten te vertragen?",opts:["het eerste enzym","het laatste enzym"],right:0,
+    ok:"Ja: dan ontstaan ook de tussenproducten niet. Maar het eindproduct lijkt niet op het substraat van het eerste enzym.",no:"Als je het laatste enzym remt, worden de tussenproducten nog steeds gemaakt.",
+    onDone:()=>choiceStep(think,{q:"Hoe kan een molecuul dat niet op het substraat lijkt, een enzym toch remmen?",opts:["door in het actieve centrum te gaan zitten","door op een andere plek te binden, waardoor de vorm van het hele enzym verandert"],right:1,
+      ok:"Goed. Bedenk nu ook wat er gebeurt als er steeds minder eindproduct is.",no:"In het actieve centrum past alleen iets dat op het substraat lijkt.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Bij veel eindproduct bindt het aan de <b>allosterische zijde van het eerste enzym</b>, waardoor dat (vervormt en) veel minder werkt en de hele keten vertraagt.",
+    "Wordt het eindproduct verbruikt, dan <b>bindt er steeds minder</b> aan het eerste enzym, dat dan weer werkt; dit heet <b>negatieve terugkoppeling</b>."],
+    model:"Is er veel eindproduct, dan bindt het aan de allosterische zijde van het eerste enzym. Het actieve centrum vervormt, het eerste enzym werkt veel minder en de hele keten vertraagt. Wordt het eindproduct verbruikt, dan bindt er steeds minder aan het eerste enzym. Dat werkt dan weer, en de keten komt op gang. Dit is negatieve terugkoppeling.",
+    valkuil:"‘De cel merkt dat er genoeg is’: 0 punten voor het eerste element. Er is geen cel die iets wil; er is alleen een molecuul dat ergens past.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Weinig eindproduct: de drie enzymen werken, stof A wordt stap voor stap eindproduct.",rem:false,veel:false,loopt:true},
+      {cap:"Veel eindproduct: het bindt vaker aan de allosterische zijde van enzym 1. Het actieve centrum vervormt en enzym 1 werkt veel minder: de hele keten vertraagt.",rem:true,veel:true,loopt:false},
+      {cap:"Het eindproduct wordt verbruikt: er bindt steeds minder aan enzym 1, dus het werkt weer en de keten komt op gang. Het eindproduct remt zijn eigen aanmaak: negatieve terugkoppeling.",rem:false,veel:false,loopt:true}],
+      (st,s)=>st.innerHTML=KETEN(s)))});
+  q.append(think,ans);
+},STOF_REM));
+}
+opgave("Enzymen","Eiwitten en enzymen","",ids);
+}
+
+/* ===== Opgave 2: Ananas in de pudding (inzicht versie 1; EI-stofwisseling-A01, A02, A03, havo A04 / vwo A05) ===== */
+{
+const TAB1=TABEL(1,["bakje","toegevoegd","na 3 uur"],[
+  ["1","niets","stevig"],["2","stukjes verse ananas","vloeibaar"],["3","stukjes ananas uit blik (bij het inblikken verhit)","stevig"],["4","stukjes verse ananas, eerst 5 minuten gekookt en afgekoeld","stevig"]],"(fictieve gegevens)");
+const T2=[["niet verwarmd",8],["40",8],["50",7],["60",4],["70",1],["80",0]];
+const TAB2=TABEL(2,["sap eerst verwarmd tot (°C)",...T2.map(r=>r[0])],[["vloeibaar na 1 uur bij 20 °C (mm)",...T2.map(r=>r[1])]],"(fictieve gegevens)");
+
+const STOF_SUB={titel:"Enzym en substraat",html:`
+<p>Een enzym versnelt één specifieke reactie. Het molecuul waar het enzym op inwerkt, heet het <b>substraat</b>. Het substraat past in het <b>actieve centrum</b> van het enzym; samen vormen ze even het <b>enzym-substraatcomplex</b>. Daarin verandert het substraat in <b>product</b>. Het product laat los, en het enzym is weer precies als eerst.</p>
+<p>Verwar de drie niet: het enzym doet het werk, het substraat wordt veranderd, het product is wat er overblijft.</p>`,
+films:[F.v]};
+const STOF_WARM={titel:"Warmte en enzymen",html:`
+<p>Bij een hogere temperatuur bewegen moleculen sneller en botsen ze vaker en harder: een enzymreactie gaat dan eerst sneller. Maar een enzym is een eiwit. Bij veel warmte trilt het zo hard dat de zwakke bindingen breken die de vouwing bij elkaar houden. De keten zelf blijft heel, maar de ruimtelijke vorm, en daarmee het actieve centrum, gaat verloren. Dat heet <b>denatureren</b>.</p>
+<p>Een enzym leeft niet, dus het gaat ook niet dood: het verliest zijn vorm.</p>
+<p>Bij een proef verander je maar één factor tegelijk; alles wat het resultaat ook kan beïnvloeden, houd je gelijk.</p>`,
+films:[F.v]};
+
+const q4=vraag(1,"het substraat in bakje 2",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Wat is in bakje 2 het substraat van bromelaïne?"));
+  choiceStep(think,{q:"Wat is een substraat?",opts:["het molecuul waar een enzym op inwerkt","het enzym zelf","een stof die het enzym energie geeft"],right:0,
+    ok:"Ja. Lees in de inleiding waar bromelaïne op inwerkt.",no:"Het enzym doet het werk. Hoe heet het molecuul dat door het enzym veranderd wordt?",onDone:unlock});
+  mc(ans,{qid:id,pts:1,right:2,opts:["bromelaïne","de suiker uit de ananas","gelatine","water"],onChecked:()=>waaromBtn(ans,textBox(
+    "Het substraat is het molecuul waar het enzym op inwerkt: de eiwitketens van <b>gelatine</b> (<b>C</b>). Bromelaïne (A) is het enzym zelf. Wie B kiest, denkt dat een enzym in fruit op suiker werkt; maar bromelaïne knipt eiwitketens."))});
+  q.append(think,ans);
+},STOF_SUB);
+
+const q5=vraag(2,"bakje 3 wordt wél stevig",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Leg in twee stappen uit waardoor bakje 3 wél stevig wordt."));
+  choiceStep(think,{q:"Wat is er met de ananas in bakje 3 gebeurd, en in bakje 2 niet?",opts:["hij is verhit","hij is gekoeld","hij is fijngesneden"],right:0,
+    ok:"Ja: bij het inblikken. Wat doet verhitten met een eiwit zoals bromelaïne?",no:"Kijk in tabel 1 wat er tussen haakjes bij bakje 3 staat.",
+    onDone:()=>choiceStep(think,{q:"Kan een enzym doodgaan?",opts:["ja, door hitte","nee, een enzym is een eiwit en leeft niet"],right:1,
+      ok:"Goed: ‘dood’ is dus niet het goede woord. Wat doet hitte dan wél met een eiwit, en wat betekent dat voor de gelatine?",no:"Een enzym is een molecuul, geen cel.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Bij het verhitten (inblikken) is bromelaïne <b>gedenatureerd</b>: het actieve centrum heeft zijn vorm verloren.",
+    "Daardoor <b>past gelatine niet meer</b> in het actieve centrum en worden de eiwitketens <b>niet geknipt</b>, zodat het netwerk zich kan vormen."],
+    model:"Bij het inblikken is de ananas verhit. Daardoor is bromelaïne gedenatureerd: het eiwit heeft zijn ruimtelijke vorm verloren, en daarmee ook het actieve centrum. De gelatine past dan niet meer in het actieve centrum, de eiwitketens worden niet geknipt en kunnen een netwerk vormen: de pudding wordt stevig.",
+    valkuil:"‘Het enzym is door het koken dood’: 0 punten voor het eerste element. Een enzym leeft niet; het verliest zijn vorm.",
+    after:()=>waaromBtn(ans,textBox("Oorzaak → gevolg → gevolg: <b>verhitten</b> breekt de zwakke bindingen van de vouwing (<b>denatureren</b>) → het <b>actieve centrum</b> heeft niet meer de goede vorm, dus gelatine <b>past er niet meer in</b> → de eiwitketens van gelatine blijven heel en vormen bij afkoelen een netwerk. Bakje 4 laat hetzelfde zien: koken en daarna afkoelen helpt het enzym niet terug."))});
+  q.append(think,ans);
+},STOF_WARM);
+
+/* staafjes bij tabel 2; hl = indexen die opvallen */
+function STAAF(hl=[],kleur="var(--goud)"){
+  const X0=80,Y0=210,bw=56,gap=22;let s=`<path d="M${X0-10},30 V${Y0} H${X0+6*(bw+gap)+4}" fill="none" stroke="var(--text2)" stroke-width="1.4"/>`;
+  [0,2,4,6,8].forEach(v=>s+=`<text x="${X0-16}" y="${Y0-v*20+4}" text-anchor="end" class="lblm">${v}</text>`);
+  s+=`<text x="22" y="120" text-anchor="middle" class="lblm" transform="rotate(-90 22 120)">vloeibaar (mm)</text>`;
+  T2.forEach(([t,v],i)=>{const x=X0+6+i*(bw+gap),on=hl.includes(i);
+    s+=`<rect x="${x}" y="${Y0-v*20}" width="${bw}" height="${Math.max(v*20,1.5)}" fill="${on?kleur:"var(--teal)"}" opacity="${hl.length&&!on?.35:1}" rx="3"/>`;
+    s+=`<text x="${x+bw/2}" y="${Y0+18}" text-anchor="middle" class="lblm">${t==="niet verwarmd"?"niet":t+" °C"}</text>`;});
+  s+=`<text x="${X0+3*(bw+gap)}" y="${Y0+40}" text-anchor="middle" class="lblm">sap eerst verwarmd tot … en daarna afgekoeld tot 20 °C</text>`;
+  return FIG("0 0 560 260",s,"Staafdiagram van tabel 2: hoe diep de gelatine vloeibaar werd",460,560);}
+const q6=vraag(2,"verwarmen en afkoelen",(q,id)=>{
+  pre(q,"<p>Lisa onderzoekt bij welke temperatuur bromelaïne kapotgaat. Ze verwarmt ananassap 10 minuten tot een bepaalde temperatuur en laat het daarna afkoelen tot kamertemperatuur (20 °C). Dan doet ze het sap op stevige gelatine en meet ze na een uur bij 20 °C hoe diep de gelatine vloeibaar is geworden (tabel 2).</p>"+TAB2);
+  const {think,ans,unlock}=start(q,"<b>a</b> Gelatine smelt boven ongeveer 34 °C. Leg uit waarom Lisa het sap eerst laat afkoelen en de gelatine steeds bij 20 °C houdt.<br><b>b</b> Leg met tabel 2 uit dat het kapotgaan van bromelaïne niet ongedaan wordt gemaakt door af te koelen.");
+  choiceStep(think,{q:"Stel dat Lisa sap van 60 °C meteen op de gelatine doet, en dat er in dat sap helemaal geen enzym zit. Wat gebeurt er dan met de gelatine?",opts:["die blijft stevig","die smelt"],right:1,
+    ok:"Ja. Bij een eerlijke proef verschilt er maar één ding tussen de opstellingen. Welk ding wil Lisa hier laten verschillen?",no:"Lees de vraag nog eens: boven welke temperatuur smelt gelatine?",
+    onDone:()=>numStep(think,{uid:"q"+id+"n",q:"Kijk in tabel 2. Hoeveel mm vloeibaar werd de gelatine met sap dat eerst tot 80 °C was verwarmd?",right:0,
+      ok:"Goed: 0 mm, en dat sap werkte daarna bij 20 °C, een temperatuur waarbij onverwarmd sap wél werkt. Wat zegt dat over het enzym na het afkoelen?",no:"Lees de laatste kolom van tabel 2.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "<b>a</b> Anders smelt de gelatine ook door de warmte, en meet je niet alleen de werking van het enzym (zo verschilt alleen de voorbehandeling van het sap).",
+    "<b>b</b> Het sap van 70 en 80 °C maakt de gelatine (bijna) niet meer vloeibaar, ook al werkt het daarna bij 20 °C: het verhitte bromelaïne is <b>gedenatureerd</b> en vouwt bij afkoelen niet terug."],
+    model:"a: Gelatine smelt boven ongeveer 34 °C. Doet Lisa warm sap op de gelatine, dan smelt die ook door de warmte, en meet ze niet alleen wat het enzym doet. Door steeds bij 20 °C te meten, verschilt alleen hoe het sap vooraf verwarmd is. b: Sap dat tot 70 of 80 °C verwarmd was, maakt bij 20 °C de gelatine (bijna) niet meer vloeibaar, terwijl onverwarmd sap bij 20 °C wel werkt. Het bromelaïne is dus gedenatureerd en vouwt bij afkoelen niet terug.",
+    valkuil:"Bij b: ‘bij 80 °C werkt het enzym niet’ zonder het afkoelen: 0 punten. De meting gebeurde steeds bij 20 °C; het gaat erom dat het enzym ná het afkoelen nog steeds niet werkt.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Alle staafjes zijn gemeten bij 20 °C. Alleen de voorbehandeling van het sap verschilt.",hl:[]},
+      {cap:"Niet verwarmd, 40 en 50 °C: het sap maakt de gelatine nog (bijna) even diep vloeibaar. Het enzym werkt.",hl:[0,1,2],k:"var(--groen)"},
+      {cap:"70 en 80 °C: ook na afkoelen tot 20 °C werkt het sap (bijna) niet meer. Het bromelaïne is gedenatureerd en vouwt niet terug.",hl:[4,5],k:"var(--koraal)"}],
+      (st,s)=>st.innerHTML=STAAF(s.hl,s.k)))});
+  q.append(think,ans);
+},STOF_WARM);
+
+const ids=[q4,q5,q6];
+if(!VWO){
+const STOF_SPEC={titel:"Enzymen zijn specifiek",html:`
+<p>Elk enzym heeft zijn eigen substraat, of een kleine groep stoffen die erop lijkt. Je kunt het zien als een sleutel in een slot: het <b>sleutel-slotmodel</b>. Andere moleculen botsen ook tegen het enzym, maar kaatsen weer weg.</p>
+<p>Om te voorspellen of een enzym op een stof werkt, vraag je je dus af: wat voor soort stof is het, en is dat het substraat van dit enzym?</p>`,
+films:[F.v]};
+ids.push(vraag(2,"agar in plaats van gelatine",(q,id)=>{
+  pre(q,"<p>Pudding met agar in plaats van gelatine wordt wél stevig met verse ananas. Agar is een koolhydraat uit zeewier.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit waardoor bromelaïne de agarpudding niet vloeibaar maakt."));
+  choiceStep(think,{q:"Wat voor soort stof is agar?",opts:["een eiwit","een koolhydraat"],right:1,
+    ok:"Ja. En op welk soort stof werkt bromelaïne volgens de inleiding?",no:"Lees de zin onder de vraag nog eens.",
+    onDone:()=>choiceStep(think,{q:"Op welke moleculen werkt een enzym?",opts:["op elk molecuul dat het tegenkomt","alleen op zijn eigen substraat, dat in het actieve centrum past"],right:1,
+      ok:"Goed. Combineer die twee dingen in je uitleg.",no:"Katalase zet waterstofperoxide om, en bijna niets anders. Hoe heet die eigenschap?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Bromelaïne is <b>specifiek</b>: het werkt alleen op eiwitketens (zijn eigen substraat).",
+    "Agar is <b>geen eiwit</b> en past niet in het actieve centrum (sleutel-slot), dus de ketens van agar worden niet geknipt."],
+    model:"Enzymen zijn specifiek: bromelaïne werkt alleen op eiwitketens. Agar is een koolhydraat, geen eiwit. Agar past daarom niet in het actieve centrum van bromelaïne, en de ketens van agar worden niet geknipt. Het netwerk van agar blijft heel: de pudding wordt stevig.",
+    valkuil:"‘Agar is sterker dan gelatine’ of ‘agar kan niet smelten’ legt niets uit over het enzym: 0 punten.",
+    after:()=>waaromBtn(ans,textBox("Een enzym werkt alleen op het molecuul dat in zijn actieve centrum past, zoals een sleutel in een slot. Bromelaïne knipt <b>eiwitketens</b>. Agar is een <b>koolhydraat</b>: dat past niet, botst en kaatst weg. Daarom blijft de agarpudding stevig, ook met verse ananas."))});
+  q.append(think,ans);
+},STOF_SPEC));
+}else{
+const STOF_VMAX={titel:"Verzadiging en V-max",html:`
+<p>Bij een vaste hoeveelheid enzym en steeds meer substraat stijgt de snelheid eerst en buigt de lijn dan af: bijna elk actief centrum is vrijwel steeds bezet (<b>verzadiging</b>). De maximale snelheid heet <b>V-max</b>.</p>
+<p>Kijk ook bij hoeveel substraat je de helft van V-max haalt. Hoe minder substraat daarvoor nodig is, hoe steviger het enzym zijn substraat meestal bindt.</p>`,
+films:[F.v]};
+ids.push(vraag(2,"verdund sap en V-max",(q,id)=>{
+  pre(q,"<p>Lisa verdunt het ananassap met evenveel water. Ze meet de snelheid waarmee het sap gelatine knipt, bij steeds meer gelatine, en vergelijkt met onverdund sap.</p>");
+  const {think,ans,unlock}=start(q,B("Voorspel en verklaar hoe V-max verandert, en of de helft van V-max bij een andere gelatineconcentratie wordt bereikt."));
+  choiceStep(think,{q:"Wat verandert er als Lisa het sap verdunt met evenveel water?",opts:["er zijn per ml half zoveel enzymmoleculen","elk enzymmolecuul werkt half zo goed","het enzym denatureert"],right:0,
+    ok:"Ja. Waar hangt V-max van af, als alle actieve centra bezet zijn?",no:"Water verandert niets aan de vorm van het enzym. Wat verandert er dan wel?",
+    onDone:()=>choiceStep(think,{q:"Bindt één bromelaïnemolecuul de gelatine na het verdunnen even stevig als eerst?",opts:["ja, het molecuul is niet veranderd","nee, minder stevig","nee, steviger"],right:0,
+      ok:"Goed. Gebruik dat bij het tweede deel van je voorspelling.",no:"Verdunnen verandert het aantal moleculen, niet het molecuul zelf.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "<b>V-max wordt (ongeveer) de helft</b>: er zijn half zoveel enzymmoleculen, en bij verzadiging is de snelheid evenredig met de hoeveelheid enzym.",
+    "De helft van V-max wordt bij <b>dezelfde gelatineconcentratie</b> bereikt, want elk enzymmolecuul bindt het substraat even stevig als eerst."],
+    model:"V-max wordt ongeveer de helft. Bij verzadiging is elk actief centrum steeds bezet, en dan hangt de snelheid alleen af van hoeveel enzymmoleculen er zijn; dat is nu de helft. De helft van V-max haalt Lisa bij dezelfde gelatineconcentratie als eerst, want elk bromelaïnemolecuul bindt de gelatine nog even stevig.",
+    valkuil:"‘Het verdunde enzym is zwakker en bindt minder goed, dus de helft van V-max komt later’: verdunnen verandert het aantal moleculen, niet hoe stevig één molecuul bindt.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Onverdund sap: de lijn buigt af naar V-max. De stip geeft aan bij hoeveel gelatine de helft van V-max wordt gehaald.",d:false},
+      {cap:"Verdund sap: half zoveel enzymmoleculen, dus bij verzadiging half zoveel omzettingen per seconde: V-max is de helft.",d:true},
+      {cap:"De helft van díe V-max wordt bij dezelfde hoeveelheid gelatine bereikt: elk enzymmolecuul bindt even stevig als eerst.",d:true,h:true}],
+      (st,s)=>{const L=[{vmax:2,km:1.5,kleur:"var(--teal)",naam:"onverdund",half:!s.d||s.h,vmaxLijn:!s.d}];
+        if(s.d)L.push({vmax:1,km:1.5,kleur:"var(--goud)",naam:"verdund",half:!!s.h,vmaxLijn:true});st.innerHTML=KROMME({lijnen:L});}))});
+  q.append(think,ans);
+},STOF_VMAX));
+}
+opgave("Ananas","Ananas in de pudding",`
+<p>Lisa maakt een pudding met gelatine. Gelatine is een eiwit. Als warme gelatine afkoelt, vormen de lange eiwitketens samen een netwerk, en wordt de pudding stevig.</p>
+<p>Op een verpakking leest ze: ‘Gebruik geen verse ananas.’ Verse ananas bevat bromelaïne, een enzym dat eiwitketens in stukken knipt.</p>
+<p>Lisa doet een proef. Ze maakt vier bakjes met gelatine en zet ze drie uur in de koelkast (tabel 1).</p>${TAB1}`,ids);
+}
+
+/* ===== Opgave 3: Energie uit glucose (kennis; EI-stofwisseling-L04, L10, havo L01 / vwo L07) ===== */
+{
+const STOF_BRAND={titel:"Brandstof voor je spieren",html:`
+<p>Een spier draait op <b>ATP</b>. Na gebruik moet ATP steeds opnieuw gemaakt worden, en daar is energie voor nodig. Die energie komt uit <b>creatinefosfaat (CP)</b> of uit de afbraak van <b>glucose</b>.</p>
+<p>De afbraak van glucose begint in het grondplasma met een reeks enzymen: de <b>glycolyse</b>. Glucose (zes C-atomen) wordt daarbij afgebroken tot twee moleculen pyrodruivenzuur (elk drie C-atomen).</p>`,
+films:[F.a]};
+const STOF_ATOM={titel:"Met en zonder zuurstof",html:`
+<p><b>Aeroob</b>: het proces heeft zuurstof nodig. <b>Anaeroob</b>: het proces heeft geen zuurstof nodig (het kan ook gebeuren als er wél zuurstof is).</p>
+<p>Bij uitspraken over dissimilatie helpt het om elke uitspraak na te lopen als een keten: welk proces, waar in de cel, welke stoffen gaan erin en welke komen eruit? En volg de atomen: een C-, H- of O-atoom verdwijnt niet, het komt altijd ergens terecht.</p>`,
+films:[F.a]};
+
+const q8=vraag(1,"glycogeen",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Wat is glycogeen, en waar dient het een spier voor?"));
+  choiceStep(think,{q:"Welke stof is de brandstof van de glycolyse?",opts:["glucose","melkzuur","creatinefosfaat"],right:0,
+    ok:"Ja. Glucose komt uit je bloed, of uit een voorraad in de spier zelf. Lees de keuzes nu nog eens.",no:"De glycolyse breekt een suiker met zes C-atomen af.",onDone:unlock});
+  mc(ans,{qid:id,pts:1,right:0,opts:["een voorraad glucose in de spier, waaruit de spier glucose haalt voor de glycolyse","een hulpmolecuul dat bij de afbraak van glucose H-atomen opneemt","een stof die bij gisting ontstaat en de pH in de spier verlaagt","een stof die zijn fosfaat aan ADP geeft"],
+    onChecked:()=>waaromBtn(ans,textBox(`<b>A</b>: glycogeen is je voorraad glucose in de spier (en de lever). Daaruit haalt de spier glucose voor de glycolyse. B is een hulpmolecuul${VWO?" (zoals NAD⁺)":""}, C is melkzuur en D is creatinefosfaat (CP).`))});
+  q.append(think,ans);
+},STOF_BRAND);
+
+const q9=vraag(2,"juist of onjuist: energie uit glucose",(q,id)=>{
+  pre(q,"<p>Hieronder staan 6 uitspraken.</p>");
+  q.append(el("p",{class:"qtext"},"1 De O-atomen van de zuurstof die je cellen gebruiken, komen in water terecht.<br>2 De C-atomen van het CO₂ dat je uitademt, komen uit je brandstof, zoals glucose.<br>3 Het CO₂ dat je uitademt, ontstaat in je longen.<br>4 Zonder zuurstof blijven alleen de fosfaataccu en de glycolyse met gisting over.<br>5 Bij melkzuurgisting ontstaat CO₂.<br>6 De glycolyse kost eerst twee ATP en levert er daarna vier op, dus netto twee per glucose.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  selectsStep(think,{uid:"q"+id,q:"Welke stoffen ontstaan bij welk proces?",rows:[
+    ["melkzuurgisting",["melkzuur","ethanol en CO₂","CO₂ en water"],0],["alcoholgisting",["melkzuur","ethanol en CO₂","CO₂ en water"],1],["aerobe dissimilatie",["melkzuur","ethanol en CO₂","CO₂ en water"],2]],
+    ok:"Goed. Bedenk bij uitspraak 3 ook wáár in de cel glucose met zuurstof wordt afgebroken.",no:"Gist maakt brooddeeg luchtig. Welk gas is dat, en welk proces doet gist?",onDone:unlock});
+  juistOnjuist(ans,{id,stm:["de O-atomen van zuurstof komen in water","de C-atomen van CO₂ komen uit je brandstof","CO₂ ontstaat in je longen","zonder zuurstof: alleen fosfaataccu en glycolyse met gisting","bij melkzuurgisting ontstaat CO₂","glycolyse: −2 en +4 ATP, netto 2"],key:[true,true,false,true,false,true],
+    uitleg:textBox("1 <b>juist</b>: zuurstof neemt aan het eind de H-atomen op; zo ontstaat water.<br>2 <b>juist</b>: alle zes C-atomen van glucose komen in CO₂ terecht.<br>3 <b>onjuist</b>: CO₂ ontstaat in je mitochondriën; het gaat via je bloed naar je longen.<br>4 <b>juist</b>: zonder zuurstof stopt de afbraak in de mitochondriën.<br>5 <b>onjuist</b>: bij melkzuurgisting ontstaat geen CO₂, bij alcoholgisting wel.<br>6 <b>juist</b>.<br><span class=\"muted\">Alles goed 2 punten, één fout 1 punt, meer fouten 0 punten.</span>")});
+  q.append(think,ans);
+},STOF_ATOM);
+
+const ids=[q8,q9];
+if(!VWO){
+const STOF_ATP={titel:"ATP: de energiedrager",html:`
+<p><b>ATP</b> is de belangrijkste chemische energiebron in een cel. Splitst een cel ATP in <b>ADP en fosfaat</b>, dan komt er energie vrij voor werk: transport, bouwen of bewegen. Omgekeerd kost het energie om van ADP en fosfaat weer ATP te maken.</p>
+<p class="muted">ADP + fosfaat + energie ⇄ ATP</p>`,
+films:[F.a]};
+ids.push(vraag(2,"ATP in een spier",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Beschrijf hoe een spier ATP gebruikt om samen te trekken, en leg uit waarom de ATP in een spier toch niet opraakt, al is de voorraad klein."));
+  choiceStep(think,{q:"Welke eiwitten zorgen in een spiervezel voor de beweging?",opts:["myosine en actine","hemoglobine en insuline","katalase en pepsine"],right:0,
+    ok:"Ja: myosinekoppen trekken aan actinefilamenten. Wat gebeurt er bij elke slag met ATP?",no:"In elke spiervezel trekt het ene eiwit aan draden van het andere.",
+    onDone:()=>choiceStep(think,{q:"Hoe lang zou je kunnen sprinten op alleen de ATP die al in je spier zit?",opts:["ongeveer twee seconden","ongeveer een uur"],right:0,
+      ok:"Goed: de voorraad is heel klein. Toch raakt hij in het echt niet op. Hoe kan dat?",no:"De voorraad ATP is erg klein.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Myosinekoppen trekken aan actinefilamenten; bij elke slag wordt <b>één ATP gesplitst in ADP en fosfaat</b> (met die energie komt de kop klaar voor de volgende slag).",
+    "De spier <b>maakt ATP steeds opnieuw uit ADP en fosfaat</b> (met energie uit CP of glucose)."],
+    model:"In een spiervezel trekken myosinekoppen aan actinefilamenten. Bij elke slag splitst een myosinekop één ATP in ADP en fosfaat; met die energie komt de kop klaar voor de volgende slag. De voorraad ATP is klein, maar de spier maakt steeds opnieuw ATP uit ADP en fosfaat, met energie uit CP of uit glucose. Daardoor raakt de ATP niet op.",
+    valkuil:"‘De spier heeft een grote voorraad ATP’ is fout: de voorraad is na ongeveer twee seconden sprinten op. ‘ATP wordt verbrand’ zonder dat ATP weer uit ADP en fosfaat ontstaat: 0 punten voor het tweede element.",
+    after:()=>waaromBtn(ans,textBox("Denk aan een oplaadbare batterij: ATP is ‘vol’, ADP + fosfaat is ‘leeg’. Bij elke slag van een myosinekop wordt één ATP leeg. Omdat de spier de lege ADP en fosfaat <b>meteen weer oplaadt</b> (eerst vooral met CP, en vanaf de start ook met energie uit glucose), blijft er genoeg ATP, ook al past er maar voor ongeveer twee seconden in de spier."))});
+  q.append(think,ans);
+},STOF_ATP));
+}else{
+const STOF_AER={titel:"Aerobe afbraak",html:`
+<p>De glycolyse in het grondplasma levert pyrodruivenzuur. Is er genoeg zuurstof, dan gaat het pyrodruivenzuur vooral verder in een organel: het <b>mitochondrium</b>. Deze route heeft zuurstof nodig: hij is <b>aeroob</b>. Aan het eind is glucose helemaal afgebroken tot CO₂ en water, en zijn er ongeveer dertig ATP per glucose gemaakt.</p>`,
+films:[F.a]};
+function MITO({stap=0}={}){
+  let s=`<ellipse cx="300" cy="115" rx="260" ry="96" fill="var(--surface)" stroke="var(--oker)" stroke-width="3"/>`;
+  s+=`<ellipse cx="300" cy="115" rx="238" ry="76" fill="var(--goud-soft)" stroke="var(--oker)" stroke-width="2"/>`;
+  [[130,1],[200,0],[270,1],[340,0],[410,1],[470,0]].forEach(([x,boven])=>{const y0=boven?115-76*Math.sqrt(1-((x-300)/238)**2):115+76*Math.sqrt(1-((x-300)/238)**2),tip=boven?y0+48:y0-48;
+    s+=`<path d="M${x-7},${y0} L${x-7},${tip} Q${x},${boven?tip+12:tip-12} ${x+7},${tip} L${x+7},${y0}" fill="var(--surface)" stroke="var(--oker)" stroke-width="2"/>`;});
+  s+=`<text x="300" y="12" text-anchor="middle" class="lbl">buitenmembraan</text><path d="M300,15 V19" stroke="var(--text2)"/>`;
+  s+=`<text x="560" y="36" class="lbl" text-anchor="end">binnenmembraan (geplooid)</text><path d="M500,40 L470,${115-62}" stroke="var(--text2)" stroke-width="1"/>`;
+  s+=`<text x="235" y="${stap>=2?150:120}" text-anchor="middle" class="lbl">matrix</text>`;
+  if(stap>=1)s+=`<path d="M-30,115 H155" stroke="var(--goud)" stroke-width="2.5" marker-end="url(#mp)"/><text x="-30" y="104" class="lblm">pyrodruivenzuur</text>`;
+  if(stap>=2){s+=`<text x="300" y="108" text-anchor="middle" class="lbl" style="fill:var(--groen)">CO₂</text><path d="M318,104 C380,70 500,20 590,6" stroke="var(--groen)" stroke-width="2" fill="none" marker-end="url(#mp)"/><text x="600" y="12" class="lblm">CO₂ naar buiten</text>`;
+    s+=`<circle cx="370" cy="130" r="6" fill="var(--goud)"/><circle cx="384" cy="138" r="6" fill="var(--goud)"/><path d="M392,140 C400,150 402,150 403,160" stroke="var(--goud)" stroke-width="2" fill="none" marker-end="url(#mp)"/><text x="300" y="232" text-anchor="middle" class="lblm">H-atomen (via NAD⁺ en FAD) naar het binnenmembraan</text>`;}
+  const defs=`<defs><marker id="mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--text2)"/></marker></defs>`;
+  return FIG("-40 0 720 242",defs+s,"Schematische doorsnede van een mitochondrium",520,640);}
+ids.push(vraag(2,"het mitochondrium",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Beschrijf de bouw van een mitochondrium (twee membranen en de ruimte binnenin), en beschrijf wat er in de matrix gebeurt met pyrodruivenzuur."));
+  choiceStep(think,{q:"Hoeveel membranen heeft een mitochondrium?",opts:["één","twee","drie"],right:1,
+    ok:"Ja. Hoe heet de ruimte binnen het binnenste membraan?",no:"De vraag geeft het al: twee membranen. Hoe heten ze?",
+    onDone:()=>choiceStep(think,{q:"Welke stof komt vrij als pyrodruivenzuur in de matrix wordt afgebroken, en die je later uitademt?",opts:["CO₂","O₂","glucose"],right:0,
+      ok:"Goed. En wat gebeurt er met de H-atomen die van het pyrodruivenzuur afgaan?",no:"Bij de afbraak van glucose komt een gas vrij dat via je bloed naar je longen gaat.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Een <b>buitenmembraan</b> en een <b>binnenmembraan</b>; de ruimte binnen het binnenmembraan is de <b>matrix</b>.",
+    "In de matrix wordt pyrodruivenzuur stap voor stap afgebroken, waarbij <b>CO₂ vrijkomt</b> en <b>H-atomen</b> (via hulpmoleculen) naar het binnenmembraan gaan. Ook goed: decarboxyleren (CO₂ eraf), acetyl-coA en de citroenzuurcyclus, waarbij NAD⁺ en FAD H-atomen opnemen."],
+    model:"Een mitochondrium heeft een buitenmembraan en een binnenmembraan; de ruimte binnen het binnenmembraan heet de matrix. In de matrix wordt CO₂ afgesplitst van pyrodruivenzuur (decarboxyleren); wat overblijft, gaat als acetyl-coA de citroenzuurcyclus in. Daarbij komt nog meer CO₂ vrij, en NAD⁺ en FAD nemen H-atomen op, die naar het binnenmembraan gaan.",
+    valkuil:"Matrix en binnenmembraan verwisselen: de citroenzuurcyclus is in de matrix, de elektronentransportketen in het binnenmembraan.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Bouw: een buitenmembraan en een sterk geplooid binnenmembraan. De ruimte binnen het binnenmembraan is de matrix.",stap:0},
+      {cap:"Pyrodruivenzuur uit de glycolyse komt het mitochondrium in, tot in de matrix.",stap:1},
+      {cap:"In de matrix: CO₂ eraf (decarboxyleren), acetyl-coA de citroenzuurcyclus in. CO₂ komt vrij en NAD⁺ en FAD brengen de H-atomen naar het binnenmembraan.",stap:2}],
+      (st,s)=>st.innerHTML=MITO(s)))});
+  q.append(think,ans);
+},STOF_AER));
+}
+opgave("Glucose","Energie uit glucose","",ids);
+}
+
+/* ===== Opgave 4: Alcohol onder het ijs (inzicht versie 1; EI-stofwisseling-B01, B02, B03, havo B04 / vwo B05) ===== */
+{
+const STOF_DRIE={titel:"Drie manieren om ATP aan te vullen",html:`
+<p>Een spier vult zijn ATP op drie manieren aan, vaak tegelijk:</p>
+<ul style="margin:0;padding-left:20px"><li>de <b>fosfaataccu</b>: CP geeft zijn fosfaat aan ADP; de voorraad CP is klein;</li>
+<li>de <b>glycolyse</b> in het grondplasma, met daarna <b>gisting</b> als er (te) weinig zuurstof is;</li>
+<li>de <b>aerobe dissimilatie</b>: verdere afbraak in de mitochondriën, met zuurstof.</li></ul>
+<p>Bij gisting wordt pyrodruivenzuur omgezet in melkzuur of in ethanol. Kijk bij elk proces of het zuurstof nodig heeft, en hoe lang het kan volhouden.</p>`,
+films:[F.a]};
+const STOF_PH={titel:"Enzymen en de pH",html:`
+<p>Enzymen zijn gevoelig voor de pH: een beetje zuurder of basischer, en de ladingen in het actieve centrum kloppen al niet meer.</p>
+`,
+films:[F.a,F.v]};
+const STOF_REKEN={titel:"Rekenen met een verhouding",html:`
+<p>Levert elke eenheid brandstof minder op, dan heb je voor hetzelfde resultaat méér eenheden nodig. Een voorbeeld met andere getallen: een lamp die 4 uur brandt op een grote batterij, brandt maar 1 uur op een kleine. Voor 8 uur licht heb je dan 2 grote of 8 kleine batterijen nodig: vier keer zoveel.</p>
+<p>Reken dus eerst uit hoeveel keer zoveel het ene oplevert als het andere.</p>`,
+films:[F.a]};
+
+const q11=vraag(1,"ATP onder het ijs",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Uit welk proces halen de spieren van de karper onder het ijs hun ATP?"));
+  choiceStep(think,{q:"Is er onder het ijs zuurstof voor de spieren van de karper?",opts:["ja","nee"],right:1,
+    ok:"Ja: geen zuurstof. Dan kunnen alleen processen die geen zuurstof nodig hebben nog ATP leveren.",no:"Lees de inleiding: het water bevat helemaal geen zuurstof meer.",
+    onDone:()=>chipsStep(think,{q:"Welke processen kunnen zonder zuurstof ATP leveren? Kies alles wat klopt.",items:[["de fosfaataccu",1],["de glycolyse",1],["de afbraak in de mitochondriën",0]],
+      ok:"Goed. Welke van deze twee kan het maandenlang volhouden?",no:"De afbraak in de mitochondriën heeft zuurstof nodig.",onDone:unlock})});
+  mc(ans,{qid:id,pts:1,right:1,opts:["uit de afbraak van pyrodruivenzuur in de matrix","uit de glycolyse in het grondplasma","uit de fosfaataccu, maandenlang","uit de stap waarin ethanol ontstaat"],
+    onChecked:()=>waaromBtn(ans,textBox("<b>B</b>: de glycolyse levert netto twee ATP per glucose, ook zonder zuurstof. A heeft zuurstof nodig. C: de voorraad CP raakt binnen seconden op. D: de stap van pyrodruivenzuur naar ethanol levert zelf <b>geen</b> ATP op; hij zorgt er wel voor dat de glycolyse door kan gaan."))});
+  q.append(think,ans);
+},STOF_DRIE);
+
+const q12=vraag(2,"ethanol of melkzuur",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Leg uit waardoor de karper door ethanol te maken maanden zonder zuurstof kan, terwijl een dier dat melkzuur maakt dat niet lang volhoudt."));
+  choiceStep(think,{q:"Wat gebeurt er met de pH in een spier als er veel melkzuur ontstaat?",opts:["de pH daalt","de pH stijgt","de pH blijft gelijk"],right:0,
+    ok:"Ja. Waarom is dat een probleem voor de spiercellen?",no:"Melkzuur is een zuur.",
+    onDone:()=>choiceStep(think,{q:"Wat gebeurt er met de ethanol die de spieren van de karper maken?",opts:["die hoopt zich op in de spieren","die verlaat het lichaam via de kieuwen","die wordt omgezet in melkzuur"],right:1,
+      ok:"Goed. Zet die twee dingen tegenover elkaar in je uitleg.",no:"Lees de laatste zin van de inleiding.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Melkzuur (en H⁺) <b>hoopt zich op</b>, de <b>pH</b> in de spieren daalt en <b>enzymen werken dan slechter</b>.",
+    "De ethanol <b>verlaat via de kieuwen het lichaam</b>, zodat er niets ophoopt en de pH niet daalt."],
+    model:"Een dier dat melkzuur maakt, kan het melkzuur niet snel kwijt: melkzuur en H⁺ hopen zich op in de spieren, de pH daalt en de enzymen werken slechter. Dat houdt het dier niet lang vol. De ethanol van de karper verlaat via de kieuwen het lichaam. Daardoor hoopt er niets op, de pH daalt niet, en de glycolyse kan maandenlang doorgaan.",
+    valkuil:"‘Ethanol levert meer ATP op dan melkzuur’: fout. Beide soorten gisting leveren netto twee ATP per glucose; het verschil is wat er met het eindproduct gebeurt.",
+    after:()=>waaromBtn(ans,textBox("Beide soorten gisting leveren evenveel ATP: netto twee per glucose uit de glycolyse. Het verschil zit in het <b>afval</b>. Melkzuur blijft in de spier, de pH daalt, en enzymen (ook die van de glycolyse) werken slechter. Ethanol is een kleine stof die via de kieuwen in het water verdwijnt: er hoopt niets op."))});
+  q.append(think,ans);
+},STOF_PH);
+
+const q13=vraag(2,"rekenen aan glucose en glycogeen",(q,id)=>{
+  pre(q,"<p>Met zuurstof levert één glucose ongeveer 30 ATP op, met gisting 2 ATP. Stel dat een karper in de winter elke dag evenveel ATP gebruikt als een karper met zuurstof die 3 mmol glucose per dag verbruikt (fictieve gegevens).</p>");
+  const {think,ans,unlock}=start(q,"<b>a</b> Bereken hoeveel mmol glucose de karper zonder zuurstof per dag verbruikt.<br><b>b</b> Karpers slaan in de herfst veel glycogeen op in hun lever en spieren. Leg uit waarom dat nodig is om de winter zonder zuurstof te overleven.");
+  numStep(think,{uid:"q"+id+"n",q:"Hoeveel keer zoveel ATP levert één glucose met zuurstof op als met gisting?",right:15,
+    ok:"Ja: 30 : 2 = 15. Hoeveel glucose heeft de karper zonder zuurstof dan nodig voor evenveel ATP?",no:"Deel het ene getal door het andere: 30 : 2 = ?",
+    onDone:()=>choiceStep(think,{q:"Waar haalt een karper onder het ijs zijn glucose vandaan, als hij nauwelijks eet?",opts:["uit een voorraad in zijn eigen lichaam","uit het water onder het ijs"],right:0,
+      ok:"Goed. Gebruik bij b ook je uitkomst van a.",no:"In de winter eet de karper bijna niets. Wat lees je in b over de herfst?",onDone:unlock})});
+  rekenOpen(ans,{id,reken:["a · glucose zonder zuurstof","mmol per dag",v=>Math.abs(v-45)<0.01,"3 × (30 : 2) = <b>45</b> mmol glucose per dag"],
+    check:"<b>b</b> Glycogeen is een <b>voorraad glucose</b>; zonder zuurstof is per dag (vijftien keer) zoveel glucose nodig dat de vis maanden lang een <b>grote voorraad</b> nodig heeft (onder het ijs eet hij nauwelijks).",
+    model:"Glycogeen is een voorraad glucose. Zonder zuurstof levert elke glucose maar 2 ATP, dus de karper verbruikt per dag 15 keer zoveel glucose (45 in plaats van 3 mmol). Dat moet maandenlang, terwijl hij onder het ijs nauwelijks eet. Daarom heeft hij een grote voorraad nodig.",
+    valkuil:"Bij a: 3 × 2 : 30 = 0,2 mmol is omgekeerd gerekend. Met minder ATP per glucose heb je juist méér glucose nodig.",
+    after:()=>waaromBtn(ans,textBox("Met zuurstof: 3 mmol × 30 ATP = 90 mmol ATP per dag. Met gisting levert elke glucose maar 2 ATP: 90 : 2 = <b>45 mmol</b> glucose per dag, vijftien keer zoveel. Een hele winter lang is dat zoveel glucose dat de karper in de herfst een grote voorraad glycogeen moet aanleggen."))});
+  q.append(think,ans);
+},STOF_REKEN);
+
+const ids=[q11,q12,q13];
+if(!VWO){
+ids.push(vraag(2,"geen ethanol in de zomer",(q,id)=>{
+  pre(q,"<p>Een onderzoeker vindt in de winter ethanol in het vijverwater onder het ijs, maar in de zomer niet.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit waardoor de karper in de zomer geen ethanol maakt. Beschrijf wat er dan met het pyrodruivenzuur gebeurt."));
+  choiceStep(think,{q:"Wat is er in de zomer anders aan het vijverwater?",opts:["er is zuurstof","het water is zouter","er zit al ethanol in"],right:0,
+    ok:"Ja. Is gisting dan nodig?",no:"Onder het ijs is er geen zuurstof. En zonder ijs?",
+    onDone:()=>choiceStep(think,{q:"Waar wordt pyrodruivenzuur verder afgebroken als er genoeg zuurstof is?",opts:["in het mitochondrium","in de celkern","in het grondplasma, tot ethanol"],right:0,
+      ok:"Goed. Tot welke stoffen wordt het daar uiteindelijk afgebroken?",no:"Denk aan het organel waar je CO₂ ontstaat.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "In de zomer is er <b>genoeg zuurstof</b>, dus is er geen (nauwelijks) <b>gisting</b> nodig.",
+    "Het pyrodruivenzuur gaat het <b>mitochondrium</b> in en wordt (aeroob) afgebroken tot <b>CO₂ en water</b>."],
+    model:"In de zomer zit er zuurstof in het water. Dan is gisting (bijna) niet nodig. Het pyrodruivenzuur uit de glycolyse gaat het mitochondrium in en wordt daar met zuurstof afgebroken tot CO₂ en water. Daarbij ontstaat veel meer ATP.",
+    valkuil:"‘In de zomer is het warmer’ is geen uitleg: het gaat om de zuurstof.",
+    after:()=>waaromBtn(ans,textBox("Pyrodruivenzuur staat op een splitsing. <b>Zonder zuurstof</b> gaat het naar ethanol (gisting), zodat de glycolyse door kan. <b>Met zuurstof</b> gaat het vooral het mitochondrium in en wordt het helemaal afgebroken tot CO₂ en water: ongeveer dertig ATP per glucose in plaats van twee."))});
+  q.append(think,ans);
+},STOF_DRIE));
+}else{
+const STOF_NAD={titel:"Hulpmoleculen bij de glycolyse",html:`
+<p>Bij één stap van de glycolyse gaan er H-atomen af. Een co-enzym neemt ze op: <b>NAD⁺</b>. Met de H-atomen erop heet het <b>NADH,H⁺</b>. Van NAD⁺ is maar weinig in een cel; een co-enzym wordt niet verbruikt, maar steeds opnieuw beladen en weer leeggemaakt.</p>
+`,
+films:[F.a]};
+function NADKRING(stap){
+  const c=[["glucose",80,60],["pyrodruivenzuur",420,60]];let s="";
+  s+=`<rect x="160" y="34" width="180" height="50" rx="10" fill="var(--teal-soft)" stroke="var(--teal)" stroke-width="2"/><text x="250" y="64" text-anchor="middle" class="lbl">glycolyse</text>`;
+  s+=`<text x="70" y="64" text-anchor="middle" class="lbl">glucose</text><path d="M110,59 H156" stroke="var(--text2)" stroke-width="2" marker-end="url(#nk)"/>`;
+  s+=`<path d="M344,59 H396" stroke="var(--text2)" stroke-width="2" marker-end="url(#nk)" opacity="${stap===3?.3:1}"/><text x="470" y="64" text-anchor="middle" class="lbl">pyrodruivenzuur</text>`;
+  s+=`<text x="400" y="34" class="lblm" style="fill:var(--koraal)">${stap===1?"+ 2 ATP":""}</text>`;
+  /* kring NAD+ */
+  s+=`<path d="M300,88 C320,150 400,160 440,140" fill="none" stroke="var(--goud)" stroke-width="2" marker-end="url(#nk)"/><text x="460" y="150" class="lbl">NADH,H⁺</text>`;
+  const terug=stap===1;
+  s+=`<path d="M440,168 C380,200 240,200 200,92" fill="none" stroke="${terug?"var(--groen)":"var(--koraal)"}" stroke-width="2" stroke-dasharray="${terug?"":"6 5"}" marker-end="url(#nk)"/><text x="150" y="150" class="lbl">NAD⁺</text>`;
+  if(stap===1)s+=`<text x="320" y="214" text-anchor="middle" class="lblm">H-atomen naar pyrodruivenzuur: ethanol of melkzuur</text>`;
+  if(stap>=2)s+=`<text x="320" y="214" text-anchor="middle" class="lblm" style="fill:var(--koraal)">geen zuurstof, geen ethanol, geen melkzuur: de H-atomen kunnen nergens heen</text>`;
+  if(stap===3)s+=`<text x="250" y="22" text-anchor="middle" class="lbl" style="fill:var(--koraal)">glycolyse stopt: geen ATP meer</text>`;
+  const defs=`<defs><marker id="nk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--text2)"/></marker></defs>`;
+  return FIG("0 0 640 230",defs+s,"NAD⁺ wordt bij de glycolyse beladen en moet weer vrijkomen",520,640);}
+ids.push(vraag(2,"geen ethanol en geen melkzuur",(q,id)=>{
+  pre(q,"<p>Stel dat een karper door een mutatie onder het ijs geen ethanol én geen melkzuur kan maken.</p>");
+  const {think,ans,unlock}=start(q,B("Leg uit waardoor zijn spieren dan geen ATP meer kunnen maken, hoewel er nog glucose is."));
+  choiceStep(think,{q:"Welk hulpmolecuul neemt bij de glycolyse H-atomen op?",opts:["NAD⁺","ATP","CO₂"],right:0,
+    ok:"Ja. Er is maar weinig van in de cel. Wat moet er met NADH,H⁺ gebeuren voordat de glycolyse verder kan?",no:"Het is een co-enzym; beladen heet het NADH,H⁺.",
+    onDone:()=>choiceStep(think,{q:"Kan NADH,H⁺ onder het ijs zijn elektronen kwijt aan de elektronentransportketen?",opts:["ja, die werkt altijd","nee: zonder zuurstof loopt de keten vast"],right:1,
+      ok:"Goed. Wat is dan nog de enige manier om NAD⁺ terug te krijgen, en wat gebeurt er als ook die wegvalt?",no:"Wie neemt aan het eind van de keten de elektronen op?",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Het <b>NADH,H⁺</b> uit de glycolyse kan zijn H-atomen niet kwijt: zonder zuurstof loopt de elektronentransportketen vast en zonder ethanol- of melkzuurvorming komt er <b>geen NAD⁺ terug</b>.",
+    "Zonder NAD⁺ <b>stopt de glycolyse</b>, de enige bron van ATP zonder zuurstof (de fosfaataccu is snel op)."],
+    model:"Bij de glycolyse neemt NAD⁺ H-atomen op en wordt NADH,H⁺. Zonder zuurstof loopt de elektronentransportketen vast, en door de mutatie kan NADH,H⁺ zijn H-atomen ook niet aan pyrodruivenzuur kwijt (geen ethanol, geen melkzuur). Er komt dus geen NAD⁺ terug. Als alle NAD⁺ beladen is, stopt de glycolyse. Dat was zonder zuurstof de enige bron van ATP; de fosfaataccu is binnen seconden op.",
+    valkuil:"‘De stap naar ethanol leverde de ATP’: fout. Die stap levert zelf geen ATP; hij levert NAD⁺ terug, zodat de glycolyse door kan.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Gewone karper onder het ijs: de glycolyse maakt netto 2 ATP en belaadt NAD⁺. Bij de vorming van ethanol gaan de H-atomen naar pyrodruivenzuur, en komt NAD⁺ terug.",s:1},
+      {cap:"Mutant: geen ethanol en geen melkzuur, en zonder zuurstof ook geen elektronentransportketen. NADH,H⁺ kan zijn H-atomen nergens kwijt.",s:2},
+      {cap:"Alle NAD⁺ is beladen: de glycolyse stopt, en daarmee de enige bron van ATP zonder zuurstof. Glucose genoeg, maar geen ATP.",s:3}],
+      (st,x)=>st.innerHTML=NADKRING(x.s)))});
+  q.append(think,ans);
+},STOF_NAD));
+}
+opgave("Karper","Alcohol onder het ijs",`
+<p>Kroeskarpers en goudvissen kunnen maandenlang leven in vijvers met een ijslaag erop, ook als het water onder het ijs helemaal geen zuurstof meer bevat. De meeste gewervelde dieren, ook de mens, maken zonder zuurstof melkzuur. De spieren van deze vissen maken in plaats daarvan vooral ethanol. De ethanol verlaat het lichaam via de kieuwen en komt in het water terecht.</p>
+<p class="muted" style="font-size:14px">Bron: Universiteit van Liverpool en Universiteit van Oslo, Scientific Reports 2017 (vereenvoudigd).</p>`,ids);
+}
+
+/* ===== Opgave 5: Fotosynthese en de plant (kennis; EI-stofwisseling-M01, M11, M02; havo en vwo gelijk) ===== */
+{
+const STOF_MASSA={titel:"Massa volgen: atomen tellen",html:`
+<p>Massa verdwijnt niet en ontstaat niet uit het niets. Wordt een plant zwaarder, dan zijn die atomen ergens vandaan gekomen: uit de bodem, uit het water of uit de lucht.</p>
+<p>De <b>droge massa</b> is wat er overblijft als je al het water eruit haalt. Organische stoffen, zoals glucose en hout, bestaan vooral uit drie soorten atomen: <b>C, H en O</b>. Vraag je dus bij elk soort atoom af waar het vandaan kan komen.</p>`,
+films:[F.g]};
+const STOF_GRONDSTOF={titel:"Glucose als brandstof en grondstof",html:`
+<p>Een plant gebruikt de glucose die hij maakt op twee manieren. Een deel breekt hij af tot CO₂ en water om ATP te maken: <b>dissimilatie</b>, net als bij jou. Glucose is dan brandstof.</p>
+<p>De rest is grondstof: <b>voortgezette assimilatie</b>. Van glucose maakt de plant onder andere zetmeel (reservestof), sacharose (transport via de bastvaten), cellulose (bouwstof voor de celwanden) en vet (reservestof).</p>`,
+films:[F.g]};
+const STOF_NODIG={titel:"Wat heeft fotosynthese nodig?",html:`
+<p>Bij fotosynthese maakt een plant glucose uit <b>CO₂</b> en <b>water</b>, met energie uit <b>licht</b>. Dat gebeurt in de chloroplasten (bladgroenkorrels) van de bladcellen.</p>
+<p>Elke bladcel met chloroplasten heeft dus licht, CO₂ en water nodig. De bouw van een blad heeft te maken met hoe die drie bij de cellen komen.</p>`,
+films:[F.g]};
+
+const q15=vraag(1,"het hout van een eik",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Uit een eikel van een paar gram groeit een eik van vele tonnen. Waar komt het grootste deel van het droge hout vandaan?"));
+  choiceStep(think,{q:"Van Helmont kweekte een wilg van ongeveer 2 kg in een pot met afgewogen grond. Na vijf jaar woog de wilg ongeveer 75 kg; de grond was maar zo'n 60 gram lichter. Wat zegt dat?",opts:["de grond levert bijna niets van de massa","de grond levert het grootste deel"],right:0,
+    ok:"Ja. Hout bestaat vooral uit C-, H- en O-atomen. Waar kunnen de C-atomen vandaan komen?",no:"Vergelijk 73 kg erbij met 60 gram eraf.",
+    onDone:()=>choiceStep(think,{q:"Waar komen de C-atomen van de glucose in een plant vandaan?",opts:["uit CO₂","uit water","uit de mineralen"],right:0,
+      ok:"Goed. Water (H₂O) bevat geen C. Kies nu je antwoord.",no:"Welke van deze stoffen bevat C-atomen?",onDone:unlock})});
+  mc(ans,{qid:id,pts:1,right:1,opts:["uit mineralen uit de bodem","uit CO₂ uit de lucht","uit het water dat de wortels opnemen","uit de glucose die de wortels uit de bodem opnemen"],
+    onChecked:()=>waaromBtn(ans,textBox("<b>B</b>: de C- en O-atomen, samen ruim negentig procent van de massa van glucose, komen uit CO₂. Uit de bodem komen alleen water en een klein beetje mineralen (A, C). Glucose neemt een plant niet op uit de bodem: die maakt hij zelf (D)."))});
+  q.append(think,ans);
+},STOF_MASSA);
+
+const q16=vraag(2,"juist of onjuist: glucose in de plant",(q,id)=>{
+  pre(q,"<p>Hieronder staan 5 uitspraken.</p>");
+  q.append(el("p",{class:"qtext"},"1 Fotosynthese is precies het omgekeerde van dissimilatie: dezelfde enzymen, dezelfde plek.<br>2 Overdag maakt de chloroplast van glucose zetmeel.<br>3 Wortels hebben geen chloroplasten en halen hun ATP uit dissimilatie.<br>4 Zetmeel lost goed op in water.<br>5 Een eikel zit vooral vol vet.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  selectsStep(think,{uid:"q"+id,q:"Waar in een plantencel gebeurt het?",rows:[
+    ["fotosynthese",["in de chloroplasten","in het grondplasma en de mitochondriën"],0],["dissimilatie",["in de chloroplasten","in het grondplasma en de mitochondriën"],1]],
+    ok:"Goed. Bedenk bij uitspraak 4: wat moet een reservestof kunnen, zonder weg te stromen of de cel te verstoren?",no:"Fotosynthese gebeurt in de bladgroenkorrels. Waar breekt jouw lichaam glucose af?",onDone:unlock});
+  juistOnjuist(ans,{id,stm:["fotosynthese is precies het omgekeerde van dissimilatie","overdag maakt de chloroplast zetmeel","wortels halen hun ATP uit dissimilatie","zetmeel lost goed op in water","een eikel zit vooral vol vet"],key:[false,true,true,false,false],
+    uitleg:textBox("1 <b>onjuist</b>: de totaalreactie lijkt omgekeerd, maar het zijn andere enzymen, een andere plek, en de energie komt uit licht.<br>2 <b>juist</b>.<br>3 <b>juist</b>: wortels hebben geen chloroplasten; 's nachts maakt ook een blad geen ATP met licht.<br>4 <b>onjuist</b>: zetmeel lost niet op; daarom is het een goede reservestof.<br>5 <b>onjuist</b>: een eikel zit vol zetmeel, een zonnebloempit vooral vol vet.")});
+  q.append(think,ans);
+},STOF_GRONDSTOF);
+
+const q17=vraag(2,"de bouw van een blad",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Noem twee kenmerken van de bouw van een blad en leg bij elk uit hoe het de fotosynthese helpt."));
+  chipsStep(think,{q:"Wat heeft een bladcel nodig voor fotosynthese? Kies alles wat klopt.",items:[["licht",1],["CO₂",1],["water",1],["zuurstof",0]],
+    ok:"Goed. Bedenk nu bij een kenmerk van het blad (de vorm, de dikte, de openingen, wat er tussen de cellen zit, de vaten) welke van deze drie het helpt.",no:"Zuurstof is een product van de fotosynthese, geen grondstof.",onDone:unlock});
+  openAnswer(ans,{id,pts:2,checks:[
+    "<b>Eerste kenmerk met de juiste uitleg</b>, bijvoorbeeld: plat: vangt veel licht · dun: licht en CO₂ komen bij elke cel · huidmondjes: CO₂ komt het blad in · veel lucht tussen de cellen: CO₂ komt makkelijk bij elke cel · vaten: water komt uit de wortels.",
+    "<b>Tweede, ander kenmerk</b> uit dat rijtje, met de juiste uitleg."],
+    model:"Een blad is plat, zodat het veel licht vangt. En een blad heeft huidmondjes, kleine openingen waardoor CO₂ het blad in komt. (Ook goed: dun, zodat licht en CO₂ bij elke cel komen; veel lucht tussen de cellen; vaten die water uit de wortels aanvoeren.)",
+    valkuil:"Alleen een kenmerk noemen zonder uitleg (‘een blad is plat’) of alleen een uitleg zonder kenmerk: 0 punten voor dat kenmerk. ‘Een blad is groen’ is geen kenmerk van de bouw.",
+    after:()=>waaromBtn(ans,textBox("Vijf kenmerken uit de film, telkens met wat ze aanvoeren:<br>· <b>plat</b> → veel licht<br>· <b>dun</b> → licht en CO₂ bij elke cel<br>· <b>huidmondjes</b> → CO₂ het blad in<br>· <b>veel lucht tussen de cellen</b> → CO₂ makkelijk bij elke cel<br>· <b>vaten</b> → water uit de wortels<br>Per kenmerk mét uitleg 1 punt, maximaal 2 punten."))});
+  q.append(think,ans);
+},STOF_NODIG);
+
+opgave("Plant","Fotosynthese en de plant","",[q15,q16,q17]);
+}
+
+/* ===== Opgave 6: Geel gras onder het zwembad (inzicht versie 1; EI-stofwisseling-C01, C02, C03, havo C04 / vwo C05) ===== */
+{
+const TAB3=TABEL(3,["","droge massa (g)"],[["vóór de proef","25"],["na 2 weken onder het zwembad","22"],["na 2 weken naast het zwembad","32"]],"(fictieve gegevens)");
+const STOF_DELEN={titel:"De twee delen van de fotosynthese",html:`
+<p>In een chloroplast liggen in het stroma platte zakjes: de <b>thylakoïden</b>. In hun membraan zit chlorofyl.</p>
+<ul style="margin:0;padding-left:20px"><li>De <b>lichtreactie</b> gebeurt in de thylakoïden. Ze gebruikt licht en water, en levert O₂, ATP en NADPH,H⁺.</li>
+<li>De <b>calvincyclus</b> gebeurt in het stroma. Enzymen leggen daar CO₂ vast en maken er glucose van, met ATP en NADPH,H⁺.</li></ul>
+<p>Kijk bij een vraag over een stoornis steeds: wat heeft elk deel nodig, en waar komt dat vandaan?</p>`,
+films:[F.g]};
+const STOF_BALANS={titel:"Groeien of krimpen",html:`
+<p><b>Biomassa</b> is alle organische stof in een plant. Bij <b>assimilatie</b> bouwt de plant grotere organische stoffen op uit kleine; bij <b>dissimilatie</b> breekt hij ze af tot CO₂ en water. Is de assimilatie groter dan de dissimilatie, dan neemt de biomassa toe; is ze kleiner, dan neemt de biomassa af.</p>
+<p>Bij een bepaalde lichtintensiteit zijn assimilatie en dissimilatie even groot: het <b>compensatiepunt</b>.</p>`,
+films:[F.g]};
+
+const q18=vraag(1,"wat stopte als eerste?",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Welk deel van de fotosynthese stopte onder het zwembad als eerste?"));
+  choiceStep(think,{q:"Wat valt onder het zwembad weg?",opts:["licht","CO₂","water"],right:0,
+    ok:"Ja: het zwembad laat geen licht door. Welk deel van de fotosynthese gebruikt het licht zelf?",no:"Lees de inleiding nog eens: wat laat het zwembad niet door?",
+    onDone:()=>choiceStep(think,{q:"De calvincyclus gebruikt ATP en NADPH,H⁺. Waar komen die vandaan?",opts:["uit de lichtreactie","uit de mitochondriën","uit de bodem"],right:0,
+      ok:"Goed. Welk deel stopt dus meteen, en welk deel pas als die voorraad op is?",no:"Kijk bij ‘Uitleg van de stof’ wat de lichtreactie levert.",onDone:unlock})});
+  mc(ans,{qid:id,pts:1,right:3,opts:["de calvincyclus in het stroma","de dissimilatie in de mitochondriën","de opname van water door de wortels","de lichtreactie in de thylakoïden"],
+    onChecked:()=>waaromBtn(ans,textBox("<b>D</b>: zonder licht vangt chlorofyl geen licht meer, dus de lichtreactie stopt meteen. De calvincyclus (A) stopt pas daarna, als ATP en NADPH,H⁺ op zijn. De naam ‘donkerreactie’ is verwarrend: in het donker stopt hij juist ook. B is geen deel van de fotosynthese en gaat gewoon door; ook C is geen deel van de fotosynthese."))});
+  q.append(think,ans);
+},STOF_DELEN);
+
+/* balans van assimilatie (licht) en dissimilatie over een etmaal; stand: onder | naast */
+function BALANS(stand,toon=2){
+  const onder=stand==="onder";let s="";
+  const balk=(x,h,kleur,lab)=>`<rect x="${x}" y="${170-h}" width="70" height="${Math.max(h,1.5)}" rx="4" fill="${kleur}"/><text x="${x+35}" y="190" text-anchor="middle" class="lblm">${lab}</text>`;
+  s+=`<path d="M40,170 H600" stroke="var(--text2)" stroke-width="1.4"/>`;
+  s+=`<text x="155" y="22" text-anchor="middle" class="lbl">overdag</text><text x="455" y="22" text-anchor="middle" class="lbl">'s nachts</text>`;
+  s+=balk(80,onder?0:130,"var(--groen)","assimilatie")+balk(160,40,"var(--koraal)","dissimilatie");
+  s+=balk(380,0,"var(--groen)","assimilatie")+balk(460,40,"var(--koraal)","dissimilatie");
+  if(onder)s+=`<text x="115" y="160" text-anchor="middle" class="lblm">0</text><text x="415" y="160" text-anchor="middle" class="lblm">0</text>`;
+  if(toon>=2){const net=onder?"biomassa neemt af, dag én nacht":"over een hele dag: assimilatie groter dan dissimilatie → biomassa neemt toe";
+    s+=`<text x="320" y="222" text-anchor="middle" class="lbl" style="fill:${onder?"var(--koraal)":"var(--groen)"}">${net}</text>`;}
+  return FIG("0 0 640 236",s,"Assimilatie en dissimilatie overdag en 's nachts (schematisch)",520,640);}
+
+const q19=vraag(2,"de droge massa nam af",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Leg uit waardoor de droge massa van het gras onder het zwembad in de twee weken afnam."));
+  choiceStep(think,{q:"Is er onder het zwembad fotosynthese?",opts:["nee, er is geen licht","ja, gewoon"],right:0,
+    ok:"Ja. Komt er dan nog organische stof bij?",no:"Fotosynthese heeft licht nodig.",
+    onDone:()=>choiceStep(think,{q:"Gaat de dissimilatie in het gras door in het donker?",opts:["ja, een plant dissimileert dag en nacht","nee, alleen als er licht is"],right:0,
+      ok:"Goed. Wat betekent dat voor de organische stof in het gras?",no:"Ook wortels, zonder chloroplasten, hebben ATP nodig.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Zonder licht is er <b>geen fotosynthese</b> (geen koolstofassimilatie), dus komt er <b>geen organische stof bij</b>.",
+    "De <b>dissimilatie gaat door</b>: organische stof wordt afgebroken tot CO₂ en water, zodat de biomassa daalt."],
+    model:"Onder het zwembad is geen licht, dus is er geen fotosynthese: er komt geen organische stof bij. Het gras dissimileert wel door, dag en nacht. Daarbij wordt organische stof afgebroken tot CO₂ en water, die het gras verlaten. Daardoor neemt de droge massa af.",
+    valkuil:"‘Het gras gaat dood’ of ‘het gras droogt uit’ legt het niet uit. Het gaat om de droge massa: de organische stof die verdwijnt door dissimilatie.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Naast het zwembad: overdag legt het gras meer vast dan het afbreekt; 's nachts alleen dissimilatie.",st:"naast",t:1},
+      {cap:"Onder het zwembad: geen licht, dus geen assimilatie. De dissimilatie gaat dag en nacht door: er verdwijnt steeds organische stof als CO₂ en water.",st:"onder",t:2}],
+      (st,s)=>st.innerHTML=BALANS(s.st,s.t)))});
+  q.append(think,ans);
+},STOF_BALANS);
+
+const q20=vraag(2,"rekenen aan het gazon",(q,id)=>{
+  pre(q,"<p>Jesse weegt van een stukje gazon van 0,1 m² de droge massa van het gras: vóór de proef, na twee weken onder het zwembad, en na twee weken naast het zwembad (tabel 3).</p>"+TAB3);
+  const {think,ans,unlock}=start(q,"<b>a</b> Bereken met hoeveel procent de droge massa onder het zwembad is afgenomen.<br><b>b</b> Ook het gras naast het zwembad dissimileert dag en nacht. Leg uit waardoor het toch zwaarder werd.");
+  numStep(think,{uid:"q"+id+"n",q:"Met hoeveel gram is de droge massa onder het zwembad afgenomen?",right:3,
+    ok:"Ja: 25 − 22 = 3 g. Welk deel van de beginmassa is dat, in procent?",no:"Trek de massa na twee weken af van de massa vóór de proef.",
+    onDone:()=>choiceStep(think,{q:"Hoe heet de lichtintensiteit waarbij assimilatie en dissimilatie even groot zijn?",opts:["het compensatiepunt","het optimum","de verzadiging"],right:0,
+      ok:"Goed. Waar lag het licht naast het zwembad ten opzichte van dat punt? Vergeet de nacht niet.",no:"Kijk bij ‘Uitleg van de stof’.",onDone:unlock})});
+  rekenOpen(ans,{id,reken:["a · afname","%",v=>Math.abs(v-12)<0.05,"(25 − 22) : 25 × 100 = <b>12 %</b>"],
+    check:"<b>b</b> Overdag lag het licht <b>ruim boven het compensatiepunt</b>, zodat de <b>assimilatie over een hele dag</b> (met de nacht erbij) <b>groter</b> was dan de dissimilatie.",
+    model:"Naast het zwembad kreeg het gras overdag veel licht, ruim boven het compensatiepunt. Overdag legde het daardoor veel meer vast dan het afbrak. Dat was meer dan wat het 's nachts door dissimilatie verloor. Over een hele dag was de assimilatie dus groter dan de dissimilatie: de biomassa nam toe.",
+    valkuil:"Bij a: 3 : 22 × 100 ≈ 13,6 % deelt door de eindmassa; een afname reken je uit tegenover de beginmassa. Bij b: ‘overdag dissimileert het gras niet’ is fout.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"a: afname 25 − 22 = 3 g. Ten opzichte van de beginmassa: 3 : 25 × 100 = 12 %.",st:"onder",t:2},
+      {cap:"b: naast het zwembad was de assimilatie overdag veel groter dan de dissimilatie. 's Nachts gaat er een beetje af, maar over de hele dag blijft er meer over: 25 → 32 g.",st:"naast",t:2}],
+      (st,s)=>st.innerHTML=BALANS(s.st,s.t)))});
+  q.append(think,ans);
+},STOF_BALANS);
+
+const ids=[q18,q19,q20];
+if(!VWO){
+const STOF_JOD={titel:"Zetmeel aantonen",html:`
+<p>Met <b>jodium</b> toon je zetmeel aan: waar zetmeel zit, kleurt jodium blauwzwart. Zetmeel is een reservestof die een plant van glucose maakt.</p>
+<p>Een plant maakt zetmeel en breekt het ook weer af. Bedenk dus bij een kleurproef: kon het blad zetmeel maken, en is het er nog?</p>`,
+films:[F.g]};
+ids.push(vraag(2,"de jodiumproef",(q,id)=>{
+  pre(q,"<p>Jesse kleurt ’s avonds een grasblad van onder het zwembad en een blad van ernaast met jodium.</p>");
+  const {think,ans,unlock}=start(q,B("Voorspel welk blad blauwzwart kleurt, en verklaar het verschil."));
+  choiceStep(think,{q:"Welke stof kleurt blauwzwart met jodium?",opts:["zetmeel","glucose","chlorofyl"],right:0,
+    ok:"Ja. Waar maakt een blad zetmeel van, en wat heeft het daarvoor nodig?",no:"Jodium toont een reservestof aan.",
+    onDone:()=>choiceStep(think,{q:"Welk blad kon de afgelopen twee weken glucose maken?",opts:["alleen het blad naast het zwembad","alleen het blad onder het zwembad","allebei"],right:0,
+      ok:"Goed. En wat is er gebeurd met het zetmeel dat het blad onder het zwembad vóór de proef had?",no:"Glucose maken kan alleen met licht.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Alleen het blad van <b>naast het zwembad</b> kleurt blauwzwart.",
+    "Het blad onder het zwembad kreeg <b>geen licht</b>: er is <b>geen zetmeel gemaakt</b>, en het zetmeel dat er was, is (door dissimilatie) <b>afgebroken</b>."],
+    model:"Alleen het blad van naast het zwembad kleurt blauwzwart. Dat blad kreeg licht, maakte glucose en daarvan zetmeel. Het blad onder het zwembad kreeg geen licht: het kon geen zetmeel maken, en het zetmeel dat er was, heeft het in de twee weken afgebroken voor de dissimilatie.",
+    valkuil:"Alleen ‘onder het zwembad is geen licht’ zonder wat dat met het zetmeel doet: hooguit 1 punt voor de voorspelling.",
+    after:()=>waaromBtn(ans,textBox("Jodium kleurt <b>zetmeel</b> blauwzwart. Zetmeel maakt een blad van glucose, en glucose maakt het alleen met licht. Onder het zwembad kwam twee weken geen licht: er kwam geen zetmeel bij, en het blad brak zijn voorraad af. Naast het zwembad maakte het blad die dag zetmeel; ’s avonds zit het er nog. (Na een hele nacht in het donker kleurt ook dat blad bijna niet meer.)"))});
+  q.append(think,ans);
+},STOF_JOD));
+}else{
+const STOF_SPEC={titel:"Licht en kleur",html:`
+<p>Wit licht bestaat uit alle kleuren, van violet (golflengte ongeveer 400 nm) tot rood (ongeveer 700 nm). Een kleurstof absorbeert sommige kleuren en laat andere door of weerkaatst ze.</p>
+<p>Een <b>absorptiespectrum</b> laat zien welke kleuren licht een stof absorbeert: op de x-as de golflengte, op de y-as hoeveel licht er geabsorbeerd wordt. Alleen geabsorbeerd licht kan energie leveren voor de lichtreactie.</p>`,
+films:[F.g]};
+/* vereenvoudigd absorptiespectrum van chlorofyl (vorm naar het bekende verloop, geen meetgegevens) */
+function SPECTRUM(groen=false,label=true){
+  const g=(x,mu,s,h)=>h*Math.exp(-0.5*((x-mu)/s)**2);
+  const A=nm=>0.04+g(nm,430,18,0.95)+g(nm,455,15,0.55)+g(nm,662,13,0.8)+g(nm,642,12,0.35);
+  const X0=70,X1=600,xs=nm=>X0+(nm-400)/300*(X1-X0),ys=a=>230-a*170;
+  let s="";
+  const kl=[[400,"#7a4bd1"],[450,"#2f6fe0"],[500,"#1fa7a0"],[550,"#3cae4a"],[600,"#e0a21f"],[650,"#e0641f"],[700,"#c62828"]];
+  s+=`<defs><linearGradient id="spg" x1="0" x2="1">${kl.map(([n,c])=>`<stop offset="${(n-400)/300}" stop-color="${c}"/>`).join("")}</linearGradient></defs>`;
+  s+=`<rect x="${X0}" y="240" width="${X1-X0}" height="12" fill="url(#spg)" rx="2"/>`;
+  if(groen)s+=`<rect x="${xs(500)}" y="30" width="${xs(570)-xs(500)}" height="210" fill="var(--groen)" opacity=".18"/><text x="${xs(535)}" y="44" text-anchor="middle" class="lbl">groen licht</text>`;
+  s+=`<path d="M${X0-8},28 V230 H${X1+8}" fill="none" stroke="var(--text2)" stroke-width="1.4"/>`;
+  let d="";for(let nm=400;nm<=700;nm+=3)d+=`${nm===400?"M":"L"}${xs(nm).toFixed(1)},${ys(A(nm)).toFixed(1)} `;
+  s+=`<path d="${d}" fill="none" stroke="var(--text)" stroke-width="2.6" stroke-linejoin="round"/>`;
+  [400,500,600,700].forEach(n=>s+=`<text x="${xs(n)}" y="270" text-anchor="middle" class="lblm">${n}</text>`);
+  s+=`<text x="${(X0+X1)/2}" y="290" text-anchor="middle" class="lblm">golflengte (nm)</text>`;
+  s+=`<text x="22" y="130" text-anchor="middle" class="lblm" transform="rotate(-90 22 130)">absorptie (relatief)</text>`;
+  if(label)s+=`<text x="${xs(600)}" y="${ys(0.25)}" text-anchor="middle" class="lbl">chlorofyl</text>`;
+  s+=`<text x="${X1+8}" y="16" text-anchor="end" class="lblm">vereenvoudigd · geen meetgegevens</text>`;
+  return FIG("0 0 640 300",s,"Vereenvoudigd absorptiespectrum van chlorofyl",520,640);}
+ids.push(vraag(2,"een groen zwembad",(q,id)=>{
+  pre(q,"<p>De buurman heeft een zwembad van groen, doorschijnend plastic. Er komt licht doorheen, maar vooral groen licht. Ook onder dit zwembad wordt het gras na twee weken geel.</p>");
+  const {think,ans,unlock}=start(q,B("Verklaar dit met het absorptiespectrum van chlorofyl."));
+  choiceStep(think,{q:"Waarom zie je een blad groen?",opts:["groen licht wordt het meest geabsorbeerd","groen licht wordt weinig geabsorbeerd; een deel wordt weerkaatst"],right:1,
+    ok:"Ja. Wat betekent dat voor licht dat vooral groen is?",no:"Wat je ziet, is het licht dat het blad níet opneemt maar terugkaatst naar je oog.",
+    onDone:()=>choiceStep(think,{q:"Stel: het bruikbare licht ligt onder het compensatiepunt. Wat is dan groter?",opts:["de dissimilatie","de assimilatie"],right:0,
+      ok:"Goed. Maak de keten af: groen licht → chlorofyl → lichtreactie → biomassa.",no:"Onder het compensatiepunt breekt de plant meer af dan hij vastlegt.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "Chlorofyl absorbeert <b>groen licht het minst</b> (vooral blauw en rood).",
+    "Daardoor levert de lichtreactie weinig energie: het (bruikbare) licht ligt <b>onder het compensatiepunt</b>, de <b>dissimilatie is groter dan de assimilatie</b> en de biomassa neemt af."],
+    model:"Chlorofyl absorbeert vooral blauw en rood licht, en groen licht het minst. Onder het groene zwembad komt dus vooral licht dat chlorofyl nauwelijks gebruikt. De lichtreactie levert weinig ATP en NADPH,H⁺, en de fotosynthese is laag: het bruikbare licht ligt onder het compensatiepunt. De dissimilatie is dan groter dan de assimilatie, en de biomassa van het gras neemt af.",
+    valkuil:"‘Er komt licht door, dus het gras kan gewoon fotosynthese doen’: het gaat om licht dat chlorofyl absorbeert. ‘Groen licht wordt het meest geabsorbeerd, want het blad is groen’ is omgekeerd.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Het absorptiespectrum: chlorofyl absorbeert vooral blauw (links) en rood (rechts) licht.",g:false},
+      {cap:"Groen licht (± 500–570 nm) absorbeert chlorofyl het minst: een deel wordt weerkaatst, daarom zie je bladeren groen.",g:true},
+      {cap:"Onder het groene zwembad levert het licht dus weinig energie voor de lichtreactie: onder het compensatiepunt is de dissimilatie groter dan de assimilatie. De biomassa neemt af en het gras wordt geel.",g:true}],
+      (st,s)=>st.innerHTML=SPECTRUM(s.g)))});
+  q.append(think,ans);
+},STOF_SPEC));
+}
+opgave("Gras","Geel gras onder het zwembad",`
+<p>Jesse zet in juni een opblaaszwembad op het gazon. Het zwembad laat geen licht door. Na twee weken haalt hij het weg: het gras eronder is geel en slap. Naast het zwembad is het gras groen en gegroeid. Na een paar weken is het gras op de plek van het zwembad weer groen.</p>`,ids);
+}
+
+
+/* ================= opgaven en navigatie ================= */
+OPG.sort((a,b)=>a.nr-b.nr);
+/* cijfer als bij een schooltoets: 9 × score / maximum + 1 */
+const NORM="";
+const CIJFER=(()=>{const L=Q.reduce((s,q)=>s+q.pts,0);return Array.from({length:L+1},(_,S)=>Math.round((9*S/L+1)*10)/10);})();
+const main=$("#main"),tabs=$("#tabs");let cur=1;const built={},nextBtns={};
+let curOpg=OPG.some(o=>o.nr===store.opg)?store.opg:1;
+const opg=()=>OPG.find(o=>o.nr===curOpg);
+const pts=o=>o.ids.reduce((s,i)=>s+Q.find(q=>q.id===i).pts,0);
+function reach(){const ids=opg().ids;if(store.vrij)return ids[ids.length-1];let k=0;while(k<ids.length-1&&store.scores[ids[k]]!==undefined)k++;return ids[k];}
+function renderTabs(){
+  tabs.innerHTML="";const r=reach();
+  opg().ids.forEach(id=>{const q=Q.find(x=>x.id===id);const locked=id>r;
+    const b=el("button",{class:(id===cur?"cur ":"")+(store.scores[id]!==undefined?"done":"")+(locked?" lock":""),"aria-label":"Vraag "+id+(locked?" (eerst vraag "+(id-1)+" maken)":""),title:locked?"Maak eerst vraag "+(id-1):""},id);
+    if(locked)b.disabled=true;else b.onclick=()=>open(id);tabs.append(b);});
+  const o=el("button",{class:"ov"+(cur==="ov"?" cur":"")},"Score");o.onclick=()=>open("ov");tabs.append(o);
+}
+function open(id){
+  if(id!=="ov"&&id>reach())id=reach();
+  cur=id;renderTabs();main.innerHTML="";
+  if(id==="ov"){main.append(overview());return;}
+  if(!built[id]){const q=Q.find(x=>x.id===id);const sec=el("article",{class:"q"});
+    q.build(sec);
+    const pap=el("section",{class:"papier","aria-label":"Toetsvraag "+id});
+    pap.append(el("div",{class:"pkop"},`<span class="pnr"><span class="mono">Toetsvraag</span><span class="nr">${id}</span></span><span class="mono">${q.pts} ${q.pts===1?"punt":"punten"}</span>`));
+    for(const c of [...sec.children]){if(c.classList.contains("phase")||c.tagName==="BUTTON")break;pap.append(c);}
+    pap.append(el("div",{class:"pvoet"},"Oefentoets Stofwisseling · vwo"));
+    sec.prepend(pap);
+    const sb=window.EXSTOF&&EXSTOF.blok(TOOL,id);if(sb)pap.after(sb);
+    /* toetsvraag nog eens boven de antwoorden (Kamiel 25 okt 2026: niet terug hoeven scrollen) */
+    const qt=[...pap.querySelectorAll(".qtext")].pop(),ansP=sec.querySelector(".phase.ans");
+    if(qt&&ansP){const h=el("div",{class:"herhaal papier"});h.append(el("div",{class:"hkop mono"},`Toetsvraag ${id}`));
+      const c=qt.cloneNode(true);c.querySelectorAll("[id]").forEach(x=>x.removeAttribute("id"));h.append(c);
+      const lab=ansP.querySelector(":scope>.label");lab?lab.after(h):ansP.prepend(h);}
+    const ids=opg().ids,last=id===ids[ids.length-1];
+    const nx=el("div",{class:"row",style:"justify-content:flex-end"});const b=el("button",{class:"go"},last?"Naar je score ›":`Volgende vraag (${id+1}) ›`);
+    nextBtns[id]=b;b.hidden=!store.vrij&&store.scores[id]===undefined;
+    b.onclick=()=>{open(last?"ov":id+1);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};nx.append(b);sec.append(nx);built[id]=sec;}
+  main.append(built[id]);
+}
+function overview(){
+  const o=opg();const s=el("section",{class:"phase"});s.append(el("h2",{},`Jouw score op opgave ${o.nr}`));
+  let tot=0;const t=el("table",{class:"data ovtable"});t.innerHTML="<tr><th>vraag</th><th>onderwerp</th><th>score</th></tr>";
+  o.ids.forEach(id=>{const q=Q.find(x=>x.id===id);const p=store.scores[id];if(p!==undefined)tot+=p;t.innerHTML+=`<tr><td>${id}</td><td>${q.t}</td><td>${p===undefined?"–":p} / ${q.pts}</td></tr>`;});
+  const w=el("div",{class:"tablewrap"});w.append(t);s.append(w,el("div",{class:"score"},`Totaal opgave ${o.nr}: ${tot} / ${pts(o)}`));
+  let all=0,allMax=0;OPG.forEach(x=>{allMax+=pts(x);x.ids.forEach(id=>{if(store.scores[id]!==undefined)all+=store.scores[id];});});
+  const gemaakt=OPG.every(x=>x.ids.every(id=>store.scores[id]!==undefined));
+  const cf=CIJFER[Math.min(all,CIJFER.length-1)].toFixed(1).replace(".",",");
+  s.append(el("p",{style:"margin:0"},`Hele toets: <b>${all}</b> van ${allMax} punten · cijfer <b>${cf}</b>`+(gemaakt?"":` <span class="muted">(nog niet alles gemaakt: open vragen tellen als 0 punten)</span>`)));
+  s.append(el("p",{class:"muted",style:"margin:0;font-size:14px"},`Cijfer = 9 × score / maximum + 1. Open vragen kijk je zelf na met het antwoordmodel.`));
+  const nextO=OPG.find(x=>x.nr===o.nr+1);
+  const row=el("div",{class:"row"});
+  if(nextO){const nb=el("button",{class:"go"},`Naar opgave ${nextO.nr}: ${nextO.kort} ›`);nb.onclick=()=>{setOpg(nextO.nr);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};row.append(nb);}
+  const r=el("button",{class:"ghost"},`Opgave ${o.nr} opnieuw`);r.onclick=()=>{o.ids.forEach(id=>{delete store.scores[id];delete built[id];delete nextBtns[id];});save();open(o.ids[0]);};row.append(r);
+  s.append(row);return s;
+}
+function renderOpgs(){const box=$("#opgs");box.innerHTML="";
+  OPG.forEach(o=>{const b=el("button",{"aria-pressed":o.nr===curOpg?"true":"false"},`${o.nr} · ${o.kort}`);b.onclick=()=>setOpg(o.nr);box.append(b);});}
+function setOpg(n){curOpg=n;store.opg=n;save();const o=opg();
+  $("#eb").textContent=`Oefentoets Stofwisseling · vwo · opgave ${o.nr}`;$("#h1").textContent=o.titel;
+  $("#sub").textContent=`vraag ${o.ids[0]} t/m ${o.ids[o.ids.length-1]} · ${pts(o)} punten`;
+  $("#ctx").innerHTML=o.ctx;renderOpgs();open(reach());}
+function setVrij(v){store.vrij=v;save();$("#vrij").setAttribute("aria-pressed",v?"true":"false");
+  for(const k in nextBtns)nextBtns[k].hidden=!v&&store.scores[k]===undefined;renderTabs();}
+$("#vrij").onclick=()=>setVrij(!store.vrij);setVrij(!!store.vrij);
+EXSTAND.STANDEN.forEach(s=>{s.uitleg=s.uitleg.replace(/examenvraag/g,"toetsvraag").replace("het echte examen","een echte toets").replace(" Zet de klok aan voor 3 uur examentijd.","");if(s.k==="echt")s.naam="Echte toets";});
+EXSTAND.init({store,save,setVrij});
+setOpg(curOpg);
+})();
+
+</script>
+</body>
+</html>

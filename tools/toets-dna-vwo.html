@@ -1,0 +1,1203 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../js/teller.js" data-root="../"></script>
+<link rel="icon" href="../img/icoon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../img/icoon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../img/icoon/apple-touch-icon.png">
+<script>(function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oefentoets DNA vwo · doorklikken · Biologie bij Kamiel</title>
+<meta name="description" content="Oefentoets DNA voor vwo: per vraag eerst hulpvragen, dan de toetsvraag, nakijken met het antwoordmodel en uitleg waarom.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="huisstijl.css">
+<script src="huisstijl.js"></script>
+<script src="examen-stof.js?v=b496a9e6"></script>
+<script src="examen-standen.js?v=558bd73d"></script>
+<style>
+/* Oefentoets DNA vwo · zelfde bouwstenen als de oefenexamens (tools/OEFENEXAMEN_PROMPT.md). */
+body.echt .klok{display:none!important}
+@media (max-width:600px){.vpfig{overflow-x:auto;-webkit-overflow-scrolling:touch}.vpfig>svg{min-width:var(--min)}}
+.seqtxt{font-family:var(--meta);letter-spacing:.04em}
+details.codon{margin:10px 0 0}
+table.data.codontab td,table.data.codontab th{font-size:12.5px;text-align:left;vertical-align:top;line-height:1.5;padding:6px 8px;white-space:nowrap}
+:root{--rest:#2A3B57;--area:#5B6B84}
+:root[data-theme="light"]{--rest:#D5DEE9;--area:#B4BDCA}
+ .wrap{padding-inline:0}
+:root[data-theme="light"] .papier{box-shadow:0 0 0 1px rgba(20,32,52,.18),0 6px 18px rgba(20,32,52,.10)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--text);font:17px/1.55 var(--tekst);-webkit-font-smoothing:antialiased;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 40px}
+.wrap{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1,h2,h3{font-family:var(--titel);font-weight:700;letter-spacing:-.01em;text-wrap:balance;margin:0;line-height:1.1}
+h2{font-size:24px}
+.mono,.eyebrow{font:600 12px/1.2 var(--meta);letter-spacing:.1em;text-transform:uppercase}
+.eyebrow{color:var(--goud-text)}
+.muted{color:var(--text2)}
+a{color:var(--goud-text)}
+.sitenav{display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap;min-height:56px;padding:8px 0;border-bottom:1px solid var(--line);font:600 15px/1.3 var(--tekst)}
+.sitenav .merk{font:700 18px/1 var(--titel);color:var(--text);text-decoration:none}
+.sitenav .terug{color:var(--goud-text);text-decoration:none}
+.sitenav .rechts{margin-left:auto}
+.tool-kop{display:flex;flex-direction:column;gap:10px;padding:14px 0 0}
+.tool-kop h1{font-size:clamp(32px,5vw,48px)}
+.tool-kop p{margin:0;color:var(--text2);font-size:18px;max-width:62ch}
+button.toggle{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line2);background:none;color:var(--text2);border-radius:999px;padding:6px 14px 6px 8px;min-height:40px;font:600 14px var(--tekst);cursor:pointer}
+button.toggle .knopje{width:34px;height:20px;border-radius:999px;background:var(--line2);position:relative;flex:none}
+button.toggle .knopje::after{content:"";position:absolute;left:3px;top:3px;width:14px;height:14px;border-radius:50%;background:var(--text2);transition:left .15s}
+button.toggle[aria-pressed="true"]{color:var(--text);border-color:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje{background:var(--goud)}
+button.toggle[aria-pressed="true"] .knopje::after{left:17px;background:var(--goud-ink)}
+.kopbalk{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.seg{display:inline-flex;flex-wrap:wrap;padding:3px;border-radius:999px;border:1px solid var(--line2);gap:2px}
+.seg button{border:0;background:none;padding:6px 14px;border-radius:999px;font:600 14px var(--tekst);color:var(--text2);min-height:36px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--goud);color:var(--goud-ink)}
+nav.tabs{display:flex;flex-wrap:wrap;gap:6px}
+nav.tabs button{min-width:44px;height:44px;border-radius:999px;border:1px solid var(--line2);background:none;color:var(--text2);font:600 15px var(--meta);cursor:pointer;position:relative}
+nav.tabs button:hover{color:var(--text)}
+nav.tabs button.cur{background:var(--goud);color:var(--goud-ink);border-color:var(--goud)}
+nav.tabs button.done::after{content:"";position:absolute;right:3px;top:3px;width:8px;height:8px;border-radius:50%;background:var(--groen);border:2px solid var(--bg)}
+nav.tabs button.lock{opacity:.35;cursor:not-allowed}
+nav.tabs .ov{padding:0 16px;font-family:var(--tekst)}
+.ctx{background:var(--surface);border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.ctx p{margin:0}
+details.ctxd summary{cursor:pointer;font-weight:600;color:var(--goud-text)}
+.tablewrap{overflow-x:auto}
+table.data{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+table.data th,table.data td{border-bottom:1px solid var(--line);padding:7px 10px;text-align:center}
+table.data th:first-child,table.data td:first-child{text-align:left}
+table.data th{font:600 11px var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--text3)}
+.q{display:flex;flex-direction:column;gap:14px}
+.qhead{display:flex;gap:12px;align-items:center}
+.qnum{font:700 40px/1 var(--titel);color:var(--goud-text)}
+.pts{font:600 12px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:3px 9px}
+.qtext{margin:0;font-size:18px}
+.phase{border:1px solid var(--line2);border-radius:var(--radius);padding:16px 18px;background:var(--surface);display:flex;flex-direction:column;gap:12px}
+.phase>.label{display:flex;gap:8px;align-items:center;font:600 12px var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3)}
+.phase>.label .dot{width:8px;height:8px;border-radius:50%;background:var(--goud)}
+.phase.think{background:var(--surface2)}
+.phase.think>.label{color:var(--goud-text)}
+.step{display:flex;flex-direction:column;gap:8px}
+.step+.step{border-top:1px solid var(--line);padding-top:12px}
+.step p{margin:0}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button.opt,button.chip{border:1px solid var(--line2);background:var(--bg);color:var(--text);border-radius:12px;padding:9px 14px;font:inherit;font-size:16px;cursor:pointer;text-align:left}
+button.chip{border-radius:999px}
+button.opt:hover,button.chip:hover{border-color:var(--text3)}
+button.chip[aria-pressed="true"]{border-color:var(--goud);background:var(--goud-soft)}
+button.opt.right{border-color:var(--groen);background:var(--groen-soft)}
+button.opt.wrong{border-color:var(--koraal);background:var(--koraal-soft)}
+button.opt:disabled{cursor:default}
+button.go,button.ghost{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 18px;border-radius:999px;font:700 15px var(--tekst);cursor:pointer}
+button.go{border:0;background:var(--goud);color:var(--goud-ink)}
+button.go:hover{filter:brightness(1.06)}
+button.ghost{border:0;background:none;color:var(--text);box-shadow:inset 0 0 0 1px var(--line2)}
+button.ghost:hover{box-shadow:inset 0 0 0 1px var(--text3)}
+button:disabled.go,button:disabled.ghost{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:2px solid var(--goud);outline-offset:3px;border-radius:6px}
+input.num{width:96px;min-height:44px;font:600 16px var(--meta);padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text)}
+select{font:inherit;font-size:15px;min-height:44px;padding:7px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);max-width:100%;flex:1 1 260px}
+textarea{width:100%;min-height:88px;font:inherit;padding:10px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--text);resize:vertical}
+.fb{font-size:16px;border-radius:12px;padding:12px 14px;background:var(--surface2);border:1px solid var(--line2)}
+.fb.ok{border-color:var(--groen);background:var(--groen-soft)}
+.fb.no{border-color:var(--koraal);background:var(--koraal-soft)}
+.fb.hint{border-color:var(--teal);background:var(--teal-soft)}
+.graphs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.graphs{grid-template-columns:1fr}}
+.gopt{border:1px solid var(--line2);border-radius:var(--radius);background:var(--bg);padding:8px 8px 2px;cursor:pointer;color:var(--text);font:inherit;text-align:left}
+.gopt b{font:700 20px var(--titel);margin-left:6px;color:var(--goud-text)}
+.gopt:hover{border-color:var(--text3)}
+.gopt.right{border-color:var(--groen);box-shadow:0 0 0 2px var(--groen) inset}
+.gopt.wrong{border-color:var(--koraal);box-shadow:0 0 0 2px var(--koraal) inset}
+svg{display:block;max-width:100%;height:auto}
+.ax{stroke:var(--text3);stroke-width:1.2;fill:none}
+.grid{stroke:var(--line2);stroke-width:1;fill:none}
+.tick{fill:var(--text3);font:500 10px var(--meta)}
+.cv{stroke:var(--teal);stroke-width:2.4;fill:none;stroke-linejoin:round}
+.cvbad{stroke:var(--koraal);stroke-width:2;fill:none;stroke-dasharray:5 4}
+.restband{fill:var(--rest);opacity:.8}
+.lbl{fill:var(--text);font:600 12px var(--tekst)}
+.lblm{fill:var(--text2);font:12px var(--tekst)}
+.lblbad{fill:var(--koraal);font:700 12px var(--tekst)}
+.selfscore{display:flex;flex-direction:column;gap:10px}
+.selfscore label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.selfscore input{margin-top:4px;width:18px;height:18px;accent-color:var(--goud);flex:none}
+.model{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:16px}
+.anim{display:flex;flex-direction:column;gap:10px}
+.anim .stage{border-radius:var(--radius);background:var(--surface2);border:1px solid var(--line2);overflow:hidden}
+.anim .cap{min-height:3.2em;margin:0}
+.anim .nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pips{display:flex;gap:6px;margin-left:auto}
+.pips span{width:9px;height:9px;border-radius:50%;background:var(--line2)}
+.pips span.on{background:var(--goud)}
+.seq{display:flex;flex-direction:column;gap:6px}
+.seq button{display:flex;gap:10px;align-items:center}
+.seq .n{font:600 13px var(--meta);width:24px;height:24px;border-radius:50%;display:inline-grid;place-items:center;background:var(--line2);flex:none}
+.seq button.placed{border-color:var(--groen)} .seq button.placed .n{background:var(--groen);color:var(--goud-ink)}
+.score{font:600 16px var(--meta)}
+.ovtable td:last-child,.ovtable th:last-child{text-align:right}
+.pre{border-left:3px solid var(--goud);padding:2px 0 2px 14px;display:flex;flex-direction:column;gap:8px}
+.pre p{margin:0;color:var(--text2)}
+.figrow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:540px){.figrow{grid-template-columns:1fr}}
+.legenda{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--text2)}
+.legenda i{display:inline-block;vertical-align:middle;margin-right:6px}
+.legenda .lijn{width:22px;height:0;border-top:2.5px solid var(--text)}
+.legenda .vlak{width:16px;height:12px;background:var(--area)}
+.tick.dim{opacity:.35}
+p.klikbaar{line-height:2}
+button.mark{font:inherit;color:var(--text);background:none;border:0;border-bottom:2px dashed var(--goud);padding:0 3px;border-radius:4px;cursor:pointer}
+button.mark[aria-pressed="true"]{background:var(--goud-soft);border-bottom-style:solid}
+button.mark:disabled{cursor:default}
+.sellab{min-width:200px;font-weight:600}
+label.slider{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center}
+label.slider span{min-width:170px;font-weight:600;font-size:15px}
+label.slider input{flex:1 1 200px;accent-color:var(--goud)}
+.podium{background:var(--surface2);border:1px solid var(--line2);border-radius:var(--radius);overflow:hidden}
+p.regels{font-family:var(--tekst);line-height:1.9;margin:0}
+p.regels span{display:inline-block;width:2em;font:600 12px var(--meta);color:var(--text3)}
+sup{font-size:.7em}
+.papier{--bg:#FFFFFF;--surface:#FFFFFF;--surface2:#EEF1F5;--line:rgba(20,32,52,.10);--line2:rgba(20,32,52,.24);
+  --text:#121C2E;--text2:#3B4759;--text3:#667185;--goud:#C99A2E;--goud-text:#7E5C0B;--goud-soft:rgba(217,172,60,.18);
+  --groen:#2F8A47;--koraal:#B9502F;--teal:#25729C;--paars:#6550AD;--groen-soft:rgba(47,138,71,.10);--koraal-soft:rgba(185,80,47,.10);--teal-soft:rgba(37,114,156,.10);
+  --rest:#D5DEE9;--area:#B4BDCA;color-scheme:light;
+  background:#FCFCFA;color:var(--text);border:0;border-radius:6px;padding:16px 20px 12px;display:flex;flex-direction:column;gap:12px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.08),0 10px 28px rgba(0,0,0,.35)}
+.papier .pkop{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;border-bottom:2px solid var(--text);padding-bottom:6px}
+.papier .pkop .mono{color:var(--text2)}
+.papier .pnr{display:flex;align-items:baseline;gap:10px}
+.papier .nr{font:700 30px/1 var(--titel);color:var(--text)}
+.papier .pre{border-left:0;padding:0}
+.papier .pre p{color:var(--text)}
+.papier .qtext{color:var(--text)}
+.herhaal.papier{padding:10px 14px;gap:6px;box-shadow:none;border-radius:6px}
+.herhaal .hkop{color:var(--text3);font-size:11px}
+.herhaal .qtext{font-size:16px}
+.papier .pvoet{font:500 11px var(--meta);letter-spacing:.06em;color:var(--text3);text-align:right}
+.papier details.ctxd summary{color:var(--goud-text)}
+.papier .podium{background:var(--surface2)}
+.phase>.label .tag{margin-left:6px;font:600 10px var(--meta);letter-spacing:.08em;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:2px 8px}
+.sleutel{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:14px;color:var(--text2)}
+.sleutel .sw{display:inline-block;width:16px;height:12px;border-radius:2px;vertical-align:-1px;margin-right:7px}
+.sleutel .papier-sw{background:#FCFCFA}
+.sleutel .donker-sw{background:var(--surface2);box-shadow:inset 0 0 0 1px var(--line2)}
+.exfoto{display:block;width:100%;height:auto;border-radius:2px}
+footer{color:var(--text3);font-size:14px;padding-top:24px;border-top:1px solid var(--line)}
+body.hulp .ans.locked{display:none}
+body.examen .think{display:none}
+body.examen .think.open{display:flex}
+.helpbtn{display:none!important}
+body.examen .helpbtn{display:inline-flex!important}
+body.examen .tonext{display:none!important}
+@media (max-width:600px){body{font-size:16px}.qtext{font-size:17px}.phase,.ctx{padding:14px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="sitenav" aria-label="Site">
+    <a class="merk" href="../index.html#home">Biologie bij Kamiel</a>
+    <a class="terug" href="../index.html#dna">← Terug naar DNA</a>
+    <span class="rechts"><button type="button" class="icoon" data-thema-knop></button></span>
+  </nav>
+  <header class="tool-kop">
+    <div class="eyebrow" id="eb">Oefentoets DNA · vwo</div>
+    <h1 id="h1">Oefentoets DNA</h1>
+    <div class="seg" id="opgs" role="group" aria-label="Opgave"></div>
+    <div class="sleutel"><span><i class="sw papier-sw"></i>Wit vak = de toetsvraag</span><span><i class="sw donker-sw"></i>Donker vak = hulpvragen en uitleg (niet uit de toets)</span></div>
+    <p>Maak de toets stap voor stap. Bij elke vraag denk je eerst na met de hulpvragen, dan beantwoord je de toetsvraag, en daarna zie je waarom het antwoord klopt. Kies zelf hoeveel hulp je wilt; met ‘Echte toets’ oefen je zonder hulp.</p>
+    <div class="kopbalk">
+      <div class="seg" id="standen" role="group" aria-label="Hoeveel hulp wil je?"></div>
+      <button id="vrij" class="toggle" aria-pressed="false"><span class="knopje"></span>Vrij doorklikken</button>
+      <span class="mono muted" id="sub"></span>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs" aria-label="Vragen"></nav>
+
+  <section class="ctx papier" id="ctx"></section>
+
+  <main id="main"></main>
+
+  <footer>Eigen vragen, met inspiratie uit de centrale examens (© CvTE), Biologie voor Jou en Nectar. Grafieken en schema's zijn eigen tekeningen; bronnen van de gegevens staan bij de opgaven.<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a> </span></footer>
+</div>
+
+<script>
+(function(){
+const $=(s,r=document)=>r.querySelector(s);
+const el=(tag,attrs={},html="")=>{const e=document.createElement(tag);for(const k in attrs){if(k==="class")e.className=attrs[k];else if(k.startsWith("on"))e.addEventListener(k.slice(2),attrs[k]);else e.setAttribute(k,attrs[k]);}if(html)e.innerHTML=html;return e;};
+const TOOL="dna-vwo";
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- opslag (alleen gemak) ---------- */
+let store={scores:{},mode:"hulp"};
+try{const s=JSON.parse(localStorage.getItem("toets-dna-vwo")||"null");if(s)store=Object.assign(store,s);}catch(e){}
+const save=()=>{try{localStorage.setItem("toets-dna-vwo",JSON.stringify(store));}catch(e){}};
+
+/* ---------- algemene bouwstenen ---------- */
+function phase(cls,label){const p=el("section",{class:"phase "+cls});
+  if(cls==="think")p.append(el("div",{class:"label"},`<span class="dot"></span>Hulpvragen<span class="tag">niet uit de toets</span>`));
+  else p.append(el("div",{class:"label"},`<span class="dot"></span>${label==="Antwoord"?"Jouw antwoord op de toetsvraag":label}`));return p;}
+function choiceStep(container,{q,opts,right,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});const fb=el("div",{class:"fb",hidden:""});
+  const knop=[];opts.forEach((o,i)=>{const b=el("button",{class:"opt",onclick:()=>{
+    if(i===right){row.querySelectorAll("button").forEach(x=>x.disabled=true);b.classList.add("right");fb.className="fb ok";fb.innerHTML=ok;fb.hidden=false;onDone&&onDone();}
+    else{b.classList.add("wrong");fb.className="fb no";fb.innerHTML=no;fb.hidden=false;}
+  }},o);knop.push(b);});
+  /* @@schud@@ vaste, geschudde volgorde (zaadje = vraagtekst), zodat het goede antwoord niet steeds eerst staat */
+  {let h=2166136261;for(const c of String(q))h=Math.imul(h^c.charCodeAt(0),16777619)>>>0;
+   const v=knop.map((b,i)=>i);for(let i=v.length-1;i>0;i--){h=Math.imul(h^(h>>>15),2246822507)>>>0;const j=h%(i+1);[v[i],v[j]]=[v[j],v[i]];}
+   if(v.length>1&&v[0]===right&&opts.length>2){const k=v.indexOf(right);[v[0],v[1]]=[v[1],v[0]];}
+   v.forEach(i=>row.append(knop[i]));}
+  s.append(row,fb);container.append(s);return s;
+}
+function mc(container,{opts,right,pts,qid,graphs:isGraph,onChecked}){
+  const wrap=el("div",{class:isGraph?"graphs":"row",style:isGraph?"":"flex-direction:column;align-items:stretch"});
+  const fb=el("div",{class:"fb",hidden:""});
+  opts.forEach((o,i)=>{const L="ABCDEF"[i];
+    const b=isGraph?el("button",{class:"gopt"},`<b>${L}</b>${o}`):el("button",{class:"opt"},`<b style="font:700 18px var(--titel);color:var(--goud-text);margin-right:10px">${L}</b>${o}`);
+    b.addEventListener("click",()=>{
+      wrap.querySelectorAll("button").forEach(x=>x.disabled=true);
+      const good=i===right; b.classList.add(good?"right":"wrong");
+      if(!good)wrap.children[right].classList.add("right");
+      fb.className="fb "+(good?"ok":"no");
+      fb.innerHTML=good?`Goed: <b>${"ABCDEF"[right]}</b>. ${pts} ${pts>1?"punten":"punt"}.`:`Het goede antwoord is <b>${"ABCDEF"[right]}</b>. 0 punten.`;
+      fb.hidden=false; setScore(qid,good?pts:0); onChecked&&onChecked();
+    });wrap.append(b);});
+  container.append(wrap,fb);
+}
+function waaromBtn(container,build){
+  const b=el("button",{class:"ghost waarombtn"},"Laat zien waarom ›");const box=el("div",{hidden:""});
+  b.onclick=()=>{b.remove();box.hidden=false;build(box);if(window.EXSTOF)EXSTOF.extraWaarom(TOOL,cur,box);};
+  container.append(b,box);
+}
+function lockAns(think,ans,label="Naar de vraag ›"){
+  ans.classList.add("locked");
+  const go=el("button",{class:"go tonext",hidden:""},label);
+  go.onclick=()=>{ans.classList.remove("locked");go.remove();ans.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});};
+  think.append(go);
+  return ()=>{think.append(go);go.hidden=false;};
+}
+function helpButton(q,think){
+  const b=el("button",{class:"ghost helpbtn"},"Hulp nodig? Toon de hulpvragen");
+  b.onclick=()=>{think.classList.add("open");b.remove();};
+  q.append(b);
+}
+function setScore(id,p){store.scores[id]=p;save();renderTabs();if(nextBtns[id])nextBtns[id].hidden=false;}
+
+/* ---------- vragen ---------- */
+const Q=[],OPG=[];
+
+/* Vraag 5 en 6: eerst zonder opties */
+function noOptions(q,{id,pts,text,prompt,hint,opts,right,uitleg}){
+  q.append(el("p",{class:"qtext"},text));
+  const think=phase("think","Eerst zelf"),ans=phase("ans","Kies je antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Toon de keuzes ›");
+  const s=el("div",{class:"step"});s.append(el("p",{},prompt));
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:"Wat denk jij? Schrijf het kort op."});const hb=el("button",{class:"ghost"},"Tip");const hf=el("div",{class:"fb hint",hidden:""},hint);
+  hb.onclick=()=>{hf.hidden=false;hb.remove();};
+  ta.addEventListener("input",()=>{if(ta.value.trim().length>2)unlock();});
+  s.append(ta,hb,hf);think.append(s);
+  mc(ans,{qid:id,pts,right,opts,onChecked:()=>{
+    if(ta.value.trim())ans.append(el("div",{class:"model"},`<b>Jij dacht eerst:</b> ${ta.value.replace(/</g,"&lt;")}<br><span class="muted">Klopte dat met de keuze die je maakte?</span>`));
+    waaromBtn(ans,b=>b.append(el("div",{class:"model"},uitleg)));}});
+  q.append(think,ans);
+}
+/* ================= extra bouwstenen ================= */
+function pre(q,html){q.append(el("div",{class:"pre"},html));}
+function chipsStep(container,{q,items,ok,no,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const row=el("div",{class:"row"});
+  items.forEach(([t])=>{const b=el("button",{class:"chip","aria-pressed":"false"},t);b.onclick=()=>b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")==="true"?"false":"true");row.append(b);});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(row,ck,fb);container.append(s);
+  ck.onclick=()=>{const sel=[...row.children].map(b=>b.getAttribute("aria-pressed")==="true");
+    const teveel=sel.some((s,k)=>s&&!items[k][1]),mist=sel.some((s,k)=>!s&&items[k][1]);fb.hidden=false;
+    if(!teveel&&!mist){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;row.querySelectorAll("button").forEach(b=>b.disabled=true);onDone&&onDone();}
+    else if(teveel){fb.className="fb hint";fb.innerHTML=no;}
+    else{fb.className="fb hint";fb.innerHTML="Wat je gekozen hebt klopt, maar er hoort nog meer bij. Kies alles wat klopt.";}};
+  return s;
+}
+function selectsStep(container,{q,rows,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const id=uid+"s"+k;
+    r.append(el("label",{for:id,class:"sellab"},lab));const sel=el("select",{id});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);s.append(r);return sel;});
+  const ck=el("button",{class:"ghost"},"Controleer"),fb=el("div",{class:"fb",hidden:""});s.append(ck,fb);container.append(s);
+  ck.onclick=()=>{const n=sels.filter((sel,k)=>sel.value!==""&&+sel.value===rows[k][2]).length;fb.hidden=false;
+    if(n===rows.length){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;sels.forEach(x=>x.disabled=true);onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=`${n} van de ${rows.length} goed. `+(no||"Probeer het nog eens.");}};
+}
+function numStep(container,{q,right,ok,no,onDone,uid}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const r=el("div",{class:"row"});const inp=el("input",{class:"num",id:uid,inputmode:"decimal","aria-label":"antwoord"});const ck=el("button",{class:"ghost"},"Controleer");const fb=el("div",{class:"fb",hidden:""});
+  r.append(inp,ck);s.append(r,fb);container.append(s);
+  ck.onclick=()=>{const v=parseFloat((inp.value||"").replace(",","."));fb.hidden=false;
+    if(v===right){fb.className="fb ok";fb.innerHTML=ok;ck.disabled=true;inp.disabled=true;onDone&&onDone();}
+    else{fb.className="fb hint";fb.innerHTML=no;}};
+}
+function openAnswer(ans,{id,pts,checks,model,valkuil,placeholder,after}){
+  const ta=el("textarea",{id:"q"+id+"t",placeholder:placeholder||"Schrijf je antwoord…"});
+  const ck=el("button",{class:"go"},"Nakijken");const tf=el("div",{class:"fb hint",hidden:""},"Schrijf eerst je antwoord op. Daarna kijk je het na.");
+  ans.append(ta,ck,tf);
+  ck.onclick=()=>{if(ta.value.trim().length<8){tf.hidden=false;ta.focus();return;}tf.remove();ck.remove();ta.readOnly=true;
+    const ss=el("div",{class:"selfscore"});
+    ss.append(el("p",{style:"margin:0"},"<b>Kijk jezelf na met het antwoordmodel.</b> Vink aan wat er in jouw antwoord staat."));
+    const boxes=checks.map((c,k)=>{const lab=el("label",{},`<input type="checkbox" id="q${id}c${k}"><span>${c} <span class="pts">1p</span></span>`);ss.append(lab);return lab.querySelector("input");});
+    if(model)ss.append(el("div",{class:"model"},"<b>Voorbeeldantwoord:</b> "+model));
+    if(valkuil)ss.append(el("div",{class:"fb hint"},"<b>Valkuil:</b> "+valkuil));
+    const sc=el("div",{class:"score"});ss.append(sc);ans.append(ss);
+    const upd=()=>{const p=Math.min(pts,boxes.filter(b=>b.checked).length);sc.textContent=`Jouw score: ${p} / ${pts}`;setScore(id,p);};
+    boxes.forEach(b=>b.onchange=upd);upd();after&&after();};
+}
+function juistOnjuist(ans,{id,stm,key,uitleg}){
+  const pick=stm.map(()=>null);
+  stm.forEach((t,k)=>{const r=el("div",{class:"row"});r.append(el("span",{style:"flex:1 1 260px"},`<b style="font-family:var(--meta)">${k+1}</b>&nbsp; ${t}`));
+    ["juist","onjuist"].forEach((lab,v)=>{const b=el("button",{class:"chip","aria-pressed":"false"},lab);b.onclick=()=>{pick[k]=v===0;r.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c===b?"true":"false"));};r.append(b);});ans.append(r);});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(pick.includes(null)){fb.hidden=false;fb.className="fb hint";fb.textContent="Beoordeel eerst alle uitspraken.";return;}
+    const n=pick.filter((p,k)=>p===key[k]).length;const p=n===stm.length?2:n===stm.length-1?1:0;ck.disabled=true;
+    ans.querySelectorAll(".chip").forEach(c=>c.disabled=true);
+    fb.hidden=false;fb.className="fb "+(p===2?"ok":"no");
+    fb.innerHTML=`${n} van de ${stm.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+key.map((k,i)=>`${i+1} ${k?"juist":"onjuist"}`).join(" · ");setScore(id,p);
+    waaromBtn(ans,uitleg);};
+}
+function stepAnim(box,steps,render){
+  let i=0;const stage=el("div",{class:"stage"}),cap=el("p",{class:"cap"});
+  const prev=el("button",{class:"ghost"},"‹ Vorige"),next=el("button",{class:"go"},"Volgende ›");
+  const pips=el("div",{class:"pips"},steps.map(()=>"<span></span>").join(""));
+  const nav=el("div",{class:"nav"});nav.append(prev,next,pips);
+  const a=el("div",{class:"anim"});a.append(stage,cap,nav);box.append(a);
+  function show(){cap.innerHTML=steps[i].cap;prev.disabled=i===0;next.textContent=i===steps.length-1?"Opnieuw ›":"Volgende ›";
+    pips.querySelectorAll("span").forEach((p,j)=>p.classList.toggle("on",j===i));render(stage,steps[i],i);}
+  prev.onclick=()=>{if(i>0){i--;show();}};next.onclick=()=>{i=(i+1)%steps.length;show();};show();
+}
+/* ================= meer bouwstenen ================= */
+function seqStep(container,{q,items,shown,ok,onDone}){
+  const s=el("div",{class:"step"});s.append(el("p",{},q));
+  const seq=el("div",{class:"seq"});let at=0;const fb=el("div",{class:"fb",hidden:""});
+  shown.forEach(k=>{const b=el("button",{class:"opt"},`<span class="n">·</span>${items[k]}`);b.onclick=()=>{if(b.classList.contains("placed"))return;
+    if(k===at){b.classList.add("placed");b.querySelector(".n").textContent=at+1;at++;fb.hidden=true;if(at===items.length){fb.hidden=false;fb.className="fb ok";fb.innerHTML=ok;onDone&&onDone();}}
+    else{fb.hidden=false;fb.className="fb hint";fb.textContent="Dat is nog niet de volgende stap. Wat gebeurt er direct daarna?";}};seq.append(b);});
+  s.append(seq,fb);container.append(s);
+}
+function selectAnswer(ans,{id,rows,score,uid,after,intro}){
+  if(intro)ans.append(el("p",{style:"margin:0"},intro));
+  const sels=rows.map(([lab,opts],k)=>{const r=el("div",{class:"row"});const sid=uid+"a"+k;
+    r.append(el("label",{for:sid,class:"sellab"},lab));const sel=el("select",{id:sid});sel.append(el("option",{value:""},"kies…"));
+    opts.forEach((o,j)=>sel.append(el("option",{value:j},o)));r.append(sel);ans.append(r);return sel;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{if(sels.some(x=>x.value==="")){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul eerst alles in.";return;}
+    const n=sels.filter((x,k)=>+x.value===rows[k][2]).length;const p=score(n);sels.forEach(x=>x.disabled=true);ck.remove();
+    fb.hidden=false;fb.className="fb "+(n===rows.length?"ok":"no");
+    fb.innerHTML=`${n} van de ${rows.length} goed: <b>${p} ${p===1?"punt":"punten"}</b>.<br>`+rows.map(([lab,opts,r])=>`${lab}: ${opts[r]}`).join(" · ");
+    setScore(id,p);after&&after();};
+}
+function textBox(html){return b=>b.append(el("div",{class:"model"},html));}
+const svgWrap=(vb,inner,label)=>`<svg viewBox="${vb}" role="img" aria-label="${label}">${inner}</svg>`;
+function numAnswer(ans,{id,fields,after}){
+  const inps=fields.map(([lab,unit],k)=>{const r=el("div",{class:"row"});const fid="q"+id+"f"+k;
+    r.append(el("label",{for:fid,class:"sellab"},lab));const i=el("input",{class:"num",id:fid,inputmode:"decimal"});r.append(i,el("span",{class:"muted"},unit));ans.append(r);return i;});
+  const ck=el("button",{class:"go"},"Nakijken"),fb=el("div",{class:"fb",hidden:""});ans.append(ck,fb);
+  ck.onclick=()=>{const v=inps.map(i=>parseFloat((i.value||"").replace(",",".")));if(v.some(isNaN)){fb.hidden=false;fb.className="fb hint";fb.textContent="Vul beide uitkomsten in.";return;}
+    inps.forEach(i=>i.disabled=true);ck.remove();const res=fields.map((f,k)=>f[2](v[k]));const p=res.filter(Boolean).length;
+    fb.hidden=false;fb.className="fb "+(p===fields.length?"ok":"no");
+    fb.innerHTML=`<b>${p} van de ${fields.length} punten.</b><br>`+fields.map((f,k)=>`${res[k]?"✓":"✗"} ${f[3]}`).join("<br>");setScore(id,p);after&&after();};
+}
+
+/* ===== Oefentoets DNA: gedeelde hulpjes (havo = 5havo_dna_oefentoets, vwo = 6vwo_dna_oefentoets, één bron) ===== */
+const VWO=true;
+let QN=0,ON=0;
+/* vraag(punten, onderwerp, build(q,id), stof?) -> id; stof = {titel, html, anim?, films?} voor 'Uitleg van de stof' */
+function vraag(pts,t,build,stof){const id=++QN;Q.push({id,pts,t,build:q=>build(q,id)});
+  if(stof&&window.EXSTOF)EXSTOF.zet(TOOL,[id],stof);return id;}
+/* opgave zonder inleiding (losse kennisvragen, zoals in de Word-toets): html leeg */
+function opgave(kort,titel,html,ids){const nr=++ON;
+  OPG.push({nr,kort,titel,ids,ctx:html?`<div class="pkop"><span class="mono">Toetstekst · inleiding opgave ${nr}</span></div>`+html
+    :`<div class="pkop"><span class="mono">Toetstekst · opgave ${nr}</span></div><p class="muted" style="margin:0">Losse vragen over dit onderwerp, zonder inleiding.</p>`});}
+/* films van het thema (hrefs als in HOOFDSTUKKEN.dna.films) */
+const F={
+  wat:["Wat is DNA?","films/dna/1-wat-is-dna.html"],
+  kop:["DNA kopiëren","films/dna/2-dna-kopieren.html"],
+  eiw:["Van DNA naar eiwit","films/dna/3-van-dna-naar-eiwit.html"],
+  code:["De genetische code lezen","films/dna/4-de-genetische-code-lezen.html"],
+  mut:["Mutaties","films/dna/5-mutaties.html"],
+  aan:["Genen aan en uit","films/dna/6-genen-aan-en-uit.html"],
+  lees:["DNA lezen","films/dna/7-dna-lezen.html"],
+  heb:["Wat heb jij aan DNA?","films/dna/8-wat-heb-jij-aan-dna.html"],
+  pcr:["Op maat gekopieerd · PCR","films/dna-technieken/1-op-maat-gekopieerd/index.html"],
+  gel:["Op lengte gesorteerd · gelelektroforese","films/dna-technieken/2-op-lengte-gesorteerd/index.html"]};
+function start(q,html,na){q.append(el("p",{class:"qtext"},html));if(na)q.append(el("div",{},na));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  return {think,ans,unlock};}
+/* vraag met een opsomming of keuzes in de vraagtekst: html = hele vraagtekst */
+function startLos(q,html,na){q.append(el("p",{class:"qtext"},html));if(na)q.append(el("div",{},na));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  return {think,ans,unlock};}
+/* koppelvraag met elke letter één keer (4 rijen, 2 punten): alles goed 2; drie goed 1 (dan is een letter dubbel gebruikt);
+   twee letters verwisseld en de rest goed 1 (correctievoorschrift); anders 0. Leest de keuzelijsten van selectAnswer (uid+"a"+k). */
+const KOPPELSCORE=uid=>n=>{if(n===4)return 2;if(n===3)return 1;
+  const v=[0,1,2,3].map(k=>{const e=document.getElementById(uid+"a"+k);return e?e.value:"";});return n===2&&new Set(v).size===4?1:0;};
+const B=t=>`<b>${t}</b>`;
+const SEQ=t=>`<span class="seqtxt">${t}</span>`;
+const L4=(...r)=>r.map((t,i)=>`${"ABCDEF"[i]}&nbsp; ${t}`).join("<br>");
+
+/* Codontabel (de standaardcode; in de Word-toets: BiNaS 71G). Uitklapbaar in het papiervak. */
+const BASEN="UCAG",AZ={F:"fenylalanine",L:"leucine",I:"isoleucine",M:"methionine (start)",V:"valine",S:"serine",P:"proline",T:"threonine",A:"alanine",
+  Y:"tyrosine","*":"stop",H:"histidine",Q:"glutamine",N:"asparagine",K:"lysine",D:"asparaginezuur",E:"glutaminezuur",C:"cysteïne",W:"tryptofaan",R:"arginine",G:"glycine"};
+const CODE="FFLLSSSSYY**CC*WLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG";
+const vertaal=c=>CODE[BASEN.indexOf(c[0])*16+BASEN.indexOf(c[1])*4+BASEN.indexOf(c[2])];
+function CODONTABEL(open){
+  let h=`<tr><th>1e base</th>${[...BASEN].map(b=>`<th>2e base ${b}</th>`).join("")}</tr>`;
+  for(const a of BASEN){h+=`<tr><th>${a}</th>`;for(const b of BASEN){h+="<td>"+[...BASEN].map(c=>{const k=vertaal(a+b+c);
+      return `<span class="seqtxt">${a+b+c}</span> ${AZ[k].replace(" (start)","")}`;}).join("<br>")+"</td>";}h+="</tr>";}
+  return `<details class="ctxd codon"${open?" open":""}><summary>Codontabel (mRNA)</summary><div class="tablewrap"><table class="data codontab">${h}</table></div>
+  <p class="muted" style="font-size:13px;margin:4px 0 0">AUG = startcodon (methionine). UAA, UAG en UGA = stopcodon. In de toets op papier: BiNaS 71G.</p></details>`;}
+
+/* Gel van opgave 'Echte kaviaar?' (afbeelding 1): zelfde banen en lengtes als eigen/figuren/dna/maak2.py in toetsen-biologie
+   (fictieve gegevens; Siberische steur 154 bp, Russische steur 186 bp). hl = {baan: kleur}, mlijn = markerlengtes met hulplijn. */
+const GELBANEN=[["M",[100,125,150,175,200,225,250]],["blik 1",[186]],["blik 2",[154]],["blik 3",[154,186]],["blik 4",[]],["neg.|controle",[]],["pos.|controle",[154]]];
+function GEL({hl={},mlijn=[],extra=null}={}){
+  const yb=bp=>40+330*(Math.log(260)-Math.log(bp))/(Math.log(260)-Math.log(90));
+  const X0=80,W=78;let s="";
+  s+=`<rect x="${X0-10}" y="8" width="${GELBANEN.length*W+12}" height="372" fill="var(--surface2)" stroke="var(--text2)" stroke-width="1.4"/>`;
+  GELBANEN.forEach(([n,bands],i)=>{const x=X0+i*W;
+    if(hl[i])s+=`<rect x="${x-4}" y="12" width="${W-8+8-6}" height="364" fill="${hl[i]}" opacity=".18"/>`;
+    s+=`<rect x="${x+6}" y="16" width="${W-24}" height="10" fill="none" stroke="var(--text2)"/>`;
+    n.split("|").forEach((r,k)=>s+=`<text x="${x+W/2-6}" y="${400+k*15}" text-anchor="middle" class="lblm">${r}</text>`);
+    bands.forEach(bp=>s+=`<rect x="${x+8}" y="${yb(bp)-3}" width="${W-28}" height="${i===0?4:6}" fill="var(--text)"/>`);});
+  GELBANEN[0][1].forEach(bp=>s+=`<text x="${X0-16}" y="${yb(bp)+4}" text-anchor="end" class="lblm">${bp} bp</text>`);
+  mlijn.forEach(bp=>s+=`<path d="M${X0+8},${yb(bp)} H${X0+GELBANEN.length*W-12}" stroke="var(--goud)" stroke-width="1.4" stroke-dasharray="5 4"/>`);
+  const xr=X0+GELBANEN.length*W+14;
+  s+=`<path d="M${xr},40 V350" stroke="var(--text2)" stroke-width="1.4"/><path d="M${xr-5},342 L${xr},352 L${xr+5},342" fill="none" stroke="var(--text2)" stroke-width="1.4"/><text x="${xr+8}" y="30" class="lbl">−</text><text x="${xr+8}" y="374" class="lbl">+</text>`;
+  if(extra)s+=extra(yb,X0,W);
+  return `<div class="vpfig" style="max-width:660px;margin:0 auto;width:100%;--min:600px">`+svgWrap(`0 0 ${xr+30} 432`,s,"Gel met een marker, vier blikken kaviaar, een negatieve en een positieve controle")+`</div>`;}
+
+/* ===== Opgave 1: De bouw van DNA (havo: KA01, KA05 · vwo: KA09) ===== */
+{
+const STOF_BOUW={titel:"Nucleotiden en de ladder",html:`
+<p>DNA is een lange ketting van <b>nucleotiden</b>. Er zijn vier soorten nucleotiden; ze verschillen alleen in hun base. De ruggengraat van een streng is overal hetzelfde.</p>
+<p>Twee strengen liggen tegenover elkaar als een <b>ladder</b> die gedraaid is: de dubbele helix. De basen vormen de sporten; tegenover een bepaalde base past steeds maar één andere (<b>complementair</b>).</p>
+<p>Een cel moet de bouwstoffen voor DNA zelf maken of opnemen. Een plant haalt mineralen zoals nitraat en fosfaat uit de bodem.</p>`+(VWO?`
+<p>De koolstofatomen van de suiker hebben nummers. Daardoor heeft elke streng een <b>richting</b>: een 5'-uiteinde en een 3'-uiteinde.</p>`:""),
+films:[F.wat]};
+const ids=[];
+if(!VWO){
+ids.push(vraag(2,"drie delen van een nucleotide en vier basen",(q,id)=>{
+  const {think,ans,unlock}=startLos(q,"Een DNA-streng is een ketting van nucleotiden.<br>• "+B("Noem de drie delen van één nucleotide.")+"<br>• "+B("Noem de vier stikstofbasen van DNA voluit."));
+  choiceStep(think,{q:"Er zijn vier soorten nucleotiden. Waarin verschillen ze van elkaar?",opts:["in de suiker","in de base","in het aantal delen"],right:1,
+    ok:"Ja. De andere delen zijn bij alle nucleotiden gelijk: ze vormen samen de rug van de ketting.",no:"De rug van de ketting is overal hetzelfde. Wat steekt er naar binnen, als sport van de ladder?",
+    onDone:()=>choiceStep(think,{q:"De letters A, T, C en G zijn afkortingen. Is alleen de letter genoeg als de vraag ‘voluit’ zegt?",opts:["ja","nee, je schrijft de hele naam"],right:1,
+      ok:"Goed. Schrijf nu de drie delen en de vier namen op.",no:"‘Voluit’ betekent: de hele naam.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "fosfaatgroep, suiker (desoxyribose) en stikstofbase",
+    "adenine, thymine, cytosine en guanine"],
+    model:"Een nucleotide bestaat uit een fosfaatgroep, een suiker (desoxyribose) en een stikstofbase. De vier basen zijn adenine, thymine, cytosine en guanine.",
+    valkuil:"Alleen de letters A, T, C en G: 0 punten voor het tweede punt. ‘Suiker’ zonder naam is goed.",
+    after:()=>waaromBtn(ans,textBox("Elke nucleotide heeft dezelfde fosfaatgroep en dezelfde suiker (desoxyribose); die vormen samen de rug van de streng. Alleen de <b>base</b> verschilt: adenine, thymine, cytosine of guanine. Uit de volgorde van die vier basen bestaat de informatie in het DNA."))});
+  q.append(think,ans);
+},STOF_BOUW));
+
+ids.push(vraag(1,"te weinig nitraat",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Een plant die op een bodem met te weinig nitraat groeit, kan minder DNA maken. "+B("Leg uit waardoor."));
+  choiceStep(think,{q:"Nitraat is NO<sub>3</sub><sup>−</sup>. Welk element haalt een plant vooral uit nitraat?",opts:["zuurstof","stikstof","fosfor"],right:1,
+    ok:"Ja. Zuurstof krijgt een plant genoeg uit lucht en water; om de N gaat het.",no:"Kijk naar het symbool: N.",
+    onDone:()=>chipsStep(think,{q:"In welke stoffen in een cel zit dat element? Kies alles wat klopt.",items:[["eiwitten (aminozuren)",1],["DNA",1],["glucose",0],["vet",0]],
+      ok:"Goed. Welk deel van een nucleotide bevat het dan?",no:"Glucose en vet bestaan alleen uit C, H en O.",onDone:unlock})});
+  openAnswer(ans,{id,pts:1,checks:["De <b>stikstofbasen</b> van DNA bevatten stikstof; de plant haalt die stikstof uit nitraat in de bodem."],
+    model:"De basen in DNA zijn stikstofbasen: er zit stikstof in. Die stikstof haalt de plant uit nitraat. Met te weinig nitraat kan de plant minder basen, en dus minder nucleotiden en DNA maken.",
+    valkuil:"‘Nitraat is een voedingsstof’ zonder stikstof of basen: 0 punten.",
+    after:()=>waaromBtn(ans,textBox("De naam zegt het al: <b>stikstof</b>basen. Een plant kan stikstof niet uit de lucht gebruiken, maar neemt hem op als nitraat uit de bodem. Zonder genoeg stikstof kan ze minder basen maken, dus minder nucleotiden en minder DNA (en ook minder eiwitten)."))});
+  q.append(think,ans);
+},STOF_BOUW));
+}else{
+ids.push(vraag(3,"de andere streng, 5' en 3', antiparallel",(q,id)=>{
+  const {think,ans,unlock}=startLos(q,"Hieronder staat één streng van een stukje DNA:<br><br>"+SEQ("5'-A T G C C A-3'")+"<br><br>• "+B("Schrijf de andere streng eronder, met het 5'- en het 3'-uiteinde erbij.")+"<br>• "+B("Wat zit er vrij aan het 5'-uiteinde van een streng, en wat aan het 3'-uiteinde?")+"<br>• "+B("Leg met dit stukje DNA uit wat antiparallel betekent."));
+  selectsStep(think,{uid:"q"+id,q:"Welke base staat in DNA tegenover …",rows:[["A",["A","T","C","G"],1],["T",["A","T","C","G"],0],["C",["A","T","C","G"],3],["G",["A","T","C","G"],2]],
+    ok:"Goed: de basen zijn complementair.",no:"In DNA paart A met T, en C met G.",
+    onDone:()=>choiceStep(think,{q:"Waar verwijzen de getallen 5' en 3' naar?",opts:["naar de nummers van de koolstofatomen in de suiker","naar het aantal basen aan dat uiteinde","naar de nummers van de nucleotiden"],right:0,
+      ok:"Ja. Bedenk nu welke groep aan het vijfde en welke aan het derde koolstofatoom vrij zit, en in welke richting de andere streng loopt.",no:"Het gaat om de suiker in de rug van de streng.",onDone:unlock})});
+  openAnswer(ans,{id,pts:3,checks:[
+    SEQ("3'-T A C G G T-5'")+" (ook goed: "+SEQ("5'-T G G C A T-3'")+")",
+    "5'-uiteinde: een vrije <b>fosfaatgroep</b> (aan het vijfde koolstofatoom); 3'-uiteinde: een vrije <b>OH-groep</b> (aan het derde koolstofatoom)",
+    "de twee strengen lopen in <b>tegengestelde richting</b>: de ene van 5' naar 3', de andere (ernaast) van 3' naar 5'"],
+    model:"5'-A T G C C A-3'<br>3'-T A C G G T-5'<br>Aan het 5'-uiteinde zit een vrije fosfaatgroep aan het vijfde koolstofatoom van de suiker, aan het 3'-uiteinde een vrije OH-groep aan het derde koolstofatoom. Antiparallel: de bovenste streng loopt van links naar rechts van 5' naar 3', de onderste ernaast van 3' naar 5'.",
+    valkuil:"De andere streng zonder 5' en 3', of met 5' links onder 5' links (dan lopen ze dezelfde kant op): 0 punten voor het eerste punt.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"De gegeven streng loopt van links naar rechts van 5' naar 3'.",n:1},
+      {cap:"Tegenover elke base de complementaire base: A–T, T–A, G–C, C–G, C–G, A–T.",n:2},
+      {cap:"De nieuwe streng loopt de andere kant op: links het 3'-uiteinde, rechts het 5'-uiteinde. Dat is antiparallel.",n:3}],
+      (st,s)=>{const top="ATGCCA",bot="TACGGT";let h="";
+        [...top].forEach((c,i)=>{h+=`<text x="${70+i*48}" y="50" text-anchor="middle" class="lbl" style="font-size:20px">${c}</text>`;
+          if(s.n>=2)h+=`<path d="M${70+i*48},58 V82" stroke="var(--text3)" stroke-width="2" stroke-dasharray="3 3"/><text x="${70+i*48}" y="106" text-anchor="middle" class="lbl" style="font-size:20px">${bot[i]}</text>`;});
+        h+=`<text x="30" y="50" class="lblm">5'</text><text x="330" y="50" class="lblm">3'</text><path d="M60,22 H320" stroke="var(--teal)" stroke-width="2.5"/><path d="M312,16 L322,22 L312,28" fill="none" stroke="var(--teal)" stroke-width="2.5"/>`;
+        if(s.n>=3)h+=`<text x="30" y="106" class="lblm">3'</text><text x="330" y="106" class="lblm">5'</text><path d="M60,128 H320" stroke="var(--goud)" stroke-width="2.5"/><path d="M68,122 L58,128 L68,134" fill="none" stroke="var(--goud)" stroke-width="2.5"/>`;
+        st.innerHTML=svgWrap("0 0 360 140",h,"twee DNA-strengen");}))});
+  q.append(think,ans);
+},STOF_BOUW));
+}
+opgave("Bouw van DNA","De bouw van DNA","",ids);
+}
+
+/* ===== Opgave 2: DNA kopiëren (havo: KB01 · vwo: KB07, KB09) ===== */
+{
+const STOF_KOP={titel:"DNA-replicatie",html:`
+<p>Voordat een cel deelt, kopieert ze al haar DNA: de <b>replicatie</b>, in de S-fase van de celcyclus. Zo krijgt elke dochtercel een volledige set.</p>
+<p>Elke oude streng is daarbij het voorbeeld (de mal) voor een nieuwe streng: tegenover elke base komt de passende base. Het werk wordt gedaan door enzymen, zoals <b>helicase</b> en <b>DNA-polymerase</b>; in de film zie je wat elk enzym doet.</p>
+<p>In het kernplasma zweven vrije nucleotiden rond: de bouwstenen voor de nieuwe strengen.</p>`+(VWO?`
+<p>Naast de enzymen van de replicatie kent de cel enzymen die RNA maken van een gen, en enzymen die schade en fouten in het DNA herstellen. Sommige virussen hebben een enzym dat de stroom omdraait: van RNA naar DNA.</p>`:""),
+films:[F.kop]};
+const ids=[];
+if(!VWO){
+const ST=["P DNA-polymerase sluit zich om de nucleotide en koppelt hem vast aan de vorige.","Q Er liggen twee identieke DNA-moleculen, klaar voor twee dochtercellen.","R Helicase trekt de twee strengen uit elkaar.","S Een vrije nucleotide uit het kernplasma die past bij de base tegenover, blijft liggen."];
+ids.push(vraag(1,"volgorde bij het kopiëren",(q,id)=>{
+  const {think,ans,unlock}=startLos(q,B("Zet de gebeurtenissen bij het kopiëren van DNA in de goede volgorde.")+"<br><br>"+ST.join("<br>"));
+  choiceStep(think,{q:"Waarom moeten de twee strengen ergens in het proces los van elkaar?",opts:["zodat de basen vrij liggen en er nieuwe nucleotiden tegenover kunnen komen","zodat het DNA korter wordt","zodat de nucleotiden van de oude streng kunnen worden afgebroken"],right:0,
+    ok:"Ja. Bedenk dus: wat moet er eerst gebeuren voordat een nucleotide tegenover een base kan gaan liggen?",no:"De oude strengen blijven bestaan; ze zijn juist het voorbeeld.",
+    onDone:()=>choiceStep(think,{q:"Kan DNA-polymerase een nucleotide vastkoppelen die er nog niet ligt?",opts:["ja","nee"],right:1,
+      ok:"Goed. Zet nu de vier gebeurtenissen op volgorde.",no:"Het enzym koppelt een nucleotide die al tegenover de goede base ligt.",onDone:unlock})});
+  const O=["P","Q","R","S"];
+  selectAnswer(ans,{id,uid:"q"+id,intro:"Kies per stap de letter.",rows:[["1e",O,2],["2e",O,3],["3e",O,0],["4e",O,1]],score:n=>n===4?1:0,
+    after:()=>waaromBtn(ans,textBox("<b>R – S – P – Q</b>. Helicase opent de dubbele helix als een rits (R). Pas dan liggen de basen vrij en blijft een passende vrije nucleotide liggen (S). DNA-polymerase koppelt hem vast aan de vorige (P). Zo groeien twee nieuwe strengen en liggen er aan het eind twee identieke DNA-moleculen (Q)."))});
+  q.append(think,ans);
+},STOF_KOP));
+}else{
+ids.push(vraag(2,"twee keer kopiëren: semiconservatief",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Een cel kopieert haar DNA twee keer achter elkaar. Uit één DNA-molecuul ontstaan zo vier DNA-moleculen.<br><br>"+B("Hoeveel van die vier moleculen bevatten nog een streng van het oorspronkelijke molecuul? Leg je antwoord uit met het begrip semiconservatief."));
+  numStep(think,{uid:"q"+id+"n",q:"Uit hoeveel strengen bestaat het oorspronkelijke molecuul?",right:2,ok:"Ja. Worden die strengen bij het kopiëren afgebroken, of blijven ze bestaan?",no:"DNA is dubbelstrengs.",
+    onDone:()=>choiceStep(think,{q:"Kan één oude streng in twee moleculen tegelijk zitten?",opts:["ja, hij wordt verdeeld","nee, een streng blijft in één molecuul"],right:1,
+      ok:"Goed. Reken nu uit hoeveel van de vier moleculen een oude streng hebben, en leg uit waarom.",no:"Een streng wordt niet in stukken verdeeld over moleculen.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:["<b>twee</b>",
+    "replicatie is <b>semiconservatief</b>: elk nieuw molecuul heeft één oude en één nieuwe streng; de twee oude strengen blijven elk in één molecuul"],
+    model:"Twee. Replicatie is semiconservatief: na elke ronde heeft elk molecuul één oude streng en één nieuwe. De twee oorspronkelijke strengen blijven bestaan en zitten na twee rondes elk in één van de vier moleculen; de andere twee moleculen bestaan alleen uit nieuwe strengen.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Het oorspronkelijke molecuul: twee oude strengen (goud).",r:0},
+      {cap:"Na de eerste ronde: twee moleculen, elk met één oude en één nieuwe streng. Dat is semiconservatief.",r:1},
+      {cap:"Na de tweede ronde: vier moleculen. De twee oude strengen zitten in twee ervan; de andere twee zijn helemaal nieuw.",r:2}],
+      (st,s)=>{const mol=(x,y,a,c)=>`<path d="M${x},${y} h70" stroke="${a}" stroke-width="5"/><path d="M${x},${y+12} h70" stroke="${c}" stroke-width="5"/>`;
+        const O="var(--goud)",N="var(--teal)";let h="";
+        if(s.r===0)h=mol(145,50,O,O);
+        if(s.r===1)h=mol(60,50,O,N)+mol(230,50,N,O);
+        if(s.r===2)h=mol(10,50,O,N)+mol(100,50,N,N)+mol(190,50,N,N)+mol(280,50,N,O);
+        h+=`<text x="10" y="100" class="lblm">goud = oude streng · blauw = nieuwe streng</text>`;
+        st.innerHTML=svgWrap("0 0 360 110",h,"DNA-moleculen na replicatie");}))});
+  q.append(think,ans);
+},STOF_KOP));
+
+ids.push(vraag(2,"enzymen bij DNA en RNA",(q,id)=>{
+  const {think,ans,unlock}=startLos(q,B("Vul de tabel in.")+`<div class="tablewrap"><table class="data"><tr><th>enzym</th><th>wat doet het?</th><th>hoe vaak?</th></tr><tr><td>DNA-polymerase</td><td>…</td><td>…</td></tr><tr><td>RNA-polymerase</td><td>…</td><td>…</td></tr></table></div>`+B("Noem ook het enzym waarmee sommige virussen RNA omzetten in DNA, en de enzymen die verkeerd ingebouwde nucleotiden vervangen."));
+  choiceStep(think,{q:"Bij welk proces wordt één gen overgeschreven naar RNA?",opts:["replicatie","transcriptie","translatie"],right:1,
+    ok:"Ja. En bij welk proces wordt al het DNA gekopieerd?",no:"Translatie gebeurt bij het ribosoom; replicatie is het kopiëren van al het DNA.",
+    onDone:()=>choiceStep(think,{q:"Een cel gebruikt een gen soms heel veel. Hoe vaak wordt al het DNA gekopieerd?",opts:["zo vaak als de cel wil","één keer per celcyclus, vóór de deling"],right:1,
+      ok:"Goed. Vul nu de tabel in en noem de twee andere enzymen.",no:"Al het DNA kopiëren hoort bij de voorbereiding op de deling.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "DNA-polymerase kopieert al het DNA, <b>één keer per celcyclus</b> (replicatie); RNA-polymerase schrijft één gen over naar RNA, <b>zo vaak als nodig</b> (transcriptie)",
+    "<b>reverse transcriptase</b>; <b>DNA-repair-enzymen</b>"],
+    model:"DNA-polymerase: kopieert al het DNA (replicatie), één keer per celcyclus. RNA-polymerase: schrijft een gen over naar RNA (transcriptie), zo vaak als de cel dat eiwit nodig heeft. Reverse transcriptase zet RNA om in DNA (bijvoorbeeld bij hiv). DNA-repair-enzymen vervangen verkeerd ingebouwde nucleotiden.",
+    valkuil:"Voor het eerste punt moeten beide rijen helemaal kloppen (wat én hoe vaak).",
+    after:()=>waaromBtn(ans,textBox("Het verschil zit in de omvang en de frequentie: <b>replicatie</b> = alles, één keer, vóór de deling; <b>transcriptie</b> = één gen, steeds opnieuw, wanneer het eiwit nodig is. <b>Reverse transcriptase</b> werkt ‘achteruit’ (RNA → DNA). <b>Repair-enzymen</b> knippen een fout of beschadigd stuk eruit en vullen het aan met de andere streng als voorbeeld."))});
+  q.append(think,ans);
+},STOF_KOP));
+}
+opgave("Kopiëren","DNA kopiëren","",ids);
+}
+
+/* ===== Opgave 3: Van gen naar eiwit (havo: KC07, KC10, KC11 · vwo: KC15, KC16, KC17) ===== */
+{
+const STOF_CODE={titel:"Codons en de codontabel",html:`
+<p>Bij de <b>transcriptie</b> schrijft RNA-polymerase een gen over naar mRNA. Bij de <b>translatie</b> leest een ribosoom het mRNA steeds per <b>drie basen</b>: een codon. Elk codon staat voor een aminozuur, of voor stop.</p>
+<p>De codontabel lees je zo: zoek de eerste base in de rij, de tweede base in de kolom, en de derde base in het vak. Het ribosoom begint bij het <b>startcodon</b> en stopt bij een <b>stopcodon</b>.</p>
+<p>Er zijn 64 codons en maar 20 aminozuren, dus veel aminozuren hebben meer dan één codon.</p>`,films:[F.eiw,F.code]};
+const STOF_VORM={titel:"Van keten naar vorm",html:`
+<p>Een eiwit is een keten van aminozuren. Als de keten klaar is, is het eiwit nog niet af: de keten <b>vouwt</b> zich nog tot het eiwit dat in de cel werk doet.</p>
+<p>Een <b>enzym</b> is zo'n eiwit. Het zet steeds één bepaalde stof om, zijn <b>substraat</b>.</p>`,films:[F.eiw]};
+const ids=[];
+if(!VWO){
+ids.push(vraag(1,"aminozuren bij een stukje mRNA",(q,id)=>{
+  const {think,ans,unlock}=startLos(q,"Gebruik de codontabel (BiNaS 71G). Een mRNA begint zo:<br><br>"+SEQ("C G A U G G C U U G G U A A C U")+"<br><br>"+B("Welke aminozuren horen bij dit stukje mRNA? Geef ze in de goede volgorde."),CODONTABEL());
+  choiceStep(think,{q:"Waar begint het ribosoom met lezen?",opts:["bij de eerste base van het mRNA","bij het startcodon AUG","bij de eerste G"],right:1,
+    ok:"Ja. Zoek AUG in dit stukje mRNA en lees vanaf daar per drie.",no:"Het ribosoom zoekt eerst het startcodon.",
+    onDone:()=>choiceStep(think,{q:"Wat doet het ribosoom bij een stopcodon?",opts:["het zet er een laatste aminozuur neer","het stopt; er komt geen aminozuur bij"],right:1,
+      ok:"Goed. Schrijf de aminozuren op tot het stopcodon.",no:"Een stopcodon staat niet voor een aminozuur.",onDone:unlock})});
+  openAnswer(ans,{id,pts:1,checks:["methionine – alanine – tryptofaan"],
+    model:"methionine – alanine – tryptofaan (AUG GCU UGG, daarna stopcodon UAA)",valkuil:"Begonnen bij de eerste base (CGA …): 0 punten.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Het ribosoom zoekt eerst het startcodon AUG. De eerste twee basen (C G) worden niet gelezen.",k:1},
+      {cap:"Vanaf AUG per drie: AUG = methionine, GCU = alanine, UGG = tryptofaan.",k:4},
+      {cap:"UAA is een stopcodon: de keten is klaar. De rest (CU) wordt niet meer gelezen.",k:5}],
+      (st,s)=>{const r="CG|AUG|GCU|UGG|UAA|CU".split("|");let h="",x=10;
+        r.forEach((c,i)=>{const w=c.length*22+10,act=i>=1&&i<s.k,stop=i===4&&s.k>=5;
+          h+=`<rect x="${x}" y="20" width="${w}" height="36" rx="6" fill="${stop?"var(--koraal-soft)":act?"var(--teal-soft)":"none"}" stroke="${i===0||i===5?"var(--line2)":"var(--text2)"}"/>`;
+          h+=`<text x="${x+w/2}" y="44" text-anchor="middle" class="lbl" style="font-size:17px;letter-spacing:3px">${c}</text>`;
+          if(act||stop)h+=`<text x="${x+w/2}" y="78" text-anchor="middle" class="lblm">${stop?"stop":AZ[vertaal(c)].replace(" (start)","")}</text>`;x+=w+6;});
+        st.innerHTML=svgWrap(`0 0 ${x+4} 92`,h,"mRNA in codons");}))});
+  q.append(think,ans);
+},STOF_CODE));
+
+ids.push(vraag(1,"GCU wordt GCA",(q,id)=>{
+  const {think,ans,unlock}=startLos(q,B("Gebruik de codontabel. Door een substitutie verandert het codon GCU in het mRNA in GCA. Wat is het gevolg voor het eiwit?"),CODONTABEL());
+  choiceStep(think,{q:"Bij een substitutie wordt één base vervangen door een andere. Verschuiven de codons die erna komen?",opts:["ja, alle codons erna veranderen","nee, alleen dit ene codon verandert"],right:1,
+    ok:"Ja. Het gaat dus alleen om dit ene codon. Zoek nu beide codons op in de tabel.",no:"Er komt geen base bij en er gaat er geen af. Het aantal basen blijft gelijk.",onDone:unlock});
+  mc(ans,{qid:id,pts:1,right:2,opts:["Er komt een ander aminozuur in het eiwit.","Het eiwit is te kort, want GCA is een stopcodon.","Er verandert niets aan het eiwit, want GCA codeert ook voor alanine.","Vanaf deze plek klopt geen enkel codon meer."],
+    onChecked:()=>waaromBtn(ans,textBox("GCU en GCA staan allebei voor <b>alanine</b>: een stille mutatie. Vaak verschillen codons voor hetzelfde aminozuur alleen in de derde base. A: een andere base betekent niet altijd een ander aminozuur. B: GCA is geen stopcodon. D: dat geldt voor een base erbij of eraf, niet voor een substitutie. Het antwoord is <b>C</b>."))});
+  q.append(think,ans);
+},STOF_CODE));
+
+ids.push(vraag(2,"van nucleotiden naar een werkend enzym",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Cellen maken de hele dag eiwitten, zoals enzymen. "+B("Leg uit hoe de volgorde van de nucleotiden in een gen bepaalt of een enzym werkt. Gebruik de begrippen aminozuurvolgorde, vorm en substraat."));
+  numStep(think,{uid:"q"+id+"n",q:"Hoeveel nucleotiden in het mRNA bepalen samen één aminozuur?",right:3,ok:"Ja: één codon. Wat gebeurt er met de keten aminozuren als hij klaar is?",no:"Denk aan een codon.",
+    onDone:()=>choiceStep(think,{q:"Een enzym zet alleen zijn eigen substraat om. Waardoor?",opts:["het substraat past precies in het enzym","het enzym is groter dan het substraat","het substraat lost op in het enzym"],right:0,
+      ok:"Goed. Maak nu de keten af: nucleotiden → … → werkt het enzym?",no:"Denk aan sleutel en slot.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "de nucleotidenvolgorde bepaalt de <b>aminozuurvolgorde</b>, en die bepaalt hoe de keten zich vouwt tot een vaste <b>vorm</b>",
+    "de vorm bepaalt de werking: een enzym werkt alleen als het op zijn <b>substraat</b> past"],
+    model:"Elke drie nucleotiden bepalen één aminozuur, dus de nucleotidenvolgorde bepaalt de aminozuurvolgorde. Die bepaalt hoe de keten vouwt, en dus de vorm van het enzym. Alleen als die vorm precies past bij het substraat, kan het enzym het substraat omzetten.",
+    after:()=>waaromBtn(ans,textBox("De keten is: <b>nucleotidenvolgorde → aminozuurvolgorde → vouwing → vorm → past het substraat?</b> Verandert er iets in het begin van de keten, dan kan het doorwerken tot aan de vorm, en dan werkt het enzym niet meer."))});
+  q.append(think,ans);
+},STOF_VORM));
+}else{
+const STOF_STR={titel:"Matrijsstreng, coderende streng en mRNA",html:`
+<p>RNA-polymerase gebruikt één streng van het gen als voorbeeld: de <b>matrijsstreng</b>. Het mRNA is complementair aan die streng (met U in plaats van T). De andere streng heet de <b>coderende streng</b>.</p>
+<p>Het mRNA wordt gemaakt van 5' naar 3', en is antiparallel aan de streng waartegenover het ontstaat. Schrijf daarom altijd de 5'- en 3'-uiteinden erbij, en controleer of twee strengen tegenover elkaar de andere kant op lopen.</p>`,films:[F.eiw,F.code]};
+ids.push(vraag(3,"matrijsstreng en mRNA",(q,id)=>{
+  const {think,ans,unlock}=startLos(q,"Van een gen is een stukje van de coderende streng gegeven:<br><br>"+SEQ("5'-A T G A A A C C C-3'")+"<br><br>• "+B("Schrijf de matrijsstreng op, met 5' en 3'.")+"<br>• "+B("Schrijf het mRNA op, van 5' naar 3'.")+"<br>• "+B("In welke richting leest RNA-polymerase de matrijsstreng?"));
+  choiceStep(think,{q:"Welke streng ligt tegenover de coderende streng?",opts:["het mRNA","de matrijsstreng"],right:1,
+    ok:"Ja: samen vormen ze het dubbelstrengs DNA. Het mRNA ontstaat tegenover de matrijsstreng.",no:"Het gen is dubbelstrengs DNA; de coderende streng heeft een partner.",
+    onDone:()=>choiceStep(think,{q:"In welke richting groeit een nieuw RNA- of DNA-molecuul?",opts:["van 5' naar 3'","van 3' naar 5'"],right:0,
+      ok:"Goed. Bedenk dan in welke richting de streng waar het tegenover ligt, wordt afgelezen.",no:"Nieuwe nucleotiden komen steeds aan het 3'-uiteinde.",onDone:unlock})});
+  openAnswer(ans,{id,pts:3,checks:[
+    "matrijsstreng: "+SEQ("3'-T A C T T T G G G-5'")+" (of "+SEQ("5'-G G G T T T C A T-3'")+")",
+    "mRNA: "+SEQ("5'-A U G A A A C C C-3'"),
+    "RNA-polymerase leest de matrijsstreng <b>van 3' naar 5'</b> (het mRNA groeit van 5' naar 3')"],
+    model:"Matrijsstreng 3'-TACTTTGGG-5'. Het mRNA is complementair aan de matrijsstreng en heeft dus dezelfde volgorde als de coderende streng, met U: 5'-AUGAAACCC-3'. Het mRNA groeit van 5' naar 3', dus RNA-polymerase leest de matrijsstreng van 3' naar 5'.",
+    valkuil:"Een mRNA dat complementair is aan de coderende streng (UAC…) is fout: het mRNA ontstaat tegenover de matrijsstreng.",
+    after:()=>waaromBtn(ans,textBox("Coderende streng 5'-ATGAAACCC-3'<br>Matrijsstreng &nbsp;&nbsp;3'-TACTTTGGG-5'<br>mRNA &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5'-AUGAAACCC-3' (tegenover de matrijs, dus gelijk aan de coderende streng met U)<br>Het mRNA groeit van 5' naar 3'. Omdat het antiparallel ligt aan de matrijs, leest RNA-polymerase de matrijsstreng van <b>3' naar 5'</b>. Handig: het mRNA begint met AUG, het startcodon."))});
+  q.append(think,ans);
+},STOF_STR));
+
+ids.push(vraag(2,"anticodon en 64 codons",(q,id)=>{
+  const {think,ans,unlock}=startLos(q,B("Beantwoord beide vragen.")+"<br>• "+B("Welk anticodon heeft het tRNA dat past op het codon GCU?")+"<br>• "+B("Er zijn 64 codons en maar 20 aminozuren. Leg uit wat daaruit volgt voor het aantal codons per aminozuur."));
+  selectsStep(think,{uid:"q"+id,q:"Welke base past in RNA tegenover …",rows:[["A",["A","U","C","G"],1],["U",["A","U","C","G"],0],["C",["A","U","C","G"],3],["G",["A","U","C","G"],2]],
+    ok:"Goed: in RNA paart A met U.",no:"In RNA staat U in plaats van T.",
+    onDone:()=>numStep(think,{uid:"q"+id+"n",q:"Hoeveel van de 64 codons zijn een stopcodon?",right:3,ok:"Ja. Hoeveel codons blijven er dan over voor 20 aminozuren?",no:"Kijk in de codontabel: UAA, UAG, UGA.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:["<b>CGA</b>",
+    "drie codons zijn stopcodons; de andere <b>61</b> horen bij 20 aminozuren, dus de meeste aminozuren hebben <b>meer dan één codon</b> (vaak alleen verschillend in de derde base)"],
+    model:"Het anticodon is CGA. Drie van de 64 codons zijn stopcodons; de andere 61 codons horen bij maar 20 aminozuren. De meeste aminozuren hebben dus meer dan één codon; die verschillen vaak alleen in de derde base.",
+    after:()=>waaromBtn(ans,textBox("Codon GCU, anticodon tegenover elke base de complementaire: G–C, C–G, U–A → <b>CGA</b>. 61 codons voor 20 aminozuren is gemiddeld ruim drie per aminozuur: de code heeft ‘reserves’. Daardoor is een verandering in de derde base vaak een stille mutatie."))});
+  q.append(think,ans);
+},STOF_CODE));
+
+ids.push(vraag(2,"rRNA en een gen zonder introns",(q,id)=>{
+  const {think,ans,unlock}=startLos(q,B("Beantwoord beide vragen.")+"<br>• "+B("Een ribosoom bestaat voor een groot deel uit RNA. Wat doet dat RNA?")+"<br>• "+B("De bacterie die menselijke insuline maakt, kreeg een versie van het gen zonder introns. Leg uit waarom."));
+  choiceStep(think,{q:"Wat gebeurt er in een menselijke cel met de introns in het pre-mRNA?",opts:["ze worden vertaald naar aminozuren","ze worden eruit geknipt voordat het mRNA de kern uit gaat","ze blijven in het DNA en komen niet in het RNA"],right:1,
+    ok:"Ja. Een bacterie heeft geen kern. Heeft ze ook dit knipwerk?",no:"Introns komen wél in het pre-mRNA, maar niet in het mRNA dat het ribosoom leest.",
+    onDone:()=>choiceStep(think,{q:"Wat doet een ribosoom tijdens de translatie met de aminozuren die tRNA's aanvoeren?",opts:["het koppelt ze aan elkaar","het breekt ze af","het vervoert ze de kern in"],right:0,
+      ok:"Goed. Beantwoord nu beide vragen.",no:"Het ribosoom bouwt de eiwitketen.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "het ribosomale RNA (<b>rRNA</b>) <b>koppelt de aminozuren</b> aan elkaar",
+    "een bacterie kan geen introns wegknippen (<b>geen splicing</b>); met introns zou het eiwit niet kloppen"],
+    model:"Het rRNA koppelt de aminozuren aan elkaar tot een eiwitketen. Een bacterie heeft geen splicing: zij kan geen introns uit het RNA knippen. Met introns erin zouden er verkeerde aminozuren (of een stopcodon) in het eiwit komen, dus geen werkende insuline.",
+    after:()=>waaromBtn(ans,textBox("Het werk in het ribosoom wordt gedaan door het <b>RNA</b>, niet door de eiwitten erin: het rRNA maakt de binding tussen twee aminozuren. Bacteriegenen hebben geen introns, dus bacteriën hebben ook geen splicing. Daarom geeft men ze een ‘kant-en-klare’ versie van het gen: alleen de exons achter elkaar."))});
+  q.append(think,ans);
+},STOF_CODE));
+}
+opgave("Gen naar eiwit","Van gen naar eiwit","",ids);
+}
+
+/* ===== Opgave 4: Mutaties en kanker (havo: KD09, KD13 · vwo: KD07, KD11) ===== */
+{
+const STOF_MUT={titel:"Mutaties, allelen en kanker",html:`
+<p>Een <b>mutatie</b> is een verandering in de basenvolgorde van het DNA: een kopieerfout, of schade die niet hersteld is. Straling en sommige stoffen laten mutaties vaker ontstaan (<b>mutagene factoren</b>). Mutaties ontstaan toevallig, op willekeurige plekken.</p>
+<p>Alleen een mutatie in een geslachtscel (of heel vroeg in het embryo) kan worden doorgegeven aan nakomelingen.</p>
+<p>Een cel heeft verschillende ‘remmen’ op de celdeling. Als genen die de deling regelen veranderen, kan een cel ongeremd gaan delen: een <b>tumor</b>. Blijft een tumor op zijn plek, dan is hij goedaardig; groeit hij in het weefsel eromheen en kan hij uitzaaien, dan is hij kwaadaardig.</p>`+(VWO?`
+<p>Mutaties zijn er in verschillende maten: één base (puntmutatie), een stuk van een chromosoom, of het aantal chromosomen.</p>`:""),
+films:[F.mut]};
+const STOF_KANKER={titel:"Remmen op de celdeling",html:`
+<p>Een gewone cel deelt niet eindeloos: ze heeft verschillende ‘remmen’ op de celdeling. Gaan door mutaties genoeg van die remmen kapot, dan kan een cel ongeremd gaan delen en ontstaat er een <b>tumor</b>.</p>
+<p>Niet elke tumor is even gevaarlijk: het verschil zit in wat de tumor doet met het weefsel eromheen.</p>
+<p>Hoe vaak mutaties ontstaan, hangt ook af van de omgeving.</p>`,films:[F.mut]};
+const ids=[];
+if(!VWO){
+ids.push(vraag(1,"mutaties en allelen",(q,id)=>{
+  const {think,ans,unlock}=startLos(q,B("Welke uitspraak over mutaties en allelen klopt?")+"<br><br>"+L4("Een mutatie ontstaat als een organisme een nieuw allel nodig heeft.","Alle allelen zijn ooit door een mutatie ontstaan.","Nieuwe allelen ontstaan bij de meiose; mutaties beschadigen alleen bestaande allelen.","Alleen mutaties in huidcellen leveren nieuwe allelen op."));
+  choiceStep(think,{q:"Wat is een allel?",opts:["een variant van een gen, met een iets andere basenvolgorde","een chromosoom","een eiwit"],right:0,
+    ok:"Ja. Waardoor kan een basenvolgorde veranderen?",no:"Een gen kan in meerdere varianten bestaan.",
+    onDone:()=>choiceStep(think,{q:"Wat gebeurt er bij de meiose met de allelen?",opts:["er ontstaan nieuwe basenvolgordes","de bestaande allelen worden opnieuw verdeeld en gecombineerd"],right:1,
+      ok:"Goed. Kies nu de uitspraak die klopt.",no:"Bij de meiose worden chromosomen (en stukken ervan) verdeeld; de basenvolgorde zelf blijft gelijk.",onDone:unlock})});
+  mc(ans,{qid:id,pts:1,right:1,opts:["Een mutatie ontstaat als een organisme een nieuw allel nodig heeft.","Alle allelen zijn ooit door een mutatie ontstaan.","Nieuwe allelen ontstaan bij de meiose; mutaties beschadigen alleen bestaande allelen.","Alleen mutaties in huidcellen leveren nieuwe allelen op."],
+    onChecked:()=>waaromBtn(ans,textBox("<b>B</b>. Een nieuw allel is een gen met een andere basenvolgorde, en die verandert alleen door een mutatie. A: mutaties ontstaan toevallig, niet omdat ze nodig zijn. C: bij de meiose worden bestaande allelen opnieuw verdeeld. D: een mutatie in een huidcel wordt niet doorgegeven."))});
+  q.append(think,ans);
+},STOF_MUT));
+
+ids.push(vraag(2,"begrippen bij kanker",(q,id)=>{
+  const R=["1 een cel met te veel DNA-schade valt netjes uiteen in blaasjes","2 zorgt dat een gewone cel maar een beperkt aantal keren kan delen","3 een tumor die het weefsel eromheen ingroeit","4 straling of een stof die mutaties vaker laat ontstaan"];
+  const O=["A apoptose","B kwaadaardige tumor","C mutagene factor","D telomeren"];
+  const {think,ans,unlock}=startLos(q,B("Welk begrip hoort bij de beschrijving? Gebruik elke letter één keer.")+"<br><br>"+R.join("<br>")+"<br><br>"+O.join("<br>"));
+  chipsStep(think,{q:"Welke van deze begrippen zijn een ‘rem’ die ervoor zorgt dat cellen niet eindeloos blijven delen? Kies alles wat klopt.",items:[["apoptose",1],["telomeren",1],["kwaadaardige tumor",0],["mutagene factor",0]],
+    ok:"Goed: twee remmen. Koppel nu alle vier de begrippen.",no:"Een tumor en een mutagene factor remmen de deling niet.",onDone:unlock});
+  selectAnswer(ans,{id,uid:"q"+id,rows:R.map((r,k)=>[r,O,[0,3,1,2][k]]),score:KOPPELSCORE("q"+id),
+    after:()=>waaromBtn(ans,textBox("1A apoptose: de cel ruimt zichzelf op. 2D telomeren: de beschermende uiteinden worden bij elke deling korter; zijn ze te kort, dan stopt de cel met delen. 3B kwaadaardige tumor: groeit in het weefsel eromheen en kan uitzaaien. 4C mutagene factor, zoals UV-licht of stoffen in sigarettenrook."))});
+  q.append(think,ans);
+},STOF_KANKER));
+}else{
+ids.push(vraag(3,"hoe een tumor ontstaat",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Leg uit hoe een tumor ontstaat, en waarom daarvoor meerdere mutaties in dezelfde cel nodig zijn. Gebruik de begrippen apoptose en telomeren."));
+  choiceStep(think,{q:"Een tumor is een klomp cellen die blijft groeien. In welke genen moet een mutatie zitten om dat te veroorzaken?",opts:["in genen voor de kleur van de cel","in genen die de celdeling besturen","in genen voor het celmembraan"],right:1,
+    ok:"Ja.",no:"Het gaat om cellen die te vaak delen.",
+    onDone:()=>choiceStep(think,{q:"Mutaties ontstaan toevallig, op willekeurige plekken in het DNA. Hoe vaak treft één mutatie precies een gen dat de deling regelt?",opts:["bijna altijd","zelden"],right:1,
+      ok:"Ja. Bedenk nu welke remmen een cel heeft op de deling, en wat dat betekent voor het aantal mutaties dat nodig is.",no:"Het DNA bevat heel veel genen; de genen die de deling regelen zijn er maar een paar.",onDone:unlock})});
+  openAnswer(ans,{id,pts:3,checks:[
+    "door mutaties gaan genen kapot die de <b>celdeling besturen</b> (aanzetten of remmen); de cel en haar dochtercellen blijven delen: een klomp cellen",
+    "een cel heeft meer dan één rem; een cel met te veel DNA-schade ruimt zichzelf op (<b>apoptose</b>): ook die rem moet uitstaan",
+    "<b>telomeren</b> worden bij elke deling korter; zijn ze te kort, dan stopt de cel met delen, dus ook die grens moet omzeild worden (bijvoorbeeld doordat kankercellen telomerase aanzetten)"],
+    model:"Door mutaties veranderen genen die de celdeling aanzetten of remmen, zodat een cel en haar dochtercellen blijven delen: een tumor. Maar een cel heeft meerdere remmen. Een cel met veel DNA-schade ruimt zichzelf op door apoptose; die rem moet ook uitstaan. En bij elke deling worden de telomeren korter, tot de cel stopt met delen; kankercellen zetten telomerase aan, waardoor de telomeren weer langer worden. Voor elke rem is een eigen mutatie nodig, dus meerdere mutaties in dezelfde cel.",
+    after:()=>waaromBtn(ans,textBox("Denk aan een auto met meerdere remmen: pas als ze allemaal kapot zijn, rijdt hij door. Gaspedaal vast (gen dat de deling aanzet), rem kapot (gen dat de deling remt), <b>apoptose</b> uit, en de ‘teller’ van de <b>telomeren</b> omzeild. Omdat elke mutatie toevallig is, duurt het lang voordat één cel ze allemaal heeft; daarom komt kanker vooral op latere leeftijd voor."))});
+  q.append(think,ans);
+},STOF_MUT));
+
+ids.push(vraag(1,"chromosoommutatie of genoommutatie",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Wat is het verschil tussen een chromosoommutatie en een genoommutatie?"));
+  choiceStep(think,{q:"Wat is het genoom van een cel?",opts:["één gen","al het DNA, dus alle chromosomen van de cel","één chromosoom"],right:1,
+    ok:"Ja. Een genoommutatie raakt dus het geheel; een chromosoommutatie één chromosoom.",no:"Genoom = alles.",onDone:unlock});
+  openAnswer(ans,{id,pts:1,checks:["chromosoommutatie: een <b>stuk van een chromosoom</b> verandert (valt weg, verdubbelt of komt op een ander chromosoom); genoommutatie: het <b>aantal chromosomen</b> verandert"],
+    model:"Bij een chromosoommutatie verandert de bouw van een chromosoom: een stuk valt weg, verdubbelt of komt op een ander chromosoom. Bij een genoommutatie verandert het aantal chromosomen, zoals bij trisomie 21.",
+    valkuil:"Beide kanten moeten kloppen voor het punt.",
+    after:()=>waaromBtn(ans,textBox("Van klein naar groot: <b>puntmutatie</b> (één base) → <b>chromosoommutatie</b> (een stuk van een chromosoom) → <b>genoommutatie</b> (een heel chromosoom te veel of te weinig, bijvoorbeeld door non-disjunctie bij de meiose)."))});
+  q.append(think,ans);
+},STOF_MUT));
+}
+opgave("Mutaties","Mutaties en kanker","",ids);
+}
+
+/* ===== Opgave 5: Katten proeven geen zoet (eigen vragen E1, E6, E3 (havo) / E5 (vwo), E4 uit toetsen-biologie) ===== */
+{
+const STOF_DEL={titel:"Wat doet een base erbij of eraf?",html:`
+<p>Het ribosoom leest het mRNA vanaf het startcodon steeds per <b>drie basen</b>. Bij een <b>substitutie</b> verandert één base: hooguit één codon verandert.</p>
+<p>Bij een <b>insertie</b> (base erbij) of <b>deletie</b> (base eraf) verandert het aantal basen. Het ribosoom weet niet dat er iets mist: het blijft gewoon per drie lezen.</p>`+(VWO?`
+<p>De indeling in drietallen vanaf het startcodon heet het <b>leesraam</b>.</p>`:"")+`
+<p>Een mutatie in het DNA wordt bij replicatie en transcriptie gewoon meegekopieerd: DNA-polymerase en RNA-polymerase volgen de volgorde zoals die is.</p>`,
+films:[F.mut,F.eiw]};
+const STOF_NIV={titel:"Van molecuul tot organisme",html:`
+<p>Een mutatie werkt door op verschillende niveaus. Op <b>molecuulniveau</b> verandert een eiwit (of het ontbreekt). Op <b>celniveau</b> werkt de cel daardoor anders. Op <b>organismeniveau</b> zie je een ander kenmerk of ander gedrag.</p>
+<p>Een receptor is een eiwit met een vaste vorm, waarin een signaalstof precies past.</p>`,films:[F.mut,F.eiw]};
+const STOF_ERF={titel:"Toeval en erfelijkheid",html:`
+<p>Mutaties ontstaan <b>toevallig</b>: door kopieerfouten en door schade, bijvoorbeeld door UV-licht. Of een mutatie handig of schadelijk is, merk je pas achteraf.</p>
+<p>Een mutatie in een lichaamscel (huid, lever) gaat niet over op nakomelingen. Een nakomeling ontstaat uit één bevruchte eicel; al zijn cellen komen door mitose uit die ene cel voort.</p>`,films:[F.mut]};
+const ids=[];
+ids.push(vraag(2,"een deletie van 247 basenparen",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Leg uit dat het eiwit door deze deletie vanaf die plek een heel andere aminozuurvolgorde krijgt, of al snel stopt. Laat met een berekening zien waarom."));
+  numStep(think,{uid:"q"+id+"n",q:"Hoeveel basen leest het ribosoom per keer?",right:3,ok:"Ja: één codon.",no:"Denk aan een codon.",
+    onDone:()=>choiceStep(think,{q:"Stel dat er precies <b>drie</b> basenparen wegvallen, op de grens van twee codons. Wat gebeurt er met de codons daarna?",opts:["ze blijven hetzelfde: er mist alleen één aminozuur","ze veranderen allemaal"],right:0,
+      ok:"Klopt: bij drie basen valt precies één codon weg. Kijk nu of 247 zich net zo gedraagt als 3.",no:"Bij drie basen eraf valt precies één codon weg; de codons erna worden gewoon goed gelezen.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "247 is <b>geen veelvoud van 3</b> (247 : 3 = 82, rest 1)",
+    VWO?"het ribosoom leest per drie: vanaf de deletie liggen alle codons verschoven (het <b>leesraam verschuift</b>), zodat er andere aminozuren komen en al snel een stopcodon volgt"
+       :"het ribosoom leest per drie: vanaf de deletie liggen <b>alle codons verschoven</b>, zodat er andere aminozuren komen en al snel een stopcodon volgt"],
+    model:"247 : 3 = 82, rest 1. Er vallen dus 82 hele codons weg plus één base. Het ribosoom blijft per drie lezen, dus vanaf de deletie zijn alle codons verschoven met één base. Daardoor komen er andere aminozuren in de keten, en al snel komt er toevallig een stopcodon.",
+    valkuil:"Alleen ‘er ontbreken aminozuren’: 0 punten voor het tweede punt. Dat geldt alleen als het aantal basen een veelvoud van 3 is.",
+    after:()=>waaromBtn(ans,b=>{const S0="AUGCUGUGCGUCAAACUAAUGCGA",K=7,S=S0.slice(0,18),D=(S0.slice(0,K)+S0.slice(K+1)).slice(0,18);
+      const cod=x=>x.match(/.{1,3}/g);
+      stepAnim(b,[
+        {cap:"Een voorbeeld (verzonnen stukje mRNA): het ribosoom leest per drie.",m:0},
+        {cap:"Er valt één base weg (rood). 247 basen = 82 codons + 1 base: hier gebeurt hetzelfde als bij één base.",m:1},
+        {cap:"Het ribosoom leest gewoon verder per drie. Alle codons na de deletie zijn verschoven: andere aminozuren, en al snel een stopcodon."+(VWO?" Het leesraam is verschoven.":""),m:2}],
+        (st,s)=>{let h="";const rij=(seq,y,mark)=>{let x=6;cod(seq).forEach((c,i)=>{const a=c.length===3?vertaal(c):"",stop=a==="*";
+            h+=`<rect x="${x}" y="${y}" width="58" height="30" rx="5" fill="${stop?"var(--koraal-soft)":"none"}" stroke="var(--text2)"/>`;
+            [...c].forEach((ch,j)=>{const g=i*3+j,del=mark&&g===K;h+=`<text x="${x+11+j*18}" y="${y+21}" text-anchor="middle" class="lbl" style="font-size:16px;${del?"fill:var(--koraal);text-decoration:line-through":""}">${ch}</text>`;});
+            if(a)h+=`<text x="${x+29}" y="${y+48}" text-anchor="middle" class="lblm" style="font-size:11.5px">${stop?"STOP":AZ[a].split(" ")[0]}</text>`;x+=62;});};
+          if(s.m<2)rij(S,10,s.m===1);else{rij(S,10,true);rij(D,80,false);}
+          st.innerHTML=svgWrap(`0 0 380 ${s.m<2?66:136}`,h,"mRNA voor en na een deletie");});})});
+  q.append(think,ans);
+},STOF_DEL));
+
+ids.push(vraag(1,"bij welke stap gaat het mis?",(q,id)=>{
+  const O=["Bij de replicatie: het DNA met de deletie kan niet meer worden gekopieerd.","Bij de translatie: het ribosoom leest vanaf de deletie andere codons.","Bij de transcriptie: RNA-polymerase kan een gen met een deletie niet overschrijven.","Pas bij het vouwen: de aminozuurvolgorde klopt nog, maar de keten vouwt anders."];
+  const {think,ans,unlock}=startLos(q,B("De deletie zit in het DNA van het gen <i>Tas1r2</i>. Bij welke stap gaat het voor het eerst mis met het eiwit?")+"<br><br>"+L4(...O));
+  choiceStep(think,{q:"Zet de stappen van gen naar eiwit op een rij. Wat is de goede volgorde?",opts:["translatie → transcriptie → vouwen","transcriptie → translatie → vouwen","vouwen → transcriptie → translatie"],right:1,
+    ok:"Ja. Bedenk bij elke stap: werkt het enzym of het ribosoom gewoon met de volgorde die er ligt?",no:"Eerst wordt het gen overgeschreven naar mRNA, dan wordt het mRNA vertaald.",
+    onDone:()=>choiceStep(think,{q:"RNA-polymerase schrijft een gen over. Wat staat er in het mRNA als er in het gen een stuk mist?",opts:["het mRNA heeft hetzelfde stuk niet","het mRNA vult het missende stuk aan"],right:0,
+      ok:"Goed. Kies nu de stap waar het eiwit voor het eerst anders wordt.",no:"RNA-polymerase kent de ‘goede’ volgorde niet; het volgt de matrijs.",onDone:unlock})});
+  mc(ans,{qid:id,pts:1,right:1,opts:O,onChecked:()=>waaromBtn(ans,textBox("<b>B</b>. Het DNA wordt gewoon gekopieerd en overgeschreven: het mRNA bevat dezelfde deletie. Pas het ribosoom leest vanaf daar andere codons. A en C: de enzymen kopiëren de volgorde zoals die is, ook met een deletie. D: de aminozuurvolgorde is al veranderd door de verschoven codons."))});
+  q.append(think,ans);
+},STOF_DEL));
+
+if(!VWO){
+ids.push(vraag(2,"molecuul, cel en organisme",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Leg uit hoe de deletie in het DNA ertoe leidt dat een kat geen voorkeur heeft voor zoet voer. Gebruik in je uitleg het molecuulniveau, het celniveau en het organismeniveau."));
+  selectsStep(think,{uid:"q"+id,q:"Bij welk niveau hoort elk voorbeeld? (Een ander voorbeeld dan de kat.)",rows:[["een enzym in de lever heeft een andere vorm",["molecuul","cel","organisme"],0],["levercellen breken een stof niet meer af",["molecuul","cel","organisme"],1],["de persoon wordt ziek van die stof",["molecuul","cel","organisme"],2]],
+    ok:"Goed. Doe nu hetzelfde voor de kat: eiwit → smaakcel → kat.",no:"Molecuul = één stof (zoals een eiwit), cel = wat een cel doet, organisme = het hele dier.",
+    onDone:()=>choiceStep(think,{q:"Waar zit de zoetreceptor?",opts:["in de maag","op smaakcellen in de tong","in de hersenen"],right:1,
+      ok:"Ja, dat staat in de inleiding. Schrijf nu je uitleg.",no:"Lees de eerste zin van de inleiding.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "molecuul: er wordt geen (werkend) Tas1r2-eiwit gemaakt, dus de <b>zoetreceptor</b> heeft niet de goede vorm / ontbreekt",
+    "cel en organisme: de <b>smaakcellen</b> reageren niet op suiker, dus de <b>kat</b> proeft geen zoet en kiest niet voor zoet voer"],
+    model:"Molecuul: door de deletie wordt er geen werkend Tas1r2-eiwit gemaakt, dus de zoetreceptor ontbreekt of heeft niet de goede vorm. Cel: suiker past niet in een receptor, dus de smaakcellen reageren niet op suiker. Organisme: de kat proeft geen zoet en heeft dus geen voorkeur voor zoet voer.",
+    after:()=>waaromBtn(ans,textBox("<b>DNA</b> (deletie) → <b>eiwit</b> Tas1r2 ontbreekt → <b>zoetreceptor</b> werkt niet (molecuul) → <b>smaakcel</b> geeft geen signaal bij suiker (cel) → <b>kat</b> proeft geen zoet en kiest er niet voor (organisme)."))});
+  q.append(think,ans);
+},STOF_NIV));
+}else{
+ids.push(vraag(2,"een substitutie in de matrijsstreng",(q,id)=>{
+  const {think,ans,unlock}=startLos(q,"Bij een ander zoogdier is in hetzelfde exon geen deletie, maar een substitutie gevonden. Van de matrijsstreng is dit stukje gegeven (fictief):<br><br>"+SEQ("5'-C C A A G T-3'")+"<br><br>De codons van het mRNA beginnen precies aan het 5'-uiteinde van het stukje mRNA dat hierbij hoort. Door de substitutie wordt de C aan het 5'-uiteinde van de matrijsstreng een T.<br><br>"+B("Gebruik de codontabel. Leg uit wat het gevolg is voor het eiwit."),CODONTABEL());
+  choiceStep(think,{q:"Het mRNA is antiparallel aan de matrijsstreng. Waar ligt dan het 5'-uiteinde van het mRNA?",opts:["tegenover het 5'-uiteinde van de matrijsstreng","tegenover het 3'-uiteinde van de matrijsstreng"],right:1,
+    ok:"Ja. Schrijf het mRNA dus eerst onder de matrijsstreng (3' ↔ 5'), en lees het daarna van 5' naar 3'.",no:"Antiparallel: 5' ligt tegenover 3'.",
+    onDone:()=>selectsStep(think,{uid:"q"+id,q:"Welke base komt in het mRNA tegenover …",rows:[["C",["A","U","C","G"],3],["A",["A","U","C","G"],1],["G",["A","U","C","G"],2],["T",["A","U","C","G"],0]],
+      ok:"Goed. Schrijf nu het mRNA voor en na de mutatie op en zoek de codons op.",no:"In RNA staat U tegenover A.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "het mRNA is "+SEQ("5'-A C U U G G-3'")+": ACU (threonine) en UGG (tryptofaan)",
+    "na de mutatie wordt het tweede codon <b>UGA</b>, een <b>stopcodon</b>: het eiwit is te kort (en werkt meestal niet)"],
+    model:"Het mRNA tegenover 5'-CCAAGT-3' is 5'-ACUUGG-3': ACU (threonine) en UGG (tryptofaan). De C aan het 5'-uiteinde van de matrijs ligt tegenover de laatste base van het mRNA. Wordt die C een T, dan wordt die G in het mRNA een A: UGG wordt UGA, een stopcodon. Het eiwit stopt hier dus te vroeg en werkt meestal niet.",
+    valkuil:"Het mRNA in de verkeerde richting gelezen (GGU UCA …): 0 punten voor het eerste punt; het tweede kan nog goed zijn als je uitlegt dat de veranderde base in het laatste codon zit.",
+    after:()=>waaromBtn(ans,textBox("Matrijs &nbsp;5'-C C A A G T-3'<br>mRNA &nbsp;&nbsp;&nbsp;3'-G G U U C A-5' &nbsp;→ van 5' naar 3': <b>ACU UGG</b> (threonine, tryptofaan)<br>Na de mutatie: matrijs 5'-<b>T</b> C A A G T-3' → mRNA 5'-ACU UG<b>A</b>-3': <b>UGA = stop</b>. De base aan het 5'-uiteinde van de matrijs hoort bij het láátste codon van het mRNA."))});
+  q.append(think,ans);
+},Object.assign({},STOF_DEL,{titel:"Matrijsstreng lezen",html:`<p>Het mRNA is complementair en <b>antiparallel</b> aan de matrijsstreng, met U in plaats van T. Codons lees je in het mRNA altijd van 5' naar 3'.</p><p>Bij een <b>substitutie</b> verandert één base, dus hooguit één codon. Dat kan een stille mutatie zijn, een ander aminozuur geven, of een stopcodon.</p>`,films:[F.code,F.mut]})));
+}
+
+ids.push(vraag(2,"‘ze hadden het niet nodig’",(q,id)=>{
+  const {think,ans,unlock}=startLos(q,"Een leerling zegt: “Katten eten alleen vlees. Ze hadden de zoetreceptor niet nodig, en daarom is het gen kapotgegaan.”<br>• "+B("Leg uit wat er niet klopt aan deze redenering.")+"<br>• "+B("De deletie is ooit bij één dier ontstaan. Leg uit hoe hij nu in elke cel van elke jonge kat kan zitten."));
+  chipsStep(think,{q:"Waardoor ontstaan mutaties? Kies alles wat klopt.",items:[["kopieerfouten bij de replicatie",1],["schade door UV-licht of andere mutagene factoren",1],["omdat het dier een eigenschap niet meer gebruikt",0]],
+    ok:"Goed. Hangt het dan af van wat een dier nodig heeft, wáár een mutatie ontstaat?",no:"Eén keuze is precies de denkfout van de leerling.",
+    onDone:()=>choiceStep(think,{q:"Een kuiken heeft een mutatie in alle cellen van zijn lichaam. Waar is die mutatie ontstaan?",opts:["in de huid van het kuiken","in een geslachtscel van een ouder, of heel vroeg in het embryo","in het ei, doordat de moederkip veel in de zon zat"],right:1,
+      ok:"Ja (dat vroeg de film ook). Pas dat nu toe op de kat.",no:"Bedenk waaruit alle cellen van een dier voortkomen.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "een mutatie ontstaat <b>toevallig</b>; hij ontstaat niet omdat het dier hem (niet) nodig heeft",
+    "de mutatie zat in een <b>geslachtscel</b> (eicel of zaadcel) en werd doorgegeven; een jonge kat ontstaat uit <b>één bevruchte eicel</b>, dus de mutatie zit in al zijn cellen"],
+    model:"Mutaties ontstaan toevallig, niet omdat een dier een eiwit niet meer nodig heeft. De deletie ontstond ooit in een eicel of zaadcel van één kat en werd doorgegeven. Een jonge kat ontstaat uit één bevruchte eicel; door mitose zit de deletie dan in al zijn cellen.",
+    valkuil:"Alleen ‘katten hebben het geërfd’ zonder geslachtscel of bevruchte eicel: 0 punten voor het tweede punt.",
+    after:()=>waaromBtn(ans,textBox("Volgorde: eerst ontstaat <b>toevallig</b> een mutatie, pas daarna blijkt of hij schaadt. Voor een vleeseter maakte het verlies van de zoetreceptor weinig uit, dus het allel kon blijven bestaan; maar het ontstond niet ‘omdat’ het niet nodig was. Erfelijk wordt een mutatie alleen via een <b>geslachtscel</b>: de bevruchte eicel geeft hem door mitose door aan elke lichaamscel."))});
+  q.append(think,ans);
+},STOF_ERF));
+
+opgave("Katten","Katten proeven geen zoet",`
+<p>Je proeft zoet met een receptor op smaakcellen in je tong. Die receptor bestaat uit twee eiwitten. Eén daarvan wordt gecodeerd door het gen <i>Tas1r2</i>.</p>
+<p>Katten eten vrijwel alleen vlees, en ze reageren niet op suiker. Onderzoekers vonden de oorzaak: bij katten ontbreken ${VWO?"in een exon van":"in"} het gen <i>Tas1r2</i> 247 basenparen. Katten maken van dit gen geen werkend eiwit.</p>`,ids);
+}
+
+/* ===== Opgave 6 (alleen havo): Genen aan en uit (KE02, KE07, KE14) ===== */
+if(!VWO){
+const STOF_AAN={titel:"Zelfde DNA, andere cel",html:`
+<p>Bijna elke cel in je lichaam heeft hetzelfde DNA. Toch is een huidcel iets anders dan een levercel. Het verschil zit in welke genen <b>aan</b> staan en welke <b>uit</b>: de <b>genexpressie</b>.</p>
+<p><b>Stamcellen</b> zijn cellen die nog niet gespecialiseerd zijn. Het gespecialiseerd raken van een cel, doordat andere genen aan en uit gaan, heet <b>celdifferentiatie</b>.</p>
+<p>Bij de ontwikkeling van een embryo wordt niet alleen geregeld wélk soort cel er ontstaat, maar ook waar cellen bij komen en waar er cellen verdwijnen.</p>`,films:[F.aan]};
+const ids=[];
+ids.push(vraag(1,"rups en vlinder: ander genotype?",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Een rups verandert in een vlinder. "+B("Verandert daarbij het genotype van het dier? Leg je antwoord uit."));
+  choiceStep(think,{q:"Wat is het genotype?",opts:["de genen (allelen) die een organisme heeft","de kenmerken die je ziet"],right:0,
+    ok:"Ja. De kenmerken die je ziet, zijn het fenotype.",no:"Wat je ziet, heet het fenotype.",
+    onDone:()=>choiceStep(think,{q:"Een huidcel en een levercel van dezelfde persoon: hebben ze dezelfde genen?",opts:["ja","nee"],right:0,
+      ok:"Goed. Waarom zien ze er dan zo verschillend uit? Pas dat toe op de rups.",no:"Bijna elke cel heeft hetzelfde DNA.",onDone:unlock})});
+  openAnswer(ans,{id,pts:1,checks:["<b>Nee</b>: de cellen raken geen genen kwijt en krijgen er geen bij; alleen de <b>genexpressie</b> verandert (andere genen gaan aan en uit)"],
+    model:"Nee. Het dier houdt dezelfde genen: er komen geen genen bij en er gaan er geen weg. Er gaan alleen andere genen aan en uit; de genexpressie verandert, en daardoor het fenotype.",
+    valkuil:"Alleen ‘nee’ zonder uitleg: 0 punten.",
+    after:()=>waaromBtn(ans,textBox("Genotype = welke genen je hebt; dat blijft gelijk. Fenotype = hoe je eruitziet; dat verandert enorm. De brug ertussen is de <b>genexpressie</b>: in de pop gaan andere genen aan, zodat er vleugels en andere monddelen ontstaan."))});
+  q.append(think,ans);
+},STOF_AAN));
+
+ids.push(vraag(1,"vliezen tussen de vingers",(q,id)=>{
+  const O=["Doordat de cellen in de vliezen een signaal krijgen om zichzelf op te ruimen.","Doordat de cellen in de vliezen hun genen kwijtraken.","Doordat de cellen in de vliezen door een mutatie niet meer kunnen delen.","Doordat de cellen in de vliezen naar de vingers toe groeien."];
+  const {think,ans,unlock}=startLos(q,B("Hoe verdwijnen de vliezen tussen de vingers van een embryo?")+"<br><br>"+L4(...O));
+  choiceStep(think,{q:"Verdwijnen de vliezen bij bijna elk embryo van de mens?",opts:["ja, het hoort bij de normale ontwikkeling","nee, alleen als er iets misgaat"],right:0,
+    ok:"Ja. Bedenk bij elke keuze of hij past bij iets dat bij elk embryo op dezelfde manier gebeurt.",no:"Bij bijna iedereen zijn de vingers bij de geboorte los.",onDone:unlock});
+  mc(ans,{qid:id,pts:1,right:0,opts:O,onChecked:()=>waaromBtn(ans,textBox("<b>A</b>: apoptose. De cellen krijgen een signaal en ruimen zichzelf netjes op. B: cellen raken geen genen kwijt. C: het is geen mutatie, het hoort bij de normale ontwikkeling. D: de cellen verdwijnen echt."))});
+  q.append(think,ans);
+},STOF_AAN));
+
+ids.push(vraag(2,"juist of onjuist: stamcellen",(q,id)=>{
+  q.append(el("p",{class:"qtext"},"Over stamcellen en celdifferentiatie staan hieronder vier uitspraken.<br><br>1 Een stamcel kan zichzelf blijven delen en zich ontwikkelen tot een gespecialiseerde cel.<br>2 Volwassen stamcellen vind je alleen in een embryo.<br>3 Een gespecialiseerde cel is de genen kwijtgeraakt die ze niet meer gebruikt.<br>4 Apoptose hoort bij de normale ontwikkeling van een embryo.<br><br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
+  const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
+  choiceStep(think,{q:"Wat bepaalt of een cel een huidcel of een levercel wordt?",opts:["welke genen ze heeft","welke genen er aan en uit staan"],right:1,
+    ok:"Ja. Lees nu elke uitspraak precies: één woord kan hem onjuist maken.",no:"Bijna elke cel heeft dezelfde genen.",onDone:unlock});
+  juistOnjuist(ans,{id,stm:["een stamcel deelt en kan zich specialiseren","volwassen stamcellen alleen in een embryo","een gespecialiseerde cel is genen kwijtgeraakt","apoptose hoort bij de normale ontwikkeling"],key:[true,false,false,true],
+    uitleg:textBox("1 <b>juist</b>: dat zijn precies de twee eigenschappen van een stamcel.<br>2 <b>onjuist</b>: volwassen stamcellen zitten bijvoorbeeld in het beenmerg; in een embryo zitten embryonale stamcellen.<br>3 <b>onjuist</b>: alle genen zitten er nog, ze staan uit (op slot).<br>4 <b>juist</b>: bijvoorbeeld bij het verdwijnen van de vliezen tussen de vingers.")});
+  q.append(think,ans);
+},STOF_AAN));
+opgave("Genen aan en uit","Genen aan en uit","",ids);
+}
+
+/* ===== Opgave: Een bloem met een slotje (eigen vragen F1, F2, F3 (havo) / F4 (vwo)) ===== */
+{
+const STOF_SLOT={titel:"Slotjes op het DNA",html:`
+<p>Een gen wordt alleen overgeschreven als een <b>transcriptiefactor</b> bij de <b>promotor</b> kan binden; dan kan RNA-polymerase beginnen. Zo regelt een cel welke genen aan staan: de <b>genexpressie</b>.</p>
+<p>Een cel kan een gen ook voor lange tijd uitzetten met een chemisch slotje: een <b>methylgroep</b> op het DNA. De basenvolgorde verandert daarbij niet; het is dus geen mutatie. Het onderzoek naar zulke slotjes heet <b>epigenetica</b>.</p>
+<p>Slotjes kunnen er later ook weer af.</p>`+(VWO?`<p>Een cel kan een gen ook uitzetten nádat het is overgeschreven, met kleine RNA-moleculen: <b>RNA-interferentie</b>.</p>`:""),films:[F.aan]};
+const ids=[];
+ids.push(vraag(2,"pelorisch zonder mutatie",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Leg uit hoe een plant pelorische bloemen krijgt, terwijl de basenvolgorde van <i>Lcyc</i> niet veranderd is. Gebruik de begrippen genexpressie en transcriptiefactor."));
+  choiceStep(think,{q:"In de bloemknoppen van pelorische planten is geen mRNA van <i>Lcyc</i>. Welke stap van de eiwitsynthese gebeurt dan niet?",opts:["de transcriptie","de translatie","de replicatie"],right:0,
+    ok:"Ja. Wat is er nodig om een gen te kunnen overschrijven, en wat zit er in de weg?",no:"mRNA ontstaat bij het overschrijven van een gen.",
+    onDone:()=>choiceStep(think,{q:"Kan er Lcyc-eiwit gemaakt worden als er geen mRNA van <i>Lcyc</i> is?",opts:["ja","nee"],right:1,
+      ok:"Goed. Schrijf nu de keten op: methylgroepen → … → bloemvorm.",no:"Het ribosoom heeft mRNA nodig.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "door de methylgroepen (bij de promotor) kan de <b>transcriptiefactor niet binden</b>, dus <i>Lcyc</i> wordt niet overgeschreven: er komt geen mRNA",
+    "er wordt dus geen Lcyc-eiwit gemaakt; het verschil komt door een verschil in <b>genexpressie</b>, niet door een andere basenvolgorde"],
+    model:"Door de methylgroepen op het Lcyc-gen kan de transcriptiefactor niet bij de promotor binden. Het gen wordt dan niet overgeschreven, er komt geen mRNA en dus geen Lcyc-eiwit. De genexpressie is anders, terwijl de basenvolgorde gelijk is; daardoor krijgt de plant pelorische bloemen.",
+    after:()=>waaromBtn(ans,b=>stepAnim(b,[
+      {cap:"Gewone plant: de transcriptiefactor bindt bij de promotor, RNA-polymerase schrijft <i>Lcyc</i> over. Er komt mRNA en Lcyc-eiwit.",m:0},
+      {cap:"Pelorische plant: methylgroepen (slotjes) op het gen. De transcriptiefactor kan er niet bij.",m:1},
+      {cap:"Geen transcriptie → geen mRNA → geen Lcyc-eiwit → rondom symmetrische bloem. De basenvolgorde is precies gelijk.",m:2}],
+      (st,s)=>{let h=`<path d="M20,70 H400" stroke="var(--text2)" stroke-width="6"/><rect x="60" y="60" width="90" height="20" fill="var(--goud-soft)" stroke="var(--goud)"/><text x="105" y="100" text-anchor="middle" class="lblm" style="font-size:15px">promotor</text><rect x="160" y="60" width="200" height="20" fill="var(--teal-soft)" stroke="var(--teal)"/><text x="260" y="100" text-anchor="middle" class="lblm" style="font-size:15px">gen Lcyc</text>`;
+        if(s.m===0)h+=`<ellipse cx="105" cy="44" rx="32" ry="14" fill="var(--groen-soft)" stroke="var(--groen)"/><text x="105" y="48" text-anchor="middle" class="lblm" style="font-size:13px">transcriptiefactor</text><path d="M170,40 C240,10 300,10 360,30" fill="none" stroke="var(--koraal)" stroke-width="2.5"/><text x="365" y="26" class="lblm" style="font-size:15px">mRNA</text>`;
+        else{[80,110,140,200,260].forEach(x=>h+=`<circle cx="${x}" cy="56" r="6" fill="var(--paars)"/><path d="M${x},62 V60" stroke="var(--paars)"/>`);
+          h+=`<text x="230" y="40" class="lblm" style="font-size:15px">methylgroepen</text><ellipse cx="105" cy="16" rx="32" ry="12" fill="none" stroke="var(--groen)" stroke-dasharray="4 3"/><text x="105" y="20" text-anchor="middle" class="lblm" style="font-size:13px">kan niet binden</text>`;
+          if(s.m===2)h+=`<text x="260" y="128" text-anchor="middle" class="lbl" style="font-size:16px">geen mRNA · geen eiwit</text>`;}
+        st.innerHTML=svgWrap("0 0 420 140",h,"gen met promotor en methylgroepen");}))});
+  q.append(think,ans);
+},STOF_SLOT));
+
+ids.push(vraag(1,"een tak met bijna gewone bloemen",(q,id)=>{
+  const O=["In die tak is de mutatie in <i>Lcyc</i> hersteld.","Methylgroepen zetten <i>Lcyc</i> aan.","De methylgroepen kunnen er weer af, en dan kan <i>Lcyc</i> weer worden afgelezen.","De cellen in die tak hebben andere genen dan de rest van de plant."];
+  const {think,ans,unlock}=startLos(q,"Soms groeit aan een pelorische plant een tak met bijna gewone bloemen. Op het <i>Lcyc</i>-gen in die tak zitten veel minder methylgroepen. "+B("Wat kun je hieruit afleiden?")+"<br><br>"+L4(...O));
+  choiceStep(think,{q:"Is er bij pelorische planten een mutatie in <i>Lcyc</i>?",opts:["ja","nee, de basenvolgorde is gelijk aan die van gewone planten"],right:1,
+    ok:"Ja, dat staat in de inleiding. Vergelijk nu: minder methylgroepen hoort bij welke bloemvorm?",no:"Lees de eerste waarneming in de inleiding nog eens.",onDone:unlock});
+  mc(ans,{qid:id,pts:1,right:2,opts:O,onChecked:()=>waaromBtn(ans,textBox("<b>C</b>. Minder slotjes en bijna gewone bloemen: als de methylgroepen eraf gaan, kan <i>Lcyc</i> weer worden afgelezen. A: er was geen mutatie. B: dan zou de tak met minder methylgroepen juist pelorisch zijn. D: alle cellen van de plant hebben dezelfde genen."))});
+  q.append(think,ans);
+},STOF_SLOT));
+
+if(!VWO){
+ids.push(vraag(1,"slotjes in het zaad",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Zaden van pelorische planten groeien vaak weer uit tot pelorische planten. "+B("Leg uit waarom dat opvallend is, als je kijkt naar wat er normaal met slotjes op het DNA gebeurt bij de voortplanting."));
+  choiceStep(think,{q:"Een zaadje bevat een embryo. Uit welke cel is dat embryo ontstaan?",opts:["uit een bevruchte eicel","uit een cel van de bloem van de moederplant"],right:0,
+    ok:"Ja. Het embryo komt dus voort uit geslachtscellen. Wat gebeurt er volgens de film normaal met de slotjes rond de vorming van geslachtscellen en de bevruchting?",no:"Een plant vormt zaad na bestuiving en bevruchting.",onDone:unlock});
+  openAnswer(ans,{id,pts:1,checks:["de meeste slotjes (methylgroepen) worden bij de vorming van geslachtscellen en na de bevruchting <b>gewist</b>; hier <b>blijven ze zitten</b> en gaan ze mee naar de nakomelingen"],
+    model:"Normaal worden de meeste slotjes gewist bij de vorming van eicellen en zaadcellen (bij planten: geslachtscellen) en nog eens na de bevruchting. Bij de pelorische planten blijven de methylgroepen op Lcyc zitten en gaan ze mee naar de volgende generatie.",
+    valkuil:"Alleen ‘het is erfelijk’: 0 punten.",
+    after:()=>waaromBtn(ans,textBox("Erfelijk is normaal de <b>basenvolgorde</b>. Slotjes zijn meestal tijdelijk: ze worden bij de vorming van geslachtscellen en vlak na de bevruchting grotendeels gewist. Dat ze bij vlasleeuwenbek blijven zitten, maakt deze plant een bekend voorbeeld van epigenetica die over generaties gaat."))});
+  q.append(think,ans);
+},STOF_SLOT));
+}else{
+ids.push(vraag(2,"RNA-interferentie of methylering",(q,id)=>{
+  const {think,ans,unlock}=startLos(q,"Onderzoekers maken in een gewone plant pelorische bloemen na met RNA-interferentie tegen het mRNA van <i>Lcyc</i>.<br>• "+B("Leg uit hoe RNA-interferentie zorgt dat er geen Lcyc-eiwit komt.")+"<br>• "+B("In de natuurlijke pelorische plant vind je geen mRNA van <i>Lcyc</i>. In de plant met RNA-interferentie wordt wel mRNA van <i>Lcyc</i> gemaakt. Leg uit waardoor dat verschil komt."));
+  choiceStep(think,{q:"Op welk molecuul werkt RNA-interferentie?",opts:["op het DNA van het gen","op het mRNA","op het eiwit"],right:1,
+    ok:"Ja: RNA-interferentie werkt ná de transcriptie. Waar werkt methylering?",no:"De naam zegt het al: het gaat om RNA.",
+    onDone:()=>choiceStep(think,{q:"Waar zitten de methylgroepen bij de natuurlijke pelorische plant?",opts:["op het mRNA","op het DNA, bij de promotor"],right:1,
+      ok:"Goed. Vergelijk nu op welk moment elk van beide het gen uitzet.",no:"Methylgroepen zijn slotjes op het DNA.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "een klein RNA (siRNA) gaat met één streng in <b>RISC</b> en bindt door <b>baseparing aan het mRNA</b> van <i>Lcyc</i>; dat mRNA wordt doorgeknipt en afgebroken (of de translatie wordt geblokkeerd)",
+    "methylering voorkomt de <b>transcriptie</b> (er wordt geen mRNA gemaakt); bij RNA-interferentie wordt het gen wél overgeschreven en wordt het mRNA pas <b>daarna</b> afgebroken"],
+    model:"Een siRNA dat past op het mRNA van Lcyc gaat met één streng in RISC. Dat complex bindt door baseparing aan het mRNA, dat wordt doorgeknipt en afgebroken, dus er komt geen eiwit. In de natuurlijke plant zitten methylgroepen op het DNA bij de promotor: daar wordt het gen niet eens overgeschreven, dus geen mRNA. Bij RNA-interferentie wordt het gen wel overgeschreven; het mRNA wordt pas daarna afgebroken.",
+    after:()=>waaromBtn(ans,textBox("Twee manieren om een gen uit te zetten, op een ander moment:<br><b>Methylering</b>: DNA → (blokkade) geen transcriptie → geen mRNA → geen eiwit.<br><b>RNA-interferentie</b>: DNA → transcriptie → mRNA → (siRNA in RISC knipt het mRNA) → geen eiwit.<br>Daarom vind je bij RNA-interferentie nog wél (een beetje) mRNA, en bij methylering niet."))});
+  q.append(think,ans);
+},STOF_SLOT));
+}
+opgave("Bloem met slotje","Een bloem met een slotje",`
+<p>Vlasleeuwenbek is een plant met gele bloemen. Een gewone bloem heeft een bovenlip en een onderlip: je kunt hem maar op één manier in twee spiegelbeelden delen. Soms vind je planten met bloemen die rondom symmetrisch zijn: de pelorische vorm.</p>
+<p>Voor de vorm van de bloem is het gen <i>Lcyc</i> nodig. Onderzoekers vergeleken gewone en pelorische planten:</p>
+<ul style="margin:0;padding-left:20px"><li>de basenvolgorde van <i>Lcyc</i> is bij beide precies hetzelfde;</li><li>bij pelorische planten zitten er veel methylgroepen op het <i>Lcyc</i>-gen;</li><li>in de bloemknoppen van pelorische planten is geen mRNA van <i>Lcyc</i> te vinden.</li></ul>`,ids);
+}
+
+/* ===== Opgave: Echte kaviaar? (eigen vragen G1, G2, G3, G4, G8, G9 (havo) / G1, G2, G10, G8, G7 (vwo)) ===== */
+{
+const STOF_PCR={titel:"PCR: op maat kopiëren",html:`
+<p>Met een <b>PCR</b> kopieer je één stuk DNA heel vaak. <b>Primers</b> zijn korte stukjes DNA die alleen binden waar ze precies passen; ze bepalen welk stuk er gekopieerd wordt. De temperatuur werkt als schakelaar: heet = strengen los, iets koeler = primers binden, warm = polymerase bouwt.</p>
+<p>Elke cyclus verdubbelt het aantal moleculen op maat (in het model: een perfecte verdubbeling). Steeds verdubbelen heet <b>exponentiële groei</b>.</p>
+<p>Omdat een PCR zo gevoelig is, gebruik je controles: een <b>negatieve controle</b> (zonder DNA) en een <b>positieve controle</b> (met DNA waarvan je weet wat eruit moet komen).</p>`,films:[F.pcr,F.lees]};
+const STOF_GEL={titel:"De gel lezen",html:`
+<p>Een gel is een netwerk van agarose met kleine gaatjes. DNA is negatief geladen en beweegt naar de pluspool. <b>Korte stukken komen verder</b> dan lange.</p>
+<p>De lengte lees je af met de <b>marker</b>: stukken DNA van bekende lengte. Kijk tussen welke twee markerbanden je band ligt. Hoger in de gel liggen de markerbanden dichter op elkaar.</p>
+<p>Elke band is een groep stukken DNA van dezelfde lengte. Kijk eerst naar de controles, vergelijk dan de banen band voor band.</p>`,films:[F.gel]};
+const STOF_PROF={titel:"Soort of individu?",html:`
+<p>Sommige stukken DNA zijn bij alle dieren van een soort gelijk, maar verschillen tussen soorten. Andere stukken verschillen ook tussen individuen van één soort, zoals <b>STR's</b>: korte stukjes die vaak herhaald worden, met een verschillend aantal herhalingen.</p>
+<p>Een <b>DNA-profiel</b> laat voor een aantal STR's zien welke twee allelen iemand heeft: één van de moeder en één van de vader.</p>`,films:[F.lees,F.gel]};
+const ids=[];
+ids.push(vraag(1,"primers die niet op mensen-DNA passen",(q,id)=>{
+  const {think,ans,unlock}=start(q,B("Leg uit waarom de primers zo gekozen zijn dat ze niet passen op het DNA van de mens."));
+  choiceStep(think,{q:"Een PCR kopieert elk stuk DNA waar de primers op passen. Hoeveel DNA is er nodig om na de PCR een band te zien?",opts:["heel veel: een heel eitje","heel weinig: een paar cellen is al genoeg"],right:1,
+    ok:"Ja. Bedenk welk ander DNA er, behalve van de steur, op of in een blik kaviaar terecht kan komen.",no:"Een PCR maakt van een paar moleculen er miljoenen.",onDone:unlock});
+  openAnswer(ans,{id,pts:1,checks:["anders wordt ook <b>DNA van mensen</b> die de kaviaar hebben aangeraakt (bijvoorbeeld huidcellen) gekopieerd, en geeft dat banden die niets over de steur zeggen"],
+    model:"Mensen die de kaviaar hebben verwerkt of het lab-materiaal aanraken, laten huidcellen achter. Als de primers ook op mensen-DNA passen, wordt dat DNA ook gekopieerd en krijg je banden die niets over de steur zeggen.",
+    after:()=>waaromBtn(ans,textBox("PCR is extreem gevoelig: een paar huidcellen of een druppeltje is genoeg. Daarom kiest het lab primers die <b>alleen op steur-DNA</b> passen. Dan geeft verontreiniging met mensen-DNA geen band."))});
+  q.append(think,ans);
+},STOF_PCR));
+
+ids.push(vraag(1,"welke steur zit in blik 1?",(q,id)=>{
+  const O=["Siberische steur, want de band ligt hoger dan 150 bp.","Siberische steur, want blik 1 heeft net als de positieve controle één band.","Dat kun je niet zeggen, want er staat geen band in de negatieve controle.","Russische steur, want de band ligt tussen 175 en 200 bp."];
+  const {think,ans,unlock}=startLos(q,"Bekijk afbeelding 1. "+B("Van welke soort steur komt de kaviaar in blik 1?")+"<br><br>"+L4(...O));
+  choiceStep(think,{q:"Een band van 154 bp: waar ligt die ten opzichte van de marker?",opts:["net boven de markerband van 150 bp","tussen 175 en 200 bp","onder de markerband van 125 bp"],right:0,
+    ok:"Ja: iets langer dan 150, dus iets hoger. Vergelijk dat met de band van blik 1.",no:"Langer = hoger in de gel. 154 is maar net langer dan 150.",
+    onDone:()=>choiceStep(think,{q:"Wat zegt een lege negatieve controle?",opts:["dat de PCR mislukt is","dat er geen verontreiniging is: goed"],right:1,
+      ok:"Goed. Kies nu het antwoord.",no:"In de negatieve controle zit geen DNA; daar hoort dus geen band.",onDone:unlock})});
+  mc(ans,{qid:id,pts:1,right:3,opts:O,onChecked:()=>waaromBtn(ans,b=>stepAnim(b,[
+    {cap:"De band van blik 1 ligt tussen de markerbanden van 175 en 200 bp: ongeveer 186 bp.",hl:{1:"var(--goud)"},m:[175,200]},
+    {cap:"De Siberische steur (positieve controle) geeft 154 bp: net boven de markerband van 150. Die ligt veel lager.",hl:{6:"var(--teal)"},m:[150]},
+    {cap:"Blik 1 = 186 bp = Russische steur. Antwoord <b>D</b>. B klopt niet: het gaat om de hoogte van de band, niet om het aantal. C: een lege negatieve controle is juist goed.",hl:{1:"var(--goud)",6:"var(--teal)"},m:[150,175,200]}],
+    (st,s)=>st.innerHTML=GEL({hl:s.hl,mlijn:s.m})))});
+  q.append(think,ans);
+},STOF_GEL));
+
+if(!VWO){
+ids.push(vraag(1,"twee banden in blik 3",(q,id)=>{
+  const {think,ans,unlock}=start(q,"In de baan van blik 3 staan twee banden. "+B("Leg uit hoe dat kan."));
+  choiceStep(think,{q:"Wat betekent één band in een baan?",opts:["stukken DNA die allemaal even lang zijn","één enkel DNA-molecuul","dat er twee soorten DNA in zitten"],right:0,
+    ok:"Ja. Hoe lang zijn de twee banden van blik 3, en bij welke soorten horen die lengtes?",no:"Een band bestaat uit heel veel moleculen van dezelfde lengte.",onDone:unlock});
+  openAnswer(ans,{id,pts:1,checks:["in blik 3 zit kaviaar van <b>twee soorten</b> (Siberische en Russische steur) door elkaar: van elke soort een PCR-product met een eigen lengte (ook goed: de eitjes komen van een kruising tussen beide soorten)"],
+    model:"De banden liggen op 154 en 186 bp. In blik 3 zit dus DNA van Siberische én Russische steur: de kaviaar is gemengd (of komt van een kruising van beide soorten).",
+    after:()=>waaromBtn(ans,b=>b.innerHTML=GEL({hl:{3:"var(--goud)",2:"var(--teal)",1:"var(--teal)"},mlijn:[154,186]})+`<div class="model">De bovenste band van blik 3 ligt even hoog als blik 1 (Russisch, 186 bp), de onderste even hoog als blik 2 (Siberisch, 154 bp). Twee lengtes = DNA van twee soorten.</div>`)});
+  q.append(think,ans);
+},STOF_GEL));
+
+ids.push(vraag(1,"500 moleculen, 20 cycli",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Uit een paar eitjes haalt het lab ongeveer 500 DNA-moleculen met het stuk dat de primers herkennen. Ga uit van een perfecte verdubbeling bij elke cyclus, en 2<sup>20</sup> ≈ 1 miljoen.<br><br>"+B("Bereken hoeveel moleculen op maat er ongeveer zijn na 20 cycli."));
+  numStep(think,{uid:"q"+id+"a",q:"Je begint met 1 molecuul. Hoeveel zijn er na 3 cycli?",right:8,ok:"Ja: 1 → 2 → 4 → 8, dus 2<sup>3</sup>.",no:"Verdubbel drie keer: 1 → 2 → …",
+    onDone:()=>numStep(think,{uid:"q"+id+"b",q:"En als je begint met 5 moleculen: hoeveel na 3 cycli?",right:40,ok:"Goed: 5 × 2<sup>3</sup>. Reken nu met 500 moleculen en 20 cycli.",no:"Elk van de 5 moleculen wordt er 8.",onDone:unlock})});
+  numAnswer(ans,{id,fields:[["aantal moleculen na 20 cycli","miljoen",v=>(v>=490&&v<=530)||(v>=4.9e8&&v<=5.3e8),"500 × 1 miljoen = <b>500 miljoen</b> (5 × 10<sup>8</sup>); ook goed: 524 miljoen (500 × 2<sup>20</sup> precies)"]],
+    after:()=>waaromBtn(ans,textBox("Elk molecuul wordt er na 20 cycli 2<sup>20</sup> ≈ 1 miljoen. Met 500 moleculen: 500 × 1 miljoen = <b>500 miljoen</b>. Fout is 500 × 20 of 500 × 2 × 20: dan reken je alsof er elke cyclus een vast aantal bij komt, maar bij een PCR verdubbelt het aantal elke keer (exponentiële groei)."))});
+  q.append(think,ans);
+},STOF_PCR));
+}else{
+ids.push(vraag(1,"hoeveel herhalingen meer?",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Het stuk DNA dat de primers kopiëren, bevat een stukje van vier basen dat steeds herhaald wordt. De soorten steur verschillen alleen in het aantal herhalingen.<br><br>"+B("Bereken hoeveel herhalingen de Russische steur meer heeft dan de Siberische steur."));
+  numStep(think,{uid:"q"+id+"a",q:"Hoeveel basenparen is het PCR-product van de Russische steur langer dan dat van de Siberische steur?",right:32,ok:"Ja: 186 − 154 = 32 bp. Hoe lang is één herhaling?",no:"Gebruik de lengtes uit de inleiding: 186 en 154 bp.",onDone:unlock});
+  numAnswer(ans,{id,fields:[["aantal herhalingen meer","",v=>v===8,"(186 − 154) : 4 = <b>8</b> herhalingen meer"]],
+    after:()=>waaromBtn(ans,textBox("Het verschil in lengte komt alleen door de herhalingen: 186 − 154 = 32 bp, en één herhaling is 4 bp. 32 : 4 = <b>8</b>. Zo lees je bij STR's van een gel af hoeveel herhalingen een allel heeft."))});
+  q.append(think,ans);
+},STOF_GEL));
+}
+
+ids.push(vraag(2,"soort of individu: uit een kwekerij?",(q,id)=>{
+  const {think,ans,unlock}=startLos(q,"Kaviaar van een wilde Siberische steur mag ook niet verkocht worden. De douane wil weten of de kaviaar in blik 2 echt uit een kwekerij komt. Neem aan dat een eitje haploïd is (vereenvoudigd).<br>• "+B("Leg uit waarom de PCR uit afbeelding 1 daar geen antwoord op kan geven.")+"<br>• "+B("Beschrijf welk DNA-onderzoek dat wel zou kunnen, als de kwekerij van al haar moedervissen DNA heeft bewaard."));
+  choiceStep(think,{q:"Geven een wilde en een gekweekte Siberische steur met deze PCR een verschillende band?",opts:["ja, want het zijn andere dieren","nee: alle Siberische steuren geven hetzelfde PCR-product"],right:1,
+    ok:"Ja. Deze PCR zegt dus iets over de soort. Wat heb je nodig om individuen te onderscheiden?",no:"De inleiding geeft één lengte per soort.",
+    onDone:()=>choiceStep(think,{q:"Neem aan dat een eitje een haploïde geslachtscel van de moeder is. Wat heeft het dan van elk chromosoompaar van de moeder?",opts:["beide chromosomen","één van de twee"],right:1,
+      ok:"Goed. Gebruik dat in je beschrijving van het DNA-onderzoek.",no:"Een geslachtscel is haploïd.",onDone:unlock})});
+  openAnswer(ans,{id,pts:2,checks:[
+    "alle Siberische steuren geven hetzelfde PCR-product (154 bp): deze PCR laat de <b>soort</b> zien, niet het <b>individu</b>",
+    "maak een <b>DNA-profiel</b> (STR's) van de eitjes en vergelijk dat met de profielen van de <b>moedervissen</b>; elk eitje heeft van elke STR één allel van de moeder, dus de eitjes moeten bij elke STR <b>een allel delen</b> met één van de moedervissen"],
+    model:"Alle Siberische steuren, wild of gekweekt, geven met deze primers hetzelfde product van 154 bp; de PCR zegt alleen welke soort het is. Maak daarom een DNA-profiel met STR's van de eitjes en vergelijk het met de bewaarde profielen van de moedervissen. Een eitje heeft van elke STR één allel van zijn moeder, dus bij een kweekvis moet er één moedervis zijn die bij elke STR een allel met de eitjes deelt.",
+    valkuil:"‘Een DNA-profiel maken en vergelijken met de kwekerij’ zonder dat het om de moedervissen of om gedeelde allelen gaat: 0 punten voor het tweede punt.",
+    after:()=>waaromBtn(ans,textBox("Twee vragen, twee soorten DNA-onderzoek. <b>Welke soort?</b> Een stuk DNA dat per soort verschilt (deze PCR). <b>Welk dier?</b> STR's, die ook binnen een soort verschillen. Neem aan dat een eitje haploïd is (vereenvoudigd: een eitje is vaak nog niet helemaal uitgerijpt en er zit ook DNA van moedercellen omheen), dus per STR één allel, en dat allel komt van de moeder. Past het bij geen enkele moedervis van de kwekerij, dan komt de kaviaar daar niet vandaan."))});
+  q.append(think,ans);
+},STOF_PROF));
+
+if(!VWO){
+ids.push(vraag(1,"beluga: 188 bp",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Het lab wil met dezelfde PCR ook kaviaar van de beluga herkennen. Het PCR-product van de beluga is 188 bp.<br><br>"+B("Leg uit waarom beluga en Russische steur op deze gel moeilijk van elkaar te onderscheiden zijn, en noem een manier om dat op te lossen."));
+  choiceStep(think,{q:"Waardoor komen korte stukken DNA verder in de gel dan lange?",opts:["ze glippen makkelijker door de gaatjes van de gel","ze zijn zwaarder geladen","ze worden sneller gemaakt"],right:0,
+    ok:"Ja. Hoeveel verschillen 186 en 188 bp, en wat betekent dat voor de plek van de banden?",no:"Denk aan het netwerk van agarose.",onDone:unlock});
+  openAnswer(ans,{id,pts:1,checks:["de producten verschillen maar <b>2 bp</b> en komen dus bijna even ver (de banden liggen bijna op elkaar); oplossing: een gel met <b>meer agarose</b> (kleinere gaatjes) / primers kiezen die een groter lengteverschil geven"],
+    model:"186 en 188 bp verschillen maar 2 basenparen; de banden komen bijna even ver en liggen bijna op elkaar. Oplossing: een gel met meer agarose (kleinere gaatjes), zodat kleine lengteverschillen beter zichtbaar worden, of andere primers die bij de twee soorten een groter lengteverschil geven.",
+    valkuil:"Alleen een punt als de uitleg én een oplossing goed zijn.",
+    after:()=>waaromBtn(ans,textBox("Hoe kleiner het verschil in lengte, hoe dichter de banden bij elkaar. Hoger in de gel (bij langere stukken) liggen banden bovendien al dichter op elkaar. Meer agarose maakt de gaatjes kleiner: dan scheidt de gel kleine verschillen beter. Of je kiest primers die het verschil groter maken."))});
+  q.append(think,ans);
+},STOF_GEL));
+}else{
+ids.push(vraag(2,"de strengen groeien naar elkaar toe",(q,id)=>{
+  const {think,ans,unlock}=start(q,"Het stuk DNA dat het lab kopieert, ligt op een stuk dubbelstrengs DNA. Teken het in gedachten zo: de bovenste streng loopt van links naar rechts van 5' naar 3', de onderste van 3' naar 5'. Primer 1 bindt links op de onderste streng, primer 2 rechts op de bovenste streng.<br><br>"+B("Leg uit dat de nieuwe strengen vanaf de twee primers naar elkaar toe groeien, zodat het stuk ertussen wordt gekopieerd."));
+  choiceStep(think,{q:"Aan welk uiteinde zet DNA-polymerase nieuwe nucleotiden?",opts:["aan het 5'-uiteinde","aan het 3'-uiteinde"],right:1,
+    ok:"Ja. Wat betekent dat voor de richting waarin een nieuwe streng groeit? Teken de twee strengen met de primers en bepaal het per primer.",no:"Er moet een vrije OH-groep zijn om aan te koppelen.",onDone:unlock});
+  openAnswer(ans,{id,pts:2,checks:[
+    "het polymerase zet nieuwe nucleotiden alleen aan het <b>3'-uiteinde</b>: een nieuwe streng groeit van 5' naar 3' (antiparallel aan de streng waarop hij ligt)",
+    "langs de onderste streng groeit de nieuwe streng vanaf primer 1 <b>naar rechts</b>; langs de bovenste streng groeit hij vanaf primer 2 <b>naar links</b>: naar elkaar toe"],
+    model:"DNA-polymerase kan alleen nucleotiden aan het 3'-uiteinde koppelen, dus een nieuwe streng groeit van 5' naar 3', antiparallel aan de mal. Op de onderste streng (3' links) loopt de nieuwe streng links 5' → rechts 3': vanaf primer 1 groeit hij naar rechts. Op de bovenste streng (5' links) loopt de nieuwe streng rechts 5' → links 3': vanaf primer 2 naar links. Zo groeien ze naar elkaar toe en wordt het stuk tussen de primers gekopieerd.",
+    after:()=>waaromBtn(ans,b=>{let h=`<text x="8" y="34" class="lblm">5'</text><path d="M30,30 H470" stroke="var(--text2)" stroke-width="4"/><text x="478" y="34" class="lblm">3'</text>
+      <text x="8" y="134" class="lblm">3'</text><path d="M30,130 H470" stroke="var(--text2)" stroke-width="4"/><text x="478" y="134" class="lblm">5'</text>
+      <rect x="70" y="108" width="60" height="10" fill="var(--goud)"/><text x="100" y="102" text-anchor="middle" class="lblm">primer 1</text>
+      <path d="M130,113 H330" stroke="var(--teal)" stroke-width="3"/><path d="M322,107 L334,113 L322,119" fill="none" stroke="var(--teal)" stroke-width="3"/><text x="140" y="96" class="lblm">5' → 3'</text>
+      <rect x="370" y="42" width="60" height="10" fill="var(--goud)"/><text x="400" y="68" text-anchor="middle" class="lblm">primer 2</text>
+      <path d="M370,47 H170" stroke="var(--teal)" stroke-width="3"/><path d="M178,41 L166,47 L178,53" fill="none" stroke="var(--teal)" stroke-width="3"/><text x="300" y="72" class="lblm">3' ← 5'</text>`;
+      b.innerHTML=svgWrap("0 0 500 150",h,"twee strengen met primers en groeirichting")+`<div class="model">Beide nieuwe strengen (blauw) groeien vanaf hun primer aan het 3'-uiteinde, dus naar het midden toe. Het stuk tussen de primers wordt zo van beide kanten gekopieerd.</div>`;})});
+  q.append(think,ans);
+},STOF_PCR));
+}
+
+opgave("Kaviaar","Echte kaviaar?",`
+<p>Kaviaar is de kuit (de eitjes) van steuren. Veel soorten steur zijn zeldzaam. Kaviaar van de Siberische steur komt uit kwekerijen en mag verkocht worden. Kaviaar van de Russische steur mag alleen verkocht worden als die van een gekweekte steur komt.</p>
+<p>De douane controleert vier blikken met het etiket ‘Siberische steur’. Een lab haalt DNA uit de eitjes en doet een PCR met primers die alleen op DNA van steuren passen. Het PCR-product is bij elke soort steur anders lang: bij de Siberische steur 154 basenparen (bp), bij de Russische steur 186 bp.</p>
+<p>In afbeelding 1 zie je de gel: een marker (M), de vier blikken, een negatieve controle en een positieve controle met DNA van een Siberische steur.</p>
+<div class="eyebrow">afbeelding 1 (fictieve gegevens)</div>${GEL()}`,ids);
+}
+
+/* ===== Opgave 9 (alleen havo): DNA veranderen (KG07) ===== */
+if(!VWO){
+const STOF_TECH={titel:"Vier technieken",html:`
+<p>Met DNA kun je vier dingen doen: het <b>lezen</b> (de basenvolgorde bepalen), het <b>knippen</b> op een gekozen plek, één stuk heel vaak <b>kopiëren</b>, en stukken <b>sorteren</b> op lengte. Bij elke handeling hoort een eigen techniek.</p>
+<p>Vaak gebruik je ze samen: eerst kopiëren, dan sorteren of lezen.</p>`,films:[F.lees,F.heb]};
+const R=["1 DNA letter voor letter lezen, met gekleurde nucleotiden die de keten stoppen","2 op één gekozen plek in het DNA knippen","3 één stuk DNA heel vaak kopiëren, met de temperatuur als schakelaar","4 stukken DNA sorteren op lengte"];
+const O=["A CRISPR","B gelelektroforese","C PCR","D sequencen"];
+const ids=[vraag(2,"technieken koppelen",(q,id)=>{
+  const {think,ans,unlock}=startLos(q,B("Welke techniek hoort bij de beschrijving? Gebruik elke letter één keer.")+"<br><br>"+R.join("<br>")+"<br><br>"+O.join("<br>"));
+  chipsStep(think,{q:"Bij welke technieken maakt een polymerase nieuwe DNA-strengen? Kies alles wat klopt.",items:[["CRISPR",0],["gelelektroforese",0],["PCR",1],["sequencen",1]],
+    ok:"Goed: twee technieken bouwen DNA, twee niet.",no:"Een gel sorteert alleen; CRISPR knipt.",onDone:unlock});
+  selectAnswer(ans,{id,uid:"q"+id,rows:R.map((r,k)=>[r,O,[3,0,2,1][k]]),score:KOPPELSCORE("q"+id),
+    after:()=>waaromBtn(ans,textBox("1D sequencen: de gekleurde nucleotiden stoppen de keten, en aan de kleur zie je welke base er stond. 2A CRISPR: Cas9 knipt waar het gids-RNA past. 3C PCR: heet, koeler, warm, en dat steeds opnieuw. 4B gelelektroforese: korte stukken komen verder dan lange."))});
+  q.append(think,ans);
+},STOF_TECH)];
+opgave("DNA veranderen","DNA onderzoeken en veranderen","",ids);
+}
+
+
+/* ================= opgaven en navigatie ================= */
+OPG.sort((a,b)=>a.nr-b.nr);
+/* cijfer als bij een schooltoets: 9 × score / maximum + 1 */
+const NORM="";
+const CIJFER=(()=>{const L=Q.reduce((s,q)=>s+q.pts,0);return Array.from({length:L+1},(_,S)=>Math.round((9*S/L+1)*10)/10);})();
+const main=$("#main"),tabs=$("#tabs");let cur=1;const built={},nextBtns={};
+let curOpg=OPG.some(o=>o.nr===store.opg)?store.opg:1;
+const opg=()=>OPG.find(o=>o.nr===curOpg);
+const pts=o=>o.ids.reduce((s,i)=>s+Q.find(q=>q.id===i).pts,0);
+function reach(){const ids=opg().ids;if(store.vrij)return ids[ids.length-1];let k=0;while(k<ids.length-1&&store.scores[ids[k]]!==undefined)k++;return ids[k];}
+function renderTabs(){
+  tabs.innerHTML="";const r=reach();
+  opg().ids.forEach(id=>{const q=Q.find(x=>x.id===id);const locked=id>r;
+    const b=el("button",{class:(id===cur?"cur ":"")+(store.scores[id]!==undefined?"done":"")+(locked?" lock":""),"aria-label":"Vraag "+id+(locked?" (eerst vraag "+(id-1)+" maken)":""),title:locked?"Maak eerst vraag "+(id-1):""},id);
+    if(locked)b.disabled=true;else b.onclick=()=>open(id);tabs.append(b);});
+  const o=el("button",{class:"ov"+(cur==="ov"?" cur":"")},"Score");o.onclick=()=>open("ov");tabs.append(o);
+}
+function open(id){
+  if(id!=="ov"&&id>reach())id=reach();
+  cur=id;renderTabs();main.innerHTML="";
+  if(id==="ov"){main.append(overview());return;}
+  if(!built[id]){const q=Q.find(x=>x.id===id);const sec=el("article",{class:"q"});
+    q.build(sec);
+    const pap=el("section",{class:"papier","aria-label":"Toetsvraag "+id});
+    pap.append(el("div",{class:"pkop"},`<span class="pnr"><span class="mono">Toetsvraag</span><span class="nr">${id}</span></span><span class="mono">${q.pts} ${q.pts===1?"punt":"punten"}</span>`));
+    for(const c of [...sec.children]){if(c.classList.contains("phase")||c.tagName==="BUTTON")break;pap.append(c);}
+    pap.append(el("div",{class:"pvoet"},"Oefentoets DNA · vwo"));
+    sec.prepend(pap);
+    const sb=window.EXSTOF&&EXSTOF.blok(TOOL,id);if(sb)pap.after(sb);
+    /* toetsvraag nog eens boven de antwoorden (Kamiel 25 okt 2026: niet terug hoeven scrollen) */
+    const qt=[...pap.querySelectorAll(".qtext")].pop(),ansP=sec.querySelector(".phase.ans");
+    if(qt&&ansP){const h=el("div",{class:"herhaal papier"});h.append(el("div",{class:"hkop mono"},`Toetsvraag ${id}`));
+      const c=qt.cloneNode(true);c.querySelectorAll("[id]").forEach(x=>x.removeAttribute("id"));h.append(c);
+      const lab=ansP.querySelector(":scope>.label");lab?lab.after(h):ansP.prepend(h);}
+    const ids=opg().ids,last=id===ids[ids.length-1];
+    const nx=el("div",{class:"row",style:"justify-content:flex-end"});const b=el("button",{class:"go"},last?"Naar je score ›":`Volgende vraag (${id+1}) ›`);
+    nextBtns[id]=b;b.hidden=!store.vrij&&store.scores[id]===undefined;
+    b.onclick=()=>{open(last?"ov":id+1);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};nx.append(b);sec.append(nx);built[id]=sec;}
+  main.append(built[id]);
+}
+function overview(){
+  const o=opg();const s=el("section",{class:"phase"});s.append(el("h2",{},`Jouw score op opgave ${o.nr}`));
+  let tot=0;const t=el("table",{class:"data ovtable"});t.innerHTML="<tr><th>vraag</th><th>onderwerp</th><th>score</th></tr>";
+  o.ids.forEach(id=>{const q=Q.find(x=>x.id===id);const p=store.scores[id];if(p!==undefined)tot+=p;t.innerHTML+=`<tr><td>${id}</td><td>${q.t}</td><td>${p===undefined?"–":p} / ${q.pts}</td></tr>`;});
+  const w=el("div",{class:"tablewrap"});w.append(t);s.append(w,el("div",{class:"score"},`Totaal opgave ${o.nr}: ${tot} / ${pts(o)}`));
+  let all=0,allMax=0;OPG.forEach(x=>{allMax+=pts(x);x.ids.forEach(id=>{if(store.scores[id]!==undefined)all+=store.scores[id];});});
+  const gemaakt=OPG.every(x=>x.ids.every(id=>store.scores[id]!==undefined));
+  const cf=CIJFER[Math.min(all,CIJFER.length-1)].toFixed(1).replace(".",",");
+  s.append(el("p",{style:"margin:0"},`Hele toets: <b>${all}</b> van ${allMax} punten · cijfer <b>${cf}</b>`+(gemaakt?"":` <span class="muted">(nog niet alles gemaakt: open vragen tellen als 0 punten)</span>`)));
+  s.append(el("p",{class:"muted",style:"margin:0;font-size:14px"},`Cijfer = 9 × score / maximum + 1. Open vragen kijk je zelf na met het antwoordmodel.`));
+  const nextO=OPG.find(x=>x.nr===o.nr+1);
+  const row=el("div",{class:"row"});
+  if(nextO){const nb=el("button",{class:"go"},`Naar opgave ${nextO.nr}: ${nextO.kort} ›`);nb.onclick=()=>{setOpg(nextO.nr);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};row.append(nb);}
+  const r=el("button",{class:"ghost"},`Opgave ${o.nr} opnieuw`);r.onclick=()=>{o.ids.forEach(id=>{delete store.scores[id];delete built[id];delete nextBtns[id];});save();open(o.ids[0]);};row.append(r);
+  s.append(row);return s;
+}
+function renderOpgs(){const box=$("#opgs");box.innerHTML="";
+  OPG.forEach(o=>{const b=el("button",{"aria-pressed":o.nr===curOpg?"true":"false"},`${o.nr} · ${o.kort}`);b.onclick=()=>setOpg(o.nr);box.append(b);});}
+function setOpg(n){curOpg=n;store.opg=n;save();const o=opg();
+  $("#eb").textContent=`Oefentoets DNA · vwo · opgave ${o.nr}`;$("#h1").textContent=o.titel;
+  $("#sub").textContent=`vraag ${o.ids[0]} t/m ${o.ids[o.ids.length-1]} · ${pts(o)} punten`;
+  $("#ctx").innerHTML=o.ctx;renderOpgs();open(reach());}
+function setVrij(v){store.vrij=v;save();$("#vrij").setAttribute("aria-pressed",v?"true":"false");
+  for(const k in nextBtns)nextBtns[k].hidden=!v&&store.scores[k]===undefined;renderTabs();}
+$("#vrij").onclick=()=>setVrij(!store.vrij);setVrij(!!store.vrij);
+EXSTAND.STANDEN.forEach(s=>{s.uitleg=s.uitleg.replace(/examenvraag/g,"toetsvraag").replace("het echte examen","een echte toets").replace(" Zet de klok aan voor 3 uur examentijd.","");if(s.k==="echt")s.naam="Echte toets";});
+EXSTAND.init({store,save,setVrij});
+setOpg(curOpg);
+})();
+
+</script>
+</body>
+</html>
