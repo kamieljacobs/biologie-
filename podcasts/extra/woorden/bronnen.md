@@ -1,6 +1,6 @@
 # Bronnen · Woorden uit blokjes (20 nov 2026)
 
-Herkomst van de woorddelen. Status: ✓ = ≥ 2 onafhankelijke bronnen, ≈ = één goede bron of algemeen bekend uit het Grieks.
+Herkomst van de woorddelen. Status: ✓ = ≥ 2 onafhankelijke bronnen (zoekresultaten van 20 nov 2026), ? = nog niet met een bron gecontroleerd.
 
 | Bewering | Status | Bronnen |
 |---|---|---|
@@ -13,8 +13,8 @@ Herkomst van de woorddelen. Status: ✓ = ≥ 2 onafhankelijke bronnen, ≈ = é
 | zygote: zygon (juk), zygōtos (samengejukt) | ✓ | Dictionary.com (zygote); Susquehanna University-woordenlijst |
 | gameet: gametē/gametēs (vrouw/man), van gamein (trouwen) | ✓ | Dictionary.com (gamete); Etymonline via quword (Strasburger 1878) |
 | osmose: ōsmos (duw, stoot); Dutrochet 1826 endosmose/exosmose | ✓ | Merriam-Webster (osmosis); Wiktionary (osmosis) |
-| hydro (water), philos (vriend), phobos (angst), hypo/hyper/iso, tonos (spanning), lysis (losmaken), haima (bloed), leukos (wit), erythros (rood), phōs (licht), synthesis (samenstellen), soma (lichaam), chloros (groen), phyllon (blad), diplōma (dubbelgevouwen) | ≈ | standaard Grieks; Van Dale-etymologie; voor controle bij de luistertest |
-| ribosoom: ribo- van ribonucleïnezuur + soma | ≈ | Wikipedia Ribosome (Roberts 1958) |
+| hydro (water), philos (vriend), phobos (angst), hypo/hyper/iso, tonos (spanning), lysis (losmaken), haima (bloed), leukos (wit), erythros (rood), phōs (licht), synthesis (samenstellen), soma (lichaam), chloros (groen), phyllon (blad), diplōma (dubbelgevouwen) | ? | standaard Grieks, niet apart opgezocht; nog naast een woordenboek leggen |
+| ribosoom: ribo- van ribonucleïnezuur + soma | ? | niet apart opgezocht |
 | hypertonische oplossing: water uit de cel; rode bloedcel in zuiver water barst (hemolyse) | ✓ | film Diffusie en osmose, `bron/bronnen.md` |
 
 Eigen keuze: 'Een naam zegt vaak hoe iets eruitzag, niet wat het doet' (chromosoom, mitochondrium) volgt uit de bovenstaande herkomst.
