@@ -16,10 +16,10 @@
 
 **Dr. Kim** (42) · vast: arts en onderzoeker, klinisch geneticus. Gebeurd: in Forensisch onderzoek forensisch arts (film 3) en DNA-deskundige (film 2); in Erfelijkheid 6 Stambomen en kansrekenen 2.0 (28 okt 2026) als klinisch geneticus: tekent een stamboom op het bord en bespreekt een dragerschapstest met Sanne. Forensisch patholoog van het NFI in een verdrinkingszaak (kiezelwierentest) en rapporterend deskundige bij haar en stuifmeel (Forensisch 4, Stille getuigen, 2 nov 2026). Grenzen: geen dader of patiënt.
 
-**Mevrouw Visser** (38) · vast: docent biologie. Grenzen: alleen docent.
+**Mevrouw Visser** (38) · vast: docent biologie. Gebeurd: is in Sport 9 Topsport en school de mentor van de zwemmer, tevens topsportcoördinator van zijn school; zonder naam in beeld of stem (20 nov 2026, ter keuring: buiten de grens 'alleen docent'). Grenzen: alleen docent (mentor/topsportcoördinator op school telt als docentrol).
 
-**Sam** (16) · vast: leerling, sportief, doet proefjes. Gebeurd: stagiair biotechnologie in Biotechnologie 1 (Bacteriën als fabriek), 3 (Mag dat?: vindt eerst dat Europa 'gewoon bang' is, ontdekt dat het ook om waarden gaat, eindigt zonder mening) en 2 (Enzymen op maat: eivlek op zijn witte broek, drie rondes gerichte evolutie, even teleurgesteld na ronde één), outfit `practicum`. Is in Geslachtsorganen en puberteit 2.0 de jongen bij wie de puberteit al begonnen is (een kop groter dan Daan, lage stem); van opzij met de hersenen in een zoomcirkel náást zijn hoofd en het bekken in een zoomcirkel náást zijn lichaam (gezicht en kleding blijven heel). Grenzen: blijft in dit vak de stagiair. Stagiair mariene biologie (7 nov 2026) in Mariene biologie 1 (meet aan boord schollen op de meetplank), 2 (zet in het lab de stempel OORZAAK pas na de proef met controlegroep) en 3 (op het wad met een stopwatch bij de emmerproef); aan boord en op het wad outfit `buiten` (winterjas, groene sjaal, groene laarzen), in het lab `practicum`. Zwemmer op hoog niveau in de Sport-reeks (7 films, 19 nov 2026; outfit `zwem`: zwembroek, rode badmuts, zwembril; 'de zwemmer', geen naam in beeld of stem): wil eerst de krachtzaal in en leert ligging, catch en onderwaterfase (Sport 1); traint in zones met een stappentest (Sport 2); krachttraining, plank en schouderoefeningen met elastiek (Sport 3); periodiseert zijn seizoen en taperet voor een toernooi (Sport 4); twijfelt over hardlopen met vrienden, krijgt pijn aan zijn scheenbenen bij te snel opbouwen (Sport 5); praat in zichzelf op het startblok van een finale 100 m vrij en spreekt zichzelf aan met je (Sport 6); zwemt een 200 m boven zijn limiet, appt met een teamgenoot, maakt procesdoelen met de sportpsycholoog en zwemt drie weken later bijna een seconde sneller (Sport 7). Grenzen: blijft in de sport de zwemmer; geen blessure die blijft; geen namen.
-**Zwemtrainer** (± 45, `zwemtrainer`) · vast: zwemtrainer, geen naam; trainingsjack, fluitje en stopwatch, klembord. Gebeurd: trainer van de zwemmer in Sport 1–5 en 7 (19 nov 2026, ter keuring). Grenzen: alleen in de sport.
+**Sam** (16) · vast: leerling, sportief, doet proefjes. Gebeurd: stagiair biotechnologie in Biotechnologie 1 (Bacteriën als fabriek), 3 (Mag dat?: vindt eerst dat Europa 'gewoon bang' is, ontdekt dat het ook om waarden gaat, eindigt zonder mening) en 2 (Enzymen op maat: eivlek op zijn witte broek, drie rondes gerichte evolutie, even teleurgesteld na ronde één), outfit `practicum`. Is in Geslachtsorganen en puberteit 2.0 de jongen bij wie de puberteit al begonnen is (een kop groter dan Daan, lage stem); van opzij met de hersenen in een zoomcirkel náást zijn hoofd en het bekken in een zoomcirkel náást zijn lichaam (gezicht en kleding blijven heel). Grenzen: blijft in dit vak de stagiair. Stagiair mariene biologie (7 nov 2026) in Mariene biologie 1 (meet aan boord schollen op de meetplank), 2 (zet in het lab de stempel OORZAAK pas na de proef met controlegroep) en 3 (op het wad met een stopwatch bij de emmerproef); aan boord en op het wad outfit `buiten` (winterjas, groene sjaal, groene laarzen), in het lab `practicum`. Zwemmer op hoog niveau in de Sport-reeks (9 films, 19–20 nov 2026; outfit `zwem`: zwembroek, rode badmuts, zwembril; 'de zwemmer', geen naam in beeld of stem): wil eerst de krachtzaal in en leert ligging, catch en onderwaterfase (Sport 1); traint in zones met een stappentest (Sport 2); krachttraining, plank en schouderoefeningen met elastiek (Sport 3); periodiseert zijn seizoen en taperet voor een toernooi (Sport 4); twijfelt over hardlopen met vrienden, krijgt pijn aan zijn scheenbenen bij te snel opbouwen (Sport 5); praat in zichzelf op het startblok van een finale 100 m vrij en spreekt zichzelf aan met je (Sport 6); zwemt een 200 m boven zijn limiet, appt met een teamgenoot, maakt procesdoelen met de sportpsycholoog en zwemt drie weken later bijna een seconde sneller (Sport 7). Zwemt een 200 m te snel van start en deelt in de finale beter in; hangt aan de kant tussen sprints (Sport 8 Energiesystemen in het zwembad, 20 nov 2026). Krijgt in de toetsweek een zeurende schouder zonder zwaarder te trainen; vroege trainingen om half zes, korte nachten; mentor en zwemtrainer leggen de roosters naast elkaar (Sport 9 Topsport en school, 20 nov 2026; zit op een Topsport Talentschool). Grenzen: blijft in de sport de zwemmer; geen blessure die blijft; geen namen.
+**Zwemtrainer** (± 45, `zwemtrainer`) · vast: zwemtrainer, geen naam; trainingsjack, fluitje en stopwatch, klembord. Gebeurd: trainer van de zwemmer in Sport 1–5, 7, 8 en 9 (19–20 nov 2026, ter keuring). Grenzen: alleen in de sport.
 **Sportpsycholoog** (± 35, `sportpsycholoog`) · vast: sportpsycholoog, geen naam; rustige kleding, dun brilletje. Gebeurd: begeleidt de zwemmer bij wedstrijdspanning (whiteboard 'ik'/'je', Sport 6) en na een tegenvallende race (Sport 7) (19 nov 2026, ter keuring). Grenzen: alleen in de sport.
 
 **Procestechnoloog Merel** (38) · vast: procestechnoloog, begeleider van Sam (goedgekeurd door Kamiel 25 okt 2026). Gebeurd: Biotechnologie 1, 2 (geeft Sam het startenzym, 'Je zoekt juist die paar') en 3 (legt regels uit zonder eigen oordeel over ggo's). Grenzen: alleen in haar eigen vak.
@@ -91,14 +91,14 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `voortplanting`: 2-geslachtsorganen-puberteit, 4-sekse-gender-diversiteit, bevruchting, celdeling
 - `zenuwstelsel`: 2-het-kabelnetwerk, 4-knoeien-met-de-spleet, 5-het-hoofdkantoor, 6-leren-en-onthouden, 7-slaap, 8-zintuigen, 9-spieren-en-beweging
 
-### Sam (`sam`) — 48 films
+### Sam (`sam`) — 50 films
 - `afweer`: 3-t-cellen-en-virussen
 - `evolutie`: 4-de-mens-als-selectiefactor
 - `gedrag`: 1-waarom-doet-een-dier-wat-het-doet, 6-attributie, 9-mierenkolonie
 - `onderbouw/32a`: 2-van-cel-tot-lichaam, 6-skelet-en-spieren, 7-zenuw-en-hormoonstelsel, 9-organismen-aan-het-werk
 - `onderbouw/32b`: 1-levenscyclus-genen-en-milieu, 5-celdeling
 - `onderbouw/32c`: 1-voeding-en-beweging, 2-slaap-natuur-en-hygiene, 3-microben-vriend-en-vijand
-- `vervolg`: bioinformatica-1-zoeken-in-dna, bioinformatica-2-miljoenen-varianten, bioinformatica-3-een-uitbraak-volgen, bioinformatica-4-eiwitstructuur-voorspellen, biotechnologie-1-bacterien-als-fabriek, biotechnologie-2-enzymen-op-maat, biotechnologie-3-mag-dat, farmacie-2-sleutel-slot-en-dosis, leraar-1-waar-blijft-je-vet, mariene-biologie-1-hoeveel-vis-mag-eruit, mariene-biologie-2-zuurder-water, mariene-biologie-3-een-zee-vol-voedsel, neurowetenschappen-1-je-brein-vult-het-in, pedagogiek-1-een-brein-in-aanbouw, psychologie-1-welke-therapie-werkt, psychologie-5-in-de-spreekkamer, sport-1-glijden-trekken-drijven, sport-2-waarom-al-die-rustige-meters, sport-3-sterk-op-het-droge, sport-4-een-doel-of-alles-tegelijk, sport-5-ook-nog-hardlopen, sport-6-de-stem-in-je-hoofd, sport-7-na-de-race, tandheelkunde-1-zuur-in-je-mond, verpleegkunde-2-hoe-weefsel-herstelt
+- `vervolg`: bioinformatica-1-zoeken-in-dna, bioinformatica-2-miljoenen-varianten, bioinformatica-3-een-uitbraak-volgen, bioinformatica-4-eiwitstructuur-voorspellen, biotechnologie-1-bacterien-als-fabriek, biotechnologie-2-enzymen-op-maat, biotechnologie-3-mag-dat, farmacie-2-sleutel-slot-en-dosis, leraar-1-waar-blijft-je-vet, mariene-biologie-1-hoeveel-vis-mag-eruit, mariene-biologie-2-zuurder-water, mariene-biologie-3-een-zee-vol-voedsel, neurowetenschappen-1-je-brein-vult-het-in, pedagogiek-1-een-brein-in-aanbouw, psychologie-1-welke-therapie-werkt, psychologie-5-in-de-spreekkamer, sport-1-glijden-trekken-drijven, sport-2-waarom-al-die-rustige-meters, sport-3-sterk-op-het-droge, sport-4-een-doel-of-alles-tegelijk, sport-5-ook-nog-hardlopen, sport-6-de-stem-in-je-hoofd, sport-7-na-de-race, sport-8-energiesystemen-in-het-zwembad, sport-9-topsport-en-school, tandheelkunde-1-zuur-in-je-mond, verpleegkunde-2-hoe-weefsel-herstelt
 - `voeding`: 1-wat-zit-er-in-je-eten, 2-de-reis-door-je-buik, 6-je-darmbewoners
 - `voortplanting`: 2-geslachtsorganen-puberteit, 3-anticonceptie-soa-voortplantingstechniek, 4-sekse-gender-diversiteit
 - `zenuwstelsel`: 5-het-hoofdkantoor, 7-slaap, 9-spieren-en-beweging
@@ -187,14 +187,14 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `voeding`: 1-wat-zit-er-in-je-eten, 4-van-darm-naar-bloed, 5-de-lever-als-fabriek, 6-je-darmbewoners
 - `voortplanting`: 4-sekse-gender-diversiteit, zwanger
 
-### Mevrouw Visser (`visser`) — 17 films
+### Mevrouw Visser (`visser`) — 18 films
 - `cellen`: microben
 - `dna`: 2-dna-kopieren, 7-dna-lezen
 - `erfelijkheid`: 1-chromosomen, 2-monohybride-kruisingen, 4-dihybride-kruising-en-gekoppelde-overerving, 5-overerving-via-x-chromosomen-en-mitochondrien, 6-stambomen-en-kansrekenen
 - `evolutie`: 8-stambomen-lezen
 - `onderbouw/32a`: 2-van-cel-tot-lichaam
 - `onderbouw/32c`: 5-stress-en-rust
-- `vervolg`: geneeskunde-4-wat-de-patholoog-ziet, leraar-1-waar-blijft-je-vet, leraar-2-een-practicum-dat-werkt, sport-7-na-de-race
+- `vervolg`: geneeskunde-4-wat-de-patholoog-ziet, leraar-1-waar-blijft-je-vet, leraar-2-een-practicum-dat-werkt, sport-7-na-de-race, sport-9-topsport-en-school
 - `zenuwstelsel`: 5-het-hoofdkantoor, 9-spieren-en-beweging
 
 ### Opa Henk (`henk`) — 46 films
@@ -331,8 +331,8 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 ### Mariene bioloog (`marien`) — 3 films
 - `vervolg`: mariene-biologie-1-hoeveel-vis-mag-eruit, mariene-biologie-2-zuurder-water, mariene-biologie-3-een-zee-vol-voedsel
 
-### Zwemtrainer (`zwemtrainer`) — 6 films
-- `vervolg`: sport-2-waarom-al-die-rustige-meters, sport-3-sterk-op-het-droge, sport-4-een-doel-of-alles-tegelijk, sport-5-ook-nog-hardlopen, sport-6-de-stem-in-je-hoofd, sport-7-na-de-race
+### Zwemtrainer (`zwemtrainer`) — 8 films
+- `vervolg`: sport-2-waarom-al-die-rustige-meters, sport-3-sterk-op-het-droge, sport-4-een-doel-of-alles-tegelijk, sport-5-ook-nog-hardlopen, sport-6-de-stem-in-je-hoofd, sport-7-na-de-race, sport-8-energiesystemen-in-het-zwembad, sport-9-topsport-en-school
 
 ### Sportpsycholoog (`sportpsycholoog`) — 2 films
 - `vervolg`: sport-6-de-stem-in-je-hoofd, sport-7-na-de-race

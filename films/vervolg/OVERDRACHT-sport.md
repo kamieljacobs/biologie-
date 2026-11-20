@@ -35,3 +35,9 @@ Stand 19 nov 2026. Lees ook `REEKS-sport.md`, `films/vervolg/BOUWEN.md`, `films/
 ## Film 8 en 9 (Kamiel 20 nov 2026: 'allebei maken')
 - De twee schrapvoorstellen worden toch films: **8 Energiesystemen in het zwembad** (`sport-8-energiesystemen-in-het-zwembad`, werkmap `hw/sp8`) en **9 Topsport en school** (`sport-9-topsport-en-school`, `hw/sp9`). Brief: `/home/claude/hw/BRIEF-script-8-9.md` (staat buiten de repo; kern: film 8 = de race seconde voor seconde en per afstand, pacing, vermoeidheid in de laatste meters, herstel tussen series, zonder de energiesystemen opnieuw uit te leggen; film 9 = totale belasting (training + school + slaap), tienerklok en slaap, herstel, hoe scholen topsport combineren, met een beroep).
 - Zelfde straat als 1–7: B15 met blinde beoordelaar, bronnen.md, inspreken in de hoofdsessie, bouwers, medaillons uit vak 8–18 van vel-15 of een nieuw vel.
+
+## Stand 20 nov 2026: FILM 8 EN 9 OP DE SITE
+- 8 Energiesystemen in het zwembad (B15: winnaar duidelijk, variant A klassiek; frisse feitenreview 2 MOET verwerkt; stem flow gN9ad1TfrVrpfK6wlG9B, 15 takes, 5,9 min). Zwak: s01 zwemmer klein, s13/s15 snelheidslint zwak, s12 lactaatgrafiek klein, s07/s09/s17 hangen aan de kant (eigen tekening `SP8_hangen`).
+- 9 Topsport en school (B15: ronde 1 nipt, combinatie wint ronde 2 duidelijk; frisse feitenreview 3 MOET verwerkt (odds niet als 'keer zo vaak', samenhang ≠ oorzaak); stem flow WDH9WEDgGZG59IEzIXNP, 17 takes, 5,6 min). Mevrouw Visser is mentor/topsportcoördinator (ter keuring). Zwak: s15 perspectief bord/klas, s01 hand op schouder, s07 slaapdrukstaafje klein, s17/s18 labels dicht op elkaar, s11 zonder personage.
+- Medaillons uit reservevakken van vel-15: vak 9 (stopwatch) en vak 18 (klembord).
+- `hw/engine/maakinfo.py` zet een vaste datum '20 oktober 2026' en niveau 'vwo' in info.md: in alle negen sport-info.md's met de hand verbeterd (datum, havo/vwo, prompt v13, herkomst B15). Repareer maakinfo bij een volgende reeks.

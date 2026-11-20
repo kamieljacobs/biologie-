@@ -4,14 +4,14 @@
 |---|---|
 | Bestand | `films/vervolg/sport-5-ook-nog-hardlopen.html` (audio in `sport-5-ook-nog-hardlopen/audio/`) |
 | Reeks | Wat word jij? · Sport en topsport (zwemmen) |
-| Niveau | vwo (één niveau) |
-| Versie | 1.0 · november 2026 · 20 oktober 2026 (script v2) |
-| Prompt | onbekend · gemaakt 20 okt |
-| Stem | Roos (ElevenLabs eleven_v4). één take per alinea. 0 credits (flow in `stem/sessions.json`) |
+| Niveau | havo/vwo bovenbouw (één niveau) |
+| Versie | 1.0 · 19 november 2026 (script v2) |
+| Prompt | v13 |
+| Stem | Roos (ElevenLabs eleven_v4). één take per alinea (flow in `stem/sessions.json`) |
 | Duur | spraak 5:39 (339 s); met vragen en kaarten ± 7 min |
 | Beeldstijl | Schema met cast (Part C, prompt v13), navy |
 | Bouwvorm | FILMDATA-straat van de Wat word jij?-films (`bron/src` + `bron/bouw`), werkwijze in `films/vervolg/BOUWEN.md` |
-| Herkomst | gemaakt door Claude, 20 okt 2026; script v1 → review (reviews/review_v1.md) → v2 → eindreview (reviews/review_eind.md) |
+| Herkomst | gemaakt door Claude, 19 nov 2026 (reeksmodus); B15: drie scriptvarianten, blinde beoordelaar claude-fable-5-2 (werk/blind*), → script_v2 → feitenreview(s) in reviews/; bronnenlogboek bronnen.md |
 
 ## Opbouw
 | Hoofdstuk | Segmenten | Kernbeeld (uit het script) |

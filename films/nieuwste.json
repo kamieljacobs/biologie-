@@ -1,5 +1,25 @@
 [
  {
+  "href": "films/vervolg/sport-8-energiesystemen-in-het-zwembad.html",
+  "titel": "Energiesystemen in het zwembad",
+  "thema": "vervolg",
+  "themaTitel": "Wat word jij?",
+  "duur": 7,
+  "vraag": "Een 50 meter en een 1500 meter: zelfde zwemmer, zelfde slag. Waarom deelt hij ze zo anders in?",
+  "extra": true,
+  "datum": "2026-11-20"
+ },
+ {
+  "href": "films/vervolg/sport-9-topsport-en-school.html",
+  "titel": "Topsport en school",
+  "thema": "vervolg",
+  "themaTitel": "Wat word jij?",
+  "duur": 7,
+  "vraag": "Zelfde trainingen als altijd, maar het is toetsweek. Waarom gaat de schouder van een topzwemmer juist nu zeuren, als hij niet harder traint?",
+  "extra": true,
+  "datum": "2026-11-20"
+ },
+ {
   "href": "films/vervolg/sport-1-glijden-trekken-drijven.html",
   "titel": "Glijden, trekken, drijven",
   "thema": "vervolg",
@@ -16,6 +36,16 @@
   "themaTitel": "Wat word jij?",
   "duur": 7,
   "vraag": "Een 100 meter duurt nog geen minuut. Waarom zwemt een sprinter dan toch elke week kilometers rustig?",
+  "extra": true,
+  "datum": "2026-11-19"
+ },
+ {
+  "href": "films/vervolg/sport-3-sterk-op-het-droge.html",
+  "titel": "Sterk op het droge",
+  "thema": "vervolg",
+  "themaTitel": "Wat word jij?",
+  "duur": 7,
+  "vraag": "Een zwemmer traint ook in de krachtzaal, terwijl water bijna niets weegt. Waarom?",
   "extra": true,
   "datum": "2026-11-19"
  },
@@ -60,16 +90,6 @@
   "datum": "2026-11-19"
  },
  {
-  "href": "films/vervolg/sport-3-sterk-op-het-droge.html",
-  "titel": "Sterk op het droge",
-  "thema": "vervolg",
-  "themaTitel": "Wat word jij?",
-  "duur": 7,
-  "vraag": "Een zwemmer traint ook in de krachtzaal, terwijl water bijna niets weegt. Waarom?",
-  "extra": true,
-  "datum": "2026-11-19"
- },
- {
   "href": "films/voortplanting/zwanger/index.html",
   "titel": "Zwanger",
   "thema": "voortplanting",
@@ -77,26 +97,6 @@
   "duur": 9,
   "vraag": "Hoe kan een piepklein klompje cellen het lichaam van een volwassen vrouw sturen?",
   "extra": false,
-  "datum": "2026-11-07"
- },
- {
-  "href": "films/vervolg/mariene-biologie-1-hoeveel-vis-mag-eruit.html",
-  "titel": "Hoeveel vis mag eruit?",
-  "thema": "vervolg",
-  "themaTitel": "Wat word jij?",
-  "duur": 7,
-  "vraag": "Vissers willen elk jaar zoveel mogelijk vangen. Waarom levert minder vangen op den duur méér vis op?",
-  "extra": true,
-  "datum": "2026-11-07"
- },
- {
-  "href": "films/vervolg/mariene-biologie-2-zuurder-water.html",
-  "titel": "Zuurder water",
-  "thema": "vervolg",
-  "themaTitel": "Wat word jij?",
-  "duur": 8,
-  "vraag": "De zee neemt ruim een kwart van onze CO₂ op. Waarom is dat slecht nieuws voor een oester?",
-  "extra": true,
   "datum": "2026-11-07"
  }
 ]
