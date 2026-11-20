@@ -37,6 +37,7 @@ input[type=range]{width:100%;accent-color:var(--goud);height:28px;margin:0}
 .rond{width:52px;height:52px;border-radius:50%;border:1px solid var(--line2);background:var(--surface);display:inline-flex;align-items:center;justify-content:center;color:var(--text);position:relative}
 .rond small{position:absolute;font:600 10px var(--meta);bottom:7px}
 .rond.groot{width:68px;height:68px;background:var(--goud);color:var(--goud-ink);border:0}
+#speel #icPauze{display:none}#speel.speelt #icPauze{display:block}#speel.speelt #icSpeel{display:none}
 .instel{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;margin-top:8px}
 .hfd{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:8px}
 .hfd li{background:var(--surface);border:1px solid var(--line);border-radius:12px}
@@ -81,7 +82,7 @@ details.tekst p{color:var(--text2);margin:10px 0 0}
       <div class="knoppen">
         <button class="rond" type="button" id="vorige" aria-label="Vorig hoofdstuk"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button>
         <button class="rond" type="button" id="terug15" aria-label="15 seconden terug"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12a8 8 0 1 0 3-6.2M4 4v4h4"/></svg><small>15</small></button>
-        <button class="rond groot" type="button" id="speel" aria-label="Afspelen"><svg id="icSpeel" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg><svg id="icPauze" hidden width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg></button>
+        <button class="rond groot" type="button" id="speel" aria-label="Afspelen"><svg id="icSpeel" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg><svg id="icPauze" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg></button>
         <button class="rond" type="button" id="vooruit30" aria-label="30 seconden vooruit"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12a8 8 0 1 1-3-6.2M20 4v4h-4"/></svg><small>30</small></button>
         <button class="rond" type="button" id="volgende" aria-label="Volgend hoofdstuk"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></button>
       </div>
@@ -185,8 +186,10 @@ if('mediaSession' in navigator){
 function vorige(){if(a.currentTime>4){a.currentTime=0;return}var i=volgendeIndex(-1);if(i>-1)laad(i,0,!a.paused)}
 function volgende(){var i=volgendeIndex(1);if(i>-1)laad(i,0,true)}
 
-a.addEventListener('play',function(){$('icSpeel').hidden=true;$('icPauze').hidden=false;$('speel').setAttribute('aria-label','Pauze');if('mediaSession' in navigator)navigator.mediaSession.playbackState='playing'});
-a.addEventListener('pause',function(){$('icSpeel').hidden=false;$('icPauze').hidden=true;$('speel').setAttribute('aria-label','Afspelen');if('mediaSession' in navigator)navigator.mediaSession.playbackState='paused';bewaar({laatst:{afl:afl.id,ch:ch,t:a.currentTime,klaar:false}})});
+function knopStand(){var s=!a.paused;$('speel').classList.toggle('speelt',s);$('speel').setAttribute('aria-label',s?'Pauze':'Afspelen')}
+['play','playing','pause','ended','emptied'].forEach(function(e){a.addEventListener(e,knopStand)});
+a.addEventListener('play',function(){if('mediaSession' in navigator)navigator.mediaSession.playbackState='playing'});
+a.addEventListener('pause',function(){if('mediaSession' in navigator)navigator.mediaSession.playbackState='paused';bewaar({laatst:{afl:afl.id,ch:ch,t:a.currentTime,klaar:false}})});
 a.addEventListener('loadedmetadata',function(){$('tijdTot').textContent=mmss(a.duration);positie()});
 a.addEventListener('ratechange',positie);
 var laatsteBewaar=0;
