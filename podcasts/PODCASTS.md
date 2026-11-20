@@ -54,7 +54,7 @@ Geen nagemaakte stem van een echt persoon; wel deze stijlkenmerken:
 ## 4. Geluid
 
 - Eén stem, rustig tempo (iets langzamer dan in de films), echte pauzes tussen de hoofdstukken.
-- **Geen muziek onder de stem** (extra belasting zonder beeld). Wel **intromuziek** (± 10 s, `geluid/intro.mp3`, ElevenLabs Music) aan het begin en een **kort stukje daarvan** (± 3,5 s, `geluid/overgang.mp3`) bij elk volgend hoofdstuk. **Geen piepje** (Kamiel 20 nov 2026: 'dat piepje wil ik niet'): na een denkvraag alleen stilte.
+- **Geen muziek onder de stem** (extra belasting zonder beeld). Wel **intromuziek** (± 4 s, `geluid/intro.mp3`: begin van ElevenLabs Music-variant B, zacht uitlopend; Kamiel 20 nov 2026: 'B en dan seconde of 4') aan het begin en een **kort stukje** (± 2,5 s, `geluid/overgang.mp3`: slotakkoord van dezelfde muziek) bij elk volgend hoofdstuk. Ruwe muziek (10 s, flow cOEno8gxse8pGyFvDe22) buiten de repo. **Geen piepje** (Kamiel 20 nov 2026: 'dat piepje wil ik niet'): na een denkvraag alleen stilte.
 - Samenstellen met `python3 podcasts/bouw.py <aflevering> <map met ruwe takes>`.
 - mp3 mono 64 kbit/s, gemasterd op −16 LUFS / −1,5 dBTP (als de films). ± 0,5 MB per minuut, dus een aflevering ± 5 MB.
 
@@ -84,6 +84,6 @@ Geen nagemaakte stem van een echt persoon; wel deze stijlkenmerken:
 
 - ~~Stem~~ gekozen: Remko (`vjeU1L5RIGPyrwuboFwz`, eleven_v4), zie `podcasts/stemproef/STEMMEN.md`.
 - Lengte en tempo goed? Denkmoment-stilte lang genoeg?
-- Intromuziek A of B (proef `muziekproef`, `?test=1`); A staat er nu in.
+- ~~Intromuziek~~ gekozen: B, ± 4 s.
 - RSS-feed voor podcast-apps.
 - Plek op de site: knop 'Luister' bij de film en/of een eigen menu-item 'Podcasts'.
