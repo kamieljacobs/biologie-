@@ -669,6 +669,18 @@ a.extegel:hover .explaat{opacity:1}
 .duo-onder{margin-top:22px!important;font-size:16px!important}
 .duo-onder a{color:var(--goud-text);font-weight:700}
 @media (max-width:640px){.duo-helft{padding:4px 14px 4px 0;gap:8px}.duo-helft+.duo-helft{padding:4px 0 4px 14px}.duo-helft h1{font-size:30px}.duo-helft p{font-size:14px;line-height:1.4}.duo-ik{width:36px;height:36px}.duo-ik svg{width:20px;height:20px}.duo-helft .knop{min-height:38px;padding:0 14px;font-size:13.5px;margin-top:4px}.duo-onder{font-size:14.5px!important;margin-top:16px!important}}
+/* titelkaart met vier vakken over de volle breedte, kunst schemert half door (Kamiel 20 nov 2026) */
+.hero-kort>div.kaart-vier{max-width:none!important;width:100%;background:color-mix(in srgb,var(--bg) 50%,transparent)!important;-webkit-backdrop-filter:blur(2px)!important;backdrop-filter:blur(2px)!important;border:1px solid var(--line);border-radius:22px;padding:28px 32px 26px}
+.duo.vier{grid-template-columns:repeat(4,minmax(0,1fr))}
+.duo.vier .duo-helft{padding:6px 22px 4px}
+.duo.vier .duo-helft:first-child{padding-left:0}
+.duo.vier .duo-helft:last-child{padding-right:0}
+.duo.vier .duo-helft+.duo-helft{border-left:1px solid var(--line2)}
+.duo.vier .duo-helft h1{font-size:clamp(28px,3vw,40px)}
+.duo.vier .duo-helft p{font-size:15.5px;max-width:none;flex:1}
+.duo.vier .duo-helft .knop{min-height:40px;padding:0 16px;font-size:14px}
+@media (max-width:900px){.duo.vier{grid-template-columns:1fr 1fr;row-gap:18px}.duo.vier .duo-helft:nth-child(3){padding-left:0;border-left:0}.duo.vier .duo-helft:nth-child(2){padding-right:0}.duo.vier .duo-helft:nth-child(n+3){border-top:1px solid var(--line2);padding-top:18px}}
+@media (max-width:640px){.hero-kort>div.kaart-vier{padding:20px 16px 18px}.duo.vier .duo-helft{padding-left:12px;padding-right:12px}.duo.vier .duo-helft:nth-child(odd){padding-left:0}.duo.vier .duo-helft:nth-child(even){padding-right:0}.duo.vier .duo-helft h1{font-size:24px}.duo.vier .duo-helft p{font-size:13px}.duo.vier .duo-helft .knop{font-size:12.5px;padding:0 11px;min-height:34px}}
 </style>
 </head>
 <body>
@@ -4213,11 +4225,13 @@ function home(){
   const thema=id=>{const h=HOOFDSTUKKEN[id];if(!h)return '';const vwo=/^vwo\b/.test(h.meta||'')?' <span class="vwo-tag mono">vwo</span>':'';
     return `<li><a href="#${id}">${ICOON.includes(id)?`<span class="tk foto"><img src="img/kunst/iconen/${id}.webp?v=4" alt="" width="88" height="88" decoding="async"></span>`:`<span class="tk">${kunst(id)}</span>`}<b>${esc(h.titel)}${vwo}</b><span class="mat">${esc(telling(id))}</span></a></li>`};
   let out=grondLaag()+`<section class="wrap hero hero-kort">
-    <div>
+    <div class="kaart-vier">
       <span class="mono">Biologie bij Kamiel</span>
-      <div class="duo">
-        <a class="duo-helft" href="#films"><span class="duo-ik" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></span><h1>Films</h1><p>Kijk de uitleg: van molecuul tot planeet, met vragen tussendoor.</p><span class="knop">${nFilms('Alle # films')}</span></a>
-        <a class="duo-helft" href="podcasts/index.html"><span class="duo-ik" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="13" width="4.5" height="7" rx="1.6" fill="currentColor"/><rect x="16.5" y="13" width="4.5" height="7" rx="1.6" fill="currentColor"/></svg></span><h1>Podcasts</h1><p>Je werkgeheugen heeft een binnenstem die wat je hoort een paar seconden vasthoudt. Korte zinnen en denkpauzes helpen hem.</p><span class="knop"><span class="n-pod">Alle podcasts</span></span></a>
+      <div class="duo vier">
+        <a class="duo-helft" href="#films"><span class="duo-ik" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></span><h1>Films</h1><p>Beeld en woord samen: je geheugen slaat ze apart op, en samen onthoud je meer.</p><span class="knop">${nFilms('Alle # films')}</span></a>
+        <a class="duo-helft" href="podcasts/index.html"><span class="duo-ik" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="13" width="4.5" height="7" rx="1.6" fill="currentColor"/><rect x="16.5" y="13" width="4.5" height="7" rx="1.6" fill="currentColor"/></svg></span><h1>Podcasts</h1><p>Je werkgeheugen heeft een binnenstem die wat je hoort een paar seconden vasthoudt. Korte zinnen en denkpauzes helpen hem.</p><span class="knop"><span class="n-pod">Alle podcasts</span></span></a>
+        <a class="duo-helft" href="oefenen.html"><span class="duo-ik" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span><h1>Oefenen</h1><p>Zelf iets uit je geheugen ophalen werkt beter dan het nog een keer lezen.</p><span class="knop">Opdrachten bij ${Object.keys(OEFENEN).length} films</span></a>
+        <a class="duo-helft" href="#examens"><span class="duo-ik" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 8.5h6M9 12.5h6M9 16.5h3"/></svg></span><h1>Examen</h1><p>Echte examens, stap voor stap met hulpvragen, nakijken en uitleg waarom.</p><span class="knop">${((HOOFDSTUKKEN.examens||{}).tools||[]).filter(x=>/examen-(havo|vwo)-/.test(x.href||'')).length} oefenexamens</span></a>
       </div>
       <p class="duo-onder">Liever per onderwerp? <a href="#vlak-basis">Kies een thema</a>. Werk je aan je PTA? Kijk bij <a href="#pta">PTA Agora</a>.</p>
     </div>
