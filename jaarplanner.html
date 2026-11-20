@@ -1012,7 +1012,7 @@ verbergTools(DATA);
     if(notesEl) notesEl.innerHTML=DATA[lvl].notes.map(n=>`<li>${escH(n)}</li>`).join("");
     window.scrollTo(0,y);
     el.querySelectorAll("[data-rt]").forEach(b=>b.addEventListener("click",()=>{lvl=b.dataset.rt;setS("pta-tab",lvl);mount(el,notesEl)}));
-    el.querySelectorAll(".chk,.it").forEach(c=>c.addEventListener("change",()=>{setB(c.dataset.key,c.checked);mount(el,notesEl)}));
+    el.querySelectorAll(".chk,.it").forEach(c=>c.addEventListener("change",()=>{const k=c.dataset.key,y=scrollY;setB(k,c.checked);mount(el,notesEl);scrollTo(0,y);const n=el.querySelector(`[data-key="${CSS.escape(k)}"]`);if(n)try{n.focus({preventScroll:true})}catch(e){}}));
     el.querySelectorAll("[data-act]").forEach(b=>b.addEventListener("click",()=>{
       if(b.dataset.act==="mentor"){mentorOpen=!mentorOpen;mount(el,notesEl);if(mentorOpen){const m=el.querySelector("#mentor");if(m&&m.scrollIntoView)m.scrollIntoView({block:"start"})}}
     }));
@@ -1174,7 +1174,8 @@ function render(level){
   if(level!=="route") LOC=/gb$/.test(level)?"gb":"";
   document.querySelectorAll(".tab").forEach(t=>{t.setAttribute("aria-selected",String(t.dataset.tab===basis(level)));t.hidden=LOC==="gb"&&t.dataset.tab!=="route"&&!PLANNERS[t.dataset.tab+"gb"]});
   document.querySelectorAll("#locatie button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.loc===LOC)));
-  try{const sel=document.querySelector('.tab[aria-selected="true"]');if(sel&&sel.scrollIntoView)sel.scrollIntoView({inline:"nearest",block:"nearest"})}catch(e){}
+  // Alleen de tabbalk horizontaal bijschuiven; nooit de pagina zelf verschuiven
+  try{const sel=document.querySelector('.tab[aria-selected="true"]'),bar=sel&&sel.parentElement;if(bar){const l=sel.offsetLeft-bar.offsetLeft,r=l+sel.offsetWidth;if(l<bar.scrollLeft)bar.scrollLeft=l;else if(r>bar.scrollLeft+bar.clientWidth)bar.scrollLeft=r-bar.clientWidth}}catch(e){}
   const isRoute=level==="route";
   document.getElementById("legend").hidden=isRoute;
   if(isRoute){
@@ -1232,7 +1233,7 @@ function render(level){
   const el=document.getElementById("planner");
   el.innerHTML=out;
   window.scrollTo(0,y);
-  el.querySelectorAll(".pl-it").forEach(c=>c.addEventListener("change",()=>{PL.set(c.dataset.key,c.checked);render(level)}));
+  el.querySelectorAll(".pl-it").forEach(c=>c.addEventListener("change",()=>{const k=c.dataset.key,y=scrollY;PL.set(k,c.checked);render(level);scrollTo(0,y);const n=el.querySelector(`.pl-it[data-key="${CSS.escape(k)}"]`);if(n)try{n.focus({preventScroll:true})}catch(e){}}));
   el.querySelectorAll("[data-pl]").forEach(b=>b.addEventListener("click",()=>{
     if(b.dataset.pl==="mentor"){PL.open=!PL.open;render(level);if(PL.open){const m=el.querySelector("#mentor");if(m&&m.scrollIntoView)m.scrollIntoView({block:"start"})}}
   }));
