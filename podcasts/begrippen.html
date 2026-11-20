@@ -208,6 +208,16 @@ a.addEventListener('timeupdate',function(){toonUitleg();if(isFinite(a.duration)&
 a.addEventListener('error',function(){if(bezig&&a.getAttribute('src'))setTimeout(function(){speel(pos+1)},400)});
 
 $('speel').onclick=function(){if(!bezig){start(rij.length?rij:lijst());return}if(a.paused)a.play();else a.pause()};
+/* Spatiebalk = pauze/verder, nooit opnieuw beginnen (Kamiel 20 nov 2026). Niet in invoervelden. */
+document.addEventListener('keydown',function(e){
+  if(e.code!=='Space'&&e.key!==' ')return;
+  var t=e.target, tag=(t&&t.tagName||'').toLowerCase();
+  if(tag==='input'||tag==='textarea'||tag==='select'||(t&&t.isContentEditable))return;
+  e.preventDefault();
+  if(t&&t.blur&&tag==='button')t.blur();
+  $('speel').onclick();
+},true);
+
 $('volgende').onclick=function(){if(bezig)speel(pos+1)};
 $('vorige').onclick=function(){if(rij.length)speel(a.currentTime>2&&bezig?pos:pos-1)};
 $('stop').onclick=stop;

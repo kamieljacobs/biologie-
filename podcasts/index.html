@@ -206,6 +206,16 @@ a.addEventListener('ended',function(){
 });
 
 $('speel').onclick=function(){if(a.paused){var p=a.play();if(p&&p.catch)p.catch(function(){})}else a.pause()};
+/* Spatiebalk = pauze/verder, nooit opnieuw beginnen (Kamiel 20 nov 2026). Niet in invoervelden. */
+document.addEventListener('keydown',function(e){
+  if(e.code!=='Space'&&e.key!==' ')return;
+  var t=e.target, tag=(t&&t.tagName||'').toLowerCase();
+  if(tag==='input'||tag==='textarea'||tag==='select'||(t&&t.isContentEditable))return;
+  e.preventDefault();
+  if(t&&t.blur&&tag==='button')t.blur();
+  if(!$('aflevering').hidden)$('speel').onclick();
+},true);
+
 $('terug15').onclick=function(){a.currentTime=Math.max(0,a.currentTime-15)};
 $('vooruit30').onclick=function(){a.currentTime=Math.min(a.duration||0,a.currentTime+30)};
 $('vorige').onclick=vorige;$('volgende').onclick=volgende;
