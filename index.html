@@ -4130,6 +4130,7 @@ const filmRij=(f,i,id,extra)=>{const g=gezien[f.href];return `<article class="fi
     </article>`};
 /* Podcasts naast de films (Kamiel 20 nov 2026: 'zet de podcasts in een tweede kolom naast de films'); data uit podcasts/afleveringen.json (themaId) */
 let PODCASTS=null;
+const BEGRIPTHEMA=['cellen']; /* thema's met een begrippenspeler (podcasts/begrippen.html) */
 fetch('podcasts/afleveringen.json').then(r=>r.json()).then(j=>{PODCASTS=(j.afleveringen||[]).filter(a=>!a.proef&&a.themaId);vulPodcasts()}).catch(()=>{PODCASTS=[]});
 function vulPodcasts(){
   if(!PODCASTS) return;
@@ -4138,7 +4139,7 @@ function vulPodcasts(){
     if(!id||!L.length||!el||el.dataset.klaar) return;
     const min=a=>Math.round(a.hoofdstukken.reduce((s,h)=>s+(h.duur||0),0)/60);
     const koptel=Math.round(L.reduce((s,a)=>s+min(a),0));
-    el.innerHTML=`<h2>Podcasts</h2><p class="pod-uitleg">Luister de uitleg, ook met je scherm op slot. ${L.length} afleveringen · ± ${koptel} min.</p>${L.map(a=>`<a class="pod" href="${BASE}podcasts/index.html#${esc(a.id)}"><img src="${BASE+esc(a.beeld)}" alt="" width="52" height="52" loading="lazy" decoding="async"><span class="pod-t"><b>${esc(a.titel)}</b><span class="pod-v">${esc(a.vraag||'')}</span><span class="mono pod-m">${min(a)} min${a.hoofdstukken.some(h=>h.vwo)?' · met vwo-deel':''}</span></span><span class="pod-play" aria-hidden="true">${play}</span></a>`).join('')}<a class="pod-alle" href="${BASE}podcasts/index.html">Alle podcasts →</a>`;
+    el.innerHTML=`<h2>Podcasts</h2><p class="pod-uitleg">Luister de uitleg, ook met je scherm op slot. ${L.length} afleveringen · ± ${koptel} min.</p>${L.map(a=>`<a class="pod" href="${BASE}podcasts/index.html#${esc(a.id)}"><img src="${BASE+esc(a.beeld)}" alt="" width="52" height="52" loading="lazy" decoding="async"><span class="pod-t"><b>${esc(a.titel)}</b><span class="pod-v">${esc(a.vraag||'')}</span><span class="mono pod-m">${min(a)} min${a.hoofdstukken.some(h=>h.vwo)?' · met vwo-deel':''}</span></span><span class="pod-play" aria-hidden="true">${play}</span></a>`).join('')}${BEGRIPTHEMA.includes(id)?`<a class="pod-alle" href="${BASE}podcasts/begrippen.html">Begrippen beluisteren →</a><br>`:''}<a class="pod-alle" href="${BASE}podcasts/index.html">Alle podcasts →</a>`;
     el.hidden=false; el.dataset.klaar='1'; fp.classList.add('met-pod');
   });
 }

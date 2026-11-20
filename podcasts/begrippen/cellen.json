@@ -1,0 +1,2111 @@
+{
+ "thema": "cellen",
+ "titel": "Cellen",
+ "stem": "Remko",
+ "voice_id": "vjeU1L5RIGPyrwuboFwz",
+ "model": "eleven_v4",
+ "films": [
+  {
+   "id": "van-molecuul-tot-biosfeer",
+   "titel": "Van molecuul tot biosfeer",
+   "href": "films/cellen/van-molecuul-tot-biosfeer.html",
+   "begrippen": [
+    "levenskenmerken",
+    "homeostase",
+    "organisatieniveaus",
+    "weefsel",
+    "orgaanstelsel",
+    "differentiatie",
+    "populatie",
+    "levensgemeenschap",
+    "ecosysteem",
+    "biotisch-abiotisch",
+    "biosfeer",
+    "emergente-eigenschap",
+    "virus"
+   ]
+  },
+  {
+   "id": "celorganellen",
+   "titel": "Celorganellen",
+   "href": "films/cellen/celorganellen/index.html",
+   "begrippen": [
+    "homeostase",
+    "prokaryoot",
+    "eukaryoot",
+    "organel",
+    "celmembraan",
+    "cytoplasma",
+    "celkern",
+    "kernmembraan",
+    "kernporien",
+    "dna",
+    "ribosoom",
+    "er",
+    "golgisysteem",
+    "blaasje",
+    "exocytose",
+    "endocytose",
+    "mitochondrium",
+    "cristae",
+    "atp",
+    "stofwisseling",
+    "lysosoom",
+    "vacuole",
+    "celwand",
+    "chloroplast",
+    "grana",
+    "cytoskelet",
+    "motoreiwit",
+    "receptor"
+   ]
+  },
+  {
+   "id": "microben",
+   "titel": "Wat groeit er op je boterham?",
+   "href": "films/cellen/microben.html",
+   "begrippen": [
+    "virus",
+    "prokaryoot",
+    "eukaryoot",
+    "schimmel",
+    "hyfe",
+    "mycelium",
+    "spore",
+    "vruchtlichaam",
+    "gist",
+    "plasmide",
+    "tweedeling",
+    "kolonie",
+    "reducent",
+    "symbiose",
+    "parasiet",
+    "antibioticum"
+   ]
+  },
+  {
+   "id": "diffusie-osmose",
+   "titel": "Diffusie en osmose",
+   "href": "films/cellen/diffusie-osmose/index.html",
+   "begrippen": [
+    "celmembraan",
+    "atp",
+    "deeltjesbeweging",
+    "diffusie",
+    "concentratie",
+    "concentratieverschil",
+    "evenwicht",
+    "longblaasje",
+    "fosfolipide",
+    "hydrofiel-hydrofoob",
+    "selectief-doorlatend",
+    "semipermeabel",
+    "kanaaleiwit",
+    "dragereiwit",
+    "gefaciliteerde-diffusie",
+    "osmose",
+    "osmotische-waarde",
+    "osmotische-druk",
+    "plasmolyse",
+    "turgor",
+    "hemolyse",
+    "isotonisch",
+    "hypotonisch",
+    "hypertonisch",
+    "passief-transport",
+    "actief-transport",
+    "natrium-kaliumpomp"
+   ]
+  },
+  {
+   "id": "stamcellen",
+   "titel": "Stamcellen",
+   "href": "films/cellen/stamcellen.html",
+   "begrippen": [
+    "weefsel",
+    "differentiatie",
+    "emergente-eigenschap",
+    "gedifferentieerde-cel",
+    "stamcel",
+    "kiemlaag",
+    "volwassen-stamcel",
+    "embryonale-stamcel",
+    "stamceltransplantatie",
+    "afstoting",
+    "ips-cel",
+    "transcriptiefactor",
+    "epigenetica",
+    "potentie"
+   ]
+  },
+  {
+   "id": "onderzoek-doen",
+   "titel": "Onderzoek doen in de biologie",
+   "href": "films/cellen/onderzoek-doen/index.html",
+   "begrippen": [
+    "onderzoekscyclus",
+    "onderzoeksvraag",
+    "hypothese",
+    "verwachting",
+    "falsifieerbaar",
+    "werkplan",
+    "onafhankelijke-variabele",
+    "afhankelijke-variabele",
+    "constante-variabele",
+    "controlegroep",
+    "randomiseren",
+    "blind-dubbelblind",
+    "placebo",
+    "toevallige-fout",
+    "systematische-fout",
+    "steekproef",
+    "betrouwbaar",
+    "herhaalbaar",
+    "reproduceerbaar",
+    "nauwkeurig",
+    "valide",
+    "spreiding",
+    "histogram",
+    "conclusie-discussie",
+    "observationeel-onderzoek",
+    "correlatie-causaliteit",
+    "omgekeerde-causaliteit",
+    "verstorende-variabele",
+    "informed-consent",
+    "drie-vs",
+    "fraude"
+   ]
+  }
+ ],
+ "begrippen": [
+  {
+   "id": "levenskenmerken",
+   "begrip": "levenskenmerken",
+   "gesproken": "Levenskenmerken",
+   "uitleg": "De kenmerken van levende wezens. Ze bestaan uit cellen, hebben een stofwisseling, groeien, planten zich voort, reageren op prikkels en houden hun binnenkant constant.",
+   "stem": "Levenskenmerken.\n\nDe kenmerken van levende wezens. Ze bestaan uit cellen, hebben een stofwisseling, groeien, planten zich voort, reageren op prikkels en houden hun binnenkant constant.",
+   "vwo": false,
+   "films": [
+    "van-molecuul-tot-biosfeer"
+   ],
+   "generation_id": "YxZXEL4VXRDmyofTznZj",
+   "audio": "begrippen/cellen/levenskenmerken.mp3",
+   "audio_o": "begrippen/cellen/levenskenmerken-o.mp3",
+   "splits": 1.24,
+   "duur": 11.39
+  },
+  {
+   "id": "homeostase",
+   "begrip": "homeostase",
+   "gesproken": "Homeostase",
+   "uitleg": "Het constant houden van je binnenkant, het inwendig milieu. Bijvoorbeeld je lichaamstemperatuur. Een cel of organisme houdt zichzelf zo in evenwicht.",
+   "stem": "Homeostase.\n\nHet constant houden van je binnenkant, het inwendig milieu. Bijvoorbeeld je lichaamstemperatuur. Een cel of organisme houdt zichzelf zo in evenwicht.",
+   "vwo": false,
+   "films": [
+    "van-molecuul-tot-biosfeer",
+    "celorganellen"
+   ],
+   "generation_id": "7Yg6jeTtihFQgBXri5xn",
+   "audio": "begrippen/cellen/homeostase.mp3",
+   "audio_o": "begrippen/cellen/homeostase-o.mp3",
+   "splits": 1.16,
+   "duur": 10.37
+  },
+  {
+   "id": "organisatieniveaus",
+   "begrip": "organisatieniveaus",
+   "gesproken": "Organisatieniveaus",
+   "uitleg": "De ladder van klein naar groot. Molecuul, organel, cel, weefsel, orgaan, orgaanstelsel, organisme, populatie, levensgemeenschap, ecosysteem en biosfeer.",
+   "stem": "Organisatieniveaus.\n\nDe ladder van klein naar groot. Molecuul, organel, cel, weefsel, orgaan, orgaanstelsel, organisme, populatie, levensgemeenschap, ecosysteem en biosfeer.",
+   "vwo": false,
+   "films": [
+    "van-molecuul-tot-biosfeer"
+   ],
+   "generation_id": "soHs21YCUtXzLQWfQr7d",
+   "audio": "begrippen/cellen/organisatieniveaus.mp3",
+   "audio_o": "begrippen/cellen/organisatieniveaus-o.mp3",
+   "splits": 1.48,
+   "duur": 14.52
+  },
+  {
+   "id": "weefsel",
+   "begrip": "weefsel",
+   "gesproken": "Weefsel",
+   "uitleg": "Een groep cellen met dezelfde bouw en dezelfde taak. Bijvoorbeeld spierweefsel.",
+   "stem": "Weefsel.\n\nEen groep cellen met dezelfde bouw en dezelfde taak. Bijvoorbeeld spierweefsel.",
+   "vwo": false,
+   "films": [
+    "van-molecuul-tot-biosfeer",
+    "stamcellen"
+   ],
+   "generation_id": "q1EyLNbdW00YoTnzRiLX",
+   "audio": "begrippen/cellen/weefsel.mp3",
+   "audio_o": "begrippen/cellen/weefsel-o.mp3",
+   "splits": 0.77,
+   "duur": 5.72
+  },
+  {
+   "id": "orgaanstelsel",
+   "begrip": "orgaanstelsel",
+   "gesproken": "Orgaanstelsel",
+   "uitleg": "Organen die samenwerken. Het hart en de bloedvaten vormen samen het bloedvatenstelsel. In sommige boeken heet het een organenstelsel.",
+   "stem": "Orgaanstelsel.\n\nOrganen die samenwerken. Het hart en de bloedvaten vormen samen het bloedvatenstelsel. In sommige boeken heet het een organenstelsel.",
+   "vwo": false,
+   "films": [
+    "van-molecuul-tot-biosfeer"
+   ],
+   "generation_id": "xaiRsZTjaTrzrGvgE1nt",
+   "audio": "begrippen/cellen/orgaanstelsel.mp3",
+   "audio_o": "begrippen/cellen/orgaanstelsel-o.mp3",
+   "splits": 1.18,
+   "duur": 9.4
+  },
+  {
+   "id": "differentiatie",
+   "begrip": "differentiatie",
+   "gesproken": "Differentiatie",
+   "uitleg": "Cellen met hetzelfde DNA worden verschillend, doordat in elk celtype andere genen aan staan. Zo krijgt elke cel een eigen bouw en taak. Het DNA zelf blijft hetzelfde.",
+   "stem": "Differentiatie.\n\nCellen met hetzelfde deeënaa worden verschillend, doordat in elk celtype andere genen aan staan. Zo krijgt elke cel een eigen bouw en taak. Het deeënaa zelf blijft hetzelfde.",
+   "vwo": false,
+   "films": [
+    "van-molecuul-tot-biosfeer",
+    "stamcellen"
+   ],
+   "generation_id": "L01G4C7YIPdaAO45nQwn",
+   "audio": "begrippen/cellen/differentiatie.mp3",
+   "audio_o": "begrippen/cellen/differentiatie-o.mp3",
+   "splits": 1.12,
+   "duur": 11.89
+  },
+  {
+   "id": "populatie",
+   "begrip": "populatie",
+   "gesproken": "Populatie",
+   "uitleg": "Alle individuen van één soort in één gebied, die zich onderling kunnen voortplanten.",
+   "stem": "Populatie.\n\nAlle individuen van één soort in één gebied, die zich onderling kunnen voortplanten.",
+   "vwo": false,
+   "films": [
+    "van-molecuul-tot-biosfeer"
+   ],
+   "generation_id": "0DvVKcSnBdUxAIMLCrll",
+   "audio": "begrippen/cellen/populatie.mp3",
+   "audio_o": "begrippen/cellen/populatie-o.mp3",
+   "splits": 0.94,
+   "duur": 5.8
+  },
+  {
+   "id": "levensgemeenschap",
+   "begrip": "levensgemeenschap",
+   "gesproken": "Levensgemeenschap",
+   "uitleg": "Alle populaties in één gebied samen. Dus alle soorten die daar leven.",
+   "stem": "Levensgemeenschap.\n\nAlle populaties in één gebied samen. Dus alle soorten die daar leven.",
+   "vwo": false,
+   "films": [
+    "van-molecuul-tot-biosfeer"
+   ],
+   "generation_id": "kl4QWyhAttMjVKon3M0u",
+   "audio": "begrippen/cellen/levensgemeenschap.mp3",
+   "audio_o": "begrippen/cellen/levensgemeenschap-o.mp3",
+   "splits": 1.25,
+   "duur": 5.56
+  },
+  {
+   "id": "ecosysteem",
+   "begrip": "ecosysteem",
+   "gesproken": "Ecosysteem",
+   "uitleg": "Een levensgemeenschap samen met de levenloze omgeving: bodem, water, licht en temperatuur. Ze beïnvloeden elkaar.",
+   "stem": "Ecosysteem.\n\nEen levensgemeenschap samen met de levenloze omgeving: bodem, water, licht en temperatuur. Ze beïnvloeden elkaar.",
+   "vwo": false,
+   "films": [
+    "van-molecuul-tot-biosfeer"
+   ],
+   "generation_id": "Oa6p92TH3w8hdp5lWmfL",
+   "audio": "begrippen/cellen/ecosysteem.mp3",
+   "audio_o": "begrippen/cellen/ecosysteem-o.mp3",
+   "splits": 1.08,
+   "duur": 8.83
+  },
+  {
+   "id": "biotisch-abiotisch",
+   "begrip": "biotische en abiotische factoren",
+   "gesproken": "Biotische en abiotische factoren",
+   "uitleg": "Biotisch zijn invloeden van levende wezens. Abiotisch zijn invloeden van de levenloze omgeving, zoals licht, water en temperatuur.",
+   "stem": "Biotische en abiotische factoren.\n\nBiotisch zijn invloeden van levende wezens. Abiotisch zijn invloeden van de levenloze omgeving, zoals licht, water en temperatuur.",
+   "vwo": false,
+   "films": [
+    "van-molecuul-tot-biosfeer"
+   ],
+   "generation_id": "b5uaDHCw892gwiM3crMH",
+   "audio": "begrippen/cellen/biotisch-abiotisch.mp3",
+   "audio_o": "begrippen/cellen/biotisch-abiotisch-o.mp3",
+   "splits": 2.61,
+   "duur": 11.15
+  },
+  {
+   "id": "biosfeer",
+   "begrip": "biosfeer",
+   "gesproken": "Biosfeer",
+   "uitleg": "Alle ecosystemen op aarde samen.",
+   "stem": "Biosfeer.\n\nAlle ecosystemen op aarde samen.",
+   "vwo": false,
+   "films": [
+    "van-molecuul-tot-biosfeer"
+   ],
+   "generation_id": "RyZyT7IFXpmr3GR7qj6a",
+   "audio": "begrippen/cellen/biosfeer.mp3",
+   "audio_o": "begrippen/cellen/biosfeer-o.mp3",
+   "splits": 0.98,
+   "duur": 3.32
+  },
+  {
+   "id": "emergente-eigenschap",
+   "begrip": "emergente eigenschap",
+   "gesproken": "Emergente eigenschap",
+   "uitleg": "Een eigenschap van het geheel, die de losse delen niet hebben. Losse hartspiercellen pompen geen bloed rond. Samen, als hart, wel.",
+   "stem": "Emergénte eigenschap.\n\nEen eigenschap van het geheel, die de losse delen niet hebben. Losse hartspiercellen pompen geen bloed rond. Samen, als hart, wel.",
+   "vwo": false,
+   "films": [
+    "van-molecuul-tot-biosfeer",
+    "stamcellen"
+   ],
+   "generation_id": "nXA5tA6okU52VOU1dsbV",
+   "audio": "begrippen/cellen/emergente-eigenschap.mp3",
+   "audio_o": "begrippen/cellen/emergente-eigenschap-o.mp3",
+   "splits": 1.55,
+   "duur": 9.64
+  },
+  {
+   "id": "virus",
+   "begrip": "virus",
+   "gesproken": "Virus",
+   "uitleg": "Geen cel, maar een pakketje erfelijk materiaal in een eiwitmantel. Het heeft geen eigen stofwisseling. Het kan zich alleen vermeerderen in een levende cel van een gastheer.",
+   "stem": "Virus.\n\nGeen cel, maar een pakketje erfelijk materiaal in een eiwitmantel. Het heeft geen eigen stofwisseling. Het kan zich alleen vermeerderen in een levende cel van een gastheer.",
+   "vwo": false,
+   "films": [
+    "van-molecuul-tot-biosfeer",
+    "microben"
+   ],
+   "generation_id": "Ow5idF9A7qGNLxcnBojr",
+   "audio": "begrippen/cellen/virus.mp3",
+   "audio_o": "begrippen/cellen/virus-o.mp3",
+   "splits": 0.77,
+   "duur": 10.27
+  },
+  {
+   "id": "prokaryoot",
+   "begrip": "prokaryoot",
+   "gesproken": "Prokaryoot",
+   "uitleg": "Een cel of organisme zonder celkern en zonder organellen met een membraan. Het DNA ligt los in de cel. Een bacterie is een prokaryoot.",
+   "stem": "Prokaryoot.\n\nEen cel of organisme zonder celkern en zonder organellen met een membraan. Het deeënaa ligt los in de cel. Een bacterie is een prokaryoot.",
+   "vwo": false,
+   "films": [
+    "celorganellen",
+    "microben"
+   ],
+   "generation_id": "psBvwe5gOvMj3yCnGtIh",
+   "audio": "begrippen/cellen/prokaryoot.mp3",
+   "audio_o": "begrippen/cellen/prokaryoot-o.mp3",
+   "splits": 1.13,
+   "duur": 10.19
+  },
+  {
+   "id": "eukaryoot",
+   "begrip": "eukaryoot",
+   "gesproken": "Eukaryoot",
+   "uitleg": "Een organisme met cellen die een kern en organellen hebben. Schimmels, planten, dieren en jij zijn eukaryoten.",
+   "stem": "Eukaryoot.\n\nEen organisme met cellen die een kern en organellen hebben. Schimmels, planten, dieren en jij zijn eukaryoten.",
+   "vwo": false,
+   "films": [
+    "celorganellen",
+    "microben"
+   ],
+   "generation_id": "ZhIAYQx0enK0mSYreFhT",
+   "audio": "begrippen/cellen/eukaryoot.mp3",
+   "audio_o": "begrippen/cellen/eukaryoot-o.mp3",
+   "splits": 1.02,
+   "duur": 8.36
+  },
+  {
+   "id": "organel",
+   "begrip": "organel",
+   "gesproken": "Organel",
+   "uitleg": "Een onderdeel van de cel met een eigen bouw en een eigen taak. Zoals de kern of een mitochondrium.",
+   "stem": "Organel.\n\nEen onderdeel van de cel met een eigen bouw en een eigen taak. Zoals de kern of een mitochondrium.",
+   "vwo": false,
+   "films": [
+    "celorganellen"
+   ],
+   "generation_id": "ruqWv2ThTNSGrCpUNz8a",
+   "audio": "begrippen/cellen/organel.mp3",
+   "audio_o": "begrippen/cellen/organel-o.mp3",
+   "splits": 0.89,
+   "duur": 6.69
+  },
+  {
+   "id": "celmembraan",
+   "begrip": "celmembraan",
+   "gesproken": "Celmembraan",
+   "uitleg": "Het dunne vlies om de cel. Een dubbele laag vetachtige moleculen met eiwitten erin. Het laat sommige stoffen door en andere niet.",
+   "stem": "Celmembraan.\n\nHet dunne vlies om de cel. Een dubbele laag vetachtige moleculen met eiwitten erin. Het laat sommige stoffen door en andere niet.",
+   "vwo": false,
+   "films": [
+    "celorganellen",
+    "diffusie-osmose"
+   ],
+   "generation_id": "Y4CadysbPSLZMPjnxzf5",
+   "audio": "begrippen/cellen/celmembraan.mp3",
+   "audio_o": "begrippen/cellen/celmembraan-o.mp3",
+   "splits": 1.09,
+   "duur": 9.09
+  },
+  {
+   "id": "cytoplasma",
+   "begrip": "cytoplasma",
+   "gesproken": "Cytoplasma",
+   "uitleg": "De stroperige vulling van de cel, binnen het membraan. Daarin liggen de organellen.",
+   "stem": "Cytoplasma.\n\nDe stroperige vulling van de cel, binnen het membraan. Daarin liggen de organellen.",
+   "vwo": false,
+   "films": [
+    "celorganellen"
+   ],
+   "generation_id": "ypdCMtcLyEXZrT97SZwR",
+   "audio": "begrippen/cellen/cytoplasma.mp3",
+   "audio_o": "begrippen/cellen/cytoplasma-o.mp3",
+   "splits": 1.09,
+   "duur": 6.19
+  },
+  {
+   "id": "celkern",
+   "begrip": "celkern (kern)",
+   "gesproken": "Celkern",
+   "uitleg": "Het grootste organel van de cel. Daarin ligt het DNA. Om de kern zit een dubbel kernmembraan met kernporiën.",
+   "stem": "Celkern.\n\nHet grootste organel van de cel. Daarin ligt het deeënaa. Om de kern zit een dubbel kernmembraan met kernporiën.",
+   "vwo": false,
+   "films": [
+    "celorganellen"
+   ],
+   "generation_id": "Z3ocVuCMuZIUoolHzliP",
+   "audio": "begrippen/cellen/celkern.mp3",
+   "audio_o": "begrippen/cellen/celkern-o.mp3",
+   "splits": 0.84,
+   "duur": 8.28
+  },
+  {
+   "id": "kernmembraan",
+   "begrip": "kernmembraan",
+   "gesproken": "Kernmembraan",
+   "uitleg": "Het dubbele membraan om de celkern.",
+   "stem": "Kernmembraan.\n\nHet dubbele membraan om de celkern.",
+   "vwo": false,
+   "films": [
+    "celorganellen"
+   ],
+   "generation_id": "ze7pdRcBSI9ojKwuTfy6",
+   "audio": "begrippen/cellen/kernmembraan.mp3",
+   "audio_o": "begrippen/cellen/kernmembraan-o.mp3",
+   "splits": 1.11,
+   "duur": 3.47
+  },
+  {
+   "id": "kernporien",
+   "begrip": "kernporiën",
+   "gesproken": "Kernporiën",
+   "uitleg": "Openingen in het kernmembraan. Daardoor gaan werkkopieën van het DNA de kern uit.",
+   "stem": "Kernporiën.\n\nOpeningen in het kernmembraan. Daardoor gaan werkkopieën van het deeënaa de kern uit.",
+   "vwo": false,
+   "films": [
+    "celorganellen"
+   ],
+   "generation_id": "XHUR2Rlqfq8SgmkSmaeG",
+   "audio": "begrippen/cellen/kernporien.mp3",
+   "audio_o": "begrippen/cellen/kernporien-o.mp3",
+   "splits": 0.99,
+   "duur": 6.19
+  },
+  {
+   "id": "dna",
+   "begrip": "DNA",
+   "gesproken": "DNA",
+   "uitleg": "De bouwtekening voor bijna elk eiwit dat de cel maakt. Het DNA blijft in de kern.",
+   "stem": "Deeënaa.\n\nDe bouwtekening voor bijna elk eiwit dat de cel maakt. Het deeënaa blijft in de kern.",
+   "vwo": false,
+   "films": [
+    "celorganellen"
+   ],
+   "generation_id": "AiIP5uTqEQkofttsEvcq",
+   "audio": "begrippen/cellen/dna.mp3",
+   "audio_o": "begrippen/cellen/dna-o.mp3",
+   "splits": 0.86,
+   "duur": 6.19
+  },
+  {
+   "id": "ribosoom",
+   "begrip": "ribosoom",
+   "gesproken": "Ribosoom",
+   "uitleg": "Een klein deeltje dat eiwitten maakt. Het ligt los in het cytoplasma, of op het ruw ER.",
+   "stem": "Ribosoom.\n\nEen klein deeltje dat eiwitten maakt. Het ligt los in het cytoplasma, of op het ruw E-R.",
+   "vwo": false,
+   "films": [
+    "celorganellen"
+   ],
+   "generation_id": "pYENvBKRFjNSIOwhkqYo",
+   "audio": "begrippen/cellen/ribosoom.mp3",
+   "audio_o": "begrippen/cellen/ribosoom-o.mp3",
+   "splits": 0.96,
+   "duur": 7.16
+  },
+  {
+   "id": "er",
+   "begrip": "endoplasmatisch reticulum (ER)",
+   "gesproken": "Endoplasmatisch reticulum",
+   "uitleg": "Een netwerk van membranen in de cel, kort het ER. Ruw ER heeft ribosomen. Eiwitten voor buiten de cel worden erin gevouwen en gecontroleerd.",
+   "stem": "Endoplasmatisch reticulum.\n\nEen netwerk van membranen in de cel, kort het E-R. Ruw E-R heeft ribosomen. Eiwitten voor buiten de cel worden erin gevouwen en gecontroleerd.",
+   "vwo": false,
+   "films": [
+    "celorganellen"
+   ],
+   "generation_id": "r7Uz9FsldzWVlS9INnoy",
+   "audio": "begrippen/cellen/er.mp3",
+   "audio_o": "begrippen/cellen/er-o.mp3",
+   "splits": 1.88,
+   "duur": 12.59
+  },
+  {
+   "id": "golgisysteem",
+   "begrip": "golgisysteem",
+   "gesproken": "Golgisysteem",
+   "uitleg": "Een stapel platte zakjes. Het bewerkt eiwitten, sorteert ze en verpakt ze in blaasjes.",
+   "stem": "Golgisysteem.\n\nEen stapel platte zakjes. Het bewerkt eiwitten, sorteert ze en verpakt ze in blaasjes.",
+   "vwo": false,
+   "films": [
+    "celorganellen"
+   ],
+   "generation_id": "ZCFklg5HA5JZFEbjOS11",
+   "audio": "begrippen/cellen/golgisysteem.mp3",
+   "audio_o": "begrippen/cellen/golgisysteem-o.mp3",
+   "splits": 1.09,
+   "duur": 6.61
+  },
+  {
+   "id": "blaasje",
+   "begrip": "blaasje",
+   "gesproken": "Blaasje",
+   "uitleg": "Een klein zakje van membraan dat stoffen vervoert in de cel. De vakterm is vesikel.",
+   "stem": "Blaasje.\n\nEen klein zakje van membraan dat stoffen vervoert in de cel. De vakterm is vesikel.",
+   "vwo": false,
+   "films": [
+    "celorganellen"
+   ],
+   "generation_id": "7CXCV6NaWthcdYwfX2vG",
+   "audio": "begrippen/cellen/blaasje.mp3",
+   "audio_o": "begrippen/cellen/blaasje-o.mp3",
+   "splits": 0.78,
+   "duur": 6.27
+  },
+  {
+   "id": "exocytose",
+   "begrip": "exocytose",
+   "gesproken": "Exocytose",
+   "uitleg": "Een blaasje versmelt met het celmembraan, en de inhoud komt buiten de cel.",
+   "stem": "Exocytose.\n\nEen blaasje versmelt met het celmembraan, en de inhoud komt buiten de cel.",
+   "vwo": true,
+   "films": [
+    "celorganellen"
+   ],
+   "generation_id": "V082TpyCeBuD7V9buB5f",
+   "audio": "begrippen/cellen/exocytose.mp3",
+   "audio_o": "begrippen/cellen/exocytose-o.mp3",
+   "splits": 1.19,
+   "duur": 5.49
+  },
+  {
+   "id": "endocytose",
+   "begrip": "endocytose",
+   "gesproken": "Endocytose",
+   "uitleg": "Een stukje celmembraan stulpt naar binnen, en haalt zo iets de cel in.",
+   "stem": "Endocytose.\n\nEen stukje celmembraan stulpt naar binnen, en haalt zo iets de cel in.",
+   "vwo": true,
+   "films": [
+    "celorganellen"
+   ],
+   "generation_id": "fJ29kJCXwS1TY4hVCS1G",
+   "audio": "begrippen/cellen/endocytose.mp3",
+   "audio_o": "begrippen/cellen/endocytose-o.mp3",
+   "splits": 1.2,
+   "duur": 5.49
+  },
+  {
+   "id": "mitochondrium",
+   "begrip": "mitochondrium (mv. mitochondriën)",
+   "gesproken": "Mitochondrium",
+   "uitleg": "Het organel waar de verbranding van glucose met zuurstof wordt afgemaakt. Daarbij ontstaat ATP, en komt koolstofdioxide vrij.",
+   "stem": "Mitochondrium.\n\nHet organel waar de verbranding van glucose met zuurstof wordt afgemaakt. Daarbij ontstaat ATP, en komt koolstofdie-oxide vrij.",
+   "vwo": false,
+   "films": [
+    "celorganellen"
+   ],
+   "generation_id": "U7V4c8YJLXEkofTHkp06",
+   "audio": "begrippen/cellen/mitochondrium.mp3",
+   "audio_o": "begrippen/cellen/mitochondrium-o.mp3",
+   "splits": 1.16,
+   "duur": 8.83
+  },
+  {
+   "id": "cristae",
+   "begrip": "cristae",
+   "gesproken": "Cristae",
+   "uitleg": "De plooien in het binnenmembraan van een mitochondrium. Ze vergroten het oppervlak voor de eiwitten die ATP maken.",
+   "stem": "Cristae.\n\nDe plooien in het binnenmembraan van een mitochondrium. Ze vergroten het oppervlak voor de eiwitten die ATP maken.",
+   "vwo": false,
+   "films": [
+    "celorganellen"
+   ],
+   "generation_id": "I8sxgq0cJFHaAZUp9MWB",
+   "audio": "begrippen/cellen/cristae.mp3",
+   "audio_o": "begrippen/cellen/cristae-o.mp3",
+   "splits": 0.82,
+   "duur": 7.24
+  },
+  {
+   "id": "atp",
+   "begrip": "ATP",
+   "gesproken": "ATP",
+   "uitleg": "De energiedrager van de cel. Als de cel energie gebruikt, gaat er een fosfaatgroep af, en wordt ATP ADP.",
+   "stem": "ATP.\n\nDe energiedrager van de cel. Als de cel energie gebruikt, gaat er een fosfaatgroep af, en wordt ATP ADP.",
+   "vwo": false,
+   "films": [
+    "celorganellen",
+    "diffusie-osmose"
+   ],
+   "generation_id": "PHcA6teWTm0Fwc2K6fXk",
+   "audio": "begrippen/cellen/atp.mp3",
+   "audio_o": "begrippen/cellen/atp-o.mp3",
+   "splits": 1.0,
+   "duur": 8.83
+  },
+  {
+   "id": "stofwisseling",
+   "begrip": "stofwisseling",
+   "gesproken": "Stofwisseling",
+   "uitleg": "Alle omzettingen van stoffen in de cel. Opbouw heet assimilatie. Afbraak heet dissimilatie.",
+   "stem": "Stofwisseling.\n\nAlle omzettingen van stoffen in de cel. Opbouw heet assimilatie. Afbraak heet dissimilatie.",
+   "vwo": false,
+   "films": [
+    "celorganellen"
+   ],
+   "generation_id": "TcJqozL5LnMb3PQ9RGtK",
+   "audio": "begrippen/cellen/stofwisseling.mp3",
+   "audio_o": "begrippen/cellen/stofwisseling-o.mp3",
+   "splits": 0.99,
+   "duur": 7.71
+  },
+  {
+   "id": "lysosoom",
+   "begrip": "lysosoom",
+   "gesproken": "Lysosoom",
+   "uitleg": "Een blaasje vol afbraakenzymen, met een zure binnenkant. Het breekt afval af tot bouwstenen, die de cel opnieuw gebruikt.",
+   "stem": "Liezosoom.\n\nEen blaasje vol afbraakenzymen, met een zure binnenkant. Het breekt afval af tot bouwstenen, die de cel opnieuw gebruikt.",
+   "vwo": false,
+   "films": [
+    "celorganellen"
+   ],
+   "generation_id": "aTZt08HtKUleagUWcXDI",
+   "audio": "begrippen/cellen/lysosoom.mp3",
+   "audio_o": "begrippen/cellen/lysosoom-o.mp3",
+   "splits": 0.95,
+   "duur": 8.2
+  },
+  {
+   "id": "vacuole",
+   "begrip": "vacuole",
+   "gesproken": "Vacuole",
+   "uitleg": "Een grote holte vol water in een plantencel. Ze duwt tegen de celwand en houdt de plant stevig.",
+   "stem": "Vacuole.\n\nEen grote holte vol water in een plantencel. Ze duwt tegen de celwand en houdt de plant stevig.",
+   "vwo": false,
+   "films": [
+    "celorganellen"
+   ],
+   "generation_id": "bJD6Lt05ya6cjwVM0gJG",
+   "audio": "begrippen/cellen/vacuole.mp3",
+   "audio_o": "begrippen/cellen/vacuole-o.mp3",
+   "splits": 0.99,
+   "duur": 7.24
+  },
+  {
+   "id": "celwand",
+   "begrip": "celwand",
+   "gesproken": "Celwand",
+   "uitleg": "Een stevige laag cellulose buiten het celmembraan van een plantencel. Hij geeft stevigheid en laat bijna alles door, als een zeef.",
+   "stem": "Celwand.\n\nEen stevige laag cellulose buiten het celmembraan van een plantencel. Hij geeft stevigheid en laat bijna alles door, als een zeef.",
+   "vwo": false,
+   "films": [
+    "celorganellen"
+   ],
+   "generation_id": "6g9Vg1lV9gfLCngXuCNE",
+   "audio": "begrippen/cellen/celwand.mp3",
+   "audio_o": "begrippen/cellen/celwand-o.mp3",
+   "splits": 0.89,
+   "duur": 8.67
+  },
+  {
+   "id": "chloroplast",
+   "begrip": "chloroplast (bladgroenkorrel)",
+   "gesproken": "Chloroplast",
+   "uitleg": "Ook wel bladgroenkorrel. Een groen organel waar fotosynthese gebeurt. Met lichtenergie wordt uit water en koolstofdioxide glucose gemaakt.",
+   "stem": "Chloroplast.\n\nOok wel bladgroenkorrel. Een groen organel waar fotosynthese gebeurt. Met lichtenergie wordt uit water en koolstofdie-oxide glucose gemaakt.",
+   "vwo": false,
+   "films": [
+    "celorganellen"
+   ],
+   "generation_id": "VmLN8CDUyeZsqv2XcG58",
+   "audio": "begrippen/cellen/chloroplast.mp3",
+   "audio_o": "begrippen/cellen/chloroplast-o.mp3",
+   "splits": 1.13,
+   "duur": 10.19
+  },
+  {
+   "id": "grana",
+   "begrip": "grana",
+   "gesproken": "Grana",
+   "uitleg": "Stapels schijfjes in een chloroplast. Daarin zitten de eiwitten die licht vangen.",
+   "stem": "Grana.\n\nStapels schijfjes in een chloroplast. Daarin zitten de eiwitten die licht vangen.",
+   "vwo": true,
+   "films": [
+    "celorganellen"
+   ],
+   "generation_id": "1Z9rM3C71iewOscjzVDg",
+   "audio": "begrippen/cellen/grana.mp3",
+   "audio_o": "begrippen/cellen/grana-o.mp3",
+   "splits": 0.74,
+   "duur": 5.49
+  },
+  {
+   "id": "cytoskelet",
+   "begrip": "cytoskelet (celskelet)",
+   "gesproken": "Cytoskelet",
+   "uitleg": "Ook wel celskelet. Een netwerk van eiwitdraden in de cel. Het geeft de cel vorm, en werkt als rails voor transport.",
+   "stem": "Cytoskelet.\n\nOok wel celskelet. Een netwerk van eiwitdraden in de cel. Het geeft de cel vorm, en werkt als rails voor transport.",
+   "vwo": false,
+   "films": [
+    "celorganellen"
+   ],
+   "generation_id": "hx4SM6NbeE7CDXj6B4LX",
+   "audio": "begrippen/cellen/cytoskelet.mp3",
+   "audio_o": "begrippen/cellen/cytoskelet-o.mp3",
+   "splits": 1.05,
+   "duur": 8.52
+  },
+  {
+   "id": "motoreiwit",
+   "begrip": "motoreiwit",
+   "gesproken": "Motoreiwit",
+   "uitleg": "Een eiwit dat met een blaasje over een draad van het cytoskelet loopt.",
+   "stem": "Motoreiwit.\n\nEen eiwit dat met een blaasje over een draad van het cytoskelet loopt.",
+   "vwo": true,
+   "films": [
+    "celorganellen"
+   ],
+   "generation_id": "HfO7AqxmQN1gv4sGbH4Z",
+   "audio": "begrippen/cellen/motoreiwit.mp3",
+   "audio_o": "begrippen/cellen/motoreiwit-o.mp3",
+   "splits": 1.12,
+   "duur": 4.99
+  },
+  {
+   "id": "receptor",
+   "begrip": "ontvanger-eiwit (receptor)",
+   "gesproken": "Receptor",
+   "uitleg": "Ook wel ontvanger-eiwit. Een eiwit in het membraan waarop een hormoon of een ander signaal precies past.",
+   "stem": "Reseptor.\n\nOok wel ontvanger-eiwit. Een eiwit in het membraan waarop een hormoon of een ander signaal precies past.",
+   "vwo": false,
+   "films": [
+    "celorganellen"
+   ],
+   "generation_id": "8sBFwyooeillcpTFKmyW",
+   "audio": "begrippen/cellen/receptor.mp3",
+   "audio_o": "begrippen/cellen/receptor-o.mp3",
+   "splits": 0.92,
+   "duur": 7.24
+  },
+  {
+   "id": "schimmel",
+   "begrip": "schimmel",
+   "gesproken": "Schimmel",
+   "uitleg": "Een eukaryoot met een eigen rijk. Meestal opgebouwd uit draden. Een schimmel verteert zijn voedsel buiten zijn cellen, en verspreidt zich met sporen.",
+   "stem": "Schimmel.\n\nEen eukaryoot met een eigen rijk. Meestal opgebouwd uit draden. Een schimmel verteert zijn voedsel buiten zijn cellen, en verspreidt zich met sporen.",
+   "vwo": false,
+   "films": [
+    "microben"
+   ],
+   "generation_id": "9MLHLvGedyRHHutBDbo2",
+   "audio": "begrippen/cellen/schimmel.mp3",
+   "audio_o": "begrippen/cellen/schimmel-o.mp3",
+   "splits": 0.69,
+   "duur": 9.25
+  },
+  {
+   "id": "hyfe",
+   "begrip": "hyfe",
+   "gesproken": "Hyfe",
+   "uitleg": "Een schimmeldraad, een paar duizendste millimeter dik. Er zitten kernen in, en een celwand. Een hyfe groeit aan de punt en vertakt zich.",
+   "stem": "Hyfe.\n\nEen schimmeldraad, een paar duizendste millimeter dik. Er zitten kernen in, en een celwand. Een hyfe groeit aan de punt en vertakt zich.",
+   "vwo": false,
+   "films": [
+    "microben"
+   ],
+   "generation_id": "6lPgWpXbKwC9OCwPfM9q",
+   "audio": "begrippen/cellen/hyfe.mp3",
+   "audio_o": "begrippen/cellen/hyfe-o.mp3",
+   "splits": 0.66,
+   "duur": 9.09
+  },
+  {
+   "id": "mycelium",
+   "begrip": "mycelium",
+   "gesproken": "Mycelium",
+   "uitleg": "Alle hyfen van een schimmel samen.",
+   "stem": "Mycelium.\n\nAlle hyfen van een schimmel samen.",
+   "vwo": false,
+   "films": [
+    "microben"
+   ],
+   "generation_id": "GI5MRLC1U1NKe0ypbO09",
+   "audio": "begrippen/cellen/mycelium.mp3",
+   "audio_o": "begrippen/cellen/mycelium-o.mp3",
+   "splits": 0.99,
+   "duur": 3.16
+  },
+  {
+   "id": "spore",
+   "begrip": "spore",
+   "gesproken": "Spore",
+   "uitleg": "Een piepkleine cel waaruit een nieuwe schimmel kan groeien. Sporen zweven overal in de lucht.",
+   "stem": "Spore.\n\nEen piepkleine cel waaruit een nieuwe schimmel kan groeien. Sporen zweven overal in de lucht.",
+   "vwo": false,
+   "films": [
+    "microben"
+   ],
+   "generation_id": "Yt9c9tKwEg5ZyJWA3H5T",
+   "audio": "begrippen/cellen/spore.mp3",
+   "audio_o": "begrippen/cellen/spore-o.mp3",
+   "splits": 0.82,
+   "duur": 6.35
+  },
+  {
+   "id": "vruchtlichaam",
+   "begrip": "vruchtlichaam",
+   "gesproken": "Vruchtlichaam",
+   "uitleg": "Het deel van een schimmel waarin de sporen ontstaan. Een paddenstoel is een vruchtlichaam.",
+   "stem": "Vruchtlichaam.\n\nHet deel van een schimmel waarin de sporen ontstaan. Een paddenstoel is een vruchtlichaam.",
+   "vwo": false,
+   "films": [
+    "microben"
+   ],
+   "generation_id": "3kAD49rdgggTbQO8gxvU",
+   "audio": "begrippen/cellen/vruchtlichaam.mp3",
+   "audio_o": "begrippen/cellen/vruchtlichaam-o.mp3",
+   "splits": 1.08,
+   "duur": 5.96
+  },
+  {
+   "id": "gist",
+   "begrip": "gist",
+   "gesproken": "Gist",
+   "uitleg": "Een schimmel die uit één cel bestaat. Gist plant zich voort door knopvorming.",
+   "stem": "Gist.\n\nEen schimmel die uit één cel bestaat. Gist plant zich voort door knopvorming.",
+   "vwo": false,
+   "films": [
+    "microben"
+   ],
+   "generation_id": "KGyTbyTz33RsNIwp2aU7",
+   "audio": "begrippen/cellen/gist.mp3",
+   "audio_o": "begrippen/cellen/gist-o.mp3",
+   "splits": 0.72,
+   "duur": 5.56
+  },
+  {
+   "id": "plasmide",
+   "begrip": "plasmide",
+   "gesproken": "Plasmide",
+   "uitleg": "Een klein ringetje DNA in een bacterie, naast het grote ringvormige chromosoom.",
+   "stem": "Plasmide.\n\nEen klein ringetje deeënaa in een bacterie, naast het grote ringvormige chromosoom.",
+   "vwo": false,
+   "films": [
+    "microben"
+   ],
+   "generation_id": "oFDwunGZKVAAn1gWdTc2",
+   "audio": "begrippen/cellen/plasmide.mp3",
+   "audio_o": "begrippen/cellen/plasmide-o.mp3",
+   "splits": 0.82,
+   "duur": 6.11
+  },
+  {
+   "id": "tweedeling",
+   "begrip": "tweedeling",
+   "gesproken": "Tweedeling",
+   "uitleg": "Zo plant een bacterie zich voort. Ze kopieert haar DNA, groeit, en splitst zich in twee cellen.",
+   "stem": "Tweedeling.\n\nZo plant een bacterie zich voort. Ze kopieert haar deeënaa, groeit, en splitst zich in twee cellen.",
+   "vwo": false,
+   "films": [
+    "microben"
+   ],
+   "generation_id": "NNYba3BiBsd8tT31zKRE",
+   "audio": "begrippen/cellen/tweedeling.mp3",
+   "audio_o": "begrippen/cellen/tweedeling-o.mp3",
+   "splits": 0.9,
+   "duur": 7.16
+  },
+  {
+   "id": "kolonie",
+   "begrip": "kolonie",
+   "gesproken": "Kolonie",
+   "uitleg": "Een zichtbaar hoopje bacteriën op een voedingsbodem. Vaak gegroeid uit één enkele cel.",
+   "stem": "Kolonie.\n\nEen zichtbaar hoopje bacteriën op een voedingsbodem. Vaak gegroeid uit één enkele cel.",
+   "vwo": false,
+   "films": [
+    "microben"
+   ],
+   "generation_id": "t2UIjOA83RhevfKuleAA",
+   "audio": "begrippen/cellen/kolonie.mp3",
+   "audio_o": "begrippen/cellen/kolonie-o.mp3",
+   "splits": 0.78,
+   "duur": 6.03
+  },
+  {
+   "id": "reducent",
+   "begrip": "reducent",
+   "gesproken": "Reducent",
+   "uitleg": "Een organisme dat dode resten afbreekt. Zo komen de stoffen weer vrij.",
+   "stem": "Reducent.\n\nEen organisme dat dode resten afbreekt. Zo komen de stoffen weer vrij.",
+   "vwo": false,
+   "films": [
+    "microben"
+   ],
+   "generation_id": "MGZH82w4sk6LGrOzvohS",
+   "audio": "begrippen/cellen/reducent.mp3",
+   "audio_o": "begrippen/cellen/reducent-o.mp3",
+   "splits": 0.97,
+   "duur": 5.41
+  },
+  {
+   "id": "symbiose",
+   "begrip": "symbiose",
+   "gesproken": "Symbiose",
+   "uitleg": "Het nauw samenleven van twee soorten. Bij mutualisme hebben ze er allebei voordeel van. Bij parasitisme heeft de parasiet voordeel en de gastheer nadeel.",
+   "stem": "Symbiose.\n\nHet nauw samenleven van twee soorten. Bij mutualisme hebben ze er allebei voordeel van. Bij parasitisme heeft de parasiet voordeel en de gastheer nadeel.",
+   "vwo": false,
+   "films": [
+    "microben"
+   ],
+   "generation_id": "I36HHYSo1CLtDPNH0sTI",
+   "audio": "begrippen/cellen/symbiose.mp3",
+   "audio_o": "begrippen/cellen/symbiose-o.mp3",
+   "splits": 0.94,
+   "duur": 10.53
+  },
+  {
+   "id": "parasiet",
+   "begrip": "parasiet",
+   "gesproken": "Parasiet",
+   "uitleg": "Een organisme dat leeft ten koste van een ander. De parasiet heeft er voordeel van, de gastheer nadeel.",
+   "stem": "Parasiet.\n\nEen organisme dat leeft ten koste van een ander. De parasiet heeft er voordeel van, de gastheer nadeel.",
+   "vwo": false,
+   "films": [
+    "microben"
+   ],
+   "generation_id": "TtKkpZS0351BiyPaXX3d",
+   "audio": "begrippen/cellen/parasiet.mp3",
+   "audio_o": "begrippen/cellen/parasiet-o.mp3",
+   "splits": 0.84,
+   "duur": 7.24
+  },
+  {
+   "id": "antibioticum",
+   "begrip": "antibioticum",
+   "gesproken": "Antibioticum",
+   "uitleg": "Een stof die bacteriën remt of doodt, bijvoorbeeld door hun celwand aan te pakken. Een antibioticum werkt niet tegen virussen.",
+   "stem": "Antibioticum.\n\nEen stof die bacteriën remt of doodt, bijvoorbeeld door hun celwand aan te pakken. Een antibioticum werkt niet tegen virussen.",
+   "vwo": false,
+   "films": [
+    "microben"
+   ],
+   "generation_id": "rkIkcLuMTGYWJUbEHD7D",
+   "audio": "begrippen/cellen/antibioticum.mp3",
+   "audio_o": "begrippen/cellen/antibioticum-o.mp3",
+   "splits": 1.15,
+   "duur": 8.83
+  },
+  {
+   "id": "deeltjesbeweging",
+   "begrip": "deeltjesbeweging",
+   "gesproken": "Deeltjesbeweging",
+   "uitleg": "Alle deeltjes in een vloeistof of gas bewegen altijd willekeurig door elkaar. Hoe warmer, hoe sneller.",
+   "stem": "Deeltjesbeweging.\n\nAlle deeltjes in een vloeistof of gas bewegen altijd willekeurig door elkaar. Hoe warmer, hoe sneller.",
+   "vwo": false,
+   "films": [
+    "diffusie-osmose"
+   ],
+   "generation_id": "w7eowa14zLcxA9xcdR9C",
+   "audio": "begrippen/cellen/deeltjesbeweging.mp3",
+   "audio_o": "begrippen/cellen/deeltjesbeweging-o.mp3",
+   "splits": 1.3,
+   "duur": 7.39
+  },
+  {
+   "id": "diffusie",
+   "begrip": "diffusie",
+   "gesproken": "Diffusie",
+   "uitleg": "De netto verplaatsing van deeltjes van een hoge naar een lage concentratie, door hun willekeurige beweging.",
+   "stem": "Diffusie.\n\nDe netto verplaatsing van deeltjes van een hoge naar een lage concentratie, door hun willekeurige beweging.",
+   "vwo": false,
+   "films": [
+    "diffusie-osmose"
+   ],
+   "generation_id": "a6jh3MbC82mmFiXNBLgk",
+   "audio": "begrippen/cellen/diffusie.mp3",
+   "audio_o": "begrippen/cellen/diffusie-o.mp3",
+   "splits": 0.8,
+   "duur": 6.77
+  },
+  {
+   "id": "concentratie",
+   "begrip": "concentratie",
+   "gesproken": "Concentratie",
+   "uitleg": "Hoeveel deeltjes van een stof er in een bepaalde hoeveelheid oplossing zitten.",
+   "stem": "Concentratie.\n\nHoeveel deeltjes van een stof er in een bepaalde hoeveelheid oplossing zitten.",
+   "vwo": false,
+   "films": [
+    "diffusie-osmose"
+   ],
+   "generation_id": "o2glW1iwaijzIBbV22de",
+   "audio": "begrippen/cellen/concentratie.mp3",
+   "audio_o": "begrippen/cellen/concentratie-o.mp3",
+   "splits": 1.14,
+   "duur": 5.15
+  },
+  {
+   "id": "concentratieverschil",
+   "begrip": "concentratieverschil (concentratiegradiënt)",
+   "gesproken": "Concentratieverschil",
+   "uitleg": "Ook wel concentratiegradiënt. Het verschil in concentratie tussen twee plekken. Hoe groter het verschil, hoe sneller de diffusie.",
+   "stem": "Concentratieverschil.\n\nOok wel concentratiegradiënt. Het verschil in concentratie tussen twee plekken. Hoe groter het verschil, hoe sneller de diffusie.",
+   "vwo": false,
+   "films": [
+    "diffusie-osmose"
+   ],
+   "generation_id": "eCOVJONYMZNqxUpz7FS5",
+   "audio": "begrippen/cellen/concentratieverschil.mp3",
+   "audio_o": "begrippen/cellen/concentratieverschil-o.mp3",
+   "splits": 1.45,
+   "duur": 9.56
+  },
+  {
+   "id": "evenwicht",
+   "begrip": "evenwicht",
+   "gesproken": "Evenwicht",
+   "uitleg": "Er gaan evenveel deeltjes heen als terug. Netto verandert er niets, maar de deeltjes blijven bewegen.",
+   "stem": "Evenwicht.\n\nEr gaan evenveel deeltjes heen als terug. Netto verandert er niets, maar de deeltjes blijven bewegen.",
+   "vwo": false,
+   "films": [
+    "diffusie-osmose"
+   ],
+   "generation_id": "ND1ddtKfCDn3zARt9I4s",
+   "audio": "begrippen/cellen/evenwicht.mp3",
+   "audio_o": "begrippen/cellen/evenwicht-o.mp3",
+   "splits": 0.86,
+   "duur": 7.08
+  },
+  {
+   "id": "longblaasje",
+   "begrip": "longblaasje",
+   "gesproken": "Longblaasje",
+   "uitleg": "Een klein blaasje in de long met een flinterdunne wand. Zuurstof en koolstofdioxide gaan er door diffusie doorheen.",
+   "stem": "Longblaasje.\n\nEen klein blaasje in de long met een flinterdunne wand. Zuurstof en koolstofdie-oxide gaan er door diffusie doorheen.",
+   "vwo": false,
+   "films": [
+    "diffusie-osmose"
+   ],
+   "generation_id": "EQIyXPO7dD2PC69gPmTA",
+   "audio": "begrippen/cellen/longblaasje.mp3",
+   "audio_o": "begrippen/cellen/longblaasje-o.mp3",
+   "splits": 1.03,
+   "duur": 7.81
+  },
+  {
+   "id": "fosfolipide",
+   "begrip": "fosfolipide",
+   "gesproken": "Fosfolipide",
+   "uitleg": "De bouwsteen van het celmembraan. Een kop die van water houdt, en twee vetstaarten die water afstoten. De koppen liggen naar het water, de staarten naar binnen.",
+   "stem": "Fosfolipide.\n\nDe bouwsteen van het celmembraan. Een kop die van water houdt, en twee vetstaarten die water afstoten. De koppen liggen naar het water, de staarten naar binnen.",
+   "vwo": false,
+   "films": [
+    "diffusie-osmose"
+   ],
+   "generation_id": "2le2180FyPMAXfaZZsLn",
+   "audio": "begrippen/cellen/fosfolipide.mp3",
+   "audio_o": "begrippen/cellen/fosfolipide-o.mp3",
+   "splits": 1.03,
+   "duur": 10.45
+  },
+  {
+   "id": "hydrofiel-hydrofoob",
+   "begrip": "hydrofiel / hydrofoob",
+   "gesproken": "Hydrofiel en hydrofoob",
+   "uitleg": "Hydrofiel betekent: houdt van water, lost goed op in water. Hydrofoob betekent: stoot water af, lost goed op in vet.",
+   "stem": "Hydrofiel en hydrofoob.\n\nHydrofiel betekent: houdt van water, lost goed op in water. Hydrofoob betekent: stoot water af, lost goed op in vet.",
+   "vwo": false,
+   "films": [
+    "diffusie-osmose"
+   ],
+   "generation_id": "JEOuRfjdzrK7oYRWbdU2",
+   "audio": "begrippen/cellen/hydrofiel-hydrofoob.mp3",
+   "audio_o": "begrippen/cellen/hydrofiel-hydrofoob-o.mp3",
+   "splits": 2.09,
+   "duur": 10.92
+  },
+  {
+   "id": "selectief-doorlatend",
+   "begrip": "selectief doorlatend (selectief permeabel)",
+   "gesproken": "Selectief doorlatend",
+   "uitleg": "Laat sommige stoffen door en andere niet. Kleine stoffen die in vet oplossen gaan er makkelijk door. Ionen en glucose niet zomaar.",
+   "stem": "Selectief doorlatend.\n\nLaat sommige stoffen door en andere niet. Kleine stoffen die in vet oplossen gaan er makkelijk door. Ionen en glucose niet zomaar.",
+   "vwo": false,
+   "films": [
+    "diffusie-osmose"
+   ],
+   "generation_id": "s47zlr7JR0RNs2O7I2hm",
+   "audio": "begrippen/cellen/selectief-doorlatend.mp3",
+   "audio_o": "begrippen/cellen/selectief-doorlatend-o.mp3",
+   "splits": 1.59,
+   "duur": 9.72
+  },
+  {
+   "id": "semipermeabel",
+   "begrip": "semipermeabel",
+   "gesproken": "Semipermeabel",
+   "uitleg": "Laat water door, maar opgeloste stoffen zoals zout niet.",
+   "stem": "Semi-permeabel.\n\nLaat water door, maar opgeloste stoffen zoals zout niet.",
+   "vwo": false,
+   "films": [
+    "diffusie-osmose"
+   ],
+   "generation_id": "6i0j305LuIm6KUPJyJhe",
+   "audio": "begrippen/cellen/semipermeabel.mp3",
+   "audio_o": "begrippen/cellen/semipermeabel-o.mp3",
+   "splits": 1.37,
+   "duur": 5.41
+  },
+  {
+   "id": "kanaaleiwit",
+   "begrip": "kanaaleiwit",
+   "gesproken": "Kanaaleiwit",
+   "uitleg": "Een eiwit in het membraan dat een tunnel vormt voor één soort deeltje. Bijvoorbeeld een waterkanaal.",
+   "stem": "Kanaaleiwit.\n\nEen eiwit in het membraan dat een tunnel vormt voor één soort deeltje. Bijvoorbeeld een waterkanaal.",
+   "vwo": true,
+   "films": [
+    "diffusie-osmose"
+   ],
+   "generation_id": "iReAw2VWIdf4pepWAXGQ",
+   "audio": "begrippen/cellen/kanaaleiwit.mp3",
+   "audio_o": "begrippen/cellen/kanaaleiwit-o.mp3",
+   "splits": 1.18,
+   "duur": 6.69
+  },
+  {
+   "id": "dragereiwit",
+   "begrip": "dragereiwit",
+   "gesproken": "Dragereiwit",
+   "uitleg": "Een eiwit in het membraan dat een deeltje vastpakt, en het aan de andere kant weer afzet.",
+   "stem": "Dragereiwit.\n\nEen eiwit in het membraan dat een deeltje vastpakt, en het aan de andere kant weer afzet.",
+   "vwo": true,
+   "films": [
+    "diffusie-osmose"
+   ],
+   "generation_id": "0A4BiaDIusWohkEfmqjE",
+   "audio": "begrippen/cellen/dragereiwit.mp3",
+   "audio_o": "begrippen/cellen/dragereiwit-o.mp3",
+   "splits": 1.21,
+   "duur": 5.96
+  },
+  {
+   "id": "gefaciliteerde-diffusie",
+   "begrip": "gefaciliteerde diffusie",
+   "gesproken": "Gefaciliteerde diffusie",
+   "uitleg": "Diffusie via een kanaaleiwit of een dragereiwit. Van hoog naar laag, en zonder ATP.",
+   "stem": "Gefaciliteerde diffusie.\n\nDiffusie via een kanaaleiwit of een dragereiwit. Van hoog naar laag, en zonder ATP.",
+   "vwo": true,
+   "films": [
+    "diffusie-osmose"
+   ],
+   "generation_id": "7sHBe9TdBkBT0zNWxiIo",
+   "audio": "begrippen/cellen/gefaciliteerde-diffusie.mp3",
+   "audio_o": "begrippen/cellen/gefaciliteerde-diffusie-o.mp3",
+   "splits": 1.7,
+   "duur": 7.55
+  },
+  {
+   "id": "osmose",
+   "begrip": "osmose",
+   "gesproken": "Osmose",
+   "uitleg": "Water gaat door een semipermeabel membraan naar de kant met de meeste opgeloste deeltjes die er niet door kunnen. Dus naar de hoogste osmotische waarde.",
+   "stem": "Osmose.\n\nWater gaat door een semi-permeabel membraan naar de kant met de meeste opgeloste deeltjes die er niet door kunnen. Dus naar de hoogste osmotische waarde.",
+   "vwo": false,
+   "films": [
+    "diffusie-osmose"
+   ],
+   "generation_id": "Qqq2JlzO7nn2Zb525GRf",
+   "audio": "begrippen/cellen/osmose.mp3",
+   "audio_o": "begrippen/cellen/osmose-o.mp3",
+   "splits": 0.9,
+   "duur": 9.25
+  },
+  {
+   "id": "osmotische-waarde",
+   "begrip": "osmotische waarde",
+   "gesproken": "Osmotische waarde",
+   "uitleg": "Een maat voor de concentratie opgeloste deeltjes in een oplossing. Je telt deeltjes. Keukenzout valt in water uiteen in twee deeltjes, en telt dus dubbel.",
+   "stem": "Osmotische waarde.\n\nEen maat voor de concentratie opgeloste deeltjes in een oplossing. Je telt deeltjes. Keukenzout valt in water uiteen in twee deeltjes, en telt dus dubbel.",
+   "vwo": false,
+   "films": [
+    "diffusie-osmose"
+   ],
+   "generation_id": "SUhqyA9O5xUGO9vvjAp0",
+   "audio": "begrippen/cellen/osmotische-waarde.mp3",
+   "audio_o": "begrippen/cellen/osmotische-waarde-o.mp3",
+   "splits": 1.34,
+   "duur": 10.76
+  },
+  {
+   "id": "osmotische-druk",
+   "begrip": "osmotische druk",
+   "gesproken": "Osmotische druk",
+   "uitleg": "De druk die nodig is om osmose precies tegen te houden.",
+   "stem": "Osmotische druk.\n\nDe druk die nodig is om osmose precies tegen te houden.",
+   "vwo": false,
+   "films": [
+    "diffusie-osmose"
+   ],
+   "generation_id": "e8UxWp6LUOAysMDdyfvY",
+   "audio": "begrippen/cellen/osmotische-druk.mp3",
+   "audio_o": "begrippen/cellen/osmotische-druk-o.mp3",
+   "splits": 1.36,
+   "duur": 4.83
+  },
+  {
+   "id": "plasmolyse",
+   "begrip": "plasmolyse",
+   "gesproken": "Plasmolyse",
+   "uitleg": "Een plantencel in een geconcentreerde oplossing verliest water. Het celmembraan laat dan los van de celwand.",
+   "stem": "Plasmolieze.\n\nEen plantencel in een geconcentreerde oplossing verliest water. Het celmembraan laat dan los van de celwand.",
+   "vwo": false,
+   "films": [
+    "diffusie-osmose"
+   ],
+   "generation_id": "e7vJsXQqBapcpW3cKsKx",
+   "audio": "begrippen/cellen/plasmolyse.mp3",
+   "audio_o": "begrippen/cellen/plasmolyse-o.mp3",
+   "splits": 0.98,
+   "duur": 7.24
+  },
+  {
+   "id": "turgor",
+   "begrip": "turgor",
+   "gesproken": "Turgor",
+   "uitleg": "De druk van de celinhoud tegen de celwand. Turgor maakt een plant stevig.",
+   "stem": "Turgor.\n\nDe druk van de celinhoud tegen de celwand. Turgor maakt een plant stevig.",
+   "vwo": false,
+   "films": [
+    "diffusie-osmose"
+   ],
+   "generation_id": "0BrXJ3wrTJOvwTCon02q",
+   "audio": "begrippen/cellen/turgor.mp3",
+   "audio_o": "begrippen/cellen/turgor-o.mp3",
+   "splits": 0.77,
+   "duur": 5.56
+  },
+  {
+   "id": "hemolyse",
+   "begrip": "hemolyse",
+   "gesproken": "Hemolyse",
+   "uitleg": "Het barsten van rode bloedcellen. Bijvoorbeeld in zuiver water.",
+   "stem": "Heemolieze.\n\nHet barsten van rode bloedcellen. Bijvoorbeeld in zuiver water.",
+   "vwo": false,
+   "films": [
+    "diffusie-osmose"
+   ],
+   "generation_id": "seli5p0t4BknwEDq5nuY",
+   "audio": "begrippen/cellen/hemolyse.mp3",
+   "audio_o": "begrippen/cellen/hemolyse-o.mp3",
+   "splits": 1.03,
+   "duur": 4.91
+  },
+  {
+   "id": "isotonisch",
+   "begrip": "isotonisch",
+   "gesproken": "Isotonisch",
+   "uitleg": "Een oplossing met dezelfde osmotische waarde als de cel. Er gaat netto geen water in of uit.",
+   "stem": "Isotonisch.\n\nEen oplossing met dezelfde osmotische waarde als de cel. Er gaat netto geen water in of uit.",
+   "vwo": false,
+   "films": [
+    "diffusie-osmose"
+   ],
+   "generation_id": "jyF7tZpMMWZ2spKTmu4u",
+   "audio": "begrippen/cellen/isotonisch.mp3",
+   "audio_o": "begrippen/cellen/isotonisch-o.mp3",
+   "splits": 1.15,
+   "duur": 7.0
+  },
+  {
+   "id": "hypotonisch",
+   "begrip": "hypotonisch",
+   "gesproken": "Hypotonisch",
+   "uitleg": "Een oplossing met een lagere osmotische waarde dan de cel. Water gaat de cel in.",
+   "stem": "Hiepotonisch.\n\nEen oplossing met een lagere osmotische waarde dan de cel. Water gaat de cel in.",
+   "vwo": false,
+   "films": [
+    "diffusie-osmose"
+   ],
+   "generation_id": "NdI5mFd2rHnpMQNxNdJ5",
+   "audio": "begrippen/cellen/hypotonisch.mp3",
+   "audio_o": "begrippen/cellen/hypotonisch-o.mp3",
+   "splits": 1.11,
+   "duur": 6.27
+  },
+  {
+   "id": "hypertonisch",
+   "begrip": "hypertonisch",
+   "gesproken": "Hypertonisch",
+   "uitleg": "Een oplossing met een hogere osmotische waarde dan de cel. Water gaat de cel uit.",
+   "stem": "Hiepertonisch.\n\nEen oplossing met een hogere osmotische waarde dan de cel. Water gaat de cel uit.",
+   "vwo": false,
+   "films": [
+    "diffusie-osmose"
+   ],
+   "generation_id": "ObEWOLF0j9d4hjBnm61m",
+   "audio": "begrippen/cellen/hypertonisch.mp3",
+   "audio_o": "begrippen/cellen/hypertonisch-o.mp3",
+   "splits": 1.13,
+   "duur": 6.35
+  },
+  {
+   "id": "passief-transport",
+   "begrip": "passief transport",
+   "gesproken": "Passief transport",
+   "uitleg": "Transport dat vanzelf gaat, zonder energie van de cel. Diffusie en osmose zijn passief transport.",
+   "stem": "Passief transport.\n\nTransport dat vanzelf gaat, zonder energie van de cel. Diffusie en osmose zijn passief transport.",
+   "vwo": false,
+   "films": [
+    "diffusie-osmose"
+   ],
+   "generation_id": "R4yRBVRPaLXxypXceDGU",
+   "audio": "begrippen/cellen/passief-transport.mp3",
+   "audio_o": "begrippen/cellen/passief-transport-o.mp3",
+   "splits": 1.29,
+   "duur": 7.63
+  },
+  {
+   "id": "actief-transport",
+   "begrip": "actief transport",
+   "gesproken": "Actief transport",
+   "uitleg": "Transport tegen het concentratieverschil in, bergop. Een pomp in het membraan doet het werk, en dat kost ATP.",
+   "stem": "Actief transport.\n\nTransport tegen het concentratieverschil in, bergop. Een pomp in het membraan doet het werk, en dat kost ATP.",
+   "vwo": false,
+   "films": [
+    "diffusie-osmose"
+   ],
+   "generation_id": "HMD5x9HOeOm9J9ZtoYJw",
+   "audio": "begrippen/cellen/actief-transport.mp3",
+   "audio_o": "begrippen/cellen/actief-transport-o.mp3",
+   "splits": 1.31,
+   "duur": 8.59
+  },
+  {
+   "id": "natrium-kaliumpomp",
+   "begrip": "natrium-kaliumpomp",
+   "gesproken": "Natrium-kaliumpomp",
+   "uitleg": "Een pomp in het celmembraan die met ATP natrium naar buiten pompt, en kalium naar binnen.",
+   "stem": "Natrium-kaliumpomp.\n\nEen pomp in het celmembraan die met ATP natrium naar buiten pompt, en kalium naar binnen.",
+   "vwo": true,
+   "films": [
+    "diffusie-osmose"
+   ],
+   "generation_id": "pXtXoFvt1zSgQk0WXAe8",
+   "audio": "begrippen/cellen/natrium-kaliumpomp.mp3",
+   "audio_o": "begrippen/cellen/natrium-kaliumpomp-o.mp3",
+   "splits": 1.75,
+   "duur": 7.31
+  },
+  {
+   "id": "gedifferentieerde-cel",
+   "begrip": "gedifferentieerde cel",
+   "gesproken": "Gedifferentieerde cel",
+   "uitleg": "Een gespecialiseerde cel, zoals een zenuwcel of een spiercel. Zo’n cel deelt zich vaak niet of nauwelijks meer.",
+   "stem": "Gedifferentieerde cel.\n\nEen gespecialiseerde cel, zoals een zenuwcel of een spiercel. Zo’n cel deelt zich vaak niet of nauwelijks meer.",
+   "vwo": false,
+   "films": [
+    "stamcellen"
+   ],
+   "generation_id": "KQYyAUSyGwj3YsA1hkll",
+   "audio": "begrippen/cellen/gedifferentieerde-cel.mp3",
+   "audio_o": "begrippen/cellen/gedifferentieerde-cel-o.mp3",
+   "splits": 1.43,
+   "duur": 8.28
+  },
+  {
+   "id": "stamcel",
+   "begrip": "stamcel",
+   "gesproken": "Stamcel",
+   "uitleg": "Een ongespecialiseerde cel die zich blijft delen. Bij een deling blijft er gemiddeld één stamcel over. De andere cel specialiseert zich.",
+   "stem": "Stamcel.\n\nEen ongespecialiseerde cel die zich blijft delen. Bij een deling blijft er gemiddeld één stamcel over. De andere cel specialiseert zich.",
+   "vwo": false,
+   "films": [
+    "stamcellen"
+   ],
+   "generation_id": "WLZO9uLoh452p9Orjz9s",
+   "audio": "begrippen/cellen/stamcel.mp3",
+   "audio_o": "begrippen/cellen/stamcel-o.mp3",
+   "splits": 0.9,
+   "duur": 9.33
+  },
+  {
+   "id": "kiemlaag",
+   "begrip": "kiemlaag",
+   "gesproken": "Kiemlaag",
+   "uitleg": "De onderste laag van de opperhuid, met stamcellen. De nieuwe cellen schuiven omhoog, verhoornen, sterven af en schilferen af.",
+   "stem": "Kiemlaag.\n\nDe onderste laag van de opperhuid, met stamcellen. De nieuwe cellen schuiven omhoog, verhoornen, sterven af en schilferen af.",
+   "vwo": false,
+   "films": [
+    "stamcellen"
+   ],
+   "generation_id": "GWZISxM4rbFFaFavckeP",
+   "audio": "begrippen/cellen/kiemlaag.mp3",
+   "audio_o": "begrippen/cellen/kiemlaag-o.mp3",
+   "splits": 0.89,
+   "duur": 8.59
+  },
+  {
+   "id": "volwassen-stamcel",
+   "begrip": "volwassen stamcel",
+   "gesproken": "Volwassen stamcel",
+   "uitleg": "Een stamcel in een weefsel, zoals in het beenmerg, de huid of de darm. Hij maakt alleen de celsoorten van dat weefsel.",
+   "stem": "Volwassen stamcel.\n\nEen stamcel in een weefsel, zoals in het beenmerg, de huid of de darm. Hij maakt alleen de celsoorten van dat weefsel.",
+   "vwo": false,
+   "films": [
+    "stamcellen"
+   ],
+   "generation_id": "ifaFnQ3ZLgByMjmQZZ3e",
+   "audio": "begrippen/cellen/volwassen-stamcel.mp3",
+   "audio_o": "begrippen/cellen/volwassen-stamcel-o.mp3",
+   "splits": 1.37,
+   "duur": 8.59
+  },
+  {
+   "id": "embryonale-stamcel",
+   "begrip": "embryonale stamcel",
+   "gesproken": "Embryonale stamcel",
+   "uitleg": "Een stamcel uit de binnenste celmassa van een embryo van ongeveer vijf dagen. Hij kan elke celsoort van het lichaam worden.",
+   "stem": "Embryonale stamcel.\n\nEen stamcel uit de binnenste celmassa van een embryo van ongeveer vijf dagen. Hij kan elke celsoort van het lichaam worden.",
+   "vwo": false,
+   "films": [
+    "stamcellen"
+   ],
+   "generation_id": "PvWEx5vrztkhwE0UVimH",
+   "audio": "begrippen/cellen/embryonale-stamcel.mp3",
+   "audio_o": "begrippen/cellen/embryonale-stamcel-o.mp3",
+   "splits": 1.59,
+   "duur": 8.59
+  },
+  {
+   "id": "stamceltransplantatie",
+   "begrip": "stamceltransplantatie",
+   "gesproken": "Stamceltransplantatie",
+   "uitleg": "Een patiënt krijgt bloedstamcellen van een passende donor, bijvoorbeeld bij leukemie. Daarna heeft het bloed het DNA van de donor.",
+   "stem": "Stamceltransplantatie.\n\nEen patiënt krijgt bloedstamcellen van een passende donor, bijvoorbeeld bij leukemie. Daarna heeft het bloed het deeënaa van de donor.",
+   "vwo": false,
+   "films": [
+    "stamcellen"
+   ],
+   "generation_id": "MyDnBDJu6QQgZp0MlmIr",
+   "audio": "begrippen/cellen/stamceltransplantatie.mp3",
+   "audio_o": "begrippen/cellen/stamceltransplantatie-o.mp3",
+   "splits": 1.64,
+   "duur": 9.17
+  },
+  {
+   "id": "afstoting",
+   "begrip": "afstoting",
+   "gesproken": "Afstoting",
+   "uitleg": "Het afweersysteem ruimt lichaamsvreemde cellen op. Daarom moet een donor bijna dezelfde herkenningseiwitten hebben als de patiënt.",
+   "stem": "Afstoting.\n\nHet afweersysteem ruimt lichaamsvreemde cellen op. Daarom moet een donor bijna dezelfde herkenningseiwitten hebben als de patiënt.",
+   "vwo": false,
+   "films": [
+    "stamcellen"
+   ],
+   "generation_id": "GWE9IKVaEc1GZsIkmMMP",
+   "audio": "begrippen/cellen/afstoting.mp3",
+   "audio_o": "begrippen/cellen/afstoting-o.mp3",
+   "splits": 0.96,
+   "duur": 8.2
+  },
+  {
+   "id": "ips-cel",
+   "begrip": "geïnduceerde stamcel (iPS-cel)",
+   "gesproken": "iPS-cel",
+   "uitleg": "Een geïnduceerde stamcel. Een gewone lichaamscel die in het lab is teruggezet tot een stamcel, die bijna elke celsoort kan worden.",
+   "stem": "ie-pee-es-cel.\n\nEen geïnduceerde stamcel. Een gewone lichaamscel die in het lab is teruggezet tot een stamcel, die bijna elke celsoort kan worden.",
+   "vwo": false,
+   "films": [
+    "stamcellen"
+   ],
+   "generation_id": "eRD1lHquTWIacqKZ2D95",
+   "audio": "begrippen/cellen/ips-cel.mp3",
+   "audio_o": "begrippen/cellen/ips-cel-o.mp3",
+   "splits": 1.58,
+   "duur": 9.25
+  },
+  {
+   "id": "transcriptiefactor",
+   "begrip": "transcriptiefactor",
+   "gesproken": "Transcriptiefactor",
+   "uitleg": "Een eiwit dat aan de promotor van een gen bindt. Zo bepaalt het of RNA-polymerase het gen kan overschrijven.",
+   "stem": "Transcriptsie-factor.\n\nEen eiwit dat aan de promotor van een gen bindt. Zo bepaalt het of RNA-polymerase het gen kan overschrijven.",
+   "vwo": true,
+   "films": [
+    "stamcellen"
+   ],
+   "generation_id": "qJpOJ0j08RdY6KeGIxT8",
+   "audio": "begrippen/cellen/transcriptiefactor.mp3",
+   "audio_o": "begrippen/cellen/transcriptiefactor-o.mp3",
+   "splits": 1.38,
+   "duur": 8.28
+  },
+  {
+   "id": "epigenetica",
+   "begrip": "epigenetica",
+   "gesproken": "Epigenetica",
+   "uitleg": "Chemische markeringen op het DNA en op de histonen. Ze zetten genen langdurig aan of uit, ook na een deling.",
+   "stem": "Epigenetica.\n\nChemische markeringen op het deeënaa en op de histonen. Ze zetten genen langdurig aan of uit, ook na een deling.",
+   "vwo": true,
+   "films": [
+    "stamcellen"
+   ],
+   "generation_id": "oHlmLF983mkCSQNeNgxB",
+   "audio": "begrippen/cellen/epigenetica.mp3",
+   "audio_o": "begrippen/cellen/epigenetica-o.mp3",
+   "splits": 1.18,
+   "duur": 8.59
+  },
+  {
+   "id": "potentie",
+   "begrip": "toti-, pluri-, multi-, unipotent",
+   "gesproken": "Totipotent, pluripotent, multipotent, unipotent",
+   "uitleg": "Hoeveel een cel nog kan worden. Totipotent: alles, ook de placenta. Pluripotent: elke celsoort van het lichaam. Multipotent: een paar celsoorten. Unipotent: één celsoort.",
+   "stem": "Totipotent, pluripotent, multipotent, unipotent.\n\nHoeveel een cel nog kan worden. Totipotent: alles, ook de placenta. Pluripotent: elke celsoort van het lichaam. Multipotent: een paar celsoorten. Unipotent: één celsoort.",
+   "vwo": true,
+   "films": [
+    "stamcellen"
+   ],
+   "generation_id": "ME9o8jgGBOWcICuFVIFS",
+   "audio": "begrippen/cellen/potentie.mp3",
+   "audio_o": "begrippen/cellen/potentie-o.mp3",
+   "splits": 0.99,
+   "duur": 17.63
+  },
+  {
+   "id": "onderzoekscyclus",
+   "begrip": "onderzoekscyclus",
+   "gesproken": "Onderzoekscyclus",
+   "uitleg": "De vaste route van een onderzoek. Waarneming, onderzoeksvraag, hypothese, werkplan, uitvoering, resultaten, conclusie en discussie. Vaak volgt een nieuwe vraag.",
+   "stem": "Onderzoekscyclus.\n\nDe vaste route van een onderzoek. Waarneming, onderzoeksvraag, hypothese, werkplan, uitvoering, resultaten, conclusie en discussie. Vaak volgt een nieuwe vraag.",
+   "vwo": false,
+   "films": [
+    "onderzoek-doen"
+   ],
+   "generation_id": "Flimbv9coqfcDio5qWuD",
+   "audio": "begrippen/cellen/onderzoekscyclus.mp3",
+   "audio_o": "begrippen/cellen/onderzoekscyclus-o.mp3",
+   "splits": 1.2,
+   "duur": 12.93
+  },
+  {
+   "id": "onderzoeksvraag",
+   "begrip": "onderzoeksvraag",
+   "gesproken": "Onderzoeksvraag",
+   "uitleg": "Een vraag over één factor, en iets wat je kunt meten.",
+   "stem": "Onderzoeksvraag.\n\nEen vraag over één factor, en iets wat je kunt meten.",
+   "vwo": false,
+   "films": [
+    "onderzoek-doen"
+   ],
+   "generation_id": "uo4P48hdo3bu5Ftnfmbf",
+   "audio": "begrippen/cellen/onderzoeksvraag.mp3",
+   "audio_o": "begrippen/cellen/onderzoeksvraag-o.mp3",
+   "splits": 1.14,
+   "duur": 4.75
+  },
+  {
+   "id": "hypothese",
+   "begrip": "hypothese",
+   "gesproken": "Hypothese",
+   "uitleg": "Een mogelijk antwoord op de onderzoeksvraag, dat je kunt toetsen.",
+   "stem": "Hypothese.\n\nEen mogelijk antwoord op de onderzoeksvraag, dat je kunt toetsen.",
+   "vwo": false,
+   "films": [
+    "onderzoek-doen"
+   ],
+   "generation_id": "5doWlQiBgeLxdMbkao81",
+   "audio": "begrippen/cellen/hypothese.mp3",
+   "audio_o": "begrippen/cellen/hypothese-o.mp3",
+   "splits": 0.94,
+   "duur": 4.44
+  },
+  {
+   "id": "verwachting",
+   "begrip": "verwachting",
+   "gesproken": "Verwachting",
+   "uitleg": "Wat je in deze proef zult meten als de hypothese klopt. Vaak met als, dan.",
+   "stem": "Verwachting.\n\nWat je in deze proef zult meten als de hypothese klopt. Vaak met als, dan.",
+   "vwo": false,
+   "films": [
+    "onderzoek-doen"
+   ],
+   "generation_id": "l0zlpu2GepZtcxuGoZA5",
+   "audio": "begrippen/cellen/verwachting.mp3",
+   "audio_o": "begrippen/cellen/verwachting-o.mp3",
+   "splits": 0.95,
+   "duur": 6.43
+  },
+  {
+   "id": "falsifieerbaar",
+   "begrip": "falsifieerbaar",
+   "gesproken": "Falsifieerbaar",
+   "uitleg": "Er is een uitkomst denkbaar die de hypothese weerlegt.",
+   "stem": "Falsifieerbaar.\n\nEr is een uitkomst denkbaar die de hypothese weerlegt.",
+   "vwo": false,
+   "films": [
+    "onderzoek-doen"
+   ],
+   "generation_id": "JJHfVSpeeStwnjjghryz",
+   "audio": "begrippen/cellen/falsifieerbaar.mp3",
+   "audio_o": "begrippen/cellen/falsifieerbaar-o.mp3",
+   "splits": 1.25,
+   "duur": 4.52
+  },
+  {
+   "id": "werkplan",
+   "begrip": "werkplan",
+   "gesproken": "Werkplan",
+   "uitleg": "Een beschrijving van hoe je de proef uitvoert. Met de materialen, de variabelen en de metingen.",
+   "stem": "Werkplan.\n\nEen beschrijving van hoe je de proef uitvoert. Met de materialen, de variabelen en de metingen.",
+   "vwo": false,
+   "films": [
+    "onderzoek-doen"
+   ],
+   "generation_id": "k2WQ7HaJgnDRIg7A0ra2",
+   "audio": "begrippen/cellen/werkplan.mp3",
+   "audio_o": "begrippen/cellen/werkplan-o.mp3",
+   "splits": 0.83,
+   "duur": 6.11
+  },
+  {
+   "id": "onafhankelijke-variabele",
+   "begrip": "onafhankelijke variabele",
+   "gesproken": "Onafhankelijke variabele",
+   "uitleg": "Wat je zelf verandert in je proef.",
+   "stem": "Onafhankelijke variabele.\n\nWat je zelf verandert in je proef.",
+   "vwo": false,
+   "films": [
+    "onderzoek-doen"
+   ],
+   "generation_id": "JdDo2PSdilgBRNErp6Aw",
+   "audio": "begrippen/cellen/onafhankelijke-variabele.mp3",
+   "audio_o": "begrippen/cellen/onafhankelijke-variabele-o.mp3",
+   "splits": 1.58,
+   "duur": 3.63
+  },
+  {
+   "id": "afhankelijke-variabele",
+   "begrip": "afhankelijke variabele",
+   "gesproken": "Afhankelijke variabele",
+   "uitleg": "Wat je meet in je proef.",
+   "stem": "Afhankelijke variabele.\n\nWat je meet in je proef.",
+   "vwo": false,
+   "films": [
+    "onderzoek-doen"
+   ],
+   "generation_id": "1SPuwno7gEEVrgoKIshn",
+   "audio": "begrippen/cellen/afhankelijke-variabele.mp3",
+   "audio_o": "begrippen/cellen/afhankelijke-variabele-o.mp3",
+   "splits": 1.48,
+   "duur": 3.16
+  },
+  {
+   "id": "constante-variabele",
+   "begrip": "constante variabele",
+   "gesproken": "Constante variabele",
+   "uitleg": "Een factor die je gelijk houdt, zodat alleen de onafhankelijke variabele verschilt. Ook wel controlevariabele.",
+   "stem": "Constante variabele.\n\nEen factor die je gelijk houdt, zodat alleen de onafhankelijke variabele verschilt. Ook wel controlevariabele.",
+   "vwo": false,
+   "films": [
+    "onderzoek-doen"
+   ],
+   "generation_id": "QrWFtuCcc0NmthCQewlS",
+   "audio": "begrippen/cellen/constante-variabele.mp3",
+   "audio_o": "begrippen/cellen/constante-variabele-o.mp3",
+   "splits": 1.53,
+   "duur": 8.2
+  },
+  {
+   "id": "controlegroep",
+   "begrip": "controlegroep",
+   "gesproken": "Controlegroep",
+   "uitleg": "Een groep zonder de factor die je onderzoekt, en verder precies gelijk. Om mee te vergelijken.",
+   "stem": "Controlegroep.\n\nEen groep zonder de factor die je onderzoekt, en verder precies gelijk. Om mee te vergelijken.",
+   "vwo": false,
+   "films": [
+    "onderzoek-doen"
+   ],
+   "generation_id": "yK9uJshJGuhMgb2BcYLR",
+   "audio": "begrippen/cellen/controlegroep.mp3",
+   "audio_o": "begrippen/cellen/controlegroep-o.mp3",
+   "splits": 1.08,
+   "duur": 6.35
+  },
+  {
+   "id": "randomiseren",
+   "begrip": "randomiseren",
+   "gesproken": "Randomiseren",
+   "uitleg": "Het toeval laten bepalen wat of wie in welke groep komt.",
+   "stem": "Randomiseren.\n\nHet toeval laten bepalen wat of wie in welke groep komt.",
+   "vwo": false,
+   "films": [
+    "onderzoek-doen"
+   ],
+   "generation_id": "A8a0k5JZ21ykaFG7kFXo",
+   "audio": "begrippen/cellen/randomiseren.mp3",
+   "audio_o": "begrippen/cellen/randomiseren-o.mp3",
+   "splits": 1.15,
+   "duur": 4.83
+  },
+  {
+   "id": "blind-dubbelblind",
+   "begrip": "blind · dubbelblind",
+   "gesproken": "Blind en dubbelblind",
+   "uitleg": "Blind: wie meet of meedoet, weet niet in welke groep iets hoort. Dubbelblind: de proefpersoon en de onderzoeker weten het allebei niet.",
+   "stem": "Blind en dubbelblind.\n\nBlind: wie meet of meedoet, weet niet in welke groep iets hoort. Dubbelblind: de proefpersoon en de onderzoeker weten het allebei niet.",
+   "vwo": false,
+   "films": [
+    "onderzoek-doen"
+   ],
+   "generation_id": "3fa9IIJ3qQH7xHFeZBHh",
+   "audio": "begrippen/cellen/blind-dubbelblind.mp3",
+   "audio_o": "begrippen/cellen/blind-dubbelblind-o.mp3",
+   "splits": 1.74,
+   "duur": 10.68
+  },
+  {
+   "id": "placebo",
+   "begrip": "placebo",
+   "gesproken": "Placebo",
+   "uitleg": "Een nepbehandeling voor de controlegroep in medisch onderzoek.",
+   "stem": "Placebo.\n\nEen nepbehandeling voor de controlegroep in medisch onderzoek.",
+   "vwo": false,
+   "films": [
+    "onderzoek-doen"
+   ],
+   "generation_id": "TtdbAcj8QpHiQVZL7cnX",
+   "audio": "begrippen/cellen/placebo.mp3",
+   "audio_o": "begrippen/cellen/placebo-o.mp3",
+   "splits": 0.85,
+   "duur": 4.13
+  },
+  {
+   "id": "toevallige-fout",
+   "begrip": "toevallige fout",
+   "gesproken": "Toevallige fout",
+   "uitleg": "Een meetfout die de ene keer te hoog en de andere keer te laag uitvalt. Bij herhalen middelt hij uit.",
+   "stem": "Toevallige fout.\n\nEen meetfout die de ene keer te hoog en de andere keer te laag uitvalt. Bij herhalen middelt hij uit.",
+   "vwo": false,
+   "films": [
+    "onderzoek-doen"
+   ],
+   "generation_id": "dNrN1U3Av8n6JBypW8nb",
+   "audio": "begrippen/cellen/toevallige-fout.mp3",
+   "audio_o": "begrippen/cellen/toevallige-fout-o.mp3",
+   "splits": 1.22,
+   "duur": 7.31
+  },
+  {
+   "id": "systematische-fout",
+   "begrip": "systematische fout",
+   "gesproken": "Systematische fout",
+   "uitleg": "Een meetfout die steeds dezelfde kant op zit. Hij middelt niet uit, ook niet als je vaker meet.",
+   "stem": "Systematische fout.\n\nEen meetfout die steeds dezelfde kant op zit. Hij middelt niet uit, ook niet als je vaker meet.",
+   "vwo": false,
+   "films": [
+    "onderzoek-doen"
+   ],
+   "generation_id": "avHM4rhL3Gtxms1j9xqA",
+   "audio": "begrippen/cellen/systematische-fout.mp3",
+   "audio_o": "begrippen/cellen/systematische-fout-o.mp3",
+   "splits": 1.51,
+   "duur": 7.16
+  },
+  {
+   "id": "steekproef",
+   "begrip": "steekproef",
+   "gesproken": "Steekproef",
+   "uitleg": "Het deel dat je onderzoekt, bijvoorbeeld vijftig zaadjes. Hoe groter de steekproef, hoe minder toeval de uitkomst bepaalt.",
+   "stem": "Steekproef.\n\nHet deel dat je onderzoekt, bijvoorbeeld vijftig zaadjes. Hoe groter de steekproef, hoe minder toeval de uitkomst bepaalt.",
+   "vwo": false,
+   "films": [
+    "onderzoek-doen"
+   ],
+   "generation_id": "4u4iojmm4SSDLw1cMuu9",
+   "audio": "begrippen/cellen/steekproef.mp3",
+   "audio_o": "begrippen/cellen/steekproef-o.mp3",
+   "splits": 0.94,
+   "duur": 8.28
+  },
+  {
+   "id": "betrouwbaar",
+   "begrip": "betrouwbaar",
+   "gesproken": "Betrouwbaar",
+   "uitleg": "Als je het herhaalt, vind je ongeveer hetzelfde. De uitkomst hangt niet af van toeval. Meer metingen en een vast werkplan maken een onderzoek betrouwbaarder.",
+   "stem": "Betrouwbaar.\n\nAls je het herhaalt, vind je ongeveer hetzelfde. De uitkomst hangt niet af van toeval. Meer metingen en een vast werkplan maken een onderzoek betrouwbaarder.",
+   "vwo": false,
+   "films": [
+    "onderzoek-doen"
+   ],
+   "generation_id": "CzLiWFBzNwDEMBzG9YG3",
+   "audio": "begrippen/cellen/betrouwbaar.mp3",
+   "audio_o": "begrippen/cellen/betrouwbaar-o.mp3",
+   "splits": 1.02,
+   "duur": 9.95
+  },
+  {
+   "id": "herhaalbaar",
+   "begrip": "herhaalbaar",
+   "gesproken": "Herhaalbaar",
+   "uitleg": "Doe je dezelfde proef zelf opnieuw, dan vind je hetzelfde resultaat.",
+   "stem": "Herhaalbaar.\n\nDoe je dezelfde proef zelf opnieuw, dan vind je hetzelfde resultaat.",
+   "vwo": false,
+   "films": [
+    "onderzoek-doen"
+   ],
+   "generation_id": "rGfDVAd1d1aL7w8J1RIB",
+   "audio": "begrippen/cellen/herhaalbaar.mp3",
+   "audio_o": "begrippen/cellen/herhaalbaar-o.mp3",
+   "splits": 1.03,
+   "duur": 4.91
+  },
+  {
+   "id": "reproduceerbaar",
+   "begrip": "reproduceerbaar",
+   "gesproken": "Reproduceerbaar",
+   "uitleg": "Een ander lab doet de proef na, met eigen materiaal, en vindt hetzelfde resultaat.",
+   "stem": "Reproduceerbaar.\n\nEen ander lab doet de proef na, met eigen materiaal, en vindt hetzelfde resultaat.",
+   "vwo": false,
+   "films": [
+    "onderzoek-doen"
+   ],
+   "generation_id": "0SgrNJVkR1ZcBdlpBICC",
+   "audio": "begrippen/cellen/reproduceerbaar.mp3",
+   "audio_o": "begrippen/cellen/reproduceerbaar-o.mp3",
+   "splits": 1.36,
+   "duur": 6.03
+  },
+  {
+   "id": "nauwkeurig",
+   "begrip": "nauwkeurig",
+   "gesproken": "Nauwkeurig",
+   "uitleg": "Hoe fijn je meetinstrument meet. Bijvoorbeeld op een tiende gram.",
+   "stem": "Nauwkeurig.\n\nHoe fijn je meetinstrument meet. Bijvoorbeeld op een tiende gram.",
+   "vwo": false,
+   "films": [
+    "onderzoek-doen"
+   ],
+   "generation_id": "xGWMXNz9cXkyNXIMqyZr",
+   "audio": "begrippen/cellen/nauwkeurig.mp3",
+   "audio_o": "begrippen/cellen/nauwkeurig-o.mp3",
+   "splits": 0.97,
+   "duur": 4.99
+  },
+  {
+   "id": "valide",
+   "begrip": "valide",
+   "gesproken": "Valide",
+   "uitleg": "Je meet echt wat je wilt weten, en het verschil komt echt door jouw variabele. Vaker meten maakt een onderzoek niet meer valide.",
+   "stem": "Valide.\n\nJe meet echt wat je wilt weten, en het verschil komt echt door jouw variabele. Vaker meten maakt een onderzoek niet meer valide.",
+   "vwo": false,
+   "films": [
+    "onderzoek-doen"
+   ],
+   "generation_id": "IwlxtRFGbMh6bixkZquY",
+   "audio": "begrippen/cellen/valide.mp3",
+   "audio_o": "begrippen/cellen/valide-o.mp3",
+   "splits": 0.78,
+   "duur": 8.28
+  },
+  {
+   "id": "spreiding",
+   "begrip": "spreiding",
+   "gesproken": "Spreiding",
+   "uitleg": "Hoe ver de metingen uit elkaar liggen.",
+   "stem": "Spreiding.\n\nHoe ver de metingen uit elkaar liggen.",
+   "vwo": false,
+   "films": [
+    "onderzoek-doen"
+   ],
+   "generation_id": "r4lLDn7lZFdJASwTYkoZ",
+   "audio": "begrippen/cellen/spreiding.mp3",
+   "audio_o": "begrippen/cellen/spreiding-o.mp3",
+   "splits": 0.91,
+   "duur": 3.16
+  },
+  {
+   "id": "histogram",
+   "begrip": "histogram",
+   "gesproken": "Histogram",
+   "uitleg": "Een grafiek die laat zien hoe vaak elke waarde voorkomt.",
+   "stem": "Histogram.\n\nEen grafiek die laat zien hoe vaak elke waarde voorkomt.",
+   "vwo": false,
+   "films": [
+    "onderzoek-doen"
+   ],
+   "generation_id": "YpoQyY3EdqPM0wLh1QNr",
+   "audio": "begrippen/cellen/histogram.mp3",
+   "audio_o": "begrippen/cellen/histogram-o.mp3",
+   "splits": 0.91,
+   "duur": 4.28
+  },
+  {
+   "id": "conclusie-discussie",
+   "begrip": "conclusie · discussie",
+   "gesproken": "Conclusie en discussie",
+   "uitleg": "De conclusie is het antwoord op de onderzoeksvraag. In de discussie staan de beperkingen, opvallende dingen en nieuwe vragen.",
+   "stem": "Conclusie en discussie.\n\nDe conclusie is het antwoord op de onderzoeksvraag. In de discussie staan de beperkingen, opvallende dingen en nieuwe vragen.",
+   "vwo": false,
+   "films": [
+    "onderzoek-doen"
+   ],
+   "generation_id": "0HYdAFBHchrEXVkC367j",
+   "audio": "begrippen/cellen/conclusie-discussie.mp3",
+   "audio_o": "begrippen/cellen/conclusie-discussie-o.mp3",
+   "splits": 1.67,
+   "duur": 8.83
+  },
+  {
+   "id": "observationeel-onderzoek",
+   "begrip": "observationeel onderzoek",
+   "gesproken": "Observationeel onderzoek",
+   "uitleg": "Onderzoek waarin je niets verandert, maar kijkt wat er samengaat.",
+   "stem": "Observationeel onderzoek.\n\nOnderzoek waarin je niets verandert, maar kijkt wat er samengaat.",
+   "vwo": false,
+   "films": [
+    "onderzoek-doen"
+   ],
+   "generation_id": "WJNb5usOyavPfo8FgYI7",
+   "audio": "begrippen/cellen/observationeel-onderzoek.mp3",
+   "audio_o": "begrippen/cellen/observationeel-onderzoek-o.mp3",
+   "splits": 1.74,
+   "duur": 5.56
+  },
+  {
+   "id": "correlatie-causaliteit",
+   "begrip": "correlatie · causaliteit",
+   "gesproken": "Correlatie en causaliteit",
+   "uitleg": "Correlatie: twee dingen gaan samen. Causaliteit: het ene veroorzaakt het andere. Correlatie is nog geen oorzaak.",
+   "stem": "Correlatie en causaliteit.\n\nCorrelatie: twee dingen gaan samen. Causaliteit: het ene veroorzaakt het andere. Correlatie is nog geen oorzaak.",
+   "vwo": false,
+   "films": [
+    "onderzoek-doen"
+   ],
+   "generation_id": "sUjCGD1PzNIR6TOKd7no",
+   "audio": "begrippen/cellen/correlatie-causaliteit.mp3",
+   "audio_o": "begrippen/cellen/correlatie-causaliteit-o.mp3",
+   "splits": 2.1,
+   "duur": 10.68
+  },
+  {
+   "id": "omgekeerde-causaliteit",
+   "begrip": "omgekeerde causaliteit",
+   "gesproken": "Omgekeerde causaliteit",
+   "uitleg": "Wat je voor het gevolg hield, is eigenlijk de oorzaak.",
+   "stem": "Omgekeerde causaliteit.\n\nWat je voor het gevolg hield, is eigenlijk de oorzaak.",
+   "vwo": false,
+   "films": [
+    "onderzoek-doen"
+   ],
+   "generation_id": "2ic2cytNyCnAjS8EAWLo",
+   "audio": "begrippen/cellen/omgekeerde-causaliteit.mp3",
+   "audio_o": "begrippen/cellen/omgekeerde-causaliteit-o.mp3",
+   "splits": 1.76,
+   "duur": 5.07
+  },
+  {
+   "id": "verstorende-variabele",
+   "begrip": "verstorende variabele",
+   "gesproken": "Verstorende variabele",
+   "uitleg": "Een derde factor die allebei de dingen veroorzaakt.",
+   "stem": "Verstorende variabele.\n\nEen derde factor die allebei de dingen veroorzaakt.",
+   "vwo": false,
+   "films": [
+    "onderzoek-doen"
+   ],
+   "generation_id": "sWDP1xXF6JCkRNqrdoJo",
+   "audio": "begrippen/cellen/verstorende-variabele.mp3",
+   "audio_o": "begrippen/cellen/verstorende-variabele-o.mp3",
+   "splits": 1.59,
+   "duur": 4.75
+  },
+  {
+   "id": "informed-consent",
+   "begrip": "informed consent",
+   "gesproken": "Informed consent",
+   "uitleg": "Toestemming die iemand vooraf geeft om mee te doen aan medisch onderzoek, nadat hij goed is geïnformeerd.",
+   "stem": "Informed consent.\n\nToestemming die iemand vooraf geeft om mee te doen aan medisch onderzoek, nadat hij goed is geïnformeerd.",
+   "vwo": false,
+   "films": [
+    "onderzoek-doen"
+   ],
+   "generation_id": "c25Hzd2ST6xNSuSfUqVB",
+   "audio": "begrippen/cellen/informed-consent.mp3",
+   "audio_o": "begrippen/cellen/informed-consent-o.mp3",
+   "splits": 1.41,
+   "duur": 7.0
+  },
+  {
+   "id": "drie-vs",
+   "begrip": "de drie V's",
+   "gesproken": "De drie V's",
+   "uitleg": "Vervanging, vermindering en verfijning van dierproeven.",
+   "stem": "De drie vee's.\n\nVervanging, vermindering en verfijning van dierproeven.",
+   "vwo": false,
+   "films": [
+    "onderzoek-doen"
+   ],
+   "generation_id": "Ri2wQFhKkb9jd0wEDuTY",
+   "audio": "begrippen/cellen/drie-vs.mp3",
+   "audio_o": "begrippen/cellen/drie-vs-o.mp3",
+   "splits": 1.22,
+   "duur": 4.68
+  },
+  {
+   "id": "fraude",
+   "begrip": "fraude",
+   "gesproken": "Fraude",
+   "uitleg": "Gegevens verzinnen, gegevens vervalsen, of werk van anderen overnemen. Bewust misleiden, anders dan een eerlijke fout.",
+   "stem": "Fraude.\n\nGegevens verzinnen, gegevens vervalsen, of werk van anderen overnemen. Bewust misleiden, anders dan een eerlijke fout.",
+   "vwo": false,
+   "films": [
+    "onderzoek-doen"
+   ],
+   "generation_id": "eefOfaqnCMM3X1jxtS6c",
+   "audio": "begrippen/cellen/fraude.mp3",
+   "audio_o": "begrippen/cellen/fraude-o.mp3",
+   "splits": 0.67,
+   "duur": 8.36
+  }
+ ]
+}

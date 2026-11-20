@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../js/teller.js" data-root="../"></script>
+<link rel="icon" href="../img/icoon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../img/icoon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../img/icoon/apple-touch-icon.png">
+<script>(function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Begrippen luisteren · Cellen · Biologie bij Kamiel</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../tools/huisstijl.css">
+<script src="../tools/huisstijl.js"></script>
+<style>
+.wrap{max-width:760px;margin:0 auto;padding:0 18px}
+.melding{margin:14px 0 0;padding:12px 16px;border-radius:var(--radius);background:var(--koraal-soft);border:1px solid var(--koraal);font-size:16px}
+.melding b{display:block;margin-bottom:2px}
+.terugl{display:inline-block;color:var(--goud-text);font-weight:600;padding:12px 0 0;text-decoration:none}
+.bedien{display:grid;gap:10px;margin:14px 0 0}
+.bedien .rij{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.zoek{flex:1 1 200px;min-width:0;font:inherit;font-size:16px;padding:9px 14px;border-radius:999px;border:1px solid var(--line2);background:var(--surface);color:var(--text)}
+.schud{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--text2);font-size:15px;cursor:pointer}
+.schud input{width:20px;height:20px;accent-color:var(--goud)}
+.start{width:100%;min-height:52px;border:0;border-radius:999px;background:var(--goud);color:var(--goud-ink);font:700 17px var(--tekst,inherit);display:flex;align-items:center;justify-content:center;gap:10px}
+.start:disabled{opacity:.45}
+.uitleg-modus{color:var(--text3);font-size:14px;margin:0}
+.speler{position:sticky;top:0;z-index:5;background:var(--bg);padding:14px 0 12px;border-bottom:1px solid var(--line);margin-top:14px}
+.speler[hidden]{display:none}
+.nu-teller{font:600 12px var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--text3)}
+.nu-begrip{font:700 26px/1.15 var(--titel);margin:4px 0 0;overflow-wrap:anywhere}
+.nu-uitleg{color:var(--text2);margin:6px 0 0;min-height:3em;font-size:17px}
+.nu-uitleg.verborgen{color:var(--text3);font-style:italic}
+.knoppen{display:flex;align-items:center;justify-content:center;gap:12px;margin:10px 0 0}
+.rond{width:52px;height:52px;border-radius:50%;border:1px solid var(--line2);background:var(--surface);display:inline-flex;align-items:center;justify-content:center;color:var(--text)}
+.rond.groot{width:64px;height:64px;background:var(--goud);color:var(--goud-ink);border:0}
+.rond.klein{width:44px;height:44px}
+#speel .icp{display:none}#speel.speelt .icp{display:block}#speel.speelt .ics{display:none}
+.voortgang{height:4px;background:var(--line);border-radius:2px;margin:12px 0 0;overflow:hidden}
+.voortgang i{display:block;height:100%;width:0;background:var(--goud);transition:width .2s linear}
+.films{display:grid;gap:14px;margin:16px 0 0}
+.film{background:var(--surface);border:1px solid var(--line2);border-radius:var(--radius);padding:12px 14px}
+.film[hidden]{display:none}
+.fkop{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}
+.fkop h2{font:700 19px/1.2 var(--titel);margin:0}
+.fkop .tel{font:500 12px var(--meta);color:var(--text3);letter-spacing:.04em;margin-top:2px}
+.alles{border:1px solid var(--line2);background:none;color:var(--text2);border-radius:999px;padding:6px 12px;font-weight:600;font-size:14px;white-space:nowrap}
+.blist{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:2px}
+.blist li{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:6px 4px;border-radius:8px}
+.blist li[hidden]{display:none}
+.blist li.actief{background:var(--goud-soft)}
+.blist input{width:22px;height:22px;accent-color:var(--goud);margin:0}
+.blist label{cursor:pointer;min-width:0}
+.blist .b{font-weight:600}
+.blist .u{display:block;color:var(--text3);font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.blist .een{border:0;background:none;color:var(--text3);width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center}
+.blist .een:hover{color:var(--goud-text)}
+.label{display:inline-block;font:600 10px/1 var(--meta);letter-spacing:.08em;text-transform:uppercase;padding:3px 6px;border-radius:6px;background:var(--paars-soft);color:var(--paars);vertical-align:2px;margin-left:6px}
+.leeg{color:var(--text3);margin:14px 0 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="sitenav" aria-label="Site"><a class="merk" href="../index.html#home">Biologie bij Kamiel</a><a class="terug" href="index.html">← Terug naar de podcasts</a><span class="rechts"><button class="icoon" type="button" data-thema-knop aria-label="Wissel licht en donker"></button></span></nav>
+
+  <div id="melding" class="melding" hidden><b>Luister je met je scherm op slot?</b>Open deze pagina dan in Safari of Chrome (⋯ → Openen in browser). In de app waarin je nu zit, stopt het geluid als je telefoon op slot gaat.</div>
+
+  <header class="tool-kop">
+    <div class="mono">Begrippen · Cellen</div>
+    <h1>Luister de begrippen</h1>
+    <p>Vink de begrippen aan die je wilt leren en druk op afspelen. Bij <b>Overhoren</b> hoor je eerst alleen het begrip, dan krijg je drie tellen om de betekenis zelf te zeggen.</p>
+  </header>
+
+  <div class="bedien">
+    <div class="rij">
+      <input class="zoek" id="zoek" type="search" placeholder="Zoek een begrip" aria-label="Zoek een begrip">
+      <div class="seg" role="group" aria-label="Niveau" id="niveau"><button type="button" data-n="havo">havo</button><button type="button" data-n="vwo">vwo</button></div>
+    </div>
+    <div class="rij">
+      <div class="seg" role="group" aria-label="Manier" id="modus"><button type="button" data-m="luister">Luisteren</button><button type="button" data-m="overhoor">Overhoren</button></div>
+      <label class="schud"><input type="checkbox" id="schud"> Schudden</label>
+    </div>
+    <button class="start" type="button" id="start"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg><span id="startTekst">Speel aangevinkte begrippen</span></button>
+  </div>
+
+  <div class="speler" id="speler" hidden>
+    <div class="nu-teller" id="nuTeller"></div>
+    <div class="nu-begrip" id="nuBegrip"></div>
+    <p class="nu-uitleg" id="nuUitleg"></p>
+    <div class="voortgang"><i id="balk"></i></div>
+    <div class="knoppen">
+      <button class="rond" type="button" id="vorige" aria-label="Vorig begrip"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button>
+      <button class="rond groot" type="button" id="speel" aria-label="Afspelen of pauzeren"><svg class="ics" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg><svg class="icp" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg></button>
+      <button class="rond" type="button" id="volgende" aria-label="Volgend begrip"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></button>
+      <button class="rond klein" type="button" id="stop" aria-label="Stoppen"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M5 5h14v14H5z"/></svg></button>
+    </div>
+  </div>
+
+  <div class="films" id="films"></div>
+  <p class="leeg" id="leeg" hidden>Geen begrip gevonden.</p>
+
+  <footer class="tool-voet">Begrippen in proefversie. <a href="../gebruik.html">Gebruik en licentie</a>.</footer>
+</div>
+
+<audio id="a" preload="auto"></audio>
+
+<script>
+(function(){
+var OPSLAG='bk-begrippen', SNEL=[0.75,1,1.25,1.5];
+var a=document.getElementById('a'), $=function(i){return document.getElementById(i)};
+var D=null, B={}, rij=[], pos=-1, bezig=false;
+
+function lees(){try{return JSON.parse(localStorage.getItem(OPSLAG))||{}}catch(e){return{}}}
+function bewaar(o){try{var d=lees();for(var k in o)d[k]=o[k];localStorage.setItem(OPSLAG,JSON.stringify(d))}catch(e){}}
+function st(){var d=lees();if(!d.cellen)d.cellen={};return d}
+function niveau(){return lees().niveau||'vwo'}
+function modus(){return lees().modus||'luister'}
+function snelheid(){var s=parseFloat(localStorage.getItem('bk-snelheid'));return SNEL.indexOf(s)>-1?s:1}
+function telt(b){return !(b.vwo&&niveau()==='havo')}
+function aan(id){var c=lees().cellen;return c&&c.uit?c.uit.indexOf(id)<0:true}
+function zetAan(id,v){var d=st(),u=d.cellen.uit||[];var i=u.indexOf(id);if(v&&i>-1)u.splice(i,1);if(!v&&i<0)u.push(id);d.cellen.uit=u;bewaar({cellen:d.cellen})}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+
+/* In-app browsers: melding tonen */
+(function(){var u=navigator.userAgent||'';if(/Teams|FBAN|FBAV|Instagram|Snapchat|Line\/|musical_ly|TikTok|; wv\)/i.test(u))$('melding').hidden=false})();
+
+function seg(id,attr,waarde){[].forEach.call($(id).querySelectorAll('button'),function(k){k.setAttribute('aria-pressed',k.getAttribute(attr)===waarde?'true':'false')})}
+
+function bouw(){
+  var h='';
+  D.films.forEach(function(f){
+    h+='<section class="film" data-film="'+f.id+'"><div class="fkop"><div><h2>'+esc(f.titel)+'</h2><div class="tel"></div></div><button class="alles" type="button" data-alles="'+f.id+'">Alles aan</button></div><ul class="blist">';
+    f.begrippen.forEach(function(id){var b=B[id];
+      h+='<li data-id="'+id+'"><input type="checkbox" id="c-'+f.id+'-'+id+'" data-id="'+id+'"><label for="c-'+f.id+'-'+id+'"><span class="b">'+esc(b.begrip)+'</span>'+(b.vwo?'<span class="label">vwo</span>':'')+'<span class="u">'+esc(b.uitleg)+'</span></label><button class="een" type="button" data-een="'+id+'" aria-label="Speel '+esc(b.begrip)+'"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg></button></li>';
+    });
+    h+='</ul></section>';
+  });
+  $('films').innerHTML=h;
+  ververs();
+}
+
+function ververs(){
+  var q=$('zoek').value.trim().toLowerCase(), iets=false;
+  [].forEach.call(document.querySelectorAll('.film'),function(sec){
+    var f=D.films.filter(function(x){return x.id===sec.dataset.film})[0], zicht=0, aanN=0, tel=0;
+    [].forEach.call(sec.querySelectorAll('li'),function(li){
+      var b=B[li.dataset.id], ok=telt(b), m=!q||(b.begrip+' '+b.uitleg).toLowerCase().indexOf(q)>-1;
+      li.hidden=!(ok&&m); if(!li.hidden)zicht++;
+      li.querySelector('input').checked=aan(b.id);
+      if(ok){tel++;if(aan(b.id))aanN++}
+      li.classList.toggle('actief',bezig&&rij[pos]===b.id);
+    });
+    sec.hidden=zicht===0; if(zicht)iets=true;
+    sec.querySelector('.tel').textContent=aanN+' van '+tel+' aangevinkt';
+    sec.querySelector('.alles').textContent=aanN===tel?'Alles uit':'Alles aan';
+  });
+  $('leeg').hidden=iets;
+  var n=lijst().length;
+  $('start').disabled=n===0;
+  $('startTekst').textContent=n?'Speel aangevinkte begrippen ('+n+')':'Vink eerst begrippen aan';
+  seg('niveau','data-n',niveau()); seg('modus','data-m',modus());
+  $('schud').checked=!!lees().schud;
+}
+
+function lijst(){var gezien={},r=[];D.films.forEach(function(f){f.begrippen.forEach(function(id){if(!gezien[id]&&telt(B[id])&&aan(id)){gezien[id]=1;r.push(id)}})});return r}
+function schud(r){for(var i=r.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=r[i];r[i]=r[j];r[j]=t}return r}
+
+function start(r,vanaf){rij=r;if(!rij.length)return;bezig=true;$('speler').hidden=false;speel(vanaf||0)}
+function speel(i){
+  if(i<0)i=0; if(i>=rij.length){klaar();return}
+  pos=i; var b=B[rij[i]], ov=modus()==='overhoor';
+  a.src=ov?b.audio_o:b.audio; a.playbackRate=snelheid();
+  try{a.defaultPlaybackRate=snelheid()}catch(e){}
+  var p=a.play(); if(p&&p.catch)p.catch(function(){});
+  $('nuTeller').textContent=(i+1)+' van '+rij.length+(ov?' · overhoren':'');
+  $('nuBegrip').textContent=b.begrip;
+  toonUitleg();
+  meta(b); ververs();
+  var li=document.querySelector('.film:not([hidden]) li[data-id="'+b.id+'"]:not([hidden])');
+  if(li&&li.scrollIntoView){var r=li.getBoundingClientRect();if(r.top<$('speler').offsetHeight||r.bottom>innerHeight)li.scrollIntoView({block:'center',behavior:'smooth'})}
+}
+function toonUitleg(){
+  var b=B[rij[pos]]; if(!b)return; var el=$('nuUitleg');
+  var dicht=modus()==='overhoor'&&a.currentTime<b.splits+3-0.05;
+  el.textContent=dicht?'Wat betekent dit? Zeg het hardop…':b.uitleg;
+  el.classList.toggle('verborgen',dicht);
+}
+function klaar(){bezig=false;a.pause();$('speel').classList.remove('speelt');$('nuTeller').textContent='Klaar · '+rij.length+' begrippen';$('nuUitleg').textContent='Nog een keer? Druk op afspelen.';$('nuUitleg').classList.remove('verborgen');pos=rij.length;ververs();if('mediaSession' in navigator)navigator.mediaSession.playbackState='paused'}
+function stop(){a.pause();a.removeAttribute('src');a.load();bezig=false;pos=-1;$('speler').hidden=true;ververs()}
+
+function meta(b){
+  if(!('mediaSession' in navigator))return;
+  try{navigator.mediaSession.metadata=new MediaMetadata({title:b.begrip,artist:'Biologie bij Kamiel',album:'Begrippen Cellen',artwork:[{src:new URL('../img/kunst/iconen/cellen.webp',location.href).href,sizes:'264x264',type:'image/webp'}]})}catch(e){}
+}
+if('mediaSession' in navigator){
+  var ms=navigator.mediaSession, zetH=function(n,f){try{ms.setActionHandler(n,f)}catch(e){}};
+  zetH('play',function(){if(pos>=rij.length)start(rij);else a.play()});
+  zetH('pause',function(){a.pause()});
+  zetH('nexttrack',function(){speel(pos+1)});
+  zetH('previoustrack',function(){speel(a.currentTime>2?pos:pos-1)});
+  zetH('stop',stop);
+}
+a.addEventListener('play',function(){$('speel').classList.add('speelt');if('mediaSession' in navigator)navigator.mediaSession.playbackState='playing'});
+a.addEventListener('pause',function(){$('speel').classList.remove('speelt');if('mediaSession' in navigator)navigator.mediaSession.playbackState='paused'});
+a.addEventListener('ended',function(){if(bezig)speel(pos+1)});
+a.addEventListener('timeupdate',function(){toonUitleg();if(isFinite(a.duration)&&a.duration)$('balk').style.width=(100*(pos+a.currentTime/a.duration)/rij.length)+'%'});
+a.addEventListener('error',function(){if(bezig&&a.getAttribute('src'))setTimeout(function(){speel(pos+1)},400)});
+
+$('speel').onclick=function(){if(!bezig){start(rij.length?rij:lijst());return}if(a.paused)a.play();else a.pause()};
+$('volgende').onclick=function(){if(bezig)speel(pos+1)};
+$('vorige').onclick=function(){if(rij.length)speel(a.currentTime>2&&bezig?pos:pos-1)};
+$('stop').onclick=stop;
+$('start').onclick=function(){var r=lijst();if(lees().schud)schud(r);start(r)};
+$('zoek').oninput=ververs;
+$('schud').onchange=function(){bewaar({schud:this.checked})};
+$('niveau').onclick=function(e){var k=e.target.closest('button');if(k){bewaar({niveau:k.dataset.n});ververs()}};
+$('modus').onclick=function(e){var k=e.target.closest('button');if(!k)return;bewaar({modus:k.dataset.m});ververs();if(bezig)speel(pos)};
+$('films').addEventListener('change',function(e){var id=e.target.dataset&&e.target.dataset.id;if(id){zetAan(id,e.target.checked);ververs()}});
+$('films').addEventListener('click',function(e){
+  var k=e.target.closest('[data-alles]');
+  if(k){var f=D.films.filter(function(x){return x.id===k.dataset.alles})[0], ids=f.begrippen.filter(function(id){return telt(B[id])}), allesAan=ids.every(aan);ids.forEach(function(id){zetAan(id,!allesAan)});ververs();return}
+  var e1=e.target.closest('[data-een]');
+  if(e1){start([e1.dataset.een])}
+});
+
+fetch('begrippen/cellen.json?v=1').then(function(r){return r.json()}).then(function(d){D=d;d.begrippen.forEach(function(b){B[b.id]=b});bouw()});
+})();
+</script>
+</body>
+</html>
