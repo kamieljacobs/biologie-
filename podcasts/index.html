@@ -35,7 +35,6 @@ input[type=range]{width:100%;accent-color:var(--goud);height:28px;margin:0}
 .tijden{display:flex;justify-content:space-between;font:500 13px var(--meta);color:var(--text3)}
 .knoppen{display:flex;align-items:center;justify-content:center;gap:10px;margin:8px 0 4px}
 .rond{width:52px;height:52px;border-radius:50%;border:1px solid var(--line2);background:var(--surface);display:inline-flex;align-items:center;justify-content:center;color:var(--text);position:relative}
-.rond small{position:absolute;font:600 10px var(--meta);bottom:7px}
 .rond.groot{width:68px;height:68px;background:var(--goud);color:var(--goud-ink);border:0}
 #speel #icPauze{display:none}#speel.speelt #icPauze{display:block}#speel.speelt #icSpeel{display:none}
 .instel{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;margin-top:8px}
@@ -82,9 +81,9 @@ details.tekst p{color:var(--text2);margin:10px 0 0}
       <div class="tijden"><span id="tijdNu">0:00</span><span id="tijdTot">0:00</span></div>
       <div class="knoppen">
         <button class="rond" type="button" id="vorige" aria-label="Vorig hoofdstuk"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button>
-        <button class="rond" type="button" id="terug15" aria-label="15 seconden terug"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12a8 8 0 1 0 3-6.2M4 4v4h4"/></svg><small>15</small></button>
+        <button class="rond" type="button" id="terug15" aria-label="15 seconden terug"><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><path d="M6.5 16a9.5 9.5 0 1 0 3.6-7.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M9.5 3.5v5.6h5.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="16" y="20" text-anchor="middle" font-size="10" font-weight="700" fill="currentColor" font-family="Source Sans 3, system-ui, sans-serif">15</text></svg></button>
         <button class="rond groot" type="button" id="speel" aria-label="Afspelen"><svg id="icSpeel" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg><svg id="icPauze" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg></button>
-        <button class="rond" type="button" id="vooruit30" aria-label="30 seconden vooruit"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12a8 8 0 1 1-3-6.2M20 4v4h-4"/></svg><small>30</small></button>
+        <button class="rond" type="button" id="vooruit30" aria-label="30 seconden vooruit"><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><path d="M25.5 16a9.5 9.5 0 1 1-3.6-7.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M22.5 3.5v5.6h-5.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="16" y="20" text-anchor="middle" font-size="10" font-weight="700" fill="currentColor" font-family="Source Sans 3, system-ui, sans-serif">30</text></svg></button>
         <button class="rond" type="button" id="volgende" aria-label="Volgend hoofdstuk"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></button>
       </div>
       <div class="instel">
