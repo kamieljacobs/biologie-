@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../js/teller.js" data-root="../"></script>
+<link rel="icon" href="../img/icoon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../img/icoon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../img/icoon/apple-touch-icon.png">
+<script>(function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Podcasts · Biologie bij Kamiel</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../tools/huisstijl.css">
+<script src="../tools/huisstijl.js"></script>
+<style>
+.wrap{max-width:760px;margin:0 auto;padding:0 18px}
+.melding{margin:14px 0 0;padding:12px 16px;border-radius:var(--radius);background:var(--koraal-soft);border:1px solid var(--koraal);font-size:16px}
+.melding b{display:block;margin-bottom:2px}
+.lijst{display:grid;gap:12px;margin:8px 0 0}
+.afl{display:grid;grid-template-columns:72px 1fr;gap:14px;align-items:center;text-align:left;width:100%;background:var(--surface);border:1px solid var(--line2);border-radius:var(--radius);padding:12px 14px}
+.afl:hover{border-color:var(--text3)}
+.afl img,.speler .beeld{width:72px;height:72px;border-radius:50%;object-fit:cover;background:var(--surface2)}
+.afl .t{font:700 20px/1.2 var(--titel)}
+.afl .v{color:var(--text2);font-size:15px;margin-top:2px}
+.afl .m{font-family:var(--meta);font-size:12px;color:var(--text3);margin-top:4px;letter-spacing:.04em}
+.label{display:inline-block;font:600 11px/1 var(--meta);letter-spacing:.08em;text-transform:uppercase;padding:4px 7px;border-radius:6px;background:var(--goud-soft);color:var(--goud-text);vertical-align:2px;margin-left:6px}
+.label.vwo{background:var(--paars-soft);color:var(--paars)}
+.speler{position:sticky;top:0;z-index:5;background:var(--bg);padding:14px 0 12px;border-bottom:1px solid var(--line)}
+.kop{display:grid;grid-template-columns:72px 1fr;gap:14px;align-items:center}
+.kop .afltitel{font:700 22px/1.15 var(--titel)}
+.kop .nu{color:var(--text2);font-size:15px;margin-top:3px}
+.balk{margin:14px 0 4px;position:relative}
+input[type=range]{width:100%;accent-color:var(--goud);height:28px;margin:0}
+.tijden{display:flex;justify-content:space-between;font:500 13px var(--meta);color:var(--text3)}
+.knoppen{display:flex;align-items:center;justify-content:center;gap:10px;margin:8px 0 4px}
+.rond{width:52px;height:52px;border-radius:50%;border:1px solid var(--line2);background:var(--surface);display:inline-flex;align-items:center;justify-content:center;color:var(--text);position:relative}
+.rond small{position:absolute;font:600 10px var(--meta);bottom:7px}
+.rond.groot{width:68px;height:68px;background:var(--goud);color:var(--goud-ink);border:0}
+.instel{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;margin-top:8px}
+.hfd{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:8px}
+.hfd li{background:var(--surface);border:1px solid var(--line);border-radius:12px}
+.hfd li.actief{border-color:var(--goud)}
+.hfd li.overslaan{opacity:.45}
+.hrij{display:grid;grid-template-columns:28px 1fr auto auto;gap:10px;align-items:center;padding:10px 12px}
+.hrij button.speel{all:unset;cursor:pointer;display:contents}
+.hnr{font:600 13px var(--meta);color:var(--text3);text-align:center}
+.hnaam{font-weight:600}
+.hduur{font:500 13px var(--meta);color:var(--text3)}
+.dl{color:var(--text2);text-decoration:none;font-size:20px;padding:4px 6px}
+.klaar .hnr{color:var(--groen)}
+details.tekst{margin:18px 0 0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
+details.tekst summary{cursor:pointer;font-weight:600}
+details.tekst p{color:var(--text2);margin:10px 0 0}
+.terugl{background:none;border:0;color:var(--goud-text);font-weight:600;padding:12px 0 0}
+.verder{margin:14px 0 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="sitenav" aria-label="Site"><a class="merk" href="../index.html#home">Biologie bij Kamiel</a><a class="terug" href="../index.html#home">← Terug naar de site</a><span class="rechts"><button class="icoon" type="button" data-thema-knop aria-label="Wissel licht en donker"></button></span></nav>
+
+  <div id="melding" class="melding" hidden><b>Luister je met je scherm op slot?</b>Open deze pagina dan in Safari of Chrome (⋯ → Openen in browser). In de app waarin je nu zit, stopt het geluid als je telefoon op slot gaat.</div>
+
+  <section id="overzicht">
+    <header class="tool-kop">
+      <div class="mono">Podcasts · proefversie</div>
+      <h1>Luister de uitleg</h1>
+      <p>Uitleg om naar te luisteren: in de bus, in bed of tijdens het opruimen. Zet je telefoon gerust op slot, het geluid speelt door.</p>
+    </header>
+    <div id="verder" class="verder"></div>
+    <div id="lijst" class="lijst"></div>
+  </section>
+
+  <section id="aflevering" hidden>
+    <button class="terugl" type="button" id="naarLijst">← Alle podcasts</button>
+    <div class="speler">
+      <div class="kop"><img class="beeld" id="beeld" alt=""><div><div class="afltitel" id="afltitel"></div><div class="nu" id="nu"></div></div></div>
+      <div class="balk"><input type="range" id="positie" min="0" max="100" step="0.1" value="0" aria-label="Positie in dit hoofdstuk"></div>
+      <div class="tijden"><span id="tijdNu">0:00</span><span id="tijdTot">0:00</span></div>
+      <div class="knoppen">
+        <button class="rond" type="button" id="vorige" aria-label="Vorig hoofdstuk"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button>
+        <button class="rond" type="button" id="terug15" aria-label="15 seconden terug"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12a8 8 0 1 0 3-6.2M4 4v4h4"/></svg><small>15</small></button>
+        <button class="rond groot" type="button" id="speel" aria-label="Afspelen"><svg id="icSpeel" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg><svg id="icPauze" hidden width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg></button>
+        <button class="rond" type="button" id="vooruit30" aria-label="30 seconden vooruit"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12a8 8 0 1 1-3-6.2M20 4v4h-4"/></svg><small>30</small></button>
+        <button class="rond" type="button" id="volgende" aria-label="Volgend hoofdstuk"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></button>
+      </div>
+      <div class="instel">
+        <div class="seg" role="group" aria-label="Snelheid" id="snelheid"></div>
+        <div class="seg" role="group" aria-label="Niveau" id="niveau"><button type="button" data-n="havo">havo</button><button type="button" data-n="vwo">vwo</button></div>
+      </div>
+    </div>
+    <ol class="hfd" id="hfd"></ol>
+    <details class="tekst" id="tekstblok"><summary>Lees mee</summary><div id="tekst"></div></details>
+    <p id="filmlink"></p>
+  </section>
+
+  <footer class="tool-voet">Podcasts in proefversie. <a href="../gebruik.html">Gebruik en licentie</a>.</footer>
+</div>
+
+<audio id="a" preload="metadata"></audio>
+
+<script>
+(function(){
+var ROOT='../', OPSLAG='bk-podcast', SNEL=[0.75,1,1.25,1.5];
+var a=document.getElementById('a'), $=function(i){return document.getElementById(i)};
+var DATA=[], afl=null, ch=0, slepen=false;
+var toon=new URLSearchParams(location.search).get('test')==='1';
+
+function lees(){try{return JSON.parse(localStorage.getItem(OPSLAG))||{}}catch(e){return{}}}
+function bewaar(o){try{var d=lees();for(var k in o)d[k]=o[k];localStorage.setItem(OPSLAG,JSON.stringify(d))}catch(e){}}
+function niveau(){return lees().niveau||'vwo'}
+function snelheid(){var s=parseFloat(localStorage.getItem('bk-snelheid'));return SNEL.indexOf(s)>-1?s:1}
+function mmss(s){s=Math.max(0,Math.floor(s||0));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
+function telt(h){return !(h.vwo&&niveau()==='havo')}
+function duur(e){return e.hoofdstukken.filter(telt).reduce(function(t,h){return t+(h.duur||0)},0)}
+
+/* In-app browsers (Teams, Instagram, Facebook, Snapchat, TikTok, Android-webview): melding tonen */
+(function(){var u=navigator.userAgent||'';if(/Teams|FBAN|FBAV|Instagram|Snapchat|Line\/|musical_ly|TikTok|; wv\)/i.test(u))$('melding').hidden=false})();
+
+function lijst(){
+  var L=$('lijst');L.innerHTML='';
+  DATA.forEach(function(e){
+    if(e.proef&&!toon&&DATA.some(function(x){return!x.proef}))return;
+    var b=document.createElement('button');b.className='afl';b.type='button';
+    b.innerHTML='<img src="'+ROOT+e.beeld+'" alt=""><div><div class="t">'+e.titel+(e.proef?'<span class="label">proef</span>':'')+'</div><div class="v">'+e.vraag+'</div><div class="m">'+e.thema+' · '+Math.round(duur(e)/60)+' min · '+e.hoofdstukken.length+' delen</div></div>';
+    b.onclick=function(){open(e.id,0,0,false)};L.appendChild(b);
+  });
+  var d=lees(), w=d.laatst&&DATA.find(function(x){return x.id===d.laatst.afl});
+  $('verder').innerHTML='';
+  if(w&&!d.laatst.klaar){var k=document.createElement('button');k.className='knop';k.type='button';k.textContent='Verder luisteren: '+w.titel+' · '+w.hoofdstukken[d.laatst.ch].titel+' ('+mmss(d.laatst.t)+')';k.onclick=function(){open(w.id,d.laatst.ch,d.laatst.t,false)};$('verder').appendChild(k)}
+}
+
+function open(id,c,t,start){
+  afl=DATA.find(function(x){return x.id===id});if(!afl)return;
+  $('overzicht').hidden=true;$('aflevering').hidden=false;
+  $('afltitel').textContent=afl.titel;$('beeld').src=ROOT+afl.beeld;
+  $('tekst').innerHTML=afl.hoofdstukken.some(function(h){return h.tekst})?afl.hoofdstukken.map(function(h){return h.tekst?'<p><b>'+h.titel+'</b><br>'+h.tekst+'</p>':''}).join(''):'<p>'+(afl.tekst||'')+'</p>';
+  $('tekstblok').hidden=!afl.tekst&&!afl.hoofdstukken.some(function(h){return h.tekst});
+  $('filmlink').innerHTML=afl.film?'Wil je het zien gebeuren? <a href="'+ROOT+afl.film+'">Bekijk de film '+afl.titel+'</a>.':'';
+  $('niveau').style.display=afl.hoofdstukken.some(function(h){return h.vwo})?'':'none';
+  history.replaceState(history.state,'','#'+id);
+  laad(c||0,t||0,start);
+}
+
+function hfdLijst(){
+  var gedaan=(lees().gedaan||{})[afl.id]||[];
+  $('hfd').innerHTML=afl.hoofdstukken.map(function(h,i){
+    return '<li class="'+(i===ch?'actief ':'')+(telt(h)?'':'overslaan ')+(gedaan.indexOf(i)>-1?'klaar':'')+'"><div class="hrij"><button class="speel" type="button" data-i="'+i+'"><span class="hnr">'+(gedaan.indexOf(i)>-1?'✓':i+1)+'</span><span class="hnaam">'+h.titel+(h.vwo?'<span class="label vwo">vwo</span>':'')+'</span><span class="hduur">'+mmss(h.duur)+'</span></button><a class="dl" href="'+ROOT+h.src+'" download aria-label="Download '+h.titel+'" title="Downloaden">⤓</a></div></li>';
+  }).join('');
+  $('hfd').querySelectorAll('button.speel').forEach(function(b){b.onclick=function(){laad(+b.dataset.i,0,true)}});
+}
+
+function laad(c,t,start){
+  ch=c;var h=afl.hoofdstukken[ch];
+  a.src=ROOT+h.src;a.playbackRate=snelheid();a.defaultPlaybackRate=snelheid();
+  var zet=function(){if(t)try{a.currentTime=t}catch(e){}a.removeEventListener('loadedmetadata',zet)};
+  a.addEventListener('loadedmetadata',zet);
+  $('nu').textContent='Deel '+(ch+1)+' van '+afl.hoofdstukken.length+' · '+h.titel;
+  $('positie').value=0;$('tijdNu').textContent=mmss(t);$('tijdTot').textContent=mmss(h.duur);
+  hfdLijst();meta();
+  if(start){var p=a.play();if(p&&p.catch)p.catch(function(){})}
+  bewaar({laatst:{afl:afl.id,ch:ch,t:t||0,klaar:false}});
+}
+
+function volgendeIndex(r){for(var i=ch+r;i>=0&&i<afl.hoofdstukken.length;i+=r)if(telt(afl.hoofdstukken[i]))return i;return -1}
+
+function meta(){
+  if(!('mediaSession' in navigator)||!afl)return;
+  var h=afl.hoofdstukken[ch], img=new URL(ROOT+afl.beeld,location.href).href;
+  navigator.mediaSession.metadata=new MediaMetadata({title:h.titel,artist:'Biologie bij Kamiel',album:afl.titel,artwork:[{src:img,sizes:'264x264',type:'image/webp'}]});
+}
+function positie(){
+  if(!('mediaSession' in navigator)||!navigator.mediaSession.setPositionState||!isFinite(a.duration))return;
+  try{navigator.mediaSession.setPositionState({duration:a.duration,playbackRate:a.playbackRate,position:Math.min(a.currentTime,a.duration)})}catch(e){}
+}
+if('mediaSession' in navigator){
+  var ms=navigator.mediaSession, zetH=function(n,f){try{ms.setActionHandler(n,f)}catch(e){}};
+  zetH('play',function(){a.play()});zetH('pause',function(){a.pause()});
+  zetH('seekbackward',function(d){a.currentTime=Math.max(0,a.currentTime-((d&&d.seekOffset)||15))});
+  zetH('seekforward',function(d){a.currentTime=Math.min(a.duration||0,a.currentTime+((d&&d.seekOffset)||30))});
+  zetH('seekto',function(d){if(d&&d.seekTime!=null)a.currentTime=d.seekTime});
+  zetH('previoustrack',vorige);zetH('nexttrack',volgende);
+}
+function vorige(){if(a.currentTime>4){a.currentTime=0;return}var i=volgendeIndex(-1);if(i>-1)laad(i,0,!a.paused)}
+function volgende(){var i=volgendeIndex(1);if(i>-1)laad(i,0,true)}
+
+a.addEventListener('play',function(){$('icSpeel').hidden=true;$('icPauze').hidden=false;$('speel').setAttribute('aria-label','Pauze');if('mediaSession' in navigator)navigator.mediaSession.playbackState='playing'});
+a.addEventListener('pause',function(){$('icSpeel').hidden=false;$('icPauze').hidden=true;$('speel').setAttribute('aria-label','Afspelen');if('mediaSession' in navigator)navigator.mediaSession.playbackState='paused';bewaar({laatst:{afl:afl.id,ch:ch,t:a.currentTime,klaar:false}})});
+a.addEventListener('loadedmetadata',function(){$('tijdTot').textContent=mmss(a.duration);positie()});
+a.addEventListener('ratechange',positie);
+var laatsteBewaar=0;
+a.addEventListener('timeupdate',function(){
+  if(!slepen&&a.duration){$('positie').value=a.currentTime/a.duration*100}
+  $('tijdNu').textContent=mmss(a.currentTime);
+  var nu=Date.now();if(nu-laatsteBewaar>5000){laatsteBewaar=nu;bewaar({laatst:{afl:afl.id,ch:ch,t:a.currentTime,klaar:false}});positie()}
+});
+a.addEventListener('ended',function(){
+  var d=lees();d.gedaan=d.gedaan||{};var g=d.gedaan[afl.id]=d.gedaan[afl.id]||[];if(g.indexOf(ch)<0)g.push(ch);bewaar({gedaan:d.gedaan});
+  var i=volgendeIndex(1);
+  if(i>-1){laad(i,0,true)}else{bewaar({laatst:{afl:afl.id,ch:ch,t:0,klaar:true}});hfdLijst()}
+});
+
+$('speel').onclick=function(){if(a.paused){var p=a.play();if(p&&p.catch)p.catch(function(){})}else a.pause()};
+$('terug15').onclick=function(){a.currentTime=Math.max(0,a.currentTime-15)};
+$('vooruit30').onclick=function(){a.currentTime=Math.min(a.duration||0,a.currentTime+30)};
+$('vorige').onclick=vorige;$('volgende').onclick=volgende;
+var pos=$('positie');
+pos.addEventListener('input',function(){slepen=true;if(a.duration)$('tijdNu').textContent=mmss(pos.value/100*a.duration)});
+pos.addEventListener('change',function(){if(a.duration)a.currentTime=pos.value/100*a.duration;slepen=false});
+$('naarLijst').onclick=function(){a.pause();$('aflevering').hidden=true;$('overzicht').hidden=false;history.replaceState(history.state,'',location.pathname+location.search);lijst()};
+
+function snelKnoppen(){
+  $('snelheid').innerHTML=SNEL.map(function(s){return'<button type="button" data-s="'+s+'" aria-pressed="'+(s===snelheid())+'">'+String(s).replace('.',',')+'×</button>'}).join('');
+  $('snelheid').querySelectorAll('button').forEach(function(b){b.onclick=function(){try{localStorage.setItem('bk-snelheid',b.dataset.s)}catch(e){}a.playbackRate=a.defaultPlaybackRate=+b.dataset.s;snelKnoppen()}});
+}
+function nivKnoppen(){
+  $('niveau').querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.n===niveau());b.onclick=function(){bewaar({niveau:b.dataset.n});nivKnoppen();if(afl)hfdLijst()}});
+}
+snelKnoppen();nivKnoppen();
+
+fetch('afleveringen.json',{cache:'no-cache'}).then(function(r){return r.json()}).then(function(j){
+  DATA=j.afleveringen||[];lijst();
+  var id=location.hash.slice(1);
+  if(id&&DATA.some(function(x){return x.id===id})){var d=lees(),l=d.laatst;open(id,l&&l.afl===id&&!l.klaar?l.ch:0,l&&l.afl===id&&!l.klaar?l.t:0,false)}
+});
+})();
+</script>
+</body>
+</html>

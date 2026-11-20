@@ -1,0 +1,56 @@
+{
+  "afleveringen": [
+    {
+      "id": "stemproef",
+      "proef": true,
+      "titel": "Stemproef",
+      "thema": "Proef",
+      "vraag": "Welke stem wordt de podcaststem? Vijf mannenstemmen (± 45–50 jaar) lezen hetzelfde stukje, in de nieuwe spreekstijl.",
+      "beeld": "img/kunst/films/bevruchting.webp",
+      "hoofdstukken": [
+        {
+          "titel": "Stem 1 · Michael",
+          "src": "podcasts/stemproef/michael.mp3",
+          "duur": 47
+        },
+        {
+          "titel": "Stem 2 · Harry",
+          "src": "podcasts/stemproef/harry.mp3",
+          "duur": 43
+        },
+        {
+          "titel": "Stem 3 · Remko",
+          "src": "podcasts/stemproef/remko.mp3",
+          "duur": 42
+        },
+        {
+          "titel": "Stem 4 · Ramon",
+          "src": "podcasts/stemproef/ramon.mp3",
+          "duur": 43
+        },
+        {
+          "titel": "Stem 5 · Tonny",
+          "src": "podcasts/stemproef/tonny.mp3",
+          "duur": 45
+        }
+      ],
+      "tekst": "Hier is het belangrijke punt. Honderden zaadcellen bereiken de eicel. Maar er komt er maar één binnen. Dat is geen toeval. Het is een mechanisme, en het werkt in twee stappen. Stap één. Om de eicel zit een stevige, doorzichtige mantel. In de kop van de zaadcel zit een blaasje met enzymen. Raakt de zaadcel de mantel, dan gaat dat blaasje open, en de enzymen verteren een smal tunneltje. Dat blaasje heet het acrosoom. Stap twee. Zodra de eerste zaadcel binnen is, verandert de eicel haar mantel. Andere zaadcellen kunnen zich niet meer vastmaken. Denk even na: waarom is die tweede stap zo belangrijk?"
+    },
+    {
+      "id": "begripsblok",
+      "proef": true,
+      "titel": "Proef: begripsblok",
+      "thema": "Proef",
+      "vraag": "Ding, naam, anders gezegd, korte denkvraag. Zo klinkt één begrip in de nieuwe opzet (stem Michael).",
+      "beeld": "img/kunst/films/bevruchting.webp",
+      "hoofdstukken": [
+        {
+          "titel": "Het acrosoom",
+          "src": "podcasts/stemproef/begripsblok-michael.mp3",
+          "duur": 22
+        }
+      ],
+      "tekst": "In de kop van de zaadcel zit een blaasje met enzymen. Dat blaasje heet het acrosoom. Het acrosoom is dus het gereedschapskistje op de punt van de zaadcel. Wat zit er in dat gereedschapskistje, denk je? … Enzymen. Die verteren een smal tunneltje door de mantel van de eicel."
+    }
+  ]
+}
