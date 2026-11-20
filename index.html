@@ -643,6 +643,20 @@ a.extegel:hover .explaat{opacity:1}
 :root[data-theme="light"] .extegel .explaat{display:none}
 .exga{margin-top:auto;font-size:14px;font-weight:700;color:var(--goud-text)}
 @media (max-width:420px){.exjaar{grid-template-columns:1fr;gap:6px}.exjr{padding-top:0;font-size:20px}}
+/* podcasts als tweede kolom naast de films (20 nov 2026) */
+.filmpod.met-pod{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(0,1fr);gap:0 30px;align-items:start}
+.podlijst h2{margin-bottom:4px}
+.pod-uitleg{color:var(--text2);font-size:15px;margin:0 0 12px}
+.pod{display:grid;grid-template-columns:52px 1fr 30px;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--line);text-decoration:none;color:var(--text)}
+.pod img{width:52px;height:52px;border-radius:50%;object-fit:cover;background:var(--surface2)}
+.pod b{display:block;font-size:16px;line-height:1.25}
+.pod-v{display:block;color:var(--text2);font-size:14px;line-height:1.35;margin-top:2px}
+.pod-m{display:block;color:var(--text3);font-size:11.5px;margin-top:4px}
+.pod-play{width:30px;height:30px;border-radius:50%;background:var(--goud);color:var(--goud-ink);display:inline-flex;align-items:center;justify-content:center}
+.pod-play svg{width:12px;height:12px}
+.pod:hover b{color:var(--goud-text)}
+.pod-alle{display:inline-block;margin-top:12px;color:var(--goud-text);font-weight:600;text-decoration:none}
+@media (max-width:900px){.filmpod.met-pod{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -4114,6 +4128,20 @@ const filmRij=(f,i,id,extra)=>{const g=gezien[f.href];return `<article class="fi
       <div><h3><a href="${BASE+esc(f.href)}">${esc(f.titel)}</a></h3>${f.vraag?`<p class="vraag">${esc(f.vraag)}</p>`:''}<p class="tekst">${esc(f.tekst)}</p><div class="meta mono">${f.duur?`<span>${f.duur} min</span>`:''}${bijLabel(f.bij)?`<span>${esc(bijLabel(f.bij))}</span>`:''}</div>${oefRij(f.href)}</div>
       <div class="acties"><a class="knop" href="${BASE+esc(f.href)}">${play} Bekijk</a>${OEFENEN[f.href]?`<a class="knop knop-pres" href="${BASE}oefenen.html?film=${encodeURIComponent(f.href)}" title="Oefeningen bij deze film: slepen, indelen, voorspellen, puzzelen en uitleggen">Oefenen</a>`:''}${f.pres?`<a class="knop knop-pres" href="${BASE+esc(f.pres)}" title="Klassikale uitleg met dia's, denkvragen en docentnotities">Presentatie</a>`:''}${f.uitleg?`<a class="knop knop-pres" href="${BASE+esc(f.uitleg)}" title="Voor de docent: de les met korte animaties om zelf stap voor stap uit te leggen">${lesLabel(f.uitleg)}</a>`:''}<button class="vink" type="button" aria-pressed="${g?'true':'false'}"><span class="box">${g?'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>':''}</span>gezien</button></div>
     </article>`};
+/* Podcasts naast de films (Kamiel 20 nov 2026: 'zet de podcasts in een tweede kolom naast de films'); data uit podcasts/afleveringen.json (themaId) */
+let PODCASTS=null;
+fetch('podcasts/afleveringen.json').then(r=>r.json()).then(j=>{PODCASTS=(j.afleveringen||[]).filter(a=>!a.proef&&a.themaId);vulPodcasts()}).catch(()=>{PODCASTS=[]});
+function vulPodcasts(){
+  if(!PODCASTS) return;
+  document.querySelectorAll('.filmpod[data-thema]').forEach(fp=>{
+    const id=fp.dataset.thema, L=PODCASTS.filter(a=>a.themaId===id), el=fp.querySelector('.podlijst');
+    if(!id||!L.length||!el||el.dataset.klaar) return;
+    const min=a=>Math.round(a.hoofdstukken.reduce((s,h)=>s+(h.duur||0),0)/60);
+    const koptel=Math.round(L.reduce((s,a)=>s+min(a),0));
+    el.innerHTML=`<h2>Podcasts</h2><p class="pod-uitleg">Luister de uitleg, ook met je scherm op slot. ${L.length} afleveringen · ± ${koptel} min.</p>${L.map(a=>`<a class="pod" href="${BASE}podcasts/index.html#${esc(a.id)}"><img src="${BASE+esc(a.beeld)}" alt="" width="52" height="52" loading="lazy" decoding="async"><span class="pod-t"><b>${esc(a.titel)}</b><span class="pod-v">${esc(a.vraag||'')}</span><span class="mono pod-m">${min(a)} min${a.hoofdstukken.some(h=>h.vwo)?' · met vwo-deel':''}</span></span><span class="pod-play" aria-hidden="true">${play}</span></a>`).join('')}<a class="pod-alle" href="${BASE}podcasts/index.html">Alle podcasts →</a>`;
+    el.hidden=false; el.dataset.klaar='1'; fp.classList.add('met-pod');
+  });
+}
 const themaLaag=id=>{if(kunstStand==='uit'||!window.THEMAKUNST||!THEMAKUNST[id]) return '';return `<div class="kunstgrond thema" aria-hidden="true"><div class="grondset aan"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" fill="none" stroke-linecap="round" stroke-linejoin="round"><defs><radialGradient id="heldgat"><stop offset=".55" stop-color="#000"/><stop offset="1" stop-color="#fff"/></radialGradient><mask id="heldmasker" maskUnits="userSpaceOnUse" x="0" y="0" width="1600" height="1000"><rect width="1600" height="1000" fill="#fff"/><ellipse cx="1180" cy="330" rx="300" ry="330" fill="url(#heldgat)"/></mask></defs><g ${window.THEMAKUNST_ZONDERGAT&&THEMAKUNST_ZONDERGAT[id]?'':'mask="url(#heldmasker)"'}>${THEMAKUNST[id]()}</g></svg></div></div>`};
 /* Lessen: lestools voor de docent (uitleg in stappen), per thema in HOOFDSTUKKEN.<id>.lessen */
 const lesVan=href=>{const k=(href||'').split('#')[0];for(const h of Object.values(HOOFDSTUKKEN))for(const l of (h.lessen||[]))if(l.href===k)return l;return null};
@@ -4160,7 +4188,8 @@ function hoofdstuk(id,kd){
   </div></section>
   <div class="wrap smal">`;
   if(id==='examens'&&!kd){out+=examKolommen(h,id);return out+`</div>`;}
-  if(n) out+=`<section class="lijst" id="${id}-films"><h2>Films</h2>${h.films.map((f,i)=>filmRij(f,i,id)).join('')}</section>`;
+  if(n) out+=`<div class="filmpod" data-thema="${kd?'':id}"><section class="lijst" id="${id}-films"><h2>Films</h2>${h.films.map((f,i)=>filmRij(f,i,id)).join('')}</section><aside class="lijst podlijst" id="${id}-podcasts" hidden></aside></div>`;
+  setTimeout(vulPodcasts,0);
   if((h.lessen||[]).length) out+=`<section class="lijst" id="${id}-lessen"><h2>Lessen <span class="extra-tag mono les-tag">voor de docent</span></h2><div class="tools">${h.lessen.map(l=>lesKaart(l,id)).join('')}</div></section>`;
   if((h.komt||[]).length) out+=`<section class="lijst" id="${id}-komt"><h2>Komt nog</h2><div class="komt-lijst">${h.komt.map(f=>`<div class="komt-item"><span class="komt-o" aria-hidden="true"></span><div><b>${esc(f.titel)}</b> <em>komt nog</em>${f.niveau?` <span class="mono komt-niv">${esc(f.niveau)}</span>`:''}${f.vraag?`<p>${esc(f.vraag)}</p>`:''}</div></div>`).join('')}</div></section>`;
   if((h.archief||[]).length&&!kd) out+=`<section class="lijst archief-lijst" id="${id}-archief"><details><summary><h2 style="display:inline">Oude reeks <span class="extra-tag mono">archief</span></h2></summary><p class="extra-uitleg">De vorige versie van deze films. Er komt een nieuwe reeks; tot die af is, kun je deze nog bekijken.</p>${h.archief.map((f,i)=>filmRij(f,i,id,true)).join('')}</details></section>`;

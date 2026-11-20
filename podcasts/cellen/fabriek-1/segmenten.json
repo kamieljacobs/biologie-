@@ -1,0 +1,184 @@
+{
+ "stem": "Remko",
+ "voice_id": "vjeU1L5RIGPyrwuboFwz",
+ "model": "eleven_v4",
+ "hoofdstukken": [
+  {
+   "nr": "0",
+   "titel": "Opening",
+   "vwo": false,
+   "segmenten": [
+    "h0-1"
+   ],
+   "bestand": "podcasts/cellen/fabriek-1/audio/0-0.mp3",
+   "duur": 38
+  },
+  {
+   "nr": "1",
+   "titel": "Wat moet een cel allemaal kunnen?",
+   "vwo": false,
+   "segmenten": [
+    "h1-1",
+    "h1-2",
+    "h1-3"
+   ],
+   "bestand": "podcasts/cellen/fabriek-1/audio/1-1.mp3",
+   "duur": 104
+  },
+  {
+   "nr": "2",
+   "titel": "De bouwtekening: de kern",
+   "vwo": false,
+   "segmenten": [
+    "h2-1",
+    "h2-2",
+    "h2-3"
+   ],
+   "bestand": "podcasts/cellen/fabriek-1/audio/2-2.mp3",
+   "duur": 99
+  },
+  {
+   "nr": "3",
+   "titel": "De werkvloer",
+   "vwo": false,
+   "segmenten": [
+    "h3-1",
+    "h3-2",
+    "h3-3"
+   ],
+   "bestand": "podcasts/cellen/fabriek-1/audio/3-3.mp3",
+   "duur": 130
+  },
+  {
+   "nr": "3b",
+   "titel": "Voor vwo: één enzym volgen",
+   "vwo": true,
+   "segmenten": [
+    "h3b-1",
+    "h3b-2",
+    "h3b-3"
+   ],
+   "bestand": "podcasts/cellen/fabriek-1/audio/4-3b.mp3",
+   "duur": 96
+  },
+  {
+   "nr": "4",
+   "titel": "Afsluiting",
+   "vwo": false,
+   "segmenten": [
+    "h4-1",
+    "h4-2"
+   ],
+   "bestand": "podcasts/cellen/fabriek-1/audio/5-4.mp3",
+   "duur": 61
+  }
+ ],
+ "segmenten": [
+  {
+   "id": "h0-1",
+   "tekst": "Je eet een boterham. Een paar uur later is die verteerd. Dat lukt dankzij een klier onder je maag: de alvleesklier. Die maakt elke dag ruim een liter verteringssap, vol enzymen. Die enzymen worden gemaakt in kliercellen. Binnen in de cel. En toch komen ze buiten de cel terecht.\n\nHoe krijgt één cel dat voor elkaar? Dat is geen toeval. Het is een fabriek, met afdelingen. En die fabriek lopen we door, in drie stappen. Eén: wat moet een cel allemaal kunnen? Twee: de bouwtekening, in de kern. Drie: de werkvloer, waar het product gemaakt en verpakt wordt.",
+   "stem": "Je eet een boterham. Een paar uur later is die verteerd. Dat lukt dankzij een klier onder je maag: de alvleesklier. Die maakt elke dag ruim een liter verteringssap, vol enzymen. Die enzymen worden gemaakt in kliercellen. Binnen in de cel. En toch komen ze buiten de cel terecht.\n\nHoe krijgt één cel dat voor elkaar? Dat is geen toeval. Het is een fabriek, met afdelingen. En die fabriek lopen we door, in drie stappen. Eén: wat moet een cel allemaal kunnen? Twee: de bouwtekening, in de kern. Drie: de werkvloer, waar het product gemaakt en verpakt wordt.",
+   "stilte": 0,
+   "generation_id": "dBMEieYXT2s1HDJjw0dW"
+  },
+  {
+   "id": "h1-1",
+   "tekst": "Deel één. Wat moet een cel allemaal kunnen?\n\nBegin klein. Een bacterie is één cel. Zonder kern. Zonder afdelingen met een eigen vlies eromheen. En toch leeft hij. Hij eet, groeit en deelt zich. Alles in één ruimte.\n\nZo'n cel zonder kern heet een prokaryoot. Anders gezegd: een prokaryoot is een cel zonder kamers, alles gebeurt in één grote ruimte.\n\nJouw cellen zijn anders. Ze zijn ongeveer tien keer zo lang en breed als een bacterie. Stel je jouw cel voor als een klaslokaal. Dan is een bacterie zo groot als één bureautje.\n\nJouw cel heeft wél een kern. En het werk is verdeeld over afdelingen. Zo'n cel heet een eukaryoot. Een eukaryoot is dus een cel met kamers, en elke kamer heeft een eigen taak.\n\nWelke van de twee is een bacterie, denk je: een prokaryoot, of een eukaryoot?",
+   "stem": "Deel één. Wat moet een cel allemaal kunnen?\n\nBegin klein. Een bacterie is één cel. Zonder kern. Zonder afdelingen met een eigen vlies eromheen. En toch leeft hij. Hij eet, groeit en deelt zich. Alles in één ruimte.\n\nZo'n cel zonder kern heet een prokaryoot. Anders gezegd: een prokaryoot is een cel zonder kamers, alles gebeurt in één grote ruimte.\n\nJouw cellen zijn anders. Ze zijn ongeveer tien keer zo lang en breed als een bacterie. Stel je jouw cel voor als een klaslokaal. Dan is een bacterie zo groot als één bureautje.\n\nJouw cel heeft wél een kern. En het werk is verdeeld over afdelingen. Zo'n cel heet een eukaryoot. Een eukaryoot is dus een cel met kamers, en elke kamer heeft een eigen taak.\n\nWelke van de twee is een bacterie, denk je: een prokaryoot, of een eukaryoot?",
+   "stilte": 3,
+   "generation_id": "QJFR3rrHCRaQdGqs7zZP"
+  },
+  {
+   "id": "h1-2",
+   "tekst": "Een prokaryoot. Geen kern, geen kamers.\n\nZo'n afdeling in een cel heet een organel. Een organel is dus een onderdeeltje van de cel met een eigen bouw en een eigen taak. Zoals een afdeling in een fabriek.\n\nOm de hele cel zit een dun vlies: het celmembraan. En binnenin zit een stroperige vulling: het cytoplasma. Daarin liggen de organellen.\n\nDenk even na. Een bacterie heeft geen afdelingen en leeft toch. Wat zegt dat over de afdelingen van jouw cel?",
+   "stem": "Een prokaryoot. Geen kern, geen kamers.\n\nZo'n afdeling in een cel heet een organel. Een organel is dus een onderdeeltje van de cel met een eigen bouw en een eigen taak. Zoals een afdeling in een fabriek.\n\nOm de hele cel zit een dun vlies: het celmembraan. En binnenin zit een stroperige vulling: het cytoplasma. Daarin liggen de organellen.\n\nDenk even na. Een bacterie heeft geen afdelingen en leeft toch. Wat zegt dat over de afdelingen van jouw cel?",
+   "stilte": 4,
+   "generation_id": "3uAGHZijdQ3WrawPoubq"
+  },
+  {
+   "id": "h1-3",
+   "tekst": "Dat ze niet nodig zijn om te leven. Eén cel kan alles wat leven vraagt. Maar een grote cel die veel moet maken, werkt beter met afdelingen. Net als een grote fabriek.\n\nKort gezegd: een prokaryoot doet alles in één ruimte, een eukaryoot verdeelt het werk over organellen.",
+   "stem": "Dat ze niet nodig zijn om te leven. Eén cel kan alles wat leven vraagt. Maar een grote cel die veel moet maken, werkt beter met afdelingen. Net als een grote fabriek.\n\nKort gezegd: een prokaryoot doet alles in één ruimte, een eukaryoot verdeelt het werk over organellen.",
+   "stilte": 0,
+   "generation_id": "95ZX2C4ufbKPi2RqRNBS"
+  },
+  {
+   "id": "h2-1",
+   "tekst": "Deel twee. De bouwtekening.\n\nHet grootste organel is de celkern, kortweg de kern. In de kern ligt het DNA. Dat is de bouwtekening van bijna elk eiwit dat de cel maakt. Anders gezegd: de kern is het archief van de fabriek. Daar liggen alle tekeningen.\n\nOm de kern zit een dubbel vlies, met gaatjes erin. Door die gaatjes gaan werkkopieën naar buiten. Een kopie van één tekening. Het DNA zelf blijft altijd binnen.\n\nWat gaat er de kern uit, denk je: het DNA zelf, of een kopie?",
+   "stem": "Deel twee. De bouwtekening.\n\nHet grootste organel is de celkern, kortweg de kern. In de kern ligt het deeënaa. Dat is de bouwtekening van bijna elk eiwit dat de cel maakt. Anders gezegd: de kern is het archief van de fabriek. Daar liggen alle tekeningen.\n\nOm de kern zit een dubbel vlies, met gaatjes erin. Door die gaatjes gaan werkkopieën naar buiten. Een kopie van één tekening. Het deeënaa zelf blijft altijd binnen.\n\nWat gaat er de kern uit, denk je: het deeënaa zelf, of een kopie?",
+   "stilte": 3,
+   "generation_id": "0o3JkU4RoQXjEMzOahcd"
+  },
+  {
+   "id": "h2-2",
+   "tekst": "Een kopie. Het origineel blijft veilig in het archief.\n\nVeel mensen denken dat de kern de cel bestuurt met bevelen. Zo werkt het niet. De kern bepaalt welke kopieën naar buiten gaan. En dát bepaalt wat de cel maakt, en dus wat de cel doet.\n\nIn de kern zie je vaak een donker bolletje: het kernlichaampje. Daar worden de onderdelen gemaakt van de ribosomen. Dat zijn de machines die straks de eiwitten bouwen. Het kernlichaampje is dus de werkplaats waar de machines voor de fabriek in elkaar worden gezet.\n\nEn nog iets. Voordat een cel zich deelt, wordt al het DNA eerst gekopieerd. Ook dat gebeurt in de kern.\n\nDenk even na. Een rode bloedcel van een mens heeft geen kern. Na een maand of vier is hij versleten en wordt hij afgebroken. Waarom gaat hij zo snel kapot?",
+   "stem": "Een kopie. Het origineel blijft veilig in het archief.\n\nVeel mensen denken dat de kern de cel bestuurt met bevelen. Zo werkt het niet. De kern bepaalt welke kopieën naar buiten gaan. En dát bepaalt wat de cel maakt, en dus wat de cel doet.\n\nIn de kern zie je vaak een donker bolletje: het kernlichaampje. Daar worden de onderdelen gemaakt van de ribosomen. Dat zijn de machines die straks de eiwitten bouwen. Het kernlichaampje is dus de werkplaats waar de machines voor de fabriek in elkaar worden gezet.\n\nEn nog iets. Voordat een cel zich deelt, wordt al het deeënaa eerst gekopieerd. Ook dat gebeurt in de kern.\n\nDenk even na. Een rode bloedcel van een mens heeft geen kern. Na een maand of vier is hij versleten en wordt hij afgebroken. Waarom gaat hij zo snel kapot?",
+   "stilte": 4,
+   "generation_id": "LrM13b1HMMB6XNiHRGST"
+  },
+  {
+   "id": "h2-3",
+   "tekst": "Zonder kern zijn er geen bouwtekeningen meer. De cel kan dus geen nieuwe eiwitten maken. Gaat er iets kapot, dan kan hij het niet meer repareren.\n\nKort gezegd: de kern is het archief. Het DNA blijft binnen, alleen kopieën gaan naar buiten.",
+   "stem": "Zonder kern zijn er geen bouwtekeningen meer. De cel kan dus geen nieuwe eiwitten maken. Gaat er iets kapot, dan kan hij het niet meer repareren.\n\nKort gezegd: de kern is het archief. Het deeënaa blijft binnen, alleen kopieën gaan naar buiten.",
+   "stilte": 0,
+   "generation_id": "zDLfMorkRrVSAEeh5vnN"
+  },
+  {
+   "id": "h3-1",
+   "tekst": "Deel drie. De werkvloer. Hier wordt het product gemaakt, en het werkt in drie stappen: bouwen, afwerken, verzenden.\n\nStap één: bouwen. Een werkkopie komt aan bij een klein deeltje: een ribosoom. Een ribosoom maakt eiwitten. Anders gezegd: een ribosoom is een machine die een kopie van de tekening leest, en het eiwit in elkaar zet. Er werken miljoenen ribosomen tegelijk in één cel. En die verteringsenzymen uit het begin? Dat zijn eiwitten.\n\nWat maakt een ribosoom, denk je?",
+   "stem": "Deel drie. De werkvloer. Hier wordt het product gemaakt, en het werkt in drie stappen: bouwen, afwerken, verzenden.\n\nStap één: bouwen. Een werkkopie komt aan bij een klein deeltje: een ribosoom. Een ribosoom maakt eiwitten. Anders gezegd: een ribosoom is een machine die een kopie van de tekening leest, en het eiwit in elkaar zet. Er werken miljoenen ribosomen tegelijk in één cel. En die verteringsenzymen uit het begin? Dat zijn eiwitten.\n\nWat maakt een ribosoom, denk je?",
+   "stilte": 3,
+   "generation_id": "FFOVaHA3wb6sCzMlBLbf"
+  },
+  {
+   "id": "h3-2",
+   "tekst": "Eiwitten. Zoals de enzymen van de alvleesklier.\n\nStap twee: afwerken. Veel ribosomen zitten vast op een netwerk van vliezen: het endoplasmatisch reticulum. Dat is een lang woord, dus iedereen zegt: het ER. Zitten er ribosomen op, dan heet het ruw ER. Ruw, omdat het bezaaid is met die machines. Eiwitten die naar buiten moeten, gaan het ruw ER in. Daar worden ze gevouwen en gecontroleerd.\n\nEr is ook ER zonder ribosomen. Dat heet glad ER. Dat maakt geen eiwitten, maar vetten. En het maakt schadelijke stoffen onschadelijk, bijvoorbeeld in je lever.\n\nStap drie: verzenden. De eiwitten reizen verder in kleine blaasjes. Die blaasjes komen aan bij een stapel platte zakjes: het golgisysteem. Het golgisysteem bewerkt de eiwitten, sorteert ze en verpakt ze in nieuwe blaasjes. Anders gezegd: het golgisysteem is de inpak- en postafdeling van de fabriek.\n\nZo'n blaasje reist naar het celmembraan, en versmelt ermee. De enzymen zijn buiten. Dat is het antwoord op de vraag van het begin.\n\nHier is het belangrijke punt. Een cel uit de alvleesklier heeft veel meer ruw ER dan een cel uit je huid. Hoe komt dat? Denk even na.",
+   "stem": "Eiwitten. Zoals de enzymen van de alvleesklier.\n\nStap twee: afwerken. Veel ribosomen zitten vast op een netwerk van vliezen: het endoplasmatisch reticulum. Dat is een lang woord, dus iedereen zegt: het E-R. Zitten er ribosomen op, dan heet het ruw E-R. Ruw, omdat het bezaaid is met die machines. Eiwitten die naar buiten moeten, gaan het ruw E-R in. Daar worden ze gevouwen en gecontroleerd.\n\nEr is ook E-R zonder ribosomen. Dat heet glad E-R. Dat maakt geen eiwitten, maar vetten. En het maakt schadelijke stoffen onschadelijk, bijvoorbeeld in je lever.\n\nStap drie: verzenden. De eiwitten reizen verder in kleine blaasjes. Die blaasjes komen aan bij een stapel platte zakjes: het golgisysteem. Het golgisysteem bewerkt de eiwitten, sorteert ze en verpakt ze in nieuwe blaasjes. Anders gezegd: het golgisysteem is de inpak- en postafdeling van de fabriek.\n\nZo'n blaasje reist naar het celmembraan, en versmelt ermee. De enzymen zijn buiten. Dat is het antwoord op de vraag van het begin.\n\nHier is het belangrijke punt. Een cel uit de alvleesklier heeft veel meer ruw E-R dan een cel uit je huid. Hoe komt dat? Denk even na.",
+   "stilte": 4,
+   "generation_id": "aNnAuwl1TT9cv1J7tLFy"
+  },
+  {
+   "id": "h3-3",
+   "tekst": "De alvleeskliercel maakt de hele dag eiwitten voor buiten: verteringsenzymen. Daar heb je veel ruw ER voor nodig. Een huidcel maakt veel minder van zulke eiwitten. Uit de bouw van een cel kun je dus afleiden wat hij doet.\n\nKort gezegd: ribosoom bouwt, ruw ER vouwt en controleert, golgisysteem verpakt en verzendt.",
+   "stem": "De alvleeskliercel maakt de hele dag eiwitten voor buiten: verteringsenzymen. Daar heb je veel ruw E-R voor nodig. Een huidcel maakt veel minder van zulke eiwitten. Uit de bouw van een cel kun je dus afleiden wat hij doet.\n\nKort gezegd: ribosoom bouwt, ruw E-R vouwt en controleert, golgisysteem verpakt en verzendt.",
+   "stilte": 0,
+   "generation_id": "tfVJ2Y7oPsYz6TS6uBBH"
+  },
+  {
+   "id": "h3b-1",
+   "tekst": "Dit stukje is voor vwo. We volgen één enzym, van tekening tot buiten.\n\nHet ribosoom zit op een kanaaltje in het vlies van het ER. Het groeiende eiwit glijdt daar doorheen, het ER in. Binnen het ER vouwt het eiwit op, en krijgt het een eerste suikerlabel.\n\nDan snoert een stukje van het ER af tot een blaasje, met het eiwit erin. Het blaasje versmelt met de ene kant van het golgisysteem. Het eiwit schuift van zakje naar zakje. Onderweg wordt het bijgewerkt: de suikers worden aangepast, en er komt een adreslabel op. Anders gezegd: het adreslabel is het etiket op het pakketje, met waar het heen moet.\n\nAan de andere kant snoert weer een blaasje af. Gaat dat blaasje naar het celmembraan, dan versmelt het ermee, en komt de inhoud buiten. Dat heet exocytose. Exocytose is dus: iets naar buiten brengen in een blaasje.\n\nEn andersom kan ook. Een stukje celmembraan stulpt naar binnen, en haalt iets binnen. Dat heet endocytose. Endocytose is dus: iets naar binnen halen in een blaasje.\n\nWat is het tegenovergestelde van exocytose, denk je?",
+   "stem": "Dit stukje is voor vwo. We volgen één enzym, van tekening tot buiten.\n\nHet ribosoom zit op een kanaaltje in het vlies van het E-R. Het groeiende eiwit glijdt daar doorheen, het E-R in. Binnen het E-R vouwt het eiwit op, en krijgt het een eerste suikerlabel.\n\nDan snoert een stukje van het E-R af tot een blaasje, met het eiwit erin. Het blaasje versmelt met de ene kant van het golgisysteem. Het eiwit schuift van zakje naar zakje. Onderweg wordt het bijgewerkt: de suikers worden aangepast, en er komt een adreslabel op. Anders gezegd: het adreslabel is het etiket op het pakketje, met waar het heen moet.\n\nAan de andere kant snoert weer een blaasje af. Gaat dat blaasje naar het celmembraan, dan versmelt het ermee, en komt de inhoud buiten. Dat heet exocytose. Exocytose is dus: iets naar buiten brengen in een blaasje.\n\nEn andersom kan ook. Een stukje celmembraan stulpt naar binnen, en haalt iets binnen. Dat heet endocytose. Endocytose is dus: iets naar binnen halen in een blaasje.\n\nWat is het tegenovergestelde van exocytose, denk je?",
+   "stilte": 3,
+   "generation_id": "TlFzY3nFUcDDofgrzPHU"
+  },
+  {
+   "id": "h3b-2",
+   "tekst": "Endocytose. Exo is naar buiten, endo is naar binnen.\n\nDenk even na. Twee eiwitten verlaten het golgisysteem. Eén is bedoeld voor buiten de cel. Het andere voor de opruimdienst van de cel. Wat bepaalt waar elk heen gaat?",
+   "stem": "Endocytose. Exo is naar buiten, endo is naar binnen.\n\nDenk even na. Twee eiwitten verlaten het golgisysteem. Eén is bedoeld voor buiten de cel. Het andere voor de opruimdienst van de cel. Wat bepaalt waar elk heen gaat?",
+   "stilte": 4,
+   "generation_id": "BzBCuaCF7Lco3RnlksNi"
+  },
+  {
+   "id": "h3b-3",
+   "tekst": "Het adreslabel dat het golgisysteem erop heeft gezet. Niet de grootte, en geen toeval. Over die opruimdienst hoor je meer in de volgende aflevering.",
+   "stem": "Het adreslabel dat het golgisysteem erop heeft gezet. Niet de grootte, en geen toeval. Over die opruimdienst hoor je meer in de volgende aflevering.",
+   "stilte": 0,
+   "generation_id": "zAKgvf1QBlTwtwYrv6J6"
+  },
+  {
+   "id": "h4-1",
+   "tekst": "Terug naar de vraag van het begin. Hoe komen de enzymen van de alvleesklier de cel uit? Via een route langs afdelingen. De kern levert de tekening. Een ribosoom bouwt het eiwit. Het ruw ER vouwt het. Het golgisysteem verpakt het. En een blaasje brengt het naar buiten.\n\nDrie dingen om te onthouden.\nEén: een prokaryoot heeft geen kern en geen organellen, een eukaryoot wel.\nTwee: het DNA blijft in de kern, alleen kopieën gaan naar buiten.\nDrie: de route van een eiwit voor buiten de cel is ribosoom, ruw ER, golgisysteem, blaasje, celmembraan.\n\nEn nu jij. Noem hardop de route van een verteringsenzym door de cel, van tekening tot buiten. Afdeling na afdeling.",
+   "stem": "Terug naar de vraag van het begin. Hoe komen de enzymen van de alvleesklier de cel uit? Via een route langs afdelingen. De kern levert de tekening. Een ribosoom bouwt het eiwit. Het ruw E-R vouwt het. Het golgisysteem verpakt het. En een blaasje brengt het naar buiten.\n\nDrie dingen om te onthouden.\nEén: een prokaryoot heeft geen kern en geen organellen, een eukaryoot wel.\nTwee: het deeënaa blijft in de kern, alleen kopieën gaan naar buiten.\nDrie: de route van een eiwit voor buiten de cel is ribosoom, ruw E-R, golgisysteem, blaasje, celmembraan.\n\nEn nu jij. Noem hardop de route van een verteringsenzym door de cel, van tekening tot buiten. Afdeling na afdeling.",
+   "stilte": 4,
+   "generation_id": "njTyJ7OB9gJ2oIznfE9Y"
+  },
+  {
+   "id": "h4-2",
+   "tekst": "Wil je het zien? Kijk dan de film Celorganellen. In de volgende aflevering gaan we verder: waar de fabriek zijn energie vandaan haalt, hoe hij opruimt, en waarom een plantencel anders is.",
+   "stem": "Wil je het zien? Kijk dan de film Celorganellen. In de volgende aflevering gaan we verder: waar de fabriek zijn energie vandaan haalt, hoe hij opruimt, en waarom een plantencel anders is.",
+   "stilte": 0,
+   "generation_id": "tJTO42TJsxb9KarGg8Oy"
+  }
+ ],
+ "flow": "https://elevenlabs.io/app/flows/cOEno8gxse8pGyFvDe22"
+}

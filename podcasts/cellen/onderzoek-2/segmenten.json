@@ -1,0 +1,208 @@
+{
+ "stem": "Remko",
+ "voice_id": "vjeU1L5RIGPyrwuboFwz",
+ "model": "eleven_v4",
+ "hoofdstukken": [
+  {
+   "nr": "0",
+   "titel": "Opening",
+   "vwo": false,
+   "segmenten": [
+    "h0-1"
+   ],
+   "bestand": "podcasts/cellen/onderzoek-2/audio/0-0.mp3",
+   "duur": 46
+  },
+  {
+   "nr": "1",
+   "titel": "Meetfouten",
+   "vwo": false,
+   "segmenten": [
+    "h1-1",
+    "h1-2",
+    "h1-3"
+   ],
+   "bestand": "podcasts/cellen/onderzoek-2/audio/1-1.mp3",
+   "duur": 77
+  },
+  {
+   "nr": "2",
+   "titel": "Betrouwbaar en valide",
+   "vwo": false,
+   "segmenten": [
+    "h2-1",
+    "h2-2",
+    "h2-3"
+   ],
+   "bestand": "podcasts/cellen/onderzoek-2/audio/2-2.mp3",
+   "duur": 124
+  },
+  {
+   "nr": "3",
+   "titel": "Van resultaat naar conclusie",
+   "vwo": false,
+   "segmenten": [
+    "h3-1",
+    "h3-2",
+    "h3-3"
+   ],
+   "bestand": "podcasts/cellen/onderzoek-2/audio/3-3.mp3",
+   "duur": 100
+  },
+  {
+   "nr": "4",
+   "titel": "Samen of oorzaak?",
+   "vwo": false,
+   "segmenten": [
+    "h4-1",
+    "h4-2",
+    "h4-3"
+   ],
+   "bestand": "podcasts/cellen/onderzoek-2/audio/4-4.mp3",
+   "duur": 125
+  },
+  {
+   "nr": "5",
+   "titel": "Eerlijk onderzoek",
+   "vwo": false,
+   "segmenten": [
+    "h5-1",
+    "h5-2"
+   ],
+   "bestand": "podcasts/cellen/onderzoek-2/audio/5-5.mp3",
+   "duur": 97
+  },
+  {
+   "nr": "6",
+   "titel": "Afsluiting",
+   "vwo": false,
+   "segmenten": [
+    "h6-1",
+    "h6-2"
+   ],
+   "bestand": "podcasts/cellen/onderzoek-2/audio/6-6.mp3",
+   "duur": 50
+  }
+ ],
+ "segmenten": [
+  {
+   "id": "h0-1",
+   "tekst": "In de zomer eten mensen meer ijsjes. En in de zomer verdrinken er meer mensen. Zijn ijsjes dan gevaarlijk? Natuurlijk niet. Maar waarom niet eigenlijk? Daar komen we aan het eind op terug.\n\nIn deel één hoorde je hoe je een eerlijke proef opzet. Eén ding veranderen, de rest gelijk houden, een controlegroep, en blind meten. Het voorbeeld was een kiemproef met tuinkers: kiemen er in het licht meer zaadjes dan in het donker?\n\nNu de volgende vraag: als je proef klaar is, kun je de uitkomst dan vertrouwen? Dat pakken we aan in vijf stappen. Eén: meetfouten. Twee: betrouwbaar en valide. Drie: van resultaat naar conclusie. Vier: samen of oorzaak. En vijf: eerlijk onderzoek.",
+   "stem": "In de zomer eten mensen meer ijsjes. En in de zomer verdrinken er meer mensen. Zijn ijsjes dan gevaarlijk? Natuurlijk niet. Maar waarom niet eigenlijk? Daar komen we aan het eind op terug.\n\nIn deel één hoorde je hoe je een eerlijke proef opzet. Eén ding veranderen, de rest gelijk houden, een controlegroep, en blind meten. Het voorbeeld was een kiemproef met tuinkers: kiemen er in het licht meer zaadjes dan in het donker?\n\nNu de volgende vraag: als je proef klaar is, kun je de uitkomst dan vertrouwen? Dat pakken we aan in vijf stappen. Eén: meetfouten. Twee: betrouwbaar en valide. Drie: van resultaat naar conclusie. Vier: samen of oorzaak. En vijf: eerlijk onderzoek.",
+   "stilte": 0,
+   "generation_id": "FBBG7pIRQPEBuDNEEBZb"
+  },
+  {
+   "id": "h1-1",
+   "tekst": "Deel één. Meetfouten. Hoe goed is je meting?\n\nEr zijn twee soorten meetfouten. De eerste: een toevallige fout. Die valt de ene keer te hoog uit, de andere keer te laag. Anders gezegd: een toevallige fout schiet alle kanten op. Als je vaker meet, middelt hij uit.\n\nDe tweede: een systematische fout. Die zit er steeds in dezelfde richting naast. Anders gezegd: een systematische fout trekt al je metingen dezelfde kant op. Die middelt niet uit, hoe vaak je ook meet.\n\nWelke fout verdwijnt als je vaak genoeg meet, denk je: de toevallige, of de systematische?",
+   "stem": "Deel één. Meetfouten. Hoe goed is je meting?\n\nEr zijn twee soorten meetfouten. De eerste: een toevallige fout. Die valt de ene keer te hoog uit, de andere keer te laag. Anders gezegd: een toevallige fout schiet alle kanten op. Als je vaker meet, middelt hij uit.\n\nDe tweede: een systematische fout. Die zit er steeds in dezelfde richting naast. Anders gezegd: een systematische fout trekt al je metingen dezelfde kant op. Die middelt niet uit, hoe vaak je ook meet.\n\nWelke fout verdwijnt als je vaak genoeg meet, denk je: de toevallige, of de systematische?",
+   "stilte": 3,
+   "generation_id": "hpKUgu9z6VmBTKmaaTsu"
+  },
+  {
+   "id": "h1-2",
+   "tekst": "De toevallige. De systematische blijft.\n\nEen voorbeeld. Je weegschaal staat niet goed op nul. Hij geeft steeds twee gram te veel.\n\nDenk even na. Helpt het als je honderd keer weegt?",
+   "stem": "De toevallige. De systematische blijft.\n\nEen voorbeeld. Je weegschaal staat niet goed op nul. Hij geeft steeds twee gram te veel.\n\nDenk even na. Helpt het als je honderd keer weegt?",
+   "stilte": 4,
+   "generation_id": "p8gqNSVt71PoMDApPywI"
+  },
+  {
+   "id": "h1-3",
+   "tekst": "Nee. Elke meting is twee gram te hoog, dus het gemiddelde ook. Dit is een systematische fout. De oplossing is niet vaker wegen, maar de weegschaal op nul zetten. Veel leerlingen denken: meer metingen lossen alles op. Dat geldt alleen voor toevallige fouten.\n\nKort gezegd: toevallige fouten middelen uit, systematische niet.",
+   "stem": "Nee. Elke meting is twee gram te hoog, dus het gemiddelde ook. Dit is een systematische fout. De oplossing is niet vaker wegen, maar de weegschaal op nul zetten. Veel leerlingen denken: meer metingen lossen alles op. Dat geldt alleen voor toevallige fouten.\n\nKort gezegd: toevallige fouten middelen uit, systematische niet.",
+   "stilte": 0,
+   "generation_id": "Faks4yiS5VRszJe5x6Et"
+  },
+  {
+   "id": "h2-1",
+   "tekst": "Deel twee. Betrouwbaar en valide. Twee woorden die je bij elk onderzoek moet kennen.\n\nEerst de steekproef: de groep die je onderzoekt. Bij de kiemproef zijn dat de zaadjes. Stel, je neemt drie zaadjes per bakje. Dan kan één zaadje het hele verschil maken. Met vijftig zaadjes per bakje, en de proef een paar keer herhaald, wordt je resultaat betrouwbaarder.\n\nBetrouwbaar betekent: als je het herhaalt, vind je ongeveer hetzelfde. Anders gezegd: een betrouwbare uitkomst is geen toevalstreffer.\n\nNauwkeurig is iets anders. Nauwkeurig zegt hoe fijn je meetinstrument meet, bijvoorbeeld op een tiende gram. Hier is het belangrijke punt: ook een heel nauwkeurige weegschaal kan systematisch verkeerd staan. Nauwkeurig is dus nog niet betrouwbaar, en ook nog niet goed.\n\nEn dan valide. Valide betekent: je meet echt wat je wilt weten. Anders gezegd: valide gaat over de vraag of je meting past bij je onderzoeksvraag.\n\nWat maakt je kiemproef betrouwbaarder, denk je: een duurdere weegschaal, of meer zaadjes en vaker herhalen?",
+   "stem": "Deel twee. Betrouwbaar en valide. Twee woorden die je bij elk onderzoek moet kennen.\n\nEerst de steekproef: de groep die je onderzoekt. Bij de kiemproef zijn dat de zaadjes. Stel, je neemt drie zaadjes per bakje. Dan kan één zaadje het hele verschil maken. Met vijftig zaadjes per bakje, en de proef een paar keer herhaald, wordt je resultaat betrouwbaarder.\n\nBetrouwbaar betekent: als je het herhaalt, vind je ongeveer hetzelfde. Anders gezegd: een betrouwbare uitkomst is geen toevalstreffer.\n\nNauwkeurig is iets anders. Nauwkeurig zegt hoe fijn je meetinstrument meet, bijvoorbeeld op een tiende gram. Hier is het belangrijke punt: ook een heel nauwkeurige weegschaal kan systematisch verkeerd staan. Nauwkeurig is dus nog niet betrouwbaar, en ook nog niet goed.\n\nEn dan valide. Valide betekent: je meet echt wat je wilt weten. Anders gezegd: valide gaat over de vraag of je meting past bij je onderzoeksvraag.\n\nWat maakt je kiemproef betrouwbaarder, denk je: een duurdere weegschaal, of meer zaadjes en vaker herhalen?",
+   "stilte": 3,
+   "generation_id": "7QtmhY5n9900YSlLlIsn"
+  },
+  {
+   "id": "h2-2",
+   "tekst": "Meer zaadjes en vaker herhalen. Dan verkleint het toeval.\n\nEen beroemd voorbeeld. In de zeventiende eeuw zette Jan Baptist van Helmont een wilg in een pot met gewogen aarde. Vijf jaar lang gaf hij alleen water. De boom werd ruim dertig keer zo zwaar. De aarde niet. Zijn conclusie: de boom groeit van water.\n\nDenk even na. Van Helmont woog heel precies. Toch klopt zijn conclusie niet. Wat ging er mis?",
+   "stem": "Meer zaadjes en vaker herhalen. Dan verkleint het toeval.\n\nEen beroemd voorbeeld. In de zeventiende eeuw zette Jan Baptist van Helmont een wilg in een pot met gewogen aarde. Vijf jaar lang gaf hij alleen water. De boom werd ruim dertig keer zo zwaar. De aarde niet. Zijn conclusie: de boom groeit van water.\n\nDenk even na. Van Helmont woog heel precies. Toch klopt zijn conclusie niet. Wat ging er mis?",
+   "stilte": 4,
+   "generation_id": "WtqOgmDou0Ky0VmgPNJQ"
+  },
+  {
+   "id": "h2-3",
+   "tekst": "Drie dingen. Hij had maar één boom: weinig betrouwbaar. De afgevallen bladeren woog hij niet: een systematische fout. En aan de lucht dacht hij niet. De droge stof van hout komt vooral uit koolstofdioxide uit de lucht. Zijn meting was dus niet valide voor zijn vraag. Je kunt heel precies meten, en toch de verkeerde conclusie trekken.\n\nKort gezegd: betrouwbaar is bij herhalen hetzelfde, valide is meten wat je wilt weten.",
+   "stem": "Drie dingen. Hij had maar één boom: weinig betrouwbaar. De afgevallen bladeren woog hij niet: een systematische fout. En aan de lucht dacht hij niet. De droge stof van hout komt vooral uit koolstofdie-oxide uit de lucht. Zijn meting was dus niet valide voor zijn vraag. Je kunt heel precies meten, en toch de verkeerde conclusie trekken.\n\nKort gezegd: betrouwbaar is bij herhalen hetzelfde, valide is meten wat je wilt weten.",
+   "stilte": 0,
+   "generation_id": "S35GTbeIOUv3EU3fQmjW"
+  },
+  {
+   "id": "h3-1",
+   "tekst": "Deel drie. Van resultaat naar conclusie.\n\nJe zet je metingen eerst in een tabel, en dan in een grafiek. Losse groepen, zoals licht en donker: een staafdiagram. Iets wat geleidelijk verandert, zoals de tijd in dagen: een lijngrafiek.\n\nEn kijk niet alleen naar het gemiddelde, maar ook naar de spreiding. Spreiding is hoe ver je metingen uit elkaar liggen. Anders gezegd: spreiding vertelt hoeveel je uitkomst schommelt.\n\nNu jouw resultaten. In het licht kiemen gemiddeld eenenveertig van de vijftig zaadjes. In het donker achtendertig. Maar per bakje liep het uiteen van dertig tot vijftig.\n\nDenk even na. Kiemt tuinkers beter in het licht?",
+   "stem": "Deel drie. Van resultaat naar conclusie.\n\nJe zet je metingen eerst in een tabel, en dan in een grafiek. Losse groepen, zoals licht en donker: een staafdiagram. Iets wat geleidelijk verandert, zoals de tijd in dagen: een lijngrafiek.\n\nEn kijk niet alleen naar het gemiddelde, maar ook naar de spreiding. Spreiding is hoe ver je metingen uit elkaar liggen. Anders gezegd: spreiding vertelt hoeveel je uitkomst schommelt.\n\nNu jouw resultaten. In het licht kiemen gemiddeld een en veertig van de vijftig zaadjes. In het donker achtendertig. Maar per bakje liep het uiteen van dertig tot vijftig.\n\nDenk even na. Kiemt tuinkers beter in het licht?",
+   "stilte": 4,
+   "generation_id": "tkzkbCEqcNrKV4mO1rBS"
+  },
+  {
+   "id": "h3-2",
+   "tekst": "Dat kun je niet zeggen. Het verschil is drie zaadjes. De spreiding is wel twintig. Zo'n klein verschil kan gewoon toeval zijn. Tuinkers kiemt ook goed in het donker. Je hypothese is verworpen. En dat is een echt resultaat.\n\nIn je verslag scheid je conclusie en discussie. De conclusie beantwoordt je onderzoeksvraag. Niet meer, en niet minder: licht maakt voor het kiemen van tuinkers weinig uit. In de discussie noem je de beperkingen. Je onderzocht tuinkers, niet alle planten. En je noemt wat je opviel. In het donker werden de kiemplantjes lang, dun en geel. Waarom? Dat is een nieuwe onderzoeksvraag. De cyclus begint opnieuw.\n\nWaar hoort de zin 'ik onderzocht alleen tuinkers': in de conclusie, of in de discussie?",
+   "stem": "Dat kun je niet zeggen. Het verschil is drie zaadjes. De spreiding is wel twintig. Zo'n klein verschil kan gewoon toeval zijn. Tuinkers kiemt ook goed in het donker. Je hypothese is verworpen. En dat is een echt resultaat.\n\nIn je verslag scheid je conclusie en discussie. De conclusie beantwoordt je onderzoeksvraag. Niet meer, en niet minder: licht maakt voor het kiemen van tuinkers weinig uit. In de discussie noem je de beperkingen. Je onderzocht tuinkers, niet alle planten. En je noemt wat je opviel. In het donker werden de kiemplantjes lang, dun en geel. Waarom? Dat is een nieuwe onderzoeksvraag. De cyclus begint opnieuw.\n\nWaar hoort de zin 'ik onderzocht alleen tuinkers': in de conclusie, of in de discussie?",
+   "stilte": 3,
+   "generation_id": "WgXFwx3aCLdLIaLBr3ET"
+  },
+  {
+   "id": "h3-3",
+   "tekst": "In de discussie. Dat is een beperking.\n\nKort gezegd: kijk naar gemiddelde én spreiding, en houd conclusie en discussie apart.",
+   "stem": "In de discussie. Dat is een beperking.\n\nKort gezegd: kijk naar gemiddelde én spreiding, en houd conclusie en discussie apart.",
+   "stilte": 0,
+   "generation_id": "kkNo4jPSIJcdmetRopjK"
+  },
+  {
+   "id": "h4-1",
+   "tekst": "Deel vier. Samen of oorzaak?\n\nJouw kiemproef was een experiment: je veranderde zelf het licht. Maar soms kan dat niet. Dan doe je observationeel onderzoek: je kijkt wat er samengaat.\n\nTwee dingen die samengaan, hebben een correlatie. Anders gezegd: een correlatie betekent dat als het ene stijgt, het andere ook stijgt, of juist daalt. Maar veroorzaakt het ene dan het andere? Dat heet causaliteit: oorzaak en gevolg.\n\nHier is het belangrijke punt: een correlatie is nog geen causaliteit. Er zijn twee valkuilen.\n\nDe eerste: het is andersom. Het vermeende gevolg is eigenlijk de oorzaak. Dat heet omgekeerde causaliteit.\n\nDe tweede: een derde factor veroorzaakt allebei. Dat heet een verstorende variabele. Terug naar de ijsjes. In de zomer eten mensen meer ijsjes, en verdrinken er meer mensen. IJsjes zijn niet gevaarlijk. Het warme weer zorgt voor allebei. Het warme weer is de verstorende variabele.\n\nWat is bij de ijsjes en het verdrinken de verstorende variabele, denk je?",
+   "stem": "Deel vier. Samen of oorzaak?\n\nJouw kiemproef was een experiment: je veranderde zelf het licht. Maar soms kan dat niet. Dan doe je observationeel onderzoek: je kijkt wat er samengaat.\n\nTwee dingen die samengaan, hebben een correlatie. Anders gezegd: een correlatie betekent dat als het ene stijgt, het andere ook stijgt, of juist daalt. Maar veroorzaakt het ene dan het andere? Dat heet causaliteit: oorzaak en gevolg.\n\nHier is het belangrijke punt: een correlatie is nog geen causaliteit. Er zijn twee valkuilen.\n\nDe eerste: het is andersom. Het vermeende gevolg is eigenlijk de oorzaak. Dat heet omgekeerde causaliteit.\n\nDe tweede: een derde factor veroorzaakt allebei. Dat heet een verstorende variabele. Terug naar de ijsjes. In de zomer eten mensen meer ijsjes, en verdrinken er meer mensen. IJsjes zijn niet gevaarlijk. Het warme weer zorgt voor allebei. Het warme weer is de verstorende variabele.\n\nWat is bij de ijsjes en het verdrinken de verstorende variabele, denk je?",
+   "stilte": 3,
+   "generation_id": "gXdkxL8FPtJDuogAiBlu"
+  },
+  {
+   "id": "h4-2",
+   "tekst": "Het warme weer. Dan eet je meer ijs, en dan zwem je meer.\n\nNog een. Leerlingen die ontbijten, halen gemiddeld hogere cijfers. Denk even na. Kun je een verstorende variabele bedenken?",
+   "stem": "Het warme weer. Dan eet je meer ijs, en dan zwem je meer.\n\nNog een. Leerlingen die ontbijten, halen gemiddeld hogere cijfers. Denk even na. Kun je een verstorende variabele bedenken?",
+   "stilte": 4,
+   "generation_id": "rYTByhsS4s6snhvEf0JD"
+  },
+  {
+   "id": "h4-3",
+   "tekst": "Bijvoorbeeld rust en regelmaat thuis. Wie dat heeft, ontbijt vaker, en leert ook beter. En dat goede cijfers zin geven in ontbijt? Dat zou omgekeerde causaliteit zijn. Misschien helpt ontbijt echt. Maar uit deze correlatie alleen weet je niet welke verklaring klopt.\n\nSoms mag een experiment niet. Rond het jaar 1950 bleek dat longkankerpatiënten vaker en meer rookten dan andere mensen. Mensen laten roken voor een proef, dat mag niet. Hoe onderzoekers toch aantoonden dat roken een oorzaak is, hoor en zie je in de extra film Kun je onderzoek vertrouwen?\n\nKort gezegd: samen is nog geen oorzaak. Denk aan omgekeerde causaliteit, en aan een verstorende variabele.",
+   "stem": "Bijvoorbeeld rust en regelmaat thuis. Wie dat heeft, ontbijt vaker, en leert ook beter. En dat goede cijfers zin geven in ontbijt? Dat zou omgekeerde causaliteit zijn. Misschien helpt ontbijt echt. Maar uit deze correlatie alleen weet je niet welke verklaring klopt.\n\nSoms mag een experiment niet. Rond het jaar 1950 bleek dat longkankerpatiënten vaker en meer rookten dan andere mensen. Mensen laten roken voor een proef, dat mag niet. Hoe onderzoekers toch aantoonden dat roken een oorzaak is, hoor en zie je in de extra film Kun je onderzoek vertrouwen?\n\nKort gezegd: samen is nog geen oorzaak. Denk aan omgekeerde causaliteit, en aan een verstorende variabele.",
+   "stilte": 0,
+   "generation_id": "XdUH4l5CtP7gLfC1ZVSH"
+  },
+  {
+   "id": "h5-1",
+   "tekst": "Deel vijf. Eerlijk onderzoek. Onderzoek moet ook eerlijk zijn tegenover mensen en dieren.\n\nIn het jaar 1951 ging een stukje tumor van de Amerikaanse Henrietta Lacks naar een lab. Zonder dat zij het wist. Haar cellen worden nog altijd over de hele wereld gebruikt. Haar familie hoorde het pas ruim twintig jaar later.\n\nWie nu meedoet aan medisch-wetenschappelijk onderzoek, geeft vooraf toestemming. Na uitleg over wat er gebeurt en wat de risico's zijn. Dat heet informed consent. Anders gezegd: informed consent is toestemming nadat je precies weet waar je ja tegen zegt. En je mag altijd stoppen.\n\nVoor een dierproef is in Nederland een vergunning nodig. Het belang van het onderzoek moet opwegen tegen het ongerief voor het dier. Onderzoekers volgen de drie V's. Vervanging: kan het ook zonder dieren? Vermindering: zo min mogelijk dieren. Verfijning: zo min mogelijk ongerief.\n\nDenk even na. Een onderzoeker wil maar drie muizen per groep gebruiken, om dieren te sparen. Is dat een goed idee?",
+   "stem": "Deel vijf. Eerlijk onderzoek. Onderzoek moet ook eerlijk zijn tegenover mensen en dieren.\n\nIn het jaar 1951 ging een stukje tumor van de Amerikaanse Henrietta Lacks naar een lab. Zonder dat zij het wist. Haar cellen worden nog altijd over de hele wereld gebruikt. Haar familie hoorde het pas ruim twintig jaar later.\n\nWie nu meedoet aan medisch-wetenschappelijk onderzoek, geeft vooraf toestemming. Na uitleg over wat er gebeurt en wat de risico's zijn. Dat heet informed consent. Anders gezegd: informed consent is toestemming nadat je precies weet waar je ja tegen zegt. En je mag altijd stoppen.\n\nVoor een dierproef is in Nederland een vergunning nodig. Het belang van het onderzoek moet opwegen tegen het ongerief voor het dier. Onderzoekers volgen de drie vee's. Vervanging: kan het ook zonder dieren? Vermindering: zo min mogelijk dieren. Verfijning: zo min mogelijk ongerief.\n\nDenk even na. Een onderzoeker wil maar drie muizen per groep gebruiken, om dieren te sparen. Is dat een goed idee?",
+   "stilte": 4,
+   "generation_id": "WIv8c0J2KqkUJhLNRCEj"
+  },
+  {
+   "id": "h5-2",
+   "tekst": "Nee. Met drie muizen is een verschil al snel toeval. Dan zijn de dieren misschien voor niets gebruikt. Vermindering betekent: zo min mogelijk, maar wel genoeg. Ethiek en een goede proefopzet horen bij elkaar.\n\nEn wees eerlijk over je gegevens. Fraude is gegevens verzinnen, gegevens vervalsen, of werk van anderen overnemen. Een fout maken is iets anders. Een fout meld en verbeter je. Fraude verberg je.\n\nKort gezegd: toestemming bij mensen, de drie V's bij dieren, en nooit fraude.",
+   "stem": "Nee. Met drie muizen is een verschil al snel toeval. Dan zijn de dieren misschien voor niets gebruikt. Vermindering betekent: zo min mogelijk, maar wel genoeg. Ethiek en een goede proefopzet horen bij elkaar.\n\nEn wees eerlijk over je gegevens. Fraude is gegevens verzinnen, gegevens vervalsen, of werk van anderen overnemen. Een fout maken is iets anders. Een fout meld en verbeter je. Fraude verberg je.\n\nKort gezegd: toestemming bij mensen, de drie vee's bij dieren, en nooit fraude.",
+   "stilte": 0,
+   "generation_id": "J1jvkbMMyRB1Baqt0CLJ"
+  },
+  {
+   "id": "h6-1",
+   "tekst": "Terug naar de vraag van het begin. Zijn ijsjes gevaarlijk? Nee. IJsjes en verdrinken gaan samen, maar het warme weer veroorzaakt allebei. Een correlatie, geen oorzaak.\n\nDrie dingen om te onthouden.\nEén: herhalen helpt tegen toevallige fouten, niet tegen systematische.\nTwee: betrouwbaar is bij herhalen hetzelfde vinden, valide is meten wat je wilt weten.\nDrie: een correlatie is nog geen oorzaak.\n\nEn nu jij. Leg in één zin hardop uit waarom Van Helmont precies mat, en toch ongelijk had.",
+   "stem": "Terug naar de vraag van het begin. Zijn ijsjes gevaarlijk? Nee. IJsjes en verdrinken gaan samen, maar het warme weer veroorzaakt allebei. Een correlatie, geen oorzaak.\n\nDrie dingen om te onthouden.\nEén: herhalen helpt tegen toevallige fouten, niet tegen systematische.\nTwee: betrouwbaar is bij herhalen hetzelfde vinden, valide is meten wat je wilt weten.\nDrie: een correlatie is nog geen oorzaak.\n\nEn nu jij. Leg in één zin hardop uit waarom Van Helmont precies mat, en toch ongelijk had.",
+   "stilte": 4,
+   "generation_id": "uU7lqCKu1Fq8AKjcIwxG"
+  },
+  {
+   "id": "h6-2",
+   "tekst": "Lees je ergens dat onderzoek iets bewijst? Vraag dan: is het betrouwbaar, en is het valide? Wil je de proeven zien? Kijk dan de film Onderzoek doen in de biologie.",
+   "stem": "Lees je ergens dat onderzoek iets bewijst? Vraag dan: is het betrouwbaar, en is het valide? Wil je de proeven zien? Kijk dan de film Onderzoek doen in de biologie.",
+   "stilte": 0,
+   "generation_id": "Jw4vpPetcLxhw0CRnRLE"
+  }
+ ]
+}

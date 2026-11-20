@@ -1,0 +1,201 @@
+{
+ "stem": "Remko",
+ "voice_id": "vjeU1L5RIGPyrwuboFwz",
+ "model": "eleven_v4",
+ "hoofdstukken": [
+  {
+   "nr": "0",
+   "titel": "Opening",
+   "vwo": false,
+   "segmenten": [
+    "h0-1"
+   ],
+   "bestand": "podcasts/cellen/stamcellen/audio/0-0.mp3",
+   "duur": 33
+  },
+  {
+   "nr": "1",
+   "titel": "Zelfde DNA, andere cel",
+   "vwo": false,
+   "segmenten": [
+    "h1-1",
+    "h1-2",
+    "h1-3"
+   ],
+   "bestand": "podcasts/cellen/stamcellen/audio/1-1.mp3",
+   "duur": 110
+  },
+  {
+   "nr": "1b",
+   "titel": "Voor vwo: wie zet een gen aan?",
+   "vwo": true,
+   "segmenten": [
+    "h1b-1",
+    "h1b-2"
+   ],
+   "bestand": "podcasts/cellen/stamcellen/audio/2-1b.mp3",
+   "duur": 60
+  },
+  {
+   "nr": "2",
+   "titel": "Cellen die nog kunnen kiezen",
+   "vwo": false,
+   "segmenten": [
+    "h2-1",
+    "h2-2",
+    "h2-3"
+   ],
+   "bestand": "podcasts/cellen/stamcellen/audio/3-2.mp3",
+   "duur": 126
+  },
+  {
+   "nr": "3",
+   "titel": "Stamcellen als medicijn",
+   "vwo": false,
+   "segmenten": [
+    "h3-1",
+    "h3-2",
+    "h3-3"
+   ],
+   "bestand": "podcasts/cellen/stamcellen/audio/4-3.mp3",
+   "duur": 162
+  },
+  {
+   "nr": "3b",
+   "titel": "Voor vwo: hoeveel kan een cel nog worden?",
+   "vwo": true,
+   "segmenten": [
+    "h3b-1",
+    "h3b-2"
+   ],
+   "bestand": "podcasts/cellen/stamcellen/audio/5-3b.mp3",
+   "duur": 78
+  },
+  {
+   "nr": "4",
+   "titel": "Afsluiting",
+   "vwo": false,
+   "segmenten": [
+    "h4-1",
+    "h4-2"
+   ],
+   "bestand": "podcasts/cellen/stamcellen/audio/6-4.mp3",
+   "duur": 59
+  }
+ ],
+ "segmenten": [
+  {
+   "id": "h0-1",
+   "tekst": "Je valt van je fiets en schaaft je knie. Twee weken later zie je er bijna niets meer van. Je huid heeft zichzelf hersteld. Maar krijgt iemand een hartinfarct, dan sterft een stuk hartspier af. Dat groeit niet terug: er komt littekenweefsel. Waarom herstelt je huid wel, en je hartspier bijna niet?\n\nDat zoeken we uit in drie stappen. Eén: hoe cellen met hetzelfde DNA toch verschillend worden. Twee: welke cellen nog kunnen kiezen wat ze worden. Drie: hoe artsen die cellen als medicijn gebruiken.",
+   "stem": "Je valt van je fiets en schaaft je knie. Twee weken later zie je er bijna niets meer van. Je huid heeft zichzelf hersteld. Maar krijgt iemand een hartinfarct, dan sterft een stuk hartspier af. Dat groeit niet terug: er komt littekenweefsel. Waarom herstelt je huid wel, en je hartspier bijna niet?\n\nDat zoeken we uit in drie stappen. Eén: hoe cellen met hetzelfde deeënaa toch verschillend worden. Twee: welke cellen nog kunnen kiezen wat ze worden. Drie: hoe artsen die cellen als medicijn gebruiken.",
+   "stilte": 0,
+   "generation_id": "vAWmNpUxFzUsbA9DI4n1"
+  },
+  {
+   "id": "h1-1",
+   "tekst": "Deel één. Zelfde DNA, andere cel.\n\nJe begon als één cel: een bevruchte eicel. Die deelde zich door mitose, steeds weer. Nu bestaat je lichaam uit zo'n dertig biljoen cellen, van meer dan tweehonderd soorten. Bij elke mitose krijgen beide cellen een kopie van hetzelfde DNA. Een zenuwcel, een spiercel en een cel uit je alvleesklier hebben dus dezelfde genen. Op een paar uitzonderingen na: een rode bloedcel verliest zijn kern, en heeft dus helemaal geen DNA meer.\n\nHoe kunnen ze dan zo verschillend zijn? Stel je je DNA voor als een dik kookboek. Elke cel heeft hetzelfde kookboek, maar kookt maar een paar recepten. In sommige cellen van je alvleesklier staat het gen voor insuline aan. In je huidcellen staat het uit, hoewel het daar ook in zit.\n\nEen cel die zo een eigen bouw en een eigen taak krijgt, is gedifferentieerd. Het proces heet differentiatie. Differentiatie is dus: welke recepten uit het kookboek gebruikt deze cel?\n\nHeeft een huidcel het gen voor insuline, denk je?",
+   "stem": "Deel één. Zelfde deeënaa, andere cel.\n\nJe begon als één cel: een bevruchte eicel. Die deelde zich door mitose, steeds weer. Nu bestaat je lichaam uit zo'n dertig biljoen cellen, van meer dan tweehonderd soorten. Bij elke mitose krijgen beide cellen een kopie van hetzelfde deeënaa. Een zenuwcel, een spiercel en een cel uit je alvleesklier hebben dus dezelfde genen. Op een paar uitzonderingen na: een rode bloedcel verliest zijn kern, en heeft dus helemaal geen deeënaa meer.\n\nHoe kunnen ze dan zo verschillend zijn? Stel je je deeënaa voor als een dik kookboek. Elke cel heeft hetzelfde kookboek, maar kookt maar een paar recepten. In sommige cellen van je alvleesklier staat het gen voor insuline aan. In je huidcellen staat het uit, hoewel het daar ook in zit.\n\nEen cel die zo een eigen bouw en een eigen taak krijgt, is gedifferentieerd. Het proces heet differentiatie. Differentiatie is dus: welke recepten uit het kookboek gebruikt deze cel?\n\nHeeft een huidcel het gen voor insuline, denk je?",
+   "stilte": 3,
+   "generation_id": "NLYYpfMmwTGQo5TNRsXY"
+  },
+  {
+   "id": "h1-2",
+   "tekst": "Ja. Het zit erin, het staat alleen uit.\n\nVeel mensen denken: een zenuwcel heeft eigen zenuwgenen, en een spiercel eigen spiergenen. Maar dat klopt niet. Die genen zitten in allebei. Ze staan alleen ergens aan en ergens uit.\n\nEn dan het belangrijke punt. Veel gedifferentieerde cellen delen zich niet meer, of bijna niet. Een zenuwcel deelt zich niet. Een hartspiercel bijna niet. Denk even na. Wat betekent dat na een hartinfarct?",
+   "stem": "Ja. Het zit erin, het staat alleen uit.\n\nVeel mensen denken: een zenuwcel heeft eigen zenuwgenen, en een spiercel eigen spiergenen. Maar dat klopt niet. Die genen zitten in allebei. Ze staan alleen ergens aan en ergens uit.\n\nEn dan het belangrijke punt. Veel gedifferentieerde cellen delen zich niet meer, of bijna niet. Een zenuwcel deelt zich niet. Een hartspiercel bijna niet. Denk even na. Wat betekent dat na een hartinfarct?",
+   "stilte": 4,
+   "generation_id": "tF1JNk3MWZAwjCpUmnh6"
+  },
+  {
+   "id": "h1-3",
+   "tekst": "Dat de dode hartspiercellen niet worden aangevuld door delingen. Goed voor een stabiel lichaam, slecht nieuws na een infarct.\n\nKort gezegd: alle cellen hebben hetzelfde DNA, maar in elke cel staan andere genen aan.",
+   "stem": "Dat de dode hartspiercellen niet worden aangevuld door delingen. Goed voor een stabiel lichaam, slecht nieuws na een infarct.\n\nKort gezegd: alle cellen hebben hetzelfde deeënaa, maar in elke cel staan andere genen aan.",
+   "stilte": 0,
+   "generation_id": "POIhCRpfH3bjBWJfyRBt"
+  },
+  {
+   "id": "h1b-1",
+   "tekst": "Dit stukje is voor vwo. Wie zet een gen eigenlijk aan?\n\nVlak voor elk gen ligt een stukje DNA: de promotor. Daar binden eiwitten die transcriptiefactoren heten. Pas als ze er zitten, kan RNA-polymerase het gen overschrijven. Een transcriptiefactor is dus een soort lichtschakelaar voor een gen. Elke celsoort heeft zijn eigen combinatie van schakelaars.\n\nWaar binden transcriptiefactoren, denk je: op het gen zelf, of op de promotor ervoor?",
+   "stem": "Dit stukje is voor vwo. Wie zet een gen eigenlijk aan?\n\nVlak voor elk gen ligt een stukje deeënaa: de promotor. Daar binden eiwitten die transcriptsie-factoren heten. Pas als ze er zitten, kan RNA-polymerase het gen overschrijven. Een transcriptsie-factor is dus een soort lichtschakelaar voor een gen. Elke celsoort heeft zijn eigen combinatie van schakelaars.\n\nWaar binden transcriptsie-factoren, denk je: op het gen zelf, of op de promotor ervoor?",
+   "stilte": 3,
+   "generation_id": "oGooiBQ4sewa2TfDuQVs"
+  },
+  {
+   "id": "h1b-2",
+   "tekst": "Op de promotor.\n\nDaarnaast krijgen het DNA, en de eiwitten waar het omheen gewonden zit, chemische markeringen. Die eiwitten heten histonen. Zit er een methylgroep op de promotor, of zit het DNA strak om de histonen, dan wordt het gen niet overgeschreven. Zie het als plakbriefjes in het kookboek: 'niet gebruiken'. En die briefjes blijven zitten, ook na een deling. Zo blijft een huidcel een huidcel. Dit heet epigenetica.",
+   "stem": "Op de promotor.\n\nDaarnaast krijgen het deeënaa, en de eiwitten waar het omheen gewonden zit, chemische markeringen. Die eiwitten heten histonen. Zit er een methylgroep op de promotor, of zit het deeënaa strak om de histonen, dan wordt het gen niet overgeschreven. Zie het als plakbriefjes in het kookboek: 'niet gebruiken'. En die briefjes blijven zitten, ook na een deling. Zo blijft een huidcel een huidcel. Dit heet epigenetica.",
+   "stilte": 0,
+   "generation_id": "34cizBIu8kT6QuDYBVld"
+  },
+  {
+   "id": "h2-1",
+   "tekst": "Deel twee. Cellen die nog kunnen kiezen.\n\nHoe herstelt je huid zich dan wel? Onderin je opperhuid zit de kiemlaag. Daar zitten stamcellen. Een stamcel is nog niet gespecialiseerd, en hij kan zich blijven delen. Bij een deling blijft er meestal één stamcel over. De andere cel schuift omhoog. Onderweg verhoornt hij, en bovenaan is hij dood en schilfert hij af. Een stamcel is dus een cel die de voorraad aanvult en zelf blijft bestaan. In ongeveer vier weken is je opperhuid helemaal nieuw.\n\nNa een deling van een stamcel: hoeveel stamcellen zijn er dan meestal nog?",
+   "stem": "Deel twee. Cellen die nog kunnen kiezen.\n\nHoe herstelt je huid zich dan wel? Onderin je opperhuid zit de kiemlaag. Daar zitten stamcellen. Een stamcel is nog niet gespecialiseerd, en hij kan zich blijven delen. Bij een deling blijft er meestal één stamcel over. De andere cel schuift omhoog. Onderweg verhoornt hij, en bovenaan is hij dood en schilfert hij af. Een stamcel is dus een cel die de voorraad aanvult en zelf blijft bestaan. In ongeveer vier weken is je opperhuid helemaal nieuw.\n\nNa een deling van een stamcel: hoeveel stamcellen zijn er dan meestal nog?",
+   "stilte": 3,
+   "generation_id": "1TPPrxuFpbMmeBRWwy5A"
+  },
+  {
+   "id": "h2-2",
+   "tekst": "Eén. De voorraad blijft op peil.\n\nTerug naar de knie en het hart. In je huid zitten stamcellen die zich blijven delen. In je hartspier zijn zulke stamcellen niet gevonden. En de hartspiercellen zelf vernieuwen heel langzaam: hooguit één procent per jaar.\n\nMisschien dacht je: hartspiercellen zijn gewoon te groot om te delen. Maar een bevruchte eicel is juist een heel grote cel, en die deelt zich wel. Het gaat om specialisatie, niet om grootte.\n\nStamcellen zitten op meer plekken. Ook in je rode beenmerg. Hun dochtercellen delen zich heel snel. Zo maak je elke seconde ongeveer twee miljoen nieuwe rode bloedcellen. In je darm vernieuwen stamcellen de binnenste laag van de wand: elke drie tot vijf dagen is die helemaal nieuw. Zulke volwassen stamcellen maken alleen de celsoorten van hun eigen weefsel. Een bloedstamcel maakt bloedcellen, geen huid.\n\nEn dan is er nog een tweede soort. Een embryo van vijf dagen is een holle bal, met binnenin een klompje cellen. Die cellen kunnen nog elke celsoort van het lichaam worden. Onderzoekers kweken ze in het lab: embryonale stamcellen.\n\nDenk even na. Wat kan een embryonale stamcel wat een volwassen stamcel uit je beenmerg niet kan?",
+   "stem": "Eén. De voorraad blijft op peil.\n\nTerug naar de knie en het hart. In je huid zitten stamcellen die zich blijven delen. In je hartspier zijn zulke stamcellen niet gevonden. En de hartspiercellen zelf vernieuwen heel langzaam: hooguit één procent per jaar.\n\nMisschien dacht je: hartspiercellen zijn gewoon te groot om te delen. Maar een bevruchte eicel is juist een heel grote cel, en die deelt zich wel. Het gaat om specialisatie, niet om grootte.\n\nStamcellen zitten op meer plekken. Ook in je rode beenmerg. Hun dochtercellen delen zich heel snel. Zo maak je elke seconde ongeveer twee miljoen nieuwe rode bloedcellen. In je darm vernieuwen stamcellen de binnenste laag van de wand: elke drie tot vijf dagen is die helemaal nieuw. Zulke volwassen stamcellen maken alleen de celsoorten van hun eigen weefsel. Een bloedstamcel maakt bloedcellen, geen huid.\n\nEn dan is er nog een tweede soort. Een embryo van vijf dagen is een holle bal, met binnenin een klompje cellen. Die cellen kunnen nog elke celsoort van het lichaam worden. Onderzoekers kweken ze in het lab: embryonale stamcellen.\n\nDenk even na. Wat kan een embryonale stamcel wat een volwassen stamcel uit je beenmerg niet kan?",
+   "stilte": 4,
+   "generation_id": "x9LV9sEEpJHaDvVHdxNg"
+  },
+  {
+   "id": "h2-3",
+   "tekst": "Elke celsoort van het lichaam worden. Een volwassen stamcel blijft bij zijn eigen weefsel.\n\nKort gezegd: stamcellen blijven delen en vullen weefsels aan. Volwassen stamcellen maken alleen hun eigen weefsel, embryonale stamcellen kunnen alles worden.",
+   "stem": "Elke celsoort van het lichaam worden. Een volwassen stamcel blijft bij zijn eigen weefsel.\n\nKort gezegd: stamcellen blijven delen en vullen weefsels aan. Volwassen stamcellen maken alleen hun eigen weefsel, embryonale stamcellen kunnen alles worden.",
+   "stilte": 0,
+   "generation_id": "SmogniR221ObciV8SvYn"
+  },
+  {
+   "id": "h3-1",
+   "tekst": "Deel drie. Stamcellen als medicijn.\n\nBij leukemie maakt het beenmerg afwijkende bloedcellen. Die delen zich ongeremd, en verdringen de gezonde cellen. Artsen vernietigen dan het zieke beenmerg met chemo, soms ook met bestraling. Daarna krijgt de patiënt via een infuus bloedstamcellen van een donor. Die zoeken zelf hun weg naar het beenmerg, en maken daar weer gezond bloed.\n\nDe donor moet wel goed passen. Zijn cellen moeten bijna dezelfde herkenningseiwitten hebben. Anders ruimt het afweersysteem ze op, of keren de donorcellen zich juist tegen het lichaam van de patiënt. Daarna heeft het nieuwe bloed het DNA van de donor, zelfs zijn bloedgroep. De huid van de patiënt houdt gewoon zijn eigen DNA.\n\nHier is het belangrijke punt. Kun je met diezelfde bloedstamcellen ook een beschadigd hart herstellen? Denk even na.",
+   "stem": "Deel drie. Stamcellen als medicijn.\n\nBij leukemie maakt het beenmerg afwijkende bloedcellen. Die delen zich ongeremd, en verdringen de gezonde cellen. Artsen vernietigen dan het zieke beenmerg met chemo, soms ook met bestraling. Daarna krijgt de patiënt via een infuus bloedstamcellen van een donor. Die zoeken zelf hun weg naar het beenmerg, en maken daar weer gezond bloed.\n\nDe donor moet wel goed passen. Zijn cellen moeten bijna dezelfde herkenningseiwitten hebben. Anders ruimt het afweersysteem ze op, of keren de donorcellen zich juist tegen het lichaam van de patiënt. Daarna heeft het nieuwe bloed het deeënaa van de donor, zelfs zijn bloedgroep. De huid van de patiënt houdt gewoon zijn eigen deeënaa.\n\nHier is het belangrijke punt. Kun je met diezelfde bloedstamcellen ook een beschadigd hart herstellen? Denk even na.",
+   "stilte": 4,
+   "generation_id": "dkSPHgGEZj1H6ZZX96AQ"
+  },
+  {
+   "id": "h3-2",
+   "tekst": "Nee. Bloedstamcellen kunnen alleen bloedcellen maken. Ze hebben wel alle genen, maar hun keuzes liggen al grotendeels vast. Artsen hebben het geprobeerd: er kwam geen nieuwe hartspier.\n\nIn het lab kan het wel bijna. Onderzoekers kunnen een gewone huidcel terugzetten tot een stamcel. Die kan dan weer bijna elke celsoort worden. Zo'n teruggezette cel heet een geïnduceerde stamcel. Anders gezegd: een gewone cel die weer stamcel is gemaakt. Zo'n cel kan ook hartspiercellen maken.\n\nEn die hartspiercellen kloppen echt. Eén losse cel klopt al, maar in zijn eigen tempo. Leg je veel cellen tegen elkaar, dan geven ze een signaal aan elkaar door. Dan kloppen ze allemaal tegelijk, in één ritme. Dat kan één cel niet. Zo'n nieuwe eigenschap van het geheel heet een emergente eigenschap.\n\nEmbryonale stamcellen roepen vragen op. Om ze te kweken, gaat een embryo verloren. In Nederland gebruiken onderzoekers daarvoor restembryo's van ivf: embryo's die over zijn, en die ouders aan de wetenschap geven. Geïnduceerde stamcellen hebben dat probleem niet. En omdat het je eigen cellen zijn, worden ze in principe niet afgestoten. Maar ze delen zich zo makkelijk, dat er soms tumoren uit ontstaan. Daarom worden ze nu vooral in het lab gebruikt.\n\nLet in zo'n discussie op wat voor argument je geeft. Een biologisch argument gaat over feiten: embryonale stamcellen kunnen nog elke celsoort worden. Een ethisch argument gaat over normen en waarden: een embryo is het begin van een mens.\n\nIs 'een embryo is het begin van een mens, dus dat mag je niet gebruiken' een biologisch of een ethisch argument?",
+   "stem": "Nee. Bloedstamcellen kunnen alleen bloedcellen maken. Ze hebben wel alle genen, maar hun keuzes liggen al grotendeels vast. Artsen hebben het geprobeerd: er kwam geen nieuwe hartspier.\n\nIn het lab kan het wel bijna. Onderzoekers kunnen een gewone huidcel terugzetten tot een stamcel. Die kan dan weer bijna elke celsoort worden. Zo'n teruggezette cel heet een geïnduceerde stamcel. Anders gezegd: een gewone cel die weer stamcel is gemaakt. Zo'n cel kan ook hartspiercellen maken.\n\nEn die hartspiercellen kloppen echt. Eén losse cel klopt al, maar in zijn eigen tempo. Leg je veel cellen tegen elkaar, dan geven ze een signaal aan elkaar door. Dan kloppen ze allemaal tegelijk, in één ritme. Dat kan één cel niet. Zo'n nieuwe eigenschap van het geheel heet een emergente eigenschap.\n\nEmbryonale stamcellen roepen vragen op. Om ze te kweken, gaat een embryo verloren. In Nederland gebruiken onderzoekers daarvoor restembryo's van I-V-F: embryo's die over zijn, en die ouders aan de wetenschap geven. Geïnduceerde stamcellen hebben dat probleem niet. En omdat het je eigen cellen zijn, worden ze in principe niet afgestoten. Maar ze delen zich zo makkelijk, dat er soms tumoren uit ontstaan. Daarom worden ze nu vooral in het lab gebruikt.\n\nLet in zo'n discussie op wat voor argument je geeft. Een biologisch argument gaat over feiten: embryonale stamcellen kunnen nog elke celsoort worden. Een ethisch argument gaat over normen en waarden: een embryo is het begin van een mens.\n\nIs 'een embryo is het begin van een mens, dus dat mag je niet gebruiken' een biologisch of een ethisch argument?",
+   "stilte": 3,
+   "generation_id": "dz574jc8D3oSfQjxgtoA"
+  },
+  {
+   "id": "h3-3",
+   "tekst": "Een ethisch argument. Het gaat over wat mag, niet over wat een cel kan.\n\nKort gezegd: bloedstamcellen redden mensen met leukemie, maar maken geen hart. Geïnduceerde stamcellen kunnen bijna alles worden, maar zijn nog vooral iets voor het lab.",
+   "stem": "Een ethisch argument. Het gaat over wat mag, niet over wat een cel kan.\n\nKort gezegd: bloedstamcellen redden mensen met leukemie, maar maken geen hart. Geïnduceerde stamcellen kunnen bijna alles worden, maar zijn nog vooral iets voor het lab.",
+   "stilte": 0,
+   "generation_id": "CMjCWv46CzT6a3SluUrC"
+  },
+  {
+   "id": "h3b-1",
+   "tekst": "Dit stukje is voor vwo. Biologen geven met één woord aan hoeveel een cel nog kan worden. Vier woorden, van veel naar weinig.\n\nTotipotent: de bevruchte eicel en de eerste cellen daarna. Die kunnen het hele lichaam maken, en ook de placenta. Alles dus.\n\nPluripotent: de cellen van de binnenste celmassa, en embryonale stamcellen. Elke celsoort van het lichaam, maar geen placenta.\n\nMultipotent: volwassen stamcellen. Een paar celsoorten van hun eigen weefsel.\n\nUnipotent: een stamcel in de kiemlaag van je huid. Die maakt maar één soort cel.\n\nDenk even na. Een bloedstamcel uit het beenmerg maakt rode bloedcellen, witte bloedcellen en bloedplaatjes. Welk van de vier woorden past?",
+   "stem": "Dit stukje is voor vwo. Biologen geven met één woord aan hoeveel een cel nog kan worden. Vier woorden, van veel naar weinig.\n\nTotipotent: de bevruchte eicel en de eerste cellen daarna. Die kunnen het hele lichaam maken, en ook de placenta. Alles dus.\n\nPluripotent: de cellen van de binnenste celmassa, en embryonale stamcellen. Elke celsoort van het lichaam, maar geen placenta.\n\nMultipotent: volwassen stamcellen. Een paar celsoorten van hun eigen weefsel.\n\nUnipotent: een stamcel in de kiemlaag van je huid. Die maakt maar één soort cel.\n\nDenk even na. Een bloedstamcel uit het beenmerg maakt rode bloedcellen, witte bloedcellen en bloedplaatjes. Welk van de vier woorden past?",
+   "stilte": 4,
+   "generation_id": "MAQE7VIzeGcZVSYCdQrE"
+  },
+  {
+   "id": "h3b-2",
+   "tekst": "Multipotent. Een paar celsoorten, allemaal van zijn eigen weefsel: bloed.\n\nIn het jaar 2006 zette de Japanse onderzoeker Yamanaka cellen van een muis terug tot stamcellen, met maar vier transcriptiefactoren. Een jaar later lukte het met menselijke cellen. Zo'n teruggezette cel heet een iPS-cel: een geïnduceerde pluripotente stamcel. In het jaar 2012 kreeg Yamanaka daarvoor de Nobelprijs, samen met de Brit John Gurdon.",
+   "stem": "Multipotent. Een paar celsoorten, allemaal van zijn eigen weefsel: bloed.\n\nIn het jaar 2006 zette de Japanse onderzoeker Yamanaka cellen van een muis terug tot stamcellen, met maar vier transcriptsie-factoren. Een jaar later lukte het met menselijke cellen. Zo'n teruggezette cel heet een ie-pee-es-cel: een geïnduceerde pluripotente stamcel. In het jaar 2012 kreeg Yamanaka daarvoor de Nobelprijs, samen met de Brit John Geurdun.",
+   "stilte": 0,
+   "generation_id": "e6N5rPHiEogQoKHvvPhg"
+  },
+  {
+   "id": "h4-1",
+   "tekst": "Terug naar de vraag van het begin. Waarom herstelt je huid wel, en je hartspier bijna niet? Omdat in de kiemlaag van je huid stamcellen zitten die zich blijven delen. In je hartspier zijn zulke stamcellen niet gevonden, en hartspiercellen delen zich bijna niet.\n\nDrie dingen om te onthouden.\nEén: al je lichaamscellen hebben hetzelfde DNA. Door differentiatie staan in elke cel andere genen aan.\nTwee: stamcellen blijven delen en vullen hun weefsel aan. Volwassen stamcellen maken hun eigen weefsel, embryonale stamcellen kunnen alles worden.\nDrie: bloedstamcellen van een donor kunnen leukemie genezen, maar geen hart herstellen.\n\nEn nu jij. Leg in één zin hardop uit waarom een schaafwond wel geneest en een hartinfarct een litteken geeft. Alsof je het vertelt aan iemand die er nog nooit van gehoord heeft.",
+   "stem": "Terug naar de vraag van het begin. Waarom herstelt je huid wel, en je hartspier bijna niet? Omdat in de kiemlaag van je huid stamcellen zitten die zich blijven delen. In je hartspier zijn zulke stamcellen niet gevonden, en hartspiercellen delen zich bijna niet.\n\nDrie dingen om te onthouden.\nEén: al je lichaamscellen hebben hetzelfde deeënaa. Door differentiatie staan in elke cel andere genen aan.\nTwee: stamcellen blijven delen en vullen hun weefsel aan. Volwassen stamcellen maken hun eigen weefsel, embryonale stamcellen kunnen alles worden.\nDrie: bloedstamcellen van een donor kunnen leukemie genezen, maar geen hart herstellen.\n\nEn nu jij. Leg in één zin hardop uit waarom een schaafwond wel geneest en een hartinfarct een litteken geeft. Alsof je het vertelt aan iemand die er nog nooit van gehoord heeft.",
+   "stilte": 4,
+   "generation_id": "vMvutUIs9MLXASYyiOvf"
+  },
+  {
+   "id": "h4-2",
+   "tekst": "Wil je de stamcellen in je huid aan het werk zien? Kijk dan de film Stamcellen.",
+   "stem": "Wil je de stamcellen in je huid aan het werk zien? Kijk dan de film Stamcellen.",
+   "stilte": 0,
+   "generation_id": "ImxBr5X43No5KOwVdqDC"
+  }
+ ],
+ "flow": "https://elevenlabs.io/app/flows/cOEno8gxse8pGyFvDe22"
+}

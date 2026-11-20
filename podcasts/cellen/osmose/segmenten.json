@@ -1,0 +1,226 @@
+{
+ "stem": "Remko",
+ "voice_id": "vjeU1L5RIGPyrwuboFwz",
+ "model": "eleven_v4",
+ "hoofdstukken": [
+  {
+   "nr": "0",
+   "titel": "Opening",
+   "vwo": false,
+   "segmenten": [
+    "h0-1"
+   ],
+   "bestand": "podcasts/cellen/osmose/audio/0-0.mp3",
+   "duur": 44
+  },
+  {
+   "nr": "1",
+   "titel": "De grens: het celmembraan",
+   "vwo": false,
+   "segmenten": [
+    "h1-1",
+    "h1-2",
+    "h1-3"
+   ],
+   "bestand": "podcasts/cellen/osmose/audio/1-1.mp3",
+   "duur": 117
+  },
+  {
+   "nr": "1b",
+   "titel": "Voor vwo: kanalen en dragers",
+   "vwo": true,
+   "segmenten": [
+    "h1b-1",
+    "h1b-2"
+   ],
+   "bestand": "podcasts/cellen/osmose/audio/2-1b.mp3",
+   "duur": 43
+  },
+  {
+   "nr": "2",
+   "titel": "Osmose",
+   "vwo": false,
+   "segmenten": [
+    "h2-1",
+    "h2-2",
+    "h2-3"
+   ],
+   "bestand": "podcasts/cellen/osmose/audio/3-2.mp3",
+   "duur": 131
+  },
+  {
+   "nr": "3",
+   "titel": "Osmose in een cel",
+   "vwo": false,
+   "segmenten": [
+    "h3-1",
+    "h3-2",
+    "h3-3"
+   ],
+   "bestand": "podcasts/cellen/osmose/audio/4-3.mp3",
+   "duur": 125
+  },
+  {
+   "nr": "4",
+   "titel": "Bergop: actief transport",
+   "vwo": false,
+   "segmenten": [
+    "h4-1",
+    "h4-2"
+   ],
+   "bestand": "podcasts/cellen/osmose/audio/5-4.mp3",
+   "duur": 60
+  },
+  {
+   "nr": "4b",
+   "titel": "Voor vwo: de natrium-kaliumpomp",
+   "vwo": true,
+   "segmenten": [
+    "h4b-1",
+    "h4b-2"
+   ],
+   "bestand": "podcasts/cellen/osmose/audio/6-4b.mp3",
+   "duur": 34
+  },
+  {
+   "nr": "5",
+   "titel": "Afsluiting",
+   "vwo": false,
+   "segmenten": [
+    "h5-1",
+    "h5-2"
+   ],
+   "bestand": "podcasts/cellen/osmose/audio/7-5.mp3",
+   "duur": 74
+  }
+ ],
+ "segmenten": [
+  {
+   "id": "h0-1",
+   "tekst": "Strooi zout op plakjes komkommer. Na tien minuten liggen ze in een plasje water. Het zout is niet ergens heen gegaan. Toch is er water uit de komkommer gekomen. Waarom gaat water naar de kant waar het zout is?\n\nEerst kort terug. In de vorige aflevering hoorde je: alle deeltjes bewegen willekeurig. Daardoor verspreiden ze zich vanzelf van een hoge naar een lage concentratie. Dat is diffusie.\n\nVandaag zetten we er een grens tussen: het celmembraan. En dan gebeuren er drie dingen. Eén: het membraan kiest wat erdoor mag. Twee: water gaat op een bijzondere manier op weg, en dat heet osmose. Drie: soms moet een cel iets bergop krijgen, en dat kost energie.",
+   "stem": "Strooi zout op plakjes komkommer. Na tien minuten liggen ze in een plasje water. Het zout is niet ergens heen gegaan. Toch is er water uit de komkommer gekomen. Waarom gaat water naar de kant waar het zout is?\n\nEerst kort terug. In de vorige aflevering hoorde je: alle deeltjes bewegen willekeurig. Daardoor verspreiden ze zich vanzelf van een hoge naar een lage concentratie. Dat is diffusie.\n\nVandaag zetten we er een grens tussen: het celmembraan. En dan gebeuren er drie dingen. Eén: het membraan kiest wat erdoor mag. Twee: water gaat op een bijzondere manier op weg, en dat heet osmose. Drie: soms moet een cel iets bergop krijgen, en dat kost energie.",
+   "stilte": 0,
+   "generation_id": "SlIVJKQ4RHr4hNdKwPW9"
+  },
+  {
+   "id": "h1-1",
+   "tekst": "Deel één. De grens.\n\nOm elke cel zit een celmembraan. Het bestaat uit een dubbele laag vetachtige moleculen. Die moleculen heten fosfolipiden. Elk fosfolipide heeft een kop die van water houdt, en twee staarten die water afstoten. Dat heet hydrofiel en hydrofoob. Hydrofiel betekent: waterlievend. Hydrofoob betekent: waterschuw.\n\nDe koppen liggen naar het water toe, aan de binnenkant en de buitenkant van de cel. De staarten liggen naar binnen, tegen elkaar. Midden in het membraan zit dus een laag vet.\n\nWat ligt er in het midden van het membraan, denk je: de koppen, of de vetstaarten?",
+   "stem": "Deel één. De grens.\n\nOm elke cel zit een celmembraan. Het bestaat uit een dubbele laag vetachtige moleculen. Die moleculen heten fosfolipiden. Elk fosfolipide heeft een kop die van water houdt, en twee staarten die water afstoten. Dat heet hydrofiel en hydrofoob. Hydrofiel betekent: waterlievend. Hydrofoob betekent: waterschuw.\n\nDe koppen liggen naar het water toe, aan de binnenkant en de buitenkant van de cel. De staarten liggen naar binnen, tegen elkaar. Midden in het membraan zit dus een laag vet.\n\nWat ligt er in het midden van het membraan, denk je: de koppen, of de vetstaarten?",
+   "stilte": 3,
+   "generation_id": "LSPEC2PpCBVbzQnnPbvT"
+  },
+  {
+   "id": "h1-2",
+   "tekst": "De vetstaarten. Daar zit de vetlaag.\n\nHet membraan laat sommige stoffen door en andere niet. Het is selectief doorlatend. In je boek: selectief permeabel. Anders gezegd: het membraan is een portier met een gastenlijst. Niet iedereen mag naar binnen.\n\nHier is het belangrijke punt. Veel mensen denken dat het membraan een zeef is, die alleen naar grootte kijkt. Dat klopt niet. Kleine stoffen die goed in vet oplossen, glippen er zo doorheen: zuurstof en koolstofdioxide. Een natriumion is kleiner dan glucose. Maar het heeft een lading, en komt niet door de vetlaag. Glucose ook niet: dat lost slecht op in vet.\n\nDenk even na. Wat bepaalt dus of een stof zelf door het membraan kan: alleen de grootte, of ook iets anders?",
+   "stem": "De vetstaarten. Daar zit de vetlaag.\n\nHet membraan laat sommige stoffen door en andere niet. Het is selectief doorlatend. In je boek: selectief permeabel. Anders gezegd: het membraan is een portier met een gastenlijst. Niet iedereen mag naar binnen.\n\nHier is het belangrijke punt. Veel mensen denken dat het membraan een zeef is, die alleen naar grootte kijkt. Dat klopt niet. Kleine stoffen die goed in vet oplossen, glippen er zo doorheen: zuurstof en koolstofdie-oxide. Een natriumion is kleiner dan glucose. Maar het heeft een lading, en komt niet door de vetlaag. Glucose ook niet: dat lost slecht op in vet.\n\nDenk even na. Wat bepaalt dus of een stof zelf door het membraan kan: alleen de grootte, of ook iets anders?",
+   "stilte": 4,
+   "generation_id": "PiQbCqa0FJHNs0vq3WRl"
+  },
+  {
+   "id": "h1-3",
+   "tekst": "Ook of de stof goed in vet oplost, en of hij een lading heeft. Stoffen die goed in vet oplossen, gaan zelf door het membraan. Stoffen die goed in water oplossen, en ionen, hebben een eiwit in het membraan nodig. Water zelf gaat er wel doorheen: een beetje door de vetlaag, en in veel cellen vooral door speciale kanaaltjes.\n\nKort gezegd: het membraan is een vetlaag met deuren. Wat goed in vet oplost, gaat er zo door. De rest heeft een eiwit nodig.",
+   "stem": "Ook of de stof goed in vet oplost, en of hij een lading heeft. Stoffen die goed in vet oplossen, gaan zelf door het membraan. Stoffen die goed in water oplossen, en ionen, hebben een eiwit in het membraan nodig. Water zelf gaat er wel doorheen: een beetje door de vetlaag, en in veel cellen vooral door speciale kanaaltjes.\n\nKort gezegd: het membraan is een vetlaag met deuren. Wat goed in vet oplost, gaat er zo door. De rest heeft een eiwit nodig.",
+   "stilte": 0,
+   "generation_id": "nFqE5bBjLP248mnUYWJM"
+  },
+  {
+   "id": "h1b-1",
+   "tekst": "Dit stukje is voor vwo.\n\nDie doorgangen in het membraan zijn eiwitten. Er zijn twee soorten. Kanaaleiwitten vormen een tunnel voor één bepaald soort deeltje. Zo zijn er waterkanalen. Dragereiwitten pakken een deeltje vast, zoals glucose, en zetten het aan de andere kant af.\n\nGaat een stof via zo'n eiwit van hoog naar laag, dan heet dat gefaciliteerde diffusie. Gefaciliteerd betekent: geholpen. Het is dus diffusie met een deur erbij.\n\nKost gefaciliteerde diffusie ATP, denk je?",
+   "stem": "Dit stukje is voor vwo.\n\nDie doorgangen in het membraan zijn eiwitten. Er zijn twee soorten. Kanaaleiwitten vormen een tunnel voor één bepaald soort deeltje. Zo zijn er waterkanalen. Dragereiwitten pakken een deeltje vast, zoals glucose, en zetten het aan de andere kant af.\n\nGaat een stof via zo'n eiwit van hoog naar laag, dan heet dat gefaciliteerde diffusie. Gefaciliteerd betekent: geholpen. Het is dus diffusie met een deur erbij.\n\nKost gefaciliteerde diffusie ATP, denk je?",
+   "stilte": 3,
+   "generation_id": "uC6QtHqBQfBiXVAVahgl"
+  },
+  {
+   "id": "h1b-2",
+   "tekst": "Nee. Het eiwit is alleen een doorgang. De beweging komt nog steeds van het willekeurige rondschieten van de deeltjes.",
+   "stem": "Nee. Het eiwit is alleen een doorgang. De beweging komt nog steeds van het willekeurige rondschieten van de deeltjes.",
+   "stilte": 0,
+   "generation_id": "ctGpGi40eXSnoWz57KOS"
+  },
+  {
+   "id": "h2-1",
+   "tekst": "Deel twee. Osmose.\n\nStel je een membraan voor dat water doorlaat, maar zout niet. Zo'n membraan heet semipermeabel. Anders gezegd: half doorlatend. Water mag erdoor, het zout niet.\n\nAan de ene kant zuiver water. Aan de andere kant zout water. Het zout kan er niet door. Wat gebeurt er dan met het water?\n\nHet water gaat naar de zoute kant. Maar waarom? Je hoort vaak: het zout trekt water aan. Maar zout trekt niet. Wat gebeurt er dan wel? Het werkt in twee stappen.\n\nStap één. Aan de zoute kant botsen zoutdeeltjes tegen het membraan. Ze kunnen er niet door, en kaatsen terug. Bij dat terugkaatsen geven ze het water om hen heen een duw, weg van het gaatje in het membraan. Daardoor is de druk bij het gaatje aan de zoute kant lager.\n\nStap twee. Aan de kant van het zuivere water duwt het water harder. Dus stroomt het water door het gaatje naar de zoute kant, als door een rietje.\n\nDat heet osmose. Osmose is de verplaatsing van water door een semipermeabel membraan, naar de kant met de hoogste concentratie opgeloste deeltjes die er niet door kunnen. Op een toets schrijf je: water gaat naar de kant met de hoogste osmotische waarde. Anders gezegd: de osmotische waarde zegt hoeveel opgeloste deeltjes er zijn. Water gaat naar de kant met de meeste.\n\nNaar welke kant gaat water bij osmose, denk je: naar de kant met de laagste, of met de hoogste osmotische waarde?",
+   "stem": "Deel twee. Osmose.\n\nStel je een membraan voor dat water doorlaat, maar zout niet. Zo'n membraan heet semi-permeabel. Anders gezegd: half doorlatend. Water mag erdoor, het zout niet.\n\nAan de ene kant zuiver water. Aan de andere kant zout water. Het zout kan er niet door. Wat gebeurt er dan met het water?\n\nHet water gaat naar de zoute kant. Maar waarom? Je hoort vaak: het zout trekt water aan. Maar zout trekt niet. Wat gebeurt er dan wel? Het werkt in twee stappen.\n\nStap één. Aan de zoute kant botsen zoutdeeltjes tegen het membraan. Ze kunnen er niet door, en kaatsen terug. Bij dat terugkaatsen geven ze het water om hen heen een duw, weg van het gaatje in het membraan. Daardoor is de druk bij het gaatje aan de zoute kant lager.\n\nStap twee. Aan de kant van het zuivere water duwt het water harder. Dus stroomt het water door het gaatje naar de zoute kant, als door een rietje.\n\nDat heet osmose. Osmose is de verplaatsing van water door een semi-permeabel membraan, naar de kant met de hoogste concentratie opgeloste deeltjes die er niet door kunnen. Op een toets schrijf je: water gaat naar de kant met de hoogste osmotische waarde. Anders gezegd: de osmotische waarde zegt hoeveel opgeloste deeltjes er zijn. Water gaat naar de kant met de meeste.\n\nNaar welke kant gaat water bij osmose, denk je: naar de kant met de laagste, of met de hoogste osmotische waarde?",
+   "stilte": 3,
+   "generation_id": "C788X72rEaWV9zBf7nOY"
+  },
+  {
+   "id": "h2-2",
+   "tekst": "Naar de kant met de hoogste osmotische waarde.\n\nTel daarbij deeltjes, geen moleculen. Keukenzout valt in water uiteen in twee ionen: natrium en chloride. Glucose blijft heel. Eén mol zout per liter geeft dus twee mol deeltjes. Eén mol glucose per liter geeft er maar één.\n\nDenk even na. Een zoutoplossing en een glucoseoplossing hebben allebei één mol per liter. Welke heeft de hoogste osmotische waarde?",
+   "stem": "Naar de kant met de hoogste osmotische waarde.\n\nTel daarbij deeltjes, geen moleculen. Keukenzout valt in water uiteen in twee ionen: natrium en chloride. Glucose blijft heel. Eén mol zout per liter geeft dus twee mol deeltjes. Eén mol glucose per liter geeft er maar één.\n\nDenk even na. Een zoutoplossing en een glucoseoplossing hebben allebei één mol per liter. Welke heeft de hoogste osmotische waarde?",
+   "stilte": 4,
+   "generation_id": "8iRRIvNnSeh2qJbPkWWj"
+  },
+  {
+   "id": "h2-3",
+   "tekst": "De zoutoplossing. Zout geeft twee deeltjes per molecuul, dus twee keer zo'n hoge osmotische waarde.\n\nKort gezegd: bij osmose stroomt water door een semipermeabel membraan naar de kant met de hoogste osmotische waarde.",
+   "stem": "De zoutoplossing. Zout geeft twee deeltjes per molecuul, dus twee keer zo'n hoge osmotische waarde.\n\nKort gezegd: bij osmose stroomt water door een semi-permeabel membraan naar de kant met de hoogste osmotische waarde.",
+   "stilte": 0,
+   "generation_id": "5SXBVp1uKPzoNqcfKMCy"
+  },
+  {
+   "id": "h3-1",
+   "tekst": "Deel drie. Osmose in een cel.\n\nZet een plantencel in zout water. Buiten de cel is de osmotische waarde dan hoger. Water gaat de cel uit. De vacuole krimpt, en het celmembraan laat los van de celwand. Dat heet plasmolyse. Anders gezegd: de binnenkant van de cel krimpt weg uit zijn stevige doos.\n\nZet de plantencel in zuiver water. Dan gaat er water de cel in. De cel zwelt en drukt tegen de celwand, en de wand duwt terug. Die druk in de cel heet turgor. Anders gezegd: turgor is de spanning die een plant stevig maakt, zoals lucht een fietsband stevig maakt.\n\nWat gebeurt er met een plant zonder turgor, denk je?",
+   "stem": "Deel drie. Osmose in een cel.\n\nZet een plantencel in zout water. Buiten de cel is de osmotische waarde dan hoger. Water gaat de cel uit. De vacuole krimpt, en het celmembraan laat los van de celwand. Dat heet plasmolieze. Anders gezegd: de binnenkant van de cel krimpt weg uit zijn stevige doos.\n\nZet de plantencel in zuiver water. Dan gaat er water de cel in. De cel zwelt en drukt tegen de celwand, en de wand duwt terug. Die druk in de cel heet turgor. Anders gezegd: turgor is de spanning die een plant stevig maakt, zoals lucht een fietsband stevig maakt.\n\nWat gebeurt er met een plant zonder turgor, denk je?",
+   "stilte": 3,
+   "generation_id": "KFR07tLHepF0sfv7RnW5"
+  },
+  {
+   "id": "h3-2",
+   "tekst": "Hij wordt slap. Zo'n plant laat zijn blaadjes hangen. Een plantencel barst niet, want de celwand duwt terug.\n\nTerug naar de komkommer. Na het zout liggen de plakjes in een plasje. Het water komt uit de cellen. Buiten de cellen is de osmotische waarde nu hoger dan in het celvocht. De plakjes worden slap.\n\nEen rode bloedcel heeft geen celwand. Denk even na. Wat gebeurt er met een rode bloedcel in zuiver water?",
+   "stem": "Hij wordt slap. Zo'n plant laat zijn blaadjes hangen. Een plantencel barst niet, want de celwand duwt terug.\n\nTerug naar de komkommer. Na het zout liggen de plakjes in een plasje. Het water komt uit de cellen. Buiten de cellen is de osmotische waarde nu hoger dan in het celvocht. De plakjes worden slap.\n\nEen rode bloedcel heeft geen celwand. Denk even na. Wat gebeurt er met een rode bloedcel in zuiver water?",
+   "stilte": 4,
+   "generation_id": "yi8qt6GiJRTyCio0Pilb"
+  },
+  {
+   "id": "h3-3",
+   "tekst": "Hij zwelt op en barst. Er is geen wand die terugduwt. Dat barsten heet hemolyse. In zout water krimpt een rode bloedcel juist, en wordt hij gekarteld.\n\nDaar zijn drie woorden voor. Een oplossing met dezelfde osmotische waarde als de cel heet isotonisch. Er gaat netto geen water in of uit. Een oplossing met een lagere osmotische waarde heet hypotonisch. Water gaat de cel in. Een oplossing met een hogere osmotische waarde heet hypertonisch. Water gaat de cel uit.\n\nDaarom krijg je in het ziekenhuis een infuus met zout water: negen gram zout per liter. Dat is ongeveer even zout als je bloed, dus isotonisch. Zuiver water in je bloed zou je rode bloedcellen laten barsten.\n\nKort gezegd: in zout water verliest een cel water, in zuiver water neemt hij water op. Een plantencel blijft heel dankzij de celwand, een rode bloedcel niet.",
+   "stem": "Hij zwelt op en barst. Er is geen wand die terugduwt. Dat barsten heet heemolieze. In zout water krimpt een rode bloedcel juist, en wordt hij gekarteld.\n\nDaar zijn drie woorden voor. Een oplossing met dezelfde osmotische waarde als de cel heet isotonisch. Er gaat netto geen water in of uit. Een oplossing met een lagere osmotische waarde heet hiepotonisch. Water gaat de cel in. Een oplossing met een hogere osmotische waarde heet hiepertonisch. Water gaat de cel uit.\n\nDaarom krijg je in het ziekenhuis een infuus met zout water: negen gram zout per liter. Dat is ongeveer even zout als je bloed, dus isotonisch. Zuiver water in je bloed zou je rode bloedcellen laten barsten.\n\nKort gezegd: in zout water verliest een cel water, in zuiver water neemt hij water op. Een plantencel blijft heel dankzij de celwand, een rode bloedcel niet.",
+   "stilte": 0,
+   "generation_id": "TgTYRlh6aMnKEcpLzBSg"
+  },
+  {
+   "id": "h4-1",
+   "tekst": "Deel vier. Bergop.\n\nAlles tot nu toe ging vanzelf, zonder dat de cel er energie voor gebruikte. Dat heet passief transport. Diffusie en osmose zijn allebei passief.\n\nMaar een wortelhaarcel neemt mineralen op uit de grond, terwijl er in de cel al meer zit dan erbuiten. Dat gaat tegen het concentratieverschil in. Hoe kan dat?\n\nMet een pomp. Een eiwit in het membraan pakt de deeltjes vast, en brengt ze tegen het concentratieverschil in naar binnen. Dat kost energie, in de vorm van ATP. Dat heet actief transport. Anders gezegd: actief transport is fietsen tegen de helling op. Dat gaat niet vanzelf, je moet trappen.\n\nWat gebeurt er als een cel geen ATP meer heeft, denk je?",
+   "stem": "Deel vier. Bergop.\n\nAlles tot nu toe ging vanzelf, zonder dat de cel er energie voor gebruikte. Dat heet passief transport. Diffusie en osmose zijn allebei passief.\n\nMaar een wortelhaarcel neemt mineralen op uit de grond, terwijl er in de cel al meer zit dan erbuiten. Dat gaat tegen het concentratieverschil in. Hoe kan dat?\n\nMet een pomp. Een eiwit in het membraan pakt de deeltjes vast, en brengt ze tegen het concentratieverschil in naar binnen. Dat kost energie, in de vorm van ATP. Dat heet actief transport. Anders gezegd: actief transport is fietsen tegen de helling op. Dat gaat niet vanzelf, je moet trappen.\n\nWat gebeurt er als een cel geen ATP meer heeft, denk je?",
+   "stilte": 3,
+   "generation_id": "AU4PlLTTRVsDm7FIlef7"
+  },
+  {
+   "id": "h4-2",
+   "tekst": "Dan staat de pomp stil. En de deeltjes lekken langzaam weer naar buiten, van hoog naar laag.\n\nKort gezegd: passief transport gaat vanzelf, van hoog naar laag. Actief transport gaat bergop, en kost ATP.",
+   "stem": "Dan staat de pomp stil. En de deeltjes lekken langzaam weer naar buiten, van hoog naar laag.\n\nKort gezegd: passief transport gaat vanzelf, van hoog naar laag. Actief transport gaat bergop, en kost ATP.",
+   "stilte": 0,
+   "generation_id": "vLnIK33VJgW9nXt8gQJj"
+  },
+  {
+   "id": "h4b-1",
+   "tekst": "Dit stukje is voor vwo.\n\nHet bekendste voorbeeld van actief transport is de natrium-kaliumpomp. Die zit in al je cellen. Hij pompt natrium naar buiten en kalium naar binnen, en gebruikt daar steeds ATP voor. Per keer gaan er drie natriumionen naar buiten en twee kaliumionen naar binnen.\n\nWelke kant op pompt hij natrium, denk je: naar binnen, of naar buiten?",
+   "stem": "Dit stukje is voor vwo.\n\nHet bekendste voorbeeld van actief transport is de natrium-kaliumpomp. Die zit in al je cellen. Hij pompt natrium naar buiten en kalium naar binnen, en gebruikt daar steeds ATP voor. Per keer gaan er drie natriumionen naar buiten en twee kaliumionen naar binnen.\n\nWelke kant op pompt hij natrium, denk je: naar binnen, of naar buiten?",
+   "stilte": 3,
+   "generation_id": "v9rG6Z35Jyl5qlLMUf37"
+  },
+  {
+   "id": "h4b-2",
+   "tekst": "Naar buiten. Kalium gaat naar binnen. Je komt deze pomp weer tegen bij zenuwimpulsen.",
+   "stem": "Naar buiten. Kalium gaat naar binnen. Je komt deze pomp weer tegen bij zenuwimpulsen.",
+   "stilte": 0,
+   "generation_id": "5rbvk3ka2flmKZP8jgUn"
+  },
+  {
+   "id": "h5-1",
+   "tekst": "Terug naar de komkommer. Waarom gaat water naar de kant met het zout? Het zout kan niet door het membraan, en kaatst terug. Daardoor wordt de druk bij de gaatjes aan de zoute kant lager, en stroomt het water daarheen. Dat is osmose: naar de kant met de hoogste osmotische waarde.\n\nDrie dingen om te onthouden.\nEén: het celmembraan is selectief doorlatend. Wat goed in vet oplost, gaat er zelf door. Ionen en stoffen die goed in water oplossen, hebben een eiwit nodig.\nTwee: bij osmose gaat water door een semipermeabel membraan naar de kant met de hoogste osmotische waarde.\nDrie: passief transport gaat vanzelf, van hoog naar laag. Actief transport gaat bergop en kost ATP.\n\nEn nu jij. Je zit in een bootje op zee en je hebt dorst. Leg hardop uit waarom je geen zeewater mag drinken. Gebruik het woord osmose.",
+   "stem": "Terug naar de komkommer. Waarom gaat water naar de kant met het zout? Het zout kan niet door het membraan, en kaatst terug. Daardoor wordt de druk bij de gaatjes aan de zoute kant lager, en stroomt het water daarheen. Dat is osmose: naar de kant met de hoogste osmotische waarde.\n\nDrie dingen om te onthouden.\nEén: het celmembraan is selectief doorlatend. Wat goed in vet oplost, gaat er zelf door. Ionen en stoffen die goed in water oplossen, hebben een eiwit nodig.\nTwee: bij osmose gaat water door een semi-permeabel membraan naar de kant met de hoogste osmotische waarde.\nDrie: passief transport gaat vanzelf, van hoog naar laag. Actief transport gaat bergop en kost ATP.\n\nEn nu jij. Je zit in een bootje op zee en je hebt dorst. Leg hardop uit waarom je geen zeewater mag drinken. Gebruik het woord osmose.",
+   "stilte": 4,
+   "generation_id": "jv3fwLMVx8z62kDMQ5b2"
+  },
+  {
+   "id": "h5-2",
+   "tekst": "Zeewater is ongeveer vier keer zo zout als je bloed. Je nieren kunnen geen plas maken die zo zout is. Om het zout kwijt te raken, plas je meer water uit dan je dronk. Je bloed wordt zouter, en je cellen verliezen water door osmose.\n\nWil je het water door het membraan zien stromen? Kijk dan de film Diffusie en osmose.",
+   "stem": "Zeewater is ongeveer vier keer zo zout als je bloed. Je nieren kunnen geen plas maken die zo zout is. Om het zout kwijt te raken, plas je meer water uit dan je dronk. Je bloed wordt zouter, en je cellen verliezen water door osmose.\n\nWil je het water door het membraan zien stromen? Kijk dan de film Diffusie en osmose.",
+   "stilte": 0,
+   "generation_id": "QgFnRnJ7MqGIhnAIVJjO"
+  }
+ ],
+ "flow": "https://elevenlabs.io/app/flows/cOEno8gxse8pGyFvDe22"
+}

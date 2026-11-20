@@ -1,0 +1,151 @@
+{
+ "stem": "Remko",
+ "voice_id": "vjeU1L5RIGPyrwuboFwz",
+ "model": "eleven_v4",
+ "hoofdstukken": [
+  {
+   "nr": "0",
+   "titel": "Opening",
+   "vwo": false,
+   "segmenten": [
+    "h0-1"
+   ],
+   "bestand": "podcasts/cellen/diffusie/audio/0-0.mp3",
+   "duur": 31
+  },
+  {
+   "nr": "1",
+   "titel": "Alles beweegt",
+   "vwo": false,
+   "segmenten": [
+    "h1-1",
+    "h1-2"
+   ],
+   "bestand": "podcasts/cellen/diffusie/audio/1-1.mp3",
+   "duur": 70
+  },
+  {
+   "nr": "2",
+   "titel": "Van veel naar weinig",
+   "vwo": false,
+   "segmenten": [
+    "h2-1",
+    "h2-2",
+    "h2-3",
+    "h2-4"
+   ],
+   "bestand": "podcasts/cellen/diffusie/audio/2-2.mp3",
+   "duur": 123
+  },
+  {
+   "nr": "3",
+   "titel": "Wat maakt het sneller?",
+   "vwo": false,
+   "segmenten": [
+    "h3-1",
+    "h3-2",
+    "h3-3"
+   ],
+   "bestand": "podcasts/cellen/diffusie/audio/3-3.mp3",
+   "duur": 101
+  },
+  {
+   "nr": "4",
+   "titel": "Afsluiting",
+   "vwo": false,
+   "segmenten": [
+    "h4-1",
+    "h4-2"
+   ],
+   "bestand": "podcasts/cellen/diffusie/audio/4-4.mp3",
+   "duur": 63
+  }
+ ],
+ "segmenten": [
+  {
+   "id": "h0-1",
+   "tekst": "Een glas stil water. Je laat er één druppel kleurstof in vallen. Na een uur zie je een gekleurde wolk. En uiteindelijk is het hele glas egaal gekleurd. Niemand heeft geroerd. Hoe komt de kleurstof dan overal?\n\nDat is geen trucje. Het is een mechanisme, en het zit overal in je lichaam. We pakken het aan in drie stappen. Eén: alles beweegt. Twee: van veel naar weinig. Drie: wat het sneller maakt, en waarom dat voor je longen zo belangrijk is.",
+   "stem": "Een glas stil water. Je laat er één druppel kleurstof in vallen. Na een uur zie je een gekleurde wolk. En uiteindelijk is het hele glas egaal gekleurd. Niemand heeft geroerd. Hoe komt de kleurstof dan overal?\n\nDat is geen trucje. Het is een mechanisme, en het zit overal in je lichaam. We pakken het aan in drie stappen. Eén: alles beweegt. Twee: van veel naar weinig. Drie: wat het sneller maakt, en waarom dat voor je longen zo belangrijk is.",
+   "stilte": 0,
+   "generation_id": "gd0kdSbF9xMfzJPRoxTl"
+  },
+  {
+   "id": "h1-1",
+   "tekst": "Deel één. Alles beweegt.\n\nZoom in op het water. Het zit vol deeltjes, en die staan nooit stil. Elk deeltje schiet een stukje op, botst, en schiet een andere kant op. Biljoenen keren per seconde.\n\nVolg er in gedachten één. Hij gaat alle kanten op, zonder plan. Een stukje naar voren, een stukje terug, een stukje opzij. Zo'n beweging zonder richting heet willekeurig. Anders gezegd: het deeltje dwaalt rond, zoals iemand die geblinddoekt door een drukke zaal loopt en steeds tegen anderen opbotst.\n\nHeeft zo'n deeltje een richting waar het naartoe wil, denk je? Ja, of nee?",
+   "stem": "Deel één. Alles beweegt.\n\nZoom in op het water. Het zit vol deeltjes, en die staan nooit stil. Elk deeltje schiet een stukje op, botst, en schiet een andere kant op. Biljoenen keren per seconde.\n\nVolg er in gedachten één. Hij gaat alle kanten op, zonder plan. Een stukje naar voren, een stukje terug, een stukje opzij. Zo'n beweging zonder richting heet willekeurig. Anders gezegd: het deeltje dwaalt rond, zoals iemand die geblinddoekt door een drukke zaal loopt en steeds tegen anderen opbotst.\n\nHeeft zo'n deeltje een richting waar het naartoe wil, denk je? Ja, of nee?",
+   "stilte": 3,
+   "generation_id": "ecd5dkVvphRNQz6XBmbC"
+  },
+  {
+   "id": "h1-2",
+   "tekst": "Nee. Het wil nergens heen. Het wordt alle kanten op gestoten door watermoleculen.\n\nVeel mensen denken dat de kleurstofdeeltjes elkaar wegduwen, omdat ze ruimte zoeken. Dat klopt niet. Ze duwen elkaar niet weg. Niemand stuurt ze ergens heen. Ze dwalen gewoon rond.\n\nEn hoe warmer het water, hoe sneller ze bewegen. Dat ken je van thee. In heet water kleurt een theezakje veel sneller dan in koud water.\n\nKort gezegd: alle deeltjes bewegen, de hele tijd, willekeurig. En hoe warmer, hoe sneller.",
+   "stem": "Nee. Het wil nergens heen. Het wordt alle kanten op gestoten door watermoleculen.\n\nVeel mensen denken dat de kleurstofdeeltjes elkaar wegduwen, omdat ze ruimte zoeken. Dat klopt niet. Ze duwen elkaar niet weg. Niemand stuurt ze ergens heen. Ze dwalen gewoon rond.\n\nEn hoe warmer het water, hoe sneller ze bewegen. Dat ken je van thee. In heet water kleurt een theezakje veel sneller dan in koud water.\n\nKort gezegd: alle deeltjes bewegen, de hele tijd, willekeurig. En hoe warmer, hoe sneller.",
+   "stilte": 0,
+   "generation_id": "6RscoFJWpYc3u9vE4LBA"
+  },
+  {
+   "id": "h2-1",
+   "tekst": "Deel twee. Van veel naar weinig.\n\nStel je een bak water voor met een denkbeeldige streep in het midden. Links doe je veel kleurstof, rechts niets.\n\nHier is het belangrijke punt. Elk deeltje dwaalt willekeurig. Links zijn er veel, dus steken er links veel toevallig de streep over naar rechts. Rechts zijn er weinig, dus gaan er maar weinig terug. Eén deeltje weet niet dat het rechts leger is. Het gaat net zo vaak naar links als naar rechts. Maar omdat links veel meer deeltjes zijn, gaan er netto meer van links naar rechts.\n\nDat heet diffusie. Diffusie is de netto verplaatsing van deeltjes van een hoge naar een lage concentratie. Anders gezegd: deeltjes verspreiden zich vanzelf van een drukke plek naar een rustige plek, zonder dat iemand ze stuurt. Zo trekt ook de geur van parfum door een kamer, terwijl niemand blaast.\n\nKost diffusie energie, denk je? Of gaat het vanzelf?",
+   "stem": "Deel twee. Van veel naar weinig.\n\nStel je een bak water voor met een denkbeeldige streep in het midden. Links doe je veel kleurstof, rechts niets.\n\nHier is het belangrijke punt. Elk deeltje dwaalt willekeurig. Links zijn er veel, dus steken er links veel toevallig de streep over naar rechts. Rechts zijn er weinig, dus gaan er maar weinig terug. Eén deeltje weet niet dat het rechts leger is. Het gaat net zo vaak naar links als naar rechts. Maar omdat links veel meer deeltjes zijn, gaan er netto meer van links naar rechts.\n\nDat heet diffusie. Diffusie is de netto verplaatsing van deeltjes van een hoge naar een lage concentratie. Anders gezegd: deeltjes verspreiden zich vanzelf van een drukke plek naar een rustige plek, zonder dat iemand ze stuurt. Zo trekt ook de geur van parfum door een kamer, terwijl niemand blaast.\n\nKost diffusie energie, denk je? Of gaat het vanzelf?",
+   "stilte": 3,
+   "generation_id": "StXLrHLRr4cUQHaHI5M1"
+  },
+  {
+   "id": "h2-2",
+   "tekst": "Het gaat vanzelf. Het komt alleen van het rondschieten van de deeltjes.\n\nHet verschil in concentratie tussen links en rechts heet het concentratieverschil. In je boek heet dat soms de concentratiegradiënt. Anders gezegd: de concentratiegradiënt is hoe groot het hoogteverschil is tussen vol en leeg.\n\nWat gebeurt er met de netto stroom als het verschil kleiner wordt: meer, of minder?",
+   "stem": "Het gaat vanzelf. Het komt alleen van het rondschieten van de deeltjes.\n\nHet verschil in concentratie tussen links en rechts heet het concentratieverschil. In je boek heet dat soms de concentratiegradiënt. Anders gezegd: de concentratiegradiënt is hoe groot het hoogteverschil is tussen vol en leeg.\n\nWat gebeurt er met de netto stroom als het verschil kleiner wordt: meer, of minder?",
+   "stilte": 3,
+   "generation_id": "EdE9CFH8ofss61iPunbq"
+  },
+  {
+   "id": "h2-3",
+   "tekst": "Minder. Het verschil wordt kleiner, en de netto stroom ook. Tot links en rechts evenveel hebben.\n\nDenk even na. Links en rechts hebben nu evenveel kleurstof. Staan de deeltjes dan stil?",
+   "stem": "Minder. Het verschil wordt kleiner, en de netto stroom ook. Tot links en rechts evenveel hebben.\n\nDenk even na. Links en rechts hebben nu evenveel kleurstof. Staan de deeltjes dan stil?",
+   "stilte": 4,
+   "generation_id": "e6SmUwur0ZXXwXyeuFpl"
+  },
+  {
+   "id": "h2-4",
+   "tekst": "Nee. Ze bewegen gewoon door. Een deeltje gaat nog steeds heen en weer. Maar er gaan nu evenveel van links naar rechts als terug. Netto nul. Dat heet evenwicht. Evenwicht betekent dus niet: stilstand. Het betekent: evenveel heen als terug.\n\nKort gezegd: diffusie is een netto stroom van hoog naar laag. Die gaat door tot er evenwicht is. En ook dan bewegen de deeltjes nog.",
+   "stem": "Nee. Ze bewegen gewoon door. Een deeltje gaat nog steeds heen en weer. Maar er gaan nu evenveel van links naar rechts als terug. Netto nul. Dat heet evenwicht. Evenwicht betekent dus niet: stilstand. Het betekent: evenveel heen als terug.\n\nKort gezegd: diffusie is een netto stroom van hoog naar laag. Die gaat door tot er evenwicht is. En ook dan bewegen de deeltjes nog.",
+   "stilte": 0,
+   "generation_id": "PwJdJRC3a5O4Suan5aZn"
+  },
+  {
+   "id": "h3-1",
+   "tekst": "Deel drie. Wat maakt diffusie sneller? Er zijn vier knoppen.\n\nKnop één: de temperatuur. Warmer betekent snellere deeltjes, dus snellere diffusie.\n\nKnop twee: het concentratieverschil. Een groter verschil betekent dat er netto meer deeltjes oversteken.\n\nKnop drie: het oppervlak. Een groter oppervlak betekent meer plek waar deeltjes kunnen oversteken.\n\nKnop vier: de afstand. Diffusie is snel over korte afstanden, en traag over lange.\n\nDenk even na. Een cel wordt twee keer zo dik. Duurt het dan twee keer zo lang voordat zuurstof het midden bereikt? Of langer?",
+   "stem": "Deel drie. Wat maakt diffusie sneller? Er zijn vier knoppen.\n\nKnop één: de temperatuur. Warmer betekent snellere deeltjes, dus snellere diffusie.\n\nKnop twee: het concentratieverschil. Een groter verschil betekent dat er netto meer deeltjes oversteken.\n\nKnop drie: het oppervlak. Een groter oppervlak betekent meer plek waar deeltjes kunnen oversteken.\n\nKnop vier: de afstand. Diffusie is snel over korte afstanden, en traag over lange.\n\nDenk even na. Een cel wordt twee keer zo dik. Duurt het dan twee keer zo lang voordat zuurstof het midden bereikt? Of langer?",
+   "stilte": 4,
+   "generation_id": "u59QpAgt95o7z2xZXSZV"
+  },
+  {
+   "id": "h3-2",
+   "tekst": "Langer. Ongeveer vier keer zo lang. Een deeltje dwaalt heen en weer, en komt dus maar langzaam vooruit. Hoe verder het moet, hoe trager het opschiet. Zuurstof komt in een paar honderdste seconde door een cel. Maar over een centimeter duurt het uren.\n\nDaarom zijn cellen klein. En daarom zijn je longen zo gebouwd. Ze gebruiken drie van de vier knoppen tegelijk. De wand van een longblaasje is flinterdun, dus de afstand is kort. Je hebt honderden miljoenen longblaasjes, samen minstens zo groot als een badmintonveld. Dat is een groot oppervlak. En het bloed voert de zuurstof steeds weer af, dus het concentratieverschil blijft groot.\n\nZuurstof gaat zo het bloed in, en koolstofdioxide gaat eruit. Allebei door diffusie.\n\nWelke knop gebruiken je longen niet, denk je?",
+   "stem": "Langer. Ongeveer vier keer zo lang. Een deeltje dwaalt heen en weer, en komt dus maar langzaam vooruit. Hoe verder het moet, hoe trager het opschiet. Zuurstof komt in een paar honderdste seconde door een cel. Maar over een centimeter duurt het uren.\n\nDaarom zijn cellen klein. En daarom zijn je longen zo gebouwd. Ze gebruiken drie van de vier knoppen tegelijk. De wand van een longblaasje is flinterdun, dus de afstand is kort. Je hebt honderden miljoenen longblaasjes, samen minstens zo groot als een badmintonveld. Dat is een groot oppervlak. En het bloed voert de zuurstof steeds weer af, dus het concentratieverschil blijft groot.\n\nZuurstof gaat zo het bloed in, en koolstofdie-oxide gaat eruit. Allebei door diffusie.\n\nWelke knop gebruiken je longen niet, denk je?",
+   "stilte": 3,
+   "generation_id": "ZWDYkPAs6J3b0XTkXBni"
+  },
+  {
+   "id": "h3-3",
+   "tekst": "De temperatuur. Die is in je lichaam altijd ongeveer gelijk.\n\nKort gezegd: diffusie gaat sneller bij een hogere temperatuur, een groter concentratieverschil, een groter oppervlak en een kortere afstand.",
+   "stem": "De temperatuur. Die is in je lichaam altijd ongeveer gelijk.\n\nKort gezegd: diffusie gaat sneller bij een hogere temperatuur, een groter concentratieverschil, een groter oppervlak en een kortere afstand.",
+   "stilte": 0,
+   "generation_id": "7pwmpdoz10CwvSJHvd9k"
+  },
+  {
+   "id": "h4-1",
+   "tekst": "Terug naar het glas water. Waarom wordt het hele glas gekleurd, terwijl niemand roert? Omdat alle deeltjes willekeurig bewegen. Waar er veel zijn, steken er veel over. Waar er weinig zijn, komen er weinig terug. Zo verspreidt de kleurstof zich vanzelf.\n\nDrie dingen om te onthouden.\nEén: diffusie is de netto verplaatsing van deeltjes van een hoge naar een lage concentratie, zonder energie van de cel.\nTwee: bij evenwicht bewegen de deeltjes nog steeds, maar gaan er evenveel heen als terug.\nDrie: diffusie gaat sneller bij een hogere temperatuur, een groter concentratieverschil, een groter oppervlak en een kortere afstand.\n\nEn nu jij. Leg in één zin hardop uit waarom een druppel kleurstof zich door een glas water verspreidt. Alsof je het vertelt aan iemand die er nog nooit van gehoord heeft.",
+   "stem": "Terug naar het glas water. Waarom wordt het hele glas gekleurd, terwijl niemand roert? Omdat alle deeltjes willekeurig bewegen. Waar er veel zijn, steken er veel over. Waar er weinig zijn, komen er weinig terug. Zo verspreidt de kleurstof zich vanzelf.\n\nDrie dingen om te onthouden.\nEén: diffusie is de netto verplaatsing van deeltjes van een hoge naar een lage concentratie, zonder energie van de cel.\nTwee: bij evenwicht bewegen de deeltjes nog steeds, maar gaan er evenveel heen als terug.\nDrie: diffusie gaat sneller bij een hogere temperatuur, een groter concentratieverschil, een groter oppervlak en een kortere afstand.\n\nEn nu jij. Leg in één zin hardop uit waarom een druppel kleurstof zich door een glas water verspreidt. Alsof je het vertelt aan iemand die er nog nooit van gehoord heeft.",
+   "stilte": 4,
+   "generation_id": "gqjwK5gLG8hhGxk4UluT"
+  },
+  {
+   "id": "h4-2",
+   "tekst": "Wil je de deeltjes zien rondschieten? Kijk dan de film Diffusie en osmose. In de volgende podcast hoor je wat er gebeurt als er een membraan in de weg zit.",
+   "stem": "Wil je de deeltjes zien rondschieten? Kijk dan de film Diffusie en osmose. In de volgende podcast hoor je wat er gebeurt als er een membraan in de weg zit.",
+   "stilte": 0,
+   "generation_id": "A8vOHL1bKz6JK0CHXGOs"
+  }
+ ],
+ "flow": "https://elevenlabs.io/app/flows/cOEno8gxse8pGyFvDe22"
+}

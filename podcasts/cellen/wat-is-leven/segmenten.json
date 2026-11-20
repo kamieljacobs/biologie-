@@ -1,0 +1,201 @@
+{
+ "stem": "Remko",
+ "voice_id": "vjeU1L5RIGPyrwuboFwz",
+ "model": "eleven_v4",
+ "hoofdstukken": [
+  {
+   "nr": "0",
+   "titel": "Opening",
+   "vwo": false,
+   "segmenten": [
+    "h0-1"
+   ],
+   "bestand": "podcasts/cellen/wat-is-leven/audio/0-0.mp3",
+   "duur": 32
+  },
+  {
+   "nr": "1",
+   "titel": "Wat is leven?",
+   "vwo": false,
+   "segmenten": [
+    "h1-1",
+    "h1-2",
+    "h1-3"
+   ],
+   "bestand": "podcasts/cellen/wat-is-leven/audio/1-1.mp3",
+   "duur": 97
+  },
+  {
+   "nr": "2",
+   "titel": "De ladder: van molecuul tot organisme",
+   "vwo": false,
+   "segmenten": [
+    "h2-1",
+    "h2-2",
+    "h2-3"
+   ],
+   "bestand": "podcasts/cellen/wat-is-leven/audio/2-2.mp3",
+   "duur": 110
+  },
+  {
+   "nr": "3",
+   "titel": "Boven het organisme",
+   "vwo": false,
+   "segmenten": [
+    "h3-1",
+    "h3-2",
+    "h3-3"
+   ],
+   "bestand": "podcasts/cellen/wat-is-leven/audio/3-3.mp3",
+   "duur": 104
+  },
+  {
+   "nr": "3b",
+   "titel": "Voor vwo: meer dan de delen",
+   "vwo": true,
+   "segmenten": [
+    "h3b-1",
+    "h3b-2"
+   ],
+   "bestand": "podcasts/cellen/wat-is-leven/audio/4-3b.mp3",
+   "duur": 50
+  },
+  {
+   "nr": "4",
+   "titel": "Leeft een virus?",
+   "vwo": false,
+   "segmenten": [
+    "h4-1",
+    "h4-2"
+   ],
+   "bestand": "podcasts/cellen/wat-is-leven/audio/5-4.mp3",
+   "duur": 83
+  },
+  {
+   "nr": "5",
+   "titel": "Afsluiting",
+   "vwo": false,
+   "segmenten": [
+    "h5-1",
+    "h5-2"
+   ],
+   "bestand": "podcasts/cellen/wat-is-leven/audio/6-5.mp3",
+   "duur": 53
+  }
+ ],
+ "segmenten": [
+  {
+   "id": "h0-1",
+   "tekst": "Als je griep hebt, worden er in je neus en keel miljoenen nieuwe griepvirussen gemaakt. Maar op een deurklink doet zo'n virus helemaal niets. Het eet niet. Het groeit niet. Dus: leeft een griepvirus?\n\nOm dat te beantwoorden, hebben we eerst een meetlat nodig. Dat doen we in drie stappen. Eén: wat maakt iets levend? Twee: op welke niveaus kun je naar leven kijken, van één molecuul tot de hele aarde. Drie: we leggen het griepvirus naast de meetlat.",
+   "stem": "Als je griep hebt, worden er in je neus en keel miljoenen nieuwe griepvirussen gemaakt. Maar op een deurklink doet zo'n virus helemaal niets. Het eet niet. Het groeit niet. Dus: leeft een griepvirus?\n\nOm dat te beantwoorden, hebben we eerst een meetlat nodig. Dat doen we in drie stappen. Eén: wat maakt iets levend? Twee: op welke niveaus kun je naar leven kijken, van één molecuul tot de hele aarde. Drie: we leggen het griepvirus naast de meetlat.",
+   "stilte": 0,
+   "generation_id": "y07NSwGHNB7LKJducxR6"
+  },
+  {
+   "id": "h1-1",
+   "tekst": "Deel één. Wat is leven?\n\nBiologen kijken naar levenskenmerken. Elk boek heeft een iets andere lijst, maar dit staat er bijna altijd in. Een levend wezen bestaat uit cellen. Het heeft een stofwisseling: het neemt stoffen op en zet ze om. Het groeit en ontwikkelt zich. Het plant zich voort. Het reageert op prikkels. En het houdt zijn binnenkant constant.\n\nDat laatste heeft een naam: homeostase. Homeostase betekent dus: je binnenkant gelijk houden, ook als het buiten verandert. Zoals een thermostaat die de kamer op twintig graden houdt, of het nu vriest of niet.\n\nWat is homeostase ook alweer, denk je: groeien, of je binnenkant constant houden?",
+   "stem": "Deel één. Wat is leven?\n\nBiologen kijken naar levenskenmerken. Elk boek heeft een iets andere lijst, maar dit staat er bijna altijd in. Een levend wezen bestaat uit cellen. Het heeft een stofwisseling: het neemt stoffen op en zet ze om. Het groeit en ontwikkelt zich. Het plant zich voort. Het reageert op prikkels. En het houdt zijn binnenkant constant.\n\nDat laatste heeft een naam: homeostase. Homeostase betekent dus: je binnenkant gelijk houden, ook als het buiten verandert. Zoals een thermostaat die de kamer op twintig graden houdt, of het nu vriest of niet.\n\nWat is homeostase ook alweer, denk je: groeien, of je binnenkant constant houden?",
+   "stilte": 3,
+   "generation_id": "J8Dci9JhYrom29hU0TpS"
+  },
+  {
+   "id": "h1-2",
+   "tekst": "Je binnenkant constant houden.\n\nNeem een koolmees. Hij eet rupsen. Hij groeit uit een ei, en legt zelf eieren. Hij vliegt weg als je dichterbij komt. En zijn lichaam blijft warm, ook als het vriest. Hij heeft alle kenmerken. Een koolmees leeft.\n\nMaar een los eiwit uit die koolmees leeft niet. Het neemt geen stoffen op, en het plant zich niet voort. Een bacterie is maar één cel, en toch heeft hij alle levenskenmerken.\n\nHier is het belangrijke punt. Wat is dan het kleinste dat nog leeft: een molecuul, of een cel? Denk even na.",
+   "stem": "Je binnenkant constant houden.\n\nNeem een koolmees. Hij eet rupsen. Hij groeit uit een ei, en legt zelf eieren. Hij vliegt weg als je dichterbij komt. En zijn lichaam blijft warm, ook als het vriest. Hij heeft alle kenmerken. Een koolmees leeft.\n\nMaar een los eiwit uit die koolmees leeft niet. Het neemt geen stoffen op, en het plant zich niet voort. Een bacterie is maar één cel, en toch heeft hij alle levenskenmerken.\n\nHier is het belangrijke punt. Wat is dan het kleinste dat nog leeft: een molecuul, of een cel? Denk even na.",
+   "stilte": 4,
+   "generation_id": "YMW0A034XZWdSHJD3yzF"
+  },
+  {
+   "id": "h1-3",
+   "tekst": "Een cel. Een los molecuul leeft niet, een cel wel. De cel is het kleinste niveau dat leeft.\n\nKort gezegd: leven herken je aan een lijst kenmerken. En de cel is het kleinste dat al die kenmerken heeft.",
+   "stem": "Een cel. Een los molecuul leeft niet, een cel wel. De cel is het kleinste niveau dat leeft.\n\nKort gezegd: leven herken je aan een lijst kenmerken. En de cel is het kleinste dat al die kenmerken heeft.",
+   "stilte": 0,
+   "generation_id": "uuwRzLJaKum1uEQxYR7U"
+  },
+  {
+   "id": "h2-1",
+   "tekst": "Deel twee. De ladder.\n\nBiologen kijken naar leven op verschillende niveaus. Stel je een digitale kaart voor waarop je inzoomt. Helemaal ingezoomd zie je één molecuul, zoals een eiwit in een spiercel van de koolmees. Veel moleculen samen vormen een organel, zoals de celkern. Organellen samen zitten in een cel. Die spiercel.\n\nMaar hoe wordt een cel eigenlijk een spiercel? Elke koolmees begint als één bevruchte eicel. Die deelt zich steeds weer. Alle cellen krijgen hetzelfde DNA. Toch worden sommige cellen spiercellen, en andere zenuwcellen of huidcellen. In elk soort cel staan namelijk andere genen aan. Zo krijgt een cel een eigen bouw en een eigen taak. Dat heet differentiatie. Differentiatie betekent dus: cellen worden verschillend, terwijl ze hetzelfde DNA hebben.\n\nHebben een spiercel en een zenuwcel van dezelfde koolmees hetzelfde DNA, denk je?",
+   "stem": "Deel twee. De ladder.\n\nBiologen kijken naar leven op verschillende niveaus. Stel je een digitale kaart voor waarop je inzoomt. Helemaal ingezoomd zie je één molecuul, zoals een eiwit in een spiercel van de koolmees. Veel moleculen samen vormen een organel, zoals de celkern. Organellen samen zitten in een cel. Die spiercel.\n\nMaar hoe wordt een cel eigenlijk een spiercel? Elke koolmees begint als één bevruchte eicel. Die deelt zich steeds weer. Alle cellen krijgen hetzelfde deeënaa. Toch worden sommige cellen spiercellen, en andere zenuwcellen of huidcellen. In elk soort cel staan namelijk andere genen aan. Zo krijgt een cel een eigen bouw en een eigen taak. Dat heet differentiatie. Differentiatie betekent dus: cellen worden verschillend, terwijl ze hetzelfde deeënaa hebben.\n\nHebben een spiercel en een zenuwcel van dezelfde koolmees hetzelfde deeënaa, denk je?",
+   "stilte": 3,
+   "generation_id": "khjctLldmqjaCqmRclbF"
+  },
+  {
+   "id": "h2-2",
+   "tekst": "Ja. Hetzelfde DNA, maar andere genen staan aan.\n\nNu zoom je een stapje uit. Cellen met dezelfde bouw en functie vormen samen een weefsel. Een weefsel is dus een team van gelijke cellen: spierweefsel. Verschillende weefsels samen vormen een orgaan: het hart. Het hart en de bloedvaten werken samen in een orgaanstelsel. En alle orgaanstelsels samen vormen één koolmees: een organisme.\n\nDenk even na. Bij een bacterie: hoeveel treden van deze ladder zijn er tussen de cel en het organisme?",
+   "stem": "Ja. Hetzelfde deeënaa, maar andere genen staan aan.\n\nNu zoom je een stapje uit. Cellen met dezelfde bouw en functie vormen samen een weefsel. Een weefsel is dus een team van gelijke cellen: spierweefsel. Verschillende weefsels samen vormen een orgaan: het hart. Het hart en de bloedvaten werken samen in een orgaanstelsel. En alle orgaanstelsels samen vormen één koolmees: een organisme.\n\nDenk even na. Bij een bacterie: hoeveel treden van deze ladder zijn er tussen de cel en het organisme?",
+   "stilte": 4,
+   "generation_id": "yQ99WZe332zZ5D961d7q"
+  },
+  {
+   "id": "h2-3",
+   "tekst": "Geen. Bij een bacterie is één cel meteen het hele organisme.\n\nKort gezegd: molecuul, organel, cel, weefsel, orgaan, orgaanstelsel, organisme. En door differentiatie worden cellen met hetzelfde DNA toch verschillend.",
+   "stem": "Geen. Bij een bacterie is één cel meteen het hele organisme.\n\nKort gezegd: molecuul, organel, cel, weefsel, orgaan, orgaanstelsel, organisme. En door differentiatie worden cellen met hetzelfde deeënaa toch verschillend.",
+   "stilte": 0,
+   "generation_id": "bucESxSmCSw7vaPibqrd"
+  },
+  {
+   "id": "h3-1",
+   "tekst": "Deel drie. Verder uitzoomen, boven de koolmees.\n\nAlle koolmezen in één bos samen vormen een populatie. Een populatie is dus: één soort, in één gebied, die zich onderling kan voortplanten.\n\nMaar in dat bos leven ook merels, rupsen, eiken en schimmels. Al die populaties samen vormen een levensgemeenschap. Anders gezegd: alles wat er in dat bos leeft, alle soorten bij elkaar.\n\nIs een levensgemeenschap één soort, of alle soorten samen?",
+   "stem": "Deel drie. Verder uitzoomen, boven de koolmees.\n\nAlle koolmezen in één bos samen vormen een populatie. Een populatie is dus: één soort, in één gebied, die zich onderling kan voortplanten.\n\nMaar in dat bos leven ook merels, rupsen, eiken en schimmels. Al die populaties samen vormen een levensgemeenschap. Anders gezegd: alles wat er in dat bos leeft, alle soorten bij elkaar.\n\nIs een levensgemeenschap één soort, of alle soorten samen?",
+   "stilte": 3,
+   "generation_id": "WJ2f6vseMkry5uOe94Ew"
+  },
+  {
+   "id": "h3-2",
+   "tekst": "Alle soorten samen.\n\nEen onderzoeker wil weten waarom er dit jaar minder jonge koolmezen zijn. Ze telt de rupsen en de eiken. Maar ze meet ook de temperatuur in het voorjaar, en hoe nat de bodem is. Denk even na. Kijkt ze naar een levensgemeenschap, of naar meer dan dat?",
+   "stem": "Alle soorten samen.\n\nEen onderzoeker wil weten waarom er dit jaar minder jonge koolmezen zijn. Ze telt de rupsen en de eiken. Maar ze meet ook de temperatuur in het voorjaar, en hoe nat de bodem is. Denk even na. Kijkt ze naar een levensgemeenschap, of naar meer dan dat?",
+   "stilte": 4,
+   "generation_id": "Vm5VxZuRxEDOLaczgQMM"
+  },
+  {
+   "id": "h3-3",
+   "tekst": "Naar meer dan dat. Ze kijkt naar een ecosysteem. Een ecosysteem is een levensgemeenschap plus de levenloze omgeving. Die levenloze dingen heten abiotische factoren: bodem, water, licht en temperatuur.\n\nVeel mensen denken: zodra je planten en dieren telt, bestudeer je een levensgemeenschap. Maar zodra je ook de temperatuur en de bodem meeneemt, kijk je naar een ecosysteem. En levend en levenloos beïnvloeden elkaar. Een warm voorjaar laat de rupsen eerder komen. Zijn de jonge koolmezen dan nog niet uit het ei, dan missen ze hun voedsel.\n\nEn helemaal uitgezoomd? Alle ecosystemen op aarde samen: de biosfeer.\n\nKort gezegd: één soort is een populatie. Alle soorten samen een levensgemeenschap. Plus de abiotische factoren een ecosysteem. En alles op aarde samen de biosfeer.",
+   "stem": "Naar meer dan dat. Ze kijkt naar een ecosysteem. Een ecosysteem is een levensgemeenschap plus de levenloze omgeving. Die levenloze dingen heten abiotische factoren: bodem, water, licht en temperatuur.\n\nVeel mensen denken: zodra je planten en dieren telt, bestudeer je een levensgemeenschap. Maar zodra je ook de temperatuur en de bodem meeneemt, kijk je naar een ecosysteem. En levend en levenloos beïnvloeden elkaar. Een warm voorjaar laat de rupsen eerder komen. Zijn de jonge koolmezen dan nog niet uit het ei, dan missen ze hun voedsel.\n\nEn helemaal uitgezoomd? Alle ecosystemen op aarde samen: de biosfeer.\n\nKort gezegd: één soort is een populatie. Alle soorten samen een levensgemeenschap. Plus de abiotische factoren een ecosysteem. En alles op aarde samen de biosfeer.",
+   "stilte": 0,
+   "generation_id": "bDTL2EBTBH3cpQ6fyzdY"
+  },
+  {
+   "id": "h3b-1",
+   "tekst": "Dit stukje is voor vwo.\n\nOp elk niveau van de ladder komt er iets nieuws bij. Eén spiercel trekt samen, maar pas een hart pompt bloed rond. Zo'n nieuwe eigenschap heet een emergente eigenschap. Anders gezegd: een emergente eigenschap ontstaat pas als de delen samenwerken. Zoals een voetbalteam samen kan spelen, terwijl geen enkele speler in zijn eentje een wedstrijd speelt.\n\nEén koolmees heeft geen geboortecijfer. Een populatie wel. En alleen een populatie kan evolueren.\n\nDenk even na. Geen enkel molecuul leeft, maar een cel vol moleculen wel. Wat voor eigenschap is leven dan zelf?",
+   "stem": "Dit stukje is voor vwo.\n\nOp elk niveau van de ladder komt er iets nieuws bij. Eén spiercel trekt samen, maar pas een hart pompt bloed rond. Zo'n nieuwe eigenschap heet een emergente eigenschap. Anders gezegd: een emergente eigenschap ontstaat pas als de delen samenwerken. Zoals een voetbalteam samen kan spelen, terwijl geen enkele speler in zijn eentje een wedstrijd speelt.\n\nEén koolmees heeft geen geboortecijfer. Een populatie wel. En alleen een populatie kan evolueren.\n\nDenk even na. Geen enkel molecuul leeft, maar een cel vol moleculen wel. Wat voor eigenschap is leven dan zelf?",
+   "stilte": 4,
+   "generation_id": "nW5fviZGb02JvgD6nXwW"
+  },
+  {
+   "id": "h3b-2",
+   "tekst": "Ook een emergente eigenschap. Leven ontstaat pas als al die moleculen samenwerken in een cel.",
+   "stem": "Ook een emergente eigenschap. Leven ontstaat pas als al die moleculen samenwerken in een cel.",
+   "stilte": 0,
+   "generation_id": "5PQNwBOS6tFz778jybFX"
+  },
+  {
+   "id": "h4-1",
+   "tekst": "Deel vier. Terug naar het griepvirus.\n\nEen virus is geen cel. Het is een pakketje erfelijk materiaal in een mantel van eiwit. Een griepvirus heeft daaromheen ook nog een vetlaagje. Het is zo'n tien keer kleiner dan een bacterie. Maar het grote verschil is iets anders. Een bacterie is wél een cel. Die neemt stoffen op, groeit, en deelt zich zelf.\n\nLeg het virus nu naast de meetlat. Bestaat het uit cellen? Nee. Een eigen stofwisseling? Nee. Groeien? Nee. Reageren op prikkels? Nee.\n\nHoe komen er dan toch miljoenen nieuwe virussen in je neus? Een virus dringt een cel binnen. Daar laat het die cel nieuwe virussen maken, met de stoffen en de energie van die cel.\n\nDenk even na. Leeft een griepvirus volgens de meetlat?",
+   "stem": "Deel vier. Terug naar het griepvirus.\n\nEen virus is geen cel. Het is een pakketje erfelijk materiaal in een mantel van eiwit. Een griepvirus heeft daaromheen ook nog een vetlaagje. Het is zo'n tien keer kleiner dan een bacterie. Maar het grote verschil is iets anders. Een bacterie is wél een cel. Die neemt stoffen op, groeit, en deelt zich zelf.\n\nLeg het virus nu naast de meetlat. Bestaat het uit cellen? Nee. Een eigen stofwisseling? Nee. Groeien? Nee. Reageren op prikkels? Nee.\n\nHoe komen er dan toch miljoenen nieuwe virussen in je neus? Een virus dringt een cel binnen. Daar laat het die cel nieuwe virussen maken, met de stoffen en de energie van die cel.\n\nDenk even na. Leeft een griepvirus volgens de meetlat?",
+   "stilte": 4,
+   "generation_id": "CH4epUysqheVPfiCOA0c"
+  },
+  {
+   "id": "h4-2",
+   "tekst": "Meestal zeggen biologen: nee. Een virus heeft geen eigen stofwisseling. Het laat een cel het werk doen.\n\nMisschien dacht je: er komen toch steeds meer virussen bij, en ze veranderen ook nog. Dat klopt. Daarom noemen sommige biologen een virus een grensgeval. Maar het virus maakt die kopieën niet zelf: dat doet de cel. En het erfelijk materiaal? Dat is een molecuul. En een los molecuul leeft niet.\n\nKort gezegd: een virus staat niet op de ladder, maar ernaast. Een pakketje moleculen dat pas in een cel iets doet.",
+   "stem": "Meestal zeggen biologen: nee. Een virus heeft geen eigen stofwisseling. Het laat een cel het werk doen.\n\nMisschien dacht je: er komen toch steeds meer virussen bij, en ze veranderen ook nog. Dat klopt. Daarom noemen sommige biologen een virus een grensgeval. Maar het virus maakt die kopieën niet zelf: dat doet de cel. En het erfelijk materiaal? Dat is een molecuul. En een los molecuul leeft niet.\n\nKort gezegd: een virus staat niet op de ladder, maar ernaast. Een pakketje moleculen dat pas in een cel iets doet.",
+   "stilte": 0,
+   "generation_id": "IlHLvjLraCvia17ecd2D"
+  },
+  {
+   "id": "h5-1",
+   "tekst": "Terug naar de vraag van het begin. Leeft een griepvirus? Meestal zeggen biologen nee, want het heeft geen eigen stofwisseling.\n\nDrie dingen om te onthouden.\nEén: leven herken je aan de levenskenmerken, en de cel is het kleinste niveau dat leeft.\nTwee: door differentiatie worden cellen met hetzelfde DNA toch verschillend, en vormen ze weefsels, organen en een organisme.\nDrie: één soort is een populatie, alle soorten een levensgemeenschap, plus de abiotische factoren een ecosysteem, en alles samen de biosfeer.\n\nEn nu jij. Leg in één zin hardop uit waarom een virus volgens de meeste biologen niet leeft. Alsof je het vertelt aan iemand die er nog nooit van gehoord heeft.",
+   "stem": "Terug naar de vraag van het begin. Leeft een griepvirus? Meestal zeggen biologen nee, want het heeft geen eigen stofwisseling.\n\nDrie dingen om te onthouden.\nEén: leven herken je aan de levenskenmerken, en de cel is het kleinste niveau dat leeft.\nTwee: door differentiatie worden cellen met hetzelfde deeënaa toch verschillend, en vormen ze weefsels, organen en een organisme.\nDrie: één soort is een populatie, alle soorten een levensgemeenschap, plus de abiotische factoren een ecosysteem, en alles samen de biosfeer.\n\nEn nu jij. Leg in één zin hardop uit waarom een virus volgens de meeste biologen niet leeft. Alsof je het vertelt aan iemand die er nog nooit van gehoord heeft.",
+   "stilte": 4,
+   "generation_id": "tX8vzhonVaewBrDUx30I"
+  },
+  {
+   "id": "h5-2",
+   "tekst": "Wil je de hele ladder in beeld zien? Kijk dan de film Van molecuul tot biosfeer.",
+   "stem": "Wil je de hele ladder in beeld zien? Kijk dan de film Van molecuul tot biosfeer.",
+   "stilte": 0,
+   "generation_id": "wRnXTGRGROZVOUvAFrZA"
+  }
+ ],
+ "flow": "https://elevenlabs.io/app/flows/cOEno8gxse8pGyFvDe22"
+}

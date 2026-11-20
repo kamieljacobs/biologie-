@@ -1,0 +1,411 @@
+{
+ "stem": "Remko",
+ "voice_id": "vjeU1L5RIGPyrwuboFwz",
+ "model": "eleven_v4",
+ "hoofdstukken": [
+  {
+   "nr": "0",
+   "titel": "Opening",
+   "vwo": false,
+   "segmenten": [
+    "h0-1"
+   ],
+   "bestand": "podcasts/cellen/herhaal/audio/0-0.mp3",
+   "duur": 35
+  },
+  {
+   "nr": "1",
+   "titel": "Ronde één: wat is leven?",
+   "vwo": false,
+   "segmenten": [
+    "h1-1",
+    "h1-2",
+    "h1-3",
+    "h1-4",
+    "h1-5"
+   ],
+   "bestand": "podcasts/cellen/herhaal/audio/1-1.mp3",
+   "duur": 62
+  },
+  {
+   "nr": "2",
+   "titel": "Ronde twee: de cel als fabriek",
+   "vwo": false,
+   "segmenten": [
+    "h2-1",
+    "h2-2",
+    "h2-3",
+    "h2-4",
+    "h2-5"
+   ],
+   "bestand": "podcasts/cellen/herhaal/audio/2-2.mp3",
+   "duur": 66
+  },
+  {
+   "nr": "3",
+   "titel": "Ronde drie: microben",
+   "vwo": false,
+   "segmenten": [
+    "h3-1",
+    "h3-2",
+    "h3-3",
+    "h3-4",
+    "h3-5",
+    "h3-6"
+   ],
+   "bestand": "podcasts/cellen/herhaal/audio/3-3.mp3",
+   "duur": 75
+  },
+  {
+   "nr": "4",
+   "titel": "Ronde vier: transport",
+   "vwo": false,
+   "segmenten": [
+    "h4-1",
+    "h4-2",
+    "h4-3",
+    "h4-4",
+    "h4-5",
+    "h4-6"
+   ],
+   "bestand": "podcasts/cellen/herhaal/audio/4-4.mp3",
+   "duur": 86
+  },
+  {
+   "nr": "5",
+   "titel": "Ronde vijf: stamcellen",
+   "vwo": false,
+   "segmenten": [
+    "h5-1",
+    "h5-2",
+    "h5-3",
+    "h5-4"
+   ],
+   "bestand": "podcasts/cellen/herhaal/audio/5-5.mp3",
+   "duur": 51
+  },
+  {
+   "nr": "6",
+   "titel": "Ronde zes: onderzoek doen",
+   "vwo": false,
+   "segmenten": [
+    "h6-1",
+    "h6-2",
+    "h6-3",
+    "h6-4",
+    "h6-5",
+    "h6-6"
+   ],
+   "bestand": "podcasts/cellen/herhaal/audio/6-6.mp3",
+   "duur": 74
+  },
+  {
+   "nr": "7",
+   "titel": "Voor vwo: vijf extra vragen",
+   "vwo": true,
+   "segmenten": [
+    "h7-1",
+    "h7-2",
+    "h7-3",
+    "h7-4",
+    "h7-5",
+    "h7-6"
+   ],
+   "bestand": "podcasts/cellen/herhaal/audio/7-7.mp3",
+   "duur": 84
+  },
+  {
+   "nr": "8",
+   "titel": "Afsluiting",
+   "vwo": false,
+   "segmenten": [
+    "h8-1"
+   ],
+   "bestand": "podcasts/cellen/herhaal/audio/8-8.mp3",
+   "duur": 15
+  }
+ ],
+ "segmenten": [
+  {
+   "id": "h0-1",
+   "tekst": "Dit is de herhaalaflevering van het thema Cellen. Geen nieuwe stof. Alleen vragen.\n\nZo werkt het. Ik stel een vraag. Dan krijg je vijf seconden stilte. Zeg je antwoord hardop, of in je hoofd. Daarna geef ik het antwoord. Wist je het niet? Geen probleem. Juist van zoeken in je geheugen leer je het meest. Dat heet ophalen, en het werkt beter dan nog een keer lezen.\n\nZes rondes. Leven. De cel als fabriek. Microben. Transport. Stamcellen. En onderzoek doen. We beginnen.",
+   "stem": "Dit is de herhaalaflevering van het thema Cellen. Geen nieuwe stof. Alleen vragen.\n\nZo werkt het. Ik stel een vraag. Dan krijg je vijf seconden stilte. Zeg je antwoord hardop, of in je hoofd. Daarna geef ik het antwoord. Wist je het niet? Geen probleem. Juist van zoeken in je geheugen leer je het meest. Dat heet ophalen, en het werkt beter dan nog een keer lezen.\n\nZes rondes. Leven. De cel als fabriek. Microben. Transport. Stamcellen. En onderzoek doen. We beginnen.",
+   "stilte": 0,
+   "generation_id": "imase7zIjBBqlkA2axbZ"
+  },
+  {
+   "id": "h1-1",
+   "tekst": "Ronde één. Wat is leven?\n\nNoem drie kenmerken van leven.",
+   "stem": "Ronde één. Wat is leven?\n\nNoem drie kenmerken van leven.",
+   "stilte": 5,
+   "generation_id": "V3QqtWoh5iiO1QDAS8MK"
+  },
+  {
+   "id": "h1-2",
+   "tekst": "Bijvoorbeeld: opgebouwd uit cellen, stofwisseling, groei, voortplanting, reageren op prikkels, en een stabiel binnenmilieu houden. Drie daarvan is goed.\n\nLeeft een griepvirus?",
+   "stem": "Bijvoorbeeld: opgebouwd uit cellen, stofwisseling, groei, voortplanting, reageren op prikkels, en een stabiel binnenmilieu houden. Drie daarvan is goed.\n\nLeeft een griepvirus?",
+   "stilte": 5,
+   "generation_id": "UPM6Cz2UilrnmvgfvO9Z"
+  },
+  {
+   "id": "h1-3",
+   "tekst": "Meestal zeggen biologen: nee. Een virus heeft geen eigen stofwisseling. Het laat een cel het werk doen.\n\nWat is het kleinste niveau dat leeft?",
+   "stem": "Meestal zeggen biologen: nee. Een virus heeft geen eigen stofwisseling. Het laat een cel het werk doen.\n\nWat is het kleinste niveau dat leeft?",
+   "stilte": 5,
+   "generation_id": "hHCB5n9m2uY9xAklT0sf"
+  },
+  {
+   "id": "h1-4",
+   "tekst": "De cel.\n\nEén soort, in één gebied. Hoe heet dat?",
+   "stem": "De cel.\n\nEén soort, in één gebied. Hoe heet dat?",
+   "stilte": 5,
+   "generation_id": "2CjXEREKcOSjXOBGQeFy"
+  },
+  {
+   "id": "h1-5",
+   "tekst": "Een populatie. Alle soorten samen in dat gebied heten een levensgemeenschap. Doe je de levenloze omgeving erbij, dan heb je een ecosysteem.",
+   "stem": "Een populatie. Alle soorten samen in dat gebied heten een levensgemeenschap. Doe je de levenloze omgeving erbij, dan heb je een ecosysteem.",
+   "stilte": 0,
+   "generation_id": "QfeB4icVrT8XJDyfyZxi"
+  },
+  {
+   "id": "h2-1",
+   "tekst": "Ronde twee. De cel als fabriek.\n\nWaar ligt de bouwtekening van de cel?",
+   "stem": "Ronde twee. De cel als fabriek.\n\nWaar ligt de bouwtekening van de cel?",
+   "stilte": 5,
+   "generation_id": "f96cBvV6WTOb2nOhSJBb"
+  },
+  {
+   "id": "h2-2",
+   "tekst": "In de kern. Daar ligt het DNA, met de recepten voor alle eiwitten.\n\nEen alvleeskliercel maakt een enzym dat buiten de cel moet werken. Noem de route, van recept tot buiten de cel.",
+   "stem": "In de kern. Daar ligt het deeënaa, met de recepten voor alle eiwitten.\n\nEen alvleeskliercel maakt een enzym dat buiten de cel moet werken. Noem de route, van recept tot buiten de cel.",
+   "stilte": 5,
+   "generation_id": "pWleInyWGe5m6LM4FPrs"
+  },
+  {
+   "id": "h2-3",
+   "tekst": "Kern, ribosomen op het ER, het golgisysteem, en dan in een blaasje naar het celmembraan. Daar komt het enzym naar buiten.\n\nWaar wordt de verbranding van glucose afgemaakt, en wat levert dat op?",
+   "stem": "Kern, ribosomen op het E-R, het golgisysteem, en dan in een blaasje naar het celmembraan. Daar komt het enzym naar buiten.\n\nWaar wordt de verbranding van glucose afgemaakt, en wat levert dat op?",
+   "stilte": 5,
+   "generation_id": "7GDiJGp2boLynz5xQqfI"
+  },
+  {
+   "id": "h2-4",
+   "tekst": "In de mitochondriën. Het levert ATP op, de energiedrager van de cel.\n\nNoem twee dingen die een plantencel heeft en een dierlijke cel niet.",
+   "stem": "In de mitochondriën. Het levert ATP op, de energiedrager van de cel.\n\nNoem twee dingen die een plantencel heeft en een dierlijke cel niet.",
+   "stilte": 5,
+   "generation_id": "mdQFnp8DWBDaadaxSVSG"
+  },
+  {
+   "id": "h2-5",
+   "tekst": "Een celwand en bladgroenkorrels. Meestal ook een grote vacuole.",
+   "stem": "Een celwand en bladgroenkorrels. Meestal ook een grote vacuole.",
+   "stilte": 0,
+   "generation_id": "3PhOWOQHIwChJKMG7VHL"
+  },
+  {
+   "id": "h3-1",
+   "tekst": "Ronde drie. Microben.\n\nEen boterham beschimmelt in een gesloten trommel. Waar kwam die schimmel vandaan?",
+   "stem": "Ronde drie. Microben.\n\nEen boterham beschimmelt in een gesloten trommel. Waar kwam die schimmel vandaan?",
+   "stilte": 5,
+   "generation_id": "3AgvI4DnSAWhDS5Hp6We"
+  },
+  {
+   "id": "h3-2",
+   "tekst": "Uit sporen uit de lucht. Die zaten al op het brood toen het deksel dichtging.\n\nWat is het grote verschil tussen een bacterie en een schimmel, als je naar de cel kijkt?",
+   "stem": "Uit sporen uit de lucht. Die zaten al op het brood toen het deksel dichtging.\n\nWat is het grote verschil tussen een bacterie en een schimmel, als je naar de cel kijkt?",
+   "stilte": 5,
+   "generation_id": "3ut1efKSvBW7yxKWuRCr"
+  },
+  {
+   "id": "h3-3",
+   "tekst": "Een bacterie heeft geen kern: een prokaryoot. Een schimmel heeft wel een kern: een eukaryoot.\n\nHoe vermeerdert een bacterie zich?",
+   "stem": "Een bacterie heeft geen kern: een prokaryoot. Een schimmel heeft wel een kern: een eukaryoot.\n\nHoe vermeerdert een bacterie zich?",
+   "stilte": 5,
+   "generation_id": "qdDLrDgEzYPaCiXylLAv"
+  },
+  {
+   "id": "h3-4",
+   "tekst": "Door tweedeling. Uit één bacterie worden er twee.\n\nIemand niest op een voedingsbodem. Groeien haar verkoudheidsvirussen daar?",
+   "stem": "Door tweedeling. Uit één bacterie worden er twee.\n\nIemand niest op een voedingsbodem. Groeien haar verkoudheidsvirussen daar?",
+   "stilte": 5,
+   "generation_id": "JizcBDRg97r1EYRE4LSZ"
+  },
+  {
+   "id": "h3-5",
+   "tekst": "Nee. Een virus is geen cel. Het kan zich alleen vermeerderen in een gastheercel, en die zit niet op de voedingsbodem.\n\nHelpen antibiotica tegen een verkoudheid?",
+   "stem": "Nee. Een virus is geen cel. Het kan zich alleen vermeerderen in een gastheercel, en die zit niet op de voedingsbodem.\n\nHelpen antibiotica tegen een verkoudheid?",
+   "stilte": 5,
+   "generation_id": "AkGH0zWaSf5HPDQN12qs"
+  },
+  {
+   "id": "h3-6",
+   "tekst": "Nee. Antibiotica werken tegen bacteriën, niet tegen virussen.",
+   "stem": "Nee. Antibiotica werken tegen bacteriën, niet tegen virussen.",
+   "stilte": 0,
+   "generation_id": "ZTINQZKmsJprQwJf38sS"
+  },
+  {
+   "id": "h4-1",
+   "tekst": "Ronde vier. Transport.\n\nEen druppel kleurstof in water. Niemand roert. Toch kleurt alles. Hoe heet dat, en welke kant op gaan de deeltjes?",
+   "stem": "Ronde vier. Transport.\n\nEen druppel kleurstof in water. Niemand roert. Toch kleurt alles. Hoe heet dat, en welke kant op gaan de deeltjes?",
+   "stilte": 5,
+   "generation_id": "BAjAWIQNVJwbzj6VkRQM"
+  },
+  {
+   "id": "h4-2",
+   "tekst": "Diffusie. Netto gaan de deeltjes van een hoge naar een lage concentratie.\n\nNoem iets dat diffusie sneller maakt.",
+   "stem": "Diffusie. Netto gaan de deeltjes van een hoge naar een lage concentratie.\n\nNoem iets dat diffusie sneller maakt.",
+   "stilte": 5,
+   "generation_id": "IT6pTS9Lul0Dmk4R9chl"
+  },
+  {
+   "id": "h4-3",
+   "tekst": "Een hogere temperatuur. Ook een groter verschil in concentratie, een groter oppervlak of een kortere afstand.\n\nEen membraan laat water door, maar zout niet. Aan de ene kant zuiver water, aan de andere kant zout water. Welke kant stroomt het water op?",
+   "stem": "Een hogere temperatuur. Ook een groter verschil in concentratie, een groter oppervlak of een kortere afstand.\n\nEen membraan laat water door, maar zout niet. Aan de ene kant zuiver water, aan de andere kant zout water. Welke kant stroomt het water op?",
+   "stilte": 5,
+   "generation_id": "XGFDmiWITSKwkUq8Jcjz"
+  },
+  {
+   "id": "h4-4",
+   "tekst": "Naar het zout. Water gaat door osmose naar de kant met de hoogste osmotische waarde.\n\nJe zit op zee en hebt dorst. Waarom mag je geen zeewater drinken?",
+   "stem": "Naar het zout. Water gaat door osmose naar de kant met de hoogste osmotische waarde.\n\nJe zit op zee en hebt dorst. Waarom mag je geen zeewater drinken?",
+   "stilte": 5,
+   "generation_id": "62Os6YyPGWTGr6v1s1R4"
+  },
+  {
+   "id": "h4-5",
+   "tekst": "Je cellen verliezen er water door. Zeewater is veel zouter dan je bloed. Om het zout kwijt te raken plas je meer water uit dan je dronk.\n\nHoe krijgt een cel een stof bergop, van weinig naar veel?",
+   "stem": "Je cellen verliezen er water door. Zeewater is veel zouter dan je bloed. Om het zout kwijt te raken plas je meer water uit dan je dronk.\n\nHoe krijgt een cel een stof bergop, van weinig naar veel?",
+   "stilte": 5,
+   "generation_id": "qX51KK7kj0S45dZClY4Z"
+  },
+  {
+   "id": "h4-6",
+   "tekst": "Met actief transport. Dat kost energie.",
+   "stem": "Met actief transport. Dat kost energie.",
+   "stilte": 0,
+   "generation_id": "UC4i26mJ1B5ldXJyrTKk"
+  },
+  {
+   "id": "h5-1",
+   "tekst": "Ronde vijf. Stamcellen.\n\nEen huidcel en een spiercel hebben hetzelfde DNA. Waarom zijn ze dan zo verschillend?",
+   "stem": "Ronde vijf. Stamcellen.\n\nEen huidcel en een spiercel hebben hetzelfde deeënaa. Waarom zijn ze dan zo verschillend?",
+   "stilte": 5,
+   "generation_id": "kaD5vi0GZQA6qNdkuG4c"
+  },
+  {
+   "id": "h5-2",
+   "tekst": "Door differentiatie. In elke cel staan andere genen aan.\n\nWaarom herstelt je huid wel, en je hartspier bijna niet?",
+   "stem": "Door differentiatie. In elke cel staan andere genen aan.\n\nWaarom herstelt je huid wel, en je hartspier bijna niet?",
+   "stilte": 5,
+   "generation_id": "xFA9ubhx3qM3ErbOQnRn"
+  },
+  {
+   "id": "h5-3",
+   "tekst": "In de kiemlaag van je huid zitten stamcellen die blijven delen. In je hartspier zijn zulke stamcellen niet gevonden.\n\nWat is het verschil tussen een volwassen stamcel en een embryonale stamcel?",
+   "stem": "In de kiemlaag van je huid zitten stamcellen die blijven delen. In je hartspier zijn zulke stamcellen niet gevonden.\n\nWat is het verschil tussen een volwassen stamcel en een embryonale stamcel?",
+   "stilte": 5,
+   "generation_id": "frfmPTa8tdrlskT2rU5N"
+  },
+  {
+   "id": "h5-4",
+   "tekst": "Een volwassen stamcel maakt cellen van zijn eigen weefsel. Een embryonale stamcel kan elke celsoort worden.",
+   "stem": "Een volwassen stamcel maakt cellen van zijn eigen weefsel. Een embryonale stamcel kan elke celsoort worden.",
+   "stilte": 0,
+   "generation_id": "Jx7J8fAQifbnnTJZxC7v"
+  },
+  {
+   "id": "h6-1",
+   "tekst": "Ronde zes. Onderzoek doen.\n\nNoem de stappen van de onderzoekscyclus.",
+   "stem": "Ronde zes. Onderzoek doen.\n\nNoem de stappen van de onderzoekscyclus.",
+   "stilte": 5,
+   "generation_id": "HKM0RFa2xFInUTMRF9tI"
+  },
+  {
+   "id": "h6-2",
+   "tekst": "Vraag, hypothese, werkplan, resultaten, conclusie.\n\nWat maakt een proef eerlijk? Noem er twee.",
+   "stem": "Vraag, hypothese, werkplan, resultaten, conclusie.\n\nWat maakt een proef eerlijk? Noem er twee.",
+   "stilte": 5,
+   "generation_id": "5GiM6lLqFHM56hlJlGSk"
+  },
+  {
+   "id": "h6-3",
+   "tekst": "Je verandert één variabele, en de rest houd je gelijk. Je gebruikt een controlegroep. En waar het kan, meet je blind.\n\nWat is het verschil tussen betrouwbaar en valide?",
+   "stem": "Je verandert één variabele, en de rest houd je gelijk. Je gebruikt een controlegroep. En waar het kan, meet je blind.\n\nWat is het verschil tussen betrouwbaar en valide?",
+   "stilte": 5,
+   "generation_id": "PCQQOzTHM0nJlREvMUDs"
+  },
+  {
+   "id": "h6-4",
+   "tekst": "Betrouwbaar: als je het herhaalt, krijg je hetzelfde. Valide: je meet echt wat je wilt meten.\n\nHelpt herhalen tegen een systematische fout?",
+   "stem": "Betrouwbaar: als je het herhaalt, krijg je hetzelfde. Valide: je meet echt wat je wilt meten.\n\nHelpt herhalen tegen een systematische fout?",
+   "stilte": 5,
+   "generation_id": "GmRSwXhX1ZmSVVRikLj7"
+  },
+  {
+   "id": "h6-5",
+   "tekst": "Nee. Herhalen helpt tegen toevallige fouten. Een systematische fout maak je elke keer opnieuw.\n\nTwee dingen gaan samen omhoog. Is het ene dan de oorzaak van het andere?",
+   "stem": "Nee. Herhalen helpt tegen toevallige fouten. Een systematische fout maak je elke keer opnieuw.\n\nTwee dingen gaan samen omhoog. Is het ene dan de oorzaak van het andere?",
+   "stilte": 5,
+   "generation_id": "TxNnq7xhwJZWBTAATEdN"
+  },
+  {
+   "id": "h6-6",
+   "tekst": "Niet per se. Correlatie is nog geen oorzaak.",
+   "stem": "Niet per se. Correlatie is nog geen oorzaak.",
+   "stilte": 0,
+   "generation_id": "FJ3UwiXq8z4xhVhPcKdn"
+  },
+  {
+   "id": "h7-1",
+   "tekst": "Dit stukje is voor vwo. Vijf extra vragen.\n\nWat is een emergente eigenschap?",
+   "stem": "Dit stukje is voor vwo. Vijf extra vragen.\n\nWat is een emergénte eigenschap?",
+   "stilte": 5,
+   "generation_id": "EHSv2H6lL79B8ExFqfQ4"
+  },
+  {
+   "id": "h7-2",
+   "tekst": "Een eigenschap die het geheel heeft, maar de losse onderdelen niet. Leven zelf is daar een voorbeeld van.\n\nHoe komt een enzym uit een blaasje de cel uit, en hoe heet het omgekeerde?",
+   "stem": "Een eigenschap die het geheel heeft, maar de losse onderdelen niet. Leven zelf is daar een voorbeeld van.\n\nHoe komt een enzym uit een blaasje de cel uit, en hoe heet het omgekeerde?",
+   "stilte": 5,
+   "generation_id": "EmU9lVUwXotBy23EPNmK"
+  },
+  {
+   "id": "h7-3",
+   "tekst": "Het blaasje versmelt met het celmembraan: exocytose. Stoffen in een blaasje naar binnen halen heet endocytose.\n\nEen stof gaat met hulp van een transporteiwit van veel naar weinig. Kost dat energie? En hoe heet het?",
+   "stem": "Het blaasje versmelt met het celmembraan: exocytose. Stoffen in een blaasje naar binnen halen heet endocytose.\n\nEen stof gaat met hulp van een transporteiwit van veel naar weinig. Kost dat energie? En hoe heet het?",
+   "stilte": 5,
+   "generation_id": "2JThC6SiVaFtoG7OXgOT"
+  },
+  {
+   "id": "h7-4",
+   "tekst": "Nee, het gaat met het verschil mee. Het heet gefaciliteerde diffusie.\n\nWelke pomp houdt veel natrium buiten de cel en veel kalium erin?",
+   "stem": "Nee, het gaat met het verschil mee. Het heet gefaciliteerde diffusie.\n\nWelke pomp houdt veel natrium buiten de cel en veel kalium erin?",
+   "stilte": 5,
+   "generation_id": "zNDsx4LPvJrTvMlsMV0p"
+  },
+  {
+   "id": "h7-5",
+   "tekst": "De natrium-kaliumpomp. Die werkt met energie uit ATP.\n\nEen stamcel kan nog alle celsoorten worden, ook de placenta. Hoe heet hij?",
+   "stem": "De natrium-kaliumpomp. Die werkt met energie uit ATP.\n\nEen stamcel kan nog alle celsoorten worden, ook de placenta. Hoe heet hij?",
+   "stilte": 5,
+   "generation_id": "k2hEN43dUeQ6RR7TbwYD"
+  },
+  {
+   "id": "h7-6",
+   "tekst": "Totipotent. Kan hij alle celsoorten van het lichaam worden, maar niet de placenta, dan heet hij pluripotent.",
+   "stem": "Totipotent. Kan hij alle celsoorten van het lichaam worden, maar niet de placenta, dan heet hij pluripotent.",
+   "stilte": 0,
+   "generation_id": "X1Dzw1zsTt7sAJTxGqRk"
+  },
+  {
+   "id": "h8-1",
+   "tekst": "Dat was de herhaalaflevering van Cellen.\n\nWelke vragen wist je niet? Luister dan nog eens naar die aflevering, of kijk de film. En doe deze herhaling over een paar dagen opnieuw. Wat je dan nog weet, zit er echt.",
+   "stem": "Dat was de herhaalaflevering van Cellen.\n\nWelke vragen wist je niet? Luister dan nog eens naar die aflevering, of kijk de film. En doe deze herhaling over een paar dagen opnieuw. Wat je dan nog weet, zit er echt.",
+   "stilte": 0,
+   "generation_id": "KnUWhMXTcOkQl2L67uDP"
+  }
+ ],
+ "flow": "https://elevenlabs.io/app/flows/cOEno8gxse8pGyFvDe22"
+}

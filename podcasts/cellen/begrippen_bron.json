@@ -1,0 +1,539 @@
+{
+ "van-molecuul-tot-biosfeer": [
+  {
+   "t": "levenskenmerken",
+   "d": "Kenmerken van levende wezens: bestaan uit cellen, stofwisseling, groei en ontwikkeling, voortplanting, reageren op prikkels en bewegen, homeostase. Elke methode heeft een iets andere lijst."
+  },
+  {
+   "t": "homeostase",
+   "d": "Het constant houden van het inwendig milieu (bijvoorbeeld de lichaamstemperatuur)."
+  },
+  {
+   "t": "organisatieniveaus",
+   "d": "Molecuul, organel, cel, weefsel, orgaan, orgaanstelsel, organisme, populatie, levensgemeenschap, ecosysteem, biosfeer."
+  },
+  {
+   "t": "weefsel",
+   "d": "Groep cellen met dezelfde bouw en functie."
+  },
+  {
+   "t": "orgaanstelsel",
+   "d": "Organen die samenwerken, bijvoorbeeld hart en bloedvaten: het bloedvatenstelsel (BvJ: organenstelsel)."
+  },
+  {
+   "t": "differentiatie",
+   "d": "Cellen met hetzelfde DNA worden verschillend doordat in elk celtype andere genen aan staan; zo krijgen ze een eigen bouw en taak."
+  },
+  {
+   "t": "populatie",
+   "d": "Alle individuen van één soort in één gebied, die zich onderling kunnen voortplanten."
+  },
+  {
+   "t": "levensgemeenschap",
+   "d": "Alle populaties (alle soorten) in één gebied samen."
+  },
+  {
+   "t": "ecosysteem",
+   "d": "Een levensgemeenschap samen met de abiotische factoren (bodem, water, licht, temperatuur), die elkaar beïnvloeden."
+  },
+  {
+   "t": "biotische en abiotische factoren",
+   "d": "Biotisch: invloeden van levende wezens. Abiotisch: invloeden van de levenloze omgeving."
+  },
+  {
+   "t": "biosfeer",
+   "d": "Alle ecosystemen op aarde samen (vwo: systeem Aarde)."
+  },
+  {
+   "t": "emergente eigenschap",
+   "d": "Een eigenschap die pas op een hoger niveau ontstaat doordat de delen samenwerken, zoals het rondpompen van bloed door het hart."
+  },
+  {
+   "t": "virus",
+   "d": "Pakketje erfelijk materiaal (DNA of RNA) in een eiwitmantel, soms met een vetlaagje; geen cel en geen eigen stofwisseling; vermenigvuldigt alleen in een gastheercel."
+  }
+ ],
+ "celorganellen": [
+  {
+   "t": "prokaryoot",
+   "d": "Cel zonder kern en zonder membraanorganellen, met losse ribosomen, zoals een bacterie."
+  },
+  {
+   "t": "eukaryoot",
+   "d": "Cel met een kern en organellen, zoals je eigen cellen en plantencellen."
+  },
+  {
+   "t": "organel",
+   "d": "Onderdeel van de cel met een eigen bouw en eigen taken."
+  },
+  {
+   "t": "celmembraan",
+   "d": "Dun vlies om de cel dat sommige stoffen doorlaat en andere niet, en signalen van buiten opvangt."
+  },
+  {
+   "t": "cytoplasma",
+   "d": "De stroperige vulling van de cel binnen het membraan, waarin de organellen liggen."
+  },
+  {
+   "t": "celkern (kern)",
+   "d": "Grootste losse organel; bevat het DNA. Omgeven door een dubbel kernmembraan met kernporiën."
+  },
+  {
+   "t": "kernmembraan",
+   "d": "Dubbel membraan om de kern."
+  },
+  {
+   "t": "kernporiën",
+   "d": "Openingen in het kernmembraan waardoor werkkopieën van het DNA de kern uit gaan."
+  },
+  {
+   "t": "DNA",
+   "d": "Bouwtekening van bijna elk eiwit dat de cel maakt; blijft in de kern."
+  },
+  {
+   "t": "ribosoom",
+   "d": "Klein deeltje dat eiwitten maakt; los in het cytoplasma of op het ruw ER."
+  },
+  {
+   "t": "endoplasmatisch reticulum (ER)",
+   "d": "Netwerk van membranen. Ruw ER heeft ribosomen; eiwitten voor buiten de cel worden erin gevouwen en gecontroleerd."
+  },
+  {
+   "t": "golgisysteem",
+   "d": "Stapel platte zakjes die eiwitten bewerkt, sorteert en in blaasjes verpakt."
+  },
+  {
+   "t": "blaasje",
+   "d": "Klein membraanblaasje dat stoffen vervoert in de cel (vakterm: vesikel)."
+  },
+  {
+   "t": "exocytose",
+   "d": "Een blaasje versmelt met het celmembraan en de inhoud komt buiten de cel.",
+   "vwo": true
+  },
+  {
+   "t": "endocytose",
+   "d": "Een stuk celmembraan stulpt in en haalt iets de cel binnen.",
+   "vwo": true
+  },
+  {
+   "t": "mitochondrium (mv. mitochondriën)",
+   "d": "Organel waar de verbranding van glucose met zuurstof wordt afgemaakt: er ontstaat ATP en er komt koolstofdioxide vrij; binnenmembraan geplooid tot cristae."
+  },
+  {
+   "t": "cristae",
+   "d": "Plooien van het binnenmembraan van een mitochondrium; vergroten het oppervlak voor de eiwitten die ATP maken."
+  },
+  {
+   "t": "ATP",
+   "d": "Energiedrager van de cel."
+  },
+  {
+   "t": "stofwisseling",
+   "d": "Alle omzettingen van stoffen in de cel: opbouw (assimilatie) en afbraak (dissimilatie)."
+  },
+  {
+   "t": "lysosoom",
+   "d": "Blaasje vol afbraakenzymen; binnenin zuur. Breekt afval af tot bouwstenen die de cel opnieuw gebruikt."
+  },
+  {
+   "t": "homeostase",
+   "d": "Zichzelf in evenwicht houden."
+  },
+  {
+   "t": "vacuole",
+   "d": "Holte vol water in een plantencel; bouwt druk op tegen de celwand en houdt de plant stevig."
+  },
+  {
+   "t": "celwand",
+   "d": "Stevige laag cellulose buiten het celmembraan van een plantencel; werkt als zeef."
+  },
+  {
+   "t": "chloroplast (bladgroenkorrel)",
+   "d": "Groen organel waar fotosynthese plaatsvindt: met lichtenergie wordt uit water en koolstofdioxide glucose gemaakt."
+  },
+  {
+   "t": "grana",
+   "d": "Stapels schijfjes in een chloroplast met de eiwitten die licht vangen.",
+   "vwo": true
+  },
+  {
+   "t": "cytoskelet (celskelet)",
+   "d": "Netwerk van eiwitdraden in de cel: geeft vorm en werkt als rails voor transport; sommige cellen bewegen ermee."
+  },
+  {
+   "t": "motoreiwit",
+   "d": "Eiwit dat met een blaasje over een draad van het cytoskelet loopt.",
+   "vwo": true
+  },
+  {
+   "t": "ontvanger-eiwit (receptor)",
+   "d": "Eiwit in het membraan waarop een hormoon of ander signaal past."
+  }
+ ],
+ "microben": [
+  {
+   "t": "schimmel",
+   "d": "Eukaryoot organisme met een eigen rijk; meestal opgebouwd uit draden (hyfen). Verteert zijn voedsel buiten zijn cellen en verspreidt zich met sporen."
+  },
+  {
+   "t": "hyfe",
+   "d": "Schimmeldraad van een paar micrometer dik (meestal 5–10 µm), met kernen en een celwand waarin chitine zit. Groeit aan de top en vertakt."
+  },
+  {
+   "t": "mycelium",
+   "d": "Alle hyfen van een schimmel samen."
+  },
+  {
+   "t": "spore",
+   "d": "Piepkleine cel waaruit een nieuwe schimmel kan groeien; sporen zweven overal in de lucht."
+  },
+  {
+   "t": "vruchtlichaam",
+   "d": "Het deel van een schimmel waarin de sporen ontstaan, zoals een paddenstoel."
+  },
+  {
+   "t": "gist",
+   "d": "Eencellige schimmel die zich voortplant door knopvorming."
+  },
+  {
+   "t": "prokaryoot",
+   "d": "Organisme zonder celkern, zoals een bacterie; het DNA ligt los in de cel, meestal als één ring."
+  },
+  {
+   "t": "eukaryoot",
+   "d": "Organisme met cellen die een kern hebben, zoals schimmels, planten, dieren en de mens."
+  },
+  {
+   "t": "plasmide",
+   "d": "Klein ringetje DNA in een bacterie, naast het grote ringvormige chromosoom."
+  },
+  {
+   "t": "tweedeling",
+   "d": "Voortplanting van een bacterie: ze kopieert haar DNA, groeit en splitst in twee cellen."
+  },
+  {
+   "t": "kolonie",
+   "d": "Zichtbaar hoopje bacteriën op een voedingsbodem, vaak gegroeid uit één cel."
+  },
+  {
+   "t": "virus",
+   "d": "Geen cel: een eiwitmantel met DNA of RNA, soms met een envelop. Kan zich alleen vermeerderen in een levende cel van een gastheer."
+  },
+  {
+   "t": "reducent",
+   "d": "Organisme dat dode resten afbreekt, zodat de stoffen weer vrijkomen."
+  },
+  {
+   "t": "symbiose",
+   "d": "Nauw samenleven van twee soorten: mutualisme (beide voordeel) of parasitisme (de parasiet voordeel, de gastheer nadeel)."
+  },
+  {
+   "t": "parasiet",
+   "d": "Organisme dat leeft ten koste van een ander: het heeft er voordeel van, de gastheer nadeel."
+  },
+  {
+   "t": "antibioticum",
+   "d": "Stof die bacteriën remt of doodt door aan te grijpen op onderdelen die bij bacteriën anders zijn dan bij jou, zoals de celwand. Werkt niet tegen virussen."
+  }
+ ],
+ "diffusie-osmose": [
+  {
+   "t": "deeltjesbeweging",
+   "d": "Alle deeltjes in een vloeistof of gas bewegen altijd willekeurig door elkaar; hoe warmer, hoe sneller."
+  },
+  {
+   "t": "diffusie",
+   "d": "De netto verplaatsing van deeltjes van een hoge naar een lage concentratie, door hun willekeurige beweging."
+  },
+  {
+   "t": "concentratie",
+   "d": "Hoeveel deeltjes van een stof er in een bepaalde hoeveelheid oplossing zitten."
+  },
+  {
+   "t": "concentratieverschil (concentratiegradiënt)",
+   "d": "Het verschil in concentratie tussen twee plekken. Hoe groter, hoe sneller de diffusie."
+  },
+  {
+   "t": "evenwicht",
+   "d": "Er gaan evenveel deeltjes heen als terug: netto nul. De deeltjes blijven bewegen."
+  },
+  {
+   "t": "longblaasje",
+   "d": "Klein blaasje in de long met een flinterdunne wand; zuurstof en koolstofdioxide gaan er door diffusie doorheen."
+  },
+  {
+   "t": "celmembraan",
+   "d": "Dubbele laag vetachtige moleculen om de cel, met eiwitten erin."
+  },
+  {
+   "t": "fosfolipide",
+   "d": "Bouwsteen van het celmembraan: een kop die van water houdt (hydrofiel) en twee vetstaarten die water afstoten (hydrofoob). In het membraan liggen de koppen naar het water en de staarten naar binnen."
+  },
+  {
+   "t": "hydrofiel / hydrofoob",
+   "d": "Hydrofiel: houdt van water, lost goed op in water. Hydrofoob: stoot water af, lost goed op in vet."
+  },
+  {
+   "t": "selectief doorlatend (selectief permeabel)",
+   "d": "Laat sommige stoffen door en andere niet. Kleine stoffen die in vet oplossen gaan makkelijk; ionen en glucose niet zomaar."
+  },
+  {
+   "t": "semipermeabel",
+   "d": "Laat water door, maar opgeloste stoffen zoals zout niet."
+  },
+  {
+   "t": "kanaaleiwit",
+   "d": "Eiwit in het membraan dat een tunnel vormt voor een bepaald soort deeltje, zoals een waterkanaal.",
+   "vwo": true
+  },
+  {
+   "t": "dragereiwit",
+   "d": "Eiwit in het membraan dat een deeltje vastpakt en aan de andere kant afzet.",
+   "vwo": true
+  },
+  {
+   "t": "gefaciliteerde diffusie",
+   "d": "Diffusie via een kanaal- of dragereiwit, van hoog naar laag, zonder ATP.",
+   "vwo": true
+  },
+  {
+   "t": "osmose",
+   "d": "Water gaat door een semipermeabel membraan naar de kant met de hoogste concentratie opgeloste deeltjes die er niet door kunnen: de hoogste osmotische waarde."
+  },
+  {
+   "t": "osmotische waarde",
+   "d": "Maat voor de concentratie opgeloste deeltjes in een oplossing. Tel deeltjes, geen moleculen: NaCl valt uiteen in Na⁺ en Cl⁻ en telt dus dubbel. Water gaat naar de kant met de hoogste osmotische waarde."
+  },
+  {
+   "t": "osmotische druk",
+   "d": "De druk die nodig is om osmose precies tegen te houden, bijvoorbeeld door een hogere waterkolom in een U-buis.",
+   "vwo": false
+  },
+  {
+   "t": "plasmolyse",
+   "d": "In een geconcentreerde oplossing verliest een plantencel water; het celmembraan laat los van de celwand. De ruimte ertussen vult zich met de buitenoplossing, want de celwand laat alles door."
+  },
+  {
+   "t": "turgor",
+   "d": "De druk van de celinhoud tegen de celwand; maakt een plant stevig."
+  },
+  {
+   "t": "hemolyse",
+   "d": "Het barsten van rode bloedcellen, bijvoorbeeld in zuiver water."
+  },
+  {
+   "t": "isotonisch",
+   "d": "Oplossing met dezelfde osmotische waarde als de cel: netto geen water in of uit."
+  },
+  {
+   "t": "hypotonisch",
+   "d": "Oplossing met een lagere osmotische waarde dan de cel: water gaat de cel in."
+  },
+  {
+   "t": "hypertonisch",
+   "d": "Oplossing met een hogere osmotische waarde dan de cel: water gaat de cel uit."
+  },
+  {
+   "t": "passief transport",
+   "d": "Transport dat vanzelf gaat, zonder energie van de cel: diffusie en osmose (vwo: ook gefaciliteerde diffusie)."
+  },
+  {
+   "t": "actief transport",
+   "d": "Transport tegen het concentratieverschil in, met een pomp (een eiwit in het membraan) die ATP kost."
+  },
+  {
+   "t": "ATP",
+   "d": "Energiedrager van de cel: een base, een suiker en drie fosfaatgroepen. Bij gebruik gaat de laatste fosfaatgroep eraf (ATP → ADP + P)."
+  },
+  {
+   "t": "natrium-kaliumpomp",
+   "d": "Pomp in het celmembraan die met ATP natrium naar buiten en kalium naar binnen pompt.",
+   "vwo": true
+  }
+ ],
+ "stamcellen": [
+  {
+   "t": "differentiatie",
+   "d": "Een cel krijgt een eigen bouw en taak doordat er andere genen aan staan; het DNA blijft hetzelfde."
+  },
+  {
+   "t": "gedifferentieerde cel",
+   "d": "Gespecialiseerde cel, zoals een zenuwcel of spiercel; deelt zich vaak niet of nauwelijks meer."
+  },
+  {
+   "t": "stamcel",
+   "d": "Ongespecialiseerde cel die zich blijft delen; bij een deling blijft er gemiddeld één stamcel over, de andere cel differentieert."
+  },
+  {
+   "t": "kiemlaag",
+   "d": "Onderste laag van de opperhuid, met stamcellen; de cellen schuiven omhoog, verhoornen, sterven af en schilferen af."
+  },
+  {
+   "t": "volwassen stamcel",
+   "d": "Stamcel in een weefsel (beenmerg, huid, darm); maakt alleen de celsoorten van dat weefsel."
+  },
+  {
+   "t": "embryonale stamcel",
+   "d": "Stamcel gekweekt uit de binnenste celmassa van een embryo van ± 5 dagen; kan elke celsoort van het lichaam worden."
+  },
+  {
+   "t": "stamceltransplantatie",
+   "d": "Een patiënt krijgt bloedstamcellen van een passende donor, bijvoorbeeld bij leukemie; daarna heeft het bloed het DNA van de donor."
+  },
+  {
+   "t": "afstoting",
+   "d": "Het afweersysteem ruimt lichaamsvreemde cellen op; een donor moet daarom bijna dezelfde herkenningseiwitten hebben."
+  },
+  {
+   "t": "geïnduceerde stamcel (iPS-cel)",
+   "d": "Gewone lichaamscel die in het lab is teruggezet tot een stamcel die bijna elke celsoort kan worden."
+  },
+  {
+   "t": "weefsel",
+   "d": "Groep gelijke cellen met dezelfde taak."
+  },
+  {
+   "t": "emergente eigenschap",
+   "d": "Eigenschap van het geheel die de losse delen niet hebben, zoals hartspiercellen die samen in één ritme kloppen."
+  },
+  {
+   "t": "transcriptiefactor (vwo)",
+   "d": "Eiwit dat aan de promotor van een gen bindt en zo bepaalt of RNA-polymerase het gen kan overschrijven."
+  },
+  {
+   "t": "epigenetica (vwo)",
+   "d": "Chemische markeringen op het DNA en de histonen (bijvoorbeeld methylgroepen) die genen langdurig aan of uit zetten, ook na een deling."
+  },
+  {
+   "t": "toti-, pluri-, multi-, unipotent (vwo)",
+   "d": "Hoeveel een cel nog kan worden: alles inclusief placenta · elke celsoort van het lichaam · een paar celsoorten van het eigen weefsel · één celsoort."
+  }
+ ],
+ "onderzoek-doen": [
+  {
+   "t": "onderzoekscyclus",
+   "d": "Vaste route: waarneming, onderzoeksvraag, hypothese, werkplan, uitvoering, resultaten, conclusie, discussie, en vaak een nieuwe vraag."
+  },
+  {
+   "t": "onderzoeksvraag",
+   "d": "Vraag over één factor en iets wat je kunt meten."
+  },
+  {
+   "t": "hypothese",
+   "d": "Een mogelijk antwoord op de onderzoeksvraag, dat je kunt toetsen."
+  },
+  {
+   "t": "verwachting",
+   "d": "Wat je in deze proef zult meten als de hypothese klopt; vaak met als … dan …"
+  },
+  {
+   "t": "falsifieerbaar",
+   "d": "Er is een uitkomst denkbaar die de hypothese weerlegt."
+  },
+  {
+   "t": "werkplan",
+   "d": "Beschrijving van hoe je de proef uitvoert: materialen, variabelen, metingen."
+  },
+  {
+   "t": "onafhankelijke variabele",
+   "d": "Wat je zelf verandert."
+  },
+  {
+   "t": "afhankelijke variabele",
+   "d": "Wat je meet."
+  },
+  {
+   "t": "constante variabele",
+   "d": "Een factor die je gelijk houdt, zodat alleen de onafhankelijke variabele verschilt (ook: controlevariabele)."
+  },
+  {
+   "t": "controlegroep",
+   "d": "Een groep zonder de factor die je onderzoekt, verder precies gelijk; om mee te vergelijken."
+  },
+  {
+   "t": "randomiseren",
+   "d": "Het toeval laten bepalen wat of wie in welke groep komt."
+  },
+  {
+   "t": "blind · dubbelblind",
+   "d": "Blind: wie meet of meedoet, weet niet in welke groep iets hoort. Dubbelblind: proefpersoon en onderzoeker weten het allebei niet."
+  },
+  {
+   "t": "placebo",
+   "d": "Nepbehandeling voor de controlegroep in medisch onderzoek."
+  },
+  {
+   "t": "toevallige fout",
+   "d": "Meetfout die de ene keer te hoog en de andere keer te laag uitvalt; middelt uit bij herhalen."
+  },
+  {
+   "t": "systematische fout",
+   "d": "Meetfout die steeds in dezelfde richting zit; middelt niet uit."
+  },
+  {
+   "t": "steekproef",
+   "d": "Het deel dat je onderzoekt (bijvoorbeeld 50 zaadjes); hoe groter, hoe minder toeval de uitkomst bepaalt."
+  },
+  {
+   "t": "betrouwbaar",
+   "d": "Bij herhalen vind je ongeveer hetzelfde: de uitkomst hangt niet af van toeval. Betrouwbaarder door meer planten, proefpersonen of monsters, herhalen en middelen, steeds op dezelfde manier meten (vast werkplan) en de spreiding te laten zien."
+  },
+  {
+   "t": "herhaalbaar",
+   "d": "Doe je dezelfde proef zelf opnieuw, dan vind je hetzelfde resultaat."
+  },
+  {
+   "t": "reproduceerbaar",
+   "d": "Een ander lab doet de proef na, met eigen materiaal, en vindt hetzelfde resultaat."
+  },
+  {
+   "t": "nauwkeurig",
+   "d": "Hoe fijn je meetinstrument meet, bijvoorbeeld op een tiende gram."
+  },
+  {
+   "t": "valide",
+   "d": "Je conclusie klopt: je meet echt wat je wilt weten, het verschil komt echt door jouw variabele (controlegroep, geen storende factoren), en je weet voor welke situatie het geldt. Vaker meten maakt een onderzoek niet meer valide."
+  },
+  {
+   "t": "spreiding",
+   "d": "Hoe ver de metingen uit elkaar liggen."
+  },
+  {
+   "t": "histogram",
+   "d": "Grafiek die laat zien hoe vaak elke waarde (of klasse van waarden) voorkomt."
+  },
+  {
+   "t": "conclusie · discussie",
+   "d": "Conclusie: het antwoord op de onderzoeksvraag. Discussie: beperkingen, opvallende zaken en nieuwe vragen."
+  },
+  {
+   "t": "observationeel onderzoek",
+   "d": "Onderzoek waarin je niets verandert, maar kijkt wat samengaat."
+  },
+  {
+   "t": "correlatie · causaliteit",
+   "d": "Correlatie: twee dingen gaan samen. Causaliteit: het ene veroorzaakt het andere."
+  },
+  {
+   "t": "omgekeerde causaliteit",
+   "d": "Het vermeende gevolg is eigenlijk de oorzaak."
+  },
+  {
+   "t": "verstorende variabele",
+   "d": "Een derde factor die beide dingen veroorzaakt."
+  },
+  {
+   "t": "informed consent",
+   "d": "Vooraf geïnformeerde toestemming van wie meedoet aan medisch-wetenschappelijk onderzoek."
+  },
+  {
+   "t": "de drie V's",
+   "d": "Vervanging, vermindering en verfijning van dierproeven."
+  },
+  {
+   "t": "fraude",
+   "d": "Gegevens verzinnen, gegevens vervalsen of werk van anderen overnemen; bewust misleiden, anders dan een eerlijke fout."
+  }
+ ]
+}

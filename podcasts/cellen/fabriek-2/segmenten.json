@@ -1,0 +1,201 @@
+{
+ "stem": "Remko",
+ "voice_id": "vjeU1L5RIGPyrwuboFwz",
+ "model": "eleven_v4",
+ "hoofdstukken": [
+  {
+   "nr": "0",
+   "titel": "Opening",
+   "vwo": false,
+   "segmenten": [
+    "h0-1"
+   ],
+   "bestand": "podcasts/cellen/fabriek-2/audio/0-0.mp3",
+   "duur": 36
+  },
+  {
+   "nr": "1",
+   "titel": "De krachtcentrale",
+   "vwo": false,
+   "segmenten": [
+    "h1-1",
+    "h1-2",
+    "h1-3"
+   ],
+   "bestand": "podcasts/cellen/fabriek-2/audio/1-1.mp3",
+   "duur": 100
+  },
+  {
+   "nr": "2",
+   "titel": "Opruimen en in evenwicht blijven",
+   "vwo": false,
+   "segmenten": [
+    "h2-1",
+    "h2-2",
+    "h2-3"
+   ],
+   "bestand": "podcasts/cellen/fabriek-2/audio/2-2.mp3",
+   "duur": 98
+  },
+  {
+   "nr": "3",
+   "titel": "De grens en het skelet",
+   "vwo": false,
+   "segmenten": [
+    "h3-1",
+    "h3-2"
+   ],
+   "bestand": "podcasts/cellen/fabriek-2/audio/3-3.mp3",
+   "duur": 66
+  },
+  {
+   "nr": "4",
+   "titel": "Plantencel en dierlijke cel",
+   "vwo": false,
+   "segmenten": [
+    "h4-1",
+    "h4-2",
+    "h4-3"
+   ],
+   "bestand": "podcasts/cellen/fabriek-2/audio/4-4.mp3",
+   "duur": 108
+  },
+  {
+   "nr": "4b",
+   "titel": "Voor vwo: bouw past bij functie",
+   "vwo": true,
+   "segmenten": [
+    "h4b-1",
+    "h4b-2"
+   ],
+   "bestand": "podcasts/cellen/fabriek-2/audio/5-4b.mp3",
+   "duur": 69
+  },
+  {
+   "nr": "5",
+   "titel": "Afsluiting",
+   "vwo": false,
+   "segmenten": [
+    "h5-1",
+    "h5-2"
+   ],
+   "bestand": "podcasts/cellen/fabriek-2/audio/6-5.mp3",
+   "duur": 57
+  }
+ ],
+ "segmenten": [
+  {
+   "id": "h0-1",
+   "tekst": "In de vorige aflevering liepen we door de fabriek van de cel. De kern met de bouwtekeningen. Ribosomen die eiwitten bouwen. Het ruw ER en het golgisysteem die ze afwerken en verpakken.\n\nMaar al dat maken en vervoeren kost energie. Waar haalt een cel die vandaan? En een fabriek maakt afval. Waar laat de cel dat?\n\nDat zoeken we uit, in vier stappen. Eén: de krachtcentrale. Twee: opruimen en in evenwicht blijven. Drie: de grens en het skelet van de cel. Vier: waarom een plantencel anders is.",
+   "stem": "In de vorige aflevering liepen we door de fabriek van de cel. De kern met de bouwtekeningen. Ribosomen die eiwitten bouwen. Het ruw E-R en het golgisysteem die ze afwerken en verpakken.\n\nMaar al dat maken en vervoeren kost energie. Waar haalt een cel die vandaan? En een fabriek maakt afval. Waar laat de cel dat?\n\nDat zoeken we uit, in vier stappen. Eén: de krachtcentrale. Twee: opruimen en in evenwicht blijven. Drie: de grens en het skelet van de cel. Vier: waarom een plantencel anders is.",
+   "stilte": 0,
+   "generation_id": "c9hzcsbC6pjwhIDe1saE"
+  },
+  {
+   "id": "h1-1",
+   "tekst": "Deel één. De krachtcentrale.\n\nDe energie komt vrij in kleine organellen: mitochondriën. Eén heet een mitochondrium. Daar wordt glucose verbrand, met zuurstof. Anders gezegd: een mitochondrium is de krachtcentrale van de cel, waar brandstof wordt omgezet in bruikbare energie.\n\nDaarbij ontstaat ATP. ATP is de energiedrager van de cel. Anders gezegd: ATP is het geld waarmee elke afdeling van de fabriek zijn werk betaalt.\n\nWat ontstaat er in een mitochondrium, denk je, dat de rest van de cel gebruikt?",
+   "stem": "Deel één. De krachtcentrale.\n\nDe energie komt vrij in kleine organellen: mitochondriën. Eén heet een mitochondrium. Daar wordt glucose verbrand, met zuurstof. Anders gezegd: een mitochondrium is de krachtcentrale van de cel, waar brandstof wordt omgezet in bruikbare energie.\n\nDaarbij ontstaat ATP. ATP is de energiedrager van de cel. Anders gezegd: ATP is het geld waarmee elke afdeling van de fabriek zijn werk betaalt.\n\nWat ontstaat er in een mitochondrium, denk je, dat de rest van de cel gebruikt?",
+   "stilte": 3,
+   "generation_id": "iVbRkazgDceT4vpQWRAK"
+  },
+  {
+   "id": "h1-2",
+   "tekst": "ATP. De energiedrager.\n\nEen mitochondrium heeft twee vliezen. Het buitenste is glad. Het binnenste is sterk geplooid. Die plooien heten cristae. Cristae zijn dus de vouwen in het binnenste vlies, zoals een harmonica.\n\nOp dat binnenste vlies zitten de eiwitten die ATP maken. In een mitochondrium van een levercel geven de plooien ongeveer vijf keer zoveel oppervlak als een glad vlies.\n\nHier is het belangrijke punt. Stel dat die plooien er niet waren. Wat zou er dan gebeuren? Denk even na.",
+   "stem": "ATP. De energiedrager.\n\nEen mitochondrium heeft twee vliezen. Het buitenste is glad. Het binnenste is sterk geplooid. Die plooien heten cristae. Cristae zijn dus de vouwen in het binnenste vlies, zoals een harmonica.\n\nOp dat binnenste vlies zitten de eiwitten die ATP maken. In een mitochondrium van een levercel geven de plooien ongeveer vijf keer zoveel oppervlak als een glad vlies.\n\nHier is het belangrijke punt. Stel dat die plooien er niet waren. Wat zou er dan gebeuren? Denk even na.",
+   "stilte": 4,
+   "generation_id": "X59DdzuyZAnW9BHOHzai"
+  },
+  {
+   "id": "h1-3",
+   "tekst": "De cel maakt minder ATP. Minder vlies betekent minder plek voor de eiwitten die ATP maken. Meer plooien, meer ATP. De bouw maakt de functie mogelijk.\n\nEn dat zie je terug. Een hartspiercel, die nooit stopt, zit voor een derde vol mitochondriën. Duizenden. Een huidcel heeft er een paar honderd.\n\nKort gezegd: mitochondriën verbranden glucose en maken ATP. Hoe meer energie een cel nodig heeft, hoe meer mitochondriën.",
+   "stem": "De cel maakt minder ATP. Minder vlies betekent minder plek voor de eiwitten die ATP maken. Meer plooien, meer ATP. De bouw maakt de functie mogelijk.\n\nEn dat zie je terug. Een hartspiercel, die nooit stopt, zit voor een derde vol mitochondriën. Duizenden. Een huidcel heeft er een paar honderd.\n\nKort gezegd: mitochondriën verbranden glucose en maken ATP. Hoe meer energie een cel nodig heeft, hoe meer mitochondriën.",
+   "stilte": 0,
+   "generation_id": "auirT4dtJ0anWwpIron2"
+  },
+  {
+   "id": "h2-1",
+   "tekst": "Deel twee. Opruimen en in evenwicht blijven.\n\nEen fabriek maakt afval. Versleten organellen. Kapotte eiwitten. En in witte bloedcellen: bacteriën die ze hebben ingepakt. Daarvoor heeft de cel lysosomen. Een lysosoom is een blaasje vol enzymen die dingen afbreken. Anders gezegd: een lysosoom is de afvalverwerking van de cel. Het breekt afval af, en de cel gebruikt de bouwstenen opnieuw.\n\nWat zit er in een lysosoom, denk je?",
+   "stem": "Deel twee. Opruimen en in evenwicht blijven.\n\nEen fabriek maakt afval. Versleten organellen. Kapotte eiwitten. En in witte bloedcellen: bacteriën die ze hebben ingepakt. Daarvoor heeft de cel liezosomen. Een liezosoom is een blaasje vol enzymen die dingen afbreken. Anders gezegd: een liezosoom is de afvalverwerking van de cel. Het breekt afval af, en de cel gebruikt de bouwstenen opnieuw.\n\nWat zit er in een liezosoom, denk je?",
+   "stilte": 3,
+   "generation_id": "v9pstBV9DMYvCVys4VcM"
+  },
+  {
+   "id": "h2-2",
+   "tekst": "Enzymen die afbreken.\n\nBinnen in een lysosoom is het zuur. Daar werken die enzymen het best.\n\nDenk even na. Wat gebeurt er als er één enzym uit een lysosoom lekt? Breekt het dan de hele cel af?",
+   "stem": "Enzymen die afbreken.\n\nBinnen in een liezosoom is het zuur. Daar werken die enzymen het best.\n\nDenk even na. Wat gebeurt er als er één enzym uit een liezosoom lekt? Breekt het dan de hele cel af?",
+   "stilte": 4,
+   "generation_id": "fa5qc2GT02sfMnsoU0h6"
+  },
+  {
+   "id": "h2-3",
+   "tekst": "Nee, er gebeurt weinig. Buiten het lysosoom is het niet zuur genoeg. Daar werkt het enzym nauwelijks. Een slimme beveiliging.\n\nEen volgroeide plantencel heeft nog iets: één grote vacuole. Dat is een blaas met een vlies eromheen, gevuld met celvocht. Anders gezegd: de vacuole is een waterballon binnen in de plantencel. Water stroomt erin, en de ballon duwt van binnen tegen de stevige wand van de cel. Zo staat een plant rechtop. Verliest de vacuole water, dan valt de druk weg, en zakt de plant in.\n\nAfval opruimen. Water vasthouden. Zo houdt een cel zichzelf in evenwicht. Dat heet homeostase. Homeostase is dus: binnen alles stabiel houden, terwijl het buiten verandert.\n\nKort gezegd: lysosomen ruimen op, de vacuole houdt water vast, en samen houden ze de cel in evenwicht.",
+   "stem": "Nee, er gebeurt weinig. Buiten het liezosoom is het niet zuur genoeg. Daar werkt het enzym nauwelijks. Een slimme beveiliging.\n\nEen volgroeide plantencel heeft nog iets: één grote vacuole. Dat is een blaas met een vlies eromheen, gevuld met celvocht. Anders gezegd: de vacuole is een waterballon binnen in de plantencel. Water stroomt erin, en de ballon duwt van binnen tegen de stevige wand van de cel. Zo staat een plant rechtop. Verliest de vacuole water, dan valt de druk weg, en zakt de plant in.\n\nAfval opruimen. Water vasthouden. Zo houdt een cel zichzelf in evenwicht. Dat heet homeostase. Homeostase is dus: binnen alles stabiel houden, terwijl het buiten verandert.\n\nKort gezegd: liezosomen ruimen op, de vacuole houdt water vast, en samen houden ze de cel in evenwicht.",
+   "stilte": 0,
+   "generation_id": "MLmg2cQzCViZw1DdKBUe"
+  },
+  {
+   "id": "h3-1",
+   "tekst": "Deel drie. De grens en het skelet.\n\nAlles wat de cel in of uit gaat, passeert het celmembraan. Het membraan laat sommige stoffen door, en andere niet. Het is dus geen muur, maar een poort met een portier.\n\nIn het membraan zitten ook ontvangers. Past een hormoon op zo'n ontvanger, dan verandert de cel wat hij doet. Zo krijgt een cel berichten van buiten.\n\nVeel mensen denken dat de organellen in een cel stilliggen, zoals op een plaatje. Dat klopt niet. In een levende cel beweegt alles. Blaasjes schieten heen en weer. Mitochondriën verplaatsen zich. Dat kan door een netwerk van eiwitdraden door de hele cel: het cytoskelet. Anders gezegd: het cytoskelet is het geraamte én het wegennet van de cel. Het geeft de cel zijn vorm, en blaasjes reizen eroverheen.\n\nWat doet het cytoskelet, denk je: alleen de vorm geven, of ook vervoeren?",
+   "stem": "Deel drie. De grens en het skelet.\n\nAlles wat de cel in of uit gaat, passeert het celmembraan. Het membraan laat sommige stoffen door, en andere niet. Het is dus geen muur, maar een poort met een portier.\n\nIn het membraan zitten ook ontvangers. Past een hormoon op zo'n ontvanger, dan verandert de cel wat hij doet. Zo krijgt een cel berichten van buiten.\n\nVeel mensen denken dat de organellen in een cel stilliggen, zoals op een plaatje. Dat klopt niet. In een levende cel beweegt alles. Blaasjes schieten heen en weer. Mitochondriën verplaatsen zich. Dat kan door een netwerk van eiwitdraden door de hele cel: het cytoskelet. Anders gezegd: het cytoskelet is het geraamte én het wegennet van de cel. Het geeft de cel zijn vorm, en blaasjes reizen eroverheen.\n\nWat doet het cytoskelet, denk je: alleen de vorm geven, of ook vervoeren?",
+   "stilte": 3,
+   "generation_id": "hGMd7jDO4P4fA1gebhfg"
+  },
+  {
+   "id": "h3-2",
+   "tekst": "Allebei. Het geeft vorm, en het is de weg waarover blaasjes reizen.\n\nKort gezegd: het membraan kiest wat erin en eruit gaat, het cytoskelet geeft vorm en beweging.",
+   "stem": "Allebei. Het geeft vorm, en het is de weg waarover blaasjes reizen.\n\nKort gezegd: het membraan kiest wat erin en eruit gaat, het cytoskelet geeft vorm en beweging.",
+   "stilte": 0,
+   "generation_id": "KSIcgb3l08bqlLUGwfTz"
+  },
+  {
+   "id": "h4-1",
+   "tekst": "Deel vier. Plantencel en dierlijke cel.\n\nLeg ze naast elkaar. Beide hebben een kern, mitochondriën en ribosomen. Allebei ook ER, een golgisysteem en een celmembraan. Lysosomen vind je vooral in dierlijke cellen. Bij planten doet de vacuole dat werk.\n\nEen plant zit vast, en maakt zelf zijn voedsel. Dat hoor je terug in zijn cel: drie dingen extra.\n\nEén: een celwand van cellulose, buiten het membraan. Voor stevigheid. Anders gezegd: de celwand is een stevige doos om de cel heen.\n\nJe zou denken: met zo'n stevige wand heeft een plantencel geen membraan meer nodig. Maar de wand is een zeef. Water en opgeloste stoffen gaan er vrij doorheen. Alleen het membraan kiest wat erin en eruit gaat. Dus allebei: wand eromheen, membraan ertegenaan.\n\nTwee: bladgroenkorrels. Die heten ook chloroplasten. Daar gebeurt fotosynthese: met de energie van licht wordt uit water en koolstofdioxide glucose gemaakt. Anders gezegd: een bladgroenkorrel is een zonnepaneel dat suiker maakt.\n\nDrie: die grote vacuole.\n\nWat heeft een plantencel extra, denk je? Drie dingen.",
+   "stem": "Deel vier. Plantencel en dierlijke cel.\n\nLeg ze naast elkaar. Beide hebben een kern, mitochondriën en ribosomen. Allebei ook E-R, een golgisysteem en een celmembraan. Liezosomen vind je vooral in dierlijke cellen. Bij planten doet de vacuole dat werk.\n\nEen plant zit vast, en maakt zelf zijn voedsel. Dat hoor je terug in zijn cel: drie dingen extra.\n\nEén: een celwand van cellulose, buiten het membraan. Voor stevigheid. Anders gezegd: de celwand is een stevige doos om de cel heen.\n\nJe zou denken: met zo'n stevige wand heeft een plantencel geen membraan meer nodig. Maar de wand is een zeef. Water en opgeloste stoffen gaan er vrij doorheen. Alleen het membraan kiest wat erin en eruit gaat. Dus allebei: wand eromheen, membraan ertegenaan.\n\nTwee: bladgroenkorrels. Die heten ook chloroplasten. Daar gebeurt fotosynthese: met de energie van licht wordt uit water en koolstofdie-oxide glucose gemaakt. Anders gezegd: een bladgroenkorrel is een zonnepaneel dat suiker maakt.\n\nDrie: die grote vacuole.\n\nWat heeft een plantencel extra, denk je? Drie dingen.",
+   "stilte": 3,
+   "generation_id": "m2pds9S0b85502xJq6jU"
+  },
+  {
+   "id": "h4-2",
+   "tekst": "Een celwand, bladgroenkorrels en een grote vacuole.\n\nDenk even na. Een plantencel heeft bladgroenkorrels. Heeft hij dan ook nog mitochondriën nodig?",
+   "stem": "Een celwand, bladgroenkorrels en een grote vacuole.\n\nDenk even na. Een plantencel heeft bladgroenkorrels. Heeft hij dan ook nog mitochondriën nodig?",
+   "stilte": 4,
+   "generation_id": "6hNV3iRe1RfBooKVwfqU"
+  },
+  {
+   "id": "h4-3",
+   "tekst": "Ja. Stel dat de bladgroenkorrels het alleen deden. Dan is er 's nachts geen licht, en dus geen energie. De plant zou elke nacht stilvallen. Een bladgroenkorrel maakt glucose. Een mitochondrium verbrandt die. Allebei nodig, in elke plantencel.\n\nKort gezegd: een plantencel heeft alles van een dierlijke cel, plus een celwand, bladgroenkorrels en een grote vacuole.",
+   "stem": "Ja. Stel dat de bladgroenkorrels het alleen deden. Dan is er 's nachts geen licht, en dus geen energie. De plant zou elke nacht stilvallen. Een bladgroenkorrel maakt glucose. Een mitochondrium verbrandt die. Allebei nodig, in elke plantencel.\n\nKort gezegd: een plantencel heeft alles van een dierlijke cel, plus een celwand, bladgroenkorrels en een grote vacuole.",
+   "stilte": 0,
+   "generation_id": "CvkvyUvjbJjWe3Ff8SFq"
+  },
+  {
+   "id": "h4b-1",
+   "tekst": "Dit stukje is voor vwo. Drie keer hetzelfde idee: de bouw verraadt de functie.\n\nEén. Hoe sneller een cel ATP nodig heeft, hoe meer cristae je ziet. Een hartspiercel heeft mitochondriën vol dicht opeengepakte plooien. De mitochondriën van een witte vetcel hebben er maar een paar. Uit één mitochondrium kun je dus al raden hoe hard de cel werkt.\n\nTwee. Hoe komt een blaasje van het ER bij het golgisysteem? Niet door te drijven. Motoreiwitten lopen met het blaasje over de draden van het cytoskelet. Als karretjes op rails. Een motoreiwit is dus een eiwit dat stapt, met een blaasje op zijn rug.\n\nDrie. Binnen in een bladgroenkorrel liggen stapels schijfjes: de grana. Op die schijfjes zitten de eiwitten die licht vangen. Veel schijfjes, veel oppervlak, veel licht.\n\nDenk even na. Welk ander organel gebruikt precies dezelfde truc als de grana?",
+   "stem": "Dit stukje is voor vwo. Drie keer hetzelfde idee: de bouw verraadt de functie.\n\nEén. Hoe sneller een cel ATP nodig heeft, hoe meer cristae je ziet. Een hartspiercel heeft mitochondriën vol dicht opeengepakte plooien. De mitochondriën van een witte vetcel hebben er maar een paar. Uit één mitochondrium kun je dus al raden hoe hard de cel werkt.\n\nTwee. Hoe komt een blaasje van het E-R bij het golgisysteem? Niet door te drijven. Motoreiwitten lopen met het blaasje over de draden van het cytoskelet. Als karretjes op rails. Een motoreiwit is dus een eiwit dat stapt, met een blaasje op zijn rug.\n\nDrie. Binnen in een bladgroenkorrel liggen stapels schijfjes: de grana. Op die schijfjes zitten de eiwitten die licht vangen. Veel schijfjes, veel oppervlak, veel licht.\n\nDenk even na. Welk ander organel gebruikt precies dezelfde truc als de grana?",
+   "stilte": 4,
+   "generation_id": "HYmmYd6gPpROnWNBDJAY"
+  },
+  {
+   "id": "h4b-2",
+   "tekst": "Het mitochondrium, met zijn cristae. Allebei vouwen of stapelen ze een vlies, voor meer oppervlak. Meer oppervlak, meer werk.",
+   "stem": "Het mitochondrium, met zijn cristae. Allebei vouwen of stapelen ze een vlies, voor meer oppervlak. Meer oppervlak, meer werk.",
+   "stilte": 0,
+   "generation_id": "AzyRRALWbAkK1mQiD0Lk"
+  },
+  {
+   "id": "h5-1",
+   "tekst": "Terug naar de vraag van het begin. Waar haalt de cel zijn energie vandaan? Uit de mitochondriën, die glucose verbranden en ATP maken. En waar laat hij zijn afval? In lysosomen, die het afbreken, zodat de bouwstenen opnieuw gebruikt worden.\n\nDrie dingen om te onthouden.\nEén: mitochondriën maken ATP, en hun plooien geven meer oppervlak, dus meer ATP.\nTwee: lysosomen ruimen op, de vacuole houdt water vast, het membraan kiest wat erin en eruit gaat.\nDrie: een plantencel heeft een celwand, bladgroenkorrels en een grote vacuole, én mitochondriën.\n\nEn nu jij. Noem hardop de drie dingen die een plantencel extra heeft. En leg uit waarom hij tóch mitochondriën nodig heeft.",
+   "stem": "Terug naar de vraag van het begin. Waar haalt de cel zijn energie vandaan? Uit de mitochondriën, die glucose verbranden en ATP maken. En waar laat hij zijn afval? In liezosomen, die het afbreken, zodat de bouwstenen opnieuw gebruikt worden.\n\nDrie dingen om te onthouden.\nEén: mitochondriën maken ATP, en hun plooien geven meer oppervlak, dus meer ATP.\nTwee: liezosomen ruimen op, de vacuole houdt water vast, het membraan kiest wat erin en eruit gaat.\nDrie: een plantencel heeft een celwand, bladgroenkorrels en een grote vacuole, én mitochondriën.\n\nEn nu jij. Noem hardop de drie dingen die een plantencel extra heeft. En leg uit waarom hij tóch mitochondriën nodig heeft.",
+   "stilte": 4,
+   "generation_id": "DEDASeyN4wHhSj0sHHdR"
+  },
+  {
+   "id": "h5-2",
+   "tekst": "Wil je de fabriek zien? Kijk dan de film Celorganellen. Hoe stoffen precies door het membraan gaan, hoor je in de aflevering over diffusie.",
+   "stem": "Wil je de fabriek zien? Kijk dan de film Celorganellen. Hoe stoffen precies door het membraan gaan, hoor je in de aflevering over diffusie.",
+   "stilte": 0,
+   "generation_id": "cew8Rg53wyLHTNK7k02N"
+  }
+ ],
+ "flow": "https://elevenlabs.io/app/flows/cOEno8gxse8pGyFvDe22"
+}
