@@ -25,7 +25,7 @@ Wat het onderzoek zegt (kort):
 
 1. **Opening (≤ 30 s)** — één prikkelende vraag of verrassend feit uit het leven van de leerling, dan de wegwijzer: 'In deze aflevering: drie dingen. …'.
 2. **Hoofdstukken (3–4)** — elk begint met de titel hardop ('Deel twee: de tocht.') en eindigt met **één zin samenvatting**.
-3. **Denkmomenten** — klein: na elk nieuw begrip een korte vraag met ± 3 s stilte (zie Begripsblok, §3). Groot: één per hoofdstuk, over het verband ('waarom …?'): 'Denk even na: …?' → ± 4 s stilte (in de mp3, geen tikken nodig) → antwoord met uitleg. Hooguit twee keuzes ('of …, of …'); drie opties onthoud je niet zonder scherm.
+3. **Denkmomenten** — klein: na elk nieuw begrip een korte vraag met ± 3 s stilte (zie Begripsblok, §3). Groot: één per hoofdstuk, over het verband ('waarom …?'): 'Denk even na: …?' → ± 4 s stilte (in de mp3, geen tikken nodig, geen piepje) → antwoord met uitleg. Hooguit twee keuzes ('of …, of …'); drie opties onthoud je niet zonder scherm.
 4. **Misvatting** — minstens één per aflevering hardop: 'Veel mensen denken … Maar …'.
 5. **Vwo-hoofdstuk** — vwo-stof in een eigen hoofdstuk, gemarkeerd 'vwo'; de speler slaat het over in de havo-stand. Havo-hoofdstukken mogen er niet op leunen.
 6. **Afsluiting (± 45 s)** — terug naar de openingsvraag, dan 'Drie dingen om te onthouden', dan één **ophaalvraag**: 'Leg het nu in één zin hardop uit aan iemand die er niets van weet.' Tot slot de verwijzing naar de film ('In de film Bevruchting zie je het gebeuren').
@@ -54,7 +54,8 @@ Geen nagemaakte stem van een echt persoon; wel deze stijlkenmerken:
 ## 4. Geluid
 
 - Eén stem, rustig tempo (iets langzamer dan in de films), echte pauzes tussen de hoofdstukken.
-- **Geen muziek onder de stem** (extra belasting zonder beeld). Wel een korte herkenningstoon (± 2 s) aan het begin en een zacht toontje bij elke hoofdstukovergang en na een denkmoment-stilte.
+- **Geen muziek onder de stem** (extra belasting zonder beeld). Wel **intromuziek** (± 10 s, `geluid/intro.mp3`, ElevenLabs Music) aan het begin en een **kort stukje daarvan** (± 3,5 s, `geluid/overgang.mp3`) bij elk volgend hoofdstuk. **Geen piepje** (Kamiel 20 nov 2026: 'dat piepje wil ik niet'): na een denkvraag alleen stilte.
+- Samenstellen met `python3 podcasts/bouw.py <aflevering> <map met ruwe takes>`.
 - mp3 mono 64 kbit/s, gemasterd op −16 LUFS / −1,5 dBTP (als de films). ± 0,5 MB per minuut, dus een aflevering ± 5 MB.
 
 ## 5. De speler (`podcasts/index.html`)
@@ -83,6 +84,6 @@ Geen nagemaakte stem van een echt persoon; wel deze stijlkenmerken:
 
 - ~~Stem~~ gekozen: Remko (`vjeU1L5RIGPyrwuboFwz`, eleven_v4), zie `podcasts/stemproef/STEMMEN.md`.
 - Lengte en tempo goed? Denkmoment-stilte lang genoeg?
-- Herkenningstoon ja/nee.
+- Intromuziek A of B (proef `muziekproef`, `?test=1`); A staat er nu in.
 - RSS-feed voor podcast-apps.
 - Plek op de site: knop 'Luister' bij de film en/of een eigen menu-item 'Podcasts'.

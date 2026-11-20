@@ -8,8 +8,8 @@
 | Datum | 20 nov 2026 |
 | Concept | `podcasts/PODCASTS.md` v1 (spreekstijl, begripsblok) |
 | Stem / model | Remko `vjeU1L5RIGPyrwuboFwz`, eleven_v4, één take per segment; flow https://elevenlabs.io/app/flows/cOEno8gxse8pGyFvDe22; generation-ids in `segmenten.json`; ± 7.850 credits |
-| Duur | vwo 8:56 · havo 7:41 (inclusief denkstiltes) |
-| Audio | per hoofdstuk: herkenningstoon (hfst 0) of toontje, segmenten met stilte (3 of 4 s) + toontje na elke denkvraag, loudnorm −16 LUFS / −1,5 dBTP, mono 64 kbit/s |
+| Duur | vwo 9:09 · havo 7:53 (inclusief denkstiltes en muziek) |
+| Audio | per hoofdstuk: intromuziek (hfst 0) of overgangsmuziek, segmenten met stilte (3 of 4 s) na elke denkvraag (geen piepje), gebouwd met `podcasts/bouw.py`, loudnorm −16 LUFS / −1,5 dBTP, mono 64 kbit/s |
 
 ## Aanpassen
 
