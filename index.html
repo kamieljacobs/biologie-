@@ -526,6 +526,26 @@ details.reeks[open] .pijl{transform:rotate(225deg)}
 .ond-blok>details.reeks .reeks-meta{font-size:11px}
 .ond-blok>details.reeks .pijl{width:8px;height:8px}
 .ond-blok>details.reeks .reeks-inhoud{padding:0 12px 10px}
+.weergave-rij{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center;justify-content:space-between}
+.weergave-rij .weergave{margin:0}
+.themakies{margin-left:auto;display:flex;align-items:center;gap:8px;font:600 12px var(--meta);letter-spacing:.06em;text-transform:uppercase;color:var(--text3)}
+.themakies select{font:600 15px var(--tekst,inherit);text-transform:none;letter-spacing:0;color:var(--text);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:9px 34px 9px 16px;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--text3) 50%),linear-gradient(135deg,var(--text3) 50%,transparent 50%);background-position:calc(100% - 18px) 55%,calc(100% - 13px) 55%;background-size:5px 5px;background-repeat:no-repeat}
+.snel [data-open][aria-pressed="true"]{background:var(--goud);color:#1a1405;border-color:var(--goud)}
+/* Kamiel 20 nov 2026: alle reeksen open, elke film als balkje (2-3 kolommen) */
+.ond-blok{display:block}
+.ond-blok>details.reeks{margin:0 0 12px!important}
+.ond-blok>details.reeks>summary{padding:12px 16px}
+.ond-blok>details.reeks .reeks-inhoud{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:8px;padding:0 14px 14px}
+.reeks-inhoud .naar{grid-column:1/-1;margin:0 0 2px 2px!important}
+.reeks-inhoud .kort{grid-template-columns:40px 18px minmax(0,1fr) auto;gap:10px;padding:7px 10px 7px 7px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--bg) 55%,transparent);transition:border-color .15s,background .15s}
+.reeks-inhoud a.kort:hover{border-color:color-mix(in srgb,var(--goud) 60%,transparent);background:color-mix(in srgb,var(--goud) 7%,var(--surface))}
+.reeks-inhoud .kort .beeld{width:40px;height:40px}
+.reeks-inhoud .kort .n{font-size:14px}
+.reeks-inhoud .kort b{font-size:15.5px;line-height:1.25}
+.reeks-inhoud .kort b+span{font-size:12.5px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.reeks-inhoud .kort .t{font-size:11px;white-space:nowrap}
+.reeks-inhoud .kort.komt{opacity:.6;border-style:dashed;background:none}
+@media (max-width:600px){.ond-blok>details.reeks .reeks-inhoud{grid-template-columns:1fr;padding:0 10px 10px}.reeks-inhoud .kort{grid-template-columns:40px minmax(0,1fr) auto}}
 footer{margin-top:56px;border-top:1px solid var(--line);color:var(--text3);font-size:14px}
 footer .wrap{display:flex;gap:12px 24px;flex-wrap:wrap;padding-block:26px 44px}
 footer a:hover{color:var(--text)}
@@ -681,6 +701,47 @@ a.extegel:hover .explaat{opacity:1}
 .duo.vier .duo-helft .knop{min-height:40px;padding:0 16px;font-size:14px}
 @media (max-width:900px){.duo.vier{grid-template-columns:1fr 1fr;row-gap:18px}.duo.vier .duo-helft:nth-child(3){padding-left:0;border-left:0}.duo.vier .duo-helft:nth-child(2){padding-right:0}.duo.vier .duo-helft:nth-child(n+3){border-top:1px solid var(--line2);padding-top:18px}}
 @media (max-width:640px){.hero-kort>div.kaart-vier{padding:20px 16px 18px}.duo.vier .duo-helft{padding-left:12px;padding-right:12px}.duo.vier .duo-helft:nth-child(odd){padding-left:0}.duo.vier .duo-helft:nth-child(even){padding-right:0}.duo.vier .duo-helft h1{font-size:24px}.duo.vier .duo-helft p{font-size:13px}.duo.vier .duo-helft .knop{font-size:12.5px;padding:0 11px;min-height:34px}}
+/* Panorama (Kamiel 20 nov 2026: 'geen vergrootglas maar een landschap met uitzicht'): volle breedte, groepen naast elkaar, weinig kaders */
+.wrap.panorama,body.op-home .bar .wrap,body.op-home footer .wrap{max-width:1480px}
+.hero-kort.panorama{padding-block:26px 8px}
+.panorama .kaart-vier{padding:16px 22px 14px!important;border-radius:18px}
+.panorama .kaart-vier>.mono{display:none}
+.panorama .duo.vier{margin-top:0}
+.panorama .duo.vier .duo-helft{flex-direction:row;flex-wrap:wrap;align-items:center;gap:4px 12px;padding-top:6px;padding-bottom:6px}
+.panorama .duo.vier .duo-helft h1{font-size:clamp(24px,2.2vw,32px)}
+.panorama .duo.vier .duo-helft p{flex-basis:100%;font-size:14px;line-height:1.45;max-width:none}
+.panorama .duo.vier .duo-helft .knop{margin-top:4px;font-size:13px;padding:7px 14px}
+.panorama .duo.vier .duo-ik{width:36px;height:36px}
+.panorama .duo-onder{display:none}
+.vlakken.panorama{gap:18px;padding-top:14px}
+.panorama .vlak{background:color-mix(in srgb,var(--bg) 58%,transparent);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);border-color:var(--line)}
+.panorama .vlak>header{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:6px 20px;padding:18px 22px 14px;background:none}
+.panorama .vlak>header>*{grid-column:1}
+.panorama .vlak>header .seg-home{grid-column:2;grid-row:1/4;align-self:center;margin:0}
+.panorama .vlak h2{font-size:26px;margin:4px 0 2px}
+.panorama .vlak header p{font-size:14px}
+.panorama .vlak-groepen{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));border-top:1px solid var(--line)}
+.panorama .vgroep{display:flex;flex-direction:column;border-bottom:0;border-right:1px solid var(--line)}
+.panorama .vgroep:last-child{border-right:0}
+.panorama .vgroep-kop{border-right:0;padding:16px 16px 8px;justify-content:flex-start;min-height:74px}
+.panorama .vgroep-kop h3{font-size:18px}
+.panorama .vlak .vgroep ul{display:flex;flex-direction:column;padding:0 8px 12px}
+.panorama .vgroep li a{flex-direction:row;text-align:left;align-items:center;gap:12px;padding:7px 8px;border-radius:12px;display:grid;grid-template-columns:60px minmax(0,1fr)}
+.panorama .vgroep li .tk,.panorama .vgroep li .tk.foto{width:60px;height:60px;margin:0;grid-row:1/3}
+.panorama .vgroep li b{font-size:16px;align-self:end}
+.panorama .vgroep li .mat{align-self:start;white-space:normal;line-height:1.35}
+.panorama .vgroep li .vwo-tag{font-size:10px}
+.panorama .vlak-onder ul,.panorama .vlak-later ul{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));padding:6px 8px 4px}
+.panorama .vlak-onder li,.panorama .vlak-later li{border-top:0!important}
+.panorama .vlak-onder li a,.panorama .vlak-later li a{border-radius:12px;padding:8px 12px!important}
+.panorama .vlak-onder li .tk.foto,.panorama .vlak-later li a .tk.foto{width:60px;height:60px}
+.panorama .vlak-onder li:has(.tk.foto) a{grid-template-columns:60px minmax(0,1fr) auto!important}
+.panorama .vlak-naar{padding:8px 22px 16px!important}
+@media (min-width:1180px){.vlakken.panorama{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+@media (max-width:1000px){.panorama .duo.vier{grid-template-columns:1fr 1fr}.panorama .vgroep{border-right:0;border-bottom:1px solid var(--line)}}
+@media (max-width:700px){.vlakken.panorama{grid-template-columns:1fr}.panorama .vlak>header{grid-template-columns:1fr}.panorama .vlak>header .seg-home{grid-column:1;grid-row:auto;margin-top:8px;justify-self:start}.panorama .vlak-groepen{grid-template-columns:1fr 1fr}.panorama .vgroep-kop{min-height:0}.panorama .vgroep li a{grid-template-columns:48px minmax(0,1fr);gap:8px;padding:6px 4px}.panorama .vgroep li .tk,.panorama .vgroep li .tk.foto{width:48px;height:48px}.panorama .vgroep li b{font-size:14.5px}.panorama .vgroep li .mat{font-size:11px}}
+@media (max-width:420px){.panorama .vlak-groepen{grid-template-columns:1fr}}
+@media (max-width:640px){.panorama .duo.vier .duo-helft p{display:none}.panorama .duo.vier .duo-helft h1{font-size:22px}.panorama .duo.vier .duo-helft{padding:8px 10px!important;gap:6px 8px}.panorama .duo.vier .duo-ik{width:30px;height:30px}.panorama .duo.vier .duo-helft .knop{font-size:12px;padding:6px 10px}.panorama .kaart-vier{padding:10px 10px!important}}
 </style>
 </head>
 <body>
@@ -4224,7 +4285,7 @@ function home(){
   const nf=id=>HOOFDSTUKKEN[id]?HOOFDSTUKKEN[id].films.length:0;
   const thema=id=>{const h=HOOFDSTUKKEN[id];if(!h)return '';const vwo=/^vwo\b/.test(h.meta||'')?' <span class="vwo-tag mono">vwo</span>':'';
     return `<li><a href="#${id}">${ICOON.includes(id)?`<span class="tk foto"><img src="img/kunst/iconen/${id}.webp?v=4" alt="" width="88" height="88" decoding="async"></span>`:`<span class="tk">${kunst(id)}</span>`}<b>${esc(h.titel)}${vwo}</b><span class="mat">${esc(telling(id))}</span></a></li>`};
-  let out=grondLaag()+`<section class="wrap hero hero-kort">
+  let out=grondLaag()+`<section class="wrap hero hero-kort panorama">
     <div class="kaart-vier">
       <span class="mono">Biologie bij Kamiel</span>
       <div class="duo vier">
@@ -4236,9 +4297,9 @@ function home(){
       <p class="duo-onder">Liever per onderwerp? <a href="#vlak-basis">Kies een thema</a>. Werk je aan je PTA? Kijk bij <a href="#pta">PTA Agora</a>.</p>
     </div>
   </section>
-  <section class="wrap blok vlakken" aria-label="Kies waar je begint">
+  <section class="wrap blok vlakken panorama" aria-label="Kies waar je begint">
     <article class="vlak vlak-basis" id="vlak-basis">
-      <header><span class="mono vlak-lbl">${homeStand()==='alle'?"Alle thema's · havo en vwo":'Geordend als het PTA Agora · '+homeStand()}</span><h2>Van molecuul tot planeet</h2><p>Biologie geordend van klein naar groot. Elk thema heeft films, tools en oefeningen. Kies havo of vwo om de thema's te zien zoals in jouw PTA.</p>
+      <header><span class="mono vlak-lbl">${homeStand()==='alle'?"Alle thema's · havo en vwo":'Geordend als het PTA Agora · '+homeStand()}</span><h2>Van molecuul tot planeet</h2><p>Elk thema heeft films, podcasts, oefeningen en tools. Kies havo of vwo om de thema's te zien zoals in jouw PTA.</p>
         <div class="seg seg-home" role="group" aria-label="Ordening van de thema's">${[['alle','Alle thema\'s'],['havo','PTA havo'],['vwo','PTA vwo']].map(([v,t])=>`<button type="button" data-homepta="${v}" aria-pressed="${homeStand()===v}">${t}</button>`).join('')}</div></header>
       <div class="vlak-groepen">${basisGroepen(homeStand(),thema)}</div>
     </article>
@@ -4408,7 +4469,7 @@ function films(){
   const zoekTekst=(...x)=>esc(x.filter(Boolean).join(' ').toLowerCase());
   const reeks=(id)=>{const h=HOOFDSTUKKEN[id]; const min=h.films.reduce((a,f)=>a+(+f.duur||0),0);
     const meta=[h.films.length?`${h.films.length} ${h.films.length===1?'film':'films'}`:'',min?`± ${min} min`:'',(h.komt||[]).length?`${h.komt.length} komt nog`:''].filter(Boolean).join(' · ');
-    return `<details class="reeks" id="reeks-${id}" data-id="${id}"><summary class="reeks-kop">${embleem(id)}<span class="reeks-titel"><h2>${esc(h.titel)}</h2><span class="mono reeks-meta">${meta}</span></span><span class="pijl" aria-hidden="true"></span></summary><div class="reeks-inhoud"><a class="naar" href="#${id}">Naar het hoofdstuk →</a>${h.films.map((f,i)=>`<a class="kort" data-zoek="${zoekTekst(f.titel,f.vraag,f.tekst,f.bij,h.titel)}" href="${BASE+esc(f.href)}"><span class="beeld">${filmKunst(f.href,id)}</span><span class="n">${i+1}${rv(f.href)}</span><span><b>${esc(f.titel)}</b><span>${esc(f.vraag||f.tekst)}</span></span><span class="t">${f.duur?f.duur+' min':''}</span></a>`).join('')}${extraVan(id).films.map(f=>`<a class="kort is-extra" data-zoek="${zoekTekst(f.titel,f.vraag,f.tekst,f.bij,h.titel,'extra')}" href="${BASE+esc(f.href)}"><span class="beeld">${filmKunst(f.href,id)}</span><span class="n">+</span><span><b>${esc(f.titel)} <span class="extra-tag mono">extra</span></b><span>${esc(f.vraag||f.tekst)}</span></span><span class="t">${f.duur?f.duur+' min':''}</span></a>`).join('')}${(h.komt||[]).map(f=>`<div class="kort komt" data-zoek="${zoekTekst(f.titel,f.vraag,h.titel)}"><span class="beeld"></span><span class="n">○</span><span><b>${esc(f.titel)} <em>komt nog</em></b><span>${esc(f.vraag||'')}</span></span><span class="t">${esc(f.niveau||'')}</span></div>`).join('')}</div></details>`;
+    return `<details class="reeks" open id="reeks-${id}" data-id="${id}"><summary class="reeks-kop">${embleem(id)}<span class="reeks-titel"><h2>${esc(h.titel)}</h2><span class="mono reeks-meta">${meta}</span></span><span class="pijl" aria-hidden="true"></span></summary><div class="reeks-inhoud"><a class="naar" href="#${id}">Naar het hoofdstuk →</a>${h.films.map((f,i)=>`<a class="kort" data-zoek="${zoekTekst(f.titel,f.vraag,f.tekst,f.bij,h.titel)}" href="${BASE+esc(f.href)}"><span class="beeld">${filmKunst(f.href,id)}</span><span class="n">${i+1}${rv(f.href)}</span><span><b>${esc(f.titel)}</b><span>${esc(f.vraag||f.tekst)}</span></span><span class="t">${f.duur?f.duur+' min':''}</span></a>`).join('')}${extraVan(id).films.map(f=>`<a class="kort is-extra" data-zoek="${zoekTekst(f.titel,f.vraag,f.tekst,f.bij,h.titel,'extra')}" href="${BASE+esc(f.href)}"><span class="beeld">${filmKunst(f.href,id)}</span><span class="n">+</span><span><b>${esc(f.titel)} <span class="extra-tag mono">extra</span></b><span>${esc(f.vraag||f.tekst)}</span></span><span class="t">${f.duur?f.duur+' min':''}</span></a>`).join('')}${(h.komt||[]).map(f=>`<div class="kort komt" data-zoek="${zoekTekst(f.titel,f.vraag,h.titel)}"><span class="beeld"></span><span class="n">○</span><span><b>${esc(f.titel)} <em>komt nog</em></b><span>${esc(f.vraag||'')}</span></span><span class="t">${esc(f.niveau||'')}</span></div>`).join('')}</div></details>`;
   }
   const gehad=new Set(), volgorde=[]; let lijst='';
   for(const o of NIVEAUS[niveau].ond){
@@ -4420,7 +4481,7 @@ function films(){
   }
   const rest=Object.keys(HOOFDSTUKKEN).filter(id=>!gehad.has(id)&&id!=='extra'&&!(id==='kerndoelen'&&niveau!=='onderbouw')&&heeft(id));
   if(rest.length){lijst+=`<div class="ond-blok"><div class="ond-scheiding"><span class="mono">Overig</span><h2>${niveau==="onderbouw"?"Uit de bovenbouw":"Overige films"}</h2></div>`;for(const id of rest){volgorde.push(id);lijst+=reeks(id)}lijst+=`</div>`}
-  out+=weergave('films')+`<div class="filmzoek"><input id="filmzoek" type="search" placeholder="Zoek een film, bv. osmose of CRISPR" autocomplete="off" aria-label="Zoek in alle films"><div class="snel">${volgorde.map(id=>`<button type="button" data-open="${id}">${esc(HOOFDSTUKKEN[id].titel)}</button>`).join('')}</div><p class="zoek-leeg" hidden>Geen film gevonden. Probeer een ander woord.</p></div>`;
+  out+=`<div class="weergave-rij">${weergave('films')}<label class="themakies">Thema <select id="filmthema" aria-label="Kies een thema"><option value="">Alle thema's</option>${volgorde.map(id=>`<option value="${id}">${esc(HOOFDSTUKKEN[id].titel)}</option>`).join('')}</select></label></div>`+`<div class="filmzoek"><input id="filmzoek" type="search" placeholder="Zoek een film, bv. osmose of CRISPR" autocomplete="off" aria-label="Zoek in alle films"><div class="snel"><button type="button" data-open="">Alle</button>${volgorde.map(id=>`<button type="button" data-open="${id}">${esc(HOOFDSTUKKEN[id].titel)}</button>`).join('')}</div><p class="zoek-leeg" hidden>Geen film gevonden. Probeer een ander woord.</p></div>`;
   return out+lijst+`</div>`;
 }
 const weergave=w=>`<nav class="weergave" aria-label="Weergave"><a href="#films"${w==='films'?' aria-current="page"':''}>Per reeks</a><a href="#filmwand"${w==='filmwand'?' aria-current="page"':''}>In één oogopslag</a></nav>`;
@@ -4467,18 +4528,29 @@ function wandZoek(q){
 document.addEventListener('input',e=>{if(e.target&&e.target.id==='wandzoek') wandZoek(e.target.value)});
 function filmZoek(q){
   q=(q||'').trim().toLowerCase(); const w=q.split(/\s+/).filter(Boolean); let n=0;
+  if(w.length){document.querySelectorAll('.snel [data-open]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.open===''))); const sel=document.getElementById('filmthema'); if(sel) sel.value=''; schrijf('filmthema','')}
   document.querySelectorAll('details.reeks').forEach(d=>{
     let m=0; d.querySelectorAll('.kort').forEach(k=>{const ok=!w.length||w.every(x=>k.dataset.zoek.includes(x)); k.hidden=!ok; if(ok) m++;});
     d.hidden=w.length>0&&m===0; if(w.length) d.open=m>0; n+=m;
   });
   document.querySelectorAll('.ond-blok').forEach(b=>b.hidden=![...b.querySelectorAll('details.reeks')].some(d=>!d.hidden));
   const leeg=document.querySelector('.zoek-leeg'); if(leeg) leeg.hidden=!(w.length&&n===0);
-  if(!w.length) document.querySelectorAll('details.reeks').forEach(d=>d.open=false);
+  if(!w.length) document.querySelectorAll('details.reeks').forEach(d=>d.open=true);
 }
 document.addEventListener('input',e=>{if(e.target&&e.target.id==='filmzoek') filmZoek(e.target.value)});
-document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-open]'); if(!b) return;
+/* themakeuze op de filmpagina (Kamiel 20 nov 2026): één thema tonen of alle */
+function filmThema(id,scroll){
+  if(id&&!document.getElementById('reeks-'+id)) id='';
+  schrijf('filmthema',id);
   const z=document.getElementById('filmzoek'); if(z&&z.value){z.value='';filmZoek('')}
-  const d=document.getElementById('reeks-'+b.dataset.open); if(d){d.open=true; d.scrollIntoView({behavior:'smooth',block:'start'})}});
+  document.querySelectorAll('details.reeks').forEach(d=>{d.hidden=!!id&&d.dataset.id!==id; d.open=true});
+  document.querySelectorAll('.ond-blok').forEach(b=>b.hidden=![...b.querySelectorAll('details.reeks')].some(d=>!d.hidden));
+  document.querySelectorAll('.snel [data-open]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.open===id)));
+  const sel=document.getElementById('filmthema'); if(sel) sel.value=id;
+  if(scroll){const f=document.querySelector('.filmzoek'); if(f) f.scrollIntoView({behavior:'smooth',block:'start'})}
+}
+document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-open]'); if(!b) return; filmThema(b.dataset.open,false)});
+document.addEventListener('change',e=>{if(e.target&&e.target.id==='filmthema') filmThema(e.target.value,false)});
 function toolsBijThema(){
   const n=f=>Object.values(HOOFDSTUKKEN).reduce((a,h)=>a+(h.tools||[]).filter(t=>f(t.href)).length,0);
   const ex=n(x=>/tools\/examen-/.test(x||''));
@@ -4495,7 +4567,7 @@ function render(){
   let pagina='home';
   if(id==='pta'){app.innerHTML=pta(niveau);pagina='pta'}
   else if(id==='onderbouw'){app.innerHTML=onderbouwPagina();pagina='onderbouw'}
-  else if(h==='films'){app.innerHTML=films();pagina='films'}
+  else if(h==='films'){app.innerHTML=films();pagina='films';filmThema(lees('filmthema')||'',false)}
   else if(h==='filmwand'){app.innerHTML=filmwand();pagina='films';window.__wandVervolg&&window.__wandVervolg()}
   else if(h==='tools'){app.innerHTML=tools();pagina='tools'}
   else if(id==='lessen'){app.innerHTML=lessen();pagina='lessen'}

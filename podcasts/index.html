@@ -54,6 +54,13 @@ details.tekst summary{cursor:pointer;font-weight:600}
 details.tekst p{color:var(--text2);margin:10px 0 0}
 .terugl{background:none;border:0;color:var(--goud-text);font-weight:600;padding:12px 0 0}
 .verder{margin:14px 0 0}
+/* themakeuze (Kamiel 20 nov 2026) */
+.lijstkop{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:flex-end;justify-content:space-between;margin-top:14px}
+.lijstkop .verder{margin:0}
+.themakies{margin-left:auto;display:flex;align-items:center;gap:8px;font:600 12px var(--meta);letter-spacing:.06em;text-transform:uppercase;color:var(--text3)}
+.themakies select{font:600 15px var(--tekst,inherit);text-transform:none;letter-spacing:0;color:var(--text);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:9px 34px 9px 16px;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--text3) 50%),linear-gradient(135deg,var(--text3) 50%,transparent 50%);background-position:calc(100% - 18px) 55%,calc(100% - 13px) 55%;background-size:5px 5px;background-repeat:no-repeat}
+.themakies select:focus-visible{outline:2px solid var(--goud);outline-offset:2px}
+.themaleeg{color:var(--text3);margin:14px 0}
 </style>
 </head>
 <body>
@@ -69,7 +76,7 @@ details.tekst p{color:var(--text2);margin:10px 0 0}
       <p>Uitleg om naar te luisteren: in de bus, in bed of tijdens het opruimen. Zet je telefoon gerust op slot, het geluid speelt door.</p>
       <p><a href="begrippen.html">Begrippen luisteren of overhoren →</a></p>
     </header>
-    <div id="verder" class="verder"></div>
+    <div class="lijstkop"><div id="verder" class="verder"></div><label class="themakies">Thema <select id="themakies" aria-label="Kies een thema"><option value="">Alle thema's</option></select></label></div>
     <div id="lijst" class="lijst"></div>
   </section>
 
@@ -119,10 +126,19 @@ function duur(e){return e.hoofdstukken.filter(telt).reduce(function(t,h){return 
 /* In-app browsers (Teams, Instagram, Facebook, Snapchat, TikTok, Android-webview): melding tonen */
 (function(){var u=navigator.userAgent||'';if(/Teams|FBAN|FBAV|Instagram|Snapchat|Line\/|musical_ly|TikTok|; wv\)/i.test(u))$('melding').hidden=false})();
 
+function zichtbaar(e){return !(e.proef&&!toon&&DATA.some(function(x){return!x.proef}))}
+function themaKies(){
+  var sel=$('themakies'), d=lees(), q=new URLSearchParams(location.search).get('thema'), gezien={};
+  DATA.filter(zichtbaar).forEach(function(e){if(e.themaId&&!gezien[e.themaId]){gezien[e.themaId]=1;var o=document.createElement('option');o.value=e.themaId;o.textContent=e.thema;sel.appendChild(o)}});
+  var k=q!=null?q:(d.thema||''); sel.value=gezien[k]?k:'';
+  sel.onchange=function(){bewaar({thema:sel.value});lijst()};
+}
 function lijst(){
   var L=$('lijst');L.innerHTML='';
+  var th=$('themakies').value;
   DATA.forEach(function(e){
-    if(e.proef&&!toon&&DATA.some(function(x){return!x.proef}))return;
+    if(!zichtbaar(e))return;
+    if(th&&e.themaId!==th)return;
     var b=document.createElement('button');b.className='afl';b.type='button';
     b.innerHTML='<img src="'+ROOT+e.beeld+'" alt=""><div><div class="t">'+e.titel+(e.proef?'<span class="label">proef</span>':'')+'</div><div class="v">'+e.vraag+'</div><div class="m">'+e.thema+' · '+Math.round(duur(e)/60)+' min · '+e.hoofdstukken.length+' delen</div></div>';
     b.onclick=function(){open(e.id,0,0,false)};L.appendChild(b);
@@ -233,7 +249,7 @@ function nivKnoppen(){
 snelKnoppen();nivKnoppen();
 
 fetch('afleveringen.json',{cache:'no-cache'}).then(function(r){return r.json()}).then(function(j){
-  DATA=j.afleveringen||[];lijst();
+  DATA=j.afleveringen||[];themaKies();lijst();
   var id=location.hash.slice(1);
   if(id&&DATA.some(function(x){return x.id===id})){var d=lees(),l=d.laatst;open(id,l&&l.afl===id&&!l.klaar?l.ch:0,l&&l.afl===id&&!l.klaar?l.t:0,false)}
 });

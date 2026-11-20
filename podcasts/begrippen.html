@@ -56,6 +56,8 @@
 .blist .u{display:block;color:var(--text3);font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .blist .een{border:0;background:none;color:var(--text3);width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center}
 .blist .een:hover{color:var(--goud-text)}
+.blist label{cursor:pointer}
+.blist label:hover .b{color:var(--goud-text)}
 .label{display:inline-block;font:600 10px/1 var(--meta);letter-spacing:.08em;text-transform:uppercase;padding:3px 6px;border-radius:6px;background:var(--paars-soft);color:var(--paars);vertical-align:2px;margin-left:6px}
 .leeg{color:var(--text3);margin:14px 0 0}
 </style>
@@ -69,7 +71,7 @@
   <header class="tool-kop">
     <div class="mono">Begrippen · Cellen</div>
     <h1>Luister de begrippen</h1>
-    <p>Vink de begrippen aan die je wilt leren en druk op afspelen. Bij <b>Overhoren</b> hoor je eerst alleen het begrip, dan krijg je drie tellen om de betekenis zelf te zeggen.</p>
+    <p>Vink de begrippen aan die je wilt leren en druk op afspelen. Bij <b>Overhoren</b> hoor je eerst alleen het begrip, dan krijg je drie tellen om de betekenis zelf te zeggen. Tik op een begrip om vanaf daar te luisteren.</p>
   </header>
 
   <div class="bedien">
@@ -164,6 +166,21 @@ function ververs(){
 }
 
 function lijst(){var gezien={},r=[];D.films.forEach(function(f){f.begrippen.forEach(function(id){if(!gezien[id]&&telt(B[id])&&aan(id)){gezien[id]=1;r.push(id)}})});return r}
+function vanaf(id){
+  var r=bezig&&rij.indexOf(id)>-1?rij:lijst();
+  if(r.indexOf(id)<0){var gezien={};r=[];D.films.forEach(function(f){f.begrippen.forEach(function(x){if(!gezien[x]&&telt(B[x])&&(aan(x)||x===id)){gezien[x]=1;r.push(x)}})})}
+  if(r===rij&&lees().schud){}else if(r!==rij&&lees().schud){var rest=schud(r.filter(function(x){return x!==id}));r=[id].concat(rest)}
+  start(r,r.indexOf(id));
+}
+/* Kamiel 20 nov 2026: vinkje aan/uit tijdens het luisteren past ook de lopende rij aan */
+function pasRijAan(){
+  if(!bezig)return;
+  var cur=rij[pos], nieuw=lijst(), r;
+  if(lees().schud){r=rij.filter(function(x){return nieuw.indexOf(x)>-1||x===cur});nieuw.forEach(function(x){if(r.indexOf(x)<0)r.push(x)})}
+  else{r=nieuw.slice();if(r.indexOf(cur)<0){var vol=nieuw.filter(function(x){return lijst().indexOf(x)>-1});var gezien={},alle=[];D.films.forEach(function(f){f.begrippen.forEach(function(x){if(!gezien[x]&&(x===cur||vol.indexOf(x)>-1)){gezien[x]=1;alle.push(x)}})});r=alle}}
+  rij=r; pos=rij.indexOf(cur);
+  $('nuTeller').textContent=(pos+1)+' van '+rij.length+(modus()==='overhoor'?' · overhoren':'');
+}
 function schud(r){for(var i=r.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=r[i];r[i]=r[j];r[j]=t}return r}
 
 function start(r,vanaf){rij=r;if(!rij.length)return;bezig=true;$('speler').hidden=false;speel(vanaf||0)}
@@ -226,12 +243,14 @@ $('zoek').oninput=ververs;
 $('schud').onchange=function(){bewaar({schud:this.checked})};
 $('niveau').onclick=function(e){var k=e.target.closest('button');if(k){bewaar({niveau:k.dataset.n});ververs()}};
 $('modus').onclick=function(e){var k=e.target.closest('button');if(!k)return;bewaar({modus:k.dataset.m});ververs();if(bezig)speel(pos)};
-$('films').addEventListener('change',function(e){var id=e.target.dataset&&e.target.dataset.id;if(id){zetAan(id,e.target.checked);ververs()}});
+$('films').addEventListener('change',function(e){var id=e.target.dataset&&e.target.dataset.id;if(id){zetAan(id,e.target.checked);pasRijAan();ververs()}});
 $('films').addEventListener('click',function(e){
   var k=e.target.closest('[data-alles]');
-  if(k){var f=D.films.filter(function(x){return x.id===k.dataset.alles})[0], ids=f.begrippen.filter(function(id){return telt(B[id])}), allesAan=ids.every(aan);ids.forEach(function(id){zetAan(id,!allesAan)});ververs();return}
-  var e1=e.target.closest('[data-een]');
-  if(e1){start([e1.dataset.een])}
+  if(k){var f=D.films.filter(function(x){return x.id===k.dataset.alles})[0], ids=f.begrippen.filter(function(id){return telt(B[id])}), allesAan=ids.every(aan);ids.forEach(function(id){zetAan(id,!allesAan)});pasRijAan();ververs();return}
+  /* Kamiel 20 nov 2026: klik op een begrip (tekst of ▶) = vanaf daar verder luisteren; het vinkje blijft aan/uit */
+  var e1=e.target.closest('[data-een]'), lb=e.target.closest('.blist label');
+  if(lb){e.preventDefault();vanaf(lb.parentNode.dataset.id);return}
+  if(e1){vanaf(e1.dataset.een)}
 });
 
 fetch('begrippen/cellen.json?v=1').then(function(r){return r.json()}).then(function(d){D=d;d.begrippen.forEach(function(b){B[b.id]=b});bouw()});
