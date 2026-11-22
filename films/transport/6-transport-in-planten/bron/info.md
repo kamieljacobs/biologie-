@@ -45,7 +45,7 @@
 
 | Id | Niveau | Vraag | Juist |
 |---|---|---|---|
-| q02 | basis | Je plant hangt op een warme middag slap, terwijl de aarde nog vochtig is. 's Avonds staat hij weer recht. Hoe komt dat? | b de bladeren verliezen meer water dan de wortels aanvoeren |
+| q02 | basis | Je plant hangt op een warme middag slap, terwijl de aarde nog vochtig is. 's Avonds staat hij weer recht. Hoe komt dat? | a de bladeren verliezen meer water dan de wortels aanvoeren |
 | q07 | basis | Iemand snijdt rondom een boom een ring bast weg, maar laat het hout heel. Wat gebeurt er? | b de wortels krijgen geen suiker meer, en de boom sterft langzaam |
 | q16 | vwo | Een bladluis prikt met zijn monddeel in één zeefvat. Moet hij hard zuigen om het sap eruit te krijgen? | b nee, het sap wordt er vanzelf in geperst |
 

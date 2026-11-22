@@ -16,12 +16,12 @@
   "level": "basis",
   "kind": "question",
   "options": [
+   "nee, de meeste zijn onschuldig, en veel helpen je zelfs",
    "ja, alle bacteriën maken je ziek",
-   "bacteriën wonen alleen op vieze plekken",
-   "nee, de meeste zijn onschuldig, en veel helpen je zelfs"
+   "bacteriën wonen alleen op vieze plekken"
   ],
   "q": "In en op je lichaam wonen ongeveer evenveel bacteriën als je eigen cellen. Zijn alle bacteriën slecht?",
-  "correct": 2,
+  "correct": 0,
   "explain": "Nee. De meeste bacteriën zijn onschuldig, en veel helpen je: ze houden de plek op je huid bezet en helpen in je darmen. Maar een klein deel maakt je ziek."
  },
  {
@@ -109,12 +109,12 @@
   "level": "basis",
   "kind": "question",
   "options": [
-   "nee, antibiotica werken alleen tegen bacteriën",
    "ja, antibiotica doden alle microben",
-   "ja, als hij het maar lang genoeg slikt"
+   "ja, als hij het maar lang genoeg slikt",
+   "nee, antibiotica werken alleen tegen bacteriën"
   ],
   "q": "Sam heeft griep, door een virus. Helpt een antibioticum?",
-  "correct": 0,
+  "correct": 2,
   "explain": "Nee. Een antibioticum doodt bacteriën. Een virus is geen cel; daar doet een antibioticum niets tegen. Het doodt wel je goede darmbacteriën."
  },
  {

@@ -49,7 +49,7 @@
 
 | Id | Niveau | Vraag | Juist |
 |---|---|---|---|
-| q02 | basis | Wat dwingt je om weer te ademen als je je adem inhoudt? | b te veel koolstofdioxide (onthulling in s16 en recap) |
+| q02 | basis | Wat dwingt je om weer te ademen als je je adem inhoudt? | c te veel koolstofdioxide (onthulling in s16 en recap) |
 | q06 | basis | Hoeveel zuurstof zit er in rust nog in het bloed dat terugkomt naar het hart? | b nog ongeveer driekwart |
 | q10 | basis | Hoe reist het meeste koolstofdioxide terug naar de longen? | b als waterstofcarbonaat in het plasma |
 | q13 | vwo | Laat hemoglobine in een werkende spier meer of minder zuurstof los? | a meer: de curve schuift naar rechts |

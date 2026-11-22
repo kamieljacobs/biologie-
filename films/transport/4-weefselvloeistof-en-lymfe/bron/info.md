@@ -46,7 +46,7 @@
 
 | Id | Niveau | Vraag | Juist |
 |---|---|---|---|
-| q02 | basis | Na een lange vlucht zijn je enkels dik. Waar komt dat vocht vandaan? | b vocht uit je bloed komt je weefsel in en wordt niet afgevoerd |
+| q02 | basis | Na een lange vlucht zijn je enkels dik. Waar komt dat vocht vandaan? | c vocht uit je bloed komt je weefsel in en wordt niet afgevoerd |
 | q06 | basis | Wat zit er níet in weefselvloeistof? | b rode bloedcellen |
 | q13 | basis | Het lymfestelsel heeft geen hart. Hoe stroomt de lymfe dan? | b je spieren knijpen de lymfevaten samen |
 | q17 | vwo | Een kind eet al lang veel te weinig eiwit. Er zitten minder eiwitten in het plasma. Wat gebeurt er met het vocht in het weefsel? | a er komt minder vocht terug, en het weefsel zwelt op |

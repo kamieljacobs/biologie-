@@ -7437,7 +7437,7 @@ const SB7 = {
     pijl(ctx, 1460, 330, 1460, 840, C.goud, 1, 5, 22); naamBij(ctx, 'ouder', null, 1500, 600, 1, 'left', C.goud); naamBij(ctx, 'relatieve datering', 'de volgorde, nog geen jaren', 240, 250, 1, 'left'); },
   e7s07(ctx) { oever(ctx); evoTag(ctx, 7, 'LAGEN EN FOSSIELEN'); gesteente(ctx, 760, 300, 900, 480, [{ dik: 1 }, { dik: 1.2 }, { dik: 0.8 }, { dik: 1.1 }, { dik: 0.9 }], { rot: Math.PI - 0.42, fossielen: [{ soort: 'schelp', laag: 0, x: 0.35, s: 1.6 }, { soort: 'schelp', laag: 0, x: 0.7, s: 1.6 }] });
     persoon(ctx, 'kim', 380, 880, 400, { pose: 'wijs', kijk: 1, uit: 'denkt' }); naamBij(ctx, 'omgeklapt', 'na het afzetten: schelpen op hun kop', 160, 200, 1, 'left'); },
-  e7q08(ctx) { vraagKaart(ctx, ['Deze lagen zijn na het afzetten omgeklapt.', 'Welke laag is het oudst?'], ['Laag P: die ligt nu het diepst', 'Laag R: die lag onderop toen de lagen nog plat lagen', 'Dat kun je na het kantelen niet meer weten'], 7);
+  e7q08(ctx) { vraagKaart(ctx, ['Deze lagen zijn na het afzetten omgeklapt.', 'Welke laag is het oudst?'], ['Laag P: die ligt nu het diepst', 'Dat kun je na het kantelen niet meer weten', 'Laag R: die lag onderop toen de lagen nog plat lagen'], 7);
     pqrLagen(ctx, 1500, 500, 300, 240, Math.PI - 0.3); },
   e7s09(ctx) { ctx.fillStyle = C.bgSchema; ctx.fillRect(0, 0, W, H); evoTag(ctx, 7, 'LAGEN EN FOSSIELEN');
     pqrLagen(ctx, 260, 340, 520, 340, Math.PI - 0.3, { a: 0.45 }); pijl(ctx, 880, 510, 1040, 510, C.line, 1, 4, 18);
@@ -7467,7 +7467,7 @@ const SB7 = {
     zoomCircle(ctx, 1500, 720, 150, 900 - 206 * 1.75, 480 + 42 * 1.75, 'achterpootje ±35 cm · vergroot', 1, () => { ctx.fillStyle = '#4E5862'; ctx.fillRect(1340, 560, 320, 320); ctx.fillStyle = '#9AA6B0'; ctx.fillRect(1340, 640, 320, 240);
       bot(ctx, 1440, 640, 1500, 720, 26, C.goud); bot(ctx, 1500, 720, 1540, 790, 18, C.goud); bot(ctx, 1500, 730, 1530, 792, 10, C.goud); for (let i = 0; i < 3; i++) { bot(ctx, 1540, 796, 1560 + i * 14, 830, 8, C.goud); bot(ctx, 1560 + i * 14, 834, 1572 + i * 16, 856, 7, C.goud); } });
     naamBij(ctx, 'Basilosaurus', 'ongeveer 40 miljoen jaar · 15 m', 160, 220, 1, 'left'); evoSchaal(ctx, 'reconstructie'); },
-  e7q17(ctx) { vraagKaart(ctx, 'Is Pakicetus de voorouder van Ambulocetus?', ['Niet per se', 'Ja, het ene dier veranderde in het andere', 'Nee, ze zijn niet verwant'], 7);
+  e7q17(ctx) { vraagKaart(ctx, 'Is Pakicetus de voorouder van Ambulocetus?', ['Ja, het ene dier veranderde in het andere', 'Niet per se', 'Nee, ze zijn niet verwant'], 7);
     pakicetus(ctx, 1680, 560, 0.55); ambulocetus(ctx, 1680, 820, 0.45); },
   e7s18(ctx) { ctx.fillStyle = C.bgSchema; ctx.fillRect(0, 0, W, H); evoTag(ctx, 7, 'WALVISSEN IN DE LAGEN'); const X = tijdAsMj(ctx, 160, 840, 1600, 52, 36, { stap: 2, nu: true });
     const yT = 560; ctx.strokeStyle = C.line; ctx.lineWidth = 6; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(X(52), yT); ctx.lineTo(X(0), yT); ctx.stroke();
@@ -7510,7 +7510,7 @@ const SB7 = {
   e7s27(ctx) { ctx.fillStyle = C.bgSchema; ctx.fillRect(0, 0, W, H); evoTag(ctx, 7, 'HET SPOOR IN HET DNA'); persoon(ctx, 'kim', 220, 860, 520, { pose: 'wijs', uit: 'praat' });
     dnaRijen(ctx, 470, 220, [{ naam: 'walvis', seq: RIJ_W }, { naam: 'nijlpaard', seq: RIJ_N }, { naam: 'koe', seq: RIJ_K }, { naam: 'zeehond', seq: RIJ_Z }], { cw: 44 });
     naamBij(ctx, 'minder verschillen = nauwer verwant', null, 1130, 760, 1, 'center', C.goud); },
-  e7q28(ctx) { vraagKaart(ctx, 'Welk dier is het nauwst verwant aan de walvis?', ['De zeehond', 'De koe', 'Het nijlpaard'], 7);
+  e7q28(ctx) { vraagKaart(ctx, 'Welk dier is het nauwst verwant aan de walvis?', ['De zeehond', 'Het nijlpaard', 'De koe'], 7);
     const y0 = 320 + 58 + 30; zeehond(ctx, 1240, y0 + 84, 0.42); koe7(ctx, 1260, y0 + 124 + 96, 0.3); nijlpaard(ctx, 1250, y0 + 248 + 96, 0.3); },
   e7s29(ctx) { ctx.fillStyle = C.bgSchema; ctx.fillRect(0, 0, W, H); evoTag(ctx, 7, 'HET SPOOR IN HET DNA');
     const rows = [{ naam: 'walvis', seq: RIJ_W }, { naam: 'nijlpaard', seq: RIJ_N }, { naam: 'koe', seq: RIJ_K }, { naam: 'zeehond', seq: RIJ_Z }];

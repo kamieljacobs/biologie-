@@ -34,7 +34,7 @@ Zelfde indeling als film 1: `script_v1.md` (vóór de reviews), `script_v2.md` (
 
 | Id | Niveau | Vraag | Juist |
 |---|---|---|---|
-| q02 | basis | Hoe blijft jouw bloedsuiker binnen nauwe grenzen? | b je lichaam meet het zelf en stuurt het bij |
+| q02 | basis | Hoe blijft jouw bloedsuiker binnen nauwe grenzen? | c je lichaam meet het zelf en stuurt het bij |
 | q08 | basis | Wat doet insuline met de glucose? | b laat je cellen glucose uit het bloed opnemen |
 | q18 | basis | Waarom dextro's en niet een boterham met kaas? | a dextro's zijn glucose, die snel in je bloed komt |
 | q21 | basis | Insuline bij type 2? | b juist veel insuline |

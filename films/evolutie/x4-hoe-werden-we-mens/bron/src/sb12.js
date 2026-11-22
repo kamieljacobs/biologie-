@@ -75,7 +75,7 @@ const SB12 = {
     e12Mens(ctx, 'erectus', 900, 905, e12H('erectus', 3.4), { pose: 'loop', t: 0.3 }); e12Mens(ctx, 'afarensis', 1300, 905, e12H('afarensis', 3.4), { a: 0.6 });
     naamBij(ctx, 'Homo erectus', 'de rechtopgaande mens · ±1,9 Mj', 900, 230, 1, 'center'); naamBij(ctx, 'Lucy', null, 1300, 480, 0.8, 'center'); naamBij(ctx, 'lange benen', null, 700, 780, 1, 'right', C.goud);
     evoSchaal(ctx, 'op schaal · reconstructie'); },
-  e12q14(ctx) { e12Vraag(ctx, ['Lucy en Homo erectus liepen allebei rechtop.', 'Wat was er nieuw bij Homo erectus?'], ['Hij liep als eerste echt rechtop', 'Zijn hersenen waren twee keer zo groot', 'Hij kon als eerste goed klimmen']);
+  e12q14(ctx) { e12Vraag(ctx, ['Lucy en Homo erectus liepen allebei rechtop.', 'Wat was er nieuw bij Homo erectus?'], ['Zijn hersenen waren twee keer zo groot', 'Hij liep als eerste echt rechtop', 'Hij kon als eerste goed klimmen']);
     lijn(ctx, [[1500, 900], [1860, 900]], C.line, 2); e12Mens(ctx, 'afarensis', 1580, 900, 107 * 3.0); e12Mens(ctx, 'erectus', 1760, 900, 175 * 3.0); },
   e12s15(ctx) { e12Schema(ctx, 'HERSENEN, WERKTUIGEN EN VUUR'); const x0 = 160, w = 1100, X = (mj) => x0 + (4 - mj) / 4 * w;
     lijn(ctx, [[x0, 420], [x0 + w, 420]], C.line, 2.5); [4, 3, 2, 1, 0].forEach(m => { lijn(ctx, [[X(m), 412], [X(m), 428]], C.line, 2); metaText(ctx, m ? m + ' Mj' : 'nu', X(m), 466, C.text2, 'center', 26); });
@@ -101,7 +101,7 @@ const SB12 = {
     naamBij(ctx, 'kin', null, 1250, 640, 1, 'left', C.goud); naamBij(ctx, 'hoog en rond', null, 1180, 230, 1, 'center');
     naamBij(ctx, 'neanderthaler', null, 520, 790, 1, 'center', C.oker); naamBij(ctx, 'Homo sapiens', null, 1180, 790, 1, 'center', C.teal);
     e12Cilinder(ctx, 1560, 850, 1500, { schaal: 0.3, w: 100, label: null }); e12Cilinder(ctx, 1760, 850, 1350, { schaal: 0.3, w: 100, label: null }); metaText(ctx, 'hersenen', 1660, 280, C.paars, 'center', 26); },
-  e12q21(ctx) { e12Vraag(ctx, 'Hoe liep een neanderthaler?', ['Op handen en voeten, zoals een chimpansee', 'Voorovergebogen, met gebogen knieën', 'Rechtop, net zoals jij']);
+  e12q21(ctx) { e12Vraag(ctx, 'Hoe liep een neanderthaler?', ['Op handen en voeten, zoals een chimpansee', 'Rechtop, net zoals jij', 'Voorovergebogen, met gebogen knieën']);
     chimp(ctx, 1560, 360, 1.5, {}); e12Mens(ctx, 'neanderthaler', 1580, 640, 240, { pose: 'boule' }); e12Mens(ctx, 'neanderthaler', 1580, 900, 240); },
   e12s22(ctx) { e12Schema(ctx, 'DE NEANDERTHALER'); lijn(ctx, [[300, 880], [1620, 880]], C.line, 2);
     e12Mens(ctx, 'neanderthaler', 620, 880, 560, { pose: 'boule', a: 0.55 }); pijl(ctx, 860, 600, 1060, 600, C.line, 1, 5, 22); e12Mens(ctx, 'neanderthaler', 1300, 880, 560);
@@ -159,7 +159,7 @@ const SB12 = {
     circ(ctx, K.X(-8.4), K.Y(31.9), 14, C.goud); naamBij(ctx, 'Jebel Irhoud', '±300 000 jaar', K.X(-8.4), K.Y(31.9) - 30, 1, 'center', C.goud);
     e12Route(ctx, K, [[38, 8], [43, 14], [48, 26], [40, 36], [25, 45], [8, 48]], C.teal, { lw: 7 }); e12Route(ctx, K, [[48, 26], [70, 28], [90, 25], [110, 30]], C.teal, { lw: 7 }); e12Route(ctx, K, [[90, 25], [102, 5], [120, -8], [134, -20]], C.teal, { lw: 7, a: 0.7 });
     naamBij(ctx, 'uit Afrika', '±70 000–50 000 jaar geleden', K.X(55), K.Y(5), 1, 'center', C.teal); naamBij(ctx, 'oorsprong: Afrika', null, K.X(20), K.Y(-25), 1, 'center', C.teal); },
-  e12q38(ctx) { e12Vraag(ctx, 'Leefden Homo erectus en Homo sapiens ooit tegelijk?', ['Nee, Homo erectus veranderde in Homo sapiens', 'Ja, een tijd lang, op verschillende plekken', 'Nee, er zat een miljoen jaar tussen']);
+  e12q38(ctx) { e12Vraag(ctx, 'Leefden Homo erectus en Homo sapiens ooit tegelijk?', ['Nee, Homo erectus veranderde in Homo sapiens', 'Nee, er zat een miljoen jaar tussen', 'Ja, een tijd lang, op verschillende plekken']);
     lijn(ctx, [[1520, 900], [1860, 900]], C.line, 2); e12Mens(ctx, 'erectus', 1600, 900, 175 * 3.0); e12Mens(ctx, 'sapiens', 1780, 900, 172 * 3.0, { kijk: -1 }); },
   e12s39(ctx) { e12Schema(ctx, 'WIJ'); const g = 860; lijn(ctx, [[160, g], [1760, g]], C.line, 2);
     chimp(ctx, 300, g, 2.6, { houding: 'lopen', t: 0.2 }); e12Mens(ctx, 'afarensis', 620, g, 107 * 3.2, { pose: 'loop', t: 0.3 }); e12Mens(ctx, 'erectus', 900, g, 175 * 3.2, { pose: 'loop', t: 0.5 }); e12Mens(ctx, 'neanderthaler', 1220, g, 165 * 3.2, { pose: 'loop', t: 0.7 }); e12Mens(ctx, 'sapiens', 1540, g, 172 * 3.2, { pose: 'loop', t: 0.9 });

@@ -44,11 +44,11 @@
   "kind": "question",
   "options": [
    "van je oor door een zenuw, meteen naar je beenspieren",
-   "van je oor naar je hersenen, dan via je ruggenmerg naar je beenspieren",
-   "van je oor door je bloed naar je beenspieren"
+   "van je oor door je bloed naar je beenspieren",
+   "van je oor naar je hersenen, dan via je ruggenmerg naar je beenspieren"
   ],
   "q": "Het alarm gaat. Welke weg neemt het bericht naar je benen?",
-  "correct": 1,
+  "correct": 2,
   "explain": "Eerst naar je hersenen. Die sturen een nieuw signaal via je ruggenmerg en zenuwen naar je beenspieren. Het bericht gaat door zenuwen, niet door je bloed."
  },
  {
@@ -97,12 +97,12 @@
   "level": "basis",
   "kind": "question",
   "options": [
+   "overal in je lichaam, van je hart tot je tenen",
    "alleen bij je hart",
-   "alleen in je hersenen",
-   "overal in je lichaam, van je hart tot je tenen"
+   "alleen in je hersenen"
   ],
   "q": "Adrenaline moet je hart sneller laten kloppen. Waar komt hij terecht?",
-  "correct": 2,
+  "correct": 0,
   "explain": "Overal: je bloed neemt de adrenaline in een minuut mee door je hele lichaam. Alleen organen die hem herkennen, zoals je hart, doen er iets mee."
  },
  {
@@ -151,12 +151,12 @@
   "level": "basis",
   "kind": "question",
   "options": [
-   "je groeit in een jaar vijf centimeter",
    "je knippert als er iets naar je oog vliegt",
+   "je groeit in een jaar vijf centimeter",
    "je trekt je voet terug als je op iets scherps stapt"
   ],
   "q": "Welk bericht gaat via een hormoon?",
-  "correct": 0,
+  "correct": 1,
   "explain": "Groeien duurt jaren en gebeurt in je hele lichaam: werk voor een hormoon. Knipperen en je voet terugtrekken moeten snel en op één plek: dat doen zenuwen."
  },
  {

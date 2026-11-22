@@ -519,9 +519,9 @@
   "chapter": "Hoofdstuk 2 — Flessenhals en founder-effect",
   "level": "basis",
   "options": [
-   "Die neemt af: zeldzame allelen komen er vaak niet door",
    "Die neemt toe: in een kleine groep ontstaan meer mutaties",
-   "Die blijft gelijk: alle allelen zijn er nog, alleen minder vaak"
+   "Die blijft gelijk: alle allelen zijn er nog, alleen minder vaak",
+   "Die neemt af: zeldzame allelen komen er vaak niet door"
   ]
  },
  {
@@ -1163,9 +1163,9 @@
   "chapter": "Hoofdstuk 4 — Vier krachten in één pot",
   "level": "basis",
   "options": [
+   "Genetische drift",
    "Selectie",
-   "Mutatie",
-   "Genetische drift"
+   "Mutatie"
   ]
  },
  {
@@ -1442,8 +1442,8 @@
   "chapter": "Hoofdstuk 5 — Hardy-Weinberg en heterozygotenvoordeel",
   "level": "vwo",
   "options": [
-   "Ongeveer één op de vijftig",
    "Ongeveer één op de vijfentwintig",
+   "Ongeveer één op de vijftig",
    "Eén op de tweeduizendvijfhonderd"
   ]
  },
@@ -1603,8 +1603,8 @@
   "chapter": "Hoofdstuk 5 — Hardy-Weinberg en heterozygotenvoordeel",
   "level": "vwo",
   "options": [
-   "Dragers worden minder vaak ernstig ziek van malaria",
    "Het allel ontstaat daar steeds opnieuw door mutatie",
+   "Dragers worden minder vaak ernstig ziek van malaria",
    "Door drift, want die populaties zijn klein"
   ]
  },

@@ -49,7 +49,7 @@
 
 | Id | Niveau | Vraag | Juist |
 |---|---|---|---|
-| q02 | basis | Waarom zit er wel glucose, maar geen ureum in de dialysevloeistof? | a zo gaat ureum het bloed uit, maar glucose niet (onthulling in s13 en recap) |
+| q02 | basis | Waarom zit er wel glucose, maar geen ureum in de dialysevloeistof? | c zo gaat ureum het bloed uit, maar glucose niet (onthulling in s13 en recap) |
 | q05 | basis | Welk orgaan maakt ureum? | b de lever |
 | q09 | basis | Hoe ademt iemand met sterk verzuurd bloed? | a sneller en dieper |
 | q16 | vwo | Dezelfde kant op of tegen elkaar in? | b tegen elkaar in (tegenstroom) |

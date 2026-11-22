@@ -52,7 +52,7 @@
 
 | Id | Niveau | Vraag | Juist |
 |---|---|---|---|
-| q02 | basis | Hoe kan stress ervoor zorgen dat je ziek wordt? | b door stress blijft een hormoon hoog dat je afweer remt (onthulling in H3 en recap) |
+| q02 | basis | Hoe kan stress ervoor zorgen dat je ziek wordt? | c door stress blijft een hormoon hoog dat je afweer remt (onthulling in H3 en recap) |
 | q05 | basis | Welk deel van de bijnier reageert sneller als je schrikt? | a het merg |
 | q10 | basis | Wat doet cortisol met je glucose? | b die stijgt, want de lever maakt nieuwe glucose |
 | q15 | vwo | Een jaar prednison, dan ineens stoppen: wat is het risico? | a te weinig cortisol |

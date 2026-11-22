@@ -69,12 +69,12 @@
   "level": "basis",
   "kind": "question",
   "options": [
-   "zwart",
    "wit",
-   "grijs, een mengsel"
+   "grijs, een mengsel",
+   "zwart"
   ],
   "q": "Een cavia heeft één zwart-gen en één wit-gen. Welke kleur heeft hij?",
-  "correct": 0,
+  "correct": 2,
   "explain": "Zwart. Het zwart-gen wint: het is dominant. Wit (recessief) zie je alleen met twee wit-genen. Genen mengen niet tot grijs."
  },
  {

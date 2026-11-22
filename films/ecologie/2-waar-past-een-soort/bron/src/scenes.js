@@ -16945,7 +16945,7 @@ const SB2 = {
     [[0, 0.35], [965, 1]].forEach(([x0, d], k) => { ctx.fillStyle = C.bgMacroSky; ctx.fillRect(x0, 110, 955, 790); circ(ctx, x0 + 800, 230, 50, rgba(C.goud, 0.9)); ctx.fillStyle = E2.helder; ctx.fillRect(x0, 760, 955, 140); vul(ctx, [[x0, 620], [x0 + 955, 600], [x0 + 955, 770], [x0, 770]], '#4A3E30');
       for (let i = 0; i < 14; i++) { const px = x0 + 60 + i * 64, hh = (70 + hash(i * 3 + k) * 60) * (0.4 + d * 0.9); lijn(ctx, [[px, 620], [px + 6, 620 - hh]], C.groen, 6 + d * 4); vul(ctx, [[px + 6, 620 - hh], [px - 18, 620 - hh * 0.7], [px + 6, 620 - hh * 0.55], [px + 30, 620 - hh * 0.7]], rgba(C.groen, 0.85)); } });
     _hl(ctx, 'oever links', 480); _hl(ctx, 'oever rechts', 1440); metaText(ctx, 'evenveel zon · evenveel water', 960, 940 - 60, C.text2, 'center', 26); },
-  e2q23(ctx) { _vk2(ctx, ['Op beide oevers is genoeg licht en water. Links groeit weinig.', 'Wat helpt de planten op de linkeroever het meest?'], ['Extra water', 'Extra van het mineraal dat er het minst is', 'Extra licht']); },
+  e2q23(ctx) { _vk2(ctx, ['Op beide oevers is genoeg licht en water. Links groeit weinig.', 'Wat helpt de planten op de linkeroever het meest?'], ['Extra van het mineraal dat er het minst is', 'Extra water', 'Extra licht']); },
   e2s24(ctx) { _bg2(ctx); ecoTag(ctx, 2, 'DE ZWAKSTE SCHAKEL');
     e2Ton(ctx, 560, 860, 800, 620, [['licht', 0.92], ['water', 0.88], ['kalium', 0.76], ['stikstof', 0.42], ['fosfaat', 0.64]]);
     naamBij(ctx, 'wet van het minimum', 'de kortste duig bepaalt het niveau', 1460, 400, 1, 'left'); naamBij(ctx, 'beperkende factor', 'hier: stikstof', 1460, 560, 1, 'left'); },
@@ -16959,7 +16959,7 @@ const SB2 = {
     e2Eik(ctx, 960, 1100, 1.2, {}); e2Twijg(ctx, [[1260, 420], [1420, 380], [1560, 330]], 5); ecoPimpelmees(ctx, 1480, 360, 12, { houding: 'klampen', rot: 3.0 });
     e2Twijg(ctx, [[960, 640], [740, 600], [560, 560]], 26, E2.stam); e2Koolmees(ctx, 720, 590, 12, {});
     naamBij(ctx, 'pimpelmees · dunne buitentwijg', '', 1640, 150, 1, 'center'); naamBij(ctx, 'koolmees · dikke tak', '', 300, 150, 1, 'center'); naamBij(ctx, 'zelfde habitat', '', 960, 900 - 50, 1, 'center'); ecoSchaal(ctx, 'mezen vergroot'); },
-  e2q27(ctx) { _vk2(ctx, ['Twee soorten eten in dezelfde boom.', 'Wat gebeurt er op den duur?'], ['Ze delen het voedsel gewoon eerlijk', 'Ze kunnen nooit samen in één bos leven', 'Eén soort verdwijnt, tenzij ze een deel van het werk anders doen']); },
+  e2q27(ctx) { _vk2(ctx, ['Twee soorten eten in dezelfde boom.', 'Wat gebeurt er op den duur?'], ['Ze delen het voedsel gewoon eerlijk', 'Eén soort verdwijnt, tenzij ze een deel van het werk anders doen', 'Ze kunnen nooit samen in één bos leven']); },
   e2s28(ctx) { _bg2(ctx); ecoTag(ctx, 2, 'EÉN BOOM, TWEE MEZEN'); const P1 = '#C9B896', P2 = C.okerD, P3 = C.teal;
     e2Buis(ctx, 300, 880, 300, { soorten: [[9, P1, 'boven']], titel: 'soort 1 alleen', lijnen: [[P1]] }); e2Buis(ctx, 720, 880, 300, { soorten: [[9, P2, 'boven']], titel: 'soort 2 alleen', lijnen: [[P2]] });
     e2Buis(ctx, 1140, 880, 300, { soorten: [[10, P1, 'boven'], [1, P2, 'boven']], titel: 'samen', lijnen: [[P1], [P2, 'weg']] }); e2Buis(ctx, 1560, 880, 300, { soorten: [[7, P1, 'boven'], [6, P3, 'onder']], titel: 'andere voedselplek', lijnen: [[P1], [P3]] });
@@ -16972,7 +16972,7 @@ const SB2 = {
   e2s30(ctx) { e1Macro(ctx, { horizon: 640 }); ecoTag(ctx, 2, 'EÉN BOOM, TWEE MEZEN'); ctx.fillStyle = E2.stam; ctx.fillRect(840, 0, 240, 1080); ctx.strokeStyle = E2.stamD; ctx.lineWidth = 3; for (let i = 0; i < 7; i++) { ctx.beginPath(); ctx.moveTo(860 + i * 32, 0); ctx.lineTo(866 + i * 32 + (i % 2) * 8, 1080); ctx.stroke(); }
     e2Nestkast(ctx, 960, 620, 14, 28); ecoPimpelmees(ctx, 1110, 560, 14, { houding: 'vliegen', t: 0.3, kijk: -1 }); lijn(ctx, [[1080, 760], [1500, 750]], E2.stamD, 16); e2Koolmees(ctx, 1320, 752, 14, { kijk: -1 });
     naamBij(ctx, 'invlieggat 28 mm', 'koolmees past er niet door', 960, 760, 1, 'center'); naamBij(ctx, 'interspecifieke concurrentie', 'om nestholtes', 1400, 360, 1, 'left'); },
-  e2q31(ctx) { _vk2(ctx, ['Wanneer is de concurrentie tussen twee soorten het grootst?'], ['Als hun niches veel overlappen', 'Als ze in verschillende bossen leven', 'Als de ene soort veel groter is dan de andere']); },
+  e2q31(ctx) { _vk2(ctx, ['Wanneer is de concurrentie tussen twee soorten het grootst?'], ['Als ze in verschillende bossen leven', 'Als hun niches veel overlappen', 'Als de ene soort veel groter is dan de andere']); },
   e2s32(ctx) { _bg2(ctx); ecoTag(ctx, 2, 'EÉN BOOM, TWEE MEZEN');
     circ(ctx, 760, 500, 300, rgba(C.teal, 0.25), C.teal, 4); circ(ctx, 1160, 500, 300, rgba(C.okerD, 0.25), C.okerD, 4);
     ctx.save(); ctx.beginPath(); ctx.arc(760, 500, 300, 0, 6.283); ctx.clip(); circ(ctx, 1160, 500, 300, rgba(C.koraal, 0.45)); ctx.restore();

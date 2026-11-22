@@ -46,7 +46,7 @@
 
 | Id | Niveau | Vraag | Juist |
 |---|---|---|---|
-| q02 | basis | Je hart heeft twee pompkamers. Waarom is de wand van de linkerkamer zo'n drie keer zo dik als die van de rechterkamer? | b de linkerkamer maakt een hogere druk |
+| q02 | basis | Je hart heeft twee pompkamers. Waarom is de wand van de linkerkamer zo'n drie keer zo dik als die van de rechterkamer? | a de linkerkamer maakt een hogere druk |
 | q07 | basis | De longslagader is een slagader. Wat voor bloed stroomt erdoor? | b zuurstofarm bloed |
 | q14 | basis | Je hart klinkt als boem-tak. Wat hoor je bij de eerste toon, de boem? | b de hartkleppen tussen boezem en kamer die dichtgaan |
 

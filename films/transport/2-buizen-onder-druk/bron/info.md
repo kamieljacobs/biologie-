@@ -46,7 +46,7 @@
 
 | Id | Niveau | Vraag | Juist |
 |---|---|---|---|
-| q02 | basis | Een klasgenoot valt flauw na een half uur stilstaan op een warme dag. Wat ging er mis? | b er kwam te weinig bloed terug naar haar hart |
+| q02 | basis | Een klasgenoot valt flauw na een half uur stilstaan op een warme dag. Wat ging er mis? | a er kwam te weinig bloed terug naar haar hart |
 | q11 | basis | Waar stroomt het bloed het langzaamst? | b in de haarvaten |
 
 De antwoordopties worden niet ingesproken; ze staan alleen op het scherm. De onthulling ("Antwoord aa/bee") staat wél in de audio.

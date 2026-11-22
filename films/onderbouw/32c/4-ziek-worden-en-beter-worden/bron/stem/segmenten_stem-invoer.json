@@ -17,11 +17,11 @@
   "kind": "question",
   "options": [
    "ja, ze speelt met hem, dus ze wordt ook ziek",
-   "alleen als ze haar handen niet wast",
-   "nee, haar lichaam onthoudt de ziekteverwekker"
+   "nee, haar lichaam onthoudt de ziekteverwekker",
+   "alleen als ze haar handen niet wast"
   ],
   "q": "Noor had vroeger waterpokken. Nu speelt ze met Teun, die waterpokken heeft. Krijgt Noor het weer?",
-  "correct": 2,
+  "correct": 1,
   "explain": "Nee. Na waterpokken onthoudt haar afweer het virus met geheugencellen. Komt het terug, dan ruimt haar afweer het meteen op."
  },
  {
@@ -128,11 +128,11 @@
   "kind": "question",
   "options": [
    "ja, koorts maakt de ziekteverwekker sterker",
-   "koorts helpt je afweer bij het opruimen",
-   "koorts betekent dat je afweer verliest"
+   "koorts betekent dat je afweer verliest",
+   "koorts helpt je afweer bij het opruimen"
   ],
   "q": "Teun heeft koorts: 39 graden. Is koorts slecht?",
-  "correct": 1,
+  "correct": 2,
   "explain": "Koorts helpt je afweer: veel ziekteverwekkers groeien minder goed als het warmer is. Is de koorts erg hoog of duurt hij lang, ga dan naar een dokter."
  },
  {

@@ -48,7 +48,7 @@
 
 | Id | Niveau | Vraag | Juist |
 |---|---|---|---|
-| q02 | basis | Waarom wordt Noor niet ziek van de waterpokken van Bram? | a haar lichaam onthoudt het virus nog van de vorige keer (onthulling in de recap s21) |
+| q02 | basis | Waarom wordt Noor niet ziek van de waterpokken van Bram? | b haar lichaam onthoudt het virus nog van de vorige keer (onthulling in de recap s21) |
 | q06 | basis | Hoe komt je lichaam aan een B-cel die past op een virus dat het nooit heeft gezien? | a er zijn al heel veel soorten B-cellen, en één past |
 | q12 | basis | Wat gebeurt er met een bacterie waar antistoffen op zitten? | b de bacterie zit vast, en een fagocyt eet hem makkelijker op |
 | q16 | basis | Hoe ziet de grafiek eruit bij een tweede besmetting? | a een piek die eerder komt, en veel hoger is |

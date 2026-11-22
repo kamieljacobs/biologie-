@@ -10655,7 +10655,7 @@ const SB9 = {
     zoomCircle(ctx, 760, 300, 170, 730, g - 110, 'luiaard · nu · 4–8 kg', 1, () => { lijn(ctx, [[600, 200], [920, 186]], '#5A4A3A', 12); x9luiaard(ctx, 760, 194 + 75 * 3.4 * 0.92, 3.4); });
     zoomCircle(ctx, 1600, 360, 170, 1420, g - 6, 'gordeldier · nu · ±30 cm', 1, () => { x9gordeldier(ctx, 1600, 420, 6, { houding: 'lopen', t: 0.3 }); });
     naamBij(ctx, 'Megatherium', 'uitgestorven', 330, 560, 0.9, 'center'); naamBij(ctx, 'Glyptodon', 'uitgestorven', 1100, 640, 0.9, 'center'); evoSchaal(ctx, 'alle vier op dezelfde schaal · cirkels vergroot'); },
-  e9q11(ctx) { x9vraag(ctx, ['Darwin vindt de reuzen precies waar nu hun kleine familie leeft.', 'Wat past daar het best bij?'], ['Toeval: fossielen kunnen overal liggen', 'De reuzen zijn gekrompen tot de kleine soorten', 'De reuzen en de kleine soorten zijn verwant'],
+  e9q11(ctx) { x9vraag(ctx, ['Darwin vindt de reuzen precies waar nu hun kleine familie leeft.', 'Wat past daar het best bij?'], ['De reuzen en de kleine soorten zijn verwant', 'Toeval: fossielen kunnen overal liggen', 'De reuzen zijn gekrompen tot de kleine soorten'],
     (c) => { x9megatherium(c, 1640, 900, 0.36, { a: 0.7 }); x9glyptodon(c, 1640, 560, 0.4, { a: 0.7 }); }); },
   e9s12(ctx) { x9schema(ctx, 'REUZEN EN NANDOES'); const P = x9wereld(ctx, 100, 140, 1200, 560);
     [[20, 0], [80, 30], [-100, 40], [130, -25], [10, 48], [100, 60]].forEach(([lo, la]) => { const [px, py] = P(lo, la); circ(ctx, px, py, 10, rgba(C.line, 0.3), C.line, 1.5); });
@@ -10683,7 +10683,7 @@ const SB9 = {
     naamBij(ctx, 'spotlijster', 'Charles-eiland', 500, 470, 1, 'center', C.goud); naamBij(ctx, 'spotlijster', 'Chatham-eiland', 1350, 470, 1, 'center', C.goud); evoSchaal(ctx, 'vogels vergroot · ±25 cm'); },
   e9s18(ctx) { x9lava(ctx, { hor: 520 }); x9tag(ctx, 'DE EILANDEN'); x9schildpad(ctx, 'koepel', 560, 840, 3.6); x9schildpad(ctx, 'zadel', 1360, 840, 3.6);
     naamBij(ctx, 'koepelschild', 'vochtig eiland, laag voedsel', 560, 440, 1, 'center'); naamBij(ctx, 'zadelschild', 'droog eiland, nek omhoog', 1360, 300, 1, 'center', C.goud); evoSchaal(ctx, 'reuzenschildpadden · ±1,4–1,5 m'); },
-  e9q19(ctx) { x9vraag(ctx, ['De Galápagos en de Kaapverdische eilanden zijn allebei vulkanisch,', 'droog en ongeveer even hoog. Op welke dieren lijken de Galápagos-dieren het meest?'], ['Op de dieren van Zuid-Amerika', 'Op geen enkele soort ergens anders', 'Op de dieren van de Kaapverdische eilanden']); },
+  e9q19(ctx) { x9vraag(ctx, ['De Galápagos en de Kaapverdische eilanden zijn allebei vulkanisch,', 'droog en ongeveer even hoog. Op welke dieren lijken de Galápagos-dieren het meest?'], ['Op geen enkele soort ergens anders', 'Op de dieren van Zuid-Amerika', 'Op de dieren van de Kaapverdische eilanden']); },
   e9s20(ctx) { x9schema(ctx, 'DE EILANDEN'); const P = x9kaart(ctx, 100, 130, 1720, 720, -100, 30, -40, 30);
     const [g1, g2] = P(-90.5, -0.7), [z1, z2] = P(-60, -12), [k1, k2] = P(-23.6, 15.5), [f1, f2] = P(5, 12);
     pijl(ctx, z1, z2, g1 + 30, g2 + 6, C.teal, 1, 6, 24); pijl(ctx, f1, f2, k1 + 26, k2, C.oker, 1, 6, 24); circ(ctx, g1, g2, 12, C.teal); circ(ctx, k1, k2, 12, C.oker);
@@ -10691,7 +10691,7 @@ const SB9 = {
   e9s22(ctx) { x9schema(ctx, 'DE EILANDEN'); roundRect(ctx, 260, 380, 1400, 420, 18); shape(ctx, '#5A4030', '#7A5A44', 3);
     [[480, 640, 'groot', 15.5], [800, 650, 'middel', 12.5], [1120, 640, 'zanger', 10], [1440, 650, 'middel', 12.5]].forEach(([x, y, sr, cm], i) => { x9vink(ctx, sr, x, y, cm, { s: 1.3, kijk: i % 2 ? -1 : 1 }); roundRect(ctx, x - 60, y + 40, 120, 54, 8); shape(ctx, '#E6DCC4', '#C9BC9C', 1.5); text(ctx, '?', x, y + 82, fTekst(40, 800), '#7A6A5A', 'center'); });
     naamBij(ctx, 'vinken, slordig verzameld', 'eiland meestal niet genoteerd', 960, 300, 1, 'center'); },
-  e9q21(ctx) { x9vraag(ctx, 'Wanneer begreep Darwin dat de vinken van de Galápagos bijzonder waren?', ['Meteen op de eilanden, toen hij hun snavels vergeleek', 'Pas in Londen, toen een vogelkenner ze onderzocht', 'Nooit: dat ontdekten pas onderzoekers na zijn dood']); },
+  e9q21(ctx) { x9vraag(ctx, 'Wanneer begreep Darwin dat de vinken van de Galápagos bijzonder waren?', ['Pas in Londen, toen een vogelkenner ze onderzocht', 'Meteen op de eilanden, toen hij hun snavels vergeleek', 'Nooit: dat ontdekten pas onderzoekers na zijn dood']); },
   e9s23(ctx) { x9schema(ctx, 'DE EILANDEN'); x9mens(ctx, 'x9gould', 300, 880, 540, { uit: 'praat', pose: 'wijs' }); naamBij(ctx, 'John Gould', 'vogelkenner · Londen, januari 1837', 320, 250, 1, 'center');
     [[800, 'groot', 15.5, 'grote grondvink'], [1120, 'middel', 12.5, 'middelste grondvink'], [1440, 'zanger', 10, 'zangervink']].forEach(([x, sr, cm, n]) => { x9vink(ctx, sr, x, 540, cm, { s: 1.4, houding: 'staan' }); metaText(ctx, n, x, 590, C.grain, 'center', 24); }); naamBij(ctx, 'allemaal vinken', 'nauw verwante nieuwe soorten', 1120, 250, 1, 'center', C.goud);
     [[800, 'Charles'], [1100, 'Albemarle'], [1400, 'Chatham en James']].forEach(([x, n]) => { x9spotlijster(ctx, x, 830, 6); metaText(ctx, n, x, 870, C.grain, 'center', 24); }); naamBij(ctx, 'spotlijsters: drie soorten', null, 1100, 700, 1, 'center'); },
@@ -10709,7 +10709,7 @@ const SB9 = {
     naamBij(ctx, 'Thomas Malthus', 'gelezen in 1838', 220, 190, 1, 'left'); roundRect(ctx, 1300, 420, 500, 140, 16); shape(ctx, rgba(C.groen, 0.15), C.groen, 2); text(ctx, 'natuurlijke selectie', 1550, 505, fTekst(48, 700), C.groen, 'center'); },
   e9s27(ctx) { x9schema(ctx, 'I THINK'); const X = x9tijdlijn(ctx, 780, { gat: true, mijl: [[1837, 'I think', C.text, false], [1844, '±230 blz.', C.goud, false]] });
     x9brief(ctx, 1000, 360, 260, { rot: -0.06 }); metaText(ctx, 'AAN EMMA: UITGEVEN ALS IK STERF', 1000, 500, C.grain, 'center', 26); text(ctx, '“alsof ik een moord beken”', 1560, 300, fTekst(44, 600), C.text, 'center'); metaText(ctx, 'BRIEF AAN HOOKER · 1844', 1560, 350, C.grain, 'center', 26); },
-  e9q28(ctx) { x9vraag(ctx, 'Waarom wachtte Darwin zo lang met publiceren?', ['Hij had ander werk en wilde eerst veel bewijs', 'Hij durfde het niet, uit angst voor de kerk', 'Hij vond geen uitgever die het wilde drukken']); },
+  e9q28(ctx) { x9vraag(ctx, 'Waarom wachtte Darwin zo lang met publiceren?', ['Hij durfde het niet, uit angst voor de kerk', 'Hij had ander werk en wilde eerst veel bewijs', 'Hij vond geen uitgever die het wilde drukken']); },
   e9s29(ctx) { x9schema(ctx, 'I THINK'); const X = x9tijdas(ctx, 160, 760, 1600, 1830, 1860);
     const balk = (j0, j1, t, k, rij) => { const y = 640 - rij * 110; roundRect(ctx, X(j0), y, X(j1) - X(j0), 64, 10); shape(ctx, rgba(k, 0.3), k, 2); text(ctx, t, (X(j0) + X(j1)) / 2, y + 45, fTekst(36, 600), C.text, 'center'); };
     balk(1838, 1846, 'boeken over de reis', C.teal, 0); balk(1846, 1854, 'zeepokken', C.oker, 1); balk(1854, 1858.5, 'groot boek', C.groen, 0); x9zeepok(ctx, X(1850), 410, 1.4);

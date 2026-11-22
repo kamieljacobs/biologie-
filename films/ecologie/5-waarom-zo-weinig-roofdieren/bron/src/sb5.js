@@ -36,7 +36,7 @@ const SB5 = {
   e5s06(ctx) { e5Bg(ctx); ecoTag(ctx, _F5, 'HET GRAS');
     e5Boek(ctx, 360, 200, 1200, 560, 'het boek van de veehouder · één hectare · één jaar', [['BPP', 1, C.goud, 'alles wat het gras vastlegt'], ['', 0, C.goud], ['', 0, C.goud]]);
     naamBij(ctx, 'bruto primaire productie', 'BPP', 960, 860, 1, 'center', C.goud); },
-  e5q07(ctx) { e5Vraag(ctx, ['Wanneer breekt het gras zelf glucose af, met dissimilatie?'], ["Alleen 's nachts, als er geen licht is", 'Dag en nacht, net als jij', 'Nooit: planten doen alleen fotosynthese']); },
+  e5q07(ctx) { e5Vraag(ctx, ['Wanneer breekt het gras zelf glucose af, met dissimilatie?'], ["Alleen 's nachts, als er geen licht is","Nooit: planten doen alleen fotosynthese","Dag en nacht, net als jij"]); },
   e5s08(ctx) { e5Bg(ctx); ecoTag(ctx, _F5, 'HET GRAS');
     for (const [x, dag] of [[520, true], [1400, false]]) { roundRect(ctx, x - 380, 170, 760, 640, 20); shape(ctx, rgba(dag ? '#2E4466' : '#141E30', 0.9), C.line, 2);
       grasPol(ctx, x, 700, 2.6); e5Warmte(ctx, x + 120, 560, 1, {}); e5Pijl(ctx, x + 40, 520, x + 200, 400, '#9AA3B2', 5); text(ctx, 'CO₂', x + 225, 395, fTekst(36, 700), '#C8CED8', 'left');
@@ -71,7 +71,7 @@ const SB5 = {
   e5s16(ctx) { e5Bg(ctx); ecoTag(ctx, _F5, 'DE KOE'); e5Schema(ctx, 760, 220, 1, { opname: 200, feces: 60 }, { toon: ['opname', 'feces'], getal: false, focus: 'feces' });
     e5Koe(ctx, 1500, 520, { houding: 'staan', kijk: -1, a: 0.35 }); },
   e5s17(ctx) { e5Bg(ctx); ecoTag(ctx, _F5, 'DE KOE'); e5Schema(ctx, 760, 220, 1, { opname: 200, feces: 60, diss: 135, prod: 5 }, { getal: false, focus: 'prod' }); },
-  e5q18(ctx) { e5Vraag(ctx, ['Opname 200 MJ per dag. Feces 60 MJ. Dissimilatie 135 MJ.', 'Hoeveel procent van de opname wordt productie?'], ['Ongeveer tweeënhalf procent', 'Dertig procent', 'Zeventig procent']); },
+  e5q18(ctx) { e5Vraag(ctx, ['Opname 200 MJ per dag. Feces 60 MJ. Dissimilatie 135 MJ.', 'Hoeveel procent van de opname wordt productie?'], ['Dertig procent', 'Zeventig procent', 'Ongeveer tweeënhalf procent']); },
   e5s19(ctx) { e5Bg(ctx); ecoTag(ctx, _F5, 'DE KOE'); e5Schema(ctx, 760, 220, 1, { opname: 200, feces: 60, diss: 135, prod: 5 }, { getal: true, focus: 'prod', pct: '± 2,5 %' });
     text(ctx, '200 − 60 − 135 = 5', 960, 870, fTekst(44, 700), C.text, 'center'); },
   e5s20(ctx) { e5Bg(ctx); ecoTag(ctx, _F5, 'DE KOE'); vwoMarker(ctx); e5Schema(ctx, 520, 220, 0.75, { opname: 200, feces: 60, diss: 135, prod: 5 }, { getal: false, namen: false, focus: 'prod' });
@@ -81,7 +81,7 @@ const SB5 = {
   e5s21(ctx) { e5Weiland(ctx, { horizon: 420, slootY: 900 }); ecoTag(ctx, _F5, 'WAAR BLIJFT DE ENERGIE?');
     e5Vlaai(ctx, 760, 700, 2.6); ecoRegenworm(ctx, 1080, 770, 16, { houding: 'zij', t: 0.3 }); e5Mestkever(ctx, 700, 640, 2.2); e5Mestkever(ctx, 880, 700, 2.2);
     naamBij(ctx, 'mestkevers', 'detrituseter', 600, 560, 1, 'center'); naamBij(ctx, 'regenworm', 'detrituseter', 1180, 840, 1, 'center'); naamBij(ctx, 'mest', 'nog vol energie', 760, 800, 1, 'center', C.oker); naamBij(ctx, 'schimmels en bacteriën', 'reducenten', 1500, 640, 1, 'center'); },
-  e5q22(ctx) { e5Vraag(ctx, ['De energie in de mest. Komt die terug in het gras?'], ['Ja: via de mineralen neemt het gras die energie weer op', 'Ja: die blijft in de bodem, en het gras gebruikt hem later', 'Nee: bodemdieren en reducenten gebruiken hem, en hij verdwijnt als warmte']); },
+  e5q22(ctx) { e5Vraag(ctx, ['De energie in de mest. Komt die terug in het gras?'], ['Ja: via de mineralen neemt het gras die energie weer op', 'Nee: bodemdieren en reducenten gebruiken hem, en hij verdwijnt als warmte', 'Ja: die blijft in de bodem, en het gras gebruikt hem later']); },
   e5s23(ctx) { e5Bg(ctx); ecoTag(ctx, _F5, 'WAAR BLIJFT DE ENERGIE?');
     const cx = 960, cy = 520, R = 260; ctx.strokeStyle = E5K.stof; ctx.lineWidth = 8; ctx.beginPath(); ctx.arc(cx, cy, R, 0, 6.283); ctx.stroke();
     for (const an of [0.3, 1.9, 3.5, 5.0]) { const x = cx + Math.cos(an) * R, y = cy + Math.sin(an) * R; pijl(ctx, x, y, cx + Math.cos(an + 0.25) * R, cy + Math.sin(an + 0.25) * R, E5K.stof, 1, 8, 22); }
@@ -150,7 +150,7 @@ const SB5 = {
     e5Bakje(ctx, 690, 680, 540, 380, { label: 'zandhagedis' }); hagedis(ctx, 980, 654, 0.95, { houding: 'staan' }); e5Hoopje(ctx, 780, 658, 50);
     e5Bakje(ctx, 1270, 680, 540, 380, { label: 'alleen voer' }); e5Hoopje(ctx, 1460, 658, 50); naamBij(ctx, 'controle', 'voer droogt vanzelf uit', 1490, 520, 1, 'center', C.groen);
     metaText(ctx, 'ONAFHANKELIJK: SOORT DIER · AFHANKELIJK: VOER DAT VERDWIJNT', 960, 830, C.grain, 'center', 26); metaText(ctx, 'CONSTANT: 20 °C · ZELFDE GEWICHT', 960, 874, C.grain, 'center', 26); },
-  e5q35(ctx) { e5Vraag(ctx, ['Welk dier eet per gram lichaam het meest?'], ['Ze eten ongeveer even veel: ze zijn even zwaar', 'De spitsmuis: vele keren zo veel', 'De hagedis: die moet zich steeds opwarmen']); },
+  e5q35(ctx) { e5Vraag(ctx, ['Welk dier eet per gram lichaam het meest?'], ['De spitsmuis: vele keren zo veel', 'Ze eten ongeveer even veel: ze zijn even zwaar', 'De hagedis: die moet zich steeds opwarmen']); },
   e5s36(ctx) { e5Bg(ctx); ecoTag(ctx, _F5, 'WARM OF KOUD');
     e5Bakje(ctx, 160, 700, 760, 420, { label: 'spitsmuis · endotherm' }); ecoSpitsmuis(ctx, 560, 676, 30, { houding: 'snuffelen', t: 0.5 }); e5Hoopje(ctx, 270, 678, 12, C.oker, 0.7); e5Warmte(ctx, 600, 500, 1.3, { n: 4 });
     e5Bakje(ctx, 1000, 700, 760, 420, { label: 'zandhagedis · ectotherm' }); hagedis(ctx, 1380, 674, 1.2, { houding: 'staan' }); e5Hoopje(ctx, 1110, 678, 56);

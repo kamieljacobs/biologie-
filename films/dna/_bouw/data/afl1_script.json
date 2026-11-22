@@ -316,11 +316,11 @@
    "scene": "h4q",
    "text": "Twee stukjes DNA, even lang. Het ene heeft veel C en G, het andere veel A en T. Welk stukje laat bij verwarmen het eerst los? Wat denk je?",
    "opts": [
-    "het stuk met veel C en G",
     "het stuk met veel A en T",
+    "het stuk met veel C en G",
     "ze laten tegelijk los"
    ],
-   "correct": 1,
+   "correct": 0,
    "misconception": 2
   },
   {

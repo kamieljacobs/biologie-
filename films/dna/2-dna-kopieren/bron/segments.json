@@ -176,8 +176,8 @@
   "level": "basis",
   "options": [
    "Tijdens de deling, in de M-fase",
-   "Vóór de deling, in de S-fase",
-   "Na de deling, in de nieuwe cel"
+   "Na de deling, in de nieuwe cel",
+   "Vóór de deling, in de S-fase"
   ]
  },
  {
@@ -541,8 +541,8 @@
   "chapter": "Hoofdstuk 2 — Eén streng is genoeg",
   "level": "basis",
   "options": [
-   "A T G C",
    "T A C G",
+   "A T G C",
    "U A C G"
   ]
  },
@@ -1003,8 +1003,8 @@
   "level": "vwo",
   "options": [
    "Alleen zwaar DNA",
-   "Alleen licht DNA",
    "Alles even zwaar, precies tussen zwaar en licht in",
+   "Alleen licht DNA",
    "De helft zwaar, de helft licht"
   ]
  },

@@ -17,12 +17,12 @@
   "level": "basis",
   "kind": "question",
   "options": [
-   "de chimpansee",
    "de muis",
-   "de kip"
+   "de kip",
+   "de chimpansee"
   ],
   "q": "Mens, chimpansee, muis en kip. Wie is het nauwst verwant aan de mens?",
-  "correct": 0,
+  "correct": 2,
   "explain": "De chimpansee: mens en chimpansee splitsen in de stamboom pas heel laat. De kip splitst al heel vroeg af."
  },
  {
@@ -153,12 +153,12 @@
   "level": "basis",
   "kind": "question",
   "options": [
+   "organismen van heel veel cellen",
    "cellen met een kern",
-   "DNA als bouwtekening",
-   "organismen van heel veel cellen"
+   "DNA als bouwtekening"
   ],
   "q": "Welke van deze grote stappen kwam als laatste?",
-  "correct": 2,
+  "correct": 0,
   "explain": "Organismen van heel veel cellen. Eerst kwam DNA als bouwtekening, toen cellen met een kern, en pas daarna meercellig leven."
  },
  {

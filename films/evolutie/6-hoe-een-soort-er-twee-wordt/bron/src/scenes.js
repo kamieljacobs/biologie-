@@ -7239,7 +7239,7 @@ const SB6 = {
     text(ctx, 'soort', 160, 300, fTitel(80), C.text, 'left'); ctx.font = fTekst(52, 500); ctx.fillStyle = C.text; wrap(ctx, 'een groep individuen die in de natuur samen vruchtbare nakomelingen kunnen krijgen', 160, 400, 1600, 64);
     ctx.font = fTekst(52, 500); const x0 = 160 + ctx.measureText('een groep individuen die in de natuur samen ').width, x1 = x0 + ctx.measureText('vruchtbare').width; ctx.strokeStyle = C.goud; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(x0, 414); ctx.lineTo(x1, 414); ctx.stroke();
     text(ctx, 'hond en wolf: één soort · hondenras ≈ ondersoort in de natuur', 160, 640, fTekst(40, 600), C.groen, 'left'); },
-  e6q05(ctx) { vraagKaart(ctx, ['Een paard en een ezel krijgen samen een muilezel. Die is gezond,', 'maar onvruchtbaar. Zijn paard en ezel één soort?'], ["Ja, want ze krijgen samen een jong", "Nee, want hun jong kan zelf geen jongen krijgen", "Ja, want ze lijken veel op elkaar"], _F6); },
+  e6q05(ctx) { vraagKaart(ctx, ['Een paard en een ezel krijgen samen een muilezel. Die is gezond,', 'maar onvruchtbaar. Zijn paard en ezel één soort?'], ["Nee, want hun jong kan zelf geen jongen krijgen", "Ja, want ze krijgen samen een jong", "Ja, want ze lijken veel op elkaar"], _F6); },
   e6s06(ctx) { macroNacht(ctx, { horizon: 560 }); evoTag(ctx, _F6, 'WAT IS EEN SOORT?');
     const s = 2.3; paard(ctx, 330, 700, s); ezel(ctx, 1600, 700, s, { kijk: -1 }); muilezel(ctx, 960, 760, s);
     naamBij(ctx, 'paard', 'soort 1', 330, 270, 1, 'center'); naamBij(ctx, 'ezel', 'soort 2', 1600, 400, 1, 'center'); naamBij(ctx, 'hybride', null, 960, 330, 1, 'center', C.goud);
@@ -7297,7 +7297,7 @@ const SB6 = {
     _tegel(ctx, 1400, y, w, h, 'bouw', 'past niet op elkaar', (cx, cy) => { roundRect(ctx, cx - 80, cy - 50, 90, 110, 16); shape(ctx, rgba(C.goud, 0.2), C.goud, 4); circ(ctx, cx - 35, cy, 14, C.bgSchema); ctx.strokeStyle = C.line; ctx.lineWidth = 8; ctx.beginPath(); ctx.moveTo(cx + 30, cy); ctx.lineTo(cx + 110, cy); ctx.moveTo(cx + 90, cy); ctx.lineTo(cx + 90, cy + 26); ctx.stroke(); circ(ctx, cx + 30, cy, 22, null, C.line, 8); }); },
   e6s18(ctx) { _s6(ctx); evoTag(ctx, _F6, 'WANNEER IS HET TWEE?'); text(ctx, 'ná de bevruchting', 140, 200, fTekst(48, 700), C.text, 'left');
     _tegel(ctx, 140, 260, 1640, 520, 'het jong sterft jong of is onvruchtbaar', 'zoals de muilezel', (cx, cy) => { muilezel(ctx, cx - 120, cy + 170, 1.55); pijl(ctx, cx + 180, cy, cx + 400, cy, C.line, 1, 5); ctx.strokeStyle = C.koraal; ctx.lineWidth = 7; ctx.beginPath(); ctx.moveTo(cx + 430, cy - 40); ctx.lineTo(cx + 510, cy + 40); ctx.moveTo(cx + 510, cy - 40); ctx.lineTo(cx + 430, cy + 40); ctx.stroke(); }); },
-  e6q19(ctx) { vraagKaart(ctx, ['Twee kikkersoorten leven in dezelfde vijver.', 'De ene paart in april, de andere in juni. Wat voor isolatie is dit?'], ['Isolatie vóór de bevruchting', 'Geografische isolatie', 'Isolatie ná de bevruchting'], _F6); },
+  e6q19(ctx) { vraagKaart(ctx, ['Twee kikkersoorten leven in dezelfde vijver.', 'De ene paart in april, de andere in juni. Wat voor isolatie is dit?'], ['Geografische isolatie', 'Isolatie vóór de bevruchting', 'Isolatie ná de bevruchting'], _F6); },
   e6s20(ctx) { _s6(ctx); evoTag(ctx, _F6, 'WANNEER IS HET TWEE?');
     const M = ['maart', 'april', 'mei', 'juni', 'juli']; const x0 = 260, mw = 280;
     M.forEach((m, i) => { roundRect(ctx, x0 + i * mw, 600, mw - 10, 80, 10); shape(ctx, rgba(C.fill, 0.7), C.line, 1.5); text(ctx, m, x0 + i * mw + (mw - 10) / 2, 652, fTekst(36, 600), C.text, 'center'); });

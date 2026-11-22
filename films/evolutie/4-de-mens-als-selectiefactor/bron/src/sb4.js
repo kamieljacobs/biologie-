@@ -79,7 +79,7 @@ const SB4 = {
     bacterie(ctx, 560, 480, 560, 0, { type: 'resistent', plasmide: 1, zweep: false, seed: 2 }); bacterie(ctx, 1460, 520, 500, 0.08, { type: 'gevoelig', zweep: false, seed: 9 });
     pilus(ctx, 830, 470, 1220, 500, 0.5, 24); naamBij(ctx, 'kopie van het plasmide', null, 1030, 370, 1, 'center', EVO.a2R);
     naamBij(ctx, 'E. coli', null, 560, 680, 1, 'center'); naamBij(ctx, 'andere soort', 'BV. KLEBSIELLA', 1460, 710, 1, 'center'); },
-  e4q18(ctx) { vraagKaart(ctx, ["Een E. coli met een plasmide voor resistentie ligt", "naast een bacterie van een andere soort. Wat kan er", "gebeuren?"], ["Niets: genen gaan alleen naar dochtercellen", "De E. coli verliest zijn resistentie", "De andere soort krijgt een kopie en wordt resistent"], _F4); },
+  e4q18(ctx) { vraagKaart(ctx, ["Een E. coli met een plasmide voor resistentie ligt", "naast een bacterie van een andere soort. Wat kan er", "gebeuren?"], ["Niets: genen gaan alleen naar dochtercellen", "De andere soort krijgt een kopie en wordt resistent", "De E. coli verliest zijn resistentie"], _F4); },
   e4s19(ctx) { _sch(ctx); evoTag(ctx, _F4, 'DE POT LEKT');
     pot(ctx, 560, 700, 1.25, { p: 0.4, n: 80, seed: 2, label: 'E. coli' }); pot(ctx, 1360, 700, 1.25, { p: 0.95, n: 80, seed: 9, label: 'Klebsiella' });
     ctx.strokeStyle = EVO.glas; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(723, 560); ctx.lineTo(1197, 560); ctx.moveTo(723, 600); ctx.lineTo(1197, 600); ctx.stroke();

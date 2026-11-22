@@ -39,11 +39,11 @@
   "kind": "question",
   "options": [
    "het is slecht voor haar: ze raakt in de war",
-   "het zit vooral in haar hoofd",
-   "haar lichaam maakt zich klaar om iets te doen"
+   "haar lichaam maakt zich klaar om iets te doen",
+   "het zit vooral in haar hoofd"
   ],
   "q": "Lottes hart bonkt voor haar spreekbeurt. Wat gebeurt er in haar?",
-  "correct": 2,
+  "correct": 1,
   "explain": "Haar lichaam maakt zich klaar om iets te doen: hart, ademhaling en spieren doen mee. Stress zit dus niet alleen in je hoofd, en kort is het niet slecht."
  },
  {
@@ -100,12 +100,12 @@
   "level": "basis",
   "kind": "question",
   "options": [
-   "dat ze zwak is",
    "dat haar lichaam reageert op iets spannends",
+   "dat ze zwak is",
    "dat ze slecht heeft geoefend"
   ],
   "q": "Yasmin zegt na de les: 'Ik was ook zó zenuwachtig.' Wat zegt dat over haar?",
-  "correct": 1,
+  "correct": 0,
   "explain": "Zenuwachtig zijn is een reactie van je lichaam op iets spannends. Bijna iedereen kent het; het is geen zwakte."
  },
  {
@@ -138,11 +138,11 @@
   "kind": "question",
   "options": [
    "prima, haar lichaam went eraan",
-   "moe, en ze slaapt slecht",
-   "extra fit, want ze oefent veel"
+   "extra fit, want ze oefent veel",
+   "moe, en ze slaapt slecht"
   ],
   "q": "Lotte heeft weken achter elkaar een volle agenda. Hoe voelt ze zich na een paar van zulke weken?",
-  "correct": 1,
+  "correct": 2,
   "explain": "Het alarm gaat steeds opnieuw aan, zonder tijd om tot rust te komen. Daar went je lichaam niet aan: je wordt moe en slaapt slechter."
  },
  {
@@ -175,11 +175,11 @@
   "kind": "question",
   "options": [
    "het gaat uit, want ze rust even",
-   "het blijft half aan, want ze ziet steeds iets nieuws",
-   "het gaat harder aan, want ze schrikt"
+   "het gaat harder aan, want ze schrikt",
+   "het blijft half aan, want ze ziet steeds iets nieuws"
   ],
   "q": "Lotte is moe en gespannen. Ze pakt haar telefoon om even te rusten. Wat doet dat met haar alarm?",
-  "correct": 1,
+  "correct": 2,
   "explain": "Scrollen voelt als rust, maar je hoofd ziet steeds iets nieuws. Bewegen, buiten zijn, slapen en praten zetten het alarm beter uit."
  },
  {

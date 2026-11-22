@@ -18,11 +18,11 @@
   "kind": "question",
   "options": [
    "het water in het deeg is gaan uitzetten",
-   "levende gistcellen hebben gas gemaakt",
-   "de bloem is opgezwollen van het water"
+   "de bloem is opgezwollen van het water",
+   "levende gistcellen hebben gas gemaakt"
   ],
   "q": "Na een uur is het pizzadeeg twee keer zo groot. Wat heeft het opgeblazen?",
-  "correct": 1,
+  "correct": 2,
   "explain": "Levende gistcellen breken suiker af en maken daarbij het gas koolstofdioxide. De belletjes blijven in het taaie deeg hangen: het deeg rijst."
  },
  {
@@ -83,12 +83,12 @@
   "level": "basis",
   "kind": "question",
   "options": [
+   "nee, die bacteriën hebben de yoghurt gemaakt",
    "ja, dan is de yoghurt bedorven",
-   "ja, bacteriën maken je altijd ziek",
-   "nee, die bacteriën hebben de yoghurt gemaakt"
+   "ja, bacteriën maken je altijd ziek"
   ],
   "q": "In een schepje yoghurt zitten honderden miljoenen levende bacteriën. Is dat erg?",
-  "correct": 2,
+  "correct": 0,
   "explain": "Nee: melkzuurbacteriën hebben van melk yoghurt gemaakt. Maar een klein deel van alle bacteriën maakt je ziek; de meeste zijn onschuldig of nuttig."
  },
  {
@@ -122,12 +122,12 @@
   "level": "basis",
   "kind": "question",
   "options": [
-   "bacteriën in de maag van de koe",
    "de koe zelf, met haar maagsap",
+   "bacteriën in de maag van de koe",
    "niemand, het gras gaat er onverteerd uit"
   ],
   "q": "Een koe eet de hele dag gras. Wie verteert dat gras eigenlijk?",
-  "correct": 0,
+  "correct": 1,
   "explain": "Bacteriën in de pens, de grote voormaag van de koe. De koe kan gras zelf niet verteren; ze leeft van wat de bacteriën maken, en verteert de bacteriën ook zelf."
  },
  {

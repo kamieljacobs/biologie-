@@ -47,7 +47,7 @@
 
 | Id | Niveau | Vraag | Juist |
 |---|---|---|---|
-| q02 | basis | Een AED geeft een stroomstoot door een hart dat trilt. Hoe kan dat helpen? | b de schok legt alle hartcellen even stil, zodat ze daarna weer samen werken |
+| q02 | basis | Een AED geeft een stroomstoot door een hart dat trilt. Hoe kan dat helpen? | a de schok legt alle hartcellen even stil, zodat ze daarna weer samen werken |
 | q06 | basis | Bij een sprint kan je hartminuutvolume vier tot vijf keer zo groot worden. Hoe doet je hart dat? | b het klopt sneller, en pompt per slag meer |
 | q11 | basis | Bij een sprint pompt je hart vier keer zo veel bloed rond. Krijgen al je organen dan vier keer zo veel? | b nee, vooral de spieren krijgen meer, andere organen minder |
 

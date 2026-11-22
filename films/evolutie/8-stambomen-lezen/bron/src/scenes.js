@@ -7600,7 +7600,7 @@ const SB8 = {
   e8s27(ctx) { schema(ctx, 'NAMEN EN GROEPEN'); naamVak(ctx, 160, 200, 1600, 640, 'geslacht', 'Panthera');
     naamVak(ctx, 220, 320, 720, 480, 'soort', 'leeuw', { nadruk: true }); naamVak(ctx, 980, 320, 720, 480, 'soort', 'tijger', { nadruk: true });
     leeuw(ctx, 580, 760, 0.62); tijger(ctx, 1340, 760, 0.66); naamBij(ctx, 'soort: in de natuur samen vruchtbare nakomelingen', null, 960, 900 - 20, 1, 'center'); },
-  e8q28(ctx) { vraagKaart(ctx, ['De leeuw heet Panthera leo, de tijger Panthera tigris.', 'Wat zegt het eerste woord?'], ['De soort', 'De familie', 'Het geslacht'], 8);
+  e8q28(ctx) { vraagKaart(ctx, ['De leeuw heet Panthera leo, de tijger Panthera tigris.', 'Wat zegt het eerste woord?'], ['Het geslacht', 'De soort', 'De familie'], 8);
     ctx.save(); ctx.font = 'italic 600 52px "Source Sans 3", sans-serif'; ctx.fillStyle = C.text; ctx.textAlign = 'center'; ctx.fillText('Panthera leo', 1640, 560); ctx.fillText('Panthera tigris', 1640, 660); ctx.restore(); },
   e8s29(ctx) { schema(ctx, 'NAMEN EN GROEPEN'); const nm = (x, y, g, s2) => { ctx.save(); ctx.font = 'italic 600 88px "Source Sans 3", sans-serif'; ctx.textAlign = 'left'; ctx.fillStyle = C.goud; ctx.fillText(g, x, y); const w = ctx.measureText(g + ' ').width; ctx.fillStyle = C.text; ctx.fillText(s2, x + w, y); ctx.restore(); return w; };
     const w = nm(360, 420, 'Panthera', 'leo'); nm(360, 640, 'Panthera', 'tigris');

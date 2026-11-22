@@ -112,11 +112,11 @@
   "kind": "question",
   "options": [
    "ja, het is precies hetzelfde",
-   "nee, bij veredelen kies je uit wat er al is, bij genetische modificatie verander je de genen zelf",
-   "nee, veredelen gebeurt alleen bij dieren"
+   "nee, veredelen gebeurt alleen bij dieren",
+   "nee, bij veredelen kies je uit wat er al is, bij genetische modificatie verander je de genen zelf"
   ],
   "q": "Is genetische modificatie hetzelfde als veredelen?",
-  "correct": 1,
+  "correct": 2,
   "explain": "Nee. Bij veredelen kies je uit wat er al is. Bij genetische modificatie verander je zelf de genen, soms met een gen van een heel andere soort."
  },
  {

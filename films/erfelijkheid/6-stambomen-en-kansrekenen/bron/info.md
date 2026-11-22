@@ -34,7 +34,7 @@ Versie 2.0 is een lichte remake in de FILMDATA-straat (28 okt 2026, prompt v13 B
 | q08 | Deze man heeft de ziekte van Huntington niet, maar zijn vader wel. Kan zijn kind de ziekte krijgen? | a ja, kan een generatie overslaan · b nee, geen A om door te geven · c alleen als het een zoon is | b |
 | q16 | Haar ouders zijn allebei Aa. De vrouw is gezond. Kans dat zij drager is? | a een derde · b een half · c twee derde | c |
 | q21 | Twee dragers hebben al een kind met taaislijmziekte. Kans dat het volgende kind het ook krijgt? | a kleiner dan een kwart · b een kwart · c groter dan een kwart | b |
-| q25 | Kans dat het kind van de vrouw en haar partner taaislijmziekte krijgt? | a een zesde · b een achtste · c een kwart | a |
+| q25 | Kans dat het kind van de vrouw en haar partner taaislijmziekte krijgt? | b een zesde · b een achtste · c een kwart | a |
 
 Vragen uit: de speler knipt de vraagzinnen in s07 (vanaf 'Kan zijn kind', 4,3 s), s15 (vanaf 'Hoe groot', 5,4 s), s20 (vanaf 'Hoe groot', 3,2 s) en s24 helemaal; wat overblijft is een gewone uitlegzin. De vraagbeelden (vraagteken-ruit, '?' onder de vrouw, het volgende kind) verschijnen pas op die geknipte woorden, dus niet bij Vragen uit. De alinea na elke vraag begint met een eigen stelling (geen kort antwoord). Gecontroleerd met de tijdlijn van de speler (`?vragen=uit`, 375 s); `antwoordtekst.py --check` en `kortantwoord.py --check` nog draaien in de repo (hoofdsessie).
 

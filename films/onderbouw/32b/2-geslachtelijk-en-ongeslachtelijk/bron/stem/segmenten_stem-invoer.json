@@ -108,11 +108,11 @@
   "kind": "question",
   "options": [
    "een groep kopieën van één ouder",
-   "een groep jongen van twee ouders",
-   "dat maakt niets uit"
+   "dat maakt niets uit",
+   "een groep jongen van twee ouders"
   ],
   "q": "Er komt een nieuwe ziekte. Welke groep heeft de meeste kans dat een paar dieren het overleven?",
-  "correct": 1,
+  "correct": 2,
   "explain": "Jongen van twee ouders zijn allemaal een beetje anders. Grote kans dat er een paar tegen de ziekte kunnen. Kopieën zijn allemaal even zwak."
  },
  {

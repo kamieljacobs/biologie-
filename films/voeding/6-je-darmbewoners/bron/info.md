@@ -50,7 +50,7 @@
 
 | Id | Niveau | Vraag | Juist |
 |---|---|---|---|
-| q02 | basis | Na een antibioticakuur krijgt een man steeds opnieuw diarree. Hij krijgt ontlasting van een gezonde donor in zijn darm, en geneest. Waarom werkt dat? | b de donorbacteriën nemen de plek en het voedsel in de darm weer in (onthulling in H3 en recap) |
+| q02 | basis | Na een antibioticakuur krijgt een man steeds opnieuw diarree. Hij krijgt ontlasting van een gezonde donor in zijn darm, en geneest. Waarom werkt dat? | a de donorbacteriën nemen de plek en het voedsel in de darm weer in (onthulling in H3 en recap) |
 | q06 | basis | Een leerling doet ontlasting op een voedingsbodem in een open schaaltje, in een stoof van 37 °C. Er groeit bijna niets. Hoe komt dat? | b er komt te veel zuurstof bij |
 | q10 | basis | Iemand eet een bord bonen. Een paar uur later: winden. Hoe halen de darmbacteriën energie uit de suikers van die bonen? | b door gisting, zonder zuurstof |
 | q16 | basis | Na een antibioticakuur groeit juist de ziekmaker Clostridioides difficile enorm uit, terwijl hij er daarvoor ook al zat. Waardoor? | b de andere soorten zijn weg, dus hij heeft geen concurrentie meer |

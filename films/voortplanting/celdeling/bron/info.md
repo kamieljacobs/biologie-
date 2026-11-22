@@ -83,16 +83,16 @@ Alleen beeld; stem, script, vragen, timings, speler en datum ongewijzigd. Site-H
 
 | Id | Niv. | Vraag | Juist |
 |---|---|---|---|
-| q02 | basis | Hoe verdeelt een cel zijn DNA eerlijk? | b eerst kopiëren, dan verdelen |
-| q07 | basis | Wanneer wordt het DNA gekopieerd? | b in de interfase |
+| q02 | basis | Hoe verdeelt een cel zijn DNA eerlijk? | c eerst kopiëren, dan verdelen |
+| q07 | basis | Wanneer wordt het DNA gekopieerd? | c in de interfase |
 | q14 | basis | Vier X-vormen: hoeveel chromosomen? | b 4 |
 | eq02 | extra | Gif: trekdraden haken niet aan. Wat doet de cel? | b blijft wachten in de metafase |
 | q18 | basis | Chromosomen per dochtercel na mitose (mens)? | b 46 |
 | q23 | basis | Chromosomen per cel na meiose I (mens)? | b 23 |
-| xq | extra | Linda was 27: hoe lang stond de meiose stil? | c ruim zevenentwintig jaar |
-| q28 | basis | Waar liggen homologe chromosomen als paren in het equatorvlak? | b meiose één |
+| xq | extra | Linda was 27: hoe lang stond de meiose stil? | a ruim zevenentwintig jaar |
+| q28 | basis | Waar liggen homologe chromosomen als paren in het equatorvlak? | a meiose één |
 | q31 | vwo | Eicel 24 + normale zaadcel? | c 47 |
-| q34 | basis | Huidcel of zaadcel: meer DNA? | b de huidcel |
+| q34 | basis | Huidcel of zaadcel: meer DNA? | c de huidcel |
 
 Cues: na elke bouw `python3 bouw/cuecheck3.py src/scenes_cd2.js` (vanuit een map met film/words/): meldt waar `q.at()` op een ander woord valt dan bedoeld (bewust: 'crossing' → crossing-over, 'G2' → G2-fase, 'geslachtelijke', 2 → Ongeslachtelijke, 'disjunctie').
 

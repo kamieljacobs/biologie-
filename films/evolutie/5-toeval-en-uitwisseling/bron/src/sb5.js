@@ -39,7 +39,7 @@ const SB5 = {
   e5s12(ctx) { f5Bg(ctx); evoTag(ctx, _F5, 'FLESSENHALS EN FOUNDER-EFFECT'); pot(ctx, 440, 820, 1.5, { p: 0.995, n: 100, seed: 15, extra: [[EVO.a2, 1]] });
     flessenhals(ctx, 960, 560, 1.4, { kleur: K.drift }); pot(ctx, 1480, 820, 0.9, { p: 39 / 40, n: 40, seed: 16 }); knikker(ctx, 960, 560, 16, EVO.a2); goudRing(ctx, 960, 560, 26);
     naamBij(ctx, 'flessenhalseffect', null, 960, 330, 1, 'center', K.drift); metaText(ctx, 'vóór de tyfoon', 440, 880, C.text2, 'center', 26); metaText(ctx, '±20 mensen · 40 allelen', 1480, 880, C.text2, 'center', 26); },
-  e5q13(ctx) { vraagKaart(ctx, ['Een populatie gaat door een flessenhals:', 'van duizend naar twintig dieren. Wat gebeurt er met de genetische variatie?'], ['Die neemt af: zeldzame allelen komen er vaak niet door', 'Die neemt toe: in een kleine groep ontstaan meer mutaties', 'Die blijft gelijk: alle allelen zijn er nog, alleen minder vaak'], _F5); },
+  e5q13(ctx) { vraagKaart(ctx, ['Een populatie gaat door een flessenhals:', 'van duizend naar twintig dieren. Wat gebeurt er met de genetische variatie?'], ['Die neemt toe: in een kleine groep ontstaan meer mutaties', 'Die blijft gelijk: alle allelen zijn er nog, alleen minder vaak', 'Die neemt af: zeldzame allelen komen er vaak niet door'], _F5); },
   e5s14(ctx) { f5Bg(ctx); evoTag(ctx, _F5, 'FLESSENHALS EN FOUNDER-EFFECT'); const ps = [0.975, 0.95, 0.9, 0.85];
     ps.forEach((p, i) => { const x = 360 + i * 400; pot(ctx, x, 700, 0.9, { p, n: 40, seed: 40 + i }); allelBalk(ctx, x - 130, 740, 260, p, { procent: false }); metaText(ctx, 'generatie ' + (i * 2 + 1), x, 840, C.text2, 'center', 26); if (i < 3) zigzag(ctx, x + 140, 480, x + 260, 480, K.drift, 3); });
     naamBij(ctx, 'klein blijven: drift werkt door', null, 960, 230, 1, 'center', K.drift); evoSchaal(ctx, 'schematisch'); },
@@ -78,7 +78,7 @@ const SB5 = {
   e5s25(ctx) { f5Bg(ctx); evoTag(ctx, _F5, 'VIER KRACHTEN IN ÉÉN POT'); vierKrachten(ctx, { selectie: 1 }); },
   e5s26(ctx) { f5Bg(ctx); evoTag(ctx, _F5, 'VIER KRACHTEN IN ÉÉN POT'); vierKrachten(ctx, { selectie: 0.35, drift: 1 }); },
   e5s27(ctx) { f5Bg(ctx); evoTag(ctx, _F5, 'VIER KRACHTEN IN ÉÉN POT'); vierKrachten(ctx, { selectie: 0.35, drift: 0.35, stroom: 1, mutatie: 1 }); },
-  e5q28(ctx) { vraagKaart(ctx, 'Welke kracht kan een allel vaak maken, ook als het niets oplevert of zelfs schaadt?', ['Selectie', 'Mutatie', 'Genetische drift'], _F5); },
+  e5q28(ctx) { vraagKaart(ctx, 'Welke kracht kan een allel vaak maken, ook als het niets oplevert of zelfs schaadt?', ['Genetische drift', 'Selectie', 'Mutatie'], _F5); },
   e5s29(ctx) { f5Bg(ctx); evoTag(ctx, _F5, 'VIER KRACHTEN IN ÉÉN POT'); pingelapKaart(ctx, 620, 500, 0.95, { namen: false });
     pot(ctx, 1380, 760, 1.15, { p: 0.78, n: 70, seed: 6 }); allelBalk(ctx, 1220, 800, 320, 0.78, { procent: false }); zigzag(ctx, 1000, 330, 1260, 450, K.drift, 5);
     pijl(ctx, 1760, 330, 1530, 450, K.selectie, 0.35, 5); naamBij(ctx, 'drift', 'kijkt niet naar voordeel', 1120, 280, 1, 'center', K.drift); },
@@ -105,7 +105,7 @@ const SB5 = {
   e5s38(ctx) { ctx.fillStyle = C.bgMicro; ctx.fillRect(0, 0, W, H); vwoMarker(ctx); evoTag(ctx, _F5, 'HETEROZYGOTENVOORDEEL');
     bloedvat(ctx, [[-50, 520], [600, 520], [900, 540], [1980, 540]], 70, 0, { n: 0 }); for (const [x, y, an] of [[820, 520, 0.3], [900, 540, -0.4], [960, 520, 0.6], [1040, 545, -0.2]]) sikkelcel(ctx, x, y, 34, an);
     for (const [x, y] of [[300, 520], [480, 525]]) rodeBloedcel(ctx, x, y, 40, 0, 0.8); naamBij(ctx, 'sikkelcellen blijven haken', 'twee sikkelcelallelen', 960, 380, 1, 'center', C.koraal); },
-  e5q39(ctx) { vraagKaart(ctx, 'Waarom blijft het sikkelcelallel in malariagebieden zo gewoon?', ['Dragers worden minder vaak ernstig ziek van malaria', 'Het allel ontstaat daar steeds opnieuw door mutatie', 'Door drift, want die populaties zijn klein'], _F5); ctx.fillStyle = C.paars; ctx.fillRect(0, 0, 6, H); metaText(ctx, 'VWO', W - 80, 78, C.paars, 'right', 28); },
+  e5q39(ctx) { vraagKaart(ctx, 'Waarom blijft het sikkelcelallel in malariagebieden zo gewoon?', ['Het allel ontstaat daar steeds opnieuw door mutatie', 'Dragers worden minder vaak ernstig ziek van malaria', 'Door drift, want die populaties zijn klein'], _F5); ctx.fillStyle = C.paars; ctx.fillRect(0, 0, 6, H); metaText(ctx, 'VWO', W - 80, 78, C.paars, 'right', 28); },
   e5s40(ctx) { f5Bg(ctx); vwoMarker(ctx); evoTag(ctx, _F5, 'HETEROZYGOTENVOORDEEL'); ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(260, 600); ctx.lineTo(1660, 600); ctx.stroke();
     const d = [[480, [EVO.a1, EVO.a1], 'twee normale allelen', 'ernstige malaria'], [960, [EVO.a1, EVO.a2], 'drager', '±9× minder ernstige malaria'], [1440, [EVO.a2, EVO.a2], 'twee sikkelcelallelen', 'sikkelcelziekte']];
     for (const [x, [a, b], n, m] of d) { knikker(ctx, x - 30, 520, 30, a); knikker(ctx, x + 30, 520, 30, b); naamBij(ctx, n, m, x, 670, 1, 'center', x === 960 ? C.groen : C.text); }

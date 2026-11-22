@@ -18,12 +18,12 @@
   "level": "basis",
   "kind": "question",
   "options": [
-   "de boontjes kregen andere genen mee",
    "de plek waar ze groeien is anders",
+   "de boontjes kregen andere genen mee",
    "de ene boon is gewoon ouder"
   ],
   "q": "Twee boontjes van dezelfde plant: één in de zon, één in de schaduw. Waarom zijn ze na drie weken zo verschillend?",
-  "correct": 1,
+  "correct": 0,
   "explain": "De plek is anders: in de schaduw krijgt de plant te weinig licht. Hij groeit dan lang en dun, en maakt weinig bladgroen. De genen van de twee boontjes zijn bijna gelijk."
  },
  {
@@ -95,11 +95,11 @@
   "kind": "question",
   "options": [
    "ja, dat erft het kind van Sam",
-   "nee, getrainde spieren erf je niet",
-   "ja, maar een beetje minder sterk"
+   "ja, maar een beetje minder sterk",
+   "nee, getrainde spieren erf je niet"
   ],
   "q": "Sam traint elke dag en krijgt sterke beenspieren. Krijgt zijn kind later ook sterke spieren, zonder te trainen?",
-  "correct": 1,
+  "correct": 2,
   "explain": "Nee. Trainen verandert de spieren, niet de genen. Een kind krijgt alleen genen mee, geen getrainde spieren."
  },
  {
@@ -121,12 +121,12 @@
   "level": "basis",
   "kind": "question",
   "options": [
-   "ze staan in andere grond",
    "de blauwe heeft toch andere genen",
+   "ze staan in andere grond",
    "de roze plant is ziek"
   ],
   "q": "Twee hortensia's uit stekjes van één plant. De ene bloeit blauw, de andere roze. Hoe kan dat?",
-  "correct": 0,
+  "correct": 1,
   "explain": "Ze staan in andere grond. In zure grond worden de bloemen blauw, in kalkrijke grond roze. Zelfde genen, ander milieu."
  },
  {

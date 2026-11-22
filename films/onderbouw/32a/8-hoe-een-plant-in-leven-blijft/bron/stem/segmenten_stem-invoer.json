@@ -42,11 +42,11 @@
   "kind": "question",
   "options": [
    "ongeveer vijfenzeventig kilo, net zoveel als de wilg erbij kreeg",
-   "ongeveer de helft daarvan",
-   "bijna niets"
+   "bijna niets",
+   "ongeveer de helft daarvan"
   ],
   "q": "De wilg werd 75 kilo zwaarder. Hoeveel lichter was de aarde?",
-  "correct": 2,
+  "correct": 1,
   "explain": "Bijna niets: ongeveer zestig gram, zo zwaar als een ei. De wilg haalde zijn kilo's niet uit de aarde, maar vooral uit water en uit de lucht (koolstofdioxide)."
  },
  {
@@ -122,11 +122,11 @@
   "kind": "question",
   "options": [
    "nee, zonder licht ligt alles stil",
-   "ja, hij verbrandt dag en nacht suiker",
-   "ja, hij maakt 's nachts extra zuurstof"
+   "ja, hij maakt 's nachts extra zuurstof",
+   "ja, hij verbrandt dag en nacht suiker"
   ],
   "q": "Doet een plant 's nachts ook iets?",
-  "correct": 1,
+  "correct": 2,
   "explain": "Een plant verbrandt dag en nacht suiker, net als jij. 's Nachts maakt hij geen suiker en geen zuurstof: dan geeft hij alleen koolstofdioxide af."
  },
  {

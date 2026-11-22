@@ -122,7 +122,7 @@ const SB11 = {
     e11TRex(ctx, 1750, 990, 1500, { t: 0.1 });
     e11Morganucodon(ctx, 820, 960, 220); [[560, 980], [1020, 980]].forEach(([x, y]) => { for (let k = 0; k < 5; k++) { ctx.save(); ctx.translate(x, y); ctx.rotate(-1.2 + k * 0.5); ctx.beginPath(); ctx.ellipse(0, -60, 14, 64, 0, 0, 6.283); shape(ctx, '#4F7A3C', _lt('#4F7A3C', 0.2), 1.5); ctx.restore(); } });
     naamBij(ctx, 'klein zoogdier uit het Krijt', 'waarschijnlijk vooral ’s nachts actief', 820, 760, 1, 'center'); naamBij(ctx, 'Tyrannosaurus', 'heup ±4 m', 1500, 300, 1, 'center'); evoSchaal(ctx, 'reconstructie · niet op schaal'); },
-  e11q31(ctx) { e11Vraag(ctx, 'Wat gebeurde er na de inslag met de zoogdieren?', ['Ze ontstonden opnieuw uit overlevende dinosauriërs', 'Ze bleven klein en zeldzaam, net als ervoor', 'Ze waaierden uit tot veel nieuwe soorten']);
+  e11q31(ctx) { e11Vraag(ctx, 'Wat gebeurde er na de inslag met de zoogdieren?', ['Ze ontstonden opnieuw uit overlevende dinosauriërs', 'Ze waaierden uit tot veel nieuwe soorten', 'Ze bleven klein en zeldzaam, net als ervoor']);
     e11Morganucodon(ctx, 1700, 420, 200); },
   e11s32(ctx) { e11Schema(ctx, 'RAMPEN EN NIEUWE KANSEN'); const x0 = 200, x1 = 1700, X = (mj) => x0 + (90 - mj) / 90 * (x1 - x0), yb = 820;
     lijn(ctx, [[x0, yb + 60], [x1, yb + 60]], C.line, 2.5); [90, 66, 56, 0].forEach(m => metaText(ctx, m ? String(m) : 'nu', X(m), yb + 104, m === 66 ? C.koraal : C.text2, 'center', 28)); metaText(ctx, 'MILJOEN JAAR GELEDEN', x1, yb + 146, C.text2, 'right', 26);

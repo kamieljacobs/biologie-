@@ -49,7 +49,7 @@
 
 | Id | Niveau | Vraag | Juist |
 |---|---|---|---|
-| q02 | basis | Waarom zit er jodium in zout? | b een klier in je hals werkt niet goed zonder jodium (onthulling in H2 en recap) |
+| q02 | basis | Waarom zit er jodium in zout? | c een klier in je hals werkt niet goed zonder jodium (onthulling in H2 en recap) |
 | q11 | basis | Te weinig jodium: wat gebeurt er met de TSH? | b die stijgt, want de hypofyse wordt minder geremd |
 | q17 | vwo | Ziekte van Graves: wat meet een arts? | a veel thyroxine en weinig TSH |
 
