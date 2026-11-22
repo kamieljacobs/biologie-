@@ -34,7 +34,7 @@ const SB = {
   s01(ctx, t) { onderWater(ctx, t, { bodem: '#2E3A36' }); tienDieren(ctx, t); text(ctx, 'Bestaat dit echt?', W / 2, 140, fTitel(88), C.text, 'center'); },
   s02(ctx, t) { microGrond(ctx); hoofdstukTag(ctx, 1, 'HET BEERDIERTJE'); laag(ctx, 'B'); mosVeld(ctx);
     beerdiertje(ctx, 1000, 740, 2.1, { t }); naamBij(ctx, 'beerdiertje', 'echt: ±0,5 mm', 1500, 380); schaalBalk(ctx, 260, '0,1 mm'); },
-  q03(ctx) { vraagkaart(ctx, 'Beerdiertjes zijn onsterfelijk.', ['klopt', 'verzonnen', 'overdreven']); },
+  q03(ctx) { vraagkaart(ctx, 'Beerdiertjes zijn onsterfelijk.', ['klopt', 'overdreven', 'verzonnen']); },
   s04(ctx, t) { microGrond(ctx); hoofdstukTag(ctx, 1, 'HET BEERDIERTJE'); laag(ctx, 'B'); beerdiertje(ctx, 560, 600, 1.6, { t }); pijl(ctx, 900, 480, 1080, 480, C.goud, 1, 5); beerdiertje(ctx, 1400, 600, 1.6, { t, tun: 1 });
     naamBij(ctx, 'tonnetje', 'uitgedroogd', 1290, 300); kaartje_(ctx, 1180, 690, 380, 120, '30 jaar', 'diepgevroren in mos', C.teal); kaartje_(ctx, 1590, 690, 280, 120, '10 dagen', 'in de ruimte', C.goud); kaartje_(ctx, 360, 690, 400, 120, '37 °C', 'na een dag: de helft dood', C.koraal); },
   s05(ctx, t) { ctx.fillStyle = C.bgSchema; ctx.fillRect(0, 0, W, H); hoofdstukTag(ctx, 1, 'HET BEERDIERTJE'); laag(ctx, 'M');
@@ -47,7 +47,7 @@ const SB = {
     for (let i = 0; i < 6; i++) { const x0 = 520 + i * 180; pijl(ctx, x0 + 40, 140, x0, 300, C.koraal, 1, 4); }
     naamBij(ctx, 'beschermwolk', 'eiwit om het DNA', 1530, 660, 1, 'right'); naamBij(ctx, 'straling', '', 520, 120); },
   s07(ctx, t) { onderWater(ctx, t); hoofdstukTag(ctx, 2, 'DE AXOLOTL'); laag(ctx, 'B'); axolotl(ctx, 980, 700, 2.2, { t }); naamBij(ctx, 'kieuwen', '', 1180, 300); },
-  q08(ctx) { vraagkaart(ctx, 'Een axolotl kan alles teruggroeien.', ['klopt', 'verzonnen', 'overdreven']); },
+  q08(ctx) { vraagkaart(ctx, 'Een axolotl kan alles teruggroeien.', ['klopt', 'overdreven', 'verzonnen']); },
   s09(ctx, t) { onderWater(ctx, t); hoofdstukTag(ctx, 2, 'DE AXOLOTL'); laag(ctx, 'B'); axolotl(ctx, 960, 640, 2.1, { t });
     [['poten', 'groeien terug', 640, 820, C.groen], ['staart', 'groeit terug', 300, 420, C.groen], ['kieuwen', 'groeien terug', 1180, 300, C.groen], ['kop', 'niet', 1520, 400, C.koraal]].forEach(([n, m, x, y, c]) => naamBij(ctx, n, m, x, y, 1, 'left', c)); },
   s10(ctx, t) { ctx.fillStyle = C.bgSchema; ctx.fillRect(0, 0, W, H); hoofdstukTag(ctx, 2, 'DE AXOLOTL'); laag(ctx, 'M');
@@ -64,7 +64,7 @@ const SB = {
     naamBij(ctx, 'pinkkant', 'eigen signaal aan', 640, 280, 1, 'center', C.teal); naamBij(ctx, 'duimkant', 'ander signaal', 1280, 280, 1, 'center', C.oker); naamBij(ctx, 'blastema', '', 960, 840, 1, 'center'); },
   s12(ctx, t) { onderWater(ctx, t, { bodem: '#4A4A3A' }); hoofdstukTag(ctx, 3, 'DE BIDSPRINKHAANKREEFT'); laag(ctx, 'B'); bidsprinkhaankreeft(ctx, 820, 760, 2.0, { t });
     slakkenhuis(ctx, 1480, 760, 110); naamBij(ctx, 'knots', 'slagarm', 1060, 900 - 60, 1, 'left'); },
-  q13(ctx) { vraagkaart(ctx, 'Zijn slag is sneller dan een kogel.', ['klopt', 'verzonnen', 'overdreven']); },
+  q13(ctx) { vraagkaart(ctx, 'Zijn slag is sneller dan een kogel.', ['klopt', 'overdreven', 'verzonnen']); },
   s14(ctx, t) { ctx.fillStyle = C.bgSchema; ctx.fillRect(0, 0, W, H); hoofdstukTag(ctx, 3, 'DE BIDSPRINKHAANKREEFT'); laag(ctx, 'B'); text(ctx, 'Snelheid', 160, 260, fTekst(48, 700), C.text, 'left');
     staafVergelijk(ctx, [['knots', 80, C.koraal, '± 80 km/u'], ['kogel', 1200, C.line, 'meer dan 1000 km/u']], 160, 340, 1600); kaartje_(ctx, 160, 640, 900, 130, 'Optrekken: net zo heftig', 'topsnelheid binnen een paar duizendsten van een seconde', C.goud); },
   s15(ctx, t) { ctx.fillStyle = C.bgSchema; ctx.fillRect(0, 0, W, H); hoofdstukTag(ctx, 3, 'DE BIDSPRINKHAANKREEFT'); laag(ctx, 'M');
@@ -73,7 +73,7 @@ const SB = {
   s16(ctx, t) { onderWater(ctx, t, { bodem: '#4A4A3A' }); hoofdstukTag(ctx, 3, 'DE BIDSPRINKHAANKREEFT'); laag(ctx, 'G'); bidsprinkhaankreeft(ctx, 700, 760, 1.8, { t, slag: 1 }); bel(ctx, 1090, 660, 40); bel(ctx, 1140, 640, 22);
     naamBij(ctx, 'dampbel', 'lage druk, geen hitte', 1180, 560); ctx.save(); ctx.translate(1550, 300); ctx.beginPath(); ctx.arc(0, 0, 150, 0, 6.283); ctx.fillStyle = C.bgSchema; ctx.fill(); ctx.strokeStyle = C.goud; ctx.lineWidth = 2; ctx.stroke(); ctx.clip(); for (let k = 0; k < 6; k++) { const yy = 90 - k * 36; ctx.save(); ctx.translate(0, yy); ctx.scale(1, 0.32); ctx.rotate(k * 0.45); ctx.strokeStyle = rgba(C.koraal, 0.45 + k * 0.09); ctx.lineWidth = 6; for (let i2 = -7; i2 <= 7; i2++) { ctx.beginPath(); ctx.moveTo(-160, i2 * 22); ctx.lineTo(160, i2 * 22); ctx.stroke(); } ctx.restore(); } ctx.restore(); metaText(ctx, 'vezels in een spiraal', 1550, 480, C.goud, 'center', 24); },
   s17(ctx, t) { onderWater(ctx, t); hoofdstukTag(ctx, 4, 'DE PISTOOLGARNAAL'); laag(ctx, 'B'); pistoolgarnaal(ctx, 820, 720, 2.2, { t, open: 1 }); vis(ctx, 1640, 600, 1.4, '#9AB8C8', { kijk: -1 }); naamBij(ctx, 'knalschaar', '', 1100, 470); schaalBalk(ctx, 300, '1 cm (vergroot)'); },
-  q18(ctx) { vraagkaart(ctx, 'Waar komt die knal vandaan?', ['een bel die in elkaar klapt', 'de schaar die tegen elkaar slaat', 'de garnaal die tegen de bodem slaat']); },
+  q18(ctx) { vraagkaart(ctx, 'Waar komt die knal vandaan?', ['de schaar die tegen elkaar slaat', 'een bel die in elkaar klapt', 'de garnaal die tegen de bodem slaat']); },
   s19(ctx, t) { onderWater(ctx, t); hoofdstukTag(ctx, 4, 'DE PISTOOLGARNAAL'); laag(ctx, 'B'); pistoolgarnaal(ctx, 680, 720, 2.0, { t, open: 0, bel: 0.5 }); for (let i = 0; i < 5; i++) { ctx.strokeStyle = rgba('#E6F4FF', 0.6 - i * 0.1); ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(1180, 720, 80 + i * 60, -0.6, 0.6); ctx.stroke(); }
     vis(ctx, 1600, 700, 1.4, '#9AB8C8', { kijk: -1, verdoofd: 1 }); naamBij(ctx, 'straaltje water', '± 90 km/u', 1000, 520); naamBij(ctx, 'visje verdoofd', '', 1520, 560); },
   s20(ctx, t) { ctx.fillStyle = C.bgSchema; ctx.fillRect(0, 0, W, H); hoofdstukTag(ctx, 4, 'DE PISTOOLGARNAAL'); laag(ctx, 'M'); ctx.save(); ctx.translate(-700, 300); pistoolgarnaal(ctx, 1000, 400, 4.0, { t, open: 0.8 }); ctx.restore();
@@ -99,7 +99,7 @@ const SB = {
     lijn(ctx, [[300, 800], [960, 650]], C.line, 6); lijn(ctx, [[960, 650], [1600, 300]], C.line, 6); lijn(ctx, [[960, 650], [1600, 760]], C.line, 6); lijn(ctx, [[1280, 475], [1600, 520]], C.line, 6);
     vogelbekdier(ctx, 1700, 790, 0.45); naamBij(ctx, 'eieren leggers', 'vogelbekdier, mierenegel', 1640, 840 - 0, 1, 'left', C.oker); naamBij(ctx, 'buideldieren', '', 1640, 540); naamBij(ctx, 'placentadieren', 'mens, hond, muis', 1640, 300); naamBij(ctx, 'voorouder', 'legde eieren, gaf al melk', 300, 860 - 40, 1, 'left', C.goud); },
   s32(ctx, t) { grondDoorsnede(ctx); hoofdstukTag(ctx, 7, 'DE NAAKTE MOLRAT'); laag(ctx, 'B'); molrat(ctx, 960, 660, 1.6, { t, koningin: 1 }); molrat(ctx, 420, 650, 1.0, { t }); molrat(ctx, 1500, 660, 1.0, { t, kijk: -1 }); naamBij(ctx, 'koningin', '', 920, 440, 1, 'center', C.goud); },
-  q33(ctx) { vraagkaart(ctx, 'Molratten krijgen nooit kanker.', ['klopt', 'verzonnen', 'overdreven']); },
+  q33(ctx) { vraagkaart(ctx, 'Molratten krijgen nooit kanker.', ['klopt', 'overdreven', 'verzonnen']); },
   s34(ctx, t) { ctx.fillStyle = C.bgSchema; ctx.fillRect(0, 0, W, H); hoofdstukTag(ctx, 7, 'DE NAAKTE MOLRAT'); laag(ctx, 'B'); text(ctx, 'Hoe oud ze worden', 160, 260, fTekst(48, 700), C.text, 'left'); staafVergelijk(ctx, [['muis', 3, C.line, 'een paar jaar'], ['naakte molrat', 32, C.groen, 'meer dan 30 jaar']], 160, 340, 1500); kaartje_(ctx, 160, 640, 900, 130, 'Kanker: heel zelden', 'een paar gevallen, bij dieren ouder dan 20 jaar', C.koraal); },
   s35(ctx, t) { ctx.fillStyle = C.bgSchema; ctx.fillRect(0, 0, W, H); hoofdstukTag(ctx, 7, 'DE NAAKTE MOLRAT'); laag(ctx, 'M');
     for (let i = 0; i < 9; i++) { const cx = 520 + (i % 3) * 200, cy = 330 + Math.floor(i / 3) * 200; cel(ctx, cx, cy, 86, '#2A3A58'); circ(ctx, cx, cy, 30, C.kern, C.kernR, 2); }
@@ -107,7 +107,7 @@ const SB = {
     naamBij(ctx, 'lange suikerketens', 'hyaluronzuur', 1360, 300, 1, 'left', C.oker); naamBij(ctx, 'vol? stop met delen', '', 1360, 560, 1, 'left', C.groen); },
   s36(ctx, t) { grondDoorsnede(ctx); hoofdstukTag(ctx, 7, 'DE NAAKTE MOLRAT'); laag(ctx, 'G'); molrat(ctx, 760, 660, 1.6, { t }); kaartje_(ctx, 1220, 560, 560, 130, '18 minuten', 'zonder zuurstof (proef)', C.teal); naamBij(ctx, 'weinig zuurstof', '', 400, 470); kaartje_(ctx, 1220, 720, 560, 130, 'Brandstof: fructose', 'i.p.v. glucose', C.oker); },
   s37(ctx, t) { onderWater(ctx, t); hoofdstukTag(ctx, 8, 'DE ONSTERFELIJKE KWAL'); laag(ctx, 'B'); kwalT(ctx, 860, 520, 2.0, { t }); rijstkorrel(ctx, 1460, 520, 1.6); naamBij(ctx, 'rijstkorrel', 'zelfde schaal', 1400, 660); naamBij(ctx, 'maag', '', 960, 190, 1, 'left', C.koraal); schaalBalk(ctx, 200, '1 mm'); },
-  q38(ctx) { vraagkaart(ctx, 'Kan hij echt nooit doodgaan?', ['ja, nooit', 'wel, maar hij kan opnieuw beginnen', 'verzonnen']); },
+  q38(ctx) { vraagkaart(ctx, 'Kan hij echt nooit doodgaan?', ['ja, nooit', 'verzonnen', 'wel, maar hij kan opnieuw beginnen']); },
   s39(ctx, t) { onderWater(ctx, t); hoofdstukTag(ctx, 8, 'DE ONSTERFELIJKE KWAL'); laag(ctx, 'B'); kwalT(ctx, 760, 480, 1.6, { t }); vis(ctx, 1160, 500, 2.0, '#B8C8A8', { kijk: -1 }); kaartje_(ctx, 1260, 680, 560, 130, 'Alleen in het lab gezien', 'niet in de vrije natuur', C.line); },
   s40(ctx, t) { ctx.fillStyle = C.bgSchema; ctx.fillRect(0, 0, W, H); hoofdstukTag(ctx, 8, 'DE ONSTERFELIJKE KWAL'); laag(ctx, 'M');
     poliep(ctx, 480, 760, 0.7, { t }); kwalT(ctx, 1440, 420, 0.9, { t }); kwalT(ctx, 960, 740, 0.7, { t, terug: 1 }); pijl(ctx, 640, 520, 1240, 340, C.groen, 1, 5); pijl(ctx, 1420, 620, 1090, 720, C.goud, 1, 5); pijl(ctx, 830, 760, 680, 760, C.goud, 1, 5);
@@ -115,7 +115,7 @@ const SB = {
   s41(ctx, t) { ctx.fillStyle = C.bgSchema; ctx.fillRect(0, 0, W, H); hoofdstukTag(ctx, 8, 'DE ONSTERFELIJKE KWAL'); laag(ctx, 'G'); cel(ctx, 600, 470, 150, '#2E4A6A', C.teal); circ(ctx, 600, 470, 50, C.kern, C.kernR, 2); pijl(ctx, 800, 470, 1100, 470, C.goud, 1, 5);
     ctx.beginPath(); ctx.ellipse(1340, 470, 190, 110, 0, 0, 6.283); ctx.fillStyle = '#5A3A30'; ctx.fill(); ctx.strokeStyle = C.koraal; ctx.lineWidth = 3; ctx.stroke(); circ(ctx, 1340, 470, 50, C.kern, C.kernR, 2); naamBij(ctx, 'cel van het klokje', '', 600, 700, 1, 'center'); naamBij(ctx, 'cel van de poliep', '', 1340, 700, 1, 'center'); naamBij(ctx, 'transdifferentiatie', '', 950, 380, 1, 'center', C.goud); },
   s42(ctx, t) { bodemLand(ctx, { voor: '#4A4232' }); hoofdstukTag(ctx, 9, 'DE BOMBARDEERKEVER'); laag(ctx, 'B'); steen(ctx, 1300, 780, 600, 260); bombardeerkever(ctx, 760, 760, 2.4, { t, rot: 1.57 }); schaalBalk(ctx, 260, '1 cm (vergroot)'); },
-  q43(ctx) { vraagkaart(ctx, 'Wat spuit hij?', ['vuur', 'kokend heet gif', 'zuur water']); },
+  q43(ctx) { vraagkaart(ctx, 'Wat spuit hij?', ['kokend heet gif', 'vuur', 'zuur water']); },
   s44(ctx, t) { bodemLand(ctx, { voor: '#4A4232' }); hoofdstukTag(ctx, 9, 'DE BOMBARDEERKEVER'); laag(ctx, 'B'); bombardeerkever(ctx, 760, 700, 2.4, { t: t + 0.3, rot: 1.57, spuit: 1, richting: Math.PI * 0.45 }); naamBij(ctx, 'bijna 100 °C', '', 220, 640, 1, 'left', C.koraal); },
   s45(ctx, t) { ctx.fillStyle = C.bgSchema; ctx.fillRect(0, 0, W, H); hoofdstukTag(ctx, 9, 'DE BOMBARDEERKEVER'); laag(ctx, 'M');
     ctx.beginPath(); ctx.ellipse(800, 470, 420, 220, 0, 0, 6.283); ctx.fillStyle = '#2A3A5E'; ctx.fill(); ctx.strokeStyle = '#4A6A9A'; ctx.lineWidth = 3; ctx.stroke();

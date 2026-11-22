@@ -24,7 +24,7 @@ const SB6 = {
     const gx = 1380, gy = 620; ctx.strokeStyle = C.oker; ctx.lineWidth = 5; ctx.beginPath(); for (let i = 0; i <= 6; i++) { const an = i / 6 * 6.283 + 0.52; ctx.lineTo(gx + Math.cos(an) * 70, gy + Math.sin(an) * 70); } ctx.stroke(); e6Atoom(ctx, gx + 61, gy - 35, 14);
     pijl(ctx, 1000, 600, 1280, 620, C.line, 1, 4, 18); naamBij(ctx, 'glucose', 'organische stof', gx, gy + 130, 1, 'center', C.oker); naamBij(ctx, 'koolstofdioxide', 'uit de lucht', 330, 540, 1, 'center', '#D2D8E2');
     naamBij(ctx, 'fotosynthese', null, 800, 300, 1, 'center', C.groen); },
-  e6q05(ctx) { e6Vraag(ctx, ['Een plant staat een nacht onder een afgesloten glazen stolp, in het donker.', 'Wat gebeurt er met de koolstofdioxide onder de stolp?'], ['Die stijgt: de plant dissimileert ook in het donker', 'Die daalt: een plant neemt koolstofdioxide op', "Die blijft gelijk: 's nachts doet een plant niets"]);
+  e6q05(ctx) { e6Vraag(ctx, ['Een plant staat een nacht onder een afgesloten glazen stolp, in het donker.', 'Wat gebeurt er met de koolstofdioxide onder de stolp?'], ['Die daalt: een plant neemt koolstofdioxide op', 'Die stijgt: de plant dissimileert ook in het donker', "Die blijft gelijk: 's nachts doet een plant niets"]);
     ctx.save(); ctx.beginPath(); ctx.ellipse(1690, 800, 130, 30, 0, 0, 6.283); ctx.fillStyle = '#3A3026'; ctx.fill(); ctx.save(); ctx.beginPath(); ctx.rect(1540, 400, 300, 400); ctx.clip(); ecoKlaver(ctx, 1690, 790, 9, {}); ctx.restore(); ctx.strokeStyle = '#AFC0D0'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(1570, 800); ctx.lineTo(1570, 590); ctx.arc(1690, 590, 120, Math.PI, 0); ctx.lineTo(1810, 800); ctx.stroke(); ctx.restore(); },
   e6s06(ctx) { e6Bg(ctx); ecoTag(ctx, _F6, 'DE SNELLE KRINGLOOP');
     for (const [x, dag] of [[520, true], [1400, false]]) { roundRect(ctx, x - 380, 170, 760, 640, 20); shape(ctx, rgba(dag ? '#2E4466' : '#141E30', 0.9), C.line, 2);
@@ -44,7 +44,7 @@ const SB6 = {
   e6s10(ctx) { e6Bg(ctx); ecoTag(ctx, _F6, 'WAAR AFBRAAK STOPT');
     [['veen', 0.05], ['bruinkool', 0.5], ['steenkool', 1]].forEach(([n, f], i) => { const x = 160 + i * 560; e6Lagen(ctx, x, 200, 440, 560, f); naamBij(ctx, n, ['begin', 'miljoenen jaren', 'tientallen miljoenen jaren'][i], x + 220, 840, 1, 'center'); });
     pijl(ctx, 620, 480, 700, 480, C.line, 1, 5, 18); pijl(ctx, 1180, 480, 1260, 480, C.line, 1, 5, 18); },
-  e6q11(ctx) { e6Vraag(ctx, ['Hoe lang zat het atoom in de steenkool,', 'voordat het weer boven kwam?'], ['Ongeveer duizend jaar', 'Ongeveer driehonderd miljoen jaar', 'Ongeveer tien jaar']); },
+  e6q11(ctx) { e6Vraag(ctx, ['Hoe lang zat het atoom in de steenkool,', 'voordat het weer boven kwam?'], ['Ongeveer driehonderd miljoen jaar', 'Ongeveer duizend jaar', 'Ongeveer tien jaar']); },
   e6s12(ctx) { e6Bg(ctx); ecoTag(ctx, _F6, 'WAAR AFBRAAK STOPT'); const kool = e6Mijn(ctx, 300, 300, 1100, 560); e6Mijnwerker(ctx, 960, kool + 42, 150, { kijk: 1 }); 
     ctx.fillStyle = '#1E1C1E'; ctx.fillRect(300 + 1100 * 0.85, kool - 150, 1100 * 0.15 - 2, 200); e6Atoom(ctx, 1320, kool - 40, 16); naamBij(ctx, 'steenkoollaag', 'Carboon · ± 300 miljoen jaar oud', 1320, 940 - 40, 1, 'center'); naamBij(ctx, 'mijn in Zuid-Limburg', 'tot het jaar 1974', 1550, 360, 1, 'left', C.text2); },
   e6s13(ctx) { e6Straat(ctx, { grond: 880 }); ctx.fillStyle = C.bgMacroSky; ctx.fillRect(0, 0, W, 880); ctx.fillStyle = '#243656'; ctx.fillRect(0, 760, W, 120); ecoTag(ctx, _F6, 'WAAR AFBRAAK STOPT');
@@ -65,7 +65,7 @@ const SB6 = {
 
   // ================= H3 VOORRAAD EN STROOM =================
   e6s16(ctx) { e6Bg(ctx); ecoTag(ctx, _F6, 'VOORRAAD EN STROOM'); e6Staaf(ctx, 300, 760, 1380, 500, { leeg: true }); },
-  e6q17(ctx) { e6Vraag(ctx, ['Waar zit van deze vijf de meeste koolstof?'], ['In de oceaan', 'In de lucht', 'In alle planten op aarde']); },
+  e6q17(ctx) { e6Vraag(ctx, ['Waar zit van deze vijf de meeste koolstof?'], ['In de lucht', 'In de oceaan', 'In alle planten op aarde']); },
   e6s18(ctx) { e6Bg(ctx); ecoTag(ctx, _F6, 'VOORRAAD EN STROOM'); e6Staaf(ctx, 300, 760, 1380, 500, { getallen: true }); },
   e6s19(ctx) { e6Bg(ctx); ecoTag(ctx, _F6, 'VOORRAAD EN STROOM'); e6Oceaan(ctx, 260, 180, 1400, 680);
     for (const x of [500, 900, 1300]) { e6Co2(ctx, x, 150, 1); pijl(ctx, x, 168, x, 230, E6K.co2, 1, 4, 14); } for (const x of [600, 1100]) pijl(ctx, x, 520, x, 760, '#C9B896', 1, 4, 16);
@@ -78,7 +78,7 @@ const SB6 = {
   e6s22(ctx) { e6Bg(ctx); ecoTag(ctx, _F6, 'VOORRAAD EN STROOM');
     e6Badkuip(ctx, 560, 760, 800, 360, { peil: 0.5, kranen: [[0.22, 70, E6K.co2, null], [0.62, 60, C.teal, null], [0.92, 14, C.koraal, 'fossiele brandstoffen']], afvoer: [[0.3, 70, C.groen, null], [0.72, 60, C.teal, null]] });
     naamBij(ctx, '± 10 gigaton per jaar extra', 'wat miljoenen jaren lag', 1560, 640, 1, 'left', C.koraal); },
-  e6q23(ctx) { e6Vraag(ctx, ['Wat gebeurt er met het niveau in de badkuip?'], ['Het blijft gelijk: de oceaan neemt alles op', 'Het stijgt: er komt meer in dan er uit kan', 'Het daalt: planten groeien harder en halen meer weg']); },
+  e6q23(ctx) { e6Vraag(ctx, ['Wat gebeurt er met het niveau in de badkuip?'], ['Het blijft gelijk: de oceaan neemt alles op', 'Het daalt: planten groeien harder en halen meer weg', 'Het stijgt: er komt meer in dan er uit kan']); },
   e6s24(ctx) { e6Bg(ctx); ecoTag(ctx, _F6, 'VOORRAAD EN STROOM');
     e6Badkuip(ctx, 560, 760, 800, 360, { peil: 0.5, stijg: 50, kranen: [[0.22, 70, E6K.co2, null], [0.62, 60, C.teal, null], [0.92, 14, C.koraal, null]], afvoer: [[0.3, 76, C.groen, null], [0.72, 66, C.teal, null]] });
     naamBij(ctx, 'de helft blijft in de lucht', 'het niveau stijgt elk jaar', 960, 260, 1, 'center', C.goud); metaText(ctx, 'BROEIKASEFFECT: ZIE ÉÉN AARDE', 80, 880, C.text2, 'left', 26); },

@@ -9311,7 +9311,7 @@ const SB10 = {
     evoSchaal(ctx, 'moleculen sterk vergroot'); },
   e10s07(ctx) { olSchema(ctx); olTag(ctx, 'BOUWSTENEN'); olMiller(ctx, 1000, 760, 0.92, { kleur: 0.2 }); persoon(ctx, 'miller', 260, 900, 470, { pose: 'wijs', kijk: 1, uit: 'neutraal' });
     naamBij(ctx, 'Stanley Miller', '1953 · Chicago', 260, 360, 1, 'center'); metaText(ctx, '7 dagen', 1660, 860, C.text2, 'left', 28); circ(ctx, 1620, 852, 18, null, C.line, 2); ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(1620, 852); ctx.lineTo(1620, 838); ctx.stroke(); },
-  e10q08(ctx) { olVraag(ctx, 'Na een week vonken: wat zat er in Millers kolf?', ['Aminozuren, maar geen eiwitten of cellen', 'Niets nieuws: alleen water en gassen', 'Eiwitten en zelfs eenvoudige cellen']); olMiller(ctx, 1600, 780, 0.5, { kleur: 1, labels: false }); },
+  e10q08(ctx) { olVraag(ctx, 'Na een week vonken: wat zat er in Millers kolf?', ['Niets nieuws: alleen water en gassen', 'Aminozuren, maar geen eiwitten of cellen', 'Eiwitten en zelfs eenvoudige cellen']); olMiller(ctx, 1600, 780, 0.5, { kleur: 1, labels: false }); },
   e10s09(ctx) { olSchema(ctx); olTag(ctx, 'BOUWSTENEN'); olBewijs(ctx, 'gemeten'); const r = olMiller(ctx, 560, 740, 0.62, { kleur: 1, labels: false });
     zoomCircle(ctx, 1320, 470, 330, r.val[0], r.val[1], 'in de rode vloeistof · sterk vergroot', 1, () => { ctx.fillStyle = C.bgMicro; ctx.fillRect(980, 130, 680, 680);
       for (let i = 0; i < 16; i++) olMolecuul(ctx, 'h2o', 1060 + hash(i * 3.1) * 520, 200 + hash(i * 5.3) * 540, 1.4, { rot: i });
@@ -9367,7 +9367,7 @@ const SB10 = {
     evoSchaal(ctx, 'na 72 dagen: 0,2 % kopie · in half bevroren water'); },
   e10s19(ctx) { olSchema(ctx); olTag(ctx, 'INFORMATIE EN GEREEDSCHAP'); olBewijs(ctx, 'model'); olPlasje(ctx, 260, 220, 1400, 600, { snel: 0.12, letters: 70 });
     naamBij(ctx, 'fout bij kopiëren', null, 1480, 200, 1, 'left', C.goud); naamBij(ctx, 'losse letters raken op', null, 260, 880 - 20, 1, 'left'); },
-  e10q20(ctx) { olVraag(ctx, 'Wat gebeurt er na veel rondes kopiëren met de strengen in het plasje?', ['Niets: de fouten zijn toeval, dus alles blijft gelijk', 'Strengen die sneller kopiëren, worden steeds talrijker', 'Ze worden slechter: fouten maken de strengen stuk']); olPlasje(ctx, 1470, 300, 400, 300, { snel: 0.12, letters: 20 }); },
+  e10q20(ctx) { olVraag(ctx, 'Wat gebeurt er na veel rondes kopiëren met de strengen in het plasje?', ['Niets: de fouten zijn toeval, dus alles blijft gelijk', 'Ze worden slechter: fouten maken de strengen stuk', 'Strengen die sneller kopiëren, worden steeds talrijker']); olPlasje(ctx, 1470, 300, 400, 300, { snel: 0.12, letters: 20 }); },
   e10s21(ctx) { olSchema(ctx); olTag(ctx, 'INFORMATIE EN GEREEDSCHAP'); olBewijs(ctx, 'model'); olPlasje(ctx, 140, 220, 900, 560, { snel: 0.75, letters: 18 });
     olGrafiek(ctx, 1200, 760, 580, 460, 1); naamBij(ctx, 'snelle variant', 'goud omlijnd', 140, 180, 1, 'left', C.goud); },
   e10s22(ctx) { olSchema(ctx); olTag(ctx, 'INFORMATIE EN GEREEDSCHAP'); olPlasje(ctx, 120, 260, 760, 480, { snel: 0.6, letters: 20 });
@@ -9382,7 +9382,7 @@ const SB10 = {
   e10s24(ctx) { olMicro(ctx); olTag(ctx, 'EEN OMHULSEL'); olBewijs(ctx, 'gemeten'); olVetzuur(ctx, 620, 500, 0, 9);
     naamBij(ctx, 'kop', 'lost op in water', 620, 300, 1, 'center'); naamBij(ctx, 'staart', 'lost niet op in water', 1160, 410, 1, 'center');
     for (let i = 0; i < 10; i++) olMolecuul(ctx, 'h2o', 140 + hash(i * 3) * 260, 380 + hash(i * 7) * 400, 1.6, { rot: i }); evoSchaal(ctx, 'vetzuur · sterk vergroot'); },
-  e10q25(ctx) { olVraag(ctx, 'Je doet heel veel vetzuren in water. Wat gebeurt er?', ['Ze lossen op en verdwijnen, net als suiker in thee', 'Ze klonteren samen tot holle bolletjes', 'Ze drijven als een laagje olie op het water']);
+  e10q25(ctx) { olVraag(ctx, 'Je doet heel veel vetzuren in water. Wat gebeurt er?', ['Ze klonteren samen tot holle bolletjes', 'Ze lossen op en verdwijnen, net als suiker in thee', 'Ze drijven als een laagje olie op het water']);
     roundRect(ctx, 1520, 280, 300, 380, 20); ctx.strokeStyle = '#AFC0D0'; ctx.lineWidth = 4; ctx.stroke(); ctx.fillStyle = rgba(C.teal, 0.2); ctx.fillRect(1524, 380, 292, 276);
     for (let i = 0; i < 16; i++) olVetzuur(ctx, 1560 + hash(i * 2) * 220, 410 + hash(i * 5) * 220, hash(i) * 6.28, 1.2); },
   e10s26(ctx) { olMicro(ctx); olTag(ctx, 'EEN OMHULSEL'); olBewijs(ctx, 'gemeten'); olBlaasje(ctx, 640, 500, 280);
@@ -9405,7 +9405,7 @@ const SB10 = {
   e10s30(ctx) { olSchema(ctx); olTag(ctx, 'EÉN VOOROUDER'); olBewijs(ctx, 'gemeten');
     olCelIcoon(ctx, 'bacterie', 320, 300, 1.4); olPaddenstoel(ctx, 760, 380, 180); olEik(ctx, 1200, 400, 230); persoon(ctx, 'noor', 1620, 420, 240);
     [320, 760, 1200, 1620].forEach(x => olCodon(ctx, x - 160, 600, 0.62)); naamBij(ctx, 'codon G-C-U (in het RNA) → alanine', 'bijna overal dezelfde code', 960, 820, 1, 'center'); },
-  e10q31(ctx) { olVraag(ctx, 'Waarom gebruiken een bacterie, een eik en jij dezelfde code?', ['Het is de enige code die scheikundig kan werken', 'De code ontstond bij elke groep apart, toevallig gelijk', 'Ze stammen af van één gemeenschappelijke voorouder']); olCodon(ctx, 1480, 380, 0.8); },
+  e10q31(ctx) { olVraag(ctx, 'Waarom gebruiken een bacterie, een eik en jij dezelfde code?', ['Het is de enige code die scheikundig kan werken', 'Ze stammen af van één gemeenschappelijke voorouder', 'De code ontstond bij elke groep apart, toevallig gelijk']); olCodon(ctx, 1480, 380, 0.8); },
   e10s32(ctx) { olSchema(ctx); olTag(ctx, 'EÉN VOOROUDER');
     mitochondrion(ctx, 360, 320, 300, -0.15, 1, 6); naamBij(ctx, 'in je mitochondriën', 'U-G-A betekent hier tryptofaan, niet stop', 360, 180, 1, 'center');
     const top = [[960, 300, 'bacterie'], [1240, 300, 'archaeon'], [1520, 300, 'eukaryoot']]; top.forEach(([x, y, s]) => olCelIcoon(ctx, s, x, y, 1.1));

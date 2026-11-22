@@ -241,9 +241,9 @@
   "chapter": "Hoofdstuk 1 — Jongen of meisje?",
   "level": "basis",
   "options": [
+   "Van zijn moeder",
    "Van zijn vader",
-   "De ene keer van zijn vader, de andere keer van zijn moeder",
-   "Van zijn moeder"
+   "De ene keer van zijn vader, de andere keer van zijn moeder"
   ]
  },
  {
@@ -1021,8 +1021,8 @@
   "level": "basis",
   "options": [
    "Nee, want ze ziet zelf normaal",
-   "Ja, zeker",
-   "Misschien: de kans is een half"
+   "Misschien: de kans is een half",
+   "Ja, zeker"
   ]
  },
  {
@@ -1328,8 +1328,8 @@
   "chapter": "Hoofdstuk 5 — Mitochondriaal DNA",
   "level": "vwo",
   "options": [
-   "Geen van zijn kinderen",
    "Alleen zijn zonen",
+   "Geen van zijn kinderen",
    "Al zijn kinderen"
   ]
  },

@@ -138,8 +138,27 @@ def doelen(pad, vragen):
         while len(tekort) < len(vrij):
             tekort.append(rng.randrange(n))
         tekort = tekort[:len(vrij)]
-        rng.shuffle(tekort)
-        for idx, p in zip(vrij, tekort):
+        # binnen de film ook geen reeksen van dezelfde letter: probeer een
+        # vast aantal geschudde verdelingen en kies die met de kortste reeksen
+        # (de vaste vragen tellen mee in de volgorde)
+        def score(keuze):
+            pos = dict(zip(vrij, keuze))
+            rij = [pos.get(idx, v) for idx, v in lijst]
+            langste = cur = 1
+            gelijk = 0
+            for a, b in zip(rij, rij[1:]):
+                cur = cur + 1 if a == b else 1
+                gelijk += a == b
+                langste = max(langste, cur)
+            return (langste, gelijk)
+        beste = None
+        for _ in range(400):
+            k = list(tekort)
+            rng.shuffle(k)
+            sc = score(k)
+            if beste is None or sc < beste[0]:
+                beste = (sc, k)
+        for idx, p in zip(vrij, beste[1] if beste else []):
             uit[idx] = p
     return uit
 

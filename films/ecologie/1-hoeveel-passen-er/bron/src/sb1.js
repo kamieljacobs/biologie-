@@ -74,7 +74,7 @@ const SB1 = {
     text(ctx, 'groei = (geboorte + immigratie) − (sterfte + emigratie)', 960, 850, fTekst(46, 700), C.text, 'center'); },
   e1s15(ctx) { _bg1(ctx); ecoTag(ctx, 1, 'ERBIJ EN ERAF'); e1Popcirkel(ctx, 960, 470, 150, { getallen: ['120', '10', '60', '30'] });
     text(ctx, '400', 960, 540, fTekst(48, 800), C.goud, 'center'); metaText(ctx, 'begin van het jaar', 960, 690, C.text2, 'center', 26); },
-  e1q16(ctx) { _vk1(ctx, ['400 bevers. In een jaar: 120 geboren, 60 dood, 10 erbij, 30 vertrokken.', 'Met hoeveel procent groeit deze populatie in een jaar?'], ['Tien procent', 'Dertig procent', 'Vijftien procent']); },
+  e1q16(ctx) { _vk1(ctx, ['400 bevers. In een jaar: 120 geboren, 60 dood, 10 erbij, 30 vertrokken.', 'Met hoeveel procent groeit deze populatie in een jaar?'], ['Dertig procent', 'Vijftien procent', 'Tien procent']); },
   e1s17(ctx) { _bg1(ctx); ecoTag(ctx, 1, 'ERBIJ EN ERAF');
     const r = (y, a, b, kl) => { text(ctx, a, 760, y, fTekst(48, 600), kl, 'right'); text(ctx, b, 820, y, fTekst(48, 800), kl, 'left'); };
     r(260, 'erbij', '120 + 10 = 130', C.groen); r(360, 'eraf', '60 + 30 = 90', C.koraal); r(480, 'groei', '130 − 90 = 40', C.text);
@@ -89,7 +89,7 @@ const SB1 = {
     const trap = (j, n, lbl) => { const n2 = n * 1.2; ctx.strokeStyle = C.groen; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(X(j), Y(n)); ctx.lineTo(X(j + 1), Y(n)); ctx.lineTo(X(j + 1), Y(n2)); ctx.stroke(); text(ctx, lbl, X(j + 1) + 20, Y((n + n2) / 2) + 14, fTekst(40, 700), C.groen, 'left'); };
     trap(2005.2, 200, '+40'); trap(2016.1, 2000, '+400');
     naamBij(ctx, 'exponentiële groei', 'j-curve · ± 20 % per jaar', 800, 300, 1, 'center'); },
-  e1q21(ctx) { _vk1(ctx, ['Een populatie groeit elk jaar met twintig procent.', 'Na hoeveel jaar is ze ongeveer twee keer zo groot?'], ['Na vijf jaar', 'Na tien jaar', 'Na ongeveer vier jaar']); },
+  e1q21(ctx) { _vk1(ctx, ['Een populatie groeit elk jaar met twintig procent.', 'Na hoeveel jaar is ze ongeveer twee keer zo groot?'], ['Na vijf jaar', 'Na ongeveer vier jaar', 'Na tien jaar']); },
   e1s22(ctx) { _bg1(ctx); ecoTag(ctx, 1, 'STEEDS SNELLER');
     const v = [100, 120, 144, 173, 207], x0 = 300, y0 = 800, sc = 2.4; ctx.save(); ctx.setLineDash([10, 10]); lijn(ctx, [[x0 - 40, y0 - 200 * sc], [x0 + 5 * 180, y0 - 200 * sc]], C.goud, 3); ctx.restore(); metaText(ctx, 'dubbel = 200', x0 + 5 * 180 + 10, y0 - 200 * sc + 10, C.goud, 'left', 28);
     v.forEach((n, i) => { roundRect(ctx, x0 + i * 180, y0 - n * sc, 120, n * sc, 8); shape(ctx, rgba(i === 4 ? C.goud : C.okerD, 0.9), C.line, 1.5); text(ctx, String(n), x0 + i * 180 + 60, y0 - n * sc - 18, fTekst(40, 700), C.text, 'center'); metaText(ctx, 'jaar ' + i, x0 + i * 180 + 60, y0 + 44, C.text2, 'center', 28); });
@@ -112,7 +112,7 @@ const SB1 = {
     const T = [[120, 360], [420, 330], [720, 360], [1020, 330], [1320, 360], [1620, 330], [260, 620], [700, 640], [1150, 630]];
     T.forEach(([x, y]) => { ctx.strokeStyle = C.goud; ctx.lineWidth = 4; roundRect(ctx, x, y, 270, 60, 14); ctx.stroke(); e1Burcht(ctx, x + 135, y + 56, 0.13, {}); });
     naamBij(ctx, 'Millingerwaard', 'gelderse poort · 9 territoria', 960, 810, 1, 'center'); ecoSchaal(ctx, 'kaart · schematisch'); },
-  e1q28(ctx) { _vk1(ctx, ['Alle geschikte oevers zijn bezet.', 'Wat gebeurt er de jaren daarna met het aantal bevers in dit gebied?'], ['Het groeit door tot alle wilgen op zijn', 'Het zakt naar nul', 'Het blijft ongeveer gelijk']); },
+  e1q28(ctx) { _vk1(ctx, ['Alle geschikte oevers zijn bezet.', 'Wat gebeurt er de jaren daarna met het aantal bevers in dit gebied?'], ['Het blijft ongeveer gelijk', 'Het groeit door tot alle wilgen op zijn', 'Het zakt naar nul']); },
   e1s29(ctx) { _bg1(ctx); ecoTag(ctx, 1, 'WANNEER IS HET VOL?'); const x = 260, y = 800, w = 1200, h = 560;
     e1As(ctx, x, y, w, h, { xLabel: 'jaar', yLabel: 'volwassen bevers in de millingerwaard', xt: [[0, '1995'], [0.5, '2005'], [1, '2015']], yt: [[0, '0'], [0.5, '10'], [0.9, '18']] });
     const P = []; for (let i = 0; i <= 40; i++) { const u = i / 40, n = 18 / (1 + Math.exp(-(u - 0.3) * 14)) + (u > 0.5 ? Math.sin(u * 30) * 0.6 : 0); P.push([x + u * w, y - n / 20 * h]); } e1Lijn(ctx, P, C.okerD, 6);

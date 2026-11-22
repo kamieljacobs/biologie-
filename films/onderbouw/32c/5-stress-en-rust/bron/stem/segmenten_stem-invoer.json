@@ -39,11 +39,11 @@
   "kind": "question",
   "options": [
    "het is slecht voor haar: ze raakt in de war",
-   "haar lichaam maakt zich klaar om iets te doen",
-   "het zit vooral in haar hoofd"
+   "het zit vooral in haar hoofd",
+   "haar lichaam maakt zich klaar om iets te doen"
   ],
   "q": "Lottes hart bonkt voor haar spreekbeurt. Wat gebeurt er in haar?",
-  "correct": 1,
+  "correct": 2,
   "explain": "Haar lichaam maakt zich klaar om iets te doen: hart, ademhaling en spieren doen mee. Stress zit dus niet alleen in je hoofd, en kort is het niet slecht."
  },
  {
@@ -138,11 +138,11 @@
   "kind": "question",
   "options": [
    "prima, haar lichaam went eraan",
-   "extra fit, want ze oefent veel",
-   "moe, en ze slaapt slecht"
+   "moe, en ze slaapt slecht",
+   "extra fit, want ze oefent veel"
   ],
   "q": "Lotte heeft weken achter elkaar een volle agenda. Hoe voelt ze zich na een paar van zulke weken?",
-  "correct": 2,
+  "correct": 1,
   "explain": "Het alarm gaat steeds opnieuw aan, zonder tijd om tot rust te komen. Daar went je lichaam niet aan: je wordt moe en slaapt slechter."
  },
  {

@@ -36,7 +36,7 @@ const SB5 = {
   e5s06(ctx) { e5Bg(ctx); ecoTag(ctx, _F5, 'HET GRAS');
     e5Boek(ctx, 360, 200, 1200, 560, 'het boek van de veehouder · één hectare · één jaar', [['BPP', 1, C.goud, 'alles wat het gras vastlegt'], ['', 0, C.goud], ['', 0, C.goud]]);
     naamBij(ctx, 'bruto primaire productie', 'BPP', 960, 860, 1, 'center', C.goud); },
-  e5q07(ctx) { e5Vraag(ctx, ['Wanneer breekt het gras zelf glucose af, met dissimilatie?'], ["Alleen 's nachts, als er geen licht is","Nooit: planten doen alleen fotosynthese","Dag en nacht, net als jij"]); },
+  e5q07(ctx) { e5Vraag(ctx, ['Wanneer breekt het gras zelf glucose af, met dissimilatie?'], ["Dag en nacht, net als jij","Alleen 's nachts, als er geen licht is","Nooit: planten doen alleen fotosynthese"]); },
   e5s08(ctx) { e5Bg(ctx); ecoTag(ctx, _F5, 'HET GRAS');
     for (const [x, dag] of [[520, true], [1400, false]]) { roundRect(ctx, x - 380, 170, 760, 640, 20); shape(ctx, rgba(dag ? '#2E4466' : '#141E30', 0.9), C.line, 2);
       grasPol(ctx, x, 700, 2.6); e5Warmte(ctx, x + 120, 560, 1, {}); e5Pijl(ctx, x + 40, 520, x + 200, 400, '#9AA3B2', 5); text(ctx, 'CO₂', x + 225, 395, fTekst(36, 700), '#C8CED8', 'left');
@@ -150,7 +150,7 @@ const SB5 = {
     e5Bakje(ctx, 690, 680, 540, 380, { label: 'zandhagedis' }); hagedis(ctx, 980, 654, 0.95, { houding: 'staan' }); e5Hoopje(ctx, 780, 658, 50);
     e5Bakje(ctx, 1270, 680, 540, 380, { label: 'alleen voer' }); e5Hoopje(ctx, 1460, 658, 50); naamBij(ctx, 'controle', 'voer droogt vanzelf uit', 1490, 520, 1, 'center', C.groen);
     metaText(ctx, 'ONAFHANKELIJK: SOORT DIER · AFHANKELIJK: VOER DAT VERDWIJNT', 960, 830, C.grain, 'center', 26); metaText(ctx, 'CONSTANT: 20 °C · ZELFDE GEWICHT', 960, 874, C.grain, 'center', 26); },
-  e5q35(ctx) { e5Vraag(ctx, ['Welk dier eet per gram lichaam het meest?'], ['De spitsmuis: vele keren zo veel', 'Ze eten ongeveer even veel: ze zijn even zwaar', 'De hagedis: die moet zich steeds opwarmen']); },
+  e5q35(ctx) { e5Vraag(ctx, ['Welk dier eet per gram lichaam het meest?'], ['Ze eten ongeveer even veel: ze zijn even zwaar', 'De hagedis: die moet zich steeds opwarmen', 'De spitsmuis: vele keren zo veel']); },
   e5s36(ctx) { e5Bg(ctx); ecoTag(ctx, _F5, 'WARM OF KOUD');
     e5Bakje(ctx, 160, 700, 760, 420, { label: 'spitsmuis · endotherm' }); ecoSpitsmuis(ctx, 560, 676, 30, { houding: 'snuffelen', t: 0.5 }); e5Hoopje(ctx, 270, 678, 12, C.oker, 0.7); e5Warmte(ctx, 600, 500, 1.3, { n: 4 });
     e5Bakje(ctx, 1000, 700, 760, 420, { label: 'zandhagedis · ectotherm' }); hagedis(ctx, 1380, 674, 1.2, { houding: 'staan' }); e5Hoopje(ctx, 1110, 678, 56);
