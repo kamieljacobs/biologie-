@@ -734,6 +734,78 @@ a.extegel:hover .explaat{opacity:1}
 .panorama .vgroep li b{font-size:16px;align-self:end}
 .panorama .vgroep li .mat{align-self:start;white-space:normal;line-height:1.35}
 .panorama .vgroep li .vwo-tag{font-size:10px}
+/* Schuifhoofdpagina (proef 28 nov 2026, ?home=schuif): panelen naast elkaar, kolom rechts */
+.schuifhome{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:18px;align-items:start;padding-top:22px;padding-bottom:40px;position:relative;z-index:1}
+.sh-venster{overflow:hidden;border-radius:18px;border:1px solid var(--line2);background:color-mix(in srgb,var(--bg) 90%,transparent);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:height .45s cubic-bezier(.3,.7,.2,1)}
+.sh-baan{display:flex;align-items:flex-start;transition:transform .55s cubic-bezier(.3,.7,.2,1);will-change:transform}
+.sh-paneel{flex:0 0 100%;min-width:0;padding:6px 0 18px}
+.sh-paneel[inert]{opacity:.25;transition:opacity .4s}
+.sh-paneel h1:focus{outline:none}
+.sh-kop{display:flex;align-items:flex-end;justify-content:space-between;gap:16px 24px;flex-wrap:wrap;padding:22px 26px 18px;border-bottom:1px solid var(--line)}
+.sh-kop>div{max-width:720px}
+.sh-kop h1{font:700 clamp(34px,3.4vw,46px)/1.05 var(--titel);letter-spacing:-.02em;margin:6px 0 8px}
+.sh-kop p{margin:0;color:var(--text2);font-size:15px;line-height:1.5}
+.sh-kop .seg-home{margin:0}
+.sh-lbl{color:var(--goud-text);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.sh-groep{display:grid;grid-template-columns:200px minmax(0,1fr);border-bottom:1px solid var(--line)}
+.sh-groep:last-of-type{border-bottom:0}
+.sh-gkop{padding:20px 22px;display:flex;flex-direction:column;justify-content:center;gap:6px;border-right:1px solid var(--line)}
+.sh-gkop h2{font:700 19px/1.2 var(--titel);margin:0}
+.sh-gkop .mono{color:var(--text3);font-size:11px;line-height:1.5}
+.sh-gkop .sh-med{width:48px;height:48px}
+.sh-raster{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:4px;padding:10px 12px}
+.sh-raster.sh-breed{grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
+.sh-tegel{display:grid;grid-template-columns:64px minmax(0,1fr);align-items:center;gap:12px;padding:8px 10px;border-radius:12px;color:inherit;text-decoration:none;transition:background .2s}
+.sh-tegel:hover,.sh-tegel:focus-visible{background:var(--goud-soft)}
+.sh-tegel:hover b{color:var(--goud-text)}
+.sh-med{display:block;width:64px;height:64px;border-radius:50%;overflow:hidden;border:1px solid color-mix(in srgb,var(--goud) 55%,transparent);background:#0F1726;flex:none}
+.sh-med img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.sh-tegel:hover .sh-med img{transform:scale(1.08)}
+.sh-med.sh-lijn{background:var(--surface);display:grid;place-items:center}.sh-med.sh-lijn svg{width:44px;height:44px}
+.sh-med.sh-vierkant{border-radius:12px}
+.sh-med.sh-film{display:grid;place-items:center}.sh-med.sh-film>*{width:100%;height:100%}.sh-med.sh-film img{object-fit:cover}
+.sh-t{display:flex;flex-direction:column;gap:3px;min-width:0}
+.sh-t b{font:700 16px/1.22 var(--titel);transition:color .2s}
+.sh-v{color:var(--text2);font-size:13px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.sh-m{color:var(--text3);font:500 13px/1.35 var(--tekst);text-transform:none;letter-spacing:0}
+.sh-t .vwo-tag{font-size:10px;vertical-align:2px}
+.sh-verder{display:flex;flex-wrap:wrap;gap:8px 22px;padding:16px 26px 4px;border-top:1px solid var(--line)}
+.sh-verder.sh-boven{border-top:0;border-bottom:1px solid var(--line);padding:12px 26px 14px}
+.sh-verder a{display:inline-flex;align-items:center;gap:6px;color:var(--goud-text);font-weight:600;text-decoration:none}
+.sh-verder a:hover{text-decoration:underline}
+.sh-stil{color:var(--text3);font-size:14px}
+.sh-exam{padding:8px 22px 0}
+.sh-rail{position:sticky;top:84px;display:flex;flex-direction:column;gap:8px}
+.sh-knop{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:44px minmax(0,1fr);align-items:center;gap:12px;padding:14px 14px;border-radius:16px;border:1px solid var(--line2);background:color-mix(in srgb,var(--bg) 82%,transparent);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:background .2s,border-color .2s,transform .2s}
+.sh-knop:hover{border-color:var(--goud);transform:translateX(-3px)}
+.sh-knop:focus-visible{outline:2px solid var(--goud);outline-offset:2px}
+.sh-ik{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--goud-soft);color:var(--goud-text)}
+.sh-kt{display:flex;flex-direction:column;gap:2px;min-width:0}
+.sh-kt b{font:700 20px/1.1 var(--titel)}
+.sh-sub{color:var(--text2);font-size:13px;line-height:1.3}
+.sh-tel{color:var(--text3);font-size:11px;margin-top:2px}
+.sh-knop[aria-current]{background:var(--goud);border-color:var(--goud);color:var(--goud-ink);transform:none;cursor:default}
+.sh-knop[aria-current] .sh-ik{background:rgba(0,0,0,.12);color:var(--goud-ink)}
+.sh-knop[aria-current] .sh-sub,.sh-knop[aria-current] .sh-tel{color:color-mix(in srgb,var(--goud-ink) 72%,transparent)}
+@media (max-width:1100px){.schuifhome{grid-template-columns:minmax(0,1fr) 210px}.sh-sub{display:none}}
+@media (max-width:900px){
+  .schuifhome{grid-template-columns:1fr;padding-top:10px}
+  .sh-rail{order:-1;top:0;z-index:5;flex-direction:row;gap:6px;padding:8px 0;background:color-mix(in srgb,var(--bg) 88%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+  html.kop-weg .sh-rail{top:0}
+  html:not(.kop-weg) .sh-rail{top:var(--kophoogte,0px)}
+  .sh-knop{flex:1;grid-template-columns:1fr;justify-items:center;text-align:center;gap:4px;padding:8px 4px;border-radius:12px}
+  .sh-knop:hover{transform:none}
+  .sh-ik{width:30px;height:30px}.sh-ik svg{width:16px;height:16px}
+  .sh-kt b{font-size:14px}.sh-sub,.sh-tel{display:none}
+  .sh-groep{grid-template-columns:1fr}
+  .sh-gkop{border-right:0;padding:16px 16px 0;flex-direction:row;align-items:center;justify-content:flex-start;flex-wrap:wrap;gap:4px 10px}
+  .sh-gkop .mono{flex-basis:100%}
+  .sh-raster,.sh-raster.sh-breed{grid-template-columns:1fr;padding:6px 6px 10px}
+  .sh-kop{padding:18px 16px 14px}
+  .sh-verder{padding:14px 16px 4px}.sh-verder.sh-boven{padding:10px 16px 12px}
+  .sh-exam{padding:6px 10px 0}
+}
+@media (prefers-reduced-motion:reduce){.sh-baan,.sh-venster{transition:none}}
 .panorama .vlak-onder ul,.panorama .vlak-later ul{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));padding:6px 8px 4px}
 .panorama .vlak-onder li,.panorama .vlak-later li{border-top:0!important}
 .panorama .vlak-onder li a,.panorama .vlak-later li a{border-radius:12px;padding:8px 12px!important}
@@ -4153,7 +4225,7 @@ const BASIS=[ /* volgorde en namen als in het PTA Agora (havo/vwo), Kamiel 7 nov
   ['Examen','oefenen voor het centraal examen',['examens']],
 ];
 /* Hoofdpagina: thema's als 'alle' (BASIS) of precies als het PTA havo/vwo (Kamiel 7 nov 2026) */
-function basisGroepen(stand,thema){
+function groepLijst(stand){
   let g=BASIS;
   if(stand==='havo'||stand==='vwo'){
     const gezien=new Set(); g=[];
@@ -4167,7 +4239,10 @@ function basisGroepen(stand,thema){
     if(rest.length) g.push(['Buiten het '+stand+'-PTA','ook de moeite waard',rest]);
     g.push(BASIS.find(b=>b[2].includes('examens')));
   }
-  return g.filter(Boolean).map(([naam,sub,ids])=>`<div class="vgroep"><div class="vgroep-kop"><h3>${esc(naam)}</h3><span class="mono">${esc(sub)}</span></div><ul>${ids.map(thema).join('')}</ul></div>`).join('');
+  return g.filter(Boolean);
+}
+function basisGroepen(stand,thema){
+  return groepLijst(stand).map(([naam,sub,ids])=>`<div class="vgroep"><div class="vgroep-kop"><h3>${esc(naam)}</h3><span class="mono">${esc(sub)}</span></div><ul>${ids.map(thema).join('')}</ul></div>`).join('');
 }
 const homeStand=()=>{const v=lees('homepta');return v==='havo'||v==='vwo'?v:'alle'};
 document.addEventListener('click',e=>{const b=e.target.closest('[data-homepta]');if(!b)return;const v=b.dataset.homepta;schrijf('homepta',v);
@@ -4328,6 +4403,84 @@ function home(){
   return out;
 }
 
+/* Schuifhoofdpagina (Kamiel 28 nov 2026, proef): Films is de hoofdpagina; rechts een kolom met Films · Podcasts · Oefenen · Examen,
+   klik = de pagina schuift opzij naar dat paneel. Aanzetten met ?home=schuif (onthouden in localStorage 'homeweergave'), terug met ?home=oud.
+   Deeplink: #home-podcasts, #home-oefenen, #home-examen. */
+const SCHUIF=(()=>{const q=new URLSearchParams(location.search).get('home');if(q==='schuif'||q==='oud')schrijf('homeweergave',q);return (q||lees('homeweergave'))==='schuif'})();
+const PANELEN=[
+  ['films','Films','Kijk een uitlegfilm per thema',`<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>`],
+  ['podcasts','Podcasts','Luister, ook met je scherm op slot',`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="13" width="4.5" height="7" rx="1.6" fill="currentColor"/><rect x="16.5" y="13" width="4.5" height="7" rx="1.6" fill="currentColor"/></svg>`],
+  ['oefenen','Oefenen','Slepen, indelen, voorspellen, uitleggen',`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>`],
+  ['examen','Examen','Oefenexamens en besprekingen',`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 8.5h6M9 12.5h6M9 16.5h3"/></svg>`]];
+const shPaneel=()=>{const p=(location.hash||'').match(/^#home-(\w+)/);const v=p&&p[1];return PANELEN.some(x=>x[0]===v)?v:'films'};
+const shThemaVolgorde=()=>[...new Set(BASIS.flatMap(b=>b[2]))].filter(id=>HOOFDSTUKKEN[id]);
+const shMed=(id,px=64)=>ICOON.includes(id)?`<span class="sh-med"><img src="img/kunst/iconen/${id}.webp?v=4" alt="" width="${px}" height="${px}" loading="lazy" decoding="async"></span>`:`<span class="sh-med sh-lijn">${kunst(id)}</span>`;
+const shAantal=n=>{const e=(HOOFDSTUKKEN.extra&&HOOFDSTUKKEN.extra.films||[]).filter(f=>f.thema===n).length,f=HOOFDSTUKKEN[n].films.length;return `${f} ${f===1?'film':'films'}${e?` · +${e} extra`:''}`};
+function shFilms(){
+  const stand=homeStand();
+  const tegel=id=>{const h=HOOFDSTUKKEN[id],vwo=/^vwo\b/.test(h.meta||'')?' <span class="vwo-tag mono">vwo</span>':'';
+    return `<a class="sh-tegel" href="#${id}">${shMed(id)}<span class="sh-t"><b>${esc(h.titel)}${vwo}</b><span class="mono sh-m">${esc(shAantal(id))}</span></span></a>`};
+  return `<header class="sh-kop"><div><span class="mono sh-lbl">${stand==='alle'?"Alle thema's · havo en vwo":'Geordend als het PTA Agora · '+stand}</span><h1>Films</h1><p>Kies een thema. Elke film begint bij een vraag; bij veel films kun je daarna oefenen.</p></div>
+      <div class="seg seg-home" role="group" aria-label="Ordening van de thema's">${[['alle','Alle thema\'s'],['havo','PTA havo'],['vwo','PTA vwo']].map(([v,t])=>`<button type="button" data-homepta="${v}" aria-pressed="${stand===v}">${t}</button>`).join('')}</div></header>
+    ${groepLijst(stand).map(([naam,sub,ids])=>`<div class="sh-groep"><div class="sh-gkop"><h2>${esc(naam)}</h2><span class="mono">${esc(sub)}</span></div><div class="sh-raster">${ids.filter(id=>HOOFDSTUKKEN[id]).map(tegel).join('')}</div></div>`).join('')}
+    <div class="sh-verder"><a href="#films">Alle ${aantalFilms()} films in één lijst ${pijl}</a><a href="#onderbouw">Onderbouw: eerste ontdekkingen ${pijl}</a><a href="vervolg.html">Wat word jij? Studie en beroep ${pijl}</a></div>`;
+}
+function shPodcasts(){
+  if(!PODCASTS) return `<header class="sh-kop"><div><span class="mono sh-lbl">Luisteren</span><h1>Podcasts</h1><p>Podcasts laden…</p></div></header>`;
+  const min=a=>Math.round(a.hoofdstukken.reduce((s,h)=>s+(h.duur||0),0)/60);
+  const per=shThemaVolgorde().filter(id=>PODCASTS.some(a=>a.themaId===id));
+  return `<header class="sh-kop"><div><span class="mono sh-lbl">Luisteren · ${PODCASTS.length} afleveringen</span><h1>Podcasts</h1><p>Je werkgeheugen heeft een binnenstem die wat je hoort een paar seconden vasthoudt. Korte zinnen en denkpauzes helpen hem. Luister gerust met je scherm op slot.</p></div><a class="knop" href="podcasts/index.html">${play} Open de speler</a></header>
+    ${per.map(id=>`<div class="sh-groep"><div class="sh-gkop">${shMed(id,48)}<h2>${esc(HOOFDSTUKKEN[id].titel)}</h2></div><div class="sh-raster sh-breed">${PODCASTS.filter(a=>a.themaId===id).map(a=>`<a class="sh-tegel" href="${BASE}podcasts/index.html#${esc(a.id)}"><span class="sh-med sh-vierkant"><img src="${BASE+esc(a.beeld)}" alt="" width="64" height="64" loading="lazy" decoding="async"></span><span class="sh-t"><b>${esc(a.titel)}</b><span class="sh-v">${esc(a.vraag||'')}</span><span class="mono sh-m">${min(a)} min${a.hoofdstukken.some(h=>h.vwo)?' · met vwo-deel':''}</span></span></a>`).join('')}</div></div>`).join('')}
+    <div class="sh-verder"><span class="sh-stil">Er komen steeds podcasts bij, thema voor thema.</span></div>`;
+}
+function shOefenen(){
+  const L=Object.entries(OEFENEN), per=shThemaVolgorde().filter(id=>L.some(([,o])=>o.hoofdstuk===id));
+  const rest=[...new Set(L.map(([,o])=>o.hoofdstuk))].filter(id=>!per.includes(id)&&HOOFDSTUKKEN[id]);
+  return `<header class="sh-kop"><div><span class="mono sh-lbl">Zelf doen · opdrachten bij ${L.length} films</span><h1>Oefenen</h1><p>Zelf iets uit je geheugen ophalen werkt beter dan het nog een keer lezen. Kies een film en ga aan de slag: slepen, indelen, voorspellen, puzzelen en uitleggen.</p></div><a class="knop" href="oefenen.html">Alle oefeningen</a></header>
+    ${[...per,...rest].map(id=>`<div class="sh-groep"><div class="sh-gkop">${shMed(id,48)}<h2>${esc(HOOFDSTUKKEN[id].titel)}</h2></div><div class="sh-raster sh-breed">${L.filter(([,o])=>o.hoofdstuk===id).map(([href,o])=>{const n=o.oef.length,v=o.oef.filter(x=>x[3]).length;
+      return `<a class="sh-tegel" href="${BASE}oefenen.html?film=${encodeURIComponent(href)}"><span class="sh-med sh-film">${filmKunst(href,id)}</span><span class="sh-t"><b>${esc(o.titel)}</b><span class="mono sh-m">${n} ${n===1?'opdracht':'opdrachten'}${v?` · ${v} vwo`:''}</span></span></a>`}).join('')}</div></div>`).join('')}`;
+}
+function shExamen(){
+  const h=HOOFDSTUKKEN.examens; if(!h) return '';
+  return `<header class="sh-kop"><div><span class="mono sh-lbl">Centraal examen</span><h1>Examen</h1><p>Echte examens, stap voor stap met hulpvragen, nakijken en uitleg waarom.</p></div></header>
+    <div class="sh-verder sh-boven"><a href="examenatlas.html">Examenatlas: wat komt terug? ${pijl}</a><a href="examenatlas.html#begrippen">Begrippen trainen ${pijl}</a><a href="examenatlas.html#binas">Binas oefenen ${pijl}</a></div>
+    <div class="sh-exam">${examKolommen(h,'examens')}</div>`;
+}
+function homeSchuif(){
+  const actief=shPaneel();
+  const inhoud={films:shFilms,podcasts:shPodcasts,oefenen:shOefenen,examen:shExamen};
+  const teller={films:`${aantalFilms()} films`,podcasts:PODCASTS?`${PODCASTS.length} podcasts`:'podcasts',oefenen:`bij ${Object.keys(OEFENEN).length} films`,examen:`${((HOOFDSTUKKEN.examens||{}).tools||[]).filter(x=>/examen-(havo|vwo)-/.test(x.href||'')).length} oefenexamens`};
+  const i=PANELEN.findIndex(p=>p[0]===actief);
+  return grondLaag()+`<section class="wrap panorama schuifhome" id="schuifhome">
+    <div class="sh-venster" id="sh-venster"><div class="sh-baan" id="sh-baan" style="transform:translateX(${-100*i}%)">${PANELEN.map(([id])=>`<section class="sh-paneel" data-paneel="${id}" id="sh-${id}" aria-label="${id}"${id===actief?'':' inert'}>${inhoud[id]()}</section>`).join('')}</div></div>
+    <nav class="sh-rail" aria-label="Kies wat je wilt doen">${PANELEN.map(([id,naam,sub,ik])=>`<button type="button" class="sh-knop" data-naar="${id}"${id===actief?' aria-current="true"':''}><span class="sh-ik">${ik}</span><span class="sh-kt"><b>${naam}</b><span class="sh-sub">${sub}</span><span class="mono sh-tel" data-tel="${id}">${teller[id]}</span></span></button>`).join('')}</nav>
+  </section>`;
+}
+function shHoogte(){const v=document.getElementById('sh-venster'),p=document.getElementById('sh-'+shPaneel());if(v&&p)v.style.height=p.offsetHeight+'px'}
+function shNaar(id,focus){
+  const baan=document.getElementById('sh-baan'); if(!baan) return;
+  const i=PANELEN.findIndex(p=>p[0]===id); if(i<0) return;
+  history.replaceState(history.state,'',id==='films'?location.pathname+location.search+'#home':'#home-'+id);
+  baan.style.transform=`translateX(${-100*i}%)`;
+  document.querySelectorAll('.sh-paneel').forEach(p=>p.toggleAttribute('inert',p.dataset.paneel!==id));
+  document.querySelectorAll('.sh-knop').forEach(b=>b.toggleAttribute('aria-current',b.dataset.naar===id));
+  shHoogte();
+  const top=document.getElementById('schuifhome').getBoundingClientRect().top+scrollY-80;
+  if(scrollY>top) scrollTo({top,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+  if(focus){const h=document.querySelector('#sh-'+id+' h1');if(h){h.tabIndex=-1;h.focus({preventScroll:true})}}
+}
+function shStart(){
+  const v=document.getElementById('sh-venster'); if(!v) return;
+  const kb=document.querySelector('header.bar');if(kb)document.documentElement.style.setProperty('--kophoogte',kb.offsetHeight+'px');
+  shHoogte(); if(window.ResizeObserver){const ro=new ResizeObserver(shHoogte);document.querySelectorAll('.sh-paneel').forEach(p=>ro.observe(p))}
+  let x0=null,y0=0;
+  v.addEventListener('touchstart',e=>{x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});
+  v.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;x0=null;
+    if(Math.abs(dx)<70||Math.abs(dx)<Math.abs(dy)*1.6)return;const i=PANELEN.findIndex(p=>p[0]===shPaneel())+(dx<0?1:-1);if(PANELEN[i])shNaar(PANELEN[i][0])},{passive:true});
+}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-naar]');if(!b)return;shNaar(b.dataset.naar,true)});
+function shPodcastsKlaar(){const p=document.getElementById('sh-podcasts');if(!p)return;p.innerHTML=shPodcasts();const t=document.querySelector('[data-tel="podcasts"]');if(t&&PODCASTS)t.textContent=PODCASTS.length+' podcasts';shHoogte()}
+
 /* Agora onderbouw: kerndoelen als kaarten */
 /* Vullende gravureplaat per kerndoel: img/kunst/onderbouw/<kerndoel>.webp (21 okt 2026) */
 const KDPLAAT=['32A','32B','32C','33C'];
@@ -4354,7 +4507,7 @@ const filmRij=(f,i,id,extra)=>{const g=gezien[f.href];return `<article class="fi
 /* Podcasts naast de films (Kamiel 20 nov 2026: 'zet de podcasts in een tweede kolom naast de films'); data uit podcasts/afleveringen.json (themaId) */
 let PODCASTS=null;
 const BEGRIPTHEMA=['cellen']; /* thema's met een begrippenspeler (podcasts/begrippen.html) */
-fetch('podcasts/afleveringen.json').then(r=>r.json()).then(j=>{PODCASTS=(j.afleveringen||[]).filter(a=>!a.proef&&a.themaId);vulPodcasts();zetPodTeller()}).catch(()=>{PODCASTS=[]});
+fetch('podcasts/afleveringen.json').then(r=>r.json()).then(j=>{PODCASTS=(j.afleveringen||[]).filter(a=>!a.proef&&a.themaId);vulPodcasts();zetPodTeller();shPodcastsKlaar()}).catch(()=>{PODCASTS=[]});
 function zetPodTeller(){if(!PODCASTS)return;document.querySelectorAll('.n-pod').forEach(e=>e.textContent='Alle '+PODCASTS.length+' podcasts')}
 function vulPodcasts(){
   zetPodTeller();
@@ -4597,7 +4750,7 @@ function render(){
   else if(h==='tools'){app.innerHTML=tools();pagina='tools'}
   else if(id==='lessen'){app.innerHTML=lessen();pagina='lessen'}
   else if(HOOFDSTUKKEN[id]){app.innerHTML=hoofdstuk(id,id==='kerndoelen'?h.split('-')[1]:null);pagina=id}
-  else app.innerHTML=home();
+  else app.innerHTML=SCHUIF?homeSchuif():home();
   document.querySelectorAll('[data-nav]').forEach(a=>a.toggleAttribute('aria-current',a.dataset.nav===(['films','tools','lessen','pta','onderbouw'].includes(pagina)?pagina:'home')));
   document.querySelectorAll('details.menu').forEach(d=>d.toggleAttribute('data-actief',pagina==='pta'||pagina==='onderbouw'));
   document.title=pagina==='home'?'Biologie bij Kamiel':`${pagina==='films'?'Films':pagina==='tools'?'Tools':pagina==='lessen'?'Lessen':pagina==='pta'?'PTA Agora':pagina==='onderbouw'?'Agora onderbouw':HOOFDSTUKKEN[id].titel} · Biologie bij Kamiel`;
@@ -4609,6 +4762,7 @@ function render(){
   kunstKnop(!!metKunst);
   const el=h&&h!==pagina&&h!=='home'?document.getElementById(h):null;
   if(el) el.scrollIntoView(); else window.scrollTo(0,0);
+  if(pagina==='home'&&SCHUIF) shStart();
 }
 app.addEventListener('click',e=>{
   const f=e.target.closest('.film'); if(!f) return;
