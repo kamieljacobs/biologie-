@@ -775,6 +775,8 @@ a.extegel:hover .explaat{opacity:1}
 .sh-verder a:hover{text-decoration:underline}
 .sh-stil{color:var(--text3);font-size:14px}
 .sh-exam{padding:8px 22px 0}
+.sh-echt{padding:14px 16px}
+.sh-echt .sh-med{width:72px;height:72px}.sh-echt .sh-tegel{grid-template-columns:72px minmax(0,1fr)}
 .sh-rail{position:sticky;top:84px;display:flex;flex-direction:column;gap:8px}
 .sh-knop{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:44px minmax(0,1fr);align-items:center;gap:12px;padding:14px 14px;border-radius:16px;border:1px solid var(--line2);background:color-mix(in srgb,var(--bg) 82%,transparent);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:background .2s,border-color .2s,transform .2s}
 .sh-knop:hover{border-color:var(--goud);transform:translateX(-3px)}
@@ -787,6 +789,31 @@ a.extegel:hover .explaat{opacity:1}
 .sh-knop[aria-current]{background:var(--goud);border-color:var(--goud);color:var(--goud-ink);transform:none;cursor:default}
 .sh-knop[aria-current] .sh-ik{background:rgba(0,0,0,.12);color:var(--goud-ink)}
 .sh-knop[aria-current] .sh-sub,.sh-knop[aria-current] .sh-tel{color:color-mix(in srgb,var(--goud-ink) 72%,transparent)}
+/* Films-paneel als clusters: venster doorzichtig zodat de achtergrondplaat te zien is */
+.sh-venster{background:none;border-color:transparent;-webkit-backdrop-filter:none;backdrop-filter:none}
+.sh-paneel:not([data-paneel="films"]){background:color-mix(in srgb,var(--bg) 90%,transparent);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid var(--line2);border-radius:18px}
+.sh-paneel[data-paneel="films"]{padding:0}
+.sh-paneel[data-paneel="films"]>.sh-kop{background:color-mix(in srgb,var(--bg) 72%,transparent);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:18px;margin-bottom:22px}
+.sh-paneel[data-paneel="films"]>.sh-verder{background:color-mix(in srgb,var(--bg) 72%,transparent);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:14px;margin-top:22px;padding:14px 22px}
+.sh-wolk{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:26px 34px}
+.sh-cluster{display:flex;flex-direction:column;align-items:center}
+.sh-ckop{text-align:center;padding:8px 18px 6px;border-radius:14px;background:color-mix(in srgb,var(--bg) 62%,transparent);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);margin-bottom:6px;max-width:330px}
+.sh-ckop h2{font:700 19px/1.2 var(--titel);margin:0}
+.sh-ckop .mono{color:var(--goud-text);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+.sh-vak{position:relative;flex:none}
+.sh-ring{position:absolute;inset:0;pointer-events:none;overflow:visible}
+.sh-ring circle{fill:none;stroke:color-mix(in srgb,var(--goud) 45%,transparent);stroke-width:1.5;stroke-dasharray:3 7;stroke-linecap:round}
+.sh-ring path{fill:none;stroke:color-mix(in srgb,var(--goud) 80%,transparent);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.sh-bol{position:absolute;transform:translateX(-50%);width:132px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:3px;color:inherit;text-decoration:none;z-index:1}
+.sh-bol .sh-med{width:84px;height:84px;box-shadow:0 0 0 4px color-mix(in srgb,var(--bg) 70%,transparent),0 6px 22px rgba(0,0,0,.45);transition:transform .3s,box-shadow .3s}
+.sh-bol:hover .sh-med,.sh-bol:focus-visible .sh-med{transform:scale(1.08);box-shadow:0 0 0 3px var(--goud),0 6px 26px rgba(0,0,0,.5)}
+.sh-bol b{font:700 15px/1.18 var(--titel);margin-top:5px;text-shadow:0 1px 3px rgba(0,0,0,.9),0 0 12px rgba(0,0,0,.7)}
+.sh-bol:hover b{color:var(--goud-text)}
+.sh-bol .sh-m{font-size:12px;color:var(--text2);text-shadow:0 1px 3px rgba(0,0,0,.9)}
+.sh-bol .vwo-tag{font-size:9.5px}
+:root[data-theme="light"] .sh-bol b,:root[data-theme="light"] .sh-bol .sh-m{text-shadow:0 0 6px rgba(255,255,255,.9),0 0 2px #fff}
+@media (max-width:900px){.sh-wolk{gap:18px 10px}.sh-vak{zoom:.82}}
+@media (max-width:420px){.sh-vak{zoom:.74}.sh-knop .sh-kt b{font-size:11.5px}.sh-rail{gap:4px}}
 @media (max-width:1100px){.schuifhome{grid-template-columns:minmax(0,1fr) 210px}.sh-sub{display:none}}
 @media (max-width:900px){
   .schuifhome{grid-template-columns:1fr;padding-top:10px}
@@ -796,7 +823,7 @@ a.extegel:hover .explaat{opacity:1}
   .sh-knop{flex:1;grid-template-columns:1fr;justify-items:center;text-align:center;gap:4px;padding:8px 4px;border-radius:12px}
   .sh-knop:hover{transform:none}
   .sh-ik{width:30px;height:30px}.sh-ik svg{width:16px;height:16px}
-  .sh-kt b{font-size:14px}.sh-sub,.sh-tel{display:none}
+  .sh-kt b{font-size:13px;white-space:nowrap}.sh-sub,.sh-tel{display:none}
   .sh-groep{grid-template-columns:1fr}
   .sh-gkop{border-right:0;padding:16px 16px 0;flex-direction:row;align-items:center;justify-content:flex-start;flex-wrap:wrap;gap:4px 10px}
   .sh-gkop .mono{flex-basis:100%}
@@ -4241,6 +4268,7 @@ function groepLijst(stand){
   }
   return g.filter(Boolean);
 }
+window.__groepLijst=s=>groepLijst(s).map(g=>[g[0],g[2].filter(id=>HOOFDSTUKKEN[id]).length]);
 function basisGroepen(stand,thema){
   return groepLijst(stand).map(([naam,sub,ids])=>`<div class="vgroep"><div class="vgroep-kop"><h3>${esc(naam)}</h3><span class="mono">${esc(sub)}</span></div><ul>${ids.map(thema).join('')}</ul></div>`).join('');
 }
@@ -4411,19 +4439,47 @@ const PANELEN=[
   ['films','Films','Kijk een uitlegfilm per thema',`<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>`],
   ['podcasts','Podcasts','Luister, ook met je scherm op slot',`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="13" width="4.5" height="7" rx="1.6" fill="currentColor"/><rect x="16.5" y="13" width="4.5" height="7" rx="1.6" fill="currentColor"/></svg>`],
   ['oefenen','Oefenen','Slepen, indelen, voorspellen, uitleggen',`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>`],
-  ['examen','Examen','Oefenexamens en besprekingen',`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 8.5h6M9 12.5h6M9 16.5h3"/></svg>`]];
+  ['examen','Examen','Oefenexamens en besprekingen',`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 8.5h6M9 12.5h6M9 16.5h3"/></svg>`],
+  ['echt','In het echt','Je eten, je zorg, je toekomst',`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.6 2.4 3.8 5.2 3.8 8.5s-1.2 6.1-3.8 8.5c-2.6-2.4-3.8-5.2-3.8-8.5s1.2-6.1 3.8-8.5z"/></svg>`]];
 const shPaneel=()=>{const p=(location.hash||'').match(/^#home-(\w+)/);const v=p&&p[1];return PANELEN.some(x=>x[0]===v)?v:'films'};
 const shThemaVolgorde=()=>[...new Set(BASIS.flatMap(b=>b[2]))].filter(id=>HOOFDSTUKKEN[id]);
 const shMed=(id,px=64)=>ICOON.includes(id)?`<span class="sh-med"><img src="img/kunst/iconen/${id}.webp?v=4" alt="" width="${px}" height="${px}" loading="lazy" decoding="async"></span>`:`<span class="sh-med sh-lijn">${kunst(id)}</span>`;
 const shAantal=n=>{const e=(HOOFDSTUKKEN.extra&&HOOFDSTUKKEN.extra.films||[]).filter(f=>f.thema===n).length,f=HOOFDSTUKKEN[n].films.length;return `${f} ${f===1?'film':'films'}${e?` · +${e} extra`:''}`};
+/* Clusters van medaillons (Kamiel 28 nov 2026: 'een mooie ordening van bolletjes', zodat de achtergrond in beeld blijft):
+   1 midden · 2 diagonaal · 3 kringloop met pijlen · 4 kringloop + midden (of vierkant met ?vier=vierkant) · 5 dobbelsteen · 6+ ring + midden.
+   Posities = midden van het medaillon in px binnen een vak [breed, hoog]. */
+const SH_M=84;
+const shVier=(()=>{const q=new URLSearchParams(location.search).get('vier');if(q==='vierkant'||q==='ster')schrijf('homevier',q);return (q||lees('homevier'))==='vierkant'?'vierkant':'ster'})();
+function shPatroon(n){
+  const ring=(cx,cy,r,k,start=-90)=>Array.from({length:k},(_,i)=>{const a=(start+360*i/k)*Math.PI/180;return [Math.round(cx+r*Math.cos(a)),Math.round(cy+r*Math.sin(a))]});
+  if(n===1) return {vak:[190,150],pos:[[95,52]]};
+  if(n===2) return {vak:[300,250],pos:[[80,52],[220,150]]};
+  if(n===3) return {vak:[320,290],pos:ring(160,150,98,3),ring:[160,150,98,3]};
+  if(n===4&&shVier==='vierkant') return {vak:[320,320],pos:[[85,52],[235,52],[85,212],[235,212]]};
+  if(n===4) return {vak:[360,345],pos:[[180,168],...ring(180,168,122,3)],ring:[180,168,122,3]};
+  if(n===5) return {vak:[350,330],pos:[[62,52],[288,52],[175,145],[62,238],[288,238]]};
+  const r=Math.max(130,26*n);return {vak:[2*r+120,2*r+130],pos:[[r+60,r+52],...ring(r+60,r+52,r,n-1)],ring:[r+60,r+52,r,n-1]};
+}
+function shRingSvg([cx,cy,r,k],[w,h]){
+  const pijl=Array.from({length:k},(_,i)=>{const a=-90+360*(i+.5)/k, rad=a*Math.PI/180, x=cx+r*Math.cos(rad), y=cy+r*Math.sin(rad);
+    return `<path d="M-6,-6 L3,0 L-6,6" transform="translate(${x.toFixed(1)},${y.toFixed(1)}) rotate(${(a+90).toFixed(1)})"/>`}).join('');
+  return `<svg class="sh-ring" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" aria-hidden="true"><circle cx="${cx}" cy="${cy}" r="${r}"/>${pijl}</svg>`;
+}
+function shCluster(naam,sub,ids){
+  const P=shPatroon(ids.length),[w,h]=P.vak;
+  const bol=(id,[x,y])=>{const t=HOOFDSTUKKEN[id],vwo=/^vwo\b/.test(t.meta||'');
+    return `<a class="sh-bol" href="#${id}" style="left:${x}px;top:${y-SH_M/2}px">${shMed(id,SH_M)}<b>${esc(t.titel)}${vwo?' <span class="vwo-tag mono">vwo</span>':''}</b><span class="sh-m">${esc(shAantal(id))}</span></a>`};
+  return `<section class="sh-cluster" data-n="${ids.length}"><div class="sh-ckop"><h2>${esc(naam)}</h2><span class="mono">${esc(sub)}</span></div>
+    <div class="sh-vak" style="width:${w}px;height:${h}px">${P.ring?shRingSvg(P.ring,P.vak):''}${ids.map((id,i)=>bol(id,P.pos[i])).join('')}</div></section>`;
+}
 function shFilms(){
   const stand=homeStand();
   const tegel=id=>{const h=HOOFDSTUKKEN[id],vwo=/^vwo\b/.test(h.meta||'')?' <span class="vwo-tag mono">vwo</span>':'';
     return `<a class="sh-tegel" href="#${id}">${shMed(id)}<span class="sh-t"><b>${esc(h.titel)}${vwo}</b><span class="mono sh-m">${esc(shAantal(id))}</span></span></a>`};
   return `<header class="sh-kop"><div><span class="mono sh-lbl">${stand==='alle'?"Alle thema's · havo en vwo":'Geordend als het PTA Agora · '+stand}</span><h1>Films</h1><p>Kies een thema. Elke film begint bij een vraag; bij veel films kun je daarna oefenen.</p></div>
       <div class="seg seg-home" role="group" aria-label="Ordening van de thema's">${[['alle','Alle thema\'s'],['havo','PTA havo'],['vwo','PTA vwo']].map(([v,t])=>`<button type="button" data-homepta="${v}" aria-pressed="${stand===v}">${t}</button>`).join('')}</div></header>
-    ${groepLijst(stand).map(([naam,sub,ids])=>`<div class="sh-groep"><div class="sh-gkop"><h2>${esc(naam)}</h2><span class="mono">${esc(sub)}</span></div><div class="sh-raster">${ids.filter(id=>HOOFDSTUKKEN[id]).map(tegel).join('')}</div></div>`).join('')}
-    <div class="sh-verder"><a href="#films">Alle ${aantalFilms()} films in één lijst ${pijl}</a><a href="#onderbouw">Onderbouw: eerste ontdekkingen ${pijl}</a><a href="vervolg.html">Wat word jij? Studie en beroep ${pijl}</a></div>`;
+    <div class="sh-wolk">${groepLijst(stand).map(([naam,sub,ids])=>shCluster(naam,sub,ids.filter(id=>HOOFDSTUKKEN[id]))).join('')}</div>
+    <div class="sh-verder"><a href="#films">Alle ${aantalFilms()} films in één lijst ${pijl}</a><a href="#onderbouw">Onderbouw: eerste ontdekkingen ${pijl}</a><a href="#home-echt" data-naar="echt">In het echt: biologie om je heen ${pijl}</a></div>`;
 }
 function shPodcasts(){
   if(!PODCASTS) return `<header class="sh-kop"><div><span class="mono sh-lbl">Luisteren</span><h1>Podcasts</h1><p>Podcasts laden…</p></div></header>`;
@@ -4446,10 +4502,17 @@ function shExamen(){
     <div class="sh-verder sh-boven"><a href="examenatlas.html">Examenatlas: wat komt terug? ${pijl}</a><a href="examenatlas.html#begrippen">Begrippen trainen ${pijl}</a><a href="examenatlas.html#binas">Binas oefenen ${pijl}</a></div>
     <div class="sh-exam">${examKolommen(h,'examens')}</div>`;
 }
+/* Vijfde paneel (Kamiel 28 nov 2026): 'Wat word jij?' onder een nieuwe naam: biologie in de maatschappij én voorbereiden op later,
+   ook voor leerlingen die niets met biologie willen (waar komt je eten vandaan, hoe houdt het RIVM virussen in de gaten). Richtingen uit VERDER. */
+function shEcht(){
+  return `<header class="sh-kop"><div><span class="mono sh-lbl">Biologie buiten het lokaal · studie en beroep</span><h1>In het echt</h1><p>Waar komt je eten vandaan? Hoe houdt het RIVM een nieuw virus in de gaten? Wie zorgt dat je medicijn werkt? Korte reeksen over de plek van biologie in de wereld om je heen, en over de mensen die er hun werk van maken. Ook leuk als je zelf niks met biologie wilt.</p></div><a class="knop" href="vervolg.html">Alle richtingen</a></header>
+    <div class="sh-raster sh-breed sh-echt">${VERDER.map(([id,naam,k,sub])=>`<a class="sh-tegel" href="vervolg.html#${id}">${HICOON.includes('v-'+id)?`<span class="sh-med"><img src="img/kunst/iconen/home/v-${id}.webp?v=4" alt="" width="64" height="64" loading="lazy" decoding="async"></span>`:`<span class="sh-med sh-lijn"><svg class="kunst" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="--c:var(--${k})">${VERDERKUNST[id]||''}</svg></span>`}<span class="sh-t"><b>${esc(naam)}</b><span class="sh-v">${esc(sub||'')}</span></span></a>`).join('')}</div>
+    <div class="sh-verder"><span class="sh-stil">Deze films staan buiten het PTA: kijken mag, hoeft niet.</span></div>`;
+}
 function homeSchuif(){
   const actief=shPaneel();
-  const inhoud={films:shFilms,podcasts:shPodcasts,oefenen:shOefenen,examen:shExamen};
-  const teller={films:`${aantalFilms()} films`,podcasts:PODCASTS?`${PODCASTS.length} podcasts`:'podcasts',oefenen:`bij ${Object.keys(OEFENEN).length} films`,examen:`${((HOOFDSTUKKEN.examens||{}).tools||[]).filter(x=>/examen-(havo|vwo)-/.test(x.href||'')).length} oefenexamens`};
+  const inhoud={films:shFilms,podcasts:shPodcasts,oefenen:shOefenen,examen:shExamen,echt:shEcht};
+  const teller={films:`${aantalFilms()} films`,podcasts:PODCASTS?`${PODCASTS.length} podcasts`:'podcasts',oefenen:`bij ${Object.keys(OEFENEN).length} films`,examen:`${((HOOFDSTUKKEN.examens||{}).tools||[]).filter(x=>/examen-(havo|vwo)-/.test(x.href||'')).length} oefenexamens`,echt:`${VERDER.length} richtingen`};
   const i=PANELEN.findIndex(p=>p[0]===actief);
   return grondLaag()+`<section class="wrap panorama schuifhome" id="schuifhome">
     <div class="sh-venster" id="sh-venster"><div class="sh-baan" id="sh-baan" style="transform:translateX(${-100*i}%)">${PANELEN.map(([id])=>`<section class="sh-paneel" data-paneel="${id}" id="sh-${id}" aria-label="${id}"${id===actief?'':' inert'}>${inhoud[id]()}</section>`).join('')}</div></div>
